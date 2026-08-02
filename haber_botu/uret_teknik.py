@@ -1,4 +1,4 @@
-"""Teknik gorunum hatti -- ucretsiz, API cagrisi yok, bastan sona otomatik.
+﻿"""Teknik gorunum hatti -- ucretsiz, API cagrisi yok, bastan sona otomatik.
 
     Binance klines -> gosterge hesabi -> KOD ILE YAZI -> tarama -> site
 
@@ -7,8 +7,11 @@ KAPSAM
 Yalnizca kripto ve tokenlestirilmis altin. Sebebi veri:
 
   * BIST hissesi   : fiyat gecmisi lisansli, ucretsiz kaynak yok
-  * Gumus          : Binance'te paritesi yok, FRED'de gunluk seri yok,
+  * Gumus          : borsalarda paritesi yok, FRED'de gunluk seri yok,
                      Stooq bot dogrulamasi calistiriyor
+
+VERI KAYNAGI: Kraken. Binance ABD IP'lerini HTTP 451 ile engelledigi ve
+GitHub Actions sunuculari ABD'de oldugu icin otomasyonda calismiyordu.
 
 Ucretsiz ve mesru kaynak bulunana kadar bu varliklar icin teknik icerik
 uretilmez. Veri olmadan gosterge uretmek, uydurmakla ayni sey olurdu.
@@ -30,7 +33,7 @@ sys.path.insert(0, str(_KOK / "analiz"))
 sys.path.insert(0, str(_KOK / "ai"))
 sys.path.insert(0, str(_KOK / "kaynak"))
 
-import binance  # noqa: E402
+import kraken  # noqa: E402
 import guvenlik  # noqa: E402
 import prompt  # noqa: E402
 import teknik  # noqa: E402
@@ -45,14 +48,14 @@ MUM_SAYISI = 260
 
 
 def _isle(sembol: str, yayinla: bool) -> int:
-    ad = binance.VARLIKLAR.get(sembol, (sembol,))[0]
+    ad = kraken.VARLIKLAR.get(sembol, (sembol,))[0]
     print("=" * 70)
     print(f"{ad} ({sembol})")
     print("=" * 70)
 
     try:
-        seri = binance.klines(sembol, ARALIK, MUM_SAYISI)
-    except (binance.VeriYok, Exception) as e:
+        seri = kraken.klines(sembol, ARALIK, MUM_SAYISI)
+    except (kraken.VeriYok, Exception) as e:
         print(f"VERI CEKILEMEDI: {type(e).__name__}: {e}")
         return 1
 
@@ -88,13 +91,13 @@ def _isle(sembol: str, yayinla: bool) -> int:
         dosya = yayin.yaz_makro(
             govde,
             konu=f"{r.kisa} teknik görünüm",
-            kaynak="Binance kamuya açık piyasa verisi",
+            kaynak="Kraken kamuya açık piyasa verisi",
             grafik=seriler,
             grafik_kod=r.ad,
             grafik_birim="USD",
             kategori="Teknik Görünüm",
             kod=r.kisa,
-            kaynaklar="Binance",
+            kaynaklar="Kraken",
             sayimlar=";".join([
                 f"{r.mum_sayisi}|günlük mum",
                 f"{len(r.destek) + len(r.direnc)}|fiyat seviyesi",
@@ -112,7 +115,7 @@ def main() -> int:
     a.add_argument("--yayinla", action="store_true")
     args = a.parse_args()
 
-    semboller = [args.sembol] if args.sembol else list(binance.VARLIKLAR)
+    semboller = [args.sembol] if args.sembol else list(kraken.VARLIKLAR)
     hatali = sum(_isle(s, args.yayinla) for s in semboller)
     print(f"\n{len(semboller)} varlik, {len(semboller) - hatali} basarili")
     return 1 if hatali else 0

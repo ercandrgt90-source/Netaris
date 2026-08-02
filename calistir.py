@@ -97,7 +97,8 @@ def main() -> int:
         adimlar.append(("Haberler (RSS → çeviri → fotoğraf)",
                         [str(BOT / "uret_gundem.py"), "--yayinla", "--sinir", "24"]))
     if "teknik" not in args.atla:
-        for sembol in ("BTCUSDT", "ETHUSDT", "PAXGUSDT"):
+        # Kraken cift adlari -- Bitcoin orada "XBT"
+        for sembol in ("XBTUSD", "ETHUSD", "PAXGUSD"):
             adimlar.append((f"Teknik görünüm · {sembol}",
                             [str(BOT / "uret_teknik.py"),
                              "--sembol", sembol, "--yayinla"]))

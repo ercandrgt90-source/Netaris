@@ -31,22 +31,31 @@
 
   var YENILEME_MS = 30000;
 
+  /* Kraken birincil kaynak: cografi kisiti yok, her ulkeden calisir.
+     Binance ABD IP'lerini HTTP 451 ile engelliyor -- ABD'den bakan bir
+     ziyaretcide serit sessizce eksik kalirdi. */
+  var KRAKEN =
+    "https://api.kraken.com/0/public/Ticker?pair=XBTUSD,ETHUSD,PAXGUSD";
+
+  /* Binance YALNIZCA USDT/TRY icin: Kraken'de TRY paritesi yok. Turk
+     ziyaretcide calisir; engellenen bir ulkeden bakilirsa bu tek kalem
+     sessizce eklenmez, serit calismaya devam eder. */
   var BINANCE =
-    "https://api.binance.com/api/v3/ticker/24hr?symbols=" +
-    encodeURIComponent('["BTCUSDT","ETHUSDT","USDTTRY","PAXGUSDT"]');
+    "https://api.binance.com/api/v3/ticker/24hr?symbol=USDTTRY";
 
   // Son 8 gunu ister, son iki is gununu kullanir (hafta sonu bosluklari icin)
   var FRANKFURTER_TABAN = "https://api.frankfurter.app/";
 
-  /* PAXG bir ons altini temsil eden, altina %100 dayali token. Fiyati
-     spot altini yakindan izler ama LBMA fiksingi DEGILDIR; bu yuzden
-     "ALTIN" degil "ALTIN (PAXG)" olarak etiketleniyor. */
-  var BINANCE_ADLARI = {
-    USDTTRY: { ad: "USDT/TRY", basamak: 2 },
-    PAXGUSDT: { ad: "ALTIN (PAXG)", basamak: 0 },
-    BTCUSDT: { ad: "BTC/USDT", basamak: 0 },
-    ETHUSDT: { ad: "ETH/USDT", basamak: 0 }
-  };
+  /* Kraken cevap anahtarlari istek adindan farkli gelir: "XBTUSD" ->
+     "XXBTZUSD". Eslesme bu yuzden anahtarla degil, icerdigi kodla
+     yapiliyor.
+     PAXG bir ons altina %100 dayali token; spot altini yakindan izler ama
+     LBMA fiksingi DEGILDIR, o yuzden "ALTIN (PAXG)" diye etiketleniyor. */
+  var KRAKEN_ADLARI = [
+    { iz: "XBT", ad: "BTC/USD", basamak: 0 },
+    { iz: "ETH", ad: "ETH/USD", basamak: 0 },
+    { iz: "PAXG", ad: "ALTIN (PAXG)", basamak: 0 }
+  ];
 
   function trSayi(deger, basamak) {
     return deger.toLocaleString("tr-TR", {
@@ -107,23 +116,50 @@
     AKIS.classList.add("akiyor");
   }
 
-  function binanceCek() {
-    return fetch(BINANCE, { cache: "no-store" })
+  function krakenCek() {
+    return fetch(KRAKEN, { cache: "no-store" })
       .then(function (y) { return y.ok ? y.json() : Promise.reject(y.status); })
       .then(function (veri) {
-        if (!Array.isArray(veri)) return;
-        veri.forEach(function (t) {
-          var tanim = BINANCE_ADLARI[t.symbol];
-          if (!tanim) return;
-          var fiyat = parseFloat(t.lastPrice);
-          var yuzde = parseFloat(t.priceChangePercent);
+        var sonuc = veri && veri.result;
+        if (!sonuc) return;
+        Object.keys(sonuc).forEach(function (anahtar) {
+          var t = sonuc[anahtar];
+          var tanim = null;
+          for (var i = 0; i < KRAKEN_ADLARI.length; i++) {
+            if (anahtar.indexOf(KRAKEN_ADLARI[i].iz) !== -1) {
+              tanim = KRAKEN_ADLARI[i];
+              break;
+            }
+          }
+          if (!tanim || !t || !t.c || !t.o) return;
+          // c[0] = son islem fiyati, o = bugunun acilisi
+          var fiyat = parseFloat(t.c[0]);
+          var acilis = parseFloat(t.o);
           if (!isFinite(fiyat)) return;
-          kalemKur(t.symbol, tanim.ad, trSayi(fiyat, tanim.basamak),
-                   isFinite(yuzde) ? yuzde : null, true);
+          var yuzde = (isFinite(acilis) && acilis > 0)
+            ? (fiyat / acilis - 1) * 100
+            : null;
+          kalemKur(anahtar, tanim.ad, trSayi(fiyat, tanim.basamak),
+                   yuzde, true);
         });
         kopyaTazele();
       })
       .catch(function () { /* sessizce vazgec */ });
+  }
+
+  function binanceCek() {
+    // Yalnizca USDT/TRY -- Kraken'de TRY paritesi yok
+    return fetch(BINANCE, { cache: "no-store" })
+      .then(function (y) { return y.ok ? y.json() : Promise.reject(y.status); })
+      .then(function (t) {
+        var fiyat = parseFloat(t.lastPrice);
+        var yuzde = parseFloat(t.priceChangePercent);
+        if (!isFinite(fiyat)) return;
+        kalemKur("USDTTRY", "USDT/TRY", trSayi(fiyat, 2),
+                 isFinite(yuzde) ? yuzde : null, true);
+        kopyaTazele();
+      })
+      .catch(function () { /* engellenmis olabilir -- serit calismaya devam */ });
   }
 
   function ecbCek() {
@@ -152,7 +188,13 @@
       .catch(function () { /* sessizce vazgec */ });
   }
 
+  krakenCek();
   binanceCek();
   ecbCek();
-  setInterval(binanceCek, YENILEME_MS);
+
+  // Kripto ve altin yenilenir; ECB gunluk oldugu icin tekrar cekilmez
+  setInterval(function () {
+    krakenCek();
+    binanceCek();
+  }, YENILEME_MS);
 })();
