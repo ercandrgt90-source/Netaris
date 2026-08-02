@@ -1,0 +1,29 @@
+# Satir sonu ve ikili dosya davranisi
+#
+# Windows'ta gelistirilip Linux'ta (GitHub Actions) calisan bir proje.
+# Acikca soylenmezse git her dosyada satir sonu cevirisi yapmaya calisir
+# ve bu, ikili dosyalari bozar.
+
+# Metin dosyalarinda satir sonu depoda LF, calisma dizininde isletim
+# sistemine gore
+* text=auto eol=lf
+
+# ---------------------------------------------------------------------
+# IKILI DOSYALAR -- birlestirilemez, satir sonu cevrilemez
+# ---------------------------------------------------------------------
+# netaris.db her calistirmada degisiyor. Git bunu metin sanip
+# birlestirmeye calistiginda cakisiyordu:
+#     CONFLICT (content): Merge conflict in haber_botu/netaris.db
+# `binary` isareti hem cevrimi hem birlestirmeyi kapatir.
+*.db binary
+*.sqlite binary
+*.sqlite3 binary
+
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.webp binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.zip binary

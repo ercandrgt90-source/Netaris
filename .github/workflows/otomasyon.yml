@@ -113,12 +113,26 @@ jobs:
             exit 0
           fi
 
+          # REBASE KULLANILMIYOR -- bilincli.
+          #
+          # netaris.db ikili bir dosya ve her calistirmada degisiyor.
+          # `git pull --rebase` onu birlestirmeye calisip cakisiyordu:
+          #     CONFLICT (content): Merge conflict in haber_botu/netaris.db
+          #     fatal: You are not currently on a branch.
+          # Git ikili dosyayi birlestiremez; boyle bir cakismanin dogru
+          # cozumu de yok zaten.
+          #
+          # Onun yerine: uzak ucun uzerine kendi dosyalarimizi koyuyoruz.
+          # `reset --soft` calisma dizinine DOKUNMAZ, yalnizca dalin
+          # isaret ettigi yeri degistirir. Bu calistirmada uretilen veri
+          # en gunceli oldugu icin dogru davranis bu.
+          git fetch origin "${GITHUB_REF_NAME}"
+          git reset --soft "origin/${GITHUB_REF_NAME}"
+
           git add -A $YOLLAR
           if git diff --staged --quiet; then
             echo "degisiklik yok"
           else
             git commit -m "otomatik: veri güncellemesi $(date -u +'%Y-%m-%d %H:%M UTC')"
-            # Bu arada baska bir commit girmis olabilir; once cek
-            git pull --rebase --autostash origin "${GITHUB_REF_NAME}" || true
-            git push
+            git push origin "HEAD:${GITHUB_REF_NAME}"
           fi

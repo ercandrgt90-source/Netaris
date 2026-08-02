@@ -27,7 +27,13 @@ Thumbs.db
 *.key
 *.pem
 secrets.json
-**/gizli*
+
+# DIKKAT -- burada `**/gizli*` gibi genis bir desen KULLANMAYIN.
+# Bir kez kullanildi ve `site/icerik/sayfalar/gizlilik.md` dosyasini da
+# yakaladi: gizlilik politikasi sessizce depoya girmedi, GitHub Actions
+# siteyi o sayfa olmadan kurdu ve yayimladi. Hicbir hata mesaji cikmadi,
+# yalnizca "hakkimizda 7 bolum" yaziyordu (8 olmaliydi).
+# Gizli deger tutan dosyalar zaten yukaridaki desenlerle kapsaniyor.
 
 # Wrangler yerel onbellegi. Icinde Cloudflare HESAP KIMLIGI ve hesap adi
 # (e-posta adresi) duruyor:
