@@ -1,0 +1,13 @@
+{% extends "temel.html" %}
+
+{% block baslik %}{{ s.baslik }} — {{ site.ad }}{% endblock %}
+{% block aciklama %}{{ s.ozet }}{% endblock %}
+
+{% block icerik %}
+<article class="sayfa">
+  <h1>{{ s.baslik }}</h1>
+  <div class="govde">
+    {{ s.govde | safe }}
+  </div>
+</article>
+{% endblock %}

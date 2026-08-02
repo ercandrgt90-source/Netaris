@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101725">
+
+<title>{% block baslik %}{{ site.ad }}{% endblock %}</title>
+<meta name="description" content="{% block aciklama %}{{ site.meta_aciklama }}{% endblock %}">
+<link rel="canonical" href="{{ site.adres }}{{ yol }}">
+
+{# Arama motorlari icin: icerigin yapay zeka ile uretildigi ve insan
+   denetiminden gectigi acikca belirtiliyor. Gizlemek yerine seffaf olmak
+   hem guven hem E-E-A-T acisindan dogru olan. #}
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+
+<meta property="og:type" content="{% block og_tur %}website{% endblock %}">
+<meta property="og:site_name" content="{{ site.ad }}">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:title" content="{% block og_baslik %}{{ self.baslik() }}{% endblock %}">
+<meta property="og:description" content="{% block og_aciklama %}{{ self.aciklama() }}{% endblock %}">
+<meta property="og:url" content="{{ site.adres }}{{ yol }}">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="alternate" type="application/rss+xml" title="{{ site.ad }}" href="{{ site.adres }}/rss.xml">
+<link rel="stylesheet" href="/statik/stil.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23101725'/><path d='M7 22V10l9 8V10' stroke='%2338dcf5' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/><circle cx='24' cy='11' r='2.5' fill='%2338dcf5'/></svg>">
+
+{% block yapisal_veri %}{% endblock %}
+</head>
+<body>
+
+<header class="ust">
+  <div class="kabuk ust-ic">
+    <a class="logo" href="/">
+      <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true">
+        <rect width="32" height="32" rx="7" fill="#1c2739"/>
+        <path d="M7 22V10l9 8V10" stroke="#38dcf5" stroke-width="3" fill="none"
+              stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="24" cy="11" r="2.5" fill="#38dcf5"/>
+      </svg>
+      {{ site.ad_html | safe }}
+    </a>
+    {# Menude yalnizca icerigi OLAN kategoriler var. Tiklayinca bos sayfa
+       cikan bir sekme, o sekmenin hic olmamasindan kotudur. #}
+    <nav>
+      <a href="/"{% if yol == "/" %} aria-current="page"{% endif %}>Ana sayfa</a>
+      {% for adres, baslik in menu %}
+      <a href="{{ adres }}"{% if yol == adres %} aria-current="page"{% endif %}>{{ baslik }}</a>
+      {% endfor %}
+      <a href="/hakkimizda/"{% if yol == "/hakkimizda/" %} aria-current="page"{% endif %}>Hakkımızda</a>
+      <a class="ara-baglanti" href="/ara/"{% if yol == "/ara/" %} aria-current="page"{% endif %}
+         aria-label="Ara" title="Ara">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/>
+          <path d="M20 20l-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span>Ara</span>
+      </a>
+    </nav>
+  </div>
+</header>
+
+{# Kayan fiyat seridi.
+   Sunucu tarafinda FRED'in gunluk degerleriyle dolu gelir; canli.js
+   uzerine Binance'in gercek zamanli kalemlerini ekler. Her kalemin
+   yanindaki nokta durumu anlatir: yesil = canli, gri = son veri.
+   JavaScript calismazsa serit yine dolu -- akmaz, ama okunur. #}
+<div class="serit" role="region" aria-label="Fiyat şeridi">
+  <div class="serit-akis" data-serit-akis>
+    <div class="serit-sira" data-serit-sira>
+      {% if gostergeler and gostergeler.kalemler %}
+      {% for k in gostergeler.kalemler %}
+      <span class="kalem" title="{{ k.ad }} — son veri {{ k.tarih }}">
+        <span class="nokta nokta-gecmis"></span>
+        <span class="kalem-ad">{{ k.ad }}</span>
+        <span class="kalem-deger">{{ k.deger }}</span>
+        <span class="kalem-fark {{ k.yon }}">{{ k.fark }}</span>
+      </span>
+      {% endfor %}
+      {% endif %}
+      <span class="kalem kalem-not">
+        <span class="nokta nokta-canli"></span>canlı
+        <span class="nokta nokta-gecmis"></span>son veri
+      </span>
+    </div>
+  </div>
+</div>
+
+<main class="kabuk">
+{% block icerik %}{% endblock %}
+</main>
+
+{# Sade altbilgi.
+   Onceki surumde iki uzun paragraf vardi ve sayfanin altini agirlastiriyordu.
+   Yalnizca ZORUNLU olan kaldi:
+     * "Yatirim tavsiyesi degildir" -- projenin ilk gunden sabit kurali ve
+       `guvenlik.py` bu ibare olmadan yayini engelliyor
+     * Kunye ve gizlilik baglantilari -- yayin kurulusundan beklenen asgari
+   Nasil uretildigi artik yayin ilkelerinde bir kez, dogru yerde anlatiliyor. #}
+<footer class="alt">
+  <div class="kabuk alt-ic">
+    <p class="alt-yasal">
+      <strong>Yatırım tavsiyesi değildir.</strong>
+      İçerikler bilgilendirme amaçlıdır; alım satım önerisi içermez.
+    </p>
+    <nav>
+      <a href="/hakkimizda/#yayin-ilkeleri">Yayın İlkeleri</a>
+      <a href="/hakkimizda/#kunye">Künye</a>
+      <a href="/hakkimizda/#gizlilik">Gizlilik</a>
+      <a href="/rss.xml">RSS</a>
+      <span class="alt-marka">&copy; {{ site.yil }} {{ site.ad }}</span>
+    </nav>
+  </div>
+</footer>
+
+{# Fiyat seridini canlandirir. Basarisiz olursa sayfa aynen calisir. #}
+<script src="/statik/canli.js" defer></script>
+{% block betikler %}{% endblock %}
+
+</body>
+</html>

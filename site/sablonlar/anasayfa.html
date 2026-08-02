@@ -1,0 +1,178 @@
+{% extends "temel.html" %}
+
+{% block baslik %}{{ site.ad }} — {{ site.slogan }}{% endblock %}
+{% block aciklama %}{{ site.meta_aciklama }}{% endblock %}
+
+{% block yapisal_veri %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": {{ site.ad | tojson }},
+  "url": "{{ site.adres }}/",
+  "description": {{ site.aciklama | tojson }},
+  "inLanguage": "tr-TR",
+  "publisher": { "@type": "Organization", "name": {{ site.ad | tojson }} }
+}
+</script>
+{% endblock %}
+
+{% macro rozetler(a) %}
+<span class="rozet rozet-vurgu">{{ a.kategori }}</span>
+{% if a.kod and a.kod != "MAKRO" %}<span class="rozet rozet-kod">{{ a.kod }}</span>{% endif %}
+{% if a.sektor %}<span class="rozet">{{ a.sektor }}</span>{% endif %}
+{% endmacro %}
+
+{% macro kunye(a) %}
+<span class="kart-kunye">
+  <span>{{ a.tarih_tr }}</span>
+  <span class="ayrac">·</span>
+  <span>{{ a.okuma_dk }} dk okuma</span>
+  {% if a.donem %}<span class="ayrac">·</span><span>{{ a.donem }}</span>{% endif %}
+</span>
+{% endmacro %}
+
+{% block icerik %}
+<div class="giris hero">
+  <p class="ust-etiket">Netaris</p>
+  <h1>{{ site.slogan }}</h1>
+
+  <ul class="hero-satirlar">
+    {% for s in site.hero_satirlar %}<li>{{ s }}</li>{% endfor %}
+  </ul>
+
+  <p>{{ site.aciklama }}</p>
+
+  {# Butonlar YALNIZCA calisan sayfalara gider. "Hisse Ara" gibi henuz
+     olmayan bir islev icin buton koymak, tiklayan kullaniciyi bos sayfaya
+     dusurur ve ilk izlenimi bitirir. #}
+  <div class="hero-butonlar">
+    {% for adres, baslik in menu %}
+    <a class="dugme {% if loop.first %}dugme-birincil{% endif %}" href="{{ adres }}">{{ baslik }}</a>
+    {% endfor %}
+    <a class="dugme dugme-sade" href="/hakkimizda/#nasil">Yöntemimiz</a>
+  </div>
+</div>
+
+{# Piyasa ozeti. Butun degerler resmi kaynaklardan gelir ve son gozlem
+   tarihini tasir. BIST 100 BILINCLI OLARAK YOK: endeks verisi lisansli,
+   ucretsiz ve ticari kullanima acik kaynagi bulunmuyor. #}
+{% if gostergeler and gostergeler.gruplar %}
+<section class="panel" aria-label="Piyasa özeti">
+  <div class="panel-ust">
+    <h2>Piyasa özeti</h2>
+    <span class="panel-not">Son gözlem {{ gostergeler.guncelleme }} · {{ gostergeler.kaynak }}</span>
+  </div>
+  <div class="panel-izgara">
+    {% for grup in gostergeler.gruplar %}
+    <div class="panel-grup">
+      <h3>{{ grup.baslik }}</h3>
+      {% for k in grup.kalemler %}
+      <div class="panel-satir" title="{{ k.ad }} — son veri {{ k.tarih }}">
+        <span class="panel-ad">{{ k.ad }}</span>
+        <span class="panel-deger">{{ k.deger }}</span>
+        <span class="panel-fark {{ k.yon }}">{{ k.fark }}</span>
+      </div>
+      {% endfor %}
+    </div>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+
+{# Gundem seridi -- resmi kurum duyurulari. Basliklar kaynak dilinde ve
+   dogrudan kuruma baglaniyor; ceviri/yorum eklenmiyor. #}
+{% if gundem and gundem.haberler %}
+<div class="bolum-bas">
+  <h2>Haberler</h2>
+</div>
+<ul class="gundem-kisa">
+  {# Yalnizca kendi sayfasi olan haberler listelenir -- disari yonlendiren
+     baglanti YOK. #}
+  {% for h in gundem.haberler if h.yol %}
+  {% if loop.index <= 6 %}
+  <li>
+    <a href="{{ h.yol }}">
+      <span class="rozet rozet-vurgu">{{ h.konu }}</span>
+      <span class="gundem-baslik">{{ h.baslik }}</span>
+      <span class="tarih">{{ h.tarih_gorunur or "—" }}</span>
+    </a>
+  </li>
+  {% endif %}
+  {% endfor %}
+</ul>
+<p class="kaynak-not" style="margin-bottom:34px">
+  <a href="/gundem/">Tüm haberler ({{ gundem.haberler | length }}) →</a>
+</p>
+{% endif %}
+
+{% if analizler %}
+{% set one_cikan = analizler[0] %}
+{% set digerleri = analizler[1:] %}
+
+<div class="bolum-bas"><h2>Öne çıkan</h2></div>
+
+<a class="one-cikan" href="{{ one_cikan.yol }}">
+  <div class="one-cikan-metin">
+    <div class="ust-satir">{{ rozetler(one_cikan) }}</div>
+    <h2>{{ one_cikan.baslik }}</h2>
+    <p class="ozet">{{ one_cikan.ozet }}</p>
+    <div class="ust-satir">
+      {% if one_cikan.skor is not none %}
+      <span class="halka-kutu">
+        <span class="halka" style="--p: {{ one_cikan.skor_yuzde }}"><b>{{ one_cikan.skor }}</b></span>
+        <span class="halka-etiket">Bilanço<br>Kalitesi</span>
+      </span>
+      {% endif %}
+      {{ kunye(one_cikan) }}
+      <span class="devam">Analizi oku →</span>
+    </div>
+  </div>
+  <span class="one-cikan-gorsel">{{ one_cikan.gorsel_svg | safe }}</span>
+</a>
+
+{% if digerleri %}
+<div class="bolum-bas"><h2>Tüm analizler</h2></div>
+<ul class="izgara">
+  {% for a in digerleri %}
+  <li>
+    <a class="kart" href="{{ a.yol }}">
+      <span class="kart-gorsel">{{ a.gorsel_svg | safe }}</span>
+      <span class="kart-ic">
+        <span class="ust-satir">{{ rozetler(a) }}</span>
+        <h2 class="kart-baslik">{{ a.baslik }}</h2>
+        <p class="kart-ozet">{{ a.ozet }}</p>
+        <span class="kart-alt">
+          {% if a.skor is not none %}
+          <span class="halka-kutu">
+            <span class="halka" style="--p: {{ a.skor_yuzde }}"><b>{{ a.skor }}</b></span>
+            <span class="halka-etiket">Bilanço<br>Kalitesi</span>
+          </span>
+          {% else %}{{ kunye(a) }}{% endif %}
+          <span class="devam">Oku →</span>
+        </span>
+      </span>
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}
+
+{% else %}
+<p>Henüz yayımlanmış analiz yok.</p>
+{% endif %}
+
+{# Guven seridi. Rakamlarin HEPSI gercek sayim -- klasordeki analiz sayisi,
+   KAP'tan cekilen sirket defteri, cekilen gosterge sayisi. Pazarlama
+   amacli yuvarlanmis ya da hedeflenen hicbir sayi yok. #}
+{% if rakamlar %}
+<section class="rakamlar" aria-label="Yayın rakamları">
+  {% for r in rakamlar %}
+  <div class="rakam">
+    <b>{{ r.sayi }}</b>
+    <span>{{ r.etiket }}</span>
+  </div>
+  {% endfor %}
+</section>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,98 @@
+{% extends "temel.html" %}
+
+{% block baslik %}{{ h.baslik }} — {{ site.ad }}{% endblock %}
+{% block aciklama %}{{ h.neden_onemli }}{% endblock %}
+{% block og_tur %}article{% endblock %}
+
+{% block yapisal_veri %}
+{# Kaynak kurum "citation" olarak isaretleniyor: bu sayfa duyurunun
+   kendisi degil, duyuruya dair bizim ozetimiz ve cozumlemeimiz. #}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": {{ h.baslik | tojson }},
+  "description": {{ h.neden_onemli | tojson }},
+  "datePublished": "{{ h.tarih }}",
+  "inLanguage": "tr-TR",
+  "isAccessibleForFree": true,
+  "author": { "@type": "Organization", "name": {{ site.ad | tojson }} },
+  "publisher": { "@type": "Organization", "name": {{ site.ad | tojson }} },
+  "citation": {
+    "@type": "CreativeWork",
+    "name": {{ h.baslik_kaynak | tojson }},
+    "url": {{ h.adres | tojson }},
+    "publisher": { "@type": "Organization", "name": {{ h.kurum | tojson }} }
+  }
+}
+</script>
+{% endblock %}
+
+{% block icerik %}
+<article class="yazi">
+  {% if h.foto %}
+  <figure class="yazi-gorsel yazi-foto">
+    <img src="{{ h.foto }}" alt="{{ h.konu }}" decoding="async">
+    {% if h.foto_atif %}
+    {# CC BY atfi zorunlu kilar; kaldirilirsa lisans ihlal edilir. #}
+    <figcaption>Fotoğraf: {{ h.foto_atif }}</figcaption>
+    {% endif %}
+  </figure>
+  {% elif gorsel_svg %}
+  <figure class="yazi-gorsel">{{ gorsel_svg | safe }}</figure>
+  {% endif %}
+
+  <header>
+    <p class="kicker">
+      <span class="rozet rozet-vurgu">{{ h.konu }}</span>
+      <span class="rozet">{{ h.kurum }}</span>
+      <span class="tarih">{{ h.tarih_gorunur or "tarihsiz" }}</span>
+    </p>
+    <h1>{{ h.baslik }}</h1>
+
+  </header>
+
+  <div class="govde">
+    <h2>Neden önemli</h2>
+    <p>{{ h.neden_onemli }}</p>
+
+    <h2>Türkiye'ye hangi kanallardan geçer</h2>
+    <ul>
+      {% for k in h.kanallar %}<li>{{ k }}</li>{% endfor %}
+    </ul>
+    <p><em>{{ gundem.sinir_notu }}</em></p>
+  </div>
+
+  {# Kendi gosterge verimiz. Haberi veriyle destekler; konuyla ilgili
+     gosterge yoksa bolum hic basilmaz. #}
+  {% if ilgili %}
+  <section class="ilgili-veri">
+    <h2>İlgili göstergeler</h2>
+    <div class="ilgili-izgara">
+      {% for g in ilgili %}
+      <div class="ilgili-kalem" title="{{ g.ad }} — son veri {{ g.tarih }}">
+        <span class="ilgili-ad">{{ g.ad }}</span>
+        <span class="ilgili-deger">{{ g.deger }}</span>
+        <span class="ilgili-fark {{ g.yon }}">{{ g.fark }}</span>
+      </div>
+      {% endfor %}
+    </div>
+    <p class="kaynak-not">Son gözlem {{ gostergeler.guncelleme }} ·
+    {{ gostergeler.kaynak }} · <a href="/makro/">Tüm göstergeler</a></p>
+  </section>
+  {% endif %}
+
+  {# Kaynak atfi. Bu sayfa duyurunun metnini yeniden yayimlamaz; kurumun
+     acikladigini ozetler ve kendi cozumlememizi ekler. Tam metin icin
+     kaynaga gidilir. #}
+  {# Kurum atfi tek satirda, disari baglanti VERMEDEN. Okur siteden
+     cikmiyor. Atif duruyor cunku bilginin nereden geldigini soylemek hem
+     ECB'nin yeniden kullanim sartidir hem de haberin degerini artirir --
+     "Fed acikladi" bilgisi haberin kendisidir. #}
+  <p class="kaynak-not">
+    Kaynak: {{ h.kurum_tam or h.kurum }} ·
+    Başlık Türkçeye çevrilmiştir ·
+    <a href="/gundem/">← Tüm haberler</a>
+  </p>
+</article>
+{% endblock %}

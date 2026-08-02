@@ -1,0 +1,315 @@
+"""Netaris merkezi veri deposu -- "beyin".
+
+NE ISE YARAR
+------------
+Bugune kadar her hat kendi ciktisini bir JSON dosyasina yaziyordu ve her
+calistirmada UZERINE yaziyordu. Yani gecmis yoktu: dun Brent kacti,
+gecen hafta hangi haberler geldi, bir hisse kodunun kac analizi var --
+hicbiri sorulamiyordu.
+
+Bu modul SQLite'ta kalici bir depo tutar. Her calistirma verinin uzerine
+YAZMAZ, ustune EKLER. Boylece zamanla:
+
+  * gosterge gecmisi birikir (kendi zaman serimiz olur)
+  * hangi haberi ne zaman gorduğumuz bilinir (tekrar yayimlanmaz)
+  * ceviriler kalicilasir (kota harcanmaz)
+  * uretilen her icerik kayda gecer
+
+NEDEN SQLITE
+------------
+Python'da yerlesik, kurulum yok, tek dosya, yedeklemesi kopyalamak kadar
+kolay. Ilerde Cloudflare D1'e tasinirsa sema aynen gecer -- D1 de SQLite.
+
+TASARIM KURALI
+--------------
+Depo yalnizca SAKLAR. Hesap yapmaz, yorum uretmez, karar vermez. Bunlar
+`analiz/` altindaki modullerin isi. Deponun tek sorumlulugu veriyi
+kaybetmemek.
+"""
+
+from __future__ import annotations
+
+import json
+import pathlib
+import sqlite3
+from contextlib import contextmanager
+from datetime import datetime, timezone
+
+VERITABANI = pathlib.Path(__file__).parent / "netaris.db"
+
+SEMA = """
+CREATE TABLE IF NOT EXISTS gosterge (
+    kod        TEXT NOT NULL,
+    tarih      TEXT NOT NULL,
+    deger      REAL NOT NULL,
+    birim      TEXT,
+    ad         TEXT,
+    kaynak     TEXT,
+    kayit_ani  TEXT NOT NULL,
+    PRIMARY KEY (kod, tarih)
+);
+
+CREATE TABLE IF NOT EXISTS haber (
+    adres         TEXT PRIMARY KEY,
+    baslik_kaynak TEXT NOT NULL,
+    baslik_tr     TEXT,
+    kurum         TEXT,
+    konu          TEXT,
+    tarih         TEXT,
+    yorumlanir    INTEGER DEFAULT 0,
+    ilk_gorulme   TEXT NOT NULL,
+    son_gorulme   TEXT NOT NULL,
+    yayimlandi    INTEGER DEFAULT 0,
+    yayin_yolu    TEXT
+);
+
+CREATE TABLE IF NOT EXISTS ceviri (
+    kaynak_ozet TEXT PRIMARY KEY,   -- kaynak metnin sha256 ozeti
+    kaynak      TEXT NOT NULL,
+    sonuc       TEXT NOT NULL,
+    servis      TEXT,
+    kayit_ani   TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS icerik (
+    slug       TEXT PRIMARY KEY,
+    tur        TEXT NOT NULL,       -- bilanco | makro | teknik | haber | yorum
+    baslik     TEXT NOT NULL,
+    kod        TEXT,
+    kategori   TEXT,
+    tarih      TEXT,
+    kelime     INTEGER,
+    kayit_ani  TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS fiyat (
+    sembol     TEXT NOT NULL,
+    tarih      TEXT NOT NULL,
+    kapanis    REAL NOT NULL,
+    yuksek     REAL,
+    dusuk      REAL,
+    hacim      REAL,
+    PRIMARY KEY (sembol, tarih)
+);
+
+CREATE TABLE IF NOT EXISTS calisma (
+    id         INTEGER PRIMARY KEY AUTOINCREMENT,
+    hat        TEXT NOT NULL,
+    baslangic  TEXT NOT NULL,
+    bitis      TEXT,
+    durum      TEXT,               -- basarili | hatali
+    ozet       TEXT
+);
+
+CREATE INDEX IF NOT EXISTS ix_gosterge_tarih ON gosterge(tarih);
+CREATE INDEX IF NOT EXISTS ix_haber_tarih    ON haber(tarih);
+CREATE INDEX IF NOT EXISTS ix_icerik_tur     ON icerik(tur, tarih);
+"""
+
+
+def simdi() -> str:
+    return datetime.now(timezone.utc).isoformat(timespec="seconds")
+
+
+@contextmanager
+def baglan(yol: pathlib.Path = VERITABANI):
+    """Baglanti acar, semayi garantiler, cikista kapatir."""
+    b = sqlite3.connect(yol)
+    b.row_factory = sqlite3.Row
+    try:
+        b.executescript(SEMA)
+        yield b
+        b.commit()
+    finally:
+        b.close()
+
+
+# ---------------------------------------------------------------------------
+# Yazma
+# ---------------------------------------------------------------------------
+
+def gosterge_yaz(b, kalemler: list[dict]) -> int:
+    """Gosterge gozlemlerini ekler.
+
+    `INSERT OR IGNORE` kullaniliyor: ayni kod+tarih ikinci kez gelirse
+    sessizce atlanir. Boylece hat gunde bes kez calissa bile gecmis
+    bozulmaz. Guncelleme DEGIL ekleme -- yayimlanmis bir gozlem sonradan
+    degismez.
+    """
+    n = 0
+    for k in kalemler:
+        if k.get("deger_ham") is None or not k.get("tarih"):
+            continue
+        imlec = b.execute(
+            "INSERT OR IGNORE INTO gosterge"
+            " (kod, tarih, deger, birim, ad, kaynak, kayit_ani)"
+            " VALUES (?,?,?,?,?,?,?)",
+            (k.get("kod"), k.get("tarih"), k["deger_ham"], k.get("birim"),
+             k.get("ad"), k.get("kaynak", "FRED"), simdi()),
+        )
+        n += imlec.rowcount
+    return n
+
+
+def haber_yaz(b, haberler: list[dict]) -> tuple[int, int]:
+    """Haberleri ekler/gunceller. (yeni, tekrar) doner.
+
+    Daha once gorulen haberin `son_gorulme` alani guncellenir ama
+    `ilk_gorulme` KORUNUR -- bir duyurunun ne zaman ortaya ciktigini
+    bilmek, ne zaman son goruldugunden daha degerli.
+    """
+    yeni = tekrar = 0
+    for h in haberler:
+        adres = h.get("adres")
+        if not adres:
+            continue
+        var = b.execute("SELECT 1 FROM haber WHERE adres=?", (adres,)).fetchone()
+        if var:
+            b.execute(
+                "UPDATE haber SET son_gorulme=?, baslik_tr=COALESCE(?, baslik_tr),"
+                " yayin_yolu=COALESCE(?, yayin_yolu),"
+                " yayimlandi=MAX(yayimlandi, ?) WHERE adres=?",
+                (simdi(), h.get("baslik"), h.get("yol"),
+                 1 if h.get("yol") else 0, adres),
+            )
+            tekrar += 1
+        else:
+            b.execute(
+                "INSERT INTO haber (adres, baslik_kaynak, baslik_tr, kurum,"
+                " konu, tarih, yorumlanir, ilk_gorulme, son_gorulme,"
+                " yayimlandi, yayin_yolu) VALUES (?,?,?,?,?,?,?,?,?,?,?)",
+                (adres, h.get("baslik_kaynak", ""), h.get("baslik"),
+                 h.get("kurum"), h.get("konu"), h.get("tarih"),
+                 1 if h.get("yorumlanir") else 0, simdi(), simdi(),
+                 1 if h.get("yol") else 0, h.get("yol")),
+            )
+            yeni += 1
+    return yeni, tekrar
+
+
+def ceviri_yaz(b, onbellek: dict[str, str], servis: str = "") -> int:
+    """Ceviri onbellegini depoya alir.
+
+    Onbellek dosyasi silinse bile ceviriler burada kalir; kota yeniden
+    harcanmaz. Ayni ceviri iki kez yazilmaz.
+    """
+    n = 0
+    for ozet, sonuc in onbellek.items():
+        imlec = b.execute(
+            "INSERT OR IGNORE INTO ceviri (kaynak_ozet, kaynak, sonuc,"
+            " servis, kayit_ani) VALUES (?,?,?,?,?)",
+            (ozet, "", sonuc, servis, simdi()),
+        )
+        n += imlec.rowcount
+    return n
+
+
+def icerik_yaz(b, kayitlar: list[dict]) -> int:
+    n = 0
+    for k in kayitlar:
+        if not k.get("slug"):
+            continue
+        b.execute(
+            "INSERT INTO icerik (slug, tur, baslik, kod, kategori, tarih,"
+            " kelime, kayit_ani) VALUES (?,?,?,?,?,?,?,?)"
+            " ON CONFLICT(slug) DO UPDATE SET baslik=excluded.baslik,"
+            " kelime=excluded.kelime, tarih=excluded.tarih",
+            (k["slug"], k.get("tur", "?"), k.get("baslik", ""), k.get("kod"),
+             k.get("kategori"), k.get("tarih"), k.get("kelime", 0), simdi()),
+        )
+        n += 1
+    return n
+
+
+def fiyat_yaz(b, sembol: str, mumlar: list[dict]) -> int:
+    n = 0
+    for m in mumlar:
+        imlec = b.execute(
+            "INSERT OR IGNORE INTO fiyat (sembol, tarih, kapanis, yuksek,"
+            " dusuk, hacim) VALUES (?,?,?,?,?,?)",
+            (sembol, m["tarih"], m["kapanis"], m.get("yuksek"),
+             m.get("dusuk"), m.get("hacim")),
+        )
+        n += imlec.rowcount
+    return n
+
+
+@contextmanager
+def calisma_kaydi(b, hat: str):
+    """Bir hattin calismasini kaydeder -- basarili da olsa hatali da.
+
+    Hatanin kaydedilmesi onemli: "dun gece gundem neden guncellenmedi"
+    sorusunun cevabi burada durur.
+    """
+    imlec = b.execute(
+        "INSERT INTO calisma (hat, baslangic, durum) VALUES (?,?,?)",
+        (hat, simdi(), "calisiyor"),
+    )
+    kimlik = imlec.lastrowid
+    ozet: dict = {}
+    try:
+        yield ozet
+    except Exception as e:
+        b.execute(
+            "UPDATE calisma SET bitis=?, durum=?, ozet=? WHERE id=?",
+            (simdi(), "hatali", f"{type(e).__name__}: {e}", kimlik),
+        )
+        b.commit()
+        raise
+    else:
+        b.execute(
+            "UPDATE calisma SET bitis=?, durum=?, ozet=? WHERE id=?",
+            (simdi(), "basarili", json.dumps(ozet, ensure_ascii=False), kimlik),
+        )
+
+
+# ---------------------------------------------------------------------------
+# Okuma
+# ---------------------------------------------------------------------------
+
+def durum(b) -> dict:
+    """Deponun ozeti -- kac kayit, hangi araliklar."""
+    def tek(sorgu, *p):
+        s = b.execute(sorgu, p).fetchone()
+        return s[0] if s and s[0] is not None else 0
+
+    return {
+        "gosterge_gozlem": tek("SELECT COUNT(*) FROM gosterge"),
+        "gosterge_seri": tek("SELECT COUNT(DISTINCT kod) FROM gosterge"),
+        "gosterge_ilk": tek("SELECT MIN(tarih) FROM gosterge"),
+        "gosterge_son": tek("SELECT MAX(tarih) FROM gosterge"),
+        "haber": tek("SELECT COUNT(*) FROM haber"),
+        "haber_yayimlanan": tek("SELECT COUNT(*) FROM haber WHERE yayimlandi=1"),
+        "ceviri": tek("SELECT COUNT(*) FROM ceviri"),
+        "icerik": tek("SELECT COUNT(*) FROM icerik"),
+        "fiyat_gozlem": tek("SELECT COUNT(*) FROM fiyat"),
+        "fiyat_sembol": tek("SELECT COUNT(DISTINCT sembol) FROM fiyat"),
+        "calisma": tek("SELECT COUNT(*) FROM calisma"),
+        "son_calisma": tek("SELECT MAX(baslangic) FROM calisma"),
+    }
+
+
+def gosterge_serisi(b, kod: str, adet: int = 60) -> list[tuple[str, float]]:
+    """Kendi biriktirdigimiz zaman serisi."""
+    satirlar = b.execute(
+        "SELECT tarih, deger FROM gosterge WHERE kod=?"
+        " ORDER BY tarih DESC LIMIT ?", (kod, adet),
+    ).fetchall()
+    return [(s["tarih"], s["deger"]) for s in reversed(satirlar)]
+
+
+def yeni_haberler(b, gun: int = 7) -> list[sqlite3.Row]:
+    return b.execute(
+        "SELECT * FROM haber WHERE ilk_gorulme >= date('now', ?)"
+        " ORDER BY tarih DESC", (f"-{gun} days",),
+    ).fetchall()
+
+
+if __name__ == "__main__":
+    with baglan() as b:
+        d = durum(b)
+    print("NETARIS VERI DEPOSU")
+    print("=" * 50)
+    for k, v in d.items():
+        print(f"  {k:<22} {v}")
+    print(f"\ndosya: {VERITABANI}")

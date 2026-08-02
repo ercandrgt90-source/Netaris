@@ -1,0 +1,109 @@
+# Netaris kesintisiz otomasyon
+#
+# Gunde uc kez calisir, makine kapali olsa da: veriyi toplar, icerigi
+# uretir, siteyi kurar, Cloudflare'e dagitir ve dogrular.
+#
+# GEREKEN GIZLI DEGERLER (GitHub > Settings > Secrets and variables >
+# Actions > New repository secret):
+#
+#   CLOUDFLARE_API_TOKEN   Cloudflare panelinden uretilen dagitim jetonu
+#   CLOUDFLARE_ACCOUNT_ID  Cloudflare hesap kimligi
+#
+# Bu iki deger DOSYAYA YAZILMAZ. GitHub sifreli saklar, kayitlarda
+# maskeler ve depoyu klonlayan kimse goremez.
+
+name: Netaris otomasyon
+
+on:
+  schedule:
+    # Saatler UTC. Turkiye UTC+3 -> 09:00, 14:00, 19:00
+    - cron: "0 6 * * *"
+    - cron: "0 11 * * *"
+    - cron: "0 16 * * *"
+  # Panelden elle de calistirilabilsin
+  workflow_dispatch:
+    inputs:
+      yayinla:
+        description: "Cloudflare'e dağıt"
+        type: boolean
+        default: true
+
+# Ayni anda iki calisma olmasin: ikisi de depoya yazip birbirini ezerdi
+concurrency:
+  group: netaris-otomasyon
+  cancel-in-progress: false
+
+jobs:
+  calistir:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    permissions:
+      # Biriken veriyi (depo, onbellek, uretilen icerik) geri commit etmek
+      # icin yazma yetkisi gerekiyor
+      contents: write
+
+    steps:
+      - name: Depoyu al
+        uses: actions/checkout@v4
+
+      - name: Python kur
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Bağımlılıkları kur
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Node kur
+        # wrangler icin gerekiyor
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Testleri çalıştır
+        # Bozuk kodla yayina cikmamak icin. Test kalirsa is durur ve
+        # site eski haliyle ayakta kalir -- bozuk icerik yayimlanmaz.
+        run: |
+          set -e
+          python haber_botu/analiz/test_bicim.py
+          python haber_botu/analiz/test_skor.py
+          python haber_botu/analiz/test_araci_kurum.py
+          python haber_botu/test_yapistir.py
+          python haber_botu/ai/test_guvenlik.py
+
+      - name: Veri topla ve içerik üret
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          python calistir.py ${{ (github.event_name == 'schedule' || inputs.yayinla) && '--yayinla' || '' }}
+
+      - name: Depo özeti
+        if: always()
+        run: python haber_botu/beyin.py
+
+      - name: Biriken veriyi geri yaz
+        # Beynin gecmisi, ceviri onbellegi, indirilen fotograflar ve
+        # uretilen icerik depoya geri yazilir. Boylece bir sonraki
+        # calistirma kaldigi yerden devam eder -- ceviri kotasi bastan
+        # harcanmaz, fotograflar yeniden indirilmez.
+        if: always()
+        run: |
+          git config user.name  "netaris-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A \
+            haber_botu/netaris.db \
+            haber_botu/kaynak/ceviri_onbellek.json \
+            haber_botu/kaynak/foto_kayit.json \
+            site/statik/foto \
+            site/icerik
+          if git diff --staged --quiet; then
+            echo "degisiklik yok"
+          else
+            git commit -m "otomatik: veri güncellemesi $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git push
+          fi

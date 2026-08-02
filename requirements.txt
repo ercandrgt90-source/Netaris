@@ -1,0 +1,8 @@
+# Netaris calisma bagimliliklari.
+# Bilincli olarak kucuk tutuluyor: her yeni bagimlilik, kirilabilecek yeni
+# bir parca demek. Sayisal isler icin numpy/pandas KULLANILMIYOR --
+# hesaplarin hepsi duz Python ve okunabilir kalsin diye.
+
+httpx==0.28.1        # butun ag istekleri
+Jinja2==3.1.6        # site sablonlari
+Markdown==3.10.3     # icerik -> HTML

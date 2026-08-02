@@ -1,0 +1,36 @@
+{% extends "temel.html" %}
+
+{% block baslik %}Ara — {{ site.ad }}{% endblock %}
+{% block aciklama %}Analizler, bilançolar, makro ve teknik görünüm içinde arama.{% endblock %}
+
+{# Arama sonuc sayfalari arama motorlarina acilmaz -- ince icerik uretir #}
+{% block yapisal_veri %}
+<meta name="robots" content="noindex, follow">
+{% endblock %}
+
+{% block icerik %}
+<div class="giris">
+  <p class="ust-etiket">Arama</p>
+  <h1>Ne arıyorsunuz?</h1>
+  <p>Hisse kodu, şirket adı, kategori ya da konu yazın. Arama tarayıcınızda
+  çalışır; sorgunuz hiçbir yere gönderilmez.</p>
+</div>
+
+<div class="ara-alan">
+  <input type="search" class="ara-kutu" data-ara-kutu disabled
+         placeholder="Yükleniyor…" autocomplete="off"
+         aria-label="Analizlerde ara">
+  <span class="ara-sayac" data-ara-sayac aria-live="polite"></span>
+</div>
+
+<ul class="izgara ara-sonuc" data-ara-sonuc></ul>
+
+<noscript>
+  <p class="ara-bos">Arama için JavaScript gerekiyor. Yazılara
+  <a href="/">ana sayfadan</a> ya da kategori sayfalarından ulaşabilirsiniz.</p>
+</noscript>
+{% endblock %}
+
+{% block betikler %}
+<script src="/statik/ara.js" defer></script>
+{% endblock %}

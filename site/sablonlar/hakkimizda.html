@@ -1,0 +1,49 @@
+{% extends "temel.html" %}
+
+{% block baslik %}Hakkımızda — {{ site.ad }}{% endblock %}
+{% block aciklama %}{{ h.lead }} Netaris'in vizyonu, misyonu, çalışma yöntemi ve yayın ilkeleri.{% endblock %}
+
+{% block yapisal_veri %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "Hakkımızda",
+  "url": "{{ site.adres }}/hakkimizda/",
+  "inLanguage": "tr-TR",
+  "publisher": { "@type": "Organization", "name": {{ site.ad | tojson }} }
+}
+</script>
+{% endblock %}
+
+{% block icerik %}
+<div class="sayfa">
+  <p class="ust-etiket">Hakkımızda</p>
+  <h1>{{ h.lead }}</h1>
+
+  {# Sayfa ici gezinme. Capalar markdown'da elle verilir, gezinme insa
+     aninda o capalardan turer -- baslik metni degisse de baglanti kirilmaz. #}
+  {% if h.gezinme %}
+  <nav class="ic-gezinme" aria-label="Sayfa içi bölümler">
+    {% for capa, baslik in h.gezinme %}
+    <a href="#{{ capa }}">{{ baslik }}</a>
+    {% endfor %}
+  </nav>
+  {% endif %}
+
+  <div class="govde hakkimizda-giris">
+    {{ h.govde | safe }}
+  </div>
+
+  {% if h.bolumler %}
+  <div class="bolum-bas" style="margin-top:52px"><h2>Belgeler</h2></div>
+  {% for b in h.bolumler %}
+  <section class="hakkimizda-bolum" id="{{ b.capa }}">
+    <h2>{{ b.baslik }}</h2>
+    {% if b.ozet %}<p class="bolum-ozet">{{ b.ozet }}</p>{% endif %}
+    <div class="govde">{{ b.govde | safe }}</div>
+  </section>
+  {% endfor %}
+  {% endif %}
+</div>
+{% endblock %}

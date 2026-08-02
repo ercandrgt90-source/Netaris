@@ -1,0 +1,89 @@
+{% extends "temel.html" %}
+
+{% block baslik %}Haberler — {{ site.ad }}{% endblock %}
+{% block aciklama %}Merkez bankaları ve düzenleyici kurumların açıklamaları; piyasa etkisi olanlar aktarım kanallarıyla değerlendirilmiş.{% endblock %}
+
+{% macro oge(h, gorsel) %}
+<article class="haber {% if h.yorumlanir %}haber-yorumlu{% endif %}">
+  {% if h.yol %}<a class="haber-gorsel" href="{{ h.yol }}">{% else %}<div class="haber-gorsel">{% endif %}
+    {# Gercek fotograf varsa o, yoksa uretilen SVG. Fotograflar CC
+       lisansli ve atif zorunlu -- atif gorselin altinda basiliyor. #}
+    {% if h.foto %}
+    <img src="{{ h.foto }}" alt="{{ h.konu }}" loading="lazy" decoding="async">
+    {% elif gorsel %}{{ gorsel | safe }}{% endif %}
+  {% if h.yol %}</a>{% else %}</div>{% endif %}
+  {% if h.foto_atif %}<p class="foto-atif">Fotoğraf: {{ h.foto_atif }}</p>{% endif %}
+  <div class="haber-ic">
+    <div class="gundem-ust">
+      <span class="rozet rozet-vurgu">{{ h.konu }}</span>
+      <span class="rozet">{{ h.kurum }}</span>
+      <span class="tarih">{{ h.tarih_gorunur or "tarihsiz" }}</span>
+    </div>
+
+    <h3 class="haber-baslik">{{ h.baslik }}</h3>
+
+    {% if h.yorumlanir %}
+    <div class="haber-baglam">
+      <p class="baglam-neden"><b>Neden önemli:</b> {{ h.neden_onemli }}</p>
+      <p class="baglam-etiket">Türkiye'ye hangi kanallardan geçer</p>
+      <ul class="baglam-kanallar">
+        {% for k in h.kanallar %}<li>{{ k }}</li>{% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+
+    {# Butun baglantilar SITE ICINDE kalir -- okur disari yonlendirilmez. #}
+    {% if h.yol %}
+    <a class="haber-git" href="{{ h.yol }}">Haberi oku →</a>
+    {% endif %}
+  </div>
+</article>
+{% endmacro %}
+
+{% block icerik %}
+<div class="giris">
+  <p class="ust-etiket">Haberler</p>
+  <h1>Merkez bankaları ve düzenleyiciler</h1>
+  <p>Fed, Avrupa Merkez Bankası, SEC ve ABD Enerji Bilgi İdaresi'nin
+  açıklamaları otomatik derlenir, Türkçeleştirilir ve konuya göre
+  sınıflandırılır. Piyasa etkisi olanlara aktarım kanalları eklenir.</p>
+</div>
+
+{% set yorumlu = gundem.haberler | selectattr("yorumlanir") | list %}
+{% set rutin = gundem.haberler | rejectattr("yorumlanir") | list %}
+
+{% if yorumlu %}
+<div class="bolum-bas"><h2>Piyasa etkisi olanlar ({{ yorumlu | length }})</h2></div>
+<div class="haber-izgara">
+  {% for h in yorumlu %}{{ oge(h, gundem_gorseller.get(h.adres)) }}{% endfor %}
+</div>
+<p class="kaynak-not">{{ gundem.sinir_notu }}</p>
+{% endif %}
+
+{% if rutin %}
+<div class="bolum-bas" style="margin-top:38px">
+  <h2>Diğer duyurular ({{ rutin | length }})</h2>
+</div>
+{# Rutin duyurular: baslik ve kurum bilgisi yeterli, ayri sayfa acilmiyor
+   ve disari da yonlendirilmiyor. Bunlar zaten yorum gerektirmeyen idari
+   bildirimler. #}
+<ul class="gundem-liste">
+  {% for h in rutin %}
+  <li class="gundem-oge gundem-duz">
+    <span class="gundem-ust">
+      <span class="rozet rozet-vurgu">{{ h.konu }}</span>
+      <span class="rozet">{{ h.kurum }}</span>
+      <span class="tarih">{{ h.tarih_gorunur or "tarihsiz" }}</span>
+    </span>
+    <span class="gundem-baslik">{{ h.baslik }}</span>
+  </li>
+  {% endfor %}
+</ul>
+{% endif %}
+
+{# Ceviri notu sayfa altinda, kucuk. Onceden sayfa basinda sari bir bant
+   olarak duruyordu ve ilk gorunen sey oydu -- haberden once uyari okumak
+   gerekiyordu. Bilgi kalmali ama one cikmamali. #}
+<p class="kaynak-not">{{ gundem.ceviri_notu }}
+Son derleme: {{ gundem.guncelleme }}</p>
+{% endblock %}

@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# Uretilen site ciktisi -- her calistirmada yeniden uretiliyor, depoda
+# tutmanin anlami yok ve gereksiz cakisma yaratir
+site/cikti/
+
+# Arsiv ciktilari -- taslaklar, yayimlanan surumu site/icerik altinda
+haber_botu/ciktilar/
+
+# Yerel gecici dosyalar
+*.log
+.DS_Store
+Thumbs.db
+
+# ---------------------------------------------------------------------
+# ASLA DEPOYA GIRMEYECEKLER
+# ---------------------------------------------------------------------
+# API anahtarlari ve gizli degerler. GitHub Actions bunlari "Secrets"
+# uzerinden okur; dosyaya yazilmaz.
+.env
+.env.*
+*.key
+*.pem
+secrets.json
+**/gizli*
+
+# Wrangler yerel onbellegi. Icinde Cloudflare HESAP KIMLIGI ve hesap adi
+# (e-posta adresi) duruyor:
+#     {"account": {"id": "...", "name": "...@gmail.com's Account"}}
+# Kimlik tek basina bir parola degil ama e-postayla birlikte gereksiz
+# bir ifsa; hesap kimligi zaten GitHub Secret olarak veriliyor.
+.wrangler/
+**/.wrangler/
+
+# Ham HTML onbellegi -- KAP sayfalarinin megabaytlik kopyalari. Kesif
+# sirasinda birikti, uretimde kullanilmiyor.
+haber_botu/kaynak/_onbellek/
+
+# Node
+node_modules/
+
+# NOT: haber_botu/netaris.db BILINCLI OLARAK depoda tutuluyor.
+# Beynin butun gecmisi orada; her calistirmada ustune yazilan bir dosya
+# degil, biriktiren bir depo. GitHub Actions calisip veri ekledikten
+# sonra geri commit ediyor -- boylece gecmis makineden bagimsiz kaliyor
+# ve git gecmisi denetim izi oluyor.

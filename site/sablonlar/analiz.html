@@ -1,0 +1,159 @@
+﻿{% extends "temel.html" %}
+
+{% block baslik %}{{ a.baslik }} — {{ site.ad }}{% endblock %}
+{% block aciklama %}{{ a.ozet }}{% endblock %}
+{% block og_tur %}article{% endblock %}
+
+{% block yapisal_veri %}
+{# NewsArticle yapisal verisi. Yazar olarak sirket tuzel kisiligi
+   gosteriliyor; gercek olmayan bir kisi adi uydurmuyoruz. #}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  "headline": {{ a.baslik | tojson }},
+  "description": {{ a.ozet | tojson }},
+  "datePublished": "{{ a.tarih }}",
+  "dateModified": "{{ a.tarih }}",
+  "inLanguage": "tr-TR",
+  "isAccessibleForFree": true,
+  "author": { "@type": "Organization", "name": {{ site.ad | tojson }} },
+  "publisher": { "@type": "Organization", "name": {{ site.ad | tojson }} },
+  "mainEntityOfPage": { "@type": "WebPage", "@id": "{{ site.adres }}{{ yol }}" },
+  "about": { "@type": "Corporation", "name": {{ a.sirket | tojson }}, "tickerSymbol": {{ a.kod | tojson }} }
+}
+</script>
+{% endblock %}
+
+{% block icerik %}
+{# Eskimis piyasa yorumu uyarisi. Yaziyi degistirmiyoruz -- yazar o gun
+   dogru olani yazdi. Ama "su an", "surduruyor" gibi ifadeler bugun okuyani
+   yanilir, o yuzden tarihi one cikariyoruz ve guncel veriye yonlendiriyoruz. #}
+{% if a.eskimis %}
+<div class="tarih-bandi">
+  <strong>{{ a.tarih_tr }} tarihli yazı</strong>
+  <p>Bu değerlendirme {{ a.gun_yasi }} gün önce yayımlandı. Piyasa
+  verileri o tarihten bu yana değişmiş olabilir; yazıdaki güncel zamanlı
+  ifadeler yayım tarihine aittir.
+  <a href="/makro/">Güncel gösterge tablosu</a>.</p>
+</div>
+{% endif %}
+
+{% if a.kurgusal %}
+<div class="uyari-bant">
+  <strong>Örnek içerik — kurgusal veri</strong>
+  <p>Bu sayfa üretim hattının çıktısını göstermek için hazırlanmıştır.
+  &ldquo;{{ a.sirket }}&rdquo; <b>gerçek bir şirket değildir</b>; tüm rakamlar
+  kurgusaldır ve hiçbir BIST şirketine ait değildir.</p>
+</div>
+{% endif %}
+
+<article class="yazi">
+  {# Gorsel yazinin KENDI rakamlarindan cizilir: stok fotograf ya da sirket
+     amblemi degil. Bu yuzden "dekoratif" degil, iceriktir -- ekran okuyucuya
+     da SVG icindeki aria-label ile aciklanir. #}
+  <figure class="yazi-gorsel">{{ a.gorsel_svg | safe }}</figure>
+
+  <header>
+    {# Makro icerikte "kod" MAKRO yer tutucusu -- kategoriyle ayni seyi
+       soyleyip satiri kirletmesin diye atlaniyor. #}
+    <p class="kicker">
+      <span class="rozet rozet-vurgu">{{ a.kategori }}</span>
+      {% if a.kod and a.kod != "MAKRO" %}<span class="rozet rozet-kod">{{ a.kod }}</span>{% endif %}
+      {% if a.sektor %}<span class="rozet">{{ a.sektor }}</span>{% endif %}
+      <span class="tarih">{{ a.donem }}</span>
+    </p>
+    <h1>{{ a.baslik }}</h1>
+    <p class="ozet-cumle">{{ a.ozet }}</p>
+
+    {# Imzali yorum ile otomatik analizin okur tarafindan AYIRT EDILEBILMESI
+       sart. Yorum neden-sonuc ve gelecek senaryosu icerir; otomatik analiz
+       icermez. Hangisini okudugunu bilmeyen okur ikisine ayni agirligi
+       verir ve bu yaniltir. #}
+    {% if a.imzali %}
+    <div class="imza">
+      <div class="imza-kim">
+        <b>{{ a.yazar }}</b>
+        {% if a.unvan %}<span>{{ a.unvan }}</span>{% endif %}
+      </div>
+      <p class="imza-not">Bu yazı imzalı bir analist yorumudur. Yazarın kendi
+      değerlendirmelerini, neden-sonuç yorumlarını ve gelecek senaryolarını
+      içerir; sorumluluk yazarına aittir.
+      <a href="/hakkimizda/#nasil">Otomatik analizlerimizden farkı</a>.</p>
+    </div>
+    {% endif %}
+  </header>
+
+  {% if a.skor is not none %}
+  <section class="skor" aria-label="Bilanço Kalitesi Skoru">
+    <div class="skor-ust">
+      <span class="skor-etiket">Bilanço Kalitesi Skoru</span>
+      <span class="skor-deger">{{ a.skor }}<span>/100</span></span>
+      <span class="skor-kapsam">veri kapsamı %{{ a.kapsam }}</span>
+    </div>
+
+    <div class="kriterler">
+      {% for k in a.kriterler %}
+      <div class="kriter">
+        <span class="kriter-ad">{{ k.ad }}</span>
+        <div class="track" role="img"
+             aria-label="{{ k.ad }}: {{ k.tam }} üzerinden {{ k.puan }}">
+          <div class="fill" style="--w: {{ k.yuzde }}%;"></div>
+        </div>
+        <span class="kriter-puan">{{ k.puan }}/{{ k.tam }}</span>
+      </div>
+      {% endfor %}
+    </div>
+
+    <p class="skor-not">Skor finansal tabloların sağlığını ölçer; hissenin
+    fiyatı, değerlemesi veya getirisi hakkında bir değerlendirme içermez.
+    Kod tarafından, <a href="/hakkimizda/#skor">yayımlanmış kurallarla</a>
+    hesaplanır — aynı tablolar her zaman aynı skoru üretir.</p>
+  </section>
+  {% endif %}
+
+  {# Yasal uyari sayfa altbilgisinde bir kez veriliyor. Burada da tekrarlamak
+     ayni metni ust uste iki kez gostermek olurdu. #}
+  <div class="govde">
+    {{ a.govde | safe }}
+  </div>
+
+  {# Bu kutudaki rakamlarin HEPSI gercek sayim: uretim hatti kac kalem okudu,
+     kac oran hesapladi, kac sinyal esigi asti -- hepsi frontmatter'a yazilir.
+     Uydurulmus bir "AI guven skoru" YOK; olculmemis bir sayiyi 95/100 diye
+     gostermek, olcum yaptigimiz yerlerdeki guveni de goturur. #}
+  {# Bu kutu OTOMATIK analizlere ozeldir: "butun hesaplar yazilim tarafindan
+     yapilmistir" cumlesi imzali bir yorumda YANLIS olurdu -- orada metni de
+     degerlendirmeyi de insan yazdi. Imzali yazida kutu basilmaz; sorumluluk
+     zaten ustteki imza blogunda belirtiliyor. #}
+  {% if not a.imzali and (a.sayimlar or a.kaynaklar) %}
+  <aside class="uretim">
+    <h2>Bu analiz nasıl üretildi</h2>
+
+    {% if a.sayimlar %}
+    <div class="uretim-rakamlar">
+      {% for sayi, etiket in a.sayimlar %}
+      <div><b>{{ sayi }}</b><span>{{ etiket }}</span></div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <p class="uretim-not">Bütün oran, değişim ve yüzde hesapları ham
+    tablolardan yazılım tarafından yapılmıştır; yapay zekânın görevi bu
+    sonuçları açıklamaktır. Aynı veri her zaman aynı sonucu üretir.
+    <a href="/hakkimizda/#nasil">Yöntemin ayrıntısı</a>.</p>
+
+    {% if a.kaynaklar %}
+    <div class="kaynak-rozetleri">
+      <span class="kaynak-etiket">Kaynaklar</span>
+      {% for k in a.kaynaklar %}
+      <span class="rozet rozet-kaynak" title="{{ kaynak_adlari.get(k, k) }}">✓ {{ k }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </aside>
+  {% endif %}
+
+  <p class="kaynak-not">Veri: {{ a.veri_kaynagi }} · Yayın: {{ a.tarih_tr }}</p>
+</article>
+{% endblock %}

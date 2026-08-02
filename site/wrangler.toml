@@ -1,0 +1,20 @@
+# Cloudflare dagitim yapilandirmasi
+#
+# Bu dosya sayesinde yayina alma tek komuta iniyor:
+#     python yayinla.py
+#
+# Elle ZIP yukleme dongusu bitiyor. Ayrica proje adi da duzeliyor --
+# panelde rastgele "raspy-dream-edeb" yerine "netaris" gorunecek.
+
+name = "netaris"
+compatibility_date = "2026-07-31"
+
+# Sunucu tarafinda calisan kod yok; Cloudflare dosyalari dogrudan sunuyor.
+# Statik site icin gereken tek sey bu.
+[assets]
+directory = "./cikti"
+
+# Bulunamayan adreste 404 dondur. "single-page-application" secilirse her
+# adres index.html'e yonlenir ve kirik baglantilar sessizce ana sayfayi
+# gosterir -- haber sitesinde istenmeyen davranis.
+not_found_handling = "none"

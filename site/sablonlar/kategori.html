@@ -1,0 +1,39 @@
+{% extends "temel.html" %}
+
+{% block baslik %}{{ kategori_baslik }} — {{ site.ad }}{% endblock %}
+{% block aciklama %}{{ kategori_aciklama }}{% endblock %}
+
+{% block icerik %}
+<div class="giris">
+  <p class="ust-etiket">{{ site.ad }}</p>
+  <h1>{{ kategori_baslik }}</h1>
+  <p>{{ kategori_aciklama }}</p>
+</div>
+
+<ul class="izgara">
+  {% for a in analizler %}
+  <li>
+    <a class="kart" href="{{ a.yol }}">
+      <span class="kart-gorsel">{{ a.gorsel_svg | safe }}</span>
+      <span class="kart-ic">
+        <span class="ust-satir">
+          {% if a.kod and a.kod != "MAKRO" %}<span class="rozet rozet-kod">{{ a.kod }}</span>{% endif %}
+          {% if a.sektor %}<span class="rozet">{{ a.sektor }}</span>{% endif %}
+          {% for k in a.kaynaklar %}<span class="rozet rozet-kaynak">{{ k }}</span>{% endfor %}
+        </span>
+        <h2 class="kart-baslik">{{ a.baslik }}</h2>
+        <p class="kart-ozet">{{ a.ozet }}</p>
+        <span class="kart-alt">
+          <span class="kart-kunye">
+            <span>{{ a.tarih_tr }}</span>
+            <span class="ayrac">·</span>
+            <span>{{ a.okuma_dk }} dk okuma</span>
+          </span>
+          <span class="devam">Oku →</span>
+        </span>
+      </span>
+    </a>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}

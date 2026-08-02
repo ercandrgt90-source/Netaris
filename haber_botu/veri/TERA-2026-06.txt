@@ -1,0 +1,75 @@
+# =====================================================================
+#  Bilanco veri girisi
+#  Rakamlari KAP'taki finansal tablodan oldugu gibi kopyalayin.
+#
+#  ONEMLI: Tablonun birimini kontrol edin. KAP tablolari genellikle
+#  "bin TL" olarak yayimlanir. Buraya TAM TL yazin -- bin TL'lik bir
+#  rakami oldugu gibi yazarsaniz analiz bin kat yanlis cikar.
+#
+#  Bilmediginiz / tabloda olmayan satiri BOS BIRAKIN, sifir yazmayin.
+#  Bos birakilan kalem "olculemedi" sayilir; sifir "deger sifir" demektir.
+#
+#  Sayilari nokta ya da bosluk ayracli yazabilirsiniz: 17.360.000.000
+# =====================================================================
+
+kod:
+sirket:
+donem:
+onceki_donem:
+
+# Enflasyon esasi:
+#   tms29    -> TMS 29 duzeltilmis tablo (BIST sirketleri 2023 sonundan beri)
+#   nominal  -> duzeltilmemis; bu durumda tufe alanini da doldurun
+esas:           tms29
+tufe:
+
+# ---------------------------------------------------------------------
+#  CARI DONEM
+# ---------------------------------------------------------------------
+hasilat:
+brut_kar:
+faaliyet_kari:
+favok:
+net_kar:
+faaliyet_disi_net:
+
+aktif_toplami:
+ozkaynak:
+donen_varliklar:
+kisa_vadeli_yukumlulukler:
+ticari_alacaklar:
+stoklar:
+net_borc:
+
+faaliyet_nakit_akisi:
+yatirim_harcamasi:
+finansman_gideri:
+
+# ---------------------------------------------------------------------
+#  ONCEKI DONEM  (karsilastirma icin)
+# ---------------------------------------------------------------------
+onceki.hasilat:
+onceki.brut_kar:
+onceki.faaliyet_kari:
+onceki.favok:
+onceki.net_kar:
+onceki.faaliyet_disi_net:
+
+onceki.aktif_toplami:
+onceki.ozkaynak:
+onceki.donen_varliklar:
+onceki.kisa_vadeli_yukumlulukler:
+onceki.ticari_alacaklar:
+onceki.stoklar:
+onceki.net_borc:
+
+onceki.faaliyet_nakit_akisi:
+onceki.yatirim_harcamasi:
+onceki.finansman_gideri:
+
+# ---------------------------------------------------------------------
+#  Gecmis hasilat buyumeleri (reel %) -- trend karsilastirmasi icin.
+#  AYRAC NOKTALI VIRGUL:  28,0; 34,0; 31,0; 25,0
+#  Virgul ondalik ayracidir, ayrac olarak KULLANILMAZ. Bilmiyorsaniz bos birakin.
+# ---------------------------------------------------------------------
+gecmis_buyumeler:
