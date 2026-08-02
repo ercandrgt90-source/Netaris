@@ -95,15 +95,30 @@ jobs:
         run: |
           git config user.name  "netaris-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add -A \
-            haber_botu/netaris.db \
-            haber_botu/kaynak/ceviri_onbellek.json \
-            haber_botu/kaynak/foto_kayit.json \
-            site/statik/foto \
-            site/icerik
+
+          # Var olan yollari topla. Bir dosya henuz uretilmemisse
+          # `git add` hata verip isi dusururdu -- bu yuzden once
+          # varligi kontrol ediliyor.
+          YOLLAR=""
+          for y in haber_botu/netaris.db \
+                   haber_botu/kaynak/ceviri_onbellek.json \
+                   haber_botu/kaynak/foto_kayit.json \
+                   site/statik/foto \
+                   site/icerik; do
+            [ -e "$y" ] && YOLLAR="$YOLLAR $y"
+          done
+
+          if [ -z "$YOLLAR" ]; then
+            echo "yazilacak veri yok"
+            exit 0
+          fi
+
+          git add -A $YOLLAR
           if git diff --staged --quiet; then
             echo "degisiklik yok"
           else
             git commit -m "otomatik: veri güncellemesi $(date -u +'%Y-%m-%d %H:%M UTC')"
+            # Bu arada baska bir commit girmis olabilir; once cek
+            git pull --rebase --autostash origin "${GITHUB_REF_NAME}" || true
             git push
           fi
