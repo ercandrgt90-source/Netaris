@@ -260,7 +260,7 @@ def _yontem(r: Rapor) -> str:
     kaynak = (
         "tokenleştirilmiş altın (PAXG) fiyatından"
         if r.sembol == "PAXGUSDT"
-        else "Binance spot piyasa verisinden"
+        else "Kraken spot piyasa verisinden"
     )
     metin = (
         f"Bu sayfadaki bütün göstergeler {kaynak}, {r.mum_sayisi} günlük "

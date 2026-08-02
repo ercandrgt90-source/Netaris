@@ -155,9 +155,9 @@ def main() -> int:
 
     # Depoya yaz -- JSON dosyasi her calistirmada uzerine yaziliyor,
     # depo ise birikiyor. Bir duyuruyu ilk ne zaman gordugumuz orada kalir.
-    # Yayin yolu insa aninda belirleniyor ama kurali burada bilinir:
-    # yorumlanan her habere sayfa uretilir. Depoya bunu simdi yaziyoruz ki
-    # "kac haber yayimlandi" sorusu dogru cevaplanabilsin.
+    # Depoya "yayimlandi" bilgisini yazmak icin: yorumlanan her habere
+    # sayfa uretilir, bu kural burada biliniyor. Gercek adres insa aninda
+    # olusuyor; burada yalnizca yayimlanacagini isaretliyoruz.
     for k in kayitlar:
         if k["yorumlanir"]:
             k["yol"] = "/haber/"

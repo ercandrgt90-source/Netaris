@@ -718,15 +718,6 @@ def insa() -> int:
         "kaynak_adlari": KAYNAK_ADLARI,
     }
 
-    # Ana sayfa
-    yaz(
-        "/index.html",
-        ortam.get_template("anasayfa.html").render(
-            **ortak, yol="/", analizler=analizler,
-            rakamlar=kunye_rakamlari(analizler),
-        ),
-    )
-
     # Analizler
     for a in analizler:
         yaz(
@@ -788,6 +779,22 @@ def insa() -> int:
             ortam.get_template("gundem.html").render(**ortak, yol="/gundem/"),
         )
         yollar.append("/gundem/")
+
+    # Ana sayfa EN SONDA uretilir.
+    #
+    # Sebebi: haber seridi yalnizca kendi sayfasi OLAN haberleri listeliyor
+    # ve o adresler yukaridaki dongude olusuyor. Ana sayfa once uretilirse
+    # `h.yol` henuz bos olur, filtre hicbir haberi gecirmez ve serit
+    # kabi bos basilir -- sayfada "Haberler" basligi gorunur ama alti
+    # bostur. Bir kez oyle oldu; hata mesaji vermedigi icin ancak canli
+    # sayfa incelenince fark edildi.
+    yaz(
+        "/index.html",
+        ortam.get_template("anasayfa.html").render(
+            **ortak, yol="/", analizler=analizler,
+            rakamlar=kunye_rakamlari(analizler),
+        ),
+    )
 
     # Arama: dizin + sayfa
     yaz("/arama.json", arama_dizini(analizler))
