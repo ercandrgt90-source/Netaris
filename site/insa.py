@@ -815,6 +815,28 @@ def insa() -> int:
     # Varliklar
     shutil.copytree(STATIK, CIKTI / "statik")
 
+    # Uretilen icerigi depoya bildir. Site ureteci butun icerigi tek yerde
+    # gordugu icin bu kaydi atmak icin en dogru yer burasi; her hattin ayri
+    # ayri yazmasi hem tekrar hem de tutarsizlik riski olurdu.
+    try:
+        sys.path.insert(0, str(KOK.parent / "haber_botu"))
+        import beyin  # noqa: PLC0415
+
+        with beyin.baglan() as b:
+            beyin.icerik_yaz(b, [
+                {
+                    "slug": a.slug, "tur": slugla(a.kategori),
+                    "baslik": a.baslik, "kod": a.kod,
+                    "kategori": a.kategori, "tarih": a.tarih,
+                    "kelime": a.kelime,
+                }
+                for a in analizler
+            ])
+    except Exception as e:
+        # Depo yazimi siteyi uretmeyi ENGELLEMEZ -- kayit tutmak yan is,
+        # site uretimi asil is.
+        print(f"  (depo kaydi atlandi: {type(e).__name__})")
+
     bolum_sayisi = len(hakkimizda.gezinme) if hakkimizda else 0
     print(f"{len(analizler)} analiz, hakkimizda {bolum_sayisi} bolum")
     print(f"{len(yollar)} adres, cikti: {CIKTI.relative_to(KOK.parent)}")

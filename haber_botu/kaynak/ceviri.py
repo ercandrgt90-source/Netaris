@@ -141,14 +141,99 @@ _DUZELTMELER = (
     (r"\s+([,.;:!?])", r"\1"),
 )
 
+#: FINANSAL TERIM SOZLUGU -- ceviriden SONRA uygulanir.
+#:
+#: Genel amacli ceviri motorlari finansal terimleri gunluk anlamlariyla
+#: cevirir ve sonuc teknik olarak yanlis olur. Olculen ornekler:
+#:
+#:   "enforcement action" -> "icra davasi"
+#:       Icra davasi borc tahsilatidir. Bankacilik duzenlemesinde bu
+#:       "yaptirim karari"dir; ikisinin hukuki anlami tamamen farkli.
+#:
+#: Desenler kelime siniriyla eslesir; "icra" kelimesi baska bir baglamda
+#: gectiginde bozulmamasi icin cevresindeki sozcuklerle birlikte aranir.
+_TERIMLER = (
+    (r"\bicra (davası|davaları) açtı\b", "yaptırım kararı verdi"),
+    (r"\bicra (davası|davaları)\b", "yaptırım kararı"),
+    (r"\bicra (işlemleri|işlemi) başlattı\b", "yaptırım işlemi başlattı"),
+    (r"\bicra (işlemleri|işlemi)\b", "yaptırım işlemi"),
+    (r"\bkarşılıklı bankacılık\b", "karşılıklı tasarruf bankacılığı"),
+    (r"\biçerdeki(ler|lere)?\b", r"içeriden öğrenenler"),
+    (r"\bgörüş talep ediyor\b", "görüşe açtı"),
+    (r"\byorum yapılmasını talep ediyor\b", "görüşe açtı"),
+    (r"\byorum talep ediyor\b", "görüşe açtı"),
+    (r"\bpara politikası beyanı\b", "para politikası açıklaması"),
+    (r"\bücret izleyicisi\b", "ücret göstergesi"),
+)
+
+#: OZEL ADLAR -- cevrilmemeli.
+#:
+#: Ceviri motoru kurum adlarini anlamlarina gore ceviriyor:
+#:   "Regions Bank" -> "Bölgeler Bankası"
+#: Bu, var olmayan bir kurum adi uretmek demek. Ozel ad oldugu gibi kalir.
+#: SIRA ONEMLI: EKLI BICIMLER ONCE.
+#: "Bölgeler Bankası" once degistirilirse geriye "Regions Bank'nın" kalir --
+#: Turkce'de ek son sesliye gore degisiyor ("Bankası'nın" ama "Bank'ın"),
+#: ve kisa desen once eslesince ek duzeltilemez hale geliyor.
+_OZEL_ADLAR = (
+    ("Bölgeler Bankası'nın", "Regions Bank'ın"),
+    ("Bölgeler Bankası'na", "Regions Bank'a"),
+    ("Bölgeler Bankası'nda", "Regions Bank'ta"),
+    ("Bölgeler Bankası", "Regions Bank"),
+    ("Beşinci Üçüncü Banka", "Fifth Third Bank"),
+    ("Zenginlik Yönetimi", "Wealth Management"),
+    ("Vadeli İşlemler Borsası", "Futures Exchange"),
+    ("Federal Rezerv Kurulu'nun", "Fed Kurulu'nun"),
+    ("Federal Rezerv Kurulu", "Fed Kurulu"),
+    ("Federal Rezerv'in", "Fed'in"),
+    ("Federal Rezerv", "Fed"),
+)
+
+#: Duzeltme sonrasi kalabilecek ek uyumsuzluklari toplar.
+#: "Bank'nın" gibi bir bicim, ozel ad degisimi sirasinda olusabiliyor;
+#: Turkce'de sessizle biten sozcuk "'nın" almaz.
+_EK_DUZELTME = (
+    (r"Bank'nın\b", "Bank'ın"),
+    (r"Bank'na\b", "Bank'a"),
+    (r"Bank'nda\b", "Bank'ta"),
+    (r"Fed'nin\b", "Fed'in"),
+)
+
 
 def _duzelt(metin: str) -> str:
-    """Makine cevirisinin biraktigi bicim hatalarini toplar.
+    """Makine cevirisinin biraktigi hatalari toplar.
 
-    MyMemory Turkce'de yuzde isaretini sayidan ayiriyor ("% 2,7") ve kesme
-    isaretinden once bosluk birakiyor ("2027 'nin"). Ikisi de duzeltilebilir
-    ve duzeltilmezse metin ceviri kokuyor.
+    Uc katman:
+      1. Bicim  -- "% 2,7" -> "%2,7", "2027 'nin" -> "2027'nin"
+      2. Terim  -- "icra davasi" -> "yaptirim karari"
+      3. Ozel ad -- "Bölgeler Bankası" -> "Regions Bank"
+
+    Sira onemli: ozel adlar en sonda, cunku terim duzeltmeleri ozel ad
+    iceren cumleleri de degistirebiliyor.
     """
     for desen, yerine in _DUZELTMELER:
         metin = re.sub(desen, yerine, metin)
+    for desen, yerine in _TERIMLER:
+        metin = re.sub(desen, yerine, metin, flags=re.IGNORECASE)
+    for yanlis, dogru in _OZEL_ADLAR:
+        metin = metin.replace(yanlis, dogru)
+    for desen, yerine in _EK_DUZELTME:
+        metin = re.sub(desen, yerine, metin)
     return metin.strip()
+
+
+def onbellek_tazele(onbellek: dict[str, str]) -> int:
+    """Onbellekteki cevirilere guncel duzeltmeleri uygular.
+
+    Sozluge yeni terim eklendiginde eski ceviriler kendiliginden
+    duzelmez -- onbellekten geldikleri icin `_duzelt` hic calismaz. Bu
+    islev onbellegi bastan gecirir; kota harcamaz cunku yeniden ceviri
+    yapilmaz.
+    """
+    n = 0
+    for anahtar, deger in list(onbellek.items()):
+        yeni = _duzelt(deger)
+        if yeni != deger:
+            onbellek[anahtar] = yeni
+            n += 1
+    return n

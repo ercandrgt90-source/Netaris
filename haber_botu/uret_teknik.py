@@ -33,6 +33,9 @@ sys.path.insert(0, str(_KOK / "analiz"))
 sys.path.insert(0, str(_KOK / "ai"))
 sys.path.insert(0, str(_KOK / "kaynak"))
 
+sys.path.insert(0, str(_KOK))
+
+import beyin  # noqa: E402
 import kraken  # noqa: E402
 import guvenlik  # noqa: E402
 import prompt  # noqa: E402
@@ -59,8 +62,25 @@ def _isle(sembol: str, yayinla: bool) -> int:
         print(f"VERI CEKILEMEDI: {type(e).__name__}: {e}")
         return 1
 
+    # Mumlari depoya yaz. Panel ve yazi yalnizca SON durumu gosterir;
+    # depo gecmisi biriktiriyor. Zamanla kendi fiyat serimiz olusur ve
+    # borsaya gitmeden gecmise bakilabilir.
+    from datetime import datetime, timezone
+    with beyin.baglan() as b:
+        with beyin.calisma_kaydi(b, f"teknik:{sembol}") as ozet:
+            n = beyin.fiyat_yaz(b, sembol, [
+                {
+                    "tarih": datetime.fromtimestamp(
+                        m.zaman, timezone.utc).date().isoformat(),
+                    "kapanis": m.kapanis, "yuksek": m.yuksek,
+                    "dusuk": m.dusuk, "hacim": m.hacim,
+                }
+                for m in seri.mumlar
+            ])
+            ozet["yeni_mum"] = n
+
     r = teknik.hesapla(seri)
-    print(f"{r.mum_sayisi} mum  |  fiyat {r.fiyat:,.2f}")
+    print(f"{r.mum_sayisi} mum  |  fiyat {r.fiyat:,.2f}  |  depo: {n} yeni")
     print(f"  RSI(14)      {r.rsi14:.1f}" if r.rsi14 is not None else "  RSI yok")
     if r.macd_histogram is not None:
         print(f"  MACD hist    {r.macd_histogram:+.2f}")

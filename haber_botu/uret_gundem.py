@@ -95,6 +95,15 @@ def main() -> int:
     # --- Ceviri ve baglam ---
     print("\nCEVIRI VE BAGLAM")
     cevirmen = ceviri.Cevirmen()
+
+    # Sozluge yeni terim eklendiginde onbellekteki eski ceviriler
+    # kendiliginden duzelmez -- onbellekten geldikleri icin duzeltme
+    # katmani hic calismaz. Her calistirmada bastan geciriliyor; kota
+    # harcamaz cunku yeniden ceviri yapilmiyor.
+    tazelenen = ceviri.onbellek_tazele(cevirmen.onbellek)
+    if tazelenen:
+        print(f"  {tazelenen} eski ceviri sozluge gore duzeltildi")
+
     kayitlar = []
     yorumlanan = 0
 
