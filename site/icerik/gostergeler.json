@@ -1,5 +1,5 @@
 {
-  "guncelleme": "2026-07-31",
+  "guncelleme": "2026-08-03",
   "kaynak": "FRED (St. Louis Fed)",
   "kalemler": [
     {
@@ -23,10 +23,10 @@
     {
       "kod": "DJIA",
       "ad": "DOW",
-      "deger": "52.485",
-      "fark": "+0,53%",
+      "deger": "53.178",
+      "fark": "+1,32%",
       "yon": "artis",
-      "tarih": "2026-07-31",
+      "tarih": "2026-08-03",
       "birim": "endeks"
     },
     {
@@ -53,34 +53,34 @@
       "deger": "%3,63",
       "fark": "0 bp",
       "yon": "yatay",
-      "tarih": "2026-07-30",
+      "tarih": "2026-07-31",
       "birim": "%"
     },
     {
       "kod": "DGS2",
       "ad": "ABD 2Y",
-      "deger": "%4,23",
-      "fark": "+1 bp",
+      "deger": "%4,28",
+      "fark": "+5 bp",
       "yon": "artis",
-      "tarih": "2026-07-30",
+      "tarih": "2026-07-31",
       "birim": "%"
     },
     {
       "kod": "DGS10",
       "ad": "ABD 10Y",
-      "deger": "%4,68",
-      "fark": "+1 bp",
+      "deger": "%4,75",
+      "fark": "+7 bp",
       "yon": "artis",
-      "tarih": "2026-07-30",
+      "tarih": "2026-07-31",
       "birim": "%"
     },
     {
       "kod": "T10Y2Y",
       "ad": "10Y-2Y",
-      "deger": "0,47",
-      "fark": "+2 bp",
-      "yon": "artis",
-      "tarih": "2026-07-31",
+      "deger": "0,45",
+      "fark": "-2 bp",
+      "yon": "azalis",
+      "tarih": "2026-08-03",
       "birim": "puan"
     },
     {
@@ -95,19 +95,19 @@
     {
       "kod": "DTWEXBGS",
       "ad": "DXY",
-      "deger": "120,71",
-      "fark": "-0,16%",
-      "yon": "azalis",
-      "tarih": "2026-07-24",
+      "deger": "119,70",
+      "fark": "+0,02%",
+      "yon": "artis",
+      "tarih": "2026-07-31",
       "birim": "endeks"
     },
     {
       "kod": "DEXUSEU",
       "ad": "EUR/USD",
-      "deger": "1,14",
-      "fark": "+0,11%",
-      "yon": "artis",
-      "tarih": "2026-07-24",
+      "deger": "1,15",
+      "fark": "-0,03%",
+      "yon": "azalis",
+      "tarih": "2026-07-31",
       "birim": "USD"
     }
   ],
@@ -136,10 +136,10 @@
         {
           "kod": "DJIA",
           "ad": "Dow Jones",
-          "deger": "52.485",
-          "fark": "+0,53%",
+          "deger": "53.178",
+          "fark": "+1,32%",
           "yon": "artis",
-          "tarih": "2026-07-31",
+          "tarih": "2026-08-03",
           "birim": "endeks"
         }
       ]
@@ -176,34 +176,34 @@
           "deger": "%3,63",
           "fark": "0 bp",
           "yon": "yatay",
-          "tarih": "2026-07-30",
+          "tarih": "2026-07-31",
           "birim": "%"
         },
         {
           "kod": "DGS2",
           "ad": "ABD 2 yıllık",
-          "deger": "%4,23",
-          "fark": "+1 bp",
+          "deger": "%4,28",
+          "fark": "+5 bp",
           "yon": "artis",
-          "tarih": "2026-07-30",
+          "tarih": "2026-07-31",
           "birim": "%"
         },
         {
           "kod": "DGS10",
           "ad": "ABD 10 yıllık",
-          "deger": "%4,68",
-          "fark": "+1 bp",
+          "deger": "%4,75",
+          "fark": "+7 bp",
           "yon": "artis",
-          "tarih": "2026-07-30",
+          "tarih": "2026-07-31",
           "birim": "%"
         },
         {
           "kod": "T10Y2Y",
           "ad": "10Y − 2Y farkı",
-          "deger": "0,47",
-          "fark": "+2 bp",
-          "yon": "artis",
-          "tarih": "2026-07-31",
+          "deger": "0,45",
+          "fark": "-2 bp",
+          "yon": "azalis",
+          "tarih": "2026-08-03",
           "birim": "puan"
         }
       ]
@@ -223,19 +223,19 @@
         {
           "kod": "DTWEXBGS",
           "ad": "Dolar endeksi",
-          "deger": "120,71",
-          "fark": "-0,16%",
-          "yon": "azalis",
-          "tarih": "2026-07-24",
+          "deger": "119,70",
+          "fark": "+0,02%",
+          "yon": "artis",
+          "tarih": "2026-07-31",
           "birim": "endeks"
         },
         {
           "kod": "DEXUSEU",
           "ad": "EUR/USD",
-          "deger": "1,14",
-          "fark": "+0,11%",
-          "yon": "artis",
-          "tarih": "2026-07-24",
+          "deger": "1,15",
+          "fark": "-0,03%",
+          "yon": "azalis",
+          "tarih": "2026-07-31",
           "birim": "USD"
         }
       ]
