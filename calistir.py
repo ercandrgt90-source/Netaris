@@ -98,6 +98,13 @@ def main() -> int:
                         # TCMB eklenince aday sayisi 56'dan 116'ya cikti;
                         # 24'luk sinir yeni kaynagi gorunmez birakirdi.
                         [str(BOT / "uret_gundem.py"), "--yayinla", "--sinir", "40"]))
+    # Olay motoru haberlerden SONRA calisir: haber akisini okuyup esigi
+    # gecenler icin fiyat tepkisi olcuyor. Makro adimindan da sonra
+    # olmali -- gecikmeli kalemleri gostergeler.json'dan aliyor.
+    if "olay" not in args.atla:
+        adimlar.append(("Olay motoru (haber → fiyat tepkisi → açıklama)",
+                        [str(BOT / "uret_olay.py"), "--yayinla"]))
+
     # Uye yazilari haberlerden SONRA, site uretiminden ONCE. HAT_SIRRI
     # yoksa adim kendi kendini atlar ve hat kirmizi donmez -- uyelik
     # sistemi kapaliyken de site uretilebilmeli.

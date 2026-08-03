@@ -101,9 +101,110 @@ CREATE TABLE IF NOT EXISTS calisma (
     ozet       TEXT
 );
 
+-- ===================================================================
+-- GRAF KATMANI -- varlik, bag, olay, kanit
+--
+-- Yukaridaki tablolar bir KUTUK: ne zaman ne gorduk. Asagidakiler bir
+-- AG: neyin neyle iliskili oldugu ve her iddianin neye dayandigi.
+--
+-- Ayrimin sebebi: kutuk "3 Agustos'ta su haber geldi" sorusunu
+-- cevapliyor ama "bu daha once ne zaman oldu, o zaman ne olmustu"
+-- sorusunu cevaplayamiyor. Ikinci soru, yaziyi yorumdan arastirmaya
+-- ceviren tek sey.
+-- ===================================================================
+
+-- Dugum. Kurum, kisi, ulke, gosterge, sirket, sektor, emtia...
+--
+-- `kod` DILDEN BAGIMSIZ kimlik. Fed tek varliktir; Turkce adi "Fed",
+-- Ingilizce adi "Federal Reserve". Cok dilli yayina gecildiginde ad
+-- degisir, kod degismez -- bu yuzden baglar bozulmaz.
+CREATE TABLE IF NOT EXISTS varlik (
+    kod        TEXT PRIMARY KEY,
+    tur        TEXT NOT NULL,      -- kurum|kisi|ulke|gosterge|sirket|sektor|emtia
+    ad         TEXT NOT NULL,
+    ad_en      TEXT,
+    aciklama   TEXT,
+    -- Fiyat/veri serisiyle eslesiyorsa kaynak kodu: "DCOILBRENTEU", "XAU"
+    seri_kodu  TEXT,
+    onem       INTEGER DEFAULT 0,  -- siralamada kullanilir
+    kayit_ani  TEXT NOT NULL
+);
+
+-- Kenar. YONLU: (kaynak -> hedef).
+--
+-- `tur` iliskinin NE oldugunu soyler; "etkiler" ile "belirler" ayni sey
+-- degil. Fed politika faizini BELIRLER, altini ETKILER.
+--
+-- `dayanak` bu bagin nereden geldigi. Elle yazilmis yapisal bir kanal mi,
+-- yoksa veriden mi cikarildi? Ikisi ayni guvende degil ve okura ayni
+-- sekilde sunulamaz.
+CREATE TABLE IF NOT EXISTS bag (
+    kaynak     TEXT NOT NULL REFERENCES varlik(kod),
+    hedef      TEXT NOT NULL REFERENCES varlik(kod),
+    tur        TEXT NOT NULL,      -- belirler|etkiler|uyesi|rakibi|ureticisi
+    aciklama   TEXT,
+    dayanak    TEXT NOT NULL DEFAULT 'yapisal',  -- yapisal|veri|kaynak
+    guc        INTEGER DEFAULT 1,
+    kayit_ani  TEXT NOT NULL,
+    PRIMARY KEY (kaynak, hedef, tur)
+);
+
+-- Olay. Esigi gecen, hakkinda icerik uretilen haber.
+--
+-- Her haber olay DEGILDIR. Olay, fiyat tepkisi olculen ve aciklama
+-- uretilen seydir; ayri tablo olmasinin sebebi bu.
+CREATE TABLE IF NOT EXISTS olay (
+    id          INTEGER PRIMARY KEY AUTOINCREMENT,
+    anahtar     TEXT NOT NULL UNIQUE,   -- tekrar uretimi engeller
+    tur         TEXT NOT NULL,          -- enflasyon|faiz|istihdam|jeopolitik|arz
+    baslik      TEXT NOT NULL,
+    ozet        TEXT,
+    haber_adres TEXT REFERENCES haber(adres),
+    an          TEXT NOT NULL,          -- olayin gerceklestigi an (ISO)
+    siddet      INTEGER DEFAULT 0,      -- esik hesabinin ciktisi
+    yayimlandi  INTEGER DEFAULT 0,
+    kayit_ani   TEXT NOT NULL
+);
+
+-- Olayin fiyat tepkisi. Bir olay, birden cok varlikta olculur.
+--
+-- `pencere_sn` olcumun hangi araligi kapsadigi; `gozlem_ani` verinin
+-- kendi tarihi. Ikisi de yaziliyor cunku "petrol %5 yukseldi" cumlesi
+-- HANGI ARALIKTA ve HANGI TARIHLI veriyle soylendigini tasimali.
+CREATE TABLE IF NOT EXISTS tepki (
+    olay_id     INTEGER NOT NULL REFERENCES olay(id) ON DELETE CASCADE,
+    varlik      TEXT NOT NULL,
+    deger       REAL,
+    degisim     REAL,               -- yuzde
+    pencere_sn  INTEGER,
+    gozlem_ani  TEXT,
+    kaynak      TEXT,
+    gecikmeli   INTEGER DEFAULT 0,  -- 1 ise veri gun ici degil, gecikmeli
+    PRIMARY KEY (olay_id, varlik, pencere_sn)
+);
+
+-- Kanit. Her iddianin dayandigi belge.
+--
+-- "Resmi veri ile gorusu ayirmak" ancak her cumlenin arkasinda bir kayit
+-- varsa mumkun. Okur "bu rakam nereden geliyor" diye sorabilmeli.
+CREATE TABLE IF NOT EXISTS kanit (
+    id         INTEGER PRIMARY KEY AUTOINCREMENT,
+    konu_turu  TEXT NOT NULL,       -- olay|bag|icerik
+    konu_id    TEXT NOT NULL,
+    tur        TEXT NOT NULL,       -- veri|belge|hesap
+    kaynak     TEXT NOT NULL,
+    adres      TEXT,
+    alinti     TEXT,
+    gozlem_ani TEXT,
+    kayit_ani  TEXT NOT NULL
+);
+
 CREATE INDEX IF NOT EXISTS ix_gosterge_tarih ON gosterge(tarih);
 CREATE INDEX IF NOT EXISTS ix_haber_tarih    ON haber(tarih);
 CREATE INDEX IF NOT EXISTS ix_icerik_tur     ON icerik(tur, tarih);
+CREATE INDEX IF NOT EXISTS ix_bag_hedef      ON bag(hedef);
+CREATE INDEX IF NOT EXISTS ix_olay_tur       ON olay(tur, an);
+CREATE INDEX IF NOT EXISTS ix_kanit_konu     ON kanit(konu_turu, konu_id);
 """
 
 
@@ -302,6 +403,143 @@ def yeni_haberler(b, gun: int = 7) -> list[sqlite3.Row]:
     return b.execute(
         "SELECT * FROM haber WHERE ilk_gorulme >= date('now', ?)"
         " ORDER BY tarih DESC", (f"-{gun} days",),
+    ).fetchall()
+
+
+# =====================================================================
+# GRAF -- varlik, bag, olay, tepki, kanit
+# =====================================================================
+
+
+def varlik_yaz(b, kayitlar: list[dict]) -> int:
+    """Varlik ekler ya da gunceller.
+
+    `INSERT OR REPLACE` degil, alan alan UPSERT: varligin `onem` degeri
+    zamanla elle ayarlanabilir ve her calistirmada sifirlanmamali.
+    """
+    n = 0
+    for k in kayitlar:
+        b.execute(
+            "INSERT INTO varlik (kod, tur, ad, ad_en, aciklama, seri_kodu,"
+            " onem, kayit_ani) VALUES (?,?,?,?,?,?,?,?)"
+            " ON CONFLICT(kod) DO UPDATE SET"
+            "   ad=excluded.ad, ad_en=excluded.ad_en,"
+            "   aciklama=excluded.aciklama, seri_kodu=excluded.seri_kodu",
+            (k["kod"], k["tur"], k["ad"], k.get("ad_en"), k.get("aciklama"),
+             k.get("seri_kodu"), k.get("onem", 0), simdi()),
+        )
+        n += 1
+    return n
+
+
+def bag_yaz(b, baglar: list[dict]) -> int:
+    n = 0
+    for g in baglar:
+        b.execute(
+            "INSERT OR IGNORE INTO bag (kaynak, hedef, tur, aciklama,"
+            " dayanak, guc, kayit_ani) VALUES (?,?,?,?,?,?,?)",
+            (g["kaynak"], g["hedef"], g["tur"], g.get("aciklama"),
+             g.get("dayanak", "yapisal"), g.get("guc", 1), simdi()),
+        )
+        n += b.total_changes and 1 or 0
+    return n
+
+
+def komsular(b, kod: str, derinlik: int = 1) -> list[sqlite3.Row]:
+    """Bir varliktan cikan baglar. Bilgi agacinin temel sorgusu.
+
+    Derinlik 1'den buyukse genisleyerek ilerler. Dongu koruması var:
+    Fed -> Dolar -> Fed gibi bir halka sonsuz donguye girerdi.
+    """
+    gorulen = {kod}
+    sira = [kod]
+    sonuc: list[sqlite3.Row] = []
+    for _ in range(max(1, derinlik)):
+        if not sira:
+            break
+        yer = ",".join("?" * len(sira))
+        satirlar = b.execute(
+            f"SELECT g.*, v.ad AS hedef_ad, v.tur AS hedef_tur"
+            f" FROM bag g JOIN varlik v ON v.kod = g.hedef"
+            f" WHERE g.kaynak IN ({yer}) ORDER BY g.guc DESC", sira,
+        ).fetchall()
+        sonuc.extend(satirlar)
+        sira = [s["hedef"] for s in satirlar if s["hedef"] not in gorulen]
+        gorulen.update(sira)
+    return sonuc
+
+
+def olay_yaz(b, olay: dict) -> int | None:
+    """Olayi kaydeder. Zaten varsa None doner -- tekrar uretilmez.
+
+    `anahtar` tekrari engelliyor: ayni olay iki kaynaktan gelirse ya da
+    hat iki kez calisirsa ikinci kez icerik uretilmemeli.
+    """
+    var = b.execute("SELECT id FROM olay WHERE anahtar=?",
+                    (olay["anahtar"],)).fetchone()
+    if var:
+        return None
+    im = b.execute(
+        "INSERT INTO olay (anahtar, tur, baslik, ozet, haber_adres, an,"
+        " siddet, kayit_ani) VALUES (?,?,?,?,?,?,?,?)",
+        (olay["anahtar"], olay["tur"], olay["baslik"], olay.get("ozet"),
+         olay.get("haber_adres"), olay["an"], olay.get("siddet", 0), simdi()),
+    )
+    return im.lastrowid
+
+
+def tepki_yaz(b, olay_id: int, tepkiler: list[dict]) -> int:
+    n = 0
+    for t in tepkiler:
+        b.execute(
+            "INSERT OR REPLACE INTO tepki (olay_id, varlik, deger, degisim,"
+            " pencere_sn, gozlem_ani, kaynak, gecikmeli)"
+            " VALUES (?,?,?,?,?,?,?,?)",
+            (olay_id, t["varlik"], t.get("deger"), t.get("degisim"),
+             t.get("pencere_sn"), t.get("gozlem_ani"), t.get("kaynak"),
+             1 if t.get("gecikmeli") else 0),
+        )
+        n += 1
+    return n
+
+
+def kanit_yaz(b, kayitlar: list[dict]) -> int:
+    for k in kayitlar:
+        b.execute(
+            "INSERT INTO kanit (konu_turu, konu_id, tur, kaynak, adres,"
+            " alinti, gozlem_ani, kayit_ani) VALUES (?,?,?,?,?,?,?,?)",
+            (k["konu_turu"], str(k["konu_id"]), k["tur"], k["kaynak"],
+             k.get("adres"), k.get("alinti"), k.get("gozlem_ani"), simdi()),
+        )
+    return len(kayitlar)
+
+
+def benzer_olaylar(b, tur: str, haric_id: int | None = None,
+                   adet: int = 5) -> list[sqlite3.Row]:
+    """Ayni turden gecmis olaylar -- TARIHSEL EMSAL.
+
+    Motorun en degerli sorgusu bu. "Bu daha once ne zaman oldu ve o zaman
+    ne olmustu" sorusunun cevabi; yaziyi yorumdan arastirmaya ceviren sey.
+    """
+    return b.execute(
+        "SELECT o.*, ("
+        "  SELECT json_group_array(json_object("
+        "    'varlik', t.varlik, 'degisim', t.degisim))"
+        "  FROM tepki t WHERE t.olay_id = o.id AND t.degisim IS NOT NULL"
+        ") AS tepkiler"
+        " FROM olay o WHERE o.tur = ? AND o.id IS NOT ?"
+        " ORDER BY o.an DESC LIMIT ?",
+        (tur, haric_id, adet),
+    ).fetchall()
+
+
+def olay_gecmisi(b, varlik: str, adet: int = 20) -> list[sqlite3.Row]:
+    """Bir varligin gecmiste hangi olaylarda nasil tepki verdigi."""
+    return b.execute(
+        "SELECT o.an, o.tur, o.baslik, t.degisim, t.pencere_sn"
+        " FROM tepki t JOIN olay o ON o.id = t.olay_id"
+        " WHERE t.varlik = ? AND t.degisim IS NOT NULL"
+        " ORDER BY o.an DESC LIMIT ?", (varlik, adet),
     ).fetchall()
 
 

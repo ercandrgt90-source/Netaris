@@ -205,6 +205,21 @@ UYARI_METNI_SKORSUZ = (
     "bir değerlendirme yer almaz."
 )
 
+#: OLAY yazilari icin. Yukaridaki iki metin BILANCO yazilari icin yazildi
+#: ve "veriler KAP'ta yayimlanan finansal tablolardan alinmistir" diyor.
+#: Olay yazisinda KAP verisi YOK -- oraya o uyariyi koymak, dogru olmayan
+#: bir kaynak beyani yapmak olurdu. Bir kez oyle yayimlandi.
+#:
+#: Bu metin ayrica NEDENSELLIK IDDIASINI da reddediyor: fiyat hareketi
+#: olculur, sebebi iddia edilmez.
+UYARI_METNI_OLAY = (
+    "Bu içerik yalnızca bilgilendirme amaçlıdır, yatırım tavsiyesi değildir. "
+    "Fiyat hareketleri belirtilen kaynaklardan ve belirtilen zaman "
+    "aralığında ölçülmüştür; hareketin sebebinin haberdeki gelişme olduğu "
+    "iddia edilmemektedir. Aktarım kanalları yapısal ilişkileri anlatır, "
+    "fiyat yönü veya büyüklüğü hakkında öngörü içermez."
+)
+
 
 def olustur(
     rapor: Rapor,
