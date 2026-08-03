@@ -742,6 +742,20 @@ main.kabuk { padding-top: 26px; padding-bottom: 48px; }
 
 .kicker { margin: 0 0 13px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
 
+/* Ticari kaynak kunyesi. Gorunur ama basligin onune gecmiyor: haber
+   kurulusunun hakki teslim edilmeli, sayfanin sahibi de yazi olmali. */
+.haber-kunye {
+  margin: 14px 0 0;
+  padding: 9px 12px;
+  border-left: 3px solid var(--cizgi, #d8dde5);
+  background: var(--yumusak-zemin, #f6f8fa);
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: var(--ikincil-metin, #5b6470);
+}
+.haber-kunye a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
+.haber-kunye a:hover { color: var(--vurgu, #0b5fff); }
+
 .yazi h1 {
   margin: 0 0 14px;
   font-size: clamp(1.75rem, 4.2vw, 2.6rem);

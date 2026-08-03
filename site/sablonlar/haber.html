@@ -50,6 +50,19 @@
     </p>
     <h1>{{ h.baslik }}</h1>
 
+    {# TICARI KAYNAKTA KUNYE ZORUNLU -- kaldirmayin.
+       Resmi kurum duyurusu kamu belgesi; bir haber kurulusunun muhabirinin
+       urettigi haber degil. RSS yayimlamak "basligi al, ozetle, bana
+       baglanti ver" davetidir. Kunyeyi silmek o davetin disina cikmaktir.
+       Asagidaki "Neden onemli" ve kanal listesi BIZIM ozgun icerigimiz;
+       aktarilan yalnizca olayin kendisi. #}
+    {% if h.ticari %}
+    <p class="haber-kunye">
+      Haber kaynağı:
+      <a href="{{ h.adres }}" rel="nofollow noopener" target="_blank">{{ h.kurum_tam }}</a>
+      · Aşağıdaki değerlendirme Netaris'e aittir.
+    </p>
+    {% endif %}
   </header>
 
   <div class="govde">

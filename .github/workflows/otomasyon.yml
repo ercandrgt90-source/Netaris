@@ -1,7 +1,26 @@
 # Netaris kesintisiz otomasyon
 #
-# Gunde uc kez calisir, makine kapali olsa da: veriyi toplar, icerigi
-# uretir, siteyi kurar, Cloudflare'e dagitir ve dogrular.
+# Makine kapali olsa da calisir: veriyi toplar, icerigi uretir, siteyi
+# kurar, Cloudflare'e dagitir ve dogrular.
+#
+# NEDEN HER SAAT DEGIL DE BOYLE
+# -----------------------------
+# Depo OZEL. Ozel depoda GitHub Actions ayda 2.000 dakika veriyor; bir
+# calisma ~3 dakika. Kesintisiz "her saat" (720 calisma) ayda 2.160 dakika
+# eder ve kotayi ayin son gunlerinde bitirir -- yani en cok ihtiyac
+# duyulan anda otomasyon durur.
+#
+# Onun yerine akisin gercek ritmine uyduruldu:
+#   Hafta ici 05-20 UTC (08-23 TRT) saat basi  -> 16 x 22 gun = 352
+#   Hafta sonu dort saatte bir                 ->  6 x  8 gun =  48
+#   Toplam ~400 calisma ~ 1.200 dakika. Kota icinde, payi da var.
+#
+# Turkiye'de ekonomi haberi hafta ici mesai saatlerinde akiyor; ABD ve AB
+# duyurulari 15-23 TRT arasinda cikiyor. Gece 00-05 TRT'de yeni haber
+# neredeyse yok, o saatlerde calismak bosa dakika harcamak olurdu.
+#
+# Depo herkese acik yapilirsa Actions dakikasi SINIRSIZ olur ve bu
+# takvim serbestce sikilastirilabilir.
 #
 # GEREKEN GIZLI DEGERLER (GitHub > Settings > Secrets and variables >
 # Actions > New repository secret):
@@ -16,10 +35,11 @@ name: Netaris otomasyon
 
 on:
   schedule:
-    # Saatler UTC. Turkiye UTC+3 -> 09:00, 14:00, 19:00
-    - cron: "0 6 * * *"
-    - cron: "0 11 * * *"
-    - cron: "0 16 * * *"
+    # Saatler UTC, Turkiye UTC+3.
+    # Hafta ici saat basi: 05-20 UTC = 08:00-23:00 TRT
+    - cron: "0 5-20 * * 1-5"
+    # Hafta sonu dort saatte bir: 03:00-23:00 TRT
+    - cron: "0 0,4,8,12,16,20 * * 0,6"
   # Panelden elle de calistirilabilsin
   workflow_dispatch:
     inputs:

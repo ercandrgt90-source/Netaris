@@ -58,6 +58,10 @@ KAYIT_YOLU = pathlib.Path(__file__).parent / "foto_kayit.json"
 #: DIKKAT: Openverse butun terimleri AND'liyor. "oil pump jack refinery"
 #: SIFIR sonuc doner cunku dort etiketi birden tasiyan gorsel yok. Iki-uc
 #: kelimelik sorgular calisiyor; havuz dolana kadar sirayla denenir.
+#: Her konu icin en az iki terim olmali: ilki bos donerse sonrakine
+#: geciliyor. Terimler `besleme.KONU_ISARETLERI` ile birebir ayni
+#: anahtarlari kullanir -- test bunu dogruluyor, cunku eksik anahtar
+#: fotografsiz habere yol aciyor ve hicbir hata firlatmiyor.
 KONU_ARAMA = {
     "Enerji": ("oil pump jack", "oil refinery", "oil rig", "petroleum"),
     "Para politikası": ("federal reserve", "central bank", "bank building"),
@@ -65,6 +69,17 @@ KONU_ARAMA = {
     "Bankacılık": ("bank building", "financial district", "skyscraper finance"),
     "Piyasa düzenlemesi": ("stock exchange", "trading floor", "wall street"),
     "Düzenleme": ("courthouse", "government building", "capitol"),
+    "Döviz": ("currency exchange", "banknotes", "money exchange"),
+    "Altın ve emtia": ("gold bars", "gold bullion", "precious metal"),
+    "Kripto varlıklar": ("bitcoin", "cryptocurrency", "blockchain"),
+    "Borsa": ("stock exchange", "trading floor", "stock market"),
+    "Dış ticaret": ("container port", "cargo ship", "shipping containers"),
+    "İstihdam ve ücret": ("factory workers", "office workers", "job interview"),
+    "Konut ve kira": ("apartment buildings", "housing construction", "real estate"),
+    "Vergi ve kamu maliyesi": ("tax forms", "government building", "parliament"),
+    "Tarım ve gıda": ("wheat field", "farm tractor", "harvest"),
+    "Turizm": ("hotel resort", "airport terminal", "tourists"),
+    "Şirket haberleri": ("office building", "corporate headquarters", "boardroom"),
 }
 
 #: Konu basina indirilecek fotograf sayisi

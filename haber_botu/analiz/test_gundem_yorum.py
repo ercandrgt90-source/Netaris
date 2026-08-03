@@ -36,8 +36,9 @@ def esit(bulunan, beklenen, aciklama: str) -> None:
               f"\n         bulunan : {bulunan!r}")
 
 
-def yorumlanir(baslik: str, konu: str, kurum: str = "") -> bool:
-    return gy.siniflandir(baslik, konu, kurum).yorumlanir
+def yorumlanir(baslik: str, konu: str, kurum: str = "",
+               ticari: bool = False) -> bool:
+    return gy.siniflandir(baslik, konu, kurum, ticari).yorumlanir
 
 
 print("\nTCMB -- yorumlanmasi GEREKENLER")
@@ -122,12 +123,50 @@ for konu, (neden, kanallar) in gy.YERLI_BAGLAMI.items():
 esit(gy.siniflandir("Faiz kararı", "Bilinmeyen konu", "TCMB").yorumlanir,
      False, "tanimsiz konu yorumlanmaz")
 
+print("\nTicari akis -- MAKRO konu + OLAY isareti")
+esit(yorumlanir("SSK ve Bağ-Kur emeklilerinin Temmuz ayı zam oranı belli oldu",
+                "İstihdam ve ücret", "Dünya", True), True,
+     "kalip arama kacirmisti: 'emekliLERININ ... ZAM orani'")
+esit(yorumlanir("Temmuz ayı dış ticaret rakamları açıklandı",
+                "Dış ticaret", "AA", True), True, "veri duyurusu")
+esit(yorumlanir("2027 memur ve emekli maaşı Ocak zammı şekilleniyor",
+                "İstihdam ve ücret", "Ekonomist", True), True, "zam haberi")
+esit(yorumlanir("Temmuzda fiyatı en çok artan ve azalan ürünler belli oldu",
+                "Enflasyon", "TRT Haber", True), True, "fiyat verisi")
+
+print("\nTicari akis -- sirket haberi RUTIN kalir")
+esit(yorumlanir("Shell, Avrupa portföyünü TotalEnergies'e satıyor",
+                "Enerji", "AA", True), False,
+     "makro konu ama olay isareti yok -- tek sirketin islemi")
+esit(yorumlanir("Flotek, Porto Riko'da 400 milyon dolarlık sözleşme imzaladı",
+                "Enerji", "Ekonomist", True), False, "sozlesme haberi")
+esit(yorumlanir("Çelebi Havacılık portföyüne THY'yi dahil etti",
+                "Şirket haberleri", "Ekonomim", True), False,
+     "Sirket haberleri makro konu DEGIL")
+
+print("\nOlay isaretlerinde bosluk tuzagi")
+esit(gy._icerir("Bu zaman diliminde", (" zam ",)), False,
+     "'ZAMan' icinde ' zam ' eslesmemeli")
+esit(gy._icerir("Zam geldi", (" zam ",)), True,
+     "baslikta ILK kelime olsa da eslesir -- metin bosluklarla paylaniyor")
+esit(gy._icerir("Kirada zam oranı", (" zam ",)), True, "gercek 'zam' eslesir")
+esit(gy._icerir("Karar verildi", (" veri ",)), False,
+     "'VERIldi' icinde ' veri ' eslesmemeli")
+
 print("\nIsaretler katlanmis yazilmis olmali")
 for i in gy.RUTIN_ISARETLER + gy.ETKILI_ISARETLER:
     if gy._katla(i) != i:
         esit(gy._katla(i), i, f"isaret diakritikli: {i!r}")
-esit(all(gy._katla(i) == i for i in gy.RUTIN_ISARETLER + gy.ETKILI_ISARETLER),
+esit(all(gy._katla(i) == i for i in
+         gy.RUTIN_ISARETLER + gy.ETKILI_ISARETLER + gy.OLAY_ISARETLERI),
      True, "butun isaretler ASCII -- yoksa hic eslesmezler")
+
+print("\nMAKRO_KONULAR baglam tablosunda karsiligi olmali")
+for _k in gy.MAKRO_KONULAR:
+    esit(_k in gy.KONU_BAGLAMI, True, f"'{_k}' baglami var")
+esit("Şirket haberleri" in gy.MAKRO_KONULAR, False,
+     "tek sirket haberi makro kanal anlatmayi hak etmez")
+esit("Düzenleme" in gy.MAKRO_KONULAR, False, "idari islem makro degil")
 
 print(f"\n{_gecti} gecti, {_kaldi} kaldi")
 sys.exit(1 if _kaldi else 0)

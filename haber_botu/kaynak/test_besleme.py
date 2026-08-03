@@ -111,12 +111,118 @@ esit(_o[0]["adres"], "http://www.tcmb.gov.tr/duy2026-32", "Atom link href")
 esit(_o[0]["tarih"], "2026-07-30", "Turkce tarih cozuldu")
 
 print("\nBesleme tanimlari -- alan sayisi ve tekillik")
-esit(all(len(b) == 6 for b in besleme.BESLEMELER), True, "hepsi 6 alanli")
+esit(all(len(b) == 7 for b in besleme.BESLEMELER), True, "hepsi 7 alanli")
 _kodlar = [b[0] for b in besleme.BESLEMELER]
 esit(len(_kodlar), len(set(_kodlar)), "kodlar tekil")
 _adresler = [b[3] for b in besleme.BESLEMELER]
 esit(len(_adresler), len(set(_adresler)), "adresler tekil")
 esit(all(b[5] in ("tr", "en") for b in besleme.BESLEMELER), True, "dil tr/en")
+esit(all(isinstance(b[6], bool) for b in besleme.BESLEMELER), True, "ticari bool")
+esit(all(not b[6] for b in besleme.BESLEMELER
+         if b[0].startswith(("TCMB", "FED", "ECB", "SEC", "EIA"))), True,
+     "resmi kurumlar ticari DEGIL -- kunye zorunlulugu onlara uygulanmaz")
+
+print("\nGurultu -- ekonomi disi oge ticari beslemede elenmeli")
+for _b in ("SÜPER LOTO SONUÇ SORGULAMA EKRANI TIKLA ÖĞREN",
+           "ŞANS TOPU SONUÇLARI NEREDEN SORGULANIR",
+           "Sardes Antik Kenti'nde 2 bin 500 yıllık heykel bulundu",
+           "NOW TV haber spikeri istifa etti",
+           "Moskova'da restoranda patlama: 3 ölü, 21 yaralı",
+           "İlker Ayrılık kaza mı geçirdi, sağlık durumu nasıl?",
+           "15 Temmuz Şehitler Köprüsü belgesel çekimi için trafiğe kapalı"):
+    esit(besleme.gurultu_mu(_b) or not besleme.konu_bul(_b, ""), True,
+         f"elendi: {_b[:44]}")
+
+print("\nGercek ekonomi haberi ELENMEMELI")
+for _b, _k in (("Temmuz enflasyonu açıklandı", "Enflasyon"),
+               ("Dolar endeksinde 2 ayın ardından yön aşağı döndü", "Döviz"),
+               ("Borsa yeni haftaya 13.544,32 puandan başladı", "Borsa"),
+               ("İhracatta tüm zamanların temmuz rekoru", "Dış ticaret"),
+               ("Ağustos ayı kira zam oranları açıklandı", "Konut ve kira"),
+               ("SSK ve Bağ-Kur emeklilerinin zam oranı belli oldu",
+                "İstihdam ve ücret"),
+               ("Turistlerden Türk mutfağına 5,9 milyar dolarlık ilgi",
+                "Turizm"),
+               ("Altın haftaya yükselişle başladı", "Altın ve emtia"),
+               ("Kripto paraların değeri temmuzda 123 milyar dolar arttı",
+                "Kripto varlıklar"),
+               ("TARSİM sisteminde 1,1 trilyon liralık varlık sigortalandı",
+                "Tarım ve gıda"),
+               ("Elektrik santrallerine kapasite mekanizması desteği",
+                "Enerji")):
+    esit(besleme.konu_bul(_b, ""), _k, f"{_k}: {_b[:40]}")
+
+print("\nOlcu birimi konu CALMAMALI -- 'dolar' ve 'kur' her baslikta gecer")
+esit(besleme.konu_bul("Turistler ilk 6 ayda 6 milyar dolar harcadı", ""),
+     "Turizm", "'dolar' Turizm'i calmadi")
+esit(besleme.konu_bul("Yıllık ihracat 278,6 milyar dolarla rekor kırdı", ""),
+     "Dış ticaret", "'dolar' Dis ticaret'i calmadi")
+esit(besleme.konu_bul("SSK ve BAĞ-KUR emeklilerinin zammı belli oldu", ""),
+     "İstihdam ve ücret", "'BAG-KUR' icindeki 'kur' Doviz'e dusurmedi")
+
+print("\nTicari oge POZITIF eslesme ile girer")
+esit(besleme.konu_bul("Bugün hava çok güzel", ""), "",
+     "konu yoksa bos -- ticari oge alinmaz")
+esit(besleme.konu_bul("Bugün hava çok güzel", "Düzenleme"), "Düzenleme",
+     "resmi beslemede varsayilana duser")
+
+print("\nAyni haber, farkli kaynak -- baslik imzasiyla tekilleme")
+esit(besleme.ayni_haber_mi("Temmuz enflasyonu açıklandı",
+                           "Temmuz enflasyonu açıklandı"), True,
+     "birebir ayni baslik -- kisa baslikta da yakalanmali")
+esit(besleme.ayni_haber_mi("İhracatta temmuz rekoru: Yıl sonu hedefi belli",
+                           "İhracatta tüm zamanların temmuz rekoru"), True,
+     "ayni haber, farkli kelimeler")
+esit(besleme.ayni_haber_mi(
+     "Turistler, Türk yemekleri için ilk 6 ayda 6 milyar dolar harcadı",
+     "Turistlerden Türk mutfağına 5,9 milyar dolarlık ilgi"), True,
+     "Turkce ekler govdeye kirpilinca eslesiyor")
+esit(besleme.ayni_haber_mi("Altın haftaya yükselişle başladı",
+                           "Borsa yeni haftaya 13.544 puandan başladı"), False,
+     "iki ortak kelime yetmez -- ayri haberler")
+esit(besleme.ayni_haber_mi("Temmuz enflasyonu açıklandı",
+                           "Temmuzda fiyatı en çok artan ürünler"), False,
+     "ayni ay, ayri haber")
+esit(besleme.ayni_haber_mi("", "Temmuz enflasyonu"), False, "bos baslik")
+
+print("\nKisa kisaltmalar kelime ICINDE eslesmemeli")
+esit(besleme.konu_bul("SEC charges firm with fraud", "Düzenleme"),
+     "Piyasa düzenlemesi", "'char-GES ' Enerji'ye dusurmedi")
+esit(besleme.konu_bul("Billions of dollars in aid announced", ""),
+     "", "'billi-ONS ' Altin'a dusurmedi")
+esit(besleme.konu_bul("Company shares rose after the report", ""),
+     "Borsa", "'sha-RES ' Enerji'ye dusurmedi")
+esit(besleme.konu_bul("An important inflation report", ""),
+     "Enflasyon", "'IMPORTant' Dis ticaret'i calmadi")
+esit(besleme.konu_bul("An important announcement", ""), "",
+     "'important' tek basina hicbir konuya dusmez")
+esit(besleme.konu_bul("GES kurulumuna başlandı", ""), "Enerji",
+     "baslikta ILK kelime olan kisaltma yine de eslesir")
+esit(besleme.konu_bul("China's crude oil imports fell", "Düzenleme"),
+     "Enerji", "petrol ithalati once enerji haberidir")
+
+print("\nSik Turkce kelimeler konu CALMAMALI")
+esit(besleme.konu_bul("Toprağın altında kalan 2500 yıllık heykel", ""), "",
+     "'altINDA' Altin'a dusurmedi -- arkeoloji haberi emtia olmaz")
+esit(besleme.konu_bul("Goldman Sachs hisse önerisini yükseltti", ""),
+     "Borsa", "'GOLDman' Altin'a dusurmedi")
+esit(besleme.konu_bul("Bakan Çiftçi suç çetelerine operasyon açıkladı", ""),
+     "", "bakanin soyadi 'Ciftci' Tarim'a dusurmedi")
+esit(besleme.konu_bul("Gram altın rekor tazeledi", ""), "Altın ve emtia",
+     "gercek altin haberi hala yakalaniyor")
+esit(besleme.konu_bul("Altın haftaya yükselişle başladı", ""),
+     "Altın ve emtia", "yalin 'Altin' kelimesi bosluklu eslesiyor")
+
+print("\nKonu listesi tekil olmali")
+_konular = [k for k, _ in besleme.KONU_ISARETLERI]
+esit(len(_konular), len(set(_konular)),
+     "mukerrer konu yok -- ikinci tanim OLU KOD olur, hic calismaz")
+
+print("\nGovde kirpma")
+esit(besleme._imza("turistler") & besleme._imza("turistlerden") != frozenset(),
+     True, "'turistler' ve 'turistlerden' ayni govde")
+esit("aciklandi" in besleme._ETKISIZ, True,
+     "'aciklandi' ayirt edici degil -- imzadan atilir")
 
 print(f"\n{_gecti} gecti, {_kaldi} kaldi")
 sys.exit(1 if _kaldi else 0)

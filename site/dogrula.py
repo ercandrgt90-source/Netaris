@@ -28,9 +28,18 @@ import time
 
 import httpx
 
-#: Kenar dugumlerin yayilmasi icin taninan sure
-DENEME_SAYISI = 4
-BEKLEME_SN = 5
+#: Kenar dugumlerin yayilmasi icin taninan sure.
+#:
+#: 4 x 5 sn = 15 sn idi ve yetmedi: ticari haber kaynaklari eklendiginde
+#: tek calistirmada 10 yeni konunun fotograflari (~40 dosya) ve 24 yeni
+#: haber sayfasi birden yuklendi, dogrulama hepsi yayilmadan calisti ve
+#: hat kirmizi dondu -- oysa site sagliklidi.
+#:
+#: Bu bekleme yalnizca eslesmeyen yol KALDIGINDA harcanir; her sey yerine
+#: oturmussa ilk denemede cikiliyor. Saatlik otomasyonda her calistirma
+#: yeni sayfa ekledigi icin pay genis tutuldu.
+DENEME_SAYISI = 6
+BEKLEME_SN = 8
 
 KOK = pathlib.Path(__file__).parent
 CIKTI = KOK / "cikti"

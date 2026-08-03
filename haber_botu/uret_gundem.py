@@ -87,9 +87,26 @@ def main() -> int:
         print("\nDURUM: yalnizca ekrana basildi (--yayinla ile siteye yazilir)")
         return 0
 
+    # --- Resmi kaynaklara ayrilmis kontenjan ---
+    #
+    # Ticari akis gunde 100+ baslik uretiyor, TCMB gunde iki uc duyuru.
+    # Saf tarih siralamasinda resmi kaynak PENCERENIN TAMAMEN DISINDA
+    # kaliyor: olculdu, 40 ogenin 40'i ticariydi, TCMB ve Fed hic yoktu.
+    #
+    # Sitenin omurgasi resmi veri; ticari akis onun uzerine geliyor. Bu
+    # yuzden resmi kaynaklara sabit kontenjan ayriliyor, kalani ticari
+    # dolduruyor. Ikisi de kendi icinde tarihe gore sirali.
+    resmi = [h for h in haberler if not h.ticari]
+    ticari = [h for h in haberler if h.ticari]
+    resmi_kota = min(len(resmi), max(1, args.sinir // 3))
+    secili = resmi[:resmi_kota] + ticari[:args.sinir - resmi_kota]
+    secili.sort(key=lambda h: h.tarih or "0000-00-00", reverse=True)
+    haberler = secili
+    print(f"\n  secim: {resmi_kota} resmi + {len(secili) - resmi_kota} ticari")
+
     # --- Fotograf havuzu ---
     print("\nFOTOGRAF HAVUZU")
-    foto_kayit = foto.hazirla([h.konu for h in haberler[:args.sinir]])
+    foto_kayit = foto.hazirla([h.konu for h in haberler])
 
     # --- Ceviri ve baglam ---
     print("\nCEVIRI VE BAGLAM")
@@ -106,7 +123,7 @@ def main() -> int:
     kayitlar = []
     yorumlanan = 0
 
-    for h in haberler[:args.sinir]:
+    for h in haberler:
         # TCMB zaten Turkce yayimliyor. Bu basligi ceviri motoruna vermek
         # iki sekilde zarar verir: motor onu Ingilizce sanip metni bozar
         # ("Kurul" -> "Board"), ve bosuna kota harcar.
@@ -118,7 +135,7 @@ def main() -> int:
         # Baslik ORIJINALIYLE siniflandirilir, cevirisiyle degil: makine
         # cevirisi "policy rate"i "politika orani" yapabilir ve isaret
         # eslesmez. Kurum bilgisi yerli/yabanci baglam ayrimi icin.
-        baglam = gundem_yorum.siniflandir(h.baslik, h.konu, h.kurum)
+        baglam = gundem_yorum.siniflandir(h.baslik, h.konu, h.kurum, h.ticari)
         if baglam.yorumlanir:
             yorumlanan += 1
 
@@ -131,6 +148,8 @@ def main() -> int:
             "baslik_kaynak": h.baslik,
             "cevrildi": cevrildi,
             "dil": h.dil,
+            # Sayfada kunye basilacak mi -- ticari kaynakta ZORUNLU
+            "ticari": h.ticari,
             "adres": h.adres,
             "kurum": h.kurum,
             "kurum_tam": h.kurum_tam,

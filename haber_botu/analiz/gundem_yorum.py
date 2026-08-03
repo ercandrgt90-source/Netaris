@@ -79,11 +79,18 @@ RUTIN_ISARETLER = (
 #: Ayni sekilde "Haftalik Akim Faiz Istatistikleri" icinde "faiz" gecer
 #: ama rutin bir veri yayimidir -- "haftalik" onu once yakalar.
 ETKILI_ISARETLER = (
-    # Turkce
+    # Turkce -- para ve fiyat
     "para politikasi kurulu", "faiz oranlarina iliskin", "politika faizi",
-    "faiz karari", "zorunlu karsilik", "enflasyon", "fiyat gelismeleri",
-    "tufe", "odemeler dengesi", "finansal istikrar raporu",
-    "beklenti anketi", "cari islemler",
+    "faiz karari", "faizi sabit", "faizde indirim", "zorunlu karsilik",
+    "enflasyon", "fiyat gelismeleri", "tufe", "uretici fiyat",
+    "odemeler dengesi", "finansal istikrar raporu", "beklenti anketi",
+    "cari islemler", "cari acik",
+    # Turkce -- ticari akistan gelen, gercekten etkili olaylar
+    "asgari ucret", "emekli zam", "memur zam", "issizlik orani",
+    "kira zam", "konut kredisi", "vergi duzenleme", "vergi indirim",
+    "butce acig", "dis ticaret acig", "ihracat rekor", "gumruk tarife",
+    "dolar endeksi", "kurda ", "ons altin", "altin rekor",
+    "borsa rekor", "endeks rekor", "halka arz", "bilanco acikla",
     # Ingilizce
     "fomc statement", "monetary policy decision", "interest rate decision",
     "policy rate", "federal funds rate", "rate decision",
@@ -167,7 +174,157 @@ KONU_BAGLAMI: dict[str, tuple[str, tuple[str, ...]]] = {
             "şirketlerin raporlama pratiğini etkiler.",
         ),
     ),
+
+    # --- Ticari haber akisiyla gelen konular ---
+    # Bunlarin yerli/yabanci ayrimi yok: kur hareketi de kira zammi da
+    # Turkiye'de olan seylerdir, "Turkiye'ye gecmez". Baslik farki
+    # KONU_BASLIGI'nda tanimli.
+    "Döviz": (
+        "Kur, ithalat maliyetinin ve döviz cinsi borç servisinin ortak "
+        "değişkenidir. Üretimin ara malı ithalatına bağımlılığı yüksek "
+        "olduğu için kur hareketi maliyet tarafına hızlı geçer.",
+        (
+            "İthalat maliyeti: ara malı ve enerji ithalatı döviz cinsinden "
+            "fiyatlanır; kur hareketi üretici maliyetine doğrudan yansır.",
+            "Enflasyon geçişi: maliyet artışının tüketici fiyatına yansıma "
+            "hızı, sektörün fiyatlama gücüne ve stok devir süresine bağlıdır.",
+            "Şirket bilançosu: döviz açık pozisyonu taşıyan şirkette kur "
+            "farkı gideri kâr tablosuna yazılır; ihracatçıda ters yönde "
+            "çalışır. Yön, şirketin net döviz pozisyonuna bağlıdır.",
+            "Dış borç servisi: döviz cinsi yükümlülüğün TL karşılığı değişir.",
+        ),
+    ),
+    "Altın ve emtia": (
+        "Altın hem tasarruf aracı hem rezerv varlığıdır; hanehalkı "
+        "tasarrufunun önemli bir kısmı Türkiye'de bu araçta tutulur.",
+        (
+            "Tasarruf tercihi: altın getirisi ile TL mevduatın reel getirisi "
+            "arasındaki fark, hanehalkı tasarruf kompozisyonunu etkiler.",
+            "Cari denge: külçe altın ithalatı cari işlemler dengesinde ayrı "
+            "ve büyük bir kalemdir.",
+            "Girdi maliyeti: sanayi metalleri (bakır, çelik) imalatta "
+            "doğrudan girdi maliyetidir.",
+        ),
+    ),
+    "Kripto varlıklar": (
+        "Kripto varlıklarda Türkiye yüksek işlem hacmine sahip ülkeler "
+        "arasında; fiyat hareketi hanehalkı portföyüne ve aracılık "
+        "gelirlerine yansır.",
+        (
+            "Portföy etkisi: fiyat hareketi doğrudan hanehalkı servetine "
+            "yansır. Bu varlıklarda mevduat güvencesi yoktur.",
+            "Aracılık geliri: işlem hacmi, platformların ve aracı kurumların "
+            "komisyon gelirini belirler.",
+            "Düzenleme çerçevesi: alanın kuralları gelişmekte; değişiklik "
+            "erişimi ve vergilendirmeyi etkileyebilir.",
+        ),
+    ),
+    "Borsa": (
+        "Endeks seviyesi şirketlerin öz kaynak maliyetini ve halka arz "
+        "iştahını belirler.",
+        (
+            "Öz kaynak maliyeti: değerleme seviyesi, şirketlerin sermaye "
+            "artırımı ve halka arz yoluyla kaynak bulma maliyetini değiştirir.",
+            "Tasarruf tabanı: bireysel emeklilik ve yatırım fonları "
+            "üzerinden geniş bir tasarruf kitlesine yansır.",
+            "Yabancı payı: yabancı yatırımcı payındaki değişim tek başına "
+            "değil, kur ve faiz ile birlikte okunur.",
+        ),
+    ),
+    "Dış ticaret": (
+        "Dış ticaret dengesi cari işlemler hesabının en büyük bileşenidir "
+        "ve dış finansman ihtiyacını belirler.",
+        (
+            "Cari denge: ihracat ile ithalat arasındaki fark doğrudan cari "
+            "işlemler dengesine yazılır.",
+            "Dış finansman: cari açık, dışarıdan kaynak bulma ihtiyacı "
+            "demektir; bu kaynağın maliyeti küresel faiz koşullarına bağlıdır.",
+            "Sektörel etki: ihracat ağırlıklı sektörler (otomotiv, tekstil, "
+            "beyaz eşya) dış talepteki değişimi önce hisseder.",
+        ),
+    ),
+    "İstihdam ve ücret": (
+        "Ücret hem hanehalkı gelirinin hem işletme maliyetinin iki "
+        "tarafıdır; asgari ücret ve aylık ayarlamaları geniş bir kitleyi "
+        "aynı anda etkiler.",
+        (
+            "İç talep: ücret ve aylık ayarlamaları harcanabilir geliri "
+            "değiştirir; perakende ve gıda talebine yansır.",
+            "İşletme maliyeti: emek yoğun sektörlerde (tekstil, hizmet, "
+            "lojistik) ücret gideri kâr marjının ana belirleyicisidir.",
+            "Bütçe kalemi: kamu personeli ve emekli ödemeleri bütçe "
+            "harcamalarının büyük bir bölümünü oluşturur.",
+        ),
+    ),
+    "Konut ve kira": (
+        "Konut hem hanehalkının en büyük varlık kalemi hem tüketici fiyat "
+        "endeksinde ağırlığı yüksek bir harcama başlığıdır.",
+        (
+            "Enflasyon sepeti: kira, TÜFE'de ağırlığı yüksek kalemlerden "
+            "biridir ve endekse gecikmeli yansır.",
+            "Bağlantılı sektörler: konut talebi çimento, demir, beyaz eşya "
+            "ve mobilyaya yayılır.",
+            "Kredi kanalı: konut kredisi faizi talebi belirler; bu da "
+            "politika faizi kararlarına doğrudan bağlıdır.",
+        ),
+    ),
+    "Vergi ve kamu maliyesi": (
+        "Vergi düzenlemeleri ve bütçe dengesi hem şirket kârlılığını hem "
+        "devletin borçlanma ihtiyacını belirler.",
+        (
+            "Şirket kârlılığı: vergi oranı ve istisna değişiklikleri net "
+            "kâra doğrudan yansır.",
+            "Borçlanma ihtiyacı: bütçe açığı iç borçlanmayı artırır; bu da "
+            "tahvil getirilerini ve banka bilançolarını etkiler.",
+            "Tüketici fiyatı: dolaylı vergiler (ÖTV, KDV) nihai fiyata "
+            "doğrudan geçer.",
+        ),
+    ),
+    "Tarım ve gıda": (
+        "Gıda, tüketici fiyat endeksinde en yüksek ağırlıklı gruplardan "
+        "biridir; rekolte ve girdi maliyeti enflasyona hızlı geçer.",
+        (
+            "Enflasyon: gıda fiyatları manşet enflasyonun en oynak "
+            "bileşenidir; bu yüzden çekirdek enflasyon ayrıca izlenir.",
+            "Girdi maliyeti: gübre, yem ve akaryakıt fiyatı üretici "
+            "maliyetini belirler; bunların çoğu ithal ve döviz cinsidir.",
+            "Dış ticaret: hububat ve yağlı tohumda ithalat bağımlılığı, "
+            "rekolte sonucunu cari dengeye bağlar.",
+        ),
+    ),
+    "Turizm": (
+        "Turizm geliri en büyük net döviz kazandırıcı kalemlerden biridir "
+        "ve cari açığı doğrudan azaltır.",
+        (
+            "Cari denge: turizm geliri hizmet ihracatı olarak cari işlemler "
+            "hesabına artı yazılır.",
+            "Sektörel istihdam: konaklama, yeme-içme ve havayolu mevsimsel "
+            "istihdamın büyük bölümünü taşır.",
+            "Bölgesel yayılım: gelir kıyı illerinde yoğunlaşır; perakende ve "
+            "gayrimenkul talebine yansır.",
+        ),
+    ),
+    "Şirket haberleri": (
+        "Şirket bazlı gelişmeler sektörün geneli için erken gösterge "
+        "olabilir.",
+        (
+            "Sektör okuması: bir şirketin marj ve talep verisi, aynı "
+            "sektördeki diğer şirketler için gösterge niteliği taşır.",
+            "Tedarik zinciri: büyük bir yatırım ya da kapanış kararı "
+            "tedarikçi ve müşteri şirketlere yayılır.",
+            "Değerleme: birleşme ve satın alma çarpanları, benzer şirketler "
+            "için referans oluşturur.",
+        ),
+    ),
 }
+
+#: "Turkiye'ye gecer" cercevesinin yanlis oldugu konular. Kira zammi ya da
+#: BIST endeksi Turkiye'ye gecmez, Turkiye'de olur.
+KONU_BASLIGI = {k: BASLIK_YERLI for k in (
+    "Döviz", "Altın ve emtia", "Kripto varlıklar", "Borsa", "Dış ticaret",
+    "İstihdam ve ücret", "Konut ve kira", "Vergi ve kamu maliyesi",
+    "Tarım ve gıda", "Turizm", "Şirket haberleri",
+)}
 
 
 #: YERLI kurum kararlari icin baglam. Yukaridaki tablo yabanci merkez
@@ -240,24 +397,74 @@ YERLI_BAGLAMI: dict[str, tuple[str, tuple[str, ...]]] = {
 }
 
 
+#: MAKRO KONULAR -- aktarim kanali anlatmanin okura bir sey kattigi konular.
+#: Disarida kalanlar ("Şirket haberleri", "Düzenleme"): tek bir sirketin ya
+#: da tek bir idari islemin haberi. Orada "piyasalarda neyi etkiler"
+#: sorusunun durust cevabi cogu zaman "kayda deger bir sey etkilemez".
+MAKRO_KONULAR = frozenset({
+    "Para politikası", "Enflasyon", "Döviz", "Altın ve emtia",
+    "Kripto varlıklar", "Borsa", "Dış ticaret", "İstihdam ve ücret",
+    "Konut ve kira", "Vergi ve kamu maliyesi", "Bankacılık", "Enerji",
+    "Tarım ve gıda", "Turizm",
+})
+
+#: OLAY ISARETLERI -- basligin bir VERI ya da KARAR duyurdugunu gosterir.
+#:
+#: Ticari akista kalip aramak calismiyor. Turkce'de kelimeler araya
+#: giriyor: "emekli zam" deseni "emekliLERININ temmuz ayi ZAM orani"
+#: icinde eslesmez. Olculdu, boyle kacanlar:
+#:
+#:   "SSK ve Bag-Kur emeklilerinin Temmuz ayi zam orani belli oldu"
+#:   "Temmuz ayi dis ticaret rakamlari aciklandi"
+#:   "2027 memur ve emekli maasi Ocak zammi sekilleniyor"
+#:
+#: Bu yuzden ticari ogede iki ayri sart aranir: konu MAKRO_KONULAR'da
+#: olacak VE baslikta bir olay isareti bulunacak. "Shell portfoyunu
+#: satiyor" konu olarak enerji ama olay isareti tasimiyor -- rutin kalir.
+#:
+#: DIKKAT: " zam " bosluklu yazilir, yoksa "ZAMan" icinde eslesir.
+#: " veri " de oyle -- yoksa "VERIldi" ve "VERImi" eslesir.
+OLAY_ISARETLERI = (
+    "acikla", "belli oldu", "rakamlar", "rakami", " veri ", "verisi",
+    "verileri", "karar", "orani", "oranlari", "rekor", "artis", "dusus",
+    "yukseldi", "geriledi", "yukselis", "gerileme", " zam ", "zammi",
+    "zamlar", "indirim", "beklenti", "tahmin", "hedefi", "acigi",
+    "fazla verdi", "raporu", "anketi", "istatistik", "yuzde",
+)
+
+
 def _icerir(metin: str, isaretler) -> bool:
-    k = _katla(metin)
+    # Bastaki ve sondaki bosluk, " zam " gibi bosluklu isaretlerin
+    # basligin basinda ve sonunda da eslesmesini saglar.
+    k = " " + _katla(metin) + " "
     return any(i in k for i in isaretler)
 
 
-def siniflandir(baslik: str, konu: str, kurum: str = "") -> Baglam:
+def siniflandir(baslik: str, konu: str, kurum: str = "",
+                ticari: bool = False) -> Baglam:
     """Haberin yorumlanip yorumlanmayacagina karar verir.
 
     Once RUTIN bakilir. "requests comment on interest rate rule" hem
     "requests comment" hem "interest rate" iceriyor; bu bir politika karari
     degil, bir idari sürectir. Rutin once bakilmazsa yanlis siniflanir.
 
+    Sonra kaynak turune gore ayrilir:
+      resmi  -- ETKILI_ISARETLER. Duyuru basliklari kalipli oldugu icin
+                kalip aramak calisiyor.
+      ticari -- MAKRO_KONULAR + OLAY_ISARETLERI. Gazete basligi kalipli
+                degil; kalip aramak Turkce'nin ek yapisinda kaciriyor.
+
     `kurum` YERLI_KURUMLAR icindeyse yerli baglam metni kullanilir.
     """
     if _icerir(baslik, RUTIN_ISARETLER):
         return Baglam(yorumlanir=False)
 
-    if not _icerir(baslik, ETKILI_ISARETLER):
+    if ticari:
+        if konu not in MAKRO_KONULAR:
+            return Baglam(yorumlanir=False)
+        if not _icerir(baslik, OLAY_ISARETLERI):
+            return Baglam(yorumlanir=False)
+    elif not _icerir(baslik, ETKILI_ISARETLER):
         return Baglam(yorumlanir=False)
 
     yerli = kurum in YERLI_KURUMLAR
@@ -272,7 +479,8 @@ def siniflandir(baslik: str, konu: str, kurum: str = "") -> Baglam:
         yorumlanir=True,
         neden_onemli=neden,
         kanallar=kanallar,
-        kanal_basligi=BASLIK_YERLI if yerli else BASLIK_YABANCI,
+        kanal_basligi=(BASLIK_YERLI if yerli
+                       else KONU_BASLIGI.get(konu, BASLIK_YABANCI)),
     )
 
 
