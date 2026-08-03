@@ -1715,3 +1715,129 @@ main.kabuk { padding-top: 26px; padding-bottom: 48px; }
   .sondakika-durdur { display: none; }
   .bolum-bas-sekme { align-items: flex-start; }
 }
+
+
+/* ==================================================================
+   UYELIK -- giris, kayit, yazar paneli
+   ================================================================== */
+
+.ust-giris { font-weight: 600; }
+.dugme-mini {
+  padding: 6px 14px !important;
+  border-radius: 999px;
+  background: var(--vurgu) !important;
+  color: #fff !important;
+  font-weight: 700;
+}
+.dugme-mini:hover { background: var(--vurgu-koyu) !important; text-decoration: none; }
+
+.uyelik-kabuk { max-width: 780px; margin: 0 auto; }
+
+.uyelik-kutu {
+  padding: 28px;
+  border: 1px solid var(--cizgi);
+  border-radius: var(--r);
+  background: var(--panel);
+}
+.uyelik-kutu h1 { margin: 0 0 6px; font-size: 1.7rem; letter-spacing: -0.02em; }
+.uyelik-alt { margin: 0 0 20px; color: var(--yazi-2); font-size: 0.92rem; }
+
+.uyelik-form { display: flex; flex-direction: column; gap: 15px; }
+.uyelik-form label {
+  display: flex; flex-direction: column; gap: 6px;
+  font-size: 0.88rem; font-weight: 600; color: var(--yazi-2);
+}
+.uyelik-form input,
+.uyelik-form select,
+.uyelik-form textarea {
+  font: inherit; font-weight: 400;
+  padding: 10px 12px;
+  border: 1px solid var(--cizgi-parlak); border-radius: var(--r-kucuk);
+  background: var(--zemin); color: var(--yazi);
+  width: 100%;
+}
+.uyelik-form textarea { resize: vertical; line-height: 1.6; }
+.uyelik-form input:focus-visible,
+.uyelik-form select:focus-visible,
+.uyelik-form textarea:focus-visible {
+  outline: 2px solid var(--vurgu); outline-offset: 1px; border-color: var(--vurgu);
+}
+.uyelik-ipucu { font-weight: 400; font-size: 0.78rem; color: var(--yazi-3); }
+.uyelik-sayac { margin: 0; font-size: 0.78rem; color: var(--yazi-3); }
+
+/* Hata ve durum kutulari. Kirmizi BURADA kullanilabilir: form hatasi bir
+   sayisal yon degil, ayri bir baglam -- serit ve kartlardaki renk
+   kuraliyla karismiyor. */
+.uyelik-hata {
+  margin: 0; padding: 10px 12px;
+  border-left: 3px solid var(--azalis); border-radius: 0 var(--r-kucuk) var(--r-kucuk) 0;
+  background: rgba(207, 39, 64, 0.07);
+  color: var(--azalis); font-size: 0.86rem;
+}
+.uyelik-mesaj {
+  margin: 0 0 16px; padding: 10px 12px;
+  border-left: 3px solid var(--vurgu); border-radius: 0 var(--r-kucuk) var(--r-kucuk) 0;
+  background: var(--panel-2); font-size: 0.88rem;
+}
+.uyelik-mesaj.iyi { border-left-color: var(--artis); }
+.uyelik-mesaj.uyari { border-left-color: var(--uyari); }
+
+.uyelik-not {
+  margin-top: 22px; padding: 15px 17px;
+  border: 1px solid var(--cizgi); border-radius: var(--r-kucuk);
+  background: var(--panel-2);
+}
+.uyelik-not h2 { margin: 0 0 8px; font-size: 0.92rem; }
+.uyelik-not ul { margin: 0; padding-left: 18px; }
+.uyelik-not li { font-size: 0.85rem; color: var(--yazi-2); margin-bottom: 5px; line-height: 1.55; }
+
+/* --- panel --- */
+
+.panel-ust-cubuk {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  gap: 16px; flex-wrap: wrap; margin-bottom: 20px;
+}
+.panel-ust-cubuk h1 { margin: 0 0 4px; font-size: 1.6rem; letter-spacing: -0.02em; }
+.panel-eylem { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+
+.panel-sekme {
+  display: flex; gap: 4px; margin-bottom: 20px;
+  border-bottom: 1px solid var(--cizgi);
+}
+.panel-sekme button {
+  font: inherit; font-size: 0.9rem; font-weight: 700;
+  padding: 9px 15px; border: 0; border-bottom: 2px solid transparent;
+  background: none; color: var(--yazi-2); cursor: pointer;
+}
+.panel-sekme button:hover { color: var(--yazi); }
+.panel-sekme button.etkin { color: var(--vurgu); border-bottom-color: var(--vurgu); }
+
+.panel-liste { display: flex; flex-direction: column; gap: 12px; }
+.panel-liste h3 { margin: 12px 0 2px; font-size: 1rem; }
+
+.panel-satir-kart {
+  padding: 15px 17px;
+  border: 1px solid var(--cizgi); border-radius: var(--r);
+  background: var(--panel);
+}
+.panel-satir-kart h3,
+.panel-satir-kart h4 { margin: 8px 0 6px; font-size: 1.02rem; line-height: 1.3; }
+.panel-satir-ust { display: flex; align-items: center; gap: 9px; flex-wrap: wrap; }
+.panel-satir-kart .kart-ozet { margin: 0 0 10px; font-size: 0.88rem; color: var(--yazi-2); }
+.panel-satir-kart .panel-eylem { margin-top: 10px; }
+
+/* Durum rozetleri. Yesil ve kirmizi BURADA da yon anlatiyor sayilir:
+   yayimlandi ileri, reddedildi geri. */
+.rozet-durum { font-weight: 700; }
+.durum-taslak { background: var(--zemin-2); color: var(--yazi-2); }
+.durum-incelemede { background: rgba(164, 92, 0, 0.12); color: var(--uyari); }
+.durum-onaylandi { background: rgba(10, 126, 164, 0.12); color: var(--vurgu); }
+.durum-yayimlandi { background: rgba(15, 138, 77, 0.12); color: var(--artis); }
+.durum-reddedildi { background: rgba(207, 39, 64, 0.1); color: var(--azalis); }
+
+.yazi-form textarea[name="govde"] { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.9rem; }
+
+@media (max-width: 640px) {
+  .uyelik-kutu { padding: 20px 17px; }
+  .panel-ust-cubuk { flex-direction: column; }
+}

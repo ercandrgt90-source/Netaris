@@ -1,0 +1,75 @@
+-- Netaris uyelik veritabani (Cloudflare D1)
+--
+-- D1 SQLite'tir; `haber_botu/netaris.db` ile ayni lehce. Depo semasi bu
+-- dosyayla bilincli olarak UYUMLU tutuluyor: ileride uye yazilarini
+-- yerel depoya almak gerekirse ayni sorgular calisir.
+--
+-- TASARIM KARARLARI
+-- -----------------
+-- * Parola ASLA duz metin tutulmaz. `parola_ozet` alani
+--   "pbkdf2$<dongu>$<tuz>$<ozet>" bicimindedir; dongu sayisi ozetin
+--   ICINDE saklanir ki ileride artirildiginda eski kayitlar dogrulanmaya
+--   devam etsin.
+-- * Oturum jetonu de OZETLENEREK saklanir. Veritabani sizsa bile
+--   jetonlarla oturum acilamaz -- cerezdeki asil jeton burada yok.
+-- * Uye yazisi DOGRUDAN yayimlanmaz. `durum` alani sirayla ilerler ve
+--   yayin adimi ayri bir surecte (guvenlik taramasi + insan onayi)
+--   gerceklesir.
+
+CREATE TABLE IF NOT EXISTS uye (
+  id                INTEGER PRIMARY KEY AUTOINCREMENT,
+  eposta            TEXT NOT NULL UNIQUE,
+  ad                TEXT NOT NULL,
+  parola_ozet       TEXT NOT NULL,
+  -- beklemede: e-posta dogrulanmadi | etkin | askida
+  durum             TEXT NOT NULL DEFAULT 'beklemede',
+  -- yazar | yonetici
+  rol               TEXT NOT NULL DEFAULT 'yazar',
+  dogrulama_ozeti   TEXT,
+  dogrulama_biter   INTEGER,
+  kayit_ani         TEXT NOT NULL,
+  son_giris         TEXT
+);
+
+CREATE INDEX IF NOT EXISTS uye_durum ON uye(durum);
+
+CREATE TABLE IF NOT EXISTS oturum (
+  jeton_ozeti       TEXT PRIMARY KEY,
+  uye_id            INTEGER NOT NULL REFERENCES uye(id) ON DELETE CASCADE,
+  biter             INTEGER NOT NULL,
+  olusma            TEXT NOT NULL
+);
+
+CREATE INDEX IF NOT EXISTS oturum_uye ON oturum(uye_id);
+CREATE INDEX IF NOT EXISTS oturum_biter ON oturum(biter);
+
+CREATE TABLE IF NOT EXISTS yazi (
+  id                INTEGER PRIMARY KEY AUTOINCREMENT,
+  uye_id            INTEGER NOT NULL REFERENCES uye(id) ON DELETE CASCADE,
+  baslik            TEXT NOT NULL,
+  ozet              TEXT NOT NULL DEFAULT '',
+  govde             TEXT NOT NULL,
+  kategori          TEXT NOT NULL DEFAULT 'Analist Yorumu',
+  -- taslak -> incelemede -> onaylandi -> yayimlandi
+  --                      -> reddedildi
+  durum             TEXT NOT NULL DEFAULT 'taslak',
+  ret_nedeni        TEXT,
+  -- Yayin hatti guvenlik taramasinin ciktisini buraya yazar
+  guvenlik_notu     TEXT,
+  slug              TEXT,
+  olusma            TEXT NOT NULL,
+  guncelleme        TEXT NOT NULL,
+  gonderim          TEXT,
+  yayin             TEXT
+);
+
+CREATE INDEX IF NOT EXISTS yazi_uye ON yazi(uye_id);
+CREATE INDEX IF NOT EXISTS yazi_durum ON yazi(durum);
+
+-- Kaba kuvvet denemesini yavaslatir. KV yerine D1: gunde birkac yuz
+-- giris denemesi olan bir sitede ayri bir depo acmaya gerek yok.
+CREATE TABLE IF NOT EXISTS deneme (
+  anahtar           TEXT PRIMARY KEY,   -- "giris:<eposta>" ya da "kayit:<ip>"
+  sayi              INTEGER NOT NULL DEFAULT 0,
+  sifirlanir        INTEGER NOT NULL
+);

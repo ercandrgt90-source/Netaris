@@ -1,0 +1,158 @@
+{% extends "temel.html" %}
+
+{% block baslik %}{{ sayfa_baslik }} — {{ site.ad }}{% endblock %}
+{% block aciklama %}{{ sayfa_aciklama }}{% endblock %}
+
+{# Uyelik sayfalari arama motoruna KAPALI. Giris formu ve panel dizine
+   girecek bir icerik degil; ayrica indekslenmis bir panel adresi gereksiz
+   bot trafigi ceker. #}
+{% block ek_bas %}<meta name="robots" content="noindex, nofollow">{% endblock %}
+
+{% block icerik %}
+<div class="uyelik-kabuk">
+
+{% if sayfa == "giris" %}
+  <section class="uyelik-kutu">
+    <h1>Giriş yap</h1>
+    <p class="uyelik-alt">Hesabınız yoksa <a href="/kayit/">üye olun</a>.</p>
+
+    {# Sunucudan gelen durum mesajlari. Dogrulama baglantisi buraya
+       yonlendiriyor. #}
+    <p class="uyelik-mesaj" data-durum-kutusu hidden></p>
+
+    <form class="uyelik-form" data-form="giris" novalidate>
+      <label>E-posta
+        <input type="email" name="eposta" autocomplete="email" required>
+      </label>
+      <label>Parola
+        <input type="password" name="parola" autocomplete="current-password" required>
+      </label>
+      <button class="dugme dugme-birincil" type="submit">Giriş yap</button>
+      <p class="uyelik-hata" data-hata hidden></p>
+    </form>
+  </section>
+
+{% elif sayfa == "kayit" %}
+  <section class="uyelik-kutu">
+    <h1>Üye ol</h1>
+    <p class="uyelik-alt">Hesabınız varsa <a href="/giris/">giriş yapın</a>.</p>
+
+    <form class="uyelik-form" data-form="kayit" novalidate>
+      <label>Ad soyad
+        <input type="text" name="ad" autocomplete="name" required minlength="2" maxlength="80">
+      </label>
+      <label>E-posta
+        <input type="email" name="eposta" autocomplete="email" required>
+      </label>
+      <label>Parola
+        <input type="password" name="parola" autocomplete="new-password"
+               required minlength="10">
+        <span class="uyelik-ipucu">En az 10 karakter.</span>
+      </label>
+      <button class="dugme dugme-birincil" type="submit">Hesap oluştur</button>
+      <p class="uyelik-hata" data-hata hidden></p>
+    </form>
+
+    {# Ne topladigimiz ve ne yaptigimiz ACIKCA yaziyor. KVKK aydinlatma
+       yukumlulugu bir yana, kayit formunda bunu okumayan kullanici
+       sonradan sasirir. #}
+    <div class="uyelik-not">
+      <h2>Üyelikte ne oluyor</h2>
+      <ul>
+        <li>Yalnızca ad, e-posta ve parolanızın şifreli özeti saklanır.
+            Parolanın kendisi hiçbir yerde tutulmaz.</li>
+        <li>Yazdığınız metinler <b>doğrudan yayına girmez.</b> Önce otomatik
+            tarama, sonra editör incelemesinden geçer.</li>
+        <li>Yayımlanan yazıda adınız künye olarak görünür.</li>
+        <li>Ayrıntı için <a href="/hakkimizda/#gizlilik">gizlilik</a> ve
+            <a href="/hakkimizda/#ilkeler">yayın ilkeleri</a>.</li>
+      </ul>
+    </div>
+  </section>
+
+{% elif sayfa == "panel" %}
+  {# Panelin tamami oturum gerektiriyor ve icerigi API'den geliyor.
+     Sunucuda uretilmiyor: statik dosya herkese aciktir, uyeye ozel veri
+     statik HTML'e YAZILAMAZ. #}
+  <div data-panel hidden>
+    <div class="panel-ust-cubuk">
+      <div>
+        <h1>Panel</h1>
+        <p class="uyelik-alt" data-kim></p>
+      </div>
+      <div class="panel-eylem">
+        <button class="dugme" type="button" data-yeni>Yeni yazı</button>
+        <button class="dugme dugme-sade" type="button" data-cikis>Çıkış</button>
+      </div>
+    </div>
+
+    <nav class="panel-sekme">
+      <button class="etkin" type="button" data-sekme="yazilarim">Yazılarım</button>
+      <button type="button" data-sekme="duzenle" hidden>Düzenle</button>
+      <button type="button" data-sekme="yonetim" data-yonetici hidden>Yönetim</button>
+    </nav>
+
+    <section data-bolum="yazilarim">
+      <div data-liste class="panel-liste"></div>
+    </section>
+
+    <section data-bolum="duzenle" hidden>
+      <form class="uyelik-form yazi-form" data-form="yazi" novalidate>
+        <input type="hidden" name="id">
+        <label>Başlık
+          <input type="text" name="baslik" required minlength="8" maxlength="140">
+        </label>
+        <label>Özet <span class="uyelik-ipucu">Listelerde görünür, 400 karaktere kadar.</span>
+          <textarea name="ozet" rows="2" maxlength="400"></textarea>
+        </label>
+        <label>Kategori
+          <select name="kategori">
+            <option>Analist Yorumu</option>
+            <option>Makro</option>
+            <option>Bilanço Analizi</option>
+          </select>
+        </label>
+        <label>Metin
+          <span class="uyelik-ipucu">Markdown yazabilirsiniz: **kalın**, ## başlık, - madde.</span>
+          <textarea name="govde" rows="18" required></textarea>
+        </label>
+        <p class="uyelik-sayac"><span data-sayac>0</span> karakter · gönderim için en az 400</p>
+
+        {# Yayin kurallari yazma aninda gorunuyor. Reddedilen yazinin
+           sebebini sonradan okumak yerine, yazmadan once bilmek. #}
+        <div class="uyelik-not">
+          <h2>Yayımlanmayan içerik</h2>
+          <ul>
+            <li>Al / sat / tut önerisi, hedef fiyat, "kesin kazandırır" türü ifadeler.
+                Bunlar yatırım danışmanlığı kapsamına girer ve yayımlanamaz.</li>
+            <li>Kaynağı gösterilmeyen rakam. Veriyi nereden aldığınızı yazın.</li>
+            <li>Başka bir yayından kopyalanmış metin.</li>
+          </ul>
+        </div>
+
+        <div class="panel-eylem">
+          <button class="dugme" type="submit" data-kaydet>Taslak kaydet</button>
+          <button class="dugme dugme-birincil" type="submit" data-gonder>İncelemeye gönder</button>
+          <button class="dugme dugme-sade" type="button" data-vazgec>Vazgeç</button>
+        </div>
+        <p class="uyelik-hata" data-hata hidden></p>
+      </form>
+    </section>
+
+    <section data-bolum="yonetim" hidden>
+      <div data-yonetim class="panel-liste"></div>
+    </section>
+  </div>
+
+  <div data-giris-gerek hidden>
+    <section class="uyelik-kutu">
+      <h1>Oturum gerekli</h1>
+      <p>Panele girmek için <a href="/giris/">giriş yapın</a>.</p>
+    </section>
+  </div>
+{% endif %}
+
+</div>
+{% endblock %}
+
+{% block betikler %}<script src="/statik/uyelik.js" defer></script>{% endblock %}

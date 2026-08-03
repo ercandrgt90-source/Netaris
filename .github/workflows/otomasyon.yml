@@ -99,6 +99,10 @@ jobs:
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          # Onaylanmis uye yazilarini panelden cekmek icin. Tanimli
+          # degilse o adim kendini atlar, hat kirmizi DONMEZ -- uyelik
+          # kapaliyken de site uretilebilmeli.
+          HAT_SIRRI: ${{ secrets.HAT_SIRRI }}
         run: |
           python calistir.py ${{ (github.event_name == 'schedule' || inputs.yayinla) && '--yayinla' || '' }}
 

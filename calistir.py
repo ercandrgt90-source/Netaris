@@ -98,6 +98,12 @@ def main() -> int:
                         # TCMB eklenince aday sayisi 56'dan 116'ya cikti;
                         # 24'luk sinir yeni kaynagi gorunmez birakirdi.
                         [str(BOT / "uret_gundem.py"), "--yayinla", "--sinir", "40"]))
+    # Uye yazilari haberlerden SONRA, site uretiminden ONCE. HAT_SIRRI
+    # yoksa adim kendi kendini atlar ve hat kirmizi donmez -- uyelik
+    # sistemi kapaliyken de site uretilebilmeli.
+    if "uye" not in args.atla:
+        adimlar.append(("Üye yazıları (onaylı → tarama → yayın)",
+                        [str(BOT / "uret_uye_yazi.py")]))
     if "teknik" not in args.atla:
         # Kraken cift adlari -- Bitcoin orada "XBT"
         for sembol in ("XBTUSD", "ETHUSD", "PAXGUSD"):

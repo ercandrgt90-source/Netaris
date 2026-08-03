@@ -27,6 +27,7 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%23101725'/><path d='M7 22V10l9 8V10' stroke='%2338dcf5' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/><circle cx='24' cy='11' r='2.5' fill='%2338dcf5'/></svg>">
 
 {% block yapisal_veri %}{% endblock %}
+{% block ek_bas %}{% endblock %}
 </head>
 <body>
 
@@ -57,6 +58,13 @@
         </svg>
         <span>Ara</span>
       </a>
+      {# Oturum durumu SUNUCUDA bilinemez -- sayfa statik ve herkese ayni
+         dosya gidiyor. Ikisi de basiliyor, uyelik.js hangisinin
+         gorunecegini /api/ben cevabina gore secip digerini kaldiriyor.
+         Betik calismazsa ikisi de kalir: kirik degil, yalnizca fazladan
+         bir baglanti. #}
+      <a class="ust-giris" href="/giris/" data-oturum-yok hidden>Giriş yap</a>
+      <a class="ust-panel dugme-mini" href="/panel/" data-oturum-var hidden>Panel</a>
     </nav>
   </div>
 </header>
@@ -153,6 +161,7 @@
 {# Fiyat seridini canlandirir. Basarisiz olursa sayfa aynen calisir. #}
 <script src="/statik/canli.js" defer></script>
 {% if son_dakika %}<script src="/statik/sondakika.js" defer></script>{% endif %}
+<script src="/statik/oturum.js" defer></script>
 {% block betikler %}{% endblock %}
 
 </body>

@@ -9,12 +9,32 @@
 name = "netaris"
 compatibility_date = "2026-07-31"
 
-# Sunucu tarafinda calisan kod yok; Cloudflare dosyalari dogrudan sunuyor.
-# Statik site icin gereken tek sey bu.
+# Uyelik API'si. Cloudflare ONCE statik varlia bakar; `/giris/` ve
+# `/panel/` gercek dosya oldugu icin Worker'a hic gelmez. Worker yalnizca
+# `/api/...` icin calisiyor.
+#
+# Bunun onemi: sitenin OKUMA tarafi eskisi gibi tamamen statik. Uyelik
+# sistemi ya da veritabani coktugunde haberler ve analizler yayinda kalir.
+main = "./worker.js"
+
 [assets]
 directory = "./cikti"
+binding = "ASSETS"
 
 # Bulunamayan adreste 404 dondur. "single-page-application" secilirse her
 # adres index.html'e yonlenir ve kirik baglantilar sessizce ana sayfayi
 # gosterir -- haber sitesinde istenmeyen davranis.
 not_found_handling = "none"
+
+# Uyelik veritabani. `database_id` `wrangler d1 create netaris-uyelik`
+# komutunun ciktisindan geliyor; gizli bir deger degil, hesaba ozgu bir
+# kimlik.
+[[d1_databases]]
+binding = "DB"
+database_name = "netaris-uyelik"
+database_id = "56f6ce02-a748-4c58-b378-46c46e02a21a"
+
+# GIZLI DEGERLER buraya YAZILMAZ. `wrangler secret put` ile konur:
+#   RESEND_API_KEY  e-posta dogrulamasi icin (yoksa yonetici onayina duser)
+#   HAT_SIRRI       yayin hattinin onaylanmis yazilari cektigi ucun sirri
+#   POSTA_GONDEREN  "Netaris <bildirim@alanadiniz.com>"

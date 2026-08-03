@@ -352,6 +352,21 @@ class Analiz:
             return 0.0
 
 
+#: (slug, sablon adi, sayfa basligi, aciklama)
+#:
+#: Uculu de arama motoruna KAPALI ve site haritasina girmiyor: giris formu
+#: ve panel dizine girecek icerik degil, ayrica indekslenmis bir panel
+#: adresi gereksiz bot trafigi ceker.
+UYELIK_SAYFALARI = (
+    ("giris", "giris", "Giriş yap",
+     "Netaris hesabınıza giriş yapın."),
+    ("kayit", "kayit", "Üye ol",
+     "Netaris'te yazı yazmak için hesap oluşturun."),
+    ("panel", "panel", "Panel",
+     "Yazılarınızı buradan yazar ve incelemeye gönderirsiniz."),
+)
+
+
 #: Analiz kategorisi -> fotograf konusu. Baslikta bir konu bulunamazsa
 #: buraya dusulur. Anahtarlar `foto.KONU_ARAMA` ile ayni olmali.
 KATEGORI_FOTO = {
@@ -897,6 +912,24 @@ def insa() -> int:
             ortam.get_template("gundem.html").render(**ortak, yol="/gundem/"),
         )
         yollar.append("/gundem/")
+
+    # Uyelik sayfalari.
+    #
+    # Uculu de BOS KABUK olarak uretiliyor: icerik oturuma bagli ve
+    # `cikti/` altindaki her dosya herkese acik. Uyeye ozel veriyi statik
+    # HTML'e yazmak, o veriyi yayimlamak olurdu. Icerik `/api/...`ten
+    # geliyor, Worker oturumu cerezle dogruluyor.
+    for slug, ad, sayfa_baslik, sayfa_aciklama in UYELIK_SAYFALARI:
+        yol_u = f"/{slug}/"
+        yaz(
+            f"{yol_u}index.html",
+            ortam.get_template("uyelik.html").render(
+                **ortak, yol=yol_u, sayfa=ad,
+                sayfa_baslik=sayfa_baslik, sayfa_aciklama=sayfa_aciklama,
+            ),
+        )
+        # Arama motoruna kapali sayfalar site haritasina GIRMEZ; `yollar`
+        # listesine eklenmemesi bilincli.
 
     # Ana sayfa EN SONDA uretilir.
     #
