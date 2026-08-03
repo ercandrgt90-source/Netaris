@@ -56,7 +56,10 @@
     <h2>Neden önemli</h2>
     <p>{{ h.neden_onemli }}</p>
 
-    <h2>Türkiye'ye hangi kanallardan geçer</h2>
+    {# Yerli kurum kararinda baslik degisir -- TCMB karari Turkiye'ye
+       "gecmez", Turkiye'de alinir. Eski gundem.json'larda alan yok,
+       varsayilan yabanci basligi. #}
+    <h2>{{ h.kanal_basligi or "Türkiye'ye hangi kanallardan geçer" }}</h2>
     <ul>
       {% for k in h.kanallar %}<li>{{ k }}</li>{% endfor %}
     </ul>

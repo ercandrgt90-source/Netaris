@@ -2,18 +2,17 @@
 
     RSS beslemeleri -> tekille -> konuya gore ayir -> site verisi
 
-NE YAPAR, NE YAPMAZ
--------------------
-YAPAR : Fed, ECB, SEC ve EIA duyurularini toplar, konuya gore siniflandirir,
-        tarihe gore sirlar ve siteye yazar. Her baslik KAYNAGA baglanir.
+NE YAPAR
+--------
+TCMB, Fed, ECB, SEC ve EIA duyurularini toplar; yabanci olanlari Turkce'ye
+cevirir, konuya gore siniflandirir, fotograf esler, tarihe gore sirlar ve
+siteye yazar. Ozgun baslik her maddede saklanir.
 
-YAPMAZ: **Basliklari cevirmez ve yorumlamaz.** Kaynak basligi orijinal
-        dilinde aktarilir. Ceviri ve yorum icin dil modeli gerekir; model
-        olmadan "yaklasik" bir Turkce baslik uretmek, resmi bir kurumun
-        aciklamasini yanlis aktarmak olur.
-
-Model devreye girdiginde ceviri + baglam katmani buraya eklenir. Besleme
-yapisi ve site tarafi degismeyecek sekilde kuruldu.
+DILE GORE AYRIM
+---------------
+TCMB beslemeleri zaten Turkce -- ceviri katmanina hic ugramazlar. Bu bir
+eniyileme degil, dogruluk meselesi: Turkce bir basligi Ingilizce sanan bir
+ceviri motoru metni bozar.
 
 Kullanim:
     python uret_gundem.py
@@ -108,9 +107,18 @@ def main() -> int:
     yorumlanan = 0
 
     for h in haberler[:args.sinir]:
-        tr = cevirmen.cevir(h.baslik)
-        cevrildi = cevirmen.ceviri_yapildi(h.baslik, tr)
-        baglam = gundem_yorum.siniflandir(h.baslik, h.konu)
+        # TCMB zaten Turkce yayimliyor. Bu basligi ceviri motoruna vermek
+        # iki sekilde zarar verir: motor onu Ingilizce sanip metni bozar
+        # ("Kurul" -> "Board"), ve bosuna kota harcar.
+        if h.dil == "tr":
+            tr, cevrildi = h.baslik, False
+        else:
+            tr = cevirmen.cevir(h.baslik)
+            cevrildi = cevirmen.ceviri_yapildi(h.baslik, tr)
+        # Baslik ORIJINALIYLE siniflandirilir, cevirisiyle degil: makine
+        # cevirisi "policy rate"i "politika orani" yapabilir ve isaret
+        # eslesmez. Kurum bilgisi yerli/yabanci baglam ayrimi icin.
+        baglam = gundem_yorum.siniflandir(h.baslik, h.konu, h.kurum)
         if baglam.yorumlanir:
             yorumlanan += 1
 
@@ -122,6 +130,7 @@ def main() -> int:
             "baslik": tr,
             "baslik_kaynak": h.baslik,
             "cevrildi": cevrildi,
+            "dil": h.dil,
             "adres": h.adres,
             "kurum": h.kurum,
             "kurum_tam": h.kurum_tam,
@@ -131,6 +140,7 @@ def main() -> int:
             "yorumlanir": baglam.yorumlanir,
             "neden_onemli": baglam.neden_onemli,
             "kanallar": list(baglam.kanallar),
+            "kanal_basligi": baglam.kanal_basligi,
             "foto": f.dosya if f else "",
             # CC BY atfi zorunlu kilar -- gorselin altinda basilir
             "foto_atif": f.kisa_atif if f else "",
@@ -141,7 +151,12 @@ def main() -> int:
     print(f"  {yorumlanan} haber yoruma acik, "
           f"{len(kayitlar) - yorumlanan} rutin (yalnizca cevrildi)")
 
-    cevrilemeyen = sum(1 for k in kayitlar if not k["cevrildi"])
+    # Turkce kaynaklari "cevrilemedi" diye saymak yanlis alarm olurdu --
+    # onlar cevrilmesi GEREKMEYEN basliklar.
+    ozgun_turkce = sum(1 for k in kayitlar if k["dil"] == "tr")
+    cevrilemeyen = sum(1 for k in kayitlar
+                       if k["dil"] != "tr" and not k["cevrildi"])
+    print(f"  {ozgun_turkce} baslik zaten Turkce -- ceviriye girmedi")
     if cevrilemeyen:
         print(f"  {cevrilemeyen} baslik CEVRILEMEDI -- kaynak dilinde birakildi")
 

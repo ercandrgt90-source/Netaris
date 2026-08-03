@@ -95,7 +95,9 @@ def main() -> int:
                         [str(BOT / "makro_uret_ucretsiz.py"), "--yayinla"]))
     if "haber" not in args.atla:
         adimlar.append(("Haberler (RSS → çeviri → fotoğraf)",
-                        [str(BOT / "uret_gundem.py"), "--yayinla", "--sinir", "24"]))
+                        # TCMB eklenince aday sayisi 56'dan 116'ya cikti;
+                        # 24'luk sinir yeni kaynagi gorunmez birakirdi.
+                        [str(BOT / "uret_gundem.py"), "--yayinla", "--sinir", "40"]))
     if "teknik" not in args.atla:
         # Kraken cift adlari -- Bitcoin orada "XBT"
         for sembol in ("XBTUSD", "ETHUSD", "PAXGUSD"):
