@@ -14,7 +14,12 @@
   {% for a in analizler %}
   <li>
     <a class="kart" href="{{ a.yol }}">
-      <span class="kart-gorsel">{{ a.gorsel_svg | safe }}</span>
+      <span class="kart-gorsel">
+        {% if a.foto %}
+        <img src="{{ a.foto }}" alt="" loading="lazy" decoding="async"
+             width="400" height="225">
+        {% else %}{{ a.gorsel_svg | safe }}{% endif %}
+      </span>
       <span class="kart-ic">
         <span class="ust-satir">
           {% if a.kod and a.kod != "MAKRO" %}<span class="rozet rozet-kod">{{ a.kod }}</span>{% endif %}

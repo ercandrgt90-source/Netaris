@@ -86,10 +86,10 @@
     {
       "kod": "VIXCLS",
       "ad": "VIX",
-      "deger": "17,09",
-      "fark": "-17,28%",
+      "deger": "15,99",
+      "fark": "-6,44%",
       "yon": "azalis",
-      "tarih": "2026-07-30",
+      "tarih": "2026-07-31",
       "birim": "endeks"
     },
     {
@@ -214,10 +214,10 @@
         {
           "kod": "VIXCLS",
           "ad": "VIX",
-          "deger": "17,09",
-          "fark": "-17,28%",
+          "deger": "15,99",
+          "fark": "-6,44%",
           "yon": "azalis",
-          "tarih": "2026-07-30",
+          "tarih": "2026-07-31",
           "birim": "endeks"
         },
         {

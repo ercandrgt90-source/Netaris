@@ -213,6 +213,24 @@ esit(besleme.konu_bul("Gram altın rekor tazeledi", ""), "Altın ve emtia",
 esit(besleme.konu_bul("Altın haftaya yükselişle başladı", ""),
      "Altın ve emtia", "yalin 'Altin' kelimesi bosluklu eslesiyor")
 
+esit(besleme.konu_bul("Brent %41,7 yükselip geri çekildi", ""), "Enerji",
+     "'B-RENT' icindeki 'rent' Konut'a dusurmedi")
+esit(besleme.konu_bul("Rental prices climbed in June", ""), "Konut ve kira",
+     "gercek kira haberi hala yakalaniyor")
+
+print("\nBolge -- Turkiye / Dunya sekmesi")
+for _b, _d, _bek in (
+        ("Güneydoğu'nun temmuz ihracatı yüzde 19,3 arttı", "tr", "TR"),
+        ("Merkez Bankası rezervlerinde artış", "tr", "TR"),
+        ("Türkiye'nin ABD'ye ihracatı arttı", "tr", "TR"),
+        ("Fed belirsizliği doları da vurdu", "tr", "DUNYA"),
+        ("Asya borsaları haftaya karışık başladı", "tr", "DUNYA"),
+        ("Tesla'nın kârı beklentilerin altında kaldı", "tr", "DUNYA"),
+        ("Federal Reserve issues FOMC statement", "en", "DUNYA")):
+    esit(besleme.bolge_bul(_b, _d), _bek, f"{_bek}: {_b[:42]}")
+esit(besleme.bolge_bul("Altın haftaya yükselişle başladı", "tr"), "TR",
+     "isaretsiz Turkce haber TR'ye duser")
+
 print("\nKonu listesi tekil olmali")
 _konular = [k for k, _ in besleme.KONU_ISARETLERI]
 esit(len(_konular), len(set(_konular)),

@@ -38,6 +38,20 @@ import markdown
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 import gorsel
+import kivilcim
+
+# Fotograf havuzu ve konu siniflandirici haber hattinda yasiyor. Buradan
+# YALNIZCA OKUNUYOR -- `Kayit()` var olan defteri aciyor, indirme yapmaz.
+# Site uretimi sirasinda ag istegi olmamali: hat coktugunde site yine
+# kurulabilmeli.
+sys.path.insert(0, str(pathlib.Path(__file__).parent.parent
+                       / "haber_botu" / "kaynak"))
+try:
+    import besleme as _besleme
+    import foto as _foto
+except ImportError:      # haber_botu yoksa site fotografsiz kurulur
+    _besleme = None
+    _foto = None
 
 KOK = pathlib.Path(__file__).parent
 ICERIK = KOK / "icerik"
@@ -290,6 +304,10 @@ class Analiz:
     #: Imzali yorumlarda dolu; otomatik analizlerde bos
     yazar: str = ""
     unvan: str = ""
+    #: Kartlarda ve yazi basinda kullanilan gercek fotograf. Havuzda konuya
+    #: uygun gorsel yoksa bos kalir ve SVG grafige dusulur.
+    foto: str = ""
+    foto_atif: str = ""
 
     @property
     def imzali(self) -> bool:
@@ -332,6 +350,85 @@ class Analiz:
             return round(min(100.0, max(0.0, float(str(self.skor).replace(",", ".")))), 1)
         except (TypeError, ValueError):
             return 0.0
+
+
+#: Analiz kategorisi -> fotograf konusu. Baslikta bir konu bulunamazsa
+#: buraya dusulur. Anahtarlar `foto.KONU_ARAMA` ile ayni olmali.
+KATEGORI_FOTO = {
+    "Bilanço Analizi": "Şirket haberleri",
+    "Makro": "Para politikası",
+    "Analist Yorumu": "Para politikası",
+    "Teknik Görünüm": "Kripto varlıklar",
+}
+
+
+def analiz_fotografi(kayit, baslik: str, kategori: str, kod: str) -> tuple[str, str]:
+    """Analize gercek fotograf secer. (yol, atif) doner; yoksa ("", "").
+
+    Konu once BASLIKTAN cikarilir -- haber hattindaki siniflandiricinin
+    aynisi kullaniliyor, boylece "Brent %41,7 yukselip geri cekildi"
+    enerji fotografi, "Altin (PAXG)" emtia fotografi aliyor. Baslik bir sey
+    soylemezse kategori varsayilanina dusuluyor.
+    """
+    if kayit is None or _besleme is None:
+        return "", ""
+    varsayilan = KATEGORI_FOTO.get(kategori, "Para politikası")
+    # Teknik yazilarda kodu da metne katiyoruz: "PAXG" gecince emtia,
+    # "BTC/ETH" gecince kripto fotografi secilsin.
+    konu = _besleme.konu_bul(f"{baslik} {kod}", varsayilan)
+    f = kayit.sec(konu, baslik)
+    if f is None and konu != varsayilan:
+        f = kayit.sec(varsayilan, baslik)
+    if f is None:
+        return "", ""
+    # CC BY atfi zorunlu -- gorselin altinda basilir, kaldirilirsa lisans
+    # ihlal edilir.
+    return f.dosya, f.kisa_atif
+
+
+#: Imzasi olmayan yazilarin kunyesi.
+#:
+#: Bu yazilari bir insan yazmiyor: gostergeler cekiliyor, hesap koda gomulu
+#: kurallarla yapiliyor, metin sablondan uretiliyor. Kunyeye uydurma bir
+#: yazar adi koymak -- mockup'ta oldugu gibi bes ayri isim ve vesikalik --
+#: okura yalan soylemek olurdu. Uretici neyse o yaziliyor.
+KURUM_IMZASI = ("Netaris Analiz", "Kural tabanlı üretim")
+
+
+def yorum_kartlari(analizler: list, en_fazla: int = 6) -> list[dict]:
+    """Ana sayfadaki "Yorum ve kose yazilari" seridi.
+
+    IMZALI yazilar once. Kalan yerler otomatik analizlerle doluyor ve
+    onlar KURUM_IMZASI ile basiliyor.
+    """
+    imzali = [a for a in analizler if a.imzali]
+    imzasiz = [a for a in analizler if not a.imzali]
+    kartlar = []
+    for a in (imzali + imzasiz)[:en_fazla]:
+        ad = a.yazar or KURUM_IMZASI[0]
+        kartlar.append({
+            "yol": a.yol,
+            "baslik": a.baslik,
+            "ozet": a.ozet,
+            "yazar_adi": ad,
+            "yazar_unvani": a.unvan or (a.kategori if a.imzali
+                                        else KURUM_IMZASI[1]),
+            # Vesikalik yok -- var olmayan insanin fotografi olmaz.
+            # Bas harf hem imzali hem kurumsal kunyede calisiyor.
+            "bas_harf": bicim_buyut(ad[:1]),
+            "imzali": a.imzali,
+        })
+    return kartlar
+
+
+def bicim_buyut(harf: str) -> str:
+    """Turkce'ye gore buyutur: "i" -> "İ", "ı" -> "I".
+
+    `str.upper()` "islem"i "ISLEM" yapiyor ve bas harf "I" cikiyor;
+    dogrusu "İ". Tek harf icin bile onemli, cunku kunye dairesinde
+    tek basina duruyor.
+    """
+    return harf.translate(str.maketrans({"i": "İ", "ı": "I"})).upper()
 
 
 def kunye_rakamlari(analizler: list) -> list[dict]:
@@ -427,6 +524,9 @@ def gostergeleri_yukle() -> dict:
 def analizleri_yukle() -> list[Analiz]:
     klasor = ICERIK / "analizler"
     liste: list[Analiz] = []
+    # Fotograf defteri BIR KEZ aciliyor -- her yazi icin yeniden okumak
+    # ayni JSON'u onlarca kez ayristirmak olurdu.
+    _foto_kayit = _foto.Kayit() if _foto is not None else None
 
     for yol in sorted(klasor.glob("*.md")):
         b = ayristir(yol)
@@ -446,6 +546,7 @@ def analizleri_yukle() -> list[Analiz]:
             konu=b.al("sirket") or baslik,
             birim=b.al("grafik_birim"),
         )
+        foto_yol, foto_atif = analiz_fotografi(_foto_kayit, baslik, kategori, kod)
 
         liste.append(
             Analiz(
@@ -466,6 +567,8 @@ def analizleri_yukle() -> list[Analiz]:
                 govde=md_html(b.govde_md),
                 sektor=b.al("sektor"),
                 gorsel_svg=gorsel_svg,
+                foto=foto_yol,
+                foto_atif=foto_atif,
                 kelime=len(b.govde_md.split()),
                 kaynaklar=tuple(
                     x.strip() for x in b.al("kaynaklar").split(",") if x.strip()
@@ -709,11 +812,26 @@ def insa() -> int:
         if h.get("yorumlanir")
     }
 
+    # Serit ve panel icin kucuk seri grafikleri. Depodan okunur, ek veri
+    # cekilmez. Depo yoksa bos doner ve serit kivilcimsiz basilir --
+    # grafik sus, deger asil bilgi.
+    kivilcimlar = kivilcim.gosterge_kivilcimlari(
+        [k["kod"] for k in gostergeler.get("kalemler", [])]
+    )
+
+    # Son dakika seridi: en yeni, KENDI SAYFASI OLAN haberler. Disari
+    # yonlendiren baglanti yok; serit sitenin kendi sayfalarina gider.
+    son_dakika = [
+        h for h in gundem.get("haberler", []) if h.get("yorumlanir")
+    ][:12]
+
     ortak = {
         "site": SITE,
         "gostergeler": gostergeler,
         "gundem": gundem,
         "gundem_gorseller": gundem_gorseller,
+        "kivilcimlar": kivilcimlar,
+        "son_dakika": son_dakika,
         "menu": menu,
         "kaynak_adlari": KAYNAK_ADLARI,
     }
@@ -792,6 +910,7 @@ def insa() -> int:
         "/index.html",
         ortam.get_template("anasayfa.html").render(
             **ortak, yol="/", analizler=analizler,
+            yorumlar=yorum_kartlari(analizler),
             rakamlar=kunye_rakamlari(analizler),
         ),
     )

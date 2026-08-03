@@ -80,30 +80,95 @@
 </section>
 {% endif %}
 
-{# Gundem seridi -- resmi kurum duyurulari. Basliklar kaynak dilinde ve
-   dogrudan kuruma baglaniyor; ceviri/yorum eklenmiyor. #}
+{# Haberler -- Turkiye / Dunya sekmeleri.
+   Yalnizca KENDI SAYFASI OLAN haberler listelenir; disari yonlendiren
+   baglanti yok. Sekme secimi CSS'in :checked kuralina bagli -- JavaScript
+   kapaliyken de calisir, cunku radyo dugmesi tarayicinin kendi islevi. #}
 {% if gundem and gundem.haberler %}
-<div class="bolum-bas">
-  <h2>Haberler</h2>
+{% set haber_tr = gundem.haberler | selectattr("yol") | selectattr("bolge", "equalto", "TR") | list %}
+{% set haber_dunya = gundem.haberler | selectattr("yol") | selectattr("bolge", "equalto", "DUNYA") | list %}
+{% if haber_tr or haber_dunya %}
+<section class="sekmeli" aria-label="Haberler">
+  {# Radyo dugmeleri govdelerle KARDES olmak zorunda: sekme secimi
+     `#sekme-tr:checked ~ .sekme-govde-tr` kuralina bagli ve `~` yalnizca
+     kardesler arasinda calisiyor. Ic ice konulsaydi `:has()` gerekirdi,
+     o da eski tarayicida sekmeyi tamamen bozardi.
+     Gizleme `opacity` ile -- `display:none` olsaydi klavyeyle secilemezdi. #}
+  <input class="sekme-radyo" type="radio" name="haber-sekme" id="sekme-tr" checked>
+  <input class="sekme-radyo" type="radio" name="haber-sekme" id="sekme-dunya">
+  <div class="bolum-bas bolum-bas-sekme">
+    <h2>Haberler</h2>
+    <div class="sekme-dugmeler">
+      <label for="sekme-tr">Türkiye <span class="sekme-sayi">{{ haber_tr | length }}</span></label>
+      <label for="sekme-dunya">Dünya <span class="sekme-sayi">{{ haber_dunya | length }}</span></label>
+    </div>
+  </div>
+
+  {% for kod, liste in [("tr", haber_tr), ("dunya", haber_dunya)] %}
+  <div class="sekme-govde sekme-govde-{{ kod }}">
+    {% if liste %}
+    <ul class="haber-izgara">
+      {% for h in liste[:6] %}
+      <li>
+        <a class="haber-kart" href="{{ h.yol }}">
+          {% if h.foto %}
+          <span class="haber-kart-gorsel">
+            <img src="{{ h.foto }}" alt="" loading="lazy" decoding="async" width="400" height="225">
+          </span>
+          {% endif %}
+          <span class="haber-kart-ic">
+            <span class="ust-satir">
+              <span class="rozet rozet-vurgu">{{ h.konu }}</span>
+              <span class="rozet">{{ h.kurum }}</span>
+            </span>
+            <span class="haber-kart-baslik">{{ h.baslik }}</span>
+            <span class="kart-kunye">{{ h.tarih_gorunur or "—" }}</span>
+          </span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p class="kaynak-not">Bu sekmede şu an haber yok.</p>
+    {% endif %}
+  </div>
+  {% endfor %}
+
+  <p class="kaynak-not" style="margin-bottom:34px">
+    <a href="/gundem/">Tüm haberler ({{ gundem.haberler | length }}) →</a>
+  </p>
+</section>
+{% endif %}
+{% endif %}
+
+{# Yorum ve kose yazilari.
+   IMZALI yazilar once gelir. Imzasi olmayanlar "Netaris Analiz" kunyesiyle
+   basilir -- bunlar yayimlanmis kurallarla KOD tarafindan uretiliyor ve
+   oyle de yaziyor. Var olmayan yazar adi UYDURULMAZ: sahte imza, sitenin
+   guvenilirlik iddiasini tek basina bitirir. #}
+{% if yorumlar %}
+<div class="bolum-bas bolum-bas-sekme">
+  <h2>Yorum ve köşe yazıları</h2>
+  <a class="bolum-baglanti" href="/yorum/">Tüm yazılar →</a>
 </div>
-<ul class="gundem-kisa">
-  {# Yalnizca kendi sayfasi olan haberler listelenir -- disari yonlendiren
-     baglanti YOK. #}
-  {% for h in gundem.haberler if h.yol %}
-  {% if loop.index <= 6 %}
+<ul class="yorum-serit">
+  {% for y in yorumlar %}
   <li>
-    <a href="{{ h.yol }}">
-      <span class="rozet rozet-vurgu">{{ h.konu }}</span>
-      <span class="gundem-baslik">{{ h.baslik }}</span>
-      <span class="tarih">{{ h.tarih_gorunur or "—" }}</span>
+    <a class="yorum-kart" href="{{ y.yol }}">
+      <span class="yorum-kunye">
+        <span class="yorum-harf" aria-hidden="true">{{ y.bas_harf }}</span>
+        <span class="yorum-kim">
+          <b>{{ y.yazar_adi }}</b>
+          <span>{{ y.yazar_unvani }}</span>
+        </span>
+      </span>
+      <span class="yorum-baslik">{{ y.baslik }}</span>
+      <span class="yorum-ozet">{{ y.ozet }}</span>
+      <span class="devam">Devamını oku →</span>
     </a>
   </li>
-  {% endif %}
   {% endfor %}
 </ul>
-<p class="kaynak-not" style="margin-bottom:34px">
-  <a href="/gundem/">Tüm haberler ({{ gundem.haberler | length }}) →</a>
-</p>
 {% endif %}
 
 {% if analizler %}
@@ -128,8 +193,20 @@
       <span class="devam">Analizi oku →</span>
     </div>
   </div>
-  <span class="one-cikan-gorsel">{{ one_cikan.gorsel_svg | safe }}</span>
+  {# Kartta gercek fotograf; yazinin KENDI rakamlarindan cizilen grafik
+     yazinin icinde duruyor. Grafigi fotografla degistirmiyoruz --
+     fotograf konuyu anlatir, grafik veriyi. #}
+  <span class="one-cikan-gorsel">
+    {% if one_cikan.foto %}
+    <img src="{{ one_cikan.foto }}" alt="" loading="lazy" decoding="async"
+         width="640" height="360">
+    {% else %}{{ one_cikan.gorsel_svg | safe }}{% endif %}
+  </span>
 </a>
+{% if one_cikan.foto and one_cikan.foto_atif %}
+{# CC BY atfi zorunlu kilar; kaldirilirsa lisans ihlal edilir. #}
+<p class="foto-atif">Fotoğraf: {{ one_cikan.foto_atif }}</p>
+{% endif %}
 
 {% if digerleri %}
 <div class="bolum-bas"><h2>Tüm analizler</h2></div>
@@ -137,7 +214,12 @@
   {% for a in digerleri %}
   <li>
     <a class="kart" href="{{ a.yol }}">
-      <span class="kart-gorsel">{{ a.gorsel_svg | safe }}</span>
+      <span class="kart-gorsel">
+        {% if a.foto %}
+        <img src="{{ a.foto }}" alt="" loading="lazy" decoding="async"
+             width="400" height="225">
+        {% else %}{{ a.gorsel_svg | safe }}{% endif %}
+      </span>
       <span class="kart-ic">
         <span class="ust-satir">{{ rozetler(a) }}</span>
         <h2 class="kart-baslik">{{ a.baslik }}</h2>

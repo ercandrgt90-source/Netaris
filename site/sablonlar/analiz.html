@@ -49,10 +49,24 @@
 {% endif %}
 
 <article class="yazi">
-  {# Gorsel yazinin KENDI rakamlarindan cizilir: stok fotograf ya da sirket
-     amblemi degil. Bu yuzden "dekoratif" degil, iceriktir -- ekran okuyucuya
-     da SVG icindeki aria-label ile aciklanir. #}
+  {# IKI GORSEL, IKI IS.
+     Fotograf konuyu anlatir ve yazinin basinda durur.
+     Altindaki grafik yazinin KENDI rakamlarindan cizilir -- stok gorsel
+     degil, icerik. Bu yuzden fotograf grafigin YERINE GECMEZ; grafik
+     olmasa temsili bir sey uydurmak yerine hic cizilmiyor. #}
+  {% if a.foto %}
+  <figure class="yazi-foto">
+    <img src="{{ a.foto }}" alt="" width="1200" height="675"
+         decoding="async" fetchpriority="high">
+    {% if a.foto_atif %}
+    {# CC BY atfi zorunlu kilar; kaldirilirsa lisans ihlal edilir. #}
+    <figcaption>Fotoğraf: {{ a.foto_atif }}</figcaption>
+    {% endif %}
+  </figure>
+  {% endif %}
+  {% if a.gorsel_svg %}
   <figure class="yazi-gorsel">{{ a.gorsel_svg | safe }}</figure>
+  {% endif %}
 
   <header>
     {# Makro icerikte "kod" MAKRO yer tutucusu -- kategoriyle ayni seyi

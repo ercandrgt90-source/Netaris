@@ -150,6 +150,8 @@ def main() -> int:
             "dil": h.dil,
             # Sayfada kunye basilacak mi -- ticari kaynakta ZORUNLU
             "ticari": h.ticari,
+            # Ana sayfadaki Türkiye / Dünya sekmesi
+            "bolge": besleme.bolge_bul(h.baslik, h.dil),
             "adres": h.adres,
             "kurum": h.kurum,
             "kurum_tam": h.kurum_tam,

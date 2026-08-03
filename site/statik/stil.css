@@ -747,11 +747,11 @@ main.kabuk { padding-top: 26px; padding-bottom: 48px; }
 .haber-kunye {
   margin: 14px 0 0;
   padding: 9px 12px;
-  border-left: 3px solid var(--cizgi, #d8dde5);
-  background: var(--yumusak-zemin, #f6f8fa);
+  border-left: 3px solid var(--cizgi);
+  background: var(--panel-2);
   font-size: 0.84rem;
   line-height: 1.5;
-  color: var(--ikincil-metin, #5b6470);
+  color: var(--yazi-2);
 }
 .haber-kunye a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
 .haber-kunye a:hover { color: var(--vurgu, #0b5fff); }
@@ -1531,4 +1531,187 @@ main.kabuk { padding-top: 26px; padding-bottom: 48px; }
 
 @media (prefers-reduced-motion: reduce) {
   * { animation: none !important; transition: none !important; }
+}
+
+
+/* ==================================================================
+   ANA SAYFA MODULLERI
+   Fiyat seridi kivilcimi, son dakika seridi, Turkiye/Dunya sekmeleri,
+   haber kartlari, kose yazisi seridi.
+   ================================================================== */
+
+/* --- Serit kivilcimi ---------------------------------------------
+   Renk YONE bagli. Bu sitede kirmizi/yesil YALNIZCA sayisal yon icin
+   ayrilmis; kivilcim de ayni kurala uyuyor ki okur iki ayri anlam
+   ogrenmek zorunda kalmasin. */
+.kalem-kivilcim { display: inline-flex; align-items: center; margin: 0 2px; }
+.kalem-kivilcim.artis { color: var(--artis); }
+.kalem-kivilcim.dusus { color: var(--azalis); }
+.kalem-kivilcim svg { display: block; }
+
+/* --- Son dakika seridi -------------------------------------------- */
+.sondakika {
+  background: var(--zemin-2);
+  border-bottom: 1px solid var(--cizgi);
+  overflow: hidden;
+}
+.sondakika-ic { display: flex; align-items: center; gap: 12px; height: 40px; }
+
+.sondakika-etiket {
+  display: inline-flex; align-items: center; gap: 7px;
+  flex: 0 0 auto;
+  padding: 4px 11px;
+  border-radius: 999px;
+  background: var(--azalis);
+  color: #fff;
+  font-size: 0.7rem; font-weight: 800; letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+.sondakika-nokta {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #fff;
+  animation: nabiz 1.8s ease-in-out infinite;
+}
+
+.sondakika-akis { flex: 1 1 auto; overflow: hidden; }
+.sondakika-sira { display: flex; align-items: center; gap: 26px; white-space: nowrap; }
+.sondakika-sira.akiyor { animation: kay 52s linear infinite; }
+.sondakika:hover .sondakika-sira.akiyor,
+.sondakika-sira.akiyor:focus-within { animation-play-state: paused; }
+.sondakika.durdu .sondakika-sira.akiyor { animation-play-state: paused; }
+
+.sondakika-oge {
+  display: inline-flex; align-items: baseline; gap: 8px;
+  color: var(--yazi); font-size: 0.83rem;
+}
+.sondakika-oge:hover .sondakika-baslik { color: var(--vurgu); text-decoration: underline; }
+.sondakika-saat { color: var(--yazi-3); font-size: 0.74rem; flex: 0 0 auto; }
+.sondakika-baslik { font-weight: 600; }
+
+.sondakika-durdur {
+  flex: 0 0 auto;
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 24px; height: 24px; padding: 0;
+  border: 1px solid var(--cizgi); border-radius: 6px;
+  background: var(--panel); color: var(--yazi-3); cursor: pointer;
+}
+.sondakika-durdur:hover { color: var(--yazi); border-color: var(--cizgi-parlak); }
+
+/* --- Turkiye / Dunya sekmeleri ------------------------------------
+   JavaScript YOK. Radyo dugmesi + `~` kardes secici. Boylece betik
+   kapaliyken de sekme calisiyor. */
+.sekme-radyo { position: absolute; width: 1px; height: 1px; opacity: 0; }
+
+.bolum-bas-sekme {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 16px; flex-wrap: wrap;
+}
+.sekme-dugmeler { display: inline-flex; gap: 4px; padding: 3px; border-radius: 999px; background: var(--zemin-2); }
+.sekme-dugmeler label {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 15px; border-radius: 999px;
+  font-size: 0.86rem; font-weight: 700; color: var(--yazi-2); cursor: pointer;
+}
+.sekme-dugmeler label:hover { color: var(--yazi); }
+.sekme-sayi {
+  min-width: 20px; padding: 1px 6px; border-radius: 999px;
+  background: var(--cizgi); color: var(--yazi-2);
+  font-size: 0.72rem; font-weight: 700; text-align: center;
+}
+
+.sekme-govde { display: none; }
+#sekme-tr:checked ~ .sekme-govde-tr,
+#sekme-dunya:checked ~ .sekme-govde-dunya { display: block; }
+#sekme-tr:checked ~ .bolum-bas label[for="sekme-tr"],
+#sekme-dunya:checked ~ .bolum-bas label[for="sekme-dunya"] {
+  background: var(--panel); color: var(--yazi); box-shadow: var(--golge);
+}
+#sekme-tr:checked ~ .bolum-bas label[for="sekme-tr"] .sekme-sayi,
+#sekme-dunya:checked ~ .bolum-bas label[for="sekme-dunya"] .sekme-sayi {
+  background: var(--vurgu); color: #fff;
+}
+/* Klavyeyle gezerken hangi sekmede oldugu gorunmeli */
+.sekme-radyo:focus-visible ~ .bolum-bas label[for="sekme-tr"],
+.sekme-radyo:focus-visible ~ .bolum-bas label[for="sekme-dunya"] { outline: 2px solid var(--vurgu); outline-offset: 2px; }
+
+/* --- Haber kartlari ----------------------------------------------- */
+.haber-izgara {
+  list-style: none; margin: 0 0 16px; padding: 0;
+  display: grid; gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+}
+.haber-kart {
+  display: flex; flex-direction: column; height: 100%;
+  border: 1px solid var(--cizgi); border-radius: var(--r);
+  background: var(--panel); overflow: hidden; color: inherit;
+  transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s;
+}
+.haber-kart:hover { border-color: var(--cizgi-parlak); transform: translateY(-2px); box-shadow: var(--golge); }
+.haber-kart-gorsel { display: block; aspect-ratio: 16 / 9; background: var(--zemin-2); }
+.haber-kart-gorsel img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.haber-kart-ic { display: flex; flex-direction: column; gap: 8px; padding: 13px 15px 15px; }
+.haber-kart-baslik { font-weight: 700; line-height: 1.32; font-size: 0.98rem; }
+.haber-kart:hover .haber-kart-baslik { color: var(--vurgu); }
+
+/* --- Kose yazilari ------------------------------------------------ */
+.yorum-serit {
+  list-style: none; margin: 0 0 34px; padding: 0;
+  display: grid; gap: 14px;
+  grid-template-columns: repeat(auto-fill, minmax(235px, 1fr));
+}
+.yorum-kart {
+  display: flex; flex-direction: column; gap: 10px; height: 100%;
+  padding: 16px; border: 1px solid var(--cizgi); border-radius: var(--r);
+  background: var(--panel); color: inherit;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.yorum-kart:hover { border-color: var(--cizgi-parlak); box-shadow: var(--golge); }
+.yorum-kunye { display: flex; align-items: center; gap: 10px; }
+/* Vesikalik YOK -- var olmayan insanin fotografi olmaz. Bas harf hem
+   imzali hem kurumsal kunyede duruyor. */
+.yorum-harf {
+  flex: 0 0 auto;
+  width: 34px; height: 34px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--zemin-2); border: 1px solid var(--cizgi);
+  color: var(--vurgu); font-weight: 800; font-size: 0.92rem;
+}
+.yorum-kim { display: flex; flex-direction: column; line-height: 1.25; min-width: 0; }
+.yorum-kim b { font-size: 0.86rem; }
+.yorum-kim span { font-size: 0.75rem; color: var(--yazi-3); }
+.yorum-baslik { font-weight: 700; font-size: 1rem; line-height: 1.3; }
+.yorum-kart:hover .yorum-baslik { color: var(--vurgu); }
+.yorum-ozet {
+  font-size: 0.85rem; color: var(--yazi-2); line-height: 1.5;
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.yorum-kart .devam { margin-top: auto; font-size: 0.82rem; }
+
+/* --- Analizde gercek fotograf ------------------------------------- */
+.yazi-foto { margin: 0 0 18px; }
+.yazi-foto img {
+  width: 100%; height: auto; display: block;
+  border-radius: var(--r); background: var(--zemin-2);
+}
+.yazi-foto figcaption,
+.foto-atif {
+  margin: 7px 0 0; font-size: 0.76rem; color: var(--yazi-3);
+}
+.foto-atif { margin-bottom: 18px; }
+
+.one-cikan-gorsel img,
+.kart-gorsel img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Hareket azaltma tercihi: akan hicbir serit oynamaz. */
+@media (prefers-reduced-motion: reduce) {
+  .sondakika-sira.akiyor { animation: none; }
+  .sondakika-nokta { animation: none; }
+}
+
+@media (max-width: 640px) {
+  .sondakika-ic { gap: 8px; }
+  .sondakika-etiket { font-size: 0.63rem; padding: 3px 8px; }
+  .sondakika-durdur { display: none; }
+  .bolum-bas-sekme { align-items: flex-start; }
 }

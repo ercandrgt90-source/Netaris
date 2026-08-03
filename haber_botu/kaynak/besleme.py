@@ -219,8 +219,10 @@ KONU_ISARETLERI = (
         "unemployment", "employment", "wage", "labor market", "layoff",
     )),
     ("Konut ve kira", (
+        # "rent" YALIN YAZILMAZ -- "B-RENT" petrolu icinde eslesiyor ve
+        # enerji yazisini konut haberi yapiyordu. Olculdu.
         "konut", "kira", "emlak", "insaat", "ipotek", "tapu", "mortgage",
-        "housing", "rent", "construction",
+        "housing", " rent ", "rental", "construction",
     )),
     ("Tarım ve gıda", (
         # "ciftci" YOK -- Tarim ve Orman Bakani'nin soyadi Ciftci ve
@@ -237,10 +239,11 @@ KONU_ISARETLERI = (
     # haberidir. Ters sirada EIA'nin "crude oil imports" haberi Dis
     # ticaret'e dusuyordu.
     ("Enerji", (
-        "enerji", "petrol", "dogal gaz", "elektrik", "akaryakit",
-        "rafineri", " ges ", " res ", "yenilenebilir", "tpao", "botas",
-        "yeka", "santral", " lng ", "benzin", "motorin",
-        "oil", "crude", "petroleum", "natural gas", "energy", "opec",
+        "enerji", "petrol", "brent", " wti ", "varil", "opec",
+        "dogal gaz", "elektrik", "akaryakit", "rafineri", " ges ", " res ",
+        "yenilenebilir", "tpao", "botas", "yeka", "santral", " lng ",
+        "benzin", "motorin", "kwh",
+        "oil", "crude", "petroleum", "natural gas", "energy",
         "electricity", "renewable",
     )),
     ("Dış ticaret", (
@@ -393,6 +396,64 @@ def _tarih_coz(ham: str) -> str:
         except ValueError:
             pass
     return ""
+
+
+#: DUNYA isaretleri -- baslikta yabanci bir ulke ya da kurum geciyorsa
+#: haber Turkiye sekmesine degil Dunya sekmesine gider.
+#:
+#: Ayrim KAYNAGA gore degil ICERIGE gore yapilir: Ekonomist Turk bir yayin
+#: ama "Fed belirsizligi dolari vurdu" bir dunya haberi. Kaynaga baksaydik
+#: Turk yayinlarinin butun dis haberleri Turkiye sekmesine dolardi.
+DUNYA_ISARETLERI = (
+    " abd ", "amerika", "washington", " fed ", "beyaz saray", "trump",
+    "avrupa", "avro bolge", " ecb ", "brüksel", "bruksel",
+    "almanya", "fransa", "ingiltere", "italya", "ispanya", "hollanda",
+    " cin ", "japonya", "hindistan", "guney kore", "rusya", "ukrayna",
+    "iran", "israil", "suudi", " bae ", "katar", "misir",
+    "opec", " imf ", "dunya bankasi", "wall street", "nasdaq",
+    "s&p 500", "dow jones", "nikkei", "asya borsalar", "avrupa borsalar",
+    "kuresel piyasa", "tesla", "apple", "amazon", "nvidia", "microsoft",
+    "goldman", "deutsche bank", "shell", "stellantis", "volkswagen",
+)
+
+#: TURKIYE isaretleri -- DUNYA'dan ONCE bakilir.
+#:
+#: Sira boyle olmali cunku Turkiye haberi cogu zaman bir yabanci ulkeden
+#: de soz eder: "Turkiye'nin ABD'ye ihracati artti" once Turkiye
+#: haberidir. Dunya isaretine once baksaydik " abd " gorup Dunya
+#: sekmesine atardik.
+TURKIYE_ISARETLERI = (
+    "turk", " tcmb ", "merkez bankasi", " bist ", "borsa istanbul",
+    " tuik ", " spk ", " bddk ", "hazine", " toki ", " tl ", "lira",
+    "kurus", "asgari ucret", "bag-kur", " ssk ", " sgk ", "emekli",
+    "bakan", "cumhurbaskani", "meclis", "resmi gazete",
+    "ankara", "istanbul", "izmir", "antalya", "anadolu", "guneydogu",
+    "marmara", " ege ", "karadeniz", "akdeniz", "tarsim", "botas",
+    "tpao", " yeka ", " kdv ", " otv ", "yerli", "milli",
+)
+
+
+def bolge_bul(baslik: str, dil: str) -> str:
+    """Haberin "TR" mi "DUNYA" mi oldugunu soyler. Sekme ayrimi icin.
+
+      1. Turkce olmayan kaynak (Fed, ECB, SEC, EIA) her zaman DUNYA.
+      2. Baslikta Turkiye isareti varsa TR.
+      3. Yabanci ulke/kurum geciyorsa DUNYA.
+      4. Isaretsiz kalan TR.
+
+    Dorduncu kural bilincli: Turk bir yayinin ekonomi servisinde isaretsiz
+    kalan haber ("Altin haftaya yukselisle basladi") yurt ici okura yurt
+    ici baglamda sunuluyor. Yanlis tarafa dusen tek bir haberin bedeli
+    dusuk; onemli olan Dunya sekmesinin gercekten dis haber tasimasi.
+    """
+    if dil != "tr":
+        return "DUNYA"
+    k = " " + _katla(baslik) + " "
+    if any(i in k for i in TURKIYE_ISARETLERI):
+        return "TR"
+    if any(i in k for i in DUNYA_ISARETLERI):
+        return "DUNYA"
+    return "TR"
 
 
 def _aranacak(baslik: str) -> str:

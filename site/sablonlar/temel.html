@@ -75,6 +75,11 @@
         <span class="nokta nokta-gecmis"></span>
         <span class="kalem-ad">{{ k.ad }}</span>
         <span class="kalem-deger">{{ k.deger }}</span>
+        {# Kivilcim seriden cizilir; seri yoksa hic basilmaz. Tek noktadan
+           cizilen bir "grafik" egilim varmis izlenimi verirdi. #}
+        {% if kivilcimlar and kivilcimlar[k.kod] %}
+        <span class="kalem-kivilcim {{ k.yon }}">{{ kivilcimlar[k.kod] | safe }}</span>
+        {% endif %}
         <span class="kalem-fark {{ k.yon }}">{{ k.fark }}</span>
       </span>
       {% endfor %}
@@ -86,6 +91,37 @@
     </div>
   </div>
 </div>
+
+{# Son dakika seridi.
+   Yalnizca KENDI SAYFASI OLAN haberler akar -- serit disari yonlendirmiyor.
+   Duraklat dugmesi sart: surekli akan metin okumayi zorlastiriyor ve
+   `prefers-reduced-motion` acikken akis CSS tarafinda zaten duruyor. #}
+{% if son_dakika %}
+<div class="sondakika" role="region" aria-label="Son dakika">
+  <div class="kabuk sondakika-ic">
+    <span class="sondakika-etiket">
+      <span class="sondakika-nokta"></span>SON DAKİKA
+    </span>
+    <div class="sondakika-akis" data-sd-akis>
+      <div class="sondakika-sira" data-sd-sira>
+        {% for h in son_dakika %}
+        <a class="sondakika-oge" href="{{ h.yol }}">
+          <span class="sondakika-saat">{{ h.tarih_gorunur or "—" }}</span>
+          <span class="sondakika-baslik">{{ h.baslik }}</span>
+        </a>
+        {% endfor %}
+      </div>
+    </div>
+    <button class="sondakika-durdur" type="button" data-sd-durdur
+            aria-label="Akışı duraklat" title="Akışı duraklat">
+      <svg width="11" height="11" viewBox="0 0 12 12" aria-hidden="true">
+        <rect x="1" y="1" width="3.5" height="10" rx="1" fill="currentColor"/>
+        <rect x="7.5" y="1" width="3.5" height="10" rx="1" fill="currentColor"/>
+      </svg>
+    </button>
+  </div>
+</div>
+{% endif %}
 
 <main class="kabuk">
 {% block icerik %}{% endblock %}
@@ -116,6 +152,7 @@
 
 {# Fiyat seridini canlandirir. Basarisiz olursa sayfa aynen calisir. #}
 <script src="/statik/canli.js" defer></script>
+{% if son_dakika %}<script src="/statik/sondakika.js" defer></script>{% endif %}
 {% block betikler %}{% endblock %}
 
 </body>

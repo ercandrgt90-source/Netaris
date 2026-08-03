@@ -238,10 +238,26 @@ def doldur(konu: str, kayit: Kayit, adet: int = HAVUZ) -> int:
     return eklendi
 
 
+#: Gundemde o gun hic haberi olmasa bile havuzu DOLU tutulan konular.
+#:
+#: Sebep: analiz yazilari da bu havuzdan fotograf aliyor ve onlar gunun
+#: haber akisindan bagimsiz. Bir kez oyle oldu -- gunun haberlerinde
+#: sirket haberi yoktu, havuz bos kaldi ve TERA bilanco analizi
+#: fotografsiz yayimlandi. Hicbir hata mesaji cikmadi.
+TEMEL_KONULAR = (
+    "Şirket haberleri", "Para politikası", "Enerji", "Enflasyon",
+    "Altın ve emtia", "Kripto varlıklar", "Borsa",
+)
+
+
 def hazirla(konular: list[str]) -> Kayit:
-    """Verilen konularin havuzlarini doldurup defteri doner."""
+    """Verilen konularin havuzlarini doldurup defteri doner.
+
+    `TEMEL_KONULAR` her zaman listeye ekleniyor. `doldur` havuz zaten
+    doluysa ag istegi yapmiyor, dolayisiyla bunun gunluk maliyeti yok.
+    """
     kayit = Kayit()
-    for konu in dict.fromkeys(konular):
+    for konu in dict.fromkeys(list(konular) + list(TEMEL_KONULAR)):
         n = doldur(konu, kayit)
         if n:
             print(f"  {konu:<20} {n} yeni fotograf")
