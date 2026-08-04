@@ -113,6 +113,7 @@
       Bazı serilerde kaynağın yayım gecikmesi vardır; son gözlem tarihi her
       satırda yazılıdır.
       {% endif %}
+      {% for n in piyasa.notlar %}{{ n }} {% endfor %}
     </p>
     {% endif %}
 

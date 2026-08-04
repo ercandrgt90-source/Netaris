@@ -41,7 +41,7 @@ VARLIKLAR = {
     "XBTUSD": ("Bitcoin", "BTC", "kripto"),
     "ETHUSD": ("Ethereum", "ETH", "kripto"),
     "SOLUSD": ("Solana", "SOL", "kripto"),
-    "PAXGUSD": ("Altın (PAXG)", "PAXG", "emtia"),
+    "PAXGUSD": ("Altın", "PAXG", "emtia"),
 }
 
 #: Gunluk mum

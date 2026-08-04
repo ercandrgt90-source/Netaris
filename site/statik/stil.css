@@ -1575,7 +1575,9 @@ main.kabuk { padding-top: 26px; padding-bottom: 48px; }
 
 .sondakika-akis { flex: 1 1 auto; overflow: hidden; }
 .sondakika-sira { display: flex; align-items: center; gap: 26px; white-space: nowrap; }
-.sondakika-sira.akiyor { animation: kay 52s linear infinite; }
+/* 52 saniye cok yavasti -- serit duruyor gibi gorunuyordu.
+   Uzerine gelince ve duraklat dugmesiyle zaten duruyor. */
+.sondakika-sira.akiyor { animation: kay 30s linear infinite; }
 .sondakika:hover .sondakika-sira.akiyor,
 .sondakika-sira.akiyor:focus-within { animation-play-state: paused; }
 .sondakika.durdu .sondakika-sira.akiyor { animation-play-state: paused; }

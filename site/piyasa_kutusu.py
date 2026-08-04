@@ -48,6 +48,17 @@ PENCERELER = (20, 50, 200)
 #:
 #: (kaynak, kod, gorunur ad, birim)
 #: kaynak "gosterge" ise FRED serisi, "fiyat" ise Kraken mumu.
+#: Kod -> kutunun altinda basilacak aciklama.
+#:
+#: Etiketten sembolu kaldirmak bilgiyi silmek degil, YERINI degistirmek.
+#: "Altın (PAXG)" seridi ve kutuyu kalabaliklastiriyordu; enstrumanin ne
+#: oldugu buraya tasindi. Okur rakama bakarken sembolle ugrasmiyor ama
+#: neye baktigini sormak isterse cevabi ayni sayfada.
+ARAC_NOTLARI = {
+    "PAXGUSD": "Altın fiyatı PAXG token verisidir (Kraken); bir ons altına "
+               "dayanır, LBMA fiksingi değildir.",
+}
+
 KONU_ARACLARI: dict[str, tuple[tuple[str, str, str, str], ...]] = {
     "Borsa": (
         ("gosterge", "SP500", "S&P 500", ""),
@@ -58,11 +69,12 @@ KONU_ARACLARI: dict[str, tuple[tuple[str, str, str, str], ...]] = {
         ("gosterge", "DTWEXBGS", "Dolar endeksi", ""),
         ("gosterge", "DEXUSEU", "EUR/USD", ""),
     ),
-    # PAXG tokenlestirilmis altin. "Ons altin" demek dogru olmaz --
-    # ikisi birbirine yakin seyreder ama ayni enstruman degil ve aradaki
-    # farki gizlemek okura yanlis bir kesinlik verir.
+    # PAXG tokenlestirilmis altin: spot altini yakindan izler ama LBMA
+    # fiksingi degildir. Sembol ETIKETTEN kaldirildi -- "Altın (PAXG)"
+    # okura bir sey anlatmiyor, kalabalik yapiyordu. Fark yok sayilmiyor:
+    # kutunun altindaki notta yaziyor.
     "Altın ve emtia": (
-        ("fiyat", "PAXGUSD", "Altın (PAXG)", "$"),
+        ("fiyat", "PAXGUSD", "Altın", "$"),
         ("gosterge", "DCOILBRENTEU", "Brent", "$"),
     ),
     "Enerji": (
@@ -236,6 +248,7 @@ def kutu(konu: str, bugun: str = "") -> dict | None:
         bugun = date.today().isoformat()
 
     satirlar = []
+    notlar = []
     try:
         with sqlite3.connect(f"file:{DEPO}?mode=ro", uri=True) as b:
             for kaynak, kod, ad, birim in araclar:
@@ -243,6 +256,8 @@ def kutu(konu: str, bugun: str = "") -> dict | None:
                 s = _arac_hesapla(degerler, tarihler, ad, birim, bugun)
                 if s:
                     satirlar.append(s)
+                    if kod in ARAC_NOTLARI:
+                        notlar.append(ARAC_NOTLARI[kod])
     except sqlite3.Error:
         return None
 
@@ -250,6 +265,7 @@ def kutu(konu: str, bugun: str = "") -> dict | None:
         return None
     return {
         "satirlar": satirlar,
+        "notlar": notlar,
         # Bir aracin bile 200 gunlugu eksikse okura soyleniyor.
         "eksik_var": any(s["eksik_ortalama"] for s in satirlar),
         "bayat_var": any(s["bayat"] for s in satirlar),

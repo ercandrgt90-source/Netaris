@@ -49,12 +49,17 @@
   /* Kraken cevap anahtarlari istek adindan farkli gelir: "XBTUSD" ->
      "XXBTZUSD". Eslesme bu yuzden anahtarla degil, icerdigi kodla
      yapiliyor.
-     PAXG bir ons altina %100 dayali token; spot altini yakindan izler ama
-     LBMA fiksingi DEGILDIR, o yuzden "ALTIN (PAXG)" diye etiketleniyor. */
+
+     Seritte sembol GORUNMUYOR -- "ALTIN (PAXG)" seridi kalabaliklastiriyordu.
+     Enstrumanin ne oldugu kaleme gelince cikan aciklamada yaziyor: PAXG
+     bir ons altina dayali token, spot altini yakindan izler ama LBMA
+     fiksingi degildir. Bilgi kayboluyor degil, yer degistiriyor. */
   var KRAKEN_ADLARI = [
-    { iz: "XBT", ad: "BTC/USD", basamak: 0 },
-    { iz: "ETH", ad: "ETH/USD", basamak: 0 },
-    { iz: "PAXG", ad: "ALTIN (PAXG)", basamak: 0 }
+    { iz: "XBT", ad: "BTC/USD", basamak: 0, aciklama: "Bitcoin — Kraken" },
+    { iz: "ETH", ad: "ETH/USD", basamak: 0, aciklama: "Ethereum — Kraken" },
+    { iz: "PAXG", ad: "ALTIN", basamak: 0,
+      aciklama: "Altın — PAXG token fiyatı (Kraken). Bir ons altına "
+              + "dayalıdır, LBMA fiksingi değildir." }
   ];
 
   function trSayi(deger, basamak) {
@@ -76,7 +81,7 @@
            trSayi(Math.abs(yuzde), 2) + "%";
   }
 
-  function kalemKur(anahtar, ad, deger, yuzde, canliMi) {
+  function kalemKur(anahtar, ad, deger, yuzde, canliMi, aciklama) {
     var kalem = SIRA.querySelector('[data-kalem="' + anahtar + '"]');
     if (!kalem) {
       kalem = document.createElement("span");
@@ -97,9 +102,11 @@
       '<span class="kalem-ad">' + ad + "</span>" +
       '<span class="kalem-deger">' + deger + "</span>" +
       '<span class="kalem-fark ' + yon + '">' + yuzdeMetni(yuzde) + "</span>";
-    kalem.title = ad + (canliMi
-      ? " — canlı akış (Binance), 24 saatlik değişim"
-      : " — son veri (ECB günlük referans)");
+    /* Enstrumanin ne oldugu ve verinin nereden geldigi seritte degil
+       BURADA duruyor -- serit dar, aciklama uzun. */
+    kalem.title = aciklama || (ad + (canliMi
+      ? " — canlı akış, 24 saatlik değişim"
+      : " — son veri (ECB günlük referans)"));
   }
 
   /* Kayan serit icin ikinci kopya. Animasyon -%50 kaydirdigi icin iki ayni
@@ -140,7 +147,7 @@
             ? (fiyat / acilis - 1) * 100
             : null;
           kalemKur(anahtar, tanim.ad, trSayi(fiyat, tanim.basamak),
-                   yuzde, true);
+                   yuzde, true, tanim.aciklama);
         });
         kopyaTazele();
       })
