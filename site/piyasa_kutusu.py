@@ -97,6 +97,15 @@ KONU_ARACLARI: dict[str, tuple[tuple[str, str, str, str], ...]] = {
         ("gosterge", "DCOILBRENTEU", "Brent", "$"),
         ("gosterge", "DCOILWTICO", "WTI", "$"),
     ),
+    # Jeopolitik haberde okunacak yerler: arz riskinin fiyatlandigi
+    # petrol, guvenli liman talebinin gorundugu altin ve risk istahini
+    # ozetleyen oynaklik endeksi.
+    "Jeopolitik": (
+        ("gosterge", "DCOILBRENTEU", "Brent", "$"),
+        ("fiyat", "PAXGUSD", "Altın", "$"),
+        ("gosterge", "VIXCLS", "VIX", ""),
+        ("gosterge", "DTWEXBGS", "Dolar endeksi", ""),
+    ),
     "Kripto varlıklar": (
         ("fiyat", "XBTUSD", "Bitcoin", "$"),
         ("fiyat", "ETHUSD", "Ethereum", "$"),

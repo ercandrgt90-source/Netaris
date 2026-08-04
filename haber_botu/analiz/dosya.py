@@ -94,6 +94,18 @@ DUYARLILIK: dict[str, tuple[tuple[str, int, str], ...]] = {
         ("Bankacılık", 3, "Dış finansman ve kur üzerinden"),
         ("İç piyasa perakendesi", 2, "Dolaylı"),
     ),
+    # Jeopolitik etkinin BUYUKLUGU olayin turune gore cok degisir;
+    # asagidaki siralama "hangi sektor once haber olur" siralamasidir,
+    # bir etki tahmini degil. Bir yaptirim karari ile bir ateskes
+    # haberinin ayni sektore etkisi ters yonde olabilir.
+    "Jeopolitik": (
+        ("Havayolu / Lojistik", 5, "Yakıt maliyeti ve güzergâh riski"),
+        ("Enerji üretimi", 5, "Arz güvenliği ve girdi fiyatı"),
+        ("Savunma sanayi", 4, "Sipariş ve ihracat izinleri"),
+        ("İhracatçı sanayi", 4, "Pazar erişimi ve gümrük rejimi"),
+        ("Bankacılık", 3, "Ülke risk primi ve dış borçlanma maliyeti"),
+        ("Turizm", 3, "Bölgesel gerilim ziyaretçi planını etkiler"),
+    ),
     "Borsa": (
         ("Aracı kurumlar", 5, "İşlem hacmi komisyon gelirini belirler"),
         ("Bankacılık", 4, "Portföy ve yatırım bankacılığı"),
@@ -184,6 +196,9 @@ IZLENECEKLER: dict[str, tuple[str, ...]] = {
                "TÜFE — akaryakıt kalemi", "USD/TRY"),
     "Dış ticaret": ("Aylık dış ticaret verisi", "Cari işlemler dengesi",
                     "USD/TRY", "Brent petrol"),
+    "Jeopolitik": ("Brent petrol", "Ons altın", "Türkiye CDS primi",
+                   "Cari işlemler dengesi", "Doğal gaz fiyatı",
+                   "Navlun ve sigorta maliyetleri"),
     "Borsa": ("BIST 100", "USD/TRY", "ABD 10 yıllık", "Politika faizi"),
     "Altın ve emtia": ("Ons altın", "Dolar endeksi", "ABD 10 yıllık",
                        "Cari işlemler dengesi"),
@@ -235,6 +250,20 @@ SENARYOLAR: dict[str, tuple[tuple[str, str], ...]] = {
          "ithalat faturası ve cari denge etkilenebilir"),
         ("Fiyatlar gerilerse", "enflasyona akaryakıt kanalından destek gelebilir"),
         ("Kur ve enerji birlikte yükselirse", "maliyet baskısı katlanabilir"),
+    ),
+    # Senaryolar KOSULLU ve AGIRLIKSIZ. Jeopolitikte bu ozellikle onemli:
+    # "gerilim artarsa petrol yukselir" yaygin ama olculmemis bir
+    # genellemedir. 2020 Suleymani suikastinde petrol iki gunde yukselip
+    # geri verdi. Kosulu yaziyoruz, olasiligi degil.
+    "Jeopolitik": (
+        ("Fiili arz kesintisi olmadan gerilim sürerse",
+         "risk primi zamanla erimeye eğilimlidir"),
+        ("Sevkiyat güzergâhı fiilen kapanırsa",
+         "petrol ve navlun maliyeti üzerinden enerji faturası artabilir"),
+        ("Yaptırım ya da gümrük kararı yürürlüğe girerse",
+         "etki, ihracatçının o pazara bağımlılık oranı kadar olur"),
+        ("Gerilim düşerse",
+         "önceden fiyatlanmış risk primi geri verilebilir"),
     ),
     "Tarım ve gıda": (
         ("Rekolte beklentiyi aşarsa",
@@ -623,6 +652,9 @@ BULGU_KONULARI = {
     "İstihdam ve ücret": ("issizlik", "enflasyon"),
     "Şirket haberleri": ("faiz", "kur"),
     "Enerji": ("kur", "dis_ticaret"),
+    # Jeopolitik olayin Turkiye'ye yazildigi yer once cari denge, sonra
+    # kur. Enflasyon burada uc adim uzakta kaliyor.
+    "Jeopolitik": ("dis_ticaret", "kur"),
     "Tarım ve gıda": ("enflasyon",),
     "Turizm": ("kur", "dis_ticaret"),
     "Borsa": ("faiz", "kur"),
@@ -665,6 +697,16 @@ TURKIYE_VARLIKLARI = frozenset({
 })
 
 
+#: Yurt disi haberde de aktarim zinciri kurulan konular.
+#:
+#: Olcut su: haberin Turkiye'ye gecisi TAHMIN mi, MUHASEBE mi. Hurmuz
+#: Bogazi'nda arz riski, Turkiye net enerji ithalatcisi oldugu icin
+#: enerji faturasina yazilir -- bu muhasebedir. "New York borsasi
+#: yukselisle kapandi" haberinin Turkiye'ye gecisi ise tahmindir; o
+#: yuzden listede yok.
+ZINCIR_KONULARI = frozenset({"Jeopolitik", "Enerji"})
+
+
 def turkiye_haberi(bolge: str, varliklar) -> bool:
     """Haber Turkiye'yi mi anlatiyor.
 
@@ -682,15 +724,26 @@ def kur(konu: str, bolge: str, haber_tarihi: str = "",
     """Haberin arastirma dosyasini kurar. Veri yoksa bos Dosya doner."""
     tr = turkiye_haberi(bolge, varliklar)
 
-    # DUYARLILIK / IZLENECEKLER / SENARYOLAR DA TURKIYE'YE OZGU.
+    # DUYARLILIK / IZLENECEKLER / SENARYOLAR TURKIYE'YE OZGU.
     # Tablolar Turkiye sektorlerini ve Turkiye veri takvimini anlatiyor;
-    # yabanci haberde "En cok kim etkilenir: Konaklama, Havayolu" yazmak
-    # kurulmamis bir aktarim zincirini kurulmus gibi gostermek olurdu.
+    # siradan bir yabanci haberde "En cok kim etkilenir: Konaklama,
+    # Havayolu" yazmak kurulmamis bir aktarim zincirini kurulmus gibi
+    # gostermek olurdu.
+    #
+    # JEOPOLITIK ISTISNA. Bu konuda aktarim zinciri haberin KENDISI:
+    # Hurmuz Bogazi'ndaki bir gelisme Turkiye'ye enerji faturasi ve risk
+    # primi uzerinden yazilir, cunku Turkiye net enerji ithalatcisidir --
+    # bu bir tahmin degil, muhasebe. Yabanci olmasi tabloyu gecersiz
+    # kilmiyor; tam tersine tablo o haber icin yazildi.
+    zincir = tr or konu in ZINCIR_KONULARI
     d = Dosya(
-        duyarlilik=DUYARLILIK.get(konu, ()) if tr else (),
-        izlenecekler=IZLENECEKLER.get(konu, ()) if tr else (),
-        senaryolar=SENARYOLAR.get(konu, ()) if tr else (),
+        duyarlilik=DUYARLILIK.get(konu, ()) if zincir else (),
+        izlenecekler=IZLENECEKLER.get(konu, ()) if zincir else (),
+        senaryolar=SENARYOLAR.get(konu, ()) if zincir else (),
     )
+    # Turkiye GOSTERGE PANELI yine yalnizca Turkiye haberinde: Hurmuz
+    # haberinin altina TUFE ve issizlik basmak, kullanicinin bildirdigi
+    # hatanin ta kendisi olurdu.
     if not DEPO.exists() or not tr:
         return d
 

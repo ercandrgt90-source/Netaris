@@ -270,6 +270,35 @@ KONU_ISARETLERI = (
         "kripto", "bitcoin", "ethereum", "stablecoin", "dijital turk lira",
         "crypto", "digital asset",
     )),
+    # JEOPOLITIK -- Enerji ve Dis ticaret'in ALTINDA duruyor.
+    #
+    # Sira bilincli: "ABD Venezuela'ya petrol yaptirimlarini kaldirdi"
+    # once bir ENERJI haberidir, "Trump Cin mallarina gumruk vergisi
+    # getirdi" once bir DIS TICARET haberidir. Jeopolitik, fiyatlanacak
+    # bir kanali olmayan siyasi olaylari topluyor: savas, ateskes,
+    # yaptirim, secim, anlasma.
+    #
+    # Bu konu HIC YOKTU ve sonucu olculdu: dokuz jeopolitik baslikta
+    # sekizi "Sirket haberleri"ne dusup eleniyordu -- ABD-Iran anlasmasi,
+    # Hurmuz'da tanker saldirisi, Trump'in Fed cikisi dahil. Oysa petrol
+    # ve altin fiyatini en sert hareket ettiren haberler bunlar.
+    ("Jeopolitik", (
+        # catisma ve cozum
+        "savas", "catisma", "saldiri", "ateskes", "baris gorusme",
+        "muzakere", "nukleer anlasma", "askeri", "tatbikat", "isgal",
+        "hava saldirisi", "fuze", "insansiz hava",
+        # yaptirim ve kisitlama
+        "yaptirim", "ambargo", "kara liste", "ihracat kisitlamas",
+        "ticaret savas", "misilleme",
+        # aktorler ve yerler (fiyat tasiyan)
+        " trump ", "trump'", "beyaz saray", "kremlin", " nato ",
+        "hurmuz", "kizildeniz", "suveys", "tayvan",
+        # siyasi takvim
+        "secim sonuc", "hukumet krizi", "guven oyu", "kabine",
+        # Ingilizce
+        "sanction", "ceasefire", "military strike", "airstrike",
+        "trade war", "tariff war", "geopolit", "embargo",
+    )),
     # DIKKAT -- yalin "altin" ve "gold" YAZILMAZ. Olculdu:
     #   "toprağın ALTINDA kalan heykel" -> Altin      ("altinda")
     #   "GOLDMAN Sachs hisse onerisi"   -> Altin      ("goldman")
@@ -494,8 +523,18 @@ def _aranacak(baslik: str) -> str:
 
     Bastaki ve sondaki bosluk, isaretin " ges " diye yazilabilmesini
     saglar; boylece baslik "GES kurulumu" diye BASLASA bile eslesir.
+
+    NOKTALAMA DA BOSLUGA CEVRILIYOR. Eksikligi olculdu:
+
+        "Trump: Fed baskanini gorevden alabilirim"
+        -> " trump: ... "  ve " trump " isareti ESLESMEDI
+
+    Iki nokta, virgul, parantez ve tirnak kelimeyi isaretten ayirmiyordu.
+    Tire ve egik cizgi KORUNUYOR: "bag-kur" ve "usd/try" gibi isaretler
+    onlara dayaniyor.
     """
-    return " " + _katla(baslik) + " "
+    k = re.sub(r"[^a-z0-9&/%-]+", " ", _katla(baslik))
+    return " " + k.strip() + " "
 
 
 def gurultu_mu(baslik: str) -> bool:

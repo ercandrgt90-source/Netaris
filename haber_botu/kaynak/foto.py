@@ -64,6 +64,11 @@ KAYIT_YOLU = pathlib.Path(__file__).parent / "foto_kayit.json"
 #: fotografsiz habere yol aciyor ve hicbir hata firlatmiyor.
 KONU_ARAMA = {
     "Enerji": ("oil pump jack", "oil refinery", "oil rig", "petroleum"),
+    # Catisma gorseli ARANMIYOR: haber sayfasinin gorseli olayin siddetini
+    # degil, konusunu isaret etmeli. Diplomasi, liman ve konteyner
+    # gorselleri hem dogru hem izleyiciyi rahatsiz etmeyen secim.
+    "Jeopolitik": ("diplomacy meeting", "united nations", "cargo ship port",
+                   "shipping containers", "world map"),
     "Para politikası": ("federal reserve", "central bank", "bank building"),
     "Enflasyon": ("supermarket shopping", "grocery store", "market prices"),
     "Bankacılık": ("bank building", "financial district", "skyscraper finance"),

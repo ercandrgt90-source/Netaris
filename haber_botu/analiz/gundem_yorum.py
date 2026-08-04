@@ -30,6 +30,7 @@ etkiler". Etkinin buyuklugu model gerektirir, uydurulmaz.
 
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass
 
 #: Turkce harfleri ASCII karsiligina indirir.
@@ -316,6 +317,34 @@ KONU_BAGLAMI: dict[str, tuple[str, tuple[str, ...]]] = {
             "için referans oluşturur.",
         ),
     ),
+    # JEOPOLITIK.
+    #
+    # Kanallar YON SOYLEMEZ. "Gerilim artarsa petrol yukselir" yaygin ama
+    # yanlis bir genelleme: 2020 Suleymani suikastinde petrol iki gunde
+    # yukselip geri verdi, 2023'te bolgesel catisma sirasinda Brent
+    # geriledi. Fiyata gecen sey olayin kendisi degil, ARZ RISKININ
+    # degismesi -- asagidaki maddeler o mekanizmayi anlatiyor, sonucu
+    # degil.
+    "Jeopolitik": (
+        "Jeopolitik gelişmeler piyasaya doğrudan değil, arz riski ve risk "
+        "iştahı üzerinden geçer. Türkiye için ana kanal enerji faturası ve "
+        "risk primidir.",
+        (
+            "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit "
+            "altındaysa petrol ve doğal gaz fiyatına risk primi eklenir. "
+            "Türkiye net enerji ithalatçısı olduğu için bu, cari işlemler "
+            "dengesine doğrudan yazılır.",
+            "Risk iştahı: belirsizlik arttığında gelişmekte olan ülke "
+            "varlıklarından çıkış görülebilir; ülke risk primi ve "
+            "borçlanma maliyeti yeniden fiyatlanır.",
+            "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları "
+            "ihracat pazarlarının bileşimini değiştirir; etki sektörün "
+            "o pazara bağımlılığı kadardır.",
+            "Güvenli liman talebi: altın ve dolar talebi değişebilir; "
+            "yönü ve büyüklüğü olayın ne kadarının önceden fiyatlandığına "
+            "bağlıdır.",
+        ),
+    ),
 }
 
 #: "Turkiye'ye gecer" cercevesinin yanlis oldugu konular. Kira zammi ya da
@@ -405,7 +434,7 @@ MAKRO_KONULAR = frozenset({
     "Para politikası", "Enflasyon", "Döviz", "Altın ve emtia",
     "Kripto varlıklar", "Borsa", "Dış ticaret", "İstihdam ve ücret",
     "Konut ve kira", "Vergi ve kamu maliyesi", "Bankacılık", "Enerji",
-    "Tarım ve gıda", "Turizm",
+    "Tarım ve gıda", "Turizm", "Jeopolitik",
 })
 
 #: OLAY ISARETLERI -- basligin bir VERI ya da KARAR duyurdugunu gosterir.
@@ -430,6 +459,32 @@ OLAY_ISARETLERI = (
     "yukseldi", "geriledi", "yukselis", "gerileme", " zam ", "zammi",
     "zamlar", "indirim", "beklenti", "tahmin", "hedefi", "acigi",
     "fazla verdi", "raporu", "anketi", "istatistik", "yuzde",
+
+    # OLAY OLARAK SAYILAN FIILLER -- eksikligi olculdu.
+    #
+    # 216 haberin 107'si bu kapida duruyordu ve arasinda gercek olaylar
+    # vardi: "Bakan Simsek: dezenflasyon sureci kararlilikla surdurulecek"
+    # bir politika beyanidir, "Israil ve Hizbullah ateskes anlasmasi
+    # imzalandi" petrol fiyatini hareket ettiren bir olaydir. Ikisi de
+    # "acikla/rakam/oran" kalibina girmedigi icin eleniyordu.
+    #
+    # Liste yine de KAPALI tutuluyor: her fiili eklemek gurultu kapisini
+    # tamamen acardi. Buraya yalnizca "bir sey OLDU ya da SOYLENDI"
+    # anlamini tasiyan fiiller giriyor.
+
+    # resmi beyan
+    " dedi", "belirtti", "vurgula", "uyardi", "uyarisi", "cagrisinda",
+    "degerlendirme", "aciklamasi", "mesaji", "sinyali", "yanit",
+    # karar ve yururluk
+    "imzalandi", "onaylandi", "yururluge", "kabul edildi", "getirdi",
+    "kaldirdi", "yasakla", "serbest birak", "iptal etti", "erteledi",
+    "baslatti", "sonlandirdi", "uzatildi",
+    # jeopolitik olay
+    "anlasma", "uzlasi", "ateskes", "saldiri", "yaptirim", "gerilim",
+    "muzakere", "tatbikat", "misilleme", "tehdit",
+    # Ingilizce karsiliklari
+    "signed", "approved", "agreement", "ceasefire", "sanction",
+    "warned", "said ", "announces", "imposes", "lifts",
 )
 
 
@@ -438,6 +493,49 @@ def _icerir(metin: str, isaretler) -> bool:
     # basligin basinda ve sonunda da eslesmesini saglar.
     k = " " + _katla(metin) + " "
     return any(i in k for i in isaretler)
+
+
+#: BIRIM TASIYAN SAYI -- kelime listesinden bagimsiz olay isareti.
+#:
+#: Kelime listesi Turkce'nin ek yapisinda surekli kaciriyordu; 216
+#: haberin 97'si "olay isareti yok" diye eleniyordu ve arasinda su
+#: basliklar vardi:
+#:
+#:   "Savunma ve havacilik sanayisinden temmuzda 1,12 milyar dolarlik..."
+#:   "TARSIM'den ureticiye 6,6 milyar liralik hasar destegi"
+#:   "Borsa yeni haftaya 13.544,32 puandan basladi"
+#:
+#: Ucu de nicelik bildiriyor. Bir baslik OLCULMUS bir buyukluk tasiyorsa
+#: bir olay anlatiyordur -- bu, fiil listesinden daha guvenilir bir
+#: olcut.
+#:
+#: BIRIM ZORUNLU. Yalin sayi yetmiyor, cunku "kontenjan 500'e cikti" ya
+#: da "desteklenen bolum sayisi 38" olay degil. Olculdu.
+#:
+#: BUYUKLUK DE ZORUNLU: "milyar" ve ustu. Ilk yazimda "milyon" da
+#: sayiliyordu ve test bunu yakaladi -- "Flotek, Porto Riko'da 400 milyon
+#: dolarlik sozlesme imzaladi" yayima giriyordu. Tek bir sirketin
+#: sozlesmesi makro haber degil; bu sitenin bilincli kapsam karari.
+#: Endeks puani ayri tutuluyor ("Borsa 13.544,32 puandan basladi"):
+#: seviye bildirimi toplulastirilmis bir olcumdur.
+_SAYISAL = re.compile(
+    r"\d[\d.,]*\s*(?:milyar|trilyon)\s*"
+    r"(?:dolar|lira|euro|avro|sterlin|tl\b|metrekup|kwh|mwh)"
+    r"|\d[\d.,]*\s*puan"
+)
+
+#: Tek sirketin islemi -- buyuklugu ne olursa olsun makro haber degil.
+_SIRKET_ISLEMI = (
+    "sozlesme", "satin al", "ihale kazan", "sermayesini", "sermaye artir",
+    "hisseye cevir", "portfoyunu", "halka arz basvuru", "pay devri",
+    "bedelli sermaye", "birlesme anlasmasi",
+)
+
+
+def _sayisal_olay(baslik: str) -> bool:
+    if _icerir(baslik, _SIRKET_ISLEMI):
+        return False
+    return _SAYISAL.search(_katla(baslik)) is not None
 
 
 def siniflandir(baslik: str, konu: str, kurum: str = "",
@@ -462,7 +560,11 @@ def siniflandir(baslik: str, konu: str, kurum: str = "",
     if ticari:
         if konu not in MAKRO_KONULAR:
             return Baglam(yorumlanir=False)
-        if not _icerir(baslik, OLAY_ISARETLERI):
+        # Jeopolitik konunun KENDI isaretleri zaten olay bildiriyor
+        # ("ateskes", "yaptirim", "saldiri", "anlasma"). Ikinci bir olay
+        # kapisi koymak ayni sarti iki kez aramak olurdu.
+        if konu != "Jeopolitik" and not (
+                _icerir(baslik, OLAY_ISARETLERI) or _sayisal_olay(baslik)):
             return Baglam(yorumlanir=False)
     elif not _icerir(baslik, ETKILI_ISARETLER):
         return Baglam(yorumlanir=False)

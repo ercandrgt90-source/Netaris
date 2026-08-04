@@ -339,16 +339,11 @@
   </section>
   {% endif %}
 
-  {# VARLIK ETIKETLERI -- arsivin giris kapisi.
-     Okur "Fed"e tiklayinca o kurumun butun gecmisine dusuyor. Ayni
-     baglantilar arama motorunun arsivi kesfetme yolu. #}
-  {% if varliklar %}
-  <nav class="varlik-etiket" aria-label="İlgili konular">
-    {% for v in varliklar %}
-    <a href="{{ v.yol }}" class="etiket etiket-{{ v.tur }}">{{ v.ad }}</a>
-    {% endfor %}
-  </nav>
-  {% endif %}
+  {# VARLIK ETIKETLERI BASILMIYOR.
+     Indeks ic katman olarak calismaya devam ediyor -- haberi Turkiye
+     baglami acisindan siniflandiriyor ve "bununla ilgili diger
+     gelismeler" bolumunu besliyor -- ama okura "Konular" diye ayri bir
+     bolum olarak gosterilmiyor. #}
 
   {# Kaynak atfi. Bu sayfa duyurunun metnini yeniden yayimlamaz; kurumun
      acikladigini ozetler ve kendi cozumlememizi ekler. Tam metin icin

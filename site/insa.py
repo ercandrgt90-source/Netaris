@@ -516,6 +516,7 @@ KONU_GOSTERGELERI = {
     "Para politikası": ("DFF", "DGS2", "DGS10", "T10Y2Y"),
     "Enflasyon": ("DGS10", "T10Y2Y", "VIXCLS"),
     "Enerji": ("DCOILBRENTEU", "DCOILWTICO"),
+    "Jeopolitik": ("DCOILBRENTEU", "VIXCLS", "DTWEXBGS"),
     "Bankacılık": ("DGS10", "VIXCLS"),
     "Piyasa düzenlemesi": ("SP500", "VIXCLS"),
     "Düzenleme": ("SP500", "VIXCLS"),
@@ -1128,10 +1129,6 @@ def insa() -> int:
     ]
     if gundem.get("haberler"):
         menu.append(("/gundem/", "Haberler"))
-        # Konu dizini arsivin kapisi. Menude olmazsa yalnizca haber
-        # sayfalarindaki etiketlerden ulasilir; arsivin kendisi bir
-        # varis noktasi ve dogrudan erisilebilmeli.
-        menu.append(("/varlik/", "Konular"))
 
     # Yorumlanan haberlere gorsel. Rutin duyurulara gorsel URETILMEZ --
     # listede goruntuluyorlar ve her birine gorsel koymak sayfayi
@@ -1276,9 +1273,16 @@ def insa() -> int:
             )
             yollar.append(h_yol)
 
-        # Varlik sayfalari -- "Fed", "TÜFE", "Brent" ne dediyse burada.
-        for v_yol in varlik_sayfalari(ortam, yaz, ortak):
-            yollar.append(v_yol)
+        # VARLIK SAYFALARI YAYIMLANMIYOR.
+        #
+        # Varlik indeksi ic bir katman olarak KALIYOR ve calisiyor: haberi
+        # Turkiye baglami acisindan siniflandiriyor, "bununla ilgili diger
+        # gelismeler" bolumunu besliyor ve arsivi birbirine bagliyor.
+        # Yalnizca okura ayri bir "Konular" bolumu olarak GOSTERILMIYOR --
+        # site haber ve cozumleme yayimliyor, konu dizini degil.
+        #
+        # `varlik_sayfalari()` ve sablonlari duruyor: karar yayin
+        # kararidir, kod silmeyi gerektirmiyor.
 
         yaz(
             "/gundem/index.html",
