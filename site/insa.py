@@ -41,6 +41,15 @@ import gorsel
 import kivilcim
 import piyasa_kutusu
 
+# Arastirma dosyasi motoru haber_botu/analiz altinda; site buradan
+# YALNIZCA OKUYOR (depoya salt-okunur baglaniyor).
+sys.path.insert(0, str(pathlib.Path(__file__).parent.parent
+                       / "haber_botu" / "analiz"))
+try:
+    import dosya as _dosya
+except ImportError:
+    _dosya = None
+
 # Fotograf havuzu ve konu siniflandirici haber hattinda yasiyor. Buradan
 # YALNIZCA OKUNUYOR -- `Kayit()` var olan defteri aciyor, indirme yapmaz.
 # Site uretimi sirasinda ag istegi olmamali: hat coktugunde site yine
@@ -841,10 +850,6 @@ def insa() -> int:
         h for h in gundem.get("haberler", []) if h.get("yorumlanir")
     ][:12]
 
-    # Turkiye gostergeleri BIR KEZ okunuyor -- her haber icin depoyu
-    # yeniden acmak onlarca gereksiz sorgu demekti.
-    tr_gosterge = piyasa_kutusu.turkiye(gundem.get("guncelleme", ""))
-
     ortak = {
         "site": SITE,
         "gostergeler": gostergeler,
@@ -910,8 +915,9 @@ def insa() -> int:
                     ilgili=ilgili_gostergeler(h["konu"], gostergeler),
                     piyasa=piyasa_kutusu.kutu(h["konu"], gundem.get("guncelleme", "")),
                     # Turkiye gostergeleri YALNIZCA yurt ici haberde
-                    tr_gostergeler=(tr_gosterge
-                                    if h.get("bolge") == "TR" else []),
+                    dosya=(_dosya.kur(h["konu"], h.get("bolge", ""),
+                                      h.get("tarih", ""))
+                           if _dosya else None),
                 ),
             )
             yollar.append(h_yol)

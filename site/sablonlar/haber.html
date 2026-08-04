@@ -66,6 +66,39 @@
   </header>
 
   <div class="govde">
+
+    {# HABER 30 SANIYEDE -- ters piramit.
+       Okur cevabi ilk ekranda alsin; ayrinti asagida. #}
+    {% if dosya and dosya.dolu %}
+    <aside class="ozet-kutu">
+      <h2>30 saniyede</h2>
+      <dl>
+        {% if h.ozet %}
+        <dt>Ne oldu?</dt><dd>{{ h.ozet }}</dd>
+        {% endif %}
+        {% if dosya.bulgular %}
+        <dt>Veri ne diyor?</dt><dd>{{ dosya.bulgular[0] }}.
+          {% if dosya.bulgular|length > 1 %}{{ dosya.bulgular[1] }}.{% endif %}</dd>
+        {% endif %}
+        {% if dosya.duyarlilik %}
+        <dt>En çok kim etkilenir?</dt>
+        <dd>{% for s, y, _n in dosya.duyarlilik[:3] %}{{ s }}{% if not loop.last %} · {% endif %}{% endfor %}</dd>
+        {% endif %}
+        {% if dosya.izlenecekler %}
+        <dt>Ne izlenmeli?</dt>
+        <dd>{% for i in dosya.izlenecekler[:3] %}{{ i }}{% if not loop.last %} · {% endif %}{% endfor %}</dd>
+        {% endif %}
+      </dl>
+    </aside>
+    {% endif %}
+
+    {# Haberin neden BUGUN ciktigi. Hesaplanir: serinin son gozlem
+       tarihiyle haber tarihi karsilastiriliyor. Yakinda bir aciklama
+       yoksa bolum hic basilmaz -- baglanti uydurulmaz. #}
+    {% if dosya and dosya.neden_bugun %}
+    <p class="neden-bugun">Bu değerlendirme, {{ dosya.neden_bugun }}.</p>
+    {% endif %}
+
     <h2>Neden önemli</h2>
     <p>{{ h.neden_onemli }}</p>
 
@@ -73,24 +106,56 @@
        Genel dogrulari tekrarlamak yerine o habere ait sayilari veriyor:
        "endeks seviyesi oz kaynak maliyetini belirler" cumlesi New York
        kapanisi haberinde hicbir sey soylemiyordu. #}
-    {# TURKIYE GOSTERGELERI -- yurt ici haberde konu ne olursa olsun.
-       Bir Turk okuru icin "TUFE kac, faiz kac, dolar kac" sorusu her
-       haberde gecerli; hepsi TCMB EVDS'den, resmi. #}
-    {% if tr_gostergeler %}
-    <h2>Türkiye'de son durum</h2>
+    {# TURKIYE GORUNUMU -- yurt ici haberde konu ne olursa olsun.
+       Okur ulkenin fotografini gorsun; hepsi TCMB EVDS'den, resmi. #}
+    {% if dosya and dosya.turkiye %}
+    <h2>Türkiye'nin mevcut görünümü</h2>
     <div class="tr-izgara">
-      {% for g in tr_gostergeler %}
+      {% for g in dosya.turkiye %}
       <div class="tr-kalem" title="{{ g.ad }} — önceki dönem {{ g.onceki_tarih }}">
         <span class="tr-ad">{{ g.ad }}</span>
-        <span class="tr-deger">{{ g.deger }}</span>
+        <span class="tr-deger">{{ "%.2f"|format(g.son)|replace(".", ",") }}{{ g.birim }}</span>
         <span class="tr-degisim {{ g.yon }}">{{ g.degisim }}</span>
         <span class="tr-tarih">{{ g.tarih }}</span>
       </div>
       {% endfor %}
+      {% if dosya.reel_faiz is not none %}
+      <div class="tr-kalem tr-tureti" title="Politika faizi eksi manşet enflasyon">
+        <span class="tr-ad">Reel faiz</span>
+        <span class="tr-deger">{{ "%+.2f"|format(dosya.reel_faiz)|replace(".", ",") }}</span>
+        <span class="tr-degisim">puan</span>
+        <span class="tr-tarih">hesaplanmış</span>
+      </div>
+      {% endif %}
     </div>
-    <p class="piyasa-not">Kaynak: TCMB EVDS. Enflasyon serilerinde değişim
+    <p class="piyasa-not">Kaynak: TCMB EVDS. Oran serilerinde değişim
       <b>puan</b> cinsindendir — %31,75'ten %31,40'a iniş yüzde değil,
-      35 baz puanlık bir gerilemedir.</p>
+      35 baz puanlık bir gerilemedir. Reel faiz, politika faizinden manşet
+      enflasyonun çıkarılmasıyla hesaplanmıştır.</p>
+    {% endif %}
+
+    {# ENFLASYON SEYRI -- 13 aylik seri, yatay cubuk.
+       Grafik kitapligi yok; genislik yuzdesi seriden hesaplaniyor. #}
+    {% if dosya and dosya.seyir %}
+    <h2>Son on üç ayda {{ dosya.seyir_ad }}</h2>
+    {% set en_az = dosya.seyir|map(attribute=1)|min %}
+    {% set en_cok = dosya.seyir|map(attribute=1)|max %}
+    <div class="seyir">
+      {% for t, d in dosya.seyir %}
+      <div class="seyir-satir{% if loop.last %} seyir-son{% endif %}">
+        <span class="seyir-ay">{{ t[:7] }}</span>
+        <span class="seyir-cubuk">
+          <span style="width: {{ (20 + (d - en_az) / ((en_cok - en_az) or 1) * 80)|round(1) }}%"></span>
+        </span>
+        <span class="seyir-deger">{{ "%.1f"|format(d)|replace(".", ",") }}</span>
+      </div>
+      {% endfor %}
+    </div>
+    {% if dosya.bulgular %}
+    <ul class="bulgular">
+      {% for b in dosya.bulgular %}<li>{{ b }}</li>{% endfor %}
+    </ul>
+    {% endif %}
     {% endif %}
 
     {% if piyasa %}
@@ -147,6 +212,76 @@
       {% for k in h.kanallar %}<li>{{ k }}</li>{% endfor %}
     </ul>
     <p><em>{{ gundem.sinir_notu }}</em></p>
+    {% endif %}
+
+    {# KIM ETKILENIR -- yildiz bir tahmin degil, DUYARLILIK sirasi:
+       hangi sektorun gelir ya da maliyet kalemi bu degiskene daha
+       dogrudan bagli. Gerekce her satirda yaziyor ki okur katilmadigi
+       yeri gorebilsin. #}
+    {% if dosya and dosya.duyarlilik %}
+    <h2>Kim etkilenir</h2>
+    <table class="duyarlilik">
+      <tbody>
+        {% for sektor, yildiz, neden in dosya.duyarlilik %}
+        <tr>
+          <th scope="row">{{ sektor }}</th>
+          <td class="yildiz" aria-label="{{ yildiz }} / 5">
+            <span aria-hidden="true">{{ "★" * yildiz }}{{ "☆" * (5 - yildiz) }}</span>
+          </td>
+          <td class="neden">{{ neden }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <p class="piyasa-not">Yıldızlar etkinin <b>yönünü ya da büyüklüğünü</b>
+      değil, sektörün bu değişkene <b>duyarlılık sırasını</b> gösterir.</p>
+    {% endif %}
+
+    {# TAKIP LISTESI -- kutucuklu.
+       Kutucuklar simdilik yalnizca isaretlenebiliyor; uyelikle birlikte
+       bildirime baglanacak. Yarim bir soz vermemek icin sayfada
+       "bildirim alirsiniz" YAZMIYOR. #}
+    {% if dosya and dosya.izlenecekler %}
+    <h2>Bundan sonra izlenecekler</h2>
+    <ul class="takip-listesi">
+      {% for i in dosya.izlenecekler %}
+      <li><label><input type="checkbox"> {{ i }}</label></li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+
+    {# SENARYOLAR -- KOSULLU ve AGIRLIKSIZ.
+       Bir senaryoya "%55 olasilik" yazmak, hesaplanmamis bir sayiyi
+       olcum gibi sunmak olurdu; sitenin "okumadigimiz raporun gerekcesini
+       atfetmeyiz" ilkesiyle celisir. Kosul-sonuc yazilir, olasilik
+       yazilmaz. #}
+    {% if dosya and dosya.senaryolar %}
+    <h2>Senaryolar</h2>
+    <ul class="senaryolar">
+      {% for kosul, sonuc in dosya.senaryolar %}
+      <li><b>{{ kosul }}</b> → {{ sonuc }}</li>
+      {% endfor %}
+    </ul>
+    <p class="piyasa-not">Bunlar koşullu değerlendirmelerdir, öngörü
+      değildir; hiçbirine olasılık atanmamıştır.</p>
+    <div class="senaryo-cagri">
+      <p><b>Siz farklı düşünüyorsanız</b> kendi senaryonuzu yazabilirsiniz.
+        Senaryolar yayın ilkeleri kapsamında incelendikten sonra bu sayfada
+        görünür.</p>
+      <a class="dugme dugme-birincil" href="/panel/">Senaryo yaz</a>
+    </div>
+    {% endif %}
+
+    {# SEFFAFLIK -- SKOR DEGIL SAYIM.
+       "Veri Gucu 97" gibi bir puan olcum gibi gorunur ama
+       hesaplanmamistir; bu rakamlarin hepsi depodan sayilir. #}
+    {% if dosya and dosya.sayim %}
+    <div class="seffaflik">
+      <span><b>{{ dosya.sayim.kaynak }}</b> resmî kaynak</span>
+      <span><b>{{ dosya.sayim.seri }}</b> veri serisi</span>
+      <span><b>{{ "{:,}".format(dosya.sayim.gozlem)|replace(",", ".") }}</b> gözlem</span>
+      <span><b>{{ dosya.sayim.veri_noktasi }}</b> bu sayfada kullanıldı</span>
+    </div>
     {% endif %}
   </div>
 

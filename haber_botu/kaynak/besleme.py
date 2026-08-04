@@ -201,6 +201,15 @@ KONU_ISARETLERI = (
         "para politikasi", "ppk", "politika faizi", "faiz orani",
         "faiz oranlar", "faizi sabit", "faizde indirim", "faiz indirim",
         "faiz artir", "zorunlu karsilik", "reeskont", "merkez bankasi",
+        # "faiz karari" ve " tcmb " listede HIC YOKTU. "TCMB faiz kararini
+        # acikladi" basligi bu yuzden hicbir zaman para politikasi
+        # sayilmiyordu -- kurumun en onemli duyurusu, en temel konusuna
+        # dusmuyordu. Testle yakalandi.
+        "faiz karari", "faiz kararlar", " tcmb ", "tcmb'", "tcmb’",
+        # Faiz haberi her zaman "karar" kelimesiyle gelmiyor; degerlendirme
+        # ve beklenti haberleri de bu konuya girer.
+        "faiz uyari", "faiz beklenti", "faiz patika", "faiz gorunum",
+        "indirim beklentisi", "sikilastirma", "gevseme",
         "fomc", "monetary policy", "interest rate", "federal funds",
         "discount rate", "policy decision", "governing council",
         "monetary", "rate decision",
@@ -232,8 +241,12 @@ KONU_ISARETLERI = (
         "agriculture", "harvest", "grain", "food price",
     )),
     ("Turizm", (
-        "turizm", "turist", "otel", "havayolu", "yolcu sayisi",
-        "konaklama", "tourism", "tourist",
+        # "otel" YALIN YAZILMAZ -- "ÖT-EL-enebilir" icinde eslesiyor ve
+        # Goldman'in faiz degerlendirmesini turizm haberi yapiyordu.
+        # Olculdu; " otel" de yetmez, cunku o kelimeden once bosluk var.
+        "turizm", "turist", " otel ", "oteli ", "otelde", "oteller",
+        "otelcilik", "havayolu", "yolcu sayisi", "konaklama",
+        "tourism", "tourist",
     )),
     # Enerji, Dis ticaret'in USTUNDE: "petrol ithalati" once enerji
     # haberidir. Ters sirada EIA'nin "crude oil imports" haberi Dis
