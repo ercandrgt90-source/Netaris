@@ -92,6 +92,7 @@ jobs:
           python haber_botu/analiz/test_bicim.py
           python haber_botu/analiz/test_skor.py
           python haber_botu/analiz/test_araci_kurum.py
+          python haber_botu/analiz/test_varlik.py
           python haber_botu/test_yapistir.py
           python haber_botu/ai/test_guvenlik.py
 

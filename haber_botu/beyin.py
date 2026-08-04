@@ -60,7 +60,19 @@ CREATE TABLE IF NOT EXISTS haber (
     ilk_gorulme   TEXT NOT NULL,
     son_gorulme   TEXT NOT NULL,
     yayimlandi    INTEGER DEFAULT 0,
-    yayin_yolu    TEXT
+    yayin_yolu    TEXT,
+    -- Sayfayi yeniden uretmeye yeten TAM kayit (JSON).
+    --
+    -- NEDEN VAR: site her kurulumda `cikti/` klasorunu bosaltip yalnizca
+    -- guncel besleme penceresini (son ~40 haber) yeniden uretiyordu.
+    -- Olculen sonuc: depoda sayfa hak eden 53 haber varken sitede 10
+    -- tanesi duruyordu, kalan 43'u 404'ti. Yani arsiv hic birikmiyordu
+    -- ve dun paylasilan bir baglanti bugun kiriktir.
+    --
+    -- Ozet, fotograf, atif ve baglam yalnizca uretim aninda biliniyor;
+    -- burada saklanmazsa geriye donuk uretilemez. Ayri sutunlar yerine
+    -- JSON: bu alan sayfa sablonunun yuku, semanin parcasi degil.
+    sayfa_veri    TEXT
 );
 
 CREATE TABLE IF NOT EXISTS ceviri (
@@ -212,6 +224,26 @@ def simdi() -> str:
     return datetime.now(timezone.utc).isoformat(timespec="seconds")
 
 
+#: Sonradan eklenen sutunlar: (tablo, sutun, tanim).
+#:
+#: `CREATE TABLE IF NOT EXISTS` VAR OLAN TABLOYU DEGISTIRMEZ -- sessizce
+#: hicbir sey yapar. Semaya yeni bir sutun yazmak, calisan bir depoda o
+#: sutunun olusmasini SAGLAMAZ; kod yeni sutunu bekler, depo vermez.
+#: Yeni sutun hem SEMA'ya hem buraya yazilmali.
+GOCLER = (
+    ("haber", "sayfa_veri", "TEXT"),
+)
+
+
+def _gocur(b) -> None:
+    for tablo, sutun, tanim in GOCLER:
+        mevcut = {s[1] for s in b.execute(f"PRAGMA table_info({tablo})")}
+        if not mevcut:            # tablo henuz yok; SEMA olusturacak
+            continue
+        if sutun not in mevcut:
+            b.execute(f"ALTER TABLE {tablo} ADD COLUMN {sutun} {tanim}")
+
+
 @contextmanager
 def baglan(yol: pathlib.Path = VERITABANI):
     """Baglanti acar, semayi garantiler, cikista kapatir."""
@@ -219,6 +251,7 @@ def baglan(yol: pathlib.Path = VERITABANI):
     b.row_factory = sqlite3.Row
     try:
         b.executescript(SEMA)
+        _gocur(b)
         yield b
         b.commit()
     finally:
@@ -264,13 +297,19 @@ def haber_yaz(b, haberler: list[dict]) -> tuple[int, int]:
         adres = h.get("adres")
         if not adres:
             continue
+        # Sayfa yuku YALNIZCA sayfasi olacak haberlerde saklaniyor.
+        # Rutin duyurulari (yorumlanmayan) da saklamak depoyu bes katina
+        # cikarir ve hicbiri sayfa olmaz.
+        yuk = json.dumps(_sayfa_yuku(h), ensure_ascii=False) \
+            if h.get("yorumlanir") else None
         var = b.execute("SELECT 1 FROM haber WHERE adres=?", (adres,)).fetchone()
         if var:
             b.execute(
                 "UPDATE haber SET son_gorulme=?, baslik_tr=COALESCE(?, baslik_tr),"
                 " yayin_yolu=COALESCE(?, yayin_yolu),"
+                " sayfa_veri=COALESCE(?, sayfa_veri),"
                 " yayimlandi=MAX(yayimlandi, ?) WHERE adres=?",
-                (simdi(), h.get("baslik"), h.get("yol"),
+                (simdi(), h.get("baslik"), h.get("yol"), yuk,
                  1 if h.get("yol") else 0, adres),
             )
             tekrar += 1
@@ -278,14 +317,33 @@ def haber_yaz(b, haberler: list[dict]) -> tuple[int, int]:
             b.execute(
                 "INSERT INTO haber (adres, baslik_kaynak, baslik_tr, kurum,"
                 " konu, tarih, yorumlanir, ilk_gorulme, son_gorulme,"
-                " yayimlandi, yayin_yolu) VALUES (?,?,?,?,?,?,?,?,?,?,?)",
+                " yayimlandi, yayin_yolu, sayfa_veri)"
+                " VALUES (?,?,?,?,?,?,?,?,?,?,?,?)",
                 (adres, h.get("baslik_kaynak", ""), h.get("baslik"),
                  h.get("kurum"), h.get("konu"), h.get("tarih"),
                  1 if h.get("yorumlanir") else 0, simdi(), simdi(),
-                 1 if h.get("yol") else 0, h.get("yol")),
+                 1 if h.get("yol") else 0, h.get("yol"), yuk),
             )
             yeni += 1
     return yeni, tekrar
+
+
+#: Sayfayi yeniden uretmek icin gereken alanlar.
+#:
+#: Beyaz liste, kara liste degil: haber sozlugune ileride eklenen bir
+#: alan sessizce depoya sizmasin. Buraya eklenmeyen alan sayfada da
+#: kullanilamaz -- bu kisit bilincli, cunku arsivden uretilen sayfayla
+#: taze uretilen sayfa AYNI olmali.
+SAYFA_ALANLARI = (
+    "baslik", "baslik_kaynak", "ozet", "cevrildi", "dil", "ticari",
+    "bolge", "adres", "kurum", "kurum_tam", "konu", "tarih",
+    "tarih_gorunur", "yorumlanir", "neden_onemli", "kanallar",
+    "kanal_basligi", "foto", "foto_atif",
+)
+
+
+def _sayfa_yuku(h: dict) -> dict:
+    return {a: h.get(a) for a in SAYFA_ALANLARI if h.get(a) is not None}
 
 
 def ceviri_yaz(b, onbellek: dict[str, str], servis: str = "") -> int:

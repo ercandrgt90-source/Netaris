@@ -24,6 +24,7 @@ Tasarim notlari
 from __future__ import annotations
 
 import argparse
+import hashlib
 import html
 import json
 import pathlib
@@ -49,6 +50,18 @@ try:
     import dosya as _dosya
 except ImportError:
     _dosya = None
+try:
+    import varlik as _varlik
+except ImportError:
+    _varlik = None
+
+# Depo. Site buraya YAZIYOR (yalnizca iki alan: haberin gercek adresi ve
+# varlik baglari) -- ikisi de ancak site kurulurken belli oluyor.
+sys.path.insert(0, str(pathlib.Path(__file__).parent.parent / "haber_botu"))
+try:
+    import beyin as _beyin
+except ImportError:      # depo yoksa site varlik indeksi olmadan kurulur
+    _beyin = None
 
 # Fotograf havuzu ve konu siniflandirici haber hattinda yasiyor. Buradan
 # YALNIZCA OKUNUYOR -- `Kayit()` var olan defteri aciyor, indirme yapmaz.
@@ -803,6 +816,199 @@ def _cikti_temizle() -> None:
             oge.unlink()
 
 
+def haber_yolu(h: dict) -> str:
+    """Haberin site adresi. Slug BASLIKTAN uretiliyor.
+
+    Turkce baslik bosalirsa (nadir; ceviri dusmusse) kaynak basliga
+    duser. Ikisi de bos kalirsa adres "/haber//" olurdu -- bu durumda
+    adresten turetilen bir capa kullaniliyor.
+    """
+    s = (slugla(h.get("baslik") or "") or slugla(h.get("baslik_kaynak") or ""))
+    s = s[:70].strip("-")
+    if not s:
+        # `hash()` KULLANILMAZ: Python'da dizgi ozeti surec basina
+        # rastgeleleniyor (PYTHONHASHSEED), yani ayni haber her kurulumda
+        # BASKA bir adres alirdi ve arsiv her gun bastan kirilirdi.
+        s = "haber-" + hashlib.sha1(
+            (h.get("adres") or "").encode("utf-8")).hexdigest()[:10]
+    return f"/haber/{s}/"
+
+
+#: Arsivden yeniden uretilecek en fazla haber sayisi.
+#:
+#: Sinir var cunku kurulum suresi ve Cloudflare'e yuklenen dosya sayisi
+#: bununla dogru orantili. 1500 haber ~2 yillik birikim demek; o noktaya
+#: gelindiginde sayfalama gerekecek, bugun gereksiz karmasiklik olurdu.
+ARSIV_SINIRI = 1500
+
+
+def arsiv_haberleri(guncel_adresler: set[str]) -> list[dict]:
+    """Depoda sayfa yuku olan ama guncel pencerede olmayan haberler.
+
+    Yalnizca `sayfa_veri` dolu olanlar donuyor: bu alan eklenmeden once
+    kaydedilmis haberlerin ozeti, fotografi ve baglami hic saklanmadi,
+    dolayisiyla sayfalari YENIDEN URETILEMEZ. Onlari eksik veriyle
+    basmak, bos kabuk sayfalar yayimlamak olurdu.
+    """
+    if _beyin is None:
+        return []
+    try:
+        with _beyin.baglan() as b:
+            satirlar = b.execute(
+                "SELECT adres, sayfa_veri, yayin_yolu FROM haber"
+                " WHERE yorumlanir = 1 AND sayfa_veri IS NOT NULL"
+                " ORDER BY tarih DESC, ilk_gorulme DESC"
+                " LIMIT ?", (ARSIV_SINIRI,)).fetchall()
+    except Exception as e:
+        print(f"  arsiv okunamadi: {e}")
+        return []
+
+    cikti: list[dict] = []
+    for adres, yuk, eski_yol in satirlar:
+        if adres in guncel_adresler:
+            continue
+        try:
+            h = json.loads(yuk)
+        except (TypeError, ValueError):
+            continue
+        h["adres"] = adres
+        # Adres BASLIKTAN yeniden turetiliyor, depodaki eski yol
+        # kullanilmiyor: baslik ceviri duzelmesiyle degismisse iki farkli
+        # adres olusur ve eskisi kirilir. Tek dogru kaynak baslik.
+        h["yol"] = haber_yolu(h)
+        if h["yol"] != eski_yol:
+            h["_yol_degisti"] = True
+        cikti.append(h)
+    return cikti
+
+
+def varlik_indeksle(haberler: list[dict]) -> dict[str, dict]:
+    """Varliklari cikarir, depoya yazar, ilgili haberleri geri okur.
+
+    Depo yoksa ya da yazilamiyorsa BOS harita doner: varlik indeksi
+    sayfanin sussu, gerekcesi degil. Site depoya erisemedigi icin
+    kurulamamali degil.
+    """
+    if _varlik is None or _beyin is None:
+        return {}
+    harita: dict[str, dict] = {}
+    try:
+        with _beyin.baglan() as b:
+            for h in haberler:
+                if not h.get("yorumlanir"):
+                    continue
+                vs = _varlik.bul(b, h.get("baslik", ""), h.get("ozet", ""))
+                _varlik.yaz(b, h["adres"], vs)
+                # Gercek adres depoya geri yaziliyor -- varlik
+                # sayfalarindaki baglantilar buradan besleniyor.
+                b.execute("UPDATE haber SET yayin_yolu=?, yayimlandi=1"
+                          " WHERE adres=?", (h["yol"], h["adres"]))
+                harita[h["adres"]] = {
+                    # Sablon adres uretmesin: kod -> adres kurali tek
+                    # yerde (varlik_yolu) yasamali, yoksa uc sablonda uc
+                    # ayri kural olur ve biri sessizce kayar.
+                    "varliklar": [{"kod": v.kimlik, "ad": v.ad, "tur": v.tur,
+                                   "yol": varlik_yolu(v.kimlik)} for v in vs],
+                    "ilgili": [],
+                }
+            # Ikinci gecis: artik BU partinin varliklari da yazili, yani
+            # ayni gun cikan iki ilgili haber birbirini gorebilir.
+            for adres in harita:
+                harita[adres]["ilgili"] = _varlik.ilgili_haberler(b, adres)
+    except Exception as e:                       # depo kilitli / bozuk
+        print(f"  varlik indeksi atlandi: {e}")
+        return {}
+    return harita
+
+
+#: Dizin sayfasinda listelenmek icin gereken en az haber sayisi.
+#:
+#: Sayfa uretimi bundan BAGIMSIZ: yapisal bagi olan her varligin sayfasi
+#: uretiliyor. Sebebi somut -- "Brent → Cari islemler dengesi" bagi
+#: sayfada baglanti olarak basiliyor; hedefin sayfasi yoksa o baglanti
+#: 404 verir. Dizin ise okur icin, orada haberi olmayan varliklari
+#: listelemek gurultu olurdu.
+DIZIN_ESIGI = 1
+
+
+def varlik_yolu(kod: str) -> str:
+    """Varlik kodundan site adresi: "DIS_TICARET_TR" -> /varlik/dis-ticaret-tr/
+
+    ALT CIZGI TIREYE CEVRILIYOR. Arama motorlari alt cizgiyi kelime
+    BIRLESTIRICI, tireyi AYIRICI okur: "dis_ticaret_tr" tek kelime
+    sayilir, "dis-ticaret-tr" uc kelime. Bu sayfalarin tek isi arananda
+    bulunmak oldugu icin ayrim onemli.
+
+    Adres kucuk harf: kodlar buyuk harfli ("FED"), ikisini karistirmak
+    bir isletim sisteminde calisip digerinde 404 veren baglantilar
+    uretir.
+    """
+    return f"/varlik/{kod.lower().replace('_', '-')}/"
+
+
+def varlik_sayfalari(ortam, yaz, ortak: dict) -> list[str]:
+    """Varlik sayfalarini uretir: /varlik/<kod>/.
+
+    Bu sayfalar sitenin arama motorundaki tasiyicisi: "Fed faiz karari"
+    arayan biri tek bir habere degil, o konunun BIRIKMIS arsivine
+    dusuyor. Ustelik sayfada haberden fazlasi var -- varligin tanimi ve
+    yapisal baglari, yani sitenin haber toplamaktan ayrildigi katman.
+    """
+    if _varlik is None or _beyin is None:
+        return []
+    yollar: list[str] = []
+    try:
+        with _beyin.baglan() as b:
+            # Haber sayilari. "/haber/" YER TUTUCU -- haber hatti gercek
+            # adresi bilmediginden onu yaziyor; `_%` en az bir karakter
+            # daha istiyor, yani yalnizca gercek sayfalar sayiliyor.
+            sayilar = dict(b.execute(
+                "SELECT hv.varlik_kimlik, COUNT(*)"
+                " FROM haber_varlik hv JOIN haber h ON h.adres = hv.adres"
+                " WHERE h.yayimlandi = 1 AND h.yayin_yolu LIKE '/haber/_%'"
+                " GROUP BY hv.varlik_kimlik").fetchall())
+
+            # SAYFASI URETILECEKLER: yapisal bagi ya da haberi olan her
+            # varlik. Esik uygulanmiyor, cunku bir bag sayfada baglanti
+            # olarak basiliyor ve hedefin sayfasi yoksa 404 veriyor --
+            # olculdu: "Brent → Cari islemler dengesi" bagi kirikti.
+            bagli = {x[0] for x in b.execute(
+                "SELECT kaynak FROM bag UNION SELECT hedef FROM bag")}
+            kodlar = b.execute(
+                "SELECT kod, ad, tur FROM varlik ORDER BY onem DESC, ad"
+            ).fetchall()
+
+            dizin = []
+            for kod, ad, tur in kodlar:
+                n = sayilar.get(kod, 0)
+                if n == 0 and kod not in bagli:
+                    continue          # ne haberi ne bagi var; sayfasi bos olurdu
+                v = {"yol": varlik_yolu(kod), "kod": kod, "ad": ad,
+                     "tur": tur, "sayi": n}
+                yaz(f"{v['yol']}index.html",
+                    ortam.get_template("varlik.html").render(
+                        **ortak, yol=v["yol"], v=v,
+                        kunye=_varlik.kunye(b, kod),
+                        baglar=_varlik.baglar(b, kod),
+                        haberler=_varlik.varlik_gecmisi(b, kod, 30)))
+                yollar.append(v["yol"])
+                if n >= DIZIN_ESIGI:
+                    dizin.append(v)
+
+            # Dizin haber sayisina gore siralaniyor: okur "en cok ne
+            # konusuluyor" cevabini ust sirada gormek istiyor.
+            dizin.sort(key=lambda x: (-x["sayi"], x["ad"]))
+            if dizin:
+                yaz("/varlik/index.html",
+                    ortam.get_template("varlik_dizin.html").render(
+                        **ortak, yol="/varlik/", dizin=dizin))
+                yollar.append("/varlik/")
+    except Exception as e:
+        print(f"  varlik sayfalari atlandi: {e}")
+        return []
+    return yollar
+
+
 def insa() -> int:
     _cikti_temizle()
 
@@ -812,6 +1018,10 @@ def insa() -> int:
         trim_blocks=True,
         lstrip_blocks=True,
     )
+    # Kod -> adres kurali TEK YERDE. Sablonlarda elle "/varlik/{{ kod|lower }}/"
+    # yazmak, alt cizgi/tire donusumunu her sablonda tekrar etmek demekti;
+    # biri unutuldugunda 404 sessizce olusuyordu.
+    ortam.filters["varlik_yolu"] = varlik_yolu
 
     analizler = analizleri_yukle()
     hakkimizda = hakkimizda_yukle()
@@ -827,6 +1037,10 @@ def insa() -> int:
     ]
     if gundem.get("haberler"):
         menu.append(("/gundem/", "Haberler"))
+        # Konu dizini arsivin kapisi. Menude olmazsa yalnizca haber
+        # sayfalarindaki etiketlerden ulasilir; arsivin kendisi bir
+        # varis noktasi ve dogrudan erisilebilmeli.
+        menu.append(("/varlik/", "Konular"))
 
     # Yorumlanan haberlere gorsel. Rutin duyurulara gorsel URETILMEZ --
     # listede goruntuluyorlar ve her birine gorsel koymak sayfayi
@@ -904,9 +1118,41 @@ def insa() -> int:
         for h in gundem["haberler"]:
             if not h.get("yorumlanir"):
                 continue
-            h_slug = (slugla(h["baslik"]) or slugla(h["baslik_kaynak"]))[:70].strip("-")
-            h_yol = f"/haber/{h_slug}/"
-            h["yol"] = h_yol
+            h["yol"] = haber_yolu(h)
+
+        # ARSIV: guncel pencerede olmayan, daha once yayimlanmis haberler.
+        #
+        # `gundem.json` yalnizca son besleme penceresini tasiyor (~40
+        # haber). Sayfalar sadece ondan uretilirse, dun yayimlanan haber
+        # bugun 404 olur -- olculdu: depoda sayfa hak eden 53 haber
+        # varken sitede 10'u duruyordu. Paylasilan her baglanti bir gun
+        # sonra kiriliyordu ve arama motoru kaybolan sayfalari
+        # indeksliyordu.
+        #
+        # Arsiv kayitlari gundem listesinin SONUNA ekleniyor; boylece
+        # ana sayfa ve gundem sirasi degismiyor, yalnizca sayfalari
+        # yeniden uretiliyor.
+        arsiv = arsiv_haberleri({h["adres"] for h in gundem["haberler"]})
+        if arsiv:
+            print(f"arsiv: {len(arsiv)} eski haber sayfasi yeniden uretiliyor")
+        uretilecek = gundem["haberler"] + arsiv
+
+        # VARLIK INDEKSI ONCE YAZILIR, SONRA RENDER EDILIR.
+        #
+        # Sira onemli: "bununla ilgili diger gelismeler" bolumu depoya
+        # sorulunca cevaplaniyor. Bu partinin varliklari yazilmadan render
+        # edilirse, ayni gun yayimlanan iki ilgili haber birbirini
+        # goremez -- ancak BIR SONRAKI calistirmada baglanirlardi.
+        #
+        # Ayrica gercek adres burada belli oluyor: haber hatti depoya
+        # "/haber/" yaziyor (yer tutucu), tam adres slug'la burada
+        # olusuyor. Baglantilarin calismasi icin geri yazilmali.
+        varlik_haritasi = varlik_indeksle(uretilecek)
+
+        for h in uretilecek:
+            if not h.get("yorumlanir"):
+                continue
+            h_yol = h["yol"]
             yaz(
                 f"{h_yol}index.html",
                 ortam.get_template("haber.html").render(
@@ -918,9 +1164,15 @@ def insa() -> int:
                     dosya=(_dosya.kur(h["konu"], h.get("bolge", ""),
                                       h.get("tarih", ""))
                            if _dosya else None),
+                    varliklar=varlik_haritasi.get(h["adres"], {}).get("varliklar", []),
+                    ilgili_haberler=varlik_haritasi.get(h["adres"], {}).get("ilgili", []),
                 ),
             )
             yollar.append(h_yol)
+
+        # Varlik sayfalari -- "Fed", "TÜFE", "Brent" ne dediyse burada.
+        for v_yol in varlik_sayfalari(ortam, yaz, ortak):
+            yollar.append(v_yol)
 
         yaz(
             "/gundem/index.html",

@@ -115,6 +115,15 @@ def main() -> int:
     if "uye" not in args.atla:
         adimlar.append(("Üye yazıları (onaylı → tarama → yayın)",
                         [str(BOT / "uret_uye_yazi.py")]))
+    # Varlik indeksi haberlerden SONRA, site uretiminden ONCE.
+    #
+    # Site kurulurken guncel pencere zaten indeksleniyor; bu adim ARSIVIN
+    # TAMAMINI yeniden tariyor. Gerekli, cunku kalip listesi buyuyor:
+    # bugun "bakir" kalibi eklendiginde dunku bakir haberi de o varliga
+    # baglanmali, yoksa arsiv eksik kalir ve kimse fark etmez.
+    if "varlik" not in args.atla:
+        adimlar.append(("Varlık indeksi (haber → bilgi ağı)",
+                        [str(BOT / "uret_varlik.py")]))
     if "teknik" not in args.atla:
         # Kraken cift adlari -- Bitcoin orada "XBT"
         for sembol in ("XBTUSD", "ETHUSD", "PAXGUSD"):

@@ -59,6 +59,39 @@ VARLIKLAR: tuple[tuple, ...] = (
     ("OPEC", "kurum", "OPEC", "OPEC", None, 80,
      "Petrol İhraç Eden Ülkeler Örgütü. Üretim kotalarıyla arzı belirler."),
 
+    # --- derecelendirme ve arastirma kuruluslari ---
+    #
+    # Bunlar veri KAYNAGI degil, GORUS kaynagi. Ayri tutulmalari sitenin
+    # temel ayrimidir: TUIK'in yayimladigi TUFE olcumdur, Goldman'in
+    # beklentisi gorustur. Sayfada ikisi ayni yerde durmaz.
+    #
+    # Arsivdeki degerleri "daha once ne demisti" sorusundadir: bir kurumun
+    # gecmis tahminleri, bugunku tahmininin agirligini belirler.
+    ("MOODYS", "kurum", "Moody's", "Moody's", None, 75,
+     "Kredi derecelendirme kuruluşu. Not kararları ülke ve şirket "
+     "borçlanma maliyetini etkileyen referanslardan biridir."),
+    ("FITCH", "kurum", "Fitch", "Fitch Ratings", None, 75,
+     "Kredi derecelendirme kuruluşu."),
+    ("SPRATING", "kurum", "S&P Global Ratings", "S&P Global Ratings", None, 75,
+     "Kredi derecelendirme kuruluşu."),
+    ("GOLDMAN", "kurum", "Goldman Sachs", "Goldman Sachs", None, 70,
+     "Yatırım bankası. Makro tahminleri piyasada geniş biçimde izlenir; "
+     "yayımladığı beklenti ölçüm değil, kurumun görüşüdür."),
+    ("JPMORGAN", "kurum", "JP Morgan", "JPMorgan Chase", None, 70,
+     "Yatırım bankası."),
+    ("MORGANSTANLEY", "kurum", "Morgan Stanley", "Morgan Stanley", None, 65,
+     "Yatırım bankası."),
+    ("DEUTSCHE", "kurum", "Deutsche Bank", "Deutsche Bank", None, 60,
+     "Yatırım bankası."),
+    ("IMF", "kurum", "IMF", "International Monetary Fund", None, 80,
+     "Uluslararası Para Fonu. Üye ülkeler için düzenli makro değerlendirme "
+     "ve tahmin yayımlar."),
+    ("DUNYABANKASI", "kurum", "Dünya Bankası", "World Bank", None, 70,
+     "Kalkınma finansmanı kuruluşu; büyüme ve yoksulluk verileri yayımlar."),
+    ("OECD", "kurum", "OECD", "OECD", None, 70,
+     "Ekonomik İşbirliği ve Kalkınma Örgütü. Üye ülkeler için "
+     "karşılaştırmalı istatistik ve tahmin yayımlar."),
+
     # --- kisiler ---
     ("POWELL", "kisi", "Jerome Powell", "Jerome Powell", None, 80,
      "Fed Başkanı."),
@@ -103,6 +136,15 @@ VARLIKLAR: tuple[tuple, ...] = (
      "Oynaklık endeksi. Piyasa stresinin ölçüsü."),
     ("CARI_TR", "gosterge", "Cari işlemler dengesi", "Current Account",
      None, 85, "Türkiye'nin dış finansman ihtiyacının ana ölçüsü."),
+    # Asagidaki ucu ilk tohumda yoktu ve eksikligi olculdu: "Temmuz ayi
+    # dis ticaret rakamlari aciklandi" gibi basliklar hicbir varliga
+    # baglanmiyordu -- oysa dis ticaret sitenin kendi konu listesinde var.
+    ("DIS_TICARET_TR", "gosterge", "Dış ticaret dengesi", "Trade Balance",
+     None, 85, "İhracat ile ithalat arasındaki fark. Cari işlemler "
+     "dengesinin en büyük bileşeni."),
+    ("ISSIZLIK_TR", "gosterge", "İşsizlik oranı", "Türkiye Unemployment",
+     None, 80, "İşgücüne katılanlar içinde iş arayıp bulamayanların oranı. "
+     "Geniş tanımlı atıl işgücü oranı ayrı yayımlanır ve daha yüksektir."),
 
     # --- emtia ---
     ("BRENT", "emtia", "Brent petrol", "Brent Crude", "DCOILBRENTEU", 95,
@@ -114,6 +156,9 @@ VARLIKLAR: tuple[tuple, ...] = (
     ("XAG", "emtia", "Gümüş", "Silver", "XAG", 70,
      "Hem değerli maden hem sanayi girdisi."),
     ("DGAZ", "emtia", "Doğal gaz", "Natural Gas", None, 75, ""),
+    ("XCU", "emtia", "Bakır", "Copper", None, 70,
+     "Sanayi girdisi olduğu için küresel talebin öncü göstergelerinden "
+     "sayılır; elektrifikasyon yatırımları talebi ayrıca artırır."),
 
     # --- piyasalar ---
     ("BIST100", "piyasa", "BIST 100", "BIST 100", None, 95,
@@ -239,6 +284,47 @@ BAGLAR: tuple[tuple, ...] = (
      "Turizm geliri döviz cinsinden; kur, TL karşılığını değiştirir."),
     ("USDTRY", "SEK_OTOMOTIV", "etkiler", "yapisal", 2,
      "Ara malı ithalatı döviz cinsinden fiyatlanır."),
+
+    # --- dis ticaret, istihdam, bakir ---
+    # Bu bag MUHASEBE, tahmin degil: dis ticaret dengesi cari islemler
+    # hesabinin bir kalemidir. `dayanak=yapisal` tam olarak bunu ayirir.
+    ("DIS_TICARET_TR", "CARI_TR", "bileseni", "yapisal", 3,
+     "Dış ticaret dengesi cari işlemler hesabının en büyük kalemidir; "
+     "toplama tanım gereği girer."),
+    ("TUIK", "DIS_TICARET_TR", "yayimlar", "yapisal", 3, ""),
+    ("TUIK", "ISSIZLIK_TR", "yayimlar", "yapisal", 3, ""),
+    ("USDTRY", "DIS_TICARET_TR", "etkiler", "yapisal", 2,
+     "Kur, ihracat ve ithalatın TL karşılığını ve göreli fiyatını "
+     "değiştirir; miktar tepkisinin hızı sektöre göre farklıdır."),
+    ("BRENT", "DIS_TICARET_TR", "etkiler", "yapisal", 3,
+     "Enerji ithalat faturası dış ticaret açığının doğrudan kalemi."),
+    # Issizlik -> TCMB faizi bagi VERI dayanakli: kanunla verilmis bir
+    # cift gorev yok, iliski gozlemden okunuyor. Fed'de durum farkli --
+    # istihdam yasal gorevin parcasi, o bag yapisal.
+    ("ISSIZLIK_TR", "TCMB_FAIZ", "etkiler", "veri", 1,
+     "İşgücü piyasasındaki gevşeme talep baskısının göstergelerinden "
+     "biri sayılır; TCMB'nin yasal hedefi ise fiyat istikrarıdır."),
+    ("NFP", "FED_FAIZ", "etkiler", "yapisal", 3,
+     "İstihdam, Fed'in yasayla tanımlı çift görevinin ayaklarından biri."),
+    ("CN", "XCU", "etkiler", "yapisal", 3,
+     "Çin küresel bakır talebinin en büyük tek kaynağı."),
+    ("XCU", "SEK_ENERJI", "etkiler", "yapisal", 1,
+     "Şebeke ve yenilenebilir yatırımlarının girdi maliyeti."),
+
+    # --- derecelendirme ve arastirma ---
+    #
+    # DAYANAK BURADA "VERI", "YAPISAL" DEGIL. Not indirimi risk primini
+    # mekanik olarak yukseltmez; cogu zaman piyasa kararı zaten
+    # fiyatlamis olur, bazen tepki ters yonde cikar. Bunu yapisal saymak,
+    # olculmemis bir kurali muhasebe kimligi gibi sunmak olurdu.
+    ("MOODYS", "CDS_TR", "etkiler", "veri", 2,
+     "Not kararları risk primine yansıyabilir; tepkinin yönü ve büyüklüğü "
+     "kararın ne kadarının önceden fiyatlandığına bağlıdır."),
+    ("FITCH", "CDS_TR", "etkiler", "veri", 2, ""),
+    ("SPRATING", "CDS_TR", "etkiler", "veri", 2, ""),
+    ("IMF", "TR", "degerlendirir", "kaynak", 2, ""),
+    ("OECD", "TR", "degerlendirir", "kaynak", 2, ""),
+    ("DUNYABANKASI", "TR", "degerlendirir", "kaynak", 2, ""),
 )
 
 

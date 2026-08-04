@@ -1,0 +1,57 @@
+{% extends "temel.html" %}
+
+{# Varlik dizini -- sitenin konu haritasi.
+
+   Turlere gore gruplanip her grup KENDI ICINDE haber sayisina gore
+   siraliyor. Alfabetik sirala demedik: okur "en cok ne konusuluyor"
+   sorusunun cevabini ust sirada gormek istiyor. #}
+
+{% block baslik %}Konular — {{ site.ad }}{% endblock %}
+{% block aciklama %}Netaris arşivindeki kurumlar, göstergeler, emtia ve
+ülkeler. Her konunun kendi birikmiş haber arşivi.{% endblock %}
+
+{% block icerik %}
+<article class="yazi">
+  <h1>Konular</h1>
+  <p class="varlik-ozet">
+    Arşivdeki her haber, geçtiği kurum ve göstergelere bağlanır.
+    Buradan bir konunun bütün geçmişine ulaşabilirsiniz.
+  </p>
+
+  {# Tur listesi graftaki turlerle ayni olmali. Eksik kalan bir tur
+     sessizce hic basilmazdi -- asagidaki "kalan" bloku o riski
+     kapatiyor: listede olmayan her tur yine de sayfaya cikiyor. #}
+  {% set turler = [("kurum", "Kurumlar"), ("kisi", "Kişiler"),
+                   ("gosterge", "Göstergeler"), ("piyasa", "Piyasalar"),
+                   ("emtia", "Emtia"), ("sektor", "Sektörler"),
+                   ("ulke", "Ülkeler")] %}
+  {% set bilinen = turler | map(attribute=0) | list %}
+  {% for kod, ad in turler %}
+    {% set grup = dizin | selectattr("tur", "equalto", kod) | list %}
+    {% if grup %}
+    <h2>{{ ad }}</h2>
+    <div class="varlik-izgara">
+      {% for v in grup %}
+      <a href="{{ v.yol }}" class="varlik-kart">
+        <span class="varlik-kart-ad">{{ v.ad }}</span>
+        <span class="varlik-kart-sayi">{{ v.sayi }} haber</span>
+      </a>
+      {% endfor %}
+    </div>
+    {% endif %}
+  {% endfor %}
+
+  {% set kalan = dizin | rejectattr("tur", "in", bilinen) | list %}
+  {% if kalan %}
+  <h2>Diğer</h2>
+  <div class="varlik-izgara">
+    {% for v in kalan %}
+    <a href="{{ v.yol }}" class="varlik-kart">
+      <span class="varlik-kart-ad">{{ v.ad }}</span>
+      <span class="varlik-kart-sayi">{{ v.sayi }} haber</span>
+    </a>
+    {% endfor %}
+  </div>
+  {% endif %}
+</article>
+{% endblock %}

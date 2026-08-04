@@ -1,0 +1,134 @@
+{% extends "temel.html" %}
+
+{# Bir varligin (kurum, gosterge, emtia, ulke, sektor) sayfasi.
+
+   BU SAYFA NE ICIN VAR
+   --------------------
+   Tek haber, arandiginda bulunmasi zor bir birim ve yayimlandigi hafta
+   degerlenip sonra soner. "Fed faiz karari" arayan kisi dun cikan tek
+   habere degil, o konunun BIRIKMIS gecmisine dusmek ister.
+
+   Ustelik burada haber arsivinden fazlasi var: varligin TANIMI ve
+   yapisal BAGLARI. Haber toplamak herkesin yapabilecegi is; "Brent
+   petrol Turkiye'nin cari dengesine hangi mekanizmayla yazilir"
+   bilgisi birikimle olusuyor ve sitenin asil varligi o.
+
+   ARSIV AZKEN DE ACILIYOR: bekleyip sonra acmak birikimi sifirdan
+   baslatmak olurdu. #}
+
+{% block baslik %}{{ v.ad }} — {{ site.ad }}{% endblock %}
+{% block aciklama %}{% if kunye and kunye.aciklama %}{{ kunye.aciklama }}{% else %}{{ v.ad }} ile ilgili haberler, veriler ve yapısal ilişkiler.{% endif %}{% endblock %}
+
+{% block yapisal_veri %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": {{ v.ad | tojson }},
+  {% if kunye and kunye.aciklama %}"description": {{ kunye.aciklama | tojson }},{% endif %}
+  "inLanguage": "tr-TR",
+  "isAccessibleForFree": true,
+  "publisher": { "@type": "Organization", "name": {{ site.ad | tojson }} }
+}
+</script>
+{% endblock %}
+
+{% block icerik %}
+<article class="yazi varlik-sayfa">
+  <nav class="kirinti"><a href="/varlik/">Konular</a> › {{ v.ad }}</nav>
+
+  <h1>{{ v.ad }}</h1>
+  <p class="varlik-ozet">
+    {% set tur_gorunur = {"kurum": "kurum", "kisi": "kişi",
+                          "gosterge": "gösterge", "piyasa": "piyasa",
+                          "emtia": "emtia", "sektor": "sektör",
+                          "ulke": "ülke"} %}
+    <span class="etiket etiket-{{ v.tur }}">{{ tur_gorunur.get(v.tur, v.tur) }}</span>
+    {% if kunye and kunye.ad_en and kunye.ad_en != v.ad %}
+    <span class="varlik-en">{{ kunye.ad_en }}</span>
+    {% endif %}
+    <span>Arşivde <b>{{ v.sayi }}</b> haber</span>
+  </p>
+
+  {% if kunye and kunye.aciklama %}
+  <p class="varlik-tanim">{{ kunye.aciklama }}</p>
+  {% endif %}
+
+  {# YAPISAL BAGLAR.
+     `dayanak` alani sayfada GORUNUR kaliyor ve bu bilincli:
+
+       yapisal -- muhasebe kimligi ya da tanim geregi dogru
+       veri    -- gozlemden cikarilmis, degisebilir
+       kaynak  -- bir kurumun kendi aciklamasina dayaniyor
+
+     Bir gozlemi muhasebe kimligi gibi sunmak, olculmemis bir kurali
+     olcum gibi gostermek olurdu. Okur ayrimi gormeli.
+
+     Baglar YON soylemez. "Fed faiz artirirsa altin duser" yanlis bir
+     genellemedir -- 2022'de faiz de altin da yukseldi. Bag "etkiler"
+     der; yonu veriden okuruz, kuraldan degil. #}
+  {% if baglar %}
+  {# Depodaki degerler ASCII ("yapisal", "bileseni") -- kodda diakritik
+     tasimamak bilincli bir tercih, ama okura oyle GOSTERILMEZ. Esleme
+     burada, sunum katmaninda. #}
+  {% set dayanak_ad = {"yapisal": "yapısal", "veri": "veri", "kaynak": "kaynak"} %}
+  {% set tur_ad = {"etkiler": "etkiler", "belirler": "belirler",
+                   "yayimlar": "yayımlar", "bileseni": "bileşeni",
+                   "degerlendirir": "değerlendirir", "baskani": "başkanı",
+                   "uyesi": "üyesi"} %}
+  <section class="bag-bolum">
+    <h2>Yapısal ilişkiler</h2>
+    <ul class="bag-liste">
+      {% for g in baglar %}
+      <li class="bag bag-{{ g.dayanak }}">
+        <span class="bag-cumle">
+          {% if g.yon == "cikan" %}
+          <b>{{ v.ad }}</b> → <a href="{{ g.hedef|varlik_yolu }}">{{ g.hedef_ad }}</a>
+          {% else %}
+          <a href="{{ g.kaynak|varlik_yolu }}">{{ g.kaynak_ad }}</a> → <b>{{ v.ad }}</b>
+          {% endif %}
+          <span class="bag-tur">{{ tur_ad.get(g.tur, g.tur) }}</span>
+        </span>
+        {% if g.aciklama %}<span class="bag-neden">{{ g.aciklama }}</span>{% endif %}
+        <span class="bag-dayanak" title="Bu ilişkinin dayanağı">{{ dayanak_ad.get(g.dayanak, g.dayanak) }}</span>
+      </li>
+      {% endfor %}
+    </ul>
+    <p class="kaynak-not">
+      <b>yapısal</b>: muhasebe kimliği ya da tanım gereği doğru ·
+      <b>veri</b>: gözlemden çıkarılmış, değişebilir ·
+      <b>kaynak</b>: kurumun kendi açıklamasına dayanıyor.
+      İlişkiler etkinin <em>yönünü</em> söylemez; yön veriden okunur.
+    </p>
+  </section>
+  {% endif %}
+
+  {# Kurum turunde baslik "daha once ne dedi" -- kullanicinin istedigi
+     aktor gecmisi tam olarak bu listedir. Ayri bir bolum yazmiyoruz,
+     baslik onu soyluyor. #}
+  <h2>{% if v.tur in ("kurum", "kisi") %}{{ v.ad }} daha önce ne dedi{% else %}Gelişmeler{% endif %}</h2>
+
+  {% if haberler %}
+  <ul class="varlik-liste">
+    {% for h in haberler %}
+    <li>
+      <time datetime="{{ h.tarih }}">{{ h.tarih }}</time>
+      <a href="{{ h.yol }}">{{ h.baslik }}</a>
+      <span class="ilgili-kunye">{{ h.kurum }}</span>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p class="kaynak-not">Bu konuda henüz yayımlanmış haber yok.</p>
+  {% endif %}
+
+  {# ARSIVIN YASI ACIKCA YAZILIYOR.
+     Arsiv genc. Bunu gizleyip "kapsamli arsiv" havasi vermek, sitenin
+     "olcmedigimizi olcmus gibi gostermeyiz" ilkesine aykiri olurdu. #}
+  <p class="kaynak-not">
+    Bu sayfa Netaris arşivinden otomatik derlenir; her madde kendi
+    kaynağına bağlıdır. Arşiv, yayına açıldığı günden itibaren birikir.
+    <a href="/gundem/">← Tüm haberler</a>
+  </p>
+</article>
+{% endblock %}

@@ -304,6 +304,36 @@
   </section>
   {% endif %}
 
+  {# BUNUNLA ILGILI DIGER GELISMELER.
+     Arsivden geliyor, uydurulmuyor: ayni varliklara baglanmis ve
+     YAYIMLANMIS haberler. Arsiv genc oldugu icin bugun cogu haberde bu
+     bolum bos ve o zaman hic basilmiyor -- "ilgili haber bulunamadi"
+     yazmak sayfayi doldurmaktan baska ise yaramaz. #}
+  {% if ilgili_haberler %}
+  <section class="ilgili-haber">
+    <h2>Bununla ilgili diğer gelişmeler</h2>
+    <ul class="ilgili-liste">
+      {% for i in ilgili_haberler %}
+      <li>
+        <a href="{{ i.yol }}">{{ i.baslik }}</a>
+        <span class="ilgili-kunye">{{ i.kurum }} · {{ i.tarih }}</span>
+      </li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
+  {# VARLIK ETIKETLERI -- arsivin giris kapisi.
+     Okur "Fed"e tiklayinca o kurumun butun gecmisine dusuyor. Ayni
+     baglantilar arama motorunun arsivi kesfetme yolu. #}
+  {% if varliklar %}
+  <nav class="varlik-etiket" aria-label="İlgili konular">
+    {% for v in varliklar %}
+    <a href="{{ v.yol }}" class="etiket etiket-{{ v.tur }}">{{ v.ad }}</a>
+    {% endfor %}
+  </nav>
+  {% endif %}
+
   {# Kaynak atfi. Bu sayfa duyurunun metnini yeniden yayimlamaz; kurumun
      acikladigini ozetler ve kendi cozumlememizi ekler. Tam metin icin
      kaynaga gidilir. #}

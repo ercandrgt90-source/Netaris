@@ -1996,3 +1996,130 @@ main.kabuk { padding-top: 26px; padding-bottom: 48px; }
   .ozet-kutu dd { margin-bottom: 8px; }
   .duyarlilik .neden { display: none; }
 }
+
+/* ---- Varlik indeksi: etiketler, ilgili haberler, arsiv sayfalari ---- */
+
+/* Ilgili haberler -- haber sayfasinin altinda, arsivden. */
+.ilgili-haber { margin: 30px 0 0; }
+.ilgili-haber h2 { font-size: 1.05rem; margin: 0 0 12px; }
+.ilgili-liste { list-style: none; padding: 0; margin: 0; }
+.ilgili-liste li {
+  padding: 10px 0;
+  border-top: 1px solid var(--cizgi);
+  display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: baseline;
+}
+.ilgili-liste a { font-weight: 600; font-size: 0.95rem; flex: 1 1 260px; }
+.ilgili-kunye {
+  font-size: 0.76rem; color: var(--yazi-3);
+  font-variant-numeric: tabular-nums; white-space: nowrap;
+}
+
+/* Varlik etiketleri -- arsive giris kapisi. */
+.varlik-etiket { display: flex; flex-wrap: wrap; gap: 8px; margin: 26px 0 0; }
+.etiket {
+  display: inline-block;
+  padding: 4px 11px; border-radius: 999px;
+  border: 1px solid var(--cizgi-parlak);
+  background: var(--panel-2);
+  font-size: 0.78rem; font-weight: 600; color: var(--yazi-2);
+  line-height: 1.5;
+}
+.etiket:hover { border-color: var(--vurgu); color: var(--vurgu); text-decoration: none; }
+/* Tur rengi ile DEGIL, sol cizgi ile ayriliyor: renk kodu okura ayrica
+   ogretilmesi gereken bir dil olurdu; kelimenin kendisi zaten yeterli. */
+.etiket-kurum    { border-left: 3px solid var(--vurgu); }
+.etiket-gosterge { border-left: 3px solid var(--artis); }
+.etiket-emtia    { border-left: 3px solid var(--uyari); }
+.etiket-para     { border-left: 3px solid var(--vurgu-koyu); }
+.etiket-ulke     { border-left: 3px solid var(--yazi-3); }
+
+/* Varlik arsiv sayfasi. */
+.kirinti { font-size: 0.8rem; color: var(--yazi-3); margin: 0 0 10px; }
+.varlik-ozet {
+  display: flex; flex-wrap: wrap; gap: 10px; align-items: center;
+  font-size: 0.88rem; color: var(--yazi-2); margin: 0 0 26px;
+}
+.varlik-ozet .etiket { text-transform: capitalize; }
+.varlik-liste { list-style: none; padding: 0; margin: 0; }
+.varlik-liste li {
+  display: grid; grid-template-columns: 92px 1fr auto;
+  gap: 4px 14px; align-items: baseline;
+  padding: 11px 0; border-top: 1px solid var(--cizgi);
+}
+.varlik-liste time {
+  font-size: 0.76rem; color: var(--yazi-3);
+  font-variant-numeric: tabular-nums;
+}
+.varlik-liste a { font-weight: 600; font-size: 0.95rem; }
+
+/* Konu dizini. */
+.varlik-izgara {
+  display: grid; gap: 10px; margin: 0 0 28px;
+  grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
+}
+.varlik-kart {
+  display: flex; flex-direction: column; gap: 3px;
+  padding: 12px 14px; border: 1px solid var(--cizgi);
+  border-radius: var(--r-kucuk); background: var(--panel);
+}
+.varlik-kart:hover { border-color: var(--vurgu); text-decoration: none; }
+.varlik-kart-ad { font-weight: 700; font-size: 0.93rem; color: var(--yazi); }
+.varlik-kart-sayi {
+  font-size: 0.76rem; color: var(--yazi-3);
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 560px) {
+  /* Tarih ustte, baslik altta -- 92px sutun dar ekranda basligi eziyordu. */
+  .varlik-liste li { grid-template-columns: 1fr; }
+}
+
+/* Graftaki butun turler icin etiket rengi olmali; eksik kalan tur
+   cizgisiz ve digerlerinden farkli gorunurdu. */
+.etiket-piyasa { border-left: 3px solid var(--vurgu-koyu); }
+.etiket-sektor { border-left: 3px solid var(--uyari); }
+.etiket-kisi   { border-left: 3px solid var(--azalis); }
+
+.varlik-en { font-style: italic; color: var(--yazi-3); }
+.varlik-tanim {
+  font-size: 0.97rem; line-height: 1.65; color: var(--yazi-2);
+  padding: 14px 16px; margin: 0 0 28px;
+  background: var(--panel-2); border-left: 3px solid var(--cizgi-parlak);
+  border-radius: 0 var(--r-kucuk) var(--r-kucuk) 0;
+}
+
+/* Yapisal iliskiler. */
+.bag-bolum { margin: 0 0 32px; }
+.bag-liste { list-style: none; padding: 0; margin: 0 0 12px; }
+.bag {
+  display: grid; gap: 2px 12px; align-items: baseline;
+  grid-template-columns: 1fr auto;
+  padding: 11px 0 11px 12px;
+  border-top: 1px solid var(--cizgi);
+  border-left: 3px solid transparent;
+}
+/* Dayanak turu SOL CIZGIYLE ayriliyor: muhasebe kimligi ile gozlem
+   ayni agirlikta gorunmemeli. */
+.bag-yapisal { border-left-color: var(--artis); }
+.bag-veri    { border-left-color: var(--uyari); }
+.bag-kaynak  { border-left-color: var(--yazi-3); }
+.bag-cumle { font-size: 0.93rem; }
+.bag-cumle b { color: var(--yazi); }
+.bag-tur {
+  font-size: 0.74rem; color: var(--yazi-3);
+  padding: 1px 7px; border: 1px solid var(--cizgi);
+  border-radius: 999px; margin-left: 6px; white-space: nowrap;
+}
+.bag-neden {
+  grid-column: 1 / -1;
+  font-size: 0.82rem; color: var(--yazi-2); line-height: 1.5;
+}
+.bag-dayanak {
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.02em;
+  color: var(--yazi-3); text-transform: uppercase; white-space: nowrap;
+}
+
+@media (max-width: 560px) {
+  .bag { grid-template-columns: 1fr; }
+  .bag-dayanak { grid-row: 1; justify-self: start; }
+}
