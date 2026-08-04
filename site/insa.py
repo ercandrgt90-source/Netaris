@@ -1245,6 +1245,7 @@ def insa() -> int:
             if not h.get("yorumlanir"):
                 continue
             h_yol = h["yol"]
+            h_varliklar = varlik_haritasi.get(h["adres"], {}).get("varliklar")
             yaz(
                 f"{h_yol}index.html",
                 ortam.get_template("haber.html").render(
@@ -1252,11 +1253,18 @@ def insa() -> int:
                     gorsel_svg=gundem_gorseller.get(h["adres"], ""),
                     ilgili=ilgili_gostergeler(h["konu"], gostergeler),
                     piyasa=piyasa_kutusu.kutu(h["konu"], gundem.get("guncelleme", "")),
-                    # Turkiye gostergeleri YALNIZCA yurt ici haberde
-                    dosya=(_dosya.kur(h["konu"], h.get("bolge", ""),
-                                      h.get("tarih", ""))
+                    # Turkiye bolumleri YALNIZCA Turkiye haberinde.
+                    # Olcut `bolge` degil VARLIK INDEKSI: bolge, Turkce
+                    # basligi varsayilan olarak TR sayiyor ve Turk
+                    # kaynagin cevirdigi yabanci haber de TR oluyordu.
+                    # `varliklar` None ise indeks calismamis demektir --
+                    # o zaman dosya.py eski olcute duser.
+                    dosya=(_dosya.kur(
+                        h["konu"], h.get("bolge", ""), h.get("tarih", ""),
+                        varliklar=([v["kod"] for v in h_varliklar]
+                                   if h_varliklar is not None else None))
                            if _dosya else None),
-                    varliklar=varlik_haritasi.get(h["adres"], {}).get("varliklar", []),
+                    varliklar=h_varliklar or [],
                     ilgili_haberler=varlik_haritasi.get(h["adres"], {}).get("ilgili", []),
                     # Haberin uzerinden gecen gun. Sayfadaki gosterge ve
                     # piyasa kutulari BUGUNUN verisi; eski bir haberi

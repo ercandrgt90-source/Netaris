@@ -408,6 +408,132 @@ def _bant(seri: list[tuple[str, float]], ay: int = 6) -> tuple[float, float, int
     return min(d), max(d), len(son)
 
 
+def _vir(x: float, b: int = 1) -> str:
+    return f"{x:.{b}f}".replace(".", ",")
+
+
+# --------------------------------------------------------------------------
+# "Veri ne diyor" -- konuya gore bulgular
+#
+# Her uretec, seriyi bulamazsa BOS liste dondurur. Veri yoksa cumle
+# uydurmak degil, susmak dogru.
+# --------------------------------------------------------------------------
+
+def _bulgu_enflasyon(b, d) -> list[str]:
+    manset = _seri(b, "TP.TUKFIY2025.GENEL", 13)
+    cekirdek = _seri(b, "TP.FE25.OKTG04", 13)
+    cikti: list[str] = []
+    if len(manset) >= 6:
+        d.seyir, d.seyir_ad = manset, "TÜFE (yıllık, %)"
+        alt, ust, n = _bant(manset, 6)
+        cikti.append(f"Enflasyon {n} aydır %{_vir(alt)}–%{_vir(ust)} bandında")
+    if len(manset) >= 3 and len(cekirdek) >= 3:
+        ayrisma, toplam = _ayrisma_say(manset, cekirdek)
+        if toplam:
+            # "Son 12 ayin 2'inde" yazmiyoruz: Turkce'de sayiya gelen ek
+            # okunusa gore degisiyor (2'sinde, 3'unde, 6'sinda). Cumleyi
+            # ek gerektirmeyen bicimde kurmak hem dogru hem daha akici.
+            cikti.append(f"Son {toplam} ayda manşet {ayrisma} kez gerilerken "
+                         f"çekirdek yükseldi")
+        cikti.append("Manşet ile çekirdek arasındaki fark "
+                     f"{_vir(abs(manset[-1][1] - cekirdek[-1][1]), 2)} puan")
+    return cikti
+
+
+def _bulgu_faiz(b, d) -> list[str]:
+    faiz = _seri(b, "TP.APIFON4", 90)
+    enf = _seri(b, "TP.TUKFIY2025.GENEL", 2)
+    if not faiz:
+        return []
+    cikti = [f"Politika faizi %{_vir(faiz[-1][1], 2)}"]
+    if enf:
+        reel = faiz[-1][1] - enf[-1][1]
+        # Reel faiz TANIM GEREGI fark; "yaklasik" demiyoruz ama neyin
+        # neyden cikarildigini sayfada yaziyoruz.
+        cikti.append(f"Manşet enflasyona göre reel faiz {_vir(reel, 2)} puan")
+    if len(faiz) >= 30:
+        onceki = faiz[-30][1]
+        fark = faiz[-1][1] - onceki
+        if abs(fark) >= 0.05:
+            cikti.append(f"Fonlama maliyeti son 30 işlem gününde "
+                         f"{round(fark * 100):+d} baz puan değişti")
+        else:
+            cikti.append("Fonlama maliyeti son 30 işlem gününde yatay")
+    return cikti
+
+
+def _bulgu_dis_ticaret(b, d) -> list[str]:
+    cari = _seri(b, "TP.HARICCARIACIK.K1", 13)
+    if len(cari) < 2:
+        return []
+    d.seyir, d.seyir_ad = cari, "Cari işlemler dengesi (mn $)"
+    son = cari[-1][1]
+    # "acikI" DEGIL "aciGI": Turkce'de sonu k ile biten sozcuk unlu ekten
+    # once yumusar. Eki koda gomup "{yon}i" yazmak yanlis uretiyordu.
+    # Cekimli bicimleri hazir tutmak tek dogru yol.
+    ad = "fazlası" if son > 0 else "açığı"
+    cikti = [f"Cari işlemler {ad} {abs(son):,.0f} mn $ ({cari[-1][0][:7]})"
+             .replace(",", ".")]
+    if len(cari) >= 12:
+        # 12 aylik toplam, tek ayin gurultusunu temizler.
+        toplam = sum(x[1] for x in cari[-12:])
+        y = "fazla" if toplam > 0 else "açık"
+        cikti.append(f"Son 12 ayın toplamı {abs(toplam):,.0f} mn $ {y}"
+                     .replace(",", "."))
+    return cikti
+
+
+def _bulgu_issizlik(b, d) -> list[str]:
+    s = _seri(b, "TP.YISGUCU2.G8", 13)
+    if len(s) < 2:
+        return []
+    d.seyir, d.seyir_ad = s, "İşsizlik oranı (%)"
+    cikti = [f"İşsizlik oranı %{_vir(s[-1][1], 1)} ({s[-1][0][:7]})"]
+    if len(s) >= 12:
+        alt, ust, n = _bant(s, 12)
+        cikti.append(f"Son {n} ayda %{_vir(alt)}–%{_vir(ust)} aralığında")
+    return cikti
+
+
+def _bulgu_kur(b, d) -> list[str]:
+    s = _seri(b, "TP.DK.USD.S.YTL", 260)
+    if len(s) < 2:
+        return []
+    cikti = [f"USD/TRY {_vir(s[-1][1], 2)}"]
+    for gun, ad in ((22, "1 ayda"), (66, "3 ayda")):
+        if len(s) > gun:
+            y = (s[-1][1] - s[-1 - gun][1]) / s[-1 - gun][1] * 100
+            cikti.append(f"Kur {ad} %{_vir(abs(y))} "
+                         f"{'arttı' if y >= 0 else 'geriledi'}")
+    return cikti
+
+
+URETECLER = {
+    "enflasyon": _bulgu_enflasyon,
+    "faiz": _bulgu_faiz,
+    "dis_ticaret": _bulgu_dis_ticaret,
+    "issizlik": _bulgu_issizlik,
+    "kur": _bulgu_kur,
+}
+
+#: Bir sayfada en fazla kac bulgu. Uc satirdan sonrasi "30 saniyede"
+#: kutusunu 30 saniyelik olmaktan cikariyor.
+EN_COK_BULGU = 4
+
+
+def _bulgulari_kur(b, d, konu: str) -> None:
+    for ad in BULGU_KONULARI.get(konu, VARSAYILAN_BULGU):
+        uretec = URETECLER.get(ad)
+        if uretec is None:
+            continue
+        for satir in uretec(b, d):
+            if satir not in d.bulgular:
+                d.bulgular.append(satir)
+        if len(d.bulgular) >= EN_COK_BULGU:
+            del d.bulgular[EN_COK_BULGU:]
+            return
+
+
 # --------------------------------------------------------------------------
 # Neden bugun
 # --------------------------------------------------------------------------
@@ -471,54 +597,116 @@ def tarih_tr(iso: str) -> str:
 # Ana giris
 # --------------------------------------------------------------------------
 
-def kur(konu: str, bolge: str, haber_tarihi: str = "") -> Dosya:
+#: Konu -> "Veri ne diyor" bolumunde kullanilacak bulgu uretecleri.
+#:
+#: ONCEDEN HEPSI TUFE'YDI ve olculen sonuc suydu: "Is Bankasi bilanco
+#: acikladi", "Turkiye'nin findik ihracati", "TOKI kiralik konut" --
+#: hepsinin altinda ayni cumle vardi: "Enflasyon 6 aydir %30,9-%32,6
+#: bandinda". Dogru bir cumle ama haberle ilgisiz; okur "veri ne diyor"
+#: basligi altinda haberin verisini bekler.
+#:
+#: Listede olmayan konu ENFLASYONA duser -- Turkiye'de fiyat gelismesi
+#: hemen her makro haberin ortak zeminidir; ama artik bu bir SECIM,
+#: tek secenek degil.
+#: ANAHTARLAR `besleme.KONULAR` ile BIREBIR AYNI OLMALI.
+#: Ilk yazimda dort anahtar uydurulmustu ("Istihdam ve ucretLER",
+#: "Doviz ve kur", "Altin ve emtia", "Emeklilik ve sosyal guvenlik") ve
+#: hicbiri eslesmedi: o konular sessizce varsayilana dustu, yani
+#: istihdam haberinde issizlik yerine enflasyon yazildi. Hata gorunmez
+#: cunku cikti yine makul bir cumle. `dogrula()` bunu sinar.
+BULGU_KONULARI = {
+    "Dış ticaret": ("dis_ticaret",),
+    "Para politikası": ("enflasyon", "faiz"),
+    "Enflasyon": ("enflasyon",),
+    "Bankacılık": ("faiz",),
+    "Konut ve kira": ("faiz",),
+    "İstihdam ve ücret": ("issizlik", "enflasyon"),
+    "Şirket haberleri": ("faiz", "kur"),
+    "Enerji": ("kur", "dis_ticaret"),
+    "Tarım ve gıda": ("enflasyon",),
+    "Turizm": ("kur", "dis_ticaret"),
+    "Borsa": ("faiz", "kur"),
+    "Vergi ve kamu maliyesi": ("enflasyon", "faiz"),
+    "Düzenleme": ("faiz",),
+    "Piyasa düzenlemesi": ("faiz",),
+}
+VARSAYILAN_BULGU = ("enflasyon",)
+
+
+def dogrula() -> list[str]:
+    """`BULGU_KONULARI` anahtarlarindan besleme listesinde olmayanlar.
+
+    Sessiz kaymayi engelliyor: konu adi degistiginde ya da yanlis
+    yazildiginda eslesme kaybolur ama sayfa yine dolu gorunur.
+    """
+    try:
+        import sys as _s, pathlib as _p
+        _s.path.insert(0, str(_p.Path(__file__).resolve().parent.parent
+                              / "kaynak"))
+        from besleme import KONULAR as _K
+    except ImportError:
+        return []
+    adlar = {k[0] if isinstance(k, tuple) else k for k in _K}
+    return sorted(k for k in BULGU_KONULARI if k not in adlar)
+
+#: Haberin Turkiye ile ilgili oldugunu gosteren varlik kodlari.
+#:
+#: `bolge` alanindan DAHA GUVENILIR. Olculen sebep: bolge siniflandirmasi
+#: Turkce basligi varsayilan olarak "TR" sayiyor, dolayisiyla Turk
+#: kaynagin cevirdigi her yabanci haber de "TR" oluyordu -- "ABD'de
+#: insaat harcamalari geriledi" haberinde Turkiye enflasyon paneli
+#: basiliyordu. Varlik indeksi metnin NEDEN bahsettigine bakiyor.
+TURKIYE_VARLIKLARI = frozenset({
+    "TR", "TCMB", "TUIK", "SPK", "BDDK", "TUFE_TR", "UFE_TR", "TCMB_FAIZ",
+    "CARI_TR", "DIS_TICARET_TR", "ISSIZLIK_TR", "BIST100", "USDTRY",
+    "CDS_TR", "KARAHAN",
+    "SEK_BANKA", "SEK_ENERJI", "SEK_OTOMOTIV", "SEK_TURIZM", "SEK_HAVA",
+    "SEK_PERAKENDE", "SEK_INSAAT",
+})
+
+
+def turkiye_haberi(bolge: str, varliklar) -> bool:
+    """Haber Turkiye'yi mi anlatiyor.
+
+    `varliklar` None ise varlik indeksi bagli degil demektir; o zaman
+    eski olcut olan `bolge`ye duseriyor. Bos LISTE ise indeks calisti ve
+    Turkiye varligi BULAMADI -- bu bir cevaptir, panel basilmaz.
+    """
+    if varliklar is None:
+        return bolge == "TR"
+    return bool(TURKIYE_VARLIKLARI & set(varliklar))
+
+
+def kur(konu: str, bolge: str, haber_tarihi: str = "",
+        varliklar=None) -> Dosya:
     """Haberin arastirma dosyasini kurar. Veri yoksa bos Dosya doner."""
+    tr = turkiye_haberi(bolge, varliklar)
+
+    # DUYARLILIK / IZLENECEKLER / SENARYOLAR DA TURKIYE'YE OZGU.
+    # Tablolar Turkiye sektorlerini ve Turkiye veri takvimini anlatiyor;
+    # yabanci haberde "En cok kim etkilenir: Konaklama, Havayolu" yazmak
+    # kurulmamis bir aktarim zincirini kurulmus gibi gostermek olurdu.
     d = Dosya(
-        duyarlilik=DUYARLILIK.get(konu, ()),
-        izlenecekler=IZLENECEKLER.get(konu, ()),
-        senaryolar=SENARYOLAR.get(konu, ()),
+        duyarlilik=DUYARLILIK.get(konu, ()) if tr else (),
+        izlenecekler=IZLENECEKLER.get(konu, ()) if tr else (),
+        senaryolar=SENARYOLAR.get(konu, ()) if tr else (),
     )
-    if not DEPO.exists():
+    if not DEPO.exists() or not tr:
         return d
 
     try:
         with sqlite3.connect(f"file:{DEPO}?mode=ro", uri=True) as b:
-            if bolge == "TR":
-                for kod, ad, birim, _bas in TURKIYE_PANEL:
-                    g = _gosterge(b, kod, ad, birim)
-                    if g:
-                        d.turkiye.append(g)
+            for kod, ad, birim, _bas in TURKIYE_PANEL:
+                g = _gosterge(b, kod, ad, birim)
+                if g:
+                    d.turkiye.append(g)
 
-                faiz = _seri(b, REEL_FAIZ[0], 1)
-                enf = _seri(b, REEL_FAIZ[1], 1)
-                if faiz and enf:
-                    d.reel_faiz = faiz[0][1] - enf[0][1]
+            faiz = _seri(b, REEL_FAIZ[0], 1)
+            enf = _seri(b, REEL_FAIZ[1], 1)
+            if faiz and enf:
+                d.reel_faiz = faiz[0][1] - enf[0][1]
 
-            # Enflasyon seyri ve ayrisma sayimi
-            manset = _seri(b, "TP.TUKFIY2025.GENEL", 13)
-            cekirdek = _seri(b, "TP.FE25.OKTG04", 13)
-            if len(manset) >= 6:
-                d.seyir = manset
-                d.seyir_ad = "TÜFE (yıllık, %)"
-                alt, ust, n = _bant(manset, 6)
-                d.bulgular.append(
-                    f"Enflasyon {n} aydır %{alt:.1f}–%{ust:.1f} bandında"
-                    .replace(".", ","))
-            if len(manset) >= 3 and len(cekirdek) >= 3:
-                ayrisma, toplam = _ayrisma_say(manset, cekirdek)
-                if toplam:
-                    # "Son 12 ayin 2'inde" yazmiyoruz: Turkce'de sayiya
-                    # gelen ek okunusa gore degisiyor (2'sinde, 3'unde,
-                    # 6'sinda) ve dogru uretmek icin sayiyi yaziyla
-                    # cozmek gerekir. Cumleyi ek gerektirmeyen bicimde
-                    # kurmak hem dogru hem daha akici.
-                    d.bulgular.append(
-                        f"Son {toplam} ayda manşet {ayrisma} kez gerilerken "
-                        f"çekirdek yükseldi")
-                fark = manset[-1][1] - cekirdek[-1][1]
-                d.bulgular.append(
-                    f"Manşet ile çekirdek arasındaki fark {abs(fark):.2f} puan"
-                    .replace(".", ","))
+            _bulgulari_kur(b, d, konu)
 
             if haber_tarihi:
                 d.neden_bugun = _neden_bugun(b, haber_tarihi, konu)

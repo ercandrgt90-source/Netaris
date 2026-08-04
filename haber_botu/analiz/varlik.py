@@ -90,8 +90,13 @@ KALIPLAR: dict[str, tuple[str, ...]] = {
     # --- kurumlar ---
     "FED": (" fed ", "federal rezerv", "federal reserve", " fomc "),
     "ECB": (" ecb ", "avrupa merkez bankasi"),
+    # "merkez bankasi" TEK BASINA da yaziliyor ve eksikligi olculdu:
+    # "Merkez Bankasi rezervlerinde artis" hicbir varliga baglanmiyordu.
+    # Yabanci merkez bankalariyla karismasin diye TCMB de BASTIRILABILIR
+    # listesinde: "Avrupa Merkez Bankasi" basliginda yabanci isaret
+    # bulunur ve TCMB dusuruler.
     "TCMB": (" tcmb ", "turkiye cumhuriyet merkez bankasi", " ppk ",
-             "para politikasi kurulu"),
+             "para politikasi kurulu", "merkez bankasi", "merkez bankasinin"),
     "TUIK": (" tuik ", "istatistik kurumu"),
     "SPK": (" spk ", "sermaye piyasasi kurulu"),
     "BDDK": (" bddk ", "bankacilik duzenleme"),
@@ -131,7 +136,12 @@ KALIPLAR: dict[str, tuple[str, ...]] = {
     # "enflasyon" genel; BASTIRILABILIR oldugu icin Turkiye baglami
     # (baslik ya da kurum) yoksa dusuyor. "Meksika analistleri enflasyon
     # tahminini dusurdu" boyle elendi.
-    "TUFE_TR": (" tufe ", "~tufe'", "tuketici fiyat", "~enflasyon"),
+    # "beklenti anketi" ve "fiyati en cok artan" TCMB/TUIK'in duzenli
+    # yayinlari; ikisi de enflasyon verisi ama basliginda "enflasyon"
+    # gecmiyor ve hicbir varliga baglanmiyorlardi.
+    "TUFE_TR": (" tufe ", "~tufe'", "tuketici fiyat", "~enflasyon",
+                "beklenti anketi", "fiyati en cok artan",
+                "fiyati en cok azalan"),
     "CPI_US": ("abd tufe", "abd enflasyon", " cpi ", "abd tuketici fiyat"),
     "US10Y": ("10 yillik tahvil", "10 yillik getiri", "on yillik tahvil"),
     "US2Y": ("2 yillik tahvil", "iki yillik tahvil"),
@@ -195,7 +205,13 @@ KALIPLAR: dict[str, tuple[str, ...]] = {
                    "konut kredisi"),
 
     # --- ulkeler ---
-    "TR": ("turkiye", " turk ", " turkiye'"),
+    # Yurt ici kurum ve konu adlari da Turkiye isareti. Bunlar olmadan
+    # "SGK acikladi: En dusuk emekli ayligi farki" ya da "TOKI kiralik
+    # konut projesi" gibi tamamen yurt ici haberler hicbir varliga
+    # baglanmiyor, dolayisiyla Turkiye paneli de basilmiyordu.
+    "TR": ("turkiye", " turk ", " turkiye'", "~sgk", "emekli ayli",
+           "asgari ucret", "~yargitay", "~danistay", "kidem tazminat",
+           "memur zam", "~iskur", "~tbmm", "resmi gazete", "~hazine"),
     "US": (" abd ", "amerika", "washington", "birlesik devletler"),
     "EA": ("avro bolge", "euro bolge", "avrupa birligi", " ab "),
     "CN": (" cin ", "cin'", " pekin ", " china "),
@@ -203,6 +219,17 @@ KALIPLAR: dict[str, tuple[str, ...]] = {
     # " iran " bosluklu OLMAK ZORUNDA: "haziranin" icinde eslesiyordu ve
     # her haziran tarihli Turkce haber Iran'a baglaniyordu.
     "IR": (" iran ", " iran'", " tahran "),
+}
+
+#: Duyuruyu YAYIMLAYAN kurum da bir varliktir.
+#:
+#: "Para politikasi kararlari" basligi ECB'nin duyurusu ama metinde
+#: "ECB" gecmiyor; basliktan eslesme beklemek o haberi varliksiz
+#: birakiyordu. Kurum zaten biliniyor -- tahmin degil, olgu.
+KURUM_VARLIK = {
+    "TCMB": "TCMB", "FED": "FED", "ECB": "ECB", "TUIK": "TUIK",
+    "SEC": "SEC", "EIA": "EIA", "OPEC": "OPEC", "IMF": "IMF",
+    "OECD": "OECD", "SPK": "SPK", "BDDK": "BDDK",
 }
 
 #: Turkiye'ye ozgu gostergeler, yurt disi haberde bastirilir.
@@ -216,7 +243,7 @@ KALIPLAR: dict[str, tuple[str, ...]] = {
 #: "ABD'de insaat harcamalari geriledi" haberini Turkiye insaat
 #: sektorune baglamak okuru yanlis arsive goturuyordu.
 BASTIRILABILIR = (
-    "TUFE_TR", "UFE_TR", "CARI_TR", "TCMB_FAIZ", "DIS_TICARET_TR",
+    "TUFE_TR", "UFE_TR", "CARI_TR", "TCMB", "TCMB_FAIZ", "DIS_TICARET_TR",
     "ISSIZLIK_TR", "BIST100", "USDTRY", "CDS_TR",
     "SEK_BANKA", "SEK_ENERJI", "SEK_OTOMOTIV", "SEK_TURIZM",
     "SEK_HAVA", "SEK_PERAKENDE", "SEK_INSAAT",
@@ -333,6 +360,10 @@ def bul(b: sqlite3.Connection, baslik: str, ozet: str = "",
     for k in _kodlari_bul(ozet, kurum):
         if k not in kodlar:
             kodlar.append(k)
+    # Yayimlayan kurum -- basliktan bagimsiz, olgu.
+    kk = KURUM_VARLIK.get((kurum or "").strip().upper())
+    if kk and kk not in kodlar:
+        kodlar.append(kk)
     if not kodlar:
         return []
     yer = ",".join("?" * len(kodlar))
