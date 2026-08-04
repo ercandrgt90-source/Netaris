@@ -24,6 +24,7 @@ import argparse
 import json
 import pathlib
 import sys
+from dataclasses import replace
 
 _KOK = pathlib.Path(__file__).parent
 sys.path.insert(0, str(_KOK / "analiz"))
@@ -58,6 +59,16 @@ PANEL_SERILERI = (
 #: Kac gozlemlik pencere. 14 islem gunu iki haftalik bir hareketi gosterir;
 #: daha uzun pencere gunluk yorumu bulaniklastirir.
 PENCERE = 14
+
+#: DEPOYA yazilan pencere. Panelden bagimsiz ve cok daha derin.
+#:
+#: 14 gozlemle 200 gunluk ortalama hesaplanamaz. Haber sayfalarindaki
+#: piyasa kutusu EMA20/50/200 gosteriyor ve bunun icin en az 200 islem
+#: gunu gerekiyor; 260 bir yillik pay birakiyor.
+#:
+#: Ek maliyet yok: FRED'in CSV ucu zaten serinin TAMAMINI donduruyor,
+#: `son_n` yalnizca kirpiyor. Derin cekmek ayni istek demek.
+DEPO_PENCERE = 260
 
 
 def _cek() -> dict:
@@ -235,12 +246,24 @@ def main() -> int:
     # panel 12'sini gosteriyor
     print("\npanel gostergeleri")
     panel_seriler: dict = {}
+    # Derin cekiliyor, panele KIRPILARAK veriliyor.
+    #
+    # Panel iki haftalik hareketi gostermeli -- 260 gozlemle beslenirse
+    # "gunluk degisim" 260 gun oncesine gore hesaplanir ve rakam anlamsiz
+    # cikar. Depo ise derin seriyi oldugu gibi aliyor.
+    derin_seriler: dict = {}
     for kod in PANEL_SERILERI:
         try:
-            panel_seriler[kod] = makro.fred(kod, son_n=PENCERE)
+            derin_seriler[kod] = makro.fred(kod, son_n=DEPO_PENCERE)
         except Exception as e:
-            panel_seriler[kod] = None
+            derin_seriler[kod] = None
             print(f"  {kod:<14} CEKILEMEDI: {type(e).__name__}")
+
+    for kod, seri in derin_seriler.items():
+        panel_seriler[kod] = (
+            None if seri is None
+            else replace(seri, gozlemler=seri.gozlemler[-PENCERE:])
+        )
     panel_gorunum = makro_analiz.hesapla(panel_seriler)
     _panel_yaz(panel_gorunum)
 
@@ -248,7 +271,7 @@ def main() -> int:
     # depo GECMISI biriktirir. Zamanla kendi zaman serimiz olusur ve
     # FRED'e gitmeden "gecen ay Brent kacti" sorulabilir.
     gozlemler = []
-    for kod, seri in panel_seriler.items():
+    for kod, seri in derin_seriler.items():
         if seri is None:
             continue
         for g in seri.gozlemler:

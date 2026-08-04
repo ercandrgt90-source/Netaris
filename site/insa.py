@@ -39,6 +39,7 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 import gorsel
 import kivilcim
+import piyasa_kutusu
 
 # Fotograf havuzu ve konu siniflandirici haber hattinda yasiyor. Buradan
 # YALNIZCA OKUNUYOR -- `Kayit()` var olan defteri aciyor, indirme yapmaz.
@@ -903,6 +904,7 @@ def insa() -> int:
                     **ortak, yol=h_yol, h=h,
                     gorsel_svg=gundem_gorseller.get(h["adres"], ""),
                     ilgili=ilgili_gostergeler(h["konu"], gostergeler),
+                    piyasa=piyasa_kutusu.kutu(h["konu"], gundem.get("guncelleme", "")),
                 ),
             )
             yollar.append(h_yol)

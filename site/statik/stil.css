@@ -1841,3 +1841,61 @@ main.kabuk { padding-top: 26px; padding-bottom: 48px; }
   .uyelik-kutu { padding: 20px 17px; }
   .panel-ust-cubuk { flex-direction: column; }
 }
+
+
+/* ==================================================================
+   PIYASA KUTUSU -- haber sayfasindaki rakamlar
+   ================================================================== */
+
+.piyasa-kutu {
+  display: flex; flex-direction: column; gap: 10px;
+  margin: 0 0 14px;
+}
+
+.piyasa-arac {
+  padding: 13px 15px;
+  border: 1px solid var(--cizgi); border-radius: var(--r-kucuk);
+  background: var(--panel-2);
+}
+
+.piyasa-ust {
+  display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;
+  margin-bottom: 9px;
+}
+.piyasa-ad { font-weight: 700; font-size: 0.96rem; }
+.piyasa-deger {
+  font-size: 1.1rem; font-weight: 800;
+  font-variant-numeric: tabular-nums; letter-spacing: -0.01em;
+}
+.piyasa-gun { font-weight: 700; font-variant-numeric: tabular-nums; }
+.piyasa-tarih { margin-left: auto; font-size: 0.76rem; color: var(--yazi-3); }
+/* Kaynagin yayim gecikmesi olan seri isaretli -- okur bugunun fiyati
+   sanmasin. */
+.piyasa-tarih.bayat { color: var(--uyari); font-weight: 600; }
+
+.piyasa-ema {
+  display: grid; gap: 8px;
+  grid-template-columns: repeat(auto-fit, minmax(128px, 1fr));
+  padding-top: 9px; border-top: 1px solid var(--cizgi);
+}
+.ema-kalem { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
+.ema-ad {
+  font-size: 0.7rem; color: var(--yazi-3);
+  letter-spacing: 0.04em; text-transform: uppercase;
+}
+.ema-deger { font-weight: 700; font-variant-numeric: tabular-nums; font-size: 0.92rem; }
+.ema-fark { font-size: 0.78rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+
+/* Konum kalemi ayrilsin -- digerleri fiyat, bu bir sayim. */
+.ema-konum { border-left: 2px solid var(--cizgi-parlak); padding-left: 10px; }
+.ema-konum .ema-fark { color: var(--yazi-3); font-weight: 400; }
+
+.piyasa-not {
+  margin: 0 0 20px;
+  font-size: 0.8rem; color: var(--yazi-3); line-height: 1.55;
+}
+
+@media (max-width: 560px) {
+  .piyasa-tarih { margin-left: 0; width: 100%; }
+  .piyasa-ema { grid-template-columns: repeat(2, 1fr); }
+}

@@ -5,19 +5,19 @@
     {
       "kod": "SP500",
       "ad": "S&P 500",
-      "deger": "7.490",
-      "fark": "+0,70%",
+      "deger": "7.600",
+      "fark": "+1,48%",
       "yon": "artis",
-      "tarih": "2026-07-31",
+      "tarih": "2026-08-03",
       "birim": "endeks"
     },
     {
       "kod": "NASDAQCOM",
       "ad": "NASDAQ",
-      "deger": "25.374",
-      "fark": "+1,00%",
+      "deger": "25.914",
+      "fark": "+2,13%",
       "yon": "artis",
-      "tarih": "2026-07-31",
+      "tarih": "2026-08-03",
       "birim": "endeks"
     },
     {
@@ -118,19 +118,19 @@
         {
           "kod": "SP500",
           "ad": "S&P 500",
-          "deger": "7.490",
-          "fark": "+0,70%",
+          "deger": "7.600",
+          "fark": "+1,48%",
           "yon": "artis",
-          "tarih": "2026-07-31",
+          "tarih": "2026-08-03",
           "birim": "endeks"
         },
         {
           "kod": "NASDAQCOM",
           "ad": "Nasdaq",
-          "deger": "25.374",
-          "fark": "+1,00%",
+          "deger": "25.914",
+          "fark": "+2,13%",
           "yon": "artis",
-          "tarih": "2026-07-31",
+          "tarih": "2026-08-03",
           "birim": "endeks"
         },
         {

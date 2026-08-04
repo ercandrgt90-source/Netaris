@@ -69,14 +69,64 @@
     <h2>Neden önemli</h2>
     <p>{{ h.neden_onemli }}</p>
 
-    {# Yerli kurum kararinda baslik degisir -- TCMB karari Turkiye'ye
-       "gecmez", Turkiye'de alinir. Eski gundem.json'larda alan yok,
-       varsayilan yabanci basligi. #}
+    {# PIYASA KUTUSU -- konuya ait araclarin gercek rakamlari.
+       Genel dogrulari tekrarlamak yerine o habere ait sayilari veriyor:
+       "endeks seviyesi oz kaynak maliyetini belirler" cumlesi New York
+       kapanisi haberinde hicbir sey soylemiyordu. #}
+    {% if piyasa %}
+    <h2>Piyasa</h2>
+    <div class="piyasa-kutu">
+      {% for s in piyasa.satirlar %}
+      <div class="piyasa-arac">
+        <div class="piyasa-ust">
+          <span class="piyasa-ad">{{ s.ad }}</span>
+          <span class="piyasa-deger">{{ s.deger }}</span>
+          <span class="piyasa-gun {{ s.gunluk_yon }}">{{ s.gunluk }}</span>
+          <span class="piyasa-tarih{% if s.bayat %} bayat{% endif %}">
+            {% if s.bayat %}son veri {% endif %}{{ s.tarih }}
+          </span>
+        </div>
+        <div class="piyasa-ema">
+          {% for o in s.ortalamalar %}
+          <span class="ema-kalem">
+            <span class="ema-ad">{{ o.ad }}</span>
+            <span class="ema-deger">{{ o.deger }}</span>
+            <span class="ema-fark {{ o.yon }}">{{ o.fark }}</span>
+          </span>
+          {% endfor %}
+          <span class="ema-kalem ema-konum">
+            <span class="ema-ad">Ortalamalara göre konum</span>
+            <span class="ema-deger">%{{ s.skor }}</span>
+            <span class="ema-fark">{{ s.skor_pay }}/{{ s.skor_payda }}</span>
+          </span>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {# Skorun ne OLMADIGI acikca yaziliyor. Yoksa yuzdelik bir sayi
+       kacinilmaz olarak al/sat sinyali gibi okunur. #}
+    <p class="piyasa-not">
+      Konum yüzdesi bir alım-satım sinyali değildir. Fiyatın kendi hareketli
+      ortalamalarının kaçının üzerinde olduğunu ve ortalamaların birbirine
+      göre sırasını sayar; yön tahmini içermez.
+      {% if piyasa.bayat_var %}
+      Bazı serilerde kaynağın yayım gecikmesi vardır; son gözlem tarihi her
+      satırda yazılıdır.
+      {% endif %}
+    </p>
+    {% endif %}
+
+    {# AKTARIM KANALLARI yalnizca TURKIYE haberlerinde.
+       Dunya haberlerinin cogunda Turkiye'ye isleyen dogrudan bir kanal
+       yok; New York kapanisinin altina "Turkiye'ye hangi kanallardan
+       gecer" yazmak, olmayan bir bagi varmis gibi gostermekti. #}
+    {% if h.kanallar and h.bolge != "DUNYA" %}
     <h2>{{ h.kanal_basligi or "Türkiye'ye hangi kanallardan geçer" }}</h2>
     <ul>
       {% for k in h.kanallar %}<li>{{ k }}</li>{% endfor %}
     </ul>
     <p><em>{{ gundem.sinir_notu }}</em></p>
+    {% endif %}
   </div>
 
   {# Kendi gosterge verimiz. Haberi veriyle destekler; konuyla ilgili
