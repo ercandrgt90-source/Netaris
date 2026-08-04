@@ -77,12 +77,17 @@ def main() -> int:
             if satir is None:
                 yok += 1                 # depoda hic gorulmemis
                 continue
-            if satir[0]:
-                zaten += 1               # yuku var, dokunulmuyor
+            # Var olan yuk UZERINE YAZILIYOR. Ilk surumde yuke turetilmis
+            # alanlar (konu, foto, neden_onemli) da giriyordu ve o degerler
+            # siniflandirici duzeltildikten sonra bile sayfaya basiliyordu.
+            # `beyin.SAYFA_ALANLARI` artik yalnizca ham olgu; eski genis
+            # yuklerin temizlenmesi icin yeniden yaziliyor.
+            yeni = json.dumps(beyin._sayfa_yuku(h), ensure_ascii=False)
+            if satir[0] == yeni:
+                zaten += 1
                 continue
-            b.execute(
-                "UPDATE haber SET sayfa_veri=? WHERE adres=?",
-                (json.dumps(beyin._sayfa_yuku(h), ensure_ascii=False), adres))
+            b.execute("UPDATE haber SET sayfa_veri=? WHERE adres=?",
+                      (yeni, adres))
             dolduruldu += 1
 
         # Sayfa yuku VARSA o haber bir kez yayimlanmis demektir; adresi

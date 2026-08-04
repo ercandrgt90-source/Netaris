@@ -48,8 +48,27 @@ def _bellek_depo() -> sqlite3.Connection:
     return b
 
 
-#: (baslik, cikmasi GEREKEN kodlar, cikmamasi GEREKEN kodlar)
-DURUMLAR: tuple[tuple[str, tuple[str, ...], tuple[str, ...]], ...] = (
+#: (baslik, cikmasi GEREKEN kodlar, cikmamasi GEREKEN kodlar, kurum)
+DURUMLAR: tuple[tuple, ...] = (
+    # --- Turkce ekler: dar kalip yuzunden kacanlar ---
+    ("Altını sollayan gümüşte yeni dalga kapıda", ("XAU", "XAG"), ()),
+    ("İş Bankası 2026 ilk yarı finansal sonuçlarını açıkladı",
+     ("SEK_BANKA",), (), "Dünya"),
+    ("Goldman Sachs'tan Türkiye için faiz uyarısı: İndirim beklentisi "
+     "ötelenebilir", ("GOLDMAN", "TR", "TCMB_FAIZ"), ("SEK_TURIZM",)),
+
+    # --- Turkiye baglami olmayan haberde Turkiye varliklari dusmeli ---
+    ("Meksika analistleri 2026 enflasyon tahminini düşürdü", (), ("TUFE_TR",)),
+    ("ABD'de inşaat harcamaları haziranda geriledi",
+     ("US",), ("SEK_INSAAT",)),
+    ("Altın yatırımcısına nefes aldıran açıklama! Dev banka yıl sonu "
+     "tahminini yükseltti", ("XAU",), ("SEK_BANKA",)),
+    # Baslikta tek Turkiye isareti yok ama TCMB duyurusu.
+    ("Sektörel Enflasyon Beklentileri (Temmuz 2026)",
+     ("TUFE_TR",), (), "TCMB"),
+)
+
+DURUMLAR += (
     # --- tuzaklar: bunlar CIKMAMALI ---
     ("Yüzyıllarca toprağın altında kaldı: 2 bin 500 yıllık heykel bulundu",
      (), ("XAU",)),
@@ -65,8 +84,14 @@ DURUMLAR: tuple[tuple[str, tuple[str, ...], tuple[str, ...]], ...] = (
     # --- eslesmesi GEREKENLER ---
     ("ABD-İran geriliminde yumuşama sinyali petrolü düşürdü",
      ("US", "IR", "BRENT"), ()),
-    ("Faiz Oranlarına İlişkin Basın Duyurusu (2026-28)", ("TCMB_FAIZ",), ()),
-    ("Temmuz ayı dış ticaret rakamları açıklandı", ("DIS_TICARET_TR",), ()),
+    # Ikisinde de baslikta Turkiye isareti YOK; baglami kurum tasiyor.
+    # Uretimde de boyle geliyorlar.
+    ("Faiz Oranlarına İlişkin Basın Duyurusu (2026-28)",
+     ("TCMB_FAIZ",), (), "TCMB"),
+    ("Temmuz ayı dış ticaret rakamları açıklandı",
+     ("DIS_TICARET_TR",), (), "TÜİK"),
+    # Kurumsuz ve isaretsiz ayni baslik Turkiye'ye baglanmamali.
+    ("Temmuz ayı dış ticaret rakamları açıklandı", (), ("DIS_TICARET_TR",)),
     ("Bakırda iki haftanın zirvesi", ("XCU",), ()),
     ("TCMB faiz kararını açıkladı", ("TCMB", "TCMB_FAIZ"), ()),
     ("Fed Başkanı Powell konuştu", ("FED", "POWELL"), ()),
@@ -89,8 +114,12 @@ def main() -> int:
         print(f"HATA kaliplar grafta yok: {', '.join(kayip)}")
         hata += 1
 
-    for baslik, olmali, olmamali in DURUMLAR:
-        kodlar = {v.kimlik for v in varlik.bul(b, baslik)}
+    for durum in DURUMLAR:
+        baslik, olmali, olmamali = durum[0], durum[1], durum[2]
+        # Kurum istege bagli -- yalnizca baglamin belirleyici oldugu
+        # durumlarda yaziliyor.
+        kurum = durum[3] if len(durum) > 3 else ""
+        kodlar = {v.kimlik for v in varlik.bul(b, baslik, kurum=kurum)}
         eksik = [k for k in olmali if k not in kodlar]
         fazla = [k for k in olmamali if k in kodlar]
         if eksik or fazla:

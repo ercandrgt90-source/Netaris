@@ -40,17 +40,33 @@ def main() -> int:
         nv, ng = graf_tohum.tohumla(b)
         print(f"graf: {nv} varlik, {ng} bag guncel")
         varlik.sema_kur(b)
+
+        # INDEKS SIFIRDAN KURULUYOR.
+        #
+        # `INSERT OR IGNORE` yalnizca ekler; bir kalip DUZELTILDIGINDE
+        # eski yanlis bag yerinde kalirdi. Olculen ornek: "Altin ne zaman
+        # yukselecek? DEV BANKA..." haberi Bankacilik sektorune baglanmisti;
+        # kalip duzeltildikten sonra da bagli kalacakti.
+        #
+        # Silmek guvenli, cunku indeks tamamen turetilmis: girdisi haber
+        # basliklari ve kalip listesi, ikisi de duruyor.
+        eski = b.execute("DELETE FROM haber_varlik").rowcount
+        if eski:
+            print(f"indeks sifirlandi: {eski} eski bag silindi")
+
         satirlar = b.execute(
-            "SELECT adres, baslik_tr, baslik_kaynak FROM haber").fetchall()
+            "SELECT adres, baslik_tr, baslik_kaynak, kurum FROM haber"
+        ).fetchall()
 
         yeni_bag = 0
         bagli = 0
         for s in satirlar:
-            adres, tr, kaynak = s[0], s[1], s[2]
+            adres, tr, kaynak, kurum = s[0], s[1], s[2], s[3]
             # Turkce baslik oncelikli: kaliplarin cogu Turkce yazili.
             # Ikisi de varsa ikisine birden bakiyoruz -- "Fed" Ingilizce
             # baslikta, "Merkez Bankasi" Turkcesinde geciyor olabilir.
-            vs = varlik.bul(b, tr or "", kaynak or "")
+            # Kurum, Turkiye baglami icin gerekli.
+            vs = varlik.bul(b, tr or "", kaynak or "", kurum=kurum or "")
             if not vs:
                 continue
             bagli += 1

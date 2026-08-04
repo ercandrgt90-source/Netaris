@@ -112,13 +112,13 @@ VARLIKLAR: tuple[tuple, ...] = (
     ("FED_FAIZ", "gosterge", "Fed politika faizi", "Fed Funds Rate",
      "DFF", 100, "ABD gecelik politika faizi."),
     ("TCMB_FAIZ", "gosterge", "TCMB politika faizi", "CBRT Policy Rate",
-     None, 100, "Bir hafta vadeli repo ihale faiz oranı."),
+     "TP.APIFON4", 100, "Bir hafta vadeli repo ihale faiz oranı."),
 
     # --- makro gostergeler ---
-    ("TUFE_TR", "gosterge", "TÜFE", "Türkiye CPI", None, 100,
+    ("TUFE_TR", "gosterge", "TÜFE", "Türkiye CPI", "TP.TUKFIY2025.GENEL", 100,
      "Tüketici fiyat endeksi. Politika faizi kararlarının, kira ve ücret "
      "yenilemelerinin ve TMS 29 enflasyon muhasebesinin ortak girdisi."),
-    ("UFE_TR", "gosterge", "ÜFE", "Türkiye PPI", None, 80,
+    ("UFE_TR", "gosterge", "ÜFE", "Türkiye PPI", "TP.TUFE1YI.T1", 80,
      "Üretici fiyat endeksi. Maliyet tarafındaki baskıyı gösterir."),
     ("CPI_US", "gosterge", "ABD TÜFE", "US CPI", None, 90, ""),
     ("NFP", "gosterge", "Tarım Dışı İstihdam", "Nonfarm Payrolls", None, 85,
@@ -135,7 +135,7 @@ VARLIKLAR: tuple[tuple, ...] = (
     ("VIX", "gosterge", "VIX", "VIX", "VIXCLS", 70,
      "Oynaklık endeksi. Piyasa stresinin ölçüsü."),
     ("CARI_TR", "gosterge", "Cari işlemler dengesi", "Current Account",
-     None, 85, "Türkiye'nin dış finansman ihtiyacının ana ölçüsü."),
+     "TP.HARICCARIACIK.K1", 85, "Türkiye'nin dış finansman ihtiyacının ana ölçüsü."),
     # Asagidaki ucu ilk tohumda yoktu ve eksikligi olculdu: "Temmuz ayi
     # dis ticaret rakamlari aciklandi" gibi basliklar hicbir varliga
     # baglanmiyordu -- oysa dis ticaret sitenin kendi konu listesinde var.
@@ -143,17 +143,17 @@ VARLIKLAR: tuple[tuple, ...] = (
      None, 85, "İhracat ile ithalat arasındaki fark. Cari işlemler "
      "dengesinin en büyük bileşeni."),
     ("ISSIZLIK_TR", "gosterge", "İşsizlik oranı", "Türkiye Unemployment",
-     None, 80, "İşgücüne katılanlar içinde iş arayıp bulamayanların oranı. "
+     "TP.YISGUCU2.G8", 80, "İşgücüne katılanlar içinde iş arayıp bulamayanların oranı. "
      "Geniş tanımlı atıl işgücü oranı ayrı yayımlanır ve daha yüksektir."),
 
     # --- emtia ---
     ("BRENT", "emtia", "Brent petrol", "Brent Crude", "DCOILBRENTEU", 95,
      "Küresel petrol fiyat referansı."),
     ("WTI", "emtia", "WTI petrol", "WTI Crude", "DCOILWTICO", 80, ""),
-    ("XAU", "emtia", "Altın", "Gold", "XAU", 95,
+    ("XAU", "emtia", "Altın", "Gold", "PAXGUSD", 95,
      "Hem tasarruf aracı hem rezerv varlık. Türkiye'de hanehalkı "
      "tasarrufunun önemli bölümü bu araçta tutulur."),
-    ("XAG", "emtia", "Gümüş", "Silver", "XAG", 70,
+    ("XAG", "emtia", "Gümüş", "Silver", None, 70,
      "Hem değerli maden hem sanayi girdisi."),
     ("DGAZ", "emtia", "Doğal gaz", "Natural Gas", None, 75, ""),
     ("XCU", "emtia", "Bakır", "Copper", None, 70,
@@ -167,7 +167,7 @@ VARLIKLAR: tuple[tuple, ...] = (
     ("NASDAQ", "piyasa", "NASDAQ", "NASDAQ", "NASDAQCOM", 80, ""),
     ("BTC", "piyasa", "Bitcoin", "Bitcoin", "XBTUSD", 80, ""),
     ("ETH", "piyasa", "Ethereum", "Ethereum", "ETHUSD", 65, ""),
-    ("USDTRY", "piyasa", "USD/TRY", "USD/TRY", None, 100, ""),
+    ("USDTRY", "piyasa", "USD/TRY", "USD/TRY", "TP.DK.USD.S.YTL", 100, ""),
     ("EURUSD", "piyasa", "EUR/USD", "EUR/USD", "DEXUSEU", 75, ""),
     ("CDS_TR", "piyasa", "Türkiye CDS", "Türkiye CDS", None, 85,
      "Ülke risk primi. Dış borçlanma maliyetinin göstergesi."),

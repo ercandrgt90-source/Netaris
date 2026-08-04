@@ -328,17 +328,25 @@ def haber_yaz(b, haberler: list[dict]) -> tuple[int, int]:
     return yeni, tekrar
 
 
-#: Sayfayi yeniden uretmek icin gereken alanlar.
+#: Sayfayi yeniden uretmek icin saklanan HAM OLGULAR.
 #:
-#: Beyaz liste, kara liste degil: haber sozlugune ileride eklenen bir
-#: alan sessizce depoya sizmasin. Buraya eklenmeyen alan sayfada da
-#: kullanilamaz -- bu kisit bilincli, cunku arsivden uretilen sayfayla
-#: taze uretilen sayfa AYNI olmali.
+#: TURETILMIS ALANLAR BURAYA GIRMEZ. Ilk surumde `konu`, `bolge`, `foto`
+#: ve `neden_onemli` de saklaniyordu ve sonucu olculdu:
+#:
+#:     "Goldman Sachs'tan Turkiye icin faiz uyarisi: Indirim beklentisi
+#:      OTELENEBILIR"  ->  konu: Turizm
+#:
+#: Bu, "otel" kalibinin "OTELenebilir" icinde eslesmesiydi; siniflandirici
+#: sonradan duzeltildi ama arsivdeki yuk ESKI degeri tasidigi icin sayfa
+#: otel fotografiyla, "Konaklama - Havayolu" duyarlilik listesiyle ve
+#: "Turizm geliri doviz kazandirir" cumlesiyle YENIDEN yayimlandi.
+#:
+#: Yani arsiv, duzeltilmis hatalari geri diriltiyordu. Olgu ile turetilmis
+#: ayrilmali: olgu degismez, turetilmis her kurulumda yeniden hesaplanir
+#: ve siniflandirici duzeldikce ARSIV DE duzelir.
 SAYFA_ALANLARI = (
     "baslik", "baslik_kaynak", "ozet", "cevrildi", "dil", "ticari",
-    "bolge", "adres", "kurum", "kurum_tam", "konu", "tarih",
-    "tarih_gorunur", "yorumlanir", "neden_onemli", "kanallar",
-    "kanal_basligi", "foto", "foto_atif",
+    "adres", "kurum", "kurum_tam", "tarih", "tarih_gorunur",
 )
 
 

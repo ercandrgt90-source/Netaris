@@ -54,6 +54,30 @@
   <p class="varlik-tanim">{{ kunye.aciklama }}</p>
   {% endif %}
 
+  {# GUNCEL DEGER.
+     Serisi olmayan varlikta (kurum, ulke, ya da verisi bulunmayan
+     gosterge) bolum HIC BASILMAZ -- bos bir kutu, veri varmis izlenimi
+     verip hicbir sey soylememek olurdu. #}
+  {% if veri %}
+  <div class="varlik-veri">
+    <div class="varlik-deger">
+      <span class="vd-sayi">{{ veri.deger }}</span>
+      {% if veri.birim %}<span class="vd-birim">{{ veri.birim }}</span>{% endif %}
+      <span class="vd-degisim {{ veri.yon }}">{{ veri.degisim }}</span>
+    </div>
+    {% if kivilcim %}<div class="varlik-kivilcim">{{ kivilcim | safe }}</div>{% endif %}
+    {# Kaynak seri kodu HER ZAMAN basiliyor: okur sayiyi kendi
+       doğrulayabilsin. TP.* kodlari TCMB EVDS'de, digerleri FRED'de
+       ayni adla aranir. #}
+    <p class="vd-not">
+      Son gözlem {{ veri.tarih }} · {{ veri.gozlem }} gözlemlik seri
+      {% if kunye and kunye.seri_kodu %}
+      · kaynak serisi <code>{{ kunye.seri_kodu }}</code>
+      {% endif %}
+    </p>
+  </div>
+  {% endif %}
+
   {# YAPISAL BAGLAR.
      `dayanak` alani sayfada GORUNUR kaliyor ve bu bilincli:
 

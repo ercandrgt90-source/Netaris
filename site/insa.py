@@ -76,6 +76,13 @@ except ImportError:      # haber_botu yoksa site fotografsiz kurulur
     _besleme = None
     _foto = None
 
+# Haber baglami (neden onemli / aktarim kanallari). Arsiv sayfalari
+# yeniden uretilirken bu da yeniden hesaplaniyor -- bkz. `tazele()`.
+try:
+    import gundem_yorum as _yorum
+except ImportError:
+    _yorum = None
+
 KOK = pathlib.Path(__file__).parent
 ICERIK = KOK / "icerik"
 SABLON = KOK / "sablonlar"
@@ -559,12 +566,24 @@ def gostergeleri_yukle() -> dict:
         return {}
 
 
+#: Fotograf defteri. BIR KEZ aciliyor -- her yazi icin yeniden okumak
+#: ayni JSON'u onlarca kez ayristirmak olurdu. Hem analiz hem arsiv
+#: sayfalari ayni defteri kullaniyor; `Kayit()` var olan defteri acar,
+#: indirme YAPMAZ (site uretimi sirasinda ag istegi olmamali).
+_foto_defteri = None
+
+
+def foto_defteri():
+    global _foto_defteri
+    if _foto_defteri is None and _foto is not None:
+        _foto_defteri = _foto.Kayit()
+    return _foto_defteri
+
+
 def analizleri_yukle() -> list[Analiz]:
     klasor = ICERIK / "analizler"
     liste: list[Analiz] = []
-    # Fotograf defteri BIR KEZ aciliyor -- her yazi icin yeniden okumak
-    # ayni JSON'u onlarca kez ayristirmak olurdu.
-    _foto_kayit = _foto.Kayit() if _foto is not None else None
+    _foto_kayit = foto_defteri()
 
     for yol in sorted(klasor.glob("*.md")):
         b = ayristir(yol)
@@ -842,21 +861,76 @@ def haber_yolu(h: dict) -> str:
 ARSIV_SINIRI = 1500
 
 
-def arsiv_haberleri(guncel_adresler: set[str]) -> list[dict]:
+def gun_farki(tarih: str, bugun: str) -> int:
+    """Iki ISO tarih arasindaki gun. Cozulemezse 0 -- yani "taze" sayilir.
+
+    Bilinmeyen tarihte uyari BASILMIYOR: yanlis uyari, uyarinin kendisini
+    degersizlestirir.
+    """
+    try:
+        a = datetime.strptime(tarih[:10], "%Y-%m-%d")
+        b = datetime.strptime((bugun or "")[:10], "%Y-%m-%d")
+    except (ValueError, TypeError):
+        return 0
+    return max(0, (b - a).days)
+
+
+def tazele(h: dict, foto_kayit) -> dict:
+    """Turetilmis alanlari BUGUNKU siniflandiricilarla yeniden hesaplar.
+
+    Depoda yalnizca ham olgu saklaniyor (baslik, ozet, kurum, tarih).
+    Konu, bolge, fotograf ve baglam burada uretiliyor.
+
+    NEDEN BOYLE: turetilmis alanlar depoda saklandiginda, siniflandirici
+    duzeldikten sonra bile ESKI degeri tasiyorlardi. Olculen sonuc --
+    "Goldman Sachs'tan Turkiye icin faiz uyarisi: Indirim beklentisi
+    OTELENEBILIR" haberi, "otel" kalibi "otelenebilir" icinde eslestigi
+    icin Turizm sayilmis; siniflandirici duzeltildikten SONRA bile otel
+    fotografiyla ve "Turizm geliri doviz kazandirir" cumlesiyle yeniden
+    yayimlanmisti.
+
+    Simdi tersi calisiyor: bir siniflandirma hatasi duzeltildiginde
+    ARSIVIN TAMAMI kendiliginden duzeliyor.
+    """
+    baslik_ozgun = h.get("baslik_kaynak") or h.get("baslik") or ""
+    # Siniflandirma ORIJINAL baslikla yapilir, cevirisiyle degil: makine
+    # cevirisi "policy rate"i "politika orani" yapabilir ve isaret
+    # eslesmez. (uret_gundem.py ayni kurali uyguluyor.)
+    if _besleme is not None:
+        h["konu"] = _besleme.konu_bul(baslik_ozgun, h.get("konu")
+                                      or "Şirket haberleri")
+        h["bolge"] = _besleme.bolge_bul(baslik_ozgun, h.get("dil", "tr"))
+    if _yorum is not None:
+        baglam = _yorum.siniflandir(baslik_ozgun, h.get("konu", ""),
+                                    h.get("kurum", ""), bool(h.get("ticari")))
+        h["yorumlanir"] = baglam.yorumlanir
+        h["neden_onemli"] = baglam.neden_onemli
+        h["kanallar"] = list(baglam.kanallar)
+        h["kanal_basligi"] = baglam.kanal_basligi
+    if foto_kayit is not None:
+        # Ayni haber her zaman ayni fotografi alir (adres belirleyici).
+        f = foto_kayit.sec(h.get("konu", ""), h.get("adres", ""))
+        h["foto"] = f.dosya if f else ""
+        # CC BY atfi zorunlu -- gorselin altinda basiliyor.
+        h["foto_atif"] = f.kisa_atif if f else ""
+    return h
+
+
+def arsiv_haberleri(guncel_adresler: set[str], foto_kayit) -> list[dict]:
     """Depoda sayfa yuku olan ama guncel pencerede olmayan haberler.
 
     Yalnizca `sayfa_veri` dolu olanlar donuyor: bu alan eklenmeden once
-    kaydedilmis haberlerin ozeti, fotografi ve baglami hic saklanmadi,
-    dolayisiyla sayfalari YENIDEN URETILEMEZ. Onlari eksik veriyle
-    basmak, bos kabuk sayfalar yayimlamak olurdu.
+    kaydedilmis haberlerin ozeti hic saklanmadi, dolayisiyla sayfalari
+    yeniden uretilemez. Onlari eksik veriyle basmak, bos kabuk sayfalar
+    yayimlamak olurdu.
     """
     if _beyin is None:
         return []
     try:
         with _beyin.baglan() as b:
             satirlar = b.execute(
-                "SELECT adres, sayfa_veri, yayin_yolu FROM haber"
-                " WHERE yorumlanir = 1 AND sayfa_veri IS NOT NULL"
+                "SELECT adres, sayfa_veri FROM haber"
+                " WHERE sayfa_veri IS NOT NULL"
                 " ORDER BY tarih DESC, ilk_gorulme DESC"
                 " LIMIT ?", (ARSIV_SINIRI,)).fetchall()
     except Exception as e:
@@ -864,7 +938,8 @@ def arsiv_haberleri(guncel_adresler: set[str]) -> list[dict]:
         return []
 
     cikti: list[dict] = []
-    for adres, yuk, eski_yol in satirlar:
+    dusen = 0
+    for adres, yuk in satirlar:
         if adres in guncel_adresler:
             continue
         try:
@@ -872,13 +947,19 @@ def arsiv_haberleri(guncel_adresler: set[str]) -> list[dict]:
         except (TypeError, ValueError):
             continue
         h["adres"] = adres
-        # Adres BASLIKTAN yeniden turetiliyor, depodaki eski yol
-        # kullanilmiyor: baslik ceviri duzelmesiyle degismisse iki farkli
-        # adres olusur ve eskisi kirilir. Tek dogru kaynak baslik.
+        h["arsiv"] = True
+        tazele(h, foto_kayit)
+        # Yeniden siniflandirmada "yorumlanmaz" cikan haber sayfasiz
+        # kaliyor. Bu, duzeltmenin CALISTIGI anlamina geliyor: eskiden
+        # yanlislikla yorumlanan bir duyuru artik yorumlanmiyor.
+        if not h.get("yorumlanir"):
+            dusen += 1
+            continue
+        # Adres BASLIKTAN yeniden turetiliyor: tek dogru kaynak baslik.
         h["yol"] = haber_yolu(h)
-        if h["yol"] != eski_yol:
-            h["_yol_degisti"] = True
         cikti.append(h)
+    if dusen:
+        print(f"  {dusen} arsiv haberi yeniden siniflandirmada elendi")
     return cikti
 
 
@@ -897,7 +978,11 @@ def varlik_indeksle(haberler: list[dict]) -> dict[str, dict]:
             for h in haberler:
                 if not h.get("yorumlanir"):
                     continue
-                vs = _varlik.bul(b, h.get("baslik", ""), h.get("ozet", ""))
+                # `kurum` BAGLAM olarak geciyor: "Sektorel Enflasyon
+                # Beklentileri" basliginda tek Turkiye isareti yok ama
+                # TCMB duyurusu. Kurum verilmezse TUFE'ye baglanmiyordu.
+                vs = _varlik.bul(b, h.get("baslik", ""), h.get("ozet", ""),
+                                 kurum=h.get("kurum_tam") or h.get("kurum", ""))
                 _varlik.yaz(b, h["adres"], vs)
                 # Gercek adres depoya geri yaziliyor -- varlik
                 # sayfalarindaki baglantilar buradan besleniyor.
@@ -985,10 +1070,16 @@ def varlik_sayfalari(ortam, yaz, ortak: dict) -> list[str]:
                     continue          # ne haberi ne bagi var; sayfasi bos olurdu
                 v = {"yol": varlik_yolu(kod), "kod": kod, "ad": ad,
                      "tur": tur, "sayi": n}
+                k = _varlik.kunye(b, kod)
+                # Gostergenin GUNCEL DEGERI. Sayfanin en yararli tek
+                # bilgisi buydu ve yoktu: "TCMB politika faizi" sayfasi
+                # tanimi ve iliskileri anlatip rakami hic yazmiyordu.
+                veri = _varlik.seri_ozet(b, (k or {}).get("seri_kodu"))
                 yaz(f"{v['yol']}index.html",
                     ortam.get_template("varlik.html").render(
-                        **ortak, yol=v["yol"], v=v,
-                        kunye=_varlik.kunye(b, kod),
+                        **ortak, yol=v["yol"], v=v, kunye=k, veri=veri,
+                        kivilcim=(kivilcim.cizgi(veri["seri"])
+                                  if veri else ""),
                         baglar=_varlik.baglar(b, kod),
                         haberler=_varlik.varlik_gecmisi(b, kod, 30)))
                 yollar.append(v["yol"])
@@ -1132,7 +1223,8 @@ def insa() -> int:
         # Arsiv kayitlari gundem listesinin SONUNA ekleniyor; boylece
         # ana sayfa ve gundem sirasi degismiyor, yalnizca sayfalari
         # yeniden uretiliyor.
-        arsiv = arsiv_haberleri({h["adres"] for h in gundem["haberler"]})
+        arsiv = arsiv_haberleri({h["adres"] for h in gundem["haberler"]},
+                                foto_defteri())
         if arsiv:
             print(f"arsiv: {len(arsiv)} eski haber sayfasi yeniden uretiliyor")
         uretilecek = gundem["haberler"] + arsiv
@@ -1166,6 +1258,12 @@ def insa() -> int:
                            if _dosya else None),
                     varliklar=varlik_haritasi.get(h["adres"], {}).get("varliklar", []),
                     ilgili_haberler=varlik_haritasi.get(h["adres"], {}).get("ilgili", []),
+                    # Haberin uzerinden gecen gun. Sayfadaki gosterge ve
+                    # piyasa kutulari BUGUNUN verisi; eski bir haberi
+                    # bugunun sayilariyla cerceveleyip susmak, okura o
+                    # sayilari haberin baglami gibi gostermek olurdu.
+                    yas=gun_farki(h.get("tarih", ""),
+                                  gundem.get("guncelleme", "")),
                 ),
             )
             yollar.append(h_yol)

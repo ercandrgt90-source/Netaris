@@ -36,6 +36,7 @@ from __future__ import annotations
 import re
 import sqlite3
 from dataclasses import dataclass
+from functools import lru_cache
 
 _KATLAMA = str.maketrans({
     "ı": "i", "İ": "i", "I": "i", "ş": "s", "Ş": "s", "ğ": "g", "Ğ": "g",
@@ -67,6 +68,21 @@ def _aranacak(metin: str) -> str:
     k = re.sub(r"[^a-z0-9&/%]+", " ", k)
     return " " + re.sub(r"\s+", " ", k).strip() + " "
 
+
+#: Gövde kalibi isareti. `"~gumus"` -> "gumus" + Turkce eki.
+#:
+#: Turkce eklemeli bir dil ve bu iki yonlu hata uretti:
+#:
+#:   dar yazinca kaciyor : " gumus " kalibi "gumusTE"yi bulmuyor
+#:                         " banka " kalibi "bankaSI"yi bulmuyor
+#:   genis yazinca tasiyor: "petrol" oneki dogruydu ama "altin" oneki
+#:                          "altinDA"yi da yakalar (topragin altinda)
+#:
+#: Govde kalibi ortasi: kelime BASINDAN eslesiyor, sonuna en fazla
+#: `EK_UZUNLUK` harf gelebiliyor. Belirsiz govdeler (altin/altinda)
+#: govde kalibi ALMAZ, acik yazim listesiyle verilir.
+GOVDE = "~"
+EK_UZUNLUK = 7
 
 #: kod -> metin kaliplari. Kodlar `graf_tohum.VARLIKLAR` ile ayni olmali;
 #: `dogrula()` bunu sinar.
@@ -106,14 +122,16 @@ KALIPLAR: dict[str, tuple[str, ...]] = {
 
     # --- gostergeler ---
     "FED_FAIZ": ("fed faiz", "fed'in faiz", "federal fonlama"),
-    # "Faiz Oranlarina Iliskin Basin Duyurusu" ve "Para politikasi
-    # kararlari" TCMB'nin EN SIK basligi ve hicbiri eslesmiyordu.
-    "TCMB_FAIZ": ("politika faizi", "faiz karari", "tcmb faiz",
-                  "haftalik repo", "faiz oran", "para politikasi karar",
-                  "faiz indirim", "faiz artirim"),
-    # "enflasyon" genel; asagidaki BASTIRMA kurali yurt disi haberlerde
-    # bunu dusuruyor.
-    "TUFE_TR": (" tufe ", "tuketici fiyat", "enflasyon"),
+    # "~faiz" govdesi: faiz, faizi, faizler, faize, faizin...
+    # Tek tek yazildiginda "faiz uyarisi" gibi bir bicim kaciyordu ve
+    # vitrin haberinin ANA varligi eksik kaliyordu. Turkiye baglami
+    # zorunlu (BASTIRILABILIR), yani "Fed faiz karari" buraya dusmuyor.
+    "TCMB_FAIZ": ("~faiz", "politika faizi", "haftalik repo",
+                  "para politikasi karar", "para politikasi kurulu", " ppk "),
+    # "enflasyon" genel; BASTIRILABILIR oldugu icin Turkiye baglami
+    # (baslik ya da kurum) yoksa dusuyor. "Meksika analistleri enflasyon
+    # tahminini dusurdu" boyle elendi.
+    "TUFE_TR": (" tufe ", "~tufe'", "tuketici fiyat", "~enflasyon"),
     "CPI_US": ("abd tufe", "abd enflasyon", " cpi ", "abd tuketici fiyat"),
     "US10Y": ("10 yillik tahvil", "10 yillik getiri", "on yillik tahvil"),
     "US2Y": ("2 yillik tahvil", "iki yillik tahvil"),
@@ -125,11 +143,10 @@ KALIPLAR: dict[str, tuple[str, ...]] = {
                 "odemeler dengesi"),
     "UFE_TR": ("yi ufe", " ufe ", "uretici fiyat"),
     "VIX": (" vix ", "korku endeksi"),
-    # "ithalat" ONEK: "ithalatci", "ithalatta", "ithalatin" hepsi ayni
-    # kalemi anlatiyor. "import" YAZILMADI -- "IMPORTant" icinde
-    # eslesiyordu ve haberi sessizce dis ticarete sokuyordu.
-    "DIS_TICARET_TR": ("dis ticaret", " ihracat", " ithalat", "disticaret"),
-    "ISSIZLIK_TR": ("issizlik", "isgucu", "atil isgucu"),
+    # "import" YAZILMADI -- "IMPORTant" icinde eslesiyor ve haberi
+    # sessizce dis ticarete sokuyordu.
+    "DIS_TICARET_TR": ("dis ticaret", "~ihracat", "~ithalat", "~disticaret"),
+    "ISSIZLIK_TR": ("~issizlik", "~isgucu", "atil isgucu"),
 
     # --- piyasalar ---
     "USDTRY": ("usd/try", "dolar/tl", "dolar kuru", "dolar/turk"),
@@ -142,30 +159,40 @@ KALIPLAR: dict[str, tuple[str, ...]] = {
     "ETH": ("ethereum", " eth "),
 
     # --- emtia ---
-    # " petrol" ONEK olarak araniyor (sonunda bosluk yok): Turkce'de ek
-    # aliyor -- "petrolu dusurdu", "petrolun varili", "petrole talep".
-    # Sadece "petrol fiyat" arandiginda bunlarin hicbiri eslesmiyordu.
-    "BRENT": ("brent", " petrol", "crude", " varil "),
+    "BRENT": ("~brent", "~petrol", "crude", "~varil"),
     "WTI": (" wti ", "west texas"),
     "XAU": (" altin ", "altin fiyat", "gram altin", "ons altin", " gold ",
             "altini", "altinin"),
-    "XAG": (" gumus ", "gumus fiyat", " silver "),
+    "XAG": ("~gumus", " silver "),
     "DGAZ": ("dogal gaz", "natural gas", " lng ", "dogalgaz"),
-    # " bakir" onek: "bakirda", "bakirin". Sifat "bakir" (el degmemis)
-    # ayni yazilir ama ekonomi beslemesinde gecmiyor.
-    "XCU": (" bakir", " copper "),
+    # Sifat "bakir" (el degmemis) ayni yazilir ama ekonomi beslemesinde
+    # gecmiyor.
+    "XCU": ("~bakir", " copper "),
 
     # --- sektorler ---
-    "SEK_BANKA": ("bankacilik", " banka ", " bankalar ", "kredi hacmi"),
-    "SEK_ENERJI": ("enerji sektor", "elektrik uretim", " ges ", " res ",
-                   "elektrik fiyat"),
-    "SEK_OTOMOTIV": ("otomotiv", "otomobil satis", " oto satis "),
-    # "otel" tek basina "otelenebilir"e dusuyordu -- bosluklu ve cogul.
-    "SEK_TURIZM": ("turizm", " turist ", " oteller ", "konaklama"),
-    "SEK_HAVA": ("havacilik", "havayolu", "hava yolu", " thy ",
-                 "turk hava yollari", "pegasus"),
-    "SEK_PERAKENDE": ("perakende", "market zincir", "magaza satis"),
-    "SEK_INSAAT": ("insaat", "konut satis", "muteahhit"),
+    #
+    # "banka" TEK BASINA YAZILMAZ. Olculen yanlis: "Altin ne zaman
+    # yukselecek? DEV BANKA yil sonu icin..." haberi bankacilik sektorune
+    # baglaniyordu -- oysa haber altin tahmini, bir yatirim bankasinin
+    # gorusu. Sektor icin ya sektor kelimesi ya da Turk bankasi adi
+    # araniyor; "~bankasi" hem "Is Bankasi"ni hem "Ziraat Bankasi"ni alir.
+    "SEK_BANKA": ("~bankacilik", "~mevduat", "kredi hacmi", "~bankalar",
+                  "is bankasi", "ziraat bankasi", "vakifbank", "halkbank",
+                  "akbank", "garanti bbva", "yapi kredi", "denizbank",
+                  "qnb finansbank", "banka karlar", "bankacilik sektor"),
+    "SEK_ENERJI": ("enerji sektor", "~elektrik", " ges ", " res ",
+                   "~epdk", "dogalgaz zam"),
+    "SEK_OTOMOTIV": ("~otomotiv", "~otomobil", "arac satis", "oto satis"),
+    # "otel" tek basina "OTELenebilir"e dusuyordu -- govde de degil,
+    # acik yazim listesi.
+    "SEK_TURIZM": ("~turizm", "~turist", " otel ", " oteller ", "~otelcilik",
+                   "~konaklama", "yabanci ziyaretci"),
+    "SEK_HAVA": ("~havacilik", "~havayolu", "hava yolu", " thy ",
+                 "turk hava yollari", "pegasus", "~havalimani"),
+    "SEK_PERAKENDE": ("~perakende", "market zincir", "magaza satis",
+                      "~bim ", "~a101", "~sok market"),
+    "SEK_INSAAT": ("~insaat", "konut satis", "~muteahhit", "~toki",
+                   "konut kredisi"),
 
     # --- ulkeler ---
     "TR": ("turkiye", " turk ", " turkiye'"),
@@ -183,14 +210,33 @@ KALIPLAR: dict[str, tuple[str, ...]] = {
 #: "Fed enflasyon verisini bekliyor" basliginda "enflasyon" gecer ama
 #: kastedilen TUFE degildir. Metinde Turkiye isareti yoksa ve yabanci
 #: isaret varsa bu kodlar dusurulur.
-BASTIRILABILIR = ("TUFE_TR", "UFE_TR", "CARI_TR", "TCMB_FAIZ",
-                  "DIS_TICARET_TR", "ISSIZLIK_TR")
-TURKIYE_ISARETI = (" tcmb ", "turkiye", " turk ", " tuik ", " tl ",
+#: Turkiye baglami isteyen kodlar -- gostergeler VE sektorler.
+#:
+#: Sektorler de listede, cunku bunlar Turkiye piyasasinin sektorleri:
+#: "ABD'de insaat harcamalari geriledi" haberini Turkiye insaat
+#: sektorune baglamak okuru yanlis arsive goturuyordu.
+BASTIRILABILIR = (
+    "TUFE_TR", "UFE_TR", "CARI_TR", "TCMB_FAIZ", "DIS_TICARET_TR",
+    "ISSIZLIK_TR", "BIST100", "USDTRY", "CDS_TR",
+    "SEK_BANKA", "SEK_ENERJI", "SEK_OTOMOTIV", "SEK_TURIZM",
+    "SEK_HAVA", "SEK_PERAKENDE", "SEK_INSAAT",
+)
+TURKIYE_ISARETI = ("turkiye", " turk ", " tcmb ", " tuik ", " tl ",
                    " lira ", "bist", " ankara ", " istanbul ", " spk ",
-                   " bddk ", "turkiye'")
-YABANCI_ISARETI = (" fed ", " ecb ", " abd ", "amerika", " fomc ",
-                   "avro bolge", "euro bolge", " cin ", " japonya ",
-                   " ingiltere ", "avrupa merkez")
+                   " bddk ", " ihracat", " ithalat", " esnaf ", " emekli")
+#: Bu kurumlardan gelen haber Turkiye baglami sayilir.
+TURK_KURUMLARI = ("tcmb", "tuik", "spk", "bddk", "hazine", "dunya",
+                  "anadolu ajansi", " aa ", "trt", "haberturk", "ntv",
+                  "bloomberg ht", "ekonomim", "patronlar", "borsa")
+#: Baslikta bunlardan biri varsa haber yurt disi sayilir.
+YABANCI_ISARETI = (
+    " fed ", " ecb ", " abd ", "amerika", " fomc ", "avrupa merkez",
+    "avro bolge", "euro bolge", " japonya ", " ingiltere ", " almanya ",
+    " fransa ", " italya ", " ispanya ", " meksika ", " brezilya ",
+    " hindistan ", " arjantin ", " kanada ", " avustralya ",
+    " guney kore ", " rusya ", " cin ", " new york ", " londra ",
+    " wall street ", " nasdaq ", " s&p 500 ",
+)
 
 #: Bir haberde en fazla kac varlik isaretlensin.
 #: Sinirsiz birakildiginda uzun basliklar sekiz on varliga baglaniyor ve
@@ -228,28 +274,63 @@ def dogrula() -> list[str]:
     return sorted(k for k in KALIPLAR if k not in kodlar)
 
 
-def _kodlari_bul(metin: str) -> list[str]:
+@lru_cache(maxsize=512)
+def _govde_deseni(govde: str) -> re.Pattern:
+    """`~gumus` -> "gumus" + en fazla EK_UZUNLUK harf, kelime sinirinda."""
+    return re.compile(rf"(?<![a-z0-9]){re.escape(govde)}[a-z]{{0,{EK_UZUNLUK}}}"
+                      rf"(?![a-z0-9])")
+
+
+def _esliyor(k: str, kalip: str) -> bool:
+    if kalip.startswith(GOVDE):
+        return _govde_deseni(kalip[1:]).search(k) is not None
+    return kalip in k
+
+
+def _turk_baglami(k: str, kurum: str) -> bool:
+    """Metin Turkiye'den mi bahsediyor.
+
+    `kurum` de sayiliyor: "Sektorel Enflasyon Beklentileri (Temmuz 2026)"
+    basliginda tek bir Turkiye isareti yok ama TCMB'nin duyurusu. Kurumu
+    gormezden gelmek bu duyuruyu TUFE'ye baglamamak demekti.
+    """
+    if any(i in k for i in TURKIYE_ISARETI):
+        return True
+    return _aranacak(kurum or "") .strip() != "" and any(
+        i in _aranacak(kurum) for i in TURK_KURUMLARI)
+
+
+def _kodlari_bul(metin: str, kurum: str = "") -> list[str]:
     if not metin:
         return []
     k = _aranacak(metin)
     bulunan = [kod for kod, kaliplar in KALIPLAR.items()
-               if any(p in k for p in kaliplar)]
-    # Yurt disi haberde Turkiye gostergelerini dusur.
-    if not any(i in k for i in TURKIYE_ISARETI) and \
-            any(i in k for i in YABANCI_ISARETI):
+               if any(_esliyor(k, p) for p in kaliplar)]
+
+    # TURKIYE'YE OZGU VARLIKLAR TURKIYE BAGLAMI ISTER.
+    #
+    # Olculen yanlislar: "Meksika analistleri enflasyon tahminini
+    # dusurdu" -> TUFE (Turkiye TUFE'si), "ABD'de insaat harcamalari
+    # geriledi" -> Insaat (Turkiye insaat sektoru). Ikisi de okura
+    # yanlis arsiv gosteriyordu.
+    #
+    # Kural: baslikta yabanci isaret varsa dus; yoksa Turkiye baglami
+    # (baslik ya da kurum) ara.
+    if any(i in k for i in YABANCI_ISARETI) or not _turk_baglami(k, kurum):
         bulunan = [x for x in bulunan if x not in BASTIRILABILIR]
     return bulunan
 
 
-def bul(b: sqlite3.Connection, baslik: str, ozet: str = "") -> list[Varlik]:
+def bul(b: sqlite3.Connection, baslik: str, ozet: str = "",
+        kurum: str = "") -> list[Varlik]:
     """Metinde gecen varliklari, GRAFTAKI kayitlariyla dondurur.
 
     Baslik ONCELIKLI: baslikta gecen varlik haberin konusu, ozette gecen
     yalnizca deginilmis olabilir. Siralama `onem` alanina gore, cunku
     sinir asildiginda birakilacaklar en az onemli olanlar olmali.
     """
-    kodlar = _kodlari_bul(baslik)
-    for k in _kodlari_bul(ozet):
+    kodlar = _kodlari_bul(baslik, kurum)
+    for k in _kodlari_bul(ozet, kurum):
         if k not in kodlar:
             kodlar.append(k)
     if not kodlar:
@@ -335,6 +416,94 @@ def kunye(b: sqlite3.Connection, kod: str) -> dict | None:
         return None
     return {"kod": r[0], "ad": r[1], "ad_en": r[2], "tur": r[3],
             "aciklama": r[4], "seri_kodu": r[5], "onem": r[6]}
+
+
+def _basamak(deger: float) -> int:
+    """Buyuklukten ondalik basamak. Sabit basamak kullanildiginda
+    47,5432 ile 119,70 ayni sayfada ya asiri ya yetersiz hassasiyetle
+    cikiyordu."""
+    m = abs(deger)
+    if m >= 1000:
+        return 0
+    if m >= 100:
+        return 2
+    if m >= 1:
+        return 2
+    return 4
+
+
+def _sayi(deger: float, birim: str) -> str:
+    s = f"{deger:,.{_basamak(deger)}f}"
+    # Turkce bicim: binlik nokta, ondalik virgul.
+    s = s.replace(",", "\x00").replace(".", ",").replace("\x00", ".")
+    return f"%{s}" if birim == "%" else s
+
+
+def seri_ozet(b: sqlite3.Connection, seri_kodu: str | None,
+              gun: int = 60) -> dict | None:
+    """Varligin bagli oldugu serinin son degeri ve degisimi.
+
+    Iki tabloya birden bakiyor: makro gozlemler `gosterge`de, gunluk
+    kapanislar `fiyat`ta. Varlik hangisinde varsa oradan okunuyor.
+
+    Seri kodu yoksa ya da veri gelmezse None -- sayfada bos bir kutu
+    basmaktansa bolumu hic basmamak dogru. (Gumusun serisi yok; "XAG"
+    yazip bos donmek, veri varmis gibi gostermekti.)
+    """
+    if not seri_kodu:
+        return None
+    satirlar = []
+    birim = ""
+    try:
+        satirlar = b.execute(
+            "SELECT tarih, deger, birim FROM gosterge WHERE kod=?"
+            " ORDER BY tarih DESC LIMIT ?", (seri_kodu, gun)).fetchall()
+        if satirlar:
+            birim = satirlar[0][2] or ""
+        else:
+            satirlar = b.execute(
+                "SELECT tarih, kapanis, '' FROM fiyat WHERE sembol=?"
+                " ORDER BY tarih DESC LIMIT ?", (seri_kodu, gun)).fetchall()
+    except sqlite3.Error:
+        return None
+    if len(satirlar) < 2:
+        return None
+
+    son, onceki = satirlar[0], satirlar[1]
+    d_son, d_onceki = float(son[1]), float(onceki[1])
+
+    fark = d_son - d_onceki
+    yon = "artis" if fark > 0 else ("azalis" if fark < 0 else "yatay")
+
+    if fark == 0:
+        # "+0 bp" teknik olarak dogru ama okunmuyor.
+        degisim = "değişmedi"
+    elif birim == "%":
+        # ORAN SERILERINDE DEGISIM PUAN CINSINDEN.
+        # %31,75'ten %31,40'a inis yuzde degil, 35 baz puanlik
+        # gerilemedir; yuzde yazmak olcuyu bozar.
+        degisim = f"{round(fark * 100):+d} bp"
+    elif d_son <= 0 or d_onceki <= 0:
+        # DENGE SERILERINDE YUZDE ANLAMSIZ.
+        # Cari islemler dengesi isaret degistirebilen bir AKIM. -5.600'den
+        # -1.459'a gecisi "−%74" diye yazmak, acigin DARALDIGI bir ayi
+        # dusus rengiyle gostermek olurdu; okur tersini anlar. Fark kendi
+        # biriminde yaziliyor.
+        degisim = f"{fark:+,.0f}".replace(",", ".")
+    else:
+        y = fark / d_onceki * 100
+        degisim = f"{'+' if y >= 0 else '−'}%{abs(y):.1f}".replace(".", ",")
+
+    return {
+        "deger": _sayi(d_son, birim),
+        "birim": birim if birim != "%" else "",
+        "degisim": degisim,
+        "yon": yon,
+        "tarih": son[0],
+        # Kivilcim icin eskiden yeniye.
+        "seri": [float(s[1]) for s in reversed(satirlar)],
+        "gozlem": len(satirlar),
+    }
 
 
 def baglar(b: sqlite3.Connection, kod: str) -> list[dict]:

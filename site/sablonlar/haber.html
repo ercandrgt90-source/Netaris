@@ -67,6 +67,22 @@
 
   <div class="govde">
 
+    {# ARSIV UYARISI.
+       Asagidaki gosterge ve piyasa kutulari BUGUNUN verisi. Eski bir
+       haberi bugunun sayilariyla cerceveleyip susmak, o sayilari haberin
+       o gunku baglami gibi gostermek olurdu -- sitenin "olcmedigimizi
+       olcmus gibi gostermeyiz" ilkesiyle celisir.
+
+       Esik 3 gun: bir iki gunluk fark piyasa verisinde anlamli degil,
+       her sayfaya uyari basmak uyariyi degersizlestirirdi. #}
+    {% if yas and yas > 3 %}
+    <p class="arsiv-uyari">
+      Bu haber <b>{{ yas }} gün önce</b> yayımlandı. Aşağıdaki gösterge ve
+      piyasa verileri <b>bugünün</b> verileridir; haberin yayımlandığı
+      günün değerleri değildir.
+    </p>
+    {% endif %}
+
     {# HABER 30 SANIYEDE -- ters piramit.
        Okur cevabi ilk ekranda alsin; ayrinti asagida. #}
     {% if dosya and dosya.dolu %}
