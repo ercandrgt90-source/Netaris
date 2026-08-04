@@ -103,6 +103,9 @@ jobs:
           # degilse o adim kendini atlar, hat kirmizi DONMEZ -- uyelik
           # kapaliyken de site uretilebilmeli.
           HAT_SIRRI: ${{ secrets.HAT_SIRRI }}
+          # TCMB EVDS -- Turkiye makro serileri. Tanimli degilse o adim
+          # kendini atlar, hat kirmizi DONMEZ.
+          EVDS_ANAHTARI: ${{ secrets.EVDS_ANAHTARI }}
         run: |
           python calistir.py ${{ (github.event_name == 'schedule' || inputs.yayinla) && '--yayinla' || '' }}
 

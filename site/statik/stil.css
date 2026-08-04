@@ -1901,3 +1901,20 @@ main.kabuk { padding-top: 26px; padding-bottom: 48px; }
   .piyasa-tarih { margin-left: 0; width: 100%; }
   .piyasa-ema { grid-template-columns: repeat(2, 1fr); }
 }
+
+
+/* Turkiye gostergeleri -- haber sayfasi */
+.tr-izgara {
+  display: grid; gap: 10px; margin: 0 0 12px;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+}
+.tr-kalem {
+  display: flex; flex-direction: column; gap: 2px;
+  padding: 12px 14px;
+  border: 1px solid var(--cizgi); border-radius: var(--r-kucuk);
+  background: var(--panel-2);
+}
+.tr-ad { font-size: 0.72rem; color: var(--yazi-3); text-transform: uppercase; letter-spacing: 0.04em; }
+.tr-deger { font-size: 1.22rem; font-weight: 800; font-variant-numeric: tabular-nums; letter-spacing: -0.01em; }
+.tr-degisim { font-size: 0.8rem; font-weight: 700; font-variant-numeric: tabular-nums; }
+.tr-tarih { font-size: 0.72rem; color: var(--yazi-3); }

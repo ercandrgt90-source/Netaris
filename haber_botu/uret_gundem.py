@@ -146,6 +146,11 @@ def main() -> int:
         kayitlar.append({
             "baslik": tr,
             "baslik_kaynak": h.baslik,
+            # Kaynagin KENDI ozeti. Bunu toplayip sayfaya hic tasimiyorduk:
+            # her haber sayfasinda o habere dair TEK ozgul icerik buydu ve
+            # cope gidiyordu. Kisa alinti + kunye + baglanti, RSS'in
+            # zaten davet ettigi kullanim; tam metin alinmiyor.
+            "ozet": h.ozet[:320],
             "cevrildi": cevrildi,
             "dil": h.dil,
             # Sayfada kunye basilacak mi -- ticari kaynakta ZORUNLU

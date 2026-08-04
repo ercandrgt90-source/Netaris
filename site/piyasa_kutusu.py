@@ -59,6 +59,22 @@ ARAC_NOTLARI = {
                "dayanır, LBMA fiksingi değildir.",
 }
 
+#: TURKIYE kutusu -- bolgesi TR olan haberlerde konu ne olursa olsun
+#: basiliyor.
+#:
+#: Sebep: bir Turk okuru icin "TUFE kac, faiz kac, dolar kac" sorusu her
+#: haberde gecerli. Bunlar EVDS'den geliyor ve hepsi resmi.
+#:
+#: Bu seriler EMA tasimiyor: aylik yayimlanan bir enflasyon serisinde
+#: "200 gunluk ortalama" anlamsiz olur. Onun yerine son deger, onceki
+#: donem ve degisim gosteriliyor.
+TURKIYE_GOSTERGELERI: tuple[tuple[str, str, str], ...] = (
+    ("TP.TUKFIY2025.GENEL", "TÜFE (yıllık)", "%"),
+    ("TP.FE25.OKTG04", "Çekirdek (C)", "%"),
+    ("TP.APIFON4", "TCMB fonlama", "%"),
+    ("TP.DK.USD.S.YTL", "USD/TRY", ""),
+)
+
 KONU_ARACLARI: dict[str, tuple[tuple[str, str, str, str], ...]] = {
     "Borsa": (
         ("gosterge", "SP500", "S&P 500", ""),
@@ -235,6 +251,44 @@ def _tarih_tr(iso: str) -> str:
         return f"{g} {_AYLAR[a - 1]}"
     except (ValueError, IndexError):
         return iso
+
+
+def turkiye(bugun: str = "") -> list[dict]:
+    """Turkiye gostergeleri -- son deger, onceki donem, degisim.
+
+    EMA yok: aylik yayimlanan bir enflasyon serisinde "200 gunluk
+    ortalama" anlamsiz olurdu.
+    """
+    if not DEPO.exists():
+        return []
+    satirlar = []
+    try:
+        with sqlite3.connect(f"file:{DEPO}?mode=ro", uri=True) as b:
+            for kod, ad, birim in TURKIYE_GOSTERGELERI:
+                d, t = _seri_cek(b, "gosterge", kod)
+                if len(d) < 2:
+                    continue
+                fark = d[-1] - d[-2]
+                # Yuzde cinsinden bir seride "yuzde degisim" yaniltir:
+                # %31,75'ten %31,40'a inis "%1,1 dusus" degil, 35 baz
+                # puanlik bir GERILEME. Oran serilerinde fark, duzey
+                # serilerinde yuzde gosteriliyor.
+                if birim == "%":
+                    degisim = f"{fark:+.2f} puan".replace(".", ",")
+                else:
+                    o = d[-2]
+                    degisim = _yuzde((d[-1] - o) / o * 100) if o else "—"
+                satirlar.append({
+                    "ad": ad,
+                    "deger": _sayi(d[-1], birim),
+                    "degisim": degisim,
+                    "yon": "artis" if fark >= 0 else "azalis",
+                    "tarih": _tarih_tr(t[-1]),
+                    "onceki_tarih": _tarih_tr(t[-2]),
+                })
+    except sqlite3.Error:
+        return []
+    return satirlar
 
 
 def kutu(konu: str, bugun: str = "") -> dict | None:

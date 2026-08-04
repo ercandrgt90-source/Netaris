@@ -841,6 +841,10 @@ def insa() -> int:
         h for h in gundem.get("haberler", []) if h.get("yorumlanir")
     ][:12]
 
+    # Turkiye gostergeleri BIR KEZ okunuyor -- her haber icin depoyu
+    # yeniden acmak onlarca gereksiz sorgu demekti.
+    tr_gosterge = piyasa_kutusu.turkiye(gundem.get("guncelleme", ""))
+
     ortak = {
         "site": SITE,
         "gostergeler": gostergeler,
@@ -905,6 +909,9 @@ def insa() -> int:
                     gorsel_svg=gundem_gorseller.get(h["adres"], ""),
                     ilgili=ilgili_gostergeler(h["konu"], gostergeler),
                     piyasa=piyasa_kutusu.kutu(h["konu"], gundem.get("guncelleme", "")),
+                    # Turkiye gostergeleri YALNIZCA yurt ici haberde
+                    tr_gostergeler=(tr_gosterge
+                                    if h.get("bolge") == "TR" else []),
                 ),
             )
             yollar.append(h_yol)

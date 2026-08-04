@@ -93,6 +93,10 @@ def main() -> int:
     if "makro" not in args.atla:
         adimlar.append(("Makro göstergeler",
                         [str(BOT / "makro_uret_ucretsiz.py"), "--yayinla"]))
+    # Turkiye makro verisi. Anahtar yoksa adim kendini atlar.
+    if "evds" not in args.atla:
+        adimlar.append(("Türkiye makro (TCMB EVDS)",
+                        [str(BOT / "uret_evds.py")]))
     if "haber" not in args.atla:
         adimlar.append(("Haberler (RSS → çeviri → fotoğraf)",
                         # TCMB eklenince aday sayisi 56'dan 116'ya cikti;

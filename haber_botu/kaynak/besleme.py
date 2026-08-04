@@ -409,7 +409,13 @@ DUNYA_ISARETLERI = (
     "avrupa", "avro bolge", " ecb ", "brüksel", "bruksel",
     "almanya", "fransa", "ingiltere", "italya", "ispanya", "hollanda",
     " cin ", "japonya", "hindistan", "guney kore", "rusya", "ukrayna",
-    "iran", "israil", "suudi", " bae ", "katar", "misir",
+    # DIKKAT -- bu uc isaret bosluklu yazilir, yalin hali Turkce kelime
+    # icinde eslesiyor ve olculdu:
+    #   "haz-IRAN-in ardindan"  -> Iran haberi   (her haziran haberi!)
+    #   "deger KATAR-ak"        -> Katar haberi
+    #   "MISIR" hem ulke hem tahil -- tarim haberini disariya atiyordu,
+    #   ayirt edilemedigi icin tamamen cikarildi.
+    " iran", "israil", "suudi", " bae ", " katar ",
     "meksika", "brezilya", "arjantin", "kanada", "avustralya",
     "isvicre", "isvec", "norvec", "polonya", "yunanistan", "portekiz",
     "endonezya", "vietnam", "tayvan", "singapur", "nijerya",
@@ -431,7 +437,10 @@ TURKIYE_ISARETLERI = (
     "kurus", "asgari ucret", "bag-kur", " ssk ", " sgk ", "emekli",
     "bakan", "cumhurbaskani", "meclis", "resmi gazete",
     "ankara", "istanbul", "izmir", "antalya", "anadolu", "guneydogu",
-    "marmara", " ege ", "karadeniz", "akdeniz", "tarsim", "botas",
+    # Bolge adlari EKLI bicimleriyle de yazilir: " ege " yalniz basina
+    # "EGELI ihracatcilar" basligini kaciriyordu.
+    "marmara", " ege ", "egeli", "egede", "ege ihracat", "ege bolge",
+    "ihracatci birlik", "karadeniz", "akdeniz", "tarsim", "botas",
     "tpao", " yeka ", " kdv ", " otv ", "yerli", "milli",
 )
 
