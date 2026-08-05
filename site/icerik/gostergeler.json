@@ -1,5 +1,5 @@
 {
-  "guncelleme": "2026-08-04",
+  "guncelleme": "2026-08-05",
   "kaynak": "FRED (St. Louis Fed)",
   "kalemler": [
     {
@@ -23,10 +23,10 @@
     {
       "kod": "DJIA",
       "ad": "DOW",
-      "deger": "54.086",
-      "fark": "+1,71%",
+      "deger": "54.349",
+      "fark": "+0,49%",
       "yon": "artis",
-      "tarih": "2026-08-04",
+      "tarih": "2026-08-05",
       "birim": "endeks"
     },
     {
@@ -53,34 +53,34 @@
       "deger": "%3,63",
       "fark": "0 bp",
       "yon": "yatay",
-      "tarih": "2026-08-03",
+      "tarih": "2026-08-04",
       "birim": "%"
     },
     {
       "kod": "DGS2",
       "ad": "ABD 2Y",
-      "deger": "%4,25",
-      "fark": "-3 bp",
+      "deger": "%4,20",
+      "fark": "-5 bp",
       "yon": "azalis",
-      "tarih": "2026-08-03",
+      "tarih": "2026-08-04",
       "birim": "%"
     },
     {
       "kod": "DGS10",
       "ad": "ABD 10Y",
-      "deger": "%4,70",
-      "fark": "-5 bp",
+      "deger": "%4,63",
+      "fark": "-7 bp",
       "yon": "azalis",
-      "tarih": "2026-08-03",
+      "tarih": "2026-08-04",
       "birim": "%"
     },
     {
       "kod": "T10Y2Y",
       "ad": "10Y-2Y",
-      "deger": "0,43",
-      "fark": "-2 bp",
-      "yon": "azalis",
-      "tarih": "2026-08-04",
+      "deger": "0,45",
+      "fark": "+2 bp",
+      "yon": "artis",
+      "tarih": "2026-08-05",
       "birim": "puan"
     },
     {
@@ -136,10 +136,10 @@
         {
           "kod": "DJIA",
           "ad": "Dow Jones",
-          "deger": "54.086",
-          "fark": "+1,71%",
+          "deger": "54.349",
+          "fark": "+0,49%",
           "yon": "artis",
-          "tarih": "2026-08-04",
+          "tarih": "2026-08-05",
           "birim": "endeks"
         }
       ]
@@ -176,34 +176,34 @@
           "deger": "%3,63",
           "fark": "0 bp",
           "yon": "yatay",
-          "tarih": "2026-08-03",
+          "tarih": "2026-08-04",
           "birim": "%"
         },
         {
           "kod": "DGS2",
           "ad": "ABD 2 yıllık",
-          "deger": "%4,25",
-          "fark": "-3 bp",
+          "deger": "%4,20",
+          "fark": "-5 bp",
           "yon": "azalis",
-          "tarih": "2026-08-03",
+          "tarih": "2026-08-04",
           "birim": "%"
         },
         {
           "kod": "DGS10",
           "ad": "ABD 10 yıllık",
-          "deger": "%4,70",
-          "fark": "-5 bp",
+          "deger": "%4,63",
+          "fark": "-7 bp",
           "yon": "azalis",
-          "tarih": "2026-08-03",
+          "tarih": "2026-08-04",
           "birim": "%"
         },
         {
           "kod": "T10Y2Y",
           "ad": "10Y − 2Y farkı",
-          "deger": "0,43",
-          "fark": "-2 bp",
-          "yon": "azalis",
-          "tarih": "2026-08-04",
+          "deger": "0,45",
+          "fark": "+2 bp",
+          "yon": "artis",
+          "tarih": "2026-08-05",
           "birim": "puan"
         }
       ]
