@@ -84,6 +84,14 @@
        duyurduğu için sayfa haberin konusuyla örtüşüyor. #}
     {% if dosya and dosya.acilis %}
     <p class="acilis">{{ dosya.acilis }}</p>
+    {% elif h.ozet and not (dosya and dosya.dolu) %}
+    {# OZET KUTU BASILMADIGINDA GOVDE BOS KALMASIN.
+       "Ne oldu?" satiri "30 saniyede" kutusunun icinde; o kutu ise
+       Turkiye baglami istiyor. Sonuc: yabanci veri haberinde sayfada
+       hicbir metin kalmiyordu -- baslik, fotograf ve piyasa kutusu.
+       Kutu basilmiyorsa ozet BURADA aciliyor; ikisi birden basilmiyor
+       ki ayni cumle sayfada iki kez gorunmesin. #}
+    <p class="acilis">{{ h.ozet }}</p>
     {% endif %}
 
     {# ARSIV UYARISI.

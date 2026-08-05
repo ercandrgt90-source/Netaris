@@ -574,7 +574,54 @@ def _acilis(b, konu: str) -> str:
         if co:
             p.append(f"önceki ay {abs(co[1]):,.0f} mn $".replace(",", "."))
         return "; ".join(p) + "."
+
+    # Yurt disi konular. Turkiye serileri yerine kuresel fiyat serisi.
+    kod = _KURESEL.get(konu)
+    if kod:
+        return _kuresel_cumle(b, *kod)
     return ""
+
+
+#: Konu -> (seri kodu, gorunen ad, birim, tablo). Ozeti olmayan yurt disi
+#: haberlerde acilis cumlesi bu serilerden kuruluyor.
+_KURESEL = {
+    "Enerji": ("DCOILBRENTEU", "Brent petrol", "$", "gosterge"),
+    "Altın ve emtia": ("PAXGUSD", "Altın", "$", "fiyat"),
+    "Borsa": ("SP500", "S&P 500", "", "gosterge"),
+    "Kripto varlıklar": ("XBTUSD", "Bitcoin", "$", "fiyat"),
+    "Jeopolitik": ("DCOILBRENTEU", "Brent petrol", "$", "gosterge"),
+}
+
+
+def _kuresel_cumle(b, kod: str, ad: str, birim: str, tablo: str) -> str:
+    """Kuresel seriden acilis cumlesi.
+
+    NEDEN: ozeti olmayan yabanci haberde sayfada HICBIR metin
+    kalmiyordu -- baslik, fotograf ve piyasa kutusu. "Altinin grami gune
+    yukselisle basladi" basligiyla acilan sayfada altinin fiyati bile
+    yoktu. Cumle yine olcum: seviye ve iki pencerede degisim.
+    """
+    try:
+        if tablo == "fiyat":
+            r = b.execute("SELECT tarih, kapanis FROM fiyat WHERE sembol=?"
+                          " ORDER BY tarih DESC LIMIT 70", (kod,)).fetchall()
+        else:
+            r = b.execute("SELECT tarih, deger FROM gosterge WHERE kod=?"
+                          " ORDER BY tarih DESC LIMIT 70", (kod,)).fetchall()
+    except sqlite3.Error:
+        return ""
+    s = [(t, float(d)) for t, d in r if d is not None]
+    if len(s) < 2:
+        return ""
+    son = s[0]
+    p = [f"{_ay_etiketi(son[0], gunlu=True)} kapanışına göre {ad} "
+         f"{_vir(son[1], 2)}{(' ' + birim) if birim else ''}"]
+    for n, etiket in ((21, "1 ayda"), (63, "3 ayda")):
+        if len(s) > n and s[n][1]:
+            y = (son[1] - s[n][1]) / s[n][1] * 100
+            p.append(f"{etiket} %{_vir(abs(y), 1)} "
+                     f"{'yükseldi' if y >= 0 else 'geriledi'}")
+    return "; ".join(p) + "."
 
 
 def _ay_etiketi(iso: str, gunlu: bool = False) -> str:
@@ -864,11 +911,14 @@ def turkiye_haberi(bolge: str, varliklar) -> bool:
 
 
 def kur(konu: str, bolge: str, haber_tarihi: str = "",
-        varliklar=None, baslik: str = "") -> Dosya:
+        varliklar=None, baslik: str = "", ozetsiz: bool = False) -> Dosya:
     """Haberin arastirma dosyasini kurar. Veri yoksa bos Dosya doner.
 
-    `baslik` bulten tespiti icin: basligi tek basina bir sey soylemeyen
-    resmi duyurularda veriden acilis cumlesi uretiliyor.
+    `baslik`  bulten tespiti icin: basligi tek basina bir sey soylemeyen
+              resmi duyurularda veriden acilis cumlesi uretiliyor.
+    `ozetsiz` haberin kendi ozeti yok demektir; o zaman bulten olmasa da
+              acilis cumlesi uretiliyor, cunku aksi halde sayfada hicbir
+              metin kalmiyor.
     """
     tr = turkiye_haberi(bolge, varliklar)
 
@@ -889,10 +939,23 @@ def kur(konu: str, bolge: str, haber_tarihi: str = "",
         izlenecekler=IZLENECEKLER.get(konu, ()) if zincir else (),
         senaryolar=SENARYOLAR.get(konu, ()) if zincir else (),
     )
-    # Turkiye GOSTERGE PANELI yine yalnizca Turkiye haberinde: Hurmuz
+    if not DEPO.exists():
+        return d
+
+    # Turkiye GOSTERGE PANELI yalnizca Turkiye haberinde: Hurmuz
     # haberinin altina TUFE ve issizlik basmak, kullanicinin bildirdigi
     # hatanin ta kendisi olurdu.
-    if not DEPO.exists() or not tr:
+    #
+    # Ama YABANCI haberde de acilis cumlesi gerekebiliyor: ozeti olmayan
+    # bir haberde sayfada hicbir metin kalmiyor. O yuzden burada erken
+    # donmek yerine, panel bloguna girmeden yalnizca acilis uretiliyor.
+    if not tr:
+        if ozetsiz or (baslik and bulten_mi(baslik)):
+            try:
+                with sqlite3.connect(f"file:{DEPO}?mode=ro", uri=True) as b:
+                    d.acilis = _acilis(b, konu)
+            except sqlite3.Error:
+                pass
         return d
 
     try:
@@ -909,7 +972,7 @@ def kur(konu: str, bolge: str, haber_tarihi: str = "",
 
             _bulgulari_kur(b, d, konu)
 
-            if baslik and bulten_mi(baslik):
+            if (baslik and bulten_mi(baslik)) or ozetsiz:
                 d.acilis = _acilis(b, konu)
 
             if haber_tarihi:

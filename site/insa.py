@@ -89,6 +89,16 @@ try:
 except ImportError:
     _olay = None
 
+# Veri aciklamasi hatti. Bu haberler seriden uretiliyor; konusu ve
+# gerekcesi baslikten degil serinin tanimindan geliyor.
+try:
+    import takvim as _takvim
+except ImportError:
+    _takvim = None
+
+#: Veri aciklamasi haberlerinin adres oneki (bkz. `takvim.Aciklama.adres`)
+_VERI_ONEK = "netaris:veri/"
+
 KOK = pathlib.Path(__file__).parent
 ICERIK = KOK / "icerik"
 SABLON = KOK / "sablonlar"
@@ -972,6 +982,32 @@ def tazele(h: dict, foto_kayit) -> dict:
     Simdi tersi calisiyor: bir siniflandirma hatasi duzeltildiginde
     ARSIVIN TAMAMI kendiliginden duzeliyor.
     """
+    # VERI ACIKLAMALARI BASLIKTAN SINIFLANDIRILMAZ.
+    #
+    # Bu haberler RSS'ten degil seriden uretiliyor; konusu, gerekcesi ve
+    # bolgesi serinin KENDI tanimindan geliyor. Baslik siniflandiricisina
+    # sokmak, "ABD cekirdek PCE: yillik %3,29" basligini yeniden tahmin
+    # etmeye calismak olurdu -- ve `neden_onemli` alanini silerdi.
+    #
+    # Turetilmis alanlar yine YENIDEN hesaplaniyor, ama dogru kaynaktan:
+    # adreste yazili seri kodundan.
+    adres = h.get("adres", "")
+    if adres.startswith(_VERI_ONEK) and _takvim is not None:
+        kod = adres[len(_VERI_ONEK):].split("/")[0]
+        for s in _takvim.SERILER:
+            if s[0] == kod:
+                h["konu"] = s[3]
+                break
+        h["neden_onemli"] = _takvim.NEDEN.get(kod, h.get("neden_onemli", ""))
+        h["bolge"] = "DUNYA"
+        h["yorumlanir"] = True
+        h.setdefault("kanallar", [])
+        if foto_kayit is not None and not h.get("foto"):
+            f = foto_kayit.sec(h.get("konu", ""), adres)
+            h["foto"] = f.dosya if f else ""
+            h["foto_atif"] = f.kisa_atif if f else ""
+        return h
+
     baslik_ozgun = h.get("baslik_kaynak") or h.get("baslik") or ""
     # Siniflandirma ORIJINAL baslikla yapilir, cevirisiyle degil: makine
     # cevirisi "policy rate"i "politika orani" yapabilir ve isaret
@@ -1232,6 +1268,17 @@ def insa() -> int:
         [k["kod"] for k in gostergeler.get("kalemler", [])]
     )
 
+    # HABER ADRESLERI BURADA ATANIYOR -- her sayfadan ONCE.
+    #
+    # Once haber donguSUNDE atanıyordu ve o dongu analiz sayfalarindan
+    # SONRA calisiyor. Sonuc: analiz sayfalarindaki son dakika seridi
+    # haberin gercek adresini degil yer tutucusunu ("/haber/")
+    # gosteriyordu -- 312 kirik baglanti. Sozlukler ayni nesne oldugu
+    # icin burada atamak butun sayfalara yansiyor.
+    for h in gundem.get("haberler", []):
+        if h.get("yorumlanir"):
+            h["yol"] = haber_yolu(h)
+
     # Son dakika seridi: en yeni, KENDI SAYFASI OLAN haberler. Disari
     # yonlendiren baglanti yok; serit sitenin kendi sayfalarina gider.
     son_dakika = [
@@ -1359,7 +1406,10 @@ def insa() -> int:
                         h["konu"], h.get("bolge", ""), h.get("tarih", ""),
                         varliklar=([v["kod"] for v in h_varliklar]
                                    if h_varliklar is not None else None),
-                        baslik=h.get("baslik_kaynak") or h.get("baslik", ""))
+                        baslik=h.get("baslik_kaynak") or h.get("baslik", ""),
+                        # Ozeti olmayan haberde acilis cumlesi uretilsin:
+                        # aksi halde sayfada hicbir metin kalmiyor.
+                        ozetsiz=not (h.get("ozet") or "").strip())
                            if _dosya else None),
                     varliklar=h_varliklar or [],
                     ilgili_haberler=varlik_haritasi.get(h["adres"], {}).get("ilgili", []),

@@ -102,6 +102,15 @@ def main() -> int:
                         # TCMB eklenince aday sayisi 56'dan 116'ya cikti;
                         # 24'luk sinir yeni kaynagi gorunmez birakirdi.
                         [str(BOT / "uret_gundem.py"), "--yayinla", "--sinir", "40"]))
+    # Veri aciklamalari haberlerden HEMEN SONRA: gundem.json'u okuyup
+    # ustune ekliyor. Ayri bir hat olmasinin sebebi kaynak turunun
+    # farkli olmasi -- besleme RSS okur, bu hat VERI okur. RSS'te
+    # olmayan haber siteye hic girmiyordu; 266 haberde tek bir ADP ya
+    # da tarim disi istihdam kaydi yoktu.
+    if "takvim" not in args.atla:
+        adimlar.append(("Veri açıklamaları (FRED → haber)",
+                        [str(BOT / "uret_takvim.py")]))
+
     # Olay motoru haberlerden SONRA calisir: haber akisini okuyup esigi
     # gecenler icin fiyat tepkisi olcuyor. Makro adimindan da sonra
     # olmali -- gecikmeli kalemleri gostergeler.json'dan aliyor.
