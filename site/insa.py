@@ -83,6 +83,12 @@ try:
 except ImportError:
     _yorum = None
 
+# Olay motoru. Senaryo bolumu YALNIZCA esigi gecen haberlerde aciliyor.
+try:
+    import olay as _olay
+except ImportError:
+    _olay = None
+
 KOK = pathlib.Path(__file__).parent
 ICERIK = KOK / "icerik"
 SABLON = KOK / "sablonlar"
@@ -900,6 +906,41 @@ def haber_yolu(h: dict) -> str:
 ARSIV_SINIRI = 1500
 
 
+#: Senaryonun HER HABERDE degil, yalnizca kritik olanlarda acilmasi.
+#:
+#: Gunde 130 haber geliyor; hepsine senaryo cagrisi koymak okuru
+#: seyreltir. Bir sayfada bir senaryo, digerinde otuz senaryo olur ve
+#: ikisi de kotudur -- ilki terk edilmis gorunur, ikincisi okunmaz.
+#:
+#: Olcut UYDURULMADI: olay motoru zaten "her haber olay degildir" diye
+#: kurulmus ve siddet puani hesapliyor (`olay.ESIK`). Faiz karari,
+#: enflasyon verisi, istihdam verisi, jeopolitik ve arz soku o esigi
+#: geciyor; haftalik istatistik bulteni gecmiyor.
+#:
+#: Ayrica konu suzgeci: kullanicinin isaret ettigi "senaryo yazmaya
+#: deger" alanlar. Ikisi BIRLIKTE araniyor -- tek basina konu yetmez,
+#: cunku "Para politikasi" konulu bir duyuru takvimi de var.
+SENARYO_KONULARI = frozenset({
+    "Jeopolitik", "Para politikası", "Enflasyon", "Enerji",
+    "Dış ticaret", "Döviz",
+})
+
+
+def senaryoya_acik(h: dict) -> bool:
+    """Bu haber senaryo yazmaya deger mi.
+
+    Olay motoru yoksa (haber_botu erisilemiyor) KONUYA duser: eksik bir
+    suzgec, hic suzgec olmamasindan iyi.
+    """
+    if h.get("konu") not in SENARYO_KONULARI:
+        return False
+    if _olay is None:
+        return True
+    o = _olay.siniflandir(h.get("baslik_kaynak") or h.get("baslik", ""),
+                          h.get("kurum", ""))
+    return _olay.esigi_gecti(o)
+
+
 def gun_farki(tarih: str, bugun: str) -> int:
     """Iki ISO tarih arasindaki gun. Cozulemezse 0 -- yani "taze" sayilir.
 
@@ -1318,6 +1359,8 @@ def insa() -> int:
                     # sayilari haberin baglami gibi gostermek olurdu.
                     yas=gun_farki(h.get("tarih", ""),
                                   gundem.get("guncelleme", "")),
+                    # Senaryo bolumu yalnizca kritik haberlerde
+                    senaryo_acik=senaryoya_acik(h),
                 ),
             )
             yollar.append(h_yol)

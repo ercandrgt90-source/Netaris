@@ -2456,3 +2456,11 @@ table td, table th, time, .tarih {
 /* Senaryo formunda kosul ve sonuc alanlari yan yana degil ALT ALTA:
    yan yana konsalar iki alan tek cumleymis gibi okunuyordu. */
 .senaryo-form label { display: block; }
+
+/* "Senaryoya acik" etiketi. Bu haberin ayricalikli oldugunu soyluyor;
+   her haberde olmadigi icin isaret degerli. */
+.senaryo-cagri-etiket {
+  margin: 0 0 6px;
+  font-size: 0.74rem; font-weight: 700; letter-spacing: 0.04em;
+  text-transform: uppercase; color: var(--vurgu);
+}

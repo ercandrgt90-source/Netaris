@@ -58,6 +58,22 @@ def _katla(metin: str) -> str:
 #: anlatmak olurdu -- Turkiye'nin kendi merkez bankasi icin anlamsiz.
 YERLI_KURUMLAR = frozenset({"TCMB", "SPK", "BDDK", "TUIK", "Hazine"})
 
+#: Baslikta gectiginde haberi YERLI baglama sokan isaretler.
+#:
+#: Yayimlayan kurum ticari bir gazete olsa bile, haberin oznesi bir Turk
+#: kurumuysa yerli cerceve dogrudur. Isaretler KATLANMIS yazilir.
+#:
+#: "turkiye" TEK BASINA YAZILMADI bilerek: "Goldman'in Turkiye tahmini"
+#: gibi bir baslikta yabanci kurumun gorusu anlatiliyor ve yerli
+#: cerceveye (yani "bizim faiz kararimiz") sokmak yanlis olurdu.
+#: Buradakiler KARAR ALAN ya da VERI YAYIMLAYAN yurt ici kurumlar.
+YERLI_ISARETLER = (
+    " tcmb ", "tcmb'", "merkez bankasi", "para politikasi kurulu", " ppk ",
+    " tuik ", "tuik'", "istatistik kurumu",
+    " spk ", " bddk ", "hazine ve maliye", "hazine bakanl",
+    "cumhurbaskani", "bakan simsek", "resmi gazete",
+)
+
 #: Rutin duyuru isaretleri -- bunlar yorumlanmaz.
 #: Sirasi onemli degil, herhangi biri eslesirse rutin sayilir.
 #: Turkce isaretler KATLANMIS yazilir ("haftalik", "cagr").
@@ -491,7 +507,17 @@ OLAY_ISARETLERI = (
 def _icerir(metin: str, isaretler) -> bool:
     # Bastaki ve sondaki bosluk, " zam " gibi bosluklu isaretlerin
     # basligin basinda ve sonunda da eslesmesini saglar.
-    k = " " + _katla(metin) + " "
+    #
+    # NOKTALAMA BOSLUGA CEVRILIYOR. Eksikligi olculdu:
+    #
+    #   "TCMB: Enflasyonun ana egilimi Temmuz'da geriledi"
+    #   -> " tcmb: ... " ve " tcmb " isareti ESLESMEDI
+    #
+    # Haber yerli baglama girmesi gerekirken yabanci cerceveyle
+    # ("ABD ve Avro Bolgesi politika faizi...") sunuluyordu. Iki nokta,
+    # virgul, tirnak ve parantez kelimeyi isaretten ayirmiyordu.
+    # Tire KORUNUYOR: "bag-kur" gibi isaretler ona dayaniyor.
+    k = " " + re.sub(r"[^a-z0-9&/%-]+", " ", _katla(metin)).strip() + " "
     return any(i in k for i in isaretler)
 
 
@@ -569,7 +595,19 @@ def siniflandir(baslik: str, konu: str, kurum: str = "",
     elif not _icerir(baslik, ETKILI_ISARETLER):
         return Baglam(yorumlanir=False)
 
-    yerli = kurum in YERLI_KURUMLAR
+    # YERLI/YABANCI AYRIMI KURUMA DEGIL, BASLIGA DA BAKIYOR.
+    #
+    # Onceden yalnizca yayimlayan kuruma bakiliyordu ve olculen sonuc
+    # suydu:
+    #
+    #   "TCMB: Enflasyonun ana egilimi Temmuz'da geriledi"  (kaynak:
+    #   Ekonomim)  ->  "ABD ve Avro Bolgesi politika faizi, kuresel
+    #   sermayenin fiyatini belirleyen ana degiskendir."
+    #
+    # Haber TCMB'nin Turkiye enflasyonu aciklamasi; ticari bir gazete
+    # aktardigi icin yabanci cerceveye dusuyordu. Turk kurumu haberin
+    # OZNESI oldugunda, aktaran kim olursa olsun yerli baglam dogru.
+    yerli = kurum in YERLI_KURUMLAR or _icerir(baslik, YERLI_ISARETLER)
     veri = YERLI_BAGLAMI.get(konu) if yerli else None
     if veri is None:
         veri = KONU_BAGLAMI.get(konu)
