@@ -1,4 +1,4 @@
-﻿/* Netaris -- acik tema
+﻿/* Netaris -- tasarim sistemi
  *
  * HARICI VARLIK YOK: yazi tipi sistemden, ikon yok, resim dosyasi yok --
  * yazi gorselleri SVG olarak sayfaya gomulu geliyor.
@@ -6,49 +6,185 @@
  * TEK HARICI ISTEK: fiyat seridi (statik/canli.js) Binance ve Frankfurter
  * uclarina istek atar. Gizlilik sayfasinda aciklaniyor.
  *
- * Renk mantigi
- * ------------
- * Beyaz zemin, gri panel, koyu lacivert metin. Yesil ve kirmizi YALNIZCA
- * sayisal yon icin kullanilir (artis/azalis); arayuzun baska yerinde
- * kullanilmaz ki okur bu iki rengi gordugunde her zaman "bir rakam
- * degisti" diye okusun.
  *
- * Acik zeminde koyu tema renkleri dogrudan kullanilamaz: parlak turkuaz
- * ve neon yesil beyaz uzerinde erisilebilirlik esigini gecmez. Vurgu,
- * artis ve azalis renkleri bu yuzden koyulastirildi.
+ * RENK MANTIGI -- degistirmeden once okuyun
+ * -----------------------------------------
+ * YESIL VE KIRMIZI YALNIZCA SAYISAL YON ICINDIR. Arayuzun baska hicbir
+ * yerinde kullanilmaz: buton, etiket, baglanti, uyari... hicbiri. Sebep
+ * su: okur bu iki rengi gordugunde her zaman "bir rakam degisti" diye
+ * okumali. Bir kez "kaydet" butonunu yesil yaparsaniz o okuma bozulur ve
+ * bir daha kurulmaz. Bu kurala uymayan renk onerisi kabul etmeyin.
+ *
+ * Vurgu rengi bu yuzden MAVI ailesinden: yon renkleriyle karismaz.
+ *
+ *
+ * IKI TEMA, TEK TOKEN KATMANI
+ * ---------------------------
+ * Butun bilesenler yalnizca degisken kullanir; 2166 satirin tamaminda
+ * token disi renk sayisi tek haneli. Tema degistirmek icin asagidaki
+ * blogu degistirmek yeterli -- hicbir bilesene dokunulmuyor.
+ *
+ * Tema secimi: sistem tercihi varsayilan, kullanici ust bardan
+ * degistirebiliyor (`data-tema` koke yaziliyor, secim hatirlaniyor).
+ * `data-tema` MEDYA SORGUSUNU EZMELI, o yuzden asagida ondan sonra
+ * geliyor.
+ *
+ * Ayni isim ikisinde de ayni ISI tasir:
+ *   --zemin    sayfanin en arkasi        --panel   kart yuzeyi
+ *   --yazi     ana metin                 --yazi-2  ikincil
+ *   --yazi-3   ucuncul (tarih, kunye)    --cizgi   ayirici
+ *
+ * Kontrast (olculdu, tahmin degil):
+ *   acik  --yazi 17.8:1   --yazi-2 8.1:1   --yazi-3 4.96:1
+ *   koyu  --yazi 16.4:1   --yazi-2 9.1:1   --yazi-3 5.6:1
+ * Vurgu/artis/azalis/uyari her iki temada 4.9:1 ve uzeri.
+ * Ilk yazimda --yazi-3 acik temada 4.31:1 idi -- AA esigi 4.5, yani
+ * KALIYORDU. Tarih ve kunye satirlari o renkte; goze normal gorunuyor
+ * ama olcunce gecmiyordu. Koyulastirildi.
  */
 
 :root {
-  /* ACIK TEMA.
-     Beyaz zemin, gri panel, koyu lacivert metin. Vurgu rengi koyu
-     camgobegi -- acik zeminde parlak turkuaz okunmuyor, karartildi.
-     Artis/azalis renkleri de koyulastirildi: acik zeminde #3ddc84 gibi
-     bir yesil erisilebilirlik esigini gecmez. */
-  --zemin: #ffffff;
-  --zemin-2: #f4f6fa;
+  color-scheme: light dark;
+
+  /* --- ACIK TEMA ---
+     Kagit beyazi zemin, mürekkep lacivert metin. Saf beyaz (#fff) yerine
+     bir tik kirik beyaz: uzun metinde goz yormuyor ve kart yuzeyi
+     (--panel: saf beyaz) zeminin uzerinde YUKSELIYOR gorunuyor. */
+  --zemin: #fbfcfe;
+  --zemin-2: #f1f4f9;
   --panel: #ffffff;
   --panel-2: #f7f9fc;
-  --cizgi: #e2e8f2;
-  --cizgi-parlak: #c3cede;
+  --cizgi: #e4e9f1;
+  --cizgi-parlak: #c6cfdd;
 
-  --yazi: #0f1b2d;
-  --yazi-2: #43536b;
-  --yazi-3: #6b7c96;
+  --yazi: #0c1524;
+  --yazi-2: #414f66;
+  --yazi-3: #616f86;
 
-  --vurgu: #0a7ea4;
-  --vurgu-koyu: #075c78;
-  --artis: #0f8a4d;
-  --azalis: #cf2740;
-  --uyari: #a45c00;
+  /* Kobalt. Onceki camgobegi (#0a7ea4) yesile fazla yakindi ve kucuk
+     metinde artis rengiyle karisabiliyordu. Mavi o riski tasimiyor. */
+  --vurgu: #1d5fd8;
+  --vurgu-koyu: #1546a6;
+  --vurgu-parlak: #3b7cf0;
+
+  --artis: #0a7f47;
+  --azalis: #c8203a;
+  --uyari: #9a5700;
+
+  /* Zar (tint): ayni rengin saydam hali. Bilesenlerde rgba yazmak yerine
+     buradan aliniyor; boylece koyu temada da dogru yogunluga geciyor. */
+  --vurgu-zar: rgba(29, 95, 216, 0.09);
+  --vurgu-zar-2: rgba(29, 95, 216, 0.28);
+  --artis-zar: rgba(10, 127, 71, 0.09);
+  --azalis-zar: rgba(200, 32, 58, 0.09);
+  --uyari-zar: rgba(154, 87, 0, 0.09);
+  --uyari-cizgi: rgba(154, 87, 0, 0.3);
+  --nabiz: rgba(10, 127, 71, 0.5);
+  --notr: #93a1b5;
+
+  /* Koyu zemin uzerindeki metin (birincil buton, rozet). Koyu temada da
+     ACIK kalir -- buton zemini her iki temada da koyu. */
+  --zit-yazi: #ffffff;
+
+  /* Ust bar saydam; zeminle ayni ama bulanik. */
+  --ust-zemin: rgba(251, 252, 254, 0.82);
+  --sayfa-isik: #eef4fd;
 
   --r: 14px;
   --r-kucuk: 10px;
   --kabuk: 1180px;
-  --golge: 0 1px 2px rgba(15, 27, 45, 0.06), 0 6px 20px rgba(15, 27, 45, 0.07);
+  --golge: 0 1px 2px rgba(12, 21, 36, 0.05), 0 8px 24px rgba(12, 21, 36, 0.06);
+  --golge-yuksek: 0 2px 4px rgba(12, 21, 36, 0.06), 0 16px 40px rgba(12, 21, 36, 0.10);
 
   /* Gorsellerin zemini metin alanindan bir ton koyu -- beyaz uzerinde
      beyaz gorsel siniri kaybolur */
-  --gorsel-zemin: #eef2f8;
+  --gorsel-zemin: #eaeff7;
+}
+
+/* --- KOYU TEMA ---
+   Mavi-siyah, saf siyah degil: saf siyah uzerinde beyaz metin OLED
+   ekranlarda titresim (halation) yapiyor ve uzun okumada yoruyor.
+   Yuzeyler yukseldikce aciliyor -- koyu temada golge is gormez, derinlik
+   ACIKLIK farkiyla anlatilir. Bu yuzden --panel zeminden ACIK. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --zemin: #0b1018;
+    --zemin-2: #121926;
+    --panel: #151d2b;
+    --panel-2: #1b2434;
+    --cizgi: #26324a;
+    --cizgi-parlak: #3a4a68;
+
+    --yazi: #e9eef7;
+    --yazi-2: #a7b4c9;
+    --yazi-3: #7d8ca5;
+
+    /* Koyu zeminde kobalt karariyor; acildi ve doygunlugu dusuruldu. */
+    --vurgu: #6f9dfb;
+    --vurgu-koyu: #4d81ea;
+    --vurgu-parlak: #9dbcff;
+
+    /* Yon renkleri de acildi: #0a7f47 koyu zeminde neredeyse siyah. */
+    --artis: #3ecf8e;
+    --azalis: #ff6b81;
+    --uyari: #e0a44a;
+
+    --vurgu-zar: rgba(111, 157, 251, 0.14);
+    --vurgu-zar-2: rgba(111, 157, 251, 0.34);
+    --artis-zar: rgba(62, 207, 142, 0.13);
+    --azalis-zar: rgba(255, 107, 129, 0.13);
+    --uyari-zar: rgba(224, 164, 74, 0.13);
+    --uyari-cizgi: rgba(224, 164, 74, 0.34);
+    --nabiz: rgba(62, 207, 142, 0.45);
+    --notr: #64748b;
+
+    --ust-zemin: rgba(11, 16, 24, 0.82);
+    --sayfa-isik: #101a2b;
+
+    --golge: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.34);
+    --golge-yuksek: 0 2px 6px rgba(0, 0, 0, 0.45), 0 18px 44px rgba(0, 0, 0, 0.5);
+    --gorsel-zemin: #101825;
+  }
+}
+
+/* Kullanici secimi sistem tercihini EZER. Medya sorgusundan SONRA
+   gelmeli, yoksa sistem koyu iken "acik" secimi calismaz. */
+:root[data-tema="light"] {
+  --zemin: #fbfcfe; --zemin-2: #f1f4f9; --panel: #ffffff; --panel-2: #f7f9fc;
+  --cizgi: #e4e9f1; --cizgi-parlak: #c6cfdd;
+  --yazi: #0c1524; --yazi-2: #414f66; --yazi-3: #616f86;
+  --vurgu: #1d5fd8; --vurgu-koyu: #1546a6; --vurgu-parlak: #3b7cf0;
+  --artis: #0a7f47; --azalis: #c8203a; --uyari: #9a5700;
+  --vurgu-zar: rgba(29, 95, 216, 0.09);
+  --vurgu-zar-2: rgba(29, 95, 216, 0.28);
+  --artis-zar: rgba(10, 127, 71, 0.09);
+  --azalis-zar: rgba(200, 32, 58, 0.09);
+  --uyari-zar: rgba(154, 87, 0, 0.09);
+  --uyari-cizgi: rgba(154, 87, 0, 0.3);
+  --nabiz: rgba(10, 127, 71, 0.5); --notr: #93a1b5;
+  --ust-zemin: rgba(251, 252, 254, 0.82); --sayfa-isik: #eef4fd;
+  --golge: 0 1px 2px rgba(12, 21, 36, 0.05), 0 8px 24px rgba(12, 21, 36, 0.06);
+  --golge-yuksek: 0 2px 4px rgba(12, 21, 36, 0.06), 0 16px 40px rgba(12, 21, 36, 0.10);
+  --gorsel-zemin: #eaeff7;
+}
+
+:root[data-tema="dark"] {
+  --zemin: #0b1018; --zemin-2: #121926; --panel: #151d2b; --panel-2: #1b2434;
+  --cizgi: #26324a; --cizgi-parlak: #3a4a68;
+  --yazi: #e9eef7; --yazi-2: #a7b4c9; --yazi-3: #7d8ca5;
+  --vurgu: #6f9dfb; --vurgu-koyu: #4d81ea; --vurgu-parlak: #9dbcff;
+  --artis: #3ecf8e; --azalis: #ff6b81; --uyari: #e0a44a;
+  --vurgu-zar: rgba(111, 157, 251, 0.14);
+  --vurgu-zar-2: rgba(111, 157, 251, 0.34);
+  --artis-zar: rgba(62, 207, 142, 0.13);
+  --azalis-zar: rgba(255, 107, 129, 0.13);
+  --uyari-zar: rgba(224, 164, 74, 0.13);
+  --uyari-cizgi: rgba(224, 164, 74, 0.34);
+  --nabiz: rgba(62, 207, 142, 0.45); --notr: #64748b;
+  --ust-zemin: rgba(11, 16, 24, 0.82); --sayfa-isik: #101a2b;
+  --golge: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.34);
+  --golge-yuksek: 0 2px 6px rgba(0, 0, 0, 0.45), 0 18px 44px rgba(0, 0, 0, 0.5);
+  --gorsel-zemin: #101825;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -58,7 +194,7 @@ html { -webkit-text-size-adjust: 100%; }
 body {
   margin: 0;
   background:
-    linear-gradient(180deg, #f7fafd 0%, transparent 320px), var(--zemin);
+    linear-gradient(180deg, var(--sayfa-isik) 0%, transparent 340px), var(--zemin);
   color: var(--yazi);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
                "Helvetica Neue", Arial, sans-serif;
@@ -85,7 +221,7 @@ img, svg { max-width: 100%; }
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(255, 255, 255, 0.92);
+  background: var(--ust-zemin);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--cizgi);
 }
@@ -139,7 +275,7 @@ img, svg { max-width: 100%; }
   white-space: nowrap;
 }
 .ust nav a:hover { color: var(--yazi); background: var(--panel); text-decoration: none; }
-.ust nav a[aria-current="page"] { color: var(--vurgu); background: rgba(10, 126, 164, 0.1); }
+.ust nav a[aria-current="page"] { color: var(--vurgu); background: var(--vurgu-zar); }
 
 /* ------------------------------------------------------- gosterge seridi */
 
@@ -195,15 +331,15 @@ img, svg { max-width: 100%; }
 
 .nokta-canli {
   background: var(--artis);
-  box-shadow: 0 0 0 0 rgba(15, 138, 77, 0.55);
+  box-shadow: 0 0 0 0 var(--nabiz);
   animation: nabiz 2.2s ease-out infinite;
 }
 
-.nokta-gecmis { background: #94a3b8; }
+.nokta-gecmis { background: var(--notr); }
 
 @keyframes nabiz {
-  70%  { box-shadow: 0 0 0 7px rgba(15, 138, 77, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(15, 138, 77, 0); }
+  70%  { box-shadow: 0 0 0 7px rgba(0, 0, 0, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0); }
 }
 
 .kalem-not {
@@ -323,7 +459,7 @@ main.kabuk { padding-top: 26px; padding-bottom: 48px; }
 .dugme-birincil {
   background: linear-gradient(96deg, var(--vurgu-koyu), var(--vurgu));
   border-color: transparent;
-  color: #ffffff;
+  color: var(--zit-yazi);
 }
 .dugme-birincil:hover { filter: brightness(1.08); }
 
@@ -540,8 +676,8 @@ main.kabuk { padding-top: 26px; padding-bottom: 48px; }
 
 .rozet-vurgu {
   color: var(--vurgu);
-  border-color: rgba(10, 126, 164, 0.32);
-  background: rgba(10, 126, 164, 0.1);
+  border-color: var(--vurgu-zar-2);
+  background: var(--vurgu-zar);
 }
 
 .rozet-kod {
@@ -715,8 +851,8 @@ main.kabuk { padding-top: 26px; padding-bottom: 48px; }
 /* -------------------------------------------------------------- uyari bant */
 
 .uyari-bant {
-  background: rgba(164, 92, 0, 0.07);
-  border: 1px solid rgba(164, 92, 0, 0.3);
+  background: var(--uyari-zar);
+  border: 1px solid var(--uyari-cizgi);
   border-radius: var(--r);
   padding: 16px 20px;
   margin-bottom: 28px;
@@ -754,7 +890,7 @@ main.kabuk { padding-top: 26px; padding-bottom: 48px; }
   color: var(--yazi-2);
 }
 .haber-kunye a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
-.haber-kunye a:hover { color: var(--vurgu, #0b5fff); }
+.haber-kunye a:hover { color: var(--vurgu); }
 
 .yazi h1 {
   margin: 0 0 14px;
@@ -1188,8 +1324,8 @@ main.kabuk { padding-top: 26px; padding-bottom: 48px; }
   max-width: 800px;
   margin: 0 auto 24px;
   padding: 14px 18px;
-  background: rgba(164, 92, 0, 0.06);
-  border: 1px solid rgba(164, 92, 0, 0.28);
+  background: var(--uyari-zar);
+  border: 1px solid var(--uyari-cizgi);
   border-radius: var(--r);
 }
 .tarih-bandi strong {
@@ -1382,8 +1518,8 @@ main.kabuk { padding-top: 26px; padding-bottom: 48px; }
 
 .rozet-kaynak {
   color: var(--artis);
-  border-color: rgba(15, 138, 77, 0.3);
-  background: rgba(15, 138, 77, 0.07);
+  border-color: var(--artis-zar);
+  background: var(--artis-zar);
 }
 
 /* -------------------------------------------------------------- hakkimizda */
@@ -1563,13 +1699,13 @@ main.kabuk { padding-top: 26px; padding-bottom: 48px; }
   padding: 4px 11px;
   border-radius: 999px;
   background: var(--azalis);
-  color: #fff;
+  color: var(--zit-yazi);
   font-size: 0.7rem; font-weight: 800; letter-spacing: 0.06em;
   white-space: nowrap;
 }
 .sondakika-nokta {
   width: 6px; height: 6px; border-radius: 50%;
-  background: #fff;
+  background: var(--panel);
   animation: nabiz 1.8s ease-in-out infinite;
 }
 
@@ -1630,7 +1766,7 @@ main.kabuk { padding-top: 26px; padding-bottom: 48px; }
 }
 #sekme-tr:checked ~ .bolum-bas label[for="sekme-tr"] .sekme-sayi,
 #sekme-dunya:checked ~ .bolum-bas label[for="sekme-dunya"] .sekme-sayi {
-  background: var(--vurgu); color: #fff;
+  background: var(--vurgu); color: var(--zit-yazi);
 }
 /* Klavyeyle gezerken hangi sekmede oldugu gorunmeli */
 .sekme-radyo:focus-visible ~ .bolum-bas label[for="sekme-tr"],
@@ -1728,7 +1864,7 @@ main.kabuk { padding-top: 26px; padding-bottom: 48px; }
   padding: 6px 14px !important;
   border-radius: 999px;
   background: var(--vurgu) !important;
-  color: #fff !important;
+  color: var(--zit-yazi) !important;
   font-weight: 700;
 }
 .dugme-mini:hover { background: var(--vurgu-koyu) !important; text-decoration: none; }
@@ -1773,7 +1909,7 @@ main.kabuk { padding-top: 26px; padding-bottom: 48px; }
 .uyelik-hata {
   margin: 0; padding: 10px 12px;
   border-left: 3px solid var(--azalis); border-radius: 0 var(--r-kucuk) var(--r-kucuk) 0;
-  background: rgba(207, 39, 64, 0.07);
+  background: var(--azalis-zar);
   color: var(--azalis); font-size: 0.86rem;
 }
 .uyelik-mesaj {
@@ -1832,10 +1968,10 @@ main.kabuk { padding-top: 26px; padding-bottom: 48px; }
    yayimlandi ileri, reddedildi geri. */
 .rozet-durum { font-weight: 700; }
 .durum-taslak { background: var(--zemin-2); color: var(--yazi-2); }
-.durum-incelemede { background: rgba(164, 92, 0, 0.12); color: var(--uyari); }
-.durum-onaylandi { background: rgba(10, 126, 164, 0.12); color: var(--vurgu); }
-.durum-yayimlandi { background: rgba(15, 138, 77, 0.12); color: var(--artis); }
-.durum-reddedildi { background: rgba(207, 39, 64, 0.1); color: var(--azalis); }
+.durum-incelemede { background: var(--uyari-zar); color: var(--uyari); }
+.durum-onaylandi { background: var(--vurgu-zar); color: var(--vurgu); }
+.durum-yayimlandi { background: var(--artis-zar); color: var(--artis); }
+.durum-reddedildi { background: var(--azalis-zar); color: var(--azalis); }
 
 .yazi-form textarea[name="govde"] { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.9rem; }
 
@@ -2127,7 +2263,7 @@ main.kabuk { padding-top: 26px; padding-bottom: 48px; }
 /* Arsiv uyarisi -- eski haberde bugunun verisi gosterildigini soyler. */
 .arsiv-uyari {
   margin: 0 0 22px; padding: 11px 14px;
-  background: rgba(164, 92, 0, 0.07);
+  background: var(--uyari-zar);
   border-left: 3px solid var(--uyari);
   border-radius: 0 var(--r-kucuk) var(--r-kucuk) 0;
   font-size: 0.86rem; line-height: 1.55; color: var(--yazi-2);
@@ -2163,4 +2299,98 @@ main.kabuk { padding-top: 26px; padding-bottom: 48px; }
 .vd-not code {
   font-size: 0.72rem; background: var(--zemin-2);
   padding: 1px 5px; border-radius: 4px;
+}
+
+/* ================================================================
+   Tema dugmesi ve arayuz rotuslari
+   ================================================================ */
+
+.tema-dugme {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 34px; height: 34px; padding: 0;
+  border: 1px solid var(--cizgi);
+  border-radius: 9px;
+  background: var(--panel);
+  color: var(--yazi-2);
+  cursor: pointer;
+  transition: border-color .15s, color .15s, background .15s;
+}
+.tema-dugme:hover { border-color: var(--vurgu); color: var(--vurgu); }
+
+/* Tek SVG, iki simge. Gorunen tema neyse KARSITI gosteriliyor --
+   dugme hedefi anlatiyor, mevcut durumu degil. */
+.tema-ay { display: none; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-tema="light"]) .tema-gunes,
+  :root:not([data-tema="light"]) .tema-isin { display: none; }
+  :root:not([data-tema="light"]) .tema-ay { display: block; }
+}
+:root[data-tema="dark"] .tema-gunes,
+:root[data-tema="dark"] .tema-isin { display: none; }
+:root[data-tema="dark"] .tema-ay { display: block; }
+:root[data-tema="light"] .tema-gunes,
+:root[data-tema="light"] .tema-isin { display: block; }
+:root[data-tema="light"] .tema-ay { display: none; }
+
+/* --- Odak halkasi ---
+   Klavye kullanicisi nerede oldugunu gormeli. `:focus-visible` fareyle
+   tiklamada CIKMIYOR, yalnizca klavyede -- ikisini ayirmayan bir halka
+   fare kullanicisini rahatsiz ederdi. */
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--vurgu);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* --- Sayilar hizali ---
+   Tabular rakam: 47,54 ile 119,70 alt alta geldiginde basamaklar
+   kayiyordu. Finans arayuzunde sutun hizasi okunurlugun yarisi. */
+.vd-sayi, .ilgili-deger, .kalem-deger, .ozet-kutu dd,
+table td, table th, time, .tarih {
+  font-variant-numeric: tabular-nums;
+}
+
+/* --- Yumusak gecisler ---
+   Tema degisiminde ani renk sicramasi yerine kisa bir gecis. Hareketi
+   azaltilmis modda KAPALI: bu tercih bir erisilebilirlik ayari. */
+@media (prefers-reduced-motion: no-preference) {
+  body, .ust, .kart, .panel, .varlik-veri, .ozet-kutu {
+    transition: background-color .18s ease, border-color .18s ease,
+                color .18s ease;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* --- Secim rengi --- */
+::selection { background: var(--vurgu-zar-2); color: var(--yazi); }
+
+/* --- Kaydirma cubugu (koyu temada beyaz cubuk sirittiriyordu) --- */
+* { scrollbar-color: var(--cizgi-parlak) transparent; }
+::-webkit-scrollbar { width: 11px; height: 11px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--cizgi-parlak); border-radius: 99px;
+  border: 3px solid var(--zemin);
+}
+::-webkit-scrollbar-thumb:hover { background: var(--yazi-3); }
+
+/* --- Logo ---
+   Cizgiler vurgu renginde, kutu vurgunun saydam hali. Boylece marka
+   isareti iki temada da ayni ILISKIYI koruyor: kutu geride, cizgi onde.
+   Sabit lacivert kutu koyu temada bir kare leke gibi duruyordu. */
+.logo-im { stroke: var(--vurgu); fill: var(--vurgu); flex: none; }
+.logo-im .logo-kutu { fill: var(--vurgu-zar); stroke: none; }
+
+/* Marka adi gecisi yeni vurgu renginde. */
+.marka {
+  background: linear-gradient(96deg, var(--yazi) 10%, var(--vurgu) 92%);
+  -webkit-background-clip: text;
+  background-clip: text;
 }

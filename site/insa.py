@@ -646,6 +646,44 @@ def analizleri_yukle() -> list[Analiz]:
     return liste
 
 
+def guncel_olanlar(analizler: list[Analiz]) -> list[Analiz]:
+    """Yinelenen otomatik analizlerden yalnizca EN GUNCELINI birakir.
+
+    NEDEN GEREKLI -- misafir gozuyle olculdu:
+    Ana sayfadaki 16 analizin 13'u birbirinin ayniydi.
+
+        Bitcoin: 200 gunluk ortalamanin %10,0 altinda      (3 gun)
+        Ethereum: 200 gunluk ortalamanin %10,1 altinda     (3 gun)
+        Altin: 200 gunluk ortalamanin %11,6 altinda        (3 gun)
+        Brent %41,7 yukselip geri cekildi: ...             (4 gun, AYNI baslik)
+
+    Teknik gorunum ve makro ozet her gun yeniden uretiliyor; dun ile
+    bugun arasindaki fark birkac ondalik. Okur icin bu bir arsiv degil,
+    tekrar. Ustelik ayni baslik dort ayri adreste durdugu icin arama
+    motoruna da yinelenen icerik sinyali gidiyor.
+
+    ELEME LISTEDE, DOSYADA DEGIL: eski sayfalar yayimlanmaya devam
+    ediyor, adresleri kirilmiyor. Yalnizca listelerde en guncel surum
+    gorunuyor.
+
+    Olcut `(kategori, kod)`: ayni varligin ayni turdeki analizi. Elle
+    yazilmis yazilarda `kod` bos oldugu icin onlar HIC elenmez -- her
+    biri kendi basina icerik.
+    """
+    gorulen: set[tuple[str, str]] = set()
+    cikti: list[Analiz] = []
+    for a in analizler:                       # liste zaten yeniden eskiye
+        if not a.kod:
+            cikti.append(a)
+            continue
+        imza = (a.kategori, a.kod)
+        if imza in gorulen:
+            continue
+        gorulen.add(imza)
+        cikti.append(a)
+    return cikti
+
+
 @dataclass
 class Sayfa:
     slug: str
@@ -1115,7 +1153,14 @@ def insa() -> int:
     # biri unutuldugunda 404 sessizce olusuyordu.
     ortam.filters["varlik_yolu"] = varlik_yolu
 
+    # `analizler`  -- SAYFASI URETILECEK olanlar (hepsi; adresler kirilmasin)
+    # `listelenen` -- LISTELERDE gorunecek olanlar (yinelenenler elenmis)
     analizler = analizleri_yukle()
+    listelenen = guncel_olanlar(analizler)
+    guncel_sluglar = {a.slug for a in listelenen}
+    if len(listelenen) < len(analizler):
+        print(f"listeleme: {len(analizler) - len(listelenen)} yinelenen "
+              f"otomatik analiz gizlendi (sayfalari duruyor)")
     hakkimizda = hakkimizda_yukle()
     gostergeler = gostergeleri_yukle()
     gundem = gundem_yukle()
@@ -1125,7 +1170,7 @@ def insa() -> int:
     menu = [
         (f"/{slug}/", baslik)
         for slug, baslik, kategori, _ in KATEGORILER
-        if any(a.kategori == kategori for a in analizler)
+        if any(a.kategori == kategori for a in listelenen)
     ]
     if gundem.get("haberler"):
         menu.append(("/gundem/", "Haberler"))
@@ -1167,7 +1212,11 @@ def insa() -> int:
     for a in analizler:
         yaz(
             f"{a.yol}index.html",
-            ortam.get_template("analiz.html").render(**ortak, yol=a.yol, a=a),
+            ortam.get_template("analiz.html").render(
+                **ortak, yol=a.yol, a=a,
+                # Listeden elenmis surum: sayfasi duruyor ama dizine
+                # girmiyor (bkz. temel.html'deki robots blogu).
+                eskimis=a.slug not in guncel_sluglar),
         )
         yollar.append(a.yol)
 
@@ -1175,7 +1224,7 @@ def insa() -> int:
     # olan kategoriler uretilir -- tiklayinca bos sayfa cikan bir menu,
     # eksik menuden kotudur.
     for slug, baslik, kategori, aciklama in KATEGORILER:
-        secilen = [a for a in analizler if a.kategori == kategori]
+        secilen = [a for a in listelenen if a.kategori == kategori]
         if not secilen:
             continue
         yol_k = f"/{slug}/"
@@ -1319,14 +1368,14 @@ def insa() -> int:
     yaz(
         "/index.html",
         ortam.get_template("anasayfa.html").render(
-            **ortak, yol="/", analizler=analizler,
-            yorumlar=yorum_kartlari(analizler),
+            **ortak, yol="/", analizler=listelenen,
+            yorumlar=yorum_kartlari(listelenen),
             rakamlar=kunye_rakamlari(analizler),
         ),
     )
 
     # Arama: dizin + sayfa
-    yaz("/arama.json", arama_dizini(analizler))
+    yaz("/arama.json", arama_dizini(listelenen))
     yaz(
         "/ara/index.html",
         ortam.get_template("ara.html").render(**ortak, yol="/ara/"),
@@ -1334,7 +1383,7 @@ def insa() -> int:
     yollar.append("/ara/")
 
     # Besleme ve arama motoru dosyalari
-    yaz("/rss.xml", rss_uret(analizler))
+    yaz("/rss.xml", rss_uret(listelenen))
     yaz("/sitemap.xml", sitemap_uret(yollar))
     yaz(
         "/robots.txt",
