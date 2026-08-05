@@ -32,19 +32,19 @@
     {
       "kod": "DCOILBRENTEU",
       "ad": "BRENT",
-      "deger": "91,82",
-      "fark": "-8,46%",
+      "deger": "88,90",
+      "fark": "-8,30%",
       "yon": "azalis",
-      "tarih": "2026-07-27",
+      "tarih": "2026-08-03",
       "birim": "USD/varil"
     },
     {
       "kod": "DCOILWTICO",
       "ad": "WTI",
-      "deger": "84,25",
-      "fark": "-8,16%",
+      "deger": "81,96",
+      "fark": "-4,87%",
       "yon": "azalis",
-      "tarih": "2026-07-27",
+      "tarih": "2026-08-03",
       "birim": "USD/varil"
     },
     {
@@ -86,10 +86,10 @@
     {
       "kod": "VIXCLS",
       "ad": "VIX",
-      "deger": "15,86",
-      "fark": "-0,81%",
-      "yon": "azalis",
-      "tarih": "2026-08-03",
+      "deger": "16,50",
+      "fark": "+4,04%",
+      "yon": "artis",
+      "tarih": "2026-08-04",
       "birim": "endeks"
     },
     {
@@ -150,19 +150,19 @@
         {
           "kod": "DCOILBRENTEU",
           "ad": "Brent",
-          "deger": "91,82",
-          "fark": "-8,46%",
+          "deger": "88,90",
+          "fark": "-8,30%",
           "yon": "azalis",
-          "tarih": "2026-07-27",
+          "tarih": "2026-08-03",
           "birim": "USD/varil"
         },
         {
           "kod": "DCOILWTICO",
           "ad": "WTI",
-          "deger": "84,25",
-          "fark": "-8,16%",
+          "deger": "81,96",
+          "fark": "-4,87%",
           "yon": "azalis",
-          "tarih": "2026-07-27",
+          "tarih": "2026-08-03",
           "birim": "USD/varil"
         }
       ]
@@ -214,10 +214,10 @@
         {
           "kod": "VIXCLS",
           "ad": "VIX",
-          "deger": "15,86",
-          "fark": "-0,81%",
-          "yon": "azalis",
-          "tarih": "2026-08-03",
+          "deger": "16,50",
+          "fark": "+4,04%",
+          "yon": "artis",
+          "tarih": "2026-08-04",
           "birim": "endeks"
         },
         {
