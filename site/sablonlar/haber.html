@@ -28,6 +28,12 @@
 </script>
 {% endblock %}
 
+{% block ek_bas %}
+{# Yalnizca haber sayfasinda yukleniyor: topluluk senaryolari bolumu
+   baska sayfada yok. #}
+<script src="/statik/senaryo.js" defer></script>
+{% endblock %}
+
 {% block icerik %}
 <article class="yazi">
   {% if h.foto %}
@@ -280,13 +286,38 @@
     </ul>
     <p class="piyasa-not">Bunlar koşullu değerlendirmelerdir, öngörü
       değildir; hiçbirine olasılık atanmamıştır.</p>
-    <div class="senaryo-cagri">
-      <p><b>Siz farklı düşünüyorsanız</b> kendi senaryonuzu yazabilirsiniz.
-        Senaryolar yayın ilkeleri kapsamında incelendikten sonra bu sayfada
-        görünür.</p>
-      <a class="dugme dugme-birincil" href="/panel/">Senaryo yaz</a>
-    </div>
     {% endif %}
+
+    {# TOPLULUK SENARYOLARI.
+       Yukaridaki senaryolar sitenin; buradakiler OKURLARIN. Ikisi ayri
+       basliklar altinda ve ayri gorunumde duruyor -- sitenin "resmi veri
+       ile kullanici gorusunu acik bicimde ayirir" ilkesi tam olarak bu.
+
+       Bolum canli uctan besleniyor (senaryo.js) ve senaryo yoksa HIC
+       basilmiyor: bos bir "Topluluk senaryolari" basligi, sayfanin
+       terk edilmis gorunmesine yol acar. #}
+    <section class="senaryo-bolum" id="senaryo-bolum"
+             data-capa="{{ yol }}" hidden>
+      <h2>Okur senaryoları</h2>
+      <p class="piyasa-not">Aşağıdakiler <b>Netaris'in değil, üyelerin</b>
+        değerlendirmeleridir. Yayın ilkeleri kapsamında incelenir; doğruluk
+        güvencesi verilmez.</p>
+      <ul class="senaryo-liste"></ul>
+    </section>
+
+    {# Senaryo yazma cagrisi HER HABERDE var, yalnizca dosyasi olanda
+       degil: bir okurun gorus bildirmek istemesi icin sayfada duyarlilik
+       tablosu bulunmasi gerekmiyor. #}
+    <div class="senaryo-cagri">
+      <p><b>Siz farklı düşünüyorsanız</b> bu haber için kendi senaryonuzu
+        yazabilirsiniz. Koşulunuzu ve beklediğiniz sonucu yazarsınız;
+        incelendikten sonra bu sayfada adınızla görünür.</p>
+      {# Capa ve baslik adrese ekleniyor ki panel formu hangi habere
+         yazildigini bilsin ve okur konuyu yeniden yazmak zorunda
+         kalmasin. #}
+      <a class="dugme dugme-birincil"
+         href="/panel/?senaryo={{ yol | urlencode }}&baslik={{ h.baslik | urlencode }}">Senaryo yaz</a>
+    </div>
 
     {# SEFFAFLIK -- SKOR DEGIL SAYIM.
        "Veri Gucu 97" gibi bir puan olcum gibi gorunur ama

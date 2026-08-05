@@ -254,12 +254,17 @@
     });
   }
 
-  var vazgec = $("[data-vazgec]");
-  if (vazgec) {
-    vazgec.addEventListener("click", function () {
-      formTemizle();
-      sekmeGec("yazilarim");
-    });
+  /* Vazgec dugmeleri FORMA GORE secilir. Sayfada iki form var (yazi ve
+     senaryo); `$("[data-vazgec]")` ilkini alip senaryo formundakini
+     olusuz birakiyordu. */
+  if (yaziForm) {
+    var vazgec = $("[data-vazgec]", yaziForm);
+    if (vazgec) {
+      vazgec.addEventListener("click", function () {
+        formTemizle();
+        sekmeGec("yazilarim");
+      });
+    }
   }
 
   /* Hangi dugmeye basildigini submit oncesi yakaliyoruz: "taslak kaydet"
@@ -310,6 +315,194 @@
     });
   }
 
+  /* --- senaryolar --- */
+
+  var senForm = $('[data-form="senaryo"]');
+  var senListeKutu = $("[data-senaryo-liste]");
+
+  function senaryoTemizle() {
+    if (!senForm) return;
+    senForm.reset();
+    senForm.id.value = "";
+    hataGoster($("[data-hata]", senForm), "");
+  }
+
+  /* Capa (hangi habere yazildigi) ADRESTEN geliyor:
+     /panel/?senaryo=/haber/xxx/&baslik=...
+     Haber sayfasindaki "Senaryo yaz" dugmesi boyle baglaniyor. Okur
+     konuyu yeniden secmek ya da yazmak zorunda kalmiyor. */
+  function capaKur() {
+    if (!senForm) return;
+    var p = new URLSearchParams(location.search);
+    var capa = p.get("senaryo") || "";
+    var baslik = p.get("baslik") || "";
+    var not = $("[data-capa-not]");
+    if (capa) {
+      senForm.capa.value = capa;
+      senForm.capa_baslik.value = baslik;
+      if (not) {
+        $("[data-capa-baslik]", not).textContent = baslik || capa;
+        not.hidden = false;
+      }
+    } else if (not) {
+      not.hidden = true;
+    }
+    return capa;
+  }
+
+  function senaryoCiz(liste) {
+    if (!senListeKutu) return;
+    if (!liste.length) {
+      senListeKutu.innerHTML =
+        '<p class="uyelik-alt">Henüz senaryonuz yok. Bir haber sayfasındaki ' +
+        '“Senaryo yaz” düğmesiyle başlayabilirsiniz.</p>';
+      return;
+    }
+    senListeKutu.innerHTML = liste.map(function (s) {
+      /* Yalnizca taslak ve reddedilen duzenlenebilir. Yayimlanmis
+         senaryo DEGISMEZ -- sonradan duzeltilebilen bir onerme
+         denetlenemez, senaryo fikrinin tamami bu. */
+      var acik = s.durum === "taslak" || s.durum === "reddedildi";
+      return (
+        '<article class="panel-satir-kart">' +
+          '<div class="panel-satir-ust">' +
+            '<span class="rozet rozet-durum durum-' + kacir(s.durum) + '">' +
+              kacir(DURUM_ADI[s.durum] || s.durum) + '</span>' +
+            '<span class="rozet">ufuk ' + kacir(s.ufuk) + '</span>' +
+            '<span class="kart-kunye">' + tarih(s.olusma) + '</span>' +
+          '</div>' +
+          '<p class="senaryo-onerme">' +
+            '<span class="senaryo-kosul">' + kacir(s.kosul) + '</span>' +
+            '<span class="senaryo-ok" aria-hidden="true">→</span>' +
+            '<span class="senaryo-sonuc">' + kacir(s.sonuc) + '</span>' +
+          '</p>' +
+          (s.capa_baslik
+            ? '<p class="kart-ozet">Bağlı haber: ' + kacir(s.capa_baslik) + '</p>'
+            : '') +
+          (s.ret_nedeni
+            ? '<p class="uyelik-mesaj uyari">Editör notu: ' +
+              kacir(s.ret_nedeni) + '</p>'
+            : '') +
+          '<div class="panel-eylem">' +
+            (acik
+              ? '<button class="dugme dugme-sade" type="button" ' +
+                'data-sen-sil="' + s.id + '">Sil</button>'
+              : '') +
+            (s.durum === "yayimlandi" && s.capa
+              ? '<a class="dugme" href="' + kacir(s.capa) + '">Yayındaki hâli</a>'
+              : '') +
+          '</div>' +
+        '</article>'
+      );
+    }).join("");
+
+    $$("[data-sen-sil]", senListeKutu).forEach(function (d) {
+      d.addEventListener("click", function () {
+        if (!confirm("Bu senaryo silinsin mi? Geri alınamaz.")) return;
+        istek("/api/senaryo/" + d.dataset.senSil, { method: "DELETE" })
+          .then(senaryoYukle);
+      });
+    });
+  }
+
+  function senaryoYukle() {
+    if (!senListeKutu) return Promise.resolve();
+    return istek("/api/senaryo").then(function (y) {
+      if (y.tamam) senaryoCiz(y.veri.senaryolar || []);
+    });
+  }
+
+  var yeniSenaryo = $("[data-yeni-senaryo]");
+  if (yeniSenaryo) {
+    yeniSenaryo.addEventListener("click", function () {
+      senaryoTemizle();
+      capaKur();
+      $('[data-sekme="senaryo"]').hidden = false;
+      sekmeGec("senaryo");
+    });
+  }
+
+  if (senForm) {
+    var senVazgec = $("[data-vazgec]", senForm);
+    if (senVazgec) {
+      senVazgec.addEventListener("click", function () {
+        senaryoTemizle();
+        sekmeGec("senaryolarim");
+      });
+    }
+
+    var senGonderModu = false;
+    $$("[data-kaydet], [data-gonder]", senForm).forEach(function (d) {
+      d.addEventListener("click", function () {
+        senGonderModu = d.hasAttribute("data-gonder");
+      });
+    });
+
+    senForm.addEventListener("submit", function (o) {
+      o.preventDefault();
+      var h = $("[data-hata]", senForm);
+      hataGoster(h, "");
+      var kosul = senForm.kosul.value.trim();
+      var sonuc = senForm.sonuc.value.trim();
+      if (kosul.length < 12 || sonuc.length < 12) {
+        hataGoster(h, "Koşul ve sonuç en az 12 karakter olmalı.");
+        return;
+      }
+      if (!senForm.capa.value) {
+        hataGoster(h, "Senaryo bir habere bağlı olmalı. Bir haber " +
+                      "sayfasındaki “Senaryo yaz” düğmesini kullanın.");
+        return;
+      }
+      /* Olasilik beyani ISTEMCIDE de engelleniyor. Sunucu tarafi zaten
+         moderasyondan geciriyor ama uyariyi yazma aninda vermek,
+         reddedilen bir gonderimden iyi. */
+      if (/%\s*\d|yüzde\s*\d|olasılık|ihtimalle/i.test(kosul + " " + sonuc)) {
+        hataGoster(h, "Senaryoda olasılık belirtilmez. Koşulu ve beklenen " +
+                      "sonucu yazın; “%60 ihtimalle” gibi ifadeler " +
+                      "yayımlanmaz.");
+        return;
+      }
+      if (senGonderModu &&
+          !confirm("Senaryo incelemeye gönderilecek. Gönderdikten sonra " +
+                   "düzenleyemezsiniz. Devam edilsin mi?")) {
+        return;
+      }
+      dugmeKilit(senForm, true);
+      istek("/api/senaryo", {
+        method: "POST",
+        govde: {
+          id: senForm.id.value ? Number(senForm.id.value) : null,
+          capa: senForm.capa.value,
+          capa_baslik: senForm.capa_baslik.value,
+          capa_tur: "haber",
+          kosul: kosul,
+          sonuc: sonuc,
+          gerekce: senForm.gerekce.value.trim(),
+          ufuk: senForm.ufuk.value,
+          gonder: senGonderModu,
+        },
+      }).then(function (y) {
+        dugmeKilit(senForm, false);
+        if (!y.tamam) { hataGoster(h, y.veri.hata || "Kaydedilemedi."); return; }
+        senaryoTemizle();
+        sekmeGec("senaryolarim");
+        senaryoYukle();
+      }).catch(function () {
+        dugmeKilit(senForm, false);
+        hataGoster(h, "Bağlantı kurulamadı.");
+      });
+    });
+  }
+
+  /* Haber sayfasindan "Senaryo yaz" ile gelindiyse form DOGRUDAN
+     aciliyor: okur zaten ne yapmak istedigini soyledi, bir de sekme
+     aramasin. */
+  if (senForm && new URLSearchParams(location.search).get("senaryo")) {
+    capaKur();
+    $('[data-sekme="senaryo"]').hidden = false;
+    sekmeGec("senaryo");
+  }
+
   /* --- yonetim --- */
 
   function yonetimCiz(v) {
@@ -344,6 +537,31 @@
           '</div></article>';
       }).join("");
     }
+    if ((v.senaryolar || []).length) {
+      p += "<h3>İnceleme bekleyen senaryolar</h3>";
+      p += v.senaryolar.map(function (s) {
+        return '<article class="panel-satir-kart"><div class="panel-satir-ust">' +
+          '<span class="rozet">ufuk ' + kacir(s.ufuk) + '</span>' +
+          '<span class="kart-kunye">' + kacir(s.yazar) + '</span>' +
+          '<span class="kart-kunye">' + tarih(s.gonderim) + '</span></div>' +
+          '<p class="senaryo-onerme">' +
+            '<span class="senaryo-kosul">' + kacir(s.kosul) + '</span>' +
+            '<span class="senaryo-ok" aria-hidden="true">→</span>' +
+            '<span class="senaryo-sonuc">' + kacir(s.sonuc) + '</span></p>' +
+          (s.gerekce
+            ? '<p class="kart-ozet">' + kacir(s.gerekce) + '</p>' : '') +
+          (s.capa_baslik
+            ? '<p class="kart-kunye">Bağlı haber: ' +
+              kacir(s.capa_baslik) + '</p>' : '') +
+          '<div class="panel-eylem">' +
+          /* Senaryo onaylandigi anda yayimlaniyor: yazidan farkli olarak
+             statik dosya uretilmiyor, haber sayfasi canli uctan
+             okuyor. O yuzden ara "onaylandi" durumu yok. */
+          '<button class="dugme dugme-birincil" type="button" data-sen-onay="' + s.id + '">Yayımla</button>' +
+          '<button class="dugme dugme-sade" type="button" data-sen-ret="' + s.id + '">Reddet</button>' +
+          '</div></article>';
+      }).join("");
+    }
     yonetimKutu.innerHTML = p || '<p class="uyelik-alt">Bekleyen iş yok.</p>';
 
     function karar(secici, tur, durumu, sorNeden) {
@@ -365,6 +583,8 @@
     karar("[data-uye-askı]", "uye", "askida", false);
     karar("[data-yazi-onay]", "yazi", "onaylandi", false);
     karar("[data-yazi-ret]", "yazi", "reddedildi", true);
+    karar("[data-sen-onay]", "senaryo", "yayimlandi", false);
+    karar("[data-sen-ret]", "senaryo", "reddedildi", true);
   }
 
   function yonetimYukle() {
@@ -397,6 +617,7 @@
       yonetimYukle();
     }
     listeYukle();
+    senaryoYukle();
   }).catch(function () {
     if (girisGerek) girisGerek.hidden = false;
   });

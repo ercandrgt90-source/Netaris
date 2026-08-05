@@ -73,3 +73,70 @@ CREATE TABLE IF NOT EXISTS deneme (
   sayi              INTEGER NOT NULL DEFAULT 0,
   sifirlanir        INTEGER NOT NULL
 );
+
+
+-- ---------------------------------------------------------------------
+-- SENARYO
+--
+-- Sitenin temel ayrimi burada somutlasiyor: resmi veri ile kullanici
+-- gorusu ayri tablolarda, sayfada ayri bolumlerde ve farkli dille
+-- sunuluyor. Yapay zeka bilgiyi getirir, insan fikir uretir.
+--
+-- NEDEN "KOSUL -> SONUC" IKI AYRI ALAN
+-- Serbest metin birakilsaydi "bence altin yukselir" gibi kosulsuz
+-- tahminler gelirdi. Iki alan, yazani kosulunu soylemeye ZORLUYOR:
+-- neyin gerceklesmesi halinde ne bekliyor. Kosulsuz tahmin
+-- degerlendirilemez; kosullu olan degerlendirilebilir.
+--
+-- NEDEN OLASILIK ALANI YOK
+-- Sitenin "hesaplamadigimiz sayiyi olcum gibi sunmayiz" ilkesi burada
+-- da gecerli. "%55 olasilikla" yazan bir kullanici da hesaplamiyor.
+-- Bunun yerine UFUK var: senaryo ne zamana kadar gecerli. Ufuk dolunca
+-- senaryo GERCEKLESTI/GERCEKLESMEDI diye isaretlenebilir -- yani
+-- yazarin gecmis isabeti zamanla olculebilir hale geliyor. Olasilik
+-- beyani hicbir zaman denetlenemez, ufuklu kosul denetlenebilir.
+--
+-- Bu tablo bugun kurulmazsa o olcum hic baslamaz.
+CREATE TABLE IF NOT EXISTS senaryo (
+  id                INTEGER PRIMARY KEY AUTOINCREMENT,
+  uye_id            INTEGER NOT NULL REFERENCES uye(id) ON DELETE CASCADE,
+
+  -- Neye baglandigi. `capa_tur`: 'haber' | 'varlik' | 'konu'
+  -- `capa`: /haber/<slug>/ ya da 'BRENT' ya da 'Para politikası'
+  capa_tur          TEXT NOT NULL DEFAULT 'haber',
+  capa              TEXT NOT NULL,
+  -- Capanin o anki basligi. Kopya gibi gorunuyor ama gerekli: haber
+  -- basligi sonradan duzeltilirse senaryonun hangi baglamda yazildigi
+  -- kaybolmasin.
+  capa_baslik       TEXT NOT NULL DEFAULT '',
+
+  kosul             TEXT NOT NULL,      -- "Hürmüz Boğazı fiilen kapanırsa"
+  sonuc             TEXT NOT NULL,      -- "navlun maliyeti sert artar"
+  gerekce           TEXT NOT NULL DEFAULT '',
+
+  -- '1 hafta' | '1 ay' | '3 ay' | '6 ay' | '1 yıl'
+  ufuk              TEXT NOT NULL DEFAULT '3 ay',
+  ufuk_biter        TEXT,               -- ISO tarih; ufuktan hesaplanir
+
+  -- taslak -> incelemede -> yayimlandi
+  --                      -> reddedildi
+  durum             TEXT NOT NULL DEFAULT 'taslak',
+  ret_nedeni        TEXT,
+  guvenlik_notu     TEXT,
+
+  -- Ufuk dolunca isaretlenir: NULL | 'gerceklesti' | 'gerceklesmedi'
+  --                                  | 'belirsiz'
+  sonuclanma        TEXT,
+  sonuclanma_notu   TEXT,
+
+  olusma            TEXT NOT NULL,
+  guncelleme        TEXT NOT NULL,
+  gonderim          TEXT,
+  yayin             TEXT
+);
+
+CREATE INDEX IF NOT EXISTS senaryo_uye ON senaryo(uye_id);
+CREATE INDEX IF NOT EXISTS senaryo_durum ON senaryo(durum);
+-- Haber sayfasi capaya gore soruyor; en sik sorgu bu.
+CREATE INDEX IF NOT EXISTS senaryo_capa ON senaryo(capa, durum);
+CREATE INDEX IF NOT EXISTS senaryo_ufuk ON senaryo(ufuk_biter, sonuclanma);

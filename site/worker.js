@@ -51,6 +51,28 @@ const EN_COK_OZET = 400;
 
 const KATEGORILER = ["Analist Yorumu", "Makro", "Bilanço Analizi"];
 
+/* --- Senaryo sinirlari ---
+   Kosul ve sonuc KISA tutuluyor. Uzun serbest metin, kosullu bir
+   onermeyi paragrafa cevirip degerlendirilemez hale getiriyor; sinir
+   yazani tek cumleye zorluyor. Gerekce ayri ve daha uzun olabilir. */
+const EN_COK_KOSUL = 180;
+const EN_COK_SONUC = 180;
+const EN_COK_GEREKCE = 1200;
+const EN_AZ_KOSUL = 12;
+
+/* Ufuk secenekleri ve gun karsiliklari. Serbest tarih ALINMIYOR:
+   "2027-03-14" gibi bir tarih kesinlik izlenimi verir ama senaryo o
+   kadar hassas degildir. Kapali liste hem dogrulamayi hem ileride
+   toplu sonuclandirmayi basitlestiriyor. */
+const UFUKLAR = {
+  "1 hafta": 7,
+  "1 ay": 30,
+  "3 ay": 90,
+  "6 ay": 180,
+  "1 yıl": 365,
+};
+const CAPA_TURLERI = ["haber", "varlik", "konu"];
+
 /* ------------------------------------------------------------------ araclar */
 
 const kodla = (s) => new TextEncoder().encode(s);
@@ -439,9 +461,16 @@ async function yonetimOzet(env) {
     "u.ad AS yazar, u.eposta FROM yazi y JOIN uye u ON u.id = y.uye_id " +
     "WHERE y.durum = 'incelemede' ORDER BY y.gonderim ASC LIMIT 50",
   ).all();
+  const bekleyenSenaryo = await env.DB.prepare(
+    "SELECT s.id, s.capa, s.capa_baslik, s.kosul, s.sonuc, s.gerekce, " +
+    "s.ufuk, s.gonderim, u.ad AS yazar, u.eposta FROM senaryo s " +
+    "JOIN uye u ON u.id = s.uye_id WHERE s.durum = 'incelemede' " +
+    "ORDER BY s.gonderim ASC LIMIT 50",
+  ).all();
   return yanit({
     uyeler: bekleyenUye.results || [],
     yazilar: bekleyenYazi.results || [],
+    senaryolar: bekleyenSenaryo.results || [],
   });
 }
 
@@ -465,6 +494,36 @@ async function yonetimKarar(istek, env) {
     await env.DB.prepare(
       "UPDATE yazi SET durum = ?, ret_nedeni = ?, guncelleme = ? WHERE id = ?",
     ).bind(g.durum, metinKirp(g.neden, 400) || null, simdi(), id).run();
+    return yanit({ tamam: true });
+  }
+
+  if (g.tur === "senaryo") {
+    /* Senaryo YAZIDAN FARKLI: onaydan sonra ayri bir yayin adimi yok.
+       Yazi, statik siteye dosya olarak uretiliyor ve o yuzden
+       "onaylandi" ile "yayimlandi" ayri; senaryo ise haber sayfasina
+       canli uctan geliyor, onaylandigi anda gorunur oluyor. */
+    if (!["yayimlandi", "reddedildi", "taslak"].includes(g.durum)) {
+      return hata("Geçersiz durum.");
+    }
+    const t = simdi();
+    /* Ufuk saati YAYINDA baslatiliyor: incelemede bekleyen sure yazarin
+       hanesine yazilmamali. Bitis tarihi icin senaryonun UFUK degeri
+       lazim, o yuzden once okunuyor -- SQL ifadesinin icinde
+       hesaplanamaz. */
+    let biter = null;
+    if (g.durum === "yayimlandi") {
+      const v = await env.DB.prepare(
+        "SELECT ufuk FROM senaryo WHERE id = ?",
+      ).bind(id).first();
+      if (!v) return hata("Senaryo bulunamadı.", 404);
+      biter = ufukBitisi(v.ufuk) || ufukBitisi("3 ay");
+    }
+    await env.DB.prepare(
+      "UPDATE senaryo SET durum = ?, ret_nedeni = ?, guncelleme = ?, " +
+      "yayin = COALESCE(?, yayin), ufuk_biter = COALESCE(?, ufuk_biter) " +
+      "WHERE id = ?",
+    ).bind(g.durum, metinKirp(g.neden, 400) || null, t,
+           g.durum === "yayimlandi" ? t : null, biter, id).run();
     return yanit({ tamam: true });
   }
   return hata("Geçersiz tür.");
@@ -513,6 +572,115 @@ async function yayimlandiIsaretle(istek, env) {
   return yanit({ tamam: true, sayi: kayitlar.length });
 }
 
+/* --------------------------------------------------------------- senaryolar */
+
+/* Senaryo = kullanicinin KOSULLU onermesi.
+   Sitenin resmi veri / kullanici gorusu ayriminin somut hali. */
+
+function ufukBitisi(ufuk) {
+  const gun = UFUKLAR[ufuk];
+  if (!gun) return null;
+  const d = new Date(Date.now() + gun * 86400000);
+  return d.toISOString().slice(0, 10);
+}
+
+async function senaryoKaydet(istek, env, u) {
+  const g = await istek.json().catch(() => ({}));
+  const kosul = metinKirp(g.kosul, EN_COK_KOSUL);
+  const sonuc = metinKirp(g.sonuc, EN_COK_SONUC);
+  const gerekce = metinKirp(g.gerekce, EN_COK_GEREKCE);
+  const capa = metinKirp(g.capa, 240);
+  const capaBaslik = metinKirp(g.capa_baslik, EN_COK_BASLIK);
+  const capaTur = CAPA_TURLERI.includes(g.capa_tur) ? g.capa_tur : "haber";
+  const ufuk = UFUKLAR[g.ufuk] ? g.ufuk : "3 ay";
+  const gonder = g.gonder === true;
+
+  if (kosul.length < EN_AZ_KOSUL) {
+    return hata("Koşul en az " + EN_AZ_KOSUL + " karakter olmalı.");
+  }
+  if (sonuc.length < EN_AZ_KOSUL) {
+    return hata("Beklenen sonuç en az " + EN_AZ_KOSUL + " karakter olmalı.");
+  }
+  if (!capa) return hata("Senaryo bir habere ya da konuya bağlı olmalı.");
+
+  const durum = gonder ? "incelemede" : "taslak";
+  const t = simdi();
+  /* Ufuk saati GONDERIMDE isliyor, taslak yazilirken degil: aylarca
+     taslakta bekleyen bir senaryonun suresi dolmus olarak yayimlanmasi
+     anlamsiz olurdu. */
+  const biter = gonder ? ufukBitisi(ufuk) : null;
+
+  if (g.id) {
+    const v = await env.DB.prepare(
+      "SELECT id, durum FROM senaryo WHERE id = ? AND uye_id = ?",
+    ).bind(g.id, u.id).first();
+    if (!v) return hata("Senaryo bulunamadı.", 404);
+    /* Yayimlanmis senaryo DEGISTIRILEMEZ. Bu, senaryo fikrinin
+       tamami: sonradan duzeltilebilen bir onerme denetlenemez. */
+    if (v.durum === "yayimlandi" || v.durum === "incelemede") {
+      return hata("İncelemedeki veya yayımlanmış senaryo düzenlenemez.", 409);
+    }
+    await env.DB.prepare(
+      "UPDATE senaryo SET kosul = ?, sonuc = ?, gerekce = ?, ufuk = ?, " +
+      "ufuk_biter = COALESCE(?, ufuk_biter), durum = ?, ret_nedeni = NULL, " +
+      "guncelleme = ?, gonderim = CASE WHEN ? = 'incelemede' THEN ? " +
+      "ELSE gonderim END WHERE id = ? AND uye_id = ?",
+    ).bind(kosul, sonuc, gerekce, ufuk, biter, durum, t, durum, t,
+           g.id, u.id).run();
+    return yanit({ tamam: true, id: g.id, durum });
+  }
+
+  const s = await env.DB.prepare(
+    "INSERT INTO senaryo (uye_id, capa_tur, capa, capa_baslik, kosul, " +
+    "sonuc, gerekce, ufuk, ufuk_biter, durum, olusma, guncelleme, gonderim) " +
+    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+  ).bind(u.id, capaTur, capa, capaBaslik, kosul, sonuc, gerekce, ufuk,
+         biter, durum, t, t, gonder ? t : null).run();
+  return yanit({ tamam: true, id: s.meta.last_row_id, durum });
+}
+
+async function senaryoListe(env, u) {
+  const r = await env.DB.prepare(
+    "SELECT id, capa, capa_baslik, kosul, sonuc, ufuk, ufuk_biter, durum, " +
+    "ret_nedeni, sonuclanma, olusma FROM senaryo WHERE uye_id = ? " +
+    "ORDER BY id DESC LIMIT 100",
+  ).bind(u.id).all();
+  return yanit({ senaryolar: r.results || [] });
+}
+
+async function senaryoSil(env, u, id) {
+  const v = await env.DB.prepare(
+    "SELECT durum FROM senaryo WHERE id = ? AND uye_id = ?",
+  ).bind(id, u.id).first();
+  if (!v) return hata("Senaryo bulunamadı.", 404);
+  if (v.durum === "yayimlandi") {
+    return hata("Yayımlanmış senaryo silinemez.", 409);
+  }
+  await env.DB.prepare("DELETE FROM senaryo WHERE id = ? AND uye_id = ?")
+    .bind(id, u.id).run();
+  return yanit({ tamam: true });
+}
+
+/* HERKESE ACIK. Haber sayfasi bu ucu cagirip yayimlanmis senaryolari
+   listeliyor. Yalnizca `yayimlandi` donuyor; taslak ve incelemedeki
+   hicbir sekilde disari cikmiyor. */
+async function senaryoAcik(istek, env) {
+  const u = new URL(istek.url);
+  const capa = (u.searchParams.get("capa") || "").slice(0, 240);
+  if (!capa) return hata("Çapa gerekli.");
+  const r = await env.DB.prepare(
+    "SELECT s.kosul, s.sonuc, s.gerekce, s.ufuk, s.ufuk_biter, s.yayin, " +
+    "s.sonuclanma, u.ad AS yazar FROM senaryo s JOIN uye u ON u.id = s.uye_id " +
+    "WHERE s.capa = ? AND s.durum = 'yayimlandi' " +
+    "ORDER BY s.yayin DESC LIMIT 20",
+  ).bind(capa).all();
+  return yanit({ senaryolar: r.results || [] },
+    200,
+    /* Kisa onbellek: senaryo saniyede degismez, ama saatlerce eski de
+       gorunmemeli. Sayfa statik, bu uc dinamik. */
+    { "cache-control": "public, max-age=120" });
+}
+
 /* --------------------------------------------------------------- yonlendirme */
 
 export default {
@@ -537,6 +705,9 @@ export default {
       if (y === "ben" && m === "GET") return await ben(istek, env);
       if (y === "disari-aktar" && m === "GET") return await disariAktar(istek, env);
       if (y === "yayimlandi" && m === "POST") return await yayimlandiIsaretle(istek, env);
+      /* Haber sayfasindaki senaryo bolumu -- oturum ISTEMEZ, yalnizca
+         yayimlanmis senaryolari doner. */
+      if (y === "senaryo/acik" && m === "GET") return await senaryoAcik(istek, env);
 
       /* Buradan sonrasi oturum istiyor */
       const uye = await uyeBul(istek, env.DB);
@@ -548,6 +719,11 @@ export default {
       const tek = y.match(/^yazi\/(\d+)$/);
       if (tek && m === "GET") return await yaziGetir(env, uye, Number(tek[1]));
       if (tek && m === "DELETE") return await yaziSil(env, uye, Number(tek[1]));
+
+      if (y === "senaryo" && m === "GET") return await senaryoListe(env, uye);
+      if (y === "senaryo" && m === "POST") return await senaryoKaydet(istek, env, uye);
+      const sen = y.match(/^senaryo\/(\d+)$/);
+      if (sen && m === "DELETE") return await senaryoSil(env, uye, Number(sen[1]));
 
       if (y.startsWith("yonetim/")) {
         if (uye.rol !== "yonetici") return hata("Yetkiniz yok.", 403);

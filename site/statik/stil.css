@@ -2394,3 +2394,65 @@ table td, table th, time, .tarih {
   -webkit-background-clip: text;
   background-clip: text;
 }
+
+/* ================================================================
+   Senaryolar -- okur gorusu
+   ================================================================
+
+   SITENIN KENDI SENARYOLARINDAN GORSEL OLARAK AYRI DURUYOR.
+   Yukaridaki "Senaryolar" bolumu Netaris'in yapisal degerlendirmesi;
+   buradakiler uyelerin gorusu. Ikisi ayni sayfada oldugu icin ayrimin
+   GORULEBILIR olmasi gerekiyor -- baslik yetmez. Okur gorusleri kesikli
+   sol cizgiyle ve panel zeminiyle isaretleniyor.
+   Renk kullanilmiyor: yesil/kirmizi bu sitede yalnizca sayisal yon. */
+
+.senaryo-bolum { margin: 34px 0 0; }
+.senaryo-bolum h2 { font-size: 1.05rem; margin: 0 0 8px; }
+
+.senaryo-liste { list-style: none; padding: 0; margin: 14px 0 0; }
+.senaryo {
+  padding: 14px 16px; margin: 0 0 10px;
+  background: var(--panel-2);
+  border: 1px solid var(--cizgi);
+  border-left: 3px dashed var(--cizgi-parlak);
+  border-radius: 0 var(--r-kucuk) var(--r-kucuk) 0;
+}
+
+.senaryo-onerme {
+  margin: 0 0 6px;
+  display: flex; flex-wrap: wrap; gap: 6px 9px; align-items: baseline;
+  line-height: 1.5;
+}
+.senaryo-kosul { font-weight: 700; color: var(--yazi); }
+.senaryo-ok { color: var(--yazi-3); }
+.senaryo-sonuc { color: var(--yazi-2); }
+.senaryo-gerekce {
+  margin: 6px 0 8px; font-size: 0.89rem; line-height: 1.6;
+  color: var(--yazi-2);
+}
+.senaryo-kunye { margin: 0; font-size: 0.78rem; color: var(--yazi-3); }
+.senaryo-kunye b { color: var(--yazi-2); }
+
+/* Sonuclanma rozeti. Ufuk dolunca isaretlenen sonuc; bir senaryonun
+   tutup tutmadigi. */
+.senaryo-sonuclanma {
+  padding: 1px 8px; border-radius: 999px; font-weight: 700;
+  border: 1px solid var(--cizgi-parlak);
+}
+.senaryo-sonuclanma.olumlu  { color: var(--artis); border-color: var(--artis); }
+.senaryo-sonuclanma.olumsuz { color: var(--azalis); border-color: var(--azalis); }
+.senaryo-sonuclanma.notr    { color: var(--yazi-3); }
+
+/* Panelde capa bilgisi -- hangi habere yazildigi. */
+.senaryo-capa-not {
+  margin: 0 0 16px; padding: 10px 14px;
+  background: var(--vurgu-zar); border-radius: var(--r-kucuk);
+  font-size: 0.88rem; color: var(--yazi-2);
+}
+.senaryo-capa-not b { color: var(--yazi); }
+
+.panel-eylem-ust { margin: 0 0 16px; }
+
+/* Senaryo formunda kosul ve sonuc alanlari yan yana degil ALT ALTA:
+   yan yana konsalar iki alan tek cumleymis gibi okunuyordu. */
+.senaryo-form label { display: block; }

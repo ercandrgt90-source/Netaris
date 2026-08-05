@@ -88,12 +88,97 @@
 
     <nav class="panel-sekme">
       <button class="etkin" type="button" data-sekme="yazilarim">Yazılarım</button>
+      <button type="button" data-sekme="senaryolarim">Senaryolarım</button>
       <button type="button" data-sekme="duzenle" hidden>Düzenle</button>
+      <button type="button" data-sekme="senaryo" hidden>Senaryo</button>
       <button type="button" data-sekme="yonetim" data-yonetici hidden>Yönetim</button>
     </nav>
 
     <section data-bolum="yazilarim">
       <div data-liste class="panel-liste"></div>
+    </section>
+
+    <section data-bolum="senaryolarim" hidden>
+      <div class="panel-eylem panel-eylem-ust">
+        <button class="dugme dugme-birincil" type="button" data-yeni-senaryo>
+          Yeni senaryo
+        </button>
+      </div>
+      <div data-senaryo-liste class="panel-liste"></div>
+    </section>
+
+    {# SENARYO FORMU.
+       Kosul ve sonuc AYRI iki alan. Tek bir serbest metin birakilsaydi
+       "bence altin yukselir" gibi kosulsuz tahminler gelirdi; iki alan
+       yazani kosulunu soylemeye zorluyor. Kosulsuz tahmin
+       degerlendirilemez, kosullu olan degerlendirilebilir.
+
+       OLASILIK ALANI YOK. Sitenin "hesaplamadigimiz sayiyi olcum gibi
+       sunmayiz" ilkesi burada da gecerli -- "%55 olasilikla" yazan
+       kullanici da hesaplamiyor. Onun yerine UFUK var: senaryo ne
+       zamana kadar gecerli. Ufuk dolunca sonuc isaretlenebiliyor, yani
+       beyan zamanla DENETLENEBILIR hale geliyor. #}
+    <section data-bolum="senaryo" hidden>
+      <form class="uyelik-form senaryo-form" data-form="senaryo" novalidate>
+        <input type="hidden" name="id">
+        <input type="hidden" name="capa">
+        <input type="hidden" name="capa_baslik">
+
+        <p class="senaryo-capa-not" data-capa-not hidden>
+          Şu habere yazıyorsunuz: <b data-capa-baslik></b>
+        </p>
+
+        <label>Koşul
+          <span class="uyelik-ipucu">Ne gerçekleşirse? Tek cümle.
+            Örnek: “Hürmüz Boğazı fiilen kapanırsa”</span>
+          <input type="text" name="kosul" required minlength="12" maxlength="180">
+        </label>
+
+        <label>Beklediğiniz sonuç
+          <span class="uyelik-ipucu">Ne olur? Tek cümle.
+            Örnek: “navlun ve sigorta maliyeti sert artar”</span>
+          <input type="text" name="sonuc" required minlength="12" maxlength="180">
+        </label>
+
+        <label>Gerekçe <span class="uyelik-ipucu">Neden böyle
+          düşünüyorsunuz? Dayandığınız veriyi yazın.</span>
+          <textarea name="gerekce" rows="5" maxlength="1200"></textarea>
+        </label>
+
+        <label>Ufuk
+          <span class="uyelik-ipucu">Senaryonuz ne zamana kadar geçerli?
+            Süre dolduğunda sonucu işaretlenir.</span>
+          <select name="ufuk">
+            <option>1 hafta</option>
+            <option>1 ay</option>
+            <option selected>3 ay</option>
+            <option>6 ay</option>
+            <option>1 yıl</option>
+          </select>
+        </label>
+
+        <div class="uyelik-not">
+          <h2>Senaryo yazarken</h2>
+          <ul>
+            <li><b>Koşul yazın, tahmin değil.</b> “Altın yükselir” bir
+                senaryo değildir; “Fed faiz indirimini ertelerse altında
+                geri çekilme görülebilir” senaryodur.</li>
+            <li><b>Olasılık yazmayın.</b> “%60 ihtimalle” gibi ifadeler
+                yayımlanmaz — hesaplanmamış bir sayıyı ölçüm gibi sunar.</li>
+            <li>Al / sat / tut önerisi ve hedef fiyat yayımlanmaz;
+                yatırım danışmanlığı kapsamına girer.</li>
+            <li>Yayımlanan senaryo <b>değiştirilemez.</b> Sonradan
+                düzeltilebilen bir öngörü denetlenemez.</li>
+          </ul>
+        </div>
+
+        <div class="panel-eylem">
+          <button class="dugme" type="submit" data-kaydet>Taslak kaydet</button>
+          <button class="dugme dugme-birincil" type="submit" data-gonder>İncelemeye gönder</button>
+          <button class="dugme dugme-sade" type="button" data-vazgec>Vazgeç</button>
+        </div>
+        <p class="uyelik-hata" data-hata hidden></p>
+      </form>
     </section>
 
     <section data-bolum="duzenle" hidden>
