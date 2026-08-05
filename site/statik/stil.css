@@ -2464,3 +2464,14 @@ table td, table th, time, .tarih {
   font-size: 0.74rem; font-weight: 700; letter-spacing: 0.04em;
   text-transform: uppercase; color: var(--vurgu);
 }
+
+/* Acilis cumlesi -- bulten basliklarinda verinin kendisi.
+   Govdenin ilk paragrafi ve daha buyuk: haberin ne soyledigini okur ilk
+   ekranda gormeli. Kaynagin metni degil, bizim olcumumuz. */
+.acilis {
+  margin: 0 0 22px;
+  font-size: 1.08rem; line-height: 1.62; color: var(--yazi);
+  font-weight: 500;
+  padding-left: 14px;
+  border-left: 3px solid var(--vurgu);
+}

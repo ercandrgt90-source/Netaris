@@ -252,9 +252,18 @@ TURKIYE_ISARETI = ("turkiye", " turk ", " tcmb ", " tuik ", " tl ",
                    " lira ", "bist", " ankara ", " istanbul ", " spk ",
                    " bddk ", " ihracat", " ithalat", " esnaf ", " emekli")
 #: Bu kurumlardan gelen haber Turkiye baglami sayilir.
-TURK_KURUMLARI = ("tcmb", "tuik", "spk", "bddk", "hazine", "dunya",
+#:
+#: Hem KISA kod ("TCMB") hem TAM ad ("Turkiye Cumhuriyet Merkez
+#: Bankasi") gelebiliyor; ikisi de eslesmeli. Olculen hata: haber
+#: hattinda `kurum_tam` gecirildiginde "TCMB" eslesmiyor, TCMB'nin
+#: "Aylik Fiyat Gelismeleri" duyurusu hicbir varliga baglanmiyor ve
+#: sayfada Turkiye paneli hic basilmiyordu.
+TURK_KURUMLARI = ("tcmb", "turkiye cumhuriyet merkez", "tuik",
+                  "istatistik kurumu", "spk", "sermaye piyasasi kurulu",
+                  "bddk", "bankacilik duzenleme", "hazine", "dunya",
                   "anadolu ajansi", " aa ", "trt", "haberturk", "ntv",
-                  "bloomberg ht", "ekonomim", "patronlar", "borsa")
+                  "bloomberg ht", "ekonomim", "ekonomist", "patronlar",
+                  "borsa")
 #: Baslikta bunlardan biri varsa haber yurt disi sayilir.
 YABANCI_ISARETI = (
     " fed ", " ecb ", " abd ", "amerika", " fomc ", "avrupa merkez",
@@ -323,8 +332,9 @@ def _turk_baglami(k: str, kurum: str) -> bool:
     """
     if any(i in k for i in TURKIYE_ISARETI):
         return True
-    return _aranacak(kurum or "") .strip() != "" and any(
-        i in _aranacak(kurum) for i in TURK_KURUMLARI)
+    if not kurum:
+        return False
+    return any(i in _aranacak(kurum) for i in TURK_KURUMLARI)
 
 
 def _kodlari_bul(metin: str, kurum: str = "") -> list[str]:
@@ -361,7 +371,16 @@ def bul(b: sqlite3.Connection, baslik: str, ozet: str = "",
         if k not in kodlar:
             kodlar.append(k)
     # Yayimlayan kurum -- basliktan bagimsiz, olgu.
+    # Kisa kod ("TCMB") ve tam ad ("Turkiye Cumhuriyet Merkez Bankasi")
+    # ikisi de gelebiliyor; once dogrudan, sonra kalip aramasiyla.
     kk = KURUM_VARLIK.get((kurum or "").strip().upper())
+    if not kk and kurum:
+        kn = _aranacak(kurum)
+        for kod, kaliplar in KALIPLAR.items():
+            if kod in KURUM_VARLIK.values() and any(
+                    _esliyor(kn, p) for p in kaliplar):
+                kk = kod
+                break
     if kk and kk not in kodlar:
         kodlar.append(kk)
     if not kodlar:

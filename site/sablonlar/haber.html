@@ -73,6 +73,19 @@
 
   <div class="govde">
 
+    {# ACILIS CUMLESI -- bulten basliklari icin.
+       "Aylık Fiyat Gelişmeleri (Temmuz 2026)" bir başlık değil, dosya
+       adı: okurda beklenti oluşturmuyor ve kaynağın RSS'i özet de
+       vermiyor. Sayfa "fiyat gelişmeleri" diyor ama gelişmenin KENDİSİ
+       sayfada yoktu.
+
+       Cümle kaynağın metninden DEĞİL, bizim ölçümlerimizden kuruluyor:
+       hangi seri, hangi tarih, hangi değer. Bülten zaten o rakamı
+       duyurduğu için sayfa haberin konusuyla örtüşüyor. #}
+    {% if dosya and dosya.acilis %}
+    <p class="acilis">{{ dosya.acilis }}</p>
+    {% endif %}
+
     {# ARSIV UYARISI.
        Asagidaki gosterge ve piyasa kutulari BUGUNUN verisi. Eski bir
        haberi bugunun sayilariyla cerceveleyip susmak, o sayilari haberin

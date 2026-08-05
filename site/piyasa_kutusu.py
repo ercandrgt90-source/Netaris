@@ -124,6 +124,48 @@ KONU_ARACLARI: dict[str, tuple[tuple[str, str, str, str], ...]] = {
     ),
 }
 
+#: YURT ICI haberde kullanilan araclar. Yukaridaki tablo ABD verisi icin
+#: yazildi ve olculen sonuc suydu:
+#:
+#:   TCMB'nin "Aylik Fiyat Gelismeleri (Temmuz 2026)" duyurusunun
+#:   sayfasinda piyasa kutusu ABD 2 yillik, ABD 10 yillik ve 10Y-2Y
+#:   farkini gosteriyordu.
+#:
+#: Turkiye enflasyon haberinde okunacak yer ABD tahvili degil; TL kuru,
+#: yurt ici fonlama maliyeti ve enflasyonun kendisi. Konu ayni, BOLGE
+#: farkli -- arac secimi ikisine birden bakmali.
+YERLI_ARACLAR = {
+    "Enflasyon": (
+        ("gosterge", "TP.TUKFIY2025.GENEL", "TÜFE (yıllık)", "%"),
+        ("gosterge", "TP.FE25.OKTG04", "Çekirdek (C)", "%"),
+        ("gosterge", "TP.APIFON4", "TCMB fonlama", "%"),
+        ("gosterge", "TP.DK.USD.S.YTL", "USD/TRY", ""),
+    ),
+    "Para politikası": (
+        ("gosterge", "TP.APIFON4", "TCMB fonlama", "%"),
+        ("gosterge", "TP.TUKFIY2025.GENEL", "TÜFE (yıllık)", "%"),
+        ("gosterge", "TP.DK.USD.S.YTL", "USD/TRY", ""),
+    ),
+    "Bankacılık": (
+        ("gosterge", "TP.APIFON4", "TCMB fonlama", "%"),
+        ("gosterge", "TP.DK.USD.S.YTL", "USD/TRY", ""),
+    ),
+    "Döviz": (
+        ("gosterge", "TP.DK.USD.S.YTL", "USD/TRY", ""),
+        ("gosterge", "TP.DK.EUR.S.YTL", "EUR/TRY", ""),
+        ("gosterge", "DTWEXBGS", "Dolar endeksi", ""),
+    ),
+    "Dış ticaret": (
+        ("gosterge", "TP.HARICCARIACIK.K1", "Cari denge", ""),
+        ("gosterge", "TP.DK.USD.S.YTL", "USD/TRY", ""),
+        ("gosterge", "DCOILBRENTEU", "Brent", "$"),
+    ),
+    "İstihdam ve ücret": (
+        ("gosterge", "TP.YISGUCU2.G8", "İşsizlik", "%"),
+        ("gosterge", "TP.TUKFIY2025.GENEL", "TÜFE (yıllık)", "%"),
+    ),
+}
+
 #: Konum skorunun bilesenleri -- sayfada da bu sirayla anlatiliyor.
 #: Bes bilesen: uc ortalamanin uzerinde olmak + iki ortalama sirasi.
 SKOR_BILESEN = 5
@@ -300,9 +342,15 @@ def turkiye(bugun: str = "") -> list[dict]:
     return satirlar
 
 
-def kutu(konu: str, bugun: str = "") -> dict | None:
-    """Konuya gore piyasa kutusu. Veri yoksa None -- kutu basilmaz."""
-    araclar = KONU_ARACLARI.get(konu)
+def kutu(konu: str, bugun: str = "", yerli: bool = False) -> dict | None:
+    """Konuya gore piyasa kutusu. Veri yoksa None -- kutu basilmaz.
+
+    `yerli` verildiginde once YERLI_ARACLAR'a bakilir: ayni konunun
+    yurt ici haberinde okunacak yer farklidir. Yerli karsiligi olmayan
+    konu genel tabloya duser.
+    """
+    araclar = (YERLI_ARACLAR.get(konu) if yerli else None) \
+        or KONU_ARACLARI.get(konu)
     if not araclar or not DEPO.exists():
         return None
 

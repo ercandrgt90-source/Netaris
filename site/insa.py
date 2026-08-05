@@ -1339,7 +1339,16 @@ def insa() -> int:
                     **ortak, yol=h_yol, h=h,
                     gorsel_svg=gundem_gorseller.get(h["adres"], ""),
                     ilgili=ilgili_gostergeler(h["konu"], gostergeler),
-                    piyasa=piyasa_kutusu.kutu(h["konu"], gundem.get("guncelleme", "")),
+                    # Piyasa kutusu BOLGEYE duyarli: Turkiye enflasyon
+                    # haberinde ABD tahvil getirisi degil, TUFE ve TCMB
+                    # fonlama okunur.
+                    piyasa=piyasa_kutusu.kutu(
+                        h["konu"], gundem.get("guncelleme", ""),
+                        yerli=_dosya.turkiye_haberi(
+                            h.get("bolge", ""),
+                            ([v["kod"] for v in h_varliklar]
+                             if h_varliklar is not None else None))
+                        if _dosya else False),
                     # Turkiye bolumleri YALNIZCA Turkiye haberinde.
                     # Olcut `bolge` degil VARLIK INDEKSI: bolge, Turkce
                     # basligi varsayilan olarak TR sayiyor ve Turk
@@ -1349,7 +1358,8 @@ def insa() -> int:
                     dosya=(_dosya.kur(
                         h["konu"], h.get("bolge", ""), h.get("tarih", ""),
                         varliklar=([v["kod"] for v in h_varliklar]
-                                   if h_varliklar is not None else None))
+                                   if h_varliklar is not None else None),
+                        baslik=h.get("baslik_kaynak") or h.get("baslik", ""))
                            if _dosya else None),
                     varliklar=h_varliklar or [],
                     ilgili_haberler=varlik_haritasi.get(h["adres"], {}).get("ilgili", []),

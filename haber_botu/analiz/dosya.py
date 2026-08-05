@@ -31,6 +31,7 @@ sunu izledi". Bu bir olcum; olasilik degil.
 from __future__ import annotations
 
 import pathlib
+import re
 import sqlite3
 from dataclasses import dataclass, field
 from datetime import date
@@ -383,6 +384,8 @@ class Dosya:
     seyir: list[tuple[str, float]] = field(default_factory=list)
     seyir_ad: str = ""
     bulgular: list[str] = field(default_factory=list)
+    #: Bulten basligi icin veriden uretilen acilis cumlesi.
+    acilis: str = ""
     duyarlilik: tuple[tuple[str, int, str], ...] = ()
     izlenecekler: tuple[str, ...] = ()
     senaryolar: tuple[tuple[str, str], ...] = ()
@@ -447,6 +450,147 @@ def _vir(x: float, b: int = 1) -> str:
 # Her uretec, seriyi bulamazsa BOS liste dondurur. Veri yoksa cumle
 # uydurmak degil, susmak dogru.
 # --------------------------------------------------------------------------
+
+#: Basligi tek basina hicbir sey soylemeyen resmi bulten kaliplari.
+#:
+#: "Aylik Fiyat Gelismeleri (Temmuz 2026)" bir baslik degil, bir dosya
+#: adi: okurda beklenti olusturmuyor ve TCMB'nin RSS'i ozet de
+#: vermiyor. Sayfa "fiyat gelismeleri" diyor ama gelismenin KENDISI
+#: sayfada yok -- kullanicinin bildirdigi hata tam olarak buydu.
+#:
+#: Bu basliklarda veriden bir ACILIS CUMLESI uretiliyor: rakam zaten
+#: depoda, haberin anlattigi sey de o rakam.
+BULTEN_KALIPLARI = (
+    "fiyat gelismeleri", "aylik fiyat", "beklenti anketi",
+    "faiz oranlarina iliskin", "para politikasi kararlari",
+    "toplanti ozeti", "reel efektif doviz kuru", "menkul kiymet",
+    "finansal hesaplar", "istatistikleri", "gostergeleri",
+)
+
+
+#: Turkce harfleri ASCII karsiligina indirir. Once translate, SONRA
+#: lower: "İ".lower() iki kod noktasi uretiyor ve eslesme sessizce
+#: bozuluyor. (Ayni katlama besleme.py, varlik.py ve gundem_yorum.py'de
+#: de var; ortak bir module tasinmasi ileride yapilacak temizlik.)
+_KATLAMA = str.maketrans({
+    "ı": "i", "İ": "i", "I": "i", "ş": "s", "Ş": "s", "ğ": "g", "Ğ": "g",
+    "ü": "u", "Ü": "u", "ö": "o", "Ö": "o", "ç": "c", "Ç": "c",
+})
+
+
+def katla(metin: str) -> str:
+    return metin.translate(_KATLAMA).lower()
+
+
+def bulten_mi(baslik: str) -> bool:
+    # Noktalama bosluga cevriliyor -- "TCMB:" gibi yazimlar kaliplari
+    # bloke ediyordu. Ayni tuzak bu projede uc modulde yasandi.
+    k = " " + re.sub(r"[^a-z0-9]+", " ", katla(baslik)).strip() + " "
+    return any(p in k for p in BULTEN_KALIPLARI)
+
+
+def acilis_cumlesi(konu: str, baslik: str) -> str:
+    """Bulten basligi icin veriden acilis cumlesi.
+
+    Kaynagin metnini YENIDEN YAYIMLAMIYOR -- TCMB'nin bulten metnini
+    almiyoruz. Cumle tamamen bizim depomuzdaki OLCUMLERDEN kuruluyor:
+    hangi seri, hangi tarih, hangi deger. Bulten zaten o rakami
+    duyurdugu icin sayfa haberin konusuyla ortusuyor.
+
+    Veri yoksa BOS doner ve sayfada hicbir sey basilmaz; uydurulmus bir
+    acilis cumlesi, bos sayfadan kotudur.
+    """
+    if not bulten_mi(baslik) or not DEPO.exists():
+        return ""
+    try:
+        with sqlite3.connect(f"file:{DEPO}?mode=ro", uri=True) as b:
+            return _acilis(b, konu)
+    except sqlite3.Error:
+        return ""
+
+
+def _son_iki(b, kod: str):
+    s = _seri(b, kod, 2)
+    return (s[-1], s[-2]) if len(s) >= 2 else (None, None)
+
+
+def _yon(fark: float) -> str:
+    if fark > 0.05:
+        return "yükseldi"
+    if fark < -0.05:
+        return "geriledi"
+    return "yatay kaldı"
+
+
+def _acilis(b, konu: str) -> str:
+    if konu in ("Enflasyon", "Para politikası"):
+        m, mo = _son_iki(b, "TP.TUKFIY2025.GENEL")
+        c, co = _son_iki(b, "TP.FE25.OKTG04")
+        if not m:
+            return ""
+        ay = _ay_etiketi(m[0])
+        p = [f"{ay} verisine göre TÜFE yıllık %{_vir(m[1], 2)}"]
+        if mo:
+            p.append(f"bir önceki aya göre {round((m[1] - mo[1]) * 100):+d} "
+                     f"baz puanla {_yon(m[1] - mo[1])}")
+        if c:
+            p.append(f"çekirdek enflasyon (C) %{_vir(c[1], 2)}")
+            if co:
+                p.append(f"çekirdekte değişim {round((c[1] - co[1]) * 100):+d} "
+                         f"baz puan")
+        return "; ".join(p) + "."
+
+    if konu == "Döviz":
+        u, uo = _son_iki(b, "TP.DK.USD.S.YTL")
+        e, _ = _son_iki(b, "TP.DK.EUR.S.YTL")
+        if not u:
+            return ""
+        p = [f"{_ay_etiketi(u[0], gunlu=True)} itibarıyla USD/TRY {_vir(u[1], 4)}"]
+        if uo and uo[1]:
+            y = (u[1] - uo[1]) / uo[1] * 100
+            p.append(f"önceki güne göre %{_vir(abs(y), 2)} "
+                     f"{'yükseldi' if y >= 0 else 'geriledi'}")
+        if e:
+            p.append(f"EUR/TRY {_vir(e[1], 4)}")
+        return "; ".join(p) + "."
+
+    if konu == "İstihdam ve ücret":
+        i, io = _son_iki(b, "TP.YISGUCU2.G8")
+        if not i:
+            return ""
+        p = [f"{_ay_etiketi(i[0])} verisine göre işsizlik oranı %{_vir(i[1], 1)}"]
+        if io:
+            p.append(f"bir önceki aya göre {round((i[1] - io[1]) * 100):+d} "
+                     f"baz puan")
+        return "; ".join(p) + "."
+
+    if konu == "Dış ticaret":
+        c, co = _son_iki(b, "TP.HARICCARIACIK.K1")
+        if not c:
+            return ""
+        ad = "fazlası" if c[1] > 0 else "açığı"
+        p = [f"{_ay_etiketi(c[0])} verisine göre cari işlemler {ad} "
+             f"{abs(c[1]):,.0f} mn $".replace(",", ".")]
+        if co:
+            p.append(f"önceki ay {abs(co[1]):,.0f} mn $".replace(",", "."))
+        return "; ".join(p) + "."
+    return ""
+
+
+def _ay_etiketi(iso: str, gunlu: bool = False) -> str:
+    """ISO tarihten "Temmuz 2026" ya da "4 Ağustos 2026".
+
+    `_ay_adi` ADIYLA CAKISIYORDU: dosyanin ilerisinde `date` alan ayni
+    adli bir islev var ve Python sonuncuyu tuttugu icin bu surum sessizce
+    devre disi kaliyordu ("str has no attribute month").
+    """
+    try:
+        y, a, g = iso[:10].split("-")
+        ad = f"{_AYLAR[int(a) - 1]} {y}"
+        return f"{int(g)} {ad}" if gunlu else ad
+    except (ValueError, IndexError):
+        return iso[:10]
+
 
 def _bulgu_enflasyon(b, d) -> list[str]:
     manset = _seri(b, "TP.TUKFIY2025.GENEL", 13)
@@ -720,8 +864,12 @@ def turkiye_haberi(bolge: str, varliklar) -> bool:
 
 
 def kur(konu: str, bolge: str, haber_tarihi: str = "",
-        varliklar=None) -> Dosya:
-    """Haberin arastirma dosyasini kurar. Veri yoksa bos Dosya doner."""
+        varliklar=None, baslik: str = "") -> Dosya:
+    """Haberin arastirma dosyasini kurar. Veri yoksa bos Dosya doner.
+
+    `baslik` bulten tespiti icin: basligi tek basina bir sey soylemeyen
+    resmi duyurularda veriden acilis cumlesi uretiliyor.
+    """
     tr = turkiye_haberi(bolge, varliklar)
 
     # DUYARLILIK / IZLENECEKLER / SENARYOLAR TURKIYE'YE OZGU.
@@ -760,6 +908,9 @@ def kur(konu: str, bolge: str, haber_tarihi: str = "",
                 d.reel_faiz = faiz[0][1] - enf[0][1]
 
             _bulgulari_kur(b, d, konu)
+
+            if baslik and bulten_mi(baslik):
+                d.acilis = _acilis(b, konu)
 
             if haber_tarihi:
                 d.neden_bugun = _neden_bugun(b, haber_tarihi, konu)
