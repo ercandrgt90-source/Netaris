@@ -951,6 +951,22 @@ def senaryoya_acik(h: dict) -> bool:
     return _olay.esigi_gecti(o)
 
 
+def ai_yorum_oku() -> dict[str, str]:
+    """Depodaki AI yorumlari: adres -> metin.
+
+    Tablo yoksa BOS sozluk. Yorum hatti hic calismamis olabilir ve bu
+    sitenin kurulmasini engellememeli.
+    """
+    if _beyin is None:
+        return {}
+    try:
+        with _beyin.baglan() as b:
+            r = b.execute("SELECT adres, metin FROM ai_yorum").fetchall()
+    except Exception:
+        return {}
+    return {x[0]: x[1] for x in r}
+
+
 def gun_farki(tarih: str, bugun: str) -> int:
     """Iki ISO tarih arasindaki gun. Cozulemezse 0 -- yani "taze" sayilir.
 
@@ -1383,6 +1399,13 @@ def insa() -> int:
         # olusuyor. Baglantilarin calismasi icin geri yazilmali.
         varlik_haritasi = varlik_indeksle(uretilecek)
 
+        # AI yorumlari DEPODAN okunuyor, burada uretilmiyor.
+        # Site kurulumu modele bagimli olmamali: kota bittiginde ya da
+        # uc coktugunde site yine kurulmali, yalnizca o bolum basilmasin.
+        ai_yorumlari = ai_yorum_oku()
+        if ai_yorumlari:
+            print(f"ai: {len(ai_yorumlari)} haberde yorum var")
+
         for h in uretilecek:
             if not h.get("yorumlanir"):
                 continue
@@ -1429,6 +1452,7 @@ def insa() -> int:
                                   gundem.get("guncelleme", "")),
                     # Senaryo bolumu yalnizca kritik haberlerde
                     senaryo_acik=senaryoya_acik(h),
+                    ai_yorum=ai_yorumlari.get(h["adres"], ""),
                 ),
             )
             yollar.append(h_yol)

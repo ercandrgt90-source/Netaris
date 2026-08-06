@@ -93,6 +93,7 @@ jobs:
           python haber_botu/analiz/test_skor.py
           python haber_botu/analiz/test_araci_kurum.py
           python haber_botu/analiz/test_varlik.py
+          python haber_botu/ai/test_yorumcu.py
           python haber_botu/test_yapistir.py
           python haber_botu/ai/test_guvenlik.py
 
@@ -107,6 +108,10 @@ jobs:
           # TCMB EVDS -- Turkiye makro serileri. Tanimli degilse o adim
           # kendini atlar, hat kirmizi DONMEZ.
           EVDS_ANAHTARI: ${{ secrets.EVDS_ANAHTARI }}
+          # AI yorumu. Tanimliysa Anthropic, degilse yukaridaki
+          # CLOUDFLARE_* ile Workers AI kullaniliyor; ikisi de yoksa
+          # adim kendini atlar.
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
         run: |
           python calistir.py ${{ (github.event_name == 'schedule' || inputs.yayinla) && '--yayinla' || '' }}
 

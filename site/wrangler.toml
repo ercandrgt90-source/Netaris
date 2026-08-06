@@ -34,16 +34,6 @@ binding = "DB"
 database_name = "netaris-uyelik"
 database_id = "56f6ce02-a748-4c58-b378-46c46e02a21a"
 
-# Workers AI. Ucretsiz gunluk kotasi var ve site zaten Cloudflare'de --
-# ayri saglayici, ayri anahtar, ayri fatura yok.
-#
-# NE ICIN: haber sayfasindaki "AI Sonucu" uc satiri. Model rakam
-# BULMUYOR, verilen rakamlari cumleye ceviriyor; uydurma riski bu
-# yuzden kapali. Ayni arayuzden Anthropic'e gecmek tek dosya
-# degisikligi (site/ai.js).
-[ai]
-binding = "AI"
-
 # GIZLI DEGERLER buraya YAZILMAZ. `wrangler secret put` ile konur:
 #   RESEND_API_KEY  e-posta dogrulamasi icin (yoksa yonetici onayina duser)
 #   HAT_SIRRI       yayin hattinin onaylanmis yazilari cektigi ucun sirri

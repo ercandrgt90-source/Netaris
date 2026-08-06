@@ -29,10 +29,10 @@
 {% endblock %}
 
 {% block ek_bas %}
-{# Yalnizca haber sayfasinda yukleniyor: topluluk senaryolari ve AI
-   sonucu baska sayfada yok. #}
+{# Yalnizca haber sayfasinda yukleniyor: topluluk senaryolari baska
+   sayfada yok. AI yorumu BETIK GEREKTIRMIYOR -- build zamaninda
+   HTML'e gomuluyor. #}
 <script src="/statik/senaryo.js" defer></script>
-<script src="/statik/aisonuc.js" defer></script>
 {% endblock %}
 
 {% block icerik %}
@@ -356,14 +356,22 @@
 
        KAYNAGI ACIKCA YAZILIYOR. Sitenin butun metni deterministik
        hesaptan geliyor; bu bolum tek istisna ve okur bunu bilmeli. #}
-    <aside class="ai-sonuc" id="ai-sonuc" hidden>
-      <h2>AI özeti</h2>
-      <p class="ai-metin"></p>
+    {# Metin BUILD ZAMANINDA uretilip HTML'e gomuluyor, tarayicidan
+       cekilmiyor. Ilk surum istemci tarafindaydi ve arama motoru o
+       metni HIC gormuyordu -- sitenin asil degeri olacak yorum icin
+       yanlis yer. Ayrica depoda saklandigi icin metin sabit: okur
+       sayfayi yenileyince degismiyor. #}
+    {% if ai_yorum %}
+    <aside class="ai-sonuc">
+      <h2>Yapay zekâ çıkarımı</h2>
+      <p class="ai-metin">{{ ai_yorum }}</p>
       <p class="ai-not">Bu paragraf, yukarıdaki <b>ölçülmüş verilerden</b>
-        bir dil modeliyle üretilmiştir. Model yeni sayı eklemez; metindeki
-        her sayı sayfadaki verilerde geçer. Sayfanın geri kalanı
+        bir dil modeliyle üretilmiştir. Model yeni sayı ekleyemez;
+        metindeki her sayının sayfadaki verilerde geçtiği makine ile
+        doğrulanır, geçmeyen metin yayımlanmaz. Sayfanın geri kalanı
         hesaplamayla üretilir.</p>
     </aside>
+    {% endif %}
 
     {# SEFFAFLIK -- SKOR DEGIL SAYIM.
        "Veri Gucu 97" gibi bir puan olcum gibi gorunur ama
