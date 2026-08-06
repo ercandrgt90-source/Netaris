@@ -2,6 +2,7 @@
   "guncelleme": "2026-08-06",
   "kaynaklar": [
     "AA",
+    "BloombergHT",
     "CNN Türk",
     "Dünya",
     "ECB",
@@ -128,7 +129,7 @@
     {
       "baslik": "ABD Meydan Okuyan İşten Çıkarmalar: 33,43 — önceki 45,85",
       "baslik_kaynak": "US Challenger Layoffs Actual 33.429k (Forecast -, Previous 45.849k)",
-      "ozet": "Açıklanan değer 33,43. Önceki dönem 45,85; geriledi (12,42).",
+      "ozet": "Açıklanan değer 33,43. Önceki dönem 45,85; geriledi (12,42 (birimsiz)).",
       "cevrildi": true,
       "dil": "en",
       "ticari": true,
@@ -400,7 +401,7 @@
     {
       "baslik": "Avustralya Ticaret Dengesi: 1.929,00 — beklenti −1.080,00, önceki −3.018,00",
       "baslik_kaynak": "Australian Trade Balance Actual 1929M (Forecast -1080M, Previous -3,018M)",
-      "ozet": "Açıklanan değer 1.929,00. Beklenti −1.080,00; beklentinin üzerinde (3.009,00). Önceki dönem −3.018,00; yükseldi (4.947,00).",
+      "ozet": "Açıklanan değer 1.929,00. Beklenti −1.080,00; beklentinin üzerinde (3.009,00 (birimsiz)). Önceki dönem −3.018,00; yükseldi (4.947,00 (birimsiz)).",
       "cevrildi": true,
       "dil": "en",
       "ticari": true,
