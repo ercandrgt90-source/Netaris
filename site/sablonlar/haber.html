@@ -74,8 +74,7 @@
 
   <div class="govde">
 
-
-    <p class="asama"><span class="asama-no">1</span><span class="asama-ad">Haber</span><span class="asama-not">Kaynağın bildirdiği olay</span></p>
+    <p class="asama"><span class="asama-no">1</span><span class="asama-ad">Haber</span><span class="asama-not">Ne oldu, kim söyledi</span></p>
 
     {# ACILIS CUMLESI -- bulten basliklari icin.
        "Aylık Fiyat Gelişmeleri (Temmuz 2026)" bir başlık değil, dosya
@@ -86,7 +85,9 @@
        Cümle kaynağın metninden DEĞİL, bizim ölçümlerimizden kuruluyor:
        hangi seri, hangi tarih, hangi değer. Bülten zaten o rakamı
        duyurduğu için sayfa haberin konusuyla örtüşüyor. #}
-    {% if dosya and dosya.acilis %}
+    {# Kutu basiliyorsa acilis BASILMIYOR: ikisi ayni cumleyi
+       tasiyordu ve okur ayni sayiyi iki kez okuyordu. #}
+    {% if dosya and dosya.acilis and not (dosya and dosya.dolu) %}
     <p class="acilis">{{ dosya.acilis }}</p>
     {% elif h.ozet and not (dosya and dosya.dolu) %}
     {# OZET KUTU BASILMADIGINDA GOVDE BOS KALMASIN.
@@ -121,10 +122,9 @@
         {% if h.ozet %}
         <dt>Ne oldu?</dt><dd>{{ h.ozet }}</dd>
         {% endif %}
-        {% if dosya.bulgular %}
-        <dt>Veri ne diyor?</dt><dd>{{ dosya.bulgular[0] }}.
-          {% if dosya.bulgular|length > 1 %}{{ dosya.bulgular[1] }}.{% endif %}</dd>
-        {% endif %}
+        {# "Veri ne diyor" KALDIRILDI: hemen asagidaki Guncel
+           veriler bolumu ayni rakamlari zaten gosteriyor ve okur
+           ayni sayiyi iki kez okuyordu. #}
         {% if dosya.duyarlilik %}
         <dt>En çok kim etkilenir?</dt>
         <dd>{% for s, y, _n in dosya.duyarlilik[:3] %}{{ s }}{% if not loop.last %} · {% endif %}{% endfor %}</dd>
@@ -143,7 +143,51 @@
     <p class="neden-bugun">Bu değerlendirme, {{ dosya.neden_bugun }}.</p>
     {% endif %}
 
-    <p class="asama"><span class="asama-no">2</span><span class="asama-ad">Ölçülmüş veri</span><span class="asama-not">Kaynağından çekilir, hesaplanarak sunulur</span></p>
+    {# ETKI ALANLARI -- okurun on saniyede haberi yerlestirdigi yer.
+       Isaretlerin hepsi TURETILMIS: her biri ya haberin bagli oldugu
+       bir varliktan ya da konunun etki tablosundan geliyor.
+
+       GUVEN SKORU YOK. "%83" gibi bir sayi onerilmisti; konulmadi.
+       Arkasinda hesap olmayan bir sayiyi olcum gibi sunmak, sitenin
+       en temel iddiasini kendi elimizle curutmek olurdu -- ayni
+       gerekceyle daha once "Veri Gucu 97" kaldirilmisti.
+
+       YON DE YOK (olumlu/notr/olumsuz): bu site yon soylemiyor,
+       hangi mekanizmayla neyi etkiledigini soyluyor. #}
+    {% if etki %}
+    <ul class="etki-alan" aria-label="Bu haberin ilgilendirdiği alanlar">
+      {% for a in etki %}<li>{{ a }}</li>{% endfor %}
+    </ul>
+    {% endif %}
+
+    <p class="asama"><span class="asama-no">2</span><span class="asama-ad">İlk bakış</span><span class="asama-not">Ölçümlerden türetilen kısa okuma</span></p>
+
+    {# AI SONUCU.
+       Sayfadaki OLCUMLERIN uc cumlelik ozeti. Model rakam BULMUYOR,
+       yukarida hesaplanmis olanlari cumleye ceviriyor -- uydurma riski
+       bu yuzden kapali, ustelik cikti dogrulaniyor: metinde gecen her
+       sayi girdide de gecmek zorunda, gecmiyorsa cevap atiliyor.
+
+       KAYNAGI ACIKCA YAZILIYOR. Sitenin butun metni deterministik
+       hesaptan geliyor; bu bolum tek istisna ve okur bunu bilmeli. #}
+    {# Metin BUILD ZAMANINDA uretilip HTML'e gomuluyor, tarayicidan
+       cekilmiyor. Ilk surum istemci tarafindaydi ve arama motoru o
+       metni HIC gormuyordu -- sitenin asil degeri olacak yorum icin
+       yanlis yer. Ayrica depoda saklandigi icin metin sabit: okur
+       sayfayi yenileyince degismiyor. #}
+    {% if ai_yorum %}
+    <aside class="ai-sonuc">
+      <h2>İlk bakış</h2>
+      <p class="ai-metin">{{ ai_yorum }}</p>
+      <p class="ai-not">Bu paragraf, sayfadaki <b>ölçülmüş verilerden</b>
+        bir dil modeliyle üretilmiştir. Model yeni sayı ekleyemez;
+        metindeki her sayının sayfadaki verilerde geçtiği makine ile
+        doğrulanır, geçmeyen metin yayımlanmaz. Sayfanın geri kalanı
+        hesaplamayla üretilir.</p>
+    </aside>
+    {% endif %}
+
+    <p class="asama"><span class="asama-no">3</span><span class="asama-ad">Güncel veriler</span><span class="asama-not">Kaynağından çekilir, hesaplanarak sunulur</span></p>
 
     {# TURKIYE GORUNUMU -- yurt ici haberde konu ne olursa olsun.
        Okur ulkenin fotografini gorsun; hepsi TCMB EVDS'den, resmi. #}
@@ -167,10 +211,13 @@
       </div>
       {% endif %}
     </div>
+    {# Dipnottaki ORNEK gercek rakami tekrarliyordu ("%31,75'ten
+       %31,40'a") -- ayni sayi sayfada dorduncu kez gorunuyordu.
+       Kural ayni, ornek genellestirildi. #}
     <p class="piyasa-not">Kaynak: TCMB EVDS. Oran serilerinde değişim
-      <b>puan</b> cinsindendir — %31,75'ten %31,40'a iniş yüzde değil,
-      35 baz puanlık bir gerilemedir. Reel faiz, politika faizinden manşet
-      enflasyonun çıkarılmasıyla hesaplanmıştır.</p>
+      <b>puan</b> cinsindendir: bir puanlık iniş 100 baz puandır. Reel
+      faiz, politika faizinden manşet enflasyonun çıkarılmasıyla
+      hesaplanmıştır.</p>
     {% endif %}
     {# ENFLASYON SEYRI -- 13 aylik seri, yatay cubuk.
        Grafik kitapligi yok; genislik yuzdesi seriden hesaplaniyor. #}
@@ -243,10 +290,9 @@
        Genel dogrulari tekrarlamak yerine o habere ait sayilari veriyor:
        "endeks seviyesi oz kaynak maliyetini belirler" cumlesi New York
        kapanisi haberinde hicbir sey soylemiyordu. #}
-
     {# Kendi gosterge verimiz. Haberi veriyle destekler; konuyla ilgili
        gosterge yoksa bolum hic basilmaz. #}
-    {% if ilgili %}
+    {% if ilgili and not piyasa %}
     <section class="ilgili-veri">
       <h2>İlgili göstergeler</h2>
       <div class="ilgili-izgara">
@@ -263,44 +309,26 @@
     </section>
     {% endif %}
 
-    <p class="asama"><span class="asama-no">3</span><span class="asama-ad">Çıkarım</span><span class="asama-not">Ölçümlerden türetilir; tahmin içermez</span></p>
+    <p class="asama"><span class="asama-no">4</span><span class="asama-ad">Etki</span><span class="asama-not">Hangi mekanizmayla neyi etkiler</span></p>
 
-    {# AI SONUCU.
-       Sayfadaki OLCUMLERIN uc cumlelik ozeti. Model rakam BULMUYOR,
-       yukarida hesaplanmis olanlari cumleye ceviriyor -- uydurma riski
-       bu yuzden kapali, ustelik cikti dogrulaniyor: metinde gecen her
-       sayi girdide de gecmek zorunda, gecmiyorsa cevap atiliyor.
-
-       KAYNAGI ACIKCA YAZILIYOR. Sitenin butun metni deterministik
-       hesaptan geliyor; bu bolum tek istisna ve okur bunu bilmeli. #}
-    {# Metin BUILD ZAMANINDA uretilip HTML'e gomuluyor, tarayicidan
-       cekilmiyor. Ilk surum istemci tarafindaydi ve arama motoru o
-       metni HIC gormuyordu -- sitenin asil degeri olacak yorum icin
-       yanlis yer. Ayrica depoda saklandigi icin metin sabit: okur
-       sayfayi yenileyince degismiyor. #}
-    {% if ai_yorum %}
-    <aside class="ai-sonuc">
-      <h2>Yapay zekâ çıkarımı</h2>
-      <p class="ai-metin">{{ ai_yorum }}</p>
-      <p class="ai-not">Bu paragraf, yukarıdaki <b>ölçülmüş verilerden</b>
-        bir dil modeliyle üretilmiştir. Model yeni sayı ekleyemez;
-        metindeki her sayının sayfadaki verilerde geçtiği makine ile
-        doğrulanır, geçmeyen metin yayımlanmaz. Sayfanın geri kalanı
-        hesaplamayla üretilir.</p>
-    </aside>
-    {% endif %}
     <h2>Neden önemli</h2>
     <p>{{ h.neden_onemli }}</p>
-    {# AKTARIM KANALLARI yalnizca TURKIYE haberlerinde.
-       Dunya haberlerinin cogunda Turkiye'ye isleyen dogrudan bir kanal
-       yok; New York kapanisinin altina "Turkiye'ye hangi kanallardan
-       gecer" yazmak, olmayan bir bagi varmis gibi gostermekti. #}
-    {% if h.kanallar and h.bolge != "DUNYA" %}
-    <h2>{{ h.kanal_basligi or "Türkiye'ye hangi kanallardan geçer" }}</h2>
-    <ul>
-      {% for k in h.kanallar %}<li>{{ k }}</li>{% endfor %}
+
+    {# AKTARIM KANALLARI "Neden onemli"nin ICINE alindi.
+       Ayri baslik altinda dururken gerekce tek cumle kaliyor ve zayif
+       gorunuyordu; oysa asil deger kanallarda. Ikisi ayni fikrin iki
+       parcasi: neden onemli sorusunun cevabi, hangi kanaldan gectigi.
+
+       DORT MADDE SINIRI: liste uzadikca okunmuyor ve hepsi ayni agirlikta
+       gorunuyor. Ilk dordu zaten en gucluleri -- siralama duyarlilik
+       tablosundan geliyor. #}
+    {% if h.kanallar %}
+    <ul class="kanal-liste">
+      {% for k in h.kanallar[:4] %}
+      <li>{{ k }}</li>
+      {% endfor %}
     </ul>
-    <p><em>{{ gundem.sinir_notu }}</em></p>
+    <p class="piyasa-not">{{ gundem.sinir_notu }}</p>
     {% endif %}
     {# KIM ETKILENIR -- yildiz bir tahmin degil, DUYARLILIK sirasi:
        hangi sektorun gelir ya da maliyet kalemi bu degiskene daha
@@ -337,7 +365,7 @@
     </ul>
     {% endif %}
 
-    <p class="asama"><span class="asama-no">4</span><span class="asama-ad">Görüş</span><span class="asama-not">Koşullu değerlendirme — olasılık atanmaz</span></p>
+    <p class="asama"><span class="asama-no">5</span><span class="asama-ad">Görüş</span><span class="asama-not">Koşullu değerlendirme — olasılık atanmaz</span></p>
 
     {# SENARYOLAR -- KOSULLU ve AGIRLIKSIZ.
        Bir senaryoya "%55 olasilik" yazmak, hesaplanmamis bir sayiyi
@@ -403,7 +431,6 @@
     </div>
     {% endif %}
   </div>
-
   {# BUNUNLA ILGILI DIGER GELISMELER.
      Arsivden geliyor, uydurulmuyor: ayni varliklara baglanmis ve
      YAYIMLANMIS haberler. Arsiv genc oldugu icin bugun cogu haberde bu

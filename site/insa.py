@@ -951,6 +951,72 @@ def senaryoya_acik(h: dict) -> bool:
     return _olay.esigi_gecti(o)
 
 
+#: "Bu haber hangi alanlari etkiliyor?" kutusundaki alanlar.
+#:
+#: Varlik kodu -> gorunen ad. Liste KISA tutuluyor: okurun bir bakista
+#: sayabilecegi kadar. Alan, haberin bagli oldugu varliklardan ya da
+#: konunun duyarlilik tablosundan geliyor.
+#:
+#: GUVEN SKORU YOK -- bilincli.
+#: Kullanici "Guven Skoru %83" onerdi; yapilmadi. O sayinin arkasinda
+#: bir hesap yok ve sitenin en temel ilkesi "hesaplamadigimizi olcum
+#: gibi sunmayiz". Ayni gerekceyle daha once "Veri Gucu 97" kaldirildi.
+#: Bu kutu ise TURETILMIS: her isaret, depodaki bir baga karsilik
+#: geliyor.
+ETKI_ALANLARI = (
+    ("BIST100", "BIST"),
+    ("USDTRY", "Dolar/TL"),
+    ("US10Y", "Tahvil"),
+    ("TCMB_FAIZ", "Faiz"),
+    ("TUFE_TR", "Enflasyon"),
+    ("SEK_BANKA", "Bankalar"),
+    ("BRENT", "Petrol"),
+    ("XAU", "Altın"),
+    ("CARI_TR", "Cari denge"),
+    ("DIS_TICARET_TR", "Dış ticaret"),
+)
+
+#: Konu -> o konunun her zaman etkiledigi alanlar.
+#: Varlik indeksi haberin METNINDEN turetiyor; bu tablo KONUDAN.
+#: Ikisi birlestiriliyor -- biri digerinin kacirdigini yakaliyor.
+KONU_ETKISI = {
+    "Enflasyon": ("TUFE_TR", "TCMB_FAIZ", "USDTRY", "SEK_BANKA"),
+    "Para politikası": ("TCMB_FAIZ", "SEK_BANKA", "BIST100", "USDTRY"),
+    "Dış ticaret": ("DIS_TICARET_TR", "CARI_TR", "USDTRY"),
+    "Enerji": ("BRENT", "CARI_TR", "TUFE_TR"),
+    "Jeopolitik": ("BRENT", "XAU", "USDTRY"),
+    "Bankacılık": ("SEK_BANKA", "TCMB_FAIZ", "BIST100"),
+    "Borsa": ("BIST100", "USDTRY"),
+    "Altın ve emtia": ("XAU", "USDTRY"),
+    "İstihdam ve ücret": ("TUFE_TR", "SEK_BANKA"),
+}
+
+
+def etki_alanlari(h: dict, varliklar) -> list[str]:
+    """Haberin etkiledigi alanlar -- TURETILMIS, tahmin degil.
+
+    Kaynak iki tane: haberin bagli oldugu varliklar (metinden) ve
+    konunun sabit etki listesi (tablodan). Biri digerinin kacirdigini
+    yakaliyor: "TCMB faiz kararini acikladi" metninde BIST gecmiyor
+    ama para politikasi kararı BIST'i her zaman ilgilendiriyor.
+    """
+    kodlar = {v["kod"] for v in (varliklar or [])}
+    kodlar |= set(KONU_ETKISI.get(h.get("konu", ""), ()))
+    return [ad for kod, ad in ETKI_ALANLARI if kod in kodlar]
+
+
+def _panel_kodlari() -> frozenset[str]:
+    """Turkiye panelinde gosterilen seri kodlari.
+
+    Piyasa kutusu bunlari tekrarlamiyor. Tek kaynak `dosya.TURKIYE_PANEL`
+    -- listeyi iki yerde tutmak, birini guncelleyip digerini unutmaya
+    davetiye olurdu.
+    """
+    if _dosya is None:
+        return frozenset()
+    return frozenset(k for k, _ad, _b, _bas in _dosya.TURKIYE_PANEL)
+
+
 def ai_yorum_oku() -> dict[str, str]:
     """Depodaki AI yorumlari: adres -> metin.
 
@@ -1422,6 +1488,9 @@ def insa() -> int:
                     # fonlama okunur.
                     piyasa=piyasa_kutusu.kutu(
                         h["konu"], gundem.get("guncelleme", ""),
+                        # Turkiye panelindeki seriler kutuda TEKRARLANMAZ:
+                        # ikisi ayni dort rakami gosteriyordu.
+                        haric=_panel_kodlari(),
                         yerli=_dosya.turkiye_haberi(
                             h.get("bolge", ""),
                             ([v["kod"] for v in h_varliklar]
@@ -1453,6 +1522,7 @@ def insa() -> int:
                     # Senaryo bolumu yalnizca kritik haberlerde
                     senaryo_acik=senaryoya_acik(h),
                     ai_yorum=ai_yorumlari.get(h["adres"], ""),
+                    etki=etki_alanlari(h, h_varliklar),
                 ),
             )
             yollar.append(h_yol)

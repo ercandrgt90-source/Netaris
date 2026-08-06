@@ -2549,3 +2549,35 @@ table td, table th, time, .tarih {
   margin-top: 46px; padding-top: 26px;
   border-top: 3px double var(--cizgi);
 }
+
+/* ================================================================
+   ETKI ALANLARI
+   ================================================================
+   Okurun on saniyede haberi yerlestirdigi yer: hangi piyasayi
+   ilgilendiriyor. Isaretlerin hepsi turetilmis -- her biri depodaki
+   bir baga karsilik geliyor.
+
+   PUAN YA DA YON YOK. "Guven skoru %83" ve "olumlu/olumsuz"
+   onerilmisti; ikisi de konulmadi. Ilki hesaplanmamis bir sayi,
+   ikincisi bu sitenin yapmadigi bir sey -- yon soylemiyoruz,
+   mekanizma soyluyoruz. */
+.etki-alan {
+  display: flex; flex-wrap: wrap; gap: 7px;
+  list-style: none; padding: 0; margin: 16px 0 4px;
+}
+.etki-alan li {
+  padding: 5px 12px;
+  border: 1px solid var(--cizgi-parlak);
+  border-radius: 999px;
+  background: var(--panel-2);
+  font-size: 0.8rem; font-weight: 600; color: var(--yazi-2);
+  white-space: nowrap;
+}
+
+/* Aktarim kanallari "Neden onemli"nin icinde artik. */
+.kanal-liste { margin: 12px 0 10px; padding-left: 20px; }
+.kanal-liste li { margin-bottom: 7px; line-height: 1.6; }
+
+/* Ust kutular buyutuldu -- okunurluk icin istendi. */
+.ozet-kutu { padding: 20px 22px; }
+.ozet-kutu dd { font-size: 1.0rem; line-height: 1.6; }

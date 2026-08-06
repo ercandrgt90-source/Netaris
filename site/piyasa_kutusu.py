@@ -342,15 +342,31 @@ def turkiye(bugun: str = "") -> list[dict]:
     return satirlar
 
 
-def kutu(konu: str, bugun: str = "", yerli: bool = False) -> dict | None:
+def kutu(konu: str, bugun: str = "", yerli: bool = False,
+         haric: frozenset[str] = frozenset()) -> dict | None:
     """Konuya gore piyasa kutusu. Veri yoksa None -- kutu basilmaz.
 
     `yerli` verildiginde once YERLI_ARACLAR'a bakilir: ayni konunun
     yurt ici haberinde okunacak yer farklidir. Yerli karsiligi olmayan
     konu genel tabloya duser.
+
+    `haric` sayfada BASKA BIR BOLUMDE zaten gosterilen seri kodlari.
+    Olculdu: Turkiye enflasyon haberinde "Turkiye'nin mevcut gorunumu"
+    paneli ile piyasa kutusu AYNI dort seriyi gosteriyordu (TUFE,
+    cekirdek, faiz, USD/TRY). Okur ayni rakami iki kez okuyordu.
+    Panelde olan seri kutuda tekrarlanmiyor; geriye kuresel araclar
+    kaliyor ve iki bolum birbirini tamamliyor.
     """
     araclar = (YERLI_ARACLAR.get(konu) if yerli else None) \
         or KONU_ARACLARI.get(konu)
+    if araclar and haric:
+        araclar = tuple(a for a in araclar if a[1] not in haric)
+        # Hepsi elendiyse kuresel tabloya duser: kutuyu bos basmak
+        # yerine okura YENI bir sey gostermek dogru.
+        if not araclar:
+            araclar = tuple(
+                a for a in (KONU_ARACLARI.get(konu) or ())
+                if a[1] not in haric)
     if not araclar or not DEPO.exists():
         return None
 
