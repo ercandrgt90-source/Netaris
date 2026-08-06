@@ -85,6 +85,48 @@ sina("kisa girdi reddedilir",
 
 sina("model listesi bos degil", len(yorumcu.cf_modelleri()) >= 1)
 
+# --- suren egilim (ilk gercek calistirmada olculen hata) -------------
+#
+# "ABD'de isten cikarmalar ARTIYOR. ... Onceki donem 45,85; geriledi."
+# Butun sayilar girdide geciyordu; sayi denetimi yakalamadi.
+for ad, metin, beklenen in [
+    ("artiyor yakalanir", "ABD'de işten çıkarmalar artıyor.", True),
+    ("yukseliyor yakalanir", "Enflasyon yükseliyor.", True),
+    ("dusuyor yakalanir", "Talep düşüyor.", True),
+    ("gecmis zaman SERBEST", "Enflasyon geriledi.", False),
+    ("yukseldi SERBEST", "Çekirdek yükseldi.", False),
+]:
+    sina(f"egilim: {ad}",
+         bool(yorumcu.SUREN_EGILIM.search(metin)) is beklenen)
+
+# --- cumle sayimi ---------------------------------------------------
+
+sina("uc cumle gecerli",
+     yorumcu._cumle_sayisi("Bir. İki. Üç.") == 3)
+
+sina("ondalik nokta cumle sonu SAYILMAZ",
+     yorumcu._cumle_sayisi("TÜFE 31.75 seviyesinde ölçüldü.") == 1)
+
+sina("uzun metin esigi asar",
+     yorumcu._cumle_sayisi("A. B. C. D. E.") > yorumcu.EN_COK_CUMLE)
+
+# --- istek bicimi (gpt-oss farkli bicim istiyor) ---------------------
+
+sina("gpt-oss responses bicimi",
+     "input" in yorumcu._istek_govdesi("@cf/openai/gpt-oss-120b", "x"))
+
+sina("llama sohbet bicimi",
+     "messages" in yorumcu._istek_govdesi("@cf/meta/llama-3.1-8b-instruct", "x"))
+
+sina("sohbet yaniti cozulur",
+     yorumcu._yaniti_coz({"result": {"response": "merhaba"}}) == "merhaba")
+
+sina("responses yaniti cozulur, akil yurutme ATLANIR",
+     yorumcu._yaniti_coz({"result": {"output": [
+         {"type": "reasoning", "content": [{"text": "dusunuyorum"}]},
+         {"type": "message", "content": [{"text": "sonuc"}]},
+     ]}}) == "sonuc")
+
 print("=" * 60)
 if kaldi:
     print(f"{kaldi} TEST BASARISIZ")
