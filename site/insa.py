@@ -1376,7 +1376,12 @@ def onem_puanla(haberler: list[dict], varlik_haritasi: dict) -> None:
 #: Canli akista kac kalem. Akis SAYFAYI DOLDURMAK icin degil, hareketi
 #: gostermek icin var; sonsuz liste ana sayfayi yeniden haber listesine
 #: cevirirdi. Devami /gundem/'de.
-AKIS_SAYISI = 20
+#:
+#: 20 -> 40: besleme penceresi 40'tan 120'ye cikinca 20 kalem gunun
+#: yalnizca son bir saatini gosteriyordu. Liste kendi icinde kayiyor
+#: (sutun yapiskan ve `overflow-y: auto`), yani uzun liste sayfayi
+#: uzatmiyor -- sadece akisin kapsadigi sure uzuyor.
+AKIS_SAYISI = 40
 
 
 #: One cikan bolumunun zaman penceresi (gun).

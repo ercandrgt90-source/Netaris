@@ -164,6 +164,18 @@ _TERIMLER = (
     (r"\byorum talep ediyor\b", "görüşe açtı"),
     (r"\bpara politikası beyanı\b", "para politikası açıklaması"),
     (r"\bücret izleyicisi\b", "ücret göstergesi"),
+
+    # KURUM KISALTMASI ANLAMINA GORE CEVRILIYOR.
+    # Olculdu: "EIA Natural Gas Change BCF" -> "ÇED Doğal Gaz Değişimi".
+    # ÇED cevresel etki degerlendirmesidir; buradaki EIA ABD Enerji
+    # Bilgi Idaresi'dir. Kisaltma yanlis acilinca haber baska bir
+    # kurumun aciklamasi gibi okunuyor.
+    (r"\bÇED\b", "EIA"),
+    (r"\bÇevresel Etki Değerlendirmesi (Doğal Gaz|Ham Petrol|Petrol)",
+     r"EIA \1"),
+    # "BCF" hacim birimi (milyar kubik feet); ceviri motoru bazen
+    # bosluk ekleyip parcaliyor.
+    (r"\bB\s?C\s?F\b", "BCF"),
 )
 
 #: OZEL ADLAR -- cevrilmemeli.

@@ -338,6 +338,25 @@ def dogrula() -> list[str]:
 EN_AZ_SECIM = 8
 EN_COK_SECIM = 15
 
+#: Ayni konudan en fazla kac kalem.
+#:
+#: Bir olay cok sayida FARKLI haber uretiyor. Hurmuz Bogazi gelismesinde
+#: dort ayri baslik one cikan listeye girdi:
+#:
+#:   Kuresel piyasalarda Hurmuz sorulari
+#:   Iran'a Hurmuz Bogazi'nda kontrol yetkisi verecek anlasma mi
+#:   Trump Iran gorusmelerinin iyi gittigini soyledi
+#:   Iran, Hurmuz Bogazi deniz yolu konusunda Umman ile anlasti
+#:
+#: Bunlar tekrar DEGIL -- gercekten farkli gelismeler ve dordunu de
+#: "ayni haber" ilan etmek yanlis olurdu. Sorun tekrar degil DENGE:
+#: on uc kalemlik bir bolumun dordunu tek konu aliyor.
+#:
+#: Bu yuzden kural bir tekilleme degil, bir CESITLILIK kurali. Sinira
+#: takilan haber siliniyor degil: canli akista ve kendi konusunun
+#: sayfasinda duruyor.
+KONU_BASINA_EN_COK = 3
+
 
 #: Kelime ortakligi esigi: neredeyse ayni cumlenin iki yazimi.
 #:
@@ -477,6 +496,18 @@ def sec(puanli, en_az: int = EN_AZ_SECIM, en_cok: int = EN_COK_SECIM,
     """
     uygun = tekille([(o, h) for o, h in puanli if o.puan >= NORMAL],
                     anahtar=anahtar)
+
+    # CESITLILIK: ayni konudan en fazla `KONU_BASINA_EN_COK` kalem.
+    # Sinira takilanlar TAMAMEN ATILMIYOR, sona aliniyor -- boylece
+    # elde baska konu kalmadiginda bolum yine dolabiliyor.
+    sayac: dict = {}
+    onde, arkada = [], []
+    for o, h in uygun:
+        k = h.get("konu", "") if isinstance(h, dict) else ""
+        sayac[k] = sayac.get(k, 0) + 1
+        (onde if sayac[k] <= KONU_BASINA_EN_COK else arkada).append((o, h))
+    uygun = onde + arkada
+
     if len(uygun) > en_cok:
         return uygun[:en_cok]
     return uygun[:max(en_az, len(uygun))]

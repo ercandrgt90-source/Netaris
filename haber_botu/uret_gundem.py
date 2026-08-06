@@ -41,8 +41,18 @@ import veri_basligi  # noqa: E402
 
 HEDEF = _KOK.parent / "site" / "icerik" / "gundem.json"
 
-#: Ana sayfada ve gundem sayfasinda gosterilecek en fazla oge
-SINIR = 40
+#: Gundem penceresine girecek en fazla oge.
+#:
+#: 40 -> 120. Sebep olculdu: FinancialJuice tek cagrida 100 baslik
+#: veriyor ve sadece bu besleme 40'lik pencereyi tek basina doldurabilir.
+#: Pencere darken calistirmalar arasindaki gelismeler KALICI olarak
+#: kayboluyordu -- bir sonraki calistirmada besleme zaten yeni basliklara
+#: gecmis oluyor.
+#:
+#: Pencere buyudu diye ana sayfa uzamiyor: ana sayfa artik puanla
+#: seciyor (bkz. onem.py) ve canli akis kendi sinirini kendi koyuyor.
+#: Burasi yalnizca "elimizde ne var" -- neyin gorunecegi ayri karar.
+SINIR = 120
 
 
 def main() -> int:
@@ -60,6 +70,18 @@ def main() -> int:
     if not haberler:
         print("Hicbir besleme okunamadi.")
         return 1
+
+    # OKUNAMAYAN BESLEME EKRANA YAZILIR.
+    #
+    # Hata sessizdi ve olculdu: FinancialJuice bir calistirmada hic
+    # gelmedi, gundemde o kaynaktan tek haber yoktu ve hicbir uyari
+    # basilmadi. Bir kaynagin COKMESI ile o kaynakta HABER OLMAMASI
+    # ayni sey degil; ikisi ayirt edilemedigi surece "haber az geliyor"
+    # sikayetinin sebebi bulunamaz.
+    if besleme.OKUNAMAYAN:
+        print(f"\n  UYARI: {len(besleme.OKUNAMAYAN)} besleme okunamadi")
+        for _kod, _hata in besleme.OKUNAMAYAN:
+            print(f"    {_kod:<16} {_hata}")
 
     # Kurum ve konu dagilimi
     kurumlar: dict[str, int] = {}
@@ -97,13 +119,29 @@ def main() -> int:
     # Sitenin omurgasi resmi veri; ticari akis onun uzerine geliyor. Bu
     # yuzden resmi kaynaklara sabit kontenjan ayriliyor, kalani ticari
     # dolduruyor. Ikisi de kendi icinde tarihe gore sirali.
+    # --- AKIS BESLEMESININ KENDI KONTENJANI ---
+    #
+    # Ucuncu bir kova gerekti. Once iki kova vardi (resmi / ticari) ve
+    # FinancialJuice, yirmi dort kaynagin paylastigi ticari kovada
+    # yarisiyordu. Olculdu: besleme 73 baslik verdigi HALDE gundeme
+    # giren FinancialJuice haberi sayisi SIFIRDI -- kova, besleme
+    # sirasinda onunde duran kaynaklarla dolmustu.
+    #
+    # Canli akis sayfanin bir katmani ve o katmanin tek kaynagi bu
+    # besleme; kontenjansiz birakmak, katmani bos birakmak demek.
+    akis = [h for h in haberler if h.kaynak_kodu in besleme.AKIS_BESLEMELERI]
     resmi = [h for h in haberler if not h.ticari]
-    ticari = [h for h in haberler if h.ticari]
-    resmi_kota = min(len(resmi), max(1, args.sinir // 3))
-    secili = resmi[:resmi_kota] + ticari[:args.sinir - resmi_kota]
+    ticari = [h for h in haberler
+              if h.ticari and h.kaynak_kodu not in besleme.AKIS_BESLEMELERI]
+
+    resmi_kota = min(len(resmi), max(1, args.sinir // 4))
+    akis_kota = min(len(akis), max(1, args.sinir // 2))
+    kalan = args.sinir - resmi_kota - akis_kota
+    secili = resmi[:resmi_kota] + akis[:akis_kota] + ticari[:max(0, kalan)]
     secili.sort(key=lambda h: h.tarih or "0000-00-00", reverse=True)
     haberler = secili
-    print(f"\n  secim: {resmi_kota} resmi + {len(secili) - resmi_kota} ticari")
+    print(f"\n  secim: {resmi_kota} resmi + {akis_kota} akis + "
+          f"{len(secili) - resmi_kota - akis_kota} ticari")
 
     # --- Fotograf havuzu ---
     print("\nFOTOGRAF HAVUZU")

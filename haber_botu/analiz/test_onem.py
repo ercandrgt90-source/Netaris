@@ -203,6 +203,38 @@ es("elenenden EN YUKSEK puanli kaliyor",
 # Bos baslik cokmemeli.
 dogru("bos baslik imzasi cokmuyor", not onem.benzer("", "x"))
 
+
+# --------------------------------------------------------------------
+# CESITLILIK -- ayni konudan en fazla uc kalem one cikar
+# --------------------------------------------------------------------
+# Basliklar BILINCLI OLARAK birbirine benzemiyor: benzeselerdi
+# tekrar elemesine takilir ve cesitlilik kurali hic sinanmazdi.
+# (Ilk yazimda "Jeopolitik haber 0..5" kullanildi ve testin olcmek
+# istedigi sey yerine tekilleme olculdu.)
+_jeo = ["Umman arabuluculugunda deniz yolu mutabakati",
+        "Trump: goruSmeler iyi gidiyor",
+        "Petrol tankerleri rota degistirdi",
+        "Sigorta primleri iki katina cikti",
+        "Katar dogal gaz sevkiyatini durdurdu",
+        "Beyaz Saray yeni yaptirim paketi hazirliyor"]
+_enf = ["Kira artis orani temmuzda yavasladi",
+        "Uretici fiyatlari beklentinin altinda"]
+cok = [(onem.Onem(puan=90 - i, katman="normal"),
+        {"baslik": b, "konu": "Jeopolitik"}) for i, b in enumerate(_jeo)]
+cok += [(onem.Onem(puan=50 - i, katman="normal"),
+         {"baslik": b, "konu": "Enflasyon"}) for i, b in enumerate(_enf)]
+s = onem.sec(cok, en_az=4, en_cok=5)
+ilk = [h["konu"] for _, h in s[:4]]
+es("konu basina sinir", ilk.count("Jeopolitik"), onem.KONU_BASINA_EN_COK)
+dogru("sinira takilan konu disi haber one geliyor", "Enflasyon" in ilk)
+
+# Elde BASKA konu yoksa bolum yine dolmali -- sinir bir eleme degil,
+# bir siralama kurali.
+tek = [(onem.Onem(puan=90 - i, katman="normal"),
+        {"baslik": b, "konu": "Jeopolitik"})
+       for i, b in enumerate(_jeo + _enf)]
+es("baska konu yoksa yine doluyor", len(onem.sec(tek, en_az=8, en_cok=8)), 8)
+
 print(f"{gecti} gecti, {len(kaldi)} kaldi")
 for k in kaldi:
     print("  X", k)

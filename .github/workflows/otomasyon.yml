@@ -36,8 +36,14 @@ name: Netaris otomasyon
 on:
   schedule:
     # Saatler UTC, Turkiye UTC+3.
-    # Hafta ici saat basi: 05-20 UTC = 08:00-23:00 TRT
-    - cron: "0 5-20 * * 1-5"
+    # Hafta ici YARIM SAATTE BIR: 05-20 UTC = 08:00-23:00 TRT
+    #
+    # Saat basiydi. Olculdu: FinancialJuice tek cagrida 100 baslik
+    # veriyor ve yogun saatlerde bu, bir saatten KISA bir pencereye
+    # karsilik geliyor -- yani iki calistirma arasindaki gelismelerin
+    # bir kismi hic gorulmuyordu. Kaynak "son 100"den fazlasini
+    # vermiyor, o yuzden cozum daha sik bakmak.
+    - cron: "*/30 5-20 * * 1-5"
     # Hafta sonu dort saatte bir: 03:00-23:00 TRT
     - cron: "0 0,4,8,12,16,20 * * 0,6"
   # Panelden elle de calistirilabilsin

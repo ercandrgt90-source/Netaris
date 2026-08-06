@@ -315,6 +315,12 @@ KONU_ISARETLERI = (
         # Ingilizce
         "sanction", "ceasefire", "military strike", "airstrike",
         "trade war", "tariff war", "geopolit", "embargo",
+     # Akis beslemesi askeri gelismeleri INGILIZCE veriyor ve Turkce
+     # kaliplarin hicbirine takilmiyordu. Olculdu: Yemen/Husi ve Kuzey
+     # Kore basliklari "Sirket haberleri" olarak siniflaniyordu.
+     "houthi", "missile launch", "armed forces", "warplane", "drone strike",
+     "troops", "militar", "attack on", "killed in", "war ", "warns against",
+     "retaliat", "escalat", "nuclear", "peace talks", "hostilit",
     )),
     # DIKKAT -- yalin "altin" ve "gold" YAZILMAZ. Olculdu:
     #   "toprağın ALTINDA kalan heykel" -> Altin      ("altinda")
@@ -659,7 +665,35 @@ def _ogeler(xml: str) -> list[dict]:
 #: FinancialJuice dakika dakika yayin yapiyor ve tek cagrida 100 oge
 #: donuyor. 12'lik varsayilan sinirla o akisin yalnizca son on dakikasi
 #: aliniyordu -- olculdu: 100 ogeden 3'u siteye giriyordu.
-BESLEME_SINIRI = {"FJUICE": 70}
+#:
+#: 70 -> 100: kaynak zaten 100'de kesiyor, biz ustune 30 oge daha
+#: atiyorduk. Calistirmalar arasi bir saat varsa o 30 oge bir daha hic
+#: gorunmuyor -- kalici kayip.
+BESLEME_SINIRI = {"FJUICE": 100}
+
+#: AKIS BESLEMELERI -- konu bulunamasa da ALINIR.
+#:
+#: Normalde ticari bir ogede konu bulunamazsa oge atiliyor. Kural genel
+#: gazeteler icin dogru: "Ünlü oyuncu boşandı" haberinin ekonomi
+#: konusu yoktur ve siteye girmemelidir.
+#:
+#: FinancialJuice bir GAZETE DEGIL, finans teli. Kural orada tersine
+#: caliSiyordu -- olculdu, 100 ogenin 45'i "konu bulunamadi" diye
+#: atiliyordu ve atilanlarin icinde sunlar vardi:
+#:
+#:   US Wholesale Inventories MoM Actual 0.2% (Forecast 0.3%)
+#:   U.S. military aware of North Korea missile launch
+#:   Yemen: Houthi spokesperson statement
+#:
+#: Yani tam olarak sitenin aradigi sey: rakam+beklenti tasiyan veri
+#: aciklamalari ve jeopolitik gelismeler. Konu isaretleri Turkce
+#: kaliplar uzerine kurulu ve bu basliklarin hicbirine takilmiyor.
+#:
+#: Bu beslemelerde konu bulunamayan oge, beslemenin VARSAYILAN konusuyla
+#: aliniyor. Konu bulunamamis olmasi, sayfa uretilecegi anlamina gelmez
+#: -- `gundem_yorum.siniflandir` o karari ayrica veriyor ve govdesi
+#: olmayan baslik yine sayfa almiyor. Oge yalnizca CANLI AKISA giriyor.
+AKIS_BESLEMELERI = frozenset({"FJUICE"})
 
 #: Basliktan silinecek kaynak onekleri. Kunye sayfada ayrica basiliyor;
 #: onek basligin yarisini yiyor ve listede tekrar gorunuyor.
@@ -679,8 +713,13 @@ VERI_KONULARI = (
       "labour", "labor"), "İstihdam ve ücret"),
     (("trade balance", "exports", "imports", "current account"),
      "Dış ticaret"),
+    # "wholesale", "durable goods", "factory orders" eksikti ve bu
+    # basliklar -- rakam ve BEKLENTI tasiyan, sitenin en degerli veri
+    # ogeleri -- konu bulunamadigi icin "Sirket haberleri"ne dusuyordu.
     (("retail sales", "gdp", "pmi", "industrial production",
-      "industrial orders", "confidence", "sentiment", "consumer spending"),
+      "industrial orders", "confidence", "sentiment", "consumer spending",
+      "wholesale", "durable goods", "factory orders", "business climate",
+      "economic activity", "capacity utilization"),
      "Borsa"),
     (("interest rate", "rate decision", "central bank", "boe", "fed",
       "ecb", "boj"), "Para politikası"),
@@ -704,12 +743,24 @@ def veri_konusu(baslik: str) -> str:
     return ""
 
 
+#: Okunamayan beslemeler. `cek()` her cagrida temizler ve doldurur.
+#:
+#: NEDEN VAR: besleme hatasi SESSIZDI -- `except: return []`. Bir kaynak
+#: coktugunde gundem o kaynaksiz uretiliyor ve hicbir yerde iz kalmiyordu.
+#: Olculdu: FinancialJuice bir calistirmada hic gelmedi ve gundemde
+#: 89 haberin 0'i o kaynaktandi; hata mesaji olmadigi icin once
+#: siniflandirma sorunu sanildi. Bir kaynagin CALISMAMASI ile o kaynakta
+#: HABER OLMAMASI ayni sey degil ve ayirt edilebilmeli.
+OKUNAMAYAN: list[tuple[str, str]] = []
+
+
 def _besleme_oku(c: httpx.Client, tanim, en_fazla: int) -> list[Haber]:
     kod, kisa, tam, adres, varsayilan, dil, ticari = tanim
     try:
         y = c.get(adres)
         y.raise_for_status()
-    except httpx.HTTPError:
+    except httpx.HTTPError as e:
+        OKUNAMAYAN.append((kod, f"{type(e).__name__}: {e}"[:120]))
         return []
 
     eski_sinir = (datetime.now(timezone.utc).date()
@@ -723,12 +774,18 @@ def _besleme_oku(c: httpx.Client, tanim, en_fazla: int) -> list[Haber]:
             continue
 
         if ticari:
+            # Gurultu suzgeci AKIS BESLEMELERINDE DE calisiyor: konu
+            # sartini kaldirmak, magazin/asayis basligini kabul etmek
+            # anlamina gelmemeli.
             if gurultu_mu(baslik):
                 continue
-            # Ticari ogede varsayilan YOK -- konu bulunamazsa alinmaz.
             konu = konu_bul(baslik, "") or veri_konusu(baslik)
             if not konu:
-                continue
+                # Genel gazetede konu bulunamayan oge ALINMAZ.
+                # Akis beslemesinde ALINIR (bkz. AKIS_BESLEMELERI).
+                if kod not in AKIS_BESLEMELERI:
+                    continue
+                konu = varsayilan
             # Arama motoru icin tutulan bayat sayfalari eler.
             if o["tarih"] and o["tarih"] < eski_sinir:
                 continue
@@ -751,6 +808,7 @@ def cek(kod: str = "", en_fazla: int = 12) -> list[Haber]:
     demek ve saatlik calismada aylik kotayi yiyor.
     """
     secilen = [b for b in BESLEMELER if not kod or b[0] == kod]
+    OKUNAMAYAN.clear()
     haberler: list[Haber] = []
 
     with httpx.Client(headers=BASLIKLAR, timeout=ZAMAN_ASIMI,
