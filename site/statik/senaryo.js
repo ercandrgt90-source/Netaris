@@ -41,6 +41,49 @@
     belirsiz: ["Belirsiz", "notr"],
   };
 
+  /* OY DUGMESI.
+   *
+   * "Katiliyorum" DEGIL "degerli buldum": katilim sayisi bir olasilik
+   * gibi okunur ve hesaplamadigimiz bir seyi olcum gibi sunar. Bu oy
+   * iyi kurulmus senaryoyu one cikariyor, bir tahmin uretmiyor.
+   *
+   * Oturum yoksa dugme yerine giris baglantisi -- basilinca hicbir sey
+   * olmayan bir dugme, olmayan dugmeden kotudur. */
+  function oyDugmesi(s, oturum) {
+    var n = Number(s.oy || 0);
+    if (!oturum) {
+      return '<a class="senaryo-oy senaryo-oy-kapali" href="/giris/"' +
+             ' title="Oy vermek için giriş yapın">' +
+             '<span aria-hidden="true">▲</span> ' + n + '</a>';
+    }
+    return '<button class="senaryo-oy' + (s.benim ? " verildi" : "") + '"' +
+           ' type="button" data-oy="' + s.id + '"' +
+           ' aria-pressed="' + (s.benim ? "true" : "false") + '"' +
+           ' title="Bu senaryoyu değerli buldum">' +
+           '<span aria-hidden="true">▲</span> ' +
+           '<span class="oy-sayi">' + n + '</span></button>';
+  }
+
+  function oylariBagla() {
+    var dugmeler = kutu.querySelectorAll("[data-oy]");
+    for (var i = 0; i < dugmeler.length; i++) {
+      dugmeler[i].addEventListener("click", function () {
+        var d = this;
+        d.disabled = true;
+        fetch("/api/senaryo/" + d.dataset.oy + "/oy", { method: "POST" })
+          .then(function (y) { return y.ok ? y.json() : null; })
+          .then(function (v) {
+            d.disabled = false;
+            if (!v || !v.tamam) return;
+            d.querySelector(".oy-sayi").textContent = v.oy;
+            d.classList.toggle("verildi", !!v.benim);
+            d.setAttribute("aria-pressed", v.benim ? "true" : "false");
+          })
+          .catch(function () { d.disabled = false; });
+      });
+    }
+  }
+
   fetch("/api/senaryo/acik?capa=" + encodeURIComponent(capa), {
     headers: { accept: "application/json" },
   })
@@ -62,7 +105,8 @@
         if (s.gerekce) {
           h += '<p class="senaryo-gerekce">' + kacir(s.gerekce) + '</p>';
         }
-        h += '<p class="senaryo-kunye">' +
+        h += '<div class="senaryo-alt">' +
+             '<p class="senaryo-kunye">' +
              '<b>' + kacir(s.yazar) + '</b>' +
              ' · ufuk ' + kacir(s.ufuk);
         if (s.ufuk_biter) h += ' (' + kacir(tarihTR(s.ufuk_biter)) + ')';
@@ -70,11 +114,12 @@
           h += ' · <span class="senaryo-sonuclanma ' + d[1] + '">' +
                d[0] + '</span>';
         }
-        h += '</p></li>';
+        h += '</p>' + oyDugmesi(s, v.oturum) + '</div></li>';
       }
 
       kutu.querySelector(".senaryo-liste").innerHTML = h;
       kutu.hidden = false;
+      oylariBagla();
     })
     .catch(function () {
       /* Sessiz. Bolum zaten `hidden`; bir sey yapmiyoruz. */

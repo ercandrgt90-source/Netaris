@@ -3,6 +3,11 @@
 {% block baslik %}{{ site.ad }} — {{ site.slogan }}{% endblock %}
 {% block aciklama %}{{ site.meta_aciklama }}{% endblock %}
 
+{% block ek_bas %}
+{# One cikan senaryolar canli uctan geliyor -- yalnizca ana sayfada. #}
+<script src="/statik/onecikan.js" defer></script>
+{% endblock %}
+
 {% block yapisal_veri %}
 <script type="application/ld+json">
 {
@@ -140,6 +145,25 @@
 </section>
 {% endif %}
 {% endif %}
+
+{# ONE CIKAN SENARYOLAR -- zincirin son halkasi.
+   veri -> cikarim -> gorus -> TOPLULUK SECIMI
+
+   Sitenin diger her bolumu Netaris'in urettigi seyi gosteriyor; burasi
+   OKURLARIN urettigini gosteriyor ve en cok "degerli bulundu" oyu
+   alanlar one cikiyor.
+
+   Bolum canli uctan besleniyor ve hic oy yoksa BASILMIYOR: bos bir
+   "one cikan" basligi sitenin terk edilmis gorunmesine yol acar.
+   Statik sayfaya gomulseydi siralama saatlerce eski kalirdi. #}
+<section class="one-cikan" id="one-cikan-senaryo" hidden>
+  <div class="bolum-bas">
+    <h2>Öne çıkan okur senaryoları</h2>
+    <span class="bolum-not">Topluluğun değerli bulduğu koşullu
+      değerlendirmeler</span>
+  </div>
+  <ul class="one-senaryo-liste"></ul>
+</section>
 
 {# Yorum ve kose yazilari.
    IMZALI yazilar once gelir. Imzasi olmayanlar "Netaris Analiz" kunyesiyle

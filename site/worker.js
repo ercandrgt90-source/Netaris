@@ -668,17 +668,76 @@ async function senaryoAcik(istek, env) {
   const u = new URL(istek.url);
   const capa = (u.searchParams.get("capa") || "").slice(0, 240);
   if (!capa) return hata("Çapa gerekli.");
+  /* Oy sayisi ve okurun kendi oyu birlikte donuyor: iki istek yerine
+     bir istek, ve dugme dogru durumda aciliyor. */
+  const uye = await uyeBul(istek, env.DB);
   const r = await env.DB.prepare(
-    "SELECT s.kosul, s.sonuc, s.gerekce, s.ufuk, s.ufuk_biter, s.yayin, " +
-    "s.sonuclanma, u.ad AS yazar FROM senaryo s JOIN uye u ON u.id = s.uye_id " +
+    "SELECT s.id, s.kosul, s.sonuc, s.gerekce, s.ufuk, s.ufuk_biter, " +
+    "s.yayin, s.sonuclanma, u.ad AS yazar, " +
+    "(SELECT COUNT(*) FROM senaryo_oy o WHERE o.senaryo_id = s.id) AS oy, " +
+    "(SELECT COUNT(*) FROM senaryo_oy o WHERE o.senaryo_id = s.id " +
+    " AND o.uye_id = ?) AS benim " +
+    "FROM senaryo s JOIN uye u ON u.id = s.uye_id " +
     "WHERE s.capa = ? AND s.durum = 'yayimlandi' " +
-    "ORDER BY s.yayin DESC LIMIT 20",
-  ).bind(capa).all();
-  return yanit({ senaryolar: r.results || [] },
+    /* EN COK OY ALAN USTTE. Yayin sirasi ikincil olcut: ayni oyu alan
+       iki senaryodan yeni olan once. */
+    "ORDER BY oy DESC, s.yayin DESC LIMIT 20",
+  ).bind(uye ? uye.id : 0, capa).all();
+  return yanit(
+    { senaryolar: r.results || [], oturum: !!uye },
     200,
-    /* Kisa onbellek: senaryo saniyede degismez, ama saatlerce eski de
-       gorunmemeli. Sayfa statik, bu uc dinamik. */
-    { "cache-control": "public, max-age=120" });
+    /* Oturuma gore degistigi icin ONBELLEKLENMEZ. Onceki surumde
+       120 saniyelik ortak onbellek vardi ve bir okurun oy durumu
+       digerine gorunebilirdi. */
+    { "cache-control": "no-store" });
+}
+
+/* Oy ver / geri al. Ayni uc ikisini de yapiyor -- dugme bir anahtar,
+   iki ayri uc olsaydi istemci hangi durumda oldugunu tahmin etmek
+   zorunda kalirdi. */
+async function senaryoOy(env, uye, id) {
+  const s = await env.DB.prepare(
+    "SELECT durum FROM senaryo WHERE id = ?",
+  ).bind(id).first();
+  if (!s || s.durum !== "yayimlandi") {
+    return hata("Senaryo bulunamadı.", 404);
+  }
+  const var_ = await env.DB.prepare(
+    "SELECT 1 FROM senaryo_oy WHERE senaryo_id = ? AND uye_id = ?",
+  ).bind(id, uye.id).first();
+
+  if (var_) {
+    await env.DB.prepare(
+      "DELETE FROM senaryo_oy WHERE senaryo_id = ? AND uye_id = ?",
+    ).bind(id, uye.id).run();
+  } else {
+    await env.DB.prepare(
+      "INSERT OR IGNORE INTO senaryo_oy (senaryo_id, uye_id, an)" +
+      " VALUES (?, ?, ?)",
+    ).bind(id, uye.id, simdi()).run();
+  }
+  const say = await env.DB.prepare(
+    "SELECT COUNT(*) AS n FROM senaryo_oy WHERE senaryo_id = ?",
+  ).bind(id).first();
+  return yanit({ tamam: true, oy: say ? say.n : 0, benim: !var_ });
+}
+
+/* Ana sayfadaki "one cikan senaryolar". Herkese acik.
+ *
+ * EN AZ BIR OY SARTI: sifir oylu senaryo one cikarilamaz -- "one cikan"
+ * demek bir SECIM demek, henuz kimsenin bakmadigi bir metni oyle
+ * sunmak okuru yanıltır. */
+async function senaryoOneCikan(env) {
+  const r = await env.DB.prepare(
+    "SELECT s.kosul, s.sonuc, s.capa, s.capa_baslik, s.ufuk, u.ad AS yazar," +
+    " (SELECT COUNT(*) FROM senaryo_oy o WHERE o.senaryo_id = s.id) AS oy" +
+    " FROM senaryo s JOIN uye u ON u.id = s.uye_id" +
+    " WHERE s.durum = 'yayimlandi'" +
+    " AND (SELECT COUNT(*) FROM senaryo_oy o WHERE o.senaryo_id = s.id) > 0" +
+    " ORDER BY oy DESC, s.yayin DESC LIMIT 5",
+  ).all();
+  return yanit({ senaryolar: r.results || [] }, 200,
+    { "cache-control": "public, max-age=300" });
 }
 
 /* --------------------------------------------------------------- yonlendirme */
@@ -708,6 +767,8 @@ export default {
       /* Haber sayfasindaki senaryo bolumu -- oturum ISTEMEZ, yalnizca
          yayimlanmis senaryolari doner. */
       if (y === "senaryo/acik" && m === "GET") return await senaryoAcik(istek, env);
+      if (y === "senaryo/one-cikan" && m === "GET")
+        return await senaryoOneCikan(env);
 
       /* Buradan sonrasi oturum istiyor */
       const uye = await uyeBul(istek, env.DB);
@@ -724,6 +785,8 @@ export default {
       if (y === "senaryo" && m === "POST") return await senaryoKaydet(istek, env, uye);
       const sen = y.match(/^senaryo\/(\d+)$/);
       if (sen && m === "DELETE") return await senaryoSil(env, uye, Number(sen[1]));
+      const oy = y.match(/^senaryo\/(\d+)\/oy$/);
+      if (oy && m === "POST") return await senaryoOy(env, uye, Number(oy[1]));
 
       if (y.startsWith("yonetim/")) {
         if (uye.rol !== "yonetici") return hata("Yetkiniz yok.", 403);

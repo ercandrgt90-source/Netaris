@@ -135,6 +135,32 @@ CREATE TABLE IF NOT EXISTS senaryo (
   yayin             TEXT
 );
 
+-- ---------------------------------------------------------------------
+-- SENARYO OYU
+--
+-- NEDEN "DEGERLI BULDUM", "KATILIYORUM" DEGIL
+-- Katilim oyu sayisi bir OLASILIK gibi okunur: "%70 katildi" yazan bir
+-- kutu, hesaplamadigimiz bir olasiligi olcum gibi sunar ve sitenin en
+-- temel ilkesini bozar. "Degerli buldum" ise iyi kurulmus senaryoyu one
+-- cikarir; bir tahmin uretmez.
+--
+-- NEDEN OLUMSUZ OY YOK
+-- Asagi oy azinlik gorusunu bastirir ve linc araci olur. Yukari oy
+-- siralamak icin yeterli: iyi senaryo one cikar, kotu senaryo sessizce
+-- geride kalir.
+--
+-- NEDEN UYELIK SART
+-- Anonim oy sayilabilir bir sey degil. Ayni kisi yuz kez oy verebilir
+-- ve siralama anlamini kaybeder.
+CREATE TABLE IF NOT EXISTS senaryo_oy (
+  senaryo_id  INTEGER NOT NULL REFERENCES senaryo(id) ON DELETE CASCADE,
+  uye_id      INTEGER NOT NULL REFERENCES uye(id) ON DELETE CASCADE,
+  an          TEXT NOT NULL,
+  PRIMARY KEY (senaryo_id, uye_id)
+);
+
+CREATE INDEX IF NOT EXISTS senaryo_oy_senaryo ON senaryo_oy(senaryo_id);
+
 CREATE INDEX IF NOT EXISTS senaryo_uye ON senaryo(uye_id);
 CREATE INDEX IF NOT EXISTS senaryo_durum ON senaryo(durum);
 -- Haber sayfasi capaya gore soruyor; en sik sorgu bu.

@@ -2581,3 +2581,74 @@ table td, table th, time, .tarih {
 /* Ust kutular buyutuldu -- okunurluk icin istendi. */
 .ozet-kutu { padding: 20px 22px; }
 .ozet-kutu dd { font-size: 1.0rem; line-height: 1.6; }
+
+/* ================================================================
+   SENARYO OYU VE ONE CIKANLAR
+   ================================================================
+
+   Senaryo bolumu "cok sonuk duruyor" diye isaretlendi; oysa sitenin
+   en ayirt edici halkasi burasi. Bolum artik daha genis, oy dugmesi
+   gorunur ve en cok oy alan ustte.
+
+   OY "KATILIYORUM" DEGIL "DEGERLI BULDUM". Katilim sayisi bir olasilik
+   gibi okunur ve hesaplamadigimiz bir seyi olcum gibi sunar. Olumsuz
+   oy da yok: azinlik gorusunu bastirir. */
+
+.senaryo-alt {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; flex-wrap: wrap;
+}
+
+.senaryo-oy {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 12px;
+  border: 1px solid var(--cizgi-parlak); border-radius: 999px;
+  background: var(--panel);
+  color: var(--yazi-2);
+  font-size: 0.8rem; font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  cursor: pointer; white-space: nowrap;
+  transition: border-color .15s, color .15s, background .15s;
+}
+.senaryo-oy:hover:not(:disabled) {
+  border-color: var(--vurgu); color: var(--vurgu);
+}
+.senaryo-oy:disabled { opacity: .55; cursor: progress; }
+
+/* Verilmis oy: vurgu rengi. Yesil KULLANILMIYOR -- yesil/kirmizi bu
+   sitede yalnizca sayisal yon icin ayrildi ve oy bir yon degil. */
+.senaryo-oy.verildi {
+  border-color: var(--vurgu); background: var(--vurgu-zar);
+  color: var(--vurgu);
+}
+.senaryo-oy-kapali { text-decoration: none; }
+.senaryo-oy-kapali:hover { text-decoration: none; }
+
+/* --- Ana sayfa: one cikan senaryolar --- */
+.one-cikan { margin: 44px 0; }
+.one-cikan .bolum-not {
+  font-size: 0.82rem; color: var(--yazi-3);
+}
+.one-senaryo-liste { list-style: none; padding: 0; margin: 16px 0 0; }
+.one-senaryo {
+  padding: 15px 18px; margin: 0 0 10px;
+  background: var(--panel);
+  border: 1px solid var(--cizgi);
+  border-left: 3px dashed var(--cizgi-parlak);
+  border-radius: 0 var(--r) var(--r) 0;
+}
+.one-oy {
+  display: inline-block; margin-right: 6px;
+  padding: 1px 9px; border-radius: 999px;
+  background: var(--vurgu-zar); color: var(--vurgu);
+  font-weight: 800; font-variant-numeric: tabular-nums;
+}
+
+/* Haber sayfasindaki senaryo bolumu daha gorunur. */
+.senaryo-bolum h2, .senaryo-cagri { font-size: 1.05rem; }
+.senaryo-cagri {
+  margin-top: 20px; padding: 18px 20px;
+  background: var(--panel-2);
+  border: 1px solid var(--cizgi-parlak);
+  border-radius: var(--r);
+}
