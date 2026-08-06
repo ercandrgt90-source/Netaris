@@ -240,12 +240,22 @@ def yorumla(girdi: str) -> tuple[str, str, str, str]:
         else:
             metin, model = _cf_cagir(girdi)
     except httpx.HTTPStatusError as e:
-        # 403 genellikle jetonun Workers AI iznine sahip olmadigini
-        # gosterir -- Workers dagitimi icin uretilen jetonda o izin
+        # 401 VE 403 ikisi de kapsam sorununa isaret ediyor.
+        #
+        # Olculdu: dagitim jetonu gecerli (ayni jetonla `wrangler deploy`
+        # calisiyor) ama AI ucu 401 donuyor. Yani sorun jetonun gecersiz
+        # olmasi degil, Workers AI KAPSAMINI tasimamasi -- "Edit
+        # Cloudflare Workers" sablonuyla uretilen jetonda o izin
         # varsayilan olarak YOK.
-        ek = " (jetonda Workers AI izni olmayabilir)" \
-            if e.response.status_code == 403 else ""
-        return "", "", f"{s} HTTP {e.response.status_code}{ek}", ""
+        #
+        # Ilk yazimda ipucu yalnizca 403'e bagliydi ve gercek hata 401
+        # gelince sebep sessiz kaldi.
+        kod = e.response.status_code
+        ek = ""
+        if kod in (401, 403):
+            ek = (" -- jetonda 'Workers AI' izni yok gibi gorunuyor; "
+                  "Cloudflare > My Profile > API Tokens uzerinden ekleyin")
+        return "", "", f"{s} HTTP {kod}{ek}", ""
     except httpx.HTTPError as e:
         return "", "", f"{s} ag hatasi: {type(e).__name__}", ""
     if not metin:
