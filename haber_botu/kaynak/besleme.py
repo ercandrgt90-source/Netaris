@@ -99,6 +99,23 @@ BESLEMELER = (
     ("EIA", "EIA", "ABD Enerji Bilgi İdaresi",
      "https://www.eia.gov/rss/todayinenergy.xml", "Enerji", "en", False),
 
+    # --- Kuresel makro akis ---
+    #
+    # FinancialJuice, sitesinde RSS baglantisini KENDISI yayimliyor
+    # (feed.ashx?xy=rss). Diger ticari kaynaklarla ayni kurala tabi:
+    # `ticari=True`, yani sayfada kunye ve kaynaga baglanti ZORUNLU.
+    #
+    # Iki sebeple degerli:
+    #   1. Dunya sekmesini gercekten dolduruyor -- kuresel veri
+    #      aciklamalari ve jeopolitik gelismeler dakika dakika.
+    #   2. Basliklarin bir kismi "Actual X (Forecast Y, Previous Z)"
+    #      kalibinda geliyor, yani BEKLENTIYI de tasiyor. Ucretsiz
+    #      konsensus verisi bulunamadigi icin cevapsiz kalan "beklenti
+    #      neydi" sorusu bu kaynakta cevaplaniyor.
+    ("FJUICE", "FinancialJuice", "FinancialJuice",
+     "https://www.financialjuice.com/feed.ashx?xy=rss",
+     "Şirket haberleri", "en", True),
+
     # --- Ticari, ekonomiye adanmis ---
     ("AA_EKO", "AA", "Anadolu Ajansı",
      "https://www.aa.com.tr/tr/rss/default?cat=ekonomi",
@@ -637,6 +654,56 @@ def _ogeler(xml: str) -> list[dict]:
     return sonuc
 
 
+#: Besleme basina oge siniri. Varsayilan `en_fazla`; burada yazan ezer.
+#:
+#: FinancialJuice dakika dakika yayin yapiyor ve tek cagrida 100 oge
+#: donuyor. 12'lik varsayilan sinirla o akisin yalnizca son on dakikasi
+#: aliniyordu -- olculdu: 100 ogeden 3'u siteye giriyordu.
+BESLEME_SINIRI = {"FJUICE": 70}
+
+#: Basliktan silinecek kaynak onekleri. Kunye sayfada ayrica basiliyor;
+#: onek basligin yarisini yiyor ve listede tekrar gorunuyor.
+_ONEKLER = (
+    re.compile(r"^\s*FinancialJuice\s*:\s*", re.I),
+)
+
+#: Veri aciklamasi basliginda konu bulunamazsa kullanilacak esleme.
+#:
+#: "Eurozone Retail Sales YoY Actual 0.7%" gibi basliklar Turkce konu
+#: isaretlerinin hicbirine takilmiyor ve ticari kaynakta konu
+#: bulunamayan oge ALINMIYOR. Oysa bunlar sitenin en degerli
+#: iceriklerinden: rakam ve beklenti basligin icinde.
+VERI_KONULARI = (
+    (("cpi", "inflation", "price index", "ppi", "hicp"), "Enflasyon"),
+    (("unemployment", "payroll", "jobless", "employment", "wage",
+      "labour", "labor"), "İstihdam ve ücret"),
+    (("trade balance", "exports", "imports", "current account"),
+     "Dış ticaret"),
+    (("retail sales", "gdp", "pmi", "industrial production",
+      "industrial orders", "confidence", "sentiment", "consumer spending"),
+     "Borsa"),
+    (("interest rate", "rate decision", "central bank", "boe", "fed",
+      "ecb", "boj"), "Para politikası"),
+    (("crude", "oil", "gas", "opec", "refinery"), "Enerji"),
+    (("housing", "building permits", "construction"), "Konut ve kira"),
+)
+
+
+def _onek_sil(baslik: str) -> str:
+    for d in _ONEKLER:
+        baslik = d.sub("", baslik)
+    return baslik.strip()
+
+
+def veri_konusu(baslik: str) -> str:
+    """Veri aciklamasi basligindan konu. Bulamazsa bos."""
+    k = _aranacak(baslik)
+    for isaretler, konu in VERI_KONULARI:
+        if any(i in k for i in isaretler):
+            return konu
+    return ""
+
+
 def _besleme_oku(c: httpx.Client, tanim, en_fazla: int) -> list[Haber]:
     kod, kisa, tam, adres, varsayilan, dil, ticari = tanim
     try:
@@ -648,9 +715,10 @@ def _besleme_oku(c: httpx.Client, tanim, en_fazla: int) -> list[Haber]:
     eski_sinir = (datetime.now(timezone.utc).date()
                   - timedelta(days=GECERLILIK_GUN)).isoformat()
     cikti: list[Haber] = []
+    sinir = BESLEME_SINIRI.get(kod, en_fazla)
 
-    for o in _ogeler(y.text)[:en_fazla]:
-        baslik = o["baslik"]
+    for o in _ogeler(y.text)[:sinir]:
+        baslik = _onek_sil(o["baslik"])
         if not baslik or len(baslik) < 12:
             continue
 
@@ -658,7 +726,7 @@ def _besleme_oku(c: httpx.Client, tanim, en_fazla: int) -> list[Haber]:
             if gurultu_mu(baslik):
                 continue
             # Ticari ogede varsayilan YOK -- konu bulunamazsa alinmaz.
-            konu = konu_bul(baslik, "")
+            konu = konu_bul(baslik, "") or veri_konusu(baslik)
             if not konu:
                 continue
             # Arama motoru icin tutulan bayat sayfalari eler.

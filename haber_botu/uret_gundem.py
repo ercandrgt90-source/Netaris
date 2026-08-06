@@ -37,6 +37,7 @@ import beyin  # noqa: E402
 import ceviri  # noqa: E402
 import foto  # noqa: E402
 import gundem_yorum  # noqa: E402
+import veri_basligi  # noqa: E402
 
 HEDEF = _KOK.parent / "site" / "icerik" / "gundem.json"
 
@@ -124,10 +125,24 @@ def main() -> int:
     yorumlanan = 0
 
     for h in haberler:
+        # VERI ACIKLAMASI BASLIGI CEVRILMEZ, YENIDEN KURULUR.
+        #
+        # Makine cevirisi bu kalibi bozuyordu -- olculdu:
+        #   "Italian Industrial Production MoM Actual -1.0% (Forecast 0.3%)"
+        #   -> "Italyan Sanayi Uretimi Gerceklesen Aylik % -1.0 (Tahmin %0.3"
+        # Sayilar Ingilizce bicimde kaliyor, yuzde isareti yer
+        # degistiriyor. Cozum sayilari CEVIRMEMEK: yalnizca gosterge
+        # ADI ceviriye giriyor, rakamlar bizim bicimimizle yaziliyor.
+        v = veri_basligi.coz(h.baslik)
+        if v:
+            ad, donem_eki = veri_basligi.ad_ayir(v.ad)
+            ad_tr = ad if h.dil == "tr" else cevirmen.cevir(ad)
+            tr = veri_basligi.turkce_baslik(v, ad_tr + donem_eki)
+            cevrildi = h.dil != "tr"
         # TCMB zaten Turkce yayimliyor. Bu basligi ceviri motoruna vermek
         # iki sekilde zarar verir: motor onu Ingilizce sanip metni bozar
         # ("Kurul" -> "Board"), ve bosuna kota harcar.
-        if h.dil == "tr":
+        elif h.dil == "tr":
             tr, cevrildi = h.baslik, False
         else:
             tr = cevirmen.cevir(h.baslik)
@@ -143,6 +158,18 @@ def main() -> int:
         # Ayni haber her zaman ayni fotografi alir.
         f = foto_kayit.sec(h.konu, h.adres)
 
+        # VERI ACIKLAMASI KALIBI -- "Actual X (Forecast Y, Previous Z)".
+        #
+        # Bu kalipta gelen baslik BEKLENTIYI de tasiyor. Ucretsiz
+        # konsensus verisi bulunamadigi icin veri haberlerinde "beklenti
+        # neydi" sorusu cevapsiz kaliyordu; kaynak basligin kendisinde
+        # veriyor. Cozulen basliklarda ozet, kaynagin metni yerine
+        # OLCUMDEN kuruluyor:
+        #
+        #   "Beklenti %1,00; beklentinin altinda (0,30 puan).
+        #    Onceki donem %1,60; geriledi (0,90 puan)."
+        ozet_metni = veri_basligi.ozet(v) if v else h.ozet[:320]
+
         kayitlar.append({
             "baslik": tr,
             "baslik_kaynak": h.baslik,
@@ -150,7 +177,7 @@ def main() -> int:
             # her haber sayfasinda o habere dair TEK ozgul icerik buydu ve
             # cope gidiyordu. Kisa alinti + kunye + baglanti, RSS'in
             # zaten davet ettigi kullanim; tam metin alinmiyor.
-            "ozet": h.ozet[:320],
+            "ozet": ozet_metni,
             "cevrildi": cevrildi,
             "dil": h.dil,
             # Sayfada kunye basilacak mi -- ticari kaynakta ZORUNLU

@@ -564,6 +564,15 @@ def _sayisal_olay(baslik: str) -> bool:
     return _SAYISAL.search(_katla(baslik)) is not None
 
 
+#: "... Actual <sayi> ..." -- veri aciklamasi kalibi.
+#: Basligin kendisi olay: rakam, beklenti ve onceki deger icinde.
+_VERI_KALIBI = re.compile(r"\bactual\s+-?[\d.,]", re.I)
+
+
+def _veri_aciklamasi(baslik: str) -> bool:
+    return _VERI_KALIBI.search(baslik) is not None
+
+
 def siniflandir(baslik: str, konu: str, kurum: str = "",
                 ticari: bool = False) -> Baglam:
     """Haberin yorumlanip yorumlanmayacagina karar verir.
@@ -589,8 +598,15 @@ def siniflandir(baslik: str, konu: str, kurum: str = "",
         # Jeopolitik konunun KENDI isaretleri zaten olay bildiriyor
         # ("ateskes", "yaptirim", "saldiri", "anlasma"). Ikinci bir olay
         # kapisi koymak ayni sarti iki kez aramak olurdu.
+        #
+        # VERI ACIKLAMASI KALIBI da ayni sekilde: "Actual 0.7% (Forecast
+        # 1%, Previous 1.6%)" basligi zaten bir olayin kendisidir --
+        # rakam, beklenti ve onceki deger basligin icinde. Fiil aramak
+        # gereksiz, ustelik bu basliklarda fiil hic yok.
         if konu != "Jeopolitik" and not (
-                _icerir(baslik, OLAY_ISARETLERI) or _sayisal_olay(baslik)):
+                _icerir(baslik, OLAY_ISARETLERI)
+                or _sayisal_olay(baslik)
+                or _veri_aciklamasi(baslik)):
             return Baglam(yorumlanir=False)
     elif not _icerir(baslik, ETKILI_ISARETLER):
         return Baglam(yorumlanir=False)

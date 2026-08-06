@@ -29,9 +29,10 @@
 {% endblock %}
 
 {% block ek_bas %}
-{# Yalnizca haber sayfasinda yukleniyor: topluluk senaryolari bolumu
-   baska sayfada yok. #}
+{# Yalnizca haber sayfasinda yukleniyor: topluluk senaryolari ve AI
+   sonucu baska sayfada yok. #}
 <script src="/statik/senaryo.js" defer></script>
+<script src="/statik/aisonuc.js" defer></script>
 {% endblock %}
 
 {% block icerik %}
@@ -346,6 +347,23 @@
          href="/panel/?senaryo={{ yol | urlencode }}&baslik={{ h.baslik | urlencode }}">Senaryo yaz</a>
     </div>
     {% endif %}
+
+    {# AI SONUCU.
+       Sayfadaki OLCUMLERIN uc cumlelik ozeti. Model rakam BULMUYOR,
+       yukarida hesaplanmis olanlari cumleye ceviriyor -- uydurma riski
+       bu yuzden kapali, ustelik cikti dogrulaniyor: metinde gecen her
+       sayi girdide de gecmek zorunda, gecmiyorsa cevap atiliyor.
+
+       KAYNAGI ACIKCA YAZILIYOR. Sitenin butun metni deterministik
+       hesaptan geliyor; bu bolum tek istisna ve okur bunu bilmeli. #}
+    <aside class="ai-sonuc" id="ai-sonuc" hidden>
+      <h2>AI özeti</h2>
+      <p class="ai-metin"></p>
+      <p class="ai-not">Bu paragraf, yukarıdaki <b>ölçülmüş verilerden</b>
+        bir dil modeliyle üretilmiştir. Model yeni sayı eklemez; metindeki
+        her sayı sayfadaki verilerde geçer. Sayfanın geri kalanı
+        hesaplamayla üretilir.</p>
+    </aside>
 
     {# SEFFAFLIK -- SKOR DEGIL SAYIM.
        "Veri Gucu 97" gibi bir puan olcum gibi gorunur ama

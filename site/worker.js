@@ -681,6 +681,53 @@ async function senaryoAcik(istek, env) {
     { "cache-control": "public, max-age=120" });
 }
 
+/* ------------------------------------------------------------------- ai */
+
+/* Girdinin sha256 ozeti -- onbellek anahtari.
+   Adres uzunlugu sabit kalsin diye ozet kullaniliyor; girdinin kendisini
+   adrese koymak 2000 karakterlik bir URL demekti. */
+async function ozetle(metin) {
+  const veri = new TextEncoder().encode(metin);
+  const oz = await crypto.subtle.digest("SHA-256", veri);
+  return [...new Uint8Array(oz)].slice(0, 16)
+    .map((b) => b.toString(16).padStart(2, "0")).join("");
+}
+
+/* "AI Sonucu" -- sayfadaki olculmus verileri uc cumleye cevirir.
+ *
+ * ONBELLEK ZORUNLU. Ayni haber sayfasi gunde binlerce kez acilabilir ve
+ * her acilista model cagirmak hem ucretsiz kotayi bitirir hem ayni
+ * girdiye farkli cevaplar uretir -- okur sayfayi yenileyince metnin
+ * degistigini gorur ve haklı olarak guvenmez.
+ *
+ * Cache API kullaniliyor: girdinin kendisi anahtar, yani ayni veri ayni
+ * metni doner. */
+async function aiSonuc(istek, env) {
+  const g = await istek.json().catch(() => ({}));
+  const girdi = metinKirp(g.girdi, 2000);
+  if (!girdi) return hata("Girdi gerekli.");
+
+  const anahtar = new Request(
+    "https://netaris.local/ai/" + await ozetle(girdi),
+    { method: "GET" });
+  const kova = caches.default;
+  const onbellek = await kova.match(anahtar);
+  if (onbellek) return onbellek;
+
+  const { uret } = await import("./ai.js");
+  const metin = await uret(env, girdi);
+  if (!metin) return yanit({ metin: null }, 200,
+    { "cache-control": "public, max-age=300" });
+
+  const y = yanit({ metin }, 200, {
+    /* Uzun onbellek: girdi degismedikce cikti da degismemeli. */
+    "cache-control": "public, max-age=86400",
+  });
+  /* Yanit govdesi bir kez okunabildigi icin kopyasi saklaniyor. */
+  await kova.put(anahtar, y.clone());
+  return y;
+}
+
 /* --------------------------------------------------------------- yonlendirme */
 
 export default {
@@ -708,6 +755,7 @@ export default {
       /* Haber sayfasindaki senaryo bolumu -- oturum ISTEMEZ, yalnizca
          yayimlanmis senaryolari doner. */
       if (y === "senaryo/acik" && m === "GET") return await senaryoAcik(istek, env);
+      if (y === "ai/sonuc" && m === "POST") return await aiSonuc(istek, env);
 
       /* Buradan sonrasi oturum istiyor */
       const uye = await uyeBul(istek, env.DB);

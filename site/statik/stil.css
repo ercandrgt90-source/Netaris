@@ -2475,3 +2475,18 @@ table td, table th, time, .tarih {
   padding-left: 14px;
   border-left: 3px solid var(--vurgu);
 }
+
+/* AI ozeti. Sayfanin TEK model uretimi bolumu; gorsel olarak da ayri
+   duruyor ki okur nerede hesap nerede model bitiyor gorsun. */
+.ai-sonuc {
+  margin: 28px 0; padding: 16px 18px;
+  border: 1px solid var(--vurgu-zar-2);
+  border-radius: var(--r);
+  background: var(--vurgu-zar);
+}
+.ai-sonuc h2 { margin: 0 0 8px; font-size: 0.95rem; color: var(--vurgu); }
+.ai-metin { margin: 0 0 10px; line-height: 1.65; color: var(--yazi); }
+.ai-not {
+  margin: 0; font-size: 0.76rem; line-height: 1.5; color: var(--yazi-3);
+}
+.ai-not b { color: var(--yazi-2); }

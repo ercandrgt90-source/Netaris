@@ -994,12 +994,20 @@ def tazele(h: dict, foto_kayit) -> dict:
     adres = h.get("adres", "")
     if adres.startswith(_VERI_ONEK) and _takvim is not None:
         kod = adres[len(_VERI_ONEK):].split("/")[0]
-        for s in _takvim.SERILER:
+        # HER IKI TABLO da taraniyor. Yalnizca `SERILER` bakildiginda
+        # yerli (TP.*) seriler eslesmiyor ve `konu` HIC atanmiyordu;
+        # sablon `h["konu"]` bekledigi icin kurulum KeyError ile
+        # duruyordu -- sessiz degil, ama gec fark edilen bir hata.
+        for s in (_takvim.SERILER + _takvim.YERLI_SERILER):
             if s[0] == kod:
                 h["konu"] = s[3]
                 break
-        h["neden_onemli"] = _takvim.NEDEN.get(kod, h.get("neden_onemli", ""))
-        h["bolge"] = "DUNYA"
+        # Seri tablodan kaldirilmis olabilir; konu yine de dolmali.
+        h.setdefault("konu", "Şirket haberleri")
+        h["neden_onemli"] = (_takvim.YERLI_NEDEN.get(kod)
+                             or _takvim.NEDEN.get(kod)
+                             or h.get("neden_onemli", ""))
+        h["bolge"] = "TR" if kod.startswith("TP.") else "DUNYA"
         h["yorumlanir"] = True
         h.setdefault("kanallar", [])
         if foto_kayit is not None and not h.get("foto"):
