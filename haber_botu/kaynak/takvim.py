@@ -157,6 +157,64 @@ SERILER: tuple[tuple[str, str, str, str, str, int, str], ...] = (
      "Konut ve kira", "aylık", 6, "seviye"),
 )
 
+#: TURKIYE SERILERI -- kaynak EVDS, FRED degil.
+#:
+#: Ayri tabloda cunku cekme yolu farkli: FRED anahtarsiz CSV veriyor,
+#: EVDS anahtar ve kendi tarih bicimini istiyor. Ayrica bu seriler
+#: okurun ASIL ilgilendigi veriler; ABD takvimi onlarin baglami.
+YERLI_SERILER: tuple[tuple[str, str, str, str, str, int, str], ...] = (
+    ("TP.TUKFIY2025.GENEL", "TÜFE", "%", "Enflasyon", "aylık", 10, "seviye"),
+    ("TP.FE25.OKTG04", "Çekirdek enflasyon (C)", "%",
+     "Enflasyon", "aylık", 9, "seviye"),
+    ("TP.TUFE1YI.T1", "Yİ-ÜFE", "%", "Enflasyon", "aylık", 8, "seviye"),
+    ("TP.YISGUCU2.G8", "İşsizlik oranı", "%",
+     "İstihdam ve ücret", "aylık", 8, "seviye"),
+    ("TP.HARICCARIACIK.K1", "Cari işlemler dengesi", "mn $",
+     "Dış ticaret", "aylık", 9, "seviye"),
+    ("TP.APIFON4", "TCMB ağırlıklı ortalama fonlama maliyeti", "%",
+     "Para politikası", "günlük", 7, "seviye"),
+    ("TP.ENFBEK.PKA12ENF", "Piyasa katılımcılarının enflasyon beklentisi", "%",
+     "Enflasyon", "aylık", 8, "seviye"),
+    ("TP.ENFBEK.HBA12ENF", "Hanehalkının enflasyon beklentisi", "%",
+     "Enflasyon", "aylık", 6, "seviye"),
+)
+
+#: Yerli serilerin "neden onemli" metinleri.
+YERLI_NEDEN = {
+    "TP.TUKFIY2025.GENEL":
+        "TÜFE yalnızca bir fiyat ölçüsü değildir; politika faizi "
+        "kararlarının, kira ve ücret yenilemelerinin ve TMS 29 enflasyon "
+        "muhasebesinin ortak girdisidir.",
+    "TP.FE25.OKTG04":
+        "Çekirdek gösterge gıda, enerji, alkol-tütün ve altını dışlar. "
+        "Manşetle çekirdek arasındaki fark, fiyat artışının geçici mi "
+        "yaygın mı olduğunu ayırmakta kullanılır.",
+    "TP.TUFE1YI.T1":
+        "Yurt içi üretici fiyatları, maliyet tarafındaki baskıyı tüketici "
+        "fiyatlarından önce gösterir. Geçişin hızı sektörün fiyatlama "
+        "gücüne ve kur seviyesine bağlıdır.",
+    "TP.YISGUCU2.G8":
+        "İşsizlik oranı işgücüne katılanlar içinde iş arayıp "
+        "bulamayanların oranıdır. Geniş tanımlı atıl işgücü oranı ayrı "
+        "yayımlanır ve daha yüksektir; ikisi birlikte okunur.",
+    "TP.HARICCARIACIK.K1":
+        "Cari işlemler dengesi Türkiye'nin dış finansman ihtiyacının ana "
+        "ölçüsüdür. Enerji faturası bu kalemin en büyük bileşenlerinden "
+        "biridir; petrol fiyatı buraya doğrudan yazılır.",
+    "TP.APIFON4":
+        "TCMB'nin ağırlıklı ortalama fonlama maliyeti, bankaların "
+        "Merkez Bankası'ndan borçlanma maliyetidir ve ticari kredi "
+        "faizinin çıpasıdır.",
+    "TP.ENFBEK.PKA12ENF":
+        "Piyasa katılımcılarının 12 ay sonrası enflasyon beklentisi, "
+        "TCMB'nin anketle ölçtüğü çıpa göstergesidir. Beklentinin hedefe "
+        "yakınsaması para politikasının açık amaçlarından biridir.",
+    "TP.ENFBEK.HBA12ENF":
+        "Hanehalkı beklentisi ücret pazarlığına ve harcama kararına "
+        "girer. Piyasa katılımcılarının beklentisinden sistematik olarak "
+        "yüksek seyreder; seviyeden çok yönü okunur.",
+}
+
 #: Gozlem bundan eskiyse haber URETILMEZ. Siklik basina ayri esik.
 #:
 #: OLCUT GOZLEM TARIHI, YAYIN TARIHI DEGIL -- ve ikisi cok farkli.
@@ -183,6 +241,8 @@ class Aciklama:
     onceki: float | None
     #: 12 dönem önceki değer -- yillik degisim icin
     yil_once: float | None = None
+    #: Okunan buyuklugun son 12 donemlik ortalamasi -- karsilastirma cipasi
+    ortalama: float | None = None
 
     @property
     def fark(self) -> float | None:
@@ -308,8 +368,21 @@ def ozet(a: Aciklama) -> str:
         if a.onceki is not None:
             p.append(f"Önceki dönem {_bicim(a.onceki, a.birim)}; değişim "
                      f"{_bicim(a.fark, a.birim)}.")
-    p.append(f"Veri FRED (St. Louis Fed) üzerinden {a.kod} serisinden "
-             f"alınmıştır; yorum içermez.")
+    # KARSILASTIRMA CIPASI.
+    #
+    # "Beklenti neydi?" sorusunu ucretsiz konsensus verisi olmadigi icin
+    # cevaplayamiyoruz. Uydurmak yerine OLCULEBILIR bir cipa
+    # veriliyor: serinin son 12 donemlik ortalamasi. "44 bin geldi,
+    # beklenti 60 bindi" diyemiyoruz ama "44 bin geldi, son 12 ayin
+    # ortalamasi 71 bin" diyebiliyoruz -- ve bu bir olcum, tahmin degil.
+    if a.ortalama is not None and a.okunan is not None:
+        birim = "%" if a.sunum == "yillik" else a.birim
+        p.append(f"Son 12 dönem ortalaması {_bicim(a.ortalama, birim)}.")
+
+    kaynak = ("TCMB EVDS" if a.kod.startswith("TP.")
+              else "FRED (St. Louis Fed)")
+    p.append(f"Veri {kaynak} üzerinden {a.kod} serisinden alınmıştır; "
+             f"yorum içermez.")
     return " ".join(p)
 
 
@@ -336,6 +409,98 @@ def _donem(a: Aciklama) -> str:
         return f"{_AYLAR[int(ay) - 1]} {y}"
     except (ValueError, IndexError):
         return a.tarih[:10]
+
+
+def _ortalama(g, sunum: str, adim: int, n: int = 12) -> float | None:
+    """Okunan buyuklugun son `n` donemlik ortalamasi.
+
+    SUNUMA GORE hesaplaniyor: "degisim" serisinde seviyelerin degil
+    FARKLARIN ortalamasi anlamli. Tarim disi istihdamda "son 12 ayin
+    ortalamasi 159 milyon" bilgi tasimaz; "ortalama aylik artis 71 bin"
+    tasir.
+    """
+    d = [float(x.deger) for x in g if x.deger is not None]
+    if len(d) < 3:
+        return None
+    if sunum == "degisim":
+        farklar = [d[i] - d[i - 1] for i in range(1, len(d))][-n:]
+        return sum(farklar) / len(farklar) if farklar else None
+    if sunum == "yillik":
+        if len(d) <= adim + 1:
+            return None
+        y = [(d[i] - d[i - adim]) / d[i - adim] * 100
+             for i in range(adim, len(d)) if d[i - adim]][-n:]
+        return sum(y) / len(y) if y else None
+    son = d[-n:]
+    return sum(son) / len(son)
+
+
+def cek_yerli(bugun: str) -> list[Aciklama]:
+    """Turkiye serilerini EVDS'den ceker.
+
+    Anahtar yoksa BOS liste doner ve hat kirmizi donmez -- ABD tarafi
+    calismaya devam etmeli.
+    """
+    from datetime import date
+
+    try:
+        import evds
+    except ImportError:
+        return []
+    if not evds.anahtar():
+        print("  EVDS_ANAHTARI yok -- yerli seriler atlandi")
+        return []
+
+    try:
+        b = date.fromisoformat(bugun[:10])
+    except (ValueError, TypeError):
+        b = date.today()
+
+    # FORMUL SERININ KENDISINDEN OKUNUYOR, SABIT YAZILMIYOR.
+    #
+    # `evds.SERILER` her seri icin dogru formulu tutuyor: TUFE ham
+    # endeks olarak geliyor ve YILLIK_YUZDE formuluyle istenmezse
+    # seviye doner. Ilk yazimda `DUZEY` sabitlenmisti ve olculen sonuc
+    # suydu:
+    #
+    #   "TUFE: %132,31"   <- endeks seviyesi, yillik oran degil
+    #   "Yi-UFE: %5.637"  <- ayni hata, daha gorunur
+    #
+    # Sayfa dogru gorunuyordu; yalnizca rakam yanlisti.
+    formuller = {s[0]: s[3] for s in evds.SERILER}
+
+    cikti: list[Aciklama] = []
+    for kod, ad, birim, konu, siklik, onem, sunum in YERLI_SERILER:
+        frekans = evds.GUNLUK if siklik == "günlük" else evds.AYLIK
+        s = evds.cek(kod, ad, birim, formuller.get(kod, evds.DUZEY),
+                     frekans, gun=800)
+        if not s or not s.gozlemler:
+            print(f"  {kod:<22} alinamadi")
+            continue
+        g = s.gozlemler
+        son = g[-1]
+        try:
+            yas = (b - date.fromisoformat(son.tarih[:10])).days
+        except ValueError:
+            continue
+        esik = BAYAT_GUN.get(siklik, BAYAT_VARSAYILAN)
+        if siklik == "günlük":
+            esik = 7
+        if yas > esik:
+            print(f"  {kod:<22} atlandi: {son.tarih} ({yas} gun > {esik})")
+            continue
+        adim = 12 if siklik == "aylık" else 250
+        a = Aciklama(
+            kod=kod, ad=ad, birim=birim, konu=konu, siklik=siklik,
+            onem=onem, sunum=sunum, tarih=son.tarih,
+            deger=float(son.deger),
+            onceki=float(g[-2].deger) if len(g) > 1 else None,
+            yil_once=float(g[-1 - adim].deger) if len(g) > adim else None,
+            ortalama=_ortalama(g, sunum, adim),
+        )
+        cikti.append(a)
+        print(f"  {kod:<22} {son.tarih}  {baslik(a)[:52]}")
+    return cikti
 
 
 def cek(bugun: str, gecmis: int = 8) -> list[Aciklama]:
@@ -385,6 +550,7 @@ def cek(bugun: str, gecmis: int = 8) -> list[Aciklama]:
             deger=float(son.deger),
             onceki=float(g[-2].deger) if len(g) > 1 else None,
             yil_once=yil_once,
+            ortalama=_ortalama(g, sunum, adim),
         )
         # Sunum "yillik" ama 12 donem gecmis yoksa haber KURULAMAZ:
         # okunacak sayi hesaplanamiyor demektir.

@@ -243,6 +243,24 @@ SERILER: tuple[tuple[str, str, str, str, str], ...] = (
     ("TP.DK.EUR.S.YTL", "EUR/TRY", "TL", DUZEY, GUNLUK),
     ("TP.YISGUCU2.G8", "İşsizlik oranı", "%", DUZEY, AYLIK),
     ("TP.HARICCARIACIK.K1", "Cari işlemler hesabı", "mn $", DUZEY, AYLIK),
+
+    # --- BEKLENTILER ---
+    #
+    # Ucretsiz konsensus verisi bulunamadigi icin veri haberlerinde
+    # "beklenti neydi" sorusu cevapsiz kaliyordu. TCMB'nin Sektorel
+    # Enflasyon Beklentileri anketi bu bosluğu Turkiye tarafinda
+    # kapatiyor: uc ayri kesimin 12 ay sonrasi icin beklentisi.
+    #
+    # DIKKAT: "Piyasa Katilimcilari Anketi" (bie_bekodtufe) ARSIVDE --
+    # 2023'te durmus. Guncel grup `bie_enfbek`. Ayni tuzak daha once
+    # TUFE serisinde yasandi ve yedi aylik eski veriyi guncel gibi
+    # gostermisti; datagroup tarihi her yeni seride kontrol ediliyor.
+    ("TP.ENFBEK.PKA12ENF", "Piyasa katılımcıları enflasyon beklentisi (12 ay)",
+     "%", DUZEY, AYLIK),
+    ("TP.ENFBEK.IYA12ENF", "Reel sektör enflasyon beklentisi (12 ay)",
+     "%", DUZEY, AYLIK),
+    ("TP.ENFBEK.HBA12ENF", "Hanehalkı enflasyon beklentisi (12 ay)",
+     "%", DUZEY, AYLIK),
 )
 
 

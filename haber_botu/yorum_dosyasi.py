@@ -135,10 +135,20 @@ Doldurduğunuz dosyayı söyleyin, okuyup koda çeviririm.
 """
 
 
+def _sira(yol: pathlib.Path) -> int:
+    """Ayni gun icin bir sonraki bos sira numarasi."""
+    n = 2
+    while yol.with_name(f"{yol.stem}-{n}.md").exists():
+        n += 1
+    return n
+
+
 def main() -> int:
     a = argparse.ArgumentParser()
     a.add_argument("--sayi", type=int, default=18)
     a.add_argument("--konu", default=None)
+    a.add_argument("--uzerine-yaz", action="store_true",
+                   help="var olan dosyanin uzerine yaz (VARSAYILAN DEGIL)")
     args = a.parse_args()
 
     with beyin.baglan() as b:
@@ -177,6 +187,20 @@ def main() -> int:
         p.append("---")
 
     yol = pathlib.Path(_KOK.parent / f"YORUM-{date.today().isoformat()}.md")
+
+    # VAR OLAN DOSYANIN UZERINE YAZILMAZ.
+    #
+    # Bu betik bir kez calistirildi, editor doldurmaya basladi ve betik
+    # ikinci kez calisinca YAZILANLARI SILDI. Dosya gunluk ada sahip
+    # oldugu icin ayni gun ikinci calistirmada ayni ada denk geliyor.
+    #
+    # Uretilen dosya bir CIKTI degil, uzerinde CALISILAN bir belge --
+    # oyle davranilmali.
+    if yol.exists() and not args.uzerine_yaz:
+        yeni = yol.with_name(f"{yol.stem}-{_sira(yol)}.md")
+        print(f"{yol.name} zaten var, uzerine YAZILMADI.")
+        print(f"Yeni dosya: {yeni.name}")
+        yol = yeni
     yol.write_text("\n".join(p) + "\n", encoding="utf-8")
     konular = sorted({h["konu"] for h in secilen})
     print(f"{yol.name} yazildi: {len(secilen)} haber, {len(konular)} konu")

@@ -39,8 +39,10 @@ def main() -> int:
     veri = json.loads(HEDEF.read_text(encoding="utf-8"))
     bugun = veri.get("guncelleme") or besleme.bugun()
 
-    print("VERI ACIKLAMALARI")
-    aciklamalar = takvim.cek(bugun)
+    print("VERI ACIKLAMALARI -- Turkiye (EVDS)")
+    aciklamalar = takvim.cek_yerli(bugun)
+    print("\nVERI ACIKLAMALARI -- ABD (FRED)")
+    aciklamalar += takvim.cek(bugun)
     if not aciklamalar:
         print("  taze aciklama yok")
         return 0
@@ -71,10 +73,13 @@ def main() -> int:
             # Ticari DEGIL: veri kamuya acik, kunye zorunlulugu yok.
             # Kaynak yine de sayfada yaziyor.
             "ticari": False,
-            "bolge": "DUNYA",
+            # Yerli seri -> TR sekmesi; Turkiye paneli ve duyarlilik
+            # tablosu da bu haberlerde basiliyor.
+            "bolge": "TR" if a.kod.startswith("TP.") else "DUNYA",
             "adres": a.adres,
-            "kurum": KURUM,
-            "kurum_tam": KURUM_TAM,
+            "kurum": "TCMB" if a.kod.startswith("TP.") else KURUM,
+            "kurum_tam": ("TCMB EVDS" if a.kod.startswith("TP.")
+                          else KURUM_TAM),
             "konu": a.konu,
             # HABERIN TARIHI = YAYIN GUNU, gozlem donemi DEGIL.
             #
@@ -97,7 +102,8 @@ def main() -> int:
             # metin yerine serinin kendi tanimi yaziliyor: "Cekirdek PCE
             # Fed'in resmen tercih ettigi olcudur" cumlesi yalnizca o
             # seri icin dogru.
-            "neden_onemli": takvim.NEDEN.get(a.kod, ""),
+            "neden_onemli": (takvim.YERLI_NEDEN.get(a.kod)
+                             or takvim.NEDEN.get(a.kod, "")),
             "kanallar": [],
             "kanal_basligi": "",
             "foto": f.dosya if f else "",
