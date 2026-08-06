@@ -53,6 +53,12 @@ concurrency:
   group: netaris-otomasyon
   cancel-in-progress: false
 
+# EYLEM SURUMLERI.
+#
+# GitHub, Node 20 hedefleyen eylemleri Node 24'e zorluyor ve her
+# calistirmada uyari basiyor. Uyari calismayi engellemiyor ama
+# gunlugu kirletiyor ve gercek bir sorun ciktiginda gozden kaciriyor.
+# Surumler Node 24 hedefleyen surumlere yukseltildi.
 jobs:
   calistir:
     runs-on: ubuntu-latest
@@ -65,10 +71,10 @@ jobs:
 
     steps:
       - name: Depoyu al
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Python kur
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.12"
           cache: pip
@@ -80,7 +86,7 @@ jobs:
 
       - name: Node kur
         # wrangler icin gerekiyor
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: "22"
 

@@ -74,6 +74,9 @@
 
   <div class="govde">
 
+
+    <p class="asama"><span class="asama-no">1</span><span class="asama-ad">Haber</span><span class="asama-not">Kaynağın bildirdiği olay</span></p>
+
     {# ACILIS CUMLESI -- bulten basliklari icin.
        "Aylık Fiyat Gelişmeleri (Temmuz 2026)" bir başlık değil, dosya
        adı: okurda beklenti oluşturmuyor ve kaynağın RSS'i özet de
@@ -94,7 +97,6 @@
        ki ayni cumle sayfada iki kez gorunmesin. #}
     <p class="acilis">{{ h.ozet }}</p>
     {% endif %}
-
     {# ARSIV UYARISI.
        Asagidaki gosterge ve piyasa kutulari BUGUNUN verisi. Eski bir
        haberi bugunun sayilariyla cerceveleyip susmak, o sayilari haberin
@@ -110,7 +112,6 @@
       günün değerleri değildir.
     </p>
     {% endif %}
-
     {# HABER 30 SANIYEDE -- ters piramit.
        Okur cevabi ilk ekranda alsin; ayrinti asagida. #}
     {% if dosya and dosya.dolu %}
@@ -135,7 +136,6 @@
       </dl>
     </aside>
     {% endif %}
-
     {# Haberin neden BUGUN ciktigi. Hesaplanir: serinin son gozlem
        tarihiyle haber tarihi karsilastiriliyor. Yakinda bir aciklama
        yoksa bolum hic basilmaz -- baglanti uydurulmaz. #}
@@ -143,13 +143,8 @@
     <p class="neden-bugun">Bu değerlendirme, {{ dosya.neden_bugun }}.</p>
     {% endif %}
 
-    <h2>Neden önemli</h2>
-    <p>{{ h.neden_onemli }}</p>
+    <p class="asama"><span class="asama-no">2</span><span class="asama-ad">Ölçülmüş veri</span><span class="asama-not">Kaynağından çekilir, hesaplanarak sunulur</span></p>
 
-    {# PIYASA KUTUSU -- konuya ait araclarin gercek rakamlari.
-       Genel dogrulari tekrarlamak yerine o habere ait sayilari veriyor:
-       "endeks seviyesi oz kaynak maliyetini belirler" cumlesi New York
-       kapanisi haberinde hicbir sey soylemiyordu. #}
     {# TURKIYE GORUNUMU -- yurt ici haberde konu ne olursa olsun.
        Okur ulkenin fotografini gorsun; hepsi TCMB EVDS'den, resmi. #}
     {% if dosya and dosya.turkiye %}
@@ -177,7 +172,6 @@
       35 baz puanlık bir gerilemedir. Reel faiz, politika faizinden manşet
       enflasyonun çıkarılmasıyla hesaplanmıştır.</p>
     {% endif %}
-
     {# ENFLASYON SEYRI -- 13 aylik seri, yatay cubuk.
        Grafik kitapligi yok; genislik yuzdesi seriden hesaplaniyor. #}
     {% if dosya and dosya.seyir %}
@@ -245,7 +239,58 @@
       {% for n in piyasa.notlar %}{{ n }} {% endfor %}
     </p>
     {% endif %}
+    {# PIYASA KUTUSU -- konuya ait araclarin gercek rakamlari.
+       Genel dogrulari tekrarlamak yerine o habere ait sayilari veriyor:
+       "endeks seviyesi oz kaynak maliyetini belirler" cumlesi New York
+       kapanisi haberinde hicbir sey soylemiyordu. #}
 
+    {# Kendi gosterge verimiz. Haberi veriyle destekler; konuyla ilgili
+       gosterge yoksa bolum hic basilmaz. #}
+    {% if ilgili %}
+    <section class="ilgili-veri">
+      <h2>İlgili göstergeler</h2>
+      <div class="ilgili-izgara">
+        {% for g in ilgili %}
+        <div class="ilgili-kalem" title="{{ g.ad }} — son veri {{ g.tarih }}">
+          <span class="ilgili-ad">{{ g.ad }}</span>
+          <span class="ilgili-deger">{{ g.deger }}</span>
+          <span class="ilgili-fark {{ g.yon }}">{{ g.fark }}</span>
+        </div>
+        {% endfor %}
+      </div>
+      <p class="kaynak-not">Son gözlem {{ gostergeler.guncelleme }} ·
+      {{ gostergeler.kaynak }} · <a href="/makro/">Tüm göstergeler</a></p>
+    </section>
+    {% endif %}
+
+    <p class="asama"><span class="asama-no">3</span><span class="asama-ad">Çıkarım</span><span class="asama-not">Ölçümlerden türetilir; tahmin içermez</span></p>
+
+    {# AI SONUCU.
+       Sayfadaki OLCUMLERIN uc cumlelik ozeti. Model rakam BULMUYOR,
+       yukarida hesaplanmis olanlari cumleye ceviriyor -- uydurma riski
+       bu yuzden kapali, ustelik cikti dogrulaniyor: metinde gecen her
+       sayi girdide de gecmek zorunda, gecmiyorsa cevap atiliyor.
+
+       KAYNAGI ACIKCA YAZILIYOR. Sitenin butun metni deterministik
+       hesaptan geliyor; bu bolum tek istisna ve okur bunu bilmeli. #}
+    {# Metin BUILD ZAMANINDA uretilip HTML'e gomuluyor, tarayicidan
+       cekilmiyor. Ilk surum istemci tarafindaydi ve arama motoru o
+       metni HIC gormuyordu -- sitenin asil degeri olacak yorum icin
+       yanlis yer. Ayrica depoda saklandigi icin metin sabit: okur
+       sayfayi yenileyince degismiyor. #}
+    {% if ai_yorum %}
+    <aside class="ai-sonuc">
+      <h2>Yapay zekâ çıkarımı</h2>
+      <p class="ai-metin">{{ ai_yorum }}</p>
+      <p class="ai-not">Bu paragraf, yukarıdaki <b>ölçülmüş verilerden</b>
+        bir dil modeliyle üretilmiştir. Model yeni sayı ekleyemez;
+        metindeki her sayının sayfadaki verilerde geçtiği makine ile
+        doğrulanır, geçmeyen metin yayımlanmaz. Sayfanın geri kalanı
+        hesaplamayla üretilir.</p>
+    </aside>
+    {% endif %}
+    <h2>Neden önemli</h2>
+    <p>{{ h.neden_onemli }}</p>
     {# AKTARIM KANALLARI yalnizca TURKIYE haberlerinde.
        Dunya haberlerinin cogunda Turkiye'ye isleyen dogrudan bir kanal
        yok; New York kapanisinin altina "Turkiye'ye hangi kanallardan
@@ -257,7 +302,6 @@
     </ul>
     <p><em>{{ gundem.sinir_notu }}</em></p>
     {% endif %}
-
     {# KIM ETKILENIR -- yildiz bir tahmin degil, DUYARLILIK sirasi:
        hangi sektorun gelir ya da maliyet kalemi bu degiskene daha
        dogrudan bagli. Gerekce her satirda yaziyor ki okur katilmadigi
@@ -280,7 +324,6 @@
     <p class="piyasa-not">Yıldızlar etkinin <b>yönünü ya da büyüklüğünü</b>
       değil, sektörün bu değişkene <b>duyarlılık sırasını</b> gösterir.</p>
     {% endif %}
-
     {# TAKIP LISTESI -- kutucuklu.
        Kutucuklar simdilik yalnizca isaretlenebiliyor; uyelikle birlikte
        bildirime baglanacak. Yarim bir soz vermemek icin sayfada
@@ -293,6 +336,8 @@
       {% endfor %}
     </ul>
     {% endif %}
+
+    <p class="asama"><span class="asama-no">4</span><span class="asama-ad">Görüş</span><span class="asama-not">Koşullu değerlendirme — olasılık atanmaz</span></p>
 
     {# SENARYOLAR -- KOSULLU ve AGIRLIKSIZ.
        Bir senaryoya "%55 olasilik" yazmak, hesaplanmamis bir sayiyi
@@ -309,7 +354,6 @@
     <p class="piyasa-not">Bunlar koşullu değerlendirmelerdir, öngörü
       değildir; hiçbirine olasılık atanmamıştır.</p>
     {% endif %}
-
     {# TOPLULUK SENARYOLARI.
        Yukaridaki senaryolar sitenin; buradakiler OKURLARIN. Ikisi ayri
        basliklar altinda ve ayri gorunumde duruyor -- sitenin "resmi veri
@@ -347,32 +391,6 @@
          href="/panel/?senaryo={{ yol | urlencode }}&baslik={{ h.baslik | urlencode }}">Senaryo yaz</a>
     </div>
     {% endif %}
-
-    {# AI SONUCU.
-       Sayfadaki OLCUMLERIN uc cumlelik ozeti. Model rakam BULMUYOR,
-       yukarida hesaplanmis olanlari cumleye ceviriyor -- uydurma riski
-       bu yuzden kapali, ustelik cikti dogrulaniyor: metinde gecen her
-       sayi girdide de gecmek zorunda, gecmiyorsa cevap atiliyor.
-
-       KAYNAGI ACIKCA YAZILIYOR. Sitenin butun metni deterministik
-       hesaptan geliyor; bu bolum tek istisna ve okur bunu bilmeli. #}
-    {# Metin BUILD ZAMANINDA uretilip HTML'e gomuluyor, tarayicidan
-       cekilmiyor. Ilk surum istemci tarafindaydi ve arama motoru o
-       metni HIC gormuyordu -- sitenin asil degeri olacak yorum icin
-       yanlis yer. Ayrica depoda saklandigi icin metin sabit: okur
-       sayfayi yenileyince degismiyor. #}
-    {% if ai_yorum %}
-    <aside class="ai-sonuc">
-      <h2>Yapay zekâ çıkarımı</h2>
-      <p class="ai-metin">{{ ai_yorum }}</p>
-      <p class="ai-not">Bu paragraf, yukarıdaki <b>ölçülmüş verilerden</b>
-        bir dil modeliyle üretilmiştir. Model yeni sayı ekleyemez;
-        metindeki her sayının sayfadaki verilerde geçtiği makine ile
-        doğrulanır, geçmeyen metin yayımlanmaz. Sayfanın geri kalanı
-        hesaplamayla üretilir.</p>
-    </aside>
-    {% endif %}
-
     {# SEFFAFLIK -- SKOR DEGIL SAYIM.
        "Veri Gucu 97" gibi bir puan olcum gibi gorunur ama
        hesaplanmamistir; bu rakamlarin hepsi depodan sayilir. #}
@@ -385,25 +403,6 @@
     </div>
     {% endif %}
   </div>
-
-  {# Kendi gosterge verimiz. Haberi veriyle destekler; konuyla ilgili
-     gosterge yoksa bolum hic basilmaz. #}
-  {% if ilgili %}
-  <section class="ilgili-veri">
-    <h2>İlgili göstergeler</h2>
-    <div class="ilgili-izgara">
-      {% for g in ilgili %}
-      <div class="ilgili-kalem" title="{{ g.ad }} — son veri {{ g.tarih }}">
-        <span class="ilgili-ad">{{ g.ad }}</span>
-        <span class="ilgili-deger">{{ g.deger }}</span>
-        <span class="ilgili-fark {{ g.yon }}">{{ g.fark }}</span>
-      </div>
-      {% endfor %}
-    </div>
-    <p class="kaynak-not">Son gözlem {{ gostergeler.guncelleme }} ·
-    {{ gostergeler.kaynak }} · <a href="/makro/">Tüm göstergeler</a></p>
-  </section>
-  {% endif %}
 
   {# BUNUNLA ILGILI DIGER GELISMELER.
      Arsivden geliyor, uydurulmuyor: ayni varliklara baglanmis ve

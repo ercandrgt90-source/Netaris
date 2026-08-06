@@ -2490,3 +2490,62 @@ table td, table th, time, .tarih {
   margin: 0; font-size: 0.76rem; line-height: 1.5; color: var(--yazi-3);
 }
 .ai-not b { color: var(--yazi-2); }
+
+/* ================================================================
+   URETIM ZINCIRI BANTLARI
+   ================================================================
+
+   Sayfa artik zinciri OLDUGU GIBI gosteriyor:
+     1 Haber -> 2 Olculmus veri -> 3 Cikarim -> 4 Gorus
+
+   Onceki dizilimde "Neden onemli" veriden ONCE geliyordu; okur
+   gerekceyi olcumden once goruyordu. Bantlar hem sirayi duzeltiyor
+   hem de sitenin nasil calistigini okura anlatiyor -- ayrimin kendisi
+   sitenin iddiasi: olcum ile gorus ayni sayfada ama ayni yerde degil. */
+
+.asama {
+  display: flex; align-items: baseline; gap: 10px;
+  margin: 40px 0 18px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--cizgi);
+}
+.asama:first-child { margin-top: 0; }
+
+.asama-no {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 22px; height: 22px; flex: none;
+  border-radius: 50%;
+  background: var(--vurgu); color: var(--zit-yazi);
+  font-size: 0.72rem; font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+.asama-ad {
+  font-size: 0.86rem; font-weight: 800; letter-spacing: 0.02em;
+  text-transform: uppercase; color: var(--yazi);
+}
+.asama-not {
+  font-size: 0.76rem; color: var(--yazi-3); line-height: 1.4;
+}
+
+/* Dorduncu asama GORUS -- olcum degil. Rengi degil, KESIKLI cizgiyi
+   degistiriyoruz: yesil/kirmizi bu sitede yalnizca sayisal yon icin,
+   ve vurgu rengini burada kullanmak "onemli" anlamina gelirdi. */
+.asama:has(.asama-no:only-of-type) { }
+.govde > .asama:nth-of-type(4) { border-bottom-style: dashed; }
+.govde > .asama:nth-of-type(4) .asama-no {
+  background: var(--panel); color: var(--yazi-2);
+  border: 2px solid var(--cizgi-parlak);
+}
+
+@media (max-width: 560px) {
+  .asama { flex-wrap: wrap; gap: 6px 8px; }
+  .asama-not { flex: 1 1 100%; }
+}
+
+/* Zincir bittikten SONRA gelen bolumler -- arsiv ve kaynak.
+   Bunlar uretim zincirinin parcasi degil; okurun oradan devam
+   edecegi yerler. Ustteki bosluk ve cizgi ayrimi soyluyor. */
+.ilgili-haber {
+  margin-top: 46px; padding-top: 26px;
+  border-top: 3px double var(--cizgi);
+}
