@@ -2704,3 +2704,198 @@ table td, table th, time, .tarih {
   color: var(--vurgu); font-weight: 600;
 }
 .izleme li a:hover { text-decoration: none; }
+
+/* ================================================================
+   ANA SAYFA V2 -- DORT KATMAN
+   ================================================================
+   1 canli akis / 2 onemli gelismeler / 3 arastirmalar / 4 topluluk
+
+   1 ve 2 YAN YANA duruyor. Ust uste dizilseydi ikisi ayni seyin iki
+   listesi gibi okunurdu; oysa biri KAYIT (elenmemis), digeri YARGI
+   (secilmis) ve fark, urunun tamami.                                */
+
+/* --- Kart turu renkleri --------------------------------------------
+   Renk SUS DEGIL, siniflandirma. Okur karta bakmadan once neye
+   baktigini bilsin: makro mavi, jeopolitik kirmizi, emtia amber,
+   piyasa mor, sirket turkuaz.
+
+   Renkler yalnizca INCE bir sol seritte ve rozet zemininde kullaniliyor
+   -- kart govdesini boyamak, yedi renkli bir sayfa demekti.            */
+:root {
+  --t-makro: #1d5fd8;
+  --t-jeopolitik: #c8203a;
+  --t-emtia: #9a5700;
+  --t-piyasa: #6d3bd8;
+  --t-sirket: #0a7f6b;
+  --t-duzenleme: #5a6478;
+  --t-sektor: #0a7f47;
+  --t-haber: #616f86;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --t-makro: #6f9dfb;
+    --t-jeopolitik: #ff6b81;
+    --t-emtia: #e0a44a;
+    --t-piyasa: #a98cf5;
+    --t-sirket: #3ecfb4;
+    --t-duzenleme: #93a1b5;
+    --t-sektor: #3ecf8e;
+    --t-haber: #8b99ae;
+  }
+}
+.tur-makro      { --tur: var(--t-makro); }
+.tur-jeopolitik { --tur: var(--t-jeopolitik); }
+.tur-emtia      { --tur: var(--t-emtia); }
+.tur-piyasa     { --tur: var(--t-piyasa); }
+.tur-sirket     { --tur: var(--t-sirket); }
+.tur-duzenleme  { --tur: var(--t-duzenleme); }
+.tur-sektor     { --tur: var(--t-sektor); }
+.tur-haber      { --tur: var(--t-haber); }
+
+/* Giris kisaldi: eski surumde alti satirlik manifesto gunun
+   gelismelerini ekranin altina itiyordu. */
+.hero-dar { padding-bottom: 26px; }
+.hero-dar h1 { margin-bottom: 10px; }
+.hero-ozet {
+  max-width: 62ch; color: var(--yazi-2);
+  font-size: 1.02rem; line-height: 1.6; margin: 0 0 20px;
+}
+
+/* --- MASA: katman 1 + 2 yan yana ---------------------------------- */
+.masa {
+  display: grid; gap: 30px; margin: 38px 0 12px;
+  grid-template-columns: minmax(0, 1fr) 316px;
+  align-items: start;
+}
+@media (max-width: 900px) {
+  /* Dar ekranda akis ALTA gecer, yanina degil. Secim once okunmali:
+     telefonda yan sutun zaten yoktur, ustte olsaydi 20 kalemlik ham
+     akis gunun ozetini asagi iterdi. */
+  .masa { grid-template-columns: 1fr; gap: 34px; }
+}
+
+/* --- KATMAN 2: secim ---------------------------------------------- */
+.basmanset {
+  display: block; border: 1px solid var(--cizgi);
+  border-radius: var(--r); overflow: hidden;
+  background: var(--panel); box-shadow: var(--golge);
+  border-left: 4px solid var(--tur, var(--vurgu));
+  transition: box-shadow .18s, transform .18s;
+}
+.basmanset:hover {
+  text-decoration: none; transform: translateY(-2px);
+  box-shadow: 0 2px 4px rgba(12,21,36,.06), 0 14px 34px rgba(12,21,36,.10);
+}
+.basmanset-gorsel { display: block; background: var(--gorsel-zemin); }
+.basmanset-gorsel img {
+  display: block; width: 100%; height: auto; aspect-ratio: 16/9;
+  object-fit: cover;
+}
+.basmanset-ic { display: block; padding: 20px 22px 22px; }
+.basmanset-baslik {
+  display: block; font-size: 1.5rem; font-weight: 800;
+  line-height: 1.24; letter-spacing: -0.015em;
+  color: var(--yazi); margin: 12px 0 10px;
+}
+.basmanset-ozet {
+  display: block; color: var(--yazi-2); line-height: 1.6;
+  margin-bottom: 14px;
+}
+@media (max-width: 560px) { .basmanset-baslik { font-size: 1.24rem; } }
+
+.onem-liste { list-style: none; padding: 0; margin: 16px 0 0; }
+.onem-liste li {
+  border-bottom: 1px solid var(--cizgi);
+  border-left: 3px solid var(--tur, var(--cizgi));
+  padding: 0 0 0 14px; margin-bottom: 2px;
+}
+.onem-liste li:last-child { border-bottom: none; }
+.onem-liste a { display: block; padding: 13px 0; }
+.onem-liste a:hover { text-decoration: none; }
+.onem-liste a:hover .onem-baslik { color: var(--vurgu); }
+.onem-ust {
+  display: flex; align-items: center; gap: 8px;
+  flex-wrap: wrap; margin-bottom: 5px;
+}
+.onem-zaman { font-size: 0.76rem; color: var(--yazi-3); margin-left: auto; }
+.onem-baslik {
+  display: block; font-weight: 650; line-height: 1.42;
+  color: var(--yazi); transition: color .15s;
+}
+
+/* Kritik rozet. Bu etiket ARTIK SECICI: yalnizca kritik katman
+   aliyor. Her habere yapistigi surumde hicbir seye yapismiyordu. */
+.rozet-kritik {
+  background: var(--azalis); color: #fff; font-weight: 800;
+  letter-spacing: 0.04em; text-transform: uppercase; font-size: 0.66rem;
+}
+
+/* --- KATMAN 1: canli akis ----------------------------------------- */
+.masa-akis {
+  border: 1px solid var(--cizgi); border-radius: var(--r);
+  background: var(--panel); padding: 16px 16px 8px;
+  /* Yapiskan: uzun bir arastirma listesi kaydirilirken akis gorunur
+     kalsin -- masada oldugu gibi. */
+  position: sticky; top: 78px;
+  max-height: calc(100vh - 100px);
+  display: flex; flex-direction: column;
+}
+@media (max-width: 900px) {
+  .masa-akis { position: static; max-height: none; }
+}
+.akis-bas { flex: none; padding-bottom: 10px; border-bottom: 1px solid var(--cizgi); }
+.akis-bas h2 {
+  font-size: 0.9rem; margin: 0 0 3px; display: flex;
+  align-items: center; gap: 8px; letter-spacing: 0.01em;
+}
+.akis-nokta {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--artis); flex: none;
+  box-shadow: 0 0 0 0 var(--nabiz);
+  animation: akis-nabiz 2.4s ease-out infinite;
+}
+@keyframes akis-nabiz {
+  0%   { box-shadow: 0 0 0 0 var(--nabiz); }
+  70%  { box-shadow: 0 0 0 7px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+/* Hareket duyarliligi olan kullanicida nabiz durur. */
+@media (prefers-reduced-motion: reduce) {
+  .akis-nokta { animation: none; }
+}
+.akis-liste {
+  list-style: none; padding: 0; margin: 0;
+  overflow-y: auto; flex: 1 1 auto;
+  /* Kaydirma cubugu ince: yan sutun 316px ve kalin cubuk metni ezer */
+  scrollbar-width: thin;
+}
+.akis-liste li {
+  padding: 10px 0 10px 11px;
+  border-bottom: 1px solid var(--cizgi);
+  border-left: 2px solid var(--tur, var(--cizgi));
+  display: flex; flex-direction: column; gap: 3px;
+}
+.akis-liste li:last-child { border-bottom: none; }
+.akis-zaman {
+  font-size: 0.72rem; font-variant-numeric: tabular-nums;
+  color: var(--yazi-3); letter-spacing: 0.01em;
+}
+.akis-baslik {
+  font-size: 0.86rem; line-height: 1.42; font-weight: 600;
+  color: var(--yazi);
+}
+a.akis-baslik:hover { color: var(--vurgu); text-decoration: none; }
+/* Sayfasi olmayan kalem: akista GORUNUR ama tiklanmaz. Silmek
+   "hicbir sey olmadi" demek olurdu; baglamak 404 demek. */
+.akis-sayfasiz { color: var(--yazi-2); font-weight: 500; }
+.akis-kunye { font-size: 0.72rem; color: var(--yazi-3); }
+
+/* --- KATMAN 4: topluluk ------------------------------------------- */
+/* Eskiden `.one-cikan` sinifini one cikan ANALIZ kartiyla paylasiyordu
+   ve ikisi ayni kuralla boyaniyordu. Ayrildi. */
+.one-cikan-senaryo { margin: 46px 0 0; }
+/* Akista dis baglanti: govdesi olmayan basliklar kaynagina gider.
+   Isaret zorunlu -- okur site icinde mi kalacagini basmadan bilsin. */
+.akis-dis { color: var(--yazi-2); }
+.akis-dis:hover { color: var(--vurgu); text-decoration: none; }
+.dis-ok { font-size: 0.72em; opacity: .6; margin-left: 4px; }

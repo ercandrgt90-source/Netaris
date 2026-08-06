@@ -120,8 +120,12 @@ ETKILI_ISARETLER = (
 
 #: Kanal listesinin ustundeki baslik. Yerli ve yabanci icin AYRI olmali:
 #: TCMB karari Turkiye'ye "gecmez", Turkiye'de alinir ve buradan yayilir.
-BASLIK_YABANCI = "Türkiye'ye hangi kanallardan geçer"
-BASLIK_YERLI = "Hangi kanallardan yansır"
+# GAZETE DILI DEGIL, SORU DILI.
+# "Hangi kanallardan yansır" bir gazete ara basligi gibi okunuyordu.
+# Okurun kafasindaki soruyu aynen yazmak, hem daha dogrudan hem de
+# arananda karsiligi olan bir ifade.
+BASLIK_YABANCI = "Türkiye'ye nasıl yansır?"
+BASLIK_YERLI = "Piyasaya nasıl yansır?"
 
 
 @dataclass(frozen=True)

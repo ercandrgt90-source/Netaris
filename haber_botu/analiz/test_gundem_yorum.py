@@ -104,9 +104,13 @@ esit(any("finansman gideri" in k for k in _y.kanallar), True,
      "yerli kanal sirket bilancosuna baglanir")
 esit(_y.kanal_basligi, gy.BASLIK_YERLI, "yerli baslik")
 esit(_d.kanal_basligi, gy.BASLIK_YABANCI, "yabanci baslik")
-esit("geçer" in _d.kanal_basligi, True, "yabanci: Turkiye'ye GECER")
-esit("geçer" in _y.kanal_basligi, False,
-     "yerli: TCMB karari Turkiye'ye 'gecmez', burada alinir")
+# Ayirt edici ozellik FIILDE degil, YONDE: yabanci gelisme
+# Turkiye'ye YANSIR, yerli karar zaten burada alinir. Test fiili degil
+# bu ayrimi sabitliyor -- yoksa her uslup degisikliginde kirilir.
+esit("Türkiye" in _d.kanal_basligi, True,
+     "yabanci baslik Turkiye'ye aktarimi anlatir")
+esit("Türkiye" in _y.kanal_basligi, False,
+     "yerli: TCMB karari Turkiye'ye aktarilmaz, burada alinir")
 
 print("\nEnflasyon yerli baglami -- TMS 29 cift sayim uyarisi")
 _e = gy.siniflandir("Aylık Fiyat Gelişmeleri", "Enflasyon", "TCMB")

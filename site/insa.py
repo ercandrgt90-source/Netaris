@@ -89,6 +89,12 @@ try:
 except ImportError:
     _olay = None
 
+# Onem puani. Hangi haber one cikar, hangisi akista kalir.
+try:
+    import onem as _onem
+except ImportError:
+    _onem = None
+
 # Veri aciklamasi hatti. Bu haberler seriden uretiliyor; konusu ve
 # gerekcesi baslikten degil serinin tanimindan geliyor.
 try:
@@ -1321,6 +1327,186 @@ def varlik_indeksle(haberler: list[dict]) -> dict[str, dict]:
     return harita
 
 
+def onem_puanla(haberler: list[dict], varlik_haritasi: dict) -> None:
+    """Her habere `onem`, `katman`, `katman_adi` yazar. Yerinde degistirir.
+
+    `onem` alani SABLONA GIDIYOR ama HICBIR SABLONDA BASILMIYOR --
+    siralama ve `--onem` dokumu icin duruyor. Ekranda gorunen tek sey
+    katman adi; bir sayi degil bir yargi (bkz. onem.py bas yorumu).
+
+    Modul yoksa herkes "normal": eksik bir siralamayla site kurulur,
+    puanlama olmadigi icin kurulmamasi sacma olurdu.
+    """
+    for h in haberler:
+        if _onem is None:
+            h["onem"], h["katman"] = 0, "normal"
+            h["katman_adi"] = "Normal"
+            continue
+        adres = h.get("adres", "")
+        v = varlik_haritasi.get(adres, {}).get("varliklar") or []
+        o = _onem.puanla(
+            h.get("baslik", ""),
+            h.get("baslik_kaynak", ""),
+            konu=h.get("konu", ""),
+            # KISA KOD geciyor, `kurum_tam` DEGIL. Kaynak tablolari
+            # ("TCMB", "Fed") kisa kodla anahtarli; tam ad gecildiginde
+            # "Türkiye Cumhuriyet Merkez Bankası" hicbir tabloya
+            # dusmuyor ve TCMB duyurulari birincil kaynak sayilmiyordu.
+            # Varlik indeksi TERSINI istiyor (tam ad) -- ikisi ayri
+            # ihtiyac, ayni alan degil.
+            kurum=h.get("kurum", ""),
+            varlik_sayisi=len(v),
+            # Veri hattinin iddia sahibi FRED/EVDS -- birincil kaynak.
+            # `kurum` alani ise hattimizin sekli
+            # ("FinancialJuice") ve puanda yaniltirdi.
+            veri_mi=adres.startswith(_VERI_ONEK),
+        )
+        h["onem"] = o.puan
+        h["katman"] = o.katman
+        h["katman_adi"] = o.ad
+        h["olay_turu"] = o.olay_turu
+
+
+#: Canli akista kac kalem. Akis SAYFAYI DOLDURMAK icin degil, hareketi
+#: gostermek icin var; sonsuz liste ana sayfayi yeniden haber listesine
+#: cevirirdi. Devami /gundem/'de.
+AKIS_SAYISI = 20
+
+
+#: One cikan bolumunun zaman penceresi (gun).
+#:
+#: BUGUNLE SINIRLI DEGIL, ve sebebi olculdu: gunun yayimlanabilir haber
+#: sayisi 9 civari ve bunlarin puani esigi gecenler dorde iniyor. Tek
+#: gunle sinirlansa bolum surekli yarim kalirdi.
+#:
+#: Yaniltmiyor cunku HER KALEMDE goreli zaman basiliyor -- dunku bir
+#: haberin yaninda "dun" yaziyor. Tarihi gizleyip "bugun" demek
+#: yaniltmak olurdu; tarihi gostererek pencereyi genisletmek degil.
+ONE_CIKAN_PENCERE = 2
+
+
+def one_cikan_haberler(haberler: list[dict], bugun: str = "") -> list[dict]:
+    """Katman 2: one cikan gelismeler.
+
+    Puan siralamasi + tekrar elemesi `onem.sec` icinde. Burada yalnizca
+    haberin kendisi geri veriliyor -- puan sablona gitmiyor, cunku
+    sablonun puani BASMA ihtimali olmamali.
+    """
+    if bugun:
+        haberler = [h for h in haberler
+                    if gun_farki(h.get("tarih", ""), bugun) < ONE_CIKAN_PENCERE]
+    if _onem is None:
+        return haberler[:_ONEM_YEDEK_SAYISI]
+    ciftler = [(_onem.Onem(puan=h.get("onem", 0),
+                           katman=h.get("katman", "normal")), h)
+               for h in haberler]
+    return [h for _, h in _onem.sec(ciftler, anahtar=_veri_kumesi)]
+
+
+def _veri_kumesi(h: dict) -> str:
+    """Ayni gun, ayni konudaki VERI aciklamalari tek kume.
+
+    Enflasyon gunu TUFE, Yi-UFE, cekirdek enflasyon ve hanehalki
+    beklentisi olarak DORT ayri haber uretiyor. Basliklari birbirine hic
+    benzemiyor, o yuzden metin karsilastirmasi bunlari yakalamiyor --
+    ama dordu de tek enflasyon hikayesinin yuzleri ve dordunu birden
+    one cikan listeye koymak, listenin yarisini tek konuya harcamak
+    demek.
+
+    Elenen seriler kaybolmuyor: her biri kendi sayfasinda duruyor ve
+    secilen haberin "ayni konuda son gelismeler" bolumu hepsini
+    listeliyor.
+
+    Veri aciklamasi OLMAYAN haberde bos donuyor -- kume elemesi yalnizca
+    kendi urettigimiz seri haberlerine uygulaniyor, gercek habere
+    degil.
+    """
+    if not h.get("adres", "").startswith(_VERI_ONEK):
+        return ""
+    return f"{h.get('tarih', '')}|{h.get('konu', '')}"
+
+
+#: Puanlama yoksa ana sayfa yine dolmali: en yeni haberler.
+_ONEM_YEDEK_SAYISI = 10
+
+
+def canli_akis(haberler: list[dict], en_cok: int = AKIS_SAYISI) -> list[dict]:
+    """Katman 1: ham akis, en yeni ustte.
+
+    ELEME YOK. Katman 2 bir SECIM, burasi bir KAYIT -- akis suzulurse
+    okur "bir sey oldu mu" sorusunun cevabini burada bulamaz ve akisin
+    tek isi o.
+
+    Siralama `an` (ilk gorulme damgasi) uzerinden. Damgasi olmayan
+    haber tarihine gore siraya giriyor; ikisi de yoksa listenin sonuna
+    dusuyor -- ama LISTEDEN CIKMIYOR.
+    """
+    def anahtar(h: dict) -> str:
+        return h.get("an") or (h.get("tarih") or "")
+    return sorted(haberler, key=anahtar, reverse=True)[:en_cok]
+
+
+#: Kart turu -> gorunen ad. Kartlarin hepsi ayni gorunmemeli: okur
+#: bakmadan once neye baktigini bilsin.
+#:
+#: Tur KONUDAN turetiliyor, elle etiketlenmiyor -- elle etiket, 130
+#: haberde tutarli kalmaz.
+KART_TURU = {
+    "Para politikası": "makro",
+    "Enflasyon": "makro",
+    "İstihdam ve ücret": "makro",
+    "Dış ticaret": "makro",
+    "Vergi ve kamu maliyesi": "makro",
+    "Jeopolitik": "jeopolitik",
+    "Enerji": "emtia",
+    "Altın ve emtia": "emtia",
+    "Tarım ve gıda": "emtia",
+    "Döviz": "piyasa",
+    "Borsa": "piyasa",
+    "Kripto varlıklar": "piyasa",
+    "Bankacılık": "sirket",
+    "Şirket haberleri": "sirket",
+    "Piyasa düzenlemesi": "duzenleme",
+    "Konut ve kira": "sektor",
+    "Turizm": "sektor",
+}
+KART_VARSAYILAN = "haber"
+
+
+def kart_turu(h: dict) -> str:
+    return KART_TURU.get(h.get("konu", ""), KART_VARSAYILAN)
+
+
+def an_yaz(haberler: list[dict]) -> None:
+    """Her habere `an` yazar: ISO zaman damgasi, saat dahil.
+
+    NEDEN DEPODAN
+    -------------
+    `gundem.json` yalnizca TARIH tasiyor ("2026-08-06"). "3 dk once"
+    yazabilmek icin saat gerek ve o yalnizca depodaki `ilk_gorulme`
+    alaninda var.
+
+    `ilk_gorulme` yayin ani DEGIL, BIZIM GORDUGUMUZ an. Hat sik
+    calistigi icin ikisi birbirine yakin; ama esit degiller ve sayfada
+    "yayimlandi" diye sunulmuyorlar. Damga bulunamazsa alan hic
+    yazilmiyor -- tarih basilir, goreli zaman basilmaz. Uydurma bir
+    saat, yanlis bir tazelik izlenimi verirdi.
+    """
+    if _beyin is None:
+        return
+    try:
+        with _beyin.baglan() as b:
+            damga = dict(b.execute(
+                "SELECT adres, ilk_gorulme FROM haber"
+                " WHERE ilk_gorulme IS NOT NULL").fetchall())
+    except Exception:
+        return
+    for h in haberler:
+        d = damga.get(h.get("adres", ""))
+        if d:
+            h["an"] = d
+
+
 #: Dizin sayfasinda listelenmek icin gereken en az haber sayisi.
 #:
 #: Sayfa uretimi bundan BAGIMSIZ: yapisal bagi olan her varligin sayfasi
@@ -1432,6 +1618,9 @@ def insa() -> int:
     # yazmak, alt cizgi/tire donusumunu her sablonda tekrar etmek demekti;
     # biri unutuldugunda 404 sessizce olusuyordu.
     ortam.filters["varlik_yolu"] = varlik_yolu
+    # Kart turu de KODDA yasiyor: sablonda konu->tur eslemesi yazmak,
+    # ayni tabloyu uc sablonda tekrarlamak olurdu.
+    ortam.filters["kart_turu"] = kart_turu
 
     # `analizler`  -- SAYFASI URETILECEK olanlar (hepsi; adresler kirilmasin)
     # `listelenen` -- LISTELERDE gorunecek olanlar (yinelenenler elenmis)
@@ -1478,15 +1667,67 @@ def insa() -> int:
     # haberin gercek adresini degil yer tutucusunu ("/haber/")
     # gosteriyordu -- 312 kirik baglanti. Sozlukler ayni nesne oldugu
     # icin burada atamak butun sayfalara yansiyor.
-    for h in gundem.get("haberler", []):
+    # CANLI HABERLER DE TAZELENIYOR, arsiv gibi.
+    #
+    # `gundem.json` turetilmis alanlari da tasiyor (konu, bolge,
+    # yorumlanir, neden_onemli, kanal basligi) ve onlar YAZILDIKLARI
+    # ANIN siniflandiricisini tasiyor. Yalnizca arsiv tazelendiginde iki
+    # ayri sonuc cikiyordu: ayni site icinde dun yazilan haber eski
+    # basligi, bugunku yenisini gosteriyordu. Ustelik siniflandirici
+    # duzeltildiginde canli haberler duzelmiyordu -- Goldman
+    # "otelenebilir" -> Turizm hatasinin arsivde yeniden yayimlanmasinin
+    # sebebi tam olarak buydu.
+    #
+    # Olculdu: bu adim 40 haberin hicbirinin konusunu ya da yayimlanma
+    # kararini degistirmiyor (9 -> 9). Yaptigi tek sey turetilmis metni
+    # BUGUNKU kurallara getirmek.
+    foto_kayit = foto_defteri()
+    gundem["haberler"] = [tazele(h, foto_kayit)
+                          for h in gundem.get("haberler", [])]
+
+    for h in gundem["haberler"]:
         if h.get("yorumlanir"):
             h["yol"] = haber_yolu(h)
 
-    # Son dakika seridi: en yeni, KENDI SAYFASI OLAN haberler. Disari
-    # yonlendiren baglanti yok; serit sitenin kendi sayfalarina gider.
+    # ARSIV + VARLIK INDEKSI BURADA, HER RENDER'DAN ONCE.
+    #
+    # Ikisi de asagida, haber dongusunun hemen oncesindeydi. Ama onem
+    # puani varlik SAYISINA bakiyor ve puan `ortak` sozlugune giren son
+    # dakika seridini belirliyor; `ortak` ise analiz sayfalarindan da
+    # once kuruluyor. Indeks asagida kalsaydi serit puansiz, ana sayfa
+    # puanli olur ve ikisi ayni haberi farkli siralardi.
+    arsiv = arsiv_haberleri({h["adres"] for h in gundem["haberler"]},
+                            foto_defteri())
+    if arsiv:
+        print(f"arsiv: {len(arsiv)} eski haber sayfasi yeniden uretiliyor")
+    uretilecek = gundem["haberler"] + arsiv
+    varlik_haritasi = varlik_indeksle(uretilecek)
+
+    # ONEM PUANI. Her habere katman ve puan yaziliyor; puan EKRANA
+    # BASILMIYOR (bkz. onem.py bas yorumu), yalnizca sirali ve katmani
+    # belirliyor.
+    #
+    # ARSIV DE PUANLANIYOR. Gerekcesi olculdu: `gundem.json` son besleme
+    # penceresini tasiyor (40 haber) ve bunlarin yalnizca 9'unun sayfasi
+    # var -- geri kalan basliklarin GOVDESI YOK (kaynak yalnizca baslik
+    # veriyor), o yuzden sayfa uretilmiyor ve uretilmemeli. Sadece bu
+    # pencereden secilseydi "one cikan gelismeler" bolumu dort kalemde
+    # kalirdi. Arsivdeki yayimlanmis haberler gercek sayfalar; onlari
+    # katmaktan kacinmak icin bir sebep yok.
+    onem_puanla(uretilecek, varlik_haritasi)
+    an_yaz(uretilecek)
+
+    # SON DAKIKA ARTIK BIR SECIM.
+    #
+    # Once "en yeni 12 haber" idi ve sonuc her haberin son dakika gibi
+    # gorunmesiydi -- Goldman raporu ile TCMB faiz karari ayni seritte,
+    # ayni renkte. Etiket her seye yapisinca hicbir seye yapismaz.
+    # Artik yalnizca KRITIK katman giriyor; hicbiri yoksa serit
+    # BASILMIYOR (bkz. temel.html).
     son_dakika = [
-        h for h in gundem.get("haberler", []) if h.get("yorumlanir")
-    ][:12]
+        h for h in gundem.get("haberler", [])
+        if h.get("yorumlanir") and h.get("katman") == "kritik"
+    ][:6]
 
     ortak = {
         "site": SITE,
@@ -1540,43 +1781,9 @@ def insa() -> int:
 
     # Gundem -- resmi kurum duyurulari
     if gundem.get("haberler"):
-        # Once haber sayfalari: her birine kendi adresini yaziyoruz ki
-        # gundem sayfasi ic baglanti verebilsin. Sira onemli -- gundem
-        # sayfasi bu adresleri bekliyor.
-        for h in gundem["haberler"]:
-            if not h.get("yorumlanir"):
-                continue
-            h["yol"] = haber_yolu(h)
-
-        # ARSIV: guncel pencerede olmayan, daha once yayimlanmis haberler.
-        #
-        # `gundem.json` yalnizca son besleme penceresini tasiyor (~40
-        # haber). Sayfalar sadece ondan uretilirse, dun yayimlanan haber
-        # bugun 404 olur -- olculdu: depoda sayfa hak eden 53 haber
-        # varken sitede 10'u duruyordu. Paylasilan her baglanti bir gun
-        # sonra kiriliyordu ve arama motoru kaybolan sayfalari
-        # indeksliyordu.
-        #
-        # Arsiv kayitlari gundem listesinin SONUNA ekleniyor; boylece
-        # ana sayfa ve gundem sirasi degismiyor, yalnizca sayfalari
-        # yeniden uretiliyor.
-        arsiv = arsiv_haberleri({h["adres"] for h in gundem["haberler"]},
-                                foto_defteri())
-        if arsiv:
-            print(f"arsiv: {len(arsiv)} eski haber sayfasi yeniden uretiliyor")
-        uretilecek = gundem["haberler"] + arsiv
-
-        # VARLIK INDEKSI ONCE YAZILIR, SONRA RENDER EDILIR.
-        #
-        # Sira onemli: "bununla ilgili diger gelismeler" bolumu depoya
-        # sorulunca cevaplaniyor. Bu partinin varliklari yazilmadan render
-        # edilirse, ayni gun yayimlanan iki ilgili haber birbirini
-        # goremez -- ancak BIR SONRAKI calistirmada baglanirlardi.
-        #
-        # Ayrica gercek adres burada belli oluyor: haber hatti depoya
-        # "/haber/" yaziyor (yer tutucu), tam adres slug'la burada
-        # olusuyor. Baglantilarin calismasi icin geri yazilmali.
-        varlik_haritasi = varlik_indeksle(uretilecek)
+        # Adres atamasi, arsiv ve varlik indeksi YUKARIDA yapildi --
+        # `ortak` sozlugu (son dakika seridi) onlara bagli ve o sozluk
+        # analiz sayfalarindan da once kuruluyor.
 
         # AI yorumlari DEPODAN okunuyor, burada uretilmiyor.
         # Site kurulumu modele bagimli olmamali: kota bittiginde ya da
@@ -1704,6 +1911,13 @@ def insa() -> int:
             **ortak, yol="/", analizler=listelenen,
             yorumlar=yorum_kartlari(listelenen),
             rakamlar=kunye_rakamlari(analizler),
+            # Katman 2 -- SAYFASI OLAN haberler arasindan, puana gore
+            # secilmis, tekrari elenmis. Arsiv de dahil (bkz. yukarida).
+            one_cikanlar=one_cikan_haberler(
+                [h for h in uretilecek if h.get("yol")],
+                datetime.now().strftime("%Y-%m-%d")),
+            # Katman 1 -- ham akis, en yeni ustte, ELEME YOK
+            akis=canli_akis(gundem.get("haberler", [])),
         ),
     )
 

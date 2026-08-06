@@ -117,7 +117,7 @@
        Okur cevabi ilk ekranda alsin; ayrinti asagida. #}
     {% if dosya and dosya.dolu %}
     <aside class="ozet-kutu">
-      <h2>30 saniyede</h2>
+      <h2>20 saniyede</h2>
       <dl>
         {% if h.ozet %}
         <dt>Ne oldu?</dt><dd>{{ h.ozet }}</dd>
@@ -192,7 +192,7 @@
     {# TURKIYE GORUNUMU -- yurt ici haberde konu ne olursa olsun.
        Okur ulkenin fotografini gorsun; hepsi TCMB EVDS'den, resmi. #}
     {% if dosya and dosya.turkiye %}
-    <h2>Türkiye'nin mevcut görünümü</h2>
+    <h2>Bugünkü görünüm</h2>
     <div class="tr-izgara">
       {% for g in dosya.turkiye %}
       <div class="tr-kalem" title="{{ g.ad }} — önceki dönem {{ g.onceki_tarih }}">
@@ -311,7 +311,7 @@
 
     <p class="asama"><span class="asama-no">4</span><span class="asama-ad">Etki</span><span class="asama-not">Hangi mekanizmayla neyi etkiler</span></p>
 
-    <h2>Neden önemli</h2>
+    <h2>Bu neden kritik?</h2>
     <p>{{ h.neden_onemli }}</p>
 
     {# AKTARIM KANALLARI "Neden onemli"nin ICINE alindi.
@@ -335,7 +335,7 @@
        dogrudan bagli. Gerekce her satirda yaziyor ki okur katilmadigi
        yeri gorebilsin. #}
     {% if dosya and dosya.duyarlilik %}
-    <h2>Kim etkilenir</h2>
+    <h2>Kim etkilenir?</h2>
     <table class="duyarlilik">
       <tbody>
         {% for sektor, yildiz, neden in dosya.duyarlilik %}
@@ -360,7 +360,7 @@
        Sayfalarin gezilebilir bir dizini YOK -- okur onlara yalnizca
        buradan ulasiyor. #}
     {% if izleme %}
-    <h2>Bundan sonra izlenecekler</h2>
+    <h2>Şimdi ne izlenmeli?</h2>
     <ul class="izleme">
       {% for i in izleme %}
       <li>
@@ -379,7 +379,7 @@
        atfetmeyiz" ilkesiyle celisir. Kosul-sonuc yazilir, olasilik
        yazilmaz. #}
     {% if dosya and dosya.senaryolar %}
-    <h2>Senaryolar</h2>
+    <h2>Olası senaryolar</h2>
     <ul class="senaryolar">
       {% for kosul, sonuc in dosya.senaryolar %}
       <li><b>{{ kosul }}</b> → {{ sonuc }}</li>
@@ -444,7 +444,7 @@
      yazmak sayfayi doldurmaktan baska ise yaramaz. #}
   {% if ilgili_haberler %}
   <section class="ilgili-haber">
-    <h2>Bununla ilgili diğer gelişmeler</h2>
+    <h2>Aynı dosyadaki gelişmeler</h2>
     <ul class="ilgili-liste">
       {% for i in ilgili_haberler %}
       <li>
