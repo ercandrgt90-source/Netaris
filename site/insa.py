@@ -1017,6 +1017,115 @@ def _panel_kodlari() -> frozenset[str]:
     return frozenset(k for k, _ad, _b, _bas in _dosya.TURKIYE_PANEL)
 
 
+#: Makale sonunda kac baglanti. Az olursa bosluk kapanmiyor, cok
+#: olursa liste okunmuyor ve secim degerini kaybediyor.
+DEVAM_SAYISI = 5
+
+#: Izleme listesi kalemi -> varlik kodu.
+#:
+#: "Bundan sonra izlenecekler" kutucuklari tiklanabilir olsun istendi:
+#: "PPK karari"na basinca PPK gecmisi acilsin. Hedef, varlik arsiv
+#: sayfasi (`/varlik/<kod>/`).
+#:
+#: TAM ESLESME ARANMIYOR, ONEK aranıyor: liste "TÜFE" de yaziyor
+#: "TÜFE — gıda kalemi" de. Ikisi de TUFE_TR arsivine gitmeli.
+#:
+#: Eslesmeyen kalem DUZ METIN kaliyor. Tiklanip hicbir yere gitmeyen
+#: ya da bos sayfaya goturen bir baglanti, baglanti olmamasindan
+#: kotudur -- "Rekolte tahminleri" icin arsivimiz yok, oyle de duruyor.
+IZLEME_VARLIK = (
+    ("PPK", "TCMB_FAIZ"),
+    ("Politika faizi", "TCMB_FAIZ"),
+    ("TCMB piyasa katılımcıları anketi", "TUFE_TR"),
+    ("TCMB rezervleri", "TCMB"),
+    ("Bir sonraki TÜFE açıklaması", "TUFE_TR"),
+    ("TÜFE", "TUFE_TR"),
+    ("Çekirdek", "TUFE_TR"),
+    ("Yİ-ÜFE", "UFE_TR"),
+    ("Cari işlemler dengesi", "CARI_TR"),
+    ("Aylık dış ticaret verisi", "DIS_TICARET_TR"),
+    ("Brent petrol", "BRENT"),
+    ("Doğal gaz fiyatı", "DGAZ"),
+    ("Ons altın", "XAU"),
+    ("Dolar endeksi", "DXY"),
+    ("ABD 10 yıllık", "US10Y"),
+    ("BIST 100", "BIST100"),
+    ("BIST işlem hacmi", "BIST100"),
+    ("Bitcoin", "BTC"),
+    ("EUR/TRY", "EURUSD"),
+    ("USD/TRY", "USDTRY"),
+    ("İşsizlik oranı", "ISSIZLIK_TR"),
+    ("Konut kredisi faizi", "SEK_INSAAT"),
+    ("Konut satış istatistikleri", "SEK_INSAAT"),
+    ("Turizm geliri istatistikleri", "SEK_TURIZM"),
+    ("Ziyaretçi sayısı", "SEK_TURIZM"),
+    ("Kredi büyümesi", "SEK_BANKA"),
+    ("SPK bülteni", "SPK"),
+)
+
+
+def izleme_baglantilari(izlenecekler, varlik_sayfalari_var: set[str]) -> list[dict]:
+    """Izleme kalemlerini varlik arsivine baglar.
+
+    Yalnizca SAYFASI URETILMIS varliga baglaniyor: eslesme tablosunda
+    olup da sayfasi olmayan bir kod 404 verirdi.
+    """
+    cikti = []
+    for i in izlenecekler or ():
+        yol = ""
+        for onek, kod in IZLEME_VARLIK:
+            if i.startswith(onek) and kod in varlik_sayfalari_var:
+                yol = varlik_yolu(kod)
+                break
+        cikti.append({"ad": i, "yol": yol})
+    return cikti
+
+
+def ayni_konu_haberleri(h: dict, hepsi: list[dict]) -> list[dict]:
+    """Ayni konudaki diger haberler, yeniden eskiye.
+
+    Varlik indeksinden gelen "bununla ilgili gelismeler" METINDEN
+    turetiliyor ve ortak varlik yoksa bos kaliyor. Bu liste KONUDAN
+    turetiliyor, yani her haberde dolu -- ikisi birbirini tamamliyor.
+    """
+    cikti = []
+    for x in hepsi:
+        if x is h or not x.get("yorumlanir") or not x.get("yol"):
+            continue
+        if x.get("konu") != h.get("konu"):
+            continue
+        cikti.append({"baslik": x.get("baslik", ""), "yol": x["yol"],
+                      "kurum": x.get("kurum", ""), "tarih": x.get("tarih", "")})
+    cikti.sort(key=lambda x: x["tarih"], reverse=True)
+    return cikti[:DEVAM_SAYISI]
+
+
+#: Haber konusu -> analiz kategorisi. Makale sonunda "bu veriyi kullanan
+#: analizler" bolumunu besliyor.
+KONU_KATEGORI = {
+    "Para politikası": "Makro", "Enflasyon": "Makro", "Döviz": "Makro",
+    "Enerji": "Makro", "Altın ve emtia": "Makro", "Jeopolitik": "Makro",
+    "Dış ticaret": "Makro", "Borsa": "Makro",
+    "Kripto varlıklar": "Teknik Görünüm",
+    "Şirket haberleri": "Bilanço Analizi",
+    "Bankacılık": "Bilanço Analizi",
+}
+
+
+def ilgili_analizler(h: dict, analizler: list) -> list[dict]:
+    """Haberin konusuyla ilgili yayimlanmis analizler.
+
+    Kategori eslemesi kaba ama DOGRU yonde: makro haberin altina
+    bilanco analizi koymak okuru bosa goturur. Eslesme yoksa bolum
+    hic basilmaz -- alakasiz baglanti, baglanti olmamasindan kotudur.
+    """
+    kat = KONU_KATEGORI.get(h.get("konu", ""))
+    if not kat:
+        return []
+    return [{"baslik": a.baslik, "yol": a.yol, "tarih": a.tarih}
+            for a in analizler if a.kategori == kat][:DEVAM_SAYISI]
+
+
 def ai_yorum_oku() -> dict[str, str]:
     """Depodaki AI yorumlari: adres -> metin.
 
@@ -1237,7 +1346,8 @@ def varlik_yolu(kod: str) -> str:
     return f"/varlik/{kod.lower().replace('_', '-')}/"
 
 
-def varlik_sayfalari(ortam, yaz, ortak: dict) -> list[str]:
+def varlik_sayfalari(ortam, yaz, ortak: dict,
+                     dizin_yaz: bool = True) -> list[str]:
     """Varlik sayfalarini uretir: /varlik/<kod>/.
 
     Bu sayfalar sitenin arama motorundaki tasiyicisi: "Fed faiz karari"
@@ -1295,7 +1405,10 @@ def varlik_sayfalari(ortam, yaz, ortak: dict) -> list[str]:
             # Dizin haber sayisina gore siralaniyor: okur "en cok ne
             # konusuluyor" cevabini ust sirada gormek istiyor.
             dizin.sort(key=lambda x: (-x["sayi"], x["ad"]))
-            if dizin:
+            # `dizin_yaz=False` iken tek tek sayfalar uretiliyor ama
+            # gezilebilir DIZIN basilmiyor: okur bu sayfalara yalnizca
+            # izleme listesinden ulassin.
+            if dizin and dizin_yaz:
                 yaz("/varlik/index.html",
                     ortam.get_template("varlik_dizin.html").render(
                         **ortak, yol="/varlik/", dizin=dizin))
@@ -1468,6 +1581,24 @@ def insa() -> int:
         # AI yorumlari DEPODAN okunuyor, burada uretilmiyor.
         # Site kurulumu modele bagimli olmamali: kota bittiginde ya da
         # uc coktugunde site yine kurulmali, yalnizca o bolum basilmasin.
+        # VARLIK SAYFALARI URETILIYOR AMA DIZIN YOK.
+        #
+        # Ikisi ayri karar. "Konular" diye gezilebilir bir bolum
+        # istenmiyordu -- site haber ve cozumleme yayimliyor, konu
+        # dizini degil; o yuzden `/varlik/` dizini ve menu girisi YOK.
+        #
+        # Ama tek tek sayfalar gerekiyor: "Bundan sonra izlenecekler"
+        # listesindeki kalemlerin tiklaninca gidecegi bir yer olmali
+        # ("PPK karari" -> PPK gecmisi). Hedefsiz baglanti veremeyiz.
+        #
+        # Sonuc: sayfalar var, kapisi yok. Okur onlara yalnizca izleme
+        # listesinden ulasiyor.
+        for v_yol in varlik_sayfalari(ortam, yaz, ortak, dizin_yaz=False):
+            yollar.append(v_yol)
+        varlik_sayfasi_olan = {
+            y.strip("/").split("/")[-1].upper().replace("-", "_")
+            for y in yollar if y.startswith("/varlik/")}
+
         ai_yorumlari = ai_yorum_oku()
         if ai_yorumlari:
             print(f"ai: {len(ai_yorumlari)} haberde yorum var")
@@ -1523,20 +1654,17 @@ def insa() -> int:
                     senaryo_acik=senaryoya_acik(h),
                     ai_yorum=ai_yorumlari.get(h["adres"], ""),
                     etki=etki_alanlari(h, h_varliklar),
+                    # Makale sonu: okur bosluga dusmesin.
+                    ayni_konu=ayni_konu_haberleri(h, uretilecek),
+                    ilgili_analiz=ilgili_analizler(h, listelenen),
+                    # Izleme kalemleri tiklanabilir: hedef varlik arsivi
+                    izleme=izleme_baglantilari(
+                        (_dosya.IZLENECEKLER.get(h.get("konu", ""))
+                         if _dosya else ()), varlik_sayfasi_olan),
                 ),
             )
             yollar.append(h_yol)
 
-        # VARLIK SAYFALARI YAYIMLANMIYOR.
-        #
-        # Varlik indeksi ic bir katman olarak KALIYOR ve calisiyor: haberi
-        # Turkiye baglami acisindan siniflandiriyor, "bununla ilgili diger
-        # gelismeler" bolumunu besliyor ve arsivi birbirine bagliyor.
-        # Yalnizca okura ayri bir "Konular" bolumu olarak GOSTERILMIYOR --
-        # site haber ve cozumleme yayimliyor, konu dizini degil.
-        #
-        # `varlik_sayfalari()` ve sablonlari duruyor: karar yayin
-        # kararidir, kod silmeyi gerektirmiyor.
 
         yaz(
             "/gundem/index.html",

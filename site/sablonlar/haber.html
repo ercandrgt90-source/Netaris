@@ -352,15 +352,21 @@
     <p class="piyasa-not">Yıldızlar etkinin <b>yönünü ya da büyüklüğünü</b>
       değil, sektörün bu değişkene <b>duyarlılık sırasını</b> gösterir.</p>
     {% endif %}
-    {# TAKIP LISTESI -- kutucuklu.
-       Kutucuklar simdilik yalnizca isaretlenebiliyor; uyelikle birlikte
-       bildirime baglanacak. Yarim bir soz vermemek icin sayfada
-       "bildirim alirsiniz" YAZMIYOR. #}
-    {% if dosya and dosya.izlenecekler %}
+    {# TAKIP LISTESI -- kutucuklu ve TIKLANABILIR.
+       Arsivi olan kalem varlik sayfasina baglaniyor ("PPK karari" ->
+       PPK gecmisi). Arsivi olmayan kalem DUZ METIN kaliyor: tiklanip
+       bos sayfaya goturen bir baglanti, baglanti olmamasindan kotudur.
+
+       Sayfalarin gezilebilir bir dizini YOK -- okur onlara yalnizca
+       buradan ulasiyor. #}
+    {% if izleme %}
     <h2>Bundan sonra izlenecekler</h2>
-    <ul class="takip-listesi">
-      {% for i in dosya.izlenecekler %}
-      <li><label><input type="checkbox"> {{ i }}</label></li>
+    <ul class="izleme">
+      {% for i in izleme %}
+      <li>
+        {%- if i.yol %}<a href="{{ i.yol }}">{{ i.ad }}</a>
+        {%- else %}{{ i.ad }}{% endif -%}
+      </li>
       {% endfor %}
     </ul>
     {% endif %}
@@ -455,6 +461,47 @@
      baglami acisindan siniflandiriyor ve "bununla ilgili diger
      gelismeler" bolumunu besliyor -- ama okura "Konular" diye ayri bir
      bolum olarak gosterilmiyor. #}
+
+  {# MAKALE SONU -- okur bosluga dusmesin.
+     Makale bitince kullanici gidecek yer bulamiyordu. Uc kaynak, ucu de
+     GERCEK: ayni konudaki haberler (konudan), ilgili analizler
+     (kategoriden) ve varlik indeksinden gelen gelismeler (metinden).
+     Biri bossa o blok hic basilmiyor -- alakasiz baglanti, baglanti
+     olmamasindan kotudur. #}
+  {% if ayni_konu or ilgili_analiz %}
+  <section class="devam">
+    <h2>Bunu da okuyun</h2>
+    <div class="devam-izgara">
+      {% if ayni_konu %}
+      <div class="devam-oblok">
+        <h3>{{ h.konu }} başlığında son gelişmeler</h3>
+        <ul>
+          {% for x in ayni_konu %}
+          <li>
+            <a href="{{ x.yol }}">{{ x.baslik }}</a>
+            <span class="ilgili-kunye">{{ x.kurum }} · {{ x.tarih }}</span>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+
+      {% if ilgili_analiz %}
+      <div class="devam-oblok">
+        <h3>Bu veriyi kullanan analizler</h3>
+        <ul>
+          {% for a in ilgili_analiz %}
+          <li>
+            <a href="{{ a.yol }}">{{ a.baslik }}</a>
+            <span class="ilgili-kunye">{{ a.tarih }}</span>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+    </div>
+  </section>
+  {% endif %}
 
   {# Kaynak atfi. Bu sayfa duyurunun metnini yeniden yayimlamaz; kurumun
      acikladigini ozetler ve kendi cozumlememizi ekler. Tam metin icin

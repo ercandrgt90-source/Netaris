@@ -35,7 +35,11 @@
 
 {% block icerik %}
 <article class="yazi varlik-sayfa">
-  <nav class="kirinti"><a href="/varlik/">Konular</a> › {{ v.ad }}</nav>
+  {# Kirinti DIZINE BAGLANMIYOR: `/varlik/` dizini basilmiyor (site
+     gezilebilir bir konu dizini yayimlamiyor). Bagli birakmak 56
+     sayfada kirik baglanti demekti. Okur bu sayfaya haber
+     sayfasindaki izleme listesinden geliyor; donus yolu da orasi. #}
+  <nav class="kirinti">Veri arşivi › {{ v.ad }}</nav>
 
   <h1>{{ v.ad }}</h1>
   <p class="varlik-ozet">

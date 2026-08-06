@@ -2652,3 +2652,55 @@ table td, table th, time, .tarih {
   border: 1px solid var(--cizgi-parlak);
   border-radius: var(--r);
 }
+
+/* ================================================================
+   MAKALE SONU -- "Bunu da okuyun"
+   ================================================================
+   Makale bitince okur gidecek yer bulamiyordu. Uc kaynak, ucu de
+   gercek: ayni konudaki haberler (konudan), ilgili analizler
+   (kategoriden), varlik indeksinden gelen gelismeler (metinden). */
+
+.devam {
+  margin: 46px 0 0; padding-top: 28px;
+  border-top: 3px double var(--cizgi);
+}
+.devam > h2 { font-size: 1.1rem; margin: 0 0 18px; }
+.devam-izgara {
+  display: grid; gap: 26px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+.devam-oblok h3 {
+  font-size: 0.82rem; font-weight: 800; letter-spacing: 0.02em;
+  text-transform: uppercase; color: var(--yazi-3);
+  margin: 0 0 10px; padding-bottom: 7px;
+  border-bottom: 1px solid var(--cizgi);
+}
+.devam-oblok ul { list-style: none; padding: 0; margin: 0; }
+.devam-oblok li {
+  padding: 9px 0; border-bottom: 1px solid var(--cizgi);
+  display: flex; flex-direction: column; gap: 3px;
+}
+.devam-oblok li:last-child { border-bottom: none; }
+.devam-oblok a { font-weight: 600; font-size: 0.92rem; line-height: 1.45; }
+
+/* Izleme listesi -- arsivi olan kalem tiklanabilir, olmayan duz metin.
+   Ikisi GORSEL OLARAK ayriliyor ki okur nereye basabilecegini
+   denemeden gorsun. */
+.izleme { display: flex; flex-wrap: wrap; gap: 8px; list-style: none;
+          padding: 0; margin: 12px 0 8px; }
+.izleme li {
+  padding: 6px 13px; border-radius: 999px;
+  border: 1px solid var(--cizgi);
+  background: var(--panel-2);
+  font-size: 0.82rem; color: var(--yazi-2);
+}
+.izleme li:has(a) {
+  border-color: var(--vurgu-zar-2);
+  background: var(--vurgu-zar);
+  padding: 0;
+}
+.izleme li a {
+  display: block; padding: 6px 13px;
+  color: var(--vurgu); font-weight: 600;
+}
+.izleme li a:hover { text-decoration: none; }
