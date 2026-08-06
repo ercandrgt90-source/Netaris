@@ -85,6 +85,11 @@ GÖREV: Verileri TEKRARLAMA. Okur onları zaten yukarıda gördü. Sen
 şunu yap: en önemli tek ölçümü seç, ne anlama geldiğini söyle ve
 hangi mekanizmayla neyi etkilediğini yaz.
 
+BAŞLIKLA ÇELİŞME. Yorumun, haberin başlığındaki bulguyla aynı şeyi
+anlatmalı. Verilerde başlığa ait olmayan başka bir büyüklük varsa onu
+ana konu yapma — başlık "X arttı" diyorsa, "Y azaldı" ile başlayan bir
+çıkarım okuru yanıltır.
+
 KURALLAR — hepsi zorunlu:
 - YALNIZCA sana verilen sayıları kullan. Yeni sayı, oran, tarih ya da
   kurum adı EKLEME.
@@ -150,17 +155,35 @@ def _cumle_sayisi(metin: str) -> int:
     return len([x for x in _CUMLE_SONU.split(metin) if x.strip()])
 
 
-def _sayilar(metin: str) -> set[str]:
-    """Metindeki sayilari karsilastirilabilir bicime indirger.
+def _sayilar(metin: str) -> set[float]:
+    """Metindeki sayilari SAYISAL DEGERE cevirir.
 
-    "31,75" ile "31.75" ayni sayidir; binlik ayraci atiliyor.
+    METIN OLARAK KARSILASTIRMA YANLIS SONUC VERIYORDU -- olculdu:
+
+        girdi "40,00"  -> "40.00"
+        cikti "40"     -> "40"      -> "girdide olmayan sayi" (YANLIS)
+        girdi "-3.018,00" -> "-3018.00"
+        cikti "3.018"     -> "3018"    -> yine yanlis red
+
+    Iki kayit da modelin dogru davrandigi hallerdi. Sayi olarak
+    karsilastirinca 40 ile 40,00 ayni, 3018 ile -3018 ise MUTLAK
+    degerde ayni: isaret cogu zaman kelimeye tasiniyor ("3.018 acik",
+    "35 baz puan geriledi").
     """
-    cikti = set()
+    cikti: set[float] = set()
     for s in re.findall(r"-?\d[\d.,]*", metin):
         t = re.sub(r"[.,](?=\d{3}\b)", "", s)      # binlik ayraci
         t = t.replace(",", ".").rstrip(".")
-        cikti.add(t)
+        try:
+            cikti.add(abs(float(t)))
+        except ValueError:
+            continue
     return cikti
+
+
+#: Karsilastirma toleransi. Model "%31,75"i "%31,8" diye yuvarlayabilir;
+#: bu uydurma degil, yuvarlamadir. Binde bir goreli fark serbest.
+_TOLERANS = 0.001
 
 
 def sayi_denetimi(cikti: str, girdi: str) -> list[str]:
@@ -172,10 +195,14 @@ def sayi_denetimi(cikti: str, girdi: str) -> list[str]:
     g = _sayilar(girdi)
     kacak = []
     for s in _sayilar(cikti):
-        if len(s.lstrip("-")) < _KISA_SAYI:
+        if s < 10:            # tek haneli: "3 cumle", "1 puan"
             continue
-        if s not in g:
-            kacak.append(s)
+        if any(abs(s - x) <= max(abs(x), 1.0) * _TOLERANS for x in g):
+            continue
+        # Yuvarlanmis hali de kabul: 31,8 ~ 31,75
+        if any(abs(round(s, 1) - round(x, 1)) < 1e-9 for x in g):
+            continue
+        kacak.append(f"{s:g}")
     return kacak
 
 

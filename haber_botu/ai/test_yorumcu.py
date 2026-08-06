@@ -43,9 +43,11 @@ sina("girdideki sayilar temiz gecer",
      yorumcu.sayi_denetimi(
          "TÜFE %31,75 seviyesinde; çekirdek %29,91.", GIRDI) == [])
 
+#: Ret listesi artik SAYISAL degerden uretiliyor ("28.4"), ham dizgi
+#: degil; tam esitlik yerine "yakalandi mi" sinaniyor.
 sina("UYDURULAN sayi yakalanir",
      yorumcu.sayi_denetimi(
-         "TÜFE %31,75'ten %28,40'a inecek.", GIRDI) == ["28.40"])
+         "TÜFE %31,75'ten %28,40'a inecek.", GIRDI) == ["28.4"])
 
 sina("binlik ayraci farki sorun degil",
      yorumcu.sayi_denetimi("Politika faizi 40,00%.", GIRDI) == [])
@@ -55,6 +57,28 @@ sina("nokta/virgul bicimi ayni sayi sayilir",
 
 sina("tek haneli sayi gormezden gelinir",
      yorumcu.sayi_denetimi("Üç kanal öne çıkıyor.", GIRDI) == [])
+
+# --- ilk gercek calistirmada olculen YANLIS REDLER ------------------
+#
+# Ikisi de modelin dogru davrandigi haldi; denetim metin olarak
+# karsilastirdigi icin reddediyordu.
+
+sina("40 ile 40,00 ayni sayi",
+     yorumcu.sayi_denetimi("Politika faizi %40.", GIRDI) == [])
+
+sina("isaret kelimeye tasinabilir (-35 -> 35)",
+     yorumcu.sayi_denetimi("35 baz puan geriledi.", GIRDI) == [])
+
+sina("binlik ayracli negatif -- mutlak deger",
+     yorumcu.sayi_denetimi(
+         "Denge 3.018 açık verdi.",
+         "Önceki dönem −3.018,00 mn $.") == [])
+
+sina("yuvarlama serbest (31,75 -> 31,8)",
+     yorumcu.sayi_denetimi("TÜFE %31,8 seviyesinde.", GIRDI) == [])
+
+sina("gercekten uydurulan sayi HALA yakalanir",
+     yorumcu.sayi_denetimi("TÜFE %28,40'a inecek.", GIRDI) != [])
 
 # --- yasak kaliplar --------------------------------------------------
 
