@@ -152,14 +152,25 @@ KATMAN_ADLARI = {
     "akis": "Akış",
 }
 
-#: Bu olay turleri, surpriz olmasa bile kritiktir.
+#: Bu olay turu, surpriz olmasa bile kritiktir.
 #:
-#: BU BIR OLCUM DEGIL, EDITORYAL KURALDIR ve oyle de duruyor.
-#: Faiz karari beklendigi gibi ciksa bile gunun en onemli olayidir --
-#: cunku "degismedi" bilgisi de bir karardir. Puan toplami boyle bir
-#: haberde 84'e kadar cikiyor ve esigin bir puan altinda kaliyor; taban
-#: kurali o bir puani kapatiyor, puanin tamamini tasimiyor.
-KRITIK_OLAYLAR = frozenset({"faiz", "enflasyon", "istihdam"})
+#: BU BIR OLCUM DEGIL, EDITORYAL KURALDIR. Faiz karari beklendigi gibi
+#: ciksa bile gunun en onemli olayidir -- cunku "degismedi" bilgisi de
+#: bir karardir ve piyasa onu fiyatlar.
+#:
+#: LISTE DARALTILDI. Once {"faiz", "enflasyon", "istihdam"} idi ve
+#: `--onem` dokumu sunu gosterdi: en yuksek sekiz haberin YEDISI tabanla
+#: 85'e cikiyordu. "Issizlik orani: %7,40" gibi rutin aylik bir yayin
+#: da, FOMC bildirisi de ayni katmandaydi. Taban o haliyle puani
+#: DESTEKLEMIYOR, puanin YERINE geciyordu -- ve her sey kritik olunca
+#: hicbir sey kritik olmaz. Bu tam olarak "her haber son dakika
+#: gorunuyor" sorununun baska kapidan donusuydu.
+#:
+#: Enflasyon ve istihdam verisi artik puanini KENDI topluyor: konu
+#: tabani + olay siddeti + birincil kaynak + surpriz. Boylece beklentiyi
+#: sasirtan bir TUFE kritik olur, sasirtmayan bir issizlik orani olmaz
+#: -- aradaki farki zaten olcebiliyoruz.
+KRITIK_OLAYLAR = frozenset({"faiz"})
 
 #: Jeopolitik ve arz olaylari icin taban, kaliplarin gucune bagli:
 #: "Hurmuz Bogazi kapatildi" kritiktir, "yaptirim karari" degil.

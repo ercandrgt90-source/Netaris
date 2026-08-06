@@ -1362,6 +1362,12 @@ def onem_puanla(haberler: list[dict], varlik_haritasi: dict) -> None:
             veri_mi=adres.startswith(_VERI_ONEK),
         )
         h["onem"] = o.puan
+        # Bilesenler `--onem` dokumu icin saklaniyor. Dokum bunlari
+        # yeniden hesapliyordu ve varlik sayisini gecemedigi icin
+        # kapsam HER ZAMAN 0 gorunuyordu; yani denetim araci, denetledigi
+        # motorun puanini gostermiyordu.
+        h["onem_bilesen"] = list(o.bilesenler)
+        h["onem_taban"] = o.taban_uygulandi
         h["katman"] = o.katman
         h["katman_adi"] = o.ad
         h["olay_turu"] = o.olay_turu
@@ -2009,11 +2015,88 @@ def sun(port: int = 8000) -> None:
         sunucu.server_close()
 
 
+def onem_dokumu() -> int:
+    """Onem puanlarini ekrana doker. Site KURULMAZ.
+
+    NEDEN VAR
+    ---------
+    Puan sayfada gorunmuyor -- gorunmemesi de dogru (bkz. onem.py bas
+    yorumu). Ama gorunmeyen bir siralamayi kalibre etmek imkansiz: hangi
+    haberin neden one ciktigini, hangisinin neden elendigini gormeden
+    esikler tahmine dayanir.
+
+    Bu dokum o yuzden var ve YALNIZCA terminale yaziliyor -- siteye
+    hicbir sey eklemiyor.
+    """
+    gundem = gundem_yukle()
+    foto_kayit = foto_defteri()
+    gundem["haberler"] = [tazele(h, foto_kayit)
+                          for h in gundem.get("haberler", [])]
+    for h in gundem["haberler"]:
+        if h.get("yorumlanir"):
+            h["yol"] = haber_yolu(h)
+
+    arsiv = arsiv_haberleri({h["adres"] for h in gundem["haberler"]},
+                            foto_kayit)
+    uretilecek = gundem["haberler"] + arsiv
+    onem_puanla(uretilecek, varlik_indeksle(uretilecek))
+    an_yaz(uretilecek)
+
+    bugun = datetime.now().strftime("%Y-%m-%d")
+    sayfali = [h for h in uretilecek if h.get("yol")]
+    secilen = one_cikan_haberler(sayfali, bugun)
+    secilen_adres = {h["adres"] for h in secilen}
+
+    def satir(h: dict, isaret: str = " ") -> str:
+        b = (h.get("baslik") or "")[:56]
+        return (f"{isaret} {h.get('onem', 0):>3} {h.get('katman_adi', ''):<7}"
+                f" {(h.get('kurum') or '')[:14]:<14} {b}")
+
+    print(f"\n{'=' * 78}\nKATMAN 2 -- one cikan gelismeler ({len(secilen)} kalem)")
+    print(f"{'=' * 78}")
+    for h in secilen:
+        print(satir(h, "*"))
+
+    # Esigi gectigi halde SECILMEYENLER: tekrar/kume elemesine takilanlar.
+    # Kalibrasyonda en cok bakilacak liste bu -- yanlis eleme buradan
+    # gorunur.
+    esik = _onem.NORMAL if _onem else 40
+    elenen = [h for h in sayfali
+              if h.get("onem", 0) >= esik
+              and h["adres"] not in secilen_adres
+              and gun_farki(h.get("tarih", ""), bugun) < ONE_CIKAN_PENCERE]
+    print(f"\nESIGI GECTI AMA ELENDI ({len(elenen)}) -- tekrar/kume elemesi")
+    print("-" * 78)
+    for h in sorted(elenen, key=lambda x: -x.get("onem", 0)):
+        print(satir(h))
+
+    print(f"\nCANLI AKIS ({AKIS_SAYISI} kalem, eleme yok)")
+    print("-" * 78)
+    for h in canli_akis(gundem["haberler"]):
+        nerede = "sayfa" if h.get("yol") else "kaynak"
+        print(f"  {h.get('onem', 0):>3} {nerede:<7} {(h.get('baslik') or '')[:58]}")
+
+    print(f"\nPUAN BILESENLERI -- en yuksek 8")
+    print("-" * 78)
+    for h in sorted(sayfali, key=lambda x: -x.get("onem", 0))[:10]:
+        bil = "  ".join(f"{k}={v}" for k, v in h.get("onem_bilesen", []) if v)
+        ham = sum(v for _, v in h.get("onem_bilesen", []))
+        taban = f"  [editoryal taban: {ham} -> 85]" if h.get("onem_taban") else ""
+        print(f"  {h.get('onem', 0):>3}  {(h.get('baslik') or '')[:46]}")
+        print(f"       {bil}{taban}")
+    return 0
+
+
 if __name__ == "__main__":
     ayristirici = argparse.ArgumentParser(description="Statik site ureteci")
     ayristirici.add_argument("--sun", action="store_true", help="uretimden sonra yerel sunucu ac")
     ayristirici.add_argument("--port", type=int, default=8000)
+    ayristirici.add_argument("--onem", action="store_true",
+                             help="onem puanlarini doker, site kurmaz")
     args = ayristirici.parse_args()
+
+    if args.onem:
+        sys.exit(onem_dokumu())
 
     kod = insa()
     if kod == 0 and args.sun:
