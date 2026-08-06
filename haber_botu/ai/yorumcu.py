@@ -219,17 +219,20 @@ def saglayici() -> str:
     return ""
 
 
-def yorumla(girdi: str) -> tuple[str, str, str]:
-    """Girdiden yorum uretir. `(metin, kullanilan_model, ret_nedeni)`.
+def yorumla(girdi: str) -> tuple[str, str, str, str]:
+    """Girdiden yorum uretir.
 
-    Metin bossa `ret_nedeni` NEDEN bos oldugunu soyluyor -- sessiz
-    basarisizlik olmuyor, hattin ciktisinda goruluyor.
+    `(metin, kullanilan_model, ret_nedeni, ham_cikti)` doner.
+
+    `ham_cikti` reddedilse DE dolu: "neden reddedildi" sorusu ancak
+    modelin ne yazdigina bakarak cevaplanabiliyor. Sessiz basarisizlik
+    olmuyor -- hem gunluge hem depoya yaziliyor.
     """
     if len(girdi) < 120:
-        return "", "", "girdi cok kisa"
+        return "", "", "girdi cok kisa", ""
     s = saglayici()
     if not s:
-        return "", "", "saglayici yok (anahtar tanimli degil)"
+        return "", "", "saglayici yok (anahtar tanimli degil)", ""
 
     try:
         if s == "anthropic":
@@ -242,22 +245,22 @@ def yorumla(girdi: str) -> tuple[str, str, str]:
         # varsayilan olarak YOK.
         ek = " (jetonda Workers AI izni olmayabilir)" \
             if e.response.status_code == 403 else ""
-        return "", "", f"{s} HTTP {e.response.status_code}{ek}"
+        return "", "", f"{s} HTTP {e.response.status_code}{ek}", ""
     except httpx.HTTPError as e:
-        return "", "", f"{s} ag hatasi: {type(e).__name__}"
+        return "", "", f"{s} ag hatasi: {type(e).__name__}", ""
     if not metin:
-        return "", "", f"{s} bos yanit"
+        return "", "", f"{s} bos yanit", ""
 
     # --- 1. sayi denetimi ---
     kacak = sayi_denetimi(metin, girdi)
     if kacak:
-        return "", model, f"girdide olmayan sayi: {', '.join(kacak[:4])}"
+        return "", model, f"girdide olmayan sayi: {', '.join(kacak[:4])}", metin
 
     # --- 2. yasak kalip ---
     for d in YASAK:
         m = d.search(metin)
         if m:
-            return "", model, f"yasak kalip: {m.group(0)!r}"
+            return "", model, f"yasak kalip: {m.group(0)!r}", metin
 
     # --- 3. yayin ilkeleri (uye yazilariyla AYNI tarayici) ---
     #
@@ -269,9 +272,9 @@ def yorumla(girdi: str) -> tuple[str, str, str]:
     yasak = [b for b in guvenlik.tara(metin)
              if b.seviye is guvenlik.Seviye.YASAK]
     if yasak:
-        return "", model, f"guvenlik taramasi: {yasak[0].aciklama}"
+        return "", model, f"guvenlik taramasi: {yasak[0].aciklama}", metin
 
     # Fazla uzun cevaplari kirpmiyoruz -- kirpmak cumleyi ortasindan
     # kesip anlamsiz birakabilir. Uc cumleyi asan cevap zaten yonergeye
     # uymamis demektir; oldugu gibi birakilip insan denetimine kaliyor.
-    return metin, model, ""
+    return metin, model, "", metin

@@ -58,6 +58,26 @@ CREATE TABLE IF NOT EXISTS ai_yorum (
   model       TEXT NOT NULL,
   kayit_ani   TEXT NOT NULL
 );
+
+-- RET KAYDI.
+--
+-- Ilk calistirmada 9 yorumun 9'u reddedildi ve sebep YALNIZCA gunluge
+-- yazildigi icin depodan taniyamadim. Ret sebebi en az uretilen metin
+-- kadar degerli: hangi kural kac kez tutuyor, model mi uyduruyor yoksa
+-- saglayici mi erisilemiyor -- bunlar olculmeden yorumcu
+-- iyilestirilemez.
+CREATE TABLE IF NOT EXISTS ai_ret (
+  id          INTEGER PRIMARY KEY AUTOINCREMENT,
+  adres       TEXT NOT NULL,
+  baslik      TEXT NOT NULL DEFAULT '',
+  neden       TEXT NOT NULL,
+  model       TEXT NOT NULL DEFAULT '',
+  -- Modelin dondugu metin. Reddedilse de saklaniyor: "neden
+  -- reddedildi" sorusunu ancak metne bakarak cevaplayabiliriz.
+  ham         TEXT NOT NULL DEFAULT '',
+  kayit_ani   TEXT NOT NULL
+);
+CREATE INDEX IF NOT EXISTS ai_ret_neden ON ai_ret(neden);
 """
 
 
@@ -172,10 +192,21 @@ def main() -> int:
                     print(f"\n--- {h['baslik'][:64]}\n{girdi[:400]}")
                     continue
 
-                metin, model, neden = yorumcu.yorumla(girdi)
+                metin, model, neden, ham = yorumcu.yorumla(girdi)
                 if not metin:
                     reddedilen += 1
-                    print(f"  RED  {h['baslik'][:52]}  ({neden})")
+                    # Ret sebebi DEPOYA da yaziliyor. Ilk calistirmada
+                    # dokuz redden hicbirinin sebebi depoda yoktu ve
+                    # gunluge bakmadan tani konamiyordu.
+                    b.execute(
+                        "INSERT INTO ai_ret"
+                        " (adres, baslik, neden, model, ham, kayit_ani)"
+                        " VALUES (?,?,?,?,?,?)",
+                        (h["adres"], h.get("baslik", "")[:200], neden,
+                         model, (ham or "")[:2000], beyin.simdi()))
+                    print(f"  RED  {h['baslik'][:48]}  ({neden})")
+                    if ham:
+                        print(f"       ham: {ham[:120]}")
                     continue
                 b.execute(
                     "INSERT OR REPLACE INTO ai_yorum"
