@@ -172,7 +172,7 @@ def main() -> int:
                     print(f"\n--- {h['baslik'][:64]}\n{girdi[:400]}")
                     continue
 
-                metin, neden = yorumcu.yorumla(girdi)
+                metin, model, neden = yorumcu.yorumla(girdi)
                 if not metin:
                     reddedilen += 1
                     print(f"  RED  {h['baslik'][:52]}  ({neden})")
@@ -181,9 +181,7 @@ def main() -> int:
                     "INSERT OR REPLACE INTO ai_yorum"
                     " (adres, metin, saglayici, model, kayit_ani)"
                     " VALUES (?,?,?,?,?)",
-                    (h["adres"], metin, s,
-                     yorumcu.ANTHROPIC_MODEL if s == "anthropic"
-                     else yorumcu.CF_MODEL, beyin.simdi()))
+                    (h["adres"], metin, s, model, beyin.simdi()))
                 uretilen += 1
                 print(f"  ✓    {h['baslik'][:52]}")
                 print(f"       {metin[:150]}")

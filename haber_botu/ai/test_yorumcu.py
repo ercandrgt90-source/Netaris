@@ -79,8 +79,11 @@ sina("temiz metin yasak kalipa takilmaz",
 sina("anahtar yoksa saglayici bos",
      yorumcu.saglayici() in ("", "cloudflare", "anthropic"))
 
+#: `yorumla()` uc deger donuyor: (metin, model, ret_nedeni)
 sina("kisa girdi reddedilir",
-     yorumcu.yorumla("cok kisa")[1] == "girdi cok kisa")
+     yorumcu.yorumla("cok kisa")[2] == "girdi cok kisa")
+
+sina("model listesi bos degil", len(yorumcu.cf_modelleri()) >= 1)
 
 print("=" * 60)
 if kaldi:

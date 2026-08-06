@@ -54,9 +54,26 @@ sys.path[:0] = [str(_BURASI), str(_BURASI.parent / "analiz")]
 
 import guvenlik  # noqa: E402
 
-#: Workers AI modeli. Ucretsiz kotada calisan, talimat izleyen kucuk model.
-CF_MODEL = "@cf/meta/llama-3.1-8b-instruct"
+#: Workers AI modelleri, SIRAYLA denenir.
+#:
+#: Ilki daha guclu ve Turkce'de belirgin sekilde daha iyi; ucretsiz
+#: kotayi daha hizli tuketiyor. Kota dolar ya da model gecici olarak
+#: erisilemez olursa ikinciye dusuluyor -- yorum uretmemektense daha
+#: zayif bir modelle uretmek yeglenir, cunku cikti zaten uc katli
+#: dogrulamadan geciyor.
+#:
+#: `NETARIS_AI_MODEL` ortam degiskeni verilirse YALNIZCA o kullanilir;
+#: model degistirmek icin kod duzenlemek gerekmiyor.
+CF_MODELLER = (
+    "@cf/openai/gpt-oss-120b",
+    "@cf/meta/llama-3.1-8b-instruct",
+)
 ANTHROPIC_MODEL = "claude-opus-5"
+
+
+def cf_modelleri() -> tuple[str, ...]:
+    ozel = os.environ.get("NETARIS_AI_MODEL", "").strip()
+    return (ozel,) if ozel else CF_MODELLER
 
 ZAMAN_ASIMI = 60.0
 EN_COK_JETON = 420
@@ -121,30 +138,51 @@ def sayi_denetimi(cikti: str, girdi: str) -> list[str]:
     return kacak
 
 
-def _cf_cagir(girdi: str) -> str:
+def _cf_cagir(girdi: str) -> tuple[str, str]:
+    """Workers AI. `(metin, kullanilan_model)` doner.
+
+    Modeller SIRAYLA deneniyor: biri kota ya da gecici hata verirse
+    digerine dusuluyor. Son model de duserse hata yukari firlatiliyor
+    ki `yorumla()` sebebi yazabilsin.
+    """
     hesap = os.environ.get("CLOUDFLARE_ACCOUNT_ID", "").strip()
     jeton = os.environ.get("CLOUDFLARE_API_TOKEN", "").strip()
     if not hesap or not jeton:
-        return ""
-    yol = (f"https://api.cloudflare.com/client/v4/accounts/{hesap}"
-           f"/ai/run/{CF_MODEL}")
-    y = httpx.post(
-        yol,
-        headers={"Authorization": f"Bearer {jeton}"},
-        json={
-            "max_tokens": EN_COK_JETON,
-            # Sicaklik DUSUK: bu yaratici yazim degil, bicimlendirme isi.
-            "temperature": 0.2,
-            "messages": [
-                {"role": "system", "content": SISTEM},
-                {"role": "user", "content": girdi},
-            ],
-        },
-        timeout=ZAMAN_ASIMI,
-    )
-    y.raise_for_status()
-    d = y.json()
-    return (d.get("result") or {}).get("response", "").strip()
+        return "", ""
+    son_hata: Exception | None = None
+    for model in cf_modelleri():
+        try:
+            y = httpx.post(
+                (f"https://api.cloudflare.com/client/v4/accounts/{hesap}"
+                 f"/ai/run/{model}"),
+                headers={"Authorization": f"Bearer {jeton}"},
+                json={
+                    "max_tokens": EN_COK_JETON,
+                    # Sicaklik DUSUK: bu yaratici yazim degil,
+                    # bicimlendirme isi.
+                    "temperature": 0.2,
+                    "messages": [
+                        {"role": "system", "content": SISTEM},
+                        {"role": "user", "content": girdi},
+                    ],
+                },
+                timeout=ZAMAN_ASIMI,
+            )
+            y.raise_for_status()
+            d = y.json()
+            sonuc = (d.get("result") or {})
+            # Bazi modeller `response`, bazilari `output` donduruyor.
+            metin = (sonuc.get("response")
+                     or sonuc.get("output")
+                     or "").strip()
+            if metin:
+                return metin, model
+        except httpx.HTTPError as e:
+            son_hata = e
+            continue
+    if son_hata is not None:
+        raise son_hata
+    return "", ""
 
 
 def _anthropic_cagir(girdi: str) -> str:
@@ -181,38 +219,45 @@ def saglayici() -> str:
     return ""
 
 
-def yorumla(girdi: str) -> tuple[str, str]:
-    """Girdiden yorum uretir. `(metin, ret_nedeni)` doner.
+def yorumla(girdi: str) -> tuple[str, str, str]:
+    """Girdiden yorum uretir. `(metin, kullanilan_model, ret_nedeni)`.
 
     Metin bossa `ret_nedeni` NEDEN bos oldugunu soyluyor -- sessiz
     basarisizlik olmuyor, hattin ciktisinda goruluyor.
     """
     if len(girdi) < 120:
-        return "", "girdi cok kisa"
+        return "", "", "girdi cok kisa"
     s = saglayici()
     if not s:
-        return "", "saglayici yok (anahtar tanimli degil)"
+        return "", "", "saglayici yok (anahtar tanimli degil)"
 
     try:
-        metin = (_anthropic_cagir(girdi) if s == "anthropic"
-                 else _cf_cagir(girdi))
+        if s == "anthropic":
+            metin, model = _anthropic_cagir(girdi), ANTHROPIC_MODEL
+        else:
+            metin, model = _cf_cagir(girdi)
     except httpx.HTTPStatusError as e:
-        return "", f"{s} HTTP {e.response.status_code}"
+        # 403 genellikle jetonun Workers AI iznine sahip olmadigini
+        # gosterir -- Workers dagitimi icin uretilen jetonda o izin
+        # varsayilan olarak YOK.
+        ek = " (jetonda Workers AI izni olmayabilir)" \
+            if e.response.status_code == 403 else ""
+        return "", "", f"{s} HTTP {e.response.status_code}{ek}"
     except httpx.HTTPError as e:
-        return "", f"{s} ag hatasi: {type(e).__name__}"
+        return "", "", f"{s} ag hatasi: {type(e).__name__}"
     if not metin:
-        return "", f"{s} bos yanit"
+        return "", "", f"{s} bos yanit"
 
     # --- 1. sayi denetimi ---
     kacak = sayi_denetimi(metin, girdi)
     if kacak:
-        return "", f"girdide olmayan sayi: {', '.join(kacak[:4])}"
+        return "", model, f"girdide olmayan sayi: {', '.join(kacak[:4])}"
 
     # --- 2. yasak kalip ---
     for d in YASAK:
         m = d.search(metin)
         if m:
-            return "", f"yasak kalip: {m.group(0)!r}"
+            return "", model, f"yasak kalip: {m.group(0)!r}"
 
     # --- 3. yayin ilkeleri (uye yazilariyla AYNI tarayici) ---
     #
@@ -224,9 +269,9 @@ def yorumla(girdi: str) -> tuple[str, str]:
     yasak = [b for b in guvenlik.tara(metin)
              if b.seviye is guvenlik.Seviye.YASAK]
     if yasak:
-        return "", f"guvenlik taramasi: {yasak[0].aciklama}"
+        return "", model, f"guvenlik taramasi: {yasak[0].aciklama}"
 
     # Fazla uzun cevaplari kirpmiyoruz -- kirpmak cumleyi ortasindan
     # kesip anlamsiz birakabilir. Uc cumleyi asan cevap zaten yonergeye
     # uymamis demektir; oldugu gibi birakilip insan denetimine kaliyor.
-    return metin, ""
+    return metin, model, ""
