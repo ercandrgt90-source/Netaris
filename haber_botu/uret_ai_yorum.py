@@ -102,12 +102,29 @@ def girdi_kur(h: dict, d) -> str:
                      f"(önceki {g.onceki}{g.birim}, değişim {g.degisim}, "
                      f"{g.tarih})")
         if d.duyarlilik:
-            p.append("Duyarlılık sırası: " + " > ".join(
-                f"{ad} ({neden})" for ad, _s, neden in d.duyarlilik[:4]))
+            # MEKANIZMA METNI GONDERILMIYOR, YALNIZCA SEKTOR ADLARI.
+            #
+            # Olculdu: parantez icindeki gerekce ("Net faiz marji ve
+            # kredi talebi dogrudan bagli") girdiye konuldugunda model
+            # onu OLDUGU GIBI kopyaliyordu; uc ayri yorum ayni cumleyle
+            # bitiyordu. Sektor adi verip mekanizmayi modele
+            # kurdurunca metin haberin kendisine ozgu oluyor.
+            p.append("Etkilenen sektörler (sırayla): " + ", ".join(
+                ad for ad, _s, _n in d.duyarlilik[:4]))
         if d.izlenecekler:
             p.append("İzlenecekler: " + ", ".join(d.izlenecekler[:4]))
-    if h.get("neden_onemli"):
-        p.append(f"Bağlam: {h['neden_onemli']}")
+    # `neden_onemli` GONDERILMIYOR.
+    #
+    # Olculdu: o cumle girdiye konuldugunda model onu oldugu gibi
+    # kopyaliyordu -- ayni konudaki uc yorum ayni cumleyle bitti
+    # ("sirketlerin oz kaynak maliyetini ve halka arz istahini
+    # belirler"). Ustelik metin sayfada ZATEN "Neden onemli" basligi
+    # altinda duruyor ve AI paragrafi hemen altinda; tekrar saf
+    # tekrardi.
+    #
+    # Yonergedeki "kopyalama" kurali yetmedi. Kopyalanmasini
+    # istemedigimiz metni hic gondermemek daha saglam bir cozum.
+    # Mekanizmayi model, sektor listesinden ve konudan kuruyor.
     return "\n".join(p)[:2400]
 
 

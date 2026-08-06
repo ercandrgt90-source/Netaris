@@ -145,6 +145,22 @@ sina("llama sohbet bicimi",
 sina("sohbet yaniti cozulur",
      yorumcu._yaniti_coz({"result": {"response": "merhaba"}}) == "merhaba")
 
+# --- yazim duzeltmesi (yonergenin yetmedigi yerler) ------------------
+
+for ad, girdi_m, beklenen in [
+    ("Hormuz -> Hürmüz", "Hormuz Boğazı'nda gerilim.", "Hürmüz Boğazı'nda gerilim."),
+    ("Hormoz -> Hürmüz", "Hormoz Boğazı kapandı.", "Hürmüz Boğazı kapandı."),
+    ("Euro Bölgesi -> Avro", "Euro Bölgesi verisi.", "Avro Bölgesi verisi."),
+    ("kirilmaz tire", "2025‑de arttı.", "2025'de arttı."),
+    ("egri kesme", "Çin’in ithalatı.", "Çin'in ithalatı."),
+    ("FED -> Fed", "FED kararı.", "Fed kararı."),
+]:
+    sina(f"yazim: {ad}", yorumcu.yazimi_duzelt(girdi_m) == beklenen)
+
+sina("yazim duzeltmesi SAYIYA dokunmuyor",
+     yorumcu.yazimi_duzelt("TÜFE %31,75 ve 1.929,00 mn $.")
+     == "TÜFE %31,75 ve 1.929,00 mn $.")
+
 sina("responses yaniti cozulur, akil yurutme ATLANIR",
      yorumcu._yaniti_coz({"result": {"output": [
          {"type": "reasoning", "content": [{"text": "dusunuyorum"}]},

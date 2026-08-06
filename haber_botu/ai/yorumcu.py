@@ -104,9 +104,14 @@ KURALLAR — hepsi zorunlu:
 - Sana verilen bağlam metnini KOPYALAMA. Kendi cümleni kur.
 - Veri hangi ülkeye aitse o ülkenin bağlamında yaz. ABD verisine
   Türkiye'ye özgü açıklama (asgari ücret, TÜFE sepeti) ekleme.
+- BİRİM UYDURMA. Sayının birimi verilmemişse birimsiz yaz. "Puan"
+  yalnızca oran farkları içindir; adet, kişi ya da endeks farkına
+  "puan" deme.
+- Yer ve kurum adlarını TÜRKÇE yaz: Hürmüz Boğazı (Hormuz değil),
+  Kızıldeniz, Süveyş, Avro Bölgesi, Çin, Rusya.
 - EN FAZLA 3 CÜMLE. Madde işareti yok, tek paragraf.
 - Türkçe yaz. Yüzde işareti sayıdan ÖNCE gelir: %31,75 (31,75% DEĞİL).
-  Ondalık ayracı virgüldür."""
+  Ondalık ayracı virgüldür. Yıl ekini kesme işaretiyle yaz: 2025'te."""
 
 #: Ciktida bulunmasi metni GECERSIZ kilan kaliplar.
 YASAK = (
@@ -153,6 +158,40 @@ _CUMLE_SONU = re.compile(r"[.!?](?:\s|$)")
 
 def _cumle_sayisi(metin: str) -> int:
     return len([x for x in _CUMLE_SONU.split(metin) if x.strip()])
+
+
+#: Yazim duzeltmeleri -- YONERGE YETMEDIGI ICIN var.
+#:
+#: Modele "Turkce yaz" demek ozel adlarda ise yaramiyor: egitim
+#: verisinde "Hormuz" bicimi baskin ve model onu uretiyor. Olculdu:
+#: "Hormoz Bogazi'ndaki arz kesintileri". Bunlar YAZIM duzeltmesi,
+#: anlam degistirmiyor; sayilara DOKUNULMUYOR.
+#:
+#: Kural: yalnizca tartismasiz karsiligi olan ozel adlar. Bir sozcugun
+#: dogru yazimi tartismaliysa buraya girmez -- metni sessizce
+#: degistirmek, yanlis birakmaktan kotudur.
+YAZIM = (
+    (re.compile(r"\bHorm[ou]z\b", re.I), "Hürmüz"),
+    (re.compile(r"\bSuez\b", re.I), "Süveyş"),
+    (re.compile(r"\bRed Sea\b", re.I), "Kızıldeniz"),
+    (re.compile(r"\bEurozone\b", re.I), "Avro Bölgesi"),
+    (re.compile(r"\bEuro Bölgesi\b"), "Avro Bölgesi"),
+    (re.compile(r"\bFED\b"), "Fed"),
+    # Turkce olmayan tire ve kesme isaretleri. Model bazen U+2011
+    # (kirilmaz tire) ve U+2019 uretiyor; ikisi de metinde yabanci
+    # duruyor ve arama/kopyalamada sorun cikariyor.
+    (re.compile("‑"), "-"),
+    (re.compile("’"), "'"),
+)
+
+
+def yazimi_duzelt(metin: str) -> str:
+    for desen, dogru in YAZIM:
+        metin = desen.sub(dogru, metin)
+    # "2025-de" / "2025-te" -> "2025'te". Model yil ekini bazen tireyle
+    # yaziyor; kesme isareti dogrusu.
+    metin = re.sub(r"\b(\d{4})[-‑]([dt]e|[dt]a)\b", r"\1'\2", metin)
+    return metin
 
 
 def _sayilar(metin: str) -> set[float]:
@@ -374,6 +413,11 @@ def yorumla(girdi: str) -> tuple[str, str, str, str]:
         return "", "", f"{s} ag hatasi: {type(e).__name__}", ""
     if not metin:
         return "", "", f"{s} bos yanit", ""
+
+    # Yazim duzeltmesi DOGRULAMADAN ONCE: duzeltmeler sayilara
+    # dokunmuyor, dolayisiyla denetimin sonucunu degistirmiyor; ama
+    # kaydedilen ham metin de duzgun olsun.
+    metin = yazimi_duzelt(metin)
 
     # --- 1. sayi denetimi ---
     kacak = sayi_denetimi(metin, girdi)

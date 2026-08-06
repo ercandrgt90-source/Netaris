@@ -120,8 +120,15 @@ def _fark_sozu(x: float, birim: str) -> str:
     Ticaret dengesi 1.929'dan -3.018'e giderken fark "4.947 puan"
     degildir -- puan bir ORAN farkinin birimi. Oransiz serilerde
     yalnizca sayi yaziliyor.
+
+    BIRIMSIZ FARK ACIKCA ISARETLENIYOR. Olculdu: cikplak sayi gorunce
+    dil modeli birim uyduruyordu -- "12,42 puan geriledi" yazdi, oysa
+    isten cikarma sayisiydi. "birim yok" notu hem okur icin dogru hem
+    modele acik bir sinir.
     """
-    return f"{_vir(abs(x), 2)} puan" if birim == "%" else _vir(abs(x), 2)
+    if birim == "%":
+        return f"{_vir(abs(x), 2)} puan"
+    return f"{_vir(abs(x), 2)} (birimsiz)"
 
 
 def ozet(v: VeriBasligi) -> str:
