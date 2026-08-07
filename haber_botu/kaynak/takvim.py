@@ -80,7 +80,7 @@ NEDEN = {
         "Çekirdek PCE, Fed'in resmen tercih ettiği enflasyon ölçüsüdür. "
         "TÜFE'den farklı ağırlıklandırma kullandığı için iki seri "
         "ayrışabilir; politika metinlerinde referans alınan budur.",
-    "PPIACO":
+    "PPIFIS":
         "Üretici fiyatları, maliyet tarafındaki baskıyı tüketici "
         "fiyatlarından önce gösterir. Geçişin hızı ve büyüklüğü sektörün "
         "fiyatlama gücüne bağlıdır.",
@@ -131,19 +131,37 @@ SERILER: tuple[tuple[str, str, str, str, str, int, str], ...] = (
     # yontemini degistirdi ve seriyi yeniledi.
     ("ADPMNUSNERSA", "ABD Özel Sektör İstihdamı (ADP)", "kişi",
      "İstihdam ve ücret", "aylık", 8, "degisim"),
-    ("UNRATE", "ABD işsizlik oranı", "%",
-     "İstihdam ve ücret", "aylık", 8, "seviye"),
     ("ICSA", "ABD haftalık işsizlik başvuruları", "kişi",
      "İstihdam ve ücret", "haftalık", 6, "seviye"),
-    ("CES0500000003", "ABD ortalama saatlik kazanç", "$",
-     "İstihdam ve ücret", "aylık", 7, "seviye"),
+    ("UNRATE", "ABD işsizlik oranı", "%",
+     "İstihdam ve ücret", "aylık", 8, "seviye"),
+    # SEVIYE DEGIL YILLIK DEGISIM.
+    #
+    # Seviye ($37,64) piyasanin izledigi buyukluk degil; aciklamada
+    # manset olan aylik/yillik DEGISIM. Seviye esik yapilinca kutu
+    # sacmaliyor: bir sonraki ay 37,70 gelse "37,64 uzerinde" olur ama
+    # bu %0,16'lik artis demek, yani beklentinin (%0,3) ALTINDA.
+    # Kullanicinin Tarim Disi Istihdam'da gosterdigi hatanin aynisi.
+    ("CES0500000003", "ABD ortalama saatlik kazanç", "%",
+     "İstihdam ve ücret", "aylık", 7, "yillik"),
 
     # --- ABD enflasyon ---
     ("CPIAUCSL", "ABD TÜFE", "%", "Enflasyon", "aylık", 10, "yillik"),
     ("CPILFESL", "ABD çekirdek TÜFE", "%", "Enflasyon", "aylık", 9, "yillik"),
     # Fed'in tercih ettigi olcu -- politika kararina en yakin seri.
     ("PCEPILFE", "ABD çekirdek PCE", "%", "Enflasyon", "aylık", 9, "yillik"),
-    ("PPIACO", "ABD ÜFE", "%", "Enflasyon", "aylık", 7, "yillik"),
+    # MANSET UFE SERISI `PPIFIS` (nihai talep), `PPIACO` DEGIL.
+    #
+    # Olculdu: ayni gun PPIACO yillik %10,11, PPIFIS %5,51. Ikisi de
+    # dogru hesap ama farkli sey olcuyor -- PPIACO "tum emtialar" ham
+    # endeksi, ham madde fiyatlariyla savruluyor. BLS'in "Producer
+    # Price Index" haberinde manset olan, piyasanin fiyatladigi ve
+    # Fed'in konustugu seri NIHAI TALEP.
+    #
+    # "ABD ÜFE" etiketiyle %10,11 basmak, okura manset UFE'yi iki kat
+    # yuksek gostermek olurdu.
+    ("PPIFIS", "ABD ÜFE (nihai talep)", "%",
+     "Enflasyon", "aylık", 7, "yillik"),
     ("MICH", "ABD tüketici enflasyon beklentisi", "%",
      "Enflasyon", "aylık", 6, "seviye"),
 
@@ -291,6 +309,16 @@ def _kisi(x: float) -> str:
     if b >= 1000:
         return f"{_tr(x / 1000, 0)} bin"
     return _tr(x, 0)
+
+
+def bicim(d: float | None, birim: str) -> str:
+    """Disariya acik ad. Takvim kutulari da BU bicimlendiriciyi kullanir.
+
+    Ikinci bir bicimlendirici yazmak olculdu ve kaydi: `beklenti.py`
+    kendi `bicimle`sini kullaniyordu ve ayni sayi iki yerde iki turlu
+    goruniyordu -- haberde "44 bin kişi", takvimde "44.000,00 kişi".
+    """
+    return _bicim(d, birim)
 
 
 def _bicim(d: float | None, birim: str) -> str:

@@ -133,14 +133,15 @@ dogru("konsensus yokken kiyas 'önceki döneme göre'",
       "önceki döneme göre" in _yok.dallar[0].mekanizma)
 
 _var = B.kur("PAYEMS", "NFP", "İstihdam ve ücret", None, "", "",
-             esik_metin="85K", son_metin="57K")
-es("konsensus varsa esik odur", _var.esik_deger, "85K")
+             esik_metin="85K", kaynak_onceki="57K")
+# Esik kaynagin degeri ama TURKCE yazimla (bkz. kaynak_bicimi).
+es("konsensus varsa esik odur", _var.esik_deger, "85 bin")
 es("konsensus varsa kaynak 'beklenti'", _var.esik_kaynak, "beklenti")
 es("konsensus varsa son deger kaynagin onceki degeri",
-   _var.son_deger, "57K")
+   _var.son_deger, "57 bin")
 dogru("konsensus varken kiyas 'beklenenden'",
       "beklenenden" in _var.dallar[0].mekanizma)
-dogru("dal basligi konsensusu tasiyor", "85K" in _var.dallar[0].baslik)
+dogru("dal basligi konsensusu tasiyor", "85 bin" in _var.dallar[0].baslik)
 
 # Yer tutucu HICBIR cumlede acikta kalmamali -- kalirsa ekranda
 # "{kiyas}" diye gorunurdu.
@@ -157,11 +158,33 @@ for _d in _hepsi.dallar:
 # ForexFactory'nin, 2026-06-01 bizim serimizin -- ayni doneme ait
 # olduklarini bilmiyoruz.
 _kt = B.kur("PAYEMS", "NFP", "İstihdam ve ücret", 57.0, "bin kişi",
-            "2026-06-01", esik_metin="85K", son_metin="57K")
+            "2026-06-01", esik_metin="85K", kaynak_onceki="57K")
 es("kaynak degeri kendi tarihimizle basilmiyor", _kt.son_tarih, "")
 es("kendi degerimizde tarih kaliyor",
    B.kur("PAYEMS", "NFP", "İstihdam ve ücret", 57.0, "bin kişi",
          "2026-06-01").son_tarih, "2026-06-01")
+
+
+# --------------------------------------------------------------------
+# KAYNAK BICIMI -- yazim cevriliyor, SAYI DEGISMIYOR.
+# --------------------------------------------------------------------
+es("K kisaltmasi acilir", B.kaynak_bicimi("85K"), "85 bin")
+es("yuzde Turkce yazima gecer", B.kaynak_bicimi("0.3%"), "%0,3")
+es("negatif isaret", B.kaynak_bicimi("-1.2B"), "−1,2 milyar")
+es("milyon kisaltmasi", B.kaynak_bicimi("1.5M"), "1,5 milyon")
+es("kisaltmasiz sayi", B.kaynak_bicimi("3"), "3")
+
+# VIRGUL: Ingilizce BINLIK ayirici. Cevirirsek Turkce ondalik okunur
+# ve sayi bin kat kucuk gorunur. Oldugu gibi birakiliyor.
+es("virgullu deger CEVRILMEZ", B.kaynak_bicimi("1,250K"), "1,250K")
+es("tanimadigi metin oldugu gibi", B.kaynak_bicimi("Tentative"), "Tentative")
+es("bos deger", B.kaynak_bicimi(""), "")
+
+# Kutuda da bicimlenmis gorunmeli.
+_bk = B.kur("PAYEMS", "x", "İstihdam ve ücret", None, "", "",
+            esik_metin="85K", kaynak_onceki="57K")
+es("kutuda esik Turkce", _bk.esik_deger, "85 bin")
+es("kutuda son deger Turkce", _bk.son_deger, "57 bin")
 
 
 print(f"{gecti} gecti, {len(kaldi)} kaldi")

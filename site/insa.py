@@ -1572,7 +1572,7 @@ TAKVIM_KONUSU = {
     "CES0500000003": ("İstihdam ve ücret", "istihdam"),
     "CPIAUCSL": ("Enflasyon", "enflasyon"),
     "CPILFESL": ("Enflasyon", "enflasyon"),
-    "PPIACO": ("Enflasyon", "enflasyon"),
+    "PPIFIS": ("Enflasyon", "enflasyon"),
     "FED_FAIZ": ("Para politikası", "faiz"),
     "TP.TUKFIY2025.GENEL": ("Enflasyon", "enflasyon"),
     "TP.TUFE1YI.T1": ("Enflasyon", "enflasyon"),
@@ -1676,6 +1676,15 @@ def takvim_kutulari() -> list[dict]:
         try:
             konu, olay_turu = TAKVIM_KONUSU.get(y.kod, ("", ""))
             deger, birim, tarih = _seri_son(b, y.kod)
+            # BICIMLENDIRME TAKVIM MODULUNDEN.
+            #
+            # `beklenti.bicimle` ikinci bir bicimlendiriciydi ve ayni
+            # sayi iki yerde iki turlu goruniyordu: haber sayfasinda
+            # "44 bin kişi", takvim kutusunda "44.000,00 kişi". Tek
+            # bicimlendirici, tek gorunum.
+            son_metin = ""
+            if deger is not None and _takvim is not None:
+                son_metin = _takvim.bicim(deger, birim)
             esik = esik_birim = None
             bs = _beklenti.BEKLENTI_SERISI.get(y.kod)
             if bs:
@@ -1690,7 +1699,9 @@ def takvim_kutulari() -> list[dict]:
             k = _beklenti.kur(y.kod, y.ad, konu, deger, birim, tarih,
                               esik_deger=esik, esik_birim=esik_birim or "",
                               tepkiler=_tepkiler(b, olay_turu),
-                              esik_metin=y.beklenti, son_metin=y.onceki)
+                              esik_metin=y.beklenti,
+                              kaynak_onceki=y.onceki,
+                              son_metin=son_metin)
             if k.dolu:
                 kutu["beklenti"] = k
         except Exception as e:

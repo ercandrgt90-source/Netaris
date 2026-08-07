@@ -45,6 +45,7 @@ ikisini ayni etiketle sunmak yukaridaki hatayi geri getirirdi.
 
 from __future__ import annotations
 
+import re
 from dataclasses import dataclass, field
 
 #: Seri kodu -> beklentiyi TASIYAN seri kodu.
@@ -183,6 +184,42 @@ def bicimle(deger: float, birim: str) -> str:
     return _vir(deger)
 
 
+#: Kaynagin yazim bicimini Turkcelestiren kaliplar.
+#:
+#: SAYI DEGISTIRILMIYOR, YAZIM DEGISIYOR. "0.3%" ile "%0,3" ayni sayi;
+#: biri Ingilizce, digeri Turkce yazim. Birim cevirisi YAPILMIYOR --
+#: "85K"nin kac kisi oldugunu varsaymak, kaynagin soylemedigi bir sey
+#: soylemek olurdu; yalnizca "K" kisaltmasi aciliyor.
+#:
+#: TANIMADIGI BICIM OLDUGU GIBI KALIYOR. Zorlama bir donusum, sessizce
+#: yanlis sayi uretmenin en kolay yolu.
+#: VIRGUL KABUL EDILMIYOR ve bu bilincli. Kaynak Ingilizce yaziyor,
+#: yani virgul BINLIK AYIRICI ("1,250K" = 1250 bin). Turkce'de virgul
+#: ondalik ayiricidir; cevirsek "1,250 bin" yazardik ve okur bunu
+#: 1,25 bin diye okurdu -- bin kat hata. Virgullu deger oldugu gibi
+#: birakiliyor: yabanci bicimde ama DOGRU bir sayi, sessizce yanlis
+#: cevrilmis bir sayidan iyidir.
+_ONEK = re.compile(r"^(-|−)?(\d+(?:\.\d{1,3})?)\s*([KkMmBb%]?)$")
+_CARPAN = {"K": " bin", "k": " bin", "M": " milyon", "m": " milyon",
+           "B": " milyar", "b": " milyar"}
+
+
+def kaynak_bicimi(metin: str) -> str:
+    """Kaynagin yazdigi degeri Turkce yazima cevirir."""
+    ham = (metin or "").strip()
+    m = _ONEK.match(ham)
+    if not m:
+        return ham
+    isaret = "−" if m.group(1) else ""
+    sayi = m.group(2).replace(".", ",")
+    son = m.group(3)
+    if son == "%":
+        return f"{isaret}%{sayi}"
+    if son:
+        return f"{isaret}{sayi}{_CARPAN.get(son, '')}"
+    return f"{isaret}{sayi}"
+
+
 def _tepki_ozeti(tepkiler: list[tuple[str, float]], en_az: int = 3) -> str:
     """Olculmus fiyat tepkilerinin ozeti. Az gozlem varsa BOS.
 
@@ -215,7 +252,7 @@ def kur(kod: str, ad: str, konu: str, son_deger: float | None,
         esik_birim: str = "",
         tepkiler: list[tuple[str, float]] | None = None,
         esik_metin: str = "", son_metin: str = "",
-        esik_kaynagi: str = "") -> Beklenti:
+        kaynak_onceki: str = "", esik_kaynagi: str = "") -> Beklenti:
     """Bir veri aciklamasi icin beklenti kutusu.
 
     KONSENSUS VARSA ESIK ODUR. `esik_metin` bir takvim kaynagindan
@@ -233,33 +270,44 @@ def kur(kod: str, ad: str, konu: str, son_deger: float | None,
     "onceki uzerinde" ama "beklentinin altinda"dir ve mekanizma
     cumlesi ters calisir.
     """
-    # Kaynaktan gelen metin varsa sayisal degere ihtiyac yok.
+    # ESIK VE "SON ACIKLANAN" NEREDEN GELIYOR
     #
-    # TARIH DE DUSURULUYOR: deger takvim kaynagindan geliyorsa, yanina
-    # KENDI depomuzun gozlem tarihini basmak iki farkli kaynagi tek
-    # cumlede birlestirmek olur. Olculdu: "57K (2026-06-01)" -- 57K
-    # ForexFactory'nin onceki degeri, 2026-06-01 ise bizim serimizin
-    # gozlem tarihi ve ikisinin ayni doneme ait oldugunu BILMIYORUZ.
-    # Kaynak donem bilgisi vermiyor; o yuzden tarih hic basilmiyor.
-    if son_metin or esik_metin:
-        son_tarih = ""
-        son = son_metin or (bicimle(son_deger, son_birim)
-                            if son_deger is not None else "")
-        if esik_metin:
-            esik, kaynak = esik_metin, (esik_kaynagi or "beklenti")
-        elif son:
-            esik, kaynak = son, "onceki"
-        else:
-            return Beklenti(kod=kod, ad=ad)
-    elif son_deger is None:
-        return Beklenti(kod=kod, ad=ad)
-    else:
+    # Uc durum var ve ucu de farkli davraniyor:
+    #
+    #  1. KONSENSUS VAR   -> esik konsensus, son deger AYNI KAYNAGIN
+    #                        onceki degeri. Tarih BASILMIYOR: kaynak
+    #                        donem vermiyor ve kendi serimizin gozlem
+    #                        tarihini yanina koymak iki kaynagi tek
+    #                        cumlede birlestirmek olur.
+    #
+    #  2. KONSENSUS YOK   -> esik KENDI son degerimiz, tarihiyle
+    #                        birlikte. Ekranda "eşik önceki değer" diye
+    #                        acikca yaziyor.
+    #
+    #  3. HICBIRI YOK     -> kutu basilmiyor.
+    if esik_metin:
+        esik = kaynak_bicimi(esik_metin)
+        kaynak = esik_kaynagi or "beklenti"
+        son = kaynak_bicimi(kaynak_onceki) if kaynak_onceki else son_metin
+        son_tarih = ""            # kaynak donem vermiyor
+        if not son:
+            son = (bicimle(son_deger, son_birim)
+                   if son_deger is not None else "")
+    elif son_metin:
+        son = son_metin
+        esik, kaynak = son, "onceki"
+    elif son_deger is not None:
         son = bicimle(son_deger, son_birim)
         if esik_deger is not None:
             esik = bicimle(esik_deger, esik_birim or son_birim)
             kaynak = "beklenti"
         else:
             esik, kaynak = son, "onceki"
+    else:
+        return Beklenti(kod=kod, ad=ad)
+
+    if not son:
+        return Beklenti(kod=kod, ad=ad)
 
     mek = MEKANIZMA.get(konu)
     if not mek:

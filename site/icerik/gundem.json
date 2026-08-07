@@ -19,8 +19,31 @@
     "TRT Haber"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 26,
+  "yorumlanan": 27,
   "haberler": [
+    {
+      "baslik": "ABD ÜFE (nihai talep): yıllık %5,51",
+      "baslik_kaynak": "ABD ÜFE (nihai talep): yıllık %5,51",
+      "ozet": "ABD ÜFE (nihai talep), Haziran 2026 döneminde yıllık %5,51 olarak gerçekleşti. Endeks 156,57; bir önceki dönem 157,00. Son 12 dönem ortalaması %5,74. Veri FRED (St. Louis Fed) üzerinden PPIFIS serisinden alınmıştır; yorum içermez.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": false,
+      "bolge": "DUNYA",
+      "adres": "netaris:veri/PPIFIS/2026-06-01",
+      "kurum": "FRED",
+      "kurum_tam": "FRED · St. Louis Fed",
+      "konu": "Enflasyon",
+      "tarih": "2026-08-07",
+      "tarih_gorunur": "7 Ağustos 2026",
+      "donem": "2026-06-01",
+      "yorumlanir": true,
+      "neden_onemli": "Üretici fiyatları, maliyet tarafındaki baskıyı tüketici fiyatlarından önce gösterir. Geçişin hızı ve büyüklüğü sektörün fiyatlama gücüne bağlıdır.",
+      "kanallar": [],
+      "kanal_basligi": "",
+      "foto": "/statik/foto/enflasyon-3.jpg",
+      "foto_atif": "markhillary · BY 2.0",
+      "yol": "/haber/"
+    },
     {
       "baslik": "ECB, Mart 2026 sonu için konsolide bankacılık verilerini yayınladı",
       "baslik_kaynak": "ECB publishes consolidated banking data for end-March 2026",
