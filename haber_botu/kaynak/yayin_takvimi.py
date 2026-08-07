@@ -50,8 +50,9 @@ Piyasa Katilimcilari Anketi gercek bir konsensus ve zaten depomuzda.
 
 from __future__ import annotations
 
+import pathlib
 import re
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 from datetime import datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
 
@@ -104,6 +105,16 @@ class Yayin:
     ulke: str           # "ABD" | "TR" | "AB"
     onem: int           # 1 dusuk, 2 orta, 3 yuksek
     kesin: bool         # kaynak tarih+saat verdi mi, yoksa TURETILDI mi
+    #: KONSENSUS. Kaynagin yayimladigi bicimde saklaniyor ("85K",
+    #: "0.3%") -- birim cevirmeye kalkmak, iki farkli kaynagin sayisini
+    #: karistirma riski demek. Bos ise beklentimiz YOK ve sayfa bunu
+    #: acikca yaziyor.
+    beklenti: str = ""
+    #: Ayni kaynagin ONCEKI degeri. Beklentiyle AYNI kaynaktan geldigi
+    #: icin birimleri kesinlikle uyumlu; kendi depomuzdaki degerle
+    #: karistirilmiyor.
+    onceki: str = ""
+    kaynak: str = ""
 
     @property
     def yerel(self) -> datetime:
@@ -268,6 +279,170 @@ def fed_cek(c: httpx.Client) -> list[Yayin]:
     return cikti
 
 
+# --------------------------------------------------------------------
+# KONSENSUS (BEKLENTI) KAYNAGI
+# --------------------------------------------------------------------
+#
+# Kullanici hakli bir hata gosterdi: esik olarak ONCEKI DEGERI
+# kullanmak sadece eksik degil, YANLIS. Tarim Disi Istihdam'da beklenti
+# 85 bin, onceki 57 bin. Gerceklesen 70 bin gelirse bizim kutumuz
+# "onceki 57'nin UZERINDE -> is gucu piyasasi beklenenden GUCLU" derdi;
+# oysa 70 bin, beklentinin ALTINDA ve tam tersini anlatir. Mekanizma
+# cumlesi ters calisiyordu.
+#
+# NEDEN BU KAYNAK
+# Investing.com ornek verildi ama oradan kazima yapilmiyor: site bot
+# erisimini engelliyor ve sartlari yasakliyor. ForexFactory ise takvimi
+# SENDIKASYON ICIN acik bir XML ucundan yayimliyor (nfs.faireconomy.media)
+# -- amaci zaten bu.
+#
+# HIZ SINIRI VAR VE BUNA UYULUYOR
+# Olculdu: art arda birkac istekten sonra uc 429 donuyor. Hattimiz
+# yarim saatte bir calisiyor; her calistirmada cekmek bu ucu bogar ve
+# kisa surede tamamen engellenmemize yol acar. Bu yuzden cevap diske
+# onbellege aliniyor ve en fazla `FF_TAZELIK_SAAT`te bir yenileniyor.
+# Konsensus rakamlari gun icinde nadiren degisiyor; saatlik tazelik
+# fazlasiyla yeterli.
+FF_ADRES = "https://nfs.faireconomy.media/ff_calendar_thisweek.xml"
+FF_TAZELIK_SAAT = 4
+FF_ONBELLEK = pathlib.Path(__file__).resolve().parent / "_onbellek" / "ff_takvim.xml"
+
+#: ForexFactory olay adi -> (bizim seri kodumuz, Turkce ad, onem).
+#: Ulke kodu ayrica kontrol ediliyor -- "Unemployment Rate" hem ABD hem
+#: Kanada hem Yeni Zelanda'da var.
+FF_ESLEME: tuple[tuple[str, str, str, str, int], ...] = (
+    ("USD", "non-farm employment change", "PAYEMS",
+     "ABD Tarım Dışı İstihdam", 3),
+    ("USD", "adp non-farm", "ADPMNUSNERSA", "ABD Özel Sektör İstihdamı (ADP)", 2),
+    ("USD", "unemployment rate", "UNRATE", "ABD işsizlik oranı", 2),
+    ("USD", "average hourly earnings", "CES0500000003",
+     "ABD ortalama saatlik kazanç", 2),
+    ("USD", "cpi m/m", "CPIAUCSL", "ABD TÜFE (aylık)", 3),
+    ("USD", "cpi y/y", "CPIAUCSL", "ABD TÜFE (yıllık)", 3),
+    ("USD", "core cpi", "CPILFESL", "ABD çekirdek TÜFE", 3),
+    ("USD", "ppi m/m", "PPIACO", "ABD ÜFE", 2),
+    ("USD", "core pce", "PCEPILFE", "ABD çekirdek PCE", 3),
+    ("USD", "retail sales", "RSAFS", "ABD perakende satışlar", 2),
+    ("USD", "federal funds rate", "FED_FAIZ", "Fed faiz kararı", 3),
+    ("USD", "ism manufacturing pmi", "", "ABD ISM imalat PMI", 2),
+    ("USD", "ism services pmi", "", "ABD ISM hizmet PMI", 2),
+    ("USD", "unemployment claims", "ICSA",
+     "ABD haftalık işsizlik başvuruları", 2),
+    ("USD", "prelim gdp", "GDPC1", "ABD GSYH (öncü)", 3),
+    ("EUR", "main refinancing rate", "", "ECB faiz kararı", 3),
+    ("EUR", "core cpi flash", "", "Avro Bölgesi çekirdek TÜFE", 2),
+    ("TRY", "cpi y/y", "TP.TUKFIY2025.GENEL", "Türkiye TÜFE (yıllık)", 3),
+    ("TRY", "interest rate", "TP.APIFON4", "TCMB faiz kararı", 3),
+)
+
+#: ForexFactory etki duzeyi -> bizim onem puanimiz.
+FF_ETKI = {"High": 3, "Medium": 2, "Low": 1}
+
+
+def _ff_alan(blok: str, ad: str) -> str:
+    m = re.search("<" + ad + r">(?:<!\[CDATA\[)?(.*?)(?:\]\]>)?</" + ad + ">",
+                  blok, re.S)
+    return m.group(1).strip() if m else ""
+
+
+def _ff_indir(c: httpx.Client) -> str:
+    """XML'i getirir. Onbellek tazeyse AGA HIC CIKMIYOR.
+
+    429 durumunda eski onbellek kullaniliyor: bayat bir beklenti,
+    beklenti olmamasindan iyidir ve konsensus gun icinde nadiren
+    degisiyor.
+    """
+    try:
+        if FF_ONBELLEK.exists():
+            yas = (datetime.now(timezone.utc).timestamp()
+                   - FF_ONBELLEK.stat().st_mtime) / 3600
+            if yas < FF_TAZELIK_SAAT:
+                return FF_ONBELLEK.read_text(encoding="utf-8", errors="replace")
+    except OSError:
+        pass
+
+    try:
+        y = c.get(FF_ADRES)
+        if y.status_code == 429:
+            OKUNAMAYAN.append(("FF", "429 hiz siniri -- onbellek kullanildi"))
+            raise httpx.HTTPError("429")
+        y.raise_for_status()
+    except httpx.HTTPError:
+        try:
+            return FF_ONBELLEK.read_text(encoding="utf-8", errors="replace")
+        except OSError:
+            return ""
+
+    try:
+        FF_ONBELLEK.parent.mkdir(parents=True, exist_ok=True)
+        FF_ONBELLEK.write_text(y.text, encoding="utf-8")
+    except OSError:
+        pass
+    return y.text
+
+
+def ff_cek(c: httpx.Client) -> list[Yayin]:
+    """ForexFactory haftalik takvimi -- KONSENSUS TASIYAN tek kaynagimiz.
+
+    Saatler UTC ("12:30pm" = ABD Tarim Disi Istihdam'in 08:30 ET'si).
+    """
+    ham = _ff_indir(c)
+    if not ham:
+        return []
+
+    cikti: list[Yayin] = []
+    for blok in re.findall(r"<event>(.*?)</event>", ham, re.S):
+        ulke = _ff_alan(blok, "country")
+        ad = _ff_alan(blok, "title")
+        if not ad:
+            continue
+        d = ad.lower()
+        kod = tr = ""
+        onem = FF_ETKI.get(_ff_alan(blok, "impact"), 1)
+        for u, kalip, k, t, o in FF_ESLEME:
+            if u == ulke and kalip in d:
+                kod, tr, onem = k, t, o
+                break
+        if not tr:
+            # Eslesmeyen olay ATLANIYOR. BLS ve Fed zaten kendi
+            # takvimlerini veriyor; buradaki isimiz KONSENSUS, ve
+            # tanimadigimiz bir olayin beklentisini Turkcelestiremeden
+            # basmak okura hicbir sey soylemez.
+            continue
+
+        an = _ff_an(_ff_alan(blok, "date"), _ff_alan(blok, "time"))
+        if an is None:
+            continue
+        cikti.append(Yayin(
+            kod=kod, ad=tr, ad_kaynak=ad, an=an,
+            ulke={"USD": "ABD", "EUR": "AB", "TRY": "TR"}.get(ulke, ulke),
+            onem=onem, kesin=True,
+            beklenti=_ff_alan(blok, "forecast"),
+            onceki=_ff_alan(blok, "previous"),
+            kaynak="ForexFactory",
+        ))
+    return cikti
+
+
+def _ff_an(tarih: str, saat: str) -> datetime | None:
+    """FF tarih+saat -> UTC. Bicim: "08-07-2026" + "12:30pm".
+
+    Saatsiz kayitlar ("All Day", "Tentative") gun basi sayiliyor.
+    """
+    try:
+        g = datetime.strptime(tarih, "%m-%d-%Y")
+    except ValueError:
+        return None
+    s = saat.strip().lower()
+    m = re.match(r"(\d{1,2}):(\d{2})(am|pm)", s)
+    if m:
+        sa, dk = int(m.group(1)) % 12, int(m.group(2))
+        if m.group(3) == "pm":
+            sa += 12
+        g = g.replace(hour=sa, minute=dk)
+    return g.replace(tzinfo=timezone.utc)
+
+
 #: Yerli serilerin yayin ritmi: (seri kodu, gorunur ad, ayin kacinci
 #: GUNU, saat, onem).
 #:
@@ -325,7 +500,8 @@ def cek(gun: int = 21) -> list[Yayin]:
     hepsi: list[Yayin] = []
     with httpx.Client(timeout=ZAMAN_ASIMI, follow_redirects=True,
                       headers=BASLIKLAR) as c:
-        for ad, islev in (("BLS", bls_cek), ("FED", fed_cek)):
+        for ad, islev in (("BLS", bls_cek), ("FED", fed_cek),
+                          ("FF", ff_cek)):
             try:
                 p = islev(c)
             except Exception as e:                     # ag/ayristirma
@@ -336,6 +512,36 @@ def cek(gun: int = 21) -> list[Yayin]:
             hepsi.extend(p)
 
     hepsi.extend(yerli_uret(simdi.astimezone(_TR)))
+
+    # BEKLENTI BIRLESTIRME.
+    #
+    # BLS ve Fed takvimi YETKILI kaynak (tarih ve saat onlarin), ama
+    # konsensus vermiyorlar. ForexFactory konsensus veriyor. Ayni olay
+    # iki kaynakta da varsa: zamani yetkili kaynaktan, beklentiyi
+    # FF'den aliyoruz.
+    #
+    # Eslestirme KOD + GUN uzerinden. Saat uzerinden yapilsaydi bir
+    # dakikalik fark eslesmeyi bozardi ve ayni olay iki kez basilirdi.
+    beklentiler = {}
+    for y in hepsi:
+        if y.beklenti and y.kod:
+            beklentiler[(y.kod, y.an.date())] = y
+
+    birlesik: list[Yayin] = []
+    gorulen: set = set()
+    for y in hepsi:
+        anahtar = (y.kod, y.an.date()) if y.kod else None
+        if anahtar and anahtar in gorulen:
+            continue
+        b = beklentiler.get(anahtar) if anahtar else None
+        if b is not None and b is not y:
+            # Yetkili kaynagin zamani + FF'nin beklentisi.
+            y = replace(y, beklenti=b.beklenti, onceki=b.onceki,
+                        kaynak=b.kaynak)
+        if anahtar:
+            gorulen.add(anahtar)
+        birlesik.append(y)
+    hepsi = birlesik
 
     # GECMIS ELENIYOR: "bugun ne var" bolumune dun aciklanmis bir veri
     # koymak, bolumun tek isini -- ileriye bakmayi -- bozar.

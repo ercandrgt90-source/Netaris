@@ -3182,3 +3182,9 @@ a.seyir-baslik:hover { color: var(--vurgu); text-decoration: none; }
   margin-left: 6px; white-space: nowrap;
 }
 .seyir-kurum { font-size: 0.72rem; color: var(--yazi-3); }
+/* Konsensus ile "onceki deger" esigi GORSEL OLARAK AYRI: ikisini ayni
+   gostermek, mekanizma cumlesinin ters okunmasina yol acabiliyor. */
+.takvim-esik {
+  padding: 2px 9px; border-radius: 999px;
+  background: var(--vurgu-zar); color: var(--vurgu); font-weight: 600;
+}

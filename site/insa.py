@@ -1611,6 +1611,9 @@ def takvim_kutulari() -> list[dict]:
             "gun": y.yerel.strftime("%d.%m"),
             "saat": y.yerel.strftime("%H:%M"),
             "beklenti": None,
+            # Konsensus kaynagi ekranda YAZILIYOR: okur sayinin
+            # nereden geldigini bilmeli.
+            "kaynak": y.kaynak,
         }
         if b is None or not y.kod or _beklenti is None:
             return kutu

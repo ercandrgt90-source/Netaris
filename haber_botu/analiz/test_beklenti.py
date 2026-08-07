@@ -117,6 +117,42 @@ tanimsiz = B.kur("X", "X", "Bilinmeyen konu", 5.0, "%", "2026-01-01")
 dogru("mekanizma tanimsizsa dal uretilmez", not tanimsiz.dallar)
 dogru("mekanizma tanimsizsa kutu basilmaz", not tanimsiz.dolu)
 
+# --------------------------------------------------------------------
+# KIYAS TABANI CUMLEYE YAZILMALI.
+#
+# Kullanicinin gosterdigi hata: Tarim Disi Istihdam'da beklenti 85 bin,
+# onceki 57 bin. Esik onceki degerken cumle "beklenenden güçlü"
+# diyordu -- olmayan bir beklentiye gore konusuyordu. Gerceklesen
+# 70 bin gelse "onceki uzerinde" ama "beklentinin altinda"dir.
+# --------------------------------------------------------------------
+_yok = B.kur("PAYEMS", "NFP", "İstihdam ve ücret", 57.0, "bin kişi",
+             "2026-06-01")
+dogru("konsensus yokken 'beklenenden' YAZILMAZ",
+      "beklenenden" not in _yok.dallar[0].mekanizma)
+dogru("konsensus yokken kiyas 'önceki döneme göre'",
+      "önceki döneme göre" in _yok.dallar[0].mekanizma)
+
+_var = B.kur("PAYEMS", "NFP", "İstihdam ve ücret", None, "", "",
+             esik_metin="85K", son_metin="57K")
+es("konsensus varsa esik odur", _var.esik_deger, "85K")
+es("konsensus varsa kaynak 'beklenti'", _var.esik_kaynak, "beklenti")
+es("konsensus varsa son deger kaynagin onceki degeri",
+   _var.son_deger, "57K")
+dogru("konsensus varken kiyas 'beklenenden'",
+      "beklenenden" in _var.dallar[0].mekanizma)
+dogru("dal basligi konsensusu tasiyor", "85K" in _var.dallar[0].baslik)
+
+# Yer tutucu HICBIR cumlede acikta kalmamali -- kalirsa ekranda
+# "{kiyas}" diye gorunurdu.
+for _k, (_a, _b) in B.MEKANIZMA.items():
+    for _m in (_a, _b):
+        dogru(f"{_k}: yer tutucu bicimlenebilir",
+              "{kiyas}" not in _m.format(kiyas="X"))
+_hepsi = B.kur("CPIAUCSL", "x", "Enflasyon", 3.0, "%", "2026-01-01")
+for _d in _hepsi.dallar:
+    dogru("ciktida yer tutucu kalmiyor", "{" not in _d.mekanizma)
+
+
 print(f"{gecti} gecti, {len(kaldi)} kaldi")
 for k in kaldi:
     print("  X", k)

@@ -177,10 +177,15 @@
              elimizde yoksa esik onceki degerdir ve okur bunu bilmeli --
              onceki degeri "beklenti" diye sunmak uydurma olurdu. #}
           {% if b.esik_kaynak == "beklenti" %}
-          · Beklenti (TCMB anketi): <b>{{ b.esik_deger }}</b>
+          <span class="takvim-esik">Beklenti: <b>{{ b.esik_deger }}</b></span>
+          {% if k.kaynak %}<span class="takvim-tarih">({{ k.kaynak }})</span>{% endif %}
           {% else %}
-          <span class="takvim-esik-not">— eşik olarak önceki değer
-            kullanılıyor; ücretsiz konsensüs kaynağımız yok</span>
+          {# Konsensus YOKSA bunu saklamiyoruz. Onceki degeri "beklenti"
+             diye sunmak, kutunun mekanizma cumlesini ters cevirebilir:
+             beklenti 85, onceki 57 iken gerceklesen 70, "onceki
+             uzerinde" ama "beklentinin altinda"dir. #}
+          <span class="takvim-esik-not">— bu veri için beklenti (konsensüs)
+            elimizde yok; eşik <b>önceki değer</b></span>
           {% endif %}
         </p>
         <div class="takvim-dallar">

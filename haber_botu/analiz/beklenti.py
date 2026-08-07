@@ -30,13 +30,17 @@ Bu yuzden iki dal SU AYRIMLA yaziliyor:
               benzer aciklamada Brent ortalama %1,8 hareket etti."
               Olcum yoksa bu satir HIC BASILMIYOR.
 
-ESIK NEDIR, NEDEN ONCEKI DEGER
-------------------------------
-Ekranda "beklenti" olarak bir konsensus rakami gostermek isterdik ama
-olculdu: ucretsiz kaynaklarimizin hicbiri ONCEDEN konsensus vermiyor
-(bkz. yayin_takvimi.py). Bu yuzden esik SON ACIKLANAN DEGER ve ekranda
-oyle yaziyor. Istisna: TCMB Piyasa Katilimcilari Anketi gercek bir
-beklenti olcumu ve Turkiye enflasyonunda esik olarak o kullaniliyor.
+ESIK KONSENSUS, YOKSA ONCEKI DEGER
+----------------------------------
+Ilk surumde esik HER ZAMAN onceki degerdi ve bu sadece eksik degil
+YANLIS sonuc uretiyordu. Kullanici gosterdi: Tarim Disi Istihdam'da
+beklenti 85 bin, onceki 57 bin. Gerceklesen 70 bin gelse kutu "onceki
+57'nin UZERINDE -> is gucu piyasasi beklenenden GUCLU" derdi; oysa
+70 bin beklentinin ALTINDA ve tam tersini anlatir.
+
+Artik konsensus varsa esik ODUR (bkz. yayin_takvimi.FF_ESLEME).
+Konsensus yoksa esik onceki degerdir ve ekranda ACIKCA oyle yaziyor --
+ikisini ayni etiketle sunmak yukaridaki hatayi geri getirirdi.
 """
 
 from __future__ import annotations
@@ -56,6 +60,13 @@ BEKLENTI_SERISI = {
 #: Cumleler YALNIZCA mekanizma anlatiyor. Hicbiri bir varligin
 #: fiyatinin ne yapacagini soylemiyor; soyleseydi olculmemis bir
 #: tahmini olcum gibi sunmus olurduk.
+#:
+#: `{kiyas}` KIYAS TABANINI tasiyor ve bos birakilamaz. Sebep somut:
+#: ilk surumde cumleler "beklenenden güçlü" diyordu ama esik cogu
+#: seride BEKLENTI DEGIL ONCEKI DEGERDI. Yani cumle, olmayan bir
+#: beklentiye gore konusuyordu. Konsensus varsa "beklenenden", yoksa
+#: "önceki döneme göre" yaziliyor -- ikisi ayni sey degil ve okur
+#: hangisine baktigini bilmeli.
 MEKANIZMA = {
     "Enflasyon": (
         "Faiz indirimi beklentisi zayıflar; para politikasında sıkı "
@@ -66,7 +77,7 @@ MEKANIZMA = {
         "tahvil getiri eğrisi yeniden fiyatlanır.",
     ),
     "İstihdam ve ücret": (
-        "İş gücü piyasası beklenenden güçlü demektir; ücret baskısı ve "
+        "İş gücü piyasası {kiyas} güçlü demektir; ücret baskısı ve "
         "hizmet enflasyonu kanalı canlı kalır, faiz indirimi için "
         "aciliyet azalır.",
         "İş gücü piyasasında soğuma işareti sayılır; ücret baskısı "
@@ -87,7 +98,7 @@ MEKANIZMA = {
         "ihtiyacı azalır.",
     ),
     "Büyüme": (
-        "Talep beklenenden güçlü demektir; kapasite kullanımı ve fiyat "
+        "Talep {kiyas} güçlü demektir; kapasite kullanımı ve fiyat "
         "baskısı kanalları canlanır.",
         "Talepte yavaşlama işareti sayılır; kapasite kullanımı ve fiyat "
         "baskısı gevşer.",
@@ -202,20 +213,45 @@ def kur(kod: str, ad: str, konu: str, son_deger: float | None,
         son_birim: str, son_tarih: str,
         esik_deger: float | None = None,
         esik_birim: str = "",
-        tepkiler: list[tuple[str, float]] | None = None) -> Beklenti:
+        tepkiler: list[tuple[str, float]] | None = None,
+        esik_metin: str = "", son_metin: str = "",
+        esik_kaynagi: str = "") -> Beklenti:
     """Bir veri aciklamasi icin beklenti kutusu.
 
-    `esik_deger` verilmezse esik SON ACIKLANAN DEGER olur ve ekranda
-    "önceki" diye etiketlenir.
-    """
-    if son_deger is None:
-        return Beklenti(kod=kod, ad=ad)
+    KONSENSUS VARSA ESIK ODUR. `esik_metin` bir takvim kaynagindan
+    gelen KONSENSUS rakami ("85K", "0.3%") -- kaynagin yayimladigi
+    bicimde, cevrilmeden.
 
-    son = bicimle(son_deger, son_birim)
-    if esik_deger is not None:
-        esik, kaynak = bicimle(esik_deger, esik_birim or son_birim), "beklenti"
+    NEDEN CEVIRMIYORUZ: konsensus ve onceki deger AYNI kaynaktan
+    geliyor, yani birimleri kesinlikle uyumlu. Kendi depomuzdaki
+    degerle karistirmak iki farkli birimi ayni cumleye koyma riski
+    demek ("85K" ile "57,00 bin kişi" ayni sey ama ayni bicimde degil).
+
+    Konsensus yoksa esik SON ACIKLANAN DEGER olur ve ekranda acikca
+    "önceki" diye etiketlenir -- cunku ikisini karistirmak YANLIS
+    yorum uretiyor: beklenti 85, onceki 57 iken gerceklesen 70,
+    "onceki uzerinde" ama "beklentinin altinda"dir ve mekanizma
+    cumlesi ters calisir.
+    """
+    # Kaynaktan gelen metin varsa sayisal degere ihtiyac yok.
+    if son_metin or esik_metin:
+        son = son_metin or (bicimle(son_deger, son_birim)
+                            if son_deger is not None else "")
+        if esik_metin:
+            esik, kaynak = esik_metin, (esik_kaynagi or "beklenti")
+        elif son:
+            esik, kaynak = son, "onceki"
+        else:
+            return Beklenti(kod=kod, ad=ad)
+    elif son_deger is None:
+        return Beklenti(kod=kod, ad=ad)
     else:
-        esik, kaynak = son, "onceki"
+        son = bicimle(son_deger, son_birim)
+        if esik_deger is not None:
+            esik = bicimle(esik_deger, esik_birim or son_birim)
+            kaynak = "beklenti"
+        else:
+            esik, kaynak = son, "onceki"
 
     mek = MEKANIZMA.get(konu)
     if not mek:
@@ -230,6 +266,12 @@ def kur(kod: str, ad: str, konu: str, son_deger: float | None,
     # Ters serilerde YUKSEK okuma konunun genel yonunun tersini anlatir;
     # iki dal yer degistiriyor (bkz. TERS_SERILER).
     yukari, asagi = (mek[1], mek[0]) if kod in TERS_SERILER else mek
+
+    # Kiyas tabani cumleye yaziliyor: esik konsensus mu, onceki deger mi.
+    kiyas = ("beklenenden" if kaynak == "beklenti"
+             else "önceki döneme göre")
+    yukari = yukari.format(kiyas=kiyas)
+    asagi = asagi.format(kiyas=kiyas)
 
     dallar = (
         Dal(yon="ustunde", baslik=f"{esik} üzerinde gelirse",

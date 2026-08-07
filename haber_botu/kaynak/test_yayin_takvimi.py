@@ -100,6 +100,80 @@ y = Y.Yayin(kod="X", ad="Test", ad_kaynak="Test", ulke="ABD", onem=2,
             an=datetime(2026, 8, 12, 12, 30, tzinfo=timezone.utc))
 es("yerel saat Turkiye", y.yerel.hour, 15)
 
+# --------------------------------------------------------------------
+# KONSENSUS AYRISTIRMASI -- sabit ornekle, AGA CIKMADAN.
+#
+# Bu kaynak HIZ SINIRLI (429). Testi aga bagLAMAK, testin kaynagin
+# yukune gore rastgele kirilmasi demekti.
+# --------------------------------------------------------------------
+_ORNEK = """<?xml version="1.0" encoding="windows-1252"?>
+<weeklyevents>
+ <event>
+  <title>Non-Farm Employment Change</title>
+  <country>USD</country>
+  <date><![CDATA[08-07-2026]]></date>
+  <time><![CDATA[12:30pm]]></time>
+  <impact><![CDATA[High]]></impact>
+  <forecast><![CDATA[85K]]></forecast>
+  <previous><![CDATA[57K]]></previous>
+ </event>
+ <event>
+  <title>Unemployment Rate</title>
+  <country>CAD</country>
+  <date><![CDATA[08-07-2026]]></date>
+  <time><![CDATA[12:30pm]]></time>
+  <impact><![CDATA[High]]></impact>
+  <forecast><![CDATA[6.5%]]></forecast>
+  <previous><![CDATA[6.5%]]></previous>
+ </event>
+ <event>
+  <title>OPEC-JMMC Meetings</title>
+  <country>All</country>
+  <date><![CDATA[08-03-2026]]></date>
+  <time><![CDATA[All Day]]></time>
+  <impact><![CDATA[Low]]></impact>
+  <forecast></forecast>
+  <previous></previous>
+ </event>
+</weeklyevents>"""
+
+
+class _SahteIstemci:
+    """Aga cikmayan istemci. `_ff_indir` yerine dogrudan XML veriyor."""
+    def get(self, adres):
+        raise AssertionError("test aga cikmamali")
+
+
+_eski = Y._ff_indir
+Y._ff_indir = lambda c: _ORNEK
+try:
+    _ff = Y.ff_cek(_SahteIstemci())
+finally:
+    Y._ff_indir = _eski
+
+es("yalnizca eslesen olay aliniyor", len(_ff), 1)
+_n = _ff[0]
+es("konsensus okunuyor", _n.beklenti, "85K")
+es("onceki deger okunuyor", _n.onceki, "57K")
+es("seriye baglaniyor", _n.kod, "PAYEMS")
+es("kaynak yaziliyor", _n.kaynak, "ForexFactory")
+# 12:30pm UTC -> Turkiye 15:30
+es("FF saati UTC sayiliyor", _n.yerel.hour, 15)
+es("FF dakikasi", _n.yerel.minute, 30)
+
+# ULKE AYRIMI SART: "Unemployment Rate" hem ABD hem Kanada'da var.
+# Ulke kontrol edilmeseydi Kanada verisi ABD serisine baglanirdi.
+dogru("Kanada verisi ABD serisine baglanmiyor",
+      all(x.ulke != "ABD" or x.kod != "UNRATE" for x in _ff))
+
+es("saatsiz kayit cozulur",
+   Y._ff_an("08-03-2026", "All Day").hour, 0)
+es("ogleden sonra saati", Y._ff_an("08-07-2026", "2:00pm").hour, 14)
+es("oglen 12 saati", Y._ff_an("08-07-2026", "12:30pm").hour, 12)
+es("gece yarisi 12", Y._ff_an("08-07-2026", "12:30am").hour, 0)
+es("bozuk tarih None", Y._ff_an("abc", "12:30pm"), None)
+
+
 print(f"{gecti} gecti, {len(kaldi)} kaldi")
 for k in kaldi:
     print("  X", k)
