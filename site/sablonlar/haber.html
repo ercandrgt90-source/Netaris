@@ -215,6 +215,85 @@
     </section>
     {% endif %}
 
+    {# ---------------------------------------------------------------
+       GOSTERGE BRIFINGI -- veri HENUZ ACIKLANMAMISKEN.
+
+       Bekleyis haberinde ("gözler açıklanacak tarım dışı istihdam
+       verisinde") sayfada su cikiyordu:
+
+           "Verilen metinde sayisal bir olcum bulunmadigi icin, olculen
+            bir degeri secip yorumlamak mumkun degildir."
+
+       Aciklanmamis bir veri icin dogru ama ise yaramaz bir cumle.
+       Model hakli -- ortada olcum yok. Yanlis olan, ona olcum
+       sormakti.
+
+       Brifing dort adimda kuruluyor ve dordu de elimizdeki veriden:
+         1. gosterge NEDIR       (takvim.TANIM)
+         2. NEYI ETKILER         (takvim.NEDEN)
+         3. ne zaman, beklenti   (yayin takvimi + konsensus)
+         4. iki dalda MEKANIZMA  (beklenti motoru)
+
+       YON IDDIASI YOK: dallar mekanizma anlatiyor, fiyat yonu degil.
+       --------------------------------------------------------------- #}
+    {% if brifing %}
+    <section class="brifing" aria-label="{{ brifing.ad }} brifingi">
+      <div class="brifing-bas">
+        <p class="brifing-etiket">Açıklanmayı bekleyen veri</p>
+        <h2>{{ brifing.ad }}</h2>
+        <p class="brifing-an">
+          <b>{{ brifing.gun }}</b> · {{ brifing.saat }}
+          <span class="brifing-ulke">{{ brifing.ulke }}</span>
+          {% if not brifing.kesin %}
+          <span class="brifing-tahmin" title="Kurum makine okunur takvim
+                yayımlamıyor; tarih serinin yayın ritminden türetildi">beklenen</span>
+          {% endif %}
+        </p>
+      </div>
+
+      <div class="brifing-adim">
+        <h3>Bu veri ne ölçüyor?</h3>
+        <p>{{ brifing.tanim }}</p>
+      </div>
+
+      {% if brifing.neden %}
+      <div class="brifing-adim">
+        <h3>Neyi etkiliyor?</h3>
+        <p>{{ brifing.neden }}</p>
+      </div>
+      {% endif %}
+
+      {% if brifing.beklenti %}
+      {% set b = brifing.beklenti %}
+      <div class="brifing-adim">
+        <h3>Açıklamada ne izlenecek?</h3>
+        <p class="brifing-sayilar">
+          <span class="brifing-son">Son açıklanan
+            <b>{{ b.son_deger }}</b>{% if b.son_tarih %}
+            <span class="brifing-tarih">({{ b.son_tarih }})</span>{% endif %}</span>
+          {% if b.esik_kaynak == "beklenti" %}
+          <span class="brifing-bekl">Beklenti <b>{{ b.esik_deger }}</b></span>
+          {% else %}
+          {# Konsensus yoksa saklamiyoruz. Onceki degeri "beklenti" diye
+             sunmak, asagidaki mekanizma cumlelerini ters cevirir. #}
+          <span class="brifing-yok">beklenti (konsensüs) elimizde yok —
+            eşik <b>önceki değer</b></span>
+          {% endif %}
+        </p>
+        <div class="brifing-dallar">
+          {% for d in b.dallar %}
+          <div class="brifing-dal">
+            <p class="brifing-dal-bas">{{ d.baslik }}</p>
+            <p class="brifing-dal-metin">{{ d.mekanizma }}</p>
+            {% if d.olcum %}<p class="brifing-olcum">{{ d.olcum }}</p>{% endif %}
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+    </section>
+    {% endif %}
+
     <p class="asama"><span class="asama-no">2</span><span class="asama-ad">İlk bakış</span><span class="asama-not">Ölçümlerden türetilen kısa okuma</span></p>
 
     {# AI SONUCU.

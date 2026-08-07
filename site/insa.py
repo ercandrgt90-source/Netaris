@@ -1236,6 +1236,79 @@ def dosya_cizelgesi(h: dict, hepsi: list[dict], ilgili: list[dict],
             "yeter": len(adimlar) >= 2}
 
 
+#: Varlik kodu -> takvimdeki seri kodu.
+#:
+#: Varlik indeksi haberin METNINDEN cikiyor ("tarim disi istihdam" ->
+#: NFP); takvim ise seri koduyla calisiyor (PAYEMS). Ikisini
+#: baglamadan, bekleyis haberini yaklasan aciklamayla eslestiremiyoruz.
+VARLIK_SERI = {
+    "NFP": "PAYEMS",
+    "CPI_US": "CPIAUCSL",
+    "TUFE_TR": "TP.TUKFIY2025.GENEL",
+    "UFE_TR": "TP.TUFE1YI.T1",
+    "ISSIZLIK_TR": "TP.YISGUCU2.G8",
+    "TCMB_FAIZ": "TP.APIFON4",
+    "CARI_TR": "TP.HARICCARIACIK.K1",
+    "FED": "FED_FAIZ",
+}
+
+#: Brifing kac gun ileriye bakiyor. Iki haftadan uzagi "yaklasan"
+#: sayilmaz; haberin bekledigi aciklama olmaktan cikar.
+BRIFING_GUN = 14
+
+
+def gosterge_brifingi(h: dict, h_varliklar, takvim: list[dict]) -> dict | None:
+    """Haber yaklasan bir veri aciklamasini bekliyorsa brifing kutusu.
+
+    NEDEN VAR
+    ---------
+    Bekleyis haberinde ("gözler ABD'de açıklanacak tarım dışı istihdam
+    verisinde") sayfada su cikiyordu:
+
+        "Verilen metinde sayisal bir olcum bulunmadigi icin, olculen bir
+         degeri secip yorumlamak mumkun degildir."
+
+    Aciklanmamis bir veri icin dogru ama ise yaramaz bir cumle. Oysa
+    veri gelmeden once de soylenecek gercek seyler var ve hepsi
+    elimizde:
+
+        1. gosterge NEDIR        -> takvim.TANIM
+        2. NEYI ETKILER          -> takvim.NEDEN
+        3. ne zaman, beklenti ne -> yayin takvimi + konsensus
+        4. iki dalda MEKANIZMA   -> beklenti motoru
+
+    ESLEME HABERIN VARLIKLARINDAN. Baslikta kelime aramak yerine varlik
+    indeksi kullaniliyor: indeks zaten ekleri ve diakritigi cozuyor,
+    ikinci bir eslestirici yazmak ayni hatayi ikinci kez yapmak olurdu.
+    """
+    if _takvim is None or not takvim or not h_varliklar:
+        return None
+
+    kodlar = {VARLIK_SERI.get(v["kod"]) for v in h_varliklar}
+    kodlar.discard(None)
+    if not kodlar:
+        return None
+
+    for k in takvim:
+        seri = k.get("seri")
+        if not seri or seri not in kodlar:
+            continue
+        tanim = _takvim.TANIM.get(seri, "")
+        neden = (_takvim.YERLI_NEDEN.get(seri) or _takvim.NEDEN.get(seri, ""))
+        if not tanim:
+            # Tanimi olmayan gosterge icin brifing BASILMIYOR: kutunun
+            # ilk sorusu "bu nedir" ve cevabi yoksa geri kalani havada
+            # kalir.
+            continue
+        return {
+            "ad": k["ad"], "gun": k["gun"], "saat": k["saat"],
+            "ulke": k["ulke"], "kesin": k["kesin"],
+            "tanim": tanim, "neden": neden,
+            "beklenti": k.get("beklenti"),
+        }
+    return None
+
+
 #: Haberin kendi yapisal baglarindan en fazla kac tanesi basilir.
 DUZENEK_SAYISI = 4
 
@@ -1714,6 +1787,8 @@ def takvim_kutulari() -> list[dict]:
             # Konsensus kaynagi ekranda YAZILIYOR: okur sayinin
             # nereden geldigini bilmeli.
             "kaynak": y.kaynak,
+            # Seri kodu: haber brifingi bu alanla eslesiyor.
+            "seri": y.kod,
         }
         if b is None or not y.kod or _beklenti is None:
             return kutu
@@ -2201,6 +2276,13 @@ def insa() -> int:
     # Ama kartlar da yorumu gosteriyor artik (kartta analiz yok, yorum
     # var) ve gundem sayfasi ayri bir sablonda. Alani habere yazmak,
     # ayni degeri iki ayri yoldan gecirmekten guvenli.
+    # TAKVIM BIR KEZ HESAPLANIYOR.
+    #
+    # Hem ana sayfa bolumu hem her haberin brifingi ayni listeyi
+    # kullaniyor. Her haberde yeniden cagirmak, aga 200 kez cikmak ve
+    # konsensus kaynagini hiz sinirina sokmak demekti.
+    takvim_ondbellek = takvim_kutulari()
+
     ai_yorumlari = ai_yorum_oku()
     if ai_yorumlari:
         print(f"ai: {len(ai_yorumlari)} haberde yorum var")
@@ -2353,6 +2435,9 @@ def insa() -> int:
                     # Haberin KENDI yapisal baglari -- konu tablosundan
                     # degil, metinden cikan varliklardan.
                     duzenek=duzenek(h_varliklar),
+                    # Bekleyis haberinde "ilk bakis" yerine gosterge
+                    # brifingi: bu veri nedir, neyi etkiler, beklenti ne.
+                    brifing=gosterge_brifingi(h, h_varliklar, takvim_ondbellek),
                     # Makale sonu: okur bosluga dusmesin.
                     ayni_konu=ayni_konu_haberleri(h, uretilecek),
                     ilgili_analiz=ilgili_analizler(h, listelenen),
@@ -2420,7 +2505,7 @@ def insa() -> int:
             # Piyasa ozetinin yerini alan AI yorum akisi
             ai_akis=ai_akisi(uretilecek),
             # Yaklasan veri aciklamalari + beklenti kutulari
-            takvim=takvim_kutulari(),
+            takvim=takvim_ondbellek,
         ),
     )
 

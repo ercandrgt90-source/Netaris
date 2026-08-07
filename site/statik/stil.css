@@ -3221,3 +3221,88 @@ a.seyir-baslik:hover { color: var(--vurgu); text-decoration: none; }
 .duzenek-metin {
   margin: 0; font-size: 0.88rem; line-height: 1.55; color: var(--yazi-2);
 }
+
+/* ================================================================
+   GOSTERGE BRIFINGI -- veri henuz aciklanmamisken
+   ================================================================
+   Bekleyis haberinde "olculen bir deger yok" diyen bir kutu vardi.
+   Model hakliydi; yanlis olan ona olcum sormakti. Brifing dort
+   adimda kuruluyor: nedir, neyi etkiler, ne zaman ve beklenti ne,
+   iki dalda hangi mekanizma.                                       */
+.brifing {
+  margin: 22px 0 30px; border: 1px solid var(--vurgu-zar-2);
+  border-radius: var(--r); overflow: hidden; background: var(--panel);
+}
+.brifing-bas {
+  padding: 16px 20px 14px; background: var(--vurgu-zar);
+  border-bottom: 1px solid var(--vurgu-zar-2);
+}
+.brifing-etiket {
+  margin: 0 0 4px; font-size: 0.68rem; font-weight: 800;
+  letter-spacing: 0.06em; text-transform: uppercase; color: var(--vurgu);
+}
+.brifing-bas h2 { margin: 0 0 6px; font-size: 1.14rem; }
+.brifing-an {
+  margin: 0; display: flex; align-items: center; gap: 9px;
+  flex-wrap: wrap; font-size: 0.86rem; color: var(--yazi-2);
+  font-variant-numeric: tabular-nums;
+}
+.brifing-ulke {
+  font-size: 0.68rem; font-weight: 800; padding: 2px 8px;
+  border-radius: 999px; background: var(--panel);
+  border: 1px solid var(--cizgi); color: var(--yazi-2);
+}
+.brifing-tahmin {
+  font-size: 0.66rem; padding: 2px 7px; border-radius: 999px;
+  background: var(--uyari-zar); color: var(--uyari);
+  border: 1px solid var(--uyari-cizgi);
+}
+
+/* Adimlar numarali degil BASLIKLI: okur sirayla degil, aradigi
+   soruya atlayarak okuyor. */
+.brifing-adim { padding: 15px 20px; border-top: 1px solid var(--cizgi); }
+.brifing-adim:first-of-type { border-top: none; }
+.brifing-adim h3 {
+  margin: 0 0 7px; font-size: 0.8rem; font-weight: 800;
+  letter-spacing: 0.02em; color: var(--yazi-3);
+  text-transform: uppercase;
+}
+.brifing-adim p { margin: 0; line-height: 1.62; color: var(--yazi-2); }
+
+.brifing-sayilar {
+  display: flex; gap: 10px; flex-wrap: wrap; align-items: center;
+  margin-bottom: 13px !important; font-size: 0.9rem;
+}
+.brifing-son, .brifing-bekl {
+  padding: 5px 12px; border-radius: 999px;
+  border: 1px solid var(--cizgi); background: var(--panel-2);
+}
+/* Konsensus VURGULU: eşik odur ve mekanizma cumleleri ona gore
+   kuruluyor. Onceki degerle karismamali. */
+.brifing-bekl {
+  background: var(--vurgu-zar); border-color: var(--vurgu-zar-2);
+  color: var(--vurgu);
+}
+.brifing-yok { font-size: 0.84rem; color: var(--yazi-3); }
+.brifing-tarih { color: var(--yazi-3); font-size: 0.86em; }
+
+.brifing-dallar {
+  display: grid; gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(238px, 1fr));
+}
+.brifing-dal {
+  padding: 13px 15px; border-radius: var(--r-kucuk);
+  background: var(--panel-2); border: 1px solid var(--cizgi);
+}
+/* Iki dal RENKLE ayrilmiyor: yesil/kirmizi "yukari iyi, asagi kotu"
+   diye okunur ve bu bir yargi olurdu. */
+.brifing-dal-bas {
+  margin: 0 0 6px !important; font-size: 0.79rem; font-weight: 800;
+  color: var(--vurgu); letter-spacing: 0.02em;
+}
+.brifing-dal-metin { font-size: 0.87rem !important; }
+.brifing-olcum {
+  margin-top: 9px !important; padding-top: 8px;
+  border-top: 1px dashed var(--cizgi);
+  font-size: 0.79rem !important; color: var(--yazi-3) !important;
+}

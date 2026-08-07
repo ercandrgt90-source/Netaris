@@ -44,6 +44,107 @@ import makro  # noqa: E402
 #: beklemeye gecer" bir tahmindir; "istihdam Fed'in yasal cift
 #: gorevinin bir ayagidir" bir olgudur.
 #:
+#: Seri kodu -> GOSTERGE NEDIR.
+#:
+#: `NEDEN` sozlugu "neden onemli"yi anlatiyor; bu sozluk "ne olctugunu".
+#: Ikisi ayri soru ve okur once ikincisini soruyor -- ozellikle veri
+#: HENUZ ACIKLANMAMISKEN. Bekleyis haberinde sayfada su cikiyordu:
+#:
+#:     "Verilen metinde sayisal bir olcum bulunmadigi icin, olculen bir
+#:      degeri secip yorumlamak mumkun degildir."
+#:
+#: Aciklanmamis bir veri icin bu dogru ama ise yaramaz bir cumle.
+#: Oysa veri gelmeden once de soylenecek gercek seyler var: gosterge ne
+#: olcuyor, kim yayimliyor, hangi siklikta, neyi etkiliyor.
+TANIM: dict[str, str] = {
+    "PAYEMS":
+        "Tarım dışı istihdam, ABD ekonomisinde bir ay içinde tarım "
+        "sektörü dışında oluşan net istihdam değişimini ölçer. Çalışma "
+        "İstatistikleri Bürosu (BLS) her ayın ilk cuma günü yayımlar; "
+        "işletme anketine dayanır ve sonraki iki ayda revize edilir.",
+    "UNRATE":
+        "İşsizlik oranı, iş arayan ve çalışmaya hazır kişilerin iş "
+        "gücüne oranıdır. Hanehalkı anketinden gelir, yani istihdam "
+        "verisinden farklı bir kaynağa dayanır; ikisi aynı ay farklı "
+        "yön gösterebilir.",
+    "CES0500000003":
+        "Ortalama saatlik kazanç, özel sektörde saat başına ödenen "
+        "ücretin ortalamasıdır. Ücret artışı hizmet enflasyonunun ana "
+        "girdisi olduğu için istihdam raporunun en çok izlenen "
+        "kalemlerinden biridir.",
+    "ICSA":
+        "Haftalık işsizlik başvuruları, ilk kez işsizlik ödeneğine "
+        "başvuran kişi sayısıdır. Haftalık yayımlandığı için iş gücü "
+        "piyasasındaki dönüşü en erken gösteren seridir.",
+    "ADPMNUSNERSA":
+        "ADP istihdam raporu, özel sektör bordro verisinden üretilir ve "
+        "resmî istihdam verisinden iki gün önce gelir. Aynı şeyi "
+        "ölçmez: yöntemi ve kapsamı farklıdır, bu yüzden ikisi "
+        "ayrışabilir.",
+    "CPIAUCSL":
+        "Tüketici fiyat endeksi, hanehalkının satın aldığı mal ve "
+        "hizmet sepetinin fiyat değişimini ölçer. BLS yayımlar; Fed'in "
+        "hedefi bu seri değil çekirdek PCE'dir, ama piyasa en çok bunu "
+        "fiyatlar.",
+    "CPILFESL":
+        "Çekirdek TÜFE, gıda ve enerjiyi dışlayan fiyat endeksidir. Bu "
+        "iki kalem arz şoklarıyla savrulduğu için, enflasyonun kalıcı "
+        "eğilimi çekirdekte okunur.",
+    "PCEPILFE":
+        "Çekirdek PCE, Fed'in resmen tercih ettiği enflasyon ölçüsüdür. "
+        "TÜFE'den farklı ağırlıklandırma ve ikame varsayımı kullanır; "
+        "politika metinlerinde referans alınan seri budur.",
+    "PPIFIS":
+        "Üretici fiyat endeksi (nihai talep), üreticinin sattığı mal ve "
+        "hizmetin fiyat değişimini ölçer. Maliyet tarafındaki baskıyı "
+        "tüketici fiyatlarından önce gösterir.",
+    "GDPC1":
+        "Reel gayrisafi yurt içi hasıla, enflasyondan arındırılmış "
+        "toplam üretimdir. Çeyreklik yayımlanır ve öncü, ikinci, "
+        "nihai olmak üzere üç kez açıklanır.",
+    "RSAFS":
+        "Perakende satışlar, hanehalkı harcamasının en hızlı gelen "
+        "göstergesidir. ABD ekonomisinin yaklaşık üçte ikisi tüketim "
+        "olduğu için büyüme beklentisine doğrudan girer.",
+    "FED_FAIZ":
+        "Fed politika faizi, Federal Açık Piyasa Komitesi'nin belirlediği "
+        "gecelik fonlama hedefidir. Kararla birlikte yayımlanan bildiri "
+        "ve üye projeksiyonları çoğu zaman kararın kendisinden daha çok "
+        "fiyatlanır.",
+    "TP.TUKFIY2025.GENEL":
+        "TÜFE, Türkiye'de hanehalkının satın aldığı mal ve hizmet "
+        "sepetinin fiyat değişimidir. TÜİK her ayın ilk iş günlerinde "
+        "yayımlar; kira, asgari ücret ve birçok sözleşme bu seriye "
+        "endekslidir.",
+    "TP.FE25.OKTG04":
+        "Çekirdek enflasyon (C endeksi), enerji, gıda, alkollü içecek, "
+        "tütün ve altını dışlar. Para politikasının etkileyebildiği "
+        "fiyat eğilimi burada okunur.",
+    "TP.TUFE1YI.T1":
+        "Yurt içi üretici fiyat endeksi, üreticinin maliyet tarafını "
+        "ölçer. Tüketici fiyatlarına geçiş gecikmeli olur ve geçişin "
+        "büyüklüğü sektörün fiyatlama gücüne bağlıdır.",
+    "TP.YISGUCU2.G8":
+        "İşsizlik oranı, iş gücüne katılan ve iş arayanların oranıdır. "
+        "TÜİK hanehalkı iş gücü anketinden üretir; iş gücüne katılım "
+        "oranıyla birlikte okunmadığında yanıltıcı olabilir.",
+    "TP.HARICCARIACIK.K1":
+        "Cari işlemler dengesi, ülkenin dış dünyayla mal, hizmet ve "
+        "gelir alışverişinin net sonucudur. Açık, dışarıdan finansman "
+        "ihtiyacı demektir ve o ihtiyacın maliyeti küresel faiz "
+        "koşullarına bağlıdır.",
+    "TP.APIFON4":
+        "TCMB ağırlıklı ortalama fonlama maliyeti, bankaların Merkez "
+        "Bankası'ndan fonlandığı efektif faizdir. Politika faizinden "
+        "sapabilir; piyasanın fiilen ödediği maliyet budur.",
+    "TP.ENFBEK.PKA12ENF":
+        "Piyasa katılımcıları anketi, profesyonel tahmincilerin 12 ay "
+        "sonrası enflasyon beklentisini ölçer. Beklentilerin çıpadan "
+        "kopması merkez bankalarının en açık tepki verdiği "
+        "gelişmelerden biridir.",
+}
+
+
 #: Serisi olan her habere yaziliyor cunku eksikligi olculdu: veri
 #: haberlerinin "Neden onemli" bolumu tamamen BOS basiliyordu.
 NEDEN = {

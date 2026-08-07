@@ -174,6 +174,232 @@ DUYARLILIK: dict[str, tuple[tuple[str, int, str], ...]] = {
 }
 
 #: Konu -> izlenecek gostergeler. Kullanici bunlari takip listesine ekler.
+# --------------------------------------------------------------------
+# VARLIK TABANLI DUYARLILIK VE SENARYO
+# --------------------------------------------------------------------
+#
+# NEDEN: konu tablosu tek basina kullanildiginda olculdu -- 121 haber
+# sayfasinda yalnizca 13 FARKLI duyarlilik tablosu vardi ve en siki 34
+# sayfada birebir ayniydi. Ayni konudaki her haber ayni analizi
+# tasiyordu.
+#
+# Varlik kumesi konudan cok daha ayrisik: ayni olcumde 149 haberin 59
+# farkli varlik kumesi vardi. Haberin METNINDEN cikan varliklara gore
+# kurmak, analizi habere ozgu kiliyor.
+#
+# KONU TABLOSU KALDIRILMADI, TABAN OLARAK KALIYOR. Varligi olmayan ya
+# da tanimadigimiz varliga baglanan haberde yine konu tablosu
+# calisiyor -- eksik bir analiz, hic analiz olmamasindan iyi.
+
+#: Varlik kodu -> (sektor, duyarlilik 1-5, gerekce)
+#:
+#: Puanlar ELLE YAZILMIS bir siralama, olculmus bir katsayi DEGIL --
+#: sayfada da yildiz olarak gorunuyor, sayi olarak degil. Veriden
+#: hesaplamak icin sektor endeksi gerekiyor; BIST sektor endeksleri
+#: lisansli ve ucretsiz kaynagi yok.
+VARLIK_DUYARLILIK: dict[str, tuple[tuple[str, int, str], ...]] = {
+    "BRENT": (
+        ("Havayolu / Ulaştırma", 5, "Yakıt en büyük maliyet kalemi"),
+        ("Enerji / Rafineri", 5, "Ürün marjı ham petrol fiyatına bağlı"),
+        ("Petrokimya", 4, "Nafta girdisi doğrudan türev"),
+        ("Lojistik", 4, "Akaryakıt ve navlun maliyeti"),
+        ("Cari denge", 4, "Türkiye net enerji ithalatçısı"),
+    ),
+    "WTI": (
+        ("Enerji / Rafineri", 5, "Ürün marjı ham petrol fiyatına bağlı"),
+        ("Havayolu / Ulaştırma", 4, "Yakıt maliyeti"),
+    ),
+    "DGAZ": (
+        ("Enerji / Elektrik", 5, "Santral yakıt maliyeti"),
+        ("Çimento / Cam / Seramik", 5, "Isıl işlem enerji yoğun"),
+        ("Gübre / Kimya", 4, "Doğal gaz doğrudan hammadde"),
+        ("Cari denge", 4, "İthalat faturasının büyük kalemi"),
+    ),
+    "XAU": (
+        ("Mücevherat / Perakende", 4, "Girdi maliyeti ve talep esnekliği"),
+        ("Madencilik", 4, "Satış fiyatı doğrudan bağlı"),
+        ("Cari denge", 3, "Külçe ithalatı dış ticaret dengesine yazılır"),
+    ),
+    "XCU": (
+        ("Kablo / Elektrik ekipmanı", 5, "Bakır ana hammadde"),
+        ("İnşaat", 3, "Tesisat ve elektrik girdisi"),
+    ),
+    "TCMB_FAIZ": (
+        ("Bankacılık", 5, "Net faiz marjı ve fonlama maliyeti"),
+        ("GYO / İnşaat", 5, "Konut kredisi faizi talebi belirler"),
+        ("Otomotiv / Dayanıklı tüketim", 4, "Taksitli satış kredi kanalı"),
+        ("Borçluluğu yüksek şirketler", 4, "Finansman gideri kâr marjını yer"),
+        ("Perakende", 3, "İç talep üzerinden dolaylı"),
+    ),
+    "TCMB": (
+        ("Bankacılık", 5, "Fonlama maliyeti ve zorunlu karşılık"),
+        ("GYO / İnşaat", 4, "Kredi koşulları"),
+    ),
+    "TUFE_TR": (
+        ("Perakende / Gıda", 5, "Fiyatlama gücü ve stok devir hızı"),
+        ("Konut ve kira", 4, "Kira TÜFE sepetinde ağırlıklı"),
+        ("Bankacılık", 4, "Reel getiri ve politika beklentisi"),
+        ("Ücrete bağlı sektörler", 4, "Asgari ücret ve toplu sözleşme çıpası"),
+    ),
+    "UFE_TR": (
+        ("Üretici sanayi", 5, "Birim maliyetin doğrudan ölçüsü"),
+        ("Perakende / Gıda", 3, "Maliyet geçişi tüketici fiyatına yansır"),
+    ),
+    "USDTRY": (
+        ("İhracatçı sanayi", 5, "Gelir dövizde, maliyet kısmen TL"),
+        ("İthalata bağımlı üretim", 5, "Girdi maliyeti doğrudan kurdan"),
+        ("Döviz borçlu şirketler", 5, "Kur farkı bilançoya yazılır"),
+        ("Turizm", 4, "Gelir dövizde, rekabet gücü kurdan"),
+    ),
+    "DIS_TICARET_TR": (
+        ("İhracatçı sanayi", 5, "Dış talep doğrudan ciro"),
+        ("Cari denge", 5, "Dış ticaret cari işlemlerin ana bileşeni"),
+        ("Lojistik / Liman", 4, "Hacim ticaret akışına bağlı"),
+    ),
+    "ISSIZLIK_TR": (
+        ("Perakende", 4, "Hanehalkı geliri ve harcama eğilimi"),
+        ("Ücrete bağlı sektörler", 4, "İş gücü sıkılığı ücreti belirler"),
+    ),
+    "NFP": (
+        ("Küresel risk iştahı", 4, "Fed patikası beklentisini değiştirir"),
+        ("Gelişen ülke varlıkları", 4, "Sermaye akımı yönü"),
+        ("Bankacılık", 3, "Küresel faiz koşulları fonlama maliyetine geçer"),
+    ),
+    "CPI_US": (
+        ("Küresel faiz koşulları", 5, "Fed tepki fonksiyonunun ana girdisi"),
+        ("Gelişen ülke varlıkları", 4,
+         "Reel getiri farkı sermaye akımını yönlendirir"),
+        ("Borçluluğu yüksek şirketler", 3, "Dış finansman maliyeti"),
+    ),
+    "FED": (
+        ("Küresel faiz koşulları", 5, "Politika faizi küresel sermayenin fiyatı"),
+        ("Bankacılık", 4, "Dış fonlama maliyeti"),
+        ("Gelişen ülke varlıkları", 4, "Sermaye akımı yönü"),
+    ),
+    "ECB": (
+        ("İhracatçı sanayi", 4, "Avro Bölgesi Türkiye'nin en büyük pazarı"),
+        ("Küresel faiz koşulları", 4, "Avro tarafının politika patikası"),
+    ),
+    "BIST100": (
+        ("Aracı kurumlar / Portföy", 5, "İşlem hacmi doğrudan gelir"),
+        ("Bankacılık", 4, "Endeksin en ağırlıklı sektörü"),
+    ),
+    "IR": (
+        ("Denizcilik / Navlun", 5, "Hürmüz güzergâhı ve savaş riski primi"),
+        ("Havayolu / Ulaştırma", 4, "Rota ve sigorta maliyeti"),
+        ("Enerji / Rafineri", 4, "Arz riski primi"),
+    ),
+    "RU": (
+        ("Enerji / Elektrik", 4, "Doğal gaz tedarik güzergâhı"),
+        ("Tarım / Gıda", 4, "Tahıl ve gübre arzı"),
+        ("Turizm", 3, "Ziyaretçi sayısında ağırlıklı pazar"),
+    ),
+    "CN": (
+        ("İthalata bağımlı üretim", 4, "Ara malı tedarikinde ağırlıklı kaynak"),
+        ("Madencilik / Emtia", 4, "Küresel talebin belirleyicisi"),
+    ),
+}
+
+#: Varlik kodu -> kosullu senaryolar.
+#: "Su olursa su OLABILIR" -- olasilik atanmiyor, yon iddia edilmiyor.
+VARLIK_SENARYOLARI: dict[str, tuple[tuple[str, str], ...]] = {
+    "BRENT": (
+        ("Arz kesintisi kalıcı hale gelirse",
+         "enerji ithalat faturası ve cari açık büyüyebilir"),
+        ("Gerilim yatışıp risk primi çözülürse",
+         "maliyet enflasyonunda aşağı yönlü alan açılabilir"),
+    ),
+    "DGAZ": (
+        ("Sevkiyat güzergâhında kesinti olursa",
+         "elektrik ve enerji yoğun sanayi maliyeti yukarı gidebilir"),
+    ),
+    "TCMB_FAIZ": (
+        ("Çekirdek enflasyon yüksek seyrini korursa",
+         "faiz indirimi beklentisi ötelenebilir"),
+        ("Fonlama maliyeti gerilerse",
+         "kredi faizleri ve mevduat getirisi aynı yönde ayarlanabilir"),
+    ),
+    "TUFE_TR": (
+        ("Gıda ve enerji kaynaklı düşüş çekirdeğe yayılırsa",
+         "dezenflasyon kalıcılık kazanabilir"),
+        ("Manşet düşerken çekirdek yatay kalırsa",
+         "hizmet enflasyonu ana direnç olarak öne çıkabilir"),
+    ),
+    "USDTRY": (
+        ("Kurda hızlı bir hareket olursa",
+         "ithal girdi maliyeti ve döviz borçlu bilançolar öne çıkabilir"),
+    ),
+    "NFP": (
+        ("İş gücü piyasası beklenenden güçlü kalırsa",
+         "Fed'in indirim patikası ötelenebilir"),
+        ("Soğuma işaretleri birikirse",
+         "gelişen ülke varlıklarına yönelik risk iştahı güçlenebilir"),
+    ),
+    "CPI_US": (
+        ("Enflasyon hedefe yakınsamada duraksarsa",
+         "küresel faiz koşulları uzun süre sıkılıkta kalabilir"),
+    ),
+    "IR": (
+        ("Hürmüz Boğazı'nda geçiş fiilen kısıtlanırsa",
+         "petrol ve navlun fiyatlarında risk primi büyüyebilir"),
+        ("Anlaşma yürürlüğe girerse",
+         "arz kaygısı kaynaklı prim çözülebilir"),
+    ),
+    "DIS_TICARET_TR": (
+        ("Dış talepte zayıflama sürerse",
+         "cari dengeye yazılan açık ve dış finansman ihtiyacı artabilir"),
+    ),
+    "BIST100": (
+        ("Yabancı takas oranı yön değiştirirse",
+         "endeks ve işlem hacmi bundan etkilenebilir"),
+    ),
+}
+
+#: Kac sektor / senaryo basilir.
+VARLIK_EN_COK = 5
+VARLIK_SENARYO_EN_COK = 3
+
+
+def varlik_duyarliligi(varliklar, konu: str) -> tuple:
+    """Haberin varliklarindan duyarlilik tablosu.
+
+    Ayni sektor birden fazla varliktan geliyorsa EN YUKSEK puan
+    tutuluyor: bir sektor iki kanaldan birden etkileniyorsa, zayif
+    kanal onu daha az duyarli yapmaz.
+
+    Varlik yoksa ya da hicbiri tanimli degilse KONU tablosuna dusuyor.
+    """
+    if not varliklar:
+        return DUYARLILIK.get(konu, ())
+    toplu: dict[str, tuple[int, str]] = {}
+    for kod in varliklar:
+        for sektor, puan, neden in VARLIK_DUYARLILIK.get(kod, ()):
+            eski = toplu.get(sektor)
+            if eski is None or puan > eski[0]:
+                toplu[sektor] = (puan, neden)
+    if not toplu:
+        return DUYARLILIK.get(konu, ())
+    sirali = sorted(toplu.items(), key=lambda x: (-x[1][0], x[0]))
+    return tuple((s, p, n) for s, (p, n) in sirali[:VARLIK_EN_COK])
+
+
+def varlik_senaryolari(varliklar, konu: str) -> tuple:
+    """Haberin varliklarindan kosullu senaryolar. Yoksa konu tablosu."""
+    if not varliklar:
+        return SENARYOLAR.get(konu, ())
+    cikti: list[tuple[str, str]] = []
+    gorulen: set = set()
+    for kod in varliklar:
+        for kosul, sonuc in VARLIK_SENARYOLARI.get(kod, ()):
+            if kosul in gorulen:
+                continue
+            gorulen.add(kosul)
+            cikti.append((kosul, sonuc))
+    if not cikti:
+        return SENARYOLAR.get(konu, ())
+    return tuple(cikti[:VARLIK_SENARYO_EN_COK])
+
+
 IZLENECEKLER: dict[str, tuple[str, ...]] = {
     "Para politikası": (
         "Bir sonraki TÜFE açıklaması",
@@ -935,9 +1161,11 @@ def kur(konu: str, bolge: str, haber_tarihi: str = "",
     # kilmiyor; tam tersine tablo o haber icin yazildi.
     zincir = tr or konu in ZINCIR_KONULARI
     d = Dosya(
-        duyarlilik=DUYARLILIK.get(konu, ()) if zincir else (),
+        duyarlilik=(varlik_duyarliligi(varliklar, konu)
+                    if zincir else ()),
         izlenecekler=IZLENECEKLER.get(konu, ()) if zincir else (),
-        senaryolar=SENARYOLAR.get(konu, ()) if zincir else (),
+        senaryolar=(varlik_senaryolari(varliklar, konu)
+                    if zincir else ()),
     )
     if not DEPO.exists():
         return d
