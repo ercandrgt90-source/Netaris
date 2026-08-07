@@ -153,6 +153,17 @@ for _d in _hepsi.dallar:
     dogru("ciktida yer tutucu kalmiyor", "{" not in _d.mekanizma)
 
 
+# Kaynaktan gelen degerin yaninda BIZIM tarihimiz basilmamali: 57K
+# ForexFactory'nin, 2026-06-01 bizim serimizin -- ayni doneme ait
+# olduklarini bilmiyoruz.
+_kt = B.kur("PAYEMS", "NFP", "İstihdam ve ücret", 57.0, "bin kişi",
+            "2026-06-01", esik_metin="85K", son_metin="57K")
+es("kaynak degeri kendi tarihimizle basilmiyor", _kt.son_tarih, "")
+es("kendi degerimizde tarih kaliyor",
+   B.kur("PAYEMS", "NFP", "İstihdam ve ücret", 57.0, "bin kişi",
+         "2026-06-01").son_tarih, "2026-06-01")
+
+
 print(f"{gecti} gecti, {len(kaldi)} kaldi")
 for k in kaldi:
     print("  X", k)

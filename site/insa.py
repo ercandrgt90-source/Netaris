@@ -1628,9 +1628,17 @@ def takvim_kutulari() -> list[dict]:
             bs = _beklenti.BEKLENTI_SERISI.get(y.kod)
             if bs:
                 esik, esik_birim, _ = _seri_son(b, bs)
+            # KONSENSUS VARSA ESIK ODUR.
+            #
+            # Takvim kaynagi beklenti veriyorsa hem esik hem "son
+            # aciklanan" ONDAN aliniyor -- ikisi ayni kaynaktan geldigi
+            # icin birimleri kesinlikle uyumlu. Kendi depomuzun degeriyle
+            # kaynagin beklentisini ayni cumlede kullanmak iki farkli
+            # bicimi ("85K" ve "57,00 bin kişi") karistirmak olurdu.
             k = _beklenti.kur(y.kod, y.ad, konu, deger, birim, tarih,
                               esik_deger=esik, esik_birim=esik_birim or "",
-                              tepkiler=_tepkiler(b, olay_turu))
+                              tepkiler=_tepkiler(b, olay_turu),
+                              esik_metin=y.beklenti, son_metin=y.onceki)
             if k.dolu:
                 kutu["beklenti"] = k
         except Exception as e:

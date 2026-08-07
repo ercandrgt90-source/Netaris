@@ -234,7 +234,15 @@ def kur(kod: str, ad: str, konu: str, son_deger: float | None,
     cumlesi ters calisir.
     """
     # Kaynaktan gelen metin varsa sayisal degere ihtiyac yok.
+    #
+    # TARIH DE DUSURULUYOR: deger takvim kaynagindan geliyorsa, yanina
+    # KENDI depomuzun gozlem tarihini basmak iki farkli kaynagi tek
+    # cumlede birlestirmek olur. Olculdu: "57K (2026-06-01)" -- 57K
+    # ForexFactory'nin onceki degeri, 2026-06-01 ise bizim serimizin
+    # gozlem tarihi ve ikisinin ayni doneme ait oldugunu BILMIYORUZ.
+    # Kaynak donem bilgisi vermiyor; o yuzden tarih hic basilmiyor.
     if son_metin or esik_metin:
+        son_tarih = ""
         son = son_metin or (bicimle(son_deger, son_birim)
                             if son_deger is not None else "")
         if esik_metin:
