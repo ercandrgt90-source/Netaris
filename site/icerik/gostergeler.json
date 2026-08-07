@@ -53,25 +53,25 @@
       "deger": "%3,63",
       "fark": "0 bp",
       "yon": "yatay",
-      "tarih": "2026-08-05",
+      "tarih": "2026-08-06",
       "birim": "%"
     },
     {
       "kod": "DGS2",
       "ad": "ABD 2Y",
-      "deger": "%4,18",
-      "fark": "-2 bp",
-      "yon": "azalis",
-      "tarih": "2026-08-05",
+      "deger": "%4,25",
+      "fark": "+7 bp",
+      "yon": "artis",
+      "tarih": "2026-08-06",
       "birim": "%"
     },
     {
       "kod": "DGS10",
       "ad": "ABD 10Y",
-      "deger": "%4,63",
-      "fark": "0 bp",
-      "yon": "yatay",
-      "tarih": "2026-08-05",
+      "deger": "%4,69",
+      "fark": "+6 bp",
+      "yon": "artis",
+      "tarih": "2026-08-06",
       "birim": "%"
     },
     {
@@ -176,25 +176,25 @@
           "deger": "%3,63",
           "fark": "0 bp",
           "yon": "yatay",
-          "tarih": "2026-08-05",
+          "tarih": "2026-08-06",
           "birim": "%"
         },
         {
           "kod": "DGS2",
           "ad": "ABD 2 yıllık",
-          "deger": "%4,18",
-          "fark": "-2 bp",
-          "yon": "azalis",
-          "tarih": "2026-08-05",
+          "deger": "%4,25",
+          "fark": "+7 bp",
+          "yon": "artis",
+          "tarih": "2026-08-06",
           "birim": "%"
         },
         {
           "kod": "DGS10",
           "ad": "ABD 10 yıllık",
-          "deger": "%4,63",
-          "fark": "0 bp",
-          "yon": "yatay",
-          "tarih": "2026-08-05",
+          "deger": "%4,69",
+          "fark": "+6 bp",
+          "yon": "artis",
+          "tarih": "2026-08-06",
           "birim": "%"
         },
         {
