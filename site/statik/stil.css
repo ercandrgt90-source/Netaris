@@ -3306,3 +3306,27 @@ a.seyir-baslik:hover { color: var(--vurgu); text-decoration: none; }
   border-top: 1px dashed var(--cizgi);
   font-size: 0.79rem !important; color: var(--yazi-3) !important;
 }
+
+/* ================================================================
+   ARALIKLAR SIKLASTIRILDI
+   ================================================================
+   Bolumler arasi bosluk okuru asagi kaydiriyordu: bir haber sayfasi
+   on bir bolumden olusuyor ve her birinin 40px ust boslugu, ekranin
+   yarisini bosluga harcamak demekti. Bolum SINIRI cizgiyle zaten
+   belli; bosluk o kadar buyuk olmak zorunda degil.                 */
+.asama { margin: 26px 0 13px; padding-bottom: 6px; }
+.brifing { margin: 16px 0 20px; }
+.brifing-bas { padding: 13px 18px 11px; }
+.brifing-adim { padding: 12px 18px; }
+.brifing-adim h3 { margin-bottom: 5px; }
+.brifing-sayilar { margin-bottom: 10px !important; }
+.brifing-dal { padding: 11px 13px; }
+.ozet-kutu { margin: 14px 0 18px; }
+.duzenek { margin: 11px 0 18px; }
+.duzenek li { padding: 10px 13px; margin-bottom: 6px; }
+.seyir { margin: 18px 0 22px; padding: 15px 18px; }
+.seyir-bas { margin-bottom: 10px; }
+.seyir-liste li { padding: 7px 0 7px 24px; }
+.devam { margin-top: 34px; padding-top: 22px; }
+.etki-alan { margin: 12px 0 16px; }
+.izleme { margin: 10px 0 6px; }

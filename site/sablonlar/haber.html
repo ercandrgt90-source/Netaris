@@ -40,6 +40,23 @@
 {% endblock %}
 
 {% block icerik %}
+{# ASAMA NUMARASI SAYAÇLA VERILIYOR, ELLE DEGIL.
+
+   "İlk bakış" bolumu yorumu olmayan haberde BASILMIYOR (bkz.
+   yorumcu.CEVAPSIZ). Numaralar elle yazildiginda o sayfada siralama
+   1 -> 3 -> 4 diye atliyordu ve okur eksik bir bolum oldugunu
+   saniyordu -- oysa eksik bir sey yok, o adim o haber icin
+   uretilemedi.
+
+   Sayac her basilan asamada bir artiyor; basilmayan adim numara
+   TUKETMIYOR. #}
+{% set sayac = namespace(n=0) %}
+{% macro asama(ad, not_) %}
+{% set sayac.n = sayac.n + 1 %}
+<p class="asama"><span class="asama-no">{{ sayac.n }}</span><span class="asama-ad">{{ ad }}</span><span class="asama-not">{{ not_ }}</span></p>
+{% endmacro %}
+
+
 <article class="yazi">
   {% if h.foto %}
   <figure class="yazi-gorsel yazi-foto">
@@ -78,7 +95,7 @@
 
   <div class="govde">
 
-    <p class="asama"><span class="asama-no">1</span><span class="asama-ad">Haber</span><span class="asama-not">Ne oldu, kim söyledi</span></p>
+    {{ asama("Haber", "Ne oldu, kim söyledi") }}
 
     {# ACILIS CUMLESI -- bulten basliklari icin.
        "Aylık Fiyat Gelişmeleri (Temmuz 2026)" bir başlık değil, dosya
@@ -294,7 +311,13 @@
     </section>
     {% endif %}
 
-    <p class="asama"><span class="asama-no">2</span><span class="asama-ad">İlk bakış</span><span class="asama-not">Ölçümlerden türetilen kısa okuma</span></p>
+    {# YORUM YOKSA BOLUM HIC BASILMIYOR -- baslik da dahil.
+       Once yalnizca kutu gizleniyordu ve sayfada bos bir "İLK BAKIŞ"
+       basligi kaliyordu: okura bir bolum vaat edip icini bos birakmak.
+       Model "olcum yok" dediginde cikti zaten reddediliyor (bkz.
+       yorumcu.CEVAPSIZ); burada da baslik basilmiyor. #}
+    {% if ai_yorum %}
+    {{ asama("İlk bakış", "Ölçümlerden türetilen kısa okuma") }}
 
     {# AI SONUCU.
        Sayfadaki OLCUMLERIN uc cumlelik ozeti. Model rakam BULMUYOR,
@@ -309,7 +332,9 @@
        metni HIC gormuyordu -- sitenin asil degeri olacak yorum icin
        yanlis yer. Ayrica depoda saklandigi icin metin sabit: okur
        sayfayi yenileyince degismiyor. #}
-    {% if ai_yorum %}
+    {# Ic sart KALDIRILDI: yukaridaki `{% if ai_yorum %}` zaten ayni
+       kosulu tasiyor. Ikisi birden birakilinca sablon dengesiz
+       kaliyordu (iki if, tek endif). #}
     <aside class="ai-sonuc">
       <h2>İlk bakış</h2>
       <p class="ai-metin">{{ ai_yorum }}</p>
@@ -321,7 +346,7 @@
     </aside>
     {% endif %}
 
-    <p class="asama"><span class="asama-no">3</span><span class="asama-ad">Güncel veriler</span><span class="asama-not">Kaynağından çekilir, hesaplanarak sunulur</span></p>
+    {{ asama("Güncel veriler", "Kaynağından çekilir, hesaplanarak sunulur") }}
 
     {# TURKIYE GORUNUMU -- yurt ici haberde konu ne olursa olsun.
        Okur ulkenin fotografini gorsun; hepsi TCMB EVDS'den, resmi. #}
@@ -443,7 +468,7 @@
     </section>
     {% endif %}
 
-    <p class="asama"><span class="asama-no">4</span><span class="asama-ad">Etki</span><span class="asama-not">Hangi mekanizmayla neyi etkiler</span></p>
+    {{ asama("Etki", "Hangi mekanizmayla neyi etkiler") }}
 
     <h2>Bu neden kritik?</h2>
     <p>{{ h.neden_onemli }}</p>
@@ -543,7 +568,7 @@
     </ul>
     {% endif %}
 
-    <p class="asama"><span class="asama-no">5</span><span class="asama-ad">Görüş</span><span class="asama-not">Koşullu değerlendirme — olasılık atanmaz</span></p>
+    {{ asama("Görüş", "Koşullu değerlendirme — olasılık atanmaz") }}
 
     {# SENARYOLAR -- KOSULLU ve AGIRLIKSIZ.
        Bir senaryoya "%55 olasilik" yazmak, hesaplanmamis bir sayiyi

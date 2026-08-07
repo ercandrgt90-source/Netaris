@@ -142,6 +142,28 @@ SUREN_EGILIM = re.compile(
     r"\b(artıyor|azalıyor|yükseliyor|düşüyor|geriliyor|"
     r"artmakta|azalmakta|yükselmekte|düşmekte)\b", re.I)
 
+#: CEVAPSIZ CIKTI -- modelin "yorum yapamam" dedigi metinler.
+#:
+#: Olculdu, sayfada aynen su duruyordu:
+#:
+#:     "Verilen metinde sayisal bir olcum bulunmadigi icin, olculen bir
+#:      degeri secip yorumlamak mumkun degildir."
+#:
+#: MODEL HAKLI: bekleyis haberinde gercekten olcum yok. Yanlis olan,
+#: ona olcum sormakti. Ama bu metin bir YORUM DEGIL, bir tutanak --
+#: sayfada "Netaris yorumu" basligi altinda durmasi, okura soyleyecek
+#: sozumuz oldugunu iddia edip hicbir sey soylememek oluyor.
+#:
+#: Bu tur cikti artik REDDEDILIYOR, yani depoya hic girmiyor ve bolum
+#: BASILMIYOR. Ayni haberde gosterge brifingi zaten devreye giriyor;
+#: bos bir "ilk bakis" kutusu onun yanina hicbir sey katmiyordu.
+CEVAPSIZ = re.compile(
+    r"(mümkün değildir|mümkün olmamaktadır|yorum yapılamaz|"
+    r"yapmak mümkün değil|rapor edilememektedir|"
+    r"bulunmadığı için|bulunmamaktadır|"
+    r"yeterli (veri|bilgi) (yok|bulunmamakta)|"
+    r"sayısal bir (ölçüm|değer)(?![^.]*\bolarak\b))", re.I)
+
 #: Sayi denetiminde yok sayilan kisa sayilar. "3 cumle", "1 puan" gibi
 #: ifadeler girdide gecmiyor ama uydurma da degil.
 _KISA_SAYI = 2
@@ -423,6 +445,16 @@ def yorumla(girdi: str) -> tuple[str, str, str, str]:
     kacak = sayi_denetimi(metin, girdi)
     if kacak:
         return "", model, f"girdide olmayan sayi: {', '.join(kacak[:4])}", metin
+
+    # --- 1b. cevapsiz cikti ---
+    #
+    # "Olcum bulunmadigi icin yorum yapilamaz" bir yorum degil, bir
+    # tutanak. Sayfada "Netaris yorumu" basligi altinda durmasi, okura
+    # soyleyecek sozumuz oldugunu iddia edip hicbir sey sOylememek
+    # oluyor. Bolum hic basilmasin diye metin REDDEDILIYOR.
+    m = CEVAPSIZ.search(metin)
+    if m:
+        return "", model, f"cevapsiz cikti: {m.group(0)!r}", metin
 
     # --- 2. yasak kalip ---
     for d in YASAK:
