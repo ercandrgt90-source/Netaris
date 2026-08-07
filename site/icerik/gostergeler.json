@@ -1,32 +1,32 @@
 {
-  "guncelleme": "2026-08-05",
+  "guncelleme": "2026-08-06",
   "kaynak": "FRED (St. Louis Fed)",
   "kalemler": [
     {
       "kod": "SP500",
       "ad": "S&P 500",
-      "deger": "7.724",
-      "fark": "-0,17%",
+      "deger": "7.710",
+      "fark": "-0,18%",
       "yon": "azalis",
-      "tarih": "2026-08-05",
+      "tarih": "2026-08-06",
       "birim": "endeks"
     },
     {
       "kod": "NASDAQCOM",
       "ad": "NASDAQ",
-      "deger": "26.363",
-      "fark": "-0,83%",
+      "deger": "26.348",
+      "fark": "-0,06%",
       "yon": "azalis",
-      "tarih": "2026-08-05",
+      "tarih": "2026-08-06",
       "birim": "endeks"
     },
     {
       "kod": "DJIA",
       "ad": "DOW",
-      "deger": "54.349",
-      "fark": "+0,49%",
-      "yon": "artis",
-      "tarih": "2026-08-05",
+      "deger": "53.885",
+      "fark": "-0,85%",
+      "yon": "azalis",
+      "tarih": "2026-08-06",
       "birim": "endeks"
     },
     {
@@ -53,43 +53,43 @@
       "deger": "%3,63",
       "fark": "0 bp",
       "yon": "yatay",
-      "tarih": "2026-08-04",
+      "tarih": "2026-08-05",
       "birim": "%"
     },
     {
       "kod": "DGS2",
       "ad": "ABD 2Y",
-      "deger": "%4,20",
-      "fark": "-5 bp",
+      "deger": "%4,18",
+      "fark": "-2 bp",
       "yon": "azalis",
-      "tarih": "2026-08-04",
+      "tarih": "2026-08-05",
       "birim": "%"
     },
     {
       "kod": "DGS10",
       "ad": "ABD 10Y",
       "deger": "%4,63",
-      "fark": "-7 bp",
-      "yon": "azalis",
-      "tarih": "2026-08-04",
+      "fark": "0 bp",
+      "yon": "yatay",
+      "tarih": "2026-08-05",
       "birim": "%"
     },
     {
       "kod": "T10Y2Y",
       "ad": "10Y-2Y",
-      "deger": "0,45",
-      "fark": "+2 bp",
-      "yon": "artis",
-      "tarih": "2026-08-05",
+      "deger": "0,44",
+      "fark": "-1 bp",
+      "yon": "azalis",
+      "tarih": "2026-08-06",
       "birim": "puan"
     },
     {
       "kod": "VIXCLS",
       "ad": "VIX",
-      "deger": "16,50",
-      "fark": "+4,04%",
-      "yon": "artis",
-      "tarih": "2026-08-04",
+      "deger": "15,81",
+      "fark": "-4,18%",
+      "yon": "azalis",
+      "tarih": "2026-08-05",
       "birim": "endeks"
     },
     {
@@ -118,28 +118,28 @@
         {
           "kod": "SP500",
           "ad": "S&P 500",
-          "deger": "7.724",
-          "fark": "-0,17%",
+          "deger": "7.710",
+          "fark": "-0,18%",
           "yon": "azalis",
-          "tarih": "2026-08-05",
+          "tarih": "2026-08-06",
           "birim": "endeks"
         },
         {
           "kod": "NASDAQCOM",
           "ad": "Nasdaq",
-          "deger": "26.363",
-          "fark": "-0,83%",
+          "deger": "26.348",
+          "fark": "-0,06%",
           "yon": "azalis",
-          "tarih": "2026-08-05",
+          "tarih": "2026-08-06",
           "birim": "endeks"
         },
         {
           "kod": "DJIA",
           "ad": "Dow Jones",
-          "deger": "54.349",
-          "fark": "+0,49%",
-          "yon": "artis",
-          "tarih": "2026-08-05",
+          "deger": "53.885",
+          "fark": "-0,85%",
+          "yon": "azalis",
+          "tarih": "2026-08-06",
           "birim": "endeks"
         }
       ]
@@ -176,34 +176,34 @@
           "deger": "%3,63",
           "fark": "0 bp",
           "yon": "yatay",
-          "tarih": "2026-08-04",
+          "tarih": "2026-08-05",
           "birim": "%"
         },
         {
           "kod": "DGS2",
           "ad": "ABD 2 yıllık",
-          "deger": "%4,20",
-          "fark": "-5 bp",
+          "deger": "%4,18",
+          "fark": "-2 bp",
           "yon": "azalis",
-          "tarih": "2026-08-04",
+          "tarih": "2026-08-05",
           "birim": "%"
         },
         {
           "kod": "DGS10",
           "ad": "ABD 10 yıllık",
           "deger": "%4,63",
-          "fark": "-7 bp",
-          "yon": "azalis",
-          "tarih": "2026-08-04",
+          "fark": "0 bp",
+          "yon": "yatay",
+          "tarih": "2026-08-05",
           "birim": "%"
         },
         {
           "kod": "T10Y2Y",
           "ad": "10Y − 2Y farkı",
-          "deger": "0,45",
-          "fark": "+2 bp",
-          "yon": "artis",
-          "tarih": "2026-08-05",
+          "deger": "0,44",
+          "fark": "-1 bp",
+          "yon": "azalis",
+          "tarih": "2026-08-06",
           "birim": "puan"
         }
       ]
@@ -214,10 +214,10 @@
         {
           "kod": "VIXCLS",
           "ad": "VIX",
-          "deger": "16,50",
-          "fark": "+4,04%",
-          "yon": "artis",
-          "tarih": "2026-08-04",
+          "deger": "15,81",
+          "fark": "-4,18%",
+          "yon": "azalis",
+          "tarih": "2026-08-05",
           "birim": "endeks"
         },
         {

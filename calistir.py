@@ -99,9 +99,21 @@ def main() -> int:
                         [str(BOT / "uret_evds.py")]))
     if "haber" not in args.atla:
         adimlar.append(("Haberler (RSS → çeviri → fotoğraf)",
-                        # TCMB eklenince aday sayisi 56'dan 116'ya cikti;
-                        # 24'luk sinir yeni kaynagi gorunmez birakirdi.
-                        [str(BOT / "uret_gundem.py"), "--yayinla", "--sinir", "40"]))
+                        # SINIR BURADA VERILMIYOR -- `uret_gundem.SINIR`
+                        # gecerli.
+                        #
+                        # Once "--sinir 40" yaziyordu ve olculdu: modulde
+                        # varsayilan 120'ye cikarildigi halde otomatik
+                        # hat 40'ta kaldi, FinancialJuice kontenjani da
+                        # 40'in yarisina (20) indi. Yani elle yapilan
+                        # kurulum 120 haber uretirken, gercekte calisan
+                        # hat 42 uretiyordu ve fark hicbir yerde
+                        # gorunmuyordu.
+                        #
+                        # Ayni sayinin iki yerde yasamasi kacinilmaz
+                        # olarak birinin unutulmasiyla bitiyor. Sayi
+                        # modulde, gerekcesiyle birlikte duruyor.
+                        [str(BOT / "uret_gundem.py"), "--yayinla"]))
     # Veri aciklamalari haberlerden HEMEN SONRA: gundem.json'u okuyup
     # ustune ekliyor. Ayri bir hat olmasinin sebebi kaynak turunun
     # farkli olmasi -- besleme RSS okur, bu hat VERI okur. RSS'te

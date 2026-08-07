@@ -1296,6 +1296,24 @@ def varlik_indeksle(haberler: list[dict]) -> dict[str, dict]:
     harita: dict[str, dict] = {}
     try:
         with _beyin.baglan() as b:
+            # YAYIMLANDI BAYRAGI ONCE SIFIRLANIYOR.
+            #
+            # Bayrak yalnizca 1'e cekiliyordu, hic 0'a donmuyordu. Sonuc:
+            # yeniden siniflandirmada "yorumlanmaz" cikan bir haberin
+            # sayfasi uretilmiyor (dogru davranis) ama varlik sayfalari
+            # ve "ayni dosyadaki gelismeler" bolumu depodaki eski
+            # `yayin_yolu` degerine baglanmaya devam ediyordu.
+            #
+            # Olculdu: uc kirik baglanti. Ikisi varlik sayfasindan
+            # ("Fed yetkililerinden sahin aciklamalar"), biri haber
+            # sayfasindan. Sayi kucuk gorunuyor ama kalici: siniflandirici
+            # her duzeldiginde bir yenisi ekleniyor ve hicbiri
+            # kendiliginden kapanmiyor.
+            #
+            # Sifirlama ayni islemin icinde: `baglan()` baglam yoneticisi
+            # hata durumunda geri aliyor, yani yarim kalmis bir
+            # calistirma butun haberleri yayimdan kaldirmiyor.
+            b.execute("UPDATE haber SET yayimlandi=0 WHERE yayimlandi=1")
             for h in haberler:
                 if not h.get("yorumlanir"):
                     continue
