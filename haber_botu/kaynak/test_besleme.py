@@ -35,6 +35,34 @@ def esit(bulunan, beklenen, aciklama: str) -> None:
               f"\n         bulunan : {bulunan!r}")
 
 
+# --------------------------------------------------------------------
+# GURULTU LISTESI ASCII KATLANMIS OLMALI.
+#
+# `gurultu_mu` basligi `_katla` ile ASCII'ye indirip karsilastiriyor.
+# Turkce harf iceren bir kalip HICBIR ZAMAN eslesmez ve sessizce olu
+# kalir -- eklendigi icin is gorduğu sanilir. Ilk yazimda "aranıyor"
+# boyle eklenmisti.
+# --------------------------------------------------------------------
+_olu = [k for k in besleme.GURULTU_ISARETLERI if k != besleme._katla(k)]
+esit(_olu, [], "gurultu kaliplarinin hepsi ASCII katlanmis")
+
+# Asayis/yasam gurultusu eleniyor, GERCEK jeopolitik elenmiyor.
+esit(besleme.gurultu_mu("Mutfaklara bereket getiren lezzetler"), True,
+     "yemek yazisi elenir")
+esit(besleme.gurultu_mu("North Carolina eyaletinde silahli saldiri: 4 olu"),
+     True, "asayis haberi elenir")
+esit(besleme.gurultu_mu("Hurmuz Bogazi'nda tanker saldirisi"), False,
+     "gercek jeopolitik elenmez")
+esit(besleme.gurultu_mu("Israil Gazze'ye hava saldirisi duzenledi"), False,
+     "askeri gelisme elenmez")
+# Ekonomik "kayip" ELENMEMELI -- ilk yazimda "kayip" kalibi vardi ve
+# sirket zarari haberlerini de eliyordu.
+esit(besleme.gurultu_mu("Sirket 3. ceyrekte 2 milyar TL kayip acikladi"),
+     False, "sirket zarari elenmez")
+esit(besleme.gurultu_mu("Gumruk tarifesi degisikligi"), False,
+     "tarife haberi elenmez")
+
+
 print("\nTarih -- TCMB Turkce ay adi yaziyor, strptime cozemez")
 esit(besleme._tarih_coz("30 Tem 2026 14:00:00"), "2026-07-30", "kisaltilmis ay")
 esit(besleme._tarih_coz("6 Tem 2026 18:00:00"), "2026-07-06", "tek haneli gun")

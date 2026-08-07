@@ -33,6 +33,10 @@
    sayfada yok. AI yorumu BETIK GEREKTIRMIYOR -- build zamaninda
    HTML'e gomuluyor. #}
 <script src="/statik/senaryo.js" defer></script>
+{# Goreli zaman ("3 dk once") dosya cizelgesinde de kullaniliyor.
+   Kurulum aninda gomulseydi sayfa yayimlandigi dakikada dogru, iki
+   saat sonra yanlis olurdu. #}
+<script src="/statik/zaman.js" defer></script>
 {% endblock %}
 
 {% block icerik %}
@@ -158,6 +162,57 @@
     <ul class="etki-alan" aria-label="Bu haberin ilgilendirdiği alanlar">
       {% for a in etki %}<li>{{ a }}</li>{% endfor %}
     </ul>
+    {% endif %}
+
+    {# ---------------------------------------------------------------
+       DOSYANIN SEYRI -- haber tek seferlik bir icerik degil.
+
+       Bir gelisme tek haberde bitmiyor: bekleyis, aciklama, yetkili
+       yorumu, piyasa tepkisi ayri ayri dusuyor ve her biri oksuz bir
+       sayfada duruyordu. Cizelge zinciri gorunur yapiyor; okur bu
+       haberin zincirin neresinde oldugunu bir bakista goruyor.
+
+       METIN YENIDEN YAZILMIYOR ve bu bilincli. "Makale kendini
+       guncelliyor" demek, yayimlanmis bir cumlenin sessizce degismesi
+       demek olurdu -- okurun dun okudugu metin bugun baska bir sey
+       soylerdi. Metin sabit, DOSYA buyuyor.
+
+       Tek halkali zincir BASILMIYOR: kendinden baska hicbir sey
+       icermeyen bir "seyir" cizelgesi, seyir olmadigini gosterir.
+       --------------------------------------------------------------- #}
+    {% if dosya_seyri and dosya_seyri.yeter %}
+    <section class="seyir" aria-label="Bu dosyanın seyri">
+      <div class="seyir-bas">
+        <h2>Bu dosyanın seyri</h2>
+        {% if dosya_seyri.sonraki %}
+        {# Guncelleme GORUNUR ve SAYILI. "Guncellendi" demek yetmez --
+           okur neyin eklendigini gorebilmeli, asagidaki cizelgede
+           duruyor. #}
+        <span class="seyir-yeni">Bu haberden sonra
+          {{ dosya_seyri.sonraki }} gelişme</span>
+        {% endif %}
+      </div>
+      <ol class="seyir-liste">
+        {% for a in dosya_seyri.adimlar %}
+        <li class="{% if a.kendisi %}seyir-burada{% endif %}">
+          <span class="seyir-an">
+            {% if a.an %}
+            <time class="goreli" datetime="{{ a.an }}">{{ a.tarih }}</time>
+            {% else %}
+            <time datetime="{{ a.tarih }}">{{ a.tarih }}</time>
+            {% endif %}
+          </span>
+          {% if a.kendisi %}
+          <span class="seyir-baslik"><b>{{ a.baslik }}</b>
+            <span class="seyir-etiket">okuduğunuz haber</span></span>
+          {% else %}
+          <a class="seyir-baslik" href="{{ a.yol }}">{{ a.baslik }}</a>
+          {% endif %}
+          <span class="seyir-kurum">{{ a.kurum }}</span>
+        </li>
+        {% endfor %}
+      </ol>
+    </section>
     {% endif %}
 
     <p class="asama"><span class="asama-no">2</span><span class="asama-ad">İlk bakış</span><span class="asama-not">Ölçümlerden türetilen kısa okuma</span></p>

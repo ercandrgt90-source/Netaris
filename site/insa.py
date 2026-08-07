@@ -1116,6 +1116,126 @@ def ayni_konu_haberleri(h: dict, hepsi: list[dict]) -> list[dict]:
     return cikti[:DEVAM_SAYISI]
 
 
+#: Dosya zaman cizelgesinde en fazla kac gelisme.
+#: Uzun liste sayfayi ikinci bir gundem listesine cevirir; kisa liste
+#: dosyanin YASADIGINI gosteremez.
+DOSYA_ADIM = 8
+
+#: Dosya penceresi (gun). Bir gelisme zincirinin makul omru.
+DOSYA_GUN = 14
+
+
+def dosya_cizelgesi(h: dict, hepsi: list[dict], ilgili: list[dict],
+                    bugun: str, varlik_haritasi: dict | None = None) -> dict:
+    """Bu haberin AIT OLDUGU DOSYANIN seyri.
+
+    NE DEGISTI
+    ----------
+    Haber tek seferlik bir icerikti: yayimlanir, okunur, biter. Oysa bir
+    gelisme tek haberde bitmiyor -- ABD enflasyonu bekleyis, aciklama,
+    Fed uyesi yorumu, tahvil tepkisi olarak siraya diziliyor ve her biri
+    ayri bir sayfada oksuz duruyordu.
+
+    Cizelge bu siralamayi GORUNUR yapiyor: okur haberin zincirin
+    neresinde durdugunu goruyor, oncesini ve sonrasini tek bakista
+    okuyabiliyor.
+
+    DOSYA NEDEN ISARETLENMIYOR, TURETILIYOR
+    ---------------------------------------
+    Ayri bir "dosya" tablosu acip haberleri elle bagLAMAK, 130 haberlik
+    gunluk akista tutulamayacak bir is. Zincir zaten elimizdeki iki
+    olcumden turetiliyor:
+
+      varlik indeksi  -- haber METNINDEN cikan ortak varliklar
+      konu            -- siniflandiricidan gelen ortak konu
+
+    Ikisi birlestiriliyor: biri digerinin kacirdigini yakaliyor.
+
+    METIN YENIDEN YAZILMIYOR -- ve bu bilincli. "Makale kendini
+    guncelliyor" demek, yayimlanmis bir cumlenin sessizce degismesi
+    demek olurdu; okurun dun okudugu metin bugun baska bir sey soylerdi.
+    Bunun yerine metin sabit kaliyor, DOSYA buyuyor. Guncelleme
+    gorunur ve tarihli.
+    """
+    kendi_an = h.get("an") or h.get("tarih") or ""
+    gorulen = {h.get("adres", "")}
+    adimlar: list[dict] = []
+
+    def ekle(x: dict) -> None:
+        adres = x.get("adres") or x.get("yol") or ""
+        if not adres or adres in gorulen:
+            return
+        if not x.get("yol"):
+            return
+        gorulen.add(adres)
+        adimlar.append({
+            "baslik": x.get("baslik", ""),
+            "yol": x["yol"],
+            "kurum": x.get("kurum", ""),
+            "tarih": x.get("tarih", ""),
+            "an": x.get("an", ""),
+            "kendisi": False,
+        })
+
+    # 1) Varlik indeksinden -- metinden turetilmis, en guclu bag.
+    for x in ilgili or []:
+        ekle(x)
+    # 2) Ayni konudan -- AMA ORTAK VARLIK SARTIYLA.
+    #
+    # Konu tek basina fazla gevsek ve olculdu: "Tarım ve gıda" konusu
+    # findik fiyati haberiyle "Mutfaklara bereket getiren lezzetler:
+    # 11-17 Ağustos" yazisini ayni dosyaya koyuyordu. Ikisi ayni konu
+    # ama ayni GELISME degil.
+    #
+    # Ortak varlik sarti zinciri daraltiyor: iki haber ayni konudaysa
+    # VE en az bir ortak varliga dokunuyorsa ayni dosyanin halkasi.
+    # Varlik indeksi yoksa konu sarti tek basina kaliyor -- eksik bir
+    # zincir, hic zincir olmamasindan iyi.
+    kendi_varlik = set()
+    if varlik_haritasi:
+        kendi_varlik = {v["kod"] for v in
+                        varlik_haritasi.get(h.get("adres", ""), {})
+                        .get("varliklar", [])}
+    for x in hepsi:
+        if x is h or x.get("konu") != h.get("konu"):
+            continue
+        if gun_farki(x.get("tarih", ""), bugun) > DOSYA_GUN:
+            continue
+        if kendi_varlik and varlik_haritasi:
+            o_varlik = {v["kod"] for v in
+                        varlik_haritasi.get(x.get("adres", ""), {})
+                        .get("varliklar", [])}
+            if not (kendi_varlik & o_varlik):
+                continue
+        ekle(x)
+
+    adimlar.append({
+        "baslik": h.get("baslik", ""), "yol": h.get("yol", ""),
+        "kurum": h.get("kurum", ""), "tarih": h.get("tarih", ""),
+        "an": kendi_an, "kendisi": True,
+    })
+
+    # Zaman sirasi: ESKIDEN YENIYE. Ters sirada olsaydi "once su oldu,
+    # sonra bu" okumasi kurulamazdi -- cizelgenin tek isi o.
+    adimlar.sort(key=lambda x: x.get("an") or x.get("tarih") or "")
+
+    # Cizelge uzunsa BASTAN kirpiliyor: en yeni gelismeler ve haberin
+    # kendisi mutlaka kalmali.
+    if len(adimlar) > DOSYA_ADIM:
+        kendi_yer = next((i for i, a in enumerate(adimlar) if a["kendisi"]), 0)
+        bas = max(0, min(kendi_yer - 2, len(adimlar) - DOSYA_ADIM))
+        adimlar = adimlar[bas:bas + DOSYA_ADIM]
+
+    # Bu haberden SONRA gelen gelisme sayisi. Sayfadaki "dosya
+    # guncellendi" isareti buna bakiyor.
+    sonraki = sum(1 for a in adimlar
+                  if not a["kendisi"]
+                  and (a.get("an") or a.get("tarih") or "") > kendi_an)
+
+    return {"adimlar": adimlar, "sonraki": sonraki,
+            "yeter": len(adimlar) >= 2}
+
+
 #: Haber konusu -> analiz kategorisi. Makale sonunda "bu veriyi kullanan
 #: analizler" bolumunu besliyor.
 KONU_KATEGORI = {
@@ -2108,6 +2228,13 @@ def insa() -> int:
                     # Makale sonu: okur bosluga dusmesin.
                     ayni_konu=ayni_konu_haberleri(h, uretilecek),
                     ilgili_analiz=ilgili_analizler(h, listelenen),
+                    # DOSYA: haberin ait oldugu gelisme zincirinin seyri.
+                    # Haber tek seferlik bir icerik degil, bir zincirin
+                    # halkasi -- cizelge o halkanin yerini gosteriyor.
+                    dosya_seyri=dosya_cizelgesi(
+                        h, uretilecek,
+                        varlik_haritasi.get(h["adres"], {}).get("ilgili", []),
+                        gundem.get("guncelleme", ""), varlik_haritasi),
                     # Izleme kalemleri tiklanabilir: hedef varlik arsivi
                     izleme=izleme_baglantilari(
                         (_dosya.IZLENECEKLER.get(h.get("konu", ""))

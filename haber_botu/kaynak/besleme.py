@@ -185,6 +185,25 @@ GURULTU_ISARETLERI = (
     # magazin, kultur, yasam
     "spiker", "dizi", "belgesel", "sinema", "konser", "sanatci",
     "antik kent", "muze", "arkeolo", "burc", "fal", "yemek tarifi",
+    # ASAYIS VE YASAM -- ekonomi beslemelerinde cikiyor ve dosya
+    # zincirlerine sizıyor. Olculdu: "ABD'nin North Carolina
+    # eyaletinde silahli saldiri" haberi JEOPOLITIK olarak siniflandi
+    # (kalip: "saldiri") ve Hurmuz Bogazi dosyasinin icine girdi;
+    # "Mutfaklara bereket getiren lezzetler: 11-17 Agustos" ise findik
+    # fiyati dosyasina girdi.
+    #
+    # Bunlar haber degil sayilmiyor -- baska bir yayinin isi. Bizim
+    # akisimizda yer kaplamalari, gercek zinciri seyreltiyor.
+    "silahli saldiri", "bicakli", "cinayet", "gozaltina alindi",
+    "tutuklandi", "hayatini kaybetti", "olu sayisi", "yarali sayisi",
+    # DIKKAT: bu liste ASCII KATLANMIS metinle karsilastiriliyor
+    # (bkz. `_katla`). Turkce harf iceren bir kalip HICBIR ZAMAN
+    # eslesmez -- ilk yazimda "aranıyor" boyle yazilip sessizce olu
+    # kalmisti. "kayip" ise cikarildi: sirket zarari haberlerini de
+    # elerdi ("ceyrekte kayip acikladi").
+    "operasyonda yakalandi",
+    "lezzetler", "tarifi", "ne pisirsem", "menu onerisi",
+    "burclar", "ruya tabiri", "tatil rotasi", "gezi rehberi",
     "saglik durumu", "kaza gecirdi", "vefat etti", "hava durumu",
     "namaz vakti", "bayram tatili kac gun",
     # catisma/kayip haberleri -- ekonomi beslemelerine dusuyor

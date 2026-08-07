@@ -3118,3 +3118,67 @@ a.akis-baslik:hover { color: var(--vurgu); text-decoration: none; }
   margin: 9px 0 0; padding-top: 8px; font-size: 0.8rem;
   color: var(--yazi-3); border-top: 1px dashed var(--cizgi);
 }
+
+/* ================================================================
+   DOSYANIN SEYRI -- haber tek seferlik icerik degil
+   ================================================================
+   Bir gelisme tek haberde bitmiyor: bekleyis, aciklama, yetkili
+   yorumu, piyasa tepkisi ayri ayri dusuyor. Cizelge zinciri gorunur
+   yapiyor ve okur bu haberin zincirin neresinde oldugunu goruyor.
+
+   ESKIDEN YENIYE siralaniyor -- "once su, sonra bu" okumasi ancak
+   boyle kurulur.                                                    */
+.seyir {
+  margin: 26px 0 30px; padding: 18px 20px;
+  border: 1px solid var(--cizgi); border-radius: var(--r);
+  background: var(--panel-2);
+}
+.seyir-bas {
+  display: flex; align-items: baseline; gap: 12px;
+  flex-wrap: wrap; margin-bottom: 14px;
+}
+.seyir-bas h2 { margin: 0; font-size: 1rem; }
+/* Guncelleme isareti: "dosya buyudu" bilgisi okurun bu sayfaya
+   donmesi icin tek sebep. Gorunur olmali ama basligi ezmemeli. */
+.seyir-yeni {
+  font-size: 0.74rem; font-weight: 700; padding: 3px 10px;
+  border-radius: 999px; background: var(--artis-zar);
+  color: var(--artis); border: 1px solid var(--artis);
+}
+
+.seyir-liste { list-style: none; padding: 0; margin: 0; position: relative; }
+/* Dikey cizgi: adimlarin BIR ZINCIR oldugunu tek bakista anlatiyor.
+   Ayri kutular olsaydi bu bir liste olurdu, seyir degil. */
+.seyir-liste::before {
+  content: ""; position: absolute; left: 5px; top: 8px; bottom: 8px;
+  width: 2px; background: var(--cizgi-parlak);
+}
+.seyir-liste li {
+  position: relative; padding: 9px 0 9px 24px;
+  display: flex; flex-direction: column; gap: 3px;
+}
+.seyir-liste li::before {
+  content: ""; position: absolute; left: 0; top: 15px;
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--panel); border: 2px solid var(--cizgi-parlak);
+}
+/* Okurun bulundugu halka DOLU nokta ve vurgu renginde: sayfada
+   "buradasiniz" demenin en kisa yolu. */
+.seyir-burada::before {
+  background: var(--vurgu) !important;
+  border-color: var(--vurgu) !important;
+  box-shadow: 0 0 0 3px var(--vurgu-zar);
+}
+.seyir-an {
+  font-size: 0.72rem; color: var(--yazi-3);
+  font-variant-numeric: tabular-nums;
+}
+.seyir-baslik { font-size: 0.92rem; line-height: 1.45; font-weight: 600; }
+a.seyir-baslik { color: var(--yazi); }
+a.seyir-baslik:hover { color: var(--vurgu); text-decoration: none; }
+.seyir-etiket {
+  font-size: 0.68rem; font-weight: 700; color: var(--vurgu);
+  background: var(--vurgu-zar); padding: 2px 7px; border-radius: 999px;
+  margin-left: 6px; white-space: nowrap;
+}
+.seyir-kurum { font-size: 0.72rem; color: var(--yazi-3); }
