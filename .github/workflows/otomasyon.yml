@@ -99,15 +99,33 @@ jobs:
       - name: Testleri çalıştır
         # Bozuk kodla yayina cikmamak icin. Test kalirsa is durur ve
         # site eski haliyle ayakta kalir -- bozuk icerik yayimlanmaz.
+        #
+        # TESTLER BULUNARAK CALISTIRILIYOR, ELLE SAYILARAK DEGIL.
+        #
+        # Once yedi dosya tek tek yaziliydi ve liste sessizce eskidi:
+        # depoda on test varken CI yedisini calistiriyordu. Calismayan
+        # ucu test_onem (haber siralamasinin tamami), test_besleme
+        # (kaynak suzgecleri) ve test_gundem_yorum (hangi haber sayfa
+        # alir) idi -- yani en yeni ve en kritik uc modulun testi.
+        #
+        # Elle tutulan liste, her yeni testte unutulmak uzere kurulmus
+        # demektir. Artik yeni test dosyasi eklemek yeterli.
         run: |
           set -e
-          python haber_botu/analiz/test_bicim.py
-          python haber_botu/analiz/test_skor.py
-          python haber_botu/analiz/test_araci_kurum.py
-          python haber_botu/analiz/test_varlik.py
-          python haber_botu/ai/test_yorumcu.py
-          python haber_botu/test_yapistir.py
-          python haber_botu/ai/test_guvenlik.py
+          bulunan=0
+          for t in $(find haber_botu site -name "test_*.py" | sort); do
+            echo "--- $t"
+            python "$t"
+            bulunan=$((bulunan + 1))
+          done
+          echo "$bulunan test dosyasi calisti"
+          # Hic test bulunamadiysa bu bir basari degil, bir arizadir:
+          # `find` yolu bozulursa adim sessizce yesil doner ve butun
+          # koruma kaybolur.
+          if [ "$bulunan" -lt 8 ]; then
+            echo "HATA: beklenenden az test bulundu ($bulunan)"
+            exit 1
+          fi
 
       - name: Veri topla ve içerik üret
         env:
