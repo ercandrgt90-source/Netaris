@@ -2899,3 +2899,148 @@ a.akis-baslik:hover { color: var(--vurgu); text-decoration: none; }
 .akis-dis { color: var(--yazi-2); }
 .akis-dis:hover { color: var(--vurgu); text-decoration: none; }
 .dis-ok { font-size: 0.72em; opacity: .6; margin-left: 4px; }
+
+/* ================================================================
+   HABER KARTI -- ANALIZ DEGIL, DAVET
+   ================================================================
+   Kartta once "Neden önemli" + aktarim kanallari + madde listesi
+   basiliyordu; okur habere hic girmeden analizin buyuk bolumunu
+   okuyordu. Kart artik kisa bir degerlendirme tasiyor, analizin
+   tamami haber sayfasinda.
+
+   IKI KAYNAK GORSEL OLARAK AYRI: Netaris yorumu vurgu renginde ve
+   sol seritli, kaynak ozeti notr. Okur kimin konustugunu okumadan
+   once gorsun.                                                     */
+.kart-yorum {
+  margin: 12px 0 14px; padding: 11px 13px;
+  border-radius: var(--r-kucuk);
+  background: var(--vurgu-zar);
+  border-left: 3px solid var(--vurgu);
+}
+.kart-yorum-etiket {
+  margin: 0 0 5px; font-size: 0.68rem; font-weight: 800;
+  letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--vurgu);
+}
+.kart-yorum-metin {
+  margin: 0; font-size: 0.9rem; line-height: 1.55; color: var(--yazi-2);
+}
+/* Kaynagin kendi ozeti -- BIZIM yorumumuz degil, oyle de gorunmuyor. */
+.kart-yorum-kaynak {
+  background: var(--panel-2);
+  border-left-color: var(--cizgi-parlak);
+}
+.kart-yorum-kaynak .kart-yorum-etiket { color: var(--yazi-3); }
+
+/* ================================================================
+   NETARIS NE DIYOR -- piyasa ozetinin yerinde
+   ================================================================
+   Piyasa ozeti VERI gosteriyordu (endeks, Brent, faiz, kur) ve o
+   veriyi onlarca platform gosteriyor. Burasi verinin ANLAMINI
+   gosteriyor -- her kalem olculmus bir sayidan uretilmis bir cikarim.
+
+   Kartlar degil SATIRLAR: kart yapmak bu bolumu ikinci bir haber
+   listesine cevirirdi, oysa buradaki kalem "haber" degil "okuma".  */
+.ai-akis { margin: 34px 0 8px; }
+.ai-akis-liste {
+  list-style: none; padding: 0; margin: 0;
+  display: grid; gap: 1px; background: var(--cizgi);
+  border: 1px solid var(--cizgi); border-radius: var(--r);
+  overflow: hidden;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+}
+.ai-akis-liste li { background: var(--panel); }
+.ai-akis-liste a {
+  display: flex; flex-direction: column; gap: 7px;
+  padding: 15px 17px; height: 100%;
+  border-left: 3px solid var(--tur, var(--vurgu));
+}
+.ai-akis-liste a:hover { text-decoration: none; background: var(--panel-2); }
+.ai-akis-ust { display: flex; align-items: center; gap: 8px; }
+.ai-akis-zaman {
+  margin-left: auto; font-size: 0.72rem; color: var(--yazi-3);
+  font-variant-numeric: tabular-nums;
+}
+.ai-akis-metin {
+  font-size: 0.93rem; line-height: 1.56; color: var(--yazi);
+  font-weight: 500;
+}
+/* Kaynak baslik SONDA ve kucuk: asil bilgi cikarim, baslik onun
+   nereden geldigi. Ters sirada olsaydi bu yine bir haber listesi
+   olurdu. */
+.ai-akis-kaynak {
+  font-size: 0.76rem; color: var(--yazi-3); line-height: 1.4;
+  margin-top: auto; padding-top: 4px;
+  border-top: 1px dashed var(--cizgi);
+}
+
+/* ================================================================
+   UST MENU -- GRUPLU
+   ================================================================
+   Yedi sekme yan yana duruyordu ve hepsi ayni agirliktaydi; okur ilk
+   bakista neyin onemli oldugunu secemiyordu. Benzer basliklar
+   "Araştırmalar" altinda toplandi.
+
+   ACILIR MENU JAVASCRIPTSIZ: :hover ve :focus-within birlikte, yani
+   klavyeyle sekme tuslayarak da aciliyor. Betige baglanmis olsaydi
+   betik yuklenene kadar menu olu kalirdi.                          */
+.menu-grup { position: relative; display: inline-flex; }
+.menu-baslik {
+  font: inherit; font-weight: 600; color: var(--yazi-2);
+  background: none; border: none; cursor: pointer;
+  padding: 7px 11px; border-radius: var(--r-kucuk);
+  display: inline-flex; align-items: center; gap: 5px;
+}
+.menu-baslik:hover,
+.menu-grup:focus-within .menu-baslik { color: var(--vurgu); background: var(--vurgu-zar); }
+.menu-ok { font-size: 0.7em; opacity: .65; transition: transform .16s; }
+.menu-grup:hover .menu-ok,
+.menu-grup:focus-within .menu-ok { transform: rotate(180deg); }
+
+.menu-katman {
+  position: absolute; top: calc(100% + 6px); left: 0; z-index: 60;
+  min-width: 186px; padding: 6px;
+  background: var(--panel); border: 1px solid var(--cizgi);
+  border-radius: var(--r-kucuk); box-shadow: var(--golge);
+  display: flex; flex-direction: column; gap: 1px;
+  /* `display:none` DEGIL: gizliyken de odaklanabilir kalmali, yoksa
+     klavyeyle acilan menunun icine girilemez. */
+  opacity: 0; visibility: hidden; transform: translateY(-4px);
+  transition: opacity .14s, transform .14s, visibility .14s;
+}
+.menu-grup:hover .menu-katman,
+.menu-grup:focus-within .menu-katman {
+  opacity: 1; visibility: visible; transform: translateY(0);
+}
+.menu-katman a {
+  padding: 8px 12px; border-radius: 7px; font-size: 0.9rem;
+  white-space: nowrap;
+}
+.menu-katman a:hover { background: var(--vurgu-zar); text-decoration: none; }
+
+/* Dar ekranda acilir menu ISE YARAMAZ (dokunmada hover yok):
+   grup duz bir satira aciliyor. */
+@media (max-width: 720px) {
+  .menu-grup { display: contents; }
+  .menu-baslik { display: none; }
+  .menu-katman {
+    position: static; opacity: 1; visibility: visible; transform: none;
+    flex-direction: row; background: none; border: none;
+    box-shadow: none; padding: 0; min-width: 0;
+  }
+}
+
+/* --- Topluluk sayfasi --- */
+.senaryo-tablo { list-style: none; padding: 0; margin: 26px 0 0; }
+.senaryo-satir {
+  padding: 16px 18px; margin-bottom: 10px;
+  border: 1px solid var(--cizgi); border-radius: var(--r);
+  background: var(--panel);
+}
+.topluluk-cagri {
+  margin: 40px 0 0; padding: 24px;
+  border: 1px solid var(--cizgi); border-radius: var(--r);
+  background: var(--panel-2);
+}
+.topluluk-cagri h2 { margin-top: 0; font-size: 1.05rem; }
+.topluluk-dugmeler { display: flex; gap: 10px; flex-wrap: wrap; margin: 16px 0 0; }

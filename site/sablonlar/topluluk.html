@@ -1,0 +1,55 @@
+{% extends "temel.html" %}
+
+{# TOPLULUK -- okurlarin yazdigi senaryolar.
+   Sitenin diger her sayfasi Netaris'in urettigini gosteriyor; burasi
+   OKURLARIN urettigini.
+
+   Sayfa CANLI UCTAN besleniyor. Statik olarak gomulseydi, bir senaryo
+   yazildiktan sonra bir sonraki kuruluma kadar (saatler) gorunmezdi ve
+   yazan kisi katkisinin kaybolduğunu dusunurdu. #}
+
+{% block baslik %}Topluluk — {{ site.ad }}{% endblock %}
+{% block aciklama %}Netaris okurlarının yazdığı koşullu senaryolar: hangi
+koşulda ne olabileceğine dair değerlendirmeler ve topluluğun seçimi.{% endblock %}
+
+{% block ek_bas %}
+<script src="/statik/topluluk.js" defer></script>
+{% endblock %}
+
+{% block icerik %}
+<div class="giris">
+  <p class="ust-etiket">Topluluk</p>
+  <h1>Okur senaryoları</h1>
+  <p>Netaris bir tahmin yayımlamaz. Bunun yerine okurlar <b>koşullu</b>
+  değerlendirme yazar: <i>şu olursa şu olabilir</i>. Her senaryo bir
+  habere bağlıdır ve yazarının imzasını taşır.</p>
+
+  {# OY "KATILIYORUM" DEGIL "DEGERLI BULDUM".
+     Ikisi ayni sey degil: "katiliyorum" oylari bir olasilik gibi
+     okunur ("%70 katildi" -> "%70 ihtimal"), oysa oylayan kisi sayisi
+     bir olasilik olcumu DEGILDIR. Asagi oy da YOK -- azinlikta kalan
+     gorusu bastirir ve tam olarak tartisilmasi gereken senaryolar
+     azinlikta olanlardir. #}
+  <p class="kaynak-not">Oy vermek <b>katılıyorum</b> demek değil,
+  <b>değerli buldum</b> demektir. Aşağı oy yoktur: azınlıkta kalan görüş
+  bastırılmamalı.</p>
+</div>
+
+{# Uc calismazsa bu metin EKRANDA KALIR -- bos bir sayfa, sitenin
+   coktugu izlenimi verir. Betik basariyla veri alirsa bu blogu
+   kaldiriyor. #}
+<div id="topluluk-durum" class="kaynak-not">Senaryolar yükleniyor…</div>
+
+<ul class="senaryo-tablo" id="topluluk-liste" hidden></ul>
+
+<div class="topluluk-cagri">
+  <h2>Siz de yazın</h2>
+  <p>Bir gelişmeye dair farklı düşünüyorsanız kendi senaryonuzu
+  yazabilirsiniz. Senaryo yazmak için üye girişi gerekir; yazılan her
+  senaryo yayımlanmadan önce biçim denetiminden geçer.</p>
+  <p class="topluluk-dugmeler">
+    <a class="dugme dugme-birincil" href="/panel/">Senaryo yaz</a>
+    <a class="dugme dugme-sade" href="/gundem/">Habere göz at</a>
+  </p>
+</div>
+{% endblock %}

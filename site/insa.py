@@ -1459,6 +1459,34 @@ def _veri_kumesi(h: dict) -> str:
 _ONEM_YEDEK_SAYISI = 10
 
 
+#: AI yorum akisinda kac kalem.
+AI_AKIS_SAYISI = 6
+
+
+def ai_akisi(haberler: list[dict], en_cok: int = AI_AKIS_SAYISI) -> list[dict]:
+    """Ana sayfadaki "Netaris ne diyor" akisi.
+
+    NEDEN PIYASA OZETININ YERINE
+    ----------------------------
+    Orada endeks, Brent, faiz ve kur tablosu duruyordu. O tabloyu onlarca
+    platform gosteriyor ve hicbirinden farkimizi anlatmiyordu -- ustelik
+    ayni sayilar haber sayfalarindaki "Güncel veriler" bolumunde zaten
+    var, yani ana sayfadaki kopya ikinci bir tekrardi.
+
+    Buradaki kalemler VERI DEGIL, VERININ ANLAMI: her biri olculmus bir
+    sayidan uretilmis bir cikarim ve kendi haberine baglaniyor.
+
+    UYDURULMUYOR: yalnizca depoda GERCEKTEN yorumu olan haberler
+    giriyor. Yorum yoksa bolum kisa kalir, hicbiri yoksa hic basilmaz --
+    bos bir "Netaris ne diyor" basligi, soyleyecek sozu olmadigini
+    ilan etmenin en gurultulu yolu olurdu.
+    """
+    olan = [h for h in haberler
+            if h.get("ai_yorum_kart") and h.get("yol")]
+    olan.sort(key=lambda h: h.get("an") or h.get("tarih") or "", reverse=True)
+    return olan[:en_cok]
+
+
 def canli_akis(haberler: list[dict], en_cok: int = AKIS_SAYISI) -> list[dict]:
     """Katman 1: ham akis, en yeni ustte.
 
@@ -1504,6 +1532,36 @@ KART_VARSAYILAN = "haber"
 
 def kart_turu(h: dict) -> str:
     return KART_TURU.get(h.get("konu", ""), KART_VARSAYILAN)
+
+
+#: Kartta gorunecek en fazla cumle ve karakter.
+#:
+#: Kart MERAK UYANDIRMALI, doyurmamali. Uzun yorum kartta okununca
+#: habere girmek icin sebep kalmiyor -- kartlardan analizi cikarmamizin
+#: sebebi zaten buydu.
+KART_CUMLE = 2
+KART_HARF = 220
+
+
+def kart_yorumu(metin: str) -> str:
+    """Metni kart boyuna indirir. CUMLE SINIRINDA keser.
+
+    Karakterden kesmek cumleyi ortasindan bolerdi ("...faiz oranlarini
+    art") ve yarim cumle, yanlis cumleden beter okunur. Once cumleye
+    bolunuyor; ilk cumle bile sinirdan uzunsa kelime sinirinda kesilip
+    uc nokta konuyor.
+    """
+    metin = (metin or "").strip()
+    if not metin:
+        return ""
+
+    cumleler = re.findall(r"[^.!?]+[.!?]+|[^.!?]+$", metin)
+    parca = "".join(cumleler[:KART_CUMLE]).strip()
+
+    if len(parca) <= KART_HARF:
+        return parca
+    kirp = parca[:KART_HARF].rsplit(" ", 1)[0].rstrip(" ,;:")
+    return kirp + "…"
 
 
 def an_yaz(haberler: list[dict]) -> None:
@@ -1670,8 +1728,9 @@ def insa() -> int:
         for slug, baslik, kategori, _ in KATEGORILER
         if any(a.kategori == kategori for a in listelenen)
     ]
-    if gundem.get("haberler"):
-        menu.append(("/gundem/", "Haberler"))
+    # "Haberler" MENU LISTESINDE DEGIL: ust menude kendi basina duruyor
+    # (bkz. temel.html). Listede kalsaydi "Araştırmalar" acilir menusunun
+    # icinde gorunurdu -- oysa haber bir arastirma degil.
 
     # Yorumlanan haberlere gorsel. Rutin duyurulara gorsel URETILMEZ --
     # listede goruntuluyorlar ve her birine gorsel koymak sayfayi
@@ -1745,6 +1804,21 @@ def insa() -> int:
     # katmaktan kacinmak icin bir sebep yok.
     onem_puanla(uretilecek, varlik_haritasi)
     an_yaz(uretilecek)
+
+    # AI YORUMU HER HABERE YAZILIYOR, yalnizca haber sayfasina degil.
+    #
+    # Once yalnizca `haber.html` render'ina parametre olarak geciyordu.
+    # Ama kartlar da yorumu gosteriyor artik (kartta analiz yok, yorum
+    # var) ve gundem sayfasi ayri bir sablonda. Alani habere yazmak,
+    # ayni degeri iki ayri yoldan gecirmekten guvenli.
+    ai_yorumlari = ai_yorum_oku()
+    if ai_yorumlari:
+        print(f"ai: {len(ai_yorumlari)} haberde yorum var")
+    for h in uretilecek:
+        m = ai_yorumlari.get(h.get("adres", ""), "")
+        h["ai_yorum"] = m
+        h["ai_yorum_kart"] = kart_yorumu(m) if m else ""
+        h["ozet_kart"] = kart_yorumu(h.get("ozet", ""))
 
     # SON DAKIKA ARTIK BIR SECIM.
     #
@@ -1834,10 +1908,6 @@ def insa() -> int:
         varlik_sayfasi_olan = {
             y.strip("/").split("/")[-1].upper().replace("-", "_")
             for y in yollar if y.startswith("/varlik/")}
-
-        ai_yorumlari = ai_yorum_oku()
-        if ai_yorumlari:
-            print(f"ai: {len(ai_yorumlari)} haberde yorum var")
 
         for h in uretilecek:
             if not h.get("yorumlanir"):
@@ -1947,8 +2017,18 @@ def insa() -> int:
                 datetime.now().strftime("%Y-%m-%d")),
             # Katman 1 -- ham akis, en yeni ustte, ELEME YOK
             akis=canli_akis(gundem.get("haberler", [])),
+            # Piyasa ozetinin yerini alan AI yorum akisi
+            ai_akis=ai_akisi(uretilecek),
         ),
     )
+
+    # TOPLULUK. Ust menude baglantisi var, yani sayfa MUTLAKA
+    # uretilmeli -- menude olup sayfasi olmayan bir baslik 404 demek.
+    yaz(
+        "/topluluk/index.html",
+        ortam.get_template("topluluk.html").render(**ortak, yol="/topluluk/"),
+    )
+    yollar.append("/topluluk/")
 
     # Arama: dizin + sayfa
     yaz("/arama.json", arama_dizini(listelenen))

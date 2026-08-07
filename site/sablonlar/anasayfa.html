@@ -91,28 +91,39 @@
   </div>
 </div>
 
-{# Piyasa ozeti. BIST 100 BILINCLI OLARAK YOK: endeks verisi lisansli,
-   ucretsiz ve ticari kullanima acik kaynagi bulunmuyor. #}
-{% if gostergeler and gostergeler.gruplar %}
-<section class="panel" aria-label="Piyasa özeti">
-  <div class="panel-ust">
-    <h2>Piyasa özeti</h2>
-    <span class="panel-not">Son gözlem {{ gostergeler.guncelleme }} · {{ gostergeler.kaynak }}</span>
+{# ---------------------------------------------------------------
+   NETARIS NE DIYOR -- piyasa ozetinin yerinde.
+
+   Orada endeks / Brent / faiz / kur tablosu duruyordu. O tabloyu
+   onlarca platform gosteriyor ve bizim farkimizi anlatmiyordu;
+   ustelik ayni sayilar haber sayfalarindaki "Güncel veriler"
+   bolumunde zaten var, yani ana sayfadaki kopya ikinci bir tekrardi.
+
+   Buradaki kalemler VERI DEGIL, VERININ ANLAMI. Her biri olculmus bir
+   sayidan uretilmis bir cikarim ve kendi haberine baglaniyor.
+
+   Yorumu olan haber yoksa bolum HIC BASILMIYOR.
+   --------------------------------------------------------------- #}
+{% if ai_akis %}
+<section class="ai-akis" aria-label="Netaris ne diyor">
+  <div class="bolum-bas">
+    <h2>Netaris ne diyor</h2>
+    <span class="bolum-not">Ölçülmüş veriden üretilmiş çıkarımlar</span>
   </div>
-  <div class="panel-izgara">
-    {% for grup in gostergeler.gruplar %}
-    <div class="panel-grup">
-      <h3>{{ grup.baslik }}</h3>
-      {% for k in grup.kalemler %}
-      <div class="panel-satir" title="{{ k.ad }} — son veri {{ k.tarih }}">
-        <span class="panel-ad">{{ k.ad }}</span>
-        <span class="panel-deger">{{ k.deger }}</span>
-        <span class="panel-fark {{ k.yon }}">{{ k.fark }}</span>
-      </div>
-      {% endfor %}
-    </div>
+  <ul class="ai-akis-liste">
+    {% for h in ai_akis %}
+    <li class="tur-{{ h | kart_turu }}">
+      <a href="{{ h.yol }}">
+        <span class="ai-akis-ust">
+          <span class="rozet rozet-vurgu">{{ h.konu }}</span>
+          <span class="ai-akis-zaman">{{ zaman(h) }}</span>
+        </span>
+        <span class="ai-akis-metin">{{ h.ai_yorum_kart }}</span>
+        <span class="ai-akis-kaynak">{{ h.baslik }}</span>
+      </a>
+    </li>
     {% endfor %}
-  </div>
+  </ul>
 </section>
 {% endif %}
 

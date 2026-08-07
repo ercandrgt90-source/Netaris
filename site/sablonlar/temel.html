@@ -74,14 +74,42 @@
       </svg>
       {{ site.ad_html | safe }}
     </a>
-    {# Menude yalnizca icerigi OLAN kategoriler var. Tiklayinca bos sayfa
-       cikan bir sekme, o sekmenin hic olmamasindan kotudur. #}
+    {# UST MENU -- SADE VE GRUPLU.
+       Once yedi sekme yan yana duruyordu (Bilançolar, Makro, Yorum,
+       Teknik, Haberler, Hakkımızda, Ara) ve hepsi ayni agirliktaydi;
+       okur ilk bakista neyin onemli oldugunu secemiyordu.
+
+       Artik dort ana giris var. Benzer olanlar "Araştırmalar" altinda
+       toplandi; Hakkımızda alt bilgiye tasindi -- her ziyarette
+       tiklanan bir sey degil.
+
+       KURAL DEGISMEDI: menude yalnizca GERCEKTEN VAR OLAN sayfa
+       gorunuyor. Bos bir sekme, o sekmenin hic olmamasindan kotudur;
+       bu yuzden "Piyasalar" gibi karsiligi olmayan bir baslik
+       eklenmedi ve "Topluluk" ancak sayfasi uretildigi icin var.
+
+       ACILIR MENU CSS ILE: `:hover` ve `:focus-within` birlikte
+       kullaniliyor, yani klavyeyle sekme tuslayarak da aciliyor ve
+       JavaScript kapaliyken calisiyor. #}
     <nav>
       <a href="/"{% if yol == "/" %} aria-current="page"{% endif %}>Ana sayfa</a>
-      {% for adres, baslik in menu %}
-      <a href="{{ adres }}"{% if yol == adres %} aria-current="page"{% endif %}>{{ baslik }}</a>
-      {% endfor %}
-      <a href="/hakkimizda/"{% if yol == "/hakkimizda/" %} aria-current="page"{% endif %}>Hakkımızda</a>
+      {% if gundem and gundem.haberler %}
+      <a href="/gundem/"{% if yol == "/gundem/" %} aria-current="page"{% endif %}>Haberler</a>
+      {% endif %}
+      {% if menu %}
+      <div class="menu-grup">
+        <button type="button" class="menu-baslik" aria-expanded="false"
+                aria-haspopup="true">Araştırmalar
+          <span class="menu-ok" aria-hidden="true">▾</span>
+        </button>
+        <div class="menu-katman">
+          {% for adres, baslik in menu %}
+          <a href="{{ adres }}"{% if yol == adres %} aria-current="page"{% endif %}>{{ baslik }}</a>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+      <a href="/topluluk/"{% if yol == "/topluluk/" %} aria-current="page"{% endif %}>Topluluk</a>
       <a class="ara-baglanti" href="/ara/"{% if yol == "/ara/" %} aria-current="page"{% endif %}
          aria-label="Ara" title="Ara">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -198,6 +226,7 @@
       İçerikler bilgilendirme amaçlıdır; alım satım önerisi içermez.
     </p>
     <nav>
+      <a href="/hakkimizda/">Hakkımızda</a>
       <a href="/hakkimizda/#yayin-ilkeleri">Yayın İlkeleri</a>
       <a href="/hakkimizda/#kunye">Künye</a>
       <a href="/hakkimizda/#gizlilik">Gizlilik</a>

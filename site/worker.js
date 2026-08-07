@@ -740,6 +740,34 @@ async function senaryoOneCikan(env) {
     { "cache-control": "public, max-age=300" });
 }
 
+/* Topluluk sayfasi: YAYIMLANMIS BUTUN senaryolar. Herkese acik.
+ *
+ * `senaryoOneCikan`dan farki OY SARTI YOK. Ikisi ayri soruyu
+ * cevapliyor:
+ *
+ *   one-cikan  "topluluk neyi degerli buldu"  -> bir SECIM, oy gerekir
+ *   hepsi      "topluluk ne yazdi"            -> bir KAYIT, oy gerekmez
+ *
+ * Sifir oylu senaryoyu "one cikan" diye sunmak okuru yanıltırdı; ama
+ * hicbir yerde gostermemek soguk baslangic kilidi yaratiyordu -- kimse
+ * gormedigi icin oy verilmiyor, oy verilmedigi icin gorunmuyor. Kayit
+ * sayfasi o kilidi aciyor.
+ *
+ * Yeni yazilan senaryo ustte: "en yeni" siralamasi, kimsenin oy
+ * vermedigi bir senaryoyu da gorunur kiliyor. */
+async function senaryoHepsi(env) {
+  const r = await env.DB.prepare(
+    "SELECT s.kosul, s.sonuc, s.capa, s.capa_baslik, s.ufuk, s.yayin," +
+    " u.ad AS yazar," +
+    " (SELECT COUNT(*) FROM senaryo_oy o WHERE o.senaryo_id = s.id) AS oy" +
+    " FROM senaryo s JOIN uye u ON u.id = s.uye_id" +
+    " WHERE s.durum = 'yayimlandi'" +
+    " ORDER BY s.yayin DESC LIMIT 60",
+  ).all();
+  return yanit({ senaryolar: r.results || [] }, 200,
+    { "cache-control": "public, max-age=120" });
+}
+
 /* --------------------------------------------------------------- yonlendirme */
 
 export default {
@@ -767,6 +795,7 @@ export default {
       /* Haber sayfasindaki senaryo bolumu -- oturum ISTEMEZ, yalnizca
          yayimlanmis senaryolari doner. */
       if (y === "senaryo/acik" && m === "GET") return await senaryoAcik(istek, env);
+      if (y === "senaryo/hepsi" && m === "GET") return await senaryoHepsi(env);
       if (y === "senaryo/one-cikan" && m === "GET")
         return await senaryoOneCikan(env);
 
