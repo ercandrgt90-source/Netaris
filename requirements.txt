@@ -6,3 +6,11 @@
 httpx==0.28.1        # butun ag istekleri
 Jinja2==3.1.6        # site sablonlari
 Markdown==3.10.3     # icerik -> HTML
+
+# Saat dilimi veritabani. Yayin takvimi ABD saatiyle gelen anlari
+# (BLS "08:30 US-Eastern") Turkiye saatine ceviriyor ve yaz saati
+# uygulamasi bu cevirinin bir SAAT degil DORT saat farkla yanlis
+# olmasina yol acabiliyor. Windows'ta sistem tz veritabani yok, bu
+# paket onu sagliyor. Yoksa modul daha kaba bir yedege duSuyor ve
+# bunu ekrana yaziyor -- sessizce yanlis saat gostermiyor.
+tzdata==2026.1

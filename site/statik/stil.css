@@ -3044,3 +3044,77 @@ a.akis-baslik:hover { color: var(--vurgu); text-decoration: none; }
 }
 .topluluk-cagri h2 { margin-top: 0; font-size: 1.05rem; }
 .topluluk-dugmeler { display: flex; gap: 10px; flex-wrap: wrap; margin: 16px 0 0; }
+
+/* ================================================================
+   YAKLASAN VERILER -- sitenin ILERIYE bakan tek bolumu
+   ================================================================
+   Diger her sey geriye bakiyor. Burasi "ne zaman ne aciklanacak,
+   son deger ne, iki dalda hangi mekanizma calisir" diyor.          */
+.takvim { margin: 34px 0 8px; }
+.takvim-liste { list-style: none; padding: 0; margin: 0; }
+.takvim-oge {
+  border: 1px solid var(--cizgi); border-radius: var(--r);
+  background: var(--panel); margin-bottom: 10px; overflow: hidden;
+}
+/* Onem sol seritte: uc yildizli veri ile rutin yayin ayni agirlikta
+   gorunmemeli. */
+.takvim-oge.onem-3 { border-left: 4px solid var(--azalis); }
+.takvim-oge.onem-2 { border-left: 4px solid var(--uyari); }
+.takvim-oge.onem-1 { border-left: 4px solid var(--cizgi-parlak); }
+
+.takvim-ust {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  padding: 13px 16px;
+}
+.takvim-an { display: flex; align-items: baseline; gap: 7px; flex: none; }
+.takvim-an b { font-size: 0.98rem; font-variant-numeric: tabular-nums; }
+.takvim-saat {
+  font-size: 0.86rem; color: var(--yazi-2);
+  font-variant-numeric: tabular-nums;
+}
+.takvim-ulke {
+  font-size: 0.7rem; font-weight: 800; letter-spacing: 0.04em;
+  padding: 3px 8px; border-radius: 999px;
+  background: var(--panel-2); border: 1px solid var(--cizgi);
+  color: var(--yazi-2); flex: none;
+}
+.takvim-ad { font-weight: 650; flex: 1 1 200px; line-height: 1.35; }
+.takvim-onem { color: var(--yazi-3); letter-spacing: 1px; font-size: 0.7rem; }
+/* Turetilmis tarih ACIKCA isaretli -- kaynaktan gelenle karismasin. */
+.takvim-tahmin {
+  font-size: 0.68rem; padding: 2px 7px; border-radius: 999px;
+  background: var(--uyari-zar); color: var(--uyari);
+  border: 1px solid var(--uyari-cizgi);
+}
+
+.takvim-beklenti {
+  padding: 0 16px 15px; border-top: 1px solid var(--cizgi);
+  padding-top: 13px; background: var(--panel-2);
+}
+.takvim-son { margin: 0 0 12px; font-size: 0.88rem; color: var(--yazi-2); }
+.takvim-tarih { color: var(--yazi-3); font-size: 0.82em; }
+.takvim-esik-not { color: var(--yazi-3); font-size: 0.85em; }
+
+.takvim-dallar {
+  display: grid; gap: 12px;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+.takvim-dal {
+  padding: 12px 14px; border-radius: var(--r-kucuk);
+  background: var(--panel); border: 1px solid var(--cizgi);
+}
+/* Iki dal RENKLE degil KONUMLA ayriliyor -- yesil/kirmizi kullanmak
+   "yukari iyi, asagi kotu" gibi okunur ve bu bir yargi olurdu. */
+.takvim-dal-bas {
+  margin: 0 0 6px; font-size: 0.78rem; font-weight: 800;
+  letter-spacing: 0.02em; color: var(--vurgu);
+}
+.takvim-dal-metin {
+  margin: 0; font-size: 0.87rem; line-height: 1.55; color: var(--yazi-2);
+}
+/* Olculmus tepki: yalnizca gercekten olcum varsa basiliyor ve
+   gorsel olarak mekanizmadan AYRI duruyor. */
+.takvim-olcum {
+  margin: 9px 0 0; padding-top: 8px; font-size: 0.8rem;
+  color: var(--yazi-3); border-top: 1px dashed var(--cizgi);
+}

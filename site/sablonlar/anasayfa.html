@@ -127,6 +127,81 @@
 </section>
 {% endif %}
 
+{# ---------------------------------------------------------------
+   YAKLASAN VERILER -- sitenin ILERIYE bakan tek bolumu.
+
+   Diger her sey geriye bakiyor: ne aciklandi, ne anlama geldi. Burasi
+   "yarin 15:30'da ABD TÜFE var, son deger su, esik su, iki dalda su
+   mekanizma calisir" diyor. Okur ona gore HAZIRLANABILIR.
+
+   SAAT KAYNAKTAN: BLS ve Fed kendi takvimlerini yayimliyor. Turetilmis
+   olanlar "beklenen" diye isaretli -- tahmini kesin saat gibi sunmak
+   olcmedigimizi olcmus gibi gostermek olurdu.
+
+   YON IDDIASI YOK: dallar MEKANIZMA anlatiyor, fiyat yonu degil.
+   "Altin baskilanir" turu cumleler yazilmiyor; olculmus fiyat
+   tepkileri varsa ayrica ve OLCUM olarak basiliyor.
+   --------------------------------------------------------------- #}
+{% if takvim %}
+<section class="takvim" aria-label="Yaklaşan veri açıklamaları">
+  <div class="bolum-bas">
+    <h2>Yaklaşan veriler</h2>
+    <span class="bolum-not">Saatler Türkiye saatiyle · kaynak: BLS, Fed</span>
+  </div>
+  <ul class="takvim-liste">
+    {% for k in takvim %}
+    <li class="takvim-oge onem-{{ k.onem }}">
+      <div class="takvim-ust">
+        <span class="takvim-an">
+          <b>{{ k.gun }}</b>
+          <span class="takvim-saat">{{ k.saat }}</span>
+        </span>
+        <span class="takvim-ulke">{{ k.ulke }}</span>
+        <span class="takvim-ad">{{ k.ad }}</span>
+        <span class="takvim-onem" aria-label="Önem {{ k.onem }} / 3">
+          <span aria-hidden="true">{{ "●" * k.onem }}{{ "○" * (3 - k.onem) }}</span>
+        </span>
+        {% if not k.kesin %}
+        <span class="takvim-tahmin" title="Kurum makine okunur takvim
+              yayımlamıyor; tarih serinin yayın ritminden türetildi">beklenen</span>
+        {% endif %}
+      </div>
+
+      {% if k.beklenti %}
+      {% set b = k.beklenti %}
+      <div class="takvim-beklenti">
+        <p class="takvim-son">
+          Son açıklanan: <b>{{ b.son_deger }}</b>
+          {% if b.son_tarih %}<span class="takvim-tarih">({{ b.son_tarih }})</span>{% endif %}
+          {# Esigin NE OLDUGU acikca yaziliyor. Konsensus rakami
+             elimizde yoksa esik onceki degerdir ve okur bunu bilmeli --
+             onceki degeri "beklenti" diye sunmak uydurma olurdu. #}
+          {% if b.esik_kaynak == "beklenti" %}
+          · Beklenti (TCMB anketi): <b>{{ b.esik_deger }}</b>
+          {% else %}
+          <span class="takvim-esik-not">— eşik olarak önceki değer
+            kullanılıyor; ücretsiz konsensüs kaynağımız yok</span>
+          {% endif %}
+        </p>
+        <div class="takvim-dallar">
+          {% for d in b.dallar %}
+          <div class="takvim-dal takvim-dal-{{ d.yon }}">
+            <p class="takvim-dal-bas">{{ d.baslik }}</p>
+            <p class="takvim-dal-metin">{{ d.mekanizma }}</p>
+            {% if d.olcum %}
+            <p class="takvim-olcum">{{ d.olcum }}</p>
+            {% endif %}
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
+
 {# ===============================================================
    KATMAN 1 + 2 -- yan yana
    =============================================================== #}

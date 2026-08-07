@@ -89,6 +89,16 @@ try:
 except ImportError:
     _olay = None
 
+# Veri yayin takvimi + beklenti motoru. Ikisi de yoksa bolum basilmaz.
+try:
+    import yayin_takvimi as _yt
+except ImportError:
+    _yt = None
+try:
+    import beklenti as _beklenti
+except ImportError:
+    _beklenti = None
+
 # Onem puani. Hangi haber one cikar, hangisi akista kalir.
 try:
     import onem as _onem
@@ -1391,6 +1401,141 @@ def onem_puanla(haberler: list[dict], varlik_haritasi: dict) -> None:
         h["olay_turu"] = o.olay_turu
 
 
+#: Takvimde kac gun ileri bakiliyor.
+#:
+#: Daha uzun pencere ana sayfayi bir takvim uygulamasina cevirir; daha
+#: kisa olan "bu hafta ne var" sorusunu cevaplayamaz.
+TAKVIM_GUN = 10
+TAKVIM_EN_COK = 8
+
+#: Takvimde yalnizca bu onem ve ustu gorunuyor. Dusuk onemli BLS
+#: yayinlari ("ilce istihdami") listeyi doldurup asil olani gizlerdi.
+TAKVIM_ONEM_ESIGI = 2
+
+
+def _seri_son(b, kod: str) -> tuple[float | None, str, str]:
+    """Bir serinin son gozlemi: (deger, birim, tarih)."""
+    try:
+        r = b.execute("SELECT deger, birim, tarih FROM gosterge WHERE kod=?"
+                      " ORDER BY tarih DESC LIMIT 1", (kod,)).fetchone()
+    except Exception:
+        return None, "", ""
+    return (r[0], r[1] or "", r[2]) if r else (None, "", "")
+
+
+def _tepkiler(b, tur: str) -> list[tuple[str, float]]:
+    """Bir olay TURUNDE olculmus fiyat tepkileri.
+
+    Uydurulmuyor: `tepki` tablosu haber sonrasi gercek fiyat
+    hareketlerini kaydediyor. Gozlem azsa `beklenti._tepki_ozeti`
+    zaten hicbir sey yazmiyor.
+    """
+    if not tur:
+        return []
+    try:
+        r = b.execute(
+            "SELECT t.varlik, t.degisim FROM tepki t"
+            " JOIN olay o ON o.id = t.olay_id"
+            " WHERE o.tur = ? AND t.pencere_sn = 3600", (tur,)).fetchall()
+    except Exception:
+        return []
+    # NULL degisim ATLANIYOR. Olcum tamamlanmamis bir tepki kaydi var
+    # (fiyat cekilememis) ve `None * 100` butun bolumu dusuruyordu.
+    return [(x[0], x[1] * 100.0) for x in r if x[1] is not None]
+
+
+#: Seri kodu -> (konu, olay turu). Beklenti kutusunun hangi mekanizmayi
+#: ve hangi gecmis tepkileri kullanacagini belirliyor.
+TAKVIM_KONUSU = {
+    "PAYEMS": ("İstihdam ve ücret", "istihdam"),
+    "UNRATE": ("İstihdam ve ücret", "istihdam"),
+    "CES0500000003": ("İstihdam ve ücret", "istihdam"),
+    "CPIAUCSL": ("Enflasyon", "enflasyon"),
+    "CPILFESL": ("Enflasyon", "enflasyon"),
+    "PPIACO": ("Enflasyon", "enflasyon"),
+    "FED_FAIZ": ("Para politikası", "faiz"),
+    "TP.TUKFIY2025.GENEL": ("Enflasyon", "enflasyon"),
+    "TP.TUFE1YI.T1": ("Enflasyon", "enflasyon"),
+    "TP.FE25.OKTG04": ("Enflasyon", "enflasyon"),
+    "TP.YISGUCU2.G8": ("İstihdam ve ücret", "istihdam"),
+    "TP.HARICCARIACIK.K1": ("Dış ticaret", ""),
+    "TP.ENFBEK.PKA12ENF": ("Enflasyon", "enflasyon"),
+}
+
+
+def takvim_kutulari() -> list[dict]:
+    """Ana sayfadaki "Yaklaşan veriler" bolumu.
+
+    Her kalem: ne zaman, hangi ulke, son deger ne, esik nerede ve iki
+    dalda hangi MEKANIZMA calisir. Fiyat yonu IDDIA EDILMIYOR (bkz.
+    beklenti.py bas yorumu).
+    """
+    if _yt is None:
+        return []
+    try:
+        yayinlar = _yt.cek(TAKVIM_GUN)
+    except Exception as e:
+        print(f"  yayin takvimi cekilemedi: {e}")
+        return []
+    if _yt.OKUNAMAYAN:
+        for k, h in _yt.OKUNAMAYAN:
+            print(f"  takvim kaynagi okunamadi: {k} -- {h}")
+
+    yayinlar = [y for y in yayinlar if y.onem >= TAKVIM_ONEM_ESIGI]
+    cikti: list[dict] = []
+
+    def kutula(y, b) -> dict:
+        kutu = {
+            "ad": y.ad, "ulke": y.ulke, "onem": y.onem, "kesin": y.kesin,
+            "an": y.an.isoformat(), "yerel": y.yerel,
+            "gun": y.yerel.strftime("%d.%m"),
+            "saat": y.yerel.strftime("%H:%M"),
+            "beklenti": None,
+        }
+        if b is None or not y.kod or _beklenti is None:
+            return kutu
+        # HATA YUTULMUYOR. Ilk yazimda bu blok sessizce bosa dusuyordu
+        # ve butun beklenti kutulari yoktu; sebebi ancak elle deneyince
+        # goruldu. Tek kalem coktugunde takvimin tamami dusmesin diye
+        # yakalaniyor, ama SESSIZ degil.
+        try:
+            konu, olay_turu = TAKVIM_KONUSU.get(y.kod, ("", ""))
+            deger, birim, tarih = _seri_son(b, y.kod)
+            esik = esik_birim = None
+            bs = _beklenti.BEKLENTI_SERISI.get(y.kod)
+            if bs:
+                esik, esik_birim, _ = _seri_son(b, bs)
+            k = _beklenti.kur(y.kod, y.ad, konu, deger, birim, tarih,
+                              esik_deger=esik, esik_birim=esik_birim or "",
+                              tepkiler=_tepkiler(b, olay_turu))
+            if k.dolu:
+                kutu["beklenti"] = k
+        except Exception as e:
+            print(f"  takvim: {y.kod} beklenti kutusu kurulamadi: {e}")
+        return kutu
+
+    # `baglan()` BIR BAGLAM YONETICISI, baglantinin kendisi degil.
+    #
+    # Once `b = _beyin.baglan()` yaziliyordu ve `b` bir sarmalayici
+    # nesneydi; `b.execute(...)` AttributeError veriyor, `_seri_son`
+    # onu yakalayip None donuyor ve BUTUN beklenti kutulari sessizce
+    # bos kaliyordu. Hicbir hata mesaji yoktu -- sayfa yalnizca eksik
+    # basiliyordu.
+    if _beyin is None:
+        cikti = [kutula(y, None) for y in yayinlar[:TAKVIM_EN_COK]]
+    else:
+        try:
+            with _beyin.baglan() as b:
+                cikti = [kutula(y, b) for y in yayinlar[:TAKVIM_EN_COK]]
+        except Exception as e:
+            print(f"  takvim: depo acilamadi ({e}); beklenti kutulari yok")
+            cikti = [kutula(y, None) for y in yayinlar[:TAKVIM_EN_COK]]
+
+    dolu = sum(1 for k in cikti if k["beklenti"])
+    print(f"takvim: {len(cikti)} yaklasan veri, {dolu} beklenti kutusu")
+    return cikti
+
+
 #: Canli akista kac kalem. Akis SAYFAYI DOLDURMAK icin degil, hareketi
 #: gostermek icin var; sonsuz liste ana sayfayi yeniden haber listesine
 #: cevirirdi. Devami /gundem/'de.
@@ -2019,6 +2164,8 @@ def insa() -> int:
             akis=canli_akis(gundem.get("haberler", [])),
             # Piyasa ozetinin yerini alan AI yorum akisi
             ai_akis=ai_akisi(uretilecek),
+            # Yaklasan veri aciklamalari + beklenti kutulari
+            takvim=takvim_kutulari(),
         ),
     )
 

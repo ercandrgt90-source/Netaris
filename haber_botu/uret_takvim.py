@@ -51,6 +51,42 @@ def main() -> int:
     with beyin.baglan() as b:
         var = {r[0] for r in b.execute(
             "SELECT adres FROM haber WHERE adres LIKE 'netaris:veri/%'")}
+    # GOZLEMLER HABERDEN BAGIMSIZ YAZILIYOR.
+    #
+    # Bu hat simdiye kadar SADECE haber uretiyordu. Sonuc: ABD makro
+    # serilerinin (PAYEMS, CPIAUCSL...) degerleri hicbir yerde yapisal
+    # olarak durmuyordu -- yalnizca haber basliginin icinde metin
+    # olarak. Olculdu: "Yaklaşan veriler" bolumu ABD verilerinde
+    # "son aciklanan deger"i bulamadi, butun beklenti kutulari bos
+    # kaldi.
+    #
+    # HABER TEKILLEMESINDEN ONCE yaziliyor: bir gozlemin haberi zaten
+    # varsa yeni haber uretilmiyor ama GOZLEM yine de depoya girmeli.
+    # Ilk yazimda yalnizca `yeni` listesi yaziliyordu ve tam bu yuzden
+    # hicbir gozlem kaydedilmedi -- butun haberler zaten mevcuttu.
+    #
+    # `gosterge_yaz` INSERT OR IGNORE kullaniyor: ayni kod+tarih ikinci
+    # kez gelirse sessizce atlaniyor, yani her calistirmada guvenle
+    # cagrilabilir.
+    # OKUNAN DEGER YAZILIYOR, HAM SERI DEGERI DEGIL.
+    #
+    # Ilk yazimda `a.deger` (ham seri) yaziliyordu ve olculdu:
+    # CPIAUCSL icin depoya "332,568" ve birim "%" girdi. O sayi TUFE
+    # ENDEKSININ SEVIYESI; sayfada "%332,57" diye gorunurdu. Serinin
+    # `sunum` alani zaten neyin gosterilecegini soyluyor (seviye /
+    # aylik degisim / yillik degisim) ve `okunan` onu uyguluyor.
+    #
+    # Bu, EVDS formulu `DUZEY`e sabitlendiginde "TÜFE: %132,31"
+    # yazilmasina yol acan hatanin aynisi -- ayni tuzak, ikinci kez.
+    with beyin.baglan() as b:
+        n_gozlem = beyin.gosterge_yaz(b, [{
+            "kod": a.kod, "tarih": a.tarih, "deger_ham": a.okunan,
+            "birim": a.birim, "ad": a.ad,
+            "kaynak": "EVDS" if a.kod.startswith("TP.") else "FRED",
+        } for a in aciklamalar])
+    if n_gozlem:
+        print(f"  {n_gozlem} gozlem depoya yazildi")
+
     yeni = [a for a in aciklamalar if a.adres not in var]
     print(f"  {len(aciklamalar)} taze gozlem, {len(yeni)} yeni haber")
     if not yeni:
@@ -122,8 +158,9 @@ def main() -> int:
     with beyin.baglan() as b:
         with beyin.calisma_kaydi(b, "takvim") as ozet:
             n_yeni, n_tekrar = beyin.haber_yaz(b, kayitlar)
-            ozet.update({"yeni": n_yeni, "tekrar": n_tekrar})
-    print(f"\ndepo: {n_yeni} yeni, {n_tekrar} tekrar")
+            ozet.update({"yeni": n_yeni, "tekrar": n_tekrar,
+                         "gozlem": n_gozlem})
+    print(f"\ndepo: {n_yeni} yeni, {n_tekrar} tekrar, {n_gozlem} gozlem")
     print(f"gundem.json: {len(veri['haberler'])} haber")
     return 0
 
