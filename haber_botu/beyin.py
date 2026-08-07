@@ -75,6 +75,27 @@ CREATE TABLE IF NOT EXISTS haber (
     sayfa_veri    TEXT
 );
 
+-- YAYIN BEKLENTISI (konsensus).
+--
+-- NEDEN DEPODA: konsensus kaynagi HIZ SINIRLI ve otomasyon yarim
+-- saatte bir calisiyor. Onbellek dosyasi .gitignore'da oldugu icin CI
+-- her calistirmada sifirdan cekmek zorundaydi; kaynak o an vermezse
+-- site BEKLENTISIZ kuruluyor ve bir onceki iyi surumu SESSIZCE
+-- eziyordu -- islem bile olusmadigi icin iz de kalmiyordu.
+--
+-- Depo git'te; boylece bir kez alinan beklenti butun calistirmalarda
+-- elde kaliyor. Kaynagin XML'i oldugu gibi saklanmiyor, yalnizca
+-- kullandigimiz alanlar.
+CREATE TABLE IF NOT EXISTS yayin_beklenti (
+    kod        TEXT NOT NULL,
+    an         TEXT NOT NULL,       -- ISO, UTC
+    beklenti   TEXT NOT NULL,
+    onceki     TEXT,
+    kaynak     TEXT,
+    kayit_ani  TEXT NOT NULL,
+    PRIMARY KEY (kod, an)
+);
+
 CREATE TABLE IF NOT EXISTS ceviri (
     kaynak_ozet TEXT PRIMARY KEY,   -- kaynak metnin sha256 ozeti
     kaynak      TEXT NOT NULL,

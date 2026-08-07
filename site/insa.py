@@ -1583,6 +1583,51 @@ TAKVIM_KONUSU = {
 }
 
 
+def beklenti_yaz(b, yayinlar) -> int:
+    """Kaynaktan gelen konsensusu depoya yazar.
+
+    NEDEN DEPOYA: kaynak hiz sinirli ve otomasyon yarim saatte bir
+    calisiyor. Onbellek dosyasi .gitignore'da, yani CI her calistirmada
+    sifirdan cekiyor; kaynak o an vermezse site beklentisiz kuruluyor
+    ve bir onceki iyi surumu SESSIZCE eziyor -- islem bile olusmadigi
+    icin iz kalmiyor.
+    """
+    n = 0
+    for y in yayinlar:
+        if not (y.kod and y.beklenti):
+            continue
+        try:
+            n += b.execute(
+                "INSERT INTO yayin_beklenti"
+                " (kod, an, beklenti, onceki, kaynak, kayit_ani)"
+                " VALUES (?,?,?,?,?,?)"
+                " ON CONFLICT(kod, an) DO UPDATE SET"
+                "   beklenti=excluded.beklenti, onceki=excluded.onceki,"
+                "   kayit_ani=excluded.kayit_ani",
+                (y.kod, y.an.isoformat(), y.beklenti, y.onceki, y.kaynak,
+                 datetime.now(timezone.utc).isoformat(timespec="seconds")),
+            ).rowcount
+        except Exception:
+            continue
+    return n
+
+
+def beklenti_oku(b, kod: str, an) -> tuple[str, str, str]:
+    """Depodaki konsensus: (beklenti, onceki, kaynak). Yoksa uc bos.
+
+    GUN esleSmesi kullaniliyor, tam an degil: kaynak saati bir dakika
+    kaydirdiginda kayit bulunamaz olurdu.
+    """
+    try:
+        r = b.execute(
+            "SELECT beklenti, onceki, kaynak FROM yayin_beklenti"
+            " WHERE kod=? AND substr(an,1,10)=? LIMIT 1",
+            (kod, an.date().isoformat())).fetchone()
+    except Exception:
+        return "", "", ""
+    return (r[0] or "", r[1] or "", r[2] or "") if r else ("", "", "")
+
+
 def takvim_kutulari() -> list[dict]:
     """Ana sayfadaki "Yaklaşan veriler" bolumu.
 
@@ -1605,6 +1650,13 @@ def takvim_kutulari() -> list[dict]:
     cikti: list[dict] = []
 
     def kutula(y, b) -> dict:
+        # Kaynak bu calistirmada beklenti vermediyse DEPODAN okunuyor.
+        # Bayat bir konsensus, konsensus olmamasindan iyidir ve rakamlar
+        # gun icinde nadiren degisiyor.
+        if b is not None and y.kod and not y.beklenti:
+            bk, on, kyn = beklenti_oku(b, y.kod, y.an)
+            if bk:
+                y = _yt.replace_yayin(y, beklenti=bk, onceki=on, kaynak=kyn)
         kutu = {
             "ad": y.ad, "ulke": y.ulke, "onem": y.onem, "kesin": y.kesin,
             "an": y.an.isoformat(), "yerel": y.yerel,
@@ -1657,6 +1709,9 @@ def takvim_kutulari() -> list[dict]:
     else:
         try:
             with _beyin.baglan() as b:
+                yazilan = beklenti_yaz(b, yayinlar)
+                if yazilan:
+                    print(f"takvim: {yazilan} beklenti depoya yazildi")
                 cikti = [kutula(y, b) for y in yayinlar[:TAKVIM_EN_COK]]
         except Exception as e:
             print(f"  takvim: depo acilamadi ({e}); beklenti kutulari yok")

@@ -548,3 +548,8 @@ def cek(gun: int = 21) -> list[Yayin]:
     yakin = [y for y in hepsi if simdi <= y.an <= son]
     yakin.sort(key=lambda y: y.an)
     return yakin
+
+
+def replace_yayin(y: Yayin, **degisiklik) -> Yayin:
+    """`Yayin` frozen; disaridan alan degistirmenin tek yolu."""
+    return replace(y, **degisiklik)
