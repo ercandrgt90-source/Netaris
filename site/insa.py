@@ -1052,6 +1052,7 @@ DEVAM_SAYISI = 5
 IZLEME_VARLIK = (
     ("PPK", "TCMB_FAIZ"),
     ("Politika faizi", "TCMB_FAIZ"),
+    ("Ortalama fonlama", "TCMB_FAIZ"),
     ("TCMB piyasa katılımcıları anketi", "TUFE_TR"),
     ("TCMB rezervleri", "TCMB"),
     ("Bir sonraki TÜFE açıklaması", "TUFE_TR"),

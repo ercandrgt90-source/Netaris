@@ -121,6 +121,21 @@ YASAK = (
     re.compile(r"\b(yükselecek|düşecek|artacak|azalacak|gerileyecek)\b", re.I),
     re.compile(r"\byatırım (tavsiyesi|önerisi)\b", re.I),
     re.compile(r"\b(kesinlikle|mutlaka|garanti)\b", re.I),
+
+    # YANLIS KAVRAM ADI + DEGER.
+    #
+    # Olculdu: model "Politika faizi %40,00 seviyesinde sabit kaldi"
+    # yazdi. Sayi DOGRUYDU -- ama o sayi TP.APIFON4'ten, yani agirlikli
+    # ortalama FONLAMA MALIYETINDEN geliyor. Politika faizi (bir hafta
+    # vadeli repo) ayri bir buyukluk ve o gun %37 idi.
+    #
+    # Model uydurmadi: girdisindeki bulgu cumlesi de ayni yanlis adi
+    # tasiyordu. Girdi duzeltildi, ama ayni hata bir daha gecmesin diye
+    # CIKTI da denetleniyor -- girdi bir gun yine kayabilir.
+    #
+    # Kavramdan SOZ ETMEK serbest ("politika faizi kararı piyasanın
+    # odağında"); yasak olan, o ada bir DEGER iliStirmek.
+    re.compile(r"politika faizi[^.]{0,14}%\s*\d", re.I),
 )
 
 #: SUREN EGILIM IDDIASI -- "artiyor", "yukseliyor", "dusuyor".

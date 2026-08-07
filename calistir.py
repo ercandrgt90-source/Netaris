@@ -71,6 +71,15 @@ def _calistir(baslik: str, komut: list[str]) -> tuple[bool, str]:
     return ok, satirlar[-1] if satirlar else ""
 
 
+def _ozet(sonuclar: dict) -> None:
+    """Adim ozeti. Denetim isi erken dusurdugunde de basiliyor."""
+    print("\n" + "=" * 68)
+    print("  ÖZET")
+    print("=" * 68)
+    for baslik, durum in sonuclar.items():
+        print(f"  {'✓' if durum else '✗'}  {baslik}")
+
+
 def main() -> int:
     a = argparse.ArgumentParser(description="Netaris tek komut")
     a.add_argument("--yayinla", action="store_true", help="Cloudflare'e dagit")
@@ -169,6 +178,26 @@ def main() -> int:
         ok, _ = _calistir(baslik, komut)
         sonuclar[baslik] = ok
 
+    # VERI DENETIMI SITE URETIMINDEN ONCE.
+    #
+    # Kullanici sayfada "Politika faizi %40" gordu; gercek politika
+    # faizi %37 idi. Deger dogruydu, ETIKET yanlisti -- sayi fonlama
+    # maliyeti serisinden geliyordu. Bir birim testi bunu yakalamaz
+    # cunku kod dogru calisiyor; yakalayacak sey, yayimlanan sayiyi
+    # TANIMIYLA karsilastiran bir denetim.
+    #
+    # HATA VARSA SITE URETILMIYOR: yanlis etiketli bir sayi
+    # yayimlamaktansa site eski haliyle ayakta kalir. Uyari isi
+    # dusurmuyor -- bayat veri kaynagin gecikmesi olabilir.
+    denet, _ = _calistir("Veri denetimi", [str(BOT / "denetim.py")])
+    sonuclar["Veri denetimi"] = denet
+    if not denet:
+        print("\n  VERI DENETIMI HATA VERDI -- site uretilmedi, "
+              "dagitim yapilmadi.")
+        sonuclar["Site üretimi"] = False
+        _ozet(sonuclar)
+        return 1
+
     ok, _ = _calistir("Site üretimi", [str(SITE / "insa.py")])
     sonuclar["Site üretimi"] = ok
 
@@ -181,11 +210,7 @@ def main() -> int:
     elif args.yayinla:
         print("\n  Site uretimi basarisiz -- dagitim YAPILMADI")
 
-    print("\n" + "=" * 68)
-    print("  ÖZET")
-    print("=" * 68)
-    for baslik, durum in sonuclar.items():
-        print(f"  {'✓' if durum else '✗'}  {baslik}")
+    _ozet(sonuclar)
 
     with beyin.baglan() as b:
         d = beyin.durum(b)

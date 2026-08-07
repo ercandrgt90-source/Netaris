@@ -46,7 +46,19 @@ DEPO = pathlib.Path(__file__).parent.parent / "netaris.db"
 TURKIYE_PANEL = (
     ("TP.TUKFIY2025.GENEL", "Enflasyon", "%", 2),
     ("TP.FE25.OKTG04", "Çekirdek (C)", "%", 2),
-    ("TP.APIFON4", "Politika faizi", "%", 2),
+    # ETIKET "POLITIKA FAIZI" DEGIL.
+    #
+    # TP.APIFON4 = TCMB agirlikli ortalama FONLAMA MALIYETI. Politika
+    # faizi (bir hafta vadeli repo) AYRI bir buyukluk ve ikisi
+    # sapabiliyor -- olculdu: panel "Politika faizi %40,00" yaziyordu,
+    # gercek politika faizi %37 idi. Ayni dosyada `takvim.TANIM` zaten
+    # "politika faizinden sapabilir" diye yaziyordu; yanlis olan
+    # yalnizca bu etiketti.
+    #
+    # Serinin dogru adi kullaniliyor. Politika faizinin kendisi icin
+    # EVDS'de calisan bir kod bulunamadi (TP.APIFON1/2/3, TP.FE.OKTG01
+    # denendi, hepsi bos donuyor); bulununca AYRI kalem olarak eklenir.
+    ("TP.APIFON4", "Ortalama fonlama", "%", 2),
     ("TP.DK.USD.S.YTL", "USD/TRY", "", 2),
     ("TP.YISGUCU2.G8", "İşsizlik", "%", 1),
 )
@@ -891,12 +903,18 @@ def _bulgu_faiz(b, d) -> list[str]:
     enf = _seri(b, "TP.TUKFIY2025.GENEL", 2)
     if not faiz:
         return []
-    cikti = [f"Politika faizi %{_vir(faiz[-1][1], 2)}"]
+    # ETIKET "POLITIKA FAIZI" DEGIL -- seri TP.APIFON4, yani agirlikli
+    # ortalama FONLAMA MALIYETI. Ikisi ayri buyukluk ve sapabiliyor;
+    # olculdu: bulgu "Politika faizi %40,00" diyordu, gercek politika
+    # faizi %37 idi. Panel etiketi duzeltildi ama BU SATIR gozden
+    # kacmisti -- ayni yanlis ad iki ayri yerde yasiyordu.
+    cikti = [f"Ortalama fonlama maliyeti %{_vir(faiz[-1][1], 2)}"]
     if enf:
         reel = faiz[-1][1] - enf[-1][1]
         # Reel faiz TANIM GEREGI fark; "yaklasik" demiyoruz ama neyin
         # neyden cikarildigini sayfada yaziyoruz.
-        cikti.append(f"Manşet enflasyona göre reel faiz {_vir(reel, 2)} puan")
+        cikti.append("Manşet enflasyona göre reel fonlama "
+                     f"{_vir(reel, 2)} puan")
     if len(faiz) >= 30:
         onceki = faiz[-30][1]
         fark = faiz[-1][1] - onceki
