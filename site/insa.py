@@ -1236,6 +1236,54 @@ def dosya_cizelgesi(h: dict, hepsi: list[dict], ilgili: list[dict],
             "yeter": len(adimlar) >= 2}
 
 
+#: Haberin kendi yapisal baglarindan en fazla kac tanesi basilir.
+DUZENEK_SAYISI = 4
+
+
+def duzenek(h_varliklar) -> list[dict]:
+    """Haberin KENDI varliklarinin yapisal baglari.
+
+    NEDEN VAR
+    ---------
+    Olculdu: 204 haber sayfasinda "Bu neden kritik?" metni yalnizca 40
+    farkli surumde vardi ve en siki 34 sayfada AYNIYDI. Sebep, o metnin
+    KONU tablosundan gelmesi: ayni konudaki her haber ayni cumleyi
+    tasiyor.
+
+    Bu bolum konudan degil, HABERIN KENDI VARLIKLARINDAN kuruluyor.
+    Ayni olcumde 149 haberin 59 farkli varlik kumesi vardi -- yani
+    konuya gore uc kattan fazla ayrisiyor. Ustelik her satir depodaki
+    bir baga karsilik geliyor, uydurulmuyor.
+
+    YON IDDIA EDILMIYOR. Bag "etkiler" der, "dusurur" demez -- varlik
+    sayfalarindaki kuralin aynisi. `dayanak` alani da basiliyor:
+    muhasebe kimligi ile gozlem ayni sey degil.
+    """
+    if _varlik is None or _beyin is None or not h_varliklar:
+        return []
+    kodlar = [v["kod"] for v in h_varliklar]
+    cikti: list[dict] = []
+    gorulen: set = set()
+    try:
+        with _beyin.baglan() as b:
+            for kod in kodlar:
+                for g in _varlik.baglar(b, kod):
+                    if not g.get("aciklama"):
+                        # Aciklamasiz bag SATIR OLARAK basilmiyor:
+                        # "A -> B" tek basina okura mekanizmayi
+                        # anlatmiyor, yalnizca yer kapliyor.
+                        continue
+                    im = (g["kaynak"], g["hedef"])
+                    if im in gorulen:
+                        continue
+                    gorulen.add(im)
+                    cikti.append(g)
+    except Exception:
+        return []
+    cikti.sort(key=lambda g: -(g.get("guc") or 0))
+    return cikti[:DUZENEK_SAYISI]
+
+
 #: Haber konusu -> analiz kategorisi. Makale sonunda "bu veriyi kullanan
 #: analizler" bolumunu besliyor.
 KONU_KATEGORI = {
@@ -2302,6 +2350,9 @@ def insa() -> int:
                     senaryo_acik=senaryoya_acik(h),
                     ai_yorum=ai_yorumlari.get(h["adres"], ""),
                     etki=etki_alanlari(h, h_varliklar),
+                    # Haberin KENDI yapisal baglari -- konu tablosundan
+                    # degil, metinden cikan varliklardan.
+                    duzenek=duzenek(h_varliklar),
                     # Makale sonu: okur bosluga dusmesin.
                     ayni_konu=ayni_konu_haberleri(h, uretilecek),
                     ilgili_analiz=ilgili_analizler(h, listelenen),

@@ -390,6 +390,44 @@
        dogrudan bagli. Gerekce her satirda yaziyor ki okur katilmadigi
        yeri gorebilsin. #}
     {% if dosya and dosya.duyarlilik %}
+    {# ---------------------------------------------------------------
+       DUZENEK -- haberin KENDI yapisal baglari.
+
+       Olculdu: "Bu neden kritik?" metni 204 sayfada yalnizca 40 farkli
+       surumde vardi, en siki 34 sayfada ayni. Cunku o metin KONU
+       tablosundan geliyor.
+
+       Bu bolum konudan degil, haberin metninden cikan VARLIKLARDAN
+       kuruluyor: ayni olcumde 149 haberin 59 farkli varlik kumesi
+       vardi. Her satir depodaki bir baga karsilik geliyor.
+
+       YON IDDIA EDILMIYOR: bag "etkiler" der, "dusurur" demez. Dayanak
+       (yapisal / veri / kaynak) basiliyor -- muhasebe kimligi ile
+       gozlem ayni sey degil.
+       --------------------------------------------------------------- #}
+    {% if duzenek %}
+    {% set dayanak_ad = {"yapisal": "yapısal", "veri": "veri",
+                         "kaynak": "kaynak"} %}
+    {% set tur_ad = {"etkiler": "etkiler", "belirler": "belirler",
+                     "yayimlar": "yayımlar", "bileseni": "bileşeni",
+                     "degerlendirir": "değerlendirir"} %}
+    <h2>Hangi düzenek çalışıyor?</h2>
+    <ul class="duzenek">
+      {% for g in duzenek %}
+      <li>
+        <p class="duzenek-bag">
+          <a href="{{ g.kaynak|varlik_yolu }}">{{ g.kaynak_ad }}</a>
+          <span class="duzenek-ok" aria-hidden="true">→</span>
+          <a href="{{ g.hedef|varlik_yolu }}">{{ g.hedef_ad }}</a>
+          <span class="duzenek-tur">{{ tur_ad.get(g.tur, g.tur) }}</span>
+          <span class="duzenek-dayanak">{{ dayanak_ad.get(g.dayanak, g.dayanak) }}</span>
+        </p>
+        <p class="duzenek-metin">{{ g.aciklama }}</p>
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+
     <h2>Kim etkilenir?</h2>
     <table class="duyarlilik">
       <tbody>

@@ -3188,3 +3188,36 @@ a.seyir-baslik:hover { color: var(--vurgu); text-decoration: none; }
   padding: 2px 9px; border-radius: 999px;
   background: var(--vurgu-zar); color: var(--vurgu); font-weight: 600;
 }
+
+/* ================================================================
+   DUZENEK -- haberin KENDI yapisal baglari
+   ================================================================
+   "Bu neden kritik?" metni konu tablosundan geliyor ve ayni konudaki
+   her haberde AYNI. Bu bolum haberin metninden cikan varliklardan
+   kuruluyor, yani makaleye ozgu. Her satir depodaki bir baga
+   karsilik geliyor -- uydurulmuyor.                                */
+.duzenek { list-style: none; padding: 0; margin: 14px 0 26px; }
+.duzenek li {
+  padding: 12px 15px; margin-bottom: 8px;
+  border: 1px solid var(--cizgi); border-radius: var(--r-kucuk);
+  background: var(--panel-2);
+}
+.duzenek-bag {
+  margin: 0 0 5px; display: flex; align-items: center; gap: 8px;
+  flex-wrap: wrap; font-weight: 650; font-size: 0.92rem;
+}
+.duzenek-ok { color: var(--yazi-3); }
+.duzenek-tur {
+  font-size: 0.72rem; font-weight: 600; color: var(--yazi-2);
+  padding: 2px 8px; border-radius: 999px; background: var(--panel);
+  border: 1px solid var(--cizgi);
+}
+/* Dayanak ETIKETI: muhasebe kimligi ile gozlem ayni sey degil ve
+   okur farki gormeli. */
+.duzenek-dayanak {
+  margin-left: auto; font-size: 0.68rem; letter-spacing: 0.03em;
+  text-transform: uppercase; color: var(--yazi-3);
+}
+.duzenek-metin {
+  margin: 0; font-size: 0.88rem; line-height: 1.55; color: var(--yazi-2);
+}

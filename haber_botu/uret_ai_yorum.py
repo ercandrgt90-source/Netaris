@@ -39,6 +39,7 @@ _KOK = pathlib.Path(__file__).resolve().parent
 sys.path[:0] = [str(_KOK), str(_KOK / "ai"), str(_KOK / "analiz"),
                 str(_KOK / "kaynak")]
 
+import besleme    # noqa: E402
 import beyin      # noqa: E402
 import dosya      # noqa: E402
 import olay       # noqa: E402
@@ -187,14 +188,65 @@ def main() -> int:
     # Arastirma dosyalari BIR KEZ kuruluyor: hem secim hem girdi ayni
     # nesneyi kullaniyor. Iki kez kurmak depoyu iki kez okumak demekti.
     dosyalar = {}
-    for h in veri.get("haberler", []):
+    # ARSIV DE ADAY.
+    #
+    # Aday havuzu yalnizca `gundem.json` penceresinden kuruluyordu ve
+    # olculdu: 204 yayimlanmis haber sayfasinin 19'unda yorum vardi.
+    # Sebep yapisal -- pencere doniyor, yorum almadan pencereden dusen
+    # haber bir daha hic siraya girmiyordu. Sonuc: sayfalarin %90'inda
+    # analiz konuya gore sablonlanmis metinden ibaret kaliyor ve okur
+    # ucuncu sayfada bunu fark ediyor.
+    #
+    # KOTA ICIN SINIR ARTIRILMADI. Calistirma basina ayni sayida cagri
+    # yapiliyor; guncel haberler once, arsiv kalan yerleri dolduruyor.
+    # Boylece backlog gunler icinde eriyor, tek gunde kotayi yakmiyor.
+    havuz = list(veri.get("haberler", []))
+    arsiv_sayisi = 0
+    try:
+        with beyin.baglan() as _b:
+            for _adres, _yuk in _b.execute(
+                    "SELECT adres, sayfa_veri FROM haber"
+                    " WHERE sayfa_veri IS NOT NULL AND yayimlandi=1"
+                    " AND adres NOT IN (SELECT adres FROM ai_yorum)"
+                    " ORDER BY tarih DESC LIMIT 400").fetchall():
+                if _adres in {x.get("adres") for x in havuz}:
+                    continue
+                try:
+                    _h = json.loads(_yuk)
+                except (TypeError, ValueError):
+                    continue
+                _h["adres"] = _adres
+                _h["yorumlanir"] = True
+                # KONU VE BOLGE YENIDEN TURETILIYOR.
+                #
+                # `sayfa_veri` yalnizca HAM OLGU sakliyor (baslik, ozet,
+                # kurum, tarih) -- turetilmis alanlar bilerek disarida,
+                # cunku depoda saklandiklarinda siniflandirici
+                # duzeldikten sonra bile eski degeri tasiyorlardi.
+                #
+                # Ama o yuzden arsiv kaydinda `konu` BOS geliyor ve
+                # `dosya.kur("")` konusuz bir dosya uretiyor: model
+                # habere ozgu hicbir sey goremiyor. Ilk denemede tam
+                # bunu yapiyordu.
+                _bas = _h.get("baslik_kaynak") or _h.get("baslik", "")
+                _h["konu"] = besleme.konu_bul(_bas, _h.get("konu")
+                                              or "Şirket haberleri")
+                _h["bolge"] = besleme.bolge_bul(_bas, _h.get("dil", "tr"))
+                havuz.append(_h)
+                arsiv_sayisi += 1
+    except Exception as e:
+        print(f"  arsiv adaylari okunamadi: {e}")
+    if arsiv_sayisi:
+        print(f"  {arsiv_sayisi} arsiv haberi aday havuzuna eklendi")
+
+    for h in havuz:
         if h.get("yorumlanir") and h.get("adres"):
             dosyalar[h["adres"]] = dosya.kur(
                 h.get("konu", ""), h.get("bolge", ""), h.get("tarih", ""),
                 baslik=h.get("baslik_kaynak") or h.get("baslik", ""),
                 ozetsiz=not (h.get("ozet") or "").strip())
 
-    aday = secilenler(veri.get("haberler", []), var, dosyalar)
+    aday = secilenler(havuz, var, dosyalar)
     print(f"{len(aday)} aday, sinir {args.sinir}")
     if not aday:
         return 0
