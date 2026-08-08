@@ -466,5 +466,31 @@
    "lisans": "pdm 1.0",
    "kaynak": "https://www.flickr.com/photos/52445638@N06/52535592435"
   }
- ]
+ ],
+ "IR": [],
+ "RU": [],
+ "CN": [],
+ "US": [],
+ "EA": [],
+ "TR": [],
+ "BRENT": [],
+ "WTI": [],
+ "DGAZ": [],
+ "XAU": [],
+ "XAG": [],
+ "XCU": [],
+ "FED": [],
+ "ECB": [],
+ "TCMB": [],
+ "BIST100": [],
+ "BTC": [],
+ "NFP": [],
+ "CPI_US": [],
+ "TUFE_TR": [],
+ "SEK_BANKA": [],
+ "SEK_ENERJI": [],
+ "SEK_OTOMOTIV": [],
+ "SEK_TURIZM": [],
+ "SEK_INSAAT": [],
+ "SEK_PERAKENDE": []
 }

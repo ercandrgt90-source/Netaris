@@ -40,12 +40,13 @@ import hashlib
 import json
 import pathlib
 import re
+import time
 from dataclasses import dataclass
 
 import httpx
 
 UC = "https://api.openverse.org/v1/images/"
-BASLIKLAR = {"User-Agent": "Netaris/0.1 (finansal yayin; iletisim@netaris.com)"}
+BASLIKLAR = {"User-Agent": "Netaris/1.0 (finans arastirma; ercandrgt90@gmail.com)"}
 ZAMAN_ASIMI = 40.0
 
 _KOK = pathlib.Path(__file__).parent.parent.parent
@@ -128,6 +129,21 @@ VARLIK_ARAMA = {
     "SEK_INSAAT": ("construction site", "housing construction"),
     "SEK_PERAKENDE": ("retail store", "shopping mall"),
 }
+
+#: CALISTIRMA BASINA EN COK KAC API ISTEGI.
+#:
+#: Olculdu: havuzu tek seferde doldurmak 96 istek uretiyor ve kaynak
+#: bunu hemen sinirlayip Cloudflare dogrulama sayfasi donduruyor (429).
+#: Yani "hepsini simdi indir" yaklasimi hicbir sey indirmiyor.
+#:
+#: Hat yarim saatte bir calisiyor. Calistirma basina alti istekle havuz
+#: birkac saatte doluyor ve kaynak hic zorlanmiyor. Yavas dolan bir
+#: havuz, hic dolmayandan iyidir.
+CALISTIRMA_ISTEK_SINIRI = 6
+
+#: Istekler arasi bekleme (saniye). Ucretsiz ve acik bir servise ard
+#: arda istek yagdirmamak icin.
+ISTEK_ARASI = 1.5
 
 #: Konu basina indirilecek fotograf sayisi
 # HAVUZ 4 -> 12.
@@ -241,6 +257,9 @@ def _lisans_uygun(s: dict) -> bool:
 #: Erisilemeyen fotograf sorgulari. `hazirla` her cagrida temizler.
 OKUNAMAYAN: list[tuple[str, str, str]] = []
 
+#: Bu calistirmada yapilan istek sayisi. `hazirla` sifirliyor.
+_ISTEK = {"n": 0}
+
 
 def doldur(konu: str, kayit: Kayit, adet: int = HAVUZ) -> int:
     """Konu icin fotograf havuzunu doldurur. Yeni indirilen sayisini doner.
@@ -268,6 +287,14 @@ def doldur(konu: str, kayit: Kayit, adet: int = HAVUZ) -> int:
     for sorgu in sorgular:
         if len(mevcut) >= adet:
             break
+        # ISTEK SINIRI: havuz bu calistirmada dolmayabilir ve bu
+        # SORUN DEGIL -- bir sonraki calistirma kaldigi yerden devam
+        # ediyor (`doldur` mevcutlari koruyup eksigi tamamliyor).
+        if _ISTEK["n"] >= CALISTIRMA_ISTEK_SINIRI:
+            return eklendi
+        if _ISTEK["n"]:
+            time.sleep(ISTEK_ARASI)
+        _ISTEK["n"] += 1
         try:
             r = httpx.get(
                 UC,
@@ -350,6 +377,7 @@ def hazirla(konular: list[str]) -> Kayit:
     doluysa ag istegi yapmiyor, dolayisiyla bunun gunluk maliyeti yok.
     """
     OKUNAMAYAN.clear()
+    _ISTEK["n"] = 0
     kayit = Kayit()
     eksik = []
     for konu in dict.fromkeys(list(konular) + list(TEMEL_KONULAR)):
@@ -368,4 +396,7 @@ def hazirla(konular: list[str]) -> Kayit:
     if eksik:
         print(f"  {len(eksik)} konuda havuz {HAVUZ}'in altinda: "
               + ", ".join(f"{k}({n})" for k, n in eksik[:6]))
+    if _ISTEK["n"] >= CALISTIRMA_ISTEK_SINIRI:
+        print(f"  istek siniri ({CALISTIRMA_ISTEK_SINIRI}) doldu -- havuz "
+              f"bir sonraki calistirmada kaldigi yerden devam edecek")
     return kayit
