@@ -167,6 +167,46 @@ sina("responses yaniti cozulur, akil yurutme ATLANIR",
          {"type": "message", "content": [{"text": "sonuc"}]},
      ]}}) == "sonuc")
 
+# --------------------------------------------------------------------
+# HABERI TEKRAR ETME
+#
+# "AI'in haberi farkli cumlelerle tekrar etmesi analiz olarak kabul
+# edilmez." Olculdu: 44 yorumun ortalama ortusmesi %28, ama dordu
+# %60'in uzerinde ve en kotusu %80 -- model haberi baska kelimelerle
+# yeniden yazmis.
+# --------------------------------------------------------------------
+# ESIK NEREDEN: mevcut 45 yorumda bu yonle olculen ortusme ortalama
+# %14, medyan %12, en yuksek %60 -- ve o %60'lik yorum MESRU (haberi
+# aktardiktan sonra mekanizma ekliyor). Gercek tekrar ornegi ise %83.
+# Esik 0,65 ikisinin arasinda.
+_G = ("Haber: Citigroup, 2026'nın üçüncü çeyreğine ilişkin ortalama Brent "
+      "petrol fiyatı tahminini 65 dolardan 70 dolara yükseltti. "
+      "Veri: Brent 88,90 dolar; önceki kapanış 96,95 dolar.")
+
+_tekrar = ("Citigroup, 2026'nın üçüncü çeyreği için ortalama Brent petrol "
+           "fiyatı tahminini 65 dolardan 70 dolara yükseltti.")
+sina("haberi tekrar eden yorum esigi asiyor",
+     yorumcu.tekrar_orani(_tekrar, _G) >= yorumcu.TEKRAR_ESIGI)
+
+_analiz = ("Brent 88,90 dolara gerilerken tahmin yukarı çekildi; bu ayrışma, "
+           "arz riskinin fiyatlanmadığı bir dönemde talep beklentisinin "
+           "güçlendiğine işaret eder. Türkiye net enerji ithalatçısı olduğu "
+           "için bu kalem cari dengeye ve maliyet enflasyonuna yazılır.")
+sina("gercek analiz esigin ALTINDA",
+     yorumcu.tekrar_orani(_analiz, _G) < yorumcu.TEKRAR_ESIGI)
+
+# Sayilar hesaba GIRMIYOR: modelin sayilari girdiden almasi ZORUNLU
+# (sayi_denetimi bunu sart kosuyor). Onlari tekrar saymak, dogru
+# davranisi cezalandirmak olurdu.
+_sayili = "88,90 96,95 65 70 2026"
+sina("yalnizca sayidan olusan metin ortusme uretmez",
+     yorumcu.tekrar_orani(_sayili, _G) == 0.0)
+
+sina("bos cikti sifir", yorumcu.tekrar_orani("", _G) == 0.0)
+sina("alakasiz metin dusuk ortusme",
+     yorumcu.tekrar_orani("Deprem bolgesinde konut teslimleri surdu.", _G) < 0.3)
+
+
 print("=" * 60)
 if kaldi:
     print(f"{kaldi} TEST BASARISIZ")

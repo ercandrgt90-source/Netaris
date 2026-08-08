@@ -341,6 +341,87 @@ def cikti_denetimi() -> list[Bulgu]:
     return bulgu
 
 
+# --------------------------------------------------------------------
+# 6. EDITORYAL DENETIM -- yayimlanan sayfalarin icerik kalitesi
+# --------------------------------------------------------------------
+#
+# Onceki bes baslik VERIYI denetliyor. Bu baslik ICERIGI: gorsel
+# tekrari, bolumler arasi tekrar, son dakika disiplini.
+#
+# HEPSI OLCULEBILIR OLANLAR. "Gorsel haberle ilgili mi" ya da "baslik
+# sansasyonel mi" gibi yargi gerektiren maddeler BURADA YOK -- bir
+# denetim ancak olcebildigini denetlemeli, yoksa yanlis alarm uretir
+# ve kendini degersizlestirir (bkz. kaldirilan "Ortalama fonlama"
+# kurali).
+
+#: Ayni fotografin kac haberde tekrar etmesi FAZLA sayilir.
+#: Olculdu: 28 sayfali haberde 16 farkli fotograf, biri 5 haberde.
+#: Konu bazli secim dogru calisiyor ama havuz dar.
+FOTO_TEKRAR_ESIGI = 4
+
+#: Ayni sayfada bir baslik en fazla kac bolumde gecebilir.
+#: Seyir cizelgesi ile "Bunu da okuyun" ayni basligi veriyordu:
+#: 151 sayfada, on santim arayla, ayni baglanti.
+BASLIK_TEKRAR_ESIGI = 1
+
+
+def editoryal_denetim() -> list[Bulgu]:
+    import collections
+    import json
+    import re
+
+    bulgu: list[Bulgu] = []
+    gundem_yolu = _KOK.parent / "site" / "icerik" / "gundem.json"
+    if not gundem_yolu.exists():
+        return bulgu
+    try:
+        g = json.loads(gundem_yolu.read_text(encoding="utf-8"))["haberler"]
+    except Exception:
+        return bulgu
+    say = [x for x in g if x.get("yorumlanir")]
+
+    # --- gorsel tekrari ---
+    foto = collections.Counter(x.get("foto", "") for x in say if x.get("foto"))
+    for yol, n in foto.most_common():
+        if n >= FOTO_TEKRAR_ESIGI:
+            bulgu.append(Bulgu(
+                "uyari", "gorsel", yol.split("/")[-1],
+                f"{n} haberde ayni fotograf -- konu havuzu dar"))
+    eksik = sum(1 for x in say if not x.get("foto"))
+    if eksik:
+        bulgu.append(Bulgu("uyari", "gorsel", "-",
+                           f"{eksik} sayfali haberde fotograf yok"))
+
+    # --- son dakika disiplini ---
+    kritik = [x for x in say if x.get("katman") == "kritik"]
+    if len(kritik) > len(say) * 0.25 and len(say) > 8:
+        bulgu.append(Bulgu(
+            "hata", "sondakika", "-",
+            f"{len(kritik)}/{len(say)} haber KRITIK -- etiket her seye "
+            f"yapisinca hicbir seye yapismaz"))
+
+    # --- ayni baslik birden fazla bolumde ---
+    if CIKTI_DIZINI.exists():
+        tekrarli = 0
+        for s in (CIKTI_DIZINI / "haber").glob("*/index.html"):
+            metin = s.read_text(encoding="utf-8")
+            seyir = {x.strip() for x in re.findall(
+                r'seyir-baslik"[^>]*>(?:<b>)?([^<]{10,})', metin)}
+            devam: set = set()
+            for d in re.findall(r"(?s)<section class=\"devam\">.*?</section>",
+                                metin):
+                devam |= {x.strip() for x in re.findall(
+                    r'<a href="[^"]*">([^<]{10,})</a>', d)}
+            if seyir & devam:
+                tekrarli += 1
+        if tekrarli:
+            bulgu.append(Bulgu(
+                "uyari", "tekrar", "-",
+                f"{tekrarli} sayfada ayni baslik hem seyir hem 'bunu da "
+                f"okuyun' bolumunde"))
+    return bulgu
+
+
 def calistir(sessiz: bool = False) -> int:
     bulgular: list[Bulgu] = []
     bulgular += etiket_denetimi()
@@ -349,6 +430,7 @@ def calistir(sessiz: bool = False) -> int:
         bulgular += aralik_denetimi(b)
         bulgular += tazelik_denetimi(b)
     bulgular += cikti_denetimi()
+    bulgular += editoryal_denetim()
 
     hata = [x for x in bulgular if x.agirlik == "hata"]
     uyari = [x for x in bulgular if x.agirlik == "uyari"]

@@ -262,6 +262,45 @@ def _sayilar(metin: str) -> set[float]:
 _TOLERANS = 0.001
 
 
+#: TEKRAR ESIGI -- yorumun ne kadari zaten girdide geciyor.
+#:
+#: Olculdu: 44 yorumun ortalama ortusmesi %28, ama dordu %60'in
+#: uzerinde ve en kotusu %80 -- yani model haberi baska kelimelerle
+#: yeniden yazmis. Ornek:
+#:
+#:   ozet : "Citigroup (Citi), 2026'nin ucuncu ceyregine iliskin
+#:           ortalama Brent petrol fiyati tahminini..."
+#:   yorum: "Citigroup, 2026'nin ucuncu ceyregi icin ortalama Brent
+#:           petrol fiyati tahminini..."
+#:
+#: Bu bir analiz degil, bir aynadir. AI'in isi "ne oldu"yu tekrar etmek
+#: degil, "bu neden onemli"yi anlatmak.
+#:
+#: Esik 0,65: olculen dagilimda normal yorumlar %28 civarinda, sorunlu
+#: olanlar %80. Aradaki bosluk genis ve esik ortasina konuldu.
+TEKRAR_ESIGI = 0.65
+
+#: Sayilar ve kisa kelimeler ortusme hesabina GIRMIYOR. Modelin
+#: sayilari girdiden almasi ZORUNLU (sayi_denetimi bunu sart kosuyor);
+#: onlari tekrar saymak, dogru davranisi cezalandirmak olurdu.
+_ORTUSME_KELIME = re.compile(r"[a-zçğıöşü]{4,}", re.I)
+
+
+def tekrar_orani(cikti: str, girdi: str) -> float:
+    """Yorumun ne kadari girdide zaten geciyor. 0..1
+
+    YON ONEMLI: ciktinin ne kadari girdide var diye bakiliyor, tersi
+    degil. Girdi uzun (bulgular, panel, ozet) ve kisa bir yorumun
+    girdiyi "kapsamasi" beklenmez; asil soru, yorumun KENDI katkisi
+    olup olmadigi.
+    """
+    kc = {k.lower() for k in _ORTUSME_KELIME.findall(cikti)}
+    kg = {k.lower() for k in _ORTUSME_KELIME.findall(girdi)}
+    if not kc:
+        return 0.0
+    return len(kc & kg) / len(kc)
+
+
 def sayi_denetimi(cikti: str, girdi: str) -> list[str]:
     """Ciktida olup girdide olmayan sayilari dondurur.
 
@@ -470,6 +509,16 @@ def yorumla(girdi: str) -> tuple[str, str, str, str]:
     m = CEVAPSIZ.search(metin)
     if m:
         return "", model, f"cevapsiz cikti: {m.group(0)!r}", metin
+
+    # --- 1c. haberi tekrar etme ---
+    #
+    # "AI'in haberi farkli cumlelerle tekrar etmesi analiz olarak kabul
+    # edilmez." Model girdiyi yeniden yazdiginda cikti dogru ve akici
+    # olur -- ama okura hicbir sey katmaz ve sayfada "Netaris yorumu"
+    # basligi altinda durur.
+    oran = tekrar_orani(metin, girdi)
+    if oran >= TEKRAR_ESIGI:
+        return "", model, f"haberi tekrar ediyor (ortusme %{oran*100:.0f})", metin
 
     # --- 2. yasak kalip ---
     for d in YASAK:

@@ -1098,16 +1098,29 @@ def izleme_baglantilari(izlenecekler, varlik_sayfalari_var: set[str]) -> list[di
     return cikti
 
 
-def ayni_konu_haberleri(h: dict, hepsi: list[dict]) -> list[dict]:
+def ayni_konu_haberleri(h: dict, hepsi: list[dict],
+                       haric: set | None = None) -> list[dict]:
     """Ayni konudaki diger haberler, yeniden eskiye.
 
     Varlik indeksinden gelen "bununla ilgili gelismeler" METINDEN
     turetiliyor ve ortak varlik yoksa bos kaliyor. Bu liste KONUDAN
     turetiliyor, yani her haberde dolu -- ikisi birbirini tamamliyor.
     """
+    # SEYIR CIZELGESINDEKILER HARIC.
+    #
+    # Olculdu: 151 sayfada ayni baslik HEM "Bu dosyanin seyri" HEM
+    # "Bunu da okuyun" bolumunde duruyordu. Iki bolum ayni sayfada, on
+    # santim arayla, ayni baglantiyi veriyordu -- okur icin ikinci
+    # listenin hicbir degeri yok.
+    #
+    # Seyir once kuruluyor ve adresleri buraya geciyor; "Bunu da
+    # okuyun" yalnizca cizelgede OLMAYANLARI gosteriyor.
+    haric = haric or set()
     cikti = []
     for x in hepsi:
         if x is h or not x.get("yorumlanir") or not x.get("yol"):
+            continue
+        if x.get("yol") in haric:
             continue
         if x.get("konu") != h.get("konu"):
             continue
@@ -1115,6 +1128,27 @@ def ayni_konu_haberleri(h: dict, hepsi: list[dict]) -> list[dict]:
                       "kurum": x.get("kurum", ""), "tarih": x.get("tarih", "")})
     cikti.sort(key=lambda x: x["tarih"], reverse=True)
     return cikti[:DEVAM_SAYISI]
+
+
+def _seyir_adresleri(seyir: dict | None) -> set:
+    """Cizelgede gecen haberlerin YOLLARI."""
+    if not seyir:
+        return set()
+    return {a.get("yol") for a in seyir.get("adimlar", ()) if a.get("yol")}
+
+
+def _seyir_basliklari(seyir: dict | None) -> set:
+    """Cizelgede gecen BASLIKLAR.
+
+    Yol yetmiyor: bir analiz o haberden URETILDIGI icin ayni basligi
+    tasiyabiliyor ve yolu farkli oldugu icin yol suzgecinden geciyor.
+    Olculdu: 151 sayfalik tekrar 18'e indi, kalan 18'in hepsi "Bu
+    veriyi kullanan analizler" blogundandi -- ayni baslik, farkli yol.
+    """
+    if not seyir:
+        return set()
+    return {(a.get("baslik") or "").strip()
+            for a in seyir.get("adimlar", ()) if a.get("baslik")}
 
 
 #: Dosya zaman cizelgesinde en fazla kac gelisme.
@@ -1370,7 +1404,8 @@ KONU_KATEGORI = {
 }
 
 
-def ilgili_analizler(h: dict, analizler: list) -> list[dict]:
+def ilgili_analizler(h: dict, analizler: list,
+                    haric_baslik: set | None = None) -> list[dict]:
     """Haberin konusuyla ilgili yayimlanmis analizler.
 
     Kategori eslemesi kaba ama DOGRU yonde: makro haberin altina
@@ -1380,8 +1415,17 @@ def ilgili_analizler(h: dict, analizler: list) -> list[dict]:
     kat = KONU_KATEGORI.get(h.get("konu", ""))
     if not kat:
         return []
+    # SEYIR CIZELGESINDEKI BASLIKLAR HARIC.
+    #
+    # Bir analiz o haberden URETILDIGI icin ayni basligi tasiyabiliyor
+    # ve yolu farkli oldugu icin yol suzgecinden geciyordu. Olculdu:
+    # 151 sayfalik tekrar once 18'e indi, kalan 18'in hepsi "Bu veriyi
+    # kullanan analizler" blogundandi -- ayni baslik, farkli yol.
+    haric_baslik = haric_baslik or set()
     return [{"baslik": a.baslik, "yol": a.yol, "tarih": a.tarih}
-            for a in analizler if a.kategori == kat][:DEVAM_SAYISI]
+            for a in analizler
+            if a.kategori == kat
+            and (a.baslik or "").strip() not in haric_baslik][:DEVAM_SAYISI]
 
 
 def ai_yorum_oku() -> dict[str, str]:
@@ -2387,6 +2431,12 @@ def insa() -> int:
                 continue
             h_yol = h["yol"]
             h_varliklar = varlik_haritasi.get(h["adres"], {}).get("varliklar")
+            # Seyir ONCE kuruluyor: "Bunu da okuyun" bolumu cizelgede
+            # zaten gecen basliklari tekrar etmesin.
+            h_seyir = dosya_cizelgesi(
+                h, uretilecek,
+                varlik_haritasi.get(h["adres"], {}).get("ilgili", []),
+                gundem.get("guncelleme", ""), varlik_haritasi)
             yaz(
                 f"{h_yol}index.html",
                 ortam.get_template("haber.html").render(
@@ -2440,15 +2490,14 @@ def insa() -> int:
                     # brifingi: bu veri nedir, neyi etkiler, beklenti ne.
                     brifing=gosterge_brifingi(h, h_varliklar, takvim_ondbellek),
                     # Makale sonu: okur bosluga dusmesin.
-                    ayni_konu=ayni_konu_haberleri(h, uretilecek),
-                    ilgili_analiz=ilgili_analizler(h, listelenen),
+                    ayni_konu=ayni_konu_haberleri(
+                        h, uretilecek, _seyir_adresleri(h_seyir)),
+                    ilgili_analiz=ilgili_analizler(
+                        h, listelenen, _seyir_basliklari(h_seyir)),
                     # DOSYA: haberin ait oldugu gelisme zincirinin seyri.
                     # Haber tek seferlik bir icerik degil, bir zincirin
                     # halkasi -- cizelge o halkanin yerini gosteriyor.
-                    dosya_seyri=dosya_cizelgesi(
-                        h, uretilecek,
-                        varlik_haritasi.get(h["adres"], {}).get("ilgili", []),
-                        gundem.get("guncelleme", ""), varlik_haritasi),
+                    dosya_seyri=h_seyir,
                     # Izleme kalemleri tiklanabilir: hedef varlik arsivi
                     izleme=izleme_baglantilari(
                         (_dosya.IZLENECEKLER.get(h.get("konu", ""))
