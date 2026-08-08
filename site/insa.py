@@ -1344,6 +1344,89 @@ def gosterge_brifingi(h: dict, h_varliklar, takvim: list[dict]) -> dict | None:
     return None
 
 
+#: Seri kodu onekine gore kaynak kunyesi.
+#:
+#: Baglanti YALNIZCA gercekten cozulen adreslere veriliyor. FRED her
+#: seri icin kalici bir sayfa yayimliyor; EVDS'de seri bazli kalici
+#: adres YOK (tek sayfalik uygulama), o yuzden yalnizca kurum adi ve
+#: kok adres yaziliyor. Cozmeyecek bir baglanti vermek, okuru
+#: dogrulayamayacagi bir yere gondermek olurdu.
+KAYNAK_KUNYE = (
+    ("TP.", "TCMB EVDS", "https://evds2.tcmb.gov.tr/", False),
+    ("TCMB_POLITIKA", "TCMB · PPK basın duyurusu",
+     "https://www.tcmb.gov.tr/wps/wcm/connect/TR/TCMB+TR/Main+Menu/"
+     "Duyurular/Basin", True),
+    ("", "FRED · St. Louis Fed", "https://fred.stlouisfed.org/series/", True),
+)
+
+
+def _seri_kaynagi(kod: str) -> dict:
+    """Seri kodundan kaynak kaydi. Kod bosluksa None."""
+    if not kod:
+        return {}
+    for onek, ad, adres, seri_baglantisi in KAYNAK_KUNYE:
+        if onek and not kod.startswith(onek):
+            continue
+        if onek == kod == "TCMB_POLITIKA":
+            return {"ad": ad, "adres": adres, "not": "politika faizi kararı"}
+        if onek == "TP.":
+            return {"ad": ad, "adres": adres, "not": kod}
+        # FRED: seri bazli kalici sayfa var
+        return {"ad": ad, "adres": adres + kod, "not": kod}
+    return {}
+
+
+def kaynaklar(h: dict, d, brifing: dict | None) -> list[dict]:
+    """Bu SAYFANIN gercekten kullandigi kaynaklar.
+
+    NEDEN VAR
+    ---------
+    Sitenin butun iddiasi "dogrulanabilir olcum". Ama okur bir sayiyi
+    dogrulamak istediginde nereye bakacagini bilmiyordu: kaynak adi
+    sayfanin ustunde bir yerde, seri kodu baska bir kutuda, fotograf
+    atfi baska yerde.
+
+    Bu bolum hepsini tek yere topluyor -- ve SABIT BIR LISTE DEGIL,
+    sayfanin O AN kullandigi kaynaklardan turetiliyor. Kullanilmayan
+    bir kaynagi listelemek, dogrulanabilirlik iddiasini sahte bir
+    genislikle sismek olurdu.
+    """
+    cikti: list[dict] = []
+    gorulen: set = set()
+
+    def ekle(kayit: dict) -> None:
+        if not kayit or not kayit.get("ad"):
+            return
+        im = (kayit["ad"], kayit.get("not", ""))
+        if im in gorulen:
+            return
+        gorulen.add(im)
+        cikti.append(kayit)
+
+    # 1. Haberin kendi kaynagi. TICARI KAYNAKTA ZORUNLU.
+    if h.get("adres", "").startswith("http"):
+        ekle({"ad": h.get("kurum_tam") or h.get("kurum", ""),
+              "adres": h["adres"],
+              "not": "haberin kaynağı"})
+
+    # 2. Sayfada gosterilen seriler.
+    if d is not None:
+        for g in getattr(d, "turkiye", ()) or ():
+            ekle(_seri_kaynagi(getattr(g, "kod", "")))
+
+    # 3. Brifingdeki gosterge ve takvim kaynagi.
+    if brifing:
+        ekle({"ad": "BLS · ABD Çalışma İstatistikleri Bürosu",
+              "adres": "https://www.bls.gov/schedule/news_release/",
+              "not": "yayın takvimi"})
+        b = brifing.get("beklenti")
+        if b is not None and getattr(b, "esik_kaynak", "") == "beklenti":
+            ekle({"ad": "ForexFactory", "adres": "https://www.forexfactory.com/calendar",
+                  "not": "beklenti (konsensüs)"})
+
+    return cikti
+
+
 #: Haberin kendi yapisal baglarindan en fazla kac tanesi basilir.
 DUZENEK_SAYISI = 4
 
@@ -2450,6 +2533,19 @@ def insa() -> int:
                     h["foto"] = yeni_f.dosya
                     h["foto_atif"] = yeni_f.kisa_atif
 
+            # `dosya.kur` BIR KEZ: hem sablon hem kaynaklar ayni
+            # nesneyi kullaniyor.
+            h_dosya = (_dosya.kur(
+                h["konu"], h.get("bolge", ""), h.get("tarih", ""),
+                varliklar=([v["kod"] for v in h_varliklar]
+                           if h_varliklar is not None else None),
+                baslik=h.get("baslik_kaynak") or h.get("baslik", ""),
+                # Ozeti olmayan haberde acilis cumlesi uretilsin:
+                # aksi halde sayfada hicbir metin kalmiyor.
+                ozetsiz=not (h.get("ozet") or "").strip())
+                if _dosya else None)
+            h_brifing = gosterge_brifingi(h, h_varliklar, takvim_ondbellek)
+
             # Seyir ONCE kuruluyor: "Bunu da okuyun" bolumu cizelgede
             # zaten gecen basliklari tekrar etmesin.
             h_seyir = dosya_cizelgesi(
@@ -2481,15 +2577,7 @@ def insa() -> int:
                     # kaynagin cevirdigi yabanci haber de TR oluyordu.
                     # `varliklar` None ise indeks calismamis demektir --
                     # o zaman dosya.py eski olcute duser.
-                    dosya=(_dosya.kur(
-                        h["konu"], h.get("bolge", ""), h.get("tarih", ""),
-                        varliklar=([v["kod"] for v in h_varliklar]
-                                   if h_varliklar is not None else None),
-                        baslik=h.get("baslik_kaynak") or h.get("baslik", ""),
-                        # Ozeti olmayan haberde acilis cumlesi uretilsin:
-                        # aksi halde sayfada hicbir metin kalmiyor.
-                        ozetsiz=not (h.get("ozet") or "").strip())
-                           if _dosya else None),
+                    dosya=h_dosya,
                     varliklar=h_varliklar or [],
                     ilgili_haberler=varlik_haritasi.get(h["adres"], {}).get("ilgili", []),
                     # Haberin uzerinden gecen gun. Sayfadaki gosterge ve
@@ -2505,9 +2593,12 @@ def insa() -> int:
                     # Haberin KENDI yapisal baglari -- konu tablosundan
                     # degil, metinden cikan varliklardan.
                     duzenek=duzenek(h_varliklar),
+                    # KAYNAKLAR: sayfanin O AN kullandigi kaynaklar,
+                    # sabit bir liste degil.
+                    kaynaklar=kaynaklar(h, h_dosya, h_brifing),
                     # Bekleyis haberinde "ilk bakis" yerine gosterge
                     # brifingi: bu veri nedir, neyi etkiler, beklenti ne.
-                    brifing=gosterge_brifingi(h, h_varliklar, takvim_ondbellek),
+                    brifing=h_brifing,
                     # Makale sonu: okur bosluga dusmesin.
                     ayni_konu=ayni_konu_haberleri(
                         h, uretilecek, _seyir_adresleri(h_seyir)),

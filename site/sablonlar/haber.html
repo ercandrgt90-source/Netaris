@@ -666,6 +666,42 @@
      Biri bossa o blok hic basilmiyor -- alakasiz baglanti, baglanti
      olmamasindan kotudur. #}
   {% if ayni_konu or ilgili_analiz %}
+  {# ---------------------------------------------------------------
+     KAYNAKLAR -- sayfanin O AN kullandigi kaynaklar.
+
+     Sitenin butun iddiasi "dogrulanabilir olcum". Ama okur bir sayiyi
+     dogrulamak istediginde nereye bakacagini bilmiyordu: kaynak adi
+     sayfanin ustunde, seri kodu baska kutuda, fotograf atfi baska
+     yerde.
+
+     SABIT LISTE DEGIL: her kalem sayfanin gercekten kullandigi bir
+     kaynak. Kullanilmayan kaynagi listelemek, dogrulanabilirlik
+     iddiasini sahte bir genislikle sismek olurdu.
+
+     Baglanti yalnizca COZULEN adreslere veriliyor -- EVDS'de seri
+     bazli kalici adres yok, o yuzden kok adres.
+     --------------------------------------------------------------- #}
+  {% if kaynaklar %}
+  <section class="kaynaklar" aria-label="Kaynaklar">
+    <h2>Kaynaklar</h2>
+    <ul>
+      {% for k in kaynaklar %}
+      <li>
+        {% if k.adres %}
+        <a href="{{ k.adres }}" rel="nofollow noopener" target="_blank">{{ k.ad }}</a>
+        {% else %}<span>{{ k.ad }}</span>{% endif %}
+        {% if k.not %}<span class="kaynak-not-etiket">{{ k.not }}</span>{% endif %}
+      </li>
+      {% endfor %}
+      {% if h.foto_atif %}
+      {# CC BY atfi zorunlu; gorselin altinda da duruyor ama kaynak
+         listesinde toplu gormek okurun isini kolaylastiriyor. #}
+      <li><span>Fotoğraf: {{ h.foto_atif }}</span></li>
+      {% endif %}
+    </ul>
+  </section>
+  {% endif %}
+
   <section class="devam">
     <h2>Bunu da okuyun</h2>
     <div class="devam-izgara">

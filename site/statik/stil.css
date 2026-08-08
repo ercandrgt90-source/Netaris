@@ -3330,3 +3330,28 @@ a.seyir-baslik:hover { color: var(--vurgu); text-decoration: none; }
 .devam { margin-top: 34px; padding-top: 22px; }
 .etki-alan { margin: 12px 0 16px; }
 .izleme { margin: 10px 0 6px; }
+
+/* ================================================================
+   KAYNAKLAR -- sayfanin kullandigi her kaynak tek yerde
+   ================================================================
+   Sitenin iddiasi "dogrulanabilir olcum"; okur bir sayiyi dogrulamak
+   istediginde nereye bakacagini bilmeliydi. Liste SABIT DEGIL,
+   sayfanin o an kullandigi kaynaklardan turetiliyor.              */
+.kaynaklar {
+  margin: 30px 0 0; padding-top: 20px;
+  border-top: 1px solid var(--cizgi);
+}
+.kaynaklar h2 { font-size: 0.9rem; margin: 0 0 12px; color: var(--yazi-2); }
+.kaynaklar ul { list-style: none; padding: 0; margin: 0; }
+.kaynaklar li {
+  padding: 7px 0; border-bottom: 1px solid var(--cizgi);
+  display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;
+  font-size: 0.86rem;
+}
+.kaynaklar li:last-child { border-bottom: none; }
+/* Seri kodu / kullanim notu: okur hangi sayinin nereden geldigini
+   gormeli. Tek basina kurum adi bunu soylemiyor. */
+.kaynak-not-etiket {
+  font-size: 0.74rem; color: var(--yazi-3);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
