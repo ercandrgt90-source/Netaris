@@ -145,7 +145,13 @@ def main() -> int:
 
     # --- Fotograf havuzu ---
     print("\nFOTOGRAF HAVUZU")
-    foto_kayit = foto.hazirla([h.konu for h in haberler])
+    # VARLIK HAVUZLARI DA DOLDURULUYOR.
+    #
+    # Haber sayfasi fotografi varliga gore seciyor (bkz. insa.py); havuz
+    # bos kalirsa secim her zaman konu havuzuna duser ve varlik bazli
+    # secim hic devreye girmez.
+    foto_kayit = foto.hazirla([h.konu for h in haberler]
+                              + list(foto.VARLIK_ARAMA))
 
     # --- Ceviri ve baglam ---
     print("\nCEVIRI VE BAGLAM")

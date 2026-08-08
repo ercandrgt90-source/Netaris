@@ -87,8 +87,62 @@ KONU_ARAMA = {
     "Şirket haberleri": ("office building", "corporate headquarters", "boardroom"),
 }
 
+#: VARLIK BAZLI SORGULAR -- konu havuzundan ONCE bakiliyor.
+#:
+#: NEDEN: konu havuzu "Jeopolitik" icin genel diplomasi gorseli
+#: veriyor. Hurmuz Bogazi haberiyle Kuzey Kore fuzesi ayni fotografi
+#: aliyor -- ikisi de jeopolitik, ama ayni gelisme degil.
+#:
+#: Varlik indeksi haberin METNINDEN cikiyor ve cok daha ozgul: bir
+#: haber IR (Iran) varligina baglanmissa "strait of hormuz" sorgusu,
+#: BRENT'e baglanmissa "oil tanker" sorgusu dogru gorseli getirir.
+#:
+#: KONU HAVUZU KALDIRILMADI: varligi olmayan ya da burada tanimli
+#: olmayan varliga baglanan haber yine konu havuzunu kullaniyor.
+#: Eksik bir eslesme, yanlis eslesmeden iyidir.
+VARLIK_ARAMA = {
+    "IR": ("strait of hormuz", "oil tanker persian gulf", "tehran"),
+    "RU": ("moscow kremlin", "russia pipeline", "gas pipeline"),
+    "CN": ("shanghai port", "china factory", "container terminal china"),
+    "US": ("washington capitol", "wall street", "new york stock exchange"),
+    "EA": ("european central bank", "brussels european commission"),
+    "TR": ("istanbul bosphorus", "ankara", "turkish lira"),
+    "BRENT": ("oil tanker", "offshore oil platform", "crude oil barrels"),
+    "WTI": ("oil pump jack texas", "crude oil barrels"),
+    "DGAZ": ("natural gas pipeline", "lng terminal", "gas compressor"),
+    "XAU": ("gold bars", "gold bullion vault"),
+    "XAG": ("silver bars", "silver bullion"),
+    "XCU": ("copper wire", "copper mine"),
+    "FED": ("federal reserve building", "federal reserve chair"),
+    "ECB": ("european central bank frankfurt", "euro currency"),
+    "TCMB": ("central bank of turkey", "turkish lira banknotes"),
+    "BIST100": ("borsa istanbul", "stock exchange trading floor"),
+    "BTC": ("bitcoin", "cryptocurrency mining"),
+    "NFP": ("job interview", "factory workers usa", "employment office"),
+    "CPI_US": ("supermarket usa", "grocery prices"),
+    "TUFE_TR": ("turkish market bazaar", "supermarket shopping"),
+    "SEK_BANKA": ("bank branch", "financial district"),
+    "SEK_ENERJI": ("power plant", "electricity grid"),
+    "SEK_OTOMOTIV": ("car factory", "automobile assembly line"),
+    "SEK_TURIZM": ("hotel resort", "airport terminal"),
+    "SEK_INSAAT": ("construction site", "housing construction"),
+    "SEK_PERAKENDE": ("retail store", "shopping mall"),
+}
+
 #: Konu basina indirilecek fotograf sayisi
-HAVUZ = 4
+# HAVUZ 4 -> 12.
+#
+# Olculdu: 28 sayfali haberde 16 farkli fotograf vardi ve
+# `jeopolitik-2.jpg` BES haberde birden goruluyordu. Konu bazli secim
+# dogru calisiyor -- sorun secimde degil, havuzun darliginda: konu
+# basina dort fotografla 260 sayfada tekrar kacinilmaz.
+#
+# ONCEDEN INDIRILENLER KORUNUYOR: `doldur` havuz dolu degilse eksigi
+# tamamliyor, mevcutlari silmiyor. Yani bu degisiklik bir sonraki
+# calistirmada konu basina sekiz fotograf daha indirir ve orada durur.
+#
+# Ucretsiz servise saygi: havuz dolduktan sonra AG ISTEGI YAPILMIYOR.
+HAVUZ = 12
 
 #: Ust boyut siniri. Pillow kurulu olmadigi icin yeniden boyutlandiramiyoruz;
 #: 1,7 MB'lik bir kart gorseli sayfayi yavaslatir. Buyuk dosya atlanir.
@@ -135,6 +189,25 @@ class Kayit:
     def havuz(self, konu: str) -> list[Foto]:
         return [Foto(**f) for f in self.veri.get(konu, [])]
 
+    def varlik_sec(self, varliklar, konu: str, tohum: str):
+        """Once VARLIGA, yoksa konuya gore gorsel secer.
+
+        `varliklar` haberin varlik kodlari (varlik indeksinden).
+        Birden fazla varlik varsa TOHUMA gore biri seciliyor -- ilkini
+        almak, ayni varlik cifti gecen butun haberlere ayni gorseli
+        vermek olurdu.
+
+        Varlik havuzu bos ya da tanimsizsa KONU havuzuna dusuyor.
+        """
+        kodlar = [k for k in (varliklar or []) if k in VARLIK_ARAMA]
+        if kodlar:
+            i = int(hashlib.sha256((tohum + "v").encode("utf-8")).hexdigest(),
+                    16) % len(kodlar)
+            f = self.sec(kodlar[i], tohum)
+            if f:
+                return f
+        return self.sec(konu, tohum)
+
     def sec(self, konu: str, tohum: str) -> Foto | None:
         """Konudan belirlenimci secim -- ayni haber her zaman ayni gorseli alir."""
         h = self.havuz(konu)
@@ -165,6 +238,10 @@ def _lisans_uygun(s: dict) -> bool:
     return (s.get("license") or "").lower() in KABUL_LISANSLAR
 
 
+#: Erisilemeyen fotograf sorgulari. `hazirla` her cagrida temizler.
+OKUNAMAYAN: list[tuple[str, str, str]] = []
+
+
 def doldur(konu: str, kayit: Kayit, adet: int = HAVUZ) -> int:
     """Konu icin fotograf havuzunu doldurur. Yeni indirilen sayisini doner.
 
@@ -176,7 +253,10 @@ def doldur(konu: str, kayit: Kayit, adet: int = HAVUZ) -> int:
     if len(kayit.havuz(konu)) >= adet:
         return 0
 
-    sorgular = KONU_ARAMA.get(konu)
+    # Varlik kodu da olabilir: "IR", "BRENT"... Konu adiyla ayni
+    # fonksiyondan doldurulmasi bilincli -- havuz, dosya adi ve atif
+    # mantigi ikisinde de ayni.
+    sorgular = VARLIK_ARAMA.get(konu) or KONU_ARAMA.get(konu)
     if not sorgular:
         return 0
 
@@ -202,7 +282,15 @@ def doldur(konu: str, kayit: Kayit, adet: int = HAVUZ) -> int:
             )
             r.raise_for_status()
             sonuclar = r.json().get("results", [])
-        except (httpx.HTTPError, ValueError, KeyError):
+        except (httpx.HTTPError, ValueError, KeyError) as e:
+            # SESSIZ DEGIL. Kaynak erisilemezse havuz eksik kaliyor ve
+            # denetim "ayni fotograf bes haberde" diye uyariyor -- ama
+            # SEBEBI hicbir yerde gorunmuyordu. Olculdu: Openverse bu
+            # makineden 429 ve bot dogrulamasi donuyor.
+            #
+            # Kaynagin erisilemez olmasi ile o konuda fotograf
+            # OLMAMASI ayni sey degil; ikisi ayirt edilebilmeli.
+            OKUNAMAYAN.append((konu, sorgu, f"{type(e).__name__}: {e}"[:90]))
             continue
 
         for s in sonuclar:
@@ -261,10 +349,23 @@ def hazirla(konular: list[str]) -> Kayit:
     `TEMEL_KONULAR` her zaman listeye ekleniyor. `doldur` havuz zaten
     doluysa ag istegi yapmiyor, dolayisiyla bunun gunluk maliyeti yok.
     """
+    OKUNAMAYAN.clear()
     kayit = Kayit()
+    eksik = []
     for konu in dict.fromkeys(list(konular) + list(TEMEL_KONULAR)):
         n = doldur(konu, kayit)
         if n:
             print(f"  {konu:<20} {n} yeni fotograf")
+        elif len(kayit.havuz(konu)) < HAVUZ:
+            eksik.append((konu, len(kayit.havuz(konu))))
     kayit.kaydet()
+
+    if OKUNAMAYAN:
+        print(f"  UYARI: fotograf kaynagina {len(OKUNAMAYAN)} sorgu "
+              f"ulasmadi -- havuz eksik kaliyor")
+        for k, s, h in OKUNAMAYAN[:3]:
+            print(f"    {k} / {s!r}: {h}")
+    if eksik:
+        print(f"  {len(eksik)} konuda havuz {HAVUZ}'in altinda: "
+              + ", ".join(f"{k}({n})" for k, n in eksik[:6]))
     return kayit

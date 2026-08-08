@@ -2431,6 +2431,25 @@ def insa() -> int:
                 continue
             h_yol = h["yol"]
             h_varliklar = varlik_haritasi.get(h["adres"], {}).get("varliklar")
+            # FOTOGRAF VARLIGA GORE YENIDEN SECILIYOR.
+            #
+            # Ilk secim `uret_gundem`de yapiliyor ve orada yalnizca KONU
+            # biliniyor -- varlik indeksi henuz calismamis. Sonuc: Hurmuz
+            # Bogazi haberi ile Kuzey Kore fuzesi ayni "diplomacy
+            # meeting" fotografini aliyordu; ikisi de jeopolitik ama ayni
+            # gelisme degil.
+            #
+            # Burada varliklar belli. Varlik havuzu bos ya da tanimsizsa
+            # KONU havuzuna dusuyor -- eksik eslesme, yanlis eslesmeden
+            # iyidir.
+            if _foto is not None and h_varliklar:
+                yeni_f = foto_kayit.varlik_sec(
+                    [v["kod"] for v in h_varliklar],
+                    h.get("konu", ""), h.get("adres", ""))
+                if yeni_f:
+                    h["foto"] = yeni_f.dosya
+                    h["foto_atif"] = yeni_f.kisa_atif
+
             # Seyir ONCE kuruluyor: "Bunu da okuyun" bolumu cizelgede
             # zaten gecen basliklari tekrar etmesin.
             h_seyir = dosya_cizelgesi(
