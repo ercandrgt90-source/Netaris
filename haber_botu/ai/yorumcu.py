@@ -113,6 +113,63 @@ KURALLAR — hepsi zorunlu:
 - Türkçe yaz. Yüzde işareti sayıdan ÖNCE gelir: %31,75 (31,75% DEĞİL).
   Ondalık ayracı virgüldür. Yıl ekini kesme işaretiyle yaz: 2025'te."""
 
+#: OLCUMSUZ HABER ICIN AYRI YONERGE.
+#:
+#: Olculdu: 28 reddin 19'u tek bir sebeptendi -- model "sayisal bir
+#: olcum bulunmadigi icin yorumlamak mumkun degildir" diyordu.
+#:
+#: MODEL HAKLIYDI. Yukaridaki yonerge "en onemli tek OLCUMU sec"
+#: diyor; bekleyis haberinde ("gozler aciklanacak tarim disi istihdam
+#: verisinde") olcum yok. Yanlis olan modelin cevabi degil, ona
+#: sorulan soruydu.
+#:
+#: Bu yonerge ayni haberden BASKA bir sey istiyor: mekanizma. Elimizde
+#: olcum yok ama konu, sektor listesi ve izlenecekler var -- bunlar
+#: "bu neden onemli" sorusunu cevaplamaya yeter.
+#:
+#: SAYI DENETIMI YINE GECERLI: model sayi uyduramaz. Girdide sayi
+#: yoksa cikti da sayisiz olur ve bu DOGRU olan.
+SISTEM_OLCUMSUZ = """Sen bir finans editörüsün. Sana bir haber ve onun
+bağlamı veriliyor. Bu haberde SAYISAL ÖLÇÜM YOK — olmaması normal.
+
+GÖREV: Ölçüm arama. Bunun yerine MEKANİZMAYI anlat: bu gelişme hangi
+kanaldan neyi etkiler, kim etkilenir, bundan sonra hangi veri izlenir.
+
+Yapı şu olsun:
+  gelişme → hangi kanaldan → kimi etkiler → ne izlenir
+
+KURALLAR — hepsi zorunlu:
+- SAYI UYDURMA. Girdide sayı yoksa yorumunda da sayı olmasın. Bu bir
+  eksiklik değil; ölçüm yokken sayı yazmak uydurmak olur.
+- "Ölçüm bulunmadığı için yorum yapılamaz" GİBİ CÜMLELER YASAK. Ölçüm
+  olmadan da söylenecek şey var: mekanizma.
+- Tahmin, öngörü, yatırım tavsiyesi YASAK.
+- Olasılık belirtme.
+- Süren eğilim iddiası YASAK ("artıyor", "yükseliyor").
+- Fiyat yönü İDDİA ETME. "Altın düşer", "dolar güçlenir" yazma —
+  mekanizma anlat, yön söyleme.
+- Haberi TEKRAR ETME. Okur başlığı zaten okudu; sen neden önemli
+  olduğunu yaz.
+- Yer ve kurum adlarını TÜRKÇE yaz: Hürmüz Boğazı, Avro Bölgesi, Fed.
+- EN FAZLA 3 CÜMLE. Madde işareti yok, tek paragraf.
+- Türkçe yaz."""
+
+
+def olcum_var(girdi: str) -> bool:
+    """Girdide modelin okuyabilecegi bir sayi var mi.
+
+    "Bulgu", "Gosterge" ve "Acilis" satirlari olcum tasiyor; "Haber" ve
+    "Konu" satirlari tasimiyor. Basliktaki bir yil ("2026") olcum
+    sayilmamali -- yoksa her haber olculmus gorunur.
+    """
+    for satir in girdi.splitlines():
+        if satir.startswith(("Bulgu:", "Gösterge:", "Açılış:")):
+            if re.search(r"\d", satir):
+                return True
+        if satir.startswith("Veri:") and re.search(r"\d+[.,]\d", satir):
+            return True
+    return False
+
 #: Ciktida bulunmasi metni GECERSIZ kilan kaliplar.
 YASAK = (
     re.compile(r"\b(alım|satım|tut)\s*(öneri|tavsiye|sinyal)", re.I),
@@ -321,7 +378,7 @@ def sayi_denetimi(cikti: str, girdi: str) -> list[str]:
     return kacak
 
 
-def _cf_cagir(girdi: str) -> tuple[str, str]:
+def _cf_cagir(girdi: str, sistem: str = "") -> tuple[str, str]:
     """Workers AI. `(metin, kullanilan_model)` doner.
 
     Modeller SIRAYLA deneniyor: biri kota ya da gecici hata verirse
@@ -339,7 +396,7 @@ def _cf_cagir(girdi: str) -> tuple[str, str]:
                 (f"https://api.cloudflare.com/client/v4/accounts/{hesap}"
                  f"/ai/run/{model}"),
                 headers={"Authorization": f"Bearer {jeton}"},
-                json=_istek_govdesi(model, girdi),
+                json=_istek_govdesi(model, girdi, sistem),
                 timeout=ZAMAN_ASIMI,
             )
             y.raise_for_status()
@@ -356,7 +413,7 @@ def _cf_cagir(girdi: str) -> tuple[str, str]:
     return "", ""
 
 
-def _istek_govdesi(model: str, girdi: str) -> dict:
+def _istek_govdesi(model: str, girdi: str, sistem: str = "") -> dict:
     """Modele gore istek bicimi.
 
     OLCULDU: `@cf/openai/gpt-oss-120b` cagrisi sessizce dusuyor ve hat
@@ -369,7 +426,7 @@ def _istek_govdesi(model: str, girdi: str) -> dict:
     """
     if "gpt-oss" in model:
         return {
-            "instructions": SISTEM,
+            "instructions": sistem or SISTEM,
             "input": girdi,
             "max_output_tokens": EN_COK_JETON,
             # Sicaklik DUSUK: bu yaratici yazim degil, bicimlendirme isi.
@@ -382,7 +439,7 @@ def _istek_govdesi(model: str, girdi: str) -> dict:
         "max_tokens": EN_COK_JETON,
         "temperature": 0.2,
         "messages": [
-            {"role": "system", "content": SISTEM},
+            {"role": "system", "content": sistem or SISTEM},
             {"role": "user", "content": girdi},
         ],
     }
@@ -414,7 +471,7 @@ def _yaniti_coz(d: dict) -> str:
     return "\n".join(parcalar).strip()
 
 
-def _anthropic_cagir(girdi: str) -> str:
+def _anthropic_cagir(girdi: str, sistem: str = "") -> str:
     anahtar = os.environ.get("ANTHROPIC_API_KEY", "").strip()
     if not anahtar:
         return ""
@@ -428,7 +485,7 @@ def _anthropic_cagir(girdi: str) -> str:
         json={
             "model": ANTHROPIC_MODEL,
             "max_tokens": EN_COK_JETON,
-            "system": SISTEM,
+            "system": sistem or SISTEM,
             "messages": [{"role": "user", "content": girdi}],
         },
         timeout=ZAMAN_ASIMI,
@@ -463,11 +520,23 @@ def yorumla(girdi: str) -> tuple[str, str, str, str]:
     if not s:
         return "", "", "saglayici yok (anahtar tanimli degil)", ""
 
+    # OLCUM YOKSA BASKA BIR SORU SORULUYOR.
+    #
+    # Olculdu: 28 reddin 19'u "sayisal bir olcum bulunmadigi icin
+    # yorumlamak mumkun degildir" idi. Model HAKLIYDI -- ana yonerge
+    # "en onemli tek OLCUMU sec" diyor ve bekleyis haberinde olcum yok.
+    # Yanlis olan cevap degil, soruydu.
+    #
+    # Ikinci yonerge ayni haberden MEKANIZMA istiyor: hangi kanaldan
+    # neyi etkiler, kim etkilenir, ne izlenir. Sayi denetimi yine
+    # gecerli; girdide sayi yoksa ciktida da olmaz ve bu dogru olan.
+    sistem = SISTEM if olcum_var(girdi) else SISTEM_OLCUMSUZ
+
     try:
         if s == "anthropic":
-            metin, model = _anthropic_cagir(girdi), ANTHROPIC_MODEL
+            metin, model = _anthropic_cagir(girdi, sistem), ANTHROPIC_MODEL
         else:
-            metin, model = _cf_cagir(girdi)
+            metin, model = _cf_cagir(girdi, sistem)
     except httpx.HTTPStatusError as e:
         # 401 VE 403 ikisi de kapsam sorununa isaret ediyor.
         #
@@ -508,6 +577,8 @@ def yorumla(girdi: str) -> tuple[str, str, str, str]:
     # oluyor. Bolum hic basilmasin diye metin REDDEDILIYOR.
     m = CEVAPSIZ.search(metin)
     if m:
+        # Olcumsuz haberde bile gecerli: ikinci yonerge modelden
+        # MEKANIZMA istiyor ve "yapamam" hala bir tutanak, yorum degil.
         return "", model, f"cevapsiz cikti: {m.group(0)!r}", metin
 
     # --- 1c. haberi tekrar etme ---

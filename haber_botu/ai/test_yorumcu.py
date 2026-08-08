@@ -207,6 +207,43 @@ sina("alakasiz metin dusuk ortusme",
      yorumcu.tekrar_orani("Deprem bolgesinde konut teslimleri surdu.", _G) < 0.3)
 
 
+# --------------------------------------------------------------------
+# OLCUM VAR MI -- hangi yonergenin kullanilacagini bu belirliyor.
+#
+# Olculdu: 28 reddin 19'u "sayisal bir olcum bulunmadigi icin
+# yorumlamak mumkun degildir" idi. Model haklıydı; yanlis olan ona
+# sorulan soruydu.
+# --------------------------------------------------------------------
+_OLCULU = """Haber: TÜFE açıklandı
+Konu: Enflasyon
+Bulgu: TÜFE %31,75; önceki dönem %32,11"""
+_OLCUMSUZ = """Haber: Gözler açıklanacak tarım dışı istihdam verisinde
+Konu: İstihdam ve ücret
+Kaynak: Anadolu Ajansı
+Etkilenen sektörler (sırayla): Gelişen ülke varlıkları
+İzlenecekler: ABD 10 yıllık, Dolar endeksi"""
+
+sina("olculu girdi taniniyor", yorumcu.olcum_var(_OLCULU))
+sina("olcumsuz girdi taniniyor", not yorumcu.olcum_var(_OLCUMSUZ))
+
+# BASLIKTAKI YIL OLCUM SAYILMAMALI -- yoksa her haber olculmus gorunur
+# ve olcumsuz yonerge hic devreye girmez.
+sina("basliktaki yil olcum degil",
+     not yorumcu.olcum_var("Haber: ABD 2026'da ticaret acigini artirdi\n"
+                           "Konu: Dış ticaret"))
+# "Veri:" satirinda ondalik sayi varsa olcum sayilir.
+sina("ondalik veri olcum sayilir",
+     yorumcu.olcum_var("Haber: x\nVeri: Açıklanan değer 33,43"))
+
+# Iki yonerge de yasak kaliplari tasimali.
+for _y in ("uydurma", "tavsiye", "TÜRKÇE"):
+    sina(f"olcumsuz yonergede {_y!r} kurali var",
+         _y.lower() in yorumcu.SISTEM_OLCUMSUZ.lower())
+# Olcumsuz yonerge OLCUM ISTEMEMELI.
+sina("olcumsuz yonerge olcum istemiyor",
+     "en önemli tek ölçümü seç" not in yorumcu.SISTEM_OLCUMSUZ.lower())
+
+
 print("=" * 60)
 if kaldi:
     print(f"{kaldi} TEST BASARISIZ")
