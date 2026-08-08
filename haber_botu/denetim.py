@@ -303,10 +303,22 @@ CIKTI_DIZINI = _KOK.parent / "site" / "cikti"
 YASAK_ESLESME: tuple[tuple[str, str], ...] = (
     (r"TÜFE endeksi[^<]{0,12}%\s*\d",
      "endeks seviyesi yuzde olarak sunulamaz"),
-    # "Ortalama fonlama" etiketi artik panelde YOK; gorunurse eski
-    # surumden kalmis demektir.
-    (r"Ortalama fonlama[^<]{0,14}%\s*\d",
-     "panel politika faizini gosteriyor; fonlama maliyeti kaldirildi"),
+    # "Ortalama fonlama %40" KURALI KALDIRILDI.
+    #
+    # Konuldugunda iki sayfayi isaretledi ve ikisi de DOGRUYDU:
+    #
+    #   "Ortalama fonlama maliyeti %40,00 seviyesinde sabit kalarak
+    #    degismedi. Bu oran, bankalarin kisa vadeli borclanma
+    #    maliyetini gosterir..."
+    #
+    # Fonlama maliyeti gercekten %40 ve cumle onu dogru tarif ediyor.
+    # Panelden kaldirilmis olmasi, kavramin YOK oldugu anlamina
+    # gelmiyor -- metinde gecmesi mesru.
+    #
+    # DERS: dogru icerigi isaretleyen bir denetim, denetimin kendisini
+    # degersizlestirir. Okunmayan alarm, olmayan alarmdir. Asil koruma
+    # zaten uc katmanda duruyor: (seri, etiket) cifti, `yorumcu.YASAK`
+    # ve aralik/birim denetimi.
 )
 
 
