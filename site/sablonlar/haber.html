@@ -198,21 +198,21 @@
        icermeyen bir "seyir" cizelgesi, seyir olmadigini gosterir.
        --------------------------------------------------------------- #}
     {% if dosya_seyri and dosya_seyri.yeter %}
-    <section class="seyir" aria-label="Bu dosyanın seyri">
-      <div class="seyir-bas">
+    <section class="dosya-seyri" aria-label="Bu dosyanın seyri">
+      <div class="ds-bas">
         <h2>Bu dosyanın seyri</h2>
         {% if dosya_seyri.sonraki %}
         {# Guncelleme GORUNUR ve SAYILI. "Guncellendi" demek yetmez --
            okur neyin eklendigini gorebilmeli, asagidaki cizelgede
            duruyor. #}
-        <span class="seyir-yeni">Bu haberden sonra
+        <span class="ds-yeni">Bu haberden sonra
           {{ dosya_seyri.sonraki }} gelişme</span>
         {% endif %}
       </div>
-      <ol class="seyir-liste">
+      <ol class="ds-liste">
         {% for a in dosya_seyri.adimlar %}
-        <li class="{% if a.kendisi %}seyir-burada{% endif %}">
-          <span class="seyir-an">
+        <li class="{% if a.kendisi %}ds-burada{% endif %}">
+          <span class="ds-an">
             {% if a.an %}
             <time class="goreli" datetime="{{ a.an }}">{{ a.tarih }}</time>
             {% else %}
@@ -220,12 +220,12 @@
             {% endif %}
           </span>
           {% if a.kendisi %}
-          <span class="seyir-baslik"><b>{{ a.baslik }}</b>
-            <span class="seyir-etiket">okuduğunuz haber</span></span>
+          <span class="ds-baslik"><b>{{ a.baslik }}</b>
+            <span class="ds-etiket">okuduğunuz haber</span></span>
           {% else %}
-          <a class="seyir-baslik" href="{{ a.yol }}">{{ a.baslik }}</a>
+          <a class="ds-baslik" href="{{ a.yol }}">{{ a.baslik }}</a>
           {% endif %}
-          <span class="seyir-kurum">{{ a.kurum }}</span>
+          <span class="ds-kurum">{{ a.kurum }}</span>
         </li>
         {% endfor %}
       </ol>
@@ -726,11 +726,11 @@
   </section>
   {% endif %}
 
-  <section class="devam">
+  <section class="okumaya-devam">
     <h2>Bunu da okuyun</h2>
-    <div class="devam-izgara">
+    <div class="od-izgara">
       {% if ayni_konu %}
-      <div class="devam-oblok">
+      <div class="od-blok">
         <h3>{{ h.konu }} başlığında son gelişmeler</h3>
         <ul>
           {% for x in ayni_konu %}
@@ -744,7 +744,7 @@
       {% endif %}
 
       {% if ilgili_analiz %}
-      <div class="devam-oblok">
+      <div class="od-blok">
         <h3>Bu veriyi kullanan analizler</h3>
         <ul>
           {% for a in ilgili_analiz %}
