@@ -62,6 +62,54 @@ TURKIYE_PANEL = (
     ("TP.YISGUCU2.G8", "İşsizlik", "%", 1),
 )
 
+#: DUNYA PANELI -- Turkiye disi haberlerde gosterilecek gostergeler.
+#:
+#: NEDEN: `TURKIYE_PANEL` yalnizca Turkiye haberlerinde basiliyor ve
+#: bu DOGRU -- ABD enflasyon haberine TUFE ve TCMB faizi koymak, daha
+#: once yasadigimiz "her sayfada Turkiye paneli" hatasinin ta kendisi.
+#:
+#: Ama sonuc su oldu: olculdu, 269 haber sayfasinin 37'sinde HICBIR
+#: veri bolumu yoktu. Icinde sunlar vardi:
+#:
+#:   "ABD'de issizlik maasi basvurulari beklentilerin altinda kaldi"
+#:   "ABD'de insaat harcamalari haziranda geriledi"
+#:
+#: O serilerin verisi DEPODA DURUYOR (ICSA, PAYEMS, CPIAUCSL...) ama
+#: sayfaya hic cikmiyordu. Turkiye paneli dogru sekilde kapaliydi;
+#: eksik olan, yerine bir sey KOYMAMAK.
+#:
+#: Konuya gore secim: her yabanci habere ayni dort gostergeyi basmak
+#: yine gurultu olurdu.
+DUNYA_PANELI: dict[str, tuple[tuple[str, str, str], ...]] = {
+    "Enflasyon": (
+        ("CPIAUCSL", "ABD TÜFE", "%"),
+        ("CPILFESL", "ABD çekirdek TÜFE", "%"),
+        ("PPIFIS", "ABD ÜFE", "%"),
+    ),
+    "İstihdam ve ücret": (
+        ("PAYEMS", "Tarım dışı istihdam", "bin kişi"),
+        ("UNRATE", "ABD işsizlik", "%"),
+        ("ICSA", "Haftalık başvuru", "kişi"),
+    ),
+    "Para politikası": (
+        ("CPIAUCSL", "ABD TÜFE", "%"),
+        ("PCEPILFE", "Çekirdek PCE", "%"),
+        ("UNRATE", "ABD işsizlik", "%"),
+    ),
+    "Büyüme": (
+        ("GDPC1", "ABD reel GSYH", "%"),
+        ("RSAFS", "Perakende satışlar", "%"),
+        ("INDPRO", "Sanayi üretimi", "%"),
+    ),
+    "Borsa": (
+        ("RSAFS", "Perakende satışlar", "%"),
+        ("UMCSENT", "Tüketici güveni", "endeks"),
+    ),
+    "Konut ve kira": (
+        ("HOUST", "Konut başlangıçları", "bin adet"),
+    ),
+}
+
 #: Reel faiz hesabinda kullanilan cift
 # Reel faiz POLITIKA FAIZINDEN hesaplaniyor, fonlama maliyetinden
 # degil: okurun "reel faiz" dedigi sey politika faizi eksi enflasyon.
@@ -619,6 +667,9 @@ class Dosya:
     """Bir haberin arastirma dosyasi. Bos alanlar sayfada BASILMAZ."""
 
     turkiye: list[Gosterge] = field(default_factory=list)
+    #: Turkiye paneli basilmayan haberlerde gosterilen dunya
+    #: gostergeleri. Ikisi ayni sayfada BIRLIKTE basilmiyor.
+    dunya: list = field(default_factory=list)
     reel_faiz: float | None = None
     seyir: list[tuple[str, float]] = field(default_factory=list)
     seyir_ad: str = ""
@@ -650,6 +701,21 @@ def _gosterge(b: sqlite3.Connection, kod: str, ad: str, birim: str) -> Gosterge 
         return None
     return Gosterge(kod=kod, ad=ad, birim=birim, son=s[-1][1], onceki=s[-2][1],
                     tarih=s[-1][0], onceki_tarih=s[-2][0])
+
+
+def dunya_gostergeleri(b, konu: str) -> list:
+    """Turkiye disi haberde gosterilecek gostergeler.
+
+    Turkiye paneli zaten basiliyorsa BU CAGRILMIYOR: iki panel yan yana
+    ayni sayfada, okurun hangisine bakacagini bilemeyecegi bir yigin
+    olurdu.
+    """
+    cikti = []
+    for kod, ad, birim in DUNYA_PANELI.get(konu, ()):
+        g = _gosterge(b, kod, ad, birim)
+        if g:
+            cikti.append(g)
+    return cikti
 
 
 def _ayrisma_say(manset: list[tuple[str, float]],
@@ -1197,12 +1263,24 @@ def kur(konu: str, bolge: str, haber_tarihi: str = "",
     # bir haberde sayfada hicbir metin kalmiyor. O yuzden burada erken
     # donmek yerine, panel bloguna girmeden yalnizca acilis uretiliyor.
     if not tr:
-        if ozetsiz or (baslik and bulten_mi(baslik)):
-            try:
-                with sqlite3.connect(f"file:{DEPO}?mode=ro", uri=True) as b:
+        # TURKIYE PANELI YOK AMA DUNYA PANELI VAR.
+        #
+        # Olculdu: 269 haber sayfasinin 37'sinde HICBIR veri bolumu
+        # yoktu ve icinde "ABD'de issizlik maasi basvurulari
+        # beklentilerin altinda kaldi" gibi haberler vardi. O serilerin
+        # verisi DEPODA duruyor (ICSA, PAYEMS, CPIAUCSL) ama sayfaya
+        # hic cikmiyordu.
+        #
+        # Turkiye panelini kapatmak dogruydu; eksik olan, yerine bir
+        # sey KOYMAMAKTI. Ikisi ayni sayfada BIRLIKTE basilmiyor --
+        # okur hangisine bakacagini bilemezdi.
+        try:
+            with sqlite3.connect(f"file:{DEPO}?mode=ro", uri=True) as b:
+                d.dunya = dunya_gostergeleri(b, konu)
+                if ozetsiz or (baslik and bulten_mi(baslik)):
                     d.acilis = _acilis(b, konu)
-            except sqlite3.Error:
-                pass
+        except sqlite3.Error:
+            pass
         return d
 
     try:

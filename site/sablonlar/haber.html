@@ -350,6 +350,30 @@
 
     {# TURKIYE GORUNUMU -- yurt ici haberde konu ne olursa olsun.
        Okur ulkenin fotografini gorsun; hepsi TCMB EVDS'den, resmi. #}
+    {# DUNYA PANELI -- Turkiye paneli basilmayan haberlerde.
+
+       Olculdu: 269 haber sayfasinin 37'sinde HICBIR veri bolumu yoktu
+       ve icinde "ABD'de issizlik maasi basvurulari beklentilerin
+       altinda kaldi" gibi haberler vardi. O serilerin verisi depoda
+       DURUYOR ama sayfaya cikmiyordu.
+
+       Turkiye panelini yabanci haberde kapatmak DOGRUYDU; eksik olan,
+       yerine bir sey koymamakti. Ikisi ayni sayfada BIRLIKTE
+       basilmiyor -- okur hangisine bakacagini bilemezdi. #}
+    {% if dosya and dosya.dunya and not dosya.turkiye %}
+    <h2>İlgili göstergeler</h2>
+    <div class="tr-izgara">
+      {% for g in dosya.dunya %}
+      <div class="tr-kalem" title="{{ g.ad }} — önceki dönem {{ g.onceki_tarih }}">
+        <span class="tr-ad">{{ g.ad }}</span>
+        <span class="tr-deger">{{ "%.2f"|format(g.son)|replace(".", ",") }}{{ g.birim }}</span>
+        <span class="tr-degisim {{ g.yon }}">{{ g.degisim }}</span>
+        <span class="tr-tarih">{{ g.tarih }}</span>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
     {% if dosya and dosya.turkiye %}
     <h2>Bugünkü görünüm</h2>
     <div class="tr-izgara">

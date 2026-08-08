@@ -22,6 +22,7 @@ sys.path[:0] = [str(_KOK), str(_KOK / "kaynak"), str(_KOK / "analiz")]
 import beyin          # noqa: E402
 import besleme        # noqa: E402
 import foto           # noqa: E402
+import makro          # noqa: E402
 import takvim         # noqa: E402
 
 HEDEF = _KOK.parent / "site" / "icerik" / "gundem.json"
@@ -86,6 +87,65 @@ def main() -> int:
         } for a in aciklamalar])
     if n_gozlem:
         print(f"  {n_gozlem} gozlem depoya yazildi")
+
+    # SERI GECMISI DE YAZILIYOR, yalnizca son gozlem degil.
+    #
+    # Olculdu: 269 haber sayfasinin 37'sinde hicbir veri bolumu yoktu.
+    # Sebep zincirin sonundaydi -- panel bir gostergeyi basmak icin EN
+    # AZ IKI gozlem istiyor (degisimi gosterebilmek icin) ve bu hat
+    # yalnizca EN YENI gozlemi yaziyordu. CPIAUCSL depoda tek satirdi.
+    #
+    # `makro.fred` ayni ucu kullanarak gecmisi zaten cekebiliyor;
+    # burada yeniden yazmak yerine o kullaniliyor. `gosterge_yaz`
+    # INSERT OR IGNORE oldugu icin tekrar calistirmak zararsiz.
+    gecmis_kod = {a.kod for a in aciklamalar if not a.kod.startswith("TP.")}
+    n_gecmis = 0
+    if gecmis_kod:
+        seriler = {s[0]: s for s in takvim.SERILER}
+        with beyin.baglan() as b:
+            var_gozlem = {
+                (k, tr) for k, tr in b.execute(
+                    "SELECT kod, tarih FROM gosterge WHERE kaynak='FRED'")}
+            kalemler = []
+            for kod in sorted(gecmis_kod):
+                s = seriler.get(kod)
+                if not s:
+                    continue
+                try:
+                    seri = makro.fred(kod, son_n=26)
+                except Exception:
+                    continue
+                if not seri or not getattr(seri, "gozlemler", None):
+                    continue
+                # SUNUM UYGULANIYOR: ham seri degeri degil, okura
+                # gosterilen buyukluk yaziliyor. Endeks seviyesini "%"
+                # birimiyle yazmak daha once "%332,57" hatasini
+                # uretmisti.
+                sunum = s[6]
+                g = list(seri.gozlemler)
+                for i, x in enumerate(g):
+                    if sunum == "yillik":
+                        if i < 12:
+                            continue
+                        onceki = g[i - 12].deger
+                        if not onceki:
+                            continue
+                        deger = (x.deger - onceki) / onceki * 100
+                    elif sunum == "degisim":
+                        if i < 1:
+                            continue
+                        deger = x.deger - g[i - 1].deger
+                    else:
+                        deger = x.deger
+                    if (kod, x.tarih) in var_gozlem:
+                        continue
+                    kalemler.append({
+                        "kod": kod, "tarih": x.tarih, "deger_ham": deger,
+                        "birim": s[2], "ad": s[1], "kaynak": "FRED"})
+            if kalemler:
+                n_gecmis = beyin.gosterge_yaz(b, kalemler)
+    if n_gecmis:
+        print(f"  {n_gecmis} gecmis gozlem depoya yazildi")
 
     yeni = [a for a in aciklamalar if a.adres not in var]
     print(f"  {len(aciklamalar)} taze gozlem, {len(yeni)} yeni haber")
