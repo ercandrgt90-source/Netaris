@@ -1,12 +1,12 @@
 ---
-slug: kuresel-gostergeler-2026-08-07
+slug: kuresel-gostergeler-2026-08-08
 baslik: Brent %29,7 yükselip geri çekildi: Türkiye'ye hangi kanallardan geliyor
 ozet: Brent petrol 3 Ağustos 2026 itibarıyla 88,90 USD/varil seviyesinde. İzlenen 14 işlem gününde 16 Temmuz 2026 tarihli 81,23 dolarlık dibi ile 23 Temmuz 2026 tarihli 105,32 dolarlık zirvesi arasında hareket etti. ABD 10 yıllık tahvil getirisi %4,69 (6 Ağustos 2026), aynı dönemde 9 baz puan yükseldi.…
 sirket: Küresel göstergeler
 kod: MAKRO
-donem: 2026-08-07
+donem: 2026-08-08
 kategori: Makro
-tarih: 2026-08-07
+tarih: 2026-08-08
 veri_kaynagi: FRED (St. Louis Fed)
 yazar: 
 unvan: 
