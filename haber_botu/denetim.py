@@ -55,6 +55,7 @@ import beyin    # noqa: E402
 import takvim   # noqa: E402
 import dosya    # noqa: E402
 import evds     # noqa: E402
+import politika_faizi  # noqa: E402
 
 
 @dataclass(frozen=True)
@@ -89,17 +90,24 @@ ETIKET_ISTISNA: dict[tuple[str, str], str] = {
         "sapabiliyor.",
 }
 
-#: Ekranda ASLA kullanilmamasi gereken adlar: (yasak ad, sebep).
-#: Bir seriye yanlis kavramin adini vermek, sayiyi dogru gostermenin
-#: hicbir anlami kalmamasi demek.
-YASAK_ETIKET: dict[str, str] = {
-    "Politika faizi":
-        "Politika faizi (bir hafta vadeli repo) ayrı bir büyüklüktür. "
-        "Fonlama maliyeti serisine bu adı vermek, %40 yazarken gerçek "
-        "politika faizinin %37 olduğu bir hataya yol açtı.",
-    "TÜFE endeksi":
-        "Endeks seviyesi ile yıllık değişim ayrı şeyler; sayfada yıllık "
-        "değişim gösteriliyor.",
+#: YANLIS SERIYE VERILMESI YASAK ADLAR: (seri kodu, ad) -> sebep.
+#:
+#: Yasak ADIN KENDISI degil, ADIN YANLIS SERIYE VERILMESI. "Politika
+#: faizi" etiketi TCMB_POLITIKA serisinde DOGRU; TP.APIFON4'te (fonlama
+#: maliyeti) yanlis ve tam bu yuzden %40 yazilirken gercek oran %37
+#: idi.
+#:
+#: Ilk yazimda yasak liste ADA bakiyordu ve dogru seriyi de engellerdi.
+YASAK_ETIKET: dict[tuple[str, str], str] = {
+    ("TP.APIFON4", "Politika faizi"):
+        "TP.APIFON4 ağırlıklı ortalama FONLAMA MALİYETİdir. Politika "
+        "faizi (bir hafta vadeli repo) ayrı bir büyüklüktür ve sapar; "
+        "bu ad %40 yazılırken gerçek oranın %37 olduğu hataya yol açtı. "
+        "Politika faizi için TCMB_POLITIKA serisi var.",
+    ("TP.APIFON4", "Faiz"):
+        "Belirsiz ad; hangi faiz olduğu yazılmalı.",
+    ("TP.FG.J0", "TÜFE"):
+        "TP.FG.J0 endeks SEVİYESİ; sayfada yıllık değişim gösteriliyor.",
 }
 
 
@@ -114,6 +122,9 @@ def kayitli_seriler() -> dict[str, str]:
     kayit = {s[0]: s[1] for s in takvim.SERILER + takvim.YERLI_SERILER}
     for s in getattr(evds, "SERILER", ()):
         kayit.setdefault(s[0], s[1])
+    # Politika faizi EVDS serisi degil: TCMB'nin PPK duyurusundan
+    # okunuyor (bkz. kaynak/politika_faizi.py).
+    kayit.setdefault(politika_faizi.KOD, politika_faizi.AD)
     return kayit
 
 
@@ -122,10 +133,11 @@ def etiket_denetimi() -> list[Bulgu]:
     bulgu: list[Bulgu] = []
 
     for kod, ad, _birim, _bas in dosya.TURKIYE_PANEL:
-        if ad in YASAK_ETIKET:
+        sebep = YASAK_ETIKET.get((kod, ad))
+        if sebep:
             bulgu.append(Bulgu(
                 "hata", "etiket", kod,
-                f"{ad!r} yasak etiket -- {YASAK_ETIKET[ad]}"))
+                f"{ad!r} bu seride yasak -- {sebep}"))
             continue
         gercek = kayit.get(kod)
         if gercek is None:
@@ -178,6 +190,7 @@ SERI_ARALIK: dict[str, tuple[float, float]] = {
     # --- Turkiye ---
     "TP.YISGUCU2.G8": (0.0, 60.0),
     "TP.APIFON4": (0.0, 100.0),
+    "TCMB_POLITIKA": (0.0, 100.0),
     "TP.TUKFIY2025.GENEL": (-30.0, 300.0),
     "TP.FE25.OKTG04": (-30.0, 300.0),
     "TP.TUFE1YI.T1": (-30.0, 400.0),
@@ -288,10 +301,12 @@ CIKTI_DIZINI = _KOK.parent / "site" / "cikti"
 #: Kavramin kendisinden soz eden metin serbest ("politika faizinden
 #: sapabilir"); yasak olan, o ada bir DEGER iliStirmek.
 YASAK_ESLESME: tuple[tuple[str, str], ...] = (
-    (r"Politika faizi[^<]{0,12}%\s*\d",
-     "TP.APIFON4 fonlama maliyetidir; politika faizi ayri buyukluk"),
     (r"TÜFE endeksi[^<]{0,12}%\s*\d",
      "endeks seviyesi yuzde olarak sunulamaz"),
+    # "Ortalama fonlama" etiketi artik panelde YOK; gorunurse eski
+    # surumden kalmis demektir.
+    (r"Ortalama fonlama[^<]{0,14}%\s*\d",
+     "panel politika faizini gosteriyor; fonlama maliyeti kaldirildi"),
 )
 
 

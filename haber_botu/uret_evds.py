@@ -24,7 +24,8 @@ _KOK = pathlib.Path(__file__).parent
 sys.path.insert(0, str(_KOK / "kaynak"))
 sys.path.insert(0, str(_KOK))
 
-import beyin  # noqa: E402
+import beyin
+import politika_faizi  # noqa: E402
 import evds  # noqa: E402
 
 KAYNAK = "TCMB EVDS"
@@ -68,6 +69,48 @@ def main() -> int:
     with beyin.baglan() as b:
         with beyin.calisma_kaydi(b, "evds") as ozet:
             n = beyin.gosterge_yaz(b, gozlemler)
+
+            # POLITIKA FAIZI EVDS'DEN DEGIL, PPK DUYURUSUNDAN.
+            #
+            # EVDS'de calisan bir politika faizi kodu bulunamadi
+            # (TP.APIFON1..12, TP.FE.OKTG01, TP.PY.P01 denendi). Ama
+            # gerek de yok: politika faizi olculen bir seri degil, ILAN
+            # EDILEN bir karar ve TCMB onu PPK basin duyurusunda
+            # yaziyor -- o duyuru zaten beslemede.
+            #
+            # Sayi ELLE YAZILMIYOR: her calistirmada duyurudan yeniden
+            # okunuyor. Elle yazilsa bir kez dogru olur, sonra PPK
+            # toplanir ve sayi sessizce yanlis olurdu.
+            # Once GECMIS: panel bir gostergeyi basmak icin en az
+            # IKI gozlem istiyor. Tek karar yazildiginda "Politika
+            # faizi" satiri panelde HIC gorunmuyordu. Yalnizca depoda
+            # olmayan duyurular cekiliyor.
+            eski = politika_faizi.gecmis(b)
+            if eski:
+                beyin.gosterge_yaz(b, [{
+                    "kod": politika_faizi.KOD, "tarih": e.tarih,
+                    "deger_ham": e.oran, "birim": "%",
+                    "ad": politika_faizi.AD, "kaynak": "TCMB PPK",
+                } for e in eski])
+                print(f"  {len(eski)} PPK karari gecmise eklendi")
+
+            k = politika_faizi.son_karar(b)
+            if k:
+                pf = beyin.gosterge_yaz(b, [{
+                    "kod": politika_faizi.KOD, "tarih": k.tarih,
+                    "deger_ham": k.oran, "birim": "%",
+                    "ad": politika_faizi.AD, "kaynak": "TCMB PPK",
+                }])
+                if pf:
+                    print(f"  politika faizi %{k.oran} ({k.tarih}) "
+                          f"duyurudan okundu")
+                ozet["politika_faizi"] = k.oran
+            else:
+                # Okunamadi: ESKI DEGER KORUNUYOR. Sessiz degil --
+                # denetim tazelik kontrolu bunu yakalar.
+                print("  UYARI: politika faizi PPK duyurusundan "
+                      "okunamadi; onceki deger korunuyor")
+
             ozet.update({"yeni_gozlem": n, "seri": len(seriler)})
     print(f"\ndepo: {n} yeni gozlem ({len(gozlemler)} okundu), "
           f"{len(seriler)} seri")

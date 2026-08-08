@@ -46,25 +46,26 @@ DEPO = pathlib.Path(__file__).parent.parent / "netaris.db"
 TURKIYE_PANEL = (
     ("TP.TUKFIY2025.GENEL", "Enflasyon", "%", 2),
     ("TP.FE25.OKTG04", "Çekirdek (C)", "%", 2),
-    # ETIKET "POLITIKA FAIZI" DEGIL.
+    # POLITIKA FAIZI -- TCMB'nin KENDI PPK duyurusundan okunuyor.
     #
-    # TP.APIFON4 = TCMB agirlikli ortalama FONLAMA MALIYETI. Politika
-    # faizi (bir hafta vadeli repo) AYRI bir buyukluk ve ikisi
-    # sapabiliyor -- olculdu: panel "Politika faizi %40,00" yaziyordu,
-    # gercek politika faizi %37 idi. Ayni dosyada `takvim.TANIM` zaten
-    # "politika faizinden sapabilir" diye yaziyordu; yanlis olan
-    # yalnizca bu etiketti.
+    # Once burada TP.APIFON4 vardi ve etiketi "Politika faizi"ydi. O
+    # seri agirlikli ortalama FONLAMA MALIYETI; ikisi ayri buyukluk ve
+    # sapiyor -- olculdu: panel %40,00 yaziyordu, politika faizi %37
+    # idi.
     #
-    # Serinin dogru adi kullaniliyor. Politika faizinin kendisi icin
-    # EVDS'de calisan bir kod bulunamadi (TP.APIFON1/2/3, TP.FE.OKTG01
-    # denendi, hepsi bos donuyor); bulununca AYRI kalem olarak eklenir.
-    ("TP.APIFON4", "Ortalama fonlama", "%", 2),
+    # EVDS'de politika faizi icin calisan bir kod bulunamadi. Ama gerek
+    # yok: politika faizi olculen bir seri degil, ILAN EDILEN bir karar
+    # ve TCMB onu PPK basin duyurusunda yaziyor. `politika_faizi.py` o
+    # duyuruyu her calistirmada okuyor.
+    ("TCMB_POLITIKA", "Politika faizi", "%", 2),
     ("TP.DK.USD.S.YTL", "USD/TRY", "", 2),
     ("TP.YISGUCU2.G8", "İşsizlik", "%", 1),
 )
 
 #: Reel faiz hesabinda kullanilan cift
-REEL_FAIZ = ("TP.APIFON4", "TP.TUKFIY2025.GENEL")
+# Reel faiz POLITIKA FAIZINDEN hesaplaniyor, fonlama maliyetinden
+# degil: okurun "reel faiz" dedigi sey politika faizi eksi enflasyon.
+REEL_FAIZ = ("TCMB_POLITIKA", "TP.TUKFIY2025.GENEL")
 
 #: Konu -> (sektor, yildiz, gerekce)
 #:
@@ -899,7 +900,7 @@ def _bulgu_enflasyon(b, d) -> list[str]:
 
 
 def _bulgu_faiz(b, d) -> list[str]:
-    faiz = _seri(b, "TP.APIFON4", 90)
+    faiz = _seri(b, "TCMB_POLITIKA", 400)
     enf = _seri(b, "TP.TUKFIY2025.GENEL", 2)
     if not faiz:
         return []
@@ -908,12 +909,12 @@ def _bulgu_faiz(b, d) -> list[str]:
     # olculdu: bulgu "Politika faizi %40,00" diyordu, gercek politika
     # faizi %37 idi. Panel etiketi duzeltildi ama BU SATIR gozden
     # kacmisti -- ayni yanlis ad iki ayri yerde yasiyordu.
-    cikti = [f"Ortalama fonlama maliyeti %{_vir(faiz[-1][1], 2)}"]
+    cikti = [f"Politika faizi %{_vir(faiz[-1][1], 2)}"]
     if enf:
         reel = faiz[-1][1] - enf[-1][1]
         # Reel faiz TANIM GEREGI fark; "yaklasik" demiyoruz ama neyin
         # neyden cikarildigini sayfada yaziyoruz.
-        cikti.append("Manşet enflasyona göre reel fonlama "
+        cikti.append("Manşet enflasyona göre reel faiz "
                      f"{_vir(reel, 2)} puan")
     if len(faiz) >= 30:
         onceki = faiz[-30][1]
