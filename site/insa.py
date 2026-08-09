@@ -121,6 +121,72 @@ SABLON = KOK / "sablonlar"
 STATIK = KOK / "statik"
 CIKTI = KOK / "cikti"
 
+
+def css_kucult(dosya: pathlib.Path) -> None:
+    """Yayimlanan CSS'ten yorumlari cikarir. KAYNAK DOSYAYA DOKUNMAZ.
+
+    Olculdu: `stil.css` 95 KB ve bunun dortte biri yorum. Yorumlar
+    kaynakta KALMALI -- her kuralin gerekcesi yazili ve o gerekceler
+    bir siniftan digerini ayirt etmemi saglayan sey. Ama okura
+    gitmeleri gereksiz: CSS render'i bloklar.
+
+    Yalnizca YORUM ve GEREKSIZ BOSLUK cikariliyor. Secici birlestirme,
+    renk kisaltma, birim yeniden yazma YOK -- kazanci kucuk, sessiz
+    bozma riski buyuk.
+
+    Dizge farkindaligi sart: `content: "/*"` gecerli CSS'tir ve naif bir
+    yorum sokucu oradan baslayip dosyanin yarisini yutar. Ayni tuzaga
+    olu-kural temizliginde dusmustum: secici metnine karisan bir
+    yorumu virgulde bolunce KAPANMAMIS yorum kaldi ve sonrasindaki her
+    sey yok oldu (`/*` 158, `*/` 157 diye olculdu).
+    """
+    ham = dosya.read_text(encoding="utf-8")
+    # DIZGELER YER TUTUCUYA CEKILIYOR. Boslugu ezen regexler dizgenin
+    # ICINE de girer: `content: ", "` -> `content:","` sayfada gorunen
+    # ayraci degistirir. Ilk yazimda tam bunu yapiyordum.
+    dizgeler: list[str] = []
+    parcalar: list[str] = []
+    i = 0
+    n = len(ham)
+    while i < n:
+        c = ham[i]
+        if c in "\"'":
+            j = i + 1
+            while j < n and ham[j] != c:
+                j += 2 if ham[j] == "\\" else 1
+            dizgeler.append(ham[i:j + 1])
+            parcalar.append(f"\x00{len(dizgeler) - 1}\x00")
+            i = j + 1
+        elif ham.startswith("/*", i):
+            k = ham.find("*/", i + 2)
+            i = n if k < 0 else k + 2
+        else:
+            parcalar.append(c)
+            i += 1
+    yeni = "".join(parcalar)
+    yeni = re.sub(r"[ \t]+", " ", yeni)
+    yeni = re.sub(r"\s*([{};:,>])\s*", r"\1", yeni)
+    yeni = re.sub(r";}", "}", yeni).strip()
+    yeni = re.sub(r"\x00(\d+)\x00", lambda m: dizgeler[int(m[1])], yeni)
+
+    # DOGRULAMA: kucultme sessizce bozarsa insa DURMALI. Yayimlanmis
+    # bozuk bir stil dosyasi, kazandirdigi 10 KB'nin cok otesinde zarar.
+    for ad, olc in (
+        ("suslu parantez", lambda s: s.count("{") - s.count("}")),
+        ("bildirim sayisi", lambda s: s.count(":")),
+        ("kural sayisi", lambda s: s.count("{")),
+    ):
+        onceki = olc(re.sub(r"/\*.*?\*/", "", ham, flags=re.S))
+        if ad == "suslu parantez":
+            if olc(yeni) != 0 or onceki != 0:
+                raise SystemExit(f"css_kucult: {ad} dengesizligi")
+        elif olc(yeni) != onceki:
+            raise SystemExit(
+                f"css_kucult: {ad} {onceki} -> {olc(yeni)} degisti")
+    dosya.write_text(yeni, encoding="utf-8")
+    print(f"  stil.css {len(ham) / 1024:.0f} KB -> "
+          f"{len(yeni.encode()) / 1024:.0f} KB")
+
 # ---------------------------------------------------------------------------
 # Site ayarlari
 # ---------------------------------------------------------------------------
@@ -2695,6 +2761,7 @@ def insa() -> int:
 
     # Varliklar
     shutil.copytree(STATIK, CIKTI / "statik")
+    css_kucult(CIKTI / "statik" / "stil.css")
 
     # Uretilen icerigi depoya bildir. Site ureteci butun icerigi tek yerde
     # gordugu icin bu kaydi atmak icin en dogru yer burasi; her hattin ayri

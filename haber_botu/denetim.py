@@ -422,6 +422,154 @@ def editoryal_denetim() -> list[Bulgu]:
     return bulgu
 
 
+#: Ayni blokta iki kez tanimli olduğu BILINEN ve bilerek birakilan
+#: seciciler. Aralarinda ayni ogeyi hedefleyen baska kural var; tek
+#: kurala indirmek siralamayi -- dolayisiyla gorunumu -- degistirebilir.
+#: Yeni bir cift cikarsa uyari verilir; asil is odur.
+BILINEN_CIFT = {
+    ".one-cikan", ".foto-atif", ".yazi-foto img", ".ozet-kutu dd",
+    ".senaryo-cagri", ".ilgili-haber",
+}
+
+#: CSS'te tanimli ama su anki gundemde UretILMEYEN siniflar. Silinmemeli:
+#: uretilebilir olduklari olculdu, yalnizca bugun o deger gelmedi.
+URETILEBILIR = {
+    # `class="tur-{{ h|kart_turu }}"` -- gecerli kume KART_TURU.values()
+    "tur-haber", "tur-duzenleme",
+    # TAKVIM_ONEM_ESIGI=2 suzuyor; esik bir ayar
+    "onem-1",
+}
+
+
+#: CSS kurali OLMAYAN ama bilerek basilan siniflar. Her biri incelendi;
+#: gerekcesi yaninda. Beyaz listeye alinmasalar her koşuda ayni sekiz
+#: satiri tekrarlarlardi ve okunmayan bir uyari uyari degildir.
+KANCA = {
+    "masa-ana": "iki sutunlu `.masa` gridinin ilk cocugu; sutun tanimi yeter",
+    "masa-akis": "",
+    "ust-panel": "ust seridin anlamsal kabi; gorunumu `.ust` veriyor",
+    "varlik-sayfa": "sayfa turu isareti",
+    "haber-yorumlu": "AI yorumu olan haberin isareti",
+    "bolum-baglanti": "bolum basligindaki baglanti; yalin `a` bicimi yeter",
+    "kivilcim": "SVG'nin kendi adi; boyut ebeveynden, renk yon sinifindan",
+    # Bu ikisi RENKSIZ birakildi. Yesil/kirmizi vermek "yukari iyi,
+    # asagi kotu" diye okunur ve bu bir yargi olurdu -- dallar konumla
+    # ayriliyor. Isim, ileride kapsamli bir kural gerekirse dursun diye.
+    "takvim-dal-ustunde": "bilerek renksiz -- yargi bildirmemek icin",
+    "takvim-dal-altinda": "bilerek renksiz -- yargi bildirmemek icin",
+}
+
+
+def stil_denetimi() -> list[Bulgu]:
+    """Stil dosyasinin cakisma ve olu kural denetimi.
+
+    Uc tuzak da bu oturumda GERCEKTEN yasandi:
+
+    1. AYNI ADI IKI FARKLI SEYE VERMEK. `.devam` "Devamını oku"
+       baglantisiydi; makale sonu bolumune de ayni ad verilince her
+       baglantinin ustunde cift cizgi cikti. `.seyir` de 13 aylik sutun
+       grafiginin kabiydi. Cakisma, ayni seciciyi iki kez tanimli
+       gormekten anlasildi -- denetlenen olcut bu.
+
+    2. OLU KURAL. Kaldirilmis ozelliklerin (piyasa paneli, TR/DUNYA
+       sekmeleri, editoryal durum rozetleri) kurallari dosyada kaldi:
+       63 kural. Isim havuzunu kirletiyor, yani (1)'i kolaylastiriyor.
+
+    3. YANLIS OLU TESPITI. `tur-makro` gibi adlar sablonda
+       BIRLESTIRILEREK uretiliyor (`tur-{{ h|kart_turu }}`), kaynakta
+       duz metin olarak gecmiyor. Ilk taramada 20 canli sinifi olu
+       sandim. Bu yuzden burada silme YOK -- yalnizca bildirim.
+    """
+    import collections
+    import re
+
+    css_yolu = _KOK.parent / "site" / "statik" / "stil.css"
+    if not css_yolu.exists():
+        return []
+    ham = css_yolu.read_text(encoding="utf-8")
+    # Yorumu BOSLUKLA doldur: uzunluk ve satir korunmali.
+    c = re.sub(r"/\*.*?\*/", lambda m: re.sub(r"[^\n]", " ", m.group()),
+               ham, flags=re.S)
+
+    kurallar: list[tuple[str, str]] = []          # (baglam, secici)
+    baglam = ""
+    d = i = sb = 0
+    while i < len(c):
+        if c[i] == "{":
+            s = " ".join(c[sb:i].split())
+            if s.startswith("@"):
+                baglam, d, sb = s, d + 1, i + 1
+            else:
+                k, dd = i, 0
+                while k < len(c):
+                    if c[k] == "{":
+                        dd += 1
+                    elif c[k] == "}":
+                        dd -= 1
+                        if dd == 0:
+                            break
+                    k += 1
+                kurallar.append((baglam, s))
+                i = sb = k + 1
+                continue
+        elif c[i] == "}":
+            d -= 1
+            if d <= 0:
+                d, baglam = 0, ""
+            sb = i + 1
+        i += 1
+
+    bulgu: list[Bulgu] = []
+    for (bg, sec), n in collections.Counter(kurallar).items():
+        if n > 1 and sec not in BILINEN_CIFT:
+            bulgu.append(Bulgu(
+                "uyari", "stil", sec[:40],
+                f"ayni blokta {n} kez tanimli"
+                f"{' (' + bg[:30] + ')' if bg else ''}"
+                " -- hangisi kazandigi belirsiz, cakisma olabilir"))
+
+    tanimli = {a for _, s in kurallar
+               for a in re.findall(r"\.([a-zA-Z][\w-]*)", s)}
+    cikti = _KOK.parent / "site" / "cikti"
+    if not cikti.exists():
+        return bulgu
+    uretilen: set[str] = set()
+    for f in cikti.rglob("*.html"):
+        for x in re.findall(r'class="([^"{}]+)"',
+                            f.read_text(encoding="utf-8", errors="ignore")):
+            uretilen |= set(x.split())
+
+    # Sayfada var ama CSS'te yok: yazim hatasi ya da yeniden
+    # adlandirmada unutulan sablon. `.devam` -> `.okumaya-devam`
+    # gecisinde sablonun biri geride kalsaydi burada gorunurdu.
+    for a in sorted(uretilen - tanimli - set(KANCA) - {"js", "hidden"}):
+        if "-" in a or len(a) > 6:            # yardimci kisa adlari ele
+            bulgu.append(Bulgu("uyari", "stil", a,
+                               "sayfalarda kullaniliyor ama CSS'te tanimsiz"))
+    # KAYNAK AGACI SUZGECI. "Sayfada yok" tek basina olu demek degil:
+    # `akiyor`/`durdu` betigin ekledigi sinif, `ara-kart` yalnizca arama
+    # sonucunda cikiyor. Suzgecsiz hali 56 sinif bildiriyordu ve boyle
+    # bir liste okunmaz -- dogru iceriği isaretleyen denetim, denetimin
+    # kendisini degersizlestirir.
+    kaynak = []
+    for dizin in ("site/sablonlar", "site", "haber_botu"):
+        d = _KOK.parent / dizin
+        if not d.exists():
+            continue
+        kaynak += [f.read_text(encoding="utf-8", errors="ignore")
+                   for f in d.rglob("*")
+                   if f.suffix in {".html", ".py", ".js"}
+                   and "cikti" not in f.parts]
+    metin = "\n".join(kaynak)
+    olu = sorted(a for a in tanimli - uretilen - URETILEBILIR
+                 if a not in metin)
+    if olu:
+        bulgu.append(Bulgu(
+            "uyari", "stil", f"{len(olu)} sinif",
+            "CSS'te tanimli, hicbir sayfada yok: " + ", ".join(olu[:8])))
+    return bulgu
+
+
 def calistir(sessiz: bool = False) -> int:
     bulgular: list[Bulgu] = []
     bulgular += etiket_denetimi()
@@ -431,6 +579,7 @@ def calistir(sessiz: bool = False) -> int:
         bulgular += tazelik_denetimi(b)
     bulgular += cikti_denetimi()
     bulgular += editoryal_denetim()
+    bulgular += stil_denetimi()
 
     hata = [x for x in bulgular if x.agirlik == "hata"]
     uyari = [x for x in bulgular if x.agirlik == "uyari"]
