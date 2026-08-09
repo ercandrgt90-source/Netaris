@@ -33,6 +33,7 @@ sys.path.insert(0, str(_KOK / "analiz"))
 sys.path.insert(0, str(_KOK))
 
 import besleme  # noqa: E402
+import bicim  # noqa: E402
 import beyin  # noqa: E402
 import ceviri  # noqa: E402
 import foto  # noqa: E402
@@ -215,7 +216,16 @@ def main() -> int:
         ozet_metni = veri_basligi.ozet(v) if v else h.ozet[:320]
 
         kayitlar.append({
-            "baslik": tr,
+            # BAGIRAN BASLIK SADELESTIRILIYOR.
+            #
+            # Kaynaklarin bir kismi tiklama icin yazilmis baslik veriyor:
+            # "BENZINE NE KADAR, KAC TL ZAM GELECEK?", "...aciklama!".
+            # Olculdu: 313 basligin 17'sinde unlem var. Bu bir arastirma
+            # platformu; baslik bagirmaz.
+            #
+            # Kaynagin kendi basligi `baslik_kaynak`ta duruyor ve sayfada
+            # kunyeyle birlikte gosteriliyor -- ne dedigi gizlenmiyor.
+            "baslik": bicim.baslik_sadelestir(tr),
             "baslik_kaynak": h.baslik,
             # Kaynagin KENDI ozeti. Bunu toplayip sayfaya hic tasimiyorduk:
             # her haber sayfasinda o habere dair TEK ozgul icerik buydu ve

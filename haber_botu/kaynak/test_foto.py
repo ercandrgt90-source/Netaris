@@ -52,7 +52,6 @@ print("\nEditoryal suzgec -- konuya ait gorseller GECMELI")
 for baslik in (
     "Strait of Hormuz (MODIS 2020-12-04).jpg",
     "Crude oil, condensate, and petroleum products transported through",
-    "1896 Strait of Hormuz map (cropped).jpg",
     "ISS-46 Gulf of Oman with Strait of Hormuz at night.jpg",
     "Prime Minister Keir Starmer attends Strait of Hormuz Summit",
     "Bandar Imam Khomeini petrochemical complex.jpg",
@@ -62,6 +61,21 @@ for baslik in (
 
 # Facia gorseli ADINDA facia gecmeyebilir: "Iran Air 655" bir yolcu
 # ucagi faciasi ama dosya adi bunu soylemiyor -- KATEGORI soyluyor.
+# ARSIV. 2026 istihdam raporunun yaninda 1913 grev fotografi, okura o
+# donemin haberi gibi gorunur. NFP havuzunun yarisi boyle doldu.
+print("\nEditoryal suzgec -- arsiv gorselleri elenmeli")
+for baslik in (
+    "Garment Workers on Strike, New York City circa 1913.jpg",
+    "Damm factory workers 1920.jpg",
+    "1896 Strait of Hormuz map (cropped).jpg",
+    "Floor of Toronto Stock Exchange 1956.jpg",
+    "J. M. Price Grocery Store, Toledo, Ohio (approximately 1882)",
+):
+    dogru(f"arsiv: {baslik[:36]}",
+          not foto._editoryal_uygun({"title": baslik, "tags": []}))
+dogru("guncel yil geciyor", foto._editoryal_uygun(
+    {"title": "Supermarket - Massachusetts - 2024.jpg", "tags": []}))
+
 print("\nEditoryal suzgec -- kategoriden yakalama")
 dogru("kategori taraniyor", not foto._editoryal_uygun({
     "title": "Iran Air 655 Strait of hormuz 80.jpg",

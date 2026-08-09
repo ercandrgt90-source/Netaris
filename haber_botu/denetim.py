@@ -405,6 +405,17 @@ def _gorsel_denetimi() -> list[Bulgu]:
         bulgu.append(Bulgu("uyari", "gorsel", "-",
                            f"{sayfasiz} haber sayfasinda fotograf yok"))
 
+    # DOSYASI OLMAYAN GORSEL HATADIR, UYARI DEGIL.
+    #
+    # Okur kirik bir gorsel kutusu goruyor ve hicbir yerde iz yok.
+    # Olculdu: editoryal suzgec siklastiktan sonra iki sayfa silinmis
+    # dosyaya isaret ediyordu.
+    for yol, n in kullanim.items():
+        if not (CIKTI_DIZINI / yol.lstrip("/")).exists():
+            bulgu.append(Bulgu(
+                "hata", "gorsel", yol.split("/")[-1],
+                f"{n} sayfada kullaniliyor ama DOSYA YOK -- kirik gorsel"))
+
     # Havuz ici dagilim: bir havuzun en cok ve en az kullanilan gorseli
     # arasinda BIRDEN fazla fark varsa dagitim bozulmustur.
     kayit_yolu = _KOK / "kaynak" / "foto_kayit.json"

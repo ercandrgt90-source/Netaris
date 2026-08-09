@@ -20,6 +20,8 @@ KURALLAR
 
 from __future__ import annotations
 
+import re
+
 # Turkce'ye ozgu harf esleri
 _BUYUK = str.maketrans({"i": "İ", "ı": "I"})
 _KUCUK = str.maketrans({"I": "ı", "İ": "i"})
@@ -168,3 +170,124 @@ def kisa_ad(unvan: str) -> str:
         else:
             duzeltilmis.append(s)
     return " ".join(duzeltilmis)
+
+
+#: Buyuk harf kalmasi gereken kisaltmalar. Liste kapali degil; asagidaki
+#: kural "uc harfe kadar tamamen buyuk yazilmis sozcuk kisaltmadir"
+#: varsayimini kullaniyor, bunlar ise daha uzun olduklari icin ayrica
+#: yaziliyor.
+KISALTMALAR = frozenset({
+    "TCMB", "BDDK", "SPK", "TUIK", "TÜİK", "BIST", "BİST", "KAP", "TOKI",
+    "TOKİ", "OPEC", "OPEC+", "FOMC", "ECB", "IMF", "OECD", "NATO", "USD",
+    "EUR", "TRY", "TL", "BTC", "ETH", "GSYH", "TUFE", "TÜFE", "UFE", "ÜFE",
+    "PPK", "SGK", "KDV", "OTV", "ÖTV", "ABD", "AB",
+})
+
+#: Ard arda kac bagiran sozcuk gorulurse baslik bagiriyor sayilir.
+#: Ikiden basliyor: "BENZINE NE KADAR" iki sozcukte belli oluyor.
+BAGIRAN_DIZI = 2
+
+
+def _cekirdek(sozcuk: str) -> str:
+    return sozcuk.strip(".,;:!?()[]\"'“”")
+
+
+def _tamami_buyuk(sozcuk: str) -> bool:
+    """Sozcugun butun harfleri buyuk mu (rakam ve noktalama sayilmaz)."""
+    harf = [c for c in _cekirdek(sozcuk) if c.isalpha()]
+    return bool(harf) and all(c.isupper() for c in harf)
+
+
+#: Bu uzunluga kadar tamamen buyuk yazilmis sozcuk KISALTMA sayilir.
+#: `unvan_duzelt` ve `kisa_ad` ayni esigi kullaniyor -- ayni dosyada iki
+#: farkli "kisaltma nedir" tanimi olmasin.
+KISALTMA_UZUNLUGU = 4
+
+
+def _bagiran_sozcuk(sozcuk: str) -> bool:
+    """Tek sozcuk bagiriyor mu -- kisaltma degil, uzun ve tamamen buyuk.
+
+    ESIK 3'TEN 4'E CIKTI. Uc harf esigiyle "Garanti BBVA, GMTN
+    programinda..." basligi BAGIRIYOR sayildi ve "Garanti Bbva, Gmtn"
+    diye bozuldu: dort harfli iki kisaltma yan yana gelince ardisik
+    bagirma dizisi olusuyor. Kurum adini bozmak, bagiran basligi
+    duzeltmemekten kotudur.
+    """
+    c = _cekirdek(sozcuk)
+    if (len(c) <= KISALTMA_UZUNLUGU or c in KISALTMALAR
+            or any(x.isdigit() for x in c)):
+        return False
+    return _tamami_buyuk(sozcuk)
+
+
+def _notr(sozcuk: str) -> bool:
+    """Diziyi kirmayan sozcuk: kisaltma boyunda ya da harfsiz.
+
+    "BENZINE NE KADAR, KAC TL ZAM GELECEK?" dizisinde "NE", "KAC", "TL"
+    ve "ZAM" kisa. Bunlari dizi kirici saymak, bagiran basligin hicbir
+    yerinde iki ardisik bagiran sozcuk BULUNAMAMASINA yol aciyordu --
+    kural hic tetiklenmiyordu.
+    """
+    c = _cekirdek(sozcuk)
+    return len(c) <= KISALTMA_UZUNLUGU or not any(x.isalpha() for x in c)
+
+
+def bagiriyor(baslik: str) -> bool:
+    """Baslikta bagiran bir BOLUM var mi?
+
+    Oran butun basliga bakiyordu ve ise yaramadi: gercek basliklar
+    yalnizca BASINDA bagiriyor -- "BENZINE NE KADAR, KAC TL ZAM GELECEK?
+    Guncel akaryakit fiyatlarinda son durum". Basligin yarisi normal
+    yazildigi icin oran esigin altinda kaliyor ve hicbir sey olmuyordu.
+
+    Olcut artik ard arda gelen bagiran sozcuk sayisi.
+    """
+    ardisik = 0
+    for sozcuk in baslik.split():
+        if _notr(sozcuk):
+            continue                      # diziyi kirmiyor, saymiyor da
+        ardisik = ardisik + 1 if _bagiran_sozcuk(sozcuk) else 0
+        if ardisik >= BAGIRAN_DIZI:
+            return True
+    return False
+
+
+def baslik_sadelestir(baslik: str) -> str:
+    """Bagiran bolumleri normal yaziya cevirir, unlemi noktaya donusturur.
+
+    NEDEN: kaynaklarin bir kismi tiklama icin yazilmis basliklar
+    veriyor -- "BENZINE NE KADAR, KAC TL ZAM GELECEK?", "Altin
+    yatirimcisina nefes aldiran aciklama!". Olculdu: 313 basligin
+    17'sinde unlem var.
+
+    Bu bir arastirma platformu; baslik bagirmaz. Ceviri zaten kendi
+    basligimizi uretiyor, `baslik_kaynak` ayrica saklaniyor ve kaynak
+    baglantisi her sayfada duruyor -- kaynagin ne dedigi gizlenmiyor,
+    biz kendi uslubumuzla yaziyoruz.
+
+    KISALTMALAR KORUNUYOR: "TCMB" kucultulurse kurum adi bozulur.
+    """
+    if not baslik:
+        return baslik
+    metin = baslik
+    if bagiriyor(metin):
+        # BASLIK BICIMINE cevriliyor, cumle bicimine DEGIL.
+        #
+        # Cumle bicimi ("hepsi kucuk, yalnizca ilk harf buyuk") ozel
+        # adlari bozar: "TURKIYE" -> "turkiye". Baslik bicimi hicbir
+        # sozcugun ilk harfini kucultmedigi icin bu riski tasimiyor.
+        #
+        # Kisa sozcukler de cevriliyor ("MI" -> "Mı"); yoksa bagiran
+        # basligin icinde buyuk harfli adaciklar kaliyordu.
+        metin = " ".join(
+            s if _cekirdek(s) in KISALTMALAR or not _tamami_buyuk(s)
+            else bas_harf(kucuk(s))
+            for s in metin.split(" "))
+    # UNLEM NOKTAYA DONUYOR, SILINMIYOR.
+    #
+    # Ilk yazimda siliyordum ve "...aciklama! Dev banka..." cumlesi
+    # "...aciklama Dev banka..." haline geldi -- iki cumle birbirine
+    # yapisti. Unlem burada ayni zamanda AYRAC.
+    metin = re.sub(r"!+(\s+)", r".\1", metin)
+    metin = metin.replace("!", "")
+    return " ".join(metin.split()).strip(" .,;:")

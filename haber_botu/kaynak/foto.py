@@ -153,17 +153,26 @@ VARLIK_ARAMA = {
     "FED": ("federal reserve building", "federal reserve chair"),
     "ECB": ("european central bank frankfurt", "euro currency"),
     "TCMB": ("central bank of turkey", "turkish lira banknotes"),
-    "BIST100": ("borsa istanbul", "stock exchange trading floor"),
-    "BTC": ("bitcoin", "cryptocurrency mining"),
-    "NFP": ("job interview", "factory workers usa", "employment office"),
+    # ARSIV ESIGI SORGUYU DA DEGISTIRDI: "stock exchange trading floor"
+    # 1956 Toronto ve tarihsiz New York arsivi getiriyordu. Guncel
+    # gorsel dondurenler onde.
+    "BIST100": ("borsa istanbul", "istanbul financial center",
+                "stock exchange building", "stock market screen"),
+    "BTC": ("bitcoin atm", "cryptocurrency exchange screen",
+            "cryptocurrency mining"),
+    # "factory workers" 1913 grev ve 1920 fabrika arsivi getiriyordu.
+    "NFP": ("job fair", "hiring sign", "job interview",
+            "employment office"),
     "CPI_US": ("supermarket usa", "grocery prices"),
     "TUFE_TR": ("turkish market bazaar", "supermarket shopping"),
     "SEK_BANKA": ("bank branch", "financial district"),
     "SEK_ENERJI": ("power plant", "electricity grid"),
-    "SEK_OTOMOTIV": ("car factory", "automobile assembly line"),
+    "SEK_OTOMOTIV": ("car factory robot", "automobile assembly robot",
+                     "car factory"),
     "SEK_TURIZM": ("hotel resort", "airport terminal"),
     "SEK_INSAAT": ("construction site", "housing construction"),
-    "SEK_PERAKENDE": ("retail store", "shopping mall"),
+    "SEK_PERAKENDE": ("supermarket aisle", "shopping mall interior",
+                      "retail store"),
 }
 
 #: CALISTIRMA BASINA EN COK KAC API ISTEGI.
@@ -263,7 +272,27 @@ YASAK_BASLIK = (
     # metni de tarandigi icin tek kelime yetiyor.
     "incident",
     "carrier strike", "strike group",
+    # SPOR. Olculdu: CN havuzuna "Shanghai Port and Beijing Guoan
+    # players" indi -- "Shanghai Port" bir FUTBOL KULUBU'nun adi ve
+    # arama liman sanip getirdi. Kur savasi haberinin yaninda futbol
+    # maci fotografi.
+    "players", "football", "soccer", "stadium", "league", "match ",
+    " fc ", "basketball", "olympic",
+    # LOGO ve amblem: kurumsal isaret, haber gorseli degil.
+    "logo", "coat of arms", "emblem",
 )
+
+#: ARSIV ESIGI. Bundan onceki bir yili anan gorsel alinmiyor.
+#:
+#: Olculdu: NFP (ABD istihdam) havuzunun yarisi arsivdi -- "Garment
+#: Workers on Strike, New York City circa 1913", "Damm factory workers
+#: 1920", "SS Tiger (1917)". 2026 istihdam raporunun yaninda 1913
+#: grev fotografi, okura o donemin haberi gibi gorunur.
+#:
+#: Harita ve sema disarida tutulmuyor: eski bir harita da eski bir
+#: fotograf kadar yaniltici. Guncel haritalar zaten aramada cikiyor.
+ARSIV_YILI = 1990
+_YIL = re.compile(r"\b(1[0-9]{3}|20[0-2][0-9])\b")
 
 #: SAVAS GEMISI GOVDE KODU. Bazi gorseller yalnizca kodla adlandirilmis:
 #: "CVN 69 transits the Strait of Hormuz" -- baslikta tek bir yasakli
@@ -272,7 +301,8 @@ YASAK_BASLIK = (
 #: bir gorseli sonradan elemek gerektiginde elde yalnizca dosya adi
 #: kaliyor. Kod dogrudan taniniyor.
 _ASKERI_KOD = re.compile(
-    r"\b(cvn|cgn|cg|ddg|lha|lhd|lpd|ssbn|ssn|ffg|wpc|wmsl)[\s\-_]?\d{1,3}\b",
+    r"\b(cvn|cgn|cg|ddg|lha|lhd|lpd|ssbn|ssn|ffg|wpc|wmsl|whec|wagb)"
+    r"[\s\-_]?\d{1,3}\b|\b(uscgc|usns|hmnzs|hmcs)\b",
     re.I)
 
 #: Kabul edilen lisanslar. ND (NoDerivatives) DISARIDA: kart icinde
@@ -379,11 +409,23 @@ _SLUG = str.maketrans({
 
 
 def _dosya_adi(url: str, konu: str, sira: int) -> str:
+    """Havuz adi + KAYNAK ADRESININ ozeti.
+
+    SIRA NUMARASI TEK BASINA BENZERSIZ DEGIL. Ad `havuz-<sira>` idi ve
+    sira `len(mevcut)+1` ile veriliyordu; havuzdan bir gorsel SILININCE
+    numaralar kayiyor ve bir sonraki indirme AYNI adi aliyor. Iki farkli
+    kayit ayni dosyayi gosteriyor, biri silininince digeri de kiriliyor.
+
+    Olculdu: uc kayit diskte olmayan dosyayi gosteriyordu ve iki sayfada
+    KIRIK GORSEL cikti. Ad artik kaynak adresine bagli; ayni gorsel her
+    zaman ayni adi, farkli gorsel her zaman farkli adi alir.
+    """
     uzanti = pathlib.Path(url.split("?")[0]).suffix.lower()
     if uzanti not in (".jpg", ".jpeg", ".png", ".webp"):
         uzanti = ".jpg"
     kisa = re.sub(r"[^a-z0-9]+", "-", konu.translate(_SLUG).lower()).strip("-")
-    return f"{kisa}-{sira}{uzanti}"
+    ozet = hashlib.sha256(url.encode("utf-8")).hexdigest()[:8]
+    return f"{kisa}-{sira}-{ozet}{uzanti}"
 
 
 def lisans_kodu(ham: str) -> str:
@@ -560,7 +602,13 @@ def _editoryal_uygun(s: dict) -> bool:
     kucuk = metin.lower()
     if any(k in kucuk for k in YASAK_BASLIK):
         return False
-    return not _ASKERI_KOD.search(metin)
+    if _ASKERI_KOD.search(metin):
+        return False
+    # ESKI TARIH. Metinde gecen EN KUCUK yil esige bakiliyor: bir
+    # gorsel hem "1913" hem "2020" tasiyabilir (arsivin dijitallestirme
+    # tarihi), ve o durumda icerik eski olandir.
+    yillar = [int(y) for y in _YIL.findall(metin)]
+    return not (yillar and min(yillar) < ARSIV_YILI)
 
 
 def doldur(konu: str, kayit: Kayit, adet: int | None = None) -> int:

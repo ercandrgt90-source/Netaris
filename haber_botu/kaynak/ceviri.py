@@ -115,7 +115,7 @@ class Cevirmen:
             self.basarisiz += 1
             return metin
 
-        ceviri = _duzelt(ceviri)
+        ceviri = tire_duzelt(_duzelt(ceviri), metin)
         self.onbellek[anahtar] = ceviri
         self.yeni_ceviri += 1
         time.sleep(BEKLEME_SN)
@@ -134,7 +134,17 @@ _DUZELTMELER = (
     # "% 2,7" -> "%2,7"  (Turkce'de isaret sayiya bitisiktir)
     (r"%\s+(\d)", r"%\1"),
     # "2027 'nin" -> "2027'nin"  (kesme isaretinden onceki bosluk)
-    (r"\s+'", "'"),
+    #
+    # DESEN DARALTILDI. Once `\s+'` idi ve ACILIS TIRNAGINI da yiyordu:
+    #   "Deutsche Bank 'gerçek değeri' açıkladı"
+    #   -> "Deutsche Bank'gerçek değeri' açıkladı"
+    # Olculdu: bes basligin dordu boyle bozuldu.
+    #
+    # Ayirt edici, kesme isaretinden SONRA gelen: Turkce ek en fazla
+    # dort harftir ve orada biter ("'nin ", "'de,"). Alintinin ilk
+    # sozcugu ise daha uzun ("'gerçek", "'zorlu"). Ek olamayacak kadar
+    # uzunsa bosluk korunuyor.
+    (r"\s+'(?=[a-zçğıöşü]{1,4}(?:\s|$|[.,;:!?]))", "'"),
     # Cift bosluk
     (r"\s{2,}", " "),
     # Noktalama oncesi bosluk
@@ -164,6 +174,13 @@ _TERIMLER = (
     (r"\byorum talep ediyor\b", "görüşe açtı"),
     (r"\bpara politikası beyanı\b", "para politikası açıklaması"),
     (r"\bücret izleyicisi\b", "ücret göstergesi"),
+
+    # "inflation runs hot" -> "enflasyon sicak calisirsa".
+    # Deyim kelimesi kelimesine cevrilince makine cumlesi cikiyor;
+    # finansal anlami "enflasyon yuksek seyrederse".
+    (r"\benflasyon sıcak çalışırsa\b", "enflasyon yüksek seyrederse"),
+    (r"\benflasyon sıcak çalışıyor\b", "enflasyon yüksek seyrediyor"),
+    (r"\bsıcak çalışırsa\b", "yüksek seyrederse"),
 
     # KURUM KISALTMASI ANLAMINA GORE CEVRILIYOR.
     # Olculdu: "EIA Natural Gas Change BCF" -> "ÇED Doğal Gaz Değişimi".
@@ -210,6 +227,54 @@ _EK_DUZELTME = (
     (r"Bank'nda\b", "Bank'ta"),
     (r"Fed'nin\b", "Fed'in"),
 )
+
+
+#: Bosluklu tire: "ABD - Kanada". Iki yanindaki TEK kelimeyi yakalar.
+_BOSLUKLU_TIRE = re.compile(r"(?<=\w)\s+[-–]\s+(?=\w)")
+
+
+def tire_duzelt(ceviri: str, kaynak: str) -> str:
+    """Ceviri sirasinda tirenin etrafina eklenen bosluklari kaldirir.
+
+    Olculdu -- 313 basligin 12'sinde var:
+        kaynak "U.S.-Canada energy trade"  -> bizim "ABD - Kanada ..."
+        kaynak "Monetary policy (with Q&A)" -> bizim "... (Soru - Cevap ile)"
+        kaynak "tele-rally"                 -> bizim "tele - miting"
+
+    AMA HER " - " HATA DEGIL. Turkce'de bosluklu tire iki cumleyi ayirir
+    ve kaynaklarin kendisi de kullaniyor:
+        "Finansal Hesaplar - 2026 I. Ceyrek"
+        "Sandisk, Block kazanclari - piyasalari neler etkiliyor"
+    Bunlari duzeltmek yeni bir hata olurdu.
+
+    AYIRT EDICI KAYNAK METNIDIR: kaynakta bosluga komsu tire varsa
+    bizimki de oyle kalir.
+    KURAL SAYIYA DAYANIYOR. Ilk yazimda yalnizca "kaynakta bosluklu tire
+    var mi" diye bakiyordum ve iki basligi BOZDUM:
+        "May-July vs Year Earlier" -> cevirmen "vs"i de " - " yapmisti;
+            duzeltme "Mayis-Temmuz-Bir Onceki Yil" uretti
+        "in July -Lloyds"          -> kaynak eki tireyle baglamis;
+            duzeltme "artti-Lloyd's" uretti
+    Ikisinde de kaynaktaki tire sayisi ile cevirideki bosluklu tire
+    sayisi TUTMUYOR. Tutmuyorsa hangi tirenin hangisine karsilik geldigi
+    belirsizdir ve belirsizken dokunmuyoruz.
+    """
+    if not ceviri or not kaynak:
+        return ceviri
+    # Bosluga komsu tire AYIRICIDIR (" - ", " -Lloyds"): kaynagin uslubu.
+    if re.search(r"\s[-–]|[-–]\s", kaynak):
+        return ceviri
+    kaynak_birlesik = len(re.findall(r"\w[-–]\w", kaynak))
+    ceviri_bosluklu = len(_BOSLUKLU_TIRE.findall(ceviri))
+    if ceviri_bosluklu == 0:
+        return ceviri
+    # Kaynakta hic tire yoksa bosluklu tire cevirmenin ekledigidir
+    # ("Q&A" -> "Soru - Cevap"); ama yalnizca tek bir tane varsa.
+    if kaynak_birlesik == 0:
+        return _BOSLUKLU_TIRE.sub("-", ceviri) if ceviri_bosluklu == 1 else ceviri
+    if kaynak_birlesik != ceviri_bosluklu:
+        return ceviri
+    return _BOSLUKLU_TIRE.sub("-", ceviri)
 
 
 def _duzelt(metin: str) -> str:

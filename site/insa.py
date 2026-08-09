@@ -551,7 +551,12 @@ def analiz_fotografi(kayit, baslik: str, kategori: str, kod: str) -> tuple[str, 
     f = _en_az_kullanilan(kayit.havuz(konu), baslik)
     if f is None and konu != varsayilan:
         f = _en_az_kullanilan(kayit.havuz(varsayilan), baslik)
-    if f is None:
+    if f is None or not (STATIK / f.dosya.split("/statik/", 1)[-1]).exists():
+        # DOSYASI OLMAYAN GORSEL BASILMAZ. Defterde adi gecen bir dosya
+        # diskte olmayabilir: editoryal suzgec siklastiginda 49 gorsel
+        # cikarildi ve iki ANALIZ sayfasi silinmis dosyaya isaret etmeye
+        # devam etti. Ayni koruma haber hattinda da var -- iki ayri
+        # yoldan fotograf seciliyor ve ikisi de kendi kontrolunu yapmali.
         return "", ""
     # CC BY atfi zorunlu -- gorselin altinda basilir, kaldirilirsa lisans
     # ihlal edilir.
@@ -588,13 +593,30 @@ def foto_dagit(haberler: list[dict], varlik_haritasi: dict,
         adres = h.get("adres", "")
         # Havuz anahtari: once varlik, yoksa konu. `varlik_sec` ile ayni
         # kural -- birden fazla varlik varsa tohuma gore biri seciliyor.
-        kodlar = [v["kod"] for v in
-                  (varlik_haritasi.get(adres, {}).get("varliklar") or [])
-                  if kayit.havuz(v["kod"])]
-        if kodlar:
+        adaylar = [v for v in
+                   (varlik_haritasi.get(adres, {}).get("varliklar") or [])
+                   if kayit.havuz(v["kod"])]
+        # BASLIKTA GECEN VARLIK ONCELIKLI.
+        #
+        # Eskiden adaylardan biri TOHUMA gore, yani rastgele seciliyordu.
+        # Olculdu ve gorunur hataya yol acti:
+        #   "Altin fiyatlarinda yukselis suruyor"  -> Hurmuz Bogazi haritasi
+        #   "Altinin kilogram fiyati ... yukseldi" -> New York borsasi
+        #   "ABD'de tarife iadeleri ..."           -> Ankara sokak fotografi
+        # Ucunde de haber birden fazla varliga baglanmis (altin haberinde
+        # Iran da geciyor) ve gorsel YANLIS olani anlatmis.
+        #
+        # Basligin kendisi haberin NEYLE ILGILI oldugunun en dogrudan
+        # isareti. Baslikta adi gecen varlik varsa gorsel ondan seciliyor.
+        if _dosya is not None and adaylar:
+            bas = _dosya.katla(h.get("baslik") or h.get("baslik_kaynak") or "")
+            gecen = [v for v in adaylar if _dosya.katla(v["ad"]) in bas]
+            if gecen:
+                adaylar = gecen
+        if adaylar:
             i = int(hashlib.sha256((adres + "v").encode()).hexdigest(),
-                    16) % len(kodlar)
-            anahtar = kodlar[i]
+                    16) % len(adaylar)
+            anahtar = adaylar[i]["kod"]
         else:
             anahtar = h.get("konu", "")
         f = _en_az_kullanilan(kayit.havuz(anahtar), adres)
@@ -2674,6 +2696,16 @@ def insa() -> int:
             if yeni_f is not None:
                 h["foto"] = yeni_f.dosya
                 h["foto_atif"] = yeni_f.kisa_atif
+            # DOSYASI OLMAYAN GORSEL BASILMAZ.
+            #
+            # `gundem.json` fotografi haberin ILK secimiyle tasiyor. O
+            # dosya sonradan silinmis olabilir -- editoryal suzgec
+            # siklastiginda 49 gorsel havuzdan cikarildi ve iki haber
+            # hala silinmis dosyaya isaret ediyordu. Sonuc: sayfada
+            # KIRIK GORSEL, hicbir hata mesaji yok.
+            if h.get("foto"):
+                if not (STATIK / h["foto"].split("/statik/", 1)[-1]).exists():
+                    h["foto"] = h["foto_atif"] = ""
 
             # `dosya.kur` BIR KEZ: hem sablon hem kaynaklar ayni
             # nesneyi kullaniyor.

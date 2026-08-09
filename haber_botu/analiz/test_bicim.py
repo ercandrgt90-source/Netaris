@@ -81,6 +81,40 @@ esit(bicim.kisa_ad("Koç Holding A.Ş."), "Koç Holding",
 esit(bicim.kisa_ad("A.Ş."), "A.Ş.", "her sey atilirsa unvan geri veriliyor")
 esit(bicim.kisa_ad("Aselsan"), "Aselsan", "tek sozcuklu unvan")
 
+# ---------------------------------------------------------------- baslik
+#
+# Kaynaklarin bir kismi tiklama icin yazilmis baslik veriyor. Buradaki
+# ornekler uretimde gorulen gercek basliklar.
+print("\nBaslik sadelestirme")
+# TURKCE HARFLERLE yaziliyor: ASCII "I" Turkce'de "ı"ya doner ve bu
+# DOGRU davranistir. Testi ASCII'ye cevirince beklenen deger yanlis
+# oluyor ("Benzıne"), yani test modulun asil isini olcmuyor.
+esit(bicim.baslik_sadelestir(
+        "BENZİNE NE KADAR, KAÇ TL ZAM GELECEK? Güncel akaryakıt fiyatları"),
+     "Benzine Ne Kadar, Kaç TL Zam Gelecek? Güncel akaryakıt fiyatları",
+     "bagiran bolum baslik bicimine cevriliyor")
+esit(bicim.baslik_sadelestir("TUIK acikladi: enflasyon belli oldu!"),
+     "TUIK acikladi: enflasyon belli oldu",
+     "sondaki unlem kalkiyor")
+esit(bicim.baslik_sadelestir("Altin aciklamasi! Dev banka rakam verdi"),
+     "Altin aciklamasi. Dev banka rakam verdi",
+     "cumle ortasindaki unlem NOKTAYA doner -- silinirse cumleler yapisir")
+
+# KURUM ADI BOZULMAMALI. Bu iki kisaltma yan yana gelince "bagirma"
+# sanilip "Garanti Bbva, Gmtn" uretilmisti.
+esit(bicim.baslik_sadelestir(
+        "Garanti BBVA, GMTN programinda 10 milyon USD tahvil ihraci"),
+     "Garanti BBVA, GMTN programinda 10 milyon USD tahvil ihraci",
+     "yan yana iki kisaltma bagirma sayilmaz")
+esit(bicim.baslik_sadelestir("TCMB faiz kararini acikladi"),
+     "TCMB faiz kararini acikladi", "normal baslik degismez")
+esit(bicim.baslik_sadelestir("ABD Tarim Disi Istihdam Ne Zaman?"),
+     "ABD Tarim Disi Istihdam Ne Zaman?", "baslik bicimi bagirma degildir")
+esit(bicim.baslik_sadelestir(""), "", "bos baslik")
+esit(bicim.bagiriyor("Normal bir Turkce baslik"), False, "bagirmiyor")
+esit(bicim.bagiriyor("TURKIYE EKONOMISI BUYUDU"), True, "bagiriyor")
+
+
 print("\n" + "=" * 60)
 if _kaldi:
     print(f"{_kaldi} TEST KALDI, {_gecti} gecti")
