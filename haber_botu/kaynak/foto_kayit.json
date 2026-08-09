@@ -1,30 +1,6 @@
 {
  "Enerji": [
   {
-   "dosya": "/statik/foto/enerji-1.jpg",
-   "atif": "\"Oil Pump Jack\" by Paul Lowry is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
-   "lisans": "by 2.0",
-   "kaynak": "https://www.flickr.com/photos/10039026@N03/2770193028"
-  },
-  {
-   "dosya": "/statik/foto/enerji-2.jpg",
-   "atif": "\"Oil pump jack\" by M1kha is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
-   "lisans": "by-sa 2.0",
-   "kaynak": "https://www.flickr.com/photos/33905494@N03/6630747029"
-  },
-  {
-   "dosya": "/statik/foto/enerji-3.jpg",
-   "atif": "\"Oil Pump Jacks, Ray, ND\" by w_lemay is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
-   "lisans": "by-sa 2.0",
-   "kaynak": "https://www.flickr.com/photos/59081381@N03/51582991034"
-  },
-  {
-   "dosya": "/statik/foto/enerji-4.jpg",
-   "atif": "\"Oil Pump Jack, Williston, ND\" by w_lemay is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
-   "lisans": "by-sa 2.0",
-   "kaynak": "https://www.flickr.com/photos/59081381@N03/51582541723"
-  },
-  {
    "dosya": "/statik/foto/enerji-9.jpg",
    "atif": "NPS photo · Public domain",
    "kunye": "File:Oil Drilling in Guadalupe Mountains National Park.jpg Structures in Guadalupe Mountains National Park|PD US NPS|Photographs taken on 2005-10-17|Images from NPGallery",
@@ -78,27 +54,41 @@
    "sorgu": "oil pump jack",
    "lisans": "cc-by-2.0",
    "kaynak": "https://commons.wikimedia.org/wiki/File:Oil_Well_Pump_Jack_(53533734679).jpg"
+  },
+  {
+   "dosya": "/statik/foto/enerji-12-75aa8c02.jpg",
+   "atif": "Greg Goebel from Loveland CO, USA · CC BY-SA 2.0",
+   "kunye": "File:Oil well pump jack, NE Colo (7632673158).jpg Taken with Nikon Coolpix 4600|Flickr images reviewed by File Upload Bot (Magnus Manske)|Files uploaded by PDTillman|Oil wells in Colorado|Photographs by Greg Goebel|March 2006 in Colorado|Nodding donkey pumps in Colorado",
+   "sorgu": "oil pump jack",
+   "lisans": "cc-by-sa-2.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Oil_well_pump_jack,_NE_Colo_(7632673158).jpg"
+  },
+  {
+   "dosya": "/statik/foto/enerji-13-390475a8.jpg",
+   "atif": "Richard Masoner / Cyclelicious · CC BY-SA 2.0",
+   "kunye": "File:Pump Jack at the Lost Hills Oil Field In Central California.jpg Taken with Canon EOS 400D|Lost Hills Oil Field|Flickr images uploaded by Flickr upload bot|Files from Richard Masoner Flickr stream|Nodding donkey pumps in California",
+   "sorgu": "oil pump jack",
+   "lisans": "cc-by-sa-2.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Pump_Jack_at_the_Lost_Hills_Oil_Field_In_Central_California.jpg"
+  },
+  {
+   "dosya": "/statik/foto/enerji-14-539268ab.jpg",
+   "atif": "Sgroey · CC BY-SA 4.0",
+   "kunye": "File:Altona oil refinery 2.jpg Melbourne|Oil refineries|Altona refinery|Altona North, Victoria|Self-published work|Uploaded with Mobile/Android|Files with coordinates missing SDC location of creation|Australia photographs taken on 2022-10-03|October 2022 in rail transport in Australia",
+   "sorgu": "oil refinery",
+   "lisans": "cc-by-sa-4.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Altona_oil_refinery_2.jpg"
+  },
+  {
+   "dosya": "/statik/foto/enerji-15-35e1db1d.jpg",
+   "atif": "Colin Stepney · CC BY-SA 4.0",
+   "kunye": "File:AndeavourAnacortesRefinery.jpg Padilla Bay|Oil refineries|Anacortes, Washington|Fidalgo Island|Self-published work",
+   "sorgu": "oil refinery",
+   "lisans": "cc-by-sa-4.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:AndeavourAnacortesRefinery.jpg"
   }
  ],
  "Para politikası": [
-  {
-   "dosya": "/statik/foto/para-politikasi-1.jpg",
-   "atif": "\"Federal Reserve Note - 1934\" by Kevin Krejci is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
-   "lisans": "by 2.0",
-   "kaynak": "https://www.flickr.com/photos/48889057888@N01/4013332408"
-  },
-  {
-   "dosya": "/statik/foto/para-politikasi-2.jpg",
-   "atif": "\"Federal Reserve Bank of New York Building\" by epicharmus is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
-   "lisans": "by 2.0",
-   "kaynak": "https://www.flickr.com/photos/8256808@N02/2397332061"
-  },
-  {
-   "dosya": "/statik/foto/para-politikasi-3.jpg",
-   "atif": "\"Federal Reserve Bank of New York Building panorama\" by epicharmus is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
-   "lisans": "by 2.0",
-   "kaynak": "https://www.flickr.com/photos/8256808@N02/2397309631"
-  },
   {
    "dosya": "/statik/foto/para-politikasi-4.jpg",
    "atif": "\"Federal Reserve\" by Dan Smith is licensed under CC BY-SA 2.5. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.5/.",
@@ -134,33 +124,33 @@
    "sorgu": "federal reserve",
    "lisans": "pdm",
    "kaynak": "https://commons.wikimedia.org/wiki/File:US_Federal_Reserve_Assets.png"
+  },
+  {
+   "dosya": "/statik/foto/para-politikasi-9-79ff6e59.jpg",
+   "atif": "Infrogmation of New Orleans · CC BY-SA 4.0",
+   "kunye": "File:Carondelet Street, New Orleans - back side of Federal Reserve building, 24 August 2021 - 01.jpg Federal Reserve Bank Building (New Orleans)|Self-published work|August 2021 in New Orleans Central Business District|500 block of Carondelet Street, New Orleans CBD",
+   "sorgu": "federal reserve",
+   "lisans": "cc-by-sa-4.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Carondelet_Street,_New_Orleans_-_back_side_of_Federal_Reserve_building,_24_August_2021_-_01.jpg"
+  },
+  {
+   "dosya": "/statik/foto/para-politikasi-10-c7c63613.png",
+   "atif": "MartinD · CC BY-SA 4.0",
+   "kunye": "File:ECB and Federal Reserve main policy rates from January 2022.png European Central Bank|Self-published work|Information graphics about economy",
+   "sorgu": "federal reserve",
+   "lisans": "cc-by-sa-4.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:ECB_and_Federal_Reserve_main_policy_rates_from_January_2022.png"
+  },
+  {
+   "dosya": "/statik/foto/para-politikasi-11-1dc1f4ee.jpg",
+   "atif": "Ben Schumin · CC BY-SA 3.0",
+   "kunye": "File:Federal Reserve Bank, Richmond, Virginia.jpg Federal Reserve Bank Building (Richmond)|Files with coordinates missing SDC location of creation|Photographs by Ben Schumin",
+   "sorgu": "federal reserve",
+   "lisans": "cc-by-sa-3.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Federal_Reserve_Bank,_Richmond,_Virginia.jpg"
   }
  ],
  "Bankacılık": [
-  {
-   "dosya": "/statik/foto/bankacilik-1.jpg",
-   "atif": "\"New York City, Lower Manhattan, Marine Midland Building ( HSBC Bank Building ), 1967 : Noguchi's Red Cube\" by (vincent desjardins) is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
-   "lisans": "by 2.0",
-   "kaynak": "https://www.flickr.com/photos/44613506@N07/5421866932"
-  },
-  {
-   "dosya": "/statik/foto/bankacilik-2.jpg",
-   "atif": "\"New bank building, Noranda townsite, Rouyn, Quebec / Nouveau bâtiment pour une banque dans le quartier Noranda Townsite, Rouyn (Québec)\" by BiblioArchives / LibraryArchives is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
-   "lisans": "by 2.0",
-   "kaynak": "https://www.flickr.com/photos/28853433@N02/52376896525"
-  },
-  {
-   "dosya": "/statik/foto/bankacilik-3.jpg",
-   "atif": "\"1909 Commerical Bank building in Mannum\" by denisbin is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
-   "lisans": "by-sa 2.0",
-   "kaynak": "https://www.flickr.com/photos/82134796@N03/9156260353"
-  },
-  {
-   "dosya": "/statik/foto/bankacilik-4.jpg",
-   "atif": "\"Suntrust Bank Building.\" by DeusXFlorida (11,059,330 views) - thanks guys! is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
-   "lisans": "by 2.0",
-   "kaynak": "https://www.flickr.com/photos/8363028@N08/5213582988"
-  },
   {
    "dosya": "/statik/foto/bankacilik-5.jpg",
    "atif": "Julian Lupyan · CC0",
@@ -190,33 +180,41 @@
    "sorgu": "bank building",
    "lisans": "cc-by-sa-4.0",
    "kaynak": "https://commons.wikimedia.org/wiki/File:Bank_Block_building_VT_Rte_5_downtown_Barton_VT_July_2017.jpg"
+  },
+  {
+   "dosya": "/statik/foto/bankacilik-9-36afc056.jpg",
+   "atif": "Matti Blume · CC BY-SA 4.0",
+   "kunye": "File:Alpha Rheintal Bank, St. Margrethen (1Y7A2200).jpg Taken with Canon EOS 5D Mark III|St. Margrethen|K Kiosk|Switzerland photographs taken on 2018-10-06|Bank buildings in Switzerland|Hipped roofs in Switzerland|Uploaded with LrMediaWiki|User MB-one supported by Wikimedia Deutschland/Lightroom|Hipped dormers in Switzerland|October 2018 in the canton of St. Gallen|Fotoexkursionen im Rahmen der Wi",
+   "sorgu": "bank building",
+   "lisans": "cc-by-sa-4.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Alpha_Rheintal_Bank,_St._Margrethen_(1Y7A2200).jpg"
+  },
+  {
+   "dosya": "/statik/foto/bankacilik-10-051203f8.jpg",
+   "atif": "Mrs W J Sutherland · CC BY-SA 2.0",
+   "kunye": "File:Bank Building - 110 St Vincent Street (geograph 7830149).jpg Images from Geograph Britain and Ireland|Information field template with formatting|Union Bank Building, St Vincent Street",
+   "sorgu": "bank building",
+   "lisans": "cc-by-sa-2.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Bank_Building_-_110_St_Vincent_Street_(geograph_7830149).jpg"
+  },
+  {
+   "dosya": "/statik/foto/bankacilik-11-15214f48.jpg",
+   "atif": "Jim Osley · CC BY-SA 2.0",
+   "kunye": "File:Bank building, Ascot - geograph.org.uk - 3930054.jpg Ascot, Berkshire|Images from Geograph Britain and Ireland|Buildings in Berkshire photographed in 2014|England photographs taken on 2014-03-13|Lloyds TSB banks in England",
+   "sorgu": "bank building",
+   "lisans": "cc-by-sa-2.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Bank_building,_Ascot_-_geograph.org.uk_-_3930054.jpg"
+  },
+  {
+   "dosya": "/statik/foto/bankacilik-12-82cf6e6a.jpg",
+   "atif": "JThomas · CC BY-SA 2.0",
+   "kunye": "File:Bank building, Driffield - geograph.org.uk - 2203864.jpg Images from Geograph Britain and Ireland|Bank buildings in the East Riding of Yorkshire|Buildings in Driffield",
+   "sorgu": "bank building",
+   "lisans": "cc-by-sa-2.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Bank_building,_Driffield_-_geograph.org.uk_-_2203864.jpg"
   }
  ],
  "Düzenleme": [
-  {
-   "dosya": "/statik/foto/duzenleme-1.jpg",
-   "atif": "\"Albert V Bryan Federal District Courthouse - Alexandria Va - 0002 - 2012-03-10\" by Tim Evanson is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
-   "lisans": "by-sa 2.0",
-   "kaynak": "https://www.flickr.com/photos/23165290@N00/6828496990"
-  },
-  {
-   "dosya": "/statik/foto/duzenleme-2.jpg",
-   "atif": "\"Lockport New York - United States CourtHouse - Post Office -\" by Onasill - Bill Badzo - 149 Million Views - Thank Y is marked with Public Domain Mark 1.0. To view the terms, visit https://creativecommons.org/publicdomain/mark/1.0/.",
-   "lisans": "pdm 1.0",
-   "kaynak": "https://www.flickr.com/photos/7156765@N05/51613087322"
-  },
-  {
-   "dosya": "/statik/foto/duzenleme-3.jpg",
-   "atif": "\"The jury is out....Courtroom, Tombstone Courthouse, Tombstone, Arizona USA\" by Crunchy Footsteps is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
-   "lisans": "by 2.0",
-   "kaynak": "https://www.flickr.com/photos/62213282@N00/5505743785"
-  },
-  {
-   "dosya": "/statik/foto/duzenleme-4.jpg",
-   "atif": "\"Albert V Bryan Federal District Courthouse - Alexandria Va - 0008 - 2012-03-10\" by Tim Evanson is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
-   "lisans": "by-sa 2.0",
-   "kaynak": "https://www.flickr.com/photos/23165290@N00/6974619755"
-  },
   {
    "dosya": "/statik/foto/duzenleme-5.jpg",
    "atif": "Broiledcorn · CC0",
@@ -246,33 +244,41 @@
    "sorgu": "courthouse",
    "lisans": "cc-by-sa-4.0",
    "kaynak": "https://commons.wikimedia.org/wiki/File:Courthouse_240.jpg"
+  },
+  {
+   "dosya": "/statik/foto/duzenleme-9-c6a4148e.jpg",
+   "atif": "M C Morgan · CC BY-SA 2.0",
+   "kunye": "File:Beltrami County Courthouse dome.jpg Beltrami County Courthouse|Flickr images reviewed by FlickreviewR 2",
+   "sorgu": "courthouse",
+   "lisans": "cc-by-sa-2.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Beltrami_County_Courthouse_dome.jpg"
+  },
+  {
+   "dosya": "/statik/foto/duzenleme-10-6d81abff.jpg",
+   "atif": "Myotus · CC BY 4.0",
+   "kunye": "File:Beltrami Courthouse, Bemidji, Minnesota.jpg Beltrami County Courthouse|Self-published work",
+   "sorgu": "courthouse",
+   "lisans": "cc-by-4.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Beltrami_Courthouse,_Bemidji,_Minnesota.jpg"
+  },
+  {
+   "dosya": "/statik/foto/duzenleme-11-39ad69b8.jpg",
+   "atif": "National Park Service · Public domain",
+   "kunye": "File:Caswell County Courthouse (undated).jpg Caswell County Courthouse (North Carolina)|PD US NPS|Files from the Historic American Buildings Survey",
+   "sorgu": "courthouse",
+   "lisans": "pdm",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Caswell_County_Courthouse_(undated).jpg"
+  },
+  {
+   "dosya": "/statik/foto/duzenleme-12-4cc646a5.jpg",
+   "atif": "Unknown author Unknown author · Public domain",
+   "kunye": "File:Claquato Courthouse 01.jpg Chehalis, Washington|Courthouses in Washington (state)|PD US expired|PD-anon-expired|Template Unknown (author)|PD-US missing SDC copyright status",
+   "sorgu": "courthouse",
+   "lisans": "pdm",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Claquato_Courthouse_01.jpg"
   }
  ],
  "Piyasa düzenlemesi": [
-  {
-   "dosya": "/statik/foto/piyasa-duzenlemesi-1.jpg",
-   "atif": "\"New York Stock Exchange\" by BlatantWorld.com is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
-   "lisans": "by 2.0",
-   "kaynak": "https://www.flickr.com/photos/45150779@N04/4149507876"
-  },
-  {
-   "dosya": "/statik/foto/piyasa-duzenlemesi-2.jpg",
-   "atif": "\"Stock Exchange in Sydney\" by Christian Haugen is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
-   "lisans": "by 2.0",
-   "kaynak": "https://www.flickr.com/photos/34073237@N04/3505527013"
-  },
-  {
-   "dosya": "/statik/foto/piyasa-duzenlemesi-3.jpg",
-   "atif": "\"London Stock Exchange\" by jam_90s is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
-   "lisans": "by 2.0",
-   "kaynak": "https://www.flickr.com/photos/19478438@N00/2301640973"
-  },
-  {
-   "dosya": "/statik/foto/piyasa-duzenlemesi-4.jpg",
-   "atif": "\"Chicago Stock Exchange\" by InfoMofo is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
-   "lisans": "by-sa 2.0",
-   "kaynak": "https://www.flickr.com/photos/40689227@N00/2561998179"
-  },
   {
    "dosya": "/statik/foto/piyasa-duzenlemesi-5.jpg",
    "atif": "Edgar Degas · Public domain",
@@ -302,33 +308,41 @@
    "sorgu": "stock exchange",
    "lisans": "cc0",
    "kaynak": "https://commons.wikimedia.org/wiki/File:Artefacts_at_Tokyo_Stock_Exchange_(97128).jpg"
+  },
+  {
+   "dosya": "/statik/foto/piyasa-duzenlemesi-9-730c05dd.jpg",
+   "atif": "Syced · CC0",
+   "kunye": "File:Artefacts at Tokyo Stock Exchange (26110).jpg CC-Zero|Tokyo Stock Exchange|Self-published work|Uploaded with Mobile/Android|Files with coordinates missing SDC location of creation|Tokyo photographs taken on 2025-12-26",
+   "sorgu": "stock exchange",
+   "lisans": "cc0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Artefacts_at_Tokyo_Stock_Exchange_(26110).jpg"
+  },
+  {
+   "dosya": "/statik/foto/piyasa-duzenlemesi-10-c3a6bede.jpg",
+   "atif": "Syced · CC0",
+   "kunye": "File:Artefacts at Tokyo Stock Exchange (31588).jpg CC-Zero|Tokyo Stock Exchange|Self-published work|Uploaded with Mobile/Android|Files with coordinates missing SDC location of creation|Tokyo photographs taken on 2025-12-26",
+   "sorgu": "stock exchange",
+   "lisans": "cc0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Artefacts_at_Tokyo_Stock_Exchange_(31588).jpg"
+  },
+  {
+   "dosya": "/statik/foto/piyasa-duzenlemesi-11-5b236449.jpg",
+   "atif": "Syced · CC0",
+   "kunye": "File:Artefacts at Tokyo Stock Exchange (53185).jpg CC-Zero|Tokyo Stock Exchange|Self-published work|Uploaded with Mobile/Android|Files with coordinates missing SDC location of creation|Tokyo photographs taken on 2025-12-26",
+   "sorgu": "stock exchange",
+   "lisans": "cc0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Artefacts_at_Tokyo_Stock_Exchange_(53185).jpg"
+  },
+  {
+   "dosya": "/statik/foto/piyasa-duzenlemesi-12-9ab0876b.jpg",
+   "atif": "Syced · CC0",
+   "kunye": "File:Artefacts at Tokyo Stock Exchange (70181).jpg CC-Zero|Tokyo Stock Exchange|Self-published work|Uploaded with Mobile/Android|Files with coordinates missing SDC location of creation|Tokyo photographs taken on 2025-12-26",
+   "sorgu": "stock exchange",
+   "lisans": "cc0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Artefacts_at_Tokyo_Stock_Exchange_(70181).jpg"
   }
  ],
  "Enflasyon": [
-  {
-   "dosya": "/statik/foto/enflasyon-1.jpg",
-   "atif": "\"IGA supermarket shopping baskets\" by Matthew Paul Argall is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
-   "lisans": "by 2.0",
-   "kaynak": "https://www.flickr.com/photos/79157069@N03/38922136861"
-  },
-  {
-   "dosya": "/statik/foto/enflasyon-2.jpg",
-   "atif": "\"Supermarket Shopping\" by HerryLawford is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
-   "lisans": "by 2.0",
-   "kaynak": "https://www.flickr.com/photos/32662631@N00/2759396006"
-  },
-  {
-   "dosya": "/statik/foto/enflasyon-3.jpg",
-   "atif": "\"melancia #melancia #watermelon #melon #supermarket #shopping #serranegra #saopaulo\" by markhillary is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
-   "lisans": "by 2.0",
-   "kaynak": "https://www.flickr.com/photos/56087830@N00/15064834880"
-  },
-  {
-   "dosya": "/statik/foto/enflasyon-4.jpg",
-   "atif": "\"Colorado #Colorado #supermercado #supermarket #shopping #serranegra\" by markhillary is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
-   "lisans": "by 2.0",
-   "kaynak": "https://www.flickr.com/photos/56087830@N00/10611461454"
-  },
   {
    "dosya": "/statik/foto/enflasyon-5.jpg",
    "atif": "999real · CC0",
@@ -357,33 +371,41 @@
    "sorgu": "supermarket shopping",
    "lisans": "cc0",
    "kaynak": "https://commons.wikimedia.org/wiki/File:Shopping_in_the_supermarket_with_multicultural_result.jpg"
+  },
+  {
+   "dosya": "/statik/foto/enflasyon-9-64c50f22.jpg",
+   "atif": "Donald Trung Quoc Don (Chữ Hán: 徵國單) - Wikimedia Commons - © CC BY-SA 4.0 International . ( Want to use this image? ) Or · CC BY-SA 4.0",
+   "kunye": "File:Bon Bini Supermarket shopping bag (2019) 01.jpg Self-published work|Files with coordinates missing SDC location of creation (53° N, 7° E)|Bon Bini Supermarket shopping bags",
+   "sorgu": "supermarket shopping",
+   "lisans": "cc-by-sa-4.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Bon_Bini_Supermarket_shopping_bag_(2019)_01.jpg"
+  },
+  {
+   "dosya": "/statik/foto/enflasyon-10-8c83b7c6.jpg",
+   "atif": "Darrin Antrobus · CC BY-SA 2.0",
+   "kunye": "File:Supermarket and car park at the Gyle Shopping Centre - geograph.org.uk - 535927.jpg Taken with Premier DC-4311|Gyle Shopping Centre|Images from Geograph Britain and Ireland|Images from Geograph Britain and Ireland needing category review|Information field template with formatting|Images by Darrin Antrobus|Morrisons supermarkets in Edinburgh",
+   "sorgu": "supermarket shopping",
+   "lisans": "cc-by-sa-2.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Supermarket_and_car_park_at_the_Gyle_Shopping_Centre_-_geograph.org.uk_-_535927.jpg"
+  },
+  {
+   "dosya": "/statik/foto/enflasyon-11-83db9972.jpg",
+   "atif": "Harrison Keely · CC BY 4.0",
+   "kunye": "File:A FoodLand grocery store in Blairsville, Ga.jpg Blairsville, Georgia|Self-published work|Grocery stores in Georgia (U.S. state)|August 2023 in Georgia (U.S. state)|Files with coordinates missing SDC location of creation|Taken with iPhone 14 Pro Max|Supermarkets in the United States photographed in 2023",
+   "sorgu": "grocery store",
+   "lisans": "cc-by-4.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:A_FoodLand_grocery_store_in_Blairsville,_Ga.jpg"
+  },
+  {
+   "dosya": "/statik/foto/enflasyon-12-541f6950.jpg",
+   "atif": "Wikimedia Commons · CC BY-SA 2.5",
+   "kunye": "File:A grocery store in Cheung Hong Estate.jpg Taken with Konica Minolta Dimage X50|Files with no machine-readable author|Files with no machine-readable source|Media missing infobox template|Grocery stores in Hong Kong|Shops in Kwai Tsing District|Cheung Hong Estate markets",
+   "sorgu": "grocery store",
+   "lisans": "cc-by-sa-2.5",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:A_grocery_store_in_Cheung_Hong_Estate.jpg"
   }
  ],
  "Tarım ve gıda": [
-  {
-   "dosya": "/statik/foto/tarim-ve-gida-1.jpg",
-   "atif": "\"The Wheat Field\" by Neillwphoto is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
-   "lisans": "by-sa 2.0",
-   "kaynak": "https://www.flickr.com/photos/61629383@N08/14579916743"
-  },
-  {
-   "dosya": "/statik/foto/tarim-ve-gida-2.jpg",
-   "atif": "\"Wheat Field\" by jeff_golden is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
-   "lisans": "by-sa 2.0",
-   "kaynak": "https://www.flickr.com/photos/46868900@N00/3662156128"
-  },
-  {
-   "dosya": "/statik/foto/tarim-ve-gida-3.jpg",
-   "atif": "\"Wheat Field\" by born1945 is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
-   "lisans": "by 2.0",
-   "kaynak": "https://www.flickr.com/photos/12567713@N00/192841208"
-  },
-  {
-   "dosya": "/statik/foto/tarim-ve-gida-4.jpg",
-   "atif": "\"Wheat Field\" by Florin Gorgan is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
-   "lisans": "by-sa 2.0",
-   "kaynak": "https://www.flickr.com/photos/26416734@N02/4685652765"
-  },
   {
    "dosya": "/statik/foto/tarim-ve-gida-5.jpg",
    "atif": "Arno Smit _entreprenerd · CC0",
@@ -413,33 +435,41 @@
    "sorgu": "wheat field",
    "lisans": "cc-by-2.0",
    "kaynak": "https://commons.wikimedia.org/wiki/File:Field_of_Wheat_(940538885).jpg"
+  },
+  {
+   "dosya": "/statik/foto/tarim-ve-gida-9-7d998dfe.jpg",
+   "atif": "Malcolm Neal · CC BY-SA 2.0",
+   "kunye": "File:A ripening field of wheat - geograph.org.uk - 6534340.jpg Little Wilbraham|Images from Geograph Britain and Ireland|Wheat fields in Cambridgeshire",
+   "sorgu": "wheat field",
+   "lisans": "cc-by-sa-2.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:A_ripening_field_of_wheat_-_geograph.org.uk_-_6534340.jpg"
+  },
+  {
+   "dosya": "/statik/foto/tarim-ve-gida-10-d4c26244.jpg",
+   "atif": "Aniket · CC BY-SA 4.0",
+   "kunye": "File:Bhaaliya Wheat field.JPG Self-published work|Wheat fields|Wheat fields in Gujarat|Bhalia wheat",
+   "sorgu": "wheat field",
+   "lisans": "cc-by-sa-4.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Bhaaliya_Wheat_field.JPG"
+  },
+  {
+   "dosya": "/statik/foto/tarim-ve-gida-11-1e9f334f.jpg",
+   "atif": "James Emmans · CC BY-SA 2.0",
+   "kunye": "File:Footpath through the Wheat Field - geograph.org.uk - 6557635.jpg Images from Geograph Britain and Ireland|Wheat fields in Berkshire|July 2020 in Berkshire|Countryside around Maidenhead",
+   "sorgu": "wheat field",
+   "lisans": "cc-by-sa-2.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Footpath_through_the_Wheat_Field_-_geograph.org.uk_-_6557635.jpg"
+  },
+  {
+   "dosya": "/statik/foto/tarim-ve-gida-12-ec683a0b.jpg",
+   "atif": "Vyacheslav Argenberg · CC BY 4.0",
+   "kunye": "File:Khndzoresk, Wheat field, Armenia.jpg Photos by Vyacheslav Argenberg|Nature of Armenia|Khndzoresk|Agriculture in Armenia|Self-published work|Summer in Armenia|Fields in Armenia|Wheat fields|Files with coordinates missing SDC location of creation|Photos by Vyacheslav Argenberg in 2014|Photos by Vyacheslav Argenberg in Armenia",
+   "sorgu": "wheat field",
+   "lisans": "cc-by-4.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Khndzoresk,_Wheat_field,_Armenia.jpg"
   }
  ],
  "Altın ve emtia": [
-  {
-   "dosya": "/statik/foto/altin-ve-emtia-1.jpg",
-   "atif": "\"Gold-Bars\" by digitalmoneyworld is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
-   "lisans": "by 2.0",
-   "kaynak": "https://www.flickr.com/photos/23195413@N07/2438939672"
-  },
-  {
-   "dosya": "/statik/foto/altin-ve-emtia-2.jpg",
-   "atif": "\"10-ounce-Gold-Bar\" by digitalmoneyworld is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
-   "lisans": "by 2.0",
-   "kaynak": "https://www.flickr.com/photos/23195413@N07/2438940578"
-  },
-  {
-   "dosya": "/statik/foto/altin-ve-emtia-3.jpg",
-   "atif": "\"Crowne-Gold-Bullion\" by digitalmoneyworld is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
-   "lisans": "by 2.0",
-   "kaynak": "https://www.flickr.com/photos/23195413@N07/2438119267"
-  },
-  {
-   "dosya": "/statik/foto/altin-ve-emtia-4.jpg",
-   "atif": "\"Gold Bullion Bar Cooling Out of the Mold\" by The Puzzler is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
-   "lisans": "by 2.0",
-   "kaynak": "https://www.flickr.com/photos/45188029@N07/5440099040"
-  },
   {
    "dosya": "/statik/foto/altin-ve-emtia-5.jpg",
    "atif": "Kjmonkey · CC0",
@@ -467,33 +497,41 @@
    "kunye": "File:Gold bullion 1.jpg Gold ingots|Self-published work|PD-self",
    "lisans": "pdm",
    "kaynak": "https://commons.wikimedia.org/wiki/File:Gold_bullion_1.jpg"
+  },
+  {
+   "dosya": "/statik/foto/altin-ve-emtia-9-a4fd2f19.jpg",
+   "atif": "Chepry 💬 ( Andrzej Barabasz ) 📷 🇵🇱 · CC BY-SA 4.0",
+   "kunye": "File:400-oz-Gold-Bars-AB-01.jpg Gold as an investment|Taken with Canon EOS 5D Mark II|Bank vaults|Gold ingots|Self-published work|Photographs by Chepry|Photographs by Chepry/Quality images|Files by User:Chepry|Photographs by Chepry/Objects|Photographs by Chepry/By year/2014",
+   "sorgu": "gold bars",
+   "lisans": "cc-by-sa-4.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:400-oz-Gold-Bars-AB-01.jpg"
+  },
+  {
+   "dosya": "/statik/foto/altin-ve-emtia-10-69bc0bb6.jpg",
+   "atif": "TheBest123XD · CC BY-SA 4.0",
+   "kunye": "File:Gold Bars - Joss Paper.jpg Joss paper|Self-published work|Golden joss paper",
+   "sorgu": "gold bars",
+   "lisans": "cc-by-sa-4.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Gold_Bars_-_Joss_Paper.jpg"
+  },
+  {
+   "dosya": "/statik/foto/altin-ve-emtia-11-3ca0ceb2.jpg",
+   "atif": "Fabio Achilli from Milano, Italy · CC BY 2.0",
+   "kunye": "File:Gold Bars ATM in Dubai (7997779753).jpg Taken with Sony DSC-H70|Automatic teller machines|Gold ingots|August 2012 in Dubai|Flickr images reviewed by FlickreviewR 2|Files uploaded by Orizan|Media needing category review as of 21 January 2024|Photographs by Fabio Achilli",
+   "sorgu": "gold bars",
+   "lisans": "cc-by-2.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Gold_Bars_ATM_in_Dubai_(7997779753).jpg"
+  },
+  {
+   "dosya": "/statik/foto/altin-ve-emtia-12-f9e7034b.jpg",
+   "atif": "Osmar Valdebenito from Santiago, Chile · CC BY-SA 2.0",
+   "kunye": "File:Gold bars (3972953549).jpg Gold ingots|Flickr images reviewed by FlickreviewR|Files with coordinates missing SDC location of creation|Edificio del Banco Central de Chile",
+   "sorgu": "gold bars",
+   "lisans": "cc-by-sa-2.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Gold_bars_(3972953549).jpg"
   }
  ],
  "İstihdam ve ücret": [
-  {
-   "dosya": "/statik/foto/istihdam-ve-ucret-1.jpg",
-   "atif": "\"Woman factory worker files a machine part while piped music plays on loudspeakers. / Une ouvrière d'usine lime une pièce de machine pendant que des hauts-parleurs diffusent de la musique\" by BiblioArchives / LibraryArchives is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
-   "lisans": "by 2.0",
-   "kaynak": "https://www.flickr.com/photos/28853433@N02/4678566215"
-  },
-  {
-   "dosya": "/statik/foto/istihdam-ve-ucret-2.jpg",
-   "atif": "\"Max Blanck and Isaac Harris, Triangle Waist Company owners in a group portrait, possibly with Triangle factory workers and visitors\" by Kheel Center, Cornell University Library is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
-   "lisans": "by 2.0",
-   "kaynak": "https://www.flickr.com/photos/38445726@N04/5279327863"
-  },
-  {
-   "dosya": "/statik/foto/istihdam-ve-ucret-3.jpg",
-   "atif": "\"Garment factory workers at the end of their shift\" by shankar s. is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
-   "lisans": "by 2.0",
-   "kaynak": "https://www.flickr.com/photos/77742560@N06/14248143371"
-  },
-  {
-   "dosya": "/statik/foto/istihdam-ve-ucret-4.jpg",
-   "atif": "\"factory workers in china firework factory\" by EpicFireworks is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
-   "lisans": "by 2.0",
-   "kaynak": "https://www.flickr.com/photos/30048753@N05/4364631455"
-  },
   {
    "dosya": "/statik/foto/istihdam-ve-ucret-5.jpg",
    "atif": "Hybernator · Public domain",
@@ -523,33 +561,41 @@
    "sorgu": "factory workers",
    "lisans": "cc-by-sa-4.0",
    "kaynak": "https://commons.wikimedia.org/wiki/File:BML_Bamailong_factory_workers_1-013.jpg"
+  },
+  {
+   "dosya": "/statik/foto/istihdam-ve-ucret-9-47f787a2.jpg",
+   "atif": "YeraC · CC BY-SA 4.0",
+   "kunye": "File:BML Bamailong factory workers 1-014.jpg Interiors of factories in China|Men at work in China|Tailors from China|Workshops in China|Sitting men in China|Garment factories|Self-published work|China photographs taken on 2002-12-30|Factory workers in China|Leather industry in China",
+   "sorgu": "factory workers",
+   "lisans": "cc-by-sa-4.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:BML_Bamailong_factory_workers_1-014.jpg"
+  },
+  {
+   "dosya": "/statik/foto/istihdam-ve-ucret-10-d80bd500.jpg",
+   "atif": "YeraC · CC BY-SA 4.0",
+   "kunye": "File:BML Bamailong factory workers 1-015.jpg Interiors of factories in China|Tailors from China|Women at work in China|Sitting women in China|Workshops in China|Garment factories|Self-published work|China photographs taken on 2002-12-30|Factory workers in China|Leather industry in China",
+   "sorgu": "factory workers",
+   "lisans": "cc-by-sa-4.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:BML_Bamailong_factory_workers_1-015.jpg"
+  },
+  {
+   "dosya": "/statik/foto/istihdam-ve-ucret-11-a52855a4.jpg",
+   "atif": "YeraC · CC BY-SA 4.0",
+   "kunye": "File:BML Bamailong factory workers 1-016.jpg Interiors of factories in China|People of China in 2002|Tailors from China|Women at work in China|Sitting women in China|Workshops in China|Garment factories|Self-published work|China photographs taken on 2002-12-30|Factory workers in China|Brother sewing machines|Leather industry in China",
+   "sorgu": "factory workers",
+   "lisans": "cc-by-sa-4.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:BML_Bamailong_factory_workers_1-016.jpg"
+  },
+  {
+   "dosya": "/statik/foto/istihdam-ve-ucret-12-fb6210bd.jpg",
+   "atif": "YeraC · CC BY-SA 4.0",
+   "kunye": "File:BML Bamailong factory workers 1-017.jpg Interiors of factories in China|Women at work in China|Workshops in China|Garment factories|Self-published work|2000s leather fashion|China photographs taken on 2002-12-30|Factory workers in China|Leather industry in China|Black leather coats",
+   "sorgu": "factory workers",
+   "lisans": "cc-by-sa-4.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:BML_Bamailong_factory_workers_1-017.jpg"
   }
  ],
  "Dış ticaret": [
-  {
-   "dosya": "/statik/foto/dis-ticaret-1.jpg",
-   "atif": "\"Containers, Port of Rotterdam\" by LukePricePhotography is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
-   "lisans": "by 2.0",
-   "kaynak": "https://www.flickr.com/photos/80192717@N08/9703431992"
-  },
-  {
-   "dosya": "/statik/foto/dis-ticaret-2.jpg",
-   "atif": "\"Colon - Container Port\" by roger4336 is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
-   "lisans": "by-sa 2.0",
-   "kaynak": "https://www.flickr.com/photos/24736216@N07/5697547346"
-  },
-  {
-   "dosya": "/statik/foto/dis-ticaret-3.jpg",
-   "atif": "\"Colon - Maersk Ship in Container Port\" by roger4336 is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
-   "lisans": "by-sa 2.0",
-   "kaynak": "https://www.flickr.com/photos/24736216@N07/5696972687"
-  },
-  {
-   "dosya": "/statik/foto/dis-ticaret-4.jpg",
-   "atif": "\"Container Port Of Felixstowe\" by Martin Pettitt is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
-   "lisans": "by 2.0",
-   "kaynak": "https://www.flickr.com/photos/95012874@N00/2637950621"
-  },
   {
    "dosya": "/statik/foto/dis-ticaret-5.jpg",
    "atif": "U-ichiro Murakami ( Murambo ) · Public domain",
@@ -577,33 +623,41 @@
    "kunye": "File:Cargo ship 2.png CC-Zero|Cargo ships|Curvature of the Earth|Self-published work|Curvature of the horizon",
    "lisans": "cc0",
    "kaynak": "https://commons.wikimedia.org/wiki/File:Cargo_ship_2.png"
+  },
+  {
+   "dosya": "/statik/foto/dis-ticaret-9-53675062.jpg",
+   "atif": "Jan Pešula · CC0",
+   "kunye": "File:Aahus port container terminal.JPG CC-Zero|Container terminals|Self-published work|Shipping containers in Sweden|2013 in Kristianstad Municipality|September 2013 in Skåne County|Sweden photographs taken on 2013-09-24|Files with coordinates missing SDC location of creation|Åhus hamn",
+   "sorgu": "container port",
+   "lisans": "cc0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Aahus_port_container_terminal.JPG"
+  },
+  {
+   "dosya": "/statik/foto/dis-ticaret-10-7f84a6bf.jpg",
+   "atif": "Paul Harrison · CC BY-SA 4.0",
+   "kunye": "File:Barbados Port Inc Container Park Bridgetown 0248.jpg Container terminals|Freight|Port of Bridgetown|Self-published work|Subdivisions of the Caribbean|Shipping containers in Barbados|Liebherr straddle carriers",
+   "sorgu": "container port",
+   "lisans": "cc-by-sa-4.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Barbados_Port_Inc_Container_Park_Bridgetown_0248.jpg"
+  },
+  {
+   "dosya": "/statik/foto/dis-ticaret-11-6762ae40.jpg",
+   "atif": "Belfast Dissenter · CC BY-SA 4.0",
+   "kunye": "File:Belfast Container Terminal, April 2019.jpg Gantry cranes|Container terminals|Port of Belfast|Self-published work",
+   "sorgu": "container port",
+   "lisans": "cc-by-sa-4.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Belfast_Container_Terminal,_April_2019.jpg"
+  },
+  {
+   "dosya": "/statik/foto/dis-ticaret-12-bacf2857.jpg",
+   "atif": "Matti Blume · CC BY-SA 4.0",
+   "kunye": "File:CMA CGM Kerguelen, Container Terminal Burchardkai, Hamburg (P1080471).jpg Container Terminal Burchardkai|Uploaded with LrMediaWiki|User MB-one supported by Wikimedia Deutschland/Lightroom|Hamburg photographs taken on 2019-04-27|April 2019 in water transport in Hamburg|Container ships in port of Hamburg in 2019|Wikipedia:Ahoi 2019 Barkassenfahrt|Taken with Panasonic Lumix DMC-GH1 and Panasonic",
+   "sorgu": "container port",
+   "lisans": "cc-by-sa-4.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:CMA_CGM_Kerguelen,_Container_Terminal_Burchardkai,_Hamburg_(P1080471).jpg"
   }
  ],
  "Döviz": [
-  {
-   "dosya": "/statik/foto/doviz-1.jpg",
-   "atif": "\"Currency Exchange\" by Images_of_Money is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
-   "lisans": "by 2.0",
-   "kaynak": "https://www.flickr.com/photos/59937401@N07/5857220614"
-  },
-  {
-   "dosya": "/statik/foto/doviz-2.jpg",
-   "atif": "\"MaxMoney Virtual Worlds Currency Exchange\" by ▓▒░ TORLEY ░▒▓ is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
-   "lisans": "by-sa 2.0",
-   "kaynak": "https://www.flickr.com/photos/70285332@N00/3333937161"
-  },
-  {
-   "dosya": "/statik/foto/doviz-3.jpg",
-   "atif": "\"Forex Currency Exchange on White Background\" by Images_of_Money is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
-   "lisans": "by 2.0",
-   "kaynak": "https://www.flickr.com/photos/59937401@N07/5929579731"
-  },
-  {
-   "dosya": "/statik/foto/doviz-4.jpg",
-   "atif": "\"Currency Exchange\" by Images_of_Money is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
-   "lisans": "by 2.0",
-   "kaynak": "https://www.flickr.com/photos/59937401@N07/5857224698"
-  },
   {
    "dosya": "/statik/foto/doviz-5.jpg",
    "atif": "Eric Jones · CC BY-SA 2.0",
@@ -635,33 +689,41 @@
    "sorgu": "currency exchange",
    "lisans": "cc-by-sa-3.0",
    "kaynak": "https://commons.wikimedia.org/wiki/File:Currency_exchange,_Route_49,_Csengersima,_Hungary_-_panoramio_(5).jpg"
+  },
+  {
+   "dosya": "/statik/foto/doviz-9-f6c49ce0.jpg",
+   "atif": "Ralff Nestor Nacor · CC BY-SA 4.0",
+   "kunye": "File:Ceramics & Cultural Currency, Ayala Museum.jpg Self-published work|Photographs by User:Ralffralff|Ceramics and Cultural Currency: Exchanges of Pottery and Prestige Exhibit|Philippine Panorama Project/Ayala Center|Manila 23 Meet-up",
+   "sorgu": "currency exchange",
+   "lisans": "cc-by-sa-4.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Ceramics_%26_Cultural_Currency,_Ayala_Museum.jpg"
+  },
+  {
+   "dosya": "/statik/foto/doviz-10-fecd7a02.jpg",
+   "atif": "Oldgayracist · CC0",
+   "kunye": "File:Currency exchange 2 gyumri 28.11.2025.jpg CC-Zero|Gyumri|Self-published work|Files with coordinates missing SDC location of creation",
+   "sorgu": "currency exchange",
+   "lisans": "cc0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Currency_exchange_2_gyumri_28.11.2025.jpg"
+  },
+  {
+   "dosya": "/statik/foto/doviz-11-f7243370.jpg",
+   "atif": "Supremeforex00 · CC BY-SA 4.0",
+   "kunye": "File:Currency exchange Supreme Forex.jpg Currencies|Self-published work",
+   "sorgu": "currency exchange",
+   "lisans": "cc-by-sa-4.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Currency_exchange_Supreme_Forex.jpg"
+  },
+  {
+   "dosya": "/statik/foto/doviz-12-6209179d.jpg",
+   "atif": "Oldgayracist · CC0",
+   "kunye": "File:Currency exchange gyumri 01.12.2025.jpg CC-Zero|Gyumri|Self-published work|Files with coordinates missing SDC location of creation",
+   "sorgu": "currency exchange",
+   "lisans": "cc0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Currency_exchange_gyumri_01.12.2025.jpg"
   }
  ],
  "Kripto varlıklar": [
-  {
-   "dosya": "/statik/foto/kripto-varliklar-1.jpg",
-   "atif": "\"Bitcoin statistic coin ANTANA\" by antanacoins is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
-   "lisans": "by-sa 2.0",
-   "kaynak": "https://www.flickr.com/photos/105644709@N08/10867597623"
-  },
-  {
-   "dosya": "/statik/foto/kripto-varliklar-2.jpg",
-   "atif": "\"Bitcoin statistic coin ANTANA\" by antanacoins is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
-   "lisans": "by-sa 2.0",
-   "kaynak": "https://www.flickr.com/photos/105644709@N08/10867625073"
-  },
-  {
-   "dosya": "/statik/foto/kripto-varliklar-3.jpg",
-   "atif": "\"bitcoin\" by Sean MacEntee is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
-   "lisans": "by 2.0",
-   "kaynak": "https://www.flickr.com/photos/18090920@N07/11175722003"
-  },
-  {
-   "dosya": "/statik/foto/kripto-varliklar-4.jpg",
-   "atif": "\"bitcoin\" by Sean MacEntee is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
-   "lisans": "by 2.0",
-   "kaynak": "https://www.flickr.com/photos/18090920@N07/11175573516"
-  },
   {
    "dosya": "/statik/foto/kripto-varliklar-8.png",
    "atif": "Oilyvertwist · CC0",
@@ -692,33 +754,41 @@
    "sorgu": "bitcoin",
    "lisans": "cc-by-sa-2.0",
    "kaynak": "https://commons.wikimedia.org/wiki/File:Bitcoin_BTC_Golden_coins_8K_wallpaper.jpg"
+  },
+  {
+   "dosya": "/statik/foto/kripto-varliklar-9-ecea3c25.png",
+   "atif": "MacDredd · CC BY-SA 4.0",
+   "kunye": "File:BTC Opt In Out Image.png Bitcoin|Self-published work",
+   "sorgu": "bitcoin",
+   "lisans": "cc-by-sa-4.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:BTC_Opt_In_Out_Image.png"
+  },
+  {
+   "dosya": "/statik/foto/kripto-varliklar-10-1e28bfcf.jpg",
+   "atif": "BitcoinXio · CC0",
+   "kunye": "File:Bitcoin Cash wallet and book.jpg Bitcoin|Andreas Antonopoulos|CC-Zero|IPhone|Bitcoin Cash|De minimis|Books about technology",
+   "sorgu": "bitcoin",
+   "lisans": "cc0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Bitcoin_Cash_wallet_and_book.jpg"
+  },
+  {
+   "dosya": "/statik/foto/kripto-varliklar-11-d99a2d70.jpg",
+   "atif": "BitcoinXio · CC0",
+   "kunye": "File:Bitcoin Cash wallet and whitepaper.jpg Bitcoin|CC-Zero|IPhone|Bitcoin Cash",
+   "sorgu": "bitcoin",
+   "lisans": "cc0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Bitcoin_Cash_wallet_and_whitepaper.jpg"
+  },
+  {
+   "dosya": "/statik/foto/kripto-varliklar-12-cc70fb1a.jpg",
+   "atif": "BTC Keychain · CC BY-SA 4.0",
+   "kunye": "File:Bitcoin Chain IMG 9197.jpg Bitcoin",
+   "sorgu": "bitcoin",
+   "lisans": "cc-by-sa-4.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Bitcoin_Chain_IMG_9197.jpg"
   }
  ],
  "Konut ve kira": [
-  {
-   "dosya": "/statik/foto/konut-ve-kira-1.jpg",
-   "atif": "\"auguste perret, architect: 25 bis rue franklin apartment building, paris 1903-1904\" by seier+seier is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
-   "lisans": "by 2.0",
-   "kaynak": "https://www.flickr.com/photos/94852245@N00/6999220803"
-  },
-  {
-   "dosya": "/statik/foto/konut-ve-kira-2.jpg",
-   "atif": "\"auguste perret, architect: 25 bis rue franklin apartment building, paris 1903-1904\" by seier+seier is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
-   "lisans": "by 2.0",
-   "kaynak": "https://www.flickr.com/photos/94852245@N00/6941331593"
-  },
-  {
-   "dosya": "/statik/foto/konut-ve-kira-3.jpg",
-   "atif": "\"集合住宅 apartment buildings\" by Yuya Tamai is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
-   "lisans": "by 2.0",
-   "kaynak": "https://www.flickr.com/photos/76758469@N00/3820595970"
-  },
-  {
-   "dosya": "/statik/foto/konut-ve-kira-4.jpg",
-   "atif": "\"Apartment building (1923), 21 East 10th Street, Greenwich Village, New York\" by Spencer Means is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
-   "lisans": "by-sa 2.0",
-   "kaynak": "https://www.flickr.com/photos/28643687@N08/16787369951"
-  },
   {
    "dosya": "/statik/foto/konut-ve-kira-5.jpg",
    "atif": "Syced · CC0",
@@ -749,33 +819,41 @@
    "sorgu": "apartment buildings",
    "lisans": "cc-by-sa-4.0",
    "kaynak": "https://commons.wikimedia.org/wiki/File:APARTMENT_WITH_VIEW.jpg"
+  },
+  {
+   "dosya": "/statik/foto/konut-ve-kira-9-b2aa6b88.jpg",
+   "atif": "BORNTHISWAYMEDIA · CC BY-SA 4.0",
+   "kunye": "File:APARTMENT WITH VIEW LONDON.jpg Apartment buildings in London|Buildings in London|Self-published work",
+   "sorgu": "apartment buildings",
+   "lisans": "cc-by-sa-4.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:APARTMENT_WITH_VIEW_LONDON.jpg"
+  },
+  {
+   "dosya": "/statik/foto/konut-ve-kira-10-f9e66150.jpg",
+   "atif": "Adityamadhav83 · CC BY 4.0",
+   "kunye": "File:An apartment building near Rajanagaram.jpg Buildings in East Godavari district|Self-published work|Buildings by Adityamadhav83",
+   "sorgu": "apartment buildings",
+   "lisans": "cc-by-4.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:An_apartment_building_near_Rajanagaram.jpg"
+  },
+  {
+   "dosya": "/statik/foto/konut-ve-kira-11-5775c3df.jpg",
+   "atif": "Amuzujoe · CC BY-SA 4.0",
+   "kunye": "File:Apartment Building 099.jpg Apartment buildings|Self-published work|Images from Wiki Loves Africa 2022|Images from Wiki Loves Africa 2022 to check|Uploaded via Campaign:wlafrica|Images from Wiki Loves Africa 2022 in Ghana|Buildings in the Greater Accra Region",
+   "sorgu": "apartment buildings",
+   "lisans": "cc-by-sa-4.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Apartment_Building_099.jpg"
+  },
+  {
+   "dosya": "/statik/foto/konut-ve-kira-12-e3f30df7.jpg",
+   "atif": "Matti Blume · CC BY-SA 4.0",
+   "kunye": "File:Apartment block, Zadar (P1080730).jpg Apartment buildings in Croatia|Uploaded with LrMediaWiki|User MB-one supported by Wikimedia Deutschland/Lightroom|Towers photographed in 2019|Croatia photographs taken on 2019-05-24|Taken with Panasonic Lumix DMC-GH1 and Panasonic Lumix G Vario HD 14-140mm F4.0-5.8 Asph Mega OIS|Zadar in the 21st century|Photographs of Zadar County",
+   "sorgu": "apartment buildings",
+   "lisans": "cc-by-sa-4.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Apartment_block,_Zadar_(P1080730).jpg"
   }
  ],
  "Borsa": [
-  {
-   "dosya": "/statik/foto/borsa-1.jpg",
-   "atif": "\"New York Stock Exchange\" by BlatantWorld.com is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
-   "lisans": "by 2.0",
-   "kaynak": "https://www.flickr.com/photos/45150779@N04/4149507876"
-  },
-  {
-   "dosya": "/statik/foto/borsa-2.jpg",
-   "atif": "\"Stock Exchange in Sydney\" by Christian Haugen is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
-   "lisans": "by 2.0",
-   "kaynak": "https://www.flickr.com/photos/34073237@N04/3505527013"
-  },
-  {
-   "dosya": "/statik/foto/borsa-3.jpg",
-   "atif": "\"London Stock Exchange\" by jam_90s is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
-   "lisans": "by 2.0",
-   "kaynak": "https://www.flickr.com/photos/19478438@N00/2301640973"
-  },
-  {
-   "dosya": "/statik/foto/borsa-4.jpg",
-   "atif": "\"Chicago Stock Exchange\" by InfoMofo is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
-   "lisans": "by-sa 2.0",
-   "kaynak": "https://www.flickr.com/photos/40689227@N00/2561998179"
-  },
   {
    "dosya": "/statik/foto/borsa-5.jpg",
    "atif": "Syced · CC0",
@@ -833,33 +911,41 @@
    "sorgu": "stock exchange",
    "lisans": "cc0",
    "kaynak": "https://commons.wikimedia.org/wiki/File:Artefacts_at_Tokyo_Stock_Exchange_(77793).jpg"
+  },
+  {
+   "dosya": "/statik/foto/borsa-13-4ca344ea.jpg",
+   "atif": "Syced · CC0",
+   "kunye": "File:Artefacts at Tokyo Stock Exchange (51653).jpg CC-Zero|Tokyo Stock Exchange|Self-published work|Uploaded with Mobile/Android|Files with coordinates missing SDC location of creation|Tokyo photographs taken on 2025-12-26",
+   "sorgu": "stock exchange",
+   "lisans": "cc0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Artefacts_at_Tokyo_Stock_Exchange_(51653).jpg"
+  },
+  {
+   "dosya": "/statik/foto/borsa-14-c14b53da.jpg",
+   "atif": "Syced · CC0",
+   "kunye": "File:Artefacts at Tokyo Stock Exchange (84381).jpg CC-Zero|Tokyo Stock Exchange|Self-published work|Uploaded with Mobile/Android|Files with coordinates missing SDC location of creation|Tokyo photographs taken on 2025-12-26",
+   "sorgu": "stock exchange",
+   "lisans": "cc0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Artefacts_at_Tokyo_Stock_Exchange_(84381).jpg"
+  },
+  {
+   "dosya": "/statik/foto/borsa-15-0edc5668.jpg",
+   "atif": "Syced · CC0",
+   "kunye": "File:Artefacts at Tokyo Stock Exchange (99235).jpg CC-Zero|Tokyo Stock Exchange|Self-published work|Uploaded with Mobile/Android|Files with coordinates missing SDC location of creation|Tokyo photographs taken on 2025-12-26",
+   "sorgu": "stock exchange",
+   "lisans": "cc0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Artefacts_at_Tokyo_Stock_Exchange_(99235).jpg"
+  },
+  {
+   "dosya": "/statik/foto/borsa-16-3081ebc2.jpg",
+   "atif": "Edgar Degas · Public domain",
+   "kunye": "File:At The Stock Exchange.jpg PD Old|Artworks with Wikidata item|Artworks with known accession number|CC-PD-Mark|Artworks with accession number from Wikidata|Portraits at the Stock Exchange by Edgar Degas|Artworks digital representation of 2D work|Artworks with digital representation of different depicts",
+   "sorgu": "stock exchange",
+   "lisans": "pdm",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:At_The_Stock_Exchange.jpg"
   }
  ],
  "Turizm": [
-  {
-   "dosya": "/statik/foto/turizm-1.jpg",
-   "atif": "\"The Kassandra Bay Hotel & Resort Fitness Centre\" by KB Collection Hotels & Resorts is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
-   "lisans": "by 2.0",
-   "kaynak": "https://www.flickr.com/photos/83603436@N07/7745141730"
-  },
-  {
-   "dosya": "/statik/foto/turizm-2.jpg",
-   "atif": "\"BVLGARI Hotels & Resorts - Key of Villa 66\" by 準建築人手札網站 Forgemind ArchiMedia is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
-   "lisans": "by 2.0",
-   "kaynak": "https://www.flickr.com/photos/44343967@N00/5651323559"
-  },
-  {
-   "dosya": "/statik/foto/turizm-3.jpg",
-   "atif": "\"Cahora Bassa, Tete, Mozambique Investing/Development For Sale - HOTEL RESORT DEVELOPMENT CAHOR BASSA\" by International Real Estate Listings is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
-   "lisans": "by-sa 2.0",
-   "kaynak": "https://www.flickr.com/photos/59281281@N03/9466261377"
-  },
-  {
-   "dosya": "/statik/foto/turizm-4.jpg",
-   "atif": "\"The Family Room of the Kassandra Bay Hotel & Resort\" by KB Collection Hotels & Resorts is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
-   "lisans": "by 2.0",
-   "kaynak": "https://www.flickr.com/photos/83603436@N07/7745443840"
-  },
   {
    "dosya": "/statik/foto/turizm-5.jpg",
    "atif": "Wilfredor · CC0",
@@ -890,33 +976,41 @@
    "sorgu": "hotel resort",
    "lisans": "cc-by-sa-4.0",
    "kaynak": "https://commons.wikimedia.org/wiki/File:Entrance_lobby_of_Amantaka_luxury_Resort_%26_Hotel_at_blue_hour_in_Luang_Prabang_Laos.jpg"
+  },
+  {
+   "dosya": "/statik/foto/turizm-9-dd045983.jpg",
+   "atif": "Jonathan Hutchins · CC BY-SA 2.0",
+   "kunye": "File:Celtic Manor Resort Hotel (geograph 7343881).jpg Celtic Manor Resort|Images from Geograph Britain and Ireland|Images with extracted images|Information field template with formatting|Images by Jonathan Hutchins",
+   "sorgu": "hotel resort",
+   "lisans": "cc-by-sa-2.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Celtic_Manor_Resort_Hotel_(geograph_7343881).jpg"
+  },
+  {
+   "dosya": "/statik/foto/turizm-10-22e3fe65.jpg",
+   "atif": "Basile Morin · CC BY-SA 4.0",
+   "kunye": "File:Desk and armchairs in the spa of Amantaka luxury Resort & Hotel in Luang Prabang Laos.jpg Desks|Taken with Canon EOS 5D Mark IV and Canon EF 11-24mm F4L USM|Amantaka Hotel|Self-published work|Spas in Laos|Interiors of hotels in Laos|Files with coordinates missing SDC location of creation|Hotels photographed in 2023|Photographs by Basile Morin|Symmetry impressions of building interiors|Laos ph",
+   "sorgu": "hotel resort",
+   "lisans": "cc-by-sa-4.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Desk_and_armchairs_in_the_spa_of_Amantaka_luxury_Resort_%26_Hotel_in_Luang_Prabang_Laos.jpg"
+  },
+  {
+   "dosya": "/statik/foto/turizm-11-6506754a.jpg",
+   "atif": "David Bartlett · CC BY-SA 2.0",
+   "kunye": "File:Duchally Hotel and Vacation Resort - geograph.org.uk - 311021.jpg Taken with Nikon D100|Auchterarder|Images from Geograph Britain and Ireland|Hotels in Perth and Kinross|Information field template with formatting|United Kingdom photographs taken on 2003-12-27|Images from Geograph Britain and Ireland missing SDC coordinates of the point of view",
+   "sorgu": "hotel resort",
+   "lisans": "cc-by-sa-2.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Duchally_Hotel_and_Vacation_Resort_-_geograph.org.uk_-_311021.jpg"
+  },
+  {
+   "dosya": "/statik/foto/turizm-12-7f189a2d.jpg",
+   "atif": "Basile Morin · CC BY-SA 4.0",
+   "kunye": "File:Entrance of Amantaka luxury Resort & Hotel at blue hour in Luang Prabang Laos.jpg Taken with Canon EOS 5D Mark IV and Canon EF 11-24mm F4L USM|Amantaka Hotel|Self-published work|Blue hour in Laos|Candles in Laos|Hotel lobbies in Laos|Files with coordinates missing SDC location of creation|Hotels photographed in 2023|Photographs by Basile Morin|Symmetry impressions of building interiors|Candle",
+   "sorgu": "hotel resort",
+   "lisans": "cc-by-sa-4.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Entrance_of_Amantaka_luxury_Resort_%26_Hotel_at_blue_hour_in_Luang_Prabang_Laos.jpg"
   }
  ],
  "Vergi ve kamu maliyesi": [
-  {
-   "dosya": "/statik/foto/vergi-ve-kamu-maliyesi-1.jpg",
-   "atif": "\"Tax Form\" by 401(K) 2013 is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
-   "lisans": "by-sa 2.0",
-   "kaynak": "https://www.flickr.com/photos/68751915@N05/6757895857"
-  },
-  {
-   "dosya": "/statik/foto/vergi-ve-kamu-maliyesi-2.jpg",
-   "atif": "\"Self Employment Tax Form - Schedule SE\" by Philip Taylor PT is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
-   "lisans": "by 2.0",
-   "kaynak": "https://www.flickr.com/photos/9731367@N02/6988137520"
-  },
-  {
-   "dosya": "/statik/foto/vergi-ve-kamu-maliyesi-3.jpg",
-   "atif": "\"IRS 1040 Tax Form Being Filled Out\" by kenteegardin is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
-   "lisans": "by-sa 2.0",
-   "kaynak": "https://www.flickr.com/photos/26373139@N08/5512347305"
-  },
-  {
-   "dosya": "/statik/foto/vergi-ve-kamu-maliyesi-4.jpg",
-   "atif": "\"Tax Forms and Calculator\" by 401(K) 2013 is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
-   "lisans": "by-sa 2.0",
-   "kaynak": "https://www.flickr.com/photos/68751915@N05/6757828303"
-  },
   {
    "dosya": "/statik/foto/vergi-ve-kamu-maliyesi-5.png",
    "atif": "Office of Congressman Duncan D. Hunter · Public domain",
@@ -947,33 +1041,41 @@
    "sorgu": "tax forms",
    "lisans": "pdm",
    "kaynak": "https://commons.wikimedia.org/wiki/File:Jack_Kemp_throws_stacks_of_tax_forms_into_the_trash_can.jpg"
+  },
+  {
+   "dosya": "/statik/foto/vergi-ve-kamu-maliyesi-9-3cd75a0d.jpg",
+   "atif": "PunkToad from oakland, us · CC BY 2.0",
+   "kunye": "File:Orange Idiot Release Your Tax Forms (33930659382).jpg Flickr images reviewed by FlickreviewR 2|2017 Tax Day March in San Francisco|Ambiguous location in EXIF|Trump Chicken",
+   "sorgu": "tax forms",
+   "lisans": "cc-by-2.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Orange_Idiot_Release_Your_Tax_Forms_(33930659382).jpg"
+  },
+  {
+   "dosya": "/statik/foto/vergi-ve-kamu-maliyesi-10-13ca2ac3.jpg",
+   "atif": "Carol M. Highsmith · Public domain",
+   "kunye": "File:Federico Degetau Federal Building.jpg PD US Government|Hato Rey|Federal government buildings in the United States|Buildings in San Juan, Puerto Rico|Federico Degetau|Photographs by Carol M. Highsmith|CC-PD-Mark|March 2019 in Puerto Rico|United States photographs taken on 2019-03-21",
+   "sorgu": "government building",
+   "lisans": "pdm",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Federico_Degetau_Federal_Building.jpg"
+  },
+  {
+   "dosya": "/statik/foto/vergi-ve-kamu-maliyesi-11-c4a7ab0c.jpg",
+   "atif": "Hirho · CC BY-SA 4.0",
+   "kunye": "File:Fukuoka Joint Government Building the main building 11-1 Hakata-eki-higashi 2-chōme Hakata-ku Fukuoka 20230803.jpg Self-published work|Files with coordinates missing SDC location of creation|Fukuoka Joint Government Building",
+   "sorgu": "government building",
+   "lisans": "cc-by-sa-4.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Fukuoka_Joint_Government_Building_the_main_building_11-1_Hakata-eki-higashi_2-ch%C5%8Dme_Hakata-ku_Fukuoka_20230803.jpg"
+  },
+  {
+   "dosya": "/statik/foto/vergi-ve-kamu-maliyesi-12-e3787f9e.jpg",
+   "atif": "DiscoA340 · CC BY-SA 4.0",
+   "kunye": "File:Government Building in Paris, July 2022.jpg Buildings in Paris|Self-published work|Government buildings in Paris|Uploads by DiscoA340",
+   "sorgu": "government building",
+   "lisans": "cc-by-sa-4.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Government_Building_in_Paris,_July_2022.jpg"
   }
  ],
  "Şirket haberleri": [
-  {
-   "dosya": "/statik/foto/sirket-haberleri-1.jpg",
-   "atif": "\"08-05-08 state office building windows horizontal\" by justindula is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
-   "lisans": "by-sa 2.0",
-   "kaynak": "https://www.flickr.com/photos/22049136@N00/2694972845"
-  },
-  {
-   "dosya": "/statik/foto/sirket-haberleri-2.jpg",
-   "atif": "\"Glass Office building\" by ricardodiaz11 is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
-   "lisans": "by 2.0",
-   "kaynak": "https://www.flickr.com/photos/41652235@N00/4485128485"
-  },
-  {
-   "dosya": "/statik/foto/sirket-haberleri-3.jpg",
-   "atif": "\"Office Buildings\" by oatsy40 is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
-   "lisans": "by 2.0",
-   "kaynak": "https://www.flickr.com/photos/68089229@N06/9569863543"
-  },
-  {
-   "dosya": "/statik/foto/sirket-haberleri-4.jpg",
-   "atif": "\"office building\" by Daveybot is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
-   "lisans": "by 2.0",
-   "kaynak": "https://www.flickr.com/photos/12771303@N00/6424956"
-  },
   {
    "dosya": "/statik/foto/sirket-haberleri-5.jpg",
    "atif": "DimiTalen · CC0",
@@ -1003,33 +1105,41 @@
    "sorgu": "office building",
    "lisans": "cc-by-sa-4.0",
    "kaynak": "https://commons.wikimedia.org/wiki/File:Centennial_Office_Building,_Saint_Paul,_Minnesota.jpg"
+  },
+  {
+   "dosya": "/statik/foto/sirket-haberleri-9-dc4edf22.jpg",
+   "atif": "Myotus · CC BY-SA 4.0",
+   "kunye": "File:Centennial Office Building, St. Paul, MN.jpg Self-published work|Files with coordinates missing SDC location of creation|Centennial Office Building (St. Paul, Minnesota)",
+   "sorgu": "office building",
+   "lisans": "cc-by-sa-4.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Centennial_Office_Building,_St._Paul,_MN.jpg"
+  },
+  {
+   "dosya": "/statik/foto/sirket-haberleri-10-91cb7af0.jpg",
+   "atif": "Myotus · CC BY-SA 4.0",
+   "kunye": "File:Centennial Office Building and State Capitol.jpg Self-published work|Buildings in the United States photographed in 2021|Files with coordinates missing SDC location of creation|May 2021 in Saint Paul, Minnesota|United States photographs taken on 2021-05-01|Centennial Office Building (St. Paul, Minnesota)|Minnesota State Capitol building from a distance",
+   "sorgu": "office building",
+   "lisans": "cc-by-sa-4.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Centennial_Office_Building_and_State_Capitol.jpg"
+  },
+  {
+   "dosya": "/statik/foto/sirket-haberleri-11-68a4355e.jpg",
+   "atif": "Myotus · CC BY-SA 4.0",
+   "kunye": "File:Centennial Office Building near the Minnesota State Capitol.jpg Self-published work|Files with coordinates missing SDC location of creation|Centennial Office Building (St. Paul, Minnesota)",
+   "sorgu": "office building",
+   "lisans": "cc-by-sa-4.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Centennial_Office_Building_near_the_Minnesota_State_Capitol.jpg"
+  },
+  {
+   "dosya": "/statik/foto/sirket-haberleri-12-e8df73ea.jpg",
+   "atif": "Basile Morin · CC BY-SA 4.0",
+   "kunye": "File:Illuminated white and purple facade of the office building Rohm Semiconductor in Kyoto, Japan.jpg Taken with Canon EOS 5D Mark IV and Canon EF 11-24mm F4L USM|Rohm Co.|Architecture of the Heisei era|Self-published work|Featured pictures of buildings|Featured night photography|Black, purple, white|White lighting|Glass facades in Japan|Purple and white buildings|Buildings illuminated blue|Build",
+   "sorgu": "office building",
+   "lisans": "cc-by-sa-4.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:Illuminated_white_and_purple_facade_of_the_office_building_Rohm_Semiconductor_in_Kyoto,_Japan.jpg"
   }
  ],
  "Jeopolitik": [
-  {
-   "dosya": "/statik/foto/jeopolitik-1.jpg",
-   "atif": "\"U.S Advisory Commission on Public Diplomacy meet with YSEALI Alumni\" by United States Embassy Kuala Lumpur is marked with Public Domain Mark 1.0. To view the terms, visit https://creativecommons.org/publicdomain/mark/1.0/.",
-   "lisans": "pdm 1.0",
-   "kaynak": "https://www.flickr.com/photos/52445638@N06/52534649552"
-  },
-  {
-   "dosya": "/statik/foto/jeopolitik-2.jpg",
-   "atif": "\"U.S Advisory Commission on Public Diplomacy meet with YSEALI Alumni\" by United States Embassy Kuala Lumpur is marked with Public Domain Mark 1.0. To view the terms, visit https://creativecommons.org/publicdomain/mark/1.0/.",
-   "lisans": "pdm 1.0",
-   "kaynak": "https://www.flickr.com/photos/52445638@N06/52535592375"
-  },
-  {
-   "dosya": "/statik/foto/jeopolitik-3.jpg",
-   "atif": "\"U.S Advisory Commission on Public Diplomacy meet with YSEALI Alumni\" by United States Embassy Kuala Lumpur is marked with Public Domain Mark 1.0. To view the terms, visit https://creativecommons.org/publicdomain/mark/1.0/.",
-   "lisans": "pdm 1.0",
-   "kaynak": "https://www.flickr.com/photos/52445638@N06/52535118236"
-  },
-  {
-   "dosya": "/statik/foto/jeopolitik-4.jpg",
-   "atif": "\"U.S Advisory Commission on Public Diplomacy meet with YSEALI Alumni\" by United States Embassy Kuala Lumpur is marked with Public Domain Mark 1.0. To view the terms, visit https://creativecommons.org/publicdomain/mark/1.0/.",
-   "lisans": "pdm 1.0",
-   "kaynak": "https://www.flickr.com/photos/52445638@N06/52535592435"
-  },
   {
    "dosya": "/statik/foto/jeopolitik-5.png",
    "atif": "VOA · Public domain",
@@ -1124,6 +1234,38 @@
    "sorgu": "united nations",
    "lisans": "cc-by-4.0",
    "kaynak": "https://commons.wikimedia.org/wiki/File:Custom_Construction_Sheet_-_United_Nations_(PNG).png"
+  },
+  {
+   "dosya": "/statik/foto/jeopolitik-17-8c9e10de.jpg",
+   "atif": "Otisjfk · CC BY-SA 4.0",
+   "kunye": "File:DominicShellardUnitedNations.jpg De Montfort University|United Nations conferences|Gandhi Global Family|Self-published work|Files with coordinates missing SDC location of creation",
+   "sorgu": "united nations",
+   "lisans": "cc-by-sa-4.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:DominicShellardUnitedNations.jpg"
+  },
+  {
+   "dosya": "/statik/foto/jeopolitik-18-9361892d.jpg",
+   "atif": "azugaldia · CC BY 2.0",
+   "kunye": "File:General Assembly of the United Nations.jpg United Nations General Assembly hall|Flickr images reviewed by FlickreviewR|José Luis Rodríguez Zapatero in 2005|September 2005 in the United States|Photographs by Antonio Zugaldia",
+   "sorgu": "united nations",
+   "lisans": "cc-by-2.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:General_Assembly_of_the_United_Nations.jpg"
+  },
+  {
+   "dosya": "/statik/foto/jeopolitik-19-195f87fb.jpg",
+   "atif": "Percival Kestreltail · CC BY-SA 3.0",
+   "kunye": "File:One United Nations Plaza.jpg New York City photographs taken on 2021-08-13|Self-published work|Taken on missing SDC inception|Files with coordinates missing SDC location of creation|1 United Nations Plaza|Midtown Manhattan in 2021",
+   "sorgu": "united nations",
+   "lisans": "cc-by-sa-3.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:One_United_Nations_Plaza.jpg"
+  },
+  {
+   "dosya": "/statik/foto/jeopolitik-20-e0e8c777.jpg",
+   "atif": "ADESP · CC BY 4.0",
+   "kunye": "File:The San Francisco Conference United Nations.jpg History of Ecuador|United Nations Conference on International Organization",
+   "sorgu": "united nations",
+   "lisans": "cc-by-4.0",
+   "kaynak": "https://commons.wikimedia.org/wiki/File:The_San_Francisco_Conference_United_Nations.jpg"
   }
  ],
  "IR": [

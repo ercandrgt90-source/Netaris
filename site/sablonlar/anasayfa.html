@@ -278,6 +278,16 @@
     <ol class="akis-liste">
       {% for h in akis %}
       <li class="tur-{{ h | kart_turu }}">
+        {# KUCUK GORSEL -- 96 piksellik ayri dosya.
+           Havuzdaki gorsel haber sutunu genisliginde (800px, ~165 KB);
+           kirk satirda onu kullanmak okura ~6 MB indirtirdi. Kucuk
+           surumu olmayan satir GORSELSIZ kaliyor: yer tutucu koymak,
+           yuklenmemis gorsel izlenimi verir. #}
+        {% set kucuk = h.foto | kucuk_foto %}
+        {% if kucuk %}
+        <img class="akis-foto" src="{{ kucuk }}" alt="" aria-hidden="true"
+             width="40" height="40" loading="lazy" decoding="async">
+        {% endif %}
         <span class="akis-zaman">{{ zaman(h) }}</span>
         {# UC DURUM, UCU DE FARKLI:
              sayfasi var        -> kendi sayfamiza

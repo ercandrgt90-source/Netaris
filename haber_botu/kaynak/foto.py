@@ -782,6 +782,19 @@ def hazirla(konular: list[str]) -> Kayit:
     if _ISTEK["n"] >= CALISTIRMA_ISTEK_SINIRI:
         print(f"  istek siniri ({CALISTIRMA_ISTEK_SINIRI}) doldu -- havuz "
               f"bir sonraki calistirmada kaldigi yerden devam edecek")
+
+    # KUCUK SURUMLER DE BURADA TAMAMLANIYOR.
+    #
+    # Yeni inen her gorselin akista kullanilabilmesi icin 96 piksellik
+    # esi de gerekiyor. Calistirma basina sinirli tutuluyor (bir parti):
+    # havuz gibi bunun da yavas dolmasi sorun degil, akis satiri o
+    # gorsel inene kadar gorselsiz gorunuyor.
+    try:
+        n_kucuk = kucuk_uret(kayit, en_cok=KUCUK_PARTI)
+        if n_kucuk:
+            print(f"  {n_kucuk} kucuk (akis) gorseli indirildi")
+    except Exception as e:                                # noqa: BLE001
+        print(f"  kucuk gorsel uretilemedi: {type(e).__name__}")
     return kayit
 
 
@@ -856,3 +869,103 @@ if __name__ == "__main__":
               + ("" if s.uygula else "  (--uygula ile silinir)"))
     else:
         a.print_help()
+
+
+#: KUCUK SURUM -- canli akistaki 40 satirin yanindaki kare gorsel.
+#:
+#: NEDEN AYRI DOSYA: havuzdaki gorseller haber sutunu genisliginde
+#: (800px, ortalama 165 KB). Ana sayfadaki akista 40 satir var; ayni
+#: dosyalari 40x40 piksele CSS ile kucultmek okura ~6 MB indirtir.
+#: Kirk kucuk surum toplam ~250 KB.
+KUCUK_KLASOR = FOTO_KLASORU / "k"
+KUCUK_GENISLIK = 96
+
+#: Commons `titles` parametresi anonim istekte 50 baslik aliyor.
+KUCUK_PARTI = 50
+
+#: Kucuk gorsel indirmeleri arasi bekleme (saniye).
+KUCUK_ARASI = 0.7
+
+
+def _commons_basligi(kaynak: str) -> str:
+    """Commons dosya sayfasi adresinden `File:...` basligini cikarir."""
+    import urllib.parse
+    if "commons.wikimedia.org/wiki/" not in kaynak:
+        return ""
+    ad = kaynak.rsplit("/wiki/", 1)[-1]
+    if not ad.startswith("File:"):
+        return ""
+    # ALT CIZGI BOSLUGA CEVRILIYOR. Adres "File:Oil_Drilling.jpg" yazar
+    # ama API yanitinda baslik "File:Oil Drilling.jpg" diye BOSLUKLU
+    # doner. Alt cizgiyle anahtarlayinca eslesme kaciyor: ilk denemede
+    # 315 gorselden yalnizca 12'si -- tek kelimelik adlar -- indi.
+    return urllib.parse.unquote(ad).replace("_", " ")
+
+
+def kucuk_uret(kayit: Kayit | None = None, en_cok: int | None = None) -> int:
+    """Havuzdaki Commons gorselleri icin 96 piksellik surum indirir.
+
+    Commons'in olcekleme ucu kullaniliyor -- yerel bir goruntu
+    kutuphanesine (Pillow) gerek yok. Baslıklar ELLI'ser gruplanip tek
+    istekte soruluyor: 315 gorsel icin yedi istek.
+
+    Openverse kaynakli eski gorsellerde olcekleme ucu YOK; onlarin kucuk
+    surumu uretilmiyor ve akis satiri gorselsiz kaliyor. Eksik gorsel,
+    yanlis olcekli gorselden iyidir.
+    """
+    kayit = kayit or Kayit()
+    KUCUK_KLASOR.mkdir(parents=True, exist_ok=True)
+    bekleyen: dict[str, str] = {}          # File basligi -> yerel dosya adi
+    for liste in kayit.veri.values():
+        for f in liste:
+            ad = f["dosya"].rsplit("/", 1)[-1]
+            if (KUCUK_KLASOR / ad).exists():
+                continue
+            baslik = _commons_basligi(f.get("kaynak", ""))
+            if baslik:
+                bekleyen[baslik] = ad
+    if not bekleyen:
+        return 0
+
+    basliklar = list(bekleyen)
+    if en_cok:
+        basliklar = basliklar[:en_cok]
+    inen = 0
+    for i in range(0, len(basliklar), KUCUK_PARTI):
+        parti = basliklar[i:i + KUCUK_PARTI]
+        try:
+            r = httpx.get(COMMONS_UC, params={
+                "action": "query", "format": "json",
+                "titles": "|".join(parti),
+                "prop": "imageinfo", "iiprop": "url",
+                "iiurlwidth": str(KUCUK_GENISLIK),
+            }, headers=BASLIKLAR, timeout=ZAMAN_ASIMI)
+            r.raise_for_status()
+            sayfalar = (r.json().get("query", {}).get("pages", {}) or {}).values()
+        except (httpx.HTTPError, ValueError, KeyError) as e:
+            OKUNAMAYAN.append(("kucuk", parti[0], f"{type(e).__name__}"))
+            continue
+        for sayfa in sayfalar:
+            bilgi = (sayfa.get("imageinfo") or [{}])[0]
+            url = bilgi.get("thumburl")
+            ad = bekleyen.get(sayfa.get("title", ""))
+            if not url or not ad:
+                continue
+            try:
+                g = httpx.get(url, headers=BASLIKLAR, timeout=ZAMAN_ASIMI,
+                              follow_redirects=True)
+                g.raise_for_status()
+                if not g.headers.get("content-type", "").startswith("image/"):
+                    continue
+            except httpx.HTTPError:
+                continue
+            (KUCUK_KLASOR / ad).write_bytes(g.content)
+            inen += 1
+            # HER INDIRME ARASINDA BEKLEME.
+            #
+            # Aralik yokken 225 gorselin 197'si basarisiz oldu; ayni
+            # adresler bir saniyelik araliklarla denendiginde 200
+            # donuyor. Yani sorun gorselde degil, ard arda istekte.
+            time.sleep(KUCUK_ARASI)
+        time.sleep(ISTEK_ARASI)
+    return inen

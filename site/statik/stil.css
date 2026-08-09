@@ -2600,12 +2600,30 @@ table td, table th, time, .tarih {
   /* Kaydirma cubugu ince: yan sutun 316px ve kalin cubuk metni ezer */
   scrollbar-width: thin;
 }
+/* Satir IKI SUTUN: solda kare gorsel, sagda zaman/baslik/kunye.
+   Gorsel opsiyonel -- yalnizca kucuk surumu olan satirlarda basiliyor.
+   `grid` yerine `flex` cunku gorselsiz satir da kendiliginden dogru
+   hizalaniyor; grid'de bos bir sutun birakmak gerekirdi ve o sutun
+   gorselsiz satirlarda gereksiz bosluk olarak gorunurdu. */
 .akis-liste li {
   padding: 10px 0 10px 11px;
   border-bottom: 1px solid var(--cizgi);
   border-left: 2px solid var(--tur, var(--cizgi));
-  display: flex; flex-direction: column; gap: 3px;
+  display: grid; gap: 3px 10px;
+  grid-template-columns: auto 1fr;
+  align-items: start;
 }
+/* Gorsel iki satir boyu uzaniyor; metin sutunu kendi icinde akiyor. */
+.akis-foto {
+  grid-row: 1 / span 3;
+  width: 40px; height: 40px;
+  object-fit: cover; border-radius: var(--r-kucuk);
+  border: 1px solid var(--cizgi);
+  background: var(--panel-2);
+}
+/* Gorselsiz satirda metin ILK sutundan baslasin, bosluk kalmasin. */
+.akis-liste li > :not(.akis-foto) { grid-column: 2; }
+.akis-liste li:not(:has(.akis-foto)) > * { grid-column: 1 / -1; }
 .akis-liste li:last-child { border-bottom: none; }
 .akis-zaman {
   font-size: 0.72rem; font-variant-numeric: tabular-nums;

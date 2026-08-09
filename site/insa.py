@@ -505,6 +505,25 @@ KATEGORI_FOTO = {
 }
 
 
+def kucuk_foto(yol: str) -> str:
+    """Buyuk gorselin 96 piksellik esini dondurur; yoksa BOS.
+
+    Canli akista kirk satir var ve her satirin yanindaki kare gorsel
+    yalnizca 40 piksel. Havuzdaki dosyalar haber sutunu genisliginde
+    (800px, ortalama 165 KB) -- onlari CSS ile kucultmek okura yaklasik
+    6 MB indirtir. Kucuk surumler ortalama 6 KB.
+
+    BOS DONMESI NORMAL: kucuk surum yalnizca Commons kaynakli
+    gorsellerde uretilebiliyor (olcekleme ucu orada). Sablon o satiri
+    gorselsiz basiyor -- yer tutucu koymak "yuklenmemis gorsel"
+    izlenimi verir, eksik gorsel ise sessizce dogru gorunur.
+    """
+    if not yol or "/statik/foto/" not in yol:
+        return ""
+    ad = yol.rsplit("/", 1)[-1]
+    return f"/statik/foto/k/{ad}" if (STATIK / "foto" / "k" / ad).exists() else ""
+
+
 #: Fotograf kullanim sayaci -- BUTUN hatlar (haber, analiz) ortak
 #: kullaniyor. Tek havuzu iki ayri secim yontemiyle paylasmak dengeyi
 #: bozuyordu; sayac ortak olunca "en az kullanilani al" kurali her yerde
@@ -586,9 +605,10 @@ def foto_dagit(haberler: list[dict], varlik_haritasi: dict,
     if kayit is None:
         return {}
     sonuc: dict[str, object] = {}
+    # SAYFASI OLMAYAN OGELER DE DAGITIMA GIRIYOR: canli akista onlarin
+    # da yaninda kucuk gorsel var ve o gorseller de tekrarsiz olmali.
     sirali = sorted(
-        (h for h in haberler if h.get("yorumlanir")),
-        key=lambda h: (h.get("tarih", ""), h.get("adres", "")))
+        haberler, key=lambda h: (h.get("tarih", ""), h.get("adres", "")))
     for h in sirali:
         adres = h.get("adres", "")
         # Havuz anahtari: once varlik, yoksa konu. `varlik_sec` ile ayni
@@ -2473,6 +2493,7 @@ def insa() -> int:
     # Kart turu de KODDA yasiyor: sablonda konu->tur eslemesi yazmak,
     # ayni tabloyu uc sablonda tekrarlamak olurdu.
     ortam.filters["kart_turu"] = kart_turu
+    ortam.filters["kucuk_foto"] = kucuk_foto
 
     # `analizler`  -- SAYFASI URETILECEK olanlar (hepsi; adresler kirilmasin)
     # `listelenen` -- LISTELERDE gorunecek olanlar (yinelenenler elenmis)
@@ -2685,6 +2706,18 @@ def insa() -> int:
         # sonra. Dongu icinde tek tek secmek carpismayi engelleyemiyor.
         foto_atamasi = (foto_dagit(uretilecek, varlik_haritasi, foto_kayit)
                         if _foto is not None else {})
+
+        # DAGITIM SAYFASI OLMAYAN OGELERE DE UYGULANIYOR.
+        #
+        # Atama yalnizca sayfa uretilen haberlere yaziliyordu; canli
+        # akistaki sayfasiz satirlar `uret_gundem`in ilk (hash'e dayali)
+        # secimini tasimaya devam ediyordu. Olculdu: akisin 24 gorselli
+        # satirinda 16 farkli gorsel vardi ve ikisi DORDER kez
+        # goruluyordu -- hepsi tek ekranda.
+        for h in uretilecek:
+            f = foto_atamasi.get(h.get("adres", ""))
+            if f is not None and not h.get("yorumlanir"):
+                h["foto"], h["foto_atif"] = f.dosya, f.kisa_atif
 
         for h in uretilecek:
             if not h.get("yorumlanir"):

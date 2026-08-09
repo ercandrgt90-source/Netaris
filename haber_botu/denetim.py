@@ -375,16 +375,34 @@ def _gorsel_denetimi() -> list[Bulgu]:
     if not CIKTI_DIZINI.exists():
         return bulgu
 
-    # 1. ANA SAYFA -- ayni gorsel iki kart
+    # 1. ANA SAYFA -- iki ayri olcut, cunku iki ayri sey.
+    #
+    # KARTLAR: sekiz kadar buyuk gorsel, hepsi ayni ekranda. Ikinci kez
+    # gorunen bir gorsel dogrudan hata izlenimi verir -> tekrar YOK.
+    #
+    # CANLI AKIS: kirk satirlik liste ve satirlarin cogu ayni konudan
+    # geliyor ("Sirket haberleri" tek basina 15 satir). Sekiz gorselli
+    # bir havuzla o listede tekrar MATEMATIKSEL OLARAK kacinilmaz;
+    # tekrari hata saymak, dogru bir durumu isaretlemek olurdu. Orada
+    # kusur YAN YANA dusmesidir -- okur ikisini birlikte gorur.
     ana = CIKTI_DIZINI / "index.html"
     if ana.exists():
-        kartlar = re.findall(r'src="(/statik/foto/[^"]+)"',
-                             ana.read_text(encoding="utf-8"))
+        metin = ana.read_text(encoding="utf-8")
+        akis = re.search(r'<ol class="akis-liste">.*?</ol>', metin, re.S)
+        akis_metni = akis.group() if akis else ""
+        kartlar = [y for y in re.findall(r'src="(/statik/foto/[^"]+)"', metin)
+                   if "/foto/k/" not in y]
         for yol, n in collections.Counter(kartlar).items():
             if n > 1:
                 bulgu.append(Bulgu(
                     "uyari", "gorsel", yol.split("/")[-1],
                     f"ana sayfada {n} kez -- okur tek bakista goruyor"))
+        sira = re.findall(r'src="(/statik/foto/k/[^"]+)"', akis_metni)
+        komsu = [sira[i] for i in range(1, len(sira)) if sira[i] == sira[i - 1]]
+        for yol in komsu:
+            bulgu.append(Bulgu(
+                "uyari", "gorsel", yol.split("/")[-1],
+                "canli akista iki satir ust uste ayni gorsel"))
 
     # 2. HABER SAYFALARI -- havuz ici denge
     kullanim: collections.Counter = collections.Counter()
