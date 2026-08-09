@@ -549,10 +549,18 @@ BILINEN_CIFT = {
 #: CSS'te tanimli ama su anki gundemde UretILMEYEN siniflar. Silinmemeli:
 #: uretilebilir olduklari olculdu, yalnizca bugun o deger gelmedi.
 URETILEBILIR = {
-    # `class="tur-{{ h|kart_turu }}"` -- gecerli kume KART_TURU.values()
-    "tur-haber", "tur-duzenleme",
+    # `class="tur-{{ h|kart_turu }}"` -- gecerli kume KART_TURU.values().
+    #
+    # AILENIN TAMAMI yaziliyor, bugun basilmayanlar degil. Uyelik
+    # KODLA belirleniyor, o gunun gundemiyle degil: ilk yazimda yalnizca
+    # o an eksik olan ikisini ("haber", "duzenleme") beyaz listeye
+    # almistim ve ertesi gun "sektor" konusundan haber dusmeyince
+    # denetim onu da bildirdi. Liste veriye gore degil kaynaga gore
+    # olmali, yoksa her gun baska bir uye uyari uretir.
+    "tur-makro", "tur-jeopolitik", "tur-emtia", "tur-piyasa",
+    "tur-sirket", "tur-duzenleme", "tur-sektor", "tur-haber",
     # TAKVIM_ONEM_ESIGI=2 suzuyor; esik bir ayar
-    "onem-1",
+    "onem-1", "onem-2", "onem-3",
 }
 
 
