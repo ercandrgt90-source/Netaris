@@ -505,6 +505,28 @@ KATEGORI_FOTO = {
 }
 
 
+#: Fotograf kullanim sayaci -- BUTUN hatlar (haber, analiz) ortak
+#: kullaniyor. Tek havuzu iki ayri secim yontemiyle paylasmak dengeyi
+#: bozuyordu; sayac ortak olunca "en az kullanilani al" kurali her yerde
+#: ayni anlama geliyor.
+_FOTO_SAYAC: dict[str, int] = {}
+
+
+def _en_az_kullanilan(havuz: list, tohum: str):
+    """Havuzdan o ana kadar EN AZ kullanilmis gorseli secer.
+
+    Esitlikte tohuma gore belirlenimci: ayni yazi, havuz degismedigi
+    surece ayni gorseli alir.
+    """
+    if not havuz:
+        return None
+    f = min(havuz, key=lambda x: (
+        _FOTO_SAYAC.get(x.dosya, 0),
+        hashlib.sha256((tohum + x.dosya).encode()).hexdigest()))
+    _FOTO_SAYAC[f.dosya] = _FOTO_SAYAC.get(f.dosya, 0) + 1
+    return f
+
+
 def analiz_fotografi(kayit, baslik: str, kategori: str, kod: str) -> tuple[str, str]:
     """Analize gercek fotograf secer. (yol, atif) doner; yoksa ("", "").
 
@@ -519,14 +541,66 @@ def analiz_fotografi(kayit, baslik: str, kategori: str, kod: str) -> tuple[str, 
     # Teknik yazilarda kodu da metne katiyoruz: "PAXG" gecince emtia,
     # "BTC/ETH" gecince kripto fotografi secilsin.
     konu = _besleme.konu_bul(f"{baslik} {kod}", varsayilan)
-    f = kayit.sec(konu, baslik)
+    # ANALIZLER DE AYNI SAYACI KULLANIYOR.
+    #
+    # Burasi `kayit.sec` ile bagimsiz hash aliyordu ve haber hattindaki
+    # dengeli dagitimi GORMUYORDU. Denetim yakaladi: ana sayfada
+    # `kripto-varliklar-2.jpg` iki kez, "Borsa" havuzunda kullanim
+    # 13'e 10 dengesiz. Iki ayri secim yontemi tek havuzu paylasinca
+    # dengeyi biri kuruyor digeri boziyordu.
+    f = _en_az_kullanilan(kayit.havuz(konu), baslik)
     if f is None and konu != varsayilan:
-        f = kayit.sec(varsayilan, baslik)
+        f = _en_az_kullanilan(kayit.havuz(varsayilan), baslik)
     if f is None:
         return "", ""
     # CC BY atfi zorunlu -- gorselin altinda basilir, kaldirilirsa lisans
     # ihlal edilir.
     return f.dosya, f.kisa_atif
+
+
+def foto_dagit(haberler: list[dict], varlik_haritasi: dict,
+               kayit) -> dict[str, object]:
+    """Butun haberlere fotografi TEK SEFERDE, birbirini gorerek dagitir.
+
+    Neden tek tek secilemiyor: `Kayit.sec` her haber icin BAGIMSIZ bir
+    hash aliyor (`hash(adres) % havuz`). Bagimsiz secim, havuz buyuse
+    bile carpismayi engellemiyor -- dogum gunu problemi. Olculdu: dort
+    fotograflik jeopolitik havuzunda 19 haber vardi ve dagilim 9/4/3/3
+    cikti; duzgun dagitilsa 5/5/5/4 olurdu. Yani tekrarin bir kismi
+    havuzun darligindan, bir kismi SECIM YONTEMINDEN geliyordu.
+
+    Burada her haber, o ana kadar EN AZ KULLANILMIS gorseli aliyor.
+    Havuz haber sayisindan buyukse tekrar SIFIR; kucukse tekrar esit
+    dagiliyor.
+
+    ESKIDEN YENIYE isleniyor. Ters sirada islenseydi her yeni haber
+    listenin basina girip kendinden sonraki herkesin gorselini
+    kaydirirdi; boyle, yayimlanmis bir haberin gorseli havuz degismedigi
+    surece sabit kaliyor ve yeni haber arta kalani aliyor.
+    """
+    if kayit is None:
+        return {}
+    sonuc: dict[str, object] = {}
+    sirali = sorted(
+        (h for h in haberler if h.get("yorumlanir")),
+        key=lambda h: (h.get("tarih", ""), h.get("adres", "")))
+    for h in sirali:
+        adres = h.get("adres", "")
+        # Havuz anahtari: once varlik, yoksa konu. `varlik_sec` ile ayni
+        # kural -- birden fazla varlik varsa tohuma gore biri seciliyor.
+        kodlar = [v["kod"] for v in
+                  (varlik_haritasi.get(adres, {}).get("varliklar") or [])
+                  if kayit.havuz(v["kod"])]
+        if kodlar:
+            i = int(hashlib.sha256((adres + "v").encode()).hexdigest(),
+                    16) % len(kodlar)
+            anahtar = kodlar[i]
+        else:
+            anahtar = h.get("konu", "")
+        f = _en_az_kullanilan(kayit.havuz(anahtar), adres)
+        if f is not None:
+            sonuc[adres] = f
+    return sonuc
 
 
 #: Imzasi olmayan yazilarin kunyesi.
@@ -2575,6 +2649,11 @@ def insa() -> int:
             y.strip("/").split("/")[-1].upper().replace("-", "_")
             for y in yollar if y.startswith("/varlik/")}
 
+        # Fotograf dagitimi TEK SEFERDE, butun haberler goruldukten
+        # sonra. Dongu icinde tek tek secmek carpismayi engelleyemiyor.
+        foto_atamasi = (foto_dagit(uretilecek, varlik_haritasi, foto_kayit)
+                        if _foto is not None else {})
+
         for h in uretilecek:
             if not h.get("yorumlanir"):
                 continue
@@ -2591,13 +2670,10 @@ def insa() -> int:
             # Burada varliklar belli. Varlik havuzu bos ya da tanimsizsa
             # KONU havuzuna dusuyor -- eksik eslesme, yanlis eslesmeden
             # iyidir.
-            if _foto is not None and h_varliklar:
-                yeni_f = foto_kayit.varlik_sec(
-                    [v["kod"] for v in h_varliklar],
-                    h.get("konu", ""), h.get("adres", ""))
-                if yeni_f:
-                    h["foto"] = yeni_f.dosya
-                    h["foto_atif"] = yeni_f.kisa_atif
+            yeni_f = foto_atamasi.get(h.get("adres", ""))
+            if yeni_f is not None:
+                h["foto"] = yeni_f.dosya
+                h["foto_atif"] = yeni_f.kisa_atif
 
             # `dosya.kur` BIR KEZ: hem sablon hem kaynaklar ayni
             # nesneyi kullaniyor.

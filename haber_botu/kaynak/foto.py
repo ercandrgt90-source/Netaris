@@ -49,6 +49,42 @@ UC = "https://api.openverse.org/v1/images/"
 BASLIKLAR = {"User-Agent": "Netaris/1.0 (finans arastirma; ercandrgt90@gmail.com)"}
 ZAMAN_ASIMI = 40.0
 
+#: IKINCI KAYNAK -- Wikimedia Commons.
+#:
+#: NEDEN: Openverse bu makineden once 429 (Cloudflare dogrulamasi),
+#: sonra 69 sorgunun 69'unda 401 dondurdu. Yani havuz TEK bir API'ye
+#: bagliydi ve o API kapaninca hic fotograf inmedi -- 26 varlik havuzu
+#: bos kaldi, butun jeopolitik haberler dort gorseli paylasti.
+#:
+#: Commons'in iki ustunlugu var:
+#:   * `iiurlwidth` ile SUNUCU TARAFINDA olcekleme. 4 MB'lik bir dosya
+#:     900 piksele indirilmis haliyle geliyor; Pillow'a gerek kalmiyor.
+#:   * Lisans ve yazar bilgisi `extmetadata` icinde yapisal duruyor,
+#:     metinden cikarmak gerekmiyor.
+#:
+#: Openverse KALDIRILMADI: calistigi yerde (CI) iki kaynak birden daha
+#: genis ve daha az tekrarli bir havuz demek.
+COMMONS_UC = "https://commons.wikimedia.org/w/api.php"
+
+#: Commons'tan istenecek genislik = HABER SUTUNUNUN GENISLIGI.
+#:
+#: `.yazi` kurali `max-width: 800px`; gorsel sayfada en fazla bu kadar
+#: yer kapliyor. Daha buyugunu indirmek bant genisligi ve depo israfi,
+#: daha kucugunu indirmek buyutulmus/bulanik gorsel demek.
+#:
+#: Olculdu: 1100 piksel 465 KB, 900 piksel ortalama 180 KB getiriyor.
+#: Gorseller git gecmisine giriyor ve oradan bir daha cikmiyor -- bu
+#: sayi dogrudan deponun kalici agirligi.
+COMMONS_GENISLIK = 800
+
+#: Commons lisans kodlarini kabul listemize cevirir. `extmetadata`
+#: icindeki makine okunur `License` alani kullaniliyor; gorunur ad
+#: ("CC BY-SA 4.0") surumden surume degisebiliyor.
+_COMMONS_LISANS = {
+    "cc0": "cc0", "pd": "pdm", "cc-pd-mark": "pdm",
+    "public domain": "pdm",
+}
+
 _KOK = pathlib.Path(__file__).parent.parent.parent
 FOTO_KLASORU = _KOK / "site" / "statik" / "foto"
 KAYIT_YOLU = pathlib.Path(__file__).parent / "foto_kayit.json"
@@ -158,11 +194,86 @@ ISTEK_ARASI = 1.5
 # calistirmada konu basina sekiz fotograf daha indirir ve orada durur.
 #
 # Ucretsiz servise saygi: havuz dolduktan sonra AG ISTEGI YAPILMIYOR.
-HAVUZ = 12
+#: Varsayilan 12 -> 6. `HAVUZ_OZEL`de adi gecmeyen havuzlar, haberlerde
+#: dorder kez ya da daha az gecen varliklar: alti gorsel orada zaten
+#: tekrarsiz. Buyuk havuzlar yukarida ayrica tanimli.
+HAVUZ = 6
 
-#: Ust boyut siniri. Pillow kurulu olmadigi icin yeniden boyutlandiramiyoruz;
-#: 1,7 MB'lik bir kart gorseli sayfayi yavaslatir. Buyuk dosya atlanir.
-EN_FAZLA_BAYT = 900_000
+#: HAVUZ TALEBE GORE. Konulara esit dagitilmis havuz, carpik talebe
+#: karsi tekrari GARANTI eder: 34 sayfali haberin 19'u jeopolitikti ve
+#: o konuya da diger 17 konuya da dorder fotograf dusuyordu -- sonuc
+#: `jeopolitik-2.jpg`in dokuz haberde gorunmesi oldu.
+#:
+#: Sayilar depodan olculdu (`haber_varlik` sayimi): US 84, TR 46,
+#: FED 37, IR 30, TCMB 25, BRENT 21, TUFE_TR 18 gecis. Havuz bu
+#: siralamayi izliyor. Burada olmayan anahtar `HAVUZ` kadar aliyor.
+#: Sayilar OLCULEREK secildi ve bilerek kucuk tutuldu: her fotograf
+#: ortalama 145 KB ve depoya kalici olarak giriyor. Butun havuzlari 12'ye
+#: cikarmak 59 MB demekti -- deponun kendisi 51 MB. Dengeli dagitimla
+#: (`insa.foto_dagit`) tekrar sayisi = haber / havuz oldugu icin, on
+#: fotograflik bir havuz US'in 84 haberinde 8 tekrara, IR'in 30
+#: haberinde 3 tekrara denk geliyor; okurun bir oturumda gordugu
+#: pencerede bu gorunmuyor.
+HAVUZ_OZEL = {
+    "US": 12, "TR": 12, "FED": 10, "IR": 14, "TCMB": 10, "BRENT": 10,
+    "Jeopolitik": 12, "Enerji": 10,
+    "TUFE_TR": 6, "XAU": 6, "BIST100": 6, "NFP": 6, "CPI_US": 6,
+    "EA": 6, "RU": 6, "CN": 6,
+}
+
+#: Ust boyut siniri. Pillow kurulu olmadigi icin yeniden
+#: boyutlandiramiyoruz. 900 KB'den 400 KB'ye CEKILDI: fotograflar depoya
+#: giriyor ve git gecmisinden bir daha cikmiyor. Olculdu -- kullanilabilir
+#: gorsellerin cogu zaten 60-150 KB araliginda (Hurmuz aramasinda 74,
+#: 59 ve 104 KB); ust sinir yalnizca aykirilari eliyor. 72 dosya 11 MB
+#: tutuyordu ve tek bir 813 KB'lik dosya ortalamayi bozuyordu.
+#:
+#: Kucuk resim ucu (`thumbnail`) DENENDI ve VAZGECILDI: ayni aramada iki
+#: sonucta 0 bayt ve JPEG olmayan icerik dondu, yani guvenilmez.
+EN_FAZLA_BAYT = 400_000
+
+#: EDITORYAL RED. Baslikta bunlardan biri geciyorsa gorsel ALINMAZ.
+#:
+#: Olculdu: "strait of hormuz" aramasi ucuncu sirada "Iran Air 655"
+#: yolcu ucagi faciasinin gorselini donduruyor. Petrol sevkiyati
+#: haberinin yaninda o fotograf, haberin soylemedigi bir sey soyler.
+#:
+#: Ayni gerekce `KONU_ARAMA["Jeopolitik"]` yorumunda da yaziyor:
+#: gorsel olayin SIDDETINI degil KONUSUNU isaret etmeli. Orada sorguyu
+#: secerek yapiliyordu; burada sonucu eleyerek.
+YASAK_BASLIK = (
+    # Facia ve siddet
+    "crash", "disaster", "casualt", "victim", "funeral", "wreck",
+    "bombing", "airstrike", "missile", "corpse", "massacre", "shooting",
+    "wounded", "refugee camp", "protest clash", "riot",
+    # ASKERI DONANIM. Olculdu: "strait of hormuz" aramasindan gelen 14
+    # gorselin 7'si Bogaz'dan gecen ABD savas gemisiydi -- ucak gemisi,
+    # kruvazor, muhafaza botu. Petrol sevkiyati ve muzakere haberinin
+    # yaninda savas gemisi, haberin SOYLEMEDIGI bir sey soyler.
+    #
+    # Ayni aramadan gelen NASA uydu goruntusu, EIA petrol akis semasi ve
+    # Bogaz haritasi tam da aranan gorsel; suzgec onlari tutuyor.
+    "navy", "naval", "warship", "aircraft carrier", "destroyer",
+    "frigate", "cutter", "uss ", "hms ", "submarine", "military",
+    "soldier", "troops", "marines", "armed forces", "fighter jet",
+    "air force", "army", "combat", "weapon",
+    # "Iran Air 655 Strait of hormuz 80.jpg" bu listeyi asiyordu: adinda
+    # facia bildiren bir kelime yok, cunku gorsel faciANIN KENDISI degil
+    # OLAY HARITASI ("Incident map images" kategorisinde). Kategori
+    # metni de tarandigi icin tek kelime yetiyor.
+    "incident",
+    "carrier strike", "strike group",
+)
+
+#: SAVAS GEMISI GOVDE KODU. Bazi gorseller yalnizca kodla adlandirilmis:
+#: "CVN 69 transits the Strait of Hormuz" -- baslikta tek bir yasakli
+#: kelime yok. Arama sirasinda KATEGORIDEN ("United States Navy")
+#: yakalaniyorlardi, ama kategori her zaman dolu gelmiyor ve indirilmis
+#: bir gorseli sonradan elemek gerektiginde elde yalnizca dosya adi
+#: kaliyor. Kod dogrudan taniniyor.
+_ASKERI_KOD = re.compile(
+    r"\b(cvn|cgn|cg|ddg|lha|lhd|lpd|ssbn|ssn|ffg|wpc|wmsl)[\s\-_]?\d{1,3}\b",
+    re.I)
 
 #: Kabul edilen lisanslar. ND (NoDerivatives) DISARIDA: kart icinde
 #: `object-fit: cover` ile kirpiyoruz ve kirpmanin turev sayilip
@@ -176,13 +287,38 @@ class Foto:
     atif: str         # "X" by Y is licensed under CC BY 2.0
     lisans: str
     kaynak: str       # orijinal sayfa adresi
+    #: Baslik ve kategori metni. VARSAYILANI BOS -- eski kayitlar bu
+    #: alan olmadan yazildi ve `Foto(**f)` onlari da okuyabilmeli.
+    #:
+    #: Neden saklaniyor: editoryal suzgec indirme aninda BASLIK ve
+    #: KATEGORI uzerinden calisiyor, ama kayitta yalnizca dosya adresi
+    #: duruyordu. Suzgec sonradan siklastirilinca indirilmis gorselleri
+    #: yeniden eleyemedim: savas gemileri govde koduyla adlandirilmis
+    #: ("CVN 69 transits...") ve dosya adinda yasakli kelime yok --
+    #: arama sirasinda KATEGORIDEN yakalanmislardi. Bu alanla ayni
+    #: suzgec gecmise de uygulanabiliyor.
+    kunye: str = ""
+    #: Gorseli getiren arama terimi. Bkz. kayit yazimi.
+    sorgu: str = ""
 
     @property
     def kisa_atif(self) -> str:
-        """Gorsel altinda basilacak kisa atif: 'Ad / CC BY 2.0'."""
+        """Gorsel altinda basilacak kisa atif: 'Ad · CC BY 2.0'.
+
+        IKI KAYNAK, IKI BICIM. Openverse atfi bir CUMLE olarak veriyor
+        ('"Baslik" by Ad is licensed under...'), Commons ise yazar adini
+        ayri bir alanda. Desen yalnizca Openverse'e gore yazilmisti ve
+        Commons'tan gelen ondort gorselin hepsi "bilinmeyen · PDM" diye
+        basildi -- CC BY atfi zorunludur, bu bir lisans ihlaliydi.
+        """
         m = re.search(r'"[^"]*"\s+by\s+(.+?)\s+is licensed', self.atif)
-        kim = m.group(1).strip() if m else "bilinmeyen"
-        return f"{kim} · {self.lisans.upper()}"
+        if m:
+            kim = m.group(1).strip()
+        else:
+            # Commons bicimi: "Yazar · CC BY-SA 4.0". Lisans adi zaten
+            # ayrica basiliyor, bastaki yazar kismi aliniyor.
+            kim = (self.atif or "").split(" · ")[0].strip()
+        return f"{kim or 'bilinmeyen'} · {self.lisans.upper()}"
 
 
 class Kayit:
@@ -250,8 +386,38 @@ def _dosya_adi(url: str, konu: str, sira: int) -> str:
     return f"{kisa}-{sira}{uzanti}"
 
 
+def lisans_kodu(ham: str) -> str:
+    """Lisans metnini kabul listemizin koduna cevirir.
+
+    Openverse zaten "by" / "by-sa" diye veriyor. Commons ise tam kodu
+    yaziyor: "cc-by-4.0", "cc-by-sa-3.0", "cc-zero", "pd".
+
+    BU CEVIRI OLMADAN BUTUN CC BY GORSELLERI REDDEDILIYORDU. Olculdu:
+    "european central bank" aramasinin 24 sonucunun HEPSI lisans
+    denetiminde eleniyordu ve EA havuzu bos kaliyordu -- ama sebep
+    "uygun lisansli gorsel yok" degil, kodu tanimamamizdi. Havuzlarin
+    arsiv/kamu mali gorsellerle dolmasinin sebebi de buydu: yalnizca
+    "pd" ve "cc0" gecebiliyordu.
+
+    ND (NoDerivatives) ve NC (NonCommercial) BILINCLI OLARAK disarida:
+    kart icinde kirpiyoruz ve site ticari sayilabilir.
+    """
+    k = (ham or "").lower().strip()
+    if k in ("cc0", "cc-zero", "zero"):
+        return "cc0"
+    if k in ("pd", "pdm", "public domain", "cc-pd-mark", "pd-old"):
+        return "pdm"
+    if "nd" in re.split(r"[-\s]", k) or "nc" in re.split(r"[-\s]", k):
+        return ""
+    if k.startswith("cc-by-sa") or k == "by-sa":
+        return "by-sa"
+    if k.startswith("cc-by") or k == "by":
+        return "by"
+    return k
+
+
 def _lisans_uygun(s: dict) -> bool:
-    return (s.get("license") or "").lower() in KABUL_LISANSLAR
+    return lisans_kodu(s.get("license") or "") in KABUL_LISANSLAR
 
 
 #: Erisilemeyen fotograf sorgulari. `hazirla` her cagrida temizler.
@@ -261,7 +427,143 @@ OKUNAMAYAN: list[tuple[str, str, str]] = []
 _ISTEK = {"n": 0}
 
 
-def doldur(konu: str, kayit: Kayit, adet: int = HAVUZ) -> int:
+def _openverse_ara(sorgu: str, adet: int) -> list[dict]:
+    """Openverse'te arar. Sonuc bicimi zaten bizim bekledigimiz bicim."""
+    r = httpx.get(UC, params={
+        "q": sorgu,
+        "license_type": "commercial",
+        "page_size": adet * 4,      # bir kismi elenecek
+        "mature": "false",
+    }, headers=BASLIKLAR, timeout=ZAMAN_ASIMI)
+    r.raise_for_status()
+    return r.json().get("results", [])
+
+
+def _metni_ayikla(html_metni: str) -> str:
+    """Commons `Artist` alanindaki HTML'i duz metne cevirir."""
+    m = re.sub(r"<[^>]+>", " ", html_metni or "")
+    return " ".join(m.replace("&amp;", "&").split())[:120]
+
+
+def _commons_ara(sorgu: str, adet: int) -> list[dict]:
+    """Commons'ta arar ve sonuclari OPENVERSE BICIMINE cevirir.
+
+    Ayni bicime cevrilmesi bilincli: `doldur` icindeki indirme, lisans,
+    editoryal ve tekrar suzgecleri iki kaynak icin de ayni kodda kaliyor.
+    Ayri bir indirme dongusu yazmak, suzgeclerden birini bir kaynakta
+    unutmaya davetiye olurdu.
+
+    `filetype:bitmap` SART: filtresiz arama PDF donduruyor -- "Iran and
+    the Strait of Hormuz" aramasinda ilk alti sonucun ucu akademik PDF'ti.
+    """
+    r = httpx.get(COMMONS_UC, params={
+        "action": "query", "format": "json", "generator": "search",
+        "gsrsearch": f"{sorgu} filetype:bitmap",
+        "gsrnamespace": "6", "gsrlimit": str(min(adet * 4, 50)),
+        "prop": "imageinfo",
+        "iiprop": "url|extmetadata|size|mime",
+        "iiurlwidth": str(COMMONS_GENISLIK),
+    }, headers=BASLIKLAR, timeout=ZAMAN_ASIMI)
+    r.raise_for_status()
+    cikti = []
+    for sayfa in (r.json().get("query", {}).get("pages", {}) or {}).values():
+        bilgi = (sayfa.get("imageinfo") or [{}])[0]
+        if bilgi.get("mime") not in ("image/jpeg", "image/png"):
+            continue
+        kucuk = bilgi.get("thumburl")
+        if not kucuk:
+            continue
+        em = bilgi.get("extmetadata", {})
+        lisans_ham = (em.get("License", {}).get("value") or "").lower()
+        lisans = _COMMONS_LISANS.get(lisans_ham, lisans_ham)
+        yazar = _metni_ayikla(em.get("Artist", {}).get("value", ""))
+        gorunur = em.get("LicenseShortName", {}).get("value", "")
+        sayfa_adresi = bilgi.get("descriptionurl") or kucuk
+        # ATIF ZORUNLU. Yazar bilinmiyorsa kamu malinda bile kaynak
+        # yazilmali -- okur gorselin nereden geldigini gorebilmeli.
+        atif = " · ".join(x for x in (yazar or "Wikimedia Commons",
+                                      gorunur) if x)
+        cikti.append({
+            "url": kucuk,
+            "attribution": atif,
+            "foreign_landing_url": sayfa_adresi,
+            "license": lisans,
+            "license_version": "",
+            "title": sayfa.get("title", ""),
+            "tags": [em.get("Categories", {}).get("value", "")],
+        })
+    return cikti
+
+
+#: Sorgu ilgisini olcerken atlanacak kelimeler.
+_DOLGU = frozenset({"of", "the", "and", "in", "at", "for", "a", "an"})
+
+
+def _ilgili(s: dict, sorgu: str, siki: bool = True) -> bool:
+    """Sonuc gercekten SORGUYLA ilgili mi?
+
+    Commons aramasi bulanik ve alakasiz sonuc donduruyor. Olculdu:
+      * "borsa istanbul"  -> "De Bist beuk" (Hollandaca kayin agaci),
+                             "Der du bist drei in Einigkeit (1799)"
+      * "central bank of turkey" -> "Albania CentralBank Durres"
+      * "ankara"          -> "Ankara Opera Bale", kilise konseri
+    Ucu de arama motoru acisindan "eslesme"; okur acisindan hata.
+
+    Kural: sorgunun her anlamli kelimesi baslikta ya da kategorilerde
+    GECMELI. "borsa istanbul" arayan bir sonucta hem "borsa" hem
+    "istanbul" olmali -- "bist" yetmez.
+
+    `siki=False` cogunlugu yeterli sayar. Havuz siki eleme sonrasi
+    bosalirsa buna dusuluyor: alakasiz gorsel kotu, ama fotografsiz
+    haber de kotu.
+    """
+    metin = (f"{s.get('title') or ''} "
+             f"{' '.join(str(t) for t in (s.get('tags') or []))}").lower()
+    kelimeler = [k for k in re.split(r"[\s\-_]+", sorgu.lower())
+                 if len(k) >= 3 and k not in _DOLGU]
+    if not kelimeler:
+        return True
+    var = sum(1 for k in kelimeler if k in metin)
+    return var == len(kelimeler) if siki else var * 2 >= len(kelimeler)
+
+
+def _kunye_anahtari(kunye: str) -> str:
+    """Basligin ilk anlamli kelimeleri -- yakin kopya tespiti icin."""
+    ad = kunye.replace("File:", "").rsplit(".", 1)[0].lower()
+    kelime = [k for k in re.split(r"[\s\-_,()]+", ad) if len(k) >= 3]
+    return " ".join(kelime[:5])
+
+
+def _yakin_kopya(kunye: str, mevcut: list[dict]) -> bool:
+    """Havuzda AYNI OLAYIN baska bir karesi var mi?
+
+    Commons ayni etkinlikten onlarca kare tutuyor. Olculdu: FED havuzuna
+    "President Donald Trump speaks to Fed Chair Jerome Powell during..."
+    basligiyla BES ayri gorsel indi -- hepsi ayni anin farkli karesi.
+    Havuzu buyutmek boyle bir havuzda tekrari azaltmiyor: okur bes farkli
+    haberde ayni sahneyi goruyor, dosya adlari farkli olsa bile.
+
+    Olcut basligin ilk bes anlamli kelimesi. Ayni etkinlikten kareler
+    Commons'ta ayni onekle adlandiriliyor; farkli gorsellerin ilk bes
+    kelimesinin ayni olmasi ise beklenmez.
+    """
+    anahtar = _kunye_anahtari(kunye)
+    if not anahtar:
+        return False
+    return any(_kunye_anahtari(f.get("kunye") or "") == anahtar
+               for f in mevcut)
+
+
+def _editoryal_uygun(s: dict) -> bool:
+    """Baslik siddet/facia bildiriyorsa gorseli reddeder."""
+    metin = f"{s.get('title') or ''} {' '.join(str(t) for t in (s.get('tags') or []))}"
+    kucuk = metin.lower()
+    if any(k in kucuk for k in YASAK_BASLIK):
+        return False
+    return not _ASKERI_KOD.search(metin)
+
+
+def doldur(konu: str, kayit: Kayit, adet: int | None = None) -> int:
     """Konu icin fotograf havuzunu doldurur. Yeni indirilen sayisini doner.
 
     Havuz zaten doluysa AG ISTEGI YAPILMAZ -- her calistirmada yeniden
@@ -269,6 +571,8 @@ def doldur(konu: str, kayit: Kayit, adet: int = HAVUZ) -> int:
 
     Sorgular sirayla denenir: ilk sorgu az sonuc verirse ikinciye gecilir.
     """
+    if adet is None:
+        adet = HAVUZ_OZEL.get(konu, HAVUZ)
     if len(kayit.havuz(konu)) >= adet:
         return 0
 
@@ -284,6 +588,22 @@ def doldur(konu: str, kayit: Kayit, adet: int = HAVUZ) -> int:
     eklendi = 0
     gorulen = {f["kaynak"] for f in mevcut}
 
+    # IKI TUR. Once butun sorgular SIKI ilgi suzgeciyle deneniyor; havuz
+    # hala bossa ayni sorgular gevsek suzgecle tekrarlaniyor.
+    #
+    # Neden iki tur: siki suzgec "gold bullion vault" gibi uc kelimelik
+    # sorgularda havuzu bosaltabiliyor (her uc kelimeyi birden tasiyan
+    # gorsel az). Alakasiz gorsel kotu ama fotografsiz haber de kotu.
+    # Onceligi dogruluga verip, ancak mecbur kalinca gevsetiyoruz.
+    for siki_tur in (True, False):
+        if len(mevcut) >= adet:
+            break
+        eklendi += _tur(konu, kayit, sorgular, mevcut, gorulen, adet, siki_tur)
+    return eklendi
+
+
+def _tur(konu, kayit, sorgular, mevcut, gorulen, adet, siki_tur) -> int:
+    eklendi = 0
     for sorgu in sorgular:
         if len(mevcut) >= adet:
             break
@@ -295,29 +615,30 @@ def doldur(konu: str, kayit: Kayit, adet: int = HAVUZ) -> int:
         if _ISTEK["n"]:
             time.sleep(ISTEK_ARASI)
         _ISTEK["n"] += 1
-        try:
-            r = httpx.get(
-                UC,
-                params={
-                    "q": sorgu,
-                    "license_type": "commercial",
-                    "page_size": adet * 4,   # bir kismi elenecek
-                    "mature": "false",
-                },
-                headers=BASLIKLAR,
-                timeout=ZAMAN_ASIMI,
-            )
-            r.raise_for_status()
-            sonuclar = r.json().get("results", [])
-        except (httpx.HTTPError, ValueError, KeyError) as e:
-            # SESSIZ DEGIL. Kaynak erisilemezse havuz eksik kaliyor ve
-            # denetim "ayni fotograf bes haberde" diye uyariyor -- ama
-            # SEBEBI hicbir yerde gorunmuyordu. Olculdu: Openverse bu
-            # makineden 429 ve bot dogrulamasi donuyor.
-            #
-            # Kaynagin erisilemez olmasi ile o konuda fotograf
-            # OLMAMASI ayni sey degil; ikisi ayirt edilebilmeli.
-            OKUNAMAYAN.append((konu, sorgu, f"{type(e).__name__}: {e}"[:90]))
+        # IKI KAYNAK SIRAYLA. Biri kapaliysa digeri deneniyor; ikisi de
+        # kapaliysa sorgu OKUNAMAYAN'a yaziliyor.
+        #
+        # Sira Commons'ta baslıyor cunku olculdu: Openverse bu makineden
+        # 69 sorgunun 69'unda 401 dondurdu, Commons ayni anda 200
+        # donuyordu. Openverse calisan bir ortamda (CI) yine devrede --
+        # iki kaynak, tek kaynaktan genis havuz demek.
+        sonuclar = []
+        hatalar = []
+        for ad, getir in (("commons", lambda: _commons_ara(sorgu, adet)),
+                          ("openverse", lambda: _openverse_ara(sorgu, adet))):
+            try:
+                sonuclar = getir()
+            except (httpx.HTTPError, ValueError, KeyError) as e:
+                hatalar.append(f"{ad}: {type(e).__name__}")
+                continue
+            if sonuclar:
+                break
+        # SESSIZ DEGIL. Kaynak erisilemezse havuz eksik kaliyor ve
+        # denetim "ayni fotograf bes haberde" diye uyariyor -- ama
+        # SEBEBI hicbir yerde gorunmuyordu. Kaynagin erisilemez olmasi
+        # ile o konuda fotograf OLMAMASI ayni sey degil.
+        if not sonuclar:
+            OKUNAMAYAN.append((konu, sorgu, ", ".join(hatalar) or "sonuc yok"))
             continue
 
         for s in sonuclar:
@@ -329,7 +650,15 @@ def doldur(konu: str, kayit: Kayit, adet: int = HAVUZ) -> int:
             # Atif metni olmayan gorsel ALINMAZ: CC BY atfi zorunlu kilar
             if not url or not atif or sayfa in gorulen:
                 continue
-            if not _lisans_uygun(s):
+            if not _lisans_uygun(s) or not _editoryal_uygun(s):
+                continue
+            # ILGI SUZGECI. Once siki; havuz bu turda hic dolmazsa
+            # asagida gevsek turla tekrar deneniyor.
+            if not _ilgili(s, sorgu, siki=siki_tur):
+                continue
+            kunye_metni = (f"{s.get('title') or ''} "
+                           f"{' '.join(str(t) for t in (s.get('tags') or []))}")
+            if _yakin_kopya(kunye_metni, mevcut):
                 continue
 
             try:
@@ -349,6 +678,12 @@ def doldur(konu: str, kayit: Kayit, adet: int = HAVUZ) -> int:
             mevcut.append({
                 "dosya": f"/statik/foto/{ad}",
                 "atif": atif,
+                "kunye": f"{s.get('title') or ''} "
+                         f"{' '.join(str(t) for t in (s.get('tags') or []))}"[:400],
+                #: Hangi sorgudan geldigi. Ilgi suzgeci sonradan
+                #: siklastirilirsa indirilmis gorseller de ayni olcute
+                #: vurulabilsin diye saklaniyor -- `suz()` bunu kullaniyor.
+                "sorgu": sorgu,
                 "lisans": (s.get("license") or "cc") +
                           (" " + str(s.get("license_version") or "")).rstrip(),
                 "kaynak": sayfa,
@@ -400,3 +735,76 @@ def hazirla(konular: list[str]) -> Kayit:
         print(f"  istek siniri ({CALISTIRMA_ISTEK_SINIRI}) doldu -- havuz "
               f"bir sonraki calistirmada kaldigi yerden devam edecek")
     return kayit
+
+
+def suz(kayit: Kayit | None = None, uygula: bool = False) -> list[tuple[str, str]]:
+    """Indirilmis gorselleri GUNCEL editoryal suzgecten gecirir.
+
+    NEDEN GEREKLI: suzgec yalnizca indirme aninda calisiyordu. Suzgeci
+    sonradan siklastirmak, o ana kadar inmis gorsellere hicbir sey
+    yapmiyordu -- yani "askeri gorsel kullanmiyoruz" kurali dunku
+    fotograflar icin gecerli olmuyordu. Kural degistiginde gecmise de
+    uygulanabilmeli.
+
+    `kunye` alani (baslik + kategori) bunun icin saklaniyor. Alani
+    olmayan eski kayitlarda dosya adresinden okunuyor: Commons dosya
+    sayfasi adresi dosya adini iceriyor.
+
+    `uygula=False` yalnizca RAPORLAR. Silme, acikca istenince yapiliyor.
+    """
+    import urllib.parse
+
+    kayit = kayit or Kayit()
+    cikanlar: list[tuple[str, str]] = []
+    for anahtar, liste in list(kayit.veri.items()):
+        kalan = []
+        for f in liste:
+            kunye = f.get("kunye") or urllib.parse.unquote(
+                f.get("kaynak", "")).rsplit("File:", 1)[-1].replace("_", " ")
+            aday = {"title": kunye, "tags": []}
+            # SILME OLCUTU YALNIZCA EDITORYAL SUZGEC.
+            #
+            # Ilgi suzgecini de silme olcutu yapmayi denedim ve olctum:
+            # sekiz adayin DORDU yanlis pozitifti -- "Bandar Imam
+            # Khomeini petrokimya tesisi" (Iran haberine tam uygun),
+            # "Spice Bazaar" (Turkiye enflasyonuna uygun), "Istanbul
+            # Financial Center" (TCMB'ye uygun), "Guadalupe Mountains'ta
+            # petrol sondaji" (WTI'ye uygun). Hicbirinde sorgu kelimesi
+            # gecmiyor ama hepsi dogru gorsel.
+            #
+            # Ilgi suzgeci INDIRME aninda dogru arac: orada onlarca aday
+            # var, iyi bir gorseli elemek bedava. Silme aninda ayni olcut
+            # elimizdekini yok ediyor. Bu yuzden burada yalnizca
+            # RAPORLANIYOR.
+            if _editoryal_uygun(aday):
+                kalan.append(f)
+                continue
+            cikanlar.append((anahtar, kunye[:70]))
+            if uygula:
+                p = FOTO_KLASORU / f["dosya"].rsplit("/", 1)[-1]
+                if p.exists():
+                    p.unlink()
+        if uygula:
+            kayit.veri[anahtar] = kalan
+    if uygula:
+        kayit.kaydet()
+    return cikanlar
+
+
+if __name__ == "__main__":
+    import argparse
+
+    a = argparse.ArgumentParser(description="Fotograf havuzu bakimi")
+    a.add_argument("--suz", action="store_true",
+                   help="guncel editoryal suzgeci indirilmis gorsellere uygula")
+    a.add_argument("--uygula", action="store_true",
+                   help="yalnizca raporlamakla kalma, sil")
+    s = a.parse_args()
+    if s.suz:
+        cikan = suz(uygula=s.uygula)
+        for k, ad in cikan:
+            print(f"  {'silindi' if s.uygula else 'suzgece takildi'}: [{k}] {ad}")
+        print(f"{len(cikan)} gorsel suzgeci gecemiyor"
+              + ("" if s.uygula else "  (--uygula ile silinir)"))
+    else:
+        a.print_help()

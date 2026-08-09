@@ -365,6 +365,79 @@ FOTO_TEKRAR_ESIGI = 4
 BASLIK_TEKRAR_ESIGI = 1
 
 
+def _gorsel_denetimi() -> list[Bulgu]:
+    """Yayimlanan sayfalardaki gorsel kullanimini denetler."""
+    import collections
+    import json
+    import re
+
+    bulgu: list[Bulgu] = []
+    if not CIKTI_DIZINI.exists():
+        return bulgu
+
+    # 1. ANA SAYFA -- ayni gorsel iki kart
+    ana = CIKTI_DIZINI / "index.html"
+    if ana.exists():
+        kartlar = re.findall(r'src="(/statik/foto/[^"]+)"',
+                             ana.read_text(encoding="utf-8"))
+        for yol, n in collections.Counter(kartlar).items():
+            if n > 1:
+                bulgu.append(Bulgu(
+                    "uyari", "gorsel", yol.split("/")[-1],
+                    f"ana sayfada {n} kez -- okur tek bakista goruyor"))
+
+    # 2. HABER SAYFALARI -- havuz ici denge
+    kullanim: collections.Counter = collections.Counter()
+    sayfasiz = 0
+    haber_dizini = CIKTI_DIZINI / "haber"
+    if haber_dizini.exists():
+        for p in haber_dizini.iterdir():
+            s = p / "index.html"
+            if not s.exists():
+                continue
+            m = re.search(r'src="(/statik/foto/[^"]+)"',
+                          s.read_text(encoding="utf-8"))
+            if m:
+                kullanim[m.group(1)] += 1
+            else:
+                sayfasiz += 1
+    if sayfasiz:
+        bulgu.append(Bulgu("uyari", "gorsel", "-",
+                           f"{sayfasiz} haber sayfasinda fotograf yok"))
+
+    # Havuz ici dagilim: bir havuzun en cok ve en az kullanilan gorseli
+    # arasinda BIRDEN fazla fark varsa dagitim bozulmustur.
+    kayit_yolu = _KOK / "kaynak" / "foto_kayit.json"
+    if not kayit_yolu.exists() or not kullanim:
+        return bulgu
+    try:
+        kayit = json.loads(kayit_yolu.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return bulgu
+    for havuz, liste in kayit.items():
+        yollar = [f["dosya"] for f in liste]
+        kullanilan = [kullanim.get(y, 0) for y in yollar]
+        # Havuzdan HIC kullanilmayan varsa o havuz o gun devrede degil;
+        # kismen kullanilan havuzda denge aranir.
+        etkin = [n for n in kullanilan if n]
+        if len(etkin) < 2:
+            continue
+        # TOLERANS 2. Atama sayaci, sayfasi sonradan uretilmeyen birkac
+        # adayi da sayiyor; bu yuzden mukemmel dagilimda bile bir-iki
+        # birim sapma normal. Olculdu: 36 haber / 4 gorsel dagitimi
+        # 9-10-8-9 cikti, kusursuzu 9-9-9-9. Esigi 1'de tutmak bu dogru
+        # dagitimi hata diye isaretliyordu.
+        #
+        # Yakalamasi gereken sey bu degil: bozuk dagitimda ayni olcum
+        # 9-4-3-3 idi, yani fark 6.
+        if max(etkin) - min(kullanilan) > 2:
+            bulgu.append(Bulgu(
+                "uyari", "gorsel", havuz,
+                f"havuz dengesiz: en cok {max(etkin)}, en az "
+                f"{min(kullanilan)} kez -- dagitim bozuk olabilir"))
+    return bulgu
+
+
 def editoryal_denetim() -> list[Bulgu]:
     import collections
     import json
@@ -381,16 +454,21 @@ def editoryal_denetim() -> list[Bulgu]:
     say = [x for x in g if x.get("yorumlanir")]
 
     # --- gorsel tekrari ---
-    foto = collections.Counter(x.get("foto", "") for x in say if x.get("foto"))
-    for yol, n in foto.most_common():
-        if n >= FOTO_TEKRAR_ESIGI:
-            bulgu.append(Bulgu(
-                "uyari", "gorsel", yol.split("/")[-1],
-                f"{n} haberde ayni fotograf -- konu havuzu dar"))
-    eksik = sum(1 for x in say if not x.get("foto"))
-    if eksik:
-        bulgu.append(Bulgu("uyari", "gorsel", "-",
-                           f"{eksik} sayfali haberde fotograf yok"))
+    #
+    # YANLIS SEYI OLCUYORDU. Sayim `gundem.json`dan yapiliyordu: 34
+    # haber. Okurun gordugu ise 313 URETILEN SAYFA -- arsiv dahil. Ustelik
+    # `gundem.json` fotografi haberin ILK secimini tasiyor; asil atama
+    # insa sirasinda, varliklar bilindikten sonra yapiliyor. Yani denetim
+    # yayimlanmayan bir secimi olcuyordu.
+    #
+    # Esik de anlamsizdi: 313 sayfa ve on fotograflik havuzla sekiz
+    # tekrar YAPISALDIR, hata degil. Onemli olan iki sey:
+    #   1. ANA SAYFADA ayni gorsel iki kez cikmasin -- okurun tek bakista
+    #      gordugu yer burasi.
+    #   2. Dagitim DENGELI olsun. Dengesizlik havuzun darligini degil
+    #      `foto_dagit`in bozuldugunu gosterir; olculdu, bozuk halinde
+    #      dagilim 9/4/3/3 iken duzgun halinde 22/22/21/21.
+    bulgu += _gorsel_denetimi()
 
     # --- son dakika disiplini ---
     kritik = [x for x in say if x.get("katman") == "kritik"]
