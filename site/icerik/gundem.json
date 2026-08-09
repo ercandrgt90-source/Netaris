@@ -19,7 +19,7 @@
     "TRT Haber"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 34,
+  "yorumlanan": 33,
   "haberler": [
     {
       "baslik": "Kaynak/ipsos anketi: Demokratların %71'i, Cumhuriyetçilerin %62' si ABD'nin sosyal medya uygulamalarına ilişkin daha sert düzenlemelerini destekliyor",
@@ -151,32 +151,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/sirket-haberleri-3.jpg",
       "foto_atif": "oatsy40 · BY 2.0"
-    },
-    {
-      "baslik": "Rus Belgorod'a düzenlenen gece insansız hava aracı saldırısında üç kişi öldü: RIA validen alıntı yaptı",
-      "baslik_kaynak": "Three killed in overnight drone strike on Russia's Belgorod: RIA cites governor",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713640/Three-killed-in-overnight-drone-strike-on-Russias-Belgorod-RIA-cites-governor.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Jeopolitik",
-      "tarih": "2026-08-09",
-      "tarih_gorunur": "9 Ağustos 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişmeler piyasaya doğrudan değil, arz riski ve risk iştahı üzerinden geçer. Türkiye için ana kanal enerji faturası ve risk primidir.",
-      "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa petrol ve doğal gaz fiyatına risk primi eklenir. Türkiye net enerji ithalatçısı olduğu için bu, cari işlemler dengesine doğrudan yazılır.",
-        "Risk iştahı: belirsizlik arttığında gelişmekte olan ülke varlıklarından çıkış görülebilir; ülke risk primi ve borçlanma maliyeti yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat pazarlarının bileşimini değiştirir; etki sektörün o pazara bağımlılığı kadardır.",
-        "Güvenli liman talebi: altın ve dolar talebi değişebilir; yönü ve büyüklüğü olayın ne kadarının önceden fiyatlandığına bağlıdır."
-      ],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/jeopolitik-1.jpg",
-      "foto_atif": "bilinmeyen · PDM 1.0"
     },
     {
       "baslik": "Çin Temmuz ayı TÜFE'si aylık bazda %0,1 düşerken, anket %0,2'lik bir artış öngörüyor",

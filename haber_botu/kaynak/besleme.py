@@ -183,7 +183,13 @@ GURULTU_ISARETLERI = (
     "super lig", "maci", "fikstur", "transfer bombasi", "gol krali",
     "sampiyonluk", "derbi",
     # magazin, kultur, yasam
-    "spiker", "dizi", "belgesel", "sinema", "konser", "sanatci",
+    # "dizi" TEK BASINA CIKARILDI: Turkce'de "bir dizi X" = "bir dizi
+    # halinde X" demek ve finans basliginda sik geciyor. Olculdu:
+    # "Trump: 3 milyar $ degerinde BIR DIZI madencilik projesini
+    # duyuruyoruz" gurultu sayilip eleniyordu. Televizyon anlaminda
+    # kullanim ekli bicimde geliyor.
+    "spiker", "dizisi", "dizi filmi", "belgesel", "sinema", "konser",
+    "sanatci",
     "antik kent", "muze", "arkeolo", "burc", "fal", "yemek tarifi",
     # ASAYIS VE YASAM -- ekonomi beslemelerinde cikiyor ve dosya
     # zincirlerine sizıyor. Olculdu: "ABD'nin North Carolina
@@ -203,11 +209,24 @@ GURULTU_ISARETLERI = (
     # elerdi ("ceyrekte kayip acikladi").
     "operasyonda yakalandi",
     "lezzetler", "tarifi", "ne pisirsem", "menu onerisi",
+    # URUN TANITIMI ve TOREN. Ikisi de ekonomi beslemesinden geliyor ama
+    # arastirma icerigi degil; olculdu, sayfa bile uretilmisti:
+    #   "Bebeklerin cildine pamuksu dokunus: BabyCo Bebek Urunleri 7-13"
+    #   "Kultur ve Turizm Bakanligindan Cansever icin taziye mesaji"
+    #
+    # "indirim" TEK BASINA EKLENMEDI: "faiz indirimi" bu sitenin en
+    # merkezi konusu. Kalip, urun kataloguna ozgu olacak kadar dar.
+    "bebek urunleri", "aktuel urun", "indirim katalogu",
+    "taziye", "kutlama mesaji", "acilis toreni",
     "burclar", "ruya tabiri", "tatil rotasi", "gezi rehberi",
     "saglik durumu", "kaza gecirdi", "vefat etti", "hava durumu",
     "namaz vakti", "bayram tatili kac gun",
     # catisma/kayip haberleri -- ekonomi beslemelerine dusuyor
-    "olduruldu", "oldurdu", "yarali", "sehit", "cenaze", "patlama",
+    # "patlama" -> "patlamada". Genel bicim PIYASA HABERINI eliyordu:
+    # "UKMTO: Tanker Hurmuz'de 2 patlama sesi duydu" -- Hurmuz'de tanker
+    # patlamasi tam olarak Brent'i hareket ettiren olaydir. Bulunma
+    # ekli bicim ("patlamada uc kisi oldu") can kaybi haberine ozgu.
+    "olduruldu", "oldurdu", "yarali", "sehit", "cenaze", "patlamada",
     "saldirisinda", "bombardiman",
     # trafik/yerel
     "trafige kapali", "yol calismasi",
@@ -580,9 +599,23 @@ def _aranacak(baslik: str) -> str:
 
 
 def gurultu_mu(baslik: str) -> bool:
-    """Ekonomi disi oge mi? Ticari beslemelerde kullanilir."""
+    """Ekonomi disi oge mi? Ticari beslemelerde kullanilir.
+
+    KALIP SOZCUK BASINDAN ESLESIR. Serbest alt-dize eslesmesi GERCEK
+    FINANS HABERINI ELIYORDU ve bu sessizdi -- elenen haber hicbir yerde
+    gorunmuyor. Olculdu, 1038 baslikta:
+
+        "maci"  -> "Kizildeniz deniz tasiMACIliginin..."   (tasimacilik)
+                -> "Kuzey Deniz Yolu uzerinden duzenli Avrupa tasimaciligi"
+        Ikisi de deniz TASIMACILIGI haberi; futbol maci sanilip atildi.
+
+    `_aranacak` metni zaten bosluklarla cevreliyor ve noktalamayi
+    bosluga ceviriyor, yani " " + kalip araması sozcuk basi demek.
+    Kalibin sonu serbest birakiliyor: "arkeolo" -> "arkeoloji",
+    "arkeolojik"; Turkce ekler boyle yakalaniyor.
+    """
     k = _aranacak(baslik)
-    return any(i in k for i in GURULTU_ISARETLERI)
+    return any(" " + i in k for i in GURULTU_ISARETLERI)
 
 
 def konu_bul(baslik: str, varsayilan: str = "") -> str:

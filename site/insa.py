@@ -1790,9 +1790,19 @@ def arsiv_haberleri(guncel_adresler: set[str], foto_kayit) -> list[dict]:
         return []
     try:
         with _beyin.baglan() as b:
+            # `yorumlanir` SARTI EKLENDI.
+            #
+            # Arsiv yalnizca `sayfa_veri`ye bakiyordu ve bayrak hic
+            # okunmuyordu. Sonuc: bir oge sonradan "yayimlanmaz" diye
+            # isaretlense bile sayfasi her insada YENIDEN uretiliyordu.
+            # Olculdu -- gurultu suzgeci siklastirildiktan sonra alti
+            # sayfa hala ayaktaydi: silahli saldiri, taziye mesaji,
+            # market indirim katalogu.
+            #
+            # Bayragi indirmek artik gercekten sayfayi kaldiriyor.
             satirlar = b.execute(
                 "SELECT adres, sayfa_veri FROM haber"
-                " WHERE sayfa_veri IS NOT NULL"
+                " WHERE sayfa_veri IS NOT NULL AND yorumlanir = 1"
                 " ORDER BY tarih DESC, ilk_gorulme DESC"
                 " LIMIT ?", (ARSIV_SINIRI,)).fetchall()
     except Exception as e:

@@ -57,6 +57,41 @@ esit(besleme.gurultu_mu("Israil Gazze'ye hava saldirisi duzenledi"), False,
      "askeri gelisme elenmez")
 # Ekonomik "kayip" ELENMEMELI -- ilk yazimda "kayip" kalibi vardi ve
 # sirket zarari haberlerini de eliyordu.
+# --------------------------------------------------------------------
+# ALT-DIZE YANLIS POZITIFI -- kalip SOZCUK BASINDAN eslesmeli.
+#
+# Serbest alt-dize eslesmesi GERCEK FINANS HABERINI eliyordu ve bu
+# sessizdi: elenen haber hicbir yerde gorunmuyor. Uctu de olculdu.
+# --------------------------------------------------------------------
+esit(besleme.gurultu_mu(
+        "Kizildeniz deniz tasimaciliginin onemi artiyor"),
+     False, "'maci' kalibi 'tasiMACIlik' icinde eslesmemeli")
+esit(besleme.gurultu_mu(
+        "Cin, Kuzey Deniz Yolu uzerinden duzenli Avrupa tasimaciligi baslatti"),
+     False, "ayni tuzak, ikinci baslik")
+esit(besleme.gurultu_mu(
+        "Trump: 3 milyar dolar degerinde bir dizi madencilik projesi"),
+     False, "'bir dizi' televizyon dizisi degildir")
+esit(besleme.gurultu_mu(
+        "UKMTO: Tanker Hurmuz'de 2 patlama sesi duydu"),
+     False, "Hurmuz'de tanker patlamasi PIYASA haberidir")
+esit(besleme.gurultu_mu("Patlamada uc kisi hayatini kaybetti"),
+     True, "can kaybi haberi elenir")
+
+# Urun tanitimi ve toren -- sayfa bile uretilmisti.
+esit(besleme.gurultu_mu(
+        "Bebeklerin cildine pamuksu dokunus: BabyCo Bebek Urunleri 7-13 Agustos"),
+     True, "urun tanitimi elenir")
+esit(besleme.gurultu_mu(
+        "Kultur ve Turizm Bakanligindan Cansever icin taziye mesaji"),
+     True, "taziye mesaji elenir")
+
+# "indirim" TEK BASINA kalip DEGIL: bu sitenin en merkezi konusu.
+esit(besleme.gurultu_mu("Merkez bankasindan faiz indirimi karari"),
+     False, "faiz indirimi elenemez")
+esit(besleme.gurultu_mu("Konut kredisinde faiz kampanyasi basladi"),
+     False, "kredi kampanyasi elenemez")
+
 esit(besleme.gurultu_mu("Sirket 3. ceyrekte 2 milyar TL kayip acikladi"),
      False, "sirket zarari elenmez")
 esit(besleme.gurultu_mu("Gumruk tarifesi degisikligi"), False,

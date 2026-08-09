@@ -481,6 +481,32 @@ def editoryal_denetim() -> list[Bulgu]:
     #      dagilim 9/4/3/3 iken duzgun halinde 22/22/21/21.
     bulgu += _gorsel_denetimi()
 
+    # --- yayimlanmis gurultu ---
+    #
+    # Suzgec BESLEME aninda calisiyor; bir kalip sonradan eklenirse
+    # daha once girmis ogeler kendiliginden cikmiyor. Olculdu: gurultu
+    # listesine "taziye" ve urun tanitimi kaliplari eklendikten sonra
+    # ALTI sayfa hala ayaktaydi -- silahli saldiri, taziye mesaji,
+    # market indirim katalogu.
+    #
+    # Uyari, hata degil: `gurultu_mu` yanlis pozitif verirse gercek bir
+    # haberi otomatik silmek, gurultuyu yayimlamaktan kotudur. Karar
+    # insanda kaliyor.
+    try:
+        sys.path.insert(0, str(_KOK / "kaynak"))
+        import besleme  # noqa: PLC0415
+
+        kirli = [x for x in say if besleme.gurultu_mu(x.get("baslik", ""))]
+        for x in kirli[:5]:
+            bulgu.append(Bulgu(
+                "uyari", "editoryal", "gurultu",
+                f"ekonomi disi oge yayimlanmis: {x.get('baslik', '')[:56]}"))
+        if len(kirli) > 5:
+            bulgu.append(Bulgu("uyari", "editoryal", "gurultu",
+                               f"...ve {len(kirli) - 5} tane daha"))
+    except Exception:                                  # noqa: BLE001
+        pass
+
     # --- son dakika disiplini ---
     kritik = [x for x in say if x.get("katman") == "kritik"]
     if len(kritik) > len(say) * 0.25 and len(say) > 8:
