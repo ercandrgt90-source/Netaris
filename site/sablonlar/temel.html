@@ -147,45 +147,65 @@
   </div>
 </header>
 
-{# Kayan fiyat seridi.
-   Sunucu tarafinda FRED'in gunluk degerleriyle dolu gelir; canli.js
-   uzerine Binance'in gercek zamanli kalemlerini ekler. Her kalemin
-   yanindaki nokta durumu anlatir: yesil = canli, gri = son veri.
-   JavaScript calismazsa serit yine dolu -- akmaz, ama okunur. #}
-<div class="serit" role="region" aria-label="Fiyat şeridi">
-  <div class="serit-akis" data-serit-akis>
-    <div class="serit-sira" data-serit-sira>
-      {% if gostergeler and gostergeler.kalemler %}
-      {% for k in gostergeler.kalemler %}
-      {# BAYATLIK GORUNUR.
-         Serit "canli fiyat" izlenimi veriyordu ama kalemlerin tarihleri
-         birbirini tutmuyor: kur ayni gun, S&P uc gunluk, Brent yedi
-         gunluk, EUR/USD ON gunluk -- hepsi ayni gri noktayla yan yana.
-         Okur hangisinin ne kadar eski oldugunu goremiyordu.
-         Kalem DUSURULMUYOR (Brent gecikmeli de olsa merkezi bir fiyat);
-         yalnizca kac gunluk oldugu yaziliyor. #}
-      <span class="kalem{% if k.bayat %} kalem-bayat{% endif %}"
-            title="{{ k.ad }} — son veri {{ k.tarih }}{% if k.ritim %} · {{ k.ritim }}{% endif %}">
-        <span class="nokta {% if k.bayat %}nokta-bayat{% else %}nokta-gecmis{% endif %}"></span>
-        <span class="kalem-ad">{{ k.ad }}</span>
-        <span class="kalem-deger">{{ k.deger }}</span>
-        {% if k.bayat %}<span class="kalem-yas">{{ k.gun }}g</span>{% endif %}
-        {# Kivilcim seriden cizilir; seri yoksa hic basilmaz. Tek noktadan
-           cizilen bir "grafik" egilim varmis izlenimi verirdi. #}
-        {% if kivilcimlar and kivilcimlar[k.kod] %}
-        <span class="kalem-kivilcim {{ k.yon }}">{{ kivilcimlar[k.kod] | safe }}</span>
+{# CANLI FIYAT SERIDI -- TradingView'in RESMI ticker-tape widget'i.
+
+   NEDEN WIDGET
+   ------------
+   Serit sunucu tarafinda FRED/TCMB degerleriyle doluyordu ve bazi
+   kalemler yayin ritmi geregi gunler once acilanmis oluyordu (EIA
+   Brent'i HAFTALIK yayimliyor). Ucretsiz ve anahtarsiz taze bir ham
+   petrol ucu arandi, YOK: Alpha Vantage kendi belgesinde "retrieved
+   from FRED" diyor, EIA'nin anahtarli ucu ayni haftalik ritmi tasiyor,
+   OPEC ve Stooq bot engelli. Gunluk fiyat vadeli piyasadan gelir.
+
+   TradingView'in widget'i tam bu is icin sunuluyor: ucretsiz,
+   anahtarsiz, kullanim sartlarina uygun. KAZIMA YA DA IC UC COZME YOK.
+
+   BEDELI, ACIKCA
+   --------------
+   Widget ucuncu taraf betigi: ziyaretcinin IP'si ve hangi sayfada
+   oldugu TradingView'e gider. Serit her sayfada oldugu icin bu artik
+   SITE GENELINDE gecerli ve gizlilik politikasinda boyle yaziyor.
+   Fotograflari hala indirip kendimiz sunuyoruz; degisen tek sey bu
+   serit.
+
+   BETIKSIZ TARAYICI
+   -----------------
+   Widget JavaScript istiyor. Betik calismazsa `<noscript>` icindeki
+   OLCULMUS serit gorunur -- akmaz ama okunur, ve her kaleminin yasi
+   yazili. Yani veri kaybi yok, yalnizca canlilik yok.
+
+   TEMA
+   ----
+   Widget rengini kurulusta aliyor ve bizim tema dugmemizi izlemiyor.
+   Sayfa yuklenirken gecerli tema okunup yapilandirmaya yaziliyor. #}
+<div class="serit serit-canli" role="region" aria-label="Fiyat şeridi">
+  <div class="tradingview-widget-container" id="serit-widget"></div>
+  <noscript>
+    <div class="serit-akis">
+      <div class="serit-sira">
+        {% if gostergeler and gostergeler.kalemler %}
+        {% for k in gostergeler.kalemler %}
+        <span class="kalem{% if k.bayat %} kalem-bayat{% endif %}"
+              title="{{ k.ad }} — son veri {{ k.tarih }}{% if k.ritim %} · {{ k.ritim }}{% endif %}">
+          <span class="nokta {% if k.bayat %}nokta-bayat{% else %}nokta-gecmis{% endif %}"></span>
+          <span class="kalem-ad">{{ k.ad }}</span>
+          <span class="kalem-deger">{{ k.deger }}</span>
+          {% if k.bayat %}<span class="kalem-yas">{{ k.gun }}g</span>{% endif %}
+          {# Kivilcim betiksiz yedekte de duruyor: yedek, seridin eksik
+             bir taklidi degil, calisan surumu olmali. #}
+          {% if kivilcimlar and kivilcimlar[k.kod] %}
+          <span class="kalem-kivilcim {{ k.yon }}">{{ kivilcimlar[k.kod] | safe }}</span>
+          {% endif %}
+          <span class="kalem-fark {{ k.yon }}">{{ k.fark }}</span>
+        </span>
+        {% endfor %}
         {% endif %}
-        <span class="kalem-fark {{ k.yon }}">{{ k.fark }}</span>
-      </span>
-      {% endfor %}
-      {% endif %}
-      {# "canlı / son veri" aciklamasi KALDIRILDI -- serit dar ve akiyor,
-         her turda gecen bir gosterge anahtari yer kaplayip okumayi
-         zorlastiriyordu. Bilgi kaybolmadi: noktanin rengi ayni sey
-         soyluyor ve kalemin uzerine gelince aciklama cikiyor. #}
+      </div>
     </div>
-  </div>
+  </noscript>
 </div>
+<script src="/statik/serit.js" defer></script>
 
 {# Son dakika seridi.
    Yalnizca KENDI SAYFASI OLAN haberler akar -- serit disari yonlendirmiyor.

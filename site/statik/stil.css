@@ -3186,3 +3186,15 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none; }
 .uyari-kutu p { margin: 0 0 8px; }
 .uyari-kutu p:last-child { margin-bottom: 0; }
 .uyari-kutu b { color: var(--yazi); }
+
+/* CANLI SERIT -- TradingView widget kabini.
+   Widget kendi yuksekligini getiriyor; burada yalnizca site seridiyle
+   ayni cerceveye oturtuluyor ve yukleme aninda sayfa ziplamasin diye
+   asgari yukseklik veriliyor. */
+.serit-canli { padding: 0; }
+.serit-canli .tradingview-widget-container {
+  border: 0; border-radius: 0; background: transparent;
+  padding: 0; min-height: 46px;
+}
+/* Betiksiz tarayicida <noscript> seridi normal serit gibi gorunsun. */
+.serit-canli noscript .serit-akis { padding: 6px 0; }

@@ -56,19 +56,28 @@ Yukarıda açıklandığı üzere sitemiz doğrudan kişisel veri işlememektedi
 
 Bu politikada değişiklik yapılması durumunda güncel metin bu sayfada yayımlanır. Sitenin veri işleme uygulamalarını değiştiren bir ekleme yapılması hâlinde, değişiklik uygulamaya alınmadan önce bu sayfa güncellenir.
 
-## Canlı piyasa sayfası (üçüncü taraf içerik)
+## Fiyat şeridi ve canlı piyasa (üçüncü taraf içerik)
 
-`/piyasa/` adresindeki **Canlı piyasa** sayfası, fiyat tablolarını
-TradingView'den yükler. Bu sayfayı açtığınızda tarayıcınız doğrudan
-TradingView sunucularına bağlanır; IP adresiniz, tarayıcı bilgileriniz
-ve hangi sayfadan geldiğiniz onlara görünür. Bu veriler bize
-ulaşmıyor ve bizim tarafımızda saklanmıyor.
+Sayfaların üstündeki **fiyat şeridi** ve `/piyasa/` adresindeki
+**Canlı piyasa** sayfası, fiyatları TradingView'den yükler. Şerit her
+sayfada bulunduğu için, siteyi ziyaret ettiğinizde tarayıcınız
+doğrudan TradingView sunucularına bağlanır; IP adresiniz, tarayıcı
+bilgileriniz ve hangi sayfada olduğunuz onlara görünür. Bu veriler
+bize ulaşmıyor ve bizim tarafımızda saklanmıyor.
 
-Sayfa, sitenin **üçüncü taraf içerik yükleyen tek sayfasıdır**. Ana
-sayfa, haber ve analiz sayfaları dâhil diğer bütün adreslerde dış
-sunuculara istek yapılmaz — fotoğraflar bile uzaktan bağlanmak yerine
-indirilip kendi sunucumuzdan sunulur.
+Bu tercihin sebebi şudur: ham petrol ve endekslerde günlük fiyat
+yalnızca vadeli piyasadan gelir ve ücretsiz, anahtarsız bir kaynağı
+yoktur. Resmî kaynakların yayın ritmi haftalıktır (örneğin EIA, Brent
+spot fiyatını çarşamba günleri yayımlar). Canlı fiyatı gösterebilmenin
+ücretsiz ve kullanım şartlarına uygun tek yolu sağlayıcının kendi
+widget'ıdır.
 
-Canlı fiyat görmek istemiyorsanız bu sayfayı açmamanız yeterlidir;
-sitenin geri kalanı bundan etkilenmez. TradingView'in veri işleme
-uygulamaları için kendi gizlilik politikası geçerlidir.
+**Şeridin dışında üçüncü taraf isteği yoktur.** Fotoğraflar uzaktan
+bağlanmak yerine indirilip kendi sunucumuzdan sunulur; yazı, veri ve
+analiz içeriğinin tamamı kendi sunucumuzdan gelir.
+
+JavaScript kapalıysa şerit yerine kendi ölçülmüş verimiz görünür ve
+hiçbir dış bağlantı kurulmaz.
+
+TradingView'in veri işleme uygulamaları için kendi gizlilik politikası
+geçerlidir.
