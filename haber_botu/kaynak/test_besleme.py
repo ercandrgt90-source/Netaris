@@ -46,6 +46,49 @@ def esit(bulunan, beklenen, aciklama: str) -> None:
 _olu = [k for k in besleme.GURULTU_ISARETLERI if k != besleme._katla(k)]
 esit(_olu, [], "gurultu kaliplarinin hepsi ASCII katlanmis")
 
+# MECAZ kaliplari da ASCII katlanmis olmali -- ayni tuzak.
+_olu_mecaz = [k for k, _ in besleme.MECAZ if k != besleme._katla(k)]
+esit(_olu_mecaz, [], "mecaz kaliplarinin hepsi ASCII katlanmis")
+
+# --------------------------------------------------------------------
+# MECAZI "SAVAS" -- ciplak "savas" isareti Jeopolitik'te ve liste
+# sirasinda Doviz'den de Sirket haberleri'nden de ONCE geliyor.
+# Olculdu ve yayimlandi: "55 milyar euroluk miras savasi" jeopolitik
+# sayildi ve sayfanin izleme listesi "Brent petrol, Ons altin, CDS
+# primi" oldu -- bir miras davasinin altinda.
+# --------------------------------------------------------------------
+esit(besleme.konu_bul("55 milyar euroluk miras savaşı", "X"),
+     "Şirket haberleri", "miras savasi sirket haberidir")
+esit(besleme.konu_bul("Fiyat savaşı kızıştı", "X"),
+     "Şirket haberleri", "fiyat savasi sirket haberidir")
+esit(besleme.konu_bul("Asya-Pasifik'te kur savaşı riski", "X"),
+     "Döviz", "kur savasi doviz konusudur")
+esit(besleme.konu_bul("Ticaret savaşı tırmanıyor", "X"),
+     "Dış ticaret", "ticaret savasi dis ticaret konusudur")
+
+# GERCEK savas ve saldiri HALA jeopolitik: mecaz suzgeci fazla genis
+# olsaydi asil konuyu kaybederdik.
+esit(besleme.konu_bul("Rusya-Ukrayna savaşında yeni cephe", "X"),
+     "Jeopolitik", "gercek savas jeopolitiktir")
+esit(besleme.konu_bul("Hürmüz Boğazı'nda tanker saldırısı", "X"),
+     "Jeopolitik", "gercek saldiri jeopolitiktir")
+
+# --------------------------------------------------------------------
+# HER KONUNUN IZLEME LISTESI OLMALI.
+#
+# "Sirket haberleri" ve "Duzenleme" listesi BOSTU ve bos olmasi
+# sessizdi: konu gecerli, fotograf havuzu var, kart turu var --
+# yalnizca "Takip edilecekler" bolumu hic basilmiyordu.
+# --------------------------------------------------------------------
+import sys as _sys, pathlib as _pl  # noqa: E402
+_sys.path.insert(0, str(_pl.Path(__file__).resolve().parent.parent / "analiz"))
+import dosya as _dosya  # noqa: E402
+import foto as _foto  # noqa: E402
+
+for _k in _foto.KONU_ARAMA:
+    esit(bool(_dosya.IZLENECEKLER.get(_k)), True,
+         f"'{_k}' konusunun izleme listesi var")
+
 # Asayis/yasam gurultusu eleniyor, GERCEK jeopolitik elenmiyor.
 esit(besleme.gurultu_mu("Mutfaklara bereket getiren lezzetler"), True,
      "yemek yazisi elenir")

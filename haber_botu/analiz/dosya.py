@@ -462,6 +462,23 @@ def varlik_senaryolari(varliklar, konu: str) -> tuple:
 
 
 IZLENECEKLER: dict[str, tuple[str, ...]] = {
+    # BU IKISI BOSTU ve bos olmasi sessizdi: konu gecerli, fotograf
+    # havuzu var, kart turu var -- yalnizca "Takip edilecekler" bolumu
+    # hic basilmiyordu. Test artik her konunun listesi olmasini sart
+    # kosuyor.
+    "Şirket haberleri": (
+        "Şirketin KAP bildirimleri",
+        "Çeyreklik bilanço takvimi",
+        "BIST 100",
+        "Sektör endeksi",
+        "Politika faizi",
+    ),
+    "Düzenleme": (
+        "Resmî Gazete yayımı",
+        "Kurum tebliğ ve genelgeleri",
+        "İlgili sektör endeksi",
+        "BIST 100",
+    ),
     "Para politikası": (
         "Bir sonraki TÜFE açıklaması",
         "PPK kararı ve toplantı özeti",

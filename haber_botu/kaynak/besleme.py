@@ -618,6 +618,33 @@ def gurultu_mu(baslik: str) -> bool:
     return any(" " + i in k for i in GURULTU_ISARETLERI)
 
 
+#: MECAZI "SAVAS" KULLANIMLARI -- kalip -> gercek konu.
+#:
+#: Turkce'de "savas" ve "saldiri" mecazi olarak sik kullaniliyor ve
+#: Jeopolitik isaretleri arasinda ciplak "savas" var. Olculdu:
+#:   "55 milyar euroluk miras savasi" -> Jeopolitik
+#:   "Fiyat savasi kizisti"           -> Jeopolitik
+#: Yanlis konu yalnizca etiketi degil, sayfanin IZLEME LISTESINI de
+#: bozuyor: miras davasinin altinda "Brent petrol, Ons altin, CDS"
+#: yaziyordu.
+#:
+#: "Kur savasi" ve "ticaret savasi" GERCEKTEN ekonomik olaylar ama
+#: jeopolitik degil; kendi konularina yonlendiriliyorlar.
+#:
+#: DIKKAT: bu liste ASCII KATLANMIS metinle karsilastiriliyor
+#: (bkz. `_katla`). Turkce harf iceren bir kalip HICBIR ZAMAN eslesmez.
+MECAZ: tuple[tuple[str, str], ...] = (
+    ("miras savasi", "Şirket haberleri"),
+    ("fiyat savasi", "Şirket haberleri"),
+    ("patent savasi", "Şirket haberleri"),
+    ("reklam savasi", "Şirket haberleri"),
+    ("taht savasi", "Şirket haberleri"),
+    ("kur savasi", "Döviz"),
+    ("ticaret savasi", "Dış ticaret"),
+    ("tarife savasi", "Dış ticaret"),
+)
+
+
 def konu_bul(baslik: str, varsayilan: str = "") -> str:
     """Baslikta ekonomi konusu arar. Bulamazsa `varsayilan` doner.
 
@@ -626,6 +653,18 @@ def konu_bul(baslik: str, varsayilan: str = "") -> str:
     her sey zaten ekonomidir.
     """
     k = _aranacak(baslik)
+    # MECAZ ONCE COZULUYOR.
+    #
+    # "savas" isareti Jeopolitik'te ve liste sirasinda Doviz'den de
+    # Sirket haberleri'nden de ONCE geliyor -- ilk eslesen kazandigi
+    # icin siralamayla duzeltilemez. Olculdu ve yayimlandi:
+    #   "55 milyar euroluk miras savasi"  -> Jeopolitik
+    #   "Fiyat savasi kizisti"            -> Jeopolitik
+    # Ikisi de sirket haberi. Miras davasi jeopolitik sayilinca izleme
+    # listesi de o konudan geldi: "Brent petrol, Ons altin, CDS primi".
+    for kalip, konu in MECAZ:
+        if kalip in k:
+            return konu
     for konu, isaretler in KONU_ISARETLERI:
         if any(i in k for i in isaretler):
             return konu
