@@ -1,6 +1,6 @@
 ---
 slug: hurmuz-bogazi-krizi-lng-piyasasini-sarsti-2026-08-05
-baslik: Hürmüz Boğazı krizi LNG piyasasını sarstı!
+baslik: Piyasa tepkisi: Hürmüz Boğazı krizi LNG piyasasını sarstı!
 ozet: Jeopolitik gelişme. Altın 1 saat içinde +%0,82 yükseldi.
 sirket: Hürmüz Boğazı krizi LNG piyasasını sarstı!
 kod: OLAY

@@ -1,6 +1,6 @@
 ---
 slug: petrol-fiyatlarinda-hurmuz-belirsizligi-citi-fiyat-tahminini-yukseltti-2026-08-07
-baslik: Petrol fiyatlarında Hürmüz belirsizliği! Citi fiyat tahminini yükseltti
+baslik: Piyasa tepkisi: Petrol fiyatlarında Hürmüz belirsizliği! Citi fiyat tahminini yükseltti
 ozet: Jeopolitik gelişme. Brent petrol günlük içinde -%8,30 geriledi.
 sirket: Petrol fiyatlarında Hürmüz belirsizliği! Citi fiyat tahminini yükseltti
 kod: OLAY

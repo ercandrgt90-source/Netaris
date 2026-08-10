@@ -377,6 +377,41 @@ YORUM_SAYI_ORANI = 0.5
 _SAYI_KALIBI = re.compile(r"\d[\d.]*,\d+|\d{1,3}(?:\.\d{3})+|\d{2,}")
 
 
+def _baslik_tekrari_denetimi() -> list[Bulgu]:
+    """Iki sayfanin `<title>` etiketi ayni olmamali.
+
+    Ayni baslik hem okur hem arama motoru icin ayirt edilemezlik demek.
+    Olculdu, iki ayri sebeple 23 baslik ciftlenmisti:
+
+      * Olay motorunun yazisi haberin basligini AYNEN kullaniyordu;
+        sonuc `/haber/<slug>/` ve `/analiz/<slug>-<tarih>/` ciftiydi.
+        Icerikleri farkli (fiyat tepkisi vs haberin kendisi) ama
+        basliklari ayniydi.
+      * Gunluk teknik yazilarin basligi olculen degerden uretiliyor;
+        ayni yuvarlanmis deger iki gun ust uste cikinca baslik da
+        tekrarliyordu ("Brent %29,7 yukselip geri cekildi" ALTI kez).
+    """
+    import collections as _c
+
+    bulgu: list[Bulgu] = []
+    if not CIKTI_DIZINI.exists():
+        return bulgu
+    g: dict[str, list[str]] = _c.defaultdict(list)
+    for p in CIKTI_DIZINI.rglob("index.html"):
+        m = re.search(r"<title>(.*?)</title>", p.read_text(encoding="utf-8"),
+                      re.S)
+        if m:
+            g[" ".join(m.group(1).split())].append(
+                "/" + p.parent.relative_to(CIKTI_DIZINI).as_posix() + "/")
+    for baslik, yollar in g.items():
+        if len(yollar) > 1:
+            bulgu.append(Bulgu(
+                "uyari", "editoryal", baslik[:40],
+                f"{len(yollar)} sayfada ayni <title>: "
+                f"{', '.join(yollar[:2])}"))
+    return bulgu
+
+
 def _lisans_denetimi() -> list[Bulgu]:
     """Yayimlanan her havuz gorselinin atfi var mi?
 
@@ -585,6 +620,7 @@ def editoryal_denetim() -> list[Bulgu]:
     bulgu += _gorsel_denetimi()
     bulgu += _veri_tutarlilik_denetimi()
     bulgu += _lisans_denetimi()
+    bulgu += _baslik_tekrari_denetimi()
 
     # --- yayimlanmis gurultu ---
     #

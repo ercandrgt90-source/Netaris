@@ -1,6 +1,6 @@
 ---
 slug: aylik-fiyat-gelismeleri-temmuz-2026-2026-08-04
-baslik: Aylık Fiyat Gelişmeleri (Temmuz 2026)
+baslik: Piyasa tepkisi: Aylık Fiyat Gelişmeleri (Temmuz 2026)
 ozet: Enflasyon verisi. Altın 1 saat içinde -%0,34 geriledi.
 sirket: Aylık Fiyat Gelişmeleri (Temmuz 2026)
 kod: OLAY

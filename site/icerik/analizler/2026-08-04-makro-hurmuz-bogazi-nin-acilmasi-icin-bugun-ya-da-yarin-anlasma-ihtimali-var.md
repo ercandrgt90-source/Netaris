@@ -1,6 +1,6 @@
 ---
 slug: hurmuz-bogazi-nin-acilmasi-icin-bugun-ya-da-yarin-anlasma-ihtimali-var-2026-08-04
-baslik: "Hürmüz Boğazı'nın açılması için bugün ya da yarın anlaşma ihtimali var"
+baslik: Piyasa tepkisi: "Hürmüz Boğazı'nın açılması için bugün ya da yarın anlaşma ihtimali var"
 ozet: Jeopolitik gelişme. VIX günlük içinde -%0,81 geriledi.
 sirket: "Hürmüz Boğazı'nın açılması için bugün ya da yarın anlaşma ihtimali var"
 kod: OLAY

@@ -1,6 +1,6 @@
 ---
 slug: hurmuz-deki-sevkiyat-risklerine-karsi-petrol-depolama-alternatifi-one-cikiyor-2026-08-10
-baslik: Hürmüz'deki sevkiyat risklerine karşı petrol depolama alternatifi öne çıkıyor
+baslik: Piyasa tepkisi: Hürmüz'deki sevkiyat risklerine karşı petrol depolama alternatifi öne çıkıyor
 ozet: Jeopolitik gelişme. VIX günlük içinde -%4,17 geriledi.
 sirket: Hürmüz'deki sevkiyat risklerine karşı petrol depolama alternatifi öne çıkıyor
 kod: OLAY

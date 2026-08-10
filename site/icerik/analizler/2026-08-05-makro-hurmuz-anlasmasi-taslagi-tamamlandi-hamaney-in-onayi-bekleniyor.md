@@ -1,6 +1,6 @@
 ---
 slug: hurmuz-anlasmasi-taslagi-tamamlandi-hamaney-in-onayi-bekleniyor-2026-08-05
-baslik: Hürmüz anlaşması taslağı tamamlandı: Hamaney'in onayı bekleniyor
+baslik: Piyasa tepkisi: Hürmüz anlaşması taslağı tamamlandı: Hamaney'in onayı bekleniyor
 ozet: Jeopolitik gelişme. Brent petrol günlük içinde -%8,30 geriledi.
 sirket: Hürmüz anlaşması taslağı tamamlandı: Hamaney'in onayı bekleniyor
 kod: OLAY

@@ -1,6 +1,6 @@
 ---
 slug: bitcoin-abd-tarim-disi-istihdam-verisi-oncesi-geriledi-gozler-fed-ve-hurmuz-bogazi-gelismelerinde-2026-08-07
-baslik: Bitcoin ABD tarım dışı istihdam verisi öncesi geriledi: Gözler Fed ve Hürmüz Boğazı gelişmelerinde
+baslik: Piyasa tepkisi: Bitcoin ABD tarım dışı istihdam verisi öncesi geriledi: Gözler Fed ve Hürmüz Boğazı gelişmelerinde
 ozet: İstihdam verisi. Bitcoin 1 saat içinde +%0,25 yükseldi.
 sirket: Bitcoin ABD tarım dışı istihdam verisi öncesi geriledi: Gözler Fed ve Hürmüz Boğazı gelişmelerinde
 kod: OLAY

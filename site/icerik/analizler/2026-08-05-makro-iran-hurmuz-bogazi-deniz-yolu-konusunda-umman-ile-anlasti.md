@@ -1,6 +1,6 @@
 ---
 slug: iran-hurmuz-bogazi-deniz-yolu-konusunda-umman-ile-anlasti-2026-08-05
-baslik: İran, Hürmüz Boğazı deniz yolu konusunda Umman ile anlaştı
+baslik: Piyasa tepkisi: İran, Hürmüz Boğazı deniz yolu konusunda Umman ile anlaştı
 ozet: Jeopolitik gelişme. Brent petrol günlük içinde -%8,30 geriledi.
 sirket: İran, Hürmüz Boğazı deniz yolu konusunda Umman ile anlaştı
 kod: OLAY

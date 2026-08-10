@@ -1,6 +1,6 @@
 ---
 slug: merkez-bankasi-yilin-3-uncu-enflasyon-raporunu-13-agustos-ta-istanbul-da-aciklayacak-2026-08-07
-baslik: Merkez Bankası, yılın 3'üncü Enflasyon Raporunu 13 Ağustos'ta İstanbul'da açıklayacak
+baslik: Piyasa tepkisi: Merkez Bankası, yılın 3'üncü Enflasyon Raporunu 13 Ağustos'ta İstanbul'da açıklayacak
 ozet: Enflasyon verisi. Fiyat tepkisi ölçülemedi.
 sirket: Merkez Bankası, yılın 3'üncü Enflasyon Raporunu 13 Ağustos'ta İstanbul'da açıklayacak
 kod: OLAY

@@ -1,6 +1,17 @@
 ﻿{% extends "temel.html" %}
 
-{% block baslik %}{{ a.baslik }} — {{ site.ad }}{% endblock %}
+{# SEKME BASLIGINDA TARIH VAR, SAYFANIN H1'INDE YOK.
+   Gunluk teknik ve makro yazilarinin basligi olculen degerden
+   uretiliyor ve ayni yuvarlanmis deger iki gun ust uste cikinca baslik
+   da ayni oluyor. Olculdu: "Brent %29,7 yukselip geri cekildi..."
+   ALTI ayri sayfada, "Altin: fiyat Bollinger ust bandinin uzerinde"
+   DORT sayfada -- hepsi farkli gunun yazisi.
+
+   Ayni `<title>`, arama motoru icin yinelenen icerik sinyali ve
+   sekmeler arasinda ayirt edilemezlik demek. Tarih yalnizca BASLIK
+   ETIKETINE ekleniyor; sayfanin gorunen basligi kisa kaliyor ve tarih
+   zaten kunyede duruyor. #}
+{% block baslik %}{{ a.baslik }} — {{ a.tarih_tr or a.tarih }} — {{ site.ad }}{% endblock %}
 {% block aciklama %}{{ a.ozet }}{% endblock %}
 {% block og_tur %}article{% endblock %}
 

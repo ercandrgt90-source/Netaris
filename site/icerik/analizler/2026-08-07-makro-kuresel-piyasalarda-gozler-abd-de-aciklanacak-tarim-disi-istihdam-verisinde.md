@@ -1,6 +1,6 @@
 ---
 slug: kuresel-piyasalarda-gozler-abd-de-aciklanacak-tarim-disi-istihdam-verisinde-2026-08-07
-baslik: Küresel piyasalarda gözler ABD'de açıklanacak tarım dışı istihdam verisinde
+baslik: Piyasa tepkisi: Küresel piyasalarda gözler ABD'de açıklanacak tarım dışı istihdam verisinde
 ozet: İstihdam verisi. S&P 500 günlük içinde -%0,18 geriledi.
 sirket: Küresel piyasalarda gözler ABD'de açıklanacak tarım dışı istihdam verisinde
 kod: OLAY

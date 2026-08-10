@@ -1,6 +1,6 @@
 ---
 slug: abd-hurmuz-bogazi-anlasmasini-bekliyor-sunni-gucler-savunma-pakti-imzaladi-2026-08-08
-baslik: ABD Hürmüz Boğazı anlaşmasını bekliyor, Sünni güçler savunma paktı imzaladı
+baslik: Piyasa tepkisi: ABD Hürmüz Boğazı anlaşmasını bekliyor, Sünni güçler savunma paktı imzaladı
 ozet: Jeopolitik gelişme. VIX günlük içinde -%4,17 geriledi.
 sirket: ABD Hürmüz Boğazı anlaşmasını bekliyor, Sünni güçler savunma paktı imzaladı
 kod: OLAY

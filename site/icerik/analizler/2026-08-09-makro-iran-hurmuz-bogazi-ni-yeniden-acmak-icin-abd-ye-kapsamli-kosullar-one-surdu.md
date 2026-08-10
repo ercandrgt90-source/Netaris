@@ -1,6 +1,6 @@
 ---
 slug: iran-hurmuz-bogazi-ni-yeniden-acmak-icin-abd-ye-kapsamli-kosullar-one-surdu-2026-08-09
-baslik: İran, Hürmüz Boğazı’nı yeniden açmak için ABD’ye kapsamlı koşullar öne sürdü
+baslik: Piyasa tepkisi: İran, Hürmüz Boğazı’nı yeniden açmak için ABD’ye kapsamlı koşullar öne sürdü
 ozet: Jeopolitik gelişme. VIX günlük içinde -%4,17 geriledi.
 sirket: İran, Hürmüz Boğazı’nı yeniden açmak için ABD’ye kapsamlı koşullar öne sürdü
 kod: OLAY

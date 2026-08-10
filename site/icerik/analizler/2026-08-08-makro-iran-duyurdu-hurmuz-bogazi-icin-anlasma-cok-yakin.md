@@ -1,6 +1,6 @@
 ---
 slug: iran-duyurdu-hurmuz-bogazi-icin-anlasma-cok-yakin-2026-08-08
-baslik: İran duyurdu: Hürmüz Boğazı için anlaşma çok yakın
+baslik: Piyasa tepkisi: İran duyurdu: Hürmüz Boğazı için anlaşma çok yakın
 ozet: Jeopolitik gelişme. VIX günlük içinde -%4,17 geriledi.
 sirket: İran duyurdu: Hürmüz Boğazı için anlaşma çok yakın
 kod: OLAY

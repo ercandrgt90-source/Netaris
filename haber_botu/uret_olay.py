@@ -359,8 +359,20 @@ def main() -> int:
             ])
 
             if args.yayinla:
+                # BASLIK NE OLDUGUNU SOYLUYOR.
+                #
+                # Olay yazisi haberin KENDISI degil, o habere piyasanin
+                # olculen tepkisi. Ama basligi haberin basligiyla
+                # AYNIYDI ve sonuc iki ayri sayfada ayni baslikti:
+                # `/haber/<slug>/` (haberin kendisi) ve
+                # `/analiz/<slug>-<tarih>/` (fiyat tepkisi). Olculdu --
+                # 18 baslik boyle ciftlenmis.
+                #
+                # Icerikleri farkli (2110 ve 3487 karakter) ama okur
+                # listede iki ayni satir goruyor, arama motoru da iki
+                # rakip sayfa. Baslik artik ayrimi tasiyor.
                 dosya = yayin.yaz_makro(
-                    metin, konu=o.baslik,
+                    metin, konu=f"Piyasa tepkisi: {o.baslik}",
                     kaynak="Olay motoru — ölçülen fiyat verisi",
                     kategori="Makro", kod="OLAY",
                     ozet_metni=yazar_olay.ozet_cikar(o, tepkiler),

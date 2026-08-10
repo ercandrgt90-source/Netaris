@@ -1,6 +1,6 @@
 ---
 slug: iran-hurmuz-bogazi-icin-abd-ye-agir-sartlar-kostu-2026-08-08
-baslik: İran, Hürmüz Boğazı için ABD’ye ağır şartlar koştu
+baslik: Piyasa tepkisi: İran, Hürmüz Boğazı için ABD’ye ağır şartlar koştu
 ozet: Jeopolitik gelişme. VIX günlük içinde -%4,17 geriledi.
 sirket: İran, Hürmüz Boğazı için ABD’ye ağır şartlar koştu
 kod: OLAY

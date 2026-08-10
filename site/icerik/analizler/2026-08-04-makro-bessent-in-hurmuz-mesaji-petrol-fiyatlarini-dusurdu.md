@@ -1,6 +1,6 @@
 ---
 slug: bessent-in-hurmuz-mesaji-petrol-fiyatlarini-dusurdu-2026-08-04
-baslik: Bessent'in Hürmüz mesajı petrol fiyatlarını düşürdü
+baslik: Piyasa tepkisi: Bessent'in Hürmüz mesajı petrol fiyatlarını düşürdü
 ozet: Jeopolitik gelişme. VIX günlük içinde -%6,44 geriledi.
 sirket: Bessent'in Hürmüz mesajı petrol fiyatlarını düşürdü
 kod: OLAY

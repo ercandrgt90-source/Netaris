@@ -1,6 +1,6 @@
 ---
 slug: iran-abd-davranislarini-duzeltene-kadar-hurmuz-acilmayacak-2026-08-08
-baslik: İran: ABD davranışlarını düzeltene kadar Hürmüz açılmayacak
+baslik: Piyasa tepkisi: İran: ABD davranışlarını düzeltene kadar Hürmüz açılmayacak
 ozet: Jeopolitik gelişme. VIX günlük içinde -%4,17 geriledi.
 sirket: İran: ABD davranışlarını düzeltene kadar Hürmüz açılmayacak
 kod: OLAY

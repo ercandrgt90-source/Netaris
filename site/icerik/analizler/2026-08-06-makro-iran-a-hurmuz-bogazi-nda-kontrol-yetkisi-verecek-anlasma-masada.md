@@ -1,6 +1,6 @@
 ---
 slug: iran-a-hurmuz-bogazi-nda-kontrol-yetkisi-verecek-anlasma-masada-2026-08-06
-baslik: İran’a Hürmüz Boğazı’nda kontrol yetkisi verecek anlaşma masada
+baslik: Piyasa tepkisi: İran’a Hürmüz Boğazı’nda kontrol yetkisi verecek anlaşma masada
 ozet: Jeopolitik gelişme. Brent petrol günlük içinde -%8,30 geriledi.
 sirket: İran’a Hürmüz Boğazı’nda kontrol yetkisi verecek anlaşma masada
 kod: OLAY

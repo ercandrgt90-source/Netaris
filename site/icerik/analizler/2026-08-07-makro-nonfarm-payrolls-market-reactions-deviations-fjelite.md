@@ -1,6 +1,6 @@
 ---
 slug: nonfarm-payrolls-market-reactions-deviations-fjelite-2026-08-07
-baslik: Nonfarm Payrolls Market Reactions & Deviations - FJElite
+baslik: Piyasa tepkisi: Nonfarm Payrolls Market Reactions & Deviations - FJElite
 ozet: İstihdam verisi. Altın 1 saat içinde +%0,39 yükseldi.
 sirket: Nonfarm Payrolls Market Reactions & Deviations - FJElite
 kod: OLAY

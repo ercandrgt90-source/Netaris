@@ -1,6 +1,6 @@
 ---
 slug: yilin-ucuncu-enflasyon-raporu-13-agustos-ta-aciklanacak-2026-08-07
-baslik: Yılın üçüncü enflasyon raporu 13 Ağustos'ta açıklanacak
+baslik: Piyasa tepkisi: Yılın üçüncü enflasyon raporu 13 Ağustos'ta açıklanacak
 ozet: Enflasyon verisi. Bitcoin 1 saat içinde +%0,24 yükseldi.
 sirket: Yılın üçüncü enflasyon raporu 13 Ağustos'ta açıklanacak
 kod: OLAY

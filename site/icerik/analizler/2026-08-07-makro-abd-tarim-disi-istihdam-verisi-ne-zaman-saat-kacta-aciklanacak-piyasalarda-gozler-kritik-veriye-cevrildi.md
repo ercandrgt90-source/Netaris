@@ -1,6 +1,6 @@
 ---
 slug: abd-tarim-disi-istihdam-verisi-ne-zaman-saat-kacta-aciklanacak-piyasalarda-gozler-kritik-veriye-cevrildi-2026-08-07
-baslik: ABD Tarım Dışı İstihdam Verisi Ne Zaman, Saat Kaçta Açıklanacak? Piyasalarda Gözler Kritik Veriye Çevrildi!
+baslik: Piyasa tepkisi: ABD Tarım Dışı İstihdam Verisi Ne Zaman, Saat Kaçta Açıklanacak? Piyasalarda Gözler Kritik Veriye Çevrildi!
 ozet: İstihdam verisi. Bitcoin 1 saat içinde +%0,25 yükseldi.
 sirket: ABD Tarım Dışı İstihdam Verisi Ne Zaman, Saat Kaçta Açıklanacak? Piyasalarda Gözler Kritik Veriye Çevrildi!
 kod: OLAY

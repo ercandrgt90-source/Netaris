@@ -1,6 +1,6 @@
 ---
 slug: iran-abd-ablukayi-devam-ettirirse-hurmuz-bogazi-guvenli-bir-guzergah-olmayacaktir-2026-08-10
-baslik: İran: ABD ablukayı devam ettirirse Hürmüz Boğazı güvenli bir güzergah olmayacaktır
+baslik: Piyasa tepkisi: İran: ABD ablukayı devam ettirirse Hürmüz Boğazı güvenli bir güzergah olmayacaktır
 ozet: Jeopolitik gelişme. VIX günlük içinde -%4,17 geriledi.
 sirket: İran: ABD ablukayı devam ettirirse Hürmüz Boğazı güvenli bir güzergah olmayacaktır
 kod: OLAY

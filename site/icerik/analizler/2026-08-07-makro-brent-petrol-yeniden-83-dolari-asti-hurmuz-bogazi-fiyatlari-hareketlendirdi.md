@@ -1,6 +1,6 @@
 ---
 slug: brent-petrol-yeniden-83-dolari-asti-hurmuz-bogazi-fiyatlari-hareketlendirdi-2026-08-07
-baslik: Brent petrol yeniden 83 doları aştı! Hürmüz Boğazı fiyatları hareketlendirdi
+baslik: Piyasa tepkisi: Brent petrol yeniden 83 doları aştı! Hürmüz Boğazı fiyatları hareketlendirdi
 ozet: Jeopolitik gelişme. Brent petrol günlük içinde -%8,30 geriledi.
 sirket: Brent petrol yeniden 83 doları aştı! Hürmüz Boğazı fiyatları hareketlendirdi
 kod: OLAY

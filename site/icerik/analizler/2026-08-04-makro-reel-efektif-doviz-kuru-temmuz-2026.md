@@ -1,6 +1,6 @@
 ---
 slug: reel-efektif-doviz-kuru-temmuz-2026-2026-08-04
-baslik: Reel Efektif Döviz Kuru (Temmuz 2026)
+baslik: Piyasa tepkisi: Reel Efektif Döviz Kuru (Temmuz 2026)
 ozet: Kur hareketi. Altın 1 saat içinde -%0,34 geriledi.
 sirket: Reel Efektif Döviz Kuru (Temmuz 2026)
 kod: OLAY

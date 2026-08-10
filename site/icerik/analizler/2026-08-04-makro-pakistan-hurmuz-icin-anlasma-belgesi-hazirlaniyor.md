@@ -1,6 +1,6 @@
 ---
 slug: pakistan-hurmuz-icin-anlasma-belgesi-hazirlaniyor-2026-08-04
-baslik: Pakistan: Hürmüz için anlaşma belgesi hazırlanıyor
+baslik: Piyasa tepkisi: Pakistan: Hürmüz için anlaşma belgesi hazırlanıyor
 ozet: Jeopolitik gelişme. VIX günlük içinde -%0,81 geriledi.
 sirket: Pakistan: Hürmüz için anlaşma belgesi hazırlanıyor
 kod: OLAY

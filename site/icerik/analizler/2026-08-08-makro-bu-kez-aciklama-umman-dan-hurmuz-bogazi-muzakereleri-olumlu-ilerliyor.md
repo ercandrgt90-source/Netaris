@@ -1,6 +1,6 @@
 ---
 slug: bu-kez-aciklama-umman-dan-hurmuz-bogazi-muzakereleri-olumlu-ilerliyor-2026-08-08
-baslik: Bu kez açıklama Umman'dan: Hürmüz Boğazı’ müzakereleri olumlu ilerliyor
+baslik: Piyasa tepkisi: Bu kez açıklama Umman'dan: Hürmüz Boğazı’ müzakereleri olumlu ilerliyor
 ozet: Jeopolitik gelişme. VIX günlük içinde -%4,17 geriledi.
 sirket: Bu kez açıklama Umman'dan: Hürmüz Boğazı’ müzakereleri olumlu ilerliyor
 kod: OLAY

@@ -1,6 +1,6 @@
 ---
 slug: kuresel-piyasalarda-hurmuz-sorulari-2026-08-06
-baslik: Küresel piyasalarda Hürmüz soruları
+baslik: Piyasa tepkisi: Küresel piyasalarda Hürmüz soruları
 ozet: Jeopolitik gelişme. Brent petrol günlük içinde -%8,30 geriledi.
 sirket: Küresel piyasalarda Hürmüz soruları
 kod: OLAY

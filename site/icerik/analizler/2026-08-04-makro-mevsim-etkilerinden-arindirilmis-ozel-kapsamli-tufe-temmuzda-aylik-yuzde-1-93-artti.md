@@ -1,6 +1,6 @@
 ---
 slug: mevsim-etkilerinden-arindirilmis-ozel-kapsamli-tufe-temmuzda-aylik-yuzde-1-93-artti-2026-08-04
-baslik: Mevsim etkilerinden arındırılmış özel kapsamlı TÜFE temmuzda aylık yüzde 1,93 arttı
+baslik: Piyasa tepkisi: Mevsim etkilerinden arındırılmış özel kapsamlı TÜFE temmuzda aylık yüzde 1,93 arttı
 ozet: Enflasyon verisi. Altın 1 saat içinde -%0,14 geriledi.
 sirket: Mevsim etkilerinden arındırılmış özel kapsamlı TÜFE temmuzda aylık yüzde 1,93 arttı
 kod: OLAY

@@ -1,6 +1,6 @@
 ---
 slug: trump-hurmuz-acilirsa-nukleer-anlasma-sartini-kaldiracak-mi-iran-ayak-diredi-abd-dusunuyor-2026-08-09
-baslik: Trump, Hürmüz açılırsa nükleer anlaşma şartını kaldıracak mı? İran ayak diredi, ABD düşünüyor
+baslik: Piyasa tepkisi: Trump, Hürmüz açılırsa nükleer anlaşma şartını kaldıracak mı? İran ayak diredi, ABD düşünüyor
 ozet: Jeopolitik gelişme. VIX günlük içinde -%4,17 geriledi.
 sirket: Trump, Hürmüz açılırsa nükleer anlaşma şartını kaldıracak mı? İran ayak diredi, ABD düşünüyor
 kod: OLAY

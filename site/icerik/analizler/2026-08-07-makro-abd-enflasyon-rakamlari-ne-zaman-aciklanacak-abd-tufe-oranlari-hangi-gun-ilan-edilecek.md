@@ -1,6 +1,6 @@
 ---
 slug: abd-enflasyon-rakamlari-ne-zaman-aciklanacak-abd-tufe-oranlari-hangi-gun-ilan-edilecek-2026-08-07
-baslik: ABD enflasyon rakamları ne zaman açıklanacak? ABD TÜFE oranları hangi gün ilan edilecek?
+baslik: Piyasa tepkisi: ABD enflasyon rakamları ne zaman açıklanacak? ABD TÜFE oranları hangi gün ilan edilecek?
 ozet: Enflasyon verisi. Altın 1 saat içinde +%0,39 yükseldi.
 sirket: ABD enflasyon rakamları ne zaman açıklanacak? ABD TÜFE oranları hangi gün ilan edilecek?
 kod: OLAY

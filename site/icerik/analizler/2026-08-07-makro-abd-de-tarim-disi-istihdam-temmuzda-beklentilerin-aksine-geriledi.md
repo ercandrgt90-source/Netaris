@@ -1,6 +1,6 @@
 ---
 slug: abd-de-tarim-disi-istihdam-temmuzda-beklentilerin-aksine-geriledi-2026-08-07
-baslik: ABD'de tarım dışı istihdam temmuzda beklentilerin aksine geriledi
+baslik: Piyasa tepkisi: ABD'de tarım dışı istihdam temmuzda beklentilerin aksine geriledi
 ozet: İstihdam verisi. Altın 1 saat içinde +%0,39 yükseldi.
 sirket: ABD'de tarım dışı istihdam temmuzda beklentilerin aksine geriledi
 kod: OLAY

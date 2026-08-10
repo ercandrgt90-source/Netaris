@@ -1,6 +1,6 @@
 ---
 slug: trump-iran-gorusmelerinin-iyi-gittigini-soyledi-hurmuz-anlasmasi-odakta-2026-08-06
-baslik: Trump İran görüşmelerinin iyi gittiğini söyledi; Hürmüz anlaşması odakta
+baslik: Piyasa tepkisi: Trump İran görüşmelerinin iyi gittiğini söyledi; Hürmüz anlaşması odakta
 ozet: Jeopolitik gelişme. Brent petrol günlük içinde -%8,30 geriledi.
 sirket: Trump İran görüşmelerinin iyi gittiğini söyledi; Hürmüz anlaşması odakta
 kod: OLAY

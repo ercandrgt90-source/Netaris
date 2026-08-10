@@ -1,6 +1,6 @@
 ---
 slug: kuresel-piyasalarda-gozler-abd-nin-enflasyon-verisinde-2026-08-08
-baslik: Küresel piyasalarda gözler ABD'nin enflasyon verisinde
+baslik: Piyasa tepkisi: Küresel piyasalarda gözler ABD'nin enflasyon verisinde
 ozet: Enflasyon verisi. Altın 1 saat içinde +%0,04 yatay kaldı.
 sirket: Küresel piyasalarda gözler ABD'nin enflasyon verisinde
 kod: OLAY

@@ -1,6 +1,6 @@
 ---
 slug: hurmuz-e-karsi-yeni-petrol-rotasi-umman-stratejik-alternatif-icin-kapasite-artiriyor-2026-08-10
-baslik: Hürmüz'e karşı yeni petrol rotası: Umman stratejik alternatif için kapasite artırıyor
+baslik: Piyasa tepkisi: Hürmüz'e karşı yeni petrol rotası: Umman stratejik alternatif için kapasite artırıyor
 ozet: Jeopolitik gelişme. VIX günlük içinde -%4,17 geriledi.
 sirket: Hürmüz'e karşı yeni petrol rotası: Umman stratejik alternatif için kapasite artırıyor
 kod: OLAY

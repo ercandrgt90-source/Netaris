@@ -1,6 +1,6 @@
 ---
 slug: iran-hurmuz-bogazi-nda-abd-ve-israil-gemilerini-yasaklayan-tasariyi-inceliyor-fars-2026-08-07
-baslik: İran Hürmüz Boğazı’nda ABD ve İsrail gemilerini yasaklayan tasarıyı inceliyor - Fars
+baslik: Piyasa tepkisi: İran Hürmüz Boğazı’nda ABD ve İsrail gemilerini yasaklayan tasarıyı inceliyor - Fars
 ozet: Jeopolitik gelişme. Brent petrol günlük içinde -%8,30 geriledi.
 sirket: İran Hürmüz Boğazı’nda ABD ve İsrail gemilerini yasaklayan tasarıyı inceliyor - Fars
 kod: OLAY
