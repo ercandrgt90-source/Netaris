@@ -505,6 +505,63 @@ KATEGORI_FOTO = {
 }
 
 
+#: Sayfada karsiligi bulunamayan yorumlarin basliklari. `insa` sonunda
+#: ekrana yaziliyor -- sessizce dusurulen icerik, olculemeyen icerik
+#: demek.
+_dogrulanamayan: list[str] = []
+
+#: Yorumda gecen ve sayfada aranacak sayi kalibi. Binlik ayraci ve
+#: ondalik virgul dahil.
+_SAYI = re.compile(r"\d[\d.]*,\d+|\d{1,3}(?:\.\d{3})+|\d+")
+
+#: Bu uzunluktan kisa sayilar aranmiyor. Tek haneli sayilar ("3 ay",
+#: "2 katina") metnin dogal parcasi; onlari veri sanip yorumu dusurmek
+#: cozdugunden cok sorun uretir.
+_EN_KISA_SAYI = 2
+
+
+def _yorum_dogrulanabilir(metin: str, h: dict, d) -> bool:
+    """Yorumdaki her sayinin sayfada karsiligi var mi?
+
+    Karsilastirma sayfanin SABLONA GIDEN verisi uzerinden yapiliyor --
+    uretilmis HTML uzerinden degil. Sebep sira: sayfa bu noktada henuz
+    basilmadi, ve zaten sablonun bastigi seyler bunlar.
+
+    Turetilmis sayilara IZIN VERILIYOR: yorum "35 baz puan" diyebilir
+    ve o sayi hicbir yerde yazmaz, iki degerin farkidir. O yuzden olcut
+    "her sayi birebir sayfada olacak" degil; sayilarin COGU sayfada
+    varsa yorum dogrulanabilir sayiliyor. Tek bir uydurma sayi da bu
+    esigi asagi cekiyor cunku uydurma sayilar tek basina gelmiyor --
+    olculdu, dusen yorumlarda ortalama iki-uc kacak sayi vardi.
+    """
+    kaynak = [h.get("baslik", ""), h.get("ozet", "") or "",
+              h.get("baslik_kaynak", "") or ""]
+    if d is not None:
+        kaynak.append(getattr(d, "acilis", "") or "")
+        kaynak += list(getattr(d, "bulgular", ()) or ())
+        for alan in ("turkiye", "dunya"):
+            for g in (getattr(d, alan, ()) or ()):
+                kaynak += [str(getattr(g, "son", "")),
+                           str(getattr(g, "onceki", "")),
+                           getattr(g, "degisim", "") or ""]
+    havuz = " ".join(kaynak)
+    havuz_sayilari = set(_SAYI.findall(havuz))
+    # Sayfadaki sayilar nokta/virgul bicimiyle de, ham float olarak da
+    # gecebiliyor ("47.6085" ve "47,61"). Ilk iki basamak esitse ayni
+    # sayi kabul ediliyor.
+    kisa = {s.replace(".", "").replace(",", "")[:4] for s in havuz_sayilari}
+
+    yorum_sayilari = [s for s in _SAYI.findall(metin)
+                      if len(s) >= _EN_KISA_SAYI]
+    if not yorum_sayilari:
+        return True
+    bulunan = sum(
+        1 for s in yorum_sayilari
+        if s in havuz_sayilari
+        or s.replace(".", "").replace(",", "")[:4] in kisa)
+    return bulunan * 2 >= len(yorum_sayilari)
+
+
 def kucuk_foto(yol: str) -> str:
     """Buyuk gorselin 96 piksellik esini dondurur; yoksa BOS.
 
@@ -2798,6 +2855,27 @@ def insa() -> int:
                 if _dosya else None)
             h_brifing = gosterge_brifingi(h, h_varliklar, takvim_ondbellek)
 
+            # OKURUN DOGRULAYAMADIGI SAYI BASILMAZ.
+            #
+            # Yorumlar DONMUS, dosyalar CANLI. Yorum yazildiginda
+            # sayfada duran bir bulgu, sonraki insada dosyadan cikmis
+            # olabilir -- dosya her seferinde yeniden hesaplaniyor
+            # (dogru davranis). Sonuc: yorum sayfada HICBIR YERDE
+            # olmayan bir sayiyi aniyor ve okur onu kontrol edemiyor.
+            #
+            # Olculdu: 69 sayfanin 12'sinde boyle bir sayi vardi --
+            # "issizlik orani %7,4", "onceki %32,11", "cari acik
+            # 1.459 mn $". Hicbiri o sayfada basilmiyordu.
+            #
+            # Prompt'un 7. maddesi tam olarak bunu istiyor: bir veri
+            # birden fazla yerde kullaniliyorsa hepsinde AYNI olmali.
+            # Buradaki kural daha da temel: sayfada olmayan bir veri
+            # yorumda da olmamali.
+            if h.get("ai_yorum") and not _yorum_dogrulanabilir(
+                    h["ai_yorum"], h, h_dosya):
+                h["ai_yorum"] = h["ai_yorum_kart"] = ""
+                _dogrulanamayan.append(h.get("baslik", "")[:60])
+
             # Seyir ONCE kuruluyor: "Bunu da okuyun" bolumu cizelgede
             # zaten gecen basliklari tekrar etmesin.
             h_seyir = dosya_cizelgesi(
@@ -2840,7 +2918,15 @@ def insa() -> int:
                                   gundem.get("guncelleme", "")),
                     # Senaryo bolumu yalnizca kritik haberlerde
                     senaryo_acik=senaryoya_acik(h),
-                    ai_yorum=ai_yorumlari.get(h["adres"], ""),
+                    # HABERIN KENDI ALANINDAN, sozlukten DEGIL.
+                    #
+                    # Burasi `ai_yorumlari.get(...)` idi, yani depodan
+                    # dogrudan okuyordu. Sonuc: `h["ai_yorum"]` uzerinde
+                    # yapilan her duzeltme sayfaya HIC yansimiyordu --
+                    # dogrulanamayan yorumlari dusuren kontrol calisti,
+                    # "10 yorum basilmadi" diye yazdi ve sayfalarda
+                    # hicbir sey degismedi. Sessiz etkisizlik.
+                    ai_yorum=h.get("ai_yorum", ""),
                     etki=etki_alanlari(h, h_varliklar),
                     # Haberin KENDI yapisal baglari -- konu tablosundan
                     # degil, metinden cikan varliklardan.
@@ -2973,6 +3059,11 @@ def insa() -> int:
 
     bolum_sayisi = len(hakkimizda.gezinme) if hakkimizda else 0
     print(f"{len(analizler)} analiz, hakkimizda {bolum_sayisi} bolum")
+    if _dogrulanamayan:
+        print(f"ai: {len(_dogrulanamayan)} yorum sayfada karsiligi olmayan "
+              f"sayi tasidigi icin BASILMADI")
+        for x in _dogrulanamayan[:3]:
+            print(f"    {x}")
     print(f"{len(yollar)} adres, cikti: {CIKTI.relative_to(KOK.parent)}")
 
     if "ALAN-ADI-BELIRLENMEDI" in SITE["adres"]:

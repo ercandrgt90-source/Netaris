@@ -45,6 +45,7 @@ from __future__ import annotations
 
 import argparse
 import pathlib
+import re
 import sys
 from dataclasses import dataclass
 
@@ -365,6 +366,55 @@ FOTO_TEKRAR_ESIGI = 4
 BASLIK_TEKRAR_ESIGI = 1
 
 
+#: Yorumdaki sayilarin en az bu orani sayfada da gecmeli.
+#:
+#: Birebir "hepsi" istenmiyor: yorum iki degerin FARKINI yazabilir
+#: ("35 baz puan") ve o sayi hicbir yerde durmaz. Ama uydurma sayilar
+#: tek basina gelmiyor -- olculdu, dusen yorumlarda ortalama iki-uc
+#: kacak sayi vardi.
+YORUM_SAYI_ORANI = 0.5
+
+_SAYI_KALIBI = re.compile(r"\d[\d.]*,\d+|\d{1,3}(?:\.\d{3})+|\d{2,}")
+
+
+def _veri_tutarlilik_denetimi() -> list[Bulgu]:
+    """Yorumdaki sayilarin sayfada karsiligi var mi?
+
+    PROMPT MADDE 7. Bir veri birden fazla yerde kullaniliyorsa hepsinde
+    ayni olmali; buradaki kural daha temel: sayfada OLMAYAN bir veri
+    yorumda da olmamali, cunku okur onu kontrol edemez.
+    """
+    import html as _html
+
+    bulgu: list[Bulgu] = []
+    dizin = CIKTI_DIZINI / "haber"
+    if not dizin.exists():
+        return bulgu
+    for p in dizin.iterdir():
+        s = p / "index.html"
+        if not s.exists():
+            continue
+        metin = s.read_text(encoding="utf-8")
+        m = re.search(r'<p class="ai-metin">(.*?)</p>', metin, re.S)
+        if not m:
+            continue
+        yorum = _html.unescape(re.sub(r"<[^>]+>", " ", m.group(1)))
+        sayfa = _html.unescape(
+            re.sub(r"<[^>]+>", " ", metin.replace(m.group(0), "")))
+        sayfa_sayilari = set(_SAYI_KALIBI.findall(sayfa))
+        yorum_sayilari = _SAYI_KALIBI.findall(yorum)
+        if not yorum_sayilari:
+            continue
+        bulunan = sum(1 for x in yorum_sayilari if x in sayfa_sayilari)
+        if bulunan < len(yorum_sayilari) * YORUM_SAYI_ORANI:
+            kacak = sorted(set(yorum_sayilari) - sayfa_sayilari)[:3]
+            bulgu.append(Bulgu(
+                "uyari", "veri", p.name[:44],
+                f"yorumdaki {', '.join(kacak)} sayfada gecmiyor -- "
+                f"okur dogrulayamaz"))
+    return bulgu
+
+
 def _gorsel_denetimi() -> list[Bulgu]:
     """Yayimlanan sayfalardaki gorsel kullanimini denetler."""
     import collections
@@ -498,6 +548,7 @@ def editoryal_denetim() -> list[Bulgu]:
     #      `foto_dagit`in bozuldugunu gosterir; olculdu, bozuk halinde
     #      dagilim 9/4/3/3 iken duzgun halinde 22/22/21/21.
     bulgu += _gorsel_denetimi()
+    bulgu += _veri_tutarlilik_denetimi()
 
     # --- yayimlanmis gurultu ---
     #
