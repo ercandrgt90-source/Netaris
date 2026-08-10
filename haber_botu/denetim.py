@@ -571,15 +571,22 @@ def _gorsel_denetimi() -> list[Bulgu]:
         etkin = [n for n in kullanilan if n]
         if len(etkin) < 2:
             continue
-        # TOLERANS 2. Atama sayaci, sayfasi sonradan uretilmeyen birkac
-        # adayi da sayiyor; bu yuzden mukemmel dagilimda bile bir-iki
-        # birim sapma normal. Olculdu: 36 haber / 4 gorsel dagitimi
-        # 9-10-8-9 cikti, kusursuzu 9-9-9-9. Esigi 1'de tutmak bu dogru
-        # dagitimi hata diye isaretliyordu.
+        # OLCUT HAVUZA GORE OLCEKLENIYOR, SABIT TOLERANS DEGIL.
         #
-        # Yakalamasi gereken sey bu degil: bozuk dagitimda ayni olcum
-        # 9-4-3-3 idi, yani fark 6.
-        if max(etkin) - min(kullanilan) > 2:
+        # Once "en cok ile en az arasi 2'den fazlaysa" deniyordu ve bu
+        # havuz buyudukce yanlis alarm uretti: 12 gorselli Borsa
+        # havuzunda 32 kullanimin dagilimi 4-4-3-3-3-3-3-2-2-2-2-1
+        # cikti. Kusursuzu 3'er; 1 ile 4 arasindaki fark dengesizlik
+        # degil, tamsayiya bolunmenin ARTIGI.
+        #
+        # Dogru olcut BEKLENEN PAY: toplam kullanim / havuz boyu. Bir
+        # gorsel bu payin bir uzerini de asiyorsa yigilma vardir.
+        # Gercekten bozuk dagitimda olcum 19 haber / 4 gorsel icin
+        # 9-4-3-3 idi: beklenen pay 5, en cok 9 -- bu kural onu
+        # yakalar, dogru dagilimi ise rahat birakir.
+        import math as _m
+        beklenen = _m.ceil(sum(kullanilan) / len(yollar)) if yollar else 0
+        if max(etkin) > beklenen + 1:
             bulgu.append(Bulgu(
                 "uyari", "gorsel", havuz,
                 f"havuz dengesiz: en cok {max(etkin)}, en az "
