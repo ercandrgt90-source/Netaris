@@ -3163,29 +3163,7 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none; }
   color: var(--yazi-3);
 }
 
-/* CANLI PIYASA sayfasi -- sitenin ucuncu taraf iceren tek sayfasi.
-   Widget kendi gorunumunu getiriyor; buradaki kurallar yalnizca onu
-   sayfanin izgarasina oturtuyor ve uyari kutusunu bicimlendiriyor. */
-.piyasa-blok { margin: 0 0 26px; }
-/* Widget'in KENDI sinifi. Iceriginin bicimini TradingView belirliyor;
-   burada yalnizca kabin genisligi sabitleniyor -- tanimsiz birakmak
-   denetimde "sayfalarda kullaniliyor ama CSS'te tanimsiz" uyarisi
-   uretiyordu ve o uyari haklıydı: sinif bizim sayfamizda duruyor. */
-.tradingview-widget-container__widget { width: 100%; }
-.tradingview-widget-container {
-  border: 1px solid var(--cizgi); border-radius: var(--r);
-  background: var(--panel); padding: 6px 8px; overflow: hidden;
-}
-.uyari-kutu {
-  margin: 0 0 22px; padding: 14px 16px;
-  border: 1px solid var(--uyari); border-left-width: 3px;
-  border-radius: var(--r-kucuk);
-  background: color-mix(in srgb, var(--uyari) 8%, transparent);
-  font-size: 0.88rem; line-height: 1.55; color: var(--yazi-2);
-}
-.uyari-kutu p { margin: 0 0 8px; }
-.uyari-kutu p:last-child { margin-bottom: 0; }
-.uyari-kutu b { color: var(--yazi); }
+
 
 /* CANLI SERIT -- TradingView widget kabini.
    Widget kendi yuksekligini getiriyor; burada yalnizca site seridiyle

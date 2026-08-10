@@ -56,14 +56,13 @@ Yukarıda açıklandığı üzere sitemiz doğrudan kişisel veri işlememektedi
 
 Bu politikada değişiklik yapılması durumunda güncel metin bu sayfada yayımlanır. Sitenin veri işleme uygulamalarını değiştiren bir ekleme yapılması hâlinde, değişiklik uygulamaya alınmadan önce bu sayfa güncellenir.
 
-## Fiyat şeridi ve canlı piyasa (üçüncü taraf içerik)
+## Fiyat şeridi (üçüncü taraf içerik)
 
-Sayfaların üstündeki **fiyat şeridi** ve `/piyasa/` adresindeki
-**Canlı piyasa** sayfası, fiyatları TradingView'den yükler. Şerit her
-sayfada bulunduğu için, siteyi ziyaret ettiğinizde tarayıcınız
-doğrudan TradingView sunucularına bağlanır; IP adresiniz, tarayıcı
-bilgileriniz ve hangi sayfada olduğunuz onlara görünür. Bu veriler
-bize ulaşmıyor ve bizim tarafımızda saklanmıyor.
+Sayfaların üstündeki **fiyat şeridi**, fiyatları TradingView'den
+yükler. Şerit her sayfada bulunduğu için, siteyi ziyaret ettiğinizde
+tarayıcınız doğrudan TradingView sunucularına bağlanır; IP adresiniz,
+tarayıcı bilgileriniz ve hangi sayfada olduğunuz onlara görünür. Bu
+veriler bize ulaşmıyor ve bizim tarafımızda saklanmıyor.
 
 Bu tercihin sebebi şudur: ham petrol ve endekslerde günlük fiyat
 yalnızca vadeli piyasadan gelir ve ücretsiz, anahtarsız bir kaynağı
