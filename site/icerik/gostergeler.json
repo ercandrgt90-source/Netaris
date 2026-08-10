@@ -1,5 +1,5 @@
 {
-  "guncelleme": "2026-08-07",
+  "guncelleme": "2026-08-10",
   "kaynak": "FRED (St. Louis Fed)",
   "kalemler": [
     {
@@ -60,12 +60,12 @@
     {
       "kod": "DJIA",
       "ad": "DOW",
-      "deger": "54.037",
-      "fark": "+0,28%",
-      "yon": "artis",
-      "tarih": "2026-08-07",
+      "deger": "53.976",
+      "fark": "-0,11%",
+      "yon": "azalis",
+      "tarih": "2026-08-10",
       "birim": "endeks",
-      "gun": 1,
+      "gun": 0,
       "bayat": false
     },
     {
@@ -128,12 +128,12 @@
     {
       "kod": "T10Y2Y",
       "ad": "10Y-2Y",
-      "deger": "0,46",
-      "fark": "+2 bp",
+      "deger": "0,47",
+      "fark": "+1 bp",
       "yon": "artis",
-      "tarih": "2026-08-07",
+      "tarih": "2026-08-10",
       "birim": "puan",
-      "gun": 1,
+      "gun": 0,
       "bayat": false
     },
     {
@@ -188,12 +188,12 @@
         {
           "kod": "DJIA",
           "ad": "Dow Jones",
-          "deger": "54.037",
-          "fark": "+0,28%",
-          "yon": "artis",
-          "tarih": "2026-08-07",
+          "deger": "53.976",
+          "fark": "-0,11%",
+          "yon": "azalis",
+          "tarih": "2026-08-10",
           "birim": "endeks",
-          "gun": 1,
+          "gun": 0,
           "bayat": false
         }
       ]
@@ -266,12 +266,12 @@
         {
           "kod": "T10Y2Y",
           "ad": "10Y − 2Y farkı",
-          "deger": "0,46",
-          "fark": "+2 bp",
+          "deger": "0,47",
+          "fark": "+1 bp",
           "yon": "artis",
-          "tarih": "2026-08-07",
+          "tarih": "2026-08-10",
           "birim": "puan",
-          "gun": 1,
+          "gun": 0,
           "bayat": false
         }
       ]
