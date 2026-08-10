@@ -2405,9 +2405,25 @@ def ai_akisi(haberler: list[dict], en_cok: int = AI_AKIS_SAYISI) -> list[dict]:
     bos bir "Netaris ne diyor" basligi, soyleyecek sozu olmadigini
     ilan etmenin en gurultulu yolu olurdu.
     """
+    # SIRA ONEME GORE, ZAMANA GORE DEGIL.
+    #
+    # Bolum zamana gore siralaniyordu, yani bir haberin buraya girmesi
+    # icin tek sart YORUMUNUN OLMASIYDI. Olculdu: alti kartin UCU en
+    # yuksek puanli haberler arasinda degildi; puani 54 ve 48 olan iki
+    # haber ise (yorumlari olmadigi icin) bolumde yoktu. Ustelik bu
+    # bolum "Bugunun onemli gelismeleri"nin USTUNDE duruyor.
+    #
+    # Promptun 14. maddesi tam bunu yasakliyor: "yalnizca AI yorumu
+    # uretildigi icin her haber mansete tasinmamalidir". Yorum bir
+    # GIRIS SARTI (soyleyecek sozumuz var mi), siralama olcutu degil.
+    #
+    # Zaman ikincil olcut olarak kaldi: esit puanli iki haberde yeni
+    # olan once gelsin.
     olan = [h for h in haberler
             if h.get("ai_yorum_kart") and h.get("yol")]
-    olan.sort(key=lambda h: h.get("an") or h.get("tarih") or "", reverse=True)
+    olan.sort(key=lambda h: (h.get("onem") or 0,
+                             h.get("an") or h.get("tarih") or ""),
+              reverse=True)
 
     # AYNI SEYI SOYLEYEN IKINCI YORUM ALINMIYOR.
     #

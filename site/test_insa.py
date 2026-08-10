@@ -91,6 +91,50 @@ dogru("sayisiz yorum gecer",
       insa._yorum_dogrulanabilir("Mekanizma enerji maliyeti üzerinden işler",
                                  h, None))
 
+# ------------------------------------------------------------------
+# "NETARIS NE DIYOR" SIRASI -- promptun 14. maddesi:
+# "yalnizca AI yorumu uretildigi icin her haber mansete tasinmamalidir".
+#
+# Bolum ZAMANA gore siraliydi, yani buraya girmenin tek sarti yorumun
+# olmasiydi. Olculdu: alti kartin ucu en yuksek puanli haberler
+# arasinda degildi; puani daha yuksek iki haber ise yorumu olmadigi
+# icin bolumde yoktu. Ustelik bolum "Bugunun onemli gelismeleri"nin
+# USTUNDE duruyor.
+# ------------------------------------------------------------------
+print("\nAI akisi oneme gore siralaniyor")
+# Yorumlar BIRBIRINDEN FARKLI olmali: bolum ayni seyi soyleyen ikinci
+# yorumu almiyor (alti kartin ucu ayni Brent cumlesini kuruyordu).
+# Ilk yazimda ucune de "yorum" yazdim ve ikisi tekrar sayilip elendi.
+_h = [
+    {"baslik": "dusuk puan, YENI", "yol": "/a/", "onem": 10,
+     "ai_yorum_kart": "Enerji maliyeti kanalindan sanayi karliligi",
+     "an": "2026-08-10T12:00"},
+    {"baslik": "yuksek puan, ESKI", "yol": "/b/", "onem": 90,
+     "ai_yorum_kart": "Faiz patikasi tahvil getirilerini yeniden fiyatlar",
+     "an": "2026-08-01T12:00"},
+    {"baslik": "orta puan", "yol": "/c/", "onem": 50,
+     "ai_yorum_kart": "Kur gecisi gida enflasyonunda gecikmeli gorunur",
+     "an": "2026-08-05T12:00"},
+]
+_s = [x["baslik"] for x in insa.ai_akisi(_h, en_cok=3)]
+es("once yuksek puan", _s, ["yuksek puan, ESKI", "orta puan", "dusuk puan, YENI"])
+
+# Yorum GIRIS SARTI olmaya devam ediyor: soyleyecek sozumuz yoksa
+# haber ne kadar onemli olursa olsun bu bolume girmiyor.
+es("yorumsuz haber girmez",
+   insa.ai_akisi([{"baslik": "yorumsuz", "yol": "/d/", "onem": 99}]), [])
+es("sayfasiz haber girmez",
+   insa.ai_akisi([{"baslik": "sayfasiz", "onem": 99,
+                   "ai_yorum_kart": "Sayfasi olmayan haber"}]), [])
+
+# Esit puanda YENI olan once gelir.
+_e = [{"baslik": "eski", "yol": "/1/", "onem": 50, "an": "2026-08-01",
+       "ai_yorum_kart": "Tahvil getirisi ve kur birlikte fiyatlaniyor"},
+      {"baslik": "yeni", "yol": "/2/", "onem": 50, "an": "2026-08-09",
+       "ai_yorum_kart": "Rezerv hareketi banka bilancolarina yansiyor"}]
+es("esitlikte yeni once", [x["baslik"] for x in insa.ai_akisi(_e, en_cok=2)],
+   ["yeni", "eski"])
+
 print()
 for k in kaldi:
     print("  KALDI", k)
