@@ -19,17 +19,126 @@
     "TRT Haber"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 29,
+  "yorumlanan": 28,
   "haberler": [
     {
-      "baslik": "Suriye ve Rusya, muhtıra kapsamında Suriye kıyılarındaki Rus varlığını yeniden yapılandırmaya başlayacak: Suriye Dışişleri Bakanlığı'ndan SANA'YA",
-      "baslik_kaynak": "Syria, Russia to start restructuring Russian presence on Syrian coast under memorandum: Syrian foreign ministry to SANA",
+      "baslik": "kayIQ.ai, 500 bin dolar tohum yatırımla hayata geçti",
+      "baslik_kaynak": "kayIQ.ai, 500 bin dolar tohum yatırımla hayata geçti",
+      "ozet": "Dijital ürün geliştirme dün­yası artık sadece “hatala­rı 'tespit eden' değil”, “kendi kendini iyileştiren” kalite sis­temlerine doğru evriliyor. Di­jital ürün kalite süreçlerini ya­pay zekâ ile otonom hale geti­ren kayIQ.ai platformu, tohum aşamasında kurucuları ve Ma­gis Teknoloji tarafından sağla­nan 500 bin dolarlık",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.dunya.com/sirketler/kayiqai-500-bin-dolar-tohum-yatirimla-hayata-gecti-haberi-835552",
+      "kurum": "Dünya",
+      "kurum_tam": "Dünya Gazetesi",
+      "konu": "Tarım ve gıda",
+      "tarih": "2026-08-10",
+      "tarih_gorunur": "10 Ağustos 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/tarim-ve-gida-6.jpg",
+      "foto_atif": "W.carter · CC0"
+    },
+    {
+      "baslik": "Moskova'nın gözü yeniden Türk turistte",
+      "baslik_kaynak": "Moskova'nın gözü yeniden Türk turistte",
+      "ozet": "Gözünü yeniden Türk pazarına diken Moskova, pandemi öncesi 81 binlik ziyaretçi rekorunu aşmak için harekete geçti. Elektronik vize ve yeni ödeme platformlarıyla seyahat pratikliği sağlayan Moskova Şehir Turizm Komitesi Direktörü Magomed Mezhiev, Türk turistleri başkente davet etti.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.dunya.com/ekonomi/moskovanin-gozu-yeniden-turk-turistte-haberi-835554",
+      "kurum": "Dünya",
+      "kurum_tam": "Dünya Gazetesi",
+      "konu": "Turizm",
+      "tarih": "2026-08-10",
+      "tarih_gorunur": "10 Ağustos 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/turizm-6.jpg",
+      "foto_atif": "Basile Morin · CC-BY-SA-4.0"
+    },
+    {
+      "baslik": "Kayseri’deki yeni yem fabrikası alternatifi artıracak",
+      "baslik_kaynak": "Kayseri’deki yeni yem fabrikası alternatifi artıracak",
+      "ozet": "Kayseri Ticaret Borsası, Kocasinan Elagöz Mahallesi’nde günlük 250 ton kapasiteli modern yem fabrikası kuracak. Yaklaşık 75 milyon TL yatırımla hayata geçirilmesi planlanan tesisin 2027’nin üçüncü çeyreğinde üretime geçmesi hedefleniyor. Fabrika ilk aşamada 30 kişiye iş verecek.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.dunya.com/ekonomi/kayserideki-yeni-yem-fabrikasi-alternatifi-artiracak-haberi-835559",
+      "kurum": "Dünya",
+      "kurum_tam": "Dünya Gazetesi",
+      "konu": "Tarım ve gıda",
+      "tarih": "2026-08-10",
+      "tarih_gorunur": "10 Ağustos 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/tarim-ve-gida-11-1e9f334f.jpg",
+      "foto_atif": "James Emmans · CC-BY-SA-2.0"
+    },
+    {
+      "baslik": "Yüzde 25 vergide bıçak sırtı",
+      "baslik_kaynak": "Yüzde 25 vergide bıçak sırtı",
+      "ozet": "Elektrikli araç fiyatlarını artık yalnızca kur ve maliyet belirlemiyor. ÖTV matrahının birkaç bin liralık hareketi de belirliyor. 160 kW ve altındaki elektrikli otomobillerde yüzde 25 ÖTV için uygulanan 1 milyon 650 bin TL’lik matrah sınırına dayanan 12 model adeta bıçak sırtında ilerliyor. 1 liralık zam bile en az 594",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.dunya.com/sektorler/otomotiv/yuzde-25-vergide-bicak-sirti-haberi-835561",
+      "kurum": "Dünya",
+      "kurum_tam": "Dünya Gazetesi",
+      "konu": "Vergi ve kamu maliyesi",
+      "tarih": "2026-08-10",
+      "tarih_gorunur": "10 Ağustos 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Vergi düzenlemeleri ve bütçe dengesi hem şirket kârlılığını hem devletin borçlanma ihtiyacını belirler.",
+      "kanallar": [
+        "Şirket kârlılığı: vergi oranı ve istisna değişiklikleri net kâra doğrudan yansır.",
+        "Borçlanma ihtiyacı: bütçe açığı iç borçlanmayı artırır; bu da tahvil getirilerini ve banka bilançolarını etkiler.",
+        "Tüketici fiyatı: dolaylı vergiler (ÖTV, KDV) nihai fiyata doğrudan geçer."
+      ],
+      "kanal_basligi": "Piyasaya nasıl yansır?",
+      "foto": "/statik/foto/vergi-ve-kamu-maliyesi-7.jpg",
+      "foto_atif": "Dwight Sipler from Stow, MA, USA · CC-BY-2.0"
+    },
+    {
+      "baslik": "Önümüzdeki Hafta: ABD TÜFE Odakta, İran ve Umman Anlaşmaya Yakın - FJElite",
+      "baslik_kaynak": "Week Ahead: US CPI in Focus, Iran & Oman Close to Deal - FJElite",
       "ozet": "",
       "cevrildi": true,
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713729/Syria-Russia-to-start-restructuring-Russian-presence-on-Syrian-coast-under-memorandum-Syrian-foreign-ministry-to-SANA.aspx",
+      "adres": "https://www.financialjuice.com/News/9713837/Week-Ahead-US-CPI-in-Focus-Iran--Oman-Close-to-Deal---FJElite.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Enflasyon",
+      "tarih": "2026-08-09",
+      "tarih_gorunur": "9 Ağustos 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/enflasyon-8.jpg",
+      "foto_atif": "Pittigrilli · CC0"
+    },
+    {
+      "baslik": "İran Besiç Örgütü Milletvekili: Mojtaba Hamaney'in kamuoyu önünde ve komutanlarla yapılan görüşmelerde çekilen görüntüleri gelecekte yayınlanacak",
+      "baslik_kaynak": "Iran's Basij Organisation's Deputy: Footage of Mojtaba Khamenei out in public and in meetings with commanders will be released in future - Mizan",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9713823/Irans-Basij-Organisations-Deputy-Footage-of-Mojtaba-Khamenei-out-in-public-and-in-meetings-with-commanders-will-be-released-in-future---Mizan.aspx?xy=rss",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -39,8 +148,55 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-7.jpg",
-      "foto_atif": "Subhrajyoti07 · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-5.jpg",
+      "foto_atif": "DimiTalen · CC0"
+    },
+    {
+      "baslik": "Axios röportajı: Tahran'ın ekonomik acısını vurgulayan Trump, İran'la \"temkinli davranıyoruz\" dedi",
+      "baslik_kaynak": "Trump: \"we are low-keying it\" with Iran, highlights Tehran's economic pain - Axios interview",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9713800/Trump-we-are-low-keying-it-with-Iran-highlights-Tehrans-economic-pain---Axios-interview.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Jeopolitik",
+      "tarih": "2026-08-09",
+      "tarih_gorunur": "9 Ağustos 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Jeopolitik gelişmeler piyasaya doğrudan değil, arz riski ve risk iştahı üzerinden geçer. Türkiye için ana kanal enerji faturası ve risk primidir.",
+      "kanallar": [
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa petrol ve doğal gaz fiyatına risk primi eklenir. Türkiye net enerji ithalatçısı olduğu için bu, cari işlemler dengesine doğrudan yazılır.",
+        "Risk iştahı: belirsizlik arttığında gelişmekte olan ülke varlıklarından çıkış görülebilir; ülke risk primi ve borçlanma maliyeti yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat pazarlarının bileşimini değiştirir; etki sektörün o pazara bağımlılığı kadardır.",
+        "Güvenli liman talebi: altın ve dolar talebi değişebilir; yönü ve büyüklüğü olayın ne kadarının önceden fiyatlandığına bağlıdır."
+      ],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/jeopolitik-13.jpg",
+      "foto_atif": "Kippelboy · CC-BY-3.0"
+    },
+    {
+      "baslik": "Suriye ve Rusya, muhtıra kapsamında Suriye kıyılarındaki Rus varlığını yeniden yapılandırmaya başlayacak: Suriye Dışişleri Bakanlığı'ndan SANA'YA",
+      "baslik_kaynak": "Syria, Russia to start restructuring Russian presence on Syrian coast under memorandum: Syrian foreign ministry to SANA",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9713729/Syria-Russia-to-start-restructuring-Russian-presence-on-Syrian-coast-under-memorandum-Syrian-foreign-ministry-to-SANA.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Şirket haberleri",
+      "tarih": "2026-08-09",
+      "tarih_gorunur": "9 Ağustos 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/sirket-haberleri-12-e8df73ea.jpg",
+      "foto_atif": "Basile Morin · CC-BY-SA-4.0"
     },
     {
       "baslik": "Rusya üsleriyle ilgili anlaşma, 18 ay süren yoğun müzakerelerin ardından geldi: Suriye Dışişleri Bakanlığı'ndan SANA'YA",
@@ -50,7 +206,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713728/Agreement-on-Russian-bases-follows-18-months-of-intensive-talks-Syrian-foreign-ministry-to-SANA.aspx",
+      "adres": "https://www.financialjuice.com/News/9713728/Agreement-on-Russian-bases-follows-18-months-of-intensive-talks-Syrian-foreign-ministry-to-SANA.aspx?xy=rss",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -60,8 +216,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-3.jpg",
-      "foto_atif": "oatsy40 · BY 2.0"
+      "foto": "/statik/foto/sirket-haberleri-12-e8df73ea.jpg",
+      "foto_atif": "Basile Morin · CC-BY-SA-4.0"
     },
     {
       "baslik": "Suriye Dışişleri Bakanlığı: Şam ve Moskova, Tartus ve Hmeymim'deki Rus üslerinin geleceğini belirleme konusunda mutabakat zaptı imzaladı - Suriye devlet haber ajansı",
@@ -71,7 +227,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713727/Syrian-foreign-ministry-Damascus-Moscow-reach-memorandum-of-understanding-settling-future-of-Russian-bases-at-Tartous-and-Hmeimim---Syrian-state-news-agency.aspx",
+      "adres": "https://www.financialjuice.com/News/9713727/Syrian-foreign-ministry-Damascus-Moscow-reach-memorandum-of-understanding-settling-future-of-Russian-bases-at-Tartous-and-Hmeimim---Syrian-state-news-agency.aspx?xy=rss",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -81,8 +237,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-1.jpg",
-      "foto_atif": "justindula · BY-SA 2.0"
+      "foto": "/statik/foto/sirket-haberleri-5.jpg",
+      "foto_atif": "DimiTalen · CC0"
     },
     {
       "baslik": "Yemen askeri sözcüsü: Mocha limanına düzenlenen saldırıda 7 kişi öldü",
@@ -92,7 +248,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713726/Yemeni-military-spokesperson-seven-killed-in-strike-on-Mocha-port.aspx",
+      "adres": "https://www.financialjuice.com/News/9713726/Yemeni-military-spokesperson-seven-killed-in-strike-on-Mocha-port.aspx?xy=rss",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Jeopolitik",
@@ -107,8 +263,8 @@
         "Güvenli liman talebi: altın ve dolar talebi değişebilir; yönü ve büyüklüğü olayın ne kadarının önceden fiyatlandığına bağlıdır."
       ],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/jeopolitik-9.jpg",
-      "foto_atif": "U.S. Department of State from United States · PDM"
+      "foto": "/statik/foto/jeopolitik-16.png",
+      "foto_atif": "CrashRandom · CC-BY-4.0"
     },
     {
       "baslik": "Üst düzey Hamas yetkilisi Basem Naim: 10 gün önce Kahire'de arabulucular ve barış konseyi temsilcileriyle kararlaştırılan yol haritasına bağlı kalıyoruz",
@@ -118,7 +274,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713724/Senior-Hamas-official-Basem-Naim-We-stay-committed-to-roadmap-agreed-with-mediators-and-peace-council-reps-in-Cairo-10-days-ago.aspx",
+      "adres": "https://www.financialjuice.com/News/9713724/Senior-Hamas-official-Basem-Naim-We-stay-committed-to-roadmap-agreed-with-mediators-and-peace-council-reps-in-Cairo-10-days-ago.aspx?xy=rss",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -128,8 +284,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-1.jpg",
-      "foto_atif": "justindula · BY-SA 2.0"
+      "foto": "/statik/foto/sirket-haberleri-8.jpg",
+      "foto_atif": "Myotus · CC-BY-SA-4.0"
     },
     {
       "baslik": "Üst düzey Hamas yetkilisi Basem Naim: Grup, arabulucuların ve ABD'nin Netanyahu ve hükümetine yol haritasını takip etmeleri için baskı yapmasını bekliyor",
@@ -139,7 +295,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713723/Senior-Hamas-official-Basem-Naim-Group-expects-mediators-and-US-to-pressure-Netanyahu-and-his-government-to-follow-roadmap.aspx",
+      "adres": "https://www.financialjuice.com/News/9713723/Senior-Hamas-official-Basem-Naim-Group-expects-mediators-and-US-to-pressure-Netanyahu-and-his-government-to-follow-roadmap.aspx?xy=rss",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -149,8 +305,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-1.jpg",
-      "foto_atif": "justindula · BY-SA 2.0"
+      "foto": "/statik/foto/sirket-haberleri-10-91cb7af0.jpg",
+      "foto_atif": "Myotus · CC-BY-SA-4.0"
     },
     {
       "baslik": "İran cumhurbaşkanı kısa süre önce ekonomik ve askeri konuları görüşmek üzere dini lider Hamaney'le bir araya geldi: devlet medyası",
@@ -160,7 +316,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713712/Irans-president-recently-met-with-Supreme-Leader-Khamenei-to-discuss-economic-and-military-matters-state-media.aspx",
+      "adres": "https://www.financialjuice.com/News/9713712/Irans-president-recently-met-with-Supreme-Leader-Khamenei-to-discuss-economic-and-military-matters-state-media.aspx?xy=rss",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Jeopolitik",
@@ -175,8 +331,8 @@
         "Güvenli liman talebi: altın ve dolar talebi değişebilir; yönü ve büyüklüğü olayın ne kadarının önceden fiyatlandığına bağlıdır."
       ],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/jeopolitik-9.jpg",
-      "foto_atif": "U.S. Department of State from United States · PDM"
+      "foto": "/statik/foto/jeopolitik-13.jpg",
+      "foto_atif": "Kippelboy · CC-BY-3.0"
     },
     {
       "baslik": "Apple, iPhone'lar ve MacBook'lar da dahil olmak üzere tüm ürün serilerinde Çin'in CXMT bellek çiplerini test ediyor: WSJ",
@@ -186,7 +342,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713700/Apple-tests-memory-chips-from-Chinas-CXMT-across-product-lines-including-iPhones-and-MacBooks-WSJ.aspx",
+      "adres": "https://www.financialjuice.com/News/9713700/Apple-tests-memory-chips-from-Chinas-CXMT-across-product-lines-including-iPhones-and-MacBooks-WSJ.aspx?xy=rss",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -196,8 +352,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-6.jpg",
-      "foto_atif": "Declan M Martin · PDM"
+      "foto": "/statik/foto/sirket-haberleri-11-68a4355e.jpg",
+      "foto_atif": "Myotus · CC-BY-SA-4.0"
     },
     {
       "baslik": "İsrail Başbakanı Netanyahu: ABD'nin 15 maddelik Gazze teklifinin bazı yönleri kabul edilebilir, bazıları kabul edilemez",
@@ -207,7 +363,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713699/Israels-PM-Netanyahu-some-aspects-of-US-15-point-Gaza-proposal-are-acceptable-others-not.aspx",
+      "adres": "https://www.financialjuice.com/News/9713699/Israels-PM-Netanyahu-some-aspects-of-US-15-point-Gaza-proposal-are-acceptable-others-not.aspx?xy=rss",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -228,7 +384,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713694/Israels-PM-Netanyahu-no-Palestinian-state-in-Gaza-or-West-Bank-while-I-am-prime-minister.aspx",
+      "adres": "https://www.financialjuice.com/News/9713694/Israels-PM-Netanyahu-no-Palestinian-state-in-Gaza-or-West-Bank-while-I-am-prime-minister.aspx?xy=rss",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -238,8 +394,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-2.jpg",
-      "foto_atif": "ricardodiaz11 · BY 2.0"
+      "foto": "/statik/foto/sirket-haberleri-9-dc4edf22.jpg",
+      "foto_atif": "Myotus · CC-BY-SA-4.0"
     },
     {
       "baslik": "İsrail Başbakanı Netanyahu: Hamas tamamen silahsızlanana kadar İsrail Gazze'den çekilmeyecek",
@@ -249,7 +405,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713693/Israels-PM-Netanyahu-israel-will-not-pull-back-from-Gaza-until-Hamas-completely-disarmed.aspx",
+      "adres": "https://www.financialjuice.com/News/9713693/Israels-PM-Netanyahu-israel-will-not-pull-back-from-Gaza-until-Hamas-completely-disarmed.aspx?xy=rss",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -259,8 +415,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-3.jpg",
-      "foto_atif": "oatsy40 · BY 2.0"
+      "foto": "/statik/foto/sirket-haberleri-11-68a4355e.jpg",
+      "foto_atif": "Myotus · CC-BY-SA-4.0"
     },
     {
       "baslik": "Kaynak/ipsos anketi: Demokratların %71'i, Cumhuriyetçilerin %62' si ABD'nin sosyal medya uygulamalarına ilişkin daha sert düzenlemelerini destekliyor",
@@ -270,7 +426,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713682/71-of-Democrats-62-of-Republicans-back-tougher-US-regulation-of-social-media-apps-sourceipsos-poll.aspx",
+      "adres": "https://www.financialjuice.com/News/9713682/71-of-Democrats-62-of-Republicans-back-tougher-US-regulation-of-social-media-apps-sourceipsos-poll.aspx?xy=rss",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -280,8 +436,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-7.jpg",
-      "foto_atif": "Subhrajyoti07 · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-10-91cb7af0.jpg",
+      "foto_atif": "Myotus · CC-BY-SA-4.0"
     },
     {
       "baslik": "İran Dışişleri Bakanı Araqchi: ABD geçici anlaşmayı ihlal ettiği sürece müzakereler gerçekleşmeyecek",
@@ -291,7 +447,49 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713661/Irans-foreign-minister-Araqchi-negotiations-wont-happen-as-long-as-US-breaches-interim-deal-continue---Mehr.aspx",
+      "adres": "https://www.financialjuice.com/News/9713661/Irans-foreign-minister-Araqchi-negotiations-wont-happen-as-long-as-US-breaches-interim-deal-continue---Mehr.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Şirket haberleri",
+      "tarih": "2026-08-09",
+      "tarih_gorunur": "9 Ağustos 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/sirket-haberleri-5.jpg",
+      "foto_atif": "DimiTalen · CC0"
+    },
+    {
+      "baslik": "İran Dışişleri Bakanı Araqchi: ABD ile görüşme yok, sadece aracılar aracılığıyla mesaj alışverişi var",
+      "baslik_kaynak": "Iran’s foreign minister Araqchi: no talks with U.S., only message exchanges through intermediaries - Mehr News",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9713660/Irans-foreign-minister-Araqchi-no-talks-with-US-only-message-exchanges-through-intermediaries---Mehr-News.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Şirket haberleri",
+      "tarih": "2026-08-09",
+      "tarih_gorunur": "9 Ağustos 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/sirket-haberleri-8.jpg",
+      "foto_atif": "Myotus · CC-BY-SA-4.0"
+    },
+    {
+      "baslik": "DSÖ'nün Tedros'u: Geçen cuma Ukrayna'nın Dnipro kentindeki insani yardım deposu vuruldu ve imha edildi; zayiat bildirilmedi",
+      "baslik_kaynak": "Who's Tedros: Last Friday humanitarian warehouse in Dnipro, Ukraine, was hit and destroyed; no casualties reported",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9713649/Whos-Tedros-Last-Friday-humanitarian-warehouse-in-Dnipro-Ukraine-was-hit-and-destroyed-no-casualties-reported.aspx?xy=rss",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -305,48 +503,6 @@
       "foto_atif": "Subhrajyoti07 · CC-BY-SA-4.0"
     },
     {
-      "baslik": "İran Dışişleri Bakanı Araqchi: ABD ile görüşme yok, sadece aracılar aracılığıyla mesaj alışverişi var",
-      "baslik_kaynak": "Iran’s foreign minister Araqchi: no talks with U.S., only message exchanges through intermediaries - Mehr News",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713660/Irans-foreign-minister-Araqchi-no-talks-with-US-only-message-exchanges-through-intermediaries---Mehr-News.aspx",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Şirket haberleri",
-      "tarih": "2026-08-09",
-      "tarih_gorunur": "9 Ağustos 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-2.jpg",
-      "foto_atif": "ricardodiaz11 · BY 2.0"
-    },
-    {
-      "baslik": "DSÖ'nün Tedros'u: Geçen cuma Ukrayna'nın Dnipro kentindeki insani yardım deposu vuruldu ve imha edildi; zayiat bildirilmedi",
-      "baslik_kaynak": "Who's Tedros: Last Friday humanitarian warehouse in Dnipro, Ukraine, was hit and destroyed; no casualties reported",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713649/Whos-Tedros-Last-Friday-humanitarian-warehouse-in-Dnipro-Ukraine-was-hit-and-destroyed-no-casualties-reported.aspx",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Şirket haberleri",
-      "tarih": "2026-08-09",
-      "tarih_gorunur": "9 Ağustos 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-4.jpg",
-      "foto_atif": "Daveybot · BY 2.0"
-    },
-    {
       "baslik": "Ukrayna Devlet Başkanı Zelenskiy: Rus saldırısı Odesa limanına zarar verdi",
       "baslik_kaynak": "Ukraine’s President Zelenskiy: Odesa port damaged by Russian strike",
       "ozet": "",
@@ -354,7 +510,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713645/Ukraines-President-Zelenskiy-Odesa-port-damaged-by-Russian-strike.aspx",
+      "adres": "https://www.financialjuice.com/News/9713645/Ukraines-President-Zelenskiy-Odesa-port-damaged-by-Russian-strike.aspx?xy=rss",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -364,8 +520,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-3.jpg",
-      "foto_atif": "oatsy40 · BY 2.0"
+      "foto": "/statik/foto/sirket-haberleri-11-68a4355e.jpg",
+      "foto_atif": "Myotus · CC-BY-SA-4.0"
     },
     {
       "baslik": "Çin Temmuz ayı TÜFE'si aylık bazda %0,1 düşerken, anket %0,2'lik bir artış öngörüyor",
@@ -375,7 +531,28 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713536/China-July-CPI-declines-01-month-on-month-poll-had-forecast-02-increase.aspx",
+      "adres": "https://www.financialjuice.com/News/9713536/China-July-CPI-declines-01-month-on-month-poll-had-forecast-02-increase.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Enflasyon",
+      "tarih": "2026-08-09",
+      "tarih_gorunur": "9 Ağustos 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/enflasyon-11-83db9972.jpg",
+      "foto_atif": "Harrison Keely · CC-BY-4.0"
+    },
+    {
+      "baslik": "Çin, Temmuz ayında gıda TÜFE'sinin yıllık bazda %1,5 azaldığını bildirdi; gıda dışı TÜFE %0,9 arttı",
+      "baslik_kaynak": "China reports July food CPI down 1.5% year on year; non-food CPI rises 0.9%",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9713535/China-reports-July-food-CPI-down-15-year-on-year-non-food-CPI-rises-09.aspx?xy=rss",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Enflasyon",
@@ -386,28 +563,7 @@
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/enflasyon-8.jpg",
-      "foto_atif": "Pittigrilli · CC0"
-    },
-    {
-      "baslik": "Çin, Temmuz ayında gıda TÜFE'sinin yıllık bazda %1,5 azaldığını bildirdi; gıda dışı TÜFE %0,9 arttı",
-      "baslik_kaynak": "China reports July food CPI down 1.5% year on year; non-food CPI rises 0.9%",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713535/China-reports-July-food-CPI-down-15-year-on-year-non-food-CPI-rises-09.aspx",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Enflasyon",
-      "tarih": "2026-08-09",
-      "tarih_gorunur": "9 Ağustos 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enflasyon-5.jpg",
-      "foto_atif": "999real · CC0"
+      "foto_atif": "safaritravelplus · CC0"
     },
     {
       "baslik": "Türkiye, çikolata ihracatında kalite ve ham madde avantajıyla öne çıkıyor",
@@ -427,8 +583,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/dis-ticaret-4.jpg",
-      "foto_atif": "Martin Pettitt · BY 2.0"
+      "foto": "/statik/foto/dis-ticaret-8.png",
+      "foto_atif": "Sciencia58 · CC0"
     },
     {
       "baslik": "Havalimanlarındaki yatırımlar Antalya turizmine güç katacak",
@@ -448,7 +604,7 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/turizm-6.jpg",
+      "foto": "/statik/foto/turizm-10-22e3fe65.jpg",
       "foto_atif": "Basile Morin · CC-BY-SA-4.0"
     },
     {
@@ -473,8 +629,8 @@
         "Sektörel etki: ihracat ağırlıklı sektörler (otomotiv, tekstil, beyaz eşya) dış talepteki değişimi önce hisseder."
       ],
       "kanal_basligi": "Piyasaya nasıl yansır?",
-      "foto": "/statik/foto/dis-ticaret-2.jpg",
-      "foto_atif": "roger4336 · BY-SA 2.0"
+      "foto": "/statik/foto/dis-ticaret-6.jpg",
+      "foto_atif": "Wikideas1 · CC0"
     },
     {
       "baslik": "Emtia piyasalarında ABD'nin zayıf istihdam verisi ve jeopolitik rahatlamanın etkileri izlendi",
@@ -498,81 +654,44 @@
         "Bütçe kalemi: kamu personeli ve emekli ödemeleri bütçe harcamalarının büyük bir bölümünü oluşturur."
       ],
       "kanal_basligi": "Piyasaya nasıl yansır?",
-      "foto": "/statik/foto/istihdam-ve-ucret-5.jpg",
-      "foto_atif": "Hybernator · PDM"
+      "foto": "/statik/foto/istihdam-ve-ucret-9-47f787a2.jpg",
+      "foto_atif": "YeraC · CC-BY-SA-4.0"
     },
     {
-      "baslik": "Yaz tatilini fırsata çevirdi: Açtığı tezgahta asgari ücreti üçe katladı",
-      "baslik_kaynak": "Yaz tatilini fırsata çevirdi: Açtığı tezgahta asgari ücreti üçe katladı",
-      "ozet": "Sakarya’da yaz tatilini limonata satarak geçiren 14 yaşındaki Buğra Koç, günlük 3 bin liraya ulaşan kazancıyla ayda 90 bin liralık gelir elde etti. İlk kazancıyla kendisine telefon alan genç, şimdi parasını gelecekte açmayı planladığı limonata kafesi için biriktiriyor.",
+      "baslik": "İsrailli yerleşimciler Batı Şeria'da işgali derinleştiriyor",
+      "baslik_kaynak": "İsrailli yerleşimciler Batı Şeria'da işgali derinleştiriyor",
+      "ozet": "İsrail işgali altındaki Batı Şeria'da Filistin toprakları gasbedilerek kurulan Emek Dotan isimli yeni yasa dışı yerleşim yerine bir grup İsrailli yerleşimcinin bugün taşınmaya başladığı bildirildi.",
       "cevrildi": false,
       "dil": "tr",
       "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.dunya.com/gundem/yaz-tatilini-firsata-cevirdi-actigi-tezgahta-asgari-ucreti-uce-katladi-haberi-835536",
+      "bolge": "DUNYA",
+      "adres": "https://www.dunya.com/dunya/israilli-yerlesimciler-bati-seriada-isgali-derinlestiriyor-haberi-835569",
       "kurum": "Dünya",
       "kurum_tam": "Dünya Gazetesi",
-      "konu": "İstihdam ve ücret",
+      "konu": "Jeopolitik",
       "tarih": "2026-08-09",
       "tarih_gorunur": "9 Ağustos 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
+      "yorumlanir": true,
+      "neden_onemli": "Jeopolitik gelişmeler piyasaya doğrudan değil, arz riski ve risk iştahı üzerinden geçer. Türkiye için ana kanal enerji faturası ve risk primidir.",
+      "kanallar": [
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa petrol ve doğal gaz fiyatına risk primi eklenir. Türkiye net enerji ithalatçısı olduğu için bu, cari işlemler dengesine doğrudan yazılır.",
+        "Risk iştahı: belirsizlik arttığında gelişmekte olan ülke varlıklarından çıkış görülebilir; ülke risk primi ve borçlanma maliyeti yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat pazarlarının bileşimini değiştirir; etki sektörün o pazara bağımlılığı kadardır.",
+        "Güvenli liman talebi: altın ve dolar talebi değişebilir; yönü ve büyüklüğü olayın ne kadarının önceden fiyatlandığına bağlıdır."
+      ],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/istihdam-ve-ucret-6.jpg",
-      "foto_atif": "Unknown author Unknown author · PDM"
+      "foto": "/statik/foto/jeopolitik-12.jpg",
+      "foto_atif": "内閣広報室 / Cabinet Public Affairs Office · CC-BY-4.0"
     },
     {
-      "baslik": "Altının önündeki en büyük engel kalkıyor: Hesaplar sil baştan",
-      "baslik_kaynak": "Altının önündeki en büyük engel kalkıyor: Hesaplar sil baştan",
-      "ozet": "Altın, ocak ayındaki zirvesinden yüzde 25 gerilemesine rağmen 4 bin doların üzerinde tutunurken, analistlerden yatırımcıların dikkatini çeken yeni bir değerlendirme geldi. BCA Research ve Jefferies’e göre altını aylardır baskılayan en büyük engel gücünü kaybediyor. Üstelik yeni yükseliş için Fed’in faiz indirmesi de ge",
+      "baslik": "Merinos halka arza edilecek: Sasa'nın sermayesi desteklenip borç yükü rahatlatılacak",
+      "baslik_kaynak": "Merinos halka arza edilecek: Sasa'nın sermayesi desteklenip borç yükü rahatlatılacak",
+      "ozet": "Merinos Halı Yönetim Kurulu Başkan Vekili Mehmet Erdemoğlu, halka arz hazırlıkları kapsamında Vahap Munyar’a konuştu. Şirketin yüzde 20-30’unun halka arz edilmesinin planlandığını belirten Erdemoğlu, halka arz gelirlerinin yatırımların finansmanı ve grup şirketlerinin sermaye yapısının güçlendirilmesinde kullanılacağın",
       "cevrildi": false,
       "dil": "tr",
       "ticari": true,
       "bolge": "TR",
-      "adres": "https://www.dunya.com/ekonomi/altinin-onundeki-en-buyuk-engel-kalkiyor-hesaplar-sil-bastan-haberi-835532",
-      "kurum": "Dünya",
-      "kurum_tam": "Dünya Gazetesi",
-      "konu": "Altın ve emtia",
-      "tarih": "2026-08-09",
-      "tarih_gorunur": "9 Ağustos 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/altin-ve-emtia-8.jpg",
-      "foto_atif": "Szaaman · PDM"
-    },
-    {
-      "baslik": "Memur emeklileri için seyyanen zam çağrısı: Düzenlemeyi derhal hayata geçirin",
-      "baslik_kaynak": "Memur emeklileri için seyyanen zam çağrısı: Düzenlemeyi derhal hayata geçirin",
-      "ozet": "Birleşik Kamu-İş Konfederasyonu İzmir İl Başkanı Barış Düdü, 2023 yılında emekli kamu çalışanlarının aylıklarına yansıtılmayan 8 bin 77 TL'lik seyyanen artışa ilişkin, “Mahkeme kararını beklemeyin. Görevdeki kamu çalışanlarına verilen seyyanen artışı mevzuata uygun bir şekilde emekli aylıklarına yansıtacak düzenlemeyi ",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.ekonomim.com/ekonomi/memur-emeklileri-icin-seyyanen-zam-cagrisi-duzenlemeyi-derhal-hayata-gecirin-haberi-911081",
-      "kurum": "Ekonomim",
-      "kurum_tam": "Ekonomim",
-      "konu": "İstihdam ve ücret",
-      "tarih": "2026-08-09",
-      "tarih_gorunur": "9 Ağustos 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/istihdam-ve-ucret-6.jpg",
-      "foto_atif": "Unknown author Unknown author · PDM"
-    },
-    {
-      "baslik": "Halk Bankası sermayesini 1,8 milyar TL artıracak, ikincil halka arz başlatacak",
-      "baslik_kaynak": "Halk Bankası sermayesini 1,8 milyar TL artıracak, ikincil halka arz başlatacak",
-      "ozet": "Halk Bankası, çıkarılmış sermayesini 1,8 milyar TL artırarak 9 milyar TL’ye yükseltme ve hisselerinin ikincil halka arzı için çalışmalara başlama kararı aldı.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.ekonomim.com/sirketler/halk-bankasi-sermayesini-18-milyar-tl-artiracak-ikincil-halka-arz-baslatacak-haberi-911075",
+      "adres": "https://www.ekonomim.com/sirketler/merinos-halka-arza-edilecek-sasanin-sermayesi-desteklenip-borc-yuku-rahatlatilacak-haberi-911099",
       "kurum": "Ekonomim",
       "kurum_tam": "Ekonomim",
       "konu": "Borsa",
@@ -582,33 +701,34 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/borsa-8.jpg",
+      "foto": "/statik/foto/borsa-15-0edc5668.jpg",
       "foto_atif": "Syced · CC0"
     },
     {
-      "baslik": "BofA, Fed için faiz beklentisini korudu",
-      "baslik_kaynak": "BofA, Fed için faiz beklentisini korudu",
-      "ozet": "BofA, Fed'in bu yıl 75 baz puan faiz artırımı yapacağı beklentisini korudu.",
+      "baslik": "Trump, Hürmüz açılırsa nükleer anlaşma şartını kaldıracak mı? İran ayak diredi, ABD düşünüyor",
+      "baslik_kaynak": "Trump, Hürmüz açılırsa nükleer anlaşma şartını kaldıracak mı? İran ayak diredi, ABD düşünüyor",
+      "ozet": "ABD Başkanı Donald Trump, İran'ın Hürmüz Boğazı'nı tamamen açması halinde nükleer anlaşma sağlanmadan da savaşı sona erdirme konusunda yardımcıları ile görüşme halinde olduğu belirtiliyor. Trump'ın nükleer şartı olmadan savaşı bitirmek için İran-Umman arasında süren görüşmelerin tamamlanmasını beklediği öne sürülüyor.",
       "cevrildi": false,
       "dil": "tr",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.ekonomim.com/kuresel-ekonomi/bofa-fed-icin-faiz-beklentisini-korudu-haberi-911073",
+      "adres": "https://www.ekonomim.com/dunya/trump-hurmuz-acilirsa-nukleer-anlasma-sartini-kaldiracak-mi-iran-ayak-diredi-abd-dusunuyor-haberi-911100",
       "kurum": "Ekonomim",
       "kurum_tam": "Ekonomim",
-      "konu": "Para politikası",
+      "konu": "Jeopolitik",
       "tarih": "2026-08-09",
       "tarih_gorunur": "9 Ağustos 2026",
       "yorumlanir": true,
-      "neden_onemli": "ABD ve Avro Bölgesi politika faizi, küresel sermayenin fiyatını belirleyen ana değişkendir. Gelişmekte olan ülkeler için doğrudan bir referans oluşturur.",
+      "neden_onemli": "Jeopolitik gelişmeler piyasaya doğrudan değil, arz riski ve risk iştahı üzerinden geçer. Türkiye için ana kanal enerji faturası ve risk primidir.",
       "kanallar": [
-        "Dış borçlanma maliyeti: ABD faizleri yükseldiğinde gelişmekte olan ülkelerin tahvil ihraç maliyeti de yükselir.",
-        "Sermaye akımları: faiz farkı daraldığında gelişmekte olan ülke varlıklarına yönelen akım görece azalır.",
-        "Kur kanalı: sermaye hareketleri ve faiz farkı, kur üzerinde dolaylı baskı oluşturur."
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa petrol ve doğal gaz fiyatına risk primi eklenir. Türkiye net enerji ithalatçısı olduğu için bu, cari işlemler dengesine doğrudan yazılır.",
+        "Risk iştahı: belirsizlik arttığında gelişmekte olan ülke varlıklarından çıkış görülebilir; ülke risk primi ve borçlanma maliyeti yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat pazarlarının bileşimini değiştirir; etki sektörün o pazara bağımlılığı kadardır.",
+        "Güvenli liman talebi: altın ve dolar talebi değişebilir; yönü ve büyüklüğü olayın ne kadarının önceden fiyatlandığına bağlıdır."
       ],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-8.png",
-      "foto_atif": "FRED, Federal Reserve Bank of St. Louis · PDM"
+      "foto": "/statik/foto/jeopolitik-20-e0e8c777.jpg",
+      "foto_atif": "ADESP · CC-BY-4.0"
     },
     {
       "baslik": "Borsa zirvedeyken ünlü yatırımcı uyardı: Yapay zeka coşkusu Dot-Com balonuna mı dönüşecek?",
@@ -632,8 +752,8 @@
         "Yabancı payı: yabancı yatırımcı payındaki değişim tek başına değil, kur ve faiz ile birlikte okunur."
       ],
       "kanal_basligi": "Piyasaya nasıl yansır?",
-      "foto": "/statik/foto/borsa-4.jpg",
-      "foto_atif": "InfoMofo · BY-SA 2.0"
+      "foto": "/statik/foto/borsa-8.jpg",
+      "foto_atif": "Syced · CC0"
     },
     {
       "baslik": "\"Şu anda ABD ile herhangi bir müzakere yürütmüyoruz\"",
@@ -658,8 +778,29 @@
         "Güvenli liman talebi: altın ve dolar talebi değişebilir; yönü ve büyüklüğü olayın ne kadarının önceden fiyatlandığına bağlıdır."
       ],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/jeopolitik-1.jpg",
-      "foto_atif": "\"U.S Advisory Commission on Public Diplomacy meet with YSEALI Alumni\" by United States Embassy Kuala Lumpur is marked with Public Domain Mark 1.0. To view the terms, visit https://creativecommons.org/publicdomain/mark/1.0/. · PDM 1.0"
+      "foto": "/statik/foto/jeopolitik-5.png",
+      "foto_atif": "VOA · PDM"
+    },
+    {
+      "baslik": "Warsh, Fed’in piyasalarda daha küçük rol oynamasını istiyor",
+      "baslik_kaynak": "Warsh, Fed’in piyasalarda daha küçük rol oynamasını istiyor",
+      "ozet": "",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://tr.investing.com/news/economy-news/warsh-fedin-piyasalarda-daha-kucuk-rol-oynamasn-istiyor-4021317",
+      "kurum": "Investing",
+      "kurum_tam": "Investing.com Türkiye",
+      "konu": "Borsa",
+      "tarih": "2026-08-09",
+      "tarih_gorunur": "9 Ağustos 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/borsa-6.jpg",
+      "foto_atif": "Syced · CC0"
     },
     {
       "baslik": "Önümüzdeki TÜFE raporu geçen haftaki istihdam verisinden daha önemli",
@@ -682,12 +823,12 @@
         "Reel getiri: enflasyon ile nominal faiz arasındaki fark, tahvil ve mevduatın reel getirisini belirler."
       ],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enflasyon-3.jpg",
-      "foto_atif": "markhillary · BY 2.0"
+      "foto": "/statik/foto/enflasyon-8.jpg",
+      "foto_atif": "safaritravelplus · CC0"
     },
     {
-      "baslik": "İran, Hürmüz Boğazı’nı yeniden açmak için ABD’ye kapsamlı koşullar öne sürdü",
-      "baslik_kaynak": "İran, Hürmüz Boğazı’nı yeniden açmak için ABD’ye kapsamlı koşullar öne sürdü",
+      "baslik": "Trump: İran ekonomisi çökerken ABD \"sessiz kalmayı\" tercih ediyor",
+      "baslik_kaynak": "Trump: İran ekonomisi çökerken ABD \"sessiz kalmayı\" tercih ediyor",
       "ozet": "",
       "cevrildi": false,
       "dil": "tr",
@@ -708,8 +849,8 @@
         "Güvenli liman talebi: altın ve dolar talebi değişebilir; yönü ve büyüklüğü olayın ne kadarının önceden fiyatlandığına bağlıdır."
       ],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/jeopolitik-6.jpg",
-      "foto_atif": "Press Information Department · PDM"
+      "foto": "/statik/foto/jeopolitik-11.jpeg",
+      "foto_atif": "Post of Indonesia · PDM"
     },
     {
       "baslik": "Tab Gıda, InvestingPro’nun düşük değerli uyarısı sonrası %45 getiri sağladı",
@@ -733,8 +874,8 @@
         "Dış ticaret: hububat ve yağlı tohumda ithalat bağımlılığı, rekolte sonucunu cari dengeye bağlar."
       ],
       "kanal_basligi": "Piyasaya nasıl yansır?",
-      "foto": "/statik/foto/tarim-ve-gida-5.jpg",
-      "foto_atif": "Arno Smit _entreprenerd · CC0"
+      "foto": "/statik/foto/tarim-ve-gida-9-7d998dfe.jpg",
+      "foto_atif": "Malcolm Neal · CC-BY-SA-2.0"
     },
     {
       "baslik": "Trump'tan ABD Kongresine AI eleştirisi",
@@ -759,8 +900,8 @@
         "Güvenli liman talebi: altın ve dolar talebi değişebilir; yönü ve büyüklüğü olayın ne kadarının önceden fiyatlandığına bağlıdır."
       ],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/jeopolitik-15.jpg",
-      "foto_atif": "Adjoajo · CC-BY-SA-4.0"
+      "foto": "/statik/foto/jeopolitik-19-195f87fb.jpg",
+      "foto_atif": "Percival Kestreltail · CC-BY-SA-3.0"
     },
     {
       "baslik": "Benzine Ne Kadar, Kaç TL Zam Gelecek? Güncel akaryakıt fiyatlarında son durum",
@@ -784,8 +925,8 @@
         "Sektörel maliyet: yakıt maliyetinin gider içindeki payı yüksek sektörler (havayolu, karayolu lojistiği, petrokimya, enerji yoğun sanayi) bu kalemden daha erken etkilenir."
       ],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enerji-9.jpg",
-      "foto_atif": "NPS photo · PDM"
+      "foto": "/statik/foto/enerji-10.png",
+      "foto_atif": "Nicolas Mollet , Credits : Matthias Stasiak · CC-BY-SA-3.0"
     },
     {
       "baslik": "Kademeli Emeklilik Tablosu | Kademeli emeklilik Meclis'e geldi mi? Kademeli emeklilik çıkarsa kim, ne zaman emekli olacak?",
@@ -805,8 +946,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/istihdam-ve-ucret-3.jpg",
-      "foto_atif": "shankar s. · BY 2.0"
+      "foto": "/statik/foto/istihdam-ve-ucret-7.jpg",
+      "foto_atif": "YeraC · CC-BY-SA-4.0"
     },
     {
       "baslik": "Abdülhamid Han Sondaj Gemisi, 4 yıldır enerjinin izini sürüyor",
@@ -826,8 +967,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enerji-12.jpg",
-      "foto_atif": "Chad Davis from Minneapolis, United States · CC-BY-2.0"
+      "foto": "/statik/foto/enerji-15-35e1db1d.jpg",
+      "foto_atif": "Colin Stepney · CC-BY-SA-4.0"
     },
     {
       "baslik": "Son 28 haftanın en güçlü performansı: Piyasalarda faiz rallisi",
@@ -847,7 +988,7 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/borsa-8.jpg",
+      "foto": "/statik/foto/borsa-12.jpg",
       "foto_atif": "Syced · CC0"
     },
     {
@@ -868,8 +1009,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/vergi-ve-kamu-maliyesi-5.png",
-      "foto_atif": "Office of Congressman Duncan D. Hunter · PDM"
+      "foto": "/statik/foto/vergi-ve-kamu-maliyesi-9-3cd75a0d.jpg",
+      "foto_atif": "PunkToad from oakland, us · CC-BY-2.0"
     },
     {
       "baslik": "Enerjide acele kamulaştırma",
@@ -889,8 +1030,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enerji-8.jpg",
-      "foto_atif": "Chris English · CC-BY-SA-3.0"
+      "foto": "/statik/foto/enerji-12.jpg",
+      "foto_atif": "Chad Davis from Minneapolis, United States · CC-BY-2.0"
     },
     {
       "baslik": "Türkiye Dışişleri Bakanı: Türkiye, Rusya ve Ukrayna'yı Karadeniz saldırılarına moratoryum ilan etmeye çağırdı",
@@ -900,7 +1041,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713464/Turkish-foreign-minister-Turkey-urges-Russia-and-Ukraine-to-declare-moratorium-on-Black-Sea-attacks.aspx",
+      "adres": "https://www.financialjuice.com/News/9713464/Turkish-foreign-minister-Turkey-urges-Russia-and-Ukraine-to-declare-moratorium-on-Black-Sea-attacks.aspx?xy=rss",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -910,8 +1051,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-5.jpg",
-      "foto_atif": "DimiTalen · CC0"
+      "foto": "/statik/foto/sirket-haberleri-12-e8df73ea.jpg",
+      "foto_atif": "Basile Morin · CC-BY-SA-4.0"
     },
     {
       "baslik": "Türkiye Dışişleri Bakanı: Teknik sorunlar çözüldükten sonra Mısır savunma ittifakına katılabilir",
@@ -921,7 +1062,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713461/Turkish-foreign-minister-Egypt-could-join-defense-alliance-after-technical-issues-resolved.aspx",
+      "adres": "https://www.financialjuice.com/News/9713461/Turkish-foreign-minister-Egypt-could-join-defense-alliance-after-technical-issues-resolved.aspx?xy=rss",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -931,8 +1072,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-4.jpg",
-      "foto_atif": "Daveybot · BY 2.0"
+      "foto": "/statik/foto/sirket-haberleri-7.jpg",
+      "foto_atif": "Subhrajyoti07 · CC-BY-SA-4.0"
     },
     {
       "baslik": "Türk dışişleri bakanı: Kızıldeniz deniz taşımacılığının güvenliği çıkarlarımızı ilgilendiriyor, bu yüzden Türkiye Suudi Arabistan'ın küresel koalisyonuna katılmalı",
@@ -942,7 +1083,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713460/Turkish-foreign-minister-Red-Sea-shipping-safety-concerns-our-interests-so-Turkey-must-join-Saudi-Arabias-global-coalition.aspx",
+      "adres": "https://www.financialjuice.com/News/9713460/Turkish-foreign-minister-Red-Sea-shipping-safety-concerns-our-interests-so-Turkey-must-join-Saudi-Arabias-global-coalition.aspx?xy=rss",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Enflasyon",
@@ -952,8 +1093,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enflasyon-8.jpg",
-      "foto_atif": "safaritravelplus · CC0"
+      "foto": "/statik/foto/enflasyon-10-8c83b7c6.jpg",
+      "foto_atif": "Darrin Antrobus · CC-BY-SA-2.0"
     },
     {
       "baslik": "Türk dışişleri bakanı: İran savunma anlaşmasının hedefi değil, üye ülkelere saldırmadıkça kimse hedef alınmıyor",
@@ -963,7 +1104,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713457/Turkish-foreign-minister-Iran-not-target-of-defense-pact-no-one-targeted-unless-attacking-member-countries.aspx",
+      "adres": "https://www.financialjuice.com/News/9713457/Turkish-foreign-minister-Iran-not-target-of-defense-pact-no-one-targeted-unless-attacking-member-countries.aspx?xy=rss",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -973,8 +1114,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-8.jpg",
-      "foto_atif": "Myotus · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-7.jpg",
+      "foto_atif": "Subhrajyoti07 · CC-BY-SA-4.0"
     },
     {
       "baslik": "Türk dışişleri bakanı: genel sekreterlikle birlikte NATO'yu andıran pakt kapsamında bakanlık komitesi kurulacak",
@@ -984,7 +1125,101 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713456/Turkish-foreign-minister-ministerial-committee-to-be-formed-under-pact-resembling-NATO-along-with-general-secretariat.aspx",
+      "adres": "https://www.financialjuice.com/News/9713456/Turkish-foreign-minister-ministerial-committee-to-be-formed-under-pact-resembling-NATO-along-with-general-secretariat.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Jeopolitik",
+      "tarih": "2026-08-08",
+      "tarih_gorunur": "8 Ağustos 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Jeopolitik gelişmeler piyasaya doğrudan değil, arz riski ve risk iştahı üzerinden geçer. Türkiye için ana kanal enerji faturası ve risk primidir.",
+      "kanallar": [
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa petrol ve doğal gaz fiyatına risk primi eklenir. Türkiye net enerji ithalatçısı olduğu için bu, cari işlemler dengesine doğrudan yazılır.",
+        "Risk iştahı: belirsizlik arttığında gelişmekte olan ülke varlıklarından çıkış görülebilir; ülke risk primi ve borçlanma maliyeti yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat pazarlarının bileşimini değiştirir; etki sektörün o pazara bağımlılığı kadardır.",
+        "Güvenli liman talebi: altın ve dolar talebi değişebilir; yönü ve büyüklüğü olayın ne kadarının önceden fiyatlandığına bağlıdır."
+      ],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/jeopolitik-14.jpg",
+      "foto_atif": "Dody Ismoyo · CC-BY-SA-4.0"
+    },
+    {
+      "baslik": "Türk dışişleri bakanı: Türkiye, Pakistan, Suudi Arabistan savunma paktı NATO'nun 5. maddesiyle fiilen aynı",
+      "baslik_kaynak": "Turkish foreign minister: Turkey, Pakistan, Saudi Arabia defense pact is effectively the same as NATO's article 5",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9713450/Turkish-foreign-minister-Turkey-Pakistan-Saudi-Arabia-defense-pact-is-effectively-the-same-as-NATOs-article-5.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Jeopolitik",
+      "tarih": "2026-08-08",
+      "tarih_gorunur": "8 Ağustos 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Jeopolitik gelişmeler piyasaya doğrudan değil, arz riski ve risk iştahı üzerinden geçer. Türkiye için ana kanal enerji faturası ve risk primidir.",
+      "kanallar": [
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa petrol ve doğal gaz fiyatına risk primi eklenir. Türkiye net enerji ithalatçısı olduğu için bu, cari işlemler dengesine doğrudan yazılır.",
+        "Risk iştahı: belirsizlik arttığında gelişmekte olan ülke varlıklarından çıkış görülebilir; ülke risk primi ve borçlanma maliyeti yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat pazarlarının bileşimini değiştirir; etki sektörün o pazara bağımlılığı kadardır.",
+        "Güvenli liman talebi: altın ve dolar talebi değişebilir; yönü ve büyüklüğü olayın ne kadarının önceden fiyatlandığına bağlıdır."
+      ],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/jeopolitik-13.jpg",
+      "foto_atif": "Kippelboy · CC-BY-3.0"
+    },
+    {
+      "baslik": "ABD Dışişleri Bakanlığı: Çin, Güney Çin Denizi'ndeki geniş iddiaları komşularının pahasına zorlamak için tek taraflı bir hamle daha yaptı",
+      "baslik_kaynak": "U.S. State Dept: China makes another unilateral move to push broad claims in South China Sea at neighbors' expense",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9713446/US-State-Dept-China-makes-another-unilateral-move-to-push-broad-claims-in-South-China-Sea-at-neighbors-expense.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Şirket haberleri",
+      "tarih": "2026-08-08",
+      "tarih_gorunur": "8 Ağustos 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/sirket-haberleri-10-91cb7af0.jpg",
+      "foto_atif": "Myotus · CC-BY-SA-4.0"
+    },
+    {
+      "baslik": "ABD Dışişleri Bakanlığı: ABD, Çin'in Scarborough Resifi'ndeki doğa rezervini istikrarsızlaştırmaya yönelik devam eden çabalarını reddetti",
+      "baslik_kaynak": "U.S. State Dept: US dismisses China’s continued efforts to enforce destabilizing nature reserve at Scarborough Reef",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9713445/US-State-Dept-US-dismisses-Chinas-continued-efforts-to-enforce-destabilizing-nature-reserve-at-Scarborough-Reef.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Şirket haberleri",
+      "tarih": "2026-08-08",
+      "tarih_gorunur": "8 Ağustos 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/sirket-haberleri-12-e8df73ea.jpg",
+      "foto_atif": "Basile Morin · CC-BY-SA-4.0"
+    },
+    {
+      "baslik": "Yemen silahlı kuvvetler sözcüsü: Husilere ve müttefik milislere karşı operasyon düzenlendi",
+      "baslik_kaynak": "Yemen’s armed forces spokesperson: operation conducted against Houthis and allied militias",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9713413/Yemens-armed-forces-spokesperson-operation-conducted-against-Houthis-and-allied-militias.aspx?xy=rss",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Jeopolitik",
@@ -1003,100 +1238,6 @@
       "foto_atif": "Press Information Department · PDM"
     },
     {
-      "baslik": "Türk dışişleri bakanı: Türkiye, Pakistan, Suudi Arabistan savunma paktı NATO'nun 5. maddesiyle fiilen aynı",
-      "baslik_kaynak": "Turkish foreign minister: Turkey, Pakistan, Saudi Arabia defense pact is effectively the same as NATO's article 5",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713450/Turkish-foreign-minister-Turkey-Pakistan-Saudi-Arabia-defense-pact-is-effectively-the-same-as-NATOs-article-5.aspx",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Jeopolitik",
-      "tarih": "2026-08-08",
-      "tarih_gorunur": "8 Ağustos 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişmeler piyasaya doğrudan değil, arz riski ve risk iştahı üzerinden geçer. Türkiye için ana kanal enerji faturası ve risk primidir.",
-      "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa petrol ve doğal gaz fiyatına risk primi eklenir. Türkiye net enerji ithalatçısı olduğu için bu, cari işlemler dengesine doğrudan yazılır.",
-        "Risk iştahı: belirsizlik arttığında gelişmekte olan ülke varlıklarından çıkış görülebilir; ülke risk primi ve borçlanma maliyeti yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat pazarlarının bileşimini değiştirir; etki sektörün o pazara bağımlılığı kadardır.",
-        "Güvenli liman talebi: altın ve dolar talebi değişebilir; yönü ve büyüklüğü olayın ne kadarının önceden fiyatlandığına bağlıdır."
-      ],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/jeopolitik-6.jpg",
-      "foto_atif": "Press Information Department · PDM"
-    },
-    {
-      "baslik": "ABD Dışişleri Bakanlığı: Çin, Güney Çin Denizi'ndeki geniş iddiaları komşularının pahasına zorlamak için tek taraflı bir hamle daha yaptı",
-      "baslik_kaynak": "U.S. State Dept: China makes another unilateral move to push broad claims in South China Sea at neighbors' expense",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713446/US-State-Dept-China-makes-another-unilateral-move-to-push-broad-claims-in-South-China-Sea-at-neighbors-expense.aspx",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Şirket haberleri",
-      "tarih": "2026-08-08",
-      "tarih_gorunur": "8 Ağustos 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-2.jpg",
-      "foto_atif": "ricardodiaz11 · BY 2.0"
-    },
-    {
-      "baslik": "ABD Dışişleri Bakanlığı: ABD, Çin'in Scarborough Resifi'ndeki doğa rezervini istikrarsızlaştırmaya yönelik devam eden çabalarını reddetti",
-      "baslik_kaynak": "U.S. State Dept: US dismisses China’s continued efforts to enforce destabilizing nature reserve at Scarborough Reef",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713445/US-State-Dept-US-dismisses-Chinas-continued-efforts-to-enforce-destabilizing-nature-reserve-at-Scarborough-Reef.aspx",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Şirket haberleri",
-      "tarih": "2026-08-08",
-      "tarih_gorunur": "8 Ağustos 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-2.jpg",
-      "foto_atif": "ricardodiaz11 · BY 2.0"
-    },
-    {
-      "baslik": "Yemen silahlı kuvvetler sözcüsü: Husilere ve müttefik milislere karşı operasyon düzenlendi",
-      "baslik_kaynak": "Yemen’s armed forces spokesperson: operation conducted against Houthis and allied militias",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713413/Yemens-armed-forces-spokesperson-operation-conducted-against-Houthis-and-allied-militias.aspx",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Jeopolitik",
-      "tarih": "2026-08-08",
-      "tarih_gorunur": "8 Ağustos 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişmeler piyasaya doğrudan değil, arz riski ve risk iştahı üzerinden geçer. Türkiye için ana kanal enerji faturası ve risk primidir.",
-      "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa petrol ve doğal gaz fiyatına risk primi eklenir. Türkiye net enerji ithalatçısı olduğu için bu, cari işlemler dengesine doğrudan yazılır.",
-        "Risk iştahı: belirsizlik arttığında gelişmekte olan ülke varlıklarından çıkış görülebilir; ülke risk primi ve borçlanma maliyeti yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat pazarlarının bileşimini değiştirir; etki sektörün o pazara bağımlılığı kadardır.",
-        "Güvenli liman talebi: altın ve dolar talebi değişebilir; yönü ve büyüklüğü olayın ne kadarının önceden fiyatlandığına bağlıdır."
-      ],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/jeopolitik-11.jpeg",
-      "foto_atif": "Post of Indonesia · PDM"
-    },
-    {
       "baslik": "İran Devlet Başkanı Pezeshkian: İran güçlü, birleşmiş ve savaşta muzaffer olarak görüldüğü için şimdi anlaşma için en iyi zaman",
       "baslik_kaynak": "Iranian President Pezeshkian: now best time for deal as Iran is strong, united and seen as victorious in war - Iranian media",
       "ozet": "",
@@ -1104,7 +1245,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713412/Iranian-President-Pezeshkian-now-best-time-for-deal-as-Iran-is-strong-united-and-seen-as-victorious-in-war---Iranian-media.aspx",
+      "adres": "https://www.financialjuice.com/News/9713412/Iranian-President-Pezeshkian-now-best-time-for-deal-as-Iran-is-strong-united-and-seen-as-victorious-in-war---Iranian-media.aspx?xy=rss",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Jeopolitik",
@@ -1130,7 +1271,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713407/Libyas-Waha-Oil-Leak-on-Zaqout-Sidra-Pipeline-Contained-Operations-Resumed-After-Repairs.aspx",
+      "adres": "https://www.financialjuice.com/News/9713407/Libyas-Waha-Oil-Leak-on-Zaqout-Sidra-Pipeline-Contained-Operations-Resumed-After-Repairs.aspx?xy=rss",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Enerji",
@@ -1140,8 +1281,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enerji-3.jpg",
-      "foto_atif": "w_lemay · BY-SA 2.0"
+      "foto": "/statik/foto/enerji-12.jpg",
+      "foto_atif": "Chad Davis from Minneapolis, United States · CC-BY-2.0"
     },
     {
       "baslik": "Umman: Hürmüz Boğazı düzenlemeleri üzerine devam eden görüşmeler olumlu ve yapıcı - devlet haber ajansı",
@@ -1151,28 +1292,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713403/Oman-ongoing-talks-on-Strait-of-Hormuz-arrangements-are-positive-and-constructive---state-news-agency.aspx",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Şirket haberleri",
-      "tarih": "2026-08-08",
-      "tarih_gorunur": "8 Ağustos 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-4.jpg",
-      "foto_atif": "Daveybot · BY 2.0"
-    },
-    {
-      "baslik": "Umman: Devlet haber ajansı Hürmüz Boğazı'ndan geçen gemilere yönelik tekrarlanan saldırıları kınadı",
-      "baslik_kaynak": "Oman: condemns recurring assaults on ships passing through Strait of Hormuz - state news agency",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713402/Oman-condemns-recurring-assaults-on-ships-passing-through-Strait-of-Hormuz---state-news-agency.aspx",
+      "adres": "https://www.financialjuice.com/News/9713403/Oman-ongoing-talks-on-Strait-of-Hormuz-arrangements-are-positive-and-constructive---state-news-agency.aspx?xy=rss",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -1183,6 +1303,27 @@
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/sirket-haberleri-8.jpg",
+      "foto_atif": "Myotus · CC-BY-SA-4.0"
+    },
+    {
+      "baslik": "Umman: Devlet haber ajansı Hürmüz Boğazı'ndan geçen gemilere yönelik tekrarlanan saldırıları kınadı",
+      "baslik_kaynak": "Oman: condemns recurring assaults on ships passing through Strait of Hormuz - state news agency",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9713402/Oman-condemns-recurring-assaults-on-ships-passing-through-Strait-of-Hormuz---state-news-agency.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Şirket haberleri",
+      "tarih": "2026-08-08",
+      "tarih_gorunur": "8 Ağustos 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/sirket-haberleri-11-68a4355e.jpg",
       "foto_atif": "Myotus · CC-BY-SA-4.0"
     },
     {
@@ -1193,7 +1334,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713380/UKMTO-crew-reported-safe-no-environmental-harm.aspx",
+      "adres": "https://www.financialjuice.com/News/9713380/UKMTO-crew-reported-safe-no-environmental-harm.aspx?xy=rss",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -1203,7 +1344,7 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-8.jpg",
+      "foto": "/statik/foto/sirket-haberleri-11-68a4355e.jpg",
       "foto_atif": "Myotus · CC-BY-SA-4.0"
     },
     {
@@ -1214,7 +1355,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713379/UKMTO-Verified-source-reports-vessel-hit-by-unidentified-projectile-fire-extinguished.aspx",
+      "adres": "https://www.financialjuice.com/News/9713379/UKMTO-Verified-source-reports-vessel-hit-by-unidentified-projectile-fire-extinguished.aspx?xy=rss",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -1224,7 +1365,7 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-8.jpg",
+      "foto": "/statik/foto/sirket-haberleri-9-dc4edf22.jpg",
       "foto_atif": "Myotus · CC-BY-SA-4.0"
     },
     {
@@ -1235,7 +1376,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713378/Ukmto-reports-incident-18nm-east-of-Khasab-Oman.aspx",
+      "adres": "https://www.financialjuice.com/News/9713378/Ukmto-reports-incident-18nm-east-of-Khasab-Oman.aspx?xy=rss",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -1245,8 +1386,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-2.jpg",
-      "foto_atif": "ricardodiaz11 · BY 2.0"
+      "foto": "/statik/foto/sirket-haberleri-12-e8df73ea.jpg",
+      "foto_atif": "Basile Morin · CC-BY-SA-4.0"
     },
     {
       "baslik": "Berkshire Hathaway: 30 Haziran itibariyle American Express, Apple, Bank of America, Alphabet ve Coca-Cola'ya odaklanan toplam öz sermaye yatırımının gerçeğe uygun değerinin %66'sı",
@@ -1256,7 +1397,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713356/Berkshire-Hathaway-66-of-total-equity-investment-fair-value-focused-on-American-Express-Apple-Bank-of-America-Alphabet-and-Coca-Cola-as-of-June-30.aspx",
+      "adres": "https://www.financialjuice.com/News/9713356/Berkshire-Hathaway-66-of-total-equity-investment-fair-value-focused-on-American-Express-Apple-Bank-of-America-Alphabet-and-Coca-Cola-as-of-June-30.aspx?xy=rss",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Borsa",
@@ -1266,8 +1407,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/borsa-9.jpg",
-      "foto_atif": "Syced · CC0"
+      "foto": "/statik/foto/borsa-16-3081ebc2.jpg",
+      "foto_atif": "Edgar Degas · PDM"
     },
     {
       "baslik": "İran'da Aragçi: Tahran ve Maskat şu anda geçici Hürmüz nakliye koridoru üzerinde pazarlık yapıyor",
@@ -1277,7 +1418,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713345/Irans-Aragchi-Tehran-Muscat-currently-negotiating-temporary-Hormuz-shipping-corridor.aspx",
+      "adres": "https://www.financialjuice.com/News/9713345/Irans-Aragchi-Tehran-Muscat-currently-negotiating-temporary-Hormuz-shipping-corridor.aspx?xy=rss",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Enflasyon",
@@ -1288,7 +1429,7 @@
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/enflasyon-8.jpg",
-      "foto_atif": "safaritravelplus · CC0"
+      "foto_atif": "Pittigrilli · CC0"
     },
     {
       "baslik": "İran'da Aragçi: Tahran önceki Hürmüz Boğazı trafik ayrım planını kabul edilemez buldu, yeni rota arıyor",
@@ -1298,7 +1439,28 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713344/Irans-Aragchi-Tehran-finds-previous-Strait-of-Hormuz-traffic-separation-scheme-unacceptable-seeks-new-route.aspx",
+      "adres": "https://www.financialjuice.com/News/9713344/Irans-Aragchi-Tehran-finds-previous-Strait-of-Hormuz-traffic-separation-scheme-unacceptable-seeks-new-route.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Şirket haberleri",
+      "tarih": "2026-08-08",
+      "tarih_gorunur": "8 Ağustos 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/sirket-haberleri-6.jpg",
+      "foto_atif": "Declan M Martin · PDM"
+    },
+    {
+      "baslik": "İran Dışişleri Bakanı: Hürmüz'ün yeniden açılması, ABD'nin İslamabad anlaşmasını ihlal etmesinin tazminatı da dahil koşullara bağlı",
+      "baslik_kaynak": "Iranian foreign minister: reopening Hormuz hinges on conditions including compensation for US breaches of Islamabad agreement",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9713343/Iranian-foreign-minister-reopening-Hormuz-hinges-on-conditions-including-compensation-for-US-breaches-of-Islamabad-agreement.aspx?xy=rss",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -1312,27 +1474,6 @@
       "foto_atif": "DimiTalen · CC0"
     },
     {
-      "baslik": "İran Dışişleri Bakanı: Hürmüz'ün yeniden açılması, ABD'nin İslamabad anlaşmasını ihlal etmesinin tazminatı da dahil koşullara bağlı",
-      "baslik_kaynak": "Iranian foreign minister: reopening Hormuz hinges on conditions including compensation for US breaches of Islamabad agreement",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713343/Iranian-foreign-minister-reopening-Hormuz-hinges-on-conditions-including-compensation-for-US-breaches-of-Islamabad-agreement.aspx",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Şirket haberleri",
-      "tarih": "2026-08-08",
-      "tarih_gorunur": "8 Ağustos 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-7.jpg",
-      "foto_atif": "Subhrajyoti07 · CC-BY-SA-4.0"
-    },
-    {
       "baslik": "İran Dışişleri Bakanı: İran ve Umman, Hürmüz Boğazı'ndan geçen yeni nakliye rotası üzerinde anlaşmaya \"çok yakın\"",
       "baslik_kaynak": "Iran, Oman \"very close\" to deal on new shipping route through Strait of Hormuz: Iranian foreign minister",
       "ozet": "",
@@ -1340,7 +1481,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713342/Iran-Oman-very-close-to-deal-on-new-shipping-route-through-Strait-of-Hormuz-Iranian-foreign-minister.aspx",
+      "adres": "https://www.financialjuice.com/News/9713342/Iran-Oman-very-close-to-deal-on-new-shipping-route-through-Strait-of-Hormuz-Iranian-foreign-minister.aspx?xy=rss",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Enflasyon",
@@ -1361,28 +1502,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713324/Turkey-limits-Black-Sea-vessel-movement-after-increase-in-assaults.aspx",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Şirket haberleri",
-      "tarih": "2026-08-08",
-      "tarih_gorunur": "8 Ağustos 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-1.jpg",
-      "foto_atif": "justindula · BY-SA 2.0"
-    },
-    {
-      "baslik": "İran Devrim Muhafızları (IRGC) sözcüsü: Hürmüz Boğazı'nın yeniden açılması, ABD'nin İran'ın şartlarını tamamen kabul etmesine bağlı; İran ve Umman arasındaki görüşmelerle ilgisi yok",
-      "baslik_kaynak": "Iran's IRGC spokesman: Reopening of Strait of Hormuz hinges on US fully accepting Iran's terms; unrelated to talks between Iran and Oman",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713323/Irans-IRGC-spokesman-Reopening-of-Strait-of-Hormuz-hinges-on-US-fully-accepting-Irans-terms-unrelated-to-talks-between-Iran-and-Oman.aspx",
+      "adres": "https://www.financialjuice.com/News/9713324/Turkey-limits-Black-Sea-vessel-movement-after-increase-in-assaults.aspx?xy=rss",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -1396,14 +1516,14 @@
       "foto_atif": "Declan M Martin · PDM"
     },
     {
-      "baslik": "Rusya Savunma Bakanlığı: Ukrayna'nın Harkov bölgesinde güçler Ivanivka'yı ele GEÇİRDİ",
-      "baslik_kaynak": "Russian Defence Ministry: forces seize Ivanivka in Ukraine's Kharkiv region - RIA",
+      "baslik": "İran Devrim Muhafızları (IRGC) sözcüsü: Hürmüz Boğazı'nın yeniden açılması, ABD'nin İran'ın şartlarını tamamen kabul etmesine bağlı; İran ve Umman arasındaki görüşmelerle ilgisi yok",
+      "baslik_kaynak": "Iran's IRGC spokesman: Reopening of Strait of Hormuz hinges on US fully accepting Iran's terms; unrelated to talks between Iran and Oman",
       "ozet": "",
       "cevrildi": true,
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713303/Russian-Defence-Ministry-forces-seize-Ivanivka-in-Ukraines-Kharkiv-region---RIA.aspx",
+      "adres": "https://www.financialjuice.com/News/9713323/Irans-IRGC-spokesman-Reopening-of-Strait-of-Hormuz-hinges-on-US-fully-accepting-Irans-terms-unrelated-to-talks-between-Iran-and-Oman.aspx?xy=rss",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -1413,8 +1533,29 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-7.jpg",
-      "foto_atif": "Subhrajyoti07 · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-10-91cb7af0.jpg",
+      "foto_atif": "Myotus · CC-BY-SA-4.0"
+    },
+    {
+      "baslik": "Rusya Savunma Bakanlığı: Ukrayna'nın Harkov bölgesinde güçler Ivanivka'yı ele GEÇİRDİ",
+      "baslik_kaynak": "Russian Defence Ministry: forces seize Ivanivka in Ukraine's Kharkiv region - RIA",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9713303/Russian-Defence-Ministry-forces-seize-Ivanivka-in-Ukraines-Kharkiv-region---RIA.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Şirket haberleri",
+      "tarih": "2026-08-08",
+      "tarih_gorunur": "8 Ağustos 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/sirket-haberleri-6.jpg",
+      "foto_atif": "Declan M Martin · PDM"
     },
     {
       "baslik": "Rusya'nın Krasnodar bölgesindeki Ilsky petrol rafinerisinde çıkan yangın söndürüldü: yetkililer",
@@ -1424,7 +1565,49 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713301/Fire-at-Ilsky-oil-refinery-in-Russias-Krasnodar-region-extinguished-authorities.aspx",
+      "adres": "https://www.financialjuice.com/News/9713301/Fire-at-Ilsky-oil-refinery-in-Russias-Krasnodar-region-extinguished-authorities.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Enerji",
+      "tarih": "2026-08-08",
+      "tarih_gorunur": "8 Ağustos 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/enerji-7.jpg",
+      "foto_atif": "duggar11 · CC-BY-2.0"
+    },
+    {
+      "baslik": "ABD Senatosu, Todd Blanche'ın başsavcı olmasını onayladı",
+      "baslik_kaynak": "U.S. Senate approves Todd Blanche as attorney general",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9713297/US-Senate-approves-Todd-Blanche-as-attorney-general.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Şirket haberleri",
+      "tarih": "2026-08-08",
+      "tarih_gorunur": "8 Ağustos 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/sirket-haberleri-11-68a4355e.jpg",
+      "foto_atif": "Myotus · CC-BY-SA-4.0"
+    },
+    {
+      "baslik": "Ukrayna ordusu Rusya'nın Ilsky ve Syzran petrol rafinerilerini vurarak yangınlara neden oldu: Ukrayna genelkurmayı",
+      "baslik_kaynak": "Ukrainian military strikes Russia's Ilsky and Syzran oil refineries, causing fires: Ukrainian general staff",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9713292/Ukrainian-military-strikes-Russias-Ilsky-and-Syzran-oil-refineries-causing-fires-Ukrainian-general-staff.aspx?xy=rss",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Enerji",
@@ -1438,48 +1621,6 @@
       "foto_atif": "Chad Davis from Minneapolis, United States · CC-BY-2.0"
     },
     {
-      "baslik": "ABD Senatosu, Todd Blanche'ın başsavcı olmasını onayladı",
-      "baslik_kaynak": "U.S. Senate approves Todd Blanche as attorney general",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713297/US-Senate-approves-Todd-Blanche-as-attorney-general.aspx",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Şirket haberleri",
-      "tarih": "2026-08-08",
-      "tarih_gorunur": "8 Ağustos 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-3.jpg",
-      "foto_atif": "oatsy40 · BY 2.0"
-    },
-    {
-      "baslik": "Ukrayna ordusu Rusya'nın Ilsky ve Syzran petrol rafinerilerini vurarak yangınlara neden oldu: Ukrayna genelkurmayı",
-      "baslik_kaynak": "Ukrainian military strikes Russia's Ilsky and Syzran oil refineries, causing fires: Ukrainian general staff",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713292/Ukrainian-military-strikes-Russias-Ilsky-and-Syzran-oil-refineries-causing-fires-Ukrainian-general-staff.aspx",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Enerji",
-      "tarih": "2026-08-08",
-      "tarih_gorunur": "8 Ağustos 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enerji-4.jpg",
-      "foto_atif": "w_lemay · BY-SA 2.0"
-    },
-    {
       "baslik": "ABD Senatosu, seçim öncesi hükümetin kapanmasını önlemek için geçici finansman önlemini onayladı",
       "baslik_kaynak": "U.S. Senate approves temporary funding measure to prevent pre-election government shutdown",
       "ozet": "",
@@ -1487,7 +1628,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713288/US-Senate-approves-temporary-funding-measure-to-prevent-pre-election-government-shutdown.aspx",
+      "adres": "https://www.financialjuice.com/News/9713288/US-Senate-approves-temporary-funding-measure-to-prevent-pre-election-government-shutdown.aspx?xy=rss",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -1497,8 +1638,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-6.jpg",
-      "foto_atif": "Declan M Martin · PDM"
+      "foto": "/statik/foto/sirket-haberleri-12-e8df73ea.jpg",
+      "foto_atif": "Basile Morin · CC-BY-SA-4.0"
     },
     {
       "baslik": "Rusya: İnterfax, Odesa'nın doğusundaki Ukrayna kuvvetleri için silah taşıyan gemiyi vurdu",
@@ -1508,7 +1649,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713280/Russia-drone-hits-ship-carrying-weapons-for-Ukrainian-forces-east-of-Odesa---Interfax.aspx",
+      "adres": "https://www.financialjuice.com/News/9713280/Russia-drone-hits-ship-carrying-weapons-for-Ukrainian-forces-east-of-Odesa---Interfax.aspx?xy=rss",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -1518,8 +1659,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-1.jpg",
-      "foto_atif": "justindula · BY-SA 2.0"
+      "foto": "/statik/foto/sirket-haberleri-9-dc4edf22.jpg",
+      "foto_atif": "Myotus · CC-BY-SA-4.0"
     },
     {
       "baslik": "Kaynak, Nvidia'nın hissesinin Lancium'dan ekstra 1 milyar $ ile yaklaşık %30'a kadar genişleyebileceğini söylüyor",
@@ -1529,7 +1670,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713116/Nvidias-stake-may-expand-to-about-30-with-an-extra-1-billion-from-Lancium-source-says.aspx",
+      "adres": "https://www.financialjuice.com/News/9713116/Nvidias-stake-may-expand-to-about-30-with-an-extra-1-billion-from-Lancium-source-says.aspx?xy=rss",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -1539,8 +1680,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-3.jpg",
-      "foto_atif": "oatsy40 · BY 2.0"
+      "foto": "/statik/foto/sirket-haberleri-8.jpg",
+      "foto_atif": "Myotus · CC-BY-SA-4.0"
     },
     {
       "baslik": "Nvidia, ilk 2 milyar $ finansman turunda Lancium'un %20 hissesini satın alacak - bilgi",
@@ -1550,7 +1691,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713115/Nvidia-to-acquire-20-stake-in-Lancium-in-first-2-billion-funding-round---the-information.aspx",
+      "adres": "https://www.financialjuice.com/News/9713115/Nvidia-to-acquire-20-stake-in-Lancium-in-first-2-billion-funding-round---the-information.aspx?xy=rss",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -1560,8 +1701,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-3.jpg",
-      "foto_atif": "oatsy40 · BY 2.0"
+      "foto": "/statik/foto/sirket-haberleri-5.jpg",
+      "foto_atif": "DimiTalen · CC0"
     },
     {
       "baslik": "Nvidia, Stargate: The Information'ın arkasındaki Blackstone destekli enerji şirketine 3 milyar $ kadar taahhütte bulunacak",
@@ -1571,7 +1712,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713114/Nvidia-to-commit-as-much-as-3-billion-in-Blackstone-backed-energy-company-behind-Stargate-The-Information.aspx",
+      "adres": "https://www.financialjuice.com/News/9713114/Nvidia-to-commit-as-much-as-3-billion-in-Blackstone-backed-energy-company-behind-Stargate-The-Information.aspx?xy=rss",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Enerji",
@@ -1581,8 +1722,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enerji-9.jpg",
-      "foto_atif": "Djmaschek · CC-BY-SA-3.0"
+      "foto": "/statik/foto/enerji-11.jpg",
+      "foto_atif": "Ezagren ( bicara / talk ) · CC-BY-SA-4.0"
     },
     {
       "baslik": "Kiev'in iki bölgesinde yangın bildirildi: belediye başkanı",
@@ -1592,7 +1733,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713093/Fires-reported-in-two-districts-of-Kyiv-city-mayor.aspx",
+      "adres": "https://www.financialjuice.com/News/9713093/Fires-reported-in-two-districts-of-Kyiv-city-mayor.aspx?xy=rss",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -1602,8 +1743,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-6.jpg",
-      "foto_atif": "Declan M Martin · PDM"
+      "foto": "/statik/foto/sirket-haberleri-8.jpg",
+      "foto_atif": "Myotus · CC-BY-SA-4.0"
     },
     {
       "baslik": "ABD Dışişleri Bakanlığı: ABD, güvenlik anlaşmasında Kolombiya'ya 1 milyar $ yardım yapıldığını ortaya çıkarmak için Kongre ile işbirliği yapıyor",
@@ -1613,7 +1754,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713092/State-Dept-US-collaborating-with-Congress-to-reveal-1-billion-aid-for-Colombia-in-security-deal.aspx",
+      "adres": "https://www.financialjuice.com/News/9713092/State-Dept-US-collaborating-with-Congress-to-reveal-1-billion-aid-for-Colombia-in-security-deal.aspx?xy=rss",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "İstihdam ve ücret",
@@ -1623,8 +1764,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/istihdam-ve-ucret-1.jpg",
-      "foto_atif": "BiblioArchives / LibraryArchives · BY 2.0"
+      "foto": "/statik/foto/istihdam-ve-ucret-7.jpg",
+      "foto_atif": "YeraC · CC-BY-SA-4.0"
     },
     {
       "baslik": "Görgü tanıkları, Kiev'de çok sayıda güçlü patlama duyulduğunu söylüyor",
@@ -1634,7 +1775,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713082/Several-strong-blasts-heard-in-Kyiv-witnesses-say.aspx",
+      "adres": "https://www.financialjuice.com/News/9713082/Several-strong-blasts-heard-in-Kyiv-witnesses-say.aspx?xy=rss",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -1644,8 +1785,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-1.jpg",
-      "foto_atif": "justindula · BY-SA 2.0"
+      "foto": "/statik/foto/sirket-haberleri-5.jpg",
+      "foto_atif": "DimiTalen · CC0"
     },
     {
       "baslik": "Almanya drone olayı sonrası sürekli hibrit saldırı tehdidi konusunda uyardı",
@@ -1670,8 +1811,8 @@
         "Güvenli liman talebi: altın ve dolar talebi değişebilir; yönü ve büyüklüğü olayın ne kadarının önceden fiyatlandığına bağlıdır."
       ],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/jeopolitik-13.jpg",
-      "foto_atif": "Kippelboy · CC-BY-3.0"
+      "foto": "/statik/foto/jeopolitik-17-8c9e10de.jpg",
+      "foto_atif": "Otisjfk · CC-BY-SA-4.0"
     },
     {
       "baslik": "ABD Senatosu Trump’ın önceliklerini içermeyen geçici bütçeyi onayladı",
@@ -1696,34 +1837,8 @@
         "Güvenli liman talebi: altın ve dolar talebi değişebilir; yönü ve büyüklüğü olayın ne kadarının önceden fiyatlandığına bağlıdır."
       ],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/jeopolitik-6.jpg",
-      "foto_atif": "Press Information Department · PDM"
-    },
-    {
-      "baslik": "Senato Trump’ın başsavcısı Todd Blanche’ı onayladı",
-      "baslik_kaynak": "Senato Trump’ın başsavcısı Todd Blanche’ı onayladı",
-      "ozet": "",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://tr.investing.com/news/economy-news/senato-trumpn-bassavcs-todd-blanche-onaylad-4021199",
-      "kurum": "Investing",
-      "kurum_tam": "Investing.com Türkiye",
-      "konu": "Jeopolitik",
-      "tarih": "2026-08-08",
-      "tarih_gorunur": "8 Ağustos 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişmeler piyasaya doğrudan değil, arz riski ve risk iştahı üzerinden geçer. Türkiye için ana kanal enerji faturası ve risk primidir.",
-      "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa petrol ve doğal gaz fiyatına risk primi eklenir. Türkiye net enerji ithalatçısı olduğu için bu, cari işlemler dengesine doğrudan yazılır.",
-        "Risk iştahı: belirsizlik arttığında gelişmekte olan ülke varlıklarından çıkış görülebilir; ülke risk primi ve borçlanma maliyeti yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat pazarlarının bileşimini değiştirir; etki sektörün o pazara bağımlılığı kadardır.",
-        "Güvenli liman talebi: altın ve dolar talebi değişebilir; yönü ve büyüklüğü olayın ne kadarının önceden fiyatlandığına bağlıdır."
-      ],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/jeopolitik-6.jpg",
-      "foto_atif": "Press Information Department · PDM"
+      "foto": "/statik/foto/jeopolitik-11.jpeg",
+      "foto_atif": "Post of Indonesia · PDM"
     },
     {
       "baslik": "Uzaya ayrılan ARGE bütçesi 107 kat arttı",
@@ -1743,8 +1858,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/vergi-ve-kamu-maliyesi-1.jpg",
-      "foto_atif": "401(K) 2013 · BY-SA 2.0"
+      "foto": "/statik/foto/vergi-ve-kamu-maliyesi-5.png",
+      "foto_atif": "Office of Congressman Duncan D. Hunter · PDM"
     },
     {
       "baslik": "Türkiye'nin yurt dışı enerji stratejisi güçlü ortaklıklarla büyüyor",
@@ -1764,8 +1879,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enerji-11.jpg",
-      "foto_atif": "Ezagren ( bicara / talk ) · CC-BY-SA-4.0"
+      "foto": "/statik/foto/enerji-14-539268ab.jpg",
+      "foto_atif": "Sgroey · CC-BY-SA-4.0"
     },
     {
       "baslik": "TOBFED’den 10 bin kadına istihdam hedefi",
@@ -1789,8 +1904,8 @@
         "Bütçe kalemi: kamu personeli ve emekli ödemeleri bütçe harcamalarının büyük bir bölümünü oluşturur."
       ],
       "kanal_basligi": "Piyasaya nasıl yansır?",
-      "foto": "/statik/foto/istihdam-ve-ucret-6.jpg",
-      "foto_atif": "Unknown author Unknown author · PDM"
+      "foto": "/statik/foto/istihdam-ve-ucret-10-d80bd500.jpg",
+      "foto_atif": "YeraC · CC-BY-SA-4.0"
     },
     {
       "baslik": "Gözler Merkez Bankası'nda: Enflasyon hedefi değişecek mi?",
@@ -1815,54 +1930,8 @@
         "Faiz farkı: yurt içi ve yurt dışı faiz arasındaki fark, TL cinsi varlıklara yönelen sermaye akımının belirleyicilerinden biridir."
       ],
       "kanal_basligi": "Piyasaya nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-3.jpg",
-      "foto_atif": "epicharmus · BY 2.0"
-    },
-    {
-      "baslik": "ABD’nin petrol rezervlerinde tarihi düşüş: 42 yılın en düşük seviyesi",
-      "baslik_kaynak": "ABD’nin petrol rezervlerinde tarihi düşüş: 42 yılın en düşük seviyesi",
-      "ozet": "ABD’nin İran’a yönelik saldırıların ardından küresel petrol arzındaki kesintiyi telafi etmek amacıyla başlattığı stratejik rezerv salımı, ülkenin stratejik petrol stoklarını 1983’ten bu yana görülen en düşük seviyeye indirdi...",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.cnnturk.com/ekonomi/abdnin-petrol-rezervlerinde-tarihi-dusus-42-yilin-en-dusuk-seviyesi-3451780",
-      "kurum": "CNN Türk",
-      "kurum_tam": "CNN Türk",
-      "konu": "Enerji",
-      "tarih": "2026-08-08",
-      "tarih_gorunur": "8 Ağustos 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Türkiye net enerji ithalatçısıdır; ham petrol ve doğal gaz faturası cari işlemler dengesinin en büyük kalemlerinden biridir.",
-      "kanallar": [
-        "İthalat faturası: enerji fiyatındaki hareket, cari işlemler dengesine doğrudan yansıyan bir girdidir.",
-        "Enflasyon geçişi: akaryakıt fiyatları üzerinden tüketici enflasyonuna geçiş kanalı vardır; hız ve büyüklük vergi yapısına ve kur seviyesine bağlıdır.",
-        "Sektörel maliyet: yakıt maliyetinin gider içindeki payı yüksek sektörler (havayolu, karayolu lojistiği, petrokimya, enerji yoğun sanayi) bu kalemden daha erken etkilenir."
-      ],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enerji-9.jpg",
-      "foto_atif": "NPS photo · PDM"
-    },
-    {
-      "baslik": "12 bin yıllık buğday yeniden tarlalarda: Iza üretimi 500 dönüme çıkarılacak",
-      "baslik_kaynak": "12 bin yıllık buğday yeniden tarlalarda: Iza üretimi 500 dönüme çıkarılacak",
-      "ozet": "Bolu’nun Mengen ilçesinde yaklaşık 12 bin yıllık geçmişe sahip olduğu belirtilen ve “buğdayın atası” olarak kabul edilen ıza buğdayının geleceğe taşınması amacıyla üretim çalışmaları sürdürülüyor.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.cnnturk.com/ekonomi/12-bin-yillik-bugday-yeniden-tarlalarda-iza-uretimi-500-donume-cikarilacak-3451848",
-      "kurum": "CNN Türk",
-      "kurum_tam": "CNN Türk",
-      "konu": "Tarım ve gıda",
-      "tarih": "2026-08-08",
-      "tarih_gorunur": "8 Ağustos 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/tarim-ve-gida-1.jpg",
-      "foto_atif": "Neillwphoto · BY-SA 2.0"
+      "foto": "/statik/foto/para-politikasi-6.jpg",
+      "foto_atif": "Federalreserve · PDM"
     },
     {
       "baslik": "ECB, Mart 2026 sonu için konsolide bankacılık verilerini yayınladı",
@@ -1882,8 +1951,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/bankacilik-8.jpg",
-      "foto_atif": "Artaxerxes · CC-BY-SA-4.0"
+      "foto": "/statik/foto/bankacilik-12-82cf6e6a.jpg",
+      "foto_atif": "JThomas · CC-BY-SA-2.0"
     },
     {
       "baslik": "Batarya depolama kapasitesi son üç yılda ortalama %70 büyüme gösterdi",
@@ -1903,8 +1972,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enerji-9.jpg",
-      "foto_atif": "NPS photo · PDM"
+      "foto": "/statik/foto/enerji-10.png",
+      "foto_atif": "Nicolas Mollet , Credits : Matthias Stasiak · CC-BY-SA-3.0"
     },
     {
       "baslik": "Yeni Kolombiya Başkanı de la Espriella: Sorumlu hidrolik kırılmaya izin verecek",
@@ -1914,7 +1983,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713057/New-Colombian-President-de-la-Espriella-will-permit-responsible-fracking.aspx",
+      "adres": "https://www.financialjuice.com/News/9713057/New-Colombian-President-de-la-Espriella-will-permit-responsible-fracking.aspx?xy=rss",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -1924,8 +1993,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-5.jpg",
-      "foto_atif": "DimiTalen · CC0"
+      "foto": "/statik/foto/sirket-haberleri-8.jpg",
+      "foto_atif": "Myotus · CC-BY-SA-4.0"
     },
     {
       "baslik": "Yeni Kolombiya Devlet Başkanı De la Espriella: Savunmasız gruplara yönelik programlar sürdürülecek",
@@ -1935,7 +2004,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713046/New-Colombian-President-De-la-Espriella-Programs-for-vulnerable-groups-to-be-maintained.aspx",
+      "adres": "https://www.financialjuice.com/News/9713046/New-Colombian-President-De-la-Espriella-Programs-for-vulnerable-groups-to-be-maintained.aspx?xy=rss",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -1945,8 +2014,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-1.jpg",
-      "foto_atif": "justindula · BY-SA 2.0"
+      "foto": "/statik/foto/sirket-haberleri-8.jpg",
+      "foto_atif": "Myotus · CC-BY-SA-4.0"
     },
     {
       "baslik": "Kolombiya'nın yeni Devlet Başkanı De la Espriella: Hükümet kamu harcamalarının dondurulmasını emretti",
@@ -1956,7 +2025,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713045/New-Colombian-President-De-la-Espriella-government-to-decree-public-spending-freeze.aspx",
+      "adres": "https://www.financialjuice.com/News/9713045/New-Colombian-President-De-la-Espriella-government-to-decree-public-spending-freeze.aspx?xy=rss",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -1968,79 +2037,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/sirket-haberleri-6.jpg",
       "foto_atif": "Declan M Martin · PDM"
-    },
-    {
-      "baslik": "Kolombiya'nın yeni Devlet Başkanı de la Espriella: Barış görüşmeleri seçeneği \"tamamen harcandı\"",
-      "baslik_kaynak": "New Colombian President de la Espriella: option of peace talks \"totally spent\"",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713038/New-Colombian-President-de-la-Espriella-option-of-peace-talks-totally-spent.aspx",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Jeopolitik",
-      "tarih": "2026-08-07",
-      "tarih_gorunur": "7 Ağustos 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişmeler piyasaya doğrudan değil, arz riski ve risk iştahı üzerinden geçer. Türkiye için ana kanal enerji faturası ve risk primidir.",
-      "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa petrol ve doğal gaz fiyatına risk primi eklenir. Türkiye net enerji ithalatçısı olduğu için bu, cari işlemler dengesine doğrudan yazılır.",
-        "Risk iştahı: belirsizlik arttığında gelişmekte olan ülke varlıklarından çıkış görülebilir; ülke risk primi ve borçlanma maliyeti yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat pazarlarının bileşimini değiştirir; etki sektörün o pazara bağımlılığı kadardır.",
-        "Güvenli liman talebi: altın ve dolar talebi değişebilir; yönü ve büyüklüğü olayın ne kadarının önceden fiyatlandığına bağlıdır."
-      ],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/jeopolitik-4.jpg",
-      "foto_atif": "\"U.S Advisory Commission on Public Diplomacy meet with YSEALI Alumni\" by United States Embassy Kuala Lumpur is marked with Public Domain Mark 1.0. To view the terms, visit https://creativecommons.org/publicdomain/mark/1.0/. · PDM 1.0"
-    },
-    {
-      "baslik": "Yeni Kolombiya Devlet Başkanı De la Espriella: Suçlular teslim olmalı ya da devletin ve silahlı kuvvetlerin tam gücüyle yüzleşmeli",
-      "baslik_kaynak": "New Colombian President De la Espriella: Criminals must surrender or face full force of state and armed forces",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713036/New-Colombian-President-De-la-Espriella-Criminals-must-surrender-or-face-full-force-of-state-and-armed-forces.aspx",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Jeopolitik",
-      "tarih": "2026-08-07",
-      "tarih_gorunur": "7 Ağustos 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişmeler piyasaya doğrudan değil, arz riski ve risk iştahı üzerinden geçer. Türkiye için ana kanal enerji faturası ve risk primidir.",
-      "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa petrol ve doğal gaz fiyatına risk primi eklenir. Türkiye net enerji ithalatçısı olduğu için bu, cari işlemler dengesine doğrudan yazılır.",
-        "Risk iştahı: belirsizlik arttığında gelişmekte olan ülke varlıklarından çıkış görülebilir; ülke risk primi ve borçlanma maliyeti yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat pazarlarının bileşimini değiştirir; etki sektörün o pazara bağımlılığı kadardır.",
-        "Güvenli liman talebi: altın ve dolar talebi değişebilir; yönü ve büyüklüğü olayın ne kadarının önceden fiyatlandığına bağlıdır."
-      ],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/jeopolitik-14.jpg",
-      "foto_atif": "Dody Ismoyo · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "Veri merkezi şirketi IPO için gizli dosyaya geç",
-      "baslik_kaynak": "Data center company Switch to confidentially file for IPO",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9713001/Data-center-company-Switch-to-confidentially-file-for-IPO.aspx",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Şirket haberleri",
-      "tarih": "2026-08-07",
-      "tarih_gorunur": "7 Ağustos 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-4.jpg",
-      "foto_atif": "Daveybot · BY 2.0"
     },
     {
       "baslik": "Menkul Kıymet İstatistikleri",
@@ -2060,7 +2056,7 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/piyasa-duzenlemesi-7.jpg",
+      "foto": "/statik/foto/piyasa-duzenlemesi-11-5b236449.jpg",
       "foto_atif": "Syced · CC0"
     },
     {
@@ -2081,8 +2077,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/piyasa-duzenlemesi-5.jpg",
-      "foto_atif": "Edgar Degas · PDM"
+      "foto": "/statik/foto/piyasa-duzenlemesi-9-730c05dd.jpg",
+      "foto_atif": "Syced · CC0"
     },
     {
       "baslik": "ABD-Kanada doğalgaz ve elektrik ticaret değeri 2025'te arttı",
@@ -2106,8 +2102,8 @@
         "Sektörel maliyet: yakıt maliyetinin gider içindeki payı yüksek sektörler (havayolu, karayolu lojistiği, petrokimya, enerji yoğun sanayi) bu kalemden daha erken etkilenir."
       ],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enerji-10.png",
-      "foto_atif": "Nicolas Mollet , Credits : Matthias Stasiak · CC-BY-SA-3.0"
+      "foto": "/statik/foto/enerji-13-390475a8.jpg",
+      "foto_atif": "Richard Masoner / Cyclelicious · CC-BY-SA-2.0"
     },
     {
       "baslik": "Reel Efektif Döviz Kuru (Temmuz 2026)",
@@ -2127,8 +2123,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/doviz-3.jpg",
-      "foto_atif": "Images_of_Money · BY 2.0"
+      "foto": "/statik/foto/doviz-7.jpg",
+      "foto_atif": "Philafrenzy · CC-BY-SA-4.0"
     },
     {
       "baslik": "Fed Kurulu, başvurunun Coastal Bend Bancshares, Inc. tarafından onaylandığını duyurdu",
@@ -2148,8 +2144,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/borsa-12.jpg",
-      "foto_atif": "Syced · CC0"
+      "foto": "/statik/foto/borsa-16-3081ebc2.jpg",
+      "foto_atif": "Edgar Degas · PDM"
     },
     {
       "baslik": "Aylık Stok Faiz ve Kâr Payı İstatistikleri",
@@ -2169,8 +2165,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-2.jpg",
-      "foto_atif": "epicharmus · BY 2.0"
+      "foto": "/statik/foto/para-politikasi-5.png",
+      "foto_atif": "US Federal Reserve · PDM"
     },
     {
       "baslik": "ERCOT'taki saatlik pik yük, 22 Temmuz'da 91 GW'ı aşarak yeni bir rekor kırdı",
@@ -2190,8 +2186,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enerji-10.png",
-      "foto_atif": "Nicolas Mollet , Credits : Matthias Stasiak · CC-BY-SA-3.0"
+      "foto": "/statik/foto/enerji-13-390475a8.jpg",
+      "foto_atif": "Richard Masoner / Cyclelicious · CC-BY-SA-2.0"
     },
     {
       "baslik": "Finansal Hesaplar - 2026 I. Çeyrek",
@@ -2211,8 +2207,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/bankacilik-4.jpg",
-      "foto_atif": "DeusXFlorida (11,059,330 views) - thanks guys! · BY 2.0"
+      "foto": "/statik/foto/bankacilik-8.jpg",
+      "foto_atif": "Artaxerxes · CC-BY-SA-4.0"
     },
     {
       "baslik": "Aylık Para ve Banka İstatistikleri ve Parasal Gelişmeler (Haziran 2026)",
@@ -2232,8 +2228,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/bankacilik-7.jpg",
-      "foto_atif": "Dr Neil Clifton · CC-BY-SA-2.0"
+      "foto": "/statik/foto/bankacilik-11-15214f48.jpg",
+      "foto_atif": "Jim Osley · CC-BY-SA-2.0"
     },
     {
       "baslik": "BIS-Yerel ve Konsolide Bankacılık İstatistikleri (2026 I. Çeyrek)",
@@ -2253,8 +2249,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/bankacilik-1.jpg",
-      "foto_atif": "(vincent desjardins) · BY 2.0"
+      "foto": "/statik/foto/bankacilik-5.jpg",
+      "foto_atif": "Julian Lupyan · CC0"
     },
     {
       "baslik": "Fed Kurulu, bir bankanın kredi verme kararlarını potansiyel olarak etkileyebilecek banka yöneticileri, yönetim kurulu üyeleri ve büyük hissedarlar gibi banka \"içeriden öğrenenler\" kredi verilmesini düzenleyen kuralını modernize etme önerisi hakkında görüşe açtı",
@@ -2274,8 +2270,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/duzenleme-7.jpg",
-      "foto_atif": "Michal Klajban · CC-BY-SA-4.0"
+      "foto": "/statik/foto/duzenleme-11-39ad69b8.jpg",
+      "foto_atif": "National Park Service · PDM"
     },
     {
       "baslik": "Çin'in ham petrol ithalatı ikinci çeyrekte düştü",
@@ -2299,8 +2295,8 @@
         "Sektörel maliyet: yakıt maliyetinin gider içindeki payı yüksek sektörler (havayolu, karayolu lojistiği, petrokimya, enerji yoğun sanayi) bu kalemden daha erken etkilenir."
       ],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enerji-3.jpg",
-      "foto_atif": "w_lemay · BY-SA 2.0"
+      "foto": "/statik/foto/enerji-8.jpg",
+      "foto_atif": "Chris English · CC-BY-SA-3.0"
     },
     {
       "baslik": "Para Politikası Kurulu Toplantı Özeti (2026-32)",
@@ -2325,8 +2321,8 @@
         "Faiz farkı: yurt içi ve yurt dışı faiz arasındaki fark, TL cinsi varlıklara yönelen sermaye akımının belirleyicilerinden biridir."
       ],
       "kanal_basligi": "Piyasaya nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-8.png",
-      "foto_atif": "FRED, Federal Reserve Bank of St. Louis · PDM"
+      "foto": "/statik/foto/para-politikasi-11-1dc1f4ee.jpg",
+      "foto_atif": "Ben Schumin · CC-BY-SA-3.0"
     },
     {
       "baslik": "En yüksek erişilebilirlik standartlarını içeren dijital euro uygulaması",
@@ -2346,8 +2342,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-1.jpg",
-      "foto_atif": "Kevin Krejci · BY 2.0"
+      "foto": "/statik/foto/para-politikasi-4.jpg",
+      "foto_atif": "Dan Smith · BY-SA 2.5"
     },
     {
       "baslik": "Türkiye Cumhuriyet Merkez Bankası ile Suriye Merkez Bankası Arasında Türk Lirası Mevduat Hesabı Anlaşması İmzalandı (2026-31)",
@@ -2367,8 +2363,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-4.jpg",
-      "foto_atif": "Dan Smith · BY-SA 2.5"
+      "foto": "/statik/foto/para-politikasi-7.png",
+      "foto_atif": "FRED · PDM"
     },
     {
       "baslik": "Ödeme ve Elektronik Para Kuruluşu Hesap Sahipliği Sorgulama Hizmeti Hakkında Basın Duyurusu (2026-30)",
@@ -2388,8 +2384,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-5.png",
-      "foto_atif": "US Federal Reserve · PDM"
+      "foto": "/statik/foto/para-politikasi-8.png",
+      "foto_atif": "FRED, Federal Reserve Bank of St. Louis · PDM"
     },
     {
       "baslik": "ECB ücret göstergesi, 2027'nin ilk çeyreğinde %2,7 ile istikrarlı müzakere edilmiş ücret baskılarına işaret ediyor",
@@ -2409,8 +2405,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/istihdam-ve-ucret-5.jpg",
-      "foto_atif": "Hybernator · PDM"
+      "foto": "/statik/foto/istihdam-ve-ucret-9-47f787a2.jpg",
+      "foto_atif": "YeraC · CC-BY-SA-4.0"
     },
     {
       "baslik": "Düşük ham petrol fiyatları 2025'te ABD-Kanada enerji ticaret değerini düşürdü",
@@ -2434,8 +2430,8 @@
         "Sektörel maliyet: yakıt maliyetinin gider içindeki payı yüksek sektörler (havayolu, karayolu lojistiği, petrokimya, enerji yoğun sanayi) bu kalemden daha erken etkilenir."
       ],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enerji-9.jpg",
-      "foto_atif": "NPS photo · PDM"
+      "foto": "/statik/foto/enerji-10.png",
+      "foto_atif": "Nicolas Mollet , Credits : Matthias Stasiak · CC-BY-SA-3.0"
     },
     {
       "baslik": "Küçük İşletme Forumunun Kongreye Sunduğu Rapor, Sermaye Artırma Politikasını Geliştirmeye Yönelik Önerileri Vurguluyor",
@@ -2455,8 +2451,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/duzenleme-5.jpg",
-      "foto_atif": "Broiledcorn · CC0"
+      "foto": "/statik/foto/duzenleme-9-c6a4148e.jpg",
+      "foto_atif": "M C Morgan · CC-BY-SA-2.0"
     },
     {
       "baslik": "Hibrit satışlar artarken, akü elektrik satışları vergi kredisinin sona ermesinden sonra düşük kalmaya devam ediyor",
@@ -2476,8 +2472,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/vergi-ve-kamu-maliyesi-2.jpg",
-      "foto_atif": "Philip Taylor PT · BY 2.0"
+      "foto": "/statik/foto/vergi-ve-kamu-maliyesi-6.jpg",
+      "foto_atif": "MoneyBlogNewz · CC-BY-2.0"
     },
     {
       "baslik": "Sektörel Enflasyon Beklentileri (Temmuz 2026)",
@@ -2502,8 +2498,8 @@
         "Maliyet yenilemesi: kira, ücret ve uzun vadeli sözleşme yenilemeleri bu endekse bağlıdır."
       ],
       "kanal_basligi": "Piyasaya nasıl yansır?",
-      "foto": "/statik/foto/enflasyon-1.jpg",
-      "foto_atif": "Matthew Paul Argall · BY 2.0"
+      "foto": "/statik/foto/enflasyon-5.jpg",
+      "foto_atif": "999real · CC0"
     },
     {
       "baslik": "Finansal Hizmetler İstatistikleri ve Finansal Hizmetler Güven Endeksi (Temmuz 2026)",
@@ -2523,7 +2519,7 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/borsa-11.jpg",
+      "foto": "/statik/foto/borsa-15-0edc5668.jpg",
       "foto_atif": "Syced · CC0"
     },
     {
@@ -2544,8 +2540,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-1.jpg",
-      "foto_atif": "Kevin Krejci · BY 2.0"
+      "foto": "/statik/foto/para-politikasi-4.jpg",
+      "foto_atif": "Dan Smith · BY-SA 2.5"
     },
     {
       "baslik": "ECB Yönetim Konseyi tarafından alınan kararlar (faiz oranlarını belirleyen kararlara ek olarak)",
@@ -2565,8 +2561,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-1.jpg",
-      "foto_atif": "Kevin Krejci · BY 2.0"
+      "foto": "/statik/foto/para-politikasi-4.jpg",
+      "foto_atif": "Dan Smith · BY-SA 2.5"
     },
     {
       "baslik": "ECB, Eurosystem teminat çerçevesindeki iklim faktörlerinin kullanımını finansal olmayan kurumsal kredi taleplerine genişletecek",
@@ -2586,8 +2582,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-3.jpg",
-      "foto_atif": "epicharmus · BY 2.0"
+      "foto": "/statik/foto/para-politikasi-6.jpg",
+      "foto_atif": "Federalreserve · PDM"
     },
     {
       "baslik": "Euro cinsinden menkul kıymet finansmanı ve OTC türev piyasalarında (SESFOD) kredi hüküm ve koşullarına ilişkin Haziran 2026 anketinin sonuçları",
@@ -2607,8 +2603,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/piyasa-duzenlemesi-5.jpg",
-      "foto_atif": "Edgar Degas · PDM"
+      "foto": "/statik/foto/piyasa-duzenlemesi-9-730c05dd.jpg",
+      "foto_atif": "Syced · CC0"
     },
     {
       "baslik": "ECB, merkez bankaları için gelişmiş repo tesisi uygulamaya başlayacak",
@@ -2628,8 +2624,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-8.png",
-      "foto_atif": "FRED, Federal Reserve Bank of St. Louis · PDM"
+      "foto": "/statik/foto/para-politikasi-11-1dc1f4ee.jpg",
+      "foto_atif": "Ben Schumin · CC-BY-SA-3.0"
     },
     {
       "baslik": "2026'nın üçüncü çeyreği için ECB Profesyonel Tahminciler Anketi Sonuçları",
@@ -2649,8 +2645,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-8.png",
-      "foto_atif": "FRED, Federal Reserve Bank of St. Louis · PDM"
+      "foto": "/statik/foto/para-politikasi-11-1dc1f4ee.jpg",
+      "foto_atif": "Ben Schumin · CC-BY-SA-3.0"
     }
   ],
   "sinir_notu": "Yukarıdaki maddeler yapısal aktarım kanallarıdır, öngörü değildir. Etkinin ne zaman ve ne ölçüde görüleceği kur seviyesi, vergi düzenlemeleri ve sözleşme yapılarına bağlı olarak değişir; bu sayfada bir büyüklük tahmini yapılmamaktadır."

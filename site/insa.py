@@ -605,6 +605,7 @@ def foto_dagit(haberler: list[dict], varlik_haritasi: dict,
     if kayit is None:
         return {}
     sonuc: dict[str, object] = {}
+    onceki = ""          # bir onceki satirin gorseli
     # SAYFASI OLMAYAN OGELER DE DAGITIMA GIRIYOR: canli akista onlarin
     # da yaninda kucuk gorsel var ve o gorseller de tekrarsiz olmali.
     sirali = sorted(
@@ -639,9 +640,20 @@ def foto_dagit(haberler: list[dict], varlik_haritasi: dict,
             anahtar = adaylar[i]["kod"]
         else:
             anahtar = h.get("konu", "")
-        f = _en_az_kullanilan(kayit.havuz(anahtar), adres)
+        # ART ARDA AYNI GORSEL VERILMIYOR.
+        #
+        # Dagitim kullanim sayisini dengeliyor ama SIRAYI gormuyordu;
+        # canli akista iki komsu satir ayni gorseli alabiliyordu ve
+        # okurun ikisini birlikte gordugu tek durum bu. Bir onceki
+        # atama adaylardan cikariliyor -- havuzda tek gorsel varsa
+        # elbette kaliyor.
+        havuz = kayit.havuz(anahtar)
+        if onceki and len(havuz) > 1:
+            havuz = [x for x in havuz if x.dosya != onceki] or havuz
+        f = _en_az_kullanilan(havuz, adres)
         if f is not None:
             sonuc[adres] = f
+            onceki = f.dosya
     return sonuc
 
 
