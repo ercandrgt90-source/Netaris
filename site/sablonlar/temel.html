@@ -156,10 +156,19 @@
     <div class="serit-sira" data-serit-sira>
       {% if gostergeler and gostergeler.kalemler %}
       {% for k in gostergeler.kalemler %}
-      <span class="kalem" title="{{ k.ad }} — son veri {{ k.tarih }}">
-        <span class="nokta nokta-gecmis"></span>
+      {# BAYATLIK GORUNUR.
+         Serit "canli fiyat" izlenimi veriyordu ama kalemlerin tarihleri
+         birbirini tutmuyor: kur ayni gun, S&P uc gunluk, Brent yedi
+         gunluk, EUR/USD ON gunluk -- hepsi ayni gri noktayla yan yana.
+         Okur hangisinin ne kadar eski oldugunu goremiyordu.
+         Kalem DUSURULMUYOR (Brent gecikmeli de olsa merkezi bir fiyat);
+         yalnizca kac gunluk oldugu yaziliyor. #}
+      <span class="kalem{% if k.bayat %} kalem-bayat{% endif %}"
+            title="{{ k.ad }} — son veri {{ k.tarih }}">
+        <span class="nokta {% if k.bayat %}nokta-bayat{% else %}nokta-gecmis{% endif %}"></span>
         <span class="kalem-ad">{{ k.ad }}</span>
         <span class="kalem-deger">{{ k.deger }}</span>
+        {% if k.bayat %}<span class="kalem-yas">{{ k.gun }}g</span>{% endif %}
         {# Kivilcim seriden cizilir; seri yoksa hic basilmaz. Tek noktadan
            cizilen bir "grafik" egilim varmis izlenimi verirdi. #}
         {% if kivilcimlar and kivilcimlar[k.kod] %}

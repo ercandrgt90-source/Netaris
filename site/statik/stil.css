@@ -288,6 +288,19 @@ img, svg { max-width: 100%; }
 
 .nokta-gecmis { background: var(--notr); }
 
+/* BAYAT KALEM. Serit uc kaynaktan besleniyor ve tazelikleri esit degil:
+   TCMB kuru ayni gun, FRED'in endeksleri uc gun, kur serileri ON GUN
+   gecikmeli. Hepsini ayni gri noktayla basmak, seride "canli" demek
+   olurdu. Kalem gizlenmiyor -- yasi yaninda yaziyor. */
+.nokta-bayat { background: var(--uyari); }
+.kalem-yas {
+  font-size: 0.62rem; font-weight: 700;
+  color: var(--uyari); letter-spacing: 0.02em;
+  padding: 1px 4px; border-radius: 4px;
+  background: color-mix(in srgb, var(--uyari) 14%, transparent);
+}
+.kalem-bayat .kalem-deger { color: var(--yazi-2); }
+
 @keyframes nabiz {
   70%  { box-shadow: 0 0 0 7px rgba(0, 0, 0, 0); }
   100% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0); }

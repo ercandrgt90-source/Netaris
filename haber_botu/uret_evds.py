@@ -26,6 +26,7 @@ sys.path.insert(0, str(_KOK))
 
 import beyin
 import politika_faizi  # noqa: E402
+import ecb_kur  # noqa: E402
 import evds  # noqa: E402
 
 KAYNAK = "TCMB EVDS"
@@ -110,6 +111,28 @@ def main() -> int:
                 # denetim tazelik kontrolu bunu yakalar.
                 print("  UYARI: politika faizi PPK duyurusundan "
                       "okunamadi; onceki deger korunuyor")
+
+            # ECB REFERANS KURU -- ayni adimda, ANAHTARSIZ.
+            #
+            # Buraya konuldu cunku EVDS hatti zaten gunluk kurlari
+            # tasiyor ve ikisi ayni tabloya yaziyor. Ayri bir hat
+            # kurmak, calistirma listesinde unutulabilecek bir adim
+            # daha demekti.
+            #
+            # EVDS ANAHTARINA BAGLI DEGIL: ECB anahtar istemiyor. Ust
+            # taraftaki "anahtar yoksa atla" kurali bu cagriyi da
+            # atlardi, o yuzden hata durumu ayrica yakalanıyor.
+            try:
+                kur = ecb_kur.cek()
+                n_ecb = ecb_kur.depoya_yaz(b, kur)
+                if kur:
+                    print(f"  OK  {'EUR/USD (ECB)':<24} "
+                          f"{kur[0][1]:>12,.4f}       {kur[0][0]}"
+                          f"  ({n_ecb} yeni)")
+                ozet["ecb_kur"] = n_ecb
+            except Exception as e:                        # noqa: BLE001
+                print(f"  --  {'EUR/USD (ECB)':<24} CEKILEMEDI: "
+                      f"{type(e).__name__}")
 
             ozet.update({"yeni_gozlem": n, "seri": len(seriler)})
     print(f"\ndepo: {n} yeni gozlem ({len(gozlemler)} okundu), "

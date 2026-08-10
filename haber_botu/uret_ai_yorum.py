@@ -94,12 +94,30 @@ def girdi_kur(h: dict, d) -> str:
          f"Kaynak: {h.get('kurum_tam') or h.get('kurum', '')}"]
     if h.get("ozet"):
         p.append(f"Veri: {h['ozet']}")
+    # HABERIN KENDI OLCUMU VAR MI?
+    #
+    # Dosyanin bulgulari HABERE degil KONUSUNA ait. Olcumu olmayan bir
+    # habere onlari gondermek, modele anlatacak tek sayiyi vermek
+    # demek -- ve model onu anlatiyor. Olculdu, ana sayfada yan yana
+    # yayimlandi: "Yemen'de Mocha limanina saldiri", "Iran
+    # cumhurbaskani Hamaney'le gorustu" ve "Axios roportaji"
+    # haberlerinin UCU DE ayni cumleyle basladi -- "Brent petrolun
+    # kapanis fiyati 88,90 $...". Ucu de ayni jeopolitik dosyaya bagli
+    # ve o dosyadaki tek sayi Brent'ti.
+    #
+    # Cozum bulgulari kaldirmak degil, OLCUMU OLMAYAN HABERE
+    # gondermemek: o durumda `olcum_var` False donuyor ve ikinci
+    # yonerge (`SISTEM_OLCUMSUZ`) devreye giriyor -- "sayi arama,
+    # MEKANIZMAYI anlat". Sektor listesi ve izlenecekler yine
+    # gonderiliyor; onlar sayi degil yapi.
+    kendi_olcumu = bool((h.get("ozet") or "").strip()
+                        or (d is not None and d.acilis))
     if d is not None:
         if d.acilis:
             p.append(f"Açılış: {d.acilis}")
-        for b in d.bulgular:
+        for b in (d.bulgular if kendi_olcumu else ()):
             p.append(f"Bulgu: {b}")
-        for g in d.turkiye:
+        for g in (d.turkiye if kendi_olcumu else ()):
             # SAYI BICIMLENDIRILEREK GONDERILIYOR.
             #
             # `g.son` ham `float`; f-string onu tam hassasiyetle basiyor

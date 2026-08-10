@@ -21,6 +21,7 @@ Kullanim:
 from __future__ import annotations
 
 import argparse
+import datetime
 import json
 import pathlib
 import sys
@@ -53,7 +54,11 @@ PANEL_SERILERI = (
     "SP500", "NASDAQCOM", "DJIA",
     "DCOILBRENTEU", "DCOILWTICO",
     "DFF", "DGS2", "DGS10", "T10Y2Y",
-    "VIXCLS", "DTWEXBGS", "DEXUSEU",
+    # DEXUSEU CIKARILDI: ayni buyuklugu ECB anahtarsiz ve AYNI IS GUNU
+    # veriyor, FRED serisi ise alti is gunu geride geliyordu. Kod
+    # tamamen silinmedi -- `PANEL_ADLARI` ve depo gecmisi duruyor,
+    # yalnizca seride/panele girmiyor.
+    "VIXCLS", "DTWEXBGS",
 )
 
 #: Kac gozlemlik pencere. 14 islem gunu iki haftalik bir hareketi gosterir;
@@ -120,6 +125,9 @@ PANEL_ADLARI = {
     "VIXCLS": "VIX",
     "DTWEXBGS": "Dolar endeksi",
     "DEXUSEU": "EUR/USD",
+    "ECB_EURUSD": "EUR/USD",
+    "TP.DK.USD.S.YTL": "USD/TRY",
+    "TP.DK.EUR.S.YTL": "EUR/TRY",
 }
 
 #: Panel gruplari -- (baslik, kod listesi)
@@ -127,7 +135,7 @@ PANEL_GRUPLARI = (
     ("Endeksler", ("SP500", "NASDAQCOM", "DJIA")),
     ("Emtia", ("DCOILBRENTEU", "DCOILWTICO")),
     ("Faiz", ("DFF", "DGS2", "DGS10", "T10Y2Y")),
-    ("Risk ve kur", ("VIXCLS", "DTWEXBGS", "DEXUSEU")),
+    ("Risk ve kur", ("VIXCLS", "DTWEXBGS", "ECB_EURUSD")),
 )
 
 SERIT_DOSYASI = _KOK.parent / "site" / "icerik" / "gostergeler.json"
@@ -180,6 +188,106 @@ def _bicimle(h, ad: str) -> dict:
         "yon": yon, "tarih": h.son_tarih, "birim": h.birim,
     }
 
+#: Serit kalemlerinin TCMB'den gelen bolumu -- (seri kodu, gorunen ad).
+#:
+#: NEDEN AYRI: serit yalnizca FRED'den besleniyordu ve FRED'in gunluk
+#: KUR serileri bu makineden olculdugunde ON GUN geride geliyordu
+#: (DEXUSEU 2026-07-31, DTWEXBGS 2026-07-31). Ustelik Turk okurun en cok
+#: baktigi USD/TRY seritte HIC YOKTU.
+#:
+#: Veri zaten elimizdeydi: EVDS hatti TP.DK.USD.S.YTL ve
+#: TP.DK.EUR.S.YTL serilerini AYNI GUN depoya yaziyor. Yani eksik olan
+#: kaynak degil, seridin o kaynagi kullanmasiydi.
+KUR_KALEMLERI = (
+    ("TP.DK.USD.S.YTL", "USD/TRY"),
+    ("TP.DK.EUR.S.YTL", "EUR/TRY"),
+    # EUR/USD ECB'den. FRED'in `DEXUSEU` serisi ayni olcumde ALTI IS
+    # GUNU geride geliyordu; ECB kendi referans kurunu her is gunu
+    # yayimliyor ve son tarihi en son is gunuydu. FRED serisi seritten
+    # cikariliyor (asagida), depoda gecmis olarak duruyor.
+    ("ECB_EURUSD", "EUR/USD"),
+)
+
+
+def _kur_kalemleri() -> list[dict]:
+    """TCMB kurlarini serit kalemine cevirir. Depo yoksa bos doner."""
+    cikti: list[dict] = []
+    try:
+        with beyin.baglan() as b:
+            for kod, ad in KUR_KALEMLERI:
+                satir = b.execute(
+                    "SELECT tarih, deger FROM gosterge WHERE kod=?"
+                    " ORDER BY tarih DESC LIMIT 2", (kod,)).fetchall()
+                if not satir:
+                    continue
+                son = float(satir[0][1])
+                onceki = float(satir[1][1]) if len(satir) > 1 else None
+                yuzde = ((son / onceki - 1) * 100
+                         if onceki else None)
+                cikti.append({
+                    "kod": kod, "ad": ad, "deger": _tr(son, 2),
+                    "fark": (f"{yuzde:+.2f}".replace(".", ",") + "%"
+                             if yuzde is not None else "—"),
+                    "yon": ("artis" if yuzde and yuzde > 0
+                            else "azalis" if yuzde and yuzde < 0 else "yatay"),
+                    "tarih": satir[0][0], "birim": "TL",
+                })
+    except Exception as e:                                # noqa: BLE001
+        print(f"  kur kalemleri okunamadi: {type(e).__name__}")
+    return cikti
+
+
+#: Bu kadar gunden eski kalem BAYAT sayilir ve sayfada tarihi GORUNUR.
+#:
+#: Serit "canli fiyat" izlenimi veriyor ama kalemlerin tarihleri birbirini
+#: tutmuyordu: S&P uc gunluk, Brent yedi gunluk, EUR/USD ON gunluk --
+#: hepsi ayni gri noktayla, ayni satirda. Okur hangisinin ne kadar eski
+#: oldugunu goremiyordu.
+#:
+#: Kalem DUSURULMUYOR: Brent yedi gun gecikmeli de olsa bu sitenin en
+#: merkezi fiyati ve onu gizlemek, okuru bilgiden mahrum birakir.
+#: Gosterilen sey degismiyor, YANINDA KAC GUNLUK OLDUGU yaziliyor.
+SERIT_BAYAT_GUN = 3
+
+
+def _is_gunu_farki(eski: datetime.date, yeni: datetime.date) -> int:
+    """Iki tarih arasindaki IS GUNU sayisi (hafta sonu sayilmaz).
+
+    TAKVIM GUNU YANLIS OLCUYOR. Pazartesi gunu bakildiginda S&P 500'un
+    CUMA kapanisi elde olan EN GUNCEL veridir -- borsa hafta sonu
+    kapali. Takvim gunuyle olculunce o kalem "3 gun eski" cikiyor ve
+    seritte bayat isaretleniyordu; olculdu, 14 kalemin 12'si bayat
+    gorundu. Oysa gercekten geride olan dorttu.
+
+    Ters yonde yanlis isaretlemek, hic isaretlememekten kotudur: okur
+    dogru veriyi de suphelenerek okur.
+    """
+    if yeni <= eski:
+        return 0
+    n = 0
+    g = eski
+    while g < yeni:
+        g += datetime.timedelta(days=1)
+        if g.weekday() < 5:            # 5=cumartesi, 6=pazar
+            n += 1
+    return n
+
+
+def _bayat_isaretle(kalemler: list[dict]) -> int:
+    """Eski kalemlere `bayat` ve `gun` alani ekler. Bayat sayisini doner."""
+    bugun = datetime.date.today()
+    n = 0
+    for k in kalemler:
+        try:
+            gun = _is_gunu_farki(datetime.date.fromisoformat(k["tarih"]), bugun)
+        except (ValueError, KeyError, TypeError):
+            continue
+        k["gun"] = gun
+        k["bayat"] = gun >= SERIT_BAYAT_GUN
+        n += k["bayat"]
+    return n
+
+
 def _panel_yaz(panel_gorunum) -> None:
     """Serit ve piyasa ozeti panelinin verisini siteye yazar.
 
@@ -188,9 +296,17 @@ def _panel_yaz(panel_gorunum) -> None:
     (kripto, altin) tarayicida `canli.js` tarafindan eklenir ve yesil
     noktayla ayrilir.
     """
-    kalemler = [
+    # KUR KALEMLERI EN BASTA.
+    #
+    # Turk okur serite once USD/TRY icin bakiyor; S&P 500 ondan sonra
+    # gelir. Ustelik bu ikisi seridin AYNI GUN olan tek kalemleri.
+    kalemler = _kur_kalemleri() + [
         _bicimle(h, SERIT_ADLARI.get(h.kod, h.ad)) for h in panel_gorunum.hareketler
     ]
+    n_bayat = _bayat_isaretle(kalemler)
+    if n_bayat:
+        print(f"  {n_bayat}/{len(kalemler)} kalem {SERIT_BAYAT_GUN} gunden "
+              f"eski -- seritte tarihi gorunecek")
     bul = {k["kod"]: k for k in kalemler}
 
     gruplar = []
