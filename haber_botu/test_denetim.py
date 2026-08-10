@@ -74,6 +74,47 @@ rapor_alanlari = {k for _ad, kodlar, _i, _k in denetim.RAPOR_ALANLARI
 for alan in denetim.SINIFLAR:
     es(f"'{alan}' raporda", alan in rapor_alanlari, True)
 
+# ------------------------------------------------------------------
+# LISANS DENETIMI -- CC BY atfi hukuki yukumluluk, bu yuzden HATA.
+#
+# Olculdu: haber sayfalarinda 417/417 gorsel kunyeliydi ama LISTE
+# sayfalarindaki 48 kart gorseli kunyesizdi ve hicbir yerde gorunmuyordu.
+# ------------------------------------------------------------------
+print("\nLisans denetimi -- atifsiz gorsel HATA")
+import tempfile  # noqa: E402
+
+_ASIL = denetim.CIKTI_DIZINI
+with tempfile.TemporaryDirectory() as gecici:
+    kok = pathlib.Path(gecici)
+    denetim.CIKTI_DIZINI = kok
+
+    def sayfa(ad, govde):
+        d = kok / ad
+        d.mkdir(parents=True, exist_ok=True)
+        (d / "index.html").write_text(govde, encoding="utf-8")
+
+    KART = '<img src="/statik/foto/borsa-1.jpg">'
+    sayfa("atifsiz", f"<main>{KART}</main>")
+    es("kunyesiz kart yakalanir",
+       [(b.agirlik, b.alan) for b in denetim._lisans_denetimi()],
+       [("hata", "gorsel")])
+
+    sayfa("atifsiz", f'<main>{KART}<p class="foto-kunye-toplu">Görseller: X</p></main>')
+    es("toplu kunye yeterli", denetim._lisans_denetimi(), [])
+
+    sayfa("atifsiz",
+          f"<main><figure>{KART}<figcaption>Foto: X</figcaption></figure></main>")
+    es("figcaption yeterli", denetim._lisans_denetimi(), [])
+
+    # Kucuk (akis) surumler sayilmiyor: 40 piksellik gorsel ve ayni
+    # sayfada buyugu kunyeli basiliyor.
+    sayfa("atifsiz", '<main><img src="/statik/foto/k/borsa-1.jpg"></main>')
+    es("kucuk surum kunye istemez", denetim._lisans_denetimi(), [])
+
+    sayfa("atifsiz", "<main>gorselsiz sayfa</main>")
+    es("gorselsiz sayfa", denetim._lisans_denetimi(), [])
+denetim.CIKTI_DIZINI = _ASIL
+
 print()
 for k in kaldi:
     print("  KALDI", k)

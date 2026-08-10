@@ -377,6 +377,41 @@ YORUM_SAYI_ORANI = 0.5
 _SAYI_KALIBI = re.compile(r"\d[\d.]*,\d+|\d{1,3}(?:\.\d{3})+|\d{2,}")
 
 
+def _lisans_denetimi() -> list[Bulgu]:
+    """Yayimlanan her havuz gorselinin atfi var mi?
+
+    CC BY ATFI ZORUNLU -- hukuki bir yukumluluk, tercih degil. Bu
+    yuzden agirligi HATA: eksik atif dagitimi durdurmali.
+
+    Iki gecerli bicim var:
+      * `<figure>` icinde `<figcaption>` -- haber sayfasindaki buyuk
+        gorsel boyle basiliyor.
+      * Sayfa altinda toplu kunye -- liste sayfalarindaki kart
+        gorselleri icin; kart basina kunye izgarayi bozuyor.
+
+    Olculdu: haber sayfalarinda 417/417 kunyeliydi ama liste
+    sayfalarindaki 48 kart gorseli kunyesizdi ve bu hicbir yerde
+    gorunmuyordu.
+    """
+    bulgu: list[Bulgu] = []
+    if not CIKTI_DIZINI.exists():
+        return bulgu
+    kart = re.compile(r'src="(/statik/foto/(?!k/)[^"]+)"')
+    for p in CIKTI_DIZINI.rglob("index.html"):
+        metin = p.read_text(encoding="utf-8")
+        yollar = set(kart.findall(metin))
+        if not yollar:
+            continue
+        for m in re.finditer(r"<figure[^>]*>.*?</figure>", metin, re.S):
+            if "figcaption" in m.group():
+                yollar -= set(kart.findall(m.group()))
+        if yollar and "foto-kunye-toplu" not in metin:
+            bulgu.append(Bulgu(
+                "hata", "gorsel", (p.parent.name or "/")[:40],
+                f"{len(yollar)} gorsel ATIFSIZ basiliyor -- CC BY ihlali"))
+    return bulgu
+
+
 def _veri_tutarlilik_denetimi() -> list[Bulgu]:
     """Yorumdaki sayilarin sayfada karsiligi var mi?
 
@@ -549,6 +584,7 @@ def editoryal_denetim() -> list[Bulgu]:
     #      dagilim 9/4/3/3 iken duzgun halinde 22/22/21/21.
     bulgu += _gorsel_denetimi()
     bulgu += _veri_tutarlilik_denetimi()
+    bulgu += _lisans_denetimi()
 
     # --- yayimlanmis gurultu ---
     #

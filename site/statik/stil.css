@@ -3149,3 +3149,16 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none; }
   font-size: 0.74rem; color: var(--yazi-3);
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
 }
+
+/* KART GORSELLERININ TOPLU KUNYESI.
+   Haber sayfasindaki buyuk gorsel `<figure>` icinde kendi kunyesiyle
+   basiliyor. Liste sayfalarindaki kart gorselleri figure disinda ve
+   kart basina kunye yazmak izgarayi bozardi -- CC BY'nin kabul ettigi
+   yontem sayfa altinda toplu atif. Kucuk ve sessiz duruyor ama
+   SILINEMEZ: atifi dusurmek lisansi ihlal eder. */
+.foto-kunye-toplu {
+  max-width: var(--kabuk, 1180px);
+  margin: 0 auto; padding: 0 20px 18px;
+  font-size: 0.68rem; line-height: 1.5;
+  color: var(--yazi-3);
+}

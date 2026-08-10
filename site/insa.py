@@ -1057,9 +1057,63 @@ def hakkimizda_yukle() -> Hakkimizda | None:
 # Yazma
 # ---------------------------------------------------------------------------
 
+#: Kart gorsellerinin toplu kunyesi bu isaretin yerine yaziliyor.
+_KUNYE_ISARETI = "</footer>"
+
+#: `<figure>` disinda basilan havuz gorseli. Kucuk (akis) surumler
+#: haric: onlar 40 piksel ve zaten ayni sayfada buyugu kunyeli basiliyor.
+_KART_GORSELI = re.compile(r'src="(/statik/foto/(?!k/)[^"]+)"')
+
+
+def _foto_kunyeleri(html_metni: str) -> str:
+    """Sayfadaki kunyesiz kart gorselleri icin toplu atif satiri.
+
+    NEDEN: CC BY atfi ZORUNLU ve bu projenin kendi kurali da oyle
+    ("atifi dusuren bir kod degisikligi lisansi ihlal eder").
+    Haber sayfasindaki buyuk gorsel `<figure>` icinde kunyesiyle
+    basiliyor -- olculdu, 417'nin 417'si. Ama LISTE sayfalarindaki kart
+    gorselleri figure disinda ve kunyesizdi: 48 gorsel.
+
+    Kart basina kunye yazmak izgarayi bozar; kabul edilen yontem
+    sayfanin altinda toplu atif. Tekrar edenler bir kez yaziliyor.
+
+    BURADA, sablonda DEGIL: her liste sablonuna ayri ayri eklemek,
+    birinde unutuldugunda sessizce ihlal demekti. `yaz` butun
+    sayfalarin tek gecis noktasi.
+    """
+    if _foto is None:
+        return ""
+    yollar = set(_KART_GORSELI.findall(html_metni))
+    # Zaten figure icinde kunyeli basilanlar cikariliyor.
+    for m in re.finditer(r"<figure[^>]*>.*?</figure>", html_metni, re.S):
+        if "figcaption" in m.group():
+            yollar -= set(_KART_GORSELI.findall(m.group()))
+    if not yollar:
+        return ""
+    kayit = foto_defteri()
+    if kayit is None:
+        return ""
+    atiflar = []
+    for f in (x for liste in kayit.veri.values() for x in liste):
+        if f["dosya"] in yollar:
+            k = _foto.Foto(**f).kisa_atif
+            if k not in atiflar:
+                atiflar.append(k)
+    if not atiflar:
+        return ""
+    return ('<p class="foto-kunye-toplu">Görseller: '
+            + " · ".join(html.escape(a) for a in sorted(atiflar))
+            + "</p>\n")
+
+
 def yaz(goreli: str, icerik: str) -> pathlib.Path:
     hedef = CIKTI / goreli.lstrip("/")
     hedef.parent.mkdir(parents=True, exist_ok=True)
+    if goreli.endswith(".html") and _KUNYE_ISARETI in icerik:
+        kunye = _foto_kunyeleri(icerik)
+        if kunye:
+            icerik = icerik.replace(
+                _KUNYE_ISARETI, kunye + _KUNYE_ISARETI, 1)
     hedef.write_text(icerik, encoding="utf-8")
     return hedef
 
