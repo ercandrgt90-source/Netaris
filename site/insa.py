@@ -1624,6 +1624,22 @@ def gosterge_brifingi(h: dict, h_varliklar, takvim: list[dict]) -> dict | None:
     if _takvim is None or not takvim or not h_varliklar:
         return None
 
+    # VERI ACIKLAMASININ KENDISINDE BRIFING BASILMAZ.
+    #
+    # Brifing "yaklasan aciklamada ne izlenecek" kutusu ve icindeki
+    # "Son aciklanan" degeri DEPODAN geliyor. Ama haberin KENDISI o
+    # aciklamaysa, depodaki deger haberden daha eski olabiliyor ve
+    # sayfada ayni gosterge icin IKI FARKLI GUNCEL DEGER goruluyor.
+    #
+    # Olculdu ve yayimlandi: basligi "ABD TÜFE: yıllık %3,73" olan
+    # sayfada kutu "Son açıklanan %3,5" diyordu. Ikisi de ABD TUFE
+    # yillik; okur hangisinin guncel oldugunu secemez.
+    #
+    # Bekleyis haberinde ("gozler TUFE verisinde") kutu DOGRU ve
+    # degerli; yalnizca aciklamanin kendisinde yeri yok.
+    if (h.get("adres") or "").startswith(_VERI_ONEK):
+        return None
+
     kodlar = {VARLIK_SERI.get(v["kod"]) for v in h_varliklar}
     kodlar.discard(None)
     if not kodlar:
