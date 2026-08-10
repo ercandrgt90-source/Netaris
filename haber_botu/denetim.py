@@ -762,6 +762,91 @@ def stil_denetimi() -> list[Bulgu]:
     return bulgu
 
 
+# --------------------------------------------------------------------
+# SINIFLANDIRMA VE YAYIN KARARI  (yayin yonetmeni promptu, 15/19/20)
+# --------------------------------------------------------------------
+#
+# Bulgular zaten toplaniyordu ama tek ayrim "hata / uyari" idi. Prompt
+# yedi sinif istiyor ve sebebi su: "yanlis kurum adi" ile "ayni gorsel
+# iki kez" ayni siddette degil ve ayni kisiye de gitmiyor. Sinif,
+# bulguyu KIMIN duzeltecegini de soyluyor.
+#
+# Sinif ALANDAN turetiliyor; alan zaten her bulguda var. Boylece yeni
+# bir denetim eklerken ayrica sinif yazmak gerekmiyor -- unutulacak bir
+# alan daha olmuyor.
+SINIFLAR: dict[str, tuple[str, str]] = {
+    "etiket":    ("🔴", "KRITIK"),      # yanlis kurum/kavram adi
+    "aralik":    ("🟡", "VERI"),
+    "birim":     ("🟡", "VERI"),
+    "tazelik":   ("🟡", "VERI"),
+    "veri":      ("🟡", "VERI"),
+    "ai":        ("🟠", "AI"),
+    "gorsel":    ("🟣", "GORSEL"),
+    "editoryal": ("🔵", "EDITORYAL"),
+    "stil":      ("🔵", "EDITORYAL"),
+    "tekrar":    ("⚪", "TEKRAR"),
+}
+
+#: Ciktida gorunecek bolum sirasi -- promptun 20. maddesindeki sira.
+RAPOR_ALANLARI = (
+    ("KAYNAK", ("tazelik",), "Uygun", "Sorunlu"),
+    ("BASLIK", ("editoryal",), "Uygun", "Duzeltilmeli"),
+    ("GORSEL", ("gorsel",), "Uygun", "Degistirilmeli"),
+    ("AI YORUMU", ("ai",), "Uygun", "Hatali"),
+    ("VERILER", ("etiket", "aralik", "birim", "veri"), "Uygun", "Hatali"),
+    ("TEKRARLAR", ("tekrar",), "Yok", "Var"),
+    # PROMPTUN LISTESINDE YOK, EKLENDI. Prompt icerik incelemesi icin
+    # yazilmis; stil bulgulari (olu/tanimsiz CSS sinifi) icerik degil
+    # sayfa yapisi. Bir bolume dusmezlerse bulgu URETILIR ama ozette
+    # GORUNMEZ -- test bunu yakaladi.
+    ("SAYFA YAPISI", ("stil",), "Uygun", "Kontrol edilmeli"),
+)
+
+
+def sinif(b: Bulgu) -> str:
+    """Bulgunun sinif simgesi. Bilinmeyen alan UYARI sayilir."""
+    simge, _ad = SINIFLAR.get(b.alan, ("🔵", "EDITORYAL"))
+    # Ayni alandaki bir bulgu HATA agirligindaysa kritik isaretlenir:
+    # "bayat veri" uyaridir, "imkansiz deger" degildir.
+    if b.agirlik == "hata" and simge in ("🟡", "🔵", "⚪"):
+        return "🔴"
+    return simge
+
+
+def yayin_karari(hata: list, uyari: list) -> tuple[str, str]:
+    """Promptun 19. maddesi -- uc seviye."""
+    if hata:
+        return "🔴", "YAYINA UYGUN DEGIL"
+    if uyari:
+        return "🟡", "DUZELTILDIKTEN SONRA YAYINLANABILIR"
+    return "🟢", "YAYINA HAZIR"
+
+
+def _rapor_yaz(bulgular: list, hata: list, uyari: list) -> None:
+    """Promptun 20. maddesindeki cikti bicimi."""
+    simge, karar = yayin_karari(hata, uyari)
+    alanlar = {b.alan for b in bulgular}
+
+    print()
+    print("-" * 70)
+    print(f"  GENEL DURUM: {simge}")
+    for ad, kodlar, iyi, kotu in RAPOR_ALANLARI:
+        var = alanlar & set(kodlar)
+        print(f"  {ad + ':':<14}{kotu if var else iyi}")
+    print(f"  {'BULGU:':<14}{len(hata)} hata, {len(uyari)} uyari")
+
+    if bulgular:
+        sayim: dict[str, int] = {}
+        for b in bulgular:
+            s = sinif(b)
+            sayim[s] = sayim.get(s, 0) + 1
+        print("  SINIFLAR:     " + "  ".join(
+            f"{k} {v}" for k, v in sorted(sayim.items())))
+
+    print(f"  YAYIN KARARI: {simge} {karar}")
+    print("-" * 70)
+
+
 def calistir(sessiz: bool = False) -> int:
     bulgular: list[Bulgu] = []
     bulgular += etiket_denetimi()
@@ -781,11 +866,11 @@ def calistir(sessiz: bool = False) -> int:
         print("  VERI DENETIMI")
         print("=" * 70)
     for x in hata:
-        print(f"  HATA  [{x.alan}] {x.kod}: {x.mesaj}")
+        print(f"  {sinif(x)}  [{x.alan}] {x.kod}: {x.mesaj}")
     if not sessiz:
         for x in uyari:
-            print(f"  uyari [{x.alan}] {x.kod}: {x.mesaj}")
-        print(f"\n  {len(hata)} hata, {len(uyari)} uyari")
+            print(f"  {sinif(x)}  [{x.alan}] {x.kod}: {x.mesaj}")
+        _rapor_yaz(bulgular, hata, uyari)
 
     # UYARI ISI DUSURMUYOR, HATA DUSURUYOR.
     # Bayat veri kaynagin gecikmesi olabilir ve site yine kurulmali;
