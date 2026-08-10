@@ -78,7 +78,7 @@
       "birim": "USD/varil",
       "gun": 5,
       "bayat": true,
-      "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba)"
+      "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · sonraki 12 Ağustos"
     },
     {
       "kod": "DCOILWTICO",
@@ -90,7 +90,7 @@
       "birim": "USD/varil",
       "gun": 5,
       "bayat": true,
-      "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba)"
+      "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · sonraki 12 Ağustos"
     },
     {
       "kod": "DFF",
@@ -139,12 +139,12 @@
     {
       "kod": "VIXCLS",
       "ad": "VIX",
-      "deger": "15,15",
-      "fark": "-4,17%",
+      "deger": "14,90",
+      "fark": "-1,65%",
       "yon": "azalis",
-      "tarih": "2026-08-06",
+      "tarih": "2026-08-07",
       "birim": "endeks",
-      "gun": 2,
+      "gun": 1,
       "bayat": false
     },
     {
@@ -211,7 +211,8 @@
           "tarih": "2026-08-03",
           "birim": "USD/varil",
           "gun": 5,
-          "bayat": true
+          "bayat": true,
+          "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · sonraki 12 Ağustos"
         },
         {
           "kod": "DCOILWTICO",
@@ -222,7 +223,8 @@
           "tarih": "2026-08-03",
           "birim": "USD/varil",
           "gun": 5,
-          "bayat": true
+          "bayat": true,
+          "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · sonraki 12 Ağustos"
         }
       ]
     },
@@ -281,12 +283,12 @@
         {
           "kod": "VIXCLS",
           "ad": "VIX",
-          "deger": "15,15",
-          "fark": "-4,17%",
+          "deger": "14,90",
+          "fark": "-1,65%",
           "yon": "azalis",
-          "tarih": "2026-08-06",
+          "tarih": "2026-08-07",
           "birim": "endeks",
-          "gun": 2,
+          "gun": 1,
           "bayat": false
         },
         {
@@ -298,7 +300,8 @@
           "tarih": "2026-07-31",
           "birim": "endeks",
           "gun": 6,
-          "bayat": true
+          "bayat": true,
+          "ritim": "Fed bu endeksi haftalık yayımlıyor"
         },
         {
           "kod": "ECB_EURUSD",

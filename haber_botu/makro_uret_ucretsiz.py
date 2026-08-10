@@ -297,6 +297,11 @@ def _is_gunu_farki(eski: datetime.date, yeni: datetime.date) -> int:
     return n
 
 
+#: Seri -> bir sonraki yayin tarihi. `_panel_yaz` dolduruyor; aga
+#: erisilemezse BOS kaliyor ve baloncukta yalnizca ritim yaziyor.
+_sonraki_yayin: dict[str, str] = {}
+
+
 def _bayat_isaretle(kalemler: list[dict]) -> int:
     """Eski kalemlere `bayat` ve `gun` alani ekler. Bayat sayisini doner."""
     bugun = datetime.date.today()
@@ -310,6 +315,12 @@ def _bayat_isaretle(kalemler: list[dict]) -> int:
         k["bayat"] = gun >= SERIT_BAYAT_GUN
         if k["bayat"] and k.get("kod") in YAYIN_RITMI:
             k["ritim"] = YAYIN_RITMI[k["kod"]]
+            # SONRAKI YAYIN TARIHI de yaziliyor. "Bu veri eski" ile
+            # "bu veri carsamba yenilenecek" ayni sey degil; ikincisi
+            # okurun ne yapacagini biliyor.
+            sonraki = _sonraki_yayin.get(k["kod"])
+            if sonraki:
+                k["ritim"] += f" · sonraki {sonraki}"
         n += k["bayat"]
     return n
 
@@ -329,6 +340,14 @@ def _panel_yaz(panel_gorunum) -> None:
     kalemler = _kur_kalemleri() + [
         _bicimle(h, SERIT_ADLARI.get(h.kod, h.ad)) for h in panel_gorunum.hareketler
     ]
+    # EIA yayin takvimi: anahtarsiz, sayfadan okunuyor. Erisilemezse
+    # sessizce atlaniyor -- serit yine kuruluyor.
+    try:
+        import eia_takvim  # noqa: PLC0415
+        _sonraki_yayin.update({k: v for k, v in eia_takvim.hepsi().items() if v})
+    except Exception as e:                                # noqa: BLE001
+        print(f"  EIA yayin takvimi okunamadi: {type(e).__name__}")
+
     n_bayat = _bayat_isaretle(kalemler)
     if n_bayat:
         print(f"  {n_bayat}/{len(kalemler)} kalem {SERIT_BAYAT_GUN} gunden "
