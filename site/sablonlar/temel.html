@@ -164,7 +164,7 @@
          Kalem DUSURULMUYOR (Brent gecikmeli de olsa merkezi bir fiyat);
          yalnizca kac gunluk oldugu yaziliyor. #}
       <span class="kalem{% if k.bayat %} kalem-bayat{% endif %}"
-            title="{{ k.ad }} — son veri {{ k.tarih }}">
+            title="{{ k.ad }} — son veri {{ k.tarih }}{% if k.ritim %} · {{ k.ritim }}{% endif %}">
         <span class="nokta {% if k.bayat %}nokta-bayat{% else %}nokta-gecmis{% endif %}"></span>
         <span class="kalem-ad">{{ k.ad }}</span>
         <span class="kalem-deger">{{ k.deger }}</span>

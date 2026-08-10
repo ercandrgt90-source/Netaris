@@ -249,6 +249,30 @@ def _kur_kalemleri() -> list[dict]:
 #: Gosterilen sey degismiyor, YANINDA KAC GUNLUK OLDUGU yaziliyor.
 SERIT_BAYAT_GUN = 3
 
+#: Serinin YAYIN RITMI -- bayat gorunen kalemin neden bayat oldugu.
+#:
+#: Olculdu: Brent ve WTI seritte bes is gunu geride gorunuyor ve bu
+#: BIZIM gecikmemiz sanilabilir. Degil -- EIA bu iki gunluk spot
+#: seriyi HAFTALIK yayimliyor (sayfasinda "Release Date: 8/5/2026,
+#: Next Release Date: 8/12/2026" yaziyor, ikisi de carsamba).
+#:
+#: Ucretsiz ve anahtarsiz daha taze bir kaynak arandi ve BULUNAMADI:
+#:   EIA API      anahtar istiyor VE ayni haftalik ritmi tasiyor
+#:   OPEC sepeti  403 (bot engeli)
+#:   Stooq        engelli (dogrulama duvari)
+#:   Kanada MB    emtia serisi ucta yok
+#:   Dunya Bankasi aylik
+#: Gunluk ham petrol fiyati vadeli piyasadan gelir ve ucretsiz,
+#: anahtarsiz, kullanim sartlarina uygun bir ucu yok.
+#:
+#: Yapilabilecek sey sayiyi taze GOSTERMEK degil, neden oyle oldugunu
+#: SOYLEMEK. Bu metin kalemin baloncuguna giriyor.
+YAYIN_RITMI = {
+    "DCOILBRENTEU": "EIA bu seriyi haftalık yayımlıyor (çarşamba)",
+    "DCOILWTICO": "EIA bu seriyi haftalık yayımlıyor (çarşamba)",
+    "DTWEXBGS": "Fed bu endeksi haftalık yayımlıyor",
+}
+
 
 def _is_gunu_farki(eski: datetime.date, yeni: datetime.date) -> int:
     """Iki tarih arasindaki IS GUNU sayisi (hafta sonu sayilmaz).
@@ -284,6 +308,8 @@ def _bayat_isaretle(kalemler: list[dict]) -> int:
             continue
         k["gun"] = gun
         k["bayat"] = gun >= SERIT_BAYAT_GUN
+        if k["bayat"] and k.get("kod") in YAYIN_RITMI:
+            k["ritim"] = YAYIN_RITMI[k["kod"]]
         n += k["bayat"]
     return n
 

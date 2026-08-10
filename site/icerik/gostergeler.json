@@ -77,7 +77,8 @@
       "tarih": "2026-08-03",
       "birim": "USD/varil",
       "gun": 5,
-      "bayat": true
+      "bayat": true,
+      "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba)"
     },
     {
       "kod": "DCOILWTICO",
@@ -88,7 +89,8 @@
       "tarih": "2026-08-03",
       "birim": "USD/varil",
       "gun": 5,
-      "bayat": true
+      "bayat": true,
+      "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba)"
     },
     {
       "kod": "DFF",
@@ -154,7 +156,8 @@
       "tarih": "2026-07-31",
       "birim": "endeks",
       "gun": 6,
-      "bayat": true
+      "bayat": true,
+      "ritim": "Fed bu endeksi haftalık yayımlıyor"
     }
   ],
   "gruplar": [
