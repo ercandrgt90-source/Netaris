@@ -793,6 +793,9 @@ def hazirla(konular: list[str]) -> Kayit:
         n_kucuk = kucuk_uret(kayit, en_cok=KUCUK_PARTI)
         if n_kucuk:
             print(f"  {n_kucuk} kucuk (akis) gorseli indirildi")
+        n_orta = orta_uret(kayit, en_cok=KUCUK_PARTI)
+        if n_orta:
+            print(f"  {n_orta} orta (kart) gorseli indirildi")
     except Exception as e:                                # noqa: BLE001
         print(f"  kucuk gorsel uretilemedi: {type(e).__name__}")
     return kayit
@@ -880,6 +883,16 @@ if __name__ == "__main__":
 KUCUK_KLASOR = FOTO_KLASORU / "k"
 KUCUK_GENISLIK = 96
 
+#: ORTA BOY -- liste sayfalarindaki KART gorseli.
+#:
+#: Olculdu: ana sayfa 1,88 MB iniyordu ve bunun 1,60 MB'i SEKIZ kart
+#: gorseliydi. Kartlar 16:9 ve izgarada ~300 piksel genisliginde
+#: gorunuyor; 800 piksellik dosya indirmek yedi kat fazla bayt demek.
+#: Haber sayfasindaki BUYUK gorsel 800'de kaliyor -- orada sutun
+#: genisligi gercekten 800.
+ORTA_KLASOR = FOTO_KLASORU / "o"
+ORTA_GENISLIK = 400
+
 #: Commons `titles` parametresi anonim istekte 50 baslik aliyor.
 KUCUK_PARTI = 50
 
@@ -902,7 +915,9 @@ def _commons_basligi(kaynak: str) -> str:
     return urllib.parse.unquote(ad).replace("_", " ")
 
 
-def kucuk_uret(kayit: Kayit | None = None, en_cok: int | None = None) -> int:
+def boy_uret(klasor: pathlib.Path, genislik: int,
+             kayit: Kayit | None = None,
+             en_cok: int | None = None) -> int:
     """Havuzdaki Commons gorselleri icin 96 piksellik surum indirir.
 
     Commons'in olcekleme ucu kullaniliyor -- yerel bir goruntu
@@ -914,12 +929,12 @@ def kucuk_uret(kayit: Kayit | None = None, en_cok: int | None = None) -> int:
     yanlis olcekli gorselden iyidir.
     """
     kayit = kayit or Kayit()
-    KUCUK_KLASOR.mkdir(parents=True, exist_ok=True)
+    klasor.mkdir(parents=True, exist_ok=True)
     bekleyen: dict[str, str] = {}          # File basligi -> yerel dosya adi
     for liste in kayit.veri.values():
         for f in liste:
             ad = f["dosya"].rsplit("/", 1)[-1]
-            if (KUCUK_KLASOR / ad).exists():
+            if (klasor / ad).exists():
                 continue
             baslik = _commons_basligi(f.get("kaynak", ""))
             if baslik:
@@ -938,12 +953,13 @@ def kucuk_uret(kayit: Kayit | None = None, en_cok: int | None = None) -> int:
                 "action": "query", "format": "json",
                 "titles": "|".join(parti),
                 "prop": "imageinfo", "iiprop": "url",
-                "iiurlwidth": str(KUCUK_GENISLIK),
+                "iiurlwidth": str(genislik),
             }, headers=BASLIKLAR, timeout=ZAMAN_ASIMI)
             r.raise_for_status()
             sayfalar = (r.json().get("query", {}).get("pages", {}) or {}).values()
         except (httpx.HTTPError, ValueError, KeyError) as e:
-            OKUNAMAYAN.append(("kucuk", parti[0], f"{type(e).__name__}"))
+            OKUNAMAYAN.append((f"boy{genislik}", parti[0],
+                               f"{type(e).__name__}"))
             continue
         for sayfa in sayfalar:
             bilgi = (sayfa.get("imageinfo") or [{}])[0]
@@ -959,7 +975,7 @@ def kucuk_uret(kayit: Kayit | None = None, en_cok: int | None = None) -> int:
                     continue
             except httpx.HTTPError:
                 continue
-            (KUCUK_KLASOR / ad).write_bytes(g.content)
+            (klasor / ad).write_bytes(g.content)
             inen += 1
             # HER INDIRME ARASINDA BEKLEME.
             #
@@ -969,3 +985,19 @@ def kucuk_uret(kayit: Kayit | None = None, en_cok: int | None = None) -> int:
             time.sleep(KUCUK_ARASI)
         time.sleep(ISTEK_ARASI)
     return inen
+
+
+
+def kucuk_uret(kayit: Kayit | None = None, en_cok: int | None = None) -> int:
+    """96 piksellik akis gorselleri."""
+    return boy_uret(KUCUK_KLASOR, KUCUK_GENISLIK, kayit, en_cok)
+
+
+def orta_uret(kayit: Kayit | None = None, en_cok: int | None = None) -> int:
+    """400 piksellik KART gorselleri.
+
+    Olculdu: ana sayfanin 1,88 MB'inin 1,60 MB'i sekiz kart gorseliydi
+    ve hepsi 800 piksellik dosyaydi. Kart izgarada ~300 piksel
+    gorunuyor; 800 piksel indirmek yedi kat fazla bayt.
+    """
+    return boy_uret(ORTA_KLASOR, ORTA_GENISLIK, kayit, en_cok)

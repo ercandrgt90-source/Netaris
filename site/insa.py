@@ -562,6 +562,29 @@ def _yorum_dogrulanabilir(metin: str, h: dict, d) -> bool:
     return bulunan * 2 >= len(yorum_sayilari)
 
 
+def _boy_foto(yol: str, klasor: str) -> str:
+    """Buyuk gorselin baska boydaki esini dondurur; yoksa BOS."""
+    if not yol or "/statik/foto/" not in yol:
+        return ""
+    ad = yol.rsplit("/", 1)[-1]
+    hedef = STATIK / "foto" / klasor / ad
+    return f"/statik/foto/{klasor}/{ad}" if hedef.exists() else ""
+
+
+def orta_foto(yol: str) -> str:
+    """KART gorseli -- 400 piksel.
+
+    Olculdu: ana sayfa 1,88 MB iniyordu ve bunun 1,60 MB'i SEKIZ kart
+    gorseliydi; hepsi 800 piksellik dosyaydi. Kart izgarada ~300
+    piksel gorunuyor, yani yedi kat fazla bayt.
+
+    BOS DONMESI NORMAL: orta boy yalnizca Commons kaynakli gorsellerde
+    uretilebiliyor. Sablon o durumda BUYUGUNU basiyor -- gorselsiz kart
+    izgarada delik birakirdi.
+    """
+    return _boy_foto(yol, "o")
+
+
 def kucuk_foto(yol: str) -> str:
     """Buyuk gorselin 96 piksellik esini dondurur; yoksa BOS.
 
@@ -1093,9 +1116,18 @@ def _foto_kunyeleri(html_metni: str) -> str:
     kayit = foto_defteri()
     if kayit is None:
         return ""
+    # BOY KLASORU AYRISTIRILIYOR.
+    #
+    # Kart gorselleri artik `/statik/foto/o/<ad>` (400 piksel) yolundan
+    # basiliyor ama defterde `/statik/foto/<ad>` yaziyor. Ilk yazimda
+    # birebir karsilastirma yapiyordum ve eslesme kacinca kunye
+    # URETILMEDI -- denetim yakaladi: "bilancolar" ve "yorum"
+    # sayfalarinda "1 gorsel ATIFSIZ basiliyor" hatasi. Ayni gorselin
+    # farkli boyu ayni gorseldir; atif da aynidir.
+    adlar = {y.rsplit("/", 1)[-1] for y in yollar}
     atiflar = []
     for f in (x for liste in kayit.veri.values() for x in liste):
-        if f["dosya"] in yollar:
+        if f["dosya"].rsplit("/", 1)[-1] in adlar:
             k = _foto.Foto(**f).kisa_atif
             if k not in atiflar:
                 atiflar.append(k)
@@ -2672,6 +2704,7 @@ def insa() -> int:
     # ayni tabloyu uc sablonda tekrarlamak olurdu.
     ortam.filters["kart_turu"] = kart_turu
     ortam.filters["kucuk_foto"] = kucuk_foto
+    ortam.filters["orta_foto"] = orta_foto
 
     # `analizler`  -- SAYFASI URETILECEK olanlar (hepsi; adresler kirilmasin)
     # `listelenen` -- LISTELERDE gorunecek olanlar (yinelenenler elenmis)

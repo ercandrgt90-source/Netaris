@@ -16,8 +16,22 @@
     <a class="kart" href="{{ a.yol }}">
       <span class="kart-gorsel">
         {% if a.foto %}
-        <img src="{{ a.foto }}" alt="" loading="lazy" decoding="async"
-             width="400" height="225">
+        {# KART GORSELI ORTA BOY. Etiket zaten `width="400"` diyordu
+           ama kaynak dosya 800 pikseldi: olculdu, ana sayfanin
+           1,88 MB'inin 1,60 MB'i sekiz gorseldi ve altisi bu kart.
+           Orta boy yoksa buyugu basiliyor -- gorselsiz kart izgarada
+           delik birakir. #}
+        {# IKI BOY, SECIMI TARAYICI YAPIYOR.
+           Yalnizca 400 piksel sunmak retina ekranda yumusak gorunur;
+           yalnizca 800 sunmak telefonda dort kat fazla bayt demek --
+           olculdu, ana sayfanin 1,88 MB'inin 1,60 MB'i gorseldi.
+           `srcset` ile tarayici ekranin yogunluguna gore seciyor.
+           Orta boy yoksa tek kaynak kaliyor ve `srcset` yazilmiyor. #}
+        {% set orta = a.foto | orta_foto %}
+        <img src="{{ orta or a.foto }}" alt=""
+             {% if orta %}srcset="{{ orta }} 400w, {{ a.foto }} 800w"
+             sizes="(max-width: 760px) 92vw, 400px"{% endif %}
+             loading="lazy" decoding="async" width="400" height="225">
         {% else %}{{ a.gorsel_svg | safe }}{% endif %}
       </span>
       <span class="kart-ic">

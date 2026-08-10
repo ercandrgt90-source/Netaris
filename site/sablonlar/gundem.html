@@ -19,7 +19,17 @@
 
      Bos `alt` bu gorseli DEKORATIF ilan eder ve ekran okuyucu
      atlar; kaynak bilgisi zaten alttaki kunyede ve o OKUNUR. #}
-    <img src="{{ h.foto }}" alt="" loading="lazy" decoding="async">
+    {# KART GORSELI ORTA BOY (400px).
+       Kart izgarada ~300 piksel genisliginde gorunuyor ama 800
+       piksellik dosya iniyordu. Olculdu: ana sayfanin 1,88 MB'inin
+       1,60 MB'i sekiz kart gorseliydi.
+
+       Orta boy yoksa BUYUGU basiliyor -- gorselsiz kart izgarada
+       delik birakir. Mansset ve "one cikan" 720/640 piksel
+       gorundugu icin BUYUK kaliyor; onlarda kucultme bulanikliga
+       yol acardi. #}
+    <img src="{{ (h.foto | orta_foto) or h.foto }}" alt=""
+         loading="lazy" decoding="async">
     {% elif gorsel %}{{ gorsel | safe }}{% endif %}
   {% if h.yol %}</a>{% else %}</div>{% endif %}
   {% if h.foto_atif %}<p class="foto-atif">Fotoğraf: {{ h.foto_atif }}</p>{% endif %}
