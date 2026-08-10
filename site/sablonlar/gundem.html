@@ -9,7 +9,17 @@
     {# Gercek fotograf varsa o, yoksa uretilen SVG. Fotograflar CC
        lisansli ve atif zorunlu -- atif gorselin altinda basiliyor. #}
     {% if h.foto %}
-    <img src="{{ h.foto }}" alt="{{ h.konu }}" loading="lazy" decoding="async">
+    {# GORSEL SUSTUR: `alt` BOS.
+     Burada `alt="{{ h.konu }}"` yaziyordu ve ekran okuyucu
+     "Jeopolitik" diyordu -- 342 sayfanin 270'inde. Iki sebeple
+     yanlis: (1) konu zaten hemen altta ROZET olarak yaziyor,
+     tekrari gurultu; (2) fotograf o olayin kendisi degil, konu
+     havuzundan bir illustrasyon -- ona "Jeopolitik" demek,
+     gorseli olmadigi bir sey gibi tanitmak.
+
+     Bos `alt` bu gorseli DEKORATIF ilan eder ve ekran okuyucu
+     atlar; kaynak bilgisi zaten alttaki kunyede ve o OKUNUR. #}
+    <img src="{{ h.foto }}" alt="" loading="lazy" decoding="async">
     {% elif gorsel %}{{ gorsel | safe }}{% endif %}
   {% if h.yol %}</a>{% else %}</div>{% endif %}
   {% if h.foto_atif %}<p class="foto-atif">Fotoğraf: {{ h.foto_atif }}</p>{% endif %}

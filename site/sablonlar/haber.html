@@ -60,7 +60,17 @@
 <article class="yazi">
   {% if h.foto %}
   <figure class="yazi-gorsel yazi-foto">
-    <img src="{{ h.foto }}" alt="{{ h.konu }}" decoding="async">
+    {# GORSEL SUSTUR: `alt` BOS.
+     Burada `alt="{{ h.konu }}"` yaziyordu ve ekran okuyucu
+     "Jeopolitik" diyordu -- 342 sayfanin 270'inde. Iki sebeple
+     yanlis: (1) konu zaten hemen altta ROZET olarak yaziyor,
+     tekrari gurultu; (2) fotograf o olayin kendisi degil, konu
+     havuzundan bir illustrasyon -- ona "Jeopolitik" demek,
+     gorseli olmadigi bir sey gibi tanitmak.
+
+     Bos `alt` bu gorseli DEKORATIF ilan eder ve ekran okuyucu
+     atlar; kaynak bilgisi zaten alttaki kunyede ve o OKUNUR. #}
+    <img src="{{ h.foto }}" alt="" decoding="async">
     {% if h.foto_atif %}
     {# CC BY atfi zorunlu kilar; kaldirilirsa lisans ihlal edilir. #}
     <figcaption>Fotoğraf: {{ h.foto_atif }}</figcaption>
