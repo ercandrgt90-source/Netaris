@@ -40,6 +40,7 @@ sys.path[:0] = [str(_KOK), str(_KOK / "ai"), str(_KOK / "analiz"),
                 str(_KOK / "kaynak")]
 
 import besleme    # noqa: E402
+import bicim      # noqa: E402
 import beyin      # noqa: E402
 import dosya      # noqa: E402
 import olay       # noqa: E402
@@ -99,9 +100,17 @@ def girdi_kur(h: dict, d) -> str:
         for b in d.bulgular:
             p.append(f"Bulgu: {b}")
         for g in d.turkiye:
-            p.append(f"Gösterge: {g.ad} {g.son}{g.birim} "
-                     f"(önceki {g.onceki}{g.birim}, değişim {g.degisim}, "
-                     f"{g.tarih})")
+            # SAYI BICIMLENDIRILEREK GONDERILIYOR.
+            #
+            # `g.son` ham `float`; f-string onu tam hassasiyetle basiyor
+            # ve model gordugunu KOPYALIYOR. Olculdu, ana sayfada
+            # yayimlandi: "Enflasyon %31,75409679 seviyesine gerileyerek
+            # onceki %32,10903603'ten...". Sayfanin kendisi ayni degeri
+            # %31,8 diye basiyor -- yani model sayfada olmayan bir
+            # hassasiyet uretiyordu.
+            p.append(f"Gösterge: {g.ad} {bicim.sayi(g.son, 2)}{g.birim} "
+                     f"(önceki {bicim.sayi(g.onceki, 2)}{g.birim}, "
+                     f"değişim {g.degisim}, {g.tarih})")
         if d.duyarlilik:
             # MEKANIZMA METNI GONDERILMIYOR, YALNIZCA SEKTOR ADLARI.
             #

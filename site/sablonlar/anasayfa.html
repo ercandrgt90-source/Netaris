@@ -111,15 +111,31 @@
     <span class="bolum-not">Ölçülmüş veriden üretilmiş çıkarımlar</span>
   </div>
   <ul class="ai-akis-liste">
+    {# SIRA DEGISTI: once HABER, sonra yorum.
+       Onceki duzende kartin buyuk metni AI yorumuydu ve haber basligi
+       altta kucuk gri yaziyla duruyordu. Okur once cikarimi goruyor,
+       neyin cikarimi oldugunu ise en sonda ogreniyordu -- yorum
+       havada kaliyordu. Simdi once "ne oldu", sonra "biz ne diyoruz". #}
     {% for h in ai_akis %}
     <li class="tur-{{ h | kart_turu }}">
       <a href="{{ h.yol }}">
-        <span class="ai-akis-ust">
-          <span class="rozet rozet-vurgu">{{ h.konu }}</span>
-          <span class="ai-akis-zaman">{{ zaman(h) }}</span>
+        {% set kucuk = h.foto | kucuk_foto %}
+        <span class="ai-kart-ust">
+          {% if kucuk %}
+          <img class="ai-kart-foto" src="{{ kucuk }}" alt="" aria-hidden="true"
+               width="52" height="52" loading="lazy" decoding="async">
+          {% endif %}
+          <span class="ai-kart-kunye">
+            <span class="rozet rozet-vurgu">{{ h.konu }}</span>
+            <span class="ai-akis-zaman">{{ zaman(h) }}</span>
+          </span>
         </span>
-        <span class="ai-akis-metin">{{ h.ai_yorum_kart }}</span>
-        <span class="ai-akis-kaynak">{{ h.baslik }}</span>
+        <span class="ai-kart-baslik">{{ h.baslik }}</span>
+        <span class="ai-kart-yorum">
+          <span class="ai-kart-imza">Netaris yorumu</span>
+          {{ h.ai_yorum_kart }}
+        </span>
+        <span class="ai-kart-git">Habere git →</span>
       </a>
     </li>
     {% endfor %}

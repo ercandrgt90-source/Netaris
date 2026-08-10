@@ -2269,7 +2269,30 @@ def ai_akisi(haberler: list[dict], en_cok: int = AI_AKIS_SAYISI) -> list[dict]:
     olan = [h for h in haberler
             if h.get("ai_yorum_kart") and h.get("yol")]
     olan.sort(key=lambda h: h.get("an") or h.get("tarih") or "", reverse=True)
-    return olan[:en_cok]
+
+    # AYNI SEYI SOYLEYEN IKINCI YORUM ALINMIYOR.
+    #
+    # Olculdu: bolumun alti kartindan UCU ayni cumleyi kuruyordu --
+    # "Brent petrolun kapanis fiyati 88,90 $...". Uc ayri haberdi
+    # (Yemen'de liman saldirisi, Iran cumhurbaskaninin gorusmesi,
+    # Axios roportaji) ama ucu de ayni dosyaya bagli ve o dosyadaki tek
+    # sayi Brent'ti; model elindeki tek olcumu anlatti.
+    #
+    # Kok sebep uretimde: yorum girdisi haberin DOSYASINDAKI bulgulari
+    # tasiyor ve olcumu olmayan haberlerde model onlara tutunuyor.
+    # Burasi o sorunu cozmuyor, GORUNMESINI engelliyor -- ayni cumleyi
+    # uc kez basan bir bolum, ne dedigimize dair guveni de ucuruyor.
+    secilen: list[dict] = []
+    for h in olan:
+        metin = h.get("ai_yorum_kart", "")
+        if _onem is not None and any(
+                _onem.benzer(metin, s.get("ai_yorum_kart", ""))
+                for s in secilen):
+            continue
+        secilen.append(h)
+        if len(secilen) >= en_cok:
+            break
+    return secilen
 
 
 def canli_akis(haberler: list[dict], en_cok: int = AKIS_SAYISI) -> list[dict]:

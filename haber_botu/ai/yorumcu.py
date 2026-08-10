@@ -193,6 +193,20 @@ YASAK = (
     # Kavramdan SOZ ETMEK serbest ("politika faizi kararı piyasanın
     # odağında"); yasak olan, o ada bir DEGER iliStirmek.
     re.compile(r"politika faizi[^.]{0,14}%\s*\d", re.I),
+
+    # HAM ONDALIK. Ucten fazla basamak, hicbir finansal buyuklukte
+    # anlamli degil ve okura "hesap makinesinden kopyalanmis" izlenimi
+    # verir.
+    #
+    # Olculdu, ANA SAYFADA YAYIMLANDI: "Enflasyon %31,75409679
+    # seviyesine gerileyerek onceki %32,10903603'ten...". Sayfanin
+    # kendisi ayni degeri %31,8 diye basiyordu -- yani metin, sayfada
+    # OLMAYAN bir hassasiyet uretmisti.
+    #
+    # Kok sebep girdideydi: gosterge satirlari ham `float` gonderiyordu
+    # ve model gordugunu kopyaladi. Girdi bicimlendirildi; bu kural
+    # ikinci savunma hatti, cunku girdi bir gun yine kayabilir.
+    re.compile(r"\d+[.,]\d{4,}"),
 )
 
 #: SUREN EGILIM IDDIASI -- "artiyor", "yukseliyor", "dusuyor".

@@ -2700,27 +2700,69 @@ a.akis-baslik:hover { color: var(--vurgu); text-decoration: none; }
 }
 .ai-akis-liste li { background: var(--panel); }
 .ai-akis-liste a {
-  display: flex; flex-direction: column; gap: 7px;
-  padding: 15px 17px; height: 100%;
+  display: flex; flex-direction: column; gap: 9px;
+  padding: 16px 18px 14px; height: 100%;
   border-left: 3px solid var(--tur, var(--vurgu));
 }
 .ai-akis-liste a:hover { text-decoration: none; background: var(--panel-2); }
-.ai-akis-ust { display: flex; align-items: center; gap: 8px; }
+
+/* Ust satir: kare gorsel + rozet/zaman. Gorsel opsiyonel. */
+.ai-kart-ust { display: flex; align-items: center; gap: 11px; }
+.ai-kart-foto {
+  width: 52px; height: 52px; flex: 0 0 52px;
+  object-fit: cover; border-radius: var(--r-kucuk);
+  border: 1px solid var(--cizgi); background: var(--panel-2);
+}
+.ai-kart-kunye {
+  display: flex; align-items: center; gap: 8px; flex: 1 1 auto;
+  flex-wrap: wrap;
+}
 .ai-akis-zaman {
   margin-left: auto; font-size: 0.72rem; color: var(--yazi-3);
   font-variant-numeric: tabular-nums;
 }
-.ai-akis-metin {
-  font-size: 0.93rem; line-height: 1.56; color: var(--yazi);
-  font-weight: 500;
+
+/* HABER BASLIGI KARTIN ANA METNI.
+   Onceki duzende buyuk metin AI yorumuydu, baslik altta gri kucuk
+   yaziyla duruyordu: okur cikarimi neyin uzerine kuruldugunu en sonda
+   ogreniyordu. Once ne oldugu, sonra ne dedigimiz. */
+.ai-kart-baslik {
+  font-size: 1.02rem; line-height: 1.34; font-weight: 700;
+  color: var(--yazi); letter-spacing: -0.01em;
+  display: -webkit-box; -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical; overflow: hidden;
 }
-/* Kaynak baslik SONDA ve kucuk: asil bilgi cikarim, baslik onun
-   nereden geldigi. Ters sirada olsaydi bu yine bir haber listesi
-   olurdu. */
-.ai-akis-kaynak {
-  font-size: 0.76rem; color: var(--yazi-3); line-height: 1.4;
-  margin-top: auto; padding-top: 4px;
-  border-top: 1px dashed var(--cizgi);
+.ai-akis-liste a:hover .ai-kart-baslik { color: var(--vurgu); }
+
+/* Yorum AYRI BIR BLOK: zeminli ve solunda seritli, cunku bu bizim
+   sozumuz -- haberden gelen bir sey degil. Ayrimi tipografiyle degil
+   ZEMINLE yapmak, okur metni okumadan once kimin konustugunu
+   gormesini sagliyor. */
+.ai-kart-yorum {
+  position: relative;
+  margin-top: auto;
+  padding: 10px 12px 11px 13px;
+  background: var(--vurgu-zar);
+  border-left: 2px solid var(--vurgu);
+  border-radius: 0 var(--r-kucuk) var(--r-kucuk) 0;
+  font-size: 0.88rem; line-height: 1.55; color: var(--yazi-2);
+  display: -webkit-box; -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical; overflow: hidden;
+}
+.ai-kart-imza {
+  display: block; margin-bottom: 3px;
+  font-size: 0.66rem; font-weight: 700; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--vurgu);
+}
+.ai-kart-git {
+  font-size: 0.78rem; font-weight: 600; color: var(--vurgu);
+  opacity: 0; transform: translateX(-3px);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+.ai-akis-liste a:hover .ai-kart-git { opacity: 1; transform: none; }
+/* Dokunmatikte hover yok: baglanti isareti her zaman gorunur. */
+@media (hover: none) {
+  .ai-kart-git { opacity: 1; transform: none; }
 }
 
 /* ================================================================
