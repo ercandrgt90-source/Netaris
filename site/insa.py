@@ -3134,6 +3134,22 @@ def insa() -> int:
     )
     yollar.append("/topluluk/")
 
+    # CANLI PIYASA -- sitenin UCUNCU TARAF iceren TEK sayfasi.
+    #
+    # Ucretsiz ve anahtarsiz taze ham petrol fiyati arandi, bulunamadi
+    # (bkz. kaynak/eia_takvim.py bas yorumu). TradingView'in RESMI
+    # widget'i bu is icin sunuluyor; kazima ya da ic uc cozme yok.
+    #
+    # AYRI SAYFADA tutulmasi bilincli: widget ziyaretcinin IP'sini
+    # ucuncu tarafa gosteriyor ve sitenin geri kalani bundan muaf
+    # kalsin istiyoruz -- ayni gerekceyle fotograflari da uzaktan
+    # baglamiyor, indiriyoruz.
+    yaz(
+        "/piyasa/index.html",
+        ortam.get_template("piyasa.html").render(**ortak, yol="/piyasa/"),
+    )
+    yollar.append("/piyasa/")
+
     # Arama: dizin + sayfa
     yaz("/arama.json", arama_dizini(listelenen))
     yaz(

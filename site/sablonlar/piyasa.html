@@ -1,0 +1,138 @@
+{% extends "temel.html" %}
+
+{# CANLI PIYASA -- SITENIN UCUNCU TARAF ICEREN TEK SAYFASI.
+
+   NEDEN AYRI SAYFA
+   ----------------
+   Ucretsiz ve anahtarsiz taze ham petrol fiyati arandi ve BULUNAMADI:
+   Alpha Vantage kendi belgesinde "retrieved from FRED" diyor (yani
+   zaten kullandigimiz seri), EIA anahtarli ucu de ayni HAFTALIK ritmi
+   tasiyor, OPEC ve Stooq bot engelli. Gunluk fiyat vadeli piyasadan
+   gelir ve ucretsiz bir ucu yok.
+
+   TradingView'in RESMI widget'i tam bu is icin sunuluyor: ucretsiz,
+   anahtarsiz, kullanim sartlarina uygun. Kazima ya da ic uc cozme YOK.
+
+   AMA BEDELI VAR ve o bedel bu sayfayla SINIRLI tutuldu: widget
+   ucuncu taraf betigi demek, yani ziyaretcinin IP'si ve hangi sayfada
+   oldugu TradingView'e gider. Ayni sebeple fotograflari uzaktan
+   baglamayip indiriyoruz. Sitenin geri kalani ucuncu taraf istegi
+   ICERMIYOR; okur bu sayfaya girmedigi surece hicbir yere veri gitmez.
+
+   VERI BIZDE DEGIL
+   ----------------
+   Widget fiyati GOSTERIR ama biz o sayiyi OKUYAMAYIZ. Dolayisiyla
+   buradaki hicbir rakam yorumda, analizde ya da denetimde
+   kullanilmiyor -- yazdigimiz her sey olculmus ve depoda duran veriye
+   dayanmaya devam ediyor. Bu ayrim sayfada da yaziyor. #}
+
+{% block baslik %}Canlı piyasa — {{ site.ad }}{% endblock %}
+{% block aciklama %}Brent, WTI, altın, dolar/TL ve endekslerde canlı fiyatlar. Veriler TradingView tarafından sağlanır.{% endblock %}
+
+{# Bu sayfa DIZINE GIRMIYOR: icerigi bize ait degil, ucuncu taraf bir
+   widget. Arama motoruna sunacagimiz bir sey yok. #}
+{% block ek_bas %}
+<meta name="robots" content="noindex, follow">
+{% endblock %}
+
+{% block icerik %}
+<div class="giris hero hero-dar">
+  <p class="ust-etiket">Canlı piyasa</p>
+  <h1>Anlık fiyatlar</h1>
+  <p class="hero-ozet">
+    Brent, WTI, altın, gümüş, dolar/TL ve küresel endeksler. Fiyatlar
+    TradingView tarafından sağlanıyor ve doğrudan tarayıcınıza geliyor.
+  </p>
+</div>
+
+{# UYARI EN USTTE, WIDGET'TAN ONCE. Okur neyin yuklendigini ve nereye
+   veri gittigini widget acilmadan once gormeli. #}
+<div class="uyari-kutu" role="note">
+  <p>
+    <b>Bu sayfa üçüncü taraf içerik yüklüyor.</b>
+    Aşağıdaki fiyat tabloları TradingView'den geliyor; sayfayı açtığınızda
+    tarayıcınız TradingView sunucularına bağlanır ve IP adresiniz onlara
+    görünür. Sitenin geri kalanında üçüncü taraf isteği yoktur.
+    Ayrıntı: <a href="/hakkimizda/#gizlilik">gizlilik politikası</a>.
+  </p>
+  <p>
+    <b>Bu rakamlar yazılarımızda kullanılmaz.</b>
+    Analizlerimizdeki her sayı ölçülüp kaydedilmiş veriden gelir
+    (TCMB, FRED, EIA, ECB). Buradaki canlı fiyatlar yalnızca
+    görüntülemek içindir — bir sayıyı okuyup yorumlayabilmemiz için
+    onu kendi verimizde tutuyor olmamız gerekir.
+  </p>
+</div>
+
+<section class="piyasa-blok" aria-label="Enerji">
+  <div class="bolum-bas"><h2>Enerji</h2>
+    <span class="bolum-not">Ölçülmüş haftalık spot fiyat için
+      <a href="/">ana sayfadaki şerit</a></span>
+  </div>
+  <div class="tradingview-widget-container">
+    <div class="tradingview-widget-container__widget"></div>
+    <script type="text/javascript"
+      src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js"
+      async>
+    {
+      "width": "100%", "height": 340, "symbolsGroups": [
+        { "name": "Ham petrol", "symbols": [
+          { "name": "TVC:UKOIL", "displayName": "Brent" },
+          { "name": "TVC:USOIL", "displayName": "WTI" },
+          { "name": "TVC:NATGAS", "displayName": "Doğal gaz" } ] }
+      ],
+      "colorTheme": "light", "isTransparent": true, "locale": "tr"
+    }
+    </script>
+  </div>
+</section>
+
+<section class="piyasa-blok" aria-label="Değerli maden ve kur">
+  <div class="bolum-bas"><h2>Maden ve kur</h2></div>
+  <div class="tradingview-widget-container">
+    <div class="tradingview-widget-container__widget"></div>
+    <script type="text/javascript"
+      src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js"
+      async>
+    {
+      "width": "100%", "height": 380, "symbolsGroups": [
+        { "name": "Maden", "symbols": [
+          { "name": "TVC:GOLD", "displayName": "Ons altın" },
+          { "name": "TVC:SILVER", "displayName": "Gümüş" } ] },
+        { "name": "Kur", "symbols": [
+          { "name": "FX_IDC:USDTRY", "displayName": "USD/TRY" },
+          { "name": "FX_IDC:EURTRY", "displayName": "EUR/TRY" },
+          { "name": "FX:EURUSD", "displayName": "EUR/USD" } ] }
+      ],
+      "colorTheme": "light", "isTransparent": true, "locale": "tr"
+    }
+    </script>
+  </div>
+</section>
+
+<section class="piyasa-blok" aria-label="Endeksler">
+  <div class="bolum-bas"><h2>Endeksler</h2></div>
+  <div class="tradingview-widget-container">
+    <div class="tradingview-widget-container__widget"></div>
+    <script type="text/javascript"
+      src="https://s3.tradingview.com/external-embedding/embed-widget-market-quotes.js"
+      async>
+    {
+      "width": "100%", "height": 340, "symbolsGroups": [
+        { "name": "Endeks", "symbols": [
+          { "name": "BIST:XU100", "displayName": "BIST 100" },
+          { "name": "SP:SPX", "displayName": "S&P 500" },
+          { "name": "TVC:DXY", "displayName": "Dolar endeksi" } ] }
+      ],
+      "colorTheme": "light", "isTransparent": true, "locale": "tr"
+    }
+    </script>
+  </div>
+</section>
+
+<p class="kaynak-not">
+  Fiyatlar <a href="https://www.tradingview.com/" target="_blank"
+  rel="noopener">TradingView</a> tarafından sağlanmaktadır. Gecikme ve
+  doğruluk sağlayıcının koşullarına tabidir; yatırım tavsiyesi değildir.
+</p>
+{% endblock %}

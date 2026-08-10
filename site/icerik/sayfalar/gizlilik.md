@@ -55,3 +55,20 @@ Yukarıda açıklandığı üzere sitemiz doğrudan kişisel veri işlememektedi
 ## Değişiklikler
 
 Bu politikada değişiklik yapılması durumunda güncel metin bu sayfada yayımlanır. Sitenin veri işleme uygulamalarını değiştiren bir ekleme yapılması hâlinde, değişiklik uygulamaya alınmadan önce bu sayfa güncellenir.
+
+## Canlı piyasa sayfası (üçüncü taraf içerik)
+
+`/piyasa/` adresindeki **Canlı piyasa** sayfası, fiyat tablolarını
+TradingView'den yükler. Bu sayfayı açtığınızda tarayıcınız doğrudan
+TradingView sunucularına bağlanır; IP adresiniz, tarayıcı bilgileriniz
+ve hangi sayfadan geldiğiniz onlara görünür. Bu veriler bize
+ulaşmıyor ve bizim tarafımızda saklanmıyor.
+
+Sayfa, sitenin **üçüncü taraf içerik yükleyen tek sayfasıdır**. Ana
+sayfa, haber ve analiz sayfaları dâhil diğer bütün adreslerde dış
+sunuculara istek yapılmaz — fotoğraflar bile uzaktan bağlanmak yerine
+indirilip kendi sunucumuzdan sunulur.
+
+Canlı fiyat görmek istemiyorsanız bu sayfayı açmamanız yeterlidir;
+sitenin geri kalanı bundan etkilenmez. TradingView'in veri işleme
+uygulamaları için kendi gizlilik politikası geçerlidir.
