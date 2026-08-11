@@ -27,6 +27,7 @@ import argparse
 import hashlib
 import html
 import json
+import os
 import pathlib
 import re
 import shutil
@@ -197,8 +198,32 @@ def css_kucult(dosya: pathlib.Path) -> None:
 # ---------------------------------------------------------------------------
 # Site ayarlari
 # ---------------------------------------------------------------------------
-# ADRES alan adi belli olunca degistirilecek. Sonunda egik cizgi OLMAYACAK.
-# Yer tutucu bilincli olarak dikkat cekici: yayina cikmadan once degismeli.
+
+#: Sitenin KENDI adresi. Tek kaynak: kanonik baglantilar, `og:url`,
+#: `sitemap.xml`, `robots.txt` ve RSS'in tamami buradan uretiliyor --
+#: olculdu, yayimlanan ciktida 2402 yerde geciyor.
+#:
+#: NEDEN CEVRE DEGISKENI, NEDEN BU VARSAYILAN
+#: ------------------------------------------
+#: Burada `https://netaris.com` YAZILIYDU ve o alan adi HIC
+#: cozumlenmiyordu (DNS `gaierror`). Yani site, arama motoruna
+#: "asil surumum su adreste" diyor, o adreste ise hicbir sey yok.
+#: Var olmayan bir alan adina kanonik vermek, sayfayi dizine
+#: girdirmemenin en etkili yoludur -- sitenin gorunmezligi bir
+#: eksiklik degil, ETKIN olarak yayimlanan bir talimatti.
+#:
+#: Varsayilan artik GERCEKTEN YAYIN YAPAN adres. Kusurlu ama dogru:
+#: `*.workers.dev` Turk Telekom'un "Guvenli Internet" suzgeci
+#: tarafindan engelleniyor (olculdu: TLS el sikismasi
+#: `Via: 1.0 middlebox` ile kesiliyor ve engel sayfasina
+#: yonlendiriliyor; ust alan adi `workers.dev` de ayni sekilde
+#: engelli, yani icerigimizle ilgisi olmayan bir KATEGORI engeli).
+#:
+#: Alan adi baglandiginda tek is: `NETARIS_ADRES` degiskenini kurmak
+#: ya da asagidaki varsayilani degistirmek. Sonunda egik cizgi
+#: OLMAYACAK.
+TABAN_ADRES = os.environ.get(
+    "NETARIS_ADRES", "https://netaris.ercandrgt90.workers.dev").rstrip("/")
 
 SITE = {
     "ad": "Netaris",
@@ -230,7 +255,7 @@ SITE = {
         "Şirket bilançoları, ekonomik veriler ve küresel gelişmeler; "
         "doğrulanmış verilere ve neden-sonuç ilişkilerine dayanan analizlerle."
     ),
-    "adres": "https://netaris.com",
+    "adres": TABAN_ADRES,
     "yil": datetime.now().year,
     "yasal_uyari": (
         "Bu içerik yalnızca bilgilendirme amaçlıdır, yatırım tavsiyesi "

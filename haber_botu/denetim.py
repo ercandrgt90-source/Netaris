@@ -643,6 +643,56 @@ def _foto_butunluk_denetimi() -> list[Bulgu]:
     return bulgu
 
 
+def _kanonik_adres_denetimi() -> list[Bulgu]:
+    """Sitenin kendi ilan ettigi adres GERCEKTEN var mi?
+
+    NEDEN VAR. Yayimlanan ciktida kanonik adres 2402 yerde geciyordu ve
+    hepsi `https://netaris.com` diyordu -- o alan adi ise HIC
+    cozumlenmiyordu. Var olmayan bir alan adina kanonik vermek,
+    `sitemap.xml`, `robots.txt`, RSS ve `og:url`in tamamini olu bir
+    hedefe yollamak demek. Arama motoruna "asil surumum su adreste"
+    denip o adreste hicbir sey olmamasi, sayfayi dizine SOKMAMANIN en
+    etkili yolu; yani sitenin gorunmezligi bir eksiklik degil, ETKIN
+    olarak yayimlanan bir talimatti.
+
+    Hicbir test bunu yakalayamazdi: kod dogru calisiyor, sablon dogru
+    basiyor, baglantilar bicim olarak gecerli. Yanlis olan tek sey
+    hedefin var olmamasi -- bu yalnizca DISARIYA sorularak anlasilir.
+
+    AGSIZ ORTAMDA SESSIZ. CI ya da cevrimdisi calistirmada ad
+    cozumleme basarisiz olabilir; bu bir yayin hatasi degildir. Ayrimi
+    KONTROL ADI ile yapiyoruz: o da cozulemiyorsa ag yok demektir ve
+    denetim atlanir. Yalnizca kontrol cozulup BIZIM adres cozulemezse
+    bulgu uretiliyor.
+    """
+    bulgu: list[Bulgu] = []
+    cikti = CIKTI_DIZINI / "robots.txt"
+    if not cikti.exists():
+        return bulgu
+    m = re.search(r"https?://([a-zA-Z0-9.-]+)", cikti.read_text(encoding="utf-8"))
+    if not m:
+        return bulgu
+    konak = m.group(1)
+
+    import socket        # noqa: PLC0415
+
+    def cozulur(ad: str) -> bool:
+        try:
+            socket.getaddrinfo(ad, 443, proto=socket.IPPROTO_TCP)
+            return True
+        except OSError:
+            return False
+
+    if not cozulur("cloudflare.com"):
+        return bulgu          # ag yok -- denetlenemez, hata da denemez
+    if not cozulur(konak):
+        bulgu.append(Bulgu(
+            "hata", "editoryal", "adres",
+            f"site kendi adresi olarak {konak} diyor ama bu ad "
+            f"cozumlenmiyor -- kanonik, sitemap ve RSS olu hedefe bakiyor"))
+    return bulgu
+
+
 def _veri_tutarlilik_denetimi() -> list[Bulgu]:
     """Yorumdaki sayilarin sayfada karsiligi var mi?
 
@@ -826,6 +876,7 @@ def editoryal_denetim() -> list[Bulgu]:
     bulgu += _serit_cakismasi_denetimi()
     bulgu += _cop_denetimi()
     bulgu += _foto_butunluk_denetimi()
+    bulgu += _kanonik_adres_denetimi()
     bulgu += _baslik_tekrari_denetimi()
 
     # --- yayimlanmis gurultu ---

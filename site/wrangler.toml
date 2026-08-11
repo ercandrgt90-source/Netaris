@@ -17,6 +17,39 @@ compatibility_date = "2026-07-31"
 # sistemi ya da veritabani coktugunde haberler ve analizler yayinda kalir.
 main = "./worker.js"
 
+# KENDI ALAN ADI -- BAGLANINCA ACILACAK.
+#
+# NEDEN GEREKLI, "guzel gorunsun" DEGIL: `*.workers.dev` Turk
+# Telekom'un "Guvenli Internet" suzgeci tarafindan engelleniyor.
+# Olculdu (2026-08-11): DNS cozuluyor, TCP 443 aciliyor, ama TLS el
+# sikismasi kesiliyor ve 443 portundan su donuyor --
+#
+#     HTTP/1.1 307 Temporary Redirect
+#     Via: 1.0 middlebox
+#     Location: https://guvenliinternet.turktelekom.com.tr/?...
+#
+# Ust alan adi `workers.dev` de ayni sekilde engelli, yani bu bir
+# KATEGORI engeli; icerigimizle ilgisi yok ve bizim tarafimizdan
+# duzeltilemez. Turk okura yayin yapan bir sitenin adresi Turkiye'de
+# engelli olamaz.
+#
+# ALAN ADI ALINDIGINDA, SIRASIYLA:
+#   1. Alan adi Cloudflare hesabina eklenir (bolge/zone olusur).
+#   2. Asagidaki iki satirin basindaki `#` kaldirilir.
+#   3. `NETARIS_ADRES=https://netaris.com python site/insa.py` ile
+#      kanonik adres, sitemap, robots ve RSS yeniden uretilir
+#      (bkz. `site/insa.py` -> `TABAN_ADRES`).
+#   4. `npx wrangler deploy`
+#
+# 3. ADIM ATLANIRSA site kendini hala eski adresle ilan eder ve iki
+# adres birbirinin kopyasi olur. `denetim.py` bunu yakalamaz -- eski
+# adres COZUMLENIYOR, yalnizca yanlis.
+#
+# routes = [
+#   { pattern = "netaris.com", custom_domain = true },
+#   { pattern = "www.netaris.com", custom_domain = true },
+# ]
+
 [assets]
 directory = "./cikti"
 binding = "ASSETS"
