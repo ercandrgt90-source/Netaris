@@ -94,6 +94,10 @@ DURUMLAR += (
     ("Temmuz ayı dış ticaret rakamları açıklandı", (), ("DIS_TICARET_TR",)),
     ("Bakırda iki haftanın zirvesi", ("XCU",), ()),
     ("TCMB faiz kararını açıkladı", ("TCMB", "TCMB_FAIZ"), ()),
+    # GOREVDEKI baskan ve ONCEKI baskan AYRI varliklar. Gorev
+    # degistiginde tanim guncelleniyor ama eski kayit SILINMIYOR --
+    # arsivdeki haberler ona baglaniyor ve o baglanti dogru.
+    ("Fed Başkanı Warsh faiz sinyali verdi", ("FED", "WARSH"), ()),
     ("Fed Başkanı Powell konuştu", ("FED", "POWELL"), ()),
     ("Gram altın rekor tazeledi", ("XAU",), ()),
     ("Türkiye'nin fındık ihracatı arttı", ("TR", "DIS_TICARET_TR"), ()),

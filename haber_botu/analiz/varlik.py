@@ -121,6 +121,7 @@ KALIPLAR: dict[str, tuple[str, ...]] = {
     # --- kisiler ---
     # Soyisim tek basina riskli: "Ciftci" hem bakan soyismi hem meslek.
     # Bu ucu ayirt edici, yine de tam ad kaliplari once yazildi.
+    "WARSH": ("kevin warsh", "warsh"),
     "POWELL": ("jerome powell", "powell"),
     "KARAHAN": ("fatih karahan", "karahan"),
     "LAGARDE": ("christine lagarde", "lagarde"),

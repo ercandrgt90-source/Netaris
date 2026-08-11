@@ -93,8 +93,16 @@ VARLIKLAR: tuple[tuple, ...] = (
      "karşılaştırmalı istatistik ve tahmin yayımlar."),
 
     # --- kisiler ---
-    ("POWELL", "kisi", "Jerome Powell", "Jerome Powell", None, 80,
+    # GOREVDEKI BASKAN ONCE. Tanimlar GOREVE bagli oldugu icin gorev
+    # degistiginde burasi guncellenmek zorunda; kod bunu anlayamaz.
+    # Olculdu -- kullanici sayfada eski baskanin fotografini gordu ve
+    # bu kaydin aciklamasi da hala "Fed Başkanı." diyordu.
+    ("WARSH", "kisi", "Kevin Warsh", "Kevin Warsh", None, 80,
      "Fed Başkanı."),
+    # Tarih YAZILMIYOR: gorev bitis tarihini olcmedik, kendi haber
+    # akisimiz yalnizca "artik Warsh" diyor. Olcmedigimizi yazmiyoruz.
+    ("POWELL", "kisi", "Jerome Powell", "Jerome Powell", None, 60,
+     "Fed'in önceki başkanı."),
     ("LAGARDE", "kisi", "Christine Lagarde", "Christine Lagarde", None, 70,
      "ECB Başkanı."),
     ("KARAHAN", "kisi", "Fatih Karahan", "Fatih Karahan", None, 80,
