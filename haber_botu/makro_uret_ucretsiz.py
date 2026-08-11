@@ -369,7 +369,15 @@ def _panel_yaz(panel_gorunum) -> None:
     SERIT_DOSYASI.write_text(
         json.dumps(
             {
-                "guncelleme": panel_gorunum.en_son_tarih,
+                # DOSYANIN DAMGASI EN TAZE KALEMDEN.
+                #
+                # `en_son_tarih` yalnizca FRED serilerine bakiyordu ve
+                # serit artik TCMB kurlarini da tasiyor. Olculdu: kur
+                # kalemleri 2026-08-11 iken dosya "2026-08-10" diyordu,
+                # yani serit kendi icerdiginden eski gorunuyordu.
+                "guncelleme": max(
+                    [k["tarih"] for k in kalemler if k.get("tarih")]
+                    or [panel_gorunum.en_son_tarih]),
                 "kaynak": "FRED (St. Louis Fed)",
                 "kalemler": kalemler,
                 "gruplar": gruplar,

@@ -44,6 +44,7 @@ Kullanim:
 from __future__ import annotations
 
 import argparse
+import html
 import pathlib
 import re
 import sys
@@ -447,6 +448,76 @@ def _lisans_denetimi() -> list[Bulgu]:
     return bulgu
 
 
+#: Fiyat seridini besleyen istemci betigi.
+CANLI_BETIK = _KOK.parent / "site" / "statik" / "canli.js"
+
+
+def _serit_adlari_js(kaynak: str) -> set[str]:
+    """`canli.js`in seride EKLEDIGI gorunen adlar.
+
+    Adlar uc ayri bicimde yaziliyor ve UCUNU DE okumak sart --
+    olculdu: yalnizca dogrudan `kalemKur(` cagrilarini arayan ilk
+    surumum alti addan yalnizca birini buldu ve "cakisma yok" dedi.
+    Eksik tarama, temiz rapor uretir; en tehlikeli yanlis budur.
+    """
+    return (
+        set(re.findall(r'kalemKur\(\s*"[^"]+",\s*"([^"]+)"', kaynak))
+        | set(re.findall(r'\bekle\(\s*"[^"]+",\s*"([^"]+)"', kaynak))
+        | set(re.findall(r'\bad:\s*"([^"]+)"', kaynak))
+    )
+
+
+def _serit_cakismasi_denetimi() -> list[Bulgu]:
+    """Ayni enstruman seride hem sunucudan hem istemciden giriyor mu?
+
+    NEDEN VAR. Serit iki katmanli: gunluk resmi seriler sunucuda
+    basiliyor, gercek zamanli kalemler `canli.js` ile ekleniyor.
+    Istemci katmani kalemi `data-kalem` ile ARIYOR; sunucunun bastigi
+    kalemlerde bu oznitelik YOK (olculdu: 72 kalemin 72'sinde yok).
+    Yani eslesme hicbir zaman tutmaz -- ayni adli bir kalem
+    guncellenmez, YENISI yaratilir.
+
+    NASIL DOGDU. Serit basta yalnizca FRED'den besleniyordu, kur
+    sunucuda yoktu ve USD/TRY ile EUR/USD'yi `canli.js` Frankfurter'dan
+    cekiyordu. Sunucu tarafina TCMB kurlari eklenince eski katman
+    yerinde kaldi; okur ayni seritte USD/TRY'yi iki kez, iki farkli
+    degerle gordu (TCMB 47,71 / Frankfurter 47,695).
+
+    Ikisinden hangisinin dogru oldugu onemli degil -- bir fiyat
+    seridinde ayni enstrumanin iki fiyati veri degil, guvensizliktir.
+    Bu yuzden agirlik HATA: dagitimi durdurur.
+
+    Statik olarak yakalanabilir cunku iki liste de kaynak dosyalarda
+    yazili; tarayici calistirmak gerekmiyor.
+    """
+    bulgu: list[Bulgu] = []
+    anasayfa = CIKTI_DIZINI / "index.html"
+    if not (CANLI_BETIK.exists() and anasayfa.exists()):
+        return bulgu
+
+    js_adlari = _serit_adlari_js(CANLI_BETIK.read_text(encoding="utf-8"))
+    if not js_adlari:
+        # Betik duruyor ama hicbir ad okunamadi: ya bicim degisti ya
+        # katman bosaldi. Sessiz gecmek, denetimi ise yaramaz kilar.
+        bulgu.append(Bulgu(
+            "uyari", "veri", "serit",
+            "canli.js'te kalem adi okunamadi -- denetim dogrulanamiyor"))
+        return bulgu
+
+    metin = anasayfa.read_text(encoding="utf-8")
+    sunucu = {
+        html.unescape(b).split(" —")[0]
+        for b in re.findall(r'title="([^"]+)"', metin)
+        if " — son veri" in html.unescape(b)
+    }
+    for ad in sorted(sunucu & js_adlari):
+        bulgu.append(Bulgu(
+            "hata", "veri", "serit",
+            f"{ad} seride HEM sunucudan HEM canli.js'ten giriyor"
+            " -- ayni enstruman iki farkli degerle gorunur"))
+    return bulgu
+
+
 def _veri_tutarlilik_denetimi() -> list[Bulgu]:
     """Yorumdaki sayilarin sayfada karsiligi var mi?
 
@@ -627,6 +698,7 @@ def editoryal_denetim() -> list[Bulgu]:
     bulgu += _gorsel_denetimi()
     bulgu += _veri_tutarlilik_denetimi()
     bulgu += _lisans_denetimi()
+    bulgu += _serit_cakismasi_denetimi()
     bulgu += _baslik_tekrari_denetimi()
 
     # --- yayimlanmis gurultu ---

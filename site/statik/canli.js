@@ -2,8 +2,9 @@
  *
  * NOKTA NE ANLATIR
  * ----------------
- *   yesil, nabiz atan : gercek zamanli akis (Binance)
- *   gri, sabit        : son veri -- gunluk yayimlanan resmi seri
+ *   yesil, nabiz atan : gercek zamanli akis (Kraken / Binance) -- bu dosya
+ *   gri, sabit        : son veri, gunluk resmi seri -- sunucu sablonu
+ *   sari              : yayin ritmi seyrek, kalem beklenenden eski
  *
  * KIRMIZI NOKTA KULLANILMIYOR. Sebebi su: bu arayuzde kirmizi ve yesil
  * YALNIZCA sayinin yonunu anlatiyor (dustu / yukseldi). Ayni iki rengi bir
@@ -12,10 +13,28 @@
  * Canli olmayan kalem gri nokta tasir.
  *
  * KAYNAKLAR
- *   Binance      : gercek zamanli, anahtarsiz, 24 saatlik degisim yuzdesi
- *   Frankfurter  : ECB referans kurlari, gunluk; degisim icin son iki is
- *                  gunu tek istekte cekiliyor
- *   FRED         : sunucu tarafinda, insa aninda yazilmis gunluk seriler
+ *   Kraken       : gercek zamanli kripto ve altin, anahtarsiz, cografi
+ *                  kisitsiz; 24 saatlik degisim
+ *   Binance      : YALNIZCA USDT/TRY -- Kraken'de TRY paritesi yok
+ *   FRED / TCMB  : sunucu tarafinda, insa aninda yazilmis gunluk seriler
+ *
+ * BU KATMAN KUR BASMAZ.
+ * ---------------------
+ * Eskiden Frankfurter'dan USD/TRY ve EUR/USD de cekiliyordu; o zaman
+ * serit yalnizca FRED'den besleniyordu ve kur sunucuda YOKTU. Sunucu
+ * tarafina TCMB kurlari eklenince bu katman gereksizlesti ama yerinde
+ * kaldi ve iki kalem seritte IKI KEZ, FARKLI DEGERLE goruntulendi:
+ * USD/TRY hem TCMB'den 47,71 (ayni gun) hem Frankfurter'dan 47,695
+ * (bir onceki gun). Ayni enstrumanin iki fiyati bir okur icin veri
+ * degil, guvensizliktir.
+ *
+ * Kaldirildi. Sunucu surumu her iki olcumde de daha iyi: TCMB kuru
+ * AYNI GUN yayimliyor, EUR/USD ise zaten dogrudan ECB'den geliyor --
+ * Frankfurter da ayni ECB verisini ikinci elden tasiyordu.
+ *
+ * Cakismayi `denetim.py` artik statik olarak yakaliyor: sunucunun
+ * bastigi kalem adlariyla bu dosyanin ekledigi adlar kesisirse yayin
+ * "hata" veriyor.
  *
  * BOZULURSA: serit sunucudan dolu geliyor. Ag hatasi, engelleyici ya da
  * JavaScript kapali olmasi sayfayi bozmaz -- yalnizca canli kalemler
@@ -43,9 +62,6 @@
   var BINANCE =
     "https://api.binance.com/api/v3/ticker/24hr?symbol=USDTTRY";
 
-  // Son 8 gunu ister, son iki is gununu kullanir (hafta sonu bosluklari icin)
-  var FRANKFURTER_TABAN = "https://api.frankfurter.app/";
-
   /* Kraken cevap anahtarlari istek adindan farkli gelir: "XBTUSD" ->
      "XXBTZUSD". Eslesme bu yuzden anahtarla degil, icerdigi kodla
      yapiliyor.
@@ -69,19 +85,18 @@
     });
   }
 
-  function gunOnce(gunSayisi) {
-    var d = new Date();
-    d.setDate(d.getDate() - gunSayisi);
-    return d.toISOString().slice(0, 10);
-  }
-
   function yuzdeMetni(yuzde) {
     if (typeof yuzde !== "number" || !isFinite(yuzde)) return "—";
     return (yuzde > 0 ? "+" : yuzde < 0 ? "-" : "") +
            trSayi(Math.abs(yuzde), 2) + "%";
   }
 
-  function kalemKur(anahtar, ad, deger, yuzde, canliMi, aciklama) {
+  /* Bu dosyanin ekledigi HER kalem canli -- gunluk resmi seriler
+     sunucuda basiliyor. Eskiden bir de "canli degil" dali vardi;
+     ECB kur katmani kaldirilinca cagrilamaz hale geldi ve gri nokta
+     ile "ECB gunluk referans" aciklamasini uretmeye devam ediyordu.
+     Cagrilamayan dal, yanlis aciklama demektir. */
+  function kalemKur(anahtar, ad, deger, yuzde, aciklama) {
     var kalem = SIRA.querySelector('[data-kalem="' + anahtar + '"]');
     if (!kalem) {
       kalem = document.createElement("span");
@@ -98,15 +113,13 @@
     else if (typeof yuzde === "number" && yuzde < 0) yon = "azalis";
 
     kalem.innerHTML =
-      '<span class="nokta ' + (canliMi ? "nokta-canli" : "nokta-gecmis") + '"></span>' +
+      '<span class="nokta nokta-canli"></span>' +
       '<span class="kalem-ad">' + ad + "</span>" +
       '<span class="kalem-deger">' + deger + "</span>" +
       '<span class="kalem-fark ' + yon + '">' + yuzdeMetni(yuzde) + "</span>";
     /* Enstrumanin ne oldugu ve verinin nereden geldigi seritte degil
        BURADA duruyor -- serit dar, aciklama uzun. */
-    kalem.title = aciklama || (ad + (canliMi
-      ? " — canlı akış, 24 saatlik değişim"
-      : " — son veri (ECB günlük referans)"));
+    kalem.title = aciklama || (ad + " — canlı akış, 24 saatlik değişim");
   }
 
   /* Kayan serit icin ikinci kopya. Animasyon -%50 kaydirdigi icin iki ayni
@@ -147,7 +160,7 @@
             ? (fiyat / acilis - 1) * 100
             : null;
           kalemKur(anahtar, tanim.ad, trSayi(fiyat, tanim.basamak),
-                   yuzde, true, tanim.aciklama);
+                   yuzde, tanim.aciklama);
         });
         kopyaTazele();
       })
@@ -163,43 +176,15 @@
         var yuzde = parseFloat(t.priceChangePercent);
         if (!isFinite(fiyat)) return;
         kalemKur("USDTTRY", "USDT/TRY", trSayi(fiyat, 2),
-                 isFinite(yuzde) ? yuzde : null, true);
+                 isFinite(yuzde) ? yuzde : null);
         kopyaTazele();
       })
       .catch(function () { /* engellenmis olabilir -- serit calismaya devam */ });
   }
 
-  function ecbCek() {
-    var u = FRANKFURTER_TABAN + gunOnce(8) + ".." + "?from=USD&to=TRY,EUR";
-    return fetch(u, { cache: "no-store" })
-      .then(function (y) { return y.ok ? y.json() : Promise.reject(y.status); })
-      .then(function (veri) {
-        if (!veri || !veri.rates) return;
-        var gunler = Object.keys(veri.rates).sort();
-        if (!gunler.length) return;
-        var son = veri.rates[gunler[gunler.length - 1]];
-        var onceki = gunler.length > 1 ? veri.rates[gunler[gunler.length - 2]] : null;
-
-        function ekle(anahtar, ad, cikar, basamak) {
-          var s = cikar(son);
-          if (typeof s !== "number" || !isFinite(s)) return;
-          var o = onceki ? cikar(onceki) : null;
-          var yuzde = (typeof o === "number" && o > 0) ? (s / o - 1) * 100 : null;
-          kalemKur(anahtar, ad, trSayi(s, basamak), yuzde, false);
-        }
-
-        ekle("USDTRY_ECB", "USD/TRY", function (r) { return r.TRY; }, 3);
-        ekle("EURUSD_ECB", "EUR/USD", function (r) { return r.EUR ? 1 / r.EUR : null; }, 4);
-        kopyaTazele();
-      })
-      .catch(function () { /* sessizce vazgec */ });
-  }
-
   krakenCek();
   binanceCek();
-  ecbCek();
 
-  // Kripto ve altin yenilenir; ECB gunluk oldugu icin tekrar cekilmez
   setInterval(function () {
     krakenCek();
     binanceCek();

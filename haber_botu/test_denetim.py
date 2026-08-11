@@ -115,6 +115,55 @@ with tempfile.TemporaryDirectory() as gecici:
     es("gorselsiz sayfa", denetim._lisans_denetimi(), [])
 denetim.CIKTI_DIZINI = _ASIL
 
+# --------------------------------------------------------------------
+# SERIT CAKISMASI
+# --------------------------------------------------------------------
+#
+# Ayni enstrumanin seride hem sunucudan hem `canli.js`ten girmesi.
+# Gercekte olustu: sunucuya TCMB kurlari eklendikten sonra USD/TRY
+# seritte iki kez, iki farkli degerle gorundu.
+_ASIL_BETIK = denetim.CANLI_BETIK
+
+with tempfile.TemporaryDirectory() as gecici:
+    kok = pathlib.Path(gecici)
+    denetim.CIKTI_DIZINI = kok / "cikti"
+    denetim.CIKTI_DIZINI.mkdir()
+    denetim.CANLI_BETIK = kok / "canli.js"
+
+    def kur(sunucu_adlari, js_metni):
+        (denetim.CIKTI_DIZINI / "index.html").write_text(
+            "".join(f'<span class="kalem" title="{a} &mdash; son veri 2026-08-11">'
+                    f"</span>" for a in sunucu_adlari).replace("&mdash;", "—"),
+            encoding="utf-8")
+        denetim.CANLI_BETIK.write_text(js_metni, encoding="utf-8")
+
+    # Adlarin UC yazim bicimi de taranmali. Ilk surumum yalnizca
+    # dogrudan `kalemKur(` cagrilarina bakiyordu ve alti addan birini
+    # buluyordu -- eksik tarama, sahte "temiz" rapor uretir.
+    es("uc bicim de taranir",
+       sorted(denetim._serit_adlari_js(
+           'kalemKur("A", "USDT/TRY", x);'
+           ' ekle("B", "USD/TRY", f);'
+           ' var t = [{ iz: "XBT", ad: "BTC/USD" }];')),
+       ["BTC/USD", "USD/TRY", "USDT/TRY"])
+
+    kur(["USD/TRY", "BRENT"], 'kalemKur("K", "BTC/USD", x);')
+    es("cakisma yoksa temiz", denetim._serit_cakismasi_denetimi(), [])
+
+    kur(["USD/TRY", "BRENT"], 'ekle("USDTRY_ECB", "USD/TRY", f);')
+    _b = denetim._serit_cakismasi_denetimi()
+    es("cakisma HATA verir", [(x.agirlik, x.alan) for x in _b], [("hata", "veri")])
+    es("mesaj enstrumani soyler", "USD/TRY" in _b[0].mesaj, True)
+
+    # Betik duruyor ama ad okunamiyorsa sessiz gecilmez: bicim
+    # degismis olabilir ve denetim ise yaramaz hale gelir.
+    kur(["USD/TRY"], "// kalem eklemeyen betik")
+    es("ad okunamazsa uyarir",
+       [x.agirlik for x in denetim._serit_cakismasi_denetimi()], ["uyari"])
+
+denetim.CIKTI_DIZINI = _ASIL
+denetim.CANLI_BETIK = _ASIL_BETIK
+
 print()
 for k in kaldi:
     print("  KALDI", k)
