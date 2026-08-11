@@ -518,6 +518,131 @@ def _serit_cakismasi_denetimi() -> list[Bulgu]:
     return bulgu
 
 
+#: Yayimlanan GORUNUR metinde asla bulunmamasi gereken izler.
+#:
+#: Her biri olculmus bir olaydan geliyor, tahminden degil: bir haberin
+#: ozeti ham bir TradingView gomme betigiydi ve okur bunu "Ne oldu?"
+#: sorusunun cevabi olarak gordu.
+_COP_IZI = (
+    ("cozulmemis yer tutucu", re.compile(r"\{\{|\{%|%%\w+%%")),
+    ("kacirilmis etiket", re.compile(r"<\s*/?\s*(script|style|div|iframe|"
+                                     r"span|table|img|br)\b", re.I)),
+    ("betik govdesi", re.compile(r"\bfunction\s*\(|\bvar\s+\w+\s*=|"
+                                 r"\bnew\s+[A-Z]\w+\s*\(|container_id")),
+)
+
+
+def _gorunur_metin(sayfa: str) -> str:
+    """Sayfanin okur tarafindan GORULEN metni.
+
+    `<script>`/`<style>`/`<svg>` govdeleri once atiliyor -- onlarin
+    icinde kod bulunmasi olagan. Kalan etiketler silindikten SONRA
+    hala kod izi varsa, o iz metnin kendisindedir.
+    """
+    m = re.search(r"<main[^>]*>(.*?)</main>", sayfa, re.S)
+    ic = m.group(1) if m else ""
+    ic = re.sub(r"<(script|style|svg)\b[^>]*>.*?</\1\s*>", " ", ic,
+                flags=re.S | re.I)
+    return re.sub(r"<[^>]+>", " ", ic)
+
+
+def _cop_denetimi() -> list[Bulgu]:
+    """Sayfa govdesinde isaretleme/betik artigi var mi?
+
+    NEDEN YAYIN UCUNDA. Asil duzeltme `besleme._metin`de: kacislar
+    artik etiketler silinmeden ONCE cozuluyor. Ama o duzeltme yalnizca
+    BESLEME alanini koruyor; ozet, baslik, kurum adi ve ileride
+    eklenecek her alan ayni copu tasiyabilir. Burasi son kapi ve
+    ALANDAN BAGIMSIZ calisir.
+
+    Agirlik HATA: okur "Ne oldu?" sorusunun cevabi olarak JavaScript
+    goruyorsa o sayfa yayimlanmamalidir.
+    """
+    bulgu: list[Bulgu] = []
+    if not CIKTI_DIZINI.exists():
+        return bulgu
+    for p in CIKTI_DIZINI.rglob("index.html"):
+        gorunur = _gorunur_metin(p.read_text(encoding="utf-8"))
+        for ad, kalip in _COP_IZI:
+            m = kalip.search(gorunur)
+            if m:
+                bulgu.append(Bulgu(
+                    "hata", "editoryal", (p.parent.name or "/")[:40],
+                    f"govdede {ad}: {m.group()[:30]!r}"))
+                break
+    return bulgu
+
+
+def _foto_butunluk_denetimi() -> list[Bulgu]:
+    """Gorsel havuzu kendi icinde tutarli mi?
+
+    UC AYRI HATA SINIFI, ucu de olculmus olaydan geliyor.
+
+    1. OKSUZ BOY SURUMU. `foto.suz` bir gorseli elerken yalnizca buyuk
+       dosyayi siliyordu; `o/` ve `k/` surumleri diskte kaliyordu.
+       Gorevden ayrilan Fed baskaninin fotograflari boyle elendi ve
+       `foto/o/fed-5.jpg` ile iki kardesi yayimlanmis halde,
+       adresle ulasilabilir sekilde durdu. Hicbir sayfa kullanmiyordu
+       -- yani hicbir denetim de gormuyordu. "Silindi" demek dosyanin
+       gitmesi demektir.
+
+    2. KAYIT-DISK AYRISMASI. Deftere yazili bir gorselin dosyasi yoksa
+       sayfa kirik resimle cikar; dosyasi olup deftere yazili olmayan
+       gorsel ise atifsiz yayimlanma riski tasir (CC BY yukumlulugu).
+
+    3. ELENMIS KISI. Havuzdan elenen kisi gorselleri (bkz.
+       `foto.GECMIS_GOREVLI`) yeniden indirilmis olabilir; defter
+       kunyesi uzerinden aranıyor.
+    """
+    bulgu: list[Bulgu] = []
+    try:
+        import foto as _foto            # noqa: PLC0415
+    except ImportError:
+        return bulgu
+
+    ana = _foto.FOTO_KLASORU
+    if not ana.exists():
+        return bulgu
+
+    buyuk = {p.name for p in ana.glob("*") if p.is_file()}
+    for klasor, etiket in ((_foto.ORTA_KLASOR, "o"), (_foto.KUCUK_KLASOR, "k")):
+        if not klasor.exists():
+            continue
+        oksuz = sorted({p.name for p in klasor.glob("*") if p.is_file()} - buyuk)
+        if oksuz:
+            bulgu.append(Bulgu(
+                "hata", "gorsel", f"foto/{etiket}",
+                f"{len(oksuz)} oksuz boy surumu -- buyugu silinmis ama "
+                f"bu surum duruyor: {', '.join(oksuz[:3])}"))
+
+    kayit = _foto.Kayit()
+    kayitli = {f["dosya"].rsplit("/", 1)[-1]
+               for liste in kayit.veri.values() for f in liste}
+    eksik = sorted(kayitli - buyuk)
+    if eksik:
+        bulgu.append(Bulgu(
+            "hata", "gorsel", "foto",
+            f"{len(eksik)} kayitli gorselin DOSYASI yok: {', '.join(eksik[:3])}"))
+    fazla = sorted(buyuk - kayitli)
+    if fazla:
+        bulgu.append(Bulgu(
+            "uyari", "gorsel", "foto",
+            f"{len(fazla)} dosya deftere yazili degil -- atifi "
+            f"dogrulanamaz: {', '.join(fazla[:3])}"))
+
+    elenmis = tuple(getattr(_foto, "GECMIS_GOREVLI", ()))
+    if elenmis:
+        for konu, liste in kayit.veri.items():
+            for f in liste:
+                metin = f"{f.get('kunye', '')} {f.get('sorgu', '')}".lower()
+                for kisi in elenmis:
+                    if kisi in metin:
+                        bulgu.append(Bulgu(
+                            "hata", "gorsel", konu[:40],
+                            f"elenmis kisi havuza geri girmis: {kisi}"))
+    return bulgu
+
+
 def _veri_tutarlilik_denetimi() -> list[Bulgu]:
     """Yorumdaki sayilarin sayfada karsiligi var mi?
 
@@ -699,6 +824,8 @@ def editoryal_denetim() -> list[Bulgu]:
     bulgu += _veri_tutarlilik_denetimi()
     bulgu += _lisans_denetimi()
     bulgu += _serit_cakismasi_denetimi()
+    bulgu += _cop_denetimi()
+    bulgu += _foto_butunluk_denetimi()
     bulgu += _baslik_tekrari_denetimi()
 
     # --- yayimlanmis gurultu ---

@@ -872,9 +872,23 @@ def suz(kayit: Kayit | None = None, uygula: bool = False) -> list[tuple[str, str
                 continue
             cikanlar.append((anahtar, kunye[:70]))
             if uygula:
-                p = FOTO_KLASORU / f["dosya"].rsplit("/", 1)[-1]
-                if p.exists():
-                    p.unlink()
+                # BUTUN BOY SURUMLERI SILINIYOR.
+                #
+                # Ilk yazimda yalnizca buyuk dosya siliniyordu ve
+                # `o/` ile `k/` surumleri diskte KALIYORDU. Olculdu:
+                # gorevden ayrilan Fed baskaninin fotograflari
+                # elendikten sonra `foto/o/fed-5.jpg`, `fed-6`,
+                # `fed-7` ve kucuk esleri hala duruyordu -- hicbir
+                # sayfa kullanmiyordu ama dosyalar yayimlanmis
+                # halde, dogrudan adresle ulasilabilir durumdaydi.
+                #
+                # "Elendi" demek dosyanin gitmesi demek; yarim silme,
+                # silinmis SANMAKTIR.
+                ad = f["dosya"].rsplit("/", 1)[-1]
+                for klasor in (FOTO_KLASORU, ORTA_KLASOR, KUCUK_KLASOR):
+                    p = klasor / ad
+                    if p.exists():
+                        p.unlink()
         if uygula:
             kayit.veri[anahtar] = kalan
     if uygula:

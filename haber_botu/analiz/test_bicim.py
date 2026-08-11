@@ -116,6 +116,54 @@ esit(bicim.bagiriyor("TURKIYE EKONOMISI BUYUDU"), True, "bagiriyor")
 
 
 print("\n" + "=" * 60)
+
+# --------------------------------------------------------------------
+# MANSET UZUNLUGU
+# --------------------------------------------------------------------
+#
+# Olculdu: yayimlanan 31 basligin uzunlugu 110 karakteri asiyordu, en
+# uzunu 231. Bunlar manset degil, tel-ajans uyarisinin cumlesinin
+# tamamiydi.
+_KISA = "Fed faizi sabit tuttu"
+esit(bicim.manset_kisalt(_KISA), _KISA, "sinirin altindaki baslige dokunulmuyor")
+esit(bicim.manset_kisalt(""), "", "bos baslik")
+
+_ATIF = ("ABD Hazinesi, Iran Devrim Muhafizlari'ni finanse eden ve yasadisi "
+         "finansmani saglayan kripto borsalarina yaptirim uyguluyor - Hazine Web Sitesi")
+esit(bicim.manset_kisalt(_ATIF).endswith("uyguluyor"), True,
+     "sondaki kaynak atfi atiliyor -- kaynak rozette zaten yaziyor")
+
+_IKI = ("BMW'nin elektrikli donusumunde dev adim: Erken siparis rekoru uretimi "
+        "hizlandirdi. Yeni BMW i3 Munih'te banttan indi")
+esit(bicim.manset_kisalt(_IKI),
+     "BMW'nin elektrikli donusumunde dev adim: Erken siparis rekoru uretimi hizlandirdi",
+     "birden fazla cumle varsa ILKI aliniyor")
+
+_SORU = ("TOKI Istanbul Kiralik Konut Projesi basliyor: Kiralik konut basvurulari "
+         "ne zaman? Basvuru sartlari belli oldu mu?")
+esit(bicim.manset_kisalt(_SORU).endswith("ne zaman?"), True,
+     "soru isareti de cumle siniri sayiliyor")
+
+# EN ONEMLI KURAL. Turkcede yuklem ve OLUMSUZLUK sonda: "gerektigini
+# soyledi" ile "gerekmedigini soyledi" yalnizca son ekte ayriliyor.
+# Ortadan kesilen bir Turkce cumle anlamsizlasmakla kalmaz, TERSINE
+# donebilir. Tek cumlelik uzun baslik AYNEN birakilmali.
+_TEK_CUMLE = ("BOJ Ozeti: Bir uye, Japonya'nin altta yatan enflasyon istikrarini "
+              "tutarli seviyelerde gorup gormeyecegini olcmek icin orta ve uzun "
+              "vadeli enflasyon beklentilerinin yuzde 2 civarinda sabit kalip "
+              "kalmadigini incelemesi gerektigini soyledi")
+esit(bicim.manset_kisalt(_TEK_CUMLE), _TEK_CUMLE,
+     "TEK cumlelik uzun baslik KESILMIYOR -- anlam bozulur")
+esit(len(bicim.manset_kisalt(_TEK_CUMLE)) > bicim.MANSET_SINIRI, True,
+     "sinirin altina inemiyorsa uzun kalmak yanlis olmaktan iyidir")
+
+# Onek konumundaki iki nokta atif SANILMAMALI: "Trump: ..." bir kaynak
+# kuyrugu degil, basligin kendisi.
+_ONEK = ("Trump: Iran, son 5 aylik askeri catisma sirasinda kendilerine verilen "
+         "zararin tazminini istiyor")
+esit(bicim.manset_kisalt(_ONEK), _ONEK, "bastaki 'Kaynak:' oneki korunuyor")
+
+
 if _kaldi:
     print(f"{_kaldi} TEST KALDI, {_gecti} gecti")
     sys.exit(1)

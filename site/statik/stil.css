@@ -2649,6 +2649,17 @@ table td, table th, time, .tarih {
 .akis-baslik {
   font-size: 0.86rem; line-height: 1.42; font-weight: 600;
   color: var(--yazi);
+  /* UC SATIRDA KIRPILIYOR. Kartlarda bu zaten vardi, akista YOKTU.
+     Olculdu: ana sayfadaki 40 akis kaleminin 8'i 110 karakteri
+     asiyor, en uzunu 160 -- kirpma olmadan tek bir tel-ajans
+     cumlesi yan sutunun yarisini yiyordu.
+
+     Baslik KISALTILMIYOR, yalnizca gosterimi sinirlaniyor: tam
+     metin kaynakta duruyor ve haberin kendi sayfasinda aynen
+     goruluyor. Turkcede yuklem sonda oldugu icin metni kirpmak
+     anlami bozabilir; CSS kirpmasi metne dokunmuyor. */
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 a.akis-baslik:hover { color: var(--vurgu); text-decoration: none; }
 /* Sayfasi olmayan kalem: akista GORUNUR ama tiklanmaz. Silmek

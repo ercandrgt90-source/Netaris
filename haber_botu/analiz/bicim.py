@@ -291,3 +291,69 @@ def baslik_sadelestir(baslik: str) -> str:
     metin = re.sub(r"!+(\s+)", r".\1", metin)
     metin = metin.replace("!", "")
     return " ".join(metin.split()).strip(" .,;:")
+
+
+#: Manset icin ust sinir. Asan baslik bozuk degil ama MANSET degil --
+#: kartlari tasiriyor, arama sonucunda kirpiliyor.
+MANSET_SINIRI = 110
+
+#: Basligin sonuna yapisan kaynak atfi.
+#:
+#: " - Truth Social", " - IRIB News", ": devlet medyasi" gibi. Bu bilgi
+#: KAYBOLMUYOR: kaynak kurum her sayfada rozet olarak ve "Haber
+#: kaynagi:" satirinda ayrica duruyor.
+#:
+#: Kalip DAR: ayrac bosluklu tire ya da iki nokta, ardindan en fazla
+#: dort sozcuk ve cumle sonu. "Trump: Iran ..." gibi bir ONEK asla
+#: eslesmiyor cunku kalip yalnizca dizgenin SONUNA bakiyor.
+_ATIF_KUYRUGU = re.compile(
+    r"\s+[-–—]\s+[^-–—.]{3,40}$|:\s*[a-zçğıöşü][^:.]{2,30}$")
+
+
+def manset_kisalt(baslik: str, sinir: int = MANSET_SINIRI) -> str:
+    """Cok uzun basligi ANLAMINI BOZMADAN kisaltir.
+
+    NEDEN. Olculdu: yayimlanan 31 basligin uzunlugu 110 karakteri
+    asiyordu, en uzunu 231. Bunlar manset degil, tel-ajans uyarisinin
+    cumlesinin tamami: "BOJ Ozeti: Bir uye, ... incelemesi gerektigini
+    soyledi".
+
+    NE YAPMIYOR: CUMLEYI ORTADAN KESMIYOR.
+    ---------------------------------------
+    Turkcede yuklem ve OLUMSUZLUK sonda. "gerektigini soyledi" ile
+    "gerekmedigini soyledi" yalnizca son ekte ayriliyor; ortadan
+    kesilen bir Turkce cumle anlamsizlasmakla kalmaz, TERSINE
+    donebilir. Bu yuzden burada karakter sayarak kirpma YOK.
+
+    NE YAPIYOR, ikisi de anlami koruyan islem:
+
+      1. Sondaki kaynak atfini atar. Kaynak zaten rozette ve "Haber
+         kaynagi:" satirinda yaziyor -- bilgi yer degistiriyor,
+         kaybolmuyor.
+      2. Birden fazla TAM cumle varsa ilkini alir. Tam cumle kendi
+         basina dogru kalir; gerisi sayfanin govdesinde aynen
+         duruyor (olculdu: baslik metni govdede bire bir tekrar
+         ediyor).
+
+    Sinirin altina inmiyorsa baslik OLDUGU GIBI birakilir. Uzun bir
+    baslik kusurludur; yanlis bir baslik kabul edilemez.
+    """
+    if not baslik or len(baslik) <= sinir:
+        return baslik
+
+    metin = baslik.strip()
+
+    kuyruksuz = _ATIF_KUYRUGU.sub("", metin).strip(" .,;:-–—")
+    if len(kuyruksuz) >= 40:
+        metin = kuyruksuz
+    if len(metin) <= sinir:
+        return metin
+
+    # Cumle sonu: nokta + bosluk + BUYUK harf. Kisaltma noktalari
+    # ("A.B.D.") ve ondalik ayraclar bu kalibi tutturmuyor.
+    parcalar = re.split(r"(?<=[.?])\s+(?=[A-ZÇĞİÖŞÜ])", metin)
+    if len(parcalar) > 1 and len(parcalar[0]) >= 50:
+        ilk = parcalar[0].strip().rstrip(".")
+        if len(ilk) < len(metin):
+            return ilk
+    return metin

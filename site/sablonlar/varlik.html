@@ -17,7 +17,12 @@
    baslatmak olurdu. #}
 
 {% block baslik %}{{ v.ad }} — {{ site.ad }}{% endblock %}
-{% block aciklama %}{% if kunye and kunye.aciklama %}{{ kunye.aciklama }}{% else %}{{ v.ad }} ile ilgili haberler, veriler ve yapısal ilişkiler.{% endif %}{% endblock %}
+{# COK KISA TANIM TEK BASINA YETMIYOR. Olculdu: gorevden gelen
+   tanimlar ("Fed Başkanı.", "ECB Başkanı.", "TCMB Başkanı.") 15
+   karakterin altinda kaliyor ve arama sonucunda sayfa neredeyse
+   adsiz gorunuyordu. Genel cumle EKLENIYOR, tanimin yerini
+   ALMIYOR -- uydurma bilgi girmiyor, var olan cumle uzatiliyor. #}
+{% block aciklama %}{% if kunye and kunye.aciklama %}{{ kunye.aciklama }}{% if kunye.aciklama|length < 40 %} {{ v.ad }} ile ilgili haberler, veriler ve yapısal ilişkiler.{% endif %}{% else %}{{ v.ad }} ile ilgili haberler, veriler ve yapısal ilişkiler.{% endif %}{% endblock %}
 
 {% block yapisal_veri %}
 <script type="application/ld+json">

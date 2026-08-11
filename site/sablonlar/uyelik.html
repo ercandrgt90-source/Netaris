@@ -11,6 +11,25 @@
 {% block icerik %}
 <div class="uyelik-kabuk">
 
+{# JAVASCRIPT KAPALIYSA BU SAYFALAR SESSIZCE CALISMIYOR.
+   Olculdu: `/panel/` JS acikken 1451 karakter gosteriyor, kapaliyken
+   38 -- yani okur bos bir sayfa goruyordu, ne baslik ne aciklama.
+   `/giris/` formunun `action` ozniteligi yok; gonderim tumuyle
+   betikle yapiliyor, betiksiz dugme HICBIR SEY yapmiyordu ve bunun
+   sebebi hicbir yerde yazmiyordu.
+
+   Sitenin geri kalani betiksiz calisiyor (serit sunucudan dolu
+   geliyor, sayfalar statik). Calismayan yalnizca uyelik akisi; okura
+   bunu SOYLEMEK, sessizce bosluk gostermekten iyidir. #}
+<noscript>
+  <p class="uyelik-mesaj uyari">
+    Üyelik işlemleri (giriş, kayıt, panel) tarayıcınızda JavaScript
+    gerektiriyor ve şu anda kapalı görünüyor. Sitenin geri kalanı —
+    haberler, analizler, veriler ve fiyat şeridi — JavaScript olmadan
+    da çalışır.
+  </p>
+</noscript>
+
 {% if sayfa == "giris" %}
   <section class="uyelik-kutu">
     <h1>Giriş yap</h1>

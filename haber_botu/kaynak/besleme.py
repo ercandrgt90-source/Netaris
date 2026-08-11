@@ -436,11 +436,58 @@ class Haber:
         return f"{d.day} {aylar[d.month - 1]} {d.year}"
 
 
+#: Temizlikten SONRA hala duran kod izleri. Bunlardan biri kaldiysa
+#: elimizdeki sey duzyazi degil; ozetsiz yayimlamak, cop yayimlamaktan
+#: iyidir (sablon `{% if h.ozet %}` ile zaten koruyor ve kayitlarin
+#: 200/462'sinde ozet olculdugunde ZATEN bostu).
+#:
+#: Liste DAR tutuldu. `Trump: "..."` gibi haber dilinde olagan kaliplar
+#: yanlis pozitif uretmesin diye yalnizca tartismasiz kod isaretleri
+#: var; iki nokta + tirnak gibi bicimler BILEREK disarida.
+_KOD_IZI = re.compile(
+    r"\{\{|\{%|</?\s*[a-z][a-z0-9]*[\s/>]|"
+    r"\bfunction\s*\(|\bvar\s+\w+\s*=|\bnew\s+[A-Z]\w+\s*\(",
+    re.I)
+
+
 def _metin(ham: str) -> str:
-    """CDATA, HTML etiketi ve fazla bosluktan arindirir."""
+    """CDATA, HTML etiketi ve fazla bosluktan arindirir.
+
+    SIRA HAYATI: KACIS ONCE COZULUR, ETIKET SONRA SILINIR.
+    ---------------------------------------------------
+    Ilk yazimda ters sirada yapiliyordu -- once `<[^>]+>` siliniyor,
+    sonra `html.unescape` cagriliyordu. Beslemede etiketler XML
+    kacisiyla (`&lt;script&gt;`) geldiginde ilk adim hicbir sey
+    bulamiyor, ikinci adim ise onlari GERCEK ETIKETE cevirip metne
+    geri koyuyordu. Yani isaretleme temizlikten SONRA doguyordu.
+
+    Olculdu: iki haber kaydinin ozeti ham bir TradingView gomme
+    betigiydi ve okur bunu "Ne oldu?" sorusunun CEVABI olarak gordu:
+
+        <script ...>new TradingView.chart({... "desc_{{NewsID}}"});</script>
+
+    Dongu iki kez kacis cozup siliyor: cift kacirilmis
+    (`&amp;lt;script&amp;gt;`) besleme de temizleniyor. Ucuncu tur
+    guvenlik payi -- sabit noktaya varinca kendiliginden duruyor.
+
+    SCRIPT/STYLE ICERIGI DE SILINIYOR. Yalnizca etiketi silmek JavaScript
+    GOVDESINI metin olarak birakirdi. Kapanis etiketi yoksa satir sonuna
+    kadar atiliyor: bozuk isaretleme, en cok cop birakan durumdur.
+    """
     ham = re.sub(r"<!\[CDATA\[(.*?)\]\]>", r"\1", ham, flags=re.S)
-    ham = re.sub(r"<[^>]+>", " ", ham)
-    return re.sub(r"\s+", " ", html.unescape(ham)).strip()
+
+    onceki = None
+    for _ in range(3):
+        if ham == onceki:
+            break
+        onceki = ham
+        ham = html.unescape(ham)
+        ham = re.sub(r"<\s*(script|style)\b.*?(?:</\s*\1\s*>|$)", " ", ham,
+                     flags=re.S | re.I)
+        ham = re.sub(r"<[^>]+>", " ", ham)
+
+    metin = re.sub(r"\s+", " ", ham).strip()
+    return "" if _KOD_IZI.search(metin) else metin
 
 
 _TARIH_BICIMLERI = (

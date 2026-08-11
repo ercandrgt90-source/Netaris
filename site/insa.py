@@ -76,6 +76,13 @@ except ImportError:      # haber_botu yoksa site fotografsiz kurulur
     _besleme = None
     _foto = None
 
+# Manset bicimi. `tazele()` uzun basliklari burada kisaltiyor -- kural
+# degistiginde arsivin tamami kendiliginden yeniden hesaplaniyor.
+try:
+    import bicim as _bicim
+except ImportError:
+    _bicim = None
+
 # Haber baglami (neden onemli / aktarim kanallari). Arsiv sayfalari
 # yeniden uretilirken bu da yeniden hesaplaniyor -- bkz. `tazele()`.
 try:
@@ -1944,6 +1951,22 @@ def tazele(h: dict, foto_kayit) -> dict:
             h["foto"] = f.dosya if f else ""
             h["foto_atif"] = f.kisa_atif if f else ""
         return h
+
+    # MANSET UZUNLUGU: turetilmis alan, depoda SAKLANMIYOR.
+    #
+    # Kisaltma burada yapiliyor cunku bir GORUNUM kararidir; depoda tam
+    # baslik duruyor ve kural degisirse arsivin tamami kendiliginden
+    # yeniden hesaplaniyor -- `tazele`nin var olma sebebi bu.
+    #
+    # Olculdu: yayimlanan 31 basligin uzunlugu 110 karakteri asiyordu,
+    # en uzunu 231 karakterdi. Bunlar manset degil, tel-ajans
+    # uyarisinin cumlesinin tamamiydi.
+    #
+    # BILGI KAYBOLMUYOR: sayfa govdesi basligin TAM metnini zaten
+    # tekrar ediyor (olculdu, bire bir). Okur kisa manseti gorup tam
+    # cumleyi hemen altinda buluyor.
+    if _bicim is not None and h.get("baslik"):
+        h["baslik"] = _bicim.manset_kisalt(h["baslik"])
 
     baslik_ozgun = h.get("baslik_kaynak") or h.get("baslik") or ""
     # Siniflandirma ORIJINAL baslikla yapilir, cevirisiyle degil: makine

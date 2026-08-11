@@ -348,5 +348,35 @@ esit(besleme._imza("turistler") & besleme._imza("turistlerden") != frozenset(),
 esit("aciklandi" in besleme._ETKISIZ, True,
      "'aciklandi' ayirt edici degil -- imzadan atilir")
 
+
+# --------------------------------------------------------------------
+# BESLEMEDEN GELEN ISARETLEME
+# --------------------------------------------------------------------
+#
+# Gercek olay: bir haberin ozeti ham bir TradingView gomme betigiydi ve
+# okur bunu "Ne oldu?" sorusunun CEVABI olarak gordu. Sebep SIRA
+# hatasiydi -- once etiket siliniyor, sonra kacis cozuluyordu; yani
+# isaretleme temizlikten SONRA doguyordu.
+esit(besleme._metin('&lt;script&gt;new TradingView.chart({a:"b"});&lt;/script&gt;'),
+     "", "kacirilmis betik metne DONUSMUYOR")
+esit(besleme._metin("&amp;lt;script&amp;gt;var x = 1;&amp;lt;/script&amp;gt;"),
+     "", "cift kacirilmis besleme de temizlenir")
+esit(besleme._metin("<script>var gizli = 1;</script>Asil metin burada."),
+     "Asil metin burada.", "script GOVDESI de gidiyor")
+esit(besleme._metin("Metin. <script>var a=1;"),
+     "Metin.", "kapanmamis script satir sonuna kadar atilir")
+esit(besleme._metin("Sunucu {{NewsID}} yazdi"),
+     "", "cozulmemis yer tutucu ozeti bosaltir")
+
+# YANLIS POZITIF OLMAMALI -- suzgec dar tutuldu. Haber dilinde olagan
+# kaliplar (iki nokta, tirnak, yuzde, kesme isareti) DUZYAZIDIR.
+esit(besleme._metin("Trump: &quot;Anlasma yakin&quot; dedi; TCMB faizi %37 seviyesinde tuttu."),
+     'Trump: "Anlasma yakin" dedi; TCMB faizi %37 seviyesinde tuttu.',
+     "duz haber metni korunur")
+esit(besleme._metin("<![CDATA[Brent 88,90 dolara geriledi.]]>"),
+     "Brent 88,90 dolara geriledi.", "CDATA icindeki duz metin korunur")
+esit(besleme._metin("&lt;p&gt;Fed faizi sabit tuttu.&lt;/p&gt;"),
+     "Fed faizi sabit tuttu.", "HTML bicimli ama DUZYAZI ozet korunur")
+
 print(f"\n{_gecti} gecti, {_kaldi} kaldi")
 sys.exit(1 if _kaldi else 0)

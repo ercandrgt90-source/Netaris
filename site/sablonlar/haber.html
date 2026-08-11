@@ -1,7 +1,12 @@
 {% extends "temel.html" %}
 
 {% block baslik %}{{ h.baslik }} — {{ site.ad }}{% endblock %}
-{% block aciklama %}{{ h.neden_onemli }}{% endblock %}
+{# ACIKLAMA ZINCIRI. `neden_onemli` bos kalabiliyor -- olculdu:
+   veriden uretilen bir sayfada (ABD UFE) hem `description` hem
+   `og:description` BOS basiliyordu. Bos meta, arama sonucunda ve
+   paylasimda sayfayi adsiz birakir. Ozet ve baslik sirayla
+   devreye giriyor; ucu birden bos olamaz cunku baslik zorunlu. #}
+{% block aciklama %}{{ h.neden_onemli or h.ozet or h.baslik }}{% endblock %}
 {% block og_tur %}article{% endblock %}
 
 {% block yapisal_veri %}
