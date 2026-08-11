@@ -146,65 +146,42 @@
   </div>
 </header>
 
-{# CANLI FIYAT SERIDI -- TradingView'in RESMI ticker-tape widget'i.
+{# KENDI FIYAT SERIDIMIZ.
+   TradingView widget'i denendi ve GERI ALINDI: canli akiyordu ama
+   kayma hizi widget'in kendi ic iframe'inde ve yapilandirmasinda hiz
+   secenegi YOK (`speed`, `duration`, `animat`, `tempo` -- hicbiri
+   gomme betiginde gecmiyor). Capraz-kaynak oldugu icin CSS'imiz de
+   oraya erisemiyor. Hiz uzerinde soz sahibi olmak icin serit yine
+   bizim.
 
-   NEDEN WIDGET
-   ------------
-   Serit sunucu tarafinda FRED/TCMB degerleriyle doluyordu ve bazi
-   kalemler yayin ritmi geregi gunler once acilanmis oluyordu (EIA
-   Brent'i HAFTALIK yayimliyor). Ucretsiz ve anahtarsiz taze bir ham
-   petrol ucu arandi, YOK: Alpha Vantage kendi belgesinde "retrieved
-   from FRED" diyor, EIA'nin anahtarli ucu ayni haftalik ritmi tasiyor,
-   OPEC ve Stooq bot engelli. Gunluk fiyat vadeli piyasadan gelir.
+   Bedeli acikca: kalemler CANLI DEGIL, olculmus son degerler. Her
+   kalemin yaninda kac gunluk oldugu ve o serinin yayin ritmi yaziyor
+   (EIA Brent'i haftalik yayimliyor). Ucuncu taraf istegi de sifira
+   dondu -- okurun IP'si kimseye gitmiyor.
 
-   TradingView'in widget'i tam bu is icin sunuluyor: ucretsiz,
-   anahtarsiz, kullanim sartlarina uygun. KAZIMA YA DA IC UC COZME YOK.
-
-   BEDELI, ACIKCA
-   --------------
-   Widget ucuncu taraf betigi: ziyaretcinin IP'si ve hangi sayfada
-   oldugu TradingView'e gider. Serit her sayfada oldugu icin bu artik
-   SITE GENELINDE gecerli ve gizlilik politikasinda boyle yaziyor.
-   Fotograflari hala indirip kendimiz sunuyoruz; degisen tek sey bu
-   serit.
-
-   BETIKSIZ TARAYICI
-   -----------------
-   Widget JavaScript istiyor. Betik calismazsa `<noscript>` icindeki
-   OLCULMUS serit gorunur -- akmaz ama okunur, ve her kaleminin yasi
-   yazili. Yani veri kaybi yok, yalnizca canlilik yok.
-
-   TEMA
-   ----
-   Widget rengini kurulusta aliyor ve bizim tema dugmemizi izlemiyor.
-   Sayfa yuklenirken gecerli tema okunup yapilandirmaya yaziliyor. #}
-<div class="serit serit-canli" role="region" aria-label="Fiyat şeridi">
-  <div class="tradingview-widget-container" id="serit-widget"></div>
-  <noscript>
-    <div class="serit-akis">
-      <div class="serit-sira">
-        {% if gostergeler and gostergeler.kalemler %}
-        {% for k in gostergeler.kalemler %}
-        <span class="kalem{% if k.bayat %} kalem-bayat{% endif %}"
-              title="{{ k.ad }} — son veri {{ k.tarih }}{% if k.ritim %} · {{ k.ritim }}{% endif %}">
-          <span class="nokta {% if k.bayat %}nokta-bayat{% else %}nokta-gecmis{% endif %}"></span>
-          <span class="kalem-ad">{{ k.ad }}</span>
-          <span class="kalem-deger">{{ k.deger }}</span>
-          {% if k.bayat %}<span class="kalem-yas">{{ k.gun }}g</span>{% endif %}
-          {# Kivilcim betiksiz yedekte de duruyor: yedek, seridin eksik
-             bir taklidi degil, calisan surumu olmali. #}
-          {% if kivilcimlar and kivilcimlar[k.kod] %}
-          <span class="kalem-kivilcim {{ k.yon }}">{{ kivilcimlar[k.kod] | safe }}</span>
-          {% endif %}
-          <span class="kalem-fark {{ k.yon }}">{{ k.fark }}</span>
-        </span>
-        {% endfor %}
+   `canli.js` uzerine Kraken'in gercek zamanli kalemlerini (kripto,
+   altin) ekliyor ve onlar yesil noktayla ayriliyor. #}
+<div class="serit" role="region" aria-label="Fiyat şeridi">
+  <div class="serit-akis" data-serit-akis>
+    <div class="serit-sira" data-serit-sira>
+      {% if gostergeler and gostergeler.kalemler %}
+      {% for k in gostergeler.kalemler %}
+      <span class="kalem{% if k.bayat %} kalem-bayat{% endif %}"
+            title="{{ k.ad }} — son veri {{ k.tarih }}{% if k.ritim %} · {{ k.ritim }}{% endif %}">
+        <span class="nokta {% if k.bayat %}nokta-bayat{% else %}nokta-gecmis{% endif %}"></span>
+        <span class="kalem-ad">{{ k.ad }}</span>
+        <span class="kalem-deger">{{ k.deger }}</span>
+        {% if k.bayat %}<span class="kalem-yas">{{ k.gun }}g</span>{% endif %}
+        {% if kivilcimlar and kivilcimlar[k.kod] %}
+        <span class="kalem-kivilcim {{ k.yon }}">{{ kivilcimlar[k.kod] | safe }}</span>
         {% endif %}
-      </div>
+        <span class="kalem-fark {{ k.yon }}">{{ k.fark }}</span>
+      </span>
+      {% endfor %}
+      {% endif %}
     </div>
-  </noscript>
+  </div>
 </div>
-<script src="/statik/serit.js" defer></script>
 
 {# Son dakika seridi.
    Yalnizca KENDI SAYFASI OLAN haberler akar -- serit disari yonlendirmiyor.

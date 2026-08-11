@@ -55,28 +55,3 @@ Yukarıda açıklandığı üzere sitemiz doğrudan kişisel veri işlememektedi
 ## Değişiklikler
 
 Bu politikada değişiklik yapılması durumunda güncel metin bu sayfada yayımlanır. Sitenin veri işleme uygulamalarını değiştiren bir ekleme yapılması hâlinde, değişiklik uygulamaya alınmadan önce bu sayfa güncellenir.
-
-## Fiyat şeridi (üçüncü taraf içerik)
-
-Sayfaların üstündeki **fiyat şeridi**, fiyatları TradingView'den
-yükler. Şerit her sayfada bulunduğu için, siteyi ziyaret ettiğinizde
-tarayıcınız doğrudan TradingView sunucularına bağlanır; IP adresiniz,
-tarayıcı bilgileriniz ve hangi sayfada olduğunuz onlara görünür. Bu
-veriler bize ulaşmıyor ve bizim tarafımızda saklanmıyor.
-
-Bu tercihin sebebi şudur: ham petrol ve endekslerde günlük fiyat
-yalnızca vadeli piyasadan gelir ve ücretsiz, anahtarsız bir kaynağı
-yoktur. Resmî kaynakların yayın ritmi haftalıktır (örneğin EIA, Brent
-spot fiyatını çarşamba günleri yayımlar). Canlı fiyatı gösterebilmenin
-ücretsiz ve kullanım şartlarına uygun tek yolu sağlayıcının kendi
-widget'ıdır.
-
-**Şeridin dışında üçüncü taraf isteği yoktur.** Fotoğraflar uzaktan
-bağlanmak yerine indirilip kendi sunucumuzdan sunulur; yazı, veri ve
-analiz içeriğinin tamamı kendi sunucumuzdan gelir.
-
-JavaScript kapalıysa şerit yerine kendi ölçülmüş verimiz görünür ve
-hiçbir dış bağlantı kurulmaz.
-
-TradingView'in veri işleme uygulamaları için kendi gizlilik politikası
-geçerlidir.

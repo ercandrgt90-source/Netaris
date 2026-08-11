@@ -244,7 +244,11 @@ img, svg { max-width: 100%; }
 
 /* Akis yalnizca JavaScript ikinci kopyayi ekledikten SONRA baslar.
    Tek kopyayi kaydirmak seridin ortadan bosalmasina yol acardi. */
-.serit-akis.akiyor { animation: kay 44s linear infinite; }
+/* AKIS HIZI. 44s -> 26s: kalem sayisi arttikca tam tur suresi uzuyor
+   ve serit durgun gorunuyordu. Sure TAM TUR icin; kalem eklenirse
+   yeniden bakilmali. `prefers-reduced-motion` acikken animasyon zaten
+   asagida durduruluyor. */
+.serit-akis.akiyor { animation: kay 26s linear infinite; }
 .serit:hover .serit-akis.akiyor,
 .serit-akis.akiyor:focus-within { animation-play-state: paused; }
 
@@ -3165,14 +3169,4 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none; }
 
 
 
-/* CANLI SERIT -- TradingView widget kabini.
-   Widget kendi yuksekligini getiriyor; burada yalnizca site seridiyle
-   ayni cerceveye oturtuluyor ve yukleme aninda sayfa ziplamasin diye
-   asgari yukseklik veriliyor. */
-.serit-canli { padding: 0; }
-.serit-canli .tradingview-widget-container {
-  border: 0; border-radius: 0; background: transparent;
-  padding: 0; min-height: 46px;
-}
-/* Betiksiz tarayicida <noscript> seridi normal serit gibi gorunsun. */
-.serit-canli noscript .serit-akis { padding: 6px 0; }
+
