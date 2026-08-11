@@ -150,7 +150,16 @@ VARLIK_ARAMA = {
     "XAU": ("gold bars", "gold bullion vault"),
     "XAG": ("silver bars", "silver bullion"),
     "XCU": ("copper wire", "copper mine"),
-    "FED": ("federal reserve building", "federal reserve chair"),
+    # BINA ONCE, KISI SONRA. "federal reserve chair" sorgusu gorevdeki
+    # kisiyi getiriyor ve o kisi degisince havuz sessizce eskiyor.
+    # Bina her donemde dogru; kisi adi ayrica ve ACIKCA yaziliyor ki
+    # degistiginde nereyi guncelleyecegimiz belli olsun.
+    # KISI ONCE, BINA SONRA -- ama kisi sorgusu havuzun kucuk bir
+    # kismini dolduruyor cunku Commons'ta gorevdeki baskanin birkac
+    # fotografi var. Gerisini bina tamamliyor: baskana ozel haberde
+    # baskan, kurum haberinde bina cikiyor.
+    "FED": ("kevin warsh", "federal reserve building",
+            "federal reserve bank"),
     "ECB": ("european central bank frankfurt", "euro currency"),
     "TCMB": ("central bank of turkey", "turkish lira banknotes"),
     # ARSIV ESIGI SORGUYU DA DEGISTIRDI: "stock exchange trading floor"
@@ -293,6 +302,22 @@ YASAK_BASLIK = (
 #: fotograf kadar yaniltici. Guncel haritalar zaten aramada cikiyor.
 ARSIV_YILI = 1990
 _YIL = re.compile(r"\b(1[0-9]{3}|20[0-2][0-9])\b")
+
+#: GOREVDEN AYRILMIS KISILER -- kurum havuzlarindan cikariliyor.
+#:
+#: Kurum fotograflari kisi tasidiginda BOZULUYOR: kisi gider, fotograf
+#: kalir ve haber yanlis insanla resimlenir. Olculdu -- FED havuzunda
+#: uc Powell fotografi vardi ve dort sayfada basiliyordu, oysa kendi
+#: haber akisimiz 7 ve 10 Agustos'ta "Fed Baskani Warsh" diyor.
+#:
+#: BU LISTE BAKIM ISTER ve istemesi kacinilmaz: gorev degisikligini
+#: kod anlayamaz. Degisiklik duyuldugunda buraya bir satir eklenir.
+#:
+#: ASIL KORUMA SORGUDA: kurum havuzlarinin sorgulari BINAYA oncelik
+#: veriyor (bkz. VARLIK_ARAMA["FED"]). Bina degismez; kisi degisir.
+GECMIS_GOREVLI = (
+    "jerome powell", "jerome h. powell",
+)
 
 #: SAVAS GEMISI GOVDE KODU. Bazi gorseller yalnizca kodla adlandirilmis:
 #: "CVN 69 transits the Strait of Hormuz" -- baslikta tek bir yasakli
@@ -603,6 +628,8 @@ def _editoryal_uygun(s: dict) -> bool:
     if any(k in kucuk for k in YASAK_BASLIK):
         return False
     if _ASKERI_KOD.search(metin):
+        return False
+    if any(k in kucuk for k in GECMIS_GOREVLI):
         return False
     # ESKI TARIH. Metinde gecen EN KUCUK yil esige bakiliyor: bir
     # gorsel hem "1913" hem "2020" tasiyabilir (arsivin dijitallestirme
