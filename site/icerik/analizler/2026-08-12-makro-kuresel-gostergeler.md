@@ -1,7 +1,7 @@
 ---
 slug: kuresel-gostergeler-2026-08-12
-baslik: Brent %29,7 yükselip geri çekildi: Türkiye'ye hangi kanallardan geliyor
-ozet: Brent petrol 3 Ağustos 2026 itibarıyla 88,90 USD/varil seviyesinde. İzlenen 14 işlem gününde 16 Temmuz 2026 tarihli 81,23 dolarlık dibi ile 23 Temmuz 2026 tarihli 105,32 dolarlık zirvesi arasında hareket etti. ABD 10 yıllık tahvil getirisi %4,72 (10 Ağustos 2026), aynı dönemde 5 baz puan yükseldi.…
+baslik: Brent petrolde %11,5 gerileme ve Türkiye'ye etkisi
+ozet: Brent petrol 11 Ağustos 2026 itibarıyla 93,26 USD/varil seviyesinde. İzlenen 14 işlem gününde 28 Temmuz 2026 tarihli 85,51 dolarlık dibi ile 23 Temmuz 2026 tarihli 105,32 dolarlık zirvesi arasında hareket etti. ABD 10 yıllık tahvil getirisi %4,72 (10 Ağustos 2026), aynı dönemde 5 baz puan yükseldi.…
 sirket: Küresel göstergeler
 kod: MAKRO
 donem: 2026-08-12
@@ -12,7 +12,7 @@ yazar:
 unvan: 
 kurgusal: hayir
 grafik_tur: cizgi
-grafik: 83,08;81,23;85,01;86,99;93,85;94,12;105,32;100,31;91,82;85,51;91,95;91,91;96,95;88,90
+grafik: 105,32;100,31;91,82;85,51;91,95;91,91;96,95;88,90;86,47;86,65;89,65;87,62;92,74;93,26
 grafik_kod: Brent petrol
 grafik_birim: USD/varil
 kaynaklar: FRED
@@ -21,13 +21,13 @@ sayimlar: 4|yorumlanan gösterge;56|gözlem noktası;14|işlem günü penceresi;
 
 ## Özet
 
-Brent petrol 3 Ağustos 2026 itibarıyla 88,90 USD/varil seviyesinde. İzlenen 14 işlem gününde 16 Temmuz 2026 tarihli 81,23 dolarlık dibi ile 23 Temmuz 2026 tarihli 105,32 dolarlık zirvesi arasında hareket etti. ABD 10 yıllık tahvil getirisi %4,72 (10 Ağustos 2026), aynı dönemde 5 baz puan yükseldi. 10 yıllık ile 2 yıllık arasındaki fark 47 baz puan; getiri eğrisi pozitif eğimli.
+Brent petrol 11 Ağustos 2026 itibarıyla 93,26 USD/varil seviyesinde. İzlenen 14 işlem gününde 28 Temmuz 2026 tarihli 85,51 dolarlık dibi ile 23 Temmuz 2026 tarihli 105,32 dolarlık zirvesi arasında hareket etti. ABD 10 yıllık tahvil getirisi %4,72 (10 Ağustos 2026), aynı dönemde 5 baz puan yükseldi. 10 yıllık ile 2 yıllık arasındaki fark 47 baz puan; getiri eğrisi pozitif eğimli.
 
 ## Göstergeler
 
 | Gösterge | Son değer | Tarih | Dönem değişimi |
 |---|---|---|---|
-| Brent petrol | 88,90 USD/varil | 3 Ağustos 2026 | %7,0 yükseldi |
+| Brent petrol | 93,26 USD/varil | 11 Ağustos 2026 | %11,5 geriledi |
 | ABD politika faizi (efektif fed fonu) | %3,63 | 10 Ağustos 2026 | yatay kaldı |
 | ABD 2 yıllık tahvil getirisi | %4,25 | 10 Ağustos 2026 | 6 baz puan geriledi |
 | ABD 10 yıllık tahvil getirisi | %4,72 | 10 Ağustos 2026 | 5 baz puan yükseldi |
@@ -36,7 +36,7 @@ Her göstergenin son gözlem tarihi farklı olabilir; tabloda her satır kendi t
 
 ## Enerji tarafı
 
-16 Temmuz 2026 tarihindeki 81,23 dolardan 23 Temmuz 2026 tarihindeki 105,32 dolara kadar %29,7 yükseldi. Zirveden bugüne %15,6 geri çekilme var; son değer 88,90 dolar. Son iki gözlem arasında (31 Temmuz 2026 → 3 Ağustos 2026) 8,05 dolarlık bir düşüş kaydedildi. **Bu hareketin nedeni bu yazının konusu değildir.** Fiyat serisi fiyatın ne yaptığını gösterir, neden öyle yaptığını göstermez; nedene ilişkin bir açıklama ancak birincil haber kaynaklarına dayanarak yapılabilir.
+Zirveden bugüne %11,5 geri çekilme var; son değer 93,26 dolar. **Bu hareketin nedeni bu yazının konusu değildir.** Fiyat serisi fiyatın ne yaptığını gösterir, neden öyle yaptığını göstermez; nedene ilişkin bir açıklama ancak birincil haber kaynaklarına dayanarak yapılabilir.
 
 ## ABD faiz tarafı
 

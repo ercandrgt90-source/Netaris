@@ -1,14 +1,14 @@
 {
-  "guncelleme": "2026-08-12",
+  "guncelleme": "2026-08-13",
   "kaynak": "FRED (St. Louis Fed)",
   "kalemler": [
     {
       "kod": "TP.DK.USD.S.YTL",
       "ad": "USD/TRY",
-      "deger": "47,74",
-      "fark": "+0,05%",
+      "deger": "47,75",
+      "fark": "+0,04%",
       "yon": "artis",
-      "tarih": "2026-08-12",
+      "tarih": "2026-08-13",
       "birim": "TL",
       "gun": 0,
       "bayat": false
@@ -16,10 +16,10 @@
     {
       "kod": "TP.DK.EUR.S.YTL",
       "ad": "EUR/TRY",
-      "deger": "55,07",
-      "fark": "-0,13%",
-      "yon": "azalis",
-      "tarih": "2026-08-12",
+      "deger": "55,10",
+      "fark": "+0,05%",
+      "yon": "artis",
+      "tarih": "2026-08-13",
       "birim": "TL",
       "gun": 0,
       "bayat": false
@@ -28,11 +28,11 @@
       "kod": "ECB_EURUSD",
       "ad": "EUR/USD",
       "deger": "1,15",
-      "fark": "-0,13%",
-      "yon": "azalis",
-      "tarih": "2026-08-11",
+      "fark": "+0,04%",
+      "yon": "artis",
+      "tarih": "2026-08-12",
       "birim": "TL",
-      "gun": 1,
+      "gun": 0,
       "bayat": false
     },
     {
@@ -71,26 +71,24 @@
     {
       "kod": "DCOILBRENTEU",
       "ad": "BRENT",
-      "deger": "88,90",
-      "fark": "-8,30%",
-      "yon": "azalis",
-      "tarih": "2026-08-03",
+      "deger": "93,26",
+      "fark": "+0,56%",
+      "yon": "artis",
+      "tarih": "2026-08-11",
       "birim": "USD/varil",
-      "gun": 7,
-      "bayat": true,
-      "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · bugün yenileniyor"
+      "gun": 1,
+      "bayat": false
     },
     {
       "kod": "DCOILWTICO",
       "ad": "WTI",
-      "deger": "81,96",
-      "fark": "-4,87%",
-      "yon": "azalis",
-      "tarih": "2026-08-03",
+      "deger": "84,77",
+      "fark": "+1,21%",
+      "yon": "artis",
+      "tarih": "2026-08-11",
       "birim": "USD/varil",
-      "gun": 7,
-      "bayat": true,
-      "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · bugün yenileniyor"
+      "gun": 1,
+      "bayat": false
     },
     {
       "kod": "DFF",
@@ -205,26 +203,24 @@
         {
           "kod": "DCOILBRENTEU",
           "ad": "Brent",
-          "deger": "88,90",
-          "fark": "-8,30%",
-          "yon": "azalis",
-          "tarih": "2026-08-03",
+          "deger": "93,26",
+          "fark": "+0,56%",
+          "yon": "artis",
+          "tarih": "2026-08-11",
           "birim": "USD/varil",
-          "gun": 7,
-          "bayat": true,
-          "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · bugün yenileniyor"
+          "gun": 1,
+          "bayat": false
         },
         {
           "kod": "DCOILWTICO",
           "ad": "WTI",
-          "deger": "81,96",
-          "fark": "-4,87%",
-          "yon": "azalis",
-          "tarih": "2026-08-03",
+          "deger": "84,77",
+          "fark": "+1,21%",
+          "yon": "artis",
+          "tarih": "2026-08-11",
           "birim": "USD/varil",
-          "gun": 7,
-          "bayat": true,
-          "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · bugün yenileniyor"
+          "gun": 1,
+          "bayat": false
         }
       ]
     },
@@ -307,11 +303,11 @@
           "kod": "ECB_EURUSD",
           "ad": "EUR/USD",
           "deger": "1,15",
-          "fark": "-0,13%",
-          "yon": "azalis",
-          "tarih": "2026-08-11",
+          "fark": "+0,04%",
+          "yon": "artis",
+          "tarih": "2026-08-12",
           "birim": "TL",
-          "gun": 1,
+          "gun": 0,
           "bayat": false
         }
       ]
