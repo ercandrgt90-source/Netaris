@@ -49,6 +49,20 @@
       <button class="dugme dugme-birincil" type="submit">Giriş yap</button>
       <p class="uyelik-hata" data-hata hidden></p>
     </form>
+
+    {# GOOGLE ILE GIRIS.
+       Varsayilan olarak GIZLI: `google.js` once `/api/giris/google/ayar`
+       ucunu soruyor ve istemci kimligi yapilandirilmamissa bu blok
+       hic gorunmuyor. Yarim yapilandirmayla duran bir dugme,
+       tiklayinca hata veren bir dugmedir.
+
+       Parolali formun USTUNDE degil ALTINDA: mevcut uyeler parolayla
+       giriyor, once onlarin yolu gorunsun. #}
+    <div class="google-giris" data-google-giris hidden>
+      <div class="google-ayrac"><span>ya da</span></div>
+      <div data-google-dugme></div>
+      <p class="uyelik-hata" data-google-hata hidden></p>
+    </div>
   </section>
 
 {% elif sayfa == "kayit" %}
@@ -71,6 +85,20 @@
       <button class="dugme dugme-birincil" type="submit">Hesap oluştur</button>
       <p class="uyelik-hata" data-hata hidden></p>
     </form>
+
+    {# GOOGLE ILE GIRIS.
+       Varsayilan olarak GIZLI: `google.js` once `/api/giris/google/ayar`
+       ucunu soruyor ve istemci kimligi yapilandirilmamissa bu blok
+       hic gorunmuyor. Yarim yapilandirmayla duran bir dugme,
+       tiklayinca hata veren bir dugmedir.
+
+       Parolali formun USTUNDE degil ALTINDA: mevcut uyeler parolayla
+       giriyor, once onlarin yolu gorunsun. #}
+    <div class="google-giris" data-google-giris hidden>
+      <div class="google-ayrac"><span>ya da</span></div>
+      <div data-google-dugme></div>
+      <p class="uyelik-hata" data-google-hata hidden></p>
+    </div>
 
     {# Ne topladigimiz ve ne yaptigimiz ACIKCA yaziyor. KVKK aydinlatma
        yukumlulugu bir yana, kayit formunda bunu okumayan kullanici
@@ -259,4 +287,5 @@
 </div>
 {% endblock %}
 
-{% block betikler %}<script src="/statik/uyelik.js" defer></script>{% endblock %}
+{% block betikler %}<script src="/statik/uyelik.js" defer></script>
+<script src="/statik/google.js" defer></script>{% endblock %}

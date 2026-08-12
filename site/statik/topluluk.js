@@ -53,7 +53,7 @@
       var h = "";
       for (var i = 0; i < s.length; i++) {
         var x = s[i];
-        h += '<li class="senaryo-satir">' +
+        h += '<li class="senaryo-satir" id="senaryo-' + x.id + '">' +
              '<p class="senaryo-onerme">' +
              '<span class="senaryo-kosul">' + kacir(x.kosul) + '</span>' +
              '<span class="senaryo-ok" aria-hidden="true">→</span>' +
@@ -71,7 +71,9 @@
           h += ' · <a href="' + kacir(x.capa) + '">' +
                kacir(x.capa_baslik || "habere git") + '</a>';
         }
-        h += '</p></li>';
+        h += '</p>' +
+             (window.NetarisPaylas ? window.NetarisPaylas.html(x) : "") +
+             '</li>';
       }
       liste.innerHTML = h;
       liste.hidden = false;

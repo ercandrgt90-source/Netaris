@@ -49,7 +49,36 @@
 <meta property="og:title" content="{% block og_baslik %}{{ self.baslik() }}{% endblock %}">
 <meta property="og:description" content="{% block og_aciklama %}{{ self.aciklama() }}{% endblock %}">
 <meta property="og:url" content="{{ site.adres }}{{ yol }}">
+
+{# PAYLASIM GORSELI.
+   `twitter:card` "summary_large_image" yaziliydi ama `og:image` HIC
+   YOKTU -- olculdu, 638 sayfanin sifirinda. Gorselsiz buyuk kart, X
+   ve LinkedIn'de bos kutu demek; yani her paylasim gorselsiz
+   cikiyordu. Oysa sayfalarin 573'unde zaten fotograf VAR.
+
+   MUTLAK ADRES SART: Open Graph goreli yol kabul etmiyor.
+
+   Gorseli olmayan sayfada `og:image` BASILMIYOR ve kart turu
+   "summary"ye dusuyor. Uydurma bir gorsel koymaktansa duzgun bir
+   kucuk kart daha iyi -- ve bos buyuk karttan cok daha iyi. #}
+{# Gorsel BAGLAMDAN turetiliyor, blok ile degil: Jinja blogu kendi
+   ciktisini tanimlandigi yere basar ve yol, sayfaya metin olarak
+   sizardi. Tek yerde durmasi ayrica surekliligi garanti ediyor --
+   yeni bir sayfa turu eklendiginde burasi da guncellenmeli. #}
+{% set og_gorsel =
+     (h.foto if h is defined and h and h.foto else "")
+     or (a.foto if a is defined and a and a.foto else "")
+     or (haberler[0].foto if haberler is defined and haberler
+         and haberler[0].foto else "")
+     or (one_cikanlar[0].foto if one_cikanlar is defined and one_cikanlar
+         and one_cikanlar[0].foto else "") %}
+{% if og_gorsel %}
+<meta property="og:image" content="{{ site.adres }}{{ og_gorsel }}">
+<meta property="og:image:alt" content="{{ self.baslik() | striptags | trim }}">
 <meta name="twitter:card" content="summary_large_image">
+{% else %}
+<meta name="twitter:card" content="summary">
+{% endif %}
 
 <link rel="alternate" type="application/rss+xml" title="{{ site.ad }}" href="{{ site.adres }}/rss.xml">
 <link rel="stylesheet" href="/statik/stil.css">

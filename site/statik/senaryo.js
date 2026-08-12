@@ -96,7 +96,7 @@
       for (var i = 0; i < liste.length; i++) {
         var s = liste[i];
         var d = SONUC[s.sonuclanma];
-        h += '<li class="senaryo">' +
+        h += '<li class="senaryo" id="senaryo-' + s.id + '">' +
              '<p class="senaryo-onerme">' +
              '<span class="senaryo-kosul">' + kacir(s.kosul) + '</span>' +
              '<span class="senaryo-ok" aria-hidden="true">→</span>' +
@@ -114,7 +114,9 @@
           h += ' · <span class="senaryo-sonuclanma ' + d[1] + '">' +
                d[0] + '</span>';
         }
-        h += '</p>' + oyDugmesi(s, v.oturum) + '</div></li>';
+        h += '</p>' + oyDugmesi(s, v.oturum) +
+             (window.NetarisPaylas ? window.NetarisPaylas.html(s) : "") +
+             '</div></li>';
       }
 
       kutu.querySelector(".senaryo-liste").innerHTML = h;

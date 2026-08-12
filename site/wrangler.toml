@@ -67,6 +67,35 @@ binding = "DB"
 database_name = "netaris-uyelik"
 database_id = "56f6ce02-a748-4c58-b378-46c46e02a21a"
 
+# GOOGLE ILE GIRIS.
+#
+# Bu deger GIZLI DEGIL: istemci kimligi sayfada zaten gorunuyor ve
+# oyle olmasi gerekiyor. ISTEMCI SIRRI KULLANILMIYOR -- kimlik jetonu
+# (ID token) akisi sirr istemiyor, dolayisiyla saklanacak, donecek,
+# sizabilecek bir sey yok. Sunucu jetonun imzasini Google'in acik
+# anahtariyla dogruluyor ve `aud` alaninin BU kimlige esit oldugunu
+# kontrol ediyor (bkz. worker.js -> jetonDogrula, site/test_google.js).
+#
+# BOS BIRAKILIRSA ozellik tumuyle KAPALI: `/api/giris/google/ayar` bos
+# doner, sayfa Google betigini hic yuklemez, dugme hic basilmaz.
+# Yani yapilandirilmadan once ucuncu tarafa tek bir istek gitmiyor.
+#
+# NASIL ALINIR
+#   1. console.cloud.google.com -> proje sec ya da olustur
+#   2. "APIs & Services" -> "Credentials" -> "Create Credentials"
+#      -> "OAuth client ID" -> tur: "Web application"
+#   3. "Authorized JavaScript origins" alanina sitenin adresi yazilir
+#      (su an https://netaris.ercandrgt90.workers.dev; kendi alan adi
+#      baglanınca O DA eklenmeli -- eksik origin, dugmenin sessizce
+#      calismamasi demektir)
+#   4. Cikan "Client ID" asagiya yazilir
+#
+# VERITABANI: `uye` tablosuna `google_id` sutunu gerekiyor.
+#   npx wrangler d1 execute netaris-uyelik --remote --file=./d1/gocler.sql
+#
+# [vars]
+# GOOGLE_ISTEMCI_KIMLIGI = "....apps.googleusercontent.com"
+
 # GIZLI DEGERLER buraya YAZILMAZ. `wrangler secret put` ile konur:
 #   RESEND_API_KEY  e-posta dogrulamasi icin (yoksa yonetici onayina duser)
 #   HAT_SIRRI       yayin hattinin onaylanmis yazilari cektigi ucun sirri

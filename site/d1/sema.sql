@@ -25,6 +25,11 @@ CREATE TABLE IF NOT EXISTS uye (
   durum             TEXT NOT NULL DEFAULT 'beklemede',
   -- yazar | yonetici
   rol               TEXT NOT NULL DEFAULT 'yazar',
+  -- Google hesabinin kalici kimligi (`sub` savi). E-posta DEGIL:
+  -- kisi Google hesabinin e-postasini degistirebiliyor, `sub`
+  -- degismiyor. UNIQUE ama NULL olabilir -- parolayla acilmis
+  -- hesaplarda bos ve SQLite birden fazla NULL'a izin veriyor.
+  google_id         TEXT UNIQUE,
   dogrulama_ozeti   TEXT,
   dogrulama_biter   INTEGER,
   kayit_ani         TEXT NOT NULL,

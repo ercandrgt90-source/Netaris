@@ -209,6 +209,185 @@ async function uyeBul(istek, db) {
   return s && s.durum === "etkin" ? s : null;
 }
 
+/* --------------------------------------------------------- Google girisi */
+
+/* GOOGLE ILE GIRIS -- kimlik jetonu (ID token) dogrulamasi.
+ *
+ * NEDEN BU YOL, "authorization code" DEGIL
+ * ----------------------------------------
+ * Google Identity Services tarayicida imzali bir JWT ("credential")
+ * veriyor. Onu sunucuda dogrulamak icin YALNIZCA ISTEMCI KIMLIGI
+ * gerekiyor; istemci kimligi GIZLI DEGIL, sayfada zaten gorunuyor.
+ * Klasik yetkilendirme kodu akisi bir de ISTEMCI SIRRI ister ve o sirrin
+ * saklanmasi, donmesi, sizmamasi ayri bir yuk. Burada ihtiyacimiz olan
+ * tek sey "bu kisi bu e-postanin sahibi mi" sorusunun cevabi; kod akisi
+ * bunun otesinde Google API'lerine erisim veriyor ki BIZE GEREKMIYOR.
+ *
+ * Az yetki isteyen yol, az sey kaybettiren yoldur.
+ *
+ * JETON KORU KORUNE KABUL EDILMEZ. Dogrulanan seyler:
+ *   imza   -- Google'in acik anahtariyla (RS256), JWKS ucundan
+ *   iss    -- accounts.google.com
+ *   aud    -- BIZIM istemci kimligimiz; baska bir uygulamaya verilmis
+ *             gecerli bir jeton burada ise yaramaz
+ *   exp    -- suresi dolmus jeton kabul edilmez
+ *   email_verified -- Google e-postayi dogrulamamissa hesap acilmaz
+ *
+ * `aud` denetimi atlanirsa herhangi bir sitenin Google jetonu burada
+ * gecerli olur; bu, en sik yapilan ve en agir sonuclu atlamadir.
+ */
+
+const GOOGLE_JWKS = "https://www.googleapis.com/oauth2/v3/certs";
+const GOOGLE_ISS = ["accounts.google.com", "https://accounts.google.com"];
+
+/* Anahtar onbellegi. Worker ornegi yasadigi surece duruyor; Google
+   anahtarlari nadiren donuyor ve her girise bir istek eklemek hem yavas
+   hem gereksiz. Kimligi bilinmeyen bir anahtar gelirse onbellek
+   tazeleniyor -- yani anahtar donusu kendiliginden karsilaniyor. */
+let _jwksOnbellek = { anahtarlar: null, zaman: 0 };
+const JWKS_OMUR_SN = 3600;
+
+async function googleAnahtarlari(zorla = false) {
+  if (!zorla && _jwksOnbellek.anahtarlar
+      && damga() - _jwksOnbellek.zaman < JWKS_OMUR_SN) {
+    return _jwksOnbellek.anahtarlar;
+  }
+  const r = await fetch(GOOGLE_JWKS);
+  if (!r.ok) throw new Error("jwks alinamadi");
+  const v = await r.json();
+  _jwksOnbellek = { anahtarlar: v.keys || [], zaman: damga() };
+  return _jwksOnbellek.anahtarlar;
+}
+
+function b64urlCoz(m) {
+  const d = m.replace(/-/g, "+").replace(/_/g, "/");
+  const dolgu = d + "=".repeat((4 - (d.length % 4)) % 4);
+  const ham = atob(dolgu);
+  const bayt = new Uint8Array(ham.length);
+  for (let i = 0; i < ham.length; i++) bayt[i] = ham.charCodeAt(i);
+  return bayt;
+}
+
+async function jetonDogrula(jeton, istemciKimligi) {
+  const parca = String(jeton || "").split(".");
+  if (parca.length !== 3) return null;
+
+  let bas;
+  try {
+    bas = JSON.parse(new TextDecoder().decode(b64urlCoz(parca[0])));
+  } catch { return null; }
+  if (bas.alg !== "RS256") return null;
+
+  /* Anahtar bulunamazsa onbellek BIR KEZ tazeleniyor. Sonsuz denemek
+     bir hata durumunda Google'a istek yagdirirdi. */
+  let anahtarlar = await googleAnahtarlari();
+  let jwk = anahtarlar.find((k) => k.kid === bas.kid);
+  if (!jwk) {
+    anahtarlar = await googleAnahtarlari(true);
+    jwk = anahtarlar.find((k) => k.kid === bas.kid);
+  }
+  if (!jwk) return null;
+
+  const anahtar = await crypto.subtle.importKey(
+    "jwk", jwk, { name: "RSASSA-PKCS1-v1_5", hash: "SHA-256" },
+    false, ["verify"]);
+
+  const imza = b64urlCoz(parca[2]);
+  const govde = new TextEncoder().encode(parca[0] + "." + parca[1]);
+  if (!await crypto.subtle.verify("RSASSA-PKCS1-v1_5", anahtar, imza, govde)) {
+    return null;
+  }
+
+  let i;
+  try {
+    i = JSON.parse(new TextDecoder().decode(b64urlCoz(parca[1])));
+  } catch { return null; }
+
+  if (!GOOGLE_ISS.includes(i.iss)) return null;
+  if (i.aud !== istemciKimligi) return null;
+  if (!i.exp || Number(i.exp) <= damga()) return null;
+  /* `email_verified` string gelebiliyor. Google dogrulamamis bir
+     e-postayla hesap acmak, o e-postanin sahibinin hesabini baskasina
+     vermek olurdu. */
+  if (i.email_verified !== true && i.email_verified !== "true") return null;
+  if (!i.email || !i.sub) return null;
+  return i;
+}
+
+/* Istemci kimligi YAPILANDIRILMAMISSA ozellik KAPALI.
+   Sayfa bu uca soruyor; bos donerse Google dugmesi HIC basilmiyor.
+   Yarim yapilandirmayla calisan bir giris dugmesi, tiklayinca hata
+   veren bir dugmedir. */
+function googleAyar(env) {
+  return yanit({ istemci: env.GOOGLE_ISTEMCI_KIMLIGI || "" }, 200,
+    { "cache-control": "public, max-age=300" });
+}
+
+async function googleGiris(istek, env) {
+  const db = env.DB;
+  const istemciKimligi = env.GOOGLE_ISTEMCI_KIMLIGI || "";
+  if (!istemciKimligi) return hata("Google girişi yapılandırılmamış.", 503);
+
+  const g = await istek.json().catch(() => ({}));
+  const bilgi = await jetonDogrula(g.jeton, istemciKimligi);
+  if (!bilgi) return hata("Google doğrulaması başarısız.", 401);
+
+  const eposta = String(bilgi.email).toLowerCase().slice(0, 254);
+  const ad = metinKirp(bilgi.name || eposta.split("@")[0], 80);
+  const googleId = String(bilgi.sub).slice(0, 64);
+
+  let u = await db.prepare(
+    "SELECT id, ad, eposta, rol, durum FROM uye WHERE google_id = ?",
+  ).bind(googleId).first();
+
+  if (!u) {
+    /* E-POSTAYLA ESLESTIRME. Ayni e-postayla daha once parolayla
+       kayit olmus bir hesap varsa IKINCI hesap acilmiyor, mevcut
+       hesaba baglaniyor.
+
+       Bu guvenli cunku Google `email_verified` diyor: kisi o
+       e-postanin sahibi oldugunu Google'a kanitlamis. Aksi halde
+       ayni kisi iki ayri hesapla iki ayri yazi gecmisine sahip
+       olurdu.
+
+       Beklemede kalmis hesap da ETKINLESIYOR: e-posta dogrulamasinin
+       amaci tam olarak buydu ve Google onu zaten yapti. */
+    const mevcut = await db.prepare(
+      "SELECT id, ad, eposta, rol, durum FROM uye WHERE eposta = ?",
+    ).bind(eposta).first();
+
+    if (mevcut) {
+      if (mevcut.durum === "askida") return hata("Hesabınız askıya alınmış.", 403);
+      await db.prepare(
+        "UPDATE uye SET google_id = ?, durum = 'etkin' WHERE id = ?",
+      ).bind(googleId, mevcut.id).run();
+      u = { ...mevcut, durum: "etkin" };
+    } else {
+      /* Parola alani BOS: bu hesabin parolasi yok. `parolaDogrula`
+         "pbkdf2$..." bicimini sarti kostugu icin bos deger hicbir
+         parolayla eslesmiyor -- yani parolayla girise KAPALI. */
+      const y = await db.prepare(
+        "INSERT INTO uye (eposta, ad, parola_ozet, durum, rol, google_id, kayit_ani)" +
+        " VALUES (?, ?, '', 'etkin', 'yazar', ?, ?)",
+      ).bind(eposta, ad, googleId, simdi()).run();
+      const yeniId = y.meta && y.meta.last_row_id;
+      u = { id: yeniId, ad, eposta, rol: "yazar", durum: "etkin" };
+    }
+  }
+
+  if (u.durum === "askida") return hata("Hesabınız askıya alınmış.", 403);
+
+  const jeton = await oturumAc(db, u.id);
+  await db.prepare("UPDATE uye SET son_giris = ? WHERE id = ?")
+    .bind(simdi(), u.id).run();
+
+  return yanit(
+    { tamam: true, uye: { ad: u.ad, eposta: u.eposta, rol: u.rol } },
+    200,
+    { "set-cookie": cerezYaz(jeton, OTURUM_GUN) },
+  );
+}
+
 /* --------------------------------------------------------------- dogrulama */
 
 /* E-posta gonderimi SAGLAYICI ANAHTARI varsa yapilir.
@@ -342,6 +521,15 @@ async function giris(istek, env) {
     ? await parolaDogrula(parola, u.parola_ozet)
     : await parolaDogrula(parola, `pbkdf2$${PBKDF2_DONGU}$0$0`);
 
+  /* Google ile acilmis hesabin parolasi YOK (`parola_ozet` bos).
+     "E-posta veya parola hatalı" demek burada okuru yaniltirdi --
+     parolasi yanlis degil, HIC yok. Kullanicinin ne yapacagini
+     bilmesi, saldirganin ogrendigi seyden onemli; ustelik e-postanin
+     kayitli oldugu zaten "Google ile girin" mesajindan anlasiliyor
+     ve bu bilgi kayit formunda da elde edilebiliyor. */
+  if (u && !u.parola_ozet) {
+    return hata("Bu hesap Google ile açılmış. Google ile giriş yapın.", 409);
+  }
   if (!u || !dogru) return hata("E-posta veya parola hatalı.", 401);
   if (u.durum === "askida") return hata("Hesabınız askıya alınmış.", 403);
   if (u.durum !== "etkin") {
@@ -757,7 +945,10 @@ async function senaryoOneCikan(env) {
  * vermedigi bir senaryoyu da gorunur kiliyor. */
 async function senaryoHepsi(env) {
   const r = await env.DB.prepare(
-    "SELECT s.kosul, s.sonuc, s.capa, s.capa_baslik, s.ufuk, s.yayin," +
+    /* `s.id` PAYLASIM CAPASI icin: her senaryo `#senaryo-<id>`
+       adresiyle dogrudan gosterilebiliyor. Sorguda yoktu ve capa
+       "senaryo-undefined" olurdu. */
+    "SELECT s.id, s.kosul, s.sonuc, s.capa, s.capa_baslik, s.ufuk, s.yayin," +
     " u.ad AS yazar," +
     " (SELECT COUNT(*) FROM senaryo_oy o WHERE o.senaryo_id = s.id) AS oy" +
     " FROM senaryo s JOIN uye u ON u.id = s.uye_id" +
@@ -787,6 +978,10 @@ export default {
     try {
       if (y === "kayit" && m === "POST") return await kayit(istek, env);
       if (y === "giris" && m === "POST") return await giris(istek, env);
+      /* Google girisi oturum ISTEMEZ -- oturumu bu uc ACIYOR. */
+      if (y === "giris/google" && m === "POST")
+        return await googleGiris(istek, env);
+      if (y === "giris/google/ayar" && m === "GET") return googleAyar(env);
       if (y === "cikis" && m === "POST") return await cikis(istek, env);
       if (y === "dogrula" && m === "GET") return await dogrula(istek, env);
       if (y === "ben" && m === "GET") return await ben(istek, env);
