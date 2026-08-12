@@ -3240,3 +3240,8 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none; }
 .google-ayrac::after {
   content: ""; flex: 1; height: 1px; background: var(--cizgi);
 }
+
+/* Kategori kartinda imza. `yorum-kunye` ana sayfadan geliyor; burada
+   yalnizca kartin akisina oturtuluyor. Baslikla arasi dar tutuldu --
+   imza baslıgın kunyesi, ayri bir blok degil. */
+.kart-imza { margin-bottom: 2px; }

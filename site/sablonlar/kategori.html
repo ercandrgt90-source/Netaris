@@ -40,6 +40,28 @@
           {% if a.sektor %}<span class="rozet">{{ a.sektor }}</span>{% endif %}
           {% for k in a.kaynaklar %}<span class="rozet rozet-kaynak">{{ k }}</span>{% endfor %}
         </span>
+        {# IMZA. Ana sayfadaki `yorum-kart` bileseninin ayni deseni --
+           bas harf dairesi, ad, unvan. Kategori kartinda YOKTU: okur
+           "Yorum" sayfasinda kimin yazdigini ancak yaziyi acinca
+           goruyordu, oysa imzali kolun ayirt edici ozelligi tam da bu.
+
+           VESIKALIK YOK: var olmayan insanin fotografi olmaz ve
+           ucuncu taraftan avatar cekmek okurun IP'sini baska sunucuya
+           gonderir. Bas harf hem imzali hem kurumsal kunyede
+           calisiyor.
+
+           Yazar yoksa blok HIC basilmiyor -- "Netaris Analiz" gibi bir
+           kunyeyi burada uydurmak yerine sessiz kalmak dogru; kod
+           tarafindan uretilen yazilarda imza iddiasi olmamali. #}
+        {% if a.yazar %}
+        <span class="yorum-kunye kart-imza">
+          <span class="yorum-harf" aria-hidden="true">{{ a.yazar[:1]|upper }}</span>
+          <span class="yorum-kim">
+            <b>{{ a.yazar }}</b>
+            {% if a.unvan %}<span>{{ a.unvan }}</span>{% endif %}
+          </span>
+        </span>
+        {% endif %}
         <h2 class="kart-baslik">{{ a.baslik }}</h2>
         <p class="kart-ozet">{{ a.ozet }}</p>
         <span class="kart-alt">
