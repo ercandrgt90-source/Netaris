@@ -540,6 +540,20 @@ def _commons_ara(sorgu: str, adet: int) -> list[dict]:
         kucuk = bilgi.get("thumburl")
         if not kucuk:
             continue
+        # BOYUT DENETIMI. `iiurlwidth` yalnizca KUCULTUYOR; kaynak
+        # gorsel 32 piksel genisse cikti da 32 piksel kaliyor ve sayfada
+        # 800 piksele YAYILIYOR.
+        #
+        # Olculdu ve YAYIMLANDI: havuzda `enerji-10.png` 32x37,
+        # `xag-2.png` 72x30 idi -- bunlar fotograf degil, simge. Haber
+        # sayfasinin ust gorseli olarak basildiklarinda tamamen bulanik
+        # cikiyorlardi. Kullanicinin "haber resimleri bozuk" dedigi sey
+        # buydu.
+        #
+        # Boyut bilgisi ZATEN isteniyordu (`iiprop: size`) ama hicbir
+        # yerde bakilmiyordu.
+        if not _boyut_uygun(bilgi.get("width"), bilgi.get("height")):
+            continue
         em = bilgi.get("extmetadata", {})
         lisans_ham = (em.get("License", {}).get("value") or "").lower()
         lisans = _COMMONS_LISANS.get(lisans_ham, lisans_ham)
@@ -564,6 +578,46 @@ def _commons_ara(sorgu: str, adet: int) -> list[dict]:
 
 #: Sorgu ilgisini olcerken atlanacak kelimeler.
 _DOLGU = frozenset({"of", "the", "and", "in", "at", "for", "a", "an"})
+
+
+#: Havuza girecek gorselin EN AZ olcusu.
+#:
+#: Haber sayfasindaki gorsel sutunu 800 piksel. Commons'in olcekleme
+#: ucu yalnizca KUCULTUYOR -- kaynak daha darsa cikti da dar kaliyor ve
+#: tarayici onu 800'e YAYIYOR. 640, retina olmayan ekranda kabul
+#: edilebilir bir alt sinir; altina inince bulaniklik gorunur oluyor.
+EN_AZ_GENISLIK = 640
+EN_AZ_YUKSEKLIK = 360
+
+#: En/boy oraninin ust ve alt siniri.
+#:
+#: Kartlar ve ust gorsel 16:9'a (1,78) yakin bir cerceve kullaniyor.
+#: 8,4 oranindaki bir panorama (olculdu: `tr-11.jpg`, 960x114) bu
+#: cercevede ya seride donuyor ya da taninmaz halde kirpiliyor.
+#: Sinirlar GENIS: amac sanatsal tercihi elemek degil, cerceveye HIC
+#: sigmayani elemek.
+EN_COK_ORAN = 2.6
+EN_AZ_ORAN = 0.5
+
+
+def _boyut_uygun(genislik, yukseklik) -> bool:
+    """Gorsel haber sayfasinda basilacak kadar buyuk ve makul oranli mi?
+
+    Olcu OKUNAMAZSA gecirilir: Commons alanlari her zaman dolu gelmiyor
+    ve olcemedigimiz bir seye dayanip gorseli atmak, havuzu sebepsiz
+    daraltir. Elenen sey "supheli" degil, OLCULMUS sekilde kucuk olan.
+    """
+    try:
+        g = int(genislik)
+        y = int(yukseklik)
+    except (TypeError, ValueError):
+        return True
+    if g <= 0 or y <= 0:
+        return True
+    if g < EN_AZ_GENISLIK or y < EN_AZ_YUKSEKLIK:
+        return False
+    oran = g / y
+    return EN_AZ_ORAN <= oran <= EN_COK_ORAN
 
 
 def _ilgili(s: dict, sorgu: str, siki: bool = True) -> bool:

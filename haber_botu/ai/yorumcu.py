@@ -171,6 +171,11 @@ def olcum_var(girdi: str) -> bool:
     return False
 
 #: Ciktida bulunmasi metni GECERSIZ kilan kaliplar.
+#: Cop cikti eleyicisi AYRI MODULDE: bicim denetimi (yorum mu degil
+#: mi) ile icerik denetimi (yorum dogru mu) ayri sorular.
+from cop_cikti import sebep as COP_CIKTI  # noqa: E402
+
+
 YASAK = (
     re.compile(r"\b(alım|satım|tut)\s*(öneri|tavsiye|sinyal)", re.I),
     re.compile(r"hedef fiyat", re.I),
@@ -577,6 +582,31 @@ def yorumla(girdi: str) -> tuple[str, str, str, str]:
     # dokunmuyor, dolayisiyla denetimin sonucunu degistirmiyor; ama
     # kaydedilen ham metin de duzgun olsun.
     metin = yazimi_duzelt(metin)
+
+    # --- 0. COP CIKTI ---
+    #
+    # Bunlar "kotu yorum" degil, YORUM OLMAYAN sey. Digerlerinden ONCE
+    # bakiliyor: bir istem yankisi ya da tekrar dongusu, sayi
+    # denetiminden de cumle sayimindan da temiz gecebiliyor.
+    #
+    # OLCULDU, YAYIMLANDI. Bir TCMB basin duyurusu sayfasinda ve ana
+    # sayfada su metin "Netaris yorumu" basligi altinda okura
+    # gosterildi (@cf/openai/gpt-oss-120b, 1293 karakter):
+    #
+    #   analysis 0️⃣ We need to produce a " news release ( Basın
+    #   Duyuru )" about inflation rates etc. The user wants ...
+    #   Haber: Fa Fa Or Or Or Or Or Or Or Or Or Or Or Or Or ...
+    #
+    # Iki ayri ariza ust uste: model DUSUNME KANALINI ciktiya sizdirdi
+    # ("analysis" bolumu) ve ardindan bozulup tek heceyi tekrarlamaya
+    # basladi.
+    #
+    # HICBIR MEVCUT DENETIM YAKALAMADI. Sebebi olculdu: metinde nokta
+    # neredeyse yok, dolayisiyla `_cumle_sayisi` 1293 karakterlik
+    # yigini TEK CUMLE sayip uzunluk sinirindan geciriyordu.
+    m = COP_CIKTI(metin)
+    if m:
+        return "", model, f"cop cikti: {m}", metin
 
     # --- 1. sayi denetimi ---
     kacak = sayi_denetimi(metin, girdi)

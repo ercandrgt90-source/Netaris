@@ -24,14 +24,6 @@
    "kaynak": "https://commons.wikimedia.org/wiki/File:2013,_Oil_Jack_Pumps_-_panoramio.jpg"
   },
   {
-   "dosya": "/statik/foto/enerji-10.png",
-   "atif": "Nicolas Mollet , Credits : Matthias Stasiak · CC BY-SA 3.0",
-   "kunye": "File:Map marker icon – Nicolas Mollet – Oil pump jack – Industry – Classic.png Nodding donkey pumps|Items with VRTS permission confirmed|Map icons by Nicolas Mollet – Uploaded by GeoUploadR|Map icons by Nicolas Mollet – Classic style|Map icons by Nicolas Mollet – Industry map markers",
-   "sorgu": "oil pump jack",
-   "lisans": "cc-by-sa-3.0",
-   "kaynak": "https://commons.wikimedia.org/wiki/File:Map_marker_icon_%E2%80%93_Nicolas_Mollet_%E2%80%93_Oil_pump_jack_%E2%80%93_Industry_%E2%80%93_Classic.png"
-  },
-  {
    "dosya": "/statik/foto/enerji-11.jpg",
    "atif": "Ezagren ( bicara / talk ) · CC BY-SA 4.0",
    "kunye": "File:Monumen Oil Pump Jack Field Sangasanga.jpg Uploaded with VicuñaUploader|Photographs by Ezagren|Monuments and memorials in East Kalimantan|WikiBanua 3.0",
@@ -100,22 +92,6 @@
    "kunye": "File:Federal Reserve Board (Board of Governors of the Federal Reserve System) open meeting, April 2019.jpg Federal Reserve Board of Governors|PD US Federal Reserve|Flickr images reviewed by FlickreviewR 2",
    "lisans": "pdm",
    "kaynak": "https://commons.wikimedia.org/wiki/File:Federal_Reserve_Board_(Board_of_Governors_of_the_Federal_Reserve_System)_open_meeting,_April_2019.jpg"
-  },
-  {
-   "dosya": "/statik/foto/para-politikasi-7.png",
-   "atif": "FRED · Public domain",
-   "kunye": "File:Federal Reserve balance sheet.png PD US Government|Federal Reserve|CC-PD-Mark",
-   "sorgu": "federal reserve",
-   "lisans": "pdm",
-   "kaynak": "https://commons.wikimedia.org/wiki/File:Federal_Reserve_balance_sheet.png"
-  },
-  {
-   "dosya": "/statik/foto/para-politikasi-8.png",
-   "atif": "FRED, Federal Reserve Bank of St. Louis · Public domain",
-   "kunye": "File:US Federal Reserve Assets.png Federal Reserve|PD chart|FRED charts, graphs, maps|Economic statistics for the United States",
-   "sorgu": "federal reserve",
-   "lisans": "pdm",
-   "kaynak": "https://commons.wikimedia.org/wiki/File:US_Federal_Reserve_Assets.png"
   },
   {
    "dosya": "/statik/foto/para-politikasi-9-79ff6e59.jpg",
@@ -271,13 +247,6 @@
   }
  ],
  "Piyasa düzenlemesi": [
-  {
-   "dosya": "/statik/foto/piyasa-duzenlemesi-5.jpg",
-   "atif": "Edgar Degas · Public domain",
-   "kunye": "File:At The Stock Exchange.jpg PD Old|Artworks with Wikidata item|Artworks with known accession number|CC-PD-Mark|Artworks with accession number from Wikidata|Portraits at the Stock Exchange by Edgar Degas|Artworks digital representation of 2D work|Artworks with digital representation of different depicts",
-   "lisans": "pdm",
-   "kaynak": "https://commons.wikimedia.org/wiki/File:At_The_Stock_Exchange.jpg"
-  },
   {
    "dosya": "/statik/foto/piyasa-duzenlemesi-6.jpg",
    "atif": "Bernard Lee · CC0",
@@ -524,13 +493,6 @@
    "kaynak": "https://commons.wikimedia.org/wiki/File:Bagan-Lacquerware-Factory-Workers.JPG"
   },
   {
-   "dosya": "/statik/foto/istihdam-ve-ucret-6.jpg",
-   "atif": "Unknown author Unknown author · Public domain",
-   "kunye": "File:Bari factory workers.jpg Factory workers|Alexander Bari|PD Old|Template Unknown (author)|CC-PD-Mark|PD-old missing SDC copyright status|Group photographs of factory workers",
-   "lisans": "pdm",
-   "kaynak": "https://commons.wikimedia.org/wiki/File:Bari_factory_workers.jpg"
-  },
-  {
    "dosya": "/statik/foto/istihdam-ve-ucret-7.jpg",
    "atif": "YeraC · CC BY-SA 4.0",
    "kunye": "File:BML Bamailong factory workers 1-007.jpg Interiors of factories in China|Women at work in China|Workshops in China|Cutting machines|Sitting men in China|Garment factories|Self-published work|CRT computer monitors|China photographs taken on 2002-12-30|Factory workers in China|Leather industry in China",
@@ -716,36 +678,12 @@
    "kaynak": "https://commons.wikimedia.org/wiki/File:Top_10_Bitcoin_Reserves_-_Sovereign_Holdings.png"
   },
   {
-   "dosya": "/statik/foto/kripto-varliklar-6.png",
-   "atif": "FlippyFlink · CC BY-SA 4.0",
-   "kunye": "File:A paper printable Bitcoin wallet consisting of one bitcoin address for receiving and the corresponding private key for spending.png Bitcoin|Bitcoin software|Public-key cryptography|Self-published work|Technology images that should use vector graphics|PNG that should use vector graphics|QR code diagrams|Bitcoin paper wallets|Cryptocurrency wallets",
-   "sorgu": "bitcoin",
-   "lisans": "cc-by-sa-4.0",
-   "kaynak": "https://commons.wikimedia.org/wiki/File:A_paper_printable_Bitcoin_wallet_consisting_of_one_bitcoin_address_for_receiving_and_the_corresponding_private_key_for_spending.png"
-  },
-  {
    "dosya": "/statik/foto/kripto-varliklar-7.png",
    "atif": "Kurzycz , https://www.kurzy.cz/ · CC BY 4.0",
    "kunye": "File:Bitcoin-Gold.png Bitcoin|Commodity prices|Self-published work",
    "sorgu": "bitcoin",
    "lisans": "cc-by-4.0",
    "kaynak": "https://commons.wikimedia.org/wiki/File:Bitcoin-Gold.png"
-  },
-  {
-   "dosya": "/statik/foto/kripto-varliklar-8.jpg",
-   "atif": "Satheesh Sankaran · CC BY-SA 2.0",
-   "kunye": "File:Bitcoin BTC Golden coins 8K wallpaper.jpg Bitcoin|8K computer wallpapers|Flickr images reviewed by FlickreviewR 2",
-   "sorgu": "bitcoin",
-   "lisans": "cc-by-sa-2.0",
-   "kaynak": "https://commons.wikimedia.org/wiki/File:Bitcoin_BTC_Golden_coins_8K_wallpaper.jpg"
-  },
-  {
-   "dosya": "/statik/foto/kripto-varliklar-9-ecea3c25.png",
-   "atif": "MacDredd · CC BY-SA 4.0",
-   "kunye": "File:BTC Opt In Out Image.png Bitcoin|Self-published work",
-   "sorgu": "bitcoin",
-   "lisans": "cc-by-sa-4.0",
-   "kaynak": "https://commons.wikimedia.org/wiki/File:BTC_Opt_In_Out_Image.png"
   },
   {
    "dosya": "/statik/foto/kripto-varliklar-10-1e28bfcf.jpg",
@@ -919,14 +857,6 @@
    "sorgu": "stock exchange",
    "lisans": "cc0",
    "kaynak": "https://commons.wikimedia.org/wiki/File:Artefacts_at_Tokyo_Stock_Exchange_(99235).jpg"
-  },
-  {
-   "dosya": "/statik/foto/borsa-16-3081ebc2.jpg",
-   "atif": "Edgar Degas · Public domain",
-   "kunye": "File:At The Stock Exchange.jpg PD Old|Artworks with Wikidata item|Artworks with known accession number|CC-PD-Mark|Artworks with accession number from Wikidata|Portraits at the Stock Exchange by Edgar Degas|Artworks digital representation of 2D work|Artworks with digital representation of different depicts",
-   "sorgu": "stock exchange",
-   "lisans": "pdm",
-   "kaynak": "https://commons.wikimedia.org/wiki/File:At_The_Stock_Exchange.jpg"
   }
  ],
  "Turizm": [
@@ -995,13 +925,6 @@
   }
  ],
  "Vergi ve kamu maliyesi": [
-  {
-   "dosya": "/statik/foto/vergi-ve-kamu-maliyesi-5.png",
-   "atif": "Office of Congressman Duncan D. Hunter · Public domain",
-   "kunye": "File:\"Postcard\" Tax Form.png PD US Government|CC-PD-Mark|Tax Cuts and Jobs Act of 2017 infographics",
-   "lisans": "pdm",
-   "kaynak": "https://commons.wikimedia.org/wiki/File:%22Postcard%22_Tax_Form.png"
-  },
   {
    "dosya": "/statik/foto/vergi-ve-kamu-maliyesi-6.jpg",
    "atif": "MoneyBlogNewz · CC BY 2.0",
@@ -1125,13 +1048,6 @@
  ],
  "Jeopolitik": [
   {
-   "dosya": "/statik/foto/jeopolitik-5.png",
-   "atif": "VOA · Public domain",
-   "kunye": "File:2014 Wang-Zhang Meeting.png 2014 Wang-Zhang Meeting|PD VOA|CC-PD-Mark|Handshakes involving politicians|Photographs taken on 2014-06-25",
-   "lisans": "pdm",
-   "kaynak": "https://commons.wikimedia.org/wiki/File:2014_Wang-Zhang_Meeting.png"
-  },
-  {
    "dosya": "/statik/foto/jeopolitik-6.jpg",
    "atif": "Press Information Department · Public domain",
    "kunye": "File:2026-04-18 Foreign Minister Khalilur Rahman and Pakistan Foreign Minister Ishaq Dar bilateral meeting, Antalya Diplomacy Forum.jpg Bangladesh photographs taken on 2026-04-18|Uploaded with pypan|Press Information Department images without category|PID-BD images from April 2026",
@@ -1162,14 +1078,6 @@
    "sorgu": "diplomacy meeting",
    "lisans": "pdm",
    "kaynak": "https://commons.wikimedia.org/wiki/File:Secretary_Pompeo_Delivers_a_Speech_on_%E2%80%9CTrump_Administration_Diplomacy_The_Untold_Story%E2%80%9D_at_the_Heritage_Foundation_President%27s_Club_Meeting_(48942041028).jpg"
-  },
-  {
-   "dosya": "/statik/foto/jeopolitik-11.jpeg",
-   "atif": "Post of Indonesia · Public domain",
-   "kunye": "File:Stamp of Indonesia - 1995 - Colnect 253423 - United Nations Organization.jpeg PD Indonesian Government|Indonesia on stamps|1995 stamps of Indonesia|Earth on stamps|Rainbows on stamps|50th anniversary of the United Nations on stamps|50th anniversaries on stamps of Indonesia",
-   "sorgu": "united nations",
-   "lisans": "pdm",
-   "kaynak": "https://commons.wikimedia.org/wiki/File:Stamp_of_Indonesia_-_1995_-_Colnect_253423_-_United_Nations_Organization.jpeg"
   },
   {
    "dosya": "/statik/foto/jeopolitik-12.jpg",
@@ -1281,13 +1189,6 @@
    "kaynak": "https://commons.wikimedia.org/wiki/File:Strait_of_Hormuz_(MODIS_2020-12-04).jpg"
   },
   {
-   "dosya": "/statik/foto/ir-8.jpg",
-   "atif": "Pascal · Public domain",
-   "kunye": "File:Strait of Hormuz AR.jpg Maps of Oman|Maps of the United Arab Emirates|PD-user|Retouched pictures|Maps of Strait of Hormuz|Maps of Hormozgan Province|Arabic-language maps of Iran",
-   "lisans": "pdm",
-   "kaynak": "https://commons.wikimedia.org/wiki/File:Strait_of_Hormuz_AR.jpg"
-  },
-  {
    "dosya": "/statik/foto/ir-9.jpg",
    "atif": "MODIS Land Rapid Response Team, NASA GSFC · Public domain",
    "kunye": "File:Strait of Hormuz and Musandam Peninsula (MODIS 2018-12-10).jpg PD NASA|Strait of Hormuz|2018 satellite pictures|Photographs taken on 2018-12-06|Files from NASA with known IDs|Photos by the Terra (satellite) MODIS|MODIS files uploaded by OptimusPrimeBot",
@@ -1323,36 +1224,12 @@
    "kaynak": "https://commons.wikimedia.org/wiki/File:Bandar_Imam_Khomeini_petrochemical_complex.jpg"
   },
   {
-   "dosya": "/statik/foto/ir-14.png",
-   "atif": "U.S. Energy Information Administration · Public domain",
-   "kunye": "File:Estimated oil tanker transit times between the Persian Gulf and the United States (32706711250).png Energy Information Administration|PD US DOE|Flickr images reviewed by FlickreviewR 2",
-   "sorgu": "oil tanker persian gulf",
-   "lisans": "pdm",
-   "kaynak": "https://commons.wikimedia.org/wiki/File:Estimated_oil_tanker_transit_times_between_the_Persian_Gulf_and_the_United_States_(32706711250).png"
-  },
-  {
    "dosya": "/statik/foto/ir-13.jpg",
    "atif": "Number 10 · CC BY 4.0",
    "kunye": "File:Prime Minister Keir Starmer attends Strait of Hormuz Summit (55213553294).jpg Flickr images reviewed by FlickreviewR 2|Reactions to the 2026 Iran war|Strait of Hormuz summit",
    "sorgu": "strait of hormuz",
    "lisans": "cc-by-4.0",
    "kaynak": "https://commons.wikimedia.org/wiki/File:Prime_Minister_Keir_Starmer_attends_Strait_of_Hormuz_Summit_(55213553294).jpg"
-  },
-  {
-   "dosya": "/statik/foto/ir-14.jpeg",
-   "atif": "Kristian Thy · CC BY 3.0",
-   "kunye": "File:Strait Of Hormuz (41293592).jpeg Strait of Hormuz|Photos imported with import-500px",
-   "sorgu": "strait of hormuz",
-   "lisans": "cc-by-3.0",
-   "kaynak": "https://commons.wikimedia.org/wiki/File:Strait_Of_Hormuz_(41293592).jpeg"
-  },
-  {
-   "dosya": "/statik/foto/ir-15.jpg",
-   "atif": "thy from Bonn, Germany · CC BY 2.0",
-   "kunye": "File:Strait of Hormuz (5732551003).jpg Strait of Hormuz|Signs in Oman|Files with coordinates missing SDC location of creation|Flickr images reviewed by FlickreviewR 2|Khasab Coastal Road",
-   "sorgu": "strait of hormuz",
-   "lisans": "cc-by-2.0",
-   "kaynak": "https://commons.wikimedia.org/wiki/File:Strait_of_Hormuz_(5732551003).jpg"
   },
   {
    "dosya": "/statik/foto/ir-16.png",
@@ -1525,13 +1402,6 @@
    "kaynak": "https://commons.wikimedia.org/wiki/File:Capitol_Hill_Historic_District_08.jpg"
   },
   {
-   "dosya": "/statik/foto/us-12.jpg",
-   "atif": "Smallbones · CC0",
-   "kunye": "File:Capitol Hill Presby.JPG Taken with Nikon Coolpix S4100|CC-Zero|Self-published work|National Register of Historic Places with known IDs|Churches in the United States photographed in 2012|Capitol Hill Presbyterian Church (Washington, D.C.)",
-   "lisans": "cc0",
-   "kaynak": "https://commons.wikimedia.org/wiki/File:Capitol_Hill_Presby.JPG"
-  },
-  {
    "dosya": "/statik/foto/us-13.jpg",
    "atif": "Diego Delso · CC BY-SA 3.0",
    "kunye": "File:Capitol, Washington, D.C. USA12.jpg Exterior of the United States Capitol|Images by User:Poco a poco|Images of the United States by User:Poco a poco|Images by User:Poco a poco taken in 2008",
@@ -1658,20 +1528,6 @@
    "kaynak": "https://commons.wikimedia.org/wiki/File:1.000.000_Old_Turkish_Lira,_1995.jpg"
   },
   {
-   "dosya": "/statik/foto/tr-10.jpeg",
-   "atif": "Jarii94 · CC0",
-   "kunye": "File:Lira Turkey.jpeg Coins of Turkey|CC-Zero|Banknotes with a face value of 10|Banknotes with a face value of 5|Bi-metallic coins of Turkey|Self-published work|Mustafa Kemal Atatürk on banknotes",
-   "lisans": "cc0",
-   "kaynak": "https://commons.wikimedia.org/wiki/File:Lira_Turkey.jpeg"
-  },
-  {
-   "dosya": "/statik/foto/tr-11.jpg",
-   "atif": "The original uploader was Mu5ti at English Wikipedia . · Public domain",
-   "kunye": "File:New Turkish Lira-set.jpg Yeni Türk lirası|PD Tr|Mustafa Kemal Atatürk on banknotes",
-   "lisans": "pdm",
-   "kaynak": "https://commons.wikimedia.org/wiki/File:New_Turkish_Lira-set.jpg"
-  },
-  {
    "dosya": "/statik/foto/tr-12.jpg",
    "atif": "Alexjes98 · CC0",
    "kunye": "File:Konser - Azize Tereza Kilisesi - Ankara.jpg CC-Zero|Self-published work|Files with coordinates missing SDC location of creation|2024 in Altındağ|Ankara photographs taken on 2024-09-21|Interior of St. Teresa's Catholic Church, Ankara",
@@ -1702,14 +1558,6 @@
    "sorgu": "istanbul bosphorus",
    "lisans": "cc-by-sa-4.0",
    "kaynak": "https://commons.wikimedia.org/wiki/File:Bosphorus_Bridge(15_July_Martyrs_Bridge),_Istanbul,_Turkey_(Ank_Kumar)_01.jpg"
-  },
-  {
-   "dosya": "/statik/foto/tr-16.jpg",
-   "atif": "EWilson (Volunteer) · CC BY-SA 4.0",
-   "kunye": "File:Bosphorus ferry 1.jpg Panoramic photography|Ferries in Istanbul|February 2022 in water transport in Turkey|Self-published work|Panoramic photographs|February 2022 in Istanbul|Bosphorus in 2022",
-   "sorgu": "istanbul bosphorus",
-   "lisans": "cc-by-sa-4.0",
-   "kaynak": "https://commons.wikimedia.org/wiki/File:Bosphorus_ferry_1.jpg"
   }
  ],
  "BRENT": [
@@ -1804,41 +1652,12 @@
    "kaynak": "https://commons.wikimedia.org/wiki/File:Pump-Jack_-_DPLA_-_016ef374906feca413cfdddaab5a2f2a_(page_1).jpg"
   },
   {
-   "dosya": "/statik/foto/wti-4.png",
-   "atif": "EIA DOE · Public domain",
-   "kunye": "File:Crude oil prod 2009 EIA DoE.png Graph images that should use vector graphics|PD US DOE|PNG that should use vector graphics|Petroleum production in the United States|Oil production trends",
-   "lisans": "pdm",
-   "kaynak": "https://commons.wikimedia.org/wiki/File:Crude_oil_prod_2009_EIA_DoE.png"
-  },
-  {
-   "dosya": "/statik/foto/wti-5.png",
-   "atif": "U.S. Energy Information Administration · Public domain",
-   "kunye": "File:Major crude oil trade flows in the South China Sea (2016) (43582519014).png PD US DOE|Crude oil|Maps of trade routes|Maps of the South China Sea|Flickr images reviewed by FlickreviewR 2",
-   "lisans": "pdm",
-   "kaynak": "https://commons.wikimedia.org/wiki/File:Major_crude_oil_trade_flows_in_the_South_China_Sea_(2016)_(43582519014).png"
-  },
-  {
-   "dosya": "/statik/foto/wti-6.png",
-   "atif": "U.S. Energy Information Administration · Public domain",
-   "kunye": "File:Midcontinent crude oil production by crude type (million barrels per day) (14172805069).png Energy Information Administration|PD US DOE|Flickr images reviewed by FlickreviewR 2",
-   "lisans": "pdm",
-   "kaynak": "https://commons.wikimedia.org/wiki/File:Midcontinent_crude_oil_production_by_crude_type_(million_barrels_per_day)_(14172805069).png"
-  },
-  {
    "dosya": "/statik/foto/wti-7.jpg",
    "atif": "Djmaschek · CC BY-SA 3.0",
    "kunye": "File:Iago Texas Pump Jack.JPG Taken with Canon PowerShot A3000 IS|Oil fields in Texas|Boling-Iago, Texas|Self-published work|December 2012 in Texas|Chain-link fences in Texas|Chain-link fences in Utah|Nodding donkey pumps in Texas",
    "sorgu": "oil pump jack texas",
    "lisans": "cc-by-sa-3.0",
    "kaynak": "https://commons.wikimedia.org/wiki/File:Iago_Texas_Pump_Jack.JPG"
-  },
-  {
-   "dosya": "/statik/foto/wti-8.png",
-   "atif": "U.S. Energy Information Administration · Public domain",
-   "kunye": "File:Northern Great Plains crude oil production by crude type (million barrels per day) (14379647843).png Energy Information Administration|PD US DOE|Flickr images reviewed by FlickreviewR 2",
-   "sorgu": "crude oil barrels",
-   "lisans": "pdm",
-   "kaynak": "https://commons.wikimedia.org/wiki/File:Northern_Great_Plains_crude_oil_production_by_crude_type_(million_barrels_per_day)_(14379647843).png"
   }
  ],
  "DGAZ": [
@@ -1850,26 +1669,11 @@
    "kaynak": "https://commons.wikimedia.org/wiki/File:Natural_Gas_pipeline_systems-from_the_wellhead_to_the_consumer.png"
   },
   {
-   "dosya": "/statik/foto/dgaz-2.jpeg",
-   "atif": "BLM Bureau of Land Management · Public domain",
-   "kunye": "File:Ruby Pipeline Natural Gas Pipeline.jpeg PD US Government|Topographic maps of the United States|CC-PD-Mark|2010s maps of the United States|Pipeline maps of the United States",
-   "lisans": "pdm",
-   "kaynak": "https://commons.wikimedia.org/wiki/File:Ruby_Pipeline_Natural_Gas_Pipeline.jpeg"
-  },
-  {
    "dosya": "/statik/foto/dgaz-3.png",
    "atif": "U.S. Energy Information Administration · Public domain",
    "kunye": "File:Select natural gas pipeline projects in Texas (as of March 2021) (51042795023).png PD US DOE|Flickr images reviewed by FlickreviewR 2|2021 maps of Texas|Pipeline maps of the United States|Gas pipelines in the United States",
    "lisans": "pdm",
    "kaynak": "https://commons.wikimedia.org/wiki/File:Select_natural_gas_pipeline_projects_in_Texas_(as_of_March_2021)_(51042795023).png"
-  },
-  {
-   "dosya": "/statik/foto/dgaz-4.jpg",
-   "atif": "ReubenGBrewer · CC BY-SA 3.0",
-   "kunye": "File:14 06 29 Natural Gas Pipeline Sign Clearwater FL 02.jpg Natural gas|Self-published work|Gas pipeline markers in the United States|Pipe marking",
-   "sorgu": "natural gas pipeline",
-   "lisans": "cc-by-sa-3.0",
-   "kaynak": "https://commons.wikimedia.org/wiki/File:14_06_29_Natural_Gas_Pipeline_Sign_Clearwater_FL_02.jpg"
   },
   {
    "dosya": "/statik/foto/dgaz-5.jpg",
@@ -1950,54 +1754,11 @@
  ],
  "XAG": [
   {
-   "dosya": "/statik/foto/xag-1.png",
-   "atif": "User:Delehaye · Public domain",
-   "kunye": "File:Benemeriti dell’Istruzione Elementare e Materna silver medal BAR.png Education in Italy|Self-published work|PD-self|Ribbon bars of Italy",
-   "lisans": "pdm",
-   "kaynak": "https://commons.wikimedia.org/wiki/File:Benemeriti_dell%E2%80%99Istruzione_Elementare_e_Materna_silver_medal_BAR.png"
-  },
-  {
-   "dosya": "/statik/foto/xag-2.png",
-   "atif": "Wiki Romi · Public domain",
-   "kunye": "File:GDR Star of Friendship of Nations - Silver BAR.png Self-published work|PD-self|Ribbon bars of the German Democratic Republic|Star of People's Friendship in Silver",
-   "lisans": "pdm",
-   "kaynak": "https://commons.wikimedia.org/wiki/File:GDR_Star_of_Friendship_of_Nations_-_Silver_BAR.png"
-  },
-  {
    "dosya": "/statik/foto/xag-3.jpg",
    "atif": "The original uploader was Kallemax at English Wikipedia . · Public domain",
    "kunye": "File:Johnson Matthey 500 grammes silver bullion.jpg Taken with Kyocera Finecam 3300|PD-user|Johnson Matthey|Silver ingots",
    "lisans": "pdm",
    "kaynak": "https://commons.wikimedia.org/wiki/File:Johnson_Matthey_500_grammes_silver_bullion.jpg"
-  },
-  {
-   "dosya": "/statik/foto/xag-4.png",
-   "atif": "Wiki Romi · Public domain",
-   "kunye": "File:NLD Eremedaille - Silver BAR.png Self-published work|PD-self|Blue, orange, white ribbon bars|Ribbon bars of the Order of Orange-Nassau",
-   "lisans": "pdm",
-   "kaynak": "https://commons.wikimedia.org/wiki/File:NLD_Eremedaille_-_Silver_BAR.png"
-  },
-  {
-   "dosya": "/statik/foto/xag-5.png",
-   "atif": "Dyala0504 · CC0",
-   "kunye": "File:Silver Star ribbon2OLC.png CC-Zero|Silver Star (United States)|Self-published work|Blue, red, white ribbon bars",
-   "lisans": "cc0",
-   "kaynak": "https://commons.wikimedia.org/wiki/File:Silver_Star_ribbon2OLC.png"
-  },
-  {
-   "dosya": "/statik/foto/xag-6.png",
-   "atif": "Fazoffic · CC0",
-   "kunye": "File:Wiki Cinta Ramadan silver ribbon bar-id.png CC-Zero|Wikipedia ribbon bars|Self-published work",
-   "lisans": "cc0",
-   "kaynak": "https://commons.wikimedia.org/wiki/File:Wiki_Cinta_Ramadan_silver_ribbon_bar-id.png"
-  },
-  {
-   "dosya": "/statik/foto/xag-7.png",
-   "atif": "Skibden · Public domain",
-   "kunye": "File:Canada silver barnstar rib.PNG PD-user|Maple leaf as symbol of Canada|Barnstar of National Merit ribbon bars|Wikimedia silver awards",
-   "sorgu": "silver bars",
-   "lisans": "pdm",
-   "kaynak": "https://commons.wikimedia.org/wiki/File:Canada_silver_barnstar_rib.PNG"
   },
   {
    "dosya": "/statik/foto/xag-8.jpg",
@@ -2009,13 +1770,6 @@
   }
  ],
  "XCU": [
-  {
-   "dosya": "/statik/foto/xcu-1.jpg",
-   "atif": "Chemicalinterest ( talk ) · Public domain",
-   "kunye": "File:Copper wire comparison.JPG Taken with Olympus C-960Z / D-460Z|PD-user|Copper wire",
-   "lisans": "pdm",
-   "kaynak": "https://commons.wikimedia.org/wiki/File:Copper_wire_comparison.JPG"
-  },
   {
    "dosya": "/statik/foto/xcu-2.jpg",
    "atif": "Alisdojo · CC0",
@@ -2172,30 +1926,6 @@
    "sorgu": "federal reserve building",
    "lisans": "cc-by-sa-3.0",
    "kaynak": "https://commons.wikimedia.org/wiki/File:Marriner_S._Eccles_Federal_Reserve_Board_Building.jpg"
-  },
-  {
-   "dosya": "/statik/foto/fed-15-547c7f6c.jpg",
-   "atif": "The White House · Public domain",
-   "kunye": "File:2026 Kevin Warsh at the White House on May 22 (cropped).jpg East Room (White House)|Executive Office of the President files|Extracted images|Men smiling|Photographs from the White House during the second Trump administration|White House in May 2026|United States photographs taken on 2026-05-22|Kevin Warsh",
-   "sorgu": "kevin warsh",
-   "lisans": "pdm",
-   "kaynak": "https://commons.wikimedia.org/wiki/File:2026_Kevin_Warsh_at_the_White_House_on_May_22_(cropped).jpg"
-  },
-  {
-   "dosya": "/statik/foto/fed-16-5ba7ab81.jpg",
-   "atif": "The White House · Public domain",
-   "kunye": "File:Chair of the Federal Reserve Kevin Warsh at the White House on May 22, 2026 (cropped).jpg Executive Office of the President files|Extracted images|Smiling men in the United States|PD-USGov missing SDC copyright status|Photographs from the White House during the second Trump administration|White House in May 2026|United States photographs taken on 2026-05-22|Kevin Warsh",
-   "sorgu": "kevin warsh",
-   "lisans": "pdm",
-   "kaynak": "https://commons.wikimedia.org/wiki/File:Chair_of_the_Federal_Reserve_Kevin_Warsh_at_the_White_House_on_May_22,_2026_(cropped).jpg"
-  },
-  {
-   "dosya": "/statik/foto/fed-17-22c09e7d.jpg",
-   "atif": "The White House · Public domain",
-   "kunye": "File:Federal Reserve Chair Kevin Warsh delivers remarks at his swearing-in ceremony in the East Room of the White House, Friday, May 22, 2026. (Cropped).jpg PD US Government|Extracted images|CC-PD-Mark|PD-USGov missing SDC copyright status|Federal Reserve Chair Kevin Warsh is sworn-in in the East Room of the White House",
-   "sorgu": "kevin warsh",
-   "lisans": "pdm",
-   "kaynak": "https://commons.wikimedia.org/wiki/File:Federal_Reserve_Chair_Kevin_Warsh_delivers_remarks_at_his_swearing-in_ceremony_in_the_East_Room_of_the_White_House,_Friday,_May_22,_2026._(Cropped).jpg"
   }
  ],
  "ECB": [
@@ -2260,13 +1990,6 @@
  ],
  "TCMB": [
   {
-   "dosya": "/statik/foto/tcmb-1.jpg",
-   "atif": "http://www.banknotes.it/Ricerca_03.asp?ID=348&Side=r · Public domain",
-   "kunye": "File:20000 TL reverse.jpg Banknotes of Turkey|Hyperinflation in Turkey|PD-TR-currency|Headquarters of the Central Bank of Turkey|Banknotes with a face value of 20000",
-   "lisans": "pdm",
-   "kaynak": "https://commons.wikimedia.org/wiki/File:20000_TL_reverse.jpg"
-  },
-  {
    "dosya": "/statik/foto/tcmb-3.jpg",
    "atif": "IMF Staff Photo / Stephen Jaffe · Public domain",
    "kunye": "File:G7 Finance Ministers and Central Bank Governors meeting 20091003.jpg Hirohisa Fujii|Taken with Canon EOS 5D Mark II|Group of Seven|Istanbul Congress Center|Turkey photographs taken on 2009-10-03|Images from the International Monetary Fund|Items with VRTS permission confirmed|PD-imf.org|2009 events in Istanbul",
@@ -2281,25 +2004,11 @@
    "kaynak": "https://commons.wikimedia.org/wiki/File:IFM_G%C3%B6rsel_(cropped).jpg"
   },
   {
-   "dosya": "/statik/foto/tcmb-5.jpg",
-   "atif": "Batuhanpiren · CC0",
-   "kunye": "File:Scouts with Bugles vignette - Turkey banknote.jpg CC-Zero|Banknotes of Turkey|American Bank Note Company|Self-published work|Intaglio prints",
-   "lisans": "cc0",
-   "kaynak": "https://commons.wikimedia.org/wiki/File:Scouts_with_Bugles_vignette_-_Turkey_banknote.jpg"
-  },
-  {
    "dosya": "/statik/foto/tcmb-7.jpg",
    "atif": "Kerhaneci31 · CC0",
    "kunye": "File:1.000.000 Old Turkish Lira, 1995.jpg CC-Zero|Hyperinflation in Turkey|Self-published work|Banknotes with a face value of 1000000|Mustafa Kemal Atatürk on banknotes",
    "lisans": "cc0",
    "kaynak": "https://commons.wikimedia.org/wiki/File:1.000.000_Old_Turkish_Lira,_1995.jpg"
-  },
-  {
-   "dosya": "/statik/foto/tcmb-8.jpg",
-   "atif": "tcmb.gov.tr · Public domain",
-   "kunye": "File:10-II Old Turkish lira.jpg Banknotes with a face value of 10|PD-TR-currency|Mustafa Kemal Atatürk on banknotes",
-   "lisans": "pdm",
-   "kaynak": "https://commons.wikimedia.org/wiki/File:10-II_Old_Turkish_lira.jpg"
   },
   {
    "dosya": "/statik/foto/tcmb-9.jpg",
@@ -2317,14 +2026,6 @@
    "kaynak": "https://commons.wikimedia.org/wiki/File:BlancepaiementTurquie.png"
   },
   {
-   "dosya": "/statik/foto/tcmb-11.jpg",
-   "atif": "Hello40339 · CC BY-SA 4.0",
-   "kunye": "File:Central Bank of The Repubilc of Turkey Tower.jpg Self-published work|CBRT Tower",
-   "sorgu": "central bank of turkey",
-   "lisans": "cc-by-sa-4.0",
-   "kaynak": "https://commons.wikimedia.org/wiki/File:Central_Bank_of_The_Repubilc_of_Turkey_Tower.jpg"
-  },
-  {
    "dosya": "/statik/foto/tcmb-12.jpg",
    "atif": "Abdullah kıyga · CC BY 3.0",
    "kunye": "File:Kocaeli T.C. Central Bank k'yg* - panoramio.jpg Buildings in İzmit|Kemalpaşa, İzmit|Panoramio files uploaded by Panoramio upload bot|Turkey photographs taken on 2008-10-28|Bank buildings in Turkey|Panoramio images reviewed by trusted users|Photos from Panoramio|Files with coordinates missing SDC location of creation",
@@ -2334,14 +2035,6 @@
   }
  ],
  "BIST100": [
-  {
-   "dosya": "/statik/foto/bist100-5.jpg",
-   "atif": "Ank Kumar · CC BY-SA 4.0",
-   "kunye": "File:Frankfurt Stock Exchange (Ank Kumar) 01.jpg Frankfurt Stock Exchange|Self-published work|Frankfurt Stock Exchange trading floor|Photographs by Ank gsx",
-   "sorgu": "stock exchange trading floor",
-   "lisans": "cc-by-sa-4.0",
-   "kaynak": "https://commons.wikimedia.org/wiki/File:Frankfurt_Stock_Exchange_(Ank_Kumar)_01.jpg"
-  },
   {
    "dosya": "/statik/foto/bist100-6.jpg",
    "atif": "S.aderogba · CC BY-SA 4.0",
@@ -2390,21 +2083,6 @@
    "kunye": "File:Top 10 Bitcoin Reserves - Sovereign Holdings.png CC-Zero|Self-published work|Bitcoin reserves",
    "lisans": "cc0",
    "kaynak": "https://commons.wikimedia.org/wiki/File:Top_10_Bitcoin_Reserves_-_Sovereign_Holdings.png"
-  },
-  {
-   "dosya": "/statik/foto/btc-4.png",
-   "atif": "Crypto121 · CC0",
-   "kunye": "File:Mining hardware.png CC-Zero|Cryptocurrency mining hardware|Self-published work",
-   "lisans": "cc0",
-   "kaynak": "https://commons.wikimedia.org/wiki/File:Mining_hardware.png"
-  },
-  {
-   "dosya": "/statik/foto/btc-5.png",
-   "atif": "FlippyFlink · CC BY-SA 4.0",
-   "kunye": "File:A paper printable Bitcoin wallet consisting of one bitcoin address for receiving and the corresponding private key for spending.png Bitcoin|Bitcoin software|Public-key cryptography|Self-published work|Technology images that should use vector graphics|PNG that should use vector graphics|QR code diagrams|Bitcoin paper wallets|Cryptocurrency wallets",
-   "sorgu": "bitcoin",
-   "lisans": "cc-by-sa-4.0",
-   "kaynak": "https://commons.wikimedia.org/wiki/File:A_paper_printable_Bitcoin_wallet_consisting_of_one_bitcoin_address_for_receiving_and_the_corresponding_private_key_for_spending.png"
   },
   {
    "dosya": "/statik/foto/btc-6.png",
@@ -2669,13 +2347,6 @@
    "kaynak": "https://commons.wikimedia.org/wiki/File:Electrical_Power_Grid_-_Austria.png"
   },
   {
-   "dosya": "/statik/foto/sek-enerji-5.png",
-   "atif": "HighVoltage 5576 · CC0",
-   "kunye": "File:Electrical Power Grid - Cuba.png Maps of Cuba|CC-Zero|Self-published work|Maps of power grids",
-   "lisans": "cc0",
-   "kaynak": "https://commons.wikimedia.org/wiki/File:Electrical_Power_Grid_-_Cuba.png"
-  },
-  {
    "dosya": "/statik/foto/sek-enerji-6.png",
    "atif": "HighVoltage 5576 · CC0",
    "kunye": "File:Electrical Power Grid - Hungary.png Maps of Hungary|CC-Zero|Self-published work|Maps of power grids",
@@ -2896,13 +2567,6 @@
    "kunye": "File:Apple Store locations.png CC-Zero|Self-published work|Apple Stores in the United States|Locator maps of corporate facilities in the United States",
    "lisans": "cc0",
    "kaynak": "https://commons.wikimedia.org/wiki/File:Apple_Store_locations.png"
-  },
-  {
-   "dosya": "/statik/foto/sek-perakende-2.jpg",
-   "atif": "Squid2be · Public domain",
-   "kunye": "File:Curacao Department Store.jpg Curacao (retail store)|Self-published work|PD-self|Shops in Los Angeles|Buildings in Pico-Union, Los Angeles",
-   "lisans": "pdm",
-   "kaynak": "https://commons.wikimedia.org/wiki/File:Curacao_Department_Store.jpg"
   },
   {
    "dosya": "/statik/foto/sek-perakende-3.jpg",
