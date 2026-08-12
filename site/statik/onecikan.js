@@ -31,6 +31,20 @@
       var liste = (v && v.senaryolar) || [];
       if (!liste.length) return;
 
+      /* BASLIK, SIRALAMAYI ANLATIR.
+         Uc iki farkli siralama donebiliyor: son N gunun oyu, ya da
+         o pencerede hic oy yoksa tum zamanlar. Ikisini ayni etiketle
+         sunmak okura yanlis gerekce vermek olurdu -- "son 7 gunun en
+         cok begenileni" yazip alti ay onceki bir listeyi gostermek
+         gibi. Etiket veriye gore yaziliyor. */
+      var not = kutu.querySelector(".bolum-not");
+      if (not) {
+        not = not;
+        not.textContent = v.pencere
+          ? "Son " + (v.gun || 7) + " günde en çok değerli bulunanlar"
+          : "Okurların yazdığı koşullu değerlendirmeler";
+      }
+
       var h = "";
       for (var i = 0; i < liste.length; i++) {
         var s = liste[i];
@@ -41,7 +55,16 @@
              '<span class="senaryo-sonuc">' + kacir(s.sonuc) + '</span>' +
              '</p>' +
              '<p class="senaryo-kunye">' +
-             '<span class="one-oy">▲ ' + Number(s.oy || 0) + '</span> ' +
+             /* Gosterilen sayi SIRALAMAYI URETEN sayidir: pencere
+                modunda haftalik oy. Toplam oy farkliysa parantezde
+                veriliyor -- okur "bu hafta 4, toplam 11" ayrimini
+                gorebilsin. */
+             '<span class="one-oy">▲ ' + Number(s.oy || 0) +
+             (v.pencere && Number(s.oy_toplam || 0) > Number(s.oy || 0)
+               ? ' <span class="one-oy-toplam">/ ' +
+                 Number(s.oy_toplam) + '</span>'
+               : '') +
+             '</span> ' +
              '<b>' + kacir(s.yazar) + '</b> · ufuk ' + kacir(s.ufuk);
         if (s.capa) {
           h += ' · <a href="' + kacir(s.capa) + '">' +

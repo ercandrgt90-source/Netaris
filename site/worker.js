@@ -915,17 +915,75 @@ async function senaryoOy(env, uye, id) {
  * EN AZ BIR OY SARTI: sifir oylu senaryo one cikarilamaz -- "one cikan"
  * demek bir SECIM demek, henuz kimsenin bakmadigi bir metni oyle
  * sunmak okuru yanıltır. */
+/* ONE CIKANLAR -- SON 7 GUNDE ALINAN OYA gore.
+ *
+ * NEDEN PENCERE VAR
+ * -----------------
+ * Once pencere YOKTU ve siralama TUM ZAMANLARIN oyuna bakiyordu.
+ * Sonucu su: alti ay once 20 oy almis bir senaryo sonsuza dek tepede
+ * kalir, yeni yazilan hicbir senaryo onu geceMEZ. Liste bir kez
+ * doldugunda donuyor.
+ *
+ * PENCERE YAYIN TARIHINE DEGIL, OYUN TARIHINE bakiyor
+ * (`senaryo_oy.an`). Iki sonucu birden veriyor:
+ *   * yeni senaryo bir haftada hizla yukselebiliyor,
+ *   * eski ama yeniden ilgi goren senaryo geri donebiliyor
+ *     -- gundem ona dondugunde okurun aradigi sey zaten odur.
+ * Yayin tarihine bakilsaydi ikincisi imkansiz olurdu.
+ *
+ * SESSIZ HAFTA SORUNU. Pencerede hic oy yoksa bolum tamamen
+ * bosalirdi; oysa bos "one cikan" basligi siteyi terk edilmis
+ * gosteriyor (ayni sebeple bolum zaten gizleniyor). Bu yuzden
+ * pencere bossa TUM ZAMANLAR siralamasina duşuluyor ve yanitta
+ * `pencere: false` donuyor -- arayuz basligi ona gore yaziyor.
+ * Iki farkli siralamayi ayni etiketle sunmak okuru yanıltırdı.
+ *
+ * DONEN SAYI, SIRALAMAYI URETEN SAYIDIR. Pencere modunda haftalik oy
+ * gosteriliyor; toplam oy da ayri alanda var. Siralamayi aciklamayan
+ * bir sayi basmak, okura yanlis gerekce sunmak olur.
+ */
+const ONE_CIKAN_GUN = 7;
+const ONE_CIKAN_ADET = 6;
+
 async function senaryoOneCikan(env) {
-  const r = await env.DB.prepare(
-    "SELECT s.kosul, s.sonuc, s.capa, s.capa_baslik, s.ufuk, u.ad AS yazar," +
-    " (SELECT COUNT(*) FROM senaryo_oy o WHERE o.senaryo_id = s.id) AS oy" +
+  const esik = new Date(Date.now() - ONE_CIKAN_GUN * 86400000).toISOString();
+
+  const HAFTALIK =
+    "(SELECT COUNT(*) FROM senaryo_oy o" +
+    " WHERE o.senaryo_id = s.id AND o.an >= ?)";
+  const TOPLAM =
+    "(SELECT COUNT(*) FROM senaryo_oy o WHERE o.senaryo_id = s.id)";
+
+  const alanlar =
+    "SELECT s.id, s.kosul, s.sonuc, s.capa, s.capa_baslik, s.ufuk," +
+    " u.ad AS yazar, " + TOPLAM + " AS oy_toplam";
+
+  let r = await env.DB.prepare(
+    alanlar + ", " + HAFTALIK + " AS oy" +
     " FROM senaryo s JOIN uye u ON u.id = s.uye_id" +
-    " WHERE s.durum = 'yayimlandi'" +
-    " AND (SELECT COUNT(*) FROM senaryo_oy o WHERE o.senaryo_id = s.id) > 0" +
-    " ORDER BY oy DESC, s.yayin DESC LIMIT 5",
-  ).all();
-  return yanit({ senaryolar: r.results || [] }, 200,
-    { "cache-control": "public, max-age=300" });
+    " WHERE s.durum = 'yayimlandi' AND " + HAFTALIK + " > 0" +
+    " ORDER BY oy DESC, s.yayin DESC LIMIT ?",
+  ).bind(esik, esik, ONE_CIKAN_ADET).all();
+
+  let pencere = true;
+  if (!r.results || !r.results.length) {
+    pencere = false;
+    r = await env.DB.prepare(
+      alanlar + ", " + TOPLAM + " AS oy" +
+      " FROM senaryo s JOIN uye u ON u.id = s.uye_id" +
+      " WHERE s.durum = 'yayimlandi' AND " + TOPLAM + " > 0" +
+      " ORDER BY oy DESC, s.yayin DESC LIMIT ?",
+    ).bind(ONE_CIKAN_ADET).all();
+  }
+
+  return yanit(
+    { senaryolar: r.results || [], pencere, gun: ONE_CIKAN_GUN },
+    200,
+    /* Onbellek KISA: siralama oyla degisiyor ve okur oy verdikten
+       sonra degisimi gormeli. Bes dakika, bir oyun listeye
+       yansimasi icin uzun. */
+    { "cache-control": "public, max-age=60" },
+  );
 }
 
 /* Topluluk sayfasi: YAYIMLANMIS BUTUN senaryolar. Herkese acik.

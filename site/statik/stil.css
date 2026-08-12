@@ -3245,3 +3245,7 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none; }
    yalnizca kartin akisina oturtuluyor. Baslikla arasi dar tutuldu --
    imza baslıgın kunyesi, ayri bir blok degil. */
 .kart-imza { margin-bottom: 2px; }
+
+/* Haftalik oyun yanindaki TOPLAM. Soluk, cunku siralamayi o
+   uretmiyor -- okur once siralamayi aciklayan sayiyi gormeli. */
+.one-oy-toplam { color: var(--yazi-3); font-weight: 400; }
