@@ -3249,3 +3249,13 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none; }
 /* Haftalik oyun yanindaki TOPLAM. Soluk, cunku siralamayi o
    uretmiyor -- okur once siralamayi aciklayan sayiyi gormeli. */
 .one-oy-toplam { color: var(--yazi-3); font-weight: 400; }
+
+/* Kunyedeki zorunlu kaynak baglantisi. Baslik artik tiklanmiyor;
+   ticari kaynagin hakki olan atif buraya tasindi. SOLUK durmali --
+   okuru disari cagirmiyor, kaynagi bildiriyor. */
+.akis-kunye-baglanti { color: var(--yazi-3); text-decoration: none; }
+.akis-kunye-baglanti:hover,
+.akis-kunye-baglanti:focus-visible {
+  color: var(--vurgu); text-decoration: underline;
+}
+.akis-kunye-baglanti .dis-ok { margin-left: 3px; font-size: 0.85em; }

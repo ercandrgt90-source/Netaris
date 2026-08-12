@@ -305,28 +305,39 @@
              width="40" height="40" loading="lazy" decoding="async">
         {% endif %}
         <span class="akis-zaman">{{ zaman(h) }}</span>
-        {# UC DURUM, UCU DE FARKLI:
-             sayfasi var        -> kendi sayfamiza
-             sayfasi yok, adres -> KAYNAGA (dis baglanti isaretiyle)
-             ikisi de yok       -> duz metin
+        {# BASLIK SITE DISINA GOTURMEZ.
+           ------------------------------
+           Once sayfasi olmayan kalemlerin BASLIGI dogrudan kaynaga
+           gidiyordu (`akis-dis`, yeni sekmede). Olculdu: ana sayfada
+           36 baslik disari cikiyordu. Kendi ana sayfasindan okurunu
+           baska siteye yollamak, akisin isi degil.
 
-           Ikinci durum bilincli bir degisiklik. Bu basliklarin GOVDESI
-           YOK -- kaynak yalnizca basligi veriyor. Onlara sayfa uretmek
-           bos bir sayfa yayimlamak, listeden atmak ise "bir sey
-           olmadi" demek olurdu. Ikisi de yanlis; okuru kaynagina
-           gondermek dogru olani.
+           AMA BAGLANTI SILINEMEZ. FinancialJuice `ticari=True` ve
+           kural acik (bkz. `kaynak/besleme.py`): kunye VE kaynaga
+           baglanti ZORUNLU. RSS'in sozlesmesi bu -- "basligi al,
+           ozetle, bana baglanti ver". Baglantiyi tumden kaldirmak
+           icerigi alip karsiligini vermemek olurdu.
 
-           Ticari kaynakta zaten kunye + baglanti ZORUNLU. #}
+           COZUM: baslik TIKLANMAZ metin, zorunlu atif ise KUNYEDE
+           baglanti. Okur basliga tiklayip siteden cikmiyor; kaynak
+           hakki olan atfi ve baglantiyi aliyor. Ikisi de yerinde.
+
+           Bu basliklarin GOVDESI YOK -- kaynak yalnizca basligi
+           veriyor. Onlara sayfa uretmek bos sayfa yayimlamak, listeden
+           atmak ise "bir sey olmadi" demek olurdu. #}
         {% if h.yol %}
         <a class="akis-baslik" href="{{ h.yol }}">{{ h.baslik }}</a>
-        {% elif h.adres and h.adres.startswith("http") %}
-        <a class="akis-baslik akis-dis" href="{{ h.adres }}"
-           target="_blank" rel="noopener nofollow">{{ h.baslik }}<span
-           class="dis-ok" aria-hidden="true">↗</span></a>
         {% else %}
         <span class="akis-baslik akis-sayfasiz">{{ h.baslik }}</span>
         {% endif %}
+        {% if not h.yol and h.adres and h.adres.startswith("http") %}
+        <a class="akis-kunye akis-kunye-baglanti" href="{{ h.adres }}"
+           target="_blank" rel="noopener nofollow"
+           title="Haberin kaynağı — {{ h.kurum }}">{{ h.kurum }}<span
+           class="dis-ok" aria-hidden="true">↗</span></a>
+        {% else %}
         <span class="akis-kunye">{{ h.kurum }}</span>
+        {% endif %}
       </li>
       {% endfor %}
     </ol>

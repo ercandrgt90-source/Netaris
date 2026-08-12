@@ -34,7 +34,7 @@ import shutil
 import sys
 import unicodedata
 from dataclasses import dataclass, field
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 
 import markdown
 from jinja2 import Environment, FileSystemLoader, select_autoescape
@@ -2525,6 +2525,34 @@ def ai_akisi(haberler: list[dict], en_cok: int = AI_AKIS_SAYISI) -> list[dict]:
     # olan once gelsin.
     olan = [h for h in haberler
             if h.get("ai_yorum_kart") and h.get("yol")]
+
+    # GUNCELLIK, ONEMDEN ONCE GELIR.
+    #
+    # Siralama yalnizca oneme bakiyordu ve zaman esitlik bozucuydu.
+    # Sonucu su: yuksek puanli eski bir haber bolumden HIC dusmuyor.
+    # Olculdu, 12 Agustos'ta yayimdaki alti kartin ikisi 1 HAZIRAN
+    # tarihliydi -- yetmis iki gunluk. Ayni gun uretilmis dort yorum
+    # ise sayfada yoktu.
+    #
+    # Cozum pencereyi BUGUNDEN baslatip yeterli kart bulana kadar bir
+    # gun geriye genisletmek. Sabit bir pencere (orn. "son 7 gun")
+    # sessiz gunlerde bolumu bosaltirdi; genisleyen pencere hem
+    # bugunun yorumlarini one aliyor hem bolumu dolu tutuyor.
+    #
+    # Pencere ICINDE siralama yine ONEME gore -- promptun 14. maddesi
+    # geregi yorumu olmak bir GIRIS SARTI, siralama olcutu degil.
+    if olan:
+        bugun = datetime.now().date()
+        for geri in range(0, 31):
+            sinir = (bugun - timedelta(days=geri)).isoformat()
+            pencere = [h for h in olan
+                       if (h.get("tarih") or "")[:10] >= sinir]
+            if len(pencere) >= en_cok:
+                break
+        # Pencere hicbir gunde dolmadiysa elimizdeki her sey giriyor:
+        # az kart, bos bolumden iyidir.
+        olan = pencere or olan
+
     olan.sort(key=lambda h: (h.get("onem") or 0,
                              h.get("an") or h.get("tarih") or ""),
               reverse=True)

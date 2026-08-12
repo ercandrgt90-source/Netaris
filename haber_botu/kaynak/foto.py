@@ -591,13 +591,20 @@ EN_AZ_YUKSEKLIK = 360
 
 #: En/boy oraninin ust ve alt siniri.
 #:
-#: Kartlar ve ust gorsel 16:9'a (1,78) yakin bir cerceve kullaniyor.
-#: 8,4 oranindaki bir panorama (olculdu: `tr-11.jpg`, 960x114) bu
-#: cercevede ya seride donuyor ya da taninmaz halde kirpiliyor.
-#: Sinirlar GENIS: amac sanatsal tercihi elemek degil, cerceveye HIC
-#: sigmayani elemek.
-EN_COK_ORAN = 2.6
-EN_AZ_ORAN = 0.5
+#: Kartlar ve ust gorsel 16:9 (1,78) cerceve kullaniyor ve CSS
+#: `object-fit: cover` ile kirpiyor. Kaynak bu orandan ne kadar
+#: uzaksa o kadar cok goruntu kirpiliyor.
+#:
+#: OLCULDU: 331 gorselin 67'si 16:9'a girince iceriginin %38'inden
+#: fazlasini kaybediyordu; en kotusu 960x1707 dikey bir fotografti ve
+#: %68'i gidiyordu -- okur binanin ince bir dilimini goruyordu.
+#: Kullanicinin "resimler bozuk gorunuyor" dedigi sey buydu.
+#:
+#: Alt sinir 0,5'ten 1,2'ye cikti: DIKEY fotograf 16:9 cerceveye
+#: sigmaz. 1,2'de kayip en fazla %33 -- bu kirpma, kadraj tercihi
+#: sayilabilecek olculerde.
+EN_COK_ORAN = 2.4
+EN_AZ_ORAN = 1.2
 
 
 def _boyut_uygun(genislik, yukseklik) -> bool:

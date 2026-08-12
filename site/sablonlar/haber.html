@@ -76,7 +76,13 @@
 
      Bos `alt` bu gorseli DEKORATIF ilan eder ve ekran okuyucu
      atlar; kaynak bilgisi zaten alttaki kunyede ve o OKUNUR. #}
-    <img src="{{ h.foto }}" alt="" decoding="async">
+    {# OLCU YAZILI: tarayici gorseli indirmeden once yeri ayirsin.
+       Olcusuz `img`, gorsel gelince altindaki metni asagi itiyor ve
+       okur okudugu satiri kaybediyor. Deger CERCEVENIN olcusu (16:9);
+       CSS zaten `aspect-ratio: 16/9` uyguluyor, yani bu iki sayi
+       cakismiyor, ayni kadraji tarif ediyor. #}
+    <img src="{{ h.foto }}" alt="" width="800" height="450"
+         decoding="async">
     {% if h.foto_atif %}
     {# CC BY atfi zorunlu kilar; kaldirilirsa lisans ihlal edilir. #}
     <figcaption>Fotoğraf: {{ h.foto_atif }}</figcaption>
