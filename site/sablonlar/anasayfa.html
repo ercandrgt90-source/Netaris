@@ -330,6 +330,21 @@
         {% else %}
         <span class="akis-baslik akis-sayfasiz">{{ h.baslik }}</span>
         {% endif %}
+        {# TEMA ETIKETI. Akis artik tiklanmaz basliklardan olusan duz
+           bir liste; okurun neye baktigini ayirt edebilmesi icin
+           temanin gorunmesi gerekiyor.
+
+           "Şirket haberleri" BASILMIYOR. O, siniflandirici bir sey
+           bulamadiginda dusulen VARSAYILAN kova -- gercek bir tema
+           degil. Olculdu: kirk kalemin yirmi ucu oradaydi ve
+           neredeyse hicbiri sirket haberi degildi (KDV zammi, Iran
+           muzakeresi, volatilite tablosu). Yanlis etiket basmaktansa
+           etiketsiz birakmak dogru; okur yanlis bir temaya guvenmez.
+           Kova daraldikca (bkz. `besleme.IKINCIL_ISARETLER`) daha
+           cok kalem etiketini aliyor. #}
+        {% if h.konu and h.konu != "Şirket haberleri" %}
+        <span class="akis-tema">{{ h.konu }}</span>
+        {% endif %}
         {% if not h.yol and h.adres and h.adres.startswith("http") %}
         <a class="akis-kunye akis-kunye-baglanti" href="{{ h.adres }}"
            target="_blank" rel="noopener nofollow"

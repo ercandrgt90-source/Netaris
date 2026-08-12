@@ -1998,8 +1998,22 @@ def tazele(h: dict, foto_kayit) -> dict:
     # cevirisi "policy rate"i "politika orani" yapabilir ve isaret
     # eslesmez. (uret_gundem.py ayni kurali uyguluyor.)
     if _besleme is not None:
-        h["konu"] = _besleme.konu_bul(baslik_ozgun, h.get("konu")
-                                      or "Şirket haberleri")
+        # SINIFLANDIRMA ONCE ORIJINAL BASLIKTA, sonra CEVIRIDE.
+        #
+        # Kaliplar Turkce; orijinal baslik Ingilizce oldugunda hicbiri
+        # tutmuyor ve her sey varsayilan kovaya duşuyor. Olculdu: ana
+        # sayfadaki 40 akis kaleminin 23'u "Sirket haberleri"ndeydi ve
+        # neredeyse hicbiri sirket haberi degildi. Ceviri uzerinden
+        # bakilinca bu sayi 10'a iniyor.
+        #
+        # Orijinal ONCE kaliyor: makine cevirisi kurum adini
+        # bozabiliyor ve dogru eslesmeyi kacirabiliyor. Ceviri
+        # YEDEK -- yalnizca orijinal bir sey bulamadiginda.
+        _vars = h.get("konu") or "Şirket haberleri"
+        _konu = _besleme.konu_bul(baslik_ozgun, "")
+        if not _konu and h.get("baslik"):
+            _konu = _besleme.konu_bul(h["baslik"], "")
+        h["konu"] = _konu or _vars
         h["bolge"] = _besleme.bolge_bul(baslik_ozgun, h.get("dil", "tr"))
     if _yorum is not None:
         baglam = _yorum.siniflandir(baslik_ozgun, h.get("konu", ""),

@@ -3259,3 +3259,13 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none; }
   color: var(--vurgu); text-decoration: underline;
 }
 .akis-kunye-baglanti .dis-ok { margin-left: 3px; font-size: 0.85em; }
+
+/* Akistaki tema etiketi. Kunye ile ayni olcekte ve SESSIZ: baslik
+   asil icerik, tema onu siniflandiran bir isaret. Rozet gibi dolgu
+   verilmedi -- kirk kalemlik bir listede kirk renkli rozet, listeyi
+   okunmaz hale getirir. */
+.akis-tema {
+  font-size: 0.7rem; color: var(--yazi-3);
+  letter-spacing: 0.02em; text-transform: uppercase;
+  border-left: 2px solid var(--cizgi); padding-left: 6px;
+}

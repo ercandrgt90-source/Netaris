@@ -251,6 +251,50 @@ GURULTU_ISARETLERI = (
 #: Isaretler KATLANMIS yazilir -- "enflasyon" evet, "fiyat gelişmeleri"
 #: hayir. Diakritikli bir isaret hicbir zaman eslesmez ve hatayi sessizce
 #: yapar: konu varsayilana duser, alakasiz fotograf secilir.
+#: IKINCIL ISARETLER -- YALNIZCA varsayilan kova doldugunda bakiliyor.
+#:
+#: NEDEN AYRI TABLO, neden asagidakine eklenmedi
+#: --------------------------------------------
+#: Bu kaliplar ana tablodakilerden daha ZAYIF. Ana tabloya
+#: karistirilsalardi ilk eslesen kazandigi icin DOGRU etiketleri de
+#: ezerlerdi. Olculdu: "zirve" kalibi hem diplomatik zirveyi hem
+#: "Gumus 7 haftanin ZIRVESINDE" basligini yakaliyor ve Enflasyon
+#: etiketini Jeopolitik'e ceviriyordu.
+#:
+#: Buraya yalnizca konusu HIC bulunamamis baslik geliyor; yani en
+#: kotu ihtimalle yanlis bir etiket, hicbir etiket olmayan yerde
+#: duruyor. Dogru etiket asla bozulmuyor -- tasarim geregi.
+#:
+#: NEDEN GEREKLI. Olculdu: ana sayfadaki 40 akis kaleminin 22'si
+#: "Sirket haberleri" varsayilanindaydi ve neredeyse hicbiri sirket
+#: haberi degildi -- KDV zammi, Iran muzakeresi, MUFG'nin yen notu,
+#: volatilite tablosu. Akisa tema etiketi basmadan once bu kovanin
+#: temizlenmesi gerekiyordu: yanlis etiket, etiketsizlikten kotudur.
+IKINCIL_ISARETLER = (
+    ("Jeopolitik", (
+        "baris sureci", "mutabakat", "ateskes", "telefon gorusme",
+        "deniz ussu", "insansiz hava araci", "anlasmayi ihlal",
+        "muzakere", "disisleri", "buyukelci", "savunma harcama",
+        "askeri operasyon",
+    )),
+    # Doviz masasi notlari: "MUFG: JPY", "ING: EUR" gibi kisa basliklar.
+    # "usd" ve "eur" BILEREK YOK -- her ikinci baslikta geciyor ve
+    # kovayi doviz haberi olmayan seylerle doldururlardi.
+    ("Döviz", (
+        "doviz gucu", "parite", "jpy", "gbp", "chf", "sterlin",
+        "yen kuru",
+    )),
+    # Piyasa teknik verisi. Bunlar haber degil TABLO, ama okurun
+    # gordugu akista yer aliyorlar ve bir temaya ait olmalilar.
+    ("Borsa", (
+        "volatilite", "korelasyon", "vadeli islem", "islem hacmi",
+    )),
+    ("Vergi ve kamu maliyesi", (
+        "kdv", "maliye bakanlig", "hazine bonosu", "tahvil ihrac",
+        "butce acig", "vergi orani",
+    )),
+)
+
 KONU_ISARETLERI = (
     ("Para politikası", (
         "para politikasi", "ppk", "politika faizi", "faiz orani",
@@ -713,6 +757,11 @@ def konu_bul(baslik: str, varsayilan: str = "") -> str:
         if kalip in k:
             return konu
     for konu, isaretler in KONU_ISARETLERI:
+        if any(i in k for i in isaretler):
+            return konu
+    # Ana tablo bos dondu: zayif kaliplara BURADA bakiliyor. Sirasi
+    # onemli -- once bakilsaydi dogru etiketleri ezerdi.
+    for konu, isaretler in IKINCIL_ISARETLER:
         if any(i in k for i in isaretler):
             return konu
     return varsayilan

@@ -378,5 +378,47 @@ esit(besleme._metin("<![CDATA[Brent 88,90 dolara geriledi.]]>"),
 esit(besleme._metin("&lt;p&gt;Fed faizi sabit tuttu.&lt;/p&gt;"),
      "Fed faizi sabit tuttu.", "HTML bicimli ama DUZYAZI ozet korunur")
 
+
+# --------------------------------------------------------------------
+# IKINCIL KONU ISARETLERI
+# --------------------------------------------------------------------
+#
+# Olculdu: ana sayfadaki 40 akis kaleminin 23'u "Sirket haberleri"
+# varsayilaninda kaliyordu ve neredeyse hicbiri sirket haberi degildi.
+# Ikincil tablo o kovayi dolduruyor.
+# "Emtia Ima Edilen Volatilite" ANA tabloda "emtia" ile eslesiyor ve
+# ikincil tabloya hic gelmiyor -- dogrusu da bu, baslik emtia hakkinda.
+esit(besleme.konu_bul("Emtia İma Edilen Volatilite", "Şirket haberleri"),
+     "Altın ve emtia", "ana tablo once: 'emtia' kelimesi kazaniyor")
+esit(besleme.konu_bul("120 Günlük Korelasyon Matrisi", "Şirket haberleri"),
+     "Borsa", "korelasyon tablosu Borsa'ya duşuyor")
+esit(besleme.konu_bul("ABD Endeksi Vadeli İşlemleri", "Şirket haberleri"),
+     "Borsa", "vadeli islem Borsa'ya duşuyor")
+esit(besleme.konu_bul("MUFG: JPY - FJElite", "Şirket haberleri"),
+     "Döviz", "doviz masasi notu Doviz'e duşuyor")
+esit(besleme.konu_bul("İsviçre hükümeti KDV zammı öneriyor", "Şirket haberleri"),
+     "Vergi ve kamu maliyesi", "KDV vergi konusuna duşuyor")
+esit(besleme.konu_bul("Pakistan: ABD-İran Mutabakat Zaptı uzatılabilir",
+                      "Şirket haberleri"),
+     "Jeopolitik", "mutabakat Jeopolitik'e duşuyor")
+
+# EN ONEMLI KURAL: ikincil tablo DOGRU etiketi ASLA ezmiyor.
+#
+# Ilk denememde ikincil kaliplar ana tabloyla birlikte taraniyordu ve
+# "zirve" kalibi "Gümüş 7 haftanın ZIRVESINDE" basligini Jeopolitik
+# yapiyordu. Ikincil tabloya yalnizca ana tablo BOS dondugunde
+# bakiliyor; bu sinama o sirayi kilitliyor.
+esit(besleme.konu_bul("Gümüş 7 haftanın zirvesinde", "Şirket haberleri"),
+     "Altın ve emtia", "fiyat 'zirvesi' Jeopolitik SANILMIYOR")
+esit(besleme.konu_bul("TCMB faiz kararını açıkladı", "Şirket haberleri"),
+     "Para politikası", "ana tablonun dogru etiketi korunuyor")
+esit(besleme.konu_bul("Brent petrol ihracatı arttı", "Şirket haberleri"),
+     "Enerji", "enerji etiketi ikincil tabloyla bozulmuyor")
+
+# "usd" ve "eur" BILEREK ikincil tabloda yok: her ikinci baslikta
+# geciyorlar ve kovayi doviz haberi olmayan seyle doldururlardi.
+esit(besleme.konu_bul("ABD'de konut satışları arttı", "Şirket haberleri"),
+     "Konut ve kira", "genel para birimi adi yanlis eslesme URETMIYOR")
+
 print(f"\n{_gecti} gecti, {_kaldi} kaldi")
 sys.exit(1 if _kaldi else 0)
