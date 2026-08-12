@@ -320,7 +320,14 @@ def _bayat_isaretle(kalemler: list[dict]) -> int:
             # okurun ne yapacagini biliyor.
             sonraki = _sonraki_yayin.get(k["kod"])
             if sonraki:
-                k["ritim"] += f" · sonraki {sonraki}"
+                # "sonraki bugün" bozuk Turkce. Yakin gunlerde cumle
+                # degisiyor: "· bugün yenileniyor" / "· sonraki 19
+                # Ağustos". Tarih dili `eia_takvim._tr_tarih`ten
+                # geliyor.
+                k["ritim"] += (
+                    f" · {sonraki} yenileniyor"
+                    if sonraki in ("bugün", "yarın")
+                    else f" · sonraki {sonraki}")
         n += k["bayat"]
     return n
 

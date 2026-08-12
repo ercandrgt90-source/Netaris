@@ -39,6 +39,7 @@ ikincisi dogru ve kullanisli.
 
 from __future__ import annotations
 
+import datetime
 import re
 
 import httpx
@@ -59,8 +60,31 @@ _AYLAR = ("Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran",
           "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık")
 
 
-def _tr_tarih(ay: int, gun: int) -> str:
-    return f"{gun} {_AYLAR[ay - 1]}" if 1 <= ay <= 12 else ""
+def _tr_tarih(ay: int, gun: int, bugun: datetime.date | None = None) -> str:
+    """Yayin tarihini okurun kullandigi dille yazar.
+
+    "sonraki 12 Ağustos" ifadesi 12 Ağustos GUNU okundugunda tuhaf
+    kaciyor -- okur takvime bakip bugunun 12'si oldugunu kendisi
+    cikarmak zorunda kaliyor. Yayin GUNU, tam da notun en cok ise
+    yaradigi gun; o gun "bugün" demek gerekiyor.
+
+    Yalnizca bugun ve yarin ozel yaziliyor; otesi tarihle daha net.
+    """
+    if not 1 <= ay <= 12:
+        return ""
+    bugun = bugun or datetime.date.today()
+    try:
+        d = datetime.date(bugun.year, ay, gun)
+    except ValueError:
+        return ""
+    fark = (d - bugun).days
+    # Yil sinirinda ay/gun ayni yila dusmeyebilir; yalnizca yakin
+    # gunlerde ozel sozcuk kullaniliyor, uzakta tarih zaten dogru.
+    if fark == 0:
+        return "bugün"
+    if fark == 1:
+        return "yarın"
+    return f"{gun} {_AYLAR[ay - 1]}"
 
 
 def sonraki_yayin(seri: str, istemci=None) -> str:

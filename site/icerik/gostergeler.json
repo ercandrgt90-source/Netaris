@@ -78,7 +78,7 @@
       "birim": "USD/varil",
       "gun": 7,
       "bayat": true,
-      "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · sonraki 12 Ağustos"
+      "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · bugün yenileniyor"
     },
     {
       "kod": "DCOILWTICO",
@@ -90,7 +90,7 @@
       "birim": "USD/varil",
       "gun": 7,
       "bayat": true,
-      "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · sonraki 12 Ağustos"
+      "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · bugün yenileniyor"
     },
     {
       "kod": "DFF",
@@ -212,7 +212,7 @@
           "birim": "USD/varil",
           "gun": 7,
           "bayat": true,
-          "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · sonraki 12 Ağustos"
+          "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · bugün yenileniyor"
         },
         {
           "kod": "DCOILWTICO",
@@ -224,7 +224,7 @@
           "birim": "USD/varil",
           "gun": 7,
           "bayat": true,
-          "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · sonraki 12 Ağustos"
+          "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · bugün yenileniyor"
         }
       ]
     },
