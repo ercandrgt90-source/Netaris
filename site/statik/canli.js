@@ -124,8 +124,16 @@
 
   /* Kayan serit icin ikinci kopya. Animasyon -%50 kaydirdigi icin iki ayni
      dizi yan yana durunca gecis dikissiz olur. */
+  /* Hareketi azaltma tercihi acikken kopya HIC eklenmiyor.
+     CSS animasyonu zaten kapatiyor; kopyayi da eklememek ekran
+     okuyucunun ayni fiyatlari iki kez okumasini onluyor. Son dakika
+     seridinde bu kural bastan beri vardi, fiyat seridinde yoktu. */
+  var AZALT = window.matchMedia
+    && window.matchMedia("(prefers-reduced-motion: reduce)");
+
   function kopyaTazele() {
     if (!AKIS) return;
+    if (AZALT && AZALT.matches) return;
     var eski = AKIS.querySelector("[data-serit-kopya]");
     if (eski) eski.remove();
     var kopya = SIRA.cloneNode(true);
@@ -181,6 +189,27 @@
       })
       .catch(function () { /* engellenmis olabilir -- serit calismaya devam */ });
   }
+
+  /* AKIS ONCE BASLAR, VERI SONRA GELIR.
+     ---------------------------------
+     Serit sunucuda DOLU basiliyor; bu dosya yalnizca uzerine canli
+     kalem EKLIYOR. Dolayisiyla hareketin bir ag istegine bagli olmasi
+     icin hicbir sebep yok.
+
+     Bagliydi ve KIRIKTI: `kopyaTazele()` yalnizca `krakenCek` ve
+     `binanceCek` BASARILI olursa cagriliyordu, o da hem ikinci kopyayi
+     hem `akiyor` sinifini ekliyordu. Iki uc da Turkiye'den erisilemiyor
+     (olculdu: ikisi de baglanti kuramiyor; Binance ayrica yasal olarak
+     engelli). Sonuc: serit hic akmiyordu.
+
+     Ucuncu bir yol daha vardi -- Frankfurter'dan kur ceken katman
+     erisilebilir oldugu icin pratikte animasyonu O baslatiyordu. Kur
+     katmanini serit cakismasi yuzunden kaldirinca, farkinda olmadan
+     akisin tek calisan tetigini de kaldirmis oldum.
+
+     Artik koşulsuz: sayfa yuklenince serit akmaya basliyor, canli
+     kalemler gelirse kopya tazeleniyor, gelmezse serit yine akiyor. */
+  kopyaTazele();
 
   krakenCek();
   binanceCek();

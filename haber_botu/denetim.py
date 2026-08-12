@@ -894,7 +894,35 @@ def editoryal_denetim() -> list[Bulgu]:
         sys.path.insert(0, str(_KOK / "kaynak"))
         import besleme  # noqa: PLC0415
 
-        kirli = [x for x in say if besleme.gurultu_mu(x.get("baslik", ""))]
+        # GIRDIYI DEGIL, YAYIMLANAN SAYFAYI OLCUYORUZ.
+        #
+        # `say` listesi `gundem.json`dan, yani GIRDIDEN geliyor.
+        # Suzgec artik insa aninda da kosuyor (bkz. `insa.tazele`) --
+        # yani bir oge girdide "yorumlanir" gorunurken SAYFASI HIC
+        # URETILMEMIS olabilir. Olculdu: sivil kayip haberi girdide
+        # duruyordu, sayfasi kaldirilmisti, denetim yine de uyariyordu.
+        # Var olmayan bir sayfa icin uyarmak, uyariyi degersizlestirir.
+        #
+        # Basliklar insa aninda kisalabildigi icin (bkz.
+        # `bicim.manset_kisalt`) tam esitlik aranmiyor: yayimlanan
+        # baslik, ozgun basligin ONEKIDIR.
+        yayimlanan: list[str] = []
+        if CIKTI_DIZINI.exists():
+            for p in (CIKTI_DIZINI / "haber").glob("*/index.html"):
+                m = re.search(r"<h1[^>]*>(.*?)</h1>",
+                              p.read_text(encoding="utf-8"), re.S)
+                if m:
+                    yayimlanan.append(" ".join(
+                        html.unescape(re.sub(r"<[^>]+>", " ", m.group(1))).split()))
+
+        def sayfasi_var(baslik: str) -> bool:
+            if not CIKTI_DIZINI.exists():
+                return True          # cikti yoksa olcemeyiz, susmayalim
+            return any(b and baslik.startswith(b[:60]) for b in yayimlanan)
+
+        kirli = [x for x in say
+                 if besleme.gurultu_mu(x.get("baslik", ""))
+                 and sayfasi_var(x.get("baslik", ""))]
         for x in kirli[:5]:
             bulgu.append(Bulgu(
                 "uyari", "editoryal", "gurultu",

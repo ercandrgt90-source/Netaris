@@ -2008,6 +2008,30 @@ def tazele(h: dict, foto_kayit) -> dict:
         h["neden_onemli"] = baglam.neden_onemli
         h["kanallar"] = list(baglam.kanallar)
         h["kanal_basligi"] = baglam.kanal_basligi
+
+    # GURULTU SUZGECI CEVIRI UZERINDE DE KOSUYOR.
+    #
+    # Suzgec BESLEME aninda, ORIJINAL baslikta calisiyor -- ama
+    # kaliplarin cogu TURKCE. Yabanci dilli kaynakta suzgec bu yuzden
+    # fiilen kordu. Olculdu:
+    #
+    #   gurultu_mu("Drone strikes ... kill and injure civilians")  -> False
+    #   gurultu_mu("... sivilleri ... oldurdu ve yaraladi")        -> True
+    #
+    # Sivil kayip haberi bir finans arastirma platformunda yayimlandi
+    # cunku Ingilizce hali suzgece takilmadi. Yayimdaki 540 haberin
+    # 1'i bu bosluktan gecmisti -- dar ama gercek.
+    #
+    # SIRA ONEMLI: bu blok `baglam.yorumlanir` ATAMASINDAN SONRA
+    # gelmeli. Once yukariya koymustum ve hicbir sey olmadi --
+    # siniflandirici bayragi yeniden hesaplayip GERI ACIYORDU. Sessiz
+    # bir islemsizlikti: kod calisiyor, sayfa degismiyordu.
+    #
+    # Tazeleme aninda kosuyor, yani kalip listesine yeni bir sey
+    # eklendiginde arsivin tamami kendiliginden yeniden suzuluyor.
+    if _besleme is not None and h.get("yorumlanir") and h.get("baslik"):
+        if _besleme.gurultu_mu(h["baslik"]):
+            h["yorumlanir"] = False
     if foto_kayit is not None:
         # Ayni haber her zaman ayni fotografi alir (adres belirleyici).
         f = foto_kayit.sec(h.get("konu", ""), h.get("adres", ""))

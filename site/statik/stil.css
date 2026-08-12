@@ -243,14 +243,30 @@ img, svg { max-width: 100%; }
 }
 
 /* Akis yalnizca JavaScript ikinci kopyayi ekledikten SONRA baslar.
-   Tek kopyayi kaydirmak seridin ortadan bosalmasina yol acardi. */
-/* AKIS HIZI. 44s -> 26s: kalem sayisi arttikca tam tur suresi uzuyor
-   ve serit durgun gorunuyordu. Sure TAM TUR icin; kalem eklenirse
-   yeniden bakilmali. `prefers-reduced-motion` acikken animasyon zaten
-   asagida durduruluyor. */
-.serit-akis.akiyor { animation: kay 26s linear infinite; }
+   Tek kopyayi kaydirmak seridin ortadan bosalmasina yol acardi.
+   Kopya artik AG ISTEGINDEN BAGIMSIZ ekleniyor -- bkz. canli.js. */
+/* AKIS HIZI -- TAM TUR suresi.
+   44s -> 26s: serit durgun gorunuyordu.
+   26s -> 38s: 26s, serit HIC AKMAZKEN secilmisti; akis duzelince
+   ayni sure hizli geldi. Sure kalem sayisindan bagimsiz oldugu icin
+   kalem eklendikce piksel hizi da artiyor -- kalem eklenirse yeniden
+   bakilmali. */
+.serit-akis.akiyor { animation: kay 38s linear infinite; }
 .serit:hover .serit-akis.akiyor,
 .serit-akis.akiyor:focus-within { animation-play-state: paused; }
+
+/* HAREKET AZALTMA. Burada bir yorum "animasyon zaten asagida
+   durduruluyor" diyordu ve YANLISTI -- `.serit-akis` hicbir
+   `prefers-reduced-motion` blogunda gecmiyordu. Fark edilmemesinin
+   sebebi seridin zaten hic akmamasiydi (canli.js'te akisi baslatan
+   tek yol bir ag istegine bagliydi ve o istek Turkiye'den
+   erisilemiyor). O hata duzelince bu kusur ETKIN hale gelecekti:
+   hareket hassasiyeti olan okur surekli kayan bir serit gorurdu.
+   Son dakika seridinde ayni kural zaten vardi; fiyat seridinde
+   yoktu. */
+@media (prefers-reduced-motion: reduce) {
+  .serit-akis.akiyor { animation: none; }
+}
 
 @keyframes kay {
   from { transform: translateX(0); }

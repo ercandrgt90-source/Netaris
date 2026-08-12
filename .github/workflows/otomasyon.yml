@@ -110,12 +110,23 @@ jobs:
         #
         # Elle tutulan liste, her yeni testte unutulmak uzere kurulmus
         # demektir. Artik yeni test dosyasi eklemek yeterli.
+        # PYTHON VE JAVASCRIPT, IKISI DE.
+        #
+        # Yalnizca `test_*.py` araniyordu. Tarayicida calisan kodun
+        # testi eklendiginde (fiyat seridinin akmasi) CI onu SESSIZCE
+        # atlardi -- yukarida "elle tutulan liste eskiyor" diye yazip
+        # ayni tuzaga desen duzeyinde yeniden dusmek olurdu.
         run: |
           set -e
           bulunan=0
           for t in $(find haber_botu site -name "test_*.py" | sort); do
             echo "--- $t"
             python "$t"
+            bulunan=$((bulunan + 1))
+          done
+          for t in $(find haber_botu site -name "test_*.js" | sort); do
+            echo "--- $t"
+            node "$t"
             bulunan=$((bulunan + 1))
           done
           echo "$bulunan test dosyasi calisti"
