@@ -50,6 +50,18 @@ import makro          # noqa: E402
 import takvim         # noqa: E402
 import uret_takvim    # noqa: E402
 
+#: MANSET SERISI OLMAKTAN CIKMIS ama depoda verisi duran seriler.
+#:
+#: Bunlar `takvim.SERILER`de yok, dolayisiyla sunum kurallari orada
+#: bulunamiyor. Denetim disi birakmak yanlis: depodaki her deger
+#: yayimlanabilir durumda.
+EMEKLI_SUNUM = {
+    # Mevsimsellikten arindirilmis TUFE. Manset NSA'ya gecti
+    # (bkz. `kaynak/takvim.py`), bu ikisi gecmis kayit olarak duruyor.
+    "CPIAUCSL": "yillik",
+    "CPILFESL": "yillik",
+}
+
 #: Kac gozlem geriye bakiliyor. Yillik degisim icin en az 13 gozlem
 #: gerekiyor; 40 iki yildan fazlasini kapsiyor ve tek istekte geliyor.
 PENCERE = 40
@@ -97,11 +109,20 @@ def calistir(duzelt: bool = False, sessiz: bool = False) -> int:
     okunamayan: list[str] = []
     bakilan = 0
 
+    # EMEKLI SERILER DE DENETLENIYOR.
+    #
+    # Ilk yazimda `seriler.get(kod)` bos donunce seri ATLANIYORDU.
+    # Olculdu: `CPIAUCSL` manset serisi olmaktan cikarilinca (NSA'ya
+    # gecildi) depodaki YANLIS degerleri denetim disi kaldi ve
+    # yayimlanmis sayfalarda durmaya devam etti.
+    #
+    # Depoda duran her sey yayimlanabilir; dolayisiyla denetlenmeli.
+    # Emekli serinin sunum kurali `EMEKLI_SUNUM`dan okunuyor.
     for kod in sorted(depo):
         s = seriler.get(kod)
-        if not s:
+        sunum = s[6] if s else EMEKLI_SUNUM.get(kod)
+        if not sunum:
             continue
-        sunum = s[6]
         try:
             seri = makro.fred(kod, son_n=PENCERE)
         except Exception as e:                       # noqa: BLE001
