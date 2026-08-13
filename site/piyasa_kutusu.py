@@ -171,13 +171,25 @@ YERLI_ARACLAR = {
 SKOR_BILESEN = 5
 
 
-def _basamak(d: float) -> int:
-    """Ondalik basamak sayisi buyuklukten turetilir.
+def _basamak(d: float, birim: str = "") -> int:
+    """Ondalik basamak sayisi buyukluk VE birimden turetilir.
 
     Sabit basamak iki ucta da bilgi kaybediyordu: dolar endeksi 120,71
     iken "120" cikiyor ve uc EMA'nin ucu de "120" gorunuyordu -- birbirinden
     ayirt edilemez. EUR/USD'de 1,15 yetmez, kur dort haneyle kotelenir.
+
+    BIRIM DE BAKILIYOR. Kural yalnizca buyukluge bakiyordu ve 10'un
+    altindaki her sayiya dort basamak veriyordu. Kurda dogru
+    (1,1552), YUZDEDE degil: iki yillik tahvil getirisi sayfada
+    "%4,2200" diye basiliyordu. Olculdu, yayimlanan yuzde sayilarinin
+    408'i dort basamakliydi -- ayni sayi seritte "%4,25" gorunurken.
+
+    Getiri ve faiz piyasada IKI basamakla kotelenir; dort basamak
+    bilgi eklemiyor, hesap makinesi ciktisi izlenimi veriyor. Uc
+    EMA iki basamakla da ayirt ediliyor: 4,23 / 4,16 / 3,88.
     """
+    if birim == "%":
+        return 2
     a = abs(d)
     if a < 10:
         return 4
@@ -188,7 +200,7 @@ def _basamak(d: float) -> int:
 
 def _sayi(d: float, birim: str) -> str:
     """Turkce bicim: binlik nokta, ondalik virgul."""
-    m = f"{d:,.{_basamak(d)}f}"
+    m = f"{d:,.{_basamak(d, birim)}f}"
     m = m.replace(",", "\x00").replace(".", ",").replace("\x00", ".")
     return f"{birim}{m}" if birim == "$" else (f"%{m}" if birim == "%" else m)
 
