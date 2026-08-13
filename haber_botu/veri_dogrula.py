@@ -46,6 +46,7 @@ _KOK = pathlib.Path(__file__).resolve().parent
 sys.path[:0] = [str(_KOK), str(_KOK / "kaynak"), str(_KOK / "analiz")]
 
 import beyin          # noqa: E402
+import evds           # noqa: E402
 import makro          # noqa: E402
 import takvim         # noqa: E402
 import uret_takvim    # noqa: E402
@@ -66,14 +67,30 @@ EMEKLI_SUNUM = {
 #: gerekiyor; 40 iki yildan fazlasini kapsiyor ve tek istekte geliyor.
 PENCERE = 40
 
-#: Sapma esigi (yuzde puan / birim). Altindaki fark REVIZYON,
-#: ustundeki HESAP HATASI sayiliyor.
+#: Sapma esigi. Altindaki fark GURULTU (yuvarlama), ustundeki
+#: raporlanacak bir sapma sayiliyor.
+#:
+#: MUTLAK esik tek basina yetmiyor: "%" serilerinde 0,02 anlamli bir
+#: fark, ama cari islemler dengesi MILYON DOLAR cinsinden ve orada 2
+#: birimlik fark yuvarlama gurultusu. Bu yuzden ORAN esigi de var --
+#: sapma hem mutlak hem oransal esigi asmali.
+#:
+#: SAPMANIN SEBEBI HER ZAMAN HATA DEGIL. Iki ayri sey ayni testten
+#: gecmis oluyor:
+#:   * HESAP HATASI  -- bizim tarafimizda yanlis hesaplanmis deger
+#:   * REVIZYON      -- kaynak sayiyi sonradan duzeltmis
+#: Ikisinde de dogru davranis AYNI: kaynagin bugunku degerini almak.
+#: Revizyon da yeni veridir; onu almamak, eski bir sayiyi yayimda
+#: tutmak demek. Ayrim rapor icin onemli, eylem icin degil.
 #:
 #: 0,02 secildi: FRED revizyonlari tipik olarak ikinci ondalikta
 #: kaliyor, hesap hatalari ise (13 ay / 12 ay gibi) ondalik oncesinde
 #: ya da hemen sonrasinda buyuk fark uretiyor -- olculen ornek 0,26
 #: puandi, esigin on uc kati.
 ESIK = 0.02
+
+#: Oransal esik. 0,005 = binde bes.
+ORAN_ESIK = 0.005
 
 
 def _beklenen(kod: str, sunum: str, gozlemler) -> dict[str, float]:
@@ -102,7 +119,20 @@ def calistir(duzelt: bool = False, sessiz: bool = False) -> int:
     with beyin.baglan() as b:
         depo: dict[str, dict[str, float]] = {}
         for kod, tarih, deger in b.execute(
-                "SELECT kod, tarih, deger FROM gosterge WHERE kaynak='FRED'"):
+                # ETIKETLE DEGIL KODLA suzuluyor.
+                #
+                # `kaynak` alani iki farkli deger tasiyor: "FRED" ve
+                # "FRED (St. Louis Fed)" -- iki ayri hat ayni veriyi
+                # farkli adlandirmis. Olculdu: esitlikle sorgulayan ilk
+                # surumum 3537 gozlemin yalnizca 330'unu denetliyordu,
+                # yani verinin %9'unu. Geri kalani "temiz" raporunun
+                # icinde gorunmez kaldi.
+                #
+                # Kod deseni daha saglam: TP.* TCMB'nin, digerleri
+                # FRED'in. Yeni bir etiket yazimi bu suzgeci bozmuyor.
+                "SELECT kod, tarih, deger FROM gosterge"
+                " WHERE kod NOT LIKE 'TP.%' AND kod NOT LIKE 'ECB!_%' ESCAPE '!'"
+                " AND kod <> 'TCMB_POLITIKA'"):
             depo.setdefault(kod, {})[tarih] = float(deger)
 
     sapan: list[tuple] = []
@@ -140,8 +170,52 @@ def calistir(duzelt: bool = False, sessiz: bool = False) -> int:
                 continue
             bakilan += 1
             fark = abs(beklenen[tarih] - bizdeki)
-            if fark > ESIK:
+            if fark > ESIK and fark > abs(bizdeki) * ORAN_ESIK:
                 sapan.append((kod, tarih, bizdeki, beklenen[tarih], fark, sunum))
+
+    # --- TCMB / EVDS ---
+    #
+    # NEDEN AYRI: EVDS yillik degisimi KENDISI hesapliyor
+    # (`formulas=3`), yani bizde konum aritmetigi yok ve FRED'de
+    # bulunan hata sinifi burada olusamiyor. Denetlenen sey hesap
+    # degil, AKTARIM: depodaki sayi TCMB'nin verdigi sayiyla ayni mi.
+    #
+    # Bir sayi yolda bozulabilir -- yanlis formul parametresi, birim
+    # karismasi, tarih kaymasi. Olculmus ornek var: EVDS formulu
+    # DUZEY'e sabitlendiginde TUFE "%132,31" diye yayimlanmisti.
+    #
+    # ANAHTAR YOKSA ATLANIR ama SESSIZ DEGIL: yerelde anahtar
+    # bulunmuyor, CI'da bulunuyor. "Denetlemedik" ile "temiz" ayri
+    # seyler ve rapor bunu soyluyor.
+    if evds.anahtar():
+        evds_seriler = {x[0]: x for x in evds.SERILER}
+        with beyin.baglan() as vb:
+            evds_depo: dict[str, dict[str, float]] = {}
+            for kod, tarih, deger in vb.execute(
+                    "SELECT kod, tarih, deger FROM gosterge"
+                    " WHERE kod LIKE 'TP.%'"):
+                evds_depo.setdefault(kod, {})[tarih] = float(deger)
+        for kod, tarihler in sorted(evds_depo.items()):
+            tanim = evds_seriler.get(kod)
+            if not tanim:
+                continue
+            try:
+                seri = evds.cek(kod, tanim[1], tanim[2], tanim[3], tanim[4])
+            except Exception as e:                    # noqa: BLE001
+                okunamayan.append(f"{kod}: {type(e).__name__}")
+                continue
+            kaynakta = {o.tarih: float(o.deger)
+                        for o in getattr(seri, "gozlemler", [])}
+            for tarih, bizdeki in sorted(tarihler.items()):
+                if tarih not in kaynakta:
+                    continue
+                bakilan += 1
+                fark = abs(kaynakta[tarih] - bizdeki)
+                if fark > ESIK and fark > abs(bizdeki) * ORAN_ESIK:
+                    sapan.append((kod, tarih, bizdeki, kaynakta[tarih],
+                                  fark, "EVDS aktarim"))
+    else:
+        okunamayan.append("EVDS: anahtar yok -- TCMB serileri DENETLENMEDI")
 
     if not sessiz:
         print("=" * 68)
