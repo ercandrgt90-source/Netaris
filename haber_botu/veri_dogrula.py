@@ -39,7 +39,9 @@ esigin uzerindeki fark hesap hatasi, altindaki revizyon sayiliyor.
 from __future__ import annotations
 
 import argparse
+import json
 import pathlib
+import re
 import sys
 
 _KOK = pathlib.Path(__file__).resolve().parent
@@ -111,6 +113,73 @@ def _beklenen(kod: str, sunum: str, gozlemler) -> dict[str, float]:
         else:
             cikti[o.tarih] = o.deger
     return cikti
+
+
+def _tr_sayi(x: float) -> str:
+    """Turkce sayi: binlik nokta, ondalik virgul. Iki basamak."""
+    ayrac = chr(0)
+    return f"{x:,.2f}".replace(",", ayrac).replace(".", ",").replace(ayrac, ".")
+
+
+def metinleri_hizala() -> int:
+    """Duzeltilen gozlemin sayisini BASLIGA ve METNE de yansitir.
+
+    NEDEN GEREKLI
+    -------------
+    Veri haberinin basligi rakami ICERIYOR ("ABD TÜFE: yıllık %3,46")
+    ve o baslik uretim aninda bir kez yazilip depoya konuyor. Gozlem
+    sonradan duzeltildiginde -- ister hesap hatasi ister kaynak
+    revizyonu yuzunden -- baslik ESKI sayiyla kaliyor.
+
+    Olculdu: 31 gozlem duzeltildikten sonra iki haber basligi ve
+    govdesi hala eski sayiyi tasiyordu, ustelik ikisi de yayimdaydi.
+    Depoyu duzeltmek yetmiyor; okurun gordugu METIN de hizalanmali.
+
+    Bu tur elle yapilmisti. Elle yapilan sey bir sonraki revizyonda
+    unutulur -- bu yuzden duzeltmenin PARCASI oldu.
+    """
+    n = 0
+    with beyin.baglan() as b:
+        satirlar = b.execute(
+            "SELECT adres, baslik_tr, sayfa_veri FROM haber"
+            " WHERE adres LIKE 'netaris:veri/%'").fetchall()
+        for adres, baslik, yuk in satirlar:
+            if not baslik or not yuk:
+                continue
+            kod = adres[len("netaris:veri/"):].split("/")[0]
+            tarih = adres.rstrip("/").split("/")[-1]
+            r = b.execute(
+                "SELECT deger FROM gosterge WHERE kod=? AND tarih=?",
+                (kod, tarih)).fetchone()
+            if not r:
+                continue
+            dogru = _tr_sayi(float(r[0]))
+            m = re.search(r"%(-?\d+,\d+)", baslik)
+            if not m or m.group(1) == dogru:
+                continue
+            try:
+                d = json.loads(yuk)
+            except ValueError:
+                continue
+            # Yalnizca ILK yuzde sayisi degistiriliyor: basliktaki ve
+            # ozetteki manset rakam o. Metindeki diger sayilar
+            # (onceki donem, endeks seviyesi) BASKA gozlemlere ait ve
+            # onlara dokunmak yeni bir hata sinifi acardi.
+            for alan in ("baslik", "ozet", "baslik_kaynak"):
+                v = d.get(alan)
+                if isinstance(v, str):
+                    d[alan] = re.sub(r"(?<=%)(-?\d+,\d+)", dogru, v, count=1)
+            b.execute(
+                "UPDATE haber SET baslik_tr=?, sayfa_veri=? WHERE adres=?",
+                (baslik[:m.start(1)] + dogru + baslik[m.end(1):],
+                 json.dumps(d, ensure_ascii=False), adres))
+            # Eskiyen AI yorumu SILINIYOR, duzeltilmiyor: yorum o sayi
+            # uzerine kurulmus bir cikarim ve sayinin degismesi
+            # cikarimi da gecersiz kilabilir. Yeniden uretilecek.
+            b.execute("DELETE FROM ai_yorum WHERE adres=?", (adres,))
+            n += 1
+        b.commit()
+    return n
 
 
 def calistir(duzelt: bool = False, sessiz: bool = False) -> int:
@@ -246,6 +315,11 @@ def calistir(duzelt: bool = False, sessiz: bool = False) -> int:
             b.commit()
         print()
         print(f"  {len(sapan)} deger DUZELTILDI.")
+        # Depodaki sayi degisti; basliga gomulu hali de degismeli.
+        h = metinleri_hizala()
+        if h:
+            print(f"  {h} haber basligi/metni yeni degerle hizalandi "
+                  f"(eskiyen AI yorumlari silindi).")
         return 0
 
     if not sessiz and not sapan:
