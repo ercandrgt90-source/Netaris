@@ -82,8 +82,8 @@ TURKIYE_PANEL = (
 #: yine gurultu olurdu.
 DUNYA_PANELI: dict[str, tuple[tuple[str, str, str], ...]] = {
     "Enflasyon": (
-        ("CPIAUCSL", "ABD TÜFE", "%"),
-        ("CPILFESL", "ABD çekirdek TÜFE", "%"),
+        ("CPIAUCNS", "ABD TÜFE", "%"),
+        ("CPILFENS", "ABD çekirdek TÜFE", "%"),
         ("PPIFIS", "ABD ÜFE", "%"),
     ),
     "İstihdam ve ücret": (
@@ -92,7 +92,7 @@ DUNYA_PANELI: dict[str, tuple[tuple[str, str, str], ...]] = {
         ("ICSA", "Haftalık başvuru", "kişi"),
     ),
     "Para politikası": (
-        ("CPIAUCSL", "ABD TÜFE", "%"),
+        ("CPIAUCNS", "ABD TÜFE", "%"),
         ("PCEPILFE", "Çekirdek PCE", "%"),
         ("UNRATE", "ABD işsizlik", "%"),
     ),

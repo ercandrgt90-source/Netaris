@@ -247,8 +247,26 @@ SERILER: tuple[tuple[str, str, str, str, str, int, str], ...] = (
      "İstihdam ve ücret", "aylık", 7, "yillik"),
 
     # --- ABD enflasyon ---
-    ("CPIAUCSL", "ABD TÜFE", "%", "Enflasyon", "aylık", 10, "yillik"),
-    ("CPILFESL", "ABD çekirdek TÜFE", "%", "Enflasyon", "aylık", 9, "yillik"),
+    #
+    # MEVSIMSELLIKTEN ARINDIRILMAMIS SERI (NS), arindirilmis (SL) DEGIL.
+    #
+    # Once `CPIAUCSL` kullaniliyordu ve o seri mevsimsellikten
+    # ARINDIRILMIS. Arindirma AYLIK karsilastirma icin yapilir; yillik
+    # karsilastirmada mevsim etkisi zaten iki tarafta da bulundugu icin
+    # buyuk olcude sadelesiyor ve BLS'in acikladigi manset yillik oran
+    # ARINDIRILMAMIS seriden hesaplaniyor.
+    #
+    # OLCULDU (2026-07): SA %3,30 -- NSA %3,36. Basinda ve BLS
+    # bulteninde gecen sayi %3,4; bizim sayfamizda %3,3 yazacakti.
+    # Okurun baska her yerde duydugu rakamla sitedeki rakamin
+    # tutmamasi, dogru hesaplanmis olsa bile GUVEN sorunudur --
+    # ustelik burada "dogru" olan da NSA.
+    #
+    # Cekirdekte fark ihmal edilebilir (%2,47 / %2,48) ama seri
+    # TUTARLILIK icin birlikte degistiriliyor: manset NSA, cekirdek
+    # SA olsaydi iki sayi ayni cumlede farkli tanimlarla dururdu.
+    ("CPIAUCNS", "ABD TÜFE", "%", "Enflasyon", "aylık", 10, "yillik"),
+    ("CPILFENS", "ABD çekirdek TÜFE", "%", "Enflasyon", "aylık", 9, "yillik"),
     # Fed'in tercih ettigi olcu -- politika kararina en yakin seri.
     ("PCEPILFE", "ABD çekirdek PCE", "%", "Enflasyon", "aylık", 9, "yillik"),
     # MANSET UFE SERISI `PPIFIS` (nihai talep), `PPIACO` DEGIL.
@@ -389,6 +407,45 @@ class Aciklama:
         """Haberin kimligi. Kod + gozlem tarihi -- ayni gozlem ikinci kez
         geldiginde depo onu TEKRAR olarak taniyor ve haber uretilmiyor."""
         return f"netaris:veri/{self.kod}/{self.tarih}"
+
+
+def _donem_geri(tarih: str, siklik: str) -> str:
+    """Bir YIL onceki gozlemin tarihi. Konum degil TAKVIM hesabi.
+
+    Once `g[-1 - adim]` yaziliyordu; `adim` sikliga gore 12/4/52 idi.
+    Frekans dogru sayiliyordu ama seri KESINTISIZ varsayiliyordu.
+
+    OLCULDU: FRED'in CPIAUCSL serisinde 2025-10 gozlemi YOK. On iki
+    konum geri gitmek bosluktan sonra ON UC AY geri gitmek demekti ve
+    ABD TUFE'si %3,54 diye yazildi -- dogrusu %3,30.
+
+    Haftalik seride takvim hesabi yapilamaz (52 hafta tam bir yil
+    degil), orada konum korunuyor; haftalik serilerde bosluk da
+    beklenmiyor.
+    """
+    if siklik == "haftalık":
+        return ""
+    y, a = int(tarih[:4]), int(tarih[5:7])
+    return f"{y - 1:04d}-{a:02d}-{tarih[8:10]}"
+
+
+def _yil_once_deger(g, siklik: str):
+    """Serinin son gozleminden bir yil onceki DEGER. Yoksa None.
+
+    Bulunamazsa None doner ve yillik degisim URETILMEZ. Eksik veriyi
+    komsu aya bakarak doldurmak, olcmedigimiz bir sayiyi olcmus gibi
+    sunmak olurdu.
+    """
+    if not g:
+        return None
+    son = g[-1]
+    if siklik == "haftalık":
+        return float(g[-53].deger) if len(g) > 52 else None
+    hedef = _donem_geri(son.tarih, siklik)
+    for o in g:
+        if o.tarih == hedef:
+            return float(o.deger)
+    return None
 
 
 def _tr(x: float, basamak: int) -> str:
@@ -624,7 +681,7 @@ def cek_yerli(bugun: str) -> list[Aciklama]:
             onem=onem, sunum=sunum, tarih=son.tarih,
             deger=float(son.deger),
             onceki=float(g[-2].deger) if len(g) > 1 else None,
-            yil_once=float(g[-1 - adim].deger) if len(g) > adim else None,
+            yil_once=_yil_once_deger(g, siklik),
             ortalama=_ortalama(g, sunum, adim),
         )
         cikti.append(a)
@@ -669,9 +726,14 @@ def cek(bugun: str, gecmis: int = 8) -> list[Aciklama]:
                   f"({yas} gun > {esik})")
             continue
 
-        # Yillik karsilastirma icin 12 donem oncesi. Haftalik seride 52.
-        adim = 52 if siklik == "haftalık" else (4 if siklik == "çeyreklik" else 12)
-        yil_once = float(g[-1 - adim].deger) if len(g) > adim else None
+        # Yillik karsilastirma TAKVIME gore -- bkz. `_yil_once_deger`.
+        yil_once = _yil_once_deger(g, siklik)
+        # `_ortalama` uzun gecmis uzerinde ISTATISTIK hesapliyor (son 12
+        # yillik degisimin ortalamasi). Orada tek bir eksik gozlem
+        # sonucu kaydirmadigi icin konum adimi yeterli; yillik MANSET
+        # degeri ise tarihle bulunuyor.
+        adim = 52 if siklik == "haftalık" else (
+            4 if siklik == "çeyreklik" else 12)
 
         a = Aciklama(
             kod=kod, ad=ad, birim=birim, konu=konu, siklik=siklik,

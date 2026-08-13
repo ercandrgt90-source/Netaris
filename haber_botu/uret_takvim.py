@@ -33,6 +33,27 @@ KURUM = "FRED"
 KURUM_TAM = "FRED · St. Louis Fed"
 
 
+
+def _ay_kaydir(tarih: str, ay: int) -> str:
+    """ISO tarihi verilen ay kadar geri kaydirir. Gun AYNEN korunur.
+
+    FRED aylik serileri ayin ilkiyle damgaliyor ("2026-06-01"), yani
+    gun bileseni sabit. Takvim aritmetigi yerine yil/ay hesabi
+    yapiliyor -- ay sonu tasmasi (31 Ocak - 1 ay) burada olusamaz.
+    """
+    y, a, g = int(tarih[:4]), int(tarih[5:7]), tarih[8:10]
+    t = y * 12 + (a - 1) - ay
+    return f"{t // 12:04d}-{t % 12 + 1:02d}-{g}"
+
+
+def _bir_yil_once(tarih: str) -> str:
+    return _ay_kaydir(tarih, 12)
+
+
+def _bir_ay_once(tarih: str) -> str:
+    return _ay_kaydir(tarih, 1)
+
+
 def main() -> int:
     if not HEDEF.exists():
         print(f"{HEDEF} yok -- once uret_gundem.py calismali.")
@@ -123,18 +144,43 @@ def main() -> int:
                 # uretmisti.
                 sunum = s[6]
                 g = list(seri.gozlemler)
-                for i, x in enumerate(g):
+                # YILLIK DEGISIM TARIHE GORE, KONUMA GORE DEGIL.
+                #
+                # Once `g[i - 12]` yaziyordu: "on iki gozlem geri".
+                # Bu, seri KESINTISIZ aylik oldugu surece dogru --
+                # ve degildi.
+                #
+                # OLCULDU: FRED'in CPIAUCSL serisinde 2025-10 gozlemi
+                # YOK. Boslugun sonrasindaki her gozlem icin 12 konum
+                # geri gitmek 13 AY geri gitmek anlamina geliyordu:
+                #
+                #   2026-06 -> taban 2025-05  =>  %3,7265  (yayimlandi)
+                #   2026-06 -> taban 2025-06  =>  %3,4635  (dogrusu)
+                #
+                # Yani sayfada duran ABD enflasyonu 0,26 puan yanlisti
+                # ve hata sessizdi: deger makul araliktaydi, birim
+                # dogruydu, denetimden geciyordu.
+                #
+                # Tarihle arama bosluktan etkilenmiyor: bir yil onceki
+                # AY bulunamazsa deger URETILMIYOR. Eksik veriyi
+                # komsusuyla doldurmak, olcmedigimiz bir sayiyi
+                # olcmus gibi sunmak olurdu.
+                tarihli = {o.tarih: o.deger for o in g}
+                for x in g:
                     if sunum == "yillik":
-                        if i < 12:
-                            continue
-                        onceki = g[i - 12].deger
+                        onceki = tarihli.get(_bir_yil_once(x.tarih))
                         if not onceki:
                             continue
                         deger = (x.deger - onceki) / onceki * 100
                     elif sunum == "degisim":
-                        if i < 1:
+                        # AYNI SEBEPLE tarihe gore: bir onceki AY.
+                        # "Bir onceki gozlem" boslukta iki ay onceye
+                        # denk gelir ve aylik degisim diye iki aylik
+                        # degisim yayimlanir.
+                        onceki = tarihli.get(_bir_ay_once(x.tarih))
+                        if onceki is None:
                             continue
-                        deger = x.deger - g[i - 1].deger
+                        deger = x.deger - onceki
                     else:
                         deger = x.deger
                     if (kod, x.tarih) in var_gozlem:

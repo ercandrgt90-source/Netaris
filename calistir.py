@@ -102,6 +102,23 @@ def main() -> int:
     if "makro" not in args.atla:
         adimlar.append(("Makro göstergeler",
                         [str(BOT / "makro_uret_ucretsiz.py"), "--yayinla"]))
+    # VERI DOGRULAMA -- makro cekildikten hemen SONRA, haber
+    # uretilmeden ONCE.
+    #
+    # Sirasi kritik: yanlis bir gozlem depoya girdiginde ondan baslik,
+    # AI yorumu ve dosya bulgusu tureiyor. Zincirin basinda yakalamak,
+    # sonunda temizlemekten cok daha ucuz -- olculdu, 31 sapan deger
+    # 23 veri haberinin ikisinin basligina ve iki AI yorumuna
+    # islenmisti.
+    #
+    # `--duzelt` ile calisiyor: sapma bulunursa DEPODA duzeltiliyor ve
+    # hat devam ediyor. Durdurmak yerine duzeltmek dogru, cunku sapma
+    # cogu zaman kaynaktaki revizyondan geliyor ve o revizyonu almak
+    # zaten istedigimiz sey.
+    if "dogrula" not in args.atla:
+        adimlar.append(("Veri doğrulama (depo ↔ kaynak)",
+                        [str(BOT / "veri_dogrula.py"), "--duzelt"]))
+
     # Turkiye makro verisi. Anahtar yoksa adim kendini atlar.
     if "evds" not in args.atla:
         adimlar.append(("Türkiye makro (TCMB EVDS)",

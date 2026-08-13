@@ -180,6 +180,10 @@ ARALIK: dict[str, tuple[float, float, str]] = {
 SERI_ARALIK: dict[str, tuple[float, float]] = {
     "UNRATE": (0.0, 40.0),
     "ICSA": (0.0, 10_000_000.0),
+    # NSA seriler manset icin kullaniliyor (bkz. takvim.SERILER);
+    # SA olanlar gecmis kayitlarda duruyor, ikisinin de siniri ayni.
+    "CPIAUCNS": (-30.0, 150.0),
+    "CPILFENS": (-30.0, 150.0),
     "CPIAUCSL": (-30.0, 150.0),
     "CPILFESL": (-30.0, 150.0),
     "PCEPILFE": (-30.0, 150.0),
