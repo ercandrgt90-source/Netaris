@@ -32,16 +32,16 @@
       "yon": "artis",
       "tarih": "2026-08-12",
       "birim": "TL",
-      "gun": 0,
+      "gun": 1,
       "bayat": false
     },
     {
       "kod": "SP500",
       "ad": "S&P 500",
-      "deger": "7.728",
-      "fark": "-0,32%",
-      "yon": "azalis",
-      "tarih": "2026-08-11",
+      "deger": "7.748",
+      "fark": "+0,26%",
+      "yon": "artis",
+      "tarih": "2026-08-12",
       "birim": "endeks",
       "gun": 1,
       "bayat": false
@@ -49,10 +49,10 @@
     {
       "kod": "NASDAQCOM",
       "ad": "NASDAQ",
-      "deger": "26.445",
-      "fark": "-0,60%",
-      "yon": "azalis",
-      "tarih": "2026-08-11",
+      "deger": "26.588",
+      "fark": "+0,54%",
+      "yon": "artis",
+      "tarih": "2026-08-12",
       "birim": "endeks",
       "gun": 1,
       "bayat": false
@@ -65,7 +65,7 @@
       "yon": "azalis",
       "tarih": "2026-08-12",
       "birim": "endeks",
-      "gun": 0,
+      "gun": 1,
       "bayat": false
     },
     {
@@ -76,7 +76,7 @@
       "yon": "artis",
       "tarih": "2026-08-11",
       "birim": "USD/varil",
-      "gun": 1,
+      "gun": 2,
       "bayat": false
     },
     {
@@ -87,7 +87,7 @@
       "yon": "artis",
       "tarih": "2026-08-11",
       "birim": "USD/varil",
-      "gun": 1,
+      "gun": 2,
       "bayat": false
     },
     {
@@ -98,7 +98,7 @@
       "yon": "yatay",
       "tarih": "2026-08-11",
       "birim": "%",
-      "gun": 1,
+      "gun": 2,
       "bayat": false
     },
     {
@@ -109,7 +109,7 @@
       "yon": "azalis",
       "tarih": "2026-08-11",
       "birim": "%",
-      "gun": 1,
+      "gun": 2,
       "bayat": false
     },
     {
@@ -120,7 +120,7 @@
       "yon": "azalis",
       "tarih": "2026-08-11",
       "birim": "%",
-      "gun": 1,
+      "gun": 2,
       "bayat": false
     },
     {
@@ -131,7 +131,7 @@
       "yon": "yatay",
       "tarih": "2026-08-12",
       "birim": "puan",
-      "gun": 0,
+      "gun": 1,
       "bayat": false
     },
     {
@@ -142,7 +142,7 @@
       "yon": "azalis",
       "tarih": "2026-08-11",
       "birim": "endeks",
-      "gun": 1,
+      "gun": 2,
       "bayat": false
     },
     {
@@ -153,7 +153,7 @@
       "yon": "azalis",
       "tarih": "2026-08-07",
       "birim": "endeks",
-      "gun": 3,
+      "gun": 4,
       "bayat": true,
       "ritim": "Fed bu endeksi haftalık yayımlıyor"
     }
@@ -165,10 +165,10 @@
         {
           "kod": "SP500",
           "ad": "S&P 500",
-          "deger": "7.728",
-          "fark": "-0,32%",
-          "yon": "azalis",
-          "tarih": "2026-08-11",
+          "deger": "7.748",
+          "fark": "+0,26%",
+          "yon": "artis",
+          "tarih": "2026-08-12",
           "birim": "endeks",
           "gun": 1,
           "bayat": false
@@ -176,10 +176,10 @@
         {
           "kod": "NASDAQCOM",
           "ad": "Nasdaq",
-          "deger": "26.445",
-          "fark": "-0,60%",
-          "yon": "azalis",
-          "tarih": "2026-08-11",
+          "deger": "26.588",
+          "fark": "+0,54%",
+          "yon": "artis",
+          "tarih": "2026-08-12",
           "birim": "endeks",
           "gun": 1,
           "bayat": false
@@ -192,7 +192,7 @@
           "yon": "azalis",
           "tarih": "2026-08-12",
           "birim": "endeks",
-          "gun": 0,
+          "gun": 1,
           "bayat": false
         }
       ]
@@ -208,7 +208,7 @@
           "yon": "artis",
           "tarih": "2026-08-11",
           "birim": "USD/varil",
-          "gun": 1,
+          "gun": 2,
           "bayat": false
         },
         {
@@ -219,7 +219,7 @@
           "yon": "artis",
           "tarih": "2026-08-11",
           "birim": "USD/varil",
-          "gun": 1,
+          "gun": 2,
           "bayat": false
         }
       ]
@@ -235,7 +235,7 @@
           "yon": "yatay",
           "tarih": "2026-08-11",
           "birim": "%",
-          "gun": 1,
+          "gun": 2,
           "bayat": false
         },
         {
@@ -246,7 +246,7 @@
           "yon": "azalis",
           "tarih": "2026-08-11",
           "birim": "%",
-          "gun": 1,
+          "gun": 2,
           "bayat": false
         },
         {
@@ -257,7 +257,7 @@
           "yon": "azalis",
           "tarih": "2026-08-11",
           "birim": "%",
-          "gun": 1,
+          "gun": 2,
           "bayat": false
         },
         {
@@ -268,7 +268,7 @@
           "yon": "yatay",
           "tarih": "2026-08-12",
           "birim": "puan",
-          "gun": 0,
+          "gun": 1,
           "bayat": false
         }
       ]
@@ -284,7 +284,7 @@
           "yon": "azalis",
           "tarih": "2026-08-11",
           "birim": "endeks",
-          "gun": 1,
+          "gun": 2,
           "bayat": false
         },
         {
@@ -295,7 +295,7 @@
           "yon": "azalis",
           "tarih": "2026-08-07",
           "birim": "endeks",
-          "gun": 3,
+          "gun": 4,
           "bayat": true,
           "ritim": "Fed bu endeksi haftalık yayımlıyor"
         },
@@ -307,7 +307,7 @@
           "yon": "artis",
           "tarih": "2026-08-12",
           "birim": "TL",
-          "gun": 0,
+          "gun": 1,
           "bayat": false
         }
       ]
