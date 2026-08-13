@@ -697,6 +697,77 @@ def _kanonik_adres_denetimi() -> list[Bulgu]:
     return bulgu
 
 
+def _sayfa_depo_denetimi() -> list[Bulgu]:
+    """Sayfada BASILAN sayi, depodaki sayiyla ayni mi?
+
+    ZINCIRIN UCUNCU HALKASI. `veri_dogrula.py` kaynak ile depoyu
+    karsilastiriyor; bu denetim depo ile SAYFAYI karsilastiriyor.
+    Ikisi birden olmadan zincir kapanmiyor:
+
+        kaynak  ->  depo  ->  SAYFA
+                 ^        ^
+                 |        +-- burasi
+                 +-- veri_dogrula.py
+
+    Depo dogru olup sayfa yanlis olabilir: eski bir kurulum yayimda
+    kalabilir, sablon yanlis alani basabilir, bicimlendirme
+    ondaligi kaydirabilir. Depoyu dogrulamis olmak sayfayi
+    dogrulamis olmak degil -- okur depoyu gormuyor.
+
+    Yalnizca ADI BILINEN gostergeler karsilastiriliyor; serbest
+    metindeki sayilar buraya girmiyor cunku hangi seriye ait
+    olduklari belirsiz ve tahmin uzerine denetim kurulmaz.
+    """
+    bulgu: list[Bulgu] = []
+    if not CIKTI_DIZINI.exists():
+        return bulgu
+    try:
+        import evds as _evds        # noqa: PLC0415
+        import takvim as _takvim    # noqa: PLC0415
+    except ImportError:
+        return bulgu
+
+    ad2kod: dict[str, str] = {}
+    for s in _takvim.SERILER + _takvim.YERLI_SERILER:
+        ad2kod.setdefault(s[1], s[0])
+    for s in getattr(_evds, "SERILER", ()):
+        ad2kod.setdefault(s[1], s[0])
+
+    depo: dict[str, dict[str, float]] = {}
+    try:
+        with beyin.baglan() as b:
+            for kod, tarih, deger in b.execute(
+                    "SELECT kod, tarih, deger FROM gosterge"):
+                depo.setdefault(kod, {})[tarih] = float(deger)
+    except Exception:                                  # noqa: BLE001
+        return bulgu
+
+    kalip = re.compile(
+        r">([^<>]{3,40})</\w+>\s*<[^>]*>\s*([-\d.,]+)%?\s*</\w+>"
+        r".{0,200}?(\d{4}-\d{2}-\d{2})", re.S)
+
+    for p in CIKTI_DIZINI.rglob("index.html"):
+        metin = p.read_text(encoding="utf-8")
+        for ad, ham, tarih in kalip.findall(metin):
+            kod = ad2kod.get(html.unescape(ad).strip())
+            if not kod or tarih not in depo.get(kod, {}):
+                continue
+            try:
+                sayfada = float(ham.replace(".", "").replace(",", "."))
+            except ValueError:
+                continue
+            depoda = depo[kod][tarih]
+            fark = abs(sayfada - depoda)
+            # Mutlak VE oransal esik -- bkz. `veri_dogrula.ESIK`.
+            # Tek basina mutlak esik, buyuk buyuklüklerde (milyon
+            # dolar) yuvarlama gurultusunu hata sanardi.
+            if fark > 0.02 and fark > abs(depoda) * 0.005:
+                bulgu.append(Bulgu(
+                    "hata", "veri", (p.parent.name or "/")[:40],
+                    f"{ad.strip()} sayfada {sayfada}, depoda {depoda}"))
+    return bulgu
+
+
 def _veri_tutarlilik_denetimi() -> list[Bulgu]:
     """Yorumdaki sayilarin sayfada karsiligi var mi?
 
@@ -881,6 +952,7 @@ def editoryal_denetim() -> list[Bulgu]:
     bulgu += _cop_denetimi()
     bulgu += _foto_butunluk_denetimi()
     bulgu += _kanonik_adres_denetimi()
+    bulgu += _sayfa_depo_denetimi()
     bulgu += _baslik_tekrari_denetimi()
 
     # --- yayimlanmis gurultu ---
