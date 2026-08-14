@@ -28,7 +28,7 @@ Brent petrol 11 Ağustos 2026 itibarıyla 93,26 USD/varil seviyesinde. İzlenen 
 | Gösterge | Son değer | Tarih | Dönem değişimi |
 |---|---|---|---|
 | Brent petrol | 93,26 USD/varil | 11 Ağustos 2026 | %11,5 geriledi |
-| ABD politika faizi (efektif fed fonu) | %3,63 | 12 Ağustos 2026 | yatay kaldı |
+| ABD politika faizi (efektif fed fonu) | %3,63 | 13 Ağustos 2026 | yatay kaldı |
 | ABD 2 yıllık tahvil getirisi | %4,20 | 12 Ağustos 2026 | 13 baz puan geriledi |
 | ABD 10 yıllık tahvil getirisi | %4,68 | 12 Ağustos 2026 | 1 baz puan geriledi |
 
@@ -40,7 +40,7 @@ Zirveden bugüne %11,5 geri çekilme var; son değer 93,26 dolar. **Bu hareketin
 
 ## ABD faiz tarafı
 
-Efektif fed fonu faizi %3,63 (12 Ağustos 2026); izlenen dönemde sabit kaldı. Piyasa tarafında 2 yıllık getiri %4,20, 10 yıllık %4,68. Dönem içinde 2 yıllık 13 baz puan geriledi, 10 yıllık 1 baz puan geriledi. Aradaki 48 baz puanlık pozitif fark, uzun vadeli borçlanma faizinin kısa vadeliden yüksek olduğu normal eğim anlamına gelir.
+Efektif fed fonu faizi %3,63 (13 Ağustos 2026); izlenen dönemde sabit kaldı. Piyasa tarafında 2 yıllık getiri %4,20, 10 yıllık %4,68. Dönem içinde 2 yıllık 13 baz puan geriledi, 10 yıllık 1 baz puan geriledi. Aradaki 48 baz puanlık pozitif fark, uzun vadeli borçlanma faizinin kısa vadeliden yüksek olduğu normal eğim anlamına gelir.
 
 ## Türkiye'ye hangi kanallardan geliyor
 
