@@ -1,14 +1,14 @@
 {
-  "guncelleme": "2026-08-14",
+  "guncelleme": "2026-08-17",
   "kaynak": "FRED (St. Louis Fed)",
   "kalemler": [
     {
       "kod": "TP.DK.USD.S.YTL",
       "ad": "USD/TRY",
-      "deger": "47,77",
-      "fark": "+0,04%",
+      "deger": "47,81",
+      "fark": "+0,07%",
       "yon": "artis",
-      "tarih": "2026-08-14",
+      "tarih": "2026-08-17",
       "birim": "TL",
       "gun": 0,
       "bayat": false
@@ -16,10 +16,10 @@
     {
       "kod": "TP.DK.EUR.S.YTL",
       "ad": "EUR/TRY",
-      "deger": "55,07",
-      "fark": "-0,04%",
-      "yon": "azalis",
-      "tarih": "2026-08-14",
+      "deger": "55,24",
+      "fark": "+0,30%",
+      "yon": "artis",
+      "tarih": "2026-08-17",
       "birim": "TL",
       "gun": 0,
       "bayat": false
@@ -27,12 +27,12 @@
     {
       "kod": "ECB_EURUSD",
       "ad": "EUR/USD",
-      "deger": "1,15",
-      "fark": "-0,10%",
-      "yon": "azalis",
-      "tarih": "2026-08-13",
+      "deger": "1,16",
+      "fark": "+0,29%",
+      "yon": "artis",
+      "tarih": "2026-08-14",
       "birim": "TL",
-      "gun": 1,
+      "gun": 0,
       "bayat": false
     },
     {
@@ -306,12 +306,12 @@
         {
           "kod": "ECB_EURUSD",
           "ad": "EUR/USD",
-          "deger": "1,15",
-          "fark": "-0,10%",
-          "yon": "azalis",
-          "tarih": "2026-08-13",
+          "deger": "1,16",
+          "fark": "+0,29%",
+          "yon": "artis",
+          "tarih": "2026-08-14",
           "birim": "TL",
-          "gun": 1,
+          "gun": 0,
           "bayat": false
         }
       ]
