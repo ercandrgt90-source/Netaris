@@ -38,12 +38,12 @@
     {
       "kod": "SP500",
       "ad": "S&P 500",
-      "deger": "7.799",
-      "fark": "+0,65%",
-      "yon": "artis",
-      "tarih": "2026-08-13",
+      "deger": "7.786",
+      "fark": "-0,17%",
+      "yon": "azalis",
+      "tarih": "2026-08-14",
       "birim": "endeks",
-      "gun": 1,
+      "gun": 0,
       "bayat": false
     },
     {
@@ -60,12 +60,12 @@
     {
       "kod": "DJIA",
       "ad": "DOW",
-      "deger": "53.840",
-      "fark": "+0,13%",
-      "yon": "artis",
-      "tarih": "2026-08-13",
+      "deger": "53.732",
+      "fark": "-0,20%",
+      "yon": "azalis",
+      "tarih": "2026-08-14",
       "birim": "endeks",
-      "gun": 1,
+      "gun": 0,
       "bayat": false
     },
     {
@@ -167,12 +167,12 @@
         {
           "kod": "SP500",
           "ad": "S&P 500",
-          "deger": "7.799",
-          "fark": "+0,65%",
-          "yon": "artis",
-          "tarih": "2026-08-13",
+          "deger": "7.786",
+          "fark": "-0,17%",
+          "yon": "azalis",
+          "tarih": "2026-08-14",
           "birim": "endeks",
-          "gun": 1,
+          "gun": 0,
           "bayat": false
         },
         {
@@ -189,12 +189,12 @@
         {
           "kod": "DJIA",
           "ad": "Dow Jones",
-          "deger": "53.840",
-          "fark": "+0,13%",
-          "yon": "artis",
-          "tarih": "2026-08-13",
+          "deger": "53.732",
+          "fark": "-0,20%",
+          "yon": "azalis",
+          "tarih": "2026-08-14",
           "birim": "endeks",
-          "gun": 1,
+          "gun": 0,
           "bayat": false
         }
       ]
