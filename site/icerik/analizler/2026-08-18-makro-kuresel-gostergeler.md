@@ -1,7 +1,7 @@
 ---
 slug: kuresel-gostergeler-2026-08-18
 baslik: Brent petrolde %11,5 gerileme ve Türkiye'ye etkisi
-ozet: Brent petrol 11 Ağustos 2026 itibarıyla 93,26 USD/varil seviyesinde. İzlenen 14 işlem gününde 28 Temmuz 2026 tarihli 85,51 dolarlık dibi ile 23 Temmuz 2026 tarihli 105,32 dolarlık zirvesi arasında hareket etti. ABD 10 yıllık tahvil getirisi %4,68 (14 Ağustos 2026), aynı dönemde 7 baz puan yükseldi.…
+ozet: Brent petrol 11 Ağustos 2026 itibarıyla 93,26 USD/varil seviyesinde. İzlenen 14 işlem gününde 28 Temmuz 2026 tarihli 85,51 dolarlık dibi ile 23 Temmuz 2026 tarihli 105,32 dolarlık zirvesi arasında hareket etti. ABD 10 yıllık tahvil getirisi %4,72 (17 Ağustos 2026), aynı dönemde 5 baz puan yükseldi.…
 sirket: Küresel göstergeler
 kod: MAKRO
 donem: 2026-08-18
@@ -21,16 +21,16 @@ sayimlar: 4|yorumlanan gösterge;56|gözlem noktası;14|işlem günü penceresi;
 
 ## Özet
 
-Brent petrol 11 Ağustos 2026 itibarıyla 93,26 USD/varil seviyesinde. İzlenen 14 işlem gününde 28 Temmuz 2026 tarihli 85,51 dolarlık dibi ile 23 Temmuz 2026 tarihli 105,32 dolarlık zirvesi arasında hareket etti. ABD 10 yıllık tahvil getirisi %4,68 (14 Ağustos 2026), aynı dönemde 7 baz puan yükseldi. 10 yıllık ile 2 yıllık arasındaki fark 51 baz puan; getiri eğrisi pozitif eğimli.
+Brent petrol 11 Ağustos 2026 itibarıyla 93,26 USD/varil seviyesinde. İzlenen 14 işlem gününde 28 Temmuz 2026 tarihli 85,51 dolarlık dibi ile 23 Temmuz 2026 tarihli 105,32 dolarlık zirvesi arasında hareket etti. ABD 10 yıllık tahvil getirisi %4,72 (17 Ağustos 2026), aynı dönemde 5 baz puan yükseldi. 10 yıllık ile 2 yıllık arasındaki fark 53 baz puan; getiri eğrisi pozitif eğimli.
 
 ## Göstergeler
 
 | Gösterge | Son değer | Tarih | Dönem değişimi |
 |---|---|---|---|
 | Brent petrol | 93,26 USD/varil | 11 Ağustos 2026 | %11,5 geriledi |
-| ABD politika faizi (efektif fed fonu) | %3,63 | 14 Ağustos 2026 | yatay kaldı |
-| ABD 2 yıllık tahvil getirisi | %4,17 | 14 Ağustos 2026 | 9 baz puan geriledi |
-| ABD 10 yıllık tahvil getirisi | %4,68 | 14 Ağustos 2026 | 7 baz puan yükseldi |
+| ABD politika faizi (efektif fed fonu) | %3,63 | 17 Ağustos 2026 | yatay kaldı |
+| ABD 2 yıllık tahvil getirisi | %4,19 | 17 Ağustos 2026 | 3 baz puan geriledi |
+| ABD 10 yıllık tahvil getirisi | %4,72 | 17 Ağustos 2026 | 5 baz puan yükseldi |
 
 Her göstergenin son gözlem tarihi farklı olabilir; tabloda her satır kendi tarihini taşır. Dönem değişimi, yukarıdaki pencerenin ilk gözlemine göre hesaplanmıştır.
 
@@ -40,7 +40,7 @@ Zirveden bugüne %11,5 geri çekilme var; son değer 93,26 dolar. **Bu hareketin
 
 ## ABD faiz tarafı
 
-Efektif fed fonu faizi %3,63 (14 Ağustos 2026); izlenen dönemde sabit kaldı. Piyasa tarafında 2 yıllık getiri %4,17, 10 yıllık %4,68. Dönem içinde 2 yıllık 9 baz puan geriledi, 10 yıllık 7 baz puan yükseldi. Aradaki 51 baz puanlık pozitif fark, uzun vadeli borçlanma faizinin kısa vadeliden yüksek olduğu normal eğim anlamına gelir.
+Efektif fed fonu faizi %3,63 (17 Ağustos 2026); izlenen dönemde sabit kaldı. Piyasa tarafında 2 yıllık getiri %4,19, 10 yıllık %4,72. Dönem içinde 2 yıllık 3 baz puan geriledi, 10 yıllık 5 baz puan yükseldi. Aradaki 53 baz puanlık pozitif fark, uzun vadeli borçlanma faizinin kısa vadeliden yüksek olduğu normal eğim anlamına gelir.
 
 ## Türkiye'ye hangi kanallardan geliyor
 
