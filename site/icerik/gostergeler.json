@@ -139,12 +139,12 @@
     {
       "kod": "VIXCLS",
       "ad": "VIX",
-      "deger": "15,19",
-      "fark": "+6,60%",
+      "deger": "15,84",
+      "fark": "+4,28%",
       "yon": "artis",
-      "tarih": "2026-08-17",
+      "tarih": "2026-08-18",
       "birim": "endeks",
-      "gun": 2,
+      "gun": 1,
       "bayat": false
     },
     {
@@ -283,12 +283,12 @@
         {
           "kod": "VIXCLS",
           "ad": "VIX",
-          "deger": "15,19",
-          "fark": "+6,60%",
+          "deger": "15,84",
+          "fark": "+4,28%",
           "yon": "artis",
-          "tarih": "2026-08-17",
+          "tarih": "2026-08-18",
           "birim": "endeks",
-          "gun": 2,
+          "gun": 1,
           "bayat": false
         },
         {
