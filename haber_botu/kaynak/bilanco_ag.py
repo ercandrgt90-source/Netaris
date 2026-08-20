@@ -310,3 +310,71 @@ def ozdeslik_denetimi(bilanco: dict, tolerans: float = 0.01) -> list[str]:
     if donen is not None and kvy is not None:
         karsilastir("Isletme sermayesi", al("Working Capital"), donen - kvy)
     return hatalar
+
+# ---------------------------------------------------------------------
+# SEKTORE GORE ZORUNLU ALANLAR
+# ---------------------------------------------------------------------
+#
+# NEDEN VAR: eksik alanin iki ayri anlami var ve karistirmak yayin
+# hatasi uretir --
+#
+#   "bu sektorde o kalem YOK"      -> normal, analiz yine yapilabilir
+#   "veri gelmedi"                 -> analiz YAPILMAMALI
+#
+# Ayrimi yapmadan yorum uretmek, EKSIK TABLOYU TAM SANMAK demek.
+#
+# OLCULDU, VARSAYILMADI. On bir sektorde ornek sirketlerin alanlari
+# tek tek sayildi ve eksikler SISTEMATIK cikti:
+#
+#   Sanayi, Temel malzeme, Temel tuketim, Bilisim, Saglik, Enerji
+#       -> 12 alanin 12'si doluyor
+#   Gayrimenkul (GYO)
+#       -> brut kar, faaliyet kari, FAVOK, donen varlik, kisa vadeli
+#          yukumluluk, stok HIC gelmiyor (0/2). GYO'lar bu sunumu
+#          kullanmiyor; donen/duran ayrimi yapmiyorlar.
+#   Kamu hizmetleri
+#       -> brut kar, faaliyet kari, FAVOK gelmiyor
+#   Finans
+#       -> banka ile banka disi finans farkli; brut kar ve stok
+#          bankada anlamsiz
+#
+# CEKIRDEK DORT ALAN her sektorde doluyor ve analiz icin asgari sart.
+CEKIRDEK = ("hasilat", "net_kar", "aktif_toplami", "ozkaynak")
+
+#: Sektorun EK olarak beklemesi gereken alanlar. Burada olmayan bir
+#: alanin bos olmasi eksiklik DEGIL, o sektorun sunumu.
+SEKTOR_EK = {
+    "Sanayi": ("brut_kar", "faaliyet_kari", "stoklar", "donen_varliklar",
+               "kisa_vadeli_yukumlulukler"),
+    "Temel malzeme": ("brut_kar", "faaliyet_kari", "stoklar",
+                      "donen_varliklar", "kisa_vadeli_yukumlulukler"),
+    "Temel tüketim": ("brut_kar", "faaliyet_kari", "stoklar",
+                      "donen_varliklar", "kisa_vadeli_yukumlulukler"),
+    "İsteğe bağlı tüketim": ("brut_kar", "faaliyet_kari", "stoklar",
+                             "donen_varliklar", "kisa_vadeli_yukumlulukler"),
+    "Bilişim": ("brut_kar", "faaliyet_kari", "donen_varliklar",
+                "kisa_vadeli_yukumlulukler"),
+    "Sağlık": ("brut_kar", "faaliyet_kari", "donen_varliklar",
+               "kisa_vadeli_yukumlulukler"),
+    "Enerji": ("brut_kar", "faaliyet_kari", "donen_varliklar",
+               "kisa_vadeli_yukumlulukler"),
+    "İletişim": ("brut_kar", "faaliyet_kari", "donen_varliklar",
+                 "kisa_vadeli_yukumlulukler"),
+    # Asagidakiler EK ISTEMIYOR -- olculdu, bu kalemler gelmiyor ve
+    # gelmemesi o sektorun sunumu.
+    "Gayrimenkul": (),
+    "Kamu hizmetleri": ("donen_varliklar", "kisa_vadeli_yukumlulukler"),
+    "Finans": (),
+}
+
+
+def yeterli(donem: dict, sektor_tr: str = "") -> tuple[bool, list[str]]:
+    """Bu veriyle analiz yapilabilir mi? (yapilabilir, eksik alanlar)
+
+    Sektoru BILINMEYEN sirkette yalnizca cekirdek araniyor: bilmedigimiz
+    bir sektore ek sart koymak, kesfedilmemis bir sunumu hata sanmak
+    olurdu.
+    """
+    beklenen = list(CEKIRDEK) + list(SEKTOR_EK.get(sektor_tr, ()))
+    eksik = [a for a in beklenen if donem.get(a) is None]
+    return (not eksik), eksik

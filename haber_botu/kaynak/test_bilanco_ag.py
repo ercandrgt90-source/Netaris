@@ -160,6 +160,49 @@ esit(ba.ozdeslik_denetimi(YUVARLAMA), [],
 esit(ba.ozdeslik_denetimi({"Total Assets": 500.0}), [],
      "karsilastirilacak kalem yoksa ozdeslik atlaniyor")
 
+
+# --------------------------------------------------------------------
+# SEKTORE GORE YETERLILIK
+# --------------------------------------------------------------------
+#
+# Eksik alanin IKI ayri anlami var:
+#   "bu sektorde o kalem YOK"  -> normal
+#   "veri gelmedi"             -> analiz YAPILMAMALI
+# Karistirmak, eksik tabloyu tam sanmak demek.
+TAM = {"hasilat": 1.0, "net_kar": 1.0, "aktif_toplami": 1.0,
+       "ozkaynak": 1.0, "brut_kar": 1.0, "faaliyet_kari": 1.0,
+       "stoklar": 1.0, "donen_varliklar": 1.0,
+       "kisa_vadeli_yukumlulukler": 1.0}
+
+esit(ba.yeterli(TAM, "Sanayi")[0], True, "sanayide tam veri yeterli")
+
+# GYO'da brut kar/stok GELMIYOR ve gelmemesi dogru -- olculdu, iki
+# ornek sirkette de 0/2. Cekirdek dort alan varsa analiz yapilabilir.
+GYO = {"hasilat": 1.0, "net_kar": 1.0, "aktif_toplami": 1.0, "ozkaynak": 1.0}
+esit(ba.yeterli(GYO, "Gayrimenkul")[0], True,
+     "GYO'da brut kar/stok YOKLUGU eksiklik SAYILMIYOR")
+esit(ba.yeterli(GYO, "Sanayi")[0], False,
+     "AYNI veri sanayide YETERSIZ -- sektor sarti gercekten farkli")
+esit(sorted(ba.yeterli(GYO, "Sanayi")[1])[:2], ["brut_kar", "donen_varliklar"],
+     "eksik alanlar adiyla bildiriliyor")
+
+# Cekirdek alan eksikse HICBIR sektorde yeterli degil.
+esit(ba.yeterli({"hasilat": 1.0, "net_kar": 1.0}, "Gayrimenkul")[0], False,
+     "cekirdek eksikse GYO'da bile yetersiz")
+esit(ba.yeterli({}, "")[0], False, "bos veri yetersiz")
+
+# Sektoru BILINMEYEN sirkette yalnizca cekirdek araniyor: bilmedigimiz
+# bir sunuma ek sart koymak, kesfedilmemisi hata sanmak olurdu.
+esit(ba.yeterli(GYO, "")[0], True,
+     "sektor bilinmiyorsa yalnizca cekirdek araniyor")
+esit(ba.yeterli(GYO, "Uydurma Sektor")[0], True,
+     "taniinmayan sektorde ek sart KOSULMUYOR")
+
+# Sifir DEGER eksik SAYILMAMALI -- sifir bir olcumdur.
+SIFIRLI = dict(TAM, **{"brut_kar": 0.0})
+esit(ba.yeterli(SIFIRLI, "Sanayi")[0], True,
+     "sifir deger eksik sayilmiyor (0 bir olcumdur, bosluk degil)")
+
 print()
 if _kaldi:
     print(f"{_kaldi} TEST KALDI, {_gecti} gecti")
