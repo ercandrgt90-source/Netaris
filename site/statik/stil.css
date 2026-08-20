@@ -3393,3 +3393,142 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none; }
   letter-spacing: 0.02em; text-transform: uppercase;
   border-left: 2px solid var(--cizgi); padding-left: 6px;
 }
+
+/* ====================================================================
+   TASARIM SISTEMI SAYFASI  (/tasarim/)
+   --------------------------------------------------------------------
+   Bu bolum kendi kuralina UYMAK ZORUNDA: tasarim sistemini anlatan
+   sayfa ham piksel kullanirsa anlattigi seyi yalanlar. Asagida tek
+   bir ham punto ya da bosluk yok -- hepsi jeton.
+   ================================================================== */
+
+.tasarim { max-width: var(--olcu); margin: 0 auto; }
+
+.tasarim-bas { margin-bottom: var(--b-7); }
+
+.tasarim-lead {
+  font-size: var(--p-l);
+  line-height: var(--satir-genis);
+  color: var(--yazi);
+}
+
+.tasarim-not {
+  font-size: var(--p-s);
+  color: var(--yazi-2);
+  border-left: 2px solid var(--cizgi);
+  padding-left: var(--b-3);
+  margin-top: var(--b-4);
+}
+
+/* OLCUM SERIDI -- sayfanin kendi hakkindaki rakamlari. */
+.tasarim-olcum {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: var(--b-3);
+  margin-bottom: var(--b-7);
+}
+
+.tasarim-olcum div {
+  background: var(--zemin-2);
+  border: 1px solid var(--cizgi);
+  border-radius: var(--b-2);
+  padding: var(--b-4);
+}
+
+.tasarim-olcum b {
+  display: block;
+  font-size: var(--p-2xl);
+  line-height: var(--satir-sik);
+  font-variant-numeric: tabular-nums;
+}
+
+.tasarim-olcum span {
+  font-size: var(--p-xs);
+  color: var(--yazi-2);
+}
+
+.tasarim-obek { margin-bottom: var(--b-8); }
+
+.tasarim-aciklama {
+  font-size: var(--p-m);
+  line-height: var(--satir-genis);
+  color: var(--yazi-2);
+  margin-bottom: var(--b-5);
+}
+
+/* Tablo dar ekranda KENDI ICINDE kayar; sayfa govdesi yatay kaymaz. */
+.tasarim-tablo {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--p-m);
+  display: block;
+  overflow-x: auto;
+}
+
+.tasarim-tablo th,
+.tasarim-tablo td {
+  padding: var(--b-3);
+  border-bottom: 1px solid var(--cizgi);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.tasarim-tablo th {
+  font-size: var(--p-xs);
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--yazi-2);
+  font-weight: 600;
+}
+
+.tasarim-tablo .sag { text-align: right; font-variant-numeric: tabular-nums; }
+
+/* SIFIR KULLANIMLI JETON isaretleniyor: tanimli olup kullanilmayan
+   jeton olcek degil suslemedir ve ancak gorununce temizlenir. */
+.tasarim-tablo .kullanilmayan { opacity: .55; }
+.tasarim-tablo .kullanilmayan .sag { color: var(--uyari, var(--yazi-2)); }
+
+.bosluk-ornek {
+  display: inline-block;
+  height: var(--b-3);
+  background: var(--vurgu);
+  border-radius: 2px;
+}
+
+.renk-izgara {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: var(--b-3);
+}
+
+.renk-kart {
+  display: flex;
+  flex-direction: column;
+  gap: var(--b-1);
+  border: 1px solid var(--cizgi);
+  border-radius: var(--b-2);
+  padding: var(--b-3);
+  font-size: var(--p-xs);
+}
+
+.renk-kutu {
+  display: block;
+  height: var(--b-8);
+  border-radius: var(--b-1);
+  border: 1px solid var(--cizgi);
+}
+
+.renk-kullanim { color: var(--yazi-2); }
+
+.tasarim-kural dt {
+  font-weight: 600;
+  font-size: var(--p-l);
+  margin-top: var(--b-5);
+}
+
+.tasarim-kural dd {
+  margin: var(--b-2) 0 0;
+  font-size: var(--p-m);
+  line-height: var(--satir-genis);
+  color: var(--yazi-2);
+}

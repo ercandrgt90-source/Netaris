@@ -1,0 +1,101 @@
+{% extends "temel.html" %}
+
+{% block baslik %}Tasarım sistemi — {{ site.ad }}{% endblock %}
+{% block aciklama %}Netaris'in punto, boşluk ve renk ölçekleri. Değerler stil.css'ten okunuyor.{% endblock %}
+
+{% block icerik %}
+<article class="tasarim">
+
+  <header class="tasarim-bas">
+    <h1>Tasarım sistemi</h1>
+    <p class="tasarim-lead">Sitenin kullandığı punto, boşluk ve renk
+    ölçekleri. Bu sayfadaki hiçbir değer elle yazılmadı — hepsi
+    <code>stil.css</code> ayrıştırılarak üretiliyor, dolayısıyla CSS
+    değişirse sayfa kendiliğinden değişir.</p>
+    <p class="tasarim-not">Elle yazılsaydı sayfa ilk gün doğru olur,
+    ikinci gün sessizce yanıltıcı hale gelirdi.</p>
+  </header>
+
+  <section class="tasarim-olcum" aria-label="Ölçümler">
+    <div><b>{{ o.punto_kullanim }}</b><span>punto jetonu kullanımı</span></div>
+    <div><b>{{ o.bosluk_kullanim }}</b><span>boşluk jetonu kullanımı</span></div>
+    <div><b>{{ o.izgara_disi }}</b><span>ızgara dışı değer</span></div>
+    <div><b>{{ o.satir }}</b><span>CSS satırı</span></div>
+  </section>
+
+  {% for obek in jetonlar %}
+  <section class="tasarim-obek">
+    <h2 id="{{ obek.onek|replace('-','') }}">{{ obek.baslik }}</h2>
+    <p class="tasarim-aciklama">{{ obek.aciklama }}</p>
+    <table class="tasarim-tablo">
+      <thead><tr><th>Jeton</th><th>Değer</th><th class="sag">Kullanım</th>
+        {% if obek.onek == 'p-' %}<th>Örnek</th>{% endif %}
+        {% if obek.onek == 'b-' %}<th>Ölçek</th>{% endif %}
+      </tr></thead>
+      <tbody>
+      {% for j in obek.jeton %}
+        <tr{% if j.kullanim == 0 %} class="kullanilmayan"{% endif %}>
+          <td><code>{{ j.ad }}</code></td>
+          <td>{{ j.deger }}</td>
+          <td class="sag">{% if j.kullanim %}{{ j.kullanim }}{% else %}<span
+            title="Tanımlı ama hiç kullanılmıyor">kullanılmıyor</span>{% endif %}</td>
+          {% if obek.onek == 'p-' %}
+          <td><span style="font-size: {{ j.deger }}">Örnek metin</span></td>
+          {% endif %}
+          {% if obek.onek == 'b-' %}
+          <td><span class="bosluk-ornek" style="width: {{ j.deger }}"></span></td>
+          {% endif %}
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </section>
+  {% endfor %}
+
+  <section class="tasarim-obek">
+    <h2 id="renk">Renk</h2>
+    <p class="tasarim-aciklama">Açık temanın temel değerleri. Koyu tema
+    aynı jeton adlarını yeniden tanımlar; bileşenler tema bilmez, yalnızca
+    jetonu kullanır. Aşağıdaki kutular gerçek değerlerle boyanıyor.</p>
+    <div class="renk-izgara">
+      {% for r in renkler %}
+      <div class="renk-kart">
+        <span class="renk-kutu" style="background: {{ r.deger }}"></span>
+        <code>{{ r.ad }}</code>
+        <small>{{ r.deger }}</small>
+        <small class="renk-kullanim">{{ r.kullanim }} kullanım</small>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="tasarim-obek">
+    <h2 id="kural">Kurallar</h2>
+    <dl class="tasarim-kural">
+      <dt>Punto ölçeğin dışına çıkılmaz</dt>
+      <dd>Ara değer eklemek hiyerarşiyi keskinleştirmez, bulanıklaştırır.
+      İki punto arasındaki fark okurun ayırt edebileceği kadar büyük
+      olmalı.</dd>
+
+      <dt>Boşluk dört piksele oturur</dt>
+      <dd>Ritmi olmayan boşluk tek tek bakıldığında kusursuz görünür ama
+      sayfa bütün olarak hizasız hissettirir; sebebi de görünmez çünkü
+      hiçbir değer tek başına yanlış değildir. Şu an ızgara dışında
+      {{ o.izgara_disi }} değer var — çoğu 4n+2 ailesinden ve iki
+      piksellik kayma dar bileşenlerde görüleceği için elle bırakıldı.</dd>
+
+      <dt>Renk doğrudan yazılmaz</dt>
+      <dd>Bileşen <code>#1a1a1a</code> değil <code>var(--yazi)</code>
+      kullanır. Doğrudan yazılan renk koyu temada düzeltilemez.</dd>
+
+      <dt>Jeton silinmez, kullanımı ölçülür</dt>
+      <dd><code>denetim.py</code> her koşuda jeton kullanımını sayıyor;
+      taban altına düşerse yayın kırmızıya döner. Bu kural ölçülmüş bir
+      kayıptan sonra kondu: birleştirmede CSS'in derleme sürümü alınınca
+      iki turluk ölçek sessizce silinmişti — eksik jeton hata üretmediği
+      için hiçbir test görmemişti.</dd>
+    </dl>
+  </section>
+
+</article>
+{% endblock %}

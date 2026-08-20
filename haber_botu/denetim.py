@@ -647,6 +647,64 @@ def _foto_butunluk_denetimi() -> list[Bulgu]:
     return bulgu
 
 
+#: `stil.css` icinde OLMASI GEREKEN en az jeton kullanimi.
+#:
+#: Bu sayilar BASKA BIR DOSYADA duruyor ve sebebi tam olarak bu:
+#: `stil.css` CI'in her kosusunda yeniden uretiliyor, bu yuzden
+#: neredeyse her `git pull`da cakisiyor. Cakismada taraf secmek
+#: (`--theirs`) kolay gorunuyor ama CI'in ciktisi jetonlari
+#: ICERMIYOR -- yani secim, tasarim olcegini sessizce siliyor.
+#:
+#: Olculdu (2026-08-20): tipografi jetonlari `5c71dcc`de 49 kez
+#: taniml, 169 kez kullanilmisti; iki tur sonra SIFIRDI. Boslugun
+#: kendi turu de hicbir islemeye ulasmamisti. Iki turluk is kayipti
+#: ve HICBIR denetim bunu gormedi.
+#:
+#: Gormemesinin sebebi onemli: EKSIK CSS JETONU HATA URETMIYOR.
+#: `var(--p-l)` tanimsizsa tarayici o bildirimi atlar ve sayfayi
+#: yine cizer. Test gecer, kirik bag cikmaz, gorsel denetim susar.
+#: Kayip ancak SAYARAK goruluyor -- o yuzden burada sayiliyor.
+JETON_TABANI = {"p-": 160, "b-": 300}
+
+
+def _tasarim_jetonu_denetimi() -> list[Bulgu]:
+    """Tipografi ve bosluk olcegi hala yerinde mi?
+
+    Iki ayri sey olculuyor:
+      1. KULLANIM SAYISI tabanin altina dustu mu (sessiz kayip)
+      2. Tanimsiz jeton kullanilmis mi (yarim birlestirme)
+
+    Yedegi olan `var(--x, deger)` kullanimlari SAYILMIYOR: onlar
+    bilerek disaridan atanir (`analiz.html` ilerleme cubugunu satir
+    ici `--w` ile veriyor) ve tanimsiz olmalari beklenen durumdur.
+    """
+    yol = _KOK.parent / "site" / "statik" / "stil.css"
+    if not yol.exists():
+        return [Bulgu("hata", "tasarim", "stil-yok", f"{yol.name} yok")]
+    css = yol.read_text(encoding="utf-8")
+    bulgu: list[Bulgu] = []
+
+    for onek, taban in JETON_TABANI.items():
+        n = len(re.findall(rf"var\(--{re.escape(onek)}", css))
+        if n < taban:
+            bulgu.append(Bulgu(
+                "hata", "tasarim", f"jeton-{onek.strip('-')}",
+                f"--{onek}* kullanimi {n}, taban {taban}. Olcek "
+                f"dusmus -- muhtemelen birlestirmede CSS'in CI surumu "
+                f"alindi. Onarim: yamayi `git apply --3way` ile "
+                f"yeniden uygula, taraf secme."))
+
+    tanim = set(re.findall(r"--([\w-]+)\s*:", css))
+    # Yedeksiz kullanim: `var(--x)` -- virgul YOK.
+    for ad in set(re.findall(r"var\(--([\w-]+)\s*\)", css)):
+        if ad not in tanim:
+            bulgu.append(Bulgu(
+                "hata", "tasarim", "jeton-tanimsiz",
+                f"--{ad} kullaniliyor ama TANIMLI DEGIL; yedegi de "
+                f"yok. Tarayici bu bildirimi atlar, hata vermez."))
+    return bulgu
+
+
 def _kanonik_adres_denetimi() -> list[Bulgu]:
     """Sitenin kendi ilan ettigi adres GERCEKTEN var mi?
 
@@ -881,6 +939,7 @@ def editoryal_denetim() -> list[Bulgu]:
     bulgu += _cop_denetimi()
     bulgu += _foto_butunluk_denetimi()
     bulgu += _kanonik_adres_denetimi()
+    bulgu += _tasarim_jetonu_denetimi()
     bulgu += _baslik_tekrari_denetimi()
 
     # --- yayimlanmis gurultu ---

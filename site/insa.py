@@ -3000,6 +3000,24 @@ def insa() -> int:
         )
         yollar.append("/hakkimizda/")
 
+    # Tasarim sistemi -- jetonlar `stil.css`ten OKUNUYOR.
+    #
+    # Sayfa bir AYNA, kopya degil. Elle yazilan bir tasarim sayfasi ilk
+    # gun dogru olur, `--p-l` degistigi gun sessizce yanilticiya doner
+    # ve ekip ondan okuyup yanlis degeri kullanir. Ayristirmak bu
+    # ihtimali tamamen kapatiyor.
+    import tasarim_jeton                                # noqa: PLC0415
+    yaz(
+        "/tasarim/index.html",
+        ortam.get_template("tasarim.html").render(
+            **ortak, yol="/tasarim/",
+            jetonlar=tasarim_jeton.jetonlar(),
+            renkler=tasarim_jeton.renkler(),
+            o=tasarim_jeton.olculer(),
+        ),
+    )
+    yollar.append("/tasarim/")
+
     # Gundem -- resmi kurum duyurulari
     if gundem.get("haberler"):
         # Adres atamasi, arsiv ve varlik indeksi YUKARIDA yapildi --
