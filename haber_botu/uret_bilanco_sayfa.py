@@ -147,6 +147,47 @@ def sirket_isle(kod, bilgi, sektor, donem, oran, medyan, n,
     return True, str(yol.name)
 
 
+def _yayimlanmis() -> set[tuple[str, str]]:
+    """Yayimlanmis (kod, donem) ciftleri -- ON BILGIDEN okunur.
+
+    DOSYA ADINDAN OKUNMUYOR ve sebebi olculdu. Onceki surum
+    `p.stem` tarayip `f"{kod}-{donem}"` damgasini ariyordu; ama
+    `yayin.yaz_sektorel` dosyayi TERS sirada adlandiriyor:
+
+        damga aranan : tera-2026-6
+        dosya adi    : 2026-6-tera
+        eslesme      : YOK
+
+    Yani atlama HIC calismiyordu. Gorunur bir belirtisi de yoktu:
+    hat sessizce ayni sirketi yeniden uretip AYNI MODEL CAGRISINI
+    ikinci kez odeyecek, ustune ayni sayfayi ezecekti. 324 sirketlik
+    toplu uretimde bu, kosu basina tekrarlanan bir maliyet demek.
+
+    On bilgideki `kod:` ve `donem:` alanlari dosya adlandirma
+    kuralindan BAGIMSIZ; adlandirma yarin degisse de bu okuma
+    calisir.
+    """
+    if not SITE.exists():
+        return set()
+    cikti: set[tuple[str, str]] = set()
+    for p in SITE.glob("*.md"):
+        kod = donem = ""
+        for satir in p.read_text(encoding="utf-8").splitlines()[:25]:
+            if satir.startswith("kod:"):
+                kod = satir[4:].strip().upper()
+            elif satir.startswith("donem:"):
+                donem = satir[6:].strip()
+            elif satir == "---" and kod:
+                break
+        # YALNIZCA BILANCO DONEMLERI. Ayni klasorde makro analizler de
+        # duruyor ve onlarin `donem` alani tarih ("2026-08-20"), kodu
+        # da MAKRO/BTC/OLAY gibi. Bilanco donemi her zaman "YIL/AY"
+        # bicimi; suzgec bu farka dayaniyor, ada degil.
+        if kod and "/" in donem:
+            cikti.add((kod, donem))
+    return cikti
+
+
 def main() -> int:
     a = argparse.ArgumentParser(description=__doc__)
     a.add_argument("--sinir", type=int, default=VARSAYILAN_SINIR)
@@ -160,8 +201,7 @@ def main() -> int:
     ozet = json.loads(OZET.read_text(encoding="utf-8"))
     defter = json.loads(DEFTER.read_text(encoding="utf-8"))["sirketler"]
 
-    # TEKRAR URETMIYOR: sayfasi olan sirketi atla.
-    var = {p.stem for p in SITE.glob("*.md")} if SITE.exists() else set()
+    var = _yayimlanmis()
 
     yazilan = atlanan = 0
     for sektor, v in sorted(ozet.items()):
@@ -183,9 +223,9 @@ def main() -> int:
             # yayimlanmazdi. Sessiz bir kilit: hata vermeden, hicbir
             # sey yapmadan.
             #
-            # Artik kod VE donem birlikte araniyor.
-            damga = f"{kod.lower()}-{v['donem'].replace('/', '-')}"
-            if any(damga in s for s in var):
+            # Artik kod VE donem birlikte, ON BILGIDEN araniyor
+            # (bkz. `_yayimlanmis`).
+            if (kod.upper(), v["donem"]) in var:
                 atlanan += 1
                 continue
             ok, not_ = sirket_isle(kod, bilgi, sektor, v["donem"], oran,
