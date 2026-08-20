@@ -1,0 +1,151 @@
+# Bilanco hatti -- KENDI IS AKISI.
+#
+# NEDEN AYRI
+# ----------
+# 2026-08-20'de olculdu: bilanco adimlari ana otomasyona dahilken is
+# 24dk 55sn'de 25 dakikalik tavana carpip KESILDI. Hicbir sey
+# dagitilmadi, hicbir bilanco sayfasi yayimlanmadi.
+#
+# Sebep is yukunun BUYUKLUGU degil, iki hattin RITMININ farkli olmasi:
+#
+#   haber hatti    yarim saatte bir, birkac dakika surer
+#   bilanco hatti  yilda dort kez, 972 istek + 60 model cagrisi
+#
+# Ikisini ayni tavana sikistirmak, sik kosan hatti nadir kosan yuzunden
+# riske atiyordu. Ayirinca her biri kendi suresini aliyor ve bilanco
+# kesilse bile haber akisi etkilenmiyor.
+#
+# TAKVIM
+# ------
+# Bildirim aylarinin (Mart, Mayis, Agustos, Kasim) her gunu, gunde iki
+# kez. Diger aylarda kosu baslar ama `uret_bilanco` icindeki takvim
+# kapisi hemen doner -- kapiyi burada tekrarlamiyorum, iki yerde iki
+# takvim bir gun ayrisir.
+name: Netaris bilanço
+
+on:
+  schedule:
+    # Bildirim aylarinda gunde iki kez (06:00 ve 18:00 UTC).
+    - cron: "0 6,18 * 3,5,8,11 *"
+  workflow_dispatch:
+    inputs:
+      yayinla:
+        description: "Cloudflare'e dağıt"
+        type: boolean
+        default: true
+      zorla:
+        description: "Bildirim ayı olmasa da çalıştır"
+        type: boolean
+        default: false
+      sinir:
+        description: "Bu koşuda en fazla kaç sayfa"
+        type: string
+        default: "60"
+
+# Ana otomasyonla AYNI ANDA depoya yazmasinlar.
+concurrency:
+  group: netaris-depo-yazma
+  cancel-in-progress: false
+
+jobs:
+  bilanco:
+    runs-on: ubuntu-latest
+    # Ana isin tavani 25 dakika; burasi genis cunku 972 ag istegi ve
+    # 60 model cagrisi var. Yine de SINIRSIZ degil: takilan bir kosu
+    # saatlerce runner tutmamali.
+    timeout-minutes: 90
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Depoyu al
+        uses: actions/checkout@v5
+
+      - name: Python kur
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Bağımlılıkları kur
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Node kur
+        uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+
+      - name: Bilanço verisi (sektör → mali tablo → medyan)
+        run: |
+          python haber_botu/uret_bilanco.py --hepsi \
+            ${{ inputs.zorla && '--zorla' || '' }}
+
+      - name: Bilanço sayfaları (tablo + AI yorumu)
+        env:
+          # AI yorumu. Tanimliysa Anthropic, degilse CLOUDFLARE_* ile
+          # Workers AI. Ikisi de yoksa adim SIFIR sayfa yazip geciyor
+          # -- yorumsuz sayfa yayimlanmiyor, bu bir kural.
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          python haber_botu/uret_bilanco_sayfa.py \
+            --sinir ${{ inputs.sinir || '60' }}
+
+      - name: Siteyi kur ve denetle
+        run: |
+          python site/insa.py
+          python haber_botu/denetim.py
+
+      - name: Dağıt
+        if: ${{ github.event_name == 'schedule' || inputs.yayinla }}
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        working-directory: site
+        run: npx wrangler deploy
+
+      - name: Üretilen sayfaları geri yaz
+        # `always()`: kosu kesilse bile O ANA KADAR yazilan sayfalar
+        # kaybolmasin. Hat kendini adim adim dolduruyor; yarim kalan
+        # bir kosu da ilerleme sayilir.
+        if: always()
+        run: |
+          git config user.name  "netaris-bot"
+          git config user.email "actions@users.noreply.github.com"
+
+          YOLLAR=""
+          for y in site/icerik/analizler \
+                   haber_botu/kaynak/sektor_ozet.json \
+                   haber_botu/kaynak/sirketler.json; do
+            [ -e "$y" ] && YOLLAR="$YOLLAR $y"
+          done
+          [ -z "$YOLLAR" ] && { echo "yazilacak veri yok"; exit 0; }
+
+          # `--mixed` (varsayilan), `--soft` DEGIL. `--soft` indekse
+          # dokunmadigi icin commit, kosu SURERKEN gonderilen kaynak
+          # dosyalari sessizce geri aliyordu. Ana is akisinda olculdu.
+          git fetch origin "${GITHUB_REF_NAME}"
+          git reset "origin/${GITHUB_REF_NAME}"
+
+          git add -A $YOLLAR
+
+          # KAPI: yontemden bagimsiz sonuc dogrulamasi.
+          KACAK=$(git diff --staged --name-only | grep -vE \
+            '^(site/icerik/analizler/|haber_botu/kaynak/(sektor_ozet|sirketler)\.json)' \
+            || true)
+          if [ -n "$KACAK" ]; then
+            echo "HATA: beklenmeyen dosya aşamada -- geri yazma DURDURULDU:"
+            echo "$KACAK"
+            exit 1
+          fi
+
+          if git diff --staged --quiet; then
+            echo "yeni sayfa yok"
+          else
+            git commit -m "otomatik: bilanço sayfaları $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi

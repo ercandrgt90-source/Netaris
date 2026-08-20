@@ -54,9 +54,14 @@ on:
         type: boolean
         default: true
 
-# Ayni anda iki calisma olmasin: ikisi de depoya yazip birbirini ezerdi
+# Ayni anda iki calisma olmasin: ikisi de depoya yazip birbirini ezerdi.
+#
+# Grup adi `bilanco.yml` ile ORTAK. Iki AYRI is akisi ama ayni depoya
+# yaziyorlar; grup adlari farkli olsaydi es zamanli kosup birbirinin
+# commitini ezebilirlerdi -- ayirmanin amaci zamanlamayi ayirmakti,
+# yazmayi degil.
 concurrency:
-  group: netaris-otomasyon
+  group: netaris-depo-yazma
   cancel-in-progress: false
 
 # EYLEM SURUMLERI.
@@ -153,8 +158,19 @@ jobs:
           # CLOUDFLARE_* ile Workers AI kullaniliyor; ikisi de yoksa
           # adim kendini atlar.
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        # BILANCO HATTI BURADA KOSMUYOR -- kendi is akisinda
+        # (`bilanco.yml`). Sebebi olculdu: 2026-08-20'de bu is
+        # 24dk 55sn'de 25 dakikalik tavana carpip KESILDI ve hicbir
+        # sey dagitilmadi.
+        #
+        # Bilanco hatti 324 sirket x 3 tablo = 972 istek atiyor, ustune
+        # 60 model cagrisi biniyor. Haber hatti ise yarim saatte bir
+        # kosmali. Ikisini ayni 25 dakikaya sikistirmak, SIK kosan
+        # hatti NADIR kosan yuzunden riske atmak demekti -- bilanco
+        # yilda dort kez bildiriliyor, haber gun boyu akiyor.
         run: |
-          python calistir.py ${{ (github.event_name == 'schedule' || inputs.yayinla) && '--yayinla' || '' }}
+          python calistir.py --atla bilanco bilanco_sayfa \
+            ${{ (github.event_name == 'schedule' || inputs.yayinla) && '--yayinla' || '' }}
 
       - name: Depo özeti
         if: always()
@@ -196,14 +212,46 @@ jobs:
           # Git ikili dosyayi birlestiremez; boyle bir cakismanin dogru
           # cozumu de yok zaten.
           #
-          # Onun yerine: uzak ucun uzerine kendi dosyalarimizi koyuyoruz.
-          # `reset --soft` calisma dizinine DOKUNMAZ, yalnizca dalin
-          # isaret ettigi yeri degistirir. Bu calistirmada uretilen veri
-          # en gunceli oldugu icin dogru davranis bu.
+          # Onun yerine: uzak ucun uzerine kendi VERIMIZI koyuyoruz.
+          #
+          # `--soft` DEGIL `--mixed` (varsayilan) ve sebebi olculdu.
+          #
+          # `reset --soft` yalnizca HEAD'i tasiyor, INDEKSE dokunmuyor.
+          # Indeks ise kosunun BASINDAKI agaci tutuyor. Sonraki
+          # `git commit` de `$YOLLAR`i degil INDEKSIN TAMAMINI isliyor.
+          # Sonuc: kosu SURERKEN depoya gonderilen her kaynak dosya,
+          # botun commitinde sessizce GERI ALINIYOR.
+          #
+          # 2026-08-20'de olculdu -- bot commiti c285d0c benim
+          # ea86ffc'min uzerine kuruldu ve iceriginden bir testi
+          # tamamen sildi, bir modulu eski haline dondurdu:
+          #     test_bilanco_atlama.py | 102 -------------------
+          #     uret_bilanco_sayfa.py  |  50 +----------
+          # Hicbir hata verilmedi; kosu YESIL bitti.
+          #
+          # `--mixed` indeksi de uzak uca esitliyor. Boylece sonraki
+          # `git add` YALNIZCA veri yollarini asamaya alir ve commit
+          # yalnizca onlari icerir. Calisma dizini yine korunuyor.
           git fetch origin "${GITHUB_REF_NAME}"
-          git reset --soft "origin/${GITHUB_REF_NAME}"
+          git reset "origin/${GITHUB_REF_NAME}"
 
           git add -A $YOLLAR
+
+          # KAPI: veri disinda bir sey asamaya girmis mi?
+          #
+          # Yukaridaki `--mixed` bunu zaten engelliyor, ama bu kontrol
+          # yontemden BAGIMSIZ olarak sonucu dogruluyor. Kaynak kodu
+          # sessizce geri alan bir commit bir daha uretilmemeli; bu
+          # yuzden kapi kapanirsa is KIRMIZI donuyor.
+          KACAK=$(git diff --staged --name-only | grep -vE \
+            '^(haber_botu/netaris\.db|haber_botu/kaynak/(ceviri_onbellek|foto_kayit)\.json|site/statik/foto/|site/icerik/)' \
+            || true)
+          if [ -n "$KACAK" ]; then
+            echo "HATA: veri disi dosya asamada -- geri yazma DURDURULDU:"
+            echo "$KACAK"
+            exit 1
+          fi
+
           if git diff --staged --quiet; then
             echo "degisiklik yok"
           else
