@@ -112,6 +112,27 @@ def govde_kur(kod, unvan, sektor, donem, d, oran, medyan, n, yorum) -> str:
               "modeline göre değişir.*"]
 
     s += ["", "## Netaris yorumu", "", yorum]
+
+    # YASAL UYARI GOVDEDE OLMAK ZORUNDA.
+    #
+    # OLCULDU, PAHALIYA MAL OLDU. 2026-08-20 kosusunda 277 sirket
+    # `guvenlik: [YASAK] '(eksik)'` ile atlandi: `yayinlanabilir()`
+    # uyariyi METNIN ICINDE ariyor, ben ise govdeye koymamistim.
+    #
+    # Haber tarafinda uyari sayfa sablonunun altbilgisinde duruyor ve
+    # oradan geliyordu; bilanco govdesini SIFIRDAN ben kurdugum icin
+    # o miras yoktu. Denetim dogru calisti, eksik olan govdeydi.
+    #
+    # Maliyeti sessiz degil GERCEKTI: 277 model cagrisi yapildi,
+    # metinler uretildi ve HEPSI atildi. Uretimden SONRA yapilan bir
+    # denetim, girdi maliyetini geri getirmiyor.
+    #
+    # Ayrica bu sayfa TAM OLARAK uyarinin gerekli oldugu yer: tek bir
+    # sirketin mali tablosu, sektor siralamasiyla birlikte.
+    s += ["", "---", "",
+          "*Bu sayfa ölçülmüş mali tablo verisinden üretilmiştir ve "
+          "**yatırım tavsiyesi değildir.** Sektör medyanına göre konum "
+          "bir sıralamadır, değerlendirme değildir.*"]
     return "\n".join(s)
 
 
@@ -239,6 +260,39 @@ def main() -> int:
         print(f"  tanımsız değişken: {', '.join(eksik)}")
         print("  (Anthropic için ANTHROPIC_API_KEY; ya da Workers AI "
               "için CLOUDFLARE_API_TOKEN + CLOUDFLARE_ACCOUNT_ID)")
+
+    # SABLON KAPISI -- TEK BIR MODEL CAGRISINDAN ONCE.
+    #
+    # NEDEN VAR. 2026-08-20'de govde yasal uyariyi icermiyordu ve 277
+    # sirket `guvenlik: [YASAK]` ile atlandi. Ama once 277 MODEL
+    # CAGRISI YAPILDI: metinler uretildi, odendi, sonra atildi.
+    # Uretimden SONRA yapilan denetim girdi maliyetini geri getirmiyor.
+    #
+    # Kusur sirkete ozel degildi, SABLONA aitti -- yani ilk sirkette
+    # de bellidir. Sahte bir govde kurup denetimden gecirmek, ayni
+    # bilgiyi SIFIR maliyetle veriyor.
+    #
+    # Kapi kapaliysa hat DURUYOR. Devam etmek, bilerek para yakmak
+    # olurdu.
+    class _Sahte:
+        hasilat = 1.0e9
+        net_kar = 2.0e8
+        ozkaynak = 5.0e8
+        aktif_toplami = 9.0e8
+        brut_kar = favok = faaliyet_kari = None
+        net_borc = faaliyet_nakit_akisi = yatirim_harcamasi = None
+
+    ornek = govde_kur("TEST", "Test A.Ş.", "Sanayi", "2026/6", _Sahte(),
+                      {"net_marj": 20.0}, {"net_marj": 12.0}, 5,
+                      "Örnek yorum cümlesi.")
+    tamam, bulgular = guvenlik.yayinlanabilir(ornek)
+    if not tamam:
+        print("ŞABLON DENETIMDEN GEÇMIYOR -- hiç model çağrılmadı.")
+        for b in bulgular[:3]:
+            print(f"  {b.aciklama}")
+        print("  Sebep şirkete özel değil, gövdeye ait; düzeltmeden "
+              "çalıştırmak 325 çağrıyı boşa harcar.")
+        return 1
 
     if not OZET.exists():
         print(f"{OZET} yok -- önce uret_bilanco.py çalışmalı.")

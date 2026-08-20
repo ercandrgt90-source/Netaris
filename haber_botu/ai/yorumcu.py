@@ -582,6 +582,25 @@ def yorumla(girdi: str, sistem_ozel: str = "") -> tuple[str, str, str, str]:
         if kod in (401, 403):
             ek = (" -- jetonda 'Workers AI' izni yok gibi gorunuyor; "
                   "Cloudflare > My Profile > API Tokens uzerinden ekleyin")
+        # SAGLAYICININ KENDI ACIKLAMASI. Ciplak "HTTP 400" hicbir sey
+        # soylemiyor: bakiye bitmis de olabilir, model adi yanlis da,
+        # istem cok uzun da. Uc ayri sebep, uc ayri cozum.
+        #
+        # Olculdu: 48 sirket "anthropic HTTP 400" ile atlandi ve sebep
+        # koddan CIKARILAMADI -- gerekcesi ancak yanit govdesinde
+        # yaziyordu. Saglayici zaten soyluyordu, ben dinlemiyordum.
+        #
+        # Govde KISALTILIYOR (200 karakter): hata yanitlari bazen
+        # istemin tamamini geri yansitiyor ve log'a sizabilir.
+        try:
+            g = e.response.json().get("error", {})
+            mesaj = (g.get("message") or "").strip()
+            if mesaj:
+                ek += f" -- {mesaj[:200]}"
+        except Exception:                              # noqa: BLE001
+            govde = (e.response.text or "").strip()
+            if govde:
+                ek += f" -- {govde[:200]}"
         return "", "", f"{s} HTTP {kod}{ek}", ""
     except httpx.HTTPError as e:
         return "", "", f"{s} ag hatasi: {type(e).__name__}", ""
