@@ -2,8 +2,8 @@
 
     sektor_ozet.json -> Donem -> tablo (deterministik) -> AI yorumu -> sayfa
 
-    python uret_bilanco_sayfa.py --sinir 5 --kuru-calis
-    python uret_bilanco_sayfa.py --sinir 25
+    python uret_bilanco_sayfa.py --sinir 3 --kuru-calis
+    python uret_bilanco_sayfa.py            # kosu basina 60
 
 YORUMSUZ SAYFA YAYIMLANMIYOR
 ----------------------------
@@ -19,11 +19,12 @@ hesaplaniyor; model yalnizca onlari cumleye ceviriyor ve ciktisi
 `yorumcu` tarafindan dogrulaniyor (girdide olmayan sayi -> metin
 tamamen atilir).
 
-SINIR VAR VE VARSAYILANI KUCUK
+SINIR VAR -- TOPLU URETIMDE DE
 ------------------------------
-324 sirketi tek kosuda yayimlamak, geri alinmasi zor bir islem ve
-324 model cagrisi demek. Varsayilan sinir kucuk tutuldu; toplu
-uretim ACIKCA istenerek yapiliyor.
+Kosu basina 60 sayfa. 324 sirket ~6 CI kosusunda tamamlaniyor.
+Sinirsiz yapilmadi ve sebebi teknik: 324 model cagrisi tek bir CI
+kosusuna sigmaz, is zaman asimina ugrar ve o kosuda uretilenlerin
+HICBIRI yazilmaz. Sinirli kosu yarim kalsa bile yazdigini koruyor.
 
 TEKRAR URETMIYOR: sayfasi zaten olan sirket atlaniyor. Hat yeniden
 kosturuldugunda ayni sayfayi yeniden yazmak, ayni model cagrisini
@@ -53,8 +54,20 @@ OZET = _KOK / "kaynak" / "sektor_ozet.json"
 DEFTER = _KOK / "kaynak" / "sirketler.json"
 SITE = _KOK.parent / "site" / "icerik" / "analizler"
 
-#: Tek kosuda en fazla kac sayfa. Kucuk tutuldu -- bkz. modul basi.
-VARSAYILAN_SINIR = 5
+#: Tek kosuda en fazla kac sayfa.
+#:
+#: TOPLU URETIM: 5'ten 60'a cikarildi. 324 sirket bu hizla ~6 CI
+#: kosusunda (yaklasik uc saat) tamamlaniyor.
+#:
+#: SINIRSIZ YAPILMADI ve sebebi teknik: 324 model cagrisi TEK bir CI
+#: kosusuna sigmaz, is zaman asimina ugrar ve o kosuda uretilen
+#: sayfalarin hicbiri yazilmaz. Sinirli kosu, yarim kalsa bile
+#: yazdigini KORUYOR -- her sirket kendi sayfasi yazilir yazilmaz
+#: kaliciya geciyor.
+#:
+#: Sayfasi olan sirket atlandigi icin hat kendini adim adim
+#: dolduruyor; kosu sayisi arttikca kalan is azaliyor.
+VARSAYILAN_SINIR = 60
 
 KALEMLER = (
     ("hasilat", "Hasılat"), ("brut_kar", "Brüt kâr"),
