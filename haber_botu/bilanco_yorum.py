@@ -134,4 +134,7 @@ def yorum_uret(girdi: str):
     cunku "yorum uretilmedi" ile "yorum bos" ayri seyler.
     """
     import yorumcu                                   # noqa: PLC0415
-    return yorumcu.uret(SISTEM, girdi)
+    # `yorumla` DOGRULAMA ZINCIRININ tamamini kosturuyor: cop cikti,
+    # sayi denetimi, yasak kalip, guvenlik taramasi. Yalnizca yonerge
+    # bize ait.
+    return yorumcu.yorumla(girdi, sistem_ozel=SISTEM)

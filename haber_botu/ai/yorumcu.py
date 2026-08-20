@@ -524,7 +524,7 @@ def saglayici() -> str:
     return ""
 
 
-def yorumla(girdi: str) -> tuple[str, str, str, str]:
+def yorumla(girdi: str, sistem_ozel: str = "") -> tuple[str, str, str, str]:
     """Girdiden yorum uretir.
 
     `(metin, kullanilan_model, ret_nedeni, ham_cikti)` doner.
@@ -549,7 +549,17 @@ def yorumla(girdi: str) -> tuple[str, str, str, str]:
     # Ikinci yonerge ayni haberden MEKANIZMA istiyor: hangi kanaldan
     # neyi etkiler, kim etkilenir, ne izlenir. Sayi denetimi yine
     # gecerli; girdide sayi yoksa ciktida da olmaz ve bu dogru olan.
-    sistem = SISTEM if olcum_var(girdi) else SISTEM_OLCUMSUZ
+    # OZEL YONERGE, ayni DOGRULAMA ZINCIRI.
+    #
+    # Bilanco yorumu farkli bir sey istiyor (kalemler arasindaki
+    # iliski), haber yorumu farkli (en onemli tek olcum). Ama ciktinin
+    # gecmesi gereken denetimler AYNI: cop cikti, sayi denetimi, yasak
+    # kalip, guvenlik taramasi.
+    #
+    # Yeni bir `yorumla` kopyasi yazmak, o zincirin ikinci bir
+    # surumunu yaratirdi ve biri duzeltilirken digeri unutulurdu.
+    # Yalnizca YONERGE degisiyor.
+    sistem = sistem_ozel or (SISTEM if olcum_var(girdi) else SISTEM_OLCUMSUZ)
 
     try:
         if s == "anthropic":

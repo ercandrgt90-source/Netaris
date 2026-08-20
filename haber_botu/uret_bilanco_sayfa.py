@@ -1,0 +1,183 @@
+"""Sirket basina bilanco analiz sayfasi -- olculmus tablo + AI yorumu.
+
+    sektor_ozet.json -> Donem -> tablo (deterministik) -> AI yorumu -> sayfa
+
+    python uret_bilanco_sayfa.py --sinir 5 --kuru-calis
+    python uret_bilanco_sayfa.py --sinir 25
+
+YORUMSUZ SAYFA YAYIMLANMIYOR
+----------------------------
+Karar acik: "her bilanco yapay zeka yorumundan gececek". Yorum
+uretilemezse (anahtar yok, model bos dondu, dogrulama dusurdu) o
+sirket icin sayfa YAZILMIYOR. Yarim bir sayfa yayimlamak, sozu
+tutmadigini sessizce ilan etmek olurdu.
+
+TABLO DETERMINISTIK, YORUM MODELDEN
+-----------------------------------
+Sayfadaki her rakam `oranlar.py` ve `sektor_ozet.py` tarafindan
+hesaplaniyor; model yalnizca onlari cumleye ceviriyor ve ciktisi
+`yorumcu` tarafindan dogrulaniyor (girdide olmayan sayi -> metin
+tamamen atilir).
+
+SINIR VAR VE VARSAYILANI KUCUK
+------------------------------
+324 sirketi tek kosuda yayimlamak, geri alinmasi zor bir islem ve
+324 model cagrisi demek. Varsayilan sinir kucuk tutuldu; toplu
+uretim ACIKCA istenerek yapiliyor.
+
+TEKRAR URETMIYOR: sayfasi zaten olan sirket atlaniyor. Hat yeniden
+kosturuldugunda ayni sayfayi yeniden yazmak, ayni model cagrisini
+ikinci kez odemek demek.
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import pathlib
+import sys
+
+_KOK = pathlib.Path(__file__).resolve().parent
+sys.path[:0] = [str(_KOK), str(_KOK / "kaynak"), str(_KOK / "analiz"),
+                str(_KOK / "ai")]
+
+import bicim              # noqa: E402
+import bilanco_ag         # noqa: E402
+import bilanco_yorum      # noqa: E402
+import guvenlik           # noqa: E402
+import oranlar            # noqa: E402
+import sektor_ozet        # noqa: E402
+import yayin              # noqa: E402
+
+OZET = _KOK / "kaynak" / "sektor_ozet.json"
+DEFTER = _KOK / "kaynak" / "sirketler.json"
+SITE = _KOK.parent / "site" / "icerik" / "analizler"
+
+#: Tek kosuda en fazla kac sayfa. Kucuk tutuldu -- bkz. modul basi.
+VARSAYILAN_SINIR = 5
+
+KALEMLER = (
+    ("hasilat", "Hasılat"), ("brut_kar", "Brüt kâr"),
+    ("faaliyet_kari", "Faaliyet kârı"), ("favok", "FAVÖK"),
+    ("net_kar", "Net kâr"), ("ozkaynak", "Özkaynak"),
+    ("aktif_toplami", "Aktif toplamı"), ("net_borc", "Net borç"),
+    ("faaliyet_nakit_akisi", "Faaliyet nakit akışı"),
+    ("yatirim_harcamasi", "Yatırım harcaması"),
+)
+
+
+def _mlr(d):
+    return f"{bicim.sayi(d / 1e9, 2)} milyar TL" if d is not None else "—"
+
+
+def govde_kur(kod, unvan, sektor, donem, d, oran, medyan, n, yorum) -> str:
+    """Sayfanin govdesi. TABLO deterministik, YORUM modelden."""
+    s = [f"## {donem} dönemi ölçümleri", "",
+         "| Kalem | Değer |", "| --- | ---: |"]
+    for ad, etiket in KALEMLER:
+        v = getattr(d, ad, None)
+        if v is not None:
+            s.append(f"| {etiket} | {_mlr(v)} |")
+
+    if oran:
+        s += ["", f"## Sektör içindeki konum", "",
+              f"Karşılaştırma {sektor} sektöründeki {n} şirketin "
+              f"**medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir "
+              f"şirketin uç değeri ortalamayı tek başına taşıyabiliyor.", "",
+              "| Oran | Şirket | Sektör medyanı |", "| --- | ---: | ---: |"]
+        for anahtar, ad in sektor_ozet.ORANLAR:
+            v = oran.get(anahtar)
+            if v is None:
+                continue
+            katsayi = anahtar in ("cari_oran", "borc_ozkaynak")
+            b = ((lambda x: bicim.sayi(x, 2)) if katsayi
+                 else bilanco_yorum._yuzde)
+            m = medyan.get(anahtar)
+            s.append(f"| {ad} | {b(v)} | {b(m) if m is not None else '—'} |")
+        s += ["", "*Medyana göre konum bir sıralamadır, değerlendirme "
+              "değildir. Hangi oranın yüksek olmasının iyi olduğu iş "
+              "modeline göre değişir.*"]
+
+    s += ["", "## Netaris yorumu", "", yorum]
+    return "\n".join(s)
+
+
+def sirket_isle(kod, bilgi, sektor, donem, oran, medyan, n,
+                kuru=False) -> tuple[bool, str]:
+    d, eksik = bilanco_ag.donem_getir(kod, donem, sektor_tr=sektor)
+    if d is None:
+        return False, "eksik: " + ", ".join(eksik[:3])
+
+    girdi = bilanco_yorum.girdi_kur(
+        kod, bilgi["unvan"], sektor, donem, simdi=d,
+        oranlar_kendi=oran, medyanlar=medyan, sirket_sayisi=n)
+
+    metin, model, sebep, _ham = bilanco_yorum.yorum_uret(girdi)
+    if not metin:
+        # YORUMSUZ SAYFA YAYIMLANMIYOR -- bkz. modul basi.
+        return False, f"yorum yok: {sebep}"
+
+    govde = govde_kur(kod, bilgi["unvan"], sektor, donem, d, oran,
+                      medyan, n, metin)
+
+    tamam, bulgular = guvenlik.yayinlanabilir(govde)
+    if not tamam:
+        return False, f"güvenlik: {bulgular[0] if bulgular else '?'}"
+
+    if kuru:
+        return True, "kuru çalışma"
+    yol = yayin.yaz_sektorel(
+        govde=govde, sirket=bilgi["unvan"], kod=kod, donem=donem,
+        sektor=sektor,
+        kaynak="Çeyreklik mali tablolardan türetildi; sektör medyanı "
+               "Netaris hesabı")
+    return True, str(yol.name)
+
+
+def main() -> int:
+    a = argparse.ArgumentParser(description=__doc__)
+    a.add_argument("--sinir", type=int, default=VARSAYILAN_SINIR)
+    a.add_argument("--sektor")
+    a.add_argument("--kuru-calis", action="store_true")
+    n = a.parse_args()
+
+    if not OZET.exists():
+        print(f"{OZET} yok -- önce uret_bilanco.py çalışmalı.")
+        return 1
+    ozet = json.loads(OZET.read_text(encoding="utf-8"))
+    defter = json.loads(DEFTER.read_text(encoding="utf-8"))["sirketler"]
+
+    # TEKRAR URETMIYOR: sayfasi olan sirketi atla.
+    var = {p.stem for p in SITE.glob("*.md")} if SITE.exists() else set()
+
+    yazilan = atlanan = 0
+    for sektor, v in sorted(ozet.items()):
+        if n.sektor and sektor != n.sektor:
+            continue
+        for kod, oran in sorted(v["sirket"].items()):
+            if yazilan >= n.sinir:
+                print(f"\nsınıra ulaşıldı ({n.sinir})")
+                print(f"yazılan {yazilan}, atlanan {atlanan}")
+                return 0
+            bilgi = defter.get(kod)
+            if not bilgi:
+                continue
+            if any(kod.lower() in s for s in var):
+                atlanan += 1
+                continue
+            ok, not_ = sirket_isle(kod, bilgi, sektor, v["donem"], oran,
+                                   v["medyan"], v["sirket_sayisi"],
+                                   kuru=n.kuru_calis)
+            if ok:
+                yazilan += 1
+                print(f"  {kod:<8}{not_}")
+            else:
+                atlanan += 1
+                print(f"  {kod:<8}ATLANDI -- {not_}")
+
+    print(f"\nyazılan {yazilan}, atlanan {atlanan}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

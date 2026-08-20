@@ -134,6 +134,21 @@ def main() -> int:
         adimlar.append(("Bilanço (sektör → mali tablo → medyan)",
                         [str(BOT / "uret_bilanco.py"), "--hepsi"]))
 
+    # BILANCO SAYFALARI -- veri cekildikten SONRA.
+    #
+    # Sinir kucuk (varsayilan 5): 324 sirketi tek kosuda yayimlamak
+    # geri alinmasi zor bir islem ve 324 model cagrisi demek. Her
+    # kosuda birkac sayfa ekleniyor, hat kendini zamanla dolduruyor.
+    #
+    # Sayfasi olan sirket ATLANIYOR; ayni sayfayi yeniden yazmak ayni
+    # cagriyi ikinci kez odemek olurdu.
+    #
+    # YORUMSUZ SAYFA YAYIMLANMIYOR: AI saglayicisi yoksa adim sifir
+    # sayfa yazip gecmis oluyor -- hata degil, kural.
+    if "bilanco_sayfa" not in args.atla:
+        adimlar.append(("Bilanço sayfaları (tablo + AI yorumu)",
+                        [str(BOT / "uret_bilanco_sayfa.py")]))
+
     # Turkiye makro verisi. Anahtar yoksa adim kendini atlar.
     if "evds" not in args.atla:
         adimlar.append(("Türkiye makro (TCMB EVDS)",
