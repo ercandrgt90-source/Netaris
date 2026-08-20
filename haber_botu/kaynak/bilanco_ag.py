@@ -213,3 +213,100 @@ def ara_donem(kod: str, ceyrek: int = 2,
         cikti.setdefault("_donem", {})[sayfa] = donemler[:ceyrek]
         time.sleep(ARA_SN)
     return cikti
+
+# ---------------------------------------------------------------------
+# KALEM ESLESTIRMESI
+# ---------------------------------------------------------------------
+#
+# Kaynak Ingilizce etiket kullaniyor, hat (`analiz/oranlar.Donem`)
+# Turkce alan adlari bekliyor. Arada bire bir karsilik OLMADIGI icin
+# esleme tek tek yazildi ve muhasebe OZDESLIKLERIYLE dogrulandi
+# (bkz. `ozdeslik_denetimi`) -- kaynaktan bagimsiz tek gercek sinama
+# budur: bilanco tutuyorsa esleme dogrudur.
+#
+# (alan, sayfa, etiket)
+ESLESME = (
+    ("hasilat",                  "gelir",   "Revenue"),
+    ("brut_kar",                 "gelir",   "Gross Profit"),
+    ("faaliyet_kari",            "gelir",   "Operating Income"),
+    ("net_kar",                  "gelir",   "Net Income"),
+    ("aktif_toplami",            "bilanco", "Total Assets"),
+    ("ozkaynak",                 "bilanco", "Shareholders' Equity"),
+    ("donen_varliklar",          "bilanco", "Total Current Assets"),
+    ("kisa_vadeli_yukumlulukler","bilanco", "Total Current Liabilities"),
+    ("ticari_alacaklar",         "bilanco", "Accounts Receivable"),
+    ("stoklar",                  "bilanco", "Inventory"),
+)
+
+#: NET BORC ISARETI TERS. Kaynak "Net Cash (Debt)" yaziyor: POZITIF
+#: deger net NAKIT demek, negatif net BORC. Hattaki `net_borc` alani
+#: ise borcu POZITIF bekliyor. Isareti cevirmeden aktarmak, borclu
+#: sirketi nakit zengini gostermek olurdu -- yonu ters bir rakam,
+#: eksik rakamdan kotudur.
+NET_NAKIT_ETIKETI = "Net Cash (Debt)"
+
+#: FAVOK KAYNAKTA YOK, TURETILIYOR:
+#:     FAVOK = Faaliyet kari + Amortisman
+#: Amortisman nakit akis tablosunda. Ikisinden biri eksikse FAVOK
+#: URETILMIYOR -- yaklasik bir FAVOK, FAVOK degildir.
+AMORTISMAN_ETIKETI = "Depreciation & Amortization"
+
+
+def donemi_kur(tablolar: dict) -> dict:
+    """Cekilen tablolari hattin bekledigi alan adlarina cevirir."""
+    cikti: dict[str, float] = {}
+    for alan, sayfa, etiket in ESLESME:
+        d = (tablolar.get(sayfa) or {}).get(etiket)
+        if d is not None:
+            cikti[alan] = d
+
+    net_nakit = (tablolar.get("bilanco") or {}).get(NET_NAKIT_ETIKETI)
+    if net_nakit is not None:
+        cikti["net_borc"] = -net_nakit
+
+    amortisman = (tablolar.get("nakit") or {}).get(AMORTISMAN_ETIKETI)
+    if amortisman is not None and cikti.get("faaliyet_kari") is not None:
+        cikti["favok"] = cikti["faaliyet_kari"] + amortisman
+    return cikti
+
+
+def ozdeslik_denetimi(bilanco: dict, tolerans: float = 0.01) -> list[str]:
+    """Bilanco kendi icinde tutuyor mu? Bozulan ozdeslikleri doner.
+
+    ESLESMENIN DOGRULUGUNU KAYNAKTAN BAGIMSIZ SINAR. Bir etiketi
+    yanlis alana baglarsak toplamlar tutmaz; tutuyorsa esleme
+    dogrudur. Baska bir siteye "acaba ayni mi" diye sormaktan cok
+    daha guclu, cunku ikinci site de yanilabilir.
+
+    Tolerans ORANSAL: kaynak milyon cinsinden bes anlamli basamak
+    gosteriyor ve yuvarlama farki kacinilmaz.
+    """
+    hatalar: list[str] = []
+
+    def al(ad):
+        return bilanco.get(ad)
+
+    def karsilastir(ad, sol, sag):
+        if sol is None or sag is None:
+            return
+        buyuk = max(abs(sol), abs(sag), 1.0)
+        if abs(sol - sag) / buyuk > tolerans:
+            hatalar.append(
+                f"{ad}: {sol:,.0f} != {sag:,.0f} "
+                f"(fark %{abs(sol - sag) / buyuk * 100:.2f})")
+
+    varlik = al("Total Assets")
+    karsilastir("Varliklar = Kaynaklar", varlik, al("Total Liabilities & Equity"))
+
+    borc, ozkaynak = al("Total Liabilities"), al("Shareholders' Equity")
+    if borc is not None and ozkaynak is not None:
+        karsilastir("Varliklar = Borc + Ozkaynak", varlik, borc + ozkaynak)
+
+    ana, azinlik = al("Total Common Equity"), al("Minority Interest")
+    if ana is not None and azinlik is not None:
+        karsilastir("Ozkaynak = Ana ortaklik + Azinlik", ozkaynak, ana + azinlik)
+
+    donen, kvy = al("Total Current Assets"), al("Total Current Liabilities")
+    if donen is not None and kvy is not None:
+        karsilastir("Isletme sermayesi", al("Working Capital"), donen - kvy)
+    return hatalar
