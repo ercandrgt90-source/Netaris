@@ -175,7 +175,17 @@ def main() -> int:
             bilgi = defter.get(kod)
             if not bilgi:
                 continue
-            if any(kod.lower() in s for s in var):
+            # DONEME GORE ATLIYOR, SONSUZA DEK DEGIL.
+            #
+            # Once yalnizca koda bakiyordu: sirketin bir sayfasi varsa
+            # bir daha HIC uretilmiyordu. Yeni ceyrek geldiginde de
+            # atlanacakti -- yani "bir sonraki bilancolar" hic
+            # yayimlanmazdi. Sessiz bir kilit: hata vermeden, hicbir
+            # sey yapmadan.
+            #
+            # Artik kod VE donem birlikte araniyor.
+            damga = f"{kod.lower()}-{v['donem'].replace('/', '-')}"
+            if any(damga in s for s in var):
                 atlanan += 1
                 continue
             ok, not_ = sirket_isle(kod, bilgi, sektor, v["donem"], oran,

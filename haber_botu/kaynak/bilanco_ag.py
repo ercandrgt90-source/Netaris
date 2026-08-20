@@ -417,3 +417,49 @@ def donem_getir(kod: str, etiket: str, ceyrek: int = 2,
     if not tamam:
         return None, eksik
     return oranlar.Donem(etiket=etiket, **alanlar), []
+
+# ---------------------------------------------------------------------
+# DONEM TESPITI -- TAKVIMDEN DEGIL VERIDEN
+# ---------------------------------------------------------------------
+#
+# Hat once donemi ELLE aliyordu (`--donem 2026/6`). Kasim'da dokuz
+# aylik tablolar geldiginde yine alti aylik cekilirdi ve kimse fark
+# etmezdi: sayfa uretilirdi, rakamlar dogru olurdu, yalnizca ESKI
+# donem olurdu.
+#
+# Takvimden tahmin etmek de yanlis olurdu -- sirketler ayni gun
+# bildirmiyor; bazi sirket Kasim'in ilk gunu, bazisi son gunu
+# aciklar. Bir sirket icin "su an hangi donemdeyiz" sorusunun tek
+# dogru cevabi O SIRKETIN VERISINDE yaziyor.
+#
+# Kaynak donemi kendisi soyluyor: "Q2 2026". Buradan hem KAP
+# kumulatif etiketi ("2026/6") hem toplanacak ceyrek sayisi (2)
+# turuyor.
+_CEYREK = re.compile(r"Q([1-4])\s+(\d{4})")
+
+
+def donem_coz(etiket: str) -> tuple[int, int] | None:
+    """"Q2 2026" -> (2026, 2). Cozulemezse None."""
+    m = _CEYREK.search(etiket or "")
+    if not m:
+        return None
+    return int(m.group(2)), int(m.group(1))
+
+
+def kap_etiketi(yil: int, ceyrek: int) -> str:
+    """(2026, 3) -> "2026/9" -- KAP kumulatif donem adi."""
+    return f"{yil}/{ceyrek * 3}"
+
+
+def son_donem(kod: str, istemci=None) -> tuple[int, int] | None:
+    """Sirketin kaynaktaki EN YENI ceyregi. Bulunamazsa None.
+
+    Tek istek: gelir tablosunun donem basliklari yeterli. Bilanco ve
+    nakit tablolari ayni ceyrekleri kullaniyor.
+    """
+    donemler, _ = cek(kod, "gelir", istemci)
+    for d in donemler:
+        c = donem_coz(d)
+        if c:
+            return c
+    return None
