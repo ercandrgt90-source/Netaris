@@ -45,6 +45,36 @@ import bilanco_ag      # noqa: E402
 import oranlar         # noqa: E402
 import sektor_ozet     # noqa: E402
 
+#: KAP ARA DONEM BILDIRIM SINIRLARI (konsolide, aya gore).
+#:
+#: Sirketler mali tablolarini donem bitiminden sonra belli bir sure
+#: icinde bildiriyor. Hat her yarim saatte kosarsa AYNI veriyi tekrar
+#: tekrar cekip hicbir sey degistirmez; kaynaga yuk, bize maliyet.
+#:
+#: Bildirimlerin YOGUNLASTIGI aylar:
+#:   3 aylik  -> Mayis
+#:   6 aylik  -> Agustos
+#:   9 aylik  -> Kasim
+#:   12 aylik -> Mart
+#: Ayin tamamı acik birakildi: sirketler ayni gun bildirmiyor.
+BILDIRIM_AYLARI = {3: 12, 5: 3, 8: 6, 11: 9}
+
+
+def donem_acik(bugun=None) -> tuple[bool, str]:
+    """Bugun bilanco cekmenin anlamli oldugu bir ayda miyiz?
+
+    Doner: (acik_mi, aciklama). Kapaliyken de ACIKLAMA doner --
+    "neden calismadi" sorusu loga bakinca cevaplanabilsin.
+    """
+    import datetime as _dt
+    bugun = bugun or _dt.date.today()
+    ceyrek = BILDIRIM_AYLARI.get(bugun.month)
+    if ceyrek is None:
+        return False, (f"{bugun.month}. ay bildirim ayi degil "
+                       f"(bildirim aylari: {sorted(BILDIRIM_AYLARI)})")
+    return True, f"{ceyrek} aylik donem bildirimleri"
+
+
 DEFTER = _KOK / "kaynak" / "sirketler.json"
 HEDEF = _KOK / "kaynak" / "sektor_ozet.json"
 
@@ -155,10 +185,22 @@ def main() -> int:
     a.add_argument("--ceyrek", type=int, default=2)
     a.add_argument("--sinir", type=int, help="sektör başına en fazla şirket")
     a.add_argument("--kuru-calis", action="store_true", help="dosyaya yazma")
+    a.add_argument("--zorla", action="store_true",
+                   help="bildirim ayı olmasa da çalıştır")
     n = a.parse_args()
 
     if not n.sektor and not n.hepsi:
         a.error("--sektor ya da --hepsi gerekli")
+
+    # TAKVIM KAPISI. `--zorla` ile atlanabiliyor: elle calistirmak
+    # her zaman mumkun olmali, otomatik kosuda ise bosuna cekmemeli.
+    if not n.zorla:
+        acik, sebep = donem_acik()
+        if not acik:
+            print(f"bilanço hattı ATLANDI -- {sebep}")
+            print("elle çalıştırmak için: --zorla")
+            return 0
+        print(f"bildirim dönemi: {sebep}")
 
     if n.hepsi:
         sektorler = sorted({v["sektor_tr"] for v in _defter().values()

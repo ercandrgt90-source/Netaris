@@ -119,6 +119,21 @@ def main() -> int:
         adimlar.append(("Veri doğrulama (depo ↔ kaynak)",
                         [str(BOT / "veri_dogrula.py"), "--duzelt"]))
 
+    # BILANCO HATTI -- KENDI TAKVIMINE GORE.
+    #
+    # Adim her kosuda cagriliyor ama `uret_bilanco` icindeki takvim
+    # kapisi bildirim ayi degilse hemen donuyor. Sirketler mali
+    # tablolarini yilda dort kez bildiriyor; hattin yarim saatte bir
+    # ~1000 istek atmasi hem kaynaga yuk hem bize maliyet, ve HICBIR
+    # SEY degistirmez.
+    #
+    # Kapiyi burada degil modulde tutmanin sebebi: elle calistirmak
+    # (`--zorla`) ile otomatik kosu ayni kodu kullansin. Iki yerde iki
+    # takvim, bir gun ayrisir.
+    if "bilanco" not in args.atla:
+        adimlar.append(("Bilanço (sektör → mali tablo → medyan)",
+                        [str(BOT / "uret_bilanco.py"), "--hepsi"]))
+
     # Turkiye makro verisi. Anahtar yoksa adim kendini atlar.
     if "evds" not in args.atla:
         adimlar.append(("Türkiye makro (TCMB EVDS)",
