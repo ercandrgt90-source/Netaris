@@ -188,12 +188,57 @@ def _yayimlanmis() -> set[tuple[str, str]]:
     return cikti
 
 
+def _dokum(sebepler: dict[str, int]) -> None:
+    """Atlama sebeplerini SIKLIGA gore dok.
+
+    Ozet satiri "kac tane" diyor, bu "neden" diyor -- ve ilki tek
+    basina yaniltici olabiliyor. "atlanan 325" hem "hepsi zaten
+    yayimlanmis" hem "hicbiri uretilemedi" anlamina gelebilir;
+    aralarindaki fark ise her sey demek.
+
+    2026-08-20'de tam bu yasandi: kosu "yazilan 0, atlanan 325" ile
+    bitti ve sebebi 325 satiri tek tek okumadan anlasilmadi.
+    """
+    if not sebepler:
+        return
+    print("sebep dökümü:")
+    for tur, n in sorted(sebepler.items(), key=lambda x: -x[1]):
+        print(f"  {n:>4}  {tur}")
+
+
 def main() -> int:
     a = argparse.ArgumentParser(description=__doc__)
     a.add_argument("--sinir", type=int, default=VARSAYILAN_SINIR)
     a.add_argument("--sektor")
     a.add_argument("--kuru-calis", action="store_true")
     n = a.parse_args()
+
+    # SAGLAYICI DURUMU EN BASTA, TEK SATIRDA.
+    #
+    # NEDEN VAR. 2026-08-20'de kosu "yazilan 0, atlanan 325" ile bitti
+    # ve sebebi log'dan OKUNAMADI: ozet satiri kac sayfa yazildigini
+    # soyluyor ama NEDEN yazilmadigini soylemiyordu. Sebebi ogrenmek
+    # icin 325 satirin arasindan tek tek okumak gerekiyordu.
+    #
+    # "Ne oldu" ile "neden oldu" ayri sorular; ozet yalnizca ilkini
+    # cevapliyordu. Simdi ikisi de basta yaziyor.
+    #
+    # DEGER DEGIL VARLIK yaziliyor. Anahtarin kendisi log'a asla
+    # dusmemeli -- log'lar paylasilir, ekran goruntusu alinir.
+    import os                                          # noqa: PLC0415
+    sys.path.insert(0, str(_KOK / "ai"))
+    import yorumcu                                     # noqa: PLC0415
+    s = yorumcu.saglayici()
+    if s:
+        print(f"AI sağlayıcı: {s}")
+    else:
+        eksik = [ad for ad in ("ANTHROPIC_API_KEY", "CLOUDFLARE_API_TOKEN",
+                               "CLOUDFLARE_ACCOUNT_ID")
+                 if not os.environ.get(ad, "").strip()]
+        print("AI sağlayıcı: YOK -- hiçbir sayfa yazılmayacak.")
+        print(f"  tanımsız değişken: {', '.join(eksik)}")
+        print("  (Anthropic için ANTHROPIC_API_KEY; ya da Workers AI "
+              "için CLOUDFLARE_API_TOKEN + CLOUDFLARE_ACCOUNT_ID)")
 
     if not OZET.exists():
         print(f"{OZET} yok -- önce uret_bilanco.py çalışmalı.")
@@ -204,6 +249,10 @@ def main() -> int:
     var = _yayimlanmis()
 
     yazilan = atlanan = 0
+    # SEBEP SAYIMI. Ozetin altinda "hangi sebepten kac tane" yaziyor.
+    # 325 satiri okumak yerine uc satir okunuyor; ve sebepler
+    # SIRALANIYOR, en cok goruleni once.
+    sebepler: dict[str, int] = {}
     for sektor, v in sorted(ozet.items()):
         if n.sektor and sektor != n.sektor:
             continue
@@ -211,6 +260,7 @@ def main() -> int:
             if yazilan >= n.sinir:
                 print(f"\nsınıra ulaşıldı ({n.sinir})")
                 print(f"yazılan {yazilan}, atlanan {atlanan}")
+                _dokum(sebepler)
                 return 0
             bilgi = defter.get(kod)
             if not bilgi:
@@ -227,6 +277,8 @@ def main() -> int:
             # (bkz. `_yayimlanmis`).
             if (kod.upper(), v["donem"]) in var:
                 atlanan += 1
+                sebepler["zaten yayımlanmış"] = \
+                    sebepler.get("zaten yayımlanmış", 0) + 1
                 continue
             ok, not_ = sirket_isle(kod, bilgi, sektor, v["donem"], oran,
                                    v["medyan"], v["sirket_sayisi"],
@@ -236,9 +288,16 @@ def main() -> int:
                 print(f"  {kod:<8}{not_}")
             else:
                 atlanan += 1
+                # Sebebi TURUNE gore topla: ":" sonrasi sirkete ozel
+                # ayrinti (hangi kalem eksik), oncesi TUR. Ayrintiyi da
+                # saysaydik 325 ayri "sebep" cikar ve dokum ozet olmaktan
+                # cikip ikinci bir liste olurdu.
+                sebepler[not_.split(":")[0].strip() or not_] = \
+                    sebepler.get(not_.split(":")[0].strip() or not_, 0) + 1
                 print(f"  {kod:<8}ATLANDI -- {not_}")
 
     print(f"\nyazılan {yazilan}, atlanan {atlanan}")
+    _dokum(sebepler)
     return 0
 
 
