@@ -1,0 +1,3531 @@
+{
+ "kaynak": "stockanalysis.com",
+ "sema": "GICS benzeri (BIST endeks siniflandirmasi DEGIL)",
+ "sirket": {
+  "A1CAP": {
+   "sektor": "Financials",
+   "sektor_tr": "Finans",
+   "alt_sektor": "Capital Markets"
+  },
+  "A1YEN": {
+   "sektor": "Utilities",
+   "sektor_tr": "Kamu hizmetleri",
+   "alt_sektor": "Utilities - Renewable"
+  },
+  "ACSEL": {
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Chemicals"
+  },
+  "ADEL": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Business Equipment & Supplies"
+  },
+  "ADESE": {
+   "sektor": "Real Estate",
+   "sektor_tr": "Gayrimenkul",
+   "alt_sektor": "Real Estate - Diversified"
+  },
+  "ADGYO": {
+   "sektor": "Real Estate",
+   "sektor_tr": "Gayrimenkul",
+   "alt_sektor": "REIT - Residential"
+  },
+  "AEFES": {
+   "sektor": "Consumer Staples",
+   "sektor_tr": "Temel tüketim",
+   "alt_sektor": "Beverages - Non-Alcoholic"
+  },
+  "AFYON": {
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Building Materials"
+  },
+  "AGESA": {
+   "sektor": "Financials",
+   "sektor_tr": "Finans",
+   "alt_sektor": "Insurance - Diversified"
+  },
+  "AGHOL": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Conglomerates"
+  },
+  "AGROT": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Conglomerates"
+  },
+  "AGYO": {
+   "sektor": "Real Estate",
+   "sektor_tr": "Gayrimenkul",
+   "alt_sektor": "REIT - Retail"
+  },
+  "AHGAZ": {
+   "sektor": "Utilities",
+   "sektor_tr": "Kamu hizmetleri",
+   "alt_sektor": "Utilities - Regulated Gas"
+  },
+  "AHSGY": {
+   "sektor": "Real Estate",
+   "sektor_tr": "Gayrimenkul",
+   "alt_sektor": "REIT - Diversified"
+  },
+  "AKBNK": {
+   "sektor": "Financials",
+   "sektor_tr": "Finans",
+   "alt_sektor": "Banks - Regional"
+  },
+  "AKCNS": {
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Building Materials"
+  },
+  "AKENR": {
+   "sektor": "Utilities",
+   "sektor_tr": "Kamu hizmetleri",
+   "alt_sektor": "Utilities - Regulated Electric"
+  },
+  "AKFGY": {
+   "sektor": "Real Estate",
+   "sektor_tr": "Gayrimenkul",
+   "alt_sektor": "REIT - Hotel & Motel"
+  },
+  "AKFYE": {
+   "sektor": "Utilities",
+   "sektor_tr": "Kamu hizmetleri",
+   "alt_sektor": "Utilities - Renewable"
+  },
+  "AKGRT": {
+   "sektor": "Financials",
+   "sektor_tr": "Finans",
+   "alt_sektor": "Insurance - Diversified"
+  },
+  "AKHAN": {
+   "sektor": "Consumer Staples",
+   "sektor_tr": "Temel tüketim",
+   "alt_sektor": "Packaged Foods"
+  },
+  "AKMGY": {
+   "sektor": "Real Estate",
+   "sektor_tr": "Gayrimenkul",
+   "alt_sektor": "REIT - Retail"
+  },
+  "AKSA": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Textile Manufacturing"
+  },
+  "AKSEN": {
+   "sektor": "Utilities",
+   "sektor_tr": "Kamu hizmetleri",
+   "alt_sektor": "Utilities - Independent Power Producers"
+  },
+  "AKSGY": {
+   "sektor": "Real Estate",
+   "sektor_tr": "Gayrimenkul",
+   "alt_sektor": "REIT - Diversified"
+  },
+  "AKSUE": {
+   "sektor": "Utilities",
+   "sektor_tr": "Kamu hizmetleri",
+   "alt_sektor": "Utilities - Renewable"
+  },
+  "AKYHO": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Security & Protection Services"
+  },
+  "ALARK": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Conglomerates"
+  },
+  "ALBRK": {
+   "sektor": "Financials",
+   "sektor_tr": "Finans",
+   "alt_sektor": "Banks - Regional"
+  },
+  "ALCAR": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Specialty Industrial Machinery"
+  },
+  "ALCTL": {
+   "sektor": "Technology",
+   "sektor_tr": "Bilişim",
+   "alt_sektor": "Communication Equipment"
+  },
+  "ALFAS": {
+   "sektor": "Technology",
+   "sektor_tr": "Bilişim",
+   "alt_sektor": "Solar"
+  },
+  "ALGYO": {
+   "sektor": "Real Estate",
+   "sektor_tr": "Gayrimenkul",
+   "alt_sektor": "REIT - Diversified"
+  },
+  "ALKA": {
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Paper & Paper Products"
+  },
+  "ALKIM": {
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Paper & Paper Products"
+  },
+  "ALKLC": {
+   "sektor": "Consumer Staples",
+   "sektor_tr": "Temel tüketim",
+   "alt_sektor": "Packaged Foods"
+  },
+  "ALTNY": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Aerospace & Defense"
+  },
+  "ALVES": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Electrical Equipment & Parts"
+  },
+  "ANELE": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Engineering & Construction"
+  },
+  "ANGEN": {
+   "sektor": "Healthcare",
+   "sektor_tr": "Sağlık",
+   "alt_sektor": "Medical Devices"
+  },
+  "ANHYT": {
+   "sektor": "Financials",
+   "sektor_tr": "Finans",
+   "alt_sektor": "Insurance - Life"
+  },
+  "ANSGR": {
+   "sektor": "Financials",
+   "sektor_tr": "Finans",
+   "alt_sektor": "Insurance - Diversified"
+  },
+  "ARASE": {
+   "sektor": "Utilities",
+   "sektor_tr": "Kamu hizmetleri",
+   "alt_sektor": "Utilities - Independent Power Producers"
+  },
+  "ARCLK": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Furnishings, Fixtures & Appliances"
+  },
+  "ARDYZ": {
+   "sektor": "Technology",
+   "sektor_tr": "Bilişim",
+   "alt_sektor": "Software - Infrastructure"
+  },
+  "ARENA": {
+   "sektor": "Technology",
+   "sektor_tr": "Bilişim",
+   "alt_sektor": "Electronics & Computer Distribution"
+  },
+  "ARSAN": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Engineering & Construction"
+  },
+  "ARTMS": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Textile Manufacturing"
+  },
+  "ARZUM": {
+   "sektor": "Technology",
+   "sektor_tr": "Bilişim",
+   "alt_sektor": "Consumer Electronics"
+  },
+  "ASELS": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Aerospace & Defense"
+  },
+  "ASGYO": {
+   "sektor": "Real Estate",
+   "sektor_tr": "Gayrimenkul",
+   "alt_sektor": "Real Estate - Development"
+  },
+  "ASTOR": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Electrical Equipment & Parts"
+  },
+  "ASUZU": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Auto Manufacturers"
+  },
+  "ATAGY": {
+   "sektor": "Real Estate",
+   "sektor_tr": "Gayrimenkul",
+   "alt_sektor": "REIT - Diversified"
+  },
+  "ATAKP": {
+   "sektor": "Consumer Staples",
+   "sektor_tr": "Temel tüketim",
+   "alt_sektor": "Packaged Foods"
+  },
+  "ATATP": {
+   "sektor": "Technology",
+   "sektor_tr": "Bilişim",
+   "alt_sektor": "Software - Infrastructure"
+  },
+  "ATEKS": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Textile Manufacturing"
+  },
+  "ATLAS": {
+   "sektor": "Financials",
+   "sektor_tr": "Finans",
+   "alt_sektor": "Capital Markets"
+  },
+  "ATSYH": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Apparel Manufacturing"
+  },
+  "AVGYO": {
+   "sektor": "Real Estate",
+   "sektor_tr": "Gayrimenkul",
+   "alt_sektor": "REIT - Specialty"
+  },
+  "AVHOL": {
+   "sektor": "Financials",
+   "sektor_tr": "Finans",
+   "alt_sektor": "Asset Management"
+  },
+  "AVOD": {
+   "sektor": "Consumer Staples",
+   "sektor_tr": "Temel tüketim",
+   "alt_sektor": "Packaged Foods"
+  },
+  "AVPGY": {
+   "sektor": "Real Estate",
+   "sektor_tr": "Gayrimenkul",
+   "alt_sektor": "Real Estate - Diversified"
+  },
+  "AVTUR": {
+   "sektor": "Financials",
+   "sektor_tr": "Finans",
+   "alt_sektor": "Asset Management"
+  },
+  "AYCES": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Resorts & Casinos"
+  },
+  "AYDEM": {
+   "sektor": "Utilities",
+   "sektor_tr": "Kamu hizmetleri",
+   "alt_sektor": "Utilities - Renewable"
+  },
+  "AYEN": {
+   "sektor": "Utilities",
+   "sektor_tr": "Kamu hizmetleri",
+   "alt_sektor": "Utilities - Renewable"
+  },
+  "AYES": {
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Steel"
+  },
+  "AYGAZ": {
+   "sektor": "Utilities",
+   "sektor_tr": "Kamu hizmetleri",
+   "alt_sektor": "Utilities - Regulated Gas"
+  },
+  "AZTEK": {
+   "sektor": "Technology",
+   "sektor_tr": "Bilişim",
+   "alt_sektor": "Electronics & Computer Distribution"
+  },
+  "BAGFS": {
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Agricultural Inputs"
+  },
+  "BAHKM": {
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Chemicals"
+  },
+  "BAKAB": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Packaging & Containers"
+  },
+  "BALAT": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Auto Parts"
+  },
+  "BALSU": {
+   "sektor": "Consumer Staples",
+   "sektor_tr": "Temel tüketim",
+   "alt_sektor": "Packaged Foods"
+  },
+  "BANVT": {
+   "sektor": "Consumer Staples",
+   "sektor_tr": "Temel tüketim",
+   "alt_sektor": "Packaged Foods"
+  },
+  "BARMA": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Packaging & Containers"
+  },
+  "BASCM": {
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Building Materials"
+  },
+  "BASGZ": {
+   "sektor": "Utilities",
+   "sektor_tr": "Kamu hizmetleri",
+   "alt_sektor": "Utilities - Regulated Gas"
+  },
+  "BAYRK": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Footwear & Accessories"
+  },
+  "BEGYO": {
+   "sektor": "Real Estate",
+   "sektor_tr": "Gayrimenkul",
+   "alt_sektor": "Real Estate - Development"
+  },
+  "BERA": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Conglomerates"
+  },
+  "BESLR": {
+   "sektor": "Consumer Staples",
+   "sektor_tr": "Temel tüketim",
+   "alt_sektor": "Packaged Foods"
+  },
+  "BESTE": {
+   "sektor": "Utilities",
+   "sektor_tr": "Kamu hizmetleri",
+   "alt_sektor": "Utilities - Renewable"
+  },
+  "BEYAZ": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Rental & Leasing Services"
+  },
+  "BFREN": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Auto Parts"
+  },
+  "BIENY": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Building Products & Equipment"
+  },
+  "BIGCH": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Restaurants"
+  },
+  "BIGEN": {
+   "sektor": "Utilities",
+   "sektor_tr": "Kamu hizmetleri",
+   "alt_sektor": "Utilities - Renewable"
+  },
+  "BIGTK": {
+   "sektor": "Communication Services",
+   "sektor_tr": "İletişim",
+   "alt_sektor": "Publishing"
+  },
+  "BIMAS": {
+   "sektor": "Consumer Staples",
+   "sektor_tr": "Temel tüketim",
+   "alt_sektor": "Grocery Stores"
+  },
+  "BINBN": {
+   "sektor": "Technology",
+   "sektor_tr": "Bilişim",
+   "alt_sektor": "Information Technology Services"
+  },
+  "BINHO": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Conglomerates"
+  },
+  "BIOEN": {
+   "sektor": "Utilities",
+   "sektor_tr": "Kamu hizmetleri",
+   "alt_sektor": "Utilities - Renewable"
+  },
+  "BIZIM": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Department Stores"
+  },
+  "BJKAS": {
+   "sektor": "Communication Services",
+   "sektor_tr": "İletişim",
+   "alt_sektor": "Entertainment"
+  },
+  "BLCYT": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Textile Manufacturing"
+  },
+  "BMSCH": {
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Steel"
+  },
+  "BMSTL": {
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Steel"
+  },
+  "BNTAS": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Packaging & Containers"
+  },
+  "BOBET": {
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Building Materials"
+  },
+  "BORLS": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Rental & Leasing Services"
+  },
+  "BORSK": {
+   "sektor": "Consumer Staples",
+   "sektor_tr": "Temel tüketim",
+   "alt_sektor": "Confectioners"
+  },
+  "BOSSA": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Textile Manufacturing"
+  },
+  "BRISA": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Auto Parts"
+  },
+  "BRKO": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Textile Manufacturing"
+  },
+  "BRKSN": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Conglomerates"
+  },
+  "BRKVY": {
+   "sektor": "Financials",
+   "sektor_tr": "Finans",
+   "alt_sektor": "Asset Management"
+  },
+  "BRLSM": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Engineering & Construction"
+  },
+  "BRMEN": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Textile Manufacturing"
+  },
+  "BRSAN": {
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Steel"
+  },
+  "BRYAT": {
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Steel"
+  },
+  "BSOKE": {
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Building Materials"
+  },
+  "BTCIM": {
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Building Materials"
+  },
+  "BUCIM": {
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Building Materials"
+  },
+  "BULGS": {
+   "sektor": "Financials",
+   "sektor_tr": "Finans",
+   "alt_sektor": "Capital Markets"
+  },
+  "BURCE": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Specialty Industrial Machinery"
+  },
+  "BURVA": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Metal Fabrication"
+  },
+  "BVSAN": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Farm & Heavy Construction Machinery"
+  },
+  "BYDNR": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Restaurants"
+  },
+  "CANTE": {
+   "sektor": "Utilities",
+   "sektor_tr": "Kamu hizmetleri",
+   "alt_sektor": "Utilities - Independent Power Producers"
+  },
+  "CASA": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Specialty Retail"
+  },
+  "CATES": {
+   "sektor": "Utilities",
+   "sektor_tr": "Kamu hizmetleri",
+   "alt_sektor": "Utilities - Independent Power Producers"
+  },
+  "CCOLA": {
+   "sektor": "Consumer Staples",
+   "sektor_tr": "Temel tüketim",
+   "alt_sektor": "Beverages - Non-Alcoholic"
+  },
+  "CELHA": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Metal Fabrication"
+  },
+  "CEMAS": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Metal Fabrication"
+  },
+  "CEMTS": {
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Steel"
+  },
+  "CEMZY": {
+   "sektor": "Consumer Staples",
+   "sektor_tr": "Temel tüketim",
+   "alt_sektor": "Farm Products"
+  },
+  "CEOEM": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Specialty Business Services"
+  },
+  "CGCAM": {
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Building Materials"
+  },
+  "CIMSA": {
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Building Materials"
+  },
+  "CLEBI": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Airports & Air Services"
+  },
+  "CMBTN": {
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Building Materials"
+  },
+  "CMENT": {
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Building Materials"
+  },
+  "CONSE": {
+   "sektor": "Utilities",
+   "sektor_tr": "Kamu hizmetleri",
+   "alt_sektor": "Utilities - Renewable"
+  },
+  "COSMO": {
+   "sektor": "Financials",
+   "sektor_tr": "Finans",
+   "alt_sektor": "Asset Management"
+  },
+  "CRDFA": {
+   "sektor": "Financials",
+   "sektor_tr": "Finans",
+   "alt_sektor": "Credit Services"
+  },
+  "CRFSA": {
+   "sektor": "Consumer Staples",
+   "sektor_tr": "Temel tüketim",
+   "alt_sektor": "Grocery Stores"
+  },
+  "CUSAN": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Building Products & Equipment"
+  },
+  "CVKMD": {
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Other Industrial Metals & Mining"
+  },
+  "CWENE": {
+   "sektor": "Technology",
+   "sektor_tr": "Bilişim",
+   "alt_sektor": "Solar"
+  },
+  "DAGI": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Apparel Manufacturing"
+  },
+  "DAPGM": {
+   "sektor": "Real Estate",
+   "sektor_tr": "Gayrimenkul",
+   "alt_sektor": "Real Estate - Development"
+  },
+  "DARDL": {
+   "sektor": "Consumer Staples",
+   "sektor_tr": "Temel tüketim",
+   "alt_sektor": "Packaged Foods"
+  },
+  "DCTTR": {
+   "sektor": "Financials",
+   "sektor_tr": "Finans",
+   "alt_sektor": "Capital Markets"
+  },
+  "DENGE": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Integrated Freight & Logistics"
+  },
+  "DERHL": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Apparel Manufacturing"
+  },
+  "DERIM": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Footwear & Accessories"
+  },
+  "DESA": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Footwear & Accessories"
+  },
+  "DESPC": {
+   "sektor": "Technology",
+   "sektor_tr": "Bilişim",
+   "alt_sektor": "Electronics & Computer Distribution"
+  },
+  "DEVA": {
+   "sektor": "Healthcare",
+   "sektor_tr": "Sağlık",
+   "alt_sektor": "Drug Manufacturers - Specialty & Generic"
+  },
+  "DGATE": {
+   "sektor": "Technology",
+   "sektor_tr": "Bilişim",
+   "alt_sektor": "Electronics & Computer Distribution"
+  },
+  "DGGYO": {
+   "sektor": "Real Estate",
+   "sektor_tr": "Gayrimenkul",
+   "alt_sektor": "REIT - Diversified"
+  },
+  "DGNMO": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Furnishings, Fixtures & Appliances"
+  },
+  "DIRIT": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Textile Manufacturing"
+  },
+  "DITAS": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Auto Parts"
+  },
+  "DMRGD": {
+   "sektor": "Consumer Staples",
+   "sektor_tr": "Temel tüketim",
+   "alt_sektor": "Packaged Foods"
+  },
+  "DMSAS": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Metal Fabrication"
+  },
+  "DNISI": {
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Specialty Chemicals"
+  },
+  "DOAS": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Auto & Truck Dealerships"
+  },
+  "DOCO": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Airports & Air Services"
+  },
+  "DOFER": {
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Steel"
+  },
+  "DOFRB": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Leisure"
+  },
+  "DOGUB": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Building Products & Equipment"
+  },
+  "DOHOL": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Conglomerates"
+  },
+  "DOKTA": {
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Steel"
+  },
+  "DSTKF": {
+   "sektor": "Financials",
+   "sektor_tr": "Finans",
+   "alt_sektor": "Capital Markets"
+  },
+  "DURDO": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Packaging & Containers"
+  },
+  "DURKN": {
+   "sektor": "Consumer Staples",
+   "sektor_tr": "Temel tüketim",
+   "alt_sektor": "Packaged Foods"
+  },
+  "DYOBY": {
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Specialty Chemicals"
+  },
+  "DZGYO": {
+   "sektor": "Real Estate",
+   "sektor_tr": "Gayrimenkul",
+   "alt_sektor": "REIT - Diversified"
+  },
+  "EBEBK": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Specialty Retail"
+  },
+  "ECILC": {
+   "sektor": "Healthcare",
+   "sektor_tr": "Sağlık",
+   "alt_sektor": "Drug Manufacturers - Specialty & Generic"
+  },
+  "ECZYT": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Conglomerates"
+  },
+  "EDATA": {
+   "sektor": "Technology",
+   "sektor_tr": "Bilişim",
+   "alt_sektor": "Information Technology Services"
+  },
+  "EDIP": {
+   "sektor": "Real Estate",
+   "sektor_tr": "Gayrimenkul",
+   "alt_sektor": "REIT - Diversified"
+  },
+  "EFOR": {
+   "sektor": "Consumer Staples",
+   "sektor_tr": "Temel tüketim",
+   "alt_sektor": "Farm Products"
+  },
+  "EGEEN": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Auto Parts"
+  },
+  "EGEGY": {
+   "sektor": "Real Estate",
+   "sektor_tr": "Gayrimenkul",
+   "alt_sektor": "Real Estate - Development"
+  },
+  "EGEPO": {
+   "sektor": "Healthcare",
+   "sektor_tr": "Sağlık",
+   "alt_sektor": "Medical Care Facilities"
+  },
+  "EGGUB": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Marine Shipping"
+  },
+  "EGPRO": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Building Products & Equipment"
+  },
+  "EGSER": {
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Building Materials"
+  },
+  "EKDMR": {
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Steel"
+  },
+  "EKGYO": {
+   "sektor": "Real Estate",
+   "sektor_tr": "Gayrimenkul",
+   "alt_sektor": "REIT - Residential"
+  },
+  "EKIZ": {
+   "sektor": "Consumer Staples",
+   "sektor_tr": "Temel tüketim",
+   "alt_sektor": "Household & Personal Products"
+  },
+  "EKOS": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Electrical Equipment & Parts"
+  },
+  "EKSUN": {
+   "sektor": "Consumer Staples",
+   "sektor_tr": "Temel tüketim",
+   "alt_sektor": "Packaged Foods"
+  },
+  "ELITE": {
+   "sektor": "Consumer Staples",
+   "sektor_tr": "Temel tüketim",
+   "alt_sektor": "Beverages - Non-Alcoholic"
+  },
+  "EMKEL": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Electrical Equipment & Parts"
+  },
+  "EMNIS": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Packaging & Containers"
+  },
+  "ENDAE": {
+   "sektor": "Utilities",
+   "sektor_tr": "Kamu hizmetleri",
+   "alt_sektor": "Utilities - Renewable"
+  },
+  "ENERY": {
+   "sektor": "Utilities",
+   "sektor_tr": "Kamu hizmetleri",
+   "alt_sektor": "Utilities - Regulated Gas"
+  },
+  "ENJSA": {
+   "sektor": "Utilities",
+   "sektor_tr": "Kamu hizmetleri",
+   "alt_sektor": "Utilities - Regulated Electric"
+  },
+  "ENKAI": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Engineering & Construction"
+  },
+  "ENSRI": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Textile Manufacturing"
+  },
+  "ENTRA": {
+   "sektor": "Utilities",
+   "sektor_tr": "Kamu hizmetleri",
+   "alt_sektor": "Utilities - Renewable"
+  },
+  "EPLAS": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Building Products & Equipment"
+  },
+  "ERBOS": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Metal Fabrication"
+  },
+  "ERCB": {
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Steel"
+  },
+  "EREGL": {
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Steel"
+  },
+  "ERSU": {
+   "sektor": "Consumer Staples",
+   "sektor_tr": "Temel tüketim",
+   "alt_sektor": "Packaged Foods"
+  },
+  "ESCAR": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Rental & Leasing Services"
+  },
+  "ESCOM": {
+   "sektor": "Technology",
+   "sektor_tr": "Bilişim",
+   "alt_sektor": "Information Technology Services"
+  },
+  "ESEN": {
+   "sektor": "Utilities",
+   "sektor_tr": "Kamu hizmetleri",
+   "alt_sektor": "Utilities - Renewable"
+  },
+  "ETILR": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Restaurants"
+  },
+  "ETYAT": {
+   "sektor": "Financials",
+   "sektor_tr": "Finans",
+   "alt_sektor": "Asset Management"
+  },
+  "EUHOL": {
+   "sektor": "Financials",
+   "sektor_tr": "Finans",
+   "alt_sektor": "Capital Markets"
+  },
+  "EUKYO": {
+   "sektor": "Financials",
+   "sektor_tr": "Finans",
+   "alt_sektor": "Asset Management"
+  },
+  "EUPWR": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Electrical Equipment & Parts"
+  },
+  "EUREN": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Building Products & Equipment"
+  },
+  "EUYO": {
+   "sektor": "Financials",
+   "sektor_tr": "Finans",
+   "alt_sektor": "Asset Management"
+  },
+  "EYGYO": {
+   "sektor": "Real Estate",
+   "sektor_tr": "Gayrimenkul",
+   "alt_sektor": "REIT - Diversified"
+  },
+  "FADE": {
+   "sektor": "Consumer Staples",
+   "sektor_tr": "Temel tüketim",
+   "alt_sektor": "Packaged Foods"
+  },
+  "FENER": {
+   "sektor": "Communication Services",
+   "sektor_tr": "İletişim",
+   "alt_sektor": "Entertainment"
+  },
+  "FLAP": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Travel Services"
+  },
+  "FMIZP": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Auto Parts"
+  },
+  "FONET": {
+   "sektor": "Healthcare",
+   "sektor_tr": "Sağlık",
+   "alt_sektor": "Health Information Services"
+  },
+  "FORMT": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Building Products & Equipment"
+  },
+  "FORTE": {
+   "sektor": "Technology",
+   "sektor_tr": "Bilişim",
+   "alt_sektor": "Software - Application"
+  },
+  "FRIGO": {
+   "sektor": "Consumer Staples",
+   "sektor_tr": "Temel tüketim",
+   "alt_sektor": "Packaged Foods"
+  },
+  "FRMPL": {
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Building Materials"
+  },
+  "FROTO": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Auto Manufacturers"
+  },
+  "FZLGY": {
+   "sektor": "Real Estate",
+   "sektor_tr": "Gayrimenkul",
+   "alt_sektor": "REIT - Residential"
+  },
+  "GARAN": {
+   "sektor": "Financials",
+   "sektor_tr": "Finans",
+   "alt_sektor": "Banks - Regional"
+  },
+  "GARFA": {
+   "sektor": "Financials",
+   "sektor_tr": "Finans",
+   "alt_sektor": "Credit Services"
+  },
+  "GEDIK": {
+   "sektor": "Financials",
+   "sektor_tr": "Finans",
+   "alt_sektor": "Capital Markets"
+  },
+  "GEDZA": {
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Specialty Chemicals"
+  },
+  "GENIL": {
+   "sektor": "Healthcare",
+   "sektor_tr": "Sağlık",
+   "alt_sektor": "Drug Manufacturers - Specialty & Generic"
+  },
+  "GENTS": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Furnishings, Fixtures & Appliances"
+  },
+  "GEREL": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Electrical Equipment & Parts"
+  },
+  "GESAN": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Engineering & Construction"
+  },
+  "IHLGM": {
+   "sektor": "Real Estate",
+   "sektor_tr": "Gayrimenkul",
+   "alt_sektor": "Real Estate - Diversified"
+  },
+  "IHYAY": {
+   "sektor": "Communication Services",
+   "sektor_tr": "İletişim",
+   "alt_sektor": "Publishing"
+  },
+  "IMASM": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Specialty Industrial Machinery"
+  },
+  "INDES": {
+   "sektor": "Technology",
+   "sektor_tr": "Bilişim",
+   "alt_sektor": "Electronics & Computer Distribution"
+  },
+  "INFO": {
+   "sektor": "Financials",
+   "sektor_tr": "Finans",
+   "alt_sektor": "Capital Markets"
+  },
+  "INGRM": {
+   "sektor": "Technology",
+   "sektor_tr": "Bilişim",
+   "alt_sektor": "Electronics & Computer Distribution"
+  },
+  "INTEK": {
+   "sektor": "Technology",
+   "sektor_tr": "Bilişim",
+   "alt_sektor": "Software - Application"
+  },
+  "INTEM": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Furnishings, Fixtures & Appliances"
+  },
+  "ISFIN": {
+   "sektor": "Financials",
+   "sektor_tr": "Finans",
+   "alt_sektor": "Credit Services"
+  },
+  "ISGYO": {
+   "sektor": "Real Estate",
+   "sektor_tr": "Gayrimenkul",
+   "alt_sektor": "REIT - Diversified"
+  },
+  "ISKPL": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Specialty Business Services"
+  },
+  "ISMEN": {
+   "sektor": "Financials",
+   "sektor_tr": "Finans",
+   "alt_sektor": "Capital Markets"
+  },
+  "ISSEN": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Packaging & Containers"
+  },
+  "JANTS": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Auto Parts"
+  },
+  "KAPLM": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Packaging & Containers"
+  },
+  "KAREL": {
+   "sektor": "Technology",
+   "sektor_tr": "Bilişim",
+   "alt_sektor": "Communication Equipment"
+  },
+  "KARSN": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Farm & Heavy Construction Machinery"
+  },
+  "KARTN": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Packaging & Containers"
+  },
+  "KATMR": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Farm & Heavy Construction Machinery"
+  },
+  "KOPOL": {
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Specialty Chemicals"
+  },
+  "KORDS": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Textile Manufacturing"
+  },
+  "KTSKR": {
+   "sektor": "Consumer Staples",
+   "sektor_tr": "Temel tüketim",
+   "alt_sektor": "Confectioners"
+  },
+  "MAKIM": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Specialty Industrial Machinery"
+  },
+  "MAKTK": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Tools & Accessories"
+  },
+  "MANAS": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Electrical Equipment & Parts"
+  },
+  "MARBL": {
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Building Materials"
+  },
+  "MARKA": {
+   "sektor": "Financials",
+   "sektor_tr": "Finans",
+   "alt_sektor": "Asset Management"
+  },
+  "MARTI": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Lodging"
+  },
+  "MAVI": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Apparel Retail"
+  },
+  "MEDTR": {
+   "sektor": "Healthcare",
+   "sektor_tr": "Sağlık",
+   "alt_sektor": "Medical Devices"
+  },
+  "MEGAP": {
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Specialty Chemicals"
+  },
+  "MEGMT": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Electrical Equipment & Parts"
+  },
+  "MEKAG": {
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Building Materials"
+  },
+  "MNDTR": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Packaging & Containers"
+  },
+  "NETAS": {
+   "sektor": "Technology",
+   "sektor_tr": "Bilişim",
+   "alt_sektor": "Communication Equipment"
+  },
+  "NIBAS": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Engineering & Construction"
+  },
+  "OZYSR": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Electrical Equipment & Parts"
+  },
+  "PAGYO": {
+   "sektor": "Real Estate",
+   "sektor_tr": "Gayrimenkul",
+   "alt_sektor": "REIT - Retail"
+  },
+  "PAMEL": {
+   "sektor": "Utilities",
+   "sektor_tr": "Kamu hizmetleri",
+   "alt_sektor": "Utilities - Renewable"
+  },
+  "PAPIL": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Building Products & Equipment"
+  },
+  "PARSN": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Auto Parts"
+  },
+  "PASEU": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Integrated Freight & Logistics"
+  },
+  "PATEK": {
+   "sektor": "Technology",
+   "sektor_tr": "Bilişim",
+   "alt_sektor": "Information Technology Services"
+  },
+  "PETKM": {
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Chemicals"
+  },
+  "PETUN": {
+   "sektor": "Consumer Staples",
+   "sektor_tr": "Temel tüketim",
+   "alt_sektor": "Packaged Foods"
+  },
+  "PGSUS": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Airlines"
+  },
+  "PINSU": {
+   "sektor": "Consumer Staples",
+   "sektor_tr": "Temel tüketim",
+   "alt_sektor": "Beverages - Non-Alcoholic"
+  },
+  "PKART": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Business Equipment & Supplies"
+  },
+  "PKENT": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Resorts & Casinos"
+  },
+  "PLTUR": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Rental & Leasing Services"
+  },
+  "PNLSN": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Building Products & Equipment"
+  },
+  "PNSUT": {
+   "sektor": "Consumer Staples",
+   "sektor_tr": "Temel tüketim",
+   "alt_sektor": "Packaged Foods"
+  },
+  "POLHO": {
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Specialty Chemicals"
+  },
+  "POLTK": {
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Specialty Chemicals"
+  },
+  "PRDGS": {
+   "sektor": "Financials",
+   "sektor_tr": "Finans",
+   "alt_sektor": "Asset Management"
+  },
+  "PRKME": {
+   "sektor": "Energy",
+   "sektor_tr": "Enerji",
+   "alt_sektor": "Thermal Coal"
+  },
+  "PRZMA": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Specialty Business Services"
+  },
+  "PSDTC": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Conglomerates"
+  },
+  "PSGYO": {
+   "sektor": "Real Estate",
+   "sektor_tr": "Gayrimenkul",
+   "alt_sektor": "REIT - Diversified"
+  },
+  "RGYAS": {
+   "sektor": "Real Estate",
+   "sektor_tr": "Gayrimenkul",
+   "alt_sektor": "Real Estate - Development"
+  },
+  "RNPOL": {
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Specialty Chemicals"
+  },
+  "RODRG": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Apparel Manufacturing"
+  },
+  "RTALB": {
+   "sektor": "Healthcare",
+   "sektor_tr": "Sağlık",
+   "alt_sektor": "Biotechnology"
+  },
+  "RUBNS": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Textile Manufacturing"
+  },
+  "RUZYE": {
+   "sektor": "Energy",
+   "sektor_tr": "Enerji",
+   "alt_sektor": "Thermal Coal"
+  },
+  "RYGYO": {
+   "sektor": "Real Estate",
+   "sektor_tr": "Gayrimenkul",
+   "alt_sektor": "REIT - Industrial"
+  },
+  "RYSAS": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Integrated Freight & Logistics"
+  },
+  "SAFKR": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Auto Parts"
+  },
+  "SAHOL": {
+   "sektor": "Financials",
+   "sektor_tr": "Finans",
+   "alt_sektor": "Banks - Regional"
+  },
+  "SAMAT": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Specialty Business Services"
+  },
+  "SANEL": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Electrical Equipment & Parts"
+  },
+  "SANFM": {
+   "sektor": "Consumer Staples",
+   "sektor_tr": "Temel tüketim",
+   "alt_sektor": "Household & Personal Products"
+  },
+  "SANKO": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Textile Manufacturing"
+  },
+  "SARKY": {
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Copper"
+  },
+  "SASA": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Textile Manufacturing"
+  },
+  "SAYAS": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Engineering & Construction"
+  },
+  "SDTTR": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Aerospace & Defense"
+  },
+  "SEGMN": {
+   "sektor": "Consumer Staples",
+   "sektor_tr": "Temel tüketim",
+   "alt_sektor": "Packaged Foods"
+  },
+  "SEGYO": {
+   "sektor": "Real Estate",
+   "sektor_tr": "Gayrimenkul",
+   "alt_sektor": "REIT - Diversified"
+  },
+  "SKTAS": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Textile Manufacturing"
+  },
+  "SUMAS": {
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Lumber & Wood Production"
+  },
+  "SUNTK": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Apparel Manufacturing"
+  },
+  "SURGY": {
+   "sektor": "Real Estate",
+   "sektor_tr": "Gayrimenkul",
+   "alt_sektor": "Real Estate - Development"
+  },
+  "SUWEN": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Apparel Manufacturing"
+  },
+  "SVGYO": {
+   "sektor": "Real Estate",
+   "sektor_tr": "Gayrimenkul",
+   "alt_sektor": "Real Estate - Development"
+  },
+  "TABGD": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Restaurants"
+  },
+  "TDGYO": {
+   "sektor": "Real Estate",
+   "sektor_tr": "Gayrimenkul",
+   "alt_sektor": "Real Estate - Diversified"
+  },
+  "TMPOL": {
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Specialty Chemicals"
+  },
+  "TMSN": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Farm & Heavy Construction Machinery"
+  },
+  "TNZTP": {
+   "sektor": "Healthcare",
+   "sektor_tr": "Sağlık",
+   "alt_sektor": "Medical Care Facilities"
+  },
+  "TOASO": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Auto Manufacturers"
+  },
+  "TSKB": {
+   "sektor": "Financials",
+   "sektor_tr": "Finans",
+   "alt_sektor": "Banks - Regional"
+  },
+  "TSPOR": {
+   "sektor": "Communication Services",
+   "sektor_tr": "İletişim",
+   "alt_sektor": "Entertainment"
+  },
+  "TTKOM": {
+   "sektor": "Communication Services",
+   "sektor_tr": "İletişim",
+   "alt_sektor": "Telecom Services"
+  },
+  "TTRAK": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Farm & Heavy Construction Machinery"
+  },
+  "TUCLK": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Metal Fabrication"
+  },
+  "TUKAS": {
+   "sektor": "Consumer Staples",
+   "sektor_tr": "Temel tüketim",
+   "alt_sektor": "Packaged Foods"
+  },
+  "TUPRS": {
+   "sektor": "Energy",
+   "sektor_tr": "Enerji",
+   "alt_sektor": "Oil & Gas Refining & Marketing"
+  },
+  "TUREX": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Railroads"
+  },
+  "TURGG": {
+   "sektor": "Real Estate",
+   "sektor_tr": "Gayrimenkul",
+   "alt_sektor": "Real Estate - Development"
+  },
+  "TURSG": {
+   "sektor": "Financials",
+   "sektor_tr": "Finans",
+   "alt_sektor": "Insurance - Property & Casualty"
+  },
+  "VERUS": {
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Specialty Chemicals"
+  },
+  "VESBE": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Furnishings, Fixtures & Appliances"
+  },
+  "VESTL": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Furnishings, Fixtures & Appliances"
+  },
+  "VKFYO": {
+   "sektor": "Financials",
+   "sektor_tr": "Finans",
+   "alt_sektor": "Asset Management"
+  },
+  "VKGYO": {
+   "sektor": "Real Estate",
+   "sektor_tr": "Gayrimenkul",
+   "alt_sektor": "REIT - Diversified"
+  },
+  "VKING": {
+   "sektor": "Consumer Staples",
+   "sektor_tr": "Temel tüketim",
+   "alt_sektor": "Household & Personal Products"
+  },
+  "VRGYO": {
+   "sektor": "Real Estate",
+   "sektor_tr": "Gayrimenkul",
+   "alt_sektor": "REIT - Diversified"
+  },
+  "VSNMD": {
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Building Materials"
+  },
+  "YAPRK": {
+   "sektor": "Consumer Staples",
+   "sektor_tr": "Temel tüketim",
+   "alt_sektor": "Farm Products"
+  },
+  "YATAS": {
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Furnishings, Fixtures & Appliances"
+  },
+  "YGGYO": {
+   "sektor": "Real Estate",
+   "sektor_tr": "Gayrimenkul",
+   "alt_sektor": "REIT - Retail"
+  },
+  "YIGIT": {
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Electrical Equipment & Parts"
+  },
+  "ZOREN": {
+   "sektor": "Utilities",
+   "sektor_tr": "Kamu hizmetleri",
+   "alt_sektor": "Utilities - Renewable"
+  },
+  "ZRGYO": {
+   "sektor": "Real Estate",
+   "sektor_tr": "Gayrimenkul",
+   "alt_sektor": "REIT - Diversified"
+  }
+ },
+ "okunamayan": [
+  [
+   "AAGYO",
+   "sektor alani yok"
+  ],
+  [
+   "ACP",
+   "HTTPStatusError"
+  ],
+  [
+   "ADB",
+   "HTTPStatusError"
+  ],
+  [
+   "ADBNK",
+   "HTTPStatusError"
+  ],
+  [
+   "ADLVY",
+   "HTTPStatusError"
+  ],
+  [
+   "AFB",
+   "HTTPStatusError"
+  ],
+  [
+   "AKCVR",
+   "HTTPStatusError"
+  ],
+  [
+   "AKDFA",
+   "HTTPStatusError"
+  ],
+  [
+   "AKFIS",
+   "sektor alani yok"
+  ],
+  [
+   "AKFK",
+   "HTTPStatusError"
+  ],
+  [
+   "AKM",
+   "HTTPStatusError"
+  ],
+  [
+   "AKMEN",
+   "HTTPStatusError"
+  ],
+  [
+   "AKSFA",
+   "HTTPStatusError"
+  ],
+  [
+   "AKTIF",
+   "HTTPStatusError"
+  ],
+  [
+   "AKTVK",
+   "HTTPStatusError"
+  ],
+  [
+   "ALBTN",
+   "sektor alani yok"
+  ],
+  [
+   "ALJF",
+   "HTTPStatusError"
+  ],
+  [
+   "ALK",
+   "HTTPStatusError"
+  ],
+  [
+   "ALNUS",
+   "HTTPStatusError"
+  ],
+  [
+   "ANC",
+   "HTTPStatusError"
+  ],
+  [
+   "ARFYE",
+   "sektor alani yok"
+  ],
+  [
+   "ARMGD",
+   "sektor alani yok"
+  ],
+  [
+   "ARSVY",
+   "HTTPStatusError"
+  ],
+  [
+   "ATA",
+   "HTTPStatusError"
+  ],
+  [
+   "ATATR",
+   "sektor alani yok"
+  ],
+  [
+   "ATAVK",
+   "HTTPStatusError"
+  ],
+  [
+   "ATAYM",
+   "HTTPStatusError"
+  ],
+  [
+   "ATLFA",
+   "HTTPStatusError"
+  ],
+  [
+   "BETAE",
+   "sektor alani yok"
+  ],
+  [
+   "BLKOM",
+   "HTTPStatusError"
+  ],
+  [
+   "BLS",
+   "HTTPStatusError"
+  ],
+  [
+   "BLSMD",
+   "HTTPStatusError"
+  ],
+  [
+   "BLUME",
+   "sektor alani yok"
+  ],
+  [
+   "BNPPI",
+   "HTTPStatusError"
+  ],
+  [
+   "BRGAN",
+   "HTTPStatusError"
+  ],
+  [
+   "BRGFK",
+   "HTTPStatusError"
+  ],
+  [
+   "BRKT",
+   "HTTPStatusError"
+  ],
+  [
+   "BUR",
+   "HTTPStatusError"
+  ],
+  [
+   "CAGFA",
+   "HTTPStatusError"
+  ],
+  [
+   "CLKMT",
+   "HTTPStatusError"
+  ],
+  [
+   "CMSAN",
+   "HTTPStatusError"
+  ],
+  [
+   "DENFA",
+   "HTTPStatusError"
+  ],
+  [
+   "DENVA",
+   "HTTPStatusError"
+  ],
+  [
+   "DFKTR",
+   "HTTPStatusError"
+  ],
+  [
+   "DGRVK",
+   "HTTPStatusError"
+  ],
+  [
+   "DIMES",
+   "HTTPStatusError"
+  ],
+  [
+   "DKVRL",
+   "HTTPStatusError"
+  ],
+  [
+   "DMD",
+   "HTTPStatusError"
+  ],
+  [
+   "DMLKT",
+   "HTTPStatusError"
+  ],
+  [
+   "DNFIN",
+   "HTTPStatusError"
+  ],
+  [
+   "DNYVA",
+   "HTTPStatusError"
+  ],
+  [
+   "DNZEN",
+   "HTTPStatusError"
+  ],
+  [
+   "DOGVY",
+   "HTTPStatusError"
+  ],
+  [
+   "DRPHN",
+   "HTTPStatusError"
+  ],
+  [
+   "DSYAT",
+   "HTTPStatusError"
+  ],
+  [
+   "DUNYH",
+   "sektor alani yok"
+  ],
+  [
+   "DVRLK",
+   "HTTPStatusError"
+  ],
+  [
+   "DYBNK",
+   "HTTPStatusError"
+  ],
+  [
+   "ECOGR",
+   "sektor alani yok"
+  ],
+  [
+   "ECZIP",
+   "HTTPStatusError"
+  ],
+  [
+   "EKER",
+   "HTTPStatusError"
+  ],
+  [
+   "EKIM",
+   "sektor alani yok"
+  ],
+  [
+   "EKOFA",
+   "HTTPStatusError"
+  ],
+  [
+   "EKTVK",
+   "HTTPStatusError"
+  ],
+  [
+   "EMIRV",
+   "HTTPStatusError"
+  ],
+  [
+   "EMPAE",
+   "sektor alani yok"
+  ],
+  [
+   "EMVAR",
+   "HTTPStatusError"
+  ],
+  [
+   "ENPRA",
+   "sektor alani yok"
+  ],
+  [
+   "ERGLI",
+   "HTTPStatusError"
+  ],
+  [
+   "EXIMB",
+   "HTTPStatusError"
+  ],
+  [
+   "FAIRF",
+   "HTTPStatusError"
+  ],
+  [
+   "FBB",
+   "HTTPStatusError"
+  ],
+  [
+   "FBBNK",
+   "HTTPStatusError"
+  ],
+  [
+   "FIGOF",
+   "HTTPStatusError"
+  ],
+  [
+   "FIN",
+   "HTTPStatusError"
+  ],
+  [
+   "FKPET",
+   "HTTPStatusError"
+  ],
+  [
+   "GARFL",
+   "HTTPStatusError"
+  ],
+  [
+   "GATEG",
+   "sektor alani yok"
+  ],
+  [
+   "GENKM",
+   "sektor alani yok"
+  ],
+  [
+   "GGBVK",
+   "HTTPStatusError"
+  ],
+  [
+   "GIPTA",
+   "HTTPStatusError"
+  ],
+  [
+   "GLB",
+   "HTTPStatusError"
+  ],
+  [
+   "GLBMD",
+   "HTTPStatusError"
+  ],
+  [
+   "GLCVY",
+   "HTTPStatusError"
+  ],
+  [
+   "GLRMK",
+   "HTTPStatusError"
+  ],
+  [
+   "GLRYH",
+   "HTTPStatusError"
+  ],
+  [
+   "GLYHO",
+   "HTTPStatusError"
+  ],
+  [
+   "GMTAS",
+   "HTTPStatusError"
+  ],
+  [
+   "GOKNR",
+   "HTTPStatusError"
+  ],
+  [
+   "GOLDA",
+   "HTTPStatusError"
+  ],
+  [
+   "GOLTS",
+   "HTTPStatusError"
+  ],
+  [
+   "GOODY",
+   "HTTPStatusError"
+  ],
+  [
+   "GOZDE",
+   "HTTPStatusError"
+  ],
+  [
+   "GRM",
+   "HTTPStatusError"
+  ],
+  [
+   "GRNYO",
+   "HTTPStatusError"
+  ],
+  [
+   "GRSEL",
+   "HTTPStatusError"
+  ],
+  [
+   "GRTHO",
+   "HTTPStatusError"
+  ],
+  [
+   "GRYAT",
+   "HTTPStatusError"
+  ],
+  [
+   "GSDDE",
+   "HTTPStatusError"
+  ],
+  [
+   "GSDHO",
+   "HTTPStatusError"
+  ],
+  [
+   "GSIPD",
+   "HTTPStatusError"
+  ],
+  [
+   "GSRAY",
+   "HTTPStatusError"
+  ],
+  [
+   "GUBRF",
+   "HTTPStatusError"
+  ],
+  [
+   "GUNDG",
+   "HTTPStatusError"
+  ],
+  [
+   "GWIND",
+   "HTTPStatusError"
+  ],
+  [
+   "GYVAR",
+   "HTTPStatusError"
+  ],
+  [
+   "GZNMI",
+   "HTTPStatusError"
+  ],
+  [
+   "HALKB",
+   "HTTPStatusError"
+  ],
+  [
+   "HALKF",
+   "HTTPStatusError"
+  ],
+  [
+   "HALKI",
+   "HTTPStatusError"
+  ],
+  [
+   "HATEK",
+   "HTTPStatusError"
+  ],
+  [
+   "HATSN",
+   "HTTPStatusError"
+  ],
+  [
+   "HAYVK",
+   "HTTPStatusError"
+  ],
+  [
+   "HDFFL",
+   "HTTPStatusError"
+  ],
+  [
+   "HDFGS",
+   "HTTPStatusError"
+  ],
+  [
+   "HDFVK",
+   "HTTPStatusError"
+  ],
+  [
+   "HDFYB",
+   "HTTPStatusError"
+  ],
+  [
+   "HEDEF",
+   "HTTPStatusError"
+  ],
+  [
+   "HEKTS",
+   "HTTPStatusError"
+  ],
+  [
+   "HKTM",
+   "HTTPStatusError"
+  ],
+  [
+   "HLGYO",
+   "HTTPStatusError"
+  ],
+  [
+   "HLVKS",
+   "HTTPStatusError"
+  ],
+  [
+   "HLY",
+   "HTTPStatusError"
+  ],
+  [
+   "HOROZ",
+   "HTTPStatusError"
+  ],
+  [
+   "HRKET",
+   "HTTPStatusError"
+  ],
+  [
+   "HTTBT",
+   "HTTPStatusError"
+  ],
+  [
+   "HUBVC",
+   "HTTPStatusError"
+  ],
+  [
+   "HUNER",
+   "HTTPStatusError"
+  ],
+  [
+   "HURGZ",
+   "HTTPStatusError"
+  ],
+  [
+   "HUZFA",
+   "HTTPStatusError"
+  ],
+  [
+   "HYB",
+   "HTTPStatusError"
+  ],
+  [
+   "IAZ",
+   "HTTPStatusError"
+  ],
+  [
+   "ICB",
+   "HTTPStatusError"
+  ],
+  [
+   "ICBCT",
+   "HTTPStatusError"
+  ],
+  [
+   "ICUGS",
+   "HTTPStatusError"
+  ],
+  [
+   "IDGYO",
+   "HTTPStatusError"
+  ],
+  [
+   "IEYHO",
+   "HTTPStatusError"
+  ],
+  [
+   "IHAAS",
+   "HTTPStatusError"
+  ],
+  [
+   "IHEVA",
+   "HTTPStatusError"
+  ],
+  [
+   "IHGZT",
+   "HTTPStatusError"
+  ],
+  [
+   "IHLAS",
+   "HTTPStatusError"
+  ],
+  [
+   "INVAZ",
+   "HTTPStatusError"
+  ],
+  [
+   "INVEO",
+   "HTTPStatusError"
+  ],
+  [
+   "INVES",
+   "HTTPStatusError"
+  ],
+  [
+   "ISATR",
+   "HTTPStatusError"
+  ],
+  [
+   "ISBIR",
+   "HTTPStatusError"
+  ],
+  [
+   "ISBTR",
+   "HTTPStatusError"
+  ],
+  [
+   "ISCTR",
+   "HTTPStatusError"
+  ],
+  [
+   "ISDMR",
+   "HTTPStatusError"
+  ],
+  [
+   "ISFAK",
+   "HTTPStatusError"
+  ],
+  [
+   "ISGSY",
+   "sektor alani yok"
+  ],
+  [
+   "ISKUR",
+   "sektor alani yok"
+  ],
+  [
+   "ISTFK",
+   "HTTPStatusError"
+  ],
+  [
+   "ISTVY",
+   "HTTPStatusError"
+  ],
+  [
+   "ISVEA",
+   "HTTPStatusError"
+  ],
+  [
+   "ISYAT",
+   "HTTPStatusError"
+  ],
+  [
+   "IYF",
+   "HTTPStatusError"
+  ],
+  [
+   "IYM",
+   "HTTPStatusError"
+  ],
+  [
+   "IZENR",
+   "HTTPStatusError"
+  ],
+  [
+   "IZFAS",
+   "HTTPStatusError"
+  ],
+  [
+   "IZINV",
+   "HTTPStatusError"
+  ],
+  [
+   "IZMDC",
+   "HTTPStatusError"
+  ],
+  [
+   "KARCL",
+   "sektor alani yok"
+  ],
+  [
+   "KATVK",
+   "HTTPStatusError"
+  ],
+  [
+   "KAYSE",
+   "HTTPStatusError"
+  ],
+  [
+   "KBORU",
+   "HTTPStatusError"
+  ],
+  [
+   "KCAER",
+   "HTTPStatusError"
+  ],
+  [
+   "KCHOL",
+   "HTTPStatusError"
+  ],
+  [
+   "KENT",
+   "HTTPStatusError"
+  ],
+  [
+   "KERVN",
+   "HTTPStatusError"
+  ],
+  [
+   "KFEIN",
+   "HTTPStatusError"
+  ],
+  [
+   "KFILO",
+   "HTTPStatusError"
+  ],
+  [
+   "KGYO",
+   "HTTPStatusError"
+  ],
+  [
+   "KIMMR",
+   "HTTPStatusError"
+  ],
+  [
+   "KLGYO",
+   "HTTPStatusError"
+  ],
+  [
+   "KLKIM",
+   "HTTPStatusError"
+  ],
+  [
+   "KLMSN",
+   "HTTPStatusError"
+  ],
+  [
+   "KLN",
+   "HTTPStatusError"
+  ],
+  [
+   "KLNMA",
+   "HTTPStatusError"
+  ],
+  [
+   "KLRHO",
+   "HTTPStatusError"
+  ],
+  [
+   "KLSER",
+   "HTTPStatusError"
+  ],
+  [
+   "KLSYN",
+   "HTTPStatusError"
+  ],
+  [
+   "KLVKS",
+   "HTTPStatusError"
+  ],
+  [
+   "KLYPV",
+   "HTTPStatusError"
+  ],
+  [
+   "KMPUR",
+   "HTTPStatusError"
+  ],
+  [
+   "KNFRT",
+   "HTTPStatusError"
+  ],
+  [
+   "KNTFA",
+   "HTTPStatusError"
+  ],
+  [
+   "KOCFN",
+   "HTTPStatusError"
+  ],
+  [
+   "KOCMT",
+   "HTTPStatusError"
+  ],
+  [
+   "KONKA",
+   "HTTPStatusError"
+  ],
+  [
+   "KONTR",
+   "HTTPStatusError"
+  ],
+  [
+   "KONYA",
+   "HTTPStatusError"
+  ],
+  [
+   "KORTS",
+   "HTTPStatusError"
+  ],
+  [
+   "KOTON",
+   "HTTPStatusError"
+  ],
+  [
+   "KPTGY",
+   "HTTPStatusError"
+  ],
+  [
+   "KRDMA",
+   "HTTPStatusError"
+  ],
+  [
+   "KRDMB",
+   "HTTPStatusError"
+  ],
+  [
+   "KRDMD",
+   "HTTPStatusError"
+  ],
+  [
+   "KRGYO",
+   "HTTPStatusError"
+  ],
+  [
+   "KRONT",
+   "HTTPStatusError"
+  ],
+  [
+   "KRPLS",
+   "HTTPStatusError"
+  ],
+  [
+   "KRSTL",
+   "HTTPStatusError"
+  ],
+  [
+   "KRTEK",
+   "HTTPStatusError"
+  ],
+  [
+   "KRVGD",
+   "HTTPStatusError"
+  ],
+  [
+   "KSFIN",
+   "HTTPStatusError"
+  ],
+  [
+   "KSTUR",
+   "HTTPStatusError"
+  ],
+  [
+   "KTKVK",
+   "HTTPStatusError"
+  ],
+  [
+   "KTLEV",
+   "HTTPStatusError"
+  ],
+  [
+   "KTSVK",
+   "HTTPStatusError"
+  ],
+  [
+   "KUTPO",
+   "HTTPStatusError"
+  ],
+  [
+   "KUVVA",
+   "HTTPStatusError"
+  ],
+  [
+   "KUYAS",
+   "HTTPStatusError"
+  ],
+  [
+   "KZBGY",
+   "HTTPStatusError"
+  ],
+  [
+   "KZGYO",
+   "HTTPStatusError"
+  ],
+  [
+   "LIDER",
+   "HTTPStatusError"
+  ],
+  [
+   "LIDFA",
+   "HTTPStatusError"
+  ],
+  [
+   "LILAK",
+   "HTTPStatusError"
+  ],
+  [
+   "LINK",
+   "HTTPStatusError"
+  ],
+  [
+   "LKMNH",
+   "HTTPStatusError"
+  ],
+  [
+   "LMKDC",
+   "HTTPStatusError"
+  ],
+  [
+   "LOGO",
+   "HTTPStatusError"
+  ],
+  [
+   "LRSHO",
+   "HTTPStatusError"
+  ],
+  [
+   "LUKSK",
+   "HTTPStatusError"
+  ],
+  [
+   "LXGYO",
+   "HTTPStatusError"
+  ],
+  [
+   "LYDHO",
+   "HTTPStatusError"
+  ],
+  [
+   "LYDYE",
+   "HTTPStatusError"
+  ],
+  [
+   "MAALT",
+   "HTTPStatusError"
+  ],
+  [
+   "MACKO",
+   "HTTPStatusError"
+  ],
+  [
+   "MAGEN",
+   "HTTPStatusError"
+  ],
+  [
+   "MARMR",
+   "sektor alani yok"
+  ],
+  [
+   "MASFN",
+   "sektor alani yok"
+  ],
+  [
+   "MBFTR",
+   "HTTPStatusError"
+  ],
+  [
+   "MCARD",
+   "HTTPStatusError"
+  ],
+  [
+   "MDASM",
+   "HTTPStatusError"
+  ],
+  [
+   "MDIAZ",
+   "HTTPStatusError"
+  ],
+  [
+   "MDS",
+   "HTTPStatusError"
+  ],
+  [
+   "MEKMD",
+   "HTTPStatusError"
+  ],
+  [
+   "MEPET",
+   "HTTPStatusError"
+  ],
+  [
+   "MERCN",
+   "HTTPStatusError"
+  ],
+  [
+   "MERIT",
+   "HTTPStatusError"
+  ],
+  [
+   "MERKO",
+   "HTTPStatusError"
+  ],
+  [
+   "METEN",
+   "HTTPStatusError"
+  ],
+  [
+   "METRO",
+   "HTTPStatusError"
+  ],
+  [
+   "MEYSU",
+   "HTTPStatusError"
+  ],
+  [
+   "MGROS",
+   "HTTPStatusError"
+  ],
+  [
+   "MHRGY",
+   "HTTPStatusError"
+  ],
+  [
+   "MIATK",
+   "HTTPStatusError"
+  ],
+  [
+   "MILKS",
+   "HTTPStatusError"
+  ],
+  [
+   "MINTF",
+   "HTTPStatusError"
+  ],
+  [
+   "MMCAS",
+   "HTTPStatusError"
+  ],
+  [
+   "MNDRS",
+   "HTTPStatusError"
+  ],
+  [
+   "MNGFA",
+   "HTTPStatusError"
+  ],
+  [
+   "MOBTL",
+   "HTTPStatusError"
+  ],
+  [
+   "MOGAN",
+   "HTTPStatusError"
+  ],
+  [
+   "MOPAS",
+   "HTTPStatusError"
+  ],
+  [
+   "MPARK",
+   "HTTPStatusError"
+  ],
+  [
+   "MRBAS",
+   "HTTPStatusError"
+  ],
+  [
+   "MRBKF",
+   "HTTPStatusError"
+  ],
+  [
+   "MRGYO",
+   "HTTPStatusError"
+  ],
+  [
+   "MRMAG",
+   "HTTPStatusError"
+  ],
+  [
+   "MRS",
+   "HTTPStatusError"
+  ],
+  [
+   "MRSHL",
+   "HTTPStatusError"
+  ],
+  [
+   "MSA",
+   "HTTPStatusError"
+  ],
+  [
+   "MSGYO",
+   "HTTPStatusError"
+  ],
+  [
+   "MSY",
+   "HTTPStatusError"
+  ],
+  [
+   "MSYBN",
+   "HTTPStatusError"
+  ],
+  [
+   "MTRKS",
+   "HTTPStatusError"
+  ],
+  [
+   "MTRYO",
+   "HTTPStatusError"
+  ],
+  [
+   "MZHLD",
+   "HTTPStatusError"
+  ],
+  [
+   "NATEN",
+   "HTTPStatusError"
+  ],
+  [
+   "NETCD",
+   "sektor alani yok"
+  ],
+  [
+   "NRBNK",
+   "HTTPStatusError"
+  ],
+  [
+   "NTGAZ",
+   "HTTPStatusError"
+  ],
+  [
+   "NTHOL",
+   "HTTPStatusError"
+  ],
+  [
+   "NUGYO",
+   "HTTPStatusError"
+  ],
+  [
+   "NUHCM",
+   "HTTPStatusError"
+  ],
+  [
+   "NURVK",
+   "HTTPStatusError"
+  ],
+  [
+   "NYB",
+   "HTTPStatusError"
+  ],
+  [
+   "OBAMS",
+   "HTTPStatusError"
+  ],
+  [
+   "OBASE",
+   "HTTPStatusError"
+  ],
+  [
+   "ODAS",
+   "HTTPStatusError"
+  ],
+  [
+   "ODINE",
+   "HTTPStatusError"
+  ],
+  [
+   "OFSYM",
+   "HTTPStatusError"
+  ],
+  [
+   "OMD",
+   "HTTPStatusError"
+  ],
+  [
+   "ONCSM",
+   "HTTPStatusError"
+  ],
+  [
+   "ONRYT",
+   "HTTPStatusError"
+  ],
+  [
+   "OPET",
+   "HTTPStatusError"
+  ],
+  [
+   "ORCAY",
+   "HTTPStatusError"
+  ],
+  [
+   "ORFIN",
+   "HTTPStatusError"
+  ],
+  [
+   "ORGE",
+   "HTTPStatusError"
+  ],
+  [
+   "ORMA",
+   "HTTPStatusError"
+  ],
+  [
+   "ORZAX",
+   "HTTPStatusError"
+  ],
+  [
+   "OSMEN",
+   "HTTPStatusError"
+  ],
+  [
+   "OSTIM",
+   "HTTPStatusError"
+  ],
+  [
+   "OSVKS",
+   "HTTPStatusError"
+  ],
+  [
+   "OTKAR",
+   "HTTPStatusError"
+  ],
+  [
+   "OTOSR",
+   "HTTPStatusError"
+  ],
+  [
+   "OTTO",
+   "HTTPStatusError"
+  ],
+  [
+   "OYA",
+   "HTTPStatusError"
+  ],
+  [
+   "OYAKC",
+   "HTTPStatusError"
+  ],
+  [
+   "OYAYO",
+   "HTTPStatusError"
+  ],
+  [
+   "OYLUM",
+   "HTTPStatusError"
+  ],
+  [
+   "OYYAT",
+   "HTTPStatusError"
+  ],
+  [
+   "OZATD",
+   "HTTPStatusError"
+  ],
+  [
+   "OZGYO",
+   "HTTPStatusError"
+  ],
+  [
+   "OZKGY",
+   "HTTPStatusError"
+  ],
+  [
+   "OZRDN",
+   "HTTPStatusError"
+  ],
+  [
+   "OZSUB",
+   "HTTPStatusError"
+  ],
+  [
+   "PAHOL",
+   "sektor alani yok"
+  ],
+  [
+   "PBT",
+   "HTTPStatusError"
+  ],
+  [
+   "PBTR",
+   "HTTPStatusError"
+  ],
+  [
+   "PCILT",
+   "HTTPStatusError"
+  ],
+  [
+   "PEKGY",
+   "HTTPStatusError"
+  ],
+  [
+   "PENGD",
+   "HTTPStatusError"
+  ],
+  [
+   "PENTA",
+   "HTTPStatusError"
+  ],
+  [
+   "PRFFK",
+   "HTTPStatusError"
+  ],
+  [
+   "PRKAB",
+   "HTTPStatusError"
+  ],
+  [
+   "QNBFF",
+   "HTTPStatusError"
+  ],
+  [
+   "QNBFK",
+   "HTTPStatusError"
+  ],
+  [
+   "QNBTR",
+   "HTTPStatusError"
+  ],
+  [
+   "QNBVK",
+   "HTTPStatusError"
+  ],
+  [
+   "QUAGR",
+   "HTTPStatusError"
+  ],
+  [
+   "QUFIN",
+   "HTTPStatusError"
+  ],
+  [
+   "QYATB",
+   "HTTPStatusError"
+  ],
+  [
+   "QYHOL",
+   "HTTPStatusError"
+  ],
+  [
+   "RALYH",
+   "HTTPStatusError"
+  ],
+  [
+   "RAYSG",
+   "HTTPStatusError"
+  ],
+  [
+   "REEDR",
+   "HTTPStatusError"
+  ],
+  [
+   "SARAE",
+   "sektor alani yok"
+  ],
+  [
+   "SARTN",
+   "HTTPStatusError"
+  ],
+  [
+   "SEK",
+   "HTTPStatusError"
+  ],
+  [
+   "SEKFK",
+   "HTTPStatusError"
+  ],
+  [
+   "SEKUR",
+   "HTTPStatusError"
+  ],
+  [
+   "SELEC",
+   "HTTPStatusError"
+  ],
+  [
+   "SELVA",
+   "HTTPStatusError"
+  ],
+  [
+   "SERNT",
+   "HTTPStatusError"
+  ],
+  [
+   "SEYKM",
+   "HTTPStatusError"
+  ],
+  [
+   "SILVR",
+   "HTTPStatusError"
+  ],
+  [
+   "SISE",
+   "HTTPStatusError"
+  ],
+  [
+   "SKBNK",
+   "HTTPStatusError"
+  ],
+  [
+   "SKY",
+   "HTTPStatusError"
+  ],
+  [
+   "SKYLP",
+   "HTTPStatusError"
+  ],
+  [
+   "SKYMD",
+   "HTTPStatusError"
+  ],
+  [
+   "SMART",
+   "HTTPStatusError"
+  ],
+  [
+   "SMRFA",
+   "HTTPStatusError"
+  ],
+  [
+   "SMRTG",
+   "HTTPStatusError"
+  ],
+  [
+   "SMRVA",
+   "HTTPStatusError"
+  ],
+  [
+   "SNGYO",
+   "HTTPStatusError"
+  ],
+  [
+   "SNICA",
+   "HTTPStatusError"
+  ],
+  [
+   "SNPAM",
+   "HTTPStatusError"
+  ],
+  [
+   "SODSN",
+   "HTTPStatusError"
+  ],
+  [
+   "SOHOE",
+   "HTTPStatusError"
+  ],
+  [
+   "SOKE",
+   "HTTPStatusError"
+  ],
+  [
+   "SOKM",
+   "HTTPStatusError"
+  ],
+  [
+   "SONME",
+   "HTTPStatusError"
+  ],
+  [
+   "SRVGY",
+   "HTTPStatusError"
+  ],
+  [
+   "SSAAT",
+   "HTTPStatusError"
+  ],
+  [
+   "TAC",
+   "HTTPStatusError"
+  ],
+  [
+   "TAE",
+   "HTTPStatusError"
+  ],
+  [
+   "TAMFA",
+   "HTTPStatusError"
+  ],
+  [
+   "TARFN",
+   "HTTPStatusError"
+  ],
+  [
+   "TARKM",
+   "HTTPStatusError"
+  ],
+  [
+   "TATEN",
+   "HTTPStatusError"
+  ],
+  [
+   "TATGD",
+   "HTTPStatusError"
+  ],
+  [
+   "TAVHL",
+   "HTTPStatusError"
+  ],
+  [
+   "TBORG",
+   "HTTPStatusError"
+  ],
+  [
+   "TCELL",
+   "HTTPStatusError"
+  ],
+  [
+   "TCKRC",
+   "HTTPStatusError"
+  ],
+  [
+   "TCRYT",
+   "HTTPStatusError"
+  ],
+  [
+   "TEBFA",
+   "HTTPStatusError"
+  ],
+  [
+   "TEHOL",
+   "HTTPStatusError"
+  ],
+  [
+   "TEKTU",
+   "HTTPStatusError"
+  ],
+  [
+   "TERA",
+   "HTTPStatusError"
+  ],
+  [
+   "TEVKS",
+   "HTTPStatusError"
+  ],
+  [
+   "TEZOL",
+   "HTTPStatusError"
+  ],
+  [
+   "TFNVK",
+   "HTTPStatusError"
+  ],
+  [
+   "TGB",
+   "HTTPStatusError"
+  ],
+  [
+   "TGSAS",
+   "HTTPStatusError"
+  ],
+  [
+   "THL",
+   "HTTPStatusError"
+  ],
+  [
+   "THR",
+   "HTTPStatusError"
+  ],
+  [
+   "THYAO",
+   "HTTPStatusError"
+  ],
+  [
+   "TIB",
+   "HTTPStatusError"
+  ],
+  [
+   "TIMUR",
+   "HTTPStatusError"
+  ],
+  [
+   "TKFEN",
+   "HTTPStatusError"
+  ],
+  [
+   "TKNSA",
+   "HTTPStatusError"
+  ],
+  [
+   "TLMAN",
+   "HTTPStatusError"
+  ],
+  [
+   "TRA",
+   "HTTPStatusError"
+  ],
+  [
+   "TRALT",
+   "HTTPStatusError"
+  ],
+  [
+   "TRBNK",
+   "HTTPStatusError"
+  ],
+  [
+   "TRCAS",
+   "HTTPStatusError"
+  ],
+  [
+   "TRENJ",
+   "HTTPStatusError"
+  ],
+  [
+   "TRFFA",
+   "HTTPStatusError"
+  ],
+  [
+   "TRGYO",
+   "HTTPStatusError"
+  ],
+  [
+   "TRHOL",
+   "HTTPStatusError"
+  ],
+  [
+   "TRILC",
+   "HTTPStatusError"
+  ],
+  [
+   "TRKFN",
+   "HTTPStatusError"
+  ],
+  [
+   "TRKNT",
+   "HTTPStatusError"
+  ],
+  [
+   "TRMEN",
+   "HTTPStatusError"
+  ],
+  [
+   "TRMET",
+   "HTTPStatusError"
+  ],
+  [
+   "TRYKI",
+   "HTTPStatusError"
+  ],
+  [
+   "TSGYO",
+   "HTTPStatusError"
+  ],
+  [
+   "TSK",
+   "HTTPStatusError"
+  ],
+  [
+   "TV8TV",
+   "HTTPStatusError"
+  ],
+  [
+   "TVB",
+   "HTTPStatusError"
+  ],
+  [
+   "TVM",
+   "HTTPStatusError"
+  ],
+  [
+   "UCAYM",
+   "HTTPStatusError"
+  ],
+  [
+   "UFUK",
+   "HTTPStatusError"
+  ],
+  [
+   "ULAS",
+   "HTTPStatusError"
+  ],
+  [
+   "ULKER",
+   "HTTPStatusError"
+  ],
+  [
+   "ULUFA",
+   "HTTPStatusError"
+  ],
+  [
+   "ULUSE",
+   "HTTPStatusError"
+  ],
+  [
+   "ULUUN",
+   "HTTPStatusError"
+  ],
+  [
+   "UMPAS",
+   "HTTPStatusError"
+  ],
+  [
+   "UNLU",
+   "HTTPStatusError"
+  ],
+  [
+   "USAK",
+   "HTTPStatusError"
+  ],
+  [
+   "VAKBN",
+   "HTTPStatusError"
+  ],
+  [
+   "VAKFA",
+   "HTTPStatusError"
+  ],
+  [
+   "VAKFN",
+   "HTTPStatusError"
+  ],
+  [
+   "VAKKO",
+   "HTTPStatusError"
+  ],
+  [
+   "VAKVK",
+   "HTTPStatusError"
+  ],
+  [
+   "VANGD",
+   "HTTPStatusError"
+  ],
+  [
+   "VBTYZ",
+   "HTTPStatusError"
+  ],
+  [
+   "VDFAS",
+   "HTTPStatusError"
+  ],
+  [
+   "VDFLO",
+   "HTTPStatusError"
+  ],
+  [
+   "VERTU",
+   "HTTPStatusError"
+  ],
+  [
+   "YATVK",
+   "HTTPStatusError"
+  ],
+  [
+   "YAYLA",
+   "HTTPStatusError"
+  ],
+  [
+   "YBQ",
+   "HTTPStatusError"
+  ],
+  [
+   "YBTAS",
+   "HTTPStatusError"
+  ],
+  [
+   "YEOTK",
+   "HTTPStatusError"
+  ],
+  [
+   "YESIL",
+   "HTTPStatusError"
+  ],
+  [
+   "YKB",
+   "HTTPStatusError"
+  ],
+  [
+   "YKBNK",
+   "HTTPStatusError"
+  ],
+  [
+   "YKFIN",
+   "HTTPStatusError"
+  ],
+  [
+   "YKFKT",
+   "HTTPStatusError"
+  ],
+  [
+   "YKR",
+   "HTTPStatusError"
+  ],
+  [
+   "YKSLN",
+   "HTTPStatusError"
+  ],
+  [
+   "YKYAT",
+   "HTTPStatusError"
+  ],
+  [
+   "YONGA",
+   "HTTPStatusError"
+  ],
+  [
+   "YUNSA",
+   "HTTPStatusError"
+  ],
+  [
+   "YYAPI",
+   "HTTPStatusError"
+  ],
+  [
+   "YYLGD",
+   "HTTPStatusError"
+  ],
+  [
+   "ZEDUR",
+   "HTTPStatusError"
+  ],
+  [
+   "ZERGY",
+   "HTTPStatusError"
+  ],
+  [
+   "ZGYO",
+   "HTTPStatusError"
+  ],
+  [
+   "ZKBVK",
+   "HTTPStatusError"
+  ],
+  [
+   "ZKBVR",
+   "HTTPStatusError"
+  ]
+ ]
+}
