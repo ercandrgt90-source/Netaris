@@ -236,6 +236,8 @@ ESLESME = (
     ("kisa_vadeli_yukumlulukler","bilanco", "Total Current Liabilities"),
     ("ticari_alacaklar",         "bilanco", "Accounts Receivable"),
     ("stoklar",                  "bilanco", "Inventory"),
+    ("faaliyet_nakit_akisi",     "nakit",   "Operating Cash Flow"),
+    ("finansman_gideri",         "nakit",   "Cash Interest Paid"),
 )
 
 #: NET BORC ISARETI TERS. Kaynak "Net Cash (Debt)" yaziyor: POZITIF
@@ -263,6 +265,20 @@ def donemi_kur(tablolar: dict) -> dict:
     net_nakit = (tablolar.get("bilanco") or {}).get(NET_NAKIT_ETIKETI)
     if net_nakit is not None:
         cikti["net_borc"] = -net_nakit
+
+    # YATIRIM HARCAMASI -- ISARET CEVRILIYOR.
+    #
+    # Nakit akis tablosunda capex NEGATIF yaziliyor: nakit CIKISI.
+    # Hattaki `yatirim_harcamasi` alani ise pozitif sayi bekliyor
+    # ("pozitif sayi = nakit cikisi" -- `oranlar.Donem` boyle
+    # belgeliyor). Olculdu: EREGL capex -1,93 mlr.
+    #
+    # Cevirmeden aktarmak yatirim yapan sirketi yatirim GELIRI olan
+    # sirket gostermek olurdu; serbest nakit akisi hesabini da ters
+    # yone cevirirdi.
+    capex = (tablolar.get("nakit") or {}).get("Capital Expenditures")
+    if capex is not None:
+        cikti["yatirim_harcamasi"] = abs(capex)
 
     amortisman = (tablolar.get("nakit") or {}).get(AMORTISMAN_ETIKETI)
     if amortisman is not None and cikti.get("faaliyet_kari") is not None:
@@ -378,3 +394,26 @@ def yeterli(donem: dict, sektor_tr: str = "") -> tuple[bool, list[str]]:
     beklenen = list(CEKIRDEK) + list(SEKTOR_EK.get(sektor_tr, ()))
     eksik = [a for a in beklenen if donem.get(a) is None]
     return (not eksik), eksik
+
+def donem_getir(kod: str, etiket: str, ceyrek: int = 2,
+                sektor_tr: str = "", istemci=None):
+    """Sirketin bir ara donemini `oranlar.Donem` olarak doner.
+
+    Yetersiz veride `None` DONER, yarim nesne degil. Cagiran taraf
+    "veri gelmedi" ile "bu sektorde o kalem yok" ayrimini yapmak
+    zorunda kalmasin diye karar BURADA veriliyor -- esik zaten
+    sektore gore olculmus durumda (bkz. `yeterli`).
+
+    Donen ikili: (Donem, eksik_alanlar). Donem None ise eksik listesi
+    NEDEN uretilmedigini soyluyor; sessiz basarisizlik yok.
+    """
+    import sys as _sys
+    import pathlib as _pl
+    _sys.path.insert(0, str(_pl.Path(__file__).resolve().parent.parent / "analiz"))
+    import oranlar                                    # noqa: PLC0415
+
+    alanlar = donemi_kur(ara_donem(kod, ceyrek, istemci))
+    tamam, eksik = yeterli(alanlar, sektor_tr)
+    if not tamam:
+        return None, eksik
+    return oranlar.Donem(etiket=etiket, **alanlar), []

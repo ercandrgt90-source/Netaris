@@ -203,6 +203,31 @@ SIFIRLI = dict(TAM, **{"brut_kar": 0.0})
 esit(ba.yeterli(SIFIRLI, "Sanayi")[0], True,
      "sifir deger eksik sayilmiyor (0 bir olcumdur, bosluk degil)")
 
+
+# --------------------------------------------------------------------
+# NAKIT AKIS ALANLARI -- ISARET
+# --------------------------------------------------------------------
+#
+# Capex nakit akis tablosunda NEGATIF yaziliyor (nakit cikisi), hattaki
+# `yatirim_harcamasi` alani ise POZITIF bekliyor. Cevirmeden aktarmak
+# yatirim yapan sirketi yatirim GELIRI olan sirket gosterirdi ve
+# serbest nakit akisi hesabini ters yone cevirirdi.
+NAKITLI = ba.donemi_kur({"nakit": {
+    "Capital Expenditures": -1_930_000_000.0,
+    "Operating Cash Flow": 3_220_000_000.0,
+    "Cash Interest Paid": 2_500_000_000.0,
+}})
+esit(NAKITLI["yatirim_harcamasi"], 1_930_000_000.0,
+     "capex ISARETI CEVRILIYOR (-1,93 mlr -> pozitif 1,93)")
+esit(NAKITLI["faaliyet_nakit_akisi"], 3_220_000_000.0,
+     "faaliyet nakit akisi aynen aktariliyor")
+esit(NAKITLI["finansman_gideri"], 2_500_000_000.0,
+     "odenen faiz finansman gideri olarak baglaniyor")
+
+# Zaten pozitif gelen capex de pozitif kalmali -- mutlak deger.
+esit(ba.donemi_kur({"nakit": {"Capital Expenditures": 500.0}})["yatirim_harcamasi"],
+     500.0, "pozitif capex bozulmuyor")
+
 print()
 if _kaldi:
     print(f"{_kaldi} TEST KALDI, {_gecti} gecti")
