@@ -97,5 +97,41 @@ for _isaret in besleme.YABANCI_PARA_OTORITESI:
         esit(_isaret.startswith(" ") and _isaret.endswith(" "), True,
              f"{_isaret!r} kisa -- bosluklu olmali")
 
+# --------------------------------------------------------------------
+# YABANCI HABERE YERLI GOSTERGE BAGLANMAMALI.
+#
+# Olculen hata: "BoJ faiz artiracak mi?" haberi TCMB_FAIZ'e baglandi,
+# cunku o varligin kaliplarindan biri '~faiz' -- yani "faiz" kelimesi
+# NEREDE gecerse gecsin esliyor. Bagin sonucu sayfada goruldu: Japon
+# yeni konulu haberde TURKIYE TUFE'si.
+#
+# Genel kaliplar ("faiz", "enflasyon") gostergenin TURUNU tarif ediyor,
+# ULKESINI degil.
+# --------------------------------------------------------------------
+_kok = pathlib.Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(_kok))
+from analiz import varlik as _varlik  # noqa: E402
+
+_ayikla = _varlik._yabanci_haberden_yerli_ayikla
+
+esit(_ayikla(["TCMB_FAIZ"], "BoJ faiz artıracak mı?"), [],
+     "yabanci merkez bankasi -> yerli gosterge dusuyor")
+esit(_ayikla(["TCMB_FAIZ", "TCMB"], "TCMB faizi sabit tuttu"),
+     ["TCMB_FAIZ", "TCMB"], "yurt ici haber -> yerli gosterge KALIYOR")
+esit(_ayikla(["FED_FAIZ"], "Fed faiz kararını açıkladı"), ["FED_FAIZ"],
+     "yabanci gosterge yabanci haberde kaliyor")
+esit(_ayikla([], "BoJ faiz artıracak mı?"), [],
+     "bos liste bos donuyor")
+esit(_ayikla(["TUFE_TR"], "Borsada yeni rekor"), ["TUFE_TR"],
+     "isaret yoksa mudahale YOK -- varsayilan korunuyor")
+
+# Iki kume ayrismamali: `dosya.TURKIYE_VARLIKLARI` ile
+# `varlik.YERLI_GOSTERGELER` ayni seyi tarif ediyor ve ayri dosyalarda
+# duruyorlar (dairesel bagimliligi onlemek icin). Ayrisirlarsa bir
+# tarafta suzulen varlik oburunde suzulmez.
+from analiz import dosya as _dosya  # noqa: E402
+esit(set(_varlik.YERLI_GOSTERGELER), set(_dosya.TURKIYE_VARLIKLARI),
+     "yerli varlik kumeleri ayni")
+
 print(f"\n{_gecti} gecti, {_kaldi} kaldi")
 sys.exit(1 if _kaldi else 0)

@@ -359,6 +359,73 @@ def _kodlari_bul(metin: str, kurum: str = "") -> list[str]:
     return bulunan
 
 
+#: Yurt ici gostergeler. Yabanci konulu bir haberde bunlar BAGLANMAZ.
+#:
+#: `dosya.TURKIYE_VARLIKLARI` ile ayni kume; oradan ice aktarmak dairesel
+#: bagimlilik kurardi (`dosya` zaten `varlik`i kullaniyor), bu yuzden
+#: burada ayri duruyor. Ikisinin ayrismasi bir sinamayla tutuluyor.
+YERLI_GOSTERGELER = frozenset({
+    "TR", "TCMB", "TUIK", "SPK", "BDDK", "TUFE_TR", "UFE_TR", "TCMB_FAIZ",
+    "CARI_TR", "DIS_TICARET_TR", "ISSIZLIK_TR", "BIST100", "USDTRY",
+    "CDS_TR", "KARAHAN",
+    "SEK_BANKA", "SEK_ENERJI", "SEK_OTOMOTIV", "SEK_TURIZM", "SEK_HAVA",
+    "SEK_PERAKENDE", "SEK_INSAAT",
+})
+
+
+def _yabanci_haberden_yerli_ayikla(kodlar: list[str],
+                                   baslik: str) -> list[str]:
+    """Yabanci konulu haberden YERLI gostergeleri cikarir.
+
+    OLCULEN HATA (2026-08-21)
+    -------------------------
+    "Capital Economics'ten kritik degerlendirme: BoJ faiz artiracak mi?"
+    haberi TCMB_FAIZ'e baglandi. Sebep, TCMB_FAIZ kaliplarindan biri:
+
+        '~faiz'
+
+    "faiz" kelimesi NEREDE gecerse gecsin esliyor. Japon merkez
+    bankasinin faizinden soz eden bir baslik da Turkiye politika
+    faizine baglaniyordu. Bagin sonucu sayfada gorunuyordu: Japon yeni
+    konulu haberde TURKIYE TUFE'si.
+
+    Genel kaliplar ("faiz", "enflasyon") bir GOSTERGE TURUNU tarif
+    ediyor, ULKESINI degil. Ulkeyi baslikta gecen kurum soyluyor.
+
+    Bu suzgec yalnizca CELISKI durumunda calisiyor: baslik yabanci bir
+    para otoritesini aciksa isaret ediyorsa yerli gostergeler
+    dusuyor. Isaret yoksa hicbir sey degismiyor -- yani varsayilan
+    davranis korunuyor ve suzgec yalnizca kanit varken mudahale ediyor.
+    """
+    if not kodlar:
+        return kodlar
+    yerli = [k for k in kodlar if k in YERLI_GOSTERGELER]
+    if not yerli:
+        return kodlar
+    # Ice aktarma islev ICINDE: `besleme` bir ag modulu ve `varlik`
+    # onu yalnizca bu kontrol icin kullaniyor; modul duzeyinde
+    # baglamak analiz hattini beslemeye bagimli kilardi.
+    #
+    # YOL DOSYADAN TURUYOR. Once duz `from kaynak.besleme import`
+    # yazdim ve `test_varlik.py` KIRILDI: o test yalnizca `analiz`
+    # dizinini sys.path'e ekliyor, `haber_botu` kokunu degil. Cagiran
+    # her baglamin dogru yolu kurmus olmasini beklemek, modulu
+    # cagiranin ayarina bagimli kilar.
+    import pathlib as _pl
+    import sys as _sys
+    _kok = str(_pl.Path(__file__).resolve().parent.parent)
+    if _kok not in _sys.path:
+        _sys.path.insert(0, _kok)
+    from kaynak.besleme import bolge_bul
+    if bolge_bul(baslik, "tr") != "DUNYA":
+        return kodlar
+    kalan = [k for k in kodlar if k not in YERLI_GOSTERGELER]
+    # HEPSI DUSERSE BOS DONUYOR. Yanlis varliga baglamaktansa hic
+    # baglamamak dogru: bos liste "Turkiye haberi degil" cevabini
+    # veriyor ve sayfa yerli paneli basmiyor.
+    return kalan
+
+
 def bul(b: sqlite3.Connection, baslik: str, ozet: str = "",
         kurum: str = "") -> list[Varlik]:
     """Metinde gecen varliklari, GRAFTAKI kayitlariyla dondurur.
@@ -384,6 +451,7 @@ def bul(b: sqlite3.Connection, baslik: str, ozet: str = "",
                 break
     if kk and kk not in kodlar:
         kodlar.append(kk)
+    kodlar = _yabanci_haberden_yerli_ayikla(kodlar, baslik)
     if not kodlar:
         return []
     yer = ",".join("?" * len(kodlar))
