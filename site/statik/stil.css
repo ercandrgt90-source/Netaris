@@ -4869,22 +4869,24 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
         dokunulabilir gorunmuyordu. Giris bir GEZINME baglantisi
         degil bir AKSIYON: seritten cikarilip sabit bir yere
         aliniyor, boylece her zaman tam gorunur. */
-  .ust-ic {
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    align-items: center;
-    gap: var(--b-2);
-  }
-  .ust nav { grid-column: 1 / -1; order: 3; }
-  .ust-giris,
-  .ust-panel {
-    order: 2;
-    grid-column: 3;
-    flex: none;
-  }
-  /* Seritte tekrar gorunmesin. */
+  /* GIRIS SERITTE KALIYOR AMA KAYMIYOR.
+     Ilk denemede seritte GIZLEYIP disarida gostermeye calistim; ama
+     baglanti nav ogesinin ICINDE ve disarida bir kopyasi yok --
+     tamamen kayboldu. CSS ile DOM tasinmaz; benim atladigim buydu.
+
+     Dogru yol YAPISKAN KONUM: oge seritte kaliyor, kaydirma
+     sirasinda saga yapisip gorunur duruyor. Hem sirasi bozulmuyor
+     hem her zaman erisilebilir. Golge, altindan kayan ogelerle
+     karismasini engelliyor. */
   .ust nav .ust-giris,
-  .ust nav .ust-panel { display: none; }
+  .ust nav .ust-panel {
+    position: sticky;
+    right: 0;
+    z-index: 2;
+    background: var(--zemin);
+    box-shadow: -10px 0 10px -6px var(--zemin);
+  }
+  .ust nav .ust-panel { background: var(--vurgu); }
 
   /* 1. HERO DUGMELERI: bes dugme uc satir ediyordu (~200px).
         Ikisi kaliyor -- en cok kullanilanlar. Digerleri
