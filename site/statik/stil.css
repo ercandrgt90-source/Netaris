@@ -97,6 +97,22 @@
      kategori: biri ritmi, digeri bicimi tasiyor. Karisik kullanimda
      bosluk olcegini degistiren biri, farkinda olmadan butun koseleri
      de degistirir. */
+  /* GECIS SURELERI -- UC BASAMAK, DAHA FAZLASI DEGIL.
+     Olculdu: alti farkli sure kullaniliyordu (.14, .15, .16, .18,
+     0.4, 0.45) ve bir kismi ayni degeri farkli yaziyordu (.15 ile
+     0.15). Aradaki iki milisaniyelik farklar bir KARAR degil,
+     birikmis rastgelelik -- kimse '.16 burada .15'ten daha dogru'
+     diye dusunmedi.
+
+     Uc basamak yeter:
+       --sure-hizli  dokunmaya ANINDA cevap (cerceve, renk)
+       --sure-orta   kucuk yer degistirme (kart kalkmasi, acilir menu)
+       --sure-yavas  buyuk gorsel hareket (gorsel yakinlasmasi)
+     Daha fazla basamak, arayuzun ritmini duyulmaz kilar. */
+  --sure-hizli: .15s;
+  --sure-orta: .18s;
+  --sure-yavas: .4s;
+
   --r-mini: 6px;
   --r-kucuk: 10px;
   --kabuk: 1180px;
@@ -742,7 +758,7 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.4s ease;
+  transition: transform var(--sure-yavas) ease;
 }
 .kart:hover .kart-gorsel svg { transform: scale(1.04); }
 
@@ -1121,7 +1137,7 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.45s ease;
+  transition: transform var(--sure-yavas) ease;
 }
 .haber:hover .haber-gorsel img { transform: scale(1.045); }
 
@@ -1657,7 +1673,7 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
   display: flex; flex-direction: column; gap: 10px; height: 100%;
   padding: var(--b-4); border: 1px solid var(--cizgi); border-radius: var(--r);
   background: var(--panel); color: inherit;
-  transition: border-color 0.15s, box-shadow 0.15s;
+  transition: border-color var(--sure-hizli), box-shadow var(--sure-hizli);
 }
 .yorum-kart:hover { border-color: var(--cizgi-parlak); box-shadow: var(--golge); }
 .yorum-kunye { display: flex; align-items: center; gap: 10px; }
@@ -2167,7 +2183,7 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
   background: var(--panel);
   color: var(--yazi-2);
   cursor: pointer;
-  transition: border-color .15s, color .15s, background .15s;
+  transition: border-color var(--sure-hizli), color var(--sure-hizli), background var(--sure-hizli);
 }
 .tema-dugme:hover { border-color: var(--vurgu); color: var(--vurgu); }
 
@@ -2209,8 +2225,8 @@ table td, table th, time, .tarih {
    azaltilmis modda KAPALI: bu tercih bir erisilebilirlik ayari. */
 @media (prefers-reduced-motion: no-preference) {
   body, .ust, .kart, .panel, .varlik-veri, .ozet-kutu {
-    transition: background-color .18s ease, border-color .18s ease,
-                color .18s ease;
+    transition: background-color var(--sure-orta) ease, border-color var(--sure-orta) ease,
+                color var(--sure-orta) ease;
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -2463,7 +2479,7 @@ table td, table th, time, .tarih {
   font-size: var(--p-s); font-weight: 700;
   font-variant-numeric: tabular-nums;
   cursor: pointer; white-space: nowrap;
-  transition: border-color .15s, color .15s, background .15s;
+  transition: border-color var(--sure-hizli), color var(--sure-hizli), background var(--sure-hizli);
 }
 .senaryo-oy:hover:not(:disabled) {
   border-color: var(--vurgu); color: var(--vurgu);
@@ -2675,7 +2691,7 @@ table td, table th, time, .tarih {
   border-radius: var(--r); overflow: hidden;
   background: var(--panel); box-shadow: var(--golge);
   border-left: 4px solid var(--tur, var(--vurgu));
-  transition: box-shadow .18s, transform .18s;
+  transition: box-shadow var(--sure-orta), transform var(--sure-orta);
 }
 .basmanset:hover {
   text-decoration: none; transform: translateY(-2px);
@@ -2715,7 +2731,7 @@ table td, table th, time, .tarih {
 .onem-zaman { font-size: var(--p-xs); color: var(--yazi-3); margin-left: auto; }
 .onem-baslik {
   display: block; font-weight: 650; line-height: 1.42;
-  color: var(--yazi); transition: color .15s;
+  color: var(--yazi); transition: color var(--sure-hizli);
 }
 
 /* Kritik rozet. Bu etiket ARTIK SECICI: yalnizca kritik katman
@@ -2932,7 +2948,7 @@ a.akis-baslik:hover { color: var(--vurgu); text-decoration: none; }
 .ai-kart-git {
   font-size: var(--p-xs); font-weight: 600; color: var(--vurgu);
   opacity: 0; transform: translateX(-3px);
-  transition: opacity 0.15s ease, transform 0.15s ease;
+  transition: opacity var(--sure-hizli) ease, transform var(--sure-hizli) ease;
 }
 .ai-akis-liste a:hover .ai-kart-git { opacity: 1; transform: none; }
 /* Dokunmatikte hover yok: baglanti isareti her zaman gorunur. */
@@ -2959,7 +2975,7 @@ a.akis-baslik:hover { color: var(--vurgu); text-decoration: none; }
 }
 .menu-baslik:hover,
 .menu-grup:focus-within .menu-baslik { color: var(--vurgu); background: var(--vurgu-zar); }
-.menu-ok { font-size: 0.7em; opacity: .65; transition: transform .16s; }
+.menu-ok { font-size: 0.7em; opacity: .65; transition: transform var(--sure-orta); }
 .menu-grup:hover .menu-ok,
 .menu-grup:focus-within .menu-ok { transform: rotate(180deg); }
 
@@ -2972,7 +2988,7 @@ a.akis-baslik:hover { color: var(--vurgu); text-decoration: none; }
   /* `display:none` DEGIL: gizliyken de odaklanabilir kalmali, yoksa
      klavyeyle acilan menunun icine girilemez. */
   opacity: 0; visibility: hidden; transform: translateY(-4px);
-  transition: opacity .14s, transform .14s, visibility .14s;
+  transition: opacity var(--sure-hizli), transform var(--sure-hizli), visibility var(--sure-hizli);
 }
 .menu-grup:hover .menu-katman,
 .menu-grup:focus-within .menu-katman {
@@ -3576,7 +3592,7 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none; }
   border: 1px solid var(--cizgi);
   border-radius: var(--r);
   padding: var(--b-5);
-  transition: border-color .15s, transform .15s;
+  transition: border-color var(--sure-hizli), transform var(--sure-hizli);
 }
 
 .arastirma-kart:hover,
@@ -3894,7 +3910,7 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none; }
   border-radius: var(--r-kucuk);
   padding: var(--b-3) var(--b-4);
   cursor: pointer;
-  transition: border-color .15s, transform .15s;
+  transition: border-color var(--sure-hizli), transform var(--sure-hizli);
 }
 
 .paylas-buton:hover,
@@ -3919,7 +3935,7 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none; }
   padding: var(--b-3) var(--b-5);
   opacity: 0;
   pointer-events: none;
-  transition: opacity .18s, transform .18s;
+  transition: opacity var(--sure-orta), transform var(--sure-orta);
 }
 
 .paylas-toast.gorunur { opacity: 1; transform: translate(-50%, 0); }
