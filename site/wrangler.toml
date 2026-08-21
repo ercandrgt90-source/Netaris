@@ -36,7 +36,7 @@ main = "./worker.js"
 # ALAN ADI ALINDIGINDA, SIRASIYLA:
 #   1. Alan adi Cloudflare hesabina eklenir (bolge/zone olusur).
 #   2. Asagidaki iki satirin basindaki `#` kaldirilir.
-#   3. `NETARIS_ADRES=https://netaris.com python site/insa.py` ile
+#   3. `NETARIS_ADRES=https://netaris.com.tr python site/insa.py` ile
 #      kanonik adres, sitemap, robots ve RSS yeniden uretilir
 #      (bkz. `site/insa.py` -> `TABAN_ADRES`).
 #   4. `npx wrangler deploy`
@@ -46,8 +46,8 @@ main = "./worker.js"
 # adres COZUMLENIYOR, yalnizca yanlis.
 #
 # routes = [
-#   { pattern = "netaris.com", custom_domain = true },
-#   { pattern = "www.netaris.com", custom_domain = true },
+#   { pattern = "netaris.com.tr", custom_domain = true },
+#   { pattern = "www.netaris.com.tr", custom_domain = true },
 # ]
 
 [assets]
