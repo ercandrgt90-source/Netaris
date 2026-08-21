@@ -1,3 +1,4 @@
+{% import "_imza.html" as im %}
 {% extends "temel.html" %}
 
 {# ANA SAYFA -- KARAR MERKEZI, HABER LISTESI DEGIL.
@@ -513,7 +514,7 @@
   <li>
     <a class="yorum-kart" href="{{ y.yol }}">
       <span class="yorum-kunye">
-        <span class="yorum-harf" aria-hidden="true">{{ y.bas_harf }}</span>
+        {{ im.imza(y.yazar_adi, y.bas_harf, y.imzali) }}
         <span class="yorum-kim">
           <b>{{ y.yazar_adi }}</b>
           <span>{{ y.yazar_unvani }}</span>

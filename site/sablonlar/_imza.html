@@ -1,0 +1,25 @@
+{# Kunye isareti: INSAN mi KURUM mu -- goz seviyesinde ayirt edilsin.
+
+   Once ikisi de bas harf dairesiydi. "Necati Ercan Durgut" icin "N",
+   "Netaris Analiz" icin de "N" -- ayni harf, ayni daire. Okur ikisini
+   ayirt etmek icin ALTINDAKI yaziyi okumak zorundaydi.
+
+   Bu, sitenin en temel ayrimini gorunmez kiliyordu: bir metni insan mi
+   yazdi yoksa kurallar mi uretti. Kurum imzasina logonun kendisi
+   konuyor; imzali yazilar bas harf dairesinde kaliyor.
+
+   Vesikalik yok: var olmayan insanin fotografi olmaz. #}
+{% macro imza(ad, bas_harf, imzali) -%}
+{%- if imzali -%}
+<span class="yorum-harf" aria-hidden="true">{{ bas_harf }}</span>
+{%- else -%}
+<span class="yorum-harf yorum-harf-kurum" aria-hidden="true">
+  <svg viewBox="0 0 32 32" fill="none" width="20" height="20">
+    <path d="M5 27V6l14 17V6" stroke-width="3.2" stroke-linecap="round"
+          stroke-linejoin="round" fill="none"/>
+    <rect x="22" y="19" width="3.4" height="8" rx="1.2"/>
+    <rect x="26.6" y="13" width="3.4" height="14" rx="1.2"/>
+  </svg>
+</span>
+{%- endif -%}
+{%- endmacro %}

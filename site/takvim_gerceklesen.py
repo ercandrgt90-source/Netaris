@@ -104,13 +104,35 @@ def surpriz(gercek: float | None, beklenti: float | None) -> dict | None:
     return {"fark": f, "yon": "ust" if f > 0 else "alt"}
 
 
-def _tr(d: float, basamak: int = 2) -> str:
+def _basamak(d: float) -> int:
+    """Kac ondalik basamak YAZILACAGINI olcumun kendisi soyler.
+
+    Sabit iki basamak SAHTE HASSASIYET uretiyordu: ABD haftalik
+    issizlik basvurulari "206 000,00" diye basiliyordu. Kaynak 206 bin
+    kisi sayiyor; virgulden sonraki iki sifir bir olcum degil, bir
+    bicimlendirme artigi. Okur onu gordugunde sayinin yuzde birlik
+    dogrulukla bilindigini saniyor -- bilinmiyor.
+
+    Kural, sayinin BUYUKLUGUNE degil TURUNE bakiyor: tam sayi olarak
+    gelen buyuk degerler (kisi, adet, milyon dolar) ondaliksiz;
+    oran ve endeks gibi kesirli gelenler iki basamakla yaziliyor.
+    Boylece %7,80 hassasiyetini koruyor, 206 000 gurultusunu atiyor.
+    """
+    return 0 if float(d).is_integer() and abs(d) >= 100 else 2
+
+
+def _tr(d: float, basamak: int | None = None) -> str:
     """Turkce sayi: ondalik ayraci VIRGUL.
 
     Bicimlendirme SABLONDA degil burada: sablon hesap yapmamali,
     yalnizca basmali. Ayrica ayni sayi iki yerde farkli
     bicimlenirse okur hangisinin dogru oldugunu bilemez.
+
+    `basamak` verilmezse olcumun kendisinden turuyor -- bkz.
+    `_basamak`.
     """
+    if basamak is None:
+        basamak = _basamak(d)
     return f"{d:,.{basamak}f}".replace(",", " ").replace(".", ",")
 
 

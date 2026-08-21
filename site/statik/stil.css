@@ -5289,3 +5289,54 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
   .ai-kart-yorum .ai-metin,
   .ai-metin { -webkit-line-clamp: 3; }
 }
+
+/* ====================================================================
+   TAKVIM "ACIKLANDI" SATIRI -- UST SATIRLA AYNI HIZAYA
+   --------------------------------------------------------------------
+   `.takvim-ust` yanlarda `var(--b-4)` bosluk aliyordu, `.takvim-
+   gerceklesen` ise `margin: var(--b-2) 0 0` ile HIC almiyordu. Sonuc:
+   tarih kartin icinden, "ACIKLANDI" rozeti kartin kenarindan
+   basliyordu. Iki satir ayni kartin icinde ama ayni sutunda degildi.
+
+   Punto da buyuktu: deger `--p-l` idi, yani BASLIKLA ayni boyda.
+   Gerceklesen deger bir olcum, bir baslik degil -- basligi golgede
+   birakmamali. `--p-m` ustelik `tabular-nums` ile hizali kaliyor.
+   ================================================================== */
+
+.takvim-gerceklesen {
+  margin: 0;
+  padding: 0 var(--b-4) var(--b-3);
+  gap: var(--b-2) var(--b-3);
+}
+
+.takvim-cikti {
+  font-size: var(--p-m);
+  font-weight: 700;
+}
+
+/* Rozet ile deger ayni goz hizasinda otursun: rozet buyuk harf ve
+   kucuk punto oldugu icin taban cizgisi hizalamasi onu asagi
+   dusuruyordu. */
+.takvim-cikti-etiket {
+  align-self: center;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .takvim-gerceklesen { padding: 0 var(--b-3) var(--b-3); }
+  .takvim-ust { padding: var(--b-3); gap: var(--b-2); }
+}
+
+/* KURUM IMZASI LOGOYLA. Insan imzasi bas harf dairesinde kaliyor;
+   ikisi de "N" dairesiyken okur ayrimi ancak alt yaziyi okuyarak
+   yapabiliyordu -- sitenin en temel ayrimi (insan mi, kural mi)
+   gorunmuyordu. */
+.yorum-harf-kurum {
+  background: var(--vurgu);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.yorum-harf-kurum svg { display: block; }
+.yorum-harf-kurum path { stroke: #fff; }
+.yorum-harf-kurum rect { fill: #fff; }

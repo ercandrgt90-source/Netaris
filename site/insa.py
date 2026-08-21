@@ -2114,6 +2114,58 @@ def arsiv_haberleri(guncel_adresler: set[str], foto_kayit) -> list[dict]:
     return cikti
 
 
+def tekilles(haberler: list[dict]) -> list[dict]:
+    """Ayni olayin ikinci kaydini eler -- EN GUNCELI KALIR.
+
+    NEDEN INSA ICINDE, TEK SEFERLIK BETIKTE DEGIL
+    ---------------------------------------------
+    Once bunu depoyu temizleyen ayri bir araca yazdim ve calisti: 187
+    fazla kayit yayimdan dustu. Sonraki insa hepsini GERI YAYIMLADI.
+    Sebep asagida, yayim dongusunun basinda: `UPDATE haber SET
+    yayimlandi=0` ile bayrak sifirlaniyor ve liste bastan yaziliyor.
+    Yani depoyu temizlemek, her kosuda kendini bozan bir isti.
+
+    Eleme LISTEDE olmali, depoda degil. Depo neyi gordugumuzun kaydi;
+    hangisini yayimladigimiz bir SECIM ve secim burada yapiliyor.
+
+    "AYNI OLAY" = AYNI GUN + AYNI BASLIK
+    ------------------------------------
+    Yalnizca baslige bakmak yanlis olurdu: "Borsa gunu yukselisle
+    tamamladi" her yukselis gununde yeniden yaziliyor ve bunlar ayri
+    gunlerin ayri haberleri. Olculdu -- yalnizca baslikle 1003 kayit
+    elenecekti, yani arsivin bes te biri. Gun olcutu de tek basina
+    yetmez; ikisi BIRLIKTE ayni olayi isaret ediyor.
+
+    Ayni olay birden fazla kaynaktan giriyor (ayni gun, ayni baslik,
+    farkli adres) ve her biri ayri kart uretiyordu. Okur icin ayni
+    haberi listede uc kez gormek demek.
+    """
+    gorulen: dict[tuple[str, str], dict] = {}
+    sira: list[dict] = []
+    for h in haberler:
+        baslik = " ".join((h.get("baslik") or "").split()).casefold()
+        gun = (h.get("tarih") or "")[:10]
+        if not baslik or not gun:
+            # Olcemedigimizi elemiyoruz: baslik ya da tarih yoksa
+            # "ayni mi" sorusunu cevaplayamayiz ve tahminle silmek,
+            # sessizce haber dusurmek olur.
+            sira.append(h)
+            continue
+        anahtar = (baslik, gun)
+        onceki = gorulen.get(anahtar)
+        if onceki is None:
+            gorulen[anahtar] = h
+            sira.append(h)
+            continue
+        # EN GUNCEL KALIR. Damga yoksa elde olan korunuyor.
+        yeni_an = h.get("an") or h.get("tarih") or ""
+        eski_an = onceki.get("an") or onceki.get("tarih") or ""
+        if yeni_an > eski_an:
+            sira[sira.index(onceki)] = h
+            gorulen[anahtar] = h
+    return sira
+
+
 def varlik_indeksle(haberler: list[dict]) -> dict[str, dict]:
     """Varliklari cikarir, depoya yazar, ilgili haberleri geri okur.
 
@@ -2951,7 +3003,7 @@ def insa() -> int:
                             foto_defteri())
     if arsiv:
         print(f"arsiv: {len(arsiv)} eski haber sayfasi yeniden uretiliyor")
-    uretilecek = gundem["haberler"] + arsiv
+    uretilecek = tekilles(gundem["haberler"] + arsiv)
     varlik_haritasi = varlik_indeksle(uretilecek)
 
     # ONEM PUANI. Her habere katman ve puan yaziliyor; puan EKRANA
