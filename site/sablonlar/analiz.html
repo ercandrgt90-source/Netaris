@@ -37,6 +37,18 @@
 {% endblock %}
 
 {% block icerik %}
+{# GERI DONUS -- MOBILDE ZORUNLU.
+   Olculdu: haber ve analiz sayfalarinda hicbir geri baglantisi yoktu.
+   Masaustunde ust menu her zaman gorunur ve okur oradan donebiliyor;
+   telefonda menu yatay kayan bir seride donustugu icin "nereye
+   donerim" sorusu belirsiz kaliyor. Tarayicinin geri dugmesi var ama
+   okur baglantiyi PAYLASIMDAN acmis olabilir -- o zaman geri gidecek
+   bir yer yok ve site bir cikmaz sokak gibi davraniyor.
+
+   Baglanti KAYNAGA gore degisiyor: haber /gundem/'e, analiz kendi
+   kategorisine doner. Sabit bir "/" yazmak, okuru bastan
+   basladigi yere degil ANA SAYFAYA yollardi. #}
+<p class="geri-don"><a href="{{ geri_yol|default("/arastirmalar/") }}">← {{ geri_ad|default("Araştırmalar") }}</a></p>
 {# Eskimis piyasa yorumu uyarisi. Yaziyi degistirmiyoruz -- yazar o gun
    dogru olani yazdi. Ama "su an", "surduruyor" gibi ifadeler bugun okuyani
    yanilir, o yuzden tarihi one cikariyoruz ve guncel veriye yonlendiriyoruz. #}

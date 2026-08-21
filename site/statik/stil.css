@@ -4830,3 +4830,67 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
   .akis-zaman, .akis-kunye { font-size: 0.75rem; }
   .akis-baslik { font-size: 0.875rem; line-height: 1.35; }
 }
+
+/* ====================================================================
+   DORT DUZELTME  --  kullanicinin telefon geri bildirimi
+   ================================================================== */
+
+/* 1. GERI DONUS. Sayfanin en ustunde, basliktan once: okur once
+      "neredeyim / nasil donerim" sorusunu cevaplamali. */
+.geri-don {
+  margin: 0 0 var(--b-4);
+  font-size: var(--p-m);
+}
+.geri-don a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--b-1);
+  color: var(--yazi-2);
+  text-decoration: none;
+  font-weight: 600;
+}
+.geri-don a:hover,
+.geri-don a:focus-visible { color: var(--vurgu); }
+
+/* 4. LOGO SOLUK KALIYORDU.
+      `.logo-kutu` `--vurgu-zar` (soluk ton) ile doluyordu; koyu
+      zeminde neredeyse gorunmuyor, acik zeminde de siliktı. Marka
+      isareti sayfadaki EN GUVENILIR sabit: okur nerede oldugunu
+      ondan anliyor ve silik bir logo "yarim kurulmus site"
+      izlenimi veriyor. */
+.logo-im .logo-kutu { fill: var(--vurgu); stroke: none; }
+.logo-im { stroke: var(--zit-yazi); fill: var(--zit-yazi); }
+.logo { font-weight: 700; letter-spacing: -0.01em; }
+
+@media (max-width: 640px) {
+
+  /* 3. GIRIS YAP SERITTE KESILIYORDU.
+        Yatay kayan menude son oge yarim kaliyor ve "Giris yap"
+        dokunulabilir gorunmuyordu. Giris bir GEZINME baglantisi
+        degil bir AKSIYON: seritten cikarilip sabit bir yere
+        aliniyor, boylece her zaman tam gorunur. */
+  .ust-ic {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: var(--b-2);
+  }
+  .ust nav { grid-column: 1 / -1; order: 3; }
+  .ust-giris,
+  .ust-panel {
+    order: 2;
+    grid-column: 3;
+    flex: none;
+  }
+  /* Seritte tekrar gorunmesin. */
+  .ust nav .ust-giris,
+  .ust nav .ust-panel { display: none; }
+
+  /* 1. HERO DUGMELERI: bes dugme uc satir ediyordu (~200px).
+        Ikisi kaliyor -- en cok kullanilanlar. Digerleri
+        "Araştırmalar" menusunde ve /arastirmalar/ sayfasinda zaten
+        var; hero'da tekrar etmeleri yer disinda bir sey katmiyor. */
+  .hero-butonlar .dugme:nth-of-type(n+3) { display: none; }
+  .hero-butonlar { gap: var(--b-2); }
+  .hero-butonlar .dugme { flex: 1 1 calc(50% - var(--b-2)); }
+}
