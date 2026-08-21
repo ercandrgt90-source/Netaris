@@ -2614,13 +2614,34 @@ def ai_akisi(haberler: list[dict], en_cok: int = AI_AKIS_SAYISI) -> list[dict]:
     # tasiyor ve olcumu olmayan haberlerde model onlara tutunuyor.
     # Burasi o sorunu cozmuyor, GORUNMESINI engelliyor -- ayni cumleyi
     # uc kez basan bir bolum, ne dedigimize dair guveni de ucuruyor.
+    # AYNI BASLIK IKI KEZ GIRMIYOR.
+    #
+    # Olculdu: yayimdaki alti karttan IKISI ayni basligi tasiyordu --
+    # "Isvec Issizlik Orani: %7,80 - onceki %9,90". Ayni gosterge iki
+    # kez kaydedilmisti; YORUMLARI farkli yazildigi icin yukaridaki
+    # benzerlik suzgeci ikisini de gecirdi.
+    #
+    # Suzgec yalnizca `ai_yorum_kart` metnine bakiyordu, yani "ayni
+    # seyi farkli cumleyle anlatan iki yorum"u yakaliyor ama "ayni
+    # habere ait iki kayit"i yakalamiyordu. Basligi da olcute
+    # katmak, kok sebebi (mukerrer kayit) cozmuyor ama okura ayni
+    # haberi iki kez gostermeyi engelliyor.
+    #
+    # Basliklar birebir degil NORMALLESTIRILEREK karsilastiriliyor:
+    # bosluk ve buyuk/kucuk harf farki ayni haberi iki ayri haber
+    # gibi gostermeye yeter.
     secilen: list[dict] = []
+    basliklar: set[str] = set()
     for h in olan:
         metin = h.get("ai_yorum_kart", "")
+        anahtar = " ".join((h.get("baslik") or "").split()).casefold()
+        if anahtar and anahtar in basliklar:
+            continue
         if _onem is not None and any(
                 _onem.benzer(metin, s.get("ai_yorum_kart", ""))
                 for s in secilen):
             continue
+        basliklar.add(anahtar)
         secilen.append(h)
         if len(secilen) >= en_cok:
             break

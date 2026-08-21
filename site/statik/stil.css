@@ -5215,3 +5215,77 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
   .ust-ic > nav { display: none; }
   .ust-ic { justify-content: space-between; }
 }
+
+/* ====================================================================
+   "NETARIS NE DIYOR" KARTLARI -- ESIT VE OKUNUR
+   --------------------------------------------------------------------
+   Kullanicinin ekran goruntusunde uc sorun goruldu:
+
+   1. YORUM ORTADAN KESILIYORDU. Kartlar farkli yuksekliklerde bitiyor
+      ve son satir yarim kaliyordu -- okur cumlenin bittigini mi yoksa
+      kartin mi bittigini anlamiyor. Satir siniri yoktu.
+
+   2. "Habere git" YALNIZCA UZERINE GELINCE gorunuyordu
+      (`opacity: 0`). Dokunmatikte `:hover` diye bir durum yok, yani
+      TELEFONDA HIC gorunmuyordu. Gorunmeyen bir cikis, olmayan bir
+      cikistir.
+
+   3. Kartlar esit yukseklikte degildi; izgara hizasiz duruyordu.
+
+   Uc satirda kirpiliyor ve ucnokta ile bitiyor: okur metnin
+   devaminin OLDUGUNU goruyor, kartlar ayni yukseklikte hizalaniyor.
+   ================================================================== */
+
+.ai-akis-liste li {
+  display: flex;
+  flex-direction: column;
+}
+
+.ai-akis-liste li > a {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Baslik iki satirda sabit: uc satirlik bir baslik altindaki yorumu
+   asagi itiyor ve kartlar yine ayrisiyor. */
+.ai-kart-baslik {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.ai-kart-yorum {
+  margin: 0;
+  flex: 1 1 auto;
+}
+
+/* YORUM METNI UC SATIR. Ucnokta tarayici tarafindan ekleniyor;
+   metni kodda kirpmak, cumlenin ortasinda kesmek olurdu. */
+.ai-kart-yorum p,
+.ai-kart-yorum .ai-metin,
+.ai-metin {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* CIKIS HER ZAMAN GORUNUR.
+   `opacity: 0` + hover, dokunmatikte kalici gizlemeye donusuyordu. */
+.ai-kart-git {
+  opacity: 1;
+  transform: none;
+  margin-top: auto;
+  padding-top: var(--b-2);
+  display: inline-block;
+}
+
+@media (max-width: 640px) {
+  /* Dar ekranda iki satir yeter: kart zaten tam genislikte ve
+     kaydirma maliyeti yuksek. */
+  .ai-kart-yorum p,
+  .ai-kart-yorum .ai-metin,
+  .ai-metin { -webkit-line-clamp: 3; }
+}
