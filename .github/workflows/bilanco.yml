@@ -134,6 +134,34 @@ jobs:
           python haber_botu/uret_bilanco_sayfa.py \
             --sinir ${{ inputs.sinir || '60' }}
 
+      # ESKI KUMULATIF SAYFAYI CEYREKLIGI URETILDIGINDE KALDIR.
+      #
+      # KAP donemleri kumulatif: "2026/6" yilin ilk YARISI demek, ikinci
+      # ceyrek degil. Sayfalar bir donem bu etiketle uretildi.
+      #
+      # TEMIZLIGI NEDEN CI YAPIYOR
+      # Once elle calistirdim, 33 sayfa silindi ve bir sonraki otomasyon
+      # kosusu HEPSINI GERI GETIRDI:
+      #
+      #     152cbfb  otomatik: veri guncellemesi 19:53  <- geri getirdi
+      #     be55613  Ceyrekligi uretilen 33 ... kaldirildi
+      #
+      # Kosu benim silmemden ONCE checkout almisti ve geri yazma adimi
+      # `git add --ignore-removal` kullaniyor -- o bayrak silmeleri hic
+      # sahnelemiyor, dolayisiyla eski dosyalar diriliyor. Bayrak iki is
+      # akisinin birbirinin sayfalarini silmesini engellemek icin var ve
+      # KALMALI; cozum, temizligi kosunun ICINE almak.
+      #
+      # Boylece uretimle temizlik ayni islemde: sayfa ceyreklige
+      # cevrildigi anda kumulatif karsiligi dusuyor.
+      #
+      # `--uygula` burada BILEREK veriliyor. Yorum denetiminden farkli:
+      # orada silinen sey MODEL CIKTISI ve yeniden uretmek para/kota
+      # harciyor. Burada silinen sey, yerine YENISI URETILMIS olan eski
+      # bir dosya -- ve arac karsiligi olmayani zaten silmiyor.
+      - name: Kümülatif bilanço sayfalarını topla
+        run: python haber_botu/kumulatif_temizle.py --uygula
+
       - name: Siteyi kur ve denetle
         run: |
           python site/insa.py
