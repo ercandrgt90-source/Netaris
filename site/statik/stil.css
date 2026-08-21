@@ -4466,3 +4466,129 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
 
   .hero-dar { padding-bottom: var(--b-4); }
 }
+
+/* ====================================================================
+   MOBIL TIPOGRAFI  --  KUCUK PUNTO, GENIS NEFES
+   --------------------------------------------------------------------
+   Kullanicinin ifadesi: "puntolar cok buyuk, yazilar cok sikisik".
+   Ikisi AYNI SEBEBIN iki yuzu.
+
+   Baslik olcegini kurarken masaustunu olctum: h2 = 22px orada dogru.
+   Ama 360 piksellik bir ekranda ayni 22px, kart basligini uc satira
+   bolüyor -- ve dar sutunda uc satirlik baslik SIKISIK gorunuyor.
+
+   Punto buyudukce satir basina dusen sozcuk azaliyor; az sozcuklu
+   satirlar goz icin daha yorucu, cunku goz her satirda yeniden
+   konumlaniyor. Yani "buyuk punto" ile "sikisik" ayni seyi anlatiyor.
+
+   IKI YONLU DUZELTME:
+     punto KUCULUYOR  -> satir basina daha cok sozcuk
+     satir ARALANIYOR -> satirlar birbirine yapismasin
+
+   Govde metni 14px'in ALTINA INDIRILMEDI. iOS 16px'ten kucuk giris
+   alanini yakinlastiriyor (giris formunda ayrica cozuldu) ve 14px
+   surekli okuma icin zaten alt sinir. Kucultme BASLIKLARDA.
+   ================================================================== */
+
+@media (max-width: 640px) {
+
+  /* BASLIKLAR: masaustu olceginin bir basamak altinda. */
+  h2 { font-size: var(--p-xl); }       /* 22 -> 19 */
+  h3 { font-size: var(--p-l); }        /* 19 -> 17 */
+  h4 { font-size: var(--p-m); }        /* 17 -> 14 */
+
+  /* Kart basliklari daha da kucuk: kartta bir baslik DEGIL, bir
+     ETIKET islevi goruyor -- okur karti bir butun olarak tariyor. */
+  .kart h2,
+  .kart h3,
+  .kart-baslik,
+  .ai-kart-baslik,
+  .arastirma-kart h2 {
+    font-size: var(--p-l);
+    line-height: var(--satir-orta);
+  }
+
+  /* NEFES: dar sutunda satirlar birbirine yapisiyordu. */
+  .govde p,
+  .kart p,
+  .ozet,
+  .ai-kart-yorum,
+  .arastirma-aciklama {
+    line-height: var(--satir-genis);
+  }
+
+  /* Paragraf arasi bosluk: satir araligi acilinca paragraf siniri
+     belirsizlesiyor, o da ayrica acilmali. */
+  .govde p { margin-bottom: var(--b-4b); }
+
+  /* Bolum basligi ve notu: baslik kuculunce not da orantili. */
+  .bolum-bas h2 { font-size: var(--p-l); }
+  .bolum-not { font-size: var(--p-xs); }
+
+  /* Kart ici dolgu: punto kuculdugu icin dolgu da orantili
+     kucumeli, yoksa kart bos gorunur. */
+  .kart { padding: var(--b-4); }
+}
+
+/* ====================================================================
+   MOBIL TIPOGRAFI  --  REFERANS OLCUMUNE GORE
+   --------------------------------------------------------------------
+   Iki mobil haber sitesinin CSS'i olculdu (tasarim degil, OKUNABILIRLIK
+   OLCUSU -- punto secimi bir kimlik degil, okurun gozune iliskin bir
+   olcum):
+
+     BBC Turkce   govde 16px (en yaygin), basliklar 20-28px
+     Dunya        govde 14-16px, satir yuksekligi 1.5 (baskin)
+     Netaris      govde 14px, basliklar 22-28px
+
+   BULGU BEKLENDIGININ TERSI: bizim GOVDE METNIMIZ referanslardan
+   KUCUK, basliklarimiz buyuk. "Yazilar cok sikisik" hissinin sebebi
+   toplam buyukluk degil ORAN -- kucuk govde yaninda buyuk baslik,
+   metni ezilmis gosteriyor.
+
+   Bu yuzden cozum govdeyi KUCULTMEK degil BUYUTMEK. 14px surekli
+   okuma icin alt sinir; telefonda kol mesafesi masaustunden uzun ve
+   16px iki referansta da birincil govde olcusu.
+
+   Basliklar ayni anda bir basamak iniyor: oran daralinca metin
+   nefes aliyor.
+   ================================================================== */
+
+@media (max-width: 640px) {
+  /* GOVDE 16px -- referanslarin birincil olcusu. */
+  body { font-size: 16px; line-height: 1.55; }
+
+  .govde p,
+  .govde li,
+  .ozet,
+  .kart p,
+  .ai-kart-yorum,
+  .arastirma-aciklama,
+  .hero-ozet {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* BASLIKLAR referans araliginda: 20-28px.
+     h1 en buyuk oge olmali ama ekrani yememeli. */
+  h1 { font-size: clamp(1.5rem, 6vw, 1.75rem); }   /* 24-28px */
+  h2 { font-size: 1.25rem; }                        /* 20px */
+  h3 { font-size: 1.125rem; }                       /* 18px */
+  h4 { font-size: 1rem; }                           /* 16px */
+
+  .bolum-bas h2 { font-size: 1.25rem; }
+  .kart h2,
+  .kart h3,
+  .kart-baslik,
+  .ai-kart-baslik,
+  .arastirma-kart h2 { font-size: 1.0625rem; line-height: 1.4; }
+
+  /* Ikincil metinler govdeye gore ORANTILI kaliyor: hepsi birden
+     buyurse hiyerarsi yine kaybolur. */
+  .kart-kunye,
+  .bolum-not,
+  .akis-kunye,
+  .foto-atif { font-size: 0.8125rem; }
+
+  .akis-baslik { font-size: 0.9375rem; line-height: 1.45; }
+}
