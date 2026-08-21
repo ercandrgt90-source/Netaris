@@ -3471,8 +3471,24 @@ def insa() -> int:
                     # halkasi -- cizelge o halkanin yerini gosteriyor.
                     dosya_seyri=h_seyir,
                     # Izleme kalemleri tiklanabilir: hedef varlik arsivi
+                    # BOLGEYE GORE SUZULUYOR.
+                    #
+                    # Burasi `IZLENECEKLER` sozlugunu DOGRUDAN okuyordu,
+                    # yani `dosya.kur()` icindeki suzgeci atliyordu.
+                    # Olculdu: suzgeci `kur()` icine koydum, sinamada
+                    # calisti, ama sayfadaki sayi HIC DEGISMEDI -- 57
+                    # yabanci konulu sayfada Turkiye kalemleri duruyordu
+                    # ("ABD cekirdek PCE" sayfasinda "Bir sonraki TUFE
+                    # aciklamasi").
+                    #
+                    # Ders: bir sozluk iki yerden okunuyorsa, suzgeci
+                    # birine koymak obur yolu KAPATMIYOR. Once
+                    # "duzelttim" sanmistim; sayfayi olcmeseydim oyle
+                    # rapor edecektim.
                     izleme=izleme_baglantilari(
-                        (_dosya.IZLENECEKLER.get(h.get("konu", ""))
+                        (_dosya._izlenecekleri_suz(
+                            _dosya.IZLENECEKLER.get(h.get("konu", ""), ()),
+                            h.get("bolge", ""))
                          if _dosya else ()), varlik_sayfasi_olan),
                 ),
             )

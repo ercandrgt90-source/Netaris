@@ -797,6 +797,10 @@ BULTEN_KALIPLARI = (
 _KATLAMA = str.maketrans({
     "ı": "i", "İ": "i", "I": "i", "ş": "s", "Ş": "s", "ğ": "g", "Ğ": "g",
     "ü": "u", "Ü": "u", "ö": "o", "Ö": "o", "ç": "c", "Ç": "c",
+    # DUZELTME ISARETLI HARFLER. "Resmî Gazete" suzulmuyordu cunku
+    # "î" tabloda yoktu ve "resmi gazete" deseni eslesmiyordu. Turkce
+    # metinde bunlar seyrek ama tam da kurum adlarinda geciyor.
+    "â": "a", "Â": "a", "î": "i", "Î": "i", "û": "u", "Û": "u",
 })
 
 
@@ -1226,6 +1230,87 @@ TURKIYE_VARLIKLARI = frozenset({
 ZINCIR_KONULARI = frozenset({"Jeopolitik", "Enerji"})
 
 
+#: Turkce harfleri ASCII'ye indirir -- desen eslestirmesi icin.
+#:
+#: DIKKAT: once `translate`, SONRA `lower()`. Ters sirada "İ" bozulur;
+#: `"İ".lower()` iki kod noktasi ureti(yor ve tablodaki anahtara uymuyor.
+_KATLAMA_TR = str.maketrans({
+    "ı": "i", "İ": "i", "I": "i", "ş": "s", "Ş": "s", "ğ": "g", "Ğ": "g",
+    "ü": "u", "Ü": "u", "ö": "o", "Ö": "o", "ç": "c", "Ç": "c",
+    # DUZELTME ISARETLI HARFLER. "Resmî Gazete" suzulmuyordu cunku "î"
+    # tabloda yoktu ve "resmi gazete" deseni eslesmiyordu. Turkce
+    # metinde seyrekler ama tam da KURUM ADLARINDA geciyorlar.
+    "â": "a", "Â": "a", "î": "i", "Î": "i", "û": "u", "Û": "u",
+})
+
+
+def _katla_tr(metin: str) -> str:
+    return metin.translate(_KATLAMA_TR).lower()
+
+
+#: "Takip edilecekler" kalemlerinden YURT ICINE ozgu olanlar.
+#:
+#: Olculdu (2026-08-21): bolge duzeltmesinden SONRA hala 57 yabanci
+#: konulu sayfada Turkiye verisi vardi -- ama panelde degil, "Simdi ne
+#: izlenmeli?" listesinde. Ornek, "ABD cekirdek PCE: yillik %3,29"
+#: sayfasinda "Bir sonraki TUFE aciklamasi" ve "Cekirdek (C) enflasyon"
+#: yaziyordu; ikisi de TUIK takvimi.
+#:
+#: Sebep: `IZLENECEKLER` yalnizca KONUYA gore anahtarlanmis, bolge hic
+#: gorulmuyordu. "Enflasyon" konulu her haber -- ABD'ninki dahil --
+#: ayni yerli listeyi aliyordu.
+#:
+#: Panel duzeltmesi buraya islemedi cunku iki bolum ayri kod
+#: yollarindan besleniyor. Bir sinifi bir yerde kapatmak, obur yerde
+#: acik biraktigini garanti etmiyor.
+YURT_ICI_IZLEME = (
+    # DESENLER KATLANMIS YAZILIYOR (ASCII, kucuk harf) -- kiyaslama
+    # `_katla_tr` uzerinden gidiyor.
+    "resmi gazete", "bist", "tcmb", "tuik",
+    "spk", "bddk", "politika faizi", "bir sonraki tufe",
+    "cekirdek (c)", "kap bildirim", "hazine",
+    # Bu ucu de olcerek eklendi: suzgeci calistirip KALAN kalemlere
+    # baktim ve yerli olanlari topladim. Desen listesini bir kez yazip
+    # dogru saymak yerine, ciktiyi okumak gerekiyor.
+    "turkiye", "tufe", "cari islemler", "zorunlu karsilik",
+    "kredi buyumesi", "konut kredisi", "konut satis", "halka arz",
+    "kamuyu aydinlatma", "rekolte", "/try", "try/",
+    # Ilk yazimda bu ucunu atlamistim ve suzgec yarim calisti: ABD
+    # enflasyon haberinde "Yİ-ÜFE", "PPK kararı" ve "USD/TRY" duruyordu.
+    # Ucu de yurt icine ozgu -- YI-UFE TUIK serisi, PPK TCMB kurulu,
+    # USD/TRY Turk lirasi kuru. Adlarinda kurum GECMEDIGI icin ilk
+    # listeden kacmislar; olcmeseydim "duzelttim" diyecektim.
+    "yi-ufe", "ppk", "usd/try",
+    # " ppk" diye ONDE BOSLUKLU yazmistim ve "PPK kararı" suzulmedi
+    # -- kalem PPK ile BASLIYOR, onunde bosluk yok. Bosluklu yazim
+    # kelime ici eslesmeyi onlemek icindir ama burada kalemin
+    # BASINDA duran bir kisaltmayi da eliyordu.
+)
+
+
+def _izlenecekleri_suz(kalemler: tuple[str, ...], bolge: str) -> tuple[str, ...]:
+    """Yabanci konulu haberden yurt icine ozgu takip kalemlerini atar.
+
+    Yalnizca `bolge == "DUNYA"` iken calisiyor; yurt ici haberde liste
+    oldugu gibi kaliyor.
+
+    Liste TAMAMEN bosalabilir ve bu dogru: bir ABD enflasyon haberinde
+    okura "Resmi Gazete'yi izleyin" demek, yanlis yere bakmasini
+    soylemektir. Bos bolum basilmiyor.
+    """
+    if bolge != "DUNYA":
+        return kalemler
+    # KATLAMA, `casefold()` DEGIL.
+    #
+    # Once `k.casefold()` yazmistim ve "Yİ-ÜFE" SUZULMEDI. Sebep:
+    # Python "İ".casefold() icin iki kod noktasi uretiyor ("i" + birlesen
+    # nokta), yani "yi-üfe" deseni artik uymuyor. Turkce metinde bu tuzak
+    # sessiz YANLIS NEGATIF uretiyor -- suzgec calisiyor gorunuyor ama
+    # bazi kalemleri hic gormuyor.
+    return tuple(k for k in kalemler
+                 if not any(iz in _katla_tr(k) for iz in YURT_ICI_IZLEME))
+
+
 def turkiye_haberi(bolge: str, varliklar) -> bool:
     """Haber Turkiye'yi mi anlatiyor.
 
@@ -1284,7 +1369,8 @@ def kur(konu: str, bolge: str, haber_tarihi: str = "",
     d = Dosya(
         duyarlilik=(varlik_duyarliligi(varliklar, konu)
                     if zincir else ()),
-        izlenecekler=IZLENECEKLER.get(konu, ()) if zincir else (),
+        izlenecekler=(_izlenecekleri_suz(IZLENECEKLER.get(konu, ()), bolge)
+                      if zincir else ()),
         senaryolar=(varlik_senaryolari(varliklar, konu)
                     if zincir else ()),
     )
