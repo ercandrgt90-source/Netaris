@@ -3667,3 +3667,14 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none; }
   .arastirma-kart:hover,
   .arastirma-kart:focus-visible { transform: none; }
 }
+
+/* ARASTIRMA ETIKETI -- haber kartindan ayirmak icin.
+   Kategori rozetinden daha sessiz: turu degil AILEYI soyluyor ve
+   dikkati kategoriden calmamali. Cerceve var, dolgu yok. */
+.rozet-arastirma {
+  background: transparent;
+  border: 1px solid var(--vurgu);
+  color: var(--vurgu);
+  letter-spacing: .08em;
+  font-weight: 700;
+}

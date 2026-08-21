@@ -47,6 +47,15 @@
 {% endblock %}
 
 {% macro rozetler(a) %}
+{# ARASTIRMA ETIKETI -- haber kartindan AYIRT ETMEK icin.
+   Ana sayfada arastirma ve haber kartlari yan yana duruyor ve ayni
+   gorunuyordu; okur neye baktigini kart bicimine bakarak
+   secemiyordu. Kategori rozeti ("Bilanço Analizi") turu soyluyor
+   ama TUR AILESINI soylemiyor -- "Makro" bir haber de olabilir.
+
+   Etiket kategoriden ONCE ve ayri: once "bu bir arastirma", sonra
+   "hangi tur arastirma". #}
+<span class="rozet rozet-arastirma">ARAŞTIRMA</span>
 <span class="rozet rozet-vurgu">{{ a.kategori }}</span>
 {% if a.kod and a.kod != "MAKRO" %}<span class="rozet rozet-kod">{{ a.kod }}</span>{% endif %}
 {% if a.sektor %}<span class="rozet">{{ a.sektor }}</span>{% endif %}
