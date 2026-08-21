@@ -23,6 +23,7 @@ Tasarim notlari
 
 from __future__ import annotations
 
+import anasayfa_secim
 import argparse
 import hashlib
 import html
@@ -3272,7 +3273,20 @@ def insa() -> int:
     yaz(
         "/index.html",
         ortam.get_template("anasayfa.html").render(
-            **ortak, yol="/", analizler=listelenen,
+            # ARASTIRMA SECIMI TURE GORE DENGELI.
+            #
+            # Olculdu: ana sayfadaki dokuz arastirmanin DOKUZU da
+            # bilancoydu. Listede 144 bilanco, 3 teknik, 2 makro var;
+            # tarihe gore siralayinca bilancolar digerlerini tamamen
+            # bastiriyordu ve site yalnizca bilanco yayimliyor gibi
+            # gorunuyordu.
+            #
+            # COKLUK ONEM DEMEK DEGIL: bir kategoride cok sayfa
+            # uretiliyor olmasi o kategorinin okur icin daha onemli
+            # oldugunu gostermez, yalnizca o hattin daha sik
+            # kostugunu gosterir.
+            **ortak, yol="/",
+            analizler=anasayfa_secim.dengeli(listelenen, sinir=9),
             yorumlar=yorum_kartlari(listelenen),
             rakamlar=kunye_rakamlari(analizler),
             # Katman 2 -- SAYFASI OLAN haberler arasindan, puana gore
