@@ -2225,7 +2225,18 @@ def onem_puanla(haberler: list[dict], varlik_haritasi: dict) -> None:
 #:
 #: Daha uzun pencere ana sayfayi bir takvim uygulamasina cevirir; daha
 #: kisa olan "bu hafta ne var" sorusunu cevaplayamaz.
-TAKVIM_GUN = 10
+#: 10 -> 21. OLCULDU: on gunluk pencerede ONEM ESIGINI GECEN HIC
+#: yayin yoktu (dokuz yayinin altisi gelecekte, hepsi onem=1) ve
+#: bolum yalnizca gecmis tek kalemi gosteriyordu -- yani "Yaklasan
+#: veriler" basligi altinda YAKLASAN bir sey yoktu.
+#:
+#: Sebep takvimin kendisi degil, ABD veri takvimindeki RITIM: buyuk
+#: yayinlar (TUFE, tarim disi istihdam, Fed) ayda bir ve ay basinda
+#: yogunlasiyor. On gunluk pencere ayin ortasinda bos kaliyor.
+#:
+#: Uc hafta, en az bir buyuk yayini her zaman iceriyor. Listeyi
+#: sisirmiyor cunku `TAKVIM_EN_COK` zaten sekizle siniriyor.
+TAKVIM_GUN = 21
 TAKVIM_EN_COK = 8
 
 #: Takvimde yalnizca bu onem ve ustu gorunuyor. Dusuk onemli BLS
@@ -2346,7 +2357,23 @@ def takvim_kutulari() -> list[dict]:
         for k, h in _yt.OKUNAMAYAN:
             print(f"  takvim kaynagi okunamadi: {k} -- {h}")
 
-    yayinlar = [y for y in yayinlar if y.onem >= TAKVIM_ONEM_ESIGI]
+    # ESIK ESNEK: bolum BOS KALMAMALI.
+    #
+    # Yuksek esik dogru olan -- dusuk onemli BLS yayinlari ("ilce
+    # istihdami") listeyi doldurup asil olani gizler. Ama esigi gecen
+    # HIC yayin olmadigi haftalar var ve o zaman bolum bos kaliyor.
+    #
+    # Bos bir "Yaklasan veriler" bolumu, veri akisi olmadigini
+    # dusundurur; oysa akis var, o hafta buyuk yayin yok. Ikisi ayri
+    # sey ve okur bunu ayirt edemez.
+    #
+    # Esigi gecen varsa YALNIZCA onlar; yoksa en onemli birkac tanesi
+    # gosteriliyor. Boylece bolum her zaman dolu ve her zaman
+    # "elimizdeki en onemli" olani gosteriyor.
+    secilen = [y for y in yayinlar if y.onem >= TAKVIM_ONEM_ESIGI]
+    if not secilen:
+        secilen = sorted(yayinlar, key=lambda y: (-y.onem, y.an))[:4]
+    yayinlar = secilen
     cikti: list[dict] = []
 
     def kutula(y, b) -> dict:
