@@ -63,8 +63,28 @@
 
   /* Kobalt. Onceki camgobegi (#0a7ea4) yesile fazla yakindi ve kucuk
      metinde artis rengiyle karisabiliyordu. Mavi o riski tasimiyor. */
-  --vurgu: #1d5fd8;
-  --vurgu-koyu: #1546a6;
+  /* MARKA RENGI TEAL-YESIL, SINYAL YESILI DEGIL.
+     -------------------------------------------
+     Marka yesile cevrildi ama duz yesil ALINAMAZDI: sitede yesilin
+     zaten bir ANLAMI var -- fiyat artisi (`--artis`). Marka da ayni
+     yesil olsaydi okur "yesil = artis" ile "yesil = Netaris" arasinda
+     ayrim yapamaz ve iki sinyal birbirini zayiflatirdi.
+
+     Cozum ton mesafesi. OLCULDU:
+       sinyal artis  #0a7f47  ton 151 derece
+       marka         #0a7d78  ton 177 derece
+       fark          26 derece
+
+     Yirmi alti derece, yan yana duran iki ogenin farkli renkler
+     oldugunun anlasilmasi icin yeterli; yine de ikisi de yesil
+     ailesinde kaldigi icin logoyla uyumlu. Daha fazla ayirmak
+     (mavi-yesile kaymak) markayi logodan uzaklastirirdi.
+
+     Sinyal renklerine DOKUNULMADI: yesil=artis, kirmizi=azalis
+     yerlesik bir kod ve onu degistirmek okurun getirdigi bilgiyi
+     gecersiz kilardi. Degisen taraf marka olmali, kod degil. */
+  --vurgu: #0a7d78;
+  --vurgu-koyu: #075f5c;
   --vurgu-parlak: #3b7cf0;
 
   --artis: #0a7f47;
@@ -73,8 +93,8 @@
 
   /* Zar (tint): ayni rengin saydam hali. Bilesenlerde rgba yazmak yerine
      buradan aliniyor; boylece koyu temada da dogru yogunluga geciyor. */
-  --vurgu-zar: rgba(29, 95, 216, 0.09);
-  --vurgu-zar-2: rgba(29, 95, 216, 0.28);
+  --vurgu-zar: rgba(10, 125, 120, 0.10);
+  --vurgu-zar-2: rgba(10, 125, 120, 0.30);
   --artis-zar: rgba(10, 127, 71, 0.09);
   --azalis-zar: rgba(200, 32, 58, 0.09);
   --uyari-zar: rgba(154, 87, 0, 0.09);
@@ -234,7 +254,7 @@
   --zemin: #fbfcfe; --zemin-2: #f1f4f9; --panel: #ffffff; --panel-2: #f7f9fc;
   --cizgi: #e4e9f1; --cizgi-parlak: #c6cfdd;
   --yazi: #0c1524; --yazi-2: #414f66; --yazi-3: #616f86;
-  --vurgu: #1d5fd8; --vurgu-koyu: #1546a6; --vurgu-parlak: #3b7cf0;
+  --vurgu: #0a7d78; --vurgu-koyu: #075f5c; --vurgu-parlak: #14b8a6;
   --artis: #0a7f47; --azalis: #c8203a; --uyari: #9a5700;
   --vurgu-zar: rgba(29, 95, 216, 0.09);
   --vurgu-zar-2: rgba(29, 95, 216, 0.28);
@@ -253,10 +273,10 @@
   --zemin: #0b1018; --zemin-2: #121926; --panel: #151d2b; --panel-2: #1b2434;
   --cizgi: #26324a; --cizgi-parlak: #3a4a68;
   --yazi: #e9eef7; --yazi-2: #a7b4c9; --yazi-3: #7d8ca5;
-  --vurgu: #6f9dfb; --vurgu-koyu: #4d81ea; --vurgu-parlak: #9dbcff;
+  --vurgu: #2dd4bf; --vurgu-koyu: #14b8a6; --vurgu-parlak: #5eead4;
   --artis: #3ecf8e; --azalis: #ff6b81; --uyari: #e0a44a;
-  --vurgu-zar: rgba(111, 157, 251, 0.14);
-  --vurgu-zar-2: rgba(111, 157, 251, 0.34);
+  --vurgu-zar: rgba(45, 212, 191, 0.14);
+  --vurgu-zar-2: rgba(45, 212, 191, 0.34);
   --artis-zar: rgba(62, 207, 142, 0.13);
   --azalis-zar: rgba(255, 107, 129, 0.13);
   --uyari-zar: rgba(224, 164, 74, 0.13);
@@ -2290,7 +2310,7 @@ table td, table th, time, .tarih {
    isareti iki temada da ayni ILISKIYI koruyor: kutu geride, cizgi onde.
    Sabit lacivert kutu koyu temada bir kare leke gibi duruyordu. */
 .logo-im { stroke: var(--vurgu); fill: var(--vurgu); flex: none; }
-.logo-im .logo-kutu { fill: var(--vurgu-zar); stroke: none; }.marka {
+.marka {
   background: linear-gradient(96deg, var(--yazi) 10%, var(--vurgu) 92%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -4842,8 +4862,13 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
       isareti sayfadaki EN GUVENILIR sabit: okur nerede oldugunu
       ondan anliyor ve silik bir logo "yarim kurulmus site"
       izlenimi veriyor. */
-.logo-im .logo-kutu { fill: var(--vurgu); stroke: none; }
-.logo-im { stroke: var(--zit-yazi); fill: var(--zit-yazi); }
+/* LOGO: N gumus-metin renginde, cubuklar MARKA renginde.
+   Ikinci logo onerisindeki ayrim bu -- harf notr, anlati renkli.
+   Onceki surumde kutu `--vurgu-zar` (soluk ton) ile doluyordu ve
+   koyu zeminde neredeyse gorunmuyordu. */
+.logo-im { fill: none; }
+.logo-im .logo-n { stroke: var(--yazi); }
+.logo-im .logo-cubuk { fill: var(--vurgu); stroke: none; }
 .logo { font-weight: 700; letter-spacing: -0.01em; }
 
 @media (max-width: 640px) {
