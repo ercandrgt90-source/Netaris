@@ -268,8 +268,32 @@ def main() -> int:
 
     for h in havuz:
         if h.get("yorumlanir") and h.get("adres"):
+            # `varliklar=[]` GECILIYOR, atlanmiyor.
+            #
+            # OLCULDU VE KANITLANDI: ayni haber, ayni islev, iki farkli
+            # cevap --
+            #     yorum yolu (varliklar=None) -> 5 Turkiye gostergesi
+            #     sayfa yolu (varliklar=[])   -> 0 Turkiye gostergesi
+            #
+            # `turkiye_haberi` `varliklar is None` gorunce ESKI olcute
+            # (`bolge == "TR"`) dusuyor; sayfa tarafi ise varlik
+            # indeksini gecirdigi icin gercek cevabi aliyor. Sonuc:
+            # model sayfada BASILMAYACAK bes olcumu goruyor ve
+            # kullaniyor. Okur yorumda "4.194 milyon dolarlik cari
+            # islemler acigi" okuyup sayfada hicbir yerde bulamiyor.
+            #
+            # Bu, sitenin en temel iddiasini deliyor: her rakam
+            # dogrulanabilir olmali.
+            #
+            # Varlik indeksi bu hatta HESAPLANMIYOR, dolayisiyla
+            # gercek listeyi gecemiyoruz. Bos liste geciliyor cunku
+            # bilinmezlikte MUHAFAZAKAR taraf dogru olan: gosterge
+            # gondermemek, gonderip sayfada gosterememekten iyidir.
+            # Eksik bir yorum okuru yanlisa goturmez; dogrulanamaz bir
+            # rakam goturur.
             dosyalar[h["adres"]] = dosya.kur(
                 h.get("konu", ""), h.get("bolge", ""), h.get("tarih", ""),
+                varliklar=[],
                 baslik=h.get("baslik_kaynak") or h.get("baslik", ""),
                 ozetsiz=not (h.get("ozet") or "").strip())
 
