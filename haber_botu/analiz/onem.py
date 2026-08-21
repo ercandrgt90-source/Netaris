@@ -68,15 +68,46 @@ except ImportError:  # pragma: no cover
 #: Anahtarlar `besleme.KONULAR` ile ayni olmali. `dogrula()` bunu
 #: denetliyor -- daha once dort uydurma konu anahtari sessizce
 #: varsayilana dusmustu.
+#: AGIRLIK YENIDEN DAGITILDI, TAVAN 100'DE KALDI.
+#:
+#: Bilesenlerin toplami TAM 100 olmali -- puanin "100 uzerinden"
+#: okunabilmesi ve esiklerin (85/70/40) anlamli kalmasi buna bagli.
+#: Tabani yukseltip tavani da yukseltmek, esikleri indirmenin baska
+#: bir yolu olurdu ve olcegi anlamsizlastirirdi.
+#:
+#: O yuzden agirlik KONUYA KAYDIRILDI:
+#:   OLAY_EN_COK     32 -> 24   olay siddeti tek basina belirleyici
+#:                              olmasin; hangi KONU oldugu daha cok
+#:                              sey soyluyor
+#:   SURPRIZ_EN_COK  16 -> 14
+#:   KAPSAM_EN_COK   10 ->  8
+#: 42 + 24 + 12 + 14 + 8 = 100
+#:
+#: TABAN PUANLAR YUKSELTILDI (2026-08-21) -- KATMANLAR ERISILEMEZDI.
+#:
+#: OLCULDU: esikler KRITIK=85, ONEMLI=70 iken gercek verideki EN
+#: YUKSEK puan 61, ortanca 26. Yani "kritik" ve "onemli" katmanlarina
+#: HICBIR haber ulasmiyordu; son dakika seridi ve uc katmanli
+#: hiyerarsi bu yuzden oluydu.
+#:
+#: Iki secenek vardi: esikleri indirmek ya da puanlamayi yukseltmek.
+#: Ikincisi secildi cunku sorun kesme noktasinda degil OLCEKTEYDI --
+#: TCMB'nin birincil kaynaktan yayimladigi aylik fiyat raporu 61
+#: aliyordu ve o rapor bir finans sitesi icin tanimi geregi ONEMLI.
+#:
+#: YALNIZCA UST SIRA yukseltildi. Alt siradakiler (konut, tarim,
+#: sirket haberleri) DEGISMEDI: amac herkesi yukari cekmek degil,
+#: gercekten yuksek etkili konulari esige ulastirmak. Hepsini
+#: yukseltmek esigi indirmenin baska bir yolu olurdu.
 KONU_TABANI = {
-    "Para politikası": 30,
-    "Enflasyon": 30,
-    "Jeopolitik": 27,
-    "Döviz": 24,
-    "Enerji": 23,
-    "İstihdam ve ücret": 22,
-    "Dış ticaret": 21,
-    "Bankacılık": 19,
+    "Para politikası": 42,
+    "Enflasyon": 40,
+    "Jeopolitik": 34,
+    "Döviz": 30,
+    "Enerji": 28,
+    "İstihdam ve ücret": 27,
+    "Dış ticaret": 24,
+    "Bankacılık": 22,
     "Altın ve emtia": 18,
     "Borsa": 17,
     "Vergi ve kamu maliyesi": 17,
@@ -118,7 +149,7 @@ KAYNAK_AKTARIM = 4
 #: Yuzde puanli seriler (TUFE, issizlik) ile duzey serileri (istihdam
 #: sayisi, stok) ayri olculuyor: %3,1'e karsi %2,9 beklenti 0,2 PUANLIK
 #: bir sapmadir ve buyuktur; 33.429'a karsi 45.849 ise oransal okunur.
-SURPRIZ_EN_COK = 16
+SURPRIZ_EN_COK = 14
 SURPRIZ_PUAN_TAM = 0.5      # yuzde serilerde "tam surpriz" sayilan sapma
 SURPRIZ_ORAN_TAM = 0.10     # duzey serilerde ayni sey (%10 sapma)
 
@@ -126,13 +157,13 @@ SURPRIZ_ORAN_TAM = 0.10     # duzey serilerde ayni sey (%10 sapma)
 #: Tek bir sirketi ilgilendiren haber ile faiz-kur-tahvil-banka
 #: zincirini birden hareket ettiren haber ayni degil.
 KAPSAM_BASINA = 2
-KAPSAM_EN_COK = 10
+KAPSAM_EN_COK = 8
 
 #: Olay siddeti (0-32). `olay.siniflandir` zaten kalibrasyonu yapilmis
 #: bir kalip agirligi hesapliyor; sifirdan ikinci bir tablo yazmak onu
 #: ikiye bolerdi. Ham siddet ~5-20 arasinda; katsayi onu 0-32'ye tasiyor.
 OLAY_KATSAYI = 1.7
-OLAY_EN_COK = 32
+OLAY_EN_COK = 24
 
 
 # --------------------------------------------------------------------
