@@ -117,8 +117,19 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          # Bos ise `saglayici()` normal sirasini isletiyor.
-          NETARIS_AI_SAGLAYICI: ${{ inputs.saglayici != 'varsayilan' && inputs.saglayici || '' }}
+          # ZAMANLANMIS KOSU UCRETSIZ SAGLAYICIYI KULLANIR.
+          #
+          # `inputs.saglayici` yalnizca ELLE calistirmada dolu;
+          # zamanlanmis kosuda BOS geliyordu ve bos deger normal
+          # siraya donuyor -- yani Anthropic'e, yani UCRETLI.
+          #
+          # Karar acikti: ucretsiz devam. Gunde iki kez kendi
+          # kendine kosan bir isin sessizce faturaya yazmasi, o
+          # karari gecersiz kilardi.
+          #
+          # Elle calistirmada `anthropic` secilebiliyor; varsayilan
+          # ise her iki durumda da cloudflare.
+          NETARIS_AI_SAGLAYICI: ${{ (inputs.saglayici != '' && inputs.saglayici != 'varsayilan') && inputs.saglayici || 'cloudflare' }}
         run: |
           python haber_botu/uret_bilanco_sayfa.py \
             --sinir ${{ inputs.sinir || '60' }}
