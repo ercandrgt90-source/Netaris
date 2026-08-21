@@ -1,7 +1,7 @@
 ---
 slug: aksgy-2026-1-ceyrek
 baslik: AKİŞ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılatın 2,68 milyar TL'ye yükselmesi net kârın 1,12 milyar TL'ye artmasıyla paralel seyretmiş, bu da net kâr marjının %70,3'e (sektör medyanı %14,3) çıkmasını sağlamıştır; artan kâr ise özkaynakların 52,49 milyar TL'ye (önceki 37,71 milyar TL) ve aktif toplamının 63,24 milyar TL'ye (önceki 45,08 m…
+ozet: Hasılatın 2,68 milyar TL'ye yükselmesi net kârın 1,12 milyar TL'ye artmasıyla paralel seyretmiş, bu da net kâr marjının %70,3'e çıkmasını sağlamış; artan kâr ise özkaynakların 52,49 milyar TL'ye, dolayısıyla özkaynak kârlılığının %1,8'e yükselmesine katkıda bulunmuş.…
 sirket: AKİŞ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: AKSGY
 donem: 2026 1. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın 2,68 milyar TL'ye yükselmesi net kârın 1,12 milyar TL'ye artmasıyla paralel seyretmiş, bu da net kâr marjının %70,3'e (sektör medyanı %14,3) çıkmasını sağlamıştır; artan kâr ise özkaynakların 52,49 milyar TL'ye (önceki 37,71 milyar TL) ve aktif toplamının 63,24 milyar TL'ye (önceki 45,08 milyar TL) yükselmesinde temel kaynak olmuştur. Net borcun –0,35 milyar TL'ye (önceki 1,25 milyar TL) gerilemesi, borç/özkaynak oranının –%0,01 (sektör medyanı %0,02) olmasına yol açarken, faaliyet nakit akışının 1,47 milyar TL'ye (önceki 0,41 milyar TL) çıkması bu likidite iyileşmesinin nakit bazlı bir yansımasıdır. Özkaynak kârlılığı %1,8 (sektör medyanı %0,4) ise, özkaynak artışı ve yüksek kâr marjının birleşiminden kaynaklanmaktadır.
+Hasılatın 2,68 milyar TL'ye yükselmesi net kârın 1,12 milyar TL'ye artmasıyla paralel seyretmiş, bu da net kâr marjının %70,3'e çıkmasını sağlamış; artan kâr ise özkaynakların 52,49 milyar TL'ye, dolayısıyla özkaynak kârlılığının %1,8'e yükselmesine katkıda bulunmuş. Aktif toplamının 63,24 milyar TL'ye çıkması ve net borcun -0,35 milyar TL'ye gerilemesi, borç/özkaynak oranının -%0,01 (sektör medyanı 0,02) olmasını mümkün kılmış; bu durum faaliyet nakit akışının 1,47 milyar TL'ye (önceki 0,41 milyar TL) artmasıyla desteklenmiş. Böylece gelir artışı, kâr ve özkaynak büyüklüğü arasındaki pozitif ilişki, borç yapısının iyileşmesiyle birlikte nakit üretim kapasitesinin de yükselmesine yol açmıştır.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 

@@ -1,7 +1,7 @@
 ---
 slug: alark-2026-2-ceyrek
 baslik: ALARKO HOLDİNG A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat 3,77 milyar TL'ye yükselirken brüt kâr –0,39 milyar TL'ye (önceki –1,22 milyar TL) ve faaliyet kârı –1,17 milyar TL'ye (önceki –2,12 milyar TL) iyileşmiş, bu da FAVÖK'ün –0,41 milyar TL'ye (önceki –1,36 milyar TL) ve net kârın –0,74 milyar TL'ye (önceki –0,27 milyar TL) artmasına rağmen nega…
+ozet: Hasılat 3,77 milyar TL'ye yükselirken brüt kâr –0,39 milyar TL'ye iyileşmiş, bu da brüt kâr marjının %0,1'den %0,1'e (sektör medyanının %21,2'si altında) hafif artışını gösteriyor; aynı dönemde faaliyet kârı –1,17 milyar TL'ye, FAVÖK ise –0,41 milyar TL'ye gerileyerek net kâr –0,74 milyar TL'ye yüks…
 sirket: ALARKO HOLDİNG A.Ş.
 kod: ALARK
 donem: 2026 2. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat 3,77 milyar TL'ye yükselirken brüt kâr –0,39 milyar TL'ye (önceki –1,22 milyar TL) ve faaliyet kârı –1,17 milyar TL'ye (önceki –2,12 milyar TL) iyileşmiş, bu da FAVÖK'ün –0,41 milyar TL'ye (önceki –1,36 milyar TL) ve net kârın –0,74 milyar TL'ye (önceki –0,27 milyar TL) artmasına rağmen negatif kalmasını açıklıyor; net kâr marjı %7,4 sektör medyanı %0,3'ü aşarken brüt kâr marjı %0,1 sektör medyanı %21,2'nin çok altında kalıyor. Özkaynak 88,63 milyar TL'ye (önceki 68,95 milyar TL) ve aktif toplamı 137,87 milyar TL'ye (önceki 100,55 milyar TL) yükselmiş, bu da özkaynak kârlılığının %0,2'ye (sektör medyanı %0,0) ve borç/özkaynak oranının 0,14'e (sektör medyanı 0,11) yükselmesine yol açmış; cari oran ise 0,89 (sektör medyanı 1,37) seviyesinde kalmıştır. Faaliyet nakit akışı –2,72 milyar TL (önceki –0,22 milyar
+Hasılat 3,77 milyar TL'ye yükselirken brüt kâr –0,39 milyar TL'ye iyileşmiş, bu da brüt kâr marjının %0,1'den %0,1'e (sektör medyanının %21,2'si altında) hafif artışını gösteriyor; aynı dönemde faaliyet kârı –1,17 milyar TL'ye, FAVÖK ise –0,41 milyar TL'ye gerileyerek net kâr –0,74 milyar TL'ye yükselmiş, bu da net kâr marjının %7,4'e (sektör medyanı %0,3) çıkmasını sağlamış. Özkaynak 88,63 milyar TL'ye, aktif toplamı 137,87 milyar TL'ye artarken net borç 12,38 milyar TL'ye yükselmiş; bu durum borç/özkaynak oranının %0,14 (sektör medyanı %0,11) ve cari oranın 0,89 (sektör medyanı 1,37) seviyelerinde kalmasına yol açmış. Faaliyet nakit akışı –2,72 milyar TL'ye derinleşirken yatırım harcaması 6,47 milyar TL'ye (önceki dönem 5,45 milyar TL) artmış, bu da nakit çıkışının yatırım harcamalarıyla birlikte yükselmesine işaret ediyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

@@ -1,7 +1,7 @@
 ---
 slug: bieny-2026-2-ceyrek
 baslik: BİEN YAPI ÜRÜNLERİ SANAYİ TURİZM VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %19,8'lik brüt kâr marjı, brüt kârı 1,12 milyar TL'ye taşıyarak faaliyet kârı ve FAVÖK'ün sırasıyla 0,61 milyar TL ve 1,11 milyar TL olmasına temel oluşturdu; net kârın –%13,9 (-0,39 milyar TL) olması ise brüt kârdan sonra oluşan maliyet ve vergi etkisinin kârlılığı tersine çevirdi.…
+ozet: Hasılatın %19,8 brüt kâr marjı ile 1,12 milyar TL'ye dönüşmesi, brüt kârın artmasıyla faaliyet kârının %0,61 milyar TL'ye yükselmesine yol açtı; ancak net kârın -0,39 milyar TL olması, net kâr marjının -%13,9 ve özkaynak kârlılığının -%3,1 olmasına neden oldu.…
 sirket: BİEN YAPI ÜRÜNLERİ SANAYİ TURİZM VE TİCARET A.Ş.
 kod: BIENY
 donem: 2026 2. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %19,8'lik brüt kâr marjı, brüt kârı 1,12 milyar TL'ye taşıyarak faaliyet kârı ve FAVÖK'ün sırasıyla 0,61 milyar TL ve 1,11 milyar TL olmasına temel oluşturdu; net kârın –%13,9 (-0,39 milyar TL) olması ise brüt kârdan sonra oluşan maliyet ve vergi etkisinin kârlılığı tersine çevirdi. Özkaynak kârlılığı –%3,1 ve cari oran 1,13, net borç 5,13 milyar TL ve borç/özkaynak oranı 0,37 ile birlikte, şirketin likidite ve finansal kaldıraç seviyelerinin sektörel medyanların (cari oran 1,37, borç/özkaynak 0,11) altında kaldığını gösteriyor. Faaliyet nakit akışı 1,65 milyar TL, yatırım harcaması 0,79 milyar TL olduğundan, net nakit akışı pozitif kalmış ve özkaynakların negatif getirisini bir ölçüde dengelemektedir.
+Hasılatın %19,8 brüt kâr marjı ile 1,12 milyar TL'ye dönüşmesi, brüt kârın artmasıyla faaliyet kârının %0,61 milyar TL'ye yükselmesine yol açtı; ancak net kârın -0,39 milyar TL olması, net kâr marjının -%13,9 ve özkaynak kârlılığının -%3,1 olmasına neden oldu. Net borçın 5,13 milyar TL olması, borç/özkaynak oranını sektör medyanının %0,11'inden yüksek %0,37 seviyesine taşıdı ve cari oranı 1,13 ile sektör medyanı 1,37'nin altında bıraktı. Faaliyet nakit akışı 1,65 milyar TL iken yatırım harcaması 0,79 milyar TL olduğundan, nakit akışı yatırım harcamasını karşılayarak özkaynakların korunmasına katkı sağladı.
 
 ## 2026 2. çeyrek dönemi ölçümleri
 

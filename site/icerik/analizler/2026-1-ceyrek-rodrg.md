@@ -1,7 +1,7 @@
 ---
 slug: rodrg-2026-1-ceyrek
 baslik: RODRİGO TEKSTİL SANAYİ VE TİCARET A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılatın 0,05 milyar TL'den 0,04 milyar TL'ye düşmesi brüt kârın 0,03 milyar TL'den 0,02 milyar TL'ye gerilemesine ve brüt kâr marjının %36,9'da kalmasına yol açtı; bu düşüş faaliyet kârının -0,00 milyar TL'den -0,01 milyar TL'ye kaymasına ve net kârın -0,02 milyar TL'den -0,00 milyar TL'ye iyileşm…
+ozet: Hasılatın 0,05 milyar TL'den 0,04 milyar TL'ye düşmesi, brüt kârın 0,03 milyar TL'den 0,02 milyar TL'ye gerilemesine paralel olarak gerçekleşti; brüt kâr marjı ise %36,9'da kalırken sektör medyanının çok altında olduğu %15,4 seviyesinden daha yüksek seyrediyor.…
 sirket: RODRİGO TEKSTİL SANAYİ VE TİCARET A.Ş.
 kod: RODRG
 donem: 2026 1. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın 0,05 milyar TL'den 0,04 milyar TL'ye düşmesi brüt kârın 0,03 milyar TL'den 0,02 milyar TL'ye gerilemesine ve brüt kâr marjının %36,9'da kalmasına yol açtı; bu düşüş faaliyet kârının -0,00 milyar TL'den -0,01 milyar TL'ye kaymasına ve net kârın -0,02 milyar TL'den -0,00 milyar TL'ye iyileşmesine rağmen net kâr marjının -%26,7 olarak kalmasına neden oldu. Özkaynak 0,05 milyar TL'den 0,08 milyar TL'ye artarken aktif toplamı 0,12 milyar TL'den 0,17 milyar TL'ye yükseldi, bu da borç/özkaynak oranının 0,15'ten 0,06'ya düşmesine ve cari oranın 1,30'dan 1,38'e yükselmesine yansıdı. Faaliyet nakdi akışı ve yatırım harcaması her iki dönemde de 0,00 milyar TL olarak sabit kaldı.
+Hasılatın 0,05 milyar TL'den 0,04 milyar TL'ye düşmesi, brüt kârın 0,03 milyar TL'den 0,02 milyar TL'ye gerilemesine paralel olarak gerçekleşti; brüt kâr marjı ise %36,9'da kalırken sektör medyanının çok altında olduğu %15,4 seviyesinden daha yüksek seyrediyor. Faaliyet kârı negatiften –0,00 milyar TL'ye (önceki –0,01 milyar TL) kayması, FAVÖK ve net kârın da sırasıyla –0,00 milyar TL (önceki 0,01 milyar TL) ve –0,00 milyar TL (önceki –0,02 milyar TL) olarak iyileşmesi, net kâr marjının –%26,7'den –%26,7'ye sabit kalmasıyla birlikte özkaynak kârlılığının –%6,0'a gerilemesine yol açtı. Aktif toplamının 0,12 milyar TL'den 0,17 milyar TL'ye artması, özkaynakların 0,05 milyar TL'den 0,08 milyar TL'ye yükselmesi ve net borcun 0,01 milyar TL'den 0,00 milyar TL'ye düşmesi, cari oranı 1,38 (sektör medyanı 1,30) ve borç/özkaynak oranını 0,06 (sektör medyanı 0,15) olarak iyileştirdi.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 

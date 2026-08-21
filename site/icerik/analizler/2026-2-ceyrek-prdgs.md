@@ -1,7 +1,7 @@
 ---
 slug: prdgs-2026-2-ceyrek
 baslik: PARDUS GİRİŞİM SERMAYESİ YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat, brüt kâr, faaliyet kârı ve net kâr aynı miktarda artarak %100 brüt kâr marjı ve %98,8 net kâr marjı oluşturmuş; bu durum gelirdeki artışın maliyet ve giderlerdeki artışa oranla çok daha yüksek olduğunu gösteriyor.…
+ozet: Hasılat, brüt kâr ve net kâr aynı tutarda artarak %100 brüt kâr marjı ve %98,8 net kâr marjına yol açtı; bu yüksek marjlar özkaynak kârlılığının %11,3 olmasına destek verdi.…
 sirket: PARDUS GİRİŞİM SERMAYESİ YATIRIM ORTAKLIĞI A.Ş.
 kod: PRDGS
 donem: 2026 2. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat, brüt kâr, faaliyet kârı ve net kâr aynı miktarda artarak %100 brüt kâr marjı ve %98,8 net kâr marjı oluşturmuş; bu durum gelirdeki artışın maliyet ve giderlerdeki artışa oranla çok daha yüksek olduğunu gösteriyor. Özkaynak ve aktif toplamı artarken net borçun negatif (nakit fazlası) hâle geçmesi, özkaynak artışının borçlanmadan gerçekleştiğini ve faaliyet nakit akışının da artarak likiditeyi desteklediğini ortaya koyuyor. Cari oranın sektörel medyanın altında kalması, kısa vadeli likiditeye ilişkin varlıkların borçlara oranının artan özkaynak ve nakit fazlasına rağmen hâlâ sınırlı kaldığını, borç/özkaynak oranının ise medyanın biraz üzerindeki negatif değeriyle şirketin borçsuz bir yapı sürdürdüğünü gösteriyor.
+Hasılat, brüt kâr ve net kâr aynı tutarda artarak %100 brüt kâr marjı ve %98,8 net kâr marjına yol açtı; bu yüksek marjlar özkaynak kârlılığının %11,3 olmasına destek verdi. Aktif toplamı ve özkaynakta gerçekleşen artış (2,96 milyar TL ve 2,94 milyar TL) net borcun -0,10 milyar TL'ye düşmesiyle birlikte şirketin likiditesini artırdı, ancak cari oran 5,73 ile sektör medyanı 7,79'ın altında kaldı. Faaliyet nakit akışı 0,06 milyar TL'ye yükselirken borç/özkaynak oranı -0,03 (sektör medyanı -0,06) hâlâ negatif kalmış, bu da özkaynakların borçtan daha fazla olduğunu gösteriyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

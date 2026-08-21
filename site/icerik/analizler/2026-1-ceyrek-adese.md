@@ -1,7 +1,7 @@
 ---
 slug: adese-2026-1-ceyrek
 baslik: ADESE GAYRİMENKUL YATIRIM A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılat 0,89 milyar TL'ye yükselirken net kâr -0,06 milyar TL'ye gerilemiş; gelir artışı faaliyet nakit akışının 0,42 milyar TL'ye geçmesiyle birlikte gerçekleşmiş, ancak kârın düşmesi özkaynak kârlılığının -%0,8 olmasına ve net kâr marjının -%54,4'e inmesine yol açmıştır.…
+ozet: Hasılat 0,89 milyar TL'ye yükselirken net kâr –0,06 milyar TL'ye gerilemiş, bu durum net kâr marjının –%54,4'e düşmesine yol açmış; aynı dönemde özkaynak 19,69 milyar TL'ye artarak özkaynak kârlılığı –%0,8'e gerilemiş.…
 sirket: ADESE GAYRİMENKUL YATIRIM A.Ş.
 kod: ADESE
 donem: 2026 1. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat 0,89 milyar TL'ye yükselirken net kâr -0,06 milyar TL'ye gerilemiş; gelir artışı faaliyet nakit akışının 0,42 milyar TL'ye geçmesiyle birlikte gerçekleşmiş, ancak kârın düşmesi özkaynak kârlılığının -%0,8 olmasına ve net kâr marjının -%54,4'e inmesine yol açmıştır. Özkaynak 19,69 milyar TL'ye çıkması aktif toplamının 25,57 milyar TL'ye yükselmesiyle paralel seyretmiş ve net borcun -0,21 milyar TL'ye (nakit fazlası) dönüşmesi, borç/özkaynak oranının -%0,01 (sektör medyanı 0,02) olmasını sağlamıştır. Bu değişimler, gelir artışı ve nakit akışı iyileşmesinin özkaynak artışı ve borç yapısındaki olumlu dönüşümle birlikte, kâr marjı ve özkaynak kârlılığı gibi kârlılık göstergelerinin gerilemesine rağmen bilanço kalemlerinin büyümesinde etkili olduğunu göstermektedir.
+Hasılat 0,89 milyar TL'ye yükselirken net kâr –0,06 milyar TL'ye gerilemiş, bu durum net kâr marjının –%54,4'e düşmesine yol açmış; aynı dönemde özkaynak 19,69 milyar TL'ye artarak özkaynak kârlılığı –%0,8'e gerilemiş. Aktif toplamının 25,57 milyar TL'ye yükselmesi, net borcun –0,21 milyar TL (nakit fazlası) olmasıyla birlikte borç/özkaynak oranı –0,01'e inmiş ve faaliyet nakit akışı 0,42 milyar TL'ye çıkmıştır; bu nakit akışı artışı, negatif net kâr ve negatif kâr marjı ile aynı dönemde gerçekleşmiştir.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 

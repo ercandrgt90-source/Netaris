@@ -1,7 +1,7 @@
 ---
 slug: akyho-2026-2-ceyrek
 baslik: AKDENİZ YATIRIM HOLDİNG A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın düşmesiyle brüt kârın negatiften daha az negatif bir değere kayması, satışların azalmasına rağmen maliyetlerdeki azalışın kâr marjını iyileştirdiğini gösteriyor; bu iyileşme, FAVÖK'ün önceki döneme göre üç kat artmasına ve faaliyet nakit akışının negatiften pozitife geçmesine yansımış.…
+ozet: Hasılatın düşmesiyle birlikte brüt kâr negatiften hafiflemiş, bu da brüt kâr marjının -%18,4'ten iyileşmesine yol açarken faaliyet kârı ve net kâr da daha az negatif seviyelere gerilemiştir; FAVÖK ise hasılat düşüşüne rağmen 0,03 milyar TL'ye yükselmiştir.…
 sirket: AKDENİZ YATIRIM HOLDİNG A.Ş.
 kod: AKYHO
 donem: 2026 2. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın düşmesiyle brüt kârın negatiften daha az negatif bir değere kayması, satışların azalmasına rağmen maliyetlerdeki azalışın kâr marjını iyileştirdiğini gösteriyor; bu iyileşme, FAVÖK'ün önceki döneme göre üç kat artmasına ve faaliyet nakit akışının negatiften pozitife geçmesine yansımış. Net kârın hâlâ büyük bir negatif seyir içinde kalması, özkaynak kârlılığının da negatif %3,0 seviyesinde seyretmesiyle birlikte, özkaynakların artışı (0,73 milyar TL'ye) ve cari oranın 3,07'ye yükselmesi, şirketin likidite durumunun sektörel medyanın (1,37) üzerinde olduğunu, ancak borç/özkaynak oranının –0,01 olmasıyla net borçunun (-0,01 milyar TL) negatif bir likidite pozisyonu oluşturduğunu ortaya koyuyor.
+Hasılatın düşmesiyle birlikte brüt kâr negatiften hafiflemiş, bu da brüt kâr marjının -%18,4'ten iyileşmesine yol açarken faaliyet kârı ve net kâr da daha az negatif seviyelere gerilemiştir; FAVÖK ise hasılat düşüşüne rağmen 0,03 milyar TL'ye yükselmiştir. Özkaynak ve aktif toplamının artması, özkaynak kârlılığının hâlâ negatif kalmasına rağmen özkaynak/kârlılık oranının sektör medyanının (%0,0) üzerinde kalmasına ve cari oranın 3,07'ye çıkararak sektör medyanının (1,37) çok üzerinde seyretmesine neden olmuştur. Net borcun -0,01 milyar TL'ye (nakit fazlası) dönüşmesi, borç/özkaynak oranının -0,01'e (sektör medyanı 0,11) gerilemesiyle birlikte faaliyet nakit akışının 0,01 milyar TL'ye (önceki dönemde -0,17 milyar TL) yükselmesi arasında bir ilişki görülmektedir.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

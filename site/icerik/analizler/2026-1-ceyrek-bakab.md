@@ -1,7 +1,7 @@
 ---
 slug: bakab-2026-1-ceyrek
 baslik: BAK AMBALAJ SANAYİ VE TİCARET A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılatın %13,8 brüt kâr marjı ile birlikte yükselmesi brüt kârı %0,10 milyar artırırken, faaliyet kârı negatiften pozitif (+%0,11 milyar) ve net kâr da zarar seviyesinden (+%0,25 milyar) çıkması, satış artışının kârlılık üzerindeki olumlu etkisini gösteriyor.…
+ozet: Hasılatın %13,8 brüt kâr marjıyla birlikte yükselmesi brüt kârı %0,10 milyar artırırken, faaliyet kârı negatiften pozitife geçerek %0,11 milyar artışa yol açtı; bu artış net kâr marjının %2,7'ye yükselmesiyle net kârın %0,25 milyar artmasına ve özkaynak kârlılığının %1,5'e çıkmasına yansıdı.…
 sirket: BAK AMBALAJ SANAYİ VE TİCARET A.Ş.
 kod: BAKAB
 donem: 2026 1. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %13,8 brüt kâr marjı ile birlikte yükselmesi brüt kârı %0,10 milyar artırırken, faaliyet kârı negatiften pozitif (+%0,11 milyar) ve net kâr da zarar seviyesinden (+%0,25 milyar) çıkması, satış artışının kârlılık üzerindeki olumlu etkisini gösteriyor. Özkaynakların %0,60 milyar artması ve aktif toplamının %1,42 milyar yükselmesi, net borcun sadece %0,02 milyar artmasıyla birlikte cari oranı %1,21'e, borç/özkaynak oranını %0,20'ye taşıyarak likidite ve finansal kaldıraçta hafif bir gerilemeye işaret ediyor. Faaliyet nakit akışının %0,09 milyar artması, yatırım harcamasının %0,02 milyar düşmesiyle birlikte, operasyonel nakit üretiminin artışını ve sermaye harcamalarının kısıtlanmasını yansıtıyor.
+Hasılatın %13,8 brüt kâr marjıyla birlikte yükselmesi brüt kârı %0,10 milyar artırırken, faaliyet kârı negatiften pozitife geçerek %0,11 milyar artışa yol açtı; bu artış net kâr marjının %2,7'ye yükselmesiyle net kârın %0,25 milyar artmasına ve özkaynak kârlılığının %1,5'e çıkmasına yansıdı. Aktif toplamındaki %1,42 artış özkaynakların %0,60 artmasıyla desteklenirken, net borçta sadece %0,03 artış olması özkaynak/borç dengesinin %0,20'ye (sektör medyanının %0,15 altında) yükselmesine neden oldu. Faaliyet nakit akışının %0,09 milyar artması yatırım harcamasındaki %0,02 milyar düşüşle birlikte cari oranı 1,21'e (sektör medyanının 1,30 altında) sabit tutarak likiditeyi korudu.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 

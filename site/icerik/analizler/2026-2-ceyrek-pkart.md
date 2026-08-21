@@ -1,7 +1,7 @@
 ---
 slug: pkart-2026-2-ceyrek
 baslik: PLASTİKKART AKILLI KART İLETİŞİM SİSTEMLERİ SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %0,8 artması brüt kârı %0,19 artırarak brüt kâr marjının %11,7 seviyesine yükselmesine, bu da faaliyet kârı ve FAVÖK'ün sırasıyla %0,11 ve %0,12 artmasına yol açtı; net kârın %0,04'ye çıkması özkaynak kârlılığını %2,7'ye ve özkaynak seviyesini 0,60 milyar TL'ye yükseltti.…
+ozet: Hasılatın %0,80 milyar TL artması, brüt kârın -0,06 milyar TL'den +0,13 milyar TL'ye yükselmesine paralel olarak faaliyet kârı ve FAVÖK'ün de sırasıyla -0,02 milyar TL'den +0,09 milyar TL'ye ve 0,00 milyar TL'den +0,12 milyar TL'ye artmasını sağladı; bu artışlar net kârın -0,00 milyar TL'den +0,04 m…
 sirket: PLASTİKKART AKILLI KART İLETİŞİM SİSTEMLERİ SANAYİ VE TİCARET A.Ş.
 kod: PKART
 donem: 2026 2. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %0,8 artması brüt kârı %0,19 artırarak brüt kâr marjının %11,7 seviyesine yükselmesine, bu da faaliyet kârı ve FAVÖK'ün sırasıyla %0,11 ve %0,12 artmasına yol açtı; net kârın %0,04'ye çıkması özkaynak kârlılığını %2,7'ye ve özkaynak seviyesini 0,60 milyar TL'ye yükseltti. Öz kaynakların artması ve net borcun -0,13 milyar TL'ye (negatif borç) gerilemesi cari oranı 2,59'a, borç/özkaynak oranını -%0,21'e çekti; bu likidite iyileşmesi faaliyet nakit akışının 0,06 milyar TL'ye (önceki -0,03) dönmesini destekledi. Yatırım harcamasının 0,00 milyar TL'ye düşmesi ise aktif toplamının 0,86 milyar TL'ye (önceki 0,68) yükselmesinde net borç azalmasının etkili olduğunu gösteriyor.
+Hasılatın %0,80 milyar TL artması, brüt kârın -0,06 milyar TL'den +0,13 milyar TL'ye yükselmesine paralel olarak faaliyet kârı ve FAVÖK'ün de sırasıyla -0,02 milyar TL'den +0,09 milyar TL'ye ve 0,00 milyar TL'den +0,12 milyar TL'ye artmasını sağladı; bu artışlar net kârın -0,00 milyar TL'den +0,04 milyar TL'ye geçişiyle netleşti ve özkaynakların 0,41 milyar TL'den 0,60 milyar TL'ye yükselmesine yansıdı. Aktif toplamının 0,68 milyar TL'den 0,86 milyar TL'ye büyümesi, aynı dönemde net borcun -0,02 milyar TL'den -0,13 milyar TL'ye daha negatif (daha az borçlu) hale gelmesiyle cari oranı 1,37'den 2,59'a yükselterek borç/özkaynak oranının sektör medyanı 0,11 yerine -0,21 olmasını sağladı. Brüt kâr marjı %11,7 ve net kâr marjı %3,2, sektör medyanlarının (%21,2 ve %0,3) üzerinde yer alırken, özkaynak kârlılığı %2,7 de medyan %0,0'ın üzerindedir.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

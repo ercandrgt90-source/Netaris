@@ -1,7 +1,7 @@
 ---
 slug: bmstl-2026-1-ceyrek
 baslik: BMS BİRLEŞİK METAL SANAYİ VE TİCARET A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılatın 1,19 milyar TL'den 1,51 milyar TL'ye yükselmesi brüt kârı 0,19 milyar TL'den 0,31 milyar TL'ye, brüt kâr marjını %14,1 medyanın çok üzerindeki %22,7'ye ve net kâr marjını negatif %0,2'den pozitif %2,5'e taşıdı; bu artışlar özkaynakların 1,25 milyar TL'den 1,61 milyar TL'ye, aktif toplamını…
+ozet: Hasılatın %22,7 brüt kâr marjı ile birlikte yükselmesi brüt kârın 0,19 milyar TL'den 0,31 milyar TL'ye artmasına, dolayısıyla özkaynakların 1,25 milyar TL'den 1,61 milyar TL'ye ve aktif toplamının 2,29 milyar TL'den 2,72 milyar TL'ye artmasına paralel bir şekilde yansıdı; net kâr ise zarar seviyesin…
 sirket: BMS BİRLEŞİK METAL SANAYİ VE TİCARET A.Ş.
 kod: BMSTL
 donem: 2026 1. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın 1,19 milyar TL'den 1,51 milyar TL'ye yükselmesi brüt kârı 0,19 milyar TL'den 0,31 milyar TL'ye, brüt kâr marjını %14,1 medyanın çok üzerindeki %22,7'ye ve net kâr marjını negatif %0,2'den pozitif %2,5'e taşıdı; bu artışlar özkaynakların 1,25 milyar TL'den 1,61 milyar TL'ye, aktif toplamının 2,29 milyar TL'den 2,72 milyar TL'ye ve net borcun 0,65 milyar TL'den 0,47 milyar TL'ye gerilemesine paralel olarak gerçekleşti. Faaliyet kârı ve FAVÖK de sırasıyla 0,04 milyar TL'den 0,05 milyar TL'ye ve 0,10 milyar TL'den 0,11 milyar TL'ye artarken, faaliyet nakit akışı negatiften hafifçe sıfıra yaklaştı; bu durum özkaynak kârlılığının %-0,1 medyanın altında %1,3'e çıkmasıyla da uyumlu. Cari oran 1,32 ile sektör medyanı 1,36'nın altında kalırken, borç/özkaynak oranı %0,29 ile medyan %0,21'in üzerindedir.
+Hasılatın %22,7 brüt kâr marjı ile birlikte yükselmesi brüt kârın 0,19 milyar TL'den 0,31 milyar TL'ye artmasına, dolayısıyla özkaynakların 1,25 milyar TL'den 1,61 milyar TL'ye ve aktif toplamının 2,29 milyar TL'den 2,72 milyar TL'ye artmasına paralel bir şekilde yansıdı; net kâr ise zarar seviyesini –0,04 milyar TL'den –0,01 milyar TL'ye daraltarak %2,5 net kâr marjını sektör medyanının üzerindeki seviyeye taşıdı. Net borçın 0,65 milyar TL'den 0,47 milyar TL'ye düşmesi borç/özkaynak oranının %0,21 medyanın altında %0,29'a yükselmesine rağmen cari oranın 1,32 ile medyan 1,36'nın altında kalmasına yol açtı. Faaliyet nakit akışı negatif kalırken yatırım harcaması sabit kaldığı için faaliyet kârı ve FAVÖK artışları (0,04-0,05 milyar TL ve 0,10-0,11 milyar TL) gelir artışı ve brüt kâr marjındaki iyileşmeyle birlikte gerçekleşti.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 

@@ -1,7 +1,7 @@
 ---
 slug: intek-2026-1-ceyrek
 baslik: İNNOSA TEKNOLOJİ A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılatın %69,6'lık brüt kâr marjıyla birlikte %0,31 milyar brüt kârın artması, brüt kârın artışının faaliyet kârı ve FAVÖK'te de sırasıyla %0,10 milyar ve %0,12 milyar yükselmesine yol açtı; ancak net kârın -%68,2'lik marjda -%0,12 milyar negatif kalması, özkaynak kârlılığının -%38,5'e düşmesine ve…
+ozet: Hasılat, brüt kâr ve faaliyet kârı tümü %3 000'den fazla artış gösterirken, net kâr negatif %68,2'ye gerileyerek özkaynak kârlılığının -%38,5'ye düşmesine yol açtı; bu durum, artan gelirlerin yüksek maliyet ve vergi/finansman giderleriyle karşılanmadığını gösterir.…
 sirket: İNNOSA TEKNOLOJİ A.Ş.
 kod: INTEK
 donem: 2026 1. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %69,6'lık brüt kâr marjıyla birlikte %0,31 milyar brüt kârın artması, brüt kârın artışının faaliyet kârı ve FAVÖK'te de sırasıyla %0,10 milyar ve %0,12 milyar yükselmesine yol açtı; ancak net kârın -%68,2'lik marjda -%0,12 milyar negatif kalması, özkaynak kârlılığının -%38,5'e düşmesine ve özkaynakların %0,46 milyar artmasına rağmen cari oranın 0,35'e gerilemesine neden oldu. Net borcun 0,38 milyar TL'ye yükselmesi, borç/özkaynak oranını %0,82'ye çıkarırken, faaliyet nakit akışının %0,13 milyar pozitif olması yatırım harcamasının %0,12 milyar olmasıyla birlikte nakit akışı dengesini bir nebze dengeledi. Bu değişimler, sektör medyanı olan %16,1 brüt kâr marjı ve -%0,2 net kâr marjı gibi değerlerin çok üzerindeki ve altında olduğu oranlarla birlikte, likidite ve finansal yapı göstergelerinin sektörel ortalamalardan sapma gösterdiğini ortaya koymaktadır.
+Hasılat, brüt kâr ve faaliyet kârı tümü %3 000'den fazla artış gösterirken, net kâr negatif %68,2'ye gerileyerek özkaynak kârlılığının -%38,5'ye düşmesine yol açtı; bu durum, artan gelirlerin yüksek maliyet ve vergi/finansman giderleriyle karşılanmadığını gösterir. Özkaynak 0,46 milyar TL'ye yükselirken net borç 0,38 milyar TL'ye çıktı ve cari oran 0,35'e gerileyerek likidite baskısını artırdı; borç/özkaynak oranının 0,82'ye yükselmesi, finansal riskin artışını yansıtır. Faaliyet nakit akışı 0,13 milyar TL pozitifleştiği halde, yatırım harcaması 0,12 milyar TL'ye çıkması, nakit akışının büyük bir kısmının sermaye harcamalarına yönlendirildiğini gösterir.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 

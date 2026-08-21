@@ -1,7 +1,7 @@
 ---
 slug: dzgyo-2026-1-ceyrek
 baslik: DENİZ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılat ve brüt kâr birlikte yükselirken, brüt kâr marjının %40,6 seviyesinde kalması faaliyet kârı ve FAVÖK'teki artışın negatif kalmasına, yani -0,16 milyar TL'ye sürüklenmesine yol açtı; bu da net kâr marjının -%93,6'ya gerilemesini ve özkaynak kârlılığının -%0,6 olmasını beraberinde getirdi.…
+ozet: Hasılat ve brüt kâr artarken, brüt kâr marjı %40,6 seviyesinde kalmış; bu, satışların büyümesinin kâr oranını koruduğunu gösteriyor. Faaliyet kârı ve FAVÖK'teki artış, negatif değerlerin daha da derinleşmesiyle birlikte, faaliyet nakit akışının -0,13 milyar TL'ye düşmesi ve net kâr marjının -%93,6'y…
 sirket: DENİZ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: DZGYO
 donem: 2026 1. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat ve brüt kâr birlikte yükselirken, brüt kâr marjının %40,6 seviyesinde kalması faaliyet kârı ve FAVÖK'teki artışın negatif kalmasına, yani -0,16 milyar TL'ye sürüklenmesine yol açtı; bu da net kâr marjının -%93,6'ya gerilemesini ve özkaynak kârlılığının -%0,6 olmasını beraberinde getirdi. Özkaynak ve aktif toplamının sırasıyla 6,65 milyar TL ve 8,53 milyar TL'ye çıkması, net borcun 0,17 milyar TL'ye yükselmesiyle birlikte cari oranı 2,55'e, borç/özkaynak oranını ise sektör medyanı 0,02'nin biraz üzeri 0,03'e taşıdı. Faaliyet nakit akışı ise önceki dönemdeki +0,07 milyar TL'den -0,13 milyar TL'ye değişerek, artan kâr kayıpları ve borçlanma artışıyla ters bir ilişki gösterdi.
+Hasılat ve brüt kâr artarken, brüt kâr marjı %40,6 seviyesinde kalmış; bu, satışların büyümesinin kâr oranını koruduğunu gösteriyor. Faaliyet kârı ve FAVÖK'teki artış, negatif değerlerin daha da derinleşmesiyle birlikte, faaliyet nakit akışının -0,13 milyar TL'ye düşmesi ve net kâr marjının -%93,6'ya gerilemesiyle paralel bir seyir izledi. Özkaynak ve aktif toplamının artışı net borcun 0,17 milyar TL'ye yükselmesiyle birlikte cari oranı 2,55'e, borç/özkaynak oranını ise sektör medyanının %0,02'sine yakın %0,03 seviyesine taşıdı.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 

@@ -1,7 +1,7 @@
 ---
 slug: ahsgy-2026-1-ceyrek
 baslik: AHES GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılat, brüt kâr ve faaliyet kârı birbirini izleyen azalmalar gösterirken, brüt kâr marjının %92,8 olması bu düşüşün satış hacmindeki azalmadan ziyade maliyet yapısındaki yüksek orana bağlı olduğunu gösterir; net kârın -%37,5'e gerilemesi ise faaliyet kârındaki düşüşün ve artan negatif faaliyet nak…
+ozet: Hasılat, brüt kâr ve faaliyet kârı birlikte düşmüş; bu düşüş brüt kâr marjının %92,8 gibi yüksek kalmasına rağmen net kârın -%37,5'e gerilemesiyle sonuçlanmış, çünkü faaliyet nakit akışı -0,27 milyar TL'ye ve net kâr -0,01 milyar TL'ye kaymış.…
 sirket: AHES GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: AHSGY
 donem: 2026 1. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat, brüt kâr ve faaliyet kârı birbirini izleyen azalmalar gösterirken, brüt kâr marjının %92,8 olması bu düşüşün satış hacmindeki azalmadan ziyade maliyet yapısındaki yüksek orana bağlı olduğunu gösterir; net kârın -%37,5'e gerilemesi ise faaliyet kârındaki düşüşün ve artan negatif faaliyet nakit akışının birleşiminden kaynaklanır. Özkaynak, aktif toplamı ve net borçta büyük artışlar görülmüş, bu da özkaynak kârlılığının %0,1'e düşmesine ve cari oranın 39,23 gibi çok yüksek bir seviyeye çıkmasına yol açmış; borç/özkaynak oranının -%0,09 olması ise şirketin net borç pozisyonunun negatif kalmasını, yani özkaynakların borçtan daha fazla olmasını yansıtır.
+Hasılat, brüt kâr ve faaliyet kârı birlikte düşmüş; bu düşüş brüt kâr marjının %92,8 gibi yüksek kalmasına rağmen net kârın -%37,5'e gerilemesiyle sonuçlanmış, çünkü faaliyet nakit akışı -0,27 milyar TL'ye ve net kâr -0,01 milyar TL'ye kaymış. Özkaynak 10,70 milyar TL'ye yükselirken aktif toplamı 13,83 milyar TL'ye çıkmış, bu da cari oranı 39,23'e ve borç/özkaynak oranını -%0,09'a çekerek likiditeyi sektör medyanı 5,25'in çok üzerine taşımış. Özkaynak kârlılığı %0,1 seviyesinde kalmış; bu, yüksek brüt kâr marjına rağmen net kârın negatif olmasından kaynaklanan düşük kârlılıkla uyumlu.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 

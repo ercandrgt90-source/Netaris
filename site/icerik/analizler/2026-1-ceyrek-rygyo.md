@@ -1,7 +1,7 @@
 ---
 slug: rygyo-2026-1-ceyrek
 baslik: REYSAŞ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılat 2,05 milyar TL'ye yükselirken net kâr 1,99 milyar TL'ye düşmüş; bu durum, faaliyet nakit akışının -3,59 milyar TL'ye kaymasıyla birlikte, yüksek net kâr marjının (%118,2) nakit dönüşümünden bağımsız bir kârlılık sağladığını gösterir.…
+ozet: Hasılat 2,05 milyar TL'ye yükselirken net kâr 1,99 milyar TL'ye artmış, bu da net kâr marjının %118,2'ye (sektör medyanı %14,3) çıkmasını sağlamış; aynı dönemde özkaynak 103,25 milyar TL ve aktif toplamı 128,14 milyar TL artarak borç/özkaynak oranı %0,11 (sektör medyanı 0,02) seviyesine yükselmiş, b…
 sirket: REYSAŞ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: RYGYO
 donem: 2026 1. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat 2,05 milyar TL'ye yükselirken net kâr 1,99 milyar TL'ye düşmüş; bu durum, faaliyet nakit akışının -3,59 milyar TL'ye kaymasıyla birlikte, yüksek net kâr marjının (%118,2) nakit dönüşümünden bağımsız bir kârlılık sağladığını gösterir. Özkaynak 103,25 milyar TL'ye artarken aktif toplamı 128,14 milyar TL'ye yükselmiş, bu da özkaynak kârlılığının (%1,1) artmasına rağmen borç/özkaynak oranının (0,11) sektör medyanının (0,02) çok üzerinde kalmasına yol açmıştır. Net borç 11,22 milyar TL'ye çıkması, artan özkaynak ve aktif büyüklüğüne rağmen finansal kaldıraçta bir yükselişi işaret eder.
+Hasılat 2,05 milyar TL'ye yükselirken net kâr 1,99 milyar TL'ye artmış, bu da net kâr marjının %118,2'ye (sektör medyanı %14,3) çıkmasını sağlamış; aynı dönemde özkaynak 103,25 milyar TL ve aktif toplamı 128,14 milyar TL artarak borç/özkaynak oranı %0,11 (sektör medyanı 0,02) seviyesine yükselmiş, bu da net borcun 11,22 milyar TL'ye (önceki 3,85 milyar TL) yükselmesiyle birlikte finansal kaldıraçta bir artış olduğunu gösteriyor; faaliyet nakit akışı ise -3,59 milyar TL'ye (önceki 0,55 milyar TL) gerileyerek kâr artışının nakit akışı üzerindeki etkisinin ters yönde olduğunu ortaya koyuyor.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 

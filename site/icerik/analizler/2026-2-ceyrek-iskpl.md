@@ -1,7 +1,7 @@
 ---
 slug: iskpl-2026-2-ceyrek
 baslik: IŞIK PLASTİK SANAYİ VE DIŞ TİCARET PAZARLAMA A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın 1,34 milyar TL'den 1,79 milyar TL'ye yükselmesi brüt kârın 0,38 milyar TL'den 0,54 milyar TL'ye, faaliyet kârının 0,23 milyar TL'den 0,28 milyar TL'ye ve net kârın 0,19 milyar TL'den 0,25 milyar TL'ye artmasına paralel olarak brüt kâr marjı %35,4 (sektör medyanı %21,2) ve net kâr marjı %10…
+ozet: Hasılatın 1,34 milyar TL'den 1,79 milyar TL'ye yükselmesi brüt kârın 0,38 milyar TL'den 0,54 milyar TL'ye artmasına paralel olarak gerçekleşti; brüt kâr marjı %35,4 ile sektör medyanının %21,2'sinin çok üzerindeydi.…
 sirket: IŞIK PLASTİK SANAYİ VE DIŞ TİCARET PAZARLAMA A.Ş.
 kod: ISKPL
 donem: 2026 2. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın 1,34 milyar TL'den 1,79 milyar TL'ye yükselmesi brüt kârın 0,38 milyar TL'den 0,54 milyar TL'ye, faaliyet kârının 0,23 milyar TL'den 0,28 milyar TL'ye ve net kârın 0,19 milyar TL'den 0,25 milyar TL'ye artmasına paralel olarak brüt kâr marjı %35,4 (sektör medyanı %21,2) ve net kâr marjı %10,9 (sektör medyanı %0,3) seviyelerini yükseltmiştir; aynı zamanda özkaynak 2,31 milyar TL'den 3,42 milyar TL'ye ve aktif toplamı 3,98 milyar TL'den 6,32 milyar TL'ye artarken özkaynak kârlılığı %0,0'dan %3,0'a yükselmiştir. Net borç 1,39 milyar TL'den 2,03 milyar TL'ye artarken faaliyet nakit akışı 0,26 milyar TL'den 0,00 milyar TL'ye gerilemiş, bu durum cari oranı 1,37'den 1,11'e düşürmüş ve borç/özkaynak oranı %0,11'den 0,59'a yükseltmiştir; yatırım harcaması da 0,65 milyar TL'den 0,11 milyar TL'ye azalmıştır. Bu ilişkiler, gelir
+Hasılatın 1,34 milyar TL'den 1,79 milyar TL'ye yükselmesi brüt kârın 0,38 milyar TL'den 0,54 milyar TL'ye artmasına paralel olarak gerçekleşti; brüt kâr marjı %35,4 ile sektör medyanının %21,2'sinin çok üzerindeydi. Brüt kârdaki artış, faaliyet kârı, FAVÖK ve net kârda da sırasıyla 0,23 → 0,28 milyar TL, 0,35 → 0,40 milyar TL ve 0,19 → 0,25 milyar TL olarak yükselirken, net kâr marjı %10,9'a, özkaynak kârlılığı %3,0'a ve özkaynak seviyesine 3,42 milyar TL'ye (2,31 milyar TL'den) çıkmasına yol açtı; aynı zamanda aktif toplamı 3,98 → 6,32 milyar TL'ye artarken net borç da 1,39 → 2,03 milyar TL'ye yükseldi, bu da cari oranı 1,11 (sektör medyanı 1,37) ve borç/özkaynak oranını 0,59 (sektör medyanı 0,11) olarak etkiledi. Faaliyet nakit akışı negatiften 0,00 milyar TL'ye gerilemesi ve yatırım harcamasının 0,65 → 0,11 milyar TL'ye düşmesi, artan kârlılık ve bilanço büyükl
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

@@ -1,7 +1,7 @@
 ---
 slug: derhl-2026-1-ceyrek
 baslik: DERLÜKS YATIRIM HOLDİNG A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılat aynı kalırken brüt kâr, faaliyet kârı ve FAVÖK artış gösterdi; bu artışlar brüt kâr marjının %28,1'e yükselmesiyle birlikte, maliyet ve giderlerin daha yavaş artmasıyla ilişkilendirilebilir.…
+ozet: Hasılat aynı kalırken brüt kâr, faaliyet kârı ve FAVÖK artış gösterdi; bu artışlar brüt kâr marjının %28,1'e yükselmesiyle, satışların maliyetindeki iyileşmenin kârlılığı artırdığını gösteriyor.…
 sirket: DERLÜKS YATIRIM HOLDİNG A.Ş.
 kod: DERHL
 donem: 2026 1. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat aynı kalırken brüt kâr, faaliyet kârı ve FAVÖK artış gösterdi; bu artışlar brüt kâr marjının %28,1'e yükselmesiyle birlikte, maliyet ve giderlerin daha yavaş artmasıyla ilişkilendirilebilir. Net kâr ise düşerek %0,6 seviyesine geriledi ve özkaynak kârlılığı %0,3'e inmiş, bu durum artan net borç (2,15 milyar TL) ve özkaynak (2,80 milyar TL) arasındaki farkın, kârlılık üzerindeki baskıyı artırdığını gösteriyor. Cari oran 1,45 ile sektör medyanının (1,30) üzerinde seyredirken, borç/özkaynak oranı %0,77 olarak medyanın (0,15) çok üzerindedir; bu, likiditeyi korurken finansal kaldıraçta belirgin bir artışın olduğunu ortaya koyar.
+Hasılat aynı kalırken brüt kâr, faaliyet kârı ve FAVÖK artış gösterdi; bu artışlar brüt kâr marjının %28,1'e yükselmesiyle, satışların maliyetindeki iyileşmenin kârlılığı artırdığını gösteriyor. Özkaynak ve aktif toplamı yükselirken net borç da artmış; bu durum özkaynak kârlılığının %0,3'e gerilemesi ve borç/özkaynak oranının %0,77'ye çıkmasıyla, sermaye genişlemesinin borçlanma yoluyla finanse edildiğini, ancak kârlılık üzerindeki etkisinin sınırlı kaldığını ortaya koyuyor. Faaliyet nakit akışı pozitif (+0,25 milyar TL) olmuş ve cari oran 1,45 ile sektör medyanının (1,30) üzerinde seyretmiş; bu, kısa vadeli likiditenin iyileştiğini ve operasyonel nakit üretiminin artışının likiditeye olumlu yansıdığını gösteriyor.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 

@@ -1,7 +1,7 @@
 ---
 slug: yaprk-2026-2-ceyrek
 baslik: YAPRAK SÜT VE BESİ ÇİFTLİKLERİ SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %16,7'lik brüt kâr marjı ile birlikte düşmesi, brüt kârın 0,02 milyar TL'ye gerilemesine ve ardından faaliyet kârının negatif (-0,00) ve FAVÖK'ün 0,01 milyar TL'ye düşmesine yol açtı; bu kâr düşüşleri net kâr marjının –%11,5 olmasına rağmen net kârın aynı seviyede (0,01 milyar TL) kalmasın…
+ozet: Hasılatın %16,7'lik brüt kâr marjı ile birlikte düşmesi, brüt kârın 0,02 milyar TL'ye gerilemesine ve ardından faaliyet kârının negatif (-0,00 milyar TL) ve FAVÖK'ün 0,01 milyar TL'ye düşmesine yol açtı; net kâr hâlâ 0,01 milyar TL olsa da net kâr marjı –%11,5 seviyesinde sektör medyanının çok altın…
 sirket: YAPRAK SÜT VE BESİ ÇİFTLİKLERİ SANAYİ VE TİCARET A.Ş.
 kod: YAPRK
 donem: 2026 2. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %16,7'lik brüt kâr marjı ile birlikte düşmesi, brüt kârın 0,02 milyar TL'ye gerilemesine ve ardından faaliyet kârının negatif (-0,00) ve FAVÖK'ün 0,01 milyar TL'ye düşmesine yol açtı; bu kâr düşüşleri net kâr marjının –%11,5 olmasına rağmen net kârın aynı seviyede (0,01 milyar TL) kalmasını sağladı. Özkaynakların 0,75 milyar TL'ye yükselmesi ve aktif toplamının 1,00 milyar TL'ye artması, cari oranı 2,80'e çıkarırken net borcun –0,11 milyar TL (nakit fazlası) olması, borç/özkaynak oranının –0,14 ile sektör medyanının 0,25'inin altında kalmasına neden oldu. Faaliyet nakit akışının –0,06 milyar TL'ye düşmesi, yatırım harcamasının 0,00 milyar TL'ye gerilemesiyle birlikte, kâr ve likidite göstergelerindeki değişimlerin birbirini izlediği görülmektedir.
+Hasılatın %16,7'lik brüt kâr marjı ile birlikte düşmesi, brüt kârın 0,02 milyar TL'ye gerilemesine ve ardından faaliyet kârının negatif (-0,00 milyar TL) ve FAVÖK'ün 0,01 milyar TL'ye düşmesine yol açtı; net kâr hâlâ 0,01 milyar TL olsa da net kâr marjı –%11,5 seviyesinde sektör medyanının çok altında kaldı. Özkaynak 0,75 milyar TL'ye yükselirken aktif toplamı 1,00 milyar TL'ye çıkarak özkaynak kârlılığının –%1,0'a gerilemesine ve borç/özkaynak oranının –0,14 (sektör medyanı 0,25) olmasına neden oldu. Cari oran 2,80 (sektör medyanı 1,36) iken faaliyet nakit akışı –0,06 milyar TL'ye düşmüş, yatırım harcaması ise 0,00 milyar TL'ye gerilemiştir.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

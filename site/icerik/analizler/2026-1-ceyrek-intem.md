@@ -1,7 +1,7 @@
 ---
 slug: intem-2026-1-ceyrek
 baslik: İNTEMA İNŞAAT VE TESİSAT MALZEMELERİ YATIRIM VE PAZARLAMA A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılatın hafif düşmesine rağmen brüt kârın artması, brüt kâr marjının %57,3 seviyesinde yüksek kalması ve net kâr marjının %14,2'ye yükselmesiyle birlikte faaliyet kârı ve FAVÖK'ün de artması, maliyet ve giderlerin daha düşük oranda artmasıyla kâr dağılımının iyileştiğini gösterir; bu kâr artışı öz…
+ozet: Hasılat hafif gerilemişken brüt kâr artarak brüt kâr marjının %57,3 seviyesinde kalmasını sağladı; bu durum maliyetlerin daha düşük oranda artmasıyla brüt kârın hasılat düşüşünden bağımsız yükselmesine işaret eder.…
 sirket: İNTEMA İNŞAAT VE TESİSAT MALZEMELERİ YATIRIM VE PAZARLAMA A.Ş.
 kod: INTEM
 donem: 2026 1. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın hafif düşmesine rağmen brüt kârın artması, brüt kâr marjının %57,3 seviyesinde yüksek kalması ve net kâr marjının %14,2'ye yükselmesiyle birlikte faaliyet kârı ve FAVÖK'ün de artması, maliyet ve giderlerin daha düşük oranda artmasıyla kâr dağılımının iyileştiğini gösterir; bu kâr artışı özkaynak kârlılığını %7,7'ye çıkarırken özkaynakların %1,06 milyar artması bilanço büyüklüğünün %4,57 milyar'a yükselmesine paralel bir sermaye güçlenmesi sağlar. Net borç aynı kalırken aktif toplamının %4,57 milyar'a yükselmesi, cari oranın 1,28 (sektör medyanı 1,30) ve borç/özkaynak oranının 0,07 (sektör medyanı 0,15) seviyelerinde kalması, likidite ve finansal kaldıraçta istikrarın sürdüğünü gösterir. Faaliyet nakit akışının negatiften pozitif 0,05 milyar TL'ye geçmesi, artan kârlılıkla birlikte nakit üretiminin iyileştiğini ve yatırım harcamasının sıfır kalmasını destekler.
+Hasılat hafif gerilemişken brüt kâr artarak brüt kâr marjının %57,3 seviyesinde kalmasını sağladı; bu durum maliyetlerin daha düşük oranda artmasıyla brüt kârın hasılat düşüşünden bağımsız yükselmesine işaret eder. Faaliyet kârı ve FAVÖK, brüt kârdaki artıştan ve faaliyet nakit akışının negatiften pozitife dönmesinden kaynaklanarak sırasıyla %0,23 milyar ve %0,31 milyar seviyelerine yükseldi; bu da operasyonel verimliliğin artışını gösterir. Özkaynak ve aktif toplamı önemli ölçüde artarken net borç aynı kaldı, bu da borç/özkaynak oranının %0,07'ye gerilemesi ve cari oranın sektörel medyanın biraz altında kalmasına rağmen likidite durumunun istikrarlı kalmasına yol açtı.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 

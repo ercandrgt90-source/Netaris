@@ -1,7 +1,7 @@
 ---
 slug: przma-2026-2-ceyrek
 baslik: PRİZMA PRES MATBAACILIK YAYINCILIK SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın üç katına yakın artması, brüt kârın hâlâ çok düşük kalması ve faaliyet kârının daha da derinleşmesi, artan satışların maliyet ve gider artışlarıyla eş zamanlı yükselmesinden kaynaklanıyor; bu durum net kârın %138,4 negatif olmasına ve özkaynak kârlılığının %23,7 düşmesine yol açtı.…
+ozet: Hasılatın üç katına yakın artması, brüt kârın hâlâ çok düşük kalması ve faaliyet kârının daha da derinleşmesi, gelir artışının maliyet ve giderlerdeki artışla dengelenmediğini gösteriyor; bu durum net kârın %138,4 negatif olmasına ve özkaynak kârlılığının %23,7 düşmesine yol açtı.…
 sirket: PRİZMA PRES MATBAACILIK YAYINCILIK SANAYİ VE TİCARET A.Ş.
 kod: PRZMA
 donem: 2026 2. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın üç katına yakın artması, brüt kârın hâlâ çok düşük kalması ve faaliyet kârının daha da derinleşmesi, artan satışların maliyet ve gider artışlarıyla eş zamanlı yükselmesinden kaynaklanıyor; bu durum net kârın %138,4 negatif olmasına ve özkaynak kârlılığının %23,7 düşmesine yol açtı. Özkaynak ve aktif toplamının artışı, net borcun aynı seviyede kalmasıyla birlikte borç/özkaynak oranının %0,05'ye düşmesine ve cari oranın 1,78'ye yükselmesine, yani likidite durumunun sektör medyanının üzerindeki seviyeye gelmesine neden oldu. Faaliyet nakit akışının iki katına çıkması, artan likiditeyi desteklerken, negatif kâr marjları ve düşük brüt kâr marjının ( %4,5) sektör ortalamasının (%21,2) çok altında kalması, kârlılık ile nakit üretimi arasındaki ayrışmayı gösteriyor.
+Hasılatın üç katına yakın artması, brüt kârın hâlâ çok düşük kalması ve faaliyet kârının daha da derinleşmesi, gelir artışının maliyet ve giderlerdeki artışla dengelenmediğini gösteriyor; bu durum net kârın %138,4 negatif olmasına ve özkaynak kârlılığının %23,7 düşmesine yol açtı. Özkaynak ve aktif toplamının artması, net borcun aynı seviyede kalmasıyla birlikte borç/özkaynak oranının %0,05'ye düşmesine ve cari oranın 1,78'ye yükselmesine, likidite durumunun iyileştiğini ancak kârlılık sorunlarının devam ettiğini yansıtıyor. Faaliyet nakit akışının iki katına çıkması, artan faaliyet giderlerine rağmen nakit girişinin desteklenmesiyle likiditeyi korurken, kâr marjlarının sektör medyanının çok altında kalması, gelir artışının kârlılık üzerinde henüz olumlu bir etki yaratmadığını ortaya koyuyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

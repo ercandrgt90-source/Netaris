@@ -1,7 +1,7 @@
 ---
 slug: aztek-2026-1-ceyrek
 baslik: AZTEK TEKNOLOJİ ÜRÜNLERİ TİCARET A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılat artarken brüt kâr ve brüt kâr marjı düşmüş; bu, satışların maliyet payının yükselmesiyle brüt kârın azalmasına yol açmış. Brüt kârdaki düşüş, faaliyet kârı, FAVÖK ve net kârın da gerilemesine neden olurken, aynı dönemde net borç artışı ve özkaynak azalması bilanço yapısını zorlamış, bu da ca…
+ozet: Hasılat artarken brüt kâr, faaliyet kârı ve FAVÖK düşmüş; bu, satışların maliyet ve operasyonel giderlerdeki artışa paralel olarak kâr marjlarının daralmasıyla ilişkilidir ve net kârın negatifleşmesine yol açmıştır.…
 sirket: AZTEK TEKNOLOJİ ÜRÜNLERİ TİCARET A.Ş.
 kod: AZTEK
 donem: 2026 1. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat artarken brüt kâr ve brüt kâr marjı düşmüş; bu, satışların maliyet payının yükselmesiyle brüt kârın azalmasına yol açmış. Brüt kârdaki düşüş, faaliyet kârı, FAVÖK ve net kârın da gerilemesine neden olurken, aynı dönemde net borç artışı ve özkaynak azalması bilanço yapısını zorlamış, bu da cari oranın hâlâ sektör ortalamasının üzerinde kalmasına rağmen borç/özkaynak oranının sektöre göre yüksek seyretmesine yol açmıştır. Faaliyet nakit akışı negatif kalmış ancak önceki döneme göre iyileşmiş; bu, yatırım harcamasının sabit kalması ve faaliyet kârının azalmasının nakit çıkışını sınırlamasından kaynaklanmaktadır.
+Hasılat artarken brüt kâr, faaliyet kârı ve FAVÖK düşmüş; bu, satışların maliyet ve operasyonel giderlerdeki artışa paralel olarak kâr marjlarının daralmasıyla ilişkilidir ve net kârın negatifleşmesine yol açmıştır. Özkaynak azalması ve net borcun iki katına çıkması, cari oranı sektör medyanının üzerinde tutsa da borç/özkaynak oranının %1,25'e yükselmesiyle finansal kaldıraçta belirgin bir artışa işaret eder. Faaliyet nakit akışı iyileşmiş olsa da hâlâ negatif kalması, yatırım harcamasının sabit kalması ve azalan kârlılık arasında bir tutarsızlık yaratmaktadır.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 

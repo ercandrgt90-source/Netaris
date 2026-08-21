@@ -1,7 +1,7 @@
 ---
 slug: a1yen-2026-2-ceyrek
 baslik: A1 YENİLENEBİLİR ENERJİ ÜRETİM A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat aynı kalırken net kârın negatiften pozitif (+0,04 milyar TL) dönüştürülmesi, faaliyet nakit akışının iyileşmesi (-0,15 milyar TL → -0,24 milyar TL) ve net borcun yarı yarıya azalması (0,26 milyar TL → 0,51 milyar TL) ile birlikte özkaynakların artışı (3,56 milyar TL → 2,85 milyar TL) şirketi…
+ozet: Hasılat aynı kalırken net kârın negatiften pozitif (+0,04 milyar TL) olması, özkaynakların (+0,71 milyar TL) ve aktif toplamının (+0,73 milyar TL) artışıyla paralel; bu büyümeler net borcun (-0,25 milyar TL) ve faaliyet nakit akışının (-0,09 milyar TL) azalmasına eşlik etti.…
 sirket: A1 YENİLENEBİLİR ENERJİ ÜRETİM A.Ş.
 kod: A1YEN
 donem: 2026 2. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat aynı kalırken net kârın negatiften pozitif (+0,04 milyar TL) dönüştürülmesi, faaliyet nakit akışının iyileşmesi (-0,15 milyar TL → -0,24 milyar TL) ve net borcun yarı yarıya azalması (0,26 milyar TL → 0,51 milyar TL) ile birlikte özkaynakların artışı (3,56 milyar TL → 2,85 milyar TL) şirketin kârlılık ve likidite göstergelerini yükseltmiştir; bu durum net kâr marjının %18,4 ile sektör medyanının %11,4'ünü aşmasına, cari oranın 1,18'e (sektör medyanı 0,86) ve borç/özkaynak oranının 0,07'ye (sektör medyanı 0,12) gerilemesine yansımıştır.
+Hasılat aynı kalırken net kârın negatiften pozitif (+0,04 milyar TL) olması, özkaynakların (+0,71 milyar TL) ve aktif toplamının (+0,73 milyar TL) artışıyla paralel; bu büyümeler net borcun (-0,25 milyar TL) ve faaliyet nakit akışının (-0,09 milyar TL) azalmasına eşlik etti. Net kâr marjı %18,4 seviyesine yükselirken özkaynak kârlılığı sadece %0,6'ya geriledi; bu, kârın büyümesinin özkaynak artışına oranla daha sınırlı kaldığını gösteriyor. Cari oran (1,18) ve borç/özkaynak (0,07) değerleri, sektör medyanlarının (0,86 ve 0,12) üzerinde olup, likidite ve finansal kaldıraçta iyileşmenin net kâr ve özkaynak kârlılığı üzerindeki etkisini yansıtıyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

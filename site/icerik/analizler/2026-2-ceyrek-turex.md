@@ -1,7 +1,7 @@
 ---
 slug: turex-2026-2-ceyrek
 baslik: TUREKS TURİZM TAŞIMACILIK A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %25,4'lük brüt kâr marjı ile birlikte yükselmesi brüt kârı 0,53 milyar TL'den 0,91 milyar TL'ye, ardından faaliyet kârı ve FAVÖK'te de benzer artışlar (0,36 milyar TL'den 0,55 milyar TL'ye, 0,70 milyar TL'den 0,88 milyar TL'ye) sağlamış; bu artışlar net kâr marjının %0,3'ten %9,4'e çıkması…
+ozet: Hasılatın %25,4 olan brüt kâr marjıyla birlikte yükselmesi, brüt kârın 0,53 milyar TL'den 0,91 milyar TL'ye artmasına ve bu artışın FAVÖK ve faaliyet kârı gibi kâr kalemlerinin de sırasıyla 0,70 milyar TL'den 0,88 milyar TL'ye, 0,36 milyar TL'den 0,55 milyar TL'ye yükselmesine paralel bir etkisi var…
 sirket: TUREKS TURİZM TAŞIMACILIK A.Ş.
 kod: TUREX
 donem: 2026 2. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %25,4'lük brüt kâr marjı ile birlikte yükselmesi brüt kârı 0,53 milyar TL'den 0,91 milyar TL'ye, ardından faaliyet kârı ve FAVÖK'te de benzer artışlar (0,36 milyar TL'den 0,55 milyar TL'ye, 0,70 milyar TL'den 0,88 milyar TL'ye) sağlamış; bu artışlar net kâr marjının %0,3'ten %9,4'e çıkmasına rağmen net kârın 0,32 milyar TL'den 0,28 milyar TL'ye düşmesine yol açmış. Özkaynakların 6,20 milyar TL'den 8,97 milyar TL'ye yükselmesi, aktif toplamının 9,10 milyar TL'den 13,64 milyar TL'ye artması ve net borcun –0,45 milyar TL'ye (nakit fazlası) dönüşmesi, cari oranı 1,37'den 1,64'e ve borç/özkaynak oranını 0,11'den –0,05'e çekerek likidite ve finansal yapıdaki iyileşmeyi yansıtmaktadır. Faaliyet nakit akışının 0,62 milyar TL'den 1,04 milyar TL'ye artması, yatırım harcamasının hafifçe 0,56 milyar TL'den 0,53 milyar TL'ye düşmesiyle birlikte, artan operasyonel kârlılığın nakit üretiminde pozitif etkisini göstermektedir.
+Hasılatın %25,4 olan brüt kâr marjıyla birlikte yükselmesi, brüt kârın 0,53 milyar TL'den 0,91 milyar TL'ye artmasına ve bu artışın FAVÖK ve faaliyet kârı gibi kâr kalemlerinin de sırasıyla 0,70 milyar TL'den 0,88 milyar TL'ye, 0,36 milyar TL'den 0,55 milyar TL'ye yükselmesine paralel bir etkisi var; net kâr ise brüt kârdaki artışa rağmen 0,32 milyar TL'den 0,28 milyar TL'ye düşerek net kâr marjının %0,3'tan %9,4'e yükselmesinin bir kısmını yansıtıyor. Özkaynakların 6,20 milyar TL'den 8,97 milyar TL'ye artması, aktif toplamının 9,10 milyar TL'den 13,64 milyar TL'ye yükselmesiyle birlikte özkaynak kârlılığının %0,0'dan %2,3'e çıkmasını sağlarken, negatif net borç (-0,45 milyar TL) ve borç/özkaynak oranının –%0,05 olması, cari oranın 1,37'den 1,64'e yükselmesiyle likidite ve finansal yapıdaki iyileşmeyi gösteriyor. Faaliyet nakit akışının 0,62 milyar TL'den 1,04 milyar TL'ye artması, yatırım harcamasının ise hafifçe 0,56 milyar TL'den 0,53 milyar TL'ye düşmesi, artan kâr ve özkaynakların nakit üretiminde yansıyıp, yatırım harcamasının kâr artışını sınırlı tutarak net k
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

@@ -1,7 +1,7 @@
 ---
 slug: dohol-2026-2-ceyrek
 baslik: DOĞAN ŞİRKETLER GRUBU HOLDİNG A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın düşmesine rağmen brüt kâr, faaliyet kârı, FAVÖK ve net kârda belirgin artışlar görülmüş; bu durum maliyet ve giderlerdeki iyileşmelerin kâr kalemlerini yukarı çektiğini gösteriyor.…
+ozet: Hasılatın düşmesine rağmen brüt kâr, faaliyet kârı, FAVÖK ve net kârda artış görülmüş; bu durum maliyet ve giderlerdeki azalmaların kâr kalemlerini yukarı çektiğini gösteriyor.…
 sirket: DOĞAN ŞİRKETLER GRUBU HOLDİNG A.Ş.
 kod: DOHOL
 donem: 2026 2. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın düşmesine rağmen brüt kâr, faaliyet kârı, FAVÖK ve net kârda belirgin artışlar görülmüş; bu durum maliyet ve giderlerdeki iyileşmelerin kâr kalemlerini yukarı çektiğini gösteriyor. Brüt kâr marjının %20,9 seviyesinde sektör medyanının (%21,2) altında kalması, artan kârların büyük ölçüde operasyonel verimlilikten kaynaklandığını, net kâr marjının %12,6 ile medyanın (%0,3) çok üzerindeyken özkaynak kârlılığının %2,9 olması da özkaynakların daha verimli kullanıldığını işaret ediyor. Aktif toplamı ve özkaynakta artış, negatif net borç (cari oran 1,59, borç/özkaynak -0,40) ile birlikte likidite ve finansal sağlamlığın güçlendiğini, yatırım harcamasının azalması ise nakit akışının (faaliyet nakit akışı 8,13 milyar TL) artışıyla desteklendiğini gösteriyor.
+Hasılatın düşmesine rağmen brüt kâr, faaliyet kârı, FAVÖK ve net kârda artış görülmüş; bu durum maliyet ve giderlerdeki azalmaların kâr kalemlerini yukarı çektiğini gösteriyor. Özkaynak ve aktif toplamının artışı, net borcun daha da negatif (nakit fazlası) hâle gelmesiyle birlikte cari oranı yükseltirken, borç/özkaynak oranının negatif seyretmesi özkaynak bazlı finansman gücünün artışını yansıtıyor. Brüt kâr marjı sektör medyanının altında kalırken net kâr marjı ve özkaynak kârlılığı medyanların çok üzerindedir, bu da kârların daha çok net düzeye taşındığını ve özkaynak verimliliğinin yükseldiğini gösteriyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

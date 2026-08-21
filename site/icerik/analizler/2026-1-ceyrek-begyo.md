@@ -1,7 +1,7 @@
 ---
 slug: begyo-2026-1-ceyrek
 baslik: BATI EGE GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Brüt kâr, hasılatın %62,2'si olarak yükselirken brüt kâr marjı sektör medyanının %51,4'ünden daha yüksek; bu artış brüt kârın 0,04 milyar TL'den 0,05 milyar TL'ye çıkmasıyla paralel gerçekleşti.…
+ozet: Brüt kârın %62,2 ile sektör medyanının %51,4'ünden yüksek olması, hasılatın aynı seviyede kalmasına rağmen brüt kârın 0,05 milyar TL'ye yükselmesiyle birlikte brüt kâr marjının iyileştiğini gösterir; ancak net kârın -0,34 milyar TL'ye düşmesi, net kâr marjının %117,2'ye çıkmasına rağmen zararın büyü…
 sirket: BATI EGE GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: BEGYO
 donem: 2026 1. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Brüt kâr, hasılatın %62,2'si olarak yükselirken brüt kâr marjı sektör medyanının %51,4'ünden daha yüksek; bu artış brüt kârın 0,04 milyar TL'den 0,05 milyar TL'ye çıkmasıyla paralel gerçekleşti. Net kâr, –0,02 milyar TL'den –0,34 milyar TL'ye düşmesine rağmen net kâr marjı %117,2'ye yükseldi; bu durum, özkaynakların 4,77 milyar TL'den 5,78 milyar TL'ye artması ve aktif toplamının 4,78 milyar TL'den 5,99 milyar TL'ye yükselmesiyle özkaynak kârlılığının %0,4'ten %0,6'ya çıkması arasında bir ilişki gösteriyor. Cari oran 76,64'e yükselirken borç/özkaynak oranı –0,00'da kalmış; negatif net borç (–0,02 milyar TL) ve artan özkaynak, likiditeyi artırarak cari oranı sektör medyanı 5,25'in çok üzerine çıkarmış.
+Brüt kârın %62,2 ile sektör medyanının %51,4'ünden yüksek olması, hasılatın aynı seviyede kalmasına rağmen brüt kârın 0,05 milyar TL'ye yükselmesiyle birlikte brüt kâr marjının iyileştiğini gösterir; ancak net kârın -0,34 milyar TL'ye düşmesi, net kâr marjının %117,2'ye çıkmasına rağmen zararın büyümesinin faaliyet dışı kalemler veya vergi öncesi kalemlerdeki artıştan kaynaklandığını ima eder. Özkaynakların 5,78 milyar TL'ye yükselmesi ve aktif toplamının 5,99 milyar TL'ye artması, net borcun -0,02 milyar TL (nakit fazlası) seviyesinde kalmasıyla birlikte borç/özkaynak oranının -0,00'da sabit kalmasını ve cari oranın 76,64 gibi çok yüksek bir seviyeye ulaşmasını destekler. Faaliyet nakit akışının 0,00 milyar TL'ye gerilemesi, brüt kâr artışına rağmen nakit dönüşümünün gerçekleşmediğini ve bu durumun net kârdaki artan zarara paralel bir likidite sıkıntısına işaret ettiğini gösterir.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 

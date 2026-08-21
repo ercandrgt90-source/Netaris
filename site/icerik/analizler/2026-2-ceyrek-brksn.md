@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat hafif düşerken brüt kâr artmış, bu durum brüt kâr marjının %36,9'a yükselmesiyle açıklanıyor; artan brüt kâr marjı faaliyet kârı ve FAVÖK'ün de önceki döneme göre sırasıyla %0,05 milyar ve %0,08 milyon artmasına yol açmış. Net kâr, önceki dönemde –%1,7'lik negatif marjdan %0,01 milyon pozitif kâra dönmüş; bu iyileşme özkaynakların %0,88 milyon'a (önceki dönem %0,58 milyon) ve aktif toplamının %1,14 milyon'a (önceki dönem %0,76 milyon) yükselmesiyle desteklenmiş. Cari oran 3,09'a (sektör medyanı 1,37) çıkarken borç/özkaynak –%0,11 (sektör medyanı 0,11) negatif kalmış, bu da likiditenin güçlenmesi ve net borcun –%0,10 milyon (önceki dönem –%0,04 milyon) azalmasının bir göstergesidir.
+Hasılat hafif düşerken brüt kâr artmış, bu durum brüt kâr marjının %36,9'a yükselmesiyle açıklanıyor; artan brüt kâr marjı faaliyet kârı ve FAVÖK'ün de önceki döneme göre sırasıyla %0,05 milyar ve %0,08 milyon artmasına yol açmış. Net kâr, önceki dönemde –%1,7'lik negatif marjdan %0,01 milyon pozitif kâra dönüşmüş, bu da özkaynak kârlılığının –%0,4'e gerilemesine rağmen özkaynakların %0,88 milyon seviyesine yükselmesiyle özkaynak bazlı büyümenin sürdüğünü gösteriyor. Cari oran 3,09 ve borç/özkaynak –0,11 gibi sektör medyanının (sırasıyla 1,37 ve 0,11) üzerinde olduğu için likidite ve net borç pozisyonu iyileşmiş, yatırım harcaması ise sıfıra çekilmiş.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
