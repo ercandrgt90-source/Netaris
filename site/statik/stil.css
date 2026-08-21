@@ -5390,3 +5390,45 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
 .grafik-deger  { font-size: 17px; font-weight: 700; fill: var(--yazi); }
 .grafik-tarih  { font-size: 12px; }
 .grafik-tarih-sag { text-anchor: end; }
+
+/* ====================================================================
+   GORSELSIZ KART -- BOSLUK DEGIL, SECIM
+   --------------------------------------------------------------------
+   Tekrar tavani (FOTO_TEKRAR_TAVANI) devreye girince 602 haber
+   gorselsiz kaldi. Bu bilincli: 37 kez donen bir fotograf
+   illustrasyon degil duvar kagidiydi ve konu havuzundan geldigi icin
+   haberin kendisini de anlatmiyordu.
+
+   Ama gorseli olan ve olmayan kartlar yan yana gelince izgara
+   TIRTIKLI gorunur -- daha once sikayet edilen asimetrinin aynisi.
+
+   Cozum bosluk birakmak degil, o yeri TIPOGRAFIYE vermek: marka
+   isareti ve konu rozeti ayni kutuyu dolduruyor. Bloomberg ve NYT'in
+   gorseli olmayan haberlerde yaptigi da bu -- manset onde, tipografi
+   tasiyor.
+   ================================================================== */
+
+.ai-akis-liste li:not(:has(.ai-kart-foto)) .ai-kart-kunye::before {
+  content: "";
+  width: 34px;
+  height: 34px;
+  flex: none;
+  border-radius: var(--r-kucuk);
+  background:
+    linear-gradient(135deg,
+      color-mix(in srgb, var(--vurgu) 16%, transparent),
+      color-mix(in srgb, var(--vurgu) 4%, transparent));
+  border: 1px solid color-mix(in srgb, var(--vurgu) 26%, transparent);
+}
+
+/* Gorselsiz kartta baslik bir tik buyuyor: bosalan gorsel alani
+   mansete gidiyor, kart da komsulariyla ayni yuksekligi tutuyor. */
+.ai-akis-liste li:not(:has(.ai-kart-foto)) .ai-kart-baslik {
+  font-size: var(--p-xl);
+  -webkit-line-clamp: 3;
+}
+
+/* Haber sayfasinda gorsel yoksa baslik blogu nefes alsin: figure'un
+   birakttigi bosluk ust boslugu olarak geri veriliyor, yoksa manset
+   serite yapisik duruyor. */
+.yazi > header:first-child { padding-top: var(--b-4); }

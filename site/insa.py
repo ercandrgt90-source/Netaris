@@ -697,6 +697,16 @@ def analiz_fotografi(kayit, baslik: str, kategori: str, kod: str) -> tuple[str, 
     return f.dosya, f.kisa_atif
 
 
+#: Bir gorselin gorunebilecegi EN COK haber sayisi.
+#:
+#: Dorde dusuruldu cunku okur bir gorseli genelde bir oturumda birkac
+#: kez goruyor; besinci tekrarda "bu siteyi daha once gordum" degil
+#: "bu site ayni resmi doluyor" izlenimi olusuyor. Tavani yukseltmek
+#: tekrari, dusurmek gorselsiz haber sayisini artiriyor -- dort, ikisi
+#: arasinda olculmus bir denge degil SECILMIS bir esik; degistirmek
+#: icin once dagilimi olcun.
+FOTO_TEKRAR_TAVANI = 4
+
 def foto_dagit(haberler: list[dict], varlik_haritasi: dict,
                kayit) -> dict[str, object]:
     """Butun haberlere fotografi TEK SEFERDE, birbirini gorerek dagitir.
@@ -769,6 +779,38 @@ def foto_dagit(haberler: list[dict], varlik_haritasi: dict,
         if f is not None:
             sonuc[adres] = f
             onceki = f.dosya
+
+    # TEKRAR TAVANI: bir gorsel TAVAN'dan fazla gorunemez.
+    #
+    # Olculdu (2026-08-21):
+    #     Jeopolitik  454 haber / 12 gorsel  -> her gorsel ~37 kez
+    #     Borsa       190 haber /  9 gorsel  -> her gorsel ~21 kez
+    #
+    # Yukaridaki dengeleme, gorseli havuz icinde ESIT dagitiyor ama
+    # havuz yeterince genis degilse esit dagilim da cok tekrar demek.
+    # 37 kez donen bir fotograf artik illustrasyon degil duvar kagidi.
+    #
+    # Havuzu buyutmek bunu COZMEZ, cunku ikinci sikayet ayriydi:
+    # "alakasiz". Havuz KONU duzeyinde -- "Jeopolitik" havuzundaki
+    # Moskova fotografi, Yemen'deki liman saldirisi haberinin gorseli
+    # degil. Genel bir fotograf belirli bir haberin kendisi olamaz ve
+    # bu, havuza kac fotograf eklenirse eklensin degismez.
+    #
+    # Tavani asan haberler GORSELSIZ kaliyor. Bloomberg ve NYT'in
+    # gorsel bulunmayan haberlerde yaptigi da bu: manset onde,
+    # tipografi tasiyor. Tekrar eden alakasiz bir fotograf,
+    # fotografsizdan KOTUDUR -- okuru yanlis yere baglar.
+    sayim: dict[str, int] = {}
+    tavan_asan = 0
+    for adres in list(sonuc):
+        d = sonuc[adres].dosya
+        sayim[d] = sayim.get(d, 0) + 1
+        if sayim[d] > FOTO_TEKRAR_TAVANI:
+            del sonuc[adres]
+            tavan_asan += 1
+    if tavan_asan:
+        print(f"foto: {tavan_asan} haber gorselsiz birakildi "
+              f"(tekrar tavani {FOTO_TEKRAR_TAVANI})")
     return sonuc
 
 
@@ -3287,6 +3329,23 @@ def insa() -> int:
             if yeni_f is not None:
                 h["foto"] = yeni_f.dosya
                 h["foto_atif"] = yeni_f.kisa_atif
+            elif foto_atamasi:
+                # ATAMA YOKSA ESKI FOTOGRAF DA GITMELI.
+                #
+                # Once yalnizca `if yeni_f is not None` vardi ve tekrar
+                # tavani DEVREYE GIRMIYORDU: dagitim 602 atamayi
+                # dusuruyor, ama dusen haber `gundem.json`'dan gelen
+                # ESKI fotografini koruyordu. Olculdu -- tavan 4 iken
+                # jeopolitik-12.jpg hala 38 sayfada duruyordu.
+                #
+                # Yani atamayi silmek yetmiyor; onceki degeri
+                # TEMIZLEMEK gerekiyor. Yoksa "kaldirdim" diyen bir kod
+                # hicbir sey kaldirmiyor.
+                #
+                # `elif foto_atamasi` kosulu onemli: dagitim hic
+                # calismadiysa (foto kaydi yok) sozluk BOS gelir ve
+                # burasi butun fotograflari silerdi.
+                h["foto"] = h["foto_atif"] = ""
             # DOSYASI OLMAYAN GORSEL BASILMAZ.
             #
             # `gundem.json` fotografi haberin ILK secimiyle tasiyor. O
