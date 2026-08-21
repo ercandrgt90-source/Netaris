@@ -5016,3 +5016,94 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
   .senaryo-kunye { font-size: 0.8125rem; gap: var(--b-1) var(--b-2); }
   .senaryo-uyari { padding: var(--b-3); font-size: 0.8125rem; }
 }
+
+/* ====================================================================
+   MOBIL TABAN KATMANI
+   --------------------------------------------------------------------
+   OLCULDU: haber sayfasinda 104 bilesen var ve 83'unun mobil kurali
+   YOK. Ana sayfayi tek tek duzeltirken haber sayfasi hic ele
+   alinmamisti -- okur akistan bir baglantiya tikladiginda masaustu
+   duzeninin sikismis halini goruyordu.
+
+   TEK TEK DEGIL TABAN OLARAK. Seksen uc bilesene ayri kural yazmak
+   hem bitmez hem de bir sonraki bilesende ayni bosluk yeniden
+   olusur. Bunun yerine SINIF BAGIMSIZ kurallar: neyin tasabilecegini
+   ve neyin daralamayacagini bicimden degil YAPIDAN biliyoruz.
+
+   Uc kural yeterli:
+     1. Hicbir sey ekrandan tasmaz
+     2. Sabit genislikler oranli olur
+     3. Izgaralar tek kolona duser
+
+   Bilesen ozel kurallar bunun UZERINE yaziliyor ve ezebiliyor;
+   taban yalnizca "hicbir sey kirilmasin" diyor.
+   ================================================================== */
+
+@media (max-width: 640px) {
+
+  /* 1. YATAY TASMA YOK.
+        `overflow-x: hidden` KULLANILMIYOR -- o belirtiyi gizler,
+        sebebi birakir ve `position: sticky`yi bozar. Onun yerine
+        tasabilecek olan seylerin kendisi sinirlaniyor. */
+  img, svg, video, iframe, canvas, table, pre {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Tablo KENDI ICINDE kayar; sayfa govdesi kaymaz. */
+  table { display: block; overflow-x: auto; }
+
+  /* Uzun kirilamayan dizgeler (adres, uzun unvan) satir kirsin. */
+  p, li, dd, dt, h1, h2, h3, h4, figcaption, blockquote {
+    overflow-wrap: anywhere;
+  }
+
+  /* 2. IZGARA VE ESNEK KUTU COCUKLARI DARALABILIR.
+        `min-width: auto` varsayilani, cocugun iceriginden dar
+        olmasini engelliyor ve dar ekranda tasma uretiyor. */
+  [class*="izgara"] > *,
+  [class*="liste"] > li,
+  [class*="kart"] > *,
+  [class*="blok"] > * { min-width: 0; }
+
+  /* 3. COK KOLONLU IZGARALAR TEK KOLONA.
+        Sinif adiyla degil YAPIYLA: `grid-template-columns` tasiyan
+        her kap dar ekranda tek kolon. Bilesen ozel kurali varsa o
+        ezer -- taban yalnizca varsayilani duzeltiyor. */
+  .tr-izgara,
+  .od-izgara,
+  .kriter,
+  .duyarlilik,
+  .etki-alan,
+  .seyir,
+  .renk-izgara,
+  .arastirma-izgara,
+  .tasarim-olcum { grid-template-columns: 1fr; }
+
+  /* Kutu bilesenleri: dar ekranda dolgu ve punto orantili. */
+  .ozet-kutu,
+  .piyasa-kutu,
+  .ai-sonuc,
+  .brifing-bas,
+  .seffaflik,
+  .kaynaklar,
+  .ilgili-haber,
+  .okumaya-devam { padding-inline: 0; }
+
+  .ozet-kutu,
+  .piyasa-kutu { padding: var(--b-4); }
+
+  /* AI yorumu haber govdesinden AYRI dursun; dar ekranda ikisi
+     birbirine karisiyordu. */
+  .ai-metin { font-size: 1rem; line-height: 1.6; }
+  .ai-not { font-size: 0.8125rem; }
+
+  /* Asama numaralari ve etiketler kucuk kalsin. */
+  .asama-no { width: 26px; height: 26px; font-size: 0.75rem; }
+  .asama-ad { font-size: 0.9375rem; }
+
+  /* Alt bilgi: uzun baglanti listesi dar ekranda alt alta. */
+  .alt-ic { flex-direction: column; gap: var(--b-4); }
+  .alt nav { flex-wrap: wrap; gap: var(--b-2) var(--b-4); }
+  .alt-yasal { font-size: 0.75rem; }
+}
