@@ -36,7 +36,7 @@ main = "./worker.js"
 # ALAN ADI ALINDIGINDA, SIRASIYLA:
 #   1. Alan adi Cloudflare hesabina eklenir (bolge/zone olusur).
 #   2. Asagidaki iki satirin basindaki `#` kaldirilir.
-#   3. `NETARIS_ADRES=https://netaris.com.tr python site/insa.py` ile
+#   3. `NETARIS_ADRES=https://netaris.net python site/insa.py` ile
 #      kanonik adres, sitemap, robots ve RSS yeniden uretilir
 #      (bkz. `site/insa.py` -> `TABAN_ADRES`).
 #   4. `npx wrangler deploy`
@@ -45,10 +45,9 @@ main = "./worker.js"
 # adres birbirinin kopyasi olur. `denetim.py` bunu yakalamaz -- eski
 # adres COZUMLENIYOR, yalnizca yanlis.
 #
-# routes = [
-#   { pattern = "netaris.com.tr", custom_domain = true },
-#   { pattern = "www.netaris.com.tr", custom_domain = true },
-# ]
+routes = [
+  { pattern = "netaris.net", custom_domain = true },
+]
 
 [assets]
 directory = "./cikti"
@@ -103,7 +102,7 @@ database_id = "56f6ce02-a748-4c58-b378-46c46e02a21a"
 # dogrulamasi yapiyor, sir gerektiren yetkilendirme akisi degil.
 #
 # Alan adi baglandiginda Google Cloud > Clients > netaris-web icindeki
-# "Authorised JavaScript origins" listesine `https://netaris.com.tr`
+# "Authorised JavaScript origins" listesine `https://netaris.net`
 # de EKLENMELI -- yoksa asil adreste giris calismaz.
 [vars]
 GOOGLE_ISTEMCI_KIMLIGI = "127066136453-fl67t9o3f2v6hqas0d10v3kob9nvlq10.apps.googleusercontent.com"
