@@ -4104,3 +4104,55 @@ h4 {
    `text-transform: uppercase` ve genis harf araligiyla ETIKET olarak
    okunuyor, baslik olarak degil. Ayrimi punto degil BICIM tasiyor. */
 h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
+
+/* ====================================================================
+   MOBIL: YATAY TASMA
+   --------------------------------------------------------------------
+   OLCULDU: uc kuralda `white-space: nowrap` vardi ve icerikleri UZUN:
+
+     .bolum-bas h2   "Bugünün önemli gelişmeleri"
+     .ozet-kutu dt   ozet kutusundaki terimler
+     .etki-alan li   etki alani maddeleri
+
+   Satir kirilmayan uzun bir baslik, dar ekranda SAYFAYI yatay
+   kaydiriyor. Ve bu, tek bir bileseni degil SAYFANIN TAMAMINI
+   etkiliyor: okur asagi kaydirirken sayfa yana kayiyor, metin ekranin
+   disina cikiyor.
+
+   Kendi degisikligim BUYUTTU: h2'yi --p-2xl'e (22px) cikardim ve
+   nowrap ile birlesince tasma daha erken basliyor. Olcmeseydim
+   gormezdim.
+
+   `overflow-x: hidden` KULLANILMADI. O, tasmanin BELIRTISINI gizler
+   ama sebebini birakir; ustelik `position: sticky` ile birlesince yan
+   sutunun yapiskanligini bozuyor. Sebep duzeltiliyor: baslik satir
+   kirsin.
+
+   Kisa ogelerdeki (rozet, sayac, tarih) nowrap KALIYOR -- onlar
+   tasmiyor ve ortadan bolunmeleri okumayi zorlastirir.
+   ================================================================== */
+
+.bolum-bas h2,
+.ozet-kutu dt,
+.etki-alan li {
+  white-space: normal;
+}
+
+/* Uzun ve boslugu olmayan dizgeler (adres, uzun sirket unvani) hala
+   tasabilir; onlar da kirilsin. Yalnizca GEREKTIGINDE. */
+.bolum-bas h2,
+.senaryo-sayfa h1,
+.arastirma-kart h2,
+.paylas-onizleme-baslik {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 560px) {
+  /* Dar ekranda bolum basligi ve yanindaki not ALT ALTA: yan yana
+     dururken ikisi de sikisiyor ve not okunmaz hale geliyordu. */
+  .bolum-bas {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--b-1);
+  }
+}
