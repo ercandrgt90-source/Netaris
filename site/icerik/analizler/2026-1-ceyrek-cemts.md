@@ -1,0 +1,95 @@
+---
+slug: cemts-2026-1-ceyrek
+baslik: ÇEMTAŞ ÇELİK MAKİNA SANAYİ VE TİCARET A.Ş. 2026 1. çeyrek bilanço analizi
+ozet: Hasılatın düşmesi brüt kârın da aynı oranda azalmasına yol açarken, brüt kâr marjının sektör medyanıyla eşit kalması, kârın hacimden ziyade maliyet yapısına bağlı olduğunu gösteriyor; bu durum faaliyet kârı ve FAVÖK'teki düşüşle birlikte net kârın negatifleşmesine neden olur.…
+sirket: ÇEMTAŞ ÇELİK MAKİNA SANAYİ VE TİCARET A.Ş.
+kod: CEMTS
+donem: 2026 1. çeyrek
+kategori: Bilanço Analizi
+sektor: Temel malzeme
+tarih: 2026-08-21
+veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
+kurgusal: hayir
+grafik_tur: sutun
+grafik: 
+kaynaklar: 
+sayimlar: 
+---
+
+## Özet
+
+Hasılatın düşmesi brüt kârın da aynı oranda azalmasına yol açarken, brüt kâr marjının sektör medyanıyla eşit kalması, kârın hacimden ziyade maliyet yapısına bağlı olduğunu gösteriyor; bu durum faaliyet kârı ve FAVÖK'teki düşüşle birlikte net kârın negatifleşmesine neden olur. Özkaynakların artması aktif toplamının yükselmesine ve net borcun pozitifleşmesine, yani şirketin likidite pozisyonunun iyileşmesine (cari oran 4,74, sektör medyanı 1,36) ve borç/özkaynak oranının düşük kalmasına (0,01, sektör medyanı 0,21) yol açar. Faaliyet nakit akışının pozitifleşmesi ise artan yatırım harcaması (0,54 milyar TL) ile birlikte, nakit akışının faaliyetlerden gelmeye başladığını ve sermaye harcamalarının finansmanını desteklediğini gösterir.
+
+## 2026 1. çeyrek — bir yıl öncesine göre
+
+| Kalem | Reel değişim |
+| --- | ---: |
+| Hasılat | -%9,3 |
+| Brüt kâr | -%20,3 |
+| Faaliyet kârı | -%57,9 |
+| FAVÖK | -%29,0 |
+| Net kâr | -%969,4 |
+| Özkaynak | %23,8 |
+| Aktif toplamı | %34,3 |
+| Net borç | %113,3 |
+| Faaliyet nakit akışı | %169,9 |
+| Yatırım harcaması | %366,4 |
+
+*Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
+
+## 2026 1. çeyrek dönemi ölçümleri
+
+| Kalem | Değer |
+| --- | ---: |
+| Hasılat | 3,44 milyar TL |
+| Brüt kâr | 0,47 milyar TL |
+| Faaliyet kârı | 0,10 milyar TL |
+| FAVÖK | 0,32 milyar TL |
+| Net kâr | -0,17 milyar TL |
+| Özkaynak | 7,35 milyar TL |
+| Aktif toplamı | 9,83 milyar TL |
+| Net borç | 0,06 milyar TL |
+| Faaliyet nakit akışı | 0,08 milyar TL |
+| Yatırım harcaması | 0,54 milyar TL |
+
+## Sektör içindeki konum
+
+Karşılaştırma Temel malzeme sektöründeki 42 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+
+| Oran | Şirket | Sektör medyanı |
+| --- | ---: | ---: |
+| Brüt kâr marjı | %14,1 | %14,1 |
+| Net kâr marjı | %6,4 | -%0,2 |
+| Özkaynak kârlılığı | %1,6 | -%0,1 |
+| Cari oran | 4,74 | 1,36 |
+| Borç / özkaynak | 0,01 | 0,21 |
+
+*Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
+
+## Öne çıkan ölçümler
+
+**Şirket lehine işleyenler**
+
+- Cari oran 4,74; dönen varlıklar kısa vadeli yükümlülüklerin üzerinde.
+
+**Dikkat gerektirenler**
+
+- Hasılat reel olarak -%9,3 geriledi.
+- Net kâr reel olarak -%969,4 geriledi.
+- Yatırım harcaması faaliyet nakit akışını aşıyor; aradaki fark dış kaynakla karşılanıyor.
+
+*Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
+
+
+## Çevrimsel sektörde tek dönem neyi anlatır, neyi anlatmaz
+
+Çimento, demir-çelik, kimya ve madencilik **çevrimsel** sektörlerdir: kârlılık emtia fiyatına ve talep dönemine göre geniş bir bantta gezinir. Tek bir dönemin marjı, şirketin olağan kârlılığı hakkında sınırlı bilgi verir.
+
+**Brüt marj** bu sektörlerde girdi maliyetine çok duyarlıdır; enerji ve hammadde fiyatındaki hareket birkaç çeyrek gecikmeyle tabloya yansıyabilir.
+
+Kapasite yatırımları büyük ve uzun ömürlü olduğu için **amortisman** yüksektir; FAVÖK ile net kâr arasındaki makas bu sebeple açıktır.
+
+
+---
+
+*Bu sayfa ölçülmüş mali tablo verisinden üretilmiştir ve **yatırım tavsiyesi değildir.** Sektör medyanına göre konum bir sıralamadır, değerlendirme değildir.*
