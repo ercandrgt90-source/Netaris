@@ -40,6 +40,7 @@ from datetime import datetime, timedelta, timezone
 import markdown
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
+import grafik
 import gorsel
 import kivilcim
 import piyasa_kutusu
@@ -2950,11 +2951,36 @@ def insa() -> int:
     # Yorumlanan haberlere gorsel. Rutin duyurulara gorsel URETILMEZ --
     # listede goruntuluyorlar ve her birine gorsel koymak sayfayi
     # gurultuye bogar.
-    gundem_gorseller = {
-        h["adres"]: gorsel.haber_gorseli(h["konu"], h["kurum"], h["baslik"])
-        for h in gundem.get("haberler", [])
-        if h.get("yorumlanir")
-    }
+    # HABER GORSELI: ONCE OLCUM, SONRA DESEN.
+    #
+    # Olculdu (2026-08-21): 1288 yayimli haberde 318 fotograf donuyordu
+    # ve dagilim su:
+    #
+    #     Jeopolitik   454 haber / 12 gorsel  -> her gorsel ~37 kez
+    #     Borsa        190 haber /  9 gorsel  -> her gorsel ~21 kez
+    #
+    # Iki sikayet vardi ve ikisinin sebebi de bu tablo: "hep ayni
+    # dongu" (havuz dar) ve "alakasiz olabiliyor" (havuz KONU
+    # duzeyinde -- "Enerji" havuzundaki rafineri fotografi, Brent'in
+    # 88 dolara inmesiyle ilgili degil).
+    #
+    # Ikincisi havuzu buyuterek COZULMEZ: genel bir fotograf, belirli
+    # bir haberin kendisi olamaz. Bu yuzden veri VARSA once grafik
+    # deneniyor -- grafik haberin sussu degil KONUSU ve her serinin
+    # araligi farkli oldugu icin tekrar da yapisal olarak bitiyor.
+    #
+    # Veri yoksa eski desen uretimi devrede kaliyor; olmayan olcumu
+    # varmis gibi gosteren temsili grafik CIZILMIYOR.
+    gundem_gorseller = {}
+    with _beyin.baglan() as _b:
+        for h in gundem.get("haberler", []):
+            if not h.get("yorumlanir"):
+                continue
+            g = grafik.haber_grafigi(_b, h["adres"])
+            gundem_gorseller[h["adres"]] = g or gorsel.haber_gorseli(
+                h["konu"], h["kurum"], h["baslik"])
+    print(f"grafik: {sum(1 for v in gundem_gorseller.values() if '<svg class=\"grafik' in v)}"
+          f" / {len(gundem_gorseller)} haber olcumden cizildi")
 
     # Serit ve panel icin kucuk seri grafikleri. Depodan okunur, ek veri
     # cekilmez. Depo yoksa bos doner ve serit kivilcimsiz basilir --

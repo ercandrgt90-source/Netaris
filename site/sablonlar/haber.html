@@ -92,7 +92,17 @@
 
 
 <article class="yazi">
-  {% if h.foto %}
+  {# SIRA ONEMLI: OLCUM FOTOGRAFTAN ONCE GELIR.
+     Once `{% if h.foto %}` ustteydi ve grafik yalnizca fotograf
+     YOKKEN ciziliyordu. Yanlis oncelik: fotograf konu havuzundan
+     gelen bir illustrasyon, grafik ise haberin kendi olcumu. Elde
+     olcum varken temsili bir gorseli one koymak, asil bilgiyi
+     susun arkasina saklamak demek.
+
+     Bloomberg ve NYT veri haberlerinde ayni sirayi kullaniyor. #}
+  {% if gorsel_svg %}
+  <figure class="yazi-gorsel">{{ gorsel_svg | safe }}</figure>
+  {% elif h.foto %}
   <figure class="yazi-gorsel yazi-foto">
     {# GORSEL SUSTUR: `alt` BOS.
      Burada `alt="{{ h.konu }}"` yaziyordu ve ekran okuyucu
@@ -116,8 +126,6 @@
     <figcaption>Fotoğraf: {{ h.foto_atif }}</figcaption>
     {% endif %}
   </figure>
-  {% elif gorsel_svg %}
-  <figure class="yazi-gorsel">{{ gorsel_svg | safe }}</figure>
   {% endif %}
 
   <header>

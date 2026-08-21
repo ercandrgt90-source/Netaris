@@ -5340,3 +5340,53 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
 .yorum-harf-kurum svg { display: block; }
 .yorum-harf-kurum path { stroke: #fff; }
 .yorum-harf-kurum rect { fill: #fff; }
+
+/* ====================================================================
+   OLCUM GRAFIGI -- haber gorseli olarak
+   --------------------------------------------------------------------
+   Renkler JETONDAN: karanlik temada kendiliginden dogru gorunsun ve
+   yon renkleri (yukselis/dusus) sitenin geri kalaniyla AYNI anlami
+   tasisin. Grafigin icine sabit renk yazmak, temayi ikiye bolerdi.
+   ================================================================== */
+
+.grafik {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  background: var(--zemin-2);
+  border-radius: var(--r);
+}
+
+.grafik-cizgi { stroke: var(--vurgu); stroke-width: 2.5;
+                stroke-linejoin: round; stroke-linecap: round;
+                vector-effect: non-scaling-stroke; }
+.grafik-alan  { fill: var(--vurgu); opacity: .10; }
+.grafik-son   { fill: var(--vurgu); }
+
+/* YON RENGI ANLAMLI. Yukselen ve dusen seri ayni renkte olsaydi
+   grafigin ilk bakista soyledigi tek sey "bir seri var" olurdu. */
+.grafik-yukselis .grafik-cizgi,
+.grafik-yukselis .grafik-son   { stroke: var(--yukselis); fill: var(--yukselis); }
+.grafik-yukselis .grafik-cizgi { fill: none; }
+.grafik-yukselis .grafik-alan  { fill: var(--yukselis); }
+.grafik-dusus .grafik-cizgi,
+.grafik-dusus .grafik-son      { stroke: var(--dusus); fill: var(--dusus); }
+.grafik-dusus .grafik-cizgi    { fill: none; }
+.grafik-dusus .grafik-alan     { fill: var(--dusus); }
+
+/* YAZI OLCEGI.
+   Once `preserveAspectRatio="none"` yazmistim ve YANLISTI: o deger
+   cizimi kutuya zorla yayiyor ve ayni donusum YAZIYA da uygulaniyor
+   -- harfler yatay eziliyor. CSS bunu geri alamaz, cunku donusum
+   viewBox duzeyinde. viewBox zaten 16:9 ve kapsayici da 16:9, yani
+   varsayilan davranis (`meet`) tam oturuyor; deger kaldirildi. */
+.grafik text {
+  font-family: inherit;
+  font-variant-numeric: tabular-nums;
+  fill: var(--yazi-soluk);
+}
+.grafik-ad     { font-size: 15px; font-weight: 650; fill: var(--yazi); }
+.grafik-deger  { font-size: 17px; font-weight: 700; fill: var(--yazi); }
+.grafik-tarih  { font-size: 12px; }
+.grafik-tarih-sag { text-anchor: end; }
