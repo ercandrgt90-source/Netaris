@@ -1235,6 +1235,25 @@ def turkiye_haberi(bolge: str, varliklar) -> bool:
     """
     if varliklar is None:
         return bolge == "TR"
+    # BOLGE DUNYA ISE TURKIYE PANELI BASILMAZ -- varlik bagi ne derse
+    # desin.
+    #
+    # Olculdu (2026-08-21): "Capital Economics'ten kritik degerlendirme:
+    # BoJ faiz artiracak mi?" haberine TCMB_FAIZ varligi baglanmisti
+    # (baslikta "faiz" geciyor). Varlik olcutu bunu Turkiye haberi
+    # sayip sayfaya TURKIYE TUFE'sini (%31,75) ve "Son on uc ayda TUFE"
+    # grafigini bastu. Japon yeni konusu, butun veri Turkiye.
+    #
+    # Varlik bagi TEK BASINA yeterli bir olcut degil: baslikta gecen
+    # ortak bir kelime ("faiz", "enflasyon") yabanci bir haberi yerli
+    # bir gostergeye baglayabiliyor. Bolge ise haberin NEYI anlattigini
+    # soyluyor.
+    #
+    # Bir haber hem yabanci hem yerli olamaz; celiskide bolge kazaniyor
+    # cunku okurun gordugu sey baslik ve baslik yabanci konuyu anlatiyor.
+    # Yanlis panel BASMAMAK, eksik panel basmaktan iyidir.
+    if bolge == "DUNYA":
+        return False
     return bool(TURKIYE_VARLIKLARI & set(varliklar))
 
 

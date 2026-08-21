@@ -699,13 +699,22 @@ def analiz_fotografi(kayit, baslik: str, kategori: str, kod: str) -> tuple[str, 
 
 #: Bir gorselin gorunebilecegi EN COK haber sayisi.
 #:
-#: Dorde dusuruldu cunku okur bir gorseli genelde bir oturumda birkac
-#: kez goruyor; besinci tekrarda "bu siteyi daha once gordum" degil
-#: "bu site ayni resmi doluyor" izlenimi olusuyor. Tavani yukseltmek
-#: tekrari, dusurmek gorselsiz haber sayisini artiriyor -- dort, ikisi
-#: arasinda olculmus bir denge degil SECILMIS bir esik; degistirmek
-#: icin once dagilimi olcun.
-FOTO_TEKRAR_TAVANI = 4
+#: SEKIZ, OLCULEREK secildi. Once dort yazdim ve kullanici hakli olarak
+#: "fotograf gitti ve geri gelmedi" dedi. Olcum:
+#:
+#:     tavan  4 -> haberlerin %29'u gorselli
+#:     tavan  6 -> %41
+#:     tavan  8 -> %50
+#:     tavan 12 -> %66
+#:
+#: Baslangictaki hata 38 tekrardi; asil dert ORADAYDI, dortte degil.
+#: Sekiz, o hatayi bitiriyor (38 -> 8) ama kapsami yariya cikariyor.
+#: Bir okurun tek oturumda ayni gorseli iki kez gormesi olasi, sekiz
+#: kez gormesi degil.
+#:
+#: Tavani degistirmeden once dagilimi yeniden olcun: havuz genisledikce
+#: ayni tavan daha az haberi gorselsiz birakir.
+FOTO_TEKRAR_TAVANI = 8
 
 def foto_dagit(haberler: list[dict], varlik_haritasi: dict,
                kayit) -> dict[str, object]:

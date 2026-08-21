@@ -598,7 +598,52 @@ def _tarih_coz(ham: str) -> str:
 #: Ayrim KAYNAGA gore degil ICERIGE gore yapilir: Ekonomist Turk bir yayin
 #: ama "Fed belirsizligi dolari vurdu" bir dunya haberi. Kaynaga baksaydik
 #: Turk yayinlarinin butun dis haberleri Turkiye sekmesine dolardi.
+#: YABANCI MERKEZ BANKALARI VE PARA BIRIMLERI.
+#:
+#: Olculdu (2026-08-21): "Capital Economics'ten kritik degerlendirme:
+#: BoJ faiz artiracak mi?" haberi TR sayildi ve sayfaya TURKIYE TUFE'si
+#: (%31,75) ile "Son on uc ayda TUFE" grafigi basildi. Japon yeni
+#: konusu, butun veri Turkiye.
+#:
+#: Sebep: baslikta "BoJ" geciyordu ama listede yalnizca "japonya"
+#: vardi. Isaret bulunamayinca dorduncu kural devreye girip TR dedi.
+#:
+#: Tek tek ulke adi eklemek kostebek oyunu olurdu. Buradaki liste bir
+#: SINIF kapatiyor: bir haber yabanci bir MERKEZ BANKASINI ya da
+#: yabanci bir PARA BIRIMINI konu ediyorsa, hangi dilde yazildigindan
+#: bagimsiz olarak yurt disi haberidir. Turk bir yayinin BoJ analizi
+#: hala Japonya haberidir.
+#:
+#: TEK BASINA GECEN PARA BIRIMI ADLARI BILEREK DISARIDA.
+#:
+#: Ilk yazimimda " yen ", " dolari ", " real " gibi adlari da koydum ve
+#: SINAYINCA KIRILDI:
+#:
+#:     "Borsada yeni rekor"  ->  DUNYA   (yanlis)
+#:
+#: " yeni " Turkce'de "new" demek ve her yerde geciyor; " dolari " ise
+#: yurt ici kur haberlerinin tamaminda ("dolar/TL"). Bu adlar bir
+#: haberin yurt disi oldugunu KANITLAMIYOR -- yalnizca para biriminden
+#: soz edildigini soyluyor ve o para birimi Turkiye'nin gundeminde de
+#: olabilir.
+#:
+#: Geriye yalnizca TEK ANLAMA GELEN isaretler kaldi: yabanci merkez
+#: bankalarinin adlari, baskanlari ve para biriminin ULKEYLE birlikte
+#: yazildigi kaliplar ("japon yeni"). Bir isaretin listede olmamasi
+#: haberi TR yapmaz -- dorduncu kural zaten muhafazakar taraf.
+#:
+#: Bosluklu yazim bilincli: kisaltmalar kelime icinde eslesmesin. Ayni
+#: tuzak daha once " ges " ile yasandi, bkz. `_aranacak`.
+YABANCI_PARA_OTORITESI = (
+    " boj ", "bank of japan", " boe ", "bank of england",
+    " snb ", " rba ", " rbnz ", " pboc ", "riksbank", "norges bank",
+    " fomc ", "federal reserve", "avrupa merkez bankasi",
+    "powell", "lagarde", " ueda ", "bailey",
+    "japon yeni", "cin yuani", "ingiliz sterlini", "isvicre frangi",
+)
+
 DUNYA_ISARETLERI = (
+    *YABANCI_PARA_OTORITESI,
     " abd ", "amerika", "washington", " fed ", "beyaz saray", "trump",
     "avrupa", "avro bolge", " ecb ", "brüksel", "bruksel",
     "almanya", "fransa", "ingiltere", "italya", "ispanya", "hollanda",
