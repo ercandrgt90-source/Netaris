@@ -4041,3 +4041,66 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none; }
 /* ICERIK KUTULARI tam agirligini KORUYOR -- burada bir sey
    degismiyor, ama artik yanlarindaki meta kutular geri cekildigi
    icin gorsel olarak one cikiyorlar. */
+
+/* ====================================================================
+   BASLIK OLCEGI  --  TEMEL KURAL
+   --------------------------------------------------------------------
+   OLCULDU: TEMEL BASLIK KURALI HIC YOKTU. Her baslik kendi bileseninde
+   ayri tanimliydi ve sonucu su:
+
+     h1  ->  6 farkli punto (ucu jeton bile kullanmiyor: 1.7rem, 1.6rem)
+     h2  -> 11 farkli punto
+     h3  ->  4 farkli punto
+
+   Yani bir OLCEK yoktu; her bilesen kendi puntosunu seciyordu.
+
+   DAHA KOTUSU HIYERARSI TERSLIGI: h2 alti yerde `--p-xs` (12px) ve
+   `--p-s` (13px) kullaniyordu -- govde metni 14px. Baslik, altindaki
+   paragraftan KUCUKTU. Okur bir seyin baslik oldugunu puntodan
+   anlayamiyordu.
+
+   TABAN BURADA, ISTISNALAR YERINDE KALIYOR
+   ----------------------------------------
+   Bu blok yalnizca VARSAYILANI kuruyor. Bilesen icindeki tanimlar
+   ozgullugu yuksek oldugu icin bunu eziyor ve boyle olmali: bazi
+   kucuk baslıklar BILEREK kucuk -- ust satir etiketi ("SEKTOR ICINDEKI
+   KONUM" gibi buyuk harfli, harf araligi acik). Onlar gorsel
+   hiyerarside baslik degil ETIKET.
+
+   Taban, tanimsiz kalan her basligin ölçege oturmasini sagliyor;
+   yeni bir bilesen eklendiginde punto secmek gerekmiyor.
+   ================================================================== */
+
+h1 {
+  /* AKISKAN: dar ekranda 1,75rem, genis ekranda 2,6rem. Tek tanim,
+     medya sorgusu yok -- iki ayri kural bir gun ayrisirdi. */
+  font-size: clamp(1.75rem, 4.2vw, 2.6rem);
+  line-height: var(--satir-sik);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+h2 {
+  font-size: var(--p-2xl);
+  line-height: var(--satir-sik);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: var(--p-xl);
+  line-height: var(--satir-sik);
+  font-weight: 600;
+}
+
+h4 {
+  font-size: var(--p-l);
+  line-height: var(--satir-orta);
+  font-weight: 600;
+}
+
+/* HICBIR BASLIK GOVDE METNINDEN KUCUK OLMASIN.
+   Ust satir etiketleri (`--p-xs`) bu kuralin DISINDA: onlar
+   `text-transform: uppercase` ve genis harf araligiyla ETIKET olarak
+   okunuyor, baslik olarak degil. Ayrimi punto degil BICIM tasiyor. */
+h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
