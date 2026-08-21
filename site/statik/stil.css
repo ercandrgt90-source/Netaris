@@ -4752,3 +4752,81 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
   .one-cikan-gorsel { max-height: 200px; }
   .haber-gorsel img, .yazi-foto img { max-height: 240px; }
 }
+
+/* ====================================================================
+   MOBIL  --  DAR KARTTA BILGI SECIMI
+   --------------------------------------------------------------------
+   OLCULDU (kullanicinin telefon ekran goruntusu): bir arastirma
+   kartinda DORT rozet alt alta duruyor --
+   ARASTIRMA / BILANCO ANALIZI / ZOREN / KAMU HIZMETLERI.
+   Yaklasik 180 piksel, yalnizca etiket. Kartin geri kalani
+   (baslik + ozet) o kadar bile yer bulamiyor.
+
+   Genis ekranda dort rozet yan yana bir satir; dar ekranda dort
+   satir. Ayni bilgi, iki ekranda iki farkli maliyet.
+
+   DAR EKRANDA IKISI KALIYOR: kategori ve kod. Digerleri ATILMIYOR,
+   o baglamda GEREKSIZ:
+     ARASTIRMA        -> bolum basligi zaten "Arastirmalar" diyor
+     KAMU HIZMETLERI  -> sektor, kartta karar degistirmiyor;
+                         analiz sayfasinda zaten yaziyor
+   Ikisi de sayfada duruyor, yalnizca KARTTA gorunmuyor.
+
+   Kural: dar ekranda her ogenin yerini HAK ETMESI gerekiyor.
+   ================================================================== */
+
+@media (max-width: 640px) {
+
+  /* Kartta yalnizca ilk iki rozet. */
+  .kart .ust-satir .rozet:nth-of-type(n+3),
+  .arastirma-kart .rozet:nth-of-type(n+3) { display: none; }
+
+  /* "ARASTIRMA" etiketi kartta gizli -- bolum basligi soyluyor.
+     /arastirmalar/ sayfasinda ve haberle KARISABILECEGI yerlerde
+     gorunmeye devam ediyor. */
+  .izgara .rozet-arastirma { display: none; }
+
+  .rozet {
+    font-size: 0.625rem;
+    padding: 2px var(--b-2);
+    gap: var(--b-1);
+  }
+
+  .ust-satir { gap: var(--b-2); }
+
+  /* Kart dolgusu: dar kartta 16px dolgu icerige 200px birakiyordu. */
+  .kart { padding: var(--b-3); }
+
+  /* HERO BASLIGI: bes satirdan uc satira.
+     Olculdu: 24px punto + dar sutun = "Yapay zekâ destekli finans
+     araştırma platformu" BES SATIR. Ilk ekranin tamami baslik.
+     Uzun bilesik sozcukler (araştırma, platformu) satir basina bir
+     tane sigiyor; punto kuculunce ikiye cikiyor. */
+  h1 { font-size: clamp(1.25rem, 5.5vw, 1.5rem); }
+  .hero-dar h1 { margin-bottom: var(--b-2); }
+  .hero-ozet { -webkit-line-clamp: 2; font-size: 15px; }
+}
+
+/* Cok dar ekranlarda menu kesilmesin: son oge tam gorunsun. */
+@media (max-width: 420px) {
+  .ust nav { padding-inline-end: var(--b-5); }
+  h1 { font-size: clamp(1.15rem, 5.5vw, 1.35rem); }
+}
+
+/* CANLI AKIS OGESI DAR EKRANDA KOMPAKT.
+   -------------------------------------
+   Olculdu: her oge 40px gorsel + saat + baslik + tema + kaynak =
+   dort satir ve ~110 piksel. Alti oge 660 piksel eder, yani bir
+   ekrandan fazla -- oysa akis ana icerigin YANINDA degil ALTINDA ve
+   ozet bir bakis olmali.
+
+   Gorsel KALIYOR (haberi tanimayi kolaylastiriyor) ama kuculuyor;
+   tema etiketi dar ekranda gizleniyor -- kaynak adi zaten var ve
+   ikisi ayni satiri paylasamiyor. */
+@media (max-width: 640px) {
+  .akis-foto { width: 32px; height: 32px; }
+  .akis-liste li { padding: var(--b-2) 0 var(--b-2) var(--b-2); gap: var(--b-1) var(--b-2); }
+  .akis-tema { display: none; }
+  .akis-zaman, .akis-kunye { font-size: 0.75rem; }
+  .akis-baslik { font-size: 0.875rem; line-height: 1.35; }
+}
