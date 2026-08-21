@@ -2976,10 +2976,31 @@ def insa() -> int:
     # Kategori sayfalari. Menude bos sekme birakmamak icin YALNIZCA icerigi
     # olan kategoriler uretilir -- tiklayinca bos sayfa cikan bir menu,
     # eksik menuden kotudur.
+    # ARASTIRMALAR MERKEZI icin toplaniyor.
+    #
+    # NEDEN VAR. Olculdu: 323 arastirma sayfasi uretiliyordu ve
+    # HICBIRI menuden erisilemiyordu. Dort kategori dizini
+    # (/bilancolar/, /makro/, /yorum/, /teknik/) uretiliyor ama
+    # onlara giden bir bag yoktu -- yalnizca ana sayfadan ve
+    # aramadan bulunabiliyorlardi.
+    #
+    # Uretilen icerigin en buyuk kismi gorunmezdi; sitenin asil
+    # degeri olan sayfalar, varliklarindan haberi olmayan bir okurun
+    # onune hic cikmiyordu.
+    merkez = []
+
     for slug, baslik, kategori, aciklama in KATEGORILER:
         secilen = [a for a in listelenen if a.kategori == kategori]
         if not secilen:
             continue
+        # Bos kategori merkeze de girmiyor: tiklayinca bos sayfa cikan
+        # bir kart, o kartin hic olmamasindan kotudur.
+        merkez.append({
+            "slug": slug, "baslik": baslik, "aciklama": aciklama,
+            "adet": len(secilen),
+            "son": [{"baslik": a.baslik, "tarih": a.tarih_tr}
+                    for a in secilen[:3]],
+        })
         yol_k = f"/{slug}/"
         yaz(
             f"{yol_k}index.html",
@@ -2989,6 +3010,16 @@ def insa() -> int:
             ),
         )
         yollar.append(yol_k)
+
+    # Arastirmalar merkezi -- dort kategoriye tek kapi.
+    if merkez:
+        yaz(
+            "/arastirmalar/index.html",
+            ortam.get_template("arastirmalar.html").render(
+                **ortak, yol="/arastirmalar/", kategoriler=merkez,
+            ),
+        )
+        yollar.append("/arastirmalar/")
 
     # Hakkimizda -- vizyon/misyon + yayin ilkeleri, kunye, gizlilik; capalarla
     if hakkimizda is not None:

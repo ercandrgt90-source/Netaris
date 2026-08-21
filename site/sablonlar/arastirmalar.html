@@ -1,0 +1,49 @@
+{% extends "temel.html" %}
+
+{% block baslik %}Araştırmalar — {{ site.ad }}{% endblock %}
+{% block aciklama %}Netaris'in ölçülmüş veriden ürettiği bilanço analizleri, makro değerlendirmeler ve teknik görünümler.{% endblock %}
+
+{% block icerik %}
+<article class="arastirma-merkez">
+
+  <header class="arastirma-bas">
+    <h1>Araştırmalar</h1>
+    <p class="arastirma-lead">Ölçülmüş veriden üretilen çıkarımlar.
+    Her sayfadaki rakam kaynağından hesaplanır; yorum o rakamları
+    bağlama oturtur, yerine geçmez.</p>
+  </header>
+
+  <div class="arastirma-izgara">
+    {% for k in kategoriler %}
+    <a class="arastirma-kart" href="/{{ k.slug }}/">
+      <span class="arastirma-etiket">ARAŞTIRMA</span>
+      <h2>{{ k.baslik }}</h2>
+      <p class="arastirma-sayi"><b>{{ k.adet }}</b> analiz</p>
+      <p class="arastirma-aciklama">{{ k.aciklama }}</p>
+      {% if k.son %}
+      <ul class="arastirma-son">
+        {% for y in k.son %}
+        <li><span class="arastirma-tarih">{{ y.tarih }}</span> {{ y.baslik }}</li>
+        {% endfor %}
+      </ul>
+      {% endif %}
+      <span class="arastirma-git">Tümünü gör →</span>
+    </a>
+    {% endfor %}
+  </div>
+
+  <section class="arastirma-not">
+    <h2>Bu sayfalar nasıl üretiliyor</h2>
+    <p>Rakamlar <b>deterministik</b>: aynı veriden her zaman aynı sonuç
+    çıkar. Yapay zekâ yorumu yalnızca ölçülmüş kalemler arasındaki
+    ilişkiyi cümleye çevirir — girdide olmayan bir sayı çıktıda geçerse
+    metin tamamen atılır.</p>
+    <p>Sektör karşılaştırmaları <b>medyana</b> göre yapılır; tek bir
+    şirketin uç değeri ortalamayı tek başına taşıyabildiği için ortalama
+    kullanılmaz. Medyana göre konum bir sıralamadır, değerlendirme
+    değildir.</p>
+    <p><strong>Hiçbiri yatırım tavsiyesi değildir.</strong></p>
+  </section>
+
+</article>
+{% endblock %}

@@ -132,6 +132,7 @@
           <span class="menu-ok" aria-hidden="true">▾</span>
         </button>
         <div class="menu-katman">
+          <a class="menu-tumu" href="/arastirmalar/"{% if yol == "/arastirmalar/" %} aria-current="page"{% endif %}>Tüm araştırmalar</a>
           {% for adres, baslik in menu %}
           <a href="{{ adres }}"{% if yol == adres %} aria-current="page"{% endif %}>{{ baslik }}</a>
           {% endfor %}

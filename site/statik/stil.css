@@ -3532,3 +3532,138 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none; }
   line-height: var(--satir-genis);
   color: var(--yazi-2);
 }
+
+/* ====================================================================
+   ARASTIRMALAR MERKEZI  (/arastirmalar/)
+   --------------------------------------------------------------------
+   Acilir menunun INIS SAYFASI. Menu basligi bir bolum adi; tiklayinca
+   bir yere gitmesi gerekiyor -- gitmiyorsa okur o basligin bir bolum
+   degil sadece bir etiket oldugunu sanir.
+   ================================================================== */
+
+.arastirma-merkez { max-width: 1100px; margin: 0 auto; }
+
+.arastirma-bas { margin-bottom: var(--b-7); }
+
+.arastirma-lead {
+  font-size: var(--p-l);
+  line-height: var(--satir-genis);
+  color: var(--yazi-2);
+  max-width: var(--olcu);
+}
+
+.arastirma-izgara {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--b-4);
+}
+
+/* KART BUTUN OLARAK TIKLANABILIR.
+   Ic bag yok: kartin bir yerine basip hicbir sey olmamasi, okura
+   kartin tiklanabilir OLMADIGINI ogretir ve digerlerini de denemez. */
+.arastirma-kart {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: var(--zemin-2);
+  border: 1px solid var(--cizgi);
+  border-radius: var(--b-3);
+  padding: var(--b-5);
+  transition: border-color .15s, transform .15s;
+}
+
+.arastirma-kart:hover,
+.arastirma-kart:focus-visible {
+  border-color: var(--vurgu);
+  transform: translateY(-2px);
+}
+
+/* ARASTIRMA etiketi: haber kartindan AYIRT ETMEK icin.
+   Promptun istedigi ayrim -- okur neye baktigini bilmeli. */
+.arastirma-etiket {
+  display: inline-block;
+  font-size: var(--p-xs);
+  letter-spacing: .1em;
+  font-weight: 700;
+  color: var(--vurgu);
+  margin-bottom: var(--b-2);
+}
+
+.arastirma-kart h2 {
+  font-size: var(--p-xl);
+  line-height: var(--satir-sik);
+  margin: 0 0 var(--b-1);
+}
+
+.arastirma-sayi {
+  font-size: var(--p-m);
+  color: var(--yazi-2);
+  margin: 0 0 var(--b-3);
+}
+
+.arastirma-sayi b {
+  font-size: var(--p-xl);
+  color: var(--yazi);
+  font-variant-numeric: tabular-nums;
+}
+
+.arastirma-aciklama {
+  font-size: var(--p-m);
+  line-height: var(--satir-genis);
+  color: var(--yazi-2);
+  margin: 0 0 var(--b-4);
+}
+
+.arastirma-son {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 var(--b-4);
+  border-top: 1px solid var(--cizgi);
+}
+
+.arastirma-son li {
+  font-size: var(--p-s);
+  line-height: var(--satir-orta);
+  padding: var(--b-2) 0;
+  border-bottom: 1px solid var(--cizgi);
+}
+
+.arastirma-tarih {
+  color: var(--yazi-2);
+  font-variant-numeric: tabular-nums;
+  margin-right: var(--b-2);
+}
+
+.arastirma-git {
+  font-size: var(--p-m);
+  font-weight: 600;
+  color: var(--vurgu);
+}
+
+.arastirma-not {
+  margin-top: var(--b-8);
+  padding-top: var(--b-5);
+  border-top: 1px solid var(--cizgi);
+  max-width: var(--olcu);
+}
+
+.arastirma-not h2 { font-size: var(--p-l); margin-bottom: var(--b-3); }
+
+.arastirma-not p {
+  font-size: var(--p-m);
+  line-height: var(--satir-genis);
+  color: var(--yazi-2);
+  margin-bottom: var(--b-3);
+}
+
+/* Acilir menude INIS SAYFASI once ve ayri duruyor. */
+.menu-tumu {
+  font-weight: 600;
+  border-bottom: 1px solid var(--cizgi);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .arastirma-kart { transition: none; }
+  .arastirma-kart:hover,
+  .arastirma-kart:focus-visible { transform: none; }
+}
