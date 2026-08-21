@@ -131,7 +131,26 @@ jobs:
           git fetch origin "${GITHUB_REF_NAME}"
           git reset "origin/${GITHUB_REF_NAME}"
 
-          git add -A $YOLLAR
+          # `-A` DEGIL `--ignore-removal` ve sebebi olculdu.
+          #
+          # `git add -A` SILMELERI de asamaya aliyor. Kosucunun
+          # calisma dizini checkout anindaki agaci tutuyor; o sirada
+          # DIGER is akisi yeni dosya uretip gonderdiyse, bu dosyalar
+          # origin'de VAR ama burada YOK -- ve `-A` bunu "silinmis"
+          # sayip isliyor.
+          #
+          # 2026-08-20'de tam bu oldu: bilanco hatti 20:11'de 60
+          # bilanco sayfasi uretti, ana otomasyon 20:20'de HEPSINI
+          # sildi. Iki kosu ES ZAMANLI DEGILDI -- es zamanlilik grubu
+          # calisti; sorun ZAMANLAMA degil, `-A`nin anlami.
+          #
+          # `--ignore-removal` yalnizca yeni ve degismis dosyalari
+          # asamaya aliyor. Bu hattin URETTIGI dosyalar yaziliyor,
+          # baskasinin urettikleri KORUNUYOR.
+          #
+          # Gercek silmeler (foto ayiklama gibi) elle islenmeli;
+          # otomatik silme yetkisi, otomatik veri kaybi demek.
+          git add --ignore-removal $YOLLAR
 
           # KAPI: yontemden bagimsiz sonuc dogrulamasi.
           KACAK=$(git diff --staged --name-only | grep -vE \
