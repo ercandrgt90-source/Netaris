@@ -43,7 +43,20 @@ on:
     # karsilik geliyor -- yani iki calistirma arasindaki gelismelerin
     # bir kismi hic gorulmuyordu. Kaynak "son 100"den fazlasini
     # vermiyor, o yuzden cozum daha sik bakmak.
-    - cron: "*/30 5-20 * * 1-5"
+    # SAAT BASI -- yarim saatte bir DEGIL.
+    #
+    # Olculdu: `*/30` ayda ~752 kosu = ~2.256 dakika eder ve OZEL
+    # DEPO KOTASI 2.000 dakika. Yani ana otomasyon tek basina kotayi
+    # asiyordu; bilanco hatti icin hic yer kalmiyordu.
+    #
+    # Dosyanin kendi acilis notu zaten "saat basi, ~1.200 dakika"
+    # diyor -- takvim sonradan sikilastirilmis ama not guncellenmemis.
+    # Iki katina cikan kullanim kimseye gorunmedi cunku kota bitince
+    # is KIRMIZI DONMUYOR, sadece BASLAMIYOR.
+    #
+    # Saat basi ~376 kosu = ~1.128 dakika; bilancoya ~870 dakika
+    # kaliyor. FinancialJuice penceresi icin saat basi yeterli.
+    - cron: "0 5-20 * * 1-5"
     # Hafta sonu dort saatte bir: 03:00-23:00 TRT
     - cron: "0 0,4,8,12,16,20 * * 0,6"
   # Panelden elle de calistirilabilsin
