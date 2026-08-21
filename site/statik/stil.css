@@ -4699,3 +4699,56 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
 .arastirma-izgara > * {
   min-width: 0;
 }
+
+/* ====================================================================
+   GORSELLERE YUKSEKLIK TAVANI
+   --------------------------------------------------------------------
+   OLCULDU: `.basmanset-gorsel img` yalnizca `aspect-ratio: 16/9`
+   tasiyordu. Oran tek basina bir SINIR DEGIL: genislik buyudukce
+   yukseklik de buyuyor. 1400 piksellik bir masaustunde 16:9 demek
+   787 PIKSEL yukseklik demek -- tek bir gorsel, tam bir ekran.
+
+   Kullanicinin "ekran cok fazla kaplaniyor" dedigi sey bu. Ekran
+   goruntusunde manset gorselinin yerinde yaklasik 500 piksellik bos
+   alan goruluyordu; gorsel yuklenmedigi icin bos, ama YER AYRILMIS.
+
+   Oran KALIYOR (gorsel bozulmasin), ustune TAVAN geliyor. Tavani
+   asan gorsel `object-fit: cover` ile kirpiliyor -- ezilmiyor.
+
+   420px secildi: bir mansetin dikkat cekmesi icin yeterli, ilk
+   ekrani yemesi icin degil. Dizustu ekraninda basligin ve ozetin
+   de gorunmesini birakiyor.
+   ================================================================== */
+
+.basmanset-gorsel img {
+  max-height: 420px;
+  object-fit: cover;
+  width: 100%;
+}
+
+.one-cikan-gorsel {
+  max-height: 360px;
+  overflow: hidden;
+}
+
+.one-cikan-gorsel img,
+.one-cikan-gorsel svg {
+  object-fit: cover;
+}
+
+/* Haber sayfasindaki buyuk gorsel de ayni sinirda: orada da oran
+   var ama tavan yoktu. */
+.haber-gorsel img,
+.yazi-foto img {
+  max-height: 480px;
+  object-fit: cover;
+  width: 100%;
+}
+
+@media (max-width: 640px) {
+  /* Telefonda daha da alcak: dar ekranda 16:9 zaten dusuk yukseklik
+     veriyor ama manset yine de ilk ekrani paylasmali. */
+  .basmanset-gorsel img { max-height: 220px; }
+  .one-cikan-gorsel { max-height: 200px; }
+  .haber-gorsel img, .yazi-foto img { max-height: 240px; }
+}
