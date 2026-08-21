@@ -87,8 +87,15 @@
 
   function yuzdeMetni(yuzde) {
     if (typeof yuzde !== "number" || !isFinite(yuzde)) return "—";
+    /* TURKCE YUZDE: isaret sayidan ONCE gelir -- %0,04, "0,04%" degil.
+       Artı/eksi de IFADENIN onunde: +%0,04.
+
+       OLCULDU: serit "+0,04%" basiyordu, oysa `piyasa_kutusu._yuzde`
+       ayni sayfada "+%0,04" basiyor. Iki bicim ayni ekranda yan yana
+       duruyordu; okur hangisinin dogru oldugunu bilemez ve sitenin
+       kendi kuralina uymadigini gorur. */
     return (yuzde > 0 ? "+" : yuzde < 0 ? "-" : "") +
-           trSayi(Math.abs(yuzde), 2) + "%";
+           "%" + trSayi(Math.abs(yuzde), 2);
   }
 
   /* Bu dosyanin ekledigi HER kalem canli -- gunluk resmi seriler

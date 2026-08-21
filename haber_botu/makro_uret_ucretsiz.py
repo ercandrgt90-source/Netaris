@@ -173,7 +173,8 @@ def _bicimle(h, ad: str) -> dict:
         deger = _tr(h.son, basamak)
         if fark is not None and h.onceki:
             yuzde = (h.son / h.onceki - 1) * 100
-            fark_metin = f"{yuzde:+.2f}".replace(".", ",") + "%"
+            # TURKCE YUZDE: isaret sayidan ONCE. Bkz. piyasa_kutusu._yuzde.
+            fark_metin = ("+" if yuzde >= 0 else "-") + "%" + f"{abs(yuzde):.2f}".replace(".", ",")
         else:
             fark_metin = "—"
 
@@ -226,7 +227,8 @@ def _kur_kalemleri() -> list[dict]:
                          if onceki else None)
                 cikti.append({
                     "kod": kod, "ad": ad, "deger": _tr(son, 2),
-                    "fark": (f"{yuzde:+.2f}".replace(".", ",") + "%"
+                    "fark": (("+" if yuzde >= 0 else "-") + "%"
+                             + f"{abs(yuzde):.2f}".replace(".", ",")
                              if yuzde is not None else "—"),
                     "yon": ("artis" if yuzde and yuzde > 0
                             else "azalis" if yuzde and yuzde < 0 else "yatay"),
