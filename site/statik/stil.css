@@ -3791,3 +3791,136 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none; }
   padding: var(--b-4);
   margin: var(--b-7) 0 var(--b-5);
 }
+
+/* ====================================================================
+   PAYLASIM BLOGU  --  senaryo ve yorum sayfalarinin sonunda
+   --------------------------------------------------------------------
+   Promptun istegi: "kucuk siradan butonlar gibi gosterme". Paylasim
+   Netaris'in dagitim dongusunun parcasi, sayfanin dipnotu degil.
+   ================================================================== */
+
+.paylas-blok {
+  margin: var(--b-8) 0 var(--b-5);
+  padding: var(--b-5);
+  border: 1px solid var(--cizgi);
+  border-radius: var(--b-3);
+  background: var(--zemin-2);
+}
+
+.paylas-blok h2 {
+  font-size: var(--p-l);
+  margin: 0 0 var(--b-1);
+}
+
+.paylas-alt {
+  font-size: var(--p-m);
+  color: var(--yazi-2);
+  margin: 0 0 var(--b-5);
+}
+
+/* ONIZLEME KARTI -- ne paylasilacagini GOSTERIYOR.
+   Sosyal ag kartinin oranlarini taklit ediyor; okur baglantiyi
+   atmadan once nasil gorunecegini goruyor. */
+.paylas-onizleme {
+  display: block;
+  max-width: 420px;
+  border: 1px solid var(--cizgi);
+  border-radius: var(--b-2);
+  background: var(--zemin);
+  padding: var(--b-4);
+  margin-bottom: var(--b-2);
+}
+
+.paylas-onizleme-marka {
+  display: block;
+  font-size: var(--p-xs);
+  font-weight: 700;
+  letter-spacing: .12em;
+  color: var(--vurgu);
+  margin-bottom: var(--b-3);
+}
+
+.paylas-onizleme-baslik {
+  display: block;
+  font-size: var(--p-l);
+  line-height: var(--satir-sik);
+  font-weight: 600;
+  margin-bottom: var(--b-2);
+}
+
+.paylas-onizleme-ozet {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: var(--p-m);
+  line-height: var(--satir-orta);
+  color: var(--yazi-2);
+  margin-bottom: var(--b-3);
+}
+
+.paylas-onizleme-alan {
+  display: block;
+  font-size: var(--p-xs);
+  color: var(--yazi-3);
+}
+
+.paylas-onizleme-not {
+  font-size: var(--p-xs);
+  color: var(--yazi-3);
+  margin: 0 0 var(--b-5);
+}
+
+.paylas-dugmeler { display: flex; flex-wrap: wrap; gap: var(--b-2); }
+
+.paylas-buton {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--b-2);
+  font-size: var(--p-m);
+  font-weight: 600;
+  font-family: inherit;
+  text-decoration: none;
+  color: var(--yazi);
+  background: var(--zemin);
+  border: 1px solid var(--cizgi);
+  border-radius: var(--b-2);
+  padding: var(--b-3) var(--b-4);
+  cursor: pointer;
+  transition: border-color .15s, transform .15s;
+}
+
+.paylas-buton:hover,
+.paylas-buton:focus-visible {
+  border-color: var(--vurgu);
+  transform: translateY(-1px);
+}
+
+.paylas-tamam { border-color: var(--vurgu); color: var(--vurgu); }
+
+/* TOAST -- ekranin altinda, icerigi ORTMEDEN. */
+.paylas-toast {
+  position: fixed;
+  left: 50%;
+  bottom: var(--b-6);
+  transform: translate(-50%, var(--b-4));
+  z-index: 60;
+  font-size: var(--p-m);
+  color: var(--zemin);
+  background: var(--yazi);
+  border-radius: var(--b-2);
+  padding: var(--b-3) var(--b-5);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .18s, transform .18s;
+}
+
+.paylas-toast.gorunur { opacity: 1; transform: translate(-50%, 0); }
+
+@media (prefers-reduced-motion: reduce) {
+  .paylas-buton,
+  .paylas-toast { transition: none; }
+  .paylas-buton:hover,
+  .paylas-buton:focus-visible { transform: none; }
+  .paylas-toast { transform: translate(-50%, 0); }
+}

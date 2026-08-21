@@ -90,6 +90,33 @@
       '</span>';
   }
 
+  /* TOAST -- kopyalama onayi.
+     ------------------------
+     Dugmenin kendi metnini degistirmek de calisiyordu ama iki sorunu
+     vardi: buyuk paylasim blogunda dugme ekranin disinda kalabiliyor
+     ve ekran okuyucu degisikligi duyurmuyordu.
+     `role="status"` ile duyuruluyor, `aria-live="polite"` ile de
+     okurun o anki okumasini kesmiyor. */
+  var toastZaman = null;
+
+  function toast(mesaj) {
+    var k = document.getElementById("paylas-toast");
+    if (!k) {
+      k = document.createElement("div");
+      k.id = "paylas-toast";
+      k.className = "paylas-toast";
+      k.setAttribute("role", "status");
+      k.setAttribute("aria-live", "polite");
+      document.body.appendChild(k);
+    }
+    k.textContent = mesaj;
+    k.classList.add("gorunur");
+    clearTimeout(toastZaman);
+    toastZaman = setTimeout(function () {
+      k.classList.remove("gorunur");
+    }, 2400);
+  }
+
   /* Kopyalama tek bir dinleyiciyle, BELGE duzeyinde. Kartlar sonradan
      ve birden cok kez uretildigi icin her karta ayri dinleyici baglamak
      hem tekrar hem sizinti kaynagi olurdu. */
@@ -100,6 +127,10 @@
     if (!navigator.clipboard) return;
     o.preventDefault();
     navigator.clipboard.writeText(u).then(function () {
+      toast("Bağlantı kopyalandı");
+      /* Dugme metni de degisiyor: toast ekranin altinda, dugme
+         parmagin altinda. Ikisi ayni seyi soyluyor ama okur
+         hangisine bakiyorsa onu goruyor. */
       var eski = d.textContent;
       d.textContent = "Kopyalandı";
       d.classList.add("paylas-tamam");
@@ -107,7 +138,11 @@
         d.textContent = eski;
         d.classList.remove("paylas-tamam");
       }, 1800);
-    }).catch(function () { /* pano kapaliysa sessiz */ });
+    }).catch(function () {
+      /* Pano kapali ya da izin yok. SESSIZ KALMIYOR: okur dugmeye
+         bastigini biliyor, hicbir sey olmamasi kirik gorunur. */
+      toast("Kopyalanamadı — bağlantıyı elle seçin");
+    });
   });
 
   window.NetarisPaylas = { html: html, adres: adres };

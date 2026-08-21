@@ -1058,6 +1058,58 @@ function ufukMetni(s) {
   return (s.ufuk || "3 ay") + " içinde";
 }
 
+/* PAYLASIM BLOGU -- SUNUCUDA URETILIYOR.
+   ---------------------------------------
+   Betiksiz de calisiyor: uc bag da dogrudan `<a>`, tiklama dinleyicisi
+   degil. Orta tikla yeni sekmede acilir, saga tiklayip kopyalanir,
+   ekran okuyucu ne oldugunu soyler.
+
+   ONIZLEME KARTI okurun ne paylasacagini GOSTERIYOR. Promptun istegi
+   bu: kullanici baglantiyi atmadan once sosyal agda nasil gorunecegini
+   gormeli. Kart uydurma degil -- ayni baslik ve ozet `og:` etiketlerine
+   de basiliyor, yani gosterdigi sey gercekten paylasilan sey.
+
+   X ILE LINKEDIN AYNI CALISMIYOR: X `text` aliyor, LinkedIn'in
+   `share-offsite` ucu YALNIZCA adres aliyor ve basligi sayfanin
+   Open Graph etiketlerinden okuyor. Bu yuzden sayfanin sunucuda
+   uretilmesi bu isin onkosuluydu. */
+function paylasBlok(baslik, ozet, adres) {
+  /* X siniri 280 karakter ve adres ~23 sayiliyor. Metin 200'e
+     kirpiliyor; kirpilirsa uc nokta ile bitiyor. */
+  const ozet200 = ozet.length > 200 ? ozet.slice(0, 199).trim() + "…" : ozet;
+  const x = "https://x.com/intent/post?text=" + encodeURIComponent(ozet200)
+          + "&url=" + encodeURIComponent(adres);
+  const li = "https://www.linkedin.com/sharing/share-offsite/?url="
+           + encodeURIComponent(adres);
+  /* Onizlemede gosterilen alan adi, adresin KENDI alan adi.
+     Elle yazilsaydi alan adi degistiginde kart yalan soylerdi. */
+  let alan = adres;
+  try { alan = new URL(adres).hostname.replace(/^www\./, ""); } catch (e) { }
+
+  return `<section class="paylas-blok" aria-labelledby="paylas-bas">
+  <h2 id="paylas-bas">Bu senaryoyu paylaş</h2>
+  <p class="paylas-alt">Netaris'teki bu değerlendirmeyi kendi ağında paylaş.</p>
+
+  <div class="paylas-onizleme" aria-hidden="true">
+    <span class="paylas-onizleme-marka">NETARIS</span>
+    <span class="paylas-onizleme-baslik">${kacir(baslik)}</span>
+    <span class="paylas-onizleme-ozet">${kacir(ozet200)}</span>
+    <span class="paylas-onizleme-alan">${kacir(alan)}</span>
+  </div>
+  <p class="paylas-onizleme-not">Paylaşımın sosyal ağda böyle görünmesi bekleniyor.</p>
+
+  <div class="paylas-dugmeler">
+    <a class="paylas-buton paylas-x" href="${kacir(x)}"
+       target="_blank" rel="noopener noreferrer">X'te paylaş</a>
+    <a class="paylas-buton paylas-li" href="${kacir(li)}"
+       target="_blank" rel="noopener noreferrer">LinkedIn'de paylaş</a>
+    <button class="paylas-buton paylas-kopya" type="button"
+            data-paylas-kopyala="${kacir(adres)}">Bağlantıyı kopyala</button>
+  </div>
+</section>`;
+}
+
+
 async function senaryoSayfa(istek, env, id) {
   if (!env.DB || !Number.isFinite(id)) return null;
   const r = await env.DB.prepare(
@@ -1128,6 +1180,8 @@ async function senaryoSayfa(istek, env, id) {
   ${r.capa && r.capa_tur === "haber" ? `<p class="senaryo-capa">
     Bağlam: <a href="${kacir(r.capa)}">${kacir(r.capa_baslik || "ilgili haber")}</a>
   </p>` : ""}
+
+  ${paylasBlok(baslik, ozet, adres)}
 
   <p class="senaryo-uyari"><strong>Yatırım tavsiyesi değildir.</strong>
   Senaryo bir koşullu değerlendirmedir; koşulun gerçekleşeceği iddia

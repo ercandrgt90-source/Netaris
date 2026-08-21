@@ -70,6 +70,29 @@ sina("bulunamayinca null donuyor",
 sina("null donunce statik akisa dusuyor",
      /if \(y\) return y;/.test(kaynak));
 
+/* --- 7. PAYLASIM BLOGU (prompt 3) ------------------------------ */
+/* Sunucuda uretiliyor: betiksiz de calismali. Uc bag da dogrudan
+   <a>/<button>, tiklama dinleyicisi degil. */
+sina("paylasim blogu var", kaynak.includes("paylas-blok"));
+sina("onizleme karti var", kaynak.includes("paylas-onizleme"));
+sina("X bagi", kaynak.includes("x.com/intent/post"));
+sina("LinkedIn bagi", kaynak.includes("linkedin.com/sharing/share-offsite"));
+sina("kopyalama dugmesi", kaynak.includes("data-paylas-kopyala"));
+
+/* ONIZLEMEDEKI ALAN ADI adresten TURETILIYOR.
+   Elle yazilsaydi alan adi degistiginde kart yalan soylerdi -- ve
+   bu kart okura "paylasimin boyle gorunecek" diyor. */
+sina("alan adi adresten turetiliyor",
+     /new URL\(adres\)\.hostname/.test(kaynak));
+
+/* X SINIRI: gonderi 280 karakter, adres ~23 sayiliyor. */
+sina("X metni kirpiliyor", kaynak.includes("ozet.slice(0, 199)"));
+
+/* Onizlemedeki metin `og:` etiketleriyle AYNI olmali: kart
+   gosterdigi seyi gercekten paylasmali. */
+sina("onizleme ozeti og ile ayni kaynaktan",
+     kaynak.includes("paylasBlok(baslik, ozet, adres)"));
+
 console.log(kaldi === 0
   ? `TUM TESTLER GECTI (${gecti})`
   : `${kaldi} test KALDI, ${gecti} gecti`);
