@@ -47,6 +47,8 @@ import bilanco_ag         # noqa: E402
 import bilanco_yorum      # noqa: E402
 import guvenlik           # noqa: E402
 import oranlar            # noqa: E402
+import one_cikan          # noqa: E402
+import sektor_okuma       # noqa: E402
 import sektor_ozet        # noqa: E402
 import yayin              # noqa: E402
 
@@ -157,6 +159,37 @@ def govde_kur(kod, unvan, sektor, donem, d, oran, medyan, n, yorum,
               "değildir. Hangi oranın yüksek olmasının iyi olduğu iş "
               "modeline göre değişir.*"]
 
+
+    # ONE CIKAN OLCUMLER -- lehte / aleyhte, KURALDAN turetilmis.
+    #
+    # Okurun sordugu soru gercek: bu tabloda ne lehte, ne aleyhte
+    # isliyor? Bunu yazmak, "iyi/kotu" demekten farkli -- fark
+    # KAYNAKTA. Bir yargi kaynagini gostermez ("bu sirket guclu");
+    # bir bulgu gosterir ("faaliyet nakit akisi net karin %38'i").
+    # Her madde olcumunu YANINDA tasiyor.
+    #
+    # Sektore gore BASTIRMA var: yuksek borcluluk bankada olagan,
+    # sanayide degil. Her sektorde ayni sinyali eksi saymak,
+    # `sektor_okuma`da "bu olagandir" deyip burada tersini yazmak
+    # olurdu -- okuru kendi sayfamiz icinde celiskiye dusururdu.
+    s += one_cikan.markdown(d, once, oran, medyan, sektor)
+
+    # SEKTOR OKUMA KILAVUZU -- DETERMINISTIK, MODELDEN DEGIL.
+    #
+    # TERA sayfasini zengin yapan sey model cikarimi degildi; kritik
+    # cumle bir SEKTOR BILGISIYDI ("araci kurumda sirkete kalan tutar
+    # brut kardir"). Sirkete gore degismeyen bir bilgiyi her sirket
+    # icin ayri ayri uretmek, ayni seyi 325 kez satin almak olurdu.
+    #
+    # Sektor basina bir kez yazildi: marjinal maliyet SIFIR, ayni
+    # sektordeki iki sayfa ayni seyi ayni sekilde soyluyor ve gelecek
+    # ceyreklerde de calisiyor -- cunku bilgi KODDA, model ciktisinda
+    # degil.
+    #
+    # Sektor taninmiyorsa bolum HIC yazilmiyor. Yanlis bir okuma
+    # kilavuzu kilavuzsuzluktan kotudur: okur ona guvenip yanlis
+    # kalemi okur.
+    s += sektor_okuma.markdown(sektor)
 
     # YASAL UYARI GOVDEDE OLMAK ZORUNDA.
     #
