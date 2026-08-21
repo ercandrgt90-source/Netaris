@@ -5151,3 +5151,67 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
      Ikisi de sigsin diye "Giriş yap" cercevesiz ve daha dar. */
   .ust-eylem .ust-giris { padding: 0 var(--b-1); }
 }
+
+/* ====================================================================
+   ALT GEZINME  --  YALNIZCA MOBILDE
+   --------------------------------------------------------------------
+   Ust menu dar ekranda yatay kayiyordu: okur KAYDIRMAK zorundaydi ve
+   kaydirdigi anda nerede oldugunu kaybediyordu.
+
+   Bes giris, SABIT, her zaman ayni yerde. Telefonda bas parmagin
+   dogal olarak durdugu yer ekranin ALTI; ust menuye uzanmak telefonu
+   elde cevirmeyi gerektiriyor.
+
+   Masaustunde GORUNMUYOR: orada ust menu zaten tam listeyi tasiyor ve
+   iki gezinme bir arada gereksiz.
+   ================================================================== */
+
+.alt-gezinme { display: none; }
+
+@media (max-width: 640px) {
+  .alt-gezinme {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    position: fixed;
+    left: 0; right: 0; bottom: 0;
+    z-index: 50;
+    background: var(--zemin);
+    border-top: 1px solid var(--cizgi);
+    /* Telefonlarda alt cubuk (home indicator) alani. */
+    padding-bottom: env(safe-area-inset-bottom, 0);
+  }
+
+  .alt-gezinme a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    /* 56px: Apple ve Google kilavuzlarinin 44px dokunma esiginin
+       uzerinde, iki satirlik icerik icin yeterli. */
+    min-height: 56px;
+    padding: var(--b-2) var(--b-1);
+    color: var(--yazi-2);
+    text-decoration: none;
+    font-size: 0.6875rem;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  .alt-gezinme a[aria-current="page"] {
+    color: var(--vurgu);
+    box-shadow: inset 0 2px 0 var(--vurgu);
+  }
+
+  .ag-simge { font-size: 1.05rem; line-height: 1; }
+
+  /* Sayfanin sonu alt cubugun ALTINDA kalmasin. */
+  body { padding-bottom: calc(56px + env(safe-area-inset-bottom, 0)); }
+
+  /* UST MENU ARTIK GEREKSIZ: ayni giriler altta ve SABIT.
+     Ikisini birden tutmak hem yer yiyor hem "hangisi asil" sorusu
+     uretiyor. Araştırmalar acilir menusu de altta tek girise
+     donusuyor; alt kategoriler /arastirmalar/ sayfasinda. */
+  .ust-ic > nav { display: none; }
+  .ust-ic { justify-content: space-between; }
+}

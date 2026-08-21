@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
 <meta charset="utf-8">
@@ -83,7 +83,7 @@
 <link rel="alternate" type="application/rss+xml" title="{{ site.ad }}" href="{{ site.adres }}/rss.xml">
 <link rel="stylesheet" href="/statik/stil.css?v={{ css_surum }}">
 <script src="/statik/menu.js?v={{ js_surum }}" defer></script>
-<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%230b1018%22/%3E%3Cpath%20d%3D%22M5%2027V6l14%2017V6%22%20stroke%3D%22%23e8eef7%22%20stroke-width%3D%223.2%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3Crect%20x%3D%2222%22%20y%3D%2219%22%20width%3D%223.4%22%20height%3D%228%22%20rx%3D%221.2%22%20fill%3D%22%232dd4bf%22/%3E%3Crect%20x%3D%2226.6%22%20y%3D%2213%22%20width%3D%223.4%22%20height%3D%2214%22%20rx%3D%221.2%22%20fill%3D%22%232dd4bf%22/%3E%3C/svg%3E"><rect width='32' height='32' rx='7' fill='%23101725'/><path d='M7 22V10l9 8V10' stroke='%2338dcf5' stroke-width='3' fill='none' stroke-linecap='round' stroke-linejoin='round'/><circle cx='24' cy='11' r='2.5' fill='%2338dcf5'/></svg>">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%230b1018%22/%3E%3Cpath%20d%3D%22M5%2027V6l14%2017V6%22%20stroke%3D%22%23e8eef7%22%20stroke-width%3D%223.2%22%20fill%3D%22none%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22/%3E%3Crect%20x%3D%2222%22%20y%3D%2219%22%20width%3D%223.4%22%20height%3D%228%22%20rx%3D%221.2%22%20fill%3D%22%232dd4bf%22/%3E%3Crect%20x%3D%2226.6%22%20y%3D%2213%22%20width%3D%223.4%22%20height%3D%2214%22%20rx%3D%221.2%22%20fill%3D%22%232dd4bf%22/%3E%3C/svg%3E">
 
 {% block yapisal_veri %}{% endblock %}
 {% block ek_bas %}{% endblock %}
@@ -304,5 +304,44 @@
 <script src="/statik/tema.js?v={{ js_surum }}" defer></script>
 {% block betikler %}{% endblock %}
 
+
+{# ALT NAVIGASYON -- YALNIZCA MOBILDE.
+   Ust menu dar ekranda yatay kayiyordu: okur onu KAYDIRMAK zorunda
+   ve kaydirdigi anda nerede oldugunu kaybediyordu. Kullanicinin
+   "hala hareketli, sabitle" dedigi sey bu.
+
+   Bes giris, sabit, her zaman ayni yerde. Telefonda bas parmagin
+   dogal olarak durdugu yer ekranin ALTI; ust menuye uzanmak
+   telefonu elde cevirmeyi gerektiriyor.
+
+   AKTIF SEKME isaretli: sayfa degistiginde hangisinde oldugunu
+   gormek, "neredeyim" sorusunun surekli acik cevabi.
+
+   `<nav>` ust menuden AYRI bir oge, kopyasi degil: ust menu
+   masaustunde tam listeyi tasiyor, bu ise mobilde EN COK KULLANILAN
+   besini. Ayni listeyi iki yerde tutmak, birini guncelleyip
+   digerini unutmak demekti. #}
+<nav class="alt-gezinme" aria-label="Ana bölümler">
+  <a href="/"{% if yol == "/" %} aria-current="page"{% endif %}>
+    <span class="ag-simge" aria-hidden="true">◆</span>
+    <span class="ag-ad">Ana sayfa</span>
+  </a>
+  <a href="/gundem/"{% if yol == "/gundem/" %} aria-current="page"{% endif %}>
+    <span class="ag-simge" aria-hidden="true">▤</span>
+    <span class="ag-ad">Haberler</span>
+  </a>
+  <a href="/arastirmalar/"{% if yol.startswith("/arastirmalar") or yol.startswith("/analiz") or yol.startswith("/bilancolar") %} aria-current="page"{% endif %}>
+    <span class="ag-simge" aria-hidden="true">◱</span>
+    <span class="ag-ad">Araştırma</span>
+  </a>
+  <a href="/topluluk/"{% if yol.startswith("/topluluk") %} aria-current="page"{% endif %}>
+    <span class="ag-simge" aria-hidden="true">◎</span>
+    <span class="ag-ad">Topluluk</span>
+  </a>
+  <a href="/ara/"{% if yol == "/ara/" %} aria-current="page"{% endif %}>
+    <span class="ag-simge" aria-hidden="true">⌕</span>
+    <span class="ag-ad">Ara</span>
+  </a>
+</nav>
 </body>
 </html>
