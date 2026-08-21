@@ -45,6 +45,7 @@ import beyin      # noqa: E402
 import dosya      # noqa: E402
 import olay       # noqa: E402
 import yorumcu    # noqa: E402
+import baglam as _baglam   # noqa: E402  (analiz/ yolda)
 
 GUNDEM = _KOK.parent / "site" / "icerik" / "gundem.json"
 
@@ -328,6 +329,37 @@ def main() -> int:
                     if ham:
                         print(f"       ham: {ham[:120]}")
                     continue
+                # BAGLAM KAPISI -- sayi dogru mu degil, DOGRU YERDE mi.
+                #
+                # Var olan kontrol "model bu sayiyi uydurdu mu" diye
+                # soruyordu. Fed tutanaklari sayfasinda %31,75 yaziyordu:
+                # sayi GERCEKTI (TCMB TUFE serisi), sayfada da vardi,
+                # uydurma degildi -- ama haber ABD'ydi.
+                #
+                # Ayni sinif uc katmanda tekrarlayip her seferinde tek tek
+                # yamandi. Yayimdaki 204 yorum bu kontrolle tarandiginda
+                # 11 uyusmazlik cikti ve iceride bir ECB haberi de vardi;
+                # yani yamalarin sinifi bitirmedigi olculdu.
+                #
+                # Kapi URETIMDE: yanlis eslesmis yorum depoya hic
+                # girmiyor. Sonradan temizlemek, once yayimlamak demek.
+                uy = _baglam.uyusmazlik(
+                    b, metin,
+                    h.get("baslik_kaynak") or h.get("baslik", ""),
+                    h.get("kurum", ""), h.get("bolge", ""))
+                if uy:
+                    reddedilen += 1
+                    b.execute(
+                        "INSERT INTO ai_ret"
+                        " (adres, baslik, neden, model, ham, kayit_ani)"
+                        " VALUES (?,?,?,?,?,?)",
+                        (h["adres"], h.get("baslik", "")[:200],
+                         "baglam-uyusmazligi", model, metin[:2000],
+                         beyin.simdi()))
+                    print(f"  RED  {h['baslik'][:48]}  "
+                          f"({uy['aciklama']})")
+                    continue
+
                 b.execute(
                     "INSERT OR REPLACE INTO ai_yorum"
                     " (adres, metin, saglayici, model, kayit_ani)"

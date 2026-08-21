@@ -40,6 +40,10 @@ import html
 import pathlib
 import re
 import sqlite3
+import sys
+
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from analiz import baglam as _baglam  # noqa: E402
 
 KOK = pathlib.Path(__file__).resolve().parent.parent
 VT = KOK / "haber_botu" / "netaris.db"
@@ -82,12 +86,26 @@ def sayfa_metni(yol: str) -> str | None:
 
 
 def ihlaller(k: sqlite3.Connection) -> list[tuple[str, str, list[str]]]:
+    """Iki ayri soru, tek kapi.
+
+      1. DOGRULANABILIRLIK -- sayi sayfada geciyor mu?
+      2. BAGLAM            -- sayi BU HABERE ait mi?
+
+    Ikincisi olmadan birincisi yetersiz: Fed tutanaklari sayfasindaki
+    %31,75 gercek bir sayiydi (TCMB TUFE serisi) ve sayfada da vardi --
+    yalnizca yanlis haberdeydi. Ilk kontrol onu "uygun" sayiyordu.
+    """
     r = k.execute(
-        """SELECT a.adres, h.yayin_yolu, a.metin FROM ai_yorum a
-             JOIN haber h ON h.adres = a.adres
+        """SELECT a.adres, h.yayin_yolu, a.metin,
+                  COALESCE(h.baslik_kaynak, h.baslik_tr, ''), h.kurum
+             FROM ai_yorum a JOIN haber h ON h.adres = a.adres
             WHERE h.yayimlandi = 1 AND h.yayin_yolu IS NOT NULL""").fetchall()
     kotu = []
-    for adres, yol, metin in r:
+    for adres, yol, metin, baslik, kurum in r:
+        uy = _baglam.uyusmazlik(k, metin, baslik, kurum or "", "")
+        if uy:
+            kotu.append((adres, yol, [f"BAGLAM: {uy['aciklama']}"]))
+            continue
         sayfa = sayfa_metni(yol)
         if sayfa is None:
             # Sayfa henuz uretilmemis: bu bir ihlal DEGIL, bilgi
