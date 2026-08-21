@@ -68,8 +68,24 @@ def _ozet_ayikla(govde: str) -> str:
         # Ozet bolumu yoksa ilk anlamli paragrafi al
         for parca in govde.split("\n\n"):
             temiz = parca.strip()
-            if temiz and not temiz.startswith("#"):
-                return " ".join(temiz.split())
+            if not temiz or temiz.startswith("#"):
+                continue
+            # TABLO OZET DEGILDIR. Olculdu: bilanco govdesi TABLOYLA
+            # basliyor ve eski kural "baslik degilse al" oldugu icin
+            # meta aciklamaya ham tablo yaziliyordu:
+            #
+            #   ozet: | Kalem | Deger | | --- | ---: | | Hasilat |...
+            #
+            # Bu, arama sonucunda ve kart ozetinde GORUNEN metin.
+            # Okur sayfanin neyle ilgili oldugunu ondan anliyor; boru
+            # isaretleri ona hicbir sey soylemiyor.
+            #
+            # Ayiklananlar bicimsel: tablo satiri, yatay cizgi, resim.
+            # Hicbiri CUMLE degil, hepsi YAPI.
+            _s = [y.strip() for y in temiz.splitlines() if y.strip()]
+            if any(y.startswith(("|", "---", "***", "![")) for y in _s):
+                continue
+            return " ".join(temiz.split())
         return ""
     parcalar = [p.strip() for p in eslesme.group(1).strip().split("\n\n") if p.strip()]
     return " ".join(parcalar[0].split()) if parcalar else ""

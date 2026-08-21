@@ -173,7 +173,7 @@ def cek(kod: str, sayfa: str = "gelir",
 
 
 def donem_toplami(degerler: list[float | None], ceyrek: int,
-                  akis: bool) -> float | None:
+                  akis: bool, kaydir: int = 0) -> float | None:
     """Ceyreklik degerleri Turk ara donemine cevirir.
 
     `degerler` EN YENI ceyrek basta olacak sekilde siralı geliyor.
@@ -181,12 +181,29 @@ def donem_toplami(degerler: list[float | None], ceyrek: int,
 
     AKIS ise toplanir, STOK ise son deger AYNEN doner. Bilanco
     kalemlerini toplamak toplam varliklari kat kat sisirir.
+
+    `kaydir` KAC CEYREK GERI gidilecegi. Onceki YILIN ayni donemi
+    icin `kaydir=4` veriliyor -- dort ceyrek, tam bir yil.
+
+    NEDEN BURADA, AYRI BIR CEKIMDE DEGIL. Ceyreklik seri zaten
+    tamamiyla cekiliyor; onceki yil AYNI VERININ icinde. Ikinci bir
+    ag istegi atmak, elde olani yeniden istemek olurdu -- 325 sirkette
+    972 fazladan istek demek.
+
+    YIL FARKI DORT CEYREK, UC AY DEGIL. Bir onceki DONEMLE (`kaydir=
+    ceyrek`) karsilastirmak mevsimselligi degisim sanmaya yol acar:
+    perakendede son ceyrek her yil yuksektir ve bu bir buyume degil,
+    takvimdir.
     """
     if not degerler:
         return None
     if not akis:
-        return degerler[0]
-    pencere = degerler[:ceyrek]
+        # STOK: tek bir andaki deger. Onceki yil, o donemin SON
+        # ceyregindeki deger -- toplanmaz, secilir.
+        i = kaydir
+        return degerler[i] if i < len(degerler) else None
+    bas = kaydir
+    pencere = degerler[bas:bas + ceyrek]
     if len(pencere) < ceyrek or any(d is None for d in pencere):
         return None
     return sum(pencere)          # type: ignore[arg-type]
@@ -209,6 +226,18 @@ def ara_donem(kod: str, ceyrek: int = 2,
         cikti[sayfa] = {
             ad: d for ad, deg in kalemler.items()
             if (d := donem_toplami(deg, ceyrek, akis)) is not None
+        }
+        # ONCEKI YILIN AYNI DONEMI -- AYNI CEKIMDEN.
+        #
+        # Ek istek YOK: ceyreklik seri zaten tamamiyla elimizde.
+        # Ayri bir cekim, 325 sirkette 972 fazladan istek olurdu.
+        #
+        # Bu olmadan sayfa yalnizca SEVIYE anlatabiliyor ("hasilat
+        # 662 milyar"). Okurun sordugu soru ise degisim: artti mi,
+        # ne kadar. Karsilastirma olmadan "artti" denemez.
+        cikti[sayfa + "_onceki"] = {
+            ad: d for ad, deg in kalemler.items()
+            if (d := donem_toplami(deg, ceyrek, akis, kaydir=4)) is not None
         }
         cikti.setdefault("_donem", {})[sayfa] = donemler[:ceyrek]
         time.sleep(ARA_SN)
@@ -254,15 +283,22 @@ NET_NAKIT_ETIKETI = "Net Cash (Debt)"
 AMORTISMAN_ETIKETI = "Depreciation & Amortization"
 
 
-def donemi_kur(tablolar: dict) -> dict:
-    """Cekilen tablolari hattin bekledigi alan adlarina cevirir."""
+def donemi_kur(tablolar: dict, onceki: bool = False) -> dict:
+    """Cekilen tablolari hattin bekledigi alan adlarina cevirir.
+
+    `onceki=True` ise ONCEKI YILIN ayni donemi okunuyor. Ayni
+    esleme tablosu kullaniliyor; tek fark hangi anahtardan okundugu.
+    Iki ayri cevirici yazmak, birini duzeltip digerini unutmanin
+    kestirme yolu olurdu.
+    """
+    _ek = "_onceki" if onceki else ""
     cikti: dict[str, float] = {}
     for alan, sayfa, etiket in ESLESME:
-        d = (tablolar.get(sayfa) or {}).get(etiket)
+        d = (tablolar.get(sayfa + _ek) or {}).get(etiket)
         if d is not None:
             cikti[alan] = d
 
-    net_nakit = (tablolar.get("bilanco") or {}).get(NET_NAKIT_ETIKETI)
+    net_nakit = (tablolar.get("bilanco" + _ek) or {}).get(NET_NAKIT_ETIKETI)
     if net_nakit is not None:
         cikti["net_borc"] = -net_nakit
 
@@ -276,7 +312,7 @@ def donemi_kur(tablolar: dict) -> dict:
     # Cevirmeden aktarmak yatirim yapan sirketi yatirim GELIRI olan
     # sirket gostermek olurdu; serbest nakit akisi hesabini da ters
     # yone cevirirdi.
-    capex = (tablolar.get("nakit") or {}).get("Capital Expenditures")
+    capex = (tablolar.get("nakit" + _ek) or {}).get("Capital Expenditures")
     if capex is not None:
         cikti["yatirim_harcamasi"] = abs(capex)
 
@@ -396,7 +432,7 @@ def yeterli(donem: dict, sektor_tr: str = "") -> tuple[bool, list[str]]:
     return (not eksik), eksik
 
 def donem_getir(kod: str, etiket: str, ceyrek: int = 2,
-                sektor_tr: str = "", istemci=None):
+                sektor_tr: str = "", istemci=None, ciftli: bool = False):
     """Sirketin bir ara donemini `oranlar.Donem` olarak doner.
 
     Yetersiz veride `None` DONER, yarim nesne degil. Cagiran taraf
@@ -412,11 +448,32 @@ def donem_getir(kod: str, etiket: str, ceyrek: int = 2,
     _sys.path.insert(0, str(_pl.Path(__file__).resolve().parent.parent / "analiz"))
     import oranlar                                    # noqa: PLC0415
 
-    alanlar = donemi_kur(ara_donem(kod, ceyrek, istemci))
+    tablolar = ara_donem(kod, ceyrek, istemci)
+    alanlar = donemi_kur(tablolar)
     tamam, eksik = yeterli(alanlar, sektor_tr)
     if not tamam:
-        return None, eksik
-    return oranlar.Donem(etiket=etiket, **alanlar), []
+        return (None, None, eksik) if ciftli else (None, eksik)
+    simdi = oranlar.Donem(etiket=etiket, **alanlar)
+
+    # ONCEKI YIL -- VARSA. Yoksa sayfa yine uretiliyor, yalnizca
+    # degisim bolumu olmuyor. Yeni halka acilan sirketin gecmisi
+    # olmamasi bir kusur degil, bir gercek; sayfayi dusurmemeli.
+    once = None
+    try:
+        o = donemi_kur(tablolar, onceki=True)
+        if o.get("hasilat") or o.get("aktif_toplami"):
+            once = oranlar.Donem(etiket="önceki yıl", **o)
+    except (TypeError, ValueError):
+        once = None
+    # `Donem` DONDURULMUS bir veri sinifi -- uzerine alan yazilamaz
+    # ve yazilmamali: olculmus bir donem, uretildikten sonra
+    # degismemeli. Onceki yil bu yuzden AYRI donuyor.
+    #
+    # Cagiranlar bozulmasin diye ucuncu deger yalnizca `ciftli=True`
+    # istendiginde veriliyor.
+    if ciftli:
+        return simdi, once, []
+    return simdi, []
 
 # ---------------------------------------------------------------------
 # DONEM TESPITI -- TAKVIMDEN DEGIL VERIDEN

@@ -70,7 +70,47 @@ def test_yorum_govdede_geciyor():
     """Yorum gercekten sayfaya giriyor mu -- uyari onu ezmesin."""
     g = _govde(yorum="Kendine özgü bir cümle.")
     assert "Kendine özgü bir cümle." in g
-    assert "## Netaris yorumu" in g
+    assert "## Özet" in g
+
+
+def test_yillik_degisim_tablosu():
+    """Onceki yil VARSA degisim tablosu cikmali.
+
+    Bu bolum olmadan sayfa yalnizca SEVIYE anlatiyordu ("hasilat 662
+    milyar"). Okurun sordugu soru degisim; karsilastirma olmadan
+    "artti" denemez.
+    """
+    class _Once(_D):
+        hasilat = 5.0e8      # simdi 1.0e9 -> +%100
+        net_kar = 1.0e8      # simdi 2.0e8 -> +%100
+    g = u.govde_kur("TEST", "Test A.Ş.", "Sanayi", "2026/6", _D(),
+                    {"net_marj": 20.0}, {"net_marj": 12.0}, 5,
+                    "Yorum.", once=_Once())
+    assert "bir yıl öncesine göre" in g, g[:400]
+    assert "Reel değişim" in g
+    assert "%100,0" in g, g[:400]
+    # TMS 29: reel oldugu SOYLENMELI, yoksa okur TUFE ile ariticak
+    assert "TMS 29" in g
+
+
+def test_onceki_yil_yoksa_bolum_hic_yok():
+    """Bos tablo, veri oldugunu sanmaya yol acar -- hic yazilmasin."""
+    g = _govde()
+    assert "bir yıl öncesine göre" not in g
+    assert "Reel değişim" not in g
+
+
+def test_ozet_tablo_degil_cumle():
+    """Meta aciklama tabloyla baslamamali.
+
+    Olculdu: `ozet:` alanina ham tablo yaziliyordu --
+    "| Kalem | Değer | | --- | ---: | | Hasılat |..." Arama
+    sonucunda ve kart ozetinde gorunen metin buydu.
+    """
+    import yayin
+    o = yayin._ozet_ayikla(_govde(yorum="Hasılat arttı, nakit düştü."))
+    assert not o.startswith("|"), o
+    assert "Hasılat arttı" in o, o
 
 
 def test_sektor_medyani_yargisiz():

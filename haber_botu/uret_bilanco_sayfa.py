@@ -83,9 +83,55 @@ def _mlr(d):
     return f"{bicim.sayi(d / 1e9, 2)} milyar TL" if d is not None else "—"
 
 
-def govde_kur(kod, unvan, sektor, donem, d, oran, medyan, n, yorum) -> str:
+def _degisim(simdi, once) -> float | None:
+    """Reel yuzde degisim. TMS 29 nedeniyle TUFE ile ARITILMIYOR.
+
+    KAP tablolari enflasyon muhasebesine gore duzenleniyor; iki donem
+    de RAPOR TARIHI alim gucuyle ifade ediliyor. Uzerine TUFE
+    uygulamak ayni duzeltmeyi ikinci kez yapmak -- cift sayim olur.
+
+    Payda sifira yakinsa oran anlamsiz buyur; None doner.
+    """
+    if simdi is None or once is None or abs(once) < 1e-6:
+        return None
+    return (simdi - once) / abs(once) * 100
+
+
+def govde_kur(kod, unvan, sektor, donem, d, oran, medyan, n, yorum,
+              once=None) -> str:
     """Sayfanin govdesi. TABLO deterministik, YORUM modelden."""
-    s = [f"## {donem} dönemi ölçümleri", "",
+    s = []
+
+    # OZET EN BASTA -- meta aciklama da buradan okunuyor.
+    #
+    # Onceden govde TABLOYLA basliyordu ve `_ozet_ayikla` ilk
+    # paragraf olarak ham tabloyu aliyordu; arama sonucunda ve kart
+    # ozetinde boru isaretleri gorunuyordu. Ozet bir CUMLE olmali.
+    if yorum:
+        s += ["## Özet", "", yorum, ""]
+
+    # YILLIK DEGISIM -- SEVIYE DEGIL, HAREKET.
+    #
+    # Bu bolum olmadan sayfa yalnizca "hasilat 662 milyar TL"
+    # diyebiliyordu. Okurun sordugu soru ise degisim. Onceki yil
+    # AYNI CEKIMDEN geliyor, ek istek yok.
+    #
+    # Yoksa bolum HIC yazilmiyor -- bos bir tablo, veri oldugunu
+    # sanmaya yol acar.
+    if once is not None:
+        satir = []
+        for ad, etiket in KALEMLER:
+            y = _degisim(getattr(d, ad, None), getattr(once, ad, None))
+            if y is not None:
+                satir.append(f"| {etiket} | {bilanco_yorum._yuzde(y)} |")
+        if satir:
+            s += [f"## {donem} — bir yıl öncesine göre", "",
+                  "| Kalem | Reel değişim |", "| --- | ---: |", *satir, "",
+                  "*Finansal tablolar TMS 29 enflasyon muhasebesine göre "
+                  "düzenlenmiştir; yukarıdaki değişimler **reeldir**, "
+                  "ayrıca enflasyondan arındırmak gerekmez.*", ""]
+
+    s += [f"## {donem} dönemi ölçümleri", "",
          "| Kalem | Değer |", "| --- | ---: |"]
     for ad, etiket in KALEMLER:
         v = getattr(d, ad, None)
@@ -111,7 +157,6 @@ def govde_kur(kod, unvan, sektor, donem, d, oran, medyan, n, yorum) -> str:
               "değildir. Hangi oranın yüksek olmasının iyi olduğu iş "
               "modeline göre değişir.*"]
 
-    s += ["", "## Netaris yorumu", "", yorum]
 
     # YASAL UYARI GOVDEDE OLMAK ZORUNDA.
     #
@@ -138,12 +183,13 @@ def govde_kur(kod, unvan, sektor, donem, d, oran, medyan, n, yorum) -> str:
 
 def sirket_isle(kod, bilgi, sektor, donem, oran, medyan, n,
                 kuru=False) -> tuple[bool, str]:
-    d, eksik = bilanco_ag.donem_getir(kod, donem, sektor_tr=sektor)
+    d, once, eksik = bilanco_ag.donem_getir(
+        kod, donem, sektor_tr=sektor, ciftli=True)
     if d is None:
         return False, "eksik: " + ", ".join(eksik[:3])
 
     girdi = bilanco_yorum.girdi_kur(
-        kod, bilgi["unvan"], sektor, donem, simdi=d,
+        kod, bilgi["unvan"], sektor, donem, simdi=d, once=once,
         oranlar_kendi=oran, medyanlar=medyan, sirket_sayisi=n)
 
     metin, model, sebep, _ham = bilanco_yorum.yorum_uret(girdi)
@@ -152,7 +198,7 @@ def sirket_isle(kod, bilgi, sektor, donem, oran, medyan, n,
         return False, f"yorum yok: {sebep}"
 
     govde = govde_kur(kod, bilgi["unvan"], sektor, donem, d, oran,
-                      medyan, n, metin)
+                      medyan, n, metin, once=once)
 
     tamam, bulgular = guvenlik.yayinlanabilir(govde)
     if not tamam:
