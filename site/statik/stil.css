@@ -4592,3 +4592,57 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
 
   .akis-baslik { font-size: 0.9375rem; line-height: 1.45; }
 }
+
+/* ====================================================================
+   MOBIL  --  CANLI AKIS KISALIYOR
+   --------------------------------------------------------------------
+   OLCULDU: canli akista 61 oge var ve mobilde ~4.600 PIKSEL yer
+   kapliyor -- tek basina on iki ekran boyu. Masaustunde bu bir sorun
+   degil: akis YAN SUTUNDA ve kendi icinde kayiyor, sayfayi uzatmiyor.
+   Dar ekranda ise yan sutun diye bir sey yok; akis ana icerigin
+   ALTINA dusuyor ve sayfayi bitmez hale getiriyor.
+
+   Ayni bilesen, iki ekranda iki farkli sey oluyor. Masaustundeki
+   karar (40'tan 61'e cikarmak, "akisin kapsadigi sure uzasin") dar
+   ekranda tersine calisiyor.
+
+   ALTI OGE GOSTERILIYOR, gerisi "Tüm gelişmeler" baglantisinda --
+   o baglanti zaten listenin altinda duruyor.
+
+   NEDEN ALTI: bir telefon ekranina sigan sayi. Daha azi akisin
+   canliligini gostermez, daha cogu okuru ana icerikten uzaklastirir.
+
+   OGELER SILINMIYOR, GIZLENIYOR: HTML ayni kaliyor, yani arama
+   motoru ve ekran okuyucu icin bir kayip yok; yalnizca dar ekranda
+   cizilmiyorlar.
+   ================================================================== */
+
+@media (max-width: 900px) {
+  .akis-liste > li:nth-child(n+7) { display: none; }
+
+  /* Liste artik kisa: kendi icinde kaydirma GEREKMIYOR ve
+     yuksekligi sabitlemek bos alan birakirdi. */
+  .masa-akis {
+    position: static;
+    max-height: none;
+  }
+  .akis-liste {
+    overflow-y: visible;
+    max-height: none;
+  }
+
+  /* "Tüm gelişmeler" artik bir dipnot degil, ASIL yol -- akisin
+     devami orada. Dugme gorunumu aliyor. */
+  .masa-akis .kaynak-not {
+    margin-top: var(--b-4);
+    text-align: center;
+  }
+  .masa-akis .kaynak-not a {
+    display: block;
+    padding: var(--b-3);
+    border: 1px solid var(--cizgi);
+    border-radius: var(--r-kucuk);
+    font-weight: 600;
+    text-decoration: none;
+  }
+}
