@@ -491,6 +491,12 @@ def yerli_uret(bugun: datetime, ay_sayisi: int = 2) -> list[Yayin]:
 OKUNAMAYAN: list[tuple[str, str]] = []
 
 
+#: Takvimde kac gun GERIYE bakiliyor -- aciklanmis veriyi
+#: gostermek icin. Uc gun: "bu hafta ne cikti" sorusunu
+#: cevaplar, arsive donusmez.
+GERI_GUN = 3
+
+
 def cek(gun: int = 21) -> list[Yayin]:
     """Onumuzdeki `gun` gun icindeki yayinlar, zamana gore sirali."""
     OKUNAMAYAN.clear()
@@ -545,7 +551,17 @@ def cek(gun: int = 21) -> list[Yayin]:
 
     # GECMIS ELENIYOR: "bugun ne var" bolumune dun aciklanmis bir veri
     # koymak, bolumun tek isini -- ileriye bakmayi -- bozar.
-    yakin = [y for y in hepsi if simdi <= y.an <= son]
+    # GERIYE DONUK PENCERE.
+    #
+    # Once yalnizca GELECEK yayinlar kaliyordu (`simdi <= y.an`).
+    # Sonuc: bir veri aciklandigi anda takvimden DUSUYORDU ve okur
+    # "ne cikti" sorusunun cevabini takvimde bulamiyordu.
+    #
+    # Takvimin isi yalnizca "ne zaman aciklanacak" degil, "aciklandi
+    # mi, ne cikti" da. Uc gun geriye bakiliyor: daha uzun bir
+    # pencere ana sayfayi arsive cevirir.
+    geri = simdi - timedelta(days=GERI_GUN)
+    yakin = [y for y in hepsi if geri <= y.an <= son]
     yakin.sort(key=lambda y: y.an)
     return yakin
 

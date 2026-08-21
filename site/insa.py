@@ -43,6 +43,7 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 import gorsel
 import kivilcim
 import piyasa_kutusu
+import takvim_gerceklesen
 
 # Arastirma dosyasi motoru haber_botu/analiz altinda; site buradan
 # YALNIZCA OKUYOR (depoya salt-okunur baglaniyor).
@@ -2369,7 +2370,7 @@ def takvim_kutulari() -> list[dict]:
             "seri": y.kod,
         }
         if b is None or not y.kod or _beklenti is None:
-            return kutu
+            return takvim_gerceklesen.kutuya_ekle(kutu, b)
         # HATA YUTULMUYOR. Ilk yazimda bu blok sessizce bosa dusuyordu
         # ve butun beklenti kutulari yoktu; sebebi ancak elle deneyince
         # goruldu. Tek kalem coktugunde takvimin tamami dusmesin diye
@@ -2407,7 +2408,9 @@ def takvim_kutulari() -> list[dict]:
                 kutu["beklenti"] = k
         except Exception as e:
             print(f"  takvim: {y.kod} beklenti kutusu kurulamadi: {e}")
-        return kutu
+        # ACIKLANDI MI, NE CIKTI. Beklenti kutusu kurulduktan SONRA
+        # cagriliyor: surpriz esigi oradan okunuyor.
+        return takvim_gerceklesen.kutuya_ekle(kutu, b)
 
     # `baglan()` BIR BAGLAM YONETICISI, baglantinin kendisi degil.
     #

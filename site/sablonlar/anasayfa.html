@@ -192,6 +192,26 @@
         {% endif %}
       </div>
 
+      {# ACIKLANDI MI. Alan YOKSA veri henuz cikmamis demek -- ve bu
+         takvimin normal durumu. Yaklasan bir veriye uydurma bir
+         "gerceklesen" yazmak, takvimin tek isini ters cevirirdi. #}
+      {% if k.gerceklesen %}
+      <p class="takvim-gerceklesen">
+        <span class="takvim-cikti-etiket">AÇIKLANDI</span>
+        <b class="takvim-cikti">{{ k.gerceklesen.metin }}</b>
+        {% if k.surpriz %}
+        {# SURPRIZ YALNIZCA GERCEK KONSENSUS varken yaziliyor. Onceki
+           degere gore sapmaya "surpriz" demek, olcutu degistirip ayni
+           adi kullanmak olurdu. #}
+        <span class="takvim-surpriz surpriz-{{ k.surpriz.yon }}">
+          {% if k.surpriz.yon == "tam" %}beklentiyle aynı
+          {% else %}beklentinin {{ k.surpriz.metin }} puan
+            {{ "üzerinde" if k.surpriz.yon == "ust" else "altında" }}{% endif %}
+        </span>
+        {% endif %}
+      </p>
+      {% endif %}
+
       {% if k.beklenti %}
       {% set b = k.beklenti %}
       <div class="takvim-beklenti">
