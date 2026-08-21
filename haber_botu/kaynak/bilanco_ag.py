@@ -504,8 +504,34 @@ def donem_coz(etiket: str) -> tuple[int, int] | None:
 
 
 def kap_etiketi(yil: int, ceyrek: int) -> str:
-    """(2026, 3) -> "2026/9" -- KAP kumulatif donem adi."""
+    """(2026, 3) -> "2026/9" -- KAP KUMULATIF donem adi.
+
+    DIKKAT: bu ad yilin ILK N AYINI anlatiyor, tek bir ceyregi degil.
+    "2026/6" = Ocak-Haziran toplami (Q1+Q2). Sayfalarda artik
+    `ceyrek_etiketi` kullaniliyor; bu islev KAP'la konusan yerlerde
+    duruyor.
+    """
     return f"{yil}/{ceyrek * 3}"
+
+
+def ceyrek_etiketi(yil: int, ceyrek: int) -> str:
+    """(2026, 2) -> "2026 2. çeyrek".
+
+    NEDEN KUMULATIF DEGIL CEYREKLIK
+    -------------------------------
+    KAP donemleri kumulatif: "2026/6" alti ayin TOPLAMI. Okur icin bu
+    iki sorun uretiyor:
+
+      1. Ikinci ceyregin kendi performansi gorunmuyor -- iyi bir Q1
+         zayif bir Q2'yi gizleyebiliyor.
+      2. Yillik karsilastirma alti ayi alti ayla kiyasliyor; ceyreklik
+         kiyas (Q2'ye karsi gecen yil Q2) daha keskin.
+
+    Ceyreklik hesap `donem_toplami(..., ceyrek=1)` ile yapiliyor:
+    akis kalemleri yalnizca EN SON ceyregi aliyor, stok kalemleri
+    zaten belirli bir andaki deger.
+    """
+    return f"{yil} {ceyrek}. çeyrek"
 
 
 def son_donem(kod: str, istemci=None) -> tuple[int, int] | None:

@@ -181,8 +181,19 @@ def main() -> int:
     a = argparse.ArgumentParser(description=__doc__)
     a.add_argument("--sektor")
     a.add_argument("--hepsi", action="store_true")
-    a.add_argument("--donem", default="2026/6")
-    a.add_argument("--ceyrek", type=int, default=2)
+    # Donem etiketi artik CEYREKLIK. Bos birakilirsa
+    # `bilanco_ag.ceyrek_etiketi` ile veriden turetiliyor.
+    a.add_argument("--donem", default="")
+    # CEYREKLIK: 2 -> 1.
+    #
+    # `ceyrek` kac ceyregin TOPLANACAGI. 2 iken alti aylik kumulatif
+    # (Q1+Q2) hesaplaniyordu; 1 ile yalnizca en son ceyrek.
+    #
+    # Ikinci ceyregin kendi performansi kumulatifte GORUNMUYOR: guclu
+    # bir Q1, zayif bir Q2'yi ortuyor. Ceyreklik hesap ayrica yillik
+    # karsilastirmayi keskinlestiriyor -- Q2'ye karsi gecen yil Q2,
+    # alti aya karsi alti ay degil.
+    a.add_argument("--ceyrek", type=int, default=1)
     a.add_argument("--sinir", type=int, help="sektör başına en fazla şirket")
     a.add_argument("--kuru-calis", action="store_true", help="dosyaya yazma")
     a.add_argument("--zorla", action="store_true",
@@ -210,7 +221,25 @@ def main() -> int:
 
     cikti = {}
     for s in sektorler:
-        cikti[s] = sektor_isle(s, n.donem, n.ceyrek, n.sinir)
+        # DONEM ETIKETI VERIDEN TURETILIYOR, ELLE YAZILMIYOR.
+        #
+        # Once `--donem 2026/6` varsayilaniyla geliyordu ve KASIM'da
+        # dokuz aylik tablolar ciktiginda hala "2026/6" yazacakti:
+        # rakamlar yeni, etiket eski. Sessiz bir yanlis -- sayfa
+        # uretilir, dogru gorunur, yalnizca donemi yanlistir.
+        #
+        # Artik kaynaktan okunuyor; elle vermek yalnizca `--donem` ile
+        # mumkun ve o da bilerek yapilan bir sey.
+        etiket = n.donem
+        if not etiket:
+            import bilanco_ag as _b                   # noqa: PLC0415
+            ilk = sektordeki(s)
+            son = _b.son_donem(ilk[0][0]) if ilk else None
+            etiket = _b.ceyrek_etiketi(*son) if son else ""
+            if not etiket:
+                print(f"  {s}: donem belirlenemedi, atlandi")
+                continue
+        cikti[s] = sektor_isle(s, etiket, n.ceyrek, n.sinir)
 
     if n.kuru_calis:
         print("\n(kuru çalışma -- dosyaya yazılmadı)")
