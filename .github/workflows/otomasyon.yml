@@ -189,6 +189,26 @@ jobs:
         if: always()
         run: python haber_botu/beyin.py
 
+      # YORUMDAKI HER SAYI SAYFADA GECMELI.
+      #
+      # Olculdu (2026-08-21): yayimdaki 291 yorumun 84'unde (%28)
+      # sayfada HIC GECMEYEN sayi vardi. Ornek: Fed tutanaklari
+      # haberinde Turkiye TUFE'si (%31,75) yorumlanmisti; sayfada ABD
+      # TUFE'si (3,36%) yaziyordu.
+      #
+      # Kok sebep, dogrulamanin ISTEME bakmasiydi -- sayfaya degil. Bir
+      # donem `dosya.kur` yorum hattina Turkiye gostergesi verip sayfa
+      # hattina vermiyordu; model istemdeki sayiyi kullaniyor,
+      # dogrulamayi geciyor, sayfa o sayiyi hic basmiyordu.
+      #
+      # Girdi hatasi duzeltildi ama ADIM KALIYOR: benzer bir ayrisma
+      # tekrar olursa okur degil CI yakalasin. `--temizle` YOK --
+      # kosunun sessizce icerik silmesi istenmiyor; adim KIRILIR ve
+      # temizlik bilerek calistirilir.
+      - name: Yorum sayıları sayfada mı
+        if: always()
+        run: python haber_botu/yorum_denetimi.py
+
       - name: Biriken veriyi geri yaz
         # Beynin gecmisi, ceviri onbellegi, indirilen fotograflar ve
         # uretilen icerik depoya geri yazilir. Boylece bir sonraki
