@@ -3034,17 +3034,26 @@ a.akis-baslik:hover { color: var(--vurgu); text-decoration: none; }
 }
 .menu-katman a:hover { background: var(--vurgu-zar); text-decoration: none; }
 
-/* Dar ekranda acilir menu ISE YARAMAZ (dokunmada hover yok):
-   grup duz bir satira aciliyor. */
-@media (max-width: 720px) {
-  .menu-grup { display: contents; }
-  .menu-baslik { display: none; }
-  .menu-katman {
-    position: static; opacity: 1; visibility: visible; transform: none;
-    flex-direction: row; background: none; border: none;
-    box-shadow: none; padding: 0; min-width: 0;
-  }
+/* ACILIR MENU ARTIK DOKUNMATIKTE DE CALISIYOR.
+   ---------------------------------------------
+   Onceki cozum dar ekranda menuyu DUZLESTIRIYORDU: `.menu-baslik`
+   gizleniyor, dort alt baglanti satir icine dokuluyordu. Sonucu
+   olculdu -- ust menu telefonda UC SATIRA yayiliyor ve icerik
+   ekranin altina itiliyordu.
+
+   Duzlestirmek bir cozum degil, cozumsuzlugun kabuluydu: "dokunmada
+   hover yok" dogru bir teshis ama karsiligi menuyu acmak degil,
+   ACMANIN BASKA YOLUNU kurmakti.
+
+   `menu.js` `aria-expanded` ve `data-acik` isaretini ceviriyor;
+   asagidaki kural acikligi ORADAN okuyor. `:hover` masaustunde ek
+   yol olarak duruyor, yani betik yuklenmezse menu yine aciliyor. */
+.menu-grup[data-acik] .menu-katman {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
+.menu-grup[data-acik] .menu-ok { transform: rotate(180deg); }
 
 /* --- Topluluk sayfasi --- */
 .senaryo-tablo { list-style: none; padding: 0; margin: 26px 0 0; }
@@ -4278,4 +4287,79 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
   border-radius: 999px;
   background: var(--vurgu);
   color: var(--zit-yazi);
+}
+
+/* ====================================================================
+   MOBIL  --  OLCULMUS DUZELTMELER
+   --------------------------------------------------------------------
+   Kullanicinin telefon ekran goruntusunden dogrulanan uc sorun.
+   ================================================================== */
+
+@media (max-width: 640px) {
+
+  /* 1. UST MENU TEK SATIR, YATAY KAYAR.
+     ----------------------------------
+     Yedi oge (Ana sayfa, Haberler, Arastirmalar, Topluluk, Ara,
+     Giris, tema) 360 piksele SIGMIYOR ve satir kiriyordu; menu iki
+     satira cikinca icerik ekranin altina dusuyordu.
+
+     Hamburger MENUSU YAPILMADI: yedi ogeyi bir dugmenin arkasina
+     saklamak, en cok kullanilan iki baglantiyi (Ana sayfa, Haberler)
+     da fazladan bir dokunusa mahkum ederdi. Yatay kaydirma hepsini
+     GORUNUR birakiyor.
+
+     Kaydirma cubugu gizli ama kaydirma acik -- serit gorunumu
+     bozmasin diye. */
+  .ust nav {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    /* Kenarda kesilen ogenin yarim gorunmesi, kaydirilabilir
+       oldugunu OKURA SOYLUYOR; tam hizalamak bunu gizlerdi. */
+    padding-inline-end: var(--b-3);
+  }
+  .ust nav::-webkit-scrollbar { display: none; }
+  .ust nav > * { flex: none; }
+
+  /* Acilir menu dar ekranda TAM GENISLIK: 240px'lik bir katman
+     360px ekranda ortada asili duruyordu. */
+  .menu-katman {
+    left: auto;
+    right: 0;
+    min-width: min(260px, calc(100vw - var(--b-6)));
+  }
+
+  /* 2. HERO BASLIGI KUCULUYOR.
+     -------------------------
+     `clamp()` alt siniri 1,75rem (28px) idi ve 360 piksellik
+     ekranda "Yapay zekâ destekli finans araştırma platformu" BES
+     SATIRA yayilip ilk ekrani tamamen dolduruyordu. Okur icerige
+     hic ulasamadan kaydirmak zorunda kaliyordu.
+
+     Alt sinir 1,45rem'e (23px) indirildi. Baslik hala en buyuk
+     ogeler, ama ekrani yemiyor. */
+  h1 { font-size: clamp(1.45rem, 6.5vw, 2.1rem); }
+
+  /* Hero ozeti de kisaliyor: 17px govde metni dar ekranda satir
+     basina cok az sozcuk aliyor ve okuma zorlasiyor. */
+  .hero-ozet { font-size: var(--p-l); line-height: var(--satir-orta); }
+  .hero-dar { padding-bottom: var(--b-5); }
+
+  /* Hero dugmeleri tam genislik degil ama SIGMALI: dort dugme yan
+     yana sikisip metinleri kesiliyordu. */
+  .hero-butonlar { gap: var(--b-2); }
+  .hero-butonlar .dugme { flex: 1 1 auto; justify-content: center; }
+
+  /* 3. GENEL: DAR EKRANDA KABUK DOLGUSU.
+     Icerik kenarlara yapisiyordu; 16 piksel okuma icin gerekli
+     asgari kenar bosluğu. */
+  .kabuk { padding-inline: var(--b-4); }
+}
+
+/* Cok dar ekran (kucuk telefonlar). */
+@media (max-width: 380px) {
+  h1 { font-size: clamp(1.3rem, 7vw, 1.75rem); }
+  .ust nav a,
+  .ust nav .menu-baslik { padding: 0 var(--b-2); font-size: var(--p-s); }
 }
