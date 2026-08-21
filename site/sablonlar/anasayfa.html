@@ -25,11 +25,11 @@
 {% block aciklama %}{{ site.meta_aciklama }}{% endblock %}
 
 {% block ek_bas %}
-<script src="/statik/onecikan.js" defer></script>
+<script src="/statik/onecikan.js?v={{ js_surum }}" defer></script>
 {# Goreli zaman ("3 dk once") ISTEMCIDE hesaplaniyor. Kurulum aninda
    gomulseydi sayfa yayimlandigi dakikada dogru, iki saat sonra yanlis
    olurdu -- ve statik site gunde birkac kez kuruluyor. #}
-<script src="/statik/zaman.js" defer></script>
+<script src="/statik/zaman.js?v={{ js_surum }}" defer></script>
 {% endblock %}
 
 {% block yapisal_veri %}

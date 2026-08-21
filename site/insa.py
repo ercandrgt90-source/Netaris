@@ -2972,8 +2972,34 @@ def insa() -> int:
         if h.get("yorumlanir") and h.get("katman") == "kritik"
     ][:6]
 
+    # VARLIK SURUMU -- ONBELLEK KIRICI.
+    #
+    # OLCULDU: `stil.css` surumsuz baglaniyordu. Tarayici bir kez
+    # indirdikten sonra dosya degisse de yenisini ISTEMIYOR; kullanici
+    # her degisiklikte elle sert yenileme yapmak zorunda kaliyordu.
+    # Dort tur boyunca "degisen bir sey yok" denmesinin sebebi buydu --
+    # degisiklik yayimlanmisti, tarayiciya ULASMIYORDU.
+    #
+    # Bu bir kullanici isi olmamali. Adrese icerigin OZETI ekleniyor:
+    # dosya degisince adres degisiyor, tarayici yeniden indiriyor.
+    # Degismediginde adres de ayni kaliyor, yani onbellek KORUNUYOR --
+    # her kurulumda yeniden indirme olmuyor.
+    def _surum(*yollar) -> str:
+        h = hashlib.sha1()
+        for y in yollar:
+            try:
+                h.update(pathlib.Path(y).read_bytes())
+            except OSError:
+                pass
+        return h.hexdigest()[:8]
+
+    css_surum = _surum(STATIK / "stil.css")
+    js_surum = _surum(*sorted(STATIK.glob("*.js")))
+
     ortak = {
         "site": SITE,
+        "css_surum": css_surum,
+        "js_surum": js_surum,
         "gostergeler": gostergeler,
         "gundem": gundem,
         "gundem_gorseller": gundem_gorseller,

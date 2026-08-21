@@ -37,12 +37,12 @@
 {# Yalnizca haber sayfasinda yukleniyor: topluluk senaryolari baska
    sayfada yok. AI yorumu BETIK GEREKTIRMIYOR -- build zamaninda
    HTML'e gomuluyor. #}
-<script src="/statik/paylas.js" defer></script>
-<script src="/statik/senaryo.js" defer></script>
+<script src="/statik/paylas.js?v={{ js_surum }}" defer></script>
+<script src="/statik/senaryo.js?v={{ js_surum }}" defer></script>
 {# Goreli zaman ("3 dk once") dosya cizelgesinde de kullaniliyor.
    Kurulum aninda gomulseydi sayfa yayimlandigi dakikada dogru, iki
    saat sonra yanlis olurdu. #}
-<script src="/statik/zaman.js" defer></script>
+<script src="/statik/zaman.js?v={{ js_surum }}" defer></script>
 {% endblock %}
 
 {% block icerik %}
