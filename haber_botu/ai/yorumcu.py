@@ -515,8 +515,30 @@ def _anthropic_cagir(girdi: str, sistem: str = "") -> str:
 
 
 def saglayici() -> str:
-    """Hangi saglayici kullanilabilir. Hicbiri yoksa bos."""
-    if os.environ.get("ANTHROPIC_API_KEY", "").strip():
+    """Hangi saglayici kullanilabilir. Hicbiri yoksa bos.
+
+    `NETARIS_AI_SAGLAYICI` ile ZORLANABILIR ("cloudflare" / "anthropic").
+
+    NEDEN ZORLAMA GEREKIYOR. Iki saglayici arasindaki secim normalde
+    dogru: Anthropic daha iyi metin uretiyor, o yuzden varsa o
+    kullaniliyor. Ama KARSILASTIRMA yapmak icin ucuz olani bilerek
+    secebilmek gerekiyor -- gizli degistirgeyi depodan silip geri
+    eklemek, olcum yapmak icin fazla riskli bir yol.
+
+    Zorlanan saglayicinin kimlik bilgisi yoksa zorlama YOK SAYILIYOR
+    ve normal siraya donuluyor: eksik bir degiskene dayanip sifir
+    sayfa uretmektense calisan saglayiciyla uretmek yeglenir.
+    """
+    zorla = os.environ.get("NETARIS_AI_SAGLAYICI", "").strip().lower()
+    _cf = bool(os.environ.get("CLOUDFLARE_API_TOKEN", "").strip()
+               and os.environ.get("CLOUDFLARE_ACCOUNT_ID", "").strip())
+    _an = bool(os.environ.get("ANTHROPIC_API_KEY", "").strip())
+    if zorla == "cloudflare" and _cf:
+        return "cloudflare"
+    if zorla == "anthropic" and _an:
+        return "anthropic"
+
+    if _an:
         return "anthropic"
     if (os.environ.get("CLOUDFLARE_API_TOKEN", "").strip()
             and os.environ.get("CLOUDFLARE_ACCOUNT_ID", "").strip()):
