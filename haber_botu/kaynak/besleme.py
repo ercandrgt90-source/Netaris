@@ -1060,14 +1060,34 @@ def cek(kod: str = "", en_fazla: int = 12) -> list[Haber]:
     sira = {b[0]: i for i, b in enumerate(BESLEMELER)}
     tekil.sort(key=lambda h: (sira.get(h.kaynak_kodu, 99),
                               h.tarih or "0000-00-00"))
+    #    ELEME GUNE GORE KOVALANIYOR.
+    #
+    #    Imza karsilastirmasi butun listede yapiliyordu ve DUZENLI
+    #    YAYIMLANAN resmi belgeleri birbirine eziyordu. Olculdu:
+    #
+    #      "Minutes of the FOMC, March 17-18, 2026"   (8 Nisan)
+    #      "Minutes of the FOMC, July 28-29, 2026"    (19 Agustos)
+    #
+    #    Govdeler: ortak 6 / kisa 7 = 0,86 ortusme. Tek fark ay adi;
+    #    gun numaralari govdeye kirpilirken dusuyor. Sonuc, Temmuz
+    #    toplantisinin tutanaklari NISAN'dakine benzedigi icin hic
+    #    alinmadi -- 5 Agustos'tan beri depoda tek bir Fed kaydi yok.
+    #
+    #    Elemenin amaci "ayni gun bes kaynakta cikan ayni haber"; farkli
+    #    aylarda cikan iki ayri belge degil. Gun olcute katiliyor.
+    #
+    #    Ayni hata sinifi bu depoda daha once `insa.tekilles` icinde de
+    #    yasandi ("Borsa gunu yukselisle tamamladi" her yukselis gununde
+    #    yeniden yaziliyor) ve orada da cozum gunu olcute katmakti.
     secili: list[Haber] = []
-    imzalar: list[frozenset[str]] = []
+    imzalar: dict[str, list[frozenset[str]]] = {}
     for h in tekil:
         im = _imza(h.baslik)
-        if any(_ortusuyor(im, v) for v in imzalar):
+        gun = (h.tarih or "0000-00-00")[:10]
+        if any(_ortusuyor(im, v) for v in imzalar.get(gun, ())):
             continue
         secili.append(h)
-        imzalar.append(im)
+        imzalar.setdefault(gun, []).append(im)
 
     # En yeni once; tarihi cozulemeyenler sona
     secili.sort(key=lambda h: h.tarih or "0000-00-00", reverse=True)

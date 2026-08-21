@@ -420,5 +420,51 @@ esit(besleme.konu_bul("Brent petrol ihracatı arttı", "Şirket haberleri"),
 esit(besleme.konu_bul("ABD'de konut satışları arttı", "Şirket haberleri"),
      "Konut ve kira", "genel para birimi adi yanlis eslesme URETMIYOR")
 
+
+# --------------------------------------------------------------------
+# ELEME GUNE GORE KOVALANMALI.
+#
+# OLCULEN HATA (2026-08-22): imza karsilastirmasi butun listede
+# yapiliyordu ve DUZENLI YAYIMLANAN resmi belgeleri birbirine eziyordu:
+#
+#     "Minutes of the FOMC, March 17-18, 2026"   (8 Nisan)
+#     "Minutes of the FOMC, July 28-29, 2026"    (19 Agustos)
+#
+# Govde ortusmesi 0,86 -- tek fark ay adi, gun numaralari govdeye
+# kirpilirken dusuyor. Sonuc: Temmuz tutanaklari HIC alinmadi ve
+# 5 Agustos'tan beri depoda tek bir yeni Fed kaydi yoktu. Duzeltince
+# cekilen oge sayisi 172'den 211'e cikti.
+#
+# Elemenin amaci "ayni gun bes kaynakta cikan ayni haber"; farkli
+# aylarda cikan iki ayri belge degil.
+# --------------------------------------------------------------------
+_A = "Minutes of the Federal Open Market Committee, March 17-18, 2026"
+_B = "Minutes of the Federal Open Market Committee, July 28-29, 2026"
+
+# Imzalar GERCEKTEN ortusuyor -- sorun eslesmede degil, KAPSAMDA.
+esit(besleme._ortusuyor(besleme._imza(_A), besleme._imza(_B)), True,
+     "duzenli belgelerin imzalari ortusuyor (beklenen)")
+
+
+def _ele(ogeler):
+    """`cek` icindeki eleme mantiginin ayni kopyasi -- gune gore."""
+    secili, imzalar = [], {}
+    for baslik, gun in ogeler:
+        im = besleme._imza(baslik)
+        if any(besleme._ortusuyor(im, v) for v in imzalar.get(gun, ())):
+            continue
+        secili.append(baslik)
+        imzalar.setdefault(gun, []).append(im)
+    return secili
+
+
+esit(len(_ele([(_A, "2026-04-08"), (_B, "2026-08-19")])), 2,
+     "FARKLI gunlerdeki iki belge IKISI DE kaliyor")
+esit(len(_ele([(_A, "2026-04-08"), (_A, "2026-04-08")])), 1,
+     "AYNI gunde ayni haber tekilleniyor")
+esit(len(_ele([("Borsa günü yükselişle tamamladı", "2026-08-20"),
+               ("Borsa günü yükselişle tamamladı", "2026-08-21")])), 2,
+     "her gun tekrarlanan baslik gunler arasi ELENMIYOR")
+
 print(f"\n{_gecti} gecti, {_kaldi} kaldi")
 sys.exit(1 if _kaldi else 0)
