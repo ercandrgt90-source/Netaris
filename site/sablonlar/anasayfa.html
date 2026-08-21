@@ -370,7 +370,19 @@
    =============================================================== #}
 {% if analizler %}
 {% set one_cikan = analizler[0] %}
-{% set digerleri = analizler[1:] %}
+{# ANA SAYFADA SINIRLI SAYIDA ARASTIRMA.
+   OLCULDU: sinir yoktu ve `analizler[1:]` 144 bilancoyu tam basligiyla
+   ana sayfaya doküyordu. Govde 259 KB, 1093 kart.
+
+   Bu bir arsiv dokumuydu, ana sayfa degil. Okur "bugun ne onemli"
+   sorusunun cevabini ararken 144 sirket unvani arasinda kayboluyordu
+   -- ve hepsi AYNI gorsel agirliktaydi, yani hicbiri one cikmiyordu.
+
+   Sekiz secildi: bir one cikan + sekiz kart, izgarada iki satir
+   ediyor. Tamami `/arastirmalar/` sayfasinda ve kategori
+   dizinlerinde duruyor; ana sayfanin isi HEPSINI gostermek degil,
+   DOGRU OLANI dogru sirayla gostermek. #}
+{% set digerleri = analizler[1:9] %}
 
 <div class="bolum-bas">
   <h2>Araştırmalar</h2>
