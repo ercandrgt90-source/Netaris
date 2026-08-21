@@ -4363,3 +4363,106 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
   .ust nav a,
   .ust nav .menu-baslik { padding: 0 var(--b-2); font-size: var(--p-s); }
 }
+
+/* ====================================================================
+   MOBIL  --  BOLUMLER RAF, TEK AKIS DEGIL
+   --------------------------------------------------------------------
+   OLCULDU: `.izgara` `minmax(310px, 1fr)` kullaniyor. 360 piksellik
+   telefonda TEK SUTUN sigiyor, dolayisiyla butun kartlar alt alta
+   diziliyor ve sayfa BITMEYEN TEK BIR AKIS gibi gorunuyor.
+
+   Kullanicinin ifadesi tam da bu: "sayfada tek haber olarak
+   goruluyor". Bolumler var ama okur onlari SECEMIYOR -- ayni
+   genislikte, ayni ritimde, ard arda kartlar.
+
+   COZUM: her bolum kendi YATAY RAFI. Uc sey birden kazaniyor:
+     1. Bolum SINIRI gorunur oluyor -- raf biter, digeri baslar
+     2. Ekran basina daha cok icerik dusuyor, kaydirma kisaliyor
+     3. Okur bir bolumu ATLAYABILIYOR; dikey listede atlamak icin
+        kaydirmak zorundaydi
+
+   HABER LISTESI RAF YAPILMADI: okur haberleri TARAR, aralarindan
+   secer. Yatay raf tarama icin kotudur -- goz yalnizca gorunen
+   ikisini goruyor. Raf, KESIF icin iyi (arastirmalar, senaryolar),
+   tarama icin degil.
+   ================================================================== */
+
+@media (max-width: 640px) {
+
+  .izgara {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 78%;          /* kenarda yarim kart -> "devami var" */
+    grid-template-columns: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: var(--b-3);
+    /* Kabuk dolgusunu asip kenardan baslasin: raf ekranin kenarina
+       kadar uzaninca kaydirilabilirligi daha net soyluyor. */
+    margin-inline: calc(-1 * var(--b-4));
+    padding-inline: var(--b-4);
+    scrollbar-width: none;
+    scroll-padding-inline: var(--b-4);
+  }
+  .izgara::-webkit-scrollbar { display: none; }
+  .izgara > li { scroll-snap-align: start; }
+
+  /* Raftaki kart DIKEY: dar kolonda yatay kart okunmuyor. */
+  .izgara .kart { height: 100%; }
+
+  /* BOLUM SINIRI. Rafin bittigini ve yeni bolumun basladigini
+     soyleyen tek isaret baslikti; dar ekranda o da yetmiyordu. */
+  .ai-akis,
+  .takvim,
+  .masa,
+  .one-cikan-senaryo {
+    margin-block: var(--b-6);
+    padding-top: var(--b-5);
+    border-top: 1px solid var(--cizgi);
+  }
+  .ai-akis:first-of-type { border-top: none; padding-top: 0; }
+
+  /* Bolum basligi RAFIN USTUNDE, yapiskan degil ama belirgin. */
+  .bolum-bas h2 { font-size: var(--p-xl); }
+
+  /* Dikey yigilmayi azalt: bolum ici bosluklar dar ekranda
+     gereginden genisti ve her bolum bir sayfa boyu yer kapliyordu. */
+  .ai-akis-liste { gap: var(--b-3); }
+}
+
+/* HERO MOBILDE KISA -- OKUR ICERIGE HIZLI INSIN.
+   ----------------------------------------------
+   Olculdu: hero telefonda ILK EKRANIN TAMAMINI kapliyordu. Okur
+   "bugun ne oluyor" sorusunun cevabini gormeden kaydirmak zorunda
+   kaliyordu; oysa promptun hedefi ilk uc saniyede o cevabi vermek.
+
+   Manifesto SILINMIYOR, KISALIYOR: ne oldugumuzu soylemek gerekiyor
+   ama bir kez ve kisaca. Uzun anlatim `/hakkimizda/` sayfasinda ve
+   oraya giden dugme zaten burada. */
+@media (max-width: 640px) {
+  .hero-ozet {
+    /* Uc satirda kirpiliyor; devami "Yöntemimiz" dugmesinde. */
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    font-size: var(--p-m);
+    margin-bottom: var(--b-4);
+  }
+
+  /* Marka satiri kucuk: baslik zaten NETARIS diyor. */
+  .hero-dar .ust-satir,
+  .hero-marka { font-size: var(--p-xs); }
+
+  /* Hero dugmeleri iki satira sigsin, dordu birden degil.
+     En cok kullanilan ikisi onde. */
+  .hero-butonlar { gap: var(--b-2); }
+  .hero-butonlar .dugme {
+    flex: 1 1 calc(50% - var(--b-2));
+    justify-content: center;
+    padding: var(--b-3) var(--b-2);
+    font-size: var(--p-s);
+  }
+
+  .hero-dar { padding-bottom: var(--b-4); }
+}
