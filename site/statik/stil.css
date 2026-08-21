@@ -3974,3 +3974,70 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none; }
   .paylas-dugmeler { flex-direction: column; }
   .paylas-buton { width: 100%; justify-content: center; }
 }
+
+/* ====================================================================
+   HABER SAYFASI  --  ROL HIYERARSISI
+   --------------------------------------------------------------------
+   OLCULDU: bes bolum ayni cerceveyi paylasiyordu
+   (`1px solid var(--cizgi)`): kaynaklar, seffaflik, od-blok ve
+   digerleri. Sayfa boyunca ayni kutu tekrarlaniyordu.
+
+   Asil sorun TEKRAR degil HIYERARSI. Bir kaynak listesi ile bir
+   piyasa olcumu ayni gorsel agirliktaydi; okur neyin ICERIK neyin
+   META oldugunu bicimden secemiyordu.
+
+   AYRIM ROLE GORE, SUSLEMEYE GORE DEGIL:
+
+     ICERIK   ozet kutusu, piyasa olcumu, AI yorumu
+              -> zemin + cerceve, tam agirlik
+     META     seffaflik, kaynaklar
+              -> cerceve YOK, yalnizca ust cizgi ve soluk metin
+     GEZINME  ilgili haber, okumaya devam
+              -> cerceve YOK, baslik ile ayriliyor
+
+   Meta ve gezinme GERI CEKILIYOR; boylece icerik one cikiyor. Hicbir
+   sey silinmiyor -- yalnizca agirliklari rollerine gore ayarlaniyor.
+   ================================================================== */
+
+/* META: kaynak listesi ve seffaflik notu. Okur bunlari ARADIGINDA
+   bulmali, okurken karsisina cikmamali. */
+.seffaflik,
+.kaynaklar {
+  border: none;
+  border-top: 1px solid var(--cizgi);
+  border-radius: 0;
+  background: transparent;
+  padding: var(--b-5) 0 0;
+  font-size: var(--p-s);
+  color: var(--yazi-2);
+}
+
+.seffaflik h2,
+.kaynaklar h2 {
+  font-size: var(--p-xs);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--yazi-3);
+  margin-bottom: var(--b-3);
+}
+
+/* GEZINME: ilgili haber ve okumaya devam. Cift cizgi cercevesi
+   sayfanin sonunda iki kutu daha ekliyordu; baslik zaten ayirici. */
+.ilgili-haber,
+.okumaya-devam {
+  border: none;
+  border-top: 1px solid var(--cizgi);
+  border-radius: 0;
+  padding: var(--b-6) 0 0;
+}
+
+/* Okumaya devam bloklari da cercevesiz: izgara zaten ayiriyor. */
+.od-blok {
+  border: none;
+  background: transparent;
+  padding: 0;
+}
+
+/* ICERIK KUTULARI tam agirligini KORUYOR -- burada bir sey
+   degismiyor, ama artik yanlarindaki meta kutular geri cekildigi
+   icin gorsel olarak one cikiyorlar. */
