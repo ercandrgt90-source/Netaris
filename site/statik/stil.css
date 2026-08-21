@@ -4939,3 +4939,33 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
      kalir, uye ol sagda. */
   .ust nav .ust-giris { right: 84px; }
 }
+
+/* KONUM IZI -- "neredeyim".
+   Akistan gelen okur onlarca baslik arasindan birine tikliyor; sayfa
+   acilinca hangi temada oldugunu yeniden aramamali. Iz hem geri
+   donusu hem konumu tek satirda veriyor.
+
+   Su anki konum TIKLANMAZ: okur zaten orada ve tiklanabilir
+   gorunen bir sey tiklaninca bir sey yapmiyorsa, digerlerini de
+   denemez. */
+.konum-izi {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--b-2);
+  margin: 0 0 var(--b-4);
+  font-size: var(--p-m);
+}
+.konum-izi a {
+  color: var(--yazi-2);
+  text-decoration: none;
+  font-weight: 600;
+}
+.konum-izi a:hover,
+.konum-izi a:focus-visible { color: var(--vurgu); }
+.konum-ayrac { color: var(--yazi-3); }
+.konum-simdi { color: var(--yazi); font-weight: 600; }
+
+@media (max-width: 640px) {
+  .konum-izi { font-size: 0.875rem; margin-bottom: var(--b-3); }
+}

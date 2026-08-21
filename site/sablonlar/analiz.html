@@ -48,7 +48,20 @@
    Baglanti KAYNAGA gore degisiyor: haber /gundem/'e, analiz kendi
    kategorisine doner. Sabit bir "/" yazmak, okuru bastan
    basladigi yere degil ANA SAYFAYA yollardi. #}
-<p class="geri-don"><a href="{{ geri_yol|default("/arastirmalar/") }}">← {{ geri_ad|default("Araştırmalar") }}</a></p>
+{# Iz: Arastirmalar > Kategori > Sirket. Bilanco sayfalarinda
+   sirket kodu da veriliyor -- okur 144 analiz arasindan birine
+   tikliyor ve hangisinde oldugunu basliktan once izden goruyor. #}
+<nav class="konum-izi" aria-label="Neredesiniz">
+  <a href="{{ geri_yol|default("/arastirmalar/") }}">{{ geri_ad|default("Araştırmalar") }}</a>
+  {% if a.kategori %}
+  <span class="konum-ayrac" aria-hidden="true">›</span>
+  <span class="konum-simdi">{{ a.kategori }}</span>
+  {% endif %}
+  {% if a.kod and a.kod != "MAKRO" %}
+  <span class="konum-ayrac" aria-hidden="true">›</span>
+  <span class="konum-simdi">{{ a.kod }}</span>
+  {% endif %}
+</nav>
 {# Eskimis piyasa yorumu uyarisi. Yaziyi degistirmiyoruz -- yazar o gun
    dogru olani yazdi. Ama "su an", "surduruyor" gibi ifadeler bugun okuyani
    yanilir, o yuzden tarihi one cikariyoruz ve guncel veriye yonlendiriyoruz. #}

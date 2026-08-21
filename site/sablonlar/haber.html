@@ -57,7 +57,23 @@
    Baglanti KAYNAGA gore degisiyor: haber /gundem/'e, analiz kendi
    kategorisine doner. Sabit bir "/" yazmak, okuru bastan
    basladigi yere degil ANA SAYFAYA yollardi. #}
-<p class="geri-don"><a href="{{ geri_yol|default("/gundem/") }}">← {{ geri_ad|default("Haberler") }}</a></p>
+{# KONUM GOSTERGESI -- "neredeyim" sorusunun cevabi.
+   Once yalnizca "← Haberler" yaziyordu: geri donusu sagliyor ama
+   okurun akisin NERESINDE oldugunu soylemiyordu. Akistan gelen okur
+   onlarca baslik arasindan birine tikliyor ve sayfa acilinca hangi
+   temada oldugunu yeniden aramak zorunda kaliyordu.
+
+   Iz: Haberler > Konu. Konu YOKSA basilmiyor -- "Şirket haberleri"
+   gibi varsayilan bir kova, gercek bir tema degil (bkz. anasayfa.html
+   akis-tema notu) ve yanlis bir iz yol gostermez, yanlis yone
+   gonderir. #}
+<nav class="konum-izi" aria-label="Neredesiniz">
+  <a href="{{ geri_yol|default("/gundem/") }}">{{ geri_ad|default("Haberler") }}</a>
+  {% if h.konu and h.konu != "Şirket haberleri" %}
+  <span class="konum-ayrac" aria-hidden="true">›</span>
+  <span class="konum-simdi">{{ h.konu }}</span>
+  {% endif %}
+</nav>
 {# ASAMA NUMARASI SAYAÇLA VERILIYOR, ELLE DEGIL.
 
    "İlk bakış" bolumu yorumu olmayan haberde BASILMIYOR (bkz.
