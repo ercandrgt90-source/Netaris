@@ -848,7 +848,33 @@ def _yon(fark: float) -> str:
     return "yatay kaldı"
 
 
-def _acilis(b, konu: str) -> str:
+def _acilis(b, konu: str, bolge: str = "") -> str:
+    """Veriden acilis cumlesi. `bolge` DUNYA ise YERLI seriler atlanir.
+
+    OLCULEN HATA (2026-08-22)
+    -------------------------
+    Fed tutanaklari sayfasi su cumleyle aciliyordu:
+
+        "Temmuz 2026 verisine gore TUFE yillik %31,75; bir onceki aya
+         gore -35 baz puanla geriledi; cekirdek enflasyon (C) %29,91..."
+
+    Bunlar TURKIYE rakamlari. Kullanicinin bekledigi acilis ise Fed'in
+    kendi karari: politika faizi araligi, oy dagilimi, muhalif uyeler.
+
+    Sebep: islev yalnizca KONUYA bakiyordu. "Para politikasi" konulu her
+    haber -- ABD'ninki dahil -- once Turkiye TUFE dalina giriyordu.
+    Kuresel yedek en ALTTA duruyordu ve oraya hic ulasilmiyordu.
+
+    Bu, ayni sinifin UCUNCU tekrariydi: once bolge siniflandirmasi,
+    sonra takip kalemleri, simdi acilis cumlesi. Her seferinde "konuya
+    gore secilen yerli veri" yabanci habere sizdi. Ders: konu bir
+    GOSTERGE TURUNU secer, ULKESINI bolge secer -- ikisi ayri sorular
+    ve her yerde birlikte sorulmali.
+    """
+    # DUNYA HABERINDE YERLI DALLARA HIC GIRILMIYOR.
+    if bolge == "DUNYA":
+        kod = _KURESEL.get(konu)
+        return _kuresel_cumle(b, *kod) if kod else ""
     if konu in ("Enflasyon", "Para politikası"):
         m, mo = _son_iki(b, "TP.TUKFIY2025.GENEL")
         c, co = _son_iki(b, "TP.FE25.OKTG04")
@@ -916,6 +942,16 @@ _KURESEL = {
     "Borsa": ("SP500", "S&P 500", "", "gosterge"),
     "Kripto varlıklar": ("XBTUSD", "Bitcoin", "$", "fiyat"),
     "Jeopolitik": ("DCOILBRENTEU", "Brent petrol", "$", "gosterge"),
+    # BU UCU EKSIKTI ve eksikligi sessizdi: yabanci haber bu konulara
+    # dustugunde acilis BOS kaliyordu. Bos, yanlistan iyi -- ama
+    # depoda veri VARKEN bos birakmak da bir kayip.
+    #
+    # Fed tutanaklari sayfasi tam buraya dusuyordu: "Para politikasi"
+    # konusunun kuresel karsiligi yoktu, o yuzden yerli dala giriyor ve
+    # Turkiye TUFE'siyle aciliyordu.
+    "Para politikası": ("DFF", "ABD politika faizi", "%", "gosterge"),
+    "Enflasyon": ("CPIAUCNS", "ABD TÜFE", "%", "gosterge"),
+    "İstihdam ve ücret": ("UNRATE", "ABD işsizlik oranı", "%", "gosterge"),
 }
 
 
@@ -940,8 +976,17 @@ def _kuresel_cumle(b, kod: str, ad: str, birim: str, tablo: str) -> str:
     if len(s) < 2:
         return ""
     son = s[0]
-    p = [f"{_ay_etiketi(son[0], gunlu=True)} kapanışına göre {ad} "
-         f"{_vir(son[1], 2)}{(' ' + birim) if birim else ''}"]
+    # YUZDE ISARETI ONDE, PARA BIRIMI ARKADA.
+    #
+    # Birim kosulsuz ARKAYA ekleniyordu ve "ABD politika faizi 3,63 %"
+    # cikiyordu. Turkce'de yuzde isareti sayinin ONUNE gelir: %3,63.
+    # Para birimi ($, TL) ise arkada dogru -- "95,29 $".
+    #
+    # Ayni kural sitenin geri kalaninda zaten uygulaniyordu; kuresel
+    # acilis cumlesi bu konuya YENI baglandigi icin disarida kalmisti.
+    _d = _vir(son[1], 2)
+    _deger = f"%{_d}" if birim == "%" else f"{_d}{(' ' + birim) if birim else ''}"
+    p = [f"{_ay_etiketi(son[0], gunlu=True)} kapanışına göre {ad} {_deger}"]
     for n, etiket in ((21, "1 ayda"), (63, "3 ayda")):
         if len(s) > n and s[n][1]:
             y = (son[1] - s[n][1]) / s[n][1] * 100
@@ -1400,7 +1445,9 @@ def kur(konu: str, bolge: str, haber_tarihi: str = "",
             with sqlite3.connect(f"file:{DEPO}?mode=ro", uri=True) as b:
                 d.dunya = dunya_gostergeleri(b, konu)
                 if ozetsiz or (baslik and bulten_mi(baslik)):
-                    d.acilis = _acilis(b, konu)
+                    # BOLGE GECILIYOR. Gecmedigi icin Fed sayfasi
+                    # Turkiye TUFE'siyle aciliyordu.
+                    d.acilis = _acilis(b, konu, bolge)
         except sqlite3.Error:
             pass
         return d
@@ -1420,7 +1467,7 @@ def kur(konu: str, bolge: str, haber_tarihi: str = "",
             _bulgulari_kur(b, d, konu)
 
             if (baslik and bulten_mi(baslik)) or ozetsiz:
-                d.acilis = _acilis(b, konu)
+                d.acilis = _acilis(b, konu, bolge)
 
             if haber_tarihi:
                 d.neden_bugun = _neden_bugun(b, haber_tarihi, konu)

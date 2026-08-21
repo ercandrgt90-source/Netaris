@@ -51,11 +51,33 @@ CIKTI = KOK / "site" / "cikti"
 SAYI = re.compile(r"\d+[.,]\d+")
 
 
+#: Yorum blogu. Sayfadan CIKARILIYOR -- asagiya bak.
+#: Desen `denetim.py` ile AYNI olmali. Ilk yazimimda div/section
+#: ariyordum ve HICBIR SEY eslesmiyordu -- blok aslinda bir <p>. Sonuc:
+#: cikarma islemi hic calismadi ve kontrol yine vacuous kaldi. Iki
+#: turda iki kez "0 ihlal" raporladim; ikisi de yanlisti.
+_YORUM_BLOGU = re.compile(r'<p class="ai-metin">.*?</p>', re.S)
+
+
 def sayfa_metni(yol: str) -> str | None:
+    """Sayfanin metni -- YORUM BLOGU HARIC.
+
+    ILK YAZIMIM VACUOUS BIR KONTROLDU.
+    Yorumu cikarmadan kiyasliyordum, yani yorumdaki her sayi SAYFADA
+    (yorumun kendi icinde) mutlaka bulunuyordu. Kontrol "bu sayi
+    yorumda geciyor mu" sorusunu soruyordu ve cevap her zaman evet.
+
+    Fark, `denetim.py`nin ayni kontrolu 10 ihlal bulup benimkinin 0
+    bulmasiyla ortaya cikti. Iki arac ayni seye baktigini saniyordu.
+
+    Dogru soru: sayi yorumun DISINDA, okurun bakabilecegi bir yerde
+    geciyor mu. Gecmiyorsa okur dogrulayamaz ve iddia dayanaksiz.
+    """
     p = CIKTI / yol.strip("/") / "index.html"
     if not p.exists():
         return None
     ham = p.read_text(encoding="utf-8", errors="replace")
+    ham = _YORUM_BLOGU.sub(" ", ham)
     return " ".join(html.unescape(re.sub(r"<[^>]+>", " ", ham)).split())
 
 

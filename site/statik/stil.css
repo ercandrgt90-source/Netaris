@@ -5365,15 +5365,22 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
 .grafik-son   { fill: var(--vurgu); }
 
 /* YON RENGI ANLAMLI. Yukselen ve dusen seri ayni renkte olsaydi
-   grafigin ilk bakista soyledigi tek sey "bir seri var" olurdu. */
+   grafigin ilk bakista soyledigi tek sey "bir seri var" olurdu.
+
+   JETON ADLARINI UYDURMUSTUM: --yukselis / --dusus / --yazi-soluk
+   diye yazdim, uculu de TANIMLI DEGILDI. Tanimsiz bir var()
+   bildirimi gecersiz kiliyor, yani yon renkleri HIC calismiyordu
+   -- ve tarayici hata vermedigi icin sayfada da belli olmuyordu.
+   Dogrulari: --artis / --azalis / --yazi-3. Jeton denetimi
+   (denetim.py) yakaladi; tam bunun icin yazilmisti. */
 .grafik-yukselis .grafik-cizgi,
-.grafik-yukselis .grafik-son   { stroke: var(--yukselis); fill: var(--yukselis); }
+.grafik-yukselis .grafik-son   { stroke: var(--artis); fill: var(--artis); }
 .grafik-yukselis .grafik-cizgi { fill: none; }
-.grafik-yukselis .grafik-alan  { fill: var(--yukselis); }
+.grafik-yukselis .grafik-alan  { fill: var(--artis); }
 .grafik-dusus .grafik-cizgi,
-.grafik-dusus .grafik-son      { stroke: var(--dusus); fill: var(--dusus); }
+.grafik-dusus .grafik-son      { stroke: var(--azalis); fill: var(--azalis); }
 .grafik-dusus .grafik-cizgi    { fill: none; }
-.grafik-dusus .grafik-alan     { fill: var(--dusus); }
+.grafik-dusus .grafik-alan     { fill: var(--azalis); }
 
 /* YAZI OLCEGI.
    Once `preserveAspectRatio="none"` yazmistim ve YANLISTI: o deger
@@ -5384,7 +5391,7 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
 .grafik text {
   font-family: inherit;
   font-variant-numeric: tabular-nums;
-  fill: var(--yazi-soluk);
+  fill: var(--yazi-3);
 }
 .grafik-ad     { font-size: 15px; font-weight: 650; fill: var(--yazi); }
 .grafik-deger  { font-size: 17px; font-weight: 700; fill: var(--yazi); }
