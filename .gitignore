@@ -55,3 +55,6 @@ node_modules/
 # degil, biriktiren bir depo. GitHub Actions calisip veri ekledikten
 # sonra geri commit ediyor -- boylece gecmis makineden bagimsiz kaliyor
 # ve git gecmisi denetim izi oluyor.
+
+haber_botu/*.db.yedek
+site/yonlendirme.json
