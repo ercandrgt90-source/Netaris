@@ -1281,15 +1281,33 @@ def calistir(sessiz: bool = False) -> int:
     hata = [x for x in bulgular if x.agirlik == "hata"]
     uyari = [x for x in bulgular if x.agirlik == "uyari"]
 
+    # CIKTI KONSOLUN KALDIRABILECEGI BICIMDE.
+    #
+    # OLCULDU: `denetim.py` bulgu yazdirirken COKUYORDU --
+    #   UnicodeEncodeError: 'charmap' codec can't encode '🟣'
+    # Windows konsolu cp1254 ve simgeler (🔴 🟡 🟣) o kod sayfasinda
+    # yok. Yani denetim, TAM SOYLEYECEK BIR SEYI OLDUGUNDA kiriliyordu;
+    # bulgusuz kosularda sorunsuz gorunuyor, bulgu cikinca susuyordu.
+    #
+    # Bir hata bildiricisinin kendisi kirilirsa, bildirmesi gereken sey
+    # bir daha teshis edilemez. CI'da (UTF-8) gorunmuyordu; yalnizca
+    # yerelde ve tam da bakmak istendigi anda.
+    def _yaz(metin: str) -> None:
+        kod = getattr(sys.stdout, "encoding", None) or "utf-8"
+        try:
+            print(metin)
+        except UnicodeEncodeError:
+            print(metin.encode(kod, "replace").decode(kod, "replace"))
+
     if not sessiz:
-        print("=" * 70)
-        print("  VERI DENETIMI")
-        print("=" * 70)
+        _yaz("=" * 70)
+        _yaz("  VERI DENETIMI")
+        _yaz("=" * 70)
     for x in hata:
-        print(f"  {sinif(x)}  [{x.alan}] {x.kod}: {x.mesaj}")
+        _yaz(f"  {sinif(x)}  [{x.alan}] {x.kod}: {x.mesaj}")
     if not sessiz:
         for x in uyari:
-            print(f"  {sinif(x)}  [{x.alan}] {x.kod}: {x.mesaj}")
+            _yaz(f"  {sinif(x)}  [{x.alan}] {x.kod}: {x.mesaj}")
         _rapor_yaz(bulgular, hata, uyari)
 
     # UYARI ISI DUSURMUYOR, HATA DUSURUYOR.
