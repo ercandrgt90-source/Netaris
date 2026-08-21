@@ -4646,3 +4646,56 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
     text-decoration: none;
   }
 }
+
+/* ====================================================================
+   IZGARA COCUKLARI DARALABILMELI
+   --------------------------------------------------------------------
+   OLCULDU: `.masa` izgarasi `minmax(0, 1fr) 316px`. Sol sutun
+   `minmax(0, ...)` ile korunmus ama SAG SUTUN korunmamis: 316px sabit
+   bir iz, icerigi ise ondan genis olabiliyor ve DISARI TASIYOR.
+   Kullanicinin ekran goruntusunde saga dogru kesilen basliklar
+   ("Kapasite Kulla...") tam olarak bu.
+
+   Sebep bir CSS varsayilani: izgara ve esnek kutu cocuklari
+   `min-width: auto` ile basliyor, yani ICERIKLERINDEN daha dar
+   olamiyorlar. Uzun bir kelime ya da kirilamayan bir baslik, izin
+   verilen genisligi asiyor.
+
+   `min-width: 0` bu varsayilani kaldiriyor; `overflow-wrap` ise
+   kirilamayan uzun dizgelere (kurum adlari, uzun bilesik sozcukler)
+   kirilma izni veriyor.
+
+   Bu, taşmayi GIZLEMEK degil: icerik kirpilmiyor, sigacak sekilde
+   sariyor.
+   ================================================================== */
+
+.masa > *,
+.masa-akis,
+.masa-ana {
+  min-width: 0;
+}
+
+.masa-akis,
+.akis-liste,
+.akis-liste li {
+  min-width: 0;
+}
+
+.akis-baslik,
+.akis-kunye,
+.akis-tema,
+.ai-kart-baslik,
+.onem-baslik,
+.kart-baslik {
+  overflow-wrap: anywhere;
+}
+
+/* Ayni koruma butun izgara/esnek kaplar icin: bir bilesende
+   duzeltip digerinde birakmak, ayni kusuru baska sayfada yeniden
+   uretmek olurdu. */
+.izgara > li,
+.ai-akis-liste > li,
+.onem-liste > li,
+.arastirma-izgara > * {
+  min-width: 0;
+}
