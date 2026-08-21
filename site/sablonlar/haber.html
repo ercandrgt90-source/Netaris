@@ -422,11 +422,11 @@
     <h2>İlgili göstergeler</h2>
     <div class="tr-izgara">
       {% for g in dosya.dunya %}
-      <div class="tr-kalem" title="{{ g.ad }} — önceki dönem {{ g.onceki_tarih }}">
+      <div class="tr-kalem" title="{{ g.ad }} — veri dönemi {{ g.donem }}, önceki {{ g.onceki_tarih }}">
         <span class="tr-ad">{{ g.ad }}</span>
         <span class="tr-deger">{{ "%.2f"|format(g.son)|replace(".", ",") }}{{ g.birim }}</span>
         <span class="tr-degisim {{ g.yon }}">{{ g.degisim }}</span>
-        <span class="tr-tarih">{{ g.tarih }}</span>
+        <span class="tr-tarih">{{ g.donem }}</span>
       </div>
       {% endfor %}
     </div>
@@ -436,11 +436,11 @@
     <h2>Bugünkü görünüm</h2>
     <div class="tr-izgara">
       {% for g in dosya.turkiye %}
-      <div class="tr-kalem" title="{{ g.ad }} — önceki dönem {{ g.onceki_tarih }}">
+      <div class="tr-kalem" title="{{ g.ad }} — veri dönemi {{ g.donem }}, önceki {{ g.onceki_tarih }}">
         <span class="tr-ad">{{ g.ad }}</span>
         <span class="tr-deger">{{ "%.2f"|format(g.son)|replace(".", ",") }}{{ g.birim }}</span>
         <span class="tr-degisim {{ g.yon }}">{{ g.degisim }}</span>
-        <span class="tr-tarih">{{ g.tarih }}</span>
+        <span class="tr-tarih">{{ g.donem }}</span>
       </div>
       {% endfor %}
       {% if dosya.reel_faiz is not none %}

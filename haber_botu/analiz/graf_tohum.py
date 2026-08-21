@@ -176,7 +176,21 @@ VARLIKLAR: tuple[tuple, ...] = (
     ("BTC", "piyasa", "Bitcoin", "Bitcoin", "XBTUSD", 80, ""),
     ("ETH", "piyasa", "Ethereum", "Ethereum", "ETHUSD", 65, ""),
     ("USDTRY", "piyasa", "USD/TRY", "USD/TRY", "TP.DK.USD.S.YTL", 100, ""),
-    ("EURUSD", "piyasa", "EUR/USD", "EUR/USD", "DEXUSEU", 75, ""),
+    # SERI ECB'YE CEVRILDI, FRED'in DEXUSEU'suna DEGIL.
+    #
+    # Panel kalemleri bir donem once ECB'ye tasinmisti (bkz.
+    # kaynak/ecb_kur.py): FRED'in DEXUSEU serisi ALTI IS GUNU geride
+    # geliyor ve "fiyat seridi"nde o kadar gecikme fiyat degil arsiv
+    # demek.
+    #
+    # Ama varligin `seri_kodu` cevrilmemisti. Sonuc, tazelik olcumunde
+    # cikti: panel 21 Agustos'u gosterirken VARLIK SAYFASININ GRAFIGI
+    # 31 Temmuz'da bitiyordu -- ayni sayfada iki farkli tarih.
+    #
+    # Bir kaynak degistirilirken ona bagli HER YER taranmali; tek bir
+    # tuketici atlandiginda hata sessiz kaliyor cunku iki deger de
+    # "gercek", yalnizca ayni gune ait degil.
+    ("EURUSD", "piyasa", "EUR/USD", "EUR/USD", "ECB_EURUSD", 75, ""),
     ("CDS_TR", "piyasa", "Türkiye CDS", "Türkiye CDS", None, 85,
      "Ülke risk primi. Dış borçlanma maliyetinin göstergesi."),
 

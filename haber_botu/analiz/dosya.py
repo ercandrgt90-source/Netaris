@@ -33,6 +33,7 @@ from __future__ import annotations
 import pathlib
 import re
 import sqlite3
+import sys
 from dataclasses import dataclass, field
 from datetime import date
 
@@ -643,6 +644,38 @@ SENARYOLAR: dict[str, tuple[tuple[str, str], ...]] = {
 # Seri analizi
 # --------------------------------------------------------------------------
 
+# --- Frekans onbellegi -------------------------------------------------
+#
+# `donem` her gosterge kaleminde cagriliyor ve her cagri bir SQL sorgusu
+# demek. Sayfa basina onlarca kalem var; onbelleksiz her sayfa uretimi
+# gereksiz yere depoya gidiyor. Frekans bir kosu icinde degismiyor.
+# YOL DOSYADAN TURUYOR.
+# Duz `import tazelik` yazdim ve `test_bolge.py` KIRILDI: o test
+# `analiz/` dizinini sys.path'e eklemiyor. Cagiran her baglamin dogru
+# yolu kurmus olmasini beklemek, modulu cagiranin ayarina bagimli
+# kilar. Bugun ayni tuzaga `varlik.py`de de dustum -- desen ayni.
+if str(pathlib.Path(__file__).resolve().parent) not in sys.path:
+    sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import tazelik as _tazelik  # noqa: E402
+
+_FREKANS: dict[str, str] = {}
+
+
+def _frekans_onbellek(kod: str) -> str:
+    if kod in _FREKANS:
+        return _FREKANS[kod]
+    f = ""
+    if DEPO.exists():
+        try:
+            with sqlite3.connect(f"file:{DEPO}?mode=ro", uri=True) as b:
+                d = _tazelik.seri_durumu(b, kod)
+                f = d["frekans"] if d else ""
+        except sqlite3.Error:
+            f = ""
+    _FREKANS[kod] = f
+    return f
+
+
 @dataclass
 class Gosterge:
     kod: str
@@ -656,6 +689,33 @@ class Gosterge:
     @property
     def fark(self) -> float:
         return self.son - self.onceki
+
+    @property
+    def donem(self) -> str:
+        """VERI DONEMI -- yayin tarihinden ayri okunsun diye.
+
+        Panel `tarih` alanini ham basiyordu: "2026-07-01". Okur bunu bir
+        GUN olarak okuyor; oysa aylik seride TEMMUZ AYININ verisi.
+
+        Editoryal geri bildirimde bildirilen sorun tam buydu -- bir
+        haber sayfasinda uc ayri tarih bulunuyor ve ucu farkli soruyu
+        cevapliyor:
+
+            olay tarihi   29 Temmuz   (Fed toplantisi)
+            veri donemi   Temmuz 2026 (gostergenin ait oldugu ay)
+            yayin tarihi  20 Agustos  (tutanaklarin cikisi)
+
+        Ucu ayni bicimde yazilinca okur hangisinin ne oldugunu
+        ayirt edemiyor. Donem artik kendi biriminde yaziliyor:
+        aylik seri "Temmuz 2026", ceyreklik "2026 2. ceyrek", gunluk
+        seri gun olarak.
+
+        Frekans DEPODAN olculuyor (`tazelik.seri_durumu`), elle
+        yazilmiyor -- yeni seri eklendiginde bir tabloyu guncellemeyi
+        unutmak, sessizce yanlis etiket basmak demek olurdu.
+        """
+        f = _frekans_onbellek(self.kod)
+        return _tazelik.donem_etiketi(self.tarih, f) if f else self.tarih
 
     @property
     def degisim(self) -> str:

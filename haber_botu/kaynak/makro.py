@@ -115,7 +115,17 @@ PANEL_GRUPLARI = (
     ("Endeksler", ("SP500", "NASDAQCOM", "DJIA")),
     ("Emtia", ("DCOILBRENTEU", "DCOILWTICO")),
     ("Faiz", ("DFF", "DGS2", "DGS10", "T10Y2Y")),
-    ("Risk ve kur", ("VIXCLS", "DTWEXBGS", "DEXUSEU")),
+    # EUR/USD ICIN DEXUSEU DEGIL ECB.
+    #
+    # FRED'in DEXUSEU serisi alti is gunu geride geliyor (bkz.
+    # kaynak/ecb_kur.py). Panel bir donem once ECB'ye tasindi ama BU
+    # LISTE cevrilmemisti; tazelik olcumu onu 22 gunluk gosterdi ve
+    # varligin grafigi hala oradan besleniyordu.
+    #
+    # Bir kaynak degistirilirken ona bagli her yer taranmali: iki deger
+    # de "gercek" oldugu icin hata sessiz kaliyor, yalnizca ayni gune
+    # ait olmuyorlar.
+    ("Risk ve kur", ("VIXCLS", "DTWEXBGS", "ECB_EURUSD")),
 )
 
 
