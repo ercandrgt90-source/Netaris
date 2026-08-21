@@ -1019,9 +1019,147 @@ async function senaryoHepsi(env) {
 
 /* --------------------------------------------------------------- yonlendirme */
 
+
+/* --------------------------------------------------------------------
+   SENARYO SAYFASI  --  /senaryo/<id>/
+   --------------------------------------------------------------------
+   Senaryolar D1'de yasiyor ve site statik; bu yuzden sayfa DERLEME
+   aninda uretilemiyor. Okur bir senaryoyu paylastiginda karsi tarafin
+   acacagi bir adres olmali -- yoksa paylasim `/topluluk/` sayfasina
+   gider ve okur hangi senaryodan bahsedildigini bulamaz.
+
+   NEDEN SUNUCUDA URETILIYOR
+   Istemci tarafinda cizilseydi `og:title` ve `og:description` bos
+   kalirdi: X ve LinkedIn sayfayi JavaScript calistirmadan okuyor.
+   Paylasim kartinin dolu gorunmesi icin etiketlerin ILK YANITTA
+   bulunmasi gerekiyor.
+
+   YALNIZCA YAYIMLANMIS SENARYO. Taslak ya da incelemedeki bir
+   senaryonun adresi acilmiyor -- 404 doniyor ve statik dosyaya
+   dusuyor. Yayimlanmamis icerigin adresten sizmasi, inceleme
+   surecini anlamsiz kilardi.
+-------------------------------------------------------------------- */
+
+function kacir(m) {
+  return String(m == null ? "" : m)
+    .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;").replace(/'/g, "&#39;");
+}
+
+/* Ufuk metni: "3 ay" -> "3 ay icinde". Sonuclanmis senaryoda ufuk
+   gecmis zamanla yaziliyor -- "3 ay icinde" demek, suresi dolmus bir
+   senaryoyu hala acik gostermek olurdu. */
+function ufukMetni(s) {
+  if (s.sonuclanma) {
+    const k = { gerceklesti: "gerçekleşti", gerceklesmedi: "gerçekleşmedi",
+                belirsiz: "sonucu belirsiz kaldı" };
+    return k[s.sonuclanma] || "süresi doldu";
+  }
+  return (s.ufuk || "3 ay") + " içinde";
+}
+
+async function senaryoSayfa(istek, env, id) {
+  if (!env.DB || !Number.isFinite(id)) return null;
+  const r = await env.DB.prepare(
+    "SELECT s.id, s.kosul, s.sonuc, s.gerekce, s.ufuk, s.ufuk_biter, " +
+    "s.yayin, s.sonuclanma, s.sonuclanma_notu, s.capa, s.capa_tur, " +
+    "s.capa_baslik, u.ad AS yazar, " +
+    "(SELECT COUNT(*) FROM senaryo_oy o WHERE o.senaryo_id = s.id) AS oy " +
+    "FROM senaryo s JOIN uye u ON u.id = s.uye_id " +
+    "WHERE s.id = ? AND s.durum = 'yayimlandi'"
+  ).bind(id).first();
+  if (!r) return null;
+
+  const baslik = r.kosul;
+  /* Ozet KOSUL + SONUC birlikte: tek basina kosul "ne olursa" der ama
+     "ne olur" demez, ve paylasim kartinda yarim bir cumle kalir. */
+  const ozet = r.kosul + " " + r.sonuc;
+  const adres = new URL(istek.url).origin + "/senaryo/" + r.id + "/";
+
+  const govde = `<!DOCTYPE html>
+<html lang="tr"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>${kacir(baslik)} — Netaris senaryo</title>
+<meta name="description" content="${kacir(ozet).slice(0, 300)}">
+<link rel="canonical" href="${kacir(adres)}">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Netaris">
+<meta property="og:locale" content="tr_TR">
+<meta property="og:title" content="${kacir(baslik)}">
+<meta property="og:description" content="${kacir(ozet).slice(0, 300)}">
+<meta property="og:url" content="${kacir(adres)}">
+<meta name="twitter:card" content="summary">
+<link rel="stylesheet" href="/statik/stil.css">
+</head><body>
+<main class="kabuk senaryo-sayfa">
+  <p class="senaryo-tur">SENARYO</p>
+  <h1>${kacir(baslik)}</h1>
+
+  <p class="senaryo-kunye">
+    <span>${kacir(r.yazar || "Netaris okuru")}</span>
+    <span class="ayrac">·</span>
+    <span>${kacir(ufukMetni(r))}</span>
+    <span class="ayrac">·</span>
+    <span>${r.oy} destek</span>
+  </p>
+
+  <section class="senaryo-blok">
+    <h2>Tetikleyici</h2>
+    <p>${kacir(r.kosul)}</p>
+  </section>
+
+  <section class="senaryo-blok">
+    <h2>Beklenen sonuç</h2>
+    <p>${kacir(r.sonuc)}</p>
+  </section>
+
+  ${r.gerekce ? `<section class="senaryo-blok">
+    <h2>Neden böyle düşünüyor</h2>
+    <p>${kacir(r.gerekce)}</p>
+  </section>` : ""}
+
+  ${r.sonuclanma ? `<section class="senaryo-blok senaryo-sonuc">
+    <h2>Sonuç</h2>
+    <p>Bu senaryo <b>${kacir(ufukMetni(r))}</b>.</p>
+    ${r.sonuclanma_notu ? `<p>${kacir(r.sonuclanma_notu)}</p>` : ""}
+  </section>` : ""}
+
+  ${r.capa && r.capa_tur === "haber" ? `<p class="senaryo-capa">
+    Bağlam: <a href="${kacir(r.capa)}">${kacir(r.capa_baslik || "ilgili haber")}</a>
+  </p>` : ""}
+
+  <p class="senaryo-uyari"><strong>Yatırım tavsiyesi değildir.</strong>
+  Senaryo bir koşullu değerlendirmedir; koşulun gerçekleşeceği iddia
+  edilmez. Yazan okurun kendi görüşüdür.</p>
+
+  <p class="senaryo-geri"><a href="/topluluk/">← Tüm senaryolar</a></p>
+</main>
+</body></html>`;
+
+  return new Response(govde, {
+    headers: {
+      "content-type": "text/html; charset=utf-8",
+      /* Kisa onbellek: senaryo oy alabiliyor ve sonuclanabiliyor,
+         ama her istekte D1 sorgulamak da gereksiz. */
+      "cache-control": "public, max-age=300",
+    },
+  });
+}
+
+
 export default {
   async fetch(istek, env) {
     const u = new URL(istek.url);
+
+    /* SENARYO SAYFASI statik dosyadan ONCE. Bulunamazsa (taslak,
+       silinmis, gecersiz id) statik akisa dusuyor ve normal 404
+       sayfasi cikiyor -- worker kendi hata sayfasini uydurmuyor. */
+    const sp = u.pathname.match(/^\/senaryo\/(\d+)\/?$/);
+    if (sp) {
+      const y = await senaryoSayfa(istek, env, Number(sp[1]));
+      if (y) return y;
+    }
 
     if (!u.pathname.startsWith("/api/")) {
       return env.ASSETS.fetch(istek);

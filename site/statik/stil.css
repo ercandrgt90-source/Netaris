@@ -3718,3 +3718,76 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none; }
 }
 
 .surpriz-tam { font-style: italic; }
+
+/* ====================================================================
+   SENARYO SAYFASI  (/senaryo/<id>/)
+   --------------------------------------------------------------------
+   HABER SAYFASININ KOPYASI DEGIL. Promptun ayrimi: haber notr, senaryo
+   KOSULLU. Okur bir senaryoya baktigini sayfanin bicimeden anlamali --
+   yoksa kosullu bir degerlendirmeyi bildirim gibi okur.
+   ================================================================== */
+
+.senaryo-sayfa { max-width: var(--olcu); margin: 0 auto; padding: var(--b-7) 0; }
+
+.senaryo-tur {
+  font-size: var(--p-xs);
+  font-weight: 700;
+  letter-spacing: .12em;
+  color: var(--vurgu);
+  margin: 0 0 var(--b-2);
+}
+
+.senaryo-sayfa h1 {
+  font-size: var(--p-3xl);
+  line-height: var(--satir-sik);
+  margin: 0 0 var(--b-3);
+}
+
+.senaryo-kunye {
+  font-size: var(--p-s);
+  color: var(--yazi-2);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--b-2);
+  margin: 0 0 var(--b-7);
+  padding-bottom: var(--b-4);
+  border-bottom: 1px solid var(--cizgi);
+}
+
+/* Her bolum SOL KENARDAN isaretli: senaryo bir dusunce zinciri, kutu
+   yigini degil. Cizgi zinciri gorsel olarak surduruyor. */
+.senaryo-blok {
+  border-left: 2px solid var(--cizgi);
+  padding-left: var(--b-5);
+  margin-bottom: var(--b-6);
+}
+
+.senaryo-blok h2 {
+  font-size: var(--p-xs);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--yazi-2);
+  margin: 0 0 var(--b-2);
+}
+
+.senaryo-blok p {
+  font-size: var(--p-l);
+  line-height: var(--satir-genis);
+  margin: 0 0 var(--b-3);
+}
+
+.senaryo-sonuc { border-left-color: var(--vurgu); }
+
+.senaryo-capa,
+.senaryo-geri { font-size: var(--p-m); }
+
+.senaryo-uyari {
+  font-size: var(--p-s);
+  line-height: var(--satir-genis);
+  color: var(--yazi-2);
+  background: var(--zemin-2);
+  border: 1px solid var(--cizgi);
+  border-radius: var(--b-2);
+  padding: var(--b-4);
+  margin: var(--b-7) 0 var(--b-5);
+}
