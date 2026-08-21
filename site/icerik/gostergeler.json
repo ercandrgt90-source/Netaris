@@ -1,14 +1,14 @@
 {
-  "guncelleme": "2026-08-20",
+  "guncelleme": "2026-08-21",
   "kaynak": "FRED (St. Louis Fed)",
   "kalemler": [
     {
       "kod": "TP.DK.USD.S.YTL",
       "ad": "USD/TRY",
-      "deger": "47,93",
+      "deger": "47,95",
       "fark": "+0,04%",
       "yon": "artis",
-      "tarih": "2026-08-20",
+      "tarih": "2026-08-21",
       "birim": "TL",
       "gun": 0,
       "bayat": false
@@ -16,10 +16,10 @@
     {
       "kod": "TP.DK.EUR.S.YTL",
       "ad": "EUR/TRY",
-      "deger": "55,61",
-      "fark": "+0,25%",
+      "deger": "56,08",
+      "fark": "+0,85%",
       "yon": "artis",
-      "tarih": "2026-08-20",
+      "tarih": "2026-08-21",
       "birim": "TL",
       "gun": 0,
       "bayat": false
@@ -27,10 +27,10 @@
     {
       "kod": "ECB_EURUSD",
       "ad": "EUR/USD",
-      "deger": "1,16",
-      "fark": "+0,25%",
+      "deger": "1,17",
+      "fark": "+0,65%",
       "yon": "artis",
-      "tarih": "2026-08-19",
+      "tarih": "2026-08-20",
       "birim": "TL",
       "gun": 1,
       "bayat": false
@@ -38,10 +38,10 @@
     {
       "kod": "SP500",
       "ad": "S&P 500",
-      "deger": "7.708",
-      "fark": "+0,21%",
-      "yon": "artis",
-      "tarih": "2026-08-19",
+      "deger": "7.641",
+      "fark": "-0,87%",
+      "yon": "azalis",
+      "tarih": "2026-08-20",
       "birim": "endeks",
       "gun": 1,
       "bayat": false
@@ -49,10 +49,10 @@
     {
       "kod": "NASDAQCOM",
       "ad": "NASDAQ",
-      "deger": "26.331",
-      "fark": "+0,16%",
-      "yon": "artis",
-      "tarih": "2026-08-19",
+      "deger": "26.067",
+      "fark": "-1,00%",
+      "yon": "azalis",
+      "tarih": "2026-08-20",
       "birim": "endeks",
       "gun": 1,
       "bayat": false
@@ -60,10 +60,10 @@
     {
       "kod": "DJIA",
       "ad": "DOW",
-      "deger": "53.463",
-      "fark": "+0,22%",
-      "yon": "artis",
-      "tarih": "2026-08-19",
+      "deger": "52.759",
+      "fark": "-1,32%",
+      "yon": "azalis",
+      "tarih": "2026-08-20",
       "birim": "endeks",
       "gun": 1,
       "bayat": false
@@ -76,8 +76,9 @@
       "yon": "artis",
       "tarih": "2026-08-18",
       "birim": "USD/varil",
-      "gun": 2,
-      "bayat": false
+      "gun": 3,
+      "bayat": true,
+      "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · sonraki 26 Ağustos"
     },
     {
       "kod": "DCOILWTICO",
@@ -87,8 +88,9 @@
       "yon": "artis",
       "tarih": "2026-08-18",
       "birim": "USD/varil",
-      "gun": 2,
-      "bayat": false
+      "gun": 3,
+      "bayat": true,
+      "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · sonraki 26 Ağustos"
     },
     {
       "kod": "DFF",
@@ -96,7 +98,7 @@
       "deger": "%3,63",
       "fark": "0 bp",
       "yon": "yatay",
-      "tarih": "2026-08-18",
+      "tarih": "2026-08-19",
       "birim": "%",
       "gun": 2,
       "bayat": false
@@ -107,7 +109,7 @@
       "deger": "%4,19",
       "fark": "0 bp",
       "yon": "yatay",
-      "tarih": "2026-08-18",
+      "tarih": "2026-08-19",
       "birim": "%",
       "gun": 2,
       "bayat": false
@@ -115,10 +117,10 @@
     {
       "kod": "DGS10",
       "ad": "ABD 10Y",
-      "deger": "%4,71",
-      "fark": "-1 bp",
+      "deger": "%4,65",
+      "fark": "-6 bp",
       "yon": "azalis",
-      "tarih": "2026-08-18",
+      "tarih": "2026-08-19",
       "birim": "%",
       "gun": 2,
       "bayat": false
@@ -126,10 +128,10 @@
     {
       "kod": "T10Y2Y",
       "ad": "10Y-2Y",
-      "deger": "0,46",
-      "fark": "-6 bp",
-      "yon": "azalis",
-      "tarih": "2026-08-19",
+      "deger": "0,50",
+      "fark": "+4 bp",
+      "yon": "artis",
+      "tarih": "2026-08-20",
       "birim": "puan",
       "gun": 1,
       "bayat": false
@@ -142,7 +144,7 @@
       "yon": "azalis",
       "tarih": "2026-08-19",
       "birim": "endeks",
-      "gun": 1,
+      "gun": 2,
       "bayat": false
     },
     {
@@ -153,7 +155,7 @@
       "yon": "azalis",
       "tarih": "2026-08-14",
       "birim": "endeks",
-      "gun": 4,
+      "gun": 5,
       "bayat": true,
       "ritim": "Fed bu endeksi haftalık yayımlıyor"
     }
@@ -165,10 +167,10 @@
         {
           "kod": "SP500",
           "ad": "S&P 500",
-          "deger": "7.708",
-          "fark": "+0,21%",
-          "yon": "artis",
-          "tarih": "2026-08-19",
+          "deger": "7.641",
+          "fark": "-0,87%",
+          "yon": "azalis",
+          "tarih": "2026-08-20",
           "birim": "endeks",
           "gun": 1,
           "bayat": false
@@ -176,10 +178,10 @@
         {
           "kod": "NASDAQCOM",
           "ad": "Nasdaq",
-          "deger": "26.331",
-          "fark": "+0,16%",
-          "yon": "artis",
-          "tarih": "2026-08-19",
+          "deger": "26.067",
+          "fark": "-1,00%",
+          "yon": "azalis",
+          "tarih": "2026-08-20",
           "birim": "endeks",
           "gun": 1,
           "bayat": false
@@ -187,10 +189,10 @@
         {
           "kod": "DJIA",
           "ad": "Dow Jones",
-          "deger": "53.463",
-          "fark": "+0,22%",
-          "yon": "artis",
-          "tarih": "2026-08-19",
+          "deger": "52.759",
+          "fark": "-1,32%",
+          "yon": "azalis",
+          "tarih": "2026-08-20",
           "birim": "endeks",
           "gun": 1,
           "bayat": false
@@ -208,8 +210,9 @@
           "yon": "artis",
           "tarih": "2026-08-18",
           "birim": "USD/varil",
-          "gun": 2,
-          "bayat": false
+          "gun": 3,
+          "bayat": true,
+          "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · sonraki 26 Ağustos"
         },
         {
           "kod": "DCOILWTICO",
@@ -219,8 +222,9 @@
           "yon": "artis",
           "tarih": "2026-08-18",
           "birim": "USD/varil",
-          "gun": 2,
-          "bayat": false
+          "gun": 3,
+          "bayat": true,
+          "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · sonraki 26 Ağustos"
         }
       ]
     },
@@ -233,7 +237,7 @@
           "deger": "%3,63",
           "fark": "0 bp",
           "yon": "yatay",
-          "tarih": "2026-08-18",
+          "tarih": "2026-08-19",
           "birim": "%",
           "gun": 2,
           "bayat": false
@@ -244,7 +248,7 @@
           "deger": "%4,19",
           "fark": "0 bp",
           "yon": "yatay",
-          "tarih": "2026-08-18",
+          "tarih": "2026-08-19",
           "birim": "%",
           "gun": 2,
           "bayat": false
@@ -252,10 +256,10 @@
         {
           "kod": "DGS10",
           "ad": "ABD 10 yıllık",
-          "deger": "%4,71",
-          "fark": "-1 bp",
+          "deger": "%4,65",
+          "fark": "-6 bp",
           "yon": "azalis",
-          "tarih": "2026-08-18",
+          "tarih": "2026-08-19",
           "birim": "%",
           "gun": 2,
           "bayat": false
@@ -263,10 +267,10 @@
         {
           "kod": "T10Y2Y",
           "ad": "10Y − 2Y farkı",
-          "deger": "0,46",
-          "fark": "-6 bp",
-          "yon": "azalis",
-          "tarih": "2026-08-19",
+          "deger": "0,50",
+          "fark": "+4 bp",
+          "yon": "artis",
+          "tarih": "2026-08-20",
           "birim": "puan",
           "gun": 1,
           "bayat": false
@@ -284,7 +288,7 @@
           "yon": "azalis",
           "tarih": "2026-08-19",
           "birim": "endeks",
-          "gun": 1,
+          "gun": 2,
           "bayat": false
         },
         {
@@ -295,17 +299,17 @@
           "yon": "azalis",
           "tarih": "2026-08-14",
           "birim": "endeks",
-          "gun": 4,
+          "gun": 5,
           "bayat": true,
           "ritim": "Fed bu endeksi haftalık yayımlıyor"
         },
         {
           "kod": "ECB_EURUSD",
           "ad": "EUR/USD",
-          "deger": "1,16",
-          "fark": "+0,25%",
+          "deger": "1,17",
+          "fark": "+0,65%",
           "yon": "artis",
-          "tarih": "2026-08-19",
+          "tarih": "2026-08-20",
           "birim": "TL",
           "gun": 1,
           "bayat": false
