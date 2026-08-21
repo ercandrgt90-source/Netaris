@@ -188,6 +188,20 @@
      Olcek DORT PIKSEL tabanli. 20 ve 28 sonradan EKLENDI: ikisi de
      izgarada ve sirasiyla 30 ve 12 yerde kullaniliyordu -- eksik olan
      kullanim degil, olcegin kendisiydi. */
+  /* IZGARA ASLINDA IKI PIKSEL -- OLCULDU, VARSAYILMADI.
+     Bu blok "dort piksel tabanli" diye yazilmisti ve ben de oyle
+     sanip 203 kullanimi "izgara disi ihlal" diye saydim. Olcunce
+     tersi cikti:
+         10px  51 kez      18px  33 kez      22px  18 kez
+         14px  37 kez       6px  28 kez      26px  17 kez
+     Bu bir kaza degil, sistematik bir YARIM ADIM. Tasarim iki
+     piksel izgarada calisiyor; dort piksel yalnizca ANA adimlar.
+     Yanlis belge, yanlis koddan kotudur: kod calisir ama belge
+     okuyani yanlis yone gonderir.
+
+     Ana adimlar (--b-*) asagida. Yarim adimlar HENUZ jetonlanmadi;
+     adlandirma karari verilmeden 184 kullanimi degistirmek, bir
+     tutarsizligi digeriyle degistirmek olurdu. */
   --b-1: 4px;
   --b-2: 8px;
   --b-3: 12px;
@@ -318,7 +332,7 @@ img, svg { max-width: 100%; }
   display: flex;
   gap: var(--b-1);
   flex-wrap: wrap;
-  margin-left: auto;
+  margin: auto;
 }
 
 .ust nav a {
@@ -457,14 +471,14 @@ img, svg { max-width: 100%; }
 
 /* ---------------------------------------------------------------- ana alan */
 
-main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
+main.kabuk { padding: 26px; padding: var(--b-7); }
 
 /* ------------------------------------------------------------------- giris */
 
 .giris {
   padding: 18px 0 26px;
   border-bottom: 1px solid var(--cizgi);
-  margin-bottom: var(--b-5b);
+  margin: var(--b-5b);
 }
 
 .giris h1 {
@@ -493,7 +507,7 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 22px;
+  margin: 22px;
 }
 
 .dugme {
@@ -527,7 +541,7 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
   border: 1px solid var(--cizgi);
   border-radius: var(--r);
   box-shadow: var(--golge);
-  margin-bottom: 38px;
+  margin: var(--b-7);
   overflow: hidden;
 }
 
@@ -567,7 +581,7 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 1px;
-  margin-top: var(--b-2);
+  margin: var(--b-2);
   background: var(--cizgi);
   border: 1px solid var(--cizgi);
   border-radius: var(--r);
@@ -592,7 +606,7 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
 
 .rakam span {
   display: block;
-  margin-top: var(--b-1);
+  margin: var(--b-1);
   font-size: var(--p-xs);
   color: var(--yazi-3);
 }
@@ -633,7 +647,7 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
   border: 1px solid var(--cizgi);
   border-radius: var(--r);
   box-shadow: var(--golge);
-  margin-bottom: var(--b-6);
+  margin: var(--b-6);
   color: inherit;
   text-decoration: none;
   overflow: hidden;
@@ -718,7 +732,7 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
 
 .izgara {
   list-style: none;
-  margin: 0 0 34px;
+  margin: 0 0 var(--b-6);
   padding: 0;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
@@ -802,8 +816,8 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
 }
 
 .kart-alt {
-  margin-top: auto;
-  padding-top: var(--b-3);
+  margin: auto;
+  padding: var(--b-3);
   border-top: 1px solid var(--cizgi);
   display: flex;
   align-items: center;
@@ -860,9 +874,9 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
   border: 1px solid var(--uyari-cizgi);
   border-radius: var(--r);
   padding: var(--b-4) var(--b-4b);
-  margin-bottom: var(--b-5b);
+  margin: var(--b-5b);
 }
-.uyari-bant strong { color: var(--uyari); display: block; margin-bottom: var(--b-1); }
+.uyari-bant strong { color: var(--uyari); display: block; margin: var(--b-1); }
 .uyari-bant p { margin: 0; font-size: var(--p-m); color: var(--yazi-2); }
 
 /* -------------------------------------------------------------------- yazi */
@@ -885,7 +899,7 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
 
 .yazi-gorsel {
   display: block;
-  margin-bottom: 26px;
+  margin: 26px;
   border: 1px solid var(--cizgi);
   border-radius: var(--r);
   overflow: hidden;
@@ -893,7 +907,7 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
 }
 .yazi-gorsel svg { display: block; width: 100%; height: auto; }
 
-.yazi > header { margin-bottom: 22px; }
+.yazi > header { margin: 22px; }
 
 .kicker { margin: 0 0 var(--b-3); display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
 
@@ -927,8 +941,8 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
    iki satiri tekrarladigi icin kaldirildi. Nasil uretildigi yayin
    ilkelerinde bir kez, dogru yerde anlatiliyor. */
 .kaynak-not {
-  margin: 30px 0 0;
-  padding-top: 18px;
+  margin: var(--b-6) 0 0;
+  padding: 18px;
   border-top: 1px solid var(--cizgi);
   font-size: var(--p-s);
   color: var(--yazi-3);
@@ -941,7 +955,7 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
   border: 1px solid var(--cizgi);
   border-radius: var(--r);
   padding: var(--b-5);
-  margin-bottom: var(--b-5b);
+  margin: var(--b-5b);
 }
 
 .skor-ust {
@@ -949,8 +963,8 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
   align-items: baseline;
   gap: 14px;
   flex-wrap: wrap;
-  padding-bottom: 18px;
-  margin-bottom: 18px;
+  padding: 18px;
+  margin: 18px;
   border-bottom: 1px solid var(--cizgi);
 }
 
@@ -971,7 +985,7 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
 }
 .skor-deger span { font-size: 1rem; color: var(--yazi-3); font-weight: 600; }
 
-.skor-kapsam { font-size: var(--p-s); color: var(--yazi-3); margin-left: auto; }
+.skor-kapsam { font-size: var(--p-s); color: var(--yazi-3); margin: auto; }
 
 .kriterler { display: grid; gap: var(--b-3); }
 
@@ -1014,7 +1028,7 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
   font-size: var(--p-2xl);
   font-weight: 700;
   letter-spacing: -0.015em;
-  padding-top: 22px;
+  padding: 22px;
   border-top: 1px solid var(--cizgi);
 }
 
@@ -1031,8 +1045,8 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
   line-height: var(--satir-genis);
 }
 .govde strong { color: var(--yazi); }
-.govde ul, .govde ol { margin: 0 0 18px; padding-left: 22px; }
-.govde li { margin-bottom: var(--b-2); }
+.govde ul, .govde ol { margin: 0 0 18px; padding: 22px; }
+.govde li { margin: var(--b-2); }
 .govde hr { border: 0; border-top: 1px solid var(--cizgi); margin: var(--b-6) 0; }
 
 .govde em {
@@ -1181,8 +1195,8 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
 }
 
 .haber-git {
-  margin-top: auto;
-  padding-top: 10px;
+  margin: auto;
+  padding: 10px;
   font-size: var(--p-s);
   font-weight: 600;
   color: var(--vurgu);
@@ -1191,7 +1205,7 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
 /* ------------------------------------------------------------------ arama */
 
 .ara-baglanti {
-  display: inline-flex !important;
+  display: inline-flex;
   align-items: center;
   gap: 6px;
   border: 1px solid var(--cizgi);
@@ -1202,7 +1216,7 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
   display: flex;
   align-items: center;
   gap: 14px;
-  margin-bottom: 26px;
+  margin: 26px;
 }
 
 .ara-kutu {
@@ -1223,7 +1237,7 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
 
 .ara-sayac { font-size: var(--p-s); color: var(--yazi-3); white-space: nowrap; }
 
-.ara-sonuc { margin-bottom: 30px; }
+.ara-sonuc { margin: var(--b-6); }
 
 .ara-kart {
   display: flex;
@@ -1261,7 +1275,7 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
 
 .ara-bos {
   list-style: none;
-  padding: 30px 0;
+  padding: var(--b-6) 0;
   color: var(--yazi-3);
   font-size: 0.95rem;
 }
@@ -1280,15 +1294,15 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
   display: block;
   color: var(--uyari);
   font-size: var(--p-m);
-  margin-bottom: var(--b-1);
+  margin: var(--b-1);
 }
 .tarih-bandi p { margin: 0; font-size: var(--p-m); color: var(--yazi-2); }
 
 /* --------------------------------------------------------- haber sayfasi */
 
 .ilgili-veri {
-  margin-top: 36px;
-  padding-top: 26px;
+  margin: 36px;
+  padding: 26px;
   border-top: 1px solid var(--cizgi);
 }
 .ilgili-veri h2 {
@@ -1327,7 +1341,7 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin-top: var(--b-4b);
+  margin: var(--b-4b);
   padding: var(--b-4) var(--b-4b);
   background: var(--panel);
   border: 1px solid var(--cizgi);
@@ -1347,7 +1361,7 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
 /* ----------------------------------------------------- uretim seffafligi */
 
 .uretim {
-  margin-top: 40px;
+  margin: 40px;
   background: var(--panel);
   border: 1px solid var(--cizgi);
   border-radius: var(--r);
@@ -1392,7 +1406,7 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
 
 .uretim-rakamlar span {
   display: block;
-  margin-top: var(--b-1);
+  margin: var(--b-1);
   font-size: var(--p-xs);
   color: var(--yazi-3);
   line-height: 1.35;
@@ -1409,8 +1423,8 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
   align-items: center;
   flex-wrap: wrap;
   gap: var(--b-2);
-  margin-top: var(--b-4);
-  padding-top: var(--b-4);
+  margin: var(--b-4);
+  padding: var(--b-4);
   border-top: 1px solid var(--cizgi);
 }
 
@@ -1420,7 +1434,7 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
   letter-spacing: 0.09em;
   text-transform: uppercase;
   color: var(--yazi-3);
-  margin-right: 2px;
+  margin: 2px;
 }
 
 .rozet-kaynak {
@@ -1436,7 +1450,7 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
   flex-wrap: wrap;
   gap: var(--b-2);
   margin: 26px 0 var(--b-2);
-  padding-bottom: 26px;
+  padding: 26px;
   border-bottom: 1px solid var(--cizgi);
 }
 
@@ -1473,14 +1487,14 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
 }
 
 .hakkimizda-giris h2 {
-  scroll-margin-top: 120px;
+  scroll-margin: 120px;
   border-top: 1px solid var(--cizgi);
 }
 
 .hakkimizda-bolum {
-  padding-top: 14px;
+  padding: 14px;
   /* Yapiskan ust bar capayi ortmesin */
-  scroll-margin-top: 120px;
+  scroll-margin: 120px;
 }
 
 .hakkimizda-bolum > h2 {
@@ -1495,7 +1509,7 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
   margin: 0 0 22px;
   color: var(--yazi-3);
   font-size: 0.95rem;
-  padding-bottom: 18px;
+  padding: 18px;
   border-bottom: 1px solid var(--cizgi);
 }
 
@@ -1508,7 +1522,7 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
   letter-spacing: -0.025em;
   font-weight: 800;
 }
-.sayfa h2 { margin: 34px 0 var(--b-3); font-size: 1.3rem; font-weight: 700; }
+.sayfa h2 { margin: var(--b-6) 0 var(--b-3); font-size: 1.3rem; font-weight: 700; }
 .sayfa h3 { margin: 26px 0 10px; font-size: var(--p-l); font-weight: 700; }
 .sayfa p { color: var(--yazi-2); }
 .sayfa strong { color: var(--yazi); }
@@ -1519,7 +1533,7 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
 .alt {
   border-top: 1px solid var(--cizgi);
   background: var(--zemin-2);
-  padding: 26px 0 30px;
+  padding: 26px 0 var(--b-6);
 }
 
 .alt-ic {
@@ -1542,19 +1556,19 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
   align-items: center;
   flex-wrap: wrap;
   gap: var(--b-1) 0;
-  margin-left: auto;
+  margin: auto;
 }
 
 .alt nav a,
 .alt nav .alt-marka {
   font-size: var(--p-s);
-  padding-right: var(--b-3);
-  margin-right: var(--b-3);
+  padding: var(--b-3);
+  margin: var(--b-3);
   border-right: 1px solid var(--cizgi);
   white-space: nowrap;
 }
 .alt nav a { color: var(--yazi-2); }
-.alt nav .alt-marka { color: var(--yazi-3); border-right: 0; padding-right: 0; margin-right: 0; }
+.alt nav .alt-marka { color: var(--yazi-3); border-right: 0; padding: 0; margin: 0; }
 
 /* ------------------------------------------------------------------ mobil */
 
@@ -1565,7 +1579,7 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
 
 @media (max-width: 720px) {
   .ust-ic { min-height: 56px; gap: 14px; }
-  .ust nav { width: 100%; margin-left: 0; overflow-x: auto; }
+  .ust nav { width: 100%; margin: 0; overflow-x: auto; }
   .one-cikan-metin { padding: 22px; }
   .kriter { grid-template-columns: 1fr; gap: var(--b-1); }
   .kriter-puan { text-align: left; }
@@ -1657,7 +1671,7 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: var(--b-4);
-  margin-bottom: 22px;
+  margin: 22px;
   list-style: none;
   margin: 0 0 var(--b-4);
   padding: 0;
@@ -1665,7 +1679,7 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
 
 /* --- Kose yazilari ------------------------------------------------ */
 .yorum-serit {
-  list-style: none; margin: 0 0 34px; padding: 0;
+  list-style: none; margin: 0 0 var(--b-6); padding: 0;
   display: grid; gap: 14px;
   grid-template-columns: repeat(auto-fill, minmax(235px, 1fr));
 }
@@ -1696,7 +1710,7 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
   display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.yorum-kart .devam { margin-top: auto; font-size: var(--p-s); }
+.yorum-kart .devam { margin: auto; font-size: var(--p-s); }
 
 /* --- Analizde gercek fotograf ------------------------------------- */
 .yazi-foto { margin: 0 0 18px; }
@@ -1708,7 +1722,7 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
 .foto-atif {
   margin: var(--b-2) 0 0; font-size: var(--p-xs); color: var(--yazi-3);
 }
-.foto-atif { margin-bottom: 18px; }
+.foto-atif { margin: 18px; }
 
 .one-cikan-gorsel img,
 .kart-gorsel img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -1732,14 +1746,34 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
    ================================================================== */
 
 .ust-giris { font-weight: 600; }
+/* OZGULLUK, `!important` DEGIL.
+   -----------------------------
+   `.dugme-mini` ust menude kullaniliyor (`class="ust-panel
+   dugme-mini"`) ve `.ust nav a` kurali ozgullukte onu yeniyordu
+   (0,1,1 > 0,1,0). Cozum olarak uc bildirime `!important`
+   konmustu.
+
+   `!important` sorunu cozmuyor, ERTELIYOR: bir sonraki kural da
+   `!important` yazmak zorunda kaliyor ve kaskad okunmaz hale
+   geliyor. Olculdu: bu dosyada sekiz tane birikmisti.
+
+   Ustelik bir zarar daha vardi: ust menuye ortak olcu (36px)
+   verildiginde Panel dugmesi `!important` sayesinde ESKI dolgusunu
+   koruyor ve TEK BASINA hizasiz kaliyordu -- yani asimetriyi
+   duzeltmek icin yazilan kural, tam da bu yuzden delinmis
+   oluyordu.
+
+   Ozgulluk yukseltildi (`.ust nav a.dugme-mini` = 0,2,1) ve
+   `!important` kaldirildi. Menu disinda kullanildiginda temel
+   kural gecerli. */
 .dugme-mini {
-  padding: 6px 14px !important;
   border-radius: 999px;
-  background: var(--vurgu) !important;
-  color: var(--zit-yazi) !important;
+  background: var(--vurgu);
+  color: var(--zit-yazi);
   font-weight: 700;
 }
-.dugme-mini:hover { background: var(--vurgu-koyu) !important; text-decoration: none; }
+.ust nav a.dugme-mini:hover,
+.dugme-mini:hover { background: var(--vurgu-koyu); text-decoration: none; }
 
 .uyelik-kabuk { max-width: 780px; margin: 0 auto; }
 
@@ -1793,25 +1827,25 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
 .uyelik-mesaj.uyari { border-left-color: var(--uyari); }
 
 .uyelik-not {
-  margin-top: 22px; padding: var(--b-4) var(--b-4);
+  margin: 22px; padding: var(--b-4) var(--b-4);
   border: 1px solid var(--cizgi); border-radius: var(--r-kucuk);
   background: var(--panel-2);
 }
 .uyelik-not h2 { margin: 0 0 var(--b-2); font-size: var(--p-m); }
-.uyelik-not ul { margin: 0; padding-left: 18px; }
-.uyelik-not li { font-size: var(--p-m); color: var(--yazi-2); margin-bottom: var(--b-1); line-height: 1.55; }
+.uyelik-not ul { margin: 0; padding: 18px; }
+.uyelik-not li { font-size: var(--p-m); color: var(--yazi-2); margin: var(--b-1); line-height: 1.55; }
 
 /* --- panel --- */
 
 .panel-ust-cubuk {
   display: flex; align-items: flex-start; justify-content: space-between;
-  gap: var(--b-4); flex-wrap: wrap; margin-bottom: var(--b-4b);
+  gap: var(--b-4); flex-wrap: wrap; margin: var(--b-4b);
 }
 .panel-ust-cubuk h1 { margin: 0 0 var(--b-1); font-size: 1.6rem; letter-spacing: -0.02em; }
 .panel-eylem { display: flex; gap: var(--b-2); flex-wrap: wrap; align-items: center; }
 
 .panel-sekme {
-  display: flex; gap: var(--b-1); margin-bottom: var(--b-4b);
+  display: flex; gap: var(--b-1); margin: var(--b-4b);
   border-bottom: 1px solid var(--cizgi);
 }
 .panel-sekme button {
@@ -1834,7 +1868,7 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
 .panel-satir-kart h4 { margin: var(--b-2) 0 6px; font-size: var(--p-l); line-height: 1.3; }
 .panel-satir-ust { display: flex; align-items: center; gap: var(--b-2); flex-wrap: wrap; }
 .panel-satir-kart .kart-ozet { margin: 0 0 10px; font-size: var(--p-m); color: var(--yazi-2); }
-.panel-satir-kart .panel-eylem { margin-top: 10px; }
+.panel-satir-kart .panel-eylem { margin: 10px; }
 
 /* Durum rozetleri. Yesil ve kirmizi BURADA da yon anlatiyor sayilir:
    yayimlandi ileri, reddedildi geri. */
@@ -1865,7 +1899,7 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
 
 .piyasa-ust {
   display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;
-  margin-bottom: var(--b-2);
+  margin: var(--b-2);
 }
 .piyasa-ad { font-weight: 700; font-size: 0.96rem; }
 .piyasa-deger {
@@ -1873,7 +1907,7 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
   font-variant-numeric: tabular-nums; letter-spacing: -0.01em;
 }
 .piyasa-gun { font-weight: 700; font-variant-numeric: tabular-nums; }
-.piyasa-tarih { margin-left: auto; font-size: var(--p-xs); color: var(--yazi-3); }
+.piyasa-tarih { margin: auto; font-size: var(--p-xs); color: var(--yazi-3); }
 /* Kaynagin yayim gecikmesi olan seri isaretli -- okur bugunun fiyati
    sanmasin. */
 .piyasa-tarih.bayat { color: var(--uyari); font-weight: 600; }
@@ -1881,7 +1915,7 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
 .piyasa-ema {
   display: grid; gap: var(--b-2);
   grid-template-columns: repeat(auto-fit, minmax(128px, 1fr));
-  padding-top: var(--b-2); border-top: 1px solid var(--cizgi);
+  padding: var(--b-2); border-top: 1px solid var(--cizgi);
 }
 .ema-kalem { display: flex; flex-direction: column; gap: 1px; min-width: 0; }
 .ema-ad {
@@ -1892,7 +1926,7 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
 .ema-fark { font-size: var(--p-xs); font-weight: 600; font-variant-numeric: tabular-nums; }
 
 /* Konum kalemi ayrilsin -- digerleri fiyat, bu bir sayim. */
-.ema-konum { border-left: 2px solid var(--cizgi-parlak); padding-left: 10px; }
+.ema-konum { border-left: 2px solid var(--cizgi-parlak); padding: 10px; }
 .ema-konum .ema-fark { color: var(--yazi-3); font-weight: 400; }
 
 .piyasa-not {
@@ -1901,7 +1935,7 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
 }
 
 @media (max-width: 560px) {
-  .piyasa-tarih { margin-left: 0; width: 100%; }
+  .piyasa-tarih { margin: 0; width: 100%; }
   .piyasa-ema { grid-template-columns: repeat(2, 1fr); }
 }
 
@@ -1938,7 +1972,7 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
 .ozet-kutu dd { margin: 0; font-size: var(--p-m); line-height: 1.5; }
 
 .neden-bugun {
-  margin: 0 0 var(--b-4b); padding-left: var(--b-3);
+  margin: 0 0 var(--b-4b); padding: var(--b-3);
   border-left: 3px solid var(--vurgu);
   color: var(--yazi-2); font-size: var(--p-m);
 }
@@ -1953,8 +1987,8 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
 .seyir-son .seyir-deger { font-weight: 800; }
 .seyir-deger { font-size: var(--p-s); font-weight: 700; font-variant-numeric: tabular-nums; text-align: right; }
 
-.bulgular { margin: 0 0 22px; padding-left: var(--b-4b); }
-.bulgular li { font-size: var(--p-m); color: var(--yazi-2); margin-bottom: var(--b-1); }
+.bulgular { margin: 0 0 22px; padding: var(--b-4b); }
+.bulgular li { font-size: var(--p-m); color: var(--yazi-2); margin: var(--b-1); }
 
 /* Reel faiz hesaplanmis bir deger -- olculen serilerden ayirt edilsin */
 .tr-tureti { border-style: dashed; }
@@ -1982,7 +2016,7 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
 /* --- seffaflik: SAYIM, skor degil --- */
 .seffaflik {
   display: flex; gap: var(--b-4b); flex-wrap: wrap;
-  margin: var(--b-5) 0 0; padding-top: 14px;
+  margin: var(--b-5) 0 0; padding: 14px;
   border-top: 1px solid var(--cizgi);
   font-size: var(--p-s); color: var(--yazi-3);
 }
@@ -1990,14 +2024,14 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
 
 @media (max-width: 560px) {
   .ozet-kutu dl { grid-template-columns: 1fr; gap: var(--b-1) 0; }
-  .ozet-kutu dd { margin-bottom: var(--b-2); }
+  .ozet-kutu dd { margin: var(--b-2); }
   .duyarlilik .neden { display: none; }
 }
 
 /* ---- Varlik indeksi: etiketler, ilgili haberler, arsiv sayfalari ---- */
 
 /* Ilgili haberler -- haber sayfasinin altinda, arsivden. */
-.ilgili-haber { margin: 30px 0 0; }
+.ilgili-haber { margin: var(--b-6) 0 0; }
 .ilgili-haber h2 { font-size: var(--p-l); margin: 0 0 var(--b-3); }
 .ilgili-liste { list-style: none; padding: 0; margin: 0; }
 .ilgili-liste li {
@@ -2103,7 +2137,7 @@ main.kabuk { padding-top: 26px; padding-bottom: var(--b-7); }
 .bag-tur {
   font-size: var(--p-xs); color: var(--yazi-3);
   padding: 1px var(--b-2); border: 1px solid var(--cizgi);
-  border-radius: 999px; margin-left: 6px; white-space: nowrap;
+  border-radius: 999px; margin: 6px; white-space: nowrap;
 }
 .bag-neden {
   grid-column: 1 / -1;
@@ -2275,7 +2309,7 @@ table td, table th, time, .tarih {
    sol cizgiyle ve panel zeminiyle isaretleniyor.
    Renk kullanilmiyor: yesil/kirmizi bu sitede yalnizca sayisal yon. */
 
-.senaryo-bolum { margin: 34px 0 0; }
+.senaryo-bolum { margin: var(--b-6) 0 0; }
 .senaryo-bolum h2 { font-size: var(--p-l); margin: 0 0 var(--b-2); }
 
 .senaryo-liste { list-style: none; padding: 0; margin: 14px 0 0; }
@@ -2341,7 +2375,7 @@ table td, table th, time, .tarih {
   margin: 0 0 22px;
   font-size: var(--p-l); line-height: 1.62; color: var(--yazi);
   font-weight: 500;
-  padding-left: 14px;
+  padding: 14px;
   border-left: 3px solid var(--vurgu);
 }
 
@@ -2378,10 +2412,10 @@ table td, table th, time, .tarih {
      bolumden olusuyor ve her birinin 40px ust boslugu ekranin
      yarisini bosluga harciyordu. Bolum siniri cizgiyle belli. */
   margin: 26px 0 var(--b-3);
-  padding-bottom: 6px;
+  padding: 6px;
   border-bottom: 2px solid var(--cizgi);
 }
-.asama:first-child { margin-top: 0; }
+.asama:first-child { margin: 0; }
 
 .asama-no {
   display: inline-flex; align-items: center; justify-content: center;
@@ -2418,7 +2452,7 @@ table td, table th, time, .tarih {
    Bunlar uretim zincirinin parcasi degil; okurun oradan devam
    edecegi yerler. Ustteki bosluk ve cizgi ayrimi soyluyor. */
 .ilgili-haber {
-  margin-top: 46px; padding-top: 26px;
+  margin: var(--b-7); padding: 26px;
   border-top: 3px double var(--cizgi);
 }
 
@@ -2447,8 +2481,8 @@ table td, table th, time, .tarih {
 }
 
 /* Aktarim kanallari "Neden onemli"nin icinde artik. */
-.kanal-liste { margin: var(--b-3) 0 10px; padding-left: var(--b-4b); }
-.kanal-liste li { margin-bottom: var(--b-2); line-height: 1.6; }
+.kanal-liste { margin: var(--b-3) 0 10px; padding: var(--b-4b); }
+.kanal-liste li { margin: var(--b-2); line-height: 1.6; }
 
 /* Ust kutular buyutuldu -- okunurluk icin istendi. */
 .ozet-kutu dd { font-size: 1.0rem; line-height: 1.6; }
@@ -2509,7 +2543,7 @@ table td, table th, time, .tarih {
   border-radius: 0 var(--r) var(--r) 0;
 }
 .one-oy {
-  display: inline-block; margin-right: 6px;
+  display: inline-block; margin: 6px;
   padding: 1px var(--b-2); border-radius: 999px;
   background: var(--vurgu-zar); color: var(--vurgu);
   font-weight: 800; font-variant-numeric: tabular-nums;
@@ -2518,7 +2552,7 @@ table td, table th, time, .tarih {
 /* Haber sayfasindaki senaryo bolumu daha gorunur. */
 .senaryo-bolum h2, .senaryo-cagri { font-size: var(--p-l); }
 .senaryo-cagri {
-  margin-top: var(--b-4b); padding: 18px var(--b-4b);
+  margin: var(--b-4b); padding: 18px var(--b-4b);
   background: var(--panel-2);
   border: 1px solid var(--cizgi-parlak);
   border-radius: var(--r);
@@ -2538,7 +2572,7 @@ table td, table th, time, .tarih {
    baglantinin yazi tipini aliyordu -- her "Devamını oku" satirinin
    ustunde cift cizgi cikiyordu. */
 .okumaya-devam {
-  margin: 34px 0 0; padding-top: 22px;
+  margin: var(--b-6) 0 0; padding: 22px;
   border-top: 3px double var(--cizgi);
 }
 .okumaya-devam > h2 { font-size: var(--p-l); margin: 0 0 18px; }
@@ -2549,7 +2583,7 @@ table td, table th, time, .tarih {
 .od-blok h3 {
   font-size: var(--p-s); font-weight: 800; letter-spacing: 0.02em;
   text-transform: uppercase; color: var(--yazi-3);
-  margin: 0 0 10px; padding-bottom: var(--b-2);
+  margin: 0 0 10px; padding: var(--b-2);
   border-bottom: 1px solid var(--cizgi);
 }
 .od-blok ul { list-style: none; padding: 0; margin: 0; }
@@ -2665,8 +2699,8 @@ table td, table th, time, .tarih {
 
 /* Giris kisaldi: eski surumde alti satirlik manifesto gunun
    gelismelerini ekranin altina itiyordu. */
-.hero-dar { padding-bottom: 26px; }
-.hero-dar h1 { margin-bottom: 10px; }
+.hero-dar { padding: 26px; }
+.hero-dar h1 { margin: 10px; }
 .hero-ozet {
   max-width: 62ch; color: var(--yazi-2);
   font-size: var(--p-l); line-height: 1.6; margin: 0 0 var(--b-4b);
@@ -2674,7 +2708,7 @@ table td, table th, time, .tarih {
 
 /* --- MASA: katman 1 + 2 yan yana ---------------------------------- */
 .masa {
-  display: grid; gap: 30px; margin: 38px 0 var(--b-3);
+  display: grid; gap: var(--b-6); margin: var(--b-7) 0 var(--b-3);
   grid-template-columns: minmax(0, 1fr) 316px;
   align-items: start;
 }
@@ -2682,7 +2716,7 @@ table td, table th, time, .tarih {
   /* Dar ekranda akis ALTA gecer, yanina degil. Secim once okunmali:
      telefonda yan sutun zaten yoktur, ustte olsaydi 20 kalemlik ham
      akis gunun ozetini asagi iterdi. */
-  .masa { grid-template-columns: 1fr; gap: 34px; }
+  .masa { grid-template-columns: 1fr; gap: var(--b-6); }
 }
 
 /* --- KATMAN 2: secim ---------------------------------------------- */
@@ -2710,7 +2744,7 @@ table td, table th, time, .tarih {
 }
 .basmanset-ozet {
   display: block; color: var(--yazi-2); line-height: 1.6;
-  margin-bottom: 14px;
+  margin: 14px;
 }
 @media (max-width: 560px) { .basmanset-baslik { font-size: 1.24rem; } }
 
@@ -2718,7 +2752,7 @@ table td, table th, time, .tarih {
 .onem-liste li {
   border-bottom: 1px solid var(--cizgi);
   border-left: 3px solid var(--tur, var(--cizgi));
-  padding: 0 0 0 14px; margin-bottom: 2px;
+  padding: 0 0 0 14px; margin: 2px;
 }
 .onem-liste li:last-child { border-bottom: none; }
 .onem-liste a { display: block; padding: var(--b-3) 0; }
@@ -2726,9 +2760,9 @@ table td, table th, time, .tarih {
 .onem-liste a:hover .onem-baslik { color: var(--vurgu); }
 .onem-ust {
   display: flex; align-items: center; gap: var(--b-2);
-  flex-wrap: wrap; margin-bottom: var(--b-1);
+  flex-wrap: wrap; margin: var(--b-1);
 }
-.onem-zaman { font-size: var(--p-xs); color: var(--yazi-3); margin-left: auto; }
+.onem-zaman { font-size: var(--p-xs); color: var(--yazi-3); margin: auto; }
 .onem-baslik {
   display: block; font-weight: 650; line-height: 1.42;
   color: var(--yazi); transition: color var(--sure-hizli);
@@ -2754,7 +2788,7 @@ table td, table th, time, .tarih {
 @media (max-width: 900px) {
   .masa-akis { position: static; max-height: none; }
 }
-.akis-bas { flex: none; padding-bottom: 10px; border-bottom: 1px solid var(--cizgi); }
+.akis-bas { flex: none; padding: 10px; border-bottom: 1px solid var(--cizgi); }
 .akis-bas h2 {
   font-size: var(--p-m); margin: 0 0 var(--b-1); display: flex;
   align-items: center; gap: var(--b-2); letter-spacing: 0.01em;
@@ -2833,12 +2867,12 @@ a.akis-baslik:hover { color: var(--vurgu); text-decoration: none; }
 /* --- KATMAN 4: topluluk ------------------------------------------- */
 /* Eskiden `.one-cikan` sinifini one cikan ANALIZ kartiyla paylasiyordu
    ve ikisi ayni kuralla boyaniyordu. Ayrildi. */
-.one-cikan-senaryo { margin: 46px 0 0; }
+.one-cikan-senaryo { margin: var(--b-7) 0 0; }
 /* Akista dis baglanti: govdesi olmayan basliklar kaynagina gider.
    Isaret zorunlu -- okur site icinde mi kalacagini basmadan bilsin. */
 .akis-dis { color: var(--yazi-2); }
 .akis-dis:hover { color: var(--vurgu); text-decoration: none; }
-.dis-ok { font-size: 0.72em; opacity: .6; margin-left: var(--b-1); }
+.dis-ok { font-size: 0.72em; opacity: .6; margin: var(--b-1); }
 
 /* ================================================================
    HABER KARTI -- ANALIZ DEGIL, DAVET
@@ -2881,7 +2915,7 @@ a.akis-baslik:hover { color: var(--vurgu); text-decoration: none; }
 
    Kartlar degil SATIRLAR: kart yapmak bu bolumu ikinci bir haber
    listesine cevirirdi, oysa buradaki kalem "haber" degil "okuma".  */
-.ai-akis { margin: 34px 0 var(--b-2); }
+.ai-akis { margin: var(--b-6) 0 var(--b-2); }
 .ai-akis-liste {
   list-style: none; padding: 0; margin: 0;
   display: grid; gap: 1px; background: var(--cizgi);
@@ -2909,7 +2943,7 @@ a.akis-baslik:hover { color: var(--vurgu); text-decoration: none; }
   flex-wrap: wrap;
 }
 .ai-akis-zaman {
-  margin-left: auto; font-size: var(--p-xs); color: var(--yazi-3);
+  margin: auto; font-size: var(--p-xs); color: var(--yazi-3);
   font-variant-numeric: tabular-nums;
 }
 
@@ -2931,7 +2965,7 @@ a.akis-baslik:hover { color: var(--vurgu); text-decoration: none; }
    gormesini sagliyor. */
 .ai-kart-yorum {
   position: relative;
-  margin-top: auto;
+  margin: auto;
   padding: 10px var(--b-3) var(--b-3) var(--b-3);
   background: var(--vurgu-zar);
   border-left: 2px solid var(--vurgu);
@@ -2941,7 +2975,7 @@ a.akis-baslik:hover { color: var(--vurgu); text-decoration: none; }
   -webkit-box-orient: vertical; overflow: hidden;
 }
 .ai-kart-imza {
-  display: block; margin-bottom: var(--b-1);
+  display: block; margin: var(--b-1);
   font-size: 0.66rem; font-weight: 700; letter-spacing: 0.08em;
   text-transform: uppercase; color: var(--vurgu);
 }
@@ -3015,7 +3049,7 @@ a.akis-baslik:hover { color: var(--vurgu); text-decoration: none; }
 /* --- Topluluk sayfasi --- */
 .senaryo-tablo { list-style: none; padding: 0; margin: 26px 0 0; }
 .senaryo-satir {
-  padding: var(--b-4) 18px; margin-bottom: 10px;
+  padding: var(--b-4) 18px; margin: 10px;
   border: 1px solid var(--cizgi); border-radius: var(--r);
   background: var(--panel);
 }
@@ -3024,7 +3058,7 @@ a.akis-baslik:hover { color: var(--vurgu); text-decoration: none; }
   border: 1px solid var(--cizgi); border-radius: var(--r);
   background: var(--panel-2);
 }
-.topluluk-cagri h2 { margin-top: 0; font-size: var(--p-l); }
+.topluluk-cagri h2 { margin: 0; font-size: var(--p-l); }
 .topluluk-dugmeler { display: flex; gap: 10px; flex-wrap: wrap; margin: var(--b-4) 0 0; }
 
 /* ================================================================
@@ -3032,11 +3066,11 @@ a.akis-baslik:hover { color: var(--vurgu); text-decoration: none; }
    ================================================================
    Diger her sey geriye bakiyor. Burasi "ne zaman ne aciklanacak,
    son deger ne, iki dalda hangi mekanizma calisir" diyor.          */
-.takvim { margin: 34px 0 var(--b-2); }
+.takvim { margin: var(--b-6) 0 var(--b-2); }
 .takvim-liste { list-style: none; padding: 0; margin: 0; }
 .takvim-oge {
   border: 1px solid var(--cizgi); border-radius: var(--r);
-  background: var(--panel); margin-bottom: 10px; overflow: hidden;
+  background: var(--panel); margin: 10px; overflow: hidden;
 }
 /* Onem sol seritte: uc yildizli veri ile rutin yayin ayni agirlikta
    gorunmemeli. */
@@ -3074,7 +3108,7 @@ a.akis-baslik:hover { color: var(--vurgu); text-decoration: none; }
 
 .takvim-beklenti {
   padding: 0 var(--b-4) var(--b-4); border-top: 1px solid var(--cizgi);
-  padding-top: var(--b-3); background: var(--panel-2);
+  padding: var(--b-3); background: var(--panel-2);
 }
 .takvim-son { margin: 0 0 var(--b-3); font-size: var(--p-m); color: var(--yazi-2); }
 .takvim-tarih { color: var(--yazi-3); font-size: 0.82em; }
@@ -3100,7 +3134,7 @@ a.akis-baslik:hover { color: var(--vurgu); text-decoration: none; }
 /* Olculmus tepki: yalnizca gercekten olcum varsa basiliyor ve
    gorsel olarak mekanizmadan AYRI duruyor. */
 .takvim-olcum {
-  margin: var(--b-2) 0 0; padding-top: var(--b-2); font-size: var(--p-s);
+  margin: var(--b-2) 0 0; padding: var(--b-2); font-size: var(--p-s);
   color: var(--yazi-3); border-top: 1px dashed var(--cizgi);
 }
 
@@ -3124,7 +3158,7 @@ a.akis-baslik:hover { color: var(--vurgu); text-decoration: none; }
 }
 .ds-bas {
   display: flex; align-items: baseline; gap: var(--b-3);
-  flex-wrap: wrap; margin-bottom: 10px;
+  flex-wrap: wrap; margin: 10px;
 }
 .ds-bas h2 { margin: 0; font-size: 1rem; }
 /* Guncelleme isareti: "dosya buyudu" bilgisi okurun bu sayfaya
@@ -3168,7 +3202,7 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none; }
 .ds-etiket {
   font-size: 0.68rem; font-weight: 700; color: var(--vurgu);
   background: var(--vurgu-zar); padding: 2px var(--b-2); border-radius: 999px;
-  margin-left: 6px; white-space: nowrap;
+  margin: 6px; white-space: nowrap;
 }
 .ds-kurum { font-size: var(--p-xs); color: var(--yazi-3); }
 /* Konsensus ile "onceki deger" esigi GORSEL OLARAK AYRI: ikisini ayni
@@ -3187,7 +3221,7 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none; }
    karsilik geliyor -- uydurulmuyor.                                */
 .duzenek { list-style: none; padding: 0; margin: var(--b-3) 0 18px; }
 .duzenek li {
-  padding: 10px var(--b-3); margin-bottom: 6px;
+  padding: 10px var(--b-3); margin: 6px;
   border: 1px solid var(--cizgi); border-radius: var(--r-kucuk);
   background: var(--panel-2);
 }
@@ -3204,7 +3238,7 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none; }
 /* Dayanak ETIKETI: muhasebe kimligi ile gozlem ayni sey degil ve
    okur farki gormeli. */
 .duzenek-dayanak {
-  margin-left: auto; font-size: 0.68rem; letter-spacing: 0.03em;
+  margin: auto; font-size: 0.68rem; letter-spacing: 0.03em;
   text-transform: uppercase; color: var(--yazi-3);
 }
 .duzenek-metin {
@@ -3260,7 +3294,7 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none; }
 
 .brifing-adim .brifing-sayilar {
   display: flex; gap: 10px; flex-wrap: wrap; align-items: center;
-  margin-bottom: 10px; font-size: var(--p-m);
+  margin: 10px; font-size: var(--p-m);
 }
 .brifing-son, .brifing-bekl {
   padding: var(--b-1) var(--b-3); border-radius: 999px;
@@ -3291,7 +3325,7 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none; }
 }
 .brifing-adim .brifing-dal-metin { font-size: var(--p-m); }
 .brifing-adim .brifing-olcum {
-  margin-top: var(--b-2); padding-top: var(--b-2);
+  margin: var(--b-2); padding: var(--b-2);
   border-top: 1px dashed var(--cizgi);
   font-size: var(--p-s); color: var(--yazi-3);
 }
@@ -3310,7 +3344,7 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none; }
    istediginde nereye bakacagini bilmeliydi. Liste SABIT DEGIL,
    sayfanin o an kullandigi kaynaklardan turetiliyor.              */
 .kaynaklar {
-  margin: 30px 0 0; padding-top: var(--b-4b);
+  margin: var(--b-6) 0 0; padding: var(--b-4b);
   border-top: 1px solid var(--cizgi);
 }
 .kaynaklar h2 { font-size: var(--p-m); margin: 0 0 var(--b-3); color: var(--yazi-2); }
@@ -3347,7 +3381,7 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none; }
    kunye satiriyla ayni olcekte, cerceveli kucuk baglantilar. */
 .paylas {
   display: inline-flex; align-items: center; gap: 6px;
-  flex-wrap: wrap; margin-left: auto;
+  flex-wrap: wrap; margin: auto;
 }
 .paylas-etiket {
   font-size: var(--p-xs); color: var(--yazi-3);
@@ -3371,14 +3405,14 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none; }
   color: var(--vurgu); border-color: var(--vurgu);
 }
 @media (max-width: 30rem) {
-  .paylas { margin-left: 0; width: 100%; }
+  .paylas { margin: 0; width: 100%; }
 }
 
 /* --- GOOGLE ILE GIRIS --------------------------------------------- */
 /* Dugmenin kendisini Google ciziyor (marka kurallari geregi); bize
    yalnizca cevresi kaliyor. Ayrac, iki giris yolunun ESIT oldugunu
    anlatiyor -- biri "asil", digeri "alternatif" gibi durmamali. */
-.google-giris { margin-top: 18px; }
+.google-giris { margin: 18px; }
 .google-ayrac {
   display: flex; align-items: center; gap: var(--b-3);
   margin: 0 0 14px; color: var(--yazi-3); font-size: var(--p-s);
@@ -3391,7 +3425,7 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none; }
 /* Kategori kartinda imza. `yorum-kunye` ana sayfadan geliyor; burada
    yalnizca kartin akisina oturtuluyor. Baslikla arasi dar tutuldu --
    imza baslıgın kunyesi, ayri bir blok degil. */
-.kart-imza { margin-bottom: 2px; }
+.kart-imza { margin: 2px; }
 
 /* Haftalik oyun yanindaki TOPLAM. Soluk, cunku siralamayi o
    uretmiyor -- okur once siralamayi aciklayan sayiyi gormeli. */
@@ -3405,7 +3439,7 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none; }
 .akis-kunye-baglanti:focus-visible {
   color: var(--vurgu); text-decoration: underline;
 }
-.akis-kunye-baglanti .dis-ok { margin-left: var(--b-1); font-size: 0.85em; }
+.akis-kunye-baglanti .dis-ok { margin: var(--b-1); font-size: 0.85em; }
 
 /* Akistaki tema etiketi. Kunye ile ayni olcekte ve SESSIZ: baslik
    asil icerik, tema onu siniflandiran bir isaret. Rozet gibi dolgu
@@ -3414,7 +3448,7 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none; }
 .akis-tema {
   font-size: 0.7rem; color: var(--yazi-3);
   letter-spacing: 0.02em; text-transform: uppercase;
-  border-left: 2px solid var(--cizgi); padding-left: 6px;
+  border-left: 2px solid var(--cizgi); padding: 6px;
 }
 
 /* ====================================================================
@@ -3427,7 +3461,7 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none; }
 
 .tasarim { max-width: var(--olcu); margin: 0 auto; }
 
-.tasarim-bas { margin-bottom: var(--b-7); }
+.tasarim-bas { margin: var(--b-7); }
 
 .tasarim-lead {
   font-size: var(--p-l);
@@ -3439,8 +3473,8 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none; }
   font-size: var(--p-s);
   color: var(--yazi-2);
   border-left: 2px solid var(--cizgi);
-  padding-left: var(--b-3);
-  margin-top: var(--b-4);
+  padding: var(--b-3);
+  margin: var(--b-4);
 }
 
 /* OLCUM SERIDI -- sayfanin kendi hakkindaki rakamlari. */
@@ -3448,7 +3482,7 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none; }
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: var(--b-3);
-  margin-bottom: var(--b-7);
+  margin: var(--b-7);
 }
 
 .tasarim-olcum div {
@@ -3470,13 +3504,13 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none; }
   color: var(--yazi-2);
 }
 
-.tasarim-obek { margin-bottom: var(--b-8); }
+.tasarim-obek { margin: var(--b-8); }
 
 .tasarim-aciklama {
   font-size: var(--p-m);
   line-height: var(--satir-genis);
   color: var(--yazi-2);
-  margin-bottom: var(--b-5);
+  margin: var(--b-5);
 }
 
 /* Tablo dar ekranda KENDI ICINDE kayar; sayfa govdesi yatay kaymaz. */
@@ -3546,7 +3580,7 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none; }
 .tasarim-kural dt {
   font-weight: 600;
   font-size: var(--p-l);
-  margin-top: var(--b-5);
+  margin: var(--b-5);
 }
 
 .tasarim-kural dd {
@@ -3566,7 +3600,7 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none; }
 
 .arastirma-merkez { max-width: 1100px; margin: 0 auto; }
 
-.arastirma-bas { margin-bottom: var(--b-7); }
+.arastirma-bas { margin: var(--b-7); }
 
 .arastirma-lead {
   font-size: var(--p-l);
@@ -3609,7 +3643,7 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none; }
   letter-spacing: .1em;
   font-weight: 700;
   color: var(--vurgu);
-  margin-bottom: var(--b-2);
+  margin: var(--b-2);
 }
 
 .arastirma-kart h2 {
@@ -3654,7 +3688,7 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none; }
 .arastirma-tarih {
   color: var(--yazi-2);
   font-variant-numeric: tabular-nums;
-  margin-right: var(--b-2);
+  margin: var(--b-2);
 }
 
 .arastirma-git {
@@ -3664,19 +3698,19 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none; }
 }
 
 .arastirma-not {
-  margin-top: var(--b-8);
-  padding-top: var(--b-5);
+  margin: var(--b-8);
+  padding: var(--b-5);
   border-top: 1px solid var(--cizgi);
   max-width: var(--olcu);
 }
 
-.arastirma-not h2 { font-size: var(--p-l); margin-bottom: var(--b-3); }
+.arastirma-not h2 { font-size: var(--p-l); margin: var(--b-3); }
 
 .arastirma-not p {
   font-size: var(--p-m);
   line-height: var(--satir-genis);
   color: var(--yazi-2);
-  margin-bottom: var(--b-3);
+  margin: var(--b-3);
 }
 
 /* Acilir menude INIS SAYFASI once ve ayri duruyor. */
@@ -3737,7 +3771,7 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none; }
   font-size: var(--p-s);
   color: var(--yazi-2);
   border-left: 2px solid var(--cizgi);
-  padding-left: var(--b-2);
+  padding: var(--b-2);
 }
 
 .surpriz-tam { font-style: italic; }
@@ -3773,7 +3807,7 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none; }
   flex-wrap: wrap;
   gap: var(--b-2);
   margin: 0 0 var(--b-7);
-  padding-bottom: var(--b-4);
+  padding: var(--b-4);
   border-bottom: 1px solid var(--cizgi);
 }
 
@@ -3781,8 +3815,8 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none; }
    yigini degil. Cizgi zinciri gorsel olarak surduruyor. */
 .senaryo-blok {
   border-left: 2px solid var(--cizgi);
-  padding-left: var(--b-5);
-  margin-bottom: var(--b-6);
+  padding: var(--b-5);
+  margin: var(--b-6);
 }
 
 .senaryo-blok h2 {
@@ -3851,7 +3885,7 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none; }
   border-radius: var(--r-kucuk);
   background: var(--zemin);
   padding: var(--b-4);
-  margin-bottom: var(--b-2);
+  margin: var(--b-2);
 }
 
 .paylas-onizleme-marka {
@@ -3860,7 +3894,7 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none; }
   font-weight: 700;
   letter-spacing: .12em;
   color: var(--vurgu);
-  margin-bottom: var(--b-3);
+  margin: var(--b-3);
 }
 
 .paylas-onizleme-baslik {
@@ -3868,7 +3902,7 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none; }
   font-size: var(--p-l);
   line-height: var(--satir-sik);
   font-weight: 600;
-  margin-bottom: var(--b-2);
+  margin: var(--b-2);
 }
 
 .paylas-onizleme-ozet {
@@ -3879,7 +3913,7 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none; }
   font-size: var(--p-m);
   line-height: var(--satir-orta);
   color: var(--yazi-2);
-  margin-bottom: var(--b-3);
+  margin: var(--b-3);
 }
 
 .paylas-onizleme-alan {
@@ -4041,7 +4075,7 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none; }
   letter-spacing: .1em;
   text-transform: uppercase;
   color: var(--yazi-3);
-  margin-bottom: var(--b-3);
+  margin: var(--b-3);
 }
 
 /* GEZINME: ilgili haber ve okumaya devam. Cift cizgi cercevesi
@@ -4232,3 +4266,16 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
 
 /* Acilir menu okunun ustteki metinle ayni hizada kalmasi icin. */
 .ust nav .menu-baslik .menu-ok { line-height: 1; }
+
+
+/* Panel dugmesi menude ORTAK OLCUYU aliyor; hap bicimini koruyor.
+   Ozgullugu `.ust nav a`dan yuksek (0,2,1 > 0,1,1), bu yuzden
+   `!important` gerekmiyor. */
+.ust nav a.dugme-mini {
+  height: var(--ust-oge);
+  min-height: var(--ust-oge);
+  padding: 0 var(--b-4);
+  border-radius: 999px;
+  background: var(--vurgu);
+  color: var(--zit-yazi);
+}
