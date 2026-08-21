@@ -40,7 +40,7 @@ SORGU = """
 SELECT
   (SELECT COUNT(*) FROM uye)                                   AS uye,
   (SELECT COUNT(*) FROM uye WHERE google_id IS NOT NULL)       AS google_ile,
-  (SELECT COUNT(*) FROM uye WHERE durum = 'onayli')            AS onayli,
+  (SELECT COUNT(*) FROM uye WHERE durum = 'etkin')             AS etkin,
   (SELECT COUNT(*) FROM uye WHERE son_giris IS NOT NULL)       AS giris_yapan,
   (SELECT COUNT(*) FROM senaryo)                               AS senaryo,
   (SELECT COUNT(*) FROM senaryo WHERE durum = 'yayimlandi')    AS senaryo_yayimli,
@@ -54,7 +54,7 @@ ETIKET = (
     ("uye", "Üye"),
     ("google_ile", "  Google ile kayıtlı"),
     ("giris_yapan", "  En az bir kez giriş yapmış"),
-    ("onayli", "  Onaylı"),
+    ("etkin", "  Etkin"),
     ("senaryo", "Senaryo"),
     ("senaryo_yayimli", "  Yayımlanmış"),
     ("senaryo_bekleyen", "  İncelemede"),

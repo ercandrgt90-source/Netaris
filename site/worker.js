@@ -453,25 +453,57 @@ async function kayit(istek, env) {
     return yanit({ tamam: true, mesaj: "Doğrulama adımı için e-postanızı kontrol edin." });
   }
 
+  /* POSTA GONDERILEMIYORSA UYE DOGRUDAN ETKIN.
+     -------------------------------------------
+     OLCULDU: `RESEND_API_KEY` tanimli degil, dolayisiyla dogrulama
+     e-postasi HIC gonderilmiyordu. Uye `beklemede` durumunda
+     takiliyor, dogrulama baglantisini goremiyor ve giris yapamiyordu.
+     Uc uyenin sifiri onayliydi.
+
+     Sistem bunu "yonetici onayina duser" diye tarifliyordu ama o onay
+     bir yere GITMIYORDU: ne posta var ne panel bildirimi. Yani kayit
+     olan herkes sessizce olu bir kuyruga giriyordu -- kullanicinin
+     "onay bana geliyor" dedigi sey aslinda hicbir yere gelmiyordu.
+
+     ODUNU ACIKCA YAZIYORUM: e-posta dogrulamasi olmadan adresin
+     gercekten kayit olana ait oldugu bilinmiyor. Bunu kabul
+     edilebilir kilan iki sey var:
+       1. Google ile giris zaten DOGRULANMIS adres veriyor ve asil
+          yol o (uc uyenin ikisi oradan geldi).
+       2. Icerik ayri bir kapida: senaryo ve yazi `taslak ->
+          incelemede -> yayimlandi` surecinden geciyor. Uye olmak
+          yayimlamak demek degil.
+
+     Anahtar SONRADAN tanimlanirsa akis kendiliginde eski haline
+     donuyor: posta gonderilebiliyorsa `beklemede` yaziliyor. */
   const jeton = rastgele(24);
+  const postaVar = Boolean(env.RESEND_API_KEY);
   await db.prepare(
     "INSERT INTO uye (eposta, ad, parola_ozet, durum, rol, " +
     "dogrulama_ozeti, dogrulama_biter, kayit_ani) " +
-    "VALUES (?, ?, ?, 'beklemede', 'yazar', ?, ?, ?)",
+    "VALUES (?, ?, ?, ?, 'yazar', ?, ?, ?)",
   ).bind(
     eposta, ad, await parolaOzetle(parola),
+    postaVar ? "beklemede" : "etkin",
     await sha256(jeton), damga() + 86400, simdi(),
   ).run();
 
   const taban = new URL(istek.url).origin;
   const baglanti = `${taban}/api/dogrula?j=${jeton}&e=${encodeURIComponent(eposta)}`;
-  const posta = await dogrulamaGonder(env, eposta, ad, baglanti);
+  const posta = postaVar
+    ? await dogrulamaGonder(env, eposta, ad, baglanti)
+    : { gonderildi: false, sebep: "posta kapali -- uye dogrudan etkin" };
 
   return yanit({
     tamam: true,
+    /* MESAJ GERCEGI SOYLUYOR.
+       Once posta gonderilemedigi durumda "yonetici onayindan sonra
+       etkinlesecek" yaziyordu -- ama boyle bir onay adimi YOKTU ve
+       kimseye bildirim gitmiyordu. Kullaniciya olmayan bir sureci
+       beklettik. Artik hesap dogrudan etkin ve mesaj bunu soyluyor. */
     mesaj: posta.gonderildi
       ? "Doğrulama bağlantısı e-postanıza gönderildi."
-      : "Kaydınız alındı. Hesabınız yönetici onayından sonra etkinleşecek.",
+      : "Kaydınız tamamlandı. Giriş yapabilirsiniz.",
     posta: posta.gonderildi,
   });
 }

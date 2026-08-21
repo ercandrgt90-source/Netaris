@@ -4896,3 +4896,46 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
   .hero-butonlar { gap: var(--b-2); }
   .hero-butonlar .dugme { flex: 1 1 calc(50% - var(--b-2)); }
 }
+
+/* ====================================================================
+   [hidden] HER SEYI YENER
+   --------------------------------------------------------------------
+   OLCULDU: ust menude "Giriş yap" ve "Panel" AYNI ANDA gorunuyordu.
+
+   Sebep benim yazdigim kuraldi:
+       .ust nav .ust-giris { display: inline-flex; }
+   `hidden` ozniteligi tarayicinin `display: none` kuraliyla calisiyor
+   ve bir SINIF secicisi ondan daha guclu. Yani menu simetrisini
+   duzeltirken oturum gizlemesini bozmusum: betik dogru calisiyor,
+   `hidden`i koyuyor, CSS gormezden geliyordu.
+
+   Bu kuralin `!important` tasimasi gerekiyor ve gerekcesi acik:
+   `hidden` bir GORUNURLUK KARARI, bicim tercihi degil. Hicbir bicim
+   kurali onu ezmemeli -- ezerse gizli olmasi gereken sey gorunur ve
+   bunun sessiz bir belirtisi olmaz.
+   ================================================================== */
+
+[hidden] { display: none !important; }
+
+/* MOBILDE OTURUM OGELERI SABIT.
+   Kullanici "panel kayiyor" dedi: yatay kayan seritte Panel dugmesi
+   ekrandan cikiyordu. Giris/uye ol/panel birer AKSIYON, gezinme
+   baglantisi degil -- kaydirmaya birakilmamalilar. */
+@media (max-width: 640px) {
+  .ust nav .ust-giris,
+  .ust nav .ust-kayit,
+  .ust nav .ust-panel {
+    position: sticky;
+    right: 0;
+    z-index: 2;
+    background: var(--zemin);
+    box-shadow: -10px 0 10px -6px var(--zemin);
+  }
+  /* Uye ol ve Panel dolgulu dugme; kendi zeminlerini korusunlar. */
+  .ust nav .ust-kayit,
+  .ust nav .ust-panel { background: var(--vurgu); box-shadow: none; }
+
+  /* Ucu birden yapiskan olunca ust uste binmesinler: giris solda
+     kalir, uye ol sagda. */
+  .ust nav .ust-giris { right: 84px; }
+}

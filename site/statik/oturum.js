@@ -13,13 +13,16 @@
 (function () {
   "use strict";
 
-  var yok = document.querySelector("[data-oturum-yok]");
-  var var_ = document.querySelector("[data-oturum-var]");
-  if (!yok && !var_) return;
+  /* BIRDEN COK oge olabilir: oturumsuz okur hem "Giris yap" hem
+     "Uye ol" goruyor. `querySelector` yalnizca ILKINI buluyordu ve
+     ikincisi sonsuza dek gizli kaliyordu. */
+  var yok = document.querySelectorAll("[data-oturum-yok]");
+  var var_ = document.querySelectorAll("[data-oturum-var]");
+  if (!yok.length && !var_.length) return;
 
   function goster(girisli) {
-    if (yok) yok.hidden = girisli;
-    if (var_) var_.hidden = !girisli;
+    Array.prototype.forEach.call(yok, function (o) { o.hidden = girisli; });
+    Array.prototype.forEach.call(var_, function (o) { o.hidden = !girisli; });
   }
 
   fetch("/api/ben", { credentials: "same-origin", cache: "no-store" })

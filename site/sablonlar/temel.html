@@ -155,6 +155,11 @@
          Betik calismazsa ikisi de kalir: kirik degil, yalnizca fazladan
          bir baglanti. #}
       <a class="ust-giris" href="/giris/" data-oturum-yok hidden>Giriş yap</a>
+      {# UYE OL da giris gibi yalnizca OTURUMSUZ okura gorunuyor.
+         Onceden yalnizca "Giris yap" vardi; henuz uye olmayan okur
+         once giris sayfasina gidip oradan kayda gecmek zorundaydi --
+         bir adim fazla ve en cok kaybin yasandigi adim. #}
+      <a class="ust-kayit dugme-mini" href="/kayit/" data-oturum-yok hidden>Üye ol</a>
       <a class="ust-panel dugme-mini" href="/panel/" data-oturum-var hidden>Panel</a>
 
       {# Tema dugmesi. Betiksiz tarayicida GORUNMUYOR (`hidden`), cunku
