@@ -5432,3 +5432,77 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
    birakttigi bosluk ust boslugu olarak geri veriliyor, yoksa manset
    serite yapisik duruyor. */
 .yazi > header:first-child { padding-top: var(--b-4); }
+
+/* ====================================================================
+   MOBILDE HIYERARSI -- "hala tek serit" sikayeti
+   --------------------------------------------------------------------
+   Istek iki sutundu. Telefonda TAM iki sutun yanlis olurdu: 390
+   piksellik ekranda her sutun ~180px kalir, baslik uc-dort kelimede
+   kirilir ve okunurluk duser. Bloomberg ve NYT de telefonda tek
+   sutun kullaniyor.
+
+   Ama sikayet gercek: bu tek sutunda HER OGE AYNI BOYDA. Ekran
+   asagi kaydikca hicbir sey one cikmiyor, hepsi esit agirlikta
+   goruntu seridi. Gazete sayfasinin bir mansedi ve daha kucuk yan
+   haberleri vardir; onemi TASARIM soyler.
+
+   Buradaki cozum sutun sayisi degil AGIRLIK: ilk oge manset olarak
+   tam genislikte ve gorseliyle; sonrakiler daha sikisik, gorsel
+   kucuk ve yanda. Ayni sutunda, farkli agirlikta.
+   ================================================================== */
+
+@media (max-width: 640px) {
+  /* MANSET: ilk oge buyuk kalir. */
+  .ai-akis-liste > li:first-child .ai-kart-baslik {
+    font-size: var(--p-2xl);
+    -webkit-line-clamp: 3;
+  }
+  .ai-akis-liste > li:first-child .ai-kart-foto {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: var(--r-kucuk);
+  }
+  .ai-akis-liste > li:first-child .ai-kart-ust {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--b-2);
+  }
+
+  /* YAN HABERLER: gorsel kucuk ve SAGDA, metin solda.
+     Dikey yer kazandiriyor -- ayni ekranda daha cok haber, ve
+     manset ile aralarindaki fark goz seviyesinde okunuyor. */
+  .ai-akis-liste > li:not(:first-child) .ai-kart-ust {
+    display: grid;
+    grid-template-columns: 1fr 84px;
+    align-items: start;
+    gap: var(--b-3);
+  }
+  .ai-akis-liste > li:not(:first-child) .ai-kart-foto {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    width: 84px;
+    height: 84px;
+    object-fit: cover;
+    border-radius: var(--r-kucuk);
+  }
+  .ai-akis-liste > li:not(:first-child) .ai-kart-baslik {
+    font-size: var(--p-m);
+    -webkit-line-clamp: 3;
+  }
+  /* Yan haberde yorum iki satira iniyor: manset ile arasindaki
+     agirlik farkini metin uzunlugu da tasisin. */
+  .ai-akis-liste > li:not(:first-child) .ai-kart-yorum p,
+  .ai-akis-liste > li:not(:first-child) .ai-metin {
+    -webkit-line-clamp: 2;
+  }
+}
+
+/* TABLETTE IKI SUTUN. Burada genislik gercekten var (>=700px):
+   iki sutun okunurlugu bozmuyor, aksine bos kenar bosluklarini
+   degerlendiriyor. */
+@media (min-width: 700px) and (max-width: 1024px) {
+  .ai-akis-liste { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
