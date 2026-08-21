@@ -3475,6 +3475,61 @@ def insa() -> int:
         f"User-agent: *\nAllow: /\n\nSitemap: {SITE['adres']}/sitemap.xml\n",
     )
 
+    # ONBELLEK POLITIKASI.
+    #
+    # Olculdu: canli sayfa `Cache-Control: public, max-age=0,
+    # must-revalidate` donuyordu -- Cloudflare'in statik varlik
+    # varsayilani. Bu, HER istekte kaynaga geri donulmesi demek. Kendi
+    # sunucumuz icin maliyeti kucuk ama DISARIDAN CEKENLER icin degil:
+    # onbellege alamayan bir istemci (arama motoru onizlemesi, sosyal
+    # medya kazicisi, yapay zeka erisim katmani) her seferinde tam
+    # istek atiyor ve bir kismi bunu "cache miss" diye bildiriyor.
+    #
+    # HTML kisa omurlu ama ONBELLEKLENEBILIR olmali: 60 saniye taze,
+    # sonrasinda `stale-while-revalidate` ile bayat kopya servis
+    # edilirken arkada yenileniyor. Okur bekletilmiyor, kaynak
+    # dovulmuyor.
+    #
+    # Varliklar surum damgali adresler tasiyor (`_surum`), yani icerik
+    # degisince ADRES degisiyor. Adresi degisen dosya bir yil
+    # onbellekte kalabilir -- `immutable` tam bunun icin.
+    #
+    # KURALLAR EKLENIYOR, EZMIYOR. Ilk denemede once `/*` sonra
+    # `/statik/*` yazdim ve olcunce CSS su basligi donuyordu:
+    #
+    #   Cache-Control: public, max-age=60, stale-while-revalidate=600,
+    #                  public, max-age=31536000, immutable
+    #
+    # Iki politika tek satirda birlesmis. `_headers` eslesen her
+    # kurali EKLIYOR; ezmek icin onceki deger `! Basliginadi` ile
+    # KALDIRILMALI. Yoksa istemci hangi omru uygulayacagini kendi
+    # secer ve davranis tarayiciya gore degisir.
+    yaz("/_headers", "\n".join((
+        "/*",
+        "  Cache-Control: public, max-age=60, stale-while-revalidate=600",
+        "",
+        "/statik/*",
+        "  ! Cache-Control",
+        "  Cache-Control: public, max-age=31536000, immutable",
+        "",
+        "/rss.xml",
+        "  ! Cache-Control",
+        "  Cache-Control: public, max-age=300",
+        "",
+    )))
+
+    # BOLUM KOKU 404 VERMESIN.
+    #
+    # Olculdu: `/haber/` 404 donuyordu. Dizinde tek tek haber sayfalari
+    # var ama liste sayfasi yok. Siteden oraya baglanti YOK -- ama
+    # adresi elle kirpan okur (`/haber/xyz/` -> `/haber/`), eski bir
+    # paylasim ya da kazici oraya dusuyor ve bos duvara carpiyor.
+    #
+    # Yeni bir liste sayfasi URETMIYORUZ: `/gundem/` zaten tam olarak
+    # o liste. Ikinci bir kopya iki adreste ayni icerik demek ve ikisi
+    # birbirinin arama siralamasini yer.
+    yaz("/_redirects", "/haber/  /gundem/  301\n")
+
     # Varliklar
     shutil.copytree(STATIK, CIKTI / "statik")
     css_kucult(CIKTI / "statik" / "stil.css")

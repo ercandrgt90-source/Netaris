@@ -1247,6 +1247,24 @@ export default {
       if (y) return y;
     }
 
+    /* BOLUM KOKU YONLENDIRMESI -- statik akistan ONCE.
+       Olculdu: `/haber/` 404 donuyordu. Dizinde tek tek haber
+       sayfalari var ama liste sayfasi yok.
+
+       Once bunu `_redirects` dosyasiyla cozmeye calistim ve
+       CALISMADI: istek buraya once giriyor, `env.ASSETS.fetch`
+       dosyayi bulamayinca 404 donuyor ve `_redirects` hic
+       degerlendirilmiyor. Yonlendirme, statik akisa DUSMEDEN once
+       burada olmali.
+
+       Hedef `/gundem/`: zaten tam olarak o liste. Ikinci bir kopya
+       uretmek iki adreste ayni icerik demek ve ikisi birbirinin
+       arama siralamasini yer. */
+    const kok = { "/haber": "/gundem", "/haber/": "/gundem/" };
+    if (kok[u.pathname]) {
+      return Response.redirect(new URL(kok[u.pathname], u.origin), 301);
+    }
+
     if (!u.pathname.startsWith("/api/")) {
       return env.ASSETS.fetch(istek);
     }
