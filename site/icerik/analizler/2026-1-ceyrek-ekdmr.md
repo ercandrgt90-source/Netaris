@@ -1,7 +1,7 @@
 ---
 slug: ekdmr-2026-1-ceyrek
 baslik: EKİNCİLER DEMİR VE ÇELİK SANAYİ A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılatın %6,0'lık brüt kâr marjı ile sınırlı kalması, brüt kârın sadece 0,69 milyar TL olmasına yol açarken, net kâr marjının %3,0'a yükselmesi net kârın 0,32 milyar TL olmasını sağladı; bu durum, faaliyet kârı ve FAVÖK'ün sırasıyla 0,29 milyar TL ve 0,40 milyar TL olarak brüt kârdan daha yüksek se…
+ozet: Hasılatın %6,0'lık brüt kâr marjı ile sınırlı kalması, brüt kârın sadece 0,69 milyar TL olmasına yol açarken, net kâr marjının %3,0'a yükselmesi net kârın 0,32 milyar TL olmasını sağladı; bu durum faaliyet kârının (0,29 milyar TL) ve FAVÖK'ün (0,40 milyar TL) brüt kâra göre daha yüksek oranlarda ger…
 sirket: EKİNCİLER DEMİR VE ÇELİK SANAYİ A.Ş.
 kod: EKDMR
 donem: 2026 1. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %6,0'lık brüt kâr marjı ile sınırlı kalması, brüt kârın sadece 0,69 milyar TL olmasına yol açarken, net kâr marjının %3,0'a yükselmesi net kârın 0,32 milyar TL olmasını sağladı; bu durum, faaliyet kârı ve FAVÖK'ün sırasıyla 0,29 milyar TL ve 0,40 milyar TL olarak brüt kârdan daha yüksek seviyelere çıkmasına rağmen, faaliyet nakit akışının –1,22 milyar TL olmasıyla ters düşmektedir. Özkaynak kârlılığı %1,3 iken, özkaynakların 17,03 milyar TL olması, düşük borç/özkaynak oranı %0,06 ve cari oran 1,31'in, sektörel medyanların (özkaynak kârlılığı –%0,1, cari oran 1,36, borç/özkaynak %0,21) üzerinde konumlandığını gösterir; bu da özkaynakların aktif toplamı 26,04 milyar TL içinde daha az borçla finanse edildiğini yansıtır. Net borçun 1,06 milyar TL olması, yatırım harcamasının 0,81 milyar TL'ye eşitlenmesiyle birlikte, özkaynakların yüksek oranlı yapısına rağmen nakit çıkışının artmasına neden oldu.
+Hasılatın %6,0'lık brüt kâr marjı ile sınırlı kalması, brüt kârın sadece 0,69 milyar TL olmasına yol açarken, net kâr marjının %3,0'a yükselmesi net kârın 0,32 milyar TL olmasını sağladı; bu durum faaliyet kârının (0,29 milyar TL) ve FAVÖK'ün (0,40 milyar TL) brüt kâra göre daha yüksek oranlarda gerçekleştiğini gösterir. Özkaynak kârlılığı %1,3 iken, özkaynakların 17,03 milyar TL olması net kârın özkaynak başına düşük bir getiri sağladığını, aynı zamanda düşük borç/özkaynak oranı (%0,06) ve cari oranının 1,31 olması şirketin likiditesinin sektörel medyanın (1,36) altında fakat borçluluk açısından güçlü olduğunu gösterir. Faaliyet nakit akışının -1,22 milyar TL olması, yatırım harcamasının 0,81 milyar TL'ye kıyasla daha düşük bir nakit çıkışı yaratması ve net borcun sadece 1,06 milyar TL olması, faaliyetlerden elde edilen nakdin yatırım ve borç geri ödemeleriyle karşılanmadığını, özkaynakların bu farkı finanse ettiğini ortaya koyar.
 
 ## 2026 1. çeyrek dönemi ölçümleri
 

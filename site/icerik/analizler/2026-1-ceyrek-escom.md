@@ -1,7 +1,7 @@
 ---
 slug: escom-2026-1-ceyrek
 baslik: ESCORT TEKNOLOJİ YATIRIM A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılat ve brüt kâr aynı seviyede artarak %100 brüt kâr marjını sağladı; bu artış faaliyet kârı ve FAVÖK'te de benzer bir yükselişe yol açtı ve net kârın %46,9'a çıkan marjını destekledi.…
+ozet: Hasılat ve brüt kâr aynı tutara yükselmiş, bu da brüt kâr marjının %100,0 olmasını sağlamış; brüt kârın artışı doğrudan faaliyet kârı ve FAVÖK'teki %0,95 artışa yansımış.…
 sirket: ESCORT TEKNOLOJİ YATIRIM A.Ş.
 kod: ESCOM
 donem: 2026 1. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat ve brüt kâr aynı seviyede artarak %100 brüt kâr marjını sağladı; bu artış faaliyet kârı ve FAVÖK'te de benzer bir yükselişe yol açtı ve net kârın %46,9'a çıkan marjını destekledi. Özkaynakların 4,26 milyar TL'ye yükselmesi aktif toplamının da 4,34 milyar TL'ye ulaşmasını sağlarken, net borç ve faaliyet nakit akışı negatif kalmaya devam etti ve bu durum cari oranı 0,43'e, borç/özkaynak oranını ise sektör medyanına yakın -0,00 seviyesine çekti. Net kâr marjı ve özkaynak kârlılığı sektör medyanlarının üzerindeyken, düşük cari oran ve neredeyse sıfır borç/özkaynak oranı likidite ve finansal yapıdaki sınırlamaları işaret ediyor.
+Hasılat ve brüt kâr aynı tutara yükselmiş, bu da brüt kâr marjının %100,0 olmasını sağlamış; brüt kârın artışı doğrudan faaliyet kârı ve FAVÖK'teki %0,95 artışa yansımış. Faaliyet kârı ve FAVÖK'teki artış, net kârın %0,34 milyar TL'ye (sektör medyanının -%0,2'den %46,9'a) yükselmesine ve özkaynakların 4,26 milyar TL'ye (sektör medyanının %2,1'inden %4,9'a) artmasına yol açtı. Aktif toplamındaki %2,33 artışa rağmen cari oranın 0,43 (sektör medyanı 1,25) ve borç/özkaynak oranının -0,00 (sektör medyanı -0,02) sabit kalması, likidite ve finansal yapıdaki değişimin sınırlı olduğunu gösteriyor.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 

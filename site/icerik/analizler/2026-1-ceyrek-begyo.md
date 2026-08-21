@@ -1,7 +1,7 @@
 ---
 slug: begyo-2026-1-ceyrek
 baslik: BATI EGE GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Brüt kâr, hasılatın %62,2'si olarak sektör medyanının %51,4'ünden yüksek seyredince, brüt kâr marjındaki artış brüt kârın önceki dönemde 0,04 milyar TL'den 0,05 milyar TL'ye yükselmesine paralel oldu; aynı zamanda özkaynak 5,78 milyar TL'ye çıkarak özkaynak kârlılığını %0,6'ya (sektör medyanı %0,4)…
+ozet: Brüt kâr, hasılatın %62,2'si olarak yükselirken brüt kâr marjı sektör medyanının %51,4'ünden daha yüksek; bu artış brüt kârın 0,04 milyar TL'den 0,05 milyar TL'ye çıkmasıyla paralel gerçekleşti.…
 sirket: BATI EGE GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: BEGYO
 donem: 2026 1. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Brüt kâr, hasılatın %62,2'si olarak sektör medyanının %51,4'ünden yüksek seyredince, brüt kâr marjındaki artış brüt kârın önceki dönemde 0,04 milyar TL'den 0,05 milyar TL'ye yükselmesine paralel oldu; aynı zamanda özkaynak 5,78 milyar TL'ye çıkarak özkaynak kârlılığını %0,6'ya (sektör medyanı %0,4) taşıdı. Net kârda -0,34 milyar TL'ye gerilemesi, faaliyet kârı ve FAVÖK'ta değişiklik olmamasına rağmen, net borcun -0,02 milyar TL'ye (önceki -0,03 milyar TL) hafif iyileşmesiyle birlikte cari oranın 76,64'e (sektör medyanı 5,25) yükselmesi, likidite artışının kâr kaybını dengeleyemediğini gösterdi. Aktif toplamının 5,99 milyar TL'ye (önceki 4,78 milyar TL) ve borç/özkaynak oranının -0,00'a (sektör medyanı 0,02) yükselmesi, özkaynak artışının varlık büyümesiyle birlikte borçsuz bir yapı oluşturduğunu ortaya koyar.
+Brüt kâr, hasılatın %62,2'si olarak yükselirken brüt kâr marjı sektör medyanının %51,4'ünden daha yüksek; bu artış brüt kârın 0,04 milyar TL'den 0,05 milyar TL'ye çıkmasıyla paralel gerçekleşti. Net kâr, –0,02 milyar TL'den –0,34 milyar TL'ye düşmesine rağmen net kâr marjı %117,2'ye yükseldi; bu durum, özkaynakların 4,77 milyar TL'den 5,78 milyar TL'ye artması ve aktif toplamının 4,78 milyar TL'den 5,99 milyar TL'ye yükselmesiyle özkaynak kârlılığının %0,4'ten %0,6'ya çıkması arasında bir ilişki gösteriyor. Cari oran 76,64'e yükselirken borç/özkaynak oranı –0,00'da kalmış; negatif net borç (–0,02 milyar TL) ve artan özkaynak, likiditeyi artırarak cari oranı sektör medyanı 5,25'in çok üzerine çıkarmış.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 

@@ -1,7 +1,7 @@
 ---
 slug: pkent-2026-1-ceyrek
 baslik: PETROKENT TURİZM A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılat aynı kalırken brüt kâr, faaliyet kârı, FAVÖK ve net kâr tümü negatiften daha negatif bir seviyeye kaymış; bu durum kâr marjlarının (brüt kâr %-24,7, net kâr %-21,2) sektör medyanlarının (sırasıyla %15,4 ve %0,6) altında kalmasına yol açmıştır.…
+ozet: Hasılat aynı kalırken brüt kâr, faaliyet kârı, FAVÖK ve net kâr tümü negatiften daha negatif bir seviyeye kaymış; bu durum zararların artmasıyla özkaynak kârlılığının %4,0 negatif olmasına ve brüt kâr marjının %24,7 negatif, net kâr marjının %21,2 negatif olmasına yol açmıştır.…
 sirket: PETROKENT TURİZM A.Ş.
 kod: PKENT
 donem: 2026 1. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat aynı kalırken brüt kâr, faaliyet kârı, FAVÖK ve net kâr tümü negatiften daha negatif bir seviyeye kaymış; bu durum kâr marjlarının (brüt kâr %-24,7, net kâr %-21,2) sektör medyanlarının (sırasıyla %15,4 ve %0,6) altında kalmasına yol açmıştır. Özkaynak 1,54 milyar TL'ye yükselmiş ve aktif toplamı 2,35 milyar TL'ye artmış; aynı zamanda net borç –0,46 milyar TL (negatif borç) olduğu için borç/özkaynak oranı –0,30, sektör medyanı 0,15 iken cari oran 1,25 ile medyanın 1,30'unun altında kalmıştır. Faaliyet nakit akışı –0,01 milyar TL'ye düşmüş ve yatırım harcaması 0,08 milyar TL'ye azalmış; nakit çıkışı artarken yatırım harcamasının hafifçe azalması, likidite ve sermaye harcaması arasındaki dengesizliği yansıtmaktadır.
+Hasılat aynı kalırken brüt kâr, faaliyet kârı, FAVÖK ve net kâr tümü negatiften daha negatif bir seviyeye kaymış; bu durum zararların artmasıyla özkaynak kârlılığının %4,0 negatif olmasına ve brüt kâr marjının %24,7 negatif, net kâr marjının %21,2 negatif olmasına yol açmıştır. Öz kaynakların 1,54 milyar TL'ye yükselmesi, aktif toplamının 2,35 milyar TL'ye artması ve net borcun –0,46 milyar TL (negatif borç) olması, cari oranı 1,25'e ve borç/öz kaynak oranını –0,30'a çekerek likiditeyi bir ölçüde korurken sektörel medyanların (cari 1,30, borç/öz kaynak 0,15) altında kalmasına neden olmuştur. Faaliyet nakit akışı –0,01 milyar TL'ye düşmüş, yatırım harcaması ise 0,08 milyar TL'ye azalmış; bu da negatif nakit akışıyla birlikte sermaye harcamalarının hafifçe azaltılması arasında bir ilişki olduğunu göstermektedir.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 

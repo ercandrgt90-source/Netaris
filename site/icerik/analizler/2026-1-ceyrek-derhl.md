@@ -1,7 +1,7 @@
 ---
 slug: derhl-2026-1-ceyrek
 baslik: DERLÜKS YATIRIM HOLDİNG A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılat aynı kalırken brüt kâr, faaliyet kârı ve FAVÖK artış gösterdi; bu artış brüt kâr marjının %28,1'e yükselmesiyle birlikte, satışların maliyet yapısının iyileştiğini gösteriyor.…
+ozet: Hasılat aynı kalırken brüt kâr, faaliyet kârı ve FAVÖK artış gösterdi; bu artışlar brüt kâr marjının %28,1'e yükselmesiyle birlikte, maliyet ve giderlerin daha yavaş artmasıyla ilişkilendirilebilir.…
 sirket: DERLÜKS YATIRIM HOLDİNG A.Ş.
 kod: DERHL
 donem: 2026 1. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat aynı kalırken brüt kâr, faaliyet kârı ve FAVÖK artış gösterdi; bu artış brüt kâr marjının %28,1'e yükselmesiyle birlikte, satışların maliyet yapısının iyileştiğini gösteriyor. Net kârın %0,6'dan %0,6'ya sabit kalması, özkaynak kârlılığının %0,3'e düşmesi ve net borcun 2,15 milyar TL'ye yükselmesi, özkaynak artışına rağmen kârlılıkta sınırlı bir yansıma olduğunu ve borç finansmanının artışının özkaynak getirisine baskı yaptığını işaret ediyor. Cari oran 1,45 ile sektör medyanının (1,30) üzerinde seyretmesi, likidite durumunun iyileştiğini, fakat borç/özkaynak oranının 0,77'ye çıkması (sektör medyanı 0,15) finansal riskin yükseldiğini gösteriyor.
+Hasılat aynı kalırken brüt kâr, faaliyet kârı ve FAVÖK artış gösterdi; bu artışlar brüt kâr marjının %28,1'e yükselmesiyle birlikte, maliyet ve giderlerin daha yavaş artmasıyla ilişkilendirilebilir. Net kâr ise düşerek %0,6 seviyesine geriledi ve özkaynak kârlılığı %0,3'e inmiş, bu durum artan net borç (2,15 milyar TL) ve özkaynak (2,80 milyar TL) arasındaki farkın, kârlılık üzerindeki baskıyı artırdığını gösteriyor. Cari oran 1,45 ile sektör medyanının (1,30) üzerinde seyredirken, borç/özkaynak oranı %0,77 olarak medyanın (0,15) çok üzerindedir; bu, likiditeyi korurken finansal kaldıraçta belirgin bir artışın olduğunu ortaya koyar.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 

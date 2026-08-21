@@ -1,7 +1,7 @@
 ---
 slug: bigch-2026-1-ceyrek
 baslik: BÜYÜK ŞEFLER GIDA TURİZM TEKSTİL DANIŞMANLIK ORGANİZASYON EĞİTİM SANAYİ VE TİCARET A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılat sabit kalırken brüt kâr, faaliyet kârı, FAVÖK ve net kâr artışı, brüt kâr marjının %23,7'ye yükselmesiyle birlikte karlılık oranlarının da sektör medyanlarının çok üzerinde olduğu görülüyor; bu karlılık artışı özkaynakların %1,41'e çıkması ve özkaynak kârlılığının %3,5'e yükselmesiyle destek…
+ozet: Hasılat sabit kalırken brüt kâr, faaliyet kârı, FAVÖK ve net kâr artışları, brüt kâr marjının %23,7'ye yükselmesiyle birlikte kârlılık göstergelerinin (net kâr marjı %3,6, özkaynak kârlılığı %3,5) sektör medyanlarının çok üzerisine çıktığını gösteriyor; aynı zamanda özkaynakların 1,41 milyar TL'ye,…
 sirket: BÜYÜK ŞEFLER GIDA TURİZM TEKSTİL DANIŞMANLIK ORGANİZASYON EĞİTİM SANAYİ VE TİCARET A.Ş.
 kod: BIGCH
 donem: 2026 1. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat sabit kalırken brüt kâr, faaliyet kârı, FAVÖK ve net kâr artışı, brüt kâr marjının %23,7'ye yükselmesiyle birlikte karlılık oranlarının da sektör medyanlarının çok üzerinde olduğu görülüyor; bu karlılık artışı özkaynakların %1,41'e çıkması ve özkaynak kârlılığının %3,5'e yükselmesiyle desteklenmiş. Aktif toplamı ve faaliyet nakit akışı yükselmiş olsa da cari oran 0,61 ile sektör medyanı 1,30'un altında kalmış, bu da kısa vadeli likidite ihtiyacının artmasına işaret eder. Borç/özkaynak oranı %0,51'e yükselmiş ve sektör medyanı 0,15'in çok üzerindedir; bu, özkaynak artışına rağmen borçlanmanın da arttığını, finansal kaldıraç kullanımının genişlediğini gösteriyor.
+Hasılat sabit kalırken brüt kâr, faaliyet kârı, FAVÖK ve net kâr artışları, brüt kâr marjının %23,7'ye yükselmesiyle birlikte kârlılık göstergelerinin (net kâr marjı %3,6, özkaynak kârlılığı %3,5) sektör medyanlarının çok üzerisine çıktığını gösteriyor; aynı zamanda özkaynakların 1,41 milyar TL'ye, aktif toplamının 3,49 milyar TL'ye yükselmesi bilanço büyüklüğünü artırırken, net borçta sadece 0,01 milyar TL artış ve cari oranın 0,61'den düşmesi, likidite oranının sektör ortalamasının (1,30) altında kalmasına rağmen borç/özkaynak oranının %0,51'e yükselmesiyle finansal riskin artışını işaret ediyor. Faaliyet nakit akışı 0,54 milyar TL'ye çıkarken yatırım harcaması 0,34 milyar TL'ye gerilemiş, bu da nakit üretiminin artışıyla birlikte sermaye harcamalarının hafifçe azalmasını ve işletme faaliyetlerinden elde edilen nakdin yatırım ihtiyacını karşılamada daha rahat bir konuma gelindiğini gösteriyor.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 

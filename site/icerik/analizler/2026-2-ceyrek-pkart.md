@@ -1,7 +1,7 @@
 ---
 slug: pkart-2026-2-ceyrek
 baslik: PLASTİKKART AKILLI KART İLETİŞİM SİSTEMLERİ SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %0,8 milyar TL artması brüt kârın %0,19 milyar TL yükselmesine, ardından faaliyet kârı ve FAVÖK'ün sırasıyla %0,11 ve %0,12 milyar TL artmasına yol açtı; bu kâr artışları özkaynakların %0,19 milyar TL (0,60 → 0,41 milyar TL) ve aktif toplamının %0,18 milyar TL (0,86 → 0,68 milyar TL) yükse…
+ozet: Hasılatın %0,8 artması brüt kârı %0,19 artırarak brüt kâr marjının %11,7 seviyesine yükselmesine, bu da faaliyet kârı ve FAVÖK'ün sırasıyla %0,11 ve %0,12 artmasına yol açtı; net kârın %0,04'ye çıkması özkaynak kârlılığını %2,7'ye ve özkaynak seviyesini 0,60 milyar TL'ye yükseltti.…
 sirket: PLASTİKKART AKILLI KART İLETİŞİM SİSTEMLERİ SANAYİ VE TİCARET A.Ş.
 kod: PKART
 donem: 2026 2. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %0,8 milyar TL artması brüt kârın %0,19 milyar TL yükselmesine, ardından faaliyet kârı ve FAVÖK'ün sırasıyla %0,11 ve %0,12 milyar TL artmasına yol açtı; bu kâr artışları özkaynakların %0,19 milyar TL (0,60 → 0,41 milyar TL) ve aktif toplamının %0,18 milyar TL (0,86 → 0,68 milyar TL) yükselmesiyle desteklendi. Net borcun -%0,11 milyar TL'den -%0,13 milyar TL'ye düşmesi (daha negatif) cari oranı 2,59'a (sektör medyanı 1,37) yükselterek likiditeyi artırdı; aynı anda borç/özkaynak oranı -0,21'e (sektör medyanı 0,11) gerileyerek finansal kaldıraçta azalma gösterdi. Net kâr marjı %3,2'ye (sektör medyanı %0,3) ve özkaynak kârlılığı %2,7'ye (sektör medyanı %0,0) yükselmesi, artan faaliyet nakit akışı %0,06 milyar TL (önceki -%0,03 milyar TL) ile birlikte kârlılık ve sermaye verimliliğinin birlikte iyileştiğini gösteriyor.
+Hasılatın %0,8 artması brüt kârı %0,19 artırarak brüt kâr marjının %11,7 seviyesine yükselmesine, bu da faaliyet kârı ve FAVÖK'ün sırasıyla %0,11 ve %0,12 artmasına yol açtı; net kârın %0,04'ye çıkması özkaynak kârlılığını %2,7'ye ve özkaynak seviyesini 0,60 milyar TL'ye yükseltti. Öz kaynakların artması ve net borcun -0,13 milyar TL'ye (negatif borç) gerilemesi cari oranı 2,59'a, borç/özkaynak oranını -%0,21'e çekti; bu likidite iyileşmesi faaliyet nakit akışının 0,06 milyar TL'ye (önceki -0,03) dönmesini destekledi. Yatırım harcamasının 0,00 milyar TL'ye düşmesi ise aktif toplamının 0,86 milyar TL'ye (önceki 0,68) yükselmesinde net borç azalmasının etkili olduğunu gösteriyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

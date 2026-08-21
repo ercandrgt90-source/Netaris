@@ -1,9 +1,9 @@
 ---
-slug: adese-2026-1-ceyrek
-baslik: ADESE GAYRİMENKUL YATIRIM A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılat 0,89 milyar TL'ye yükselirken net kâr -0,06 milyar TL'ye gerilemiş; gelir artışı faaliyet nakit akışının 0,42 milyar TL'ye geçmesiyle birlikte gerçekleşmiş, ancak kârın düşmesi özkaynak kârlılığının -%0,8 olmasına ve net kâr marjının -%54,4'e inmesine yol açmıştır.…
-sirket: ADESE GAYRİMENKUL YATIRIM A.Ş.
-kod: ADESE
+slug: rgyas-2026-1-ceyrek
+baslik: RÖNESANS GAYRİMENKUL YATIRIM A.Ş. 2026 1. çeyrek bilanço analizi
+ozet: Hasılat 9,01 milyar TL'ye yükselirken net kâr 7,32 milyar TL'ye artmış; bu kâr artışı özkaynakların 163,93 milyar TL'ye, aktif toplamının 238,98 milyar TL'ye ve net borcun 24,08 milyar TL'ye (önceki 20,44 milyar TL) yükselmesine eşlik etmiştir; faaliyet nakit akışı ise –0,08 milyar TL'den 3,60 milya…
+sirket: RÖNESANS GAYRİMENKUL YATIRIM A.Ş.
+kod: RGYAS
 donem: 2026 1. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
@@ -18,18 +18,18 @@ sayimlar:
 
 ## Özet
 
-Hasılat 0,89 milyar TL'ye yükselirken net kâr -0,06 milyar TL'ye gerilemiş; gelir artışı faaliyet nakit akışının 0,42 milyar TL'ye geçmesiyle birlikte gerçekleşmiş, ancak kârın düşmesi özkaynak kârlılığının -%0,8 olmasına ve net kâr marjının -%54,4'e inmesine yol açmıştır. Özkaynak 19,69 milyar TL'ye çıkması aktif toplamının 25,57 milyar TL'ye yükselmesiyle paralel seyretmiş ve net borcun -0,21 milyar TL'ye (nakit fazlası) dönüşmesi, borç/özkaynak oranının -%0,01 (sektör medyanı 0,02) olmasını sağlamıştır. Bu değişimler, gelir artışı ve nakit akışı iyileşmesinin özkaynak artışı ve borç yapısındaki olumlu dönüşümle birlikte, kâr marjı ve özkaynak kârlılığı gibi kârlılık göstergelerinin gerilemesine rağmen bilanço kalemlerinin büyümesinde etkili olduğunu göstermektedir.
+Hasılat 9,01 milyar TL'ye yükselirken net kâr 7,32 milyar TL'ye artmış; bu kâr artışı özkaynakların 163,93 milyar TL'ye, aktif toplamının 238,98 milyar TL'ye ve net borcun 24,08 milyar TL'ye (önceki 20,44 milyar TL) yükselmesine eşlik etmiştir; faaliyet nakit akışı ise –0,08 milyar TL'den 3,60 milyar TL'ye geçmiştir. Net kâr marjı %93,9, özkaynak kârlılığı %2,6 ve borç/özkaynak oranı 0,15, sırasıyla sektör medyanları %14,3, %0,4 ve 0,02'nin üzerindedir. Bu oranların yükselmesi, kâr ve nakit akışı artışıyla birlikte özkaynak ve varlık büyümesinin, borç seviyesinin ise daha sınırlı bir artışla gerçekleştiğini gösterir.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | %124,0 |
-| Net kâr | -%108,1 |
-| Özkaynak | %35,4 |
-| Aktif toplamı | %38,8 |
-| Net borç | -%229,7 |
-| Faaliyet nakit akışı | %641,0 |
+| Hasılat | %68,6 |
+| Net kâr | %102,2 |
+| Özkaynak | %52,1 |
+| Aktif toplamı | %60,1 |
+| Net borç | %17,8 |
+| Faaliyet nakit akışı | %4434,9 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -37,12 +37,12 @@ Hasılat 0,89 milyar TL'ye yükselirken net kâr -0,06 milyar TL'ye gerilemiş; 
 
 | Kalem | Değer |
 | --- | ---: |
-| Hasılat | 0,89 milyar TL |
-| Net kâr | -0,06 milyar TL |
-| Özkaynak | 19,69 milyar TL |
-| Aktif toplamı | 25,57 milyar TL |
-| Net borç | -0,21 milyar TL |
-| Faaliyet nakit akışı | 0,42 milyar TL |
+| Hasılat | 9,01 milyar TL |
+| Net kâr | 7,32 milyar TL |
+| Özkaynak | 163,93 milyar TL |
+| Aktif toplamı | 238,98 milyar TL |
+| Net borç | 24,08 milyar TL |
+| Faaliyet nakit akışı | 3,60 milyar TL |
 
 ## Sektör içindeki konum
 
@@ -50,9 +50,9 @@ Karşılaştırma Gayrimenkul sektöründeki 34 şirketin **medyanına** göre y
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Net kâr marjı | -%54,4 | %14,3 |
-| Özkaynak kârlılığı | -%0,8 | %0,4 |
-| Borç / özkaynak | -0,01 | 0,02 |
+| Net kâr marjı | %93,9 | %14,3 |
+| Özkaynak kârlılığı | %2,6 | %0,4 |
+| Borç / özkaynak | 0,15 | 0,02 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -60,11 +60,8 @@ Karşılaştırma Gayrimenkul sektöründeki 34 şirketin **medyanına** göre y
 
 **Şirket lehine işleyenler**
 
-- Hasılat reel olarak %124,0 arttı.
-
-**Dikkat gerektirenler**
-
-- Net kâr reel olarak -%108,1 geriledi.
+- Hasılat reel olarak %68,6 arttı.
+- Net kâr reel olarak %102,2 arttı.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

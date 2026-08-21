@@ -1,7 +1,7 @@
 ---
 slug: egegy-2026-1-ceyrek
 baslik: EGEYAPI AVRUPA GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılatın %40,4 oranındaki brüt kâr marjı sektör medyanının (%51,4) altında kalmasına rağmen, brüt kârın 1,12 milyar TL'ye yükselmesi net kâr marjının %16,1 (sektör medyanı %14,3) ve özkaynak kârlılığının %5,6 (sektör medyanı %0,4) artmasına yol açtı; bu artış özkaynakların 2,67 milyar TL'ye (sektör…
+ozet: Hasılatın %40,4 oranındaki brüt kâr marjı sektör medyanının (%51,4) altında kalmasına rağmen, brüt kârın artışı (%1,12 milyar) net kâr marjını %16,1'e yükselterek sektör ortalamasının (%14,3) üzerine çıkmasını sağladı; bu durum, gelir artışının maliyet yapısına göre daha verimli bir dağılımına işare…
 sirket: EGEYAPI AVRUPA GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: EGEGY
 donem: 2026 1. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %40,4 oranındaki brüt kâr marjı sektör medyanının (%51,4) altında kalmasına rağmen, brüt kârın 1,12 milyar TL'ye yükselmesi net kâr marjının %16,1 (sektör medyanı %14,3) ve özkaynak kârlılığının %5,6 (sektör medyanı %0,4) artmasına yol açtı; bu artış özkaynakların 2,67 milyar TL'ye (sektör medyanı 0,02) yükselmesiyle desteklendi. Aktif toplamının hafifçe (7,42 milyar TL) düşmesi net borcun 0,40 milyar TL'ye (sektör medyanı 0,15) yükselmesiyle birlikte cari oranın 1,33'e (sektör medyanı 5,25) gerilemesine neden oldu ve faaliyet nakit akışı negatiften -0,20 milyar TL'ye (önceki -0,56 milyar TL) iyileşti. Bu değişimler, gelir artışıyla birlikte kârlılık göstergelerinin yükselmesine rağmen, likidite ve borç yapısının sektör ortalamalarına göre daha düşük bir seviyede kalmasını gösteriyor.
+Hasılatın %40,4 oranındaki brüt kâr marjı sektör medyanının (%51,4) altında kalmasına rağmen, brüt kârın artışı (%1,12 milyar) net kâr marjını %16,1'e yükselterek sektör ortalamasının (%14,3) üzerine çıkmasını sağladı; bu durum, gelir artışının maliyet yapısına göre daha verimli bir dağılımına işaret eder. Özkaynak kârlılığı %5,6 ile sektör medyanının (%0,4) çok üzerinde gerçekleşirken, özkaynakların %2,67 milyar'a yükselmesi ve borç/özkaynak oranının %0,15'e (sektör medyanı %0,02) çıkması, finansal kaldıraçta hafif bir artışla birlikte özkaynakların büyümesinin daha baskın olduğunu gösterir. Aktif toplamı hafifçe (%7,42 milyar) düşerken, net borçun %0,40 milyar'a (önceki dönem -%0,23 milyar) geçmesi, likiditeyi (cari oran 1,33, sektör medyanı 5,25) sınırlasa da, faaliyet nakit akışının iyileşmesi (-%0,20 milyar) borçlanma ihtiyacını azaltma eğilimini destekler.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 

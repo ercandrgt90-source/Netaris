@@ -1,7 +1,7 @@
 ---
 slug: avtur-2026-2-ceyrek
 baslik: AVRASYA PETROL VE TURİSTİK TESİSLER YATIRIMLAR A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın iki katına çıkan brüt kâr, brüt kâr marjının %36,2 olmasıyla birlikte faaliyet kârının negatif seyretmesi, faaliyet giderlerinin hasılat artışından daha fazla artmasıyla ilişkilidir; bu durum FAVÖK'te de benzer bir negatif etki yaratıp -%8,0 (0,08 milyar TL) düşüşe yol açmıştır.…
+ozet: Hasılatın iki katına çıkan brüt kâr, brüt kâr marjının %36,2 olmasıyla birlikte faaliyet kârının negatif seyretmesi, faaliyet giderlerinin hasılat artışına kıyasla daha hızlı yükseldiğini gösteriyor; bu durum FAVÖK'teki %0,08'lik düşüş ve net kârda %0,07 artışın, net borcun -0,11 milyar TL'ye gerile…
 sirket: AVRASYA PETROL VE TURİSTİK TESİSLER YATIRIMLAR A.Ş.
 kod: AVTUR
 donem: 2026 2. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın iki katına çıkan brüt kâr, brüt kâr marjının %36,2 olmasıyla birlikte faaliyet kârının negatif seyretmesi, faaliyet giderlerinin hasılat artışından daha fazla artmasıyla ilişkilidir; bu durum FAVÖK'te de benzer bir negatif etki yaratıp -%8,0 (0,08 milyar TL) düşüşe yol açmıştır. Net kârın %52,8'lik yüksek marjı, özkaynakların 1,31 milyar TL'ye yükselmesi ve negatif net borç (-0,11 milyar TL) sayesinde özkaynak kârlılığının %0,3'e (sektör medyanı %4,5) gerilemesine rağmen gerçekleşmiştir. Cari oranının 9,84 (sektör medyanı 7,79) ve borç/özkaynak oranının -%0,09 (sektör medyanı -%0,06) olması, likidite ve finansal yapıdaki iyileşmenin aktif toplamının 1,33 milyar TL'ye (önceki dönem 1,12 milyar TL) ve faaliyet nakit akışının 0,03 milyar TL'ye (önceki dönem -0,00 milyar TL) pozitif dönüşümle desteklendiğini göstermektedir.
+Hasılatın iki katına çıkan brüt kâr, brüt kâr marjının %36,2 olmasıyla birlikte faaliyet kârının negatif seyretmesi, faaliyet giderlerinin hasılat artışına kıyasla daha hızlı yükseldiğini gösteriyor; bu durum FAVÖK'teki %0,08'lik düşüş ve net kârda %0,07 artışın, net borcun -0,11 milyar TL'ye gerilemesiyle özkaynakların 1,31 milyar TL'ye yükselmesinin, özkaynak kârlılığının %0,3 seviyesinde kalmasına yol açtığını ortaya koyar. Cari oranın 9,84 olması sektör medyanı 7,79'un üzerindedir ve bu likidite fazlası, negatif net borç ve artan özkaynaklarla birlikte şirketin kısa vadeli yükümlülüklerini rahat karşılayabildiğini, ancak borç/özkaynak oranının -0,09 ile medyan -0,06'dan daha düşük olması, finansal kaldıraç kullanımının sınırlı kaldığını gösterir. Faaliyet nakit akışının 0,03 milyar TL'ye yükselmesi, negatif faaliyet kârına rağmen nakit üretimindeki iyileşmenin, likidite ve özkaynak artışıyla paralel bir şekilde gerçekleştiğini işaret eder.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

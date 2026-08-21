@@ -1,7 +1,7 @@
 ---
 slug: rygyo-2026-1-ceyrek
 baslik: REYSAŞ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılat 2,05 milyar TL'ye yükselirken net kâr 1,99 milyar TL'ye düşmüş, bu durum faaliyet nakit akışının -3,59 milyar TL'ye kaymasıyla birlikte özkaynakların 103,25 milyar TL'ye artması ve aktif toplamının 128,14 milyar TL'ye yükselmesiyle desteklenmiştir; net borç ise 11,22 milyar TL'ye çıkarak art…
+ozet: Hasılat 2,05 milyar TL'ye yükselirken net kâr 1,99 milyar TL'ye düşmüş; bu durum, faaliyet nakit akışının -3,59 milyar TL'ye kaymasıyla birlikte, yüksek net kâr marjının (%118,2) nakit dönüşümünden bağımsız bir kârlılık sağladığını gösterir.…
 sirket: REYSAŞ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: RYGYO
 donem: 2026 1. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat 2,05 milyar TL'ye yükselirken net kâr 1,99 milyar TL'ye düşmüş, bu durum faaliyet nakit akışının -3,59 milyar TL'ye kaymasıyla birlikte özkaynakların 103,25 milyar TL'ye artması ve aktif toplamının 128,14 milyar TL'ye yükselmesiyle desteklenmiştir; net borç ise 11,22 milyar TL'ye çıkarak artış göstermiştir. Net kâr marjı %118,2 seviyesinde sektör medyanının %14,3'ünden çok daha yüksekken özkaynak kârlılığı %1,1 ve borç/özkaynak oranı 0,11, her ikisi de sektör medyanlarının (%0,4 ve 0,02) üzerinde seyretmektedir. Bu göstergeler, gelir artışı ve özkaynak büyümesinin kâr marjı ve borç/özkaynak oranı gibi kârlılık ve finansal yapı ölçütleriyle paralel bir hareket içinde olduğunu ortaya koymaktadır.
+Hasılat 2,05 milyar TL'ye yükselirken net kâr 1,99 milyar TL'ye düşmüş; bu durum, faaliyet nakit akışının -3,59 milyar TL'ye kaymasıyla birlikte, yüksek net kâr marjının (%118,2) nakit dönüşümünden bağımsız bir kârlılık sağladığını gösterir. Özkaynak 103,25 milyar TL'ye artarken aktif toplamı 128,14 milyar TL'ye yükselmiş, bu da özkaynak kârlılığının (%1,1) artmasına rağmen borç/özkaynak oranının (0,11) sektör medyanının (0,02) çok üzerinde kalmasına yol açmıştır. Net borç 11,22 milyar TL'ye çıkması, artan özkaynak ve aktif büyüklüğüne rağmen finansal kaldıraçta bir yükselişi işaret eder.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 
