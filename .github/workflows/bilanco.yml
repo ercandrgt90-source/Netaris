@@ -51,9 +51,26 @@ on:
         options: ["varsayilan", "cloudflare", "anthropic"]
         default: "varsayilan"
 
-# Ana otomasyonla AYNI ANDA depoya yazmasinlar.
+# KENDI GRUBU -- ana otomasyonla ORTAK DEGIL.
+#
+# Once ortakti ve yanlisti. `cancel-in-progress: false` yalnizca
+# BASLAMIS kosuyu koruyor; KUYRUKTAKI kosu, ayni gruba yeni bir istek
+# girince iptal ediliyor:
+#
+#   "Canceling since a higher priority waiting request for
+#    netaris-depo-yazma exists"
+#
+# Ana otomasyon YARIM SAATTE BIR kosuyor. Bilanco kuyruga girdiginde
+# bir sonraki haber kosusu onu superseded ediyor -- yani bilanco
+# neredeyse hic sira bulamiyor. Ortak grup, es zamanli yazmayi
+# engellemek icin konmustu ama BASLAMAYI da engelliyordu.
+#
+# Yazma yarisi artik DOGRU YERDE cozuluyor: geri yazma adimi yalnizca
+# KENDI yollarini asamaya aliyor (`--ignore-removal`) ve push
+# reddedilirse yeniden deneniyor. Iki kosu ayni anda yazsa bile
+# birbirinin ciktisini ezmiyor.
 concurrency:
-  group: netaris-depo-yazma
+  group: netaris-bilanco
   cancel-in-progress: false
 
 jobs:
@@ -177,5 +194,27 @@ jobs:
             echo "yeni sayfa yok"
           else
             git commit -m "otomatik: bilanço sayfaları $(date -u +'%Y-%m-%d %H:%M UTC')"
-            git push origin "HEAD:${GITHUB_REF_NAME}"
+            # PUSH YENIDEN DENENIYOR.
+            #
+            # Iki is akisi artik AYRI es zamanlilik gruplarinda ve ayni
+            # anda kosabiliyorlar. Ikisi de depoya yaziyor; ikincisinin
+            # push'u "non-fast-forward" ile reddedilir.
+            #
+            # Dogru davranis ZORLAMAK DEGIL yeniden denemek: uzak uc
+            # yeniden alinir, kendi yollarimiz tekrar asamaya konur ve
+            # commit yenilenir. Zorlamak, digerinin ciktisini silmek
+            # olurdu -- bugun tam bunu yasadik (60 bilanco sayfasi).
+            for deneme in 1 2 3; do
+              if git push origin "HEAD:${GITHUB_REF_NAME}"; then
+                echo "gonderildi (deneme $deneme)"
+                break
+              fi
+              echo "push reddedildi, uzak uc yeniden aliniyor ($deneme)"
+              git fetch origin "${GITHUB_REF_NAME}"
+              git reset "origin/${GITHUB_REF_NAME}"
+              git add --ignore-removal $YOLLAR
+              git diff --staged --quiet && { echo "eklenecek yeni sey yok"; break; }
+              git commit -m "otomatik: bilanço sayfaları $(date -u +'%Y-%m-%d %H:%M UTC')"
+              sleep 3
+            done
           fi

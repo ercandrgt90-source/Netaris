@@ -275,5 +275,27 @@ jobs:
             echo "degisiklik yok"
           else
             git commit -m "otomatik: veri güncellemesi $(date -u +'%Y-%m-%d %H:%M UTC')"
-            git push origin "HEAD:${GITHUB_REF_NAME}"
+            # PUSH YENIDEN DENENIYOR.
+            #
+            # Iki is akisi artik AYRI es zamanlilik gruplarinda ve ayni
+            # anda kosabiliyorlar. Ikisi de depoya yaziyor; ikincisinin
+            # push'u "non-fast-forward" ile reddedilir.
+            #
+            # Dogru davranis ZORLAMAK DEGIL yeniden denemek: uzak uc
+            # yeniden alinir, kendi yollarimiz tekrar asamaya konur ve
+            # commit yenilenir. Zorlamak, digerinin ciktisini silmek
+            # olurdu -- bugun tam bunu yasadik (60 bilanco sayfasi).
+            for deneme in 1 2 3; do
+              if git push origin "HEAD:${GITHUB_REF_NAME}"; then
+                echo "gonderildi (deneme $deneme)"
+                break
+              fi
+              echo "push reddedildi, uzak uc yeniden aliniyor ($deneme)"
+              git fetch origin "${GITHUB_REF_NAME}"
+              git reset "origin/${GITHUB_REF_NAME}"
+              git add --ignore-removal $YOLLAR
+              git diff --staged --quiet && { echo "eklenecek yeni sey yok"; break; }
+              git commit -m "otomatik: veri güncellemesi $(date -u +'%Y-%m-%d %H:%M UTC')"
+              sleep 3
+            done
           fi
