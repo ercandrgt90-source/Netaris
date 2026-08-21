@@ -2942,6 +2942,24 @@ def insa() -> int:
         h["ai_yorum_kart"] = kart_yorumu(m) if m else ""
         h["ozet_kart"] = kart_yorumu(h.get("ozet", ""))
 
+    # HAM AKIS DA PUANLANIYOR -- SON DAKIKA BUNA BAGLI.
+    #
+    # OLCULDU: `onem_puanla` yalnizca `uretilecek` uzerinde
+    # calisiyordu; `gundem["haberler"]` ham dosyadan geliyor ve
+    # HICBIRINDE `katman` yoktu. Asagidaki suzgec `katman == "kritik"`
+    # ariyor, yani son dakika seridi HICBIR ZAMAN dolamiyordu.
+    #
+    # Daha once "su an kritik haber yok" diye yorumlamistim; yanlisti.
+    # Sifir olmasinin sebebi kritik haber olmamasi degil, HICBIR
+    # HABERE KATMAN ATANMAMASIYDI. Bos bir sonuc, dogru calisan bir
+    # suzgec gibi gorunuyordu.
+    #
+    # Ham akis AYRI puanlaniyor cunku `uretilecek`ten farkli: sayfasi
+    # olmayan basliklari da iceriyor ve son dakika tam olarak onlari
+    # da gostermeli -- merkez bankasi karari sayfa uretilmeden once de
+    # son dakikadir.
+    onem_puanla(gundem.get("haberler", []), varlik_haritasi)
+
     # SON DAKIKA ARTIK BIR SECIM.
     #
     # Once "en yeni 12 haber" idi ve sonuc her haberin son dakika gibi
