@@ -4878,24 +4878,6 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
         dokunulabilir gorunmuyordu. Giris bir GEZINME baglantisi
         degil bir AKSIYON: seritten cikarilip sabit bir yere
         aliniyor, boylece her zaman tam gorunur. */
-  /* GIRIS SERITTE KALIYOR AMA KAYMIYOR.
-     Ilk denemede seritte GIZLEYIP disarida gostermeye calistim; ama
-     baglanti nav ogesinin ICINDE ve disarida bir kopyasi yok --
-     tamamen kayboldu. CSS ile DOM tasinmaz; benim atladigim buydu.
-
-     Dogru yol YAPISKAN KONUM: oge seritte kaliyor, kaydirma
-     sirasinda saga yapisip gorunur duruyor. Hem sirasi bozulmuyor
-     hem her zaman erisilebilir. Golge, altindan kayan ogelerle
-     karismasini engelliyor. */
-  .ust nav .ust-giris,
-  .ust nav .ust-panel {
-    position: sticky;
-    right: 0;
-    z-index: 2;
-    background: var(--zemin);
-    box-shadow: -10px 0 10px -6px var(--zemin);
-  }
-  .ust nav .ust-panel { background: var(--vurgu); }
 
   /* 1. HERO DUGMELERI: bes dugme uc satir ediyordu (~200px).
         Ikisi kaliyor -- en cok kullanilanlar. Digerleri
@@ -4931,22 +4913,10 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
    ekrandan cikiyordu. Giris/uye ol/panel birer AKSIYON, gezinme
    baglantisi degil -- kaydirmaya birakilmamalilar. */
 @media (max-width: 640px) {
-  .ust nav .ust-giris,
-  .ust nav .ust-kayit,
-  .ust nav .ust-panel {
-    position: sticky;
-    right: 0;
-    z-index: 2;
-    background: var(--zemin);
-    box-shadow: -10px 0 10px -6px var(--zemin);
-  }
   /* Uye ol ve Panel dolgulu dugme; kendi zeminlerini korusunlar. */
-  .ust nav .ust-kayit,
-  .ust nav .ust-panel { background: var(--vurgu); box-shadow: none; }
 
   /* Ucu birden yapiskan olunca ust uste binmesinler: giris solda
      kalir, uye ol sagda. */
-  .ust nav .ust-giris { right: 84px; }
 }
 
 /* KONUM IZI -- "neredeyim".
@@ -5106,4 +5076,78 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
   .alt-ic { flex-direction: column; gap: var(--b-4); }
   .alt nav { flex-wrap: wrap; gap: var(--b-2) var(--b-4); }
   .alt-yasal { font-size: 0.75rem; }
+}
+
+/* ====================================================================
+   UST BAR: GEZINME KAYAR, EYLEM SABIT
+   --------------------------------------------------------------------
+   OLCULDU (kullanicinin telefon goruntusu): "Giriş yap" ve "Üye ol"
+   dugmeleri, altindan kayan menu baglantilarinin UZERINE biniyordu --
+   "Araştırmalar" ve "Topluluk" yarim gorunuyordu.
+
+   Sebep: ogeler `<nav>` ICINDEYDI ve nav yatay kayiyor. CSS ile
+   `position: sticky` yapmayi denedim; oge yerinde kaldi ama altindan
+   kayan baglantilar uzerinden gecti. Yapiskanlik bir kabin ICINDE
+   konumu sabitler, kabin disina cikarmaz.
+
+   Cozum yapisal: eylemler nav'dan CIKARILDI. Zaten gezinme
+   baglantisi degil AKSIYON -- nav icinde olmalari anlamca da
+   yanlisti.
+
+   Ust bar artik uc parca: logo | kayan gezinme | sabit eylemler.
+   ================================================================== */
+
+.ust-ic {
+  display: flex;
+  align-items: center;
+  gap: var(--b-3);
+}
+
+.ust-ic > nav { flex: 1 1 auto; min-width: 0; }
+
+.ust-eylem {
+  display: flex;
+  align-items: center;
+  gap: var(--b-2);
+  flex: none;
+}
+
+.ust-eylem > * {
+  display: inline-flex;
+  align-items: center;
+  height: var(--ust-oge);
+  min-height: var(--ust-oge);
+  padding: 0 var(--b-3);
+  border-radius: var(--r-kucuk);
+  box-sizing: border-box;
+  line-height: 1;
+}
+
+.ust-eylem .tema-dugme {
+  width: var(--ust-oge);
+  padding: 0;
+  justify-content: center;
+}
+
+.ust-eylem .ust-kayit,
+.ust-eylem .ust-panel {
+  background: var(--vurgu);
+  color: var(--zit-yazi);
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+@media (max-width: 640px) {
+  /* Dar ekranda logo kisalir, eylemler kalir: en degerli iki oge
+     "neredeyim" (logo) ve "ne yapabilirim" (giris). Gezinme
+     kaydirilabilir oldugu icin yer feda edilebilir olan odur. */
+  .ust-ic { gap: var(--b-2); }
+  .ust-eylem { gap: var(--b-1); }
+  .ust-eylem > * { padding: 0 var(--b-2); font-size: 0.8125rem; }
+  .logo { font-size: 1.05rem; }
+
+  /* Giris yapmis okurda yalnizca Panel var; oturumsuzda iki dugme.
+     Ikisi de sigsin diye "Giriş yap" cercevesiz ve daha dar. */
+  .ust-eylem .ust-giris { padding: 0 var(--b-1); }
 }

@@ -160,7 +160,18 @@
          gorunecegini /api/ben cevabina gore secip digerini kaldiriyor.
          Betik calismazsa ikisi de kalir: kirik degil, yalnizca fazladan
          bir baglanti. #}
-      <a class="ust-giris" href="/giris/" data-oturum-yok hidden>Giriş yap</a>
+      </nav>
+    {# OTURUM VE TEMA NAV DISINDA.
+       Once `<nav>` icindeydiler ve dar ekranda nav yatay
+       kaydigi icin bu ogeler de kayiyordu. CSS ile yapiskan
+       yapmayi denedim: oge yerinde kaldi ama altindan kayan
+       baglantilar UZERINDEN gecti -- ust uste bindi.
+
+       Kaydirma kabindan CIKARMAK tek dogru cozum: yapiskanlik
+       bir kabin ICINDE konumu sabitler, kabin disina cikarmaz.
+       Bunlar zaten gezinme baglantisi degil AKSIYON; nav
+       icinde olmalari da anlamca yanlisti. #}
+    <div class="ust-eylem"><a class="ust-giris" href="/giris/" data-oturum-yok hidden>Giriş yap</a>
       {# UYE OL da giris gibi yalnizca OTURUMSUZ okura gorunuyor.
          Onceden yalnizca "Giris yap" vardi; henuz uye olmayan okur
          once giris sayfasina gidip oradan kayda gecmek zorundaydi --
@@ -184,7 +195,8 @@
           <path class="tema-ay" d="M20 13.4A8 8 0 1 1 10.6 4a6.4 6.4 0 0 0 9.4 9.4z"/>
         </svg>
       </button>
-    </nav>
+    </div>
+
   </div>
 </header>
 
