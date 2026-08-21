@@ -3924,3 +3924,53 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none; }
   .paylas-buton:focus-visible { transform: none; }
   .paylas-toast { transform: translate(-50%, 0); }
 }
+
+/* ====================================================================
+   MOBIL GIRIS  --  iOS YAKINLASTIRMA TUZAGI
+   --------------------------------------------------------------------
+   OLCULDU: `.uyelik-form input` `font: inherit` aliyordu ve govde
+   puntosu 14 px. iOS Safari, 16 PIKSELDEN KUCUK bir alana dokununca
+   sayfayi ZORLA YAKINLASTIRIYOR -- kullanici alani doldurabiliyor ama
+   sayfa buyumus kaliyor, dugmeler ekran disina cikiyor ve geri
+   donmenin yolu yok.
+
+   Bu, giris formunda en pahali kusur turu: kullanici tam kayit olmaya
+   calisirken oluyor.
+
+   COZUM 16px TABANI. `max-width: 640px` sarti YOK: masaustunde de
+   16 px, cunku giris alani okunakli olmali. Sorun yalnizca mobilde
+   ama cozum her yerde dogru.
+
+   `viewport`ta `maximum-scale=1` YAZILMADI: o, yakinlastirmayi
+   TAMAMEN kapatir ve az goren kullanicinin sayfayi buyutmesini de
+   engeller. Sorunu erisilebilirligi bozarak cozmek olurdu.
+   ================================================================== */
+
+.uyelik-form input,
+.uyelik-form select,
+.uyelik-form textarea,
+.senaryo-form input,
+.senaryo-form textarea {
+  font-size: 16px;
+}
+
+/* DOKUNMA HEDEFI EN AZ 44 PIKSEL.
+   Apple ve Google'in erisilebilirlik kilavuzlari bu esikte birlesiyor:
+   daha kucuk hedefte parmak isabet oranı belirgin dusuyor. */
+.uyelik-form input,
+.uyelik-form select,
+.uyelik-form button,
+.uyelik-form .dugme {
+  min-height: 44px;
+}
+
+@media (max-width: 640px) {
+  /* Dar ekranda giris dugmeleri TAM GENISLIK: yan yana iki dugme
+     telefonda ikisini de daraltiyor ve yanlis olana basiliyor. */
+  .uyelik-form button,
+  .uyelik-form .dugme,
+  .google-dugme { width: 100%; }
+
+  .paylas-dugmeler { flex-direction: column; }
+  .paylas-buton { width: 100%; justify-content: center; }
+}
