@@ -96,8 +96,18 @@ KONU_KAVRAMI = {
     # yasaklamak yerine KALIBI degistirmek daha guvenilir.
     "Para politikası": "a plain circular dial gauge with a single needle, "
                        "mounted on a flat panel",
-    "Enerji": "a group of oil barrels and a pipeline silhouette filling "
-              "the frame",
+    # VARIL ISTENMIYOR: uretilen goruntude varillerin ustune "OIL"
+    # yazdi. Ucuncu tur, "no text" istemde yaziliyken ucuncu metin
+    # kazasi. Desen artik kesin -- gercek hayatta USTUNDE YAZI OLAN
+    # nesne, gorselde de yazi tasiyor:
+    #
+    #     banka binasi -> "CENTRAL BANK"    petrol varili -> "OIL"
+    #     otel binasi  -> "HOTEL"           acik kitap    -> "Rule"
+    #     madeni para  -> para birimi isareti
+    #
+    # Cozum daha fazla yasak degil: gercekte uzerinde yazi OLMAYAN
+    # nesne secmek. Petrol kuyusu pompasinin ustunde yazi olmaz.
+    "Enerji": "a tall oil pump jack silhouette on open ground",
     "Borsa": "an empty stock exchange hall interior with rows of plain "
              "rectangular display panels",
     # Para birimi SEMBOLU istenmiyor: "$" agirlikli bir gorsel Turkce
@@ -108,7 +118,10 @@ KONU_KAVRAMI = {
     "İstihdam ve ücret": "abstract human pictogram figures standing in a "
                          "row",
     "Altın ve emtia": "stacked gold bars and plain coin discs",
-    "Kripto varlıklar": "abstract cubes interlocking to form a chain",
+    # Onceki deneme ("cubes interlocking to form a chain") anlasilmaz
+    # sekiller uretti -- hicbir seye benzemiyordu. Petek deseni hem
+    # okunakli hem de uzerinde yazi tasiyamayacak kadar soyut.
+    "Kripto varlıklar": "a flat lattice of interlocking hexagonal tiles",
     "Bankacılık": "a stylised bank vault door with abstract coin stacks",
     "Konut ve kira": "simple house and apartment block silhouettes in a "
                      "row",
@@ -116,11 +129,21 @@ KONU_KAVRAMI = {
     "Jeopolitik": "an abstract world map with dotted shipping lanes",
     "Vergi ve kamu maliyesi": "an abstract government ledger with coin "
                               "stacks",
-    "Şirket haberleri": "abstract office towers of varying heights",
-    "Turizm": "a stylised airplane silhouette and a hotel building",
+    # DUZ SILUET isteniyor: onceki deneme taninabilir bir kule
+    # (One World Trade Center anteni) uretti. Gercek bir yapiyi
+    # cizmek, "gercek yer canlandirilmaz" kuralinin ihlali; ustelik
+    # New York silueti Turk sirket haberinin gorseli degil.
+    "Şirket haberleri": "plain flat rectangular office building blocks of varying heights, simple silhouette",
+    # OTEL BINASI ISTENMIYOR: uretilen goruntude binaya "HOTEL"
+    # yazdi. Ucak silueti ve kiyi tepeleri yazi tasimaz.
+    "Turizm": "a stylised airplane silhouette above rolling coastal hills",
     "Piyasa düzenlemesi": "abstract balance scales beside a closed "
                           "rulebook",
-    "Düzenleme": "abstract balance scales beside a closed rulebook",
+    # ACIK/KAPALI KITAP ISTENMIYOR: uretilen goruntude sayfaya
+    # "Rule" yazdi ve palet de kaydi. Terazi tek basina yeterli --
+    # "Piyasa duzenlemesi" kavramindan da farkli kalsin diye zaten
+    # ayri bir gorsel olmasi iyi.
+    "Düzenleme": "a pair of abstract balance scales standing alone",
 }
 
 #: Her isteme eklenen SABIT kisim.
@@ -169,11 +192,36 @@ ETIKET = "Görsel: Netaris tarafından yapay zeka ile üretilmiş kavram çizimi
 #: bakmadan eklemek listeyi anlamsiz kilar.
 #:
 #:     python haber_botu/kaynak/gorsel_uret.py --hash
-#: BOS: butun kavramlar yonsuz hale getirildi, yani her istem degisti
-#: ve `_stem` istemden turedigi icin butun dosya adlari da degisti.
-#: Eski hash'ler artik hicbir dosyayla eslesmiyor -- ki dogrusu bu:
-#: farkli istem farkli gorsel demek ve yeniden BAKILMASI gerekiyor.
-ONAYLI: dict[str, str] = {}
+#: Ucuncu turda 13 cizim kabul, 5 red. Redler asagida `KONU_KAVRAMI`
+#: icinde tek tek gerekcelendirildi.
+ONAYLI: dict[str, str] = {
+    "Enflasyon":
+        "b3a237ba68bbabd7b312f10c1118c1d184890e6730248f51f30019f3da088ab3",
+    "Para politikası":
+        "1fa298f8fc7a80d92ce3f1d3f5511a3a5d21a3034b8eeb5c79c6cdc95db300bf",
+    "Borsa":
+        "378f7e41f11fce0a481d855807da4090b59b97bb00d90b1572b1390a84cad478",
+    "Döviz":
+        "5136acd4a89c91eb1d9ab3550a14c8af3902f062219d75a0477f041c170ab47e",
+    "Dış ticaret":
+        "266ed061b5865b619064d7aa120a399c553ff9d1fe8e8c450974153fbc69ceed",
+    "İstihdam ve ücret":
+        "96608237c6d4a66c353ce90766f743c0b6e2fa6da590a8f3d28a0013da76a0dc",
+    "Altın ve emtia":
+        "93620ec57dc32ce1476c216de419b2a796eff12d030a451e14284679a681b198",
+    "Bankacılık":
+        "b122a5bce921e2fbae3a4682c44bc13c06a151ee583c64fe41799bf4a1deb487",
+    "Konut ve kira":
+        "4402a09e716cb6e39b2037525fc506e888d0c9a9e73a6d924a218e596d88b816",
+    "Tarım ve gıda":
+        "92833f14802952dd2491df8bac3250abf9b022a466611da13ca05d8186b59a25",
+    "Jeopolitik":
+        "9be4971355c3aafc582f5821bffd6e7e7e5688f3f17623da1af5af7ee04b2a75",
+    "Piyasa düzenlemesi":
+        "de626d798785ed147478d4b9bb83682ac21b46f1037293562bc3913ee67baa0c",
+    "Vergi ve kamu maliyesi":
+        "c5666fe09d8b8716206e5bae0d8df979d57d172bb3f29de3e3dd829c9db7045c",
+}
 
 #: Istemde ASLA gecmemesi gereken sozcukler.
 #:
@@ -419,6 +467,21 @@ def main() -> int:
     # uretilmis ama HENUZ BAKILMAMIS bir cizim "eksik" sayilir ve
     # uzerine yeniden yazilirdi -- yani inceleme altindaki dosya her
     # koşuda degisirdi ve onaylanmasi imkansiz hale gelirdi.
+    # OKSUZ DOSYALAR SILINIYOR.
+    #
+    # Kavram degisince `_stem` yeni bir ad uretiyor ve eski dosya
+    # diskte OKSUZ kaliyor: hicbir konu ona isaret etmiyor, hicbir
+    # sayfada gorunmuyor, ama depoda yer kapliyor ve bir sure sonra
+    # "bu neydi" sorusuna donuyor. Elle temizlemek unutulur.
+    gecerli = {_stem(k) for k in KONU_KAVRAMI}
+    if HEDEF.exists():
+        oksuz = [p for p in HEDEF.glob("*") if p.stem not in gecerli]
+        for p in oksuz:
+            p.unlink()
+        if oksuz:
+            print(f"{len(oksuz)} öksüz çizim silindi "
+                  f"(kavramı değişmiş, artık kullanılmıyor).")
+
     eksik = [k for k in KONU_KAVRAMI if _mevcut(k) is None]
     bekleyen = [k for k in KONU_KAVRAMI
                 if _mevcut(k) is not None and not onayli_mi(k)]
