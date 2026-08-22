@@ -16,7 +16,7 @@ grafik: 91,91;96,95;88,90;86,47;86,65;89,65;87,62;92,74;93,26;92,52;92,03;92,02;
 grafik_kod: Brent petrol
 grafik_birim: USD/varil
 kaynaklar: FRED
-sayimlar: 4|yorumlanan gösterge;56|gözlem noktası;14|işlem günü penceresi;11|panelde izlenen seri
+sayimlar: 4|yorumlanan gösterge;56|gözlem noktası;14|işlem günü penceresi;7|panelde izlenen seri
 ---
 
 ## Özet
