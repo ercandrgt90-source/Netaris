@@ -2324,6 +2324,18 @@ def tekilles(haberler: list[dict]) -> list[dict]:
     return sira
 
 
+def _sirali_indeks(haberler: list[dict], adres: str) -> int:
+    """Haberin kendi olay grubundaki KRONOLOJIK sirasi (1 tabanli).
+
+    Bulunamazsa 0 -- sablon 0'i basmiyor.
+    """
+    sirali = sorted(haberler, key=lambda h: h.get("tarih") or "")
+    for i, h in enumerate(sirali, 1):
+        if h.get("adres") == adres:
+            return i
+    return 0
+
+
 def olay_slug(anahtar: str) -> str:
     """"US:faiz:2026-08" -> "abd-faiz-2026-08"
 
@@ -2358,6 +2370,35 @@ def ozet_bicimi(metin: str) -> str:
         if i > len(m) * 0.4:
             return m[:i + 1].strip()
     return m.rstrip(" ,;:-") + "…"
+
+
+def _birim_sadelestir(ad: str, birim: str | None) -> str:
+    """Adda zaten gecen birimi dusurur.
+
+    "USD/TRY" adi TL'yi soyluyor; "USD/TRY 47,97 TL" cift bilgi.
+    "endeks" birimi de basilmiyor -- endeks degerinin birimi yoktur,
+    "S&P 500 7 543,59 endeks" anlamsiz.
+    """
+    b = (birim or "").strip()
+    if not b or b in ("endeks",):
+        return ""
+    ust = (ad or "").upper()
+    # KUR CIFTI ADI BIRIMI ZATEN TASIYOR.
+    #
+    # Ilk yazimimda `b.upper() in ust` yeterli sandim ve TUTMADI:
+    # birim "TL", ad "USD/TRY" -- "TL" dizgesi "TRY" icinde GECMIYOR.
+    # Uc olay sayfasinda "47,97 TL" kalmaya devam etti.
+    #
+    # Para birimi kodu ile gunluk kullanimdaki kisaltma ayni sey degil;
+    # esdegerlik ELLE yazilmali. Dizge benzerligi bunu cozmez.
+    ESDEGER = {"TL": ("TRY", "TL"), "TRY": ("TRY", "TL"),
+               "USD": ("USD", "$"), "$": ("USD", "$"),
+               "EUR": ("EUR", "€"), "€": ("EUR", "€")}
+    if "/" in ust:
+        for kod in ESDEGER.get(b.upper(), (b.upper(),)):
+            if kod in ust:
+                return ""
+    return b
 
 
 def olcum_bicimi(deger, birim: str = "", basamak: int = 2) -> str:
@@ -2498,7 +2539,16 @@ def olay_gostergeleri(anahtar: str) -> list[dict]:
                     # "44000,00 kişi" uretiyordu -- kisi sayisinda
                     # ondalik bir olcum degil, bicimlendirme artigi.
                     "deger": _olcum_bicimi(deger, birim),
-                    "birim": "" if birim in ("endeks", None) else birim,
+                    # BIRIM ADDA ZATEN VARSA TEKRARLANMIYOR.
+                    #
+                    # Olculdu: olay sayfasinda "USD/TRY 47,97 TL"
+                    # yaziyordu; haber panelinde ayni deger "47,97".
+                    # Ayni sayi sitede iki bicimde gorunuyordu.
+                    #
+                    # "USD/TRY" adi zaten TL'yi soyluyor -- birimi
+                    # eklemek cift bilgi. Kur ciftlerinde ad birimi
+                    # tasidigi icin birim dusuruluyor.
+                    "birim": _birim_sadelestir(ad, birim),
                     "donem": (_tazelik.donem_etiketi(tarih, f)
                               if (_tazelik and f) else (tarih or "")[:10]),
                 })
@@ -3493,6 +3543,17 @@ def insa() -> int:
                     "yol": _y,
                     "baslik": _olay_grubu.grup_basligi(_a),
                     "sayi": len(_hl),
+                    # BU HABERIN ZINCIRDEKI SIRASI.
+                    #
+                    # "Bu neden kritik?" bolumu KONU duzeyinde yaziliyor
+                    # ve olculdu: ayni metin 479 sayfada tekrarliyor.
+                    # Dogru ama habere ozgu degil -- editoryal geri
+                    # bildirimde bildirilen sorun buydu.
+                    #
+                    # Model cagirmadan soyleyebilecegimiz habere OZGU
+                    # tek sey, olcumun kendisi: bu gelisme kac habere
+                    # yayildi ve bu haber kacinci. Yorum degil sayim.
+                    "sira": _sirali_indeks(_hl, _h["adres"]),
                     # Haberin KENDISI resmi kaynaksa gosterilmiyor:
                     # sayfa zaten o duyurunun sayfasi.
                     "birincil": (_bk if _bk and _bk["adres"] != _h["adres"]

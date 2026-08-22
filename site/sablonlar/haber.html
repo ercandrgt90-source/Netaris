@@ -179,7 +179,8 @@
     {% if olay and olay.sayi > 2 %}
     <a class="olay-baglanti" href="{{ olay.yol }}">
       <span>Bu gelişmenin tamamı: <b>{{ olay.baslik }}</b>
-        · {{ olay.sayi }} haber</span>
+        {%- if olay.sira %} · bu haber {{ olay.sayi }} gelişmenin
+        {{ olay.sira }}.'si{% else %} · {{ olay.sayi }} haber{% endif %}</span>
     </a>
     {% endif %}
 
