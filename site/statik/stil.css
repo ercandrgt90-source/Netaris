@@ -5458,3 +5458,37 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
   .senaryo-davet { padding: var(--b-4) var(--b-3); }
   .senaryo-davet-ikincil { display: block; margin: var(--b-3) 0 0; }
 }
+
+/* Telegram ve WhatsApp -- mobilde en cok kullanilan iki paylasim
+   kanali. Marka renkleri kullanilmiyor: bes farkli marka rengi yan
+   yana, sayfanin kendi rengini bogar. Hepsi ayni notr kabukta duruyor
+   ve ayrimi METIN yapiyor. */
+.paylas-tg,
+.paylas-wa { }
+
+/* SENARYO SAYFASINDA OY VE DAVET.
+   Sayfa oy SAYISINI gosteriyordu ama dugme yoktu; okuyan katkida
+   bulunamiyordu. Davet blogu da dongunun kapanis halkasi: okur bir
+   paylasimdan geliyor, okuyor, kendi senaryosunu yazabilmeli. */
+.senaryo-oyla {
+  display: flex;
+  align-items: center;
+  gap: var(--b-3);
+  flex-wrap: wrap;
+  margin: var(--b-5) 0;
+  padding: var(--b-4) 0;
+  border-top: 1px solid var(--cizgi);
+  border-bottom: 1px solid var(--cizgi);
+}
+.senaryo-oy-sayi {
+  font-size: var(--p-s);
+  color: var(--yazi-2);
+}
+
+/* Senaryo sayfasindaki davet ana sayfadakinden daha sakin: okur zaten
+   bir senaryo okudu, ikna edilmesi gereken sey kalmadi -- yalnizca
+   yolun gosterilmesi yeterli. */
+.senaryo-davet-alt {
+  background: var(--zemin-2);
+  margin-top: var(--b-6);
+}

@@ -1145,6 +1145,16 @@ function paylasBlok(baslik, ozet, adres) {
           + "&url=" + encodeURIComponent(adres);
   const li = "https://www.linkedin.com/sharing/share-offsite/?url="
            + encodeURIComponent(adres);
+  /* TELEGRAM VE WHATSAPP -- mobilde en cok kullanilan iki kanal.
+     Ikisi de metni ve adresi AYRI parametre aliyor; tek bir metne
+     birlestirmek uygulamada cift adres gosteriyor.
+
+     WhatsApp'in `wa.me` ucu masaustunde web surumune, telefonda
+     uygulamaya aciliyor -- ayri bir mobil/masaustu ayrimi gerekmiyor. */
+  const tg = "https://t.me/share/url?url=" + encodeURIComponent(adres)
+           + "&text=" + encodeURIComponent(ozet200);
+  const wa = "https://wa.me/?text="
+           + encodeURIComponent(ozet200 + " " + adres);
   /* Onizlemede gosterilen alan adi, adresin KENDI alan adi.
      Elle yazilsaydi alan adi degistiginde kart yalan soylerdi. */
   let alan = adres;
@@ -1167,6 +1177,10 @@ function paylasBlok(baslik, ozet, adres) {
        target="_blank" rel="noopener noreferrer">X'te paylaş</a>
     <a class="paylas-buton paylas-li" href="${kacir(li)}"
        target="_blank" rel="noopener noreferrer">LinkedIn'de paylaş</a>
+    <a class="paylas-buton paylas-tg" href="${kacir(tg)}"
+       target="_blank" rel="noopener noreferrer">Telegram</a>
+    <a class="paylas-buton paylas-wa" href="${kacir(wa)}"
+       target="_blank" rel="noopener noreferrer">WhatsApp</a>
     <button class="paylas-buton paylas-kopya" type="button"
             data-paylas-kopyala="${kacir(adres)}">Bağlantıyı kopyala</button>
   </div>
@@ -1218,6 +1232,12 @@ ${gorsel ? `<meta property="og:image" content="${kacir(
 <meta name="twitter:card" content="summary_large_image">`
   : `<meta name="twitter:card" content="summary">`}
 <link rel="stylesheet" href="/statik/stil.css">
+<!-- Oy dugmesi ve oturum durumu icin. Ertelenmis yukleniyor:
+     sayfa metni betige bagli degil, yalnizca etkilesim bagli.
+     NOT: bu yorumda TERS TIRNAK KULLANILAMAZ -- sablon dizgesini
+     kapatir ve dosya sozdizimi hatasi verir. Bir kez yasandi. -->
+<script src="/statik/oturum.js" defer></script>
+<script src="/statik/senaryo.js" defer></script>
 </head><body>
 <main class="kabuk senaryo-sayfa">
   <p class="senaryo-tur">SENARYO</p>
@@ -1256,7 +1276,39 @@ ${gorsel ? `<meta property="og:image" content="${kacir(
     Bağlam: <a href="${kacir(r.capa)}">${kacir(r.capa_baslik || "ilgili haber")}</a>
   </p>` : ""}
 
+  <!-- DEGERLI BULDUM -- sayfada oy verme yolu YOKTU.
+     Sayfa oy SAYISINI gosteriyordu ("1 destek") ama okuyan kisi
+     katkida bulunamiyordu; sayac vardi, dugme yoktu.
+
+     "Katiliyorum" DEGIL: katilim oyu bir olasilik gibi okunur ve
+     hesaplamadigimiz bir sayiyi olcum gibi sunar. Gerekcesi
+     d1/sema.sql icinde senaryo_oy tablosunun bas yorumunda yazili.
+
+     Giris gerekiyor: anonim oy sayilabilir bir sey degil. Girisi
+     olmayan okur dugmeye bastiginda senaryo.js giris sayfasina
+     yonlendiriyor. -->
+  <div class="senaryo-oyla">
+    <button class="dugme dugme-ikincil" type="button"
+            data-oy="${r.id}">Değerli buldum</button>
+    <span class="senaryo-oy-sayi">${r.oy} kişi değerli buldu</span>
+  </div>
+
   ${paylasBlok(baslik, ozet, adres)}
+
+  <!-- DONGUYU KAPATAN HALKA.
+     Okur bu sayfaya bir paylasimdan geliyor. Senaryoyu okudu; simdi
+     KENDI senaryosunu yazabilmeli. Bu baglanti olmadan ziyaret
+     okumayla bitiyor ve dongu tek yonlu kaliyor. -->
+  <section class="senaryo-davet senaryo-davet-alt">
+    <div class="senaryo-davet-ic">
+      <p class="senaryo-davet-etiket">Sen ne düşünüyorsun?</p>
+      <h2>Kendi senaryonu yaz</h2>
+      <p>Aynı gelişme için farklı bir koşul ve sonuç görüyorsan
+        senaryonu yazabilirsin. İncelendikten sonra kendi sayfasında
+        adınla yayımlanır.</p>
+      <a class="dugme dugme-birincil" href="/panel/?bolum=senaryo">Senaryonu yaz</a>
+    </div>
+  </section>
 
   <p class="senaryo-uyari"><strong>Yatırım tavsiyesi değildir.</strong>
   Senaryo bir koşullu değerlendirmedir; koşulun gerçekleşeceği iddia
