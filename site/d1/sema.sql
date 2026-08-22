@@ -201,3 +201,30 @@ CREATE INDEX IF NOT EXISTS senaryo_ufuk ON senaryo(ufuk_biter, sonuclanma);
 ALTER TABLE senaryo ADD COLUMN olcut_kod TEXT;      -- gosterge kodu
 ALTER TABLE senaryo ADD COLUMN olcut_yon TEXT;      -- 'ustunde' | 'altinda'
 ALTER TABLE senaryo ADD COLUMN olcut_esik REAL;     -- esik degeri
+
+-- ---------------------------------------------------------------------
+-- CURUTME KOSULU -- "beni ne yanıltır?"
+--
+-- NEDEN EN ONEMLI ALAN BU
+-- -----------------------
+-- Bir senaryoyu bir GORUSTEN ayiran tek sey, yazarin kendi kendini
+-- yanlislayabilecek gelismeyi ONCEDEN yazmasidir. Onu yazmayan metin
+-- her sonucta hakli cikar ve hicbir sey soylemez.
+--
+-- `senaryo_kapi.yanislanabilir` KOSULUN olculebilirligine bakiyor --
+-- gerekli ama yeterli degil. "TUFE %30'un altina inerse" olculebilir
+-- bir kosul; ama yazar "peki ne olursa tezim cokerdi" sorusunu
+-- cevaplamadan da yazabilir.
+--
+-- ZORUNLU DEGIL. Zorunlu kilmak, kisa ve gecerli senaryolari
+-- disarida birakirdi; bos birakan senaryo yayimlanir ama sayfasinda
+-- bu bolum GORUNMEZ -- yani alan dolduran icin gorunur bir fark var.
+ALTER TABLE senaryo ADD COLUMN curutme TEXT;
+
+-- KAYNAKLAR -- yazarin dayandigi veri nerede.
+--
+-- `senaryo_kapi.dogrulanmayan_sayilar` gerekcede gecip sitenin
+-- verisinde BULUNMAYAN sayilari isaretliyor ve yazara "kaynagini
+-- belirtin" diyor -- ama belirtecegi bir ALAN YOKTU. Denetim bir sey
+-- istiyor, arayuz onu vermiyordu.
+ALTER TABLE senaryo ADD COLUMN kaynaklar TEXT;

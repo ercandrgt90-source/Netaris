@@ -105,9 +105,46 @@ esit(d["engel"], [], "kapi YAYINI ENGELLEMIYOR")
 esit(len(d["notlar"]) >= 3, True, "zayif senaryoda birden fazla not")
 
 d2 = sk.denetle("TÜFE %30'un altına inerse", "TCMB faiz indirir",
-                "Temmuz TÜFE %31,75.", veri)
+                "Temmuz TÜFE %31,75.", veri,
+                curutme="Gıda enflasyonu tekrar hızlanırsa")
 esit(d2["notlar"], [], "saglam senaryoda not YOK")
 esit(d2["yanislanabilir"], True, "saglam senaryo sinanabilir")
+
+# --------------------------------------------------------------------
+# CURUTME KOSULU -- KAPININ EN DEGERLI SORUSU.
+#
+# `yanislanabilir` KOSULUN olculebilirligine bakiyor: gerekli ama
+# YETERLI DEGIL. "TÜFE %30'un altına inerse" olculebilir bir kosul,
+# ama yazar "peki ne olursa tezim cokerdi" sorusunu cevaplamadan da
+# yazabilir -- ve o soruyu cevaplamayan metin HER SONUCTA hakli cikar.
+#
+# Bir senaryoyu bir gorusten ayiran tek sey bu.
+#
+# ENGEL DEGIL NOT: zorunlu kilmak kisa ve gecerli senaryolari disarida
+# birakirdi. Kapi engellemiyor, gorunur kiliyor -- ayni ilke butun
+# modul boyunca gecerli.
+# --------------------------------------------------------------------
+print()
+print("Curutme kosulu")
+d3 = sk.denetle("TÜFE %30'un altına inerse", "TCMB faiz indirir",
+                "Temmuz TÜFE %31,75.", veri)
+esit(len(d3["notlar"]), 1, "curutme bos: TEK not uretiliyor")
+esit("yanıltır" in d3["notlar"][0], True, "not curutmeyi soruyor")
+esit(d3["engel"], [], "curutme eksikligi YAYINI ENGELLEMIYOR")
+
+# Kacamak bir curutme, curutme OLMAMASI kadar kotu: "piyasalar
+# dalgalanabilir" her durumda dogru cikar, yani yazari hicbir zaman
+# yaniltmaz.
+d4 = sk.denetle("TÜFE %30'un altına inerse", "TCMB faiz indirir",
+                "Temmuz TÜFE %31,75.", veri,
+                curutme="Piyasalar dalgalanabilir")
+esit(len(d4["notlar"]), 1, "kacamak curutme not uretiyor")
+esit("kaçamak" in d4["notlar"][0].lower(), True, "not kacamagi soyluyor")
+
+# Eski cagri bicimi bozulmadi: `curutme` verilmeyen cagri calisiyor
+# ve yalnizca not ekliyor.
+d5 = sk.denetle("Piyasalar dalgalanabilir", "Belirsizlik artar", "", veri)
+esit(d5["engel"], [], "eski cagri bicimi calisiyor")
 
 print(f"\n{_gecti} gecti, {_kaldi} kaldi")
 sys.exit(1 if _kaldi else 0)

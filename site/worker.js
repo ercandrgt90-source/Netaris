@@ -58,6 +58,11 @@ const KATEGORILER = ["Analist Yorumu", "Makro", "Bilanço Analizi"];
 const EN_COK_KOSUL = 180;
 const EN_COK_SONUC = 180;
 const EN_COK_GEREKCE = 1200;
+/* Curutme kosulu TEK CUMLE olmali: "beni ne yanıltır" sorusunun cevabi
+   uzarsa ikinci bir gerekceye donusuyor ve asil isini -- tek bir
+   olcutu ONCEDEN yazmak -- kaybediyor. */
+const EN_COK_CURUTME = 220;
+const EN_COK_KAYNAK = 500;
 const EN_AZ_KOSUL = 12;
 
 /* Ufuk secenekleri ve gun karsiliklari. Serbest tarih ALINMIYOR:
@@ -852,6 +857,14 @@ async function senaryoKaydet(istek, env, u) {
   const kosul = metinKirp(g.kosul, EN_COK_KOSUL);
   const sonuc = metinKirp(g.sonuc, EN_COK_SONUC);
   const gerekce = metinKirp(g.gerekce, EN_COK_GEREKCE);
+  /* CURUTME KOSULU -- bir senaryoyu bir GORUSTEN ayiran tek sey.
+     Yazarin kendi kendini yanlislayabilecek gelismeyi ONCEDEN
+     yazmasi. Onu yazmayan metin her sonucta hakli cikar.
+
+     ZORUNLU DEGIL: zorunlu kilmak kisa ve gecerli senaryolari
+     disarida birakirdi. Bos birakilirsa sayfada bolum gorunmuyor. */
+  const curutme = metinKirp(g.curutme, EN_COK_CURUTME);
+  const kaynaklar = metinKirp(g.kaynaklar, EN_COK_KAYNAK);
   const capa = metinKirp(g.capa, 240);
   const capaBaslik = metinKirp(g.capa_baslik, EN_COK_BASLIK);
   const capaTur = CAPA_TURLERI.includes(g.capa_tur) ? g.capa_tur : "haber";
@@ -898,22 +911,23 @@ async function senaryoKaydet(istek, env, u) {
       "UPDATE senaryo SET kosul = ?, sonuc = ?, gerekce = ?, ufuk = ?, " +
       "ufuk_biter = COALESCE(?, ufuk_biter), durum = ?, ret_nedeni = NULL, " +
       "olcut_kod = ?, olcut_yon = ?, olcut_esik = ?, " +
+      "curutme = ?, kaynaklar = ?, " +
       "guncelleme = ?, gonderim = CASE WHEN ? = 'incelemede' THEN ? " +
       "ELSE gonderim END WHERE id = ? AND uye_id = ?",
     ).bind(kosul, sonuc, gerekce, ufuk, biter, durum,
-           olcutKod, olcutYon, olcutDeger, t, durum, t,
-           g.id, u.id).run();
+           olcutKod, olcutYon, olcutDeger, curutme, kaynaklar,
+           t, durum, t, g.id, u.id).run();
     return yanit({ tamam: true, id: g.id, durum });
   }
 
   const s = await env.DB.prepare(
     "INSERT INTO senaryo (uye_id, capa_tur, capa, capa_baslik, kosul, " +
     "sonuc, gerekce, ufuk, ufuk_biter, durum, olcut_kod, olcut_yon, " +
-    "olcut_esik, olusma, guncelleme, gonderim) " +
-    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+    "olcut_esik, curutme, kaynaklar, olusma, guncelleme, gonderim) " +
+    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
   ).bind(u.id, capaTur, capa, capaBaslik, kosul, sonuc, gerekce, ufuk,
          biter, durum, olcutKod, olcutYon, olcutDeger,
-         t, t, gonder ? t : null).run();
+         curutme, kaynaklar, t, t, gonder ? t : null).run();
   return yanit({ tamam: true, id: s.meta.last_row_id, durum });
 }
 
@@ -1238,7 +1252,7 @@ async function senaryoSayfa(istek, env, id) {
   const r = await env.DB.prepare(
     "SELECT s.id, s.kosul, s.sonuc, s.gerekce, s.ufuk, s.ufuk_biter, " +
     "s.yayin, s.sonuclanma, s.sonuclanma_notu, s.capa, s.capa_tur, " +
-    "s.capa_baslik, u.ad AS yazar, " +
+    "s.capa_baslik, s.curutme, s.kaynaklar, u.ad AS yazar, " +
     "(SELECT COUNT(*) FROM senaryo_oy o WHERE o.senaryo_id = s.id) AS oy " +
     "FROM senaryo s JOIN uye u ON u.id = s.uye_id " +
     "WHERE s.id = ? AND s.durum = 'yayimlandi'"
@@ -1339,6 +1353,26 @@ ${gorsel ? `<meta property="og:image" content="${kacir(
   ${r.gerekce ? `<section class="senaryo-blok">
     <h2>Neden böyle düşünüyor</h2>
     <p>${kacir(r.gerekce)}</p>
+  </section>` : ""}
+
+  <!-- CURUTME KOSULU. Bir senaryoyu bir GORUSTEN ayiran tek sey,
+       yazarin kendi kendini yanlislayabilecek gelismeyi ONCEDEN
+       yazmasi. Onu yazmayan metin her sonucta hakli cikar.
+
+       Vurgulu bir kutuda duruyor cunku sayfadaki en degerli cumle bu:
+       okur senaryonun ciddiyetini once buradan olcer.
+
+       Bos ise BOLUM HIC BASILMIYOR -- bos bir "Beni ne yanıltır?"
+       basligi, alanin doldurulmadigini degil, yazarin cevabi
+       olmadigini dusundururdu. -->
+  ${r.curutme ? `<section class="senaryo-blok senaryo-curutme">
+    <h2>Yazarına göre bu senaryoyu ne çürütür</h2>
+    <p>${kacir(r.curutme)}</p>
+  </section>` : ""}
+
+  ${r.kaynaklar ? `<section class="senaryo-blok">
+    <h2>Kaynaklar</h2>
+    <p class="senaryo-kaynak">${kacir(r.kaynaklar)}</p>
   </section>` : ""}
 
   ${r.sonuclanma ? `<section class="senaryo-blok senaryo-sonuc">

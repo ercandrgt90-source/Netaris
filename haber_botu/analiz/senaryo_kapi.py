@@ -193,7 +193,7 @@ def dogrulanmayan_sayilar(gerekce: str,
 
 
 def denetle(kosul: str, sonuc: str, gerekce: str,
-            veri: set[str] | None = None) -> dict:
+            veri: set[str] | None = None, curutme: str = "") -> dict:
     """Senaryonun dogrulanabilir ozellikleri.
 
     Doner: {"yanislanabilir": bool, "notlar": [str], "engel": [str]}
@@ -219,6 +219,26 @@ def denetle(kosul: str, sonuc: str, gerekce: str,
     if not (gerekce or "").strip():
         notlar.append("Gerekçe boş. Neden böyle düşündüğünüzü yazmak, "
                       "senaryoyu bir tahminden değerlendirmeye çevirir.")
+    # CURUTME KOSULU -- kapinin en degerli sorusu.
+    #
+    # `yanislanabilir` KOSULUN olculebilirligine bakiyor: gerekli ama
+    # yeterli degil. "TUFE %30'un altina inerse" olculebilir bir kosul,
+    # ama yazar "peki ne olursa tezim cokerdi" sorusunu cevaplamadan da
+    # yazabilir -- ve o soruyu cevaplamayan metin her sonucta hakli
+    # cikar.
+    #
+    # ENGEL DEGIL NOT: zorunlu kilmak kisa ve gecerli senaryolari
+    # disarida birakirdi. Kapi engellemiyor, gorunur kiliyor.
+    if not (curutme or "").strip():
+        notlar.append(
+            "\"Beni ne yanıltır?\" alanı boş. Kendinizi yanlışlayacak "
+            "gelişmeyi önceden yazmak, senaryoyu bir görüşten ayıran "
+            "tek şeydir.")
+    elif kacamak_dil(curutme):
+        notlar.append(
+            "Çürütme koşulunuz kaçamak: " + ", ".join(kacamak_dil(curutme)[:2])
+            + ". Bu ifadeler her durumda doğru çıkar, yani sizi hiçbir "
+            "zaman yanıltmaz.")
     dogrulanmaz = dogrulanmayan_sayilar(gerekce, veri)
     if dogrulanmaz:
         notlar.append(

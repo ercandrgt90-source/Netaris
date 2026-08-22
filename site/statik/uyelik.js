@@ -519,6 +519,11 @@
           kosul: kosul,
           sonuc: sonuc,
           gerekce: senForm.gerekce.value.trim(),
+          /* Alanlar SAVUNMALI okunuyor: sablon guncellenmeden betik
+             dagitilirsa `senForm.curutme` tanimsiz olur ve `.value`
+             butun gonderimi dusururdu. */
+          curutme: senForm.curutme ? senForm.curutme.value.trim() : "",
+          kaynaklar: senForm.kaynaklar ? senForm.kaynaklar.value.trim() : "",
           ufuk: senForm.ufuk.value,
           /* OLCULEBILIR TETIKLEYICI -- istege bagli.
              Bos gonderilirse worker tarafinda null yaziliyor ve

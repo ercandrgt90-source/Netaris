@@ -192,6 +192,37 @@
           <textarea name="gerekce" rows="5" maxlength="1200"></textarea>
         </label>
 
+        {# CURUTME KOSULU -- BU FORMUN EN ONEMLI ALANI.
+
+           Bir senaryoyu bir GORUSTEN ayiran tek sey, yazarin kendi
+           kendini yanlislayabilecek gelismeyi ONCEDEN yazmasidir. Onu
+           yazmayan metin her sonucta hakli cikar ve hicbir sey
+           soylemez.
+
+           `senaryo_kapi.yanislanabilir` KOSULUN olculebilirligine
+           bakiyor -- gerekli ama yeterli degil. "TUFE %30'un altina
+           inerse" olculebilir bir kosul; ama yazar "peki ne olursa
+           tezim cokerdi" sorusunu cevaplamadan da yazabilir.
+
+           ZORUNLU DEGIL. Zorunlu kilmak kisa ve gecerli senaryolari
+           disarida birakirdi. Bos birakilirsa sayfada bu bolum
+           GORUNMUYOR -- yani dolduran icin gorunur bir fark var. #}
+        <label>Beni ne yanıltır?
+          <span class="uyelik-ipucu">Hangi gelişme olursa bu senaryonun
+            yanlış olduğunu kabul edersiniz? Tek cümle yeter.
+            Örnek: “OPEC üretim kotasını artırırsa”</span>
+          <input type="text" name="curutme" maxlength="220">
+        </label>
+
+        {# KAYNAKLAR. `senaryo_kapi.dogrulanmayan_sayilar` gerekcede
+           gecip sitenin verisinde bulunmayan sayilari isaretliyor ve
+           yazara "kaynagini belirtin" diyor -- ama belirtecegi bir
+           ALAN YOKTU. Denetim bir sey istiyor, arayuz onu vermiyordu. #}
+        <label>Kaynaklar <span class="uyelik-ipucu">isteğe bağlı —
+          dayandığınız veri nerede? Kurum adı ya da bağlantı.</span>
+          <textarea name="kaynaklar" rows="2" maxlength="500"></textarea>
+        </label>
+
         {# OLCULEBILIR TETIKLEYICI -- ISTEGE BAGLI.
            `sonuclanma` alani semada en bastan beri vardi ve senaryo
            sayfasinda gosteriliyordu ama HICBIR SUREC onu yazmiyordu:

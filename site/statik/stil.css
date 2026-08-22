@@ -3601,6 +3601,27 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none}
   padding: var(--b-5);
   margin: var(--b-6)}
 
+/* ÇÜRÜTME KOŞULU -- sayfadaki EN DEGERLI cumle.
+ *
+ * Bir senaryoyu bir gorusten ayiran tek sey, yazarin kendi kendini
+ * yanlislayabilecek gelismeyi ONCEDEN yazmasi. Onu yazmayan metin her
+ * sonucta hakli cikar ve hicbir sey soylemez.
+ *
+ * Okur senaryonun ciddiyetini once buradan olcuyor; bu yuzden diger
+ * bloklarla ayni soluk cizgide durmuyor -- kendi zemini ve vurgu
+ * rengindeki kenari var.
+ *
+ * Bos ise blok HIC BASILMIYOR (bkz. worker): bos bir baslik, alanin
+ * doldurulmadigini degil yazarin cevabi olmadigini dusundururdu. */
+.senaryo-curutme {
+  border-left-color: var(--vurgu);
+  background: var(--zemin-2);
+  border-radius: 0 var(--r) var(--r) 0}
+.senaryo-curutme h2 { color: var(--vurgu)}
+/* Kaynaklar cogu zaman bir baglanti ya da kurum adi; uzun adresler
+ * dar ekranda satiri tasirmasin. */
+.senaryo-kaynak { overflow-wrap: anywhere}
+
 .senaryo-blok h2 {
   font-size: var(--p-xs);
   letter-spacing: .1em;
