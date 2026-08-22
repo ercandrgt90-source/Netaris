@@ -1,7 +1,7 @@
 ---
 slug: piyasa-tepkisi-hurmuz-de-gerilim-tirmaniyor-petrol-tankeri-iha-ile-vuruldu-2026-08-14
 baslik: Hürmüz'de gerilim tırmanıyor: Petrol tankeri İHA ile vuruldu
-ozet: Jeopolitik gelişme. VIX günlük içinde -%4,78 geriledi.
+ozet: Jeopolitik gelişme.
 sirket: Piyasa tepkisi: Hürmüz'de gerilim tırmanıyor: Petrol tankeri İHA ile vuruldu
 kod: OLAY
 donem: 2026-08-14
@@ -26,7 +26,6 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Dünya.
 - **Altın** 1 saat içinde yatay kaldı (son 4345,50).
 - **Bitcoin** 1 saat içinde geriledi: -%0,05 (son 62831,20).
 - **Brent petrol** günlük bazda yükseldi: +%0,56 — 2026-08-11 tarihli gözlem.
-- **VIX** günlük bazda geriledi: -%4,78 — 2026-08-12 tarihli gözlem.
 
 *Yukarıdaki rakamlar ölçülen fiyat hareketidir. Hareketin sebebinin bu gelişme olduğu iddia edilmemektedir; aynı pencerede başka etkenler de fiyatlanmış olabilir.*
 
@@ -42,11 +41,6 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Dünya.
 *Bu maddeler yapısal aktarım kanallarıdır: mekanizmanın varlığını anlatır, yönünü ya da büyüklüğünü değil.*
 
 ## Daha önce ne olmuştu
-
-- 2026-08-13 — İran'dan Hürmüz Boğazı açıklaması: Boğaz kapalı ve tam kontrol altındayız (BRENT +%0,6, BTC +%0,1, VIX -%4,8, XAU -%0,2)
-- 2026-08-13 — "İsrail ve ABD'ye ait gemiler Hürmüz Boğazı'ndan geçemeyecek" (BRENT +%0,6, BTC -%0,3, VIX -%1,2, XAU -%0,0)
-- 2026-08-13 — Petrolde Hürmüz'den sonra talep baskısı! Tahminler düştü, Brent ve WTI sert geri (BRENT +%0,6, BTC -%0,1, VIX -%1,2, XAU +%0,3)
-- 2026-08-12 — Hürmüz Boğazı’ndan gemi trafiği üç ayın en düşük seviyesine yaklaştı (BRENT +%0,6, BTC -%0,1, VIX -%1,2, XAU -%0,0)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*
 

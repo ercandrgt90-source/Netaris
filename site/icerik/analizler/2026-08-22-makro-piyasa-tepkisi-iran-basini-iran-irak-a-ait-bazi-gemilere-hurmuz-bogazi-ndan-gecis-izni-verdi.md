@@ -1,7 +1,7 @@
 ---
 slug: piyasa-tepkisi-iran-basini-iran-irak-a-ait-bazi-gemilere-hurmuz-bogazi-ndan-gecis-izni-verdi-2026-08-22
 baslik: İran basını: İran, Irak'a ait bazı gemilere Hürmüz Boğazı'ndan geçiş izni verdi
-ozet: Jeopolitik gelişme. VIX günlük içinde +%7,52 yükseldi.
+ozet: Jeopolitik gelişme.
 sirket: Piyasa tepkisi: İran basını: İran, Irak'a ait bazı gemilere Hürmüz Boğazı'ndan geçiş izni verdi
 kod: OLAY
 donem: 2026-08-22
@@ -26,7 +26,6 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Ekonomim.
 - **Altın** 1 saat içinde yatay kaldı (son 4604,40).
 - **Bitcoin** 1 saat içinde geriledi: -%0,46 (son 77047,10).
 - **Brent petrol** günlük bazda yükseldi: +%3,09 — 2026-08-18 tarihli gözlem.
-- **VIX** günlük bazda yükseldi: +%7,52 — 2026-08-20 tarihli gözlem.
 
 *Yukarıdaki rakamlar ölçülen fiyat hareketidir. Hareketin sebebinin bu gelişme olduğu iddia edilmemektedir; aynı pencerede başka etkenler de fiyatlanmış olabilir.*
 
@@ -42,11 +41,6 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Ekonomim.
 *Bu maddeler yapısal aktarım kanallarıdır: mekanizmanın varlığını anlatır, yönünü ya da büyüklüğünü değil.*
 
 ## Daha önce ne olmuştu
-
-- 2026-08-22 — Hürmüz düğümü petrolü ateşledi: İki haftada çift haneli yükseliş (BRENT +%3,1, BTC +%0,2, VIX +%7,5, XAU -%0,0)
-- 2026-08-22 — Umman ve İran'dan Hürmüz Boğazı görüşmesi (BRENT +%3,1, BTC +%0,6, VIX +%7,5, XAU -%0,0)
-- 2026-08-21 — Umman ve İran, Hürmüz Boğazı'nın yeniden seyrüsefere açılmasını görüştü (BRENT +%3,1, BTC +%0,1, VIX +%7,5, XAU -%0,1)
-- 2026-08-21 — NATO komutanı Hürmüz Boğazı’nda destek için görüşme yaptı (BRENT +%3,1, BTC -%0,1, VIX +%7,5, XAU +%0,1)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*
 

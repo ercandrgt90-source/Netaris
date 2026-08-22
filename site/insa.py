@@ -928,6 +928,17 @@ def kunye_rakamlari(analizler: list) -> list[dict]:
 #: Haber sayfasina KENDI verimizi ekliyoruz: petrol haberinin yaninda
 #: bizim Brent serimiz, faiz haberinin yaninda bizim getiri serimiz durur.
 #: Boylece sayfa yalnizca ceviri degil, veriyle desteklenmis bir ozet olur.
+#: Lisansi bizde OLMAYAN seriler -- degerleri yayimlanmiyor.
+#: Tek kaynak `makro_uret_ucretsiz.LISANSSIZ_SERILER`; burada yeniden
+#: yazmak yerine ORADAN okunuyor ki ikisi ayrisamasin. Modul
+#: bulunamazsa bos kume: site kurulur ama denetim (`test_lisans.py`)
+#: uyusmazligi yakalar.
+try:
+    from makro_uret_ucretsiz import LISANSSIZ_SERILER as LISANSSIZ_SERI
+except ImportError:      # pragma: no cover -- yalnizca eksik kurulumda
+    LISANSSIZ_SERI = frozenset()
+
+
 KONU_GOSTERGELERI = {
     # LISANSSIZ SERILER CIKARILDI (SP500, VIXCLS). Bunlar FRED
     # uzerinden geliyor ama FRED onlari saglayicinin IZNIYLE
@@ -3514,7 +3525,20 @@ def varlik_sayfalari(ortam, yaz, ortak: dict,
                 # Gostergenin GUNCEL DEGERI. Sayfanin en yararli tek
                 # bilgisi buydu ve yoktu: "TCMB politika faizi" sayfasi
                 # tanimi ve iliskileri anlatip rakami hic yazmiyordu.
-                veri = _varlik.seri_ozet(b, (k or {}).get("seri_kodu"))
+                # LISANSSIZ SERININ DEGERI BASILMIYOR.
+                #
+                # Olculdu: /varlik/nasdaq/, /varlik/sp500/ ve
+                # /varlik/vix/ sayfalari "26.180 endeks +%0,4" ve "60
+                # gozlemlik seri" yaziyordu -- yani seriyi yeniden
+                # yayimliyorduk. Lisans bizde degil.
+                #
+                # SAYFA KALIYOR: yapisal iliskiler ("S&P 500 -> NASDAQ
+                # etkiler") BIZIM ve degerli. Kisitlama VERIYE, isim
+                # anmaya degil -- ayni ayrim `test_lisans.py` icinde
+                # de yazili.
+                seri_kodu = (k or {}).get("seri_kodu")
+                veri = (None if seri_kodu in LISANSSIZ_SERI
+                        else _varlik.seri_ozet(b, seri_kodu))
                 yaz(f"{v['yol']}index.html",
                     ortam.get_template("varlik.html").render(
                         **ortak, yol=v["yol"], v=v, kunye=k, veri=veri,

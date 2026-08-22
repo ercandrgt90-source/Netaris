@@ -25,7 +25,6 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Sabah.
 
 - **Altın** 1 saat içinde yükseldi: +%0,82 (son 4211,00).
 - **Bitcoin** 1 saat içinde yükseldi: +%0,59 (son 64402,30).
-- **VIX** günlük bazda geriledi: -%0,81 — 2026-08-03 tarihli gözlem.
 
 *Yukarıdaki rakamlar ölçülen fiyat hareketidir. Hareketin sebebinin bu gelişme olduğu iddia edilmemektedir; aynı pencerede başka etkenler de fiyatlanmış olabilir.*
 
@@ -37,10 +36,6 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Sabah.
 *Bu maddeler yapısal aktarım kanallarıdır: mekanizmanın varlığını anlatır, yönünü ya da büyüklüğünü değil.*
 
 ## Daha önce ne olmuştu
-
-- 2026-08-04 — "Hürmüz Boğazı'nın açılması için bugün ya da yarın anlaşma ihtimali var" (BTC +%0,0, VIX -%0,8, XAU -%0,1)
-- 2026-08-04 — Pakistan: Hürmüz için anlaşma belgesi hazırlanıyor (BTC +%0,0, VIX -%0,8, XAU -%0,1)
-- 2026-08-04 — Bessent'in Hürmüz mesajı petrol fiyatlarını düşürdü (BTC +%0,1, VIX -%6,4, XAU +%0,3)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*
 

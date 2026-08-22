@@ -26,7 +26,6 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Ekonomist.
 - **Altın** 1 saat içinde geriledi: -%0,07 (son 4388,60).
 - **Bitcoin** 1 saat içinde yükseldi: +%0,10 (son 62594,20).
 - **Brent petrol** günlük bazda yükseldi: +%0,56 — 2026-08-11 tarihli gözlem.
-- **VIX** günlük bazda yükseldi: +%0,55 — 2026-08-13 tarihli gözlem.
 
 *Yukarıdaki rakamlar ölçülen fiyat hareketidir. Hareketin sebebinin bu gelişme olduğu iddia edilmemektedir; aynı pencerede başka etkenler de fiyatlanmış olabilir.*
 
@@ -42,11 +41,6 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Ekonomist.
 *Bu maddeler yapısal aktarım kanallarıdır: mekanizmanın varlığını anlatır, yönünü ya da büyüklüğünü değil.*
 
 ## Daha önce ne olmuştu
-
-- 2026-08-14 — Avrupa gazı Hürmüz krizinde Temmuz’dan bu yana en güçlü haftalık rallisini gerçe (BRENT +%0,6, BTC -%0,1, VIX -%4,8, XAU -%0,0)
-- 2026-08-14 — Hürmüz'de gerilim tırmanıyor: Petrol tankeri İHA ile vuruldu (BRENT +%0,6, BTC -%0,1, VIX -%4,8, XAU -%0,0)
-- 2026-08-13 — İran'dan Hürmüz Boğazı açıklaması: Boğaz kapalı ve tam kontrol altındayız (BRENT +%0,6, BTC +%0,1, VIX -%4,8, XAU -%0,2)
-- 2026-08-13 — "İsrail ve ABD'ye ait gemiler Hürmüz Boğazı'ndan geçemeyecek" (BRENT +%0,6, BTC -%0,3, VIX -%1,2, XAU -%0,0)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*
 

@@ -1,7 +1,7 @@
 ---
 slug: kuresel-piyasalarda-gozler-abd-de-aciklanacak-tarim-disi-istihdam-verisinde-2026-08-07
 baslik: Piyasa tepkisi: Küresel piyasalarda gözler ABD'de açıklanacak tarım dışı istihdam verisinde
-ozet: İstihdam verisi. S&P 500 günlük içinde -%0,18 geriledi.
+ozet: İstihdam verisi.
 sirket: Küresel piyasalarda gözler ABD'de açıklanacak tarım dışı istihdam verisinde
 kod: OLAY
 donem: 2026-08-07
@@ -20,12 +20,6 @@ sayimlar:
 ---
 
 İstihdam verisi yayımlandı. Kaynak: AA.
-
-## Piyasada ne oldu
-
-- **S&P 500** günlük bazda geriledi: -%0,18 — 2026-08-06 tarihli gözlem.
-
-*Yukarıdaki rakamlar ölçülen fiyat hareketidir. Hareketin sebebinin bu gelişme olduğu iddia edilmemektedir; aynı pencerede başka etkenler de fiyatlanmış olabilir.*
 
 ## Hangi kanallardan yansır
 

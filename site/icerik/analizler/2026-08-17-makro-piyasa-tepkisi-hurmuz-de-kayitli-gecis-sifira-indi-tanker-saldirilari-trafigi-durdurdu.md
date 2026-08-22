@@ -1,7 +1,7 @@
 ---
 slug: piyasa-tepkisi-hurmuz-de-kayitli-gecis-sifira-indi-tanker-saldirilari-trafigi-durdurdu-2026-08-17
 baslik: Hürmüz’de kayıtlı geçiş sıfıra indi: Tanker saldırıları trafiği durdurdu
-ozet: Jeopolitik gelişme. VIX günlük içinde +%0,55 yükseldi.
+ozet: Jeopolitik gelişme.
 sirket: Piyasa tepkisi: Hürmüz’de kayıtlı geçiş sıfıra indi: Tanker saldırıları trafiği durdurdu
 kod: OLAY
 donem: 2026-08-17
@@ -25,7 +25,6 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Dünya.
 
 - **Altın** 1 saat içinde yükseldi: +%0,19 (son 4398,00).
 - **Bitcoin** 1 saat içinde yatay kaldı (son 63466,30).
-- **VIX** günlük bazda yükseldi: +%0,55 — 2026-08-13 tarihli gözlem.
 
 *Yukarıdaki rakamlar ölçülen fiyat hareketidir. Hareketin sebebinin bu gelişme olduğu iddia edilmemektedir; aynı pencerede başka etkenler de fiyatlanmış olabilir.*
 
@@ -37,11 +36,6 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Dünya.
 *Bu maddeler yapısal aktarım kanallarıdır: mekanizmanın varlığını anlatır, yönünü ya da büyüklüğünü değil.*
 
 ## Daha önce ne olmuştu
-
-- 2026-08-15 — Hürmüz’de ADNOC gemisine saldırı, Trump konuşlandırmayı savundu (BRENT +%0,6, BTC -%0,2, VIX +%0,6, XAU -%0,0)
-- 2026-08-15 — Hürmüz'deki arz riski Ceyhan'ın küresel petrol merkezi olma potansiyelini güçlen (BRENT +%0,6, BTC -%0,2, VIX +%0,6, XAU -%0,0)
-- 2026-08-14 — Trump'tan savaş başlatacak sözler: Çok yakında Hürmüz Boğazı'nı Amerikan toprağı (BRENT +%0,6, BTC -%0,0, VIX +%0,6, XAU +%0,2)
-- 2026-08-14 — İran Hürmüz yakınlarında ABD İHA'sını vurduğunu duyurdu (BRENT +%0,6, BTC +%0,1, VIX +%0,6, XAU -%0,1)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*
 

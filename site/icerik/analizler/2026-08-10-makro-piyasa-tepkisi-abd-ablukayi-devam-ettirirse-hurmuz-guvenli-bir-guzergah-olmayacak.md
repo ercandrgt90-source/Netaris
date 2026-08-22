@@ -1,7 +1,7 @@
 ---
 slug: piyasa-tepkisi-abd-ablukayi-devam-ettirirse-hurmuz-guvenli-bir-guzergah-olmayacak-2026-08-10
 baslik: "ABD ablukayı devam ettirirse Hürmüz güvenli bir güzergah olmayacak"
-ozet: Jeopolitik gelişme. VIX günlük içinde -%1,65 geriledi.
+ozet: Jeopolitik gelişme.
 sirket: Piyasa tepkisi: "ABD ablukayı devam ettirirse Hürmüz güvenli bir güzergah olmayacak"
 kod: OLAY
 donem: 2026-08-10
@@ -25,7 +25,6 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Ekonomist.
 
 - **Altın** 1 saat içinde yükseldi: +%0,21 (son 4347,00).
 - **Bitcoin** 1 saat içinde yükseldi: +%0,25 (son 64753,00).
-- **VIX** günlük bazda geriledi: -%1,65 — 2026-08-07 tarihli gözlem.
 
 *Yukarıdaki rakamlar ölçülen fiyat hareketidir. Hareketin sebebinin bu gelişme olduğu iddia edilmemektedir; aynı pencerede başka etkenler de fiyatlanmış olabilir.*
 
@@ -37,11 +36,6 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Ekonomist.
 *Bu maddeler yapısal aktarım kanallarıdır: mekanizmanın varlığını anlatır, yönünü ya da büyüklüğünü değil.*
 
 ## Daha önce ne olmuştu
-
-- 2026-08-10 — İran: ABD ablukayı devam ettirirse Hürmüz Boğazı güvenli bir güzergah olmayacakt (BTC -%0,3, VIX -%4,2, XAU -%0,1)
-- 2026-08-10 — Hürmüz'e karşı yeni petrol rotası: Umman stratejik alternatif için kapasite artı (BTC -%0,3, VIX -%4,2, XAU -%0,1)
-- 2026-08-10 — Hürmüz'deki sevkiyat risklerine karşı petrol depolama alternatifi öne çıkıyor (BTC -%0,3, VIX -%4,2, XAU -%0,1)
-- 2026-08-09 — Trump, Hürmüz açılırsa nükleer anlaşma şartını kaldıracak mı? İran ayak diredi,  (BTC +%0,0, VIX -%4,2, XAU +%0,1)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*
 

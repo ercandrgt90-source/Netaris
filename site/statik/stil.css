@@ -2945,6 +2945,18 @@ a.akis-baslik:hover { color: var(--vurgu); text-decoration: none}
   white-space: nowrap}
 .menu-katman a:hover { background: var(--vurgu-zar); text-decoration: none}
 
+/* ACILIR MENU SAYFA PANELINDE, SERIT PANELINDE DEGIL.
+ *
+ * Katman `--panel` (beyaz) kullaniyor ama icindeki baglantilar
+ * `.ust nav a` kuralindan `--ust-yazi-2` (acik gri) aliyordu: beyaz
+ * zeminde acik gri yazi -- ekran goruntusunde "Tüm araştırmalar" ve
+ * "Bilançolar" bu yuzden okunmuyordu.
+ *
+ * Katman seridin GORSEL PARCASI DEGIL: sayfanin uzerine dusuyor ve
+ * sayfa renklerini kullanmali. */
+.ust .menu-katman a { color: var(--yazi-2)}
+.ust .menu-katman a:hover { color: var(--yazi); background: var(--vurgu-zar)}
+
 /* ACILIR MENU ARTIK DOKUNMATIKTE DE CALISIYOR.
    ---------------------------------------------
    Onceki cozum dar ekranda menuyu DUZLESTIRIYORDU: `.menu-baslik`
@@ -4114,7 +4126,31 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
   border-color: var(--ust-cizgi)}
 /* Logo isareti: koyu zeminde `--vurgu` (teal, koyu) sonuyor.
    Parlak surumu kullaniliyor -- ayni renk ailesi, okunur ton. */
+/* LOGO KOYU SERITTE -- uc parcasi da ayri jetondan boyaniyor.
+ *
+ * Olculdu (ekran goruntusu): serit koyu lacivert olunca "Netaris"
+ * yazisinin bas kismi neredeyse gorunmez oldu. Sebep tek bir kural
+ * degil, UC AYRI yerde sayfa jetonunun kullanilmasiydi:
+ *
+ *   .logo-im .logo-n   stroke: var(--yazi)          <- koyu
+ *   .marka             gradyan var(--yazi)'den      <- koyu baslangic
+ *   .menu-katman       background: var(--panel)     <- acik panel
+ *
+ * Ilk ikisi koyu zeminde koyu cikiyordu. Ozgulluk de tuzakti:
+ * `.ust .logo-im` (0,2,0) yaziyordum ama `.logo-im .logo-n` de
+ * (0,2,0) ve DAHA SONRA geldigi icin kazaniyordu. Simdi `.ust`
+ * onekiyle uc secici de (0,3,0). */
 .ust .logo-im { stroke: var(--vurgu-parlak)}
+.ust .logo-im .logo-n { stroke: var(--ust-yazi)}
+.ust .logo-im .logo-cubuk { fill: var(--vurgu-parlak)}
+/* Kelime markasi: gradyan ACIK tondan vurguya. Sayfa icindeki
+ * (altbilgi) surumu koyu tondan basliyor ve o dogru -- burada yalnizca
+ * seritteki hali degisiyor. */
+.ust .marka {
+  background: linear-gradient(96deg,
+              var(--ust-yazi) 10%, var(--vurgu-parlak) 92%);
+  -webkit-background-clip: text;
+  background-clip: text}
 /* Panel dugmesi seridin tek DOLU ogesi ve koyu zeminde de vurgu
    renginde kaliyor: seridin icindeki tek eylem cagrisi o. */
 .ust nav a.dugme-mini { color: var(--zit-yazi)}

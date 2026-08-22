@@ -25,7 +25,6 @@ sayimlar:
 
 - **Altın** 1 saat içinde yükseldi: +%0,39 (son 4353,00).
 - **Bitcoin** 1 saat içinde yükseldi: +%0,17 (son 64898,30).
-- **S&P 500** günlük bazda geriledi: -%0,18 — 2026-08-06 tarihli gözlem.
 
 *Yukarıdaki rakamlar ölçülen fiyat hareketidir. Hareketin sebebinin bu gelişme olduğu iddia edilmemektedir; aynı pencerede başka etkenler de fiyatlanmış olabilir.*
 

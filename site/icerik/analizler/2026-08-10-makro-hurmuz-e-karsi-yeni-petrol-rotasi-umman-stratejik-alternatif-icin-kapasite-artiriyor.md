@@ -1,7 +1,7 @@
 ---
 slug: hurmuz-e-karsi-yeni-petrol-rotasi-umman-stratejik-alternatif-icin-kapasite-artiriyor-2026-08-10
 baslik: Piyasa tepkisi: Hürmüz'e karşı yeni petrol rotası: Umman stratejik alternatif için kapasite artırıyor
-ozet: Jeopolitik gelişme. VIX günlük içinde -%4,17 geriledi.
+ozet: Jeopolitik gelişme.
 sirket: Hürmüz'e karşı yeni petrol rotası: Umman stratejik alternatif için kapasite artırıyor
 kod: OLAY
 donem: 2026-08-10
@@ -25,7 +25,6 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Dünya.
 
 - **Altın** 1 saat içinde geriledi: -%0,13 (son 4341,50).
 - **Bitcoin** 1 saat içinde geriledi: -%0,29 (son 64990,70).
-- **VIX** günlük bazda geriledi: -%4,17 — 2026-08-06 tarihli gözlem.
 
 *Yukarıdaki rakamlar ölçülen fiyat hareketidir. Hareketin sebebinin bu gelişme olduğu iddia edilmemektedir; aynı pencerede başka etkenler de fiyatlanmış olabilir.*
 
@@ -37,11 +36,6 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Dünya.
 *Bu maddeler yapısal aktarım kanallarıdır: mekanizmanın varlığını anlatır, yönünü ya da büyüklüğünü değil.*
 
 ## Daha önce ne olmuştu
-
-- 2026-08-10 — Hürmüz'deki sevkiyat risklerine karşı petrol depolama alternatifi öne çıkıyor (BTC -%0,3, VIX -%4,2, XAU -%0,1)
-- 2026-08-09 — Trump, Hürmüz açılırsa nükleer anlaşma şartını kaldıracak mı? İran ayak diredi,  (BTC +%0,0, VIX -%4,2, XAU +%0,1)
-- 2026-08-09 — İran, Hürmüz Boğazı’nı yeniden açmak için ABD’ye kapsamlı koşullar öne sürdü (BTC +%0,1, VIX -%4,2, XAU -%0,0)
-- 2026-08-08 — İran, Hürmüz Boğazı için ABD’ye ağır şartlar koştu (BTC -%0,0, VIX -%4,2, XAU +%0,0)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*
 

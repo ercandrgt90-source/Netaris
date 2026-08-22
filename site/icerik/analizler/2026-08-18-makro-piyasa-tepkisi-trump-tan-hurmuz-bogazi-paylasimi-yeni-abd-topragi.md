@@ -1,7 +1,7 @@
 ---
 slug: piyasa-tepkisi-trump-tan-hurmuz-bogazi-paylasimi-yeni-abd-topragi-2026-08-18
 baslik: Trump'tan Hürmüz Boğazı paylaşımı: Yeni ABD toprağı
-ozet: Jeopolitik gelişme. VIX günlük içinde +%6,60 yükseldi.
+ozet: Jeopolitik gelişme.
 sirket: Piyasa tepkisi: Trump'tan Hürmüz Boğazı paylaşımı: Yeni ABD toprağı
 kod: OLAY
 donem: 2026-08-18
@@ -25,7 +25,6 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Dünya.
 
 - **Altın** 1 saat içinde yatay kaldı (son 4396,10).
 - **Bitcoin** 1 saat içinde yükseldi: +%0,06 (son 64165,10).
-- **VIX** günlük bazda yükseldi: +%6,60 — 2026-08-17 tarihli gözlem.
 
 *Yukarıdaki rakamlar ölçülen fiyat hareketidir. Hareketin sebebinin bu gelişme olduğu iddia edilmemektedir; aynı pencerede başka etkenler de fiyatlanmış olabilir.*
 
@@ -37,11 +36,6 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Dünya.
 *Bu maddeler yapısal aktarım kanallarıdır: mekanizmanın varlığını anlatır, yönünü ya da büyüklüğünü değil.*
 
 ## Daha önce ne olmuştu
-
-- 2026-08-18 — "Hürmüz Boğazı, abluka ve petrol yaptırımları kaldırılmadan açılmayacak" (BTC +%0,1, VIX -%2,6, XAU +%0,1)
-- 2026-08-18 — Hürmüz ABD anlaşma şartlarını yerine getirene kadar kapalı kalacak (BTC -%0,1, VIX -%2,6, XAU -%0,0)
-- 2026-08-18 — İran'dan Hürmüz Boğazı resti: Yaptırımlar kalkmadan açılmayacak (BTC -%0,1, VIX -%2,6, XAU -%0,0)
-- 2026-08-18 — Hürmüz Boğazı'nda bir gemi vuruldu, mürettebat arasında kayıp var (BTC -%0,0, VIX -%2,6, XAU +%0,1)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*
 

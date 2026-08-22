@@ -26,7 +26,6 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Investing.
 - **Altın** 1 saat içinde geriledi: -%0,10 (son 4269,10).
 - **Bitcoin** 1 saat içinde yatay kaldı (son 64582,10).
 - **Brent petrol** günlük bazda geriledi: -%8,30 — 2026-08-03 tarihli gözlem.
-- **VIX** günlük bazda yükseldi: +%4,04 — 2026-08-04 tarihli gözlem.
 
 *Yukarıdaki rakamlar ölçülen fiyat hareketidir. Hareketin sebebinin bu gelişme olduğu iddia edilmemektedir; aynı pencerede başka etkenler de fiyatlanmış olabilir.*
 
@@ -42,11 +41,6 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Investing.
 *Bu maddeler yapısal aktarım kanallarıdır: mekanizmanın varlığını anlatır, yönünü ya da büyüklüğünü değil.*
 
 ## Daha önce ne olmuştu
-
-- 2026-08-05 — İran, Hürmüz Boğazı deniz yolu konusunda Umman ile anlaştı (BRENT -%8,3, BTC +%0,2, VIX +%4,0, XAU +%0,4)
-- 2026-08-05 — Hürmüz anlaşması taslağı tamamlandı: Hamaney'in onayı bekleniyor (BRENT -%8,3, BTC +%0,2, VIX +%4,0)
-- 2026-08-05 — Hürmüz Boğazı krizi LNG piyasasını sarstı! (BTC +%0,6, VIX -%0,8, XAU +%0,8)
-- 2026-08-04 — "Hürmüz Boğazı'nın açılması için bugün ya da yarın anlaşma ihtimali var" (BTC +%0,0, VIX -%0,8, XAU -%0,1)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*
 

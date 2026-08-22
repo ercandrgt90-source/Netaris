@@ -1,7 +1,7 @@
 ---
 slug: piyasa-tepkisi-trump-tan-hurmuz-aciklamasi-abd-tam-kontrole-sahip-2026-08-12
 baslik: Trump’tan Hürmüz açıklaması: ABD tam kontrole sahip
-ozet: Jeopolitik gelişme. VIX günlük içinde -%1,16 geriledi.
+ozet: Jeopolitik gelişme.
 sirket: Piyasa tepkisi: Trump’tan Hürmüz açıklaması: ABD tam kontrole sahip
 kod: OLAY
 donem: 2026-08-12
@@ -25,7 +25,6 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Dünya.
 
 - **Altın** 1 saat içinde yatay kaldı (son 4424,10).
 - **Bitcoin** 1 saat içinde geriledi: -%0,29 (son 63366,00).
-- **VIX** günlük bazda geriledi: -%1,16 — 2026-08-11 tarihli gözlem.
 
 *Yukarıdaki rakamlar ölçülen fiyat hareketidir. Hareketin sebebinin bu gelişme olduğu iddia edilmemektedir; aynı pencerede başka etkenler de fiyatlanmış olabilir.*
 
@@ -37,11 +36,6 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Dünya.
 *Bu maddeler yapısal aktarım kanallarıdır: mekanizmanın varlığını anlatır, yönünü ya da büyüklüğünü değil.*
 
 ## Daha önce ne olmuştu
-
-- 2026-08-12 — Hürmüz Boğazı krizinin faturası: Petrol fiyat tahminleri yukarı çekildi (BTC +%0,0, VIX +%3,8, XAU -%0,2)
-- 2026-08-11 — Husiler Bab el-Mandeb’de Suudi gemiye saldırı düzenledi (BTC +%0,1, VIX +%3,8, XAU +%0,1)
-- 2026-08-11 — İran Hürmüz Boğazı’nın açılmasını ABD politika değişikliğine bağladı (BTC +%0,1, VIX +%3,8, XAU +%0,1)
-- 2026-08-11 — İran'dan Hürmüz Boğazı mesajı: ABD şartlarımızı kabul etmedikçe açılmayacak (BTC +%0,1, VIX +%3,8, XAU -%0,1)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*
 

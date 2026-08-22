@@ -1,7 +1,7 @@
 ---
 slug: iran-hurmuz-bogazi-ni-yeniden-acmak-icin-abd-ye-kapsamli-kosullar-one-surdu-2026-08-09
 baslik: Piyasa tepkisi: İran, Hürmüz Boğazı’nı yeniden açmak için ABD’ye kapsamlı koşullar öne sürdü
-ozet: Jeopolitik gelişme. VIX günlük içinde -%4,17 geriledi.
+ozet: Jeopolitik gelişme.
 sirket: İran, Hürmüz Boğazı’nı yeniden açmak için ABD’ye kapsamlı koşullar öne sürdü
 kod: OLAY
 donem: 2026-08-09
@@ -25,7 +25,6 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Investing.
 
 - **Altın** 1 saat içinde yatay kaldı (son 4343,30).
 - **Bitcoin** 1 saat içinde yükseldi: +%0,12 (son 64844,70).
-- **VIX** günlük bazda geriledi: -%4,17 — 2026-08-06 tarihli gözlem.
 
 *Yukarıdaki rakamlar ölçülen fiyat hareketidir. Hareketin sebebinin bu gelişme olduğu iddia edilmemektedir; aynı pencerede başka etkenler de fiyatlanmış olabilir.*
 
@@ -37,11 +36,6 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Investing.
 *Bu maddeler yapısal aktarım kanallarıdır: mekanizmanın varlığını anlatır, yönünü ya da büyüklüğünü değil.*
 
 ## Daha önce ne olmuştu
-
-- 2026-08-08 — İran, Hürmüz Boğazı için ABD’ye ağır şartlar koştu (BTC -%0,0, VIX -%4,2, XAU +%0,0)
-- 2026-08-08 — Bu kez açıklama Umman'dan: Hürmüz Boğazı’ müzakereleri olumlu ilerliyor (BTC +%0,1, VIX -%4,2, XAU -%0,0)
-- 2026-08-08 — İran: ABD davranışlarını düzeltene kadar Hürmüz açılmayacak (BTC +%0,1, VIX -%4,2, XAU -%0,0)
-- 2026-08-08 — İran duyurdu: Hürmüz Boğazı için anlaşma çok yakın (BTC +%0,0, VIX -%4,2, XAU +%0,0)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*
 

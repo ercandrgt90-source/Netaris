@@ -1,7 +1,7 @@
 ---
 slug: bessent-in-hurmuz-mesaji-petrol-fiyatlarini-dusurdu-2026-08-04
 baslik: Piyasa tepkisi: Bessent'in Hürmüz mesajı petrol fiyatlarını düşürdü
-ozet: Jeopolitik gelişme. VIX günlük içinde -%6,44 geriledi.
+ozet: Jeopolitik gelişme.
 sirket: Bessent'in Hürmüz mesajı petrol fiyatlarını düşürdü
 kod: OLAY
 donem: 2026-08-04
@@ -25,7 +25,6 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Ekonomim.
 
 - **Altın** 1 saat içinde yükseldi: +%0,26 (son 4066,60).
 - **Bitcoin** 1 saat içinde yükseldi: +%0,06 (son 63753,20).
-- **VIX** günlük bazda geriledi: -%6,44 — 2026-07-31 tarihli gözlem.
 
 *Yukarıdaki rakamlar ölçülen fiyat hareketidir. Hareketin sebebinin bu gelişme olduğu iddia edilmemektedir; aynı pencerede başka etkenler de fiyatlanmış olabilir.*
 

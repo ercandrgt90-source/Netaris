@@ -1,7 +1,7 @@
 ---
 slug: piyasa-tepkisi-petrolde-hurmuz-den-sonra-talep-baskisi-tahminler-dustu-brent-ve-wti-sert-geriledi-2026-08-13
 baslik: Petrolde Hürmüz'den sonra talep baskısı! Tahminler düştü, Brent ve WTI sert geriledi
-ozet: Jeopolitik gelişme. VIX günlük içinde -%1,16 geriledi.
+ozet: Jeopolitik gelişme.
 sirket: Piyasa tepkisi: Petrolde Hürmüz'den sonra talep baskısı! Tahminler düştü, Brent ve WTI sert geriledi
 kod: OLAY
 donem: 2026-08-13
@@ -26,7 +26,6 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Sabah.
 - **Altın** 1 saat içinde yükseldi: +%0,25 (son 4377,00).
 - **Bitcoin** 1 saat içinde geriledi: -%0,10 (son 63704,20).
 - **Brent petrol** günlük bazda yükseldi: +%0,56 — 2026-08-11 tarihli gözlem.
-- **VIX** günlük bazda geriledi: -%1,16 — 2026-08-11 tarihli gözlem.
 
 *Yukarıdaki rakamlar ölçülen fiyat hareketidir. Hareketin sebebinin bu gelişme olduğu iddia edilmemektedir; aynı pencerede başka etkenler de fiyatlanmış olabilir.*
 
@@ -42,11 +41,6 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Sabah.
 *Bu maddeler yapısal aktarım kanallarıdır: mekanizmanın varlığını anlatır, yönünü ya da büyüklüğünü değil.*
 
 ## Daha önce ne olmuştu
-
-- 2026-08-12 — Hürmüz Boğazı’ndan gemi trafiği üç ayın en düşük seviyesine yaklaştı (BRENT +%0,6, BTC -%0,1, VIX -%1,2, XAU -%0,0)
-- 2026-08-12 — Trump’tan Hürmüz açıklaması: ABD tam kontrole sahip (BTC -%0,3, VIX -%1,2, XAU +%0,0)
-- 2026-08-12 — Hürmüz Boğazı krizinin faturası: Petrol fiyat tahminleri yukarı çekildi (BTC +%0,0, VIX +%3,8, XAU -%0,2)
-- 2026-08-11 — Husiler Bab el-Mandeb’de Suudi gemiye saldırı düzenledi (BTC +%0,1, VIX +%3,8, XAU +%0,1)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*
 
