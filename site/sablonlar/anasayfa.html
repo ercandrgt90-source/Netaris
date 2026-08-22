@@ -104,23 +104,6 @@
 </div>
 
 
-{# BIST SERIDI -- kendi verimiz DEGIL, ACIKCA yazili.
-
-   NEDEN UCUNCU TARAF
-   BIST endeks verisini yayimlamak Borsa Istanbul veri dagitim
-   lisansi gerektiriyor ve bizde yok. TradingView'in ucretsiz
-   widget'inda lisans SAGLAYICIDA: veriyi biz dagitmiyoruz.
-
-   NEDEN BURADA
-   Turk okurun ilk baktigi sey BIST ve sayfada hic yoktu. Kendi fiyat
-   seridimiz (ust tarafta) kur, faiz ve emtia tasiyor -- hepsi kamu
-   kaynakli ve BIZIM olcumumuz. Ikisi AYRI kutularda duruyor ve bu
-   bilincli: birini digerinin icine koymak, lisansi bizde olmayan bir
-   veriyi kendi olcumumuz gibi gosterirdi.
-   =============================================================== #}
-{{ tv.tv("serit", "Borsa İstanbul",
-         "BIST verisi için tarayıcınızda JavaScript etkin olmalı.") }}
-
 {# ===============================================================
    SIRA DEGISTI -- OKURUN ILK SORUSU EN USTTE.
 
@@ -206,6 +189,19 @@
       işliyor.</p>
     {% endif %}
   </section>
+
+  {# --- YAN SUTUN: PIYASA KUTUSU --------------------------------
+     Once sayfanin ustunde TAM GENISLIKTE bir panel olarak duruyordu
+     ve iki sorun cikardi: 380 piksellik bir blok "bugun ne oldu"
+     sorusunun cevabini asagi itiyordu, ve grafik o boyutta sayfanin
+     en buyuk gorseli haline geliyordu -- oysa BIZIM OLCUMUMUZ DEGIL.
+
+     Yan sutunda, canli akisin ustunde: gorunur ama sayfanin sirasini
+     bozmuyor. Ayni gerekce canli akis icin de gecerli ve o da burada.
+
+     Grafik KAPALI, tek sekme: bu genislikte grafik okunmuyor. #}
+  {{ tv.tv("serit", "Piyasalar",
+           "Piyasa verisi için tarayıcınızda JavaScript etkin olmalı.") }}
 
   {# --- KATMAN 1: KAYIT ------------------------------------------ #}
   {% if akis %}

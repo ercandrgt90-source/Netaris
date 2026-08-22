@@ -3,12 +3,9 @@
 {% import "_tradingview.html" as tv %}
 {% extends "temel.html" %}
 {% block ek_bas %}
-{# TradingView betigi YALNIZCA hisse kodu olan sayfada. Makro ve
-   yorum analizlerinde grafik yok, betik de yuklenmiyor -- ucuncu
-   taraf betigi gereksiz sayfaya konulmamali. #}
-{% if a.kod and a.kod != "MAKRO" and a.kod != "YORUM" %}
-<script src="/statik/tradingview.js?v={{ js_surum }}" defer></script>
-{% endif %}
+{# TradingView betigi YUKLENMIYOR: sayfada widget kalmadi (bkz.
+   asagidaki "HISSE GRAFIGI KALDIRILDI" notu). Ucuncu taraf betigi
+   kullanilmayan sayfaya konulmamali. #}
 {# Sayfa paylasimindaki "kopyala" dugmesi icin. Digerleri duz
    baglanti; betik yalnizca kopyalamayi aciyor. #}
 <script src="/statik/paylas.js?v={{ js_surum }}" defer></script>
@@ -188,20 +185,29 @@
   </section>
   {% endif %}
 
-  {# HISSE GRAFIGI -- GOVDEDEN ONCE.
-     Bilanco bir DONEMIN fotografi; fiyat o donemden bu yana ne olduğunu
-     gosteriyor ve ikisi ancak birlikte anlam kazaniyor. Grafigi metnin
-     altina koymak, okurun once rakamlari okuyup sonra "peki piyasa ne
-     dedi" sorusuyla geri donmesi demekti.
+  {# HISSE GRAFIGI KALDIRILDI -- BIST VERISI GELMIYOR.
+     ------------------------------------------------
+     Kisa sure once eklenmisti: her bilanco analizinde ilgili hissenin
+     12 aylik TradingView grafigi. Olculdu ve CALISMIYOR.
 
-     YALNIZCA HISSE ANALIZINDE. Makro ve yorum yazilarinda hisse kodu
-     yok; orada ne grafik ne de ucuncu taraf betigi yukleniyor. #}
-  {% if a.kod and a.kod != "MAKRO" and a.kod != "YORUM" %}
-  {{ tv.tv("grafik",
-           a.kod ~ " fiyat grafiği (12 ay)",
-           "Grafiği görmek için tarayıcınızda JavaScript etkin olmalı.",
-           "BIST:" ~ a.kod) }}
-  {% endif %}
+     Ana sayfadaki panelde uc deneme yapildi:
+
+         BIST:XU100 / XU030 / XBANK   kirmizi hata
+         BIST:THYAO / GARAN / ASELS   "Burada henüz veri yok"
+
+     Ayni panelde kuresel endeksler sorunsuz geliyordu -- yani sorun
+     widget'ta ya da yerlestirmede degil: UCRETSIZ TRADINGVIEW
+     WIDGET'I BIST VERISI VERMIYOR, ne endeks ne hisse.
+
+     Bu sayfalarda grafik AYNI ad alanini (`BIST:<kod>`) kullaniyordu,
+     yani 352 sayfada bos bir kutu duruyordu. Calismayan bir bilesen,
+     olmayandan kotudur -- ayni gerekce `paylas.js` ve
+     `akis_suzgec.js` icinde de yazili.
+
+     GERI GETIRMEK ICIN: BIST verisine erisim gerekiyor (ucretli
+     TradingView plani ya da Borsa Istanbul dagitim lisansi). O gun
+     `{{ tv.tv("grafik", ...) }}` cagrisi geri konur; makro ve betik
+     yerinde duruyor. #}
 
   {# Yasal uyari sayfa altbilgisinde bir kez veriliyor. Burada da tekrarlamak
      ayni metni ust uste iki kez gostermek olurdu. #}

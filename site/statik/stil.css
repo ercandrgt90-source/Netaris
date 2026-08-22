@@ -6044,10 +6044,19 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
   margin: var(--b-1) 0 0;
   font-size: var(--p-xs); color: var(--yazi-3)}
 /* Yukleme oncesi yer AYRILIYOR: widget gelince altindaki icerik
- * asagi kaymasin. Olcu widget'in kendi yuksekligiyle ayni. */
-.tradingview-widget-container__widget { min-height: 78px}
-.tv-kutu[data-tv-tur="grafik"] .tradingview-widget-container__widget {
-  min-height: 220px}
+ * asagi kaymasin (CLS). Olcu widget'in kendi yuksekligiyle ayni --
+ * serit 78px iken panel 380px oldu ve bu deger de onunla birlikte
+ * guncellendi; ayrisirsa sayfa yukleme aninda ziplar. */
+.tradingview-widget-container__widget { min-height: 260px}
+
+/* YAN SUTUNDA: kutu daralikta duruyor, dolgusu da kucuk olmali.
+ * Genis panel olarak dururken 380px yuksekligindeydi ve sayfanin en
+ * buyuk gorseliydi -- oysa BIZIM OLCUMUMUZ DEGIL. Yan sutunda hem
+ * gorunur hem de sirayi bozmuyor. */
+.masa .tv-kutu {
+  margin: 0 0 var(--b-4);
+  padding: var(--b-3)}
+.masa .tv-bas { margin-bottom: var(--b-2)}
 /* Atif: TradingView kosullari geregi ZORUNLU, gorunur kalmali.
  * Kucuk ama okunur -- gizlemek yasak. */
 .tradingview-widget-copyright {

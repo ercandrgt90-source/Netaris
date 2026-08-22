@@ -59,20 +59,72 @@
     var sembol = kutu.getAttribute("data-tv-sembol") || "";
 
     if (tur === "serit") {
-      /* Semboller BIST'in en cok izlenen uc olcusu. Genis liste
-         seridi kalabaliklastirir ve okurun aradigini bulmasini
-         zorlastirir -- ayni gerekce kendi fiyat seridimizde yazili. */
-      return [KOK + "embed-widget-ticker-tape.js", {
-        symbols: [
-          { proName: "BIST:XU100", title: "BIST 100" },
-          { proName: "BIST:XU030", title: "BIST 30" },
-          { proName: "BIST:XBANK", title: "Bankacılık" }
-        ],
-        showSymbolLogo: false,
-        isTransparent: true,
-        displayMode: "compact",
+      /* SEKMELI PANEL, kayan serit DEGIL.
+         --------------------------------
+         Ilk surum `ticker-tape` kullaniyordu ve UC SEMBOLDE DE KIRMIZI
+         HATA verdi. Sebep muhtemelen alan adiydi: sembol nesnesine
+         `title` yazmistim, oysa o widget'in BELGELENMIS alani
+         `description`. Uydurma alan adi sessizce yanlis ayristirmaya
+         yol aciyor -- hata gorunuyordu ama sebebi gorunmuyordu.
+
+         Burada yalnizca belgelenmis alanlar kullaniliyor: `s` (sembol)
+         ve `d` (gorunen ad).
+
+         Sekmeli panel ayrica daha iyi: kayan serit okurun aradigini
+         BEKLEMESINI gerektiriyor, sekme dogrudan gosteriyor.
+
+         NEDEN BURADA KURESEL ENDEKSLER DE VAR
+         Bunlarin (DAX, Dow, S&P, Nikkei, FTSE) lisansi TradingView'da.
+         Kendi veri hattimizdan cikardik cunku BIZ yayimlayamayiz --
+         ama TradingView'in cercevesi gosterebilir. Celiski degil, tam
+         olarak bu ayrimin sonucu. */
+      return [KOK + "embed-widget-market-overview.js", {
         colorTheme: tema(),
-        locale: "tr"
+        dateRange: "1D",
+        locale: "tr",
+        isTransparent: true,
+        /* GRAFIK KAPALI VE TEK SEKME: kutu yan sutunda, canli akisin
+           yanindaki daralikta duruyor. Grafik o genislikte okunmuyor,
+           yalnizca yer kapliyor. */
+        showChart: false,
+        showSymbolLogo: false,
+        showFloatingTooltip: false,
+        width: "100%",
+        height: 260,
+        /* BIST SEKMESI KALDIRILDI -- OLCULDU, VERI YOK.
+           ---------------------------------------------
+           Uc deneme yapildi ve ucu de basarisiz:
+
+               BIST:XU100 / XU030 / XBANK   kirmizi hata
+               BIST:THYAO / GARAN / ASELS   "Burada henüz veri yok"
+
+           Ayni panelde KURESEL endeksler sorunsuz geliyordu, yani
+           sorun ne widget'ta ne yerlestirmede: UCRETSIZ WIDGET BIST
+           VERISI VERMIYOR -- ne endeks ne hisse.
+
+           Once "endeks lisansi hisse kotasyonundan ayridir" diye
+           dusunup hisseleri denedim; o varsayim da yanlis cikti.
+           Olculdu, tahmin edilmedi.
+
+           Bos bir "BIST" sekmesi, sekmenin hic olmamasindan kotudur:
+           okur tiklar, "veri yok" gorur ve sitenin bozuk oldugunu
+           dusunur.
+
+           Kuresel semboller TradingView'in KENDI demo
+           yapilandirmasindan; orada calistiklari belgeli. */
+        tabs: [
+          {
+            title: "Küresel endeksler",
+            symbols: [
+              { s: "FOREXCOM:SPXUSD", d: "S&P 500" },
+              { s: "FOREXCOM:DJI", d: "Dow 30" },
+              { s: "FOREXCOM:NSXUSD", d: "US 100" },
+              { s: "INDEX:DEU40", d: "DAX" },
+              { s: "FOREXCOM:UKXGBP", d: "FTSE 100" },
+              { s: "INDEX:NKY", d: "Nikkei 225" }
+            ]
+          }
+        ]
       }];
     }
 
@@ -101,7 +153,23 @@
 
   function yukle(kutu) {
     if (kutu.getAttribute("data-tv-yuklendi")) return;
-    var hedef = kutu.querySelector(".tradingview-widget-container__widget");
+    /* BETIK `__widget` ICINE DEGIL, KAPSAYICIYA ekleniyor.
+       ------------------------------------------------------
+       TradingView'in belgelenmis gomme yapisinda script,
+       `.tradingview-widget-container` icinde ve
+       `.tradingview-widget-container__widget` ile KARDES:
+
+           <div class="tradingview-widget-container">
+             <div class="...__widget"></div>
+             <div class="...copyright"></div>
+             <script>...</script>
+           </div>
+
+       Ilk yazimimda betigi `__widget` ICINE koydum. Widget yine
+       ciziliyordu (etiketler gorunuyordu) ama yapisi belgelenmis
+       halden sapiyordu -- ve saptigi anda davranisi garanti degil.
+       Belgeye uymak, tahmin etmekten iyi. */
+    var hedef = kutu.querySelector(".tradingview-widget-container");
     if (!hedef) return;
     var a = ayar(kutu);
     if (!a) return;
