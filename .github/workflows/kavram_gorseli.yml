@@ -113,7 +113,11 @@ jobs:
       - name: Üretilenleri raporla
         # Cizimler is akisi ciktisi olarak da indirilebilsin: depoyu
         # klonlamadan bakmak isteyen icin.
-        uses: actions/upload-artifact@v4
+        # v5 gerekiyor: v4 Node 20 hedefliyor ve GitHub calisticilari
+        # onu Node 24'e zorluyor -- her koşuda uyari basiyor. Depodaki
+        # diger eylemler (checkout@v5, setup-python@v6, setup-node@v5)
+        # zaten guncel surumde; bu tek basina geride kalmisti.
+        uses: actions/upload-artifact@v5
         with:
           name: kavram-gorselleri
           path: site/statik/foto/uretilen/

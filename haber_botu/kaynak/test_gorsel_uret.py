@@ -96,11 +96,35 @@ esit("yapay zeka" in gu.ETIKET.lower(), True,
 # --------------------------------------------------------------------
 # KIMLIK BILGISI OLMADAN AG ISTEGI YAPILMIYOR.
 #
-# Anahtar yoksa sessizce None donmeli; hat kirmizi donmemeli. Gorsel
-# sustur, yayini durdurmasi sacma olurdu.
+# ORTAM DEGISKENLERI SILINEREK sinaniyor. `uret` bos argumanlari ortam
+# degiskenine dusuruyor; sinama onlari temizlemezse ve bir gun test
+# adimina kimlik eklenirse BU SINAMA GERCEK BIR AG ISTEGI ATARDI --
+# kota yakar ve sinamayi ag durumuna bagimli kilar.
 # --------------------------------------------------------------------
-esit(gu.uret("Enflasyon", hesap="", jeton=""), None,
-     "kimlik yoksa None -- hat KIRILMIYOR")
+import os  # noqa: E402
+
+_yedek = {k: os.environ.pop(k, None)
+          for k in ("CLOUDFLARE_ACCOUNT_ID", "CLOUDFLARE_API_TOKEN")}
+try:
+    esit(gu.uret("Enflasyon", hesap="", jeton=""), None,
+         "kimlik yoksa None -- ağ isteği YOK")
+
+    # ------------------------------------------------------------------
+    # SESSIZLIK BASARI SAYILMAZ.
+    #
+    # Ilk koşu tam bunu yasadi: uretim basarisiz oldu, betik 0 ile cikti,
+    # is akisi YESIL gorundu ve depoya hicbir sey dusmedi. "Calisti" gibi
+    # duran bir koşu hicbir sey yapmamisti.
+    #
+    # Bu depoda ayni ders birkac kez tekrarlandi: yanlis "0 ihlal"
+    # raporlayan denetim, "189 sayfa eksik" diyen bozuk sitemap taramasi.
+    # Eksik tarama temiz rapor uretir; en tehlikeli yanlis budur.
+    # ------------------------------------------------------------------
+    esit(gu.main(), 1, "kimlik yoksa main HATA döndürüyor")
+finally:
+    for k, v in _yedek.items():
+        if v is not None:
+            os.environ[k] = v
 
 print(f"\n{_gecti} gecti, {_kaldi} kaldi")
 sys.exit(1 if _kaldi else 0)

@@ -181,6 +181,17 @@ def uret(konu: str, hesap: str = "", jeton: str = "") -> pathlib.Path | None:
     if hedef.exists():
         return hedef
 
+    # HATA SEBEBI YAZILIYOR -- eskiden yazilmiyordu ve bir koşu bosa
+    # gitti.
+    #
+    # Once yalnizca `type(e).__name__` basiliyordu ("HTTPStatusError").
+    # O ad, 401 (jeton yanlis) ile 403 (jetonun Workers AI izni yok)
+    # arasindaki farki GIZLIYOR -- ve iki durumun cozumu tamamen farkli.
+    # Cloudflare sebebi govdede duz Turkce/Ingilizce yaziyor; onu
+    # basmamak, elimizdeki tek ipucunu atmak demekti.
+    #
+    # Jeton govdede YANKILANMIYOR; Cloudflare hata metni kimlik bilgisi
+    # tasimiyor.
     try:
         y = httpx.post(
             f"https://api.cloudflare.com/client/v4/accounts/{hesap}"
@@ -188,10 +199,23 @@ def uret(konu: str, hesap: str = "", jeton: str = "") -> pathlib.Path | None:
             headers={"Authorization": f"Bearer {jeton}"},
             json={"prompt": p, "steps": 4},
             timeout=ZAMAN_ASIMI)
-        y.raise_for_status()
+    except httpx.HTTPError as e:
+        print(f"  görsel üretilemedi ({konu}): ağ hatası "
+              f"{type(e).__name__}: {e}")
+        return None
+    if y.status_code != 200:
+        print(f"  görsel üretilemedi ({konu}): HTTP {y.status_code}")
+        print(f"    yanıt: {y.text[:400]}")
+        if y.status_code in (401, 403):
+            print("    -> CLOUDFLARE_API_TOKEN'ın 'Workers AI: Read' "
+                  "izni olmalı. Dağıtım jetonunda bu izin YOK; "
+                  "Cloudflare panelinden jetona eklenmeli.")
+        return None
+    try:
         d = y.json()
-    except (httpx.HTTPError, ValueError) as e:
-        print(f"  görsel üretilemedi ({konu}): {type(e).__name__}")
+    except ValueError:
+        print(f"  görsel üretilemedi ({konu}): yanıt JSON değil")
+        print(f"    ilk baytlar: {y.content[:80]!r}")
         return None
 
     # IKI ZARF DA KABUL EDILIYOR.
@@ -250,14 +274,44 @@ def main() -> int:
         return 0
     print(f"{len(eksik)} kavram görseli üretilecek "
           f"({len(KONU_KAVRAMI) - len(eksik)} hazır).")
+    if not (os.environ.get("CLOUDFLARE_ACCOUNT_ID")
+            and os.environ.get("CLOUDFLARE_API_TOKEN")):
+        print("CLOUDFLARE_ACCOUNT_ID / CLOUDFLARE_API_TOKEN tanımlı "
+              "değil -- görsel üretilemez.")
+        return 1
     uretilen = 0
+    ustuste = 0
     for k in eksik:
         if uret(k) is not None:
             uretilen += 1
+            ustuste = 0
             print(f"  üretildi: {k}")
+            continue
+        # ART ARDA UC BASARISIZLIKTA DURULUYOR.
+        #
+        # Jeton yanlissa ya da kota bittiyse kalan 15 istek de ayni
+        # sebeple basarisiz olur. Denemeye devam etmek iki sey yapar:
+        # kaydi ayni hata mesajiyla doldurur ve gercek sebebi ekranin
+        # yukarisina iter. Ilk uc satir zaten sebebi soyluyor.
+        ustuste += 1
+        if ustuste >= 3:
+            print(f"  art arda {ustuste} başarısızlık -- duruluyor "
+                  f"({len(eksik) - eksik.index(k) - 1} konu denenmedi).")
+            break
     print(f"\n{uretilen}/{len(eksik)} görsel üretildi.")
-    # Uretilemeyen gorsel HATA DEGIL: sayfa fotografla ya da gorselsiz
-    # cikar. Gorsel sus, yayini durdurmasi sacma olurdu.
+    # HIC URETILEMEDIYSE HATA. Sessizlik basari sayilmaz.
+    #
+    # Ilk koşu tam bunu yasadi: uretim basarisiz oldu, adim "0 ile
+    # cikti", is akisi yesil gorundu ve depoya hicbir sey dusmedi --
+    # yani "calisti" gibi duran bir koşu hicbir sey yapmamisti.
+    #
+    # Tek tuk basarisizlik hata degil (bir konu atlanir, sayfa gorselsiz
+    # cikar) ama HEPSININ basarisiz olmasi yapisal bir sorundur: yanlis
+    # jeton, eksik izin, kota. Onu gormek icin koşunun KIRMIZI donmesi
+    # gerekiyor.
+    if uretilen == 0:
+        print("HİÇBİR görsel üretilemedi -- yukarıdaki sebebe bakın.")
+        return 1
     return 0
 
 
