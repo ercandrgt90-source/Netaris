@@ -108,8 +108,11 @@ KONU_KAVRAMI = {
     # Cozum daha fazla yasak degil: gercekte uzerinde yazi OLMAYAN
     # nesne secmek. Petrol kuyusu pompasinin ustunde yazi olmaz.
     "Enerji": "a tall oil pump jack silhouette on open ground",
-    "Borsa": "an empty stock exchange hall interior with rows of plain "
-             "rectangular display panels",
+    # VARYANTLI: 48 sayfa, cizim kullaniminda ikinci sirada.
+    "Borsa": ("an empty stock exchange hall interior with rows of plain "
+              "rectangular display panels",
+              "a stylised classical exchange building colonnade seen "
+              "straight on"),
     # Para birimi SEMBOLU istenmiyor: "$" agirlikli bir gorsel Turkce
     # bir sitede yanlis vurgu, ayrica sembol metin gibi davraniyor.
     "Döviz": "plain banknote sheets and coin discs arranged in a fan",
@@ -136,7 +139,19 @@ KONU_KAVRAMI = {
     "Konut ve kira": "simple house and apartment block silhouettes in a "
                      "row",
     "Tarım ve gıda": "wheat stalks and a grain silo silhouette",
-    "Jeopolitik": "an abstract world map with dotted shipping lanes",
+    # VARYANTLI KONU -- olculdu: cizimlerin %69'u bu konuda
+    # kullaniliyordu (295 sayfanin 205'i) ve tek gorsel 205 sayfada
+    # goruntuleniyordu. Fotografta tekrar tavani 8; burada tavan
+    # koymak cozum degil, cunku tavana takilan sayfa gorselsize geri
+    # doner -- yani basa sarar. Cozum varyant.
+    #
+    # Uc varyant 205'i ~68'e boluyor. Daha fazlasi mumkun ama her
+    # varyant ayri INCELEME demek ve asil maliyet o.
+    "Jeopolitik": ("an abstract world map with dotted shipping lanes",
+                   "a stylised globe with plain latitude and longitude "
+                   "lines",
+                   "abstract overlapping continent shapes on a plain "
+                   "ground"),
     "Vergi ve kamu maliyesi": "an abstract government ledger with coin "
                               "stacks",
     # DUZ SILUET isteniyor: onceki deneme taninabilir bir kule
@@ -251,17 +266,30 @@ YASAK = ("photo", "photograph", "photorealistic", "realistic", "render",
          "news footage", "portrait", "face", "person", "logo")
 
 
-def istem(konu: str) -> str:
+def kavramlar(konu: str) -> tuple[str, ...]:
+    """Konunun kavram(lari) -- her zaman demet.
+
+    `KONU_KAVRAMI` degeri tek metin ya da metin demeti olabiliyor.
+    Cogu konu tek gorselle yetiniyor; yalnizca cizimi cok sayfada
+    kullanilan konular varyant tasiyor.
+    """
+    v = KONU_KAVRAMI.get(konu)
+    if not v:
+        return ()
+    return (v,) if isinstance(v, str) else tuple(v)
+
+
+def istem(konu: str, sira: int = 0) -> str:
     """Konudan istem kurar. Haber basligi KULLANILMAZ.
 
     Basligi isteme koymak en kolay yoldu ve tam da yapilmamasi gereken
     sey: "Iran limanina saldiri" basligindan uretilen gorsel, olmamis
     bir saldirinin goruntusu olur.
     """
-    kavram = KONU_KAVRAMI.get(konu)
-    if not kavram:
+    k = kavramlar(konu)
+    if sira >= len(k):
         return ""
-    return f"{kavram}, {STIL}"
+    return f"{k[sira]}, {STIL}"
 
 
 #: "no X" / "not X" / "not a X" -- OLUMSUZ kullanim.
@@ -280,8 +308,8 @@ def istem(konu: str) -> str:
 _OLUMSUZ = re.compile(r"\b(?:no|not)\s+(?:an?\s+)?[a-z-]+", re.I)
 
 
-def _stem(konu: str) -> str:
-    """Konunun dosya adi (uzantisiz) -- ISTEMDEN turuyor.
+def _stem(konu: str, sira: int = 0) -> str:
+    """Konunun `sira` numarali varyantinin dosya adi -- ISTEMDEN turuyor.
 
     ISTEMIN TAMAMI ADA GIRIYOR (konu + kavram + stil). Once yalnizca
     konu ve stil giriyordu ve bu SESSIZ BIR TUZAKTI: kavram metni
@@ -293,7 +321,8 @@ def _stem(konu: str) -> str:
     Simdi farkli istem = farkli dosya adi = eski onay hash'i gecersiz.
     Yani istemi degistiren kisi, sonucuna BAKMAK ZORUNDA kaliyor.
     """
-    tohum = konu + KONU_KAVRAMI.get(konu, "") + STIL
+    k = kavramlar(konu)
+    tohum = konu + (k[sira] if sira < len(k) else "") + STIL
     return "kavram-" + hashlib.sha1(
         tohum.encode("utf-8")).hexdigest()[:10]
 
@@ -325,14 +354,15 @@ def istem_guvenli(p: str) -> bool:
     return not any(re.search(r"\b" + re.escape(y), kalan) for y in YASAK)
 
 
-def uret(konu: str, hesap: str = "", jeton: str = "") -> pathlib.Path | None:
-    """Konu icin gorsel uretir. Basarisizsa None -- hat kirmizi DONMEZ.
+def uret(konu: str, sira: int = 0, hesap: str = "",
+         jeton: str = "") -> pathlib.Path | None:
+    """Konunun `sira` varyantini uretir. Basarisizsa None.
 
     Ayni konu icin ayni dosya adi: istem sabit oldugu icin her cagri
     ayni kavrami uretiyor ve her koşuda yeniden uretmek kota israfi
     olurdu. Dosya varsa dogrudan donuyor.
     """
-    p = istem(konu)
+    p = istem(konu, sira)
     if not p or not istem_guvenli(p):
         return None
     # `.strip()` ZORUNLU -- suslemesi degil, calismasi icin.
@@ -354,7 +384,7 @@ def uret(konu: str, hesap: str = "", jeton: str = "") -> pathlib.Path | None:
     if not (hesap and jeton):
         return None
 
-    var = _mevcut(konu)
+    var = _mevcut(konu, sira)
     if var is not None:
         return var
 
@@ -422,16 +452,16 @@ def uret(konu: str, hesap: str = "", jeton: str = "") -> pathlib.Path | None:
         return None
 
     HEDEF.mkdir(parents=True, exist_ok=True)
-    hedef = HEDEF / (_stem(konu) + uz)
+    hedef = HEDEF / (_stem(konu, sira) + uz)
     hedef.write_bytes(veri)
     return hedef
 
 
-def _mevcut(konu: str) -> pathlib.Path | None:
-    """Konunun diskteki cizimi -- uzantisi ne olursa olsun."""
-    if konu not in KONU_KAVRAMI:
+def _mevcut(konu: str, sira: int = 0) -> pathlib.Path | None:
+    """Varyantin diskteki dosyasi -- uzantisi ne olursa olsun."""
+    if sira >= len(kavramlar(konu)):
         return None
-    kok = _stem(konu)
+    kok = _stem(konu, sira)
     for uz in (".jpg", ".png", ".webp"):
         p = HEDEF / (kok + uz)
         if p.exists():
@@ -439,34 +469,65 @@ def _mevcut(konu: str) -> pathlib.Path | None:
     return None
 
 
-def onayli_mi(konu: str) -> bool:
-    """Diskteki cizim ONAYLI listesindeki dosya mi?
+def onayli_mi(konu: str, sira: int = 0) -> bool:
+    """Diskteki varyant ONAYLI listesindeki dosya mi?
 
-    Istem yeterli bir koruma degil: ilk uretimde "no text" yazili
-    oldugu halde iki gorselde metin cikti, birinde de sahte bir grafik.
-    Bu yuzden "yayimlanmadan once gorulmeli" bir aliskanlik degil,
-    burada bir KURAL.
+    Istem yeterli bir koruma degil: dort turda bes metin kazasi oldu
+    ve hepsinde istemde "no text" yaziliydi. Bu yuzden "yayimlanmadan
+    once gorulmeli" bir aliskanlik degil, burada bir KURAL.
     """
-    p = _mevcut(konu)
+    p = _mevcut(konu, sira)
     if p is None:
         return False
-    beklenen = ONAYLI.get(konu)
-    if not beklenen:
+    h = ONAYLI.get(konu)
+    if not h:
         return False
-    return hashlib.sha256(p.read_bytes()).hexdigest() == beklenen
+    # Tek metin de demet de kabul: cogu konu tek gorselli.
+    beklenen = (h,) if isinstance(h, str) else h
+    if sira >= len(beklenen):
+        return False
+    return hashlib.sha256(p.read_bytes()).hexdigest() == beklenen[sira]
 
 
-def dosyasi(konu: str) -> str:
+def onayli_varyantlar(konu: str) -> list[str]:
+    """Konunun ONAYLI varyantlarinin site yollari, sirali."""
+    return [f"/statik/foto/uretilen/{_mevcut(konu, i).name}"
+            for i in range(len(kavramlar(konu))) if onayli_mi(konu, i)]
+
+
+def dosyasi(konu: str, anahtar: str = "") -> str:
     """Konunun ONAYLI cizimi varsa site yolu, yoksa bos.
 
-    Uretim YAPMIYOR -- yalnizca diskte hazir VE ONAYLI olani buluyor.
-    Onaysiz bir dosya diskte dursa bile bos donuyor: boylece yeni
-    uretilmis ama henuz bakilmamis bir cizim sayfaya CIKAMIYOR.
+    Uretim YAPMIYOR -- diskte hazir VE ONAYLI olani buluyor. Onaysiz
+    dosya diskte dursa bile bos donuyor: yeni uretilmis ama henuz
+    bakilmamis bir cizim sayfaya CIKAMIYOR.
+
+    VARYANT SECIMI `anahtar`a gore, konuya gore DEGIL.
+    -------------------------------------------------
+    Olculdu: cizimlerin %69'u tek konudaydi (295 sayfanin 205'i
+    Jeopolitik) ve tek gorsel 205 sayfada goruntuleniyordu -- yani
+    fotografta 8'e cektigimiz tekrar, cizimde tavansizdi.
+
+    Tavan koymak cozum degil: tavana takilan sayfa gorselsize geri
+    doner, yani basa sarar. Varyant cozum.
+
+    Secim haberin adresinden turuyor, yani ayni haber her koşuda AYNI
+    varyanti aliyor -- sayfa yeniden kuruldugunda gorsel degismiyor.
+
+    Dagitim `foto_dagit` gibi "en az kullanilani ver" DEGIL, dogrudan
+    hash. Fark bilincli: orada havuz haber sayisindan kucuktu ve
+    bagimsiz hash carpismayi buyutuyordu. Burada varyant sayisi 2-3,
+    haber sayisi yuzlerce; hash zaten dengeli boluyor ve `insa.py`
+    tarafina dagitim tablosu tasimak, kazandirdigindan cok karmasiklik
+    getirirdi.
     """
-    if not onayli_mi(konu):
+    yollar = onayli_varyantlar(konu)
+    if not yollar:
         return ""
-    p = _mevcut(konu)
-    return f"/statik/foto/uretilen/{p.name}" if p else ""
+    if len(yollar) == 1 or not anahtar:
+        return yollar[0]
+    s = int(hashlib.sha1(anahtar.encode("utf-8")).hexdigest()[:8], 16)
+    return yollar[s % len(yollar)]
 
 
 def main() -> int:
@@ -492,7 +553,8 @@ def main() -> int:
     # diskte OKSUZ kaliyor: hicbir konu ona isaret etmiyor, hicbir
     # sayfada gorunmuyor, ama depoda yer kapliyor ve bir sure sonra
     # "bu neydi" sorusuna donuyor. Elle temizlemek unutulur.
-    gecerli = {_stem(k) for k in KONU_KAVRAMI}
+    gecerli = {_stem(k, i) for k in KONU_KAVRAMI
+               for i in range(len(kavramlar(k)))}
     if HEDEF.exists():
         oksuz = [p for p in HEDEF.glob("*") if p.stem not in gecerli]
         for p in oksuz:
@@ -501,19 +563,24 @@ def main() -> int:
             print(f"{len(oksuz)} öksüz çizim silindi "
                   f"(kavramı değişmiş, artık kullanılmıyor).")
 
-    eksik = [k for k in KONU_KAVRAMI if _mevcut(k) is None]
-    bekleyen = [k for k in KONU_KAVRAMI
-                if _mevcut(k) is not None and not onayli_mi(k)]
+    # (konu, varyant) ciftleri uzerinde calisiliyor: bir konunun
+    # birinci varyanti hazir, ikincisi eksik olabiliyor.
+    hepsi = [(k, i) for k in KONU_KAVRAMI
+             for i in range(len(kavramlar(k)))]
+    eksik = [(k, i) for k, i in hepsi if _mevcut(k, i) is None]
+    bekleyen = [(k, i) for k, i in hepsi
+                if _mevcut(k, i) is not None and not onayli_mi(k, i)]
     if bekleyen:
+        ad = ", ".join(f"{k}#{i + 1}" for k, i in bekleyen)
         print(f"{len(bekleyen)} çizim ONAY BEKLİYOR "
-              f"(sayfaya çıkmıyor): {', '.join(bekleyen)}")
+              f"(sayfaya çıkmıyor): {ad}")
         print("  bakıp onaylamak için: "
               "python haber_botu/kaynak/gorsel_uret.py --hash")
     if not eksik:
-        print(f"{len(KONU_KAVRAMI)} kavram görselinin hepsi hazır.")
+        print(f"{len(hepsi)} kavram görselinin hepsi hazır.")
         return 0
     print(f"{len(eksik)} kavram görseli üretilecek "
-          f"({len(KONU_KAVRAMI) - len(eksik)} hazır).")
+          f"({len(hepsi) - len(eksik)} hazır).")
     if not (os.environ.get("CLOUDFLARE_ACCOUNT_ID", "").strip()
             and os.environ.get("CLOUDFLARE_API_TOKEN", "").strip()):
         print("CLOUDFLARE_ACCOUNT_ID / CLOUDFLARE_API_TOKEN tanımlı "
@@ -521,11 +588,11 @@ def main() -> int:
         return 1
     uretilen = 0
     ustuste = 0
-    for k in eksik:
-        if uret(k) is not None:
+    for n, (k, i) in enumerate(eksik):
+        if uret(k, i) is not None:
             uretilen += 1
             ustuste = 0
-            print(f"  üretildi: {k}")
+            print(f"  üretildi: {k}#{i + 1}")
             continue
         # ART ARDA UC BASARISIZLIKTA DURULUYOR.
         #
@@ -536,7 +603,7 @@ def main() -> int:
         ustuste += 1
         if ustuste >= 3:
             print(f"  art arda {ustuste} başarısızlık -- duruluyor "
-                  f"({len(eksik) - eksik.index(k) - 1} konu denenmedi).")
+                  f"({len(eksik) - n - 1} çizim denenmedi).")
             break
     print(f"\n{uretilen}/{len(eksik)} görsel üretildi.")
     # HIC URETILEMEDIYSE HATA. Sessizlik basari sayilmaz.
@@ -565,14 +632,21 @@ def hashleri_yaz() -> int:
     olani bakilmamis olandan ayirmak.
     """
     for k in KONU_KAVRAMI:
-        p = _mevcut(k)
-        if p is None:
-            print(f"    # {k}: dosya yok")
-            continue
-        h = hashlib.sha256(p.read_bytes()).hexdigest()
-        durum = "onaylı" if ONAYLI.get(k) == h else "ONAY BEKLİYOR"
-        print(f"    # {p.name}  ({durum})")
-        print(f"    {k!r}:\n        {h!r},")
+        n = len(kavramlar(k))
+        satir = []
+        for i in range(n):
+            f = _mevcut(k, i)
+            if f is None:
+                satir.append(f"        # {k}#{i + 1}: dosya yok")
+                continue
+            h = hashlib.sha256(f.read_bytes()).hexdigest()
+            durum = "onaylı" if onayli_mi(k, i) else "ONAY BEKLİYOR"
+            satir.append(f"        {h!r},  # {f.name} ({durum})")
+        print(f"    {k!r}: (" if n > 1 else f"    {k!r}:")
+        for x in satir:
+            print(x)
+        if n > 1:
+            print("    ),")
     return 0
 
 

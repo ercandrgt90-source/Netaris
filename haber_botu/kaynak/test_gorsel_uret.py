@@ -81,9 +81,38 @@ esit(gu.uret("Boyle Bir Konu Yok"), None, "tanimsiz konu gorsel URETMIYOR")
 # --------------------------------------------------------------------
 _GRAFIK_SOZ = ("chart", "candlestick", "graph", "index board", "ticker",
                "price line", "trend line")
-for konu, kavram in gu.KONU_KAVRAMI.items():
-    esit(any(s in kavram.lower() for s in _GRAFIK_SOZ), False,
-         f"kavramda grafik YOK: {konu}")
+for konu in gu.KONU_KAVRAMI:
+    for kavram in gu.kavramlar(konu):
+        esit(any(s in kavram.lower() for s in _GRAFIK_SOZ), False,
+             f"kavramda grafik YOK: {konu}")
+
+# --------------------------------------------------------------------
+# VARYANTLAR: TEKRARI BOLMEK ICIN, TAVAN KOYMAK ICIN DEGIL.
+#
+# Olculdu: cizimlerin %69'u tek konudaydi -- 295 sayfanin 205'i
+# Jeopolitik ve TEK gorsel 205 sayfada goruntuleniyordu. Fotografta
+# tekrar tavani 8'e cekilmisti; cizimde tavan yoktu.
+#
+# Tavan koymak cozum DEGIL: tavana takilan sayfa gorselsize geri
+# doner, yani basa sarar. Varyant cozum.
+# --------------------------------------------------------------------
+esit(gu.kavramlar("Enflasyon"), (gu.KONU_KAVRAMI["Enflasyon"],),
+     "tek metin kavram demete çevriliyor")
+esit(len(gu.kavramlar("Jeopolitik")) >= 2, True,
+     "yoğun konunun birden fazla varyantı var")
+esit(gu.kavramlar("Boyle Bir Konu Yok"), (), "tanımsız konu boş demet")
+
+# Her varyantin AYRI dosya adi olmali; yoksa ikinci varyant birincinin
+# uzerine yazar ve varyant diye bir sey kalmaz.
+for konu in gu.KONU_KAVRAMI:
+    adlar = [gu._stem(konu, i) for i in range(len(gu.kavramlar(konu)))]
+    esit(len(set(adlar)), len(adlar), f"varyant adları ayrı: {konu}")
+
+# Secim ANAHTARA gore ve KARARLI: ayni haber her koşuda ayni varyanti
+# almali, yoksa sayfa her kuruldugunda gorsel oynar.
+_a = gu.dosyasi("Jeopolitik", "/haber/ornek/")
+esit(gu.dosyasi("Jeopolitik", "/haber/ornek/"), _a,
+     "aynı adres aynı varyantı alıyor")
 
 # --------------------------------------------------------------------
 # KAVRAM YONLU OLAMAZ.
@@ -103,9 +132,10 @@ for konu, kavram in gu.KONU_KAVRAMI.items():
 _YON_SOZ = ("rising", "falling", "upward", "downward", "growth",
             "declining", "increasing", "decreasing", "bull", "bear",
             "arrow", "volatile", "soaring", "plunging")
-for konu, kavram in gu.KONU_KAVRAMI.items():
-    bulunan = [s for s in _YON_SOZ if s in kavram.lower()]
-    esit(bulunan, [], f"kavram YÖN taşımıyor: {konu}")
+for konu in gu.KONU_KAVRAMI:
+    for kavram in gu.kavramlar(konu):
+        bulunan = [s for s in _YON_SOZ if s in kavram.lower()]
+        esit(bulunan, [], f"kavram YÖN taşımıyor: {konu}")
 
 # Stil de yasagi tasimali: kavram temiz olsa bile model kendiliginden
 # ok ekleyebiliyor, olculdu.
@@ -178,8 +208,14 @@ for k, h in gu.ONAYLI.items():
 # --------------------------------------------------------------------
 import inspect  # noqa: E402
 imza = inspect.signature(gu.istem)
-esit(list(imza.parameters), ["konu"],
-     "istem YALNIZCA konu aliyor -- baslik alamaz")
+# `sira` bir tamsayi indeks (kacinci varyant), metin degil -- yani
+# baslik tasiyamaz. Liste TAM eslesiyor: yeni bir metin parametresi
+# eklenirse bu sinama KALIR ve o parametre baslik olabilir.
+esit(list(imza.parameters), ["konu", "sira"],
+     "istem yalnızca konu ve varyant sırası alıyor -- başlık alamaz")
+# `from __future__ import annotations` acik oldugu icin ek acikama
+# METIN olarak duruyor -- `int` degil `'int'`.
+esit(imza.parameters["sira"].annotation, "int", "varyant sırası tamsayı")
 
 # --------------------------------------------------------------------
 # YASAK SOZCUK SUZGECI CALISIYOR.

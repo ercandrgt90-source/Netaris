@@ -3981,7 +3981,17 @@ def insa() -> int:
             # depoya girmeden burasi bos donuyor, yani hicbir cizim
             # goz onunden gecmeden sayfaya cikamiyor.
             if not h.get("foto") and gorsel_uret is not None:
-                u = gorsel_uret.dosyasi(h.get("konu", ""))
+                # ADRES VARYANT SECIMINI BESLIYOR.
+                #
+                # Olculdu: cizimlerin %69'u tek konudaydi (295 sayfanin
+                # 205'i Jeopolitik) ve tek gorsel 205 sayfada
+                # goruntuleniyordu -- fotografta 8'e cektigimiz tekrar,
+                # cizimde tavansizdi.
+                #
+                # Adres degismedigi surece secim de degismiyor: sayfa
+                # yeniden kuruldugunda gorsel oynamiyor.
+                u = gorsel_uret.dosyasi(h.get("konu", ""),
+                                        h.get("adres", ""))
                 if u:
                     h["uretilen"] = u
                     h["uretilen_etiket"] = gorsel_uret.ETIKET
