@@ -229,7 +229,7 @@
       <h2>20 saniyede</h2>
       <dl>
         {% if h.ozet %}
-        <dt>Ne oldu?</dt><dd>{{ h.ozet }}</dd>
+        <dt>Ne oldu?</dt><dd>{{ h.ozet|ozet }}</dd>
         {% endif %}
         {# "Veri ne diyor" KALDIRILDI: hemen asagidaki Guncel
            veriler bolumu ayni rakamlari zaten gosteriyor ve okur
@@ -426,11 +426,16 @@
     <aside class="ai-sonuc">
       <h2>İlk bakış</h2>
       <p class="ai-metin">{{ ai_yorum }}</p>
-      <p class="ai-not">Bu paragraf, sayfadaki <b>ölçülmüş verilerden</b>
-        bir dil modeliyle üretilmiştir. Model yeni sayı ekleyemez;
-        metindeki her sayının sayfadaki verilerde geçtiği makine ile
-        doğrulanır, geçmeyen metin yayımlanmaz. Sayfanın geri kalanı
-        hesaplamayla üretilir.</p>
+      {# YONTEM ACIKLAMASI KUTUDAN CIKARILDI.
+         Bes satirlik metin, uc cumlelik yorumun kendisinden UZUNDU ve
+         her haber sayfasinda birebir ayniydi -- yani okurun ikinci
+         sayfadan sonra okumadigi bir blok, asil icerigin yerini
+         kapliyordu.
+
+         Bilgi KAYBOLMUYOR: ayni aciklama sayfanin altindaki yontem
+         notunda ve /hakkimizda sayfasinda duruyor. Seffaflik, ayni
+         cumleyi her sayfada tekrarlamakla degil BIR KEZ acik
+         soylemekle saglaniyor. #}
     </aside>
     {% endif %}
 

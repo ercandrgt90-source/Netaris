@@ -76,7 +76,14 @@ def cf_modelleri() -> tuple[str, ...]:
     return (ozel,) if ozel else CF_MODELLER
 
 ZAMAN_ASIMI = 60.0
-EN_COK_JETON = 420
+# Jeton tavani. 420 iken model uc cumlelik yonergeyi tamamlayamadan
+# tavana carpiyor ve cumleyi ortasinda birakiyordu; olculdu, yayimdaki
+# yorumlarin bir kismi yarim cumleyle bitiyordu.
+#
+# Asil sinir CUMLE SAYISI (`EN_COK_CUMLE`) ve o zaten kontrol ediliyor.
+# Jeton tavani bir icerik olcutu degil, maliyet korkulugu -- ve modelin
+# cumlesini bitirmesine yetecek kadar genis olmali.
+EN_COK_JETON = 700
 
 SISTEM = """Sen bir finans veri editörüsün. Sana bir haberin ÖLÇÜLMÜŞ
 verileri veriliyor. Görevin bu verileri okunur bir çıkarıma çevirmek.
@@ -716,6 +723,28 @@ def yorumla(girdi: str, sistem_ozel: str = "") -> tuple[str, str, str, str]:
              if b.seviye is guvenlik.Seviye.YASAK]
     if yasak:
         return "", model, f"guvenlik taramasi: {yasak[0].aciklama}", metin
+
+    # --- 4. KESIK CEVAP YAYIMLANMAZ ---
+    #
+    # OLCULEN HATA: sayfada yorum "...yen borclanip baska varliklara
+    # yatirilan..." diye bitiyordu. CSS kirpmasi degil; DEPODAKI METIN
+    # yarimdi: "Kanal iki ucl".
+    #
+    # Sebep `EN_COK_JETON = 420`: model tavana carpiyor ve cumleyi
+    # ortasinda birakiyor. Yukaridaki cumle sayisi kontrolu bunu
+    # GECIRIYOR -- kesik cevap zaten az cumleli gorunuyor, yani kontrol
+    # tam ters yonde koruma sagliyordu.
+    #
+    # Olcut: metin CUMLE BITIRICI bir noktalama ile bitmeli. Bitmiyorsa
+    # cevap tamamlanmamis demektir ve yarim cumle yayimlamak, hic
+    # yayimlamamaktan kotudur -- okur eksigi gorur ve guveni gider.
+    #
+    # Kirpmiyoruz, REDDEDIYORUZ: kirpmak "yatirilan..." yerine
+    # "...getirdi." birakirdi ama modelin kurmak istedigi cumleyi biz
+    # kesmis olurduk. Ret, bir sonraki kosuda yeniden uretilmesini
+    # sagliyor.
+    if not metin.rstrip().endswith((".", "!", "?", "…", '."', ".)")):
+        return "", model, "kesik cevap (cumle bitmiyor)", metin
 
     # Fazla uzun cevaplari kirpmiyoruz -- kirpmak cumleyi ortasindan
     # kesip anlamsiz birakabilir. Uc cumleyi asan cevap zaten yonergeye

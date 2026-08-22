@@ -1026,10 +1026,43 @@ def _besleme_oku(c: httpx.Client, tanim, en_fazla: int) -> list[Haber]:
 
         cikti.append(Haber(
             kaynak_kodu=kod, kurum=kisa, kurum_tam=tam,
-            baslik=baslik, adres=o["adres"], ozet=o["ozet"][:400],
+            baslik=baslik, adres=o["adres"], ozet=_ozet_kirp(o["ozet"]),
             tarih=o["tarih"], konu=konu, dil=dil, ticari=ticari,
         ))
     return cikti
+
+
+def _ozet_kirp(metin: str, en_cok: int = 400) -> str:
+    """Ozeti CUMLE SINIRINDA kirpar -- kelime ortasindan degil.
+
+    OLCULEN HATA: `ozet[:400]` kelimeyi ortadan kesiyordu ve sayfada
+    "Ne oldu?" satiri soyle bitiyordu:
+
+        "...ve 2 milyon TL'nin 32 gü"
+
+    Okur bunu bir sayfa hatasi olarak goruyor -- hakli olarak.
+
+    SIRA: once cumle sonu (nokta/unlem/soru), yoksa kelime sonu.
+    Ikisi de bulunamazsa sert kirpma kaliyor ama o durumda ucnokta
+    ekleniyor, boylece kesildigi BELLI oluyor.
+
+    Ucnokta yalnizca GERCEKTEN kisaltildiginda ekleniyor; metin zaten
+    sinirin altindaysa dokunulmuyor.
+    """
+    metin = (metin or "").strip()
+    if len(metin) <= en_cok:
+        return metin
+    parca = metin[:en_cok]
+    # Cumle sonu ara -- sinirin makul bir kismindan sonrasinda olmali,
+    # yoksa cok kisa bir ozet kalir.
+    for isaret in (". ", "! ", "? "):
+        i = parca.rfind(isaret)
+        if i > en_cok * 0.5:
+            return parca[:i + 1].strip()
+    i = parca.rfind(" ")
+    if i > en_cok * 0.5:
+        return parca[:i].rstrip(" ,;:-") + "…"
+    return parca.rstrip(" ,;:-") + "…"
 
 
 def cek(kod: str = "", en_fazla: int = 12) -> list[Haber]:

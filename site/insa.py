@@ -2343,6 +2343,23 @@ def olay_slug(anahtar: str) -> str:
 _ORAN_BIRIM = {"%", "puan", "bp"}
 
 
+def ozet_bicimi(metin: str) -> str:
+    """Kelime ortasinda kesilmis ozeti CUMLE SINIRINA ceker.
+
+    Metin duzgun bitiyorsa dokunulmuyor. Bitmiyorsa son tam cumleye
+    kadar aliniyor; cumle sinirini bulamazsa ucnokta ekleniyor --
+    boylece kesildigi BELLI oluyor, sessizce yarim kalmiyor.
+    """
+    m = (metin or "").strip()
+    if not m or m.endswith((".", "!", "?", "…", ")", '"', "%")):
+        return m
+    for isaret in (". ", "! ", "? "):
+        i = m.rfind(isaret)
+        if i > len(m) * 0.4:
+            return m[:i + 1].strip()
+    return m.rstrip(" ,;:-") + "…"
+
+
 def olcum_bicimi(deger, birim: str = "", basamak: int = 2) -> str:
     """Deger + birim, Turkce yazim kurallarina gore.
 
@@ -3330,6 +3347,17 @@ def insa() -> int:
     # kural sekiz ayri yerde tekrarlanmasi gerekiyordu. Suzgec bir
     # yerde tanimli: yamalar ayrisir, suzgec ayrismaz.
     ortam.filters["olcum"] = olcum_bicimi
+    # OZET SUZGECI -- kelime ortasindan kesilmis metni toparlar.
+    #
+    # Olculdu: 84 sayfada "Ne oldu?" satiri kelime ortasinda bitiyordu
+    # ("...ve 2 milyon TL'nin 32 gü"). Kirpma iki ayri uretim
+    # noktasinda sert yapiliyordu (`besleme.cek` 400, `uret_gundem`
+    # 320) ve ikisi de duzeltildi -- ama ARSIVDEKI eski ozetler zaten
+    # kirpilmis halde duruyor.
+    #
+    # Basim aninda suzmek kaynaktan bagimsiz calisiyor: yeni icerik
+    # zaten duzgun geliyor, eskisi burada toparlaniyor.
+    ortam.filters["ozet"] = ozet_bicimi
 
     # `analizler`  -- SAYFASI URETILECEK olanlar (hepsi; adresler kirilmasin)
     # `listelenen` -- LISTELERDE gorunecek olanlar (yinelenenler elenmis)

@@ -102,6 +102,18 @@ def ihlaller(k: sqlite3.Connection) -> list[tuple[str, str, list[str]]]:
             WHERE h.yayimlandi = 1 AND h.yayin_yolu IS NOT NULL""").fetchall()
     kotu = []
     for adres, yol, metin, baslik, kurum in r:
+        # KESIK CEVAP -- cumle bitiricisiyle bitmiyor.
+        #
+        # Olculdu: yayimdaki 168 yorumun 36'si yarim cumleyle
+        # bitiyordu ("...yen borclanip baska varliklara yatirilan").
+        # Sebep uretimde jeton tavani; kural oraya da kondu ama
+        # YAYIMDAKILER temizlenmeli.
+        #
+        # Yarim cumle yayimlamak hic yayimlamamaktan kotudur: okur
+        # eksigi gorur ve sayfanin geri kalanina da guvenmez.
+        if not metin.rstrip().endswith((".", "!", "?", "…", '."', ".)")):
+            kotu.append((adres, yol, ["KESIK: cümle bitmiyor"]))
+            continue
         uy = _baglam.uyusmazlik(k, metin, baslik, kurum or "", "")
         if uy:
             kotu.append((adres, yol, [f"BAGLAM: {uy['aciklama']}"]))
@@ -112,7 +124,19 @@ def ihlaller(k: sqlite3.Connection) -> list[tuple[str, str, list[str]]]:
             # eksikligi. Uretilmemis sayfayi ihlal saymak, her temiz
             # kurulumda butun yorumlari silerdi.
             continue
-        yok = sorted({s for s in SAYI.findall(metin) if s not in sayfa})
+        # ALT DIZE DEGIL, TAM SAYI KARSILASTIRMASI.
+        #
+        # `"9,5" in sayfa` yaziyordu ve sayfadaki "$95,29" icinde
+        # eslesiyordu -- yani var olmayan bir sayi "dogrulandi" sayildi.
+        # Olculdu: `denetim.py` uc ihlal bulurken bu arac SIFIR
+        # buluyordu ve fark tam buydu.
+        #
+        # Bu, ayni aracin UCUNCU kusuru (once yorumu sayfadan
+        # cikarmiyordu, sonra yanlis etiketi ariyordu). Ortak sebep:
+        # metin uzerinde calisip TOKEN uzerinde calismamak.
+        sayfa_sayilari = set(SAYI.findall(sayfa))
+        yok = sorted({s for s in SAYI.findall(metin)
+                      if s not in sayfa_sayilari})
         if yok:
             kotu.append((adres, yol, yok))
     return kotu

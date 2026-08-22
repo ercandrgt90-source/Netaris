@@ -32,7 +32,7 @@ sys.path.insert(0, str(_KOK / "analiz"))
 
 sys.path.insert(0, str(_KOK))
 
-import besleme  # noqa: E402
+import besleme
 import bicim  # noqa: E402
 import beyin  # noqa: E402
 import ceviri  # noqa: E402
@@ -213,7 +213,16 @@ def main() -> int:
         #
         #   "Beklenti %1,00; beklentinin altinda (0,30 puan).
         #    Onceki donem %1,60; geriledi (0,90 puan)."
-        ozet_metni = veri_basligi.ozet(v) if v else h.ozet[:320]
+        # KIRPMA CUMLE SINIRINDA.
+        #
+        # `h.ozet[:320]` kelimeyi ortadan kesiyordu ve sayfada "Ne
+        # oldu?" satiri soyle bitiyordu: "...ve 2 milyon TL'nin 32 gü".
+        # Okur bunu hakli olarak bir sayfa hatasi sayiyor.
+        #
+        # Ayni hata `besleme.cek` icinde de vardi (400 karakter) ve
+        # orada da duzeltildi -- iki ayri yerde ayni sert kirpma.
+        ozet_metni = (veri_basligi.ozet(v) if v
+                      else besleme._ozet_kirp(h.ozet, 320))
 
         kayitlar.append({
             # BAGIRAN BASLIK SADELESTIRILIYOR.
