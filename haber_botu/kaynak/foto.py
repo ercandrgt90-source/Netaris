@@ -373,7 +373,41 @@ class Foto:
             # Commons bicimi: "Yazar · CC BY-SA 4.0". Lisans adi zaten
             # ayrica basiliyor, bastaki yazar kismi aliniyor.
             kim = (self.atif or "").split(" · ")[0].strip()
-        return f"{kim or 'bilinmeyen'} · {self.lisans.upper()}"
+        return f"{_atif_duzelt(kim) or 'bilinmeyen'} · {self.lisans.upper()}"
+
+
+def _atif_duzelt(ad: str) -> str:
+    """Atif metnindeki YAZIM artiklarini temizler -- ADI DEGISTIRMEDEN.
+
+    Commons'un yazar alani kaynagindan bozuk geliyor:
+
+        "Kurzycz , https://www.kurzy.cz/"
+        "The original uploader was Alex Needham at English Wikipedia ."
+
+    Noktalama oncesi bosluk Turkce'de de Ingilizce'de de yanlis ve
+    sayfada gorunuyordu (olculdu: nokta/virgul oncesi bosluk iceren
+    dokuz atif).
+
+    YALNIZCA BOSLUK DUZELTILIYOR. Atif hukuken zorunlu ve SADIK olmali;
+    ad kisaltilmiyor, yeniden yazilmiyor, yalnizca fazla bosluklar
+    kaldiriliyor. Sonundaki noktalama da atiliyor -- ardindan zaten
+    " · LISANS" geliyor.
+    """
+    if not ad:
+        return ""
+    # GERI GORUNUM YERINE LAMBDA.
+    #
+    # Once r"\1" yazdim; heredoc uzerinden dosyaya yazilirken
+    # kacis bozuldu ve desen bir DENETIM KARAKTERINE donustu.
+    # Sonuc: "Kurzycz ," metni "Kurzycz\x01" oldu -- yani
+    # noktalamayi duzeltmek yerine gorunmez cop uretti.
+    # Sinama yakaladi.
+    #
+    # Bu depoda heredoc ile regex yazmak tekrarlayan bir tuzak.
+    # Lambda hem kacistan bagimsiz hem niyeti acik.
+    ad = re.sub(r"\s+([,.;:])", lambda m: m.group(1), ad)
+    ad = re.sub(r"\s{2,}", " ", ad).strip()
+    return ad.rstrip(" ,.;:-")
 
 
 class Kayit:

@@ -79,7 +79,7 @@
        doğrulayabilsin. TP.* kodlari TCMB EVDS'de, digerleri FRED'de
        ayni adla aranir. #}
     <p class="vd-not">
-      Son gözlem {{ veri.tarih }} · {{ veri.gozlem }} gözlemlik seri
+      Son gözlem {{ veri.tarih|gun }} · {{ veri.gozlem }} gözlemlik seri
       {% if kunye and kunye.seri_kodu %}
       · kaynak serisi <code>{{ kunye.seri_kodu }}</code>
       {% endif %}
@@ -145,7 +145,7 @@
   <ul class="varlik-liste">
     {% for h in haberler %}
     <li>
-      <time datetime="{{ h.tarih }}">{{ h.tarih }}</time>
+      <time datetime="{{ h.tarih }}">{{ h.tarih|gun }}</time>
       <a href="{{ h.yol }}">{{ h.baslik }}</a>
       <span class="ilgili-kunye">{{ h.kurum }}</span>
     </li>

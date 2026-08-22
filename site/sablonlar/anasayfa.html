@@ -67,7 +67,7 @@
   <span>{{ a.tarih_tr }}</span>
   <span class="ayrac">·</span>
   <span>{{ a.okuma_dk }} dk okuma</span>
-  {% if a.donem %}<span class="ayrac">·</span><span>{{ a.donem }}</span>{% endif %}
+  {% if a.donem %}<span class="ayrac">·</span><span>{{ a.donem|gun }}</span>{% endif %}
 </span>
 {% endmacro %}
 
@@ -218,7 +218,7 @@
       <div class="takvim-beklenti">
         <p class="takvim-son">
           Son açıklanan: <b>{{ b.son_deger }}</b>
-          {% if b.son_tarih %}<span class="takvim-tarih">({{ b.son_tarih }})</span>{% endif %}
+          {% if b.son_tarih %}<span class="takvim-tarih">({{ b.son_tarih|gun }})</span>{% endif %}
           {# Esigin NE OLDUGU acikca yaziliyor. Konsensus rakami
              elimizde yoksa esik onceki degerdir ve okur bunu bilmeli --
              onceki degeri "beklenti" diye sunmak uydurma olurdu. #}

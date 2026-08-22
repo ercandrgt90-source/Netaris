@@ -221,7 +221,7 @@
       {% if gostergeler and gostergeler.kalemler %}
       {% for k in gostergeler.kalemler %}
       <span class="kalem{% if k.bayat %} kalem-bayat{% endif %}"
-            title="{{ k.ad }} — son veri {{ k.tarih }}{% if k.ritim %} · {{ k.ritim }}{% endif %}">
+            title="{{ k.ad }} — son veri {{ k.tarih|gun }}{% if k.ritim %} · {{ k.ritim }}{% endif %}">
         <span class="nokta {% if k.bayat %}nokta-bayat{% else %}nokta-gecmis{% endif %}"></span>
         <span class="kalem-ad">{{ k.ad }}</span>
         <span class="kalem-deger">{{ k.deger }}</span>

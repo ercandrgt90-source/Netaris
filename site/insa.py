@@ -1718,6 +1718,16 @@ def dosya_cizelgesi(h: dict, hepsi: list[dict], ilgili: list[dict],
             "yol": x["yol"],
             "kurum": x.get("kurum", ""),
             "tarih": x.get("tarih", ""),
+            # GORUNUR TARIH -- JS KAPALIYKEN OKUNAN SEY.
+            #
+            # Cizelge `<time class="goreli">` kullaniyor ve `zaman.js`
+            # onu "3 gun once"ye ceviriyor. Ama etiketin ICINDEKI metin
+            # ham ISO idi ("2026-08-18") ve JS calismadiginda okurun
+            # gordugu o oluyordu. Olculdu: 1481 sayfada ham ISO tarih.
+            #
+            # Betige bagli bir sunum, betigin calismadigi durumda da
+            # OKUNUR olmali; bu bir erisilebilirlik meselesi.
+            "tarih_gorunur": gun_etiketi(x.get("tarih", "")),
             "an": x.get("an", ""),
             "kendisi": False,
         })
@@ -1754,9 +1764,18 @@ def dosya_cizelgesi(h: dict, hepsi: list[dict], ilgili: list[dict],
                 continue
         ekle(x)
 
+    # OKUNAN HABERIN KENDI KAYDI. `ekle()` disinda eklendigi icin
+    # `tarih_gorunur` ONA DA verilmeli -- verilmezse cizelgede tam
+    # okurun bulundugu satirda ham ISO tarih kaliyor. Olculdu: 1269
+    # sayfada `ds-burada` satiri "2026-08-22" yaziyordu.
+    #
+    # Ayni alani iki yerde kurmak, birini unutmayi davet ediyor; ama
+    # bu kayit gercekten farkli (kendisi=True, baglantisiz) ve
+    # `ekle()` icine sikistirmak orayi kosullu hale getirirdi.
     adimlar.append({
         "baslik": h.get("baslik", ""), "yol": h.get("yol", ""),
         "kurum": h.get("kurum", ""), "tarih": h.get("tarih", ""),
+        "tarih_gorunur": gun_etiketi(h.get("tarih", "")),
         "an": kendi_an, "kendisi": True,
     })
 
@@ -2318,6 +2337,37 @@ def olay_slug(anahtar: str) -> str:
         return slugla(anahtar)
     ad = _olay_grubu.ULKE_ADI.get(u, u) if _olay_grubu else u
     return slugla(f"{ad} {tur} {ay}")
+
+
+#: Yuzde birimleri -- ondalik ANLAMLI ve isaret ONDE.
+_ORAN_BIRIM = {"%", "puan", "bp"}
+
+
+def olcum_bicimi(deger, birim: str = "", basamak: int = 2) -> str:
+    """Deger + birim, Turkce yazim kurallarina gore.
+
+        %31,75        yuzde ONDE ve bitisik
+        95,29 $       para birimi ARKADA, bosluklu
+        206 000 kişi  sayim birimi ARKADA, bosluklu
+        7.543,59      birimsiz
+
+    Ondalik ayraci VIRGUL, binlik ayraci BOSLUK.
+    """
+    try:
+        d = float(deger)
+    except (TypeError, ValueError):
+        return str(deger)
+    b = (birim or "").strip()
+    # Sayim biriminde ondalik sahte hassasiyet uretiyor (bkz.
+    # takvim_gerceklesen._basamak) -- tam sayilar ondaliksiz.
+    bas = basamak if (b in _ORAN_BIRIM or not float(d).is_integer()
+                      or abs(d) < 100) else 0
+    sayi = f"{d:,.{bas}f}".replace(",", " ").replace(".", ",")
+    if b == "%":
+        return f"%{sayi}"
+    if b in ("", "endeks", None):
+        return sayi
+    return f"{sayi} {b}"
 
 
 def gun_etiketi(tarih: str) -> str:
@@ -3259,6 +3309,27 @@ def insa() -> int:
     ortam.filters["kart_turu"] = kart_turu
     ortam.filters["kucuk_foto"] = kucuk_foto
     ortam.filters["orta_foto"] = orta_foto
+    # GUN SUZGECI -- ham ISO tarih sayfada gorunmesin.
+    #
+    # Olculdu: 1481 sayfada "2026-08-18" bicimi vardi. Bir kismi
+    # `<time class="goreli">` icinde ve `zaman.js` onu "3 gun once"ye
+    # ceviriyor -- ama JS calismadiginda okurun gordugu ham ISO.
+    # Kalani duz basiliyordu ("Ekonomim · 2026-08-07").
+    #
+    # Tek tek sekiz sablon noktasini yamamak yerine SUZGEC: bir yerde
+    # tanimli, her yerde ayni. Yamalar zamanla ayrisir, suzgec
+    # ayrismaz.
+    ortam.filters["gun"] = gun_etiketi
+    # OLCUM SUZGECI -- deger + birim, TURKCE kurallarina gore.
+    #
+    # Olculdu: 544 sayfada "31,75%" yaziyordu. Turkce'de yuzde isareti
+    # sayinin ONUNE gelir: %31,75. Para birimi ve diger birimler arkada
+    # ve ONLERINDE BOSLUK olur ("95,29 $", "206 000 kişi").
+    #
+    # Sablonlarda `{{ deger }}{{ birim }}` diye bitisik yaziliyordu ve
+    # kural sekiz ayri yerde tekrarlanmasi gerekiyordu. Suzgec bir
+    # yerde tanimli: yamalar ayrisir, suzgec ayrismaz.
+    ortam.filters["olcum"] = olcum_bicimi
 
     # `analizler`  -- SAYFASI URETILECEK olanlar (hepsi; adresler kirilmasin)
     # `listelenen` -- LISTELERDE gorunecek olanlar (yinelenenler elenmis)

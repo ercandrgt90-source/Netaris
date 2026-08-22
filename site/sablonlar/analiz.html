@@ -111,7 +111,11 @@
       <span class="rozet rozet-vurgu">{{ a.kategori }}</span>
       {% if a.kod and a.kod != "MAKRO" %}<span class="rozet rozet-kod">{{ a.kod }}</span>{% endif %}
       {% if a.sektor %}<span class="rozet">{{ a.sektor }}</span>{% endif %}
-      <span class="tarih">{{ a.donem }}</span>
+      {# `donem` COK BICIMLI: bilanco sayfasinda "2026 2. çeyrek",
+         makro/olay sayfasinda ham ISO tarih ("2026-08-07"). `gun`
+         suzgeci cozemedigi degeri OLDUGU GIBI donduruyor, yani
+         ceyrek etiketi bozulmadan geciyor, ham tarih bicimleniyor. #}
+      <span class="tarih">{{ a.donem|gun }}</span>
     </p>
     <h1>{{ a.baslik }}</h1>
     <p class="ozet-cumle">{{ a.ozet }}</p>

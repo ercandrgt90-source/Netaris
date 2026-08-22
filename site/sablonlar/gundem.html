@@ -5,6 +5,15 @@
 
 {% macro oge(h, gorsel) %}
 <article class="haber {% if h.yorumlanir %}haber-yorumlu{% endif %}">
+  {# GORSEL KUTUSU YALNIZCA ICINDE BIR SEY VARSA.
+     Fotograf tekrar tavani devreye girince gorseli olmayan haberler
+     olustu ve bu kutu BOS bir <a> olarak basiliyordu. Bos baglanti
+     ekran okuyucuda "baglanti" diye anons ediliyor ve adi yok --
+     okur nereye gidecegini bilmiyor; WCAG acisindan da ihlal.
+
+     `gorsel` degiskeni SVG yedegini tasiyor; ikisi de yoksa kutu hic
+     basilmiyor ve kart tipografiyle duruyor. #}
+  {% if h.foto or gorsel %}
   {% if h.yol %}<a class="haber-gorsel" href="{{ h.yol }}">{% else %}<div class="haber-gorsel">{% endif %}
     {# Gercek fotograf varsa o, yoksa uretilen SVG. Fotograflar CC
        lisansli ve atif zorunlu -- atif gorselin altinda basiliyor. #}
@@ -32,6 +41,7 @@
          loading="lazy" decoding="async">
     {% elif gorsel %}{{ gorsel | safe }}{% endif %}
   {% if h.yol %}</a>{% else %}</div>{% endif %}
+  {% endif %}
   {% if h.foto_atif %}<p class="foto-atif">Fotoğraf: {{ h.foto_atif }}</p>{% endif %}
   <div class="haber-ic">
     <div class="gundem-ust">

@@ -302,9 +302,9 @@
         <li class="{% if a.kendisi %}ds-burada{% endif %}">
           <span class="ds-an">
             {% if a.an %}
-            <time class="goreli" datetime="{{ a.an }}">{{ a.tarih }}</time>
+            <time class="goreli" datetime="{{ a.an }}">{{ a.tarih_gorunur or a.tarih }}</time>
             {% else %}
-            <time datetime="{{ a.tarih }}">{{ a.tarih }}</time>
+            <time datetime="{{ a.tarih }}">{{ a.tarih|gun }}</time>
             {% endif %}
           </span>
           {% if a.kendisi %}
@@ -375,7 +375,7 @@
         <p class="brifing-sayilar">
           <span class="brifing-son">Son açıklanan
             <b>{{ b.son_deger }}</b>{% if b.son_tarih %}
-            <span class="brifing-tarih">({{ b.son_tarih }})</span>{% endif %}</span>
+            <span class="brifing-tarih">({{ b.son_tarih|gun }})</span>{% endif %}</span>
           {% if b.esik_kaynak == "beklenti" %}
           <span class="brifing-bekl">Beklenti <b>{{ b.esik_deger }}</b></span>
           {% else %}
@@ -454,7 +454,7 @@
       {% for g in dosya.dunya %}
       <div class="tr-kalem" title="{{ g.ad }} — veri dönemi {{ g.donem }}, önceki {{ g.onceki_tarih }}">
         <span class="tr-ad">{{ g.ad }}</span>
-        <span class="tr-deger">{{ "%.2f"|format(g.son)|replace(".", ",") }}{{ g.birim }}</span>
+        <span class="tr-deger">{{ g.son|olcum(g.birim) }}</span>
         <span class="tr-degisim {{ g.yon }}">{{ g.degisim }}</span>
         <span class="tr-tarih">{{ g.donem }}</span>
       </div>
@@ -468,7 +468,7 @@
       {% for g in dosya.turkiye %}
       <div class="tr-kalem" title="{{ g.ad }} — veri dönemi {{ g.donem }}, önceki {{ g.onceki_tarih }}">
         <span class="tr-ad">{{ g.ad }}</span>
-        <span class="tr-deger">{{ "%.2f"|format(g.son)|replace(".", ",") }}{{ g.birim }}</span>
+        <span class="tr-deger">{{ g.son|olcum(g.birim) }}</span>
         <span class="tr-degisim {{ g.yon }}">{{ g.degisim }}</span>
         <span class="tr-tarih">{{ g.donem }}</span>
       </div>
@@ -524,7 +524,7 @@
           <span class="piyasa-deger">{{ s.deger }}</span>
           <span class="piyasa-gun {{ s.gunluk_yon }}">{{ s.gunluk }}</span>
           <span class="piyasa-tarih{% if s.bayat %} bayat{% endif %}">
-            {% if s.bayat %}son veri {% endif %}{{ s.tarih }}
+            {% if s.bayat %}son veri {% endif %}{{ s.tarih|gun }}
           </span>
         </div>
         <div class="piyasa-ema">
@@ -568,7 +568,7 @@
       <h2>İlgili göstergeler</h2>
       <div class="ilgili-izgara">
         {% for g in ilgili %}
-        <div class="ilgili-kalem" title="{{ g.ad }} — son veri {{ g.tarih }}">
+        <div class="ilgili-kalem" title="{{ g.ad }} — son veri {{ g.tarih|gun }}">
           <span class="ilgili-ad">{{ g.ad }}</span>
           <span class="ilgili-deger">{{ g.deger }}</span>
           <span class="ilgili-fark {{ g.yon }}">{{ g.fark }}</span>
@@ -823,7 +823,7 @@
       {% for i in ilgili_haberler %}
       <li>
         <a href="{{ i.yol }}">{{ i.baslik }}</a>
-        <span class="ilgili-kunye">{{ i.kurum }} · {{ i.tarih }}</span>
+        <span class="ilgili-kunye">{{ i.kurum }} · {{ i.tarih|gun }}</span>
       </li>
       {% endfor %}
     </ul>
@@ -889,7 +889,7 @@
           {% for x in ayni_konu %}
           <li>
             <a href="{{ x.yol }}">{{ x.baslik }}</a>
-            <span class="ilgili-kunye">{{ x.kurum }} · {{ x.tarih }}</span>
+            <span class="ilgili-kunye">{{ x.kurum }} · {{ x.tarih|gun }}</span>
           </li>
           {% endfor %}
         </ul>
@@ -903,7 +903,7 @@
           {% for a in ilgili_analiz %}
           <li>
             <a href="{{ a.yol }}">{{ a.baslik }}</a>
-            <span class="ilgili-kunye">{{ a.tarih }}</span>
+            <span class="ilgili-kunye">{{ a.tarih|gun }}</span>
           </li>
           {% endfor %}
         </ul>

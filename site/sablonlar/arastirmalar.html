@@ -23,7 +23,7 @@
       {% if k.son %}
       <ul class="arastirma-son">
         {% for y in k.son %}
-        <li><span class="arastirma-tarih">{{ y.tarih }}</span> {{ y.baslik }}</li>
+        <li><span class="arastirma-tarih">{{ y.tarih|gun }}</span> {{ y.baslik }}</li>
         {% endfor %}
       </ul>
       {% endif %}
