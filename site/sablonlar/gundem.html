@@ -20,7 +20,20 @@
 
      `gorsel` degiskeni SVG yedegini tasiyor; ikisi de yoksa kutu hic
      basilmiyor ve kart tipografiyle duruyor. #}
+  {# GORSEL VE ATIF TEK KUTUDA -- kart iki sutunlu bir izgara.
+     OLCULDU: fotografi VE atfi olan kartlarda `.haber`in uc dogrudan
+     cocugu oluyordu (gorsel, atif, icerik) ve izgara ucuncuyu bir alt
+     satira atiyordu: metin, gorselin altindaki 168 piksellik dar
+     sutuna sikisip dort satira boluniyordu. Atif ise gorselin
+     saginda, bos alanda asili kaliyordu.
+
+     Hata yalnizca ATFI OLAN kartlarda goruluyordu -- yani cogu kart
+     duzgun cikiyor, arada biri bozuluyordu. Bu, sebebi en zor
+     goruleni.
+
+     Sarmalla `.haber` her zaman IKI cocuk goruyor. #}
   {% if h.foto or gorsel %}
+  <div class="haber-medya">
   {% if h.yol %}<a class="haber-gorsel" href="{{ h.yol }}">{% else %}<div class="haber-gorsel">{% endif %}
     {# Gercek fotograf varsa o, yoksa uretilen SVG. Fotograflar CC
        lisansli ve atif zorunlu -- atif gorselin altinda basiliyor. #}
@@ -48,8 +61,9 @@
          loading="lazy" decoding="async">
     {% elif gorsel %}{{ gorsel | safe }}{% endif %}
   {% if h.yol %}</a>{% else %}</div>{% endif %}
+    {% if h.foto_atif %}<p class="foto-atif">Fotoğraf: {{ h.foto_atif }}</p>{% endif %}
+  </div>{# /.haber-medya #}
   {% endif %}
-  {% if h.foto_atif %}<p class="foto-atif">Fotoğraf: {{ h.foto_atif }}</p>{% endif %}
   <div class="haber-ic">
     <div class="gundem-ust">
       <span class="rozet rozet-vurgu">{{ h.konu }}</span>

@@ -217,6 +217,29 @@
      bozmuyor. Ayni gerekce canli akis icin de gecerli ve o da burada.
 
      Grafik KAPALI, tek sekme: bu genislikte grafik okunmuyor. #}
+  {# YAN SUTUN TEK BIR KUTUDA -- UC COCUK IKI SUTUNA SIGMAZ.
+     ------------------------------------------------------------
+     OLCULDU: `.masa` iki sutunlu bir izgara ve UC dogrudan cocugu
+     vardi. Izgaranin otomatik yerlestirmesi soyle yapiyordu:
+
+         masa-ana   -> sutun 1, satir 1
+         tv-kutu    -> sutun 2, satir 1
+         masa-akis  -> sutun 1, satir 2      <-- ANA SUTUNA DUSTU
+
+     Yani canli akis yan sutunda degil, haber listesinin ALTINDA tam
+     genislikte cikiyordu. Kod "yan sutunda" diye yazilmisti, yorum
+     da oyle diyordu; izgara baska turlu davraniyordu.
+
+     Hicbir hata yoktu: izgara gecerli, iki oge de basiliyor. Yalnizca
+     ucuncu cocuk sessizce bir alt satira gecmisti.
+
+     Sarmal bunu YAPISAL olarak imkansiz kiliyor: `.masa` artik her
+     zaman IKI cocuk goruyor. Yan sutuna yeni bir kutu eklemek de
+     guvenli -- sarmalin icine girer.
+
+     Ayni hata bugun `.haber` kartinda da vardi (gorsel + foto atfi +
+     icerik = uc cocuk) ve `test_izgara.py` ikisini birden tutuyor. #}
+  <div class="masa-yan">
   {{ tv.tv("serit", "Piyasalar",
            "Piyasa verisi için tarayıcınızda JavaScript etkin olmalı.") }}
 
@@ -314,6 +337,7 @@
     <a class="akis-devam" href="/gundem/">Tüm canlı akışı gör →</a>
   </aside>
   {% endif %}
+  </div>{# /.masa-yan #}
 </div>
 {% endif %}
 {# ---------------------------------------------------------------

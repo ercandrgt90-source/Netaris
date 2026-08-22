@@ -1213,13 +1213,30 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
   border-bottom: 1px solid var(--cizgi);
   overflow: hidden;
   background: var(--zemin-2)}
+/* GORSEL + ATIF SARMALI -- kartin BIRINCI sutunu.
+   Sarmalin gerekcesi `gundem.html` icinde yazili: uc cocuk iki
+   sutunlu izgaraya sigmiyordu. */
+.haber-medya { min-width: 0}
 @media (min-width: 560px) {
   /* Yatay kartta gorsel SAGDAN cerceveleniyor, alttan degil. */
+  .haber-medya {
+    display: flex; flex-direction: column;
+    border-right: 1px solid var(--cizgi)}
   .haber-gorsel {
     aspect-ratio: auto;
-    height: 100%;
+    flex: 1;
+    min-height: 108px;
     border-bottom: 0;
-    border-right: 1px solid var(--cizgi)}
+    border-right: 0}
+  /* Atif kart icinde kucuk ve sessiz -- ama SILINMEZ: CC BY geregi
+     zorunlu ve `_lisans_denetimi` "hata" seviyesinde tutuyor. */
+  .haber-medya .foto-atif {
+    margin: 0;
+    padding: 5px 8px;
+    font-size: 0.66rem;
+    line-height: 1.3;
+    color: var(--yazi-3);
+    border-top: 1px solid var(--cizgi)}
 }
 .haber-gorsel svg,
 .haber-gorsel img {
@@ -2759,6 +2776,13 @@ table td, table th, time, .tarih {
   display: grid; gap: var(--b-6); margin: var(--b-7) 0 var(--b-3);
   grid-template-columns: minmax(0, 1fr) 316px;
   align-items: start}
+/* YAN SUTUN: piyasa kutusu + canli akis TEK cocukta.
+   Gerekce `anasayfa.html` icinde yazili -- `.masa` iki sutunlu ve
+   ucuncu cocuk ana sutunun altina dusuyordu. */
+.masa-yan {
+  display: flex; flex-direction: column; gap: var(--b-4);
+  min-width: 0}
+
 @media (max-width: 900px) {
   /* Dar ekranda akis ALTA gecer, yanina degil. Secim once okunmali:
      telefonda yan sutun zaten yoktur, ustte olsaydi 20 kalemlik ham
