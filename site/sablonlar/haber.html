@@ -127,6 +127,30 @@
     <figcaption>Fotoğraf: {{ h.foto_atif }}</figcaption>
     {% endif %}
   </figure>
+  {% elif h.uretilen %}
+  {# URETILEN KAVRAM CIZIMI -- fotografin DEGIL, desenin yerine.
+     Sirasi bilincli: gercek olcum > gercek fotograf > uretilen cizim >
+     genel desen. Uretilen bir gorsel, kaynagi belli gercek bir
+     fotografin onune gecemez.
+
+     ETIKET KALDIRILAMAZ. Uretilmis bir gorseli fotograf gibi sunmak,
+     sitenin kaynak seffafligi ilkesinin ihlali olur -- fotograflarda
+     CC atfi nasil zorunluysa bu da oyle. Denetim `_lisans_denetimi`
+     ile ayni siddette calisiyor.
+
+     `alt` BOS: cizim bir olayi degil bir KAVRAMI anlatiyor ve konu
+     zaten hemen altta rozet olarak yaziyor. Ekran okuyucuya
+     "Enflasyon" demek, gorseli olmadigi bir sey gibi tanitmak. #}
+  <figure class="yazi-gorsel yazi-foto yazi-uretilen">
+    <img src="{{ h.uretilen }}" alt="" width="800" height="450"
+         decoding="async" loading="lazy">
+    <figcaption>{{ h.uretilen_etiket }}</figcaption>
+  </figure>
+  {% elif desen_svg %}
+  {# EN SON CARE. Olcum de fotograf da cizim de yoksa konudan turetilen
+     izgara deseni basiliyor -- bilgi tasimiyor, yalnizca sayfanin
+     bassiz kalmasini engelliyor. #}
+  <figure class="yazi-gorsel">{{ desen_svg | safe }}</figure>
   {% endif %}
 
   <header>

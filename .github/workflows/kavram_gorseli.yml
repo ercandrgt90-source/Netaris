@@ -1,0 +1,120 @@
+# Netaris kavram gorselleri
+#
+# Konu basina BIR kavram cizimi uretir ve depoya isler. Cizimi
+# SAYFAYA BASMAZ -- `insa.py` yalnizca diskte hazir olani okuyor.
+#
+# NEDEN AYRI VE ELLE TETIKLENEN
+# -----------------------------
+# Iki sebep, ikisi de siranin bilincli oldugunu gosteriyor:
+#
+# 1. URETILEN GORSEL YAYIMLANMADAN ONCE GORULMELI.
+#    Bu is akisi cizimleri depoya birakiyor; sayfaya ancak bir sonraki
+#    normal otomasyon koşusunda cikiyorlar. Arada insan bakiyor. Ayni
+#    koşuda hem uretip hem yayimlasaydi, hicbir cizim goz onunden
+#    gecmeden 1200 sayfaya dagilirdi.
+#
+# 2. Kalip SABIT: ayni konu her cagrida ayni cizimi uretiyor. Her
+#    saat tekrar uretmek kota israfi olurdu -- dosya varsa modul
+#    zaten dokunmuyor.
+#
+# MALIYET
+# -------
+# Workers AI gunde 10.000 noron ucretsiz; `flux-1-schnell` ile bir
+# cizim ~57 noron. 18 konu ~ 1.000 noron, yani gunluk ucretsiz kotanin
+# onda biri -- ve yalnizca EKSIK olanlar uretiliyor, ikinci koşu sifir
+# harciyor.
+#
+# GEREKEN GIZLI DEGERLER (GitHub > Settings > Secrets and variables):
+#   CLOUDFLARE_API_TOKEN   Workers AI cagrisi icin
+#   CLOUDFLARE_ACCOUNT_ID  Hesap kimligi
+#
+# Ikisi de `otomasyon.yml` ile AYNI degerler; yenisi gerekmiyor.
+
+name: Netaris kavram görselleri
+
+on:
+  workflow_dispatch:
+
+concurrency:
+  # Iki koşu ayni anda ayni dosyalari uretip birbirinin push'unu
+  # reddettirmesin.
+  group: kavram-gorseli
+  cancel-in-progress: false
+
+jobs:
+  uret:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Depoyu al
+        uses: actions/checkout@v5
+
+      - name: Python kur
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Bağımlılıkları kur
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: İstem güvenliğini sına
+        # URETIMDEN ONCE. Sinama, hicbir istemin fotogercekcilige
+        # kaymadigini dogruluyor; kalip bozulmussa gorsel URETILMEDEN
+        # duruyoruz. Uretilmis kotu bir gorseli sonradan silmek,
+        # hic uretmemekten pahali.
+        run: python haber_botu/kaynak/test_gorsel_uret.py
+
+      - name: Kavram görsellerini üret
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: python haber_botu/kaynak/gorsel_uret.py
+
+      - name: Depoya işle
+        run: |
+          set -e
+          git config user.name  "netaris-bot"
+          git config user.email "actions@users.noreply.github.com"
+
+          # YALNIZCA uretilen gorseller. Bu is akisi baska hicbir seye
+          # dokunmuyor; genis bir `git add .` esz zamanli koşan
+          # otomasyonun yarim ciktisini de icine alirdi.
+          YOL="site/statik/foto/uretilen"
+          [ -d "$YOL" ] || { echo "üretilen görsel yok"; exit 0; }
+          git add "$YOL"
+          if git diff --staged --quiet; then
+            echo "yeni görsel yok -- hepsi zaten depoda"
+            exit 0
+          fi
+          git commit -m "kavram görselleri: $(git diff --staged --name-only | wc -l) çizim"
+
+          # Otomasyon ayni anda kosuyor olabilir. Zorlamak DEGIL
+          # yeniden denemek: zorlamak digerinin ciktisini siler ve bu
+          # depoda tam olarak bu yasandi (60 bilanço sayfası).
+          for deneme in 1 2 3; do
+            if git push origin "HEAD:${GITHUB_REF_NAME}"; then
+              echo "gonderildi (deneme $deneme)"
+              break
+            fi
+            echo "push reddedildi, uzak uc yeniden aliniyor ($deneme)"
+            git fetch origin "${GITHUB_REF_NAME}"
+            git reset "origin/${GITHUB_REF_NAME}"
+            git add "$YOL"
+            git diff --staged --quiet && { echo "eklenecek sey yok"; break; }
+            git commit -m "kavram görselleri: yeniden"
+            sleep 3
+          done
+
+      - name: Üretilenleri raporla
+        # Cizimler is akisi ciktisi olarak da indirilebilsin: depoyu
+        # klonlamadan bakmak isteyen icin.
+        uses: actions/upload-artifact@v4
+        with:
+          name: kavram-gorselleri
+          path: site/statik/foto/uretilen/
+          if-no-files-found: ignore

@@ -43,6 +43,14 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 import grafik
 import gorsel
 import kivilcim
+# Uretilen kavram gorselleri. Site YALNIZCA diskte hazir olani okuyor;
+# uretim ayri bir adimda (`haber_botu/kaynak/gorsel_uret.py`) yapiliyor
+# ki hicbir cizim goz onunden gecmeden yayina cikmasin.
+sys.path.insert(0, str(pathlib.Path(__file__).parent.parent / "haber_botu"))
+try:
+    from kaynak import gorsel_uret
+except ImportError:      # kavram cizimi olmadan da site kurulur
+    gorsel_uret = None
 import piyasa_kutusu
 import takvim_gerceklesen
 
@@ -3516,15 +3524,30 @@ def insa() -> int:
     #
     # Veri yoksa eski desen uretimi devrede kaliyor; olmayan olcumu
     # varmis gibi gosteren temsili grafik CIZILMIYOR.
+    #
+    # GRAFIK VE DESEN AYRI TUTULUYOR -- eskiden degildi ve bu bir
+    # GERILEME uretiyordu.
+    #
+    # Once ikisi tek degiskende birlesiyordu (`g or haber_gorseli(...)`)
+    # ve sablon once o degiskene bakiyordu. Sonuc: desen HER ZAMAN
+    # doluydu, yani `{% elif h.foto %}` dalina HIC girilmiyordu --
+    # fotografi olan haberde bile izgara deseni basilacakti.
+    #
+    # Olculdu (canli, 40 haberlik ornek): 31 haber fotograf gosteriyor.
+    # Birlesik degiskenle bu 31 fotograf gidip yerine 31 izgara deseni
+    # gelirdi. Genel desen, kaynagi belli gercek bir fotografin
+    # ONUNE GECEMEZ; sirasi en sonda.
     gundem_gorseller = {}
+    gundem_desenler = {}
     with _beyin.baglan() as _b:
         for h in gundem.get("haberler", []):
             if not h.get("yorumlanir"):
                 continue
-            g = grafik.haber_grafigi(_b, h["adres"])
-            gundem_gorseller[h["adres"]] = g or gorsel.haber_gorseli(
+            gundem_gorseller[h["adres"]] = grafik.haber_grafigi(
+                _b, h["adres"])
+            gundem_desenler[h["adres"]] = gorsel.haber_gorseli(
                 h["konu"], h["kurum"], h["baslik"])
-    print(f"grafik: {sum(1 for v in gundem_gorseller.values() if '<svg class=\"grafik' in v)}"
+    print(f"grafik: {sum(1 for v in gundem_gorseller.values() if v)}"
           f" / {len(gundem_gorseller)} haber olcumden cizildi")
 
     # Serit ve panel icin kucuk seri grafikleri. Depodan okunur, ek veri
@@ -3950,6 +3973,19 @@ def insa() -> int:
                 if not (STATIK / h["foto"].split("/statik/", 1)[-1]).exists():
                     h["foto"] = h["foto_atif"] = ""
 
+            # URETILEN KAVRAM CIZIMI -- yalnizca fotograf YOKSA.
+            #
+            # `dosyasi` uretim YAPMIYOR, diskte hazir olani buluyor.
+            # Uretim ayri bir adim (`gorsel_uret.py`) ve sebebi su:
+            # uretilen gorsel YAYIMLANMADAN ONCE GORULMELI. Dosya
+            # depoya girmeden burasi bos donuyor, yani hicbir cizim
+            # goz onunden gecmeden sayfaya cikamiyor.
+            if not h.get("foto") and gorsel_uret is not None:
+                u = gorsel_uret.dosyasi(h.get("konu", ""))
+                if u:
+                    h["uretilen"] = u
+                    h["uretilen_etiket"] = gorsel_uret.ETIKET
+
             # `dosya.kur` BIR KEZ: hem sablon hem kaynaklar ayni
             # nesneyi kullaniyor.
             h_dosya = (_dosya.kur(
@@ -4001,6 +4037,7 @@ def insa() -> int:
                 ortam.get_template("haber.html").render(
                     **ortak, yol=h_yol, h=h,
                     gorsel_svg=gundem_gorseller.get(h["adres"], ""),
+                    desen_svg=gundem_desenler.get(h["adres"], ""),
                     olay=olay_haritasi.get(h.get("adres", "")),
                     yerel_kanal=_yerel_kanal(h, h_varliklar),
                     ilgili=ilgili_gostergeler(h["konu"], gostergeler),

@@ -452,6 +452,59 @@ def _lisans_denetimi() -> list[Bulgu]:
     return bulgu
 
 
+#: Uretilen gorselin yaninda GECMESI ZORUNLU ifade.
+#:
+#: `gorsel_uret.ETIKET` ile ayni sozu tasiyor ama BURADAN okunmuyor:
+#: denetim, uretim modulu silinse ya da etiket sessizce degistirilse
+#: bile ayni seyi aramali. Etiketi tek yerden okumak, etiketi
+#: bosaltarak denetimi de susturmayi mumkun kilardi.
+_URETILEN_ETIKET = re.compile(r"yapay zeka ile üretilmiş", re.I)
+
+#: Uretilen kavram cizimlerinin yolu.
+_URETILEN_YOL = re.compile(r'src="(/statik/foto/uretilen/[^"]+)"')
+
+
+def _uretilen_gorsel_denetimi() -> list[Bulgu]:
+    """Uretilen her cizim, URETILDIGINI SOYLUYOR mu?
+
+    NEDEN AGIRLIGI HATA
+    -------------------
+    Bu sitenin butun degeri "hicbir sey uydurulmaz" iddiasinda.
+    Uretilmis bir gorseli etiketsiz basmak, okura onu bir olayin
+    fotografi olarak sunmak demek -- yani tam da yapmadigimizi
+    soyledigimiz sey.
+
+    CC BY atfi nasil hukuki bir yukumlulukse bu da editoryal bir
+    yukumluluk; ikisi de dagitimi durdurmali.
+
+    `_lisans_denetimi` BU ISI GORMEZ: o yalnizca bir `<figcaption>`
+    VARLIGINA bakiyor, icerigine degil. Uretilen cizime "Fotograf:
+    Netaris" yazan bir kunye o denetimden gecerdi ve tam da onlenmek
+    istenen yanlisi uretirdi.
+    """
+    bulgu: list[Bulgu] = []
+    if not CIKTI_DIZINI.exists():
+        return bulgu
+    for p in CIKTI_DIZINI.rglob("index.html"):
+        metin = p.read_text(encoding="utf-8")
+        yollar = set(_URETILEN_YOL.findall(metin))
+        if not yollar:
+            continue
+        # Etiket gorselin KENDI `<figure>`inde olmali. Sayfanin baska
+        # bir yerinde gecen bir ifade, o gorselin yaninda durmuyor.
+        etiketli: set[str] = set()
+        for m in re.finditer(r"<figure[^>]*>.*?</figure>", metin, re.S):
+            if _URETILEN_ETIKET.search(m.group()):
+                etiketli |= set(_URETILEN_YOL.findall(m.group()))
+        eksik = yollar - etiketli
+        if eksik:
+            bulgu.append(Bulgu(
+                "hata", "gorsel", (p.parent.name or "/")[:40],
+                f"{len(eksik)} üretilen çizim ETİKETSİZ basılıyor -- "
+                f"okur onu fotoğraf sanır"))
+    return bulgu
+
+
 #: Fiyat seridini besleyen istemci betigi.
 CANLI_BETIK = _KOK.parent / "site" / "statik" / "canli.js"
 
@@ -935,6 +988,7 @@ def editoryal_denetim() -> list[Bulgu]:
     bulgu += _gorsel_denetimi()
     bulgu += _veri_tutarlilik_denetimi()
     bulgu += _lisans_denetimi()
+    bulgu += _uretilen_gorsel_denetimi()
     bulgu += _serit_cakismasi_denetimi()
     bulgu += _cop_denetimi()
     bulgu += _foto_butunluk_denetimi()

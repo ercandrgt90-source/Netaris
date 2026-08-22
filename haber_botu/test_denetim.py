@@ -113,6 +113,55 @@ with tempfile.TemporaryDirectory() as gecici:
 
     sayfa("atifsiz", "<main>gorselsiz sayfa</main>")
     es("gorselsiz sayfa", denetim._lisans_denetimi(), [])
+
+    # ------------------------------------------------------------------
+    # URETILEN CIZIM ETIKETSIZ BASILAMAZ.
+    #
+    # Sitenin butun degeri "hicbir sey uydurulmaz" iddiasinda; uretilmis
+    # bir gorseli etiketsiz basmak, okura onu bir olayin fotografi
+    # olarak sunmak demek. Agirligi bu yuzden HATA.
+    #
+    # EN ONEMLI SINAMA UCUNCUSU: `_lisans_denetimi` yalnizca bir
+    # `<figcaption>` VARLIGINA bakiyor, icerigine degil. "Fotograf:
+    # Netaris" yazan bir kunye ondan gecer ve tam da onlenmek istenen
+    # yanlisi uretirdi. Iki denetimin ayri durmasinin sebebi bu.
+    # ------------------------------------------------------------------
+    print("\nUretilen cizim denetimi -- etiketsiz cizim HATA")
+    CIZIM = '<img src="/statik/foto/uretilen/kavram-abc123.png">'
+    ETIKET = ("Görsel: Netaris tarafından yapay zeka ile üretilmiş "
+              "kavram çizimi")
+
+    sayfa("cizim", f"<main><figure>{CIZIM}</figure></main>")
+    es("etiketsiz cizim yakalanir",
+       [(b.agirlik, b.alan) for b in denetim._uretilen_gorsel_denetimi()],
+       [("hata", "gorsel")])
+
+    sayfa("cizim",
+          f"<main><figure>{CIZIM}<figcaption>{ETIKET}</figcaption>"
+          f"</figure></main>")
+    es("dogru etiket yeterli", denetim._uretilen_gorsel_denetimi(), [])
+
+    sayfa("cizim",
+          f"<main><figure>{CIZIM}<figcaption>Fotoğraf: Netaris"
+          f"</figcaption></figure></main>")
+    es("YANLIS kunye ('Fotograf:') yakalanir",
+       [(b.agirlik, b.alan) for b in denetim._uretilen_gorsel_denetimi()],
+       [("hata", "gorsel")])
+
+    # Etiket gorselin KENDI figure'unde olmali: sayfanin baska bir
+    # yerinde gecen ifade o gorselin yaninda durmuyor ve okur onu
+    # cizimle iliskilendiremez.
+    sayfa("cizim",
+          f"<main><figure>{CIZIM}</figure>"
+          f"<p>{ETIKET}</p></main>")
+    es("uzaktaki etiket SAYILMAZ",
+       [(b.agirlik, b.alan) for b in denetim._uretilen_gorsel_denetimi()],
+       [("hata", "gorsel")])
+
+    sayfa("cizim", f"<main><figure>{KART}<figcaption>Foto: X</figcaption>"
+                   f"</figure></main>")
+    es("cizimi olmayan sayfa denetimi tetiklemez",
+       denetim._uretilen_gorsel_denetimi(), [])
 denetim.CIKTI_DIZINI = _ASIL
 
 # --------------------------------------------------------------------

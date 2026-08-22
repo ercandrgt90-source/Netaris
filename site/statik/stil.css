@@ -1591,6 +1591,37 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
   margin: var(--b-2) 0 0; font-size: var(--p-xs); color: var(--yazi-3)}
 .foto-atif { margin: 18px}
 
+/* --- Uretilen kavram cizimi --------------------------------------- */
+/* Etiket, fotograf atfindan DAHA GORUNUR.
+ *
+ * Fotograf atfi bir kaynak bilgisi; bu etiket ise gorselin NE OLMADIGINI
+ * soyluyor -- okur onu bir olayin fotografi sanmamali. Bu yuzden atfin
+ * soluk grisiyle yetinmiyor: kendi zemini, kendi cercevesi ve bir
+ * simgesi var.
+ *
+ * Cizim ayrica hafifce doygunlugu dusuruluyor. Sebep susleme degil:
+ * fotograf serisiyle yan yana geldiginde uretilenin fotograf gibi
+ * OKUNMAMASI gerekiyor ve gozun ilk yakaladigi fark tonda. */
+.yazi-uretilen img { filter: saturate(0.85)}
+.yazi-uretilen figcaption {
+  display: flex; align-items: center; gap: var(--b-2);
+  margin: 0;
+  padding: var(--b-2) var(--b-3);
+  font-size: var(--p-xs);
+  color: var(--yazi-2);
+  background: var(--zemin-2);
+  border: 1px solid var(--cizgi);
+  border-top: 0;
+  border-radius: 0 0 var(--r) var(--r)}
+.yazi-uretilen img { border-radius: var(--r) var(--r) 0 0}
+/* Simge metnin PARCASI degil -- ekran okuyucu etiketi zaten okuyor,
+ * simgenin ayrica seslendirilmesi tekrar olurdu. */
+.yazi-uretilen figcaption::before {
+  content: "◈";
+  color: var(--vurgu);
+  font-size: 1em;
+  line-height: 1}
+
 .one-cikan-gorsel img,
 .kart-gorsel img { width: 100%; height: 100%; object-fit: cover; display: block}
 
@@ -5618,3 +5649,97 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
   .senaryo-tetik legend,
   .senaryo-tetik > p { grid-column: 1 / -1; }
 }
+
+/* ====================================================================
+   PAYLASIM DUGMELERI -- IKONLU
+   --------------------------------------------------------------------
+   MARKA RENGI YALNIZCA IKONDA, KABUKTA DEGIL.
+   Referans tasarimda bes dolgu rengi yan yana duruyordu (siyah, mavi,
+   yesil, acik mavi, gri). O bant sayfanin kendi rengini boguyor ve
+   "reklam seridi" izlenimi veriyor -- okur onu icerikten saymiyor.
+
+   Ikon tanimayi zaten sagliyor: X'in isareti siyah dolgu olmadan da
+   X'tir. Kabuk notr kalinca dugmeler sayfanin PARCASI gorunuyor.
+   ================================================================== */
+
+.sp-dugme {
+  gap: var(--b-2);
+}
+.sp-dugme svg { flex: none; }
+
+.sp-x:hover    { color: #0f1419; border-color: #0f1419; }
+.sp-li:hover   { color: #0a66c2; border-color: #0a66c2; }
+.sp-wa:hover   { color: #25d366; border-color: #1da851; }
+.sp-tg:hover   { color: #229ed9; border-color: #229ed9; }
+
+:root[data-tema="dark"] .sp-x:hover,
+:root:not([data-tema="light"]) .sp-x:hover {
+  color: var(--yazi);
+  border-color: var(--yazi);
+}
+
+/* ====================================================================
+   SENARYO SAYFASI -- YAZI DUZENI
+   --------------------------------------------------------------------
+   Once duz bir baslik ve tek satir kunye vardi; sayfa "bir haberin
+   altindaki yorumun kendi adresi" gibi duruyordu. Senaryo bir ONERME:
+   kosulu, sonucu, gerekcesi ve ufku olan bagimsiz bir icerik.
+   ================================================================== */
+
+.senaryo-bas {
+  margin: 0 0 var(--b-5);
+  padding-bottom: var(--b-4);
+  border-bottom: 1px solid var(--cizgi);
+}
+
+.senaryo-rozetler {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--b-2);
+  margin: 0 0 var(--b-3);
+}
+
+.senaryo-bas h1 {
+  margin: 0 0 var(--b-4);
+  line-height: 1.25;
+  text-wrap: balance;
+}
+
+/* Sonuc kismi daha acik: baslik KOSUL -> SONUC yapisini tasiyor ve
+   iki yarim gorsel olarak da ayrilmali. */
+.senaryo-ok-bas { color: var(--vurgu); padding: 0 var(--b-1); }
+.senaryo-sonuc-bas { color: var(--yazi-2); }
+
+.senaryo-yazar {
+  display: flex;
+  align-items: center;
+  gap: var(--b-3);
+}
+
+/* Bas harf dairesi -- vesikalik DEGIL. Uyelerin fotografi yok ve
+   uydurma bir avatar koymak kimligi yanlis tanitmak olurdu. Ayni
+   kural sitenin kurum imzasinda da gecerli. */
+.senaryo-yazar-harf {
+  width: 38px;
+  height: 38px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--vurgu);
+  color: #fff;
+  font-weight: 700;
+  font-size: var(--p-l);
+}
+
+.senaryo-yazar-ad { display: grid; line-height: 1.35; }
+.senaryo-yazar-ad span {
+  font-size: var(--p-s);
+  color: var(--yazi-3);
+}
+
+/* Sonuclanma rozeti -- yon renkleri sitenin geri kalaniyla AYNI
+   anlamda. */
+.rozet-gerceklesti   { background: var(--artis-zar); color: var(--artis); }
+.rozet-gerceklesmedi { background: var(--azalis-zar); color: var(--azalis); }
+.rozet-belirsiz      { color: var(--yazi-3); }
