@@ -1319,8 +1319,25 @@ def rss_uret(analizler: list[Analiz]) -> str:
 
 
 def sitemap_uret(yollar: list[str]) -> str:
+    """Sitemap -- her adres BIR KEZ.
+
+    Olculdu: 1774 girdi vardi ama yalnizca 1726'si tekildi. Ayni adres
+    12 kez listelenmisti ("TCMB agirlikli ortalama fonlama maliyeti").
+
+    Sebep bu depoda tekrarlayan sinif: duzenli yayimlanan icerik ayni
+    basligi tasiyor, slug baslikтan turedigi icin AYNI YOL cikiyor ve
+    liste onu her seferinde ekliyor.
+
+    Yinelenen girdi arama motoruna "bu adres daha onemli" demiyor --
+    yalnizca dosyayi sisiriyor ve tarama butcesini harciyor.
+
+    SIRA KORUNUYOR: `dict.fromkeys` ilk gorulme sirasini tutuyor.
+    `set` kullanmak sitemap'i her kosuda farkli sirada uretir ve
+    depoda gereksiz fark olustururdu.
+    """
     girdiler = "\n".join(
-        f"  <url><loc>{SITE['adres']}{y}</loc></url>" for y in yollar
+        f"  <url><loc>{SITE['adres']}{y}</loc></url>"
+        for y in dict.fromkeys(yollar)
     )
     return (
         '<?xml version="1.0" encoding="UTF-8"?>\n'
