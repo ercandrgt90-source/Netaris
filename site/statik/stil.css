@@ -5492,3 +5492,35 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
   background: var(--zemin-2);
   margin-top: var(--b-6);
 }
+
+/* PANELDE PAYLASIM BAGLANTILARI.
+   Paylasim blogu senaryonun herkese acik sayfasinda vardi ama panelde
+   yoktu -- yazar senaryosunu yaziyor, yayimlaniyor ve hicbir sey ona
+   paylasmasini soylemiyordu. Buyume halkasinin ILK adimi burasi:
+   senaryoyu yazan kisi paylasmazsa zincir hic baslamiyor. */
+.panel-paylas {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--b-2);
+  flex-wrap: wrap;
+  margin-left: var(--b-3);
+}
+.panel-paylas-etiket {
+  font-size: var(--p-xs);
+  color: var(--yazi-3);
+  font-weight: 650;
+}
+.panel-paylas-baglanti {
+  font-size: var(--p-xs);
+  font-weight: 650;
+  color: var(--vurgu);
+  text-decoration: none;
+  padding: 2px var(--b-2);
+  border: 1px solid var(--cizgi);
+  border-radius: var(--r-mini);
+}
+.panel-paylas-baglanti:hover { border-color: var(--vurgu); }
+
+@media (max-width: 640px) {
+  .panel-paylas { margin: var(--b-2) 0 0; width: 100%; }
+}

@@ -350,6 +350,41 @@
     return capa;
   }
 
+
+  /* PAYLASIM DUGMELERI -- YAZARIN KENDI PANELINDE.
+     ---------------------------------------------
+     Paylasim blogu senaryonun HERKESE ACIK sayfasinda vardi ama
+     panelde YOKTU. Yazar senaryosunu yaziyor, gonderiyor, yayimlaniyor
+     ve hicbir sey ona paylasmasini soylemiyordu.
+
+     Buyume halkasinin ilk adimi tam burasi: senaryoyu YAZAN kisi
+     paylasmazsa zincir hic baslamiyor.
+
+     Metin URL DEGIL: her kanal kendi metnini aliyor ve metin
+     kosul -> sonuc kalibini tasiyor. Ciplak adres paylasimi, okuyanin
+     tiklamadan once ne oldugunu bilmemesi demek. */
+  function paylasDugmeleri(s) {
+    var adres = location.origin + "/senaryo/" + s.id + "/";
+    var metin = s.kosul + " → " + s.sonuc;
+    /* X siniri 280 ve adres ~23 sayiliyor; metin 200'e kirpiliyor.
+       Ayni kural worker'daki `paylasBlok` icinde de var. */
+    if (metin.length > 200) metin = metin.slice(0, 199).trim() + "…";
+    var m = encodeURIComponent(metin);
+    var a = encodeURIComponent(adres);
+    var kanallar = [
+      ["X", "https://x.com/intent/post?text=" + m + "&url=" + a],
+      ["LinkedIn", "https://www.linkedin.com/sharing/share-offsite/?url=" + a],
+      ["WhatsApp", "https://wa.me/?text=" + encodeURIComponent(metin + " " + adres)],
+      ["Telegram", "https://t.me/share/url?url=" + a + "&text=" + m],
+    ];
+    return '<span class="panel-paylas">' +
+      '<span class="panel-paylas-etiket">Paylaş:</span>' +
+      kanallar.map(function (k) {
+        return '<a class="panel-paylas-baglanti" href="' + k[1] +
+               '" target="_blank" rel="noopener noreferrer">' + k[0] + '</a>';
+      }).join("") + '</span>';
+  }
+
   function senaryoCiz(liste) {
     if (!senListeKutu) return;
     if (!liste.length) {
@@ -388,8 +423,14 @@
               ? '<button class="dugme dugme-sade" type="button" ' +
                 'data-sen-sil="' + s.id + '">Sil</button>'
               : '') +
-            (s.durum === "yayimlandi" && s.capa
-              ? '<a class="dugme" href="' + kacir(s.capa) + '">Yayındaki hâli</a>'
+            /* YAYIMLANAN SENARYO KENDI SAYFASINA BAGLANIYOR.
+               Once `s.capa`ya (habere) gidiyordu -- yani yazar kendi
+               senaryosunun sayfasina ULASAMIYORDU. Paylasilacak adres
+               de o sayfa; baglanti yanlis olunca paylasim zinciri
+               bastan kopuyordu. */
+            (s.durum === "yayimlandi"
+              ? '<a class="dugme" href="/senaryo/' + s.id + '/">Senaryo sayfası</a>' +
+                paylasDugmeleri(s)
               : '') +
           '</div>' +
         '</article>'
@@ -487,6 +528,25 @@
         senaryoTemizle();
         sekmeGec("senaryolarim");
         senaryoYukle();
+        /* GONDERIM SONRASI PAYLASIM DAVETI.
+           Form temizlenip liste yenileniyordu ve akis orada bitiyordu.
+           Yazar "gonderdim, simdi ne olacak" sorusuyla kaliyordu.
+
+           Senaryo INCELEMEDE oldugu icin henuz paylasilamaz -- yayim
+           beklenmeli. Mesaj bunu soyluyor ve paylasim adiminin
+           GELECEGINI haber veriyor; boylece yazar listeye donup
+           bekliyor, siteden ayrilmiyor. */
+        if (senGonderModu && senListeKutu) {
+          /* `mesajGoster` diye bir islev UYDURDUM ve yoktu; bu dosyada
+             mesaj kutulari dogrudan DOM'a yaziliyor. Var oldugunu
+             varsaydigim ismi once kontrol etmem gerekirdi. */
+          var bilgi = document.createElement("p");
+          bilgi.className = "uyelik-mesaj iyi";
+          bilgi.textContent =
+            "Senaryonuz incelemeye alındı. Yayımlandığında " +
+            "“Senaryolarım” altında paylaşım bağlantıları görünecek.";
+          senListeKutu.parentNode.insertBefore(bilgi, senListeKutu);
+        }
       }).catch(function () {
         dugmeKilit(senForm, false);
         hataGoster(h, "Bağlantı kurulamadı.");
