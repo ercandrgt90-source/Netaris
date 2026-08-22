@@ -1009,7 +1009,7 @@ _KURESEL = {
     # Fed tutanaklari sayfasi tam buraya dusuyordu: "Para politikasi"
     # konusunun kuresel karsiligi yoktu, o yuzden yerli dala giriyor ve
     # Turkiye TUFE'siyle aciliyordu.
-    "Para politikası": ("DFF", "ABD politika faizi", "%", "gosterge"),
+    "Para politikası": ("DFF", "ABD efektif fed fonu oranı", "%", "gosterge"),
     "Enflasyon": ("CPIAUCNS", "ABD TÜFE", "%", "gosterge"),
     "İstihdam ve ücret": ("UNRATE", "ABD işsizlik oranı", "%", "gosterge"),
 }
@@ -1391,6 +1391,84 @@ YURT_ICI_IZLEME = (
     # kelime ici eslesmeyi onlemek icindir ama burada kalemin
     # BASINDA duran bir kisaltmayi da eliyordu.
 )
+
+
+#: YABANCI konulu haberler icin takip listesi -- GEREKCESIYLE.
+#:
+#: NEDEN AYRI TABLO
+#: Bolge suzgeci yerli kalemleri cikarinca geriye cok az sey kaliyordu:
+#: "Para politikasi" konusunda DUNYA icin tek kalem ("ABD 10 yillik").
+#: Suzgec dogruydu ama sonuc yetersiz -- yabanci haberin kendi listesi
+#: olmali, yerlinin artigi degil.
+#:
+#: GEREKCE SART
+#: "US10Y'yi izleyin" demek okura bir sey soylemiyor; NEDEN izlendigi
+#: soyluyor. Gerekce yazilamayan kalem listeye girmiyor.
+#:
+#: Gerekceler YAPISAL, ongoru degil: "faiz beklentisini fiyatlar" bir
+#: mekanizma; "yukselecek" bir tahmin ve bu sitede yasak.
+DUNYA_IZLENECEKLER: dict[str, tuple[tuple[str, str], ...]] = {
+    "Para politikası": (
+        ("ABD 2 yıllık tahvil getirisi",
+         "Kısa vade politika faizi beklentisini doğrudan fiyatlar."),
+        ("ABD 10 yıllık tahvil getirisi",
+         "Uzun vadeli büyüme ve enflasyon beklentisinin ölçüsü."),
+        ("Dolar endeksi",
+         "Faiz farkı sermaye akımının yönünü belirleyen ana değişken."),
+        ("ABD TÜFE",
+         "Bir sonraki karar için komitenin izlediği temel veri."),
+        ("Ons altın",
+         "Reel faiz ve dolar üzerinden fiyatlanır."),
+    ),
+    "Enflasyon": (
+        ("ABD çekirdek TÜFE",
+         "Manşetteki geçici kalemler ayıklanmış ana eğilim."),
+        ("Çekirdek PCE",
+         "Komitenin hedefinde kullandığı ölçü."),
+        ("ABD 10 yıllık tahvil getirisi",
+         "Uzun vadeli enflasyon beklentisini yansıtır."),
+        ("Brent petrol",
+         "Enerji, manşet enflasyonun en oynak bileşeni."),
+    ),
+    "İstihdam ve ücret": (
+        ("ABD işsizlik oranı",
+         "İşgücü piyasasındaki gevşemenin ana göstergesi."),
+        ("ABD Tarım Dışı İstihdam",
+         "Aylık istihdam yaratımının doğrudan ölçüsü."),
+        ("ABD ortalama saatlik kazanç",
+         "Ücret artışı hizmet enflasyonuna geçen kanal."),
+        ("ABD haftalık işsizlik başvuruları",
+         "En yüksek frekanslı işgücü verisi."),
+    ),
+    "Borsa": (
+        ("S&P 500", "Geniş piyasa risk iştahının ölçüsü."),
+        ("ABD 10 yıllık tahvil getirisi",
+         "İskonto oranı; değerlemeye doğrudan girer."),
+        ("VIX oynaklık endeksi", "Fiyatlanan belirsizliğin ölçüsü."),
+        ("Dolar endeksi", "Küresel likidite koşullarının göstergesi."),
+    ),
+    "Enerji": (
+        ("Brent petrol", "Küresel referans fiyat."),
+        ("WTI petrol", "ABD referans fiyatı; makasa bakılır."),
+        ("Dolar endeksi", "Petrol dolar cinsinden fiyatlanır."),
+    ),
+    "Jeopolitik": (
+        ("Brent petrol", "Arz kesintisi riskinin ilk fiyatlandığı yer."),
+        ("Ons altın", "Belirsizlikte talep gören güvenli liman."),
+        ("VIX oynaklık endeksi", "Fiyatlanan risk algısı."),
+    ),
+    "Altın ve emtia": (
+        ("Ons altın", "Referans fiyat."),
+        ("Dolar endeksi", "Altın dolar cinsinden fiyatlanır."),
+        ("ABD 10 yıllık tahvil getirisi",
+         "Reel faiz altının alternatif maliyeti."),
+    ),
+    "Kripto varlıklar": (
+        ("Bitcoin", "Referans fiyat."),
+        ("Dolar endeksi", "Küresel likidite koşulları."),
+        ("VIX oynaklık endeksi", "Risk iştahının ölçüsü."),
+    ),
+}
 
 
 def _izlenecekleri_suz(kalemler: tuple[str, ...], bolge: str) -> tuple[str, ...]:

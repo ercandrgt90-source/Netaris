@@ -87,7 +87,16 @@ class Seri:
 # Hepsi FRED'in anahtarsiz CSV ucundan geliyor ve ticari kullanima acik.
 FRED_SERILER = {
     # Faiz
-    "DFF": ("ABD politika faizi (efektif fed fonu)", "%"),
+    # AD "POLITIKA FAIZI" ILE BASLAMIYOR.
+    #
+    # Fed'in KARAR VERDIGI sey bir ARALIK (target range, orn.
+    # %3,50-%3,75); DFF ise o aralik icinde piyasada olusan EFEKTIF
+    # orandir. Ad "ABD politika faizi (efektif fed fonu)" iken sayfada
+    # parantez kirpilarak "ABD politika faizi %3,63" gorunuyordu ve
+    # okur bunu Fed'in acikladigi karar sanabilirdi.
+    #
+    # Adin bas kismi ne OLDUGUNU soylemeli; kategori degil.
+    "DFF": ("ABD efektif fed fonu oranı", "%"),
     "DGS2": ("ABD 2 yıllık tahvil getirisi", "%"),
     "DGS10": ("ABD 10 yıllık tahvil getirisi", "%"),
     "DGS30": ("ABD 30 yıllık tahvil getirisi", "%"),

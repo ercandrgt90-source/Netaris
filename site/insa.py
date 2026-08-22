@@ -1556,13 +1556,27 @@ def ayni_konu_haberleri(h: dict, hepsi: list[dict],
     # okuyun" yalnizca cizelgede OLMAYANLARI gosteriyor.
     haric = haric or set()
     cikti = []
+    # AYNI YOL IKI KEZ EKLENMIYOR.
+    #
+    # Suzgec `haric` kumesine bakiyordu ama LISTENIN KENDI ICINDEKI
+    # tekrari gormuyordu. Olculdu: "Para politikasi basliginda son
+    # gelismeler" blogunda ayni TCMB haberi iki kez yaziyordu -- iki
+    # ayri kayit, ayni sayfa (slug baslikтan turuyor).
+    #
+    # Ayni hata sinifinin besinci tekrari; `tekilles`, `ai_akisi`,
+    # `besleme.cek` ve `dosya_cizelgesi` ile ayni. Kural: tekilleme
+    # OKURUN GORDUGU kimlige (sayfa yolu) gore yapilmali.
+    eklenen: set[str] = set()
     for x in hepsi:
+        if x.get("yol") in eklenen:
+            continue
         if x is h or not x.get("yorumlanir") or not x.get("yol"):
             continue
         if x.get("yol") in haric:
             continue
         if x.get("konu") != h.get("konu"):
             continue
+        eklenen.add(x["yol"])
         cikti.append({"baslik": x.get("baslik", ""), "yol": x["yol"],
                       "kurum": x.get("kurum", ""), "tarih": x.get("tarih", "")})
     cikti.sort(key=lambda x: x["tarih"], reverse=True)
@@ -1599,6 +1613,51 @@ DOSYA_ADIM = 8
 DOSYA_GUN = 14
 
 
+def _ilgiliyi_ayikla(ilgili: list[dict], seyir) -> list[dict]:
+    """Cizelgede zaten gorunen haberleri "ilgili" listesinden cikarir.
+
+    Iki bolum ayni varlik indeksinden besleniyor; ayiklama olmadan ayni
+    baslik sayfada iki kez cikiyor. Olculdu: bir Fed sayfasinda dort
+    tekrar.
+
+    Eleme YOLA gore -- okur icin kimlik sayfanin adresidir, bizim ic
+    kaydimiz degil.
+    """
+    if not ilgili:
+        return []
+    # ERKEN CIKIS KALDIRILDI.
+    #
+    # `if not seyir: return ilgili` yaziyordu ve tekilleme O DURUMDA
+    # HIC CALISMIYORDU. Olculdu: duzeltmeden sonra tekrarli sayfa sayisi
+    # 139'da SABIT kaldi -- cunku cizelgesi olmayan sayfalarda liste
+    # ham donuyordu.
+    #
+    # Tekilleme cizelgeden BAGIMSIZ bir gereklilik; yalnizca
+    # cizelge-disi birakma ona bagli.
+    adimlar = getattr(seyir, "adimlar", None) if seyir else None
+    if adimlar is None and isinstance(seyir, dict):
+        adimlar = seyir.get("adimlar")
+    varolan = {a.get("yol") for a in (adimlar or ()) if a.get("yol")}
+    # LISTE KENDI ICINDE DE TEKILLENIYOR.
+    #
+    # Ilk surumde yalnizca cizelgeyle karsilastirdim ve olculdu: 192
+    # tekrar KALDI, hepsi "Ayni dosyadaki gelismeler" bolumunun KENDI
+    # icindeydi. `varlik.ilgili_haberler` ayni sayfayi birden fazla
+    # varlik uzerinden dondurebiliyor (haber hem BRENT hem IR'ye bagli
+    # ise iki kez geliyor).
+    #
+    # Bu, ayni hata sinifinin altinci tekrari. Artik desen acik:
+    # BU DEPODA HER LISTE, YOL BAZLI TEKILLEME ISTIYOR.
+    cikti, gorulen = [], set(varolan)
+    for x in ilgili:
+        y = x.get("yol")
+        if not y or y in gorulen:
+            continue
+        gorulen.add(y)
+        cikti.append(x)
+    return cikti
+
+
 def dosya_cizelgesi(h: dict, hepsi: list[dict], ilgili: list[dict],
                     bugun: str, varlik_haritasi: dict | None = None) -> dict:
     """Bu haberin AIT OLDUGU DOSYANIN seyri.
@@ -1632,16 +1691,28 @@ def dosya_cizelgesi(h: dict, hepsi: list[dict], ilgili: list[dict],
     gorunur ve tarihli.
     """
     kendi_an = h.get("an") or h.get("tarih") or ""
-    gorulen = {h.get("adres", "")}
+    # ELEME HEM ADRESE HEM YOLA BAKIYOR.
+    #
+    # Once yalnizca `adres` (kaynak baglantisi) olcut alinmisti ve
+    # AYNI SAYFA cizelgede uc kez cikiyordu. Sebep: ayni olay birden
+    # fazla kaynaktan giriyor, her kaydin `adres`i FARKLI ama slug
+    # baslikтan turedigi icin `yol` AYNI.
+    #
+    # Bu, bu depoda ayni hata sinifinin dorduncu tekrari (bkz.
+    # `insa.tekilles`, `ai_akisi`, `besleme.cek`): bir seyi tekilerken
+    # OKURUN GORDUGU kimlige bakmak gerekiyor, bizim ic kaydimiza
+    # degil. Okur icin kimlik sayfanin adresidir.
+    gorulen = {h.get("adres", ""), h.get("yol", "")} - {""}
     adimlar: list[dict] = []
 
     def ekle(x: dict) -> None:
-        adres = x.get("adres") or x.get("yol") or ""
-        if not adres or adres in gorulen:
+        adres = x.get("adres") or ""
+        yol = x.get("yol") or ""
+        if not yol or yol in gorulen or (adres and adres in gorulen):
             return
-        if not x.get("yol"):
-            return
-        gorulen.add(adres)
+        gorulen.add(yol)
+        if adres:
+            gorulen.add(adres)
         adimlar.append({
             "baslik": x.get("baslik", ""),
             "yol": x["yol"],
@@ -2367,6 +2438,24 @@ def olay_gostergeleri(anahtar: str) -> list[dict]:
     except Exception:       # depo kilitli/eksik olabilir; sayfa yine kurulur
         return []
     return cikti[:6]
+
+def _dunya_izleme(h: dict) -> list[dict]:
+    """Yabanci konulu haberde takip listesi -- gerekcesiyle.
+
+    Yurt ici haberde BOS doner: orada `IZLENECEKLER` zaten yerli
+    kalemleri veriyor ve ikisini birden basmak tekrar olurdu.
+    """
+    if _dosya is None or _baglam is None:
+        return []
+    u = _baglam.haber_ulkesi(
+        h.get("baslik_kaynak") or h.get("baslik", ""),
+        h.get("kurum", ""), h.get("bolge", ""))
+    if not u or u == "TR":
+        return []
+    return [{"ad": ad, "neden": neden}
+            for ad, neden in _dosya.DUNYA_IZLENECEKLER.get(
+                h.get("konu", ""), ())]
+
 
 def _yerel_kanal(h: dict, varliklar) -> list[dict] | None:
     """Yabanci haberin Turkiye'ye AKTARIM KANALI. Yoksa None.
@@ -3292,11 +3381,23 @@ def insa() -> int:
     if _olay_grubu is not None:
         for _a, _hl in _olay_grubu.listeden(uretilecek).items():
             _y = f"/olay/{olay_slug(_a)}/"
+            # BIRINCIL KAYNAK -- grup uzerinden, baslik benzerligiyle
+            # DEGIL.
+            #
+            # Baslik eslestirmesini olctum ve curudu: %0,6 eslesme,
+            # iceride yanlislar. Olay grubu saglam zemin: ulke + tur +
+            # donem uzerinden kumelenmis haberlerin icinde resmi olan
+            # varsa, o BU OLAYIN birincil kaynagidir.
+            _bk = _olay_grubu.birincil_kaynak(_hl)
             for _h in _hl:
                 olay_haritasi[_h["adres"]] = {
                     "yol": _y,
                     "baslik": _olay_grubu.grup_basligi(_a),
                     "sayi": len(_hl),
+                    # Haberin KENDISI resmi kaynaksa gosterilmiyor:
+                    # sayfa zaten o duyurunun sayfasi.
+                    "birincil": (_bk if _bk and _bk["adres"] != _h["adres"]
+                                 else None),
                 }
         if olay_haritasi:
             print(f"olay baglantisi: {len(olay_haritasi)} haber")
@@ -3668,6 +3769,12 @@ def insa() -> int:
                 h, uretilecek,
                 varlik_haritasi.get(h["adres"], {}).get("ilgili", []),
                 gundem.get("guncelleme", ""), varlik_haritasi)
+            # Cizelgeden AYIKLANMIS ilgili liste bir kez hesaplaniyor:
+            # hem sablona gidiyor hem "Bunu da okuyun" icin haric
+            # kumesini besliyor.
+            h_ilgili = _ilgiliyi_ayikla(
+                varlik_haritasi.get(h["adres"], {}).get("ilgili", []),
+                h_seyir)
             yaz(
                 f"{h_yol}index.html",
                 ortam.get_template("haber.html").render(
@@ -3697,7 +3804,17 @@ def insa() -> int:
                     # o zaman dosya.py eski olcute duser.
                     dosya=h_dosya,
                     varliklar=h_varliklar or [],
-                    ilgili_haberler=varlik_haritasi.get(h["adres"], {}).get("ilgili", []),
+                    # CIZELGEDE OLAN BURADA TEKRARLANMIYOR.
+                    #
+                    # Iki bolum ayni kaynaktan besleniyor ve olculdu:
+                    # dort haber HEM "Bu dosyanin seyri"nde HEM "Ayni
+                    # dosyadaki gelismeler"de yaziyordu. Okur ayni
+                    # basligi iki kez gorup "yeni bir sey mi" diye
+                    # tikliyor ve ayni sayfaya donuyor.
+                    #
+                    # Cizelge ONCELIKLI: kronolojik baglam, duz bir
+                    # listeden daha degerli.
+                    ilgili_haberler=h_ilgili,
                     # Haberin uzerinden gecen gun. Sayfadaki gosterge ve
                     # piyasa kutulari BUGUNUN verisi; eski bir haberi
                     # bugunun sayilariyla cerceveleyip susmak, okura o
@@ -3726,8 +3843,20 @@ def insa() -> int:
                     # brifingi: bu veri nedir, neyi etkiler, beklenti ne.
                     brifing=h_brifing,
                     # Makale sonu: okur bosluga dusmesin.
+                    # "BUNU DA OKUYUN" SAYFADAKI HER SEYI HARIC TUTUYOR.
+                    #
+                    # Once yalnizca cizelge haric tutuluyordu ve olculdu:
+                    # 139 sayfada ayni haber HEM "Ayni dosyadaki
+                    # gelismeler"de HEM konu blogunda yaziyordu.
+                    #
+                    # Sayfadaki her liste bir oncekini gormeli; yoksa
+                    # asagi indikce ayni basliklar tekrarliyor ve okur
+                    # "yeni bir sey mi" diye tiklayip ayni sayfaya
+                    # donuyor.
                     ayni_konu=ayni_konu_haberleri(
-                        h, uretilecek, _seyir_adresleri(h_seyir)),
+                        h, uretilecek,
+                        _seyir_adresleri(h_seyir)
+                        | {x.get("yol") for x in h_ilgili if x.get("yol")}),
                     ilgili_analiz=ilgili_analizler(
                         h, listelenen, _seyir_basliklari(h_seyir)),
                     # DOSYA: haberin ait oldugu gelisme zincirinin seyri.
@@ -3754,6 +3883,16 @@ def insa() -> int:
                             _dosya.IZLENECEKLER.get(h.get("konu", ""), ()),
                             h.get("bolge", ""))
                          if _dosya else ()), varlik_sayfasi_olan),
+                    # YABANCI HABERDE KENDI TAKIP LISTESI -- GEREKCELI.
+                    #
+                    # Bolge suzgeci yerli kalemleri cikarinca geriye cok
+                    # az sey kaliyordu: "Para politikasi" konulu bir Fed
+                    # haberinde TEK kalem ("ABD 10 yillik"). Suzgec
+                    # dogruydu, sonuc yetersizdi.
+                    #
+                    # Gerekce SART: "US10Y'yi izleyin" okura bir sey
+                    # soylemiyor, NEDEN izlendigi soyluyor.
+                    dunya_izleme=_dunya_izleme(h),
                 ),
             )
             yollar.append(h_yol)

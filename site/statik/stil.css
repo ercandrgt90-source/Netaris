@@ -5660,3 +5660,98 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
   border-radius: 0 var(--r-kucuk) var(--r-kucuk) 0;
   margin: 0 0 var(--b-5);
 }
+
+/* ====================================================================
+   GOSTERGE ETIKETI: SAYIYI ANLAMLI KILAN SEY
+   --------------------------------------------------------------------
+   Editoryal geri bildirim "ilgili gostergelerde isimler gorunmuyor,
+   ciplak rakam var" dedi. Isim HTML'de VARDI (`<span class="tr-ad">ABD
+   TÜFE</span>`) -- ama 0,75rem punto ve #616f86 soluk renkle,
+   sayinin bariz sekilde altinda bir agirlikta.
+
+   Tespit yanlis degildi: tanimadigi bir gostergede okura anlami veren
+   sey ETIKET. "3,36%" tek basina bilgi degil; "ABD TÜFE 3,36%" bilgi.
+   Finans terminalinde etiket sayiyla esit agirliktadir.
+
+   Etiket --p-s'e cikiyor ve --yazi-2'ye (daha koyu) geciyor. Sayi yine
+   daha buyuk kaliyor -- hiyerarsi korunuyor, ama etiket okunuyor.
+   ================================================================== */
+
+.tr-ad {
+  font-size: var(--p-s);
+  color: var(--yazi-2);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  /* BUYUK HARF KALDIRILDI: "ABD TÜFE" zaten kisa; `uppercase` uzun
+     gosterge adlarini ("ABD tüketici enflasyon beklentisi") okunmaz
+     hale getiriyordu ve Turkce'de i/İ donusumunu tarayiciya
+     birakmak riskli. */
+  text-transform: none;
+}
+
+/* Piyasa kutusunda ad zaten 700 agirlikta; orada sorun punto degil
+   SIRALAMA idi -- ad, deger ve degisim ayni satirda esit yer
+   kapliyordu. Ad kendi satirini aliyor. */
+@media (max-width: 640px) {
+  .piyasa-ust {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2px var(--b-2);
+  }
+  .piyasa-ad { grid-column: 1 / -1; }
+}
+
+/* ====================================================================
+   GEREKCELI TAKIP LISTESI
+   --------------------------------------------------------------------
+   "US10Y'yi izleyin" okura bir sey soylemiyor; NEDEN izlendigi
+   soyluyor. Iki sutun: ad solda sabit genislikte, gerekce yaninda --
+   goz asagi kaydiginda adlar hizali kaliyor ve liste taranabiliyor.
+   Dar ekranda alt alta gecıyor.
+   ================================================================== */
+
+.izleme-neden {
+  list-style: none;
+  margin: 0 0 var(--b-5);
+  padding: 0;
+}
+
+.izleme-neden li {
+  display: grid;
+  grid-template-columns: minmax(160px, 34%) 1fr;
+  gap: var(--b-2) var(--b-4);
+  padding: var(--b-3) 0;
+  border-bottom: 1px solid var(--cizgi);
+}
+.izleme-neden li:last-child { border-bottom: 0; }
+
+.izleme-ad {
+  font-weight: 650;
+  font-size: var(--p-m);
+  color: var(--yazi);
+}
+
+.izleme-gerekce {
+  font-size: var(--p-s);
+  color: var(--yazi-2);
+  line-height: 1.55;
+}
+
+@media (max-width: 640px) {
+  .izleme-neden li { grid-template-columns: 1fr; gap: 2px; }
+}
+
+/* BIRINCIL KAYNAK -- haber kaynagindan AYRI seviye.
+   Ticari kaynak olayi HABER YAPIYOR; birincil kaynak olayin KENDISINI
+   duyuran taraf. Ikisi ust uste duruyor ama farkli agirlikta: birincil
+   olan vurgu rengiyle isaretleniyor cunku dogrulanabilirligin
+   dayanagi o. */
+.birincil-kaynak {
+  font-size: var(--p-s);
+  color: var(--yazi-2);
+  margin: calc(-1 * var(--b-2)) 0 var(--b-4);
+  padding-left: var(--b-3);
+  border-left: 2px solid var(--vurgu);
+  line-height: 1.5;
+}
+.birincil-kaynak a { color: var(--vurgu); font-weight: 650; }

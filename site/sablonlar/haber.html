@@ -148,6 +148,21 @@
       <a href="{{ h.adres }}" rel="nofollow noopener" target="_blank">{{ h.kurum_tam }}</a>
       · Aşağıdaki değerlendirme Netaris'e aittir.
     </p>
+    {# BIRINCIL KAYNAK, HABER KAYNAGINDAN AYRI.
+       Ticari kaynak olayi HABER YAPIYOR; birincil kaynak olayin
+       KENDISINI duyuran taraf (Fed'in FOMC bildirisi, TCMB'nin PPK
+       karari). Ikisi ayri seviye ve ayri gosterilmeli -- okur
+       duyurunun kendisine ulasabilmeli.
+
+       Bag baslik benzerligiyle DEGIL olay grubu uzerinden kuruluyor:
+       baslik eslestirmesi olculdu ve %0,6 eslesmeyle curudu. #}
+    {% if olay and olay.birincil %}
+    <p class="birincil-kaynak">
+      Birincil kaynak:
+      <a href="{{ olay.birincil.yol }}">{{ olay.birincil.kurum }}</a>
+      — {{ olay.birincil.baslik }}
+    </p>
+    {% endif %}
     {% endif %}
   </header>
 
@@ -687,7 +702,25 @@
     </p>
     {% endif %}
 
+    {# YABANCI HABERDE GEREKCELI TAKIP LISTESI.
+       "US10Y'yi izleyin" okura bir sey soylemiyor; NEDEN izlendigi
+       soyluyor. Gerekceler YAPISAL: "faiz beklentisini fiyatlar" bir
+       mekanizma, "yukselecek" bir tahmin ve bu sitede yasak. #}
+    {% if dunya_izleme %}
     <h2>Şimdi ne izlenmeli?</h2>
+    <ul class="izleme-neden">
+      {% for i in dunya_izleme %}
+      <li>
+        <span class="izleme-ad">{{ i.ad }}</span>
+        <span class="izleme-gerekce">{{ i.neden }}</span>
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+
+    {% if not dunya_izleme %}
+    <h2>Şimdi ne izlenmeli?</h2>
+    {% endif %}
     <ul class="izleme">
       {% for i in izleme %}
       <li>
@@ -698,7 +731,21 @@
     </ul>
     {% endif %}
 
+    {# ASAMA BASLIGI YALNIZCA ALTINDA ICERIK VARSA.
+       Once kosulsuz basiliyordu ve olculdu: senaryosu olmayan ve
+       senaryo bolumu kapali olan sayfalarda "Görüş / Koşullu
+       değerlendirme — olasılık atanmaz" yaziyor, altinda HICBIR SEY
+       olmuyordu. Okur "burada bir sey mi eksik" diye kaliyor.
+
+       Bos baslik, eksik icerikten kotudur: eksik icerik gorunmez, bos
+       baslik ise bir soz verip tutmamaktir.
+
+       Asama sayaci da bundan etkileniyordu -- basilmayan bolum numara
+       tuketmemeli (bkz. yukaridaki `sayac` notu) ve kosulsuz baslik
+       tam da onu yapiyordu. #}
+    {% if (dosya and dosya.senaryolar) or senaryo_acik %}
     {{ asama("Görüş", "Koşullu değerlendirme — olasılık atanmaz") }}
+    {% endif %}
 
     {# SENARYOLAR -- KOSULLU ve AGIRLIKSIZ.
        Bir senaryoya "%55 olasilik" yazmak, hesaplanmamis bir sayiyi

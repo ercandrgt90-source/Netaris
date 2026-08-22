@@ -175,3 +175,34 @@ def listeden(haberler: list[dict],
             "adres": h["adres"],
         })
     return {a: v for a, v in kova.items() if len(v) >= en_az}
+
+
+#: Birincil (resmi) kaynak sayilan kurumlar.
+#:
+#: Bunlar olayin KENDISINI duyuran taraf: Fed'in FOMC bildirisi,
+#: TCMB'nin PPK karari, TUIK'in TUFE bulteni. Ticari kaynak o duyuruyu
+#: HABER YAPIYOR -- ikisi ayri seviye ve sayfada ayri gosterilmeli.
+RESMI_KURUMLAR = frozenset({"Fed", "ECB", "TCMB", "SEC", "EIA", "TÜİK",
+                            "TUIK", "BLS", "BoJ", "BoE"})
+
+
+def birincil_kaynak(haberler: list[dict]) -> dict | None:
+    """Gruptaki RESMI kayittan ilki -- yoksa None.
+
+    NEDEN GRUP UZERINDEN
+    Ticari haberi resmi belgeye BASLIK BENZERLIGIYLE baglamayi olctum
+    ve curudu: %0,6 eslesme ve iceride yanlislar vardi ("Turkiye Finans
+    Katilim Bankasi" -> "Piyasa Katilimcilari Anketi", ortak govde
+    "katilim"). Turkce ticari baslik ile Ingilizce resmi baslik govde
+    paylasmiyor.
+
+    Olay grubu cok daha saglam bir zemin: ulke + tur + donem uzerinden
+    zaten kumelenmis haberlerin icinde resmi olan varsa, o BU OLAYIN
+    birincil kaynagidir. Baslik benzerligine hic bakilmiyor.
+
+    En eskisi seciliyor: duyuru, onu haber yapan yazilardan once gelir.
+    """
+    resmi = [h for h in haberler if h.get("kurum") in RESMI_KURUMLAR]
+    if not resmi:
+        return None
+    return min(resmi, key=lambda h: h.get("tarih") or "9999")

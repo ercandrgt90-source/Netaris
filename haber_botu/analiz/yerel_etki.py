@@ -107,7 +107,7 @@ def kanal(b: sqlite3.Connection, baslangic: list[str]) -> list[dict] | None:
 
 #: Varlik kodu -> okunur ad. Zincir okura kod degil AD gostermeli.
 AD = {
-    "FED_FAIZ": "Fed politika faizi",
+    "FED_FAIZ": "Fed politika faizi (hedef aralık)",
     "US10Y": "ABD 10 yıllık tahvil getirisi",
     "US2Y": "ABD 2 yıllık tahvil getirisi",
     "DXY": "Dolar endeksi",
