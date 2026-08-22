@@ -5286,3 +5286,14 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
   border-left: 2px solid var(--vurgu);
   line-height: 1.5}
 .birincil-kaynak a { color: var(--vurgu); font-weight: 650}
+
+/* SIFIR DEGISIM NOTR RENKTE.
+   Once `fark >= 0` ile ikiye ayriliyordu ve degismemiş gosterge YESIL
+   goruyordu -- yesil "yukseldi" demek, yani gorunmeyen bir yon iddiasi.
+   Ucuncu durum notr: deger duruyor ama vurgulanmiyor. */
+.tr-degisim.degismedi,
+.piyasa-gun.degismedi,
+.ema-fark.degismedi,
+.kivilcim-degismedi {
+  color: var(--yazi-3);
+}

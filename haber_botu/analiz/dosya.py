@@ -736,7 +736,20 @@ class Gosterge:
 
     @property
     def yon(self) -> str:
-        return "artis" if self.fark >= 0 else "azalis"
+        """Renk sinifi: artis / azalis / DEGISMEDI.
+
+        Once `fark >= 0` ile ikiye ayriliyordu ve SIFIR DEGISIM YESIL
+        gorunuyordu. Yesil "yukseldi" demek; degismemis bir gosterge
+        icin bu bir yon iddiasi ve yanlis.
+
+        Esik yuvarlamayla uyumlu: sayfada iki basamak gosteriliyor,
+        dolayisiyla 0,005'ten kucuk bir fark ekranda zaten "0,00"
+        yaziyor -- ona renk vermek, gorunmeyen bir seyi
+        vurgulamak olurdu.
+        """
+        if abs(self.fark) < 0.005:
+            return "degismedi"
+        return "artis" if self.fark > 0 else "azalis"
 
 
 @dataclass

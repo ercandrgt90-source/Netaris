@@ -41,14 +41,14 @@ Hasılatın yarıya düşmesiyle brüt kâr negatiften hafifçe artarak –0,00�
 | Kalem | Değer |
 | --- | ---: |
 | Hasılat | 0,02 milyar TL |
-| Brüt kâr | -0,00 milyar TL |
+| Brüt kâr | 0,00 milyar TL |
 | Faaliyet kârı | -0,01 milyar TL |
 | FAVÖK | -0,01 milyar TL |
 | Net kâr | -0,01 milyar TL |
 | Özkaynak | 0,06 milyar TL |
 | Aktif toplamı | 0,21 milyar TL |
 | Net borç | -0,01 milyar TL |
-| Faaliyet nakit akışı | -0,00 milyar TL |
+| Faaliyet nakit akışı | 0,00 milyar TL |
 
 ## Sektör içindeki konum
 

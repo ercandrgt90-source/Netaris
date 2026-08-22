@@ -62,7 +62,7 @@ Karşılaştırma Gayrimenkul sektöründeki 34 şirketin **medyanına** göre y
 | Net kâr marjı | %117,2 | %14,3 |
 | Özkaynak kârlılığı | %0,6 | %0,4 |
 | Cari oran | 76,64 | 5,25 |
-| Borç / özkaynak | -0,00 | 0,02 |
+| Borç / özkaynak | 0,00 | 0,02 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

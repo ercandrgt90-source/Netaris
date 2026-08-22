@@ -43,7 +43,7 @@ Hasılatın 1,58 milyar TL'den 1,66 milyar TL'ye yükselmesi brüt kârın 0,32 
 | --- | ---: |
 | Hasılat | 1,66 milyar TL |
 | Brüt kâr | 0,38 milyar TL |
-| Faaliyet kârı | -0,00 milyar TL |
+| Faaliyet kârı | 0,00 milyar TL |
 | FAVÖK | 0,05 milyar TL |
 | Net kâr | -0,03 milyar TL |
 | Özkaynak | 1,51 milyar TL |

@@ -44,7 +44,7 @@ Hasılat 0,02 milyar TL'ye gerilediği halde net kâr –0,00 milyar TL oldu
 | Brüt kâr | -0,01 milyar TL |
 | Faaliyet kârı | -0,01 milyar TL |
 | FAVÖK | 0,00 milyar TL |
-| Net kâr | -0,00 milyar TL |
+| Net kâr | 0,00 milyar TL |
 | Özkaynak | 0,50 milyar TL |
 | Aktif toplamı | 0,76 milyar TL |
 | Net borç | -0,12 milyar TL |

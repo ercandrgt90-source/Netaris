@@ -61,9 +61,29 @@ def bas_harf(metin: str) -> str:
 
 
 def sayi(d: float | None, basamak: int = 1, isaretli: bool = False) -> str:
-    """Ondalik ayraci virgul olan sayi."""
+    """Ondalik ayraci virgul olan sayi.
+
+    NEGATIF SIFIR BASILMIYOR.
+    Olculdu: 13 sayfada "-0,00 milyar TL" yaziyordu. Deger gercekten
+    negatifti (orn. -0,004 milyar) ama iki basamaga yuvarlanınca sifir
+    oldu ve geriye yalnizca isaret kaldi.
+
+    Okur icin "eksi sifir" diye bir buyukluk yok; gordugu sey ya bir
+    yazim hatasi ya da anlamadigi bir gosterim. Isaret, yuvarlamadan
+    SONRA hala bir buyukluk kaliyorsa anlamli.
+
+    Deger buyuklugunu KAYBETMIYORUZ -- zaten yuvarlama onu kaybetti;
+    biz yalnizca yaniltici isareti kaldiriyoruz. Daha fazla hassasiyet
+    gerekiyorsa cagiran taraf `basamak` vermeli.
+    """
     if d is None:
         return "—"
+    # YUVARLANMIS DEGER SIFIRSA ISARET DUSUYOR -- artida da ekside de.
+    #
+    # "+0,00" da "-0,00" kadar yanlis: ikisi de bir yon iddia ediyor
+    # ama gosterdikleri buyukluk sifir. Degisim yoksa isaret de yok.
+    if round(d, basamak) == 0:
+        return f"{0.0:.{basamak}f}".replace(".", ",")
     bicim = f"{d:+.{basamak}f}" if isaretli else f"{d:.{basamak}f}"
     return bicim.replace(".", ",")
 
@@ -83,8 +103,19 @@ def yuzde(d: float | None, isaretli: bool = False, basamak: int = 1) -> str:
         return "—"
     if not isaretli:
         return "%" + sayi(abs(d) if d == 0 else d, basamak)
+    # SIFIR DEGISIMDE ISARET YOK.
+    #
+    # `sayi()` icinde ayni kural var ama `yuzde` isareti KENDI kuruyor
+    # ve o yuzden oradan yararlanmiyordu: "-%0,00" ve "+%0,0" cikiyordu.
+    # Ikisi de bir yon iddia ediyor ama gosterdikleri buyukluk sifir.
+    #
+    # Iki islevde ayni kurali iki kez yazmak yerine `sayi()`nin
+    # ciktisina bakiliyor: sifir dondurduyse isaret basilmiyor.
+    govde = sayi(abs(d), basamak)
+    if float(govde.replace(",", ".")) == 0:
+        return f"%{govde}"
     isaret = "+" if d >= 0 else "-"
-    return f"{isaret}%{sayi(abs(d), basamak)}"
+    return f"{isaret}%{govde}"
 
 
 def kat(d: float | None) -> str:

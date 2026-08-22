@@ -36,7 +36,20 @@ esit(bicim.yuzde(40.0), "%40,0", "yuzde(40.0) -> %40,0")
 esit(bicim.yuzde(9.44), "%9,4", "yuvarlama tek basamak")
 esit(bicim.yuzde(40.0, isaretli=True), "+%40,0", "artili degisim")
 esit(bicim.yuzde(-5.2, isaretli=True), "-%5,2", "eksili degisim -- isaret en basta")
-esit(bicim.yuzde(0.0, isaretli=True), "+%0,0", "sifir artili sayilir")
+# SIFIR DEGISIMDE ISARET YOK.
+#
+# Once "+%0,0" bekleniyordu ve bu, uygulamanin `d >= 0` davranisini
+# kodlamaktan ibaretti -- gerekcesi yazili degildi.
+#
+# "+" bir YON iddiasi; sifir degisimde yon yok. Ayni sekilde "-%0,00"
+# da ciktiyordu (yuvarlanınca sifirlanan negatif degerlerde) ve okur
+# icin "eksi sifir" diye bir buyukluk bulunmuyor. Olculdu: 13 sayfada
+# "-0,00 milyar TL" yaziyordu.
+esit(bicim.yuzde(0.0, isaretli=True), "%0,0", "sifir degisimde ISARET YOK")
+esit(bicim.yuzde(-0.004, isaretli=True, basamak=2), "%0,00",
+     "yuvarlanınca sifirlanan negatif deger isaretsiz")
+esit(bicim.sayi(-0.004, 2, isaretli=True), "0,00",
+     "sayi(): negatif sifir isaretsiz")
 esit(bicim.yuzde(None), "—", "eksik deger tire")
 esit("40,0%" in bicim.yuzde(40.0), False, "Ingilizce bicim URETILMIYOR")
 

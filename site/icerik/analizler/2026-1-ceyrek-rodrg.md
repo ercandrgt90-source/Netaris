@@ -44,8 +44,8 @@ Hasılatın 0,05 milyar TL'den 0,04 milyar TL'ye düşmesi, brüt kârın 0,03 m
 | Hasılat | 0,04 milyar TL |
 | Brüt kâr | 0,02 milyar TL |
 | Faaliyet kârı | -0,01 milyar TL |
-| FAVÖK | -0,00 milyar TL |
-| Net kâr | -0,00 milyar TL |
+| FAVÖK | 0,00 milyar TL |
+| Net kâr | 0,00 milyar TL |
 | Özkaynak | 0,08 milyar TL |
 | Aktif toplamı | 0,17 milyar TL |
 | Net borç | 0,00 milyar TL |

@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat ve brüt kâr aynı seviyede artarak %100 brüt kâr marjını oluşturmuş; bu artış, faaliyet kârı ve FAVÖK'ün de önceki dönemdeki negatif değerlerden %0,94 milyar pozitif seviyeye yükselmesine paralel gerçekleşmiştir. Net kârın %46,9'a çıkan marjı, özkaynak kârlılığının %4,9'a yükselmesiyle birlikte özkaynakların 4,26 milyar TL'ye, aktif toplamının ise 4,34 milyar TL'ye yükselmesinde yansımış; net borç ve faaliyet nakit akışı ise değişmeden kalmıştır. Cari oranın 0,43 ile sektör medyanının 1,25 altında kalması, borç/özkaynak oranının -0,00 ile medyan -0,02'ye yakın seyretmesi, likidite ve finansal yapı açısından faaliyet ve kârlılık artışlarından bağımsız bir durumdur.
+Hasılat ve brüt kâr aynı seviyede artarak %100 brüt kâr marjını oluşturmuş; bu artış, faaliyet kârı ve FAVÖK'ün de önceki dönemdeki negatif değerlerden %0,94 milyar pozitif seviyeye yükselmesine paralel gerçekleşmiştir. Net kârın %46,9'a çıkan marjı, özkaynak kârlılığının %4,9'a yükselmesiyle birlikte özkaynakların 4,26 milyar TL'ye, aktif toplamının ise 4,34 milyar TL'ye yükselmesinde yansımış; net borç ve faaliyet nakit akışı ise değişmeden kalmıştır. Cari oranın 0,43 ile sektör medyanının 1,25 altında kalması, borç/özkaynak oranının 0,00 ile medyan -0,02'ye yakın seyretmesi, likidite ve finansal yapı açısından faaliyet ve kârlılık artışlarından bağımsız bir durumdur.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 
@@ -47,8 +47,8 @@ Hasılat ve brüt kâr aynı seviyede artarak %100 brüt kâr marjını oluştur
 | Net kâr | 0,35 milyar TL |
 | Özkaynak | 4,26 milyar TL |
 | Aktif toplamı | 4,34 milyar TL |
-| Net borç | -0,00 milyar TL |
-| Faaliyet nakit akışı | -0,00 milyar TL |
+| Net borç | 0,00 milyar TL |
+| Faaliyet nakit akışı | 0,00 milyar TL |
 
 ## Sektör içindeki konum
 
@@ -60,7 +60,7 @@ Karşılaştırma Bilişim sektöründeki 18 şirketin **medyanına** göre yap�
 | Net kâr marjı | %46,9 | -%0,2 |
 | Özkaynak kârlılığı | %4,9 | %2,1 |
 | Cari oran | 0,43 | 1,25 |
-| Borç / özkaynak | -0,00 | -0,02 |
+| Borç / özkaynak | 0,00 | -0,02 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

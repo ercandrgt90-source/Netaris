@@ -42,7 +42,7 @@ Hasılatın düşmesiyle birlikte brüt kâr negatiften hafiflemiş, bu da brüt
 | Kalem | Değer |
 | --- | ---: |
 | Hasılat | 0,05 milyar TL |
-| Brüt kâr | -0,00 milyar TL |
+| Brüt kâr | 0,00 milyar TL |
 | Faaliyet kârı | -0,01 milyar TL |
 | FAVÖK | 0,03 milyar TL |
 | Net kâr | -0,05 milyar TL |

@@ -49,7 +49,7 @@ Hasılatın %22,7 brüt kâr marjı ile birlikte yükselmesi brüt kârın 0,19 
 | Özkaynak | 1,61 milyar TL |
 | Aktif toplamı | 2,72 milyar TL |
 | Net borç | 0,47 milyar TL |
-| Faaliyet nakit akışı | -0,00 milyar TL |
+| Faaliyet nakit akışı | 0,00 milyar TL |
 | Yatırım harcaması | 0,01 milyar TL |
 
 ## Sektör içindeki konum
