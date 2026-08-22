@@ -5030,12 +5030,21 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
         Sinif adiyla degil YAPIYLA: `grid-template-columns` tasiyan
         her kap dar ekranda tek kolon. Bilesen ozel kurali varsa o
         ezer -- taban yalnizca varsayilani duzeltiyor. */
+  /* UC AD BURADAN CIKARILDI -- IZGARA DEGILLERDI.
+     `.duyarlilik` bir <table> (`border-collapse` tasiyor),
+     `.etki-alan` ve `.seyir` ise `display: flex`. Uculle de
+     `grid-template-columns` HICBIR SEY YAPMIYORDU.
+
+     Kural "sinif adiyla degil YAPIYLA" diyordu ama liste elle
+     tutulan sinif adlariydi ve zamanla kaydi. Olu bildirim zararsiz
+     gorunur; zarari, sonraki okuyucunun o uc ogeyi izgara sanmasi.
+
+     Yerlerine ne kondu: tablo icin `table { display: block;
+     overflow-x: auto }` zaten yukarida var; `.etki-alan` `flex-wrap`
+     ile kendiliğinden sariyor; `.seyir` zaten dikey. */
   .tr-izgara,
   .od-izgara,
   .kriter,
-  .duyarlilik,
-  .etki-alan,
-  .seyir,
   .renk-izgara,
   .arastirma-izgara,
   .tasarim-olcum { grid-template-columns: 1fr; }

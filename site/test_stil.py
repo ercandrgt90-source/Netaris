@@ -138,5 +138,67 @@ for kaynak, beklenen, aciklama in ORNEK:
     bulundu = any(_tek_degerli(m.group(1)) for m in _MARGIN.finditer(kaynak))
     esit(bulundu, beklenen, aciklama)
 
+
+# --------------------------------------------------------------------
+# IZGARA IZI, IZGARA OLMAYAN OGEYE YAZILMIS OLMASIN.
+#
+# Olculdu (2026-08-23): uc sinif `grid-template-columns` aliyordu ama
+# hicbiri izgara degildi:
+#
+#     .duyarlilik   bir <table>  (border-collapse)
+#     .etki-alan    display: flex
+#     .seyir        display: flex
+#
+# Uculle de bildirim HICBIR SEY YAPMIYORDU. Ucu de "dar ekranda tek
+# kolona insin" diye yazilmis bir kuralin icindeydi -- yani amaclanan
+# davranis hic gerceklesmemisti.
+#
+# Kuralin basinda "sinif adiyla degil YAPIYLA" yaziyordu; liste ise
+# elle tutulan sinif adlariydi. Niyet dogru, uygulama kaymisti.
+#
+# Olu bildirim zararsiz gorunur. Zarari, sonraki okuyucunun o ogeleri
+# izgara sanmasi ve uzerlerine izgara kurallari yazmasi -- onlar da
+# sessizce hicbir sey yapar.
+# --------------------------------------------------------------------
+print()
+print("Izgara izleri yalnizca izgaralara yaziliyor")
+
+_kod = re.sub(r"/\*.*?\*/", "", _CSS.read_text(encoding="utf-8"), flags=re.S)
+
+
+def _anahtar(sec: str) -> str:
+    """Secicinin SON sinifi.
+
+    `.haber:not(:has(.haber-gorsel))` ile `.haber` ayni ogedir; sozde
+    siniflar ayiklanmazsa ikincisi "izgara degil" sanilirdi.
+    """
+    sec = re.sub(r"::?[a-z-]+(\([^()]*\))?", "", sec)
+    k = re.findall(r"\.([A-Za-z0-9_-]+)", sec)
+    return k[-1] if k else ""
+
+
+_izgara: set = set()
+_izli: dict = {}
+for _sec, _govde in re.findall(r"([^{}]+)\{([^{}]*)\}", _kod):
+    if "@" in _sec:
+        continue
+    _ig = re.search(r"display\s*:\s*(inline-)?grid", _govde)
+    _st = re.search(r"grid-template-(columns|rows|areas)\s*:", _govde)
+    for _s in _sec.split(","):
+        _a = _anahtar(_s.strip())
+        if not _a:
+            continue
+        if _ig:
+            _izgara.add(_a)
+        if _st:
+            _izli.setdefault(_a, " ".join(_s.split()))
+
+esit(sorted(a for a in _izli if a not in _izgara), [],
+     "izgara izi tasiyan her sinif display:grid de tanimliyor")
+
+# Tarama gercekten goruyor mu -- sessizce bos donmesin.
+esit(len(_izli) > 20, True,
+     f"tarama izgara buluyor ({len(_izli)} sinif)")
+
 print(f"\n{_gecti} gecti, {_kaldi} kaldi")
 sys.exit(1 if _kaldi else 0)
