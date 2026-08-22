@@ -5322,3 +5322,75 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
 .kivilcim-degismedi {
   color: var(--yazi-3);
 }
+
+/* ====================================================================
+   CANLI AKIS -- KATMAN GORUNUR
+   --------------------------------------------------------------------
+   Akista uc katman zaten hesaplaniyor (`analiz/onem.py`) ama satira
+   yazilmadigi icin 68 kalem ayni agirlikta gorunuyordu. Editoryal
+   geri bildirim bunu "cop kutusu" diye tarif etti ve tespit yerindeydi:
+   veri vardi, GORUNMUYORDU.
+
+   Akis SUZULMUYOR -- o bir kayit, secim degil. Duzeltilen sey
+   siralama degil gorunurluk: onemli olan goze carpiyor, kayit
+   eksiksiz kaliyor.
+   ================================================================== */
+
+.akis-onemli {
+  border-left: 3px solid var(--vurgu);
+  padding-left: var(--b-3);
+}
+.akis-onemli .akis-baslik {
+  font-weight: 700;
+  color: var(--yazi);
+}
+
+.akis-normal .akis-baslik { font-weight: 600; }
+
+/* En alt katman soluk: okur goz gezdirirken onemli olanlara takilsin.
+   Silinmiyor, YALNIZCA one cikmiyor. */
+.akis-akis .akis-baslik {
+  font-weight: 500;
+  color: var(--yazi-2);
+}
+
+/* ====================================================================
+   MOBILDE AKIS KISALTILIYOR -- ama KESILMIYOR
+   --------------------------------------------------------------------
+   Editoryal geri bildirim: "mobilde 40 haberin hepsini pes pese
+   koymak yanlis; ilk 5, sonra 'tumunu gor'."
+
+   Tespit dogru, ama cozumu JS ile yapmak yanlis olurdu: betik
+   calismadiginda akis ya tamamen gizli kalir ya tamami acilir.
+
+   `details/summary` YERINE saf CSS: ilk sekiz kalem gorunuyor,
+   kalani gizli ve altta bir baglanti duruyor. Gizlenen kalemler
+   DOM'da kaliyor -- arama motoru ve ekran okuyucu icin kayip yok,
+   yalnizca ilk ekranda yer kaplamiyorlar.
+
+   Sekiz, bes degil: bes kalem tek bir gelismenin farkli
+   basliklariyla dolabiliyor ve okur "akis" hissini kaybediyor.
+   ================================================================== */
+
+@media (max-width: 640px) {
+  .akis-liste > li:nth-child(n + 9) { display: none; }
+
+  /* Akisin devami ayri sayfada; gizlenen kalemler oraya gidiyor.
+     "Daha fazla goster" gibi bir betik dugmesi degil, GERCEK
+     baglanti: betiksiz de calisiyor. */
+  .masa-akis .akis-devam {
+    display: block;
+    margin: var(--b-3) 0 0;
+    padding: var(--b-3);
+    text-align: center;
+    border: 1px solid var(--cizgi);
+    border-radius: var(--r-kucuk);
+    font-size: var(--p-s);
+    font-weight: 650;
+    color: var(--vurgu);
+    text-decoration: none;
+  }
+}
+
+/* Masaustunde gizleme YOK; baglanti da gereksiz. */
+.masa-akis .akis-devam { display: none; }

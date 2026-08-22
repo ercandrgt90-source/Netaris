@@ -323,7 +323,23 @@
     </div>
     <ol class="akis-liste">
       {% for h in akis %}
-      <li class="tur-{{ h | kart_turu }}">
+      {# KATMAN SINIFI SATIRA YAZILIYOR.
+         Editoryal geri bildirim: "canli akis cop kutusuna donusmemeli,
+         40 rastgele gelisme yan yana duruyor."
+
+         Tespit kismen dogruydu. Akista ZATEN uc katman var (`akis`,
+         `normal`, `onemli` -- `analiz/onem.py`) ama sinif satira
+         yazilmadigi icin hepsi ayni agirlikta gorunuyordu. Veri
+         vardi, GORUNMUYORDU.
+
+         Akisi FILTRELEMIYORUZ ve bu bilincli: akis bir KAYIT, secim
+         degil (bkz. `insa.canli_akis`). Okur "bir sey oldu mu"
+         sorusunun cevabini burada buluyor; suzulmus bir akis o soruyu
+         cevaplayamaz. Seçim zaten "Bugunun onemli gelismeleri"nde.
+
+         Yapilan sey siralamayi degil GORUNURLUGU duzeltmek: onemli
+         olan goze carpiyor, akis eksiksiz kaliyor. #}
+      <li class="tur-{{ h | kart_turu }} akis-{{ h.katman | default('akis') }}">
         {# KUCUK GORSEL -- 96 piksellik ayri dosya.
            Havuzdaki gorsel haber sutunu genisliginde (800px, ~165 KB);
            kirk satirda onu kullanmak okura ~6 MB indirtirdi. Kucuk
@@ -386,9 +402,11 @@
       </li>
       {% endfor %}
     </ol>
-    <p class="kaynak-not">
-      <a href="/gundem/">Tüm gelişmeler →</a>
-    </p>
+    {# MOBILDE KISALTILAN AKISIN DEVAMI.
+       Baglanti HER ZAMAN basiliyor; masaustunde CSS gizliyor.
+       Betikle degil CSS ile: JS calismadiginda da akis okunur
+       kalmali. #}
+    <a class="akis-devam" href="/gundem/">Tüm canlı akışı gör →</a>
   </aside>
   {% endif %}
 </div>

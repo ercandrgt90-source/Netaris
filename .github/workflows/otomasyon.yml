@@ -209,6 +209,26 @@ jobs:
         if: always()
         run: python haber_botu/yorum_denetimi.py
 
+      # GIZLILIK BEYANI ILE GERCEK DAVRANIS AYRISMASIN.
+      #
+      # Gizlilik metni "cerez yok, analitik yok, uyelik yok" diyordu ve
+      # ucu de artik dogru degildi: Google girisi, uye paneli, oturum
+      # cerezi ve Cloudflare Web Analytics eklendi.
+      #
+      # Metnin KENDI ICINDE su uyari vardi: "bir hizmet eklendiginde bu
+      # sayfa EKLEMEDEN ONCE guncellenmelidir." Uyari yazilmisti ama
+      # uygulanmadi -- ozelligi ekleyen sayfaya bakmadi.
+      #
+      # Bir uyari, kontrol edilmedigi surece yalnizca iyi niyet
+      # beyanidir. Bu adim onu kontrol edilebilir hale getiriyor: beyan
+      # ile gercek ayrisirsa kosu KIRILIR.
+      #
+      # Bu bir uyum meselesi, kozmetik degil: yanlis gizlilik beyani
+      # KVKK acisindan da kurumsal guven acisindan da sorun.
+      - name: Gizlilik beyanı gerçekle uyuşuyor mu
+        if: always()
+        run: python haber_botu/beyan_denetimi.py
+
       - name: Biriken veriyi geri yaz
         # Beynin gecmisi, ceviri onbellegi, indirilen fotograflar ve
         # uretilen icerik depoya geri yazilir. Boylece bir sonraki
