@@ -49,12 +49,12 @@
     {
       "kod": "NASDAQCOM",
       "ad": "NASDAQ",
-      "deger": "26.067",
-      "fark": "-%1,00",
-      "yon": "azalis",
-      "tarih": "2026-08-20",
+      "deger": "26.180",
+      "fark": "+%0,43",
+      "yon": "artis",
+      "tarih": "2026-08-21",
       "birim": "endeks",
-      "gun": 1,
+      "gun": 0,
       "bayat": false
     },
     {
@@ -178,12 +178,12 @@
         {
           "kod": "NASDAQCOM",
           "ad": "Nasdaq",
-          "deger": "26.067",
-          "fark": "-%1,00",
-          "yon": "azalis",
-          "tarih": "2026-08-20",
+          "deger": "26.180",
+          "fark": "+%0,43",
+          "yon": "artis",
+          "tarih": "2026-08-21",
           "birim": "endeks",
-          "gun": 1,
+          "gun": 0,
           "bayat": false
         },
         {
