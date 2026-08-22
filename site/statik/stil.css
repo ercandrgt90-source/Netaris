@@ -2254,6 +2254,27 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
   grid-column: 1 / -1;
   font-size: var(--p-s); color: var(--yazi-2); line-height: 1.5}
 .bag-dayanak {
+  /* SATIR ACIKCA YAZILIYOR -- yoksa ucuncu satira dusuyordu.
+     -------------------------------------------------------
+     Izgara `1fr auto` ve kaynak sirasi: cumle, neden, dayanak.
+     Otomatik yerlestirmede imlec GERI GITMEZ:
+
+         cumle   -> satir 1, sutun 1
+         neden   -> `1 / -1` kapsiyor, satir 1'e sigmaz -> satir 2
+         dayanak -> imlec satir 2'nin sonunda -> SATIR 3, sutun 1
+
+     Yani ikinci sutun HICBIR ZAMAN dolmuyordu; `auto` izi sifire
+     coküyor ve `1fr auto` tanimi bir ise yaramiyordu. 126 varlik
+     sayfasinda blok tek sutun gibi diziliyordu.
+
+     Hata gorunmuyordu: yigin halinde de okunakli cikiyor. Yalnizca
+     tasarlanan duzen degildi.
+
+     Ayni satir `max-width: 560px` kuralinda ZATEN vardi -- yani dogru
+     davranis yalnizca telefonda tanimliydi. (Bugun `.hero-butonlar`
+     ile birebir ayni sey: karar mobil kuralda kalmis.) */
+  grid-row: 1;
+  justify-self: end;
   font-size: var(--p-xs); font-weight: 700; letter-spacing: 0.02em;
   color: var(--yazi-3); text-transform: uppercase; white-space: nowrap}
 
