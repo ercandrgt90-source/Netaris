@@ -246,11 +246,27 @@ def css_kucult(dosya: pathlib.Path) -> None:
 #: yonlendiriliyor; ust alan adi `workers.dev` de ayni sekilde
 #: engelli, yani icerigimizle ilgisi olmayan bir KATEGORI engeli).
 #:
-#: Alan adi baglandiginda tek is: `NETARIS_ADRES` degiskenini kurmak
-#: ya da asagidaki varsayilani degistirmek. Sonunda egik cizgi
-#: OLMAYACAK.
+#: ALAN ADI BAGLANDI, VARSAYILAN GUNCELLENDI.
+#:
+#: Yukaridaki not "alan adi baglandiginda tek is bu" diyordu ve o adim
+#: ATLANMISTI. Olculdu (2026-08-23): sitedeki HER SAYFANIN canonical,
+#: og:url ve og:image adresi `workers.dev`i gosteriyordu -- 1.713
+#: adres.
+#:
+#: Sonuclari:
+#:   * Google netaris.net'i degil workers.dev'i asil adres sayiyordu;
+#:     alan adina yazilan hicbir SEO degeri birikmiyordu.
+#:   * Paylasilan her baglanti workers.dev acaiyordu.
+#:   * Ve o alan adi bazi aglarda ENGELLI (bkz. yukaridaki not) --
+#:     yani erisilemeyen bir adresi asil adres ilan ediyorduk.
+#:
+#: Hicbir hata gorunmuyordu: sayfalar uretiliyor, adresler gecerli,
+#: site calisiyordu. Yalnizca YANLIS ALAN ADINI gosteriyordu.
+#:
+#: `NETARIS_ADRES` hala okunuyor -- onizleme dagitimlarinda baska bir
+#: adres verilebilsin diye. Sonunda egik cizgi OLMAYACAK.
 TABAN_ADRES = os.environ.get(
-    "NETARIS_ADRES", "https://netaris.ercandrgt90.workers.dev").rstrip("/")
+    "NETARIS_ADRES", "https://netaris.net").rstrip("/")
 
 SITE = {
     "ad": "Netaris",

@@ -43,7 +43,10 @@ BEKLEME_SN = 8
 
 KOK = pathlib.Path(__file__).parent
 CIKTI = KOK / "cikti"
-VARSAYILAN = "https://netaris.ercandrgt90.workers.dev"
+# ALAN ADI: `insa.TABAN_ADRES` ile AYNI olmali. Ikisi ayrisirsa
+# dogrulama baska bir siteyi kontrol eder ve "her sey yolunda"
+# der -- yayimlanan sayfalara hic bakmadan.
+VARSAYILAN = "https://netaris.net"
 
 def yollari_bul() -> list[tuple[str, str]]:
     """Kontrol edilecek yollari CIKTI klasorunden turetir.

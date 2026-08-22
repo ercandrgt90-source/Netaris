@@ -248,6 +248,35 @@ def main() -> int:
     ok, _ = _calistir("Site üretimi", [str(SITE / "insa.py")])
     sonuclar["Site üretimi"] = ok
 
+    # YORUM DENETIMI DAGITIMDAN ONCE -- oncesinde SONRASINDAYDI.
+    #
+    # `yorum_denetimi.py` is akisinda dagitimin ARDINDAN kosuyordu:
+    # icerik once yayina cikiyor, sonra CI kirmiziya donuyordu. Ve
+    # `--temizle` bilincli olarak otomatik degil ("kosunun sessizce
+    # icerik silmesi istenmiyor"), yani duzeltme elle yapilmali.
+    #
+    # Olculdu (2026-08-23): 8 ihlal YAYINDA duruyordu. Denetim
+    # calisiyordu, yakaliyordu, CI kirmiziya donuyordu -- ama kimse
+    # elle temizlemedigi icin sayfalarda kaliyordu.
+    #
+    # Yani koruma KAPIDAN SONRA duruyordu. Simdi once kosuyor:
+    # dogrulanamayan sayi tasiyan bir yorum varsa DAGITIM YAPILMIYOR.
+    #
+    # `--temizle` hala otomatik DEGIL: karar bilincli kalsin. Fark su
+    # ki artik o karar verilene kadar eski site ayakta kaliyor --
+    # dogrulanamayan sayi yayina hic cikmiyor.
+    if ok:
+        yd, _ = _calistir("Yorum sayıları sayfada mı",
+                          [str(BOT / "yorum_denetimi.py")])
+        sonuclar["Yorum denetimi"] = yd
+        if not yd:
+            print()
+            print("  YORUM DENETIMI HATA VERDI -- dagitim YAPILMADI.")
+            print("  Duzeltmek icin: python haber_botu/yorum_denetimi.py --temizle")
+            print("  Silinen yorum, sonraki uretimde duzeltilmis "
+                  "girdiyle yeniden yazilir.")
+            ok = False
+
     if args.yayinla and ok:
         y, _ = _calistir("Cloudflare dağıtımı", [str(SITE / "yayinla.py")])
         sonuclar["Dağıtım"] = y

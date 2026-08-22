@@ -45,7 +45,10 @@ import guvenlik  # noqa: E402
 import prompt  # noqa: E402
 import yayin  # noqa: E402
 
-TABAN = os.environ.get("NETARIS_TABAN", "https://netaris.ercandrgt90.workers.dev")
+# `insa.TABAN_ADRES` ile ayni alan adi. Uye yazisi icindeki
+# baglantilar buradan kuruluyor; ayrisirsa yazi kendi sitesinin
+# disina baglanir.
+TABAN = os.environ.get("NETARIS_TABAN", "https://netaris.net")
 HEDEF = _KOK.parent / "site" / "icerik" / "analizler"
 
 ZAMAN_ASIMI = 45.0

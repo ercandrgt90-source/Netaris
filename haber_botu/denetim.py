@@ -50,6 +50,24 @@ import re
 import sys
 from dataclasses import dataclass
 
+# CIKTI UTF-8'E ZORLANIYOR -- denetim Windows'ta COKUYORDU.
+#
+# Rapordaki durum simgeleri emoji ve Windows konsolunun varsayilan
+# kod sayfasi (cp1254) onlari basamiyor:
+#
+#     UnicodeEncodeError: 'charmap' codec can't encode '🟡'
+#
+# Coku raporun EN SONUNDA, "GENEL DURUM" satirinda oluyordu: butun
+# bulgular basiliyor, sonra betik dusuyordu. Yani denetim calisiyor
+# ama SONUCUNU soylemeden oluyordu -- ve cikis kodu da yayin
+# kararini tasidigi icin karar hic verilmemis oluyordu.
+#
+# CI (Linux, UTF-8) etkilenmiyordu; sorun yalnizca yerelde goruluyor
+# ve tam da bu yuzden fark edilmemisti.
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+
 _KOK = pathlib.Path(__file__).resolve().parent
 sys.path[:0] = [str(_KOK), str(_KOK / "kaynak"), str(_KOK / "analiz")]
 
