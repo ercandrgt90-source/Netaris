@@ -121,6 +121,65 @@ console.log("\nAcik yonlendirme -- dis adres REDDEDILIYOR\n");
   esit(D.hedef(), "/panel/", "protokol-goreli donus varsayilana dusuyor");
 }
 
+
+/* ------------------------------------------------------------------
+   CAPA SAKLAMA -- e-posta dogrulamasi araya girdiginde.
+   ------------------------------------------------------------------
+   Giris sonrasi donus adresi korunuyor, ama YENI UYE yolunda arada
+   e-posta dogrulamasi var:
+
+       /panel/?senaryo=...  ->  /giris/  ->  kayit
+         ->  e-posta  ->  /giris/?durum=dogrulandi  ->  /panel/
+
+   O son adimda adres worker'dan geliyor ve capayi TASIYAMIYOR --
+   dogrulama baglantisi e-postanin icinde, sorgu ekleyecek yer yok.
+   Yeni uye, yani buyume icin en onemli kisi, yine bos panele
+   dusuyordu.
+
+   Burada `uyelik.js`in tamami degil, ayni saklama mantigi siniyor:
+   panel betigi bir DOM istiyor ve onu taklit etmek sinamayi
+   kirilgan yapardi. Sinanan sey KURAL: sure siniri ve depolama
+   erisiminin hata firlatabilmesi.
+   ------------------------------------------------------------------ */
+console.log("\nCapa saklama kurallari\n");
+{
+  const OMUR = 2 * 60 * 60 * 1000;
+
+  function tazeMi(kayit, simdi) {
+    if (!kayit || !kayit.capa) return false;
+    return simdi - kayit.an <= OMUR;
+  }
+
+  const simdi = 1_700_000_000_000;
+  esit(tazeMi({ capa: "/haber/x/", an: simdi - 60_000 }, simdi), true,
+       "bir dakika onceki capa TAZE");
+  esit(tazeMi({ capa: "/haber/x/", an: simdi - 90 * 60_000 }, simdi), true,
+       "bir bucuk saat onceki capa hala taze (e-posta dogrulamasi icin)");
+  /* SURE SINIRI GEREKLI: eski bir capa gunler sonra devreye girerse
+     okurun senaryosu ALAKASIZ bir habere baglanir ve okur bunu
+     gonderdikten SONRA fark eder. */
+  esit(tazeMi({ capa: "/haber/x/", an: simdi - 3 * 60 * 60_000 }, simdi), false,
+       "uc saat onceki capa BAYAT -- kullanilmiyor");
+  esit(tazeMi(null, simdi), false, "kayit yoksa taze degil");
+  esit(tazeMi({ capa: "", an: simdi }, simdi), false, "bos capa taze degil");
+}
+{
+  /* DEPOLAMA HATA FIRLATABILIR. Gizli sekmede ve depolamayi engelleyen
+     tarayicilarda `sessionStorage` erisimi HATA veriyor; yakalanmazsa
+     butun panel betigi duserdi -- yani senaryo formu hic acilmazdi.
+
+     Kaynakta her uc islev de try/catch icinde; burada o siniriliyor. */
+  const kaynak = fs.readFileSync(
+    path.join(__dirname, "statik", "uyelik.js"), "utf8");
+  for (const ad of ["capaSakla", "capaOku", "capaSil"]) {
+    const i = kaynak.indexOf("function " + ad);
+    esit(i !== -1, true, ad + " tanimli");
+    const govde = kaynak.slice(i, i + 600);
+    esit(govde.indexOf("try") !== -1 && govde.indexOf("catch") !== -1, true,
+         ad + " depolama erisimini TRY/CATCH icinde yapiyor");
+  }
+}
+
 console.log("");
 if (kaldi.length) {
   console.log(kaldi.length + " TEST KALDI, " + gecti + " gecti");

@@ -336,6 +336,57 @@
     hataGoster($("[data-hata]", senForm), "");
   }
 
+  /* CAPA TARAYICIDA DA SAKLANIYOR -- e-posta dogrulamasi araya
+     giriyor.
+     -------------------------------------------------------------
+     Giris sonrasi donus adresi `donus.js` ile korunuyor, ama YENI
+     UYE yolunda arada e-posta dogrulamasi var:
+
+         /panel/?senaryo=...  ->  /giris/  ->  kayit
+           ->  e-posta  ->  /giris/?durum=dogrulandi  ->  /panel/
+
+     O son adimda adres worker'dan geliyor ve capayi TASIYAMIYOR --
+     dogrulama baglantisi e-postanin icinde, sorgu ekleyecek yer yok.
+     Sonuc: yeni uye -- yani buyume icin en onemli kisi -- yine bos
+     panele dusuyordu.
+
+     Capa ilk gorulduğunde saklaniyor, panelde adres bossa oradan
+     okunuyor.
+
+     SURE SINIRI VAR ve gerekli: eski bir capa gunler sonra devreye
+     girerse okurun senaryosu ALAKASIZ bir habere baglanir. Iki saat,
+     e-posta dogrulamasi icin fazlasiyla yeterli.
+
+     Depolama try/catch icinde: gizli sekmede ve depolamayi engelleyen
+     tarayicilarda `sessionStorage` erisimi HATA FIRLATIYOR ve
+     yakalanmazsa butun panel betigi duserdi. */
+  var CAPA_ANAHTAR = "netaris-capa";
+  var CAPA_OMUR = 2 * 60 * 60 * 1000;   // iki saat
+
+  function capaSakla(capa, baslik) {
+    try {
+      sessionStorage.setItem(CAPA_ANAHTAR, JSON.stringify(
+        { capa: capa, baslik: baslik, an: Date.now() }));
+    } catch (e) { /* depolama yoksa adres zaten calisiyor */ }
+  }
+
+  function capaOku() {
+    try {
+      var ham = sessionStorage.getItem(CAPA_ANAHTAR);
+      if (!ham) return null;
+      var v = JSON.parse(ham);
+      if (!v || !v.capa || Date.now() - v.an > CAPA_OMUR) {
+        sessionStorage.removeItem(CAPA_ANAHTAR);
+        return null;
+      }
+      return v;
+    } catch (e) { return null; }
+  }
+
+  function capaSil() {
+    try { sessionStorage.removeItem(CAPA_ANAHTAR); } catch (e) { /* yok */ }
+  }
+
   /* Capa (hangi habere yazildigi) ADRESTEN geliyor:
      /panel/?senaryo=/haber/xxx/&baslik=...
      Haber sayfasindaki "Senaryo yaz" dugmesi boyle baglaniyor. Okur
@@ -345,6 +396,17 @@
     var p = new URLSearchParams(location.search);
     var capa = p.get("senaryo") || "";
     var baslik = p.get("baslik") || "";
+    if (capa) {
+      capaSakla(capa, baslik);
+    } else {
+      /* Adreste yoksa saklanandan devam: e-posta dogrulamasindan
+         donen okur capasini kaybetmiyor. */
+      var saklanan = capaOku();
+      if (saklanan) {
+        capa = saklanan.capa;
+        baslik = saklanan.baslik || "";
+      }
+    }
     var not = $("[data-capa-not]");
     if (capa) {
       senForm.capa.value = capa;
@@ -545,6 +607,10 @@
       }).then(function (y) {
         dugmeKilit(senForm, false);
         if (!y.tamam) { hataGoster(h, y.veri.hata || "Kaydedilemedi."); return; }
+        /* SAKLANAN CAPA SILINIYOR. Yoksa ayni oturumda yazilan IKINCI
+           senaryo, sessizce ilk haberin capasini alirdi -- ve okur bunu
+           gonderdikten sonra fark ederdi. */
+        capaSil();
         senaryoTemizle();
         sekmeGec("senaryolarim");
         senaryoYukle();
