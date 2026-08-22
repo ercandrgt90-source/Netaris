@@ -1260,16 +1260,49 @@ def yaz(goreli: str, icerik: str) -> pathlib.Path:
     return hedef
 
 
-def arama_dizini(analizler: list[Analiz]) -> str:
+def arama_dizini(analizler: list[Analiz],
+                 haberler: list[dict] | None = None) -> str:
     """Istemci tarafi arama icin dizin.
 
     Sunucusuz bir sitede arama iki yolla yapilir: ucuncu parti arama
     hizmeti (harici istek, gizlilik yuku) ya da tarayicida calisan kucuk
-    bir dizin. Ikincisi secildi -- 6 yazi icin dizin birkac kilobayt, ve
-    hicbir sey disariya gitmiyor.
+    bir dizin. Ikincisi secildi -- hicbir sey disariya gitmiyor.
+
+    HABERLER DE DIZINE GIRIYOR -- girmiyorlardi.
+    -------------------------------------------
+    Olculdu: dizinde 183 kayit vardi ve hepsi arastirmaydi. Sitenin
+    1.251 HABER SAYFASI HIC ARANAMIYORDU. "Fed" arayan okur, Fed
+    hakkinda 384 haber varken bos ekran goruyordu.
+
+    Bu, eksik ozellik degil SESSIZ BIR BOSLUKTU: arama kutusu vardi,
+    calisiyordu ve hicbir hata vermiyordu -- yalnizca icerigin dortte
+    ucunu gormuyordu.
+
+    ESLESME METNI ISTEMCIDE KURULUYOR
+    ---------------------------------
+    Once her kayitta hazir bir `a` alani vardi: baslik + ozet + konu,
+    diakritiksiz. Haberler eklenince dizin 903 KB'a cikti ve o alanin
+    neredeyse tamami AYNI KAYDIN diger alanlarinin kopyasiydi.
+
+    `ara.js` icindeki `KATLAMA` tablosu ile buradaki `_SLUG_ESLEME`
+    BIREBIR AYNI, yani istemci ayni metni kendisi uretebiliyor.
+    Alan cikarilinca dizin ucte bir kuculdu.
+
+    Iki tablonun ayrisma riski var ve bu gercek: birini duzeltip
+    digerini unutmak bu depoda birkac kez yasandi. Bu yuzden
+    `test_arama.py` ikisinin ayni oldugunu SINIYOR -- ayrisirsa
+    "hurmuz" yazan okur "Hürmüz"u bulamaz ve hicbir hata gorunmez.
+
+    HABER KAYDI DAHA YALIN
+    ----------------------
+    Dizin `/ara/` sayfasi acilinca indiriliyor (her sayfada degil), ama
+    yine de gereksiz alan tasimasin: haberde `kod`, `sirket` ve okuma
+    suresi yok. Eslesme metnine ozet DE giriyor, cunku okurun aradigi
+    kelime cogu zaman baslikta degil.
     """
     kayitlar = [
         {
+            "tur": "arastirma",
             "b": a.baslik,
             "o": a.ozet,
             "y": a.yol,
@@ -1278,11 +1311,25 @@ def arama_dizini(analizler: list[Analiz]) -> str:
             "s": a.sirket,
             "t": a.tarih_tr,
             "d": a.okuma_dk,
-            # Aramada eslesecek metin: diakritiksiz ve kucuk harfli
-            "a": _ara_metni(f"{a.baslik} {a.ozet} {a.sirket} {a.kod} {a.kategori}"),
         }
         for a in analizler
     ]
+    for h in (haberler or []):
+        # SAYFASI OLMAYAN HABER DIZINE GIRMEZ: arama sonucu tiklanamayan
+        # bir satir olurdu.
+        if not h.get("yol"):
+            continue
+        ozet = (h.get("neden_onemli") or h.get("ozet") or "")[:180]
+        kayitlar.append({
+            "tur": "haber",
+            "b": h.get("baslik", ""),
+            "o": ozet,
+            "y": h["yol"],
+            "k": h.get("konu", ""),
+            "t": h.get("tarih_gorunur") or h.get("tarih", ""),
+            # Kurum aranabilir olmali ama kartta gorunmuyor: ayri alan.
+            "kr": h.get("kurum", ""),
+        })
     return json.dumps(kayitlar, ensure_ascii=False, separators=(",", ":"))
 
 
@@ -4241,7 +4288,7 @@ def insa() -> int:
 
 
     # Arama: dizin + sayfa
-    yaz("/arama.json", arama_dizini(listelenen))
+    yaz("/arama.json", arama_dizini(listelenen, uretilecek))
     yaz(
         "/ara/index.html",
         ortam.get_template("ara.html").render(**ortak, yol="/ara/"),

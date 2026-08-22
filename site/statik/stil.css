@@ -1202,6 +1202,34 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
 
 .ara-sonuc { margin: var(--b-6)}
 
+/* Arama sonuclarinda TUR BASLIGI.
+ *
+ * Dizine haberler eklenince tek duz liste yetersiz kaldi: "Fed"
+ * aramasi 384 haberi ve 12 arastirmayi ayni yiginda donduruyordu ve
+ * arastirmalar haber sayisinin altinda kayboluyordu.
+ *
+ * Baslik `<li>` icinde cunku kapsayici bir liste; DOM'u bozmadan
+ * bolum ayirmanin dogru yolu bu. */
+.ara-grup {
+  margin: var(--b-6) 0 var(--b-3);
+  list-style: none}
+.ara-grup:first-child { margin-top: 0}
+.ara-grup h2 {
+  display: flex; align-items: center; gap: var(--b-2);
+  margin: 0; padding-bottom: var(--b-2);
+  font-size: var(--p-s); font-weight: 650;
+  letter-spacing: 0.04em; text-transform: uppercase;
+  color: var(--yazi-3);
+  border-bottom: 1px solid var(--cizgi)}
+.ara-grup-say {
+  padding: 2px var(--b-2);
+  font-size: var(--p-xs); font-weight: 600;
+  letter-spacing: 0;
+  color: var(--yazi-2);
+  background: var(--panel);
+  border-radius: 999px;
+  font-variant-numeric: tabular-nums}
+
 .ara-kart {
   display: flex;
   flex-direction: column;

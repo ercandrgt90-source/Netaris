@@ -65,16 +65,44 @@
    ciktisini tanimlandigi yere basar ve yol, sayfaya metin olarak
    sizardi. Tek yerde durmasi ayrica surekliligi garanti ediyor --
    yeni bir sayfa turu eklendiginde burasi da guncellenmeli. #}
+{# URETILEN CIZIM DE PAYLASIM GORSELI OLUYOR -- ONCEKI KARAR DEGISTI.
+   ------------------------------------------------------------------
+   Ilk kararda cizim bu zincire KONMAMISTI ve gerekce yukaridaki
+   satirdi: "uydurma bir gorsel koymaktansa duzgun bir kucuk kart daha
+   iyi." Karar yeniden bakildi ve degistirildi. Sebep:
+
+   1. OLCUM. og:image'i olmayan 299 haber sayfasinin 297'sinde zaten
+      bir kavram cizimi var. Yani bos kalan paylasimlarin neredeyse
+      tamami, elde gorsel VARKEN bos kaliyordu.
+
+   2. AYRIM. Yukaridaki kural UYDURMA FOTOGRAFA karsi kondu. Kavram
+      cizimi bir fotograf iddiasi degil: duz vektor, metinsiz,
+      yonsuz, kisisiz. "Soyut petrol kuyusu pompasi silueti"ni kimse
+      bir haber fotografi sanmaz. Kuralin korudugu zarar burada yok.
+
+   3. BEDEL. Gorselsiz paylasilan baglanti belirgin olarak daha az
+      tiklaniyor ve bu, sitenin buyume dongusunu dogrudan kesiyor.
+
+   ACIK KALAN NOKTA: sayfadaki "yapay zeka ile üretilmiş" etiketi
+   sosyal onizlemede GORUNMUYOR. Tam cozum etiketi gorselin ICINE
+   basmak ve o metin cizimi gerektiriyor -- ayri bir is. Su an
+   `og:image:alt` bunu metin olarak tasiyor. #}
+{% set og_uretilen =
+     (h.uretilen if h is defined and h and h.uretilen else "") %}
 {% set og_gorsel =
      (h.foto if h is defined and h and h.foto else "")
      or (a.foto if a is defined and a and a.foto else "")
+     or og_uretilen
      or (haberler[0].foto if haberler is defined and haberler
          and haberler[0].foto else "")
      or (one_cikanlar[0].foto if one_cikanlar is defined and one_cikanlar
          and one_cikanlar[0].foto else "") %}
 {% if og_gorsel %}
 <meta property="og:image" content="{{ site.adres }}{{ og_gorsel }}">
-<meta property="og:image:alt" content="{{ self.baslik() | striptags | trim }}">
+{# `alt` uretilmis gorselde BUNU SOYLUYOR. Gorunur etiketin yerini
+   tutmuyor ama sessiz kalmaktan iyi: bazi istemciler okuyor ve
+   metadata durust kaliyor. #}
+<meta property="og:image:alt" content="{% if og_gorsel == og_uretilen %}Netaris tarafından yapay zeka ile üretilmiş kavram çizimi — {% endif %}{{ self.baslik() | striptags | trim }}">
 <meta name="twitter:card" content="summary_large_image">
 {% else %}
 <meta name="twitter:card" content="summary">
