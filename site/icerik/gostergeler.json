@@ -38,12 +38,12 @@
     {
       "kod": "SP500",
       "ad": "S&P 500",
-      "deger": "7.641",
-      "fark": "-%0,87",
-      "yon": "azalis",
-      "tarih": "2026-08-20",
+      "deger": "7.674",
+      "fark": "+%0,43",
+      "yon": "artis",
+      "tarih": "2026-08-21",
       "birim": "endeks",
-      "gun": 1,
+      "gun": 0,
       "bayat": false
     },
     {
@@ -60,12 +60,12 @@
     {
       "kod": "DJIA",
       "ad": "DOW",
-      "deger": "52.759",
-      "fark": "-%1,32",
-      "yon": "azalis",
-      "tarih": "2026-08-20",
+      "deger": "53.277",
+      "fark": "+%0,98",
+      "yon": "artis",
+      "tarih": "2026-08-21",
       "birim": "endeks",
-      "gun": 1,
+      "gun": 0,
       "bayat": false
     },
     {
@@ -129,11 +129,11 @@
       "kod": "T10Y2Y",
       "ad": "10Y-2Y",
       "deger": "0,50",
-      "fark": "+4 bp",
-      "yon": "artis",
-      "tarih": "2026-08-20",
+      "fark": "+0 bp",
+      "yon": "yatay",
+      "tarih": "2026-08-21",
       "birim": "puan",
-      "gun": 1,
+      "gun": 0,
       "bayat": false
     },
     {
@@ -167,12 +167,12 @@
         {
           "kod": "SP500",
           "ad": "S&P 500",
-          "deger": "7.641",
-          "fark": "-%0,87",
-          "yon": "azalis",
-          "tarih": "2026-08-20",
+          "deger": "7.674",
+          "fark": "+%0,43",
+          "yon": "artis",
+          "tarih": "2026-08-21",
           "birim": "endeks",
-          "gun": 1,
+          "gun": 0,
           "bayat": false
         },
         {
@@ -189,12 +189,12 @@
         {
           "kod": "DJIA",
           "ad": "Dow Jones",
-          "deger": "52.759",
-          "fark": "-%1,32",
-          "yon": "azalis",
-          "tarih": "2026-08-20",
+          "deger": "53.277",
+          "fark": "+%0,98",
+          "yon": "artis",
+          "tarih": "2026-08-21",
           "birim": "endeks",
-          "gun": 1,
+          "gun": 0,
           "bayat": false
         }
       ]
@@ -268,11 +268,11 @@
           "kod": "T10Y2Y",
           "ad": "10Y − 2Y farkı",
           "deger": "0,50",
-          "fark": "+4 bp",
-          "yon": "artis",
-          "tarih": "2026-08-20",
+          "fark": "+0 bp",
+          "yon": "yatay",
+          "tarih": "2026-08-21",
           "birim": "puan",
-          "gun": 1,
+          "gun": 0,
           "bayat": false
         }
       ]
