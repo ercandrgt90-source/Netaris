@@ -4821,15 +4821,40 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
   margin: 0;
   flex: 1 1 auto}
 
-/* YORUM METNI UC SATIR. Ucnokta tarayici tarafindan ekleniyor;
-   metni kodda kirpmak, cumlenin ortasinda kesmek olurdu. */
+/* YORUM METNI UC SATIR -- YALNIZCA ANA SAYFA KARTINDA.
+   Ucnokta tarayici tarafindan ekleniyor; metni kodda kirpmak,
+   cumlenin ortasinda kesmek olurdu.
+
+   KAPSAM HATASI DUZELTILDI: liste ucuncu secici olarak KAPSAMSIZ
+   `.ai-metin` tasiyordu ve haber sayfasindaki `<p class="ai-metin">`
+   govdesine de uyuyordu. Sonuc: 534 karakterlik tam bir yorum
+   sayfada uc satirda kesiliyor ve "...hisse senedi endeksleri…"
+   diye bitiyordu.
+
+   Kullanici bunu once "yazinin devami gorulmuyor" diye bildirdi;
+   o seferki sebep BASKAYDI (model ciktisi gercekten yarim
+   kesiliyordu) ve onu duzelttim. Bu ikinci sefer benim
+   duzeltmemin yan etkisiydi -- kart icin yazdigim kural makaleye
+   sizmisti.
+
+   DERS: kart kurallari KART KAPSAMINDA yazilmali. Bir sinif adi
+   iki baglamda kullaniliyorsa (kartta ozet, makalede tam metin)
+   kapsamsiz secici ikisini de yakalar. */
 .ai-kart-yorum p,
 .ai-kart-yorum .ai-metin,
-.ai-metin {
+.ai-akis-liste .ai-metin {
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden}
+
+/* MAKALEDEKI YORUM TAM GORUNUR. Yukaridaki kural artik kart
+   kapsaminda; bu blok niyeti ACIK yaziyor ki ileride bir ek
+   yeniden sizdirmasin. */
+.ai-sonuc .ai-metin {
+  display: block;
+  -webkit-line-clamp: none;
+  overflow: visible}
 
 /* CIKIS HER ZAMAN GORUNUR.
    `opacity: 0` + hover, dokunmatikte kalici gizlemeye donusuyordu. */
@@ -4845,7 +4870,7 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
      kaydirma maliyeti yuksek. */
   .ai-kart-yorum p,
   .ai-kart-yorum .ai-metin,
-  .ai-metin { -webkit-line-clamp: 3; }
+  .ai-akis-liste .ai-metin { -webkit-line-clamp: 3; }
 }
 
 /* ====================================================================
