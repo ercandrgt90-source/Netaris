@@ -5513,3 +5513,80 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
 @media (min-width: 700px) and (max-width: 1024px) {
   .ai-akis-liste { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
+
+/* ====================================================================
+   OLAY SAYFASI -- zaman cizelgesi
+   --------------------------------------------------------------------
+   Cizelge ESKIDEN YENIYE okunuyor (akisin tersi): akista soru "yeni ne
+   var", burada "bu nasil gelisti" ve o soru kronolojik sira istiyor.
+   Sol kenardaki cizgi o yonu gorsel olarak tasiyor.
+   ================================================================== */
+
+.olay-cizelge {
+  list-style: none;
+  margin: 0 0 var(--b-6);
+  padding: 0 0 0 var(--b-5);
+  border-left: 2px solid var(--cizgi);
+}
+
+.olay-cizelge li {
+  position: relative;
+  padding: var(--b-3) 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--b-1);
+}
+
+/* Nokta cizginin USTUNDE duruyor: her kalem bir ana isaret ediyor. */
+.olay-cizelge li::before {
+  content: "";
+  position: absolute;
+  left: calc(-1 * var(--b-5) - 5px);
+  top: calc(var(--b-3) + 7px);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--vurgu);
+}
+
+.olay-an {
+  font-size: var(--p-xs);
+  color: var(--yazi-3);
+  font-variant-numeric: tabular-nums;
+}
+
+.olay-baslik {
+  font-size: var(--p-m);
+  font-weight: 650;
+  line-height: 1.35;
+  color: var(--yazi);
+  text-decoration: none;
+}
+.olay-baslik:hover { color: var(--vurgu); }
+
+.olay-kaynak {
+  font-size: var(--p-xs);
+  color: var(--yazi-3);
+}
+
+/* Haber sayfasindan olaya donus. */
+.olay-baglanti {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--b-2);
+  margin: var(--b-4) 0;
+  padding: var(--b-3) var(--b-4);
+  border: 1px solid var(--cizgi);
+  border-radius: var(--r);
+  background: var(--zemin-2);
+  text-decoration: none;
+  color: var(--yazi);
+  font-size: var(--p-s);
+}
+.olay-baglanti:hover { border-color: var(--vurgu); }
+.olay-baglanti b { color: var(--vurgu); font-weight: 650; }
+
+@media (max-width: 640px) {
+  .olay-cizelge { padding-left: var(--b-4); }
+  .olay-cizelge li::before { left: calc(-1 * var(--b-4) - 5px); }
+}

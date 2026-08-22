@@ -153,6 +153,21 @@
 
   <div class="govde">
 
+    {# OLAY DOSYASINA BAGLANTI.
+       Bu haber dagilmis bir gelismenin parcasiysa, okur digerlerini de
+       gorebilsin. Olculdu: "Fed faiz karari" Agustos'ta DOKUZ ayri
+       habere dagildi ve okur aralarindaki bagi kendisi kurmak zorunda
+       kaliyordu -- hangisi once oldu, hangisi digerinin sonucu.
+
+       Haber sayisi YAZIYOR: "olay dosyasi" demek okura ne kadar sey
+       oldugunu soylemiyor; "9 haber" soyluyor. #}
+    {% if olay and olay.sayi > 2 %}
+    <a class="olay-baglanti" href="{{ olay.yol }}">
+      <span>Bu gelişmenin tamamı: <b>{{ olay.baslik }}</b>
+        · {{ olay.sayi }} haber</span>
+    </a>
+    {% endif %}
+
     {{ asama("Haber", "Ne oldu, kim söyledi") }}
 
     {# ACILIS CUMLESI -- bulten basliklari icin.

@@ -106,6 +106,41 @@ KURUM_ULKE: dict[str, str] = {
     "BOJ": "JP", "BOE": "GB",
 }
 
+#: ULKE ADLARI -- kurum adlarindan ONCE bakiliyor.
+#:
+#: OLCULEN HATA (2026-08-22): "Brezilya merkez bankasi faiz indirimine
+#: ragmen..." haberi TR siniflandirildi. Ayni sekilde Rusya ve Cin
+#: merkez bankasi haberleri de.
+#:
+#: Sebep: "merkez bankasi" isareti TR'ye baglaniyor ve o basliklarda
+#: geciyor. Isaret dogru ama FAZLA GENEL -- her ulkenin bir merkez
+#: bankasi var.
+#:
+#: Ulke adi bir kurum adindan DAHA BELIRLEYICI: "Brezilya" gecen bir
+#: baslik Brezilya haberidir, icinde hangi kurum gecerse gecsin. Bu
+#: yuzden once burasi taraniyor.
+#:
+#: Liste tam degil ve olmasi da gerekmiyor: bilinmeyen ulke "" doner ve
+#: karar VERILMEZ -- yanlis ulke atamaktansa atamamak dogru.
+#: KISA ADLAR IKI YANI DA BOSLUKLU. Olculdu -- "cin " deseni
+#: "iCIN " icinde eslesti ve butun Hurmuz Bogazi haberleri "Cin
+#: jeopolitik gelismeleri" grubuna dustu. Bu depoda ayni tuzak daha
+#: once " ges " ile yasandi ("charGES" -> Enerji).
+#:
+#: "misir" BILEREK YOK: Misir (ulke) ile misir (tahil) ayni yaziliyor
+#: ve finans sitesinde "misir ihracati" haberi daha olasi. Kacirilan
+#: bir Misir haberi, yanlis siniflandirilmis bir tahil haberinden iyi.
+ULKE_ADLARI: tuple[tuple[str, str], ...] = (
+    ("brezilya", "BR"), ("rusya", "RU"),
+    (" cin ", "CN"), (" cin'", "CN"), (" cinli", "CN"),
+    ("hindistan", "IN"), ("guney kore", "KR"), (" kore ", "KR"),
+    ("kanada", "CA"), ("avustralya", "AU"), ("isvicre", "CH"),
+    ("isvec", "SE"), ("norvec", "NO"), ("meksika", "MX"),
+    ("arjantin", "AR"), ("guney afrika", "ZA"), ("endonezya", "ID"),
+    ("suudi", "SA"), ("israil", "IL"),
+    ("polonya", "PL"), ("macaristan", "HU"), ("cekya", "CZ"),
+)
+
 #: Baslikta gecerse haberin ulkesini belirleyen isaretler.
 #: Bosluklu yazim bilincli -- kelime icinde eslesmesin.
 BASLIK_ULKE: tuple[tuple[str, str], ...] = (
@@ -155,6 +190,14 @@ def haber_ulkesi(baslik: str, kurum: str = "", bolge: str = "") -> str:
     if kk:
         return kk
     b = " " + _katla(baslik) + " "
+    # ULKE ADI KURUM ADINDAN ONCE.
+    #
+    # "Brezilya merkez bankasi" TR sayiliyordu: "merkez bankasi"
+    # isareti dogru ama fazla genel -- her ulkenin bir merkez bankasi
+    # var. Ulke adi daha belirleyici.
+    for isaret, ulke in ULKE_ADLARI:
+        if isaret in b:
+            return ulke
     for isaret, ulke in BASLIK_ULKE:
         if isaret in b:
             return ulke

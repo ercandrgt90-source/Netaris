@@ -119,5 +119,27 @@ if baglam.DEPO.exists():
         next(iter(baglam.sayiyi_coz(_b, 31.75, 2)), "")), "TR",
         "yuvarlanmis deger ham seriye baglaniyor")
 
+# --------------------------------------------------------------------
+# ULKE ADI KURUM ADINDAN ONCE GELIR.
+#
+# OLCULEN HATA (2026-08-22): "Brezilya merkez bankasi faiz indirimine
+# ragmen..." haberi TR siniflandirildi; Rusya ve Cin merkez bankasi
+# haberleri de. "merkez bankasi" isareti dogru ama FAZLA GENEL -- her
+# ulkenin bir merkez bankasi var. Ulke adi daha belirleyici.
+#
+# Hata olay gruplamasini olcerken cikti: "TR:faiz:2026-08" grubunda bir
+# Brezilya haberi duruyordu. Duzeltince baglam denetimi iki GERCEK
+# ihlal daha buldu (Hindistan haberinde TR verisi, Rusya haberinde US
+# verisi) -- yani yanlis ulke atamasi, uyusmazlik kontrolunu de kor
+# birakiyordu.
+# --------------------------------------------------------------------
+esit(baglam.haber_ulkesi("Brezilya merkez bankası faiz indirdi"), "BR",
+     "yabanci ulke + genel kurum adi -> ULKE kazanir")
+esit(baglam.haber_ulkesi("Rusya Merkez Bankası faizi düşürdü"), "RU",
+     "Rusya merkez bankasi -> RU")
+esit(baglam.haber_ulkesi("Merkez Bankası faiz kararı ne zaman"), "TR",
+     "ulke adi YOKSA genel kurum adi TR kalir")
+esit(baglam.haber_ulkesi("TCMB faizi sabit tuttu"), "TR", "TCMB -> TR")
+
 print(f"\n{_gecti} gecti, {_kaldi} kaldi")
 sys.exit(1 if _kaldi else 0)

@@ -58,6 +58,18 @@ try:
     import varlik as _varlik
 except ImportError:
     _varlik = None
+try:
+    import baglam as _baglam
+except ImportError:
+    _baglam = None
+try:
+    import tazelik as _tazelik
+except ImportError:
+    _tazelik = None
+try:
+    import olay_grubu as _olay_grubu
+except ImportError:      # olay sayfalari uretilmez, site kurulur
+    _olay_grubu = None
 
 # Depo. Site buraya YAZIYOR (yalnizca iki alan: haberin gercek adresi ve
 # varlik baglari) -- ikisi de ancak site kurulurken belli oluyor.
@@ -2218,6 +2230,140 @@ def tekilles(haberler: list[dict]) -> list[dict]:
     return sira
 
 
+def olay_slug(anahtar: str) -> str:
+    """"US:faiz:2026-08" -> "abd-faiz-2026-08"
+
+    Kimlik iki noktayla ayriliyor ve iki nokta adreste kullanilamiyor.
+    Ulke kodu okunur ada cevriliyor: "/olay/us-faiz-2026-08/" teknik
+    bir kimlik gibi duruyor, "/olay/abd-faiz-2026-08/" okunuyor.
+    """
+    try:
+        u, tur, ay = anahtar.split(":")
+    except ValueError:
+        return slugla(anahtar)
+    ad = _olay_grubu.ULKE_ADI.get(u, u) if _olay_grubu else u
+    return slugla(f"{ad} {tur} {ay}")
+
+
+def gun_etiketi(tarih: str) -> str:
+    """ISO tarihi Turkce gune cevirir. Cozulemezse OLDUGU GIBI doner."""
+    try:
+        d = datetime.fromisoformat(tarih[:10]).date()
+    except (ValueError, TypeError):
+        return tarih or ""
+    return f"{d.day} {AYLAR[d.month - 1]} {d.year}"
+
+
+#: Olay turu -> once gosterilecek seriler.
+#:
+#: Olculdu: "ABD faiz karari" sayfasi ozel sektor istihdami ve ortalama
+#: saatlik kazancla aciliyordu. Ulke suzgeci dogruydu ama TUR yoktu;
+#: sonuc, dogru ulkenin ALAKASIZ gostergesi.
+ONCELIKLI_SERI = {
+    "faiz": ("DFF", "DGS2", "DGS10", "T10Y2Y", "TCMB_POLITIKA",
+             "TP.APIFON4"),
+    "enflasyon": ("CPIAUCNS", "CPILFENS", "PCEPILFE", "PPIFIS",
+                  "TP.TUKFIY2025.GENEL", "TP.FE25.OKTG04",
+                  "TP.TUFE1YI.T1"),
+    "istihdam": ("UNRATE", "PAYEMS", "ICSA", "CES0500000003",
+                 "TP.YISGUCU2.G8"),
+    "kur": ("DTWEXBGS", "ECB_EURUSD", "TP.DK.USD.S.YTL",
+            "TP.DK.EUR.S.YTL"),
+    "jeopolitik": ("DCOILBRENTEU", "DCOILWTICO", "VIXCLS"),
+}
+
+
+#: Yuzde birimleri. Bunlarda ondalik ANLAMLI (%3,63 ile %3,6 farkli
+#: seylerdir); sayim birimlerinde degil.
+_ORAN_BIRIMLERI = {"%", "puan", "bp"}
+
+
+def _olcum_bicimi(d: float, birim: str = "") -> str:
+    """Turkce sayi; basamak sayisi BIRIMDEN turuyor.
+
+    Ilk surumde basamagi buyuklukten cikardim (`abs(d) >= 100`) ve iki
+    hata birden uretti:
+
+        -23,00 bin kişi    (sayim, ondalik anlamsiz)
+        206 000 kişi       (dogru, ama yalnizca tesadufen)
+
+    Dogru olcut buyukluk degil BIRIM: oran birimlerinde ondalik bir
+    olcum, sayim birimlerinde bicimlendirme artigi.
+    """
+    try:
+        b = 2 if (birim or "").strip() in _ORAN_BIRIMLERI else 0
+        if b == 0 and not float(d).is_integer():
+            b = 2                     # kesirli sayim: veriyi kirpma
+        return f"{d:,.{b}f}".replace(",", " ").replace(".", ",")
+    except (TypeError, ValueError):
+        return str(d)
+
+
+def olay_gostergeleri(anahtar: str) -> list[dict]:
+    """Olayin ULKESINE ait gostergeler.
+
+    Bag `baglam.SERI_ULKE` uzerinden: ABD faiz olayina ABD serileri,
+    Turkiye enflasyon olayina TUIK serileri. Ulkesi ESLESMEYEN seri
+    basilmiyor -- bu sayfanin varlik sebebi zaten dogru baglam ve
+    yanlis ulkenin gostergesi tam da duzeltmeye calistigimiz hata.
+
+    Seri bulunamazsa BOS liste; sablon bolumu hic basmiyor.
+
+    Depoya `_beyin.baglan()` uzerinden gidiliyor. Ilk yazimimda kendi
+    yol sabitimi (`DEPO_YOLU`) uydurmustum ve o isim depoda YOK -- bu
+    dosyada depo erisimi tek bir yerden geciyor ve oyle kalmali.
+    """
+    if _baglam is None or _beyin is None:
+        return []
+    try:
+        u, tur, _ay = anahtar.split(":")
+    except (AttributeError, ValueError):
+        return []
+    cikti: list[dict] = []
+    try:
+        with _beyin.baglan() as b:
+            satirlar = b.execute(
+                """SELECT g.kod, g.ad, g.birim, g.tarih, g.deger
+                     FROM gosterge g
+                     JOIN (SELECT kod, MAX(tarih) t FROM gosterge
+                            GROUP BY kod) s
+                       ON s.kod = g.kod AND s.t = g.tarih""").fetchall()
+            # TURE GORE SIRALA. Ilk surumde ulke suzgeci vardi ama tur
+            # yoktu: "ABD faiz karari" sayfasi ozel sektor istihdami ve
+            # saatlik kazancla aciliyordu. Olayin konusu faizse once
+            # faiz serileri gelmeli.
+            oncelik = ONCELIKLI_SERI.get(tur, ())
+            satirlar.sort(key=lambda r: (
+                oncelik.index(r[0]) if r[0] in oncelik else len(oncelik)))
+            gorulen_ad: set[str] = set()
+            for kod, ad, birim, tarih, deger in satirlar:
+                if _baglam.seri_ulkesi(kod) != u:
+                    continue
+                # AYNI ADI IKI KEZ BASMA. CPIAUCNS ve CPIAUCSL'nin ikisi
+                # de "ABD TUFE" adiyla duruyor (mevsimsellikte farklilar)
+                # ve sayfada yan yana %3,36 ile %3,30 gorunuyordu --
+                # okur hangisinin dogru oldugunu soramaz.
+                if ad in gorulen_ad:
+                    continue
+                gorulen_ad.add(ad)
+                f = ""
+                if _tazelik is not None:
+                    d = _tazelik.seri_durumu(b, kod)
+                    f = d["frekans"] if d else ""
+                cikti.append({
+                    "ad": ad,
+                    # BASAMAK OLCUMDEN TURUYOR. Sabit iki basamak
+                    # "44000,00 kişi" uretiyordu -- kisi sayisinda
+                    # ondalik bir olcum degil, bicimlendirme artigi.
+                    "deger": _olcum_bicimi(deger, birim),
+                    "birim": "" if birim in ("endeks", None) else birim,
+                    "donem": (_tazelik.donem_etiketi(tarih, f)
+                              if (_tazelik and f) else (tarih or "")[:10]),
+                })
+    except Exception:       # depo kilitli/eksik olabilir; sayfa yine kurulur
+        return []
+    return cikti[:6]
+
 def varlik_indeksle(haberler: list[dict]) -> dict[str, dict]:
     """Varliklari cikarir, depoya yazar, ilgili haberleri geri okur.
 
@@ -3081,6 +3227,30 @@ def insa() -> int:
     if arsiv:
         print(f"arsiv: {len(arsiv)} eski haber sayfasi yeniden uretiliyor")
     uretilecek = tekilles(gundem["haberler"] + arsiv)
+
+    # OLAY HARITASI, HABER SAYFALARINDAN ONCE.
+    #
+    # Sayfaya "bu olayin 9 haberinden biri" baglantisi koymak icin
+    # gruplarin sayfalardan ONCE bilinmesi gerekiyor. Ilk denememde
+    # gruplari DEPODAN okudum ve sira problemine girdim: olay sayfalari
+    # haber sayfalarindan sonra uretiliyor, dolayisiyla harita haber
+    # sablonuna yetismiyordu.
+    #
+    # `listeden()` ayni veriyi bellekten grupluyor ve sirayi tamamen
+    # ortadan kaldiriyor. Iki yolun ayni sonucu verdigi olculdu:
+    # 7 grup / 55 haber, kimlikler birebir ayni.
+    olay_haritasi: dict[str, dict] = {}
+    if _olay_grubu is not None:
+        for _a, _hl in _olay_grubu.listeden(uretilecek).items():
+            _y = f"/olay/{olay_slug(_a)}/"
+            for _h in _hl:
+                olay_haritasi[_h["adres"]] = {
+                    "yol": _y,
+                    "baslik": _olay_grubu.grup_basligi(_a),
+                    "sayi": len(_hl),
+                }
+        if olay_haritasi:
+            print(f"olay baglantisi: {len(olay_haritasi)} haber")
     varlik_haritasi = varlik_indeksle(uretilecek)
 
     # ONEM PUANI. Her habere katman ve puan yaziliyor; puan EKRANA
@@ -3245,6 +3415,49 @@ def insa() -> int:
             ),
         )
         yollar.append("/arastirmalar/")
+
+    # OLAY SAYFALARI -- dagilmis bir gelismeyi tek yerde toplar.
+    #
+    # NEDEN: "Fed faiz karari" Agustos'ta DOKUZ ayri habere dagildi.
+    # Okur akista onlari tek tek goruyor ve aralarindaki bagi kendisi
+    # kurmak zorunda: hangisi once oldu, hangisi digerinin sonucu.
+    #
+    # Depodaki `olay` tablosu bu isi GORMUYOR: 102 olay, 101 haber --
+    # yani 1'e 1. O tablonun anahtari baslik govdelerinin karmasi ve
+    # kendi isini dogru yapiyor ("ayni yaziyi iki kez uretme").
+    # Gruplama daha kaba bir kimlik istiyor: ulke + tur + donem.
+    #
+    # SAYFA UYDURMUYOR: her sey ya bir haber sayfasina ya da olculmus
+    # bir seriye bagli. Olay hakkinda yeni bir iddia uretilmiyor.
+    if _olay_grubu is not None:
+        # AYNI GRUPLAMA, IKI KEZ HESAPLANMIYOR: harita yukarida
+        # bellekten kuruldu ve sayfalar da ayni veriden uretiliyor.
+        _gruplar = _olay_grubu.listeden(uretilecek)
+        for _anahtar, _hab in sorted(_gruplar.items(),
+                                     key=lambda x: -len(x[1])):
+            _yol = f"/olay/{olay_slug(_anahtar)}/"
+            _sirali = sorted(_hab, key=lambda h: h.get("tarih") or "")
+            yaz(
+                _yol + "index.html",
+                ortam.get_template("olay.html").render(
+                    **ortak, yol=_yol,
+                    grup={
+                        "baslik": _olay_grubu.grup_basligi(_anahtar),
+                        "haberler": [
+                            {**h, "gorunur": gun_etiketi(h.get("tarih", ""))}
+                            for h in _sirali
+                        ],
+                        "ilk_tarih": gun_etiketi(
+                            _sirali[0].get("tarih", "") if _sirali else ""),
+                        "son_tarih": gun_etiketi(
+                            _sirali[-1].get("tarih", "") if _sirali else ""),
+                        "gostergeler": olay_gostergeleri(_anahtar),
+                    },
+                ),
+            )
+            yollar.append(_yol)
+        if _gruplar:
+            print(f"olay: {len(_gruplar)} sayfa")
 
     # Hakkimizda -- vizyon/misyon + yayin ilkeleri, kunye, gizlilik; capalarla
     if hakkimizda is not None:
@@ -3411,6 +3624,7 @@ def insa() -> int:
                 ortam.get_template("haber.html").render(
                     **ortak, yol=h_yol, h=h,
                     gorsel_svg=gundem_gorseller.get(h["adres"], ""),
+                    olay=olay_haritasi.get(h.get("adres", "")),
                     ilgili=ilgili_gostergeler(h["konu"], gostergeler),
                     # Piyasa kutusu BOLGEYE duyarli: Turkiye enflasyon
                     # haberinde ABD tahvil getirisi degil, TUFE ve TCMB

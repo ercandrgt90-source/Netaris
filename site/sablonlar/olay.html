@@ -1,0 +1,68 @@
+{% extends "temel.html" %}
+
+{% block baslik %}{{ grup.baslik }} — {{ site.ad }}{% endblock %}
+{% block aciklama %}{{ grup.baslik }}: {{ grup.haberler|length }} haber,
+ölçülmüş göstergeler ve zaman çizelgesi.{% endblock %}
+
+{% block icerik %}
+{# OLAY SAYFASI -- dagilmis bir gelismeyi tek yerde toplar.
+
+   NEDEN: "Fed faiz karari" gelismesi Agustos ayinda dokuz ayri habere
+   dagildi. Okur akista onlari tek tek goruyor ve aralarindaki bagi
+   kendisi kurmak zorunda kaliyor: hangisi once oldu, hangisi
+   digerinin sonucu.
+
+   Sayfa UYDURMUYOR: burada gorunen her sey ya bir haber sayfasina ya
+   da olculmus bir seriye bagli. Olayin kendisi hakkinda yeni bir iddia
+   URETILMIYOR -- yalnizca var olanlar sirali ve baglamli sunuluyor. #}
+<nav class="konum-izi" aria-label="Neredesiniz">
+  <a href="/gundem/">Haberler</a>
+  <span class="konum-ayrac" aria-hidden="true">›</span>
+  <span class="konum-simdi">Olay</span>
+</nav>
+
+<div class="giris">
+  <p class="ust-etiket">Olay dosyası</p>
+  <h1>{{ grup.baslik }}</h1>
+  <p>{{ grup.haberler|length }} haber · {{ grup.ilk_tarih }} – {{ grup.son_tarih }}</p>
+</div>
+
+{% if grup.gostergeler %}
+{# ILGILI GOSTERGELER -- olayin ULKESINDEN.
+   Bagi `baglam.SERI_ULKE` kuruyor: ABD faiz olayina ABD serileri,
+   Turkiye enflasyon olayina TUIK serileri. Ulkesi eslesmeyen seri
+   BASILMIYOR -- bu sayfanin varlik sebebi zaten dogru baglam. #}
+<h2>İlgili göstergeler</h2>
+<div class="tr-izgara">
+  {% for g in grup.gostergeler %}
+  <div class="tr-kalem" title="{{ g.ad }} — veri dönemi {{ g.donem }}">
+    <span class="tr-ad">{{ g.ad }}</span>
+    {# BIRIM ONUNDE BOSLUK. Bitisik yazildiginda "0,50puan" ve
+       "206 000kişi" cikiyordu. Yuzde ISTISNA: Turkce'de yuzde
+       isareti sayinin ONUNE ve bitisik gelir. #}
+    <span class="tr-deger">{% if g.birim == "%" %}%{{ g.deger }}{% else %}{{ g.deger }}{% if g.birim %} {{ g.birim }}{% endif %}{% endif %}</span>
+    <span class="tr-tarih">{{ g.donem }}</span>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+
+<h2>Zaman çizelgesi</h2>
+{# ESKIDEN YENIYE. Akis "en yeni ustte" calisiyor cunku orada soru
+   "yeni ne var"; burada soru "bu nasil gelisti" ve o soru kronolojik
+   sira istiyor. #}
+<ol class="olay-cizelge">
+  {% for h in grup.haberler %}
+  <li>
+    <time class="olay-an" datetime="{{ h.tarih }}">{{ h.gorunur }}</time>
+    <a class="olay-baslik" href="{{ h.yol }}">{{ h.baslik }}</a>
+    <span class="olay-kaynak">{{ h.kurum }}</span>
+  </li>
+  {% endfor %}
+</ol>
+
+<p class="yasal-not">
+  Bu sayfa yayımlanmış haberleri ve ölçülmüş göstergeleri bir araya
+  getirir. Yatırım tavsiyesi değildir.
+</p>
+{% endblock %}
