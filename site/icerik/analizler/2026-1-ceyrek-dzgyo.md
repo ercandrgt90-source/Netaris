@@ -1,13 +1,13 @@
 ---
 slug: dzgyo-2026-1-ceyrek
 baslik: DENİZ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılat ve brüt kâr artarken, brüt kâr marjı %40,6 seviyesinde kalmış; bu, satışların büyümesinin kâr oranını koruduğunu gösteriyor. Faaliyet kârı ve FAVÖK'teki artış, negatif değerlerin daha da derinleşmesiyle birlikte, faaliyet nakit akışının -0,13 milyar TL'ye düşmesi ve net kâr marjının -%93,6'y…
+ozet: Hasılat ve brüt kâr artarken, brüt kâr marjı %40,6 seviyesinde sabit kalmış; bu, ek gelirlerin maliyet artışıyla paralel seyrettiğini gösteriyor. Faaliyet kârı, FAVÖK ve net kârda görülen negatif büyüme, faaliyet nakit akışının -0,13 milyar TL'ye düşmesiyle birlikte, işletme giderlerinin ve/veya amo…
 sirket: DENİZ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: DZGYO
 donem: 2026 1. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-21
+tarih: 2026-08-22
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat ve brüt kâr artarken, brüt kâr marjı %40,6 seviyesinde kalmış; bu, satışların büyümesinin kâr oranını koruduğunu gösteriyor. Faaliyet kârı ve FAVÖK'teki artış, negatif değerlerin daha da derinleşmesiyle birlikte, faaliyet nakit akışının -0,13 milyar TL'ye düşmesi ve net kâr marjının -%93,6'ya gerilemesiyle paralel bir seyir izledi. Özkaynak ve aktif toplamının artışı net borcun 0,17 milyar TL'ye yükselmesiyle birlikte cari oranı 2,55'e, borç/özkaynak oranını ise sektör medyanının %0,02'sine yakın %0,03 seviyesine taşıdı.
+Hasılat ve brüt kâr artarken, brüt kâr marjı %40,6 seviyesinde sabit kalmış; bu, ek gelirlerin maliyet artışıyla paralel seyrettiğini gösteriyor. Faaliyet kârı, FAVÖK ve net kârda görülen negatif büyüme, faaliyet nakit akışının -0,13 milyar TL'ye düşmesiyle birlikte, işletme giderlerinin ve/veya amortismanların gelir artışını aşmasıyla ilişkilidir. Özkaynak ve aktif toplamının artışı net borcun -1,41 milyar TL'den +0,17 milyar TL'ye geçmesiyle birlikte, cari oran 2,55'e yükselmiş ancak borç/özkaynak oranı %0,03 ile sektör medyanının %0,02'sine yakın kalmıştır; bu, likidite iyileşmesinin borç yapısındaki hafif artışla dengelendiğini gösterir.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 

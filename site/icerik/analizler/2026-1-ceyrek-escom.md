@@ -1,13 +1,13 @@
 ---
 slug: escom-2026-1-ceyrek
 baslik: ESCORT TEKNOLOJİ YATIRIM A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılat ve brüt kâr aynı seviyede (%100 brüt kâr marjı) artarken, bu artış faaliyet kârı ve FAVÖK'te de neredeyse eşdeğer bir yükselişe (%0,94 milyar) yol açtı; net kâr ise brüt kârdan daha düşük bir oranda (%46,9 net kâr marjı) gerçekleşti.…
+ozet: Hasılat ve brüt kâr aynı seviyede artarak %100 brüt kâr marjını oluşturmuş; bu artış, faaliyet kârı ve FAVÖK'ün de önceki dönemdeki negatif değerlerden %0,94 milyar pozitif seviyeye yükselmesine paralel gerçekleşmiştir.…
 sirket: ESCORT TEKNOLOJİ YATIRIM A.Ş.
 kod: ESCOM
 donem: 2026 1. çeyrek
 kategori: Bilanço Analizi
 sektor: Bilişim
-tarih: 2026-08-21
+tarih: 2026-08-22
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat ve brüt kâr aynı seviyede (%100 brüt kâr marjı) artarken, bu artış faaliyet kârı ve FAVÖK'te de neredeyse eşdeğer bir yükselişe (%0,94 milyar) yol açtı; net kâr ise brüt kârdan daha düşük bir oranda (%46,9 net kâr marjı) gerçekleşti. Özkaynak 4,26 milyar TL'ye yükselmiş, aktif toplamı da 4,34 milyar TL'ye çıkarak özkaynak artışını destekledi, ancak cari oran 0,43 ile sektörel medyanın (1,25) altında kaldı ve borç/özkaynak oranı sektörel medyan (-%0,02) ile benzer seviyede kaldı. Net borç ve faaliyet nakit akışı negatif olmamakla birlikte, sıfır seviyelerinde kalmış ve likidite durumunun sınırlı olduğunu gösteriyor.
+Hasılat ve brüt kâr aynı seviyede artarak %100 brüt kâr marjını oluşturmuş; bu artış, faaliyet kârı ve FAVÖK'ün de önceki dönemdeki negatif değerlerden %0,94 milyar pozitif seviyeye yükselmesine paralel gerçekleşmiştir. Net kârın %46,9'a çıkan marjı, özkaynak kârlılığının %4,9'a yükselmesiyle birlikte özkaynakların 4,26 milyar TL'ye, aktif toplamının ise 4,34 milyar TL'ye yükselmesinde yansımış; net borç ve faaliyet nakit akışı ise değişmeden kalmıştır. Cari oranın 0,43 ile sektör medyanının 1,25 altında kalması, borç/özkaynak oranının -0,00 ile medyan -0,02'ye yakın seyretmesi, likidite ve finansal yapı açısından faaliyet ve kârlılık artışlarından bağımsız bir durumdur.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 

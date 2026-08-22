@@ -1,13 +1,13 @@
 ---
 slug: cemts-2026-1-ceyrek
 baslik: ÇEMTAŞ ÇELİK MAKİNA SANAYİ VE TİCARET A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılatın düşmesi brüt kârın da aynı oranda azalmasına yol açarken, brüt kâr marjının sektör medyanıyla eşit kalması, kârın hacimden ziyade maliyet yapısına bağlı olduğunu gösteriyor; bu durum faaliyet kârı ve FAVÖK'teki düşüşle birlikte net kârın negatifleşmesine neden olur.…
+ozet: Hasılatın düşmesi brüt kârı ve FAVÖK'ü de azaltırken, brüt kâr marjının sektör medyanıyla aynı kalması bu düşüşün kâr oranları üzerindeki etkisini sınırlıyor; net kârın negatifleşmesi ise faaliyet kârındaki büyük gerilemenin ve artan yatırım harcamasının (0,54 milyar TL) bir sonucudur.…
 sirket: ÇEMTAŞ ÇELİK MAKİNA SANAYİ VE TİCARET A.Ş.
 kod: CEMTS
 donem: 2026 1. çeyrek
 kategori: Bilanço Analizi
 sektor: Temel malzeme
-tarih: 2026-08-21
+tarih: 2026-08-22
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın düşmesi brüt kârın da aynı oranda azalmasına yol açarken, brüt kâr marjının sektör medyanıyla eşit kalması, kârın hacimden ziyade maliyet yapısına bağlı olduğunu gösteriyor; bu durum faaliyet kârı ve FAVÖK'teki düşüşle birlikte net kârın negatifleşmesine neden olur. Özkaynakların artması aktif toplamının yükselmesine ve net borcun pozitifleşmesine, yani şirketin likidite pozisyonunun iyileşmesine (cari oran 4,74, sektör medyanı 1,36) ve borç/özkaynak oranının düşük kalmasına (0,01, sektör medyanı 0,21) yol açar. Faaliyet nakit akışının pozitifleşmesi ise artan yatırım harcaması (0,54 milyar TL) ile birlikte, nakit akışının faaliyetlerden gelmeye başladığını ve sermaye harcamalarının finansmanını desteklediğini gösterir.
+Hasılatın düşmesi brüt kârı ve FAVÖK'ü de azaltırken, brüt kâr marjının sektör medyanıyla aynı kalması bu düşüşün kâr oranları üzerindeki etkisini sınırlıyor; net kârın negatifleşmesi ise faaliyet kârındaki büyük gerilemenin ve artan yatırım harcamasının (0,54 milyar TL) bir sonucudur. Özkaynakların 7,35 milyar TL'ye yükselmesi aktif toplamının da 9,83 milyar TL'ye artmasına yol açtı; bu büyüme net borcun 0,06 milyar TL'ye geçmesi ve borç/özkaynak oranının %0,01'e düşmesiyle likiditeyi güçlendirerek cari oranı 4,74'e (sektör medyanı 1,36) yükseltti. Artan faaliyet nakit akışı (0,08 milyar TL) önceki dönemdeki negatif akışın tersine dönmesi, yatırım harcamasındaki artışa rağmen likidite pozisyonunun iyileştiğini gösteriyor.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 

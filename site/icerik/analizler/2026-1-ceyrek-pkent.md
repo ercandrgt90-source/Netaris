@@ -1,13 +1,13 @@
 ---
 slug: pkent-2026-1-ceyrek
 baslik: PETROKENT TURİZM A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılat aynı kalırken brüt kâr, faaliyet kârı, FAVÖK ve net kâr tümü negatiften daha negatif bir seviyeye kaymış; bu durum kâr marjlarının (brüt %-24,7, net %-21,2) sektör medyanlarının (brüt %15,4, net %0,6) altında kalmasına yol açmıştır.…
+ozet: Hasılat aynı kalırken brüt kâr, faaliyet kârı, FAVÖK ve net kâr tümü negatiften daha da artarak zarar derinleşti; bu durum brüt kâr marjının %-24,7'ye (sektör medyanı %15,4) ve net kâr marjının %-21,2'ye (sektör medyanı %0,6) gerilemesiyle aynı yönde hareket etti.…
 sirket: PETROKENT TURİZM A.Ş.
 kod: PKENT
 donem: 2026 1. çeyrek
 kategori: Bilanço Analizi
 sektor: İsteğe bağlı tüketim
-tarih: 2026-08-21
+tarih: 2026-08-22
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat aynı kalırken brüt kâr, faaliyet kârı, FAVÖK ve net kâr tümü negatiften daha negatif bir seviyeye kaymış; bu durum kâr marjlarının (brüt %-24,7, net %-21,2) sektör medyanlarının (brüt %15,4, net %0,6) altında kalmasına yol açmıştır. Özkaynak 1,54 milyar TL'ye yükselmiş ve aktif toplamı 2,35 milyar TL'ye artmış; aynı zamanda net borç –0,46 milyar TL (daha negatif) olduğu için borç/özkaynak oranı –0,30'a gerilemiş, bu da cari oran 1,25'in sektör medyanı 1,30'un altında kalmasına eşlik etmiştir. Faaliyet nakit akışı –0,01 milyar TL'ye düşmüşken yatırım harcaması 0,08 milyar TL'ye azalmış, bu da negatif kâr akışının yatırım harcamalarıyla kısmen dengelediğini göstermektedir.
+Hasılat aynı kalırken brüt kâr, faaliyet kârı, FAVÖK ve net kâr tümü negatiften daha da artarak zarar derinleşti; bu durum brüt kâr marjının %-24,7'ye (sektör medyanı %15,4) ve net kâr marjının %-21,2'ye (sektör medyanı %0,6) gerilemesiyle aynı yönde hareket etti. Özkaynak 1,54 milyar TL'ye (önceki 1,07) yükselirken aktif toplamı da 2,35 milyar TL'ye (önceki 1,64) artmış, bu artış net borcun –0,46 milyar TL'ye (önceki –0,27) daha da negatifleşmesiyle birlikte cari oranı 1,25 (sektör medyanı 1,30) ve borç/özkaynak oranını –0,30 (sektör medyanı 0,15) tutturmuş, yani likidite ve borç yapısı brüt/kâr kayıplarına paralel bir şekilde zayıflamış.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 

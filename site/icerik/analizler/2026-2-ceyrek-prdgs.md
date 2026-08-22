@@ -1,13 +1,13 @@
 ---
 slug: prdgs-2026-2-ceyrek
 baslik: PARDUS GİRİŞİM SERMAYESİ YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat, brüt kâr ve net kâr aynı tutarda artarak %100 brüt kâr marjı ve %98,8 net kâr marjına yol açtı; bu yüksek marjlar özkaynak kârlılığının %11,3 olmasına destek verdi.…
+ozet: Hasılat, brüt kâr, faaliyet kârı ve net kâr aynı miktarda artmış; bu da brüt kâr marjının %100,0 ve net kâr marjının %98,8 olmasını sağlamış. Özkaynak ve aktif toplamı artarken net borç negatif (nakit fazlası) hâle gelmiş; bu durum özkaynak kârlılığının %11,3'e yükselmesine ve borç/özkaynak oranının…
 sirket: PARDUS GİRİŞİM SERMAYESİ YATIRIM ORTAKLIĞI A.Ş.
 kod: PRDGS
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Finans
-tarih: 2026-08-21
+tarih: 2026-08-22
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat, brüt kâr ve net kâr aynı tutarda artarak %100 brüt kâr marjı ve %98,8 net kâr marjına yol açtı; bu yüksek marjlar özkaynak kârlılığının %11,3 olmasına destek verdi. Aktif toplamı ve özkaynakta gerçekleşen artış (2,96 milyar TL ve 2,94 milyar TL) net borcun -0,10 milyar TL'ye düşmesiyle birlikte şirketin likiditesini artırdı, ancak cari oran 5,73 ile sektör medyanı 7,79'ın altında kaldı. Faaliyet nakit akışı 0,06 milyar TL'ye yükselirken borç/özkaynak oranı -0,03 (sektör medyanı -0,06) hâlâ negatif kalmış, bu da özkaynakların borçtan daha fazla olduğunu gösteriyor.
+Hasılat, brüt kâr, faaliyet kârı ve net kâr aynı miktarda artmış; bu da brüt kâr marjının %100,0 ve net kâr marjının %98,8 olmasını sağlamış. Özkaynak ve aktif toplamı artarken net borç negatif (nakit fazlası) hâle gelmiş; bu durum özkaynak kârlılığının %11,3'e yükselmesine ve borç/özkaynak oranının -0,03'e (sektör medyanının -0,06'sından daha az negatif) gerilemesine yol açmış. Cari oran 5,73'e düşmüş, bu da likiditeyi ölçen bu oranın sektör medyanı 7,79'un altında kalmasına neden olmuş.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
@@ -54,7 +54,7 @@ Karşılaştırma Finans sektöründeki 30 şirketin **medyanına** göre yapıl
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %100,0 | %42,6 |
+| Brüt kâr marjı | %100,0 | %45,7 |
 | Net kâr marjı | %98,8 | %14,7 |
 | Özkaynak kârlılığı | %11,3 | %4,5 |
 | Cari oran | 5,73 | 7,79 |

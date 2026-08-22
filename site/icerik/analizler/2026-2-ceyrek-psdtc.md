@@ -1,13 +1,13 @@
 ---
 slug: psdtc-2026-2-ceyrek
 baslik: PERGAMON STATUS DIŞ TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat aynı kalırken brüt kârın %91,2'lik yüksek marjı, brüt kâr tutarının 0,03 milyar TL'ye düşmesiyle birlikte faaliyet ve FAVÖK kârının negatif (-0,01 milyar TL) olmasına yol açtı; bu da net kârın 0,00 milyar TL'ye gerilemesine neden oldu.…
+ozet: Hasılat aynı kalırken brüt kâr düşmüş, bu durum brüt kâr marjının %91,2 seviyesinde yüksek kalmasına rağmen brüt kâr tutarının azaldığını gösterir; aynı dönemde faaliyet kârı ve FAVÖK negatif olmuş, bu da brüt kârın işletme giderleri ve amortisman gibi kalemlerle karşılandığını ve net kârın %20,8'li…
 sirket: PERGAMON STATUS DIŞ TİCARET A.Ş.
 kod: PSDTC
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Sanayi
-tarih: 2026-08-21
+tarih: 2026-08-22
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat aynı kalırken brüt kârın %91,2'lik yüksek marjı, brüt kâr tutarının 0,03 milyar TL'ye düşmesiyle birlikte faaliyet ve FAVÖK kârının negatif (-0,01 milyar TL) olmasına yol açtı; bu da net kârın 0,00 milyar TL'ye gerilemesine neden oldu. Özkaynak 0,26 milyar TL'ye yükselirken aktif toplamı 5,09 milyar TL'ye artmış, net borcun –0,41 milyar TL (negatif borç) olması özkaynak-özkaynak oranını –1,56'ya (sektör ortalamasının 0,11'i) çekti ve cari oranı 1,05 (sektör medyanı 1,37) seviyesine indirdi. Faaliyet nakit akışı ise –0,01 milyar TL'ye (önceki –0,11 milyar TL) iyileşirken yatırım harcaması sabit kaldı.
+Hasılat aynı kalırken brüt kâr düşmüş, bu durum brüt kâr marjının %91,2 seviyesinde yüksek kalmasına rağmen brüt kâr tutarının azaldığını gösterir; aynı dönemde faaliyet kârı ve FAVÖK negatif olmuş, bu da brüt kârın işletme giderleri ve amortisman gibi kalemlerle karşılandığını ve net kârın %20,8'lik yüksek marjına rağmen sıfıra gerilediğini ortaya koyar. Özkaynak artışı %0,07 milyar TL'ye yükselirken aktif toplamı da %0,16 milyar TL artmış, bu durum özkaynak kârlılığının %1,6'ya düşmesine rağmen varlıkların büyümesinin özkaynak bazlı finansmanla desteklendiğini ve net borcun -0,41 milyar TL'ye (negatif borç) gerilemesinin cari oranı 1,05 seviyesine, borç/özkaynak oranının -1,56'ya düşmesine yol açtığını gösterir. Faaliyet nakit akışı -0,01 milyar TL'ye iyileşmiş, önceki dönemde -0,11 milyar TL iken, yatırım harcaması sabit kalmış; bu, nakit çıkışının azaldığını fakat hâlâ negatif olduğunu ve işletmenin likidite durumunun cari oran ve negatif borç seviyeleriyle sınırlı olduğunu ifade eder.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
