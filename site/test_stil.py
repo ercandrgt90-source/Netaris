@@ -1,0 +1,142 @@
+"""CSS kisayol tuzagi: tek degerli `margin` HIZAYI BOZAR.
+
+BU DOSYA NEDEN VAR
+------------------
+Olculdu (2026-08-23): `stil.css` icinde YEDI kural `margin` kisayolunu
+TEK DEGERLE yaziyordu:
+
+    .yazi > header              { margin: 22px}
+    .ara-alan                   { margin: 26px}
+    .kaynak-etiket              { margin:  2px}
+    .foto-atif                  { margin: 18px}
+    .panel-satir-kart .panel-eylem { margin: 10px}
+    .basmanset-ozet             { margin: 14px}
+    .onem-liste li              { margin:  2px}
+
+Tek deger DORT YANA birden uygulanir -- SOL VE SAGA DA. Sayfalarimiz
+dikey yigin: bir blogun sol kenari, ustundeki ve altindaki bloklarin
+sol kenariyla ayni olmali. Tek degerli margin o hizayi bozuyor.
+
+GORUNEN SONUCLARI
+  * `.basmanset-ozet`  ana sayfanin en onemli blogunda ozet, kendi
+                       basligindan 14px sagda basliyordu.
+  * `.yazi > header`   HER yazi sayfasinda baslik blogu, metinden
+                       22px icerideydi.
+  * `.foto-atif`       bir ustteki kural `var(--b-2) 0 0` veriyordu,
+                       bu satir onu hemen eziyordu; CC BY atfi ait
+                       oldugu fotografla hizasizdi.
+  * `.hero-dar h1`     sayfanin en buyuk yazisi 10px sagdaydi.
+  * `.hero-butonlar`   `margin: 22px` -- ayni sey.
+
+HICBIRI HATA VERMIYORDU. CSS gecerli, sayfa cikiyor, hicbir sey
+kirilmiyor. Yalnizca sayfa "biraz dagi̇nik" gorunuyor ve sebebi
+bakildiginda goze carpmiyor -- tek bir sayida gizli.
+
+NEDEN SINAMA
+------------
+Kisayol yazmak kolay ve dogal: "ustune altina bosluk koyayim" diye
+dusunulup `margin: 14px` yaziliyor. Yani bu hata BIR KEZ duzeltilse
+bile geri gelir. Kural burada duruyor.
+
+ISTISNA
+-------
+Gercekten dort yandan bosluk isteniyorsa satira `/* dort-yan */`
+yazilir; sinama o satiri gecer. Istisna YAZILI olmali -- niyet ile
+kaza arasindaki fark, ancak yazilinca gorunur.
+
+`padding` SINANMIYOR
+--------------------
+Dolgu bir KUTUNUN ICI: dort yandan esit dolgu normaldir ve hizayi
+bozmaz, cunku kutunun dis kenari yerinde kalir. Sorun disariya
+verilen boslukta.
+"""
+
+from __future__ import annotations
+
+import pathlib
+import re
+import sys
+
+_SITE = pathlib.Path(__file__).resolve().parent
+_CSS = _SITE / "statik" / "stil.css"
+
+_gecti = 0
+_kaldi = 0
+
+
+def esit(bulunan, beklenen, aciklama: str) -> None:
+    global _gecti, _kaldi
+    if bulunan == beklenen:
+        _gecti += 1
+        print(f"  gecti  {aciklama}")
+    else:
+        _kaldi += 1
+        print(f"  KALDI  {aciklama}\n         beklenen: {beklenen!r}"
+              f"\n         bulunan : {bulunan!r}")
+
+
+#: `margin:` -- ama `scroll-margin:` ya da `margin-top:` DEGIL.
+#: Onundeki harf/tire dislaniyor, ardindan dogrudan iki nokta geliyor.
+_MARGIN = re.compile(r"(?<![-A-Za-z])margin\s*:\s*([^;}]+)")
+
+#: Hizayi bozmayan tek degerler.
+_ZARARSIZ = {"0", "auto", "inherit", "initial", "unset", "revert"}
+
+
+def _tek_degerli(deger: str) -> bool:
+    """Tek bir SIFIRDAN FARKLI uzunluk mu?"""
+    parca = deger.split()
+    if len(parca) != 1:
+        return False
+    d = parca[0].strip().lower()
+    if d in _ZARARSIZ:
+        return False
+    # `var(--b-4)` de tek deger ve o da dort yana gider.
+    return not d.startswith("0")
+
+
+print("\nTek degerli margin kullanilmiyor")
+
+satirlar = _CSS.read_text(encoding="utf-8").splitlines()
+kusurlu = []
+for no, satir in enumerate(satirlar, 1):
+    if "dort-yan" in satir:          # yazili istisna
+        continue
+    for m in _MARGIN.finditer(satir):
+        if _tek_degerli(m.group(1)):
+            kusurlu.append(f"stil.css:{no}  margin: {m.group(1).strip()}")
+
+esit(kusurlu, [], "stil.css icinde tek degerli margin yok")
+
+# --------------------------------------------------------------------
+# Desenin KENDISI de sinaniyor.
+#
+# Yukaridaki tarama sessizce ise yaramaz hale gelebilir: `_MARGIN`
+# duzenli ifadesi bozulursa liste bos doner ve sinama "gecti" der.
+# Bu depoda tam olarak bu yasandi -- `test_lisans.py` dort listeyi
+# tariyordu, "temiz" diyordu ve 573 sayfa ihlalliydi.
+#
+# Asagisi taramanin HALA GORDUGUNU kanitliyor.
+# --------------------------------------------------------------------
+print("\nTarama gercekten goruyor (kendi kendini sinar)")
+
+ORNEK = [
+    (".a { margin: 14px}", True, "tek deger yakalaniyor"),
+    (".a { margin: 14px 0}", False, "iki deger temiz"),
+    (".a { margin: 0}", False, "sifir temiz"),
+    (".a { margin: 0 auto}", False, "0 auto temiz"),
+    (".a { margin: auto}", False, "auto temiz"),
+    (".a { margin: var(--b-4)}", True, "tek degerli degisken de yakalaniyor"),
+    (".a { margin-top: 14px}", False, "margin-top baska ozellik"),
+    (".a { scroll-margin: 120px}", False, "scroll-margin baska ozellik"),
+    (".a { margin: 14px} /* dort-yan */", None, "yazili istisna gecer"),
+]
+for kaynak, beklenen, aciklama in ORNEK:
+    if beklenen is None:
+        esit("dort-yan" in kaynak, True, aciklama)
+        continue
+    bulundu = any(_tek_degerli(m.group(1)) for m in _MARGIN.finditer(kaynak))
+    esit(bulundu, beklenen, aciklama)
+
+print(f"\n{_gecti} gecti, {_kaldi} kaldi")
+sys.exit(1 if _kaldi else 0)

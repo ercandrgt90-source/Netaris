@@ -355,6 +355,10 @@ img, svg { max-width: 100%}
   align-items: center;
   gap: var(--b-2);
   font-size: 1.3rem;
+  /* Agirlik ve harf araligi asagida AYRI bir kuraldaydi; denetim
+     ikisini "ayni blokta 2 kez tanimli" diye isaretledi. */
+  font-weight: 700;
+  letter-spacing: -0.01em;
   color: var(--ust-yazi);
   text-decoration: none;
   white-space: nowrap}
@@ -367,6 +371,12 @@ img, svg { max-width: 100%}
   margin: auto}
 
 .ust nav a {
+  /* `position: relative` aktif sekmenin altindaki cizgi icin
+     (`::after`). Ayri bir kural olarak asagida duruyordu ve denetim
+     "ayni blokta 2 kez tanimli" diye isaretledi -- hakliydi: iki ayri
+     yerde duran ayni secici, birini duzeltip digerini unutmayi
+     davet ediyor. */
+  position: relative;
   color: var(--ust-yazi-2);
   font-size: var(--p-m);
   font-weight: 500;
@@ -388,7 +398,6 @@ img, svg { max-width: 100%}
   content: ""; position: absolute; left: var(--b-3);
   right: var(--b-3); bottom: -1px; height: 2px;
   background: var(--vurgu-parlak); border-radius: 2px}
-.ust nav a { position: relative}
 
 /* ------------------------------------------------------- gosterge seridi */
 
@@ -511,7 +520,7 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
 .giris {
   padding: 18px 0 26px;
   border-bottom: 1px solid var(--cizgi);
-  margin: var(--b-5b)}
+  margin: var(--b-5b) 0}
 
 .giris h1 {
   margin: 0 0 var(--b-3);
@@ -536,8 +545,21 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
 .hero-butonlar {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
-  margin: 22px}
+  gap: var(--b-3);
+  margin: var(--b-5) 0 0}
+
+/* "Nasil calisiyoruz?" DUGME DEGIL, METIN BAGLANTISI.
+   Onemli bir sayfa ama giris blogunun isi degil: okuru gunun
+   gelismelerine ya da senaryoya goturmek isterken ucuncu bir esit
+   dugme ikisini de zayiflatiyordu. Agirlik farki, sira farkindan
+   daha iyi calisiyor. */
+.hero-alt {
+  margin: var(--b-3) 0 0;
+  font-size: var(--p-m);
+  color: var(--yazi-2)}
+.hero-alt a { color: var(--yazi-2); text-decoration: underline;
+  text-underline-offset: 3px}
+.hero-alt a:hover { color: var(--vurgu)}
 
 .dugme {
   display: inline-flex;
@@ -613,7 +635,7 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
   border: 1px solid var(--cizgi);
   border-radius: var(--r);
   box-shadow: var(--golge);
-  margin: var(--b-7);
+  margin: var(--b-7) 0;
   overflow: hidden}
 
 .panel-ust {
@@ -649,7 +671,7 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 1px;
-  margin: var(--b-2);
+  margin: var(--b-2) 0;
   background: var(--cizgi);
   border: 1px solid var(--cizgi);
   border-radius: var(--r);
@@ -671,7 +693,7 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
 
 .rakam span {
   display: block;
-  margin: var(--b-1);
+  margin: var(--b-1) 0;
   font-size: var(--p-xs);
   color: var(--yazi-3)}
 
@@ -913,8 +935,8 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
   border: 1px solid var(--uyari-cizgi);
   border-radius: var(--r);
   padding: var(--b-4) var(--b-4b);
-  margin: var(--b-5b)}
-.uyari-bant strong { color: var(--uyari); display: block; margin: var(--b-1)}
+  margin: var(--b-5b) 0}
+.uyari-bant strong { color: var(--uyari); display: block; margin: var(--b-1) 0}
 .uyari-bant p { margin: 0; font-size: var(--p-m); color: var(--yazi-2)}
 
 /* -------------------------------------------------------------------- yazi */
@@ -937,14 +959,17 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
 
 .yazi-gorsel {
   display: block;
-  margin: 26px;
+  margin: 26px 0;
   border: 1px solid var(--cizgi);
   border-radius: var(--r);
   overflow: hidden;
   background: var(--zemin-2)}
 .yazi-gorsel svg { display: block; width: 100%; height: auto}
 
-.yazi > header { margin: 22px}
+/* `margin: 22px` idi -- dort yandan. Yazi govdesindeki paragraflar
+   `margin-left: 0` tasiyor, yani HER YAZI SAYFASINDA baslik blogu
+   metinden 22px icerideydi. */
+.yazi > header { margin: 0 0 22px}
 
 .kicker { margin: 0 0 var(--b-3); display: flex; gap: 10px; align-items: center; flex-wrap: wrap}
 
@@ -989,7 +1014,7 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
   border: 1px solid var(--cizgi);
   border-radius: var(--r);
   padding: var(--b-5);
-  margin: var(--b-5b)}
+  margin: var(--b-5b) 0}
 
 .skor-ust {
   display: flex;
@@ -997,7 +1022,7 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
   gap: 14px;
   flex-wrap: wrap;
   padding: 18px;
-  margin: 18px;
+  margin: 18px 0;
   border-bottom: 1px solid var(--cizgi)}
 
 .skor-etiket {
@@ -1070,7 +1095,7 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
   line-height: var(--satir-genis)}
 .govde strong { color: var(--yazi)}
 .govde ul, .govde ol { margin: 0 0 18px; padding: 22px}
-.govde li { margin: var(--b-2)}
+.govde li { margin: var(--b-2) 0}
 .govde hr { border: 0; border-top: 1px solid var(--cizgi); margin: var(--b-6) 0}
 
 .govde em {
@@ -1144,14 +1169,43 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
   line-height: 1.4;
   color: var(--yazi)}
 
+/* ====================================================================
+   HABER KARTI -- YATAY.
+   --------------------------------------------------------------------
+   Once DIKEYDI: 16:9 gorsel ustte, metin altta, uc sutunlu izgarada.
+   Gonderilen tasarim yatay bir liste kullaniyor ve o daha dogru:
+
+     * DIKEY kartta gorsel kartin YARISINI kapliyor. Bizim
+       gorsellerimiz konu havuzundan geliyor ya da uretilmis kavram
+       cizimi -- ikisi de HABERIN KENDISI DEGIL. Sayfanin yarisini
+       haberin kendisi olmayan bir goruntuye vermek yanlis agirlik.
+
+     * Uc sutunlu izgarada baslik uc-dort satira dusuyordu; okur
+       basligi tarayamiyordu. Yatay kartta baslik tek satirlik genis
+       bir alanda duruyor.
+
+     * Ayni ekranda IKI KAT haber goruluyor.
+
+   Gorsel kucuk ve solda: haberi TANIMLAMAYA yetiyor, one cikmiyor.
+   ==================================================================== */
 .haber {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr;
   background: var(--panel);
   border: 1px solid var(--cizgi);
   border-radius: var(--r);
   box-shadow: var(--golge);
   overflow: hidden}
+
+@media (min-width: 560px) {
+  /* Gorsel SABIT genislikte, metin kalani aliyor. Oran degil sabit
+     olcu: degisken genislikte kucuk gorseller listede zikzak yapar. */
+  .haber { grid-template-columns: 168px 1fr}
+  /* Gorseli olmayan haber tek sutuna dusuyor -- yoksa 168 piksellik
+     bos bir delik kalirdi. Fotograf tekrar tavani devrede oldugu icin
+     bu durum SIK: olculdu, sayfalarin dortte birinde gorsel yok. */
+  .haber:not(:has(.haber-gorsel)) { grid-template-columns: 1fr}
+}
 
 .haber-gorsel {
   display: block;
@@ -1159,6 +1213,14 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
   border-bottom: 1px solid var(--cizgi);
   overflow: hidden;
   background: var(--zemin-2)}
+@media (min-width: 560px) {
+  /* Yatay kartta gorsel SAGDAN cerceveleniyor, alttan degil. */
+  .haber-gorsel {
+    aspect-ratio: auto;
+    height: 100%;
+    border-bottom: 0;
+    border-right: 1px solid var(--cizgi)}
+}
 .haber-gorsel svg,
 .haber-gorsel img {
   display: block;
@@ -1190,14 +1252,26 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
   gap: var(--b-2);
   padding: var(--b-4) var(--b-4b)}
 
-.haber-ic { padding: 18px var(--b-4b) var(--b-4b); display: flex; flex-direction: column; gap: var(--b-3)}
+/* Yatay kartta dolgu HER YANDAN esit: dikey kartta ust dolgu
+   gorselden ayirmak icin buyuktu, artik gorsel YANDA. */
+.haber-ic {
+  padding: var(--b-4);
+  display: flex; flex-direction: column;
+  gap: var(--b-2);
+  min-width: 0}
 
 .haber-baslik {
   margin: 0;
   font-size: var(--p-l);
   font-weight: 700;
-  line-height: 1.34;
-  color: var(--yazi)}
+  line-height: 1.3;
+  color: var(--yazi);
+  /* Uzun basliklar kartlarin yuksekligini esitsiz yapiyordu. Uc satir
+     bir basligi anlamaya yeter; devami sayfada. */
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden}
 
 .haber-git {
   margin: auto;
@@ -1219,7 +1293,9 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
   display: flex;
   align-items: center;
   gap: 14px;
-  margin: 26px}
+  /* `margin: 26px` idi: arama alani her iki yandan 26px daraliyor
+     ve sayfanin geri kalaniyla hizasi kaciyordu. */
+  margin: 26px 0}
 
 .ara-kutu {
   flex: 1;
@@ -1238,7 +1314,7 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
 
 .ara-sayac { font-size: var(--p-s); color: var(--yazi-3); white-space: nowrap}
 
-.ara-sonuc { margin: var(--b-6)}
+.ara-sonuc { margin: var(--b-6) 0}
 
 /* Arama sonuclarinda TUR BASLIGI.
  *
@@ -1317,13 +1393,13 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
   display: block;
   color: var(--uyari);
   font-size: var(--p-m);
-  margin: var(--b-1)}
+  margin: var(--b-1) 0}
 .tarih-bandi p { margin: 0; font-size: var(--p-m); color: var(--yazi-2)}
 
 /* --------------------------------------------------------- haber sayfasi */
 
 .ilgili-veri {
-  margin: 36px;
+  margin: 36px 0;
   padding: 26px;
   border-top: 1px solid var(--cizgi)}
 .ilgili-veri h2 {
@@ -1359,7 +1435,7 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin: var(--b-4b);
+  margin: var(--b-4b) 0;
   padding: var(--b-4) var(--b-4b);
   background: var(--panel);
   border: 1px solid var(--cizgi);
@@ -1377,7 +1453,7 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
 /* ----------------------------------------------------- uretim seffafligi */
 
 .uretim {
-  margin: 40px;
+  margin: 40px 0;
   background: var(--panel);
   border: 1px solid var(--cizgi);
   border-radius: var(--r);
@@ -1417,7 +1493,7 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
 
 .uretim-rakamlar span {
   display: block;
-  margin: var(--b-1);
+  margin: var(--b-1) 0;
   font-size: var(--p-xs);
   color: var(--yazi-3);
   line-height: 1.35}
@@ -1432,7 +1508,7 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
   align-items: center;
   flex-wrap: wrap;
   gap: var(--b-2);
-  margin: var(--b-4);
+  margin: var(--b-4) 0;
   padding: var(--b-4);
   border-top: 1px solid var(--cizgi)}
 
@@ -1442,7 +1518,7 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
   letter-spacing: 0.09em;
   text-transform: uppercase;
   color: var(--yazi-3);
-  margin: 2px}
+  margin: 2px 0}
 
 .rozet-kaynak {
   color: var(--artis);
@@ -1555,7 +1631,7 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
 .alt nav .alt-marka {
   font-size: var(--p-s);
   padding: var(--b-3);
-  margin: var(--b-3);
+  margin: var(--b-3) 0;
   border-right: 1px solid var(--cizgi);
   white-space: nowrap}
 .alt nav a { color: var(--yazi-2)}
@@ -1652,14 +1728,23 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
 
 .bolum-bas-sekme {
   display: flex; align-items: center; justify-content: space-between;
-  gap: var(--b-4); flex-wrap: wrap}.haber-izgara {
+  gap: var(--b-4); flex-wrap: wrap}
+
+/* IKI KURAL AYNI SATIRDA YAPISIKTI (`...wrap}.haber-izgara {`) ve
+   `margin` IKI KEZ yaziliydi (22px, sonra 0 0 var(--b-4)). CSS ikisini
+   de tolere ediyor -- ikincisi kazaniyor -- ama okuyan biri hangisinin
+   gecerli oldugunu satiri saymadan bilemez. */
+.haber-izgara {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: var(--b-4);
-  margin: 22px;
-  list-style: none;
   margin: 0 0 var(--b-4);
-  padding: 0}
+  padding: 0;
+  list-style: none;
+  /* TEK SUTUN. Kartlar artik YATAY (kucuk gorsel solda, metin
+     sagda), yani kendi icinde zaten genis. Izgarayi da cok sutuna
+     bolmek kartlari daraltir ve baslik uc satira duserdi.
+     Gonderilen tasarim da tek sutunlu bir liste kullaniyor. */
+  grid-template-columns: 1fr}
 
 /* --- Kose yazilari ------------------------------------------------ */
 .yorum-serit {
@@ -1700,7 +1785,12 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
 .yazi-foto figcaption,
 .foto-atif {
   margin: var(--b-2) 0 0; font-size: var(--p-xs); color: var(--yazi-3)}
-.foto-atif { margin: 18px}
+/* Ustteki kural ikisine birden `var(--b-2) 0 0` veriyor; bu satir
+   `.foto-atif` icin onu HEMEN eziyordu ve `margin: 18px` dort
+   yandan calisiyordu -- atif, ait oldugu fotograftan 18px iceride
+   duruyordu. Atif CC BY geregi ZORUNLU; fotografla hizali durmasi
+   da onun bir parcasi. */
+.foto-atif { margin: 18px 0 0}
 
 /* --- Uretilen kavram cizimi --------------------------------------- */
 /* Etiket, fotograf atfindan DAHA GORUNUR.
@@ -1869,23 +1959,23 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
 .uyelik-mesaj.uyari { border-left-color: var(--uyari)}
 
 .uyelik-not {
-  margin: 22px; padding: var(--b-4) var(--b-4);
+  margin: 22px 0; padding: var(--b-4) var(--b-4);
   border: 1px solid var(--cizgi); border-radius: var(--r-kucuk);
   background: var(--panel-2)}
 .uyelik-not h2 { margin: 0 0 var(--b-2); font-size: var(--p-m)}
 .uyelik-not ul { margin: 0; padding: 18px}
-.uyelik-not li { font-size: var(--p-m); color: var(--yazi-2); margin: var(--b-1); line-height: 1.55}
+.uyelik-not li { font-size: var(--p-m); color: var(--yazi-2); margin: var(--b-1) 0; line-height: 1.55}
 
 /* --- panel --- */
 
 .panel-ust-cubuk {
   display: flex; align-items: flex-start; justify-content: space-between;
-  gap: var(--b-4); flex-wrap: wrap; margin: var(--b-4b)}
+  gap: var(--b-4); flex-wrap: wrap; margin: var(--b-4b) 0}
 .panel-ust-cubuk h1 { margin: 0 0 var(--b-1); font-size: 1.6rem; letter-spacing: -0.02em}
 .panel-eylem { display: flex; gap: var(--b-2); flex-wrap: wrap; align-items: center}
 
 .panel-sekme {
-  display: flex; gap: var(--b-1); margin: var(--b-4b);
+  display: flex; gap: var(--b-1); margin: var(--b-4b) 0;
   border-bottom: 1px solid var(--cizgi)}
 .panel-sekme button {
   font: inherit; font-size: var(--p-m); font-weight: 700;
@@ -1905,7 +1995,7 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
 .panel-satir-kart h4 { margin: var(--b-2) 0 6px; font-size: var(--p-l); line-height: 1.3}
 .panel-satir-ust { display: flex; align-items: center; gap: var(--b-2); flex-wrap: wrap}
 .panel-satir-kart .kart-ozet { margin: 0 0 10px; font-size: var(--p-m); color: var(--yazi-2)}
-.panel-satir-kart .panel-eylem { margin: 10px}
+.panel-satir-kart .panel-eylem { margin: 10px 0 0}
 
 /* Durum rozetleri. Yesil ve kirmizi BURADA da yon anlatiyor sayilir:
    yayimlandi ileri, reddedildi geri. */
@@ -1934,7 +2024,7 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
 
 .piyasa-ust {
   display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;
-  margin: var(--b-2)}
+  margin: var(--b-2) 0}
 .piyasa-ad { font-weight: 700; font-size: 0.96rem}
 .piyasa-deger {
   font-size: var(--p-l); font-weight: 800;
@@ -2013,7 +2103,7 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
 .seyir-deger { font-size: var(--p-s); font-weight: 700; font-variant-numeric: tabular-nums; text-align: right}
 
 .bulgular { margin: 0 0 22px; padding: var(--b-4b)}
-.bulgular li { font-size: var(--p-m); color: var(--yazi-2); margin: var(--b-1)}
+.bulgular li { font-size: var(--p-m); color: var(--yazi-2); margin: var(--b-1) 0}
 
 /* Reel faiz hesaplanmis bir deger -- olculen serilerden ayirt edilsin */
 .tr-tureti { border-style: dashed}
@@ -2045,7 +2135,7 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
 
 @media (max-width: 560px) {
   .ozet-kutu dl { grid-template-columns: 1fr; gap: var(--b-1) 0; }
-  .ozet-kutu dd { margin: var(--b-2); }
+  .ozet-kutu dd { margin: var(--b-2) 0; }
   .duyarlilik .neden { display: none; }
 }
 .ilgili-haber h2 { font-size: var(--p-l); margin: 0 0 var(--b-3)}
@@ -2142,7 +2232,7 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
 .bag-tur {
   font-size: var(--p-xs); color: var(--yazi-3);
   padding: 1px var(--b-2); border: 1px solid var(--cizgi);
-  border-radius: 999px; margin: 6px; white-space: nowrap}
+  border-radius: 999px; margin: 6px 0; white-space: nowrap}
 .bag-neden {
   grid-column: 1 / -1;
   font-size: var(--p-s); color: var(--yazi-2); line-height: 1.5}
@@ -2423,7 +2513,7 @@ table td, table th, time, .tarih {
    Bunlar uretim zincirinin parcasi degil; okurun oradan devam
    edecegi yerler. Ustteki bosluk ve cizgi ayrimi soyluyor. */
 .ilgili-haber {
-  margin: var(--b-7); padding: 26px;
+  margin: var(--b-7) 0; padding: 26px;
   border-top: 3px double var(--cizgi)}
 
 /* ================================================================
@@ -2450,7 +2540,7 @@ table td, table th, time, .tarih {
 
 /* Aktarim kanallari "Neden onemli"nin icinde artik. */
 .kanal-liste { margin: var(--b-3) 0 10px; padding: var(--b-4b)}
-.kanal-liste li { margin: var(--b-2); line-height: 1.6}
+.kanal-liste li { margin: var(--b-2) 0; line-height: 1.6}
 
 /* Ust kutular buyutuldu -- okunurluk icin istendi. */
 .ozet-kutu dd { font-size: 1.0rem; line-height: 1.6}
@@ -2505,7 +2595,9 @@ table td, table th, time, .tarih {
   border-left: 3px dashed var(--cizgi-parlak);
   border-radius: 0 var(--r) var(--r) 0}
 .one-oy {
-  display: inline-block; margin: 6px;
+  /* dort-yan: bu oge `inline-block` ve yan yana diziliyor;
+     yatay bosluk KASITLI -- rozetler birbirine yapismasin. */
+  display: inline-block; margin: 6px;  /* dort-yan */
   padding: 1px var(--b-2); border-radius: 999px;
   background: var(--vurgu-zar); color: var(--vurgu);
   font-weight: 800; font-variant-numeric: tabular-nums}
@@ -2513,7 +2605,7 @@ table td, table th, time, .tarih {
 /* Haber sayfasindaki senaryo bolumu daha gorunur. */
 .senaryo-bolum h2, .senaryo-cagri { font-size: var(--p-l)}
 .senaryo-cagri {
-  margin: var(--b-4b); padding: 18px var(--b-4b);
+  margin: var(--b-4b) 0; padding: 18px var(--b-4b);
   background: var(--panel-2);
   border: 1px solid var(--cizgi-parlak);
   border-radius: var(--r)}
@@ -2652,7 +2744,12 @@ table td, table th, time, .tarih {
 /* Giris kisaldi: eski surumde alti satirlik manifesto gunun
    gelismelerini ekranin altina itiyordu. */
 .hero-dar { padding: 26px}
-.hero-dar h1 { margin: 10px}
+/* `margin: 10px` yaziliydi -- DORT YANDAN. Ustundeki `.ust-etiket`
+   ve altindaki `.hero-ozet` ikisi de `margin-left: 0` tasiyor, yani
+   sayfanin EN BUYUK YAZISI kendi hizasindan 10px sagda duruyordu.
+   Kisayol tek bir deger yazmak, sonuc gorunur bir kayma.
+   (Ayni kisayol `.hero-butonlar`'da da vardi: `margin: 22px`.) */
+.hero-dar h1 { margin: 0 0 var(--b-3)}
 .hero-ozet {
   max-width: 62ch; color: var(--yazi-2);
   font-size: var(--p-l); line-height: 1.6; margin: 0 0 var(--b-4b)}
@@ -2689,21 +2786,26 @@ table td, table th, time, .tarih {
   color: var(--yazi); margin: var(--b-3) 0 10px}
 .basmanset-ozet {
   display: block; color: var(--yazi-2); line-height: 1.6;
-  margin: 14px}
+  /* `margin: 14px` idi. Ustundeki `.basmanset-baslik`
+     `margin: var(--b-3) 0 10px` tasiyor -- yani ANA SAYFANIN EN
+     ONEMLI BLOGUNDA ozet, kendi basligindan 14px sagda basliyordu. */
+  margin: 14px 0 0}
 @media (max-width: 560px) { .basmanset-baslik { font-size: 1.24rem; } }
 
 .onem-liste { list-style: none; padding: 0; margin: var(--b-4) 0 0}
 .onem-liste li {
   border-bottom: 1px solid var(--cizgi);
   border-left: 3px solid var(--tur, var(--cizgi));
-  padding: 0 0 0 14px; margin: 2px}
+  /* `margin: 2px` idi: sol kenarlik bir tasarim ogesi ve 2px sola
+     kayinca listenin kenarindan kopuyordu. */
+  padding: 0 0 0 14px; margin: 2px 0}
 .onem-liste li:last-child { border-bottom: none}
 .onem-liste a { display: block; padding: var(--b-3) 0}
 .onem-liste a:hover { text-decoration: none}
 .onem-liste a:hover .onem-baslik { color: var(--vurgu)}
 .onem-ust {
   display: flex; align-items: center; gap: var(--b-2);
-  flex-wrap: wrap; margin: var(--b-1)}
+  flex-wrap: wrap; margin: var(--b-1) 0}
 .onem-zaman { font-size: var(--p-xs); color: var(--yazi-3); margin: auto}
 .onem-baslik {
   display: block; font-weight: 650; line-height: 1.42;
@@ -2804,7 +2906,7 @@ a.akis-baslik:hover { color: var(--vurgu); text-decoration: none}
    Isaret zorunlu -- okur site icinde mi kalacagini basmadan bilsin. */
 .akis-dis { color: var(--yazi-2)}
 .akis-dis:hover { color: var(--vurgu); text-decoration: none}
-.dis-ok { font-size: 0.72em; opacity: .6; margin: var(--b-1)}
+.dis-ok { font-size: 0.72em; opacity: .6; margin: var(--b-1) 0}
 
 /* ================================================================
    HABER KARTI -- ANALIZ DEGIL, DAVET
@@ -2893,7 +2995,7 @@ a.akis-baslik:hover { color: var(--vurgu); text-decoration: none}
   display: -webkit-box; -webkit-line-clamp: 5;
   -webkit-box-orient: vertical; overflow: hidden}
 .ai-kart-imza {
-  display: block; margin: var(--b-1);
+  display: block; margin: var(--b-1) 0;
   font-size: 0.66rem; font-weight: 700; letter-spacing: 0.08em;
   text-transform: uppercase; color: var(--vurgu)}
 .ai-kart-git {
@@ -2980,7 +3082,7 @@ a.akis-baslik:hover { color: var(--vurgu); text-decoration: none}
 /* --- Topluluk sayfasi --- */
 .senaryo-tablo { list-style: none; padding: 0; margin: 26px 0 0}
 .senaryo-satir {
-  padding: var(--b-4) 18px; margin: 10px;
+  padding: var(--b-4) 18px; margin: 10px 0;
   border: 1px solid var(--cizgi); border-radius: var(--r);
   background: var(--panel)}
 .topluluk-cagri {
@@ -2999,7 +3101,7 @@ a.akis-baslik:hover { color: var(--vurgu); text-decoration: none}
 .takvim-liste { list-style: none; padding: 0; margin: 0}
 .takvim-oge {
   border: 1px solid var(--cizgi); border-radius: var(--r);
-  background: var(--panel); margin: 10px; overflow: hidden}
+  background: var(--panel); margin: 10px 0; overflow: hidden}
 /* Onem sol seritte: uc yildizli veri ile rutin yayin ayni agirlikta
    gorunmemeli. */
 .takvim-oge.onem-3 { border-left: 4px solid var(--azalis)}
@@ -3075,7 +3177,7 @@ a.akis-baslik:hover { color: var(--vurgu); text-decoration: none}
   background: var(--panel-2)}
 .ds-bas {
   display: flex; align-items: baseline; gap: var(--b-3);
-  flex-wrap: wrap; margin: 10px}
+  flex-wrap: wrap; margin: 10px 0}
 .ds-bas h2 { margin: 0; font-size: 1rem}
 /* Guncelleme isareti: "dosya buyudu" bilgisi okurun bu sayfaya
    donmesi icin tek sebep. Gorunur olmali ama basligi ezmemeli. */
@@ -3112,7 +3214,7 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none}
 .ds-etiket {
   font-size: 0.68rem; font-weight: 700; color: var(--vurgu);
   background: var(--vurgu-zar); padding: 2px var(--b-2); border-radius: 999px;
-  margin: 6px; white-space: nowrap}
+  margin: 6px 0; white-space: nowrap}
 .ds-kurum { font-size: var(--p-xs); color: var(--yazi-3)}
 /* Konsensus ile "onceki deger" esigi GORSEL OLARAK AYRI: ikisini ayni
    gostermek, mekanizma cumlesinin ters okunmasina yol acabiliyor. */
@@ -3129,7 +3231,7 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none}
    karsilik geliyor -- uydurulmuyor.                                */
 .duzenek { list-style: none; padding: 0; margin: var(--b-3) 0 18px}
 .duzenek li {
-  padding: 10px var(--b-3); margin: 6px;
+  padding: 10px var(--b-3); margin: 6px 0;
   border: 1px solid var(--cizgi); border-radius: var(--r-kucuk);
   background: var(--panel-2)}
 .duzenek-bag {
@@ -3190,7 +3292,7 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none}
 
 .brifing-adim .brifing-sayilar {
   display: flex; gap: 10px; flex-wrap: wrap; align-items: center;
-  margin: 10px; font-size: var(--p-m)}
+  margin: 10px 0; font-size: var(--p-m)}
 .brifing-son, .brifing-bekl {
   padding: var(--b-1) var(--b-3); border-radius: 999px;
   border: 1px solid var(--cizgi); background: var(--panel-2)}
@@ -3215,7 +3317,7 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none}
   color: var(--vurgu); letter-spacing: 0.02em}
 .brifing-adim .brifing-dal-metin { font-size: var(--p-m)}
 .brifing-adim .brifing-olcum {
-  margin: var(--b-2); padding: var(--b-2);
+  margin: var(--b-2) 0; padding: var(--b-2);
   border-top: 1px dashed var(--cizgi);
   font-size: var(--p-s); color: var(--yazi-3)}
 
@@ -3292,7 +3394,7 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none}
 /* Dugmenin kendisini Google ciziyor (marka kurallari geregi); bize
    yalnizca cevresi kaliyor. Ayrac, iki giris yolunun ESIT oldugunu
    anlatiyor -- biri "asil", digeri "alternatif" gibi durmamali. */
-.google-giris { margin: 18px}
+.google-giris { margin: 18px 0}
 .google-ayrac {
   display: flex; align-items: center; gap: var(--b-3);
   margin: 0 0 14px; color: var(--yazi-3); font-size: var(--p-s)}
@@ -3303,7 +3405,7 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none}
 /* Kategori kartinda imza. `yorum-kunye` ana sayfadan geliyor; burada
    yalnizca kartin akisina oturtuluyor. Baslikla arasi dar tutuldu --
    imza baslıgın kunyesi, ayri bir blok degil. */
-.kart-imza { margin: 2px}
+.kart-imza { margin: 2px 0}
 
 /* Haftalik oyun yanindaki TOPLAM. Soluk, cunku siralamayi o
    uretmiyor -- okur once siralamayi aciklayan sayiyi gormeli. */
@@ -3316,7 +3418,7 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none}
 .akis-kunye-baglanti:hover,
 .akis-kunye-baglanti:focus-visible {
   color: var(--vurgu); text-decoration: underline}
-.akis-kunye-baglanti .dis-ok { margin: var(--b-1); font-size: 0.85em}
+.akis-kunye-baglanti .dis-ok { margin: var(--b-1) 0; font-size: 0.85em}
 
 /* Akistaki tema etiketi. Kunye ile ayni olcekte ve SESSIZ: baslik
    asil icerik, tema onu siniflandiran bir isaret. Rozet gibi dolgu
@@ -3337,7 +3439,7 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none}
 
 .tasarim { max-width: var(--olcu); margin: 0 auto}
 
-.tasarim-bas { margin: var(--b-7)}
+.tasarim-bas { margin: var(--b-7) 0}
 
 .tasarim-lead {
   font-size: var(--p-l);
@@ -3349,14 +3451,14 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none}
   color: var(--yazi-2);
   border-left: 2px solid var(--cizgi);
   padding: var(--b-3);
-  margin: var(--b-4)}
+  margin: var(--b-4) 0}
 
 /* OLCUM SERIDI -- sayfanin kendi hakkindaki rakamlari. */
 .tasarim-olcum {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: var(--b-3);
-  margin: var(--b-7)}
+  margin: var(--b-7) 0}
 
 .tasarim-olcum div {
   background: var(--zemin-2);
@@ -3374,13 +3476,13 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none}
   font-size: var(--p-xs);
   color: var(--yazi-2)}
 
-.tasarim-obek { margin: var(--b-8)}
+.tasarim-obek { margin: var(--b-8) 0}
 
 .tasarim-aciklama {
   font-size: var(--p-m);
   line-height: var(--satir-genis);
   color: var(--yazi-2);
-  margin: var(--b-5)}
+  margin: var(--b-5) 0}
 
 /* Tablo dar ekranda KENDI ICINDE kayar; sayfa govdesi yatay kaymaz. */
 .tasarim-tablo {
@@ -3442,7 +3544,7 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none}
 .tasarim-kural dt {
   font-weight: 600;
   font-size: var(--p-l);
-  margin: var(--b-5)}
+  margin: var(--b-5) 0}
 
 .tasarim-kural dd {
   margin: var(--b-2) 0 0;
@@ -3460,7 +3562,7 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none}
 
 .arastirma-merkez { max-width: 1100px; margin: 0 auto}
 
-.arastirma-bas { margin: var(--b-7)}
+.arastirma-bas { margin: var(--b-7) 0}
 
 .arastirma-lead {
   font-size: var(--p-l);
@@ -3499,7 +3601,9 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none}
   letter-spacing: .1em;
   font-weight: 700;
   color: var(--vurgu);
-  margin: var(--b-2)}
+  /* dort-yan: bu oge `inline-block` ve yan yana diziliyor;
+     yatay bosluk KASITLI -- rozetler birbirine yapismasin. */
+  margin: var(--b-2)}  /* dort-yan */
 
 .arastirma-kart h2 {
   font-size: var(--p-xl);
@@ -3537,7 +3641,7 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none}
 .arastirma-tarih {
   color: var(--yazi-2);
   font-variant-numeric: tabular-nums;
-  margin: var(--b-2)}
+  margin: var(--b-2) 0}
 
 .arastirma-git {
   font-size: var(--p-m);
@@ -3545,18 +3649,18 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none}
   color: var(--vurgu)}
 
 .arastirma-not {
-  margin: var(--b-8);
+  margin: var(--b-8) 0;
   padding: var(--b-5);
   border-top: 1px solid var(--cizgi);
   max-width: var(--olcu)}
 
-.arastirma-not h2 { font-size: var(--p-l); margin: var(--b-3)}
+.arastirma-not h2 { font-size: var(--p-l); margin: var(--b-3) 0}
 
 .arastirma-not p {
   font-size: var(--p-m);
   line-height: var(--satir-genis);
   color: var(--yazi-2);
-  margin: var(--b-3)}
+  margin: var(--b-3) 0}
 
 /* Acilir menude INIS SAYFASI once ve ayri duruyor. */
 .menu-tumu {
@@ -3649,7 +3753,7 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none}
 .senaryo-blok {
   border-left: 2px solid var(--cizgi);
   padding: var(--b-5);
-  margin: var(--b-6)}
+  margin: var(--b-6) 0}
 
 /* ÇÜRÜTME KOŞULU -- sayfadaki EN DEGERLI cumle.
  *
@@ -3732,7 +3836,7 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none}
   border-radius: var(--r-kucuk);
   background: var(--zemin);
   padding: var(--b-4);
-  margin: var(--b-2)}
+  margin: var(--b-2) 0}
 
 .paylas-onizleme-marka {
   display: block;
@@ -3740,14 +3844,14 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none}
   font-weight: 700;
   letter-spacing: .12em;
   color: var(--vurgu);
-  margin: var(--b-3)}
+  margin: var(--b-3) 0}
 
 .paylas-onizleme-baslik {
   display: block;
   font-size: var(--p-l);
   line-height: var(--satir-sik);
   font-weight: 600;
-  margin: var(--b-2)}
+  margin: var(--b-2) 0}
 
 .paylas-onizleme-ozet {
   display: -webkit-box;
@@ -3757,7 +3861,7 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none}
   font-size: var(--p-m);
   line-height: var(--satir-orta);
   color: var(--yazi-2);
-  margin: var(--b-3)}
+  margin: var(--b-3) 0}
 
 .paylas-onizleme-alan {
   display: block;
@@ -3910,7 +4014,7 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none}
   letter-spacing: .1em;
   text-transform: uppercase;
   color: var(--yazi-3);
-  margin: var(--b-3)}
+  margin: var(--b-3) 0}
 
 /* GEZINME: ilgili haber ve okumaya devam. Cift cizgi cercevesi
    sayfanin sonunda iki kutu daha ekliyordu; baslik zaten ayirici. */
@@ -4708,7 +4812,6 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
 .logo-im { fill: none}
 .logo-im .logo-n { stroke: var(--yazi)}
 .logo-im .logo-cubuk { fill: var(--vurgu); stroke: none}
-.logo { font-weight: 700; letter-spacing: -0.01em}
 
 @media (max-width: 640px) {
 
@@ -4718,11 +4821,16 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
         degil bir AKSIYON: seritten cikarilip sabit bir yere
         aliniyor, boylece her zaman tam gorunur. */
 
-  /* 1. HERO DUGMELERI: bes dugme uc satir ediyordu (~200px).
-        Ikisi kaliyor -- en cok kullanilanlar. Digerleri
-        "Araştırmalar" menusunde ve /arastirmalar/ sayfasinda zaten
-        var; hero'da tekrar etmeleri yer disinda bir sey katmiyor. */
-  .hero-butonlar .dugme:nth-of-type(n+3) { display: none; }
+  /* 1. HERO DUGMELERI
+        Burada bir zamanlar `:nth-of-type(n+3) { display: none }`
+        vardi: bes dugme dar ekranda uc satir ediyordu ve ucu
+        gizleniyordu. Yani DOGRU KARAR (ikisi yeter) YALNIZCA
+        TELEFONDA veriliyor, genis ekranda bes dugme duruyordu.
+
+        Karar artik `anasayfa.html` icinde ve her ekranda ayni: iki
+        dugme basiliyor. Gizleme kurali silindi -- var olmayan
+        dugmeleri gizleyen bir kural, sonraki okuyucuyu yanlis
+        yonlendirir. */
   .hero-butonlar { gap: var(--b-2); }
   .hero-butonlar .dugme { flex: 1 1 calc(50% - var(--b-2)); }
 }
@@ -5847,6 +5955,27 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
   border-color: var(--vurgu);
   color: var(--vurgu);
 }
+
+/* YEREL PAYLASIM DUGMESI -- telefonda tek dugme.
+ *
+ * Dugmeyi ekledim ama bicimlendirmeyi UNUTTUM; denetim yakaladi
+ * ("sp-yerel: sayfalarda kullaniliyor ama CSS'te tanimsiz").
+ *
+ * Tek dugme oldugu icin TAM GENISLIK ve vurgu renginde: yanindaki
+ * baglanti serisi gizlendiginde (bkz. `paylas.js`) sayfada tek
+ * paylasim yolu bu kaliyor ve tikanabilir gorunmeli. */
+.sp-yerel {
+  gap: var(--b-2);
+  width: 100%;
+  justify-content: center;
+  background: var(--vurgu);
+  border-color: var(--vurgu);
+  color: var(--zit-yazi);
+  font-weight: 700}
+.sp-yerel:hover {
+  background: var(--vurgu-koyu);
+  border-color: var(--vurgu-koyu);
+  color: var(--zit-yazi)}
 
 @media (max-width: 640px) {
   /* Dar ekranda dugmeler tasmasin: kaydirma yerine sarma. Bes kisa

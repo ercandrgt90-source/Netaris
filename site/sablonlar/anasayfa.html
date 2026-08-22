@@ -95,12 +95,29 @@
   <p class="ust-etiket">{{ site.ad }}</p>
   <h1>{{ site.slogan }}</h1>
   <p class="hero-ozet">{{ site.aciklama }}</p>
+  {# IKI EYLEM, BES DEGIL.
+     ---------------------
+     Onceki surum MENUYU dugme olarak tekrar ediyordu: Bilancolar,
+     Makro, Yorum, Teknik, Yontemimiz -- besi de ayni agirlikta. Ust
+     menude ayni sorun daha once duzeltilmisti; giris blogunda
+     duruyordu.
+
+     Bes esit dugme, sifir yonlendirmedir: okur nereye basacagini
+     secemez ve genellikle hicbirine basmaz. Menu zaten iki santim
+     yukarida duruyor, yani tekrar bilgi de tasimiyordu.
+
+     Kalan ikisi okurun iki farkli niyetini karsiliyor:
+       okumaya geldiyse  -> gundem
+       katilmaya geldiyse -> senaryo
+
+     Ikinci baglanti giris istiyor; anonim okur once giris sayfasini
+     gorur. `donus.js` niyeti saklayip girisden sonra buraya geri
+     getiriyor -- o yuzden bu dugme okuru kaybetmiyor. #}
   <div class="hero-butonlar">
-    {% for adres, baslik in menu %}
-    <a class="dugme {% if loop.first %}dugme-birincil{% endif %}" href="{{ adres }}">{{ baslik }}</a>
-    {% endfor %}
-    <a class="dugme dugme-sade" href="/hakkimizda/#nasil">Yöntemimiz</a>
+    <a class="dugme dugme-birincil" href="/gundem/">Bugün ne oldu?</a>
+    <a class="dugme" href="/panel/?bolum=senaryo">Senaryonu yaz</a>
   </div>
+  <p class="hero-alt"><a href="/hakkimizda/#nasil">Nasıl çalışıyoruz?</a></p>
 </div>
 
 
