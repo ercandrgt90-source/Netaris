@@ -72,7 +72,16 @@
           parola: girisForm.parola.value,
         },
       }).then(function (y) {
-        if (y.tamam) { location.href = "/panel/"; return; }
+        /* DONUS ADRESI KORUNUYOR. Once sabit "/panel/" yaziliydi ve
+           okurun niyeti kayboluyordu: haber sayfasindan "Senaryo yaz"
+           ile gelen kisi giris yaptiktan sonra BOS BIR PANELE
+           dusuyordu. Hicbir hata gorunmuyordu -- yalnizca hangi
+           habere yazdigi kayboluyordu. */
+        if (y.tamam) {
+          location.href = (window.NetarisDonus
+            ? window.NetarisDonus.hedef() : "/panel/");
+          return;
+        }
         hataGoster(h, y.veri.hata || "Giriş yapılamadı.");
         dugmeKilit(girisForm, false, "Giriş yap");
       }).catch(function () {
@@ -677,7 +686,16 @@
 
   istek("/api/ben").then(function (y) {
     if (!y.tamam || !y.veri.uye) {
-      if (girisGerek) girisGerek.hidden = false;
+      if (girisGerek) {
+        /* Giris baglantisi SU ANKI adresi tasiyor: okur giris yapinca
+           tam olarak buraya -- yani hangi habere yazacaksa o capayla --
+           geri geliyor. */
+        if (window.NetarisDonus) {
+          var g = girisGerek.querySelector('a[href^="/giris/"]');
+          if (g) window.NetarisDonus.baglantiyaEkle(g);
+        }
+        girisGerek.hidden = false;
+      }
       return;
     }
     panel.hidden = false;

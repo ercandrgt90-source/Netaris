@@ -56,7 +56,10 @@
         }
         /* Sunucudan gelen adrese GITMIYORUZ -- acik yonlendirme
            riskini bastan kapatiyoruz. Hedef burada sabit. */
-        location.href = "/panel/";
+        /* Parola girisiyle AYNI donus mantigi: okurun niyeti
+           Google ile girerken de kaybolmamali. */
+        location.href = (window.NetarisDonus
+          ? window.NetarisDonus.hedef() : "/panel/");
       })
       .catch(function () {
         hataYaz("Bağlantı kurulamadı. Tekrar deneyin.");

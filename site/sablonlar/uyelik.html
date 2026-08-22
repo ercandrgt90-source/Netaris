@@ -370,5 +370,12 @@
 </div>
 {% endblock %}
 
-{% block betikler %}<script src="/statik/uyelik.js?v={{ js_surum }}" defer></script>
+{% block betikler %}{# `donus.js` DIGERLERINDEN ONCE: `uyelik.js` ve
+   `google.js` giris sonrasi `window.NetarisDonus.hedef()` cagiriyor.
+   `defer` betikleri BELGE SIRASINDA calistiriyor, yani bu sira
+   yeterli -- ama ikisi de savunmali yazildi (`window.NetarisDonus`
+   yoksa "/panel/"e dusuyorlar), cunku bir betigin yuklenememesi
+   digerlerini de dusurmemeli. #}
+<script src="/statik/donus.js?v={{ js_surum }}" defer></script>
+<script src="/statik/uyelik.js?v={{ js_surum }}" defer></script>
 <script src="/statik/google.js?v={{ js_surum }}" defer></script>{% endblock %}
