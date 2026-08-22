@@ -5524,3 +5524,64 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
 @media (max-width: 640px) {
   .panel-paylas { margin: var(--b-2) 0 0; width: 100%; }
 }
+
+/* ====================================================================
+   SAYFA PAYLASIMI -- haber, bilanco ve olay sayfalarinda
+   --------------------------------------------------------------------
+   Olculdu: `paylas.js` yalnizca SENARYO paylasiyordu; sayfanin
+   KENDISINI paylasmak hicbir yerde yoktu (analiz 2/373, olay 0/9).
+   Netaris yorumlu bir haberi ya da bilanco analizini okuyan kisi onu
+   paylasamiyordu.
+
+   Bu, buyume dongusunun EN GENIS girisi: senaryo yazmak icin uye olmak
+   gerekiyor, paylasmak icin gerekmiyor.
+
+   Marka renkleri KULLANILMIYOR. Bes farkli marka rengi yan yana
+   sayfanin kendi rengini bogar ve reklam serididir izlenimi verir.
+   Hepsi ayni notr kabukta; ayrimi metin yapiyor.
+   ================================================================== */
+
+.sayfa-paylas {
+  margin: var(--b-6) 0;
+  padding: var(--b-4) 0;
+  border-top: 1px solid var(--cizgi);
+  border-bottom: 1px solid var(--cizgi);
+}
+
+.sayfa-paylas-bas {
+  margin: 0 0 var(--b-3);
+  font-size: var(--p-s);
+  font-weight: 650;
+  letter-spacing: 0.02em;
+  color: var(--yazi-2);
+}
+
+.sayfa-paylas-dugmeler {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--b-2);
+}
+
+.sp-dugme {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--b-2) var(--b-3);
+  border: 1px solid var(--cizgi);
+  border-radius: var(--r-kucuk);
+  background: var(--panel);
+  font-size: var(--p-s);
+  font-weight: 650;
+  color: var(--yazi);
+  text-decoration: none;
+  cursor: pointer;
+}
+.sp-dugme:hover {
+  border-color: var(--vurgu);
+  color: var(--vurgu);
+}
+
+@media (max-width: 640px) {
+  /* Dar ekranda dugmeler tasmasin: kaydirma yerine sarma. Bes kisa
+     etiket iki satira rahat siğiyor. */
+  .sp-dugme { flex: 1 1 auto; justify-content: center; }
+}

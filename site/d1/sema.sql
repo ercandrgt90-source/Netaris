@@ -171,3 +171,33 @@ CREATE INDEX IF NOT EXISTS senaryo_durum ON senaryo(durum);
 -- Haber sayfasi capaya gore soruyor; en sik sorgu bu.
 CREATE INDEX IF NOT EXISTS senaryo_capa ON senaryo(capa, durum);
 CREATE INDEX IF NOT EXISTS senaryo_ufuk ON senaryo(ufuk_biter, sonuclanma);
+
+-- ---------------------------------------------------------------------
+-- OLCULEBILIR TETIKLEYICI (2026-08-22)
+--
+-- NEDEN GEREKLI
+-- `sonuclanma` alani en bastan beri var ve senaryo sayfasinda
+-- gosteriliyor -- ama HICBIR SUREC onu yazmiyordu. Yani "ufku dolunca
+-- ne oldugu gorunur" vaadi kodda duruyor, uygulamada calismiyordu.
+--
+-- Sebep: `kosul` serbest metin. "TUFE %30'un altina inerse" cumlesini
+-- makine ile olcmek, dogal dil ayristirmasi ister ve yanlis
+-- ayristirilan bir kosul YANLIS SONUCLANDIRMA uretir -- ki bu,
+-- sonuclandirmamaktan kotudur.
+--
+-- Cozum: kosulu yazan kisi ISTERSE olculebilir bir tetikleyici de
+-- secer. Uc alan yeter: hangi seri, hangi yon, hangi esik.
+--
+-- ZORUNLU DEGIL, BILINCLI
+-- Her senaryo sayisal bir esige indirgenemez ("Hurmuz fiilen
+-- kapanirsa"). Tetikleyicisi olmayan senaryo ufku dolunca 'belirsiz'
+-- isaretlenir ve bu DURUST bir cevaptir. Zorunlu kilmak, sayisal
+-- olmayan gecerli senaryolari disarida birakirdi.
+--
+-- SICIL BUNUN UZERINE KURULUYOR
+-- Sonucu olculemeyen senaryo sonuclanamaz; sonuclanmayan sicil
+-- olusturamaz; sicil olmadan kalite katmani kurulamaz. Katman
+-- sisteminin butun temeli bu uc sutun.
+ALTER TABLE senaryo ADD COLUMN olcut_kod TEXT;      -- gosterge kodu
+ALTER TABLE senaryo ADD COLUMN olcut_yon TEXT;      -- 'ustunde' | 'altinda'
+ALTER TABLE senaryo ADD COLUMN olcut_esik REAL;     -- esik degeri

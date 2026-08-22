@@ -1,3 +1,4 @@
+{% import "_paylas.html" as pl %}
 {% extends "temel.html" %}
 
 {% block baslik %}{{ h.baslik }} — {{ site.ad }}{% endblock %}
@@ -817,6 +818,8 @@
     </div>
     {% endif %}
   </div>
+  {{ pl.paylas(h.baslik, h.ozet or h.neden_onemli, yol, site.adres) }}
+
   {# BUNUNLA ILGILI DIGER GELISMELER.
      Arsivden geliyor, uydurulmuyor: ayni varliklara baglanmis ve
      YAYIMLANMIS haberler. Arsiv genc oldugu icin bugun cogu haberde bu

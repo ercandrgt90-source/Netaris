@@ -146,4 +146,34 @@
   });
 
   window.NetarisPaylas = { html: html, adres: adres };
+
+  /* SAYFA PAYLASIMINDAKI KOPYALA DUGMESI.
+     ------------------------------------
+     Dugme sablonda `hidden` basiliyor ve burasi aciyor: betik
+     yuklenmediginde calismayan bir dugme gorunmesin. Calismayan dugme,
+     olmayan dugmeden kotudur -- okur tiklar, bir sey olmaz, siteye
+     guveni azalir.
+
+     Tiklama isleyicisi zaten asagida (`data-paylas-kopyala`); burada
+     yalnizca gorunurluk aciliyor. */
+  function kopyaDugmeleriniAc() {
+    /* SAVUNMALI: `querySelectorAll` her ortamda YOK.
+       Ilk yazimda dogrudan cagirdim ve `test_paylas.js` COKTU --
+       testin DOM taklidi o islevi saglamiyor. Ayni durum eski
+       tarayicida ya da kismi bir ortamda da olusur ve o zaman
+       dosyanin GERI KALANI da calismaz: bir IIFE icinde firlayan
+       hata, altindaki tiklama isleyicisini de kaydettirmez.
+
+       Yani savunmasiz tek satir, butun paylasim betigini
+       dusurebilirdi. */
+    if (!document || typeof document.querySelectorAll !== "function") return;
+    var d = document.querySelectorAll(".sp-kopya[hidden]");
+    for (var i = 0; i < d.length; i++) d[i].hidden = false;
+  }
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", kopyaDugmeleriniAc);
+  } else {
+    kopyaDugmeleriniAc();
+  }
+
 })();

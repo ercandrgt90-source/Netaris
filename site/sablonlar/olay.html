@@ -1,4 +1,10 @@
+{% import "_paylas.html" as pl %}
 {% extends "temel.html" %}
+{% block ek_bas %}
+{# Sayfa paylasimindaki "kopyala" dugmesi icin. Digerleri duz
+   baglanti; betik yalnizca kopyalamayi aciyor. #}
+<script src="/statik/paylas.js?v={{ js_surum }}" defer></script>
+{% endblock %}
 
 {% block baslik %}{{ grup.baslik }} — {{ site.ad }}{% endblock %}
 {% block aciklama %}{{ grup.baslik }}: {{ grup.haberler|length }} haber,
@@ -60,6 +66,8 @@
   </li>
   {% endfor %}
 </ol>
+
+{{ pl.paylas(grup.baslik, grup.haberler|length ~ " haber", yol, site.adres) }}
 
 <p class="yasal-not">
   Bu sayfa yayımlanmış haberleri ve ölçülmüş göstergeleri bir araya

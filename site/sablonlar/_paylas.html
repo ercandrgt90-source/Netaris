@@ -1,0 +1,55 @@
+{# SAYFA PAYLASIMI -- haber, analiz ve olay sayfalari icin ORTAK.
+
+   NEDEN VAR
+   ---------
+   Olculdu (2026-08-22): `paylas.js` yalnizca SENARYO paylasimini
+   yapiyordu; sayfanin KENDISINI paylasmak hicbir yerde yoktu.
+
+       haber   1272 sayfada paylas.js VAR ama sayfayi paylasmiyor
+       analiz     2 / 373
+       olay       0 / 9
+
+   Yani Netaris yorumlu bir haberi ya da bir bilanco analizini okuyan
+   kisi onu paylasamiyordu. Bu, buyume dongusunun en genis girisi --
+   senaryo yazmak icin uye olmak gerekiyor, paylasmak icin gerekmiyor.
+
+   NEDEN MAKRO
+   -----------
+   Uc sablonda ayni blogu yazmak, birini duzeltip digerini unutmak
+   demek. Bu depoda ayni ders `paylas.js` bas yorumunda da yazili.
+
+   METIN CIPLAK ADRES DEGIL
+   ------------------------
+   Her kanal sayfanin BASLIGINI ve kisa ozetini tasiyor. Ciplak adres
+   paylasimi, okuyanin tiklamadan once ne oldugunu bilmemesi demek --
+   ve tiklanmayan baglanti paylasilmamis sayilir.
+
+   BETIKSIZ CALISIR
+   ----------------
+   Hepsi duz `<a>`; JavaScript gerekmiyor. Yalnizca "kopyala" dugmesi
+   betige bagli ve o da yoksa gorunmuyor.
+#}
+{% macro paylas(baslik, ozet, yol, site_adres, etiket="Bu sayfayı paylaş") %}
+{% set tam = site_adres ~ yol %}
+{# X siniri 280, adres ~23 sayiliyor -- metin 200'e kirpiliyor.
+   Ayni kural worker'daki `paylasBlok` ve `uyelik.js` icinde de var. #}
+{% set metin = (baslik ~ (" — " ~ ozet if ozet else ""))|truncate(200, True, "…") %}
+<section class="sayfa-paylas" aria-labelledby="sp-{{ yol|replace('/', '') }}">
+  <h2 id="sp-{{ yol|replace('/', '') }}" class="sayfa-paylas-bas">{{ etiket }}</h2>
+  <div class="sayfa-paylas-dugmeler">
+    <a class="sp-dugme" rel="noopener noreferrer" target="_blank"
+       href="https://x.com/intent/post?text={{ metin|urlencode }}&url={{ tam|urlencode }}">X</a>
+    <a class="sp-dugme" rel="noopener noreferrer" target="_blank"
+       href="https://www.linkedin.com/sharing/share-offsite/?url={{ tam|urlencode }}">LinkedIn</a>
+    <a class="sp-dugme" rel="noopener noreferrer" target="_blank"
+       href="https://wa.me/?text={{ (metin ~ ' ' ~ tam)|urlencode }}">WhatsApp</a>
+    <a class="sp-dugme" rel="noopener noreferrer" target="_blank"
+       href="https://t.me/share/url?url={{ tam|urlencode }}&text={{ metin|urlencode }}">Telegram</a>
+    {# Kopyalama betige bagli; betik yoksa dugme HIC basilmasin diye
+       `hidden` ve `paylas.js` aciyor. Calismayan bir dugme, olmayan
+       dugmeden kotudur. #}
+    <button class="sp-dugme sp-kopya" type="button" hidden
+            data-paylas-kopyala="{{ tam }}">Bağlantıyı kopyala</button>
+  </div>
+</section>
+{% endmacro %}

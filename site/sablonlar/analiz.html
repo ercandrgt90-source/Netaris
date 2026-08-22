@@ -1,4 +1,10 @@
+{% import "_paylas.html" as pl %}
 {% extends "temel.html" %}
+{% block ek_bas %}
+{# Sayfa paylasimindaki "kopyala" dugmesi icin. Digerleri duz
+   baglanti; betik yalnizca kopyalamayi aciyor. #}
+<script src="/statik/paylas.js?v={{ js_surum }}" defer></script>
+{% endblock %}
 
 {# SEKME BASLIGINDA TARIH VAR, SAYFANIN H1'INDE YOK.
    Gunluk teknik ve makro yazilarinin basligi olculen degerden
@@ -207,6 +213,8 @@
     {% endif %}
   </aside>
   {% endif %}
+
+  {{ pl.paylas(a.baslik, a.ozet, yol, site.adres) }}
 
   <p class="kaynak-not">Veri: {{ a.veri_kaynagi }} · Yayın: {{ a.tarih_tr }}</p>
 </article>
