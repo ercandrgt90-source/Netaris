@@ -231,6 +231,7 @@
   --b-5b: 28px;
   --b-6: 32px;
   --b-7: 48px;
+  --b-7b: 56px;   /* ust duzey bolum araligi -- bkz. .ana-akis */
   --b-8: 64px;
   --golge: 0 1px 2px rgba(12, 21, 36, 0.05), 0 8px 24px rgba(12, 21, 36, 0.06);
   --golge-yuksek: 0 2px 4px rgba(12, 21, 36, 0.06), 0 16px 40px rgba(12, 21, 36, 0.10);
@@ -706,12 +707,19 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
   margin: 0 0 var(--b-4)}
 
 .bolum-bas h2 {
+  /* ONCE 13 PIKSEL BUYUK HARF IDI -- yani bir baslik degil, bir
+     ETIKETTI. Ana sayfada yedi bolum var ve yedisinin de basligi
+     govde metninden kucuktu; sayfa "bolumsuz" gorunuyordu.
+
+     Buyuk harf + genis harf araligi kucuk puntoda ise yarar (rozet,
+     kunye). Baslikta okumayi yavaslatir: harf siluetleri kayboluyor
+     ve goz kelimeyi sekilden taniyamiyor. */
   margin: 0;
-  font-size: var(--p-s);
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--yazi-2);
+  font-size: var(--p-xl);
+  font-weight: 800;
+  letter-spacing: -0.012em;
+  line-height: 1.25;
+  color: var(--yazi);
   white-space: nowrap}
 
 .bolum-bas::after {
@@ -719,6 +727,42 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
   flex: 1;
   height: 1px;
   background: var(--cizgi)}
+
+/* ====================================================================
+   ANA SAYFA RITMI -- TEK ARALIK, YAPIDAN
+   --------------------------------------------------------------------
+   Yedi ust duzey bolumun kenar bosluklari ayri ayri yazilmisti:
+
+       .giris              28px / 28px
+       .masa               48px / 12px
+       .ai-akis            32px /  8px
+       .one-cikan-senaryo  48px /  0
+       .senaryo-davet      32px / 32px
+       .takvim             32px /  8px
+       .rakamlar            (yok)
+
+   Kenarlar birlestigi icin gorunen araliklar 48, 32, 48, 32, 32
+   oluyordu. Duzensiz aralik okura ANLAM gibi gelir ("bunlar bir
+   grup, sunlar ayri") -- oysa yalnizca kurallarin ayri yazilmasinin
+   sonucu.
+
+   Burada aralik TEK yerde ve YAPIDAN geliyor. Yeni bir bolum
+   eklendiginde dogru aralik kendiliginden olusur; `{% if %}` ile
+   basilmayan bolum de bosluk birakmaz.
+   ================================================================== */
+/* SECICI KASITLI OLARAK IKI SINIFLI.
+   `.ana-akis > *` (0,1,0) ile `.masa` (0,1,0) esit ozgullukte olurdu
+   ve o durumda DOSYADAKI SIRA karar verir -- `.masa` 1200 satir
+   asagida yaziliyor, yani kendi kenarini geri alirdi. Iki sinifli
+   secici (0,2,0) sirayla oynamadan kazaniyor. */
+.kabuk > .ana-akis > * { margin-top: 0; margin-bottom: 0}
+.kabuk > .ana-akis > * + * { margin-top: var(--b-7b)}
+
+@media (max-width: 640px) {
+  /* Dar ekranda 56px, ekranin altida biri. Bolum ayrimi zaten
+     baslikla kuruluyor; burada bosluk yalnizca kaydirma maliyeti. */
+  .kabuk > .ana-akis > * + * { margin-top: var(--b-6); }
+}
 
 /* --------------------------------------------------------------- one cikan */
 

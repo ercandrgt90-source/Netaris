@@ -85,6 +85,18 @@
 {% endmacro %}
 
 {% block icerik %}
+{# BOLUM ARALARI YAPIDAN GELIYOR, KURAL KURAL DEGIL.
+   -------------------------------------------------
+   Olculdu: yedi ust duzey bolumun kenar bosluklari elle yazilmisti
+   ve ard arda gelen araliklar 48, 32, 48, 32, 32 pikseldi. Okur bu
+   duzensizligi anlamli bir gruplama sanir -- oysa yalnizca kurallar
+   ayri ayri yazildigi icin boyle.
+
+   Sarmal tek bir ritim veriyor: `.ana-akis > * + *`. Yeni bir bolum
+   eklendiginde aralik KENDILIGINDEN dogru olur ve `{% if %}` ile
+   gizlenen bolumler bosluk birakmaz -- bitisik kardes secicisi
+   yalnizca BASILAN ogeleri sayar. #}
+<div class="ana-akis">
 
 {# ---------------------------------------------------------------
    GIRIS. Kisaltildi: eski surumde alti satirlik bir manifesto vardi
@@ -689,4 +701,5 @@
   {% endfor %}
 </section>
 {% endif %}
+</div>{# /.ana-akis #}
 {% endblock %}
