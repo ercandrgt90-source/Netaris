@@ -194,9 +194,18 @@ for k in gu.ONAYLI:
 
 # Hash BICIMI de sinaniyor: kisaltilmis ya da elle yazilmis bir deger
 # hicbir dosyayla eslesmez ve o konu sessizce gorselsiz kalir.
+def _sha_mi(h):
+    return len(h) == 64 and all(c in "0123456789abcdef" for c in h)
+
+
 for k, h in gu.ONAYLI.items():
-    esit(len(h) == 64 and all(c in "0123456789abcdef" for c in h), True,
-         f"hash tam sha256: {k}")
+    # Varyantli konularda deger DEMET; tekli konularda duz metin.
+    hepsi = (h,) if isinstance(h, str) else h
+    esit(all(_sha_mi(x) for x in hepsi), True, f"hash tam sha256: {k}")
+    # Onay sayisi varyant sayisiyla ORTUSMELI. Ortusmezse fazlalik
+    # sessizce yok sayilir, eksiklik ise o varyanti gorunmez kilar --
+    # ikisi de fark edilmeden gecer.
+    esit(len(hepsi), len(gu.kavramlar(k)), f"onay sayısı = varyant: {k}")
 
 # --------------------------------------------------------------------
 # HABER BASLIGI ISTEME GIRMIYOR.
@@ -250,6 +259,7 @@ esit("yapay zeka" in gu.ETIKET.lower(), True,
 # kota yakar ve sinamayi ag durumuna bagimli kilar.
 # --------------------------------------------------------------------
 import os  # noqa: E402
+import tempfile  # noqa: E402
 
 _yedek = {k: os.environ.pop(k, None)
           for k in ("CLOUDFLARE_ACCOUNT_ID", "CLOUDFLARE_API_TOKEN")}
@@ -268,6 +278,13 @@ try:
     # raporlayan denetim, "189 sayfa eksik" diyen bozuk sitemap taramasi.
     # Eksik tarama temiz rapor uretir; en tehlikeli yanlis budur.
     # ------------------------------------------------------------------
+    # HEDEF gecici BOS dizine cevriliyor: butun cizimler onaylandiktan
+    # sonra `main` "hepsi hazir" deyip 0 ile ciktigi icin kimlik
+    # kontroluna HIC ULASMIYOR. Sinamanin olcmek istedigi sey uretim
+    # yolu, dolayisiyla uretilecek bir sey OLMALI.
+    _asil_hedef = gu.HEDEF
+    _gecici = tempfile.TemporaryDirectory()
+    gu.HEDEF = pathlib.Path(_gecici.name)
     esit(gu.main(), 1, "kimlik yoksa main HATA döndürüyor")
 
     # ------------------------------------------------------------------
@@ -291,6 +308,8 @@ try:
     esit(gu.uret("Enflasyon"), None,
          "yalnızca boşluktan ibaret kimlik = kimlik YOK")
     esit(gu.main(), 1, "boşluklu kimlikte main HATA döndürüyor")
+    gu.HEDEF = _asil_hedef
+    _gecici.cleanup()
 finally:
     for k in ("CLOUDFLARE_ACCOUNT_ID", "CLOUDFLARE_API_TOKEN"):
         os.environ.pop(k, None)

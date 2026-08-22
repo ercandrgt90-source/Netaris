@@ -224,8 +224,11 @@ ONAYLI: dict[str, str] = {
         "b3a237ba68bbabd7b312f10c1118c1d184890e6730248f51f30019f3da088ab3",
     "Para politikası":
         "1fa298f8fc7a80d92ce3f1d3f5511a3a5d21a3034b8eeb5c79c6cdc95db300bf",
-    "Borsa":
+    # VARYANTLI -- demet, sirasi `KONU_KAVRAMI` ile ayni.
+    "Borsa": (
         "378f7e41f11fce0a481d855807da4090b59b97bb00d90b1572b1390a84cad478",
+        "96b986633ab718196f6f872728bda5b90f7817b6d53b1c94864c8722d7854d57",
+    ),
     "Döviz":
         "5136acd4a89c91eb1d9ab3550a14c8af3902f062219d75a0477f041c170ab47e",
     "Dış ticaret":
@@ -240,8 +243,12 @@ ONAYLI: dict[str, str] = {
         "4402a09e716cb6e39b2037525fc506e888d0c9a9e73a6d924a218e596d88b816",
     "Tarım ve gıda":
         "92833f14802952dd2491df8bac3250abf9b022a466611da13ca05d8186b59a25",
-    "Jeopolitik":
+    # VARYANTLI -- cizim kullaniminin %69'u bu konudaydi.
+    "Jeopolitik": (
         "9be4971355c3aafc582f5821bffd6e7e7e5688f3f17623da1af5af7ee04b2a75",
+        "e720daf6989616991709fa3c9e4007c92545aba329ba00b0599206e43a75c339",
+        "d952dcddb900a5d38a02ac8e171b29e555e59c38cb53fe5300a9f4fbc9e5ae11",
+    ),
     "Piyasa düzenlemesi":
         "de626d798785ed147478d4b9bb83682ac21b46f1037293562bc3913ee67baa0c",
     "Vergi ve kamu maliyesi":
@@ -255,6 +262,11 @@ ONAYLI: dict[str, str] = {
         "62ab4237d8fd7a5a573526ba22dc62b32f844125151fbc071ddcb1d6f7308729",
     "Düzenleme":
         "426799e4fe32969beafa5edc65cab63d2bad89e9b2c888411fb34602c2f06b02",
+    # Besinci turda eklendi: ucuncu denemede somut nesneye (zincir)
+    # gecince okunakli cikti. Onceki iki deneme fazla soyuttu --
+    # yazidan kacmak icin anlamdan da kacmis oluyorduk.
+    "Kripto varlıklar":
+        "7ee45979ed2dfd35ccb8b1334de6314e30b161b1aa8c69f1372121308d9ce600",
 }
 
 #: Istemde ASLA gecmemesi gereken sozcukler.
