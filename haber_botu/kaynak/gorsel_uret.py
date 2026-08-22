@@ -118,10 +118,20 @@ KONU_KAVRAMI = {
     "İstihdam ve ücret": "abstract human pictogram figures standing in a "
                          "row",
     "Altın ve emtia": "stacked gold bars and plain coin discs",
-    # Onceki deneme ("cubes interlocking to form a chain") anlasilmaz
-    # sekiller uretti -- hicbir seye benzemiyordu. Petek deseni hem
-    # okunakli hem de uzerinde yazi tasiyamayacak kadar soyut.
-    "Kripto varlıklar": "a flat lattice of interlocking hexagonal tiles",
+    # UCUNCU DENEME. Bu konu iki kez okunaksiz cikti:
+    #
+    #   "cubes interlocking to form a chain"  -> anlamsiz sekiller
+    #   "lattice of hexagonal tiles"          -> duz duvar kagidi dokusu
+    #
+    # Ikisinin de ortak kusuru fazla SOYUT olmasi: yazi tasimiyorlar
+    # ama hicbir sey de anlatmiyorlar. Kavramin somut bir NESNE olmasi
+    # gerekiyor -- zincir, "blok zinciri"nin birebir karsiligi ve
+    # uzerinde yazi tasimayan bir nesne.
+    #
+    # Ucuncu kez basarisiz olursa bu konu listeden CIKARILIR: 52 haber
+    # gorselsiz kalir ve bu, anlasilmayan bir gorselden iyidir.
+    "Kripto varlıklar": "a chain of interlocking metal links lying on a "
+                        "flat surface",
     "Bankacılık": "a stylised bank vault door with abstract coin stacks",
     "Konut ve kira": "simple house and apartment block silhouettes in a "
                      "row",
@@ -221,6 +231,15 @@ ONAYLI: dict[str, str] = {
         "de626d798785ed147478d4b9bb83682ac21b46f1037293562bc3913ee67baa0c",
     "Vergi ve kamu maliyesi":
         "c5666fe09d8b8716206e5bae0d8df979d57d172bb3f29de3e3dd829c9db7045c",
+    # Dorduncu turda eklendi: yazi tasimayan nesneye gecis calisti.
+    "Enerji":
+        "c3a0a2cd21462d7cf345aa2dd421bb6194a2e89e26f472359e1441293a439cc4",
+    "Turizm":
+        "06bf92f753bc5fcaba5c1050ed202af307080263eba94f505ac48ff412eec5df",
+    "Şirket haberleri":
+        "62ab4237d8fd7a5a573526ba22dc62b32f844125151fbc071ddcb1d6f7308729",
+    "Düzenleme":
+        "426799e4fe32969beafa5edc65cab63d2bad89e9b2c888411fb34602c2f06b02",
 }
 
 #: Istemde ASLA gecmemesi gereken sozcukler.
