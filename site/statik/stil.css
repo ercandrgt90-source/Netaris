@@ -5394,3 +5394,67 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
 
 /* Masaustunde gizleme YOK; baglanti da gereksiz. */
 .masa-akis .akis-devam { display: none; }
+
+/* ====================================================================
+   SENARYO DAVETI -- ana sayfadaki donguye giris
+   --------------------------------------------------------------------
+   Olculdu: 5 uye, 1 senaryo. Altyapinin tamami calisiyor ama ana
+   sayfada senaryo yazmaya giden tek bir baglanti yoktu. Darbogaz
+   eksik ozellik degil, eksik davet.
+
+   Vurgulu ama BAGIRMAYAN bir blok: sitenin geri kalani olcum
+   gosteriyor, burasi katilim istiyor. Ikisi ayni gorsel dilde durmali
+   -- reklam kutusu gibi degil, sayfanin bir bolumu gibi.
+   ================================================================== */
+
+.senaryo-davet {
+  margin: var(--b-6) 0;
+  padding: var(--b-5) var(--b-4);
+  border: 1px solid var(--cizgi);
+  border-radius: var(--r);
+  background:
+    linear-gradient(135deg,
+      color-mix(in srgb, var(--vurgu) 7%, var(--panel)),
+      var(--panel) 65%);
+}
+
+.senaryo-davet-ic { max-width: 56ch; }
+
+.senaryo-davet-etiket {
+  margin: 0 0 var(--b-2);
+  font-size: var(--p-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--vurgu);
+}
+
+.senaryo-davet h2 { margin: 0 0 var(--b-3); }
+
+.senaryo-davet p {
+  margin: 0 0 var(--b-3);
+  line-height: 1.6;
+  color: var(--yazi-2);
+}
+
+/* Yasal ayrim silik degil OKUNUR: senaryo ile tahmin arasindaki fark
+   sitenin en hassas cizgisi. */
+.senaryo-davet-not {
+  font-size: var(--p-s);
+  padding-left: var(--b-3);
+  border-left: 2px solid var(--cizgi);
+}
+
+.senaryo-davet-ikincil {
+  display: inline-block;
+  margin-left: var(--b-4);
+  font-size: var(--p-s);
+  font-weight: 650;
+  color: var(--vurgu);
+  text-decoration: none;
+}
+
+@media (max-width: 640px) {
+  .senaryo-davet { padding: var(--b-4) var(--b-3); }
+  .senaryo-davet-ikincil { display: block; margin: var(--b-3) 0 0; }
+}

@@ -792,6 +792,38 @@ async function yayimlandiIsaretle(istek, env) {
   return yanit({ tamam: true, sayi: kayitlar.length });
 }
 
+
+/* CAPA HABERININ GORSELI -- paylasim karti icin.
+   ---------------------------------------------
+   Senaryo sayfasinda `og:image` YOKTU ve X/LinkedIn kucuk kart
+   ("summary") gosteriyordu: gorselsiz, dar, dikkat cekmeyen.
+   Kullanicinin kendi senaryosunu paylasmasi buyume motorunun ilk
+   halkasi; gorselsiz bir kart o halkayi bastan kiriyor.
+
+   GORSEL URETMIYORUZ. Kisiye ozel kart cizmek ya yeni bir bagimlilik
+   (Pillow) ya da ucretli bir servis ister; ikisi de bu asamada gereksiz.
+   Bunun yerine senaryonun BAGLI OLDUGU haberin gorseli kullaniliyor --
+   zaten o haber icin secilmis, lisansi denetlenmis bir gorsel.
+
+   Sema DEGISMIYOR: worker capa sayfasini zaten sunabiliyor, oradan
+   `og:image` okunuyor. Mevcut senaryolar icin de calisiyor.
+
+   Bulunamazsa bos donuyor ve kart "summary"de kaliyor -- uydurma bir
+   gorsel koymaktansa kucuk kart daha durust. */
+async function capaGorseli(env, capa, capaTur) {
+  if (capaTur !== "haber" || !capa || !capa.startsWith("/haber/")) return "";
+  try {
+    const y = await env.ASSETS.fetch(
+      new Request("https://netaris.net" + capa, { method: "GET" }));
+    if (!y.ok) return "";
+    const m = (await y.text()).match(
+      /<meta property="og:image" content="([^"]+)"/);
+    return m ? m[1] : "";
+  } catch (e) {
+    return "";   /* capa silinmis olabilir; kart gorselsiz kalir */
+  }
+}
+
 /* --------------------------------------------------------------- senaryolar */
 
 /* Senaryo = kullanicinin KOSULLU onermesi.
@@ -1159,6 +1191,7 @@ async function senaryoSayfa(istek, env, id) {
      "ne olur" demez, ve paylasim kartinda yarim bir cumle kalir. */
   const ozet = r.kosul + " " + r.sonuc;
   const adres = new URL(istek.url).origin + "/senaryo/" + r.id + "/";
+  const gorsel = await capaGorseli(env, r.capa, r.capa_tur);
 
   const govde = `<!DOCTYPE html>
 <html lang="tr"><head>
@@ -1173,7 +1206,17 @@ async function senaryoSayfa(istek, env, id) {
 <meta property="og:title" content="${kacir(baslik)}">
 <meta property="og:description" content="${kacir(ozet).slice(0, 300)}">
 <meta property="og:url" content="${kacir(adres)}">
-<meta name="twitter:card" content="summary">
+${gorsel ? `<meta property="og:image" content="${kacir(
+  /* CAPA SAYFASININ og:image'I ZATEN MUTLAK.
+     Ilk yazimimda basina origin ekledim ve
+     "https://netaris.nethttps://netaris.net/statik/..." cikti --
+     yani kart gorseli hic yuklenmezdi. Goreli gelirse tamamlaniyor,
+     mutlaksa oldugu gibi kullaniliyor. */
+  gorsel.startsWith("http") ? gorsel
+    : new URL(istek.url).origin + gorsel)}">
+<meta property="og:image:alt" content="${kacir(r.capa_baslik || baslik)}">
+<meta name="twitter:card" content="summary_large_image">`
+  : `<meta name="twitter:card" content="summary">`}
 <link rel="stylesheet" href="/statik/stil.css">
 </head><body>
 <main class="kabuk senaryo-sayfa">
