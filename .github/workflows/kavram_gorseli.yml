@@ -7,11 +7,15 @@
 # -----------------------------
 # Iki sebep, ikisi de siranin bilincli oldugunu gosteriyor:
 #
-# 1. URETILEN GORSEL YAYIMLANMADAN ONCE GORULMELI.
-#    Bu is akisi cizimleri depoya birakiyor; sayfaya ancak bir sonraki
-#    normal otomasyon koşusunda cikiyorlar. Arada insan bakiyor. Ayni
-#    koşuda hem uretip hem yayimlasaydi, hicbir cizim goz onunden
-#    gecmeden 1200 sayfaya dagilirdi.
+# 1. URETILEN GORSEL YAYIMLANMADAN ONCE GORULMELI -- ve bu bir
+#    aliskanlik degil, KURAL. Cizim depoya giriyor ama hash'i
+#    `gorsel_uret.ONAYLI` listesine elle eklenene kadar `dosyasi()`
+#    onu DONDURMUYOR, yani sayfaya cikamiyor.
+#
+#    Liste bir tercih degil, olculmus bir gereklilik: ilk uretimde
+#    istemde "no text, no letters" yazili oldugu halde iki gorselde
+#    metin cikti ("CENTRAL BANK", "Price") ve bir gorsel tamamen sahte
+#    bir grafikti. Modelin olumsuz talimatlara uydugu VARSAYILAMAZ.
 #
 # 2. Kalip SABIT: ayni konu her cagrida ayni cizimi uretiyor. Her
 #    saat tekrar uretmek kota israfi olurdu -- dosya varsa modul

@@ -1602,18 +1602,58 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
  * Cizim ayrica hafifce doygunlugu dusuruluyor. Sebep susleme degil:
  * fotograf serisiyle yan yana geldiginde uretilenin fotograf gibi
  * OKUNMAMASI gerekiyor ve gozun ilk yakaladigi fark tonda. */
-.yazi-uretilen img { filter: saturate(0.85)}
+/* Cizim KARE ve kirpilmiyor.
+ *
+ * `.yazi-foto img` fotograf icin 16:9 + `cover` uyguluyor; cizime
+ * uygulanirsa kare ortadan kirpilir ve kule tepeleri, sepetin oku,
+ * zemin golgesi gider -- yani cizimin anlatmak istedigi sey. Model
+ * kare uretiyor ve olcu parametresi kabul etmiyor, o yuzden cozum
+ * cerceveyi zorlamamak.
+ *
+ * Yukseklik siniri gerekli: 1024 piksellik kare, metnin akisini
+ * bolecek kadar buyuk. Sinirli ve ortalanmis hali ayrica fotograftan
+ * gorunur bicimde farkli duruyor -- okur onu bir olayin fotografi
+ * sanmiyor. */
+/* CIZIM KENDI PANELINDE, kenardan kenara DEGIL.
+ *
+ * Once fotograf kabugu kullaniliyordu: tam genislik, 16:9, alta
+ * yapisik kunye. Cizim kare olunca o kabuk iki yerden bozuldu --
+ * kirpma icerigi kesiyordu ve ortalanmis dar gorselin altindaki tam
+ * genislikteki kunye kopuk duruyordu.
+ *
+ * Panel ikisini de cozuyor ve bir sey daha yapiyor: cizim fotograftan
+ * GORUNUR BICIMDE farkli duruyor. Etiket zaten yaziyor ama okur once
+ * bicime bakiyor. */
+.yazi-uretilen {
+  display: flex; flex-direction: column; align-items: center;
+  gap: var(--b-2);
+  padding: var(--b-4) var(--b-3) var(--b-3);
+  background: var(--zemin-2);
+  border: 1px solid var(--cizgi);
+  border-radius: var(--r)}
+/* Kirpma YOK: `.yazi-foto img` 16:9 + `cover` uyguluyor ve kareye
+ * uygulanirsa kule tepeleri, sepetin oku ve zemin golgesi gider --
+ * yani cizimin anlatmak istedigi sey. Model kare uretiyor ve olcu
+ * parametresi kabul etmiyor, o yuzden cozum cerceveyi zorlamamak.
+ *
+ * Yukseklik siniri gerekli: 1024 piksellik kare metnin akisini
+ * bolecek kadar buyuk. */
+.yazi-uretilen img {
+  aspect-ratio: auto;
+  object-fit: contain;
+  width: auto; max-width: 100%;
+  max-height: 320px;
+  border-radius: calc(var(--r) - 2px);
+  /* Doygunluk hafifce dusuk: fotograf serisiyle yan yana geldiginde
+   * uretilenin fotograf gibi OKUNMAMASI gerekiyor ve gozun ilk
+   * yakaladigi fark tonda. */
+  filter: saturate(0.85)}
 .yazi-uretilen figcaption {
   display: flex; align-items: center; gap: var(--b-2);
   margin: 0;
-  padding: var(--b-2) var(--b-3);
   font-size: var(--p-xs);
   color: var(--yazi-2);
-  background: var(--zemin-2);
-  border: 1px solid var(--cizgi);
-  border-top: 0;
-  border-radius: 0 0 var(--r) var(--r)}
-.yazi-uretilen img { border-radius: var(--r) var(--r) 0 0}
+  text-align: center}
 /* Simge metnin PARCASI degil -- ekran okuyucu etiketi zaten okuyor,
  * simgenin ayrica seslendirilmesi tekrar olurdu. */
 .yazi-uretilen figcaption::before {

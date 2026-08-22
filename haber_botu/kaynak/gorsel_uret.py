@@ -69,11 +69,25 @@ ZAMAN_ASIMI = 90.0
 KONU_KAVRAMI = {
     "Enflasyon": "a shopping basket with everyday groceries beside a "
                  "rising line chart",
-    "Para politikası": "a stylised central bank building facade with an "
-                       "abstract interest rate curve",
-    "Enerji": "abstract oil barrels and a pipeline silhouette with a "
-              "price line",
-    "Borsa": "an abstract stock index board with candlestick shapes",
+    # BINA ISTENMIYOR. Ilk deneme "central bank building facade"
+    # istedi ve model alinliga "CENTRAL BANK" YAZDI -- istemde
+    # "no text" oldugu halde. Bina kalibi egitim verisinde tabelayla
+    # birlikte geliyor; tabelayi yasaklamak yerine BINAYI cikarmak
+    # daha guvenilir. Ayrica Ingilizce bir tabela Turkce bir sitede
+    # zaten yanlis, ustelik belirli bir kurumu ima ediyordu.
+    "Para politikası": "a large abstract coin balanced on a fulcrum "
+                       "beside simple geometric column shapes",
+    # "price line" cikarildi: ilk deneme "Price" sozcugunu yazdi ve
+    # kompozisyon kocaman bos bir alanda kucucuk ogeler oldu.
+    "Enerji": "a group of oil barrels and a pipeline silhouette filling "
+              "the frame",
+    # GRAFIK OLMAMALI. Ilk deneme "stock index board with candlestick
+    # shapes" istedi ve TAMAMEN SAHTE BIR GRAFIK cikti: eksenli,
+    # mumlu, yukselen. Bu site GERCEK olcum grafikleri yayimliyor;
+    # yaninda uydurma bir grafik, okurun ikisini ayirmasini imkansiz
+    # kilar. Kavram artik grafik degil, bir NESNE.
+    "Borsa": "a large abstract bull silhouette made of simple geometric "
+             "shapes",
     "Döviz": "abstract currency symbols over a exchange rate line chart",
     "Dış ticaret": "stylised shipping containers and a cargo crane "
                    "silhouette",
@@ -116,6 +130,65 @@ STIL = ("editorial flat vector illustration, minimal geometric shapes, "
 #: zorunluysa burada da bu etiket zorunlu.
 ETIKET = "Görsel: Netaris tarafından yapay zeka ile üretilmiş kavram çizimi"
 
+#: ONAYLI CIZIMLER -- konu -> dosyanin sha256'si.
+#:
+#: NEDEN LISTE VAR
+#: ---------------
+#: Istem yeterli bir koruma DEGIL. Ilk uretimde bu olculdu: istemde
+#: "no text, no letters, no numbers" yazili oldugu halde
+#:
+#:     Para politikasi  -> binada "CENTRAL BANK" yaziyordu
+#:     Enerji           -> gorselde "Price" yaziyordu
+#:     Borsa            -> tamamen SAHTE BIR GRAFIK cikti
+#:
+#: Ucuncusu en tehlikelisi: bu site GERCEK olcum grafikleri yayimliyor
+#: ve yaninda uydurma bir grafik goruntusu, okurun ikisini ayirmasini
+#: imkansiz kilar.
+#:
+#: Yani modelin olumsuz talimatlara uydugu VARSAYILAMAZ ve "uretilen
+#: gorsel yayimlanmadan once gorulmeli" bir aliskanlik olarak
+#: birakilamaz. Liste onu KURAL yapiyor: hash'i burada olmayan dosya
+#: `dosyasi()` tarafindan DONDURULMEZ, yani sayfaya cikamaz.
+#:
+#: LISTEYE NASIL EKLENIR
+#: ---------------------
+#: Cizime BAKILIR, sonra hash'i buraya yazilir. Sirasi bu; hash'i
+#: bakmadan eklemek listeyi anlamsiz kilar.
+#:
+#:     python haber_botu/kaynak/gorsel_uret.py --hash
+ONAYLI: dict[str, str] = {
+    "Enflasyon":
+        "538cb04d3fd4c37c9c3043600333cc7245511c898fa08aff1c464f08f9ad3b9d",
+    "Döviz":
+        "06619116c6e2a697ffcc7dea10303b30f0970a686fb645c98ca55333aacc05ab",
+    "Dış ticaret":
+        "bd39641b7d4dab2ed03b427fd8b088a6396ffe5e85bd9ffd792aeea5119f19e6",
+    "İstihdam ve ücret":
+        "1a828cbc4155c29c1ab6537221001159e3b3b5c60f19813f9793cfd791eff090",
+    "Altın ve emtia":
+        "23f0878bb7e0de82ab47dfaff0b7431e5211ba071404f30475e9ccc2f4daad25",
+    "Kripto varlıklar":
+        "0326bd27a2977ae6bfcfc315798bcd46be193efa885a740f2c7de243085030b2",
+    "Bankacılık":
+        "6c088967eeda3e9bce5174d98c217ea7191fbe82c5d2fb269d2a017f8fddd621",
+    "Konut ve kira":
+        "b692d79071a25224ab3fa9404e3deb87d28975b72a0fbfa061268c57d55298bd",
+    "Tarım ve gıda":
+        "ba05109030ab5451ef5ac0311db7f5e13fdf604582f609bee0042efdd3736096",
+    "Jeopolitik":
+        "8559c7b0c2c71b54b776cfbdfffb3ba21e66748cb1c18aaf6a80efd3f447e318",
+    "Vergi ve kamu maliyesi":
+        "4021e8b628dc5e33f704fa7af2a21625b6e942ef987f80a64a82112f09576693",
+    "Şirket haberleri":
+        "2c8ba517ef21d5fd3bb2a35c63916cc83df5eee9f442dd9a9636a252e341d651",
+    "Turizm":
+        "c5f3341ef9a1779ef9a0483f884f350d3a7a4300389d8a4c804d322897b8ccb6",
+    "Piyasa düzenlemesi":
+        "398a1038e60449dc0b2ea1b989e49a1b34370a69ae8b67b220d1f6ac20133bd4",
+    "Düzenleme":
+        "2be8e69eec3448c4364eec205aaea833ffc1b19d5f02133e55263f9c3ad04a0f",
+}
+
 #: Istemde ASLA gecmemesi gereken sozcukler.
 #:
 #: Kalip sabit oldugu icin normalde gecmezler; bu liste bir SON
@@ -154,6 +227,37 @@ def istem(konu: str) -> str:
 _OLUMSUZ = re.compile(r"\b(?:no|not)\s+(?:an?\s+)?[a-z-]+", re.I)
 
 
+def _stem(konu: str) -> str:
+    """Konunun dosya adi (uzantisiz).
+
+    Istem sabit oldugu icin ayni konu her cagrida ayni adi uretiyor ve
+    dosya varsa yeniden uretilmiyor.
+    """
+    return "kavram-" + hashlib.sha1(
+        (konu + STIL).encode("utf-8")).hexdigest()[:10]
+
+
+def _uzanti(veri: bytes) -> str:
+    """Baytlardan gercek bicimi bulur.
+
+    UZANTI VARSAYILMAZ. Ilk uretim dosyalari `.png` adiyla yazdi ama
+    icerik JPEG'di -- `flux-1-schnell` JPEG donduruyor. Sunucu tipi
+    UZANTIDAN belirledigi icin 18 dosya `image/png` basligiyla JPEG
+    baytlari servis ediyordu.
+
+    Simdilik zararsiz (tarayici icerigi kokluyor) ama `nosniff`
+    basligi eklendigi gun butun bu gorseller GORUNMEZ olurdu -- ve o
+    an sebebi bulmak cok zor.
+    """
+    if veri[:8] == b"\x89PNG\r\n\x1a\n":
+        return ".png"
+    if veri[:2] == b"\xff\xd8":
+        return ".jpg"
+    if veri[:4] == b"RIFF" and veri[8:12] == b"WEBP":
+        return ".webp"
+    return ""
+
+
 def istem_guvenli(p: str) -> bool:
     """Istemde fotogercekcilige kayis var mi -- son kontrol."""
     kalan = _OLUMSUZ.sub(" ", p.lower())
@@ -189,11 +293,9 @@ def uret(konu: str, hesap: str = "", jeton: str = "") -> pathlib.Path | None:
     if not (hesap and jeton):
         return None
 
-    ad = "kavram-" + hashlib.sha1(
-        (konu + STIL).encode("utf-8")).hexdigest()[:10] + ".png"
-    hedef = HEDEF / ad
-    if hedef.exists():
-        return hedef
+    var = _mevcut(konu)
+    if var is not None:
+        return var
 
     # HATA SEBEBI YAZILIYOR -- eskiden yazilmiyordu ve bir koşu bosa
     # gitti.
@@ -252,23 +354,58 @@ def uret(konu: str, hesap: str = "", jeton: str = "") -> pathlib.Path | None:
         print(f"  görsel çözülemedi ({konu})")
         return None
 
+    uz = _uzanti(veri)
+    if not uz:
+        print(f"  görsel tanınmayan biçimde ({konu}): "
+              f"{veri[:8]!r}")
+        return None
+
     HEDEF.mkdir(parents=True, exist_ok=True)
+    hedef = HEDEF / (_stem(konu) + uz)
     hedef.write_bytes(veri)
     return hedef
 
 
-def dosyasi(konu: str) -> str:
-    """Konunun URETILMIS gorseli varsa site yolu, yoksa bos.
-
-    Uretim YAPMIYOR -- yalnizca diskte hazir olani buluyor. Boylece
-    `insa.py` her koşuda ag istegi atmiyor ve gorsel uretimi ayri bir
-    adim olarak kaliyor.
-    """
+def _mevcut(konu: str) -> pathlib.Path | None:
+    """Konunun diskteki cizimi -- uzantisi ne olursa olsun."""
     if konu not in KONU_KAVRAMI:
+        return None
+    kok = _stem(konu)
+    for uz in (".jpg", ".png", ".webp"):
+        p = HEDEF / (kok + uz)
+        if p.exists():
+            return p
+    return None
+
+
+def onayli_mi(konu: str) -> bool:
+    """Diskteki cizim ONAYLI listesindeki dosya mi?
+
+    Istem yeterli bir koruma degil: ilk uretimde "no text" yazili
+    oldugu halde iki gorselde metin cikti, birinde de sahte bir grafik.
+    Bu yuzden "yayimlanmadan once gorulmeli" bir aliskanlik degil,
+    burada bir KURAL.
+    """
+    p = _mevcut(konu)
+    if p is None:
+        return False
+    beklenen = ONAYLI.get(konu)
+    if not beklenen:
+        return False
+    return hashlib.sha256(p.read_bytes()).hexdigest() == beklenen
+
+
+def dosyasi(konu: str) -> str:
+    """Konunun ONAYLI cizimi varsa site yolu, yoksa bos.
+
+    Uretim YAPMIYOR -- yalnizca diskte hazir VE ONAYLI olani buluyor.
+    Onaysiz bir dosya diskte dursa bile bos donuyor: boylece yeni
+    uretilmis ama henuz bakilmamis bir cizim sayfaya CIKAMIYOR.
+    """
+    if not onayli_mi(konu):
         return ""
-    ad = "kavram-" + hashlib.sha1(
-        (konu + STIL).encode("utf-8")).hexdigest()[:10] + ".png"
-    return f"/statik/foto/uretilen/{ad}" if (HEDEF / ad).exists() else ""
+    p = _mevcut(konu)
+    return f"/statik/foto/uretilen/{p.name}" if p else ""
 
 
 def main() -> int:
@@ -282,7 +419,20 @@ def main() -> int:
        dosyalari depoya birakiyor, insa onlari ancak varsa kullaniyor.
        Yani hicbir gorsel goz onunden gecmeden sayfaya cikmiyor.
     """
-    eksik = [k for k in KONU_KAVRAMI if not dosyasi(k)]
+    # EKSIK OLCUTU `_mevcut`, `dosyasi` DEGIL.
+    #
+    # `dosyasi` onaysiz cizim icin de bos donuyor. Olcut o olsaydi,
+    # uretilmis ama HENUZ BAKILMAMIS bir cizim "eksik" sayilir ve
+    # uzerine yeniden yazilirdi -- yani inceleme altindaki dosya her
+    # koşuda degisirdi ve onaylanmasi imkansiz hale gelirdi.
+    eksik = [k for k in KONU_KAVRAMI if _mevcut(k) is None]
+    bekleyen = [k for k in KONU_KAVRAMI
+                if _mevcut(k) is not None and not onayli_mi(k)]
+    if bekleyen:
+        print(f"{len(bekleyen)} çizim ONAY BEKLİYOR "
+              f"(sayfaya çıkmıyor): {', '.join(bekleyen)}")
+        print("  bakıp onaylamak için: "
+              "python haber_botu/kaynak/gorsel_uret.py --hash")
     if not eksik:
         print(f"{len(KONU_KAVRAMI)} kavram görselinin hepsi hazır.")
         return 0
@@ -326,8 +476,34 @@ def main() -> int:
     if uretilen == 0:
         print("HİÇBİR görsel üretilemedi -- yukarıdaki sebebe bakın.")
         return 1
+    print("\nYeni çizimler ONAY BEKLİYOR ve sayfaya çıkmayacak. "
+          "Bakıp onaylamak için: --hash")
+    return 0
+
+
+def hashleri_yaz() -> int:
+    """Diskteki cizimlerin hash'lerini `ONAYLI` bicimiyle basar.
+
+    SIRA: once cizime BAKILIR, sonra hash'i listeye yazilir. Bakmadan
+    yapistirmak listeyi anlamsiz kilar -- listenin tek isi, bakilmis
+    olani bakilmamis olandan ayirmak.
+    """
+    for k in KONU_KAVRAMI:
+        p = _mevcut(k)
+        if p is None:
+            print(f"    # {k}: dosya yok")
+            continue
+        h = hashlib.sha256(p.read_bytes()).hexdigest()
+        durum = "onaylı" if ONAYLI.get(k) == h else "ONAY BEKLİYOR"
+        print(f"    # {p.name}  ({durum})")
+        print(f"    {k!r}:\n        {h!r},")
     return 0
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    import argparse
+    _ap = argparse.ArgumentParser()
+    _ap.add_argument("--hash", action="store_true",
+                     help="diskteki çizimlerin hash'lerini bas")
+    _a = _ap.parse_args()
+    raise SystemExit(hashleri_yaz() if _a.hash else main())

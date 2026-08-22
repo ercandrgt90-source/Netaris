@@ -57,6 +57,74 @@ esit(gu.istem("Boyle Bir Konu Yok"), "", "tanimsiz konu istem URETMIYOR")
 esit(gu.uret("Boyle Bir Konu Yok"), None, "tanimsiz konu gorsel URETMIYOR")
 
 # --------------------------------------------------------------------
+# KAVRAM GRAFIK OLMAMALI.
+#
+# Ilk uretimde "Borsa" icin "stock index board with candlestick shapes"
+# istendi ve TAMAMEN SAHTE BIR GRAFIK cikti: eksenli, mumlu, yukselen.
+#
+# Bu site GERCEK olcum grafikleri yayimliyor (`grafik.py`). Yaninda
+# uydurma bir grafik goruntusu, okurun ikisini ayirmasini imkansiz
+# kilar -- ve bu, etiketle bile kapatilamayacak bir karisiklik.
+#
+# Kavramin OZNESI bir grafik olamaz. Grafik YAN OGE olabilir --
+# sepetin yanindaki yukselen ok gibi; o okun eksen ya da degeri yok ve
+# kimse onu veri sanmaz. Yasak olan, grafigin gorselin KENDISI olmasi.
+#
+# Olcut ilk bes sozcuk: Ingilizce'de ozne orada duruyor.
+#
+#     "a shopping basket with everyday groceries..."  -> ozne sepet, GECER
+#     "an abstract stock index board with candle..."  -> ozne pano, KALIR
+#
+# Ilk denemem virgulden boluyordu ve yaniliyordu: kavramlarin cogu tek
+# cumle, dolayisiyla butun metin "ilk boluma" giriyor ve sondaki
+# "line chart" ozne saniliyordu.
+# --------------------------------------------------------------------
+_GRAFIK_SOZ = ("chart", "candlestick", "graph", "index board", "ticker")
+for konu, kavram in gu.KONU_KAVRAMI.items():
+    ozne = " ".join(kavram.lower().split()[:5])
+    esit(any(s in ozne for s in _GRAFIK_SOZ), False,
+         f"kavramın öznesi grafik DEĞİL: {konu}")
+
+# --------------------------------------------------------------------
+# UZANTI VARSAYILMIYOR, BAYTTAN OKUNUYOR.
+#
+# Ilk uretim dosyalari `.png` adiyla yazdi ama icerik JPEG'di --
+# `flux-1-schnell` JPEG donduruyor. Sunucu tipi UZANTIDAN belirledigi
+# icin 18 dosya `image/png` basligiyla JPEG baytlari servis ediyordu.
+# Tarayici icerigi kokledigi icin goruntuleniyordu, ama `nosniff`
+# basligi eklendigi gun hepsi GORUNMEZ olurdu.
+# --------------------------------------------------------------------
+esit(gu._uzanti(b"\xff\xd8\xff\xe0" + b"\x00" * 8), ".jpg", "JPEG tanınıyor")
+esit(gu._uzanti(b"\x89PNG\r\n\x1a\n" + b"\x00" * 8), ".png", "PNG tanınıyor")
+esit(gu._uzanti(b"RIFF\x00\x00\x00\x00WEBP"), ".webp", "WebP tanınıyor")
+esit(gu._uzanti(b"tanimsiz veri"), "", "tanınmayan biçim BOŞ döner")
+
+# --------------------------------------------------------------------
+# ONAY LISTESI: BAKILMAMIS CIZIM SAYFAYA CIKAMAZ.
+#
+# EN ONEMLI SINAMA. Istem yeterli bir koruma degil ve bu olculdu: ilk
+# uretimde istemde "no text, no letters, no numbers" yazili oldugu
+# halde iki gorselde METIN cikti (biri "CENTRAL BANK", digeri "Price")
+# ve bir gorsel tamamen sahte bir grafikti.
+#
+# Yani modelin olumsuz talimatlara uydugu VARSAYILAMAZ ve "uretilen
+# gorsel yayimlanmadan once gorulmeli" bir aliskanlik olarak
+# birakilamaz. Liste onu kural yapiyor.
+# --------------------------------------------------------------------
+esit(gu.onayli_mi("Boyle Bir Konu Yok"), False, "tanımsız konu onaylı DEĞİL")
+
+# Listedeki her konu KONU_KAVRAMI icinde olmali; yoksa liste sessizce
+# etkisiz kalir (`dosyasi` zaten `_mevcut` uzerinden None doner).
+for k in gu.ONAYLI:
+    esit(k in gu.KONU_KAVRAMI, True, f"onaylı konu tanımlı: {k}")
+
+# Hash BICIMI de sinaniyor: kisaltilmis ya da elle yazilmis bir deger
+# hicbir dosyayla eslesmez ve o konu sessizce gorselsiz kalir.
+for k, h in gu.ONAYLI.items():
+    esit(len(h) == 64 and all(c in "0123456789abcdef" for c in h), True,
+         f"hash tam sha256: {k}")
+
+# --------------------------------------------------------------------
 # HABER BASLIGI ISTEME GIRMIYOR.
 #
 # En onemli sinama. "Iran limanina saldiri" basligindan uretilen

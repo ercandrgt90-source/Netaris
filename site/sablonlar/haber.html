@@ -141,8 +141,17 @@
      `alt` BOS: cizim bir olayi degil bir KAVRAMI anlatiyor ve konu
      zaten hemen altta rozet olarak yaziyor. Ekran okuyucuya
      "Enflasyon" demek, gorseli olmadigi bir sey gibi tanitmak. #}
+  {# OLCU 1024x1024 -- FOTOGRAFIN 16:9'U DEGIL.
+     Model kare uretiyor ve genislik/yukseklik parametresi kabul
+     etmiyor. Fotograf cercevesini (16:9, `object-fit: cover`)
+     uygulamak kareyi ortadan kirpardi: kule tepeleri, sepetin oku ve
+     zemin golgesi giderdi -- yani cizimin anlatmak istedigi sey.
+
+     Bu yuzden cizim kendi oraniyla ve SINIRLI YUKSEKLIKTE duruyor.
+     Yan etkisi iyi: fotograftan gorunur bicimde farkli duruyor ve
+     okur onu bir olayin fotografi sanmiyor. #}
   <figure class="yazi-gorsel yazi-foto yazi-uretilen">
-    <img src="{{ h.uretilen }}" alt="" width="800" height="450"
+    <img src="{{ h.uretilen }}" alt="" width="1024" height="1024"
          decoding="async" loading="lazy">
     <figcaption>{{ h.uretilen_etiket }}</figcaption>
   </figure>
