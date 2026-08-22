@@ -79,11 +79,55 @@ esit(gu.uret("Boyle Bir Konu Yok"), None, "tanimsiz konu gorsel URETMIYOR")
 # cumle, dolayisiyla butun metin "ilk boluma" giriyor ve sondaki
 # "line chart" ozne saniliyordu.
 # --------------------------------------------------------------------
-_GRAFIK_SOZ = ("chart", "candlestick", "graph", "index board", "ticker")
+_GRAFIK_SOZ = ("chart", "candlestick", "graph", "index board", "ticker",
+               "price line", "trend line")
 for konu, kavram in gu.KONU_KAVRAMI.items():
-    ozne = " ".join(kavram.lower().split()[:5])
-    esit(any(s in ozne for s in _GRAFIK_SOZ), False,
-         f"kavramın öznesi grafik DEĞİL: {konu}")
+    esit(any(s in kavram.lower() for s in _GRAFIK_SOZ), False,
+         f"kavramda grafik YOK: {konu}")
+
+# --------------------------------------------------------------------
+# KAVRAM YONLU OLAMAZ.
+#
+# Ikinci uretimde Borsa icin bir BOGA silueti geldi: temiz, metinsiz,
+# grafiksiz. Yine de reddedildi -- boga yukselen piyasa demek ve o
+# gorsel Borsa konulu 759 haberin HEPSINDE gorunuyor, bir kismi dusus
+# haberi.
+#
+# Ayni kusur ilk turda onaylanan bes cizimde de vardi (yukselen ok ya
+# da yukselen cizgi). "Enflasyon %31,75'e geriledi" haberinin yaninda
+# buyuk bir yukselen ok yanlis duruyor.
+#
+# Konu basina TEK gorsel kullanildigi surece yonlu sembol
+# kullanilamaz. Bu sinama kurali kalici kiliyor.
+# --------------------------------------------------------------------
+_YON_SOZ = ("rising", "falling", "upward", "downward", "growth",
+            "declining", "increasing", "decreasing", "bull", "bear",
+            "arrow", "volatile", "soaring", "plunging")
+for konu, kavram in gu.KONU_KAVRAMI.items():
+    bulunan = [s for s in _YON_SOZ if s in kavram.lower()]
+    esit(bulunan, [], f"kavram YÖN taşımıyor: {konu}")
+
+# Stil de yasagi tasimali: kavram temiz olsa bile model kendiliginden
+# ok ekleyebiliyor, olculdu.
+for zorunlu in ("no arrows", "no charts", "no trend lines",
+                "no upward or downward direction", "no currency symbols"):
+    esit(zorunlu in gu.STIL, True, f"stil yasağı var: '{zorunlu}'")
+
+# --------------------------------------------------------------------
+# ISTEM DEGISINCE DOSYA ADI DA DEGISMELI.
+#
+# Once ad yalnizca konu+stilden turuyordu ve bu SESSIZ BIR TUZAKTI:
+# kavram metni degistiginde ad degismiyor, `_mevcut` eski dosyayi
+# buluyor ve yeni istem HIC CALISMIYORDU. "Istemi duzelttim" diyen bir
+# degisiklik hicbir seyi degistirmiyordu.
+# --------------------------------------------------------------------
+_once = gu._stem("Enflasyon")
+_yedek_kavram = gu.KONU_KAVRAMI["Enflasyon"]
+gu.KONU_KAVRAMI["Enflasyon"] = "something completely different"
+esit(gu._stem("Enflasyon") != _once, True,
+     "kavram değişince dosya adı DEĞİŞİYOR")
+gu.KONU_KAVRAMI["Enflasyon"] = _yedek_kavram
+esit(gu._stem("Enflasyon"), _once, "kavram geri alınınca ad da aynı")
 
 # --------------------------------------------------------------------
 # UZANTI VARSAYILMIYOR, BAYTTAN OKUNUYOR.

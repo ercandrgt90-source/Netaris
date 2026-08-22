@@ -61,56 +61,66 @@ HEDEF = KOK / "site" / "statik" / "foto" / "uretilen"
 MODEL = "@cf/black-forest-labs/flux-1-schnell"
 ZAMAN_ASIMI = 90.0
 
-#: Konu -> gorsel KAVRAMI. Olay degil, kavram.
+#: Konu -> gorsel KAVRAMI. Olay degil, kavram; ve NESNE, grafik degil.
 #:
 #: Her biri soyut ya da genel bir sahne: bir olayi, bir kisiyi ya da
-#: bir yeri temsil etmiyor. "Enflasyon" icin market sepeti + yukselen
-#: cizgi -- bu bir fotograf iddiasi degil, bir anlatim.
+#: bir yeri temsil etmiyor.
+#:
+#: IKI KURAL, IKISI DE OLCULMUS BIR HATADAN GELIYOR
+#: -----------------------------------------------
+#: 1. KAVRAM GRAFIK OLAMAZ. Ilk uretimde "Borsa" icin "stock index
+#:    board with candlestick shapes" istendi ve tamamen SAHTE BIR
+#:    GRAFIK cikti: eksenli, mumlu. Bu site gercek olcum grafikleri
+#:    yayimliyor (`grafik.py`); yaninda uydurma bir grafik, okurun
+#:    ikisini ayirmasini imkansiz kilar.
+#:
+#: 2. KAVRAM YONLU OLAMAZ. Ikinci uretimde Borsa icin bir BOGA
+#:    silueti geldi -- temiz, metinsiz, grafiksiz. Yine de reddedildi:
+#:    boga yukselen piyasa demek ve bu gorsel Borsa konulu 759 haberin
+#:    HEPSINDE gorunuyor, bir kismi dusus haberi.
+#:
+#:    Ayni kusur ilk turda onaylanan bes cizimde de vardi (yukselen ok
+#:    ya da yukselen cizgi): "Enflasyon %31,75'e geriledi" haberinin
+#:    yaninda buyuk bir yukselen ok yanlis duruyor.
+#:
+#:    Konu basina TEK gorsel kullanildigi surece yonlu sembol
+#:    kullanilamaz. Cozum: kavramlar NESNE, yon tasimiyor.
 KONU_KAVRAMI = {
-    "Enflasyon": "a shopping basket with everyday groceries beside a "
-                 "rising line chart",
-    # BINA ISTENMIYOR. Ilk deneme "central bank building facade"
-    # istedi ve model alinliga "CENTRAL BANK" YAZDI -- istemde
-    # "no text" oldugu halde. Bina kalibi egitim verisinde tabelayla
-    # birlikte geliyor; tabelayi yasaklamak yerine BINAYI cikarmak
-    # daha guvenilir. Ayrica Ingilizce bir tabela Turkce bir sitede
-    # zaten yanlis, ustelik belirli bir kurumu ima ediyordu.
-    "Para politikası": "a large abstract coin balanced on a fulcrum "
-                       "beside simple geometric column shapes",
-    # "price line" cikarildi: ilk deneme "Price" sozcugunu yazdi ve
-    # kompozisyon kocaman bos bir alanda kucucuk ogeler oldu.
+    "Enflasyon": "a shopping basket filled with everyday groceries",
+    # BINA VE MADENI PARA ISTENMIYOR -- ikisi de denendi, ikisi de
+    # kendi sorununu getirdi:
+    #   "central bank building facade" -> alinliga "CENTRAL BANK" YAZDI
+    #   "a large abstract coin"        -> paranin ustune BITCOIN isareti
+    # Ikisi de istemde acikca yasakliydi ("no text", "no brand marks").
+    # Kalip egitim verisinde o ayrintiyla birlikte geliyor; ayrintiyi
+    # yasaklamak yerine KALIBI degistirmek daha guvenilir.
+    "Para politikası": "a plain circular dial gauge with a single needle, "
+                       "mounted on a flat panel",
     "Enerji": "a group of oil barrels and a pipeline silhouette filling "
               "the frame",
-    # GRAFIK OLMAMALI. Ilk deneme "stock index board with candlestick
-    # shapes" istedi ve TAMAMEN SAHTE BIR GRAFIK cikti: eksenli,
-    # mumlu, yukselen. Bu site GERCEK olcum grafikleri yayimliyor;
-    # yaninda uydurma bir grafik, okurun ikisini ayirmasini imkansiz
-    # kilar. Kavram artik grafik degil, bir NESNE.
-    "Borsa": "a large abstract bull silhouette made of simple geometric "
-             "shapes",
-    "Döviz": "abstract currency symbols over a exchange rate line chart",
+    "Borsa": "an empty stock exchange hall interior with rows of plain "
+             "rectangular display panels",
+    # Para birimi SEMBOLU istenmiyor: "$" agirlikli bir gorsel Turkce
+    # bir sitede yanlis vurgu, ayrica sembol metin gibi davraniyor.
+    "Döviz": "plain banknote sheets and coin discs arranged in a fan",
     "Dış ticaret": "stylised shipping containers and a cargo crane "
                    "silhouette",
-    "İstihdam ve ücret": "abstract human figures forming a bar chart",
-    "Altın ve emtia": "stacked gold bars beside an abstract price line",
-    "Kripto varlıklar": "abstract blockchain cubes with a volatile line "
-                        "chart",
+    "İstihdam ve ücret": "abstract human pictogram figures standing in a "
+                         "row",
+    "Altın ve emtia": "stacked gold bars and plain coin discs",
+    "Kripto varlıklar": "abstract cubes interlocking to form a chain",
     "Bankacılık": "a stylised bank vault door with abstract coin stacks",
-    "Konut ve kira": "simple house silhouettes forming a bar chart",
-    "Tarım ve gıda": "wheat stalks and a grain silo silhouette with a "
-                     "price line",
-    "Jeopolitik": "an abstract world map with shipping lanes and a "
-                  "commodity price line",
+    "Konut ve kira": "simple house and apartment block silhouettes in a "
+                     "row",
+    "Tarım ve gıda": "wheat stalks and a grain silo silhouette",
+    "Jeopolitik": "an abstract world map with dotted shipping lanes",
     "Vergi ve kamu maliyesi": "an abstract government ledger with coin "
                               "stacks",
-    "Şirket haberleri": "abstract office towers with a quarterly bar "
-                        "chart",
-    "Turizm": "a stylised airplane silhouette and hotel building with a "
-              "visitor count bar chart",
-    "Piyasa düzenlemesi": "abstract balance scales beside a stylised "
-                          "rulebook and a market line chart",
-    "Düzenleme": "abstract balance scales beside a stylised rulebook and "
-                 "a market line chart",
+    "Şirket haberleri": "abstract office towers of varying heights",
+    "Turizm": "a stylised airplane silhouette and a hotel building",
+    "Piyasa düzenlemesi": "abstract balance scales beside a closed "
+                          "rulebook",
+    "Düzenleme": "abstract balance scales beside a closed rulebook",
 }
 
 #: Her isteme eklenen SABIT kisim.
@@ -121,7 +131,10 @@ KONU_KAVRAMI = {
 STIL = ("editorial flat vector illustration, minimal geometric shapes, "
         "muted teal and slate colour palette, clean background, "
         "no text, no letters, no numbers, no people, no faces, "
-        "no logos, no brand marks, not photorealistic, not a photograph")
+        "no logos, no brand marks, no currency symbols, "
+        "no charts, no graphs, no trend lines, no arrows, "
+        "no upward or downward direction, "
+        "not photorealistic, not a photograph")
 
 #: Uretilen gorselin altinda GORUNMESI ZORUNLU etiket.
 #:
@@ -156,38 +169,11 @@ ETIKET = "Görsel: Netaris tarafından yapay zeka ile üretilmiş kavram çizimi
 #: bakmadan eklemek listeyi anlamsiz kilar.
 #:
 #:     python haber_botu/kaynak/gorsel_uret.py --hash
-ONAYLI: dict[str, str] = {
-    "Enflasyon":
-        "538cb04d3fd4c37c9c3043600333cc7245511c898fa08aff1c464f08f9ad3b9d",
-    "Döviz":
-        "06619116c6e2a697ffcc7dea10303b30f0970a686fb645c98ca55333aacc05ab",
-    "Dış ticaret":
-        "bd39641b7d4dab2ed03b427fd8b088a6396ffe5e85bd9ffd792aeea5119f19e6",
-    "İstihdam ve ücret":
-        "1a828cbc4155c29c1ab6537221001159e3b3b5c60f19813f9793cfd791eff090",
-    "Altın ve emtia":
-        "23f0878bb7e0de82ab47dfaff0b7431e5211ba071404f30475e9ccc2f4daad25",
-    "Kripto varlıklar":
-        "0326bd27a2977ae6bfcfc315798bcd46be193efa885a740f2c7de243085030b2",
-    "Bankacılık":
-        "6c088967eeda3e9bce5174d98c217ea7191fbe82c5d2fb269d2a017f8fddd621",
-    "Konut ve kira":
-        "b692d79071a25224ab3fa9404e3deb87d28975b72a0fbfa061268c57d55298bd",
-    "Tarım ve gıda":
-        "ba05109030ab5451ef5ac0311db7f5e13fdf604582f609bee0042efdd3736096",
-    "Jeopolitik":
-        "8559c7b0c2c71b54b776cfbdfffb3ba21e66748cb1c18aaf6a80efd3f447e318",
-    "Vergi ve kamu maliyesi":
-        "4021e8b628dc5e33f704fa7af2a21625b6e942ef987f80a64a82112f09576693",
-    "Şirket haberleri":
-        "2c8ba517ef21d5fd3bb2a35c63916cc83df5eee9f442dd9a9636a252e341d651",
-    "Turizm":
-        "c5f3341ef9a1779ef9a0483f884f350d3a7a4300389d8a4c804d322897b8ccb6",
-    "Piyasa düzenlemesi":
-        "398a1038e60449dc0b2ea1b989e49a1b34370a69ae8b67b220d1f6ac20133bd4",
-    "Düzenleme":
-        "2be8e69eec3448c4364eec205aaea833ffc1b19d5f02133e55263f9c3ad04a0f",
-}
+#: BOS: butun kavramlar yonsuz hale getirildi, yani her istem degisti
+#: ve `_stem` istemden turedigi icin butun dosya adlari da degisti.
+#: Eski hash'ler artik hicbir dosyayla eslesmiyor -- ki dogrusu bu:
+#: farkli istem farkli gorsel demek ve yeniden BAKILMASI gerekiyor.
+ONAYLI: dict[str, str] = {}
 
 #: Istemde ASLA gecmemesi gereken sozcukler.
 #:
@@ -228,13 +214,21 @@ _OLUMSUZ = re.compile(r"\b(?:no|not)\s+(?:an?\s+)?[a-z-]+", re.I)
 
 
 def _stem(konu: str) -> str:
-    """Konunun dosya adi (uzantisiz).
+    """Konunun dosya adi (uzantisiz) -- ISTEMDEN turuyor.
 
-    Istem sabit oldugu icin ayni konu her cagrida ayni adi uretiyor ve
-    dosya varsa yeniden uretilmiyor.
+    ISTEMIN TAMAMI ADA GIRIYOR (konu + kavram + stil). Once yalnizca
+    konu ve stil giriyordu ve bu SESSIZ BIR TUZAKTI: kavram metni
+    degistiginde dosya adi degismiyor, `_mevcut` eski dosyayi buluyor
+    ve yeni istem HIC CALISMIYORDU. Yani "istemi duzelttim" diyen bir
+    degisiklik hicbir seyi degistirmiyordu; ancak dosyayi elle silmek
+    ise yariyordu.
+
+    Simdi farkli istem = farkli dosya adi = eski onay hash'i gecersiz.
+    Yani istemi degistiren kisi, sonucuna BAKMAK ZORUNDA kaliyor.
     """
+    tohum = konu + KONU_KAVRAMI.get(konu, "") + STIL
     return "kavram-" + hashlib.sha1(
-        (konu + STIL).encode("utf-8")).hexdigest()[:10]
+        tohum.encode("utf-8")).hexdigest()[:10]
 
 
 def _uzanti(veri: bytes) -> str:
