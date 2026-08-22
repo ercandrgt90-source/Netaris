@@ -520,6 +520,12 @@
           sonuc: sonuc,
           gerekce: senForm.gerekce.value.trim(),
           ufuk: senForm.ufuk.value,
+          /* OLCULEBILIR TETIKLEYICI -- istege bagli.
+             Bos gonderilirse worker tarafinda null yaziliyor ve
+             senaryo ufku dolunca 'belirsiz' isaretleniyor. */
+          olcut_kod: senForm.olcut_kod ? senForm.olcut_kod.value : "",
+          olcut_yon: senForm.olcut_yon ? senForm.olcut_yon.value : "",
+          olcut_esik: senForm.olcut_esik ? senForm.olcut_esik.value : "",
           gonder: senGonderModu,
         },
       }).then(function (y) {

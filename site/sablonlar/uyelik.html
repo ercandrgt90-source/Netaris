@@ -192,6 +192,58 @@
           <textarea name="gerekce" rows="5" maxlength="1200"></textarea>
         </label>
 
+        {# OLCULEBILIR TETIKLEYICI -- ISTEGE BAGLI.
+           `sonuclanma` alani semada en bastan beri vardi ve senaryo
+           sayfasinda gosteriliyordu ama HICBIR SUREC onu yazmiyordu:
+           "ufku dolunca ne oldugu gorunur" vaadi kodda duruyor,
+           uygulamada calismiyordu. Sebep kosulun serbest metin
+           olmasi -- makine ile olculemiyor.
+
+           Uc alan yetiyor: hangi seri, hangi yon, hangi esik. Ufuk
+           dolunca `senaryo_sonuclandir.py` bakiyor ve isaretliyor.
+
+           ZORUNLU DEGIL, BILINCLI: her senaryo sayisal esige
+           indirgenemez ("Hurmuz fiilen kapanirsa"). Tetikleyicisi
+           olmayan senaryo 'belirsiz' isaretlenir ve bu DURUST bir
+           cevaptir. Zorunlu kilmak, sayisal olmayan gecerli
+           senaryolari disarida birakirdi. #}
+        <fieldset class="senaryo-tetik">
+          <legend>Ölçülebilir tetikleyici <span class="uyelik-ipucu">isteğe bağlı</span></legend>
+          <p class="uyelik-ipucu">Koşulunuzu bir göstergeye bağlarsanız,
+            ufkunuz dolduğunda senaryonuz <b>otomatik sonuçlandırılır</b>.
+            Bağlamazsanız “belirsiz” olarak işaretlenir.</p>
+          <label>Gösterge
+            <select name="olcut_kod">
+              <option value="">— seçmeyin —</option>
+            <option value="TP.TUKFIY2025.GENEL">Türkiye TÜFE (yıllık) (%)</option>
+            <option value="TP.FE25.OKTG04">Türkiye çekirdek enflasyon (C) (%)</option>
+            <option value="TP.APIFON4">TCMB ağırlıklı fonlama maliyeti (%)</option>
+            <option value="TP.DK.USD.S.YTL">USD/TRY (TL)</option>
+            <option value="DFF">ABD efektif fed fonu oranı (%)</option>
+            <option value="DGS10">ABD 10 yıllık tahvil getirisi (%)</option>
+            <option value="DGS2">ABD 2 yıllık tahvil getirisi (%)</option>
+            <option value="CPIAUCNS">ABD TÜFE (yıllık) (%)</option>
+            <option value="PCEPILFE">ABD çekirdek PCE (%)</option>
+            <option value="UNRATE">ABD işsizlik oranı (%)</option>
+            <option value="DCOILBRENTEU">Brent petrol ($)</option>
+            <option value="DTWEXBGS">Dolar endeksi (endeks)</option>
+            <option value="VIXCLS">VIX oynaklık endeksi (endeks)</option>
+            <option value="PAXGUSD">Ons altın ($)</option>
+            <option value="XBTUSD">Bitcoin ($)</option>
+            </select>
+          </label>
+          <label>Yön
+            <select name="olcut_yon">
+              <option value="altinda">eşiğin altına inerse</option>
+              <option value="ustunde">eşiğin üstüne çıkarsa</option>
+            </select>
+          </label>
+          <label>Eşik
+            <span class="uyelik-ipucu">Sayı yazın. Örnek: 30</span>
+            <input type="number" name="olcut_esik" step="any" inputmode="decimal">
+          </label>
+        </fieldset>
+
         <label>Ufuk
           <span class="uyelik-ipucu">Senaryonuz ne zamana kadar geçerli?
             Süre dolduğunda sonucu işaretlenir.</span>

@@ -229,6 +229,37 @@ jobs:
         if: always()
         run: python haber_botu/beyan_denetimi.py
 
+      # UFKU DOLAN SENARYOLARI SONUCLANDIR.
+      #
+      # `sonuclanma` alani semada en bastan beri vardi ve senaryo
+      # sayfasinda gosteriliyordu ama HICBIR SUREC onu yazmiyordu --
+      # "ufku dolunca ne oldugu gorunur" vaadi kodda duruyor,
+      # uygulamada calismiyordu.
+      #
+      # Yalnizca OLCULEBILIR tetikleyicisi olan senaryolar otomatik
+      # sonuclanir; digerleri 'belirsiz' isaretlenir. Modele
+      # "gerceklesti mi" diye sordurmak yanlis sonuclandirma uretir ve
+      # yanlis sonuclandirma, sonuclandirmamaktan KOTUDUR: yazarin
+      # sicilini haksizca bozar.
+      #
+      # `--uygula` veriliyor cunku bu bir OLCUM yazimi, icerik silme
+      # degil: esik gecildi mi gecilmedi mi sorusunun cevabi veriden
+      # okunuyor ve geri alinabilir (sutun guncellenir).
+      #
+      # D1 erisimi gerekiyor; token yoksa adim kendini atlar ve hat
+      # kirmizi DONMEZ.
+      - name: Ufku dolan senaryoları sonuçlandır
+        if: always()
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          if [ -n "$CLOUDFLARE_API_TOKEN" ]; then
+            python haber_botu/senaryo_sonuclandir.py --uygula
+          else
+            echo "CLOUDFLARE_API_TOKEN yok -- sonuçlandırma atlandı."
+          fi
+
       - name: Biriken veriyi geri yaz
         # Beynin gecmisi, ceviri onbellegi, indirilen fotograflar ve
         # uretilen icerik depoya geri yazilir. Boylece bir sonraki

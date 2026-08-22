@@ -82,6 +82,57 @@ _BULANIK = re.compile(
 _SAYI = re.compile(r"\d+[.,]\d+")
 
 
+
+#: FORMDA SUNULAN TETIKLEYICILER -- kuratorlu, 42'nin hepsi degil.
+#:
+#: Depoda 42 olculebilir seri var ama hepsini acilir listeye koymak
+#: okuru bogar ve secim yapmasini zorlastirir. Buradakiler okurun
+#: TANIDIGI ve bir senaryonun etrafinda kurulabilecegi olculer.
+#:
+#: Sira bilincli: en cok senaryo yazilacak olanlar ustte.
+#:
+#: (kod, gorunen ad, birim) -- birim formda esik alaninin yaninda
+#: gosteriliyor ki okur "3,63 mi 363 mu" diye tereddut etmesin.
+TETIKLEYICILER: tuple[tuple[str, str, str], ...] = (
+    ("TP.TUKFIY2025.GENEL", "Türkiye TÜFE (yıllık)", "%"),
+    ("TP.FE25.OKTG04",      "Türkiye çekirdek enflasyon (C)", "%"),
+    ("TP.APIFON4",          "TCMB ağırlıklı fonlama maliyeti", "%"),
+    ("TP.DK.USD.S.YTL",     "USD/TRY", "TL"),
+    ("DFF",                 "ABD efektif fed fonu oranı", "%"),
+    ("DGS10",               "ABD 10 yıllık tahvil getirisi", "%"),
+    ("DGS2",                "ABD 2 yıllık tahvil getirisi", "%"),
+    ("CPIAUCNS",            "ABD TÜFE (yıllık)", "%"),
+    ("PCEPILFE",            "ABD çekirdek PCE", "%"),
+    ("UNRATE",              "ABD işsizlik oranı", "%"),
+    ("DCOILBRENTEU",        "Brent petrol", "$"),
+    ("DTWEXBGS",            "Dolar endeksi", "endeks"),
+    ("VIXCLS",              "VIX oynaklık endeksi", "endeks"),
+    ("PAXGUSD",             "Ons altın", "$"),
+    ("XBTUSD",              "Bitcoin", "$"),
+)
+
+#: Kod -> (ad, birim). Dogrulama ve gosterim icin.
+TETIKLEYICI_HARITA = {k: (a, b) for k, a, b in TETIKLEYICILER}
+
+
+def tetikleyici_gecerli(kod: str, yon: str, esik) -> bool:
+    """Uc alan birlikte gecerli mi.
+
+    Ucu de gerekli: eksik biri sonuclandirmayi imkansiz kilar ve
+    yarim bir tetikleyici, hic tetikleyici olmamasindan kotudur --
+    kullanici "ayarladim" saniyor ama senaryo 'belirsiz' cikiyor.
+    """
+    if not kod or kod not in TETIKLEYICI_HARITA:
+        return False
+    if yon not in ("ustunde", "altinda"):
+        return False
+    try:
+        float(esik)
+    except (TypeError, ValueError):
+        return False
+    return True
+
+
 def _veri_sayilari(gun: int = 400) -> set[str]:
     """Depodaki gostergelerin YAZILI hallerini dondurur.
 

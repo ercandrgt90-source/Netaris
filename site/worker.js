@@ -71,6 +71,17 @@ const UFUKLAR = {
   "6 ay": 180,
   "1 yıl": 365,
 };
+/* Senaryo tetikleyicisi olarak SECILEBILEN gosterge kodlari.
+   Liste `analiz/senaryo_kapi.TETIKLEYICILER` ile ayni olmali; ikisi
+   ayrisirsa formda gorunen bir secenek burada reddedilir ve kullanici
+   sebebini anlamaz. Formu ureten sablon o listeden besleniyor. */
+const OLCUT_KODLARI = [
+  "TP.TUKFIY2025.GENEL", "TP.FE25.OKTG04", "TP.APIFON4",
+  "TP.DK.USD.S.YTL", "DFF", "DGS10", "DGS2", "CPIAUCNS", "PCEPILFE",
+  "UNRATE", "DCOILBRENTEU", "DTWEXBGS", "VIXCLS", "PAXGUSD", "XBTUSD",
+];
+const OLCUT_YONLERI = ["ustunde", "altinda"];
+
 const CAPA_TURLERI = ["haber", "varlik", "konu"];
 
 /* ------------------------------------------------------------------ araclar */
@@ -845,6 +856,17 @@ async function senaryoKaydet(istek, env, u) {
   const capaBaslik = metinKirp(g.capa_baslik, EN_COK_BASLIK);
   const capaTur = CAPA_TURLERI.includes(g.capa_tur) ? g.capa_tur : "haber";
   const ufuk = UFUKLAR[g.ufuk] ? g.ufuk : "3 ay";
+  /* OLCULEBILIR TETIKLEYICI -- UCU BIRLIKTE gecerli olmali.
+     Yarim bir tetikleyici hic tetikleyici olmamasindan KOTUDUR:
+     kullanici "ayarladim" saniyor ama senaryo ufku dolunca yine
+     'belirsiz' cikiyor. Ucu de yoksa ucu de null yaziliyor. */
+  const olcutEsik = Number(g.olcut_esik);
+  const olcutTam = OLCUT_KODLARI.includes(g.olcut_kod)
+                && OLCUT_YONLERI.includes(g.olcut_yon)
+                && Number.isFinite(olcutEsik);
+  const olcutKod = olcutTam ? g.olcut_kod : null;
+  const olcutYon = olcutTam ? g.olcut_yon : null;
+  const olcutDeger = olcutTam ? olcutEsik : null;
   const gonder = g.gonder === true;
 
   if (kosul.length < EN_AZ_KOSUL) {
@@ -875,19 +897,23 @@ async function senaryoKaydet(istek, env, u) {
     await env.DB.prepare(
       "UPDATE senaryo SET kosul = ?, sonuc = ?, gerekce = ?, ufuk = ?, " +
       "ufuk_biter = COALESCE(?, ufuk_biter), durum = ?, ret_nedeni = NULL, " +
+      "olcut_kod = ?, olcut_yon = ?, olcut_esik = ?, " +
       "guncelleme = ?, gonderim = CASE WHEN ? = 'incelemede' THEN ? " +
       "ELSE gonderim END WHERE id = ? AND uye_id = ?",
-    ).bind(kosul, sonuc, gerekce, ufuk, biter, durum, t, durum, t,
+    ).bind(kosul, sonuc, gerekce, ufuk, biter, durum,
+           olcutKod, olcutYon, olcutDeger, t, durum, t,
            g.id, u.id).run();
     return yanit({ tamam: true, id: g.id, durum });
   }
 
   const s = await env.DB.prepare(
     "INSERT INTO senaryo (uye_id, capa_tur, capa, capa_baslik, kosul, " +
-    "sonuc, gerekce, ufuk, ufuk_biter, durum, olusma, guncelleme, gonderim) " +
-    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+    "sonuc, gerekce, ufuk, ufuk_biter, durum, olcut_kod, olcut_yon, " +
+    "olcut_esik, olusma, guncelleme, gonderim) " +
+    "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
   ).bind(u.id, capaTur, capa, capaBaslik, kosul, sonuc, gerekce, ufuk,
-         biter, durum, t, t, gonder ? t : null).run();
+         biter, durum, olcutKod, olcutYon, olcutDeger,
+         t, t, gonder ? t : null).run();
   return yanit({ tamam: true, id: s.meta.last_row_id, durum });
 }
 
