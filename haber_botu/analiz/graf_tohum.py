@@ -203,6 +203,55 @@ VARLIKLAR: tuple[tuple, ...] = (
     ("SEK_OTOMOTIV", "sektor", "Otomotiv", "Automotive", None, 75, ""),
     ("SEK_INSAAT", "sektor", "İnşaat", "Construction", None, 70, ""),
     ("SEK_TURIZM", "sektor", "Turizm", "Tourism", None, 75, ""),
+
+    # === KURESEL PIYASALAR =============================================
+    #
+    # NEDEN EKLENDI
+    # -------------
+    # Olculdu: agda 50 dugum vardi ve FIYATLANAN uclerin neredeyse
+    # tamami Turkiye'ydi (USDTRY, BIST100, CDS_TR, TUFE_TR...). DAX,
+    # Nikkei, FTSE, EURUSD, Bund, ECB faizi -- HICBIRI YOKTU.
+    #
+    # Sonuc: bir Alman enflasyon haberinin gidecegi tek yer Turkiye'ydi.
+    # Aktarim kanali "Almanya -> ... -> USDTRY" diye kuruluyordu ve
+    # okurun asil sorusu ("bu Avrupa'da neyi etkiler") cevapsiz
+    # kaliyordu. Kanal fiilen HIC CALISMIYORDU: sifir sayfada
+    # gorunuyordu, cunku cogu yabanci varliktan Turkiye ucuna
+    # aciklamali bir yol yoktu.
+    #
+    # Yerel bakis yanlis degil -- Turk okur icin dogru ve gerekli. Ama
+    # TEK bakis olmasi, kuresel bir olayi yalnizca bir ulkeye bakan
+    # dar bir mercekten anlatmak demekti.
+    #
+    # --- Euro Bolgesi ---
+    ("ECB_FAIZ", "oran", "ECB mevduat faizi", "ECB deposit rate", None, 95,
+     "Euro Bölgesi para politikasının çıpası."),
+    ("DAX", "endeks", "DAX", "DAX", None, 85,
+     "Almanya'nın en büyük 40 şirketini içeren endeks; Avrupa sanayi "
+     "görünümünün en çok izlenen göstergelerinden."),
+    ("STOXX", "endeks", "Euro Stoxx 50", "Euro Stoxx 50", None, 85, ""),
+    ("DE10Y", "oran", "Almanya 10 yıllık tahvil", "German 10Y Bund", None, 90,
+     "Euro Bölgesinin risksiz getiri çıpası; diğer üye ülke tahvilleri "
+     "buna göre fiyatlanır."),
+    # EURUSD BURADA TANIMLI DEGIL: yukarida "piyasa" turuyle zaten
+    # var. Ikinci kez eklemek `varlik.kod` benzersizlik kisitini
+    # dusuruyordu ve `test_varlik.py` bunu yakaladi.
+    ("EA_TUFE", "gosterge", "Euro Bölgesi TÜFE", "Euro area HICP", None, 90, ""),
+
+    # --- Japonya ---
+    ("BOJ_FAIZ", "oran", "BoJ politika faizi", "BoJ policy rate", None, 85, ""),
+    ("NIKKEI", "endeks", "Nikkei 225", "Nikkei 225", None, 80, ""),
+    ("USDJPY", "kur", "USD/JPY", "USD/JPY", None, 85, ""),
+    ("JGB", "oran", "Japonya 10 yıllık tahvil", "Japan 10Y JGB", None, 80, ""),
+
+    # --- Birlesik Krallik ---
+    ("BOE_FAIZ", "oran", "BoE politika faizi", "BoE bank rate", None, 80, ""),
+    ("FTSE", "endeks", "FTSE 100", "FTSE 100", None, 75, ""),
+    ("GBPUSD", "kur", "GBP/USD", "GBP/USD", None, 75, ""),
+
+    # --- Cin ---
+    ("CN_BUYUME", "gosterge", "Çin büyümesi", "China GDP growth", None, 85,
+     "Küresel emtia talebinin en büyük tek belirleyicisi."),
 )
 
 
@@ -347,6 +396,92 @@ BAGLAR: tuple[tuple, ...] = (
     ("IMF", "TR", "degerlendirir", "kaynak", 2, ""),
     ("OECD", "TR", "degerlendirir", "kaynak", 2, ""),
     ("DUNYABANKASI", "TR", "degerlendirir", "kaynak", 2, ""),
+
+    # === KURESEL AKTARIM KANALLARI =====================================
+    #
+    # Bu blok, agin YALNIZCA Turkiye'ye bakan yapisini kiriyor. Bir
+    # Alman enflasyon haberinin gidecegi tek yer Turkiye'ydi; artik
+    # once kendi piyasasina, oradan -- istenirse -- buraya geliyor.
+    #
+    # KURAL AYNI: hicbir bagda YON yok. "etkiler" var, "yukseltir" yok.
+
+    # --- kurumsal aidiyet ---
+    ("ECB", "ECB_FAIZ", "belirler", "yapisal", 3,
+     "ECB Yönetim Konseyi mevduat faizini belirler."),
+
+    # --- Euro Bolgesi ic kanallari ---
+    ("ECB_FAIZ", "DE10Y", "etkiler", "yapisal", 3,
+     "Alman tahvil getirisi, politika faizi beklentisini fiyatlar; "
+     "Euro Bölgesinin risksiz getiri çıpası budur."),
+    ("ECB_FAIZ", "EURUSD", "etkiler", "yapisal", 3,
+     "İki para birimi arasındaki faiz farkı, sermaye akımının "
+     "belirleyicilerinden."),
+    ("EA_TUFE", "ECB_FAIZ", "etkiler", "yapisal", 3,
+     "ECB'nin yasal görevi fiyat istikrarı; enflasyon verisi politika "
+     "faizi kararının temel girdisi."),
+    ("DE10Y", "DAX", "etkiler", "yapisal", 2,
+     "İskonto oranı yükseldiğinde gelecekteki kârların bugünkü değeri "
+     "yeniden hesaplanır."),
+    ("DE10Y", "STOXX", "etkiler", "yapisal", 2, ""),
+    ("EURUSD", "DAX", "etkiler", "yapisal", 2,
+     "DAX şirketlerinin gelirlerinin büyük bölümü yurt dışından; "
+     "euronun değeri çevrilen kâra doğrudan yazılır."),
+    ("DAX", "STOXX", "bileseni", "yapisal", 3,
+     "Alman şirketleri Euro Stoxx 50'nin en büyük ağırlığı."),
+
+    # --- ABD -> Euro Bolgesi ---
+    ("FED_FAIZ", "ECB_FAIZ", "etkiler", "veri", 1,
+     "Merkez bankaları birbirinin kararını dikkate alır; kur kanalı "
+     "üzerinden enflasyon görünümü etkilenir."),
+    ("US10Y", "DE10Y", "etkiler", "yapisal", 2,
+     "Uzun vadeli tahvil getirileri küresel sermaye piyasasında "
+     "birbirine bağlı fiyatlanır."),
+    ("DXY", "EURUSD", "bileseni", "yapisal", 3,
+     "Euro, dolar endeksinin en büyük ağırlıklı bileşeni."),
+    ("SP500", "DAX", "etkiler", "veri", 1,
+     "Küresel risk iştahı hisse piyasalarında birlikte hareket eder."),
+    ("SP500", "STOXX", "etkiler", "veri", 1, ""),
+
+    # --- Japonya ---
+    ("BOJ_FAIZ", "JGB", "etkiler", "yapisal", 3,
+     "Japonya tahvil getirisi, politika faizi ve getiri eğrisi "
+     "kontrolü çerçevesinde fiyatlanır."),
+    ("BOJ_FAIZ", "USDJPY", "etkiler", "yapisal", 3,
+     "ABD ile Japonya arasındaki faiz farkı, yen üzerindeki en çok "
+     "izlenen belirleyici."),
+    ("USDJPY", "NIKKEI", "etkiler", "yapisal", 2,
+     "Nikkei ağırlıklı olarak ihracatçı şirketlerden oluşur; yenin "
+     "değeri çevrilen kâra yazılır."),
+    ("FED_FAIZ", "USDJPY", "etkiler", "yapisal", 2, ""),
+    ("JGB", "US10Y", "etkiler", "veri", 1,
+     "Japon yatırımcı küresel tahvil piyasasının en büyük alıcılarından; "
+     "yurt içi getiri yükseldiğinde yurt dışı tahvil talebi değişir."),
+
+    # --- Birlesik Krallik ---
+    ("BOE_FAIZ", "GBPUSD", "etkiler", "yapisal", 2, ""),
+    ("GBPUSD", "FTSE", "etkiler", "yapisal", 2,
+     "FTSE 100 gelirlerinin büyük bölümü yurt dışından; sterlinin "
+     "değeri çevrilen kâra yazılır."),
+    ("BRENT", "FTSE", "etkiler", "yapisal", 2,
+     "Endekste enerji şirketlerinin ağırlığı yüksek."),
+
+    # --- Cin ve emtia ---
+    ("CN_BUYUME", "BRENT", "etkiler", "yapisal", 3,
+     "Çin, küresel ham petrol ithalatının en büyük tek alıcısı."),
+    ("CN_BUYUME", "XCU", "etkiler", "yapisal", 3,
+     "Çin küresel bakır talebinin yarısından fazlasını oluşturur."),
+    ("CN", "CN_BUYUME", "uyesi", "yapisal", 3, ""),
+
+    # --- kuresel -> Turkiye (mevcut kanallarin devami) ---
+    ("EURUSD", "USDTRY", "etkiler", "yapisal", 2,
+     "TL sepeti hem dolar hem euro içerir; çapraz kur TL'nin efektif "
+     "değerine yazılır."),
+    ("EA_TUFE", "DIS_TICARET_TR", "etkiler", "yapisal", 2,
+     "Euro Bölgesi Türkiye'nin en büyük ihracat pazarı; oradaki talep "
+     "ve fiyat görünümü ihracat gelirine yazılır."),
+    ("DAX", "BIST100", "etkiler", "veri", 1,
+     "Avrupa risk iştahı gelişmekte olan piyasa akımlarıyla birlikte "
+     "hareket eder."),
 )
 
 

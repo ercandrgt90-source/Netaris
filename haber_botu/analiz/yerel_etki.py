@@ -51,6 +51,50 @@ YEREL_UC = frozenset({
     "USDTRY", "BIST100", "CDS_TR", "TCMB_FAIZ", "TUFE_TR", "CARI_TR",
 })
 
+#: ULKE -> O ULKENIN KENDI PIYASA UCLARI.
+#:
+#: NEDEN EKLENDI
+#: -------------
+#: Kanal yalnizca `YEREL_UC`e, yani Turkiye'ye cikiyordu. Bir Alman
+#: enflasyon haberinin gidecegi tek yer USDTRY ya da BIST100'du ve
+#: okurun ilk sorusu -- "bu Avrupa'da neyi etkiler" -- cevapsiz
+#: kaliyordu.
+#:
+#: Yerel bakis yanlis degil, Turk okur icin gerekli. Ama TEK bakis
+#: olmasi, kuresel bir olayi dar bir mercekten anlatmak demekti.
+#:
+#: Sira artik: ONCE olayin kendi piyasasi, SONRA buraya aktarim.
+#: Ikisi ayri blok olarak gosteriliyor (bkz. `haber.html`), cunku
+#: birbirine karistirilirsa "Almanya enflasyonu USD/TRY'yi belirler"
+#: gibi okunur -- oysa ikisi ayri iki cumle.
+#: ANAHTARLAR `baglam` SOZLUGUYLE AYNI OLMAK ZORUNDA.
+#: Ilk yazimda Euro Bolgesi icin "EA" kullandim; `baglam.KURUM_ULKE`
+#: ise "EU" doduruyor. Sonuc: `uclar("EU")` BOS donuyordu ve butun
+#: Avrupa kanali HIC ATESLENMIYORDU -- yeni yazilmis bir ozellik,
+#: sessizce olu. `test_yerel_etki` iki sozlugun ortustugunu siniyor.
+PIYASA_UCLARI: dict[str, frozenset[str]] = {
+    # "DE" AYRI BIR GIRDI DEGIL: `baglam` "almanya" isaretini "EU"ya
+    # baglıyor ve Euro Bolgesi uclari DAX ile Bund'u zaten iceriyor.
+    # Ilk yazimda ayri bir "DE" girdisi vardi ve HIC ULASILMIYORDU --
+    # yeni eklenen sozluk sinamasi yakaladi.
+    "EU": frozenset({"DAX", "STOXX", "DE10Y", "EURUSD", "ECB_FAIZ"}),
+    "US": frozenset({"SP500", "NASDAQ", "US10Y", "US2Y", "DXY"}),
+    "JP": frozenset({"NIKKEI", "USDJPY", "JGB", "BOJ_FAIZ"}),
+    "GB": frozenset({"FTSE", "GBPUSD", "BOE_FAIZ"}),
+    "CN": frozenset({"CN_BUYUME", "XCU", "BRENT"}),
+    "TR": YEREL_UC,
+}
+
+
+def uclar(ulke: str | None) -> frozenset[str]:
+    """Ulkenin piyasa uclari; tanimsizsa BOS.
+
+    Bos donmesi bilincli: tanimadigimiz bir ulke icin Turkiye ucuna
+    zorlamak, o haberi olmadigi bir sey hakkinda anlatmak olurdu.
+    Kanal gosterilmemesi, yanlis kanal gostermekten iyidir.
+    """
+    return PIYASA_UCLARI.get((ulke or "").upper(), frozenset())
+
 #: En fazla kac kenar. Bkz. modul bas yorumu.
 EN_COK_ADIM = 3
 
@@ -71,8 +115,14 @@ def _kenarlar(b: sqlite3.Connection) -> dict[str, list[tuple[str, str, int]]]:
     return g
 
 
-def kanal(b: sqlite3.Connection, baslangic: list[str]) -> list[dict] | None:
-    """`baslangic` varliklarindan yurt ici bir uca EN KISA yol.
+def kanal(b: sqlite3.Connection, baslangic: list[str],
+          hedefler: frozenset[str] | None = None,
+          kendi_piyasasi: bool = False) -> list[dict] | None:
+    """`baslangic` varliklarindan bir HEDEF uca EN KISA yol.
+
+    `hedefler` verilmezse Turkiye uclari kullaniliyor -- eski cagri
+    bicimi bozulmasin diye. Yeni cagrilar hedefi ACIKCA veriyor:
+    Alman haberi Alman piyasasina, Japon haberi Japon piyasasina.
 
     Doner: [{"kaynak", "hedef", "aciklama", "guc"}, ...] ya da None.
 
@@ -80,10 +130,33 @@ def kanal(b: sqlite3.Connection, baslangic: list[str]) -> list[dict] | None:
     esit uzunlukta yol varsa ilki aliniyor -- hepsini gostermek okuru
     "hangisi asil kanal" sorusuyla bas basa birakirdi.
     """
+    if hedefler is None:
+        hedefler = YEREL_UC
+    if not hedefler:
+        return None
+
+    # KENDI PIYASASINDA BASLANGIC HEDEF SAYILMAZ.
+    #
+    # Asagidaki kisa devre ("haber zaten hedefe bagli, kanal gereksiz")
+    # hedef TURKIYE iken dogruydu: yurt ici bir haberde Turkiye
+    # verisi zaten sayfanin kendisinde.
+    #
+    # Kendi piyasasinda YANLIS oluyor. "BoJ faizi artirdi" haberinde
+    # baslangic `BOJ_FAIZ` ve o da Japonya uclarindan biri; kural
+    # devreye girince okurun en cok istedigi zincir -- BoJ faizi ->
+    # USD/JPY -> Nikkei -- HIC gosterilmiyordu.
+    #
+    # Cozum baslangici hedeften cikarmak: zincir kendi uzerine
+    # donmuyor ama piyasanin geri kalanina ulasabiliyor.
+    if kendi_piyasasi:
+        hedefler = hedefler - set(baslangic)
+        if not hedefler:
+            return None
+
     g = _kenarlar(b)
     kuyruk: collections.deque = collections.deque()
     for k in baslangic:
-        if k in YEREL_UC:
+        if not kendi_piyasasi and k in hedefler:
             # Haber ZATEN yurt ici bir varliga bagli; kanal anlatmaya
             # gerek yok, sayfa bunu dogrudan gosteriyor.
             return None
@@ -98,7 +171,7 @@ def kanal(b: sqlite3.Connection, baslangic: list[str]) -> list[dict] | None:
                 continue
             adim = yol + [{"kaynak": dugum, "hedef": hedef,
                            "aciklama": aciklama, "guc": guc}]
-            if hedef in YEREL_UC:
+            if hedef in hedefler:
                 return adim
             gorulen.add(hedef)
             kuyruk.append((hedef, adim))
@@ -107,6 +180,27 @@ def kanal(b: sqlite3.Connection, baslangic: list[str]) -> list[dict] | None:
 
 #: Varlik kodu -> okunur ad. Zincir okura kod degil AD gostermeli.
 AD = {
+    # --- kuresel piyasalar ---
+    "ECB": "Avrupa Merkez Bankası",
+    "CN": "Çin",
+    "ECB_FAIZ": "ECB mevduat faizi",
+    "DAX": "DAX",
+    "STOXX": "Euro Stoxx 50",
+    "DE10Y": "Almanya 10 yıllık tahvil getirisi",
+    "EURUSD": "EUR/USD",
+    "EA_TUFE": "Euro Bölgesi TÜFE",
+    "BOJ_FAIZ": "BoJ politika faizi",
+    "NIKKEI": "Nikkei 225",
+    "USDJPY": "USD/JPY",
+    "JGB": "Japonya 10 yıllık tahvil getirisi",
+    "BOE_FAIZ": "BoE politika faizi",
+    "FTSE": "FTSE 100",
+    "GBPUSD": "GBP/USD",
+    "CN_BUYUME": "Çin büyümesi",
+    "SP500": "S&P 500",
+    "NASDAQ": "Nasdaq",
+    "XCU": "Bakır",
+
     "FED_FAIZ": "Fed politika faizi (hedef aralık)",
     "US10Y": "ABD 10 yıllık tahvil getirisi",
     "US2Y": "ABD 2 yıllık tahvil getirisi",

@@ -144,10 +144,26 @@ ULKE_ADLARI: tuple[tuple[str, str], ...] = (
 #: Baslikta gecerse haberin ulkesini belirleyen isaretler.
 #: Bosluklu yazim bilincli -- kelime icinde eslesmesin.
 BASLIK_ULKE: tuple[tuple[str, str], ...] = (
-    (" fed ", "US"), ("fomc", "US"), ("federal reserve", "US"),
-    ("powell", "US"), (" abd ", "US"), ("amerika", "US"),
-    (" ecb ", "EU"), ("avrupa merkez bankasi", "EU"), ("lagarde", "EU"),
-    ("avro bolge", "EU"),
+    # KISI ADLARI DA ISARET. Olculdu: yorumlanan 30 haberin 15'inde
+    # ulke HIC bulunamiyordu ve o 15'in tamami ABD haberiydi --
+    # "Trump", "Greer", "Bessent", "Jackson Hole", "Baker Hughes".
+    #
+    # Ulke bulunamayinca aktarim kanali da kurulamiyordu; yani eksik
+    # bir kelime listesi, bambaska bir ozelligi olduruyordu.
+    (" fed ", "US"), ("fed'", "US"), ("fomc", "US"),
+    ("federal reserve", "US"), ("powell", "US"),
+    ("trump", "US"), ("bessent", "US"), ("greer", "US"),
+    ("jackson hole", "US"), ("baker hughes", "US"),
+    ("beyaz saray", "US"), ("hazine bakani", "US"),
+    # SINIR SORUNU: " abd " iki yanindan boslukluydu ve "ABD-Kanada",
+    # "ABD'ye", ya da basligin BASINDAKI "ABD" eslesmiyordu.
+    # Metin zaten bir bosluk arasina alindigi icin bas/son sorunu
+    # yoktu; asil eksik kesme ve tire idi.
+    (" abd ", "US"), (" abd'", "US"), (" abd-", "US"), ("amerika", "US"),
+    (" ecb ", "EU"), ("ecb'", "EU"), ("avrupa merkez bankasi", "EU"),
+    ("lagarde", "EU"), ("avro bolge", "EU"), ("euro bolge", "EU"),
+    ("almanya", "EU"), ("fransa", "EU"), ("italya", "EU"),
+    ("ispanya", "EU"), (" dax ", "EU"),
     (" boj ", "JP"), ("bank of japan", "JP"), ("japonya", "JP"),
     ("ueda", "JP"),
     (" boe ", "GB"), ("bank of england", "GB"), ("ingiltere", "GB"),

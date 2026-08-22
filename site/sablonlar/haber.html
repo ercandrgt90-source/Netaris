@@ -733,6 +733,33 @@
        Yon ve buyukluk YAZILMIYOR. "Fed faiz artirirsa BIST duser"
        cumlesi bu sitede yasak; kanal yapisal bir iliski, yon tahmini
        degil. #}
+    {# SIRA: ONCE OLAYIN KENDI PIYASASI, SONRA BURAYA AKTARIM.
+       ------------------------------------------------------
+       Once yalnizca "Türkiye'ye olası etki kanalı" vardi ve bir Alman
+       enflasyon haberinin gidecegi tek yer USDTRY ya da BIST100'du.
+       Okurun ilk sorusu -- "bu Avrupa'da neyi etkiler" -- hic
+       cevaplanmiyordu: Almanya haberinde DAX yok, Japonya haberinde
+       Nikkei yoktu.
+
+       Yerel bakis yanlis degil, Turk okur icin gerekli. Ama TEK bakis
+       olmasi kuresel bir olayi dar bir mercekten anlatmak demekti.
+
+       IKISI AYRI BLOK. Tek zincirde birlestirilirse "Almanya
+       enflasyonu USD/TRY'yi belirler" gibi okunur -- oysa bunlar ayri
+       iki cumle ve ikisinin mekanizmasi farkli. #}
+    {% if piyasa_kanali %}
+    <h2>{{ piyasa_kanali.bolge }} piyasasında etki kanalı</h2>
+    <ol class="kanal">
+      {% for a in piyasa_kanali.zincir %}
+      <li>
+        <span class="kanal-ad">{{ a.kaynak_ad }} <span class="kanal-ok"
+          aria-hidden="true">→</span> {{ a.hedef_ad }}</span>
+        <span class="kanal-neden">{{ a.aciklama }}</span>
+      </li>
+      {% endfor %}
+    </ol>
+    {% endif %}
+
     {% if yerel_kanal %}
     <h2>Türkiye'ye olası etki kanalı</h2>
     <ol class="kanal">

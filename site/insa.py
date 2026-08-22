@@ -2735,6 +2735,67 @@ def _yerel_kanal(h: dict, varliklar) -> list[dict] | None:
     } for a in yol]
 
 
+def _piyasa_kanali(h: dict, varliklar) -> dict | None:
+    """Haberin KENDI PIYASASINDAKI aktarim kanali.
+
+    NEDEN EKLENDI
+    -------------
+    Kanal yalnizca Turkiye'ye cikiyordu. Bir Alman enflasyon haberinin
+    gidecegi tek yer USDTRY ya da BIST100'du; okurun ilk sorusu --
+    "bu Avrupa'da neyi etkiler" -- hic cevaplanmiyordu.
+
+    Yerel bakis yanlis degil, Turk okur icin gerekli. Ama TEK bakis
+    olmasi, kuresel bir olayi dar bir mercekten anlatmak demekti:
+    Almanya haberinde DAX yok, Japonya haberinde Nikkei yok.
+
+    Sira artik ONCE kendi piyasasi, SONRA buraya aktarim. Ikisi AYRI
+    blok: birbirine karistirilirsa "Almanya enflasyonu USD/TRY'yi
+    belirler" gibi okunur, oysa ikisi ayri iki cumle.
+
+    Doner: {"bolge": "Euro Bölgesi", "zincir": [...]} ya da None.
+    """
+    if _yerel_etki is None or _beyin is None or not varliklar:
+        return None
+    if _baglam is None:
+        return None
+    u = _baglam.haber_ulkesi(
+        h.get("baslik_kaynak") or h.get("baslik", ""),
+        h.get("kurum", ""), h.get("bolge", ""))
+    # TURKIYE HARIC: yurt ici haberde "kendi piyasasi" zaten sayfanin
+    # kendisi ve ayri bir blok tekrar olurdu.
+    if not u or u == "TR":
+        return None
+    hedefler = _yerel_etki.uclar(u)
+    if not hedefler:
+        return None
+    kodlar = [v["kod"] for v in varliklar if v.get("kod")]
+    if not kodlar:
+        return None
+    try:
+        with _beyin.baglan() as b:
+            yol = _yerel_etki.kanal(b, kodlar, hedefler, kendi_piyasasi=True)
+    except Exception:
+        return None
+    if not yol:
+        return None
+    return {
+        "bolge": BOLGE_ADI.get(u, u),
+        "zincir": [{
+            "kaynak_ad": _yerel_etki.ad(a["kaynak"]),
+            "hedef_ad": _yerel_etki.ad(a["hedef"]),
+            "aciklama": a["aciklama"],
+        } for a in yol],
+    }
+
+
+#: Ulke kodu -> baslikta gorunen ad.
+#: Kod okura bir sey soylemiyor; "EA" degil "Euro Bölgesi" yaziyor.
+BOLGE_ADI = {
+    "EA": "Euro Bölgesi", "DE": "Almanya", "US": "ABD", "JP": "Japonya",
+    "GB": "Birleşik Krallık", "CN": "Çin",
+}
+
+
 def varlik_indeksle(haberler: list[dict]) -> dict[str, dict]:
     """Varliklari cikarir, depoya yazar, ilgili haberleri geri okur.
 
@@ -4097,6 +4158,7 @@ def insa() -> int:
                     desen_svg=gundem_desenler.get(h["adres"], ""),
                     olay=olay_haritasi.get(h.get("adres", "")),
                     yerel_kanal=_yerel_kanal(h, h_varliklar),
+                    piyasa_kanali=_piyasa_kanali(h, h_varliklar),
                     ilgili=ilgili_gostergeler(h["konu"], gostergeler),
                     # Piyasa kutusu BOLGEYE duyarli: Turkiye enflasyon
                     # haberinde ABD tahvil getirisi degil, TUFE ve TCMB
