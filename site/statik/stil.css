@@ -262,7 +262,23 @@
   --uyari-zar: rgba(154, 87, 0, 0.09);
   --uyari-cizgi: rgba(154, 87, 0, 0.3);
   --nabiz: rgba(10, 127, 71, 0.5); --notr: #93a1b5;
-  --ust-zemin: rgba(251, 252, 254, 0.82); --sayfa-isik: #eef4fd;
+  /* UST SERIT KENDI JETON SETINI TASIYOR.
+   *
+   * Once serit sayfa jetonlarini kullaniyordu (`--yazi`, `--panel`)
+   * ve yari saydam acik bir bant olarak duruyordu. Koyu lacivert
+   * serit sayfa temasindan BAGIMSIZ olmali: acik temada da koyu
+   * kaliyor, dolayisiyla icindeki metin sayfa metniyle ayni jetonu
+   * KULLANAMAZ -- koyu zeminde koyu yazi cikardi.
+   *
+   * Serit acik temada da koyu oldugu icin `--ust-*` jetonlari iki
+   * temada da AYNI. Ayni degerleri iki yere yazmak yerine burada tek
+   * kez tanimlanip koyu temada olduğu gibi devraliniyor. */
+  --ust-zemin: #071426;
+  --ust-yazi: #f2f6fc;
+  --ust-yazi-2: #9fb0cb;
+  --ust-cizgi: rgba(255, 255, 255, 0.10);
+  --ust-panel: rgba(255, 255, 255, 0.08);
+  --sayfa-isik: #eef4fd;
   --golge: 0 1px 2px rgba(12, 21, 36, 0.05), 0 8px 24px rgba(12, 21, 36, 0.06);
   --golge-yuksek: 0 2px 4px rgba(12, 21, 36, 0.06), 0 16px 40px rgba(12, 21, 36, 0.10);
   --gorsel-zemin: #eaeff7}
@@ -280,7 +296,14 @@
   --uyari-zar: rgba(224, 164, 74, 0.13);
   --uyari-cizgi: rgba(224, 164, 74, 0.34);
   --nabiz: rgba(62, 207, 142, 0.45); --notr: #64748b;
-  --ust-zemin: rgba(11, 16, 24, 0.82); --sayfa-isik: #101a2b;
+  /* Koyu temada serit ZATEN koyu; ayni lacivert kullaniliyor ki iki
+     tema arasinda gecerken serit yerinde dursun. */
+  --ust-zemin: #071426;
+  --ust-yazi: #f2f6fc;
+  --ust-yazi-2: #9fb0cb;
+  --ust-cizgi: rgba(255, 255, 255, 0.10);
+  --ust-panel: rgba(255, 255, 255, 0.08);
+  --sayfa-isik: #101a2b;
   --golge: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.34);
   --golge-yuksek: 0 2px 6px rgba(0, 0, 0, 0.45), 0 18px 44px rgba(0, 0, 0, 0.5);
   --gorsel-zemin: #101825}
@@ -318,8 +341,10 @@ img, svg { max-width: 100%}
   top: 0;
   z-index: 50;
   background: var(--ust-zemin);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--cizgi)}
+  /* `backdrop-filter` KALDIRILDI: zemin artik OPAK ve bulaniklastirma
+     hicbir sey yapmiyordu -- yalnizca her kaydirmada bir birlestirme
+     katmani maliyeti biniyordu. */
+  border-bottom: 1px solid var(--ust-cizgi)}
 
 .ust-ic {
   min-height: 62px;
@@ -330,7 +355,7 @@ img, svg { max-width: 100%}
   align-items: center;
   gap: var(--b-2);
   font-size: 1.3rem;
-  color: var(--yazi);
+  color: var(--ust-yazi);
   text-decoration: none;
   white-space: nowrap}
 .logo:hover { text-decoration: none}
@@ -342,15 +367,28 @@ img, svg { max-width: 100%}
   margin: auto}
 
 .ust nav a {
-  color: var(--yazi-2);
+  color: var(--ust-yazi-2);
   font-size: var(--p-m);
   font-weight: 500;
   padding: var(--b-2) var(--b-3);
   border-radius: var(--r-kucuk);
   text-decoration: none;
   white-space: nowrap}
-.ust nav a:hover { color: var(--yazi); background: var(--panel); text-decoration: none}
-.ust nav a[aria-current="page"] { color: var(--vurgu); background: var(--vurgu-zar)}
+.ust nav a:hover {
+  color: var(--ust-yazi); background: var(--ust-panel);
+  text-decoration: none}
+/* AKTIF SAYFA: koyu zeminde `--vurgu-zar` (%9 opak) neredeyse
+   gorunmuyordu. Beyaz zar + parlak vurgu metni okunur kaliyor. */
+.ust nav a[aria-current="page"] {
+  color: var(--ust-yazi); background: var(--ust-panel)}
+/* Aktif sekmenin ALTINDA vurgu cizgisi -- tasarimda oldugu gibi.
+   Renk yerine KONUM ile isaretlemek, vurgu rengi degisse bile
+   calisiyor. */
+.ust nav a[aria-current="page"]::after {
+  content: ""; position: absolute; left: var(--b-3);
+  right: var(--b-3); bottom: -1px; height: 2px;
+  background: var(--vurgu-parlak); border-radius: 2px}
+.ust nav a { position: relative}
 
 /* ------------------------------------------------------- gosterge seridi */
 
@@ -4053,6 +4091,35 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
   background: var(--vurgu);
   color: var(--zit-yazi)}
 
+/* --- Koyu seritteki ogeler ----------------------------------------
+ * Bu ogeler seridin DISINDA da kullanilabilir (arama baglantisi
+ * altbilgide, tema dugmesi mobil menude). Bu yuzden temel kurallari
+ * sayfa jetonlariyla kaliyor ve YALNIZCA `.ust` icindeyken serit
+ * jetonlarina geciyorlar.
+ *
+ * Ozgullugu `.ust nav a` ile ayni degil, DAHA YUKSEK -- yani
+ * `!important` gerekmiyor. */
+.ust .ara-baglanti,
+.ust .menu-baslik,
+.ust .tema-dugme {
+  color: var(--ust-yazi-2);
+  background: transparent;
+  border-color: var(--ust-cizgi)}
+.ust .ara-baglanti:hover,
+.ust .menu-baslik:hover,
+.ust .tema-dugme:hover,
+.ust .menu-grup:focus-within .menu-baslik {
+  color: var(--ust-yazi);
+  background: var(--ust-panel);
+  border-color: var(--ust-cizgi)}
+/* Logo isareti: koyu zeminde `--vurgu` (teal, koyu) sonuyor.
+   Parlak surumu kullaniliyor -- ayni renk ailesi, okunur ton. */
+.ust .logo-im { stroke: var(--vurgu-parlak)}
+/* Panel dugmesi seridin tek DOLU ogesi ve koyu zeminde de vurgu
+   renginde kaliyor: seridin icindeki tek eylem cagrisi o. */
+.ust nav a.dugme-mini { color: var(--zit-yazi)}
+
+
 /* ====================================================================
    MOBIL  --  OLCULMUS DUZELTMELER
    --------------------------------------------------------------------
@@ -5877,3 +5944,41 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
 .rozet-gerceklesti   { background: var(--artis-zar); color: var(--artis); }
 .rozet-gerceklesmedi { background: var(--azalis-zar); color: var(--azalis); }
 .rozet-belirsiz      { color: var(--yazi-3); }
+
+/* --- Vurgu rengi karsilastirmasi (tasarim sayfasi) ----------------
+ * Iki secenegi GERCEK BILESENLERLE yan yana koyuyor. Renk tek basina
+ * degil, kullanildigi yerde degerlendirilir: palet karti "iki mavi
+ * ton" der, dugme ve rozet uzerinde fark gorunur olur.
+ *
+ * Ornekler `style` ile YEREL boyaniyor; bu bir onizleme, tema
+ * degisikligi degil. */
+.vurgu-karsilastirma {
+  display: grid; gap: var(--b-5);
+  margin: var(--b-5) 0}
+@media (min-width: 760px) {
+  /* Yan yana OLMAK ZORUNDA: alt alta duran iki renk karsilastirilamaz,
+     goz arada kaydirma yaparken tonu unutuyor. */
+  .vurgu-karsilastirma { grid-template-columns: 1fr 1fr}
+}
+.vurgu-ornek {
+  padding: var(--b-5);
+  background: var(--panel);
+  border: 1px solid var(--cizgi);
+  border-radius: var(--r)}
+.vurgu-ornek h3 {
+  display: flex; align-items: baseline; gap: var(--b-2);
+  flex-wrap: wrap;
+  margin: 0 0 var(--b-4);
+  font-size: var(--p-m)}
+.vurgu-ornek h3 code { color: var(--yazi-3); font-size: var(--p-xs)}
+.vurgu-ornek p { margin: 0 0 var(--b-3)}
+.vurgu-ornek .dugme { margin-right: var(--b-2)}
+/* Yon renkleriyle yan yana: asil risk burada -- vurgu, artis
+ * yesiliyle ya da azalis kirmizisiyla karisirsa okur bir rozeti yon
+ * sanabilir. */
+.vurgu-yon {
+  display: flex; gap: var(--b-4); flex-wrap: wrap;
+  padding-top: var(--b-3);
+  border-top: 1px solid var(--cizgi);
+  font-size: var(--p-s);
+  font-variant-numeric: tabular-nums}

@@ -69,6 +69,60 @@
     </div>
   </section>
 
+  {# VURGU RENGI KARSILASTIRMASI -- KARAR ICIN.
+
+     Gonderilen tasarim mavi (#146EF5) kullaniyor, site teal
+     (#0a7d78). Bu bir MARKA karari ve kod icinde tek tarafli
+     verilmemeli; iki secenegi de GERCEK BILESENLERLE yan yana
+     koymak, palet kartlarina bakmaktan daha dogru bir karar zemini
+     -- renk tek basina degil, kullanildigi yerde degerlendirilir.
+
+     Ornekler `style` ile YEREL olarak boyaniyor. Sayfanin geri
+     kalani sitenin kendi jetonlarini kullanmaya devam ediyor; yani
+     bu bolum bir onizleme, bir tema degisikligi degil. #}
+  <section class="tasarim-obek">
+    <h2 id="vurgu">Vurgu rengi kararı</h2>
+    <p class="tasarim-aciklama">Gönderilen tasarım mavi kullanıyor,
+    site teal. İkisi de gerçek bileşenlerle aşağıda. Renk tek başına
+    değil, kullanıldığı yerde değerlendirilir.</p>
+
+    <div class="vurgu-karsilastirma">
+      {% for ad, vurgu, koyu, parlak, zar in [
+           ("Şu anki — teal", "#0a7d78", "#075f5c", "#14b8a6",
+            "rgba(10,125,120,0.10)"),
+           ("Tasarımdaki — mavi", "#146EF5", "#0b52c0", "#4a92ff",
+            "rgba(20,110,245,0.10)")] %}
+      <div class="vurgu-ornek" style="--vurgu: {{ vurgu }};
+           --vurgu-koyu: {{ koyu }}; --vurgu-parlak: {{ parlak }};
+           --vurgu-zar: {{ zar }}">
+        <h3>{{ ad }} <code>{{ vurgu }}</code></h3>
+
+        <p><a href="#vurgu">Bağlantı metni böyle görünür</a> — gövde
+        yazısının içinde.</p>
+
+        <p>
+          <span class="dugme dugme-birincil">Senaryo Yaz</span>
+          <span class="dugme dugme-sade">İncele</span>
+        </p>
+
+        <p>
+          <span class="rozet rozet-vurgu">TOPLULUK SENARYOSU</span>
+          <span class="rozet">3 ay</span>
+        </p>
+
+        {# YUKSELIS/DUSUS renkleriyle YAN YANA. Asil risk burada:
+           vurgu rengi, artis yesili ya da azalis kirmizisiyla
+           karisirsa okur bir rozeti yon sanabilir. #}
+        <p class="vurgu-yon">
+          <b style="color: var(--vurgu)">vurgu</b>
+          <b style="color: var(--artis)">+%3,5 ↑ yükseliş</b>
+          <b style="color: var(--azalis)">−%2,1 ↓ düşüş</b>
+        </p>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+
   <section class="tasarim-obek">
     <h2 id="kural">Kurallar</h2>
     <dl class="tasarim-kural">
