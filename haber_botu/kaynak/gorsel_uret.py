@@ -170,8 +170,22 @@ def uret(konu: str, hesap: str = "", jeton: str = "") -> pathlib.Path | None:
     p = istem(konu)
     if not p or not istem_guvenli(p):
         return None
-    hesap = hesap or os.environ.get("CLOUDFLARE_ACCOUNT_ID", "")
-    jeton = jeton or os.environ.get("CLOUDFLARE_API_TOKEN", "")
+    # `.strip()` ZORUNLU -- suslemesi degil, calismasi icin.
+    #
+    # GitHub gizli degeri panodan alirken sonuna satir sonu takilabiliyor
+    # ve h11 baslik degerinde bosluk KABUL ETMIYOR:
+    #
+    #     LocalProtocolError: Illegal header value b'***'
+    #
+    # (`***` GitHub'in maskesi; asil bilgi "Illegal header value".)
+    # Wrangler ayni gizli degerle sorunsuz calisiyor cunku onu kendi
+    # kirpiyor -- bu yuzden eksiklik bugune kadar hic gorunmedi.
+    #
+    # Ayni tuzak bu depoda bir kez yasandi ve `ai/yorumcu.py` orada
+    # `.strip()` ekleyerek cozdu. Yeni dosya o deseni izlemeyince ayni
+    # hata ikinci kez cikti.
+    hesap = (hesap or os.environ.get("CLOUDFLARE_ACCOUNT_ID", "")).strip()
+    jeton = (jeton or os.environ.get("CLOUDFLARE_API_TOKEN", "")).strip()
     if not (hesap and jeton):
         return None
 
@@ -274,8 +288,8 @@ def main() -> int:
         return 0
     print(f"{len(eksik)} kavram görseli üretilecek "
           f"({len(KONU_KAVRAMI) - len(eksik)} hazır).")
-    if not (os.environ.get("CLOUDFLARE_ACCOUNT_ID")
-            and os.environ.get("CLOUDFLARE_API_TOKEN")):
+    if not (os.environ.get("CLOUDFLARE_ACCOUNT_ID", "").strip()
+            and os.environ.get("CLOUDFLARE_API_TOKEN", "").strip()):
         print("CLOUDFLARE_ACCOUNT_ID / CLOUDFLARE_API_TOKEN tanımlı "
               "değil -- görsel üretilemez.")
         return 1

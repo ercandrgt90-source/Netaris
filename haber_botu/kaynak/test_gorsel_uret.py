@@ -121,7 +121,31 @@ try:
     # Eksik tarama temiz rapor uretir; en tehlikeli yanlis budur.
     # ------------------------------------------------------------------
     esit(gu.main(), 1, "kimlik yoksa main HATA döndürüyor")
+
+    # ------------------------------------------------------------------
+    # BOSLUKLU KIMLIK KIRPILIYOR.
+    #
+    # GitHub gizli degeri panodan alirken sonuna satir sonu takilabiliyor
+    # ve h11 baslik degerinde bosluk KABUL ETMIYOR:
+    #
+    #     LocalProtocolError: Illegal header value b'***'
+    #
+    # Bir CI koşusu tam bunu yasadi. Ayni tuzak depoda daha once de
+    # cikmisti ve `ai/yorumcu.py` `.strip()` ile cozmustu; yeni dosya o
+    # deseni izlemeyince hata ikinci kez ciktı.
+    #
+    # Sinama YALNIZCA BOSLUKTAN ibaret bir kimligin "kimlik yok" sayilip
+    # sayilmadigina bakiyor -- yani `.strip()` kaldirilirsa KALIR ve ag
+    # istegi atmaz.
+    # ------------------------------------------------------------------
+    os.environ["CLOUDFLARE_ACCOUNT_ID"] = "  \n"
+    os.environ["CLOUDFLARE_API_TOKEN"] = "\n  "
+    esit(gu.uret("Enflasyon"), None,
+         "yalnızca boşluktan ibaret kimlik = kimlik YOK")
+    esit(gu.main(), 1, "boşluklu kimlikte main HATA döndürüyor")
 finally:
+    for k in ("CLOUDFLARE_ACCOUNT_ID", "CLOUDFLARE_API_TOKEN"):
+        os.environ.pop(k, None)
     for k, v in _yedek.items():
         if v is not None:
             os.environ[k] = v
