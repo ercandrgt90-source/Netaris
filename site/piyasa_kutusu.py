@@ -76,10 +76,23 @@ TURKIYE_GOSTERGELERI: tuple[tuple[str, str, str], ...] = (
 )
 
 KONU_ARACLARI: dict[str, tuple[tuple[str, str, str, str], ...]] = {
+    # BORSA KONUSUNDA HISSE ENDEKSI YOK -- lisansi bizde degil.
+    #
+    # Once S&P 500, Nasdaq ve Dow duruyordu. Ucu de FRED uzerinden
+    # geliyor ama FRED onlari KENDI verisi olarak degil, saglayicinin
+    # izniyle dagitiyor (S&P Dow Jones Indices LLC ve Nasdaq, Inc.) ve
+    # o izin bize gecmiyor.
+    #
+    # BIST de ayni sebeple yok: Borsa Istanbul veri dagitim lisansi
+    # gerekiyor. Yani "Borsa" konusunda gosterebilecegimiz bir endeks
+    # KALMIYOR ve kutu bu konuda tabloya dusuyor -- eksik bir kutu,
+    # lisanssiz bir kutudan iyidir.
+    #
+    # Kalanlar borsa haberinde yine anlamli: risksiz getiri ve dolar,
+    # hisse degerlemesinin iki ana girdisi.
     "Borsa": (
-        ("gosterge", "SP500", "S&P 500", ""),
-        ("gosterge", "NASDAQCOM", "NASDAQ", ""),
-        ("gosterge", "DJIA", "Dow Jones", ""),
+        ("gosterge", "DGS10", "ABD 10Y", "%"),
+        ("gosterge", "DTWEXBGS", "Dolar endeksi", ""),
     ),
     "Döviz": (
         ("gosterge", "DTWEXBGS", "Dolar endeksi", ""),
@@ -100,10 +113,12 @@ KONU_ARACLARI: dict[str, tuple[tuple[str, str, str, str], ...]] = {
     # Jeopolitik haberde okunacak yerler: arz riskinin fiyatlandigi
     # petrol, guvenli liman talebinin gorundugu altin ve risk istahini
     # ozetleyen oynaklik endeksi.
+    # VIX CIKARILDI: Cboe Global Markets'in verisi, lisansi bizde
+    # degil. Risk istahi icin kalan iki gosterge yeterli -- guvenli
+    # liman talebi altinda, arz riski petrolde goruluyor.
     "Jeopolitik": (
         ("gosterge", "DCOILBRENTEU", "Brent", "$"),
         ("fiyat", "PAXGUSD", "Altın", "$"),
-        ("gosterge", "VIXCLS", "VIX", ""),
         ("gosterge", "DTWEXBGS", "Dolar endeksi", ""),
     ),
     "Kripto varlıklar": (

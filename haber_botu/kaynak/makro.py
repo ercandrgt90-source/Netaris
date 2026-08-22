@@ -121,7 +121,20 @@ FRED_SERILER = {
 #: BIST 100 BILINCLI OLARAK YOK: BIST endeks verisi lisansli, ucretsiz ve
 #: ticari kullanima acik bir kaynagi bulunmuyor. Uydurmak yerine yok.
 PANEL_GRUPLARI = (
-    ("Endeksler", ("SP500", "NASDAQCOM", "DJIA")),
+    # "ENDEKSLER" GRUBU KALDIRILDI -- lisansi bizde degil.
+    #
+    #     SP500, DJIA   S&P Dow Jones Indices LLC
+    #     NASDAQCOM     Nasdaq, Inc.
+    #     VIXCLS        Cboe Global Markets
+    #
+    # Dordu de FRED uzerinden geliyordu ama FRED bunlari kendi verisi
+    # olarak degil, saglayicinin IZNIYLE dagitiyor ve o izin bize
+    # gecmiyor. Ayrintili gerekce `makro_uret_ucretsiz.LISANSSIZ_SERILER`
+    # yaninda yazili.
+    #
+    # BIST de ayni sebeple yok (asagidaki nota bakin) -- yani panelde
+    # hisse endeksi HIC gorunmuyor. Eksik bir grup, lisanssiz bir
+    # gruptan iyidir.
     ("Emtia", ("DCOILBRENTEU", "DCOILWTICO")),
     ("Faiz", ("DFF", "DGS2", "DGS10", "T10Y2Y")),
     # EUR/USD ICIN DEXUSEU DEGIL ECB.
@@ -134,7 +147,9 @@ PANEL_GRUPLARI = (
     # Bir kaynak degistirilirken ona bagli her yer taranmali: iki deger
     # de "gercek" oldugu icin hata sessiz kaliyor, yalnizca ayni gune
     # ait olmuyorlar.
-    ("Risk ve kur", ("VIXCLS", "DTWEXBGS", "ECB_EURUSD")),
+    # VIXCLS CIKARILDI (Cboe lisansi). Grup adi "Risk ve kur" kaldi
+    # cunku dolar endeksi de bir risk gostergesi olarak okunuyor.
+    ("Risk ve kur", ("DTWEXBGS", "ECB_EURUSD")),
 )
 
 

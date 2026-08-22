@@ -1012,7 +1012,11 @@ def _acilis(b, konu: str, bolge: str = "") -> str:
 _KURESEL = {
     "Enerji": ("DCOILBRENTEU", "Brent petrol", "$", "gosterge"),
     "Altın ve emtia": ("PAXGUSD", "Altın", "$", "fiyat"),
-    "Borsa": ("SP500", "S&P 500", "", "gosterge"),
+    # BORSA ICIN ENDEKS YOK: S&P 500'un lisansi bizde degil ve BIST
+    # icin Borsa Istanbul dagitim sozlesmesi gerekiyor. Yerine ABD 10
+    # yillik getirisi -- hisse degerlemesinin en cok izlenen girdisi
+    # ve kamu verisi (Fed).
+    "Borsa": ("DGS10", "ABD 10 yıllık tahvil getirisi", "%", "gosterge"),
     "Kripto varlıklar": ("XBTUSD", "Bitcoin", "$", "fiyat"),
     "Jeopolitik": ("DCOILBRENTEU", "Brent petrol", "$", "gosterge"),
     # BU UCU EKSIKTI ve eksikligi sessizdi: yabanci haber bu konulara

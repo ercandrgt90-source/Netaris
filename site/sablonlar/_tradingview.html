@@ -1,0 +1,49 @@
+{# TRADINGVIEW WIDGET KUTUSU -- ortak makro.
+
+   NEDEN ORTAK
+   -----------
+   Atif blogu ve gecikme notu iki ayri sayfada tekrarlanacakti; birini
+   duzeltip digerini unutmak bu depoda `paylas.js` ile de yasandi ve
+   orada da cozum makroya tasimak oldu.
+
+   ATIF KALDIRILAMAZ
+   -----------------
+   TradingView'in kullanim kosullari widget atfini kaldirmayi
+   yasakliyor ve yaptirim olarak kalici yasak, ihtarname ve tazminat
+   sayiyor. Blok burada basiliyor ve betik ona DOKUNMUYOR.
+
+   GECIKME YAZILI
+   --------------
+   Ucretsiz widget'ta BIST verisi 15 dakika gecikmeli geliyor.
+   Gecikmeli bir fiyati anlik saniyan okur yanilir ve o yanilgi bizim
+   sorumlulugumuz -- sitenin "olculmemis seyi olcum gibi sunmayiz"
+   ilkesinin ayni ailesi.
+
+   BETIKSIZ DURUM
+   --------------
+   Widget `IntersectionObserver` ile, GORUS ALANINA girince yukleniyor
+   (bkz. `tradingview.js`). Betik yoksa ya da tarayici desteklemiyorsa
+   kutu bos kalmiyor: `yedek` metni gorunuyor.
+#}
+{% macro tv(tur, baslik, yedek, sembol="") %}
+<section class="tv-kutu" data-tv data-tv-tur="{{ tur }}"
+         {% if sembol %}data-tv-sembol="{{ sembol }}"{% endif %}
+         aria-label="{{ baslik }}">
+  <div class="tv-bas">
+    <h2>{{ baslik }}</h2>
+    {# Kaynak ve gecikme BASLIKLA BIRLIKTE, grafigin altinda degil:
+       okur veriyi gormeden once neye baktigini bilmeli. #}
+    <p class="tv-not">Veri TradingView üzerinden, <b>15 dakika
+      gecikmeli</b>. Netaris'in kendi ölçümü değildir.</p>
+  </div>
+  <div class="tradingview-widget-container">
+    <div class="tradingview-widget-container__widget"></div>
+    {# ATIF -- TradingView kosullari geregi ZORUNLU. #}
+    <div class="tradingview-widget-copyright">
+      <a href="https://www.tradingview.com/" rel="noopener nofollow"
+         target="_blank">TradingView</a> tarafından sağlanmaktadır
+    </div>
+  </div>
+  <noscript><p class="tv-yedek">{{ yedek }}</p></noscript>
+</section>
+{% endmacro %}

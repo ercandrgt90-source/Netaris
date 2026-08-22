@@ -1,4 +1,5 @@
 {% import "_imza.html" as im %}
+{% import "_tradingview.html" as tv %}
 {% extends "temel.html" %}
 
 {# ANA SAYFA -- KARAR MERKEZI, HABER LISTESI DEGIL.
@@ -26,6 +27,7 @@
 {% block aciklama %}{{ site.meta_aciklama }}{% endblock %}
 
 {% block ek_bas %}
+<script src="/statik/tradingview.js?v={{ js_surum }}" defer></script>
 <script src="/statik/onecikan.js?v={{ js_surum }}" defer></script>
 {# Goreli zaman ("3 dk once") ISTEMCIDE hesaplaniyor. Kurulum aninda
    gomulseydi sayfa yayimlandigi dakikada dogru, iki saat sonra yanlis
@@ -101,6 +103,23 @@
   </div>
 </div>
 
+
+{# BIST SERIDI -- kendi verimiz DEGIL, ACIKCA yazili.
+
+   NEDEN UCUNCU TARAF
+   BIST endeks verisini yayimlamak Borsa Istanbul veri dagitim
+   lisansi gerektiriyor ve bizde yok. TradingView'in ucretsiz
+   widget'inda lisans SAGLAYICIDA: veriyi biz dagitmiyoruz.
+
+   NEDEN BURADA
+   Turk okurun ilk baktigi sey BIST ve sayfada hic yoktu. Kendi fiyat
+   seridimiz (ust tarafta) kur, faiz ve emtia tasiyor -- hepsi kamu
+   kaynakli ve BIZIM olcumumuz. Ikisi AYRI kutularda duruyor ve bu
+   bilincli: birini digerinin icine koymak, lisansi bizde olmayan bir
+   veriyi kendi olcumumuz gibi gosterirdi.
+   =============================================================== #}
+{{ tv.tv("serit", "Borsa İstanbul",
+         "BIST verisi için tarayıcınızda JavaScript etkin olmalı.") }}
 
 {# ===============================================================
    SIRA DEGISTI -- OKURUN ILK SORUSU EN USTTE.

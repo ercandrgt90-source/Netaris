@@ -69,28 +69,32 @@
     </div>
   </section>
 
-  {# VURGU RENGI KARSILASTIRMASI -- KARAR ICIN.
+  {# VURGU RENGI -- KARAR VERILDI (teal), gerekcesiyle birlikte durur.
 
-     Gonderilen tasarim mavi (#146EF5) kullaniyor, site teal
-     (#0a7d78). Bu bir MARKA karari ve kod icinde tek tarafli
-     verilmemeli; iki secenegi de GERCEK BILESENLERLE yan yana
-     koymak, palet kartlarina bakmaktan daha dogru bir karar zemini
-     -- renk tek basina degil, kullanildigi yerde degerlendirilir.
+     Gonderilen tasarim mavi (#146EF5) oneriyordu, site teal
+     (#0a7d78) kullaniyor. Marka karari oldugu icin kod icinde tek
+     tarafli verilmedi: iki secenek GERCEK BILESENLERLE yan yana
+     konup bakildi ve TEAL secildi.
 
-     Ornekler `style` ile YEREL olarak boyaniyor. Sayfanin geri
-     kalani sitenin kendi jetonlarini kullanmaya devam ediyor; yani
-     bu bolum bir onizleme, bir tema degisikligi degil. #}
+     BOLUM NEDEN KALDI
+     Karar verildikten sonra "hangisi olsun" sorusu bayatlar, ama
+     GEREKCE bayatlamaz. Ilerideki bir "neden mavi degil" sorusunun
+     cevabi burada duruyor ve yan yana ornek o cevabin kendisi.
+
+     Ornekler `style` ile YEREL boyaniyor: bu bir onizleme, tema
+     degisikligi degil. #}
   <section class="tasarim-obek">
-    <h2 id="vurgu">Vurgu rengi kararı</h2>
-    <p class="tasarim-aciklama">Gönderilen tasarım mavi kullanıyor,
-    site teal. İkisi de gerçek bileşenlerle aşağıda. Renk tek başına
-    değil, kullanıldığı yerde değerlendirilir.</p>
+    <h2 id="vurgu">Vurgu rengi: teal</h2>
+    <p class="tasarim-aciklama">Alternatif olarak mavi
+    (<code>#146EF5</code>) değerlendirildi ve <b>teal seçildi</b>.
+    Karar iki paleti gerçek bileşenlerle yan yana koyarak verildi;
+    renk tek başına değil, kullanıldığı yerde değerlendirilir.</p>
 
     <div class="vurgu-karsilastirma">
       {% for ad, vurgu, koyu, parlak, zar in [
-           ("Şu anki — teal", "#0a7d78", "#075f5c", "#14b8a6",
+           ("Seçilen — teal", "#0a7d78", "#075f5c", "#14b8a6",
             "rgba(10,125,120,0.10)"),
-           ("Tasarımdaki — mavi", "#146EF5", "#0b52c0", "#4a92ff",
+           ("Değerlendirilen — mavi", "#146EF5", "#0b52c0", "#4a92ff",
             "rgba(20,110,245,0.10)")] %}
       <div class="vurgu-ornek" style="--vurgu: {{ vurgu }};
            --vurgu-koyu: {{ koyu }}; --vurgu-parlak: {{ parlak }};
@@ -121,6 +125,20 @@
       </div>
       {% endfor %}
     </div>
+
+    {# EN ONEMLI SATIR YUKARIDAKI SONUNCUSU: vurgu rengi, artis
+       yesili ve azalis kirmizisiyla YAN YANA. Karisirsa okur bir
+       rozeti YON sanabilir -- "TOPLULUK SENARYOSU" rozetini yukselis
+       isareti gibi okumak gibi. Teal yesile daha yakin, yani bu
+       olcut mavinin lehineydi; buna ragmen teal secildi ve sebebi
+       asagida. #}
+    <p class="tasarim-aciklama"><b>Karar:</b> teal kaldı. Mavi, yön
+    renklerinden (yükseliş yeşili, düşüş kırmızısı) daha uzak durduğu
+    için o ölçütte önde; ancak teal de ikisinden ayırt edilebiliyor ve
+    sitenin mevcut tanınırlığı bu farkı dengeliyor. Renk değişikliği
+    yaklaşık 180 CSS kuralını, SVG grafik üretimini ve kavram
+    çizimlerinin palet notunu etkileyeceği için bedeli de kazancından
+    büyüktü.</p>
   </section>
 
   <section class="tasarim-obek">

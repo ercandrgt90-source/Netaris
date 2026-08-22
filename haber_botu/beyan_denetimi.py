@@ -58,6 +58,35 @@ KURALLAR = (
     ("çerez",
      re.compile(r"set-cookie|netaris_oturum"),
      re.compile(r"çerez kullanılmamakta|çerez kullanmamaktadır", re.I)),
+    # TRADINGVIEW -- ucuncu taraf betigi.
+    #
+    # Widget ziyaretcinin IP'sini ve tarayici bilgisini TradingView'a
+    # gonderiyor. Beyan bunu ACIKCA yaziyor; yazmasaydi bu kural
+    # yakalardi.
+    #
+    # Sitenin baska hicbir ucuncu taraf betigi yok ve bu bilincli --
+    # LCP 338 ms olmasinin sebebi kismen bu. Bir gun ikinci bir
+    # saglayici eklenirse ayni sekilde hem beyana hem buraya girmeli.
+    ("üçüncü taraf içerik",
+     re.compile(r"s3\.tradingview\.com|tradingview\.js"),
+     re.compile(r"üçüncü taraf (içerik|betik|servis)[^.]{0,40}"
+                r"(bulunmamakta|yok|kullanılmam)", re.I)),
+)
+
+#: DAVRANIS VARSA BEYANDA GECMESI ZORUNLU olan ifadeler.
+#:
+#: `KURALLAR` tersini deneteliyor: davranis VAR ve beyan YOK diyorsa
+#: celiski. Ama bir ucuncu ihtimal daha var ve daha sinsi: davranis
+#: var, beyan hicbir sey SOYLEMIYOR. O zaman beyan yalan degil ama
+#: EKSIK -- ve okur bilgilendirilmemis oluyor.
+#:
+#: TradingView eklenirken tam bu risk dogdu: gizlilik metnine hicbir
+#: sey yazmadan widget koymak, "yalan soylemedik" savunmasiyla
+#: gecistirilebilirdi. Gecistirilemez.
+ZORUNLU_BEYAN = (
+    ("TradingView",
+     re.compile(r"s3\.tradingview\.com|tradingview\.js"),
+     re.compile(r"TradingView", re.I)),
 )
 
 #: Yayina cikmamasi gereken yer tutucular.
@@ -109,6 +138,17 @@ def denetle() -> list[str]:
             bulgular.append(
                 f"BEYAN CELISKISI: site {ad} KULLANIYOR ama gizlilik "
                 f"metni kullanmadigini soyluyor")
+
+    # EKSIK BEYAN -- celiskiden daha sinsi.
+    #
+    # Celiskide beyan yanlis bir sey soyluyor; burada HIC bir sey
+    # soylemiyor. Ikincisi "yalan soylemedik" savunmasiyla
+    # gecistirilebilir ve tam da bu yuzden ayrica deneteniyor.
+    for ad, iz, gerekli in ZORUNLU_BEYAN:
+        if iz.search(kaynak) and not gerekli.search(beyan):
+            bulgular.append(
+                f"EKSIK BEYAN: site {ad} kullaniyor ama gizlilik "
+                f"metninde HIC gecmiyor")
     return bulgular
 
 

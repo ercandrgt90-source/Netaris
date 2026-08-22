@@ -5982,3 +5982,43 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
   border-top: 1px solid var(--cizgi);
   font-size: var(--p-s);
   font-variant-numeric: tabular-nums}
+
+/* --- TradingView widget kutusu ------------------------------------
+ * Ucuncu taraf icerik, KENDI CERCEVESINDE duruyor. Sitenin kendi
+ * olcumleriyle ayni gorunumu almasi yanlis olurdu: okur neyin bizim
+ * olcumumuz, neyin disaridan geldigini ayirt edebilmeli.
+ *
+ * Bu yuzden kesikli kenarlik: sayfadaki her sey duz cizgi kullaniyor,
+ * bu kutu kullanmiyor. Fark sessiz ama tutarli. */
+.tv-kutu {
+  margin: var(--b-6) 0;
+  padding: var(--b-4);
+  background: var(--panel);
+  border: 1px dashed var(--cizgi-parlak);
+  border-radius: var(--r)}
+.tv-bas { margin-bottom: var(--b-3)}
+.tv-bas h2 {
+  margin: 0;
+  font-size: var(--p-s); font-weight: 650;
+  letter-spacing: 0.04em; text-transform: uppercase;
+  color: var(--yazi-2)}
+/* Kaynak ve gecikme BASLIKLA BIRLIKTE: okur veriyi gormeden once neye
+ * baktigini bilmeli. Grafigin altina konsa gec kalirdi. */
+.tv-not {
+  margin: var(--b-1) 0 0;
+  font-size: var(--p-xs); color: var(--yazi-3)}
+/* Yukleme oncesi yer AYRILIYOR: widget gelince altindaki icerik
+ * asagi kaymasin. Olcu widget'in kendi yuksekligiyle ayni. */
+.tradingview-widget-container__widget { min-height: 78px}
+.tv-kutu[data-tv-tur="grafik"] .tradingview-widget-container__widget {
+  min-height: 220px}
+/* Atif: TradingView kosullari geregi ZORUNLU, gorunur kalmali.
+ * Kucuk ama okunur -- gizlemek yasak. */
+.tradingview-widget-copyright {
+  margin-top: var(--b-2);
+  font-size: var(--p-xs);
+  color: var(--yazi-3)}
+.tradingview-widget-copyright a { color: var(--yazi-2)}
+.tv-yedek {
+  margin: 0; padding: var(--b-4) 0;
+  color: var(--yazi-3); font-size: var(--p-s)}

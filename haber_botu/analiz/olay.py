@@ -205,11 +205,16 @@ def esigi_gecti(o: Olay | None) -> bool:
 #: soyler, "hangi olayda hangisine bakilacagini" degil. Jeopolitik bir
 #: olayda once petrol ve altina bakilir; enflasyon verisinde faize ve
 #: tahvile. Baslangic noktasi burada, yayilim graftan.
+#: SP500 ve VIX CIKARILDI -- lisanslari bizde degil ve bu liste bir
+#: OLCUM listesi: olay sayfasinda her varligin DEGERI ve degisimi
+#: basiliyor. Adini anmak serbest (gazetecilikte oldugu gibi), degerini
+#: yayimlamak lisans istiyor. Gerekce:
+#: `makro_uret_ucretsiz.LISANSSIZ_SERILER`.
 OLAY_VARLIKLARI = {
     "faiz":       ("XAU", "BTC", "DXY", "US10Y", "US2Y"),
     "enflasyon":  ("XAU", "BTC", "US10Y", "DXY"),
-    "istihdam":   ("XAU", "BTC", "US10Y", "DXY", "SP500"),
-    "jeopolitik": ("BRENT", "XAU", "XAG", "BTC", "VIX"),
+    "istihdam":   ("XAU", "BTC", "US10Y", "DXY"),
+    "jeopolitik": ("BRENT", "XAU", "XAG", "BTC"),
     "arz":        ("BRENT", "WTI", "XAU"),
     "kur":        ("XAU", "DXY", "USDTRY"),
 }

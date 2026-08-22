@@ -51,15 +51,48 @@ SERILER = ("DCOILBRENTEU", "DFF", "DGS2", "DGS10")
 #: Yazidan ayri tutuluyor: panelde 13 gosterge olmasi iyi, yazida 13
 #: gostergeyi yorumlamaya calismak metni dagitir.
 PANEL_SERILERI = (
-    "SP500", "NASDAQCOM", "DJIA",
+    # ENDEKSLER CIKARILDI -- LISANSI BIZDE DEGIL.
+    #
+    #     SP500, DJIA      S&P Dow Jones Indices LLC
+    #     NASDAQCOM        Nasdaq, Inc.
+    #     VIXCLS           Cboe Global Markets
+    #
+    # Dordu de FRED uzerinden geliyordu ama FRED bunlari KENDI
+    # verisi olarak degil, saglayicinin izniyle dagitiyor. O izin
+    # bize gecmiyor: seriyi FRED'den almak, yeniden yayimlama
+    # hakkini da aldigimiz anlamina gelmiyor.
+    #
+    # Olculdu: dordu de fiyat seridindeydi ve serit `temel.html`de --
+    # yani SITEDEKI 1.707 SAYFANIN HEPSINDE gorunuyorlardi. En genis
+    # maruziyet, en az fark edilen yerdeydi.
+    #
+    # KOD SILINMEDI: `PANEL_ADLARI`, `SERIT_ADLARI` ve depo gecmisi
+    # duruyor. Lisans alinirsa tek satirla geri gelir. Ayni yaklasim
+    # DEXUSEU icin de kullanildi (asagida).
+    #
+    # GERIYE KALAN ONU KAMU KAYNAKLI: Fed (DFF, DGS*, T10Y2Y, DTWEXBGS),
+    # EIA (petrol), ECB (EUR/USD), TCMB (kurlar). Bunlarin yeniden
+    # yayimlanmasinda kisitlama yok.
     "DCOILBRENTEU", "DCOILWTICO",
     "DFF", "DGS2", "DGS10", "T10Y2Y",
     # DEXUSEU CIKARILDI: ayni buyuklugu ECB anahtarsiz ve AYNI IS GUNU
     # veriyor, FRED serisi ise alti is gunu geride geliyordu. Kod
     # tamamen silinmedi -- `PANEL_ADLARI` ve depo gecmisi duruyor,
     # yalnizca seride/panele girmiyor.
-    "VIXCLS", "DTWEXBGS",
+    "DTWEXBGS",
 )
+
+#: LISANSI BIZDE OLMAYAN SERILER -- yayindan cikarildi.
+#:
+#: Liste kod icinde duruyor ki "neden yok" sorusunun cevabi kaybolmasin
+#: ve bir gun lisans alinirsa hangi kodlarin geri gelecegi belli olsun.
+#: `test_lisans.py` bunlarin YAYIN YOLLARINA girmedigini siniyor.
+LISANSSIZ_SERILER = frozenset({
+    "SP500",      # S&P Dow Jones Indices LLC
+    "DJIA",       # S&P Dow Jones Indices LLC
+    "NASDAQCOM",  # Nasdaq, Inc.
+    "VIXCLS",     # Cboe Global Markets
+})
 
 #: Kac gozlemlik pencere. 14 islem gunu iki haftalik bir hareketi gosterir;
 #: daha uzun pencere gunluk yorumu bulaniklastirir.

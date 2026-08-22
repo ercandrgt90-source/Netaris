@@ -106,7 +106,10 @@ TETIKLEYICILER: tuple[tuple[str, str, str], ...] = (
     ("UNRATE",              "ABD işsizlik oranı", "%"),
     ("DCOILBRENTEU",        "Brent petrol", "$"),
     ("DTWEXBGS",            "Dolar endeksi", "endeks"),
-    ("VIXCLS",              "VIX oynaklık endeksi", "endeks"),
+    # VIXCLS CIKARILDI: Cboe Global Markets'in verisi ve yeniden
+    # yayimlama lisansi bizde degil. Tetikleyici olarak sunmak, o
+    # degeri sayfada GOSTERMEK demekti -- senaryo sonuclanirken
+    # esik ve deger yaziliyor.
     ("PAXGUSD",             "Ons altın", "$"),
     ("XBTUSD",              "Bitcoin", "$"),
 )

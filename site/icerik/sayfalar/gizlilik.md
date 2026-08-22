@@ -98,6 +98,29 @@ etkilenmez.
 
 Bu servislerin kendi gizlilik politikaları geçerlidir.
 
+## Borsa İstanbul verisi (TradingView)
+
+Ana sayfadaki **Borsa İstanbul** şeridi ve bilanço analizlerindeki hisse
+fiyat grafiği **TradingView** tarafından sağlanmaktadır. Sebebi hukuki:
+BIST verisini kendimiz yayımlamak Borsa İstanbul veri dağıtım lisansı
+gerektiriyor; TradingView'in widget'ında lisans sağlayıcıdadır.
+
+Bu içerik **tarayıcınıza doğrudan TradingView'dan yüklenir** ve teknik
+zorunluluk gereği TradingView **IP adresinizi ve tarayıcı bilgilerinizi**
+görür. TradingView kendi çerezlerini yazabilir ve kendi gizlilik
+politikası geçerlidir.
+
+Önemli iki nokta:
+
+- **Widget yalnızca ekranınıza girerse yüklenir.** O bölüme hiç
+  inmezseniz TradingView'a hiçbir istek gitmez.
+- **Veri 15 dakika gecikmelidir** ve Netaris'in kendi ölçümü değildir.
+  Sitenin kendi fiyat şeridi ayrı bir kutudadır ve kamu kaynaklı
+  verilerden (Fed, ECB, EIA, TCMB) oluşur.
+
+Bu içeriği hiç yüklememek isterseniz tarayıcınızın betik engelleme
+özelliğini kullanabilirsiniz; sitenin geri kalanı etkilenmez.
+
 ## Reklam ve profilleme
 
 Sitede reklam ağı, davranışsal reklam kodu veya profilleme amaçlı izleme

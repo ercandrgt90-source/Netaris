@@ -929,13 +929,20 @@ def kunye_rakamlari(analizler: list) -> list[dict]:
 #: bizim Brent serimiz, faiz haberinin yaninda bizim getiri serimiz durur.
 #: Boylece sayfa yalnizca ceviri degil, veriyle desteklenmis bir ozet olur.
 KONU_GOSTERGELERI = {
+    # LISANSSIZ SERILER CIKARILDI (SP500, VIXCLS). Bunlar FRED
+    # uzerinden geliyor ama FRED onlari saglayicinin IZNIYLE
+    # dagitiyor ve o izin bize gecmiyor. Gerekce:
+    # `makro_uret_ucretsiz.LISANSSIZ_SERILER`.
+    #
+    # "Piyasa duzenlemesi" ve "Duzenleme" konularinda geriye
+    # gosterge KALMIYOR: ikisi de yalnizca SP500 ve VIXCLS
+    # tasiyordu. Listeden dustuler ve o konularda bolum HIC
+    # BASILMIYOR -- eksik bolum, lisanssiz veriden iyidir.
     "Para politikası": ("DFF", "DGS2", "DGS10", "T10Y2Y"),
-    "Enflasyon": ("DGS10", "T10Y2Y", "VIXCLS"),
+    "Enflasyon": ("DGS10", "T10Y2Y"),
     "Enerji": ("DCOILBRENTEU", "DCOILWTICO"),
-    "Jeopolitik": ("DCOILBRENTEU", "VIXCLS", "DTWEXBGS"),
-    "Bankacılık": ("DGS10", "VIXCLS"),
-    "Piyasa düzenlemesi": ("SP500", "VIXCLS"),
-    "Düzenleme": ("SP500", "VIXCLS"),
+    "Jeopolitik": ("DCOILBRENTEU", "DTWEXBGS"),
+    "Bankacılık": ("DGS10",),
 }
 
 
@@ -2568,7 +2575,8 @@ ONCELIKLI_SERI = {
                  "TP.YISGUCU2.G8"),
     "kur": ("DTWEXBGS", "ECB_EURUSD", "TP.DK.USD.S.YTL",
             "TP.DK.EUR.S.YTL"),
-    "jeopolitik": ("DCOILBRENTEU", "DCOILWTICO", "VIXCLS"),
+    # VIXCLS CIKARILDI -- Cboe lisansi bizde degil.
+    "jeopolitik": ("DCOILBRENTEU", "DCOILWTICO"),
 }
 
 

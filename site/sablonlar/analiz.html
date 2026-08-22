@@ -1,7 +1,14 @@
 {% import "_paylas.html" as pl %}
 {% import "_yapisal.html" as yv %}
+{% import "_tradingview.html" as tv %}
 {% extends "temel.html" %}
 {% block ek_bas %}
+{# TradingView betigi YALNIZCA hisse kodu olan sayfada. Makro ve
+   yorum analizlerinde grafik yok, betik de yuklenmiyor -- ucuncu
+   taraf betigi gereksiz sayfaya konulmamali. #}
+{% if a.kod and a.kod != "MAKRO" and a.kod != "YORUM" %}
+<script src="/statik/tradingview.js?v={{ js_surum }}" defer></script>
+{% endif %}
 {# Sayfa paylasimindaki "kopyala" dugmesi icin. Digerleri duz
    baglanti; betik yalnizca kopyalamayi aciyor. #}
 <script src="/statik/paylas.js?v={{ js_surum }}" defer></script>
@@ -179,6 +186,21 @@
     Kod tarafından, <a href="/hakkimizda/#skor">yayımlanmış kurallarla</a>
     hesaplanır — aynı tablolar her zaman aynı skoru üretir.</p>
   </section>
+  {% endif %}
+
+  {# HISSE GRAFIGI -- GOVDEDEN ONCE.
+     Bilanco bir DONEMIN fotografi; fiyat o donemden bu yana ne olduğunu
+     gosteriyor ve ikisi ancak birlikte anlam kazaniyor. Grafigi metnin
+     altina koymak, okurun once rakamlari okuyup sonra "peki piyasa ne
+     dedi" sorusuyla geri donmesi demekti.
+
+     YALNIZCA HISSE ANALIZINDE. Makro ve yorum yazilarinda hisse kodu
+     yok; orada ne grafik ne de ucuncu taraf betigi yukleniyor. #}
+  {% if a.kod and a.kod != "MAKRO" and a.kod != "YORUM" %}
+  {{ tv.tv("grafik",
+           a.kod ~ " fiyat grafiği (12 ay)",
+           "Grafiği görmek için tarayıcınızda JavaScript etkin olmalı.",
+           "BIST:" ~ a.kod) }}
   {% endif %}
 
   {# Yasal uyari sayfa altbilgisinde bir kez veriliyor. Burada da tekrarlamak
