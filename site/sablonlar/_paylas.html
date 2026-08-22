@@ -45,6 +45,29 @@
      MARKA RENGI YALNIZCA IKONDA. Bes dolgu rengi yan yana sayfanin
      kendi rengini bogar ve reklam seridi izlenimi verir; ikon
      tanimayi sagliyor, kabuk notr kaliyor. #}
+  {# YEREL PAYLASIM SAYFASI -- telefonda TEK dugme.
+     ------------------------------------------------
+     Dar ekranda bes ayri dugme iki satir kaplıyor ve hicbiri okurun
+     GERCEKTEN kullandigi uygulamayi bilmiyor. `navigator.share`
+     isletim sisteminin kendi sayfasini aciyor: orada okurun kurulu
+     olan uygulamalari cikiyor.
+
+     Bir sey daha cozuyor: INSTAGRAM'IN WEB PAYLASIM ADRESI YOK. Bir
+     web sayfasindan Instagram'a baglanti paylasilamaz -- ne biz ne
+     baska bir site yapabilir. Yerel sayfa bunu ISLETIM SISTEMI
+     uzerinden cozuyor, cunku orada Instagram kurulu bir uygulama.
+
+     Dugme `hidden` basiliyor; `paylas.js` yalnizca `navigator.share`
+     VARSA aciyor ve o zaman alttaki baglanti serisini gizliyor.
+     Destek yoksa hicbir sey degismiyor ve seri oldugu gibi duruyor --
+     yani ozellik ekleniyor, hicbir sey kaybedilmiyor. #}
+  <button class="sp-dugme sp-yerel" type="button" hidden
+          data-paylas-yerel
+          data-baslik="{{ baslik }}"
+          data-metin="{{ metin }}"
+          data-adres="{{ tam }}">
+    <svg viewBox="0 0 24 24" aria-hidden="true" width="16" height="16"><path fill="currentColor" d="M18 16.08a2.9 2.9 0 0 0-1.96.77L8.9 12.7a3.3 3.3 0 0 0 0-1.4l7.05-4.11a3 3 0 1 0-.96-2.19c0 .24.03.47.08.7L8.04 9.81a3 3 0 1 0 0 4.38l7.12 4.16c-.05.21-.08.43-.08.65a2.92 2.92 0 1 0 2.92-2.92Z"/></svg>
+    <span>Paylaş</span></button>
   <div class="sayfa-paylas-dugmeler">
     <a class="sp-dugme sp-x" rel="noopener noreferrer" target="_blank"
        href="https://x.com/intent/post?text={{ metin|urlencode }}&url={{ tam|urlencode }}">

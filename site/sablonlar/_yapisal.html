@@ -1,0 +1,64 @@
+{# YAPISAL VERI MAKROLARI -- schema.org, tek yerden.
+
+   NEDEN ORTAK
+   -----------
+   Yapisal veri bes sablonda ayri ayri yaziliydi (haber, analiz,
+   anasayfa, hakkimizda, varlik) ve her biri kendi bicimini tasiyordu.
+   Bir alani duzeltip digerini unutmak, bu depoda `paylas.js` ile de
+   yasandi ve orada da cozum makroya tasimak oldu.
+
+   KIRINTI (BreadcrumbList) NEDEN EKLENDI
+   --------------------------------------
+   Olculdu: sitede NewsArticle ve Organization vardi, BreadcrumbList
+   HIC yoktu. Arama sonucunda kirinti yolu gorunmedigi icin her sayfa
+   koksuz bir baglanti olarak cikiyordu -- okur sonucun sitenin
+   neresinden geldigini goremiyor.
+
+   Sayfada zaten gorunen kirinti yolu ile buradaki veri AYNI olmali;
+   ikisinin ayrismasi Google tarafinda "yapisal veri sayfayla
+   uyusmuyor" uyarisi uretir. Bu yuzden makro sayfadaki listeyle ayni
+   veriden besleniyor.
+#}
+
+{# Kirinti yolu -- `ogeler`: [(ad, yol), ...]. Son oge SAYFANIN
+   KENDISI ve `yol`u bos gecilebilir (schema.org son ogede `item`
+   istemiyor). #}
+{% macro kirinti(ogeler, site_adres) %}
+{%- if ogeler -%}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {%- for ad, yol in ogeler %}
+    {
+      "@type": "ListItem",
+      "position": {{ loop.index }},
+      "name": {{ ad | tojson }}
+      {%- if yol %},
+      "item": {{ (site_adres ~ yol) | tojson }}
+      {%- endif %}
+    }{% if not loop.last %},{% endif %}
+    {%- endfor %}
+  ]
+}
+</script>
+{%- endif -%}
+{% endmacro %}
+
+{# Yazar -- INSAN imzali icerik icin Person, kurum icerigi icin
+   Organization.
+
+   Ayrim onemli: sitenin en temel ayrimi bir metni insanin mi yoksa
+   kurallarin mi urettigi ve `_imza.html` bunu gorsel olarak da
+   ayiriyor. Yapisal veride de ayni ayrim durmali -- kurallarin
+   urettigi bir ozeti "Person" diye isaretlemek, olmayan bir yazara
+   imza atmak olurdu. #}
+{% macro yazar(ad, imzali, site_adres, yol="") %}
+{%- if imzali -%}
+{ "@type": "Person", "name": {{ ad | tojson }}
+  {%- if yol %}, "url": {{ (site_adres ~ yol) | tojson }}{% endif %} }
+{%- else -%}
+{ "@type": "Organization", "name": {{ ad | tojson }} }
+{%- endif -%}
+{% endmacro %}

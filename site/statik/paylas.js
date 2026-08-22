@@ -170,10 +170,63 @@
     var d = document.querySelectorAll(".sp-kopya[hidden]");
     for (var i = 0; i < d.length; i++) d[i].hidden = false;
   }
+
+  /* YEREL PAYLASIM SAYFASI.
+     ----------------------
+     `navigator.share` isletim sisteminin kendi paylasim sayfasini
+     aciyor: okurun KURULU uygulamalari cikiyor, bizim tahmin
+     ettiklerimiz degil.
+
+     Bir sey daha cozuyor: INSTAGRAM'IN WEB PAYLASIM ADRESI YOK. Bir
+     web sayfasindan Instagram'a baglanti paylasilamaz -- ne biz ne
+     baska bir site yapabilir. Yerel sayfa bunu isletim sistemi
+     uzerinden cozuyor.
+
+     KOSUL SADECE `navigator.share` DEGIL.
+     Masaustu tarayicilarin bir kismi da destekliyor ama orada bes
+     baglantilik seri DAHA IYI: tek tikla hedef belli, ustelik hangi
+     kanallarda oldugumuz gorunuyor. Bu yuzden dar ekran kosulu da
+     araniyor.
+
+     `matchMedia` yoksa hicbir sey yapilmiyor: seri oldugu gibi
+     kaliyor ve okur bir sey kaybetmiyor. */
+  function yerelPaylasimiAc() {
+    if (!document || typeof document.querySelectorAll !== "function") return;
+    if (!navigator || typeof navigator.share !== "function") return;
+    if (typeof window.matchMedia !== "function") return;
+    if (!window.matchMedia("(max-width: 640px)").matches) return;
+
+    var dugmeler = document.querySelectorAll("[data-paylas-yerel]");
+    for (var i = 0; i < dugmeler.length; i++) {
+      var d = dugmeler[i];
+      d.hidden = false;
+      /* Baglanti serisi gizleniyor: iki paylasim yolu yan yana
+         durursa okur hangisinin ne yaptigini bilemiyor. */
+      var kap = d.parentNode
+        && d.parentNode.querySelector(".sayfa-paylas-dugmeler");
+      if (kap) kap.hidden = true;
+    }
+  }
+
+  document.addEventListener("click", function (o) {
+    var d = o.target.closest && o.target.closest("[data-paylas-yerel]");
+    if (!d) return;
+    /* Iptal bir HATA DEGIL: okur sayfayi kapatinca `AbortError`
+       firliyor ve yakalanmazsa kayda hata olarak dusuyor. */
+    navigator.share({
+      title: d.getAttribute("data-baslik") || document.title,
+      text: d.getAttribute("data-metin") || "",
+      url: d.getAttribute("data-adres") || window.location.href
+    }).catch(function () {});
+  });
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", kopyaDugmeleriniAc);
+    document.addEventListener("DOMContentLoaded", function () {
+      kopyaDugmeleriniAc();
+      yerelPaylasimiAc();
+    });
   } else {
     kopyaDugmeleriniAc();
+    yerelPaylasimiAc();
   }
 
 })();

@@ -1,4 +1,5 @@
 {% import "_paylas.html" as pl %}
+{% import "_yapisal.html" as yv %}
 {% extends "temel.html" %}
 {% block ek_bas %}
 {# Sayfa paylasimindaki "kopyala" dugmesi icin. Digerleri duz
@@ -40,6 +41,14 @@
   "about": { "@type": "Corporation", "name": {{ a.sirket | tojson }}, "tickerSymbol": {{ a.kod | tojson }} }
 }
 </script>
+{# KIRINTI, SAYFADAKI IZLE AYNI VERIDEN -- ikisi ayrisirsa Google
+   "yapisal veri sayfayla uyusmuyor" uyarisi uretir. #}
+{{ yv.kirinti(
+     [(site.ad, "/")]
+     + [(geri_ad|default("Araştırmalar"), geri_yol|default("/arastirmalar/"))]
+     + ([(a.kategori, "")] if a.kategori else [])
+     + ([(a.kod, "")] if a.kod and a.kod != "MAKRO" else []),
+     site.adres) }}
 {% endblock %}
 
 {% block icerik %}

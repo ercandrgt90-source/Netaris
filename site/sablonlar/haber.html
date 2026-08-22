@@ -1,4 +1,5 @@
 {% import "_paylas.html" as pl %}
+{% import "_yapisal.html" as yv %}
 {% extends "temel.html" %}
 
 {% block baslik %}{{ h.baslik }} — {{ site.ad }}{% endblock %}
@@ -32,6 +33,14 @@
   }
 }
 </script>
+{# KIRINTI, SAYFADAKI YOLLA AYNI VERIDEN.
+   Yukaridaki `konum-izi` ile birebir ayni ogeler: ikisi ayrisirsa
+   Google "yapisal veri sayfayla uyusmuyor" uyarisi uretir. #}
+{{ yv.kirinti(
+     [(site.ad, "/")]
+     + [(geri_ad|default("Haberler"), geri_yol|default("/gundem/"))]
+     + ([(h.konu, "")] if h.konu and h.konu != "Şirket haberleri" else []),
+     site.adres) }}
 {% endblock %}
 
 {% block ek_bas %}

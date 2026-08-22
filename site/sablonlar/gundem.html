@@ -3,8 +3,15 @@
 {% block baslik %}Haberler — {{ site.ad }}{% endblock %}
 {% block aciklama %}Merkez bankaları ve düzenleyici kurumların açıklamaları; piyasa etkisi olanlar aktarım kanallarıyla değerlendirilmiş.{% endblock %}
 
+{% block ek_bas %}
+{# `defer`: suzgec sayfanin cizilmesini beklemeli. Betik yuklenmezse
+   suzgec serisi `hidden` kaliyor ve okur tam listeyi goruyor. #}
+<script src="/statik/akis_suzgec.js?v={{ js_surum }}" defer></script>
+{% endblock %}
+
 {% macro oge(h, gorsel) %}
-<article class="haber {% if h.yorumlanir %}haber-yorumlu{% endif %}">
+<article class="haber {% if h.yorumlanir %}haber-yorumlu{% endif %}"
+         data-tur="{{ h | kart_turu }}">
   {# GORSEL KUTUSU YALNIZCA ICINDE BIR SEY VARSA.
      Fotograf tekrar tavani devreye girince gorseli olmayan haberler
      olustu ve bu kutu BOS bir <a> olarak basiliyordu. Bos baglanti
@@ -102,24 +109,74 @@
 {% set yorumlu = gundem.haberler | selectattr("yorumlanir") | list %}
 {% set rutin = gundem.haberler | rejectattr("yorumlanir") | list %}
 
+{# ---------------------------------------------------------------
+   AKIS FILTRESI.
+
+   NEDEN GEREKLI
+   -------------
+   Bu sayfada 86 kalem var ve ayni anda jeopolitik, enerji, kripto,
+   sirket ve makro basliklar yan yana duruyor. Okur "Fed ne yapti"
+   sorusuyla geldiyse 86 kalemi taramak zorunda kaliyordu.
+
+   NEDEN KONU DEGIL DE TUR
+   -----------------------
+   Depoda 18 konu var; 18 dugme bir filtre serisi degil ikinci bir
+   menu olur. Turler (`KART_TURU`) zaten bu 18 konuyu alti gruba
+   indiriyor ve o gruplama kartlarin gorsel dilinde de kullaniliyor
+   -- yani okur bu ayrimi sayfada zaten goruyor.
+
+   BETIKSIZ TAM LISTE
+   ------------------
+   Suzgec JavaScript ile calisiyor ama ogeler HTML'de HEPSI basili.
+   Betik yoksa filtre serisi HIC gorunmuyor ve okur tam listeyi
+   goruyor -- ki sayfanin isi zaten o. Bozulma yonu dogru: eksik
+   ozellik, bozuk sayfa degil.
+
+   Ayni sebeple arama motoru ve ekran okuyucu icin de kayip yok.
+   --------------------------------------------------------------- #}
+{% set turler = [
+     ("makro", "Makro"), ("piyasa", "Piyasalar"),
+     ("sirket", "Şirketler"), ("emtia", "Emtia ve enerji"),
+     ("jeopolitik", "Jeopolitik"), ("duzenleme", "Düzenleme"),
+     ("sektor", "Sektörler"), ("haber", "Diğer")] %}
+{% set sayim = {} %}
+{% for h in gundem.haberler %}
+{% set _ = sayim.update({h | kart_turu: sayim.get(h | kart_turu, 0) + 1}) %}
+{% endfor %}
+<div class="akis-suzgec" data-akis-suzgec hidden>
+  <button type="button" class="suzgec-dugme" data-tur="" aria-pressed="true">
+    Tümü <span class="suzgec-say">{{ gundem.haberler | length }}</span></button>
+  {% for kod, ad in turler %}
+  {% if sayim.get(kod) %}
+  <button type="button" class="suzgec-dugme" data-tur="{{ kod }}"
+          aria-pressed="false">
+    {{ ad }} <span class="suzgec-say">{{ sayim.get(kod) }}</span></button>
+  {% endif %}
+  {% endfor %}
+</div>
+{# Suzgec hicbir seyi eslemezse okur bos ekranla kalmasin. #}
+<p class="akis-bos" data-akis-bos hidden>Bu türde gelişme yok.</p>
+
 {% if yorumlu %}
-<div class="bolum-bas"><h2>Piyasa etkisi olanlar ({{ yorumlu | length }})</h2></div>
-<div class="haber-izgara">
+<div class="bolum-bas" data-akis-bolum="yorumlu">
+  <h2>Piyasa etkisi olanlar <span data-akis-say>({{ yorumlu | length }})</span></h2>
+</div>
+<div class="haber-izgara" data-akis-kap="yorumlu">
   {% for h in yorumlu %}{{ oge(h, gundem_gorseller.get(h.adres)) }}{% endfor %}
 </div>
 <p class="kaynak-not">{{ gundem.sinir_notu }}</p>
 {% endif %}
 
 {% if rutin %}
-<div class="bolum-bas" style="margin-top:38px">
-  <h2>Diğer duyurular ({{ rutin | length }})</h2>
+<div class="bolum-bas" style="margin-top:38px" data-akis-bolum="rutin">
+  <h2>Diğer duyurular <span data-akis-say>({{ rutin | length }})</span></h2>
 </div>
 {# Rutin duyurular: baslik ve kurum bilgisi yeterli, ayri sayfa acilmiyor
    ve disari da yonlendirilmiyor. Bunlar zaten yorum gerektirmeyen idari
    bildirimler. #}
-<ul class="gundem-liste">
+<ul class="gundem-liste" data-akis-kap="rutin">
   {% for h in rutin %}
-  <li class="gundem-oge gundem-duz">
+  <li class="gundem-oge gundem-duz" data-tur="{{ h | kart_turu }}">
     <span class="gundem-ust">
       <span class="rozet rozet-vurgu">{{ h.konu }}</span>
       <span class="rozet">{{ h.kurum }}</span>
