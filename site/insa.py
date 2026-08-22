@@ -1402,20 +1402,64 @@ ARSIV_SINIRI = 1500
 #: Ayrica konu suzgeci: kullanicinin isaret ettigi "senaryo yazmaya
 #: deger" alanlar. Ikisi BIRLIKTE araniyor -- tek basina konu yetmez,
 #: cunku "Para politikasi" konulu bir duyuru takvimi de var.
+#: Senaryo yazmaya elverisli konular.
+#:
+#: Dort konu EKLENDI (Borsa, Istihdam, Altin ve emtia, Bankacilik):
+#: dordu de fiyatlanan bir buyukluge bagli ve okurun kosullu bir gorus
+#: kurabilecegi alanlar. Disarida kalanlar (Konut ve kira, Tarim ve
+#: gida, Vergi ve kamu maliyesi, Sirket haberleri) daha cok idari ya
+#: da yerel; "su olursa su olur" kalibina oturmuyorlar.
 SENARYO_KONULARI = frozenset({
     "Jeopolitik", "Para politikası", "Enflasyon", "Enerji",
     "Dış ticaret", "Döviz",
+    "Borsa", "İstihdam ve ücret", "Altın ve emtia", "Bankacılık",
 })
 
+#: Olay esigini gecmeyen haberde senaryo icin gereken EN AZ varlik bagi.
+#:
+#: NEDEN IKI, BIR DEGIL
+#: Tek varlik bagi gecerken deginilmis olabilir ("altin haberinde Iran
+#: geciyor"). Iki bag, haberin gercekten bir KESISIMDE durdugunu
+#: gosteriyor -- ve kosullu bir gorus tam orada kurulabiliyor.
+#:
+#: Olculdu (2026-08-22), yayimdaki 1291 haber uzerinden:
+#:     yalniz olay esigi          86  (%6)   <- eski olcut
+#:     esik | 2+ varlik          383  (%29)  <- secilen
+#:     esik | 1+ varlik          769  (%59)
+#: Ucuncusu "her haberde cagri" demeye yaklasiyor ve kodun kendi
+#: gerekcesiyle celisiyor ("hepsine cagri koymak okuru seyreltir").
+SENARYO_EN_AZ_VARLIK = 2
 
-def senaryoya_acik(h: dict) -> bool:
+
+def senaryoya_acik(h: dict, varliklar=None) -> bool:
     """Bu haber senaryo yazmaya deger mi.
 
-    Olay motoru yoksa (haber_botu erisilemiyor) KONUYA duser: eksik bir
-    suzgec, hic suzgec olmamasindan iyi.
+    IKI YOL, BIRI YETER:
+      1. Olay esigini geciyor (faiz karari, enflasyon verisi...)
+      2. En az iki varliga bagli -- yani olculen birden fazla seyin
+         kesisiminde duruyor
+
+    NEDEN IKINCI YOL EKLENDI
+    Olculdu: eski olcut (konu + olay esigi) yayimdaki 1291 haberin
+    yalnizca 86'sinda (%6) cagri gosteriyordu. Sebep de sanildigi gibi
+    esigin yuksekligi degildi -- olay siniflandirici cogu baslikla HIC
+    eslesmiyor: konu suzgecinden gecen 29 haberin 26'sinda siddet 0.
+    Esigi 8'den 3'e indirmek yalnizca bir sayfa ekliyordu.
+
+    Yani darbogaz esik degil, OLCUTUN KENDISIYDI. "Bu haber bir olay
+    mi" sorusu ile "bu haber hakkinda kosullu gorus kurulabilir mi"
+    sorusu ayni degil.
+
+    Varlik bagi ikinci soruyu dogrudan cevapliyor: iki olculen buyukluk
+    bagliysa okurun tutunacagi bir sey var.
+
+    Olay motoru yoksa KONUYA duser: eksik bir suzgec, hic suzgec
+    olmamasindan iyi.
     """
     if h.get("konu") not in SENARYO_KONULARI:
         return False
+    if varliklar is not None and len(varliklar) >= SENARYO_EN_AZ_VARLIK:
+        return True
     if _olay is None:
         return True
     o = _olay.siniflandir(h.get("baslik_kaynak") or h.get("baslik", ""),
@@ -3999,7 +4043,7 @@ def insa() -> int:
                     yas=gun_farki(h.get("tarih", ""),
                                   gundem.get("guncelleme", "")),
                     # Senaryo bolumu yalnizca kritik haberlerde
-                    senaryo_acik=senaryoya_acik(h),
+                    senaryo_acik=senaryoya_acik(h, h_varliklar),
                     # HABERIN KENDI ALANINDAN, sozlukten DEGIL.
                     #
                     # Burasi `ai_yorumlari.get(...)` idi, yani depodan
