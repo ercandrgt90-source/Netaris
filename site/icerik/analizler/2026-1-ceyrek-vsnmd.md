@@ -1,7 +1,7 @@
 ---
 slug: vsnmd-2026-1-ceyrek
 baslik: VİŞNE MADENCİLİK ÜRETİM SANAYİ VE TİCARET A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılat hafif artarken brüt kâr düşmüş, bu durum brüt kâr marjının %9,0'dan sektör medyanı %14,1'in altında kalmasına yol açtı; aynı zamanda faaliyet kârı negatifleşip FAVÖK de %0,18'den %0,07'ye gerileyerek net kârın -%13,1'lik negatif marja sürüklenmesine neden oldu.…
+ozet: Hasılat hafif artarken brüt kâr düşmüş, bu durum brüt kâr marjının %9,0'dan sektör medyanı %14,1'in altında kalmasına yol açtı; aynı zamanda faaliyet kârı negatifleşip FAVÖK de %0,07'e gerileyerek net kârın -%13,1'lik negatif marja sürüklenmesiyle özkaynak kârlılığı -%1,2'ye düştü.…
 sirket: VİŞNE MADENCİLİK ÜRETİM SANAYİ VE TİCARET A.Ş.
 kod: VSNMD
 donem: 2026 1. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat hafif artarken brüt kâr düşmüş, bu durum brüt kâr marjının %9,0'dan sektör medyanı %14,1'in altında kalmasına yol açtı; aynı zamanda faaliyet kârı negatifleşip FAVÖK de %0,18'den %0,07'ye gerileyerek net kârın -%13,1'lik negatif marja sürüklenmesine neden oldu. Özkaynakların %4,15 milyar'a yükselmesi aktif toplamının %4,69 milyar'a artmasıyla birlikte cari oranı 3,63'e, borç/özkaynak oranını ise negatif -0,06'ya çekti; bu likidite iyileşmesi net borcun -0,26 milyar TL'ye (önceki -0,47 milyar TL) düşmesiyle desteklendi. Yatırım harcamasının %0,18 milyar'a (önceki %0,11 milyar) çıkması ise faaliyet nakit akışının -%0,03 milyar (önceki +%0,08 milyar) olumsuz etkilenmesine paralel gerçekleşti.
+Hasılat hafif artarken brüt kâr düşmüş, bu durum brüt kâr marjının %9,0'dan sektör medyanı %14,1'in altında kalmasına yol açtı; aynı zamanda faaliyet kârı negatifleşip FAVÖK de %0,07'e gerileyerek net kârın -%13,1'lik negatif marja sürüklenmesiyle özkaynak kârlılığı -%1,2'ye düştü. Özkaynak ve aktif toplamı artışı, net borcun -%0,26'dan -%0,47'ye iyileşmesiyle birlikte cari oranı 3,63'e yükselterek borç/özkaynak oranını sektör medyanı 0,21'in çok altında -%0,06 seviyesine indirdi. Yatırım harcamasının 0,18 milyar TL'ye çıkması, faaliyet nakit akışının -0,03 milyar TL'ye kaymasıyla birlikte likidite akışındaki negatifleşmeye paralel bir harcama artışı olarak göründü.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 

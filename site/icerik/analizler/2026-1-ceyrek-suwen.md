@@ -1,9 +1,9 @@
 ---
-slug: pkent-2026-1-ceyrek
-baslik: PETROKENT TURİZM A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılat aynı kalırken brüt kâr, faaliyet kârı, FAVÖK ve net kâr tümü negatiften daha da artmış; bu düşüş brüt kâr marjının –%24,7'ye gerilemesiyle yansıyor ve aynı zamanda özkaynak kârlılığının –%4,0'a inmesine yol açıyor.…
-sirket: PETROKENT TURİZM A.Ş.
-kod: PKENT
+slug: suwen-2026-1-ceyrek
+baslik: SUWEN TEKSTİL SANAYİ PAZARLAMA A.Ş. 2026 1. çeyrek bilanço analizi
+ozet: Hasılatın düşmesi brüt kârın da hafif gerilemesine yol açarken, brüt kâr marjının sektör medyanının çok üzerinde kalması brüt kârın satış hacmine oranla yüksek kalmasını sağladı; net kârın negatifleşmesi ise faaliyet kârı ve FAVÖK'teki düşüşle birlikte, yatırım harcamasındaki azalma ve net borçtaki…
+sirket: SUWEN TEKSTİL SANAYİ PAZARLAMA A.Ş.
+kod: SUWEN
 donem: 2026 1. çeyrek
 kategori: Bilanço Analizi
 sektor: İsteğe bağlı tüketim
@@ -18,22 +18,22 @@ sayimlar:
 
 ## Özet
 
-Hasılat aynı kalırken brüt kâr, faaliyet kârı, FAVÖK ve net kâr tümü negatiften daha da artmış; bu düşüş brüt kâr marjının –%24,7'ye gerilemesiyle yansıyor ve aynı zamanda özkaynak kârlılığının –%4,0'a inmesine yol açıyor. Özkaynak ve aktif toplamı artış gösterirken net borçun –0,46 milyar TL'ye (daha negatif) düşmesi, cari oranı 1,25 seviyesine getirirken borç/özkaynak oranının –0,30 (sektör ortalamasının altında) olmasını sağladı; bu durum likiditeyi bir miktar desteklerken, faaliyet nakit akışının –0,01 milyar TL'ye (önceki dönemde +0,10 milyar TL) kayması, işletme faaliyetlerinden kaynaklanan nakit çıkışının artığını gösteriyor.
+Hasılatın düşmesi brüt kârın da hafif gerilemesine yol açarken, brüt kâr marjının sektör medyanının çok üzerinde kalması brüt kârın satış hacmine oranla yüksek kalmasını sağladı; net kârın negatifleşmesi ise faaliyet kârı ve FAVÖK'teki düşüşle birlikte, yatırım harcamasındaki azalma ve net borçtaki artışın finansal yükü artırmasından kaynaklandı. Özkaynakların önceki döneme göre yükselmesi aktif toplamının artışıyla paralel ilerlerken, özkaynak kârlılığı ve net kâr marjının sektör medyanının çok üzerinde olması özkaynakların daha verimli kullanıldığını gösteriyor. Cari oranın sektör ortalamasının altında kalması ve borç/özkaynak oranının medyanın çok üzeri olması, likidite sıkıntısının artmasına ve finansal riskin yükselmesine işaret ediyor.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | -%0,0 |
-| Brüt kâr | -%36,8 |
-| Faaliyet kârı | -%28,7 |
-| FAVÖK | -%28,7 |
-| Net kâr | -%16,1 |
-| Özkaynak | %43,2 |
-| Aktif toplamı | %43,3 |
-| Net borç | -%69,8 |
-| Faaliyet nakit akışı | -%104,9 |
-| Yatırım harcaması | -%4,1 |
+| Hasılat | -%2,7 |
+| Brüt kâr | -%3,1 |
+| Faaliyet kârı | -%30,2 |
+| FAVÖK | -%12,7 |
+| Net kâr | -%334,6 |
+| Özkaynak | %12,8 |
+| Aktif toplamı | %38,1 |
+| Net borç | %81,6 |
+| Faaliyet nakit akışı | -%13,5 |
+| Yatırım harcaması | -%63,1 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -41,15 +41,15 @@ Hasılat aynı kalırken brüt kâr, faaliyet kârı, FAVÖK ve net kâr tümü 
 
 | Kalem | Değer |
 | --- | ---: |
-| Hasılat | 0,33 milyar TL |
-| Brüt kâr | -0,24 milyar TL |
-| Faaliyet kârı | -0,21 milyar TL |
-| FAVÖK | -0,21 milyar TL |
+| Hasılat | 3,09 milyar TL |
+| Brüt kâr | 1,62 milyar TL |
+| Faaliyet kârı | 0,17 milyar TL |
+| FAVÖK | 0,52 milyar TL |
 | Net kâr | -0,20 milyar TL |
-| Özkaynak | 1,54 milyar TL |
-| Aktif toplamı | 2,35 milyar TL |
-| Net borç | -0,46 milyar TL |
-| Faaliyet nakit akışı | -0,01 milyar TL |
+| Özkaynak | 1,71 milyar TL |
+| Aktif toplamı | 4,58 milyar TL |
+| Net borç | 2,15 milyar TL |
+| Faaliyet nakit akışı | 0,41 milyar TL |
 | Yatırım harcaması | 0,08 milyar TL |
 
 ## Sektör içindeki konum
@@ -58,11 +58,11 @@ Karşılaştırma İsteğe bağlı tüketim sektöründeki 63 şirketin **medyan
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | -%24,7 | %15,4 |
-| Net kâr marjı | -%21,2 | %0,6 |
-| Özkaynak kârlılığı | -%4,0 | %0,5 |
-| Cari oran | 1,25 | 1,30 |
-| Borç / özkaynak | -0,30 | 0,15 |
+| Brüt kâr marjı | %55,3 | %15,4 |
+| Net kâr marjı | %7,0 | %0,6 |
+| Özkaynak kârlılığı | %7,1 | %0,5 |
+| Cari oran | 1,14 | 1,30 |
+| Borç / özkaynak | 1,26 | 0,15 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -70,8 +70,7 @@ Karşılaştırma İsteğe bağlı tüketim sektöründeki 63 şirketin **medyan
 
 **Dikkat gerektirenler**
 
-- Net kâr reel olarak -%16,1 geriledi.
-- Brüt marj 20,1 puan daraldı (-%54,4 → -%74,5).
+- Net kâr reel olarak -%334,6 geriledi.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

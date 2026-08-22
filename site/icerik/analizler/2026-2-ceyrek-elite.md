@@ -1,7 +1,7 @@
 ---
 slug: elite-2026-2-ceyrek
 baslik: ELİTE NATUREL ORGANİK GIDA SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %35,3 oranındaki artışı brüt kârın da 0,44 milyar TL'ye yükselmesine yol açtı; brüt kâr marjının sektör medyanının (%16,5) çok üzerinde olması, satışların kârlı bir şekilde genişlediğini gösteriyor.…
+ozet: Hasılatın %35,3 oranında artması brüt kârın da 0,44 milyar TL'ye yükselmesine yol açtı; brüt kâr marjının sektör medyanının (%16,5) çok üzerinde olması, satışların maliyetine oranla daha fazla kâr ürettiğini gösteriyor.…
 sirket: ELİTE NATUREL ORGANİK GIDA SANAYİ VE TİCARET A.Ş.
 kod: ELITE
 donem: 2026 2. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %35,3 oranındaki artışı brüt kârın da 0,44 milyar TL'ye yükselmesine yol açtı; brüt kâr marjının sektör medyanının (%16,5) çok üzerinde olması, satışların kârlı bir şekilde genişlediğini gösteriyor. Brüt kârdaki yükseliş, faaliyet kârı ve FAVÖK'ün sırasıyla 0,19 milyar TL ve 0,24 milyar TL'ye çıkmasını sağlarken, net kâr sadece %3,1'lik marjla 0,04 milyar TL'ye geriledi; bu, faaliyet giderlerinin ve vergi/finansman etkilerinin kârı sınırladığını işaret ediyor. Özkaynakların 2,50 milyar TL'ye yükselmesi ve net borcun –0,06 milyar TL'ye (nakit pozisyonu) dönüşmesi, cari oranın 3,15'e (sektör medyanı 1,36) ve borç/özkaynak oranının –%0,02'ye (sektör medyanı %0,25) gerilemesine neden olarak likidite ve finansal yapıdaki iyileşmeyi ortaya koyuyor.
+Hasılatın %35,3 oranında artması brüt kârın da 0,44 milyar TL'ye yükselmesine yol açtı; brüt kâr marjının sektör medyanının (%16,5) çok üzerinde olması, satışların maliyetine oranla daha fazla kâr ürettiğini gösteriyor. Brüt kâr artışı faaliyet kârını %0,09 milyar TL artırırken, net kâr sadece %0,04 milyar TL'ye geriledi; bu durum, faaliyet dışı kalemlerin (örneğin vergi ve faiz) net kâr üzerindeki etkisinin brüt ve faaliyet kârlarından daha fazla olduğunu gösteriyor. Özkaynakların 2,50 milyar TL'ye yükselmesi ve net borcun –0,06 milyar TL (nakit pozisyonu) olması, cari oranı 3,15 ve borç/özkaynak oranını –%0,02'ye çekerek likiditeyi güçlendirdi ve özkaynak kârlılığını sektör medyanı (%0,8) ile eşitlemiş oldu.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

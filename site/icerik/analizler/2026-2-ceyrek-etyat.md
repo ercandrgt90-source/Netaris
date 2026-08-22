@@ -1,7 +1,7 @@
 ---
 slug: etyat-2026-2-ceyrek
 baslik: EURO TREND YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat ve brüt kâr aynı seviyede kalırken brüt kâr marjı %44,2 ile sektör medyanının (%45,7) altında kaldı; bu durum brüt kârın hasılat içinde sabit kalmasına rağmen marjın hafif gerilemesiyle ilişkilidir.…
+ozet: Hasılat ve brüt kâr aynı seviyede kalırken brüt kâr marjı %44,2 ile sektör medyanının (%45,7) altında kaldı; bu durum brüt kârın hasılat içinde sabit bir oranla tutturulduğunu gösteriyor.…
 sirket: EURO TREND YATIRIM ORTAKLIĞI A.Ş.
 kod: ETYAT
 donem: 2026 2. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat ve brüt kâr aynı seviyede kalırken brüt kâr marjı %44,2 ile sektör medyanının (%45,7) altında kaldı; bu durum brüt kârın hasılat içinde sabit kalmasına rağmen marjın hafif gerilemesiyle ilişkilidir. Net kâr marjı %19,9, sektör medyanının (%14,7) üzerindedir ve net kârın önceki dönemdeki negatif değerinden (-%0,01 milyar) iyileşerek sıfıra yaklaşmasıyla birlikte özkaynak kârlılığı %3,8'e yükselmiştir; özkaynak tutarı ise değişmeden kalmıştır. Cari oran 18,45 ve borç/özkaynak -0,91, her ikisi de sektör medyanlarından (sırasıyla 7,79 ve -0,06) çok daha yüksek seviyelerde olup, aktif toplamının 0,08 milyar TL'ye yükselmesi ve net borcun -0,07 milyar TL'ye (nakit fazlası) artmasıyla likidite ve borç yapısının aynı dönemde iyileştiğini gösterir.
+Hasılat ve brüt kâr aynı seviyede kalırken brüt kâr marjı %44,2 ile sektör medyanının (%45,7) altında kaldı; bu durum brüt kârın hasılat içinde sabit bir oranla tutturulduğunu gösteriyor. Net kâr, önceki dönemde –%0,01 iken bu çeyrekte 0,00'a yükselmiş ve net kâr marjı %19,9 ile sektör medyanının (%14,7) üzerindedir; bu artış net kârın pozitifleşmesiyle birlikte kârlılık oranının yükseldiğini yansıtıyor. Cari oran 18,45 ve borç/özkaynak –0,91, her ikisi de sektör medyanlarından (sırasıyla 7,79 ve –0,06) çok daha yüksek negatif değerler olduğundan, likidite ve özkaynak finansmanının artması aktif toplamının %0,08'e (önceki %0,07) ve net borcun –%0,07'e (önceki –%0,06) yükselmesiyle birlikte şirketin özkaynak bazlı finansman yapısının güçlendiği görülüyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

@@ -1,13 +1,13 @@
 ---
 slug: derhl-2026-1-ceyrek
 baslik: DERLÜKS YATIRIM HOLDİNG A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılat aynı kalırken brüt kâr, faaliyet kârı ve FAVÖK artış gösterdi; bu artışlar brüt kâr marjının %28,1'e yükselmesiyle, satışların maliyetindeki iyileşmenin kârlılığı artırdığını gösteriyor.…
+ozet: Brüt kâr artışı (%28,1) net kâr marjının aynı seviyede (%0,6) kalmasına paralel olarak net kârın önceki dönemdeki %0,03'dan %0,01'e düşmesi, maliyet artışları veya vergi/finansman giderlerinin artmasıyla ilişkilendirilebilir; aynı zamanda faaliyet nakit akışının negatiften pozitif (+%0,25 milyar) dö…
 sirket: DERLÜKS YATIRIM HOLDİNG A.Ş.
 kod: DERHL
 donem: 2026 1. çeyrek
 kategori: Bilanço Analizi
 sektor: İsteğe bağlı tüketim
-tarih: 2026-08-21
+tarih: 2026-08-22
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat aynı kalırken brüt kâr, faaliyet kârı ve FAVÖK artış gösterdi; bu artışlar brüt kâr marjının %28,1'e yükselmesiyle, satışların maliyetindeki iyileşmenin kârlılığı artırdığını gösteriyor. Özkaynak ve aktif toplamı yükselirken net borç da artmış; bu durum özkaynak kârlılığının %0,3'e gerilemesi ve borç/özkaynak oranının %0,77'ye çıkmasıyla, sermaye genişlemesinin borçlanma yoluyla finanse edildiğini, ancak kârlılık üzerindeki etkisinin sınırlı kaldığını ortaya koyuyor. Faaliyet nakit akışı pozitif (+0,25 milyar TL) olmuş ve cari oran 1,45 ile sektör medyanının (1,30) üzerinde seyretmiş; bu, kısa vadeli likiditenin iyileştiğini ve operasyonel nakit üretiminin artışının likiditeye olumlu yansıdığını gösteriyor.
+Brüt kâr artışı (%28,1) net kâr marjının aynı seviyede (%0,6) kalmasına paralel olarak net kârın önceki dönemdeki %0,03'dan %0,01'e düşmesi, maliyet artışları veya vergi/finansman giderlerinin artmasıyla ilişkilendirilebilir; aynı zamanda faaliyet nakit akışının negatiften pozitif (+%0,25 milyar) dönmesi, faaliyet kârının (%0,47) ve FAVÖK'ün (%0,60) yükselmesiyle tutarlı bir nakit dönüşümünü gösterir. Özkaynakların (%2,80 milyar) artışı ve aktif toplamının (%6,09 milyar) büyümesi, net borcun (%2,15 milyar) yükselmesiyle birlikte borç/özkaynak oranının (%0,77) sektör medyanının (%0,15) çok üzerinde kalmasına yol açmıştır; bu durum, sermaye genişlemesinin borç finansmanı ile desteklendiğini gösterir. Cari oran (%1,45) artışı, artan kısa vadeli likiditeyi yansıtarak, borç/özkaynak oranındaki yükselişin olumsuz etkisini bir ölçüde dengelemektedir.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 

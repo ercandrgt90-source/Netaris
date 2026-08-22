@@ -1,13 +1,13 @@
 ---
 slug: flap-2026-1-ceyrek
 baslik: FLAP KONGRE TOPLANTI HİZMETLERİ OTOMOTİV VE TURİZM A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılat ve brüt kâr aynı seviyede kalırken brüt kâr marjı %8,5 ile sektör medyanının %15,4'ünün altında kaldı; bu durum faaliyet kârının -0,02 milyar TL'ye düşmesine ve net kârın -0,07 milyar TL'ye gerilemesine paralel bir şekilde gerçekleşti.…
+ozet: Hasılat ve brüt kâr aynı seviyede kalırken, faaliyet kârı ve FAVÖK negatif değerlerde artarak net kârın -%25,7'ye düşmesine yol açtı; bu kâr düşüşüne paralel olarak özkaynak 1,12 milyar TL'ye yükselip aktif toplamı da 1,40 milyar TL'ye çıkarken net borç -0,08 milyar TL (nakit fazlası) oluştu.…
 sirket: FLAP KONGRE TOPLANTI HİZMETLERİ OTOMOTİV VE TURİZM A.Ş.
 kod: FLAP
 donem: 2026 1. çeyrek
 kategori: Bilanço Analizi
 sektor: İsteğe bağlı tüketim
-tarih: 2026-08-21
+tarih: 2026-08-22
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat ve brüt kâr aynı seviyede kalırken brüt kâr marjı %8,5 ile sektör medyanının %15,4'ünün altında kaldı; bu durum faaliyet kârının -0,02 milyar TL'ye düşmesine ve net kârın -0,07 milyar TL'ye gerilemesine paralel bir şekilde gerçekleşti. Özkaynak 1,12 milyar TL'ye yükselirken net borç -0,08 milyar TL (nakit fazlası) ve cari oran 1,83 (sektör medyanı 1,30) artışı, likiditeyi güçlendirirken özkaynak kârlılığı -%2,2 ve borç/özkaynak -0,07 (sektör medyanı 0,15) negatif kârlılık ve düşük borçlanma seviyesini yansıtıyor. Faaliyet nakit akışı 0,09 milyar TL'ye yükselmiş olması, negatif net kâr ve faaliyet kârı ile birlikte şirketin operasyonel nakit üretiminde iyileşme sağladığını gösteriyor.
+Hasılat ve brüt kâr aynı seviyede kalırken, faaliyet kârı ve FAVÖK negatif değerlerde artarak net kârın -%25,7'ye düşmesine yol açtı; bu kâr düşüşüne paralel olarak özkaynak 1,12 milyar TL'ye yükselip aktif toplamı da 1,40 milyar TL'ye çıkarken net borç -0,08 milyar TL (nakit fazlası) oluştu. Net kârın düşüşüne rağmen faaliyet nakit akışı 0,09 milyar TL'ye yükselmiş ve cari oran 1,83 ile sektör medyanının 1,30'unu aşarken, borç/özkaynak oranı -0,07 (negatif) olarak sektör medyanı 0,15'in altında kalmıştır. Brüt kâr marjı %8,5 (sektör medyanı %15,4) ve özkaynak kârlılığı -%2,2 (sektör medyanı %0,5) düşük kalmış, ancak likidite göstergeleri (cari oran ve negatif borç) iyileşme yönünde hareket etmiştir.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 

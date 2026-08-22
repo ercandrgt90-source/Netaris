@@ -1,7 +1,7 @@
 ---
 slug: algyo-2026-1-ceyrek
 baslik: ALARKO GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılat 0,12 milyar TL'ye yükselirken net kâr –2,33 milyar TL'ye gerilemiş; gelir artışı nakit akışının 0,21 milyar TL'ye düşmesiyle birlikte gerçekleşmiş ve bu durum özkaynak kârlılığının %0,3'e, net kâr marjının %77,5'e yükselmesine yol açmış.…
+ozet: Hasılat 0,12 milyar TL'ye yükselirken net kâr –2,33 milyar TL'ye gerilemiş; gelir artışı nakit akışının 0,21 milyar TL'ye düşmesi ve net borcun 4,46 milyar TL'ye çıkmasıyla birlikte özkaynak 17,58 milyar TL'ye artmış, bu da aktif toplamının 28,87 milyar TL'ye yükselmesine yol açmıştır.…
 sirket: ALARKO GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: ALGYO
 donem: 2026 1. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat 0,12 milyar TL'ye yükselirken net kâr –2,33 milyar TL'ye gerilemiş; gelir artışı nakit akışının 0,21 milyar TL'ye düşmesiyle birlikte gerçekleşmiş ve bu durum özkaynak kârlılığının %0,3'e, net kâr marjının %77,5'e yükselmesine yol açmış. Öz kaynakların 17,58 milyar TL'ye, aktif toplamının 28,87 milyar TL'ye artması net borcun 4,46 milyar TL'ye (önceki 1,48 milyar TL) yükselmesiyle borç/özkaynak oranının %0,25'e (sektör medyanı %0,02) çıkmasına neden olmuştur. Artan aktif ve özkaynak büyüklüğü, aynı dönemde faaliyet nakit akışının 0,83 milyar TL'den 0,21 milyar TL'ye gerilemesiyle birlikte likidite akışının azaldığını göstermektedir.
+Hasılat 0,12 milyar TL'ye yükselirken net kâr –2,33 milyar TL'ye gerilemiş; gelir artışı nakit akışının 0,21 milyar TL'ye düşmesi ve net borcun 4,46 milyar TL'ye çıkmasıyla birlikte özkaynak 17,58 milyar TL'ye artmış, bu da aktif toplamının 28,87 milyar TL'ye yükselmesine yol açmıştır. Net kâr marjının %77,5 (sektör medyanı %14,3) olması, negatif net kârın büyük bir kısmının düşük maliyetli gelir kalemlerinden kaynaklandığını gösterirken, özkaynak kârlılığı %0,3 (sektör medyanı %0,4) ve borç/özkaynak oranı 0,25 (sektör medyanı 0,02) arasındaki farklar, özkaynak artışı ve borçlanmanın kârlılık üzerindeki etkisini yansıtmaktadır.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 

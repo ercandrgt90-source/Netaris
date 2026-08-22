@@ -1,7 +1,7 @@
 ---
 slug: bulgs-2026-2-ceyrek
 baslik: BULLS GİRİŞİM SERMAYESİ YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat, brüt kâr, faaliyet kârı ve FAVÖK tümü önceki döneme göre büyük düşüş gösterirken, net kâr daha da derinleşerek negatif değerini artırdı; bu aynı zamanda özkaynak kârlılığının %13,1 negatif olmasına yol açtı.…
+ozet: Hasılat, brüt kâr, faaliyet kârı ve FAVÖK tümü önceki döneme göre büyük düşüş gösterirken, net kâr daha da derinleşerek negatif değerini iki katına çıkardı; bu aynı zamanda özkaynak kârlılığının %13,1 negatif olmasına yol açtı.…
 sirket: BULLS GİRİŞİM SERMAYESİ YATIRIM ORTAKLIĞI A.Ş.
 kod: BULGS
 donem: 2026 2. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat, brüt kâr, faaliyet kârı ve FAVÖK tümü önceki döneme göre büyük düşüş gösterirken, net kâr daha da derinleşerek negatif değerini artırdı; bu aynı zamanda özkaynak kârlılığının %13,1 negatif olmasına yol açtı. Özkaynak ve toplam aktifin artışı, net borcun (negatif) hafifçe yükselmesiyle birlikte cari oranın 27,59'a çıkmasını sağladı; yüksek cari oran ve negatif borç/özkaynak oranı, likidite pozisyonunun güçlendiğini gösteriyor. Brüt kâr marjı %97,3 ile sektör medyanının %45,7'sinin çok üzerinde kalırken, net kâr marjının -%3532,1 gibi aşırı negatif olması, kârlılıkta büyük bir dengesizlik olduğunu ortaya koyuyor.
+Hasılat, brüt kâr, faaliyet kârı ve FAVÖK tümü önceki döneme göre büyük düşüş gösterirken, net kâr daha da derinleşerek negatif değerini iki katına çıkardı; bu aynı zamanda özkaynak kârlılığının %13,1 negatif olmasına yol açtı. Özkaynak ve aktif toplamı ise önceki döneme göre artış gösterdi ve net borçun -0,98 milyar TL'ye gerilemesi, cari oranın 27,59'a yükselmesiyle birlikte borç/özkaynak oranının -0,13'e inmesi, likidite ve sermaye yapısının güçlendiğini gösteriyor. Brüt kâr marjının %97,3 ile sektör medyanının %45,7'sinin çok üzerinde olması, net kâr marjının ise -%3532,1 ile medyan %14,7'nin çok altında kalması, kârlılık ve maliyet yapısının birbirinden farklı yönlerde hareket ettiğini ortaya koyuyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

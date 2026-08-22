@@ -1,13 +1,13 @@
 ---
 slug: bakab-2026-1-ceyrek
 baslik: BAK AMBALAJ SANAYİ VE TİCARET A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılatın %13,8 brüt kâr marjıyla birlikte yükselmesi brüt kârı %0,10 milyar artırırken, faaliyet kârı negatiften pozitife geçerek %0,11 milyar artışa yol açtı; bu artış net kâr marjının %2,7'ye yükselmesiyle net kârın %0,25 milyar artmasına ve özkaynak kârlılığının %1,5'e çıkmasına yansıdı.…
+ozet: Hasılatın yükselmesi brüt kârı artırarak brüt kâr marjının %13,8 seviyesine ulaşmasını sağladı; brüt kârdaki artış ise faaliyet kârını negatiften pozitif 0,07 milyar TL'ye taşıdı ve bu da FAVÖK ve net kârda sırasıyla 0,25 milyar TL ve 0,02 milyar TL'ye yükselmeye yol açtı.…
 sirket: BAK AMBALAJ SANAYİ VE TİCARET A.Ş.
 kod: BAKAB
 donem: 2026 1. çeyrek
 kategori: Bilanço Analizi
 sektor: İsteğe bağlı tüketim
-tarih: 2026-08-21
+tarih: 2026-08-22
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %13,8 brüt kâr marjıyla birlikte yükselmesi brüt kârı %0,10 milyar artırırken, faaliyet kârı negatiften pozitife geçerek %0,11 milyar artışa yol açtı; bu artış net kâr marjının %2,7'ye yükselmesiyle net kârın %0,25 milyar artmasına ve özkaynak kârlılığının %1,5'e çıkmasına yansıdı. Aktif toplamındaki %1,42 artış özkaynakların %0,60 artmasıyla desteklenirken, net borçta sadece %0,03 artış olması özkaynak/borç dengesinin %0,20'ye (sektör medyanının %0,15 altında) yükselmesine neden oldu. Faaliyet nakit akışının %0,09 milyar artması yatırım harcamasındaki %0,02 milyar düşüşle birlikte cari oranı 1,21'e (sektör medyanının 1,30 altında) sabit tutarak likiditeyi korudu.
+Hasılatın yükselmesi brüt kârı artırarak brüt kâr marjının %13,8 seviyesine ulaşmasını sağladı; brüt kârdaki artış ise faaliyet kârını negatiften pozitif 0,07 milyar TL'ye taşıdı ve bu da FAVÖK ve net kârda sırasıyla 0,25 milyar TL ve 0,02 milyar TL'ye yükselmeye yol açtı. Özkaynakların 3,08 milyar TL'ye çıkması aktif toplamının 6,53 milyar TL'ye yükselmesiyle birlikte özkaynak kârlılığı %1,5'e, cari oran ise 1,21'e yükselirken net borçta sadece 0,02 milyar TL artış (0,61 milyar TL) gerçekleşti; bu düşük borç artışı özkaynak artışıyla birlikte borç/özkaynak oranının %0,20'ye çıkmasına neden oldu. Faaliyet nakit akışının 0,31 milyar TL'ye yükselmesi, yatırım harcamasının 0,01 milyar TL'ye gerilemesiyle birlikte şirketin likidite pozisyonunu destekledi.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 

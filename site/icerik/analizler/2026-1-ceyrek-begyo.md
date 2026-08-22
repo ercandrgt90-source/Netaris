@@ -1,7 +1,7 @@
 ---
 slug: begyo-2026-1-ceyrek
 baslik: BATI EGE GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Brüt kârın %62,2'ye yükselmesi, hasılatın aynı seviyede kalmasına rağmen brüt kâr marjının sektör medyanının (%51,4) üzerinde olmasını sağladı; bu artış net kârın %117,2'ye (sektör medyanı %14,3) yükselmesine rağmen, net kârın -0,34 milyar TL olarak daha büyük bir zarar göstermesine yol açtı, çünkü…
+ozet: Brüt kârın %62,2'ye yükselmesi, hasılatın aynı seviyede kalmasına rağmen brüt kâr marjının sektör medyanının (%51,4) üzerinde olmasını sağladı; bu artış net kârın %117,2'ye (sektör medyanı %14,3) çıkmasına rağmen, net kârın -0,34 milyar TL'ye (önceki -0,02 milyar TL) düşmesinin nedeni büyük bir zara…
 sirket: BATI EGE GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: BEGYO
 donem: 2026 1. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Brüt kârın %62,2'ye yükselmesi, hasılatın aynı seviyede kalmasına rağmen brüt kâr marjının sektör medyanının (%51,4) üzerinde olmasını sağladı; bu artış net kârın %117,2'ye (sektör medyanı %14,3) yükselmesine rağmen, net kârın -0,34 milyar TL olarak daha büyük bir zarar göstermesine yol açtı, çünkü faaliyet dışı kalemlar ve vergi sonrası etkiler net kârı olumsuz etkiledi. Özkaynakların 5,78 milyar TL'ye (sektör medyanı %0,4 özkaynak kârlılığı) yükselmesi, özkaynak kârlılığının sadece %0,6 olmasına rağmen, net borcun -0,02 milyar TL (negatif borç) ve cari oranın 76,64 (sektör medyanı 5,25) çok yüksek olmasıyla birlikte likidite pozisyonunun güçlenmesine işaret etti. Faaliyet nakit akışı sıfıra gerilemiş ve yatırım harcaması da sıfır kalmışken, aktif toplamının 5,99 milyar TL'ye (sektör medyanı 0,02 borç/özkaynak) artması, varlık büyümesinin özkaynak artışıyla paralel olduğunu gösteriyor.
+Brüt kârın %62,2'ye yükselmesi, hasılatın aynı seviyede kalmasına rağmen brüt kâr marjının sektör medyanının (%51,4) üzerinde olmasını sağladı; bu artış net kârın %117,2'ye (sektör medyanı %14,3) çıkmasına rağmen, net kârın -0,34 milyar TL'ye (önceki -0,02 milyar TL) düşmesinin nedeni büyük bir zarar kaleminin varlığıdır. Özkaynakların 5,78 milyar TL'ye (önceki 4,77 milyar TL) ve aktif toplamının 5,99 milyar TL'ye (önceki 4,78 milyar TL) yükselmesi, net borcun -0,02 milyar TL (önceki -0,03 milyar TL) olmasıyla birlikte borç/özkaynak oranının 0,00 (sektör medyanı 0,02) kalmasını sağladı; bu durum cari oranın 76,64 (sektör medyanı 5,25) çok yüksek olmasını da destekledi. Faaliyet nakit akışı 0,00 milyar TL'ye (önceki 0,03 milyar TL) gerilemiş olması, yatırım harcamasının değişmemesiyle birlikte faaliyet kârı ve FAVÖK'ün aynı seviyede kalmasına (0,02 milyar TL) yol açtı.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 

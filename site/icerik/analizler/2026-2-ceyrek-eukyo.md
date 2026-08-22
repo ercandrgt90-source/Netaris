@@ -1,7 +1,7 @@
 ---
 slug: eukyo-2026-2-ceyrek
 baslik: EURO KAPİTAL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Brüt kâr artışı (%47,1) mevcut hasılat seviyesinde sabit kalırken net kâr negatif (%-37,1) kaldığı için özkaynak kârlılığı da negatif (%-6,3) olmuş; bu, kârın şirket içinde tutulan özkaynağa dönüşümünün düşük olduğunu gösterir.…
+ozet: Brüt kâr artışı (%47,1) şirketin hasılatındaki sabit seviyeye rağmen özkaynak ve aktif toplamının yükselmesiyle birlikte gerçekleşirken, net kârın negatif kalması (%-37,1) artan brüt kârın faaliyet ve vergi öncesi kârlığa (FAVÖK = 0) dönüşememesinden kaynaklanıyor; bu durum özkaynak kârlılığının da…
 sirket: EURO KAPİTAL YATIRIM ORTAKLIĞI A.Ş.
 kod: EUKYO
 donem: 2026 2. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Brüt kâr artışı (%47,1) mevcut hasılat seviyesinde sabit kalırken net kâr negatif (%-37,1) kaldığı için özkaynak kârlılığı da negatif (%-6,3) olmuş; bu, kârın şirket içinde tutulan özkaynağa dönüşümünün düşük olduğunu gösterir. Özkaynak ve aktif toplamı artarken net borçun negatif (nakit fazlası) kalması, cari oranı (22,78) sektör medyanının çok üzerinde tutarak likidite durumunun güçlü olduğunu, fakat borç/özkaynak oranının (-0,90) sektöre göre daha yüksek negatif değerle nakit fazlasının özkaynak üzerindeki etkisinin daha fazla olduğunu ortaya koyar. Faaliyet nakit akışı negatif kalması, brüt kâr artışına rağmen işletme faaliyetlerinden nakit üretiminin yeterli olmadığını ve bu durumun net kârın düşüklüğüyle paralel seyrettiğini gösterir.
+Brüt kâr artışı (%47,1) şirketin hasılatındaki sabit seviyeye rağmen özkaynak ve aktif toplamının yükselmesiyle birlikte gerçekleşirken, net kârın negatif kalması (%-37,1) artan brüt kârın faaliyet ve vergi öncesi kârlığa (FAVÖK = 0) dönüşememesinden kaynaklanıyor; bu durum özkaynak kârlılığının da (%-6,3) sektör medyanının altında kalmasına yol açıyor. Cari oranının 22,78 olması ve borç/özkaynak oranının –0,90 gibi negatif değerlerde bulunması, net borcun (-0,07 milyar TL) özkaynakları aşması ve likidite pozisyonunun sektöre göre daha güçlü olduğunu gösteriyor; bu yüksek likidite aynı zamanda faaliyet nakit akışının (-0,01 milyar TL) sabit kalmasıyla birlikte şirketin kısa vadeli yükümlülüklerini karşılamadaki rahatlığını yansıtıyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

@@ -1,7 +1,7 @@
 ---
 slug: adese-2026-1-ceyrek
 baslik: ADESE GAYRİMENKUL YATIRIM A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılat 0,89 milyar TL'ye yükselirken net kâr -0,06 milyar TL'ye gerilemiş; gelir artışı faaliyet nakit akışının 0,42 milyar TL'ye geçmesiyle desteklenmiş ancak kâr marjının -%54,4 olması net kârın düşmesine yol açmış.…
+ozet: Hasılat 0,89 milyar TL'ye yükselirken net kâr -0,06 milyar TL'ye gerilemiş; gelir artışı faaliyet nakit akışının 0,42 milyar TL'ye geçişiyle birlikte gerçekleşmiş, bu da negatif net kâr marjının (%-54,4) ve özkaynak kârlılığının (%-0,8) daha da kötüleşmesine yol açmış.…
 sirket: ADESE GAYRİMENKUL YATIRIM A.Ş.
 kod: ADESE
 donem: 2026 1. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat 0,89 milyar TL'ye yükselirken net kâr -0,06 milyar TL'ye gerilemiş; gelir artışı faaliyet nakit akışının 0,42 milyar TL'ye geçmesiyle desteklenmiş ancak kâr marjının -%54,4 olması net kârın düşmesine yol açmış. Özkaynak 19,69 milyar TL'ye çıkması aktif toplamının 25,57 milyar TL'ye yükselmesiyle paralel seyretmiş, bu da borç/özkaynak oranının -0,01'e (sektör medyanı 0,02) gerilemesini sağlamış. Net borçun -0,21 milyar TL'ye (nakit fazlası) dönüşmesi, faaliyet nakit akışındaki pozitifleşme ve özkaynak artışıyla birlikte şirketin likidite pozisyonunun iyileştiğini gösteriyor.
+Hasılat 0,89 milyar TL'ye yükselirken net kâr -0,06 milyar TL'ye gerilemiş; gelir artışı faaliyet nakit akışının 0,42 milyar TL'ye geçişiyle birlikte gerçekleşmiş, bu da negatif net kâr marjının (%-54,4) ve özkaynak kârlılığının (%-0,8) daha da kötüleşmesine yol açmış. Özkaynak 19,69 milyar TL'ye çıkması aktif toplamının 25,57 milyar TL'ye yükselmesiyle paralel seyretmiş ve net borçun -0,21 milyar TL (nakit fazlası) olması, borç/özkaynak oranının (-0,01) sektör medyanı 0,02'nin altında kalmasına neden olmuş. Bu durum, gelir artışı ve nakit akışı iyileşmesinin özkaynak büyümesiyle birlikte gerçekleştiğini, ancak kârlılık ölçütlerinin hâlâ negatif seyretmesinin gelir artışının maliyet ve vergi kalemlerini dengeleyemediğini gösteriyor.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 

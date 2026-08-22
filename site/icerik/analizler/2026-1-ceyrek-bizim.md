@@ -1,13 +1,13 @@
 ---
 slug: bizim-2026-1-ceyrek
 baslik: BİZİM TOPTAN SATIŞ MAĞAZALARI A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılatın %8,0 azaldığı dönemde brüt kâr da %8,5 düşerek brüt kâr marjı %15,8 seviyesinde sektör medyanının biraz üzerinde kalırken, faaliyet kârı ve FAVÖK negatif değerler alarak sırasıyla -%1,26 milyar ve -%0,32 milyar olarak geriledi; net kâr ise -%0,49 milyonla önceki dönemin -%0,80 milyonundan…
+ozet: Hasılatın %8,0 düşmesi brüt kârın da %8,5 azalmasına paralel olarak yansıdı; brüt kâr marjı ise sektör medyanının biraz üzerinde %15,8 kalırken, net kâr marjı negatif %2,9'a gerileyerek faaliyet kârının -%6,3'ten -%6,4'e (faaliyet kârı -1,26 bn TL) düşmesine yol açtı.…
 sirket: BİZİM TOPTAN SATIŞ MAĞAZALARI A.Ş.
 kod: BIZIM
 donem: 2026 1. çeyrek
 kategori: Bilanço Analizi
 sektor: İsteğe bağlı tüketim
-tarih: 2026-08-21
+tarih: 2026-08-22
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %8,0 azaldığı dönemde brüt kâr da %8,5 düşerek brüt kâr marjı %15,8 seviyesinde sektör medyanının biraz üzerinde kalırken, faaliyet kârı ve FAVÖK negatif değerler alarak sırasıyla -%1,26 milyar ve -%0,32 milyar olarak geriledi; net kâr ise -%0,49 milyonla önceki dönemin -%0,80 milyonundan iyileşse de negatif kalmaya devam etti. Aktif toplamı %15,8 artış gösterirken net borç hafifçe yükselmiş, bu durum cari oranı 0,56'ya düşürürken borç/özkaynak oranı -6,08'e çıkarak sektörel medyan 0,15'in çok altında bir negatif özkaynak yapısına işaret ediyor; bu negatif özkaynak üzerinden hesaplanan %128,5'lik özkaynak kârlılığı, negatif özkaynak miktarının küçük olmasından kaynaklanıyor. Faaliyet nakit akışı 1,54 milyar TL'ye yükselmiş, yatırım harcaması ise sabit kalmış, bu da nakit girişlerinin artışının faaliyet kayıplarını kısmen dengelediğini gösteriyor.
+Hasılatın %8,0 düşmesi brüt kârın da %8,5 azalmasına paralel olarak yansıdı; brüt kâr marjı ise sektör medyanının biraz üzerinde %15,8 kalırken, net kâr marjı negatif %2,9'a gerileyerek faaliyet kârının -%6,3'ten -%6,4'e (faaliyet kârı -1,26 bn TL) düşmesine yol açtı. Net kârın iyileşmesi (%-0,49'dan -%0,80'e) özkaynakların -%0,22 bn'ye gerilemesiyle birlikte özkaynak kârlılığının %128,5'e yükselmesine, ancak cari oranın 0,56'dan 1,30 sektör medyanının altına düşmesi ve borç/özkaynak oranının -6,08'e (sektör medyanı 0,15) çıkmasıyla likidite ve finansal yapıdaki zayıflığa işaret etti. Aktif toplamının %15,8 artışı net borcun hafif yükselmesi (1,34 bn TL) ve faaliyet nakit akışının 1,54 bn TL'ye (önceki dönem 0,63 bn TL) çıkmasıyla desteklenerek yatırım harcamasındaki sabit %0,05 bn tutarlılığı korudu.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 

@@ -1,7 +1,7 @@
 ---
 slug: bigch-2026-1-ceyrek
 baslik: BÜYÜK ŞEFLER GIDA TURİZM TEKSTİL DANIŞMANLIK ORGANİZASYON EĞİTİM SANAYİ VE TİCARET A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Brüt kâr artışı (%23,7) net kâr marjının (%3,6) yükselmesine paralel olarak gerçekleşmiş; brüt kârdaki %6,3'lük artış (0,48 → 0,51 milyar TL) satışların sabit kalmasına rağmen maliyetlerdeki iyileşmeyi gösterirken, bu iyileşme net kârın (0,00 → 0,01 milyar TL) ortaya çıkmasını sağlamış.…
+ozet: Hasılat sabit kalırken brüt kâr, faaliyet kârı, FAVÖK ve net kâr artışları, brüt kâr marjının %23,7'ye yükselmesiyle birlikte kârlılık göstergelerinin (net kâr marjı %3,6, özkaynak kârlılığı %3,5) sektör medyanlarının çok üzerisine çıktığını gösterir; aynı zamanda özkaynak ve aktif toplamının artmas…
 sirket: BÜYÜK ŞEFLER GIDA TURİZM TEKSTİL DANIŞMANLIK ORGANİZASYON EĞİTİM SANAYİ VE TİCARET A.Ş.
 kod: BIGCH
 donem: 2026 1. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Brüt kâr artışı (%23,7) net kâr marjının (%3,6) yükselmesine paralel olarak gerçekleşmiş; brüt kârdaki %6,3'lük artış (0,48 → 0,51 milyar TL) satışların sabit kalmasına rağmen maliyetlerdeki iyileşmeyi gösterirken, bu iyileşme net kârın (0,00 → 0,01 milyar TL) ortaya çıkmasını sağlamış. Faaliyet kârı ve FAVÖK de benzer şekilde artmış (0,07 → 0,09 milyar TL ve 0,56 → 0,58 milyar TL), bu da faaliyet nakit akışının (0,47 → 0,54 milyar TL) yükselmesiyle uyumlu; artan nakit akışı yatırım harcamasındaki hafif düşüşe (0,37 → 0,34 milyar TL) rağmen şirketin likidite pozisyonunu desteklemiş. Özkaynak kârlılığı (%3,5) ve özkaynak (1,30 → 1,41 milyar TL) artışı, özkaynak kârlılığının sektör medyanının (%0,5) çok üzerinde olmasını sürdürürken, borç/özkaynak oranının (%0,51) sektör medyanının (%0,15) üzerindeki seviyesinde kalması cari oran (0,61) ise sektörel ortalamanın (1,30) altında kalmaya devam etmiş.
+Hasılat sabit kalırken brüt kâr, faaliyet kârı, FAVÖK ve net kâr artışları, brüt kâr marjının %23,7'ye yükselmesiyle birlikte kârlılık göstergelerinin (net kâr marjı %3,6, özkaynak kârlılığı %3,5) sektör medyanlarının çok üzerisine çıktığını gösterir; aynı zamanda özkaynak ve aktif toplamının artması, net borcun sadece hafif yükselmesi (0,72 milyar TL) neticesinde borç/özkaynak oranının %0,51'den %0,51'ye sabit kalması, finansal yapıdaki dengeyi korurken cari oranın 0,61 seviyesinde sektör ortalamasının (1,30) altında kalması likidite sıkışıklığını işaret eder.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 

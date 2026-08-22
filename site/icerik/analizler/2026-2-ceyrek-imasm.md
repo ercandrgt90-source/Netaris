@@ -1,13 +1,13 @@
 ---
 slug: imasm-2026-2-ceyrek
 baslik: İMAŞ MAKİNA SANAYİ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %26,8 brüt kâr marjı ile birlikte yükselmesi, brüt kârın artmasına rağmen brüt kâr marjının sabit kalması, maliyetlerdeki artışın brüt kârı sınırladığını gösterirken, faaliyet ve FAVÖK kârlarının düşmesi, net kârın -%19,5'e gerilemesi ve özkaynak kârlılığının -%4,7'ye inmesi, kârlılık üzer…
+ozet: Hasılatın %26,8 brüt kâr marjıyla birlikte yükselmesi, brüt kâr tutarının önceki döneme göre hafif düşmesine (0,51 → 0,46 milyar TL) yol açtı; brüt kârdan faaliyet kârına geçişteki daralma (0,22 → 0,09 milyar TL) ise FAVÖK ve net kârda daha büyük düşüşleri (0,23 → 0,11 milyar TL, -0,11 → -0,61 milya…
 sirket: İMAŞ MAKİNA SANAYİ A.Ş.
 kod: IMASM
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Sanayi
-tarih: 2026-08-21
+tarih: 2026-08-22
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %26,8 brüt kâr marjı ile birlikte yükselmesi, brüt kârın artmasına rağmen brüt kâr marjının sabit kalması, maliyetlerdeki artışın brüt kârı sınırladığını gösterirken, faaliyet ve FAVÖK kârlarının düşmesi, net kârın -%19,5'e gerilemesi ve özkaynak kârlılığının -%4,7'ye inmesi, kârlılık üzerindeki baskının net nakit akışını -0,25 milyar TL'ye sürükleyerek yatırım harcamasının 0,06 milyar TL'ye düşmesine yol açtığını; aynı zamanda aktif toplamının 5,78 milyar TL'ye yükselmesi özkaynak artışı (3,29 milyar TL) ve net borçta (0,59 milyar TL) artışla birlikte gerçekleşmiş, bu da cari oranı 1,33 ve borç/özkaynak oranını 0,18'e getirerek sektör medyanları (1,37 ve 0,11) ile kıyaslandığında likidite ve finansal kaldıraçta hafif bir farklılık oluşturmuştur.
+Hasılatın %26,8 brüt kâr marjıyla birlikte yükselmesi, brüt kâr tutarının önceki döneme göre hafif düşmesine (0,51 → 0,46 milyar TL) yol açtı; brüt kârdan faaliyet kârına geçişteki daralma (0,22 → 0,09 milyar TL) ise FAVÖK ve net kârda daha büyük düşüşleri (0,23 → 0,11 milyar TL, -0,11 → -0,61 milyar TL) tetikledi. Özkaynakların artışı (2,60 → 3,29 milyar TL) aktif toplamının büyümesiyle (4,04 → 5,78 milyar TL) paralel seyrederken, net borçtaki yükseliş (0,19 → 0,59 milyar TL) cari oranı (1,33) sektör medyanının (1,37) altında tutarken borç/özkaynak oranını (0,18) medyanın (0,11) üzerine çıkardı. Faaliyet nakit akışının negatifleşmesi (-0,25 milyar TL) ve yatırım harcamasının düşürülmesi (0,52 → 0,06 milyar TL) likidite ve sermaye harcama yapısındaki değişimin, kâr marjları ve kârlılık göstergelerindeki gerilemeye paralel olduğunu gösteriyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

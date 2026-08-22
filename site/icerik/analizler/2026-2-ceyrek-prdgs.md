@@ -1,7 +1,7 @@
 ---
 slug: prdgs-2026-2-ceyrek
 baslik: PARDUS GİRİŞİM SERMAYESİ YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat, brüt kâr, faaliyet kârı ve net kâr aynı miktarda artmış; bu da brüt kâr marjının %100,0 ve net kâr marjının %98,8 olmasını sağlamış. Özkaynak ve aktif toplamı artarken net borç negatif (nakit fazlası) hâle gelmiş; bu durum özkaynak kârlılığının %11,3'e yükselmesine ve borç/özkaynak oranının…
+ozet: Hasılat, brüt kâr, faaliyet kârı ve net kâr aynı miktarda artmış; bu da brüt kâr marjının %100,0'a yükselmesi ve net kâr marjının %98,8'e çıkmasıyla, satışların doğrudan kâra dönüşmesini gösteriyor.…
 sirket: PARDUS GİRİŞİM SERMAYESİ YATIRIM ORTAKLIĞI A.Ş.
 kod: PRDGS
 donem: 2026 2. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat, brüt kâr, faaliyet kârı ve net kâr aynı miktarda artmış; bu da brüt kâr marjının %100,0 ve net kâr marjının %98,8 olmasını sağlamış. Özkaynak ve aktif toplamı artarken net borç negatif (nakit fazlası) hâle gelmiş; bu durum özkaynak kârlılığının %11,3'e yükselmesine ve borç/özkaynak oranının -0,03'e (sektör medyanının -0,06'sından daha az negatif) gerilemesine yol açmış. Cari oran 5,73'e düşmüş, bu da likiditeyi ölçen bu oranın sektör medyanı 7,79'un altında kalmasına neden olmuş.
+Hasılat, brüt kâr, faaliyet kârı ve net kâr aynı miktarda artmış; bu da brüt kâr marjının %100,0'a yükselmesi ve net kâr marjının %98,8'e çıkmasıyla, satışların doğrudan kâra dönüşmesini gösteriyor. Özkaynak ve aktif toplamı da benzer oranda artmış; özkaynak 2,94 milyar TL'ye, aktif toplamı 2,96 milyar TL'ye yükselirken, net borçun -0,10 milyar TL'ye (nakit fazlası) dönüşmesi, likidite artışıyla birlikte özkaynak kârlılığının %11,3'e (sektör medyanı %4,5) çıkmasını destekliyor. Cari oran 5,73 (sektör medyanı 7,79) ve borç/özkaynak -0,03 (sektör medyanı -0,06) değerleri, kısa vadeli likidite ve borç yapısının önceki döneme göre iyileştiğini, ancak cari oranın sektörel ortalamanın altında kalmasının likidite fazlalığının daha çok nakit fazlası (net borç negatif) üzerinden geldiğini gösteriyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

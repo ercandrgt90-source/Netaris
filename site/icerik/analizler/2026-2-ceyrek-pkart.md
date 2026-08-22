@@ -1,7 +1,7 @@
 ---
 slug: pkart-2026-2-ceyrek
 baslik: PLASTİKKART AKILLI KART İLETİŞİM SİSTEMLERİ SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın artması brüt kârı da %11,7'lik marjla yükselterek brüt kârı 0,13 milyara, ardından faaliyet kârı ve FAVÖK'ün sırasıyla 0,09 ve 0,12 milyara çıkmasına yol açtı; bu kâr artışları net kârın %3,2'lik marjla 0,04 milyara dönmesine ve özkaynakların 0,60 milyara yükselmesine destek oldu.…
+ozet: Hasılatın artması %0,80 milyar TL'den +1,26 milyar TL'ye yükselmesi, brüt kârın da -0,06 milyar TL'den +0,13 milyar TL'ye geçmesiyle birlikte brüt kâr marjı %11,7'ye ulaşması, satış hacmindeki iyileşmenin kârlılık üzerindeki olumlu etkisini gösteriyor; aynı artış faaliyete yansıyarak faaliyet kârı v…
 sirket: PLASTİKKART AKILLI KART İLETİŞİM SİSTEMLERİ SANAYİ VE TİCARET A.Ş.
 kod: PKART
 donem: 2026 2. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın artması brüt kârı da %11,7'lik marjla yükselterek brüt kârı 0,13 milyara, ardından faaliyet kârı ve FAVÖK'ün sırasıyla 0,09 ve 0,12 milyara çıkmasına yol açtı; bu kâr artışları net kârın %3,2'lik marjla 0,04 milyara dönmesine ve özkaynakların 0,60 milyara yükselmesine destek oldu. Net borcun –0,13 milyara (nakit fazlası) gerilemesi, faaliyet nakit akışının 0,06 milyara çıkmasıyla birlikte cari oranı 2,59'a, borç/özkaynak oranını –0,21'e çekerek likiditeyi sektör medyanının (1,37) çok üzerinde tuttu. Aktif toplamının 0,86 milyara (önceki 0,68) yükselmesi, artan özkaynak ve negatif net borçla birlikte şirketin varlık yapısının güçlendiğini gösterdi.
+Hasılatın artması %0,80 milyar TL'den +1,26 milyar TL'ye yükselmesi, brüt kârın da -0,06 milyar TL'den +0,13 milyar TL'ye geçmesiyle birlikte brüt kâr marjı %11,7'ye ulaşması, satış hacmindeki iyileşmenin kârlılık üzerindeki olumlu etkisini gösteriyor; aynı artış faaliyete yansıyarak faaliyet kârı ve FAVÖK'ün sırasıyla -0,02 milyar TL'den +0,09 milyar TL ve 0,00 milyar TL'den +0,12 milyar TL'ye çıkmasına, net kârın da 0,00 milyar TL'den +0,04 milyar TL'ye dönmesine neden oldu. Öz kaynakların 0,41 milyar TL'den 0,60 milyar TL'ye yükselmesi, aktif toplamının 0,68 milyar TL'den 0,86 milyar TL'ye artmasıyla birlikte cari oran 1,37'den 2,59'a çıkarken, net borcun -0,02 milyar TL'den -0,13 milyar TL'ye (daha negatif) kayması borç/özkaynak oranının 0,11'den -0,21'e düşmesine yol açtı; bu da likidite artışıyla birlikte finansal kaldıraçın azaldığını gösteriyor. Faaliyet nakit akışının -0,03 milyar TL'den +0,06 milyar TL'ye dönüşmesi, yatırım harcamasının 0,01 milyar TL'den 0,00 milyar TL'ye düşmesiyle birlikte işletme faaliyetlerinden elde edilen nakdin artmasına ve sermaye harcamalarının azalmasına paralel bir ilişki oluşturdu.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

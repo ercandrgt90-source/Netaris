@@ -1,7 +1,7 @@
 ---
 slug: dzgyo-2026-1-ceyrek
 baslik: DENİZ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılat ve brüt kâr artarken, brüt kâr marjı %40,6 seviyesinde sabit kalmış; bu, ek gelirlerin maliyet artışıyla paralel seyrettiğini gösteriyor. Faaliyet kârı, FAVÖK ve net kârda görülen negatif büyüme, faaliyet nakit akışının -0,13 milyar TL'ye düşmesiyle birlikte, işletme giderlerinin ve/veya amo…
+ozet: Hasılat ve brüt kâr birlikte yükselirken, brüt kâr marjının %40,6 seviyesinde kalması, kârın satış artışına paralel olarak büyüdüğünü gösteriyor; fakat faaliyet kârı, FAVÖK ve net kârın negatif değerlerde artması, operasyonel giderlerin ve diğer maliyetlerin hasılat artışını aşarak kârı erittiğini o…
 sirket: DENİZ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: DZGYO
 donem: 2026 1. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat ve brüt kâr artarken, brüt kâr marjı %40,6 seviyesinde sabit kalmış; bu, ek gelirlerin maliyet artışıyla paralel seyrettiğini gösteriyor. Faaliyet kârı, FAVÖK ve net kârda görülen negatif büyüme, faaliyet nakit akışının -0,13 milyar TL'ye düşmesiyle birlikte, işletme giderlerinin ve/veya amortismanların gelir artışını aşmasıyla ilişkilidir. Özkaynak ve aktif toplamının artışı net borcun -1,41 milyar TL'den +0,17 milyar TL'ye geçmesiyle birlikte, cari oran 2,55'e yükselmiş ancak borç/özkaynak oranı %0,03 ile sektör medyanının %0,02'sine yakın kalmıştır; bu, likidite iyileşmesinin borç yapısındaki hafif artışla dengelendiğini gösterir.
+Hasılat ve brüt kâr birlikte yükselirken, brüt kâr marjının %40,6 seviyesinde kalması, kârın satış artışına paralel olarak büyüdüğünü gösteriyor; fakat faaliyet kârı, FAVÖK ve net kârın negatif değerlerde artması, operasyonel giderlerin ve diğer maliyetlerin hasılat artışını aşarak kârı erittiğini ortaya koyuyor. Özkaynak ve aktif toplamının artışı, net borcun pozitif 0,17 milyar TL'ye dönmesiyle birlikte, şirketin sermaye yapısında daha fazla özkaynak kullanımı ve borçlanma artışı arasında bir denge oluştuğunu, cari oranın 2,55'e yükselmesi ise likidite durumunun iyileştiğini, fakat sektör medyanı 5,25 olduğu için hâlâ daha düşük bir likidite seviyesinde kaldığını gösteriyor.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 

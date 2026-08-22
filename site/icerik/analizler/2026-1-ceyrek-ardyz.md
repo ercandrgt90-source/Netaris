@@ -1,7 +1,7 @@
 ---
 slug: ardyz-2026-1-ceyrek
 baslik: ARD GRUP BİLİŞİM TEKNOLOJİLERİ A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılatın üçte birinden biraz fazla artması brüt kârı %54,9'a yükselterek brüt kâr marjını sektör medyanının %16,1'inden çok üzerine çıkardı; bu artış aynı oranda faaliyet ve net kârı da artırarak net kâr marjını %22,5'e ve özkaynak kârlılığını %7,6'ya taşıdı.…
+ozet: Hasılatın üçte birinden biraz daha fazlası brüt kâr olarak kalırken, brüt kârın artışı faaliyet kârı ve FAVÖK'te de benzer oranlarda yükselişe yol açtı; bu da net kârın %22,5'lik marjla birlikte özkaynak kârlılığının %7,6'ya çıkmasını sağladı.…
 sirket: ARD GRUP BİLİŞİM TEKNOLOJİLERİ A.Ş.
 kod: ARDYZ
 donem: 2026 1. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın üçte birinden biraz fazla artması brüt kârı %54,9'a yükselterek brüt kâr marjını sektör medyanının %16,1'inden çok üzerine çıkardı; bu artış aynı oranda faaliyet ve net kârı da artırarak net kâr marjını %22,5'e ve özkaynak kârlılığını %7,6'ya taşıdı. Aktif toplamının iki katına çıkması özkaynakta %6,90-3,52 milyar TL artışa yol açtı ve net borçta yalnızca %0,24 milyar TL artışla borç/özkaynak oranı %0,22'ye, cari oran ise %1,26'ya yükseldi. Faaliyet nakit akışı negatiften pozitif (+%0,85 milyar TL) dönmüş, yatırım harcaması ise %0,72 milyar TL'ye çıkarak büyüme ve likidite artışının birlikte gerçekleştiğini gösterdi.
+Hasılatın üçte birinden biraz daha fazlası brüt kâr olarak kalırken, brüt kârın artışı faaliyet kârı ve FAVÖK'te de benzer oranlarda yükselişe yol açtı; bu da net kârın %22,5'lik marjla birlikte özkaynak kârlılığının %7,6'ya çıkmasını sağladı. Aktif toplamının iki katına yakın büyümesi özkaynak artışıyla paralel seyredirken, net borçta yalnızca sınırlı bir artış (1,52 milyar TL) gerçekleşti ve bu durum borç/özkaynak oranının %0,22'ye yükselmesine rağmen cari oranın sektör medyanı 1,25'i hafif aşan 1,26 seviyesinde kalmasını destekledi. Faaliyet nakit akışının negatiften pozitif (+0,85 milyar TL) dönmesi, artan yatırım harcaması (0,72 milyar TL) ile birlikte şirketin büyüme ve kârlılık dinamiklerinin birbirini pekiştirdiğini gösteriyor.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 

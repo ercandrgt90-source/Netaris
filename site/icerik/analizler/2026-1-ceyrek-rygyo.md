@@ -1,7 +1,7 @@
 ---
 slug: rygyo-2026-1-ceyrek
 baslik: REYSAŞ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılat 2,05 milyar TL'ye yükselirken net kâr 1,99 milyar TL'ye artmış, bu da net kâr marjının %118,2'ye (sektör medyanı %14,3) çıkmasını sağlamış; aynı dönemde özkaynak 103,25 milyar TL'ye (sektör medyanı %0,4) ve aktif toplamı 128,14 milyar TL'ye (sektör medyanı 0,02) artmış, bu büyümeler borç/özk…
+ozet: Hasılat 2,05 milyar TL'ye yükselirken net kâr 1,99 milyar TL'ye artmış, bu artış özkaynakların 103,25 milyar TL'ye (önceki 62,27 milyar TL) ve aktif toplamının 128,14 milyar TL'ye (önceki 72,77 milyar TL) yükselmesiyle paralel seyretmiştir; aynı zamanda net borç 11,22 milyar TL'ye (önceki 3,85 milya…
 sirket: REYSAŞ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: RYGYO
 donem: 2026 1. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat 2,05 milyar TL'ye yükselirken net kâr 1,99 milyar TL'ye artmış, bu da net kâr marjının %118,2'ye (sektör medyanı %14,3) çıkmasını sağlamış; aynı dönemde özkaynak 103,25 milyar TL'ye (sektör medyanı %0,4) ve aktif toplamı 128,14 milyar TL'ye (sektör medyanı 0,02) artmış, bu büyümeler borç/özkaynak oranının %0,11'e (sektör medyanı 0,02) yükselmesine ve net borcun 11,22 milyar TL'ye (önceki 3,85 milyar TL) çıkmasına yol açmış; artan borç ve özkaynakla birlikte faaliyet nakit akışı –3,59 milyar TL'ye (önceki 0,55 milyar TL) gerilemiş.
+Hasılat 2,05 milyar TL'ye yükselirken net kâr 1,99 milyar TL'ye artmış, bu artış özkaynakların 103,25 milyar TL'ye (önceki 62,27 milyar TL) ve aktif toplamının 128,14 milyar TL'ye (önceki 72,77 milyar TL) yükselmesiyle paralel seyretmiştir; aynı zamanda net borç 11,22 milyar TL'ye (önceki 3,85 milyar TL) çıkmış ve borç/özkaynak oranı %0,11'a (sektör medyanı %0,02) yükselmiştir. Net kâr marjı %118,2'ye (sektör medyanı %14,3) çıkarken özkaynak kârlılığı %1,1'e (sektör medyanı %0,4) yükselmiş, ancak faaliyet nakit akışı -3,59 milyar TL'ye (önceki 0,55 milyar TL) gerilemiştir. Bu veriler, gelir ve kâr artışının bilanço büyüklükleri ve borçlanma seviyesindeki yükselişle birlikte, nakit akışı negatif yönde hareket ettiğini göstermektedir.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 
