@@ -105,6 +105,29 @@ DURUMLAR += (
     # --- bastirma: yurt disi haberde Turkiye gostergeleri dusmeli ---
     ("Fed, enflasyon verisini bekliyor", ("FED",), ("TUFE_TR",)),
     ("TÜİK enflasyon verisini açıkladı", ("TUIK", "TUFE_TR"), ()),
+
+    # --- TARIFE: "tarife" Turkce'de IKI ANLAMLI ---
+    #
+    # Gumruk tarifesi ile abonelik fiyat cetveli ayni kelime ve
+    # ikincisi bu akista daha sik geciyor. Ilk yazimda kaliplar genisti
+    # ("ek vergi", "~tarifeler") ve olculen yanlislar:
+    #
+    #     "Kurumlar vergisinde EK VERGI duzenlemesi"  -> TARIFE
+    #     "Dogal gaz TARIFELERINDE degisiklik"        -> TARIFE
+    #
+    # Her kalip artik TICARET baglamini kendi icinde tasiyor. Iki yon
+    # de sinaniyor: kacirmak kadar yanlis yakalamak da hata -- yanlis
+    # yakalanan haber, olmadigi bir konuya ait bir aktarim kanali
+    # gosterir.
+    ("ABD yüzde 50 gümrük vergisi uyguluyor", ("TARIFE", "US"), ()),
+    ("Kanada-USMCA görüşmeleri yeniden başlıyor", ("TARIFE",), ()),
+    ("Çin ile ticaret savaşı yeniden alevlendi", ("TARIFE", "CN"), ()),
+    ("ABD ithalat vergilerini artırdı", ("TARIFE", "US"), ()),
+    # Yurt ici vergi ve abonelik tarifesi TARIFE DEGIL.
+    ("Kurumlar vergisinde ek vergi düzenlemesi", (), ("TARIFE",)),
+    ("Doğal gaz tarifelerinde değişiklik", ("DGAZ",), ("TARIFE",)),
+    ("Elektrik tarifesi yüzde 25 zamlandı", (), ("TARIFE",)),
+    ("Gelir vergisi dilimleri yeniden belirlendi", (), ("TARIFE",)),
 )
 
 

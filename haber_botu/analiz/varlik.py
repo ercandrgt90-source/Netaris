@@ -159,6 +159,37 @@ KALIPLAR: dict[str, tuple[str, ...]] = {
     "DIS_TICARET_TR": ("dis ticaret", "~ihracat", "~ithalat", "~disticaret"),
     "ISSIZLIK_TR": ("~issizlik", "~isgucu", "atil isgucu"),
 
+    # --- ticaret politikasi ---
+    #
+    # Olculdu: yorumlanan 28 haberin 16'sinda hicbir varlik
+    # bulunamiyordu ve ucu GUMRUK VERGISI haberiydi. Tarife bu
+    # akistaki baskin makro tema ve HICBIR kalibi yoktu; o haberler
+    # ne varliga ne aktarim kanalina baglanabiliyordu.
+    #
+    # "vergi" TEK BASINA YAZILMADI: yurt ici vergi haberleri
+    # ("matrah farki", "gelir vergisi") bambaska bir konu ve tarifeye
+    # baglanmalari yanlis olurdu.
+    # KALIPLAR DAR TUTULDU ve sebebi olculdu. Ilk yazimda "ek vergi" ve
+    # "~tarifeler" vardi; ikisi de yurt ici haberleri yanlis yakaladi:
+    #
+    #     "Kurumlar vergisinde EK VERGI duzenlemesi"  -> TARIFE (yanlis)
+    #     "Dogal gaz TARIFELERINDE degisiklik"        -> TARIFE (yanlis)
+    #
+    # Turkce'de "tarife" hem gumruk hem abonelik fiyat cetveli demek ve
+    # ikincisi bu akista daha sik geciyor. "vergi" de tek basina yurt
+    # ici vergi haberlerini icine aliyor.
+    #
+    # Cozum: her kalip TICARET baglamini kendi icinde tasiyor.
+    "TARIFE": ("gumruk vergi", "gumruk tarife", "gumruk duvar",
+               "ticaret savas", "ticaret anlasmasi", "ticaret muzakere",
+               "ithalat vergi", "ithalat kisit", "ihracat kisit",
+               "usmca", "misilleme vergi", "misilleme tarife",
+               "karsilikli tarife"),
+    # "buyume" tek basina cok genel; ABD baglami ile birlikte araniyor
+    # (bkz. YABANCI_BAGLAM asagida).
+    "US_BUYUME": ("abd buyume", "amerikan ekonomisi buyu", "abd gsyh",
+                  "abd gayri safi"),
+
     # --- piyasalar ---
     "USDTRY": ("usd/try", "dolar/tl", "dolar kuru", "dolar/turk"),
     "EURUSD": ("eur/usd", "euro/dolar", "eurusd"),

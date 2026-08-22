@@ -252,6 +252,26 @@ VARLIKLAR: tuple[tuple, ...] = (
     # --- Cin ---
     ("CN_BUYUME", "gosterge", "Çin büyümesi", "China GDP growth", None, 85,
      "Küresel emtia talebinin en büyük tek belirleyicisi."),
+
+    # --- ticaret politikasi ---
+    #
+    # NEDEN EKLENDI
+    # -------------
+    # Olculdu: yorumlanan 28 haberin 16'sinda hicbir varlik
+    # bulunamiyordu ve o 16'nin ucu GUMRUK VERGISI haberiydi
+    # ("Carney: ABD yüzde 50 gümrük vergisi uygularken...", "Greer:
+    # Kanada ABD'ye karşı misillemeyi sürdürüyor").
+    #
+    # Tarife bu akistaki baskin makro tema ve agda HIC DUGUMU YOKTU;
+    # dolayisiyla o haberler ne varliga ne kanala baglanabiliyordu.
+    #
+    # Kalan 16'nin cogu ise DOGRU davraniyor: siyasi aciklama, askeri
+    # gecis, parti ici catisma. Onlara kanal uydurmak analiz uretmek
+    # olurdu ve bu sitede yasak.
+    ("TARIFE", "politika", "Gümrük vergisi ve ticaret önlemleri",
+     "Tariffs and trade measures", None, 90,
+     "Ülkeler arası ticarete uygulanan vergi ve kısıtlamalar."),
+    ("US_BUYUME", "gosterge", "ABD büyümesi", "US GDP growth", None, 90, ""),
 )
 
 
@@ -482,6 +502,26 @@ BAGLAR: tuple[tuple, ...] = (
     ("DAX", "BIST100", "etkiler", "veri", 1,
      "Avrupa risk iştahı gelişmekte olan piyasa akımlarıyla birlikte "
      "hareket eder."),
+
+    # --- ticaret politikasi kanallari ---
+    ("TARIFE", "US_BUYUME", "etkiler", "yapisal", 2,
+     "Gümrük vergisi ithal girdi maliyetini ve dış talebi değiştirir; "
+     "ikisi de büyüme hesabına yazılır."),
+    ("TARIFE", "CPI_US", "etkiler", "yapisal", 2,
+     "İthal mal fiyatı tüketici sepetine doğrudan girer."),
+    ("TARIFE", "DIS_TICARET_TR", "etkiler", "yapisal", 2,
+     "Büyük ekonomiler arasındaki tarife, ticaretin yön değiştirmesi "
+     "yoluyla üçüncü ülke ihracatına da yazılır."),
+    ("TARIFE", "BRENT", "etkiler", "veri", 1,
+     "Ticaret hacmindeki değişim küresel enerji talebine yansır."),
+    ("US_BUYUME", "FED_FAIZ", "etkiler", "yapisal", 2,
+     "Büyüme ve istihdam görünümü, Fed'in çifte görevinin bir yarısı."),
+    ("US_BUYUME", "SP500", "etkiler", "yapisal", 2,
+     "Şirket kârları büyümeyle birlikte hareket eder."),
+    ("CPI_US", "FED_FAIZ", "etkiler", "yapisal", 3,
+     "Enflasyon verisi, Fed'in çifte görevinin diğer yarısı ve faiz "
+     "kararının temel girdisi."),
+    ("US", "TARIFE", "belirler", "kaynak", 2, ""),
 )
 
 
