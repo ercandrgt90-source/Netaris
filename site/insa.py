@@ -70,6 +70,10 @@ try:
     import olay_grubu as _olay_grubu
 except ImportError:      # olay sayfalari uretilmez, site kurulur
     _olay_grubu = None
+try:
+    import yerel_etki as _yerel_etki
+except ImportError:
+    _yerel_etki = None
 
 # Depo. Site buraya YAZIYOR (yalnizca iki alan: haberin gercek adresi ve
 # varlik baglari) -- ikisi de ancak site kurulurken belli oluyor.
@@ -2364,6 +2368,51 @@ def olay_gostergeleri(anahtar: str) -> list[dict]:
         return []
     return cikti[:6]
 
+def _yerel_kanal(h: dict, varliklar) -> list[dict] | None:
+    """Yabanci haberin Turkiye'ye AKTARIM KANALI. Yoksa None.
+
+    NEDEN VAR
+    Yabanci konulu sayfalardan Turkiye verisini cikardim (bkz.
+    `baglam`) cunku Fed tutanaklari sayfasinda Turkiye TUFE'si yaziyor
+    ve okur onu haberin verisi saniyordu. Duzeltme dogruydu ama
+    EKSIKTI: Turk okurun bir Fed haberindeki asil sorusu zaten "bu bizi
+    nasil etkiler". Veriyi yasaklamak o soruyu cevapsiz birakti.
+
+    Dogru cozum veriyi kaldirmak degil, ADI KONMUS bir yere koymak.
+
+    TAHMIN DEGIL: gosterilen sey kanal -- hangi degisken hangisini
+    hangi mekanizmayla etkiliyor. Her kenarin gerekcesi `bag`
+    tablosunda yazili; gerekcesi olmayan kenar gosterilmiyor.
+
+    YALNIZCA YABANCI HABERDE: yurt ici haberde Turkiye verisi zaten
+    sayfanin kendisinde ve bir "kanal" anlatmak gereksiz tekrar olur.
+    """
+    if _yerel_etki is None or _beyin is None or not varliklar:
+        return None
+    if _baglam is None:
+        return None
+    u = _baglam.haber_ulkesi(
+        h.get("baslik_kaynak") or h.get("baslik", ""),
+        h.get("kurum", ""), h.get("bolge", ""))
+    if not u or u == "TR":
+        return None
+    kodlar = [v["kod"] for v in varliklar if v.get("kod")]
+    if not kodlar:
+        return None
+    try:
+        with _beyin.baglan() as b:
+            yol = _yerel_etki.kanal(b, kodlar)
+    except Exception:
+        return None
+    if not yol:
+        return None
+    return [{
+        "kaynak_ad": _yerel_etki.ad(a["kaynak"]),
+        "hedef_ad": _yerel_etki.ad(a["hedef"]),
+        "aciklama": a["aciklama"],
+    } for a in yol]
+
+
 def varlik_indeksle(haberler: list[dict]) -> dict[str, dict]:
     """Varliklari cikarir, depoya yazar, ilgili haberleri geri okur.
 
@@ -3625,6 +3674,7 @@ def insa() -> int:
                     **ortak, yol=h_yol, h=h,
                     gorsel_svg=gundem_gorseller.get(h["adres"], ""),
                     olay=olay_haritasi.get(h.get("adres", "")),
+                    yerel_kanal=_yerel_kanal(h, h_varliklar),
                     ilgili=ilgili_gostergeler(h["konu"], gostergeler),
                     # Piyasa kutusu BOLGEYE duyarli: Turkiye enflasyon
                     # haberinde ABD tahvil getirisi degil, TUFE ve TCMB

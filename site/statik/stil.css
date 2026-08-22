@@ -5590,3 +5590,73 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance; }
   .olay-cizelge { padding-left: var(--b-4); }
   .olay-cizelge li::before { left: calc(-1 * var(--b-4) - 5px); }
 }
+
+/* ====================================================================
+   TURKIYE'YE ETKI KANALI -- zincir, tahmin degil
+   --------------------------------------------------------------------
+   Numarali liste bilincli: kanal SIRALI bir mekanizma, madde listesi
+   degil. Okur "once bu, sonra su" diye okumali.
+
+   Ok gorsel olarak ONE CIKIYOR ama `aria-hidden`: ekran okuyucu
+   "sag ok sag ok" diye tekrarlamasin, cumle zaten gerekcede yazili.
+   ================================================================== */
+
+.kanal {
+  list-style: none;
+  counter-reset: kanal;
+  margin: 0 0 var(--b-4);
+  padding: 0;
+}
+
+.kanal li {
+  counter-increment: kanal;
+  position: relative;
+  padding: var(--b-3) 0 var(--b-3) var(--b-6);
+  border-bottom: 1px solid var(--cizgi);
+  display: grid;
+  gap: var(--b-1);
+}
+.kanal li:last-child { border-bottom: 0; }
+
+.kanal li::before {
+  content: counter(kanal);
+  position: absolute;
+  left: 0;
+  top: var(--b-3);
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--zemin-2);
+  border: 1px solid var(--cizgi);
+  font-size: var(--p-xs);
+  font-weight: 700;
+  color: var(--yazi-3);
+}
+
+.kanal-ad {
+  font-weight: 650;
+  font-size: var(--p-m);
+  line-height: 1.35;
+}
+.kanal-ok { color: var(--vurgu); padding: 0 var(--b-1); }
+
+.kanal-neden {
+  font-size: var(--p-s);
+  color: var(--yazi-2);
+  line-height: 1.55;
+}
+
+/* YASAL AYRIM GORUNUR OLMALI. Kanal ile tahmin arasindaki fark
+   sitenin en hassas cizgisi; not silik degil OKUNUR olmali. */
+.kanal-not {
+  font-size: var(--p-s);
+  color: var(--yazi-2);
+  line-height: 1.6;
+  padding: var(--b-3) var(--b-4);
+  border-left: 3px solid var(--vurgu);
+  background: var(--zemin-2);
+  border-radius: 0 var(--r-kucuk) var(--r-kucuk) 0;
+  margin: 0 0 var(--b-5);
+}

@@ -654,6 +654,39 @@
        Sayfalarin gezilebilir bir dizini YOK -- okur onlara yalnizca
        buradan ulasiyor. #}
     {% if izleme %}
+    {# TURKIYE'YE OLASI ETKI -- KANAL, TAHMIN DEGIL.
+       Yabanci konulu sayfalardan Turkiye verisini cikardik cunku okur
+       onu haberin kendi verisi saniyordu. Ama Turk okurun bir Fed
+       haberindeki asil sorusu zaten "bu bizi nasil etkiler" -- veriyi
+       yasaklamak o soruyu cevapsiz birakti.
+
+       Burada gosterilen sey bir ONGORU DEGIL: hangi degisken
+       hangisini hangi mekanizmayla etkiliyor. Her adimin gerekcesi
+       `bag` tablosundan geliyor; gerekcesi yazilamayan kenar hic
+       gosterilmiyor -- "bir sekilde etkiliyor" demek, hicbir sey
+       dememektir.
+
+       Yon ve buyukluk YAZILMIYOR. "Fed faiz artirirsa BIST duser"
+       cumlesi bu sitede yasak; kanal yapisal bir iliski, yon tahmini
+       degil. #}
+    {% if yerel_kanal %}
+    <h2>Türkiye'ye olası etki kanalı</h2>
+    <ol class="kanal">
+      {% for a in yerel_kanal %}
+      <li>
+        <span class="kanal-ad">{{ a.kaynak_ad }} <span class="kanal-ok"
+          aria-hidden="true">→</span> {{ a.hedef_ad }}</span>
+        <span class="kanal-neden">{{ a.aciklama }}</span>
+      </li>
+      {% endfor %}
+    </ol>
+    <p class="kanal-not">
+      Bu zincir yapısal bir aktarım kanalıdır; yön ve büyüklük tahmini
+      içermez. Etkinin ne zaman ve ne ölçüde görüleceği kur seviyesi,
+      politika tepkisi ve piyasa konumlanmasına göre değişir.
+    </p>
+    {% endif %}
+
     <h2>Şimdi ne izlenmeli?</h2>
     <ul class="izleme">
       {% for i in izleme %}
