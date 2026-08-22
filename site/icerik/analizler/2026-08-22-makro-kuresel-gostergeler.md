@@ -28,7 +28,7 @@ Brent petrol 18 Ağustos 2026 itibarıyla 95,29 USD/varil seviyesinde. İzlenen 
 | Gösterge | Son değer | Tarih | Dönem değişimi |
 |---|---|---|---|
 | Brent petrol | 95,29 USD/varil | 18 Ağustos 2026 | %3,7 yükseldi |
-| ABD politika faizi (efektif fed fonu) | %3,63 | 20 Ağustos 2026 | yatay kaldı |
+| ABD efektif fed fonu oranı | %3,63 | 20 Ağustos 2026 | yatay kaldı |
 | ABD 2 yıllık tahvil getirisi | %4,19 | 20 Ağustos 2026 | 6 baz puan geriledi |
 | ABD 10 yıllık tahvil getirisi | %4,69 | 20 Ağustos 2026 | 1 baz puan geriledi |
 
@@ -46,7 +46,7 @@ Efektif fed fonu faizi %3,63 (20 Ağustos 2026); izlenen dönemde sabit kaldı. 
 
 **Brent petrol.** Türkiye net enerji ithalatçısıdır; ham petrol ve doğal gaz faturası cari işlemler dengesinin en büyük kalemlerinden biridir. Brent'teki hareket, ithalat faturasına doğrudan yansıyan bir girdidir. Akaryakıt fiyatları üzerinden tüketici enflasyonuna geçiş kanalı vardır. Geçişin hızı ve büyüklüğü vergi yapısına, kur seviyesine ve dağıtım marjlarına bağlı olduğu için doğrudan okunamaz. Yakıt maliyetinin gider içindeki payı yüksek olan sektörler bu kalemden daha erken etkilenir: havayolu taşımacılığı, karayolu lojistiği, petrokimya ve enerji yoğun üretim yapan sanayi kolları.
 
-**ABD politika faizi (efektif fed fonu).** Politika faizi, küresel likiditenin fiyatını belirleyen ana değişkendir; gelişmekte olan ülke varlıklarına yönelen sermaye akımlarının arka planındaki referans budur.
+**ABD efektif fed fonu oranı.** Politika faizi, küresel likiditenin fiyatını belirleyen ana değişkendir; gelişmekte olan ülke varlıklarına yönelen sermaye akımlarının arka planındaki referans budur.
 
 **ABD 10 yıllık tahvil getirisi.** ABD uzun vadeli tahvil getirisi, gelişmekte olan ülkelerin dış borçlanma maliyeti için referans oluşturur. Getirilerin yükseldiği dönemlerde bu ülkelerin tahvillerine talep görece azalır.
 
