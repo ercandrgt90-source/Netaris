@@ -1163,6 +1163,25 @@ function ufukMetni(s) {
    `share-offsite` ucu YALNIZCA adres aliyor ve basligi sayfanin
    Open Graph etiketlerinden okuyor. Bu yuzden sayfanin sunucuda
    uretilmesi bu isin onkosuluydu. */
+/* Paylasim ikonlari -- satir ici SVG.
+   `_paylas.html` makrosuyla AYNI yollar. Iki yerde iki farkli
+   ikon seti, sitenin ayni islevi iki yuzle gostermesi olurdu.
+   Dis kaynaktan yuklemek ek istek, gizlilik (ikon sunucusu okuru
+   gorur) ve betik bagimliligi getirir. */
+const PAYLAS_IKON = {
+  x: "M18.9 2H22l-7.3 8.3L23.3 22h-6.7l-5.2-6.9L5.4 22H2.3l7.8-8.9L1.1 2h6.9l4.7 6.3L18.9 2Zm-1.1 18h1.7L7.3 3.8H5.4L17.8 20Z",
+  li: "M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.76-2.05C21.4 8.65 22 11 22 14.1V21h-4v-6.1c0-1.45-.03-3.3-2-3.3-2 0-2.3 1.57-2.3 3.2V21h-4V9Z",
+  wa: "M12 2a10 10 0 0 0-8.6 15l-1.3 4.7 4.8-1.3A10 10 0 1 0 12 2Zm5.6 14.2c-.24.67-1.4 1.28-1.93 1.33-.5.05-.98.23-3.3-.7-2.78-1.1-4.53-3.9-4.67-4.08-.13-.18-1.1-1.47-1.1-2.8 0-1.33.7-1.98.94-2.25.25-.27.54-.34.72-.34h.52c.17 0 .4-.06.62.48.23.55.78 1.9.85 2.04.07.13.11.29.02.47-.09.18-.13.29-.27.44l-.4.47c-.13.13-.27.28-.12.55.15.27.67 1.1 1.44 1.79.99.88 1.82 1.15 2.09 1.28.27.14.42.12.58-.07.16-.18.67-.78.85-1.05.18-.27.36-.22.6-.13.25.09 1.58.74 1.85.88.27.13.45.2.52.31.07.11.07.65-.17 1.32Z",
+  tg: "M21.9 4.3 18.8 19c-.23 1.03-.85 1.28-1.72.8l-4.75-3.5-2.3 2.2c-.25.26-.47.48-.96.48l.34-4.83 8.8-7.95c.38-.34-.08-.53-.6-.19L6.75 12.7 2.1 11.25c-1-.32-1.03-1 .21-1.5L20.6 2.83c.84-.31 1.57.2 1.3 1.47Z",
+  kopya: "M10.6 13.4a4 4 0 0 0 5.66 0l2.83-2.83a4 4 0 0 0-5.66-5.66l-1.4 1.42 1.41 1.41 1.42-1.41a2 2 0 1 1 2.83 2.83l-2.83 2.83a2 2 0 0 1-2.83 0l-1.41 1.41Zm2.83-2.83a4 4 0 0 0-5.66 0l-2.83 2.83a4 4 0 1 0 5.66 5.66l1.4-1.42-1.41-1.41-1.42 1.41a2 2 0 0 1-2.83-2.83l2.83-2.83a2 2 0 0 1 2.83 0l1.41-1.41Z",
+};
+
+function ikon(ad) {
+  return '<svg viewBox="0 0 24 24" aria-hidden="true" width="16" '
+       + 'height="16"><path fill="currentColor" d="' + PAYLAS_IKON[ad]
+       + '"/></svg>';
+}
+
 function paylasBlok(baslik, ozet, adres) {
   /* X siniri 280 karakter ve adres ~23 sayiliyor. Metin 200'e
      kirpiliyor; kirpilirsa uc nokta ile bitiyor. */
@@ -1198,17 +1217,17 @@ function paylasBlok(baslik, ozet, adres) {
   </div>
   <p class="paylas-onizleme-not">Paylaşımın sosyal ağda böyle görünmesi bekleniyor.</p>
 
-  <div class="paylas-dugmeler">
-    <a class="paylas-buton paylas-x" href="${kacir(x)}"
-       target="_blank" rel="noopener noreferrer">X'te paylaş</a>
-    <a class="paylas-buton paylas-li" href="${kacir(li)}"
-       target="_blank" rel="noopener noreferrer">LinkedIn'de paylaş</a>
-    <a class="paylas-buton paylas-tg" href="${kacir(tg)}"
-       target="_blank" rel="noopener noreferrer">Telegram</a>
-    <a class="paylas-buton paylas-wa" href="${kacir(wa)}"
-       target="_blank" rel="noopener noreferrer">WhatsApp</a>
-    <button class="paylas-buton paylas-kopya" type="button"
-            data-paylas-kopyala="${kacir(adres)}">Bağlantıyı kopyala</button>
+  <div class="sayfa-paylas-dugmeler">
+    <a class="sp-dugme sp-x" href="${kacir(x)}"
+       target="_blank" rel="noopener noreferrer">${ikon("x")}<span>X</span></a>
+    <a class="sp-dugme sp-li" href="${kacir(li)}"
+       target="_blank" rel="noopener noreferrer">${ikon("li")}<span>LinkedIn</span></a>
+    <a class="sp-dugme sp-wa" href="${kacir(wa)}"
+       target="_blank" rel="noopener noreferrer">${ikon("wa")}<span>WhatsApp</span></a>
+    <a class="sp-dugme sp-tg" href="${kacir(tg)}"
+       target="_blank" rel="noopener noreferrer">${ikon("tg")}<span>Telegram</span></a>
+    <button class="sp-dugme sp-kopya" type="button"
+            data-paylas-kopyala="${kacir(adres)}">${ikon("kopya")}<span>Bağlantıyı kopyala</span></button>
   </div>
 </section>`;
 }
@@ -1265,17 +1284,47 @@ ${gorsel ? `<meta property="og:image" content="${kacir(
 <script src="/statik/oturum.js" defer></script>
 <script src="/statik/senaryo.js" defer></script>
 </head><body>
-<main class="kabuk senaryo-sayfa">
-  <p class="senaryo-tur">SENARYO</p>
-  <h1>${kacir(baslik)}</h1>
+<!-- SENARYO ARTIK BIR YAZI, HABER ALTINDA YORUM DEGIL.
+     ==================================================
+     Once duz bir baslik ve tek satir kunye vardi; sayfa "bir haberin
+     altindaki yorumun kendi adresi" gibi duruyordu. Oysa senaryo bir
+     ONERME: kosulu, sonucu, gerekcesi ve ufku olan bagimsiz bir
+     icerik.
 
-  <p class="senaryo-kunye">
-    <span>${kacir(r.yazar || "Netaris okuru")}</span>
-    <span class="ayrac">·</span>
-    <span>${kacir(ufukMetni(r))}</span>
-    <span class="ayrac">·</span>
-    <span>${r.oy} destek</span>
-  </p>
+     Kunye bir YAZI kunyesi olarak kuruluyor: tur rozeti, ufuk,
+     tarih, yazar. Ayni bilgi -- ama okur simdi bir yaziya baktigini
+     anliyor.
+
+     BASLIK KOSUL -> SONUC. Once yalnizca kosul basiliyordu ve okur
+     baslikta onermenin YARISINI goruyordu. Paylasimda da oyle
+     gidiyordu. -->
+<main class="kabuk senaryo-sayfa">
+  <header class="senaryo-bas">
+    <p class="senaryo-rozetler">
+      <span class="rozet rozet-vurgu">TOPLULUK SENARYOSU</span>
+      <span class="rozet">${kacir(ufukMetni(r))}</span>
+      ${r.sonuclanma ? `<span class="rozet rozet-sonuc rozet-${kacir(r.sonuclanma)}">${
+        {gerceklesti: "Gerçekleşti", gerceklesmedi: "Gerçekleşmedi",
+         belirsiz: "Belirsiz"}[r.sonuclanma] || ""}</span>` : ""}
+    </p>
+
+    <h1>${kacir(r.kosul)}
+      <span class="senaryo-ok-bas" aria-hidden="true">→</span>
+      <span class="senaryo-sonuc-bas">${kacir(r.sonuc)}</span></h1>
+
+    <div class="senaryo-yazar">
+      <!-- Bas harf dairesi, vesikalik DEGIL: uyelerin fotografi yok ve
+           uydurma bir avatar koymak kimligi yanlis tanitmak olurdu.
+           Ayni kural sitenin kurum imzasinda da gecerli. -->
+      <span class="senaryo-yazar-harf" aria-hidden="true">${
+        kacir((r.yazar || "N").trim().charAt(0).toLocaleUpperCase("tr"))}</span>
+      <span class="senaryo-yazar-ad">
+        <b>${kacir(r.yazar || "Netaris okuru")}</b>
+        <span>${r.yayin ? kacir(String(r.yayin).slice(0, 10)) : ""}
+          ${r.oy ? `· ${r.oy} kişi değerli buldu` : ""}</span>
+      </span>
+    </div>
+  </header>
 
   <section class="senaryo-blok">
     <h2>Tetikleyici</h2>
