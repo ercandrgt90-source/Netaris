@@ -1,7 +1,12 @@
+{% import "_sayac.html" as sy %}
 {% extends "temel.html" %}
 
 {% block baslik %}{{ kategori_baslik }} — {{ site.ad }}{% endblock %}
 {% block aciklama %}{{ kategori_aciklama }}{% endblock %}
+
+{% block ek_bas %}
+{% if sektorler %}<script src="/statik/akis_suzgec.js?v={{ js_surum }}" defer></script>{% endif %}
+{% endblock %}
 
 {% block icerik %}
 <div class="giris">
@@ -10,9 +15,28 @@
   <p>{{ kategori_aciklama }}</p>
 </div>
 
-<ul class="izgara">
+{# SEKTOR SEKMELERI -- yalnizca anlamli oldugu sayfada.
+   `insa._sektor_sekmeleri` esigi tutuyor: en az iki sektor ve en az
+   sekiz kart. `/makro/` iki, `/yorum/` bir kart tasiyor; orada serit
+   icerikten uzun olurdu.
+
+   Serit `hidden` basiliyor ve `akis_suzgec.js` aciyor -- calismayan
+   bir sekme seridi, olmayan seritten kotudur. #}
+{% if sektorler %}
+<div class="akis-suzgec" data-akis-suzgec hidden>
+  <button type="button" class="suzgec-dugme" data-tur="" aria-pressed="true">
+    Tümü <span class="suzgec-say">{{ analizler | length }}</span></button>
+  {% for s in sektorler %}
+  <button type="button" class="suzgec-dugme" data-tur="{{ s.kod }}"
+          aria-pressed="false">
+    {{ s.ad }} <span class="suzgec-say">{{ s.adet }}</span></button>
+  {% endfor %}
+</div>
+{% endif %}
+
+<ul class="izgara arastirma-liste">
   {% for a in analizler %}
-  <li>
+  <li{% if a.sektor %} data-tur="{{ a.sektor | slugla }}"{% endif %}>
     <a class="kart" href="{{ a.yol }}">
       <span class="kart-gorsel">
         {# Bilanco analizinde SIRKET AMBLEMI -- bkz. `amblem.py`. #}
@@ -76,7 +100,9 @@
         </span>
       </span>
     </a>
+    <div class="kart-sayac">{{ sy.sayac(a.yol, baslik=a.baslik) }}</div>
   </li>
   {% endfor %}
 </ul>
+<p class="kaynak-not" data-akis-bos hidden>Bu sektörde analiz yok.</p>
 {% endblock %}

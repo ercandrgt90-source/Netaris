@@ -789,6 +789,20 @@ def analiz_fotografi(kayit, baslik: str, kategori: str, kod: str) -> tuple[str, 
 #: ayni tavan daha az haberi gorselsiz birakir.
 FOTO_TEKRAR_TAVANI = 8
 
+def _sektor_sekmeleri(analizler: list) -> list[dict]:
+    """Sektor -> (kod, ad, adet). Anlamli degilse BOS liste.
+
+    Bos liste donunce sablon serit basmiyor. Tek secenekli bir sekme
+    seridi, secenek sunuyormus gibi gorunup hicbir sey secmez.
+    """
+    from collections import Counter
+    say = Counter(a.sektor for a in analizler if getattr(a, "sektor", ""))
+    if len(say) < 2 or len(analizler) < 8:
+        return []
+    return [{"kod": slugla(ad), "ad": ad, "adet": n}
+            for ad, n in say.most_common()]
+
+
 def foto_dagit(haberler: list[dict], varlik_haritasi: dict,
                kayit) -> dict[str, object]:
     """Butun haberlere fotografi TEK SEFERDE, birbirini gorerek dagitir.
@@ -3821,6 +3835,10 @@ def insa() -> int:
     # tanimli, her yerde ayni. Yamalar zamanla ayrisir, suzgec
     # ayrismaz.
     ortam.filters["gun"] = gun_etiketi
+    # Sablon sektor adini suzgec koduna cevirebilsin -- kod ile
+    # kart ayni fonksiyondan gecmeli, yoksa sekme hicbir seyi
+    # secmez ve HATA DA VERMEZ.
+    ortam.filters["slugla"] = slugla
     # OLCUM SUZGECI -- deger + birim, TURKCE kurallarina gore.
     #
     # Olculdu: 544 sayfada "31,75%" yaziyordu. Turkce'de yuzde isareti
@@ -4173,6 +4191,16 @@ def insa() -> int:
             ortam.get_template("kategori.html").render(
                 **ortak, yol=yol_k, analizler=secilen,
                 kategori_baslik=baslik, kategori_aciklama=aciklama,
+                # SEKTOR SEKMELERI -- yalnizca ANLAMLI oldugu yerde.
+                #
+                # `/bilancolar/` 182 kart ve on sektor tasiyor; orada
+                # sekme okurun aradigini bulmasini sagliyor. `/makro/`
+                # iki, `/yorum/` bir kart tasiyor -- orada sekme seridi
+                # icerikten uzun olur ve secenek sunuyormus gibi
+                # gorunup hicbir sey secmez.
+                #
+                # Esik: en az iki sektor VE en az sekiz kart.
+                sektorler=_sektor_sekmeleri(secilen),
             ),
         )
         yollar.append(yol_k)
