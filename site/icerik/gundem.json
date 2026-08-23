@@ -1,5 +1,5 @@
 {
-  "guncelleme": "2026-08-22",
+  "guncelleme": "2026-08-23",
   "kaynaklar": [
     "AA",
     "CNN Türk",
@@ -20,6 +20,57 @@
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
   "yorumlanan": 31,
   "haberler": [
+    {
+      "baslik": "ABD’de Trump’ın 75 ülkeye yönelik vize kararına mahkeme engeli",
+      "baslik_kaynak": "ABD’de Trump’ın 75 ülkeye yönelik vize kararına mahkeme engeli",
+      "ozet": "ABD’de bir bölge mahkemesi, Trump yönetiminin aralarında Afganistan, İran, Rusya ve Somali’nin de bulunduğu 75 ülkenin vatandaşlarına yönelik göçmen vizesi işlemlerini askıya alma politikasını yasaya aykırı bularak iptal etti.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.dunya.com/dunya/abdde-trumpin-75-ulkeye-yonelik-vize-kararina-mahkeme-engeli-haberi-837289",
+      "kurum": "Dünya",
+      "kurum_tam": "Dünya Gazetesi",
+      "konu": "Jeopolitik",
+      "tarih": "2026-08-23",
+      "tarih_gorunur": "23 Ağustos 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Jeopolitik gelişmeler piyasaya doğrudan değil, arz riski ve risk iştahı üzerinden geçer. Türkiye için ana kanal enerji faturası ve risk primidir.",
+      "kanallar": [
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa petrol ve doğal gaz fiyatına risk primi eklenir. Türkiye net enerji ithalatçısı olduğu için bu, cari işlemler dengesine doğrudan yazılır.",
+        "Risk iştahı: belirsizlik arttığında gelişmekte olan ülke varlıklarından çıkış görülebilir; ülke risk primi ve borçlanma maliyeti yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat pazarlarının bileşimini değiştirir; etki sektörün o pazara bağımlılığı kadardır.",
+        "Güvenli liman talebi: altın ve dolar talebi değişebilir; yönü ve büyüklüğü olayın ne kadarının önceden fiyatlandığına bağlıdır."
+      ],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/jeopolitik-8.jpg",
+      "foto_atif": "Press Information Department · PDM"
+    },
+    {
+      "baslik": "2.000.000 TL konut kredisinin geri ödemesi belli oldu. Tam 10 bankadan rekabetçi oranlar…",
+      "baslik_kaynak": "2.000.000 TL konut kredisinin geri ödemesi belli oldu. Tam 10 bankadan rekabetçi oranlar…",
+      "ozet": "Konut sahibi olmak isteyenlerin yakından takip ettiği kredi ve kar payı oranları belli oldu. Katılım bankaları dahil 2 milyon liranın 5 yıldaki geri ödemesi ve aylık taksit tutarlarını haberimizde derledik.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.ekonomim.com/foto-galeri/aktuel/2000000-tl-konut-kredisinin-geri-odemesi-belli-oldu-tam-10-bankadan-rekabetci-oranlar-galeri-913687",
+      "kurum": "Ekonomim",
+      "kurum_tam": "Ekonomim",
+      "konu": "Konut ve kira",
+      "tarih": "2026-08-23",
+      "tarih_gorunur": "23 Ağustos 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Konut hem hanehalkının en büyük varlık kalemi hem tüketici fiyat endeksinde ağırlığı yüksek bir harcama başlığıdır.",
+      "kanallar": [
+        "Enflasyon sepeti: kira, TÜFE'de ağırlığı yüksek kalemlerden biridir ve endekse gecikmeli yansır.",
+        "Bağlantılı sektörler: konut talebi çimento, demir, beyaz eşya ve mobilyaya yayılır.",
+        "Kredi kanalı: konut kredisi faizi talebi belirler; bu da politika faizi kararlarına doğrudan bağlıdır."
+      ],
+      "kanal_basligi": "Piyasaya nasıl yansır?",
+      "foto": "/statik/foto/konut-ve-kira-10-f9e66150.jpg",
+      "foto_atif": "Adityamadhav83 · CC-BY-4.0"
+    },
     {
       "baslik": "Carney, Kanada'nın çıkarlarını korumak için bir sonraki adımları özetledi: İşçi Bayramı'ndan sonra Salı günü başlayacak dolar karşılığı karşı tarifeler",
       "baslik_kaynak": "Carney outlined next steps to protect Canadian interests: dollar-for-dollar counter-tariffs to begin the Tuesday after Labour Day - statement",
@@ -1084,83 +1135,6 @@
       "foto_atif": "Matti Blume · CC-BY-SA-4.0"
     },
     {
-      "baslik": "İsrail Dışişleri Bakanı Saar: Türkiye ile gerilimi artırma niyetinde değiliz ama",
-      "baslik_kaynak": "İsrail Dışişleri Bakanı Saar: Türkiye ile gerilimi artırma niyetinde değiliz ama...",
-      "ozet": "İsrail Dışişleri Bakanı Gideon Saar Cumartesi günü yaptığı açıklamada, İsrail'in Türkiye ile gerilimi tırmandırmak istemediğini, ancak Türkiye'nin Suriye'deki varlığını \"kabul etmeyeceğini\" söyledi.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.ekonomim.com/gundem/israil-disisleri-bakani-saar-turkiye-ile-gerilimi-artirma-niyetinde-degiliz-ama-haberi-913678",
-      "kurum": "Ekonomim",
-      "kurum_tam": "Ekonomim",
-      "konu": "Jeopolitik",
-      "tarih": "2026-08-22",
-      "tarih_gorunur": "22 Ağustos 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişmeler piyasaya doğrudan değil, arz riski ve risk iştahı üzerinden geçer. Türkiye için ana kanal enerji faturası ve risk primidir.",
-      "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa petrol ve doğal gaz fiyatına risk primi eklenir. Türkiye net enerji ithalatçısı olduğu için bu, cari işlemler dengesine doğrudan yazılır.",
-        "Risk iştahı: belirsizlik arttığında gelişmekte olan ülke varlıklarından çıkış görülebilir; ülke risk primi ve borçlanma maliyeti yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat pazarlarının bileşimini değiştirir; etki sektörün o pazara bağımlılığı kadardır.",
-        "Güvenli liman talebi: altın ve dolar talebi değişebilir; yönü ve büyüklüğü olayın ne kadarının önceden fiyatlandığına bağlıdır."
-      ],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/jeopolitik-14.jpg",
-      "foto_atif": "Dody Ismoyo · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "Macron'dan Zelenskiy'e hava savunma füzesi taahhüdü",
-      "baslik_kaynak": "Macron'dan Zelenskiy'e hava savunma füzesi taahhüdü",
-      "ozet": "Fransa Cumhurbaşkanı Emmanuel Macron, Ukrayna'ya desteklerini sürdüreceklerini belirterek, \"Bu kapsamda Zelenskiy'e Ukrayna'ya hava savunma füzeleri göndereceğimizi bildirdim\" dedi.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.ekonomim.com/dunya/macrondan-zelenskiye-hava-savunma-fuzesi-taahhudu-haberi-913673",
-      "kurum": "Ekonomim",
-      "kurum_tam": "Ekonomim",
-      "konu": "Jeopolitik",
-      "tarih": "2026-08-22",
-      "tarih_gorunur": "22 Ağustos 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişmeler piyasaya doğrudan değil, arz riski ve risk iştahı üzerinden geçer. Türkiye için ana kanal enerji faturası ve risk primidir.",
-      "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa petrol ve doğal gaz fiyatına risk primi eklenir. Türkiye net enerji ithalatçısı olduğu için bu, cari işlemler dengesine doğrudan yazılır.",
-        "Risk iştahı: belirsizlik arttığında gelişmekte olan ülke varlıklarından çıkış görülebilir; ülke risk primi ve borçlanma maliyeti yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat pazarlarının bileşimini değiştirir; etki sektörün o pazara bağımlılığı kadardır.",
-        "Güvenli liman talebi: altın ve dolar talebi değişebilir; yönü ve büyüklüğü olayın ne kadarının önceden fiyatlandığına bağlıdır."
-      ],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/jeopolitik-20-e0e8c777.jpg",
-      "foto_atif": "ADESP · CC-BY-4.0"
-    },
-    {
-      "baslik": "Altın yatırımı olanlar dikkat. Bu rakamı unutmayın, dev bankalar altın tahminlerini değiştirdi",
-      "baslik_kaynak": "Altın yatırımı olanlar dikkat! Bu rakamı unutmayın, dev bankalar altın tahminlerini değiştirdi",
-      "ozet": "Altın fiyatlarında gözler yükseliş trendine çevrilmişken Morgan Stanley, Wells Fargo, Goldman Sachs ve UBS, ons altına ilişkin tahminlerini güncelledi. Verilen yeni rakam için 2026 sonu, 2027 başı için 5 bin 600 doları buldu.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.ekonomim.com/foto-galeri/ekonomi/altin-yatirimi-olanlar-dikkat-bu-rakami-unutmayin-dev-bankalar-altin-tahminlerini-degistirdi-galeri-913671",
-      "kurum": "Ekonomim",
-      "kurum_tam": "Ekonomim",
-      "konu": "Altın ve emtia",
-      "tarih": "2026-08-22",
-      "tarih_gorunur": "22 Ağustos 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Altın hem tasarruf aracı hem rezerv varlığıdır; hanehalkı tasarrufunun önemli bir kısmı Türkiye'de bu araçta tutulur.",
-      "kanallar": [
-        "Tasarruf tercihi: altın getirisi ile TL mevduatın reel getirisi arasındaki fark, hanehalkı tasarruf kompozisyonunu etkiler.",
-        "Cari denge: külçe altın ithalatı cari işlemler dengesinde ayrı ve büyük bir kalemdir.",
-        "Girdi maliyeti: sanayi metalleri (bakır, çelik) imalatta doğrudan girdi maliyetidir."
-      ],
-      "kanal_basligi": "Piyasaya nasıl yansır?",
-      "foto": "/statik/foto/altin-ve-emtia-5.jpg",
-      "foto_atif": "Kjmonkey · CC0"
-    },
-    {
       "baslik": "Tlos Tiyatrosu güneş enerjisiyle yeniden hayat buluyor: Muğla'da bir dönüşüm",
       "baslik_kaynak": "Tlos Tiyatrosu güneş enerjisiyle yeniden hayat buluyor: Muğla'da bir dönüşüm",
       "ozet": "Muğla'nın Seydikemer ilçesindeki Tlos Antik Kenti'nde yer alan tiyatro, Güneş Enerjisi Sistemi (GES) ile restore edildi ve aydınlatıldı. Bu dönüşüm, antik yapının gelecekteki sürdürülebilirliğine katkı sağlıyor.",
@@ -1609,6 +1583,32 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/enerji-15-35e1db1d.jpg",
       "foto_atif": "Colin Stepney · CC-BY-SA-4.0"
+    },
+    {
+      "baslik": "TCMB'den \"yastık altı altın\" kararı",
+      "baslik_kaynak": "TCMB'den \"yastık altı altın\" kararı",
+      "ozet": "Türkiye Cumhuriyet Merkez Bankası (TCMB), altın cinsinden fiziki varlıkların finansal sisteme kazandırılmasına ilişkin düzenlemeyi yürürlükten kaldırdı",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.haberturk.com/altin-sahipleri-dikkat-resmi-gazete-de-yayimlandi-tcmb-den-yastik-alti-altin-karari-3907318-ekonomi",
+      "kurum": "Habertürk",
+      "kurum_tam": "Habertürk",
+      "konu": "Para politikası",
+      "tarih": "2026-08-22",
+      "tarih_gorunur": "22 Ağustos 2026",
+      "yorumlanir": true,
+      "neden_onemli": "TCMB politika faizi, yurt içi fonlama maliyetinin çıpasıdır. Ticari kredi faizi, mevduat getirisi ve tahvil getiri eğrisi bu oranın etrafında yeniden fiyatlanır.",
+      "kanallar": [
+        "Kredi maliyeti: bankaların Merkez Bankası'ndan fonlanma maliyeti değiştiğinde ticari ve bireysel kredi faizleri buradan fiyatlanır.",
+        "Şirket finansman gideri: değişken faizle borçlanan ve net borç pozisyonu yüksek şirketlerde finansman gideri kalemi doğrudan etkilenir; bu kalem kâr marjına gelir tablosu üzerinden yansır.",
+        "Mevduat ve tahvil getirisi: TL mevduat ile devlet iç borçlanma senedi getirileri politika faizine göre yeniden konumlanır. Reel getiri, enflasyon beklentisiyle birlikte değerlendirilir.",
+        "Faiz farkı: yurt içi ve yurt dışı faiz arasındaki fark, TL cinsi varlıklara yönelen sermaye akımının belirleyicilerinden biridir."
+      ],
+      "kanal_basligi": "Piyasaya nasıl yansır?",
+      "foto": "/statik/foto/para-politikasi-6-0ee29051.jpg",
+      "foto_atif": "Daniel Schwen · CC-BY-SA-4.0"
     },
     {
       "baslik": "İmalat Sanayi Kapasite Kullanım Oranı (Ağustos 2026)",
