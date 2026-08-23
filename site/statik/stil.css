@@ -50,8 +50,19 @@
      Kagit beyazi zemin, mürekkep lacivert metin. Saf beyaz (#fff) yerine
      bir tik kirik beyaz: uzun metinde goz yormuyor ve kart yuzeyi
      (--panel: saf beyaz) zeminin uzerinde YUKSELIYOR gorunuyor. */
-  --zemin: #fbfcfe;
-  --zemin-2: #f1f4f9;
+  /* ZEMIN KOYULASTIRILDI -- kart gorunsun diye.
+     Onceki deger #fbfcfe idi ve kart rengi #ffffff. Aradaki
+     fark 4/3/1 birim; goz bunu ayirt etmiyor. Sonucu olculdu:
+     ana sayfaya modul kartlari eklendi, isaretleme dogru
+     basildi, CSS dogru yuklendi ve KULLANICI HICBIR DEGISIKLIK
+     GORMEDI -- kartlar zeminle ayni renkti.
+
+     Uzerindeki yorum "panel zeminin uzerinde YUKSELIYOR
+     gorunuyor" diyordu; niyet dogruydu, deger onu
+     karsilamiyordu. Bir tasarim kararinin gerceklesip
+     gerceklesmedigi, niyetten degil OLCUDEN anlasilir. */
+  --zemin: #eef2f7;
+  --zemin-2: #e3eaf3;
   --panel: #ffffff;
   --panel-2: #f7f9fc;
   --cizgi: #e4e9f1;
@@ -255,7 +266,7 @@
 /* Kullanici secimi sistem tercihini EZER. Medya sorgusundan SONRA
    gelmeli, yoksa sistem koyu iken "acik" secimi calismaz. */
 :root[data-tema="light"] {
-  --zemin: #fbfcfe; --zemin-2: #f1f4f9; --panel: #ffffff; --panel-2: #f7f9fc;
+  --zemin: #eef2f7; --zemin-2: #e3eaf3; --panel: #ffffff; --panel-2: #f7f9fc;
   --cizgi: #e4e9f1; --cizgi-parlak: #c6cfdd;
   --yazi: #0c1524; --yazi-2: #414f66; --yazi-3: #616f86;
   --vurgu: #0a7d78; --vurgu-koyu: #075f5c; --vurgu-parlak: #14b8a6;
@@ -6408,11 +6419,15 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
    -- reklam kutusu gibi degil, sayfanin bir bolumu gibi.
    ================================================================== */
 
+/* MODUL KALIBIYLA CAKISMA GIDERILDI.
+   Bu kural `.modul` ile ayni ozgullukte (0,1,0) ama dosyada 5.000
+   satir SONRA geliyordu; dolgusunu ve zeminini geri aliyordu. Yani
+   bolum modul sinifini tasiyor ama modul gibi gorunmuyordu.
+
+   Kendi dolgu ve cerceve tanimlari kaldirildi; yalnizca ayirt edici
+   olan sey kaldi: hafif vurgu tonu. Bolum bir CAGRI ve komsularindan
+   ayrilmasi bilincli. */
 .senaryo-davet {
-  margin: var(--b-6) 0;
-  padding: var(--b-5) var(--b-4);
-  border: 1px solid var(--cizgi);
-  border-radius: var(--r);
   background:
     linear-gradient(135deg,
       color-mix(in srgb, var(--vurgu) 7%, var(--panel)),

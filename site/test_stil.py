@@ -213,5 +213,50 @@ esit(sorted(a for a in _izli if a not in _izgara), [],
 esit(len(_izli) > 20, True,
      f"tarama izgara buluyor ({len(_izli)} sinif)")
 
+# --------------------------------------------------------------------
+# KART ZEMINDEN AYIRT EDILEBILMELI.
+#
+# Olculdu (2026-08-23): ana sayfaya modul kartlari eklendi. Isaretleme
+# dogru basildi, CSS dogru yuklendi, canli sayfa dogrulandi -- ve
+# kullanici HICBIR DEGISIKLIK GORMEDI.
+#
+# Sebep renkti: sayfa zemini #fbfcfe, kart #ffffff. Aradaki fark
+# 4/3/1 birim ve goz bunu ayirt etmiyor. Kartlar vardi, gorunmuyordu.
+#
+# Jetonun uzerindeki yorum "panel zeminin uzerinde YUKSELIYOR
+# gorunuyor" diyordu. Niyet dogruydu, deger onu karsilamiyordu -- ve
+# hicbir sey hata vermedi.
+#
+# Bir tasarim kararinin gerceklesip gerceklesmedigi niyetten degil
+# OLCUDEN anlasilir. Bu sinama olcuyu tutuyor.
+#
+# ESIK NEDEN 12
+# sRGB'de kanal basina 12 birim, acik tonlarda gozle secilebilen en
+# kucuk yuzey farkinin civari. Daha dusugu "belki vardir" olur;
+# tasarim kararlari "belki" uzerine kurulamaz.
+# --------------------------------------------------------------------
+print()
+print("Kart zemini sayfa zemininden ayirt edilebiliyor")
+
+_kok = re.search(r":root\s*\{(.*?)\}", _CSS.read_text(encoding="utf-8"),
+                 re.S)
+
+
+def _renk(ad: str, govde: str) -> tuple:
+    m = re.search(rf"--{ad}:\s*#([0-9a-fA-F]{{6}})", govde)
+    if not m:
+        return ()
+    h = m.group(1)
+    return tuple(int(h[i:i + 2], 16) for i in (0, 2, 4))
+
+
+_g = _kok.group(1) if _kok else ""
+_zemin, _panel = _renk("zemin", _g), _renk("panel", _g)
+esit(bool(_zemin and _panel), True, "iki jeton da tanimli")
+if _zemin and _panel:
+    _fark = max(abs(a - b) for a, b in zip(_zemin, _panel))
+    esit(_fark >= 12, True,
+         f"zemin ile panel arasinda gorulebilir fark var ({_fark} birim)")
+
 print(f"\n{_gecti} gecti, {_kaldi} kaldi")
 sys.exit(1 if _kaldi else 0)
