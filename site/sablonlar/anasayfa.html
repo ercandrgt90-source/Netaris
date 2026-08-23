@@ -454,7 +454,7 @@
            Kirpma artik YALNIZCA metne uygulaniyor; etiket disarida. #}
         <span class="ai-kart-yorum">
           <span class="ai-kart-imza">Netaris yorumu</span>
-          <span class="ai-kart-metin">{{ h.ai_yorum_kart }}</span>
+          <span class="ai-kart-metin" data-kirpma>{{ h.ai_yorum_kart }}</span>
         </span>
         <span class="ai-kart-git">Habere git →</span>
       </a>
@@ -659,7 +659,7 @@
       <span class="kart-ic">
         <span class="ust-satir">{{ rozetler(a) }}</span>
         <h2 class="kart-baslik">{{ a.baslik }}</h2>
-        <p class="kart-ozet">{{ a.ozet }}</p>
+        <p class="kart-ozet" data-kirpma>{{ a.ozet }}</p>
         <span class="kart-alt">
           {% if a.skor is not none %}
           <span class="halka-kutu">

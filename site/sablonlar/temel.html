@@ -333,6 +333,9 @@
 {# Goruntulenme ve begeni. Sayilar SUNUCUDAN geliyor, sayfaya
    basilmiyor -- gerekce `_sayac.html` icinde. #}
 <script src="/statik/sayac.js?v={{ js_surum }}" defer></script>
+{# Kirpilan metne "devamı" isareti -- yalnizca gercekten
+   kesildiyse. Gerekce `kirpma.js` icinde. #}
+<script src="/statik/kirpma.js?v={{ js_surum }}" defer></script>
 {% block betikler %}{% endblock %}
 
 

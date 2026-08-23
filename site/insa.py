@@ -809,9 +809,12 @@ def analiz_fotografi(kayit, baslik: str, kategori: str, kod: str) -> tuple[str, 
     # `kripto-varliklar-2.jpg` iki kez, "Borsa" havuzunda kullanim
     # 13'e 10 dengesiz. Iki ayri secim yontemi tek havuzu paylasinca
     # dengeyi biri kuruyor digeri boziyordu.
-    f = _en_az_kullanilan(kayit.havuz(konu), baslik)
+    # `havuz` DEGIL `havuz_yayin`: lisans ve cozunurluk tercihi orada.
+    # Ham havuzu kullanmak, analiz sayfalarini haber sayfalarindan
+    # farkli bir olcute tabi tutardi -- ayni site, iki ayri kural.
+    f = _en_az_kullanilan(kayit.havuz_yayin(konu), baslik)
     if f is None and konu != varsayilan:
-        f = _en_az_kullanilan(kayit.havuz(varsayilan), baslik)
+        f = _en_az_kullanilan(kayit.havuz_yayin(varsayilan), baslik)
     if f is None or not (STATIK / f.dosya.split("/statik/", 1)[-1]).exists():
         # DOSYASI OLMAYAN GORSEL BASILMAZ. Defterde adi gecen bir dosya
         # diskte olmayabilir: editoryal suzgec siklastiginda 49 gorsel

@@ -1465,6 +1465,37 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
 .kart-amblem .amblem-gorsel { max-height: 40%}
 .kart-amblem .amblem-yazi b { font-size: var(--p-s)}
 
+/* KIRPILAN METIN -- "devamı" isareti.
+   --------------------------------------------------------------------
+   `.kirpildi` sinifini `kirpma.js` ekliyor ve YALNIZCA metin gercekten
+   kesildiyse ekliyor. Kosulsuz bir "devamı" yazmak, tamamlanmis bir
+   ozetin altinda olmayan bir sey vaat etmek olurdu.
+
+   Solma (gradyan) metnin son satirini yumusatiyor: sert kesilen bir
+   satir, eksik degil BOZUK gorunuyor.
+   ================================================================== */
+.kirpildi { position: relative}
+.kirpildi::after {
+  content: "…devamı";
+  position: absolute; right: 0; bottom: 0;
+  padding: 0 0 0 var(--b-5);
+  font-size: var(--p-s); font-weight: 600;
+  color: var(--vurgu);
+  /* Solma, metnin ustune degil ARKASINA: yazi okunur kaliyor. */
+  background: linear-gradient(to right,
+    transparent, var(--panel) 40%, var(--panel))}
+/* Kutu rengi farkli olan yerlerde solma da o renkten olmali; yoksa
+   beyaz bir seritle kesiliyor. */
+.kart-yorum .kirpildi::after {
+  background: linear-gradient(to right,
+    transparent, var(--vurgu-zar) 40%, var(--vurgu-zar))}
+.kart-yorum-kaynak .kirpildi::after {
+  background: linear-gradient(to right,
+    transparent, var(--panel-2) 40%, var(--panel-2))}
+.ai-kart-yorum .kirpildi::after {
+  background: linear-gradient(to right,
+    transparent, var(--vurgu-zar) 40%, var(--vurgu-zar))}
+
 /* ====================================================================
    ANA SAYFA MODULU -- beyaz kart + yatay serit
    --------------------------------------------------------------------

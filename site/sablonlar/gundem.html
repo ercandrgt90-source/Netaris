@@ -95,12 +95,12 @@
     {% if h.ai_yorum_kart %}
     <div class="kart-yorum">
       <p class="kart-yorum-etiket">Netaris yorumu</p>
-      <p class="kart-yorum-metin">{{ h.ai_yorum_kart }}</p>
+      <p class="kart-yorum-metin" data-kirpma>{{ h.ai_yorum_kart }}</p>
     </div>
     {% elif h.ozet_kart %}
     <div class="kart-yorum kart-yorum-kaynak">
       <p class="kart-yorum-etiket">{{ h.kurum }}</p>
-      <p class="kart-yorum-metin">{{ h.ozet_kart }}</p>
+      <p class="kart-yorum-metin" data-kirpma>{{ h.ozet_kart }}</p>
     </div>
     {% elif h.neden_kart %}
     {# UCUNCU SECENEK -- ve BILEREK ucuncu.
@@ -129,7 +129,7 @@
        riski yok -- sitenin kendi degerlendirmesi. #}
     <div class="kart-yorum kart-yorum-neden">
       <p class="kart-yorum-etiket">Bu neden kritik?</p>
-      <p class="kart-yorum-metin">{{ h.neden_kart }}</p>
+      <p class="kart-yorum-metin" data-kirpma>{{ h.neden_kart }}</p>
     </div>
     {% endif %}
 

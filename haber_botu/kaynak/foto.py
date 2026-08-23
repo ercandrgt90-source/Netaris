@@ -228,7 +228,18 @@ ISTEK_ARASI = 1.5
 #: Varsayilan 12 -> 6. `HAVUZ_OZEL`de adi gecmeyen havuzlar, haberlerde
 #: dorder kez ya da daha az gecen varliklar: alti gorsel orada zaten
 #: tekrarsiz. Buyuk havuzlar yukarida ayrica tanimli.
-HAVUZ = 6
+# HAVUZ GECICI OLARAK +3.
+#
+# Amac havuzu buyutmek DEGIL, tazelemek: mevcut gorsellerin hepsi eski
+# 800 piksellik tavandan ve medyan genislikleri 960. Hedef yukseltilince
+# `doldur` yeni ve 1600 piksellik adaylar indiriyor; ardindan
+# `foto_tazele.py` en dusuk cozunurluklu olanlari cikarip havuzu eski
+# boyuna donduruyor.
+#
+# Silme SONRA yapiliyor cunku once yerine ne geldigini gormek gerek:
+# once silip sonra indirmek, aday bulunamayan bir konuda havuzu bos
+# birakirdi.
+HAVUZ = 9
 
 #: HAVUZ TALEBE GORE. Konulara esit dagitilmis havuz, carpik talebe
 #: karsi tekrari GARANTI eder: 34 sayfali haberin 19'u jeopolitikti ve
@@ -246,10 +257,10 @@ HAVUZ = 6
 #: haberinde 3 tekrara denk geliyor; okurun bir oturumda gordugu
 #: pencerede bu gorunmuyor.
 HAVUZ_OZEL = {
-    "US": 12, "TR": 12, "FED": 10, "IR": 14, "TCMB": 10, "BRENT": 10,
-    "Jeopolitik": 12, "Enerji": 10,
-    "TUFE_TR": 6, "XAU": 6, "BIST100": 6, "NFP": 6, "CPI_US": 6,
-    "EA": 6, "RU": 6, "CN": 6,
+    "US": 15, "TR": 15, "FED": 13, "IR": 17, "TCMB": 13, "BRENT": 13,
+    "Jeopolitik": 15, "Enerji": 13,
+    "TUFE_TR": 9, "XAU": 9, "BIST100": 9, "NFP": 9, "CPI_US": 9,
+    "EA": 9, "RU": 9, "CN": 9,
 }
 
 #: Ust boyut siniri. Pillow kurulu olmadigi icin yeniden
@@ -261,7 +272,21 @@ HAVUZ_OZEL = {
 #:
 #: Kucuk resim ucu (`thumbnail`) DENENDI ve VAZGECILDI: ayni aramada iki
 #: sonucta 0 bayt ve JPEG olmayan icerik dondu, yani guvenilmez.
-EN_FAZLA_BAYT = 400_000
+# 400 KB -> 750 KB.
+#
+# Tavan 800 piksellik indirmeye gore konmustu. Genislik 1600'e cikinca
+# ayni gorseller 400-600 KB'ye ulasiyor ve ESKI TAVAN ONLARI ELIYORDU:
+# yani cozunurlugu yukselttikten sonra hicbir sey degismeyecekti --
+# yeni ve iyi adaylar sessizce reddedilirdi.
+#
+# Iki sinirdan biri degisince digeri de gozden gecirilmeli; bu depoda
+# ayni sinif "bir ucu duzeltip digerini unutma" hatasi birkac kez
+# cikti.
+#
+# Depo maliyeti gercek ve olculdu: `site/statik/foto` su an 79 MB ve
+# `.git` 189 MB. Bu yuzden yeni gorseller EKLENMIYOR, DUSUK
+# COZUNURLUKLU OLANLARIN YERINE geciyor -- havuz boyu sabit kaliyor.
+EN_FAZLA_BAYT = 750_000
 
 #: EDITORYAL RED. Baslikta bunlardan biri geciyorsa gorsel ALINMAZ.
 #:
@@ -368,6 +393,10 @@ class Foto:
     kunye: str = ""
     #: Gorseli getiren arama terimi. Bkz. kayit yazimi.
     sorgu: str = ""
+    #: Indirilen dosyanin olcusu. Secimde NET olani one almak icin
+    #: tutuluyor; eski kayitlarda olmayabilir, o yuzden varsayilan 0.
+    genislik: int = 0
+    yukseklik: int = 0
 
     @property
     def kisa_atif(self) -> str:
@@ -468,6 +497,10 @@ class Kayit:
     #: kosmuyor. Bu ayrim bir kolaylik degil, lisans metninin kendisi.
     ATIFSIZ = frozenset({"cc0", "pdm"})
 
+    #: Bu genislikten itibaren gorsel kart ve manset yuvalarinda NET.
+    #: 1200: 800 piksellik yuvada 1.5x, retinada kabul edilebilir.
+    NET_GENISLIK = 1200
+
     def havuz_yayin(self, konu: str) -> list["Foto"]:
         """Yayinda kullanilacak havuz -- ATIFSIZ lisanslar oncelikli.
 
@@ -478,8 +511,41 @@ class Kayit:
         Gerekce `sec()` icinde yazili.
         """
         h = self.havuz(konu)
+        if not h:
+            return []
         serbest = [f for f in h if (f.lisans or "").lower() in self.ATIFSIZ]
-        return serbest or h
+
+        # COZUNURLUGU IYI OLANLAR ONCE.
+        # ------------------------------
+        # Olculdu (2026-08-23): havuzdaki 318 gorselin MEDYAN genisligi
+        # 960 piksel ve hicbiri 1200'u gecmiyordu -- indirme tavani
+        # 800'du. Kart yuvasi 800, manset daha genis ve retina ekran iki
+        # kat piksel istiyor; sonuc her gorselin bir tik yumusak
+        # gorunmesiydi.
+        #
+        # Tavan 1600'e cikti. Eski gorseller SILINMIYOR: bir konuda yeni
+        # ve yuksek cozunurluklu aday bulunamazsa havuz bosalirdi ve
+        # sayfa gorselsiz kalirdi. Yerine SIRA kuruldu -- iyi olan
+        # varsa o, yoksa eski.
+        def net(l):
+            return [f for f in l if (f.genislik or 0) >= self.NET_GENISLIK]
+
+        # SIRA: once IKISI BIRDEN, sonra NET, sonra ATIFSIZ, sonra hepsi.
+        # ------------------------------------------------------------
+        # Ilk surumde once lisans suzuluyor, SONRA cozunurluge
+        # bakiliyordu. Sonucu olculdu: XAU havuzunda atifsiz
+        # gorsellerin hepsi 960 piksel oldugu icin net olanlar HIC
+        # degerlendirilmiyordu -- ve ana sayfada cikan bulanik altin
+        # sertifikasi tam olarak o havuzdandi.
+        #
+        # Ikisi cakistiginda COZUNURLUK one aliniyor. Sebep: atif
+        # artik sayfanin altinda tek satir (bkz. `haber.html`), yani
+        # maliyeti kucuk; bulanik bir gorselin maliyeti ise sayfanin
+        # en buyuk ogesinde ve her okurda.
+        for liste in (net(serbest), net(h), serbest, h):
+            if liste:
+                return liste
+        return h
 
     def sec(self, konu: str, tohum: str) -> Foto | None:
         """Konudan belirlenimci secim -- ayni haber her zaman ayni gorseli alir.
@@ -498,11 +564,16 @@ class Kayit:
         Secim havuz DARALSA BILE belirlenimci: ayni haber her zaman ayni
         gorseli aliyor. Tohum ayni, yalnizca liste farkli.
         """
-        h = self.havuz(konu)
-        if not h:
+        # AYNI SUZGEC IKI YERDE TUTULMASIN.
+        # ---------------------------------
+        # Burada lisans suzgeci ELLE tekrarlaniyordu ve `havuz_yayin`
+        # sonradan bir COZUNURLUK tercihi kazandi -- bu yol onu
+        # almadi. Olculdu: havuzun %35'i 1200 piksel ve uzeriyken
+        # yayinda kullanilan gorsellerin yalnizca %10'u oyleydi.
+        # Iki kod yolu ayni karari vermeliyse tek yerde verilmeli.
+        liste = self.havuz_yayin(konu)
+        if not liste:
             return None
-        serbest = [f for f in h if (f.lisans or "").lower() in self.ATIFSIZ]
-        liste = serbest or h
         i = int(hashlib.sha256(tohum.encode("utf-8")).hexdigest(), 16) % len(liste)
         return liste[i]
 
@@ -514,6 +585,51 @@ _SLUG = str.maketrans({
     "ı": "i", "İ": "i", "I": "i", "ş": "s", "Ş": "s", "ğ": "g", "Ğ": "g",
     "ü": "u", "Ü": "u", "ö": "o", "Ö": "o", "ç": "c", "Ç": "c",
 })
+
+
+def _olc(yol) -> tuple[int, int]:
+    """Indirilen gorselin olcusu -- Pillow YOK, baslik okunuyor.
+
+    Bu depoda Pillow bilincli olarak kullanilmiyor; JPEG'in SOF ve
+    PNG'nin IHDR baslıklari olcuyu zaten tasiyor ve okumak birkac
+    bayt. Olculemezse (0, 0) doner ve o kayit "net degil" sayilir --
+    bilinmeyen bir olcuyu iyimser saymak, bulanik gorseli one
+    almak olurdu.
+    """
+    import struct
+    # Sihirli baytlar SAYIYLA yaziliyor. Kaynak dosyaya ham bayt
+    # gomulurse Python 'bytes can only contain ASCII' diyor ve
+    # dosya HIC ACILMIYOR -- modulu ice aktaran her sey duser.
+    PNG_BAS = bytes([0x89]) + b"PNG"
+    JPEG_BAS = bytes([0xFF, 0xD8])
+    ISARET = bytes([0xFF])
+    try:
+        with open(yol, "rb") as f:
+            bas = f.read(8)
+            if bas.startswith(PNG_BAS):
+                f.seek(16)
+                g, y = struct.unpack(">II", f.read(8))
+                return int(g), int(y)
+            if not bas.startswith(JPEG_BAS):
+                return (0, 0)
+            f.seek(2)
+            while True:
+                b = f.read(1)
+                while b and b != ISARET:
+                    b = f.read(1)
+                while b == ISARET:
+                    b = f.read(1)
+                if not b:
+                    return (0, 0)
+                m = b[0]
+                if 0xC0 <= m <= 0xCF and m not in (0xC4, 0xC8, 0xCC):
+                    f.read(3)
+                    y, g = struct.unpack(">HH", f.read(4))
+                    return int(g), int(y)
+                uz = struct.unpack(">H", f.read(2))[0]
+                f.seek(uz - 2, 1)
+    except Exception:
+        return (0, 0)
 
 
 def _dosya_adi(url: str, konu: str, sira: int) -> str:
@@ -945,8 +1061,15 @@ def _tur(konu, kayit, sorgular, mevcut, gorulen, adet, siki_tur) -> int:
             ad = _dosya_adi(url, konu, len(mevcut) + 1)
             (FOTO_KLASORU / ad).write_bytes(g.content)
             gorulen.add(sayfa)
+            # OLCU KAYDA YAZILIYOR.
+            # Secim, net gorseli one aliyor (`Kayit.havuz_yayin`) ve
+            # bunun icin olcu gerekiyor. Dosyayi her seferinde acip
+            # olcmek 318 kayitta 318 dosya acmak olurdu.
+            _g, _y = _olc(FOTO_KLASORU / ad)
             mevcut.append({
                 "dosya": f"/statik/foto/{ad}",
+                "genislik": _g,
+                "yukseklik": _y,
                 "atif": atif,
                 "kunye": f"{s.get('title') or ''} "
                          f"{' '.join(str(t) for t in (s.get('tags') or []))}"[:400],
