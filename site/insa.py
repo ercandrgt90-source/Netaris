@@ -41,6 +41,7 @@ import markdown
 from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 import grafik
+import amblem as _amblem
 import gorsel
 import kivilcim
 # Uretilen kavram gorselleri. Site YALNIZCA diskte hazir olani okuyor;
@@ -511,6 +512,9 @@ class Analiz:
     #: uygun gorsel yoksa bos kalir ve SVG grafige dusulur.
     foto: str = ""
     foto_atif: str = ""
+    #: Sirket amblemi (SVG). Bilanco sayfalarinda stok fotografin
+    #: YERINE geciyor -- bkz. `amblem.py`.
+    amblem_svg: str = ""
 
     @property
     def imzali(self) -> bool:
@@ -1203,8 +1207,26 @@ def analizleri_yukle() -> list[Analiz]:
                 govde=md_html(b.govde_md),
                 sektor=b.al("sektor"),
                 gorsel_svg=gorsel_svg,
-                foto=foto_yol,
-                foto_atif=foto_atif,
+                # STOK FOTOGRAF KALDIRILDI.
+                # Olculdu: 384 bilanco analizinin hepsinde konu
+                # havuzundan gelen bir fotograf vardi ve havuz KONUYA
+                # gore seciyor, sirkete gore degil. "Gayrimenkul"
+                # analizinin ustunde rastgele bir bina duruyordu;
+                # okurun sorusu ("hangi sirket") ile gordugu sey
+                # arasinda bag yoktu.
+                #
+                # Yerine sirket amblemi: BIST kodu + sektor rengi.
+                # Uretilmis bir isaret oldugu icin lisans sorunu yok ve
+                # HICBIR ZAMAN alakasiz olmuyor.
+                #
+                # `foto` alani BOS BIRAKILIYOR, silinmiyor: makro ve
+                # sektor yazilari gibi sirketi olmayan analizlerde
+                # fotograf hala anlamli olabilir.
+                foto="",
+                foto_atif="",
+                amblem_svg=_amblem.amblem(
+                    b.al("kod"), b.al("sirket"), b.al("sektor"),
+                    b.al("donem")),
                 kelime=len(b.govde_md.split()),
                 kaynaklar=tuple(
                     x.strip() for x in b.al("kaynaklar").split(",") if x.strip()

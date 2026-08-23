@@ -29,13 +29,19 @@
    Hepsi duz `<a>`; JavaScript gerekmiyor. Yalnizca "kopyala" dugmesi
    betige bagli ve o da yoksa gorunmuyor.
 #}
-{% macro paylas(baslik, ozet, yol, site_adres, etiket="Bu sayfayı paylaş") %}
+{# `dar=True` -> yazinin BASINDA, kunyenin altinda duran sik bicim.
+   Okur paylasmaya karar verdiginde sayfanin sonuna inmek zorunda
+   kalmasin: karar cogu zaman basligi okur okumaz veriliyor. #}
+{% macro paylas(baslik, ozet, yol, site_adres, etiket="Bu sayfayı paylaş",
+                dar=false) %}
 {% set tam = site_adres ~ yol %}
 {# X siniri 280, adres ~23 sayiliyor -- metin 200'e kirpiliyor.
    Ayni kural worker'daki `paylasBlok` ve `uyelik.js` icinde de var. #}
 {% set metin = (baslik ~ (" — " ~ ozet if ozet else ""))|truncate(200, True, "…") %}
-<section class="sayfa-paylas" aria-labelledby="sp-{{ yol|replace('/', '') }}">
-  <h2 id="sp-{{ yol|replace('/', '') }}" class="sayfa-paylas-bas">{{ etiket }}</h2>
+<section class="sayfa-paylas{% if dar %} sayfa-paylas-dar{% endif %}"
+         aria-labelledby="sp-{{ yol|replace('/', '') }}">
+  <h2 id="sp-{{ yol|replace('/', '') }}" class="sayfa-paylas-bas">{{
+      "Paylaş" if dar else etiket }}</h2>
   {# IKONLAR SATIR ICI SVG.
      Dis kaynaktan ikon yuklemek uc sorun getirir: ek istek, gizlilik
      (ikon sunucusu okuru gorur) ve betik bagimliligi. SVG'ler
@@ -67,7 +73,7 @@
           data-metin="{{ metin }}"
           data-adres="{{ tam }}">
     <svg viewBox="0 0 24 24" aria-hidden="true" width="16" height="16"><path fill="currentColor" d="M18 16.08a2.9 2.9 0 0 0-1.96.77L8.9 12.7a3.3 3.3 0 0 0 0-1.4l7.05-4.11a3 3 0 1 0-.96-2.19c0 .24.03.47.08.7L8.04 9.81a3 3 0 1 0 0 4.38l7.12 4.16c-.05.21-.08.43-.08.65a2.92 2.92 0 1 0 2.92-2.92Z"/></svg>
-    <span>Paylaş</span></button>
+    <span>Diğer</span></button>
   <div class="sayfa-paylas-dugmeler">
     <a class="sp-dugme sp-x" rel="noopener noreferrer" target="_blank"
        href="https://x.com/intent/post?text={{ metin|urlencode }}&url={{ tam|urlencode }}">

@@ -207,6 +207,15 @@
     </p>
     {% endif %}
     {% endif %}
+
+    {# PAYLASIM YAZININ BASINDA.
+       Once sayfanin EN ALTINDAYDI -- kaynakcadan, ilgili haberlerden ve
+       olcum listelerinden sonra. Okur paylasmaya cogu zaman basligi
+       okur okumaz karar veriyor; o anda blok ekranin cok asagisindaydi.
+       Kullanici geri bildirimi: "sosyal medya paylas sekmeleri de
+       haberin altinda olacak, ilk giriste". #}
+    {{ pl.paylas(h.baslik, h.ozet or h.neden_onemli, yol, site.adres,
+                 dar=true) }}
   </header>
 
   <div class="govde">
@@ -887,7 +896,6 @@
     </div>
     {% endif %}
   </div>
-  {{ pl.paylas(h.baslik, h.ozet or h.neden_onemli, yol, site.adres) }}
 
   {# BUNUNLA ILGILI DIGER GELISMELER.
      Arsivden geliyor, uydurulmuyor: ayni varliklara baglanmis ve

@@ -109,7 +109,12 @@
      Altindaki grafik yazinin KENDI rakamlarindan cizilir -- stok gorsel
      degil, icerik. Bu yuzden fotograf grafigin YERINE GECMEZ; grafik
      olmasa temsili bir sey uydurmak yerine hic cizilmiyor. #}
-  {% if a.foto %}
+  {# SIRKET AMBLEMI -- stok fotografin yerine.
+     Gerekce `amblem.py` icinde yazili: konu havuzu SIRKETE gore secim
+     yapamiyor ve 384 sayfada alakasiz bir fotograf duruyordu. #}
+  {% if a.amblem_svg %}
+  <figure class="yazi-gorsel yazi-amblem">{{ a.amblem_svg | safe }}</figure>
+  {% elif a.foto %}
   <figure class="yazi-foto">
     <img src="{{ a.foto }}" alt="" width="1200" height="675"
          decoding="async" fetchpriority="high">

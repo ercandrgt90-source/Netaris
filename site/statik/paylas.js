@@ -198,14 +198,23 @@
 
     var dugmeler = document.querySelectorAll("[data-paylas-yerel]");
     for (var i = 0; i < dugmeler.length; i++) {
-      var d = dugmeler[i];
-      d.hidden = false;
-      /* Baglanti serisi gizleniyor: iki paylasim yolu yan yana
-         durursa okur hangisinin ne yaptigini bilemiyor. */
-      var kap = d.parentNode
-        && d.parentNode.querySelector(".sayfa-paylas-dugmeler");
-      if (kap) kap.hidden = true;
+      dugmeler[i].hidden = false;
     }
+    /* BAGLANTI SERISI ARTIK GIZLENMIYOR.
+       -----------------------------------
+       Burada `kap.hidden = true` vardi: dar ekranda bes ikon gizlenip
+       yerine tek bir "Paylaş" dugmesi kaliyordu. Gerekce "iki paylasim
+       yolu yan yana durursa okur hangisinin ne yaptigini bilemez" idi.
+
+       Kullanici geri bildirimi bunun tersini soyledi: telefonda
+       yalnizca "Paylaş" yaziyor, hicbir sosyal ag gorunmuyor ve
+       okur ne olacagini bilmeden basmak zorunda kaliyor. Isletim
+       sisteminin paylasim sayfasi bir ADIM DAHA ekliyor; ikonlar ise
+       tek dokunusla hedefi belli ediyor.
+
+       Ikisi birlikte duruyor artik: ikonlar dogrudan hedef, yanindaki
+       dugme de "diger uygulamalar" (Instagram gibi web adresi olmayan
+       uygulamalar yalnizca oradan cikiyor). */
   }
 
   document.addEventListener("click", function (o) {

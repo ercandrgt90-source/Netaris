@@ -15,7 +15,9 @@
   <li>
     <a class="kart" href="{{ a.yol }}">
       <span class="kart-gorsel">
-        {% if a.foto %}
+        {# Bilanco analizinde SIRKET AMBLEMI -- bkz. `amblem.py`. #}
+        {% if a.amblem_svg %}<span class="kart-amblem">{{ a.amblem_svg | safe }}</span>
+        {% elif a.foto %}
         {# KART GORSELI ORTA BOY. Etiket zaten `width="400"` diyordu
            ama kaynak dosya 800 pikseldi: olculdu, ana sayfanin
            1,88 MB'inin 1,60 MB'i sekiz gorseldi ve altisi bu kart.

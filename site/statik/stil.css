@@ -1361,6 +1361,53 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
   font-weight: 600;
   color: var(--vurgu)}
 
+/* PAYLASIM -- DAR BICIM (yazinin basinda, kunyenin altinda)
+   Tam bicim sayfanin sonunda bir BOLUM gibi duruyor: kendi basligi,
+   dolgusu ve cercevesi var. Yazinin basinda o agirlik yanlis --
+   burada paylasim bir eylem satiri, bir bolum degil. */
+.sayfa-paylas-dar {
+  margin: var(--b-4) 0 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  display: flex; align-items: center; flex-wrap: wrap;
+  gap: var(--b-2)}
+.sayfa-paylas-dar .sayfa-paylas-bas {
+  margin: 0;
+  font-size: var(--p-s);
+  font-weight: 600;
+  color: var(--yazi-3);
+  text-transform: none;
+  letter-spacing: 0}
+.sayfa-paylas-dar .sayfa-paylas-dugmeler {
+  display: flex; flex-wrap: wrap; gap: var(--b-2)}
+/* Dar bicimde ikon YETER: ad yalnizca ekran okuyucuya kaliyor.
+   Bes ad yan yana yazilinca satir tasiyor ve kunyeden daha genis
+   yer kapliyordu -- oysa X, LinkedIn, WhatsApp ve Telegram ikonlari
+   zaten taniniyor. */
+.sayfa-paylas-dar .sp-dugme { padding: 7px 9px}
+.sayfa-paylas-dar .sp-dugme > span {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;  /* dort-yan: gorsel gizleme kalibi (sr-only) -- dort yan kasitli */
+  clip: rect(0 0 0 0); white-space: nowrap; border: 0}
+
+/* SIRKET AMBLEMI -- bilanco sayfasinin ust gorseli.
+   Fotograf oraninda (16:9) DEGIL daha alcak duruyor: amblem bir
+   fotograf degil, bir baslik levhasi. Tam yukseklik verilse sayfanin
+   en buyuk ogesi olurdu ve asil icerik (rakamlar) asagi inerdi. */
+/* Kart icindeki amblem kartin gorsel yuvasini doldurur. */
+.kart-amblem { display: block; width: 100%; height: 100%}
+.kart-amblem .amblem { display: block; width: 100%; height: 100%;
+  object-fit: cover}
+
+.yazi-amblem { aspect-ratio: 3 / 1; overflow: hidden; border-radius: var(--r)}
+.yazi-amblem .amblem { display: block; width: 100%; height: 100%}
+@media (max-width: 560px) {
+  /* Dar ekranda daha kare: 3:1 bir seritte kod okunamayacak kadar
+     kuculuyordu. */
+  .yazi-amblem { aspect-ratio: 2 / 1; }
+}
+
 /* ------------------------------------------------------------------ arama */
 
 .ara-baglanti {
