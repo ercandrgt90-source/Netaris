@@ -241,6 +241,55 @@ esit(besleme._tarih_coz("9 Eki 2026"), "2026-10-09", "Ekim -- Eylul ile karismaz
 esit(besleme._tarih_coz("5 Mar 2026"), "2026-03-05", "Mart -- Mayis ile karismaz")
 esit(besleme._tarih_coz("5 May 2026"), "2026-05-05", "Mayis -- Mart ile karismaz")
 
+print()
+print("Tarih -- AY ONDE bicimi (FCA)")
+
+# FCA "Thursday, August 20, 2026 - 10:00" yaziyor. Gun-ay sirasi
+# bekleyen son care bunda HICBIR sey yakalamiyordu: yirmi ogenin
+# yirmisi de tarihsiz geliyor, tarihsiz oge "0000-00-00" ile
+# siralanip listenin dibinde kaliyordu. Kaynagi eklemis ama okura
+# hic gostermemis olurduk.
+esit(besleme._tarih_coz("Thursday, August 20, 2026 - 10:00"),
+     "2026-08-20", "gun adiyla baslayan ay-onde bicim")
+esit(besleme._tarih_coz("Friday, February 3, 2025 - 09:15"),
+     "2025-02-03", "tek haneli gun")
+esit(besleme._tarih_coz("December 31, 2026"), "2026-12-31",
+     "gun adi olmadan da cozuluyor")
+esit(besleme._tarih_coz("Monday, August 32, 2026 - 10:00"), "",
+     "olmayan gun BOS doner")
+esit(besleme._tarih_coz("Thursday, Zzzust 20, 2026"), "",
+     "olmayan ay BOS doner")
+
+# Turkce ay adi bu yola DUSMEMELI: Turkce cozucu "20 Ağustos 2026"
+# bicimini zaten isliyor ve iki yol birbirine karismamali.
+esit(besleme._tarih_coz("Perşembe, Ağustos 20, 2026"), "",
+     "Turkce ay Ingilizce yola dusmuyor")
+
+print()
+print("Tarih -- oge govdesine gomulu <time datetime> (ESMA)")
+
+# ESMA beslemesinde tarih ALANI yok: ne pubDate, ne dc:date, ne Atom
+# updated. Tarih, aciklamanin icine KACIRILMIS HTML olarak geliyor.
+# Okunan deger ogenin kendi olusturulma tarihi -- tahmin degil,
+# kaynagin kendi yazdigi sey.
+esit(besleme._govdedeki_tarih(
+     '&lt;time datetime="2026-08-18T15:52:46+02:00"&gt;18 August&lt;/time&gt;'),
+     "2026-08-18", "kacirilmis etiket okunuyor")
+esit(besleme._govdedeki_tarih('<time datetime="2026-01-02T00:00:00Z">'),
+     "2026-01-02", "duz HTML etiketi de okunuyor")
+esit(besleme._govdedeki_tarih(
+     "&lt;time datetime=&quot;2026-03-04T00:00:00Z&quot;"),
+     "2026-03-04", "tirnak da kacirilmis olabilir")
+esit(besleme._govdedeki_tarih("<item><title>x</title></item>"), "",
+     "etiket yoksa BOS doner")
+esit(besleme._govdedeki_tarih('<time class="datetime">18 August</time>'),
+     "", "datetime alani yoksa BOS doner")
+
+# Baska bir etiketin datetime alanina YANLISLIKLA dusmemeli.
+esit(besleme._govdedeki_tarih('<meta datetime="2026-05-05T00:00:00Z">'),
+     "", "time disi etiket okunmuyor")
+
+
 print("\nTarih -- cozulemeyen BOS doner, bugun YAZILMAZ")
 esit(besleme._tarih_coz("31 Nis 2026"), "", "olmayan gun (Nisan 30 cekiyor)")
 esit(besleme._tarih_coz("30 Zzz 2026"), "", "olmayan ay")
@@ -553,6 +602,81 @@ esit(len(_ele([(_A, "2026-04-08"), (_A, "2026-04-08")])), 1,
 esit(len(_ele([("Borsa günü yükselişle tamamladı", "2026-08-20"),
                ("Borsa günü yükselişle tamamladı", "2026-08-21")])), 2,
      "her gun tekrarlanan baslik gunler arasi ELENMIYOR")
+
+print()
+print("Kosullu isaret -- OLU KOSUL YAZILAMAZ")
+
+# `KOSULLU_ISARET` anahtari `_isaret_var` icinde ancak isaret ZATEN
+# eslesince sorulur. Anahtar hicbir konu listesinde gecmiyorsa kosul
+# HIC calismaz -- yani yazan kisi bir tuzagi kapattigini sanir, oysa
+# hicbir sey degismemistir. Ilk yazimda tam bu oldu: "zincir" ve
+# "madenci" icin kosul yazildi, ikisi de isaret listesinde yoktu.
+_tum_isaretler = {i for _, liste in besleme.KONU_ISARETLERI for i in liste}
+_olu = sorted(k for k in besleme.KOSULLU_ISARET if k not in _tum_isaretler)
+esit(_olu, [], "her kosullu anahtar gercek bir isaret")
+
+# Tarama gercekten calisiyor mu -- sessizce bos kume ile gecmesin.
+esit(len(_tum_isaretler) > 100, True,
+     f"isaret taramasi dolu ({len(_tum_isaretler)})")
+esit(len(besleme.KOSULLU_ISARET) >= 3, True,
+     f"kosullu isaret tanimli ({len(besleme.KOSULLU_ISARET)})")
+
+
+print()
+print("Cuzdan/wallet -- kripto ANLAMI baglamdan gelir")
+
+# Olculdu (2026-08-24) ve siteye girdi:
+#     "CÜZDANLAR RAHAT NEFES ALACAK: BİM'DE DEV FIRSAT GÜNLERİ
+#      BAŞLIYOR!"  ->  Kripto varlıklar
+# Market indirim duyurusu, kripto rozetiyle. Kelime siniri bunu
+# COZMEZ: "cuzdanlar" gercekten "cuzdan" ile basliyor.
+esit(besleme.konu_bul(
+     "CÜZDANLAR RAHAT NEFES ALACAK: BİM'DE DEV FIRSAT GÜNLERİ BAŞLIYOR!"),
+     "", "market indirim basligi kripto DEGIL")
+esit(besleme.konu_bul("Apple Wallet adds new payment partners"), "",
+     "odeme cuzdani kripto DEGIL")
+esit(besleme.konu_bul("Cüzdanını kaybeden yolcuya polis yardımı"), "",
+     "kayip cuzdan haberi kripto DEGIL")
+
+# Baglam VARSA yine yakalanmali -- kosul, isareti oldurmemeli.
+esit(besleme.konu_bul("Bitcoin cüzdanından 2 milyar dolar çıkış"),
+     "Kripto varlıklar", "bitcoin baglamiyla cuzdan kripto")
+esit(besleme.konu_bul("Kripto borsası cüzdan güvenliğini artırdı"),
+     "Kripto varlıklar", "kripto baglamiyla cuzdan kripto")
+esit(besleme.konu_bul("Cold wallet demand rises after Ethereum hack"),
+     "Kripto varlıklar", "ethereum baglamiyla wallet kripto")
+
+
+print()
+print("Jeopolitik -- Ingilizce dis politika sozlugu")
+
+# Olculdu (2026-08-24): akis beslemesindeki dort Suriye/Israil basligi
+# konu bulamayip beslemenin varsayilanina -- "Sirket haberleri" --
+# dusuyordu. Diplomasi haberi sirket haberi rozetiyle gorunuyordu.
+esit(besleme.konu_bul(
+     "Syria: immediate priority is Israeli troop pullback to pre-Dec lines"),
+     "Jeopolitik", "troop pullback yakalaniyor")
+esit(besleme.konu_bul(
+     "Syria reaffirms Golan Heights occupied Syrian territory"),
+     "Jeopolitik", "occupied territory yakalaniyor")
+esit(besleme.konu_bul("Truce holds for a second day along the border"),
+     "Jeopolitik", "truce yakalaniyor")
+esit(besleme.konu_bul("Hostage release talks enter final stage"),
+     "Jeopolitik", "hostage yakalaniyor")
+
+# "troops" degil "troop": cogul biçime baglanmis isaret tekili
+# kaciriyordu. Ikisi de gecmeli.
+esit(besleme.konu_bul("Troops deployed to the border"), "Jeopolitik",
+     "cogul hali da geciyor")
+
+# ULKE ADI ISARET DEGIL -- ve olmamali. "Rusya faiz artirdi" bir para
+# politikasi haberi; ulke adini jeopolitik isareti yapmak onu yanlis
+# rafa tasirdi.
+esit(besleme.konu_bul("Rusya merkez bankası faizi sabit tuttu"),
+     "Para politikası", "ulke adi para politikasini bozmuyor")
+esit(besleme.konu_bul("Israeli central bank holds interest rate"),
+     "Para politikası", "yabanci merkez bankasi para politikasi")
+
 
 print(f"\n{_gecti} gecti, {_kaldi} kaldi")
 sys.exit(1 if _kaldi else 0)

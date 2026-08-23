@@ -2,11 +2,20 @@
 
     python yayinla.py
 
-Elle ZIP paketleyip panele surukleme dongusu bitiyor. Betik iki isi
+Elle ZIP paketleyip panele surukleme dongusu bitiyor. Betik bes isi
 sirayla yapiyor:
 
-  1. site/insa.py  -> icerikten HTML uretir
-  2. wrangler deploy -> Cloudflare'e yukler
+  1. depo durumu      -> gonderilmemis commit varsa UYARIR, cunku CI
+                         uzak ucu dagitiyor ve onlari geri alir
+  2. site/insa.py     -> icerikten HTML uretir
+  3. yayin denetimi   -> yer tutucu ve islenmemis etiket arar
+  4. wrangler deploy  -> Cloudflare'e yukler
+  5. canli dogrulama  -> yuklenen yapinin GERCEKTEN yayinda oldugunu
+                         canli sayfadan okuyarak dogrular
+
+1. ve 5. adimlar sonradan eklendi ve sebebi olculdu: canli site otuz
+bir commit geride kalmisti, ikisi de bunu sessizce mumkun kiliyordu
+(bkz. `depo_uyarisi` ve `yayini_dogrula`).
 
 Ilk kullanimdan once bir kez kimlik dogrulamasi gerekiyor:
 
@@ -67,7 +76,7 @@ def _konsol_kodlamasi() -> None:
     """Kendi ciktimizi da kayipsiz DEGIL ama KESINTISIZ yazdirir.
 
     OLCULDU (2026-08-23): canli site 31 commit geride kalmisti. Sebep
-    bu betigin `[1/3]` adiminda COKMESIYDI:
+    bu betigin `[2/5]` adiminda COKMESIYDI:
 
         UnicodeEncodeError: 'charmap' codec can't encode
         character '\\ufffd' ... cp1254
@@ -101,7 +110,7 @@ _konsol_kodlamasi()
 
 
 def insa_et() -> int:
-    print("[1/3] site uretiliyor")
+    print("[2/5] site uretiliyor")
     sonuc = subprocess.run([sys.executable, str(KOK / "insa.py")], cwd=KOK, **_CALISTIR)
     print("  " + "\n  ".join((sonuc.stdout or "").strip().splitlines()))
     if sonuc.returncode:
@@ -110,7 +119,7 @@ def insa_et() -> int:
 
 
 def denetle() -> list[str]:
-    print("[2/3] yayin oncesi denetim")
+    print("[3/5] yayin oncesi denetim")
     bulgular: list[str] = []
     for dosya in CIKTI.rglob("*.html"):
         metin = dosya.read_text(encoding="utf-8")
@@ -122,7 +131,7 @@ def denetle() -> list[str]:
 
 
 def dagit(kuru: bool) -> int:
-    print("[3/3] Cloudflare'e yukleniyor")
+    print("[4/5] Cloudflare'e yukleniyor")
     npx = shutil.which("npx")
     if not npx:
         print("  HATA: npx bulunamadi -- Node.js kurulu mu?")
@@ -226,7 +235,7 @@ def yayini_dogrula(adres: str = "https://netaris.net/") -> int:
     OLCULDU (2026-08-23): canli site otuz bir commit geride
     duruyordu. Iki gunluk tasarim calismasinin hicbiri yayinda
     degildi ve bunu kimse fark etmedi -- cunku "yayinladim" bir
-    NIYETTI, olcum degildi. Yayin betigi `[1/3]` adiminda cokuyor,
+    NIYETTI, olcum degildi. Yayin betigi `[2/5]` adiminda cokuyor,
     wrangler'a hic gelmiyordu.
 
     Bu kontrol o bosluğu kapatiyor: dagitim bittikten sonra canli
@@ -240,7 +249,7 @@ def yayini_dogrula(adres: str = "https://netaris.net/") -> int:
     DOGRULANAMADI yaziyor -- sessiz kalmiyor ama yalan da soylemiyor.
     Yanlis eslesme ise gercek bir olcum; orada donus degeri 1.
     """
-    print("[4/4] canli sayfa dogrulaniyor")
+    print("[5/5] canli sayfa dogrulaniyor")
     try:
         yerel = _surum_izi((CIKTI / "index.html").read_text(encoding="utf-8"))
     except OSError as e:
@@ -279,7 +288,7 @@ def main() -> int:
 
     # DEPO KONTROLU EN BASTA: insa birkac dakika suruyor ve uyari
     # sonda gorunse, kullanici zaten beklemis olurdu.
-    print("[0/4] depo durumu")
+    print("[1/5] depo durumu")
     depo_uyarisi()
 
     if insa_et():

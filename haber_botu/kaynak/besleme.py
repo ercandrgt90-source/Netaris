@@ -99,6 +99,74 @@ BESLEMELER = (
     ("EIA", "EIA", "ABD Enerji Bilgi İdaresi",
      "https://www.eia.gov/rss/todayinenergy.xml", "Enerji", "en", False),
 
+    # --- Resmi, yabanci: IKINCI DALGA -----------------------------------
+    #
+    # NEDEN EKLENDILER
+    # Kaynak sayisi degil, KONU DENGESI sorunluydu. Olculdu
+    # (2026-08-24), 28 beslemenin konu dagilimi:
+    #
+    #     Sirket haberleri 12 | Para politikasi 7 | Kripto 4
+    #     Duzenleme 2 | Borsa 2 | Enerji 1
+    #     Bankacilik 0 | Dis ticaret 0 | Jeopolitik 0
+    #
+    # Yani sitenin tanimladigi on yedi konudan ucu HIC beslenmiyordu.
+    # Bir konunun sayfasi var ama haberi yoksa, okur bos rafla
+    # karsilasiyor -- kripto tarafinda yasananin aynisi.
+    #
+    # NEDEN HEPSI RESMI KURUM
+    # Ucu birden ayni anda saglaniyor: (1) ucretsiz ve surekli,
+    # (2) `ticari=False`, yani kunye/280 karakter kisitina girmiyor,
+    # (3) birincil kaynak -- ikinci elden aktarim degil. Ticari
+    # yayinlar bu uclusunun hicbirini vermiyor.
+    #
+    # HEPSI YOKLANDI (2026-08-24): robots.txt besleme yolunu
+    # engellemiyor, adres 200 donuyor ve oge tasiyor. Yoklamada
+    # BIS ELENDI -- `bis.org/robots.txt` doclist yolunu engelliyor;
+    # calisiyor olmasi kullanabilecegimiz anlamina gelmez.
+    #
+    # Elenen digerleri teknik sebeple: IMF, OECD, BLS, OPEC, RBA,
+    # USDA, FERC 403 donuyor; IEA, Eurostat, Bundesbank, Norges Bank,
+    # Dunya Bankasi RSS ucunu kaldirmis (404).
+    #
+    # ALINMAYANLAR, EDITORYAL SEBEPLE
+    # Bank of Canada, Riksbank ve Hindistan Merkez Bankasi calisiyor
+    # ama alinmadi: para politikasi zaten en kalabalik konu ve bu
+    # ucunun karari Turk okurun portfoyune degmiyor. NOAA ve BM
+    # kalkinma akisi da calisiyor; ikisi de piyasaya deymeyen
+    # gundem tasiyor. Kaynak eklemek serbest, GURULTU eklemek degil.
+    ("BOE", "BoE", "İngiltere Merkez Bankası",
+     "https://www.bankofengland.co.uk/rss/news", "Para politikası", "en", False),
+    ("BOJ", "BoJ", "Japonya Merkez Bankası",
+     "https://www.boj.or.jp/en/rss/whatsnew.xml", "Para politikası", "en", False),
+    # BANKACILIK KONUSU HALA BESLEMESIZ -- ve bilerek.
+    #
+    # Avrupa Bankacilik Otoritesi (eba.europa.eu/rss.xml) yoklandi:
+    # calisiyor, robots.txt engellemiyor, tarih alani duzgun. Ama on
+    # ogenin SEKIZI "EBA E-mail alert 6 August, 2026" kalibinda -- bu
+    # bir haber degil, bulten listesi. Baslikta ne karar var ne konu.
+    #
+    # Bos bir konuyu doldurmak icin gurultu eklemek, konuyu bos
+    # birakmaktan kotudur: okur rafi dolu gorup aciyor ve iceride
+    # okunacak sey bulamiyor. Bankacilik icin ICERIK tasiyan bir
+    # kaynak bulunana kadar besleme eklenmiyor.
+    ("ESMA", "ESMA", "Avrupa Menkul Kıymetler ve Piyasalar Otoritesi",
+     "https://www.esma.europa.eu/rss.xml", "Düzenleme", "en", False),
+    ("FCA", "FCA", "Birleşik Krallık Finansal Davranış Otoritesi",
+     "https://www.fca.org.uk/news/rss.xml", "Düzenleme", "en", False),
+    # Dis ticaret konusunun ILK iki beslemesi. Gumruk vergisi
+    # haberleri 2026 boyunca piyasayi dogrudan hareket ettirdi ve
+    # bizde birincil kaynagi yoktu.
+    ("WTO", "DTÖ", "Dünya Ticaret Örgütü",
+     "https://www.wto.org/library/rss/latest_news_e.xml",
+     "Dış ticaret", "en", False),
+    ("USTR", "USTR", "ABD Ticaret Temsilciliği",
+     "https://ustr.gov/rss.xml", "Dış ticaret", "en", False),
+    # Enerjinin tek beslemesi EIA idi ve o VERI kurumu -- politika
+    # tarafini yazmiyor. DOE arz kararlarini ve santral/sebeke
+    # mudahalelerini duyuruyor.
+    ("DOE", "DOE", "ABD Enerji Bakanlığı",
+     "https://www.energy.gov/rss/articles.xml", "Enerji", "en", False),
+
     # --- Kuresel makro akis ---
     #
     # FinancialJuice, sitesinde RSS baglantisini KENDISI yayimliyor
@@ -448,8 +516,25 @@ KONU_ISARETLERI = (
      # kaliplarin hicbirine takilmiyordu. Olculdu: Yemen/Husi ve Kuzey
      # Kore basliklari "Sirket haberleri" olarak siniflaniyordu.
      "houthi", "missile launch", "armed forces", "warplane", "drone strike",
-     "troops", "militar", "attack on", "killed in", "war ", "warns against",
+     # "troops" DEGIL "troop": cogul biçime baglanmis isaret, "troop
+     # pullback" ve "troop withdrawal" basliklarini KACIRIYORDU.
+     "troop", "militar", "attack on", "killed in", "war ", "warns against",
      "retaliat", "escalat", "nuclear", "peace talks", "hostilit",
+     # DIS POLITIKA SOZLUGU -- olculdu (2026-08-24), akis beslemesinde
+     # dort Suriye/Israil basligi konu bulamayip "Sirket haberleri"ne
+     # dusmustu. Ornekler:
+     #   "Syria: immediate priority is Israeli troop pullback..."
+     #   "Syria reaffirms Golan Heights occupied Syrian territory"
+     #
+     # ULKE ADI EKLENMEDI ve bu bilincli. "Rusya faiz artirdi" bir para
+     # politikasi haberi; ulke adini isaret yapmak onu jeopolitige
+     # tasirdi. Buraya yalnizca EYLEM ve DURUM sozcukleri giriyor --
+     # hangi ulkede oldugundan bagimsiz olarak dis politika anlatan
+     # kelimeler.
+     "occupied territor", "occupied syrian", "annex", "truce", "hostage",
+     "golan", "west bank", "border clash", "pullback", "withdrawal of",
+     "de-escalat", "diplomatic tension", "airspace violation",
+     "peace deal", "arms deal", "war crime",
     )),
     # DIKKAT -- yalin "altin" ve "gold" YAZILMAZ. Olculdu:
     #   "toprağın ALTINDA kalan heykel" -> Altin      ("altinda")
@@ -645,7 +730,71 @@ def _tarih_coz(ham: str) -> str:
             return d.date().isoformat()
         except ValueError:
             pass
+
+    # "Thursday, August 20, 2026 - 10:00" -- FCA
+    #
+    # AY ONDE, GUN ARKADA. Yukaridaki son care gun-ay sirasi bekliyor
+    # ve bu bicimde HICBIR sey yakalamiyor; FCA'nin yirmi ogesinin
+    # yirmisi de tarihsiz geliyordu. Tarihsiz oge "0000-00-00" ile
+    # siralaniyor, yani toplaniyor ama LISTENIN DIBINDE kaliyor --
+    # kaynagi eklemis ama hic gostermemis olurduk.
+    #
+    # `strptime` ile `%B` KULLANILMIYOR: ay adini sistemin diline gore
+    # cozuyor ve Turkce yapilandirilmis bir makinede "August" hata
+    # veriyor. Ayni tuzak TCMB tarihlerinde de yasandi (bkz. yukarisi);
+    # ay adi ELDE eslestiriliyor.
+    m = re.search(r"([^\W\d_]+)\s+(\d{1,2}),\s*(\d{4})", ham)
+    if m:
+        ay = _INGILIZCE_AYLAR.get(m.group(1).lower()[:3])
+        if ay:
+            try:
+                return date(int(m.group(3)), ay, int(m.group(2))).isoformat()
+            except ValueError:      # 31 Nisan gibi olmayan gun
+                return ""
     return ""
+
+
+#: Ay adi ELDE eslestiriliyor -- `%B` sistemin diline bagli.
+_INGILIZCE_AYLAR = {
+    "jan": 1, "feb": 2, "mar": 3, "apr": 4, "may": 5, "jun": 6,
+    "jul": 7, "aug": 8, "sep": 9, "oct": 10, "nov": 11, "dec": 12,
+}
+
+#: HTML `<time datetime="...">` -- oge govdesine gomulu makine tarihi.
+#:
+#: ETIKET KACIRILMIS DA OLABILIR. Aciklama alani XML icinde metin
+#: oldugu icin `<` genellikle `&lt;` diye geliyor -- ESMA'da tam olarak
+#: oyle. Yalnizca duz `<time` arayan ilk surum, duzeltmeye calistigi
+#: beslemede HICBIR SEY bulmuyordu.
+_GOVDE_TARIHI = re.compile(
+    r"(?:<|&lt;)time\b[^>]{0,300}?datetime=(?:\"|&quot;|')(\d{4}-\d{2}-\d{2})")
+
+
+def _govdedeki_tarih(blok: str) -> str:
+    """Oge govdesine gomulu `<time datetime>` degerini okur.
+
+    NEDEN GEREKLI
+    -------------
+    ESMA beslemesinde tarih alani HIC YOK: ne `pubDate`, ne `dc:date`,
+    ne Atom `updated`. Tarih, aciklamanin ICINE kacilmis HTML olarak
+    geliyor:
+
+        &lt;time datetime="2026-08-18T15:52:46+02:00"&gt;18 August 2026&lt;/time&gt;
+
+    NEDEN TAHMIN DEGIL
+    ------------------
+    Bu deger ogenin KENDI olusturulma tarihi -- kaynagin yazdigi sey.
+    "Cozulemezse bugunu yaz" yaklasimindan farki tam olarak bu:
+    burada okunan bir olcum var, uydurulan bir gun degil. Bulunamazsa
+    yine BOS donuyor; `_tarih_coz`un kurali bozulmuyor.
+
+    NEDEN GENEL, ESMA'YA OZEL DEGIL
+    -------------------------------
+    `<time datetime>` bir HTML standardi; ayni kaciris bicimini
+    kullanan her beslemede calisir. Kaynak adina bakan tek satir yok.
+    """
+    e = _GOVDE_TARIHI.search(blok)
+    return e.group(1) if e else ""
 
 
 #: DUNYA isaretleri -- baslikta yabanci bir ulke ya da kurum geciyorsa
@@ -893,6 +1042,39 @@ KOSULLU_ISARET: dict[str, tuple[str, ...]] = {
         "abd", "ab ", "rusya", "iran", "cin", "kuzey kore", "venezuela",
         "suriye", "petrol", "silah", "ulkeye", "ihracat", "ithalat",
     ),
+    # "CUZDAN" TURKCEDE ONCE PARA CUZDANIDIR.
+    #
+    # Olculdu (2026-08-24), kripto isaretleri eklendikten sonraki ilk
+    # toplamada siteye su girdi:
+    #
+    #     "CÜZDANLAR RAHAT NEFES ALACAK: BİM'DE DEV FIRSAT GÜNLERİ
+    #      BAŞLIYOR!"  ->  Kripto varlıklar
+    #
+    # Market indirim duyurusu, kripto rozetiyle. Kelime sinirini
+    # eklemek bunu COZMEZ: "cuzdanlar" gercekten "cuzdan" ile
+    # basliyor -- sorun sinirda degil, isaretin KENDISINDE. Kripto
+    # anlamini tasiyan sey "cuzdan" degil, yanindaki baglam.
+    #
+    # Ingilizcesi de ayni sinifta: "wallet" once ODEME cuzdanidir --
+    # "Apple Wallet", "mobile wallet", "digital wallet" hepsi odeme
+    # haberi. Kripto anlamini veren sey kelimenin kendisi degil,
+    # yanindaki baglam.
+    #
+    # KOSUL LISTESI YALNIZCA VAR OLAN ISARETLERE YAZILIR: burada
+    # anahtar olarak yazilan dizge `KONU_ISARETLERI` icinde gecmiyorsa
+    # kosul HIC SORULMAZ ve olu kod olur. Sinama bunu tutuyor.
+    "cuzdan": (
+        "bitcoin", "btc", "ethereum", "eth", "kripto", "crypto", "token",
+        "blockchain", "blok zincir", "coin", "soguk cuzdan",
+        "donanim cuzdan", "metamask", "ledger", "stablecoin", "defi",
+        "nft", "altcoin",
+    ),
+    "wallet": (
+        "bitcoin", "btc", "ethereum", "eth", "kripto", "crypto", "token",
+        "blockchain", "coin", "cold wallet", "hardware wallet",
+        "metamask", "ledger", "stablecoin", "defi", "nft", "altcoin",
+        "on-chain", "web3",
+    ),
 }
 
 
@@ -1061,11 +1243,14 @@ def _ogeler(xml: str) -> list[dict]:
                 re.search(r"<dc:date[^>]*>(.*?)</dc:date>", blok, re.S)
             if not baslik or not adres:
                 continue
+            cozulen = _tarih_coz(_metin(tarih.group(1))) if tarih else ""
+            if not cozulen:
+                cozulen = _govdedeki_tarih(blok)
             sonuc.append({
                 "baslik": _metin(baslik.group(1)),
                 "adres": _metin(adres.group(1)),
                 "ozet": _metin(ozet.group(1)) if ozet else "",
-                "tarih": _tarih_coz(_metin(tarih.group(1))) if tarih else "",
+                "tarih": cozulen,
             })
     return sonuc
 

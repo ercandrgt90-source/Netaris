@@ -2,12 +2,21 @@
   "guncelleme": "2026-08-23",
   "kaynaklar": [
     "AA",
+    "BoE",
+    "BoJ",
     "CNN Türk",
+    "CoinDesk",
+    "Cointelegraph",
+    "DOE",
+    "DTÖ",
+    "Decrypt",
     "Dünya",
     "ECB",
     "EIA",
+    "ESMA",
     "Ekonomim",
     "Ekonomist",
+    "FCA",
     "Fed",
     "FinancialJuice",
     "Habertürk",
@@ -15,11 +24,34 @@
     "SEC",
     "Sabah",
     "TCMB",
-    "TRT Haber"
+    "TRT Haber",
+    "The Block",
+    "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 22,
+  "yorumlanan": 20,
   "haberler": [
+    {
+      "baslik": "TEKNOROB Robot, kapasitesini teknoloji ve ihracatla büyütüyor",
+      "baslik_kaynak": "TEKNOROB Robot, kapasitesini teknoloji ve ihracatla büyütüyor",
+      "ozet": "TEKNOROB Robot ve Otomasyon Teknolojileri, otomotiv sektöründeki güçlü ihracat başarısını Avrupa pazarındaki stratejik yatırımlarıyla bir adım öteye taşıyor. Şirket, Romanya’da önemli bir hamleye imza attı ve Pitești şehrinde kurduğu TROB yapılanmasıyla Avrupa pazarındaki varlığını pekiştirdi.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.ekonomim.com/ekonomi/teknorob-robot-kapasitesini-teknoloji-ve-ihracatla-buyutuyor-haberi-913800",
+      "kurum": "Ekonomim",
+      "kurum_tam": "Ekonomim",
+      "konu": "Dış ticaret",
+      "tarih": "2026-08-24",
+      "tarih_gorunur": "24 Ağustos 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/dis-ticaret-9-9686a70e.jpg",
+      "foto_atif": "Huhu Uet · CC-BY-SA-4.0"
+    },
     {
       "baslik": "Türk Lirası Likidite Yönetimine İlişkin Basın Duyurusu (2026-35)",
       "baslik_kaynak": "Türk Lirası Likidite Yönetimine İlişkin Basın Duyurusu (2026-35)",
@@ -38,8 +70,123 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/bankacilik-8.jpg",
+      "foto": "/statik/foto/bankacilik-7-8f64866b.jpg",
       "foto_atif": "Artaxerxes · CC-BY-SA-4.0"
+    },
+    {
+      "baslik": "Suriye: Acil öncelik, 8 Aralık 2024 öncesi İsrail askerlerinin geri çekilmesi, 1974'teki çekilme anlaşmasının tam olarak uygulanması - Suriye devlet haber ajansı",
+      "baslik_kaynak": "Syria: immediate priority is Israeli troop pullback to pre-Dec. 8, 2024 lines, full execution of 1974 disengagement agreement - Syrian state news agency",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9732767/Syria-immediate-priority-is-Israeli-troop-pullback-to-pre-Dec-8-2024-lines-full-execution-of-1974-disengagement-agreement---Syrian-state-news-agency.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Jeopolitik",
+      "tarih": "2026-08-23",
+      "tarih_gorunur": "23 Ağustos 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
+      "kanallar": [
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-18-d6206fae.jpg",
+      "foto_atif": "United Nation · PDM"
+    },
+    {
+      "baslik": "Suriye, Golan Tepeleri'nin işgal altındaki Suriye topraklarını yeniden doğruladı: devlet haber ajansı nihai statü zamansızlığını tartışıyor",
+      "baslik_kaynak": "Syria reaffirms Golan Heights occupied Syrian territory: discussing final status premature - state news agency",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9732764/Syria-reaffirms-Golan-Heights-occupied-Syrian-territory-discussing-final-status-premature---state-news-agency.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Jeopolitik",
+      "tarih": "2026-08-23",
+      "tarih_gorunur": "23 Ağustos 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
+      "kanallar": [
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-36-7cb6152c.jpg",
+      "foto_atif": "Captain Albert E. Theberge, NOAA Corps (ret.) · PDM"
+    },
+    {
+      "baslik": "Suriye devlet haber ajansı: Tartışmalar İsrail saldırılarını, tutuklamalarını ve hedef alma operasyonlarını durdurmak için yöntemler oluşturmaya odaklanıyor",
+      "baslik_kaynak": "Discussions focus on creating methods to stop Israeli strikes, arrests and targeting operations: Syrian state news agency",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9732760/Discussions-focus-on-creating-methods-to-stop-Israeli-strikes-arrests-and-targeting-operations-Syrian-state-news-agency.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Şirket haberleri",
+      "tarih": "2026-08-23",
+      "tarih_gorunur": "23 Ağustos 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/sirket-haberleri-18-3ea88e13.jpg",
+      "foto_atif": "Basile Morin · CC-BY-SA-4.0"
+    },
+    {
+      "baslik": "İsrail'in son saldırılarının ardından gerilimi hafifletme çabalarının bir parçası olarak İsrail heyetiyle Suriye toplantısı düzenlendi: açıklama",
+      "baslik_kaynak": "Syrian meeting with Israeli delegation held as part of efforts to ease tensions after recent Israeli strikes: statement",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9732759/Syrian-meeting-with-Israeli-delegation-held-as-part-of-efforts-to-ease-tensions-after-recent-Israeli-strikes-statement.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Şirket haberleri",
+      "tarih": "2026-08-23",
+      "tarih_gorunur": "23 Ağustos 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/sirket-haberleri-18-3ea88e13.jpg",
+      "foto_atif": "Basile Morin · CC-BY-SA-4.0"
+    },
+    {
+      "baslik": "Suriye dışişleri bakanı ve istihbarat şefleri Ürdün'deki üst düzey İsrail heyetiyle ABD arabuluculuğunda görüşmelerde bulundu: Suriye devlet haber ajansı",
+      "baslik_kaynak": "Syrian foreign minister, intelligence chiefs hold talks with senior Israeli delegation in Jordan with U.S. mediation: Syrian state news agency",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9732758/Syrian-foreign-minister-intelligence-chiefs-hold-talks-with-senior-Israeli-delegation-in-Jordan-with-US-mediation-Syrian-state-news-agency.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Şirket haberleri",
+      "tarih": "2026-08-23",
+      "tarih_gorunur": "23 Ağustos 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/sirket-haberleri-7-0e2a9249.jpg",
+      "foto_atif": "Myotus · CC-BY-SA-4.0"
     },
     {
       "baslik": "İsrail konusunda AB: E1 bölgesi de dahil olmak üzere Batı Şeria'daki yerleşimler uluslararası hukuka göre yasa dışı",
@@ -52,15 +199,20 @@
       "adres": "https://www.financialjuice.com/News/9732755/EU-on-Israel-settlements-in-West-Bank-including-E1-area-illegal-under-international-law.aspx?xy=rss",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
-      "konu": "Şirket haberleri",
+      "konu": "Jeopolitik",
       "tarih": "2026-08-23",
       "tarih_gorunur": "23 Ağustos 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-8.jpg",
-      "foto_atif": "Myotus · CC-BY-SA-4.0"
+      "yorumlanir": true,
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
+      "kanallar": [
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-14-4ca6b4fe.jpg",
+      "foto_atif": "Bernard Gagnon · CC0"
     },
     {
       "baslik": "İsrail'in E1 Batı Şeria yerleşim planına ilişkin AB yüksek temsilcisi: hükümeti ihaleyi geri çekmeye, E1 gelişimini askıya almaya çağırıyor",
@@ -73,15 +225,20 @@
       "adres": "https://www.financialjuice.com/News/9732754/EU-high-representative-on-Israels-E1-West-Bank-settlement-plan-urges-government-to-retract-tender-suspend-E1-development.aspx?xy=rss",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
-      "konu": "Şirket haberleri",
+      "konu": "Jeopolitik",
       "tarih": "2026-08-23",
       "tarih_gorunur": "23 Ağustos 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-6.jpg",
-      "foto_atif": "Declan M Martin · PDM"
+      "yorumlanir": true,
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
+      "kanallar": [
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-18-d6206fae.jpg",
+      "foto_atif": "United Nation · PDM"
     },
     {
       "baslik": "Hugging Face, en az 13 milyar $ değerinde bir anlaşma için birleşme ve satın alma faiziyle karşı karşıya: Business Insider",
@@ -101,8 +258,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-10-91cb7af0.jpg",
-      "foto_atif": "Myotus · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-16-dfb346f6.jpg",
+      "foto_atif": "Stephen Craven · CC-BY-SA-2.0"
     },
     {
       "baslik": "Kazakistan'ın cumhurbaşkanlığı yanlısı partisi Adilet erken seçimde büyük çoğunluğu güvence altına aldı: sandık çıkış anketleri",
@@ -122,8 +279,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-12-e8df73ea.jpg",
-      "foto_atif": "Basile Morin · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-12-22856bbd.jpg",
+      "foto_atif": "Diliff · CC-BY-SA-3.0"
     },
     {
       "baslik": "İsrail: Başbakanlık ofisi insansız hava araçları, balonlar ve uçurtmalar fırlatmak için kullanılan Gazze bölgelerinden tahliye emri verecek",
@@ -143,8 +300,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-8.jpg",
-      "foto_atif": "Myotus · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-8-9a709a75.jpg",
+      "foto_atif": "Sixflashphoto · CC-BY-SA-4.0"
     },
     {
       "baslik": "İsrail Hamas'ı uyardı: İnsansız hava aracı, balon ve uçurtma fırlatmaları devam ederse Gazze saldırıları artacak",
@@ -161,16 +318,16 @@
       "tarih": "2026-08-23",
       "tarih_gorunur": "23 Ağustos 2026",
       "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişmeler piyasaya doğrudan değil, arz riski ve risk iştahı üzerinden geçer. Türkiye için ana kanal enerji faturası ve risk primidir.",
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
       "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa petrol ve doğal gaz fiyatına risk primi eklenir. Türkiye net enerji ithalatçısı olduğu için bu, cari işlemler dengesine doğrudan yazılır.",
-        "Risk iştahı: belirsizlik arttığında gelişmekte olan ülke varlıklarından çıkış görülebilir; ülke risk primi ve borçlanma maliyeti yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat pazarlarının bileşimini değiştirir; etki sektörün o pazara bağımlılığı kadardır.",
-        "Güvenli liman talebi: altın ve dolar talebi değişebilir; yönü ve büyüklüğü olayın ne kadarının önceden fiyatlandığına bağlıdır."
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
       ],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/jeopolitik-8.jpg",
-      "foto_atif": "Press Information Department · PDM"
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-14-4ca6b4fe.jpg",
+      "foto_atif": "Bernard Gagnon · CC0"
     },
     {
       "baslik": "Zelenskiy: Ukrayna, Kuzey Akımı boru hattı patlamalarına asla karışmadı, soruşturmayla işbirliği yaptı",
@@ -190,8 +347,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-11-68a4355e.jpg",
-      "foto_atif": "Myotus · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-11-5c2f88fc.jpg",
+      "foto_atif": "Bill Boaden · CC-BY-SA-2.0"
     },
     {
       "baslik": "Umman'ın net petrol geliri 2026'nın 2. çeyreğinde yıllık bazda %10 artarak 3,3 milyar umman riyaline yükseldi: Umman devlet haber ajansı",
@@ -211,8 +368,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enerji-10-116cf321.jpg",
-      "foto_atif": "Djmaschek · CC-BY-SA-3.0"
+      "foto": "/statik/foto/enerji-11-a5cdd29f.jpg",
+      "foto_atif": "W.carter · CC0"
     },
     {
       "baslik": "Devlet medyası: İran'ın petrol bakanı Fars eyaletinin güneyindeki sahada 7,5 trilyon metreküpten fazla gaz keşfetti",
@@ -232,8 +389,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enerji-7.jpg",
-      "foto_atif": "duggar11 · CC-BY-2.0"
+      "foto": "/statik/foto/enerji-11-a5cdd29f.jpg",
+      "foto_atif": "W.carter · CC0"
     },
     {
       "baslik": "Zelenskiy: Ukrayna savunma bakanlığı bu yıl 27 milyar $ finansman açığıyla karşı karşıya",
@@ -253,8 +410,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-10-91cb7af0.jpg",
-      "foto_atif": "Myotus · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-16-dfb346f6.jpg",
+      "foto_atif": "Stephen Craven · CC-BY-SA-2.0"
     },
     {
       "baslik": "Çin dışişleri bakanlığı: Dışişleri bakan yardımcısı 17 Ağustos'ta Pekin'de İran milletvekiliyle bir araya geldi - açıklama",
@@ -274,8 +431,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-10-91cb7af0.jpg",
-      "foto_atif": "Myotus · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-10-72a9566a.jpg",
+      "foto_atif": "Larry D. Moore · CC-BY-4.0"
     },
     {
       "baslik": "Dışişleri Bakanı, Suriye'nin güvenlik anlaşmasıyla ilgili İsrail'le müzakerelerin kısa süre içinde yeniden başlamasını beklediğini söyledi",
@@ -295,7 +452,7 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-11-68a4355e.jpg",
+      "foto": "/statik/foto/sirket-haberleri-8-ed7b45c9.jpg",
       "foto_atif": "Myotus · CC-BY-SA-4.0"
     },
     {
@@ -316,8 +473,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-10-91cb7af0.jpg",
-      "foto_atif": "Myotus · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-7-8b52fc2e.jpg",
+      "foto_atif": "DXR · CC-BY-SA-4.0"
     },
     {
       "baslik": "Shaibani: Suriye diplomasi için elini uzatıyor, İsrail'i tarihi fırsatı yakalamaya çağırıyor",
@@ -337,8 +494,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-9-dc4edf22.jpg",
-      "foto_atif": "Myotus · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-15-c1626940.jpg",
+      "foto_atif": "Gkbediako · CC-BY-SA-4.0"
     },
     {
       "baslik": "Shaibani: Suriye şu anda İsrail'e güvenmiyor; öncelik İsrail'in saldırılarını durdurmak",
@@ -358,8 +515,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enflasyon-5.jpg",
-      "foto_atif": "999real · CC0"
+      "foto": "/statik/foto/enflasyon-7-87d51a9b.jpg",
+      "foto_atif": "safaritravelplus · CC0"
     },
     {
       "baslik": "Suriye'de Şabani: 18 Ağustos'taki hava üssü saldırısının ardından İsrail'le temaslar kesildi",
@@ -379,8 +536,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-9-dc4edf22.jpg",
-      "foto_atif": "Myotus · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-12-22856bbd.jpg",
+      "foto_atif": "Diliff · CC-BY-SA-3.0"
     },
     {
       "baslik": "İran Dışişleri Bakanlığı Sözcüsü: Pakistan Genelkurmay Başkanı pazartesi Tahran'ı ziyaret edecek",
@@ -400,8 +557,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-9-dc4edf22.jpg",
-      "foto_atif": "Myotus · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-12-22856bbd.jpg",
+      "foto_atif": "Diliff · CC-BY-SA-3.0"
     },
     {
       "baslik": "Trump: Kanada yıllardır çiftçilerimize devasa gümrük vergileri uyguluyor",
@@ -421,8 +578,155 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/dis-ticaret-11-6762ae40.jpg",
-      "foto_atif": "Belfast Dissenter · CC-BY-SA-4.0"
+      "foto": "/statik/foto/dis-ticaret-11-d3b27589.jpg",
+      "foto_atif": "Niels Johannes · CC-BY-SA-4.0"
+    },
+    {
+      "baslik": "DeFi kredi protokolü Term Finance, yönetişim istismarından tahmini 8,5 milyon $ kaybetti",
+      "baslik_kaynak": "DeFi lending protocol Term Finance loses an estimated $8.5 million to governance exploit",
+      "ozet": "Term vault proposals face a seven-day delay and can be vetoed by liquidity providers, yet those controls apparently did not stop the exploit.",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.theblock.co/news/defi/2026-08-23-defi-lending-protocol-term-finance-loses-an-estimated-8-5-million-to-governance-exploit-412543",
+      "kurum": "The Block",
+      "kurum_tam": "The Block",
+      "konu": "Kripto varlıklar",
+      "tarih": "2026-08-23",
+      "tarih_gorunur": "23 Ağustos 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/kripto-varliklar-8-8b36c240.jpg",
+      "foto_atif": "de Vries, Alex; Stoll, Christian · PDM"
+    },
+    {
+      "baslik": "Tether'in 120 milyon $ değerindeki Uruguay Bitcoin madenciliği projesi, elektrik anlaşmazlığı nedeniyle çöktü: Reuters",
+      "baslik_kaynak": "Tether’s $120 million Uruguay bitcoin mining project collapsed over a power contract dispute: Reuters",
+      "ozet": "UTE cut power to Tether's mining sites in July 2025 after Tether representatives did not attend the signing of a revised contract, per the report.",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.theblock.co/news/business/2026-08-23-tethers-120-million-uruguay-bitcoin-mining-project-collapsed-over-a-power-contract-dispute-reuters-412536",
+      "kurum": "The Block",
+      "kurum_tam": "The Block",
+      "konu": "Kripto varlıklar",
+      "tarih": "2026-08-23",
+      "tarih_gorunur": "23 Ağustos 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/kripto-varliklar-8-8b36c240.jpg",
+      "foto_atif": "de Vries, Alex; Stoll, Christian · PDM"
+    },
+    {
+      "baslik": "Kripto Regülasyonu burada: Kriptonun Durumu",
+      "baslik_kaynak": "Regulation Crypto is here: State of Crypto",
+      "ozet": "The SEC published its Reg Crypto proposal last week, giving the public 60 days to comment.",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.coindesk.com/policy/2026/08/23/regulation-crypto-is-here-state-of-crypto",
+      "kurum": "CoinDesk",
+      "kurum_tam": "CoinDesk",
+      "konu": "Kripto varlıklar",
+      "tarih": "2026-08-23",
+      "tarih_gorunur": "23 Ağustos 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/kripto-varliklar-8-8b36c240.jpg",
+      "foto_atif": "de Vries, Alex; Stoll, Christian · PDM"
+    },
+    {
+      "baslik": "Hazine geri alımının \"eğri kontrolü\" umutlarını teşvik etmesiyle XRP, 21 ayın en büyük haftalık kazancını elde etme yolunda ilerliyor",
+      "baslik_kaynak": "XRP on track for biggest weekly gain in 21 months as Treasury buyback spurs 'curve control' hopes",
+      "ozet": "XRP’s price has surged by 50% this week, the best performance since November 2024. Here's what's driving the rally.",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.coindesk.com/markets/2026/08/23/xrp-on-track-for-biggest-weekly-gain-in-21-months-as-treasury-buyback-spurs-curve-control-hopes",
+      "kurum": "CoinDesk",
+      "kurum_tam": "CoinDesk",
+      "konu": "Kripto varlıklar",
+      "tarih": "2026-08-23",
+      "tarih_gorunur": "23 Ağustos 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/kripto-varliklar-8-8b36c240.jpg",
+      "foto_atif": "de Vries, Alex; Stoll, Christian · PDM"
+    },
+    {
+      "baslik": "Stablecoin'ler günlük alımlara girerken kripto kart harcamaları 1 milyar $'ı aştı",
+      "baslik_kaynak": "Crypto card spending tops $1 billion as stablecoins move into everyday purchases",
+      "ozet": "Tracked card volume more than tripled in a year, with USDC and USDT funding over 70% of spending as users increasingly paid for groceries, rides and subscriptions.",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.coindesk.com/business/2026/08/23/crypto-card-spending-tops-usd1-billion-as-stablecoins-move-into-everyday-purchases",
+      "kurum": "CoinDesk",
+      "kurum_tam": "CoinDesk",
+      "konu": "Kripto varlıklar",
+      "tarih": "2026-08-23",
+      "tarih_gorunur": "23 Ağustos 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/kripto-varliklar-8-8b36c240.jpg",
+      "foto_atif": "de Vries, Alex; Stoll, Christian · PDM"
+    },
+    {
+      "baslik": "Kripto paranın bir sonraki milyar kullanıcısı yapay zeka ajanları olabilir ve sabit kripto paralarla ödeme yapıyorlar",
+      "baslik_kaynak": "Crypto’s next billion users might be AI agents, and they’re paying with stablecoins",
+      "ozet": "According to Coinbase’s head of AI product, we’re currently in the “Napster/LimeWire era” of agentic payments.",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.coindesk.com/business/2026/08/23/crypto-s-next-billion-users-might-be-ai-agents-and-they-re-paying-with-stablecoins",
+      "kurum": "CoinDesk",
+      "kurum_tam": "CoinDesk",
+      "konu": "Kripto varlıklar",
+      "tarih": "2026-08-23",
+      "tarih_gorunur": "23 Ağustos 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/kripto-varliklar-8-8b36c240.jpg",
+      "foto_atif": "de Vries, Alex; Stoll, Christian · PDM"
+    },
+    {
+      "baslik": "Fed araştırması, kripto yatırımcılarının inançlar tarafından yönlendirildiğini ve getirilerle kolayca sallandığını tespit etti",
+      "baslik_kaynak": "Fed study finds crypto investors driven by beliefs, easily swayed by returns",
+      "ozet": "A Federal Reserve Bank of Cleveland study finds crypto investors hold sharply different views on returns and risk, while information about Bitcoin’s past gains can increase both desired allocations and actual crypto purchases.",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://cointelegraph.com/news/fed-study-finds-crypto-investors-driven-by-beliefs-easily-swayed-by-returns?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "kurum": "Cointelegraph",
+      "kurum_tam": "Cointelegraph",
+      "konu": "Kripto varlıklar",
+      "tarih": "2026-08-23",
+      "tarih_gorunur": "23 Ağustos 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/kripto-varliklar-8-8b36c240.jpg",
+      "foto_atif": "de Vries, Alex; Stoll, Christian · PDM"
     },
     {
       "baslik": "TCMB'den bir hafta vadeli repo ihalelerine tekrar başlama kararı",
@@ -447,8 +751,8 @@
         "Faiz farkı: yurt içi ve yurt dışı faiz arasındaki fark, TL cinsi varlıklara yönelen sermaye akımının belirleyicilerinden biridir."
       ],
       "kanal_basligi": "Piyasaya nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-6-0ee29051.jpg",
-      "foto_atif": "Daniel Schwen · CC-BY-SA-4.0"
+      "foto": "/statik/foto/para-politikasi-15-525666c9.jpg",
+      "foto_atif": "Norbert Nagel · CC-BY-SA-4.0"
     },
     {
       "baslik": "TMO, hububat üreticilerine 145 milyar lira ödeme yaptı",
@@ -472,8 +776,8 @@
         "Dış ticaret: hububat ve yağlı tohumda ithalat bağımlılığı, rekolte sonucunu cari dengeye bağlar."
       ],
       "kanal_basligi": "Piyasaya nasıl yansır?",
-      "foto": "/statik/foto/tarim-ve-gida-5.jpg",
-      "foto_atif": "Arno Smit _entreprenerd · CC0"
+      "foto": "/statik/foto/tarim-ve-gida-9-5b46670d.jpg",
+      "foto_atif": "Malcolm Neal · CC-BY-SA-2.0"
     },
     {
       "baslik": "Türkiye'nin elektrik kurulu gücü 126 bin 476 megavata ulaştı",
@@ -493,8 +797,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enerji-9.jpg",
-      "foto_atif": "NPS photo · PDM"
+      "foto": "/statik/foto/enerji-11-a5cdd29f.jpg",
+      "foto_atif": "W.carter · CC0"
     },
     {
       "baslik": "Türkiye iki yılda 6 bakanlığın bu yılki bütçesinden fazla tasarruf yaptı",
@@ -514,8 +818,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/vergi-ve-kamu-maliyesi-7.jpg",
-      "foto_atif": "Dwight Sipler from Stow, MA, USA · CC-BY-2.0"
+      "foto": "/statik/foto/vergi-ve-kamu-maliyesi-7-9252c67a.jpg",
+      "foto_atif": "23artashes · CC-BY-SA-4.0"
     },
     {
       "baslik": "Altının onsu 3 haftadır yatırımcısının yüzünü güldürüyor",
@@ -535,8 +839,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/altin-ve-emtia-12-f9e7034b.jpg",
-      "foto_atif": "Osmar Valdebenito from Santiago, Chile · CC-BY-SA-2.0"
+      "foto": "/statik/foto/altin-ve-emtia-8-882b68ff.jpg",
+      "foto_atif": "Stevebidmead · CC0"
     },
     {
       "baslik": "Zayıflayan dolar ve arz endişeleri emtia fiyatlarını yükseltti",
@@ -556,8 +860,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/altin-ve-emtia-9-a4fd2f19.jpg",
-      "foto_atif": "Chepry 💬 ( Andrzej Barabasz ) 📷 🇵🇱 · CC-BY-SA-4.0"
+      "foto": "/statik/foto/altin-ve-emtia-8-882b68ff.jpg",
+      "foto_atif": "Stevebidmead · CC0"
     },
     {
       "baslik": "Pentagon açıkladı: İran savaşında 756 asker yaralandı",
@@ -574,157 +878,16 @@
       "tarih": "2026-08-23",
       "tarih_gorunur": "23 Ağustos 2026",
       "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişmeler piyasaya doğrudan değil, arz riski ve risk iştahı üzerinden geçer. Türkiye için ana kanal enerji faturası ve risk primidir.",
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
       "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa petrol ve doğal gaz fiyatına risk primi eklenir. Türkiye net enerji ithalatçısı olduğu için bu, cari işlemler dengesine doğrudan yazılır.",
-        "Risk iştahı: belirsizlik arttığında gelişmekte olan ülke varlıklarından çıkış görülebilir; ülke risk primi ve borçlanma maliyeti yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat pazarlarının bileşimini değiştirir; etki sektörün o pazara bağımlılığı kadardır.",
-        "Güvenli liman talebi: altın ve dolar talebi değişebilir; yönü ve büyüklüğü olayın ne kadarının önceden fiyatlandığına bağlıdır."
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
       ],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/jeopolitik-13.jpg",
-      "foto_atif": "Kippelboy · CC-BY-3.0"
-    },
-    {
-      "baslik": "Ünal Üstel'den GKRY'ye doğal gaz tepkisi: Bizi engelleyemezsiniz",
-      "baslik_kaynak": "Ünal Üstel'den GKRY'ye doğal gaz tepkisi: Bizi engelleyemezsiniz",
-      "ozet": "Kuzey Kıbrıs Türk Cumhuriyeti (KKTC) Başbakanı Ünal Üstel, Güney Kıbrıs Rum Yönetimi’nin (GKRY), Türkiye ile KKTC arasında imzalanan doğal gaz boru hattı mutabakatını Birleşmiş Milletlere (BM) şikayet edeceği yönündeki açıklamaya tepki göstererek, \"Kıbrıs Türk halkının kalkınmasını, ana vatan Türkiye ile bağlarımızın…",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.dunya.com/dunya/unal-ustelden-gkryye-dogal-gaz-tepkisi-bizi-engelleyemezsiniz-haberi-837390",
-      "kurum": "Dünya",
-      "kurum_tam": "Dünya Gazetesi",
-      "konu": "Enerji",
-      "tarih": "2026-08-23",
-      "tarih_gorunur": "23 Ağustos 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enerji-7.jpg",
-      "foto_atif": "duggar11 · CC-BY-2.0"
-    },
-    {
-      "baslik": "Alihan Kuriş soruşturmasında 4 isimde 1818 tapu işlemi",
-      "baslik_kaynak": "Alihan Kuriş soruşturmasında 4 isimde 1818 tapu işlemi",
-      "ozet": "\"Alihan Kuriş çıkar amaçlı suç örgütü\"ne yönelik soruşturma kapsamında hazırlanan Mali Suçları Araştırma Kurulu (MASAK) raporunda, 4 isimde 1818 tapu işlemi tespit edildi.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.dunya.com/gundem/alihan-kuris-sorusturmasinda-4-isimde-1818-tapu-islemi-haberi-837389",
-      "kurum": "Dünya",
-      "kurum_tam": "Dünya Gazetesi",
-      "konu": "Konut ve kira",
-      "tarih": "2026-08-23",
-      "tarih_gorunur": "23 Ağustos 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/konut-ve-kira-6.jpg",
-      "foto_atif": "Daderot · CC0"
-    },
-    {
-      "baslik": "İran'dan Hürmüz kararı: Hizmet sunulan gemilerden ücret alınacak",
-      "baslik_kaynak": "İran'dan Hürmüz kararı: Hizmet sunulan gemilerden ücret alınacak",
-      "ozet": "İran Meclisinin Ulusal Güvenlik ve Dış Politika Komisyonunun, Hürmüz Boğazı'ndan geçen gemilere sunulan hizmetler karşılığında ücret alınmasını öngören maddeyi kabul ettiği bildirildi.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.dunya.com/dunya/irandan-hurmuz-karari-hizmet-sunulan-gemilerden-ucret-alinacak-haberi-837383",
-      "kurum": "Dünya",
-      "kurum_tam": "Dünya Gazetesi",
-      "konu": "Jeopolitik",
-      "tarih": "2026-08-23",
-      "tarih_gorunur": "23 Ağustos 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişmeler piyasaya doğrudan değil, arz riski ve risk iştahı üzerinden geçer. Türkiye için ana kanal enerji faturası ve risk primidir.",
-      "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa petrol ve doğal gaz fiyatına risk primi eklenir. Türkiye net enerji ithalatçısı olduğu için bu, cari işlemler dengesine doğrudan yazılır.",
-        "Risk iştahı: belirsizlik arttığında gelişmekte olan ülke varlıklarından çıkış görülebilir; ülke risk primi ve borçlanma maliyeti yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat pazarlarının bileşimini değiştirir; etki sektörün o pazara bağımlılığı kadardır.",
-        "Güvenli liman talebi: altın ve dolar talebi değişebilir; yönü ve büyüklüğü olayın ne kadarının önceden fiyatlandığına bağlıdır."
-      ],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/jeopolitik-14.jpg",
-      "foto_atif": "Dody Ismoyo · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "İran'dan Basra Körfezi ve Hürmüz Boğazı uyarısı",
-      "baslik_kaynak": "İran'dan Basra Körfezi ve Hürmüz Boğazı uyarısı",
-      "ozet": "İran Ulusal Güvenlik Yüksek Konseyi Genel Sekreteri Muhsin Rızayi, ekonomik savaşın sürmesi halinde Basra Körfezi ve Hürmüz Boğazı'ndan tek damla petrol ihraç edilmeyeceğini belirtti.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.ekonomim.com/dunya/irandan-basra-korfezi-ve-hurmuz-bogazi-uyarisi-haberi-913817",
-      "kurum": "Ekonomim",
-      "kurum_tam": "Ekonomim",
-      "konu": "Jeopolitik",
-      "tarih": "2026-08-23",
-      "tarih_gorunur": "23 Ağustos 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişmeler piyasaya doğrudan değil, arz riski ve risk iştahı üzerinden geçer. Türkiye için ana kanal enerji faturası ve risk primidir.",
-      "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa petrol ve doğal gaz fiyatına risk primi eklenir. Türkiye net enerji ithalatçısı olduğu için bu, cari işlemler dengesine doğrudan yazılır.",
-        "Risk iştahı: belirsizlik arttığında gelişmekte olan ülke varlıklarından çıkış görülebilir; ülke risk primi ve borçlanma maliyeti yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat pazarlarının bileşimini değiştirir; etki sektörün o pazara bağımlılığı kadardır.",
-        "Güvenli liman talebi: altın ve dolar talebi değişebilir; yönü ve büyüklüğü olayın ne kadarının önceden fiyatlandığına bağlıdır."
-      ],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/jeopolitik-13.jpg",
-      "foto_atif": "Kippelboy · CC-BY-3.0"
-    },
-    {
-      "baslik": "Bu hisseleri seçenler 1 yılda paralarını katladı. İşte en çok kazandıran hisse senetleri",
-      "baslik_kaynak": "Bu hisseleri seçenler 1 yılda paralarını katladı! İşte en çok kazandıran hisse senetleri",
-      "ozet": "Borsa İstanbul'da BIST 100 endeksi son bir yıllık dönemde yüzde 30,36 değer kazanırken, bazı hisselerde endeksin oldukça üzerinde yükselişler yaşandı. Yatırımcılarına yüksek oranlarda kazanç sağlayan hisseler dikkat çekti.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.ekonomim.com/foto-galeri/ekonomi/bu-hisseleri-secenler-1-yilda-paralarini-katladi-iste-en-cok-kazandiran-hisse-senetleri-galeri-913795",
-      "kurum": "Ekonomim",
-      "kurum_tam": "Ekonomim",
-      "konu": "Borsa",
-      "tarih": "2026-08-23",
-      "tarih_gorunur": "23 Ağustos 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/borsa-14-c14b53da.jpg",
-      "foto_atif": "Syced · CC0"
-    },
-    {
-      "baslik": "Bakan Gürlek'ten mevsimlik işçilere saldırı açıklaması",
-      "baslik_kaynak": "Bakan Gürlek'ten mevsimlik işçilere saldırı açıklaması",
-      "ozet": "Adalet Bakanı Akın Gürlek \"Mevsimlik tarım işçilerimiz de dâhil olmak üzere her bir vatandaşımızın huzuru, güvenliği ve hukukunun korunması devletimizin teminatı altındadır.\" dedi.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.ekonomim.com/gundem/bakan-gurlekten-mevsimlik-iscilere-saldiri-aciklamasi-haberi-913792",
-      "kurum": "Ekonomim",
-      "kurum_tam": "Ekonomim",
-      "konu": "Jeopolitik",
-      "tarih": "2026-08-23",
-      "tarih_gorunur": "23 Ağustos 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişmeler piyasaya doğrudan değil, arz riski ve risk iştahı üzerinden geçer. Türkiye için ana kanal enerji faturası ve risk primidir.",
-      "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa petrol ve doğal gaz fiyatına risk primi eklenir. Türkiye net enerji ithalatçısı olduğu için bu, cari işlemler dengesine doğrudan yazılır.",
-        "Risk iştahı: belirsizlik arttığında gelişmekte olan ülke varlıklarından çıkış görülebilir; ülke risk primi ve borçlanma maliyeti yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat pazarlarının bileşimini değiştirir; etki sektörün o pazara bağımlılığı kadardır.",
-        "Güvenli liman talebi: altın ve dolar talebi değişebilir; yönü ve büyüklüğü olayın ne kadarının önceden fiyatlandığına bağlıdır."
-      ],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/jeopolitik-18-9361892d.jpg",
-      "foto_atif": "azugaldia · CC-BY-2.0"
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-15-ccd8ab8d.jpg",
+      "foto_atif": "usepagov · PDM"
     },
     {
       "baslik": "İran bağlantılı hacker grubu elektrik santralini 4 gün devre dışı bıraktı",
@@ -744,8 +907,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enerji-10-116cf321.jpg",
-      "foto_atif": "Djmaschek · CC-BY-SA-3.0"
+      "foto": "/statik/foto/enerji-11-a5cdd29f.jpg",
+      "foto_atif": "W.carter · CC0"
     },
     {
       "baslik": "Enerjide kurulu gücümüz büyüyor: Güneş ve rüzgarın payı yüzde 33,8 oldu",
@@ -762,15 +925,16 @@
       "tarih": "2026-08-23",
       "tarih_gorunur": "23 Ağustos 2026",
       "yorumlanir": true,
-      "neden_onemli": "Türkiye net enerji ithalatçısıdır; ham petrol ve doğal gaz faturası cari işlemler dengesinin en büyük kalemlerinden biridir.",
+      "neden_onemli": "Enerji fiyatı hem bir maliyet kalemi hem bir enflasyon girdisidir; arz tarafındaki değişim önce vadeli piyasada, sonra üretici fiyatlarında görünür.",
       "kanallar": [
-        "İthalat faturası: enerji fiyatındaki hareket, cari işlemler dengesine doğrudan yansıyan bir girdidir.",
-        "Enflasyon geçişi: akaryakıt fiyatları üzerinden tüketici enflasyonuna geçiş kanalı vardır; hız ve büyüklük vergi yapısına ve kur seviyesine bağlıdır.",
-        "Sektörel maliyet: yakıt maliyetinin gider içindeki payı yüksek sektörler (havayolu, karayolu lojistiği, petrokimya, enerji yoğun sanayi) bu kalemden daha erken etkilenir."
+        "Arz kapasitesi: OPEC+ kotası, stok seviyesi ve üretim kesintisi haberleri vadeli eğrinin şeklini değiştirir.",
+        "Talep beklentisi: büyüme verisi ve sanayi üretimi fiyatın talep bacağını belirler.",
+        "Bölgeler arası akış: doğal gaz ile LNG arasındaki fiyat farkı, kargoların hangi bölgeye gideceğini değiştirir.",
+        "Enflasyon aktarımı: enerji maliyeti ulaştırma ve gıda üzerinden manşet enflasyona geçer; merkez bankaları çekirdek enflasyona daha çok bakar."
       ],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enerji-10-116cf321.jpg",
-      "foto_atif": "Djmaschek · CC-BY-SA-3.0"
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/enerji-11-a5cdd29f.jpg",
+      "foto_atif": "W.carter · CC0"
     },
     {
       "baslik": "Küresel piyasaların seyir defteri: Dolar, jeopolitik riskler ve El Nino emtiayı nasıl etkiledi?",
@@ -790,8 +954,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/altin-ve-emtia-10-69bc0bb6.jpg",
-      "foto_atif": "TheBest123XD · CC-BY-SA-4.0"
+      "foto": "/statik/foto/altin-ve-emtia-8-882b68ff.jpg",
+      "foto_atif": "Stevebidmead · CC0"
     },
     {
       "baslik": "Altında iyimserlik kalıcı olur mu? \"Kilit nokta petrol fiyatları\"",
@@ -811,8 +975,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enerji-14-539268ab.jpg",
-      "foto_atif": "Sgroey · CC-BY-SA-4.0"
+      "foto": "/statik/foto/enerji-11-a5cdd29f.jpg",
+      "foto_atif": "W.carter · CC0"
     },
     {
       "baslik": "Türkiye Merkez Bankası bir haftalık repo ihalelerini yeniden başlatacak",
@@ -832,8 +996,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-5.png",
-      "foto_atif": "US Federal Reserve · PDM"
+      "foto": "/statik/foto/para-politikasi-14-9b1627e1.jpg",
+      "foto_atif": "Bernard Gagnon · CC-BY-SA-3.0"
     },
     {
       "baslik": "Fed’in Kashkari’si yükselen Hazine getirilerinin endişe kaynağı olmadığını söyledi",
@@ -853,8 +1017,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-6.jpg",
-      "foto_atif": "Federalreserve · PDM"
+      "foto": "/statik/foto/para-politikasi-14-9b1627e1.jpg",
+      "foto_atif": "Bernard Gagnon · CC-BY-SA-3.0"
     },
     {
       "baslik": "İran komşularını ABD yaptırımlarına katılmamaları konusunda uyardı",
@@ -871,16 +1035,37 @@
       "tarih": "2026-08-23",
       "tarih_gorunur": "23 Ağustos 2026",
       "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişmeler piyasaya doğrudan değil, arz riski ve risk iştahı üzerinden geçer. Türkiye için ana kanal enerji faturası ve risk primidir.",
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
       "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa petrol ve doğal gaz fiyatına risk primi eklenir. Türkiye net enerji ithalatçısı olduğu için bu, cari işlemler dengesine doğrudan yazılır.",
-        "Risk iştahı: belirsizlik arttığında gelişmekte olan ülke varlıklarından çıkış görülebilir; ülke risk primi ve borçlanma maliyeti yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat pazarlarının bileşimini değiştirir; etki sektörün o pazara bağımlılığı kadardır.",
-        "Güvenli liman talebi: altın ve dolar talebi değişebilir; yönü ve büyüklüğü olayın ne kadarının önceden fiyatlandığına bağlıdır."
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
       ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-15-ccd8ab8d.jpg",
+      "foto_atif": "usepagov · PDM"
+    },
+    {
+      "baslik": "Japonya’nın hisse senedi piyasası 2023 sonu gibi görünüyor",
+      "baslik_kaynak": "Japonya’nın hisse senedi piyasası 2023 sonu gibi görünüyor",
+      "ozet": "",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://tr.investing.com/news/stock-market-news/japonyann-hisse-senedi-piyasas-2023-sonu-gibi-gorunuyor-4040591",
+      "kurum": "Investing",
+      "kurum_tam": "Investing.com Türkiye",
+      "konu": "Borsa",
+      "tarih": "2026-08-23",
+      "tarih_gorunur": "23 Ağustos 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/jeopolitik-9.jpg",
-      "foto_atif": "U.S. Department of State from United States · PDM"
+      "foto": "/statik/foto/borsa-24-b47c4be0.jpg",
+      "foto_atif": "User:A,Ocram · PDM"
     },
     {
       "baslik": "İtalya artan akaryakıt fiyatları nedeniyle dizel vergisi indirimini Çarşamba gününe kadar uzattı",
@@ -897,15 +1082,16 @@
       "tarih": "2026-08-23",
       "tarih_gorunur": "23 Ağustos 2026",
       "yorumlanir": true,
-      "neden_onemli": "Türkiye net enerji ithalatçısıdır; ham petrol ve doğal gaz faturası cari işlemler dengesinin en büyük kalemlerinden biridir.",
+      "neden_onemli": "Enerji fiyatı hem bir maliyet kalemi hem bir enflasyon girdisidir; arz tarafındaki değişim önce vadeli piyasada, sonra üretici fiyatlarında görünür.",
       "kanallar": [
-        "İthalat faturası: enerji fiyatındaki hareket, cari işlemler dengesine doğrudan yansıyan bir girdidir.",
-        "Enflasyon geçişi: akaryakıt fiyatları üzerinden tüketici enflasyonuna geçiş kanalı vardır; hız ve büyüklük vergi yapısına ve kur seviyesine bağlıdır.",
-        "Sektörel maliyet: yakıt maliyetinin gider içindeki payı yüksek sektörler (havayolu, karayolu lojistiği, petrokimya, enerji yoğun sanayi) bu kalemden daha erken etkilenir."
+        "Arz kapasitesi: OPEC+ kotası, stok seviyesi ve üretim kesintisi haberleri vadeli eğrinin şeklini değiştirir.",
+        "Talep beklentisi: büyüme verisi ve sanayi üretimi fiyatın talep bacağını belirler.",
+        "Bölgeler arası akış: doğal gaz ile LNG arasındaki fiyat farkı, kargoların hangi bölgeye gideceğini değiştirir.",
+        "Enflasyon aktarımı: enerji maliyeti ulaştırma ve gıda üzerinden manşet enflasyona geçer; merkez bankaları çekirdek enflasyona daha çok bakar."
       ],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enerji-14-539268ab.jpg",
-      "foto_atif": "Sgroey · CC-BY-SA-4.0"
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/enerji-11-a5cdd29f.jpg",
+      "foto_atif": "W.carter · CC0"
     },
     {
       "baslik": "UBS, Klarna’nın hisse notunu düşürdü",
@@ -925,7 +1111,7 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/borsa-15-0edc5668.jpg",
+      "foto": "/statik/foto/borsa-11-39672784.jpg",
       "foto_atif": "Syced · CC0"
     },
     {
@@ -943,19 +1129,20 @@
       "tarih": "2026-08-23",
       "tarih_gorunur": "23 Ağustos 2026",
       "yorumlanir": true,
-      "neden_onemli": "Türkiye net enerji ithalatçısıdır; ham petrol ve doğal gaz faturası cari işlemler dengesinin en büyük kalemlerinden biridir.",
+      "neden_onemli": "Enerji fiyatı hem bir maliyet kalemi hem bir enflasyon girdisidir; arz tarafındaki değişim önce vadeli piyasada, sonra üretici fiyatlarında görünür.",
       "kanallar": [
-        "İthalat faturası: enerji fiyatındaki hareket, cari işlemler dengesine doğrudan yansıyan bir girdidir.",
-        "Enflasyon geçişi: akaryakıt fiyatları üzerinden tüketici enflasyonuna geçiş kanalı vardır; hız ve büyüklük vergi yapısına ve kur seviyesine bağlıdır.",
-        "Sektörel maliyet: yakıt maliyetinin gider içindeki payı yüksek sektörler (havayolu, karayolu lojistiği, petrokimya, enerji yoğun sanayi) bu kalemden daha erken etkilenir."
+        "Arz kapasitesi: OPEC+ kotası, stok seviyesi ve üretim kesintisi haberleri vadeli eğrinin şeklini değiştirir.",
+        "Talep beklentisi: büyüme verisi ve sanayi üretimi fiyatın talep bacağını belirler.",
+        "Bölgeler arası akış: doğal gaz ile LNG arasındaki fiyat farkı, kargoların hangi bölgeye gideceğini değiştirir.",
+        "Enflasyon aktarımı: enerji maliyeti ulaştırma ve gıda üzerinden manşet enflasyona geçer; merkez bankaları çekirdek enflasyona daha çok bakar."
       ],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enerji-8.jpg",
-      "foto_atif": "Chris English · CC-BY-SA-3.0"
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/enerji-11-a5cdd29f.jpg",
+      "foto_atif": "W.carter · CC0"
     },
     {
-      "baslik": "Cuma günü %12 daha yükselen bu yapay zeka hissesi artık %90 kazandırdı",
-      "baslik_kaynak": "Cuma günü %12 daha yükselen bu yapay zeka hissesi artık %90 kazandırdı",
+      "baslik": "Bu yapay zeka tarafından seçilen Energy hissesi Cuma günü %12 daha yükseldi, toplam getiri %90’a ulaştı",
+      "baslik_kaynak": "Bu yapay zeka tarafından seçilen Energy hissesi Cuma günü %12 daha yükseldi, toplam getiri %90’a ulaştı",
       "ozet": "",
       "cevrildi": false,
       "dil": "tr",
@@ -964,36 +1151,20 @@
       "adres": "https://tr.investing.com/news/stock-market-news/yapay-zeka-secimi-enerji-hissesi-cuma-gunu-12-daha-yukseldi-4040552",
       "kurum": "Investing",
       "kurum_tam": "Investing.com Türkiye",
-      "konu": "Borsa",
+      "konu": "Enerji",
       "tarih": "2026-08-23",
       "tarih_gorunur": "23 Ağustos 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/borsa-8.jpg",
-      "foto_atif": "Syced · CC0"
-    },
-    {
-      "baslik": "Adil Değer çağrısı sonrası ambalaj hissesi %56 kazandırdı",
-      "baslik_kaynak": "Adil Değer çağrısı sonrası ambalaj hissesi %56 kazandırdı",
-      "ozet": "",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://tr.investing.com/news/investment-ideas/adil-deger-cagrs-sonras-ambalaj-hissesi-56-kazandrd-93CH-4040549",
-      "kurum": "Investing",
-      "kurum_tam": "Investing.com Türkiye",
-      "konu": "Borsa",
-      "tarih": "2026-08-23",
-      "tarih_gorunur": "23 Ağustos 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/borsa-13-4ca344ea.jpg",
-      "foto_atif": "Syced · CC0"
+      "yorumlanir": true,
+      "neden_onemli": "Enerji fiyatı hem bir maliyet kalemi hem bir enflasyon girdisidir; arz tarafındaki değişim önce vadeli piyasada, sonra üretici fiyatlarında görünür.",
+      "kanallar": [
+        "Arz kapasitesi: OPEC+ kotası, stok seviyesi ve üretim kesintisi haberleri vadeli eğrinin şeklini değiştirir.",
+        "Talep beklentisi: büyüme verisi ve sanayi üretimi fiyatın talep bacağını belirler.",
+        "Bölgeler arası akış: doğal gaz ile LNG arasındaki fiyat farkı, kargoların hangi bölgeye gideceğini değiştirir.",
+        "Enflasyon aktarımı: enerji maliyeti ulaştırma ve gıda üzerinden manşet enflasyona geçer; merkez bankaları çekirdek enflasyona daha çok bakar."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/enerji-11-a5cdd29f.jpg",
+      "foto_atif": "W.carter · CC0"
     },
     {
       "baslik": "Gıda denetimlerinde 1,6 milyar liralık ceza kesildi",
@@ -1017,8 +1188,8 @@
         "Dış ticaret: hububat ve yağlı tohumda ithalat bağımlılığı, rekolte sonucunu cari dengeye bağlar."
       ],
       "kanal_basligi": "Piyasaya nasıl yansır?",
-      "foto": "/statik/foto/tarim-ve-gida-11-1e9f334f.jpg",
-      "foto_atif": "James Emmans · CC-BY-SA-2.0"
+      "foto": "/statik/foto/tarim-ve-gida-8-40e6368c.jpg",
+      "foto_atif": "Dreamy Pixel · CC-BY-4.0"
     },
     {
       "baslik": "Merkez Bankası’ndan likidite adımı",
@@ -1038,8 +1209,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-6.jpg",
-      "foto_atif": "Federalreserve · PDM"
+      "foto": "/statik/foto/para-politikasi-15-525666c9.jpg",
+      "foto_atif": "Norbert Nagel · CC-BY-SA-4.0"
     },
     {
       "baslik": "'Konutun fiyatından çok finansmanı önemli'",
@@ -1059,50 +1230,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/konut-ve-kira-9-b2aa6b88.jpg",
-      "foto_atif": "BORNTHISWAYMEDIA · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "Rusya, akaryakıt piyasasını geçici ithalatla dengelemeyi planlıyor",
-      "baslik_kaynak": "Rusya, akaryakıt piyasasını geçici ithalatla dengelemeyi planlıyor",
-      "ozet": "Rusya Başbakan Yardımcısı Aleksandr Novak, ülkedeki akaryakıt piyasasını geçici ithalat yoluyla dengelemeyi planladıklarını söyledi",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.haberturk.com/rusya-akaryakit-piyasasini-gecici-ithalatla-dengelemeyi-planliyor-3907470-ekonomi",
-      "kurum": "Habertürk",
-      "kurum_tam": "Habertürk",
-      "konu": "Enerji",
-      "tarih": "2026-08-23",
-      "tarih_gorunur": "23 Ağustos 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enerji-8.jpg",
-      "foto_atif": "Chris English · CC-BY-SA-3.0"
-    },
-    {
-      "baslik": "İran'da 7,5 trilyon fit küplük doğal gaz keşfi",
-      "baslik_kaynak": "İran'da 7,5 trilyon fit küplük doğal gaz keşfi",
-      "ozet": "İran Petrol Bakanı Muhsin Paknejad, ülkenin güneyindeki Fars eyaletinde 7,5 trilyon fit küpün üzerinde doğal gaz rezervi keşfedildiğini açıkladı.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.cnnturk.com/ekonomi/iranda-7-5-trilyon-fit-kuplukluk-dogal-gaz-kesfi-3457957",
-      "kurum": "CNN Türk",
-      "kurum_tam": "CNN Türk",
-      "konu": "Enerji",
-      "tarih": "2026-08-23",
-      "tarih_gorunur": "23 Ağustos 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enerji-9.jpg",
-      "foto_atif": "NPS photo · PDM"
+      "foto": "/statik/foto/konut-ve-kira-8-07036aec.jpg",
+      "foto_atif": "kallerna · CC-BY-SA-4.0"
     },
     {
       "baslik": "Carney, Kanada'nın çıkarlarını korumak için bir sonraki adımları özetledi: İşçi Bayramı'ndan sonra Salı günü başlayacak dolar karşılığı karşı tarifeler",
@@ -1122,8 +1251,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/dis-ticaret-12-bacf2857.jpg",
-      "foto_atif": "Matti Blume · CC-BY-SA-4.0"
+      "foto": "/statik/foto/dis-ticaret-12-aa95bbee.jpg",
+      "foto_atif": "Paul Harrison · CC-BY-SA-4.0"
     },
     {
       "baslik": "Kanada Başbakanı Carney, ABD ile ticaret müzakerelerinin askıya alınmasını görüşmek üzere eyalet ve bölge başbakanlarıyla sanal olarak bir araya geldi: açıklama",
@@ -1143,8 +1272,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-12-e8df73ea.jpg",
-      "foto_atif": "Basile Morin · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-9-0b526049.jpg",
+      "foto_atif": "Moheen Reeyad · CC-BY-SA-4.0"
     },
     {
       "baslik": "Devlet televizyonu: Üst düzey güvenlik yetkilisi Rezaei: İran, ABD'nin İslam Cumhuriyeti'ne karşı ekonomik savaşına yardım eden ülkelerin varlıklarını hedef alacak",
@@ -1164,8 +1293,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-9-dc4edf22.jpg",
-      "foto_atif": "Myotus · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-9-0b526049.jpg",
+      "foto_atif": "Moheen Reeyad · CC-BY-SA-4.0"
     },
     {
       "baslik": "Nvidia fiyat artışları gelecek yılın başlarında gönderilen sistemlerde etkili olacak; Vera Rubin ve Grace Blackwell çiplerine sahip sistemleri etkileyecek",
@@ -1185,8 +1314,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-9-dc4edf22.jpg",
-      "foto_atif": "Myotus · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-9-0b526049.jpg",
+      "foto_atif": "Moheen Reeyad · CC-BY-SA-4.0"
     },
     {
       "baslik": "Nvidia müşterileri, %15'i aşan fiyat artışları konusunda uyardı",
@@ -1206,8 +1335,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-10-91cb7af0.jpg",
-      "foto_atif": "Myotus · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-7-8b52fc2e.jpg",
+      "foto_atif": "DXR · CC-BY-SA-4.0"
     },
     {
       "baslik": "Kanada Başbakanı Carney: Bazı yönler belirli sektörlerde mevcuttu",
@@ -1227,8 +1356,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-8.jpg",
-      "foto_atif": "Myotus · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-11-5c2f88fc.jpg",
+      "foto_atif": "Bill Boaden · CC-BY-SA-2.0"
     },
     {
       "baslik": "Kanada Başbakanı Carney: Kanada, belirli sektörlerle ilgili olduğunda tarife önlemleri sunacak",
@@ -1248,8 +1377,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/dis-ticaret-12-bacf2857.jpg",
-      "foto_atif": "Matti Blume · CC-BY-SA-4.0"
+      "foto": "/statik/foto/dis-ticaret-9-fae0ad65.jpg",
+      "foto_atif": "H. Zell · CC-BY-SA-3.0"
     },
     {
       "baslik": "Carney: ABD'nin önerdiği son dakika değişiklikleri de otomobilleri kapsıyor",
@@ -1269,8 +1398,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-8.jpg",
-      "foto_atif": "Myotus · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-11-5c2f88fc.jpg",
+      "foto_atif": "Bill Boaden · CC-BY-SA-2.0"
     },
     {
       "baslik": "Kanada Başbakanı Carney: ABD, Kanada'nın diğer ticaret anlaşmaları kapasitesini sınırlamak için hamleler başlattı",
@@ -1290,8 +1419,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-6.jpg",
-      "foto_atif": "Declan M Martin · PDM"
+      "foto": "/statik/foto/sirket-haberleri-10-72a9566a.jpg",
+      "foto_atif": "Larry D. Moore · CC-BY-4.0"
     },
     {
       "baslik": "Kanada Başbakanı Carney: 8 Eylül'de yürürlüğe girmesi için ABD'ye karşı önlemler",
@@ -1311,8 +1440,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-12-e8df73ea.jpg",
-      "foto_atif": "Basile Morin · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-15-c1626940.jpg",
+      "foto_atif": "Gkbediako · CC-BY-SA-4.0"
     },
     {
       "baslik": "Kanada Başbakanı Carney: Önümüzdeki günlerde yeni tarife önlemlerinin ayrıntılarını açıklayacak",
@@ -1332,8 +1461,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/dis-ticaret-5.jpg",
-      "foto_atif": "U-ichiro Murakami ( Murambo ) · PDM"
+      "foto": "/statik/foto/dis-ticaret-7-9d7c2bb7.jpg",
+      "foto_atif": "King of Hearts · CC-BY-SA-4.0"
     },
     {
       "baslik": "Kanada Başbakanı Carney: ABD'ye karşı önlemler çelik, süt ürünleri ve diğer sektörlere odaklanacak",
@@ -1353,8 +1482,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-9-dc4edf22.jpg",
-      "foto_atif": "Myotus · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-9-c71a9b17.jpg",
+      "foto_atif": "Dietmar Rabich · CC-BY-SA-4.0"
     },
     {
       "baslik": "Kanada Başbakanı Carney: Önemli sektörlere zarar vermeye hazır değildik",
@@ -1374,7 +1503,7 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-11-68a4355e.jpg",
+      "foto": "/statik/foto/sirket-haberleri-8-ed7b45c9.jpg",
       "foto_atif": "Myotus · CC-BY-SA-4.0"
     },
     {
@@ -1395,8 +1524,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/dis-ticaret-11-6762ae40.jpg",
-      "foto_atif": "Belfast Dissenter · CC-BY-SA-4.0"
+      "foto": "/statik/foto/dis-ticaret-8-de18e08e.jpg",
+      "foto_atif": "Nathan.cima · CC-BY-SA-4.0"
     },
     {
       "baslik": "Kanada Başbakanı Carney: ABD'nin enerji projelerimizden herhangi birini durdurmayı amaçladığına inanmıyorum",
@@ -1416,8 +1545,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enerji-11.jpg",
-      "foto_atif": "Ezagren ( bicara / talk ) · CC-BY-SA-4.0"
+      "foto": "/statik/foto/enerji-11-a5cdd29f.jpg",
+      "foto_atif": "W.carter · CC0"
     },
     {
       "baslik": "Kanada Başbakanı Carney: ABD'nin teklifini kabul edemem ve talepleri kabul etmeyeceğim",
@@ -1437,8 +1566,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-11-68a4355e.jpg",
-      "foto_atif": "Myotus · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-17-a6dd0c61.jpg",
+      "foto_atif": "Stephen Craven · CC-BY-SA-2.0"
     },
     {
       "baslik": "Putin: Ukrayna, ekonomik hedeflere yönelik grevlerle \"pandora'nın kutusunu\" serbest bıraktı - Tass",
@@ -1458,8 +1587,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-6.jpg",
-      "foto_atif": "Declan M Martin · PDM"
+      "foto": "/statik/foto/sirket-haberleri-7-8b52fc2e.jpg",
+      "foto_atif": "DXR · CC-BY-SA-4.0"
     },
     {
       "baslik": "USTR Greer: Kanada ile yeni görüşme planlanmıyor - Fox News röportajı",
@@ -1479,7 +1608,7 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-8.jpg",
+      "foto": "/statik/foto/sirket-haberleri-8-ed7b45c9.jpg",
       "foto_atif": "Myotus · CC-BY-SA-4.0"
     },
     {
@@ -1500,8 +1629,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-12-e8df73ea.jpg",
-      "foto_atif": "Basile Morin · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-9-0b526049.jpg",
+      "foto_atif": "Moheen Reeyad · CC-BY-SA-4.0"
     },
     {
       "baslik": "İran Meclis Başkanı Galibaf, Tahran'ın yeni güvenlik düzenlemeleri ve ekonomik işbirliği kurma konusunda komşulardan mesaj aldığını söyledi",
@@ -1521,8 +1650,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-8.jpg",
-      "foto_atif": "Myotus · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-11-5c2f88fc.jpg",
+      "foto_atif": "Bill Boaden · CC-BY-SA-2.0"
     },
     {
       "baslik": "İranlı yetkili: Fiziksel durumu kötü suda tutulan pilotlar - Tasnim",
@@ -1542,8 +1671,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-10-91cb7af0.jpg",
-      "foto_atif": "Myotus · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-7-8b52fc2e.jpg",
+      "foto_atif": "DXR · CC-BY-SA-4.0"
     },
     {
       "baslik": "İranlı yetkili, Katar'ı gözaltındaki İranlı pilotları hastaneye indirmeye çağırdı: Tasnim",
@@ -1563,8 +1692,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-8.jpg",
-      "foto_atif": "Myotus · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-17-a6dd0c61.jpg",
+      "foto_atif": "Stephen Craven · CC-BY-SA-2.0"
     },
     {
       "baslik": "İran, Irak'ın talebi üzerine birkaç Irak petrol tankerinin Hürmüz Boğazı'ndan geçmesine izin verdi: Irna",
@@ -1584,8 +1713,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enerji-9.jpg",
-      "foto_atif": "NPS photo · PDM"
+      "foto": "/statik/foto/enerji-11-a5cdd29f.jpg",
+      "foto_atif": "W.carter · CC0"
     },
     {
       "baslik": "Hindistan Dışişleri Bakanlığı: Jaishankar ziyaret sırasında Rusya Dışişleri Bakanı Sergey Lavrov ile görüşecek",
@@ -1605,7 +1734,7 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-11-68a4355e.jpg",
+      "foto": "/statik/foto/sirket-haberleri-8-ed7b45c9.jpg",
       "foto_atif": "Myotus · CC-BY-SA-4.0"
     },
     {
@@ -1626,8 +1755,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/dis-ticaret-12-bacf2857.jpg",
-      "foto_atif": "Matti Blume · CC-BY-SA-4.0"
+      "foto": "/statik/foto/dis-ticaret-12-aa95bbee.jpg",
+      "foto_atif": "Paul Harrison · CC-BY-SA-4.0"
     },
     {
       "baslik": "Trump yönetiminden üst düzey yetkili: Tek odak noktamız Amerikan işlerini korumak, tedarik zincirlerini güvence altına almak ve üretimi yeniden desteklemek",
@@ -1644,16 +1773,16 @@
       "tarih": "2026-08-22",
       "tarih_gorunur": "22 Ağustos 2026",
       "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişmeler piyasaya doğrudan değil, arz riski ve risk iştahı üzerinden geçer. Türkiye için ana kanal enerji faturası ve risk primidir.",
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
       "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa petrol ve doğal gaz fiyatına risk primi eklenir. Türkiye net enerji ithalatçısı olduğu için bu, cari işlemler dengesine doğrudan yazılır.",
-        "Risk iştahı: belirsizlik arttığında gelişmekte olan ülke varlıklarından çıkış görülebilir; ülke risk primi ve borçlanma maliyeti yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat pazarlarının bileşimini değiştirir; etki sektörün o pazara bağımlılığı kadardır.",
-        "Güvenli liman talebi: altın ve dolar talebi değişebilir; yönü ve büyüklüğü olayın ne kadarının önceden fiyatlandığına bağlıdır."
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
       ],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/jeopolitik-12.jpg",
-      "foto_atif": "Unknown author Unknown author · PDM"
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-18-d6206fae.jpg",
+      "foto_atif": "United Nation · PDM"
     },
     {
       "baslik": "Carney: ABD yüzde 50 gümrük vergisi uygularken Kanada da işçileri ve işletmeleri korumak için dolar karşılığında gümrük vergisi uygulayacak",
@@ -1670,15 +1799,16 @@
       "tarih": "2026-08-22",
       "tarih_gorunur": "22 Ağustos 2026",
       "yorumlanir": true,
-      "neden_onemli": "Dış ticaret dengesi cari işlemler hesabının en büyük bileşenidir ve dış finansman ihtiyacını belirler.",
+      "neden_onemli": "Ticaret politikası kararları tarafların birbirine bağımlılığı ölçüsünde fiyatlanır; etki önce ilgili sektör hisselerinde ve para birimlerinde görülür.",
       "kanallar": [
-        "Cari denge: ihracat ile ithalat arasındaki fark doğrudan cari işlemler dengesine yazılır.",
-        "Dış finansman: cari açık, dışarıdan kaynak bulma ihtiyacı demektir; bu kaynağın maliyeti küresel faiz koşullarına bağlıdır.",
-        "Sektörel etki: ihracat ağırlıklı sektörler (otomotiv, tekstil, beyaz eşya) dış talepteki değişimi önce hisseder."
+        "Sektör maruziyeti: gümrük vergisi ihracatçı sektörün marjını doğrudan sıkıştırır; otomotiv, çelik ve tarım en sık hedef alınan kalemlerdir.",
+        "Para birimi: ticaret dengesinde beklenen değişim ilgili ülke kurunu yeniden fiyatlar.",
+        "Tedarik zinciri: ara mal akışı kesilirse maliyet üretici fiyatlarına yazılır ve etki üçüncü ülkelere yayılır.",
+        "Anlaşma yapısı: USMCA ya da gümrük birliği gibi çerçeveler, etkinin hangi kalemlerde ve hangi takvimde doğacağını belirler."
       ],
-      "kanal_basligi": "Piyasaya nasıl yansır?",
-      "foto": "/statik/foto/dis-ticaret-5.jpg",
-      "foto_atif": "U-ichiro Murakami ( Murambo ) · PDM"
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/dis-ticaret-7-912e1aa5.jpg",
+      "foto_atif": "Olga Ernst · CC-BY-SA-4.0"
     },
     {
       "baslik": "Carney: Kanadalılar için hedeflere ulaşmak için ilerleme yetersiz",
@@ -1698,8 +1828,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-6.jpg",
-      "foto_atif": "Declan M Martin · PDM"
+      "foto": "/statik/foto/sirket-haberleri-13-4ee7beec.jpg",
+      "foto_atif": "Humphrey Bolton · CC-BY-SA-2.0"
     },
     {
       "baslik": "Üst düzey Trump yönetimi yetkilisi: Bu anlaşmaya varılsaydı, Kanada-USMCA görüşmeleri yapardık",
@@ -1716,16 +1846,16 @@
       "tarih": "2026-08-22",
       "tarih_gorunur": "22 Ağustos 2026",
       "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişmeler piyasaya doğrudan değil, arz riski ve risk iştahı üzerinden geçer. Türkiye için ana kanal enerji faturası ve risk primidir.",
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
       "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa petrol ve doğal gaz fiyatına risk primi eklenir. Türkiye net enerji ithalatçısı olduğu için bu, cari işlemler dengesine doğrudan yazılır.",
-        "Risk iştahı: belirsizlik arttığında gelişmekte olan ülke varlıklarından çıkış görülebilir; ülke risk primi ve borçlanma maliyeti yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat pazarlarının bileşimini değiştirir; etki sektörün o pazara bağımlılığı kadardır.",
-        "Güvenli liman talebi: altın ve dolar talebi değişebilir; yönü ve büyüklüğü olayın ne kadarının önceden fiyatlandığına bağlıdır."
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
       ],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/jeopolitik-8.jpg",
-      "foto_atif": "Press Information Department · PDM"
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-15-ccd8ab8d.jpg",
+      "foto_atif": "usepagov · PDM"
     },
     {
       "baslik": "Üst düzey Trump yönetimi yetkilisi: Yeni tarifeler nedeniyle Kanada'dan misilleme beklenmiyor",
@@ -1745,8 +1875,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/dis-ticaret-9-53675062.jpg",
-      "foto_atif": "Jan Pešula · CC0"
+      "foto": "/statik/foto/dis-ticaret-7-912e1aa5.jpg",
+      "foto_atif": "Olga Ernst · CC-BY-SA-4.0"
     },
     {
       "baslik": "Greer: ABD, Amerikan pazarına daha elverişli erişim sundu",
@@ -1766,8 +1896,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-9-dc4edf22.jpg",
-      "foto_atif": "Myotus · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-15-c1626940.jpg",
+      "foto_atif": "Gkbediako · CC-BY-SA-4.0"
     },
     {
       "baslik": "Trump yönetiminden üst düzey bir yetkili: ABD-Kanada görüşmeleri çok açık sözlü, düşmanca değildi",
@@ -1784,16 +1914,16 @@
       "tarih": "2026-08-22",
       "tarih_gorunur": "22 Ağustos 2026",
       "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişmeler piyasaya doğrudan değil, arz riski ve risk iştahı üzerinden geçer. Türkiye için ana kanal enerji faturası ve risk primidir.",
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
       "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa petrol ve doğal gaz fiyatına risk primi eklenir. Türkiye net enerji ithalatçısı olduğu için bu, cari işlemler dengesine doğrudan yazılır.",
-        "Risk iştahı: belirsizlik arttığında gelişmekte olan ülke varlıklarından çıkış görülebilir; ülke risk primi ve borçlanma maliyeti yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat pazarlarının bileşimini değiştirir; etki sektörün o pazara bağımlılığı kadardır.",
-        "Güvenli liman talebi: altın ve dolar talebi değişebilir; yönü ve büyüklüğü olayın ne kadarının önceden fiyatlandığına bağlıdır."
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
       ],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/jeopolitik-17-8c9e10de.jpg",
-      "foto_atif": "Otisjfk · CC-BY-SA-4.0"
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-15-ccd8ab8d.jpg",
+      "foto_atif": "usepagov · PDM"
     },
     {
       "baslik": "ABD'li yetkili: Kanada, ABD'ye cömert otomobil ihracat ödeneği teklif etti",
@@ -1813,8 +1943,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-11-68a4355e.jpg",
-      "foto_atif": "Myotus · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-14-ebd53a63.jpg",
+      "foto_atif": "Rodhullandemu · CC-BY-SA-4.0"
     },
     {
       "baslik": "ABD'li yetkili: ABD'nin önerisi, Kanada'ya ABD'ye ihracat yapanlar arasında en güçlü konumu verecekti",
@@ -1834,7 +1964,7 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-10-91cb7af0.jpg",
+      "foto": "/statik/foto/sirket-haberleri-7-0e2a9249.jpg",
       "foto_atif": "Myotus · CC-BY-SA-4.0"
     },
     {
@@ -1855,8 +1985,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/dis-ticaret-12-bacf2857.jpg",
-      "foto_atif": "Matti Blume · CC-BY-SA-4.0"
+      "foto": "/statik/foto/dis-ticaret-9-9686a70e.jpg",
+      "foto_atif": "Huhu Uet · CC-BY-SA-4.0"
     },
     {
       "baslik": "Greer: Kanada ABD'ye karşı misillemeyi sürdürüyor",
@@ -1873,16 +2003,16 @@
       "tarih": "2026-08-22",
       "tarih_gorunur": "22 Ağustos 2026",
       "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişmeler piyasaya doğrudan değil, arz riski ve risk iştahı üzerinden geçer. Türkiye için ana kanal enerji faturası ve risk primidir.",
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
       "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa petrol ve doğal gaz fiyatına risk primi eklenir. Türkiye net enerji ithalatçısı olduğu için bu, cari işlemler dengesine doğrudan yazılır.",
-        "Risk iştahı: belirsizlik arttığında gelişmekte olan ülke varlıklarından çıkış görülebilir; ülke risk primi ve borçlanma maliyeti yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat pazarlarının bileşimini değiştirir; etki sektörün o pazara bağımlılığı kadardır.",
-        "Güvenli liman talebi: altın ve dolar talebi değişebilir; yönü ve büyüklüğü olayın ne kadarının önceden fiyatlandığına bağlıdır."
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
       ],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/jeopolitik-7.jpg",
-      "foto_atif": "Press Information Department · PDM"
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-14-4ca6b4fe.jpg",
+      "foto_atif": "Bernard Gagnon · CC0"
     },
     {
       "baslik": "USTR Greer: Kanada ticaret anlaşmasını tamamlamayı reddetti",
@@ -1902,102 +2032,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-9-dc4edf22.jpg",
-      "foto_atif": "Myotus · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "ABD Gümrük ve Sınır Koruması, bölüm 338'de belirli Kanada mallarına ilişkin ek tarifeler hakkında kılavuz yayınlar",
-      "baslik_kaynak": "U.S. Customs and Border Protection issues guidance on section 338 additional tariffs on certain Canadian goods",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9732171/US-Customs-and-Border-Protection-issues-guidance-on-section-338-additional-tariffs-on-certain-Canadian-goods.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Dış ticaret",
-      "tarih": "2026-08-22",
-      "tarih_gorunur": "22 Ağustos 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/dis-ticaret-5.jpg",
-      "foto_atif": "U-ichiro Murakami ( Murambo ) · PDM"
-    },
-    {
-      "baslik": "ABD Posta Servisi, mahkemenin uygulamayı engellemesine rağmen, Kasım seçimleri öncesinde posta yoluyla oy kullanma kurallarını sıkılaştıran son bir kural yayınladı",
-      "baslik_kaynak": "U.S. Postal Service issues final rule tightening mail-in voting rules ahead of November elections, despite court blocking implementation",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9732008/US-Postal-Service-issues-final-rule-tightening-mail-in-voting-rules-ahead-of-November-elections-despite-court-blocking-implementation.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Şirket haberleri",
-      "tarih": "2026-08-22",
-      "tarih_gorunur": "22 Ağustos 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-12-e8df73ea.jpg",
+      "foto": "/statik/foto/sirket-haberleri-18-3ea88e13.jpg",
       "foto_atif": "Basile Morin · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "ABD ordusu: Uçağın Tayvan Boğazı geçişi ABD'nin özgür ve açık Hint-Pasifik taahhüdünü gösteriyor",
-      "baslik_kaynak": "U.S. military: aircraft's Taiwan Strait transit shows US commitment to free, open Indo-Pacific",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9731986/US-military-aircrafts-Taiwan-Strait-transit-shows-US-commitment-to-free-open-Indo-Pacific.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Jeopolitik",
-      "tarih": "2026-08-22",
-      "tarih_gorunur": "22 Ağustos 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişmeler piyasaya doğrudan değil, arz riski ve risk iştahı üzerinden geçer. Türkiye için ana kanal enerji faturası ve risk primidir.",
-      "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa petrol ve doğal gaz fiyatına risk primi eklenir. Türkiye net enerji ithalatçısı olduğu için bu, cari işlemler dengesine doğrudan yazılır.",
-        "Risk iştahı: belirsizlik arttığında gelişmekte olan ülke varlıklarından çıkış görülebilir; ülke risk primi ve borçlanma maliyeti yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat pazarlarının bileşimini değiştirir; etki sektörün o pazara bağımlılığı kadardır.",
-        "Güvenli liman talebi: altın ve dolar talebi değişebilir; yönü ve büyüklüğü olayın ne kadarının önceden fiyatlandığına bağlıdır."
-      ],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/jeopolitik-6.jpg",
-      "foto_atif": "Press Information Department · PDM"
-    },
-    {
-      "baslik": "ABD ordusu: Donanma P -8A Poseidon, 21 Ağustos'ta uluslararası hava sahasında Tayvan Boğazı boyunca uçtu",
-      "baslik_kaynak": "U.S. military: Navy P-8A Poseidon flew through Taiwan Strait in international airspace on August 21",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9731985/US-military-Navy-P-8A-Poseidon-flew-through-Taiwan-Strait-in-international-airspace-on-August-21.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Jeopolitik",
-      "tarih": "2026-08-22",
-      "tarih_gorunur": "22 Ağustos 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişmeler piyasaya doğrudan değil, arz riski ve risk iştahı üzerinden geçer. Türkiye için ana kanal enerji faturası ve risk primidir.",
-      "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa petrol ve doğal gaz fiyatına risk primi eklenir. Türkiye net enerji ithalatçısı olduğu için bu, cari işlemler dengesine doğrudan yazılır.",
-        "Risk iştahı: belirsizlik arttığında gelişmekte olan ülke varlıklarından çıkış görülebilir; ülke risk primi ve borçlanma maliyeti yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat pazarlarının bileşimini değiştirir; etki sektörün o pazara bağımlılığı kadardır.",
-        "Güvenli liman talebi: altın ve dolar talebi değişebilir; yönü ve büyüklüğü olayın ne kadarının önceden fiyatlandığına bağlıdır."
-      ],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/jeopolitik-12.jpg",
-      "foto_atif": "Unknown author Unknown author · PDM"
     },
     {
       "baslik": "İmalat Sanayi Kapasite Kullanım Oranı (Ağustos 2026)",
@@ -2017,8 +2053,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-10-c7c63613.png",
-      "foto_atif": "MartinD · CC-BY-SA-4.0"
+      "foto": "/statik/foto/para-politikasi-10-bce0f56d.jpg",
+      "foto_atif": "Tony Webster · CC-BY-2.0"
     },
     {
       "baslik": "İktisadi Yönelim İstatistikleri ve Reel Kesim Güven Endeksi (Ağustos 2026)",
@@ -2038,7 +2074,7 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/borsa-11.jpg",
+      "foto": "/statik/foto/borsa-10-1d3f5b6f.jpg",
       "foto_atif": "Syced · CC0"
     },
     {
@@ -2059,29 +2095,71 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-4.jpg",
-      "foto_atif": "Dan Smith · BY-SA 2.5"
+      "foto": "/statik/foto/para-politikasi-7-d50cfe6c.jpg",
+      "foto_atif": "Infrogmation of New Orleans · CC-BY-SA-4.0"
     },
     {
-      "baslik": "Dışişleri Bakanlığı: ABD, El Salvador'la ilişkileri güçlendirmek için ekonomik zirveye ev sahipliği yapmayı dört gözle bekliyor",
-      "baslik_kaynak": "State Department: US looks forward to hosting economic summit to strengthen ties with El Salvador",
+      "baslik": "Reel İhracat ve Reel İthalattaki Gelişmeler",
+      "baslik_kaynak": "Developments in Real Exports and Real Imports",
       "ozet": "",
       "cevrildi": true,
       "dil": "en",
-      "ticari": true,
+      "ticari": false,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9731974/State-Department-US-looks-forward-to-hosting-economic-summit-to-strengthen-ties-with-El-Salvador.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Şirket haberleri",
+      "adres": "http://www.boj.or.jp/en/research/research_data/reri/index.htm",
+      "kurum": "BoJ",
+      "kurum_tam": "Japonya Merkez Bankası",
+      "konu": "Dış ticaret",
       "tarih": "2026-08-21",
       "tarih_gorunur": "21 Ağustos 2026",
       "yorumlanir": false,
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-10-91cb7af0.jpg",
-      "foto_atif": "Myotus · CC-BY-SA-4.0"
+      "foto": "/statik/foto/dis-ticaret-7-912e1aa5.jpg",
+      "foto_atif": "Olga Ernst · CC-BY-SA-4.0"
+    },
+    {
+      "baslik": "Enerji Bakanı, Kritik Üretimi Orta Atlantik'te Kullanıma Sundu",
+      "baslik_kaynak": "Energy Secretary Keeps Critical Generation Available in Mid-Atlantic",
+      "ozet": "Emergency order keeps critical generation available to power Americans in the Mid-Atlantic region of the United States",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": false,
+      "bolge": "DUNYA",
+      "adres": "https://www.energy.gov/articles/energy-secretary-keeps-critical-generation-available-mid-atlantic",
+      "kurum": "DOE",
+      "kurum_tam": "ABD Enerji Bakanlığı",
+      "konu": "Enerji",
+      "tarih": "2026-08-21",
+      "tarih_gorunur": "21 Ağustos 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/enerji-11-a5cdd29f.jpg",
+      "foto_atif": "W.carter · CC0"
+    },
+    {
+      "baslik": "Enerji Bakanlığı, Amerikan Çelik İmalatını Canlandırmak İçin 500 Milyon $ Ödül Açıkladı",
+      "baslik_kaynak": "Energy Department Announces $500 Million Award to Revitalize American Steelmaking﻿",
+      "ozet": "$500 million award will protect 2,300 American jobs and strengthen domestic steel production",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": false,
+      "bolge": "DUNYA",
+      "adres": "https://www.energy.gov/articles/energy-department-announces-500-million-award-revitalize-american-steelmaking",
+      "kurum": "DOE",
+      "kurum_tam": "ABD Enerji Bakanlığı",
+      "konu": "Enerji",
+      "tarih": "2026-08-21",
+      "tarih_gorunur": "21 Ağustos 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/enerji-11-a5cdd29f.jpg",
+      "foto_atif": "W.carter · CC0"
     },
     {
       "baslik": "Haftalık Akım Faiz ve Kâr Payı İstatistikleri",
@@ -2101,8 +2179,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-6-0ee29051.jpg",
-      "foto_atif": "Daniel Schwen · CC-BY-SA-4.0"
+      "foto": "/statik/foto/para-politikasi-9-683f4724.jpg",
+      "foto_atif": "Tony Webster · CC-BY-2.0"
     },
     {
       "baslik": "Menkul Kıymet İstatistikleri",
@@ -2122,8 +2200,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/piyasa-duzenlemesi-6.jpg",
-      "foto_atif": "Bernard Lee · CC0"
+      "foto": "/statik/foto/piyasa-duzenlemesi-9-29b01285.jpg",
+      "foto_atif": "Syced · CC0"
     },
     {
       "baslik": "Haftalık Para ve Banka İstatistikleri",
@@ -2143,8 +2221,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/bankacilik-7.jpg",
-      "foto_atif": "Dr Neil Clifton · CC-BY-SA-2.0"
+      "foto": "/statik/foto/bankacilik-9-8cfafe78.jpg",
+      "foto_atif": "Myotus · CC-BY-4.0"
     },
     {
       "baslik": "Uluslararası Yatırım Pozisyonu (Haziran 2026)",
@@ -2164,8 +2242,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-5.png",
-      "foto_atif": "US Federal Reserve · PDM"
+      "foto": "/statik/foto/para-politikasi-11-fd54475f.jpg",
+      "foto_atif": "Innotata · CC-BY-SA-3.0"
     },
     {
       "baslik": "Türkiye Dış Borç İstatistikleri (2026 II. Çeyrek)",
@@ -2185,8 +2263,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-5.png",
-      "foto_atif": "US Federal Reserve · PDM"
+      "foto": "/statik/foto/para-politikasi-9-f9a4682a.jpg",
+      "foto_atif": "DXR · CC-BY-SA-4.0"
     },
     {
       "baslik": "Federal Reserve Board, National Westminster Bank Plc'nin başvurusunu onayladığını duyurdu",
@@ -2199,15 +2277,15 @@
       "adres": "https://www.federalreserve.gov/newsevents/pressreleases/orders20260820a.htm",
       "kurum": "Fed",
       "kurum_tam": "Federal Reserve",
-      "konu": "Düzenleme",
+      "konu": "Bankacılık",
       "tarih": "2026-08-20",
       "tarih_gorunur": "20 Ağustos 2026",
       "yorumlanir": false,
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/duzenleme-5.jpg",
-      "foto_atif": "Broiledcorn · CC0"
+      "foto": "/statik/foto/bankacilik-8-685abb38.jpg",
+      "foto_atif": "Myotus · CC-BY-4.0"
     },
     {
       "baslik": "Fed Kurulu, SouthPoint Bancshares, Inc. ile yaptırım kararı verdi ve Deutsche Bank AG, DB USA Corporation ve Deutsche Bank AG New York Şubesi ile icra davasının sona erdiğini duyurdu",
@@ -2220,15 +2298,78 @@
       "adres": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260820b.htm",
       "kurum": "Fed",
       "kurum_tam": "Federal Reserve",
-      "konu": "Borsa",
+      "konu": "Bankacılık",
       "tarih": "2026-08-20",
       "tarih_gorunur": "20 Ağustos 2026",
       "yorumlanir": false,
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/borsa-6.jpg",
-      "foto_atif": "Syced · CC0"
+      "foto": "/statik/foto/bankacilik-8-d4d74101.jpg",
+      "foto_atif": "Myotus · CC-BY-4.0"
+    },
+    {
+      "baslik": "Tüketiciler riskli mini tahvillere ve kredi notlarına dikkat etmeleri konusunda uyarıldı",
+      "baslik_kaynak": "Consumers warned to beware of risky mini-bonds and loan notes",
+      "ozet": "The FCA is warning consumers about the risks of investing in loan notes and mini-bonds issued by unregulated companies, after continuing to see people lose money in these high-risk investments.",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": false,
+      "bolge": "DUNYA",
+      "adres": "https://www.fca.org.uk/news/press-releases/consumers-warned-beware-risky-mini-bonds-and-loan-notes",
+      "kurum": "FCA",
+      "kurum_tam": "Birleşik Krallık Finansal Davranış Otoritesi",
+      "konu": "Düzenleme",
+      "tarih": "2026-08-20",
+      "tarih_gorunur": "20 Ağustos 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/duzenleme-9-d707d55b.jpg",
+      "foto_atif": "Ardfern · CC-BY-SA-3.0"
+    },
+    {
+      "baslik": "Düzenlenmemiş kredi notları ve mini tahviller: Yüksek getiri vaatleriyle tasarruflarınızı riske atmayın",
+      "baslik_kaynak": "Unregulated loan notes and mini-bonds: don't risk your savings on promises of high returns",
+      "ozet": "These high-risk investments should not usually be advertised widely to the public. We banned the marketing of speculative mini-bonds and loan notes to ordinary retail investors from 1 January 2021.We did this because these are complicated investments, not suitable for most people.",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": false,
+      "bolge": "DUNYA",
+      "adres": "https://www.fca.org.uk/news/statements/unregulated-loan-notes-mini-bonds-dont-risk-savings-promises-high-returns",
+      "kurum": "FCA",
+      "kurum_tam": "Birleşik Krallık Finansal Davranış Otoritesi",
+      "konu": "Düzenleme",
+      "tarih": "2026-08-20",
+      "tarih_gorunur": "20 Ağustos 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/duzenleme-7-7da0b0d6.jpg",
+      "foto_atif": "Myotus · CC-BY-4.0"
+    },
+    {
+      "baslik": "Enerji Bakanlığı, Amerika'nın Kritik Maden ve Akü Tedarik Zincirlerini Güvence Altına Almak İçin 500 Milyon $ Duyurdu",
+      "baslik_kaynak": "Energy Department Announces $500 Million to Secure America's Critical Mineral and Battery Supply Chains",
+      "ozet": "Seven selected projects will secure American critical supply chains, bolster U.S. economic and national security, and advance American energy dominance",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": false,
+      "bolge": "DUNYA",
+      "adres": "https://www.energy.gov/articles/energy-department-announces-500-million-secure-americas-critical-mineral-and-battery",
+      "kurum": "DOE",
+      "kurum_tam": "ABD Enerji Bakanlığı",
+      "konu": "Enerji",
+      "tarih": "2026-08-20",
+      "tarih_gorunur": "20 Ağustos 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/enerji-11-a5cdd29f.jpg",
+      "foto_atif": "W.carter · CC0"
     },
     {
       "baslik": "Kısa Vadeli Dış Borç İstatistikleri (Haziran 2026)",
@@ -2248,8 +2389,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-6.jpg",
-      "foto_atif": "Federalreserve · PDM"
+      "foto": "/statik/foto/para-politikasi-8-6bdac262.jpg",
+      "foto_atif": "Infrogmation of New Orleans · CC-BY-SA-4.0"
     },
     {
       "baslik": "Federal Açık Piyasa Komitesi Tutanakları, 28 -29 Temmuz 2026",
@@ -2269,8 +2410,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-9-79ff6e59.jpg",
-      "foto_atif": "Infrogmation of New Orleans · CC-BY-SA-4.0"
+      "foto": "/statik/foto/para-politikasi-9-f9a4682a.jpg",
+      "foto_atif": "DXR · CC-BY-SA-4.0"
     },
     {
       "baslik": "Christine Lagarde: Dünya Ekonomik Forumu'nda küresel ekonomik görünüm üzerine bir tartışma sırasında Avrupa ekonomisi hakkında panel notları",
@@ -2290,8 +2431,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-4.jpg",
-      "foto_atif": "Dan Smith · BY-SA 2.5"
+      "foto": "/statik/foto/para-politikasi-15-525666c9.jpg",
+      "foto_atif": "Norbert Nagel · CC-BY-SA-4.0"
     },
     {
       "baslik": "Daha uzun kuyular Permiyen ham petrol ve doğal gaz üretimini artırır",
@@ -2308,15 +2449,58 @@
       "tarih": "2026-08-19",
       "tarih_gorunur": "19 Ağustos 2026",
       "yorumlanir": true,
-      "neden_onemli": "Türkiye net enerji ithalatçısıdır; ham petrol ve doğal gaz faturası cari işlemler dengesinin en büyük kalemlerinden biridir.",
+      "neden_onemli": "Enerji fiyatı hem bir maliyet kalemi hem bir enflasyon girdisidir; arz tarafındaki değişim önce vadeli piyasada, sonra üretici fiyatlarında görünür.",
       "kanallar": [
-        "İthalat faturası: enerji fiyatındaki hareket, cari işlemler dengesine doğrudan yansıyan bir girdidir.",
-        "Enflasyon geçişi: akaryakıt fiyatları üzerinden tüketici enflasyonuna geçiş kanalı vardır; hız ve büyüklük vergi yapısına ve kur seviyesine bağlıdır.",
-        "Sektörel maliyet: yakıt maliyetinin gider içindeki payı yüksek sektörler (havayolu, karayolu lojistiği, petrokimya, enerji yoğun sanayi) bu kalemden daha erken etkilenir."
+        "Arz kapasitesi: OPEC+ kotası, stok seviyesi ve üretim kesintisi haberleri vadeli eğrinin şeklini değiştirir.",
+        "Talep beklentisi: büyüme verisi ve sanayi üretimi fiyatın talep bacağını belirler.",
+        "Bölgeler arası akış: doğal gaz ile LNG arasındaki fiyat farkı, kargoların hangi bölgeye gideceğini değiştirir.",
+        "Enflasyon aktarımı: enerji maliyeti ulaştırma ve gıda üzerinden manşet enflasyona geçer; merkez bankaları çekirdek enflasyona daha çok bakar."
       ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/enerji-11-a5cdd29f.jpg",
+      "foto_atif": "W.carter · CC0"
+    },
+    {
+      "baslik": "FCA, eski SVS Securities CEO'sunu para cezasına çarptırdı ve yasakladı",
+      "baslik_kaynak": "FCA fines and bans former SVS Securities CEO",
+      "ozet": "The FCA has banned Demetrios Hadjigeorgiou from working in senior management positions in financial services and fined him £56,400. Mr Hadjigeorgiou was the former director and chief executive officer (CEO) of SVS Securities Plc (SVS), a discretionary fund manager.The FCA found that Mr Hadjigeorgiou failed to properly…",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": false,
+      "bolge": "DUNYA",
+      "adres": "https://www.fca.org.uk/news/press-releases/fca-fines-bans-former-svs-securities-ceo",
+      "kurum": "FCA",
+      "kurum_tam": "Birleşik Krallık Finansal Davranış Otoritesi",
+      "konu": "Piyasa düzenlemesi",
+      "tarih": "2026-08-19",
+      "tarih_gorunur": "19 Ağustos 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enerji-12.jpg",
-      "foto_atif": "Chad Davis from Minneapolis, United States · CC-BY-2.0"
+      "foto": "/statik/foto/piyasa-duzenlemesi-9-29b01285.jpg",
+      "foto_atif": "Syced · CC0"
+    },
+    {
+      "baslik": "Enerji Bakanı Orta Atlantik Şebekesini Korumak İçin Harekete Geçti",
+      "baslik_kaynak": "Energy Secretary Acts to Protect Mid-Atlantic Grid",
+      "ozet": "Emergency order strengthens grid reliability and minimizes the risk of energy shortfalls in 13 states and the District of Columbia.",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": false,
+      "bolge": "DUNYA",
+      "adres": "https://www.energy.gov/articles/energy-secretary-acts-protect-mid-atlantic-grid",
+      "kurum": "DOE",
+      "kurum_tam": "ABD Enerji Bakanlığı",
+      "konu": "Enerji",
+      "tarih": "2026-08-19",
+      "tarih_gorunur": "19 Ağustos 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/enerji-11-a5cdd29f.jpg",
+      "foto_atif": "W.carter · CC0"
     },
     {
       "baslik": "Konut Fiyat Endeksi (Temmuz 2026)",
@@ -2336,8 +2520,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enflasyon-5.jpg",
-      "foto_atif": "999real · CC0"
+      "foto": "/statik/foto/enflasyon-7-87d51a9b.jpg",
+      "foto_atif": "safaritravelplus · CC0"
     },
     {
       "baslik": "SEC, Subprime Auto Lender Tricolor'ın 1,9 Milyar $ Çöküşüyle Bağlantılı Olarak Eski Yöneticileri Dolandırıcılıkla Suçladı",
@@ -2357,7 +2541,7 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/piyasa-duzenlemesi-11-5b236449.jpg",
+      "foto": "/statik/foto/piyasa-duzenlemesi-9-29b01285.jpg",
       "foto_atif": "Syced · CC0"
     },
     {
@@ -2378,269 +2562,92 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/kripto-varliklar-12-cc70fb1a.jpg",
-      "foto_atif": "BTC Keychain · CC-BY-SA-4.0"
+      "foto": "/statik/foto/kripto-varliklar-8-8b36c240.jpg",
+      "foto_atif": "de Vries, Alex; Stoll, Christian · PDM"
     },
     {
-      "baslik": "Ticari Gayrimenkul Fiyat Endeksi (2026 2. Çeyrek)",
-      "baslik_kaynak": "Ticari Gayrimenkul Fiyat Endeksi (2026 2. Çeyrek)",
-      "ozet": "",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": false,
-      "bolge": "TR",
-      "adres": "http://www.tcmb.gov.tr/wps/wcm/connect/tr/tcmb+tr/main+menu/istatistikler/reel+sektor+istatistikleri/tgfe",
-      "kurum": "TCMB",
-      "kurum_tam": "Türkiye Cumhuriyet Merkez Bankası",
-      "konu": "Enflasyon",
-      "tarih": "2026-08-17",
-      "tarih_gorunur": "17 Ağustos 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enflasyon-5.jpg",
-      "foto_atif": "999real · CC0"
-    },
-    {
-      "baslik": "Philip R. Lane: Savunma harcamalarındaki artış ve euro bölgesi ekonomisi",
-      "baslik_kaynak": "Philip R. Lane: The rise in defence spending and the euro area economy",
-      "ozet": "",
+      "baslik": "Esma, tanınmış üçüncü ülke ÇKP'lerinde faaliyetin temizlenmesi için raporlama çerçevesine danışır",
+      "baslik_kaynak": "ESMA consults on reporting framework for clearing activity at recognised third-country CCPs",
+      "ozet": "ESMA consults on reporting framework for clearing activity at recognised third-country CCPs 18 August 2026 CCP Simplification and Burden Reduction The European Securities and Markets Authority (ESMA), the EU's financial markets regulator and supervisor, has launched a consultation on a proposed annual reporting…",
       "cevrildi": true,
       "dil": "en",
       "ticari": false,
       "bolge": "DUNYA",
-      "adres": "https://www.ecb.europa.eu//press/key/date/2026/html/ecb.sp260817~1f9f7149c9.en.pdf",
-      "kurum": "ECB",
-      "kurum_tam": "Avrupa Merkez Bankası",
-      "konu": "Para politikası",
-      "tarih": "2026-08-17",
-      "tarih_gorunur": "17 Ağustos 2026",
+      "adres": "https://www.esma.europa.eu/press-news/esma-news/esma-consults-reporting-framework-clearing-activity-recognised-third-country",
+      "kurum": "ESMA",
+      "kurum_tam": "Avrupa Menkul Kıymetler ve Piyasalar Otoritesi",
+      "konu": "Düzenleme",
+      "tarih": "2026-08-18",
+      "tarih_gorunur": "18 Ağustos 2026",
       "yorumlanir": false,
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-6-0ee29051.jpg",
-      "foto_atif": "Daniel Schwen · CC-BY-SA-4.0"
+      "foto": "/statik/foto/duzenleme-8-5e8a2716.jpg",
+      "foto_atif": "Mrs Puff · CC-BY-SA-2.0"
     },
     {
-      "baslik": "ABD Körfez Kıyısı'ndan su kaynaklı sevkiyatlar Nisan ve Mayıs aylarında arttı",
-      "baslik_kaynak": "Waterborne shipments from the U.S. Gulf Coast increased in April and May",
-      "ozet": "Waterborne shipments of crude oil and petroleum products from the U.S. Gulf Coast (PADD 3) to the West Coast (PADD 5) more than quadrupled year-on-year in April and May following a waiver that permitted a broader group of ships to travel between U.S. ports. Shipments from the U.S.",
+      "baslik": "FCA, üst düzey yöneticiyi dürüstlük ve dürüstlük eksikliği nedeniyle yasakladı",
+      "baslik_kaynak": "FCA bans senior manager for lack of honesty and integrity",
+      "ozet": "The FCA has banned Howard Roland Duckett from working in financial services due to a serious lack of honesty and integrity. Mr Duckett was a senior manager at Beauforce Corporation Limited, a debt management firm. The High Court has disqualified Mr Duckett from acting as a company director for 10 years.",
       "cevrildi": true,
       "dil": "en",
       "ticari": false,
       "bolge": "DUNYA",
-      "adres": "https://www.eia.gov/todayinenergy/detail.php?id=67964",
-      "kurum": "EIA",
-      "kurum_tam": "ABD Enerji Bilgi İdaresi",
-      "konu": "Enerji",
-      "tarih": "2026-08-17",
-      "tarih_gorunur": "17 Ağustos 2026",
+      "adres": "https://www.fca.org.uk/news/press-releases/fca-bans-senior-manager-lack-honesty-integrity",
+      "kurum": "FCA",
+      "kurum_tam": "Birleşik Krallık Finansal Davranış Otoritesi",
+      "konu": "Düzenleme",
+      "tarih": "2026-08-18",
+      "tarih_gorunur": "18 Ağustos 2026",
       "yorumlanir": false,
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enerji-7.jpg",
-      "foto_atif": "duggar11 · CC-BY-2.0"
+      "foto": "/statik/foto/duzenleme-9-d707d55b.jpg",
+      "foto_atif": "Ardfern · CC-BY-SA-3.0"
     },
     {
-      "baslik": "Piyasa Katılımcıları Anketi (Ağustos 2026)",
-      "baslik_kaynak": "Piyasa Katılımcıları Anketi (Ağustos 2026)",
-      "ozet": "",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": false,
-      "bolge": "TR",
-      "adres": "http://www.tcmb.gov.tr/wps/wcm/connect/tr/tcmb+tr/main+menu/istatistikler/egilim+anketleri/piyasa+katilimcilari+anketi",
-      "kurum": "TCMB",
-      "kurum_tam": "Türkiye Cumhuriyet Merkez Bankası",
-      "konu": "Para politikası",
-      "tarih": "2026-08-14",
-      "tarih_gorunur": "14 Ağustos 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-6-0ee29051.jpg",
-      "foto_atif": "Daniel Schwen · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "SEC, Halka Arz Öncesi 74 Milyon $ Yatırım Dolandırıcılığında Kazan Dairesi Operatörünü ve Perakende Yatırımcıları Dolandıran Üç İşletmeyi Ücretlendiriyor",
-      "baslik_kaynak": "SEC Charges Boiler Room Operator and Three Entities with Defrauding Retail Investors in $74 Million Pre-IPO Investment Scam",
-      "ozet": "The Securities and Exchange Commission today charged New York resident Andrew Spaventa and three entities he owned and controlled with fraud and other violations in connection with unregistered securities offerings of private funds that purportedly…",
+      "baslik": "2026 Kamu Forumu'na kayıt için son tarih 21 Ağustos'tur",
+      "baslik_kaynak": "Deadline to register for 2026 Public Forum is 21 August",
+      "ozet": "The deadline for online registration for this year’s in-person Public Forum, which will take place on 15, 16 and 17 September, is 21 August 2026 (23.59 CET). Late and onsite registrations will not be accepted.",
       "cevrildi": true,
       "dil": "en",
       "ticari": false,
       "bolge": "DUNYA",
-      "adres": "https://www.sec.gov/newsroom/press-releases/2026-75-sec-charges-boiler-room-operator-three-entities-defrauding-retail-investors-74-million-pre-ipo",
-      "kurum": "SEC",
-      "kurum_tam": "ABD Menkul Kıymetler ve Borsa Komisyonu",
-      "konu": "Enerji",
-      "tarih": "2026-08-14",
-      "tarih_gorunur": "14 Ağustos 2026",
+      "adres": "https://www.wto.org/english/news_e/news26_e/pfor_18aug26_473_e.htm",
+      "kurum": "DTÖ",
+      "kurum_tam": "Dünya Ticaret Örgütü",
+      "konu": "Dış ticaret",
+      "tarih": "2026-08-18",
+      "tarih_gorunur": "18 Ağustos 2026",
       "yorumlanir": false,
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enerji-9.jpg",
-      "foto_atif": "NPS photo · PDM"
+      "foto": "/statik/foto/dis-ticaret-11-d3b27589.jpg",
+      "foto_atif": "Niels Johannes · CC-BY-SA-4.0"
     },
     {
-      "baslik": "Uluslararası Rezervler ve Döviz Likiditesi (Temmuz 2026)",
-      "baslik_kaynak": "Uluslararası Rezervler ve Döviz Likiditesi (Temmuz 2026)",
-      "ozet": "",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": false,
-      "bolge": "TR",
-      "adres": "http://www.tcmb.gov.tr/wps/wcm/connect/tr/tcmb+tr/main+menu/istatistikler/odemeler+dengesi+ve+ilgili+istatistikler/uluslararasi+rezervler+ve+doviz+likiditesi",
-      "kurum": "TCMB",
-      "kurum_tam": "Türkiye Cumhuriyet Merkez Bankası",
-      "konu": "Bankacılık",
-      "tarih": "2026-08-13",
-      "tarih_gorunur": "13 Ağustos 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/bankacilik-6.jpg",
-      "foto_atif": "Julian Lupyan · CC0"
-    },
-    {
-      "baslik": "Başkan Fatih Karahan'ın \"Enflasyon Raporu 2026-III\"ün Tanıtımına İlişkin Bilgilendirme Toplantısında Yaptığı Sunum (İstanbul)",
-      "baslik_kaynak": "Başkan Fatih Karahan'ın \"Enflasyon Raporu 2026-III\"ün Tanıtımına İlişkin Bilgilendirme Toplantısında Yaptığı Sunum (İstanbul)",
-      "ozet": "",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": false,
-      "bolge": "TR",
-      "adres": "http://www.tcmb.gov.tr/wps/wcm/connect/0dc5d652-18c4-47ed-a225-763c024db0bf/SunumB13_08_2026.pdf?MOD=AJPERES",
-      "kurum": "TCMB",
-      "kurum_tam": "Türkiye Cumhuriyet Merkez Bankası",
-      "konu": "Enflasyon",
-      "tarih": "2026-08-13",
-      "tarih_gorunur": "13 Ağustos 2026",
-      "yorumlanir": true,
-      "neden_onemli": "TÜFE yalnızca bir fiyat ölçüsü değildir; politika faizi kararlarının, kira ve ücret yenilemelerinin ve enflasyon muhasebesinin ortak girdisidir.",
-      "kanallar": [
-        "Politika patikası: enflasyonun seyri, Para Politikası Kurulu kararlarına ilişkin piyasa beklentisini değiştirir.",
-        "Reel getiri: nominal faiz ile enflasyon arasındaki fark, mevduatın ve tahvilin reel getirisini belirler.",
-        "Enflasyon muhasebesi: TÜFE, TMS 29 kapsamında finansal tabloların düzeltilmesinde kullanılan endekstir. Düzeltilmiş tablolarda raporlanan büyüme zaten reeldir; bu rakamı ayrıca enflasyondan arındırmak çift sayım olur.",
-        "Maliyet yenilemesi: kira, ücret ve uzun vadeli sözleşme yenilemeleri bu endekse bağlıdır."
-      ],
-      "kanal_basligi": "Piyasaya nasıl yansır?",
-      "foto": "/statik/foto/enflasyon-10-8c83b7c6.jpg",
-      "foto_atif": "Darrin Antrobus · CC-BY-SA-2.0"
-    },
-    {
-      "baslik": "Fed Kurulu, Regions Bank'ın eski çalışanına yaptırım kararı verdi",
-      "baslik_kaynak": "Federal Reserve Board issues enforcement action with former employee of Regions Bank",
-      "ozet": "Federal Reserve Board issues enforcement action with former employee of Regions Bank",
+      "baslik": "Iowa'da Yolda: America First Trade Ücretleri Artırıyor, İstihdamı Artırıyor ve Amerika'nın Küresel Rekabet Gücünü Geri Kazanıyor",
+      "baslik_kaynak": "On the Road in Iowa: America First Trade is Raising Wages, Reshoring Jobs, and Restoring America’s Global Competitiveness",
+      "ozet": "On the Road in Iowa: America First Trade is Raising Wages, Reshoring Jobs, and Restoring America’s Global Competitiveness myarbrough Tue, 08/18/2026 - 11:02 WASHINGTON – Last week, Ambassador Jamieson Greer joined Small Business Administrator Kelly Loeffler in Iowa to tour one of the largest off-road tire…",
       "cevrildi": true,
       "dil": "en",
       "ticari": false,
       "bolge": "DUNYA",
-      "adres": "https://www.federalreserve.gov/newsevents/pressreleases/enforcement20260813a.htm",
-      "kurum": "Fed",
-      "kurum_tam": "Federal Reserve",
-      "konu": "Piyasa düzenlemesi",
-      "tarih": "2026-08-13",
-      "tarih_gorunur": "13 Ağustos 2026",
+      "adres": "https://ustr.gov/about/policy-offices/press-office/press-releases/2026/august/road-iowa-america-first-trade-raising-wages-reshoring-jobs-and-restoring-americas-global",
+      "kurum": "USTR",
+      "kurum_tam": "ABD Ticaret Temsilciliği",
+      "konu": "İstihdam ve ücret",
+      "tarih": "2026-08-18",
+      "tarih_gorunur": "18 Ağustos 2026",
       "yorumlanir": false,
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/piyasa-duzenlemesi-6.jpg",
-      "foto_atif": "Bernard Lee · CC0"
-    },
-    {
-      "baslik": "Nakit, Euro bölgesinde en yaygın kabul gören ödeme yöntemi olmaya devam ediyor",
-      "baslik_kaynak": "Cash remains most widely accepted payment method in euro area",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": false,
-      "bolge": "DUNYA",
-      "adres": "https://www.ecb.europa.eu//press/pr/date/2026/html/ecb.pr260813~389729d6a9.en.html",
-      "kurum": "ECB",
-      "kurum_tam": "Avrupa Merkez Bankası",
-      "konu": "Para politikası",
-      "tarih": "2026-08-13",
-      "tarih_gorunur": "13 Ağustos 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-6-0ee29051.jpg",
-      "foto_atif": "Daniel Schwen · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "SEC, Ortodoks Yahudi Topluluklarını Hedef Aldığı İddia Edilen 47 Milyon $ Dolandırıcılıkla Bağlantılı Olarak Toms River Trio'yu Suçladı",
-      "baslik_kaynak": "SEC Charges Toms River Trio in Connection with Alleged $47 Million Fraud Targeting Orthodox Jewish Communities",
-      "ozet": "The Securities and Exchange Commission today charged three Toms River, New Jersey residents for their roles in an affinity investment fraud that raised approximately $47 million from more than 87 investors, who were primarily members of Orthodox Jewish…",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": false,
-      "bolge": "DUNYA",
-      "adres": "https://www.sec.gov/newsroom/press-releases/2026-74-sec-charges-toms-river-trio-connection-alleged-47-million-fraud-targeting-orthodox-jewish",
-      "kurum": "SEC",
-      "kurum_tam": "ABD Menkul Kıymetler ve Borsa Komisyonu",
-      "konu": "Piyasa düzenlemesi",
-      "tarih": "2026-08-13",
-      "tarih_gorunur": "13 Ağustos 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/piyasa-duzenlemesi-10-c3a6bede.jpg",
-      "foto_atif": "Syced · CC0"
-    },
-    {
-      "baslik": "ABD, 2026'da rekor doğal gaz üretimi yolunda",
-      "baslik_kaynak": "United States on track for record natural gas production in 2026",
-      "ozet": "We forecast U.S. marketed natural gas production will average 122.5 billion cubic feet per day (Bcf/d) in 2026, surpassing the previous record of 118.5 Bcf/d set in 2025, in our August 2026 Short-Term Energy Outlook (STEO).",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": false,
-      "bolge": "DUNYA",
-      "adres": "https://www.eia.gov/todayinenergy/detail.php?id=67944",
-      "kurum": "EIA",
-      "kurum_tam": "ABD Enerji Bilgi İdaresi",
-      "konu": "Enerji",
-      "tarih": "2026-08-12",
-      "tarih_gorunur": "12 Ağustos 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Türkiye net enerji ithalatçısıdır; ham petrol ve doğal gaz faturası cari işlemler dengesinin en büyük kalemlerinden biridir.",
-      "kanallar": [
-        "İthalat faturası: enerji fiyatındaki hareket, cari işlemler dengesine doğrudan yansıyan bir girdidir.",
-        "Enflasyon geçişi: akaryakıt fiyatları üzerinden tüketici enflasyonuna geçiş kanalı vardır; hız ve büyüklük vergi yapısına ve kur seviyesine bağlıdır.",
-        "Sektörel maliyet: yakıt maliyetinin gider içindeki payı yüksek sektörler (havayolu, karayolu lojistiği, petrokimya, enerji yoğun sanayi) bu kalemden daha erken etkilenir."
-      ],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enerji-11.jpg",
-      "foto_atif": "Ezagren ( bicara / talk ) · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "ECB ve Frankfurt Radyo Senfonisi, 20 Ağustos 2026'da halkı Europa Open Air konserine davet ediyor",
-      "baslik_kaynak": "ECB and Frankfurt Radio Symphony invite the public to Europa Open Air concert on 20 August 2026",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": false,
-      "bolge": "DUNYA",
-      "adres": "https://www.ecb.europa.eu//press/pr/date/2026/html/ecb.pr260811~47cd3ee040.en.html",
-      "kurum": "ECB",
-      "kurum_tam": "Avrupa Merkez Bankası",
-      "konu": "Para politikası",
-      "tarih": "2026-08-11",
-      "tarih_gorunur": "11 Ağustos 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-6.jpg",
-      "foto_atif": "Federalreserve · PDM"
+      "foto": "/statik/foto/istihdam-ve-ucret-8-0b714338.jpg",
+      "foto_atif": "Unknown author Unknown author · PDM"
     }
   ],
   "sinir_notu": "Yukarıdaki maddeler yapısal aktarım kanallarıdır, öngörü değildir. Etkinin ne zaman ve ne ölçüde görüleceği kur seviyesi, vergi düzenlemeleri ve sözleşme yapılarına bağlı olarak değişir; bu sayfada bir büyüklük tahmini yapılmamaktadır."

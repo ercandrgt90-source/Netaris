@@ -213,6 +213,43 @@ with tempfile.TemporaryDirectory() as gecici:
 denetim.CIKTI_DIZINI = _ASIL
 denetim.CANLI_BETIK = _ASIL_BETIK
 
+
+# ---------------------------------------------- sayi anahtari (ayrac)
+#
+# Olculdu (2026-08-24): "yorumdaki 15.000 sayfada gecmiyor -- okur
+# dogrulayamaz" uyarisi alindi. Oysa sayi sayfada VARDI, Ingilizce
+# kaynak alintisinda "exceed 15,000 feet" diye; yorum ayni sayiyi
+# Turkce "15.000 fitlik" yazmisti. Duz dizge karsilastirmasi iki
+# ayrac aliskanligini FARKLI sayi saniyordu.
+#
+# Yanlis alarm zararsiz degil: her kosuda tekrarlayan sahte bulgu,
+# gercek bulgunun onunu kapatiyor. Ingilizce besleme sayisi arttikca
+# (2026-08-24'te yedi resmi kaynak eklendi) bu her gun tekrarlardi.
+
+es("Ingilizce ve Turkce binlik AYNI sayi",
+   denetim._sayi_anahtari("15,000"), denetim._sayi_anahtari("15.000"))
+es("Ingilizce ve Turkce ondalik AYNI sayi",
+   denetim._sayi_anahtari("1,17"), denetim._sayi_anahtari("1.17"))
+
+es("binlik ayrac siliniyor", denetim._sayi_anahtari("15,000"), "15000")
+es("cok gruplu binlik siliniyor",
+   denetim._sayi_anahtari("100.000.000"), "100000000")
+es("binlik ve ondalik birlikte",
+   denetim._sayi_anahtari("1.234,56"), "1234.56")
+es("iki haneli ondalik", denetim._sayi_anahtari("3,63"), "3.63")
+es("ayracsiz sayi degismez", denetim._sayi_anahtari("2026"), "2026")
+
+# FARKLI sayilar BIRLESMEMELI -- yoksa gercek hatayi kacirirdik.
+es("15.000 ile 15,0 AYRI kaliyor",
+   denetim._sayi_anahtari("15,000") != denetim._sayi_anahtari("15,0"), True)
+es("komsu sayilar ayri kaliyor",
+   denetim._sayi_anahtari("1.234") != denetim._sayi_anahtari("1.235"), True)
+
+# Sayi olmayan giris oldugu gibi donmeli -- kalip bir gun degisirse
+# fonksiyon patlamamali.
+es("sayi olmayan giris degismez", denetim._sayi_anahtari("abc"), "abc")
+es("bos giris degismez", denetim._sayi_anahtari(""), "")
+
 print()
 for k in kaldi:
     print("  KALDI", k)

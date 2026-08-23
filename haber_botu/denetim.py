@@ -400,6 +400,53 @@ YORUM_SAYI_ORANI = 0.5
 _SAYI_KALIBI = re.compile(r"\d[\d.]*,\d+|\d{1,3}(?:\.\d{3})+|\d{2,}")
 
 
+def _sayi_anahtari(ham: str) -> str:
+    """Sayiyi ayrac ALISKANLIGINDAN bagimsiz bir anahtara cevirir.
+
+    NEDEN GEREKLI
+    -------------
+    Olculdu (2026-08-24): "daha-uzun-kuyular-permiyen..." sayfasi
+    "yorumdaki 15.000 sayfada gecmiyor" uyarisi aldi. Oysa sayi
+    sayfada VARDI -- Ingilizce kaynak alintisinda:
+
+        "...super-lateral wells that exceed 15,000 feet"   (sayfa)
+        "...15.000 fitlik esigi asan super-lateral..."     (yorum)
+
+    Ayni sayi, iki ayri ayrac aliskanligi. Duz dizge karsilastirmasi
+    bunlari FARKLI goruyor ve okurun pekala dogrulayabildigi bir
+    yorumu "dogrulanamaz" diye isaretliyor.
+
+    Yanlis alarm zararsiz degil: denetimin isi gercek hatayi one
+    cikarmak ve her kosuda tekrarlayan sahte bulgu, gercek bulgunun
+    onunu kapatiyor. Ingilizce besleme sayisi arttikca (2026-08-24'te
+    yedi resmi kaynak eklendi) bu her gun tekrarlardi.
+
+    NASIL AYIRT EDILIYOR
+    --------------------
+    Son ayractan sonra TAM UC hane varsa ve butun gruplar uc haneliyse
+    ayrac BINLIK sayilir; aksi halde ONDALIK. Boylece:
+
+        "15,000" ve "15.000"  -> "15000"    (ayni sayi)
+        "1,17"   ve "1.17"    -> "1.17"     (ayni sayi)
+        "1.234,56"            -> "1234.56"
+
+    Belirsiz tek durum "1.500": Turkce bin bes yuz, Ingilizce bir
+    nokta bes. Binlik okunuyor -- Ingilizce metin 1,5 degerini
+    "1.500" diye yazmiyor, "1.5" yaziyor.
+    """
+    s = ham.strip()
+    if not re.fullmatch(r"\d[\d.,]*", s):
+        return s
+    son = max(s.rfind("."), s.rfind(","))
+    if son == -1:
+        return s
+    kuyruk = s[son + 1:]
+    if len(kuyruk) == 3 and re.fullmatch(r"\d{1,3}(?:[.,]\d{3})+", s):
+        return s.replace(".", "").replace(",", "")
+    tam = s[:son].replace(".", "").replace(",", "")
+    return f"{tam}.{kuyruk}"
+
+
 def _baslik_tekrari_denetimi() -> list[Bulgu]:
     """Iki sayfanin `<title>` etiketi ayni olmamali.
 
@@ -850,13 +897,18 @@ def _veri_tutarlilik_denetimi() -> list[Bulgu]:
         yorum = _html.unescape(re.sub(r"<[^>]+>", " ", m.group(1)))
         sayfa = _html.unescape(
             re.sub(r"<[^>]+>", " ", metin.replace(m.group(0), "")))
-        sayfa_sayilari = set(_SAYI_KALIBI.findall(sayfa))
+        # KARSILASTIRMA ANAHTAR UZERINDEN: sayfa Ingilizce kaynagi
+        # "15,000", yorum Turkce "15.000" yaziyor olabilir ve ikisi
+        # AYNI SAYI (bkz. `_sayi_anahtari`).
+        sayfa_sayilari = {_sayi_anahtari(x) for x in _SAYI_KALIBI.findall(sayfa)}
         yorum_sayilari = _SAYI_KALIBI.findall(yorum)
         if not yorum_sayilari:
             continue
-        bulunan = sum(1 for x in yorum_sayilari if x in sayfa_sayilari)
+        bulunan = sum(1 for x in yorum_sayilari
+                      if _sayi_anahtari(x) in sayfa_sayilari)
         if bulunan < len(yorum_sayilari) * YORUM_SAYI_ORANI:
-            kacak = sorted(set(yorum_sayilari) - sayfa_sayilari)[:3]
+            kacak = sorted({x for x in yorum_sayilari
+                            if _sayi_anahtari(x) not in sayfa_sayilari})[:3]
             bulgu.append(Bulgu(
                 "uyari", "veri", p.name[:44],
                 f"yorumdaki {', '.join(kacak)} sayfada gecmiyor -- "
