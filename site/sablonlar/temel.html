@@ -246,6 +246,20 @@
 <div class="serit" role="region" aria-label="Fiyat şeridi">
   <div class="serit-akis" data-serit-akis>
     <div class="serit-sira" data-serit-sira>
+      {# VERI TARIHI GORUNUR.
+         Once yalnizca her kalemin `title` ozniteligindeydi: fareyi
+         uzerine getiren masaustu okuru goruyordu, TELEFONDA KIMSE
+         goremiyordu. Sayi tek basina "canli fiyat" izlenimi veriyor.
+
+         "Piyasa kapali" YAZILMIYOR: sayfa statik ve gunde birkac kez
+         uretiliyor; insa aninda dogru olan o bilgi, okur sayfayi
+         acinca yanlis olabilir. Veri tarihi ne zaman okunursa
+         okunsun dogru kalir. #}
+      {% if gostergeler and gostergeler.veri_tarihi %}
+      <span class="serit-tarih" title="Şeritteki en yeni verinin tarihi">
+        {{ gostergeler.veri_tarihi|gun }} verileri
+      </span>
+      {% endif %}
       {% if gostergeler and gostergeler.kalemler %}
       {% for k in gostergeler.kalemler %}
       <span class="kalem{% if k.bayat %} kalem-bayat{% endif %}"

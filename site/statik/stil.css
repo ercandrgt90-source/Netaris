@@ -1494,6 +1494,20 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
   font-weight: 600;
   color: var(--vurgu)}
 
+/* Serit basindaki veri tarihi -- gerekce `temel.html` icinde.
+   Kalemlerden AYRI gorunuyor: bir fiyat degil, butun seridin ne
+   zamana ait oldugunu soyleyen bir etiket. */
+.serit-tarih {
+  display: inline-flex; align-items: center;
+  flex: none;
+  padding: 0 var(--b-3) 0 0;
+  margin: 0 var(--b-3) 0 0;
+  border-right: 1px solid var(--cizgi);
+  font-size: var(--p-xs); font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--yazi-3);
+  white-space: nowrap}
+
 /* ====================================================================
    ANA SAYFA MODULU -- beyaz kart + yatay serit
    --------------------------------------------------------------------

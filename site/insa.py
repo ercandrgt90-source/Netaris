@@ -1377,6 +1377,41 @@ def gostergeleri_yukle() -> dict:
         return {}
 
 
+def serit_veri_tarihi(g: dict) -> str:
+    """Serit kalemlerinin EN YENI veri tarihi -- gorunur etiket icin.
+
+    NEDEN GEREKLI
+    -------------
+    Kullanici "fiyat hic islemedi, cektigimizden beri piyasa kapali"
+    dedi. Serit dogru calisiyordu: eski kalemler `bayat` isaretli ve
+    gun sayisi yaziyor. Ama TARIH yalnizca `title` ozniteligindeydi --
+    yani fareyi uzerine getiren masaustu okuru goruyor, TELEFONDA
+    KIMSE gormuyor.
+
+    Sayi tek basina "canli fiyat" izlenimi veriyor. Tarih gorununce
+    ayni sayi "21 Agustos kapanisi" oluyor ve yanlis anlama kalkiyor.
+
+    NEDEN "PIYASA KAPALI" YAZMIYORUZ
+    Sayfa statik ve gunde birkac kez uretiliyor; insa aninda dogru olan
+    "kapali" bilgisi, okur sayfayi acinca yanlis olabilir. Veri tarihi
+    ise NE ZAMAN OKUNURSA OKUNSUN dogru kalir.
+    """
+    # GELECEK TARIHLI KALEM ETIKETI BELIRLEMEZ.
+    # ----------------------------------------
+    # Olculdu (2026-08-23): TCMB kuru `2026-08-24` tarihliydi -- YARIN.
+    # Sebep TCMB'nin bir sonraki is gunu icin gecerli kuru onceden
+    # yayimlamasi; kalemin kendisi dogru. Ama seridin tamamini
+    # "24 Ağustos verileri" diye etiketlemek, 18 Agustos tarihli
+    # Brent'i de o gune aitmis gibi gostermek olurdu.
+    #
+    # Etiket BUGUNU ASMIYOR. Ileri tarihli kalemin kendi tarihi
+    # `title` ozniteliginde duruyor ve orada da dogru.
+    bugun = datetime.now().strftime("%Y-%m-%d")
+    tarihler = [k.get("tarih") for k in (g.get("kalemler") or [])
+                if k.get("tarih") and k["tarih"] <= bugun]
+    return max(tarihler) if tarihler else ""
+
+
 #: Fotograf defteri. BIR KEZ aciliyor -- her yazi icin yeniden okumak
 #: ayni JSON'u onlarca kez ayristirmak olurdu. Hem analiz hem arsiv
 #: sayfalari ayni defteri kullaniyor; `Kayit()` var olan defteri acar,
@@ -4075,6 +4110,11 @@ def insa() -> int:
               f"otomatik analiz gizlendi (sayfalari duruyor)")
     hakkimizda = hakkimizda_yukle()
     gostergeler = gostergeleri_yukle()
+    # Serit etiketi: en yeni veri tarihi. Gerekce
+    # `serit_veri_tarihi` icinde yazili -- tarih `title`
+    # ozniteligindeydi ve telefonda kimse goremiyordu.
+    if gostergeler:
+        gostergeler["veri_tarihi"] = serit_veri_tarihi(gostergeler)
     gundem = gundem_yukle()
     yollar = ["/"]
 

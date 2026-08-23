@@ -948,11 +948,20 @@ def _gorsel_denetimi() -> list[Bulgu]:
     #: VERMEZ; bu depoda ayni sinif ayrisma birkac kez yasandi. Bu
     #: yuzden asagida `foto` modulunden okunmaya CALISILIYOR ve
     #: yalnizca okunamazsa buradaki liste kullaniliyor.
+    # SUZGEC KOPYALANMIYOR, ASIL FONKSIYON CAGRILIYOR.
+    # -------------------------------------------------
+    # Burada lisans suzgeci ELLE tekrarlaniyordu. Sonra
+    # `foto.havuz_yayin` dort katmanli hale geldi (net+atifsiz > net >
+    # atifsiz > hepsi) ve denetim eski haliyle kaldi: yayina GIRMEYEN
+    # gorselleri de sayip "en az 0 kez" diye dengesizlik raporladi.
+    #
+    # Bu depoda ayni sinif ayrisma bugun besinci kez cikti. Kural: iki
+    # kod yolu ayni karari vermeliyse KARAR TEK YERDE verilir.
     try:
         from kaynak.foto import Kayit as _FotoKayit
-        _ATIFSIZ = set(_FotoKayit.ATIFSIZ)
+        _kayit_nesnesi = _FotoKayit()
     except Exception:
-        _ATIFSIZ = {"cc0", "pdm"}
+        _kayit_nesnesi = None
 
     for havuz, liste in kayit.items():
         # YALNIZCA YAYINA GIREN GORSELLER OLCULUYOR.
@@ -963,10 +972,12 @@ def _gorsel_denetimi() -> list[Bulgu]:
         # "en az 0 kez" diye rapor ediyordu ve on bes havuzda yanlis
         # alarm uretti -- oysa o gorsellerin kullanilmamasi KARARIN
         # kendisi, dagitim bozuklugu degil.
-        serbest = [f for f in liste
-                   if (f.get("lisans") or "").lower() in _ATIFSIZ]
-        liste = serbest or liste
-        yollar = [f["dosya"] for f in liste]
+        if _kayit_nesnesi is not None:
+            yollar = [f.dosya for f in _kayit_nesnesi.havuz_yayin(havuz)]
+        else:
+            yollar = [f["dosya"] for f in liste]
+        if not yollar:
+            continue
         kullanilan = [kullanim.get(y, 0) for y in yollar]
         # Havuzdan HIC kullanilmayan varsa o havuz o gun devrede degil;
         # kismen kullanilan havuzda denge aranir.
