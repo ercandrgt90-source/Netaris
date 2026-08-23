@@ -149,6 +149,47 @@ for kod in ("by", "by-sa", "cc0", "pdm"):
 dogru("'by-nd' reddediliyor",
       not foto._lisans_uygun({"license": "by-nd", "license_version": "4.0"}))
 
+# ---------------------------------------------------- turev kimlik bicimi
+#
+# Commons dosya sayfasina IKI bicimde baglanti veriliyor: baslikla
+# (/wiki/File:...) ve sayfa kimligiyle (?curid=...). `boy_uret` uzun
+# sure yalnizca birincisini taniyordu; curid'li kayit "bekleyen"
+# listesine hic girmedigi icin `o/` ve `k/` surumu KALICI olarak
+# uretilmiyordu. Sablon turevsiz gorseli atliyor -- sonuc gorselsiz
+# sayfa, hem de tek bir uyari satiri bile olmadan.
+
+dogru("curid adresinden sayfa kimligi okunuyor",
+      foto._commons_kimligi(
+          "https://commons.wikimedia.org/w/index.php?curid=27323") == "27323")
+dogru("baska parametrelerin arasindaki curid de okunuyor",
+      foto._commons_kimligi(
+          "https://commons.wikimedia.org/w/index.php?title=X&curid=99") == "99")
+dogru("baslikli adres kimlik yoluna DUSMUYOR",
+      foto._commons_kimligi(
+          "https://commons.wikimedia.org/wiki/File:Oil_Drilling.jpg") == "")
+dogru("commons disi adres kabul edilmiyor",
+      foto._commons_kimligi("https://example.com/w/?curid=5") == "")
+dogru("bos adres bos donuyor", foto._commons_kimligi("") == "")
+
+# Baslik yolu bozulmadi mi -- 460 kayit ondan geciyor.
+dogru("baslikli adres hala basliga cevriliyor",
+      foto._commons_basligi(
+          "https://commons.wikimedia.org/wiki/File:Oil_Drilling.jpg")
+      == "File:Oil Drilling.jpg")
+dogru("curid adresi baslik URETMIYOR",
+      foto._commons_basligi(
+          "https://commons.wikimedia.org/w/index.php?curid=27323") == "")
+
+# HER kayit iki yoldan BIRINE dusmeli. Dusmeyeni indirmek imkansiz ve
+# bu sessiz bir kayip olurdu.
+_kayit = foto.Kayit()
+_yetim = [f.get("dosya", "") for l in _kayit.veri.values() for f in l
+          if not foto._commons_basligi(f.get("kaynak", ""))
+          and not foto._commons_kimligi(f.get("kaynak", ""))]
+es("havuzdaki her gorsel indirilebilir bir kimlik tasiyor",
+   sorted(_yetim), [])
+
+
 # ------------------------------------------------------------------ sonuc
 print()
 for k in kaldi:

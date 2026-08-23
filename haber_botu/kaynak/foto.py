@@ -1367,6 +1367,36 @@ def _commons_basligi(kaynak: str) -> str:
     return urllib.parse.unquote(ad).replace("_", " ")
 
 
+def _commons_kimligi(kaynak: str) -> str:
+    """Commons adresinden `curid` sayfa kimligini cikarir.
+
+    NEDEN AYRI BIR YOL VAR
+    ----------------------
+    Commons dosya sayfasina IKI bicimde baglanti verilebiliyor:
+
+        .../wiki/File:Federal_Reserve.jpg      -> baslikla
+        .../w/index.php?curid=27323            -> sayfa kimligiyle
+
+    `_commons_basligi` yalnizca birincisini taniyor ve ikincisinde bos
+    donuyordu. Bos baslik demek, o gorselin `boy_uret` icindeki
+    "bekleyen" listesine HIC girmemesi demek -- yani kart ve akis
+    surumleri sessizce, KALICI olarak uretilmiyordu. Sablon turevi
+    olmayan gorseli atladigi icin sonuc: sayfa gorselsiz.
+
+    Olculdu (2026-08-24): havuzdaki 461 kayittan 460'i baslikli, 1'i
+    curid'liydi ve tam o bir tanesinin `o/` ve `k/` surumu yoktu.
+    Bir tanesi icin bile olsa duzeltiliyor, cunku hata SESSIZ: sayi
+    yarin yirmi olsa da kimse fark etmezdi.
+
+    Commons ucu `titles` yerine `pageids` parametresini ayni sekilde
+    kabul ediyor; yanit bicimi degismiyor.
+    """
+    if "commons.wikimedia.org" not in kaynak:
+        return ""
+    e = re.search(r"[?&]curid=(\d+)", kaynak)
+    return e.group(1) if e else ""
+
+
 def boy_uret(klasor: pathlib.Path, genislik: int,
              kayit: Kayit | None = None,
              en_cok: int | None = None) -> int:
@@ -1382,60 +1412,75 @@ def boy_uret(klasor: pathlib.Path, genislik: int,
     """
     kayit = kayit or Kayit()
     klasor.mkdir(parents=True, exist_ok=True)
+    # Iki ayri anahtar bicimi, iki ayri sorgu parametresi. Commons
+    # `titles` ile `pageids`i AYNI istekte kabul etmiyor, o yuzden
+    # ayri gruplaniyorlar; yanit bicimi ikisinde de ayni.
     bekleyen: dict[str, str] = {}          # File basligi -> yerel dosya adi
+    bekleyen_id: dict[str, str] = {}       # sayfa kimligi -> yerel dosya adi
     for liste in kayit.veri.values():
         for f in liste:
             ad = f["dosya"].rsplit("/", 1)[-1]
             if (klasor / ad).exists():
                 continue
-            baslik = _commons_basligi(f.get("kaynak", ""))
+            kaynak = f.get("kaynak", "")
+            baslik = _commons_basligi(kaynak)
             if baslik:
                 bekleyen[baslik] = ad
-    if not bekleyen:
+                continue
+            kimlik = _commons_kimligi(kaynak)
+            if kimlik:
+                bekleyen_id[kimlik] = ad
+    if not bekleyen and not bekleyen_id:
         return 0
 
-    basliklar = list(bekleyen)
-    if en_cok:
-        basliklar = basliklar[:en_cok]
     inen = 0
-    for i in range(0, len(basliklar), KUCUK_PARTI):
-        parti = basliklar[i:i + KUCUK_PARTI]
-        try:
-            r = httpx.get(COMMONS_UC, params={
-                "action": "query", "format": "json",
-                "titles": "|".join(parti),
-                "prop": "imageinfo", "iiprop": "url",
-                "iiurlwidth": str(genislik),
-            }, headers=BASLIKLAR, timeout=ZAMAN_ASIMI)
-            r.raise_for_status()
-            sayfalar = (r.json().get("query", {}).get("pages", {}) or {}).values()
-        except (httpx.HTTPError, ValueError, KeyError) as e:
-            OKUNAMAYAN.append((f"boy{genislik}", parti[0],
-                               f"{type(e).__name__}"))
-            continue
-        for sayfa in sayfalar:
-            bilgi = (sayfa.get("imageinfo") or [{}])[0]
-            url = bilgi.get("thumburl")
-            ad = bekleyen.get(sayfa.get("title", ""))
-            if not url or not ad:
-                continue
+    for parametre, harita in (("titles", bekleyen), ("pageids", bekleyen_id)):
+        anahtarlar = list(harita)
+        if en_cok:
+            anahtarlar = anahtarlar[:en_cok]
+        for i in range(0, len(anahtarlar), KUCUK_PARTI):
+            parti = anahtarlar[i:i + KUCUK_PARTI]
             try:
-                g = httpx.get(url, headers=BASLIKLAR, timeout=ZAMAN_ASIMI,
-                              follow_redirects=True)
-                g.raise_for_status()
-                if not g.headers.get("content-type", "").startswith("image/"):
-                    continue
-            except httpx.HTTPError:
+                r = httpx.get(COMMONS_UC, params={
+                    "action": "query", "format": "json",
+                    parametre: "|".join(parti),
+                    "prop": "imageinfo", "iiprop": "url",
+                    "iiurlwidth": str(genislik),
+                }, headers=BASLIKLAR, timeout=ZAMAN_ASIMI)
+                r.raise_for_status()
+                sayfalar = (r.json().get("query", {}).get("pages", {})
+                            or {}).values()
+            except (httpx.HTTPError, ValueError, KeyError) as e:
+                OKUNAMAYAN.append((f"boy{genislik}", parti[0],
+                                   f"{type(e).__name__}"))
                 continue
-            (klasor / ad).write_bytes(g.content)
-            inen += 1
-            # HER INDIRME ARASINDA BEKLEME.
-            #
-            # Aralik yokken 225 gorselin 197'si basarisiz oldu; ayni
-            # adresler bir saniyelik araliklarla denendiginde 200
-            # donuyor. Yani sorun gorselde degil, ard arda istekte.
-            time.sleep(KUCUK_ARASI)
-        time.sleep(ISTEK_ARASI)
+            for sayfa in sayfalar:
+                bilgi = (sayfa.get("imageinfo") or [{}])[0]
+                url = bilgi.get("thumburl")
+                # Yanit HER IKI alani da tasiyor; hangisiyle sorulduysa
+                # o eslesiyor. Ikisine birden bakmak, parametre degisse
+                # de eslesmeyi ayakta tutuyor.
+                ad = (harita.get(sayfa.get("title", ""))
+                      or harita.get(str(sayfa.get("pageid", ""))))
+                if not url or not ad:
+                    continue
+                try:
+                    g = httpx.get(url, headers=BASLIKLAR,
+                                  timeout=ZAMAN_ASIMI, follow_redirects=True)
+                    g.raise_for_status()
+                    if not g.headers.get("content-type", "").startswith("image/"):
+                        continue
+                except httpx.HTTPError:
+                    continue
+                (klasor / ad).write_bytes(g.content)
+                inen += 1
+                # HER INDIRME ARASINDA BEKLEME.
+                #
+                # Aralik yokken 225 gorselin 197'si basarisiz oldu; ayni
+                # adresler bir saniyelik araliklarla denendiginde 200
+                # donuyor. Yani sorun gorselde degil, ard arda istekte.
+                time.sleep(KUCUK_ARASI)
+            time.sleep(ISTEK_ARASI)
     return inen
 
 

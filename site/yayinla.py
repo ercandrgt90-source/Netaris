@@ -63,6 +63,43 @@ def _node_yolu() -> None:
 _CALISTIR = {"text": True, "capture_output": True, "encoding": "utf-8", "errors": "replace"}
 
 
+def _konsol_kodlamasi() -> None:
+    """Kendi ciktimizi da kayipsiz DEGIL ama KESINTISIZ yazdirir.
+
+    OLCULDU (2026-08-23): canli site 31 commit geride kalmisti. Sebep
+    bu betigin `[1/3]` adiminda COKMESIYDI:
+
+        UnicodeEncodeError: 'charmap' codec can't encode
+        character '\\ufffd' ... cp1254
+
+    Zincir su: alt surecin ciktisi UTF-8 cozulurken bozuk bayta
+    `errors="replace"` ile U+FFFD konuyor (yukaridaki `_CALISTIR`).
+    Sonra o metin cp1254 konsola YAZDIRILIYOR ve U+FFFD'nin cp1254
+    karsiligi YOK -- print patliyor.
+
+    Yani cozumleme duzeltilmisti, YAZDIRMA duzeltilmemisti. Betik
+    wrangler'a hic gelmeden oluyordu ve `deploy` calismadigi icin
+    hata ekranda "yayin basarisiz" gibi degil, sadece bir yigin izi
+    olarak goruluyordu.
+
+    NEDEN BURADA, `print` SARMALAYICISINDA DEGIL: patlayan tek yer
+    bu dosya degil; `sys.stdout` kodlayicisini bastan tolere edici
+    yapmak, sonradan eklenen her `print` icin de gecerli olur.
+    Sarmalayici olsaydi bir sonraki yeni `print` yine patlardi.
+    """
+    for akis in (sys.stdout, sys.stderr):
+        yeniden = getattr(akis, "reconfigure", None)
+        if yeniden is None:      # yonlendirilmis akis her zaman desteklemez
+            continue
+        try:
+            yeniden(encoding="utf-8", errors="replace")
+        except (ValueError, OSError):
+            pass
+
+
+_konsol_kodlamasi()
+
+
 def insa_et() -> int:
     print("[1/3] site uretiliyor")
     sonuc = subprocess.run([sys.executable, str(KOK / "insa.py")], cwd=KOK, **_CALISTIR)
@@ -105,6 +142,68 @@ def dagit(kuru: bool) -> int:
     return sonuc.returncode
 
 
+#: Canli sayfada aranan surum izi. `insa.py` stil dosyasinin sha1'ini
+#: baglantiya yaziyor (bkz. `_surum`), yani bu jeton yayimlanan yapinin
+#: PARMAK IZI: yerelde ve canlida ayni ise ayni yapi yayinda demektir.
+_SURUM_IZI = re.compile(r"stil\.css\?v=(\w+)")
+
+
+def _surum_izi(metin: str) -> str:
+    e = _SURUM_IZI.search(metin)
+    return e.group(1) if e else ""
+
+
+def yayini_dogrula(adres: str = "https://netaris.net/") -> int:
+    """Yayindan SONRA canli sayfayi cekip yerel ciktiyla karsilastirir.
+
+    NEDEN VAR
+    ---------
+    OLCULDU (2026-08-23): canli site otuz bir commit geride
+    duruyordu. Iki gunluk tasarim calismasinin hicbiri yayinda
+    degildi ve bunu kimse fark etmedi -- cunku "yayinladim" bir
+    NIYETTI, olcum degildi. Yayin betigi `[1/3]` adiminda cokuyor,
+    wrangler'a hic gelmiyordu.
+
+    Bu kontrol o bosluğu kapatiyor: dagitim bittikten sonra canli
+    sayfa gercekten cekiliyor ve yerel ciktinin surum izini tasiyip
+    tasimadigina BAKILIYOR.
+
+    NEDEN AGA CIKAMAMAK BASARISIZLIK DEGIL
+    --------------------------------------
+    Dagitim basarili olup dogrulama agsizliktan yapilamadiginda
+    "yayin basarisiz" demek yanlis olurdu. O durumda satir acikca
+    DOGRULANAMADI yaziyor -- sessiz kalmiyor ama yalan da soylemiyor.
+    Yanlis eslesme ise gercek bir olcum; orada donus degeri 1.
+    """
+    print("[4/4] canli sayfa dogrulaniyor")
+    try:
+        yerel = _surum_izi((CIKTI / "index.html").read_text(encoding="utf-8"))
+    except OSError as e:
+        print(f"  DOGRULANAMADI: yerel cikti okunamadi ({e.__class__.__name__})")
+        return 0
+    if not yerel:
+        print("  DOGRULANAMADI: yerel ciktida stil surumu bulunamadi")
+        return 0
+
+    try:
+        import httpx
+        y = httpx.get(adres, timeout=25, follow_redirects=True,
+                      headers={"cache-control": "no-cache"})
+        y.raise_for_status()
+        canli = _surum_izi(y.text)
+    except Exception as e:      # ag katmani cok cesitli hata atiyor
+        print(f"  DOGRULANAMADI: {adres} okunamadi ({e.__class__.__name__})")
+        print("  Yayin yapildi ama canli surum GORULEMEDI.")
+        return 0
+
+    if canli == yerel:
+        print(f"  canli surum yerelle ayni ({yerel})")
+        return 0
+    print(f"  UYUSMUYOR: yerel {yerel or '(yok)'} / canli {canli or '(yok)'}")
+    print("  Yuklenen yapi canlida GORUNMUYOR -- yayin eksik kalmis olabilir.")
+    return 1
+
+
 def main() -> int:
     a = argparse.ArgumentParser(description="Netaris yayina alma")
     a.add_argument("--kuru", action="store_true", help="yuklemeden dene (dry-run)")
@@ -131,7 +230,14 @@ def main() -> int:
     if dagit(args.kuru):
         return 1
 
-    print("\nYAYINDA." if not args.kuru else "\nKURU DENEME TAMAM (yukleme yapilmadi).")
+    if args.kuru:
+        print("\nKURU DENEME TAMAM (yukleme yapilmadi).")
+        return 0
+
+    if yayini_dogrula():
+        return 1
+
+    print("\nYAYINDA.")
     return 0
 
 
