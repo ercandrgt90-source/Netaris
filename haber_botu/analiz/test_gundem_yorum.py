@@ -103,14 +103,55 @@ esit("gelişmekte olan" in _y.neden_onemli, False,
 esit(any("finansman gideri" in k for k in _y.kanallar), True,
      "yerli kanal sirket bilancosuna baglanir")
 esit(_y.kanal_basligi, gy.BASLIK_YERLI, "yerli baslik")
-esit(_d.kanal_basligi, gy.BASLIK_YABANCI, "yabanci baslik")
-# Ayirt edici ozellik FIILDE degil, YONDE: yabanci gelisme
-# Turkiye'ye YANSIR, yerli karar zaten burada alinir. Test fiili degil
-# bu ayrimi sabitliyor -- yoksa her uslup degisikliginde kirilir.
-esit("Türkiye" in _d.kanal_basligi, True,
-     "yabanci baslik Turkiye'ye aktarimi anlatir")
+esit(_d.kanal_basligi, gy.BASLIK_DUNYA, "dunya basligi")
+
+# --------------------------------------------------------------------
+# BU BEKLENTI DEGISTI -- ve degisme sebebi kayda geciyor.
+#
+# Onceki surumde burasi sunu SART KOSUYORDU:
+#     esit("Türkiye" in _d.kanal_basligi, True)
+# Yani sinama, dunya haberinin Turkiye uzerinden anlatilmasini
+# koruyordu. O gunku tasarim buydu: site Turkiye odakli basladi ve
+# "yabanci haber" demek "Turkiye'ye nasil yansir" demekti.
+#
+# Olculdu (2026-08-23): 120 haberin 87'si dunya bolgeliydi. Yani
+# istisna sanilan sey ana kutle olmustu. Ayrica yorumlanan 19 dunya
+# haberinde toplam DORT farkli metin vardi; ayni cumle ABD-Kanada
+# ticaretinde de Iran aciklamasinda da birebir tekrarliyordu.
+#
+# Editoryal karar: dunya haberi KENDI piyasasiyla anlatilir. Kanada'nin
+# muzakereyi askiya almasinin konusu CAD, USMCA ve otomotivdir;
+# Turkiye'nin enerji faturasi degil.
+#
+# Sinama artik bunun TERSINI tutuyor.
+# --------------------------------------------------------------------
+esit("Türkiye" in _d.kanal_basligi, False,
+     "dunya basligi Turkiye'den soz ETMEZ")
+esit("Türkiye" in _d.neden_onemli, False,
+     "dunya metni Turkiye'den soz ETMEZ")
+esit(any("Türkiye" in k for k in _d.kanallar), False,
+     "dunya kanallari Turkiye'den soz ETMEZ")
 esit("Türkiye" in _y.kanal_basligi, False,
      "yerli: TCMB karari Turkiye'ye aktarilmaz, burada alinir")
+
+# Dunya kumesi, dunya haberlerinde GERCEKTEN gorulen konulari
+# karsilamali -- yoksa sessizce eski Turkiye metnine dusulur.
+print()
+print("Dunya baglami, dunya haberlerinin konularini kapsiyor")
+for _k in ("Jeopolitik", "Dış ticaret", "Enerji", "Para politikası",
+           "Şirket haberleri", "Borsa", "Piyasa düzenlemesi"):
+    esit(_k in gy.DUNYA_BAGLAMI, True, f"'{_k}' dunya baglami var")
+
+# Hicbir dunya metninde Turkiye gecmemeli.
+_kirli = [k for k, (n, kan) in gy.DUNYA_BAGLAMI.items()
+          if "Türkiye" in n or any("Türkiye" in x for x in kan)]
+esit(_kirli, [], "dunya baglamlarinin HICBIRINDE Turkiye gecmiyor")
+
+# Metinler birbirinden farkli olmali -- kalip cumle tekrari, metnin
+# okunmadan uretildigini gosterir.
+_metinler = [n for n, _ in gy.DUNYA_BAGLAMI.values()]
+esit(len(set(_metinler)), len(_metinler),
+     "her konunun metni AYRI (kalip tekrari yok)")
 
 print("\nEnflasyon yerli baglami -- TMS 29 cift sayim uyarisi")
 _e = gy.siniflandir("Aylık Fiyat Gelişmeleri", "Enflasyon", "TCMB")

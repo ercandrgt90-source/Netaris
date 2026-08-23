@@ -367,6 +367,231 @@ KONU_BAGLAMI: dict[str, tuple[str, tuple[str, ...]]] = {
     ),
 }
 
+# ====================================================================
+# DUNYA BAGLAMI -- OLAYIN KENDI PIYASASI, TURKIYE DEGIL
+# --------------------------------------------------------------------
+# Olculdu (2026-08-23): 120 haberin 87'si DUNYA bolgeli ve bunlarin
+# 84'u "Türkiye'ye nasıl yansır?" basligiyla basiliyordu. Metin de
+# Turkiye agzindaydi:
+#
+#     "Jeopolitik gelismeler ... Turkiye icin ana kanal enerji
+#      faturasi ve risk primidir."
+#
+# Ayni cumle ABD-Kanada ticaret muzakeresinde de, Iran aciklamasinda
+# da BIREBIR ayni sekilde basiliyordu. Yorumlanan 19 dunya haberinde
+# toplam DORT farkli metin vardi.
+#
+# Iki ayri kusur:
+#   1. CERCEVE YANLIS. Kanada'nin ABD ile muzakereyi askiya almasinin
+#      birincil konusu CAD, USMCA, otomotiv ve kereste sektorudur --
+#      Turkiye'nin enerji faturasi degil. Editoryal karar acikti:
+#      "dunya haberlerinde Turkiye uzerinden yorumlanmasin".
+#   2. TEKRAR. Ayni cumleyi ust uste goren okur, metnin okunmadan
+#      uretildigini anlar ve hakli olarak guvenmez.
+#
+# Mimari sorunu gizliyordu: KONU_BAGLAMI "yabanci haber" icin
+# yazilmisti ve yabanci haberi ACIKLAMANIN YOLU Turkiye sayiliyordu.
+# Basligin adi bile (BASLIK_YABANCI) bunu soyluyor. Yani bu bir kacak
+# degil, tasarimin kendisiydi -- site Turkiye odakli basladigi icin
+# dogaldi, haberlerin %72'si dunya olunca yanlis hale geldi.
+#
+# Asagidaki kume olayin KENDI piyasasini anlatiyor. Turkiye gecmiyor;
+# gecmesi gerekiyorsa o zaten yerli baglamin isi.
+#
+# KANALLAR YON SOYLEMEZ -- KONU_BAGLAMI icindeki ayni kural burada da
+# gecerli: "gerilim artarsa petrol yukselir" yaygin ama yanlis bir
+# genelleme. Anlatilan sey mekanizma, sonuc degil.
+# ====================================================================
+BASLIK_DUNYA = "Hangi piyasaları etkiler?"
+
+DUNYA_BAGLAMI: dict[str, tuple[str, tuple[str, ...]]] = {
+    "Jeopolitik": (
+        "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve "
+        "risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne "
+        "kadarının önceden fiyatlandığına bağlıdır.",
+        (
+            "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit "
+            "altındaysa ham petrol ve doğal gaz fiyatına risk primi "
+            "eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+            "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke "
+            "tahvillerine yönelebilir; gelişmekte olan piyasaların risk "
+            "primi yeniden fiyatlanır.",
+            "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları "
+            "ihracat bileşimini değiştirir; etki tarafların birbirine "
+            "bağımlılığı kadardır.",
+            "Güvenli liman: altın, dolar ve İsviçre frangı talebi "
+            "değişebilir; yönü olayın süresine ve kapsamına bağlıdır.",
+        ),
+    ),
+    "Dış ticaret": (
+        "Ticaret politikası kararları tarafların birbirine bağımlılığı "
+        "ölçüsünde fiyatlanır; etki önce ilgili sektör hisselerinde ve "
+        "para birimlerinde görülür.",
+        (
+            "Sektör maruziyeti: gümrük vergisi ihracatçı sektörün marjını "
+            "doğrudan sıkıştırır; otomotiv, çelik ve tarım en sık hedef "
+            "alınan kalemlerdir.",
+            "Para birimi: ticaret dengesinde beklenen değişim ilgili ülke "
+            "kurunu yeniden fiyatlar.",
+            "Tedarik zinciri: ara mal akışı kesilirse maliyet üretici "
+            "fiyatlarına yazılır ve etki üçüncü ülkelere yayılır.",
+            "Anlaşma yapısı: USMCA ya da gümrük birliği gibi çerçeveler, "
+            "etkinin hangi kalemlerde ve hangi takvimde doğacağını "
+            "belirler.",
+        ),
+    ),
+    "Enerji": (
+        "Enerji fiyatı hem bir maliyet kalemi hem bir enflasyon "
+        "girdisidir; arz tarafındaki değişim önce vadeli piyasada, sonra "
+        "üretici fiyatlarında görünür.",
+        (
+            "Arz kapasitesi: OPEC+ kotası, stok seviyesi ve üretim "
+            "kesintisi haberleri vadeli eğrinin şeklini değiştirir.",
+            "Talep beklentisi: büyüme verisi ve sanayi üretimi fiyatın "
+            "talep bacağını belirler.",
+            "Bölgeler arası akış: doğal gaz ile LNG arasındaki fiyat "
+            "farkı, kargoların hangi bölgeye gideceğini değiştirir.",
+            "Enflasyon aktarımı: enerji maliyeti ulaştırma ve gıda "
+            "üzerinden manşet enflasyona geçer; merkez bankaları çekirdek "
+            "enflasyona daha çok bakar.",
+        ),
+    ),
+    "Para politikası": (
+        "Politika faizi kararları küresel sermayenin fiyatını belirler; "
+        "asıl fiyatlanan şey kararın kendisi değil, karar sonrası "
+        "patikaya dair beklentidir.",
+        (
+            "Tahvil getirisi: kısa vadeli faiz beklentisi getiri eğrisinin "
+            "ön ucunu, enflasyon beklentisi uzun ucunu hareket ettirir.",
+            "Parite: iki merkez bankası arasındaki faiz farkı beklentisi "
+            "kuru yeniden fiyatlar.",
+            "Değerleme: iskonto oranı değişimi en çok uzun vadeli nakit "
+            "akışı olan teknoloji ve büyüme hisselerinde hissedilir.",
+            "Sermaye akımı: gelişmiş ülke faizi yükseldiğinde gelişmekte "
+            "olan piyasalardan çıkış görülebilir.",
+        ),
+    ),
+    "Şirket haberleri": (
+        "Tek bir şirketin verisi aynı sektördeki diğer şirketler için "
+        "erken gösterge olabilir; yayılımın büyüklüğü şirketin sektör "
+        "içindeki ağırlığına bağlıdır.",
+        (
+            "Sektör okuması: marj, talep ve stok verisi benzer şirketler "
+            "için referans oluşturur.",
+            "Tedarik zinciri: büyük bir yatırım, kapanış ya da geri "
+            "çağırma kararı tedarikçi ve müşteri şirketlere yayılır.",
+            "Değerleme: birleşme ve satın alma çarpanları aynı sektördeki "
+            "şirketlerin fiyatlamasında karşılaştırma noktası olur.",
+            "Endeks etkisi: şirketin endeksteki ağırlığı büyükse hareket "
+            "endeks seviyesine de yazılır.",
+        ),
+    ),
+    "Borsa": (
+        "Endeks hareketi tek başına bir bilgi değildir; hareketi hangi "
+        "sektörlerin taşıdığı ve işlem hacminin ne olduğu kalıcılığı "
+        "belirler.",
+        (
+            "Sektör dağılımı: hareketin dar bir gruptan mı geniş tabandan "
+            "mı geldiği, kalıcılığa dair ipucu verir.",
+            "Hacim: düşük hacimli hareket fiyat keşfinden çok pozisyon "
+            "ayarlaması olabilir.",
+            "Volatilite: opsiyon fiyatlarındaki değişim piyasanın "
+            "beklediği oynaklığı gösterir.",
+            "Korelasyon: hisse ile tahvil arasındaki ilişkinin işareti "
+            "portföy riskinin nasıl dağıldığını değiştirir.",
+        ),
+    ),
+    "Piyasa düzenlemesi": (
+        "Düzenleme kararları etkilenen kurumların maliyet yapısını ve iş "
+        "modelini kalıcı olarak değiştirir; fiyatlama karar tarihinde "
+        "değil uygulama takviminde olgunlaşır.",
+        (
+            "Uyum maliyeti: sermaye, raporlama ve saklama yükümlülükleri "
+            "doğrudan gider kalemidir.",
+            "Rekabet yapısı: giriş engelini artıran ya da azaltan kurallar "
+            "pazar payı dağılımını değiştirir.",
+            "Sınır ötesi etki: bir yargı alanındaki kural, orada işlem "
+            "gören yabancı kurumları da bağlar.",
+            "Takvim: yürürlük tarihi ve geçiş süresi, etkinin hangi "
+            "çeyrekte görüleceğini belirler.",
+        ),
+    ),
+    "Bankacılık": (
+        "Bankacılık kararları kredi kanalının genişliğini belirler; etki "
+        "önce fonlama maliyetinde, sonra kredi hacminde görünür.",
+        (
+            "Fonlama maliyeti: mevduat ve tahvil faizindeki değişim net "
+            "faiz marjına yazılır.",
+            "Sermaye yeterliliği: rasyo üzerindeki baskı kredi büyümesini "
+            "sınırlar.",
+            "Aktif kalitesi: takipteki kredi oranı, karşılık giderleri "
+            "üzerinden kârlılığa geçer.",
+            "Yayılım: bankacılık sistemi ekonominin geri kalanına kredi "
+            "kanalıyla bağlı olduğu için etki sektörle sınırlı kalmaz.",
+        ),
+    ),
+    "Altın ve emtia": (
+        "Emtia fiyatı reel faiz, dolar endeksi ve fiziki arz-talep "
+        "dengesinin bileşkesidir; bir habere verilen tepki bu üçünden "
+        "hangisini değiştirdiğine bağlıdır.",
+        (
+            "Reel faiz: getirisi olmayan varlıkların alternatif maliyeti "
+            "reel faizle belirlenir.",
+            "Dolar endeksi: emtia dolarla fiyatlandığı için doların kendi "
+            "değeri fiyata doğrudan yazılır.",
+            "Fiziki denge: stok, üretim kesintisi ve sanayi talebi kısa "
+            "vadeli fiyatın ana sürücüsüdür.",
+            "Resmi rezerv talebi: merkez bankası alımları uzun vadeli "
+            "talep tabanını değiştirir.",
+        ),
+    ),
+    "Kripto varlıklar": (
+        "Kripto varlıklar risk iştahının en uçtaki göstergelerinden "
+        "biridir; hareketin kaynağı düzenleme, likidite ya da kaldıraç "
+        "çözülmesi olabilir ve üçünün sonuçları farklıdır.",
+        (
+            "Likidite koşulları: küresel likidite daraldığında en riskli "
+            "varlıklar önce satılır.",
+            "Düzenleme: saklama, borsa yatırım fonu ve vergi kuralları "
+            "kurumsal talebin önünü açar ya da kapatır.",
+            "Kaldıraç: türev piyasadaki açık pozisyon ve fonlama oranı "
+            "sert hareketlerin büyüklüğünü belirler.",
+            "Piyasa yapısı: işlem hacminin borsalar arası dağılımı fiyat "
+            "farklarının ne kadar sürdüğünü etkiler.",
+        ),
+    ),
+    "İstihdam ve ücret": (
+        "İstihdam verisi merkez bankalarının en yakından izlediği "
+        "göstergedir; ücret artışı hizmet enflasyonunun ana girdisidir.",
+        (
+            "Faiz beklentisi: güçlü istihdam faiz indirimi beklentisini "
+            "öteler, zayıf veri öne çeker.",
+            "Ücret-fiyat ilişkisi: birim işgücü maliyeti hizmet "
+            "enflasyonuna doğrudan geçer.",
+            "Tüketim: hane geliri perakende talebini ve şirket gelirlerini "
+            "belirler.",
+            "Katılım oranı: işgücüne katılımdaki değişim, işsizlik oranını "
+            "istihdam artışından bağımsız hareket ettirebilir.",
+        ),
+    ),
+    "Enflasyon": (
+        "Enflasyon verisi merkez bankası patikasına dair beklentiyi "
+        "değiştirdiği ölçüde fiyatlanır; manşet ile çekirdek arasındaki "
+        "fark bu yüzden önemlidir.",
+        (
+            "Çekirdek ayrımı: enerji ve gıda dışı kalemler kalıcı eğilimi "
+            "gösterir.",
+            "Faiz beklentisi: beklentiden sapma getiri eğrisinin ön ucunu "
+            "hareket ettirir.",
+            "Hizmet enflasyonu: ücretlere bağlı olduğu için en yapışkan "
+            "bileşendir.",
+            "Baz etkisi: bir önceki yılın aynı ayındaki seviye yıllık "
+            "oranı mekanik olarak değiştirir.",
+        ),
+    ),
+}
+
+
 #: "Turkiye'ye gecer" cercevesinin yanlis oldugu konular. Kira zammi ya da
 #: BIST endeksi Turkiye'ye gecmez, Turkiye'de olur.
 KONU_BASLIGI = {k: BASLIK_YERLI for k in (
@@ -628,9 +853,23 @@ def siniflandir(baslik: str, konu: str, kurum: str = "",
     # aktardigi icin yabanci cerceveye dusuyordu. Turk kurumu haberin
     # OZNESI oldugunda, aktaran kim olursa olsun yerli baglam dogru.
     yerli = kurum in YERLI_KURUMLAR or _icerir(baslik, YERLI_ISARETLER)
-    veri = YERLI_BAGLAMI.get(konu) if yerli else None
-    if veri is None:
-        veri = KONU_BAGLAMI.get(konu)
+    if yerli:
+        veri = YERLI_BAGLAMI.get(konu) or KONU_BAGLAMI.get(konu)
+        baslik_metni = BASLIK_YERLI
+    else:
+        # YABANCI HABER ARTIK KENDI PIYASASIYLA ANLATILIYOR.
+        # `KONU_BAGLAMI` geriye donuk uyum icin duruyor: dunya kumesinde
+        # karsiligi olmayan bir konu gelirse sayfa metinsiz kalmasin.
+        # Ama o durumda baslik da eski basliga donuyor -- metin Turkiye
+        # agzindaysa baslik da oyle olmali, ikisi ayrisirsa okur
+        # Turkiye'den bahseden bir metni "hangi piyasalari etkiler"
+        # basligi altinda okur.
+        veri = DUNYA_BAGLAMI.get(konu)
+        if veri is not None:
+            baslik_metni = BASLIK_DUNYA
+        else:
+            veri = KONU_BAGLAMI.get(konu)
+            baslik_metni = KONU_BASLIGI.get(konu, BASLIK_YABANCI)
     if veri is None:
         return Baglam(yorumlanir=False)
 
@@ -639,8 +878,7 @@ def siniflandir(baslik: str, konu: str, kurum: str = "",
         yorumlanir=True,
         neden_onemli=neden,
         kanallar=kanallar,
-        kanal_basligi=(BASLIK_YERLI if yerli
-                       else KONU_BASLIGI.get(konu, BASLIK_YABANCI)),
+        kanal_basligi=baslik_metni,
     )
 
 
