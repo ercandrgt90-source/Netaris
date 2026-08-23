@@ -1,3 +1,4 @@
+{% import "_takvim.html" as tk %}
 {% import "_modul.html" as md %}
 {% import "_imza.html" as im %}
 {% import "_tradingview.html" as tv %}
@@ -443,9 +444,17 @@
           </span>
         </span>
         <span class="ai-kart-baslik">{{ h.baslik }}</span>
+        {# METIN AYRI BIR OGEDE.
+           Kirpma (`-webkit-line-clamp`) DIS kutuya yaziliydi ve o kutu
+           icinde hem "Netaris yorumu" etiketi hem metin vardi.
+           `-webkit-box` cocuklari kutu ogesine cevirdigi icin kirpma
+           satir sayisini dogru saymiyor ve uc nokta basmiyordu: metin
+           yarim bir satirla kesiliyordu (ekran goruntusunde goruldu).
+
+           Kirpma artik YALNIZCA metne uygulaniyor; etiket disarida. #}
         <span class="ai-kart-yorum">
           <span class="ai-kart-imza">Netaris yorumu</span>
-          {{ h.ai_yorum_kart }}
+          <span class="ai-kart-metin">{{ h.ai_yorum_kart }}</span>
         </span>
         <span class="ai-kart-git">Habere git →</span>
       </a>
@@ -542,104 +551,15 @@
     </div>
     <a class="modul-tum" href="/makro/">Tüm takvim →</a>
   </div>
-  <ul class="takvim-liste">
-    {% for k in takvim %}
-    <li class="takvim-oge onem-{{ k.onem }}">
-      <div class="takvim-ust">
-        <span class="takvim-an">
-          <b>{{ k.gun }}</b>
-          <span class="takvim-saat">{{ k.saat }}</span>
-        </span>
-        <span class="takvim-ulke">{{ k.ulke }}</span>
-        <span class="takvim-ad">{{ k.ad }}</span>
-        <span class="takvim-onem" aria-label="Önem {{ k.onem }} / 3">
-          <span aria-hidden="true">{{ "●" * k.onem }}{{ "○" * (3 - k.onem) }}</span>
-        </span>
-        {% if not k.kesin %}
-        <span class="takvim-tahmin" title="Kurum makine okunur takvim
-              yayımlamıyor; tarih serinin yayın ritminden türetildi">beklenen</span>
-        {% endif %}
-      </div>
+  {# ANA SAYFADA TEK KALEM.
+     Kullanici: "yaklasan verilerde tek 1 tane veri ekle devami de
+     makroya". Takvimin tamami `/makro/` icinde; burada en yakin
+     aciklama duruyor ve baslikta "Tüm takvim →" bagi var.
 
-      {# ACIKLANDI MI. Alan YOKSA veri henuz cikmamis demek -- ve bu
-         takvimin normal durumu. Yaklasan bir veriye uydurma bir
-         "gerceklesen" yazmak, takvimin tek isini ters cevirirdi. #}
-      {% if k.gerceklesen %}
-      <p class="takvim-gerceklesen">
-        <span class="takvim-cikti-etiket">AÇIKLANDI</span>
-        <b class="takvim-cikti">{{ k.gerceklesen.metin }}</b>
-        {% if k.surpriz %}
-        {# SURPRIZ YALNIZCA GERCEK KONSENSUS varken yaziliyor. Onceki
-           degere gore sapmaya "surpriz" demek, olcutu degistirip ayni
-           adi kullanmak olurdu. #}
-        <span class="takvim-surpriz surpriz-{{ k.surpriz.yon }}">
-          {% if k.surpriz.yon == "tam" %}beklentiyle aynı
-          {% else %}beklentinin {{ k.surpriz.metin }} puan
-            {{ "üzerinde" if k.surpriz.yon == "ust" else "altında" }}{% endif %}
-        </span>
-        {% endif %}
-      </p>
-      {% endif %}
-
-      {% if k.beklenti %}
-      {% set b = k.beklenti %}
-      <div class="takvim-beklenti">
-        <p class="takvim-son">
-          Son açıklanan: <b>{{ b.son_deger }}</b>
-          {% if b.son_tarih %}<span class="takvim-tarih">({{ b.son_tarih|gun }})</span>{% endif %}
-          {# Esigin NE OLDUGU acikca yaziliyor. Konsensus rakami
-             elimizde yoksa esik onceki degerdir ve okur bunu bilmeli --
-             onceki degeri "beklenti" diye sunmak uydurma olurdu. #}
-          {% if b.esik_kaynak == "beklenti" %}
-          <span class="takvim-esik">Beklenti: <b>{{ b.esik_deger }}</b></span>
-          {% if k.kaynak %}<span class="takvim-tarih">({{ k.kaynak }})</span>{% endif %}
-          {% else %}
-          {# Konsensus YOKSA bunu saklamiyoruz. Onceki degeri "beklenti"
-             diye sunmak, kutunun mekanizma cumlesini ters cevirebilir:
-             beklenti 85, onceki 57 iken gerceklesen 70, "onceki
-             uzerinde" ama "beklentinin altinda"dir. #}
-          <span class="takvim-esik-not">— bu veri için beklenti (konsensüs)
-            elimizde yok; eşik <b>önceki değer</b></span>
-          {% endif %}
-        </p>
-        {# DALLAR ACILIR KALIPTA.
-           =====================
-           Olculdu: her takvim olayi iki dal basiyordu ve her dal
-           baslik + mekanizma + olcum ile ~350 karakterdi. Dort olayla
-           birlikte bolum ~2.800 karakterlik duz metin oluyordu.
-
-           Kullanici geri bildirimi: "yaklasan veriler de cok uzun yazi
-           yazi, verimli ama yer kapliyor."
-
-           "Verimli" kismi dogru ve o yuzden metin SILINMIYOR: bir
-           verinin hangi mekanizmayla neyi hareket ettirecegi bu
-           sitenin asil urunu. Yalnizca ISTENDIGINDE aciliyor.
-
-           `<details>` SECILDI, betik degil: JavaScript olmadan da
-           calisiyor, klavyeyle aciliyor, ekran okuyucu durumunu
-           soyluyor ve tarayicinin sayfa ici aramasi kapali icerigi de
-           buluyor (modern tarayicilarda `hidden=until-found`
-           davranisi). Kendi actigimiz bir kutuda bunlarin hicbiri
-           bedava gelmezdi. #}
-        <details class="takvim-dallar">
-          <summary>Ne olursa ne olur?</summary>
-          <div class="takvim-dal-kap">
-            {% for d in b.dallar %}
-            <div class="takvim-dal takvim-dal-{{ d.yon }}">
-              <p class="takvim-dal-bas">{{ d.baslik }}</p>
-              <p class="takvim-dal-metin">{{ d.mekanizma }}</p>
-              {% if d.olcum %}
-              <p class="takvim-olcum">{{ d.olcum }}</p>
-              {% endif %}
-            </div>
-            {% endfor %}
-          </div>
-        </details>
-      </div>
-      {% endif %}
-    </li>
-    {% endfor %}
-  </ul>
+     Bir kalem yeterli cunku bu bolumun isi listelemek degil
+     HATIRLATMAK: "yarin TUFE var". Listeyi okumak isteyen takvime
+     gidiyor. #}
+  {{ tk.takvim_listesi(takvim, 1) }}
 </section>
 {% endif %}
 

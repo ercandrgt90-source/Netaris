@@ -1,3 +1,4 @@
+{% import "_takvim.html" as tk %}
 {% import "_sayac.html" as sy %}
 {% extends "temel.html" %}
 
@@ -32,6 +33,23 @@
     {{ s.ad }} <span class="suzgec-say">{{ s.adet }}</span></button>
   {% endfor %}
 </div>
+{% endif %}
+
+{# EKONOMIK TAKVIM -- yalnizca /makro/ sayfasinda ve TAM haliyle.
+   Ana sayfadaki bolum tek kalem gosterip buraya baglaniyordu ama
+   burada takvim YOKTU: bag okuru takvimin olmadigi bir sayfaya
+   goturuyordu. #}
+{% if takvim %}
+<section class="modul takvim" id="takvim" aria-label="Ekonomik takvim">
+  <div class="modul-bas">
+    <div>
+      <h2>Ekonomik takvim</h2>
+      <p class="modul-alt">Yaklaşan veri açıklamaları · saatler Türkiye
+        saatiyle</p>
+    </div>
+  </div>
+  {{ tk.takvim_listesi(takvim) }}
+</section>
 {% endif %}
 
 <ul class="izgara arastirma-liste">

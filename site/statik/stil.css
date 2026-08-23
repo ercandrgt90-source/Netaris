@@ -1564,6 +1564,22 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
   }
 }
 
+/* SERITTEKI KARTLAR AYNI YUKSEKLIKTE.
+   --------------------------------------------------------------------
+   Yatay seritte kartlar yan yana ve yukseklikleri metnin uzunluguna
+   gore degisiyordu; goz seride bakinca duzensiz bir tarak goruyor.
+   Izgara ogeleri varsayilan olarak zaten geriliyor, ama IC kart
+   (`<a>`) kendi yuksekligini aliyordu -- o da geriliyor.
+
+   Basliklar da AYNI SATIR SAYISINA kirpiliyor. Kirpma zaten uc nokta
+   basiyor; "devami" bilgisini de kartin kendi bagi veriyor
+   ("Haberi oku →"), yani okur kesildigini de nereden devam edecegini
+   de goruyor. */
+.serit-yatay > li { display: flex}
+.serit-yatay > li > a,
+.serit-yatay > li > .kart,
+.serit-yatay > li > .onem-kart { flex: 1; height: auto}
+
 /* Modul icindeki kart, modulun kendi cercevesini TEKRARLAMAZ:
    cerceve icinde cerceve gorsel gurultu. */
 .modul .onem-kart {
@@ -1631,6 +1647,26 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
 /* Yapiskan baslik yalnizca listenin KENDI kaydirmasi varken anlamli;
    mobilde liste sayfayla birlikte kayiyor ve orada yapiskanlik
    sayfanin ustune yapisirdi. */
+/* MOBILDE YAN SUTUN BASILMIYOR.
+   ------------------------------
+   Kullanici: "mobil giristen piyasalar ve canli akisi kaldir."
+
+   Ikisi de dar ekranda ana sayfanin altina uzun bir kuyruk olarak
+   ekleniyordu: piyasa kutusu ~380 piksel, akis 6 kalem. Telefonda
+   ana sayfanin isi SECIM sunmak; ham akis ve piyasa tablosu kendi
+   sayfalarinda daha iyi duruyor.
+
+   Icerik KAYBOLMUYOR: "Bugünün önemli gelişmeleri" basligindaki
+   "Tüm gelişmeler →" bagi `/gundem/` sayfasina gidiyor ve akisin
+   tamami orada.
+
+   `display: none` ayrica TradingView betigini de susturuyor:
+   yukleme gorus alanina girince tetikleniyor ve gizli oge hicbir
+   zaman girmiyor. Yani telefonda ucuncu tarafa istek de gitmiyor.  */
+@media (max-width: 699px) {
+  .masa-yan { display: none; }
+}
+
 @media (max-width: 699px) {
   .akis-gun { position: static; }
 
@@ -3606,8 +3642,16 @@ a.akis-baslik:hover { color: var(--vurgu); text-decoration: none}
   border-left: 2px solid var(--vurgu);
   border-radius: 0 var(--r-kucuk) var(--r-kucuk) 0;
   font-size: var(--p-m); line-height: 1.55; color: var(--yazi-2);
-  display: -webkit-box; -webkit-line-clamp: 5;
-  -webkit-box-orient: vertical; overflow: hidden}
+  display: block}
+/* KIRPMA METNE, KUTUYA DEGIL.
+   Dis kutuda `-webkit-box` vardi ve icinde hem etiket hem metin
+   duruyordu; kutu ogeleri karisinca satir sayimi bozuluyor ve uc
+   nokta basilmiyordu -- metin yarim satirla kesiliyordu. */
+.ai-kart-metin {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden}
 .ai-kart-imza {
   display: block; margin: var(--b-1) 0;
   font-size: 0.66rem; font-weight: 700; letter-spacing: 0.08em;

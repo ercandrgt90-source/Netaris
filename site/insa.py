@@ -4316,6 +4316,16 @@ def insa() -> int:
                 #
                 # Esik: en az iki sektor VE en az sekiz kart.
                 sektorler=_sektor_sekmeleri(secilen),
+                # EKONOMIK TAKVIM /makro/ ICINDE, TAM HALIYLE.
+                #
+                # Ana sayfada tek kalem duruyor ve "Tüm takvim →" buraya
+                # geliyordu -- ama burada takvim YOKTU. Bag okuru
+                # takvimin olmadigi bir sayfaya goturuyordu.
+                #
+                # Yalnizca /makro/ aliyor: takvim makro veri
+                # aciklamalarindan olusuyor ve bilanco ya da teknik
+                # sayfasinda yeri yok.
+                takvim=(takvim_ondbellek if slug == "makro" else None),
             ),
         )
         yollar.append(yol_k)
