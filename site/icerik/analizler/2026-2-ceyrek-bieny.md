@@ -1,13 +1,13 @@
 ---
 slug: bieny-2026-2-ceyrek
 baslik: BİEN YAPI ÜRÜNLERİ SANAYİ TURİZM VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %19,8 brüt kâr marjı ile 1,12 milyar TL'ye dönüşmesi, brüt kârın artmasıyla faaliyet kârının %0,61 milyar TL'ye yükselmesine yol açtı; ancak net kârın -0,39 milyar TL olması, net kâr marjının -%13,9 ve özkaynak kârlılığının -%3,1 olmasına neden oldu.…
+ozet: Hasılatın %19,8'i brüt kâr olarak gerçekleşmiş; brüt kârın bir kısmı faaliyet giderleri ve amortisman gibi kalemlere gittiği için faaliyet kârı 0,61 milyar TL'ye, ardından vergi ve finansman giderleri net kârın –0,39 milyar TL olmasına yol açmıştır.…
 sirket: BİEN YAPI ÜRÜNLERİ SANAYİ TURİZM VE TİCARET A.Ş.
 kod: BIENY
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Sanayi
-tarih: 2026-08-21
+tarih: 2026-08-23
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %19,8 brüt kâr marjı ile 1,12 milyar TL'ye dönüşmesi, brüt kârın artmasıyla faaliyet kârının %0,61 milyar TL'ye yükselmesine yol açtı; ancak net kârın -0,39 milyar TL olması, net kâr marjının -%13,9 ve özkaynak kârlılığının -%3,1 olmasına neden oldu. Net borçın 5,13 milyar TL olması, borç/özkaynak oranını sektör medyanının %0,11'inden yüksek %0,37 seviyesine taşıdı ve cari oranı 1,13 ile sektör medyanı 1,37'nin altında bıraktı. Faaliyet nakit akışı 1,65 milyar TL iken yatırım harcaması 0,79 milyar TL olduğundan, nakit akışı yatırım harcamasını karşılayarak özkaynakların korunmasına katkı sağladı.
+Hasılatın %19,8'i brüt kâr olarak gerçekleşmiş; brüt kârın bir kısmı faaliyet giderleri ve amortisman gibi kalemlere gittiği için faaliyet kârı 0,61 milyar TL'ye, ardından vergi ve finansman giderleri net kârın –0,39 milyar TL olmasına yol açmıştır. Özkaynak kârlılığı –%3,1 olması, özkaynakların %1,13 lik cari oranla desteklenmesine rağmen net borç 5,13 milyar TL olduğundan borç/özkaynak oranının %0,37 (sektör medyanının %0,17 üstünde) olmasıyla ilişkilidir. Faaliyet nakit akışı 1,65 milyar TL iken yatırım harcaması 0,79 milyar TL olduğundan, nakit akışı yatırım harcamasını karşılamış ve aktif toplamının %27,5'i özkaynak (13,84 milyar TL) olarak kalmıştır.
 
 ## 2026 2. çeyrek dönemi ölçümleri
 
@@ -41,11 +41,11 @@ Karşılaştırma Sanayi sektöründeki 68 şirketin **medyanına** göre yapıl
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %19,8 | %21,2 |
-| Net kâr marjı | -%13,9 | %0,3 |
-| Özkaynak kârlılığı | -%3,1 | %0,0 |
-| Cari oran | 1,13 | 1,37 |
-| Borç / özkaynak | 0,37 | 0,11 |
+| Brüt kâr marjı | %19,8 | %20,4 |
+| Net kâr marjı | -%13,9 | %0,8 |
+| Özkaynak kârlılığı | -%3,1 | %0,2 |
+| Cari oran | 1,13 | 1,34 |
+| Borç / özkaynak | 0,37 | 0,17 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

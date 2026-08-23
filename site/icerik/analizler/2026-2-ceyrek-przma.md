@@ -1,13 +1,13 @@
 ---
 slug: przma-2026-2-ceyrek
 baslik: PRİZMA PRES MATBAACILIK YAYINCILIK SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın üç katına yakın artması, brüt kârın hâlâ çok düşük kalması ve faaliyet kârının daha da derinleşmesi, gelir artışının maliyet ve giderlerdeki artışla dengelenmediğini gösteriyor; bu durum net kârın %138,4 negatif olmasına ve özkaynak kârlılığının %23,7 düşmesine yol açtı.…
+ozet: Hasılat üç kat artarken brüt kâr hâlâ 0 milyar TL olduğu için brüt kâr marjı %4,5 seviyesinde sabit kaldı ve sektör medyanının çok altında kaldı; bu durum faaliyet kârının ve FAVÖK'ün negatif değerlerde artmasına, net kârın ise -%138,4'e yükselmesine yol açtı.…
 sirket: PRİZMA PRES MATBAACILIK YAYINCILIK SANAYİ VE TİCARET A.Ş.
 kod: PRZMA
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Sanayi
-tarih: 2026-08-21
+tarih: 2026-08-23
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın üç katına yakın artması, brüt kârın hâlâ çok düşük kalması ve faaliyet kârının daha da derinleşmesi, gelir artışının maliyet ve giderlerdeki artışla dengelenmediğini gösteriyor; bu durum net kârın %138,4 negatif olmasına ve özkaynak kârlılığının %23,7 düşmesine yol açtı. Özkaynak ve aktif toplamının artması, net borcun aynı seviyede kalmasıyla birlikte borç/özkaynak oranının %0,05'ye düşmesine ve cari oranın 1,78'ye yükselmesine, likidite durumunun iyileştiğini ancak kârlılık sorunlarının devam ettiğini yansıtıyor. Faaliyet nakit akışının iki katına çıkması, artan faaliyet giderlerine rağmen nakit girişinin desteklenmesiyle likiditeyi korurken, kâr marjlarının sektör medyanının çok altında kalması, gelir artışının kârlılık üzerinde henüz olumlu bir etki yaratmadığını ortaya koyuyor.
+Hasılat üç kat artarken brüt kâr hâlâ 0 milyar TL olduğu için brüt kâr marjı %4,5 seviyesinde sabit kaldı ve sektör medyanının çok altında kaldı; bu durum faaliyet kârının ve FAVÖK'ün negatif değerlerde artmasına, net kârın ise -%138,4'e yükselmesine yol açtı. Özkaynak 0,50 milyar TL'ye yükselirken net borç aynı kalmış, bu da borç/özkaynak oranının %0,05 ile sektör ortalamasının (%0,17) altında kalmasını sağladı ve cari oranı 1,78'e çıkararak likidite seviyesini sektör medyanının (1,34) üzerine taşıdı. Faaliyet nakit akışı 0,02 milyar TL'ye yükselmiş olması, artan aktif toplamı (0,64 milyar TL) ve sabit net borçla birlikte şirketin likidite pozisyonunu güçlendirdi, ancak kârlılık göstergeleri negatif kalmaya devam etti.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
@@ -56,11 +56,11 @@ Karşılaştırma Sanayi sektöründeki 68 şirketin **medyanına** göre yapıl
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %4,5 | %21,2 |
-| Net kâr marjı | -%138,4 | %0,3 |
-| Özkaynak kârlılığı | -%23,7 | %0,0 |
-| Cari oran | 1,78 | 1,37 |
-| Borç / özkaynak | 0,05 | 0,11 |
+| Brüt kâr marjı | %4,5 | %20,4 |
+| Net kâr marjı | -%138,4 | %0,8 |
+| Özkaynak kârlılığı | -%23,7 | %0,2 |
+| Cari oran | 1,78 | 1,34 |
+| Borç / özkaynak | 0,05 | 0,17 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

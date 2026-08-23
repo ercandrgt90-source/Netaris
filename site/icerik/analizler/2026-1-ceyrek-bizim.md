@@ -1,13 +1,13 @@
 ---
 slug: bizim-2026-1-ceyrek
 baslik: BİZİM TOPTAN SATIŞ MAĞAZALARI A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılatın %8,0 düşmesi brüt kârın da %8,5 azalmasına paralel olarak yansıdı; brüt kâr marjı ise sektör medyanının biraz üzerinde %15,8 kalırken, net kâr marjı negatif %2,9'a gerileyerek faaliyet kârının -%6,3'ten -%6,4'e (faaliyet kârı -1,26 bn TL) düşmesine yol açtı.…
+ozet: Hasılatın %8,0 düşmesi brüt kârın da %8,5 azalmasına yol açarken, brüt kâr marjı %0,8 puan gerilemiş ve sektör medyanının altında kalmıştır; bu düşüş faaliyet kârının -%1.26 milyar olarak derinleşmesine ve FAVÖK'ün pozitiften -%0,32 milyona kaymasına neden olmuştur.…
 sirket: BİZİM TOPTAN SATIŞ MAĞAZALARI A.Ş.
 kod: BIZIM
 donem: 2026 1. çeyrek
 kategori: Bilanço Analizi
 sektor: İsteğe bağlı tüketim
-tarih: 2026-08-22
+tarih: 2026-08-23
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %8,0 düşmesi brüt kârın da %8,5 azalmasına paralel olarak yansıdı; brüt kâr marjı ise sektör medyanının biraz üzerinde %15,8 kalırken, net kâr marjı negatif %2,9'a gerileyerek faaliyet kârının -%6,3'ten -%6,4'e (faaliyet kârı -1,26 bn TL) düşmesine yol açtı. Net kârın iyileşmesi (%-0,49'dan -%0,80'e) özkaynakların -%0,22 bn'ye gerilemesiyle birlikte özkaynak kârlılığının %128,5'e yükselmesine, ancak cari oranın 0,56'dan 1,30 sektör medyanının altına düşmesi ve borç/özkaynak oranının -6,08'e (sektör medyanı 0,15) çıkmasıyla likidite ve finansal yapıdaki zayıflığa işaret etti. Aktif toplamının %15,8 artışı net borcun hafif yükselmesi (1,34 bn TL) ve faaliyet nakit akışının 1,54 bn TL'ye (önceki dönem 0,63 bn TL) çıkmasıyla desteklenerek yatırım harcamasındaki sabit %0,05 bn tutarlılığı korudu.
+Hasılatın %8,0 düşmesi brüt kârın da %8,5 azalmasına yol açarken, brüt kâr marjı %0,8 puan gerilemiş ve sektör medyanının altında kalmıştır; bu düşüş faaliyet kârının -%1.26 milyar olarak derinleşmesine ve FAVÖK'ün pozitiften -%0,32 milyona kaymasına neden olmuştur. Net kârın -%2,9 negatif marjda kalması özkaynakların -%0,22 milyar negatifleşmesine ve özkaynak kârlılığının %128,5 gibi sektör medyanının çok üzerindeki bir seviyeye çıkmasına, aynı zamanda cari oranın 0,56'dan 1,29 medyanın altına düşmesine ve borç/özkaynak oranının -6,08'e yükselmesine yol açmıştır. Aktif toplamının %15,8 artması net borcun hafif yükselmesi (1,34 milyar) ve faaliyet nakit akışının 1,54 milyara çıkmasıyla, yatırım harcamasının sabit kalması (0,05 milyar) arasında bir denge oluşmuştur.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 
@@ -58,11 +58,11 @@ Karşılaştırma İsteğe bağlı tüketim sektöründeki 63 şirketin **medyan
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %15,8 | %15,4 |
-| Net kâr marjı | -%2,9 | %0,6 |
-| Özkaynak kârlılığı | %128,5 | %0,5 |
-| Cari oran | 0,56 | 1,30 |
-| Borç / özkaynak | -6,08 | 0,15 |
+| Brüt kâr marjı | %15,8 | %16,6 |
+| Net kâr marjı | -%2,9 | %1,7 |
+| Özkaynak kârlılığı | %128,5 | %0,7 |
+| Cari oran | 0,56 | 1,29 |
+| Borç / özkaynak | -6,08 | 0,13 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

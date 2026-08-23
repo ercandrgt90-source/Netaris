@@ -1,13 +1,13 @@
 ---
 slug: pkent-2026-1-ceyrek
 baslik: PETROKENT TURİZM A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılat aynı kalırken brüt kâr, faaliyet kârı, FAVÖK ve net kâr tümü negatiften daha da artmış; bu düşüş brüt kâr marjının –%24,7'ye gerilemesiyle yansıyor ve aynı zamanda özkaynak kârlılığının –%4,0'a inmesine yol açıyor.…
+ozet: Hasılat aynı kalırken brüt kâr, faaliyet kârı, FAVÖK ve net kâr tümü negatiften daha negatif bir seviyeye kaymış; bu durum kâr marjlarının (brüt %-24,7, net %-21,2) sektör medyanlarının çok altında olmasına yol açmıştır.…
 sirket: PETROKENT TURİZM A.Ş.
 kod: PKENT
 donem: 2026 1. çeyrek
 kategori: Bilanço Analizi
 sektor: İsteğe bağlı tüketim
-tarih: 2026-08-22
+tarih: 2026-08-23
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat aynı kalırken brüt kâr, faaliyet kârı, FAVÖK ve net kâr tümü negatiften daha da artmış; bu düşüş brüt kâr marjının –%24,7'ye gerilemesiyle yansıyor ve aynı zamanda özkaynak kârlılığının –%4,0'a inmesine yol açıyor. Özkaynak ve aktif toplamı artış gösterirken net borçun –0,46 milyar TL'ye (daha negatif) düşmesi, cari oranı 1,25 seviyesine getirirken borç/özkaynak oranının –0,30 (sektör ortalamasının altında) olmasını sağladı; bu durum likiditeyi bir miktar desteklerken, faaliyet nakit akışının –0,01 milyar TL'ye (önceki dönemde +0,10 milyar TL) kayması, işletme faaliyetlerinden kaynaklanan nakit çıkışının artığını gösteriyor.
+Hasılat aynı kalırken brüt kâr, faaliyet kârı, FAVÖK ve net kâr tümü negatiften daha negatif bir seviyeye kaymış; bu durum kâr marjlarının (brüt %-24,7, net %-21,2) sektör medyanlarının çok altında olmasına yol açmıştır. Özkaynak 1,54 milyar TL'ye yükselmiş ve aktif toplamı da 2,35 milyar TL'ye artmış; aynı anda net borç –0,46 milyar TL (daha negatif) olduğu için borç/özkaynak oranı –0,30'a gerilemiş ve cari oran 1,25 ile sektör medyanının (1,29) altında kalmıştır. Faaliyet nakit akışı –0,01 milyar TL'ye düşmüşken yatırım harcaması 0,08 milyar TL olarak hafif azalmış, bu da negatif nakit üretiminin yatırım harcamalarıyla kısmen dengelendiğini gösterir.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 
@@ -58,11 +58,11 @@ Karşılaştırma İsteğe bağlı tüketim sektöründeki 63 şirketin **medyan
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | -%24,7 | %15,4 |
-| Net kâr marjı | -%21,2 | %0,6 |
-| Özkaynak kârlılığı | -%4,0 | %0,5 |
-| Cari oran | 1,25 | 1,30 |
-| Borç / özkaynak | -0,30 | 0,15 |
+| Brüt kâr marjı | -%24,7 | %16,6 |
+| Net kâr marjı | -%21,2 | %1,7 |
+| Özkaynak kârlılığı | -%4,0 | %0,7 |
+| Cari oran | 1,25 | 1,29 |
+| Borç / özkaynak | -0,30 | 0,13 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

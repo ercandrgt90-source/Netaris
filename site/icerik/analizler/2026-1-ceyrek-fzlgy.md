@@ -1,13 +1,13 @@
 ---
 slug: fzlgy-2026-1-ceyrek
 baslik: FUZUL GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılatın %2.5'lik (2,81 milyar TL) artışı, faaliyet nakit akışının negatiften (+0,26 milyar TL) pozitife dönmesiyle paralel gerçekleşirken, aynı dönemde net kârın –%19,9'a (–0,25 milyar TL) gerilemesi özkaynak kârlılığının –%5,2'ye düşmesine yol açtı; bu kârlılık kaybı, net borcun 0,69 milyar TL'de…
+ozet: Hasılat 2,81 milyar TL'ye yükselirken net kâr –0,25 milyar TL'ye gerilemiş, bu durum net kâr marjının –%19,9'a düşmesine ve özkaynak kârlılığının –%5,2'ye inmesine yol açmıştır; artan hasılatın kâra dönüşmemesi, net borcun 0,69 milyar TL'den 1,18 milyar TL'ye yükselmesiyle birlikte borç/özkaynak ora…
 sirket: FUZUL GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: FZLGY
 donem: 2026 1. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-22
+tarih: 2026-08-23
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %2.5'lik (2,81 milyar TL) artışı, faaliyet nakit akışının negatiften (+0,26 milyar TL) pozitife dönmesiyle paralel gerçekleşirken, aynı dönemde net kârın –%19,9'a (–0,25 milyar TL) gerilemesi özkaynak kârlılığının –%5,2'ye düşmesine yol açtı; bu kârlılık kaybı, net borcun 0,69 milyar TL'den 1,18 milyar TL'ye yükselmesiyle artan borç/özkaynak oranının (0,28) yükselmesine rağmen özkaynakların (4,28 milyar TL) ve toplam aktiflerin (11,90 milyar TL) hafif artmasıyla sınırlı kaldı.
+Hasılat 2,81 milyar TL'ye yükselirken net kâr –0,25 milyar TL'ye gerilemiş, bu durum net kâr marjının –%19,9'a düşmesine ve özkaynak kârlılığının –%5,2'ye inmesine yol açmıştır; artan hasılatın kâra dönüşmemesi, net borcun 0,69 milyar TL'den 1,18 milyar TL'ye yükselmesiyle birlikte borç/özkaynak oranının 0,02'den 0,28'e çıkmasına da yansımıştır. Özkaynak 4,28 milyar TL'ye hafif artarken aktif toplamı 11,90 milyar TL'ye yükselmiş, bu da özkaynak kârlılığının negatif seyretmesine rağmen özkaynakların büyümesinin sürdüğünü gösterir. Faaliyet nakit akışı ise –0,55 milyar TL'den 0,26 milyar TL'ye geçerek, negatif kâra rağmen likidite akışının iyileştiğini ortaya koyar.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 

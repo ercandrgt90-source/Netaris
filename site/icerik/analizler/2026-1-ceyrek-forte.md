@@ -1,13 +1,13 @@
 ---
 slug: forte-2026-1-ceyrek
 baslik: FORTE BİLGİ İLETİŞİM TEKNOLOJİLERİ VE SAVUNMA SANAYİ A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılatın üç katına çıkan artışı brüt kârı %30,5 seviyesine taşıyarak brüt kâr marjının sektör medyanının %16,1'ini aşmasına, aynı zamanda faaliyet ve net kârların da sırasıyla 0,30 milyar TL ve 0,21 milyar TL'ye yükselmesine yol açtı; bu kâr artışı özkaynak kârlılığını %6,5'e çıkarırken özkaynaklar…
+ozet: Hasılatın üç katına yakın artışı, brüt kârın da %30,5'lik marjla birlikte %0,33 milyar artmasına, ardından faaliyet kârı ve FAVÖK'ün sırasıyla %0,29 ve %0,28 milyar yükselmesine yol açtı; bu kâr artışları net kârın negatiften %0,21 milyar pozitife geçmesini ve özkaynakların %2,29 milyar artarak %3,1…
 sirket: FORTE BİLGİ İLETİŞİM TEKNOLOJİLERİ VE SAVUNMA SANAYİ A.Ş.
 kod: FORTE
 donem: 2026 1. çeyrek
 kategori: Bilanço Analizi
 sektor: Bilişim
-tarih: 2026-08-22
+tarih: 2026-08-23
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın üç katına çıkan artışı brüt kârı %30,5 seviyesine taşıyarak brüt kâr marjının sektör medyanının %16,1'ini aşmasına, aynı zamanda faaliyet ve net kârların da sırasıyla 0,30 milyar TL ve 0,21 milyar TL'ye yükselmesine yol açtı; bu kâr artışı özkaynak kârlılığını %6,5'e çıkarırken özkaynakların 3,13 milyar TL'ye yükselmesi bilanço büyüklüğünü 8,34 milyar TL'ye, net borcu 1,98 milyar TL'ye çıkararak borç/özkaynak oranını %0,63'e (sektör medyanının -%0,02'sinden) yükseltti. Artan kârlar faaliyet nakit akışını -0,28 milyar TL'den 0,35 milyar TL'ye çevirirken, yatırım harcamasındaki hafif artış (0,05 milyar TL'den 0,06 milyar TL'ye) bu nakit akışının desteklenmesine katkı sağladı. Net kâr marjının %19,7'ye (sektör medyanı -%0,2) ve cari oranın 1,41'e (sektör medyanı 1,25) yükselmesi, kârlılık ve likidite iyileşmesinin birbirini pekiştirdiğini gösteriyor.
+Hasılatın üç katına yakın artışı, brüt kârın da %30,5'lik marjla birlikte %0,33 milyar artmasına, ardından faaliyet kârı ve FAVÖK'ün sırasıyla %0,29 ve %0,28 milyar yükselmesine yol açtı; bu kâr artışları net kârın negatiften %0,21 milyar pozitife geçmesini ve özkaynakların %2,29 milyar artarak %3,13 milyara yükselmesini destekledi. Aktif toplamındaki %6,64'luk büyüme, net borcun %1,56 milyar artmasıyla birlikte borç/özkaynak oranının %0,63'e yükselmesine rağmen cari oran %1,41 ile sektör medyanının %1,25'ini aştı; bu, likiditenin artan borçla birlikte korunabildiğini gösteriyor. Faaliyet nakit akışının negatiften %0,35 milyar pozitife dönmesi, yatırım harcamasındaki hafif artış (%0,06 milyar) ile birlikte, artan kârlılık ve likidite göstergelerinin birbirini desteklediğini ortaya koyuyor.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 
