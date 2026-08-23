@@ -414,13 +414,19 @@
    "one cikan" basligi sitenin terk edilmis gorunmesine yol acar.
    Statik sayfaya gomulseydi siralama saatlerce eski kalirdi.
    =============================================================== #}
-<section class="one-cikan-senaryo" id="one-cikan-senaryo" hidden>
-  <div class="bolum-bas">
-    <h2>Topluluk</h2>
-    <span class="bolum-not">Okurların yazdığı koşullu değerlendirmeler</span>
-  </div>
-  <ul class="one-senaryo-liste"></ul>
-</section>
+{# IKI BOLUM BIRLESTI.
+   ==================
+   Onceki surumde burada AYRI bir "Topluluk" bolumu vardi ve hemen
+   altinda "Piyasayi yalnizca takip etmeyin" daveti duruyordu. Ikisi
+   ayni isi yapiyordu ve olculdu: depoda tek senaryo oldugu icin
+   "Topluluk" bolumu 51 KARAKTERDI -- yani okur once bos bir baslik,
+   sonra aynisini soyleyen bir davet goruyordu.
+
+   Simdi tek bolum: senaryo varsa listeleniyor, her durumda davet
+   duruyor. Liste `hidden` ve canli uctan doluyor; bos kalirsa bolum
+   yalnizca davetten ibaret oluyor ve bu DOGRU davranis -- davetin
+   amaci var olani listelemek degil, olmayani baslatmak. #}
+
 
 {# SENARYO CAGRISI -- DONGUNUN GIRISI.
    ==================================
@@ -439,9 +445,16 @@
    kaybolur, senaryo kosul-sonuc-gerekce ister ve icerik olur. Sema
    da zaten oyle kurulmus (kosul / sonuc / gerekce / ufuk). #}
 <section class="senaryo-davet">
+  <div class="bolum-bas">
+    <h2>Topluluk</h2>
+    <span class="bolum-not">Okurların yazdığı koşullu değerlendirmeler</span>
+  </div>
+  <div class="one-senaryo-kap" id="one-cikan-senaryo" hidden>
+    <ul class="one-senaryo-liste"></ul>
+  </div>
   <div class="senaryo-davet-ic">
     <p class="senaryo-davet-etiket">Topluluk senaryosu</p>
-    <h2>Piyasayı yalnızca takip etmeyin</h2>
+    <h3>Piyasayı yalnızca takip etmeyin</h3>
     <p>Bir gelişmenin nereye gideceğini düşünüyorsanız
       <b>koşulunuzu ve beklediğiniz sonucu</b> yazın. Senaryonuz
       incelendikten sonra kendi sayfasında adınızla yayımlanır;

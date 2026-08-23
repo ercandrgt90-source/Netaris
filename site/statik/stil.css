@@ -1391,6 +1391,14 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
   padding: 0; margin: -1px; overflow: hidden;  /* dort-yan: gorsel gizleme kalibi (sr-only) -- dort yan kasitli */
   clip: rect(0 0 0 0); white-space: nowrap; border: 0}
 
+/* Topluluk bolumu: liste (varsa) + davet, TEK bolum icinde.
+   Gerekce `anasayfa.html` icinde: ayri dururken biri 51 karakterlik
+   bos bir baslik, digeri aynisini soyleyen bir davetti. */
+.one-senaryo-kap { margin: 0 0 var(--b-4)}
+.senaryo-davet .senaryo-davet-ic h3 {
+  margin: var(--b-2) 0 var(--b-3);
+  font-size: var(--p-xl); font-weight: 800; line-height: 1.25}
+
 /* Panel sayim seridi -- ad ve e-postanin altinda. */
 .panel-sayim {
   display: flex; flex-wrap: wrap; gap: var(--b-4);
