@@ -1399,6 +1399,144 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
   margin: var(--b-2) 0 var(--b-3);
   font-size: var(--p-xl); font-weight: 800; line-height: 1.25}
 
+/* GERCEK SIRKET LOGOSU -- uretilmis amblemin yerine.
+   --------------------------------------------------------------------
+   Logolar BEYAZ ZEMIN icin tasarlanir; sektor rengini arkasina koymak
+   cogunu okunmaz yapardi. Zemin notr, sektor rengi ustte ince serit:
+   bilgi korunuyor, logo okunuyor.
+
+   Zemin KOYU TEMADA DA ayni kaliyor. Logoyu temaya gore degistirmek,
+   markanin kendi rengini bizim degistirmemiz olurdu. */
+.amblem-logo {
+  position: relative;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  gap: var(--b-3);
+  width: 100%; height: 100%;
+  padding: var(--b-5) var(--b-4);
+  background: #f4f6f8}
+.amblem-serit {
+  position: absolute; inset: 0 0 auto 0; height: 4px}
+.amblem-gorsel {
+  max-width: min(58%, 260px); max-height: 46%;
+  width: auto; height: auto;
+  object-fit: contain}
+.amblem-yazi {
+  display: flex; flex-direction: column; align-items: center; gap: 2px;
+  text-align: center;
+  color: #2b3440}
+.amblem-yazi b { font-size: var(--p-m); font-weight: 700}
+.amblem-yazi span {
+  font-size: var(--p-xs); color: #64707e;
+  letter-spacing: 0.04em; text-transform: uppercase}
+/* Kart icinde daha kucuk: orada logo bir kunye, bir kapak degil. */
+.kart-amblem .amblem-logo { padding: var(--b-4) var(--b-3); gap: var(--b-2)}
+.kart-amblem .amblem-gorsel { max-height: 40%}
+.kart-amblem .amblem-yazi b { font-size: var(--p-s)}
+
+/* CANLI AKIS -- GUN BASLIKLARI ve MOBIL MODUL
+   --------------------------------------------------------------------
+   20 satir ard arda diziliyordu ve okur nerede oldugunu ancak her
+   satirin saatine bakarak anliyordu. Gun degisince kucuk bir baslik
+   basiliyor.
+   ================================================================== */
+.akis-gun {
+  position: sticky; top: 0; z-index: 1;
+  padding: 6px 10px;
+  background: var(--zemin-2);
+  border-bottom: 1px solid var(--cizgi);
+  font-size: 0.68rem; font-weight: 800;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--yazi-3)}
+/* Yapiskan baslik yalnizca listenin KENDI kaydirmasi varken anlamli;
+   mobilde liste sayfayla birlikte kayiyor ve orada yapiskanlik
+   sayfanin ustune yapisirdi. */
+@media (max-width: 699px) {
+  .akis-gun { position: static; }
+
+  /* MOBILDE AKIS BIR MODUL.
+     Kullanici: "mobil giriste ana sayfa modulu gibi olsun."
+     Dar ekranda kutu kenarliksiz ve dokusuz duruyordu; sayfanin geri
+     kalanindan ayrilmiyordu. */
+  .masa-akis {
+    background: var(--panel);
+    border: 1px solid var(--cizgi);
+    border-radius: var(--r);
+    overflow: hidden;
+  }
+  .masa-akis .akis-bas {
+    background: var(--zemin-2);
+    padding: var(--b-3) var(--b-4);
+  }
+  .masa-akis .akis-liste { padding: 0; }
+  .masa-akis .akis-devam,
+  .masa-akis .kaynak-not { padding: 0 var(--b-4) var(--b-4); }
+}
+
+/* TAKVIM DALLARI -- ACILIR.
+   Gerekce `anasayfa.html` icinde: dort olay ~2.800 karakter duz metin
+   basiyordu. Metin silinmedi, istendiginde aciliyor. */
+.takvim-dallar { margin: var(--b-2) 0 0}
+.takvim-dallar > summary {
+  cursor: pointer;
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 0;
+  font-size: var(--p-s); font-weight: 600;
+  color: var(--vurgu);
+  list-style: none}
+.takvim-dallar > summary::-webkit-details-marker { display: none}
+/* Ok isareti METINDEN once ve durumu gosteriyor. `summary`nin
+   varsayilan ucgeni tarayiciya gore degisiyor; burada tek bicim. */
+.takvim-dallar > summary::before {
+  content: "▸"; display: inline-block;
+  transition: transform var(--sure-hizli) ease}
+.takvim-dallar[open] > summary::before { transform: rotate(90deg)}
+.takvim-dallar > summary:hover { text-decoration: underline}
+.takvim-dal-kap {
+  display: grid; gap: var(--b-2);
+  margin: var(--b-2) 0 0}
+@media (min-width: 620px) {
+  .takvim-dal-kap { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* ====================================================================
+   BUGUNUN ONEMLI GELISMELERI -- ALTI KART
+   --------------------------------------------------------------------
+   Once 13 satirlik duz bir listeydi: her satir ayni gorunuyordu ve
+   okur taramak zorundaydi. Alti kart hem daha az hem daha secilebilir.
+
+   Sol kenardaki renk seridi TUR bilgisi tasiyor (`--tur`), susleme
+   degil -- ayni kod `.onem-liste` icinde de vardi ve korunuyor.
+   ================================================================== */
+.onem-izgara {
+  display: grid; gap: var(--b-3);
+  grid-template-columns: 1fr;
+  list-style: none; padding: 0; margin: var(--b-4) 0 0}
+@media (min-width: 560px) {
+  .onem-izgara { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+.onem-kart {
+  display: flex; flex-direction: column; gap: var(--b-2);
+  height: 100%;
+  padding: var(--b-3) var(--b-4);
+  background: var(--panel);
+  border: 1px solid var(--cizgi);
+  border-left: 3px solid var(--tur, var(--cizgi));
+  border-radius: var(--r-kucuk);
+  color: inherit; text-decoration: none;
+  transition: border-color var(--sure-hizli), box-shadow var(--sure-hizli)}
+.onem-kart:hover {
+  border-color: var(--cizgi-parlak);
+  box-shadow: var(--golge);
+  text-decoration: none}
+.onem-izgara .onem-baslik {
+  font-size: var(--p-m); font-weight: 700; line-height: 1.35;
+  color: var(--yazi);
+  /* Uc satir: kartlarin yuksekligi esitsiz olmasin. */
+  display: -webkit-box; -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical; overflow: hidden}
+.onem-devam { margin: var(--b-3) 0 0; font-size: var(--p-s)}
+
 /* Panel sayim seridi -- ad ve e-postanin altinda. */
 .panel-sayim {
   display: flex; flex-wrap: wrap; gap: var(--b-4);

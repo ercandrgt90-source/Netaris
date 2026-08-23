@@ -42,6 +42,60 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 import grafik
 import amblem as _amblem
+
+
+#: Gercek sirket logolari -- kamu mali, Commons'tan.
+#: Bir kez okunuyor; yoksa bos sozluk ve her sirket uretilmis amblemle
+#: kaliyor. Kayit dosyasi olmadan da insa CALISMALI.
+#: Elle onaylanmis logo kodlari -- kaynak `haber_botu/kaynak/logo.py`.
+#: Iki yerde tutmamak icin ORADAN okunuyor; okunamazsa bos kume ve
+#: her sirket uretilmis amblemle kaliyor (guvenli taraf).
+def _onayli_logolar() -> frozenset:
+    try:
+        import sys as _s
+        _s.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent
+                              / "haber_botu"))
+        from kaynak.logo import ONAYLI
+        return ONAYLI
+    except Exception:
+        return frozenset()
+
+
+_ONAYLI_LOGO = _onayli_logolar()
+
+
+def _logo_kayit() -> dict:
+    global __LOGO
+    try:
+        return __LOGO
+    except NameError:
+        pass
+    yol = (pathlib.Path(__file__).resolve().parent.parent
+           / "haber_botu" / "kaynak" / "logo_kayit.json")
+    try:
+        __LOGO = json.loads(yol.read_text(encoding="utf-8"))
+    except Exception:
+        __LOGO = {}
+    return __LOGO
+
+
+def sirket_gorseli(kod: str, sirket: str, sektor: str, donem: str) -> str:
+    """Once GERCEK LOGO, yoksa uretilmis amblem.
+
+    Sira bilincli: gercek isaret, uretilmis isaretten once gelir --
+    ayni oncelik fotograf ve kavram cizimi arasinda da gecerli.
+    """
+    kd = (kod or "").strip().upper()
+    # YALNIZCA ELLE ONAYLANMIS LOGOLAR.
+    # Otomatik esleme uc kat suzgecten sonra bile yanlis logo
+    # uretiyordu (bkz. `kaynak/logo.ONAYLI`). Yanlis logo, alakasiz
+    # fotograftan daha kotudur: okur onu sirketin kendi isareti sanar.
+    if kd not in _ONAYLI_LOGO:
+        return _amblem.amblem(kod, sirket, sektor, donem)
+    k = (_logo_kayit().get(kd) or {})
+    if k.get("yol"):
+        return _amblem.logolu(k["yol"], kod, sirket, sektor, donem)
+    return _amblem.amblem(kod, sirket, sektor, donem)
 import gorsel
 import kivilcim
 # Uretilen kavram gorselleri. Site YALNIZCA diskte hazir olani okuyor;
@@ -1270,7 +1324,7 @@ def analizleri_yukle() -> list[Analiz]:
                 # fotograf hala anlamli olabilir.
                 foto="",
                 foto_atif="",
-                amblem_svg=_amblem.amblem(
+                amblem_svg=sirket_gorseli(
                     b.al("kod"), b.al("sirket"), b.al("sektor"),
                     b.al("donem")),
                 kelime=len(b.govde_md.split()),

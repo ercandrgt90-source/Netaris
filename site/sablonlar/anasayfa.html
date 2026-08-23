@@ -195,11 +195,28 @@
       </span>
     </a>
 
+    {# ALTI KART -- ONCE ON UC SATIRLIK DUZ LISTEYDI.
+       ==============================================
+       Olculdu: mansetin altinda 13 satirlik bir liste duruyordu ve
+       hepsi ayni gorunuyordu -- rozet, saat, baslik. Okur listeyi
+       taramak zorundaydi ve hicbiri digerinden ayrilmiyordu.
+
+       Kullanici geri bildirimi: "bugunun onemli gelismelerini Netaris
+       ne diyor gibi 6 haber butonu olarak semala, cok haber ve yazi
+       var ana sayfada bunun onune gecelim."
+
+       Alti sayisi keyfi degil: iki sutunda uc satir, ucunde iki satir
+       -- her duzende TAM doluyor ve yarim kalan bir siradan
+       kurtuluyoruz. Kalanin tamami zaten `/gundem/` sayfasinda ve
+       altta bagi var.
+
+       Kart bicimi `ai-akis` ile ayni aileden: okur ana sayfada iki
+       ayri kart dili ogrenmek zorunda kalmasin. #}
     {% if one_cikanlar | length > 1 %}
-    <ul class="onem-liste">
-      {% for h in one_cikanlar[1:] %}
+    <ul class="onem-izgara">
+      {% for h in one_cikanlar[1:7] %}
       <li class="tur-{{ h | kart_turu }}">
-        <a href="{{ h.yol }}">
+        <a class="onem-kart" href="{{ h.yol }}">
           <span class="onem-ust">
             {% if h.katman == "kritik" %}
             <span class="rozet rozet-kritik">{{ h.katman_adi }}</span>
@@ -212,6 +229,13 @@
       </li>
       {% endfor %}
     </ul>
+    {# KALANIN NEREDE OLDUGU YAZILI.
+       Alti kart gosterip gerisini sessizce dusurmek, okura "bugun
+       yalnizca yedi gelisme oldu" demek olurdu. #}
+    {% if one_cikanlar | length > 7 %}
+    <p class="onem-devam"><a href="/gundem/">Bugünün tüm gelişmeleri
+      ({{ one_cikanlar | length }}) →</a></p>
+    {% endif %}
     {% endif %}
     {% else %}
     <p class="kaynak-not">Bugün öne çıkacak gelişme henüz yok. Akış sağda
@@ -261,8 +285,24 @@
     <div class="akis-bas">
       <h2><span class="akis-nokta" aria-hidden="true"></span>Canlı akış</h2>
     </div>
+    {# GUN BASLIKLARI -- akis bir YIGIN degil bir AKIS olsun.
+       ======================================================
+       Olculdu: 20 satir ard arda diziliyordu ve hepsi ayni
+       gorunuyordu; okur nerede oldugunu ("bu bugun mu, dun mu")
+       ancak her satirin saatine bakarak anliyordu.
+
+       Gun degistiginde kucuk bir baslik basiliyor. Baslik SATIR
+       ARASINDA duruyor, ayri bir liste acmiyor -- `<ol>` icinde
+       yalnizca `<li>` gecerli oldugu icin baslik da bir `<li>` ve
+       `role="presentation"` ile sayimdan cikariliyor; yoksa ekran
+       okuyucu "5 ogeden 3'u" derken basliklari da sayardi. #}
+    {% set ns = namespace(gun="") %}
     <ol class="akis-liste">
       {% for h in akis %}
+      {% if h.tarih and h.tarih != ns.gun %}
+      {% set ns.gun = h.tarih %}
+      <li class="akis-gun" role="presentation">{{ h.tarih_gorunur or h.tarih }}</li>
+      {% endif %}
       {# KATMAN SINIFI SATIRA YAZILIYOR.
          Editoryal geri bildirim: "canli akis cop kutusuna donusmemeli,
          40 rastgele gelisme yan yana duruyor."
@@ -545,17 +585,39 @@
             elimizde yok; eşik <b>önceki değer</b></span>
           {% endif %}
         </p>
-        <div class="takvim-dallar">
-          {% for d in b.dallar %}
-          <div class="takvim-dal takvim-dal-{{ d.yon }}">
-            <p class="takvim-dal-bas">{{ d.baslik }}</p>
-            <p class="takvim-dal-metin">{{ d.mekanizma }}</p>
-            {% if d.olcum %}
-            <p class="takvim-olcum">{{ d.olcum }}</p>
-            {% endif %}
+        {# DALLAR ACILIR KALIPTA.
+           =====================
+           Olculdu: her takvim olayi iki dal basiyordu ve her dal
+           baslik + mekanizma + olcum ile ~350 karakterdi. Dort olayla
+           birlikte bolum ~2.800 karakterlik duz metin oluyordu.
+
+           Kullanici geri bildirimi: "yaklasan veriler de cok uzun yazi
+           yazi, verimli ama yer kapliyor."
+
+           "Verimli" kismi dogru ve o yuzden metin SILINMIYOR: bir
+           verinin hangi mekanizmayla neyi hareket ettirecegi bu
+           sitenin asil urunu. Yalnizca ISTENDIGINDE aciliyor.
+
+           `<details>` SECILDI, betik degil: JavaScript olmadan da
+           calisiyor, klavyeyle aciliyor, ekran okuyucu durumunu
+           soyluyor ve tarayicinin sayfa ici aramasi kapali icerigi de
+           buluyor (modern tarayicilarda `hidden=until-found`
+           davranisi). Kendi actigimiz bir kutuda bunlarin hicbiri
+           bedava gelmezdi. #}
+        <details class="takvim-dallar">
+          <summary>Ne olursa ne olur?</summary>
+          <div class="takvim-dal-kap">
+            {% for d in b.dallar %}
+            <div class="takvim-dal takvim-dal-{{ d.yon }}">
+              <p class="takvim-dal-bas">{{ d.baslik }}</p>
+              <p class="takvim-dal-metin">{{ d.mekanizma }}</p>
+              {% if d.olcum %}
+              <p class="takvim-olcum">{{ d.olcum }}</p>
+              {% endif %}
+            </div>
+            {% endfor %}
           </div>
-          {% endfor %}
-        </div>
+        </details>
       </div>
       {% endif %}
     </li>

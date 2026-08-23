@@ -98,6 +98,40 @@ def kod_metni(kod: str, sirket: str = "") -> str:
     return bas if len(bas) >= 2 else ""
 
 
+def logolu(yol: str, kod: str, sirket: str = "", sektor: str = "",
+           donem: str = "") -> str:
+    """GERCEK LOGO varsa amblem yerine o basiliyor.
+
+    NEDEN AYRI BIR BICIM
+    --------------------
+    Logolar BEYAZ ZEMIN icin tasarlanir. Sektor rengini arkasina
+    koymak cogunda okunmaz hale getirirdi -- koyu lacivert zeminde
+    koyu lacivert bir logo. Bu yuzden zemin notr ve sektor rengi ince
+    bir serit olarak ustte kaliyor: bilgi korunuyor, logo okunuyor.
+
+    Koyu temada da ayni zemin duruyor. Logoyu temaya gore
+    degistirmek, markanin kendi rengini bizim degistirmemiz olurdu.
+
+    Lisans: yalnizca KAMU MALI logolar indiriliyor (bkz.
+    `haber_botu/kaynak/logo.py`), yani atif satiri gerekmiyor.
+    """
+    ad = html.escape((sirket or "").strip())
+    alt = html.escape(" · ".join(x for x in ((sektor or "").strip(),
+                                             (donem or "").strip()) if x))
+    etiket = html.escape(f"{(kod or '').strip()} logosu")
+    return (
+        f'<div class="amblem amblem-logo">'
+        f'<span class="amblem-serit" aria-hidden="true" '
+        f'style="background: {renk(sektor)}"></span>'
+        f'<img class="amblem-gorsel" src="{html.escape(yol)}" '
+        f'alt="{etiket}" loading="lazy" decoding="async">'
+        f'<span class="amblem-yazi">'
+        f'<b>{ad[:46]}</b>'
+        + (f'<span>{alt[:60]}</span>' if alt else "")
+        + f'</span></div>'
+    )
+
+
 def amblem(kod: str, sirket: str = "", sektor: str = "",
            donem: str = "") -> str:
     """Sirket amblemini SVG olarak dondurur (satir ici basilir).
