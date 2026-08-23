@@ -1,13 +1,13 @@
 ---
 slug: etyat-2026-2-ceyrek
 baslik: EURO TREND YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat ve brüt kâr aynı seviyede kalırken brüt kâr marjı %44,2 ile sektör medyanının (%45,7) altında kaldı; bu durum brüt kârın hasılat içinde sabit bir oranla tutturulduğunu gösteriyor.…
+ozet: Hasılat ve brüt kâr aynı seviyede kalırken brüt kâr marjı %44,2 ile sektör medyanının (%45,7) altında kalmış, bu da brüt kârın hasılat içinde daha az pay aldığını gösteriyor; net kâr marjı ise %19,9 ile medyan (%14,7)'ın üzerindedir, bu da faaliyet sonrası kârın hasılat içinde daha yüksek oranda kal…
 sirket: EURO TREND YATIRIM ORTAKLIĞI A.Ş.
 kod: ETYAT
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Finans
-tarih: 2026-08-22
+tarih: 2026-08-23
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat ve brüt kâr aynı seviyede kalırken brüt kâr marjı %44,2 ile sektör medyanının (%45,7) altında kaldı; bu durum brüt kârın hasılat içinde sabit bir oranla tutturulduğunu gösteriyor. Net kâr, önceki dönemde –%0,01 iken bu çeyrekte 0,00'a yükselmiş ve net kâr marjı %19,9 ile sektör medyanının (%14,7) üzerindedir; bu artış net kârın pozitifleşmesiyle birlikte kârlılık oranının yükseldiğini yansıtıyor. Cari oran 18,45 ve borç/özkaynak –0,91, her ikisi de sektör medyanlarından (sırasıyla 7,79 ve –0,06) çok daha yüksek negatif değerler olduğundan, likidite ve özkaynak finansmanının artması aktif toplamının %0,08'e (önceki %0,07) ve net borcun –%0,07'e (önceki –%0,06) yükselmesiyle birlikte şirketin özkaynak bazlı finansman yapısının güçlendiği görülüyor.
+Hasılat ve brüt kâr aynı seviyede kalırken brüt kâr marjı %44,2 ile sektör medyanının (%45,7) altında kalmış, bu da brüt kârın hasılat içinde daha az pay aldığını gösteriyor; net kâr marjı ise %19,9 ile medyan (%14,7)'ın üzerindedir, bu da faaliyet sonrası kârın hasılat içinde daha yüksek oranda kalmasını yansıtıyor. Özkaynak kârlılığı %3,8, sektör medyanı %4,2 olduğu için özkaynak getirisi brüt kâr ve net kâr artışına rağmen daha düşük seyretmiş; aynı zamanda özkaynak 0,07 milyar TL sabit kalırken aktif toplamı 0,08 milyar TL'ye yükselmiş, bu da varlıkların özkaynak dışı kaynaklarla (net borç –0,07 milyar TL) finanse edildiğini gösteriyor. Cari oran 18,45 (medyan 7,79) ve borç/özkaynak –0,91 (medyan –0,06) değerleri, likiditenin yüksek olduğunu ve net borcun özkaynak karşısında negatif (nakit fazlası) olduğunu, bu durumun faaliyet nakit akışının 0,00 milyar TL'ye (önceki –0,01) yükselmesiyle uyumlu olduğunu ortaya koyar.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
@@ -58,7 +58,7 @@ Karşılaştırma Finans sektöründeki 30 şirketin **medyanına** göre yapıl
 | --- | ---: | ---: |
 | Brüt kâr marjı | %44,2 | %45,7 |
 | Net kâr marjı | %19,9 | %14,7 |
-| Özkaynak kârlılığı | %3,8 | %4,5 |
+| Özkaynak kârlılığı | %3,8 | %4,2 |
 | Cari oran | 18,45 | 7,79 |
 | Borç / özkaynak | -0,91 | -0,06 |
 
@@ -69,10 +69,6 @@ Karşılaştırma Finans sektöründeki 30 şirketin **medyanına** göre yapıl
 **Şirket lehine işleyenler**
 
 - Net kâr reel olarak %77,6 arttı.
-
-**Dikkat gerektirenler**
-
-- Özkaynak kârlılığı %3,8; sektör medyanı %4,5.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

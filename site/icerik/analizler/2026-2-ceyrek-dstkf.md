@@ -1,13 +1,13 @@
 ---
 slug: dstkf-2026-2-ceyrek
 baslik: DESTEK FİNANS FAKTORİNG A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat ve brüt kâr neredeyse aynı seviyede seyrederek brüt kâr marjının %94,1'e yükselmesine yol açtı; bu yüksek marjın ardından faaliyet kârı ve FAVÖK, önceki dönemdeki %4,2-%4,3 seviyelerinden %7,27-%7,31'e çıkarak net kârda %2,62'ye ulaşan artışı destekledi.…
+ozet: Hasılat ve brüt kâr neredeyse aynı seviyede seyrederek brüt kâr marjının %94,1'e yükselmesine yol açtı; bu yüksek marj, net kâr marjının %78,7'ye ve net kârın 2,62 milyar TL'ye artmasına paralel olarak gerçekleşti.…
 sirket: DESTEK FİNANS FAKTORİNG A.Ş.
 kod: DSTKF
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Finans
-tarih: 2026-08-22
+tarih: 2026-08-23
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat ve brüt kâr neredeyse aynı seviyede seyrederek brüt kâr marjının %94,1'e yükselmesine yol açtı; bu yüksek marjın ardından faaliyet kârı ve FAVÖK, önceki dönemdeki %4,2-%4,3 seviyelerinden %7,27-%7,31'e çıkarak net kârda %2,62'ye ulaşan artışı destekledi. Net kârın artışı özkaynakların %14,82'ye yükselmesiyle özkaynak kârlılığının %9,8'e çıkmasına, aynı zamanda aktif toplamının %60,90'a çıkmasıyla borç seviyesinin %26,81'e yükselmesine rağmen net borç/öz kaynak oranının 1,81'e çıkmasıyla finansal kaldıraçta artışa işaret etti. Cari oran 1,47'ye gerilemiş olsa da, faaliyet nakit akışının -5,75 milyardan -2,99 milyara iyileşmesi, likidite baskısının hafiflediğini gösteriyor.
+Hasılat ve brüt kâr neredeyse aynı seviyede seyrederek brüt kâr marjının %94,1'e yükselmesine yol açtı; bu yüksek marj, net kâr marjının %78,7'ye ve net kârın 2,62 milyar TL'ye artmasına paralel olarak gerçekleşti. Özkaynakların 14,82 milyar TL'ye yükselmesi, özkaynak kârlılığının %9,8 olmasını sağlarken aynı dönemde aktif toplamının 60,90 milyar TL'ye çıkması net borcun 26,81 milyar TL'ye artmasıyla birlikte borç/özkaynak oranının 1,81'e yükselmesine neden oldu. Faaliyet nakit akışının -2,99 milyar TL'ye iyileşmesi, önceki dönemdeki -5,75 milyar TL'lik çıkıştan bir azalma gösterirken cari oran 1,47'ye gerilemesi, likidite ölçütünün sektör medyanı 7,79'un çok altında kalmasına işaret ediyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
@@ -58,7 +58,7 @@ Karşılaştırma Finans sektöründeki 30 şirketin **medyanına** göre yapıl
 | --- | ---: | ---: |
 | Brüt kâr marjı | %94,1 | %45,7 |
 | Net kâr marjı | %78,7 | %14,7 |
-| Özkaynak kârlılığı | %9,8 | %4,5 |
+| Özkaynak kârlılığı | %9,8 | %4,2 |
 | Cari oran | 1,47 | 7,79 |
 | Borç / özkaynak | 1,81 | -0,06 |
 
@@ -69,7 +69,7 @@ Karşılaştırma Finans sektöründeki 30 şirketin **medyanına** göre yapıl
 **Şirket lehine işleyenler**
 
 - Net kâr reel olarak %74,4 arttı.
-- Özkaynak kârlılığı %9,8; sektör medyanı %4,5.
+- Özkaynak kârlılığı %9,8; sektör medyanı %4,2.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

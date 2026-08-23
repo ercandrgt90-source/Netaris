@@ -1,13 +1,13 @@
 ---
 slug: dapgm-2026-1-ceyrek
 baslik: DAP GAYRİMENKUL GELİŞTİRME A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılatın yükselmesi brüt kârı ve brüt kâr marjını artırarak %85,7'ye (sektör medyanı %51,4) çıkmasını sağladı; brüt kârdaki artış ise faaliyet kârı ve FAVÖK'ün de yükselmesine, dolayısıyla net kâr marjının %15,4 (sektör medyanı %14,3) olmasına yol açtı.…
+ozet: Hasılatın %85,7 brüt kâr marjı ile birlikte yükselmesi brüt kârın da 3,84 milyar TL'ye, ardından faaliyet kârı ve FAVÖK'ün sırasıyla 3,59 milyar TL ve 3,61 milyar TL'ye artmasına yol açtı; net kâr ise 0,40 milyar TL'ye gerileyerek net kâr marjını %15,4 seviyesinde tutarken özkaynak 17,69 milyar TL'y…
 sirket: DAP GAYRİMENKUL GELİŞTİRME A.Ş.
 kod: DAPGM
 donem: 2026 1. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-22
+tarih: 2026-08-23
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın yükselmesi brüt kârı ve brüt kâr marjını artırarak %85,7'ye (sektör medyanı %51,4) çıkmasını sağladı; brüt kârdaki artış ise faaliyet kârı ve FAVÖK'ün de yükselmesine, dolayısıyla net kâr marjının %15,4 (sektör medyanı %14,3) olmasına yol açtı. Özkaynakların 17,69 milyar TL'ye (önceki dönem 12,76 milyar TL) çıkması aktif toplamının 36,66 milyar TL'ye (önceki dönem 27,03 milyar TL) yükselmesiyle birlikte net borcun 1,29 milyar TL'ye (önceki dönem 1,61 milyar TL) düşmesine ve borç/özkaynak oranının %0,07 (sektör medyanı %0,02) artmasına neden oldu. Faaliyet nakit akışının negatiften 0,24 milyar TL'ye (önceki dönem –0,92 milyar TL) geçmesi, artan kârlılık ve özkaynak büyümesiyle uyumlu bir likidite iyileşmesi gösterirken cari oran 2,37'ye (sektör medyanı 5,25) gerilemesi, aktif artışının borç azaltımına kıyasla daha hızlı gerçekleşmesinden kaynaklandı.
+Hasılatın %85,7 brüt kâr marjı ile birlikte yükselmesi brüt kârın da 3,84 milyar TL'ye, ardından faaliyet kârı ve FAVÖK'ün sırasıyla 3,59 milyar TL ve 3,61 milyar TL'ye artmasına yol açtı; net kâr ise 0,40 milyar TL'ye gerileyerek net kâr marjını %15,4 seviyesinde tutarken özkaynak 17,69 milyar TL'ye çıkarak özkaynak kârlılığını %2,0'ye yükseltti. Aktif toplamının 36,66 milyar TL'ye, net borcun ise 1,29 milyar TL'ye düşmesi cari oranı 2,37'ye ve borç/özkaynak oranını 0,07'ye taşıdı; bu, sektör medyanı olan 5,25 ve 0,02 değerlerinden farklı bir likidite ve finansal kaldıraç profili ortaya koydu. Faaliyet nakit akışının -0,92 milyar TL'den 0,24 milyar TL'ye geçmesi, yatırım harcamasının sıfır olmasıyla birlikte nakit üretimindeki iyileşmenin şirketin operasyonel performansındaki artışla paralel olduğunu gösteriyor.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 

@@ -1,13 +1,13 @@
 ---
 slug: nibas-2026-2-ceyrek
 baslik: NİĞBAŞ NİĞDE BETON SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat ve brüt kâr aynı oranda yükselirken, faaliyet ve net kârda büyük düşüşler görülmüş; bu, satışların artmasına rağmen maliyet ve giderlerin çok daha hızlı yükselmesinden kaynaklanmış olabilir.…
+ozet: Hasılat ve brüt kâr aynı oranda yükselirken, faaliyet kârı, FAVÖK ve net kâr negatiften daha büyük negatif değerlere kaymış; bu, gelir artışının maliyet ve gider artışlarıyla birlikte gerçekleştiğini gösteriyor.…
 sirket: NİĞBAŞ NİĞDE BETON SANAYİ VE TİCARET A.Ş.
 kod: NIBAS
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Sanayi
-tarih: 2026-08-22
+tarih: 2026-08-23
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat ve brüt kâr aynı oranda yükselirken, faaliyet ve net kârda büyük düşüşler görülmüş; bu, satışların artmasına rağmen maliyet ve giderlerin çok daha hızlı yükselmesinden kaynaklanmış olabilir. Özkaynak ve aktif toplamı ciddi oranda azalmış, net borç ise negatifleşmiş; bu durum likiditeyi artıran yüksek cari oran (%9,09) ile birlikte özkaynak kârlılığının (%-51,9) ve borç/özkaynak oranının (%-0,12) negatif seyretmesine yol açmış. Faaliyet nakit akışı da önceki döneme göre daha fazla negatifleşmiş, bu da faaliyet kârının artan zararına paralel bir nakit çıkışı olduğunu gösteriyor.
+Hasılat ve brüt kâr aynı oranda yükselirken, faaliyet kârı, FAVÖK ve net kâr negatiften daha büyük negatif değerlere kaymış; bu, gelir artışının maliyet ve gider artışlarıyla birlikte gerçekleştiğini gösteriyor. Özkaynak ve aktif toplamı düşerken net borç negatif (nakit fazlası) hâline gelmiş, bu da özkaynak erozyonu ve varlık küçülmesinin aynı dönemde likidite pozisyonunu iyileştirdiğini ortaya koyuyor. Cari oranın %9,09'a (sektör medyanı 1,37) yükselmesi, borç/özkaynak oranının –%0,12 (sektör medyanı %0,11) olmasıyla birlikte, kısa vadeli likidite artışının özkaynak erozyonu ve negatif kârlılıkla paralel seyrettiğini gösteriyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
@@ -59,8 +59,8 @@ Karşılaştırma Sanayi sektöründeki 68 şirketin **medyanına** göre yapıl
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
 | Brüt kâr marjı | %29,7 | %21,2 |
-| Net kâr marjı | -%362,1 | %0,3 |
-| Özkaynak kârlılığı | -%51,9 | %0,0 |
+| Net kâr marjı | -%362,1 | %0,1 |
+| Özkaynak kârlılığı | -%51,9 | -%0,0 |
 | Cari oran | 9,09 | 1,37 |
 | Borç / özkaynak | -0,12 | 0,11 |
 

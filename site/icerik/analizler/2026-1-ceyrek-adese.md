@@ -1,13 +1,13 @@
 ---
 slug: adese-2026-1-ceyrek
 baslik: ADESE GAYRİMENKUL YATIRIM A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılat 0,89 milyar TL'ye yükselirken net kâr -0,06 milyar TL'ye gerilemiş; gelir artışı faaliyet nakit akışının 0,42 milyar TL'ye geçişiyle birlikte gerçekleşmiş, bu da negatif net kâr marjının (%-54,4) ve özkaynak kârlılığının (%-0,8) daha da kötüleşmesine yol açmış.…
+ozet: Hasılat 0,89 milyar TL'ye yükselirken net kâr -0,06 milyar TL'ye gerilemiş, bu durum net kâr marjının -%54,4'e düşmesine yol açmış; aynı dönemde özkaynak 19,69 milyar TL'ye artmış ve özkaynak kârlılığı -%0,8 olmuş, yani özkaynak büyümesi kârın azalmasıyla paralel bir negatif getiri yaratmış.…
 sirket: ADESE GAYRİMENKUL YATIRIM A.Ş.
 kod: ADESE
 donem: 2026 1. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-22
+tarih: 2026-08-23
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat 0,89 milyar TL'ye yükselirken net kâr -0,06 milyar TL'ye gerilemiş; gelir artışı faaliyet nakit akışının 0,42 milyar TL'ye geçişiyle birlikte gerçekleşmiş, bu da negatif net kâr marjının (%-54,4) ve özkaynak kârlılığının (%-0,8) daha da kötüleşmesine yol açmış. Özkaynak 19,69 milyar TL'ye çıkması aktif toplamının 25,57 milyar TL'ye yükselmesiyle paralel seyretmiş ve net borçun -0,21 milyar TL (nakit fazlası) olması, borç/özkaynak oranının (-0,01) sektör medyanı 0,02'nin altında kalmasına neden olmuş. Bu durum, gelir artışı ve nakit akışı iyileşmesinin özkaynak büyümesiyle birlikte gerçekleştiğini, ancak kârlılık ölçütlerinin hâlâ negatif seyretmesinin gelir artışının maliyet ve vergi kalemlerini dengeleyemediğini gösteriyor.
+Hasılat 0,89 milyar TL'ye yükselirken net kâr -0,06 milyar TL'ye gerilemiş, bu durum net kâr marjının -%54,4'e düşmesine yol açmış; aynı dönemde özkaynak 19,69 milyar TL'ye artmış ve özkaynak kârlılığı -%0,8 olmuş, yani özkaynak büyümesi kârın azalmasıyla paralel bir negatif getiri yaratmış. Aktif toplamı 25,57 milyar TL'ye çıkmış ve net borç -0,21 milyar TL (nakit fazlası) olmuş; bu pozitif nakit pozisyon, borç/özkaynak oranının -%0,01'e (sektör medyanı 0,02) gerilemesine ve faaliyet nakit akışının 0,42 milyar TL'ye (önceki -0,08 milyar TL) yükselmesine katkı sağlamış. Dolayısıyla, gelir artışı ve aktif büyümesi nakit akışını iyileştirirken, kâr kaybı özkaynak verimliliğini ve kâr marjını olumsuz etkilemiştir.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 

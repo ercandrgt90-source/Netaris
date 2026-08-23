@@ -1,9 +1,9 @@
 ---
-slug: dzgyo-2026-1-ceyrek
-baslik: DENİZ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılat ve brüt kâr her ikisi de önceki döneme göre artarken, brüt kâr marjı %40,6 seviyesinde kalmış; bu, gelir artışının maliyet artışıyla paralel seyrettiğini gösteriyor.…
-sirket: DENİZ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
-kod: DZGYO
+slug: vrgyo-2026-1-ceyrek
+baslik: VERA KONSEPT GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 1. çeyrek bilanço analizi
+ozet: Hasılatın 0,12 milyar TL'den 0,03 milyar TL'ye gerilemesi net kârın -0,08 milyar TL'den -0,36 milyar TL'ye düşmesine paralel olarak gerçekleşirken, aynı dönemde faaliyet nakit akışı 0,10 milyar TL'den 3,55 milyar TL'ye yükselmiş ve bu artış özkaynakların 4,67 milyar TL'den 5,39 milyar TL'ye, aktif t…
+sirket: VERA KONSEPT GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
+kod: VRGYO
 donem: 2026 1. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
@@ -18,21 +18,18 @@ sayimlar:
 
 ## Özet
 
-Hasılat ve brüt kâr her ikisi de önceki döneme göre artarken, brüt kâr marjı %40,6 seviyesinde kalmış; bu, gelir artışının maliyet artışıyla paralel seyrettiğini gösteriyor. Faaliyet kârı, FAVÖK ve net kârda ise önceki dönemdeki negatif değerlerin daha da derinleşmesi, faaliyet nakit akışının da pozitiften negatife dönmesiyle birlikte, işletme faaliyetlerinin kârlılığını olumsuz etkiledi. Özkaynak ve aktif toplamının artışı net borcun pozitifleşmesine yol açarken, cari oran 2,55'e yükselmiş, borç/özkaynak oranı ise sektör medyanının biraz üzerindeki %0,03 seviyesinde kalmıştır.
+Hasılatın 0,12 milyar TL'den 0,03 milyar TL'ye gerilemesi net kârın -0,08 milyar TL'den -0,36 milyar TL'ye düşmesine paralel olarak gerçekleşirken, aynı dönemde faaliyet nakit akışı 0,10 milyar TL'den 3,55 milyar TL'ye yükselmiş ve bu artış özkaynakların 4,67 milyar TL'den 5,39 milyar TL'ye, aktif toplamının 6,44 milyar TL'den 8,85 milyar TL'ye artmasıyla desteklenmiştir; net borç ise 0,14 milyar TL'den 1,17 milyar TL'ye çıkarak borç/özkaynak oranını 0,02'den 0,22'ye yükseltmiştir; bu değişiklikler net kâr marjının %14,3 sektör medyanının çok üzerindeki %760,5'e, özkaynak kârlılığının %0,4 medyanının üzerine %2,3'e ve borç/özkaynak oranının medyanın çok altında kalmasına yol açmıştır.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | %55,0 |
-| Brüt kâr | %51,7 |
-| Faaliyet kârı | -%385,7 |
-| FAVÖK | -%428,1 |
-| Net kâr | -%5928,3 |
-| Özkaynak | %38,4 |
-| Aktif toplamı | %51,0 |
-| Net borç | %112,3 |
-| Faaliyet nakit akışı | -%288,7 |
+| Hasılat | -%78,0 |
+| Net kâr | -%332,1 |
+| Özkaynak | %15,6 |
+| Aktif toplamı | %37,3 |
+| Net borç | %763,9 |
+| Faaliyet nakit akışı | %3514,1 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -40,15 +37,12 @@ Hasılat ve brüt kâr her ikisi de önceki döneme göre artarken, brüt kâr m
 
 | Kalem | Değer |
 | --- | ---: |
-| Hasılat | 0,07 milyar TL |
-| Brüt kâr | 0,03 milyar TL |
-| Faaliyet kârı | -0,16 milyar TL |
-| FAVÖK | -0,16 milyar TL |
-| Net kâr | -0,03 milyar TL |
-| Özkaynak | 6,65 milyar TL |
-| Aktif toplamı | 8,53 milyar TL |
-| Net borç | 0,17 milyar TL |
-| Faaliyet nakit akışı | -0,13 milyar TL |
+| Hasılat | 0,03 milyar TL |
+| Net kâr | -0,36 milyar TL |
+| Özkaynak | 5,39 milyar TL |
+| Aktif toplamı | 8,85 milyar TL |
+| Net borç | 1,17 milyar TL |
+| Faaliyet nakit akışı | 3,55 milyar TL |
 
 ## Sektör içindeki konum
 
@@ -56,24 +50,18 @@ Karşılaştırma Gayrimenkul sektöründeki 34 şirketin **medyanına** göre y
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %40,6 | %51,4 |
-| Net kâr marjı | -%93,6 | %14,3 |
-| Özkaynak kârlılığı | -%0,6 | %0,4 |
-| Cari oran | 2,55 | 5,25 |
-| Borç / özkaynak | 0,03 | 0,02 |
+| Net kâr marjı | %760,5 | %14,3 |
+| Özkaynak kârlılığı | %2,3 | %0,4 |
+| Borç / özkaynak | 0,22 | 0,02 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
 ## Öne çıkan ölçümler
 
-**Şirket lehine işleyenler**
-
-- Hasılat reel olarak %55,0 arttı.
-- Cari oran 2,55; dönen varlıklar kısa vadeli yükümlülüklerin üzerinde.
-
 **Dikkat gerektirenler**
 
-- Net kâr reel olarak -%5928,3 geriledi.
+- Hasılat reel olarak -%78,0 geriledi.
+- Net kâr reel olarak -%332,1 geriledi.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

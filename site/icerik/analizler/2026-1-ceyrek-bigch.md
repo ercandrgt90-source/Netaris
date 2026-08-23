@@ -1,13 +1,13 @@
 ---
 slug: bigch-2026-1-ceyrek
 baslik: BÜYÜK ŞEFLER GIDA TURİZM TEKSTİL DANIŞMANLIK ORGANİZASYON EĞİTİM SANAYİ VE TİCARET A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılat sabit kalırken brüt kâr, faaliyet kârı, FAVÖK ve net kâr artışları, brüt kâr marjının %23,7'ye yükselmesiyle birlikte kârlılık göstergelerinin (net kâr marjı %3,6, özkaynak kârlılığı %3,5) sektör medyanlarının çok üzerisine çıktığını gösterir; aynı zamanda özkaynak ve aktif toplamının artmas…
+ozet: Hasılat aynı kalırken brüt kâr, faaliyet kârı, FAVÖK ve net kâr artışları, brüt kâr marjı ve net kâr marjının yükselmesine yansımış; bu da kârlılık kalemlerinin gelir artışı olmadan iyileştiğini gösteriyor.…
 sirket: BÜYÜK ŞEFLER GIDA TURİZM TEKSTİL DANIŞMANLIK ORGANİZASYON EĞİTİM SANAYİ VE TİCARET A.Ş.
 kod: BIGCH
 donem: 2026 1. çeyrek
 kategori: Bilanço Analizi
 sektor: İsteğe bağlı tüketim
-tarih: 2026-08-22
+tarih: 2026-08-23
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat sabit kalırken brüt kâr, faaliyet kârı, FAVÖK ve net kâr artışları, brüt kâr marjının %23,7'ye yükselmesiyle birlikte kârlılık göstergelerinin (net kâr marjı %3,6, özkaynak kârlılığı %3,5) sektör medyanlarının çok üzerisine çıktığını gösterir; aynı zamanda özkaynak ve aktif toplamının artması, net borcun sadece hafif yükselmesi (0,72 milyar TL) neticesinde borç/özkaynak oranının %0,51'den %0,51'ye sabit kalması, finansal yapıdaki dengeyi korurken cari oranın 0,61 seviyesinde sektör ortalamasının (1,30) altında kalması likidite sıkışıklığını işaret eder.
+Hasılat aynı kalırken brüt kâr, faaliyet kârı, FAVÖK ve net kâr artışları, brüt kâr marjı ve net kâr marjının yükselmesine yansımış; bu da kârlılık kalemlerinin gelir artışı olmadan iyileştiğini gösteriyor. Özkaynak ve aktif toplamının artışı, özkaynak kârlılığı ve borç/özkaynak oranının yükselmesiyle birlikte, özkaynak büyüklüğünün borçla kıyaslandığında daha fazla arttığını, dolayısıyla finansal kaldıraçta hafif bir artış olduğunu ortaya koyuyor. Cari oranın düşmesi, net borcun hafif artması ve faaliyet nakit akışının yükselmesi, likidite ölçütünün gerilemesine rağmen işletme nakit üretiminin iyileştiğini ilişkilendiriyor.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 
@@ -59,10 +59,10 @@ Karşılaştırma İsteğe bağlı tüketim sektöründeki 63 şirketin **medyan
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
 | Brüt kâr marjı | %23,7 | %15,4 |
-| Net kâr marjı | %3,6 | %0,6 |
+| Net kâr marjı | %3,6 | %1,7 |
 | Özkaynak kârlılığı | %3,5 | %0,5 |
 | Cari oran | 0,61 | 1,30 |
-| Borç / özkaynak | 0,51 | 0,15 |
+| Borç / özkaynak | 0,51 | 0,13 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

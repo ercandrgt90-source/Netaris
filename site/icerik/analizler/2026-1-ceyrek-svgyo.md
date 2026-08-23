@@ -1,13 +1,13 @@
 ---
 slug: svgyo-2026-1-ceyrek
 baslik: SAVUR GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Brüt kâr marjının %100,0 olması, hasılatın tamamının brüt kâr olarak kaydedilmesine yol açarken, aynı dönemde net kâr marjının -%63,2 olması, faaliyet ve diğer giderlerin (örneğin faaliyet nakit akışı –0,21 milyar TL) net kârı (0,05 milyar TL) olumsuz etkilemesinden kaynaklanır.…
+ozet: Brüt kâr marjının %100,0 olması, hasılatın tamamının brüt kâr olarak kaydedilmesine yol açarken, aynı dönemde net kâr marjının -%63,2 olması, faaliyet ve diğer giderlerin (örneğin faaliyet nakit akışı –0,21 milyar TL) net kârı olumsuz etkilediğini gösterir; özkaynak kârlılığı da bu negatif net kârda…
 sirket: SAVUR GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: SVGYO
 donem: 2026 1. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-22
+tarih: 2026-08-23
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Brüt kâr marjının %100,0 olması, hasılatın tamamının brüt kâr olarak kaydedilmesine yol açarken, aynı dönemde net kâr marjının -%63,2 olması, faaliyet ve diğer giderlerin (örneğin faaliyet nakit akışı –0,21 milyar TL) net kârı (0,05 milyar TL) olumsuz etkilemesinden kaynaklanır. Özkaynak kârlılığının -%0,3 olması, özkaynakların (4,51 milyar TL) net kâra oranının negatif kalmasına ve borç/özkaynak oranının -0,13 (sektör medyanı 0,02) ile özkaynakların borçtan daha fazla olmasıyla birlikte cari oranın 9,75 (sektör medyanı 5,25) yüksek likiditeyi yansıtmasına rağmen kârlılıkta gerilemeye işaret eder. Net borcun –0,60 milyar TL olması, şirketin net nakit pozisyonunun pozitif olduğunu gösterirken, düşük faaliyet nakit akışı ve yüksek cari oran arasında likidite ve nakit üretimi arasındaki dengesizliği ortaya koyar.
+Brüt kâr marjının %100,0 olması, hasılatın tamamının brüt kâr olarak kaydedilmesine yol açarken, aynı dönemde net kâr marjının -%63,2 olması, faaliyet ve diğer giderlerin (örneğin faaliyet nakit akışı –0,21 milyar TL) net kârı olumsuz etkilediğini gösterir; özkaynak kârlılığı da bu negatif net kârdan dolayı -%0,3'e gerilemiştir. Cari oranının 9,75 (sektör medyanı 5,25) ve borç/özkaynak oranının –0,13 (sektör medyanı 0,02) olması, şirketin likiditesinin yüksek ve net borç durumunun negatif (nakit fazlası) olduğunu, bu durumun ise özkaynak büyüklüğü (4,51 milyar TL) ve aktif toplamı (6,00 milyar TL) ile uyumlu olduğunu ortaya koyar.
 
 ## 2026 1. çeyrek dönemi ölçümleri
 
