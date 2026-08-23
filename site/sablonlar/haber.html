@@ -581,11 +581,26 @@
       </div>
       {% endfor %}
     </div>
-    {% if dosya.bulgular %}
+    {% endif %}
+
+    {# BULGULAR SEYIR GRAFIGINDEN AYRILDI.
+       ----------------------------------
+       Bu blok `{% if dosya and dosya.seyir %}` kosulunun ICINDEYDI:
+       enflasyon seyri serisi yoksa BULGULAR DA BASILMIYORDU.
+
+       Olculdu (2026-08-23): iki sayfada AI yorumu "%9,5 yükseliş" ve
+       "%12,5 gerileme" diyordu. Ikisi de gercek olcum ve ikisi de
+       modele `bulgular` icinde verilmisti -- ama sayfada seyir serisi
+       olmadigi icin bulgular hic basilmamisti. Okur yorumdaki sayiyi
+       sayfada arayip bulamiyordu.
+
+       Iki ayri icerik ayni kosula baglanmisti ve bagin sebebi
+       yalnizca kod duzeniydi. Bulgular kendi kosuluna alindi. #}
+    {% if dosya and dosya.bulgular %}
+    <h2>Ölçülen</h2>
     <ul class="bulgular">
       {% for b in dosya.bulgular %}<li>{{ b }}</li>{% endfor %}
     </ul>
-    {% endif %}
     {% endif %}
 
     {% if piyasa %}

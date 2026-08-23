@@ -942,7 +942,30 @@ def _gorsel_denetimi() -> list[Bulgu]:
         kayit = json.loads(kayit_yolu.read_text(encoding="utf-8"))
     except (json.JSONDecodeError, OSError):
         return bulgu
+    #: Atif GEREKTIRMEYEN lisanslar -- `foto.Kayit.ATIFSIZ` ile AYNI.
+    #:
+    #: Iki yerde tutulan bir deger zamanla ayrisir ve ayrisma HATA
+    #: VERMEZ; bu depoda ayni sinif ayrisma birkac kez yasandi. Bu
+    #: yuzden asagida `foto` modulunden okunmaya CALISILIYOR ve
+    #: yalnizca okunamazsa buradaki liste kullaniliyor.
+    try:
+        from kaynak.foto import Kayit as _FotoKayit
+        _ATIFSIZ = set(_FotoKayit.ATIFSIZ)
+    except Exception:
+        _ATIFSIZ = {"cc0", "pdm"}
+
     for havuz, liste in kayit.items():
+        # YALNIZCA YAYINA GIREN GORSELLER OLCULUYOR.
+        #
+        # Secim artik atif gerektirmeyen lisanslara oncelik veriyor
+        # (bkz. `foto.havuz_yayin`): bir havuzda CC0/PDM gorsel varsa
+        # CC BY olanlar HIC kullanilmiyor. Tam havuza bakan olcum bunu
+        # "en az 0 kez" diye rapor ediyordu ve on bes havuzda yanlis
+        # alarm uretti -- oysa o gorsellerin kullanilmamasi KARARIN
+        # kendisi, dagitim bozuklugu degil.
+        serbest = [f for f in liste
+                   if (f.get("lisans") or "").lower() in _ATIFSIZ]
+        liste = serbest or liste
         yollar = [f["dosya"] for f in liste]
         kullanilan = [kullanim.get(y, 0) for y in yollar]
         # Havuzdan HIC kullanilmayan varsa o havuz o gun devrede degil;

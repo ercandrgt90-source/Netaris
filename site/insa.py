@@ -616,13 +616,42 @@ def _yorum_dogrulanabilir(metin: str, h: dict, d) -> bool:
     kaynak = [h.get("baslik", ""), h.get("ozet", "") or "",
               h.get("baslik_kaynak", "") or ""]
     if d is not None:
-        kaynak.append(getattr(d, "acilis", "") or "")
+        # ACILIS SABLONDA KOSULLU BASILIYOR.
+        #   {% if dosya and dosya.acilis and not (dosya and dosya.dolu) %}
+        # Burada KOSULSUZ aliniyordu. Olculdu: iki sayfada yorumun
+        # andigi %9,5 ve %12,5 yalnizca `acilis` icinde vardi ve o
+        # sayfalarda `dolu` dogru oldugu icin acilis HIC basilmamisti.
+        # Sayilar yorumun disinda hicbir yerde gorunmuyordu.
+        if not getattr(d, "dolu", False):
+            kaynak.append(getattr(d, "acilis", "") or "")
+        # BULGULAR artik kendi kosulunda basiliyor (bkz. `haber.html`);
+        # once seyir grafiginin kosuluna hapsolmustu.
         kaynak += list(getattr(d, "bulgular", ()) or ())
-        for alan in ("turkiye", "dunya"):
-            for g in (getattr(d, alan, ()) or ()):
-                kaynak += [str(getattr(g, "son", "")),
-                           str(getattr(g, "onceki", "")),
-                           getattr(g, "degisim", "") or ""]
+        # SABLONUN GERCEKTEN BASTIGI GOSTERGELER.
+        # ---------------------------------------
+        # Burada `turkiye` ve `dunya` KOSULSUZ birlikte aliniyordu ve
+        # dosyanin belgesi "zaten sablonun bastigi seyler bunlar"
+        # diyordu. O varsayim YANLIS: `haber.html` icinde
+        #
+        #     {% if dosya and dosya.dunya and not dosya.turkiye %}
+        #
+        # yaziyor -- yani ikisi birden varsa DUNYA HIC BASILMIYOR.
+        #
+        # Sonucu olculdu: iki sayfada yorum "%9,5 yukselis" ve "%12,5
+        # gerileme" diyordu; ikisi de gercek olcum ama sayfada
+        # basilmayan `dunya` gostergesinden geliyordu. Okur yorumdaki
+        # sayiyi sayfada arayip bulamiyordu.
+        #
+        # Koruma artik sablonun kosulunu AYNEN tasiyor. Ayrisma
+        # ihtimali duruyor (iki yerde bir kural) ve bu yuzden kosul
+        # buraya birebir yazildi -- degisirse ikisi birden degismeli.
+        _turkiye = list(getattr(d, "turkiye", ()) or ())
+        _dunya = list(getattr(d, "dunya", ()) or ())
+        _basilan = _turkiye if _turkiye else _dunya
+        for g in _basilan:
+            kaynak += [str(getattr(g, "son", "")),
+                       str(getattr(g, "onceki", "")),
+                       getattr(g, "degisim", "") or ""]
     havuz = " ".join(kaynak)
     havuz_sayilari = set(_SAYI.findall(havuz))
     # Sayfadaki sayilar nokta/virgul bicimiyle de, ham float olarak da
