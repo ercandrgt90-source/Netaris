@@ -131,5 +131,54 @@ print("\nDogrulama, canliya ulasamadiginda YAYINI BASARISIZ SAYMIYOR")
 esit(yayinla.yayini_dogrula("https://bulunmayan.netaris.gecersiz/"), 0,
      "ulasilamayan adres yayini basarisiz saymiyor")
 
+print()
+print("Gonderilmemis commit UYARILIYOR")
+
+# Depo kontrolu `git` yoksa ya da uzak uc tanimsizsa SESSIZ kalmali:
+# yayin hattini calistiramaz hale getirmemeli.
+import contextlib
+import io
+
+_y = io.StringIO()
+with contextlib.redirect_stdout(_y):
+    yayinla.depo_uyarisi()
+_cikti = _y.getvalue()
+
+esit(isinstance(_cikti, str), True, "depo kontrolu coksuz calisiyor")
+
+# Uyarinin GERCEKTEN ciktigi burada olculuyor: sayilar dogrudan
+# veriliyor, depoyu 36 commit one almak gerekmiyor.
+_onde = yayinla._depo_mesajlari("36", "0", "origin/main")
+esit(len(_onde) > 0, True, "gonderilmemis commit uyari uretiyor")
+esit(any("36 commit" in s for s in _onde), True, "sayi uyarida geciyor")
+esit(any("git push" in s for s in _onde), True,
+     "uyari ne yapilacagini soyluyor")
+esit(any("GERI ALIR" in s for s in _onde), True,
+     "uyari sonucunu soyluyor")
+
+_geride = yayinla._depo_mesajlari("0", "8", "origin/main")
+esit(any("yerelde YOK" in s for s in _geride), True,
+     "geride kalmak da uyari uretiyor")
+
+# Esitken TEK SATIR bile cikmamali: her yayinda gorunen bir uyari,
+# kisa surede okunmayan bir uyari olur.
+esit(yayinla._depo_mesajlari("0", "0", "origin/main"), [],
+     "esit durumda uyari YOK")
+esit(yayinla._depo_mesajlari("", "", "origin/main"), [],
+     "git okunamadiginda uyari YOK")
+
+_ikisi = yayinla._depo_mesajlari("3", "5", "origin/main")
+esit(len(_ikisi), 6, "ayrisma varsa iki uyari da veriliyor")
+
+# Uyari verdiyse SEBEBINI ve NE YAPILACAGINI da soylemeli -- yoksa
+# ekranda gecen bir satir olur ve tam bu yuzden fark edilmezdi.
+if "GONDERILMEDI" in _cikti:
+    esit("git push" in _cikti, True, "uyari ne yapilacagini soyluyor")
+    esit("GERI ALIR" in _cikti, True, "uyari sonucunu soyluyor")
+else:
+    esit("GONDERILMEDI" in _cikti, False,
+         "gonderilmemis commit yok -- uyari basilmiyor")
+
+
 print(f"\n{_gecti} gecti, {_kaldi} kaldi")
 sys.exit(1 if _kaldi else 0)

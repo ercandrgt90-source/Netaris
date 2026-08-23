@@ -142,6 +142,71 @@ def dagit(kuru: bool) -> int:
     return sonuc.returncode
 
 
+def depo_uyarisi() -> None:
+    """Gonderilmemis commit varsa UYARIR -- CI onlari geri alir.
+
+    NEDEN VAR
+    ---------
+    OLCULDU (2026-08-23): yerel dal `origin/main`in OTUZ ALTI commit
+    onundeydi ve bu hicbir yerde gorunmuyordu. Sonucu su oldu:
+
+      * `otomasyon.yml` saat basi kosuyor ve `origin/main`i checkout
+        edip dagitiyor. Yani CI, iki gunluk tasarim calismasinin
+        HICBIRINI gormeden eski kaynagi yayinliyordu.
+      * Elle yapilan her dagitim en fazla bir saat yasiyordu; sonraki
+        bot kosusu ustune eski yapiyi yaziyordu.
+
+    Yani "yayinladim" demek yetmiyor: GONDERILMEMIS kaynak yayinda
+    KALMIYOR. Bu satirlar o sessiz geri alisi gorunur kiliyor.
+
+    NEDEN DURDURMUYOR: gonderemeden hizli bir deneme yayini yapmak
+    mesru bir istek. Karar kullanicinin; bilgi eksikligi degil.
+    """
+    def _git(*a: str) -> str:
+        try:
+            s = subprocess.run(["git", *a], cwd=KOK.parent,
+                               **_CALISTIR)
+        except OSError:
+            return ""
+        return (s.stdout or "").strip() if s.returncode == 0 else ""
+
+    dal = _git("rev-parse", "--abbrev-ref", "HEAD")
+    if not dal or dal == "HEAD":
+        return
+    uzak = f"origin/{dal}"
+    if not _git("rev-parse", "--verify", "--quiet", uzak):
+        return                      # uzak uc yok -- soylenecek bir sey de yok
+
+    for satir in _depo_mesajlari(_git("rev-list", "--count", f"{uzak}..HEAD"),
+                                 _git("rev-list", "--count", f"HEAD..{uzak}"),
+                                 uzak):
+        print(satir)
+
+
+def _depo_mesajlari(onde: str, geride: str, uzak: str) -> list[str]:
+    """Sayilardan uyari satirlarini kurar -- `git` cagirmadan.
+
+    Ayri durmasinin sebebi sinanabilirlik: uyarinin GERCEKTEN cikip
+    cikmadigini olcmek icin depoyu 36 commit one almak gerekmesin.
+    Uyarinin kendisi sessiz kalirsa, onu yakalayacak olan yine bu
+    kontroldu -- yani sinanmayan bir uyari, olmayan bir uyaridir.
+    """
+    satirlar: list[str] = []
+    if onde and onde != "0":
+        satirlar += [
+            f"  UYARI: {onde} commit {uzak} ucuna GONDERILMEDI.",
+            "         Otomasyon uzak ucu dagitiyor; bir sonraki bot",
+            "         kosusu bu yayini GERI ALIR.  ->  git push",
+        ]
+    if geride and geride != "0":
+        satirlar += [
+            f"  UYARI: {uzak} ucunda {geride} commit yerelde YOK.",
+            "         Once birlestirin; yoksa botun urettigi veri",
+            "         bu yayinda eksik kalir.",
+        ]
+    return satirlar
+
+
 #: Canli sayfada aranan surum izi. `insa.py` stil dosyasinin sha1'ini
 #: baglantiya yaziyor (bkz. `_surum`), yani bu jeton yayimlanan yapinin
 #: PARMAK IZI: yerelde ve canlida ayni ise ayni yapi yayinda demektir.
@@ -211,6 +276,11 @@ def main() -> int:
     args = a.parse_args()
 
     _node_yolu()
+
+    # DEPO KONTROLU EN BASTA: insa birkac dakika suruyor ve uyari
+    # sonda gorunse, kullanici zaten beklemis olurdu.
+    print("[0/4] depo durumu")
+    depo_uyarisi()
 
     if insa_et():
         return 1
