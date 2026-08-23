@@ -1,0 +1,35 @@
+{# ANA SAYFA MODULU -- ortak kalip.
+
+   NEDEN VAR
+   ---------
+   Ana sayfa bolumleri ayri ayri bicimlenmisti: her birinin kendi
+   basligi, kendi araligi, kendi kart dili vardi. Telefonda sonuc uzun
+   ve tekduze bir kolon oldu -- kullanicinin tarifi: "o kadar bogucu
+   ve sikici ki".
+
+   Tasarim taslagindaki desen tek ve tekrarli: her bolum BEYAZ BIR
+   KART; solda baslik, saginda "Tümünü gör →"; icinde bir ya da birkac
+   kalem, cok olan YATAY KAYIYOR.
+
+   Bunun ferahlatmasinin sebebi estetik degil olcusel: dikey listede
+   on kalem on kalem yer kaplar; yatay seritte on kalem BIR kalem yer
+   kaplar ve gerisi kaydirmayla gelir. Sayfa kisalir, bolumler
+   gorunur kalir.
+
+   NEDEN "Tümünü gör" ZORUNLU
+   -------------------------
+   Yatay serit ne kadar kalem oldugunu gizler. Bagsiz birakilirsa
+   okur "burada bu kadar var" saniyor. Bag hem sayiyi hem devamini
+   veriyor.
+#}
+{% macro bas(baslik, alt="", tum_yol="", tum_metin="Tümünü gör") %}
+<div class="modul-bas">
+  <div>
+    <h2>{{ baslik }}</h2>
+    {% if alt %}<p class="modul-alt">{{ alt }}</p>{% endif %}
+  </div>
+  {% if tum_yol %}
+  <a class="modul-tum" href="{{ tum_yol }}">{{ tum_metin }} →</a>
+  {% endif %}
+</div>
+{% endmacro %}

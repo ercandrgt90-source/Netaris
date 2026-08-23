@@ -1,3 +1,4 @@
+{% import "_modul.html" as md %}
 {% import "_imza.html" as im %}
 {% import "_tradingview.html" as tv %}
 {% extends "temel.html" %}
@@ -164,10 +165,13 @@
 <div class="masa">
 
   {# --- KATMAN 2: SECIM ------------------------------------------ #}
-  <section class="masa-ana" aria-label="Bugünün önemli gelişmeleri">
-    <div class="bolum-bas">
-      <h2>Bugünün önemli gelişmeleri</h2>
-      <span class="bolum-not">Gün içinde düşen haberlerden seçildi</span>
+  <section class="masa-ana modul" aria-label="Bugünün önemli gelişmeleri">
+    <div class="bolum-bas modul-bas-uyum">
+      <div>
+        <h2>Bugünün önemli gelişmeleri</h2>
+        <span class="bolum-not">Gün içinde düşen haberlerden seçildi</span>
+      </div>
+      <a class="modul-tum" href="/gundem/">Tüm gelişmeler →</a>
     </div>
 
     {% if one_cikanlar %}
@@ -213,7 +217,11 @@
        Kart bicimi `ai-akis` ile ayni aileden: okur ana sayfada iki
        ayri kart dili ogrenmek zorunda kalmasin. #}
     {% if one_cikanlar | length > 1 %}
-    <ul class="onem-izgara">
+    {# YATAY SERIT -- dikey liste degil.
+       Gerekce `_modul.html` icinde: dikey listede alti kalem alti
+       kalem yer kapliyor, yatay seritte biri kadar. Genis ekranda
+       serit kendiliginden izgaraya donuyor (bkz. `.yatay` 900px). #}
+    <ul class="onem-izgara serit-yatay">
       {% for h in one_cikanlar[1:7] %}
       <li class="tur-{{ h | kart_turu }}">
         <a class="onem-kart" href="{{ h.yol }}">
@@ -406,12 +414,15 @@
    Yorumu olan haber yoksa bolum HIC BASILMIYOR.
    --------------------------------------------------------------- #}
 {% if ai_akis %}
-<section class="ai-akis" aria-label="Netaris ne diyor">
+<section class="ai-akis modul" aria-label="Netaris ne diyor">
   <div class="bolum-bas">
-    <h2>Netaris ne diyor</h2>
-    <span class="bolum-not">Ölçülmüş veriden üretilmiş çıkarımlar</span>
+    <div>
+      <h2>Netaris ne diyor</h2>
+      <span class="bolum-not">Ölçülmüş veriden üretilmiş çıkarımlar</span>
+    </div>
+    <a class="modul-tum" href="/gundem/">Tümünü gör →</a>
   </div>
-  <ul class="ai-akis-liste">
+  <ul class="ai-akis-liste serit-yatay">
     {# SIRA DEGISTI: once HABER, sonra yorum.
        Onceki duzende kartin buyuk metni AI yorumuydu ve haber basligi
        altta kucuk gri yaziyla duruyordu. Okur once cikarimi goruyor,
@@ -484,10 +495,13 @@
    "Yorum yaz" DEMIYOR. Kelime davranisi belirliyor: yorum kisa ve
    kaybolur, senaryo kosul-sonuc-gerekce ister ve icerik olur. Sema
    da zaten oyle kurulmus (kosul / sonuc / gerekce / ufuk). #}
-<section class="senaryo-davet">
+<section class="senaryo-davet modul">
   <div class="bolum-bas">
-    <h2>Topluluk</h2>
-    <span class="bolum-not">Okurların yazdığı koşullu değerlendirmeler</span>
+    <div>
+      <h2>Topluluk</h2>
+      <span class="bolum-not">Okurların yazdığı koşullu değerlendirmeler</span>
+    </div>
+    <a class="modul-tum" href="/topluluk/">Tüm senaryolar →</a>
   </div>
   <div class="one-senaryo-kap" id="one-cikan-senaryo" hidden>
     <ul class="one-senaryo-liste"></ul>
@@ -520,10 +534,13 @@
    tepkileri varsa ayrica ve OLCUM olarak basiliyor.
    --------------------------------------------------------------- #}
 {% if takvim %}
-<section class="takvim" aria-label="Yaklaşan veri açıklamaları">
+<section class="takvim modul" aria-label="Yaklaşan veri açıklamaları">
   <div class="bolum-bas">
-    <h2>Yaklaşan veriler</h2>
-    <span class="bolum-not">Saatler Türkiye saatiyle · kaynak: BLS, Fed</span>
+    <div>
+      <h2>Yaklaşan veriler</h2>
+      <span class="bolum-not">Saatler Türkiye saatiyle · kaynak: BLS, Fed</span>
+    </div>
+    <a class="modul-tum" href="/makro/">Tüm takvim →</a>
   </div>
   <ul class="takvim-liste">
     {% for k in takvim %}
@@ -647,9 +664,13 @@
    DOGRU OLANI dogru sirayla gostermek. #}
 {% set digerleri = analizler[1:9] %}
 
+<section class="modul">
 <div class="bolum-bas">
-  <h2>Araştırmalar</h2>
-  <span class="bolum-not">Veriden çıkarılmış, kaynağı açık çözümlemeler</span>
+  <div>
+    <h2>Araştırmalar</h2>
+    <span class="bolum-not">Veriden çıkarılmış, kaynağı açık çözümlemeler</span>
+  </div>
+  <a class="modul-tum" href="/arastirmalar/">Tüm araştırmalar →</a>
 </div>
 
 <a class="one-cikan" href="{{ one_cikan.yol }}">
@@ -684,7 +705,9 @@
 {% endif %}
 
 {% if digerleri %}
-<ul class="izgara">
+{# Yatay serit -- gerekce `_modul.html` icinde.
+   Genis ekranda `.yatay` kendiliginden izgaraya donuyor. #}
+<ul class="izgara serit-yatay">
   {% for a in digerleri %}
   <li>
     <a class="kart" href="{{ a.yol }}">
@@ -732,6 +755,7 @@
   {% endfor %}
 </ul>
 {% endif %}
+</section>{# /.modul -- arastirmalar #}
 
 {% else %}
 <p>Henüz yayımlanmış analiz yok.</p>

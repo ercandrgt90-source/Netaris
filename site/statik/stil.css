@@ -1455,6 +1455,118 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
 .kart-amblem .amblem-yazi b { font-size: var(--p-s)}
 
 /* ====================================================================
+   ANA SAYFA MODULU -- beyaz kart + yatay serit
+   --------------------------------------------------------------------
+   Gerekce `_modul.html` icinde yazili. Ozet: dikey listede on kalem
+   on kalem yer kapliyor; yatay seritte on kalem BIR kalem yer
+   kapliyor.
+   ================================================================== */
+.modul {
+  background: var(--panel);
+  border: 1px solid var(--cizgi);
+  border-radius: var(--r);
+  padding: var(--b-4b);
+  box-shadow: var(--golge)}
+
+.modul-bas {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  gap: var(--b-3);
+  margin: 0 0 var(--b-4)}
+.modul-bas h2 {
+  margin: 0;
+  font-size: var(--p-xl); font-weight: 800;
+  letter-spacing: -0.012em; line-height: 1.25;
+  color: var(--yazi)}
+.modul-alt {
+  margin: 3px 0 0;
+  font-size: var(--p-s); color: var(--yazi-3)}
+.modul-tum {
+  flex: none;                     /* "Oku →" tuzagi: kisa oge daralmaz */
+  white-space: nowrap;
+  font-size: var(--p-s); font-weight: 600;
+  color: var(--vurgu)}
+
+/* Modul icindeki eski `.bolum-bas` da modul basligi gibi davransin:
+   solda baslik ve alt not, sagda "Tümünü gör". Sablonda tek tek
+   sinif degistirmek yerine burada eslestiriliyor -- ayni yapinin iki
+   adi olmasi, sonradan birini degistirip digerini unutmaya yol acar.
+
+   `::after` cizgisi kaldiriliyor: modulun kendi cercevesi zaten
+   bolumu ayiriyor, ikinci bir cizgi gurultu. */
+.modul > .bolum-bas {
+  align-items: flex-start;
+  gap: var(--b-3);
+  margin: 0 0 var(--b-4)}
+.modul > .bolum-bas::after { display: none}
+.modul > .bolum-bas h2 {
+  font-size: var(--p-xl); font-weight: 800;
+  letter-spacing: -0.012em; text-transform: none;
+  white-space: normal; color: var(--yazi)}
+.modul > .bolum-bas .bolum-not {
+  display: block; margin: 3px 0 0;
+  font-size: var(--p-s); color: var(--yazi-3)}
+
+/* --- YATAY SERIT ---------------------------------------------------
+   `scroll-snap` ile her kart tam oturuyor; parmakla kaydirinca kart
+   yarim kalmiyor.
+
+   Kaydirma cubugu GIZLENMIYOR, INCELTILIYOR: tamamen gizlemek
+   kaydirilabilir oldugunu da gizler ve okur seridin devami oldugunu
+   anlamaz. */
+/* AD "serit-yatay", SADECE "yatay" DEGIL.
+   Ilk yazimda sinif adi `.yatay` idi ve depoda ZATEN bir `.yatay`
+   vardi: fiyat yonu sinifi ("artis" / "azalis" / "yatay") ve rengi
+   ayarliyor. Ust seritteki her sabit fiyat ogesi o sinifi tasiyor.
+   Izgara kurallari onlarin uzerine binseydi serit bozulurdu ve
+   sebebi CSS'te hicbir yerde gorunmezdi.
+   Olculdu: cakisma alti ogede vardi. */
+.serit-yatay {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(260px, 78%);
+  gap: var(--b-3);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+  padding: 0 0 var(--b-3);
+  margin: 0;
+  list-style: none;
+  scrollbar-width: thin}
+.serit-yatay > * { scroll-snap-align: start; min-width: 0}
+.serit-yatay::-webkit-scrollbar { height: 6px}
+.serit-yatay::-webkit-scrollbar-thumb {
+  background: var(--cizgi-parlak); border-radius: 3px}
+
+@media (min-width: 560px) {
+  .serit-yatay { grid-auto-columns: minmax(280px, 46%); }
+}
+@media (min-width: 900px) {
+  /* Genis ekranda yatay kaydirma GEREKMIYOR: kartlar zaten yan yana
+     siyor ve kaydirmali bir serit orada gereksiz bir engel olurdu. */
+  .serit-yatay {
+    grid-auto-flow: row;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    grid-auto-columns: auto;
+    overflow-x: visible;
+    scroll-snap-type: none;
+    padding-bottom: 0;
+  }
+}
+
+/* Modul icindeki kart, modulun kendi cercevesini TEKRARLAMAZ:
+   cerceve icinde cerceve gorsel gurultu. */
+.modul .onem-kart {
+  background: var(--zemin-2);
+  border-color: transparent;
+  border-left-color: var(--tur, var(--cizgi))}
+
+@media (max-width: 640px) {
+  .modul { padding: var(--b-4) var(--b-4) var(--b-3); }
+  .modul-bas { margin-bottom: var(--b-3); }
+  .modul-bas h2 { font-size: var(--p-l); }
+}
+
+/* ====================================================================
    MOBIL YOGUNLUK
    --------------------------------------------------------------------
    Kullanici geri bildirimi: "mobil gorunume bak, o kadar bogucu ve
