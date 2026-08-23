@@ -1614,10 +1614,11 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
    okunurlugu bozar ve asil sorun punto degil ARALIK.
    ================================================================== */
 @media (max-width: 640px) {
-  .onem-izgara { gap: var(--b-2); }
-  .onem-kart { padding: 10px 12px; gap: 6px; }
-  .onem-izgara .onem-baslik { line-height: 1.28; -webkit-line-clamp: 3; }
-  .onem-kart .onem-ust { gap: 6px; }
+  .modul .onem-izgara { gap: var(--b-2); }
+  .modul .onem-kart { padding: 10px 12px; gap: 6px; }
+  .modul .onem-izgara .onem-baslik { line-height: 1.28;
+    -webkit-line-clamp: 3; }
+  .modul .onem-kart .onem-ust { gap: 6px; }
 
   /* Kart altindaki kunye telefonda uc parcali duruyordu (tarih ·
      okuma · donem) ve sarinca "22 Ağustos 2026" ile "2. çeyrek"
@@ -1664,29 +1665,30 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
    yukleme gorus alanina girince tetikleniyor ve gizli oge hicbir
    zaman girmiyor. Yani telefonda ucuncu tarafa istek de gitmiyor.  */
 @media (max-width: 699px) {
-  .masa-yan { display: none; }
+  /* SECICI IKI SINIFLI (0,2,0) -- KASITLI.
+     `.masa-yan` tek basina (0,1,0) olurdu ve dosyada 1.700 satir
+     asagida duran `.masa-yan { display: flex }` ile ESIT ozgullukte
+     kalirdi; esitlikte SIRA karar veriyor ve o kural kazanirdi.
+     Kural yazilmis, hicbir sey degismemis olurdu -- nitekim ilk
+     yazimda tam olarak bu oldu.
+
+     Bu tuzak bu oturumda UCUNCU kez cikti (`.ana-akis`,
+     `.senaryo-davet`, `.masa-yan`). `test_stil.py` artik tutuyor. */
+  .masa > .masa-yan { display: none; }
 }
 
 @media (max-width: 699px) {
   .akis-gun { position: static; }
 
-  /* MOBILDE AKIS BIR MODUL.
-     Kullanici: "mobil giriste ana sayfa modulu gibi olsun."
-     Dar ekranda kutu kenarliksiz ve dokusuz duruyordu; sayfanin geri
-     kalanindan ayrilmiyordu. */
-  .masa-akis {
-    background: var(--panel);
-    border: 1px solid var(--cizgi);
-    border-radius: var(--r);
-    overflow: hidden;
-  }
-  .masa-akis .akis-bas {
-    background: var(--zemin-2);
-    padding: var(--b-3) var(--b-4);
-  }
-  .masa-akis .akis-liste { padding: 0; }
-  .masa-akis .akis-devam,
-  .masa-akis .kaynak-not { padding: 0 var(--b-4) var(--b-4); }
+  /* MOBILDEKI AKIS MODULU KURALLARI KALDIRILDI.
+     Dar ekranda canli akis artik HIC BASILMIYOR (yukaridaki
+     `.masa > .masa-yan { display: none }`), yani bu kurallarin
+     uygulanacagi bir oge yok. Erisilmeyen kod, sonraki okuyucuyu
+     "burada bir sey var" diye yanlis yonlendirir.
+
+     Geri gerekirse: akis mobilde tekrar basilirsa bu blok da geri
+     gelmeli ve seciciler `.masa-yan .masa-akis` olmali -- tek sinifli
+     hali 1.700 satir asagidaki temel kuralla eziliyordu. */
 }
 
 /* TAKVIM DALLARI -- ACILIR.
@@ -2223,7 +2225,9 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
 }
 
 @media (max-width: 720px) {
-  .ust-ic { min-height: 56px; gap: 14px; }
+  /* `.ust .ust-ic` -- tek sinif olsaydi 3.500 satir asagidaki
+     `.ust-ic { gap: var(--b-3) }` kurali bunu ezerdi. */
+  .ust .ust-ic { min-height: 56px; gap: 14px; }
   .ust nav { width: 100%; margin: 0; overflow-x: auto; }
   .one-cikan-metin { padding: 22px; }
   .kriter { grid-template-columns: 1fr; gap: var(--b-1); }
@@ -3660,10 +3664,11 @@ a.akis-baslik:hover { color: var(--vurgu); text-decoration: none}
   font-size: var(--p-xs); font-weight: 600; color: var(--vurgu);
   transition: opacity var(--sure-hizli) ease, transform var(--sure-hizli) ease}
 .ai-akis-liste a:hover .ai-kart-git { opacity: 1; transform: none}
-/* Dokunmatikte hover yok: baglanti isareti her zaman gorunur. */
-@media (hover: none) {
-  .ai-kart-git { opacity: 1; transform: none; }
-}
+/* Buradaki `@media (hover: none)` kurali KALDIRILDI.
+   Asagidaki temel kural (`.ai-kart-git { opacity: 1; transform: none }`)
+   ayni degerleri KOSULSUZ veriyor ve dosyada daha sonra geldigi icin
+   zaten kazaniyordu. Ayni seyi iki kez soylemek, birini degistirip
+   digerini unutmaya davet. */
 
 /* ================================================================
    UST MENU -- GRUPLU
@@ -6428,6 +6433,14 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
    basliklariyla dolabiliyor ve okur "akis" hissini kaybediyor.
    ================================================================== */
 
+/* SIRA DUZELTILDI -- BU KURAL ARTIK ONDE.
+   Asagidaki medya blogu bagi `display: block` yapiyordu, bu kural ise
+   `display: none` ile ve BLOKTAN SONRA geliyordu. Esit ozgullukte
+   sirayi sonraki kazanir: "Tüm canlı akışı gör →" bagi mobilde HIC
+   GORUNMEDI. Yorum "masaustunde gizleme yok, baglanti da gereksiz"
+   diyordu -- niyet dogru, sira ters. */
+.masa-akis .akis-devam { display: none; }
+
 @media (max-width: 640px) {
   .akis-liste > li:nth-child(n + 9) { display: none; }
 
@@ -6448,8 +6461,7 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
   }
 }
 
-/* Masaustunde gizleme YOK; baglanti da gereksiz. */
-.masa-akis .akis-devam { display: none; }
+/* (Masaustu gizlemesi yukari tasindi -- sira gerekcesi orada.) */
 
 /* ====================================================================
    SENARYO DAVETI -- ana sayfadaki donguye giris

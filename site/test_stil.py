@@ -258,5 +258,111 @@ if _zemin and _panel:
     esit(_fark >= 12, True,
          f"zemin ile panel arasinda gorulebilir fark var ({_fark} birim)")
 
+# --------------------------------------------------------------------
+# MEDYA SORGUSUNDAKI KURAL, SONRAKI TEMEL KURAL TARAFINDAN EZILMESIN.
+#
+# Bu tuzak bu oturumda UC KEZ cikti ve ucunde de "kural yazildi,
+# hicbir sey degismedi" sonucunu verdi:
+#
+#   .ana-akis       bolum araliklari `.masa` tarafindan geri alindi
+#   .senaryo-davet  modul dolgusu 5.000 satir sonra geri alindi
+#   .masa-yan       `display: none` 1.700 satir sonraki
+#                   `display: flex` tarafindan ezildi -- mobilde
+#                   piyasa kutusu ve canli akis GORUNMEYE DEVAM ETTI
+#
+# Sebep hep ayni ve CSS'in tanimli davranisi: medya sorgusu OZGULLUK
+# EKLEMEZ. `@media { .a { display: none } }` ile `.a { display: flex }`
+# esit ozgulluktedir (0,1,0) ve esitlikte DOSYADAKI SIRA karar verir.
+# Sonraki kazanir.
+#
+# Hicbir arac uyarmiyor: iki kural da gecerli, tarayici sessizce
+# birini seciyor.
+#
+# KURAL
+# Bir medya sorgusu icindeki `secici { ozellik }` ciftinden SONRA,
+# ayni seciciyi ayni ozellikle ayarlayan bir TEMEL kural gelmemeli.
+#
+# COZUM YOLU (ikisi de kabul)
+#   1. Seciciyi guclendir: `.masa > .masa-yan` (0,2,0)
+#   2. Medya blogunu temel kuraldan SONRAYA tasi
+# --------------------------------------------------------------------
+print()
+print("Medya kurallari sonraki temel kurallarca ezilmiyor")
+
+_ham2 = _CSS.read_text(encoding="utf-8")
+_kod2 = re.sub(r"/\*.*?\*/", "", _ham2, flags=re.S)
+
+
+def _ozgulluk(sec: str) -> tuple:
+    """(kimlik, sinif, oge) -- kaba ama karsilastirma icin yeterli."""
+    s = sec.strip()
+    kimlik = len(re.findall(r"#[\w-]+", s))
+    sinif = len(re.findall(r"\.[\w-]+", s)) + len(re.findall(r"\[[^\]]+\]", s))
+    sinif += len(re.findall(r":(?!:)(?!not\b)[a-z-]+", s))
+    oge = len(re.findall(r"(?<![.#\w-])\b[a-z][a-z0-9]*\b(?![\w-]*\()", s))
+    return (kimlik, sinif, oge)
+
+
+def _kurallar(metin: str, kaydir: int = 0):
+    """(yer, secici, ozellikler) uretir."""
+    for m in re.finditer(r"([^{}]+)\{([^{}]*)\}", metin):
+        sec = " ".join(m.group(1).split())
+        if sec.startswith("@") or not sec:
+            continue
+        ozs = set(re.findall(r"(?:^|;)\s*([a-z-]+)\s*:", m.group(2)))
+        if ozs:
+            yield (m.start() + kaydir, sec, ozs)
+
+
+# Medya bloklarini ve temel kurallari YERLERIYLE topla.
+_medya: list = []
+_temel: list = []
+_i = 0
+while True:
+    _k = _kod2.find("@media", _i)
+    if _k < 0:
+        for r in _kurallar(_kod2[_i:], _i):
+            _temel.append(r)
+        break
+    for r in _kurallar(_kod2[_i:_k], _i):
+        _temel.append(r)
+    _d = 0
+    _p = _kod2.find("{", _k)
+    _bas = _p
+    while _p < len(_kod2):
+        if _kod2[_p] == "{":
+            _d += 1
+        elif _kod2[_p] == "}":
+            _d -= 1
+            if _d == 0:
+                break
+        _p += 1
+    for r in _kurallar(_kod2[_bas + 1:_p], _bas + 1):
+        _medya.append(r)
+    _i = _p + 1
+
+_ezilen = []
+for _yer, _sec, _ozs in _medya:
+    for _sec2 in _sec.split(","):
+        _s2 = _sec2.strip()
+        for _yer3, _sec3, _ozs3 in _temel:
+            if _yer3 <= _yer:
+                continue
+            for _s3 in (x.strip() for x in _sec3.split(",")):
+                if _s3 != _s2:
+                    continue
+                _ortak = _ozs & _ozs3
+                if _ortak and _ozgulluk(_s3) >= _ozgulluk(_s2):
+                    _ezilen.append(f"{_s2} -> {sorted(_ortak)}")
+
+esit(sorted(set(_ezilen)), [],
+     "medya sorgusundaki kural sonraki temel kuralla ezilmiyor")
+
+# Tarama gercekten calisiyor mu -- sessizce bos donmesin.
+esit(len(_medya) > 100, True,
+     f"medya kurali bulundu ({len(_medya)})")
+esit(len(_temel) > 200, True,
+     f"temel kural bulundu ({len(_temel)})")
+
 print(f"\n{_gecti} gecti, {_kaldi} kaldi")
 sys.exit(1 if _kaldi else 0)
