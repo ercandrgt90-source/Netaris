@@ -778,6 +778,34 @@ MECAZ: tuple[tuple[str, str], ...] = (
     ("kur savasi", "Döviz"),
     ("ticaret savasi", "Dış ticaret"),
     ("tarife savasi", "Dış ticaret"),
+
+    # "YAPTIRIM" IKI AYRI SEY.
+    # -------------------------
+    # Jeopolitikte ambargo, idari dilde para cezasi demek. Isaret
+    # listesinde ciplak "yaptirim" duruyor ve olculdu:
+    #
+    #   "81 ilde kirtasiye denetimi: 367 isletmeye yaptirim"
+    #       -> Jeopolitik
+    #
+    # Sonucu bir etiket hatasindan ibaret degildi. Sayfa jeopolitik
+    # aparatinin TAMAMINI aliyordu: "Bu neden kritik?" bolumunde arz
+    # riski, "Piyasa" bolumunde Brent petrol, "Kim etkilenir?"
+    # bolumunde havayolu yakit maliyeti, izleme listesinde CDS primi.
+    # Kirtasiye denetimi haberinde okurun gordugu sey buydu.
+    #
+    # `MECAZ` tam olarak bu sinif icin var: isaret dogru, BAGLAM
+    # yanlis. "Miras savasi" ile ayni aile.
+    ("isletmeye yaptirim", "Piyasa düzenlemesi"),
+    ("isletmeye idari", "Piyasa düzenlemesi"),
+    ("isletmeye ceza", "Piyasa düzenlemesi"),
+    ("idari para cezasi", "Piyasa düzenlemesi"),
+    ("kirtasiye", "Piyasa düzenlemesi"),
+    ("denetiminde yaptirim", "Piyasa düzenlemesi"),
+
+    # "ISGAL" de ayni tuzak: askeri isgal ile usulsuz isgal (imar)
+    # ayni kelime. "Kacak yapi ve usulsuz isgal" bir imar haberi.
+    ("usulsuz isgal", "Konut ve kira"),
+    ("kacak yapi", "Konut ve kira"),
 )
 
 

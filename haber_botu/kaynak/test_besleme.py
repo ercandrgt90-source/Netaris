@@ -74,6 +74,38 @@ esit(besleme.konu_bul("Hürmüz Boğazı'nda tanker saldırısı", "X"),
      "Jeopolitik", "gercek saldiri jeopolitiktir")
 
 # --------------------------------------------------------------------
+# MECAZI "YAPTIRIM" ve "ISGAL" -- ayni tuzagin iki ornegi daha.
+#
+# Jeopolitikte "yaptirim" ambargo demek; idari dilde para cezasi.
+# Isaret listesinde CIPLAK "yaptirim" duruyordu ve olculdu:
+#
+#     "81 ilde kirtasiye denetimi: 367 isletmeye yaptirim"
+#         -> Jeopolitik
+#
+# Sonucu bir etiket hatasi degildi. Sayfa jeopolitik aparatinin
+# TAMAMINI aldi: "Bu neden kritik?" bolumunde petrol arz riski,
+# "Piyasa" bolumunde Brent, "Kim etkilenir?" bolumunde havayolu yakit
+# maliyeti, izleme listesinde CDS primi. Kirtasiye denetimi haberinde
+# okurun gordugu sey buydu.
+#
+# "Isgal" de ayni: askeri isgal ile imar mevzuatindaki usulsuz isgal
+# ayni kelime.
+# --------------------------------------------------------------------
+esit(besleme.konu_bul("81 ilde kırtasiye denetimi: 367 işletmeye yaptırım",
+                      "X"), "Piyasa düzenlemesi",
+     "isletmeye yaptirim idari duzenlemedir")
+esit(besleme.konu_bul("Markete idari para cezası kesildi", "X"),
+     "Piyasa düzenlemesi", "idari para cezasi jeopolitik degildir")
+esit(besleme.konu_bul("Kaçak yapı ve usulsüz işgallere karşı yeni adım", "X"),
+     "Konut ve kira", "usulsuz isgal imar konusudur")
+
+# GERCEK yaptirim HALA jeopolitik -- suzgec fazla genis olmamali.
+esit(besleme.konu_bul("AB, Rusya'ya yaptırımları genişletmeyi planlıyor", "X"),
+     "Jeopolitik", "ulkeye yaptirim jeopolitiktir")
+esit(besleme.konu_bul("ABD İran'a yeni yaptırım kararı aldı", "X"),
+     "Jeopolitik", "gercek yaptirim karari jeopolitiktir")
+
+# --------------------------------------------------------------------
 # HER KONUNUN IZLEME LISTESI OLMALI.
 #
 # "Sirket haberleri" ve "Duzenleme" listesi BOSTU ve bos olmasi
