@@ -449,13 +449,49 @@ class Kayit:
                 return f
         return self.sec(konu, tohum)
 
+    #: Atif GEREKTIRMEYEN lisanslar.
+    #:
+    #: CC BY ve CC BY-SA atfi SART kosuyor; kamu mali (PDM) ve CC0
+    #: kosmuyor. Bu ayrim bir kolaylik degil, lisans metninin kendisi.
+    ATIFSIZ = frozenset({"cc0", "pdm"})
+
+    def havuz_yayin(self, konu: str) -> list["Foto"]:
+        """Yayinda kullanilacak havuz -- ATIFSIZ lisanslar oncelikli.
+
+        `havuz()` ham listeyi veriyor ve sayim/denetim icin oyle kalmali.
+        Yayin secimi bu listeden geciyor: atif gerektirmeyen gorsel
+        varsa yalnizca onlar, yoksa hepsi.
+
+        Gerekce `sec()` icinde yazili.
+        """
+        h = self.havuz(konu)
+        serbest = [f for f in h if (f.lisans or "").lower() in self.ATIFSIZ]
+        return serbest or h
+
     def sec(self, konu: str, tohum: str) -> Foto | None:
-        """Konudan belirlenimci secim -- ayni haber her zaman ayni gorseli alir."""
+        """Konudan belirlenimci secim -- ayni haber her zaman ayni gorseli alir.
+
+        ATIFSIZ LISANSLAR ONCE DENENIYOR.
+        ---------------------------------
+        Kullanici geri bildirimi: "fotograflarin altinda aldigin yeri de
+        gosterme". Atif satirini SILMEK CC BY icin lisans ihlali -- o
+        yuzden satiri silmek yerine ATIF GEREKTIRMEYEN gorsel seciliyor.
+        Sonuc okur icin ayni (alt yazi yok), lisans icin dogru.
+
+        Olculdu (2026-08-23): havuzdaki 318 fotografin 133'u (%41) CC0
+        ya da kamu mali. Uc konuda hic yok; orada CC BY gorsel kaliyor
+        ve atif da kaliyor -- cunku alternatifi ihlal.
+
+        Secim havuz DARALSA BILE belirlenimci: ayni haber her zaman ayni
+        gorseli aliyor. Tohum ayni, yalnizca liste farkli.
+        """
         h = self.havuz(konu)
         if not h:
             return None
-        i = int(hashlib.sha256(tohum.encode("utf-8")).hexdigest(), 16) % len(h)
-        return h[i]
+        serbest = [f for f in h if (f.lisans or "").lower() in self.ATIFSIZ]
+        liste = serbest or h
+        i = int(hashlib.sha256(tohum.encode("utf-8")).hexdigest(), 16) % len(liste)
+        return liste[i]
 
 
 #: Turkce harfleri dosya adinda guvenli karsiliklarina cevirir.

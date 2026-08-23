@@ -794,7 +794,7 @@ def foto_dagit(haberler: list[dict], varlik_haritasi: dict,
         # kural -- birden fazla varlik varsa tohuma gore biri seciliyor.
         adaylar = [v for v in
                    (varlik_haritasi.get(adres, {}).get("varliklar") or [])
-                   if kayit.havuz(v["kod"])]
+                   if kayit.havuz_yayin(v["kod"])]
         # BASLIKTA GECEN VARLIK ONCELIKLI.
         #
         # Eskiden adaylardan biri TOHUMA gore, yani rastgele seciliyordu.
@@ -825,7 +825,10 @@ def foto_dagit(haberler: list[dict], varlik_haritasi: dict,
         # okurun ikisini birlikte gordugu tek durum bu. Bir onceki
         # atama adaylardan cikariliyor -- havuzda tek gorsel varsa
         # elbette kaliyor.
-        havuz = kayit.havuz(anahtar)
+        # ATIFSIZ LISANSLAR ONCELIKLI -- bkz. `foto.havuz_yayin`.
+        # Atif satirini SILMEK CC BY icin ihlal; onun yerine atif
+        # GEREKTIRMEYEN gorsel seciliyor. Sonuc okur icin ayni.
+        havuz = kayit.havuz_yayin(anahtar)
         if onceki and len(havuz) > 1:
             havuz = [x for x in havuz if x.dosya != onceki] or havuz
         f = _en_az_kullanilan(havuz, adres)

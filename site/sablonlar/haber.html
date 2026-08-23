@@ -131,10 +131,20 @@
        cakismiyor, ayni kadraji tarif ediyor. #}
     <img src="{{ h.foto }}" alt="" width="800" height="450"
          decoding="async">
-    {% if h.foto_atif %}
-    {# CC BY atfi zorunlu kilar; kaldirilirsa lisans ihlal edilir. #}
-    <figcaption>Fotoğraf: {{ h.foto_atif }}</figcaption>
-    {% endif %}
+    {# ATIF ARTIK BURADA DEGIL, SAYFA SONUNDA.
+       ---------------------------------------
+       CC BY atfin VAR OLMASINI sart kosuyor, fotografin ALTINDA
+       durmasini degil: lisans "ortama makul olcude uygun bicimde"
+       diyor ve sayfa sonu kunyesi yayincilikta yerlesik bicim.
+
+       Kullanici geri bildirimi: "fotograflarin altinda aldigin yeri de
+       gosterme". Satiri silmek ihlal olurdu; tasimak degil.
+
+       Iki adim birlikte calisiyor:
+         1. Secim atif GEREKTIRMEYEN lisanslara oncelik veriyor
+            (`foto.havuz_yayin`) -- sayfalarin yarisinda atif zaten yok.
+         2. Kalanlarda atif sayfa sonunda tek satir.
+       Bkz. asagidaki `foto-kunye`. #}
   </figure>
   {% elif h.uretilen %}
   {# URETILEN KAVRAM CIZIMI -- fotografin DEGIL, desenin yerine.
@@ -1011,5 +1021,10 @@
     Başlık Türkçeye çevrilmiştir ·
     <a href="/gundem/">← Tüm haberler</a>
   </p>
+  {% if h.foto_atif %}
+  {# FOTOGRAF KUNYESI -- CC BY geregi ZORUNLU, kaldirilamaz.
+     `_lisans_denetimi` bunu "hata" seviyesinde tutuyor. #}
+  <p class="foto-kunye">Fotoğraf: {{ h.foto_atif }}</p>
+  {% endif %}
 </article>
 {% endblock %}

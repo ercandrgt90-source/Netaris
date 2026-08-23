@@ -1391,6 +1391,19 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
   padding: 0; margin: -1px; overflow: hidden;  /* dort-yan: gorsel gizleme kalibi (sr-only) -- dort yan kasitli */
   clip: rect(0 0 0 0); white-space: nowrap; border: 0}
 
+/* FOTOGRAF KUNYESI -- sayfa sonunda, tek satir.
+   Once fotografin ALTINDA `figcaption` olarak duruyordu ve gorselle
+   metin arasina bir satir sokuyordu. CC BY atfin var olmasini ister,
+   fotografin altinda durmasini degil -- sayfa sonu kunyesi
+   yayincilikta yerlesik ve lisansin "ortama makul bicimde" sartini
+   karsiliyor. */
+.foto-kunye {
+  margin: var(--b-6) 0 0;
+  padding: var(--b-3) 0 0;
+  border-top: 1px solid var(--cizgi);
+  font-size: var(--p-xs);
+  color: var(--yazi-3)}
+
 /* SIRKET AMBLEMI -- bilanco sayfasinin ust gorseli.
    Fotograf oraninda (16:9) DEGIL daha alcak duruyor: amblem bir
    fotograf degil, bir baslik levhasi. Tam yukseklik verilse sayfanin

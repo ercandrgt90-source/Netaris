@@ -118,10 +118,7 @@
   <figure class="yazi-foto">
     <img src="{{ a.foto }}" alt="" width="1200" height="675"
          decoding="async" fetchpriority="high">
-    {% if a.foto_atif %}
-    {# CC BY atfi zorunlu kilar; kaldirilirsa lisans ihlal edilir. #}
-    <figcaption>Fotoğraf: {{ a.foto_atif }}</figcaption>
-    {% endif %}
+    {# Atif sayfa sonunda -- gerekce `haber.html` icinde yazili. #}
   </figure>
   {% endif %}
   {% if a.gorsel_svg %}
@@ -259,5 +256,9 @@
   {{ pl.paylas(a.baslik, a.ozet, yol, site.adres) }}
 
   <p class="kaynak-not">Veri: {{ a.veri_kaynagi }} · Yayın: {{ a.tarih_tr }}</p>
+  {% if a.foto_atif %}
+  {# CC BY geregi ZORUNLU -- `_lisans_denetimi` "hata" seviyesinde tutuyor. #}
+  <p class="foto-kunye">Fotoğraf: {{ a.foto_atif }}</p>
+  {% endif %}
 </article>
 {% endblock %}
