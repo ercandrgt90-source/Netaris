@@ -170,6 +170,69 @@
     d.addEventListener("click", function () { sekmeGec(d.dataset.sekme); });
   });
 
+  /* --- BEGENDIKLERIM ve PANEL SAYIMLARI ------------------------------
+     Tek istek: liste ve uc sayi ayni cagriyla geliyor. Uc ayri istek
+     panel acilisini uc kez beklemek olurdu.
+
+     Sayim seridi `hidden` basiliyor ve ancak GERCEK sayi gelince
+     aciliyor. Sifir basip sonra duzeltmek, okura once yanlis bir sayi
+     gostermek demekti. */
+  function bicimSayi(n) {
+    var t = String(Math.floor(Math.abs(Number(n) || 0))), c = "";
+    for (var i = 0; i < t.length; i++) {
+      if (i > 0 && (t.length - i) % 3 === 0) c += ".";
+      c += t.charAt(i);
+    }
+    return c;
+  }
+
+  function begenileriYukle() {
+    var kutu = $("[data-begeni-liste]");
+    fetch("/api/begenilerim", { credentials: "same-origin" })
+      .then(function (c) { return c.ok ? c.json() : null; })
+      .then(function (v) {
+        if (!v) return;
+        var s = v.sayim || {};
+        var y = $("[data-sayim-yazi]"), sn = $("[data-sayim-senaryo]"),
+            b = $("[data-sayim-begeni]"), serit = $("[data-panel-sayim]");
+        if (y) y.textContent = bicimSayi(s.yazi);
+        if (sn) sn.textContent = bicimSayi(s.senaryo);
+        if (b) b.textContent = bicimSayi(s.begeni);
+        if (serit) serit.hidden = false;
+
+        if (!kutu) return;
+        var liste = v.begeniler || [];
+        if (!liste.length) {
+          kutu.innerHTML = '<p class="uyelik-alt">Henüz bir sayfayı ' +
+            'beğenmediniz. Haber ve araştırma sayfalarındaki kalp ' +
+            'düğmesiyle beğenebilirsiniz.</p>';
+          return;
+        }
+        /* Metin `textContent` ile yaziliyor, HTML birlestirmeyle
+           DEGIL: baslik veritabanindan geliyor ve orada ne oldugunu
+           varsaymak XSS acar. */
+        kutu.innerHTML = "";
+        liste.forEach(function (o) {
+          var k = document.createElement("div");
+          k.className = "panel-satir-kart";
+          var a = document.createElement("a");
+          a.href = o.yol;
+          a.textContent = o.baslik || o.yol;
+          var h = document.createElement("h3");
+          h.appendChild(a);
+          k.appendChild(h);
+          if (o.an) {
+            var t = document.createElement("p");
+            t.className = "kart-ozet";
+            t.textContent = String(o.an).slice(0, 10);
+            k.appendChild(t);
+          }
+          kutu.appendChild(k);
+        });
+      })
+      .catch(function () {});
+  }
+
   /* --- yazi listesi --- */
 
   function listeCiz(yazilar) {
@@ -773,6 +836,7 @@
     }
     listeYukle();
     senaryoYukle();
+    begenileriYukle();
   }).catch(function () {
     if (girisGerek) girisGerek.hidden = false;
   });

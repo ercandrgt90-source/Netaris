@@ -126,6 +126,14 @@
       <div>
         <h1>Panel</h1>
         <p class="uyelik-alt" data-kim></p>
+        {# SAYIM SERIDI -- `hidden`, betik gercek sayilarla aciyor.
+           Sifir basip sonra duzeltmek, okura once yanlis bir sayi
+           gostermek olurdu. #}
+        <div class="panel-sayim" data-panel-sayim hidden>
+          <span><b data-sayim-yazi>0</b> yazı</span>
+          <span><b data-sayim-senaryo>0</b> senaryo</span>
+          <span><b data-sayim-begeni>0</b> beğeni</span>
+        </div>
       </div>
       <div class="panel-eylem">
         <button class="dugme" type="button" data-yeni>Yeni yazı</button>
@@ -136,6 +144,7 @@
     <nav class="panel-sekme">
       <button class="etkin" type="button" data-sekme="yazilarim">Yazılarım</button>
       <button type="button" data-sekme="senaryolarim">Senaryolarım</button>
+      <button type="button" data-sekme="begendiklerim">Beğendiklerim</button>
       <button type="button" data-sekme="duzenle" hidden>Düzenle</button>
       <button type="button" data-sekme="senaryo" hidden>Senaryo</button>
       <button type="button" data-sekme="yonetim" data-yonetici hidden>Yönetim</button>
@@ -143,6 +152,14 @@
 
     <section data-bolum="yazilarim">
       <div data-liste class="panel-liste"></div>
+    </section>
+
+    {# BEGENDIKLERIM.
+       Baslik BEGENI ANINDA saklandi (bkz. `worker.js`); sonradan
+       degisirse guncellenmiyor. Liste okurun o gun ne begendigini
+       gosteriyor ve bu bilincli. #}
+    <section data-bolum="begendiklerim" hidden>
+      <div data-begeni-liste class="panel-liste"></div>
     </section>
 
     <section data-bolum="senaryolarim" hidden>

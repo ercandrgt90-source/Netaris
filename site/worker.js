@@ -1194,14 +1194,50 @@ async function begeniDegistir(istek, env, uye) {
       "DELETE FROM begeni WHERE yol = ? AND uye_id = ?",
     ).bind(yol, uye.id).run();
   } else {
+    /* BASLIK BEGENI ANINDA SAKLANIYOR.
+       Yalnizca yol saklansaydi panelde adresler gorunurdu ve basligi
+       cozmek icin sitenin tamamini sorgulamak gerekirdi. Okur
+       begenirken baslik zaten ekranda. */
+    let baslik = typeof g.baslik === "string" ? g.baslik.trim() : "";
+    if (baslik.length > 200) baslik = baslik.slice(0, 200);
     await env.DB.prepare(
-      "INSERT OR IGNORE INTO begeni (yol, uye_id, an) VALUES (?, ?, ?)",
-    ).bind(yol, uye.id, simdi()).run();
+      "INSERT OR IGNORE INTO begeni (yol, uye_id, an, baslik)" +
+      " VALUES (?, ?, ?, ?)",
+    ).bind(yol, uye.id, simdi(), baslik || null).run();
   }
   const say = await env.DB.prepare(
     "SELECT COUNT(*) AS n FROM begeni WHERE yol = ?",
   ).bind(yol).first();
   return yanit({ tamam: true, begeni: say ? say.n : 0, benim: !var_ });
+}
+
+
+/** GET /api/begenilerim -> {begeniler:[{yol,baslik,an}], sayim:{...}}
+ *
+ *  Panelin "Begendiklerim" sekmesi. Ayrica panelin ust seridindeki
+ *  sayilar da burada donuyor: uc ayri istek yerine tek istek.
+ */
+async function begenilerim(env, uye) {
+  const b = await env.DB.prepare(
+    "SELECT yol, baslik, an FROM begeni WHERE uye_id = ?" +
+    " ORDER BY an DESC LIMIT 200",
+  ).bind(uye.id).all();
+
+  const y = await env.DB.prepare(
+    "SELECT COUNT(*) AS n FROM yazi WHERE uye_id = ?",
+  ).bind(uye.id).first();
+  const sn = await env.DB.prepare(
+    "SELECT COUNT(*) AS n FROM senaryo WHERE uye_id = ?",
+  ).bind(uye.id).first();
+
+  return yanit({
+    begeniler: b.results || [],
+    sayim: {
+      yazi: y ? y.n : 0,
+      senaryo: sn ? sn.n : 0,
+      begeni: (b.results || []).length,
+    },
+  });
 }
 
 
@@ -1675,6 +1711,8 @@ export default {
 
       if (y === "begeni" && m === "POST")
         return await begeniDegistir(istek, env, uye);
+      if (y === "begenilerim" && m === "GET")
+        return await begenilerim(env, uye);
       if (y === "senaryo" && m === "GET") return await senaryoListe(env, uye);
       if (y === "senaryo" && m === "POST") return await senaryoKaydet(istek, env, uye);
       const sen = y.match(/^senaryo\/(\d+)$/);

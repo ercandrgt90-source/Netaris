@@ -143,7 +143,13 @@
     var yol = kutu.getAttribute("data-sayac-yol");
     if (!yol) return;
     d.disabled = true;
-    gonder(API_BEGENI, { yol: yol })
+    /* BASLIK DA GIDIYOR -- panelin "Begendiklerim" listesi icin.
+       Kaynagi ONCE kutunun kendi ozniteligi, sonra sayfa basligi:
+       liste kartinda `document.title` sayfanin adi olurdu ve okur
+       "Gundem" diye on kayit gorurdu. */
+    var baslik = kutu.getAttribute("data-sayac-baslik")
+      || (kutu.hasAttribute("data-sayac-birincil") ? document.title : "");
+    gonder(API_BEGENI, { yol: yol, baslik: baslik })
       .then(function (c) {
         if (c.status === 401) {
           /* GIRIS SAYFASINA NIYETLE GIDIYOR.

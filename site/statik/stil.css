@@ -1391,6 +1391,14 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
   padding: 0; margin: -1px; overflow: hidden;  /* dort-yan: gorsel gizleme kalibi (sr-only) -- dort yan kasitli */
   clip: rect(0 0 0 0); white-space: nowrap; border: 0}
 
+/* Panel sayim seridi -- ad ve e-postanin altinda. */
+.panel-sayim {
+  display: flex; flex-wrap: wrap; gap: var(--b-4);
+  margin: var(--b-2) 0 0;
+  font-size: var(--p-s); color: var(--yazi-3);
+  font-variant-numeric: tabular-nums}
+.panel-sayim b { color: var(--yazi); font-weight: 800; font-size: var(--p-l)}
+
 /* Arastirma listesi -- kart + altinda sayac.
    Sayac kartin DISINDA duruyor: kart bir <a> ve icine baska bir
    baglanti ya da dugme koymak gecersiz HTML olurdu. */

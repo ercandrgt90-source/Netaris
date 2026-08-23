@@ -137,7 +137,7 @@
     {% if h.yol %}
     <div class="haber-alt">
       <a class="haber-git" href="{{ h.yol }}">Haberi oku →</a>
-      {{ sy.sayac(h.yol) }}
+      {{ sy.sayac(h.yol, baslik=h.baslik) }}
     </div>
     {% endif %}
   </div>

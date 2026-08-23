@@ -61,7 +61,7 @@
       </a>
       {# Sayac KARTIN DISINDA: ic ice baglanti gecerli degil ve begeni
          dugmesi bir <button>. #}
-      <div class="kart-sayac">{{ sy.sayac(a.yol) }}</div>
+      <div class="kart-sayac">{{ sy.sayac(a.yol, baslik=a.baslik) }}</div>
     </li>
     {% endfor %}
   </ul>
