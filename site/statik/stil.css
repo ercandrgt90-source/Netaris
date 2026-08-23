@@ -1664,7 +1664,7 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
    `display: none` ayrica TradingView betigini de susturuyor:
    yukleme gorus alanina girince tetikleniyor ve gizli oge hicbir
    zaman girmiyor. Yani telefonda ucuncu tarafa istek de gitmiyor.  */
-@media (max-width: 699px) {
+@media (max-width: 899px) {
   /* SECICI IKI SINIFLI (0,2,0) -- KASITLI.
      `.masa-yan` tek basina (0,1,0) olurdu ve dosyada 1.700 satir
      asagida duran `.masa-yan { display: flex }` ile ESIT ozgullukte
@@ -3386,12 +3386,20 @@ table td, table th, time, .tarih {
    Bu araligta yan sutun DARALIYOR (316 -> 252) ve ikisi birden
    siabiliyor. 700'un altinda gercekten yer yok; orada alta gecmek
    dogru karar. */
-@media (max-width: 899px) and (min-width: 700px) {
-  .masa { grid-template-columns: minmax(0, 1fr) 252px; gap: var(--b-5); }
-  /* Dar yan sutunda kart gorseli yer kaplamaktan baska bir sey
-     yapmiyor; akis satiri metne kaliyor. */
-  .masa-akis .akis-foto { display: none; }
-}
+/* ARA BANT (700-899px) KALDIRILDI.
+   ------------------------------
+   Bu bant, "mobilde canli akis yana gelmemis" geri bildirimi
+   uzerine eklenmisti: tablette ve yatay telefonda yan sutun
+   daraltilarak korunuyordu.
+
+   Sonraki karar bunun tersi: "mobil giristen piyasalar ve canli
+   akisi kaldir". Ara bant kalsaydi 700-899 arasindaki her cihazda
+   -- yatay tutulan telefonlar dahil -- yan sutun gorunmeye devam
+   ederdi ve kullanicinin gordugu tam olarak bu olurdu.
+
+   Yan sutun artik YALNIZCA 900 piksel ve uzerinde. Orasi masaustu;
+   telefon ve tablet ana sayfayi tek kolon ve modul kartlariyla
+   goruyor. */
 
 @media (max-width: 699px) {
   /* Burada akis ALTA gecer, yanina degil. Secim once okunmali:

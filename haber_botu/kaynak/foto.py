@@ -75,7 +75,20 @@ COMMONS_UC = "https://commons.wikimedia.org/w/api.php"
 #: Olculdu: 1100 piksel 465 KB, 900 piksel ortalama 180 KB getiriyor.
 #: Gorseller git gecmisine giriyor ve oradan bir daha cikmiyor -- bu
 #: sayi dogrudan deponun kalici agirligi.
-COMMONS_GENISLIK = 800
+# 800 -> 1600.
+#
+# Olculdu (2026-08-23): havuzdaki JPEG'lerin medyan genisligi 960
+# piksel. Kart yuvasi 800, manset yuvasi daha genis ve RETINA
+# ekranda tarayici iki kat piksel istiyor. Sonuc: her gorsel bir tik
+# yumusak, hicbiri "profesyonel" gorunmuyordu.
+#
+# Kullanicinin karsilastirdigi referans gorsel 1200 piksel genisligindeydi
+# ve aradaki fark tam olarak buydu.
+#
+# `iiurlwidth` sunucu tarafinda olcekliyor: 6000 piksellik kaynak
+# dosya indirilmiyor, Commons 1600'e indirip veriyor. Yani bant
+# genisligi maliyeti kaynak dosyanin buyuklugune bagli DEGIL.
+COMMONS_GENISLIK = 1600
 
 #: Commons lisans kodlarini kabul listemize cevirir. `extmetadata`
 #: icindeki makine okunur `License` alani kullaniliyor; gorunur ad
@@ -642,8 +655,59 @@ def _commons_ara(sorgu: str, adet: int) -> list[dict]:
             "license_version": "",
             "title": sayfa.get("title", ""),
             "tags": [em.get("Categories", {}).get("value", "")],
+            # Siralama icin; cagiran taraf disinda kullanilmiyor.
+            "_puan": kalite_puani(bilgi),
         })
+    # EN IYI ONCE. Arama motoru ALAKAYA gore siraliyor, kaliteye gore
+    # degil; ikisi ayni sey degil. Alaka suzgeci ayrica calisiyor
+    # (`_DOLGU` ve baslik eslemesi), burada kalan adaylar arasindan
+    # basmaya en uygun olani one aliniyor.
+    cikti.sort(key=lambda x: -x.get("_puan", 0.0))
     return cikti
+
+
+#: KAYNAK COZUNURLUGU KALITE ISARETI.
+#:
+#: Olculdu: ayni sorguda 6000x4000 profesyonel bir cekim ile 912x684
+#: amatör bir enstantane yan yana donuyor ve secim ARALARINDA AYRIM
+#: YAPMIYORDU. Ana sayfada cikan altin gorseli ikinci turdendi --
+#: uzerinde yesil sansur kutulari olan bir sertifika fotografi.
+#:
+#: Cozunurluk kaliteyi GARANTI ETMEZ ama guclu bir gostergedir:
+#: Commons'a 6000 piksel yukleyen kisi genellikle ekipmanla ve
+#: niyetle cekmistir. Elimizde gorsel degerlendirme yok; olcebildigimiz
+#: en iyi vekil bu.
+#:
+#: Esik degil AGIRLIK: kucuk gorsel elenmiyor, sadece geride kaliyor.
+#: Elemek dar havuzlari bosaltirdi.
+IYI_GENISLIK = 2000
+
+#: Manset ve kart yuvalari 16:9. Bu orana yakin gorsel KIRPILMADAN
+#: oturuyor; kare ya da dikey gorselden kadrajin ucta biri gidiyor ve
+#: cogu zaman konunun kendisi kesiliyor.
+IDEAL_ORAN = 16 / 9
+
+
+def kalite_puani(bilgi: dict) -> float:
+    """Aday gorsel icin 0-1 arasi kaba kalite puani.
+
+    Iki bilesen: cozunurluk ve en-boy orani. Ikisi de OLCULEBILIR;
+    "guzel mi" sorusunu cevaplamiyor, "basmaya uygun mu" sorusunu
+    cevapliyor. Aradaki farki abartmamak icin puan siralama disinda
+    hicbir yerde kullanilmiyor.
+    """
+    try:
+        g = int(bilgi.get("width") or 0)
+        y = int(bilgi.get("height") or 0)
+    except (TypeError, ValueError):
+        return 0.0
+    if g <= 0 or y <= 0:
+        return 0.0
+    coz = min(g / IYI_GENISLIK, 1.0)
+    oran = g / y
+    # Orandan sapma 0 (tam) ile 1 (cok uzak) arasina getiriliyor.
+    sapma = min(abs(oran - IDEAL_ORAN) / IDEAL_ORAN, 1.0)
+    return 0.65 * coz + 0.35 * (1.0 - sapma)
 
 
 #: Sorgu ilgisini olcerken atlanacak kelimeler.
