@@ -2222,7 +2222,11 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
    yayimlandi ileri, reddedildi geri. */
 .rozet-durum { font-weight: 700}
 
-.yazi-form textarea[name="govde"] { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: var(--p-m)}
+/* PUNTO BURADA DEGIL: 16 piksel kurali asagida, mobil form
+   alanlariyla birlikte. Burada 14 piksel yaziliydi ve asagidaki
+   kural onu eziyordu -- ayni ozelligi iki yerde ve FARKLI
+   deger ile tutmak, sonraki okuyucuyu yaniltir. */
+.yazi-form textarea[name="govde"] { font-family: ui-monospace, SFMono-Regular, Menlo, monospace}
 
 @media (max-width: 640px) {
   .uyelik-kutu { padding: var(--b-4b) var(--b-4); }
@@ -4239,7 +4243,15 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none}
 .uyelik-form select,
 .uyelik-form textarea,
 .senaryo-form input,
-.senaryo-form textarea {
+.senaryo-form textarea,
+/* YAZI GOVDESI DE 16 PIKSEL.
+   `.yazi-form textarea[name="govde"]` tek basina `var(--p-m)` (14px)
+   aliyordu ve iOS 16 pikselin ALTINDAKI her form alanina odaklanildiginda
+   sayfayi YAKINLASTIRIYOR. Okur yazmaya baslar, sayfa zipliyor ve geri
+   donmuyor. Uyelik formunda bu zaten cozulmustu; yazi formu listeye
+   girmemis. Selector burada `.uyelik-form input`'tan SONRA geliyor,
+   yani 2225. satirdaki kurali eziyor. */
+.yazi-form textarea[name="govde"] {
   font-size: 16px}
 
 /* DOKUNMA HEDEFI EN AZ 44 PIKSEL.
