@@ -2538,6 +2538,26 @@ def tazele(h: dict, foto_kayit) -> dict:
     if _besleme is not None and h.get("yorumlanir") and h.get("baslik"):
         if _besleme.gurultu_mu(h["baslik"]):
             h["yorumlanir"] = False
+    # TICARI KAYNAK OZETI KISA ALINTI SINIRINDA TUTULUYOR.
+    # ----------------------------------------------------
+    # Ticari bir ajansin kendi ozetini yayimlamak, kaynagi anip
+    # baglanti vermekle mesru bir IKTIBAS olur (FSEK m.35): kisa,
+    # kaynak gosterilmis ve kendi degerlendirmemizin yaninda.
+    #
+    # Olculdu (2026-08-23): basilan metin ortalama 172, medyan 158
+    # karakter -- yani zaten kisa alinti olcusunde. Yalnizca 20 ornek
+    # 300 karakteri asiyordu ve bir metnin "kisa" sayilmasi
+    # uzunluguna bagli.
+    #
+    # Bu yuzden metin SILINMIYOR, TAVANLANIYOR. Silmek okurun olayin
+    # ne oldugunu ogrenmesini engellerdi ve kaynagi anmak zaten
+    # hakkin kullanim sarti.
+    #
+    # Kesme CUMLE SINIRINDA: yarim cumle, yanlis cumleden beter
+    # okunur (ayni kural `kart_yorumu` icinde de yazili).
+    if h.get("ticari") and h.get("ozet"):
+        h["ozet"] = kart_yorumu(h["ozet"], 280, 4)
+
     if foto_kayit is not None:
         # Ayni haber her zaman ayni fotografi alir (adres belirleyici).
         f = foto_kayit.sec(h.get("konu", ""), h.get("adres", ""))
@@ -3603,24 +3623,31 @@ KART_CUMLE = 2
 KART_HARF = 220
 
 
-def kart_yorumu(metin: str) -> str:
+def kart_yorumu(metin: str, harf: int | None = None,
+                cumle: int | None = None) -> str:
     """Metni kart boyuna indirir. CUMLE SINIRINDA keser.
 
     Karakterden kesmek cumleyi ortasindan bolerdi ("...faiz oranlarini
     art") ve yarim cumle, yanlis cumleden beter okunur. Once cumleye
     bolunuyor; ilk cumle bile sinirdan uzunsa kelime sinirinda kesilip
     uc nokta konuyor.
+
+    `harf` ve `cumle` VERILMEZSE kart olculeri kullaniliyor. Ticari
+    kaynak ozetini tavanlarken daha genis bir sinir geciliyor: orada
+    amac kart boyuna sigdirmak degil, alintiyi KISA tutmak.
     """
     metin = (metin or "").strip()
     if not metin:
         return ""
+    harf = KART_HARF if harf is None else harf
+    cumle = KART_CUMLE if cumle is None else cumle
 
     cumleler = re.findall(r"[^.!?]+[.!?]+|[^.!?]+$", metin)
-    parca = "".join(cumleler[:KART_CUMLE]).strip()
+    parca = "".join(cumleler[:cumle]).strip()
 
-    if len(parca) <= KART_HARF:
+    if len(parca) <= harf:
         return parca
-    kirp = parca[:KART_HARF].rsplit(" ", 1)[0].rstrip(" ,;:")
+    kirp = parca[:harf].rsplit(" ", 1)[0].rstrip(" ,;:")
     return kirp + "…"
 
 
