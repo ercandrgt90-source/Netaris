@@ -106,6 +106,62 @@ esit(besleme.konu_bul("ABD İran'a yeni yaptırım kararı aldı", "X"),
      "Jeopolitik", "gercek yaptirim karari jeopolitiktir")
 
 # --------------------------------------------------------------------
+# ISARET KELIMENIN ICINDE ESLESMESIN.
+#
+# Olculdu (2026-08-23) ve SITEDE YAYIMLANDI:
+#
+#     "Vergi mufettisleri ... matrah farkini ortaya cikardi"
+#         -> Enflasyon
+#
+# Sebep: enflasyon isaretlerinden biri "ufe" ve "mufettisleri"
+# kelimesinin ICINDE geciyor (m-UFE-ttisleri). Duz `in` aramasi
+# kelimenin neresinde oldugunu umursamiyor.
+#
+# Ayni sinif tuzak bu depoda ALTI kez cikti: "9,5" -> "$89,55",
+# "akis-liste" -> "ai-akis-liste", "width" -> "max-width",
+# "grafik:" -> "grafik_tur:", "shares" -> "Bancshares", "ufe" ->
+# "mufettisleri". Farki, bunun okurun gordugu ETIKETI bozmasi.
+#
+# SINIR YALNIZCA BASTA. Isaretlerin bir kismi bilerek kisaltilmis
+# ("kamu maliyes", "ihracat kisitlamas"); sona da sinir koymak
+# onlari bozardi.
+# --------------------------------------------------------------------
+esit(besleme.konu_bul("Vergi müfettişleri matrah farkını ortaya çıkardı", "X"),
+     "Vergi ve kamu maliyesi", "'ufe' mufettisleri icinde eslesmiyor")
+esit(besleme.konu_bul("ÜFE yıllık bazda yüzde 24 arttı", "X"),
+     "Enflasyon", "'ufe' kendi basinaysa hala eslesiyor")
+esit(besleme._isaret_var("kamu maliyesine iliskin", "kamu maliyes"), True,
+     "kisaltilmis isaret hala eslesiyor (sona sinir YOK)")
+esit(besleme._isaret_var("bancshares inc", "shares"), False,
+     "'shares' Bancshares icinde eslesmiyor")
+
+# --------------------------------------------------------------------
+# BAGLAM ISTEYEN ISARET: "yaptirim" uc ayri dunyada geciyor.
+# --------------------------------------------------------------------
+esit(besleme.konu_bul(
+    "Fed Kurulu, Iuka Bancshares ve The Iuka State Bank ile yaptırım "
+    "kararı verdi", "X"), "Bankacılık",
+    "denetim islemi bankacilik konusudur, jeopolitik degil")
+esit(besleme.konu_bul("AB, Rusya'ya yaptırımları genişletiyor", "X"),
+     "Jeopolitik", "ulkeye yaptirim hala jeopolitik")
+
+# --------------------------------------------------------------------
+# KRIPTO VARLIK ADLARI.
+# Konu tanimliydi ama varlik adlari isaret listesinde yoktu:
+# "XRP ... as Treasury" basligi "Vergi ve kamu maliyesi"ne dusuyordu.
+# --------------------------------------------------------------------
+esit(besleme.konu_bul("XRP on track for weekly gain as Treasury firms buy",
+                      "X"), "Kripto varlıklar", "XRP kripto konusudur")
+esit(besleme.konu_bul("Solana cuts mainnet slot time", "X"),
+     "Kripto varlıklar", "Solana kripto konusudur")
+
+# Kripto kaynaklari tanimli mi -- konu var ama kaynagi yoksa
+# sayfa hep bos kalir.
+_kripto = [x for x in besleme.BESLEMELER if x[4] == "Kripto varlıklar"]
+esit(len(_kripto) >= 4, True,
+     f"kripto haber kaynagi tanimli ({len(_kripto)})")
+
+# --------------------------------------------------------------------
 # HER KONUNUN IZLEME LISTESI OLMALI.
 #
 # "Sirket haberleri" ve "Duzenleme" listesi BOSTU ve bos olmasi

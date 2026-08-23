@@ -399,8 +399,22 @@ KONU_ISARETLERI = (
         "exports", "imports", "trade deficit", "tariff",
     )),
     ("Kripto varlıklar", (
-        "kripto", "bitcoin", "ethereum", "stablecoin", "dijital turk lira",
-        "crypto", "digital asset",
+        "kripto", "bitcoin", "ethereum", "stablecoin",
+        "dijital turk lira", "crypto", "digital asset",
+        # VARLIK ADLARI -- olculdu: "XRP on track for biggest weekly
+        # gain ... as Treasury" basligi "Vergi ve kamu maliyesi"ne
+        # dusuyordu, cunku listede tek bir varlik adi yoktu ve
+        # "treasury" vergi isaretine takiliyordu.
+        #
+        # SECIM KATI: Turkce'de baska anlami olan kisaltmalar DISARIDA.
+        # "ada" (Cardano) bir Turkce kelime, "sol" (Solana kisaltmasi)
+        # de oyle -- ikisi de tam adiyla yaziliyor. Ayni tuzak
+        # "yaptirim" ve "isgal" ile de yasandi.
+        "xrp", "ripple", "solana", "cardano", "dogecoin", "litecoin",
+        "altcoin", "blockchain", "defi", "web3", "stablecoin",
+        "usdt", "usdc", "binance", "coinbase", "on-chain",
+        "bitcoin etf", "spot etf", "madencilik havuzu",
+        "cuzdan", "wallet", "halving",
     )),
     # JEOPOLITIK -- Enerji ve Dis ticaret'in ALTINDA duruyor.
     #
@@ -473,6 +487,15 @@ KONU_ISARETLERI = (
         "bddk", "katilim banka",
         "banking", "capital requirement", "stress test", "basel",
         "deposit", "supervis",
+        # INGILIZCE BICIMLER. Resmi kaynaklar (Fed, ECB, BIS)
+        # Ingilizce basliklarla geliyor ve "State Bank" listede
+        # yoktu -- "banka" ile eslesmiyor.
+        #
+        # Kelime siniri sayesinde "bank" artik "Bancshares"
+        # icinde eslesmiyor; duz alt dize aramasi doneminde
+        # boyle bir ekleme yeni yanlis eslesmeler uretirdi.
+        "bank ", "bank,", "enforcement action",
+        "bank holding", "reserve board", "prudential",
     )),
     ("Piyasa düzenlemesi", (
         "menkul kiymet", "sermaye piyasa", " spk ", " kap ", "teblig",
@@ -842,6 +865,100 @@ MECAZ: tuple[tuple[str, str], ...] = (
 )
 
 
+#: BAGLAM ISTEYEN ISARETLER.
+#:
+#: Bazi kelimeler iki ayri dunyaya ait ve tek baslarina yaniltiyor.
+#: "Yaptirim" bunun en net ornegi; bu depoda UC ayri baglamda cikti:
+#:
+#:   "81 ilde kirtasiye denetimi: 367 isletmeye yaptirim"   idari ceza
+#:   "Fed Kurulu ... ile yaptirim karari verdi"             denetim islemi
+#:   "AB, Rusya'ya yaptirimlari genisletiyor"               jeopolitik
+#:
+#: Ilk ikisini `MECAZ` ile tek tek yakalamaya calismak bitmez: her yeni
+#: kurum icin yeni bir kalip gerekir. Dogru cozum ISARETI SARTA
+#: BAGLAMAK: "yaptirim" ancak yaninda bir ULKE ya da uluslararasi
+#: aktor varsa jeopolitiktir.
+#:
+#: Sart saglanmazsa isaret HIC eslesmiyor ve baslik diger konulara
+#: bakmaya devam ediyor -- yanlis etiket yerine dogru etiket sansi.
+KOSULLU_ISARET: dict[str, tuple[str, ...]] = {
+    "yaptirim": (
+        "abd", "ab ", "avrupa birligi", "rusya", "iran", "cin", "kuzey kore",
+        "venezuela", "suriye", "belarus", "ukrayna", "israil", "turkiye",
+        "ulkeye", "ulkelere", "ihracat", "ithalat", "ambargo", "bm ",
+        "birlesmis milletler", "nato", "hazine bakanligi", "ofac",
+        "sanction",
+    ),
+    "ambargo": (
+        "abd", "ab ", "rusya", "iran", "cin", "kuzey kore", "venezuela",
+        "suriye", "petrol", "silah", "ulkeye", "ihracat", "ithalat",
+    ),
+}
+
+
+_ISARET_ONBELLEK: dict[str, "re.Pattern"] = {}
+
+
+def _isaret_var(metin: str, isaret: str) -> bool:
+    """Isaret metinde KELIME BASINDA geciyor mu?
+
+    NEDEN DUZ `in` YETMIYOR
+    -----------------------
+    Olculdu (2026-08-23) ve sitede yayimlandi:
+
+        "Vergi mufettisleri ... matrah farkini ortaya cikardi"
+            -> Enflasyon
+
+    Sebep: enflasyon isaretlerinden biri "ufe" ve "mufettisleri"
+    kelimesinin ICINDE geciyor (m-UFE-ttisleri). Duz alt dize aramasi
+    kelimenin neresinde oldugunu umursamiyor.
+
+    Bu depoda ayni sinif tuzak bugun ALTI kez cikti: "9,5" -> "$89,55",
+    "akis-liste" -> "ai-akis-liste", "width" -> "max-width",
+    "grafik:" -> "grafik_tur:". Farki, bunun URETIM KODUNDA olmasi ve
+    okurun gordugu etiketi bozmasi.
+
+    NEDEN SONA DEGIL YALNIZCA BASA SINIR
+    ------------------------------------
+    Isaretlerin bir kismi bilerek KISALTILMIS: "kamu maliyes"
+    ("maliyesi" ve "maliyesine" ikisini de yakalasin diye),
+    "ihracat kisitlamas", "baris gorusme". Sona da sinir koymak
+    onlari bozardi.
+
+    Basa sinir yeterli: "ufe" artik "mufettisleri" icinde eslesmiyor
+    ama "ufe yillik" icinde esleşiyor.
+
+    Cok kelimeli isaretlerde de ayni kural islior: sinir ilk
+    kelimenin basina konuyor.
+    """
+    kalip = _ISARET_ONBELLEK.get(isaret)
+    if kalip is None:
+        # SINIR YALNIZCA ISARET HARFLE BASLIYORSA.
+        # ----------------------------------------
+        # Isaretlerin bir kismi ZATEN bosluk ya da noktalama ile
+        # basliyor: " trump ", "ab ", "bm ". Onlara da lookbehind
+        # eklemek, boslugun ONCESINDEKI harfe takiliyor ve isaret HIC
+        # eslesmiyordu.
+        #
+        # Olculdu (2026-08-23): bu hata 58 yayimlanmis sayfayi
+        # dusurdu -- hepsi Trump/ABD siyaseti haberleriydi ve
+        # " trump " isaretiyle yakalaniyorlardi. Site haritasi
+        # karsilastirmasi yakaladi.
+        #
+        # Kendi yazdigim kelime siniri duzeltmesinin yan etkisiydi:
+        # bir tuzagi kapatirken yenisini actim.
+        onek = r"(?<![0-9a-z])" if isaret[:1].isalnum() else ""
+        kalip = re.compile(onek + re.escape(isaret))
+        _ISARET_ONBELLEK[isaret] = kalip
+    if not kalip.search(metin):
+        return False
+    # Baglam sarti varsa aranan ikinci isaret de bulunmali.
+    sartlar = KOSULLU_ISARET.get(isaret)
+    if sartlar and not any(x in metin for x in sartlar):
+        return False
+    return True
+
+
 def konu_bul(baslik: str, varsayilan: str = "") -> str:
     """Baslikta ekonomi konusu arar. Bulamazsa `varsayilan` doner.
 
@@ -863,12 +980,12 @@ def konu_bul(baslik: str, varsayilan: str = "") -> str:
         if kalip in k:
             return konu
     for konu, isaretler in KONU_ISARETLERI:
-        if any(i in k for i in isaretler):
+        if any(_isaret_var(k, i) for i in isaretler):
             return konu
     # Ana tablo bos dondu: zayif kaliplara BURADA bakiliyor. Sirasi
     # onemli -- once bakilsaydi dogru etiketleri ezerdi.
     for konu, isaretler in IKINCIL_ISARETLER:
-        if any(i in k for i in isaretler):
+        if any(_isaret_var(k, i) for i in isaretler):
             return konu
     return varsayilan
 
