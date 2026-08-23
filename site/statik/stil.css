@@ -3000,10 +3000,27 @@ table td, table th, time, .tarih {
   display: flex; flex-direction: column; gap: var(--b-4);
   min-width: 0}
 
-@media (max-width: 900px) {
-  /* Dar ekranda akis ALTA gecer, yanina degil. Secim once okunmali:
-     telefonda yan sutun zaten yoktur, ustte olsaydi 20 kalemlik ham
-     akis gunun ozetini asagi iterdi. */
+/* ARA ESIK: 700-899px.
+   -------------------
+   Esik tek basina 900px idi ve tabletler ile yatay tutulan telefonlar
+   dogrudan tek sutuna dusuyordu -- yani ekranda yer VARKEN yan sutun
+   kayboluyordu. Kullanici geri bildirimi: "mobilde hala canli sekme
+   yana gelmemis".
+
+   Bu araligta yan sutun DARALIYOR (316 -> 252) ve ikisi birden
+   siabiliyor. 700'un altinda gercekten yer yok; orada alta gecmek
+   dogru karar. */
+@media (max-width: 899px) and (min-width: 700px) {
+  .masa { grid-template-columns: minmax(0, 1fr) 252px; gap: var(--b-5); }
+  /* Dar yan sutunda kart gorseli yer kaplamaktan baska bir sey
+     yapmiyor; akis satiri metne kaliyor. */
+  .masa-akis .akis-foto { display: none; }
+}
+
+@media (max-width: 699px) {
+  /* Burada akis ALTA gecer, yanina degil. Secim once okunmali:
+     telefonda yan sutun icin yer yok ve akis ustte olsaydi 20
+     kalemlik ham liste gunun ozetini asagi iterdi. */
   .masa { grid-template-columns: 1fr; gap: var(--b-6); }
 }
 
@@ -3067,7 +3084,11 @@ table td, table th, time, .tarih {
   position: sticky; top: 78px;
   max-height: calc(100vh - 100px);
   display: flex; flex-direction: column}
-@media (max-width: 900px) {
+/* ESIK 900 -> 699. Ara aralikta (700-899) yan sutun ARTIK VAR
+   ve daraltilmis haliyle duruyor; bu blok yan sutunun HIC
+   olmadigi duruma ait. 900'de birakilsaydi tablette yan sutun
+   gorunur ama yapiskanligi ve tam listesi kaybolurdu. */
+@media (max-width: 699px) {
   .masa-akis { position: static; max-height: none; }
 }
 .akis-bas { flex: none; padding: 10px; border-bottom: 1px solid var(--cizgi)}
@@ -4849,7 +4870,11 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
    cizilmiyorlar.
    ================================================================== */
 
-@media (max-width: 900px) {
+/* ESIK 900 -> 699. Ara aralikta (700-899) yan sutun ARTIK VAR
+   ve daraltilmis haliyle duruyor; bu blok yan sutunun HIC
+   olmadigi duruma ait. 900'de birakilsaydi tablette yan sutun
+   gorunur ama yapiskanligi ve tam listesi kaybolurdu. */
+@media (max-width: 699px) {
   .akis-liste > li:nth-child(n+7) { display: none; }
 
   /* Liste artik kisa: kendi icinde kaydirma GEREKMIYOR ve
