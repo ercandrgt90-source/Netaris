@@ -943,7 +943,20 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
   justify-content: space-between;
   gap: var(--b-3)}
 
-.devam { font-size: var(--p-s); font-weight: 600; color: var(--vurgu)}
+/* `.devam` HIC DARALMAZ.
+   Kart alti bir esnek satir: solda kunye (tarih · okuma suresi ·
+   donem), sagda "Oku →". Kunye uc parcali ve varsayilan olarak
+   ikisi de daralabiliyordu; dar kartta kunye butun genisligi aliyor
+   ve "Oku →" ~20 piksele sikisip HARF HARF alt alta yaziliyordu.
+   Ekran goruntusunde "O k u" diye goruldu.
+
+   Cozum tek satir: kisa ve sabit olan oge daralmaz, uzun olan
+   daralir. */
+.devam {
+  flex: none;
+  white-space: nowrap;
+  font-size: var(--p-s); font-weight: 600; color: var(--vurgu)}
+.kart-alt .kart-kunye { min-width: 0; flex: 1 1 auto}
 
 /* -------------------------------------------------------------- skor halka */
 
@@ -1440,6 +1453,43 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
 .kart-amblem .amblem-logo { padding: var(--b-4) var(--b-3); gap: var(--b-2)}
 .kart-amblem .amblem-gorsel { max-height: 40%}
 .kart-amblem .amblem-yazi b { font-size: var(--p-s)}
+
+/* ====================================================================
+   MOBIL YOGUNLUK
+   --------------------------------------------------------------------
+   Kullanici geri bildirimi: "mobil gorunume bak, o kadar bogucu ve
+   sikici ki".
+
+   Olculdu: telefonda tek ekrana ANCAK UC kalem sigiyordu. Sebep tek
+   bir sey degil, dolgu + bosluk + satir yuksekliginin toplami:
+
+       .onem-kart dolgu   12/16 px
+       kart arasi bosluk  12 px
+       baslik satir arasi 1.35
+
+   Masaustunde bu olculer dogru -- orada ekran genis ve kart sayisi
+   satirlara boluniyor. Telefonda ayni olculer listeyi bir "boşluk
+   koridoruna" ceviriyor.
+
+   Burada olculer daraltiliyor, YAZI KUCULTULMUYOR: punto kucultmek
+   okunurlugu bozar ve asil sorun punto degil ARALIK.
+   ================================================================== */
+@media (max-width: 640px) {
+  .onem-izgara { gap: var(--b-2); }
+  .onem-kart { padding: 10px 12px; gap: 6px; }
+  .onem-izgara .onem-baslik { line-height: 1.28; -webkit-line-clamp: 3; }
+  .onem-kart .onem-ust { gap: 6px; }
+
+  /* Kart altindaki kunye telefonda uc parcali duruyordu (tarih ·
+     okuma · donem) ve sarinca "22 Ağustos 2026" ile "2. çeyrek"
+     ust uste biniyordu. Sarma serbest, ama satir arasi da veriliyor. */
+  .kart-alt { padding: 10px 12px; gap: var(--b-2); }
+  .kart-alt .kart-kunye { flex-wrap: wrap; row-gap: 2px; line-height: 1.3; }
+
+  /* Bolum araligi 32'den 26'ya. Ana sayfada alti bolum var; her
+     birinde 6 piksel kazanmak ekranin altida birini geri veriyor. */
+  .kabuk > .ana-akis > * + * { margin-top: 26px; }
+}
 
 /* CANLI AKIS -- GUN BASLIKLARI ve MOBIL MODUL
    --------------------------------------------------------------------
@@ -5834,17 +5884,14 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
    tasiyor.
    ================================================================== */
 
-.ai-akis-liste li:not(:has(.ai-kart-foto)) .ai-kart-kunye::before {
-  content: "";
-  width: 34px;
-  height: 34px;
-  flex: none;
-  border-radius: var(--r-kucuk);
-  background:
-    linear-gradient(135deg,
-      color-mix(in srgb, var(--vurgu) 16%, transparent),
-      color-mix(in srgb, var(--vurgu) 4%, transparent));
-  border: 1px solid color-mix(in srgb, var(--vurgu) 26%, transparent)}
+/* BOS DEKORATIF KUTU KALDIRILDI.
+   Burada gorselsiz kartlara 34x34 boyutunda bos bir gradyan kare
+   ciziliyordu -- "gorsel yokmus gibi durmasin" diye. Sonucu tersi
+   oldu: okur bos gri bir kutu goruyor ve YUKLENMEMIS BIR GORSEL
+   saniyor. Ekran goruntusunde de oyle gorundu.
+
+   Icinde bir sey olmayan bir kutu, hic kutu olmamasindan kotudur --
+   ayni kural `amblem.kod_metni` icinde de yazili. */
 
 /* Gorselsiz kartta baslik bir tik buyuyor: bosalan gorsel alani
    mansete gidiyor, kart da komsulariyla ayni yuksekligi tutuyor. */
