@@ -1,7 +1,7 @@
 ---
 slug: euyo-2026-2-ceyrek
 baslik: EURO MENKUL KIYMET YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Brüt kâr, hasılatın %49,7'i olarak sektör medyanının %45,7'sinden yüksek olduğu için brüt kâr artışı (0,01 milyar TL'dan 0,02 milyar TL'ya) hasılat değişmemesine rağmen gerçekleşti; aynı zamanda özkaynak 0,07 milyar TL'dan 0,08 milyar TL'ya yükselirken aktif toplamı da 0,08 milyar TL'dan 0,09 milyar…
+ozet: Hasılat aynı kalırken brüt kâr 0,01 milyar TL artmış, bu da brüt kâr marjının %49,7'ye yükselmesine ve sektör medyanının %45,7'sinin üzerinde olmasına yol açmıştır; net kâr ise -0,01 milyar TL sabit kalmış ve net kâr marjı -%63,0 ile sektör medyanının %15,9'unun çok altında kalmıştır.…
 sirket: EURO MENKUL KIYMET YATIRIM ORTAKLIĞI A.Ş.
 kod: EUYO
 donem: 2026 2. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Brüt kâr, hasılatın %49,7'i olarak sektör medyanının %45,7'sinden yüksek olduğu için brüt kâr artışı (0,01 milyar TL'dan 0,02 milyar TL'ya) hasılat değişmemesine rağmen gerçekleşti; aynı zamanda özkaynak 0,07 milyar TL'dan 0,08 milyar TL'ya yükselirken aktif toplamı da 0,08 milyar TL'dan 0,09 milyar TL'ya artış gösterdi. Net kârın –%63,0 olması ve özkaynak kârlılığının –%12,3 olması, faaliyet kârının sıfır kalması ve negatif faaliyet nakit akışının (–0,01 milyar TL) aynı seviyede kalmasıyla birlikte, kâr marjı ve özkaynak getirisi üzerindeki olumsuz etkiyi pekiştiriyor. Cari oranın 31,11 (sektör medyanı 7,79) ve borç/özkaynakın –0,92 (sektör medyanı –0,06) olması, net borcun negatif (–0,08 milyar TL) ve özkaynak artışının birlikte, likidite ve finansal kaldıraçta sektör ortalamasının çok üzerindeki bir pozisyonu yansıtıyor.
+Hasılat aynı kalırken brüt kâr 0,01 milyar TL artmış, bu da brüt kâr marjının %49,7'ye yükselmesine ve sektör medyanının %45,7'sinin üzerinde olmasına yol açmıştır; net kâr ise -0,01 milyar TL sabit kalmış ve net kâr marjı -%63,0 ile sektör medyanının %15,9'unun çok altında kalmıştır. Özkaynak 0,08 milyar TL'ye yükselmiş, özkaynak kârlılığı -%12,3'e gerilemiş ve bu durum borç/özkaynak oranının -0,92'ye (sektör medyanı -0,06) çıkmasıyla, şirketin negatif net borç (nakit fazlası) pozisyonunun artmasına rağmen kârlılık açısından sektör ortalamasının gerisinde kalmasına işaret eder. Aktif toplamı 0,09 milyar TL'ye çıkmış, cari oran 31,11 (sektör medyanı 7,79) olarak çok yüksek seyretmiş; bu yüksek likidite, faaliyet nakit akışının -0,01 milyar TL olarak sabit kalmasıyla birlikte, likidite artışının kâr üretimine yansımadığını gösterir.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
@@ -57,8 +57,8 @@ Karşılaştırma Finans sektöründeki 30 şirketin **medyanına** göre yapıl
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
 | Brüt kâr marjı | %49,7 | %45,7 |
-| Net kâr marjı | -%63,0 | %14,7 |
-| Özkaynak kârlılığı | -%12,3 | %4,2 |
+| Net kâr marjı | -%63,0 | %15,9 |
+| Özkaynak kârlılığı | -%12,3 | %4,5 |
 | Cari oran | 31,11 | 7,79 |
 | Borç / özkaynak | -0,92 | -0,06 |
 
@@ -72,7 +72,7 @@ Karşılaştırma Finans sektöründeki 30 şirketin **medyanına** göre yapıl
 
 **Dikkat gerektirenler**
 
-- Özkaynak kârlılığı -%12,3; sektör medyanı %4,2.
+- Özkaynak kârlılığı -%12,3; sektör medyanı %4,5.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

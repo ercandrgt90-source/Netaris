@@ -1,7 +1,7 @@
 ---
 slug: asgyo-2026-1-ceyrek
 baslik: ASCE GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılatın 0,06 milyar TL'den 0,10 milyar TL'ye yükselmesi, net kârın -0,97 milyar TL'den 4,70 milyar TL'ye geçişiyle paralel bir artış gösterirken, özkaynak da 16,49 milyar TL'den 28,80 milyar TL'ye, aktif toplamı ise 22,01 milyar TL'den 31,37 milyar TL'ye artmıştır; bu büyümeler net borcun -1,17 mi…
+ozet: Hasılatın 0,06 milyar TL'den 0,10 milyar TL'ye yükselmesi, net kârın -0,97 milyar TL'den 4,70 milyar TL'ye geçişiyle paralel olarak gerçekleşmiş; gelir artışı kârda büyük bir sıçrama yaratırken özkaynak da 16,49 milyar TL'den 28,80 milyar TL'ye artmış ve bu da aktif toplamının 22,01 milyar TL'den 31…
 sirket: ASCE GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: ASGYO
 donem: 2026 1. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın 0,06 milyar TL'den 0,10 milyar TL'ye yükselmesi, net kârın -0,97 milyar TL'den 4,70 milyar TL'ye geçişiyle paralel bir artış gösterirken, özkaynak da 16,49 milyar TL'den 28,80 milyar TL'ye, aktif toplamı ise 22,01 milyar TL'den 31,37 milyar TL'ye artmıştır; bu büyümeler net borcun -1,17 milyar TL'den -0,94 milyar TL'ye iyileşmesi ve faaliyet nakit akışının -1,11 milyar TL'den -0,61 milyar TL'ye daralmasıyla birlikte gerçekleşmiştir. Net kâr marjı, özkaynak kârlılığı ve borç/özkaynak oranı negatif kalmış olsa da, net kârın pozitifleşmesi özkaynak ve aktif toplamındaki artışa, net borcun azalmasına ve faaliyet nakit akışındaki daralmaya paralel bir hareket olarak ortaya çıkmıştır.
+Hasılatın 0,06 milyar TL'den 0,10 milyar TL'ye yükselmesi, net kârın -0,97 milyar TL'den 4,70 milyar TL'ye geçişiyle paralel olarak gerçekleşmiş; gelir artışı kârda büyük bir sıçrama yaratırken özkaynak da 16,49 milyar TL'den 28,80 milyar TL'ye artmış ve bu da aktif toplamının 22,01 milyar TL'den 31,37 milyar TL'ye yükselmesine yansımıştır. Net borçun -1,17 milyar TL'den -0,94 milyar TL'ye iyileşmesi, borç/özkaynak oranının -0,03'e gerilemesiyle birlikte özkaynak kârlılığı ve net kâr marjının negatif değerlerden hafifçe pozitif yönlere kayması arasında bir ilişki görülmektedir. Faaliyet nakit akışı ise -1,11 milyar TL'den -0,61 milyar TL'ye azalarak, artan kâr ve özkaynakla birlikte nakit çıkışının sınırlı kalmasına işaret etmektedir.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 

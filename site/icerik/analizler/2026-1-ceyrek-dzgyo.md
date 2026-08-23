@@ -1,7 +1,7 @@
 ---
 slug: dzgyo-2026-1-ceyrek
 baslik: DENİZ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılat ve brüt kâr her ikisi de önceki döneme göre artarken, brüt kâr marjı %40,6 seviyesinde kalmış; bu, gelir artışının maliyet artışıyla paralel seyrettiğini gösteriyor.…
+ozet: Hasılat ve brüt kâr birlikte yükselirken, faaliyet kârı ve FAVÖK negatiften daha da negatif bir seviyeye kaymış; bu, gelir artışının maliyet ve gider artışlarıyla dengelenemediğini gösteriyor.…
 sirket: DENİZ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: DZGYO
 donem: 2026 1. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat ve brüt kâr her ikisi de önceki döneme göre artarken, brüt kâr marjı %40,6 seviyesinde kalmış; bu, gelir artışının maliyet artışıyla paralel seyrettiğini gösteriyor. Faaliyet kârı, FAVÖK ve net kârda ise önceki dönemdeki negatif değerlerin daha da derinleşmesi, faaliyet nakit akışının da pozitiften negatife dönmesiyle birlikte, işletme faaliyetlerinin kârlılığını olumsuz etkiledi. Özkaynak ve aktif toplamının artışı net borcun pozitifleşmesine yol açarken, cari oran 2,55'e yükselmiş, borç/özkaynak oranı ise sektör medyanının biraz üzerindeki %0,03 seviyesinde kalmıştır.
+Hasılat ve brüt kâr birlikte yükselirken, faaliyet kârı ve FAVÖK negatiften daha da negatif bir seviyeye kaymış; bu, gelir artışının maliyet ve gider artışlarıyla dengelenemediğini gösteriyor. Özkaynak ve aktif toplamı artışları net borcun pozitifleşmesiyle birlikte, cari oranın sektörel medyanın altında kalmasına rağmen borç/özkaynak oranının sektörel medyanın biraz üzerindeki seviyeye yükselmesi, likidite artışının borçlanma yapısına yansıdığını ortaya koyuyor. Net kâr marjı ve özkaynak kârlılığı negatif olduğu için, brüt kâr marjının sektörel medyanın altında kalması, kârın şirket içinde nasıl dağıldığını ve kârlılık üzerindeki baskıyı açıklıyor.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 

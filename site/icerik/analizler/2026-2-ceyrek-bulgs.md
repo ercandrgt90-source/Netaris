@@ -1,7 +1,7 @@
 ---
 slug: bulgs-2026-2-ceyrek
 baslik: BULLS GİRİŞİM SERMAYESİ YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat, brüt kâr, faaliyet kârı ve FAVÖK tümü önceki döneme göre büyük düşüş gösterirken, net kâr daha da derinleşerek -1,12 milyar TL'ye geriledi; bu aynı zamanda özkaynak kârlılığının -%13,1'e düşmesine ve net kâr marjının -%3532,1'e ulaşmasına yol açtı.…
+ozet: Hasılat, brüt kâr, faaliyet kârı ve FAVÖK tümü önceki döneme göre büyük düşüş gösterirken, net kâr daha da derinleşerek -1,12 milyar TL'ye yükseldi; bu düşüşler brüt kâr marjının %97,3 gibi yüksek kalmasına rağmen kârlılık ölçütlerinin (net kâr marjı -%3532,1, özkaynak kârlılığı -%13,1) sektöre göre…
 sirket: BULLS GİRİŞİM SERMAYESİ YATIRIM ORTAKLIĞI A.Ş.
 kod: BULGS
 donem: 2026 2. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat, brüt kâr, faaliyet kârı ve FAVÖK tümü önceki döneme göre büyük düşüş gösterirken, net kâr daha da derinleşerek -1,12 milyar TL'ye geriledi; bu aynı zamanda özkaynak kârlılığının -%13,1'e düşmesine ve net kâr marjının -%3532,1'e ulaşmasına yol açtı. Özkaynak ve toplam aktif 7,70 milyar TL ve 7,74 milyar TL'ye yükselirken, net borç -0,98 milyar TL (daha negatif) ve cari oran 27,59'a çıkarak sektör medyanının çok üzerinde seyrediyor; borç/özkaynak oranı ise -0,13 ile medyanın -0,06'sından daha düşük, yani şirketin likidite pozisyonu güçlenirken borç yapısı da daha az kaldıraçlı hâle geldi. Faaliyet nakit akışı -0,61 milyar TL'ye iyileşse de hâlâ negatif seyrediyor, bu da kâr kayıplarının nakit çıkışını tam olarak dengeleyemediğini gösteriyor.
+Hasılat, brüt kâr, faaliyet kârı ve FAVÖK tümü önceki döneme göre büyük düşüş gösterirken, net kâr daha da derinleşerek -1,12 milyar TL'ye yükseldi; bu düşüşler brüt kâr marjının %97,3 gibi yüksek kalmasına rağmen kârlılık ölçütlerinin (net kâr marjı -%3532,1, özkaynak kârlılığı -%13,1) sektöre göre çok gerilemesinin bir yansımasıdır. Özkaynak ve aktif toplamı ise sırasıyla 7,70 milyar TL ve 7,74 milyar TL olarak artmış, bu da negatif net borcun (-0,98 milyar TL) ve borç/özkaynak oranının (-0,13) iyileşmesine, dolayısıyla cari oranın 27,59 gibi sektör medyanının çok üzerinde seyretmesine yol açmıştır. Faaliyet nakit akışı negatif kalmış olsa da önceki döneme göre azalarak -0,61 milyar TL'ye gerilemiş, bu da yatırım harcamasının sıfır olmasıyla birlikte likidite baskısının hafiflediğini gösterir.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
@@ -59,8 +59,8 @@ Karşılaştırma Finans sektöründeki 30 şirketin **medyanına** göre yapıl
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
 | Brüt kâr marjı | %97,3 | %45,7 |
-| Net kâr marjı | -%3532,1 | %14,7 |
-| Özkaynak kârlılığı | -%13,1 | %4,2 |
+| Net kâr marjı | -%3532,1 | %15,9 |
+| Özkaynak kârlılığı | -%13,1 | %4,5 |
 | Cari oran | 27,59 | 7,79 |
 | Borç / özkaynak | -0,13 | -0,06 |
 
@@ -72,7 +72,7 @@ Karşılaştırma Finans sektöründeki 30 şirketin **medyanına** göre yapıl
 
 - Hasılat reel olarak -%80,6 geriledi.
 - Net kâr reel olarak -%116,0 geriledi.
-- Özkaynak kârlılığı -%13,1; sektör medyanı %4,2.
+- Özkaynak kârlılığı -%13,1; sektör medyanı %4,5.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

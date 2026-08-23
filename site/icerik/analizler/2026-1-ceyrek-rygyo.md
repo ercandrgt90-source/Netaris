@@ -1,7 +1,7 @@
 ---
 slug: rygyo-2026-1-ceyrek
 baslik: REYSAŞ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılat 2,05 milyar TL'ye yükselirken net kâr 1,99 milyar TL'ye artmış, bu artış özkaynakların 103,25 milyar TL'ye çıkması ve aktif toplamının 128,14 milyar TL'ye yükselmesiyle paralel bir büyüme göstermiş; aynı zamanda net borç 11,22 milyar TL'ye çıkmış olması, borç/özkaynak oranının %0,11'e (sektö…
+ozet: Hasılat 2,05 milyar TL'ye yükselirken net kâr 1,99 milyar TL'ye artmış, bu artış özkaynakların 103,25 milyar TL'ye (önceki 62,27 milyar TL) ve aktif toplamının 128,14 milyar TL'ye (önceki 72,77 milyar TL) yükselmesiyle paralel bir büyüme göstermiş; aynı zamanda net borç 11,22 milyar TL'ye (önceki 3,…
 sirket: REYSAŞ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: RYGYO
 donem: 2026 1. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat 2,05 milyar TL'ye yükselirken net kâr 1,99 milyar TL'ye artmış, bu artış özkaynakların 103,25 milyar TL'ye çıkması ve aktif toplamının 128,14 milyar TL'ye yükselmesiyle paralel bir büyüme göstermiş; aynı zamanda net borç 11,22 milyar TL'ye çıkmış olması, borç/özkaynak oranının %0,11'e (sektör medyanı %0,02) yükselmesine yol açmış. Net kâr marjı %118,2'ye (sektör medyanı %14,3) çıkarken özkaynak kârlılığı %1,1'e (sektör medyanı %0,4) yükselmiş, fakat faaliyet nakit akışı -3,59 milyar TL'ye (önceki dönem 0,55 milyar TL) gerilemiş; bu, kârın artmasına rağmen nakit çıkışının arttığını gösteriyor.
+Hasılat 2,05 milyar TL'ye yükselirken net kâr 1,99 milyar TL'ye artmış, bu artış özkaynakların 103,25 milyar TL'ye (önceki 62,27 milyar TL) ve aktif toplamının 128,14 milyar TL'ye (önceki 72,77 milyar TL) yükselmesiyle paralel bir büyüme göstermiş; aynı zamanda net borç 11,22 milyar TL'ye (önceki 3,85 milyar TL) çıkmış ve borç/özkaynak oranı %0,11'e (sektör medyanı %0,02) yükselmiş, bu da finansal kaldıraçta bir artışa işaret eder. Net kâr marjı %118,2'ye (sektör medyanı %14,3) çıkmışken özkaynak kârlılığı %1,1'e (sektör medyanı %0,4) yükselmiş; bu iki kârlılık göstergesi, yüksek net kârın özkaynak büyüklüğüne oranla daha fazla artmasıyla birlikte, faaliyet nakit akışının -3,59 milyar TL'ye (önceki 0,55 milyar TL) düşmesiyle ters bir ilişki göstermektedir. Bu negatif nakit akışı, artan kâr ve özkaynak büyüklüğünün, faaliyetlerden sağlanan nakit akışına yansımadığını ortaya koyar.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 

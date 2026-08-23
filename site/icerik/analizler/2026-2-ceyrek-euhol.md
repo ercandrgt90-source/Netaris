@@ -1,9 +1,9 @@
 ---
-slug: prdgs-2026-2-ceyrek
-baslik: PARDUS GİRİŞİM SERMAYESİ YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat, brüt kâr, faaliyet kârı ve net kâr aynı artış trendini izleyerek sıfırdan 0,28 milyar TL'ye yükselmiş; bu durum brüt kâr marjının %100,0 ve net kâr marjının %98,8 olmasını sağlamış.…
-sirket: PARDUS GİRİŞİM SERMAYESİ YATIRIM ORTAKLIĞI A.Ş.
-kod: PRDGS
+slug: euhol-2026-2-ceyrek
+baslik: EURO YATIRIM HOLDİNG A.Ş. 2026 2. çeyrek bilanço analizi
+ozet: Hasılatın 0,38 milyar TL'ye yükselmesi, faaliyet kârının 0,36 milyar TL'ye artmasıyla paralel bir artış gösterirken, net kârın 0,14 milyar TL'ye çıkması, önceki dönemde –0,03 milyar TL olan zarardan pozitif bir dönüşe işaret ediyor; bu kâr artışı, özkaynakların 5,52 milyar TL'ye (önceki 0,57 milyar…
+sirket: EURO YATIRIM HOLDİNG A.Ş.
+kod: EUHOL
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Finans
@@ -18,20 +18,19 @@ sayimlar:
 
 ## Özet
 
-Hasılat, brüt kâr, faaliyet kârı ve net kâr aynı artış trendini izleyerek sıfırdan 0,28 milyar TL'ye yükselmiş; bu durum brüt kâr marjının %100,0 ve net kâr marjının %98,8 olmasını sağlamış. Özkaynak ve aktif toplamı da benzer oranda artarak sırasıyla 2,94 milyar TL ve 2,96 milyar TL'ye ulaşmış, bu da özkaynak kârlılığının %11,3 olmasına katkıda bulunmuş. Net borçun –0,10 milyar TL'ye (nakit pozitif) dönüşmesi, cari oranın 5,73'e gerilemesine rağmen borç/özkaynak oranının –0,03 (sektör medyanı –0,06) seviyesinde kalmasını desteklemiş.
+Hasılatın 0,38 milyar TL'ye yükselmesi, faaliyet kârının 0,36 milyar TL'ye artmasıyla paralel bir artış gösterirken, net kârın 0,14 milyar TL'ye çıkması, önceki dönemde –0,03 milyar TL olan zarardan pozitif bir dönüşe işaret ediyor; bu kâr artışı, özkaynakların 5,52 milyar TL'ye (önceki 0,57 milyar TL) ve aktif toplamının 6,30 milyar TL'ye (önceki 0,58 milyar TL) ciddi ölçüde artmasıyla desteklenmiş. Net borcun –0,01 milyar TL olması, şirketin net nakit pozisyonunun pozitif olduğunu gösterirken, faaliyet nakit akışının 0,05 milyar TL'ye (önceki –0,17 milyar TL) yükselmesi, kârlı faaliyetlerin nakit üretimine de yansıdığını ortaya koyuyor. Net kâr marjı %63,5 seviyesinde sektör medyanı %15,9'un çok üzerinde iken, özkaynak kârlılığı %4,3 ve borç/özkaynak oranı 0,00, şirketin yüksek kârlılık ve düşük finansal risk profilini birlikte yansıttığını gösteriyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | %455,6 |
-| Brüt kâr | %455,6 |
-| Faaliyet kârı | %394,8 |
-| Net kâr | %371,7 |
-| Özkaynak | %54,3 |
-| Aktif toplamı | %54,2 |
-| Net borç | -%976,1 |
-| Faaliyet nakit akışı | %410,8 |
+| Hasılat | %187725,0 |
+| Faaliyet kârı | %92,8 |
+| Net kâr | %506,2 |
+| Özkaynak | %866,0 |
+| Aktif toplamı | %994,8 |
+| Net borç | -%67,3 |
+| Faaliyet nakit akışı | %128,1 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -39,14 +38,13 @@ Hasılat, brüt kâr, faaliyet kârı ve net kâr aynı artış trendini izleyer
 
 | Kalem | Değer |
 | --- | ---: |
-| Hasılat | 0,28 milyar TL |
-| Brüt kâr | 0,28 milyar TL |
-| Faaliyet kârı | 0,27 milyar TL |
-| Net kâr | 0,27 milyar TL |
-| Özkaynak | 2,94 milyar TL |
-| Aktif toplamı | 2,96 milyar TL |
-| Net borç | -0,10 milyar TL |
-| Faaliyet nakit akışı | 0,06 milyar TL |
+| Hasılat | 0,38 milyar TL |
+| Faaliyet kârı | 0,36 milyar TL |
+| Net kâr | 0,14 milyar TL |
+| Özkaynak | 5,52 milyar TL |
+| Aktif toplamı | 6,30 milyar TL |
+| Net borç | -0,01 milyar TL |
+| Faaliyet nakit akışı | 0,05 milyar TL |
 
 ## Sektör içindeki konum
 
@@ -54,11 +52,9 @@ Karşılaştırma Finans sektöründeki 30 şirketin **medyanına** göre yapıl
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %100,0 | %45,7 |
-| Net kâr marjı | %98,8 | %15,9 |
-| Özkaynak kârlılığı | %11,3 | %4,5 |
-| Cari oran | 5,73 | 7,79 |
-| Borç / özkaynak | -0,03 | -0,06 |
+| Net kâr marjı | %63,5 | %15,9 |
+| Özkaynak kârlılığı | %4,3 | %4,5 |
+| Borç / özkaynak | 0,00 | -0,06 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -66,9 +62,8 @@ Karşılaştırma Finans sektöründeki 30 şirketin **medyanına** göre yapıl
 
 **Şirket lehine işleyenler**
 
-- Hasılat reel olarak %455,6 arttı.
-- Net kâr reel olarak %371,7 arttı.
-- Özkaynak kârlılığı %11,3; sektör medyanı %4,5.
+- Hasılat reel olarak %187725,0 arttı.
+- Net kâr reel olarak %506,2 arttı.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

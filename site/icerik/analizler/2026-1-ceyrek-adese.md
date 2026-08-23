@@ -1,7 +1,7 @@
 ---
 slug: adese-2026-1-ceyrek
 baslik: ADESE GAYRİMENKUL YATIRIM A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılat 0,89 milyar TL'ye yükselirken net kâr -0,06 milyar TL'ye gerilemiş, bu durum net kâr marjının -%54,4'e düşmesine yol açmış; aynı dönemde özkaynak 19,69 milyar TL'ye artmış ve özkaynak kârlılığı -%0,8 olmuş, yani özkaynak büyümesi kârın azalmasıyla paralel bir negatif getiri yaratmış.…
+ozet: Hasılat 0,89 milyar TL'ye yükselirken net kâr -0,06 milyar TL'ye gerilemiş; gelir artışı faaliyet nakit akışının 0,42 milyar TL'ye geçmesine ve özkaynakların 19,69 milyar TL'ye (önceki 14,54 milyar TL) ve aktif toplamının 25,57 milyar TL'ye (önceki 18,42 milyar TL) yükselmesine paralel olmuş, bu da…
 sirket: ADESE GAYRİMENKUL YATIRIM A.Ş.
 kod: ADESE
 donem: 2026 1. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat 0,89 milyar TL'ye yükselirken net kâr -0,06 milyar TL'ye gerilemiş, bu durum net kâr marjının -%54,4'e düşmesine yol açmış; aynı dönemde özkaynak 19,69 milyar TL'ye artmış ve özkaynak kârlılığı -%0,8 olmuş, yani özkaynak büyümesi kârın azalmasıyla paralel bir negatif getiri yaratmış. Aktif toplamı 25,57 milyar TL'ye çıkmış ve net borç -0,21 milyar TL (nakit fazlası) olmuş; bu pozitif nakit pozisyon, borç/özkaynak oranının -%0,01'e (sektör medyanı 0,02) gerilemesine ve faaliyet nakit akışının 0,42 milyar TL'ye (önceki -0,08 milyar TL) yükselmesine katkı sağlamış. Dolayısıyla, gelir artışı ve aktif büyümesi nakit akışını iyileştirirken, kâr kaybı özkaynak verimliliğini ve kâr marjını olumsuz etkilemiştir.
+Hasılat 0,89 milyar TL'ye yükselirken net kâr -0,06 milyar TL'ye gerilemiş; gelir artışı faaliyet nakit akışının 0,42 milyar TL'ye geçmesine ve özkaynakların 19,69 milyar TL'ye (önceki 14,54 milyar TL) ve aktif toplamının 25,57 milyar TL'ye (önceki 18,42 milyar TL) yükselmesine paralel olmuş, bu da net borcun -0,21 milyar TL (önceki 0,16 milyar TL) negatifleşmesiyle özkaynak/borç oranının -0,01'e (sektör medyanı 0,02) düşmesine yol açtı. Net kâr marjı -%54,4 ve özkaynak kârlılığı -%0,8, her ikisi de sektör medyanı %14,3 ve %0,4'ün altında kalırken, artan aktif ve özkaynak seviyeleri borç/özkaynak oranının negatifleşmesine katkı sağlamış.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 

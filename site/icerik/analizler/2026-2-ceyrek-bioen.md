@@ -1,13 +1,13 @@
 ---
 slug: bioen-2026-2-ceyrek
 baslik: BİOTREND ÇEVRE VE ENERJİ YATIRIMLARI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın 1,48 milyar TL'ye düşmesi, net kârın -0,57 milyar TL'den 0,06 milyar TL'ye geçmesiyle birlikte faaliyet nakit akışının -0,11 milyar TL'ye kayması, gelir azalmasının likidite üzerindeki olumsuz etkisini gösteriyor; aynı dönemde aktif toplamının 11,58 milyar TL'ye yükselmesi net borcun 6,13…
+ozet: Hasılatın 1,48 milyar TL'ye düşmesi, net kârın -0,57 milyar TL'den 0,06 milyar TL'ye geçmesiyle birlikte faaliyet nakit akışının -0,11 milyar TL'ye kayması, gelir azalmasının likidite üzerindeki olumsuz etkisini gösterirken, aynı dönemde aktif toplamının 11,58 milyar TL'ye yükselmesi net borcun 6,13…
 sirket: BİOTREND ÇEVRE VE ENERJİ YATIRIMLARI A.Ş.
 kod: BIOEN
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Kamu hizmetleri
-tarih: 2026-08-22
+tarih: 2026-08-23
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın 1,48 milyar TL'ye düşmesi, net kârın -0,57 milyar TL'den 0,06 milyar TL'ye geçmesiyle birlikte faaliyet nakit akışının -0,11 milyar TL'ye kayması, gelir azalmasının likidite üzerindeki olumsuz etkisini gösteriyor; aynı dönemde aktif toplamının 11,58 milyar TL'ye yükselmesi net borcun 6,13 milyar TL'ye artmasına ve borç/özkaynak oranının 1,87'ye çıkmasına yol açarak özkaynakların 3,27 milyar TL'ye gerilemesine neden oldu. Net kâr marjının -%8,1 ve özkaynak kârlılığının -%2,0 olması, sektör medyanı %10,9 ve %1,0 seviyelerinin çok altında kalmasına rağmen, cari oranın 0,32'ye düşmesiyle kısa vadeli likidite sıkıntısının da artığını ortaya koyuyor. Yatırım harcamasının 0,12 milyar TL'ye azalması, aktif büyümesinin bir kısmını finanse etmek için borçlanma artışına (net borç +1,41 milyar TL) yönlendirdi.
+Hasılatın 1,48 milyar TL'ye düşmesi, net kârın -0,57 milyar TL'den 0,06 milyar TL'ye geçmesiyle birlikte faaliyet nakit akışının -0,11 milyar TL'ye kayması, gelir azalmasının likidite üzerindeki olumsuz etkisini gösterirken, aynı dönemde aktif toplamının 11,58 milyar TL'ye yükselmesi net borcun 6,13 milyar TL'ye artmasına ve borç/özkaynak oranının 1,87'ye çıkmasına yol açtı; özkaynakların 3,27 milyar TL'ye gerilemesi ise özkaynak kârlılığının -%2,0'ye düşmesine ve cari oranın 0,32'ye inmesine neden oldu.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
@@ -52,7 +52,7 @@ Karşılaştırma Kamu hizmetleri sektöründeki 24 şirketin **medyanına** gö
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Net kâr marjı | -%8,1 | %10,9 |
+| Net kâr marjı | -%8,1 | %11,4 |
 | Özkaynak kârlılığı | -%2,0 | %1,0 |
 | Cari oran | 0,32 | 0,90 |
 | Borç / özkaynak | 1,87 | 0,12 |

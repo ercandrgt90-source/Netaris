@@ -1,7 +1,7 @@
 ---
 slug: algyo-2026-1-ceyrek
 baslik: ALARKO GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılat 0,12 milyar TL'ye yükselirken net kâr –2,33 milyar TL'ye düşmüş, bu durum faaliyet nakit akışının 0,21 milyar TL'ye gerilemesiyle birlikte özkaynakların 17,58 milyar TL'ye artmasına rağmen net borcun 4,46 milyar TL'ye yükselmesine paralel bir kâr kaybı yansıtıyor.…
+ozet: Hasılat 0,12 milyar TL'ye yükselirken net kâr -2,33 milyar TL'ye düşmüş, bu durum faaliyet nakit akışının 0,21 milyar TL'ye gerilemesi ve net borcun 4,46 milyar TL'ye artmasıyla birlikte özkaynakların 17,58 milyar TL'ye yükselmesine rağmen kâr marjının %77,5 gibi sektör ortalamasının çok üzerindeki…
 sirket: ALARKO GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: ALGYO
 donem: 2026 1. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat 0,12 milyar TL'ye yükselirken net kâr –2,33 milyar TL'ye düşmüş, bu durum faaliyet nakit akışının 0,21 milyar TL'ye gerilemesiyle birlikte özkaynakların 17,58 milyar TL'ye artmasına rağmen net borcun 4,46 milyar TL'ye yükselmesine paralel bir kâr kaybı yansıtıyor. Net kâr marjının %77,5 gibi sektör medyanının çok üzerindeki seviyede olması, negatif net kârın büyüklüğüyle çelişerek kârın düşük bir kısmının yüksek marjlı kalemlerden geldiğini gösteriyor; aynı zamanda özkaynak kârlılığı %0,3 ile medyanın %0,4'üne yakınken borç/özkaynak oranının %0,25 (0,02 medyan) olması, özkaynak artışının borçlanma artışıyla desteklendiğini işaret ediyor. Aktif toplamının 28,87 milyar TL'ye çıkması, özkaynak ve net borç artışının birleşiminden kaynaklanırken, faaliyet nakit akışındaki düşüş net kârdaki negatif dönüşümle birlikte likidite baskısını artırıyor.
+Hasılat 0,12 milyar TL'ye yükselirken net kâr -2,33 milyar TL'ye düşmüş, bu durum faaliyet nakit akışının 0,21 milyar TL'ye gerilemesi ve net borcun 4,46 milyar TL'ye artmasıyla birlikte özkaynakların 17,58 milyar TL'ye yükselmesine rağmen kâr marjının %77,5 gibi sektör ortalamasının çok üzerindeki seviyeye çıkmasına yol açmıştır. Aktif toplamının 28,87 milyar TL'ye çıkması, özkaynak artışıyla paralel bir büyüme gösterirken borç/özkaynak oranı %0,25'e yükselmiş, bu da sektör medyanı %0,02'nin çok üzerindedir. Özkaynak kârlılığı %0,3, sektör medyanı %0,4 olduğu için özkaynak artışı kârlılıkta sınırlı bir etki bırakmıştır.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 

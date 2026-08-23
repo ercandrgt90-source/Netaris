@@ -1,7 +1,7 @@
 ---
 slug: derhl-2026-1-ceyrek
 baslik: DERLÜKS YATIRIM HOLDİNG A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılat aynı kalırken brüt kâr, faaliyet kârı ve FAVÖK artışları, maliyet ve giderlerdeki iyileşmelerin brüt kâr marjını %28,1'e (sektör medyanı %15,4) yükseltmesine paralel olarak, net kârın ise %0,6'ya (sektör medyanı %1,7) gerilemesi, net kâr marjının düşük kalmasının vergi, faiz ve diğer sabit g…
+ozet: Hasılat aynı kalırken brüt kâr, faaliyet kârı ve FAVÖK artışları, maliyet ve giderlerdeki azalmaya işaret eder; bu artışların net kârda sadece %0,6'lık düşük bir marjla sonuçlanması, vergi, faiz ve diğer kalemlerdeki artışların net kârı erittiğini gösterir.…
 sirket: DERLÜKS YATIRIM HOLDİNG A.Ş.
 kod: DERHL
 donem: 2026 1. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat aynı kalırken brüt kâr, faaliyet kârı ve FAVÖK artışları, maliyet ve giderlerdeki iyileşmelerin brüt kâr marjını %28,1'e (sektör medyanı %15,4) yükseltmesine paralel olarak, net kârın ise %0,6'ya (sektör medyanı %1,7) gerilemesi, net kâr marjının düşük kalmasının vergi, faiz ve diğer sabit giderlerin etkisini gösterdiğini işaret eder; özkaynakların 2,80 milyar TL'ye (sektör medyanı %0,5) yükselmesi, özkaynak kârlılığının %0,3 (sektör medyanı %0,5) seviyesinde kalmasına rağmen, aktif toplamının 6,09 milyar TL'ye (sektör medyanı 1,30) artmasıyla likiditeyi artırarak cari oranı 1,45 (sektör medyanı 1,30) ve borç/özkaynak oranını 0,77 (sektör medyanı 0,13) yükseltmiştir; net borcun 2,15 milyar TL'ye (sektör medyanı 0,13) çıkması, artan borçlanmanın özkaynak artışıyla dengelendiğini, ancak borç/özkaynak oranının sektöre göre daha yüksek olduğunu gösterir.
+Hasılat aynı kalırken brüt kâr, faaliyet kârı ve FAVÖK artışları, maliyet ve giderlerdeki azalmaya işaret eder; bu artışların net kârda sadece %0,6'lık düşük bir marjla sonuçlanması, vergi, faiz ve diğer kalemlerdeki artışların net kârı erittiğini gösterir. Özkaynak ve aktif toplamının yükselmesi, net borcun da artmasıyla birlikte borç/özkaynak oranının %0,77'ye çıkması, şirketin büyüme finansmanını daha fazla borçla desteklediğini, ancak cari oranının 1,45 ile sektör medyanının üzerindeki likidite seviyesini koruduğunu ortaya koyar. Faaliyet nakit akışının pozitifleşmesi, yatırım harcamasının sıfır olmasıyla birlikte, şirketin mevcut faaliyetlerinden nakit üretme kapasitesinin iyileştiğini, ancak net kâr marjı ve özkaynak kârlılığı gibi kârlılık göstergelerinin sektör medyanının altında kalmaya devam ettiğini gösterir.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 
@@ -58,10 +58,10 @@ Karşılaştırma İsteğe bağlı tüketim sektöründeki 63 şirketin **medyan
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %28,1 | %15,4 |
+| Brüt kâr marjı | %28,1 | %16,6 |
 | Net kâr marjı | %0,6 | %1,7 |
-| Özkaynak kârlılığı | %0,3 | %0,5 |
-| Cari oran | 1,45 | 1,30 |
+| Özkaynak kârlılığı | %0,3 | %0,7 |
+| Cari oran | 1,45 | 1,29 |
 | Borç / özkaynak | 0,77 | 0,13 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
