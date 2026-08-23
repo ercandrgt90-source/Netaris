@@ -315,20 +315,26 @@ def cizgi_grafik(baslik: str, konu: str, degerler: list[float],
 
 def genel(konu: str, etiket: str = "NETARIS") -> str:
     """Grafik verisi olmayan sayfalar icin sade zemin."""
-    p = [_zemin(etiket), _ust_yazi(etiket or "NETARİS", konu)]
-    # Soyut ama duzenli bir dalga -- veri iddiasi tasimaz
-    orta = YUK * 0.68
-    nokta = []
-    for i in range(0, 25):
-        x = 70 + i * ((GEN - 140) / 24)
-        y = orta - (i % 5) * 22 - (i % 3) * 12
-        nokta.append(f"{x:.1f},{y:.1f}")
-    p.append(
-        f'<polyline points="{" ".join(nokta)}" fill="none" '
-        f'stroke="{VURGU}" stroke-width="4" opacity="0.35" '
-        f'stroke-linejoin="round"/>'
-    )
-    return _sar("".join(p), konu)
+    # DEKORATIF DALGA KALDIRILDI.
+    # ---------------------------
+    # Burada 25 noktali bir zikzak ciziliyordu ve yanindaki yorum
+    # "soyut ama duzenli bir dalga -- veri iddiasi tasimaz" diyordu.
+    #
+    # Yazarken makul gorunmus olabilir; SONUCU oyle degil. Olculdu
+    # (2026-08-23): 384 bilanco analizinin 298'inde `grafik:` alani
+    # bostu ve bu cizim basiliyordu. Bir bilanco sayfasinda, hisse
+    # kodunun altinda duran zikzak bir cizgi okur icin FIYAT
+    # GRAFIGIDIR. Kullanicinin ilk tepkisi de tam buydu: "grafige
+    # fiyatin gelmesi lazim" -- yani cizgi veri olarak okunmus.
+    #
+    # Bir cizimin "veri iddiasi tasimadigina" onu cizen karar veremez;
+    # okuyan verir. Geriye sade zemin ve kimlik yazisi kaliyor.
+    #
+    # Gercek grafik nereden geliyor: `insa.govdeden_grafik` yazinin
+    # govdesindeki "Reel degisim" tablosunu okuyor ve sutun grafigi o
+    # rakamlardan ciziliyor.
+    return _sar("".join([_zemin(etiket),
+                         _ust_yazi(etiket or "NETARİS", konu)]), konu)
 
 
 # ---------------------------------------------------------------------------

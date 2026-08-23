@@ -843,6 +843,54 @@ def analiz_fotografi(kayit, baslik: str, kategori: str, kod: str) -> tuple[str, 
 #: ayni tavan daha az haberi gorselsiz birakir.
 FOTO_TEKRAR_TAVANI = 8
 
+#: Govdedeki "Reel degisim" tablosu -- yazinin KENDI rakamlari.
+_REEL_TABLO = re.compile(
+    r"\|\s*Kalem\s*\|\s*Reel değişim\s*\|(.*?)(?:\n\s*\n|\Z)",
+    re.S)
+_REEL_SATIR = re.compile(r"\|\s*([^|]+?)\s*\|\s*(-?)%([\d.,]+)\s*\|")
+
+
+def govdeden_grafik(govde_md: str) -> list:
+    """Yazinin govdesindeki reel degisim tablosunu grafik noktalarina cevirir.
+
+    NEDEN GEREKLI
+    -------------
+    Olculdu (2026-08-23): 384 bilanco analizinin 298'inde `grafik:`
+    alani BOSTU ve `gorsel.uret` o durumda `genel()` cizimine
+    dusuyordu -- kodunda "soyut ama duzenli bir dalga, veri iddiasi
+    tasimaz" yaziyor.
+
+    O gerekce yazarken dogru gorunmus olabilir ama SONUCU oyle degil:
+    bir bilanco sayfasinda, sirket kodunun altinda duran zikzak bir
+    cizgi okur icin FIYAT GRAFIGIDIR. Kullanici da tam bunu sordu --
+    "grafige fiyatin gelmesi lazim". Yani cizgi, veri iddiasi olarak
+    okunmus.
+
+    Oysa veri ZATEN SAYFADA: govdedeki "Reel degisim" tablosu
+    sirketin kendi raporundan turetilmis gercek rakamlar. Grafik
+    artik ondan ciziliyor.
+
+    BIST FIYATI CIZILEMEZ ve bu bilincli: fiyat verisi Borsa Istanbul
+    dagitim lisansi istiyor, bizde yok. Ucretsiz TradingView widget'i
+    da BIST vermiyor (olculdu). Bilanço sayfasinda zaten daha dogru
+    olan sey fiyat degil, sirketin kendi kalemleri.
+    """
+    m = _REEL_TABLO.search(govde_md or "")
+    if not m:
+        return []
+    noktalar = []
+    for etiket, eksi, sayi in _REEL_SATIR.findall(m.group(1)):
+        e = etiket.strip()
+        if not e or set(e) <= set("- :"):
+            continue
+        try:
+            d = float(sayi.replace(".", "").replace(",", "."))
+        except ValueError:
+            continue
+        noktalar.append(gorsel.Nokta(e, -d if eksi else d))
+    return noktalar
+
+
 def _sektor_sekmeleri(analizler: list) -> list[dict]:
     """Sektor -> (kod, ad, adet). Anlamli degilse BOS liste.
 
@@ -1279,13 +1327,26 @@ def analizleri_yukle() -> list[Analiz]:
 
         # Gorsel yazinin kendi rakamlarindan cizilir. Grafik verisi yoksa
         # sade zemin uretilir -- temsili/uydurma bir grafik CIZILMEZ.
-        gorsel_svg = gorsel.uret(
-            tur=b.al("grafik_tur"),
-            ham=b.al("grafik"),
-            kod=b.al("grafik_kod") or (kod if kod and kod != "MAKRO" else ""),
-            konu=b.al("sirket") or baslik,
-            birim=b.al("grafik_birim"),
-        )
+        # GRAFIK VERISI YOKSA GOVDEDEN OKUNUYOR.
+        # 298 analizde `grafik:` alani bostu ve yerine dekoratif bir
+        # dalga ciziliyordu; oysa ayni sayfanin govdesinde gercek
+        # rakamlar duruyor. Bkz. `govdeden_grafik`.
+        _ham = b.al("grafik")
+        _tur = b.al("grafik_tur")
+        _govde_nokta = [] if _ham else govdeden_grafik(b.govde_md)
+        if _govde_nokta:
+            gorsel_svg = gorsel.sutun_grafik(
+                b.al("grafik_kod") or (kod if kod and kod != "MAKRO" else ""),
+                gorsel.kisa_unvan(b.al("sirket") or baslik), _govde_nokta)
+        else:
+            gorsel_svg = gorsel.uret(
+                tur=_tur,
+                ham=_ham,
+                kod=b.al("grafik_kod") or (kod if kod and kod != "MAKRO"
+                                            else ""),
+                konu=b.al("sirket") or baslik,
+                birim=b.al("grafik_birim"),
+            )
         foto_yol, foto_atif = analiz_fotografi(_foto_kayit, baslik, kategori, kod)
 
         liste.append(
