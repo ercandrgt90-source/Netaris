@@ -116,6 +116,39 @@ BESLEMELER = (
      "https://www.financialjuice.com/feed.ashx?xy=rss",
      "Şirket haberleri", "en", True),
 
+    # --- KRIPTO ---
+    #
+    # NEDEN EKLENDI
+    # Site "Kripto varliklar" konusunu tanimliyor, teknik sayfalarinda
+    # BTC/ETH/PAXG serisi var ve fiyat seridinde de gorunuyorlar --
+    # ama HABER TARAFINDA hicbir kaynak yoktu. Konu vardi, icerigi
+    # yoktu.
+    #
+    # NEDEN BU DORDU
+    # Dordu de RSS veriyor, hicbirinin robots.txt'i besleme yolunu
+    # engellemiyor (olculdu, 2026-08-23) ve dordu de kripto
+    # gazeteciligine adanmis yayinlar -- genel yayinlarin kripto
+    # servisinden daha az gurultu tasiyorlar.
+    #
+    # Hepsi TICARI: kaynak adi ve baglanti sayfada gorunur basiliyor,
+    # ozet 280 karakterle sinirli (bkz. `insa.tazele`). Ayni kural
+    # butun ticari kaynaklarda gecerli.
+    #
+    # SIRA: The Block once, cunku kurumsal/duzenleme tarafina agirlik
+    # veriyor ve bizim okurumuz icin fiyat yorumundan daha degerli.
+    ("BLOCK", "The Block", "The Block",
+     "https://www.theblock.co/rss.xml",
+     "Kripto varlıklar", "en", True),
+    ("COINDESK", "CoinDesk", "CoinDesk",
+     "https://www.coindesk.com/arc/outboundfeeds/rss/",
+     "Kripto varlıklar", "en", True),
+    ("COINTG", "Cointelegraph", "Cointelegraph",
+     "https://cointelegraph.com/rss",
+     "Kripto varlıklar", "en", True),
+    ("DECRYPT", "Decrypt", "Decrypt",
+     "https://decrypt.co/feed",
+     "Kripto varlıklar", "en", True),
+
     # --- Ticari, ekonomiye adanmis ---
     ("AA_EKO", "AA", "Anadolu Ajansı",
      "https://www.aa.com.tr/tr/rss/default?cat=ekonomi",

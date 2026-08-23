@@ -3661,7 +3661,16 @@ _ONEM_YEDEK_SAYISI = 10
 
 
 #: AI yorum akisinda kac kalem.
-AI_AKIS_SAYISI = 6
+# 6 -> 8.
+#
+# Genis ekranda serit dort sutunlu bir izgaraya donuyor ve alti kart
+# ikinci satirda ikiye dusuyordu. `auto-fit` bos izleri kaldiriyor,
+# yani artik gorsel bosluk kalmiyor -- ama iki kartin butun satiri
+# kaplamasi da orantisiz duruyor.
+#
+# Sekiz, iki sutunda 4x2, dortte 2x4 -- her iki duzende de TAM
+# doluyor. Ayni sebep `one_cikanlar[1:7]` icin de gecerli (alti kart).
+AI_AKIS_SAYISI = 8
 
 
 def ai_akisi(haberler: list[dict], en_cok: int = AI_AKIS_SAYISI) -> list[dict]:

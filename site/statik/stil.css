@@ -1468,33 +1468,31 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
 /* KIRPILAN METIN -- "devamı" isareti.
    --------------------------------------------------------------------
    `.kirpildi` sinifini `kirpma.js` ekliyor ve YALNIZCA metin gercekten
-   kesildiyse ekliyor. Kosulsuz bir "devamı" yazmak, tamamlanmis bir
-   ozetin altinda olmayan bir sey vaat etmek olurdu.
+   kesildiyse ekliyor.
 
-   Solma (gradyan) metnin son satirini yumusatiyor: sert kesilen bir
-   satir, eksik degil BOZUK gorunuyor.
-   ================================================================== */
-.kirpildi { position: relative}
-.kirpildi::after {
-  content: "…devamı";
-  position: absolute; right: 0; bottom: 0;
-  padding: 0 0 0 var(--b-5);
-  font-size: var(--p-s); font-weight: 600;
-  color: var(--vurgu);
-  /* Solma, metnin ustune degil ARKASINA: yazi okunur kaliyor. */
-  background: linear-gradient(to right,
-    transparent, var(--panel) 40%, var(--panel))}
-/* Kutu rengi farkli olan yerlerde solma da o renkten olmali; yoksa
-   beyaz bir seritle kesiliyor. */
-.kart-yorum .kirpildi::after {
-  background: linear-gradient(to right,
-    transparent, var(--vurgu-zar) 40%, var(--vurgu-zar))}
-.kart-yorum-kaynak .kirpildi::after {
-  background: linear-gradient(to right,
-    transparent, var(--panel-2) 40%, var(--panel-2))}
-.ai-kart-yorum .kirpildi::after {
-  background: linear-gradient(to right,
-    transparent, var(--vurgu-zar) 40%, var(--vurgu-zar))}
+   ISARET METNIN UZERINE DEGIL, ALTINA.
+   Ilk surumde `::after` kirpilan ogenin ICINE mutlak konumlanmisti
+   (`position: absolute; right: 0; bottom: 0`) ve son satirin uzerine
+   biniyordu: ekran goruntusunde "aşkeri..devamı" ve "açıdevamı" diye
+   ust uste binmis metinler goruldu.
+
+   Sebep: kirpilan oge `display: -webkit-box` ve o baglamda ic
+   konumlama guvenilir degil; ustelik gradyan da metni ortmuyor,
+   arkasinda kaliyordu.
+
+   Isaret artik KUTUNUN kendisine, metnin ALTINA basiliyor. Kendi
+   satirini aliyor ve hicbir seyin uzerine binmiyor. */
+.kirpildi::after { content: none}
+
+.kart-yorum:has(.kirpildi)::after,
+.ai-kart-yorum:has(.kirpildi)::after,
+.kart-ic:has(.kirpildi)::after {
+  content: "…devamını oku";
+  display: block;
+  margin: 6px 0 0;
+  font-size: var(--p-s);
+  font-weight: 600;
+  color: var(--vurgu)}
 
 /* ====================================================================
    ANA SAYFA MODULU -- beyaz kart + yatay serit
@@ -1587,7 +1585,14 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
      siyor ve kaydirmali bir serit orada gereksiz bir engel olurdu. */
   .serit-yatay {
     grid-auto-flow: row;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    /* `auto-fill` DEGIL `auto-fit`.
+       `auto-fill` bos sutun IZLERI birakiyor: alti kart dort sutunlu
+       bir izgarada ikinci satirda iki kart + iki BOS HUCRE olarak
+       diziliyordu ve ekran goruntusunde sagda gri bir bosluk
+       goruluyordu.
+       `auto-fit` dolmayan izleri KALDIRIYOR ve kalan kartlar satiri
+       kapliyor -- bosluk kalmiyor. */
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     grid-auto-columns: auto;
     overflow-x: visible;
     scroll-snap-type: none;
