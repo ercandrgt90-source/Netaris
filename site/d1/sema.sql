@@ -228,3 +228,42 @@ ALTER TABLE senaryo ADD COLUMN curutme TEXT;
 -- belirtin" diyor -- ama belirtecegi bir ALAN YOKTU. Denetim bir sey
 -- istiyor, arayuz onu vermiyordu.
 ALTER TABLE senaryo ADD COLUMN kaynaklar TEXT;
+
+-- ---------------------------------------------------------------------
+-- GORUNTULENME VE BEGENI
+-- ---------------------------------------------------------------------
+-- NEDEN VAR
+-- Tasarim taslaginda her kartin altinda goruntulenme ve begeni sayisi
+-- duruyor. Site bunlari HIC olcmuyordu; sayfaya uydurma bir sayi
+-- basmak ise bu sitede en agir ihlal olurdu ("olculmemis seyi olcum
+-- gibi sunma"). Bu yuzden once olcum, sonra gosterim.
+--
+-- GORUNTULENME KESIN BIR SAYI DEGIL -- ve oyle sunulmuyor.
+-- Tarayici tarafinda gunde bir kez sayiliyor (yerel depoda isaret),
+-- sunucuda da IP'ye gore degil YOLA gore toplaniyor. Yani bu bir
+-- "tekil ziyaretci" olcusu degil, sayfa acilis sayisi. Gizlilik
+-- beyaninda da boyle yaziyor ve `beyan_denetimi.py` beyanin gercekle
+-- ortustugunu denetliyor.
+--
+-- NEDEN IP SAKLANMIYOR
+-- Saklansa daha iyi bir sayim yapilabilirdi. Saklanmiyor cunku IP
+-- kisisel veri ve bir sayacin dogrulugu, okurun izini tutmaya
+-- degmez. Bu bir eksiklik degil, bir tercih.
+CREATE TABLE IF NOT EXISTS sayac (
+  yol           TEXT PRIMARY KEY,
+  goruntulenme  INTEGER NOT NULL DEFAULT 0,
+  guncelleme    TEXT
+);
+
+-- BEGENI UYELIK ISTIYOR.
+-- Anonim begeni sayilabilir bir sey degil: ayni kisi yuz kez basar ve
+-- sayi anlamini kaybeder. `senaryo_oy` ile ayni gerekce, ayni yapi.
+CREATE TABLE IF NOT EXISTS begeni (
+  yol     TEXT NOT NULL,
+  uye_id  INTEGER NOT NULL REFERENCES uye(id) ON DELETE CASCADE,
+  an      TEXT NOT NULL,
+  PRIMARY KEY (yol, uye_id)
+);
+
+CREATE INDEX IF NOT EXISTS begeni_yol ON begeni(yol);
+CREATE INDEX IF NOT EXISTS begeni_uye ON begeni(uye_id);

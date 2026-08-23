@@ -1,3 +1,4 @@
+{% import "_sayac.html" as sy %}
 {% extends "temel.html" %}
 
 {% block baslik %}Haberler — {{ site.ad }}{% endblock %}
@@ -134,7 +135,10 @@
 
     {# Butun baglantilar SITE ICINDE kalir -- okur disari yonlendirilmez. #}
     {% if h.yol %}
-    <a class="haber-git" href="{{ h.yol }}">Haberi oku →</a>
+    <div class="haber-alt">
+      <a class="haber-git" href="{{ h.yol }}">Haberi oku →</a>
+      {{ sy.sayac(h.yol) }}
+    </div>
     {% endif %}
   </div>
 </article>

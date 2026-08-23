@@ -1,3 +1,4 @@
+{% import "_sayac.html" as sy %}
 {% import "_paylas.html" as pl %}
 {% import "_yapisal.html" as yv %}
 {% extends "temel.html" %}
@@ -224,8 +225,13 @@
        okur okumaz karar veriyor; o anda blok ekranin cok asagisindaydi.
        Kullanici geri bildirimi: "sosyal medya paylas sekmeleri de
        haberin altinda olacak, ilk giriste". #}
-    {{ pl.paylas(h.baslik, h.ozet or h.neden_onemli, yol, site.adres,
-                 dar=true) }}
+    <div class="yazi-eylem">
+      {{ pl.paylas(h.baslik, h.ozet or h.neden_onemli, yol, site.adres,
+                   dar=true) }}
+      {# `birincil` -> goruntulenme BURADA sayiliyor; liste kartinda
+         degil. Kart gormek, haberi okumak degildir. #}
+      {{ sy.sayac(yol, birincil=true) }}
+    </div>
   </header>
 
   <div class="govde">

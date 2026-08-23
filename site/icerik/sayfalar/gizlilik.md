@@ -4,7 +4,7 @@ baslik: Gizlilik ve Çerez Politikası
 ozet: Hangi verilerin işlendiği, çerez kullanımı ve KVKK kapsamındaki haklar.
 ---
 
-Son güncelleme: 22 Ağustos 2026
+Son güncelleme: 23 Ağustos 2026
 
 ## Kısaca
 
@@ -53,6 +53,9 @@ veya siteler arası takip amacıyla kullanılmaz ve üçüncü taraflarla payla�
 Çıkış yaptığınızda silinir.
 
 **Üye değilseniz tarayıcınıza bu siteye ait hiçbir çerez yazılmaz.**
+(Çerez dışında bir istisna vardır: görüntülenme sayacının aynı sayfayı
+gün içinde tekrar saymaması için tarayıcınızın yerel deposuna bir gün
+işareti yazılır. Ayrıntısı aşağıda.)
 
 ## Ziyaret sayımı (analitik)
 
@@ -69,6 +72,29 @@ ulaşılamaz.
 Çerez kullanmadığı ve kişisel veri işlemediği için bu araç **çerez onayı
 gerektirmez**. Analitiği kapatmak isterseniz tarayıcınızın betik engelleme
 özelliğini kullanabilirsiniz; sitenin işleyişi etkilenmez.
+
+## Görüntülenme ve beğeni sayacı
+
+Haber ve analiz sayfalarında **görüntülenme** ve **beğeni** sayısı gösterilir.
+Bu sayım Netaris'in kendi sunucusunda tutulur; üçüncü bir tarafa gitmez.
+
+**Ne saklanır:** yalnızca sayfanın adresi ve o adresin açılma sayısı.
+IP adresiniz, tarayıcı bilginiz veya size ait herhangi bir kimlik
+**saklanmaz**. Kim olduğunuz sorulmaz ve kaydedilmez.
+
+**Bu sayı tekil ziyaretçi sayısı değildir**, sayfa açılış sayısıdır. Aynı
+kişi farklı günlerde açarsa birden çok kez sayılır. Daha kesin bir sayım
+için ziyaretçiyi tanımak gerekirdi ve bunu tercih etmiyoruz.
+
+**Tarayıcınızda tutulan tek şey:** aynı sayfayı gün içinde yenilediğinizde
+sayacın şişmemesi için tarayıcınızın *yerel deposuna* (`localStorage`) bir
+gün işareti yazılır. Bu bir çerez değildir, sunucuya gönderilmez ve
+yalnızca sizin cihazınızda kalır. Tarayıcı verilerini temizlerseniz silinir.
+
+**Beğeni üyelik gerektirir.** Beğendiğiniz sayfaların listesi hesabınıza
+bağlı olarak saklanır; hesabınızı silerseniz beğenileriniz de silinir.
+Üye değilseniz beğeni düğmesi sizi giriş sayfasına yönlendirir ve
+tarayıcınıza hiçbir kayıt yazılmaz.
 
 ## Barındırma kaynaklı teknik kayıtlar
 

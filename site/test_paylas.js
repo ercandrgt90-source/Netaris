@@ -135,7 +135,23 @@ function sahteDom(destek, darEkran) {
 {
   const a = sahteDom(true, true);
   esit(a.dugme.hidden, false, "destek + dar ekran: yerel dugme ACILIYOR");
-  esit(a.seri.hidden, true, "yerel dugme acilinca baglanti serisi gizleniyor");
+  // BEKLENTI DEGISTI -- ve degisme sebebi kayda geciyor.
+  //
+  // Onceki surumde burasi `esit(a.seri.hidden, true)` idi: dar ekranda
+  // bes ikon GIZLENIP yerine tek bir "Paylaş" dugmesi kaliyordu.
+  // Gerekce "iki paylasim yolu yan yana durursa okur hangisinin ne
+  // yaptigini bilemez" idi.
+  //
+  // Kullanici geri bildirimi bunun tersini soyledi: telefonda yalnizca
+  // "Paylaş" yaziyordu, hicbir sosyal ag gorunmuyordu ve okur ne
+  // olacagini bilmeden basmak zorundaydi. Isletim sisteminin paylasim
+  // sayfasi BIR ADIM DAHA ekliyor; ikonlar tek dokunusla hedefi belli
+  // ediyor.
+  //
+  // Ikisi artik birlikte duruyor. Sinama bunu TUTUYOR: seri yeniden
+  // gizlenirse duser.
+  esit(a.seri.hidden, false,
+       "dar ekranda da baglanti serisi DURUYOR (ikonlar gizlenmiyor)");
 }
 {
   const b = sahteDom(true, false);

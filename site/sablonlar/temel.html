@@ -330,6 +330,9 @@
 {% if son_dakika %}<script src="/statik/sondakika.js?v={{ js_surum }}" defer></script>{% endif %}
 <script src="/statik/oturum.js?v={{ js_surum }}" defer></script>
 <script src="/statik/tema.js?v={{ js_surum }}" defer></script>
+{# Goruntulenme ve begeni. Sayilar SUNUCUDAN geliyor, sayfaya
+   basilmiyor -- gerekce `_sayac.html` icinde. #}
+<script src="/statik/sayac.js?v={{ js_surum }}" defer></script>
 {% block betikler %}{% endblock %}
 
 

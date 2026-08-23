@@ -1391,6 +1391,46 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
   padding: 0; margin: -1px; overflow: hidden;  /* dort-yan: gorsel gizleme kalibi (sr-only) -- dort yan kasitli */
   clip: rect(0 0 0 0); white-space: nowrap; border: 0}
 
+/* ====================================================================
+   GORUNTULENME VE BEGENI
+   --------------------------------------------------------------------
+   Kutu `hidden` basiliyor ve `sayac.js` gercek sayi gelince aciyor --
+   gerekce `_sayac.html` icinde: sayfa statik, sayi canli.
+   ================================================================== */
+.sayac {
+  display: inline-flex; align-items: center; gap: var(--b-3);
+  font-size: var(--p-xs); color: var(--yazi-3);
+  font-variant-numeric: tabular-nums}
+.sayac-oge {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: none; border: 0; padding: 0; margin: 0;
+  font: inherit; color: inherit}
+.sayac-oge b { font-weight: 700}
+.sayac-begeni { cursor: pointer; border-radius: var(--r-kucuk)}
+.sayac-begeni:hover { color: var(--vurgu)}
+.sayac-begeni:disabled { opacity: 0.55; cursor: default}
+/* Begenilmis durum RENKLE ANLATILMIYOR YALNIZCA: `aria-pressed`
+   ekran okuyucuya durumu soyluyor ve ikon da doluyor. Renk korlugu
+   olan okur icin tek isaret renk olmamali. */
+.begenildi { color: var(--vurgu); font-weight: 700}
+
+/* Kart altinda "Haberi oku" solda, sayaclar sagda. */
+.haber-alt {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--b-3); flex-wrap: wrap; margin: auto 0 0}
+.haber-alt .haber-git { margin: 0; padding: 6px 0 0}
+
+/* Yazi basinda paylasim ve sayac ayni satirda. */
+.yazi-eylem {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--b-4); flex-wrap: wrap}
+.yazi-eylem .sayfa-paylas-dar { margin: var(--b-4) 0 0}
+
+.gizli-yazi {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;  /* dort-yan: sr-only kalibi */
+  clip: rect(0 0 0 0); white-space: nowrap; border: 0}
+
 /* FOTOGRAF KUNYESI -- sayfa sonunda, tek satir.
    Once fotografin ALTINDA `figcaption` olarak duruyordu ve gorselle
    metin arasina bir satir sokuyordu. CC BY atfin var olmasini ister,

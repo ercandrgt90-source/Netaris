@@ -1049,6 +1049,162 @@ async function senaryoOy(env, uye, id) {
 const ONE_CIKAN_GUN = 7;
 const ONE_CIKAN_ADET = 6;
 
+/* ---------------------------------------------------------------------
+   GORUNTULENME VE BEGENI
+   ---------------------------------------------------------------------
+   NEDEN VAR
+   Tasarim taslaginda her kartin altinda goruntulenme ve begeni sayisi
+   duruyor. Site bunlari hic olcmuyordu. Uydurma bir sayi basmak bu
+   sitede en agir ihlal olurdu, o yuzden once olcum kuruldu.
+
+   YOL DOGRULAMASI SART
+   `yol` istemciden geliyor. Dogrulanmazsa herkes istedigi anahtari
+   yazar ve tablo cop olur. Kabul edilen bicim: `/` ile baslayan, tek
+   egik cizgiyle ayrilmis, yalnizca kucuk harf/rakam/tire iceren, en
+   fazla 160 karakterlik bir yol. Sorgu ve capa KABUL EDILMIYOR --
+   ayni sayfa iki ayri satira yazilirdi.
+--------------------------------------------------------------------- */
+
+/** Kabul edilen sayfa yolu bicimi. */
+const YOL_BICIMI = /^\/[a-z0-9\-\/]{1,158}\/$/;
+
+/** Sayacin tutuldugu bolumler. Her sayfa degil: yalnizca ICERIK. */
+const SAYILAN_KOK = ["/haber/", "/analiz/", "/olay/", "/varlik/",
+                     "/makro/", "/teknik/", "/yorum/", "/arastirmalar/"];
+
+function yolGecerli(yol) {
+  if (typeof yol !== "string" || !YOL_BICIMI.test(yol)) return false;
+  if (yol.indexOf("//") !== -1) return false;
+  return SAYILAN_KOK.some((k) => yol.startsWith(k));
+}
+
+/* Toplu sorguda kac yol kabul edilir. Liste sayfasinda ekranda bu
+   kadar kart oluyor; daha fazlasi tek istekte sorulmamali. */
+const TOPLU_SINIR = 60;
+
+/** POST /api/goruntulenme  {yol}  -> {goruntulenme}
+ *
+ *  OTURUM ISTEMIYOR: okurun cogu uye degil ve goruntulenme sayisi
+ *  uyelige bagli olsaydi olcum sitenin kucuk bir dilimini gosterirdi.
+ *
+ *  TEKRAR SAYIMI ISTEMCIDE ONLENIYOR (`sayac.js`, gunde bir kez).
+ *  Sunucuda IP tutulsaydi daha saglam olurdu; tutulmuyor cunku IP
+ *  kisisel veri ve bir sayacin dogrulugu okurun izini tutmaya
+ *  degmez. Bu yuzden sayi "tekil ziyaretci" degil ACILIS sayisi ve
+ *  gizlilik beyaninda da boyle yaziyor.
+ */
+async function goruntulenmeArtir(istek, env) {
+  let g;
+  try {
+    g = await istek.json();
+  } catch (e) {
+    return hata("Geçersiz istek.", 400);
+  }
+  const yol = g && g.yol;
+  if (!yolGecerli(yol)) return hata("Geçersiz yol.", 400);
+
+  await env.DB.prepare(
+    "INSERT INTO sayac (yol, goruntulenme, guncelleme) VALUES (?, 1, ?)" +
+    " ON CONFLICT(yol) DO UPDATE SET goruntulenme = goruntulenme + 1," +
+    " guncelleme = excluded.guncelleme",
+  ).bind(yol, simdi()).run();
+
+  const r = await env.DB.prepare(
+    "SELECT goruntulenme FROM sayac WHERE yol = ?",
+  ).bind(yol).first();
+  return yanit({ tamam: true, goruntulenme: r ? r.goruntulenme : 1 });
+}
+
+/** POST /api/sayaclar  {yollar:[...]}  -> {sayaclar:{yol:{g,b}}, benim:[...]}
+ *
+ *  Liste sayfasi tek istekte butun kartlarin sayisini aliyor. Kart
+ *  basina ayri istek 20-40 istek demekti ve sayfa acilisini bozardi.
+ *
+ *  Oturum VARSA `benim` alani da doluyor: okur hangilerini
+ *  begendigini gorur. Yoksa bos liste doner ve begeni dugmesi giris
+ *  sayfasina goturur -- calismayan bir dugme, olmayan dugmeden kotudur.
+ */
+async function sayaclariGetir(istek, env) {
+  let g;
+  try {
+    g = await istek.json();
+  } catch (e) {
+    return hata("Geçersiz istek.", 400);
+  }
+  const ham = (g && g.yollar) || [];
+  if (!Array.isArray(ham)) return hata("Geçersiz istek.", 400);
+  const yollar = [];
+  for (const y of ham) {
+    if (yolGecerli(y) && yollar.indexOf(y) === -1) yollar.push(y);
+    if (yollar.length >= TOPLU_SINIR) break;
+  }
+  if (!yollar.length) return yanit({ sayaclar: {}, benim: [] });
+
+  const soru = yollar.map(() => "?").join(",");
+  const g1 = await env.DB.prepare(
+    `SELECT yol, goruntulenme FROM sayac WHERE yol IN (${soru})`,
+  ).bind(...yollar).all();
+  const b1 = await env.DB.prepare(
+    `SELECT yol, COUNT(*) AS n FROM begeni WHERE yol IN (${soru})` +
+    " GROUP BY yol",
+  ).bind(...yollar).all();
+
+  const sayaclar = {};
+  for (const y of yollar) sayaclar[y] = { g: 0, b: 0 };
+  for (const r of (g1.results || [])) {
+    if (sayaclar[r.yol]) sayaclar[r.yol].g = r.goruntulenme;
+  }
+  for (const r of (b1.results || [])) {
+    if (sayaclar[r.yol]) sayaclar[r.yol].b = r.n;
+  }
+
+  let benim = [];
+  const uye = await uyeBul(istek, env.DB);
+  if (uye) {
+    const m = await env.DB.prepare(
+      `SELECT yol FROM begeni WHERE uye_id = ? AND yol IN (${soru})`,
+    ).bind(uye.id, ...yollar).all();
+    benim = (m.results || []).map((r) => r.yol);
+  }
+  return yanit({ sayaclar, benim });
+}
+
+/** POST /api/begeni  {yol}  -> {begeni, benim}
+ *
+ *  UYELIK SART. Anonim begeni sayilabilir bir sey degil: ayni kisi
+ *  yuz kez basar ve sayi anlamini kaybeder. `senaryo_oy` ile ayni
+ *  gerekce.
+ */
+async function begeniDegistir(istek, env, uye) {
+  let g;
+  try {
+    g = await istek.json();
+  } catch (e) {
+    return hata("Geçersiz istek.", 400);
+  }
+  const yol = g && g.yol;
+  if (!yolGecerli(yol)) return hata("Geçersiz yol.", 400);
+
+  const var_ = await env.DB.prepare(
+    "SELECT 1 FROM begeni WHERE yol = ? AND uye_id = ?",
+  ).bind(yol, uye.id).first();
+
+  if (var_) {
+    await env.DB.prepare(
+      "DELETE FROM begeni WHERE yol = ? AND uye_id = ?",
+    ).bind(yol, uye.id).run();
+  } else {
+    await env.DB.prepare(
+      "INSERT OR IGNORE INTO begeni (yol, uye_id, an) VALUES (?, ?, ?)",
+    ).bind(yol, uye.id, simdi()).run();
+  }
+  const say = await env.DB.prepare(
+    "SELECT COUNT(*) AS n FROM begeni WHERE yol = ?",
+  ).bind(yol).first();
+  return yanit({ tamam: true, begeni: say ? say.n : 0, benim: !var_ });
+}
+
+
 async function senaryoOneCikan(env) {
   const esik = new Date(Date.now() - ONE_CIKAN_GUN * 86400000).toISOString();
 
@@ -1495,6 +1651,14 @@ export default {
          yayimlanmis senaryolari doner. */
       if (y === "senaryo/acik" && m === "GET") return await senaryoAcik(istek, env);
       if (y === "senaryo/hepsi" && m === "GET") return await senaryoHepsi(env);
+      /* SAYACLAR OTURUM ISTEMEZ.
+         Okurun cogu uye degil; goruntulenme uyelige bagli olsaydi
+         olcum sitenin kucuk bir dilimini gosterirdi. Begeni ise
+         asagida, oturum sartinin ARDINDA. */
+      if (y === "goruntulenme" && m === "POST")
+        return await goruntulenmeArtir(istek, env);
+      if (y === "sayaclar" && m === "POST")
+        return await sayaclariGetir(istek, env);
       if (y === "senaryo/one-cikan" && m === "GET")
         return await senaryoOneCikan(env);
 
@@ -1509,6 +1673,8 @@ export default {
       if (tek && m === "GET") return await yaziGetir(env, uye, Number(tek[1]));
       if (tek && m === "DELETE") return await yaziSil(env, uye, Number(tek[1]));
 
+      if (y === "begeni" && m === "POST")
+        return await begeniDegistir(istek, env, uye);
       if (y === "senaryo" && m === "GET") return await senaryoListe(env, uye);
       if (y === "senaryo" && m === "POST") return await senaryoKaydet(istek, env, uye);
       const sen = y.match(/^senaryo\/(\d+)$/);
