@@ -135,7 +135,11 @@
 
   --r-mini: 6px;
   --r-kucuk: 10px;
-  --kabuk: 1180px;
+  /* 1180 -> 1320. Yatay kartlara gecince ana sutun 1180'de dar
+     kaliyordu: yan sutun 316px ve aradaki bosluk dusunce habere
+     ~790px kaliyordu. Okuma sutunlari BUNDAN ETKILENMEZ --
+     `.yazi` ve `.sayfa` kendi 800px sinirlarini tasiyor. */
+  --kabuk: 1320px;
 
   /* --- TIPOGRAFI ---------------------------------------------------
      Olculdu: dosyada 59 farkli `font-size` ve 20 farkli `line-height`
@@ -369,7 +373,10 @@ img, svg { max-width: 100%}
   display: flex;
   gap: var(--b-1);
   flex-wrap: wrap;
-  margin: auto}
+  /* dort-yan: gezinme, marka ile eylemlerin ARASINDA ortalaniyor.
+     Iki yanli auto burada KASITLI -- serbest bosluk iki yana esit
+     dagilsin diye. */
+  margin: auto}  /* dort-yan */
 
 .ust nav a {
   /* `position: relative` aktif sekmenin altindaki cizgi icin
@@ -926,7 +933,9 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
   overflow: hidden}
 
 .kart-alt {
-  margin: auto;
+  /* `margin: auto` idi. Ebeveyn esnek SUTUN: auto hem alta itiyor
+     (istenen) hem yatayda ORTALIYOR (istenmeyen). */
+  margin: auto 0 0;
   padding: var(--b-3);
   border-top: 1px solid var(--cizgi);
   display: flex;
@@ -1084,7 +1093,7 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
   color: var(--vurgu)}
 .skor-deger span { font-size: 1rem; color: var(--yazi-3); font-weight: 600}
 
-.skor-kapsam { font-size: var(--p-s); color: var(--yazi-3); margin: auto}
+.skor-kapsam { font-size: var(--p-s); color: var(--yazi-3); margin: 0 0 0 auto}
 
 .kriterler { display: grid; gap: var(--b-3)}
 
@@ -1323,6 +1332,9 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
 
 .haber-baslik {
   margin: 0;
+  /* Kapsayici 1320'ye cikinca baslik satiri ~75 karaktere ulasiyordu.
+     Baslik taranarak okunur; uzun satirda goz satir basini kaybeder. */
+  max-width: 54ch;
   font-size: var(--p-l);
   font-weight: 700;
   line-height: 1.3;
@@ -1335,8 +1347,16 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
   overflow: hidden}
 
 .haber-git {
-  margin: auto;
-  padding: 10px;
+  /* `margin: auto` YAZILIYDI. Esnek kutuda `auto` IKI EKSENDE birden
+     bosluğu yutar: bag kartin altina itiliyor (istenen) ama AYNI
+     ZAMANDA yatayda ORTALANIYORDU. Kartin butun icerigi sola dayali;
+     tek bu bag ortada duruyordu.
+
+     Niyet "alta it" idi ve onun karsiligi `margin-top: auto`. Tek
+     degerli kisayolun bir baska yuzu -- `margin: 14px` ailesinden,
+     ama `auto` oldugu icin o taramaya takilmamisti. */
+  margin: auto 0 0;
+  padding: 10px 0 0;
   font-size: var(--p-s);
   font-weight: 600;
   color: var(--vurgu)}
@@ -1686,7 +1706,9 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
   align-items: center;
   flex-wrap: wrap;
   gap: var(--b-1) 0;
-  margin: auto}
+  /* dort-yan: altbilgi gezinmesi de ortalaniyor -- ust bardaki
+     ayni gerekce. */
+  margin: auto}  /* dort-yan */
 
 .alt nav a,
 .alt nav .alt-marka {
@@ -1836,7 +1858,10 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
   font-size: var(--p-m); color: var(--yazi-2); line-height: 1.5;
   display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;
   overflow: hidden}
-.yorum-kart .devam { margin: auto; font-size: var(--p-s)}
+/* Ebeveyn (`.yorum-kart`) esnek SUTUN: `margin: auto` hem alta
+   itiyor (istenen) hem yatayda ortaliyor (istenmeyen) --
+   `.haber-git` ile ayni tuzak. */
+.yorum-kart .devam { margin: auto 0 0; font-size: var(--p-s)}
 
 /* --- Analizde gercek fotograf ------------------------------------- */
 .yazi-foto { margin: 0 0 18px}
@@ -2091,7 +2116,7 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
   font-size: var(--p-l); font-weight: 800;
   font-variant-numeric: tabular-nums; letter-spacing: -0.01em}
 .piyasa-gun { font-weight: 700; font-variant-numeric: tabular-nums}
-.piyasa-tarih { margin: auto; font-size: var(--p-xs); color: var(--yazi-3)}
+.piyasa-tarih { margin: 0 0 0 auto; font-size: var(--p-xs); color: var(--yazi-3)}
 /* Kaynagin yayim gecikmesi olan seri isaretli -- okur bugunun fiyati
    sanmasin. */
 .piyasa-tarih.bayat { color: var(--uyari); font-weight: 600}
@@ -2895,7 +2920,7 @@ table td, table th, time, .tarih {
 .onem-ust {
   display: flex; align-items: center; gap: var(--b-2);
   flex-wrap: wrap; margin: var(--b-1) 0}
-.onem-zaman { font-size: var(--p-xs); color: var(--yazi-3); margin: auto}
+.onem-zaman { font-size: var(--p-xs); color: var(--yazi-3); margin: 0 0 0 auto}
 .onem-baslik {
   display: block; font-weight: 650; line-height: 1.42;
   color: var(--yazi); transition: color var(--sure-hizli)}
@@ -3018,6 +3043,9 @@ a.akis-baslik:hover { color: var(--vurgu); text-decoration: none}
   letter-spacing: 0.06em; text-transform: uppercase;
   color: var(--vurgu)}
 .kart-yorum-metin {
+  /* Govde metni icin rahat olcu 65-75 karakter; genis kartta
+     sinirsiz birakilirsa 95'e cikiyordu. */
+  max-width: 74ch;
   margin: 0; font-size: var(--p-m); line-height: 1.55; color: var(--yazi-2)}
 /* Kaynagin kendi ozeti -- BIZIM yorumumuz degil, oyle de gorunmuyor. */
 .kart-yorum-kaynak {
@@ -3058,7 +3086,10 @@ a.akis-baslik:hover { color: var(--vurgu); text-decoration: none}
   display: flex; align-items: center; gap: var(--b-2); flex: 1 1 auto;
   flex-wrap: wrap}
 .ai-akis-zaman {
-  margin: auto; font-size: var(--p-xs); color: var(--yazi-3);
+  /* `margin: auto` idi: esnek satirda auto IKI YANI birden yutar,
+     yani oge saga DAYANMAZ, kalan boslugun ORTASINA oturur.
+     Niyet "saga it" ve karsiligi yalnizca sol auto. */
+  margin: 0 0 0 auto; font-size: var(--p-xs); color: var(--yazi-3);
   font-variant-numeric: tabular-nums}
 
 /* HABER BASLIGI KARTIN ANA METNI.
@@ -3334,7 +3365,10 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none}
 /* Dayanak ETIKETI: muhasebe kimligi ile gozlem ayni sey degil ve
    okur farki gormeli. */
 .duzenek-dayanak {
-  margin: auto; font-size: 0.68rem; letter-spacing: 0.03em;
+  /* `margin: auto` idi: esnek satirda auto IKI YANI birden yutar,
+     yani oge saga DAYANMAZ, kalan boslugun ORTASINA oturur.
+     Niyet "saga it" ve karsiligi yalnizca sol auto. */
+  margin: 0 0 0 auto; font-size: 0.68rem; letter-spacing: 0.03em;
   text-transform: uppercase; color: var(--yazi-3)}
 .duzenek-metin {
   margin: 0; font-size: var(--p-m); line-height: 1.55; color: var(--yazi-2)}
@@ -3457,7 +3491,8 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none}
    kunye satiriyla ayni olcekte, cerceveli kucuk baglantilar. */
 .paylas {
   display: inline-flex; align-items: center; gap: 6px;
-  flex-wrap: wrap; margin: auto}
+  /* dort-yan: paylasim dugmeleri satirin ortasinda. */
+  flex-wrap: wrap; margin: auto}  /* dort-yan */
 .paylas-etiket {
   font-size: var(--p-xs); color: var(--yazi-3);
   letter-spacing: 0.02em}

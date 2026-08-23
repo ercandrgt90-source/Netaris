@@ -80,7 +80,18 @@ def esit(bulunan, beklenen, aciklama: str) -> None:
 _MARGIN = re.compile(r"(?<![-A-Za-z])margin\s*:\s*([^;}]+)")
 
 #: Hizayi bozmayan tek degerler.
-_ZARARSIZ = {"0", "auto", "inherit", "initial", "unset", "revert"}
+#: Hizayi bozmayan tek degerler.
+#:
+#: `auto` BILEREK LISTEDE DEGIL. Esnek kutunun cocugunda `margin: auto`
+#: serbest boslugu IKI YANDAN birden yutar:
+#:   * satir ebeveynde  -> oge saga DAYANMAZ, kalan boslugun ortasina
+#:     oturur ("Haberi oku" bagi kartin ortasinda duruyordu)
+#:   * sutun ebeveynde  -> alta iter (genellikle istenen) AMA ayrica
+#:     yatayda ortalar (neredeyse hic istenmeyen)
+#: Yedi kural bu yuzden yanlis hizalaniyordu. Gercekten iki yanli
+#: isteniyorsa `/* dort-yan */` yaziliyor -- ust bar ve altbilgi
+#: gezinmesi gibi.
+_ZARARSIZ = {"0", "inherit", "initial", "unset", "revert"}
 
 
 def _tek_degerli(deger: str) -> bool:
@@ -125,7 +136,9 @@ ORNEK = [
     (".a { margin: 14px 0}", False, "iki deger temiz"),
     (".a { margin: 0}", False, "sifir temiz"),
     (".a { margin: 0 auto}", False, "0 auto temiz"),
-    (".a { margin: auto}", False, "auto temiz"),
+    (".a { margin: auto}", True,
+     "tek auto da yakalaniyor -- esnek kutuda iki yani yutar"),
+    (".a { margin: 0 auto}", False, "0 auto temiz -- yatay ortalama"),
     (".a { margin: var(--b-4)}", True, "tek degerli degisken de yakalaniyor"),
     (".a { margin-top: 14px}", False, "margin-top baska ozellik"),
     (".a { scroll-margin: 120px}", False, "scroll-margin baska ozellik"),
