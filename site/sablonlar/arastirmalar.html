@@ -1,7 +1,12 @@
+{% import "_sayac.html" as sy %}
 {% extends "temel.html" %}
 
 {% block baslik %}Araştırmalar — {{ site.ad }}{% endblock %}
 {% block aciklama %}Netaris'in ölçülmüş veriden ürettiği bilanço analizleri, makro değerlendirmeler ve teknik görünümler.{% endblock %}
+
+{% block ek_bas %}
+<script src="/statik/akis_suzgec.js?v={{ js_surum }}" defer></script>
+{% endblock %}
 
 {% block icerik %}
 <article class="arastirma-merkez">
@@ -13,6 +18,57 @@
     bağlama oturtur, yerine geçmez.</p>
   </header>
 
+  {# SEKMELI TAM LISTE.
+     ------------------
+     Sayfa yalnizca dort KATEGORI KARTI gosteriyordu: okur bir
+     arastirmayi gormek icin once kategori secip baska bir sayfaya
+     gitmek zorundaydi. Tasarim taslaginda sayfa dogrudan listeyi ve
+     ustunde sekmeleri gosteriyor.
+
+     Suzgec `akis_suzgec.js` ile ayni yontem: BUTUN kalemler basiliyor,
+     secim yalnizca gorunurlugu degistiriyor. Betik calismazsa liste
+     TAM haliyle duruyor -- eksik ozellik, bozuk sayfa degil. Bu yuzden
+     serit `hidden` basiliyor ve betik aciyor: calismayan bir sekme
+     seridi, olmayan seritten kotudur. #}
+  {% if analizler %}
+  <div class="akis-suzgec" data-akis-suzgec hidden>
+    <button type="button" class="suzgec-dugme" data-tur="" aria-pressed="true">
+      Tümü <span class="suzgec-say">{{ analizler | length }}</span></button>
+    {% for k in kategoriler %}
+    <button type="button" class="suzgec-dugme" data-tur="{{ k.kod }}"
+            aria-pressed="false">
+      {{ k.baslik }} <span class="suzgec-say">{{ k.adet }}</span></button>
+    {% endfor %}
+  </div>
+
+  <ul class="izgara arastirma-liste">
+    {% for a in analizler %}
+    <li data-tur="{{ kategori_kodu.get(a.kategori, '') }}">
+      <a class="kart" href="{{ a.yol }}">
+        <span class="kart-gorsel">
+          {% if a.amblem_svg %}<span class="kart-amblem">{{ a.amblem_svg | safe }}</span>
+          {% elif a.gorsel_svg %}{{ a.gorsel_svg | safe }}{% endif %}
+        </span>
+        <span class="kart-ic">
+          <span class="ust-satir">
+            <span class="rozet rozet-vurgu">{{ a.kategori }}</span>
+            {% if a.sektor %}<span class="rozet">{{ a.sektor }}</span>{% endif %}
+            <span class="tarih">{{ a.tarih_tr }}</span>
+          </span>
+          <h2 class="kart-baslik">{{ a.baslik }}</h2>
+          <p class="kart-ozet">{{ a.ozet }}</p>
+        </span>
+      </a>
+      {# Sayac KARTIN DISINDA: ic ice baglanti gecerli degil ve begeni
+         dugmesi bir <button>. #}
+      <div class="kart-sayac">{{ sy.sayac(a.yol) }}</div>
+    </li>
+    {% endfor %}
+  </ul>
+  <p class="kaynak-not" data-akis-bos hidden>Bu türde araştırma yok.</p>
+  {% endif %}
+
+  <h2 class="arastirma-kapi-bas">Kategoriler</h2>
   <div class="arastirma-izgara">
     {% for k in kategoriler %}
     <a class="arastirma-kart" href="/{{ k.slug }}/">

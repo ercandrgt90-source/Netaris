@@ -4107,6 +4107,9 @@ def insa() -> int:
             "adet": len(secilen),
             "son": [{"baslik": a.baslik, "tarih": a.tarih_tr}
                     for a in secilen[:3]],
+            # Sekmeli listede suzgec anahtari. Slug kullaniliyor cunku
+            # zaten benzersiz ve adreste de o geciyor.
+            "kod": slug,
         })
         yol_k = f"/{slug}/"
         yaz(
@@ -4124,6 +4127,21 @@ def insa() -> int:
             "/arastirmalar/index.html",
             ortam.get_template("arastirmalar.html").render(
                 **ortak, yol="/arastirmalar/", kategoriler=merkez,
+                # SEKMELI TAM LISTE.
+                # Sayfa yalnizca dort kategori KARTI gosteriyordu; okur
+                # bir arastirmayi gormek icin once kategori secmek
+                # zorundaydi. Tasarim taslaginda ise sayfa dogrudan
+                # listeyi ve ustunde sekmeleri gosteriyor.
+                #
+                # Suzgec `akis_suzgec.js` ile ayni: butun kalemler
+                # basiliyor ve secim CSS ile daraltiliyor. Betik
+                # calismazsa liste TAM haliyle duruyor -- eksik ozellik,
+                # bozuk sayfa degil.
+                analizler=[
+                    a for a in listelenen
+                    if any(a.kategori == k for _s, _b, k, _a in KATEGORILER)
+                ],
+                kategori_kodu={k: s for s, _b, k, _a in KATEGORILER},
             ),
         )
         yollar.append("/arastirmalar/")
