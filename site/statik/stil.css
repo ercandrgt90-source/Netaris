@@ -6154,9 +6154,16 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
 /* TABLETTE IKI SUTUN. Burada genislik gercekten var (>=700px):
    iki sutun okunurlugu bozmuyor, aksine bos kenar bosluklarini
    degerlendiriyor. */
-@media (min-width: 700px) and (max-width: 1024px) {
-  .ai-akis-liste { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
+/* BU KURAL KALDIRILDI -- `.serit-yatay` ile CAKISIYORDU.
+   `.ai-akis-liste` artik `.serit-yatay` sinifini da tasiyor ve o sinif
+   `grid-auto-flow: column` + `grid-auto-columns` ile duzeni kuruyor.
+   Buradaki `grid-template-columns` dosyada 4.600 satir sonra geldigi
+   icin kazaniyor ve iki tanim ust uste biniyordu: iki acik sutun,
+   ustune sutun yonunde akis, ustune kaydirma. Sonuc ongorulemez.
+
+   Ayni ozelligi iki farkli SECICIYLE tanimlamak, `test_stil.py`
+   taramasina da takilmiyor: tarama ayni seciciyi karsilastiriyor.
+   Buradaki kontrol goz oldu. */
 
 /* ====================================================================
    OLAY SAYFASI -- zaman cizelgesi
