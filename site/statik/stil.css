@@ -3053,6 +3053,16 @@ a.akis-baslik:hover { color: var(--vurgu); text-decoration: none}
   border-left-color: var(--cizgi-parlak)}
 .kart-yorum-kaynak .kart-yorum-etiket { color: var(--yazi-3)}
 
+/* UCUNCU SECENEK: sitenin kendi "bu neden kritik" degerlendirmesi.
+   Rengi AI yorumuyla ayni aileden ama daha sakin -- ikisi de
+   Netaris'in sozu, ama biri modelin yazdigi metin, digeri uretim
+   hattinin cikarimı. Okurun ikisini karistirmamasi icin etiketler
+   zaten farkli; renk o ayrimi destekliyor, tek basina tasimiyor. */
+.kart-yorum-neden {
+  background: var(--zemin-2);
+  border-left-color: var(--yazi-3)}
+.kart-yorum-neden .kart-yorum-etiket { color: var(--yazi-2)}
+
 /* ================================================================
    NETARIS NE DIYOR -- piyasa ozetinin yerinde
    ================================================================

@@ -3967,6 +3967,14 @@ def insa() -> int:
         h["ai_yorum"] = m
         h["ai_yorum_kart"] = kart_yorumu(m) if m else ""
         h["ozet_kart"] = kart_yorumu(h.get("ozet", ""))
+        # UCUNCU SECENEK -- kart bos kalmasin.
+        # Olculdu: "Piyasa etkisi olanlar" bolumundeki 35 kartin
+        # 12'sinde ne AI yorumu ne kaynak ozeti vardi; okur yalnizca
+        # basligi goruyordu. `neden_onemli` sitenin KENDI
+        # degerlendirmesi ve modele hic gonderilmiyor
+        # (bkz. test_uret_ai_yorum.py), yani haberi baska cumlelerle
+        # tekrar etme riski tasimiyor.
+        h["neden_kart"] = kart_yorumu(h.get("neden_onemli", ""))
 
     # HAM AKIS DA PUANLANIYOR -- SON DAKIKA BUNA BAGLI.
     #

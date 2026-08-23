@@ -101,6 +101,35 @@
       <p class="kart-yorum-etiket">{{ h.kurum }}</p>
       <p class="kart-yorum-metin">{{ h.ozet_kart }}</p>
     </div>
+    {% elif h.neden_kart %}
+    {# UCUNCU SECENEK -- ve BILEREK ucuncu.
+       -----------------------------------
+       Olculdu (2026-08-23): "Piyasa etkisi olanlar" bolumundeki 35
+       kartin 12'sinde bu bloklarin HICBIRI basilmiyordu. Okur yalnizca
+       bir baslik ve "Haberi oku" goruyordu -- yani bolumun adi "piyasa
+       etkisi olanlar" iken kart o etkiye dair tek kelime etmiyordu.
+
+       Yukaridaki not "kartta analiz yok" diyor ve o karar duruyor:
+       kanallar, mekanizma ve madde listesi hala YALNIZCA haber
+       sayfasinda. Burada basilan sey tek cumle ve `kart_yorumu()`
+       cumle sinirinda kesiyor.
+
+       Karsit gorus da kayda gecsin: bu, analizin bir parcasini listeye
+       tasiyor. Kabul edildi, cunku BOS bir kart tiklamak icin daha az
+       sebep veriyor -- hicbir sey soylemeyen bir kart, az sey soyleyen
+       kartdan kotudur.
+
+       Etiket haber sayfasindakiyle AYNI ("Bu neden kritik?"): okur
+       tikladiginda ayni baslik altinda devamini buluyor. Farkli
+       adlandirmak, ayni seyi iki ayri sey gibi gostermek olurdu.
+
+       `neden_onemli` modele HIC gonderilmiyor (test_uret_ai_yorum.py
+       bunu sart kosuyor), yani haberi baska cumlelerle tekrar etme
+       riski yok -- sitenin kendi degerlendirmesi. #}
+    <div class="kart-yorum kart-yorum-neden">
+      <p class="kart-yorum-etiket">Bu neden kritik?</p>
+      <p class="kart-yorum-metin">{{ h.neden_kart }}</p>
+    </div>
     {% endif %}
 
     {# Butun baglantilar SITE ICINDE kalir -- okur disari yonlendirilmez. #}
