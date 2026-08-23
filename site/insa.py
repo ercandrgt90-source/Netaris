@@ -1002,6 +1002,134 @@ def gundem_yukle() -> dict:
         return {}
 
 
+def konuya_gore_serpistir(haberler: list[dict]) -> list[dict]:
+    """Ayni GUN icindeki haberleri konulara gore donusumlu dizer.
+
+    NEDEN
+    -----
+    Olculdu (2026-08-23): `/gundem/` sayfasindaki "Piyasa etkisi
+    olanlar" bolumunde 35 kalemin 21'i jeopolitikti ve ILK ONUN
+    DOKUZU ard arda jeopolitikti. Okur ust uste ayni rozeti gorup
+    "burasi yalnizca jeopolitik yaziyor" sonucuna variyor; makro,
+    emtia ve para politikasi kalemleri katlanma cizgisinin altinda
+    kaliyordu.
+
+    Sebep icerik degil SIRA: akis tarihe gore diziliyor ve ayni gune
+    dusen kalemler TOPLAYICININ YAZMA SIRASINDA kaliyor. Tek bir
+    ajanstan (FinancialJuice) toplu gelen jeopolitik haberler de
+    dogal olarak yan yana duruyor.
+
+    NE KORUNUYOR
+    ------------
+    KRONOLOJI GUN DUZEYINDE AYNEN KALIYOR. Gunler arasi sira
+    degismiyor; yalnizca AYNI GUN icinde konular donusumlu diziliyor.
+
+    Bunun yapilabilmesinin sebebi: gun ici sira zaten bilgi
+    tasimiyordu. Kartlarda saat degil GUN yaziyor (120 kalem, 11
+    farkli tarih), yani okurun ayirt edebilecegi tek zaman birimi
+    gun. Saat bilgisi yayimlansaydi bu duzenleme yanlis olurdu.
+
+    Konu icindeki sira da korunuyor: bir konunun ilk haberi yine o
+    konunun ilki. Yani hicbir kalem "one cikarilmiyor", yalnizca
+    komsulari degisiyor.
+    """
+    if not haberler:
+        return []
+
+    sonuc: list[dict] = []
+    i = 0
+    while i < len(haberler):
+        # 1) Ayni tarihli blogu al -- liste zaten tarihe gore sirali.
+        gun = haberler[i].get("tarih")
+        j = i
+        while j < len(haberler) and haberler[j].get("tarih") == gun:
+            j += 1
+        blok = haberler[i:j]
+        i = j
+
+        # 2) Blogu konulara ayir. Sozluk EKLENME SIRASINI koruyor,
+        #    yani en erken gorulen konu once basliyor.
+        kume: dict[str, list[dict]] = {}
+        for h in blok:
+            kume.setdefault(h.get("konu") or "", []).append(h)
+
+        # 3) Her kumeyi blogun TAMAMINA orantili olarak yay.
+        #
+        #    Ilk yazimda basit donusumlu dagitim vardi (sirayla her
+        #    kumeden bir tane). Olculdu: 9 jeopolitik / 3 makro / 2
+        #    enerji girdisinde kucuk kumeler once tukeniyor ve sonda
+        #    ALTI KALEMLIK tek konulu bir kuyruk kaliyordu -- yani
+        #    duzeltmek istedigimiz yigilma listenin sonuna tasinmis
+        #    oluyordu.
+        #
+        #    Burada her kalem kendi kumesi icindeki oransal konumunu
+        #    aliyor: n kalemlik bir kumenin k'inci kalemi
+        #    (k + 0,5) / n noktasina dusuyor. Buyuk kume butun blok
+        #    boyunca esit araliklarla, kucuk kume de kendi araliginda
+        #    dagiliyor.
+        #
+        #    Esitlikte buyuk kume once: ayni noktaya dusen iki kalemde
+        #    baskin konunun onde olmasi, kucuk kumenin araya girmesini
+        #    engellemiyor -- yalnizca sirayi belirliyor ve sonuc
+        #    yeniden uretilebilir kaliyor.
+        yerlesim: list[tuple[float, int, int, dict]] = []
+        for sira, grup in enumerate(sorted(kume.values(), key=len,
+                                           reverse=True)):
+            n = len(grup)
+            for k, h in enumerate(grup):
+                yerlesim.append(((k + 0.5) / n, sira, k, h))
+        yerlesim.sort(key=lambda x: (x[0], x[1], x[2]))
+        sonuc.extend(h for _konum, _s, _k, h in yerlesim)
+    return sonuc
+
+
+def gundem_sirasi(haberler: list[dict]) -> list[dict]:
+    """Serpistirmeyi SUZULEN ALT KUMELERE ayri ayri uygular.
+
+    NEDEN AYRI AYRI
+    ---------------
+    Ilk yazimda serpistirme tum listeye bir kez uygulaniyordu ve
+    olcum "duzeldi" dedi. Ama sayfa listeyi SUZUYOR:
+
+        yorumlu = gundem.haberler | selectattr("yorumlanir")
+
+    Suzgec, iyi dagilmis bir listeden secim yaptiginda dagilimi
+    KORUMAZ. Olculdu: tum listede 2026-08-22 gunu Sirket haberleri
+    24, Dis ticaret 12, Jeopolitik 11 iken; "piyasa etkisi olanlar"
+    suzgecinden gecen 35 kalemin 21'i jeopolitikti. Cunku yorum
+    uretilen haberler agirlikli olarak o konudan.
+
+    Yani duzeltme GORUNMEYEN bir listeye uygulaniyordu; okurun
+    gordugu iki liste (yorumlu ve rutin) hala yigilmis haldeydi.
+
+    NASIL
+    -----
+    Her alt kume kendi icinde serpistiriliyor, sonra KENDI ESKI
+    YERLERINE geri yaziliyor. Boylece:
+
+      * genel liste sirasi (tarih azalan) aynen kaliyor,
+      * yorumlu/rutin ayrimi ayni yerlerde duruyor,
+      * ama her iki suzgec sonucu da konu bakimindan dagilmis oluyor.
+
+    Yerine geri yazmak guvenli: serpistirme kalemleri GUN ICINDE
+    dolastiriyor, gunler arasinda tasimiyor. Bu yuzden bir yuvanin
+    tarihi ile ona yazilan kalemin tarihi hep ayni.
+    """
+    if not haberler:
+        return []
+
+    sonuc = list(haberler)
+    for deger in (True, False):
+        yuvalar = [i for i, h in enumerate(haberler)
+                   if bool(h.get("yorumlanir")) is deger]
+        if len(yuvalar) < 2:
+            continue
+        dizilmis = konuya_gore_serpistir([haberler[i] for i in yuvalar])
+        for yuva, h in zip(yuvalar, dizilmis):
+            sonuc[yuva] = h
+    return sonuc
+
+
 def gostergeleri_yukle() -> dict:
     """Ust seritteki gosterge verisini okur.
 
@@ -3738,6 +3866,7 @@ def insa() -> int:
     gundem["haberler"] = [tazele(h, foto_kayit)
                           for h in gundem.get("haberler", [])]
 
+    gundem["haberler"] = gundem_sirasi(gundem["haberler"])
     for h in gundem["haberler"]:
         if h.get("yorumlanir"):
             h["yol"] = haber_yolu(h)
@@ -4563,6 +4692,7 @@ def onem_dokumu() -> int:
     foto_kayit = foto_defteri()
     gundem["haberler"] = [tazele(h, foto_kayit)
                           for h in gundem.get("haberler", [])]
+    gundem["haberler"] = gundem_sirasi(gundem["haberler"])
     for h in gundem["haberler"]:
         if h.get("yorumlanir"):
             h["yol"] = haber_yolu(h)
