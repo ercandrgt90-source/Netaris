@@ -43,13 +43,17 @@ from kaynak import foto  # noqa: E402
 
 #: Tazelemeden ONCEKI havuz boylari. Doldurma bittikten sonra havuz
 #: bu boya donduruluyor.
-ESKI_HAVUZ = 6
-ESKI_OZEL = {
-    "US": 12, "TR": 12, "FED": 10, "IR": 14, "TCMB": 10, "BRENT": 10,
-    "Jeopolitik": 12, "Enerji": 10,
-    "TUFE_TR": 6, "XAU": 6, "BIST100": 6, "NFP": 6, "CPI_US": 6,
-    "EA": 6, "RU": 6, "CN": 6,
-}
+ESKI_HAVUZ = foto.HAVUZ
+# BUDAMA ARTIK BU HEDEFLERE GORE.
+#
+# Ilk surumde havuz gecici olarak +3 buyutulmus ve budama eski boya
+# donduruyordu. Sonra havuz boylari TALEBE GORE kalici olarak
+# buyutuldu (bkz. `foto.HAVUZ_OZEL`) ve budamanin onlari geri
+# cekmesi, yapilan isi geri almak olurdu.
+#
+# Kaynak tek: `foto` modulundeki hedefler. Iki yerde tutulan bir
+# sayi ayrisir ve ayrisma HATA VERMEZ.
+ESKI_OZEL = dict(foto.HAVUZ_OZEL)
 
 
 def havuzlar() -> list[str]:

@@ -1644,6 +1644,27 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
    Burada olculer daraltiliyor, YAZI KUCULTULMUYOR: punto kucultmek
    okunurlugu bozar ve asil sorun punto degil ARALIK.
    ================================================================== */
+/* Onem kartinda kucuk gorsel: rozet satirinin SOLUNDA, basligin
+   ustunde degil. Kart yuksekligini artirmiyor. */
+.onem-kart {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas: "foto ust" "foto baslik";
+  align-items: start;
+  column-gap: var(--b-3)}
+.onem-foto {
+  grid-area: foto;
+  width: 44px; height: 44px;
+  object-fit: cover;
+  border-radius: var(--r-kucuk);
+  border: 1px solid var(--cizgi)}
+.onem-kart > .onem-ust { grid-area: ust}
+.onem-kart > .onem-baslik { grid-area: baslik}
+/* Gorseli olmayan kartta ilk sutun hic yer kaplamasin. */
+.onem-kart:not(:has(.onem-foto)) {
+  grid-template-columns: 1fr;
+  grid-template-areas: "ust" "baslik"}
+
 @media (max-width: 640px) {
   .modul .onem-izgara { gap: var(--b-2); }
   .modul .onem-kart { padding: 10px 12px; gap: 6px; }

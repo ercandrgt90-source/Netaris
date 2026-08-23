@@ -226,6 +226,18 @@
       {% for h in one_cikanlar[1:7] %}
       <li class="tur-{{ h | kart_turu }}">
         <a class="onem-kart" href="{{ h.yol }}">
+          {# KART GORSELI -- kucuk boy (96px).
+             Kart dar ve gorsel bir kunye, bir kapak degil: rozetin
+             yaninda duruyor ve basligi asagi itmiyor.
+
+             `kucuk_foto` yoksa hic basilmiyor. Bos bir gorsel kutusu
+             yuklenmemis bir gorsel gibi gorunuyor -- bu oturumda
+             `.ai-kart-kunye::before` ile tam olarak o yasandi. #}
+          {% set kucuk = h.foto | kucuk_foto %}
+          {% if kucuk %}
+          <img class="onem-foto" src="{{ kucuk }}" alt="" aria-hidden="true"
+               width="44" height="44" loading="lazy" decoding="async">
+          {% endif %}
           <span class="onem-ust">
             {% if h.katman == "kritik" %}
             <span class="rozet rozet-kritik">{{ h.katman_adi }}</span>

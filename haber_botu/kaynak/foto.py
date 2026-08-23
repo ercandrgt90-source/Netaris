@@ -112,29 +112,103 @@ KAYIT_YOLU = pathlib.Path(__file__).parent / "foto_kayit.json"
 #: geciliyor. Terimler `besleme.KONU_ISARETLERI` ile birebir ayni
 #: anahtarlari kullanir -- test bunu dogruluyor, cunku eksik anahtar
 #: fotografsiz habere yol aciyor ve hicbir hata firlatmiyor.
+# ARAMA TERIMLERI GENISLETILDI.
+#
+# Olculdu (2026-08-23): Jeopolitik havuzu 45 hedefine ragmen 12'de
+# takildi. Sebep havuz hedefi degil ARAMA TERIMI sayisiydi -- bes
+# terim vardi ve Commons o terimlerde uygun lisansli, yeterli
+# cozunurlukte baska gorsel dondurmuyordu.
+#
+# Havuz hedefini yukseltmek tek basina ise yaramiyor; terim yoksa
+# indirilecek gorsel de yok. Ikisi birlikte artmali.
+#
+# Terimler SOMUT ve GORSEL secildi: "diplomacy" soyut, "signing
+# agreement ceremony" bir sahne. Soyut terim, konusu belirsiz
+# fotograflar getiriyor.
 KONU_ARAMA = {
-    "Enerji": ("oil pump jack", "oil refinery", "oil rig", "petroleum"),
+    "Enerji": (
+        "oil pump jack",
+        "oil refinery",
+        "oil rig",
+        "petroleum",
+        "natural gas pipeline",
+        "lng terminal",
+        "power plant",
+        "electricity pylons",
+        "wind turbines",
+        "solar power plant",
+    ),
     # Catisma gorseli ARANMIYOR: haber sayfasinin gorseli olayin siddetini
     # degil, konusunu isaret etmeli. Diplomasi, liman ve konteyner
     # gorselleri hem dogru hem izleyiciyi rahatsiz etmeyen secim.
-    "Jeopolitik": ("diplomacy meeting", "united nations", "cargo ship port",
-                   "shipping containers", "world map"),
-    "Para politikası": ("federal reserve", "central bank", "bank building"),
-    "Enflasyon": ("supermarket shopping", "grocery store", "market prices"),
+    "Jeopolitik": (
+        "diplomacy meeting",
+        "united nations",
+        "cargo ship port",
+        "shipping containers",
+        "world map",
+        "summit conference",
+        "flags of nations",
+        "embassy building",
+        "passport border",
+        "naval ship at sea",
+        "military parade",
+        "peace talks",
+        "signing agreement ceremony",
+        "international conference hall",
+        "customs checkpoint",
+        "trade route map",
+    ),
+    "Para politikası": (
+        "federal reserve",
+        "central bank",
+        "bank building",
+        "banknotes currency",
+        "interest rate chart",
+        "coins stack",
+        "monetary policy meeting",
+    ),
+    "Enflasyon": (
+        "supermarket shopping",
+        "grocery store",
+        "market prices",
+        "shopping cart groceries",
+        "price tag store",
+        "fresh produce market",
+        "bakery bread shelf",
+        "household goods shelf",
+    ),
     "Bankacılık": ("bank building", "financial district", "skyscraper finance"),
     "Piyasa düzenlemesi": ("stock exchange", "trading floor", "wall street"),
     "Düzenleme": ("courthouse", "government building", "capitol"),
     "Döviz": ("currency exchange", "banknotes", "money exchange"),
     "Altın ve emtia": ("gold bars", "gold bullion", "precious metal"),
     "Kripto varlıklar": ("bitcoin", "cryptocurrency", "blockchain"),
-    "Borsa": ("stock exchange", "trading floor", "stock market"),
+    "Borsa": (
+        "stock exchange",
+        "trading floor",
+        "stock market screen",
+        "financial district",
+        "bull statue wall street",
+        "ticker board",
+    ),
     "Dış ticaret": ("container port", "cargo ship", "shipping containers"),
     "İstihdam ve ücret": ("factory workers", "office workers", "job interview"),
     "Konut ve kira": ("apartment buildings", "housing construction", "real estate"),
     "Vergi ve kamu maliyesi": ("tax forms", "government building", "parliament"),
     "Tarım ve gıda": ("wheat field", "farm tractor", "harvest"),
     "Turizm": ("hotel resort", "airport terminal", "tourists"),
-    "Şirket haberleri": ("office building", "corporate headquarters", "boardroom"),
+    "Şirket haberleri": (
+        "office building",
+        "corporate headquarters",
+        "boardroom",
+        "glass office tower",
+        "business district skyline",
+        "factory production line",
+        "warehouse logistics",
+        "annual report meeting",
+        "handshake business",
+    ),
 }
 
 #: VARLIK BAZLI SORGULAR -- konu havuzundan ONCE bakiliyor.
@@ -256,9 +330,28 @@ HAVUZ = 9
 #: fotograflik bir havuz US'in 84 haberinde 8 tekrara, IR'in 30
 #: haberinde 3 tekrara denk geliyor; okurun bir oturumda gordugu
 #: pencerede bu gorunmuyor.
+# HAVUZ BOYLARI TALEBE GORE BUYUTULDU.
+#
+# Olculdu (2026-08-23): tekrar tavani yuzunden 846 haber gorselsiz
+# kaliyordu ve sebep toplam gorsel sayisi degil KONU BAZINDA
+# dengesizlikti --
+#
+#     Jeopolitik  576 sayfa /  12 gorsel   kapasite 96,  acik 480
+#     Borsa       218 sayfa /   6 gorsel   kapasite 48,  acik 170
+#     Sirket h.   122 sayfa /   6 gorsel   kapasite 48,  acik  74
+#
+# Havuz "esit dagitilmis" kurulmustu; talep ise carpik. Sayilar artik
+# talebe bakiyor: kabaca sayfa/8.
+#
+# Tavani acmak yerine havuzu buyutmek TERCIH EDILDI. Gerekce
+# `insa.foto_dagit` icinde yazili: cok tekrar eden bir fotograf
+# illustrasyon degil duvar kagidi olur. Havuz buyudukce tekrar sayisi
+# KENDILIGINDEN dusuyor.
 HAVUZ_OZEL = {
+    "Jeopolitik": 45, "Borsa": 24, "Enerji": 20,
+    "Şirket haberleri": 18, "Enflasyon": 15, "Para politikası": 15,
+    "Dış ticaret": 12, "İstihdam ve ücret": 10, "Konut ve kira": 8,
     "US": 15, "TR": 15, "FED": 13, "IR": 17, "TCMB": 13, "BRENT": 13,
-    "Jeopolitik": 15, "Enerji": 13,
     "TUFE_TR": 9, "XAU": 9, "BIST100": 9, "NFP": 9, "CPI_US": 9,
     "EA": 9, "RU": 9, "CN": 9,
 }

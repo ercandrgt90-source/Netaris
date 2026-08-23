@@ -846,6 +846,20 @@ def analiz_fotografi(kayit, baslik: str, kategori: str, kod: str) -> tuple[str, 
 #: ayni tavan daha az haberi gorselsiz birakir.
 FOTO_TEKRAR_TAVANI = 8
 
+#: Talep yuksek olsa bile bir gorsel bu sayidan fazla gorunmez.
+#:
+#: 18: 576 sayfalik Jeopolitik havuzu 40 gorsele cikinca 576/40 = 15
+#: yeterli oluyor; ust sinir onun biraz uzerinde birakildi ki havuz
+#: gecici olarak kucuk kaldiginda da sayfalar bos kalmasin.
+#:
+#: Ustte 18 diyoruz ama bu bir HEDEF DEGIL TAVAN: havuz buyudukce
+#: gercek tekrar sayisi kendiliginden dusuyor.
+FOTO_TAVAN_UST = 18
+
+#: Dosya -> ait oldugu havuz. `foto_dagit` tavani havuz basina
+#: hesaplayabilsin diye bir kez kuruluyor.
+_FOTO_HAVUZU: dict[str, str] = {}
+
 #: Govdedeki "Reel degisim" tablosu -- yazinin KENDI rakamlari.
 _REEL_TABLO = re.compile(
     r"\|\s*Kalem\s*\|\s*Reel değişim\s*\|(.*?)(?:\n\s*\n|\Z)",
@@ -1004,17 +1018,80 @@ def foto_dagit(haberler: list[dict], varlik_haritasi: dict,
     # gorsel bulunmayan haberlerde yaptigi da bu: manset onde,
     # tipografi tasiyor. Tekrar eden alakasiz bir fotograf,
     # fotografsizdan KOTUDUR -- okuru yanlis yere baglar.
+    # DOSYA -> HAVUZ haritasi. Tavan havuz basina hesaplaniyor ve
+    # bunun icin bir gorselin hangi havuzdan geldigini bilmek gerek.
+    # Kayit zaten bellekte; harita bir kez kuruluyor.
+    if not _FOTO_HAVUZU:
+        for _ad, _liste in kayit.veri.items():
+            for _f in _liste:
+                _FOTO_HAVUZU.setdefault(_f.get("dosya", ""), _ad)
+
+    # TAVAN SABIT DEGIL, TALEBE GORE.
+    # --------------------------------
+    # Sabit 8'di ve olculdu (2026-08-23): 846 haber gorselsiz kaliyordu.
+    # Matematik ilk bakista tutmuyordu -- 306 gorsel x 8 = 2.448 yuva,
+    # 1.250 sayfa. Sorun toplamda degil KONU BAZINDAYDI:
+    #
+    #     Jeopolitik  576 sayfa / 12 gorsel  -> kapasite 96, acik 480
+    #     Borsa       218 sayfa /  6 gorsel  -> kapasite 48, acik 170
+    #
+    # Ustteki gerekce hala gecerli: cok tekrar eden bir fotograf
+    # illustrasyon degil duvar kagidi olur. Ama SIFIR gorsel de bir
+    # cozum degil ve kullanicinin sikayeti buydu.
+    #
+    # Denge: tavan havuz basina talebe gore yukseliyor ama UST SINIRI
+    # var. Boylece havuzu genis olan konu tavani zorlamiyor, dar olan
+    # konu da sayfalarini bos birakmiyor.
+    #
+    # Asil cozum havuzu buyutmek ve o da yapiliyor (bkz.
+    # `foto.HAVUZ_OZEL`); tavan yalnizca aradaki farki kapatiyor.
+    from math import ceil
+    havuz_boyu: dict[str, int] = {}
+    talep: dict[str, int] = {}
+    for adres, f in sonuc.items():
+        havuz_adi = _FOTO_HAVUZU.get(f.dosya, "")
+        talep[havuz_adi] = talep.get(havuz_adi, 0) + 1
+    for ad in talep:
+        havuz_boyu[ad] = max(1, len(kayit.havuz_yayin(ad)) if ad else 1)
+
+    def tavan(dosya: str) -> int:
+        ad = _FOTO_HAVUZU.get(dosya, "")
+        t = talep.get(ad, 0)
+        h = havuz_boyu.get(ad, 1)
+        return min(FOTO_TAVAN_UST, max(FOTO_TEKRAR_TAVANI, ceil(t / h)))
+
+    # TAVAN ARSIVDEN KESIYOR, BUGUNDEN DEGIL.
+    # ----------------------------------------
+    # Atama ESKIDEN YENIYE yapiliyor (gerekce yukarida: yayimlanmis bir
+    # haberin gorseli sabit kalsin). Ama tavan da ayni sirada
+    # uygulaniyordu ve sonucu sudur: kota eski haberlerde doluyor,
+    # BUGUNUN haberlerine sira gelmeden bitiyor.
+    #
+    # Olculdu (2026-08-23): sitenin %62'sinde gorsel varken `/gundem/`
+    # sayfasindaki 35 guncel kartin yalnizca 12'sinde vardi. Yani
+    # gorseller vardi, OKURUN GORDUGU YERDE yoktu.
+    #
+    # Tavan artik YENIDEN ESKIYE tarıyor: kota once bugunun haberlerine
+    # gidiyor, tasan kisim arsivden dusuyor. Atama sirasi degismedi --
+    # degisen yalnizca hangi ucun kesildigi.
+    #
+    # Bunun bedeli: arsiv sayfalari zamanla gorsellerini kaybedebilir.
+    # Kabul edildi; bir arsiv sayfasinin gorseli, bugunun mansetinin
+    # gorselinden daha az okur goruyor.
+    tarih_haritasi = {h.get("adres", ""): h.get("tarih", "")
+                      for h in haberler}
     sayim: dict[str, int] = {}
     tavan_asan = 0
-    for adres in list(sonuc):
+    for adres in sorted(sonuc, key=lambda a: tarih_haritasi.get(a, ""),
+                        reverse=True):
         d = sonuc[adres].dosya
         sayim[d] = sayim.get(d, 0) + 1
-        if sayim[d] > FOTO_TEKRAR_TAVANI:
+        if sayim[d] > tavan(d):
             del sonuc[adres]
             tavan_asan += 1
     if tavan_asan:
         print(f"foto: {tavan_asan} haber gorselsiz birakildi "
-              f"(tekrar tavani {FOTO_TEKRAR_TAVANI})")
+              f"(tavan {FOTO_TEKRAR_TAVANI}-{FOTO_TAVAN_UST}, talebe gore)")
     return sonuc
 
 
