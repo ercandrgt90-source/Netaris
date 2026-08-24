@@ -898,10 +898,33 @@ async function yonetimOzet(env) {
     "JOIN uye u ON u.id = s.uye_id WHERE s.durum = 'incelemede' " +
     "ORDER BY s.gonderim ASC LIMIT 50",
   ).all();
+  /* BUTUN HESAPLAR -- yalnizca onay bekleyenler degil.
+   *
+   * Bu uc bugune kadar sadece `durum = 'beklemede'` olanlari
+   * donuyordu, yani yonetici "kimler kayitli" sorusunu panelden
+   * CEVAPLAYAMIYORDU; cevap ancak `wrangler d1 execute` ile
+   * aliniyordu. Onay kuyrugu bir IS LISTESI, hesap listesi ise bir
+   * KAYIT -- ikisi ayri soru.
+   *
+   * `google_id` DEGERI DONMUYOR, yalnizca var olup olmadigi. Google
+   * hesabinin kalici kimligi baska sistemlerde de ayni kisiyi
+   * isaret eden bir tanimlayici; yonetim ekraninda gorunmesi gereken
+   * bilgi "Google ile baglanmis mi", kimligin kendisi degil.
+   *
+   * Parola ozeti ve dogrulama jetonu da DONMUYOR -- ekranda isi yok.
+   */
+  const hepsi = await env.DB.prepare(
+    "SELECT id, ad, soyad, unvan, eposta, rol, durum, kayit_ani, son_giris, " +
+    "CASE WHEN google_id IS NULL OR google_id = '' THEN 0 ELSE 1 END AS google, " +
+    "CASE WHEN avatar = '' THEN 0 ELSE 1 END AS avatar_var " +
+    "FROM uye ORDER BY kayit_ani DESC LIMIT 500",
+  ).all();
+
   return yanit({
     uyeler: bekleyenUye.results || [],
     yazilar: bekleyenYazi.results || [],
     senaryolar: bekleyenSenaryo.results || [],
+    hepsi: hepsi.results || [],
   });
 }
 

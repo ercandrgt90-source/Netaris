@@ -137,6 +137,16 @@
   var listeKutu = $("[data-liste]");
   var yonetimKutu = $("[data-yonetim]");
 
+  /* Uye durumlari YAZI durumlarindan AYRI sozlukte: ikisi farkli
+     alan ve ortak bir anahtar ("reddedildi" gibi) ikisinde baska
+     anlama gelir. Tek sozlukte birlestirmek, birinin digerini
+     sessizce ezmesi demekti. */
+  var UYE_DURUM = {
+    beklemede: "E-posta doğrulanmadı",
+    etkin: "Etkin",
+    askida: "Askıda",
+  };
+
   var DURUM_ADI = {
     taslak: "Taslak",
     incelemede: "İncelemede",
@@ -403,6 +413,139 @@
     return c;
   }
 
+  /* --- BEGENDIKLERIM: akis bicimi ---------------------------------
+     Once yalnizca baslik ve ham tarih ("2026-08-24") basiliyordu.
+     Simdi her satir bir kart: bolum rozeti, baslik, begenme tarihi ve
+     ETKILESIM SATIRI.
+
+     Etkilesim sayilari GERCEK: `/api/sayaclar` yol basina
+     goruntulenme ve begeni donuyor -- zaten var olan bir uc, tek
+     cagriyla butun liste icin.
+
+     Sayilar GELMEDEN BASILMIYOR. Sifir basip sonra duzeltmek, okura
+     once yanlis bir sayi gostermek olurdu; ayni kural karsilama
+     kartindaki seritte de gecerli. */
+  var BOLUM_ADI = {
+    haber: "Haber", analiz: "Araştırma", senaryo: "Senaryo",
+    varlik: "Varlık", olay: "Olay", makro: "Makro", teknik: "Teknik",
+    arastirmalar: "Araştırma", bilancolar: "Bilanço",
+  };
+
+  function bolumAdi(yol) {
+    var p = String(yol || "").split("/").filter(Boolean)[0];
+    return BOLUM_ADI[p] || "Sayfa";
+  }
+
+  function begeniCiz(kutu, liste) {
+    /* Metin `textContent` ile yaziliyor, HTML birlestirmeyle DEGIL:
+       baslik veritabanindan geliyor ve orada ne oldugunu varsaymak
+       XSS acar. */
+    kutu.innerHTML = "";
+    liste.forEach(function (o) {
+      var k = document.createElement("article");
+      k.className = "panel-satir-kart begeni-kart";
+      k.dataset.yol = o.yol;
+
+      var ust = document.createElement("div");
+      ust.className = "panel-satir-ust";
+      var rozet = document.createElement("span");
+      rozet.className = "rozet";
+      rozet.textContent = bolumAdi(o.yol);
+      ust.appendChild(rozet);
+      if (o.an) {
+        var t = document.createElement("span");
+        t.className = "kart-kunye";
+        t.textContent = tarih(o.an) + " tarihinde beğendiniz";
+        ust.appendChild(t);
+      }
+      k.appendChild(ust);
+
+      var h = document.createElement("h3");
+      var a = document.createElement("a");
+      a.href = o.yol;
+      a.textContent = o.baslik || o.yol;
+      h.appendChild(a);
+      k.appendChild(h);
+
+      var alt = document.createElement("div");
+      alt.className = "begeni-alt";
+      /* Sayi kutulari BOS ve gizli basliyor; `sayaclariDoldur`
+         gercek deger gelince aciyor. */
+      var g = document.createElement("span");
+      g.className = "begeni-sayi";
+      g.dataset.sayacG = "1";
+      g.hidden = true;
+      var b = document.createElement("span");
+      b.className = "begeni-sayi";
+      b.dataset.sayacB = "1";
+      b.hidden = true;
+      var kaldir = document.createElement("button");
+      kaldir.type = "button";
+      kaldir.className = "dugme dugme-sade begeni-kaldir";
+      kaldir.dataset.begeniKaldir = o.yol;
+      kaldir.textContent = "Beğeniyi kaldır";
+      alt.appendChild(g);
+      alt.appendChild(b);
+      alt.appendChild(kaldir);
+      k.appendChild(alt);
+
+      kutu.appendChild(k);
+    });
+    sayaclariDoldur(kutu, liste.map(function (o) { return o.yol; }));
+  }
+
+  function sayaclariDoldur(kutu, yollar) {
+    if (!yollar.length) return;
+    istek("/api/sayaclar", { method: "POST", govde: { yollar: yollar } })
+      .then(function (y) {
+        if (!y.tamam || !y.veri || !y.veri.sayaclar) return;
+        var s = y.veri.sayaclar;
+        $$("[data-yol]", kutu).forEach(function (k) {
+          var v = s[k.dataset.yol];
+          if (!v) return;
+          var g = $("[data-sayac-g]", k), b = $("[data-sayac-b]", k);
+          if (g) { g.textContent = bicimSayi(v.g) + " görüntülenme"; g.hidden = false; }
+          /* SIFIR BEGENI GOSTERILMIYOR: kullanici bu sayfayi zaten
+             begendi, yani sayi en az 1 olmali. Sifir gorunuyorsa
+             sayac hentiz islememis demektir ve "0 beğeni" yazmak
+             yanlis bilgi olurdu. */
+          if (b && v.b > 0) {
+            b.textContent = bicimSayi(v.b) + " beğeni";
+            b.hidden = false;
+          }
+        });
+      })
+      .catch(function () { /* sayac yoksa kart yine calisiyor */ });
+  }
+
+  /* BEGENIYI KALDIRMA -- olay DELEGASYONU ile.
+     Her karta ayri dinleyici baglamak, liste her yenilendiginde
+     eskilerini birakirdi. Tek dinleyici kapsayicida duruyor. */
+  document.addEventListener("click", function (o) {
+    var d = o.target.closest && o.target.closest("[data-begeni-kaldir]");
+    if (!d) return;
+    var yol = d.dataset.begeniKaldir;
+    d.disabled = true;
+    istek("/api/begeni", { method: "POST", govde: { yol: yol } })
+      .then(function (y) {
+        if (!y.tamam) { d.disabled = false; return; }
+        var kart = d.closest("[data-yol]");
+        if (kart) kart.remove();
+        /* Serit sayisi da dusuyor -- kart gitti ama sayi kalsaydi
+           panel kendi icinde tutarsiz olurdu. */
+        var b = $("[data-sayim-begeni]");
+        if (b) {
+          var n = parseInt(b.textContent.replace(/[^0-9]/g, ""), 10);
+          if (!isNaN(n) && n > 0) b.textContent = bicimSayi(n - 1);
+        }
+        var kutu = $("[data-begeni-liste]");
+        if (kutu && !kutu.querySelector("[data-yol]")) {
+          kutu.innerHTML = '<p class="uyelik-alt">Beğeni listeniz boş.</p>';
+        }
+      })
+      .catch(function () { d.disabled = false; });
+  });
+
   function begenileriYukle() {
     var kutu = $("[data-begeni-liste]");
     fetch("/api/begenilerim", { credentials: "same-origin" })
@@ -430,27 +573,7 @@
             'düğmesiyle beğenebilirsiniz.</p>';
           return;
         }
-        /* Metin `textContent` ile yaziliyor, HTML birlestirmeyle
-           DEGIL: baslik veritabanindan geliyor ve orada ne oldugunu
-           varsaymak XSS acar. */
-        kutu.innerHTML = "";
-        liste.forEach(function (o) {
-          var k = document.createElement("div");
-          k.className = "panel-satir-kart";
-          var a = document.createElement("a");
-          a.href = o.yol;
-          a.textContent = o.baslik || o.yol;
-          var h = document.createElement("h3");
-          h.appendChild(a);
-          k.appendChild(h);
-          if (o.an) {
-            var t = document.createElement("p");
-            t.className = "kart-ozet";
-            t.textContent = String(o.an).slice(0, 10);
-            k.appendChild(t);
-          }
-          kutu.appendChild(k);
-        });
+        begeniCiz(kutu, liste);
       })
       .catch(function () {});
   }
@@ -1048,7 +1171,41 @@
           '</div></article>';
       }).join("");
     }
-    yonetimKutu.innerHTML = p || '<p class="uyelik-alt">Bekleyen iş yok.</p>';
+    if (!p) p = '<p class="uyelik-alt">Bekleyen iş yok.</p>';
+
+    /* KAYITLI HESAPLAR -- onay kuyrugundan AYRI.
+       Yukaridaki listeler bir IS LISTESI: bitince bosalirlar. Bu ise
+       bir KAYIT ve hep dolu. Ikisini ayirmak, "bekleyen is yok"
+       yazarken hesap listesinin de kaybolmasini engelliyor.
+
+       `google` alani BOOLEAN geliyor: Google hesabinin kalici
+       kimligi baska sistemlerde de ayni kisiyi isaret eden bir
+       tanimlayici ve yonetim ekraninda gorunmesi gereken bilgi
+       "bagli mi", kimligin kendisi degil. */
+    var hepsi = v.hepsi || [];
+    if (hepsi.length) {
+      p += '<h3>Kayıtlı hesaplar <span class="kart-kunye">(' +
+           hepsi.length + ')</span></h3>';
+      p += '<div class="hesap-liste">' + hepsi.map(function (u) {
+        var ad = ((u.ad || "") + " " + (u.soyad || "")).trim() || "(adsız)";
+        return '<article class="panel-satir-kart hesap-kart">' +
+          '<div class="panel-satir-ust">' +
+            '<b>' + kacir(ad) + '</b>' +
+            '<span class="rozet rozet-durum durum-' + kacir(u.durum) + '">' +
+              kacir(UYE_DURUM[u.durum] || u.durum) + '</span>' +
+            (u.rol === "yonetici"
+              ? '<span class="rozet">Yönetici</span>' : '') +
+            (u.google ? '<span class="rozet">Google</span>' : '') +
+          '</div>' +
+          '<p class="kart-kunye">' + kacir(u.eposta) + '</p>' +
+          (u.unvan ? '<p class="kart-ozet">' + kacir(u.unvan) + '</p>' : '') +
+          '<p class="kart-kunye">Kayıt: ' + tarih(u.kayit_ani) +
+            ' · Son giriş: ' + tarih(u.son_giris) + '</p>' +
+          '</article>';
+      }).join("") + '</div>';
+    }
+
+    yonetimKutu.innerHTML = p;
 
     function karar(secici, tur, durumu, sorNeden) {
       $$(secici, yonetimKutu).forEach(function (d) {
