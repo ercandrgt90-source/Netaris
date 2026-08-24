@@ -325,6 +325,26 @@ def main() -> int:
     elif args.yayinla:
         print("\n  Site uretimi basarisiz -- dagitim YAPILMADI")
 
+    # TAZELIK KONTROLU KOSULSUZ -- dagitim atlansa da kosar.
+    #
+    # NEDEN: site iki gun icinde iki kez sessizce dondu ve ikisini de
+    # once KULLANICI fark etti. Sebepler tamamen farkliydi (bir kez
+    # `yayinla.py` cokuyordu, bir kez yorum kapisi dagitimi
+    # engelliyordu) ama sonuc ayniydi: haber toplaniyor, okura
+    # ulasmiyor.
+    #
+    # Bu kontrol sebebe hic bakmiyor, yalnizca okurun gordugu seye
+    # bakiyor. `dogrula.py` bunu yapamaz: o yalnizca BASARILI bir
+    # dagitimdan sonra kosuyor, yani "dagitim hic olmadi" durumunu
+    # tanimi geregi goremiyor.
+    #
+    # `sonuclar`a KONMUYOR: donus degeri kosunun basarisini
+    # belirlememeli. Bayatlik bu kosunun urettigi bir sey degil,
+    # onceki kosularin birakip gittigi bir durum -- ve bugunku kosu
+    # dogru calistiysa kirmizi donmesi yaniltici olurdu.
+    if args.yayinla:
+        _calistir("Canlı site tazeliği", [str(SITE / "tazelik.py")])
+
     _ozet(sonuclar)
 
     with beyin.baglan() as b:
