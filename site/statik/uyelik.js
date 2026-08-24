@@ -187,9 +187,10 @@
      Unvan bos ise e-posta yaziliyor -- kart bos bir satirla degil,
      her zaman bir seyle acilmali.
 
-     Avatar bas harften uretiliyor. Vesikalik YOK: var olmayan
-     insanin fotografi olmaz ve bu kural sitede zaten `_imza.html`
-     icinde yazili. */
+     Avatar yoksa BAS HARF dairesi. `_imza.html` icindeki "vesikalik
+     yok" kurali bununla CELISMIYOR: o kural KURUM imzasi icin --
+     var olmayan bir insanin uydurma fotografi olmaz. Burada gorseli
+     koyan, gercek bir uye ve kendi fotografi. */
   function kartiDoldur(u) {
     var ad = tamAd(u) || "Panel";
     var b = $("[data-tam-ad]");
@@ -197,9 +198,121 @@
     var kim = $("[data-kim]");
     if (kim) kim.textContent = u.unvan ? u.unvan : u.eposta;
     var av = $("[data-avatar]");
-    /* Bas harf: Turkce buyuk harf kurali icin `tr` yerelini veriyoruz
-       -- yoksa "istanbul" -> "I" oluyor, "İ" degil. */
-    if (av) av.textContent = ad.slice(0, 1).toLocaleUpperCase("tr");
+    /* Avatar varsa bas harf BASILMIYOR: ikisi ust uste binerdi.
+       Bas harfte `tr` yereli veriliyor -- yoksa "istanbul" -> "I"
+       oluyor, "İ" degil. */
+    if (av) av.textContent = u.avatar ? "" : ad.slice(0, 1).toLocaleUpperCase("tr");
+  }
+
+  /* --- AVATAR -------------------------------------------------------
+     Gorsel TARAYICIDA yeniden uretiliyor ve asil sebebi boyut degil
+     GIZLILIK: telefon fotografi EXIF icinde GPS KOORDINATI tasiyor.
+     Canvas'a cizip yeniden kodlamak butun ust veriyi dusuruyor --
+     yuklenen sey, kullanicinin evinin konumunu tasimayan yeni bir
+     dosya oluyor.
+
+     Sunucudaki 64 KB tavani bu adimin ATLANAMAMASINI sagliyor: ham
+     telefon fotografi zaten sigmiyor.
+
+     KARE KIRPMA merkezden: avatar daire icinde gosteriliyor ve
+     orani bozmak yerine fazlasi kesiliyor. */
+  var AVATAR_BOY = 256;
+
+  function avatarKucult(dosya) {
+    return new Promise(function (coz, at) {
+      var okuyucu = new FileReader();
+      okuyucu.onerror = function () { at(new Error("okunamadi")); };
+      okuyucu.onload = function () {
+        var im = new Image();
+        im.onerror = function () { at(new Error("gorsel degil")); };
+        im.onload = function () {
+          var k = Math.min(im.width, im.height);
+          if (!k) { at(new Error("bos gorsel")); return; }
+          var t = document.createElement("canvas");
+          t.width = t.height = AVATAR_BOY;
+          var c = t.getContext("2d");
+          /* Saydam PNG'ler siyah zemine dusmesin: JPEG saydamlik
+             tasimiyor ve doldurmadan cizilirse saydam pikseller
+             SIYAH cikiyor. */
+          c.fillStyle = "#ffffff";
+          c.fillRect(0, 0, AVATAR_BOY, AVATAR_BOY);
+          c.drawImage(im, (im.width - k) / 2, (im.height - k) / 2, k, k,
+                      0, 0, AVATAR_BOY, AVATAR_BOY);
+          coz(t.toDataURL("image/jpeg", 0.82));
+        };
+        im.src = okuyucu.result;
+      };
+      okuyucu.readAsDataURL(dosya);
+    });
+  }
+
+  function avatarGoster(veri) {
+    var on = $("[data-avatar-onizleme]");
+    var kartAv = $("[data-avatar]");
+    var kaldir = $("[data-avatar-kaldir]");
+    [on, kartAv].forEach(function (e) {
+      if (!e) return;
+      if (veri) {
+        e.style.backgroundImage = 'url("' + veri + '")';
+        e.classList.add("avatar-gorselli");
+      } else {
+        e.style.backgroundImage = "";
+        e.classList.remove("avatar-gorselli");
+      }
+    });
+    if (kaldir) kaldir.hidden = !veri;
+  }
+
+  function avatarGonder(veri, durumMetni) {
+    var durum = $("[data-profil-durum]");
+    if (durum) { durum.textContent = durumMetni; durum.className = "panel-durum"; }
+    return istek("/api/avatar", { method: "POST", govde: { avatar: veri } })
+      .then(function (y) {
+        if (!y.tamam) {
+          if (durum) {
+            durum.textContent = (y.veri && y.veri.hata) || "Görsel kaydedilemedi.";
+            durum.className = "panel-durum panel-durum-hata";
+          }
+          return false;
+        }
+        /* SUNUCUNUN DONDURDUGU deger gosteriliyor -- sakladigimizdan
+           farkli bir sey gostermek sessiz bir yalan olurdu. */
+        avatarGoster(y.veri.avatar);
+        if (durum) {
+          durum.textContent = veri ? "Fotoğraf kaydedildi." : "Fotoğraf kaldırıldı.";
+          durum.className = "panel-durum panel-durum-tamam";
+        }
+        return true;
+      });
+  }
+
+  var avatarGirdi = $("[data-avatar-girdi]");
+  if (avatarGirdi) {
+    avatarGirdi.addEventListener("change", function () {
+      var d = avatarGirdi.files && avatarGirdi.files[0];
+      if (!d) return;
+      var durum = $("[data-profil-durum]");
+      avatarKucult(d).then(function (veri) {
+        return avatarGonder(veri, "Fotoğraf yükleniyor…");
+      }).catch(function () {
+        if (durum) {
+          durum.textContent = "Görsel okunamadı. JPEG ya da PNG seçin.";
+          durum.className = "panel-durum panel-durum-hata";
+        }
+      }).then(function () {
+        /* Ayni dosya tekrar secilebilsin: `change` ayni degerde
+           TETIKLENMIYOR ve kullanici ikinci denemesinde hicbir sey
+           olmadigini gorurdu. */
+        avatarGirdi.value = "";
+      });
+    });
+  }
+
+  var avatarKaldirDugme = $("[data-avatar-kaldir]");
+  if (avatarKaldirDugme) {
+    avatarKaldirDugme.addEventListener("click", function () {
+      avatarGonder("", "Kaldırılıyor…");
+    });
   }
 
   var profilForm = $("[data-profil-form]");
@@ -217,6 +330,7 @@
     if (e) e.textContent = u.eposta || "—";
     if (r) r.textContent = u.rol === "yonetici" ? "Yönetici" : "Yazar";
     if (k) k.textContent = tarih(u.kayit_ani);
+    avatarGoster(u.avatar || "");
   }
 
   function hakkindaSay() {

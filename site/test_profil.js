@@ -52,7 +52,10 @@ function esit(bulunan, beklenen, aciklama) {
 let kaynak = fs.readFileSync(path.join(__dirname, "worker.js"), "utf8");
 kaynak = kaynak.slice(0, kaynak.indexOf("export default"));
 
-const ortam = { console, crypto: require("crypto").webcrypto, TextEncoder, TextDecoder };
+const ortam = {
+  console, crypto: require("crypto").webcrypto, TextEncoder, TextDecoder,
+  atob: function (s) { return Buffer.from(s, "base64").toString("binary"); },
+};
 ortam.globalThis = ortam;
 vm.createContext(ortam);
 vm.runInContext(kaynak, ortam);
@@ -162,6 +165,69 @@ console.log("\nHTML KACISI BU KATMANDA YAPILMIYOR -- metin oldugu gibi saklaniyo
   esit(s.deger.ad, "Ali & Veli", "ampersan oldugu gibi saklaniyor");
   esit(s.deger.unvan, "<analist>", "acili parantez oldugu gibi saklaniyor");
 }
+
+const avatar = ortam.avatarDogrula;
+
+/* JPEG ve PNG sihirli baytlari, base64'e cevrilmis hali. */
+function b64(baytlar, ek) {
+  const b = Buffer.concat([Buffer.from(baytlar),
+                           Buffer.from(ek || "x".repeat(64))]);
+  return b.toString("base64");
+}
+const JPEG = b64([0xFF, 0xD8, 0xFF]);
+const PNG = b64([0x89, 0x50, 0x4E, 0x47]);
+
+console.log("\nAvatar -- bicim ve BOS DEGER\n");
+esit(typeof avatar, "function", "avatarDogrula bulundu");
+esit(avatar("").tamam, true, "bos dize gecerli (KALDIRMA demek)");
+esit(avatar("").deger, "", "bos dize bos donuyor");
+esit(avatar("   ").tamam, true, "yalnizca bosluk da kaldirma sayiliyor");
+esit(avatar(null).tamam, false, "null reddediliyor");
+esit(avatar(123).tamam, false, "sayi reddediliyor");
+
+console.log("\nGecerli JPEG ve PNG kabul ediliyor\n");
+esit(avatar("data:image/jpeg;base64," + JPEG).tamam, true, "JPEG kabul");
+esit(avatar("data:image/png;base64," + PNG).tamam, true, "PNG kabul");
+
+console.log("\nSVG ACIKCA REDDEDILIYOR\n");
+/* SVG bir BELGE bicimi; icine <script> konabiliyor. `<img src>`
+   icinde calismasa da dogrudan acildiginda calisir. Depoladigimiz
+   seyin calistirilabilir olmamasi, gosterildigi yere bagli olmamali. */
+esit(avatar("data:image/svg+xml;base64," + Buffer.from(
+  "<svg onload=alert(1)></svg>").toString("base64")).tamam, false,
+  "SVG reddediliyor");
+esit(avatar("data:text/html;base64," + Buffer.from("<b>x</b>")
+  .toString("base64")).tamam, false, "HTML reddediliyor");
+esit(avatar("https://baska.example/a.jpg").tamam, false,
+     "dis adres reddediliyor");
+esit(avatar("javascript:alert(1)").tamam, false, "javascript: reddediliyor");
+
+console.log("\nONEKE GUVENILMIYOR -- sihirli baytlar sinaniyor\n");
+/* `data:image/jpeg;base64,` yazip icine baska bir sey koymak bedava:
+   onek istemcinin YAZDIGI bir etiket, dosyanin kendisi degil. */
+esit(avatar("data:image/jpeg;base64," + Buffer.from(
+  "<svg onload=alert(1)></svg>" + "x".repeat(40)).toString("base64")).tamam,
+  false, "JPEG etiketli SVG icerigi reddediliyor");
+esit(avatar("data:image/png;base64," + JPEG).tamam, false,
+     "PNG etiketli JPEG icerigi reddediliyor");
+esit(avatar("data:image/jpeg;base64," + PNG).tamam, false,
+     "JPEG etiketli PNG icerigi reddediliyor");
+
+console.log("\nBase64 ALFABESI sinaniyor\n");
+esit(avatar("data:image/jpeg;base64,!!!!" + "A".repeat(60)).tamam, false,
+     "gecersiz karakter reddediliyor");
+esit(avatar("data:image/jpeg;base64,QQ").tamam, false,
+     "cok kisa govde reddediliyor");
+
+console.log("\nBOYUT TAVANI -- ham dosya yuklemeyi engelliyor\n");
+/* Tavan kota icin degil: tarayicidaki yeniden kodlama adiminin
+   ATLANAMAMASI icin. O adim EXIF'i -- yani telefon fotografindaki
+   GPS koordinatini -- dusuruyor. Ham dosya zaten sigmiyor. */
+esit(avatar("data:image/jpeg;base64," + "A".repeat(70000)).tamam, false,
+     "64 KB ustu reddediliyor");
+esit(avatar("data:image/jpeg;base64," + JPEG).deger.length < 65536, true,
+     "normal avatar tavanin altinda");
+
 
 console.log("");
 kaldi.forEach(function (x) { console.log("  KALDI " + x); });

@@ -212,6 +212,33 @@
        gorup sebebini bilmekten kotudur. #}
     <section data-bolum="hesabim" hidden>
       <form data-profil-form class="uyelik-form panel-form" novalidate>
+        {# AVATAR.
+           Gorsel TARAYICIDA 256x256 JPEG'e cevriliyor ve asil sebebi
+           boyut degil GIZLILIK: telefon fotografi EXIF icinde GPS
+           koordinati tasiyor. Canvas'a cizip yeniden kodlamak butun
+           ust veriyi dusuruyor.
+
+           Dosya secici bir <label> icinde gizli duruyor: tarayicinin
+           varsayilan "Dosya secin / secilmedi" gorunumu her tarayicida
+           baska turlu ve sayfanin geri kalanina benzemiyor. #}
+        <div class="avatar-alan">
+          <span class="panel-avatar avatar-onizleme" data-avatar-onizleme
+                aria-hidden="true"></span>
+          <div class="avatar-eylem">
+            <label class="dugme dugme-sade avatar-sec">
+              Fotoğraf seç
+              <input type="file" name="avatar" accept="image/jpeg,image/png"
+                     data-avatar-girdi hidden>
+            </label>
+            <button class="dugme dugme-sade" type="button"
+                    data-avatar-kaldir hidden>Kaldır</button>
+            <small>
+              JPEG veya PNG. 256×256 piksele küçültülür; konum ve cihaz
+              bilgisi <b>silinir</b>.
+            </small>
+          </div>
+        </div>
+
         <div class="panel-ikili">
           <label>
             Ad

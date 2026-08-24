@@ -1410,10 +1410,25 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
    yer kapliyordu -- oysa X, LinkedIn, WhatsApp ve Telegram ikonlari
    zaten taniniyor. */
 .sayfa-paylas-dar .sp-dugme { padding: 7px 9px}
+/* GORSEL GIZLEME (sr-only) -- TEK TANIM, IKI CAGRI YERI.
+   Oge ekrandan kalkiyor ama ekran okuyucuda ve klavye sirasinda
+   KALIYOR. `display: none` bunu yapmaz: ogeyi erisilebilirlik
+   agacindan da siler.
+
+   Avatar dosya secicisi de buraya bagli. Ikinci bir kopya
+   yazilmisti; kaldirildi -- ayni karari iki yerde tutmak, bu depoda
+   bes kez ayrisan bir hataydi. Yeni kullanim icin `.gizli-yazi`
+   sinifi yeterli.
+
+   `margin: -1px` DORT YANA bilerek: oge zaten 1x1 piksel ve
+   akistan cikmis; kalan tek pikseli de kapatiyor, hizayi bozmuyor. */
+.gizli-yazi,
+.avatar-sec input,
 .sayfa-paylas-dar .sp-dugme > span {
   position: absolute; width: 1px; height: 1px;
-  padding: 0; margin: -1px; overflow: hidden;  /* dort-yan: gorsel gizleme kalibi (sr-only) -- dort yan kasitli */
-  clip: rect(0 0 0 0); white-space: nowrap; border: 0}
+  padding: 0; margin: -1px; overflow: hidden;  /* dort-yan */
+  clip: rect(0 0 0 0); clip-path: inset(50%);
+  white-space: nowrap; border: 0}
 
 /* Topluluk bolumu: liste (varsa) + davet, TEK bolum icinde.
    Gerekce `anasayfa.html` icinde: ayri dururken biri 51 karakterlik
@@ -1896,11 +1911,6 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
   display: flex; align-items: center; justify-content: space-between;
   gap: var(--b-4); flex-wrap: wrap}
 .yazi-eylem .sayfa-paylas-dar { margin: var(--b-4) 0 0}
-
-.gizli-yazi {
-  position: absolute; width: 1px; height: 1px;
-  padding: 0; margin: -1px; overflow: hidden;  /* dort-yan: sr-only kalibi */
-  clip: rect(0 0 0 0); white-space: nowrap; border: 0}
 
 /* FOTOGRAF KUNYESI -- sayfa sonunda, tek satir.
    Once fotografin ALTINDA `figcaption` olarak duruyordu ve gorselle
@@ -2702,6 +2712,33 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
 .ufuk-cubuk span {
   display: block; height: 100%; border-radius: 999px;
   background: var(--vurgu)}
+
+/* --- AVATAR ---------------------------------------------------------
+   Gorsel `background-image` ile veriliyor, <img> ile degil: kaynak bir
+   `data:` adresi ve daire icinde ORTALANIP KIRPILMASI gerekiyor.
+   `background-size: cover` bunu tek satirda yapiyor; <img> ile ayni
+   sonuc icin sarmalayici + `object-fit` gerekirdi. */
+.avatar-alan {
+  display: flex; align-items: center; gap: var(--b-4); flex-wrap: wrap}
+.avatar-onizleme { width: 72px; height: 72px; font-size: 1.8rem}
+.avatar-eylem { display: flex; flex-wrap: wrap; align-items: center; gap: var(--b-2)}
+.avatar-eylem small { flex-basis: 100%; margin: 0}
+
+/* Gorsel varken zemin rengi ve harf gizleniyor. Tek sinif ikisini de
+   yapiyor -- `panel-avatar` hem kartta hem formda kullaniliyor. */
+.avatar-gorselli {
+  background-color: var(--zemin-2);
+  background-size: cover; background-position: center;
+  color: transparent}
+
+/* DOSYA SECICI GIZLI, ETIKET DUGME GORUNUYOR.
+   Tarayicinin varsayilan "Dosya secin / secilmedi" gorunumu her
+   tarayicida baska turlu ve sayfanin geri kalanina benzemiyor.
+   Klavye erisimi KAYBOLMUYOR: girdi `hidden` degil, etiketin icinde
+   ve etikete odaklanmak girdiyi tetikliyor. */
+.avatar-sec { cursor: pointer}
+
+.avatar-sec:focus-within { outline: 2px solid var(--vurgu); outline-offset: 2px}
 
 /* --- MOBIL ALT SEKME CUBUGU ----------------------------------------
    Yalnizca dar ekranda. Masaustunde ustteki sekmeler zaten goz

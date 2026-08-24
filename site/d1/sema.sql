@@ -30,6 +30,10 @@ CREATE TABLE IF NOT EXISTS uye (
   -- Kisa ozgecmis. Okur bir yorumu kimin degil, NE SIFATLA
   -- yazdigini bilmek ister.
   hakkinda          TEXT NOT NULL DEFAULT '',
+  -- 256x256 JPEG'in `data:` adresi. Tarayicida yeniden
+  -- uretiliyor; bu EXIF'i -- yani telefon fotografindaki GPS
+  -- koordinatini -- dusuruyor. Bos ise bas harf dairesi.
+  avatar            TEXT NOT NULL DEFAULT '',
   parola_ozet       TEXT NOT NULL,
   -- beklemede: e-posta dogrulanmadi | etkin | askida
   durum             TEXT NOT NULL DEFAULT 'beklemede',

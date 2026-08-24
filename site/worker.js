@@ -101,6 +101,70 @@ function cokSatir(d, enCok) {
     .slice(0, enCok);
 }
 
+/* --- AVATAR ---
+ *
+ * En cok 64 KB. Tarayici 256x256 JPEG uretiyor; base64 ile ~20-34 KB
+ * ediyor, 64 KB rahat pay birakiyor. Tavan kota icin degil: HAM DOSYA
+ * YUKLEMEYI ENGELLIYOR. Telefon fotografi EXIF icinde GPS koordinati
+ * tasiyor ve tarayicida canvas'a cizilip yeniden kodlanan gorsel bu
+ * ust veriyi dusuruyor. Tavan, o adimin ATLANAMAMASINI sagliyor:
+ * ham dosya zaten sigmiyor.
+ */
+const EN_COK_AVATAR = 64 * 1024;
+
+/* Yalnizca JPEG ve PNG. SVG ACIKCA DISARIDA ve sebebi guvenlik:
+ * SVG bir belge bicimi, icine `<script>` konabiliyor. `<img src>`
+ * icinde calismasa da dogrudan acildiginda ya da bir gun baska bir
+ * baglama konuldugunda calisir. Depoladigimiz seyin CALISTIRILABILIR
+ * olmamasi, gosterildigi yere bagli olmamali. */
+const AVATAR_ONEK = {
+  "data:image/jpeg;base64,": [0xFF, 0xD8, 0xFF],
+  "data:image/png;base64,": [0x89, 0x50, 0x4E, 0x47],
+};
+
+/* Gelen avatari dogrular. Bos dize KALDIRMA demek ve gecerlidir.
+ *
+ * Doner: {tamam:true, deger:"..."} ya da {tamam:false, sebep:"..."}
+ *
+ * Ayri ve saf fonksiyon olmasinin sebebi sinanabilirlik -- uc
+ * noktanin icinde kalsaydi sahte bir D1 kurmadan sinanamazdi. */
+function avatarDogrula(d) {
+  if (typeof d !== "string") return { tamam: false, sebep: "Görsel okunamadı." };
+  const s = d.trim();
+  if (!s) return { tamam: true, deger: "" };          // kaldirma
+  if (s.length > EN_COK_AVATAR) {
+    return { tamam: false, sebep: "Görsel çok büyük." };
+  }
+
+  const onek = Object.keys(AVATAR_ONEK).find((o) => s.startsWith(o));
+  if (!onek) return { tamam: false, sebep: "Yalnızca JPEG ve PNG kabul ediliyor." };
+
+  const govde = s.slice(onek.length);
+  /* Base64 ALFABESI SINANIYOR. Gecersiz karakter, `atob`in hata
+     firlatmasi ya da sessizce baska bir sey cozmesi demek. */
+  if (!/^[A-Za-z0-9+/]+={0,2}$/.test(govde) || govde.length < 32) {
+    return { tamam: false, sebep: "Görsel okunamadı." };
+  }
+
+  /* SIHIRLI BAYTLAR SINANIYOR -- ONEKE GUVENILMIYOR.
+     `data:image/jpeg;base64,` yazip icine baska bir sey koymak
+     bedava; onek istemcinin YAZDIGI bir etiket, dosyanin kendisi
+     degil. Cozulen ilk baytlar bicimi gercekten dogruluyor. */
+  let bas;
+  try {
+    bas = atob(govde.slice(0, 16));
+  } catch (e) {
+    return { tamam: false, sebep: "Görsel okunamadı." };
+  }
+  const beklenen = AVATAR_ONEK[onek];
+  for (let i = 0; i < beklenen.length; i++) {
+    if (bas.charCodeAt(i) !== beklenen[i]) {
+      return { tamam: false, sebep: "Görsel biçimi tanınmadı." };
+    }
+  }
+  return { tamam: true, deger: s };
+}
+
 /* Gelen profil govdesini TEMIZLER ve dogrular.
  *
  * Ayri bir saf fonksiyon olmasinin sebebi sinanabilirlik: veritabani
@@ -293,7 +357,7 @@ async function uyeBul(istek, db) {
   if (!jeton) return null;
   const s = await db.prepare(
     "SELECT u.id, u.eposta, u.ad, u.soyad, u.unvan, u.hakkinda, " +
-    "u.rol, u.durum, u.kayit_ani FROM oturum o " +
+    "u.avatar, u.rol, u.durum, u.kayit_ani FROM oturum o " +
     "JOIN uye u ON u.id = o.uye_id WHERE o.jeton_ozeti = ? AND o.biter > ?",
   ).bind(await sha256(jeton), damga()).first();
   return s && s.durum === "etkin" ? s : null;
@@ -691,11 +755,30 @@ async function ben(istek, env) {
       soyad: u.soyad || "",
       unvan: u.unvan || "",
       hakkinda: u.hakkinda || "",
+      avatar: u.avatar || "",
       eposta: u.eposta,
       rol: u.rol,
       kayit_ani: u.kayit_ani || "",
     },
   });
+}
+
+/** POST /api/avatar  {avatar:"data:image/jpeg;base64,..."} -> {avatar}
+ *
+ * PROFIL KAYDINDAN AYRI UC ve sebebi olculebilir: avatar ~30 KB.
+ * Profil formunun her kaydinda o baytlari yeniden gondermek, yalnizca
+ * unvanini duzelten kullaniciya bedava bir 30 KB yukleme demekti.
+ *
+ * Bos dize KALDIRMA anlamina geliyor -- ayri bir DELETE ucu yerine
+ * ayni ucun bos degeri. Iki uc olsaydi ikisi de ayni dogrulamadan
+ * gecmek zorunda kalir ve zamanla ayrisirlardi. */
+async function avatarKaydet(istek, env, u) {
+  const g = await istek.json().catch(() => ({}));
+  const s = avatarDogrula(g && g.avatar);
+  if (!s.tamam) return hata(s.sebep, 400);
+  await env.DB.prepare("UPDATE uye SET avatar = ? WHERE id = ?")
+    .bind(s.deger, u.id).run();
+  return yanit({ avatar: s.deger });
 }
 
 /** POST /api/profil  {ad, soyad, unvan, hakkinda} -> {uye:{...}}
@@ -1840,6 +1923,8 @@ export default {
 
       if (y === "profil" && m === "POST")
         return await profilKaydet(istek, env, uye);
+      if (y === "avatar" && m === "POST")
+        return await avatarKaydet(istek, env, uye);
 
       if (y === "yazi" && m === "GET") return await yaziListe(istek, env, uye);
       if (y === "yazi" && m === "POST") return await yaziKaydet(istek, env, uye);

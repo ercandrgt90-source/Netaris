@@ -46,3 +46,22 @@ CREATE UNIQUE INDEX IF NOT EXISTS uye_google ON uye(google_id);
 ALTER TABLE uye ADD COLUMN soyad    TEXT NOT NULL DEFAULT '';
 ALTER TABLE uye ADD COLUMN unvan    TEXT NOT NULL DEFAULT '';
 ALTER TABLE uye ADD COLUMN hakkinda TEXT NOT NULL DEFAULT '';
+
+-- 2026-08-24 · Avatar
+--
+-- NEDEN D1 ICINDE, NESNE DEPOSUNDA DEGIL
+-- Projede R2 baglantisi yok. Avatar icin R2 acmak; kova, herkese acik
+-- adres, onbellek kurallari ve silme yasam dongusu demek. Uye sayisi
+-- iki haneliyken bu, cozdugunden buyuk bir yapi.
+--
+-- Saklanan sey 256x256 JPEG'in `data:` adresi: ~15-25 KB, base64 ile
+-- ~20-34 KB. Bir metin sutunu icin kucuk, satir basina tek kayit.
+-- Uye sayisi bin(ler)e cikarsa nesne deposuna tasinmali; o esik
+-- gelene kadar bu basit ve calisiyor.
+--
+-- GORSEL TARAYICIDA YENIDEN URETILIYOR (bkz. `uyelik.js` -> avatarKucult)
+-- ve bunun asil sebebi boyut degil GIZLILIK: telefon fotografi EXIF
+-- icinde GPS KOORDINATI tasiyor. Canvas'a cizip yeniden kodlamak
+-- butun ust veriyi dusuruyor. Sunucudaki bayt tavani bu ozelligi
+-- ZORUNLU kiliyor: ham dosya yuklemeye calisan istek tavana takilir.
+ALTER TABLE uye ADD COLUMN avatar TEXT NOT NULL DEFAULT '';
