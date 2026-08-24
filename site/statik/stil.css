@@ -1274,7 +1274,7 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
   box-shadow: var(--golge);
   overflow: hidden}
 
-@media (min-width: 560px) {
+@media (min-width: 561px) {
   /* Gorsel SABIT genislikte, metin kalani aliyor. Oran degil sabit
      olcu: degisken genislikte kucuk gorseller listede zikzak yapar. */
   .haber { grid-template-columns: 168px 1fr}
@@ -1294,7 +1294,7 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
    Sarmalin gerekcesi `gundem.html` icinde yazili: uc cocuk iki
    sutunlu izgaraya sigmiyordu. */
 .haber-medya { min-width: 0}
-@media (min-width: 560px) {
+@media (min-width: 561px) {
   /* Yatay kartta gorsel SAGDAN cerceveleniyor, alttan degil. */
   .haber-medya {
     display: flex; flex-direction: column;
@@ -1606,7 +1606,7 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
 .serit-yatay::-webkit-scrollbar-thumb {
   background: var(--cizgi-parlak); border-radius: 3px}
 
-@media (min-width: 560px) {
+@media (min-width: 561px) {
   .serit-yatay { grid-auto-columns: minmax(280px, 46%); }
 }
 @media (min-width: 900px) {
@@ -1816,7 +1816,7 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
   display: grid; gap: var(--b-3);
   grid-template-columns: 1fr;
   list-style: none; padding: 0; margin: var(--b-4) 0 0}
-@media (min-width: 560px) {
+@media (min-width: 561px) {
   .onem-izgara { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 .onem-kart {
@@ -1847,7 +1847,18 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
    bu iliskiyi ekran okuyucuya soylemiyordu. */
 .panel-sayim {
   display: grid; gap: var(--b-4b) var(--b-5);
-  grid-template-columns: repeat(auto-fit, minmax(84px, auto));
+  /* ACIK SUTUN SAYISI -- `repeat(auto-fit, minmax(84px, auto))` DEGIL.
+     CSS Izgara sartnamesinde otomatik tekrar (auto-fit/auto-fill)
+     BELIRSIZ boyutlu iz kabul etmiyor; `auto` bir intrinsic ust
+     sinir ve bildirim gecersiz sayilabiliyor. Bazi tarayicilar
+     tolere ediyor, bazilari dusuruyor -- ve dusurdugunde dort sayi
+     alt alta diziliyor. Tarayiciya gore degisen bir duzen, mobilde
+     "kayma" olarak goruluyor.
+
+     Iki satir, ikisi de belirli. `minmax(0, ...)` gerekli: sifir
+     alt sinir olmadan uzun bir etiket ("Aldığın oy") izi genisletip
+     tasmaya yol aciyor. */
+  grid-template-columns: repeat(4, minmax(0, auto));
   margin: 0; justify-content: start;
   font-variant-numeric: tabular-nums}
 .panel-sayim > div { display: flex; flex-direction: column-reverse; gap: 2px}
@@ -1857,6 +1868,12 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
 .panel-sayim dd {
   margin: 0; font-size: 1.55rem; font-weight: 800; line-height: 1;
   letter-spacing: -0.02em; color: var(--ust-yazi)}
+
+/* Dar ekranda dort sutun 60 pikselin altina iniyor ve sayilar
+   etiketlerinin altinda kaliyor. Iki satir, ikiser sutun. */
+@media (max-width: 560px) {
+  .panel-sayim { grid-template-columns: repeat(2, minmax(0, 1fr))}
+}
 
 /* Arastirma listesi -- kart + altinda sayac.
    Sayac kartin DISINDA duruyor: kart bir <a> ve icine baska bir
@@ -2314,7 +2331,7 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
   .one-cikan-gorsel { border-left: 0; border-bottom: 1px solid var(--cizgi); order: -1; }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 699px) {
   /* `.ust .ust-ic` -- tek sinif olsaydi 3.500 satir asagidaki
      `.ust-ic { gap: var(--b-3) }` kurali bunu ezerdi. */
   .ust .ust-ic { min-height: 56px; gap: 14px; }
@@ -2693,7 +2710,7 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
 .panel-karsilama .panel-sayim { grid-column: 1 / -1}
 .panel-karsilama-eylem { grid-column: 2; grid-row: 1; justify-self: end}
 
-@media (max-width: 720px) {
+@media (max-width: 699px) {
   .panel-karsilama { grid-template-columns: 1fr; padding: var(--b-4b)}
   .panel-karsilama-eylem { grid-column: 1; grid-row: auto; justify-self: start}
 }
@@ -5941,8 +5958,14 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
   /* 2. IZGARA VE ESNEK KUTU COCUKLARI DARALABILIR.
         `min-width: auto` varsayilani, cocugun iceriginden dar
         olmasini engelliyor ve dar ekranda tasma uretiyor. */
+  /* `[class*="liste"] > li` YETMIYORDU: bu sitede liste kaplari
+     `<article>` de tasiyor (panel kartlari, hesap listesi) ve onlar
+     kuralin disinda kaliyordu. Izgara cocugunun varsayilani
+     `min-width: auto`, yani icerigin altina inemiyor; uzun bir
+     e-posta ya da baslik izi genisletip sayfayi yatay kaydiriyor.
+     Secici oge adiyla degil YAPIYLA baglaniyor. */
   [class*="izgara"] > *,
-  [class*="liste"] > li,
+  [class*="liste"] > *,
   [class*="kart"] > *,
   [class*="blok"] > * { min-width: 0; }
 

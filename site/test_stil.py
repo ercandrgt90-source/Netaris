@@ -364,5 +364,103 @@ esit(len(_medya) > 100, True,
 esit(len(_temel) > 200, True,
      f"temel kural bulundu ({len(_temel)})")
 
+
+print()
+print("Otomatik tekrarda BELIRSIZ iz yok")
+
+# CSS Izgara sartnamesi: `repeat(auto-fit / auto-fill, ...)` icindeki
+# izlerin boyutu BELIRLI olmali. `minmax(84px, auto)` ust siniri
+# intrinsic ve bildirim gecersiz sayilabiliyor.
+#
+# Olculdu (2026-08-24): `.panel-sayim` tam bunu yaziyordu. Bazi
+# tarayicilar tolere ediyor, bazilari bildirimi DUSURUYOR -- ve
+# dusurdugunde `display: grid` sutunsuz kaliyor, dort sayi alt alta
+# diziliyor. Tarayiciya gore degisen bir duzen, kullanicinin
+# "mobilde kayma" diye bildirdigi seyin ta kendisi.
+#
+# Hata SESSIZ: gecersiz bildirim konsola bile dusmuyor, yalnizca
+# yok sayiliyor.
+_BELIRSIZ = re.compile(
+    r"minmax\([^)]*,\s*(?:auto|min-content|max-content|fit-content[^)]*)\s*\)")
+
+_otomatik = []
+for _e in re.finditer(r"grid-template-columns\s*:\s*([^;}]+)", _CSS.read_text(encoding="utf-8")):
+    _d = _e.group(1)
+    if ("auto-fit" in _d or "auto-fill" in _d) and _BELIRSIZ.search(_d):
+        _otomatik.append(_d.strip()[:60])
+
+esit(sorted(set(_otomatik)), [],
+     "auto-fit/auto-fill icinde intrinsic ust sinir yok")
+
+# Tarama gercekten calisiyor mu -- sessizce bos donmesin.
+_ct = _CSS.read_text(encoding="utf-8")
+esit(_ct.count("auto-fit") > 5, True,
+     f"auto-fit taramasi dolu ({_ct.count('auto-fit')} kullanim)")
+
+# Desen GERCEKTEN yakaliyor mu (kendi kendini sinar).
+esit(bool(_BELIRSIZ.search("minmax(84px, auto)")), True,
+     "desen 'minmax(84px, auto)' yakaliyor")
+esit(bool(_BELIRSIZ.search("minmax(84px, 1fr)")), False,
+     "desen 'minmax(84px, 1fr)' yakalamiyor")
+
+
+print()
+print("Dar ekran tek-kolon listesi OLU AD tasimiyor")
+
+# 640px altinda cok kolonlu izgaralari tek kolona indiren kural, ELLE
+# TUTULAN bir sinif listesi. Yorumu bunun daha once KAYDIGINI
+# soyluyor: uc ad izgara sanilip listeye konmustu, ucu de <table> ya
+# da flex'ti ve `grid-template-columns` onlarda HICBIR SEY yapmiyordu.
+#
+# Olu bildirim zararsiz gorunur; zarari, sonraki okuyucunun o ogeleri
+# izgara sanmasi ve gercek sorunu baska yerde aramasi.
+_tam = _CSS.read_text(encoding="utf-8")
+_blok = re.search(
+    r"((?:\s*\.[a-z0-9-]+,\n)+\s*\.[a-z0-9-]+)\s*\{\s*grid-template-columns:\s*1fr;?\s*\}",
+    _tam)
+esit(_blok is not None, True, "tek-kolon kurali bulundu")
+
+if _blok:
+    _adlar = re.findall(r"\.([a-z0-9-]+)", _blok.group(1))
+    esit(len(_adlar) >= 4, True, f"listede sinif var ({len(_adlar)})")
+    _olu = []
+    for _ad in _adlar:
+        _kurallar = re.findall(r"\.%s\b[^{}]*\{([^{}]*)\}" % re.escape(_ad), _tam)
+        # Kendi kurali disinda `grid-template-columns` tanimlayan
+        # baska bir kural var mi
+        _izgara = any("grid-template-columns" in _k and _k.strip() != "grid-template-columns: 1fr"
+                      for _k in _kurallar)
+        if not _izgara:
+            _olu.append(_ad)
+    esit(sorted(_olu), [], "listedeki her sinif GERCEKTEN izgara")
+
+
+print()
+print("Kirilma noktalari CAKISMIYOR")
+
+# `max-width: 560px` ve `min-width: 560px` IKISI DE tam 560 pikselde
+# eslesiyor: o genislikte birbirini ezen iki kural kumesi birden
+# uygulaniyor. Okur icin bu, belirli bir genislikte duzenin
+# "atlamasi" demek -- ve yalnizca O genislikte olusur, yani gozle
+# aramakla bulunmasi cok zor.
+#
+# Olculdu (2026-08-24): sitede 899/900 ve 699/700 dogru eslenmisti,
+# 560/560 eslenmemisti. Dogru kalip `min = max + 1`.
+_ct = _CSS.read_text(encoding="utf-8")
+_mx = {int(x) for x in re.findall(r"@media[^{]*max-width:\s*(\d+)px", _ct)}
+_mn = {int(x) for x in re.findall(r"@media[^{]*min-width:\s*(\d+)px", _ct)}
+
+esit(sorted(_mx & _mn), [], "ayni pikselde hem max hem min esigi yok")
+
+# Tarama gercekten calisiyor mu
+esit(len(_mx) >= 4, True, f"max-width esigi bulundu ({len(_mx)})")
+esit(len(_mn) >= 3, True, f"min-width esigi bulundu ({len(_mn)})")
+
+# Esik SAYISI da sinirli kalmali: her yeni esik, duzenin bir kez daha
+# degistigi bir genislik demek. Yakin iki esik (720 ve 699 gibi) ayni
+# dar bantta iki siçrama uretiyor ve bu da "kayma" olarak goruluyor.
+_yakin = sorted((a, b) for a in _mx for b in _mx if a < b and b - a <= 20)
+esit(_yakin, [], "birbirine 20 pikselden yakin iki max esigi yok")
+
 print(f"\n{_gecti} gecti, {_kaldi} kaldi")
 sys.exit(1 if _kaldi else 0)

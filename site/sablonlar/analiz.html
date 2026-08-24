@@ -1,4 +1,5 @@
 {% import "_paylas.html" as pl %}
+{% import "_sayac.html" as sy %}
 {% import "_yapisal.html" as yv %}
 {% import "_tradingview.html" as tv %}
 {% extends "temel.html" %}
@@ -157,6 +158,20 @@
       <a href="/hakkimizda/#nasil">Otomatik analizlerimizden farkı</a>.</p>
     </div>
     {% endif %}
+
+    {# PAYLASIM VE SAYAC YAZININ BASINDA -- haber sayfasiyla AYNI yer.
+       Paylasim daha once sayfanin SONUNDAYDI: kaynakcadan, skor
+       kutusundan ve olcum listelerinden sonra. Okur paylasmaya cogu
+       zaman basligi okur okumaz karar veriyor ve o anda blok ekranin
+       cok asagisindaydi. Ayni gerekce `haber.html` icinde de yazili;
+       iki sayfa turunun ayni davranmamasi icin bir sebep yoktu.
+
+       `birincil` -> goruntulenme BURADA sayiliyor, liste kartinda
+       degil. Kart gormek, analizi okumak degildir. #}
+    <div class="yazi-eylem">
+      {{ pl.paylas(a.baslik, a.ozet, yol, site.adres, dar=true) }}
+      {{ sy.sayac(yol, birincil=true, baslik=a.baslik) }}
+    </div>
   </header>
 
   {% if a.skor is not none %}
@@ -253,7 +268,6 @@
   </aside>
   {% endif %}
 
-  {{ pl.paylas(a.baslik, a.ozet, yol, site.adres) }}
 
   <p class="kaynak-not">Veri: {{ a.veri_kaynagi }} · Yayın: {{ a.tarih_tr }}</p>
   {% if a.foto_atif %}
