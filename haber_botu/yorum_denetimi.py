@@ -62,6 +62,18 @@ SAYI = re.compile(r"\d+[.,]\d+")
 #: turda iki kez "0 ihlal" raporladim; ikisi de yanlisti.
 _YORUM_BLOGU = re.compile(r'<p class="ai-metin">.*?</p>', re.S)
 
+#: Ayni blok, ICERIGIYLE birlikte -- basilan yorumu okumak icin.
+_YORUM_ICERIGI = re.compile(r'<p class="ai-metin">(.*?)</p>', re.S)
+
+#: Sayi karsilastirmasi `denetim.py` ile AYNI anahtardan geciyor.
+#:
+#: Kopyalanmadi, ICE AKTARILDI ve sebebi olculdu: bu depoda "iki kod
+#: yolu ayni karari veriyor" hatasi bes kez tekrarladi ve her seferinde
+#: iki taraf zamanla ayristi. Ayrisma HATA VERMIYOR -- yalnizca iki
+#: arac farkli sonuc raporluyor ve hangisinin dogru oldugu
+#: anlasilmiyor. Karar TEK YERDE veriliyor.
+from denetim import _sayi_anahtari  # noqa: E402
+
 
 def sayfa_metni(yol: str) -> str | None:
     """Sayfanin metni -- YORUM BLOGU HARIC.
@@ -85,6 +97,48 @@ def sayfa_metni(yol: str) -> str | None:
     return " ".join(html.unescape(re.sub(r"<[^>]+>", " ", ham)).split())
 
 
+def sayfa_yorumu(yol: str) -> str | None:
+    """Sayfada GERCEKTEN BASILAN yorum metni. Basilmamissa None.
+
+    NEDEN DEPODAKI METIN YETMIYOR
+    -----------------------------
+    Olculdu (2026-08-24) ve site bir gun boyunca guncellenmedi:
+    bu kapi 18 ihlal bulup cikis 1 donuyordu, `calistir.py` de
+    `ok = False` yapip DAGITIMI HIC YAPMIYORDU. Bu arada CI haber
+    toplamaya devam ediyordu -- haberler depoya akiyor, okura
+    ulasmiyordu.
+
+    On sekiz ihlalin ON ALTISI sayfada HIC BASILMAYAN yorumlardi.
+    `insa.py` onlari zaten eliyor ("... yorum sayfada karsiligi
+    olmayan sayi tasidigi icin BASILMADI"). Yani kapi, okurun
+    goremedigi bir metin yuzunden butun siteyi durduruyordu.
+
+    Kalan ikisi de sahteydi:
+      * biri ayrac farkiydi (sayfa "15,000 feet", yorum "15.000"),
+      * digerinde DEPODAKI metin eskiydi: depo "0,85 / 14.637",
+        sayfada basilan yorum ise "0,21 / 13.827" diyordu.
+
+    Ortak sebep tek: kapi yorumu DEPODAN, sayilari SAYFADAN okuyordu.
+    Iki ayri kaynak, ayni soru. Bu dosyanin kendi kurali zaten
+    "olcut URETILMIS SAYFA" diyordu; kural sayilar icin uygulanmis,
+    METIN icin uygulanmamisti.
+
+    DOGRU ILISKI
+    ------------
+    Eleyici `insa.py`de karar verir, bu kapi URETILEN SAYFAYI
+    dogrular. Eleyicide bir delik varsa kapi onu yakalar ve dagitimi
+    durdurur -- ki asil isi bu. Eleyici dogru calistiginda ise kapi
+    sifir bulur ve haber akisi kesilmez.
+    """
+    p = CIKTI / yol.strip("/") / "index.html"
+    if not p.exists():
+        return None
+    e = _YORUM_ICERIGI.search(p.read_text(encoding="utf-8", errors="replace"))
+    if not e:
+        return None
+    return " ".join(html.unescape(re.sub(r"<[^>]+>", " ", e.group(1))).split())
+
+
 def ihlaller(k: sqlite3.Connection) -> list[tuple[str, str, list[str]]]:
     """Iki ayri soru, tek kapi.
 
@@ -101,7 +155,21 @@ def ihlaller(k: sqlite3.Connection) -> list[tuple[str, str, list[str]]]:
              FROM ai_yorum a JOIN haber h ON h.adres = a.adres
             WHERE h.yayimlandi = 1 AND h.yayin_yolu IS NOT NULL""").fetchall()
     kotu = []
-    for adres, yol, metin, baslik, kurum in r:
+    for adres, yol, depo_metni, baslik, kurum in r:
+        # OLCUT: OKURUN GORDUGU METIN.
+        #
+        # Sayfa henuz uretilmemisse bu bir ihlal DEGIL, bilgi
+        # eksikligi -- uretilmemis sayfayi ihlal saymak her temiz
+        # kurulumda butun yorumlari silerdi.
+        #
+        # Sayfa uretilmis ama yorum BASILMAMISSA da ihlal yok:
+        # `insa.py` onu zaten elemis, okura ulasan bir iddia yok.
+        # Var olmayan bir metni ihlal sayip dagitimi durdurmak,
+        # tam olarak sitenin bir gun donmasina yol acan hataydi.
+        metin = sayfa_yorumu(yol)
+        if metin is None:
+            continue
+        del depo_metni
         # KESIK CEVAP -- cumle bitiricisiyle bitmiyor.
         #
         # Olculdu: yayimdaki 168 yorumun 36'si yarim cumleyle
@@ -134,12 +202,45 @@ def ihlaller(k: sqlite3.Connection) -> list[tuple[str, str, list[str]]]:
         # Bu, ayni aracin UCUNCU kusuru (once yorumu sayfadan
         # cikarmiyordu, sonra yanlis etiketi ariyordu). Ortak sebep:
         # metin uzerinde calisip TOKEN uzerinde calismamak.
-        sayfa_sayilari = set(SAYI.findall(sayfa))
+        # AYRAC ALISKANLIGI SAYIYI DEGISTIRMEZ.
+        #
+        # Olculdu: "15.000" ihlal sayildi, oysa sayfa ayni sayiyi
+        # Ingilizce kaynak alintisinda "15,000 feet" diye basiyordu.
+        # Ingilizce besleme sayisi arttikca (2026-08-24'te yedi resmi
+        # kaynak eklendi) bu her kosuda tekrarlar ve her seferinde
+        # dagitimi durdururdu.
+        sayfa_sayilari = {_sayi_anahtari(s) for s in SAYI.findall(sayfa)}
         yok = sorted({s for s in SAYI.findall(metin)
-                      if s not in sayfa_sayilari})
+                      if _sayi_anahtari(s) not in sayfa_sayilari})
         if yok:
             kotu.append((adres, yol, yok))
     return kotu
+
+
+def denetlenen_sayisi(k: sqlite3.Connection) -> int:
+    """Sayfada GERCEKTEN basilmis, yani denetlenebilen yorum sayisi.
+
+    NEDEN AYRI RAPORLANIYOR
+    -----------------------
+    Bu arac iki kez VACUOUS calisti ve iki kez "0 ihlal" dedi -- ikisi
+    de yanlisti (bkz. `sayfa_metni` ve `_YORUM_BLOGU` notlari). Her
+    ikisinde de ekranda gorunen sey ayniydi: buyuk bir "denetlenen"
+    sayisi ve sifir ihlal.
+
+    O sayi depodan geliyordu ve kontrolun gercekte kac yorumu
+    okudugunu SOYLEMIYORDU. Artik iki sayi da basiliyor: depoda kac
+    yorum var ve bunlarin kaci sayfada basilmis. Ikisi arasindaki
+    ucurum, eleyicinin fazla agresif oldugunu ya da kontrolun bosa
+    dustugunu ANINDA gosterir.
+    """
+    n = 0
+    for (yol,) in k.execute(
+            """SELECT h.yayin_yolu FROM ai_yorum a
+                 JOIN haber h ON h.adres = a.adres
+                WHERE h.yayimlandi = 1 AND h.yayin_yolu IS NOT NULL"""):
+        if sayfa_yorumu(yol) is not None:
+            n += 1
+    return n
 
 
 def main() -> int:
@@ -154,8 +255,16 @@ def main() -> int:
         """SELECT COUNT(*) FROM ai_yorum a JOIN haber h ON h.adres = a.adres
             WHERE h.yayimlandi = 1 AND h.yayin_yolu IS NOT NULL""").fetchone()[0]
 
-    print(f"denetlenen yorum : {toplam}")
+    basili = denetlenen_sayisi(k)
+    print(f"depodaki yorum   : {toplam}")
+    print(f"sayfada basilan  : {basili}   <- DENETLENEN")
     print(f"ihlal            : {len(kotu)}")
+    if toplam and not basili:
+        # Sifir basili yorum + sifir ihlal = kontrol HICBIR SEY
+        # olcmuyor demek. Bu arac iki kez tam bu durumda "temiz"
+        # raporladi. Sessiz gecilmemeli.
+        print("\n  UYARI: hicbir yorum sayfada basilmamis -- bu kontrol")
+        print("  su an HICBIR SEY olcmuyor. Once `site/insa.py` kosun.")
     for _adres, yol, yok in kotu[:10]:
         print(f"  {', '.join(yok[:3]):<26} {yol}")
     if len(kotu) > 10:

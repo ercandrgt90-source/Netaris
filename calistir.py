@@ -262,19 +262,58 @@ def main() -> int:
     # Yani koruma KAPIDAN SONRA duruyordu. Simdi once kosuyor:
     # dogrulanamayan sayi tasiyan bir yorum varsa DAGITIM YAPILMIYOR.
     #
-    # `--temizle` hala otomatik DEGIL: karar bilincli kalsin. Fark su
-    # ki artik o karar verilene kadar eski site ayakta kaliyor --
-    # dogrulanamayan sayi yayina hic cikmiyor.
+    # `--temizle` ARTIK OTOMATIK -- ama yalnizca BIR KEZ ve ardindan
+    # yeniden dogrulanarak.
+    #
+    # NEDEN DEGISTI
+    # Onceki kural "ihlal varsa dagitma, temizligi insan yapsin"di ve
+    # gerekcesi makuldu: kosu sessizce icerik silmesin. Olculen sonuc
+    # baska cikti.
+    #
+    # 2026-08-24: kullanici "haberler akmiyor" dedi. Canli sitede en
+    # yeni haber BIR GUN eskiydi; oysa CI saat basi haber topluyor ve
+    # o gune ait altmis dokuz haber depoda duruyordu. Zincir:
+    #
+    #     yorum_denetimi.py -> 18 ihlal, cikis 1
+    #     ok = False        -> `if args.yayinla and ok:` hic calismadi
+    #
+    # Kimse elle temizlemedi, cunku kimse kirmizi CI kaydina bakmiyor.
+    # "Eski site ayakta kalir" varsayimi kagit uzerinde zararsizdi;
+    # pratikte site DONDU ve bunu ancak okur fark etti.
+    #
+    # NEDEN SILMEK ARTIK GUVENLI
+    # Kapi artik URETILEN SAYFAYI olcuyor (bkz. `yorum_denetimi.
+    # sayfa_yorumu`). Bir ihlal buluyorsa, o metin GERCEKTEN okura
+    # gidiyor demektir ve tanimi geregi dogrulanamaz. Silinen sey
+    # kalici da degil: bir sonraki uretim duzeltilmis girdiyle
+    # yeniden yaziyor.
+    #
+    # NEDEN TEK DENEME
+    # Temizlikten sonra hala ihlal cikiyorsa sorun tek bir yorumda
+    # degil, uretim hattindadir. Orada dagitimi durdurmak DOGRU --
+    # ve dongude donup durmamak icin ikinci deneme yok.
     if ok:
         yd, _ = _calistir("Yorum sayıları sayfada mı",
                           [str(BOT / "yorum_denetimi.py")])
+        if not yd:
+            print()
+            print("  IHLAL BULUNDU -- yorumlar temizlenip site yeniden")
+            print("  uretiliyor. Haber akisi bir icerik hatasi yuzunden")
+            print("  durmamali; dogrulanamayan yorum ise yayina cikmamali.")
+            _calistir("Yorumları temizle",
+                      [str(BOT / "yorum_denetimi.py"), "--temizle"])
+            ok, _ = _calistir("Site üretimi (temizlik sonrası)",
+                              [str(SITE / "insa.py")])
+            sonuclar["Site üretimi"] = ok
+            if ok:
+                yd, _ = _calistir("Yorum sayıları sayfada mı (2. tur)",
+                                  [str(BOT / "yorum_denetimi.py")])
         sonuclar["Yorum denetimi"] = yd
         if not yd:
             print()
-            print("  YORUM DENETIMI HATA VERDI -- dagitim YAPILMADI.")
-            print("  Duzeltmek icin: python haber_botu/yorum_denetimi.py --temizle")
-            print("  Silinen yorum, sonraki uretimde duzeltilmis "
-                  "girdiyle yeniden yazilir.")
+            print("  TEMIZLIKTEN SONRA DA IHLAL VAR -- dagitim YAPILMADI.")
+            print("  Sorun tek bir yorumda degil, uretim hattinda.")
+            print("  Bakilacak yer: site/insa.py -> _yorum_dogrulanabilir")
             ok = False
 
     if args.yayinla and ok:
