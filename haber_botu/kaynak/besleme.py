@@ -413,6 +413,41 @@ KONU_ISARETLERI = (
         "fomc", "monetary policy", "interest rate", "federal funds",
         "discount rate", "policy decision", "governing council",
         "monetary", "rate decision",
+        # INGILIZCE FAIZ SOZLUGU -- olculdu (2026-08-24).
+        #
+        # Akis beslemesinde konu bulunamayan 1.403 basligin bir kismi
+        # duz merkez bankasi haberiydi ve "Sirket haberleri" rozetiyle
+        # cikiyordu. Yukaridaki liste "interest rate" diyor ama piyasa
+        # dilinde faiz baska adlarla geciyor:
+        #
+        #     "China sets one-year loan PRIME RATE at 3%"
+        #     "Taiwan overnight INTERBANK RATE starts at 0.806%"
+        #     "China cbank: 7-day REVERSE REPO volume at zero"
+        #     "China PBOC likely to set yuan midpoint at 6.7548"
+        #
+        # PBOC tek basina 46 ogede geciyordu ve hicbiri para
+        # politikasi sayilmiyordu.
+        #
+        # BU KONU LISTEDE ILK SIRADA ve bu bilincli: "Taiwan overnight
+        # interbank rate" basligi Jeopolitik isaretlerindeki "tayvan"a
+        # da takiliyor. Para politikasi once sorulunca dogru rafa
+        # gidiyor -- yani sira, isaretlerin kendisi kadar onemli.
+        # "central bank" BU LISTEYE YAZILMAZ ve sebebi olculdu:
+        #
+        #     "Venezuela inflation rate hits 19.9% in July: central bank"
+        #         -> Para politikasi   (YANLIS, bu bir enflasyon verisi)
+        #
+        # Bu konu ILK sirada sorulduğu icin "central bank" gecen her
+        # enflasyon, istihdam ya da buyume verisini calardi -- veriyi
+        # ACIKLAYAN kurum ile verinin KONUSU ayni sey degil.
+        #
+        # Zaten gerekli de degil: `VERI_KONULARI` icinde "central bank"
+        # duruyor ve orasi ancak `konu_bul` BOS dondugunde soruluyor.
+        # Yani dogru oncelik kendiliginden kuruluyor: once verinin
+        # konusu, bulunamazsa kurum.
+        "pboc", "reverse repo", "interbank rate", "policy rate",
+        "prime rate", "deposit rate", "lending rate", "rate cut",
+        "rate hike", "money supply", "reserve bank",
     )),
     ("Enflasyon", (
         "enflasyon", "fiyat gelismeleri", "tufe", "ufe", "fiyat endeksi",
@@ -465,6 +500,15 @@ KONU_ISARETLERI = (
         # "import"/"export" YALIN HALDE YAZILMAZ -- "important" icinde
         # eslesiyor. Cogul bicimler boyle bir kelimenin icinde gecmiyor.
         "exports", "imports", "trade deficit", "tariff",
+        # MUZAKERE SOZLUGU. Olculdu: Kanada-ABD ticaret gorusmelerine
+        # dair yirmi baslik "Sirket haberleri" rozetiyle cikiyordu --
+        # liste yalnizca SONUCU (acik, fazla, tarife) taniyordu,
+        # SURECI degil. Gumruk pazarligi 2026 boyunca piyasayi
+        # dogrudan hareket ettirdi; sureci gormemek konunun yarisini
+        # kacirmak demekti.
+        "trade agreement", "trade deal", "trade talks", "trade negotiat",
+        "trade pact", "trade minister", "ustr", "export control",
+        "customs duty", "import duty",
     )),
     ("Kripto varlıklar", (
         "kripto", "bitcoin", "ethereum", "stablecoin",
@@ -535,6 +579,30 @@ KONU_ISARETLERI = (
      "golan", "west bank", "border clash", "pullback", "withdrawal of",
      "de-escalat", "diplomatic tension", "airspace violation",
      "peace deal", "arms deal", "war crime",
+     # CEVIRI YAZIM BOSLUGU -- olculdu (2026-08-24).
+     #
+     # Yukarida yer adlari YALNIZCA Turkce yazimlariyla duruyordu:
+     # "hurmuz", "kizildeniz", "suveys". Otuz bes beslemenin onu
+     # Ingilizce ve o beslemelerde ayni yer "Hormuz", "Red Sea",
+     # "Suez" diye geciyor -- hicbirine takilmiyordu.
+     #
+     # Tek basina "hormuz" 55 ogede geciyor ve hepsi "Sirket
+     # haberleri" rozetiyle cikiyordu; tanker saldirisi haberi,
+     # sirket haberi rozetiyle.
+     #
+     # Ayni bosluk AKTOR adlarinda da vardi: disisleri/savunma
+     # bakanligi aciklamalari, IRGC, State Department. Bunlar ULKE
+     # ADI DEGIL, kurum ve eylem adi -- yani "Rusya faiz artirdi"
+     # sorununu yaratmiyorlar.
+     #
+     # "taiwan" BILEREK EKLENMEDI: on ogenin cogu "Taiwan overnight
+     # interbank rate" gibi para politikasi habericdi. Turkce "tayvan"
+     # zaten listede ve ayni tuzagi tasiyor; onu buyutmenin anlami
+     # yok. Dogru cozum faiz sozlugunu genisletmekti (yukarida).
+     "hormuz", "red sea", "suez", "white house", "state department",
+     "foreign minister", "foreign ministry", "defence ministry",
+     "defense ministry", "irgc", "incursion", "missile", "warhead",
+     "ambassador", "naval",
     )),
     # DIKKAT -- yalin "altin" ve "gold" YAZILMAZ. Olculdu:
     #   "toprağın ALTINDA kalan heykel" -> Altin      ("altinda")

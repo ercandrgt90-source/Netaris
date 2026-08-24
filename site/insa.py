@@ -569,6 +569,26 @@ class Analiz:
     #: Sirket amblemi (SVG). Bilanco sayfalarinda stok fotografin
     #: YERINE geciyor -- bkz. `amblem.py`.
     amblem_svg: str = ""
+    #: YALNIZCA PAYLASIM KARTI ICIN fotograf. Sayfada GORUNMEZ.
+    #:
+    #: NEDEN AYRI BIR ALAN
+    #: Olculdu (2026-08-24): 439 analiz sayfasinin HICBIRINDE
+    #: `og:image` yoktu. Sebep `foto=""`: sirket analizlerinde sayfa
+    #: fotograf yerine amblem gosteriyor ve amblem SATIR ICI SVG.
+    #: Sosyal medya kaziyicilari ne satir ici SVG'yi ne de SVG
+    #: dosyasini karta basiyor -- yani bir bilanco analizi
+    #: paylasildiginda kartta gorsel HIC cikmiyordu.
+    #:
+    #: `foto` alanini doldurmak yanlis olurdu: o alan SAYFADA
+    #: gosteriliyor ve amblem tam olarak "384 sayfada alakasiz
+    #: fotograf duruyordu" sorununu cozmek icin konmustu. Sayfadaki
+    #: karari geri almadan kartin gorselsiz kalmasini engellemek
+    #: gerekiyordu; iki farkli yerin iki farkli alani var.
+    #:
+    #: Secim rastgele degil: `analiz_fotografi` basliktan konuyu
+    #: cikarip havuzdan seciyor -- haber sayfalarindaki olcutun
+    #: aynisi.
+    og_foto: str = ""
 
     @property
     def imzali(self) -> bool:
@@ -1500,6 +1520,10 @@ def analizleri_yukle() -> list[Analiz]:
                 # fotograf hala anlamli olabilir.
                 foto="",
                 foto_atif="",
+                # Sayfa amblemi gosteriyor; PAYLASIM KARTI gorselsiz
+                # kalmasin diye ayni fotograf yalnizca `og:image`
+                # icin tutuluyor (bkz. `og_foto`).
+                og_foto=foto_yol,
                 amblem_svg=sirket_gorseli(
                     b.al("kod"), b.al("sirket"), b.al("sektor"),
                     b.al("donem")),

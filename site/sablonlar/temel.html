@@ -89,9 +89,15 @@
    `og:image:alt` bunu metin olarak tasiyor. #}
 {% set og_uretilen =
      (h.uretilen if h is defined and h and h.uretilen else "") %}
+{# `a.og_foto` PAYLASIM KARTI ICIN AYRI ALAN. Bilanco sayfalari
+   fotograf yerine SATIR ICI SVG amblem gosteriyor ve kaziyicilar onu
+   karta basamiyor -- 439 analiz sayfasi bu yuzden gorselsiz
+   paylasiliyordu. `og_foto` sayfada gorunmez, yalnizca burada
+   kullanilir. #}
 {% set og_gorsel =
      (h.foto if h is defined and h and h.foto else "")
      or (a.foto if a is defined and a and a.foto else "")
+     or (a.og_foto if a is defined and a and a.og_foto else "")
      or og_uretilen
      or (haberler[0].foto if haberler is defined and haberler
          and haberler[0].foto else "")
@@ -103,7 +109,22 @@
    tutmuyor ama sessiz kalmaktan iyi: bazi istemciler okuyor ve
    metadata durust kaliyor. #}
 <meta property="og:image:alt" content="{% if og_gorsel == og_uretilen %}Netaris tarafından yapay zeka ile üretilmiş kavram çizimi — {% endif %}{{ self.baslik() | striptags | trim }}">
+<meta property="og:image:type" content="image/jpeg">
 <meta name="twitter:card" content="summary_large_image">
+{# `twitter:image` ACIKCA YAZILIYOR -- `og:image` yedegine
+   guvenilmiyor.
+
+   X'in belgeleri "twitter:* yoksa og:* kullanilir" diyor ve bu
+   genelde calisiyor. Ama olculdu (2026-08-24): og:image'i gecerli
+   (1920x1281, 555 KB, 200 donuyor, Twitterbot erisebiliyor) bir
+   haber sayfasi paylasildiginda X kucuk "summary" kartini gosterdi
+   ve gorseli HIC basmadi. Kart baslik ve aciklamayi tasiyordu, yani
+   sayfa okunmustu -- eksik olan yalnizca gorseldi.
+
+   Yedege guvenmek yerine iki etiketi de yazmak, bu belirsizligi
+   tumuyle kaldiriyor ve hicbir maliyeti yok. #}
+<meta name="twitter:image" content="{{ site.adres }}{{ og_gorsel }}">
+<meta name="twitter:image:alt" content="{{ self.baslik() | striptags | trim }}">
 {% else %}
 <meta name="twitter:card" content="summary">
 {% endif %}

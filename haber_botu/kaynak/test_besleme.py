@@ -678,5 +678,94 @@ esit(besleme.konu_bul("Israeli central bank holds interest rate"),
      "Para politikası", "yabanci merkez bankasi para politikasi")
 
 
+
+print()
+print("Ceviri yazim boslugu -- yer adlari Ingilizce de yakalanmali")
+
+# Olculdu (2026-08-24): yer adlari listede YALNIZCA Turkce yazimlariyla
+# duruyordu ("hurmuz", "kizildeniz", "suveys"). Otuz bes beslemenin onu
+# Ingilizce ve o beslemelerde ayni yer "Hormuz", "Red Sea", "Suez" diye
+# geciyor. Tek basina "hormuz" 1.403 siniflanamayan basligin 55'inde
+# vardi -- tanker saldirisi haberi, "Sirket haberleri" rozetiyle.
+esit(besleme.konu_bul("Tanker reports hearing 2 explosions in Hormuz"),
+     "Jeopolitik", "Hormuz Ingilizce yazimla yakalaniyor")
+esit(besleme.konu_bul("Red Sea shipping safety concerns our interests"),
+     "Jeopolitik", "Red Sea yakalaniyor")
+esit(besleme.konu_bul("Maersk marks gradual return to the trans-Suez corridor"),
+     "Jeopolitik", "Suez yakalaniyor")
+
+# Turkce yazimlar BOZULMADI -- 35 beslemenin 25'i Turkce.
+esit(besleme.konu_bul("Hürmüz Boğazı'nda gemi trafiği yavaşladı"),
+     "Jeopolitik", "Turkce Hurmuz hala calisiyor")
+
+print()
+print("Aktor adlari -- kurum ve eylem, ULKE ADI DEGIL")
+
+esit(besleme.konu_bul(
+     "Iranian Deputy Foreign Minister Gharibabadi comments on talks"),
+     "Jeopolitik", "disisleri bakani yakalaniyor")
+esit(besleme.konu_bul(
+     "Russian Defence Ministry: forces seize Ivanivka in Kharkiv region"),
+     "Jeopolitik", "savunma bakanligi yakalaniyor")
+esit(besleme.konu_bul("US State Department launches trade initiative"),
+     "Jeopolitik", "state department yakalaniyor")
+esit(besleme.konu_bul("Israeli ground incursion in a village in Syria"),
+     "Jeopolitik", "incursion yakalaniyor")
+
+print()
+print("Ingilizce faiz sozlugu -- piyasa dili 'interest rate' demiyor")
+
+esit(besleme.konu_bul("China sets one-year loan prime rate at 3%"),
+     "Para politikası", "prime rate yakalaniyor")
+esit(besleme.konu_bul("China cbank: 7-day reverse repo volume at zero"),
+     "Para politikası", "reverse repo yakalaniyor")
+esit(besleme.konu_bul("China PBOC likely to set yuan midpoint at 6.7548"),
+     "Para politikası", "PBOC yakalaniyor")
+esit(besleme.konu_bul("RBA governor: board did not discuss a rate cut"),
+     "Para politikası", "rate cut yakalaniyor")
+
+# SIRA, ISARETIN KENDISI KADAR ONEMLI.
+# Bu baslik Jeopolitik'teki "tayvan" isaretine de takiliyor. Para
+# politikasi listede ILK sirada oldugu icin dogru rafa gidiyor.
+esit(besleme.konu_bul("Taiwan overnight interbank rate starts at 0.806%"),
+     "Para politikası", "faiz haberi Jeopolitik'e kapilmiyor")
+
+# "central bank" BU LISTEYE YAZILMAZ: veriyi ACIKLAYAN kurum ile
+# verinin KONUSU ayni sey degil. Ilk sirada sorulan bir "central bank"
+# isareti her enflasyon verisini calardi. Olculdu ve geri alindi.
+esit(besleme.konu_bul(
+     "Venezuela inflation rate hits 19.9% in July: central bank"),
+     "Enflasyon", "merkez bankasi aciklamasi enflasyon verisini calmiyor")
+esit(besleme.konu_bul("US unemployment falls to 4.1%: central bank data"),
+     "İstihdam ve ücret", "istihdam verisini de calmiyor")
+
+print()
+print("Ticaret MUZAKERESI -- surec de konuya dahil")
+
+# Liste yalnizca SONUCU taniyordu (acik, fazla, tarife), SURECI degil.
+# Kanada-ABD gorusmelerine dair yirmi baslik "Sirket haberleri"
+# rozetiyle cikiyordu.
+esit(besleme.konu_bul("USTR Greer: Canada has declined to complete deal"),
+     "Dış ticaret", "USTR yakalaniyor")
+esit(besleme.konu_bul("Canada's PM Carney: trade talks with U.S. resume"),
+     "Dış ticaret", "trade talks yakalaniyor")
+esit(besleme.konu_bul("The US eases export controls on certain drones"),
+     "Dış ticaret", "export control yakalaniyor")
+
+print()
+print("ULKE ADI HALA ISARET DEGIL")
+
+# Yeni eklenen hicbir sey ulke adi degil; "Rusya faiz artirdi" bir para
+# politikasi haberi olmaya devam etmeli.
+esit(besleme.konu_bul("Rusya merkez bankası faizi sabit tuttu"),
+     "Para politikası", "ulke adi para politikasini bozmuyor")
+# "Iran's oil exports" BILEREK kullanilmadi: Enerji listede Dis
+# ticaret'ten ONCE soruluyor ve "oil" oraya goturuyor. Ikisi de
+# savunulabilir bir cevap; sinama tartismali bir ornek uzerinden
+# kurulursa kodu degil kendi beklentisini olcer.
+esit(besleme.konu_bul("Almanya'nin ihracati gecen ay artti"),
+     "Dış ticaret", "ulke adi dis ticareti bozmuyor")
+
+
 print(f"\n{_gecti} gecti, {_kaldi} kaldi")
 sys.exit(1 if _kaldi else 0)
