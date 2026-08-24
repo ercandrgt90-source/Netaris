@@ -122,24 +122,38 @@
      Sunucuda uretilmiyor: statik dosya herkese aciktir, uyeye ozel veri
      statik HTML'e YAZILAMAZ. #}
   <div data-panel hidden>
-    <div class="panel-ust-cubuk">
-      <div>
-        <h1>Panel</h1>
-        <p class="uyelik-alt" data-kim></p>
-        {# SAYIM SERIDI -- `hidden`, betik gercek sayilarla aciyor.
-           Sifir basip sonra duzeltmek, okura once yanlis bir sayi
-           gostermek olurdu. #}
-        <div class="panel-sayim" data-panel-sayim hidden>
-          <span><b data-sayim-yazi>0</b> yazı</span>
-          <span><b data-sayim-senaryo>0</b> senaryo</span>
-          <span><b data-sayim-begeni>0</b> beğeni</span>
+    {# KARSILAMA KARTI.
+       Ad, unvan ve DORT GERCEK SAYI. Dordu de var olan tablolardan
+       hesaplaniyor: `senaryo`, `yazi`, `senaryo_oy`, `begeni`.
+
+       Tasarim taslagindaki "Okuma" KONMADI -- site kullanici bazinda
+       okuma tutmuyor ve tutmasi icin okuru sayfa sayfa izlemek
+       gerekirdi. Yerine gercekten olculen "aldigin oy" var.
+
+       Serit `hidden` basiliyor ve ancak GERCEK sayilar gelince
+       aciliyor: sifir basip sonra duzeltmek, okura once yanlis bir
+       sayi gostermek olurdu. #}
+    <section class="panel-karsilama">
+      <div class="panel-karsilama-kim">
+        <span class="panel-avatar" data-avatar aria-hidden="true"></span>
+        <div class="panel-karsilama-ad">
+          <h1 data-tam-ad>Panel</h1>
+          <p class="panel-karsilama-alt" data-kim></p>
         </div>
       </div>
-      <div class="panel-eylem">
+
+      <dl class="panel-sayim" data-panel-sayim hidden>
+        <div><dt>Senaryo</dt><dd data-sayim-senaryo>0</dd></div>
+        <div><dt>Yazı</dt><dd data-sayim-yazi>0</dd></div>
+        <div><dt>Aldığın oy</dt><dd data-sayim-oy>0</dd></div>
+        <div><dt>Beğendiğin</dt><dd data-sayim-begeni>0</dd></div>
+      </dl>
+
+      <div class="panel-eylem panel-karsilama-eylem">
         <button class="dugme" type="button" data-yeni>Yeni yazı</button>
         <button class="dugme dugme-sade" type="button" data-cikis>Çıkış</button>
       </div>
-    </div>
+    </section>
 
     <nav class="panel-sekme">
       <button class="etkin" type="button" data-sekme="yazilarim">Yazılarım</button>
@@ -154,6 +168,27 @@
     <section data-bolum="yazilarim">
       <div data-liste class="panel-liste"></div>
     </section>
+
+    {# MOBIL ALT SEKME CUBUGU.
+       Ustteki sekmelerin KOPYASI DEGIL: ayni `data-sekme` degerlerini
+       tasiyor, yani var olan `sekmeGec` baglayicisi bunlari da
+       yakaliyor ve etkin sinifi ikisinde birden guncelleniyor. Iki
+       ayri liste tutmak, zamanla ayrisan iki gezinti demekti.
+
+       Yalnizca dar ekranda gorunuyor (CSS). Masaustunde ustteki
+       sekmeler zaten goz hizasinda; ikisini birden gostermek ayni isi
+       iki kez yapan bir arayuz olurdu. #}
+    <nav class="panel-alt-sekme" aria-label="Panel bölümleri">
+      <button type="button" data-sekme="yazilarim">
+        <span aria-hidden="true">✎</span>Yazılarım</button>
+      <button type="button" data-sekme="senaryolarim">
+        <span aria-hidden="true">◆</span>Senaryolarım</button>
+      <button type="button" data-sekme="begendiklerim">
+        <span aria-hidden="true">♥</span>Beğendiklerim</button>
+      <button type="button" data-sekme="hesabim">
+        <span aria-hidden="true">☰</span>Hesabım</button>
+    </nav>
+
 
     {# BEGENDIKLERIM.
        Baslik BEGENI ANINDA saklandi (bkz. `worker.js`); sonradan

@@ -182,6 +182,26 @@
     return ((u.ad || "") + " " + (u.soyad || "")).replace(/\s+/g, " ").trim();
   }
 
+  /* KARSILAMA KARTI.
+     Baslik alani "Panel" yerine kisinin ADI oluyor; altinda UNVANI.
+     Unvan bos ise e-posta yaziliyor -- kart bos bir satirla degil,
+     her zaman bir seyle acilmali.
+
+     Avatar bas harften uretiliyor. Vesikalik YOK: var olmayan
+     insanin fotografi olmaz ve bu kural sitede zaten `_imza.html`
+     icinde yazili. */
+  function kartiDoldur(u) {
+    var ad = tamAd(u) || "Panel";
+    var b = $("[data-tam-ad]");
+    if (b) b.textContent = ad;
+    var kim = $("[data-kim]");
+    if (kim) kim.textContent = u.unvan ? u.unvan : u.eposta;
+    var av = $("[data-avatar]");
+    /* Bas harf: Turkce buyuk harf kurali icin `tr` yerelini veriyoruz
+       -- yoksa "istanbul" -> "I" oluyor, "İ" degil. */
+    if (av) av.textContent = ad.slice(0, 1).toLocaleUpperCase("tr");
+  }
+
   var profilForm = $("[data-profil-form]");
 
   function profilDoldur(u) {
@@ -238,8 +258,7 @@
            karakterleri temizliyor; ekranda kullanicinin yazdigi
            kalsaydi, sakladigimizdan farkli bir sey gosterirdik. */
         profilDoldur(y.veri.uye);
-        var kim = $("[data-kim]");
-        if (kim) kim.textContent = tamAd(y.veri.uye) + " · " + y.veri.uye.eposta;
+        kartiDoldur(y.veri.uye);
         if (durum) {
           durum.textContent = "Kaydedildi.";
           durum.className = "panel-durum panel-durum-tamam";
@@ -278,10 +297,15 @@
         if (!v) return;
         var s = v.sayim || {};
         var y = $("[data-sayim-yazi]"), sn = $("[data-sayim-senaryo]"),
-            b = $("[data-sayim-begeni]"), serit = $("[data-panel-sayim]");
+            b = $("[data-sayim-begeni]"), o = $("[data-sayim-oy]"),
+            serit = $("[data-panel-sayim]");
         if (y) y.textContent = bicimSayi(s.yazi);
         if (sn) sn.textContent = bicimSayi(s.senaryo);
         if (b) b.textContent = bicimSayi(s.begeni);
+        /* `oy` alani eski bir sunucu surumunden gelmeyebilir. `|| 0`
+           yerine ACIKCA kontrol: `bicimSayi(undefined)` "NaN" basar
+           ve okur panelde "NaN oy" gorurdu. */
+        if (o) o.textContent = bicimSayi(typeof s.oy === "number" ? s.oy : 0);
         if (serit) serit.hidden = false;
 
         if (!kutu) return;
@@ -603,6 +627,58 @@
       }).join("") + '</span>';
   }
 
+  /* --- SENARYO KARTI: ufuk geri sayimi ve GERCEK oy ----------------
+     Tasarim taslaginda kartta "%56 gosterilme, 16 etkilesim" vardi.
+     Gosterim OLCULMUYOR; olculmeyen bir orani basmak, sitenin
+     "hicbir sey uydurulmaz" iddiasini kendi panelimizde bozardi.
+     Yerine gercekten sayilan iki sey konuyor: kalan gun ve oy. */
+
+  function kalanGun(s) {
+    if (!s.ufuk_biter) return null;
+    var biter = new Date(s.ufuk_biter);
+    if (isNaN(biter)) return null;
+    return Math.ceil((biter - Date.now()) / 86400000);
+  }
+
+  function ufukRozeti(s) {
+    /* Sonuclanmis senaryoda geri sayim ANLAMSIZ -- ufuk zaten doldu
+       ve kart sonucu gosteriyor. */
+    if (s.sonuclanma || s.durum !== "yayimlandi") return "";
+    var g = kalanGun(s);
+    if (g === null) return "";
+    if (g < 0) return '<span class="rozet rozet-ufuk">ufku doldu</span>';
+    if (g === 0) return '<span class="rozet rozet-ufuk">bugün doluyor</span>';
+    return '<span class="rozet rozet-ufuk">' + g + ' gün kaldı</span>';
+  }
+
+  function oyRozeti(s) {
+    /* SIFIR OY ROZETI BASILMIYOR. "0 oy", okura bilgi vermeyen ama
+       kartta yer kaplayan bir isarettir; yeni bir senaryoda ise
+       yaziyi kotu gosterir. Oy geldiginde beliriyor. */
+    var n = typeof s.oy === "number" ? s.oy : 0;
+    if (!n) return "";
+    return '<span class="rozet rozet-oy">' + bicimSayi(n) + ' oy</span>';
+  }
+
+  function ufukCubugu(s) {
+    /* Ilerleme cubugu: olusma -> ufuk_biter arasinda nerede oldugu.
+       Iki tarih de gerekli; biri yoksa cubuk HIC cizilmiyor --
+       tahmini bir doluluk gostermek, olculmemis bir sey gostermektir. */
+    if (s.sonuclanma || s.durum !== "yayimlandi") return "";
+    if (!s.olusma || !s.ufuk_biter) return "";
+    var bas = new Date(s.olusma), son = new Date(s.ufuk_biter);
+    if (isNaN(bas) || isNaN(son) || son <= bas) return "";
+    var oran = (Date.now() - bas) / (son - bas);
+    oran = Math.max(0, Math.min(1, oran));
+    var yuzde = Math.round(oran * 100);
+    return (
+      '<div class="ufuk-cubuk" role="img" aria-label="Ufkun ' + yuzde +
+        ' yüzdesi geçti">' +
+        '<span style="width:' + yuzde + '%"></span>' +
+      '</div>'
+    );
+  }
+
   function senaryoCiz(liste) {
     if (!senListeKutu) return;
     if (!liste.length) {
@@ -622,8 +698,11 @@
             '<span class="rozet rozet-durum durum-' + kacir(s.durum) + '">' +
               kacir(DURUM_ADI[s.durum] || s.durum) + '</span>' +
             '<span class="rozet">ufuk ' + kacir(s.ufuk) + '</span>' +
+            ufukRozeti(s) +
+            oyRozeti(s) +
             '<span class="kart-kunye">' + tarih(s.olusma) + '</span>' +
           '</div>' +
+          ufukCubugu(s) +
           '<p class="senaryo-onerme">' +
             '<span class="senaryo-kosul">' + kacir(s.kosul) + '</span>' +
             '<span class="senaryo-ok" aria-hidden="true">→</span>' +
@@ -912,8 +991,7 @@
       return;
     }
     panel.hidden = false;
-    var kim = $("[data-kim]");
-    if (kim) kim.textContent = tamAd(y.veri.uye) + " · " + y.veri.uye.eposta;
+    kartiDoldur(y.veri.uye);
     profilDoldur(y.veri.uye);
     if (y.veri.uye.rol === "yonetici") {
       $("[data-yonetici]").hidden = false;

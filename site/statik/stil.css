@@ -1827,12 +1827,21 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
 .onem-devam { margin: var(--b-3) 0 0; font-size: var(--p-s)}
 
 /* Panel sayim seridi -- ad ve e-postanin altinda. */
+/* SAYIM SERIDI -- karsilama kartinin icinde, koyu zemin uzerinde.
+   <dl> secildi cunku her oge bir ETIKET + DEGER cifti; <span> yigini
+   bu iliskiyi ekran okuyucuya soylemiyordu. */
 .panel-sayim {
-  display: flex; flex-wrap: wrap; gap: var(--b-4);
-  margin: var(--b-2) 0 0;
-  font-size: var(--p-s); color: var(--yazi-3);
+  display: grid; gap: var(--b-4b) var(--b-5);
+  grid-template-columns: repeat(auto-fit, minmax(84px, auto));
+  margin: 0; justify-content: start;
   font-variant-numeric: tabular-nums}
-.panel-sayim b { color: var(--yazi); font-weight: 800; font-size: var(--p-l)}
+.panel-sayim > div { display: flex; flex-direction: column-reverse; gap: 2px}
+.panel-sayim dt {
+  font-size: var(--p-xs); font-weight: 600; letter-spacing: 0.03em;
+  color: var(--ust-yazi-2)}
+.panel-sayim dd {
+  margin: 0; font-size: 1.55rem; font-weight: 800; line-height: 1;
+  letter-spacing: -0.02em; color: var(--ust-yazi)}
 
 /* Arastirma listesi -- kart + altinda sayac.
    Sayac kartin DISINDA duruyor: kart bir <a> ve icine baska bir
@@ -2629,6 +2638,98 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
   gap: var(--b-4); flex-wrap: wrap; margin: var(--b-4b) 0}
 .panel-ust-cubuk h1 { margin: 0 0 var(--b-1); font-size: 1.6rem; letter-spacing: -0.02em}
 .panel-eylem { display: flex; gap: var(--b-2); flex-wrap: wrap; align-items: center}
+
+/* --- KARSILAMA KARTI ------------------------------------------------
+   Panelin ilk ekrani "Panel" basligi ve iki dugmeden ibaretti. Koyu
+   kart, kisiyi ve dort gercek sayiyi bir arada gosteriyor.
+
+   Koyu zemin BILEREK: panelin geri kalani beyaz kartlardan olusuyor
+   ve bu blok sayfanin BASI oldugunu tek bakista soyluyor. */
+.panel-karsilama {
+  display: grid; gap: var(--b-5);
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  margin: var(--b-4b) 0;
+  padding: var(--b-5b);
+  border-radius: var(--r);
+  /* `--ust-*` KOYU SERIDIN jetonlari ve iki temada da AYNI koyu
+     degeri tasiyorlar (bkz. jeton blogundaki not). Yeni bir koyu
+     jeton uydurmak, koyu temada yeniden tanimlanmasi gereken ve
+     unutuldugunda kartin zemine karistigi bir jeton daha demekti. */
+  background: var(--ust-zemin);
+  color: var(--ust-yazi)}
+.panel-karsilama-kim {
+  display: flex; align-items: center; gap: var(--b-4); min-width: 0}
+.panel-karsilama-ad { min-width: 0}
+.panel-karsilama h1 {
+  margin: 0; font-size: 1.45rem; letter-spacing: -0.02em;
+  color: var(--ust-yazi); overflow-wrap: anywhere}
+.panel-karsilama-alt {
+  margin: 3px 0 0; font-size: var(--p-m);
+  color: var(--ust-yazi-2);
+  overflow-wrap: anywhere}
+
+/* Bas harf dairesi. VESIKALIK YOK -- var olmayan insanin fotografi
+   olmaz; ayni kural `_imza.html` icinde de yazili. */
+.panel-avatar {
+  flex: none;
+  display: grid; place-items: center;
+  width: 52px; height: 52px; border-radius: 50%;
+  background: var(--vurgu); color: #08121c;
+  font-size: 1.4rem; font-weight: 800; line-height: 1}
+
+/* Serit ve dugmeler ikinci satira gecer; ad ile dugmelerin cakismasi
+   yerine duzen kirilsin. */
+.panel-karsilama .panel-sayim { grid-column: 1 / -1}
+.panel-karsilama-eylem { grid-column: 2; grid-row: 1; justify-self: end}
+
+@media (max-width: 720px) {
+  .panel-karsilama { grid-template-columns: 1fr; padding: var(--b-4b)}
+  .panel-karsilama-eylem { grid-column: 1; grid-row: auto; justify-self: start}
+}
+
+/* --- SENARYO KARTI: ufuk ve oy --------------------------------------
+   Ikisi de GERCEKTEN SAYILAN degerler. Tasarim taslagindaki
+   "%56 gosterilme" konmadi -- gosterim olculmuyor. */
+.rozet-ufuk {
+  background: var(--vurgu-zar); color: var(--vurgu);
+  border-color: transparent}
+.rozet-oy { background: var(--zemin-2); color: var(--yazi-2)}
+
+.ufuk-cubuk {
+  height: 4px; margin: var(--b-2) 0 0;
+  border-radius: 999px; background: var(--zemin-2); overflow: hidden}
+.ufuk-cubuk span {
+  display: block; height: 100%; border-radius: 999px;
+  background: var(--vurgu)}
+
+/* --- MOBIL ALT SEKME CUBUGU ----------------------------------------
+   Yalnizca dar ekranda. Masaustunde ustteki sekmeler zaten goz
+   hizasinda; ikisini birden gostermek ayni isi iki kez yapan bir
+   arayuz olurdu.
+
+   `position: fixed` -- uzun bir listede asagi inildiginde de
+   erisilebilir kalmasi icin. Alt bosluk `body`ye degil PANELE
+   veriliyor: sabit cubugun altinda kalan son kart aksi halde
+   okunamiyordu. */
+.panel-alt-sekme { display: none}
+
+@media (max-width: 720px) {
+  .panel-alt-sekme {
+    display: grid; grid-auto-flow: column; grid-auto-columns: 1fr;
+    position: fixed; inset: auto 0 0 0; z-index: 40;
+    padding: 6px 4px calc(6px + env(safe-area-inset-bottom));
+    border-top: 1px solid var(--cizgi);
+    background: var(--panel)}
+  .panel-alt-sekme button {
+    display: flex; flex-direction: column; align-items: center; gap: 3px;
+    padding: 6px 2px; border: 0; background: none; cursor: pointer;
+    font: inherit; font-size: 0.68rem; font-weight: 600;
+    color: var(--yazi-3)}
+  .panel-alt-sekme button span { font-size: 1.05rem; line-height: 1}
+  .panel-alt-sekme button.etkin { color: var(--vurgu)}
+  [data-panel] { padding-bottom: 68px}
+}
 
 .panel-sekme {
   display: flex; gap: var(--b-1); margin: var(--b-4b) 0;

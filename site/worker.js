@@ -1044,10 +1044,17 @@ async function senaryoKaydet(istek, env, u) {
 }
 
 async function senaryoListe(env, u) {
+  /* OY SAYISI da doner -- kart uzerinde GERCEK etkilesim gorunsun.
+   *
+   * Tasarim taslaginda kartta "%56 gosterilme, 16 etkilesim" yaziyordu.
+   * Gosterim OLCULMUYOR ve olculmeyen bir orani basmak, sitenin
+   * "hicbir sey uydurulmaz" iddiasini kendi panelimizde bozardi.
+   * Yerine gercekten sayilan sey konuyor: senaryoya verilen oy. */
   const r = await env.DB.prepare(
-    "SELECT id, capa, capa_baslik, kosul, sonuc, ufuk, ufuk_biter, durum, " +
-    "ret_nedeni, sonuclanma, olusma FROM senaryo WHERE uye_id = ? " +
-    "ORDER BY id DESC LIMIT 100",
+    "SELECT s.id, s.capa, s.capa_baslik, s.kosul, s.sonuc, s.ufuk, " +
+    "s.ufuk_biter, s.durum, s.ret_nedeni, s.sonuclanma, s.olusma, " +
+    "(SELECT COUNT(*) FROM senaryo_oy o WHERE o.senaryo_id = s.id) AS oy " +
+    "FROM senaryo s WHERE s.uye_id = ? ORDER BY s.id DESC LIMIT 100",
   ).bind(u.id).all();
   return yanit({ senaryolar: r.results || [] });
 }
@@ -1342,12 +1349,29 @@ async function begenilerim(env, uye) {
     "SELECT COUNT(*) AS n FROM senaryo WHERE uye_id = ?",
   ).bind(uye.id).first();
 
+  /* ALDIGIN OY -- kendi senaryolarina gelen oylarin toplami.
+   *
+   * Tasarim taslaginda burada "Okuma" vardi. KONMADI: site kullanici
+   * bazinda okuma TUTMUYOR. `sayac` tablosu yol basina site geneli
+   * goruntulenme sayiyor, "bu okuru bu sayfada gordum" demiyor -- ve
+   * demesi icin okuru sayfa sayfa izlemek gerekirdi.
+   *
+   * Uydurmak yerine GERCEKTEN OLCULEN bir etkilesim konuldu: yazarin
+   * senaryolarina baskalarinin verdigi oy. Senaryo odakli bir
+   * toplulukta yazar icin anlamli olan sayi da budur.
+   */
+  const oy = await env.DB.prepare(
+    "SELECT COUNT(*) AS n FROM senaryo_oy o " +
+    "JOIN senaryo s ON s.id = o.senaryo_id WHERE s.uye_id = ?",
+  ).bind(uye.id).first();
+
   return yanit({
     begeniler: b.results || [],
     sayim: {
       yazi: y ? y.n : 0,
       senaryo: sn ? sn.n : 0,
       begeni: (b.results || []).length,
+      oy: oy ? oy.n : 0,
     },
   });
 }
