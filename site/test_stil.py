@@ -533,5 +533,51 @@ esit(_ozgulluk("main.kabuk") > _ozgulluk(".kabuk"), True,
 esit(bool(re.fullmatch(r"[a-z]+" + re.escape(".kabuk"), "main.kabuk")), True,
      "bilesik secici deseni main.kabuk yakaliyor")
 
+
+print()
+print("Dokunulan denetimler mobilde 44 pikselden kucuk degil")
+
+# Esik dosyada ZATEN kural: "Apple ve Google'in erisilebilirlik
+# kilavuzlari bu esikte birlesiyor; daha kucuk hedefte parmak isabet
+# orani belirgin dusuyor." Ama uzun sure YALNIZCA form alanlarina
+# uygulanmisti.
+#
+# Olculdu (2026-08-24): paylasim dugmesi ~33px, "Beğeniyi kaldır"
+# ~26px, panel sekmesi ~34px. Paylasim dugmesi ozellikle onemli --
+# artik her haber ve her bilanco sayfasinin basinda duruyor.
+#
+# Liste ELLE tutuluyor; o yuzden asagida ayrica her adin CSS'te
+# gercekten var oldugu da sinaniyor. Bu depoda elle tutulan bir
+# secici listesi bir kez kaydi ve olu adlar tasidi.
+_DOKUNULAN = [
+    ".sp-dugme", ".suzgec-dugme", ".panel-sekme button",
+    ".menu-katman a", ".izleme li a", ".panel-paylas-baglanti",
+    ".begeni-kaldir",
+]
+
+_ct = re.sub(r"/\*.*?\*/", "", _CSS.read_text(encoding="utf-8"),
+             flags=re.S)
+
+# 1. Her ad CSS'te var mi -- liste kaymasin.
+_yok = [s for s in _DOKUNULAN
+        if not re.search(re.escape(s) + r"[^{},]*[,{]", _ct)]
+esit(sorted(_yok), [], "listedeki her secici CSS'te tanimli")
+
+# 2. Her biri bir `min-height: 44px` kuralinda geciyor mu.
+_kirkdort = []
+for _e in re.finditer(r"([^{}]+)\{([^{}]*min-height:\s*44px[^{}]*)\}", _ct):
+    _kirkdort += [x.strip() for x in _e.group(1).split(",")]
+
+_eksik = [s for s in _DOKUNULAN if s not in _kirkdort]
+esit(sorted(_eksik), [], "dokunulan her denetim 44px kuralinda")
+
+# 3. `min-height` SATIR ICI ogede calismaz: her birinin bir yerde
+#    blok ya da esnek kutu olmasi gerekiyor.
+_blok = []
+for _e in re.finditer(r"([^{}]+)\{([^{}]*display:\s*(?:block|flex|inline-flex|grid)[^{}]*)\}", _ct):
+    _blok += [x.strip() for x in _e.group(1).split(",")]
+_satirici = [s for s in _DOKUNULAN if s not in _blok]
+esit(sorted(_satirici), [], "dokunulan her denetim blok/esnek kutu")
+
 print(f"\n{_gecti} gecti, {_kaldi} kaldi")
 sys.exit(1 if _kaldi else 0)

@@ -6203,6 +6203,52 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
      Ikisini birden tutmak hem yer yiyor hem "hangisi asil" sorusu
      uretiyor. Araştırmalar acilir menusu de altta tek girise
      donusuyor; alt kategoriler /arastirmalar/ sayfasinda. */
+  /* DOKUNMA HEDEFI EN AZ 44 PIKSEL -- MOBILDE.
+     Dosyada bu esik zaten kural olarak yazili (`.uyelik-form input`
+     bloguna bak: "Apple ve Google'in erisilebilirlik kilavuzlari bu
+     esikte birlesiyor; daha kucuk hedefte parmak isabet orani
+     belirgin dusuyor"). Ama kural YALNIZCA form alanlarina
+     uygulanmisti.
+
+     Olculdu (2026-08-24), dolgu ve puntodan hesaplanan yaklasik
+     yukseklikler:
+         .panel-paylas-baglanti  ~20px
+         .begeni-kaldir          ~26px
+         .sp-dugme               ~33px   (her yazinin basinda)
+         .suzgec-dugme           ~33px
+         .izleme li a            ~33px
+         .panel-sekme button     ~34px
+         .menu-katman a          ~34px
+
+     `.sp-dugme` ozellikle onemli: paylasim dugmeleri artik her haber
+     VE her bilanco sayfasinin basinda duruyor, yani sitenin en cok
+     dokunulan denetimlerinden biri.
+
+     YALNIZCA MOBILDE: masaustunde isaretleyici piksel hassasiyetinde
+     ve 44 piksel gereksiz yer yiyor. Etiket ve rozetler (`<span>`)
+     LISTEYE ALINMADI -- onlar tiklanmiyor.
+
+     `display` yalnizca tanimsiz olanlara veriliyor: `min-height`
+     satir ici ogede CALISMIYOR. `.izleme li a` zaten `block`,
+     `.sp-dugme` ve `.suzgec-dugme` zaten `inline-flex`. */
+  .panel-sekme button,
+  .menu-katman a,
+  .panel-paylas-baglanti,
+  .begeni-kaldir {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .sp-dugme,
+  .suzgec-dugme,
+  .panel-sekme button,
+  .menu-katman a,
+  .izleme li a,
+  .panel-paylas-baglanti,
+  .begeni-kaldir {
+    min-height: 44px;
+  }
+
   .ust-ic > nav { display: none; }
   .ust-ic { justify-content: space-between; }
 }
