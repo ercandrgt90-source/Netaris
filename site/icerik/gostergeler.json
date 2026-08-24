@@ -32,7 +32,7 @@
       "yon": "artis",
       "tarih": "2026-08-21",
       "birim": "TL",
-      "gun": 0,
+      "gun": 1,
       "bayat": false
     },
     {
@@ -43,7 +43,7 @@
       "yon": "artis",
       "tarih": "2026-08-18",
       "birim": "USD/varil",
-      "gun": 3,
+      "gun": 4,
       "bayat": true,
       "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · sonraki 26 Ağustos"
     },
@@ -55,7 +55,7 @@
       "yon": "artis",
       "tarih": "2026-08-18",
       "birim": "USD/varil",
-      "gun": 3,
+      "gun": 4,
       "bayat": true,
       "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · sonraki 26 Ağustos"
     },
@@ -67,7 +67,7 @@
       "yon": "yatay",
       "tarih": "2026-08-20",
       "birim": "%",
-      "gun": 1,
+      "gun": 2,
       "bayat": false
     },
     {
@@ -78,7 +78,7 @@
       "yon": "yatay",
       "tarih": "2026-08-20",
       "birim": "%",
-      "gun": 1,
+      "gun": 2,
       "bayat": false
     },
     {
@@ -89,7 +89,7 @@
       "yon": "artis",
       "tarih": "2026-08-20",
       "birim": "%",
-      "gun": 1,
+      "gun": 2,
       "bayat": false
     },
     {
@@ -100,7 +100,7 @@
       "yon": "yatay",
       "tarih": "2026-08-21",
       "birim": "puan",
-      "gun": 0,
+      "gun": 1,
       "bayat": false
     },
     {
@@ -111,7 +111,7 @@
       "yon": "azalis",
       "tarih": "2026-08-14",
       "birim": "endeks",
-      "gun": 5,
+      "gun": 6,
       "bayat": true,
       "ritim": "Fed bu endeksi haftalık yayımlıyor"
     }
@@ -128,7 +128,7 @@
           "yon": "artis",
           "tarih": "2026-08-18",
           "birim": "USD/varil",
-          "gun": 3,
+          "gun": 4,
           "bayat": true,
           "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · sonraki 26 Ağustos"
         },
@@ -140,7 +140,7 @@
           "yon": "artis",
           "tarih": "2026-08-18",
           "birim": "USD/varil",
-          "gun": 3,
+          "gun": 4,
           "bayat": true,
           "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · sonraki 26 Ağustos"
         }
@@ -157,7 +157,7 @@
           "yon": "yatay",
           "tarih": "2026-08-20",
           "birim": "%",
-          "gun": 1,
+          "gun": 2,
           "bayat": false
         },
         {
@@ -168,7 +168,7 @@
           "yon": "yatay",
           "tarih": "2026-08-20",
           "birim": "%",
-          "gun": 1,
+          "gun": 2,
           "bayat": false
         },
         {
@@ -179,7 +179,7 @@
           "yon": "artis",
           "tarih": "2026-08-20",
           "birim": "%",
-          "gun": 1,
+          "gun": 2,
           "bayat": false
         },
         {
@@ -190,7 +190,7 @@
           "yon": "yatay",
           "tarih": "2026-08-21",
           "birim": "puan",
-          "gun": 0,
+          "gun": 1,
           "bayat": false
         }
       ]
@@ -206,7 +206,7 @@
           "yon": "azalis",
           "tarih": "2026-08-14",
           "birim": "endeks",
-          "gun": 5,
+          "gun": 6,
           "bayat": true,
           "ritim": "Fed bu endeksi haftalık yayımlıyor"
         },
@@ -218,7 +218,7 @@
           "yon": "artis",
           "tarih": "2026-08-21",
           "birim": "TL",
-          "gun": 0,
+          "gun": 1,
           "bayat": false
         }
       ]
