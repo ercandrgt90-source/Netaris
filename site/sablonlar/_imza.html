@@ -8,7 +8,18 @@
    yazdi yoksa kurallar mi uretti. Kurum imzasina logonun kendisi
    konuyor; imzali yazilar bas harf dairesinde kaliyor.
 
-   Vesikalik yok: var olmayan insanin fotografi olmaz. #}
+   Vesikalik yok: var olmayan insanin fotografi olmaz.
+
+   UYE AVATARI BURAYA GELMIYOR -- 2026-08-24'te sorulup KARARA
+   BAGLANDI. Uyeler panelde fotograf yukleyebiliyor (`uye.avatar`,
+   bkz. `worker.js` -> avatarDogrula) ama kunye bas harf dairesinde
+   KALIYOR.
+
+   Teknik engel de var, karar da: avatar D1'de duruyor, kunye ise
+   `netaris.db`den uretilen STATIK HTML -- derleme ani D1'i hic
+   gormuyor. Yani buraya avatar koymak, ya derleme sirasinda D1'den
+   disa aktarma ya da kunyede istemci tarafi yukleme gerektirir.
+   Ikisi de kunyenin gorunumunu degistirir; istenmedi. #}
 {% macro imza(ad, bas_harf, imzali) -%}
 {%- if imzali -%}
 <span class="yorum-harf" aria-hidden="true">{{ bas_harf }}</span>
