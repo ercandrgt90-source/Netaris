@@ -170,6 +170,90 @@
     d.addEventListener("click", function () { sekmeGec(d.dataset.sekme); });
   });
 
+  /* --- HESABIM: profil bilgileri ------------------------------------
+     Ad ve soyad AYRI tutuluyor. Tek alanda toplandiginda kunye
+     disinda hicbir yerde kullanilamiyordu; ayrildiginda hem kunye
+     eskisi gibi calisiyor hem de siralama ve hitap mumkun oluyor.
+
+     Form `/api/ben` yanitiyla dolduruluyor -- ayri bir istek YOK.
+     Ikinci bir istek olsaydi form bir an bos gorunur, kullanici o
+     arada yazmaya baslarsa yazdigi silinirdi. */
+  function tamAd(u) {
+    return ((u.ad || "") + " " + (u.soyad || "")).replace(/\s+/g, " ").trim();
+  }
+
+  var profilForm = $("[data-profil-form]");
+
+  function profilDoldur(u) {
+    if (!profilForm) return;
+    profilForm.ad.value = u.ad || "";
+    profilForm.soyad.value = u.soyad || "";
+    profilForm.unvan.value = u.unvan || "";
+    profilForm.hakkinda.value = u.hakkinda || "";
+    hakkindaSay();
+    var e = $("[data-profil-eposta]");
+    var r = $("[data-profil-rol]");
+    var k = $("[data-profil-kayit]");
+    if (e) e.textContent = u.eposta || "—";
+    if (r) r.textContent = u.rol === "yonetici" ? "Yönetici" : "Yazar";
+    if (k) k.textContent = tarih(u.kayit_ani);
+  }
+
+  function hakkindaSay() {
+    var s = $("[data-hakkinda-sayac]");
+    if (s && profilForm) s.textContent = String(profilForm.hakkinda.value.length);
+  }
+
+  if (profilForm) {
+    profilForm.hakkinda.addEventListener("input", hakkindaSay);
+
+    profilForm.addEventListener("submit", function (o) {
+      o.preventDefault();
+      var durum = $("[data-profil-durum]");
+      var dugme = $("[data-profil-kaydet]");
+      /* Cift gonderim kapatiliyor: yavas baglantida iki kez
+         tiklamak iki UPDATE demek ve ikincisi ilkini ezerdi. */
+      if (dugme) dugme.disabled = true;
+      if (durum) { durum.textContent = "Kaydediliyor…"; durum.className = "panel-durum"; }
+
+      istek("/api/profil", {
+        method: "POST",
+        govde: {
+          ad: profilForm.ad.value,
+          soyad: profilForm.soyad.value,
+          unvan: profilForm.unvan.value,
+          hakkinda: profilForm.hakkinda.value,
+        },
+      }).then(function (y) {
+        if (dugme) dugme.disabled = false;
+        if (!y.tamam) {
+          if (durum) {
+            durum.textContent = (y.veri && y.veri.hata) || "Kaydedilemedi.";
+            durum.className = "panel-durum panel-durum-hata";
+          }
+          return;
+        }
+        /* SUNUCUNUN DONDURDUGU degerle yeniden dolduruluyor.
+           Sunucu tek satirlik alanlardan satir sonu ve gorunmez
+           karakterleri temizliyor; ekranda kullanicinin yazdigi
+           kalsaydi, sakladigimizdan farkli bir sey gosterirdik. */
+        profilDoldur(y.veri.uye);
+        var kim = $("[data-kim]");
+        if (kim) kim.textContent = tamAd(y.veri.uye) + " · " + y.veri.uye.eposta;
+        if (durum) {
+          durum.textContent = "Kaydedildi.";
+          durum.className = "panel-durum panel-durum-tamam";
+        }
+      }).catch(function () {
+        if (dugme) dugme.disabled = false;
+        if (durum) {
+          durum.textContent = "Bağlantı kurulamadı.";
+          durum.className = "panel-durum panel-durum-hata";
+        }
+      });
+    });
+  }
+
   /* --- BEGENDIKLERIM ve PANEL SAYIMLARI ------------------------------
      Tek istek: liste ve uc sayi ayni cagriyla geliyor. Uc ayri istek
      panel acilisini uc kez beklemek olurdu.
@@ -829,7 +913,8 @@
     }
     panel.hidden = false;
     var kim = $("[data-kim]");
-    if (kim) kim.textContent = y.veri.uye.ad + " · " + y.veri.uye.eposta;
+    if (kim) kim.textContent = tamAd(y.veri.uye) + " · " + y.veri.uye.eposta;
+    profilDoldur(y.veri.uye);
     if (y.veri.uye.rol === "yonetici") {
       $("[data-yonetici]").hidden = false;
       yonetimYukle();

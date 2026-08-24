@@ -2640,6 +2640,46 @@ main.kabuk { padding: 26px; padding: var(--b-7)}
 .panel-sekme button:hover { color: var(--yazi)}
 .panel-sekme button.etkin { color: var(--vurgu); border-bottom-color: var(--vurgu)}
 
+/* --- HESABIM FORMU -------------------------------------------------
+   Alan stilleri `.uyelik-form`dan DEVRALINIYOR; burada yalnizca
+   panele ozel farklar var. Ikinci bir alan stili yazmak, iki yerde
+   tutulan ve zamanla ayrisan bir kural demekti. */
+.panel-form { max-width: 46rem}
+
+/* Ad ve soyad YAN YANA -- ikisi tek bir bilginin parcasi ve alt alta
+   dizildiklerinde form gereksiz uzuyor. Dar ekranda alt alta duser. */
+.panel-ikili {
+  display: grid; gap: var(--b-4);
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr))}
+
+.panel-form small {
+  font-weight: 400; font-size: var(--p-xs); color: var(--yazi-3)}
+.alan-not {
+  font-weight: 400; font-size: var(--p-xs); color: var(--yazi-3);
+  margin-left: 6px}
+
+/* SALT OKUNUR ALANLAR gizlenmiyor, GORUNUYOR.
+   Degistirilemeyen bir alani hic gostermemek, kullaniciyi "acaba
+   nerede" diye aratir. Gorunur ama pasif bir alan, altindaki tek
+   satirlik gerekceyle birlikte soruyu bastan kapatiyor. */
+.panel-salt {
+  display: grid; gap: var(--b-4);
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  padding: var(--b-4); border: 1px solid var(--cizgi);
+  border-radius: var(--r); background: var(--zemin-2)}
+.panel-salt > div { display: flex; flex-direction: column; gap: 3px; min-width: 0}
+.panel-salt b { font-size: var(--p-m); overflow-wrap: anywhere}
+.panel-salt small { font-size: var(--p-xs); color: var(--yazi-3); line-height: 1.45}
+.alan-etiket {
+  font-size: var(--p-xs); font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase; color: var(--yazi-3)}
+
+/* Kaydetme durumu. Renk TEK BASINA anlam tasimiyor -- metin zaten
+   ne oldugunu yaziyor; renk yalnizca onu pekistiriyor. */
+.panel-durum { font-size: var(--p-m); color: var(--yazi-2)}
+.panel-durum-tamam { color: var(--artis)}
+.panel-durum-hata { color: var(--azalis)}
+
 .panel-liste { display: flex; flex-direction: column; gap: var(--b-3)}
 .panel-liste h3 { margin: var(--b-3) 0 2px; font-size: 1rem}
 

@@ -145,6 +145,7 @@
       <button class="etkin" type="button" data-sekme="yazilarim">Yazılarım</button>
       <button type="button" data-sekme="senaryolarim">Senaryolarım</button>
       <button type="button" data-sekme="begendiklerim">Beğendiklerim</button>
+      <button type="button" data-sekme="hesabim">Hesabım</button>
       <button type="button" data-sekme="duzenle" hidden>Düzenle</button>
       <button type="button" data-sekme="senaryo" hidden>Senaryo</button>
       <button type="button" data-sekme="yonetim" data-yonetici hidden>Yönetim</button>
@@ -160,6 +161,77 @@
        gosteriyor ve bu bilincli. #}
     <section data-bolum="begendiklerim" hidden>
       <div data-begeni-liste class="panel-liste"></div>
+    </section>
+
+    {# HESAP BILGILERI.
+       Ad ve soyad AYRI ALAN: tek alanda tutulunca kunye disinda
+       hicbir yerde kullanilamiyordu -- siralama, hitap, ayni isimli
+       iki uyeyi ayirt etme.
+
+       Unvan ve hakkinda ZORUNLU DEGIL. Zorunlu kilmak, bos alani
+       uydurma bir unvanla doldurmaya davet olurdu; okur icin
+       "unvan yok" bilgisi, uydurma bir unvandan degerlidir.
+
+       E-posta ve rol SALT OKUNUR gosteriliyor, gizlenmiyor. Neden
+       degistirilemedigi alanin altinda yaziyor: alani hic gormemek,
+       gorup sebebini bilmekten kotudur. #}
+    <section data-bolum="hesabim" hidden>
+      <form data-profil-form class="uyelik-form panel-form" novalidate>
+        <div class="panel-ikili">
+          <label>
+            Ad
+            <input type="text" name="ad" maxlength="60" required
+                   autocomplete="given-name">
+          </label>
+          <label>
+            Soyad
+            <input type="text" name="soyad" maxlength="60"
+                   autocomplete="family-name">
+          </label>
+        </div>
+
+        <label>
+          Unvan <span class="alan-not">isteğe bağlı</span>
+          <input type="text" name="unvan" maxlength="80"
+                 placeholder="Bağımsız analist">
+          <small>Künyede adınızın altında görünür.</small>
+        </label>
+
+        <label>
+          Hakkında <span class="alan-not">isteğe bağlı</span>
+          <textarea name="hakkinda" rows="4" maxlength="600"
+                    placeholder="Kısa tanıtım — hangi alanda çalıştığınız, neye dayanarak yazdığınız."></textarea>
+          <small>
+            En çok 600 karakter.
+            <b data-hakkinda-sayac>0</b>/600
+          </small>
+        </label>
+
+        <div class="panel-salt">
+          <div>
+            <span class="alan-etiket">E-posta</span>
+            <b data-profil-eposta>—</b>
+            <small>Kimliğiniz buna bağlı; değiştirmek doğrulamayı
+                   yeniden gerektirir.</small>
+          </div>
+          <div>
+            <span class="alan-etiket">Rol</span>
+            <b data-profil-rol>—</b>
+            <small>Yetki alanıdır, buradan değiştirilemez.</small>
+          </div>
+          <div>
+            <span class="alan-etiket">Üyelik</span>
+            <b data-profil-kayit>—</b>
+          </div>
+        </div>
+
+        <div class="panel-eylem">
+          <button class="dugme dugme-birincil" type="submit"
+                  data-profil-kaydet>Kaydet</button>
+          <span class="panel-durum" data-profil-durum role="status"
+                aria-live="polite"></span>
+        </div>
+      </form>
     </section>
 
     <section data-bolum="senaryolarim" hidden>

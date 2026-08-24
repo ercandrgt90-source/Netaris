@@ -51,6 +51,79 @@ const EN_COK_OZET = 400;
 
 const KATEGORILER = ["Analist Yorumu", "Makro", "Bilanço Analizi"];
 
+/* --- Profil alanlari ---
+ *
+ * Bu dort alan KUNYEDE, yani okurun gordugu yerde beliriyor. Sinirlar
+ * kota icin degil, sayfa duzeni ve GUVENILIRLIK icin:
+ *
+ *   * Ad ve soyad TEK SATIR. Cok satirli bir ad, kunye satirini kirar
+ *     ve listelerde hizayi bozar.
+ *   * Unvan 80 karakter: "Bagimsiz analist" sigar, bir ozgecmis
+ *     paragrafi sigmaz. Uzun unvan, unvan olmaktan cikar.
+ *   * Hakkinda 600 karakter: kisa bir tanitim. Daha uzugu yazinin
+ *     kendisiyle yarisir.
+ */
+const EN_COK_AD = 60;
+const EN_COK_SOYAD = 60;
+const EN_COK_UNVAN = 80;
+const EN_COK_HAKKINDA = 600;
+
+/* Tek satirlik alanlarda satir sonu ve kontrol karakteri TEMIZLENIR.
+ *
+ * NEDEN: kunye "Necati Ercan\nDurgut" yazildiginda HTML'de tek satir
+ * gorunur ama RSS'te, `og:title` icinde ve arama sonucunda satir
+ * kirilir. Ayrica sifir genislikli ve yon degistiren karakterler
+ * (U+200B, U+202E) gorunmez halde ad icine gomulebiliyor: ekranda
+ * "Ahmet" yazan bir ad, kopyalandiginda baska bir sey oluyor.
+ *
+ * Kirpma DEGIL temizleme: karakter atiliyor, kalan metin korunuyor. */
+function tekSatir(d, enCok) {
+  if (typeof d !== "string") return "";
+  return d
+    .replace(/[\u0000-\u001F\u007F]/g, " ")
+    .replace(/[\u200B-\u200F\u202A-\u202E\u2066-\u2069\uFEFF]/g, "")
+    .replace(/\s+/g, " ")
+    .trim()
+    .slice(0, enCok);
+}
+
+/* Cok satirli alanda satir sonu KORUNUYOR ama ucu buculuyor:
+ * ard arda ucten fazla bos satir, sayfada kocaman bir bosluk demek. */
+function cokSatir(d, enCok) {
+  if (typeof d !== "string") return "";
+  return d
+    .replace(/\r\n?/g, "\n")
+    .replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, " ")
+    .replace(/[\u200B-\u200F\u202A-\u202E\u2066-\u2069\uFEFF]/g, "")
+    .replace(/[ \t]+/g, " ")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim()
+    .slice(0, enCok);
+}
+
+/* Gelen profil govdesini TEMIZLER ve dogrular.
+ *
+ * Ayri bir saf fonksiyon olmasinin sebebi sinanabilirlik: veritabani
+ * ya da istek nesnesi olmadan cagrilabiliyor (bkz. `test_profil.js`).
+ * Dogrulama uc noktasinin icinde kalsaydi, sinamak icin sahte bir D1
+ * kurmak gerekirdi ve buyuk olasilikla hic sinanmazdi.
+ *
+ * Doner: {tamam:true, deger:{...}} ya da {tamam:false, sebep:"..."} */
+function profilDogrula(g) {
+  const ad = tekSatir(g && g.ad, EN_COK_AD);
+  const soyad = tekSatir(g && g.soyad, EN_COK_SOYAD);
+  const unvan = tekSatir(g && g.unvan, EN_COK_UNVAN);
+  const hakkinda = cokSatir(g && g.hakkinda, EN_COK_HAKKINDA);
+
+  /* AD ZORUNLU, digerleri degil. Ad kunyenin kendisi: bos birakilirsa
+     yazinin imzasi kaybolur. Unvan ve hakkinda bos KALABILIR --
+     zorunlu kilmak, uydurma unvan yazmaya davet olurdu. */
+  if (ad.length < 2) {
+    return { tamam: false, sebep: "Ad en az 2 karakter olmalı." };
+  }
+  return { tamam: true, deger: { ad, soyad, unvan, hakkinda } };
+}
+
 /* --- Senaryo sinirlari ---
    Kosul ve sonuc KISA tutuluyor. Uzun serbest metin, kosullu bir
    onermeyi paragrafa cevirip degerlendirilemez hale getiriyor; sinir
@@ -219,7 +292,8 @@ async function uyeBul(istek, db) {
   const jeton = cerezOku(istek, OTURUM_CEREZ);
   if (!jeton) return null;
   const s = await db.prepare(
-    "SELECT u.id, u.eposta, u.ad, u.rol, u.durum FROM oturum o " +
+    "SELECT u.id, u.eposta, u.ad, u.soyad, u.unvan, u.hakkinda, " +
+    "u.rol, u.durum, u.kayit_ani FROM oturum o " +
     "JOIN uye u ON u.id = o.uye_id WHERE o.jeton_ozeti = ? AND o.biter > ?",
   ).bind(await sha256(jeton), damga()).first();
   return s && s.durum === "etkin" ? s : null;
@@ -607,9 +681,47 @@ async function cikis(istek, env) {
 
 async function ben(istek, env) {
   const u = await uyeBul(istek, env.DB);
-  return u
-    ? yanit({ uye: { ad: u.ad, eposta: u.eposta, rol: u.rol } })
-    : yanit({ uye: null }, 401);
+  if (!u) return yanit({ uye: null }, 401);
+  /* Profil alanlari da doner: panel formu ayri bir istek atmasin.
+     Iki istek olsaydi form bir an BOS gorunur, sonra dolardi --
+     kullanici bu arada yazmaya baslarsa yazdigi silinirdi. */
+  return yanit({
+    uye: {
+      ad: u.ad,
+      soyad: u.soyad || "",
+      unvan: u.unvan || "",
+      hakkinda: u.hakkinda || "",
+      eposta: u.eposta,
+      rol: u.rol,
+      kayit_ani: u.kayit_ani || "",
+    },
+  });
+}
+
+/** POST /api/profil  {ad, soyad, unvan, hakkinda} -> {uye:{...}}
+ *
+ * E-POSTA VE ROL BURADAN DEGISTIRILEMEZ, bilerek.
+ *
+ * E-posta kimligin kendisi: degistirmek dogrulama akisini yeniden
+ * calistirmayi gerektirir (yeni adrese baglanti gonderilmeden hesap
+ * o adrese tasinmis olur ve baskasinin adresi ele gecirilebilir).
+ * Rol ise yetki; kullanicinin kendi yetkisini yukseltebildigi bir uc
+ * acmak, yetkilendirmeyi tumuyle anlamsiz kilardi.
+ *
+ * Ikisi de panelde SALT OKUNUR gosteriliyor -- gizlenmiyor. Alanin
+ * neden degistirilemedigini gormek, alani hic gormemekten iyidir. */
+async function profilKaydet(istek, env, u) {
+  const g = await istek.json().catch(() => ({}));
+  const s = profilDogrula(g);
+  if (!s.tamam) return hata(s.sebep, 400);
+  const d = s.deger;
+  await env.DB.prepare(
+    "UPDATE uye SET ad = ?, soyad = ?, unvan = ?, hakkinda = ? WHERE id = ?",
+  ).bind(d.ad, d.soyad, d.unvan, d.hakkinda, u.id).run();
+  /* Kaydedilen HALIYLE geri doner -- kirpilmis ya da temizlenmis bir
+     deger varsa kullanici ekranda onu gorsun. "Kaydedildi" deyip
+     farkli bir sey saklamak, sessiz bir yalan olurdu. */
+  return yanit({ uye: Object.assign({ eposta: u.eposta, rol: u.rol }, d) });
 }
 
 /* ---------------------------------------------------------------- yazilar */
@@ -1701,6 +1813,9 @@ export default {
       /* Buradan sonrasi oturum istiyor */
       const uye = await uyeBul(istek, env.DB);
       if (!uye) return hata("Oturum gerekli.", 401);
+
+      if (y === "profil" && m === "POST")
+        return await profilKaydet(istek, env, uye);
 
       if (y === "yazi" && m === "GET") return await yaziListe(istek, env, uye);
       if (y === "yazi" && m === "POST") return await yaziKaydet(istek, env, uye);

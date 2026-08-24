@@ -19,7 +19,17 @@
 CREATE TABLE IF NOT EXISTS uye (
   id                INTEGER PRIMARY KEY AUTOINCREMENT,
   eposta            TEXT NOT NULL UNIQUE,
+  -- YALNIZCA ISIM. Soyisim ayri sutunda; ikisini tek alanda tutmak
+  -- kunye disinda her kullanimi imkansiz kiliyordu (siralama,
+  -- hitap, ayni isimli iki uyeyi ayirt etme).
   ad                TEXT NOT NULL,
+  soyad             TEXT NOT NULL DEFAULT '',
+  -- Kunyede adin altinda gorunur: "Bagimsiz analist" gibi. BOS
+  -- OLABILIR -- zorunlu kilmak, uydurma unvan yazmaya davet olurdu.
+  unvan             TEXT NOT NULL DEFAULT '',
+  -- Kisa ozgecmis. Okur bir yorumu kimin degil, NE SIFATLA
+  -- yazdigini bilmek ister.
+  hakkinda          TEXT NOT NULL DEFAULT '',
   parola_ozet       TEXT NOT NULL,
   -- beklemede: e-posta dogrulanmadi | etkin | askida
   durum             TEXT NOT NULL DEFAULT 'beklemede',
