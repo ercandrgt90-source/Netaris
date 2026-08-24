@@ -1,13 +1,13 @@
 ---
 slug: cemts-2026-1-ceyrek
 baslik: ÇEMTAŞ ÇELİK MAKİNA SANAYİ VE TİCARET A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılatın düşmesi brüt kârın da azalmasına yol açarken, brüt kâr marjının sektör medyanıyla aynı kalması, maliyet yapısının sabit kaldığını gösterir; aynı zamanda faaliyet kârı ve FAVÖK de hasılat düşüşüne paralel olarak gerilemiştir.…
+ozet: Hasılatın düşmesi brüt kârı ve FAVÖK'ü de azaltırken, brüt kâr marjının sektör medyanına yakın kalması net kârın negatif döneme kaymasına rağmen özkaynak kârlılığının %1,6 ile medyanın üzerindeki seviyede kalmasını sağladı; aynı zamanda özkaynak ve aktif toplamının artışı, net borcun pozitiften nega…
 sirket: ÇEMTAŞ ÇELİK MAKİNA SANAYİ VE TİCARET A.Ş.
 kod: CEMTS
 donem: 2026 1. çeyrek
 kategori: Bilanço Analizi
 sektor: Temel malzeme
-tarih: 2026-08-23
+tarih: 2026-08-24
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın düşmesi brüt kârın da azalmasına yol açarken, brüt kâr marjının sektör medyanıyla aynı kalması, maliyet yapısının sabit kaldığını gösterir; aynı zamanda faaliyet kârı ve FAVÖK de hasılat düşüşüne paralel olarak gerilemiştir. Net kârın negatifleşmesi, yatırım harcamasının önceki döneme göre beş kat artması ve faaliyet nakit akışının pozitifleşmesiyle birlikte, özkaynak artışı ve aktif toplamındaki büyüme net borcun sıfıra yakın seviyeye çekilmesine neden olmuştur. Cari oran ve borç/özkaynak oranının sektör medyanının çok üzerinde olması, likidite ve finansal kaldıraçta aynı dönemde gerçekleşen diğer performans düşüşlerinden bağımsız bir güçlenmeyi işaret eder.
+Hasılatın düşmesi brüt kârı ve FAVÖK'ü de azaltırken, brüt kâr marjının sektör medyanına yakın kalması net kârın negatif döneme kaymasına rağmen özkaynak kârlılığının %1,6 ile medyanın üzerindeki seviyede kalmasını sağladı; aynı zamanda özkaynak ve aktif toplamının artışı, net borcun pozitiften negatiften sıfıra yükselmesiyle birlikte cari oranı 4,74'e, borç/özkaynak oranını ise %0,01'e çekerek likiditeyi güçlendirdi. Faaliyet nakit akışının önceki dönemde negatiften pozitife dönmesi, artan yatırım harcamasıyla birlikte şirketin büyüme odaklı harcamalarını finanse etme kapasitesini gösterdi. Bu değişimler, gelir ve kâr düşüşünün özkaynak ve likidite yapılarına yansıyarak, borçlanma ihtiyacının azalması ve özkaynak bazlı finansmanın artması şeklinde bir ilişki oluşturdu.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 
@@ -58,9 +58,9 @@ Karşılaştırma Temel malzeme sektöründeki 42 şirketin **medyanına** göre
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %14,1 | %14,1 |
-| Net kâr marjı | %6,4 | -%0,2 |
-| Özkaynak kârlılığı | %1,6 | -%0,1 |
+| Brüt kâr marjı | %14,1 | %14,5 |
+| Net kâr marjı | %6,4 | %2,7 |
+| Özkaynak kârlılığı | %1,6 | %1,0 |
 | Cari oran | 4,74 | 1,36 |
 | Borç / özkaynak | 0,01 | 0,21 |
 

@@ -1,13 +1,13 @@
 ---
 slug: formt-2026-2-ceyrek
 baslik: FORMET METAL VE CAM SANAYİ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat sabit kalırken brüt kâr iki katına çıkarak brüt kâr marjının %21,8'e yükselmesi, maliyetlerdeki iyileşmenin net kâr marjını %18,1'e (sektör medyanının %0,8'i üzerinde) ve özkaynak kârlılığını %2,0'e (sektör medyanının %0,2'si üzerinde) artırmasına yol açtı; aynı zamanda faaliyet kârı ve FAVÖ…
+ozet: Hasılat sabit kalırken brüt kâr iki katına çıkarak brüt kâr marjının %21,8'e yükselmesi, faaliyet giderlerinin azalmasıyla birlikte faaliyet kârının -0,01 milyar TL'ye (önceki -0,12 milyar TL) ve FAVÖK'ün 0,04 milyar TL'ye (önceki -0,07 milyar TL) dönüşmesini sağladı; ancak net kâr hâlâ -0,05 milyar…
 sirket: FORMET METAL VE CAM SANAYİ A.Ş.
 kod: FORMT
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Sanayi
-tarih: 2026-08-23
+tarih: 2026-08-24
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat sabit kalırken brüt kâr iki katına çıkarak brüt kâr marjının %21,8'e yükselmesi, maliyetlerdeki iyileşmenin net kâr marjını %18,1'e (sektör medyanının %0,8'i üzerinde) ve özkaynak kârlılığını %2,0'e (sektör medyanının %0,2'si üzerinde) artırmasına yol açtı; aynı zamanda faaliyet kârı ve FAVÖK negatiften pozitif seviyelere geçerek nakit akışı da sıfıra geriledi. Özkaynak ve aktif toplamı sırasıyla 2,73 milyar TL ve 3,50 milyar TL'ye yükselirken net borç 0,10 milyar TL'ye çıkması, cari oranı 1,91 (sektör medyanı 1,34) ve borç/özkaynak oranını 0,04 (sektör medyanı 0,17) düşük tutarak likidite ve finansal kaldıraçta iyileşme sağladı. Yatırım harcamasının 0,06 milyar TL'ye (önceki dönem 0,04 milyar TL) artması, aktif büyümesiyle paralel bir sermaye harcaması olduğunu gösteriyor.
+Hasılat sabit kalırken brüt kâr iki katına çıkarak brüt kâr marjının %21,8'e yükselmesi, faaliyet giderlerinin azalmasıyla birlikte faaliyet kârının -0,01 milyar TL'ye (önceki -0,12 milyar TL) ve FAVÖK'ün 0,04 milyar TL'ye (önceki -0,07 milyar TL) dönüşmesini sağladı; ancak net kâr hâlâ -0,05 milyar TL (önceki -0,02 milyar TL) olduğu için net kâr marjı %18,1'e (sektör medyanı %1,2) yükselmiştir. Özkaynak 2,73 milyar TL'ye (önceki 1,90 milyar TL) ve aktif toplamı 3,50 milyar TL'ye (önceki 2,61 milyar TL) artışı, net borcun 0,10 milyar TL'ye (önceki -0,04 milyar TL) yükselmesiyle birlikte borç/özkaynak oranının 0,04 (sektör medyanı 0,17) seviyesinde kalmasını ve cari oranın 1,91 (sektör medyanı 1,34) yükselmesini beraberinde getirdi. Yatırım harcamasının 0,06 milyar TL'ye (önceki 0,04 milyar TL) çıkması, faaliyet nakit akışının 0,00 milyar TL'ye (önceki 0,20 milyar TL) gerilemesiyle birlikte özkaynak kârlılığının %2,0'e (sektör medyanı %0,2) yükselmesine rağmen net kârın negatif kalmasına yol açtı.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
@@ -58,8 +58,8 @@ Karşılaştırma Sanayi sektöründeki 68 şirketin **medyanına** göre yapıl
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %21,8 | %20,4 |
-| Net kâr marjı | %18,1 | %0,8 |
+| Brüt kâr marjı | %21,8 | %21,2 |
+| Net kâr marjı | %18,1 | %1,2 |
 | Özkaynak kârlılığı | %2,0 | %0,2 |
 | Cari oran | 1,91 | 1,34 |
 | Borç / özkaynak | 0,04 | 0,17 |

@@ -1,13 +1,13 @@
 ---
 slug: mekag-2026-1-ceyrek
 baslik: MEKA GLOBAL MAKİNE İMALAT SANAYİ VE TİCARET A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılatın 1,58 milyar TL'den 1,66 milyar TL'ye yükselmesi brüt kârın 0,32 milyar TL'den 0,38 milyar TL'ye artmasına paralel olarak brüt kâr marjının %14,1 sektör medyanının çok üzerindeki %23,5'e çıkmasını sağladı; ancak faaliyet kârının negatiften hafifçe sıfıra yaklaşması ve net kârın 0,03 milyar…
+ozet: Hasılatın 1,58 milyar TL'den 1,66 milyar TL'ye yükselmesi brüt kârın 0,32 milyar TL'den 0,38 milyar TL'ye artmasına, dolayısıyla brüt kâr marjının %14,5 sektör medyanının çok üzerindeki %23,5'e çıkmasına yol açtı; ancak faaliyet kârının 0,00 milyar TL'ye (önceki dönemde -0,04 milyar TL) ve net kârın…
 sirket: MEKA GLOBAL MAKİNE İMALAT SANAYİ VE TİCARET A.Ş.
 kod: MEKAG
 donem: 2026 1. çeyrek
 kategori: Bilanço Analizi
 sektor: Temel malzeme
-tarih: 2026-08-21
+tarih: 2026-08-24
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın 1,58 milyar TL'den 1,66 milyar TL'ye yükselmesi brüt kârın 0,32 milyar TL'den 0,38 milyar TL'ye artmasına paralel olarak brüt kâr marjının %14,1 sektör medyanının çok üzerindeki %23,5'e çıkmasını sağladı; ancak faaliyet kârının negatiften hafifçe sıfıra yaklaşması ve net kârın 0,03 milyar TL'den –0,03 milyar TL'ye düşmesi, artan satışların maliyet ve gider artışlarıyla tam olarak karşılanmadığını gösteriyor. Özkaynakların 1,26 milyar TL'den 1,51 milyar TL'ye, aktif toplamının 2,27 milyar TL'den 2,84 milyar TL'ye ve cari oranın 1,36'dan 1,65'e yükselmesi, likidite ve sermaye yapısının güçlendiğini, net borcun ise –0,28 milyar TL'den –0,38 milyar TL'ye (negatif borç, yani net nakit pozisyonu) artmasının şirketin borçlanmadan daha fazla nakit elde ettiğini işaret ediyor; bu durum, sektördeki %0,2-%0,1 arasındaki negatif özkaynak kârlılığı (%2,9) ve borç/özkaynak oranının sektör medyanının 0,21'i yerine –0,25 olmasıyla birlikte, kârlılıkta iyileşme sağlanmadan sermaye yapısının iyileştiğini ortaya koyar. Faaliyet nakit akışı 0,53 milyar
+Hasılatın 1,58 milyar TL'den 1,66 milyar TL'ye yükselmesi brüt kârın 0,32 milyar TL'den 0,38 milyar TL'ye artmasına, dolayısıyla brüt kâr marjının %14,5 sektör medyanının çok üzerindeki %23,5'e çıkmasına yol açtı; ancak faaliyet kârının 0,00 milyar TL'ye (önceki dönemde -0,04 milyar TL) ve net kârın -0,03 milyar TL'ye (önceki dönemde +0,03 milyar TL) dönüştürülmesi net kâr marjının -%6,9'a ve özkaynak kârlılığının -%2,9'a sürükledi. Özkaynakların 1,26 milyar TL'den 1,51 milyar TL'ye artması ve aktif toplamının 2,27 milyar TL'den 2,84 milyar TL'ye yükselmesi cari oranı 1,36 sektör medyanının üzerine çıkararak 1,65 yaptı; aynı zamanda net borcun -0,28 milyar TL'den -0,38 milyar TL'ye (negatif borç, yani net nakit pozisyon) düşmesi borç/özkaynak oranını -0,25'e (sektör medyanı 0,21) indirdi. Faaliyet nakit akışı ise 0,53 milyar TL'den 0,06 milyar TL'ye gerilediği için yatırım harcaması sıfırlandı ve bu durum kârlılıkta görülen iyileşmenin nakit akışıyla tam olarak yansımadığını gösterdi.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 
@@ -58,9 +58,9 @@ Karşılaştırma Temel malzeme sektöründeki 42 şirketin **medyanına** göre
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %23,5 | %14,1 |
-| Net kâr marjı | -%6,9 | -%0,2 |
-| Özkaynak kârlılığı | -%2,9 | -%0,1 |
+| Brüt kâr marjı | %23,5 | %14,5 |
+| Net kâr marjı | -%6,9 | %2,7 |
+| Özkaynak kârlılığı | -%2,9 | %1,0 |
 | Cari oran | 1,65 | 1,36 |
 | Borç / özkaynak | -0,25 | 0,21 |
 

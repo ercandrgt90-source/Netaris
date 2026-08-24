@@ -1,13 +1,13 @@
 ---
 slug: eukyo-2026-2-ceyrek
 baslik: EURO KAPİTAL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Brüt kâr artışı (%47,1) net kârın hâlâ negatif (%-37,1) kalmasına rağmen özkaynakların (%0,08) ve toplam aktiflerin (%0,09) yükselmesiyle birlikte özkaynak kârlılığı (%-6,3) da düşük seyrediyor; bu, kâr marjının iyileşmesinin özkaynak getirisine tam olarak yansımadığını gösteriyor.…
+ozet: Brüt kâr artışı (%47,1) net kârın negatif kalması (%-37,1) ile birlikte, brüt kâr marjının sektör medyanının üzerinde olmasına rağmen kârın zarar olarak sürmesi, maliyet ya da faiz giderlerinin brüt kârdan daha hızlı yükseldiğini gösterir; özkaynak kârlılığı da bu zararın özkaynak seviyesine oranını…
 sirket: EURO KAPİTAL YATIRIM ORTAKLIĞI A.Ş.
 kod: EUKYO
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Finans
-tarih: 2026-08-23
+tarih: 2026-08-24
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Brüt kâr artışı (%47,1) net kârın hâlâ negatif (%-37,1) kalmasına rağmen özkaynakların (%0,08) ve toplam aktiflerin (%0,09) yükselmesiyle birlikte özkaynak kârlılığı (%-6,3) da düşük seyrediyor; bu, kâr marjının iyileşmesinin özkaynak getirisine tam olarak yansımadığını gösteriyor. Cari oranının 22,78 seviyesinde olması sektör medyanının (7,79) çok üzerindeyken, negatif net borç (%-0,07) ve borç/özkaynak oranının (%-0,90) medyanın (%-0,06) çok altında kalması, likidite ve finansal esnekliğin yüksek olduğunu fakat borç finansmanının sınırlı olduğunu işaret ediyor. Faaliyet nakit akışı negatif kalmış olsa da (-%0,01) aktif ve özkaynak büyümesi, şirketin varlık tabanını genişletmeye devam ettiğini gösteriyor.
+Brüt kâr artışı (%47,1) net kârın negatif kalması (%-37,1) ile birlikte, brüt kâr marjının sektör medyanının üzerinde olmasına rağmen kârın zarar olarak sürmesi, maliyet ya da faiz giderlerinin brüt kârdan daha hızlı yükseldiğini gösterir; özkaynak kârlılığı da bu zararın özkaynak seviyesine oranını yansıtarak negatif (%-6,3) bir değer oluşturur. Özkaynak ve aktif toplamının artması (0,08 → 0,09 milyar TL) net borcun (negatif) azalmasıyla (%-0,07 → %-0,06) birlikte, cari oranın 22,78'e yükselmesi ve borç/özkaynak oranının –0,90'a çıkması, likidite ve borç yapılandırmasının iyileştiğini, ancak kârlılıkta aynı seviyede kalındığını ortaya koyar. Faaliyet nakit akışının hâlâ negatif (-0,01 milyar TL) kalması, artan likidite rezervlerine rağmen işletme faaliyetlerinden nakit üretiminin yeterli olmadığını ve bu durumun net kâr ve özkaynak kârlılığı üzerindeki olumsuz etkisini sürdürdüğünü gösterir.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

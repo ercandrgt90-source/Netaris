@@ -1,13 +1,13 @@
 ---
 slug: prdgs-2026-2-ceyrek
 baslik: PARDUS GİRİŞİM SERMAYESİ YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat, brüt kâr, faaliyet kârı ve net kâr aynı artış trendini izleyerek sıfırdan 0,28 milyar TL'ye yükselmiş; bu durum brüt kâr marjının %100,0 ve net kâr marjının %98,8 olmasını sağlamış.…
+ozet: Hasılat, brüt kâr, faaliyet kârı ve net kâr aynı miktarda artarak %100 brüt kâr marjı ve %98,8 net kâr marjı oluşmuş; bu durum gelirdeki artışın maliyet ve giderlerdeki artışa oranla çok daha yüksek olduğunu gösteriyor.…
 sirket: PARDUS GİRİŞİM SERMAYESİ YATIRIM ORTAKLIĞI A.Ş.
 kod: PRDGS
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Finans
-tarih: 2026-08-23
+tarih: 2026-08-24
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat, brüt kâr, faaliyet kârı ve net kâr aynı artış trendini izleyerek sıfırdan 0,28 milyar TL'ye yükselmiş; bu durum brüt kâr marjının %100,0 ve net kâr marjının %98,8 olmasını sağlamış. Özkaynak ve aktif toplamı da benzer oranda artarak sırasıyla 2,94 milyar TL ve 2,96 milyar TL'ye ulaşmış, bu da özkaynak kârlılığının %11,3 olmasına katkıda bulunmuş. Net borçun –0,10 milyar TL'ye (nakit pozitif) dönüşmesi, cari oranın 5,73'e gerilemesine rağmen borç/özkaynak oranının –0,03 (sektör medyanı –0,06) seviyesinde kalmasını desteklemiş.
+Hasılat, brüt kâr, faaliyet kârı ve net kâr aynı miktarda artarak %100 brüt kâr marjı ve %98,8 net kâr marjı oluşmuş; bu durum gelirdeki artışın maliyet ve giderlerdeki artışa oranla çok daha yüksek olduğunu gösteriyor. Özkaynak ve aktif toplamı da benzer oranda yükselmiş, net borcun negatif (nakit fazlası) hâle gelmesi ise faaliyet nakit akışının artmasıyla birlikte şirketin likiditesinin güçlendiğini, ancak cari oranın sektör medyanının altında kalmasıyla kısa vadeli yükümlülüklerdeki artışa işaret etti. Borç/özkaynak oranı negatif kalmış ve sektör medyanının biraz altında seyretmiş, bu da özkaynakların borçtan daha fazla olduğu bir finansal yapı olduğunu ortaya koyuyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

@@ -1,13 +1,13 @@
 ---
 slug: durkn-2026-2-ceyrek
 baslik: DURUKAN ŞEKERLEME SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın düşmesiyle birlikte brüt kâr da azalmış, ancak brüt kâr marjının %40,2 seviyesinde kalması, maliyetlerdeki azalmaya işaret ederken faaliyet ve FAVÖK kârlarının da benzer oranda gerilemesi, kâr kalemlerinin gelirdeki daralmaya paralel hareket ettiğini gösterir.…
+ozet: Hasılatın düşmesiyle birlikte brüt kâr da azaldı; ancak brüt kâr marjı %40,2 seviyesinde kalırken sektörel medyanın %16,5'inin çok üzerinde seyrediyor, bu durum maliyet yapısının hasılat düşüşüne rağmen daha az etkilenmiş olduğunu gösteriyor.…
 sirket: DURUKAN ŞEKERLEME SANAYİ VE TİCARET A.Ş.
 kod: DURKN
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Temel tüketim
-tarih: 2026-08-23
+tarih: 2026-08-24
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın düşmesiyle birlikte brüt kâr da azalmış, ancak brüt kâr marjının %40,2 seviyesinde kalması, maliyetlerdeki azalmaya işaret ederken faaliyet ve FAVÖK kârlarının da benzer oranda gerilemesi, kâr kalemlerinin gelirdeki daralmaya paralel hareket ettiğini gösterir. Net kârın negatifleşmesi özkaynak kârlılığını %-2,0'ye sürüklerken, özkaynakların 2,70 milyar TL'ye yükselmesi ve cari oranın 2,11 olması, likidite ve sermaye yapısının iyileştiğini, fakat artan net borç (0,98 milyar TL) ve borç/özkaynak oranının %0,36'ya çıkması, finansal riskin de yükseldiğini ortaya koyar. Faaliyet nakit akışı ve yatırım harcaması negatiften hafifçe iyileşmiş olsa da, nakit çıkışı hâlâ mevcut, bu da operasyonel nakit üretiminin yeterli olmadığını ve sermaye harcamalarının kârdan bağımsız olarak sürdüğünü gösterir.
+Hasılatın düşmesiyle birlikte brüt kâr da azaldı; ancak brüt kâr marjı %40,2 seviyesinde kalırken sektörel medyanın %16,5'inin çok üzerinde seyrediyor, bu durum maliyet yapısının hasılat düşüşüne rağmen daha az etkilenmiş olduğunu gösteriyor. Faaliyet ve net kârlardaki gerileme, net kâr marjının -%17,4'e ve özkaynak kârlılığının -%2,0'ya düşmesine yol açarken, aynı dönemde özkaynakların 2,70 milyar TL'ye yükselmesi ve cari oranın 2,11'e çıkması likiditeyi artırdı; borç/özkaynak oranı ise %0,36'dan %0,25'e yükselerek finansal kaldıraçta hafif bir artışa işaret ediyor. Faaliyet nakit akışı ve yatırım harcaması negatif seyretse de, yatırım harcamasının -%0,01'lik bir azalışla (0,10 milyar TL) sınırlı kalması, nakit çıkışının kısmen yatırım faaliyetlerine yönlendirildiğini gösteriyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
@@ -59,7 +59,7 @@ Karşılaştırma Temel tüketim sektöründeki 31 şirketin **medyanına** gör
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
 | Brüt kâr marjı | %40,2 | %16,5 |
-| Net kâr marjı | -%17,4 | %1,2 |
+| Net kâr marjı | -%17,4 | %0,2 |
 | Özkaynak kârlılığı | -%2,0 | %0,8 |
 | Cari oran | 2,11 | 1,36 |
 | Borç / özkaynak | 0,36 | 0,25 |

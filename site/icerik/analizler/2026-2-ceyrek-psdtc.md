@@ -1,13 +1,13 @@
 ---
 slug: psdtc-2026-2-ceyrek
 baslik: PERGAMON STATUS DIŞ TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat aynı kalırken brüt kâr düşmüş, bu durum brüt kâr marjının %91,2 seviyesinde yüksek kalmasına rağmen brüt kâr tutarının azaldığını gösterir; aynı dönemde faaliyet kârı ve FAVÖK negatif olmuş, bu da brüt kârın işletme giderleri ve amortisman gibi kalemlerle karşılandığını ve net kârın %20,8'li…
+ozet: Hasılat aynı kalırken brüt kâr düşmüş, bu durum brüt kâr marjının %91,2 seviyesinde yüksek kalmasına rağmen brüt kâr tutarının azalmasına yol açmış; aynı dönemde faaliyet ve FAVÖK kârlarının negatif olması, net kârın %20,8'lik yüksek marjına rağmen sıfıra gerilemesine neden olmuştur.…
 sirket: PERGAMON STATUS DIŞ TİCARET A.Ş.
 kod: PSDTC
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Sanayi
-tarih: 2026-08-22
+tarih: 2026-08-24
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat aynı kalırken brüt kâr düşmüş, bu durum brüt kâr marjının %91,2 seviyesinde yüksek kalmasına rağmen brüt kâr tutarının azaldığını gösterir; aynı dönemde faaliyet kârı ve FAVÖK negatif olmuş, bu da brüt kârın işletme giderleri ve amortisman gibi kalemlerle karşılandığını ve net kârın %20,8'lik yüksek marja rağmen sıfıra gerilediğini ortaya koyar. Özkaynak artışı %0,07 milyar TL'ye yükselmiş, ancak net borçun -0,41 milyar TL'ye (negatif borç) derinleşmesi, cari oranın %1,05 ile sektör medyanının 1,37'sinin altında kalması ve borç/özkaynak oranının -1,56 (negatif) olması, likidite ve finansal yapıdaki değişikliklerin özkaynak kârlılığını %1,6 seviyesinde tutmasına rağmen faaliyet kârını olumsuz etkilediğini gösterir. Faaliyet nakit akışı -0,01 milyar TL'ye iyileşmiş, önceki dönemde -0,11 milyar TL iken, yatırım harcamasının sıfır kalması bu nakit akışındaki iyileşmenin işletme faaliyetlerinden kaynaklandığını ve sermaye harcamalarının bu dönemde gerçekleşmediğini işaret eder.
+Hasılat aynı kalırken brüt kâr düşmüş, bu durum brüt kâr marjının %91,2 seviyesinde yüksek kalmasına rağmen brüt kâr tutarının azalmasına yol açmış; aynı dönemde faaliyet ve FAVÖK kârlarının negatif olması, net kârın %20,8'lik yüksek marjına rağmen sıfıra gerilemesine neden olmuştur. Özkaynakların %0,26 milyar artması, aktif toplamının %5,09 milyar'a yükselmesiyle paralel seyretmiş, bu da negatif net borcun (-%0,41 milyar) artmasına ve borç/özkaynak oranının sektör medyanının %0,17'sinden çok daha düşük –1,56 seviyesine düşmesine yol açmıştır. Cari oran 1,05 ile sektör medyanı 1,34'ün altında kalırken, faaliyet nakit akışı -%0,01 milyar olarak iyileşmiş, önceki dönemdeki -%0,11 milyar negatif akıştan daha az zarar göstermektedir.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
@@ -59,10 +59,10 @@ Karşılaştırma Sanayi sektöründeki 68 şirketin **medyanına** göre yapıl
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
 | Brüt kâr marjı | %91,2 | %21,2 |
-| Net kâr marjı | %20,8 | %0,3 |
-| Özkaynak kârlılığı | %1,6 | %0,0 |
-| Cari oran | 1,05 | 1,37 |
-| Borç / özkaynak | -1,56 | 0,11 |
+| Net kâr marjı | %20,8 | %1,2 |
+| Özkaynak kârlılığı | %1,6 | %0,2 |
+| Cari oran | 1,05 | 1,34 |
+| Borç / özkaynak | -1,56 | 0,17 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

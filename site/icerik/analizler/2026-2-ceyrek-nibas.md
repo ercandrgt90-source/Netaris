@@ -1,13 +1,13 @@
 ---
 slug: nibas-2026-2-ceyrek
 baslik: NİĞBAŞ NİĞDE BETON SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat ve brüt kâr aynı oranda yükselirken, faaliyet kârı, FAVÖK ve net kâr negatiften daha büyük negatif değerlere kaymış; bu, gelir artışının maliyet ve gider artışlarıyla birlikte gerçekleştiğini gösteriyor.…
+ozet: Hasılat ve brüt kâr aynı oranda yükselirken, faaliyet kârı ve FAVÖK büyük ölçüde düşmüş; bu, satışların artmasına rağmen operasyonel maliyetlerin ve giderlerin çok daha hızlı yükselmesinden kaynaklanıyor.…
 sirket: NİĞBAŞ NİĞDE BETON SANAYİ VE TİCARET A.Ş.
 kod: NIBAS
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Sanayi
-tarih: 2026-08-23
+tarih: 2026-08-24
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat ve brüt kâr aynı oranda yükselirken, faaliyet kârı, FAVÖK ve net kâr negatiften daha büyük negatif değerlere kaymış; bu, gelir artışının maliyet ve gider artışlarıyla birlikte gerçekleştiğini gösteriyor. Özkaynak ve aktif toplamı düşerken net borç negatif (nakit fazlası) hâline gelmiş, bu da özkaynak erozyonu ve varlık küçülmesinin aynı dönemde likidite pozisyonunu iyileştirdiğini ortaya koyuyor. Cari oranın %9,09'a (sektör medyanı 1,37) yükselmesi, borç/özkaynak oranının –%0,12 (sektör medyanı %0,11) olmasıyla birlikte, kısa vadeli likidite artışının özkaynak erozyonu ve negatif kârlılıkla paralel seyrettiğini gösteriyor.
+Hasılat ve brüt kâr aynı oranda yükselirken, faaliyet kârı ve FAVÖK büyük ölçüde düşmüş; bu, satışların artmasına rağmen operasyonel maliyetlerin ve giderlerin çok daha hızlı yükselmesinden kaynaklanıyor. Net kâr, özkaynak kârlılığı ve özkaynak seviyesi ise negatifleşerek azalan özkaynak ve artan zararların birbiriyle paralel olarak gerilediğini gösteriyor. Cari oran ve borç/özkaynak oranı ise negatif net borç ve yüksek likidite sayesinde sektör medyanının çok üzerinde kalmış, bu da likidite durumunun kârlılık ve faaliyet sonuçlarından bağımsız olarak güçlü olduğunu ortaya koyuyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
@@ -59,10 +59,10 @@ Karşılaştırma Sanayi sektöründeki 68 şirketin **medyanına** göre yapıl
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
 | Brüt kâr marjı | %29,7 | %21,2 |
-| Net kâr marjı | -%362,1 | %0,1 |
-| Özkaynak kârlılığı | -%51,9 | -%0,0 |
-| Cari oran | 9,09 | 1,37 |
-| Borç / özkaynak | -0,12 | 0,11 |
+| Net kâr marjı | -%362,1 | %1,2 |
+| Özkaynak kârlılığı | -%51,9 | %0,2 |
+| Cari oran | 9,09 | 1,34 |
+| Borç / özkaynak | -0,12 | 0,17 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

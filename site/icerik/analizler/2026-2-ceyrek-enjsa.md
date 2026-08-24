@@ -1,13 +1,13 @@
 ---
 slug: enjsa-2026-2-ceyrek
 baslik: ENERJİSA ENERJİ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın 113,74 milyar TL'den 117,08 milyar TL'ye yükselmesi, net kârın –0,48 milyar TL'den 2,75 milyar TL'ye geçmesiyle birlikte net kâr marjının %2,7'ye ulaşmasını sağladı; bu artış, faaliyet nakit akışının 19,16 milyar TL'den 22,60 milyar TL'ye çıkmasıyla da paralel bir şekilde gerçekleşti.…
+ozet: Hasılatın 113,74 milyar TL'den 117,08 milyar TL'ye yükselmesi, faaliyet nakit akışının 19,16 milyar TL'den 22,60 milyar TL'ye artmasıyla paralel seyrederek net kârın -0,48 milyar TL'den 2,75 milyar TL'ye geçmesine zemin hazırlamış; aynı dönemde aktif toplamının 199,82 milyar TL'den 277,07 milyar TL'…
 sirket: ENERJİSA ENERJİ A.Ş.
 kod: ENJSA
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Kamu hizmetleri
-tarih: 2026-08-23
+tarih: 2026-08-24
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın 113,74 milyar TL'den 117,08 milyar TL'ye yükselmesi, net kârın –0,48 milyar TL'den 2,75 milyar TL'ye geçmesiyle birlikte net kâr marjının %2,7'ye ulaşmasını sağladı; bu artış, faaliyet nakit akışının 19,16 milyar TL'den 22,60 milyar TL'ye çıkmasıyla da paralel bir şekilde gerçekleşti. Aktif toplamının 199,82 milyar TL'den 277,07 milyar TL'ye ve özkaynakların 83,09 milyar TL'den 108,96 milyar TL'ye artması, özkaynak kârlılığının %1,0'dan %1,5'e yükselmesine yol açtı; aynı dönemde net borç 40,58 milyar TL'den 68,01 milyar TL'ye çıktığı için borç/özkaynak oranı %0,12'den %0,62'ye, cari oran ise 0,90'dan 0,86'ya geriledi. Yatırım harcamasının 1,17 milyar TL'den 1,93 milyar TL'ye artması, aktif büyümesi ve borçlanma seviyesindeki yükselişle birlikte şirketin sermaye yapısındaki değişiklikleri destekledi.
+Hasılatın 113,74 milyar TL'den 117,08 milyar TL'ye yükselmesi, faaliyet nakit akışının 19,16 milyar TL'den 22,60 milyar TL'ye artmasıyla paralel seyrederek net kârın -0,48 milyar TL'den 2,75 milyar TL'ye geçmesine zemin hazırlamış; aynı dönemde aktif toplamının 199,82 milyar TL'den 277,07 milyar TL'ye, özkaynakların 83,09 milyar TL'den 108,96 milyar TL'ye artması, net borcun 40,58 milyar TL'den 68,01 milyar TL'ye yükselmesiyle özkaynak/karlılık oranının %1,5'e (sektör medyanı %1,0) çıkmasına rağmen borç/özkaynak oranının %0,12 medyanının çok üzerinde %0,62'ye çıkmasına yol açmıştır. Cari oran 0,86 (sektör medyanı 0,90) ve net kâr marjı %2,7 (sektör medyanı %11,4) ise artan likidite ihtiyacının ve düşük kâr verimliliğinin birlikte var olduğunu gösterir.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
