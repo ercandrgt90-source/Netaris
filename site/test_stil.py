@@ -462,5 +462,76 @@ esit(len(_mn) >= 3, True, f"min-width esigi bulundu ({len(_mn)})")
 _yakin = sorted((a, b) for a in _mx for b in _mx if a < b and b - a <= 20)
 esit(_yakin, [], "birbirine 20 pikselden yakin iki max esigi yok")
 
+
+print()
+print("Medya kurali DAHA OZGUL temel kuralca da ezilmiyor")
+
+# Yukaridaki kontrol yalnizca AYNI secici metnini karsilastiriyordu.
+# Bosluk buydu: `main.kabuk` ile `.kabuk` FARKLI metinler ama AYNI
+# ogeyi hedefliyor ve `main.kabuk` daha ozgul (0,1,1 karsi 0,1,0).
+# Ozgulluk medya sorgusunu YENER -- kural nerede yazildigindan
+# bagimsiz olarak.
+#
+# Olculdu (2026-08-24): `main.kabuk { padding: var(--b-7) }` dar ekran
+# kuralini (`.kabuk { padding-inline: var(--b-4) }`) hicbir zaman
+# devreye sokmuyordu. 360 piksellik telefonda ana icerik 264 piksel
+# aliyordu, olmasi gereken 328 -- ve ust/alt seritler 16 piksel
+# aldigi icin ana icerik onlardan 32 piksel iceride kaliyordu.
+#
+# Kontrol BILESIK seciciye bakiyor: `X.foo` bicimindeki bir temel
+# kural, medyadaki `.foo` kuralini ayni ozellikte eziyorsa bulgu.
+
+def _bildirilen(govde):
+    return {x.split(":", 1)[0].strip().lower()
+            for x in govde.split(";") if ":" in x}
+
+def _kisa_ad(sec):
+    """Tek sinifli secici ise sinif adi, degilse bos."""
+    s = sec.strip()
+    return s[1:] if re.fullmatch(r"\.[a-z0-9-]+", s) else ""
+
+_ezen = []
+for _yer, _sec, _ozs in _medya:
+    for _parca in _sec.split(","):
+        _ad = _kisa_ad(_parca)
+        if not _ad:
+            continue
+        # Temel kurallarda `tag.ad` ya da `.baska.ad` bicimi
+        for _yer3, _sec3, _ozs3 in _temel:
+            for _p3 in (x.strip() for x in _sec3.split(",")):
+                if _p3 == "." + _ad:
+                    continue           # ayni secici -- ustteki kontrol bakiyor
+                if not re.fullmatch(r"[a-z]*\.[a-z0-9-]+\." + re.escape(_ad)
+                                    + r"|[a-z]+\." + re.escape(_ad), _p3):
+                    continue
+                _ortak = _ozs & _ozs3
+                # Kisa yazim uzun yazimi da eziyor: `padding` ->
+                # `padding-inline`. Ayni kok yeterli.
+                _kok = {y.split("-")[0] for y in _ozs} & {y.split("-")[0] for y in _ozs3}
+                if not ((_ortak or _kok) and _ozgulluk(_p3) > _ozgulluk(_parca)):
+                    continue
+                # DUZELTILMIS MI: medya blogunda ayni ozgullukte bir
+                # kural varsa (ornegin `main.kabuk` da medya icinde
+                # yeniden yaziliyorsa) ezme YOK. Bunu gormeyen bir
+                # kontrol, dogru cozumu de hata sayar ve sonunda
+                # kapatilir.
+                _kapali = any(
+                    _p3 in [x.strip() for x in _s4.split(",")]
+                    and ((_ozs4 & (_ortak or _kok))
+                         or {y.split("-")[0] for y in _ozs4} & _kok)
+                    for _yer4, _s4, _ozs4 in _medya)
+                if _kapali:
+                    continue
+                _ezen.append(f"{_p3} -> .{_ad} ({sorted(_ortak or _kok)})")
+
+esit(sorted(set(_ezen)), [],
+     "daha ozgul temel kural medya kuralini ezmiyor")
+
+# Kendi kendini sinar: desen GERCEKTEN yakaliyor mu?
+esit(_ozgulluk("main.kabuk") > _ozgulluk(".kabuk"), True,
+     "ozgulluk hesabi main.kabuk > .kabuk diyor")
+esit(bool(re.fullmatch(r"[a-z]+" + re.escape(".kabuk"), "main.kabuk")), True,
+     "bilesik secici deseni main.kabuk yakaliyor")
+
 print(f"\n{_gecti} gecti, {_kaldi} kaldi")
 sys.exit(1 if _kaldi else 0)

@@ -532,7 +532,24 @@ img, svg { max-width: 100%}
 
 /* ---------------------------------------------------------------- ana alan */
 
-main.kabuk { padding: 26px; padding: var(--b-7)}
+/* ANA ALAN DOLGUSU.
+   `padding-inline` AYRI yaziliyor cunku dar ekranda EZILMESI
+   gerekiyor. Kisa yazim (`padding`) tek bildirimde dort yani birden
+   verir ve 640 blogundaki `.kabuk { padding-inline: var(--b-4) }`
+   kuralini -- ozgullugu daha DUSUK oldugu icin (0,1,0 karsi 0,1,1) --
+   hicbir zaman devreye sokmuyordu.
+
+   Olculdu (2026-08-24): 360 piksellik telefonda ana icerik 264 piksel
+   aliyordu, olmasi gereken 328. Ustelik ust ve alt seritler (`.kabuk
+   ust-ic`, `.kabuk alt-ic`) 16 piksel aliyordu, yani ANA ICERIK
+   onlardan 32 piksel iceride kaliyor ve hizasi kayiyordu.
+
+   Masaustu degeri DEGISMEDI; yalnizca dar ekran kurali artik
+   ulasabiliyor (asagida, ayni ozgullukte). */
+main.kabuk {
+  padding: 26px;                 /* dort-yan: var() desteklemeyen yedek */
+  padding-block: var(--b-7);
+  padding-inline: var(--b-7)}
 
 /* ------------------------------------------------------------------- giris */
 
@@ -5304,6 +5321,11 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
      Icerik kenarlara yapisiyordu; 16 piksel okuma icin gerekli
      asgari kenar bosluğu. */
   .kabuk { padding-inline: var(--b-4); }
+  /* `main.kabuk` (0,1,1) yukaridaki `.kabuk` (0,1,0) kuralini
+     eziyordu; ayni ozgullukte bir kural gerekli. */
+  main.kabuk { padding-inline: var(--b-4); }
+  /* `main.kabuk` (0,1,1) yukaridaki `.kabuk` (0,1,0) kuralini
+     eziyordu; ayni ozgullukte bir kural gerekli. */
 }
 
 /* Cok dar ekran (kucuk telefonlar). */
@@ -5355,6 +5377,38 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
   }
   .izgara::-webkit-scrollbar { display: none; }
   .izgara > li { scroll-snap-align: start; }
+
+  /* ARAMA SONUCLARI RAF DEGIL -- DIKEY LISTE.
+     Olculdu (2026-08-24, kullanici bildirimi: "ara kismina basinca
+     bulunan nokta saga kayiyor").
+
+     `ara.html` listeyi `<ul class="izgara ara-sonuc">` diye yaziyor,
+     yani yukaridaki raf kuralini DEVRALIYOR ve mobilde sonuclar yan
+     yana diziliyordu. Iki ayri sorun uretiyordu:
+
+       1. Arama sonucu TARANIR, kesfedilmez. Bu blogun kendi
+          aciklamasi zaten "yatay raf tarama icin kotudur -- goz
+          yalnizca gorunen ikisini goruyor" diyor; arama bunun en saf
+          ornegi ve kural ona uygulanmamisti.
+       2. Grup basliklari da `<li>` (`.ara-grup` -> "HABERLER",
+          "ARASTIRMALAR"). Rafta onlar da SUTUN oluyor, yani baslik
+          sonuclarin USTUNDE degil YANINDA duruyordu.
+
+     Raf ozelliklerinin HEPSI geri aliniyor. Yalnizca
+     `grid-auto-flow` yetmez: `overflow-x`, negatif `margin-inline`
+     ve `scroll-snap` kalirsa liste dikey olur ama yine yana
+     kayabilir. */
+  .ara-sonuc {
+    display: grid;
+    grid-auto-flow: row;
+    grid-auto-columns: auto;
+    grid-template-columns: 1fr;
+    overflow-x: visible;
+    scroll-snap-type: none;
+    margin-inline: 0;
+    padding-inline: 0;
+  }
+  .ara-sonuc > li { scroll-snap-align: none; }
 
   /* Raftaki kart DIKEY: dar kolonda yatay kart okunmuyor. */
   .izgara .kart { height: 100%; }
