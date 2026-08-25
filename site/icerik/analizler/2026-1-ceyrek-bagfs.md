@@ -1,13 +1,13 @@
 ---
 slug: bagfs-2026-1-ceyrek
 baslik: BAGFAŞ BANDIRMA GÜBRE FABRİKALARI A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Brüt kâr artışı (%27,9) net kârı (%14,2) yükseltirken, faaliyet kârı düşmüş ve bu da FAVÖK (%0,62) gerilemesine yol açtı; aynı zamanda özkaynakların (%8,94) ve aktif toplamının (%16,47) büyümesi net borcun (%6,34) artışıyla birlikte borç/özkaynak oranının (%0,71) yükselmesine neden oldu.…
+ozet: Brüt kâr artışı (%27,9) net kâr marjının (%14,2) yükselmesine paralel olarak gerçekleşirken, faaliyet kârı düşüşü (%0,08) FAVÖK (%0,62) azalışıyla birlikte şirketin operasyonel kârlılığının gerilediğini gösteriyor; aynı dönemde özkaynak (%8,94) ve aktif toplamı (%16,47) artarken net borç (%6,34) da…
 sirket: BAGFAŞ BANDIRMA GÜBRE FABRİKALARI A.Ş.
 kod: BAGFS
 donem: 2026 1. çeyrek
 kategori: Bilanço Analizi
 sektor: Temel malzeme
-tarih: 2026-08-22
+tarih: 2026-08-25
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Brüt kâr artışı (%27,9) net kârı (%14,2) yükseltirken, faaliyet kârı düşmüş ve bu da FAVÖK (%0,62) gerilemesine yol açtı; aynı zamanda özkaynakların (%8,94) ve aktif toplamının (%16,47) büyümesi net borcun (%6,34) artışıyla birlikte borç/özkaynak oranının (%0,71) yükselmesine neden oldu. Cari oran (%0,51) düşük kalmaya devam ederken, faaliyet nakit akışı (%1,27) artışı özkaynak artışıyla paralel bir likidite ihtiyacını gösteriyor. Yatırım harcamasındaki hafif artış (%0,11) ise büyüyen varlık tabanına destek sağladı.
+Brüt kâr artışı (%27,9) net kâr marjının (%14,2) yükselmesine paralel olarak gerçekleşirken, faaliyet kârı düşüşü (%0,08) FAVÖK (%0,62) azalışıyla birlikte şirketin operasyonel kârlılığının gerilediğini gösteriyor; aynı dönemde özkaynak (%8,94) ve aktif toplamı (%16,47) artarken net borç (%6,34) da yükselmiş, bu da borç/özkaynak oranının (%0,71) sektör medyanının (%0,21) üzerinde kalmasına yol açtı. Cari oran (%0,51) ise likiditeyi sınırlayan bir seviyede kalmış, bu durum artan özkaynak ve aktif büyüklüğüne rağmen kısa vadeli yükümlülüklerin daha fazla olduğu anlamına geliyor. Faaliyet nakit akışı (%1,27) yatırım harcamasının (%0,11) üzerine çıkması, operasyonlardan sağlanan nakdin yatırım ihtiyaçlarını karşılamada yeterli olduğunu, ancak düşük cari oran ve yüksek borç/özkaynak oranının finansal risk profilini artırdığını ortaya koyuyor.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 
@@ -59,8 +59,8 @@ Karşılaştırma Temel malzeme sektöründeki 42 şirketin **medyanına** göre
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
 | Brüt kâr marjı | %27,9 | %14,1 |
-| Net kâr marjı | %14,2 | -%0,2 |
-| Özkaynak kârlılığı | %3,7 | -%0,1 |
+| Net kâr marjı | %14,2 | %2,7 |
+| Özkaynak kârlılığı | %3,7 | %1,1 |
 | Cari oran | 0,51 | 1,36 |
 | Borç / özkaynak | 0,71 | 0,21 |
 
@@ -72,6 +72,7 @@ Karşılaştırma Temel malzeme sektöründeki 42 şirketin **medyanına** göre
 
 - Brüt marj 5,0 puan genişledi (%14,8 → %19,8).
 - Faaliyet nakit akışı net kârın 3,84 katı; kâr nakde dönüyor.
+- Özkaynak kârlılığı %3,7; sektör medyanı %1,1.
 
 **Dikkat gerektirenler**
 

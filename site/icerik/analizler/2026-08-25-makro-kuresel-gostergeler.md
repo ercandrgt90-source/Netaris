@@ -1,12 +1,12 @@
 ---
-slug: kuresel-gostergeler-2026-08-24
+slug: kuresel-gostergeler-2026-08-25
 baslik: Küresel göstergeler: 21 Ağustos 2026 tablosu
 ozet: Brent petrol 18 Ağustos 2026 itibarıyla 95,29 USD/varil seviyesinde. İzlenen 14 işlem gününde 4 Ağustos 2026 tarihli 86,47 dolarlık dibi ile 31 Temmuz 2026 tarihli 96,95 dolarlık zirvesi arasında hareket etti. ABD 10 yıllık tahvil getirisi %4,74 (21 Ağustos 2026), aynı dönemde 11 baz puan yükseldi.…
 sirket: Küresel göstergeler
 kod: MAKRO
-donem: 2026-08-24
+donem: 2026-08-25
 kategori: Makro
-tarih: 2026-08-24
+tarih: 2026-08-25
 veri_kaynagi: FRED (St. Louis Fed)
 yazar: 
 unvan: 

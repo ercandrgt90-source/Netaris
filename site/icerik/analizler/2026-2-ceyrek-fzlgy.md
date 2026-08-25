@@ -1,9 +1,9 @@
 ---
-slug: atagy-2026-2-ceyrek
-baslik: ATA GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat aynı kalırken net kâr -%28,2'ye gerileyip negatifleşti; bu düşüş, faaliyet nakit akışının önceki dönemde –%0,04 iken bu dönemde +%0,01'e çıkmasıyla birlikte nakit akışının iyileşmesine rağmen kârın azalmasına yol açtığını gösterir.…
-sirket: ATA GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
-kod: ATAGY
+slug: fzlgy-2026-2-ceyrek
+baslik: FUZUL GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
+ozet: Hasılatın %2.5'lik artışı (%2,81 milyar → %0,11 milyar) net kârda %1.2'lik bir ters dönüşe yol açtı; gelir yükselirken kâr marjı –%19,9'a geriledi ve özkaynak kârlılığı –%5,2 oldu.…
+sirket: FUZUL GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
+kod: FZLGY
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
@@ -18,18 +18,18 @@ sayimlar:
 
 ## Özet
 
-Hasılat aynı kalırken net kâr -%28,2'ye gerileyip negatifleşti; bu düşüş, faaliyet nakit akışının önceki dönemde –%0,04 iken bu dönemde +%0,01'e çıkmasıyla birlikte nakit akışının iyileşmesine rağmen kârın azalmasına yol açtığını gösterir. Özkaynak 0,84 milyar TL'ye yükselmiş, aktif toplamı da 1,05 milyar TL'ye artmış; bu büyüme net borcun –0,03 milyar TL'ye (daha az negatif) gerilemesiyle özkaynak/aktif oranının güçlendiğini, ancak borç/özkaynak oranının sektör medyanı 0,02'nin altında (-0,03) kalmasını ortaya koyar. Özkaynak kârlılığı –%0,5'ye düşmüş, sektör medyanı %0,4 olduğu için özkaynak artışı kârlılıkta gerilemeye karşılık gelmiştir.
+Hasılatın %2.5'lik artışı (%2,81 milyar → %0,11 milyar) net kârda %1.2'lik bir ters dönüşe yol açtı; gelir yükselirken kâr marjı –%19,9'a geriledi ve özkaynak kârlılığı –%5,2 oldu. Özkaynak hafifçe (%4,28 milyar → %4,21 milyar) artarken net borç %0,69 milyar'dan %1,18 milyara yükseldi, bu da borç/özkaynak oranını %0,02'den %0,28'e çıkararak sektör medyanının çok üzerindeki bir seviyeye taşıdı. Faaliyet nakit akışı ise negatiften (+%0,26 milyar) pozitif bir değere dönerek, artan borç ve düşen kârlılıkla birlikte likiditeye olumlu bir katkı sağladı.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | -%5,5 |
-| Net kâr | -%349,2 |
-| Özkaynak | %27,5 |
-| Aktif toplamı | %39,1 |
-| Net borç | %27,1 |
-| Faaliyet nakit akışı | %120,5 |
+| Hasılat | %2471,2 |
+| Net kâr | -%219,4 |
+| Özkaynak | %1,8 |
+| Aktif toplamı | %0,3 |
+| Net borç | %71,9 |
+| Faaliyet nakit akışı | %147,2 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -37,12 +37,12 @@ Hasılat aynı kalırken net kâr -%28,2'ye gerileyip negatifleşti; bu düşü�
 
 | Kalem | Değer |
 | --- | ---: |
-| Hasılat | 0,03 milyar TL |
-| Net kâr | -0,02 milyar TL |
-| Özkaynak | 0,84 milyar TL |
-| Aktif toplamı | 1,05 milyar TL |
-| Net borç | -0,03 milyar TL |
-| Faaliyet nakit akışı | 0,01 milyar TL |
+| Hasılat | 2,81 milyar TL |
+| Net kâr | -0,25 milyar TL |
+| Özkaynak | 4,28 milyar TL |
+| Aktif toplamı | 11,90 milyar TL |
+| Net borç | 1,18 milyar TL |
+| Faaliyet nakit akışı | 0,26 milyar TL |
 
 ## Sektör içindeki konum
 
@@ -50,18 +50,21 @@ Karşılaştırma Gayrimenkul sektöründeki 34 şirketin **medyanına** göre y
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Net kâr marjı | -%28,2 | %14,3 |
-| Özkaynak kârlılığı | -%0,5 | %0,4 |
-| Borç / özkaynak | -0,03 | 0,02 |
+| Net kâr marjı | -%19,9 | %14,3 |
+| Özkaynak kârlılığı | -%5,2 | %0,4 |
+| Borç / özkaynak | 0,28 | 0,02 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
 ## Öne çıkan ölçümler
 
+**Şirket lehine işleyenler**
+
+- Hasılat reel olarak %2471,2 arttı.
+
 **Dikkat gerektirenler**
 
-- Hasılat reel olarak -%5,5 geriledi.
-- Net kâr reel olarak -%349,2 geriledi.
+- Net kâr reel olarak -%219,4 geriledi.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

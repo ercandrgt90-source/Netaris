@@ -1,13 +1,13 @@
 ---
 slug: algyo-2026-2-ceyrek
 baslik: ALARKO GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat 0,12 milyar TL'ye yükselirken net kâr –2,33 milyar TL'ye gerilemiş; gelir artışı nakit akışının 0,21 milyar TL'ye düşmesi ve net borcun 4,46 milyar TL'ye çıkmasıyla birlikte özkaynak 17,58 milyar TL'ye artmış, bu da özkaynak kârlılığının %0,3'e (sektör medyanı %0,4) gerilemesine yol açmıştır…
+ozet: Hasılat 0,12 milyar TL'ye yükselirken net kâr -2,33 milyar TL'ye gerilemiş, bu durum faaliyet nakit akışının 0,21 milyar TL'ye düşmesiyle paralel bir azalmayı yansıtıyor; artan aktif toplamı 28,87 milyar TL ve özkaynak 17,58 milyar TL, net borcun 4,46 milyar TL'ye çıkmasıyla birlikte borç/özkaynak o…
 sirket: ALARKO GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: ALGYO
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-24
+tarih: 2026-08-25
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat 0,12 milyar TL'ye yükselirken net kâr –2,33 milyar TL'ye gerilemiş; gelir artışı nakit akışının 0,21 milyar TL'ye düşmesi ve net borcun 4,46 milyar TL'ye çıkmasıyla birlikte özkaynak 17,58 milyar TL'ye artmış, bu da özkaynak kârlılığının %0,3'e (sektör medyanı %0,4) gerilemesine yol açmıştır. Aktif toplamı 28,87 milyar TL'ye yükselmiş, ancak borç/özkaynak oranı %0,25 (sektör medyanı %0,02) olarak artmış; bu durum, artan varlıkların büyük bir kısmının borçla finanse edildiğini gösterir. Net kâr marjı %77,5 (sektör medyanı %14,3) yüksek görünse de, negatif net kâr ve artan borç, kâr marjının sürdürülebilirliğini sınırlamaktadır.
+Hasılat 0,12 milyar TL'ye yükselirken net kâr -2,33 milyar TL'ye gerilemiş, bu durum faaliyet nakit akışının 0,21 milyar TL'ye düşmesiyle paralel bir azalmayı yansıtıyor; artan aktif toplamı 28,87 milyar TL ve özkaynak 17,58 milyar TL, net borcun 4,46 milyar TL'ye çıkmasıyla birlikte borç/özkaynak oranı %0,25'e yükselmiş. Net kâr marjı %77,5 sektör medyanının %14,3'ünden çok daha yüksek olsa da, özkaynak kârlılığı %0,3 ile medyan %0,4'ün altında kalıyor; bu, yüksek marjın özkaynak verimliliğine tam olarak yansımadığını gösteriyor. Artan özkaynak ve aktif toplamı, borç seviyesindeki artışla birlikte şirketin finansal yapısının genişlediğini, fakat kârlılık performansının aynı oranda iyileşmediğini ortaya koyuyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

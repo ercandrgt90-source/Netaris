@@ -1,13 +1,13 @@
 ---
 slug: rygyo-2026-2-ceyrek
 baslik: REYSAŞ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat 2,05 milyar TL'ye yükselirken net kâr 1,99 milyar TL'den 12,01 milyar TL'ye geriledi; bu düşüş, faaliyet nakit akışının –3,59 milyar TL'ye geçmesiyle paralel bir seyir izledi.…
+ozet: Hasılat 2,05 milyar TL'ye yükselirken net kâr 1,99 milyar TL'ye düşmüş, bu durum net kâr marjının %118,2'ye çıkmasına rağmen faaliyet nakit akışının -3,59 milyar TL'ye kaymasıyla birlikte kârın nakde dönüşümünün azaldığını gösterir; özkaynak 103,25 milyar TL'ye artışı ve aktif toplamının 128,14 mily…
 sirket: REYSAŞ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: RYGYO
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-24
+tarih: 2026-08-25
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat 2,05 milyar TL'ye yükselirken net kâr 1,99 milyar TL'den 12,01 milyar TL'ye geriledi; bu düşüş, faaliyet nakit akışının –3,59 milyar TL'ye geçmesiyle paralel bir seyir izledi. Özkaynak 103,25 milyar TL'ye artarken aktif toplamı 128,14 milyar TL'ye yükseldi, bu da borç/özkaynak oranının 0,11'e (önceki 0,02) çıkmasına rağmen net kâr marjının %118,2 (sektör medyanı %14,3) ve özkaynak kârlılığının %1,1 (sektör medyanı %0,4) seviyelerinde kalmasını sağladı. Net borç 11,22 milyar TL'ye (önceki 3,85 milyar TL) yükselmiş, ancak özkaynak artışıyla birlikte borç/özkaynak oranı hâlâ düşük bir seviyede kaldı.
+Hasılat 2,05 milyar TL'ye yükselirken net kâr 1,99 milyar TL'ye düşmüş, bu durum net kâr marjının %118,2'ye çıkmasına rağmen faaliyet nakit akışının -3,59 milyar TL'ye kaymasıyla birlikte kârın nakde dönüşümünün azaldığını gösterir; özkaynak 103,25 milyar TL'ye artışı ve aktif toplamının 128,14 milyar TL'ye yükselmesi, net borcun 11,22 milyar TL'ye çıkmasıyla birlikte borç/özkaynak oranının %0,11'e (sektör medyanı %0,02) yükselmesine yol açmıştır.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

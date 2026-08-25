@@ -1,13 +1,13 @@
 ---
 slug: erbos-2026-2-ceyrek
 baslik: ERBOSAN ERCİYAS BORU SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat düşerken brüt kâr aynı seviyede kalmış, bu durum brüt kâr marjının %11,5'e gerilemesine ve net kâr marjının negatif %1,3'e düşmesine yol açtı; aynı zamanda faaliyet kârı ve FAVÖK hafif artmış olsa da net kârın iyileşmesi, özkaynak kârlılığının -%0,5'ten -%0,5'ye sabit kalmasıyla sınırlı kald…
+ozet: Hasılatın %9,0 düşmesi brüt kârın aynı seviyede kalmasıyla birlikte brüt kâr marjının %11,5'den %20,8 sektör medyanının altında kalmasına yol açtı; bu durum net kârın -%1,3'ten -%1,2 sektör medyanına yaklaşmasına rağmen hâlâ negatif kalmasına neden oldu.…
 sirket: ERBOSAN ERCİYAS BORU SANAYİ VE TİCARET A.Ş.
 kod: ERBOS
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Sanayi
-tarih: 2026-08-22
+tarih: 2026-08-25
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat düşerken brüt kâr aynı seviyede kalmış, bu durum brüt kâr marjının %11,5'e gerilemesine ve net kâr marjının negatif %1,3'e düşmesine yol açtı; aynı zamanda faaliyet kârı ve FAVÖK hafif artmış olsa da net kârın iyileşmesi, özkaynak kârlılığının -%0,5'ten -%0,5'ye sabit kalmasıyla sınırlı kaldı. Özkaynak ve aktif toplamının artışı (özkaynak %3,94 milyar, aktif %5,88 milyar) net borcun (0,89 milyar) yükselmesine rağmen cari oranı 2,41 ile sektör medyanının 1,37'sinin üzerinde tutarak likidite pozisyonunu güçlendirdi; borç/özkaynak oranı ise %0,22 ile medyan %0,11'in üstünde, finansal kaldıraçta hafif bir artış gösterdi. Faaliyet nakit akışı negatif kalırken yatırım harcaması 0,02 milyar TL'ye düşmüş, bu da nakit çıkışının sınırlı kalmasına rağmen işletme sermayesi ihtiyacının artmasına işaret ediyor.
+Hasılatın %9,0 düşmesi brüt kârın aynı seviyede kalmasıyla birlikte brüt kâr marjının %11,5'den %20,8 sektör medyanının altında kalmasına yol açtı; bu durum net kârın -%1,3'ten -%1,2 sektör medyanına yaklaşmasına rağmen hâlâ negatif kalmasına neden oldu. Faaliyet kârı ve FAVÖK'ün artması özkaynakların 3,94 milyar TL'ye yükselmesiyle desteklenirken, özkaynak kârlılığının -%0,5'e gerilemesi artan özkaynakların kârlı bir şekilde kullanılmadığını gösteriyor. Cari oranının 2,41 (sektör medyanı 1,34) ve borç/özkaynak oranının 0,22 (sektör medyanı 0,17) olması, artan net borç (0,89 milyar TL) ve aktif toplamı (5,88 milyar TL) karşısında likidite pozisyonunun güçlendiğini, fakat borç yapısının sektöre göre biraz daha yüksek olduğunu ortaya koyuyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
@@ -58,11 +58,11 @@ Karşılaştırma Sanayi sektöründeki 68 şirketin **medyanına** göre yapıl
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %11,5 | %21,2 |
-| Net kâr marjı | -%1,3 | %0,3 |
-| Özkaynak kârlılığı | -%0,5 | %0,0 |
-| Cari oran | 2,41 | 1,37 |
-| Borç / özkaynak | 0,22 | 0,11 |
+| Brüt kâr marjı | %11,5 | %20,8 |
+| Net kâr marjı | -%1,3 | %1,2 |
+| Özkaynak kârlılığı | -%0,5 | %0,3 |
+| Cari oran | 2,41 | 1,34 |
+| Borç / özkaynak | 0,22 | 0,17 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
