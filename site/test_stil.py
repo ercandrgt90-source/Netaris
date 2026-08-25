@@ -579,5 +579,94 @@ for _e in re.finditer(r"([^{}]+)\{([^{}]*display:\s*(?:block|flex|inline-flex|gr
 _satirici = [s for s in _DOKUNULAN if s not in _blok]
 esit(sorted(_satirici), [], "dokunulan her denetim blok/esnek kutu")
 
+
+print()
+print("Ayni ogedeki iki sinif AYNI ozelligi sessizce ezmiyor")
+
+# Bir oge iki sinif tasidiginda (`class="a b"`) ve ikisi de tek
+# sinifli seciciyle ayni ozelligi yaziyorsa, ozgullukler ESIT olur ve
+# karari KAYNAK SIRASI verir. Yazan kisi bunu genellikle bilmiyor:
+# sinifi ekliyor, "calismadi" diyor ve sebebini goremiyor.
+#
+# Olculdu (2026-08-24): `<ul class="ai-akis-liste serit-yatay">`.
+# `.ai-akis-liste` dosyada 1800 satir SONRA geldigi icin rafin
+# `overflow-x: auto` kuralini `overflow: hidden` ile eziyordu.
+# Sonuc: bolumdeki SEKIZ karttan yedisi kirpiliyor ve okura
+# ULASILAMIYORDU -- kaydirma da olmadigi icin baska yolu yoktu.
+#
+# Kontrol "hangisi dogru" demiyor; yalnizca CAKISMA VAR diyor.
+# Cozum, birinin digerini sessizce ezmesi degil, bilesik bir kuralla
+# (`.a.b`) hangisinin nerede gecerli oldugunun yazilmasi.
+
+_ham3 = _CSS.read_text(encoding="utf-8")
+_kod3 = re.sub(r"/\*.*?\*/", "", _ham3, flags=re.S)
+
+# Temel (medya disi) tek sinifli kurallar: sinif -> {ozellik: sira}
+_tekil = {}
+_derinlik = 0
+for _sat in _kod3.split("\n"):
+    _medyada = _derinlik > 0
+    _e = re.match(r"\s*(\.[a-z0-9-]+)\s*\{(.*)\}\s*$", _sat)
+    if _e and not _medyada:
+        _ad = _e.group(1)
+        _ozs = {x.split(":")[0].strip() for x in _e.group(2).split(";") if ":" in x}
+        _tekil.setdefault(_ad, set()).update(_ozs)
+    _derinlik += _sat.count("{") - _sat.count("}")
+
+# Cok satirli kurallari da al
+for _e in re.finditer(r"(?m)^(\.[a-z0-9-]+)\s*\{([^{}]*)\}", _kod3):
+    _ozs = {x.split(":")[0].strip() for x in _e.group(2).split(";") if ":" in x}
+    _tekil.setdefault(_e.group(1), set()).update(_ozs)
+
+# Sablonlardaki cok sinifli ogeler
+_sablon = ""
+for _p in sorted(pathlib.Path(_SITE / "sablonlar").glob("*.html")):
+    _sablon += _p.read_text(encoding="utf-8", errors="replace")
+
+_cakisan = []
+for _e in re.finditer(r'class="([a-z0-9 -]+)"', _sablon):
+    _adlar = ["." + x for x in _e.group(1).split() if x]
+    if len(_adlar) < 2:
+        continue
+    for _i in range(len(_adlar)):
+        for _j in range(_i + 1, len(_adlar)):
+            _a, _b = _adlar[_i], _adlar[_j]
+            if _a not in _tekil or _b not in _tekil:
+                continue
+            # YALNIZCA `overflow` CAKISMASI ISARETLENIYOR.
+            #
+            # Ilk yazim her ortak ozelligi bildirdi ve yirmi uc bulgu
+            # uretti; yirmisi BILINCLI degistirici kalibiydi
+            # (`.dugme.dugme-birincil`, `.rozet.rozet-vurgu`) -- yani
+            # dogru CSS. Gurultulu bir kontrol sonunda kapatilir ve o
+            # zaman gercek hatayi da tutmaz.
+            #
+            # `overflow` ozel: sessizce KIRPIYOR. Yanlis kazanan bir
+            # `overflow: hidden` icerigi ekrandan siliyor ve okurun
+            # ona ulasmasinin baska yolu kalmiyor -- 2026-08-24'te
+            # "Netaris ne diyor" bolumundeki sekiz karttan yedisi tam
+            # boyle kayboldu. Renk ya da dolgu cakismasi GORUNUR bir
+            # kusur; `overflow` cakismasi GORUNMEZ bir kayip.
+            _ov_a = {y for y in _tekil[_a] if y.startswith("overflow")}
+            _ov_b = {y for y in _tekil[_b] if y.startswith("overflow")}
+            if not (_ov_a and _ov_b):
+                continue
+            # Ayni ailedeki degistirici (`.x` ve `.x-y`) haric: orada
+            # ezme zaten amaclanan sey.
+            if _b.startswith(_a + "-") or _a.startswith(_b + "-"):
+                continue
+            _cozulmus = (_a + _b in _kod3.replace(" ", "")
+                         or _b + _a in _kod3.replace(" ", ""))
+            if not _cozulmus:
+                _cakisan.append(f"{_a}{_b} ({sorted(_ov_a | _ov_b)})")
+
+esit(sorted(set(_cakisan)), [],
+     "cok sinifli ogelerde cozulmemis ozellik cakismasi yok")
+
+# Tarama gercekten calisiyor mu
+esit(len(_tekil) > 100, True, f"tek sinifli kural bulundu ({len(_tekil)})")
+esit(".serit-yatay" in _tekil and ".ai-akis-liste" in _tekil, True,
+     "bilinen iki sinif taramada gorunuyor")
+
 print(f"\n{_gecti} gecti, {_kaldi} kaldi")
 sys.exit(1 if _kaldi else 0)

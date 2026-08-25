@@ -1968,7 +1968,7 @@ main.kabuk {
 .kart-amblem .amblem { display: block; width: 100%; height: 100%;
   object-fit: cover}
 
-.yazi-amblem { aspect-ratio: 3 / 1; overflow: hidden; border-radius: var(--r)}
+.yazi-amblem { aspect-ratio: 3 / 1}  /* `overflow` ve `border-radius` `.yazi-gorsel`den geliyor */
 /* SECICI DARALTILDI: `.yazi-amblem .amblem` (0,2,0) idi ve gercek
    logo kutusunun `display: flex` kuralini (0,1,0) EZIYORDU. Sonuc:
    logo sola yapisiyor, altinda buyuk bir bosluk kaliyordu -- ekran
@@ -3924,6 +3924,67 @@ a.akis-baslik:hover { color: var(--vurgu); text-decoration: none}
   overflow: hidden;
   grid-template-columns: repeat(auto-fit, minmax(290px, 1fr))}
 .ai-akis-liste li { background: var(--panel)}
+
+/* IKI SINIF, AYNI OZELLIK -- CAKISMA ACIKCA COZULUYOR.
+   ------------------------------------------------------------------
+   `anasayfa.html` bu listeye IKI sinif veriyor:
+       <ul class="ai-akis-liste serit-yatay">
+
+   Ikisi de tek sinifli secici, yani ozgullukleri ESIT (0,1,0) ve
+   karari KAYNAK SIRASI veriyor. `.serit-yatay` 1209. satirda,
+   `.ai-akis-liste` 3033'te -- yani sonraki kazaniyor ve rafin iki
+   temel ozelligini birden eziyordu:
+
+       overflow-x: auto          ->  overflow: hidden      (kisayerim)
+       grid-auto-columns: ...    ->  grid-template-columns: ...
+
+   OLCULDU (2026-08-24): bolumde SEKIZ kart var. Raf duzeni
+   kuruluyor ama `overflow: hidden` kaydirmayi olduruyor ve tasan
+   kartlari KIRPIYOR -- 360 piksellik telefonda yalnizca ilk kart ve
+   ikincinin bir parcasi goruluyor, KALAN YEDI KART ULASILAMIYOR.
+   Kullanici bildirimi: "netaris ne diyor kismi kaydirmali degil".
+
+   `overflow: hidden` bir hata degil, AMACI VAR: `.ai-akis-liste`
+   1 piksellik `gap` ve zemin rengiyle kil payi cizgili bir tablo
+   gorunumu kuruyor ve yuvarlak koseleri o kirpiyor. Ama o gorunum
+   RAFLA BAGDASMIYOR: raf yan yana ayri kartlar demek.
+
+   Cozum, birinin digerini sessizce ezmesi degil, hangisinin nerede
+   gecerli oldugunun YAZILMASI. Dar ekranda RAF, genis ekranda
+   cizgili tablo. */
+.ai-akis-liste.serit-yatay {
+  overflow-x: auto;
+  overflow-y: visible;
+  grid-template-columns: none;
+  /* Rafta kartlar AYRI duruyor: kil payi cizgi ve dis cerceve
+     yalnizca tablo gorunumune ait. */
+  gap: var(--b-3);
+  background: none;
+  border: 0;
+  border-radius: 0;
+}
+.ai-akis-liste.serit-yatay li {
+  border: 1px solid var(--cizgi);
+  border-radius: var(--r);
+  overflow: hidden;
+}
+
+/* 900 pikselden itibaren `.serit-yatay` zaten satir duzenine
+   geciyor; orada cizgili tablo gorunumu geri geliyor. */
+@media (min-width: 900px) {
+  .ai-akis-liste.serit-yatay {
+    overflow: hidden;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 1px;
+    background: var(--cizgi);
+    border: 1px solid var(--cizgi);
+    border-radius: var(--r);
+  }
+  .ai-akis-liste.serit-yatay li {
+    border: 0; border-radius: 0; overflow: visible;
+  }
+}
+
 .ai-akis-liste a {
   display: flex; flex-direction: column; gap: var(--b-2);
   padding: var(--b-4) 18px 14px; height: 100%;
