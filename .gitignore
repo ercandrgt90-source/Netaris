@@ -58,3 +58,13 @@ node_modules/
 
 haber_botu/*.db.yedek
 site/yonlendirme.json
+
+# KIMLIK DOSYALARI -- 2026-08-25'te `Clodflare token.txt` yanlislikla
+# commit edildi (`git add -A`). Kalip DAR tutuluyor: genis bir
+# `**/gizli*` deseni gercek icerik dosyalarini da sessizce depo
+# disinda birakabilir.
+Clodflare token.txt
+*token*.txt
+*.token
+.env
+.env.*
