@@ -2774,6 +2774,38 @@ main.kabuk {
   display: block; height: 100%; border-radius: 999px;
   background: var(--vurgu)}
 
+/* --- CEREZ ONAY BANDI -----------------------------------------------
+   ICERIGI ORTMUYOR. Ekranin altinda duruyor ve sayfa okunmaya devam
+   edebiliyor; okuru karar vermeye zorlayan tam ekran bir katman,
+   onay degil DAYATMA olurdu. Karar verilene kadar sayfa calisir.
+
+   Mobilde alt gezinmenin (`.alt-gezinme`, z-index 50) USTUNDE
+   duruyor -- band gecici, gezinme kalici; ust uste geldiklerinde
+   once cevaplanmasi gereken banddir. */
+.onay-bandi {
+  position: fixed; inset: auto 0 0 0; z-index: 60;
+  display: flex; align-items: center; justify-content: center;
+  gap: var(--b-4); flex-wrap: wrap;
+  padding: var(--b-3) var(--b-4);
+  padding-bottom: calc(var(--b-3) + env(safe-area-inset-bottom, 0));
+  background: var(--ust-zemin); color: var(--ust-yazi);
+  border-top: 1px solid rgba(255, 255, 255, 0.12)}
+.onay-metin {
+  margin: 0; max-width: 62ch;
+  font-size: var(--p-s); line-height: 1.5;
+  color: var(--ust-yazi-2)}
+.onay-metin b { color: var(--ust-yazi)}
+.onay-metin a { color: var(--vurgu-parlak)}
+.onay-dugmeler { display: flex; gap: var(--b-2); flex-wrap: wrap}
+.onay-dugmeler .dugme { min-height: 44px}
+
+@media (max-width: 640px) {
+  /* Band varken alt gezinme onun altinda kalmasin diye band
+     gezinmenin USTUNE oturuyor; ikisi ust uste binmiyor. */
+  .onay-bandi { bottom: calc(56px + env(safe-area-inset-bottom, 0))}
+  .onay-metin { font-size: var(--p-xs)}
+}
+
 /* --- SITE NABZI -----------------------------------------------------
    Yonetici panelinin en ustu. Kisisel sayaclar (senaryo, yazi, oy,
    begeni) yeni bir toplulukta dogal olarak sifira yakin; bu blok

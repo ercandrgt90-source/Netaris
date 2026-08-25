@@ -8,9 +8,11 @@ Son güncelleme: 23 Ağustos 2026
 
 ## Kısaca
 
-Netaris'i **üye olmadan** kullanırken sizden hiçbir kişisel veri istenmez ve
-tarayıcınıza kimlik çerezi yazılmaz. Sayfa üstündeki fiyat şeridi ve ziyaret
-sayımı için tarayıcınız birkaç dış servise istek gönderir; ayrıntısı aşağıda.
+Netaris'i **üye olmadan** kullanırken sizden hiçbir kişisel veri istenmez.
+Ziyaret sayımı için Google Analytics kullanılır ve **onayınız olmadan çerez
+yazılmaz**: onay vermezseniz yalnızca kimliksiz bir sayfa sayısı tutulur.
+Sayfa üstündeki fiyat şeridi ve ziyaret sayımı için tarayıcınız birkaç dış
+servise istek gönderir; ayrıntısı aşağıda.
 
 **Üye olduğunuzda** hesabınızı kurmak ve oturumunuzu sürdürmek için ad,
 e-posta ve oturum bilgisi işlenir. Bu bölüm yalnızca üye olan ziyaretçiler
@@ -42,36 +44,53 @@ geçerlidir.
 
 ## Çerezler
 
-Site **tek bir çerez** kullanır ve yalnızca giriş yaptığınızda oluşturulur:
+| Çerez | Ne zaman | Amaç | Süre | Özellikler |
+|---|---|---|---|---|
+| `netaris_oturum` | Giriş yaptığınızda | Oturumunuzu açık tutmak | 30 gün | `HttpOnly`, `Secure`, `SameSite=Lax` |
+| `_ga`, `_ga_*` | **Yalnızca çerez onayı verirseniz** | Google Analytics ziyaret ölçümü | 2 yıl | Google tarafından yazılır |
 
-| Çerez | Amaç | Süre | Özellikler |
-|---|---|---|---|
-| `netaris_oturum` | Oturumunuzu açık tutmak | 30 gün | `HttpOnly`, `Secure`, `SameSite=Lax` |
+`netaris_oturum` zorunlu bir işlev çerezidir: onsuz giriş yapılamaz. Reklam,
+profilleme veya siteler arası takip amacıyla kullanılmaz ve üçüncü taraflarla
+paylaşılmaz. Çıkış yaptığınızda silinir.
 
-Bu çerez zorunlu bir işlev çerezidir: onsuz giriş yapılamaz. Reklam, profilleme
-veya siteler arası takip amacıyla kullanılmaz ve üçüncü taraflarla paylaşılmaz.
-Çıkış yaptığınızda silinir.
+**Analitik çerezi yalnızca siz onay verirseniz yazılır.** Sitenin altında
+çıkan bandda "Sadece gerekli" derseniz `_ga` çerezi hiç oluşturulmaz.
+Kararınız tarayıcınızın yerel deposunda saklanır ve her sayfada yeniden
+sorulmaz. Fikrinizi değiştirmek isterseniz tarayıcınızın site verilerini
+temizlemeniz yeterli; band yeniden çıkar.
 
-**Üye değilseniz tarayıcınıza bu siteye ait hiçbir çerez yazılmaz.**
-(Çerez dışında bir istisna vardır: görüntülenme sayacının aynı sayfayı
-gün içinde tekrar saymaması için tarayıcınızın yerel deposuna bir gün
-işareti yazılır. Ayrıntısı aşağıda.)
+**Onay vermeyen ve üye olmayan ziyaretçinin tarayıcısına bu siteye ait
+hiçbir çerez yazılmaz.** (Çerez dışında bir istisna vardır: görüntülenme
+sayacının aynı sayfayı gün içinde tekrar saymaması için tarayıcınızın yerel
+deposuna bir gün işareti yazılır. Ayrıntısı aşağıda.)
 
 ## Ziyaret sayımı (analitik)
 
-Site **Cloudflare Web Analytics** kullanır. Bu araç:
+Site **Google Analytics 4** kullanır (ölçüm kimliği `G-LSJK3F2FC5`).
+Daha önce Cloudflare Web Analytics kullanılıyordu; 25 Ağustos 2026'da
+değiştirildi.
 
-- **çerez kullanmaz**,
-- ziyaretçilere kimlik atamaz ve **parmak izi çıkarmaz**,
-- siteler arası takip yapmaz.
+Google Analytics **onay moduyla** çalışır ve varsayılan durumu
+**reddedilmiştir**:
 
-Toplanan veriler toplulaştırılmıştır: sayfa görüntülenme sayısı, yönlendiren
-adres, ülke, tarayıcı ve işletim sistemi türü. Bu verilerden bir kişiye
-ulaşılamaz.
+| | Onay vermeden | Onay verdikten sonra |
+|---|---|---|
+| Çerez | **yazılmaz** | `_ga`, `_ga_*` yazılır |
+| Kalıcı kimlik | **atanmaz** | atanır |
+| Toplanan | kimliksiz sayfa sayısı | oturum, yönlendiren, ülke, cihaz |
 
-Çerez kullanmadığı ve kişisel veri işlemediği için bu araç **çerez onayı
-gerektirmez**. Analitiği kapatmak isterseniz tarayıcınızın betik engelleme
-özelliğini kullanabilirsiniz; sitenin işleyişi etkilenmez.
+Her iki durumda da tarayıcınız Google'ın sunucusuna (`googletagmanager.com`)
+istek gönderir ve bu istekte **IP adresiniz Google'a ulaşır**. Google IP'yi
+konum tahmini için kullanıp saklamadan atar, ancak isteğin kendisi
+engellenemez — bunu bilerek kabul etmeniz gerekir.
+
+Reklam ve kişiselleştirme sinyalleri (`ad_storage`, `ad_user_data`,
+`ad_personalization`) **her durumda kapalıdır**; onay verseniz bile
+açılmaz. Netaris reklam göstermiyor.
+
+Analitiği tümüyle kapatmak isterseniz bandda "Sadece gerekli" seçeneği ya da
+tarayıcınızın betik engelleme özelliği yeterlidir; sitenin işleyişi
+etkilenmez.
 
 ## Görüntülenme ve beğeni sayacı
 

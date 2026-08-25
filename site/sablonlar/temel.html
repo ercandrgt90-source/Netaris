@@ -431,22 +431,22 @@
     <span class="ag-ad">Ara</span>
   </a>
 </nav>
-{# CLOUDFLARE WEB ANALYTICS.
-   Ziyaret, sayfa ve yonlendiren olcumu. Cerez KULLANMIYOR ve parmak
-   izi cikarmiyor; bu yuzden cerez onayi gerektirmiyor ve KVKK
-   tarafinda ayri bir riza metni acmiyor. Google Analytics yerine
-   bunun secilmesinin sebebi de bu.
+{# ZIYARET SAYIMI -- GOOGLE ANALYTICS 4, ONAY MODUYLA.
+   ------------------------------------------------------------------
+   Onceden Cloudflare Web Analytics vardi: cerezsiz, kimliksiz, onay
+   gerektirmeyen. GA4'e gecildi ve GA4 bunlarin ucunu de degistiriyor
+   -- `_ga` cerezi yaziyor, ziyaretciye kalici kimlik veriyor, veriyi
+   Google'a gonderiyor.
 
-   Token GIZLI DEGIL -- her ziyaretcinin sayfa kaynaginda zaten
-   gorunuyor; yalnizca hangi siteye ait oldugunu soyluyor, hesaba
-   erisim vermiyor. Bu yuzden depoda duruyor ve GitHub Secrets'a
-   konmasi gerekmiyor.
+   Bu yuzden betik DOGRUDAN yapistirilmadi. `onay.js` once onay
+   durumunu kuruyor (varsayilan REDDEDILMIS), sonra gtag'i yukluyor.
+   Onay verilmeden cerez yazilmiyor; yalnizca kimliksiz bir sayfa
+   sayimi gidiyor. Gerekce dosyanin basinda yazili.
 
-   `defer` YOK cunku `type="module"` zaten ertelenmis calisiyor;
-   ikisini birlikte yazmak gereksiz. Sayfanin sonunda duruyor ki
-   olcum, icerigin cizilmesini geciktirmesin. #}
-<script type="module"
-        src="https://static.cloudflareinsights.com/beacon.min.js"
-        data-cf-beacon='{"token": "151f70e2a365498b907e729aa38e674e"}'></script>
+   Olcum kimligi (`G-...`) GIZLI DEGIL -- her ziyaretcinin sayfa
+   kaynaginda gorunuyor ve hesaba erisim vermiyor.
+
+   SAYFANIN SONUNDA: olcum, icerigin cizilmesini geciktirmesin. #}
+<script src="/statik/onay.js?v={{ js_surum }}" defer></script>
 </body>
 </html>

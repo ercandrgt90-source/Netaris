@@ -1,0 +1,19 @@
+Token created successfully
+green-band-b6bc
+
+Account ID
+5cfa4228bef0e68eb85586e6ace1a01f
+Important: Copy your token now
+This is the only time you will see this token. Make sure to copy it and store it securely. You will not be able to retrieve it later.
+Your API Token
+cfat_t6FgN3Qqfn5rgJmnBwr0XB7GRcrXxv2lQ5TCcLxSbf3c9ec6
+Use these S3-compatible credentials with the R2 API or any S3 client.
+Access Key ID
+ffb5e58e7bddd5cadeb3999b33c77550
+Secret Access Key
+3fb823f475f3424ec6d4d4e942a995690033584cf31a1f7b03286e832ee483cb
+S3 API endpoint
+https://5cfa4228bef0e68eb85586e6ace1a01f.r2.cloudflarestorage.com
+Example Usage
+curl -X GET "https://api.cloudflare.com/client/v4/accounts/5cfa4228bef0e68eb85586e6ace1a01f/tokens/verify" \
+     -H "Authorization: Bearer cfat_t6FgN3Qqfn5rgJmnBwr0XB7GRcrXxv2lQ5TCcLxSbf3c9ec6"

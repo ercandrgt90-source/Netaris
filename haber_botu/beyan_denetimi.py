@@ -87,6 +87,24 @@ ZORUNLU_BEYAN = (
     ("TradingView",
      re.compile(r"s3\.tradingview\.com|tradingview\.js"),
      re.compile(r"TradingView", re.I)),
+    # GOOGLE ANALYTICS -- 2026-08-25'te Cloudflare Web Analytics'in
+    # yerine gecti.
+    #
+    # Ayni risk TradingView'dakinden BUYUK: Cloudflare Web Analytics
+    # cerezsiz ve kimliksizdi, GA4 ise `_ga` cerezi yaziyor ve
+    # ziyaretciye kalici kimlik veriyor. Beyanda adi gecmeyen bir
+    # analitik araci, okura verilen "cerez yazilmaz" sozunu sessizce
+    # bozar.
+    #
+    # `_ga` CEREZI DE ARANIYOR: yalnizca "Google Analytics" yazmak,
+    # hangi cerezin yazildigini soylemiyor. KVKK aydinlatma
+    # yukumlulugu cerezin ADINI ve suresini istiyor.
+    ("Google Analytics",
+     re.compile(r"googletagmanager\.com|google-analytics\.com|gtag/js"),
+     re.compile(r"Google Analytics", re.I)),
+    ("analitik cerezi",
+     re.compile(r"googletagmanager\.com|gtag/js"),
+     re.compile(r"`?_ga`?", re.I)),
 )
 
 #: Yayina cikmamasi gereken yer tutucular.
@@ -126,6 +144,24 @@ def denetle() -> list[str]:
     ornek = CIKTI / "index.html"
     ham_sayfa = (ornek.read_text(encoding="utf-8", errors="replace")
                  if ornek.exists() else "")
+
+    # BETIK DOSYALARI DA TARANIYOR -- denetim JS'e KOR KALIYORDU.
+    #
+    # Olculdu (2026-08-25): Cloudflare Web Analytics yerine Google
+    # Analytics konuldu ve gtag adresi `onay.js` icinde kuruluyor
+    # (`"https://www.googletagmanager.com/gtag/js?id=" + OLCUM`).
+    # Sayfa HTML'inde `googletagmanager` GECMIYOR.
+    #
+    # Sonuc: beyandan "Google Analytics" ifadesi elle silindi ve
+    # denetim yine "uyusuyor" dedi. Yani kural vardi ama HICBIR SEY
+    # olcmuyordu.
+    #
+    # Bu, denetimin en tehlikeli hali: eski beacon dogrudan HTML'de
+    # bir `<script src>` oldugu icin gorunuyordu; ucuncu taraf betigi
+    # dinamik yuklendigi anda ayni kural sessizce kor oluyor. Bugun
+    # gorunuyor olmasi, yarin gorunecegi anlamina gelmiyordu.
+    for js in sorted((CIKTI / "statik").glob("*.js")):
+        ham_sayfa += "\n" + js.read_text(encoding="utf-8", errors="replace")
     worker = (KOK / "site" / "worker.js")
     ham_worker = (worker.read_text(encoding="utf-8", errors="replace")
                   if worker.exists() else "")
