@@ -920,11 +920,32 @@ async function yonetimOzet(env) {
     "FROM uye ORDER BY kayit_ani DESC LIMIT 500",
   ).all();
 
+  /* SITE TOPLAMLARI -- D1'in gorebildigi kisim.
+   *
+   * Panelde dort KISISEL sayac var ve uc tanesi sifir (olculdu:
+   * bes uyenin en yuksegi 1 senaryo, 2 begeni). Dort sifir bir
+   * gosterge tablosu gibi gorunmuyor.
+   *
+   * Bunlar ise gercekten buyuyen sayilar. Icerik sayilari D1'de
+   * DEGIL (`netaris.db` icinde) ve panel onlari
+   * `/statik/istatistik.json` dosyasindan okuyor -- ikisi panelde
+   * birlestiriliyor. */
+  const toplam = await env.DB.prepare(
+    "SELECT (SELECT COALESCE(SUM(goruntulenme), 0) FROM sayac) AS goruntulenme," +
+    " (SELECT COUNT(*) FROM begeni) AS begeni," +
+    " (SELECT COUNT(*) FROM uye) AS uye," +
+    " (SELECT COUNT(*) FROM uye WHERE durum = 'etkin') AS etkin_uye," +
+    " (SELECT COUNT(*) FROM senaryo) AS senaryo," +
+    " (SELECT COUNT(*) FROM senaryo WHERE durum = 'yayimlandi') AS yayimli_senaryo," +
+    " (SELECT COUNT(*) FROM sayac) AS sayilan_sayfa",
+  ).first();
+
   return yanit({
     uyeler: bekleyenUye.results || [],
     yazilar: bekleyenYazi.results || [],
     senaryolar: bekleyenSenaryo.results || [],
     hepsi: hepsi.results || [],
+    toplam: toplam || {},
   });
 }
 

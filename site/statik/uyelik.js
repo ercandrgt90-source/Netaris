@@ -563,6 +563,12 @@
            yerine ACIKCA kontrol: `bicimSayi(undefined)` "NaN" basar
            ve okur panelde "NaN oy" gorurdu. */
         if (o) o.textContent = bicimSayi(typeof s.oy === "number" ? s.oy : 0);
+        [["senaryo", sn], ["yazi", y], ["begeni", b], ["oy", o]]
+          .forEach(function (c) {
+            if (!c[1]) return;
+            var kutu = c[1].closest ? c[1].closest("div") : null;
+            if (kutu) kutu.classList.toggle("sifir", !s[c[0]]);
+          });
         if (serit) serit.hidden = false;
 
         if (!kutu) return;
@@ -1114,6 +1120,69 @@
 
   /* --- yonetim --- */
 
+  /* --- SITE NABZI -------------------------------------------------
+     Kullanicinin sorunu: panelde dort KISISEL sayac var ve uc tanesi
+     sifir. Duzen ne kadar iyi olursa olsun dort sifir bir gosterge
+     tablosu gibi gorunmuyor.
+
+     Sitenin GERCEK sayilari ise buyuk -- yalnizca panelin
+     gorebilecegi yerde degillerdi. Iki kaynak birlestiriliyor:
+       * D1 (canli)      : goruntulenme, begeni, uye, senaryo
+       * istatistik.json : haber, analiz, gosterge, varlik
+         (`netaris.db`den derleme aninda yaziliyor; Worker o dosyayi
+          hic gormuyor)
+
+     YALNIZCA YONETICIDE. Uye icin site toplamlari bir gosterge
+     degil, bir merak konusu; onun panelinde kendi isi durmali. */
+  function nabizKart(etiket, deger, not_) {
+    return '<div class="nabiz-oge">' +
+      '<dt>' + kacir(etiket) + '</dt>' +
+      '<dd>' + kacir(deger) + '</dd>' +
+      (not_ ? '<small>' + kacir(not_) + '</small>' : '') +
+      '</div>';
+  }
+
+  function siteNabzi(toplam) {
+    return fetch("/statik/istatistik.json", { cache: "no-store" })
+      .then(function (c) { return c.ok ? c.json() : {}; })
+      .catch(function () { return {}; })
+      .then(function (i) {
+        var t = toplam || {};
+        var p = '<h3>Site nabzı</h3><dl class="nabiz">';
+        /* Sifir olan kutu BASILMIYOR: "0 görüntülenme" bir olcum
+           degil, sayacin henuz islememis olmasi da olabilir. */
+        if (t.goruntulenme) {
+          p += nabizKart("Toplam görüntülenme", bicimSayi(t.goruntulenme),
+                         bicimSayi(t.sayilan_sayfa || 0) + " sayfada");
+        }
+        if (i.haber_yayimlanan) {
+          p += nabizKart("Yayımlanan haber", bicimSayi(i.haber_yayimlanan),
+                         bicimSayi(i.haber_toplanan || 0) + " toplandı");
+        }
+        if (i.analiz) p += nabizKart("Analiz", bicimSayi(i.analiz));
+        if (i.gosterge) {
+          p += nabizKart("Gösterge gözlemi", bicimSayi(i.gosterge),
+                         bicimSayi(i.varlik || 0) + " varlık izleniyor");
+        }
+        if (i.ai_yorum) p += nabizKart("AI yorumu", bicimSayi(i.ai_yorum));
+        if (i.olay) p += nabizKart("Olay dosyası", bicimSayi(i.olay));
+        if (t.uye) {
+          p += nabizKart("Üye", bicimSayi(t.uye),
+                         bicimSayi(t.etkin_uye || 0) + " etkin");
+        }
+        if (t.senaryo) {
+          p += nabizKart("Senaryo", bicimSayi(t.senaryo),
+                         bicimSayi(t.yayimli_senaryo || 0) + " yayımlı");
+        }
+        if (t.begeni) p += nabizKart("Beğeni", bicimSayi(t.begeni));
+        p += "</dl>";
+        if (i.uretim) {
+          p += '<p class="kart-kunye">Üretim: ' + tarih(i.uretim) + "</p>";
+        }
+        return p;
+      });
+  }
+
   function yonetimCiz(v) {
     var p = "";
     if (v.uyeler.length) {
@@ -1205,7 +1274,21 @@
       }).join("") + '</div>';
     }
 
-    yonetimKutu.innerHTML = p;
+    /* Nabiz EN USTE: yonetici paneli acinca once sitenin durumunu
+       gormeli, onay kuyrugunu sonra. Kuyruk cogu gun bos. */
+    siteNabzi(v.toplam).then(function (nabiz) {
+      yonetimKutu.innerHTML = nabiz + p;
+      kararlariBagla();
+    });
+
+    function kararlariBagla() {
+      karar("[data-uye-etkin]", "uye", "etkin", false);
+      karar("[data-uye-askı]", "uye", "askida", false);
+      karar("[data-yazi-onay]", "yazi", "onaylandi", false);
+      karar("[data-yazi-ret]", "yazi", "reddedildi", true);
+      karar("[data-sen-onay]", "senaryo", "yayimlandi", false);
+      karar("[data-sen-ret]", "senaryo", "reddedildi", true);
+    }
 
     function karar(secici, tur, durumu, sorNeden) {
       $$(secici, yonetimKutu).forEach(function (d) {
@@ -1222,12 +1305,10 @@
         });
       });
     }
-    karar("[data-uye-etkin]", "uye", "etkin", false);
-    karar("[data-uye-askı]", "uye", "askida", false);
-    karar("[data-yazi-onay]", "yazi", "onaylandi", false);
-    karar("[data-yazi-ret]", "yazi", "reddedildi", true);
-    karar("[data-sen-onay]", "senaryo", "yayimlandi", false);
-    karar("[data-sen-ret]", "senaryo", "reddedildi", true);
+    /* Baglama `kararlariBagla()` icinde ve icerik yazildiktan SONRA
+       cagriliyor: nabiz kutusu asenkron geldigi icin bu noktada
+       dugmeler HENUZ YOK. Burada baglanmis olsalardi yonetim
+       eylemleri sessizce calismazdi. */
   }
 
   function yonetimYukle() {

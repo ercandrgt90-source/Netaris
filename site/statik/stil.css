@@ -2774,6 +2774,35 @@ main.kabuk {
   display: block; height: 100%; border-radius: 999px;
   background: var(--vurgu)}
 
+/* --- SITE NABZI -----------------------------------------------------
+   Yonetici panelinin en ustu. Kisisel sayaclar (senaryo, yazi, oy,
+   begeni) yeni bir toplulukta dogal olarak sifira yakin; bu blok
+   sitenin GERCEKTEN buyuyen sayilarini gosteriyor.
+
+   Sifir olan kutu HIC BASILMIYOR (bkz. `uyelik.js` -> siteNabzi):
+   "0 görüntülenme" bir olcum degil, sayacin henuz islememis olmasi
+   da olabilir. */
+.nabiz {
+  display: grid; gap: var(--b-3); margin: 0 0 var(--b-5);
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr))}
+.nabiz-oge {
+  display: flex; flex-direction: column; gap: 2px;
+  padding: var(--b-4); min-width: 0;
+  border: 1px solid var(--cizgi); border-radius: var(--r);
+  background: var(--panel)}
+.nabiz-oge dt {
+  font-size: var(--p-xs); font-weight: 600; letter-spacing: 0.03em;
+  color: var(--yazi-3)}
+.nabiz-oge dd {
+  margin: 0; font-size: 1.5rem; font-weight: 800; line-height: 1.1;
+  letter-spacing: -0.02em; font-variant-numeric: tabular-nums}
+.nabiz-oge small { font-size: var(--p-xs); color: var(--yazi-3)}
+
+/* Kisisel sayacta SIFIR yerine davet.
+   Sifir bir bilgi vermiyor ama yer kapliyor; davet en azindan ne
+   yapilacagini soyluyor. */
+.panel-sayim .sifir dd { color: var(--ust-yazi-2); font-weight: 700}
+
 /* --- YONETIM: kayitli hesaplar --------------------------------------
    Onay kuyrugundan ayri bir liste. Kuyruk bitince bosalir; bu liste
    bir KAYIT ve hep dolu, o yuzden daha sik bir izgarada duruyor. */

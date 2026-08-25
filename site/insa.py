@@ -83,6 +83,57 @@ def _logo_kayit() -> dict:
 _AMBLEM_DOSYA: dict[str, str] = {}
 
 
+def site_istatistigi() -> None:
+    """Site geneli sayilari `cikti/statik/istatistik.json`a yazar.
+
+    NEDEN DERLEME ANINDA
+    --------------------
+    Panel D1'den besleniyor ve D1 yalnizca UYELIK verisini goruyor:
+    goruntulenme, begeni, uye, senaryo. Icerik sayilari ise
+    `netaris.db` icinde ve Worker o dosyayi HIC GORMUYOR.
+
+    Kullanicinin sorunu su: panelde dort kisisel sayac var ve uc tanesi
+    sifir (olculdu 2026-08-24: bes uyenin en yuksegi 1 senaryo, 2
+    begeni). Dort sifir bir gosterge tablosu gibi gorunmuyor -- duzeni
+    ne kadar iyi olursa olsun.
+
+    Oysa sitenin GERCEK sayilari buyuk: 5.786 toplanan haber, 1.277
+    yayimlanan, 461 analiz, 6.464 gosterge gozlemi. Bunlar yonetici
+    icin "senin 1 senaryon"dan kat kat degerli ve ZATEN VARLAR --
+    yalnizca panelin gorebilecegi yerde degillerdi.
+
+    Statik dosya secildi, yeni bir uc degil: sayi gunde birkac kez
+    degisiyor ve sayfa zaten her uretimde yeniden yaziliyor. Canli bir
+    uc, hicbir tazelik kazandirmadan bir bagimlilik daha eklerdi.
+    """
+    if _beyin is None:
+        return
+    try:
+        with _beyin.baglan() as b:
+            def say(sorgu: str) -> int:
+                try:
+                    return int(b.execute(sorgu).fetchone()[0])
+                except Exception:
+                    return 0
+            veri = {
+                "haber_toplanan": say("select count(*) from haber"),
+                "haber_yayimlanan":
+                    say("select count(*) from haber where yayimlandi=1"),
+                "analiz": len(list((KOK / "icerik" / "analizler").glob("*.md"))),
+                "gosterge": say("select count(*) from gosterge"),
+                "varlik": say("select count(*) from varlik"),
+                "ai_yorum": say("select count(*) from ai_yorum"),
+                "olay": say("select count(*) from olay"),
+                "sayfa": len(list((CIKTI).rglob("index.html"))),
+                "uretim": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+            }
+    except Exception:
+        return
+    hedef = CIKTI / "statik" / "istatistik.json"
+    hedef.parent.mkdir(parents=True, exist_ok=True)
+    hedef.write_text(json.dumps(veri, ensure_ascii=False), encoding="utf-8")
+
+
 def amblem_dosyasi(svg: str) -> str:
     """Saf SVG amblemi dosyaya yazar, adresini doner. Degilse bos.
 
@@ -5073,6 +5124,7 @@ def insa() -> int:
     # varsayilan olarak var olan hedefte COKUYOR. Ilk kosuda tam
     # bu oldu ve stil.css dahil butun varliklar kopyalanmadi.
     shutil.copytree(STATIK, CIKTI / "statik", dirs_exist_ok=True)
+    site_istatistigi()
     css_kucult(CIKTI / "statik" / "stil.css")
 
     # Uretilen icerigi depoya bildir. Site ureteci butun icerigi tek yerde
