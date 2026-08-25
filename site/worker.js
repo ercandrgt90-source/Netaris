@@ -940,12 +940,31 @@ async function yonetimOzet(env) {
     " (SELECT COUNT(*) FROM sayac) AS sayilan_sayfa",
   ).first();
 
+  /* EN COK OKUNAN SAYFALAR -- `sayac` tablosu zaten yol basina
+   * goruntulenme tutuyordu; eksik olan yalnizca onu GOSTEREN yerdi.
+   *
+   * Begeni sayisi da ayni satirda: hangi sayfanin okundugunu bilmek
+   * bir sey, hangisinin BEGENILDIGINI bilmek baska sey. Cok okunup
+   * hic begenilmeyen bir sayfa, ikisi de dusuk olandan farkli bir
+   * seyi anlatiyor.
+   *
+   * ZAMAN SERISI YOK ve olamaz: `sayac` yalnizca TOPLAM ve son
+   * guncelleme aninI tutuyor, gunluk kirilim saklamiyor. "Bu hafta
+   * su kadar arttI" demek icin ayri bir tablo gerekir. Var olmayan
+   * bir egilim uydurmaktansa toplami gostermek dogru. */
+  const enCok = await env.DB.prepare(
+    "SELECT s.yol, s.goruntulenme, s.guncelleme," +
+    " (SELECT COUNT(*) FROM begeni b WHERE b.yol = s.yol) AS begeni" +
+    " FROM sayac s ORDER BY s.goruntulenme DESC, s.guncelleme DESC LIMIT 50",
+  ).all();
+
   return yanit({
     uyeler: bekleyenUye.results || [],
     yazilar: bekleyenYazi.results || [],
     senaryolar: bekleyenSenaryo.results || [],
     hepsi: hepsi.results || [],
     toplam: toplam || {},
+    en_cok: enCok.results || [],
   });
 }
 

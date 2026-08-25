@@ -1183,6 +1183,45 @@
       });
   }
 
+  /* --- EN COK OKUNANLAR --------------------------------------------
+     `sayac` tablosu zaten yol basina goruntulenme tutuyordu; eksik
+     olan yalnizca onu GOSTEREN yerdi.
+
+     KAPSAM ACIKCA YAZILIYOR. Sayac yalnizca ICERIK sayfalarini
+     sayiyor (`/haber/`, `/analiz/`, `/olay/`, `/varlik/`, `/makro/`,
+     `/teknik/`, `/yorum/`, `/arastirmalar/`) -- ana sayfa, `/gundem/`
+     ve `/bilancolar/` SAYILMIYOR. Kapsami yazmayan bir toplam,
+     okuyani "sitenin tamami bu kadar" sanmaya iter.
+
+     ZAMAN SERISI YOK: `sayac` toplam ve son guncelleme anini tutuyor,
+     gunluk kirilim saklamiyor. "Bu hafta su kadar artti" demek icin
+     ayri bir tablo gerekir. Var olmayan bir egilim uydurmaktansa
+     toplami gostermek dogru. */
+  function okunanCiz(liste, toplam) {
+    if (!liste || !liste.length) {
+      return '<h3>En çok okunanlar</h3>' +
+        '<p class="uyelik-alt">Henüz görüntülenme kaydı yok.</p>';
+    }
+    var enBuyuk = liste[0].goruntulenme || 1;
+    var p = '<h3>En çok okunanlar <span class="kart-kunye">(' +
+      bicimSayi(liste.length) + ' sayfa)</span></h3>' +
+      '<p class="kart-kunye okunan-kapsam">Yalnızca içerik sayfaları ' +
+      'sayılıyor; ana sayfa ve liste sayfaları bu toplama dâhil değil.</p>' +
+      '<ol class="okunan-liste">';
+    liste.forEach(function (s) {
+      var oran = Math.max(2, Math.round((s.goruntulenme / enBuyuk) * 100));
+      p += '<li class="okunan-oge">' +
+        '<a href="' + kacir(s.yol) + '">' + kacir(s.yol) + '</a>' +
+        '<div class="okunan-cubuk" aria-hidden="true">' +
+          '<span style="width:' + oran + '%"></span></div>' +
+        '<span class="okunan-sayi">' + bicimSayi(s.goruntulenme) +
+        (s.begeni ? ' · ' + bicimSayi(s.begeni) + ' beğeni' : '') +
+        '</span></li>';
+    });
+    p += '</ol>';
+    return p;
+  }
+
   function yonetimCiz(v) {
     var p = "";
     if (v.uyeler.length) {
@@ -1277,7 +1316,7 @@
     /* Nabiz EN USTE: yonetici paneli acinca once sitenin durumunu
        gormeli, onay kuyrugunu sonra. Kuyruk cogu gun bos. */
     siteNabzi(v.toplam).then(function (nabiz) {
-      yonetimKutu.innerHTML = nabiz + p;
+      yonetimKutu.innerHTML = nabiz + okunanCiz(v.en_cok, v.toplam) + p;
       kararlariBagla();
     });
 

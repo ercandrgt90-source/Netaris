@@ -2803,6 +2803,37 @@ main.kabuk {
    yapilacagini soyluyor. */
 .panel-sayim .sifir dd { color: var(--ust-yazi-2); font-weight: 700}
 
+/* --- EN COK OKUNANLAR -----------------------------------------------
+   Cubuk, sayilari BIRBIRIYLE karsilastirilabilir kiliyor: "14" ve "2"
+   yan yana yazildiginda aradaki yedi kat fark okunmuyor, cubukta
+   bakisla goruluyor.
+
+   Cubuk EN BUYUGE gore olceklendiriliyor, sabit bir tavana degil:
+   toplam kucukken sabit tavan butun cubuklari sifira yapistirirdi. */
+.okunan-kapsam { margin: 0 0 var(--b-3)}
+.okunan-liste {
+  list-style: none; margin: 0 0 var(--b-5); padding: 0;
+  display: flex; flex-direction: column; gap: var(--b-2);
+  counter-reset: okunan}
+.okunan-oge {
+  display: grid; gap: 2px var(--b-3); align-items: center;
+  grid-template-columns: minmax(0, 1fr) auto;
+  padding: var(--b-2) 0; border-bottom: 1px solid var(--cizgi)}
+.okunan-oge a {
+  grid-column: 1; font-size: var(--p-s); color: var(--yazi-2);
+  overflow-wrap: anywhere; text-decoration: none}
+.okunan-oge a:hover { color: var(--vurgu)}
+.okunan-sayi {
+  grid-column: 2; grid-row: 1 / span 2;
+  font-size: var(--p-s); font-weight: 700; white-space: nowrap;
+  font-variant-numeric: tabular-nums; color: var(--yazi)}
+.okunan-cubuk {
+  grid-column: 1; height: 4px; border-radius: 999px;
+  background: var(--zemin-2); overflow: hidden}
+.okunan-cubuk span {
+  display: block; height: 100%; border-radius: 999px;
+  background: var(--vurgu)}
+
 /* --- YONETIM: kayitli hesaplar --------------------------------------
    Onay kuyrugundan ayri bir liste. Kuyruk bitince bosalir; bu liste
    bir KAYIT ve hep dolu, o yuzden daha sik bir izgarada duruyor. */
