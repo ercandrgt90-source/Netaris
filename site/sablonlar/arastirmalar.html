@@ -46,7 +46,8 @@
     <li data-tur="{{ kategori_kodu.get(a.kategori, '') }}">
       <a class="kart" href="{{ a.yol }}">
         <span class="kart-gorsel">
-          {% if a.amblem_svg %}<span class="kart-amblem">{{ a.amblem_svg | safe }}</span>
+          {% if a.amblem_yol %}<span class="kart-amblem"><img class="amblem" src="{{ a.amblem_yol }}" alt="" loading="lazy" decoding="async" width="1200" height="400"></span>
+          {% elif a.amblem_svg %}<span class="kart-amblem">{{ a.amblem_svg | safe }}</span>
           {% elif a.gorsel_svg %}{{ a.gorsel_svg | safe }}{% endif %}
         </span>
         <span class="kart-ic">

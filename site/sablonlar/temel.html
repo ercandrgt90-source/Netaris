@@ -139,6 +139,25 @@
 </head>
 <body>
 
+{# IKON SPRITE -- SAYFADA BIR KEZ.
+   Olculdu (2026-08-24): `/bilancolar/` sayfasi 573 KB HTML tasiyor ve
+   bunun 253 KB'i satir ici SVG. Iki ikon (goruntulenme gozu ve begeni
+   kalbi) sayfada 196'SAR KEZ tekrarlaniyordu: 84 KB SAF TEKRAR.
+
+   Tekrar yalnizca bayt degil IS: tarayici her kopyayi ayri ayri
+   ayristirip DOM'a ekliyor. Ikiyuz kartlik bir listede bu, ana is
+   parcaciginda gorunur bir duraklama demek.
+
+   `<symbol>` + `<use>` ile ikon bir kez tanimlaniyor, her kullanim
+   ~55 bayta iniyor. Ek AG ISTEGI YOK -- sprite sayfanin icinde.
+
+   `aria-hidden` KULLANIMDA kaliyor, burada degil: anlam kullanim
+   yerinde, tanimda degil. #}
+<svg class="gizli-yazi" aria-hidden="true" focusable="false"><defs>
+  <symbol id="ik-goz" viewBox="0 0 24 24"><path fill="currentColor" d="M12 5c-5 0-9 4.5-10 7 1 2.5 5 7 10 7s9-4.5 10-7c-1-2.5-5-7-10-7Zm0 12a5 5 0 1 1 0-10 5 5 0 0 1 0 10Zm0-2.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/></symbol>
+  <symbol id="ik-kalp" viewBox="0 0 24 24"><path fill="currentColor" d="M12 21s-7.5-4.6-9.6-9A5.3 5.3 0 0 1 12 6.6a5.3 5.3 0 0 1 9.6 5.4C19.5 16.4 12 21 12 21Z"/></symbol>
+</defs></svg>
+
 <header class="ust">
   <div class="kabuk ust-ic">
     <a class="logo" href="/">

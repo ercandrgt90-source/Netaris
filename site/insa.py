@@ -79,6 +79,53 @@ def _logo_kayit() -> dict:
     return __LOGO
 
 
+#: Dosyaya yazilmis amblemler -- icerik ozetine gore tekillestiriliyor.
+_AMBLEM_DOSYA: dict[str, str] = {}
+
+
+def amblem_dosyasi(svg: str) -> str:
+    """Saf SVG amblemi dosyaya yazar, adresini doner. Degilse bos.
+
+    NEDEN DOSYA -- ONCEKI KARAR OLCUMLE DEGISTI
+    -------------------------------------------
+    `amblem.py` belgesi "384 ayri dosya uretmek, hicbir sey
+    kazandirmadan depoyu sisirirdi" diyordu. Olcum bunun aksini
+    gosterdi (2026-08-24):
+
+        /bilancolar/  530 KB HTML  ->  166 KB'i satir ici amblem (%31)
+        /arastirmalar/ 516 KB      ->  benzer
+
+    Yani "hicbir sey kazandirmiyor" degil, TEK SAYFADA 166 KB.
+    Ustelik bedel yalnizca bayt degil IS: tarayici 184 ayri SVG'yi
+    ayristirip DOM'a ekliyor.
+
+    Belgedeki ikinci gerekce -- "`currentColor` ve tema degiskenleri
+    calisiyor" -- bu uretim icin GECERLI DEGIL: `amblem()` ciktisi
+    sabit onaltilik renkler tasiyor, CSS degiskeni ve sinif bagimliligi
+    YOK (olculdu). Dis dosya olarak gorunumu birebir ayni.
+
+    YALNIZCA LISTE KARTLARINDA KULLANILIYOR. Detay sayfasinda tek
+    amblem var ve orada satir ici kalmasi dogru: ek istek yapmadan
+    ilk boyamada hazir oluyor. Kazanc kalabalikta.
+
+    `logolu()` ciktisi DISARIDA: o saf SVG degil, sayfa CSS'iyle
+    biçimlenen bir `<div>` sarmalayici (`.amblem-logo`, `.amblem-yazi`).
+    Dosyaya yazilsa stilini kaybederdi.
+    """
+    if not svg or not svg.lstrip().startswith("<svg"):
+        return ""
+    ozet = hashlib.sha1(svg.encode("utf-8")).hexdigest()[:12]
+    varsa = _AMBLEM_DOSYA.get(ozet)
+    if varsa:
+        return varsa
+    klasor = CIKTI / "statik" / "amblem"
+    klasor.mkdir(parents=True, exist_ok=True)
+    (klasor / f"{ozet}.svg").write_text(svg, encoding="utf-8")
+    yol = f"/statik/amblem/{ozet}.svg"
+    _AMBLEM_DOSYA[ozet] = yol
+    return yol
+
+
 def sirket_gorseli(kod: str, sirket: str, sektor: str, donem: str) -> str:
     """Once GERCEK LOGO, yoksa uretilmis amblem.
 
@@ -567,8 +614,15 @@ class Analiz:
     foto: str = ""
     foto_atif: str = ""
     #: Sirket amblemi (SVG). Bilanco sayfalarinda stok fotografin
-    #: YERINE geciyor -- bkz. `amblem.py`.
+    #: YERINE geciyor -- bkz. `amblem.py`. DETAY sayfasinda satir ici
+    #: basiliyor: tek amblem var ve ek istek yapmadan ilk boyamada
+    #: hazir oluyor.
     amblem_svg: str = ""
+    #: Ayni amblemin DOSYA adresi -- liste kartlari icin.
+    #: Olculdu: `/bilancolar/` sayfasinin 530 KB'inin 166 KB'i satir
+    #: ici amblemdi (%31). Kalabalikta dosya kazaniyor; tekil
+    #: sayfada satir ici. Bkz. `amblem_dosyasi`.
+    amblem_yol: str = ""
     #: YALNIZCA PAYLASIM KARTI ICIN fotograf. Sayfada GORUNMEZ.
     #:
     #: NEDEN AYRI BIR ALAN
@@ -1482,6 +1536,10 @@ def analizleri_yukle() -> list[Analiz]:
                 konu=b.al("sirket") or baslik,
                 birim=b.al("grafik_birim"),
             )
+        # Amblem BIR KEZ uretiliyor: hem satir ici (detay sayfasi)
+        # hem dosya (liste kartlari) ayni ciktidan geliyor.
+        _amb_svg = sirket_gorseli(
+            b.al("kod"), b.al("sirket"), b.al("sektor"), b.al("donem"))
         foto_yol, foto_atif = analiz_fotografi(_foto_kayit, baslik, kategori, kod)
 
         liste.append(
@@ -1524,9 +1582,8 @@ def analizleri_yukle() -> list[Analiz]:
                 # kalmasin diye ayni fotograf yalnizca `og:image`
                 # icin tutuluyor (bkz. `og_foto`).
                 og_foto=foto_yol,
-                amblem_svg=sirket_gorseli(
-                    b.al("kod"), b.al("sirket"), b.al("sektor"),
-                    b.al("donem")),
+                amblem_svg=_amb_svg,
+                amblem_yol=amblem_dosyasi(_amb_svg),
                 kelime=len(b.govde_md.split()),
                 kaynaklar=tuple(
                     x.strip() for x in b.al("kaynaklar").split(",") if x.strip()
@@ -5011,7 +5068,11 @@ def insa() -> int:
     yaz("/_redirects", "/haber/  /gundem/  301\n")
 
     # Varliklar
-    shutil.copytree(STATIK, CIKTI / "statik")
+    # `dirs_exist_ok` SART: `amblem_dosyasi()` uretim sirasinda
+    # `cikti/statik/amblem` klasorunu aciyor ve `copytree`
+    # varsayilan olarak var olan hedefte COKUYOR. Ilk kosuda tam
+    # bu oldu ve stil.css dahil butun varliklar kopyalanmadi.
+    shutil.copytree(STATIK, CIKTI / "statik", dirs_exist_ok=True)
     css_kucult(CIKTI / "statik" / "stil.css")
 
     # Uretilen icerigi depoya bildir. Site ureteci butun icerigi tek yerde

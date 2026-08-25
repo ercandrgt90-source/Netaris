@@ -648,7 +648,8 @@
            Gerekce `amblem.py` icinde. Kart izgarasinda amblem ayrica
            daha iyi calisiyor: okur listeyi tararken sirket kodunu
            dogrudan goruyor, oysa bina fotografi hicbir sey soylemiyordu. #}
-        {% if a.amblem_svg %}<span class="kart-amblem">{{ a.amblem_svg | safe }}</span>
+        {% if a.amblem_yol %}<span class="kart-amblem"><img class="amblem" src="{{ a.amblem_yol }}" alt="" loading="lazy" decoding="async" width="1200" height="400"></span>
+          {% elif a.amblem_svg %}<span class="kart-amblem">{{ a.amblem_svg | safe }}</span>
         {% elif a.foto %}
         {# KART GORSELI ORTA BOY. Etiket zaten `width="400"` diyordu
            ama kaynak dosya 800 pikseldi: olculdu, ana sayfanin

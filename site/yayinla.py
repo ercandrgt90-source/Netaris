@@ -118,9 +118,31 @@ def insa_et() -> int:
     return sonuc.returncode
 
 
+#: Ciktida BULUNMASI SART varliklar.
+#:
+#: Olculdu (2026-08-24): `insa.py` icine eklenen bir adim `cikti/statik`
+#: klasorunu erken aciyordu ve `shutil.copytree` var olan hedefte
+#: cokuyor. Sonuc: sayfalar uretildi, "1833 adres" yazdi, ama stil.css
+#: dahil BUTUN statik varliklar kopyalanmadi.
+#:
+#: O kosuda `insa.py` cikis 1 verdi ve dagitim zaten durdu -- yani
+#: koruma calisti. Buradaki kontrol ONU YEDEKLIYOR: varliklar baska
+#: bir sebeple de eksik kalabilir ve "sayfa sayisi dogru" olmasi
+#: sitenin acilabilir oldugu anlamina gelmiyor. Stilsiz bir site,
+#: bos bir siteden daha kotu gorunur.
+SART_VARLIK = (
+    "statik/stil.css",
+    "statik/menu.js",
+    "statik/sayac.js",
+)
+
+
 def denetle() -> list[str]:
     print("[3/5] yayin oncesi denetim")
     bulgular: list[str] = []
+    for varlik in SART_VARLIK:
+        if not (CIKTI / varlik).exists():
+            bulgular.append(f"{varlik}: uretilmedi -- site stilsiz acilir")
     for dosya in CIKTI.rglob("*.html"):
         metin = dosya.read_text(encoding="utf-8")
         goreli = dosya.relative_to(CIKTI).as_posix()
