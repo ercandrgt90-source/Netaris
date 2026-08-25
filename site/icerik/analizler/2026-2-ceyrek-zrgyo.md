@@ -1,13 +1,13 @@
 ---
 slug: zrgyo-2026-2-ceyrek
 baslik: ZİRAAT GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat 2,15 milyar TL'ye yükselirken net kâr 0,94 milyar TL'ye gerilemiş; bu durum, gelir artışının maliyet ve giderlerdeki daha büyük artışla dengelendiğini gösteriyor.…
+ozet: Hasılat 2,15 milyar TL'ye yükselirken net kâr 0,94 milyar TL'ye düşmüş; bu durum, gelir artışının maliyet ve giderlerdeki daha büyük artışla dengelendiğini gösteriyor.…
 sirket: ZİRAAT GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: ZRGYO
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-24
+tarih: 2026-08-25
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat 2,15 milyar TL'ye yükselirken net kâr 0,94 milyar TL'ye gerilemiş; bu durum, gelir artışının maliyet ve giderlerdeki daha büyük artışla dengelendiğini gösteriyor. Özkaynak 93,73 milyar TL'ye ve aktif toplamı 115,33 milyar TL'ye yükselmiş, ancak net borç 10,14 milyar TL'ye artarak borç/özkaynak oranı %0,11'e (sektör medyanı %0,02) çıkmış; bu, sermaye genişlemesinin bir kısmının borçlanma yoluyla finanse edildiğini işaret ediyor. Net kâr marjı %42,6 (sektör medyanı %14,3) ve özkaynak kârlılığı %0,6 (sektör medyanı %0,4) artış göstermiş, ancak faaliyet nakit akışı 0,96 milyar TL ile sabit kalmış, bu da kâr artışının nakit akışına tam yansımadığını gösteriyor.
+Hasılat 2,15 milyar TL'ye yükselirken net kâr 0,94 milyar TL'ye düşmüş; bu durum, gelir artışının maliyet ve giderlerdeki daha büyük artışla dengelendiğini gösteriyor. Özkaynak 93,73 milyar TL'ye, aktif toplamı 115,33 milyar TL'ye yükselmiş, ancak net borç da 10,14 milyar TL'ye artmış; bu, özkaynak ve varlıkların büyümesinin finansman ihtiyacını da artırdığını, borç/özkaynak oranının %0,11'e (sektör medyanı %0,02) yükselmesine yol açtığını ortaya koyuyor. Net kâr marjı %42,6 (sektör medyanı %14,3) ve özkaynak kârlılığı %0,6 (sektör medyanı %0,4) artış gösterirken, faaliyet nakit akışı 0,96 milyar TL olarak sabit kalmış, bu da kârlılık iyileşmesinin nakit akışı üzerindeki etkisinin sınırlı olduğunu işaret ediyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

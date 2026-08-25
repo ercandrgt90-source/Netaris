@@ -1,13 +1,13 @@
 ---
 slug: a1yen-2026-2-ceyrek
 baslik: A1 YENİLENEBİLİR ENERJİ ÜRETİM A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat aynı kalırken net kârın negatiften pozitif (+0,04 milyar TL) olması, özkaynakların (+0,71 milyar TL) ve aktif toplamının (+0,73 milyar TL) artışıyla paralel; bu büyümeler net borcun (-0,25 milyar TL) ve faaliyet nakit akışının (-0,09 milyar TL) azalmasına eşlik etti.…
+ozet: Hasılat aynı kalırken net kârın negatiften pozitif (+0,04 milyar TL) dönüştüğü, aynı dönemde özkaynakların (+0,71 milyar TL) ve aktif toplamının (+0,73 milyar TL) artması, özkaynak kârlılığının (%0,6) sektör medyanının (%1,0) altında kalmasına rağmen net kâr marjının (%18,4) medyanın (%11,4) üzerind…
 sirket: A1 YENİLENEBİLİR ENERJİ ÜRETİM A.Ş.
 kod: A1YEN
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Kamu hizmetleri
-tarih: 2026-08-21
+tarih: 2026-08-25
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat aynı kalırken net kârın negatiften pozitif (+0,04 milyar TL) olması, özkaynakların (+0,71 milyar TL) ve aktif toplamının (+0,73 milyar TL) artışıyla paralel; bu büyümeler net borcun (-0,25 milyar TL) ve faaliyet nakit akışının (-0,09 milyar TL) azalmasına eşlik etti. Net kâr marjı %18,4 seviyesine yükselirken özkaynak kârlılığı sadece %0,6'ya geriledi; bu, kârın büyümesinin özkaynak artışına oranla daha sınırlı kaldığını gösteriyor. Cari oran (1,18) ve borç/özkaynak (0,07) değerleri, sektör medyanlarının (0,86 ve 0,12) üzerinde olup, likidite ve finansal kaldıraçta iyileşmenin net kâr ve özkaynak kârlılığı üzerindeki etkisini yansıtıyor.
+Hasılat aynı kalırken net kârın negatiften pozitif (+0,04 milyar TL) dönüştüğü, aynı dönemde özkaynakların (+0,71 milyar TL) ve aktif toplamının (+0,73 milyar TL) artması, özkaynak kârlılığının (%0,6) sektör medyanının (%1,0) altında kalmasına rağmen net kâr marjının (%18,4) medyanın (%11,4) üzerindeki seviyede kalmasını sağladı; bu artış net borcun (-0,25 milyar TL) ve borç/özkaynak oranının (-0,05) düşmesiyle likiditeyi (cari oran 1,18, medyan 0,90) destekledi ve faaliyet nakit akışındaki iyileşme (-0,09 milyar TL) özkaynak artışıyla paralel bir finansal yapı oluşturdu.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
@@ -51,8 +51,8 @@ Karşılaştırma Kamu hizmetleri sektöründeki 24 şirketin **medyanına** gö
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
 | Net kâr marjı | %18,4 | %11,4 |
-| Özkaynak kârlılığı | %0,6 | %1,4 |
-| Cari oran | 1,18 | 0,86 |
+| Özkaynak kârlılığı | %0,6 | %1,0 |
+| Cari oran | 1,18 | 0,90 |
 | Borç / özkaynak | 0,07 | 0,12 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
@@ -66,7 +66,7 @@ Karşılaştırma Kamu hizmetleri sektöründeki 24 şirketin **medyanına** gö
 **Dikkat gerektirenler**
 
 - Faaliyet nakit akışı net kârın -%593 kadarı; kâr ile nakit üretimi ayrışıyor.
-- Özkaynak kârlılığı %0,6; sektör medyanı %1,4.
+- Özkaynak kârlılığı %0,6; sektör medyanı %1,0.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

@@ -1,9 +1,9 @@
 ---
-slug: cante-2026-2-ceyrek
-baslik: ÇAN2 TERMİK A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın 3,72 milyar TL'den 3,46 milyar TL'ye düşmesi, net kârın -0,84 milyar TL'den 0,25 milyar TL'ye geçmesiyle birlikte net kâr marjının -%55,6'dan pozitif bir seviyeye (sektör medyanı %11,4) yaklaşması, faaliyet nakit akışının -2,01 milyar TL'den -3,09 milyar TL'ye derinleşmesiyle paralel bir l…
-sirket: ÇAN2 TERMİK A.Ş.
-kod: CANTE
+slug: cates-2026-2-ceyrek
+baslik: ÇATES ELEKTRİK ÜRETİM A.Ş. 2026 2. çeyrek bilanço analizi
+ozet: Hasılatın %35,6'lık net kâr marjı ile birlikte artması, net kârın -0,31 milyar TL'den -0,26 milyar TL'ye iyileşmesine paralel olarak, özkaynakların 9,56 milyar TL'den 14,78 milyar TL'ye yükselmesi ve aktif toplamının 10,70 milyar TL'den 16,76 milyar TL'ye artmasıyla birlikte, net borcun -0,84 milyar…
+sirket: ÇATES ELEKTRİK ÜRETİM A.Ş.
+kod: CATES
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Kamu hizmetleri
@@ -18,18 +18,19 @@ sayimlar:
 
 ## Özet
 
-Hasılatın 3,72 milyar TL'den 3,46 milyar TL'ye düşmesi, net kârın -0,84 milyar TL'den 0,25 milyar TL'ye geçmesiyle birlikte net kâr marjının -%55,6'dan pozitif bir seviyeye (sektör medyanı %11,4) yaklaşması, faaliyet nakit akışının -2,01 milyar TL'den -3,09 milyar TL'ye derinleşmesiyle paralel bir likidite sıkıntısına işaret eder; bu süreçte özkaynakların 26,26 milyar TL'den 32,22 milyar TL'ye artması, aktif toplamının 30,36 milyar TL'den 34,39 milyar TL'ye yükselmesi ve net borcun -1,47 milyar TL'ye (nakit fazlası) dönüşmesi, cari oranı 0,90'dan 3,01'e yükselterek borç/özkaynak oranını -0,05'e (sektör medyanı 0,12) indirmiştir.
+Hasılatın %35,6'lık net kâr marjı ile birlikte artması, net kârın -0,31 milyar TL'den -0,26 milyar TL'ye iyileşmesine paralel olarak, özkaynakların 9,56 milyar TL'den 14,78 milyar TL'ye yükselmesi ve aktif toplamının 10,70 milyar TL'den 16,76 milyar TL'ye artmasıyla birlikte, net borcun -0,84 milyar TL'ye (nakit fazlası) dönüşmesi ve borç/özkaynak oranının -0,06'ya (sektör medyanı 0,12) gerilemesi gerçekleşti. Bu büyüyen aktif ve özkaynak tabanı, faaliyet nakit akışının -0,47 milyar TL'den -0,23 milyar TL'ye iyileşmesi ve yatırım harcamasının 0,02 milyar TL'den 0,03 milyar TL'ye hafif artmasıyla desteklenirken, cari oran 4,72'ye (sektör medyanı 0,90) yükselerek likidite durumunun güçlendiğini gösteriyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | -%7,0 |
-| Net kâr | %130,0 |
-| Özkaynak | %22,7 |
-| Aktif toplamı | %13,3 |
-| Net borç | -%428,3 |
-| Faaliyet nakit akışı | -%53,9 |
+| Hasılat | %35,7 |
+| Net kâr | %14,4 |
+| Özkaynak | %54,7 |
+| Aktif toplamı | %56,6 |
+| Net borç | -%3480,2 |
+| Faaliyet nakit akışı | %51,8 |
+| Yatırım harcaması | %4,4 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -37,12 +38,13 @@ Hasılatın 3,72 milyar TL'den 3,46 milyar TL'ye düşmesi, net kârın -0,84 mi
 
 | Kalem | Değer |
 | --- | ---: |
-| Hasılat | 3,46 milyar TL |
-| Net kâr | 0,25 milyar TL |
-| Özkaynak | 32,22 milyar TL |
-| Aktif toplamı | 34,39 milyar TL |
-| Net borç | -1,47 milyar TL |
-| Faaliyet nakit akışı | -3,09 milyar TL |
+| Hasılat | 4,68 milyar TL |
+| Net kâr | -0,26 milyar TL |
+| Özkaynak | 14,78 milyar TL |
+| Aktif toplamı | 16,76 milyar TL |
+| Net borç | -0,84 milyar TL |
+| Faaliyet nakit akışı | -0,23 milyar TL |
+| Yatırım harcaması | 0,03 milyar TL |
 
 ## Sektör içindeki konum
 
@@ -50,10 +52,10 @@ Karşılaştırma Kamu hizmetleri sektöründeki 24 şirketin **medyanına** gö
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Net kâr marjı | -%55,6 | %11,4 |
-| Özkaynak kârlılığı | -%3,2 | %1,0 |
-| Cari oran | 3,01 | 0,90 |
-| Borç / özkaynak | -0,05 | 0,12 |
+| Net kâr marjı | %35,6 | %11,4 |
+| Özkaynak kârlılığı | %3,9 | %1,0 |
+| Cari oran | 4,72 | 0,90 |
+| Borç / özkaynak | -0,06 | 0,12 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -61,14 +63,10 @@ Karşılaştırma Kamu hizmetleri sektöründeki 24 şirketin **medyanına** gö
 
 **Şirket lehine işleyenler**
 
-- Net kâr reel olarak %130,0 arttı.
-- Cari oran 3,01; dönen varlıklar kısa vadeli yükümlülüklerin üzerinde.
-
-**Dikkat gerektirenler**
-
-- Hasılat reel olarak -%7,0 geriledi.
-- Faaliyet nakit akışı net kârın -%1232 kadarı; kâr ile nakit üretimi ayrışıyor.
-- Özkaynak kârlılığı -%3,2; sektör medyanı %1,0.
+- Hasılat reel olarak %35,7 arttı.
+- Net kâr reel olarak %14,4 arttı.
+- Cari oran 4,72; dönen varlıklar kısa vadeli yükümlülüklerin üzerinde.
+- Özkaynak kârlılığı %3,9; sektör medyanı %1,0.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

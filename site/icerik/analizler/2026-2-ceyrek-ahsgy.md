@@ -1,9 +1,9 @@
 ---
-slug: atagy-2026-2-ceyrek
-baslik: ATA GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat aynı kalırken net kâr -%28,2'ye gerileyip negatifleşti; bu düşüş, faaliyet nakit akışının önceki dönemde –%0,04 iken bu dönemde +%0,01'e çıkmasıyla birlikte nakit akışının iyileşmesine rağmen kârın azalmasına yol açtığını gösterir.…
-sirket: ATA GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
-kod: ATAGY
+slug: ahsgy-2026-2-ceyrek
+baslik: AHES GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
+ozet: Hasılat ve brüt kâr, faaliyet kârı, FAVÖK ve net kâr tümü önceki döneme göre azalmış; aynı zamanda faaliyet nakit akışı da negatiften daha büyük bir negatif değere kaymış, bu düşüşler kâr kalemlerinin birlikte hareket ettiğini gösteriyor.…
+sirket: AHES GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
+kod: AHSGY
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
@@ -18,18 +18,21 @@ sayimlar:
 
 ## Özet
 
-Hasılat aynı kalırken net kâr -%28,2'ye gerileyip negatifleşti; bu düşüş, faaliyet nakit akışının önceki dönemde –%0,04 iken bu dönemde +%0,01'e çıkmasıyla birlikte nakit akışının iyileşmesine rağmen kârın azalmasına yol açtığını gösterir. Özkaynak 0,84 milyar TL'ye yükselmiş, aktif toplamı da 1,05 milyar TL'ye artmış; bu büyüme net borcun –0,03 milyar TL'ye (daha az negatif) gerilemesiyle özkaynak/aktif oranının güçlendiğini, ancak borç/özkaynak oranının sektör medyanı 0,02'nin altında (-0,03) kalmasını ortaya koyar. Özkaynak kârlılığı –%0,5'ye düşmüş, sektör medyanı %0,4 olduğu için özkaynak artışı kârlılıkta gerilemeye karşılık gelmiştir.
+Hasılat ve brüt kâr, faaliyet kârı, FAVÖK ve net kâr tümü önceki döneme göre azalmış; aynı zamanda faaliyet nakit akışı da negatiften daha büyük bir negatif değere kaymış, bu düşüşler kâr kalemlerinin birlikte hareket ettiğini gösteriyor. Özkaynak ve aktif toplamı ise önceki döneme göre artmış; özkaynak artışı net borcun hafifçe azalmasıyla birlikte özkaynak/kaynak oranının negatif (-0,09) kalmasına ve cari oranın 39,23 gibi çok yüksek bir seviyeye yükselmesine yol açmış. Brüt kâr marjı %92,8 ve net kâr marjı %37,5 sektör medyanlarının çok üzerinde seyredirken, özkaynak kârlılığı %0,1 ve borç/özkaynak oranı negatif kalması, kârlılık ve finansal yapıdaki bu yüksek marjların özkaynak verimliliği ve borç yapısına tam olarak yansımadığını gösteriyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | -%5,5 |
-| Net kâr | -%349,2 |
-| Özkaynak | %27,5 |
-| Aktif toplamı | %39,1 |
-| Net borç | %27,1 |
-| Faaliyet nakit akışı | %120,5 |
+| Hasılat | -%27,7 |
+| Brüt kâr | -%21,0 |
+| Faaliyet kârı | -%16,7 |
+| FAVÖK | -%16,7 |
+| Net kâr | -%114,1 |
+| Özkaynak | %95,9 |
+| Aktif toplamı | %115,6 |
+| Net borç | %3,0 |
+| Faaliyet nakit akışı | -%681,5 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -37,12 +40,15 @@ Hasılat aynı kalırken net kâr -%28,2'ye gerileyip negatifleşti; bu düşü�
 
 | Kalem | Değer |
 | --- | ---: |
-| Hasılat | 0,03 milyar TL |
-| Net kâr | -0,02 milyar TL |
-| Özkaynak | 0,84 milyar TL |
-| Aktif toplamı | 1,05 milyar TL |
-| Net borç | -0,03 milyar TL |
-| Faaliyet nakit akışı | 0,01 milyar TL |
+| Hasılat | 0,09 milyar TL |
+| Brüt kâr | 0,08 milyar TL |
+| Faaliyet kârı | 0,07 milyar TL |
+| FAVÖK | 0,07 milyar TL |
+| Net kâr | -0,01 milyar TL |
+| Özkaynak | 10,70 milyar TL |
+| Aktif toplamı | 13,83 milyar TL |
+| Net borç | -1,01 milyar TL |
+| Faaliyet nakit akışı | -0,27 milyar TL |
 
 ## Sektör içindeki konum
 
@@ -50,18 +56,25 @@ Karşılaştırma Gayrimenkul sektöründeki 34 şirketin **medyanına** göre y
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Net kâr marjı | -%28,2 | %14,3 |
-| Özkaynak kârlılığı | -%0,5 | %0,4 |
-| Borç / özkaynak | -0,03 | 0,02 |
+| Brüt kâr marjı | %92,8 | %51,4 |
+| Net kâr marjı | %37,5 | %14,3 |
+| Özkaynak kârlılığı | %0,1 | %0,4 |
+| Cari oran | 39,23 | 5,25 |
+| Borç / özkaynak | -0,09 | 0,02 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
 ## Öne çıkan ölçümler
 
+**Şirket lehine işleyenler**
+
+- Brüt marj 7,9 puan genişledi (%85,0 → %92,9).
+- Cari oran 39,23; dönen varlıklar kısa vadeli yükümlülüklerin üzerinde.
+
 **Dikkat gerektirenler**
 
-- Hasılat reel olarak -%5,5 geriledi.
-- Net kâr reel olarak -%349,2 geriledi.
+- Hasılat reel olarak -%27,7 geriledi.
+- Net kâr reel olarak -%114,1 geriledi.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

@@ -1,13 +1,13 @@
 ---
 slug: frmpl-2026-1-ceyrek
 baslik: FORMÜL PLASTİK VE METAL SANAYİ A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılatın %32,4'e çıkan brüt kâr marjı, brüt kârın 0,56 milyar TL'ye yükselmesine ve dolayısıyla faaliyet kârı ile FAVÖK'ün de sırasıyla 0,35 milyar TL ve 0,41 milyar TL'ye artmasına zemin hazırladı; net kârın 0,14 milyar TL'ye çıkması ise bu kârların net kâr marjı %12,0 seviyesine ulaşmasını sağlad…
+ozet: Hasılatın düşmesine rağmen brüt kâr, faaliyet kârı, FAVÖK ve net kârın artması, satış başına kâr marjlarının (%32,4 brüt, %12,0 net) sektör medyanlarının çok üzerinde olmasıyla birlikte maliyet ve giderlerin daha düşük oranda artmasını gösteriyor; bu durum özkaynakların (%3,96) önceki döneme göre ön…
 sirket: FORMÜL PLASTİK VE METAL SANAYİ A.Ş.
 kod: FRMPL
 donem: 2026 1. çeyrek
 kategori: Bilanço Analizi
 sektor: Temel malzeme
-tarih: 2026-08-21
+tarih: 2026-08-25
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %32,4'e çıkan brüt kâr marjı, brüt kârın 0,56 milyar TL'ye yükselmesine ve dolayısıyla faaliyet kârı ile FAVÖK'ün de sırasıyla 0,35 milyar TL ve 0,41 milyar TL'ye artmasına zemin hazırladı; net kârın 0,14 milyar TL'ye çıkması ise bu kârların net kâr marjı %12,0 seviyesine ulaşmasını sağladı. Özkaynakların 3,96 milyar TL'ye (önceki dönem 2,25 milyar TL) yükselmesi, negatif net borcun –0,04 milyar TL'ye (önceki dönem 0,79 milyar TL) dönüşmesiyle birlikte cari oran 2,17'ye ve borç/özkaynak –0,01'e yükselerek sektör medyanlarının (sırasıyla 1,36 ve 0,21) üzerinde konumlanmasını getirdi. Faaliyet nakit akışının 0,26 milyar TL'ye (önceki dönem –0,22 milyar TL) ve yatırım harcamasının 0,13 milyar TL'ye (önceki dönem 0,07 milyar TL) artması, artan kârlılık ve özkaynak büyüklüğüyle paralel bir likidite ve sermaye harcama eğilimini gösterdi.
+Hasılatın düşmesine rağmen brüt kâr, faaliyet kârı, FAVÖK ve net kârın artması, satış başına kâr marjlarının (%32,4 brüt, %12,0 net) sektör medyanlarının çok üzerinde olmasıyla birlikte maliyet ve giderlerin daha düşük oranda artmasını gösteriyor; bu durum özkaynakların (%3,96) önceki döneme göre önemli ölçüde yükselmesi ve borç/özkaynak oranının negatif (-0,01) hâle gelmesiyle destekleniyor. Aynı zamanda faaliyet nakit akışının pozitif (+0,26 milyar TL) ve yatırım harcamasının artması, net borcun (-0,04 milyar TL) azalmasıyla birlikte likiditeyi güçlendirerek cari oranı (2,17) sektör medyanının (1,36) çok üzerine çıkmasını sağladı. Bu finansal göstergeler, gelir azalmasına rağmen kârlılık ve sermaye yapısındaki iyileşmelerin birbirini pekiştirdiğini ortaya koyuyor.
 
 ## 2026 1. çeyrek — bir yıl öncesine göre
 
@@ -58,8 +58,8 @@ Karşılaştırma Temel malzeme sektöründeki 42 şirketin **medyanına** göre
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
 | Brüt kâr marjı | %32,4 | %14,1 |
-| Net kâr marjı | %12,0 | -%0,2 |
-| Özkaynak kârlılığı | %2,7 | -%0,1 |
+| Net kâr marjı | %12,0 | %2,7 |
+| Özkaynak kârlılığı | %2,7 | %1,1 |
 | Cari oran | 2,17 | 1,36 |
 | Borç / özkaynak | -0,01 | 0,21 |
 
@@ -73,6 +73,7 @@ Karşılaştırma Temel malzeme sektöründeki 42 şirketin **medyanına** göre
 - Brüt marj 11,3 puan genişledi (%20,3 → %31,6).
 - Faaliyet nakit akışı net kârın 1,84 katı; kâr nakde dönüyor.
 - Cari oran 2,17; dönen varlıklar kısa vadeli yükümlülüklerin üzerinde.
+- Özkaynak kârlılığı %2,7; sektör medyanı %1,1.
 
 **Dikkat gerektirenler**
 

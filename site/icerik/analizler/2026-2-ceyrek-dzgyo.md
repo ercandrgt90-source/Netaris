@@ -1,13 +1,13 @@
 ---
 slug: dzgyo-2026-2-ceyrek
 baslik: DENİZ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat ve brüt kâr birlikte yükselirken, brüt kâr marjı %40,6 seviyesinde kalmış; bu, satış artışının maliyet artışıyla dengelendiğini gösteriyor. Faaliyet kârı, FAVÖK ve net kârın tümünün negatif olması, faaliyet nakit akışının -0,13 milyar TL'ye düşmesiyle paralel bir düşüşte, şirketin kârlı oper…
+ozet: Hasılat ve brüt kâr birlikte yükselirken, brüt kâr marjı %40,6 seviyesinde kalmış ve sektör medyanının %51,4'ünün altında kalmıştır; bu artışın ardından faaliyet kârı ve FAVÖK negatiften daha da düşerek -0,16 milyar TL'ye gerilemiş, net kâr da -%93,6'lık bir marjla -0,03 milyar TL'ye inmiştir.…
 sirket: DENİZ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: DZGYO
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-24
+tarih: 2026-08-25
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat ve brüt kâr birlikte yükselirken, brüt kâr marjı %40,6 seviyesinde kalmış; bu, satış artışının maliyet artışıyla dengelendiğini gösteriyor. Faaliyet kârı, FAVÖK ve net kârın tümünün negatif olması, faaliyet nakit akışının -0,13 milyar TL'ye düşmesiyle paralel bir düşüşte, şirketin kârlı operasyonlardan nakit üretme yeteneğinin azaldığını ortaya koyuyor. Özkaynak artışı %6,65 milyar TL'ye ulaşırken net borç 0,17 milyar TL'ye yükselmiş, bu da borç/özkaynak oranının %0,03'a (sektör medyanı %0,02) çıkmasına ve cari oranın 2,55 (sektör medyanı 5,25) seviyesinde kalarak likidite yapısının özkaynak büyümesine göre daha sınırlı kaldığını gösteriyor.
+Hasılat ve brüt kâr birlikte yükselirken, brüt kâr marjı %40,6 seviyesinde kalmış ve sektör medyanının %51,4'ünün altında kalmıştır; bu artışın ardından faaliyet kârı ve FAVÖK negatiften daha da düşerek -0,16 milyar TL'ye gerilemiş, net kâr da -%93,6'lık bir marjla -0,03 milyar TL'ye inmiştir. Özkaynak ve aktif toplamı artış göstermiş, özkaynak 6,65 milyar TL'ye, aktif toplamı 8,53 milyar TL'ye yükselmiş; aynı zamanda net borç 0,17 milyar TL'ye geçerek negatiften pozitif bir değere dönmüş, bu durum cari oranı 2,55'e yükseltirken borç/özkaynak oranı %3 (0,03) olarak sektör medyanı 0,02'nin üzerine çıkmıştır. Faaliyet nakit akışı ise önceki dönemde +0,07 milyar TL iken -0,13 milyar TL'ye düşmüş, bu da negatif faaliyet kârı ve FAVÖK ile paralel bir likidite gerilemesini yansıtmaktadır.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

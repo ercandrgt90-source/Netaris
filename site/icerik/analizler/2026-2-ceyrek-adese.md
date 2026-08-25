@@ -1,13 +1,13 @@
 ---
 slug: adese-2026-2-ceyrek
 baslik: ADESE GAYRİMENKUL YATIRIM A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat 0,90 milyar TL'ye yükselirken net kâr –0,27 milyar TL'ye gerilemiş; gelir artışı nakit akışının 0,05 milyar TL'ye düşmesi ve faaliyet kârının negatifleşmesiyle birlikte kâr marjının –%16,8'e inmesine yol açmış.…
+ozet: Hasılat 0,90 milyar TL'ye yükselirken net kâr -0,27 milyar TL'ye gerileyip net kâr marjı -%16,8 oldu; bu kâr düşüşü, faaliyet nakit akışının 0,87 milyar TL'den 0,05 milyar TL'ye düşmesiyle paralel bir seyir izledi.…
 sirket: ADESE GAYRİMENKUL YATIRIM A.Ş.
 kod: ADESE
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-24
+tarih: 2026-08-25
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat 0,90 milyar TL'ye yükselirken net kâr –0,27 milyar TL'ye gerilemiş; gelir artışı nakit akışının 0,05 milyar TL'ye düşmesi ve faaliyet kârının negatifleşmesiyle birlikte kâr marjının –%16,8'e inmesine yol açmış. Özkaynak 20,91 milyar TL'ye çıkmış ve aktif toplamı 27,23 milyar TL'ye yükselmiş; bu artış net borcun 0,13 milyar TL'ye düşmesiyle borç/özkaynak oranının sektör medyanının %0,02'sinin altında 0,01'e inmesine neden olmuş. Özkaynak kârlılığı –%0,5'e gerilemiş; özkaynak büyümesi ve borç azalmasıyla birlikte özkaynak verimliliği negatif yönde seyretmiştir.
+Hasılat 0,90 milyar TL'ye yükselirken net kâr -0,27 milyar TL'ye gerileyip net kâr marjı -%16,8 oldu; bu kâr düşüşü, faaliyet nakit akışının 0,87 milyar TL'den 0,05 milyar TL'ye düşmesiyle paralel bir seyir izledi. Özkaynak 20,91 milyar TL'ye, aktif toplamı 27,23 milyar TL'ye artarken net borç 0,13 milyar TL'ye geriledi; bu durum özkaynak/kârlılık negatif olmasına rağmen borç/özkaynak oranının sektör medyanı 0,02'nin altında %0,01 kalmasını sağladı. Net kâr kaybı ve nakit akışı daralması, özkaynak artışı ve borç azalmasıyla birlikte şirketin sermaye yapısının daha az kaldıraçlı bir profile yöneldiğini gösteriyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
