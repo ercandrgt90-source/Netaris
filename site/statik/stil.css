@@ -1900,7 +1900,34 @@ main.kabuk {
   background: var(--panel);
   border: 1px solid var(--cizgi);
   border-radius: var(--r);
-  overflow: hidden}
+  overflow: hidden;
+  /* EKRAN DISINDAKI KART ICIN DUZEN VE BOYAMA ATLANIYOR.
+     ----------------------------------------------------------------
+     Olculdu (2026-08-24): `/bilancolar/` sayfasi ~5.650 DOM dugumu
+     tasiyor (199 kart), `/arastirmalar/` ~4.820. Diger sayfalar
+     1.000-1.200 bandinda -- yani bu ikisi dort bes kati.
+
+     Bayt sorunu DEGIL: Cloudflare Brotli veriyor ve sayfa telde 33
+     KB. Girintiyi kirpmak ya da HTML kucultmek burada ~1 KB
+     kazandirirdi. Kalan maliyet AG degil, tarayicinin bes bin
+     dugumu ayristirip duzenlemesi.
+
+     `content-visibility: auto` dugumleri DOM'DA BIRAKIYOR ama ekran
+     disindakiler icin duzen ve boyamayi erteliyor. Icerik yerinde
+     kaldigi icin sayfa ici arama (Ctrl+F), bag hedefleri ve arama
+     motoru etkilenmiyor -- sayfalama ya da "daha fazla yukle" ise
+     ucunu de degistirirdi. Urun karari gerektirmeyen tek cozum bu.
+
+     `contain-intrinsic-size` TAHMINI YUKSEKLIK: kart 16:9 gorsel +
+     metin, izgarada ~310 piksel genisliginde, yani ~330 yukseklik.
+     Bastaki `auto` "bir kez olctugunde gercek boyu hatirla" demek;
+     olmadan, kaydirma sirasinda kaydirma cubugu ziplardi.
+
+     DESTEKLEMEYEN TARAYICI: kural yok sayilir ve sayfa bugunku gibi
+     calisir. Ilerlemeci iyilestirme -- bozulacak bir sey yok. */
+  content-visibility: auto;
+  contain-intrinsic-width: none;
+  contain-intrinsic-height: auto 330px}
 .arastirma-liste > li > .kart {
   border: 0; border-radius: 0; box-shadow: none; background: none;
   flex: 1}
