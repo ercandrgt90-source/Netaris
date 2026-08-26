@@ -1,13 +1,13 @@
 ---
 slug: aygaz-2026-2-ceyrek
 baslik: AYGAZ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat hafif düşerken brüt kâr ve brüt kâr marjı artmış, bu da maliyetlerdeki azalma ya da fiyat artışının kâr üzerindeki etkisini gösteriyor; aynı şekilde faaliyet kârı ve FAVÖK de brüt kâr artışını takip ederek yükselmiş.…
+ozet: Hasılatın hafif düşmesi (%1,9) ardından brüt kârın artması, brüt kâr marjının %10,7 seviyesinde kalması ve net kârın %14,7'ye yükselmesi, kârlılık göstergelerinin (net kâr marjı, özkaynak kârlılığı) sektör medyanlarının üzerinde hareket ettiğini gösteriyor; bu artış özkaynakların %84,08 milyar TL'ye…
 sirket: AYGAZ A.Ş.
 kod: AYGAZ
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Kamu hizmetleri
-tarih: 2026-08-21
+tarih: 2026-08-26
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat hafif düşerken brüt kâr ve brüt kâr marjı artmış, bu da maliyetlerdeki azalma ya da fiyat artışının kâr üzerindeki etkisini gösteriyor; aynı şekilde faaliyet kârı ve FAVÖK de brüt kâr artışını takip ederek yükselmiş. Net kârın büyük bir sıçraması özkaynakların %84,08 milyar TL'ye yükselmesiyle birlikte özkaynak kârlılığının %5,1'e çıkmasına yol açmış ve bu oran sektör medyanının %1,4'ünün çok üzerinde. Net borçın negatif seyrede (nakit fazlası) ve cari oranın 1,55 olması, borç/özkaynak oranının -%0,05 ile negatif kalması, likidite ve finansal sağlamlığın sektörel ortalamanın üzerinde olduğunu gösteriyor.
+Hasılatın hafif düşmesi (%1,9) ardından brüt kârın artması, brüt kâr marjının %10,7 seviyesinde kalması ve net kârın %14,7'ye yükselmesi, kârlılık göstergelerinin (net kâr marjı, özkaynak kârlılığı) sektör medyanlarının üzerinde hareket ettiğini gösteriyor; bu artış özkaynakların %84,08 milyar TL'ye, aktif toplamının ise %96,72 milyar TL'ye yükselmesiyle desteklenirken, net borcun -%3,94 milyar TL'ye (negatif borç) gerilemesi cari oranı 1,55'e (sektör medyanı 0,90) ve borç/özkaynak oranını -%0,05'e (sektör medyanı 0,12) çekmiştir; aynı zamanda faaliyet nakit akışı negatif (-1,28 milyar TL) ve yatırım harcaması azalarak 0,70 milyar TL'ye düşmüş, bu da nakit çıkışının artan kârlılık ve sermaye yapısındaki iyileşme ile birlikte gerçekleşti.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
@@ -60,8 +60,8 @@ Karşılaştırma Kamu hizmetleri sektöründeki 24 şirketin **medyanına** gö
 | --- | ---: | ---: |
 | Brüt kâr marjı | %10,7 | — |
 | Net kâr marjı | %14,7 | %11,4 |
-| Özkaynak kârlılığı | %5,1 | %1,4 |
-| Cari oran | 1,55 | 0,86 |
+| Özkaynak kârlılığı | %5,1 | %1,0 |
+| Cari oran | 1,55 | 0,90 |
 | Borç / özkaynak | -0,05 | 0,12 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
@@ -72,7 +72,7 @@ Karşılaştırma Kamu hizmetleri sektöründeki 24 şirketin **medyanına** gö
 
 - Net kâr reel olarak %243,3 arttı.
 - Cari oran 1,55; dönen varlıklar kısa vadeli yükümlülüklerin üzerinde.
-- Özkaynak kârlılığı %5,1; sektör medyanı %1,4.
+- Özkaynak kârlılığı %5,1; sektör medyanı %1,0.
 
 **Dikkat gerektirenler**
 

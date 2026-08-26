@@ -1,13 +1,13 @@
 ---
 slug: asgyo-2026-2-ceyrek
 baslik: ASCE GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın 0,06 milyar TL'den 0,10 milyar TL'ye yükselmesi, net kârın -0,97 milyar TL'den 4,70 milyar TL'ye geçişiyle paralel bir artış gösterirken, özkaynak da 16,49 milyar TL'den 28,80 milyar TL'ye, aktif toplamı ise 22,01 milyar TL'den 31,37 milyar TL'ye yükselmiştir; bu büyümeler net borcun -1,17…
+ozet: Hasılat 0,10 milyar TL'ye yükselirken net kâr 4,70 milyar TL'ye çıkmış, bu artış özkaynakların 28,80 milyar TL'ye (önceki 16,49 milyar TL) ve aktif toplamının 31,37 milyar TL'ye (önceki 22,01 milyar TL) yükselmesiyle paralel bir büyüme göstermiş; net borç ise -0,94 milyar TL (önceki -1,17 milyar TL)…
 sirket: ASCE GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: ASGYO
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-25
+tarih: 2026-08-26
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,18 +18,18 @@ sayimlar:
 
 ## Özet
 
-Hasılatın 0,06 milyar TL'den 0,10 milyar TL'ye yükselmesi, net kârın -0,97 milyar TL'den 4,70 milyar TL'ye geçişiyle paralel bir artış gösterirken, özkaynak da 16,49 milyar TL'den 28,80 milyar TL'ye, aktif toplamı ise 22,01 milyar TL'den 31,37 milyar TL'ye yükselmiştir; bu büyümeler net borcun -1,17 milyar TL'den -0,94 milyar TL'ye iyileşmesi ve faaliyet nakit akışının -1,11 milyar TL'den -0,61 milyar TL'ye daralmasıyla birlikte gerçekleşmiştir. Net kâr marjı, özkaynak kârlılığı ve borç/özkaynak oranı negatif değerlerde kalmış olsa da, sektör medyanlarıyla karşılaştırıldığında borç/özkaynak oranı (-%0,03) medyanın (%0,02) altında, özkaynak kârlılığı (-%0,1) medyanın (%0,4) altında ve net kâr marjı (-%51,7) medyanın (%14,3) çok altında seyretmektedir. Bu durum, gelir ve kâr artışının özkaynak ve aktif büyümesiyle birlikte gerçekleştiğini, ancak kârlılık ve nakit akışının hâlâ sektör ortalamalarının gerisinde kaldığını göstermektedir.
+Hasılat 0,10 milyar TL'ye yükselirken net kâr 4,70 milyar TL'ye çıkmış, bu artış özkaynakların 28,80 milyar TL'ye (önceki 16,49 milyar TL) ve aktif toplamının 31,37 milyar TL'ye (önceki 22,01 milyar TL) yükselmesiyle paralel bir büyüme göstermiş; net borç ise -0,94 milyar TL (önceki -1,17 milyar TL) azalarak likidite pozisyonunun iyileştiğini yansıtıyor. Faaliyet nakit akışı -0,61 milyar TL'ye (önceki -1,30 milyar TL) daralırken, net kâr marjı -%51,7, özkaynak kârlılığı -%0,1 ve borç/özkaynak -0,03 gibi negatif oranlar sektör medyanı (%14,3, %0,4 ve 0,02) ile karşılaştırıldığında kârlılık ve verimlilik açısından geride kalıyor. Bu negatif kârlılık oranları, artan özkaynak ve aktif toplamına rağmen faaliyetlerden elde edilen nakit akışının yetersiz kalmasıyla ilişkilendirilebilir.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | %60,7 |
-| Net kâr | %583,1 |
+| Hasılat | %42,2 |
+| Net kâr | %546,4 |
 | Özkaynak | %74,7 |
 | Aktif toplamı | %42,5 |
 | Net borç | %19,7 |
-| Faaliyet nakit akışı | %44,9 |
+| Faaliyet nakit akışı | %52,8 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -60,8 +60,8 @@ Karşılaştırma Gayrimenkul sektöründeki 34 şirketin **medyanına** göre y
 
 **Şirket lehine işleyenler**
 
-- Hasılat reel olarak %60,7 arttı.
-- Net kâr reel olarak %583,1 arttı.
+- Hasılat reel olarak %42,2 arttı.
+- Net kâr reel olarak %546,4 arttı.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

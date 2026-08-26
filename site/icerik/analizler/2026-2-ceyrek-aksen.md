@@ -1,9 +1,9 @@
 ---
-slug: bioen-2026-2-ceyrek
-baslik: BİOTREND ÇEVRE VE ENERJİ YATIRIMLARI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın 1,48 milyar TL'ye düşmesi, net kârın -0,57 milyar TL'den +0,06 milyar TL'ye geçmesiyle birlikte faaliyet nakit akışının -0,11 milyar TL'ye kayması, gelir azalmasının kârlılığı iyileştiren maliyet/vergilendirme etkisiyle gerçekleştiğini gösteriyor.…
-sirket: BİOTREND ÇEVRE VE ENERJİ YATIRIMLARI A.Ş.
-kod: BIOEN
+slug: aksen-2026-2-ceyrek
+baslik: AKSA ENERJİ ÜRETİM A.Ş. 2026 2. çeyrek bilanço analizi
+ozet: Hasılatın 23,97 milyar TL'den 19,99 milyar TL'ye düşmesi net kârın 1,55 milyar TL'den 1,17 milyar TL'ye gerilemesine paralel olarak gerçekleşti; aynı dönemde özkaynak 53,56 milyar TL'den 74,81 milyar TL'ye, aktif toplamı 108,01 milyar TL'den 151,71 milyar TL'ye yükselirken net borç 36,57 milyar TL'd…
+sirket: AKSA ENERJİ ÜRETİM A.Ş.
+kod: AKSEN
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Kamu hizmetleri
@@ -18,19 +18,19 @@ sayimlar:
 
 ## Özet
 
-Hasılatın 1,48 milyar TL'ye düşmesi, net kârın -0,57 milyar TL'den +0,06 milyar TL'ye geçmesiyle birlikte faaliyet nakit akışının -0,11 milyar TL'ye kayması, gelir azalmasının kârlılığı iyileştiren maliyet/vergilendirme etkisiyle gerçekleştiğini gösteriyor. Aktif toplamının 11,58 milyar TL'ye yükselmesi net borcun 6,13 milyar TL'ye artmasıyla paralel seyredirken, özkaynakların 3,27 milyar TL'ye gerilemesi borç/özkaynak oranının 1,87'ye çıkmasına ve cari oranın 0,32'ye düşmesine yol açtı. Bu finansal yapı değişiklikleri, sektörel medyanların (%11,4 net kâr marjı, %1,0 özkaynak kârlılığı, 0,90 cari oran, 0,12 borç/özkaynak) altında kalınan performans ve likidite göstergeleriyle tutarlı bir ilişki oluşturuyor.
+Hasılatın 23,97 milyar TL'den 19,99 milyar TL'ye düşmesi net kârın 1,55 milyar TL'den 1,17 milyar TL'ye gerilemesine paralel olarak gerçekleşti; aynı dönemde özkaynak 53,56 milyar TL'den 74,81 milyar TL'ye, aktif toplamı 108,01 milyar TL'den 151,71 milyar TL'ye yükselirken net borç 36,57 milyar TL'den 59,48 milyar TL'ye artarak cari oranı 0,90'dan 0,61'e, borç/özkaynak oranını 0,12'den 0,80'e yükseltti; faaliyet nakit akışı 7,40 milyar TL'den 5,99 milyar TL'ye gerilerken yatırım harcaması 8,50 milyar TL'den 9,55 milyar TL'ye artması, net kâr marjı (%6,1) ve özkaynak kârlılığı (%0,8) gibi kârlılık göstergelerinin sektör medyanlarının (%11,4 ve %1,0) altında kalmasına yol açtı.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | -%8,3 |
-| Net kâr | %110,1 |
-| Özkaynak | -%21,1 |
-| Aktif toplamı | %18,0 |
-| Net borç | %29,9 |
-| Faaliyet nakit akışı | -%162,5 |
-| Yatırım harcaması | -%53,8 |
+| Hasılat | -%16,6 |
+| Net kâr | -%24,4 |
+| Özkaynak | %39,7 |
+| Aktif toplamı | %40,5 |
+| Net borç | %62,6 |
+| Faaliyet nakit akışı | -%19,1 |
+| Yatırım harcaması | %12,4 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -38,13 +38,13 @@ Hasılatın 1,48 milyar TL'ye düşmesi, net kârın -0,57 milyar TL'den +0,
 
 | Kalem | Değer |
 | --- | ---: |
-| Hasılat | 1,48 milyar TL |
-| Net kâr | 0,06 milyar TL |
-| Özkaynak | 3,27 milyar TL |
-| Aktif toplamı | 11,58 milyar TL |
-| Net borç | 6,13 milyar TL |
-| Faaliyet nakit akışı | -0,11 milyar TL |
-| Yatırım harcaması | 0,12 milyar TL |
+| Hasılat | 19,99 milyar TL |
+| Net kâr | 1,17 milyar TL |
+| Özkaynak | 74,81 milyar TL |
+| Aktif toplamı | 151,71 milyar TL |
+| Net borç | 59,48 milyar TL |
+| Faaliyet nakit akışı | 5,99 milyar TL |
+| Yatırım harcaması | 9,55 milyar TL |
 
 ## Sektör içindeki konum
 
@@ -52,10 +52,10 @@ Karşılaştırma Kamu hizmetleri sektöründeki 24 şirketin **medyanına** gö
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Net kâr marjı | -%8,1 | %11,4 |
-| Özkaynak kârlılığı | -%2,0 | %1,0 |
-| Cari oran | 0,32 | 0,90 |
-| Borç / özkaynak | 1,87 | 0,12 |
+| Net kâr marjı | %6,1 | %11,4 |
+| Özkaynak kârlılığı | %0,8 | %1,0 |
+| Cari oran | 0,61 | 0,90 |
+| Borç / özkaynak | 0,80 | 0,12 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -63,14 +63,15 @@ Karşılaştırma Kamu hizmetleri sektöründeki 24 şirketin **medyanına** gö
 
 **Şirket lehine işleyenler**
 
-- Net kâr reel olarak %110,1 arttı.
+- Faaliyet nakit akışı net kârın 5,10 katı; kâr nakde dönüyor.
 
 **Dikkat gerektirenler**
 
-- Hasılat reel olarak -%8,3 geriledi.
-- Faaliyet nakit akışı net kârın -%194 kadarı; kâr ile nakit üretimi ayrışıyor.
-- Cari oran 0,32; kısa vadeli yükümlülükler dönen varlıkları aşıyor.
-- Özkaynak kârlılığı -%2,0; sektör medyanı %1,0.
+- Hasılat reel olarak -%16,6 geriledi.
+- Net kâr reel olarak -%24,4 geriledi.
+- Cari oran 0,61; kısa vadeli yükümlülükler dönen varlıkları aşıyor.
+- Özkaynak kârlılığı %0,8; sektör medyanı %1,0.
+- Yatırım harcaması faaliyet nakit akışını aşıyor; aradaki fark dış kaynakla karşılanıyor.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

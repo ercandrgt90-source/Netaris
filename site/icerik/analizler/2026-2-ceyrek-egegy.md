@@ -1,13 +1,13 @@
 ---
 slug: egegy-2026-2-ceyrek
 baslik: EGEYAPI AVRUPA GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %40,4 oranındaki brüt kâr marjı, brüt kârın %40,4'ü kadar artmasıyla birlikte faaliyet kârı ve FAVÖK'ün de brüt kâr seviyesine paralel olarak yükselmesi, net kâr marjının %16,1'e çıkmasını ve özkaynak kârlılığının %5,6'ya ulaşmasını sağladı; bu artışlar özkaynakların 2,67 milyar TL'ye yüks…
+ozet: Hasılatın %40,4 oranındaki brüt kâr marjı ile birlikte brüt kâr %1,12 milyar olarak artmış; brüt kârın yüksek oranda yükselmesi, faaliyet kârı ve FAVÖK'ün de %0,93 milyar seviyesine çıkmasını, dolayısıyla net kâr marjının %16,1'e yükselerek sektör medyanının %14,3'ünden daha iyi olmasını sağlamıştır…
 sirket: EGEYAPI AVRUPA GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: EGEGY
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-24
+tarih: 2026-08-26
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %40,4 oranındaki brüt kâr marjı, brüt kârın %40,4'ü kadar artmasıyla birlikte faaliyet kârı ve FAVÖK'ün de brüt kâr seviyesine paralel olarak yükselmesi, net kâr marjının %16,1'e çıkmasını ve özkaynak kârlılığının %5,6'ya ulaşmasını sağladı; bu artışlar özkaynakların 2,67 milyar TL'ye yükselmesiyle desteklenirken, aktif toplamının hafifçe düşmesi (7,42 milyar TL) net borcun 0,40 milyar TL'ye geçmesiyle likiditeyi etkiledi. Cari oran 1,33 seviyesine yükselirken, sektör medyanı 5,25 olduğu için likidite baskısı hâlâ mevcut, ancak borç/özkaynak oranının %0,15 (sektör medyanı %0,02) olması, özkaynak artışıyla birlikte borçlanmanın sınırlı kaldığını gösteriyor. Faaliyet nakit akışı negatiften -0,20 milyar TL'ye iyileşmesi, önceki dönemdeki -0,56 milyar TL'ye kıyasla nakit üretimindeki artışı yansıtıyor.
+Hasılatın %40,4 oranındaki brüt kâr marjı ile birlikte brüt kâr %1,12 milyar olarak artmış; brüt kârın yüksek oranda yükselmesi, faaliyet kârı ve FAVÖK'ün de %0,93 milyar seviyesine çıkmasını, dolayısıyla net kâr marjının %16,1'e yükselerek sektör medyanının %14,3'ünden daha iyi olmasını sağlamıştır. Özkaynakların %5,6 oranındaki kârlılığı, özkaynak seviyesinin %2,67 milyara çıkmasıyla birlikte net kâr artışına paralel ilerlemiş ve bu durum borç/özkaynak oranının %0,15'e yükselmesine rağmen cari oranın 1,33 seviyesinde kalmasına yol açmıştır. Net borcun negatiften pozitif 0,40 milyara geçmesi, faaliyet nakit akışının -0,20 milyara iyileşmesiyle birlikte aktif toplamının hafif düşüş göstermesine (7,42 milyar) rağmen yatırım harcamasının sıfır kalmasıyla likidite yapısının korunmasını desteklemiştir.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

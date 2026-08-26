@@ -1,13 +1,13 @@
 ---
 slug: nibas-2026-2-ceyrek
 baslik: NİĞBAŞ NİĞDE BETON SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat ve brüt kâr aynı oranda yükselirken, faaliyet kârı ve FAVÖK büyük ölçüde düşmüş; bu, satışların artmasına rağmen operasyonel maliyetlerin ve giderlerin çok daha hızlı yükselmesinden kaynaklanıyor.…
+ozet: Hasılat ve brüt kâr aynı oranda yükselirken, faaliyet kârı ve FAVÖK büyük ölçüde düşmüş; bu, satış artışının maliyet ve gider artışlarıyla birlikte kâra dönüşemediğini gösteriyor.…
 sirket: NİĞBAŞ NİĞDE BETON SANAYİ VE TİCARET A.Ş.
 kod: NIBAS
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Sanayi
-tarih: 2026-08-24
+tarih: 2026-08-26
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat ve brüt kâr aynı oranda yükselirken, faaliyet kârı ve FAVÖK büyük ölçüde düşmüş; bu, satışların artmasına rağmen operasyonel maliyetlerin ve giderlerin çok daha hızlı yükselmesinden kaynaklanıyor. Net kâr, özkaynak kârlılığı ve özkaynak seviyesi ise negatifleşerek azalan özkaynak ve artan zararların birbiriyle paralel olarak gerilediğini gösteriyor. Cari oran ve borç/özkaynak oranı ise negatif net borç ve yüksek likidite sayesinde sektör medyanının çok üzerinde kalmış, bu da likidite durumunun kârlılık ve faaliyet sonuçlarından bağımsız olarak güçlü olduğunu ortaya koyuyor.
+Hasılat ve brüt kâr aynı oranda yükselirken, faaliyet kârı ve FAVÖK büyük ölçüde düşmüş; bu, satış artışının maliyet ve gider artışlarıyla birlikte kâra dönüşemediğini gösteriyor. Özkaynak ve aktif toplamı ciddi oranda azalmış, net borç ise negatif (nakit fazlası) hâle gelmiş; bu durum likiditeyi artırsa da özkaynak kârlılığı ve net kâr marjı gibi kârlılık göstergelerinin negatif kalmasına yol açmış. Cari oranın 9,09'a çıkması, sektörel medyan 1,32'nin çok üzerinde bir kısa vadeli ödeme gücü sağlarken, borç/özkaynak oranının -0,12 olması özkaynak erozyonunun borçlanma ihtiyacını azaltmadığını, sadece özkaynak kaybının borçtan daha hızlı gerçekleştiğini işaret ediyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
@@ -54,15 +54,15 @@ Hasılat ve brüt kâr aynı oranda yükselirken, faaliyet kârı ve FAVÖK büy
 
 ## Sektör içindeki konum
 
-Karşılaştırma Sanayi sektöründeki 68 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Sanayi sektöründeki 69 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %29,7 | %21,2 |
-| Net kâr marjı | -%362,1 | %1,2 |
-| Özkaynak kârlılığı | -%51,9 | %0,2 |
-| Cari oran | 9,09 | 1,34 |
-| Borç / özkaynak | -0,12 | 0,17 |
+| Brüt kâr marjı | %29,7 | %20,9 |
+| Net kâr marjı | -%362,1 | %1,3 |
+| Özkaynak kârlılığı | -%51,9 | %0,3 |
+| Cari oran | 9,09 | 1,32 |
+| Borç / özkaynak | -0,12 | 0,16 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

@@ -1,13 +1,13 @@
 ---
 slug: ardyz-2026-2-ceyrek
 baslik: ARD GRUP BİLİŞİM TEKNOLOJİLERİ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %54,9 brüt kâr marjı ile birlikte %22,5 net kâr marjına dönüşmesi, brüt ve net kârların sırasıyla 2,25 milyar TL ve 0,87 milyar TL olarak artmasıyla uyumlu; bu kâr artışları, özkaynak kârlılığının %7,6'ya yükselmesine ve özkaynakların 6,90 milyar TL'ye çıkmasına paralel olarak, faaliyet na…
+ozet: Hasılatın üçte birinden biraz fazla artması brüt kârın %54,9'luk marjda yükselmesine yol açtı; brüt kârdaki bu artış, faaliyet giderlerinin daha yavaş büyümesiyle birleşerek faaliyet kârını %1,61 milyara, ardından FAVÖK ve net kârı sırasıyla %1,89 milyar ve %0,87 milyara taşıdı.…
 sirket: ARD GRUP BİLİŞİM TEKNOLOJİLERİ A.Ş.
 kod: ARDYZ
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Bilişim
-tarih: 2026-08-25
+tarih: 2026-08-26
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,22 +18,22 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %54,9 brüt kâr marjı ile birlikte %22,5 net kâr marjına dönüşmesi, brüt ve net kârların sırasıyla 2,25 milyar TL ve 0,87 milyar TL olarak artmasıyla uyumlu; bu kâr artışları, özkaynak kârlılığının %7,6'ya yükselmesine ve özkaynakların 6,90 milyar TL'ye çıkmasına paralel olarak, faaliyet nakit akışının -0,32 milyar TL'den 0,85 milyar TL'ye geçişiyle desteklenmiştir. Aynı zamanda aktif toplamının 11,42 milyar TL'ye yükselmesi net borcun 1,52 milyar TL'ye hafif artmasıyla birlikte cari oranı 1,26'ya, borç/özkaynak oranını ise %0,22'ye taşıyarak sektör medyanları (cari 1,25, borç/özkaynak -%0,02) üzerinde konumlandırmıştır. Yatırım harcamasının 0,72 milyar TL'ye çıkması, büyüyen aktif ve özkaynak temelinde, kâr marjları ve likidite göstergelerinin yükselmesine eş zamanlı gerçekleşmiştir.
+Hasılatın üçte birinden biraz fazla artması brüt kârın %54,9'luk marjda yükselmesine yol açtı; brüt kârdaki bu artış, faaliyet giderlerinin daha yavaş büyümesiyle birleşerek faaliyet kârını %1,61 milyara, ardından FAVÖK ve net kârı sırasıyla %1,89 milyar ve %0,87 milyara taşıdı. Net kârın yükselişi özkaynak kârlılığını %7,6'ya çıkarırken, özkaynak ve aktif toplamının iki katına yakın büyümesi bilanço ölçeğini genişletti; aynı zamanda net borçta hafif artış (%1,52 milyar) borç/özkaynak oranını %0,22'ye yükseltti. Cari oran %1,26 ile sektör medyanının hemen üzerinde kalırken, artan faaliyet nakit akışı (+%0,85 milyar) yatırım harcamasının sıfıra inmesiyle likiditeyi destekledi.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | %214,5 |
-| Brüt kâr | %178,0 |
-| Faaliyet kârı | %375,7 |
-| FAVÖK | %153,1 |
-| Net kâr | %441,1 |
+| Hasılat | %187,1 |
+| Brüt kâr | %156,3 |
+| Faaliyet kârı | %303,4 |
+| FAVÖK | %176,8 |
+| Net kâr | %422,7 |
 | Özkaynak | %96,1 |
 | Aktif toplamı | %111,4 |
-| Net borç | %18,1 |
-| Faaliyet nakit akışı | %361,8 |
-| Yatırım harcaması | %191,8 |
+| Net borç | %18,2 |
+| Faaliyet nakit akışı | %291,0 |
+| Yatırım harcaması | -%99,8 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -43,14 +43,14 @@ Hasılatın %54,9 brüt kâr marjı ile birlikte %22,5 net kâr marjına dönü�
 | --- | ---: |
 | Hasılat | 4,65 milyar TL |
 | Brüt kâr | 2,25 milyar TL |
-| Faaliyet kârı | 1,72 milyar TL |
-| FAVÖK | 2,25 milyar TL |
+| Faaliyet kârı | 1,61 milyar TL |
+| FAVÖK | 1,89 milyar TL |
 | Net kâr | 0,87 milyar TL |
 | Özkaynak | 6,90 milyar TL |
 | Aktif toplamı | 11,42 milyar TL |
 | Net borç | 1,52 milyar TL |
 | Faaliyet nakit akışı | 0,85 milyar TL |
-| Yatırım harcaması | 0,72 milyar TL |
+| Yatırım harcaması | 0,00 milyar TL |
 
 ## Sektör içindeki konum
 
@@ -70,13 +70,13 @@ Karşılaştırma Bilişim sektöründeki 18 şirketin **medyanına** göre yap�
 
 **Şirket lehine işleyenler**
 
-- Hasılat reel olarak %214,5 arttı.
-- Net kâr reel olarak %441,1 arttı.
+- Hasılat reel olarak %187,1 arttı.
+- Net kâr reel olarak %422,7 arttı.
 - Özkaynak kârlılığı %7,6; sektör medyanı %2,1.
 
 **Dikkat gerektirenler**
 
-- Brüt marj 6,4 puan daraldı (%54,8 → %48,5).
+- Brüt marj 5,8 puan daraldı (%54,2 → %48,4).
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

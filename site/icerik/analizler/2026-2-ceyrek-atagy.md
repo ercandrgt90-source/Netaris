@@ -1,13 +1,13 @@
 ---
 slug: atagy-2026-2-ceyrek
 baslik: ATA GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat aynı kalırken net kâr -%28,2'ye gerileyip negatifleşti; bu düşüş, faaliyet nakit akışının önceki dönemde –%0,04 iken bu dönemde +%0,01'e çıkmasıyla birlikte nakit akışının iyileşmesine rağmen kârın azalmasına yol açtığını gösterir.…
+ozet: Hasılat aynı kalırken net kâr negatiften pozitive dönmüş, bu durum faaliyet nakit akışının da -%0,04'ten +%0,01'e yükselmesiyle paralel bir likidite iyileşmesi gösteriyor; artan nakit akışı özkaynakların %0,84'e (önceki %0,66) ve aktif toplamının %1,05'e (önceki %0,75) yükselmesine katkı sağladı.…
 sirket: ATA GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: ATAGY
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-25
+tarih: 2026-08-26
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat aynı kalırken net kâr -%28,2'ye gerileyip negatifleşti; bu düşüş, faaliyet nakit akışının önceki dönemde –%0,04 iken bu dönemde +%0,01'e çıkmasıyla birlikte nakit akışının iyileşmesine rağmen kârın azalmasına yol açtığını gösterir. Özkaynak 0,84 milyar TL'ye yükselmiş, aktif toplamı da 1,05 milyar TL'ye artmış; bu büyüme net borcun –0,03 milyar TL'ye (daha az negatif) gerilemesiyle özkaynak/aktif oranının güçlendiğini, ancak borç/özkaynak oranının sektör medyanı 0,02'nin altında (-0,03) kalmasını ortaya koyar. Özkaynak kârlılığı –%0,5'ye düşmüş, sektör medyanı %0,4 olduğu için özkaynak artışı kârlılıkta gerilemeye karşılık gelmiştir.
+Hasılat aynı kalırken net kâr negatiften pozitive dönmüş, bu durum faaliyet nakit akışının da -%0,04'ten +%0,01'e yükselmesiyle paralel bir likidite iyileşmesi gösteriyor; artan nakit akışı özkaynakların %0,84'e (önceki %0,66) ve aktif toplamının %1,05'e (önceki %0,75) yükselmesine katkı sağladı. Özsermaye artışı net borcun -%0,03'tan -%0,04'e (daha az negatif) daralmasıyla birlikte borç/özsermaye oranının sektör medyanı 0,02'nin altında, -%0,03'e gerilemesi, şirketin finansal kaldıraçta azaldığını gösteriyor. Ancak net kâr marjı –%28,2 ve özkaynak kârlılığı –%0,5 gibi negatif oranlar, sektör medyanı %14,3 ve %0,4'ün çok altında kalmasıyla kârlılıkta hâlâ zayıf bir performansın sürdüğünü ortaya koyuyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

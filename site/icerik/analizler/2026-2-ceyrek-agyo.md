@@ -1,9 +1,9 @@
 ---
-slug: rygyo-2026-2-ceyrek
-baslik: REYSAŞ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat 2,05 milyar TL'ye yükselirken net kâr 1,99 milyar TL'ye düşmüş, bu durum faaliyet nakit akışının –3,59 milyar TL'ye kaymasıyla paralel bir likidite sıkışması yaratmış; artan özkaynak (103,25 milyar TL) ve aktif toplamı (128,14 milyar TL) ise net borcun (11,22 milyar TL) yükselmesine rağmen b…
-sirket: REYSAŞ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
-kod: RYGYO
+slug: agyo-2026-2-ceyrek
+baslik: ATAKULE GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
+ozet: Hasılatın 0,26 milyar TL'ye yükselmesi, faaliyet nakit akışının 0,01 milyar TL'den 0,04 milyar TL'ye artmasıyla paralel bir artış gösterirken, net kârın -0,15 milyar TL'ye iyileşmesi özkaynakların 5,21 milyar TL'den 6,66 milyar TL'ye artması ve aktif toplamının 5,84 milyar TL'den 7,93 milyar TL'ye y…
+sirket: ATAKULE GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
+kod: AGYO
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
@@ -18,18 +18,18 @@ sayimlar:
 
 ## Özet
 
-Hasılat 2,05 milyar TL'ye yükselirken net kâr 1,99 milyar TL'ye düşmüş, bu durum faaliyet nakit akışının –3,59 milyar TL'ye kaymasıyla paralel bir likidite sıkışması yaratmış; artan özkaynak (103,25 milyar TL) ve aktif toplamı (128,14 milyar TL) ise net borcun (11,22 milyar TL) yükselmesine rağmen borç/özkaynak oranının %0,11 seviyesinde kalmasını sağlamış. Net kâr marjının %118,2'ye çıkması özkaynak kârlılığını %1,1'e yükseltmiş, ancak sektör medyanı %14,3 ve %0,4 olan değerlerle karşılaştırıldığında bu oranların sektörel ortalamaların çok üzerinde olduğu görülüyor. Bu yüksek kârlılık ve düşük borç/özkaynak oranı, artan varlık ve özkaynak büyüklüğüyle birlikte, faaliyet nakit akışındaki negatif değişimle dengelenmiş.
+Hasılatın 0,26 milyar TL'ye yükselmesi, faaliyet nakit akışının 0,01 milyar TL'den 0,04 milyar TL'ye artmasıyla paralel bir artış gösterirken, net kârın -0,15 milyar TL'ye iyileşmesi özkaynakların 5,21 milyar TL'den 6,66 milyar TL'ye artması ve aktif toplamının 5,84 milyar TL'den 7,93 milyar TL'ye yükselmesiyle birlikte gerçekleşti; net borcun -0,04 milyar TL'ye hafifçe artması ise borç/özkaynak oranının -0,01'e gerilemesine yol açtı. Net kâr marjının -%31,2'ye düşmesi, özkaynak kârlılığının -%0,6 olmasına rağmen, özkaynakların büyümesi ve aktif toplamının genişlemesi, şirketin kârlılık ölçütlerinin negatif kalmasına rağmen bilanço büyüklüğünün artmasına neden oldu. Bu değişimler, gelir artışı ve nakit akışı iyileşmesinin bilanço kalemlerinde büyümeye, ancak kârlılık oranlarının hâlâ negatif kalmasına yol açtığını gösterir.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | %17,7 |
-| Net kâr | -%83,5 |
-| Özkaynak | %65,8 |
-| Aktif toplamı | %76,1 |
-| Net borç | %191,2 |
-| Faaliyet nakit akışı | -%757,2 |
+| Hasılat | %9,5 |
+| Net kâr | %25,3 |
+| Özkaynak | %27,9 |
+| Aktif toplamı | %35,7 |
+| Net borç | -%12,5 |
+| Faaliyet nakit akışı | %506,0 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -37,12 +37,12 @@ Hasılat 2,05 milyar TL'ye yükselirken net kâr 1,99 milyar TL'ye düşmüş, b
 
 | Kalem | Değer |
 | --- | ---: |
-| Hasılat | 2,05 milyar TL |
-| Net kâr | 1,99 milyar TL |
-| Özkaynak | 103,25 milyar TL |
-| Aktif toplamı | 128,14 milyar TL |
-| Net borç | 11,22 milyar TL |
-| Faaliyet nakit akışı | -3,59 milyar TL |
+| Hasılat | 0,26 milyar TL |
+| Net kâr | -0,15 milyar TL |
+| Özkaynak | 6,66 milyar TL |
+| Aktif toplamı | 7,93 milyar TL |
+| Net borç | -0,04 milyar TL |
+| Faaliyet nakit akışı | 0,04 milyar TL |
 
 ## Sektör içindeki konum
 
@@ -50,9 +50,9 @@ Karşılaştırma Gayrimenkul sektöründeki 34 şirketin **medyanına** göre y
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Net kâr marjı | %118,2 | %14,3 |
-| Özkaynak kârlılığı | %1,1 | %0,4 |
-| Borç / özkaynak | 0,11 | 0,02 |
+| Net kâr marjı | -%31,2 | %14,3 |
+| Özkaynak kârlılığı | -%0,6 | %0,4 |
+| Borç / özkaynak | -0,01 | 0,02 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -60,11 +60,8 @@ Karşılaştırma Gayrimenkul sektöründeki 34 şirketin **medyanına** göre y
 
 **Şirket lehine işleyenler**
 
-- Hasılat reel olarak %17,7 arttı.
-
-**Dikkat gerektirenler**
-
-- Net kâr reel olarak -%83,5 geriledi.
+- Hasılat reel olarak %9,5 arttı.
+- Net kâr reel olarak %25,3 arttı.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 
