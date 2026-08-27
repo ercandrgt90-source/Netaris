@@ -61,8 +61,14 @@ KAYIT = _KOK / "logo_kayit.json"
 KLASOR = _KOK.parent.parent / "site" / "statik" / "logo"
 
 API = "https://commons.wikimedia.org/w/api.php"
-BASLIKLAR = {"User-Agent": "Netaris/1.0 (finans arastirma; "
-                           "ercandrgt90@gmail.com)"}
+# Kimlik TEK yerden gelir (kaynak/kimlik.py); elle kopyalanan
+# adres 20 dosyada surukledi ve ucu bize ait olmayan bir alan
+# adina isaret ediyordu.
+try:
+    from kimlik import ajan
+except ImportError:  # pragma: no cover -- paket bicimiyle cagrildi
+    from kaynak.kimlik import ajan
+BASLIKLAR = {"User-Agent": ajan("kurum logosu")}
 ZAMAN_ASIMI = 25
 
 #: Kabul edilen lisanslar -- ATIF DA GEREKTIRMEYENLER.

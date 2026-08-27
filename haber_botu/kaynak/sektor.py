@@ -33,8 +33,15 @@ import time
 import httpx
 
 UC = "https://stockanalysis.com/quote/IST/{kod}/"
+# Kimlik TEK yerden gelir (kaynak/kimlik.py); elle kopyalanan
+# adres 20 dosyada surukledi ve ucu bize ait olmayan bir alan
+# adina isaret ediyordu.
+try:
+    from kimlik import ajan
+except ImportError:  # pragma: no cover -- paket bicimiyle cagrildi
+    from kaynak.kimlik import ajan
 BASLIKLAR = {
-    "User-Agent": "Netaris/1.0 (finans arastirma; ercandrgt90@gmail.com)",
+    "User-Agent": ajan("sektor verisi"),
 }
 ZAMAN_ASIMI = 30.0
 

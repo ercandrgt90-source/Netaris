@@ -32,7 +32,15 @@ from datetime import date
 
 import httpx
 
-BASLIKLAR = {"User-Agent": "Netaris/0.1 (finansal yayin; iletisim@netaris.com)"}
+# Kimlik TEK yerden gelir; 20 dosyada elle yazilinca surukledi.
+# Iki bicim de kullaniliyor: `import makro` (kaynak/ sys.path'te)
+# ve `from kaynak import makro` (haber_botu/ sys.path'te).
+try:
+    from kimlik import ajan
+except ImportError:  # pragma: no cover -- paket bicimiyle cagrildi
+    from kaynak.kimlik import ajan
+
+BASLIKLAR = {"User-Agent": ajan("makro seriler")}
 ZAMAN_ASIMI = 40.0
 
 

@@ -37,11 +37,24 @@ import time
 import httpx
 
 UC = "https://api.mymemory.translated.net/get"
-BASLIKLAR = {"User-Agent": "Netaris/0.1 (finansal yayin)"}
+# Kimlik TEK yerden gelir; 20 dosyada elle yazilinca surukledi.
+# Iki bicim de kullaniliyor: `import ceviri` (kaynak/ sys.path'te)
+# ve `from kaynak import ceviri` (haber_botu/ sys.path'te).
+try:
+    from kimlik import ajan
+except ImportError:  # pragma: no cover -- paket bicimiyle cagrildi
+    from kaynak.kimlik import ajan
+
+BASLIKLAR = {"User-Agent": ajan("haber cevirisi")}
 ZAMAN_ASIMI = 25.0
 
-#: Kotayi 1.000 kelimeden 50.000 kelimeye cikarir
-ILETISIM = "iletisim@netaris.com"
+#: Kotayi 1.000 kelimeden 50.000 kelimeye cikarir. Adres GECERLI
+#: olmali: MyMemory dogrulayamazsa ayricalik sessizce dusuyor.
+#: `netaris.com` bizim degil -- bkz. kimlik.py.
+try:
+    from kimlik import ILETISIM
+except ImportError:  # pragma: no cover
+    from kaynak.kimlik import ILETISIM
 
 ONBELLEK_YOLU = pathlib.Path(__file__).parent / "ceviri_onbellek.json"
 

@@ -58,11 +58,18 @@ from zoneinfo import ZoneInfo
 
 import httpx
 
+# Kimlik TEK yerden gelir (kaynak/kimlik.py); elle kopyalanan
+# adres 20 dosyada surukledi ve ucu bize ait olmayan bir alan
+# adina isaret ediyordu.
+try:
+    from kimlik import ajan
+except ImportError:  # pragma: no cover -- paket bicimiyle cagrildi
+    from kaynak.kimlik import ajan
 BASLIKLAR = {
     # BLS bot erisimini engelliyor ama politikasi tanitici tanimlayan
     # istemcilere izin veriyor. Kimligimizi ve iletisimi yaziyoruz --
     # tarayici taklidi yapmak yerine kim oldugumuzu soylemek dogru olan.
-    "User-Agent": "Netaris/1.0 (finans arastirma; ercandrgt90@gmail.com)",
+    "User-Agent": ajan("yayin takvimi"),
 }
 ZAMAN_ASIMI = 25.0
 

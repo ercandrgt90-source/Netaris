@@ -36,7 +36,15 @@ from datetime import datetime, timezone
 
 import httpx
 
-BASLIKLAR = {"User-Agent": "Netaris/0.1 (finansal yayin; iletisim@netaris.com)"}
+# Kimlik TEK yerden gelir; 20 dosyada elle yazilinca surukledi.
+# Iki bicim de kullaniliyor: `import emtia` (kaynak/ sys.path'te)
+# ve `from kaynak import emtia` (haber_botu/ sys.path'te).
+try:
+    from kimlik import ajan
+except ImportError:  # pragma: no cover -- paket bicimiyle cagrildi
+    from kaynak.kimlik import ajan
+
+BASLIKLAR = {"User-Agent": ajan("emtia fiyatlari")}
 ZAMAN_ASIMI = 20.0
 
 GOLD_API = "https://api.gold-api.com/price/{}"
