@@ -1953,11 +1953,23 @@ ${gorsel ? `<meta property="og:image" content="${kacir(
 
 /*: Yayindaki icerik bu saatten eskiyse hat tetikleniyor.
  *
- *  GitHub takvimi hafta ici yarim saatte bir kosuyor. Iki saat, dort
- *  kacirilmis kosu demek -- yani gecici bir gecikme degil, gercek bir
- *  durus. Esigi daha dusuk tutmak, GitHub'in olagan gecikmelerinde
- *  gereksiz tetikleme uretirdi. */
-const NOBET_ESIK_SAAT = 2;
+ *  2 -> 1,5 (2026-08-27, ayni gun).
+ *
+ *  Ilk deger "nobetci YEDEK, asil zamanlayici GitHub" varsayimiyla
+ *  secilmisti. O varsayim tutmadi: zamanlanmis kosular 26 Agustos
+ *  16:36'dan beri BIR KEZ BILE dusmedi -- 22 saat. Yani nobetci
+ *  yedek degil, fiilen ASIL mekanizma.
+ *
+ *  Saat basi bakip 2 saat esik koymak, en kotu durumda 3 saatlik
+ *  bayatlik demekti; kullanici tam bu durumda "haber akisi yok"
+ *  dedi. Yarim saatte bir bakis + 1,5 saat esik, en kotu durumu
+ *  ~2 saate indiriyor.
+ *
+ *  CIFT KOSU RISKI YOK: GitHub'in takvimi calisirken icerik yasi
+ *  hicbir zaman 30 dakikayi gecmiyor, yani esigin yarisina bile
+ *  ulasmiyor ve nobetci sessiz kaliyor. 1,5 saat ayrica GitHub'in
+ *  olagan gecikmelerine de pay birakiyor. */
+const NOBET_ESIK_SAAT = 1.5;
 
 const NOBET_DEPO = "ercandrgt90-source/Netaris";
 

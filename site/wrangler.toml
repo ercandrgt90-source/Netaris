@@ -56,16 +56,22 @@ routes = [
 # hicbir yerde gorunmuyor. Depo ertesi gun herkese acildi (dakika
 # sinirsiz) ama takvim geri gelmedi; site saatlerce bayat kaldi.
 #
-# Saat basi calisiyor ama HER SAAT TETIKLEMIYOR: once yayindaki en yeni
-# icerigin yasina bakiyor ve yalnizca iki saatten eskiyse GitHub'a
-# `repository_dispatch` gonderiyor (bkz. worker.js -> nobetci).
-# GitHub'in kendi takvimi calisirken bu kod sessiz duruyor.
+# Yarim saatte bir calisiyor ama HER SEFERINDE TETIKLEMIYOR: once
+# yayindaki en yeni icerigin yasina bakiyor ve yalnizca 1,5 saatten
+# eskiyse GitHub'a `repository_dispatch` gonderiyor (bkz. worker.js ->
+# nobetci). GitHub'in kendi takvimi calisirken icerik hicbir zaman 30
+# dakikadan eski olmuyor, yani bu kod sessiz duruyor.
+#
+# Saat basiydi. Zamanlanmis kosular 26 Agustos 16:36'dan beri hic
+# dusmedi -- yani nobetci yedek degil, fiilen asil mekanizma. Saat
+# basi bakis + 2 saat esik, en kotu durumda 3 saatlik bayatlik
+# demekti; simdi ~2 saat.
 #
 # `GITHUB_TETIK_JETONU` tanimli degilse hicbir sey yapmiyor:
 #     npx wrangler secret put GITHUB_TETIK_JETONU
 # Ince taneli PAT, yalnizca bu depoda `contents: write`.
 [triggers]
-crons = ["0 * * * *"]
+crons = ["*/30 * * * *"]
 
 [assets]
 directory = "./cikti"

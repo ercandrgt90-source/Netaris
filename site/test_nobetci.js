@@ -124,6 +124,18 @@ async function kos() {
   await nobetci(ortamKur(ESIK - 0.2, "jtn"));
   esit(cagrilar.length, 0, "esigin hemen altinda tetiklemiyor");
 
+  /* CIFT KOSU OLMAMALI.
+     GitHub'in takvimi hafta ici YARIM SAATTE BIR kosuyor. O calisirken
+     icerik yasi hicbir zaman ~30 dakikayi gecmez; nobetci o araliga hic
+     karismamali, yoksa her sey iki kez kosar. Esik asagi cekilirse once
+     bu sinama kirilir -- amaci tam olarak bu. */
+  cagrilar = [];
+  await nobetci(ortamKur(0.5, "jtn"));
+  esit(cagrilar.length, 0, "GitHub normal araliginda (30 dk) susuyor");
+  cagrilar = [];
+  await nobetci(ortamKur(0.75, "jtn"));
+  esit(cagrilar.length, 0, "GitHub 15 dk gecikse de susuyor");
+
   console.log("\nBAYATLAYINCA TETIKLIYOR\n");
   cagrilar = [];
   await nobetci(ortamKur(ESIK + 0.2, "jtn"));
