@@ -1935,21 +1935,51 @@ def _ara_metni(metin: str) -> str:
     return metin.translate(_SLUG_ESLEME).lower()
 
 
-def rss_uret(analizler: list[Analiz]) -> str:
+def rss_uret(analizler: list[Analiz],
+             haberler: list[tuple[str, str, str, str]] | None = None) -> str:
+    """Besleme: yayimlanan HABERLER ve ANALIZLER birlikte.
+
+    NEDEN HABER DE GIRIYOR
+    ----------------------
+    Besleme uzun sure YALNIZCA analiz tasiyordu. Olculdu (2026-08-27):
+    otuz ogenin otuzu `/analiz/` idi, haber SIFIR. Yani bir haber
+    sitesinin RSS'ine abone olan okur hic haber almiyordu -- yalnizca
+    bilanco analizleri.
+
+    IKINCI SONUC, DAHA SINSI: `site/tazelik.py` "site guncelleniyor mu"
+    sorusunu bu beslemeden olcuyordu. Besleme yalnizca analiz tasidigi
+    icin arac ANALIZ tazeligini olcuyor, HABER tazeligi sanip alarm
+    veriyordu. 27 Agustos'ta tam bu oldu: `/gundem/` bugunun
+    haberlerini gosterirken arac "site 33 saattir bayat" dedi.
+
+    Yanlis alarm zararsiz degil -- gercek bir durus oldugunda ayni
+    satir okunmaz hale gelir. Besleme duzeltilince olcum de duzeliyor.
+
+    SIRA TARIHE GORE: iki kaynak birlestirilip yeniden siralaniyor.
+    Analizleri one almak, gunun haberini beslemenin dibine iterdi.
+    """
+    kayitlar: list[tuple[str, str, str, str]] = [
+        (a.tarih, a.baslik, a.ozet, a.yol) for a in analizler
+    ]
+    kayitlar += list(haberler or [])
+    # En yeni once. Tarihi cozulemeyen kayit sona duser -- uydurma bir
+    # tarih vermek yerine sirasi kaybolsun.
+    kayitlar.sort(key=lambda k: k[0] or "", reverse=True)
+
     ogeler = []
-    for a in analizler[:30]:
+    for tarih, baslik, ozet, yol in kayitlar[:40]:
         try:
-            d = datetime.strptime(a.tarih, "%Y-%m-%d").replace(tzinfo=timezone.utc)
+            d = datetime.strptime(tarih, "%Y-%m-%d").replace(tzinfo=timezone.utc)
             pub = d.strftime("%a, %d %b %Y %H:%M:%S +0000")
-        except ValueError:
+        except (ValueError, TypeError):
             pub = ""
         ogeler.append(
             "    <item>\n"
-            f"      <title>{html.escape(a.baslik)}</title>\n"
-            f"      <link>{SITE['adres']}{a.yol}</link>\n"
-            f"      <guid isPermaLink=\"true\">{SITE['adres']}{a.yol}</guid>\n"
-            f"      <description>{html.escape(a.ozet)}</description>\n"
-            f"      <pubDate>{pub}</pubDate>\n"
+            f'      <title>{html.escape(baslik)}</title>\n'
+            f'      <link>{SITE["adres"]}{yol}</link>\n'
+            f'      <guid isPermaLink="true">{SITE["adres"]}{yol}</guid>\n'
+            f'      <description>{html.escape(ozet)}</description>\n'
+            f'      <pubDate>{pub}</pubDate>\n'
             "    </item>"
         )
     return (
@@ -4289,6 +4319,8 @@ def insa() -> int:
     yollar = ["/"]
     #: Yol -> son degisiklik tarihi. `sitemap.xml` icin.
     _lastmod: dict[str, str] = {}
+    #: RSS icin (tarih, baslik, ozet, yol) -- yayimlanan haberler.
+    _rss_haber: list[tuple[str, str, str, str]] = []
 
     # Menude yalnizca DOLU kategoriler gorunur
     menu = [
@@ -5013,6 +5045,13 @@ def insa() -> int:
             )
             yollar.append(h_yol)
             _lastmod[h_yol] = (h.get("tarih") or "")[:10]
+            # RSS ICIN: yayimlanan haber de beslemeye giriyor.
+            _rss_haber.append((
+                (h.get("tarih") or "")[:10],
+                h.get("baslik") or "",
+                h.get("ozet") or h.get("neden_onemli") or "",
+                h_yol,
+            ))
 
 
         yaz(
@@ -5098,7 +5137,7 @@ def insa() -> int:
     yollar.append("/ara/")
 
     # Besleme ve arama motoru dosyalari
-    yaz("/rss.xml", rss_uret(listelenen))
+    yaz("/rss.xml", rss_uret(listelenen, _rss_haber))
     yaz("/sitemap.xml", sitemap_uret(yollar, _lastmod))
     yaz(
         "/robots.txt",
