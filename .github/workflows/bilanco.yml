@@ -55,7 +55,20 @@ on:
     # uretiyor ve ~330 sirket icin alti kosu yetiyor. Haftanin gunu
     # `*` birakildi -- cron'da gun-of-month ve gun-of-week birlikte
     # verilince VEYA gibi davraniyor ve beklenmedik gunlerde kosuyor.
-    - cron: "0 6 1,5,9,13,17,21 3,5,8,11 *"
+    # DEPO HERKESE ACIK -- 2026-08-27. Actions dakikasi SINIRSIZ.
+    #
+    # Gun listesi (1,5,9,13,17,21) kotayi korumak icin konmustu ve
+    # yan etkisi vardi: 2026-08-27'de olculdu, 65 kumulatif sayfanin
+    # ceyreklik karsiligi hala uretilmemisti ve takvime gore siradaki
+    # kosu 1 KASIM'di. Yani bir bicim hatasi iki ay daha yasayacakti.
+    #
+    # Bildirim aylarinda HER GUN. KAP bildirimleri ayin tamamina
+    # yayiliyor; alti sabit gune bakmak, aradaki bildirimleri bir
+    # sonraki pencereye erteliyor.
+    #
+    # Aylar hala sinirli (3,5,8,11): bildirim disi aylarda yeni
+    # bilanco gelmiyor, kosmak bos yere depoya yazmak olurdu.
+    - cron: "0 6 * 3,5,8,11 *"
   workflow_dispatch:
     inputs:
       yayinla:

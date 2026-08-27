@@ -3,24 +3,32 @@
 # Makine kapali olsa da calisir: veriyi toplar, icerigi uretir, siteyi
 # kurar, Cloudflare'e dagitir ve dogrular.
 #
-# NEDEN HER SAAT DEGIL DE BOYLE
-# -----------------------------
-# Depo OZEL. Ozel depoda GitHub Actions ayda 2.000 dakika veriyor; bir
-# calisma ~3 dakika. Kesintisiz "her saat" (720 calisma) ayda 2.160 dakika
-# eder ve kotayi ayin son gunlerinde bitirir -- yani en cok ihtiyac
-# duyulan anda otomasyon durur.
+# TAKVIMI NE BELIRLIYOR
+# --------------------
+# ARTIK KOTA DEGIL. Depo 2026-08-27'de herkese acik yapildi; herkese
+# acik depolarda GitHub Actions dakikasi SINIRSIZ.
 #
-# Onun yerine akisin gercek ritmine uyduruldu:
-#   Hafta ici 05-20 UTC (08-23 TRT) saat basi  -> 16 x 22 gun = 352
-#   Hafta sonu dort saatte bir                 ->  6 x  8 gun =  48
-#   Toplam ~400 calisma ~ 1.200 dakika. Kota icinde, payi da var.
+# Bu not oyle kalmasin diye yaziliyor: onceki hali "Depo OZEL, ayda
+# 2.000 dakika" diyordu ve takvim o kisita gore kurulmustu. Kisit
+# kalkti ama not kalsaydi, sonraki okuyucu var olmayan bir tavana
+# gore karar verirdi.
 #
-# Turkiye'de ekonomi haberi hafta ici mesai saatlerinde akiyor; ABD ve AB
-# duyurulari 15-23 TRT arasinda cikiyor. Gece 00-05 TRT'de yeni haber
-# neredeyse yok, o saatlerde calismak bosa dakika harcamak olurdu.
+# Sikligi belirleyen sey artik KAYNAGIN PENCERESI:
 #
-# Depo herkese acik yapilirsa Actions dakikasi SINIRSIZ olur ve bu
-# takvim serbestce sikilastirilabilir.
+#   FinancialJuice tek cagrida "son 100" basligi veriyor. Yogun
+#   saatlerde 100 baslik bir saatten KISA bir pencereye karsilik
+#   geliyor -- yani saat basi bakmak, aradaki gelismelerin bir
+#   kismini hic gormemek demek.
+#
+# Bu yuzden hafta ici aktif saatlerde YARIM SAATTE BIR. Gece ve hafta
+# sonu saat basi: haber seyrek, pencere genis.
+#
+# Turkiye'de ekonomi haberi hafta ici mesai saatlerinde akiyor; ABD ve
+# AB duyurulari 15-23 TRT arasinda cikiyor.
+#
+# NOT: Depo herkese acik oldugu icin Actions GUNLUKLERI DE HERKESE
+# ACIK. Hicbir adim gizli deger yazdirmamali -- 2026-08-27'de
+# tarandi, yazdiran adim yok. Yeni adim eklerken bunu koruyun.
 #
 # GEREKEN GIZLI DEGERLER (GitHub > Settings > Secrets and variables >
 # Actions > New repository secret):
@@ -69,9 +77,28 @@ on:
     # Depo HERKESE ACIK yapilirsa Actions dakikasi SINIRSIZ olur ve
     # saatlik takvime donulebilir; gizli degerler kodda degil
     # Secrets'ta duruyor.
-    - cron: "0 6,10,14,18 * * 1-5"
-    # Hafta sonu dort saatte bir: 03:00-23:00 TRT
-    - cron: "0 8,18 * * 0,6"
+    # DEPO HERKESE ACIK -- 2026-08-27. Actions dakikasi artik SINIRSIZ.
+    #
+    # Gunde dort kez, kota yuzunden konmus bir odundu; dosyanin kendi
+    # olcumu bambaska bir sey soyluyordu:
+    #
+    #   "FinancialJuice tek cagrida 100 baslik veriyor ve yogun
+    #    saatlerde bu, bir saatten KISA bir pencereye karsilik
+    #    geliyor -- yani iki calistirma arasindaki gelismelerin bir
+    #    kismi hic gorulmuyordu."
+    #
+    # Kaynak "son 100"den fazlasini vermiyor. Yani sikligi belirleyen
+    # sey kaynagin penceresi; kota kalkinca dogru cevap geri geliyor.
+    #
+    # Hafta ici 05-20 UTC (08-23 TRT) YARIM SAATTE BIR. Turkiye'de
+    # ekonomi haberi mesai saatlerinde akiyor, ABD ve AB duyurulari
+    # 15-23 TRT arasinda cikiyor -- pencerenin daraldigi saatler
+    # tam da bunlar.
+    - cron: "*/30 5-20 * * 1-5"
+    # Hafta ici gece saat basi: haber seyrek, ama akis kesilmiyor.
+    - cron: "0 0-4,21-23 * * 1-5"
+    # Hafta sonu saat basi.
+    - cron: "0 * * * 0,6"
   # Panelden elle de calistirilabilsin
   workflow_dispatch:
     inputs:
