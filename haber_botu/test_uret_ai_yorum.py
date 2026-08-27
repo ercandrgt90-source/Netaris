@@ -40,6 +40,18 @@ class SahteDosya:
         self.duyarlilik = [("Enerji", 1, 1), ("Havayolu", 1, 1)]
         self.izlenecekler = ["Brent", "Hürmüz Boğazı"]
 
+    # SAHTE, GERCEGINI YANSITMALI.
+    # Gercek `Dosya` bu ikisini ozellik olarak hesapliyor; sahte
+    # yalnizca alanlari tasisaydi, kural degistiginde test eski
+    # davranisi dogrulamaya devam ederdi.
+    @property
+    def dolu(self):
+        return bool(self.turkiye or self.duyarlilik or self.izlenecekler)
+
+    @property
+    def acilis_basilir(self):
+        return bool(self.acilis) and not self.dolu
+
 
 BULGU = "Brent 88,90 $ (bir ayda +%29,4)"
 

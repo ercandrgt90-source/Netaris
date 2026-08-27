@@ -265,7 +265,7 @@
        duyurduğu için sayfa haberin konusuyla örtüşüyor. #}
     {# Kutu basiliyorsa acilis BASILMIYOR: ikisi ayni cumleyi
        tasiyordu ve okur ayni sayiyi iki kez okuyordu. #}
-    {% if dosya and dosya.acilis and not (dosya and dosya.dolu) %}
+    {% if dosya and dosya.acilis_basilir %}
     <p class="acilis">{{ dosya.acilis }}</p>
     {% elif h.ozet and not (dosya and dosya.dolu) %}
     {# OZET KUTU BASILMADIGINDA GOVDE BOS KALMASIN.

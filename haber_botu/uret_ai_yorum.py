@@ -114,7 +114,14 @@ def girdi_kur(h: dict, d) -> str:
     kendi_olcumu = bool((h.get("ozet") or "").strip()
                         or (d is not None and d.acilis))
     if d is not None:
-        if d.acilis:
+        # SAYFAYA CIKMAYAN ACILIS MODELE DE GONDERILMEZ.
+        #
+        # Kosulsuzdu ve olculdu (2026-08-27): 104 elenen yorumun 84'u
+        # acilis cumlesindeki Brent fiyatini aniyordu. Kutu basilan
+        # sayfalarda acilis basilmiyor -- yani model sayfada olmayan
+        # bir sayiyi aliyor, yorum uretiliyor, sonra dogrulama
+        # suzgecine takilip cope gidiyordu. AI cagrisi da bosa.
+        if d.acilis_basilir:
             p.append(f"Açılış: {d.acilis}")
         for b in (d.bulgular if kendi_olcumu else ()):
             p.append(f"Bulgu: {b}")

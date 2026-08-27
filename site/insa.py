@@ -768,6 +768,10 @@ KATEGORI_FOTO = {
 #: demek.
 _dogrulanamayan: list[str] = []
 
+#: Elenen yorumun HANGI sayilari kacirdigi -- esigi
+#: tartisabilmek icin sayinin kendisi gerekiyor.
+_kacak_detay: list = []
+
 #: Yorumda gecen ve sayfada aranacak sayi kalibi. Binlik ayraci ve
 #: ondalik virgul dahil.
 _SAYI = re.compile(r"\d[\d.]*,\d+|\d{1,3}(?:\.\d{3})+|\d+")
@@ -801,7 +805,10 @@ def _yorum_dogrulanabilir(metin: str, h: dict, d) -> bool:
         # andigi %9,5 ve %12,5 yalnizca `acilis` icinde vardi ve o
         # sayfalarda `dolu` dogru oldugu icin acilis HIC basilmamisti.
         # Sayilar yorumun disinda hicbir yerde gorunmuyordu.
-        if not getattr(d, "dolu", False):
+        # Kosul `dosya.acilis_basilir` icinde -- sablon ve AI girdisi de
+        # ayni ozelligi soruyor. Buraya elle kopyalanmis hali ayristi ve
+        # 104 yorumun elenmesine yol acti (bkz. dosya.py).
+        if getattr(d, "acilis_basilir", False):
             kaynak.append(getattr(d, "acilis", "") or "")
         # BULGULAR artik kendi kosulunda basiliyor (bkz. `haber.html`);
         # once seyir grafiginin kosuluna hapsolmustu.
@@ -842,11 +849,25 @@ def _yorum_dogrulanabilir(metin: str, h: dict, d) -> bool:
                       if len(s) >= _EN_KISA_SAYI]
     if not yorum_sayilari:
         return True
-    bulunan = sum(
-        1 for s in yorum_sayilari
-        if s in havuz_sayilari
-        or s.replace(".", "").replace(",", "")[:4] in kisa)
-    return bulunan * 2 >= len(yorum_sayilari)
+
+    def _var(s: str) -> bool:
+        return (s in havuz_sayilari
+                or s.replace(".", "").replace(",", "")[:4] in kisa)
+
+    kacaklar = [s for s in yorum_sayilari if not _var(s)]
+    bulunan = len(yorum_sayilari) - len(kacaklar)
+    tamam = bulunan * 2 >= len(yorum_sayilari)
+    if not tamam:
+        # HANGI SAYININ KACTIGI YAZILIYOR.
+        #
+        # Once yalnizca "N yorum basilmadi" deniyordu ve o sayi tek
+        # basina hicbir seye yaramiyordu: elenen yorum fazla mi
+        # eleniyor yoksa dogru mu eleniyor, bakan kisi goremiyordu.
+        # Kacan sayiyi gormeden esigi tartismak tahmin olur.
+        _kacak_detay.append({"adres": h.get("adres", ""),
+                             "kacak": kacaklar[:6],
+                             "toplam": len(yorum_sayilari)})
+    return tamam
 
 
 def _boy_foto(yol: str, klasor: str) -> str:
@@ -5237,6 +5258,14 @@ def insa() -> int:
               f"sayi tasidigi icin BASILMADI")
         for x in _dogrulanamayan[:3]:
             print(f"    {x}")
+        if _kacak_detay:
+            import collections as _c
+            _sayac = _c.Counter()
+            for _d in _kacak_detay:
+                for _s in _d["kacak"]:
+                    _sayac[_s] += 1
+            print("    en cok kacan sayilar: "
+                  + ", ".join(f"{s}({n})" for s, n in _sayac.most_common(12)))
     print(f"{len(yollar)} adres, cikti: {CIKTI.relative_to(KOK.parent)}")
 
     if "ALAN-ADI-BELIRLENMEDI" in SITE["adres"]:

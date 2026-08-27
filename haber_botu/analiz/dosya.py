@@ -776,6 +776,33 @@ class Dosya:
     def dolu(self) -> bool:
         return bool(self.turkiye or self.duyarlilik or self.izlenecekler)
 
+    @property
+    def acilis_basilir(self) -> bool:
+        """Acilis cumlesi SAYFAYA CIKAR MI?
+
+        NEDEN AYRI BIR OZELLIK
+        ----------------------
+        Ayni kural UC yerde elle tekrarlaniyordu:
+
+            sablon (haber.html)  {% if dosya.acilis and not dosya.dolu %}
+            dogrulama (insa.py)  if not d.dolu: kaynak.append(d.acilis)
+            AI girdisi           if d.acilis:            <-- KOSULSUZ
+
+        Ucuncusu ayristi ve sonucu 2026-08-27'de olculdu: 104 AI
+        yorumunun 84'u `9,5`, 77'si `95,29`, 38'i `12,5` diye sayilar
+        aniyordu -- hepsi acilis cumlesindeki Brent verisinden. Kutu
+        basilan sayfalarda acilis BASILMIYOR, yani model sayfada
+        hicbir yerde gorunmeyen bir fiyati alintiliyordu ve yorum
+        dogrulama suzgecine takilip hic yayimlanmiyordu.
+
+        Yani hata sessizce iki kez zarar veriyordu: AI cagrisi
+        harcaniyor, sonra uretilen yorum cope gidiyordu.
+
+        Kural artik TEK yerde. Uc taraf da bunu soruyor; degisirse
+        ucu birden degisir.
+        """
+        return bool(self.acilis) and not self.dolu
+
 
 def _seri(b: sqlite3.Connection, kod: str, n: int = 24) -> list[tuple[str, float]]:
     r = b.execute(
