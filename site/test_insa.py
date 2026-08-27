@@ -220,6 +220,81 @@ dogru("anasayfa kunyesi donem'i kosulsuz basmiyor",
       "a.donem and (a.donem|gun) != a.tarih_tr" in _ANA)
 
 
+
+# ------------------------------------------------------------------
+# KAYIT DEFTERINDE OLUP DISKTE OLMAYAN LOGO BASILMAZ.
+#
+# Olculdu (2026-08-27): `logo_kayit.json` 15 logo listeliyordu,
+# `site/statik/logo/` icinde 13 dosya vardi. Eksik ikisi sekiz
+# sayfada KIRIK GORSEL olarak basiliyordu -- sirketin isareti yerine
+# tarayicinin kirik resim simgesi.
+#
+# Kayit dosya YAZILDIGINDA guncelleniyor; dosya sonradan kaybolursa
+# (basarisiz indirme, temizlik, depoya girmemis dosya) defteri kimse
+# duzeltmiyor. Yani defter tek basina yeterli kanit degil.
+#
+# Ayni ilke `_boy_foto` ve kavram gorsellerinde zaten uygulaniyordu;
+# logo yolu disinda kalmisti.
+# ------------------------------------------------------------------
+dogru("olmayan logo dosyasi diskte YOK sayilir",
+      not insa._logo_diskte("/statik/logo/boyle-bir-dosya-yok.svg"))
+
+dogru("bos yol diskte YOK sayilir", not insa._logo_diskte(""))
+
+_mevcut = sorted((_KOK / "statik" / "logo").glob("*"))
+if _mevcut:
+    dogru("var olan logo dosyasi diskte VAR sayilir",
+          insa._logo_diskte("/statik/logo/" + _mevcut[0].name))
+
+# DUSUS CALISIYOR MU.
+#
+# ILK YAZIMDA BU SINAMA ISE YARAMIYORDU: `sirket_gorseli("YOKKOD")`
+# cagriliyordu ama YOKKOD onayli listede olmadigi icin islev daha ilk
+# satirda donuyor ve logo koluna HIC girmiyordu. Disk kontrolu
+# kaldirildiginda test yine yesil kaliyordu -- yani korumayi degil,
+# alakasiz bir dali olcuyordu.
+#
+# Dogru kurulum: kodu ONAYLI yapip kayit defterine OLMAYAN bir dosya
+# koymak. Ancak o zaman islev gercekten logo kolundan geciyor.
+_onayli_yedek = insa._ONAYLI_LOGO
+_kayit_yedek = getattr(insa, "__LOGO", None)
+try:
+    # BES HARF: `amblem()` BIST kod bicimi bekliyor ve daha uzun bir
+    # dizgide BOS donuyor. Ilk yazimda "TESTKOD" kullanildi, cikti bos
+    # geldi ve "logo basilmadi" sinamasi BOS CIKTI SAYESINDE geciyordu
+    # -- yani yine yanlis seyi olcuyordu.
+    insa._ONAYLI_LOGO = frozenset({"TSTKD"})
+    setattr(insa, "__LOGO", {"TSTKD": {"yol": "/statik/logo/yok-boyle.svg"}})
+    _cikti = insa.sirket_gorseli("TSTKD", "Deneme A.Ş.", "Sanayi", "2026/3")
+    dogru("kayitta olup diskte olmayan logo BASILMAZ",
+          "/statik/logo/" not in _cikti)
+    dogru("yerine amblem uretiliyor (sirket gorselsiz kalmiyor)",
+          bool(_cikti.strip()))
+
+    # Karsit durum: dosya GERCEKTEN varsa logo basilmali. Aksi halde
+    # "hicbir zaman logo basma" da testi gecerdi.
+    if _mevcut:
+        setattr(insa, "__LOGO",
+                {"TSTKD": {"yol": "/statik/logo/" + _mevcut[0].name}})
+        _cikti2 = insa.sirket_gorseli("TSTKD", "Deneme A.Ş.", "Sanayi",
+                                      "2026/3")
+        dogru("diskte VAR olan logo basiliyor",
+              "/statik/logo/" + _mevcut[0].name in _cikti2)
+finally:
+    insa._ONAYLI_LOGO = _onayli_yedek
+    if _kayit_yedek is None:
+        if hasattr(insa, "__LOGO"):
+            delattr(insa, "__LOGO")
+    else:
+        setattr(insa, "__LOGO", _kayit_yedek)
+
+# HANGI SINAMA KALDIGI YAZILIYOR.
+#
+# Onceden yalnizca sayi basiliyordu ("1 kaldi") ve o sayi tek basina
+# ise yaramiyordu: bakan kisi hangi kuralin bozuldugunu goremiyordu.
+# Ayni eksik `insa.py`nin yorum tanilamasinda da vardi.
+for _k in kaldi:
+    print(f"  KALDI  {_k}")
 print(f"{gecti} gecti, {len(kaldi)} kaldi")
 sys.exit(1 if kaldi else 0)
 

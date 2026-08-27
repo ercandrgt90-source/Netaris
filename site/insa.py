@@ -64,6 +64,12 @@ def _onayli_logolar() -> frozenset:
 _ONAYLI_LOGO = _onayli_logolar()
 
 
+def _logo_diskte(yol: str) -> bool:
+    """`/statik/logo/x.svg` diskte gercekten var mi?"""
+    ad = (yol or "").rsplit("/", 1)[-1]
+    return bool(ad) and (STATIK / "logo" / ad).exists()
+
+
 def _logo_kayit() -> dict:
     global __LOGO
     try:
@@ -191,7 +197,24 @@ def sirket_gorseli(kod: str, sirket: str, sektor: str, donem: str) -> str:
     if kd not in _ONAYLI_LOGO:
         return _amblem.amblem(kod, sirket, sektor, donem)
     k = (_logo_kayit().get(kd) or {})
-    if k.get("yol"):
+    # KAYIT DEFTERI DEGIL, DISK BELIRLIYOR.
+    #
+    # Olculdu (2026-08-27): `logo_kayit.json` 15 logo listeliyordu ama
+    # `site/statik/logo/` icinde 13 dosya vardi. Eksik ikisi
+    # (`forte.svg`, `fzlgy.png`) sekiz sayfada KIRIK GORSEL olarak
+    # basiliyordu -- kirik resim simgesi, sirketin isareti yerine.
+    #
+    # Kayit dosyaya YAZILDIGINDA guncelleniyor; dosya sonradan
+    # kaybolursa (basarisiz indirme, temizlik, depoya girmemis dosya)
+    # kaydi kimse duzeltmiyor. Yani defter dogru olmayabilir.
+    #
+    # Ayni ilke bu dosyada zaten iki yerde uygulaniyor: `_boy_foto`
+    # ve kavram gorselleri "yalnizca diskte hazir olani" okuyor.
+    # Logo yolu bunun disinda kalmisti.
+    #
+    # Dusus zararsiz: amblem her zaman uretilebiliyor, yani logo
+    # bulunamayan sirket gorselsiz kalmiyor.
+    if k.get("yol") and _logo_diskte(k["yol"]):
         return _amblem.logolu(k["yol"], kod, sirket, sektor, donem)
     return _amblem.amblem(kod, sirket, sektor, donem)
 import gorsel
