@@ -468,6 +468,41 @@ _ASKERI_KOD = re.compile(
     r"[\s\-_]?\d{1,3}\b|\b(uscgc|usns|hmnzs|hmcs)\b",
     re.I)
 
+#: HAYVAN VE EVCIL HAYVAN GORSELLERI.
+#:
+#: Olculdu (2026-08-27, kullanici bildirdi): "finans arastirma
+#: platformuyuz, sincap resmi var". Havuzda iki gorsel vardi --
+#:
+#:   US havuzu   "washington capitol"  -> Capitol Hill SQUIRREL
+#:   Vergi havuzu "tax forms"          -> "Gillie 'helping' with the
+#:                                        tax forms" (masadaki KEDI)
+#:
+#: Ikisi de arama terimini basliginda TASIYOR; Commons eslesmesi
+#: dogru, gorselin KONUSU yanlis. `YASAK_BASLIK` ayni sinif hatalari
+#: icin zaten var (futbol kulubu "Shanghai Port", savas gemileri) --
+#: hayvanlar eksikti.
+#:
+#: NEDEN AYRI REGEX, NEDEN `YASAK_BASLIK`A EKLENMEDI:
+#: `YASAK_BASLIK` DUZ DIZGE ariyor ve hayvan adlarinin cogu finans
+#: metninin icinde geciyor --
+#:
+#:     cat  ⊂ indiCATor, alloCATion, CATegory
+#:     pet  ⊂ PETroleum, comPETition
+#:     ant  ⊂ significANT, quANTitative
+#:
+#: Yani duz arama, sitenin en cok kullandigi kelimeleri elerdi.
+#: Sinir isaretli (`\b`) desen sart. Havuza karsi olculdu: 514
+#: gorselin yalnizca o ikisini reddediyor.
+#:
+#: BOGA VE AYI BILEREK YOK: piyasa terimleri ve Wall Street bogasi
+#: mesru bir finans gorseli.
+_HAYVAN = re.compile(
+    r"\b(squirrel|chipmunk|kitten|puppy|wildlife|zoo|aquarium|"
+    r"cats?|dogs?|birds?|pets?|horses?|deer|rabbits?|"
+    r"mammals?|rodents?|insects?|butterfl(?:y|ies)|"
+    r"animals?|feline|canine)\b",
+    re.I)
+
 #: Kabul edilen lisanslar. ND (NoDerivatives) DISARIDA: kart icinde
 #: `object-fit: cover` ile kirpiyoruz ve kirpmanin turev sayilip
 #: sayilmadigi tartismalidir. Tartismali olani hic almamak basit.
@@ -1039,6 +1074,8 @@ def _editoryal_uygun(s: dict) -> bool:
     if any(k in kucuk for k in YASAK_BASLIK):
         return False
     if _ASKERI_KOD.search(metin):
+        return False
+    if _HAYVAN.search(metin):
         return False
     if any(k in kucuk for k in GECMIS_GOREVLI):
         return False

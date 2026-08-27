@@ -190,6 +190,77 @@ es("havuzdaki her gorsel indirilebilir bir kimlik tasiyor",
    sorted(_yetim), [])
 
 
+# ------------------------------------------------------------------
+# HAYVAN GORSELI REDDEDILIR.
+#
+# Kullanici bildirdi (2026-08-27): "finans arastirma platformuyuz,
+# sincap resmi var". Havuzda iki gorsel vardi ve ikisi de arama
+# terimini BASLIGINDA tasiyordu -- yani Commons eslesmesi dogru,
+# gorselin KONUSU yanlisti:
+#
+#   "washington capitol" -> "Capitol Hill Squirrel"
+#   "tax forms"          -> "Gillie 'helping' with the tax forms" (kedi)
+# ------------------------------------------------------------------
+print("\nEditoryal suzgec -- hayvan gorselleri REDDEDILMELI")
+for baslik in (
+    "Flickr - USCapitol - Capitol Hill Squirrel.jpg",
+    "Kitten on a keyboard",
+    "Wildlife of the Persian Gulf",
+    "Birds over the harbour",
+):
+    dogru(f"red: {baslik[:38]}",
+          not foto._editoryal_uygun({"title": baslik, "tags": []}))
+
+# KANIT BASLIKTA DEGIL KATEGORIDE OLABILIR.
+#
+# Kedi gorselinin adi `Gillie "helping" with the tax forms` -- icinde
+# hicbir hayvan kelimesi yok. Hayvan oldugunu yalnizca Commons
+# kategorisi soyluyor ("Lying cats"). `_editoryal_uygun` bu yuzden
+# baslik VE etiketleri birlikte tariyor; yalnizca basliga bakan bir
+# suzgec bu gorseli kacirirdi.
+dogru("kategoriden yakalaniyor (baslikta hayvan kelimesi yok)",
+      not foto._editoryal_uygun({
+          "title": 'Gillie "helping" with the tax forms (4316094077).jpg',
+          "tags": ["Lying cats", "Flickr images reviewed by trusted users"]}))
+
+dogru("ayni baslik, kategorisiz -> gecer (kanit yok)",
+      foto._editoryal_uygun({
+          "title": 'Gillie "helping" with the tax forms (4316094077).jpg',
+          "tags": []}))
+
+# ------------------------------------------------------------------
+# FINANS KELIMELERI ELENMEMELI -- ALT DIZGE TUZAGI.
+#
+# Hayvan adlarinin cogu, sitenin en cok kullandigi kelimelerin
+# ICINDE geciyor:
+#
+#     cat ⊂ indiCATor, alloCATion, CATegory
+#     pet ⊂ PETroleum, comPETition
+#     ant ⊂ significANT, quANTitative
+#
+# Duz dizge aramasi bu sitede felaket olurdu; desen sinir isaretli
+# (``) yazildi. Bu blok, birinin ileride sinirlari kaldirmasini
+# engelliyor.
+#
+# BOGA ve AYI bilerek listede YOK: piyasa terimi ve Wall Street
+# bogasi mesru bir finans gorseli.
+# ------------------------------------------------------------------
+print("\nEditoryal suzgec -- finans kelimeleri GECMELI")
+for baslik in (
+    "Leading indicator dashboard 2026",
+    "Allocation of capital across sectors",
+    "Category of assets under management",
+    "Petroleum refinery at dusk",
+    "Cattle futures trading floor",
+    "Charging Bull statue Wall Street",
+    "Bear market chart 2026",
+    "Zoology department budget hearing",
+    "Quantitative easing explained",
+    "Horsepower and engine output statistics",
+):
+    dogru(f"gecer: {baslik[:38]}",
+          foto._editoryal_uygun({"title": baslik, "tags": []}))
+
 # ------------------------------------------------------------------ sonuc
 print()
 for k in kaldi:

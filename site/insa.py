@@ -3881,6 +3881,11 @@ def takvim_kutulari() -> list[dict]:
 #: uzatmiyor -- sadece akisin kapsadigi sure uzuyor.
 AKIS_SAYISI = 40
 
+#: Ayni kucuk gorselin akista gorunebilecegi en cok satir.
+#: Bkz. `canli_akis` -- olculdu, bir gorsel yedi kez
+#: tekrarliyordu.
+AKIS_FOTO_TEKRARI = 2
+
 
 #: One cikan bolumunun zaman penceresi (gun).
 #:
@@ -4158,7 +4163,40 @@ def canli_akis(haberler: list[dict], en_cok: int = AKIS_SAYISI) -> list[dict]:
     """
     def anahtar(h: dict) -> str:
         return h.get("an") or (h.get("tarih") or "")
-    return sorted(haberler, key=anahtar, reverse=True)[:en_cok]
+    sirali = sorted(haberler, key=anahtar, reverse=True)[:en_cok]
+
+    # AYNI KUCUK GORSEL AKISTA IKIDEN FAZLA GORUNMEZ.
+    #
+    # Olculdu (2026-08-27, canli ana sayfa): akisin 40 satirinda 32
+    # benzersiz gorsel vardi ama BIR gorsel YEDI kez tekrarliyordu
+    # (kripto havuzundan). Kullanicinin bildirdigi sey buydu:
+    # "fotograflar cok sik geciyor".
+    #
+    # Site genelindeki tavan (`foto_dagit`) zaten var ama o GENEL:
+    # bir gorselin sitede sekiz kez gorunmesi makul. Sorun, o sekizin
+    # AYNI EKRANDA toplanmasi. Tekrar okura sayfa basina gorunuyor,
+    # site basina degil -- bu yuzden burada AYRI bir tavan gerekiyor.
+    #
+    # HABER DUSURULMUYOR, YALNIZCA KUCUK GORSEL. Akis bir SECIM degil
+    # KAYIT; suzulurse okur "bir sey oldu mu" sorusunun cevabini
+    # burada bulamaz. Sablon gorselsiz satiri zaten dogru basiyor --
+    # yer tutucu koymuyor, satiri metinle veriyor.
+    #
+    # Ikiye kadar serbest: kirk satirlik bir listede ayni 40 piksellik
+    # kareyi iki kez gormek dogal, yedi kez duvar kagidi.
+    sayim: dict[str, int] = {}
+    cikti: list[dict] = []
+    for h in sirali:
+        f = h.get("foto") or ""
+        if f:
+            sayim[f] = sayim.get(f, 0) + 1
+            if sayim[f] > AKIS_FOTO_TEKRARI:
+                # KOPYA uzerinde siliniyor: ayni sozluk onem ve AI
+                # bolumlerinde de kullaniliyor, orada gorsel kalmali.
+                h = dict(h)
+                h["foto"] = ""
+        cikti.append(h)
+    return cikti
 
 
 #: Kart turu -> gorunen ad. Kartlarin hepsi ayni gorunmemeli: okur

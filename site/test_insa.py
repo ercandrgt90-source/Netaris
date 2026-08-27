@@ -358,6 +358,54 @@ _sonuc5 = insa.one_cikan_haberler([_bilinmeyen, _hbr("Taze gelisme", 1, 44)],
 es("cozulemeyen damga en eski sayiliyor", _sonuc5[0]["baslik"],
    "Taze gelisme")
 
+# ------------------------------------------------------------------
+# AYNI KUCUK GORSEL AKISTA IKIDEN FAZLA GORUNMEZ.
+#
+# Olculdu (2026-08-27, canli ana sayfa): akisin 40 satirinda 32
+# benzersiz gorsel vardi ama BIR gorsel YEDI kez tekrarliyordu.
+# Kullanicinin bildirdigi sey buydu -- "fotograflar cok sik geciyor".
+#
+# Site genelindeki tavan zaten var ama o GENEL: bir gorselin sitede
+# sekiz kez gorunmesi makul. Sorun o sekizin AYNI EKRANDA
+# toplanmasiydi; tekrar okura sayfa basina gorunuyor.
+#
+# HABER DUSURULMUYOR, YALNIZCA GORSEL. Akis bir kayit; suzulurse
+# "bir sey oldu mu" sorusunun cevabi kaybolur.
+# ------------------------------------------------------------------
+_akis_girdi = [{"an": f"2026-08-27T{s:02d}:00:00+00:00",
+                "foto": "/statik/foto/tek.jpg", "baslik": f"haber {s}"}
+               for s in range(10)]
+_akis = insa.canli_akis(list(_akis_girdi), 10)
+
+es("akis haber DUSURMUYOR", len(_akis), 10)
+es("ayni gorsel en fazla iki satirda",
+   sum(1 for h in _akis if h.get("foto")), insa.AKIS_FOTO_TEKRARI)
+dogru("tasan satirlar gorselsiz, bos dizgi ile",
+      all(h.get("foto") == "" for h in _akis[insa.AKIS_FOTO_TEKRARI:]))
+
+# OZGUN SOZLUKLER BOZULMAMALI: ayni haber onem ve AI bolumlerinde de
+# kullaniliyor, orada gorseli kalmali. Kopya uzerinde siliniyor.
+dogru("ozgun haber sozlukleri degismiyor",
+      all(h["foto"] == "/statik/foto/tek.jpg" for h in _akis_girdi))
+
+# Cesitli havuzda tavan devreye GIRMEMELI -- her gorsel bir kez.
+_cesitli = [{"an": f"2026-08-27T{s:02d}:00:00+00:00",
+             "foto": f"/statik/foto/g{s}.jpg", "baslik": f"h{s}"}
+            for s in range(8)]
+_c = insa.canli_akis(list(_cesitli), 8)
+es("cesitli havuzda hicbir gorsel dusmuyor",
+   sum(1 for h in _c if h.get("foto")), 8)
+
+# Gorselsiz haber, tavan sayacini TUKETMEMELI.
+_karisik = ([{"an": f"2026-08-27T0{s}:00:00+00:00", "foto": "",
+              "baslik": f"bos {s}"} for s in range(3)]
+            + [{"an": f"2026-08-27T1{s}:00:00+00:00",
+                "foto": "/statik/foto/x.jpg", "baslik": f"dolu {s}"}
+               for s in range(3)])
+_k = insa.canli_akis(list(_karisik), 6)
+es("gorselsiz satirlar sayaci tuketmiyor",
+   sum(1 for h in _k if h.get("foto")), insa.AKIS_FOTO_TEKRARI)
+
 # HANGI SINAMA KALDIGI YAZILIYOR.
 #
 # Onceden yalnizca sayi basiliyordu ("1 kaldi") ve o sayi tek basina
