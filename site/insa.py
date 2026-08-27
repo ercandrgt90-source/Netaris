@@ -1965,7 +1965,8 @@ def rss_uret(analizler: list[Analiz]) -> str:
     )
 
 
-def sitemap_uret(yollar: list[str]) -> str:
+def sitemap_uret(yollar: list[str],
+                 tarihler: dict[str, str] | None = None) -> str:
     """Sitemap -- her adres BIR KEZ.
 
     Olculdu: 1774 girdi vardi ama yalnizca 1726'si tekildi. Ayni adres
@@ -1982,10 +1983,20 @@ def sitemap_uret(yollar: list[str]) -> str:
     `set` kullanmak sitemap'i her kosuda farkli sirada uretir ve
     depoda gereksiz fark olustururdu.
     """
-    girdiler = "\n".join(
-        f"  <url><loc>{SITE['adres']}{y}</loc></url>"
-        for y in dict.fromkeys(yollar)
-    )
+    def _satir(y: str) -> str:
+        # `lastmod` YALNIZCA GERCEKTEN BILINIYORSA basiliyor.
+        #
+        # Google bu alani yeniden tarama onceliginde kullaniyor --
+        # ama yalnizca TUTARLI DOGRU oldugunda. Her adrese "bugun"
+        # yazmak (kolay yol) alani degersizlestirir: her taramada
+        # her sayfa degismis gorunur ve Google birkac turda alani
+        # yok saymaya baslar. Tarihi bilinmeyen sayfada alan HIC
+        # basilmiyor -- eksik bilgi, yanlis bilgiden iyidir.
+        t = (tarihler or {}).get(y) or ""
+        ek = f"<lastmod>{t}</lastmod>" if t else ""
+        return f'  <url><loc>{SITE["adres"]}{y}</loc>{ek}</url>'
+
+    girdiler = "\n".join(_satir(y) for y in dict.fromkeys(yollar))
     return (
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
@@ -4276,6 +4287,8 @@ def insa() -> int:
         gostergeler["veri_tarihi"] = serit_veri_tarihi(gostergeler)
     gundem = gundem_yukle()
     yollar = ["/"]
+    #: Yol -> son degisiklik tarihi. `sitemap.xml` icin.
+    _lastmod: dict[str, str] = {}
 
     # Menude yalnizca DOLU kategoriler gorunur
     menu = [
@@ -4556,6 +4569,7 @@ def insa() -> int:
                 eskimis=a.slug not in guncel_sluglar),
         )
         yollar.append(a.yol)
+        _lastmod[a.yol] = (a.tarih or "")[:10]
 
     # Kategori sayfalari. Menude bos sekme birakmamak icin YALNIZCA icerigi
     # olan kategoriler uretilir -- tiklayinca bos sayfa cikan bir menu,
@@ -4998,6 +5012,7 @@ def insa() -> int:
                 ),
             )
             yollar.append(h_yol)
+            _lastmod[h_yol] = (h.get("tarih") or "")[:10]
 
 
         yaz(
@@ -5084,7 +5099,7 @@ def insa() -> int:
 
     # Besleme ve arama motoru dosyalari
     yaz("/rss.xml", rss_uret(listelenen))
-    yaz("/sitemap.xml", sitemap_uret(yollar))
+    yaz("/sitemap.xml", sitemap_uret(yollar, _lastmod))
     yaz(
         "/robots.txt",
         f"User-agent: *\nAllow: /\n\nSitemap: {SITE['adres']}/sitemap.xml\n",
