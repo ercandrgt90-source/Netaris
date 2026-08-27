@@ -71,7 +71,25 @@
   <span>{{ a.tarih_tr }}</span>
   <span class="ayrac">·</span>
   <span>{{ a.okuma_dk }} dk okuma</span>
-  {% if a.donem %}<span class="ayrac">·</span><span>{{ a.donem|gun }}</span>{% endif %}
+  {# DONEM YALNIZCA TARIHTEN FARKLIYSA BASILIYOR.
+
+     Kosul once sadece `a.donem` idi ve olculdu (2026-08-27): ana
+     sayfadaki 220 kart kunyesinin 5'i tarihi IKI KEZ yaziyordu --
+     "23 Temmuz 2026 · 2 dk okuma · 23 Temmuz 2026".
+
+     Sebep, `donem` alaninin kategoriye gore FARKLI SEY anlatmasi:
+
+       Bilanco Analizi   donem="2026 1. ceyrek"  tarih=2026-08-23  (233/233 FARKLI)
+       Makro/Teknik/Yorum donem=2026-08-01       tarih=2026-08-01  (236/236 AYNI)
+
+     Yani alan bilanco icin bilgi tasiyor, digerleri icin yayin
+     tarihinin kopyasi. Kategoriye gore dallanmak yerine EKRANDA
+     GORUNEN hale bakiliyor: ayni gorunuyorsa tekrardir. Boylece
+     kural yeni bir kategori eklendiginde de dogru kalir.
+
+     `kategori.html` donem'i hic basmiyor; tekrar bu yuzden yalnizca
+     ana sayfada goruluyordu. #}
+  {% if a.donem and (a.donem|gun) != a.tarih_tr %}<span class="ayrac">·</span><span>{{ a.donem|gun }}</span>{% endif %}
 </span>
 {% endmacro %}
 

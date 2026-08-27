@@ -176,5 +176,50 @@ es("desen % yakaliyor", bool(insa.SENARYO_OLCUM.search("%37,00")), True)
 es("desen 'yuzde' yakaliyor", bool(insa.SENARYO_OLCUM.search("yüzde 1,4")), True)
 es("desen tutari yakalamiyor", bool(insa.SENARYO_OLCUM.search("3.552 TL")), False)
 
+# ------------------------------------------------------------------
+# KART KUNYESI AYNI BILGIYI IKI KEZ YAZMAZ.
+#
+# Olculdu (2026-08-27): ana sayfadaki 220 kart kunyesinin 5'i tarihi
+# IKI KEZ yaziyordu --
+#
+#     "23 Temmuz 2026 · 2 dk okuma · 23 Temmuz 2026"
+#
+# Sebep `donem` alaninin kategoriye gore FARKLI SEY anlatmasi:
+#
+#     Bilanco Analizi     donem="2026 1. ceyrek"   233/233 tarihten FARKLI
+#     Makro/Teknik/Yorum  donem="2026-08-01"       236/236 tarihe ESIT
+#
+# Yani alan bilanco icin gercek bilgi, digerleri icin yayin tarihinin
+# kopyasi. Kunye kosulsuz basiyordu.
+#
+# Kural KATEGORIYE gore degil EKRANDA GORUNEN HALE gore kuruldu: iki
+# alan ayni gorunuyorsa ikincisi tekrardir. Boylece yeni bir kategori
+# eklendiginde de dogru kalir -- kategori listesi elle bakimli olsaydi
+# suruklenirdi.
+# ------------------------------------------------------------------
+def _kunye(donem, tarih_iso, tarih_tr):
+    """Sablondaki kosulun ayni sonucu: donem basilir mi?"""
+    return bool(donem) and insa.gun_etiketi(donem) != tarih_tr
+
+
+dogru("bilanco donemi basilir (tarihten farkli)",
+      _kunye("2026 1. çeyrek", "2026-08-23", "23 Ağustos 2026"))
+
+dogru("makro donemi BASILMAZ (tarihe esit)",
+      not _kunye("2026-08-01", "2026-08-01", "1 Ağustos 2026"))
+
+dogru("yorum donemi BASILMAZ (tarihe esit)",
+      not _kunye("2026-07-23", "2026-07-23", "23 Temmuz 2026"))
+
+dogru("donem yoksa basilmaz", not _kunye("", "2026-08-01", "1 Ağustos 2026"))
+
+# Sablon kosulu GERCEKTEN orada mi. Yukaridaki islev sablonu taklit
+# ediyor; sablon degisirse taklit sessizce eskir.
+_ANA = (_KOK / "sablonlar" / "anasayfa.html").read_text(encoding="utf-8")
+dogru("anasayfa kunyesi donem'i kosulsuz basmiyor",
+      "a.donem and (a.donem|gun) != a.tarih_tr" in _ANA)
+
+
 print(f"{gecti} gecti, {len(kaldi)} kaldi")
 sys.exit(1 if kaldi else 0)
+
