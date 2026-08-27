@@ -796,7 +796,7 @@ main.kabuk {
 @media (max-width: 640px) {
   /* Dar ekranda 56px, ekranin altida biri. Bolum ayrimi zaten
      baslikla kuruluyor; burada bosluk yalnizca kaydirma maliyeti. */
-  .kabuk > .ana-akis > * + * { margin-top: var(--b-6); }
+  .kabuk > .ana-akis > * + * { }
 }
 
 /* --------------------------------------------------------------- one cikan */
@@ -4296,7 +4296,7 @@ a.akis-baslik:hover { color: var(--vurgu); text-decoration: none}
   border: 1px solid var(--uyari-cizgi)}
 
 .takvim-beklenti {
-  padding: 0 var(--b-4) var(--b-4); border-top: 1px solid var(--cizgi);
+  border-top: 1px solid var(--cizgi);
   padding: var(--b-3); background: var(--panel-2)}
 .takvim-son { margin: 0 0 var(--b-3); font-size: var(--p-m); color: var(--yazi-2)}
 .takvim-tarih { color: var(--yazi-3); font-size: 0.82em}
@@ -5485,17 +5485,17 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
 
      Alt sinir 1,45rem'e (23px) indirildi. Baslik hala en buyuk
      ogeler, ama ekrani yemiyor. */
-  h1 { font-size: clamp(1.45rem, 6.5vw, 2.1rem); }
+  h1 { }
 
   /* Hero ozeti de kisaliyor: 17px govde metni dar ekranda satir
      basina cok az sozcuk aliyor ve okuma zorlasiyor. */
-  .hero-ozet { font-size: var(--p-l); line-height: var(--satir-orta); }
-  .hero-dar { padding-bottom: var(--b-5); }
+  .hero-ozet { line-height: var(--satir-orta); }
+  .hero-dar { }
 
   /* Hero dugmeleri tam genislik degil ama SIGMALI: dort dugme yan
      yana sikisip metinleri kesiliyordu. */
   .hero-butonlar { gap: var(--b-2); }
-  .hero-butonlar .dugme { flex: 1 1 auto; justify-content: center; }
+  .hero-butonlar .dugme { justify-content: center; }
 
   /* 3. GENEL: DAR EKRANDA KABUK DOLGUSU.
      Icerik kenarlara yapisiyordu; 16 piksel okuma icin gerekli
@@ -5606,7 +5606,7 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
   .ai-akis:first-of-type { border-top: none; padding-top: 0; }
 
   /* Bolum basligi RAFIN USTUNDE, yapiskan degil ama belirgin. */
-  .bolum-bas h2 { font-size: var(--p-xl); }
+  .bolum-bas h2 { }
 
   /* Dikey yigilmayi azalt: bolum ici bosluklar dar ekranda
      gereginden genisti ve her bolum bir sayfa boyu yer kapliyordu. */
@@ -5626,10 +5626,8 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
   .hero-ozet {
     /* Uc satirda kirpiliyor; devami "Yöntemimiz" dugmesinde. */
     display: -webkit-box;
-    -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    font-size: var(--p-m);
     margin-bottom: var(--b-4);
   }
 
@@ -5676,9 +5674,9 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
 @media (max-width: 640px) {
 
   /* BASLIKLAR: masaustu olceginin bir basamak altinda. */
-  h2 { font-size: var(--p-xl); }       /* 22 -> 19 */
-  h3 { font-size: var(--p-l); }        /* 19 -> 17 */
-  h4 { font-size: var(--p-m); }        /* 17 -> 14 */
+  h2 { }       /* 22 -> 19 */
+  h3 { }        /* 19 -> 17 */
+  h4 { }        /* 17 -> 14 */
 
   /* Kart basliklari daha da kucuk: kartta bir baslik DEGIL, bir
      ETIKET islevi goruyor -- okur karti bir butun olarak tariyor. */
@@ -5687,8 +5685,6 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
   .kart-baslik,
   .ai-kart-baslik,
   .arastirma-kart h2 {
-    font-size: var(--p-l);
-    line-height: var(--satir-orta);
   }
 
   /* NEFES: dar sutunda satirlar birbirine yapisiyordu. */
@@ -5705,12 +5701,12 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
   .govde p { margin-bottom: var(--b-4b); }
 
   /* Bolum basligi ve notu: baslik kuculunce not da orantili. */
-  .bolum-bas h2 { font-size: var(--p-l); }
+  .bolum-bas h2 { }
   .bolum-not { font-size: var(--p-xs); }
 
   /* Kart ici dolgu: punto kuculdugu icin dolgu da orantili
      kucumeli, yoksa kart bos gorunur. */
-  .kart { padding: var(--b-4); }
+  .kart { }
 }
 
 /* ====================================================================
@@ -5754,7 +5750,7 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
 
   /* BASLIKLAR referans araliginda: 20-28px.
      h1 en buyuk oge olmali ama ekrani yememeli. */
-  h1 { font-size: clamp(1.5rem, 6vw, 1.75rem); }   /* 24-28px */
+  h1 { }   /* 24-28px */
   h2 { font-size: 1.25rem; }                        /* 20px */
   h3 { font-size: 1.125rem; }                       /* 18px */
   h4 { font-size: 1rem; }                           /* 16px */
@@ -5773,7 +5769,7 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
   .akis-kunye,
   .foto-atif { font-size: 0.8125rem; }
 
-  .akis-baslik { font-size: 0.9375rem; line-height: 1.45; }
+  .akis-baslik { }
 }
 
 /* ====================================================================

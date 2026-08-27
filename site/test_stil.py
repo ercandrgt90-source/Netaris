@@ -668,5 +668,92 @@ esit(len(_tekil) > 100, True, f"tek sinifli kural bulundu ({len(_tekil)})")
 esit(".serit-yatay" in _tekil and ".ai-akis-liste" in _tekil, True,
      "bilinen iki sinif taramada gorunuyor")
 
+# ------------------------------------------------------------------
+# AYNI SECICI + AYNI OZELLIK IKI KEZ TANIMLANMAZ.
+#
+# Olculdu (2026-08-27): `@media (max-width: 640px)` kosulu dosyada 33
+# AYRI blokta geciyordu ve 12 bildirim OLUYDU -- yazili ama hicbir
+# zaman uygulanmayan. Ornekler:
+#
+#     h1  font-size   clamp(1.45rem,6.5vw,2.1rem) -> clamp(1.25rem,...)
+#     h2  font-size   var(--p-xl)   -> 1.25rem
+#     .kart padding   var(--b-4)    -> var(--b-3)
+#
+# Dikkat cekici olan sey: OLENLER TASARIM BELIRTECI kullaniyordu,
+# kazananlar sabit deger. Yani mobilde belirtec sistemi devre disiydi
+# -- `--p-xl` degistirmek hicbir sey degistirmiyordu ve bunu degistiren
+# kisi sebebini bulamazdi.
+#
+# Temizlik GORUNUMU DEGISTIRMEDI: yalnizca zaten uygulanmayan satirlar
+# silindi ve hesaplanan degerler once/sonra birebir karsilastirildi.
+#
+# `@keyframes` DISARIDA: oradaki `70%`, `100%` ayri animasyon
+# adimlaridir, ayni secicinin tekrari degil.
+# ------------------------------------------------------------------
+import re as _re
+
+
+def _olu_bildirimler(metin):
+    """(kosul, secici, ozellik, olen, kazanan) listesi."""
+    kod = _re.sub(r"/\*.*?\*/", " ", metin, flags=_re.S)
+    # Animasyon adimlari ayri semantik -- disarida.
+    kod = _re.sub(r"@keyframes[^{]*\{(?:[^{}]*\{[^{}]*\})*[^{}]*\}",
+                  " ", kod, flags=_re.S)
+
+    def govde(kaynak, bas):
+        j = kaynak.index("{", bas)
+        d = 0
+        for k in range(j, len(kaynak)):
+            if kaynak[k] == "{":
+                d += 1
+            elif kaynak[k] == "}":
+                d -= 1
+                if d == 0:
+                    return kaynak[j + 1:k]
+        return ""
+
+    gruplar = {}
+    for mm in _re.finditer(r"@media ([^{]+)\{", kod):
+        kosul = " ".join(mm.group(1).split())
+        gruplar.setdefault(kosul, []).extend(
+            _re.findall(r"([^{}]+)\{([^{}]*)\}", govde(kod, mm.start())))
+    disi = _re.sub(r"@media[^{]*\{(?:[^{}]*\{[^{}]*\})*[^{}]*\}",
+                   " ", kod, flags=_re.S)
+    gruplar["(medya disi)"] = _re.findall(r"([^{}]+)\{([^{}]*)\}", disi)
+
+    bulgu = []
+    for kosul, kurallar in gruplar.items():
+        gorulen = {}
+        for sec, gov in kurallar:
+            s = " ".join(sec.split())
+            if not s or s.startswith("@") or s.endswith("%"):
+                continue
+            for x in gov.split(";"):
+                if ":" not in x:
+                    continue
+                oz, dg = x.split(":", 1)
+                a = (s, oz.strip())
+                if a in gorulen and gorulen[a] != dg.strip():
+                    bulgu.append((kosul, s, oz.strip(), gorulen[a], dg.strip()))
+                gorulen[a] = dg.strip()
+    return bulgu
+
+
+#: BILINEN VE ACIK DURAN ISTISNA.
+#
+#  `.onem-kart` once `display: grid` (grid-template-areas ve uc cocukta
+#  `grid-area` ile birlikte), sonra `display: flex` tanimliyor. Flex
+#  kazaniyor, yani izgara duzeninin TAMAMI olu.
+#
+#  Bu bir TASARIM sorusu, temizlik sorusu degil: hangisinin guncel
+#  tasarim oldugu koddan anlasilmiyor. Duzeltmek kartlarin GORUNUSUNU
+#  degistirir. Kendiligimden secmek yerine istisna acikca yaziliyor --
+#  karar verilince buradan silinecek.
+BEKLENEN_ISTISNA = {("(medya disi)", ".onem-kart", "display")}
+
+_olu = _olu_bildirimler(_CSS.read_text(encoding="utf-8"))
+_yeni = {(k, s, o) for k, s, o, _a, _b in _olu} - BEKLENEN_ISTISNA
+esit(sorted(_yeni), [], "olu CSS bildirimi yok (bilinen istisna disinda)")
+
 print(f"\n{_gecti} gecti, {_kaldi} kaldi")
 sys.exit(1 if _kaldi else 0)
