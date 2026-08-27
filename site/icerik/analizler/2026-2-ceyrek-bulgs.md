@@ -7,7 +7,7 @@ kod: BULGS
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Finans
-tarih: 2026-08-25
+tarih: 2026-08-26
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat, brüt kâr, faaliyet kârı ve FAVÖK tümü önceki döneme göre büyük düşüş gösterirken, net kâr daha da derinleşerek negatif değerini artırdı; bu aynı zamanda özkaynak kârlılığının %13,1 negatif olmasına yol açtı. Özkaynak ve toplam aktifin artışı, net borcun (negatif) hafifçe yükselmesiyle birlikte cari oranın 27,59'a çıkmasını sağladı; bu yüksek likidite oranı, borç/özkaynak oranının -0,13 (sektör medyanı -0,06) seviyesinde kalmasıyla destekleniyor. Brüt kâr marjının %97,3 (sektör medyanı %45,7) çok yüksek olması, net kâr marjının -%3532,1 (sektör medyanı %15,9) ile ters bir ilişki içinde, yani kâr marjındaki artışın kârın negatifleşmesiyle tutarsız bir yapı oluşturdu.
+Hasılat, brüt kâr, faaliyet kârı ve FAVÖK tümü önceki döneme göre büyük düşüş gösterirken, net kâr daha da derinleşerek negatif değerini artırdı; bu aynı zamanda özkaynak kârlılığının %13,1 negatif olmasına yol açtı. Özkaynak ve toplam aktifin artışı, net borcun (negatif) hafifleşmesiyle birlikte cari oranın 27,59'a yükselmesine ve borç/özkaynak oranının -0,13'e (sektör medyanının -0,05'inden daha düşük) çıkmasına neden oldu. Brüt kâr marjının %97,3 (sektör medyanı %45,1) çok yüksek kalmasına rağmen, net kâr marjının -%3532,1 (sektör medyanı %14,7) olması, faaliyet gelirlerinin büyük kaybıyla birlikte karlılıkta ciddi bir ters ilişki olduğunu gösteriyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
@@ -58,11 +58,11 @@ Karşılaştırma Finans sektöründeki 30 şirketin **medyanına** göre yapıl
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %97,3 | %45,7 |
-| Net kâr marjı | -%3532,1 | %15,9 |
+| Brüt kâr marjı | %97,3 | %45,1 |
+| Net kâr marjı | -%3532,1 | %14,7 |
 | Özkaynak kârlılığı | -%13,1 | %4,5 |
-| Cari oran | 27,59 | 7,79 |
-| Borç / özkaynak | -0,13 | -0,06 |
+| Cari oran | 27,59 | 12,09 |
+| Borç / özkaynak | -0,13 | -0,05 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

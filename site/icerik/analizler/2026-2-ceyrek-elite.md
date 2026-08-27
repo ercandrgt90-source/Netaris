@@ -1,13 +1,13 @@
 ---
 slug: elite-2026-2-ceyrek
 baslik: ELİTE NATUREL ORGANİK GIDA SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %35,3'e yükselen brüt kâr marjı ile birlikte brüt kâr da 0,44 milyar TL'ye, ardından faaliyet kârı ve FAVÖK'ün sırasıyla 0,19 ve 0,24 milyar TL'ye artması, gelir artışının kârlılık üzerindeki olumlu etkisini gösterirken net kârın 0,04 milyar TL'ye gerilemesi, maliyet ya da vergi kalemlerin…
+ozet: Hasılatın %39,7'lik brüt kâr marjıyla birlikte yükselmesi brüt kârın 0,55 milyar TL'ye, ardından faaliyet kârının 0,21 milyar TL'ye ve FAVÖK'ün 0,27 milyar TL'ye artmasına yol açtı; net kâr ise 0,05 milyar TL'ye geriledi, bu da net kâr marjının %4,0'a düşmesine neden oldu.…
 sirket: ELİTE NATUREL ORGANİK GIDA SANAYİ VE TİCARET A.Ş.
 kod: ELITE
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Temel tüketim
-tarih: 2026-08-23
+tarih: 2026-08-26
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,22 +18,22 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %35,3'e yükselen brüt kâr marjı ile birlikte brüt kâr da 0,44 milyar TL'ye, ardından faaliyet kârı ve FAVÖK'ün sırasıyla 0,19 ve 0,24 milyar TL'ye artması, gelir artışının kârlılık üzerindeki olumlu etkisini gösterirken net kârın 0,04 milyar TL'ye gerilemesi, maliyet ya da vergi kalemlerindeki artıştan kaynaklanabilir; aynı dönemde özkaynakların 2,50 milyar TL'ye yükselmesi, aktif toplamının 3,15 milyar TL'ye çıkması ve net borcun –0,06 milyar TL'ye (nakit fazlası) dönüşmesi, şirketin likidite pozisyonunun sektörel medyan 1,36'nın çok üzerindeki 3,15 lik cari oran ve negatif borç/özkaynak oranı (-0,02) ile desteklendiğini, fakat faaliyet nakit akışının 0,02 milyar TL'ye düşmesi ve yatırım harcamasının 0,06 milyar TL'ye azalması, nakit akışının kârlılık artışına paralel bir şekilde artmadığını gösterir.
+Hasılatın %39,7'lik brüt kâr marjıyla birlikte yükselmesi brüt kârın 0,55 milyar TL'ye, ardından faaliyet kârının 0,21 milyar TL'ye ve FAVÖK'ün 0,27 milyar TL'ye artmasına yol açtı; net kâr ise 0,05 milyar TL'ye geriledi, bu da net kâr marjının %4,0'a düşmesine neden oldu. Özkaynakların 2,70 milyar TL'ye, aktif toplamının 3,55 milyar TL'ye ve net borcun 0,02 milyar TL'ye yükselmesi, cari oranın 2,94 ve borç/özkaynak oranının 0,01'e gerilemesiyle likidite ve finansal yapıdaki iyileşmeyi gösterdi. Faaliyet nakit akışı sıfıra gerilerken yatırım harcaması 0,03 milyar TL'ye düşmüş, bu da nakit akışı ve yatırım harcamasının kâr artışlarıyla ters yönde hareket etti.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | %51,9 |
-| Brüt kâr | %20,4 |
-| Faaliyet kârı | %90,1 |
-| FAVÖK | %61,4 |
-| Net kâr | -%54,4 |
-| Özkaynak | %48,7 |
-| Aktif toplamı | %49,2 |
-| Net borç | -%219,9 |
-| Faaliyet nakit akışı | -%94,9 |
-| Yatırım harcaması | -%66,1 |
+| Hasılat | %40,5 |
+| Brüt kâr | %16,9 |
+| Faaliyet kârı | %9,8 |
+| FAVÖK | %7,8 |
+| Net kâr | -%75,1 |
+| Özkaynak | %44,7 |
+| Aktif toplamı | %54,4 |
+| Net borç | %125,8 |
+| Faaliyet nakit akışı | -%99,6 |
+| Yatırım harcaması | -%41,9 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -41,16 +41,16 @@ Hasılatın %35,3'e yükselen brüt kâr marjı ile birlikte brüt kâr da 0,44 
 
 | Kalem | Değer |
 | --- | ---: |
-| Hasılat | 1,29 milyar TL |
-| Brüt kâr | 0,44 milyar TL |
-| Faaliyet kârı | 0,19 milyar TL |
-| FAVÖK | 0,24 milyar TL |
-| Net kâr | 0,04 milyar TL |
-| Özkaynak | 2,50 milyar TL |
-| Aktif toplamı | 3,15 milyar TL |
-| Net borç | -0,06 milyar TL |
-| Faaliyet nakit akışı | 0,02 milyar TL |
-| Yatırım harcaması | 0,06 milyar TL |
+| Hasılat | 1,47 milyar TL |
+| Brüt kâr | 0,55 milyar TL |
+| Faaliyet kârı | 0,21 milyar TL |
+| FAVÖK | 0,27 milyar TL |
+| Net kâr | 0,05 milyar TL |
+| Özkaynak | 2,70 milyar TL |
+| Aktif toplamı | 3,55 milyar TL |
+| Net borç | 0,02 milyar TL |
+| Faaliyet nakit akışı | 0,00 milyar TL |
+| Yatırım harcaması | 0,03 milyar TL |
 
 ## Sektör içindeki konum
 
@@ -58,11 +58,11 @@ Karşılaştırma Temel tüketim sektöründeki 31 şirketin **medyanına** gör
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %35,3 | %16,5 |
-| Net kâr marjı | %3,1 | %1,2 |
-| Özkaynak kârlılığı | %0,8 | %0,8 |
-| Cari oran | 3,15 | 1,36 |
-| Borç / özkaynak | -0,02 | 0,25 |
+| Brüt kâr marjı | %39,7 | %16,5 |
+| Net kâr marjı | %4,0 | %0,2 |
+| Özkaynak kârlılığı | %1,1 | %0,8 |
+| Cari oran | 2,94 | 1,36 |
+| Borç / özkaynak | 0,01 | 0,26 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -70,13 +70,13 @@ Karşılaştırma Temel tüketim sektöründeki 31 şirketin **medyanına** gör
 
 **Şirket lehine işleyenler**
 
-- Hasılat reel olarak %51,9 arttı.
+- Hasılat reel olarak %40,5 arttı.
 
 **Dikkat gerektirenler**
 
-- Net kâr reel olarak -%54,4 geriledi.
-- Brüt marj 8,9 puan daraldı (%42,8 → %33,9).
-- Faaliyet nakit akışı net kârın %49 kadarı; kâr ile nakit üretimi ayrışıyor.
+- Net kâr reel olarak -%75,1 geriledi.
+- Brüt marj 7,6 puan daraldı (%45,0 → %37,5).
+- Faaliyet nakit akışı net kârın %3 kadarı; kâr ile nakit üretimi ayrışıyor.
 - Yatırım harcaması faaliyet nakit akışını aşıyor; aradaki fark dış kaynakla karşılanıyor.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*

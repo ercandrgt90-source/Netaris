@@ -1,13 +1,13 @@
 ---
 slug: dohol-2026-2-ceyrek
 baslik: DOĞAN ŞİRKETLER GRUBU HOLDİNG A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın düşmesine rağmen brüt kâr, faaliyet kârı, FAVÖK ve net kârda artış görülmüş; bu, maliyet ve giderlerin daha hızlı azaldığını ve karlılık oranlarının yükselmesine yol açmıştır.…
+ozet: Hasılatın düşmesine rağmen brüt kâr, faaliyet kârı, FAVÖK ve net kâr tümü artmış; bu, maliyet ve giderlerdeki azalma ya da daha yüksek kâr marjlı satışların etkisiyle gerçekleşmiş.…
 sirket: DOĞAN ŞİRKETLER GRUBU HOLDİNG A.Ş.
 kod: DOHOL
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Sanayi
-tarih: 2026-08-23
+tarih: 2026-08-26
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın düşmesine rağmen brüt kâr, faaliyet kârı, FAVÖK ve net kârda artış görülmüş; bu, maliyet ve giderlerin daha hızlı azaldığını ve karlılık oranlarının yükselmesine yol açmıştır. Özkaynak ve aktif toplamının artışı, net borcun daha da negatif (nakit fazlası) hâle gelmesiyle birlikte cari oranı yükseltirken, borç/özkaynak oranının negatif seyretmesi özkaynak bazlı finansman gücünün artmasını göstermektedir. Brüt kâr marjı sektör medyanının altında kalırken net kâr marjı ve özkaynak kârlılığı medyanın çok üzerindedir, bu da kârın daha çok net kâra dönüşümünü ve özkaynak verimliliğinin yükselişini yansıtır.
+Hasılatın düşmesine rağmen brüt kâr, faaliyet kârı, FAVÖK ve net kâr tümü artmış; bu, maliyet ve giderlerdeki azalma ya da daha yüksek kâr marjlı satışların etkisiyle gerçekleşmiş. Özkaynak ve aktif toplamının yükselmesi, net borcun daha da negatif (nakit fazlası) hâle gelmesiyle birlikte cari oranı artırmış ve borç/özkaynak oranını sektör ortalamasının altında tutmuş. Faaliyet nakit akışının artışı, yatırım harcamasının azalmasıyla birleşerek likiditeyi güçlendirmiş ve özkaynak kârlılığının sektör medyanının çok üzerinde olmasını sağlamış.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
@@ -54,15 +54,15 @@ Hasılatın düşmesine rağmen brüt kâr, faaliyet kârı, FAVÖK ve net kârd
 
 ## Sektör içindeki konum
 
-Karşılaştırma Sanayi sektöründeki 68 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Sanayi sektöründeki 69 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %20,9 | %21,2 |
-| Net kâr marjı | %12,6 | %0,1 |
-| Özkaynak kârlılığı | %2,9 | -%0,0 |
-| Cari oran | 1,59 | 1,37 |
-| Borç / özkaynak | -0,40 | 0,11 |
+| Brüt kâr marjı | %20,9 | %20,9 |
+| Net kâr marjı | %12,6 | %1,3 |
+| Özkaynak kârlılığı | %2,9 | %0,3 |
+| Cari oran | 1,59 | 1,32 |
+| Borç / özkaynak | -0,40 | 0,16 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

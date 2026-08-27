@@ -1,13 +1,13 @@
 ---
 slug: adese-2026-2-ceyrek
 baslik: ADESE GAYRİMENKUL YATIRIM A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat 0,90 milyar TL'ye yükselirken net kâr -0,27 milyar TL'ye gerileyip net kâr marjı -%16,8 oldu; bu kâr düşüşü, faaliyet nakit akışının 0,87 milyar TL'den 0,05 milyar TL'ye düşmesiyle paralel bir seyir izledi.…
+ozet: Hasılat 0,90 milyar TL'ye yükselirken net kâr –0,27 milyar TL'ye gerilemiş; gelir artışı nakit akışının 0,05 milyar TL'ye düşmesi ve net borcun 0,13 milyar TL'ye azalmasıyla birlikte özkaynakların 20,91 milyar TL'ye, aktiflerin ise 27,23 milyar TL'ye yükselmesi, borç/özkaynak oranının sektör medyanı…
 sirket: ADESE GAYRİMENKUL YATIRIM A.Ş.
 kod: ADESE
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-25
+tarih: 2026-08-26
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat 0,90 milyar TL'ye yükselirken net kâr -0,27 milyar TL'ye gerileyip net kâr marjı -%16,8 oldu; bu kâr düşüşü, faaliyet nakit akışının 0,87 milyar TL'den 0,05 milyar TL'ye düşmesiyle paralel bir seyir izledi. Özkaynak 20,91 milyar TL'ye, aktif toplamı 27,23 milyar TL'ye artarken net borç 0,13 milyar TL'ye geriledi; bu durum özkaynak/kârlılık negatif olmasına rağmen borç/özkaynak oranının sektör medyanı 0,02'nin altında %0,01 kalmasını sağladı. Net kâr kaybı ve nakit akışı daralması, özkaynak artışı ve borç azalmasıyla birlikte şirketin sermaye yapısının daha az kaldıraçlı bir profile yöneldiğini gösteriyor.
+Hasılat 0,90 milyar TL'ye yükselirken net kâr –0,27 milyar TL'ye gerilemiş; gelir artışı nakit akışının 0,05 milyar TL'ye düşmesi ve net borcun 0,13 milyar TL'ye azalmasıyla birlikte özkaynakların 20,91 milyar TL'ye, aktiflerin ise 27,23 milyar TL'ye yükselmesi, borç/özkaynak oranının sektör medyanının %0,02'sine göre daha düşük 0,01 seviyesinde kalmasını sağlamış. Net kâr marjı –%16,8 ve özkaynak kârlılığı –%0,5, sektör medyanlarının pozitif %14,3 ve %0,4 seviyelerinin altında kalırken, artan özkaynak ve aktif büyüklüğü bu negatif kârlılık oranlarının altında bir likidite ve sermaye tamponu oluşturmuş.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

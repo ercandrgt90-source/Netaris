@@ -1,13 +1,13 @@
 ---
 slug: ktskr-2026-2-ceyrek
 baslik: KÜTAHYA ŞEKER FABRİKASI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %3,9 artmasıyla birlikte brüt kâr, faaliyet kârı ve FAVÖK negatif değerlerde daha da derinleşmiş; bu durum brüt kâr marjının –%1,2'ye (sektör medyanı %16,5) ve net kâr marjının –%3,0'a (sektör medyanı %1,2) gerilemesine yansımıştır.…
+ozet: Hasılatın %3,9 artmasıyla birlikte brüt kâr, faaliyet kârı ve FAVÖK negatif değerlerde daha da derinleşmiş; brüt kâr –%1,2 iken önceki dönemde –%0,4, faaliyet kârı –%9,0 (önceki –%6,3) ve FAVÖK aynı oranda düşmüş.…
 sirket: KÜTAHYA ŞEKER FABRİKASI A.Ş.
 kod: KTSKR
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Temel tüketim
-tarih: 2026-08-21
+tarih: 2026-08-26
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %3,9 artmasıyla birlikte brüt kâr, faaliyet kârı ve FAVÖK negatif değerlerde daha da derinleşmiş; bu durum brüt kâr marjının –%1,2'ye (sektör medyanı %16,5) ve net kâr marjının –%3,0'a (sektör medyanı %1,2) gerilemesine yansımıştır. Özkaynak 6,66 milyar TL'ye (önceki dönem 5,50 milyar TL) yükselirken aktif toplamı da 8,29 milyar TL'ye (önceki dönem 6,62 milyar TL) artmış, bu da cari oranı 4,49 (sektör medyanı 1,36) ve borç/özkaynak oranını –0,02 (sektör medyanı 0,25) pozitif yönde etkilemiştir. Net borcun –0,15 milyar TL'ye (önceki dönem –0,87 milyar TL) iyileşmesi, faaliyet nakit akışının –0,24 milyar TL'ye (önceki dönem –0,54 milyar TL) daralmasıyla birlikte, likidite artışının kâr kayıplarıyla paralel bir seyir izlediğini gösterir.
+Hasılatın %3,9 artmasıyla birlikte brüt kâr, faaliyet kârı ve FAVÖK negatif değerlerde daha da derinleşmiş; brüt kâr –%1,2 iken önceki dönemde –%0,4, faaliyet kârı –%9,0 (önceki –%6,3) ve FAVÖK aynı oranda düşmüş. Özkaynak 6,66 milyar TL'ye yükselirken net borç –0,15 milyar TL'ye (önceki –0,87 milyar TL) iyileşmiş, bu durum cari oranı 4,49'a (sektör medyanı 1,36) ve borç/özkaynak oranını –0,02'ye (sektör medyanı 0,26) çekmiş; ancak net kâr –%3,0 (sektör medyanı %0,2) ve özkaynak kârlılığı –%0,2 (sektör medyanı %0,8) negatif kalmıştır. Faaliyet nakit akışı –0,24 milyar TL'ye (önceki –0,54 milyar TL) daralması, artan özkaynak ve azalan net borçla birlikte likidite pozisyonunun iyileştiğini, fakat kârlılıkta gerilemenin sürdüğünü göstermektedir.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
@@ -57,10 +57,10 @@ Karşılaştırma Temel tüketim sektöründeki 31 şirketin **medyanına** gör
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
 | Brüt kâr marjı | -%1,2 | %16,5 |
-| Net kâr marjı | -%3,0 | %1,2 |
+| Net kâr marjı | -%3,0 | %0,2 |
 | Özkaynak kârlılığı | -%0,2 | %0,8 |
 | Cari oran | 4,49 | 1,36 |
-| Borç / özkaynak | -0,02 | 0,25 |
+| Borç / özkaynak | -0,02 | 0,26 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

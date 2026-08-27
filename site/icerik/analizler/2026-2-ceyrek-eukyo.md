@@ -1,13 +1,13 @@
 ---
 slug: eukyo-2026-2-ceyrek
 baslik: EURO KAPİTAL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat aynı kalırken brüt kâr 0,01 milyar TL artmış, bu durum brüt kâr marjının %47,1'e yükselmesine ve özkaynakların 0,08 milyar TL'ye çıkmasına yol açtı; özkaynak artışı aktif toplamının 0,09 milyar TL'ye yükselmesiyle paralel seyretti.…
+ozet: Brüt kâr artışı (%47,1) önceki dönemde %47,1'e yükselirken net kâr hâlâ negatif (%-37,1) olduğu için özkaynak kârlılığı da negatif (%-6,3) kalmıştır; bu, brüt kârın artmasına rağmen zararların kârlılığı erittiğini gösterir.…
 sirket: EURO KAPİTAL YATIRIM ORTAKLIĞI A.Ş.
 kod: EUKYO
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Finans
-tarih: 2026-08-25
+tarih: 2026-08-26
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat aynı kalırken brüt kâr 0,01 milyar TL artmış, bu durum brüt kâr marjının %47,1'e yükselmesine ve özkaynakların 0,08 milyar TL'ye çıkmasına yol açtı; özkaynak artışı aktif toplamının 0,09 milyar TL'ye yükselmesiyle paralel seyretti. Net kârın -0,01 milyar TL olarak sabit kalması net kâr marjını -%37,1 ve özkaynak kârlılığını -%6,3 olarak negatif tutarken, net borcun -0,07 milyar TL (nakit fazlası) olması borç/özkaynak oranını -0,90'a, cari oranı ise 22,78 yaparak sektörel medyanların çok üzerindeydi. Bu ilişkiler, gelirdeki durağanlık ve brüt kârdaki artışın özkaynak ve likidite göstergelerini olumlu etkilediğini, ancak net kârın negatif kalmasının kârlılık ölçütlerini aşağı çektiğini gösteriyor.
+Brüt kâr artışı (%47,1) önceki dönemde %47,1'e yükselirken net kâr hâlâ negatif (%-37,1) olduğu için özkaynak kârlılığı da negatif (%-6,3) kalmıştır; bu, brüt kârın artmasına rağmen zararların kârlılığı erittiğini gösterir. Özkaynak ve aktif toplamı artarken (özkaynak 0,08 → 0,07 milyar TL, aktif toplamı 0,09 → 0,08 milyar TL) net borçun negatif seyri (-0,07 → -0,06 milyar TL) likiditeyi artırarak cari oranı 22,78'ye (sektör medyanı 12,09) yükseltmiştir. Cari oranın yükselmesi, borç/özkaynak oranının (-0,90) sektörel medyan (-0,05) üzerindeki daha negatif değeriyle birlikte, şirketin kısa vadeli yükümlülüklerini karşılamada güçlü bir nakit pozisyonu olduğunu, fakat borç yapısının hâlâ özkaynak karşısında yüksek bir negatif değer taşıdığını ortaya koyar.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
@@ -56,11 +56,11 @@ Karşılaştırma Finans sektöründeki 30 şirketin **medyanına** göre yapıl
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %47,1 | %45,7 |
-| Net kâr marjı | -%37,1 | %15,9 |
+| Brüt kâr marjı | %47,1 | %45,1 |
+| Net kâr marjı | -%37,1 | %14,7 |
 | Özkaynak kârlılığı | -%6,3 | %4,5 |
-| Cari oran | 22,78 | 7,79 |
-| Borç / özkaynak | -0,90 | -0,06 |
+| Cari oran | 22,78 | 12,09 |
+| Borç / özkaynak | -0,90 | -0,05 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

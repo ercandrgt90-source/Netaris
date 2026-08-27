@@ -1,13 +1,13 @@
 ---
 slug: etyat-2026-2-ceyrek
 baslik: EURO TREND YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat ve brüt kâr aynı seviyede kalırken, brüt kâr marjı %44,2 ile sektör medyanının (%45,7) altında seyretmiş; bu durum brüt kârın hasılatla paralel hareket ettiğini, ancak kâr oranının sektöre göre biraz daha düşük olduğunu gösterir.…
+ozet: Hasılat ve brüt kâr aynı seviyede kalırken, brüt kâr marjının %43,1 olması net kâr marjının %19,9'a yükselmesine ve net kârın negatiften sıfıra geçmesine yol açtı; bu artış, faaliyet kârının hâlâ 0 milyar TL olmasıyla birlikte FAVÖK'ün önceki döneme göre 0,01 milyar TL artmasını sağladı.…
 sirket: EURO TREND YATIRIM ORTAKLIĞI A.Ş.
 kod: ETYAT
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Finans
-tarih: 2026-08-24
+tarih: 2026-08-26
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,21 +18,21 @@ sayimlar:
 
 ## Özet
 
-Hasılat ve brüt kâr aynı seviyede kalırken, brüt kâr marjı %44,2 ile sektör medyanının (%45,7) altında seyretmiş; bu durum brüt kârın hasılatla paralel hareket ettiğini, ancak kâr oranının sektöre göre biraz daha düşük olduğunu gösterir. Net kâr, önceki dönemde –%0,01 iken bu dönemde sıfır olmuş ve net kâr marjı %19,9 ile sektör medyanının (%15,9) üzerindedir; bu, zarar durumundan kâra geçişin net kâr oranını yükselttiğini, fakat net kâr tutarının hâlâ düşük kaldığını ortaya koyar. Aktif toplamı %0,01 artarken net borç –%0,07'den –%0,06'ya gerilemiş, bu da cari oranın 18,45'e yükselmesine ve borç/özkaynak oranının –0,91'den –0,06'ya yaklaşmasına yol açarak likidite ve özkaynak yapısının güçlendiğini, ancak borç/özkaynak oranının sektör medyanının (–0,06) çok üzerinde olduğunu gösterir.
+Hasılat ve brüt kâr aynı seviyede kalırken, brüt kâr marjının %43,1 olması net kâr marjının %19,9'a yükselmesine ve net kârın negatiften sıfıra geçmesine yol açtı; bu artış, faaliyet kârının hâlâ 0 milyar TL olmasıyla birlikte FAVÖK'ün önceki döneme göre 0,01 milyar TL artmasını sağladı. Özkaynak tutarı değişmeden kalırken aktif toplamının 0,08 milyar TL'ye yükselmesi, net borcun -0,07 milyar TL (daha fazla negatif) olmasına rağmen cari oranın 18,45 ile sektör medyanının 12,09'unu aşması ve borç/özkaynak oranının -0,91 (sektör medyanı -0,05) olması likiditeyi artırdı. Bu likidite artışı, faaliyet nakit akışının -0,01 milyar TL'den 0 milyar TL'ye geçmesiyle birlikte özkaynak kârlılığının %3,8'e (sektör medyanı %4,5) yaklaşmasını destekledi.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | %5,0 |
-| Brüt kâr | %26,2 |
-| Faaliyet kârı | %152,5 |
-| FAVÖK | %56,8 |
-| Net kâr | %77,6 |
+| Hasılat | %2,1 |
+| Brüt kâr | %38,1 |
+| Faaliyet kârı | %334,8 |
+| FAVÖK | %706,2 |
+| Net kâr | %81,1 |
 | Özkaynak | %12,3 |
 | Aktif toplamı | %15,1 |
 | Net borç | -%10,6 |
-| Faaliyet nakit akışı | %91,8 |
+| Faaliyet nakit akışı | %94,3 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -43,7 +43,7 @@ Hasılat ve brüt kâr aynı seviyede kalırken, brüt kâr marjı %44,2 ile sek
 | Hasılat | 0,03 milyar TL |
 | Brüt kâr | 0,01 milyar TL |
 | Faaliyet kârı | 0,00 milyar TL |
-| FAVÖK | 0,00 milyar TL |
+| FAVÖK | 0,01 milyar TL |
 | Net kâr | 0,00 milyar TL |
 | Özkaynak | 0,07 milyar TL |
 | Aktif toplamı | 0,08 milyar TL |
@@ -56,11 +56,11 @@ Karşılaştırma Finans sektöründeki 30 şirketin **medyanına** göre yapıl
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %44,2 | %45,7 |
-| Net kâr marjı | %19,9 | %15,9 |
+| Brüt kâr marjı | %43,1 | %45,1 |
+| Net kâr marjı | %19,9 | %14,7 |
 | Özkaynak kârlılığı | %3,8 | %4,5 |
-| Cari oran | 18,45 | 7,79 |
-| Borç / özkaynak | -0,91 | -0,06 |
+| Cari oran | 18,45 | 12,09 |
+| Borç / özkaynak | -0,91 | -0,05 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -68,7 +68,7 @@ Karşılaştırma Finans sektöründeki 30 şirketin **medyanına** göre yapıl
 
 **Şirket lehine işleyenler**
 
-- Net kâr reel olarak %77,6 arttı.
+- Net kâr reel olarak %81,1 arttı.
 
 **Dikkat gerektirenler**
 

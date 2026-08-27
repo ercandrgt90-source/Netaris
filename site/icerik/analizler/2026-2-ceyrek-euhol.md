@@ -1,13 +1,13 @@
 ---
 slug: euhol-2026-2-ceyrek
 baslik: EURO YATIRIM HOLDİNG A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın 0,38 milyar TL'ye yükselmesi, faaliyet kârının 0,36 milyar TL'ye artmasıyla paralel bir artış gösterirken, net kârın 0,14 milyar TL'ye çıkması, önceki dönemde –0,03 milyar TL olan zarardan pozitif bir dönüşe işaret ediyor; bu kâr artışı, özkaynakların 5,52 milyar TL'ye (önceki 0,57 milyar…
+ozet: Hasılatın sıfırdan 0,38 milyar TL'ye yükselmesi, faaliyet kârının 0,19 milyardan 0,36 milyar TL'ye artmasıyla paralel bir artış gösterdi; bu kâr artışı net kârın negatiften pozitif 0,14 milyar TL'ye geçmesine ve özkaynakların 0,57 milyar TL'den 5,52 milyar TL'ye yükselmesine yol açtı.…
 sirket: EURO YATIRIM HOLDİNG A.Ş.
 kod: EUHOL
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Finans
-tarih: 2026-08-23
+tarih: 2026-08-26
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın 0,38 milyar TL'ye yükselmesi, faaliyet kârının 0,36 milyar TL'ye artmasıyla paralel bir artış gösterirken, net kârın 0,14 milyar TL'ye çıkması, önceki dönemde –0,03 milyar TL olan zarardan pozitif bir dönüşe işaret ediyor; bu kâr artışı, özkaynakların 5,52 milyar TL'ye (önceki 0,57 milyar TL) ve aktif toplamının 6,30 milyar TL'ye (önceki 0,58 milyar TL) ciddi ölçüde artmasıyla desteklenmiş. Net borcun –0,01 milyar TL olması, şirketin net nakit pozisyonunun pozitif olduğunu gösterirken, faaliyet nakit akışının 0,05 milyar TL'ye (önceki –0,17 milyar TL) yükselmesi, kârlı faaliyetlerin nakit üretimine de yansıdığını ortaya koyuyor. Net kâr marjı %63,5 seviyesinde sektör medyanı %15,9'un çok üzerinde iken, özkaynak kârlılığı %4,3 ve borç/özkaynak oranı 0,00, şirketin yüksek kârlılık ve düşük finansal risk profilini birlikte yansıttığını gösteriyor.
+Hasılatın sıfırdan 0,38 milyar TL'ye yükselmesi, faaliyet kârının 0,19 milyardan 0,36 milyar TL'ye artmasıyla paralel bir artış gösterdi; bu kâr artışı net kârın negatiften pozitif 0,14 milyar TL'ye geçmesine ve özkaynakların 0,57 milyar TL'den 5,52 milyar TL'ye yükselmesine yol açtı. Aktif toplamının 0,58 milyar TL'den 6,30 milyar TL'ye büyümesi, net borcun -0,01 milyar TL (nakit fazlası) olarak gerçekleşmesi ve faaliyet nakit akışının -0,17 milyar TL'den 0,05 milyar TL'ye dönüşmesi, şirketin likidite ve sermaye yapısının güçlendiğini gösterdi. Net kâr marjı %63,5 ile sektör medyanının %14,7'sinin çok üzerinde seyredirken, özkaynak kârlılığı %4,3 sektör medyanı %4,5'e yakın ve borç/özkaynak oranı 0,00 sektördeki negatif medyan (-%0,05) ile uyumlu bir düşük borçlu yapı sergiliyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
@@ -52,9 +52,9 @@ Karşılaştırma Finans sektöründeki 30 şirketin **medyanına** göre yapıl
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Net kâr marjı | %63,5 | %15,9 |
+| Net kâr marjı | %63,5 | %14,7 |
 | Özkaynak kârlılığı | %4,3 | %4,5 |
-| Borç / özkaynak | 0,00 | -0,06 |
+| Borç / özkaynak | 0,00 | -0,05 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

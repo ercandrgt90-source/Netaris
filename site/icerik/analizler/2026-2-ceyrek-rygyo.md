@@ -1,13 +1,13 @@
 ---
 slug: rygyo-2026-2-ceyrek
 baslik: REYSAŞ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat 2,05 milyar TL'ye yükselirken net kâr 1,99 milyar TL'ye düşmüş, bu durum net kâr marjının %118,2'ye çıkmasına rağmen faaliyet nakit akışının -3,59 milyar TL'ye kaymasıyla birlikte kârın nakde dönüşümünün azaldığını gösterir; özkaynak 103,25 milyar TL'ye artışı ve aktif toplamının 128,14 mily…
+ozet: Hasılat 2,05 milyar TL'ye yükselirken net kâr 1,99 milyar TL'ye düşmüş, bu durum faaliyet nakit akışının –3,59 milyar TL'ye kaymasıyla paralel bir likidite sıkışması yaratmış; artan özkaynak (103,25 milyar TL) ve aktif toplamı (128,14 milyar TL) ise net borcun (11,22 milyar TL) yükselmesine rağmen b…
 sirket: REYSAŞ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: RYGYO
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-25
+tarih: 2026-08-26
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat 2,05 milyar TL'ye yükselirken net kâr 1,99 milyar TL'ye düşmüş, bu durum net kâr marjının %118,2'ye çıkmasına rağmen faaliyet nakit akışının -3,59 milyar TL'ye kaymasıyla birlikte kârın nakde dönüşümünün azaldığını gösterir; özkaynak 103,25 milyar TL'ye artışı ve aktif toplamının 128,14 milyar TL'ye yükselmesi, net borcun 11,22 milyar TL'ye çıkmasıyla birlikte borç/özkaynak oranının %0,11'e (sektör medyanı %0,02) yükselmesine yol açmıştır.
+Hasılat 2,05 milyar TL'ye yükselirken net kâr 1,99 milyar TL'ye düşmüş, bu durum faaliyet nakit akışının –3,59 milyar TL'ye kaymasıyla paralel bir likidite sıkışması yaratmış; artan özkaynak (103,25 milyar TL) ve aktif toplamı (128,14 milyar TL) ise net borcun (11,22 milyar TL) yükselmesine rağmen borç/özkaynak oranının %0,11 seviyesinde kalmasını sağlamış. Net kâr marjının %118,2'ye çıkması özkaynak kârlılığını %1,1'e yükseltmiş, ancak sektör medyanı %14,3 ve %0,4 olan değerlerle karşılaştırıldığında bu oranların sektörel ortalamaların çok üzerinde olduğu görülüyor. Bu yüksek kârlılık ve düşük borç/özkaynak oranı, artan varlık ve özkaynak büyüklüğüyle birlikte, faaliyet nakit akışındaki negatif değişimle dengelenmiş.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

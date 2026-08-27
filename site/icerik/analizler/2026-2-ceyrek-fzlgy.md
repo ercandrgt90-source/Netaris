@@ -1,13 +1,13 @@
 ---
 slug: fzlgy-2026-2-ceyrek
 baslik: FUZUL GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %2.5'lik artışı (%2,81 milyar → %0,11 milyar) net kârda %1.2'lik bir ters dönüşe yol açtı; gelir yükselirken kâr marjı –%19,9'a geriledi ve özkaynak kârlılığı –%5,2 oldu.…
+ozet: Hasılat 2,81 milyar TL'ye yükselirken net kâr –0,25 milyar TL'ye gerilemiş; gelir artışı faaliyet nakit akışının –0,55 milyar TL'den 0,26 milyar TL'ye geçmesiyle desteklenmiş, ancak artan net borç (1,18 milyar TL, önceki 0,69 milyar TL) özkaynak kârlılığını ve net kâr marjını negatif yönde sürüklemi…
 sirket: FUZUL GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: FZLGY
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-25
+tarih: 2026-08-26
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %2.5'lik artışı (%2,81 milyar → %0,11 milyar) net kârda %1.2'lik bir ters dönüşe yol açtı; gelir yükselirken kâr marjı –%19,9'a geriledi ve özkaynak kârlılığı –%5,2 oldu. Özkaynak hafifçe (%4,28 milyar → %4,21 milyar) artarken net borç %0,69 milyar'dan %1,18 milyara yükseldi, bu da borç/özkaynak oranını %0,02'den %0,28'e çıkararak sektör medyanının çok üzerindeki bir seviyeye taşıdı. Faaliyet nakit akışı ise negatiften (+%0,26 milyar) pozitif bir değere dönerek, artan borç ve düşen kârlılıkla birlikte likiditeye olumlu bir katkı sağladı.
+Hasılat 2,81 milyar TL'ye yükselirken net kâr –0,25 milyar TL'ye gerilemiş; gelir artışı faaliyet nakit akışının –0,55 milyar TL'den 0,26 milyar TL'ye geçmesiyle desteklenmiş, ancak artan net borç (1,18 milyar TL, önceki 0,69 milyar TL) özkaynak kârlılığını ve net kâr marjını negatif yönde sürüklemiş. Öz kaynaklar hafif artarak 4,28 milyar TL olmuş, bu da borç/öz kaynak oranının %0,28'e (sektör medyanı %0,02) yükselmesine rağmen toplam aktiflerdeki (11,90 milyar TL) sınırlı artışla dengelenmiş. Net kâr marjı ve özkaynak kârlılığı negatif kalırken, faaliyet nakit akışının pozitifleşmesi likiditeyi iyileştirmiş, fakat borç artışı bu iyileşmeyi sınırlamış.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

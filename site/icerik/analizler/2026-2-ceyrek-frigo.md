@@ -1,13 +1,13 @@
 ---
 slug: frigo-2026-2-ceyrek
 baslik: FRİGO-PAK GIDA MADDELERİ SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %2,6 düşmesiyle birlikte brüt kâr 0,04 milyar TL'ye yükselerek önceki dönemdeki –0,15 milyar TL'lik zarardan çıkmış, bu da brüt kâr marjının %5,8'e (sektör medyanı %16,5) yükselmesine yol açmıştır; brüt kârın iyileşmesi faaliyet kârını –0,08 milyar TL'ye (önceki –0,26 milyar TL) ve FAVÖK'ü…
+ozet: Hasılatın %2,6 düşmesiyle birlikte brüt kâr 0,04 milyar TL'ye yükselerek önceki dönemdeki -0,15 milyar TL zararını kapattı; bu artış, brüt kâr marjının %5,8'e çıkmasına yol açarken faaliyet ve net kârlarda hâlâ negatif kalmalarına rağmen kâr marjları %8,8 ve özkaynak kârlılığı -%2,9 seviyelerinde iy…
 sirket: FRİGO-PAK GIDA MADDELERİ SANAYİ VE TİCARET A.Ş.
 kod: FRIGO
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Temel tüketim
-tarih: 2026-08-24
+tarih: 2026-08-26
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %2,6 düşmesiyle birlikte brüt kâr 0,04 milyar TL'ye yükselerek önceki dönemdeki –0,15 milyar TL'lik zarardan çıkmış, bu da brüt kâr marjının %5,8'e (sektör medyanı %16,5) yükselmesine yol açmıştır; brüt kârın iyileşmesi faaliyet kârını –0,08 milyar TL'ye (önceki –0,26 milyar TL) ve FAVÖK'ü –0,02 milyar TL'ye (önceki –0,21 milyar TL) çekerek net kârın –0,14 milyar TL'ye (önceki –0,36 milyar TL) daralmasına rağmen zarar seviyesini azaltmıştır. Özkaynakların 1,42 milyar TL'ye (önceki 1,07 milyar TL) yükselmesi aktif toplamının 2,53 milyar TL'ye (önceki 2,04 milyar TL) artmasıyla birlikte borç/özkaynak oranı %0,29'a (sektör medyanı %0,25) yükselmiş, ancak cari oran 1,41 (sektör medyanı 1,36) kalabilmiştir. Faaliyet nakit akışı pozitif 0,01 milyar TL'ye (önceki –0,10 milyar TL) dönmüş, yatırım harcaması ise 0,04 milyar TL'ye (önceki 0,05 milyar TL) hafiflemiştir.
+Hasılatın %2,6 düşmesiyle birlikte brüt kâr 0,04 milyar TL'ye yükselerek önceki dönemdeki -0,15 milyar TL zararını kapattı; bu artış, brüt kâr marjının %5,8'e çıkmasına yol açarken faaliyet ve net kârlarda hâlâ negatif kalmalarına rağmen kâr marjları %8,8 ve özkaynak kârlılığı -%2,9 seviyelerinde iyileşme sağladı. Özkaynakların 1,42 milyar TL'ye, aktif toplamının 2,53 milyar TL'ye yükselmesi net borcun 0,41 milyar TL'ye artmasına rağmen cari oranı 1,41 (sektör medyanı 1,36) ve borç/özkaynak oranını 0,29 (sektör medyanı 0,26) tutarak likiditeyi korudu. Faaliyet nakit akışının -0,10 milyar TL'den 0,01 milyar TL'ye geçmesi, yatırım harcamasının hafifçe azalması (0,05 milyar TL'den 0,04 milyar TL) ile birlikte şirketin nakit üretim kapasitesinin iyileştiğini gösteriyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
@@ -62,7 +62,7 @@ Karşılaştırma Temel tüketim sektöründeki 31 şirketin **medyanına** gör
 | Net kâr marjı | -%8,8 | %0,2 |
 | Özkaynak kârlılığı | -%2,9 | %0,8 |
 | Cari oran | 1,41 | 1,36 |
-| Borç / özkaynak | 0,29 | 0,25 |
+| Borç / özkaynak | 0,29 | 0,26 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
