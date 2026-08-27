@@ -3894,19 +3894,100 @@ AKIS_SAYISI = 40
 ONE_CIKAN_PENCERE = 2
 
 
+#: Tazelik katmanlarinin sinirlari (saat).
+#:
+#: Bolumun adi "BUGUNUN onemli gelismeleri" ama siralama yalnizca puana
+#: bakiyordu ve zaman hic olcut degildi. Sonucu olculdu (2026-08-27):
+#: manset DUNKU bir haberdi, listenin altinda 42 dakikalik haberler
+#: duruyordu. Okurun "simdi neye bakmaliyim" sorusuna 39 saatlik bir
+#: kalemle cevap vermek, bolumun kendi vaadini bozuyor.
+#:
+#: Puani DEGISTIRMEDIK. Bir haberin onemi zamanla azalmaz; azalan sey
+#: onun BUGUNUN listesinde yer isteme hakkidir. Ikisi ayri sey, o
+#: yuzden `onem.puanla` oldugu gibi kaldi ve siralama burada yapiliyor.
+ONE_CIKAN_TAZE_SAAT = 6
+ONE_CIKAN_GUN_SAAT = 24
+
+
+def _tazelik_katmani(h: dict, simdi: datetime) -> int:
+    """0 = son 6 saat, 1 = son 24 saat, 2 = daha eski YA DA BILINMIYOR.
+
+    Damgasi cozulemeyen haber EN ESKI sayiliyor, "taze" degil. Ayni
+    ilke `an_yaz` icinde de var: uydurma bir saat, yanlis bir tazelik
+    izlenimi verir. Bilinmezlikte okurun lehine olan taraf, bilinmeyeni
+    one cikarmamak.
+    """
+    damga = h.get("an") or ""
+    try:
+        t = datetime.fromisoformat(str(damga).replace("Z", "+00:00"))
+    except (ValueError, TypeError):
+        return 2
+    if t.tzinfo is None:
+        t = t.replace(tzinfo=timezone.utc)
+    saat = (simdi - t).total_seconds() / 3600
+    if saat < ONE_CIKAN_TAZE_SAAT:
+        return 0
+    if saat < ONE_CIKAN_GUN_SAAT:
+        return 1
+    return 2
+
+
 def one_cikan_haberler(haberler: list[dict], bugun: str = "") -> list[dict]:
     """Katman 2: one cikan gelismeler.
 
-    Puan siralamasi + tekrar elemesi `onem.sec` icinde. Burada yalnizca
+    Tekrar elemesi ve cesitlilik `onem.sec` icinde. Burada yalnizca
     haberin kendisi geri veriliyor -- puan sablona gitmiyor, cunku
     sablonun puani BASMA ihtimali olmamali.
+
+    SIRALAMA: once kritik olanlar, sonra TAZELIK KATMANI, sonra puan.
+
+    Kritik haber yastan bagimsiz onde kaliyor: gercek bir kriz, dun
+    olsa da bugunun mansetidir. Ama esik yuksek (85) ve olculdu --
+    bolumu dolduran kalemlerin hepsi "normal" katmaninda, puanlari
+    42-58 arasinda sikisik. Birbirine bu kadar yakin puanlar arasinda
+    siralamayi belirleyen sey tazelik olmali; aksi halde iki puanlik
+    fark, bir gunluk gecikmeyi yeniyor.
     """
     if bugun:
         haberler = [h for h in haberler
                     if gun_farki(h.get("tarih", ""), bugun) < ONE_CIKAN_PENCERE]
     if _onem is None:
         return haberler[:_ONEM_YEDEK_SAYISI]
-    ciftler = [(_onem.Onem(puan=h.get("onem", 0),
+
+    # UYGUNLUK GERCEK PUANLA, SIRALAMA GOSTERIM PUANIYLA.
+    #
+    # `onem.sec` iki is yapiyor: `NORMAL` esiginin altini eliyor ve
+    # siralaniyor. Tazeligi puanin icine koyacaksak eleme ONCE, gercek
+    # puanla yapilmali -- yoksa tazelik eklentisi onemsiz bir haberi
+    # esigin ustune tasir ve bolum, secim olmaktan cikar.
+    haberler = [h for h in haberler
+                if int(h.get("onem", 0) or 0) >= _onem.NORMAL]
+
+    # TAZELIK, PUANIN ONUNE GECIYOR.
+    #
+    # Ilk denemede siralama burada yapildi ve ETKISIZ KALDI: `tekille`
+    # kendi icinde `sorted(..., key=-puan)` cagiriyor ve disaridan
+    # gelen sirayi eziyor. Yani tazeligi gercekten uygulamanin tek
+    # yolu, `sec`in BAKTIGI puana yazmak.
+    #
+    # Katman farki 1000, puan araligindan (0-100) buyuk: yani taze bir
+    # haber, bir gun onceki daha yuksek puanli haberin ONUNE geciyor.
+    # Bolumun adi "BUGUNUN onemli gelismeleri" ve okurun sorusu "simdi
+    # neye bakmaliyim" -- dunku bir kalemle acmak o soruya cevap degil.
+    #
+    # KRITIK bunun disinda: gercek bir kriz dun olsa da bugunun
+    # mansetidir. Esik yuksek (85) ve olculdu -- bolumu dolduran
+    # kalemler 42-58 arasinda sikisik, yani bu muafiyet nadiren
+    # devreye giriyor.
+    _simdi = datetime.now(timezone.utc)
+
+    def _gosterim(h: dict) -> int:
+        p = int(h.get("onem", 0) or 0)
+        if h.get("katman") == "kritik":
+            return 9000 + p
+        return (2 - _tazelik_katmani(h, _simdi)) * 1000 + p
+
+    ciftler = [(_onem.Onem(puan=_gosterim(h),
                            katman=h.get("katman", "normal")), h)
                for h in haberler]
     return [h for _, h in _onem.sec(ciftler, anahtar=_veri_kumesi)]

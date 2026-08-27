@@ -288,6 +288,76 @@ finally:
     else:
         setattr(insa, "__LOGO", _kayit_yedek)
 
+
+# ------------------------------------------------------------------
+# "BUGUNUN ONEMLI GELISMELERI" TAZE OLANI ONE ALIR.
+#
+# Olculdu (2026-08-27): bolum yalnizca PUANA gore siralaniyordu ve
+# zaman hic olcut degildi. Sonucu ekranda goruldu -- manset DUNKU bir
+# haberdi, listenin altinda 42 dakikalik haberler duruyordu.
+#
+# Puan DEGISTIRILMEDI: bir haberin onemi zamanla azalmaz, azalan sey
+# BUGUNUN listesinde yer isteme hakkidir. Tazelik yalnizca siralamaya
+# giriyor.
+#
+# Ilk deneme ETKISIZ KALDI ve sebebi ogreticiydi: siralama
+# `one_cikan_haberler` icinde yapildi ama `onem.tekille` kendi icinde
+# `sorted(..., key=-puan)` cagirip disaridan gelen sirayi eziyor.
+# Tazeligi gercekten uygulamanin tek yolu, `sec`in BAKTIGI puana
+# yazmakti.
+# ------------------------------------------------------------------
+from datetime import datetime, timedelta, timezone as _tz  # noqa: E402
+
+_simdi = datetime.now(_tz.utc)
+
+
+def _hbr(ad, saat, puan, katman="normal", konu="Para politikası"):
+    return {"adres": f"https://ornek.test/{ad}", "baslik": ad,
+            "konu": konu, "onem": puan, "katman": katman,
+            "tarih": (_simdi - timedelta(hours=saat)).strftime("%Y-%m-%d"),
+            "an": (_simdi - timedelta(hours=saat)).isoformat()}
+
+
+_bugun = _simdi.strftime("%Y-%m-%d")
+
+# Dunku YUKSEK puanli haber, bugunku DUSUK puanliyi gecmemeli.
+_liste = [_hbr("Dun yuksek puanli gelisme", 26, 58),
+          _hbr("Bugun dusuk puanli gelisme", 1, 44)]
+_sonuc = insa.one_cikan_haberler(list(_liste), _bugun)
+es("taze haber, dunku yuksek puanliyi geciyor",
+   _sonuc[0]["baslik"] if _sonuc else "", "Bugun dusuk puanli gelisme")
+
+# KRITIK muaf: gercek bir kriz dun olsa da mansettir.
+_liste2 = [_hbr("Dun kritik gelisme", 26, 88, katman="kritik"),
+           _hbr("Bugun normal gelisme", 1, 44)]
+_sonuc2 = insa.one_cikan_haberler(list(_liste2), _bugun)
+es("kritik haber yastan bagimsiz onde", _sonuc2[0]["baslik"],
+   "Dun kritik gelisme")
+
+# Ayni tazelik katmaninda siralamayi PUAN belirliyor.
+_liste3 = [_hbr("Bugun dusuk gelisme", 2, 42),
+           _hbr("Bugun yuksek gelisme", 3, 58)]
+_sonuc3 = insa.one_cikan_haberler(list(_liste3), _bugun)
+es("ayni katmanda puan belirleyici", _sonuc3[0]["baslik"],
+   "Bugun yuksek gelisme")
+
+# Esigin ALTINDAKI haber, tazelik eklentisiyle listeye SIZMAMALI.
+# Uygunluk gercek puanla olculuyor; aksi halde bolum secim olmaktan
+# cikardi.
+_liste4 = [_hbr("Onemsiz ama cok taze", 0.1, 12),
+           _hbr("Onemli ve taze", 1, 55)]
+_sonuc4 = insa.one_cikan_haberler(list(_liste4), _bugun)
+dogru("esik altindaki haber tazelikle sizmiyor",
+      all(h["baslik"] != "Onemsiz ama cok taze" for h in _sonuc4))
+
+# Damgasi cozulemeyen haber TAZE sayilmamali.
+_bilinmeyen = _hbr("Damgasi bozuk gelisme", 1, 58)
+_bilinmeyen["an"] = "tarih degil"
+_sonuc5 = insa.one_cikan_haberler([_bilinmeyen, _hbr("Taze gelisme", 1, 44)],
+                                  _bugun)
+es("cozulemeyen damga en eski sayiliyor", _sonuc5[0]["baslik"],
+   "Taze gelisme")
+
 # HANGI SINAMA KALDIGI YAZILIYOR.
 #
 # Onceden yalnizca sayi basiliyordu ("1 kaldi") ve o sayi tek basina
