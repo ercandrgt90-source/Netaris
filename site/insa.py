@@ -2078,6 +2078,13 @@ SENARYO_KONULARI = frozenset({
 SENARYO_EN_AZ_VARLIK = 2
 
 
+#: Baslikta OLCULMUS BIR ORAN var mi.
+#:
+#: Yalnizca yuzde ve baz puan. Tutar (TL, dolar) BILEREK disarida:
+#: tutar da bir sayidir ama uzerine kosul kurulacak bir olcum degil.
+SENARYO_OLCUM = re.compile(r"%\s?\d|y[uü]zde\s?\d|baz puan", re.I)
+
+
 def senaryoya_acik(h: dict, varliklar=None) -> bool:
     """Bu haber senaryo yazmaya deger mi.
 
@@ -2106,6 +2113,26 @@ def senaryoya_acik(h: dict, varliklar=None) -> bool:
     if h.get("konu") not in SENARYO_KONULARI:
         return False
     if varliklar is not None and len(varliklar) >= SENARYO_EN_AZ_VARLIK:
+        return True
+    # UCUNCU YOL: BASLIK OLCULMUS BIR ORAN TASIYOR MU.
+    #
+    # Kullanici bildirdi (2026-08-25): "TCMB agirlikli ortalama
+    # fonlama maliyeti: %37,00" haberinde senaryo secenegi yoktu.
+    # Olculdu -- iki yolun ikisinde de takiliyordu: tek varliga bagli
+    # (TCMB, esik 2) ve olay siniflandirici basligi HIC eslestiremiyor.
+    #
+    # Oysa bu, senaryo yazmaya en uygun haber turu: ortada somut,
+    # olculmus bir sayi var. Yukaridaki gerekce zaten bunu soyluyor --
+    # "iki olculen buyukluk bagliysa okurun tutunacagi bir sey var."
+    # Basligin ICINDEKI oran da tam olarak o tutamak: okur "%37 uzerinde
+    # kalirsa mevduat faizi..." diye kosul kurabiliyor.
+    #
+    # DESEN DAR: yalnizca YUZDE ve BAZ PUAN. "3.552 TL zam farki" gibi
+    # bir tutar da sayidir ama kosul kurulacak bir OLCUM degil; genis
+    # desen "Emekli maas farklari yatti mi" gibi hizmet haberlerini de
+    # aciyordu. Olculdu: genis desen +141, dar desen +86 haber.
+    if SENARYO_OLCUM.search(h.get("baslik_tr") or h.get("baslik_kaynak")
+                            or h.get("baslik") or ""):
         return True
     if _olay is None:
         return True

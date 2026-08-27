@@ -138,5 +138,43 @@ es("esitlikte yeni once", [x["baslik"] for x in insa.ai_akisi(_e, en_cok=2)],
 print()
 for k in kaldi:
     print("  KALDI", k)
+
+print()
+print("Senaryo cagrisi -- OLCULMUS ORAN tasiyan baslik aciliyor")
+
+# Kullanici bildirdi (2026-08-25): "TCMB agirlikli ortalama fonlama
+# maliyeti: %37,00" haberinde senaryo secenegi yoktu. Iki yolun
+# ikisinde de takiliyordu -- tek varliga bagli (esik 2) ve olay
+# siniflandirici basligi hic eslestiremiyor.
+#
+# Oysa bu senaryo yazmaya EN uygun haber turu: ortada somut, olculmus
+# bir sayi var ve okur "%37 uzerinde kalirsa..." diye kosul
+# kurabiliyor.
+
+def _h(baslik, konu="Para politikası"):
+    return {"konu": konu, "baslik_tr": baslik, "kurum": "TCMB"}
+
+es("yuzde tasiyan baslik aciliyor", insa.senaryoya_acik(_h("TCMB ağırlıklı ortalama fonlama maliyeti: %37,00"),
+                         ["TCMB"]), True)
+es("'yuzde' yazili baslik da aciliyor", insa.senaryoya_acik(_h("Sanayi üretimi yıllık yüzde 1,4 azaldı"), []), True)
+es("baz puan aciliyor", insa.senaryoya_acik(_h("Merkez bankası 250 baz puan indirdi"), []), True)
+
+# TUTAR OLCUM DEGIL. Genis desen "Emekli maas farklari yatti mi?
+# 3.552 TL" gibi hizmet haberlerini de aciyordu -- sayi var ama
+# uzerine kosul kurulacak bir oran yok. Olculdu: genis +141, dar +86.
+es("yalniz TUTAR tasiyan baslik acilmiyor", insa.senaryoya_acik(_h("Emekli maaş farkları yattı mı? 3.552 TL fark"),
+                         []), False)
+
+# KONU SUZGECI HALA ONDE: olcum olsa bile konusu uygun degilse
+# senaryo yazilmaz.
+es("konusu uygun olmayan baslik olcumle de acilmiyor", insa.senaryoya_acik(_h("Bir dizinin reytingi yüzde 12 arttı",
+                            konu="Turizm"), []), False)
+
+# Desen kendi kendini sinar -- bozulursa sessizce hicbir sey
+# eslestirmez ve ustteki "gecti"ler anlamsiz olurdu.
+es("desen % yakaliyor", bool(insa.SENARYO_OLCUM.search("%37,00")), True)
+es("desen 'yuzde' yakaliyor", bool(insa.SENARYO_OLCUM.search("yüzde 1,4")), True)
+es("desen tutari yakalamiyor", bool(insa.SENARYO_OLCUM.search("3.552 TL")), False)
+
 print(f"{gecti} gecti, {len(kaldi)} kaldi")
 sys.exit(1 if kaldi else 0)
