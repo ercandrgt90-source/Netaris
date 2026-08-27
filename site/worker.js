@@ -1912,7 +1912,120 @@ ${gorsel ? `<meta property="og:image" content="${kacir(
 }
 
 
+
+/* ------------------------------------------------------- nobetci ---
+ * GITHUB'IN TAKVIMI DURDUGUNDA AKISI GERI GETIREN YEDEK TETIK.
+ *
+ * NE OLDU
+ * -------
+ * 2026-08-26 aksami GitHub Actions kotasi doldu. Kota bitince is
+ * KIRMIZI DONMUYOR, sadece BASLAMIYOR -- yani hicbir yerde uyari
+ * gorunmuyor. Depo ertesi gun herkese acik yapildi (dakika sinirsiz)
+ * ama zamanlanmis kosular geri gelmedi: 26 Agustos 16:36'dan sonra
+ * bir tane bile dusmedi. Elle tetiklenen kosular sorunsuz calisiyordu,
+ * yani hat saglamdi -- calismayan sey ZAMANLAYICIYDI.
+ *
+ * Sonuc: site saatlerce bayat kaldi ve bunu ancak birisi bakinca
+ * fark etti.
+ *
+ * NEDEN IKINCI BIR ZAMANLAYICI DEGIL DE NOBETCI
+ * ---------------------------------------------
+ * Cloudflare cron'u da her yarim saatte bir tetikleseydi, GitHub'in
+ * takvimi calistiginda HER SEY IKI KEZ kosardi. Es zamanlilik grubu
+ * ikinciyi kuyruga alir, yani zarar vermez ama bosa is olur.
+ *
+ * Bunun yerine nobetci ONCE BAKIYOR: yayindaki en yeni icerik
+ * ESIK_SAAT'ten eskiyse tetikliyor, degilse hicbir sey yapmiyor.
+ * Normal gunlerde sessiz duruyor; yalnizca asil zamanlayici
+ * sustugunda devreye giriyor.
+ *
+ * KURULMAMISSA SESSIZCE CIKAR
+ * ---------------------------
+ * `GITHUB_TETIK_JETONU` tanimli degilse islev hicbir sey yapmadan
+ * doner. Boylece bu kod, jeton eklenene kadar hicbir davranisi
+ * degistirmiyor -- yani dagitilmasi risksiz.
+ *
+ * Jeton `wrangler secret put GITHUB_TETIK_JETONU` ile konuyor; koda
+ * ya da depoya YAZILMIYOR. Gereken yetki: ince taneli bir PAT,
+ * yalnizca bu depoda `contents: write` (repository_dispatch bunu
+ * istiyor).
+ */
+
+/*: Yayindaki icerik bu saatten eskiyse hat tetikleniyor.
+ *
+ *  GitHub takvimi hafta ici yarim saatte bir kosuyor. Iki saat, dort
+ *  kacirilmis kosu demek -- yani gecici bir gecikme degil, gercek bir
+ *  durus. Esigi daha dusuk tutmak, GitHub'in olagan gecikmelerinde
+ *  gereksiz tetikleme uretirdi. */
+const NOBET_ESIK_SAAT = 2;
+
+const NOBET_DEPO = "ercandrgt90-source/Netaris";
+
+async function icerikYasiSaat(env) {
+  /* Kendi yayimladigimiz RSS'i okuyoruz -- dis aga cikmadan, kenar
+     dugumun elindeki dosyadan. En yeni `pubDate` sitenin gercekten
+     yayimladigi en taze icerigin zamani. */
+  try {
+    const y = await env.ASSETS.fetch("https://netaris.net/rss.xml");
+    if (!y.ok) return null;
+    const metin = await y.text();
+    const bas = metin.indexOf("<pubDate>");
+    if (bas === -1) return null;
+    const son = metin.indexOf("</pubDate>", bas);
+    if (son === -1) return null;
+    const t = Date.parse(metin.slice(bas + 9, son).trim());
+    if (Number.isNaN(t)) return null;
+    return (Date.now() - t) / 3600000;
+  } catch (e) {
+    /* Okunamadi: BILINMIYOR donuyor, "bayat" DEGIL. Bilinmezlikte
+       tetiklemek, her saat bosuna kosu baslatmak olurdu. */
+    console.error("nobetci: icerik yasi okunamadi", e);
+    return null;
+  }
+}
+
+async function nobetci(env) {
+  const jeton = env.GITHUB_TETIK_JETONU;
+  if (!jeton) return;                       /* kurulmamis -- sessiz */
+
+  const yas = await icerikYasiSaat(env);
+  if (yas === null) return;
+  if (yas < NOBET_ESIK_SAAT) return;        /* taze -- karisma */
+
+  try {
+    const c = await fetch(
+      `https://api.github.com/repos/${NOBET_DEPO}/dispatches`,
+      {
+        method: "POST",
+        headers: {
+          "Authorization": `Bearer ${jeton}`,
+          "Accept": "application/vnd.github+json",
+          "X-GitHub-Api-Version": "2022-11-28",
+          /* GitHub API User-Agent ZORUNLU kiliyor; yoksa 403. */
+          "User-Agent": "netaris-nobetci",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          event_type: "tazele",
+          client_payload: { sebep: `icerik ${yas.toFixed(1)} saatlik` },
+        }),
+      },
+    );
+    console.log(`nobetci: ${yas.toFixed(1)} saatlik icerik, `
+                + `tetik yaniti ${c.status}`);
+  } catch (e) {
+    console.error("nobetci: tetiklenemedi", e);
+  }
+}
+
 export default {
+  /* Cloudflare cron tetikleyicisi. `waitUntil` SART: `scheduled`
+     donunce calisma baglamı kapanıyor ve bekleyen istek yarida
+     kalıyor. */
+  async scheduled(_olay, env, ctx) {
+    ctx.waitUntil(nobetci(env));
+  },
+
   async fetch(istek, env) {
     const u = new URL(istek.url);
 

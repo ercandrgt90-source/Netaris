@@ -99,6 +99,18 @@ on:
     - cron: "0 0-4,21-23 * * 1-5"
     # Hafta sonu saat basi.
     - cron: "0 * * * 0,6"
+  # NOBETCI TETIGI.
+  #
+  # Cloudflare Worker'daki nobetci, yayindaki icerik iki saatten
+  # eskiyse buraya `repository_dispatch` gonderiyor. Amaci GitHub'in
+  # kendi takvimi sustugunda akisi geri getirmek -- 2026-08-26'da
+  # kota bitince tam bu oldu ve zamanlanmis kosular gunlerce dusmedi.
+  #
+  # Ikinci bir zamanlayici DEGIL: nobetci once tazelige bakiyor ve
+  # normal gunlerde hic tetiklemiyor.
+  repository_dispatch:
+    types: [tazele]
+
   # Panelden elle de calistirilabilsin
   workflow_dispatch:
     inputs:
