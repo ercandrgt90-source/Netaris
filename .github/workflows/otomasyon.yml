@@ -107,12 +107,32 @@ on:
         type: boolean
         default: true
 
-# Ayni anda iki calisma olmasin: ikisi de depoya yazip birbirini ezerdi.
+# Grup `bilanco.yml` ile AYRI -- ve bu bilerek boyle.
 #
-# Grup adi `bilanco.yml` ile ORTAK. Iki AYRI is akisi ama ayni depoya
-# yaziyorlar; grup adlari farkli olsaydi es zamanli kosup birbirinin
-# commitini ezebilirlerdi -- ayirmanin amaci zamanlamayi ayirmakti,
-# yazmayi degil.
+# BU NOT ESKIDEN TERSINI SOYLUYORDU. "Grup adi bilanco.yml ile ORTAK"
+# yaziyordu; gercekte adlar `netaris-depo-yazma` ve `netaris-bilanco`.
+# Yani dogru yapilandirmayi yanlis anlatan bir aciklamaydi ve tehlikesi
+# somut: okuyan biri "tutarsizlik" sanip gruplari birlestirebilirdi.
+#
+# NEDEN AYRILDI: ortak gruptayken `cancel-in-progress: false` yalnizca
+# BASLAMIS kosuyu koruyordu; KUYRUKTAKI kosu, ayni gruba yeni istek
+# girince iptal ediliyordu --
+#
+#   "Canceling since a higher priority waiting request for
+#    netaris-depo-yazma exists"
+#
+# Otomasyon sik kosuyor. Bilanco kuyruga girdiginde bir sonraki haber
+# kosusu onu superseded ediyordu; yani bilanco neredeyse hic sira
+# bulamiyordu. Ortak grup es zamanli YAZMAYI engellemek icin konmustu
+# ama BASLAMAYI da engelliyordu.
+#
+# Yazma yarisi artik dogru yerde cozuluyor ve ikisi de sinaniyor
+# (`haber_botu/test_isakisi.py`):
+#   * geri yazma yalnizca KENDI yollarini asamaya aliyor,
+#   * push reddedilirse ZORLANMIYOR, uzak uc alinip yeniden deneniyor.
+#
+# Bu grup yine de gerekli: ayni is akisinin iki kopyasi es zamanli
+# kosarsa birbirinin commitini ezer.
 concurrency:
   group: netaris-depo-yazma
   cancel-in-progress: false
