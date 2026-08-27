@@ -406,6 +406,42 @@ _k = insa.canli_akis(list(_karisik), 6)
 es("gorselsiz satirlar sayaci tuketmiyor",
    sum(1 for h in _k if h.get("foto")), insa.AKIS_FOTO_TEKRARI)
 
+# ------------------------------------------------------------------
+# AYNI KONUSMANIN CUMLELERI AKISI DOLDURMAZ.
+#
+# Olculdu (2026-08-27, canli ana sayfa): kirk satirin ONBESI iki Fed
+# yetkilisinin TEK konusmasindan geliyordu (6 + 5 + 4). Kaynak bir
+# konusmanin her cumlesini ayri baslik olarak yayinliyor.
+#
+# Akis genis suzulmemeli -- o bir kayit. Ama onbes satir tek konusma,
+# akisin AMACINI bozuyor: okur "bugun ne oldu" diye bakip bir kisinin
+# cumlelerini goruyor. Genis eleme akisi sakatlar, bu daralma onu
+# duzeltir; ikisi ayni sey degil.
+# ------------------------------------------------------------------
+_konusma = [{"an": f"2026-08-27T{s:02d}:00:00+00:00",
+             "baslik": f"Fed'den Hammack: {s}. cumle", "foto": ""}
+            for s in range(6)]
+_baska = [{"an": "2026-08-27T23:00:00+00:00",
+           "baslik": "TCMB rezervleri yukseldi", "foto": ""}]
+_a = insa.canli_akis(_konusma + _baska, 10)
+es("ayni konusmadan en fazla iki kalem",
+   sum(1 for h in _a if "Hammack" in h["baslik"]), insa.AKIS_KUME_TAVANI)
+dogru("baska haber akista kaliyor",
+      any("TCMB" in h["baslik"] for h in _a))
+
+# TAVAN KESMEDEN ONCE: elenen satirlarin yeri BOS kalmamali, akis
+# tam sayida gorunmeli.
+_bol = _konusma + [{"an": f"2026-08-26T{s:02d}:00:00+00:00",
+                    "baslik": f"Ayri haber {s}", "foto": ""}
+                   for s in range(10)]
+es("akis tam sayida doluyor", len(insa.canli_akis(_bol, 8)), 8)
+
+# Rakamli onek kumelenmemeli: iki ayri ayin verisi tek haber degil.
+_veri = [{"an": f"2026-08-27T0{s}:00:00+00:00",
+          "baslik": f"TUFE %3{s},10: aylik degisim", "foto": ""}
+         for s in range(5)]
+es("veri basliklari kumelenmiyor", len(insa.canli_akis(_veri, 5)), 5)
+
 # HANGI SINAMA KALDIGI YAZILIYOR.
 #
 # Onceden yalnizca sayi basiliyordu ("1 kaldi") ve o sayi tek basina

@@ -3886,6 +3886,10 @@ AKIS_SAYISI = 40
 #: tekrarliyordu.
 AKIS_FOTO_TEKRARI = 2
 
+#: Ayni konusmadan (baslik oneki) akista gorunebilecek en cok
+#: kalem. Olculdu: kirk satirin onbesi iki konusmadandi.
+AKIS_KUME_TAVANI = 2
+
 
 #: One cikan bolumunun zaman penceresi (gun).
 #:
@@ -4153,9 +4157,36 @@ def ai_akisi(haberler: list[dict], en_cok: int = AI_AKIS_SAYISI) -> list[dict]:
 def canli_akis(haberler: list[dict], en_cok: int = AKIS_SAYISI) -> list[dict]:
     """Katman 1: ham akis, en yeni ustte.
 
-    ELEME YOK. Katman 2 bir SECIM, burasi bir KAYIT -- akis suzulurse
-    okur "bir sey oldu mu" sorusunun cevabini burada bulamaz ve akisin
-    tek isi o.
+    Katman 2 bir SECIM, burasi bir KAYIT: akis genis suzulurse okur
+    "bir sey oldu mu" sorusunun cevabini burada bulamaz ve akisin tek
+    isi o.
+
+    TEK ISTISNA: AYNI KONUSMANIN CUMLELERI.
+
+    Burada "ELEME YOK" yaziyordu ve bir sure oyleydi. Olculdu
+    (2026-08-27, canli ana sayfa): kirk satirin ONBESI iki Fed
+    yetkilisinin TEK konusmasindan geliyordu --
+
+        6x "Fed'den Hammack: ..."
+        5x "Fed'den Goolsbee: ..."
+        4x "Fed'in Hammack'i: ..."
+
+    FinancialJuice bir konusmanin her cumlesini ayri baslik olarak
+    yayinliyor. `onem.tekille` belgesi bu durumu zaten adiyla aniyor:
+    "Aktarim akislari tek bir konusmayi dort ayri baslik olarak
+    veriyor."
+
+    Onbes satir tek konusma, akisin AMACINI bozuyor: okur "bugun ne
+    oldu" diye bakiyor ve gordugu sey bir kisinin cumleleri. Yani
+    genis eleme akisi sakatlar, ama bu daralma onu duzeltiyor --
+    ikisi ayni sey degil.
+
+    Elenen baslik KAYBOLMUYOR: kendi sayfasinda ve haberin "ayni
+    konuda son gelismeler" bolumunde duruyor.
+
+    KUME ANAHTARI `onem._onek`: basligin ":" oncesi. Rakam iceren
+    onekler DISARIDA -- "TÜFE %31,75: ..." gibi veri basliklarinda
+    onek verinin kendisi olur ve iki ayri ay ayni haber sayilirdi.
 
     Siralama `an` (ilk gorulme damgasi) uzerinden. Damgasi olmayan
     haber tarihine gore siraya giriyor; ikisi de yoksa listenin sonuna
@@ -4163,7 +4194,22 @@ def canli_akis(haberler: list[dict], en_cok: int = AKIS_SAYISI) -> list[dict]:
     """
     def anahtar(h: dict) -> str:
         return h.get("an") or (h.get("tarih") or "")
-    sirali = sorted(haberler, key=anahtar, reverse=True)[:en_cok]
+    # KUME TAVANI SIRALAMADAN ONCE: tavan kesilmis listeye
+    # uygulansaydi, elenen satirlarin yeri BOS kalirdi -- yani akis
+    # kirk yerine otuz kalemle gorunurdu. Once daralt, sonra kes.
+    if _onem is not None:
+        kume: dict[str, int] = {}
+        secilmis = []
+        for h in sorted(haberler, key=anahtar, reverse=True):
+            k = _onem._onek(h.get("baslik", "") or "")
+            if k:
+                kume[k] = kume.get(k, 0) + 1
+                if kume[k] > AKIS_KUME_TAVANI:
+                    continue
+            secilmis.append(h)
+        sirali = secilmis[:en_cok]
+    else:
+        sirali = sorted(haberler, key=anahtar, reverse=True)[:en_cok]
 
     # AYNI KUCUK GORSEL AKISTA IKIDEN FAZLA GORUNMEZ.
     #

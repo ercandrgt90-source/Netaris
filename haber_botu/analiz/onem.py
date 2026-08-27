@@ -426,6 +426,22 @@ def _onek(baslik: str) -> str:
         return ""
     if any(c.isdigit() for c in bas):
         return ""
+    # TURKCE EK KESILIYOR.
+    #
+    # Olculdu (2026-08-27, canli akis): ayni kisinin ayni konusmasi
+    # IKI AYRI kume sayiliyordu --
+    #
+    #     "Fed'den Hammack: ..."   4 baslik
+    #     "Fed'in Hammack'i: ..."  4 baslik
+    #
+    # Kaynak basligi ayni kalipta ("Fed's Hammack"); ceviri, cumleye
+    # gore farkli ek uretiyor. Ek dilbilgisi, kimlik degil -- kesince
+    # ikisi ayni anahtara duşuyor.
+    #
+    # YALNIZCA KESME ISARETI SONRASI atiliyor, son kelime DEGIL:
+    # "Kanada Cari Hesabi" -> "hesabi" olsaydi "ABD Cari Hesabi" ile
+    # birlesirdi ve iki ayri ulkenin verisi tek haber sayilirdi.
+    bas = " ".join(k.split("'")[0] for k in bas.split())
     return _olay.katla(bas)
 
 

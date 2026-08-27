@@ -235,6 +235,36 @@ tek = [(onem.Onem(puan=90 - i, katman="normal"),
        for i, b in enumerate(_jeo + _enf)]
 es("baska konu yoksa yine doluyor", len(onem.sec(tek, en_az=8, en_cok=8)), 8)
 
+# ------------------------------------------------------------------
+# ONEK: TURKCE EK KIMLIK DEGISTIRMEZ.
+#
+# Olculdu (2026-08-27, canli akis): ayni kisinin ayni konusmasi IKI
+# AYRI kume sayiliyordu --
+#
+#     "Fed'den Hammack: ..."   4 baslik
+#     "Fed'in Hammack'i: ..."  4 baslik
+#
+# Kaynak basligi ayni kalipta ("Fed's Hammack"); ceviri cumleye gore
+# farkli ek uretiyor. Ek dilbilgisidir, kimlik degil.
+# ------------------------------------------------------------------
+es("ek farki ayni anahtara dusuyor",
+   onem._onek("Fed'den Hammack: enflasyon endisesi"),
+   onem._onek("Fed'in Hammack'i: hazine hedefleri"))
+
+dogru("farkli konusmaci ayri kaliyor",
+      onem._onek("Fed'den Hammack: x") != onem._onek("Fed'den Goolsbee: y"))
+
+# SON KELIMEYE INDIRGENMIYOR. "Kanada Cari Hesabi" -> "hesabi"
+# olsaydi "ABD Cari Hesabi" ile birlesir ve iki ayri ulkenin verisi
+# tek haber sayilirdi.
+dogru("iki ulkenin ayni serisi AYRI kaliyor",
+      onem._onek("Kanada Cari Hesabi: veri")
+      != onem._onek("ABD Cari Hesabi: veri"))
+
+# Rakam iceren onek hala reddediliyor -- veri basliklarinda onek
+# verinin kendisidir ve iki ayri ay ayni haber sayilirdi.
+es("rakamli onek reddediliyor", onem._onek("TUFE %31,75: aylik"), "")
+
 print(f"{gecti} gecti, {len(kaldi)} kaldi")
 for k in kaldi:
     print("  X", k)
