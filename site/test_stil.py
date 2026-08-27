@@ -739,21 +739,17 @@ def _olu_bildirimler(metin):
     return bulgu
 
 
-#: BILINEN VE ACIK DURAN ISTISNA.
-#
-#  `.onem-kart` once `display: grid` (grid-template-areas ve uc cocukta
-#  `grid-area` ile birlikte), sonra `display: flex` tanimliyor. Flex
-#  kazaniyor, yani izgara duzeninin TAMAMI olu.
-#
-#  Bu bir TASARIM sorusu, temizlik sorusu degil: hangisinin guncel
-#  tasarim oldugu koddan anlasilmiyor. Duzeltmek kartlarin GORUNUSUNU
-#  degistirir. Kendiligimden secmek yerine istisna acikca yaziliyor --
-#  karar verilince buradan silinecek.
-BEKLENEN_ISTISNA = {("(medya disi)", ".onem-kart", "display")}
+#: Istisna kalmadi. `.onem-kart` bir donem hem `display: grid` hem
+#: `display: flex` tanimliyordu ve izgara duzeninin tamami oluydu;
+#: 2026-08-27'de IZGARA secildi ve olen flex satirlari kaldirildi.
+#: Kume bilerek bos: yeni bir olu bildirim buraya EKLENMEZ,
+#: duzeltilir. Istisna listesi tutmak, kurali yavasca bosaltmanin
+#: yoludur.
+BEKLENEN_ISTISNA = set()
 
 _olu = _olu_bildirimler(_CSS.read_text(encoding="utf-8"))
 _yeni = {(k, s, o) for k, s, o, _a, _b in _olu} - BEKLENEN_ISTISNA
-esit(sorted(_yeni), [], "olu CSS bildirimi yok (bilinen istisna disinda)")
+esit(sorted(_yeni), [], "olu CSS bildirimi yok")
 
 print(f"\n{_gecti} gecti, {_kaldi} kaldi")
 sys.exit(1 if _kaldi else 0)

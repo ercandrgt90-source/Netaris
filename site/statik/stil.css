@@ -1837,7 +1837,17 @@ main.kabuk {
   .onem-izgara { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 .onem-kart {
-  display: flex; flex-direction: column; gap: var(--b-2);
+  /* DUZEN YUKARIDA (`display: grid`) TANIMLI -- burada TEKRARLANMAZ.
+     Bu blok kartin CERCEVESI: zemin, kenarlik, dolgu, gecis. Once
+     `display: flex; flex-direction: column` de iceriyordu ve daha
+     yukaridaki izgarayi eziyordu; sonuc, yazili ama hicbir zaman
+     uygulanmayan bir izgara duzeniydi (grid-template-areas ve uc
+     cocuktaki `grid-area` dahil). Olculdu 2026-08-27.
+
+     `gap` DEGIL `row-gap`: kisaltma sutun boslugunu da ezer ve
+     yukaridaki `column-gap: var(--b-3)` etkisiz kalirdi. Fotograf
+     ile metin arasi b-3, ust serit ile baslik arasi b-2. */
+  row-gap: var(--b-2);
   height: 100%;
   padding: var(--b-3) var(--b-4);
   background: var(--panel);
