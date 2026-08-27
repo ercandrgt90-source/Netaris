@@ -41,7 +41,21 @@ on:
     # Bilancolar haftalar icinde geliyor, gunde iki kez bakmak
     # gereksiz: ayni bildirim ikinci kosuda da ayni sonucu veriyor.
     # Gunde bir kez, sabah 06:00 UTC.
-    - cron: "0 6 * 3,5,8,11 *"
+    # AYIN BELIRLI GUNLERINDE -- "her gun" DEGIL.
+    #
+    # Onceki deger `0 6 * 3,5,8,11 *` idi ve "uc ayda bir" sanildi.
+    # Gercekte okunusu: dakika 0, saat 6, AYIN HER GUNU, aylar
+    # 3/5/8/11. Yani bildirim aylarinda HER GUN kosuyordu.
+    #
+    # Olculdu (2026-08-27, Actions ekrani): 21-26 Agustos arasi her
+    # gun bir kosu, her biri ~50 dakika. Ayda ~1550 dakika -- tek
+    # basina 2000 dakikalik kotanin dortte ucu.
+    #
+    # Gun listesi acikca yaziliyor: hat kosu basina ~60 sayfa
+    # uretiyor ve ~330 sirket icin alti kosu yetiyor. Haftanin gunu
+    # `*` birakildi -- cron'da gun-of-month ve gun-of-week birlikte
+    # verilince VEYA gibi davraniyor ve beklenmedik gunlerde kosuyor.
+    - cron: "0 6 1,5,9,13,17,21 3,5,8,11 *"
   workflow_dispatch:
     inputs:
       yayinla:

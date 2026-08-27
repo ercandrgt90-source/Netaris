@@ -219,11 +219,28 @@ def main() -> int:
                              "--sembol", sembol, "--yayinla"]))
 
     sonuclar: dict[str, bool] = {}
+    #: Veri kaynagi hatalari -- ISI DUSURMEZ, yalnizca raporlanir.
+    #:
+    #: Kod zaten "bir hat coktugunde digerleri DEVAM EDER" diyordu ama
+    #: CIKIS KODU bunu yansitmiyordu: tek bir kaynagin tokezlemesi
+    #: butun isi kirmiziya ceviriyordu.
+    #:
+    #: Olculdu (2026-08-27, kullanicinin ekran goruntusu): otomasyon
+    #: is akisinin GORUNEN BUTUN KOSULARI kirmizi -- #143'ten #151'e.
+    #: Oysa ayni kosular veri toplayip depoya yaziyordu (26 Agustos
+    #: 16:50 commiti). Yani site calisiyordu, sinyal yalan soyluyordu.
+    #:
+    #: Her kosuda kirmizi olan bir gosterge, gosterge olmaktan cikar:
+    #: gercekten duran hat da ayni renkte gorunur ve kimse bakmaz.
+    #: On bes kaynak varken en az birinin tokezlemesi neredeyse kesin.
+    veri_hatasi: list[str] = []
     for baslik, komut in adimlar:
         # Bir hat coktugunde digerleri DEVAM EDER -- gundem cekilemedi diye
         # teknik gorunumun de guncellenmemesi icin sebep yok
         ok, _ = _calistir(baslik, komut)
         sonuclar[baslik] = ok
+        if not ok:
+            veri_hatasi.append(baslik)
 
     # VERI DENETIMI SITE URETIMINDEN ONCE.
     #
@@ -354,7 +371,36 @@ def main() -> int:
     print(f"  {d['haber']} haber ({d['haber_yayimlanan']} yayımlandı)")
     print(f"  {d['ceviri']} çeviri, {d['icerik']} içerik")
 
-    return 0 if all(sonuclar.values()) else 1
+    # CIKIS KODU YALNIZCA KRITIK ADIMLARA BAKAR.
+    #
+    # Kritik olan: site uretilebildi mi, yorum kapisi acik mi, dagitim
+    # yapildi mi. Bunlar basarisizsa OKUR ETKILENIR.
+    #
+    # Veri kaynagi hatasi kritik DEGIL: eksik bir gosterge sayfayi
+    # bozmuyor, yalnizca o kalem guncellenmemis oluyor. Zaten kod da
+    # oyle davraniyor -- digerleri devam ediyor. Cikis kodu artik ayni
+    # seyi soyluyor.
+    #
+    # HATALAR GIZLENMIYOR: asagida ayri ayri yaziliyor ve `_ozet`
+    # tablosunda da gorunuyorlar. Sessizce yutmakla, isi kirmiziya
+    # cevirmek arasinda ucuncu bir yol var: SOYLE ama DURDURMA.
+    KRITIK = ("Veri denetimi", "Site üretimi", "Yorum denetimi", "Dağıtım")
+    kritik_hata = [k for k in KRITIK if sonuclar.get(k) is False]
+
+    if veri_hatasi:
+        print()
+        print(f"  {len(veri_hatasi)} veri kaynagi guncellenemedi "
+              f"(is DURDURULMADI):")
+        for k in veri_hatasi:
+            print(f"    - {k}")
+
+    if kritik_hata:
+        print()
+        print("  KRITIK ADIM BASARISIZ -- is kirmizi doner:")
+        for k in kritik_hata:
+            print(f"    - {k}")
+        return 1
+    return 0
 
 
 if __name__ == "__main__":

@@ -83,13 +83,21 @@ def doldur_hepsi(bekle: float = 0.5) -> int:
     return toplam
 
 
-def budа_hepsi(uygula: bool = False) -> int:
+def buda_hepsi(uygula: bool = False) -> int:
     """Havuzlari eski boyuna dondurur -- EN DUSUK cozunurluklu gider.
 
     Esitlikte ATIF GEREKTIREN gorsel once cikiyor: kamu mali bir
     gorsel sayfada atif satiri gerektirmiyor ve o yuzden daha
     degerli.
-    """
+    
+
+    ADIN ICINDE KIRIL HARF VARDI -- 2026-08-27'de duzeltildi.
+    Fonksiyonun adi `budа_hepsi` diye yaziliydi: ucuncu harf
+    Latin "a" degil KIRIL "a" (U+0430). Python Unicode tanimlayici
+    kabul ettigi icin kod CALISIYORDU; yalnizca disaridan
+    `foto_tazele.buda_hepsi` yazan herkes AttributeError aliyordu
+    ve sebebi ekranda GORUNMUYORDU -- iki ad birebir ayni gorunuyor.
+    CLI kendi icinden cagirdigi icin hata hic yuzeye cikmamisti."""
     kayit = foto.Kayit()
     cikan = 0
     for konu, liste in list(kayit.veri.items()):
@@ -137,7 +145,7 @@ def main() -> int:
     if s.doldur:
         doldur_hepsi()
     elif s.buda:
-        budа_hepsi(s.uygula)
+        buda_hepsi(s.uygula)
     else:
         a.print_help()
     return 0

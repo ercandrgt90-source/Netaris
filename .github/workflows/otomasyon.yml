@@ -56,9 +56,22 @@ on:
     #
     # Saat basi ~376 kosu = ~1.128 dakika; bilancoya ~870 dakika
     # kaliyor. FinancialJuice penceresi icin saat basi yeterli.
-    - cron: "0 5-20 * * 1-5"
+    # HAFTA ICI DORT KEZ -- onceden saat basi (16 kez) idi.
+    #
+    # Olculdu (2026-08-27): eski takvim ayda ~406 kosu x ~12 dk =
+    # ~4870 dakika ediyordu. Kota 2000. Yani takvim tek basina
+    # imkansizdi ve kota bitince BUTUN zamanlanmis isler duruyordu --
+    # haber akisinin durmasinin asil sebebi buydu.
+    #
+    # Yeni butce: bilanco 300 + otomasyon 1272 = ~1570 dakika.
+    #
+    # BEDELI ACIK: haber tazeligi saatlikten dort saatlige dusuyor.
+    # Depo HERKESE ACIK yapilirsa Actions dakikasi SINIRSIZ olur ve
+    # saatlik takvime donulebilir; gizli degerler kodda degil
+    # Secrets'ta duruyor.
+    - cron: "0 6,10,14,18 * * 1-5"
     # Hafta sonu dort saatte bir: 03:00-23:00 TRT
-    - cron: "0 0,4,8,12,16,20 * * 0,6"
+    - cron: "0 8,18 * * 0,6"
   # Panelden elle de calistirilabilsin
   workflow_dispatch:
     inputs:
