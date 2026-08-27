@@ -211,5 +211,40 @@ if bil:
     dogru("bilanco yalnizca bildirim aylarinda (3,5,8,11)",
           all(a == "3,5,8,11" for a in aylar) and aylar)
 
+# --------------------------------------------------------------------
+# 7. GERI YAZMA, KOSU KESILSE BILE CALISMALI.
+#
+#    Olculdu (2026-08-27, kosu 33068672121): bilanco kosusu 50
+#    dakikalik tavana carpip IPTAL edildi. "Siteyi kur" ve "Dagit"
+#    adimlari atlandi -- ama geri yazma adimi `if: always()` tasidigi
+#    icin o ana kadar uretilmis 9 sayfa depoya girdi ve kaybolmadi.
+#
+#    Bu bayrak olmasaydi 34 dakikalik AI uretimi cope giderdi. Biri
+#    ileride "iptal olmus is neden hala yaziyor" deyip kaldirabilir;
+#    kural onu durduruyor.
+#
+#    Dagitim adiminin `always()` OLMAMASI ise dogru: yarim kurulmus
+#    bir siteyi canliya cikarmak, hic cikarmamaktan kotudur. Zaten
+#    depoya yazilan sayfalar bir sonraki otomasyon kosusunda
+#    kuruluyor ve yayimlaniyor.
+# --------------------------------------------------------------------
+for p_ in dosyalar:
+    ham = p_.read_text(encoding="utf-8")
+    if "git push" not in _kod(ham):
+        continue
+    # Geri yazma adimini bul: icinde `git push` gecen adim blogu.
+    # ACIKLAMALAR ATILIYOR. Adimin kendi notu `always()` kelimesini
+    # ANLATMAK icin yaziyor; ilk yazimda test o notu sayiyordu ve
+    # `if: always()` satiri silindiginde yine yesil kaliyordu.
+    # Bu tuzaga bu oturumda UC KEZ dusuldu -- kural her defasinda
+    # yasakladigi metni aciklamak zorunda.
+    adimlar = _kod(ham).split("- name:")
+    yazan = [a for a in adimlar if "git push" in a]
+    dogru(f"{p_.name} geri yazma adimi kosu kesilse de calisiyor",
+          any("if: always()" in a for a in yazan))
+
+
+
+
 print(f"\n{_gecti} gecti, {_kaldi} kaldi")
 sys.exit(1 if _kaldi else 0)

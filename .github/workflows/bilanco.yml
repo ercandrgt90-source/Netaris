@@ -121,12 +121,32 @@ jobs:
     # Ana isin tavani 25 dakika; burasi genis cunku 972 ag istegi ve
     # 60 model cagrisi var. Yine de SINIRSIZ degil: takilan bir kosu
     # saatlerce runner tutmamali.
-    # 90 -> 50.
-    # Tavan "takilan kosu sonsuza kadar surmesin" icin var, hedef
-    # sure degil. 90 dakika takilan TEK bir kosuda kotanin %4,5'ini
-    # yakiyor. Normal kosu bunun cok altinda; 50 dakika hala genis
-    # pay birakiyor.
-    timeout-minutes: 50
+    # 50 -> 330.
+    #
+    # 50 dakika KOTA gerekcesiyle secilmisti ("takilan tek kosu
+    # kotanin %4,5'ini yakiyor"). Depo 2026-08-27'de herkese acik
+    # yapildi; dakika sinirsiz, yani o gerekce artik yok.
+    #
+    # Daha onemlisi: 50 dakika ISE YETMIYORDU. Olculdu (kosu
+    # 33068672121, herkese acik gunlukten):
+    #
+    #     Bilanco verisi        16.0 dk   her kosuda sabit maliyet
+    #     Bilanco sayfalari     34.0 dk   IPTAL -- tavana carpti
+    #     Siteyi kur / Dagit      atlandi
+    #     Geri yaz             basarili   9 sayfa kurtarildi
+    #
+    # 34 dakikada 9 sayfa = sayfa basina ~3,8 dk. Varsayilan
+    # `--sinir 60` icin 16 + 228 = ~244 dakika gerekiyor. Yani tavan
+    # 50 iken kosu ASLA bitemezdi ve DAGITIM ADIMI HIC CALISMAZDI:
+    # sayfalar uretiliyor, depoya yaziliyor, ama canliya cikmiyordu.
+    # Hata sessizdi cunku geri yazma adimi `always()` ile kosup
+    # basarili gorunuyordu.
+    #
+    # 330: 60 sayfalik kosuya (~244 dk) rahat pay birakiyor ve
+    # GitHub'in 6 saatlik sert sinirinin altinda kaliyor. Tavan hala
+    # "takilan kosu sonsuza kadar surmesin" icin var -- ama artik
+    # normal kosuyu kesmiyor.
+    timeout-minutes: 330
 
     permissions:
       contents: write

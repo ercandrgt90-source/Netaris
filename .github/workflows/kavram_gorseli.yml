@@ -80,6 +80,18 @@ jobs:
         run: python haber_botu/kaynak/gorsel_uret.py
 
       - name: Depoya işle
+        # `always()`: kosu kesilse bile O ANA KADAR uretilen gorseller
+        # depoya girsin.
+        #
+        # Olculdu (2026-08-27, bilanco kosusu 33068672121): 50 dakikalik
+        # tavana carpip iptal olan kosuda "Siteyi kur" ve "Dagit"
+        # atlandi; yalnizca `always()` tasiyan geri yazma adimi kostu ve
+        # 34 dakikalik uretimin 9 sayfasi kurtuldu.
+        #
+        # Burada bedel daha da somut: her gorsel bir Cloudflare AI
+        # cagrisi. Bayrak olmadan iptal edilen bir kosu, harcanmis
+        # cagrilarin tamamini cope atardi.
+        if: always()
         run: |
           set -e
           git config user.name  "netaris-bot"
