@@ -1,13 +1,13 @@
 ---
 slug: algyo-2026-2-ceyrek
 baslik: ALARKO GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat 0,12 milyar TL'ye yükselirken net kâr –2,33 milyar TL'ye gerilemiş, bu durum faaliyet nakit akışının 0,21 milyar TL'ye düşmesiyle paralel bir azalmayı yansıtıyor; aynı dönemde özkaynak 17,58 milyar TL'ye artarken aktif toplamı 28,87 milyar TL'ye yükselmiş, bu da net borcun 4,46 milyar TL'ye…
+ozet: Hasılat 0,12 milyar TL'ye yükselirken net kâr –2,33 milyar TL'ye gerilemiş; gelir artışı nakit akışının 0,21 milyar TL'ye düşmesi ve net borcun 4,46 milyar TL'ye çıkmasıyla birlikte özkaynak 17,58 milyar TL'ye yükselmiş, bu da özkaynak kârlılığının %0,3'e (sektör medyanı %0,4) gerilemesine yol açmış…
 sirket: ALARKO GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: ALGYO
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-26
+tarih: 2026-08-27
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat 0,12 milyar TL'ye yükselirken net kâr –2,33 milyar TL'ye gerilemiş, bu durum faaliyet nakit akışının 0,21 milyar TL'ye düşmesiyle paralel bir azalmayı yansıtıyor; aynı dönemde özkaynak 17,58 milyar TL'ye artarken aktif toplamı 28,87 milyar TL'ye yükselmiş, bu da net borcun 4,46 milyar TL'ye çıkmasıyla borç/özkaynak oranının %0,25'e (sektör medyanı %0,02) yükselmesine neden olmuş. Net kâr marjı %77,5 (sektör medyanı %14,3) çok yüksek görünse de, özkaynak kârlılığı %0,3 (sektör medyanı %0,4) ve artan borç seviyesi, kârın özkaynak üzerinden düşük dönüşümünü ve finansal riskin artışını gösteriyor.
+Hasılat 0,12 milyar TL'ye yükselirken net kâr –2,33 milyar TL'ye gerilemiş; gelir artışı nakit akışının 0,21 milyar TL'ye düşmesi ve net borcun 4,46 milyar TL'ye çıkmasıyla birlikte özkaynak 17,58 milyar TL'ye yükselmiş, bu da özkaynak kârlılığının %0,3'e (sektör medyanı %0,4) gerilemesine yol açmıştır. Aktif toplamının 28,87 milyar TL'ye çıkması, borç/özkaynak oranının %0,25 (sektör medyanı 0,02) olmasına rağmen, net kâr marjının %77,5 (sektör medyanı %14,3) çok yüksek kalmasını sağlamıştır. Bu veriler, gelir artışı ve varlık büyümesinin kâr marjını yükseltirken, artan borç ve azalan nakit akışı net kârı olumsuz etkilemiş olduğunu gösterir.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

@@ -1,13 +1,13 @@
 ---
 slug: eukyo-2026-2-ceyrek
 baslik: EURO KAPİTAL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Brüt kâr artışı (%47,1) önceki dönemde %47,1'e yükselirken net kâr hâlâ negatif (%-37,1) olduğu için özkaynak kârlılığı da negatif (%-6,3) kalmıştır; bu, brüt kârın artmasına rağmen zararların kârlılığı erittiğini gösterir.…
+ozet: Brüt kâr artışı (%47,1) net kârın negatif kalması (%-37,1) ve özkaynak kârlılığının (%-6,3) düşüklüğüyle birlikte, şirketin faaliyet verimliliği artarken kâr dağılımı ve özkaynak getirisi geride kalmıştır; bu durum, artan özkaynak (0,08 milyar TL) ve aktif toplamı (0,09 milyar TL) ile birlikte, nega…
 sirket: EURO KAPİTAL YATIRIM ORTAKLIĞI A.Ş.
 kod: EUKYO
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Finans
-tarih: 2026-08-26
+tarih: 2026-08-27
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Brüt kâr artışı (%47,1) önceki dönemde %47,1'e yükselirken net kâr hâlâ negatif (%-37,1) olduğu için özkaynak kârlılığı da negatif (%-6,3) kalmıştır; bu, brüt kârın artmasına rağmen zararların kârlılığı erittiğini gösterir. Özkaynak ve aktif toplamı artarken (özkaynak 0,08 → 0,07 milyar TL, aktif toplamı 0,09 → 0,08 milyar TL) net borçun negatif seyri (-0,07 → -0,06 milyar TL) likiditeyi artırarak cari oranı 22,78'ye (sektör medyanı 12,09) yükseltmiştir. Cari oranın yükselmesi, borç/özkaynak oranının (-0,90) sektörel medyan (-0,05) üzerindeki daha negatif değeriyle birlikte, şirketin kısa vadeli yükümlülüklerini karşılamada güçlü bir nakit pozisyonu olduğunu, fakat borç yapısının hâlâ özkaynak karşısında yüksek bir negatif değer taşıdığını ortaya koyar.
+Brüt kâr artışı (%47,1) net kârın negatif kalması (%-37,1) ve özkaynak kârlılığının (%-6,3) düşüklüğüyle birlikte, şirketin faaliyet verimliliği artarken kâr dağılımı ve özkaynak getirisi geride kalmıştır; bu durum, artan özkaynak (0,08 milyar TL) ve aktif toplamı (0,09 milyar TL) ile birlikte, negatif net borçun (%-0,90) iyileşmesi ve cari oranın (22,78) sektör medyanının (12,09) çok üzerindeki seviyeye yükselmesiyle likidite ve finansal esneklik açısından desteklenmiştir.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

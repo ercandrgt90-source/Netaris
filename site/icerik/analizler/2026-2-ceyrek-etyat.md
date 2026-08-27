@@ -1,13 +1,13 @@
 ---
 slug: etyat-2026-2-ceyrek
 baslik: EURO TREND YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat ve brüt kâr aynı seviyede kalırken, brüt kâr marjının %43,1 olması net kâr marjının %19,9'a yükselmesine ve net kârın negatiften sıfıra geçmesine yol açtı; bu artış, faaliyet kârının hâlâ 0 milyar TL olmasıyla birlikte FAVÖK'ün önceki döneme göre 0,01 milyar TL artmasını sağladı.…
+ozet: Hasılat ve brüt kâr aynı seviyede kalırken, brüt kâr marjının %43,1 olması net kâr marjını %19,9'a yükseltmiş ve önceki dönemdeki –%2,0'lık net zarar yerine pozitif net kâr elde edilmesini sağlamıştır; bu kâr artışı, özkaynak kârlılığının %3,8'e çıkmasına da yansımıştır.…
 sirket: EURO TREND YATIRIM ORTAKLIĞI A.Ş.
 kod: ETYAT
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Finans
-tarih: 2026-08-26
+tarih: 2026-08-27
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat ve brüt kâr aynı seviyede kalırken, brüt kâr marjının %43,1 olması net kâr marjının %19,9'a yükselmesine ve net kârın negatiften sıfıra geçmesine yol açtı; bu artış, faaliyet kârının hâlâ 0 milyar TL olmasıyla birlikte FAVÖK'ün önceki döneme göre 0,01 milyar TL artmasını sağladı. Özkaynak tutarı değişmeden kalırken aktif toplamının 0,08 milyar TL'ye yükselmesi, net borcun -0,07 milyar TL (daha fazla negatif) olmasına rağmen cari oranın 18,45 ile sektör medyanının 12,09'unu aşması ve borç/özkaynak oranının -0,91 (sektör medyanı -0,05) olması likiditeyi artırdı. Bu likidite artışı, faaliyet nakit akışının -0,01 milyar TL'den 0 milyar TL'ye geçmesiyle birlikte özkaynak kârlılığının %3,8'e (sektör medyanı %4,5) yaklaşmasını destekledi.
+Hasılat ve brüt kâr aynı seviyede kalırken, brüt kâr marjının %43,1 olması net kâr marjını %19,9'a yükseltmiş ve önceki dönemdeki –%2,0'lık net zarar yerine pozitif net kâr elde edilmesini sağlamıştır; bu kâr artışı, özkaynak kârlılığının %3,8'e çıkmasına da yansımıştır. Aktif toplamının 0,08 milyar TL'ye yükselmesi net borcun –0,07 milyar TL'ye (nakit fazlası) artmasıyla birlikte cari oranı 18,45'e, borç/özkaynak oranını –0,91'e çekmiş, yani likidite ve finansal esneklik artmıştır. Faaliyet nakit akışının –0,01 milyar TL'den 0,00 milyar TL'ye geçmesi, faaliyet kârının sabit kalmasıyla birlikte FAVÖK'in 0,00 milyar TL'den 0,01 milyar TL'ye yükselmesine paralel bir iyileşme göstermektedir.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

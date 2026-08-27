@@ -1,13 +1,13 @@
 ---
 slug: escom-2026-2-ceyrek
 baslik: ESCORT TEKNOLOJİ YATIRIM A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %100 brüt kâr marjı ile eşitlenmesi, brüt kârın aynı seviyede kalmasına ve faaliyet kârının da önceki dönemdeki negatif değerden %0,94 milyar TL'ye yükselmesine yol açtı; bu artış, FAVÖK ve net kârda da pozitif değişimlere (net kâr %0,35 milyar TL) yansıdı.…
+ozet: Hasılatın %100'üne tekabül eden brüt kâr, faaliyet kârı ve FAVÖK'ün de benzer seviyelerde artması, net kâr marjının %46,9'a yükselmesiyle birlikte özkaynak kârlılığının %4,9'a çıkmasına yol açtı; bu kârlılık artışı, özkaynakların 4,26 milyar TL'ye yükselmesiyle desteklenirken aktif toplamının 4,34 m…
 sirket: ESCORT TEKNOLOJİ YATIRIM A.Ş.
 kod: ESCOM
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Bilişim
-tarih: 2026-08-24
+tarih: 2026-08-27
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %100 brüt kâr marjı ile eşitlenmesi, brüt kârın aynı seviyede kalmasına ve faaliyet kârının da önceki dönemdeki negatif değerden %0,94 milyar TL'ye yükselmesine yol açtı; bu artış, FAVÖK ve net kârda da pozitif değişimlere (net kâr %0,35 milyar TL) yansıdı. Özkaynakların 4,26 milyar TL'ye yükselmesi, aktif toplamının 4,34 milyar TL'ye yakın bir seviyeye gelmesiyle birlikte net borçta değişiklik olmaması, cari oranı %0,43'e düşürürken borç/özkaynak oranının %0,00 kalmasını sağladı. Net kâr marjının %46,9 ve özkaynak kârlılığının %4,9 olması, sektör medyanı olan negatif kâr marjı ve %2,1 özkaynak kârlılığına kıyasla daha yüksek oranların oluşmasına neden oldu.
+Hasılatın %100'üne tekabül eden brüt kâr, faaliyet kârı ve FAVÖK'ün de benzer seviyelerde artması, net kâr marjının %46,9'a yükselmesiyle birlikte özkaynak kârlılığının %4,9'a çıkmasına yol açtı; bu kârlılık artışı, özkaynakların 4,26 milyar TL'ye yükselmesiyle desteklenirken aktif toplamının 4,34 milyar TL'ye ulaşması, cari oranı 0,43'e düşürerek likiditeyi sınırladı. Net borçın sıfır kalması, borç/özkaynak oranının 0,00 olmasıyla birlikte finansal riskin düşük olduğunu gösterirken, faaliyet nakit akışının da sıfır kalması, kârlılık artışının nakit dönüşümünden ziyade muhasebe kalemlerine yansıdığını gösteriyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

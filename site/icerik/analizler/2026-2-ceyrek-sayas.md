@@ -1,13 +1,13 @@
 ---
 slug: sayas-2026-2-ceyrek
 baslik: SAY YENİLENEBİLİR ENERJİ EKİPMANLARI SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat 1,58 milyar TL'ye yükselirken brüt kâr 0,43 milyar TL'ye, brüt kâr marjı ise %31,1'e (sektör medyanı %21,2) çıkmıştır; bu artış faaliyet kârı (0,34 milyar TL) ve FAVÖK (0,37 milyar TL) yükselişine paralel ilerlemiştir.…
+ozet: Hasılatın %31,1 artışı brüt kâr marjının sektör medyanının çok üzerinde %31,1'e yükselmesiyle paralel ilerlemiş, bu da brüt kârın %0,43'den %0,26'ya çıkmasına yol açmıştır; brüt kârdaki bu yükseliş, faaliyet kârı ve FAVÖK'ün de sırasıyla %0,34-%0,25 ve %0,37-%0,28 seviyelerine çıkmasını desteklemişt…
 sirket: SAY YENİLENEBİLİR ENERJİ EKİPMANLARI SANAYİ VE TİCARET A.Ş.
 kod: SAYAS
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Sanayi
-tarih: 2026-08-23
+tarih: 2026-08-27
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat 1,58 milyar TL'ye yükselirken brüt kâr 0,43 milyar TL'ye, brüt kâr marjı ise %31,1'e (sektör medyanı %21,2) çıkmıştır; bu artış faaliyet kârı (0,34 milyar TL) ve FAVÖK (0,37 milyar TL) yükselişine paralel ilerlemiştir. Net kâr 0,12 milyar TL ve net kâr marjı %12,8 (sektör medyanı %0,1) artışı, özkaynak kârlılığının %6,6 (sektör medyanı -%0,0) olmasına yansımış ve özkaynak 1,57 milyar TL'ye (önceki dönem 1,03 milyar TL) yükselmiştir. Aktif toplamı 2,41 milyar TL'ye (önceki dönem 1,69 milyar TL) çıkarken net borç -0,11 milyar TL (önceki dönem 0,02 milyar TL) olmuş, bu durum cari oranı 2,45 (sektör medyanı 1,37) ve borç/özkaynak oranını -%0,07 (sektör medyanı %0,11) artırmıştır.
+Hasılatın %31,1 artışı brüt kâr marjının sektör medyanının çok üzerinde %31,1'e yükselmesiyle paralel ilerlemiş, bu da brüt kârın %0,43'den %0,26'ya çıkmasına yol açmıştır; brüt kârdaki bu yükseliş, faaliyet kârı ve FAVÖK'ün de sırasıyla %0,34-%0,25 ve %0,37-%0,28 seviyelerine çıkmasını desteklemiştir. Net kârın %0,12'ye yükselmesi, artan faaliyet kârı ve FAVÖK'ün yanı sıra net borcun –%0,11'e (nakit pozisyonunun iyileşmesi) dönüşmesiyle birlikte özkaynak kârlılığının %6,6'ya (sektör medyanının %0,3'ünden çok daha yüksek) çıkmasını sağlamıştır. Aktif toplamının %2,41'e, özkaynakların %1,57'ye ve cari oranın 2,45'e (sektör medyanı 1,32) yükselmesi, borç/özkaynak oranının –%0,07 (sektör medyanı 0,16) olmasıyla birlikte şirketin likidite ve sermaye yapısının güçlendiğini gösterir.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
@@ -54,15 +54,15 @@ Hasılat 1,58 milyar TL'ye yükselirken brüt kâr 0,43 milyar TL'ye, brüt 
 
 ## Sektör içindeki konum
 
-Karşılaştırma Sanayi sektöründeki 68 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Sanayi sektöründeki 69 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %31,1 | %21,2 |
-| Net kâr marjı | %12,8 | %0,1 |
-| Özkaynak kârlılığı | %6,6 | -%0,0 |
-| Cari oran | 2,45 | 1,37 |
-| Borç / özkaynak | -0,07 | 0,11 |
+| Brüt kâr marjı | %31,1 | %20,9 |
+| Net kâr marjı | %12,8 | %1,3 |
+| Özkaynak kârlılığı | %6,6 | %0,3 |
+| Cari oran | 2,45 | 1,32 |
+| Borç / özkaynak | -0,07 | 0,16 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

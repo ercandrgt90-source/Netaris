@@ -1,13 +1,13 @@
 ---
 slug: aefes-2026-2-ceyrek
 baslik: ANADOLU EFES BİRACILIK VE MALT SANAYİİ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın yükselmesi brüt kârı artırarak brüt kâr marjının %39,4 seviyesinde kalmasını sağladı; brüt kârdaki artış ise faaliyet kârı ve FAVÖK'teki yükseliğe (sırasıyla %17,74 milyar ve %26,16 milyar) yol açtı.…
+ozet: Hasılatın yükselmesi brüt kârı artırarak brüt kâr marjının %39,4 seviyesinde kalmasını sağladı; brüt kârdaki artış ise faaliyet kârı ve FAVÖK'teki yükseliğe (sırasıyla %17,74 ve %26,16) yansıyıp net kâr marjını %5,9'a taşıdı.…
 sirket: ANADOLU EFES BİRACILIK VE MALT SANAYİİ A.Ş.
 kod: AEFES
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Temel tüketim
-tarih: 2026-08-26
+tarih: 2026-08-27
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın yükselmesi brüt kârı artırarak brüt kâr marjının %39,4 seviyesinde kalmasını sağladı; brüt kârdaki artış ise faaliyet kârı ve FAVÖK'teki yükseliğe (sırasıyla %17,74 milyar ve %26,16 milyar) yol açtı. Faaliyet kârı ve FAVÖK artışına rağmen net kâr bir miktar gerileyerek %5,9'luk net kâr marjının sektör medyanının çok üzerindeki seviyesini korumasına rağmen net kârın %7,28 milyar'dan %7,79 milyar'a düşmesi, yatırım harcamasının (%9,24 milyar) azalması ve faaliyet nakit akışının (%12,14 milyar) artmasıyla ilişkilendirilebilir. Özkaynakların (%252,42 milyar) ve aktif toplamının (%495,80 milyar) artışı borç/özkaynak oranını %0,26'da sabit tutarken cari oranı %1,03'e düşürerek likiditeyi sektör medyanının (%1,36) altında tutmuş, ancak özkaynak kârlılığı (%2,0) ve net kâr marjı gibi karlılık göstergeleri sektör ortalamasının çok üzerindeydi.
+Hasılatın yükselmesi brüt kârı artırarak brüt kâr marjının %39,4 seviyesinde kalmasını sağladı; brüt kârdaki artış ise faaliyet kârı ve FAVÖK'teki yükseliğe (sırasıyla %17,74 ve %26,16) yansıyıp net kâr marjını %5,9'a taşıdı. Net kârın hafif düşmesi özkaynak kârlılığını %2,0'ye sabit tutarken, özkaynakların %252,42'ye çıkması bilanço toplamını %495,80'e yükseltti ve cari oranı 1,03'e, borç/özkaynak oranını ise sektör medyanıyla aynı %0,26 seviyesinde tutarak likidite ve finansal kaldıraç dengesini korudu. Faaliyet nakit akışının artması (12,14 bn TL) yatırım harcamasındaki düşüşle (9,24 bn TL) birlikte net borcun (65,99 bn TL) hafif artmasına rağmen borç/özkaynak oranını sabit tutmasını sağladı.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

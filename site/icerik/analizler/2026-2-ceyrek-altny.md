@@ -1,13 +1,13 @@
 ---
 slug: altny-2026-2-ceyrek
 baslik: ALTINAY SAVUNMA TEKNOLOJİLERİ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın düşmesi brüt kârı ve FAVÖK'ü de azaltırken, brüt kâr marjının sektör medyanının üzerindeki seviyesinde kalması brüt kârın hâlâ gelir oranıyla tutarlı olduğunu gösteriyor; net kârın negatifleşmesi ise faaliyet kârı ve FAVÖK'teki azalışın yanı sıra yatırım harcamasının düşürülmesiyle birlikt…
+ozet: Hasılatın düşmesi brüt kârı ve brüt kâr marjını da aşağı çekmiş; brüt kâr azalması ise faaliyet kârı ve FAVÖK'ün de önceki döneme göre daha düşük seviyelere gerilemesine yol açmıştır.…
 sirket: ALTINAY SAVUNMA TEKNOLOJİLERİ A.Ş.
 kod: ALTNY
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Sanayi
-tarih: 2026-08-23
+tarih: 2026-08-27
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın düşmesi brüt kârı ve FAVÖK'ü de azaltırken, brüt kâr marjının sektör medyanının üzerindeki seviyesinde kalması brüt kârın hâlâ gelir oranıyla tutarlı olduğunu gösteriyor; net kârın negatifleşmesi ise faaliyet kârı ve FAVÖK'teki azalışın yanı sıra yatırım harcamasının düşürülmesiyle birlikte nakit akışının pozitifleşmesiyle dengelenmeye çalışıldığını işaret ediyor. Özkaynakların artışı aktif toplamındaki büyük yükselişle paralel ilerlerken, net borçtaki artış borç/özkaynak oranını sektör medyanının üzerindeki %0,38'e çıkarıyor; bu durum cari oranın (1,20) sektör ortalamasının (1,34) altında kalmasına rağmen likiditeyi kısmen koruyor. Dolayısıyla, gelir ve kâr düşüşleri özkaynak büyümesi ve aktif artışıyla kısmen telafi edilirken, borç artışı likidite oranını baskılayıp borç/özkaynak dengesini sektör ortalamasının üzerine taşıyor.
+Hasılatın düşmesi brüt kârı ve brüt kâr marjını da aşağı çekmiş; brüt kâr azalması ise faaliyet kârı ve FAVÖK'ün de önceki döneme göre daha düşük seviyelere gerilemesine yol açmıştır. Net kârın negatifleşmesi özkaynak kârlılığının sadece %0,8 olmasına neden olurken, özkaynak ve aktif toplamındaki artış net borcun yükselmesine (2,27 milyar TL) ve borç/özkaynak oranının sektörel medyandan (%0,16) daha yüksek %0,38'e çıkmasına sebep olmuştur. Faaliyet nakit akışının pozitifleşmesi ise yatırım harcamasının (0,02 milyar TL) önceki döneme göre büyük ölçüde azalmasıyla birlikte gerçekleşmiştir.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
@@ -54,15 +54,15 @@ Hasılatın düşmesi brüt kârı ve FAVÖK'ü de azaltırken, brüt kâr marj�
 
 ## Sektör içindeki konum
 
-Karşılaştırma Sanayi sektöründeki 68 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Sanayi sektöründeki 69 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %25,0 | %20,4 |
-| Net kâr marjı | %5,8 | %0,8 |
-| Özkaynak kârlılığı | %0,8 | %0,2 |
-| Cari oran | 1,20 | 1,34 |
-| Borç / özkaynak | 0,38 | 0,17 |
+| Brüt kâr marjı | %25,0 | %20,9 |
+| Net kâr marjı | %5,8 | %1,3 |
+| Özkaynak kârlılığı | %0,8 | %0,3 |
+| Cari oran | 1,20 | 1,32 |
+| Borç / özkaynak | 0,38 | 0,16 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

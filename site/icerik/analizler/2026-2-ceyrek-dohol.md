@@ -1,13 +1,13 @@
 ---
 slug: dohol-2026-2-ceyrek
 baslik: DOĞAN ŞİRKETLER GRUBU HOLDİNG A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın düşmesine rağmen brüt kâr, faaliyet kârı, FAVÖK ve net kâr tümü artmış; bu, maliyet ve giderlerdeki azalma ya da daha yüksek kâr marjlı satışların etkisiyle gerçekleşmiş.…
+ozet: Hasılatın düşmesine rağmen brüt kâr, faaliyet kârı, FAVÖK ve net kârda artış görülmüş; bu, maliyet ve giderlerdeki iyileşmenin kâr kalemlerini yukarı çektiğini gösteriyor.…
 sirket: DOĞAN ŞİRKETLER GRUBU HOLDİNG A.Ş.
 kod: DOHOL
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Sanayi
-tarih: 2026-08-26
+tarih: 2026-08-27
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın düşmesine rağmen brüt kâr, faaliyet kârı, FAVÖK ve net kâr tümü artmış; bu, maliyet ve giderlerdeki azalma ya da daha yüksek kâr marjlı satışların etkisiyle gerçekleşmiş. Özkaynak ve aktif toplamının yükselmesi, net borcun daha da negatif (nakit fazlası) hâle gelmesiyle birlikte cari oranı artırmış ve borç/özkaynak oranını sektör ortalamasının altında tutmuş. Faaliyet nakit akışının artışı, yatırım harcamasının azalmasıyla birleşerek likiditeyi güçlendirmiş ve özkaynak kârlılığının sektör medyanının çok üzerinde olmasını sağlamış.
+Hasılatın düşmesine rağmen brüt kâr, faaliyet kârı, FAVÖK ve net kârda artış görülmüş; bu, maliyet ve giderlerdeki iyileşmenin kâr kalemlerini yukarı çektiğini gösteriyor. Özkaynak ve aktif toplamının artışı, net borcun daha da negatif (nakit fazlası) hâle gelmesiyle birlikte cari oranı %1,59'a, borç/özkaynak oranını –%0,40'a yükseltmiş, bu da likidite ve finansal yapıdaki güçlenmenin kâr marjları ve özkaynak kârlılığı (%2,9) üzerindeki olumlu etkisini yansıtıyor. Brüt kâr marjı (%20,9) sektör medyanıyla eşit kalırken, net kâr marjı (%12,6) ve özkaynak kârlılığı (%2,9) medyanların çok üzerinde seyrederek kâr dağılımının verimliliğinin artığını ortaya koyuyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

@@ -1,13 +1,13 @@
 ---
 slug: anhyt-2026-2-ceyrek
 baslik: ANADOLU HAYAT EMEKLİLİK A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın 22,76 milyar TL'ye yükselmesi, faaliyet kârı, FAVÖK ve net kârda sırasıyla 4,88, 5,06 ve 3,63 milyar TL'ye artışa paralel olarak gerçekleşti; bu artışlar özkaynakların 13,91 milyar TL'ye çıkmasıyla özkaynak kârlılığının %14,5'e yükselmesine eşlik etti.…
+ozet: Hasılat 22,76 milyar TL'ye yükselirken faaliyet kârı 4,88 milyar TL, FAVÖK 5,06 milyar TL ve net kâr 3,63 milyar TL de önceki döneme göre artmış; bu artış özkaynakların 13,91 milyar TL'ye, aktif toplamının 482,81 milyar TL'ye yükselmesiyle paralel bir büyüme göstermektedir.…
 sirket: ANADOLU HAYAT EMEKLİLİK A.Ş.
 kod: ANHYT
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Finans
-tarih: 2026-08-24
+tarih: 2026-08-27
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın 22,76 milyar TL'ye yükselmesi, faaliyet kârı, FAVÖK ve net kârda sırasıyla 4,88, 5,06 ve 3,63 milyar TL'ye artışa paralel olarak gerçekleşti; bu artışlar özkaynakların 13,91 milyar TL'ye çıkmasıyla özkaynak kârlılığının %14,5'e yükselmesine eşlik etti. Aktif toplamının 482,81 milyar TL'ye çıkması, net borcun -6,39 milyar TL (daha negatif) olmasıyla birlikte borç/özkaynak oranının -0,46'ya gerilemesine yol açtı. Faaliyet nakit akışı 4,34 milyar TL'ye düşerken yatırım harcaması 0,09 milyar TL'ye artmış, bu da nakit akışı ile yatırım harcaması arasındaki ters hareketi gösterdi.
+Hasılat 22,76 milyar TL'ye yükselirken faaliyet kârı 4,88 milyar TL, FAVÖK 5,06 milyar TL ve net kâr 3,63 milyar TL de önceki döneme göre artmış; bu artış özkaynakların 13,91 milyar TL'ye, aktif toplamının 482,81 milyar TL'ye yükselmesiyle paralel bir büyüme göstermektedir. Net borçun -6,39 milyar TL (daha negatif) olması, özkaynak/karlılık oranlarının (%14,5 özkaynak kârlılığı, %16,9 net kâr marjı) sektör medyanlarının (%4,5 ve %14,7) üzerinde kalmasına ve borç/özkaynak oranının -0,46 (sektör medyanı -0,05) daha düşük olmasına yol açmıştır. Faaliyet nakit akışı 4,34 milyar TL'ye gerilemiş, ancak yatırım harcamasının 0,09 milyar TL'ye çıkması, artan kârlılık ve özkaynak büyüklüğüyle birlikte nakit akışındaki düşüşün yatırım ihtiyacına bağlı olabileceğini gösterir.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
@@ -56,9 +56,9 @@ Karşılaştırma Finans sektöründeki 30 şirketin **medyanına** göre yapıl
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Net kâr marjı | %16,9 | %15,9 |
+| Net kâr marjı | %16,9 | %14,7 |
 | Özkaynak kârlılığı | %14,5 | %4,5 |
-| Borç / özkaynak | -0,46 | -0,06 |
+| Borç / özkaynak | -0,46 | -0,05 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

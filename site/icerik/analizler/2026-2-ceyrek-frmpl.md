@@ -1,13 +1,13 @@
 ---
 slug: frmpl-2026-2-ceyrek
 baslik: FORMÜL PLASTİK VE METAL SANAYİ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın düşmesine rağmen brüt kâr, faaliyet kârı, FAVÖK ve net kârın önceki döneme göre artması, maliyet ve gider kalemlerinin daha düşük oranda artması ya da sabit kalmasıyla brüt kâr marjının %32,4'e (sektör medyanı %14,1) ve net kâr marjının %12,0'a (sektör medyanı %2,4) yükselmesine yol açtı;…
+ozet: Hasılatın %32,4 oranındaki brüt kâr marjı ile birlikte brüt kâr 0,56 milyar TL'ye yükselirken, net kâr marjının %12,0 seviyesine çıkması net kârın 0,14 milyar TL'ye artmasına yol açtı; bu artışlar faaliyet kârı (0,35 milyar TL) ve FAVÖK (0,41 milyar TL) gibi kâr ölçütlerinin de yükselmesine paralel…
 sirket: FORMÜL PLASTİK VE METAL SANAYİ A.Ş.
 kod: FRMPL
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Temel malzeme
-tarih: 2026-08-26
+tarih: 2026-08-27
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın düşmesine rağmen brüt kâr, faaliyet kârı, FAVÖK ve net kârın önceki döneme göre artması, maliyet ve gider kalemlerinin daha düşük oranda artması ya da sabit kalmasıyla brüt kâr marjının %32,4'e (sektör medyanı %14,1) ve net kâr marjının %12,0'a (sektör medyanı %2,4) yükselmesine yol açtı; bu karlılık artışı özkaynak kârlılığının %2,7'ye (sektör medyanı %1,1) çıkmasını destekledi. Özkaynakların 3,96 milyar TL'ye (önceki dönem 2,25 milyar TL) yükselmesi, negatif net borç (-0,04 milyar TL) ve borç/özkaynak oranının –%0,01 (sektör medyanı %0,21) olması, cari oranın 2,17'ye (sektör medyanı 1,36) yükselmesiyle likidite ve finansal yapıdaki iyileşmeyi gösterdi. Faaliyet nakit akışının 0,26 milyar TL'ye (önceki dönem -0,22 milyar TL) ve yatırım harcamasının 0,13 milyar TL'ye (önceki dönem 0,07 milyar TL) artması, artan karlılık ve güçlenen özkaynak yapısının nakit üretim kapasitesine ve sermaye harcamalarına yansımasını ortaya koydu.
+Hasılatın %32,4 oranındaki brüt kâr marjı ile birlikte brüt kâr 0,56 milyar TL'ye yükselirken, net kâr marjının %12,0 seviyesine çıkması net kârın 0,14 milyar TL'ye artmasına yol açtı; bu artışlar faaliyet kârı (0,35 milyar TL) ve FAVÖK (0,41 milyar TL) gibi kâr ölçütlerinin de yükselmesine paralel gerçekleşti. Özkaynakların 3,96 milyar TL'ye çıkması ve net borcun –0,04 milyar TL (nakit pozisyonu) olması, cari oranı 2,17 ve borç/özkaynak oranını –0,01'e indirerek likidite ve finansal yapıdaki iyileşmenin kâr artışıyla birlikte gerçekleşti. Faaliyet nakit akışının 0,26 milyar TL'ye (önceki –0,22 milyar TL) ve yatırım harcamasının 0,13 milyar TL'ye (önceki 0,07 milyar TL) yükselmesi, artan kârlılıkla birlikte nakit üretiminin artıp, aynı zamanda büyüme için harcama seviyesinin de yükseldiğini gösteriyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
@@ -59,7 +59,7 @@ Karşılaştırma Temel malzeme sektöründeki 42 şirketin **medyanına** göre
 | --- | ---: | ---: |
 | Brüt kâr marjı | %32,4 | %14,1 |
 | Net kâr marjı | %12,0 | %2,4 |
-| Özkaynak kârlılığı | %2,7 | %1,1 |
+| Özkaynak kârlılığı | %2,7 | %1,3 |
 | Cari oran | 2,17 | 1,36 |
 | Borç / özkaynak | -0,01 | 0,21 |
 
@@ -73,7 +73,7 @@ Karşılaştırma Temel malzeme sektöründeki 42 şirketin **medyanına** göre
 - Brüt marj 11,3 puan genişledi (%20,3 → %31,6).
 - Faaliyet nakit akışı net kârın 1,84 katı; kâr nakde dönüyor.
 - Cari oran 2,17; dönen varlıklar kısa vadeli yükümlülüklerin üzerinde.
-- Özkaynak kârlılığı %2,7; sektör medyanı %1,1.
+- Özkaynak kârlılığı %2,7; sektör medyanı %1,3.
 
 **Dikkat gerektirenler**
 

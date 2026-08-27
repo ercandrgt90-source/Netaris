@@ -1,13 +1,13 @@
 ---
 slug: prdgs-2026-2-ceyrek
 baslik: PARDUS GİRİŞİM SERMAYESİ YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat, brüt kâr, faaliyet kârı ve net kâr aynı miktarda artmış; bu da brüt kâr marjının %100,0 ve net kâr marjının %98,8 olmasını sağlamış. Özkaynak ve aktif toplamı artarken net borç negatif (nakit fazlası) hâle gelmiş; bu durum özkaynak kârlılığının %11,3'e yükselmesine ve borç/özkaynak oranının…
+ozet: Hasılat, brüt kâr, faaliyet kârı ve net kâr aynı tutarda artış göstererek brüt kâr marjının %100,0 ve net kâr marjının %98,8 seviyelerine ulaşmasını sağladı; bu yüksek marjlar, gelirdeki artışın maliyet ve giderlerdeki artıştan daha fazla olmasıyla ilişkilidir.…
 sirket: PARDUS GİRİŞİM SERMAYESİ YATIRIM ORTAKLIĞI A.Ş.
 kod: PRDGS
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Finans
-tarih: 2026-08-26
+tarih: 2026-08-27
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat, brüt kâr, faaliyet kârı ve net kâr aynı miktarda artmış; bu da brüt kâr marjının %100,0 ve net kâr marjının %98,8 olmasını sağlamış. Özkaynak ve aktif toplamı artarken net borç negatif (nakit fazlası) hâle gelmiş; bu durum özkaynak kârlılığının %11,3'e yükselmesine ve borç/özkaynak oranının -0,03'e (sektör medyanından daha az negatif) gerilemesine yol açmış. Cari oran 5,73'e düşmüş; aktif büyümesi ve nakit akışının artmasıyla birlikte likidite oranı sektör medyanının altında kalmış.
+Hasılat, brüt kâr, faaliyet kârı ve net kâr aynı tutarda artış göstererek brüt kâr marjının %100,0 ve net kâr marjının %98,8 seviyelerine ulaşmasını sağladı; bu yüksek marjlar, gelirdeki artışın maliyet ve giderlerdeki artıştan daha fazla olmasıyla ilişkilidir. Özkaynak ve aktif toplamı da benzer oranda yükselmiş, özkaynak kârlılığı %11,3'e çıkarken net borçun -0,10 milyar TL'ye gerilemesi, özkaynak artışının borçlanma ihtiyacını azaltmasıyla bağlantılıdır. Cari oran 5,73'e düşmüş ve borç/özkaynak -0,03 olmuş; bu, likidite göstergesinin özkaynak artışı ve net borç azalmasıyla birlikte, sektör medyanının altında kalmasına rağmen negatif borç yapısının sürdürülmesinden kaynaklanmaktadır.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

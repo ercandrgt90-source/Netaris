@@ -1,13 +1,13 @@
 ---
 slug: begyo-2026-2-ceyrek
 baslik: BATI EGE GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Brüt kârın %62,2'ye yükselmesi, hasılatın aynı seviyede kalmasına rağmen brüt kâr marjının sektör medyanının (%51,4) üzerinde olmasını sağladı; bu artış, faaliyet kârı ve FAVÖK'ün aynı tutarlarda (0,02 milyar TL) kalmasıyla birlikte net kârda –0,34 milyar TL'ye (önceki –0,02 milyar TL) genişleyen za…
+ozet: Brüt kârın %62,2 olması, hasılatın aynı seviyede kalmasına rağmen brüt kârın 0,04 milyardan 0,05 milyara yükselmesiyle birlikte brüt kâr marjının sektör medyanının %51,4'ünün üzerinde seyretmesine yol açtı; aynı zamanda özkaynakların 4,77 milyardan 5,78 milyara artması, net kârın -0,02 milyardan -0,…
 sirket: BATI EGE GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: BEGYO
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-24
+tarih: 2026-08-27
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Brüt kârın %62,2'ye yükselmesi, hasılatın aynı seviyede kalmasına rağmen brüt kâr marjının sektör medyanının (%51,4) üzerinde olmasını sağladı; bu artış, faaliyet kârı ve FAVÖK'ün aynı tutarlarda (0,02 milyar TL) kalmasıyla birlikte net kârda –0,34 milyar TL'ye (önceki –0,02 milyar TL) genişleyen zarar oluşmasına yol açtı. Özkaynakların 5,78 milyar TL'ye (önceki 4,77 milyar TL) ve aktif toplamının 5,99 milyar TL'ye (önceki 4,78 milyar TL) yükselmesi, net borcun –0,02 milyar TL'ye (önceki –0,03 milyar TL) hafiflemesiyle birlikte cari oranı 76,64'e (sektör medyanı 5,25) ve borç/özkaynak oranını 0,00'a (sektör medyanı 0,02) çekti. Faaliyet nakit akışı ise 0,03 milyar TL'den 0,00 milyar TL'ye gerileyerek, yatırım harcamasının değişmemesine rağmen likidite akışındaki düşüşü gösterdi.
+Brüt kârın %62,2 olması, hasılatın aynı seviyede kalmasına rağmen brüt kârın 0,04 milyardan 0,05 milyara yükselmesiyle birlikte brüt kâr marjının sektör medyanının %51,4'ünün üzerinde seyretmesine yol açtı; aynı zamanda özkaynakların 4,77 milyardan 5,78 milyara artması, net kârın -0,02 milyardan -0,34 milyara derinleşmesine rağmen özkaynak kârlılığının %0,4'ten %0,6'ya hafif yükselmesini sağladı. Net borcun -0,03 milyardan -0,02 milyara iyileşmesi, cari oranın 76,64'e çıkması ve borç/özkaynak oranının 0,00 kalması, likidite pozisyonunun güçlenmesine işaret ederken, faaliyet nakit akışının 0,03 milyardan 0,00 milyara düşmesi, faaliyet kârının sabit kalmasıyla birlikte nakit üretimindeki gerilemeyi gösterdi.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

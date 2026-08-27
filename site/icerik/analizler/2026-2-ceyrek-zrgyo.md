@@ -1,13 +1,13 @@
 ---
 slug: zrgyo-2026-2-ceyrek
 baslik: ZİRAAT GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat 2,15 milyar TL'ye yükselirken net kâr 0,94 milyar TL'ye düşmüş; bu durum, gelir artışının maliyet ve giderlerdeki daha büyük artışla dengelendiğini gösteriyor.…
+ozet: Hasılat 2,15 milyar TL'ye yükselirken net kâr 0,94 milyar TL'ye düşmüş; bu, gelir artışının maliyet ve giderlerdeki artışla dengelenmesinden kaynaklanabilir ve net kâr marjının %42,6'ya (sektör medyanı %14,3) yükselmesi, kârın daha düşük bir bazdan (önceki dönem 2,30 milyar TL) hesaplanmasıyla açıkl…
 sirket: ZİRAAT GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: ZRGYO
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-25
+tarih: 2026-08-27
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat 2,15 milyar TL'ye yükselirken net kâr 0,94 milyar TL'ye düşmüş; bu durum, gelir artışının maliyet ve giderlerdeki daha büyük artışla dengelendiğini gösteriyor. Özkaynak 93,73 milyar TL'ye, aktif toplamı 115,33 milyar TL'ye yükselmiş, ancak net borç da 10,14 milyar TL'ye artmış; bu, özkaynak ve varlıkların büyümesinin finansman ihtiyacını da artırdığını, borç/özkaynak oranının %0,11'e (sektör medyanı %0,02) yükselmesine yol açtığını ortaya koyuyor. Net kâr marjı %42,6 (sektör medyanı %14,3) ve özkaynak kârlılığı %0,6 (sektör medyanı %0,4) artış gösterirken, faaliyet nakit akışı 0,96 milyar TL olarak sabit kalmış, bu da kârlılık iyileşmesinin nakit akışı üzerindeki etkisinin sınırlı olduğunu işaret ediyor.
+Hasılat 2,15 milyar TL'ye yükselirken net kâr 0,94 milyar TL'ye düşmüş; bu, gelir artışının maliyet ve giderlerdeki artışla dengelenmesinden kaynaklanabilir ve net kâr marjının %42,6'ya (sektör medyanı %14,3) yükselmesi, kârın daha düşük bir bazdan (önceki dönem 2,30 milyar TL) hesaplanmasıyla açıklanabilir. Özkaynak 93,73 milyar TL'ye (önceki dönem 66,08 milyar TL) ve aktif toplamı 115,33 milyar TL'ye (önceki dönem 75,44 milyar TL) artış, net borcun 10,14 milyar TL'ye (önceki dönem 5,59 milyar TL) yükselmesiyle birlikte borç/özkaynak oranının %0,11'e (sektör medyanı 0,02) çıkmasına yol açmıştır; bu, özkaynak büyümesinin borç artışını orantısız şekilde aştığını gösterir. Faaliyet nakit akışı 0,96 milyar TL olarak gerçekleşmiş, bu da artan özkaynak ve aktif büyüklüğüne rağmen net kârın düşüşüne rağmen likidite akışının sürdürülebilir olduğunu işaret eder.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

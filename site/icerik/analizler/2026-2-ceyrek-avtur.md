@@ -1,13 +1,13 @@
 ---
 slug: avtur-2026-2-ceyrek
 baslik: AVRASYA PETROL VE TURİSTİK TESİSLER YATIRIMLAR A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın iki katına çıkan brüt kâr, brüt kâr marjının %36,2 olmasıyla birlikte faaliyet kârının negatif seyretmesi, faaliyet giderlerinin hasılat artışına oranla daha hızlı yükseldiğini gösteriyor; bu durum FAVÖK'ün de -0,08 milyar TL'ye gerilemesine yol açtı.…
+ozet: Hasılatın iki katına çıkan brüt kâr, faaliyet kârı ve FAVÖK'ün aynı seviyeye yükselmesi, gelir artışıyla birlikte karlılık kalemlerinin de pozitif bir hareket yakaladığını gösterirken, net kârın negatif seyretmesi, faaliyet dışı giderlerin ya da vergi etkisinin artışını işaret eder; özkaynak ve akti…
 sirket: AVRASYA PETROL VE TURİSTİK TESİSLER YATIRIMLAR A.Ş.
 kod: AVTUR
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Finans
-tarih: 2026-08-25
+tarih: 2026-08-27
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,21 +18,21 @@ sayimlar:
 
 ## Özet
 
-Hasılatın iki katına çıkan brüt kâr, brüt kâr marjının %36,2 olmasıyla birlikte faaliyet kârının negatif seyretmesi, faaliyet giderlerinin hasılat artışına oranla daha hızlı yükseldiğini gösteriyor; bu durum FAVÖK'ün de -0,08 milyar TL'ye gerilemesine yol açtı. Net kârın %52,8'lik yüksek marjıyla birlikte özkaynak kârlılığı sadece %0,3 kalırken, özkaynakların 1,31 milyar TL'ye yükselmesi ve net borcun -0,11 milyar TL (nakit fazlası) olması, şirketin likidite durumunun cari oran 9,84 ve borç/özkaynak -0,09 ile sektör medyanlarının üzerinde olduğunu ortaya koyuyor. Faaliyet nakit akışının 0,03 milyar TL'ye çıkması, artan özkaynak ve negatif net borçla birlikte likidite artışının nakit akışıyla desteklendiğini gösteriyor.
+Hasılatın iki katına çıkan brüt kâr, faaliyet kârı ve FAVÖK'ün aynı seviyeye yükselmesi, gelir artışıyla birlikte karlılık kalemlerinin de pozitif bir hareket yakaladığını gösterirken, net kârın negatif seyretmesi, faaliyet dışı giderlerin ya da vergi etkisinin artışını işaret eder; özkaynak ve aktif toplamının artışı, net borcun daha da negatif (nakit fazlası) olmasıyla birlikte şirketin likidite pozisyonunun güçlendiğini, bu da cari oranın %41,05'e çıkması ve borç/özkaynak oranının -%0,06'da kalmasıyla desteklenir.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | %4,1 |
-| Brüt kâr | %1362,9 |
-| Faaliyet kârı | -%4089,1 |
-| FAVÖK | -%1444,0 |
-| Net kâr | %439,0 |
-| Özkaynak | %38,0 |
-| Aktif toplamı | %19,1 |
-| Net borç | -%692,0 |
-| Faaliyet nakit akışı | %3357,8 |
+| Hasılat | %21,6 |
+| Brüt kâr | %288,2 |
+| Faaliyet kârı | %1943,5 |
+| FAVÖK | %1201,8 |
+| Net kâr | -%3385,7 |
+| Özkaynak | %32,5 |
+| Aktif toplamı | %26,9 |
+| Net borç | -%400,6 |
+| Faaliyet nakit akışı | -%11313,8 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -42,13 +42,13 @@ Hasılatın iki katına çıkan brüt kâr, brüt kâr marjının %36,2 olmasıy
 | --- | ---: |
 | Hasılat | 0,02 milyar TL |
 | Brüt kâr | 0,01 milyar TL |
-| Faaliyet kârı | -0,09 milyar TL |
-| FAVÖK | -0,08 milyar TL |
-| Net kâr | 0,07 milyar TL |
-| Özkaynak | 1,31 milyar TL |
-| Aktif toplamı | 1,33 milyar TL |
-| Net borç | -0,11 milyar TL |
-| Faaliyet nakit akışı | 0,03 milyar TL |
+| Faaliyet kârı | 0,04 milyar TL |
+| FAVÖK | 0,04 milyar TL |
+| Net kâr | -0,07 milyar TL |
+| Özkaynak | 1,32 milyar TL |
+| Aktif toplamı | 1,50 milyar TL |
+| Net borç | -0,08 milyar TL |
+| Faaliyet nakit akışı | -0,18 milyar TL |
 
 ## Sektör içindeki konum
 
@@ -56,11 +56,11 @@ Karşılaştırma Finans sektöründeki 30 şirketin **medyanına** göre yapıl
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %36,2 | %45,7 |
-| Net kâr marjı | %52,8 | %15,9 |
-| Özkaynak kârlılığı | %0,3 | %4,5 |
-| Cari oran | 9,84 | 7,79 |
-| Borç / özkaynak | -0,09 | -0,06 |
+| Brüt kâr marjı | %37,6 | %45,1 |
+| Net kâr marjı | -%989,0 | %14,7 |
+| Özkaynak kârlılığı | -%5,6 | %4,5 |
+| Cari oran | 41,05 | 12,09 |
+| Borç / özkaynak | -0,06 | -0,05 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -68,11 +68,12 @@ Karşılaştırma Finans sektöründeki 30 şirketin **medyanına** göre yapıl
 
 **Şirket lehine işleyenler**
 
-- Net kâr reel olarak %439,0 arttı.
+- Hasılat reel olarak %21,6 arttı.
 
 **Dikkat gerektirenler**
 
-- Özkaynak kârlılığı %0,3; sektör medyanı %4,5.
+- Net kâr reel olarak -%3385,7 geriledi.
+- Özkaynak kârlılığı -%5,6; sektör medyanı %4,5.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 
