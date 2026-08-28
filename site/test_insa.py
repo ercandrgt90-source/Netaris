@@ -680,6 +680,35 @@ try:
 except _ET.ParseError as _e:
     dogru(f"besleme gecerli XML ({_e})", False)
 
+# ------------------------------------------------------------------
+# SITE HARITASI ILE ROBOTS ETIKETI AYNI SEYI SOYLEMELI.
+#
+# Olculdu (2026-08-28): 276 sayfa `noindex` tasiyordu AMA haritada
+# duruyordu -- haritanin %15'i. Iki isaret birbirinin tersini
+# soyluyordu: harita "bunu dizine ekle", sayfa "ekleme".
+#
+# Bedeli somut: Google bunu "Submitted URL marked noindex" diye HATA
+# olarak raporluyor ve her biri icin tarama butcesi harciyor --
+# guncel sayfalarin tarandigi butceden.
+#
+# Sayfalar SILINMIYOR: adresleri calisiyor, paylasilmis baglantilar
+# kirilmiyor, `follow` sayesinde baglantilari izleniyor. Yalnizca
+# "beni dizine ekle" cagrisi geri cekiliyor.
+#
+# Ayni celiski `/giris/`, `/kayit/` ve `/panel/` icin de vardi ve
+# TERS yondeydi: haritada degillerdi ama etiket `index` diyordu.
+# Ikisi de ayni kuralin ihlali.
+# ------------------------------------------------------------------
+_INSA_K = (_KOK / "insa.py").read_text(encoding="utf-8")
+dogru("eskimis surum haritaya EKLENMIYOR",
+      ("if not _eskimis:" + chr(10)
+       + "            yollar.append(a.yol)") in _INSA_K)
+dogru("eskimis bayragi hala sablona gidiyor",
+      "eskimis=_eskimis" in _INSA_K)
+# Bayrak hesabi KORUNMALI: `guncel_sluglar` disindaki her surum eski.
+dogru("eskimis olcutu guncel listeye bakiyor",
+      "a.slug not in guncel_sluglar" in _INSA_K)
+
 # HANGI SINAMA KALDIGI YAZILIYOR.
 #
 # Onceden yalnizca sayi basiliyordu ("1 kaldi") ve o sayi tek basina

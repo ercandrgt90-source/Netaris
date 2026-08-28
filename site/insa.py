@@ -4975,16 +4975,34 @@ def insa() -> int:
 
     # Analizler
     for a in analizler:
+        # Listeden elenmis surum: sayfasi duruyor ama dizine girmiyor
+        # (bkz. temel.html'deki robots blogu).
+        _eskimis = a.slug not in guncel_sluglar
         yaz(
             f"{a.yol}index.html",
             ortam.get_template("analiz.html").render(
-                **ortak, yol=a.yol, a=a,
-                # Listeden elenmis surum: sayfasi duruyor ama dizine
-                # girmiyor (bkz. temel.html'deki robots blogu).
-                eskimis=a.slug not in guncel_sluglar),
+                **ortak, yol=a.yol, a=a, eskimis=_eskimis),
         )
-        yollar.append(a.yol)
-        _lastmod[a.yol] = (a.tarih or "")[:10]
+        # NOINDEX SAYFA SITE HARITASINA GIRMEZ.
+        #
+        # Olculdu (2026-08-28): 276 sayfa `noindex` tasiyordu AMA
+        # haritada duruyordu -- haritanin %15'i. Iki isaret birbirinin
+        # tersini soyluyordu: harita "bunu dizine ekle", sayfa "ekleme".
+        #
+        # Bedeli somut: Google bunu "Submitted URL marked noindex"
+        # diye HATA olarak raporluyor ve her biri icin tarama butcesi
+        # harciyor -- guncel sayfalarin tarandigi butceden.
+        #
+        # `guncel_olanlar` belgesi bu sorunu zaten adiyla aniyordu
+        # ("arama motoruna yinelenen icerik sinyali gidiyor") ve
+        # `noindex` onun cozumuydu; harita tarafi eksik kalmisti.
+        #
+        # SAYFA SILINMIYOR: adresi calisiyor, paylasilmis baglantilar
+        # kirilmiyor, `follow` sayesinde baglantilari izleniyor.
+        # Yalnizca "beni dizine ekle" cagrisi geri cekiliyor.
+        if not _eskimis:
+            yollar.append(a.yol)
+            _lastmod[a.yol] = (a.tarih or "")[:10]
 
     # Kategori sayfalari. Menude bos sekme birakmamak icin YALNIZCA icerigi
     # olan kategoriler uretilir -- tiklayinca bos sayfa cikan bir menu,
