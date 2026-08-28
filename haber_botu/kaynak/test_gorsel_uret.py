@@ -129,12 +129,27 @@ esit(gu.dosyasi("Jeopolitik", "/haber/ornek/"), _a,
 # Konu basina TEK gorsel kullanildigi surece yonlu sembol
 # kullanilamaz. Bu sinama kurali kalici kiliyor.
 # --------------------------------------------------------------------
+import re as _re  # noqa: E402
+
 _YON_SOZ = ("rising", "falling", "upward", "downward", "growth",
             "declining", "increasing", "decreasing", "bull", "bear",
             "arrow", "volatile", "soaring", "plunging")
+# KELIME SINIRI SART -- ALT DIZGE ARAMASI YANLIS ALARM URETIYOR.
+#
+# Once `s in kavram.lower()` yaziyordu. Olculdu (2026-08-28): yeni bir
+# Jeopolitik kavrami olan "a NARROW sea strait ..." bu sinamaya
+# takildi, cunku "narrow" kelimesi "arrow" iceriyor. Yonlu bir sembol
+# yok; eslesme tamamen bicimsel.
+#
+# Ayni tuzak bu depoda birkac yerde daha yasandi ("ufe" ⊂
+# "mufettisleri", "cat" ⊂ "indicator"). Sinir isareti olmadan bir
+# yasak listesi, yasakladigi seyi degil ona benzeyen kelimeleri
+# eliyor -- ve bunu SESSIZCE yapiyor: kural dogru gorunuyor, yalnizca
+# mesru bir girdi reddediliyor.
+_YON = _re.compile(r"\b(" + "|".join(_YON_SOZ) + r")\b", _re.I)
 for konu in gu.KONU_KAVRAMI:
     for kavram in gu.kavramlar(konu):
-        bulunan = [s for s in _YON_SOZ if s in kavram.lower()]
+        bulunan = _YON.findall(kavram)
         esit(bulunan, [], f"kavram YÖN taşımıyor: {konu}")
 
 # Stil de yasagi tasimali: kavram temiz olsa bile model kendiliginden
