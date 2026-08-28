@@ -65,6 +65,9 @@ const ortam = {
   console: { log() {}, error() {} },   /* gunluk gurultusu bastiriliyor */
   fetch: sahteFetch,
   Date, Number, JSON, Promise, String,
+  /*  bir Response uretiyor; VM baglaminda yok. */
+  Response: class { constructor(g){ this._g = g; }
+                    json(){ return Promise.resolve(JSON.parse(this._g)); } },
 };
 ortam.globalThis = ortam;
 vm.createContext(ortam);
@@ -156,6 +159,36 @@ async function kos() {
        "jeton Authorization basliginda");
   esit(JSON.parse(c.ayar.body).event_type, "tazele",
        "olay turu is akisindakiyle ayni");
+
+  /* TANILAMA UCU -- JETONU HICBIR KOSULDA SIZDIRMAMALI.
+     Nobetci yapilandirilmamisken de dogru calisirken de sessiz;
+     ikisi disaridan ayni gorunuyordu. Uc bu ayrimi yapiyor ama
+     bunu yaparken sirri acmamali. */
+  const durum = ortam.nobetciDurum;
+  esit(typeof durum, "function", "nobetciDurum bulundu");
+
+  {
+    const y = await durum(ortamKur(9, "cok-gizli-jeton-degeri"));
+    const g = await y.json();
+    esit(g.jeton_kurulu, true, "jeton kuruluyken bildiriyor");
+    esit(g.tetikler, true, "bayat icerikte tetiklerim diyor");
+    const ham = JSON.stringify(g);
+    esit(ham.includes("cok-gizli-jeton-degeri"), false,
+         "jeton DEGERI yanitta gecmiyor");
+    esit(ham.includes("gizli"), false, "jetonun parcasi bile gecmiyor");
+  }
+  {
+    const y = await durum(ortamKur(9, undefined));
+    const g = await y.json();
+    esit(g.jeton_kurulu, false, "jeton yokken bildiriyor");
+    esit(g.tetikler, false, "jeton yokken tetiklemem diyor");
+  }
+  {
+    const y = await durum(ortamKur(0.2, "jtn"));
+    const g = await y.json();
+    esit(g.tetikler, false, "taze icerikte tetiklemem diyor");
+    esit(g.icerik_yasi_saat < 1, true, "yasi saat cinsinden veriyor");
+  }
 
   console.log("\nBILINMIYOR, BAYAT DEMEK DEGIL\n");
   /* RSS okunamazsa tetiklememeli: gecici bir okuma hatasi her saat

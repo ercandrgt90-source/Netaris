@@ -1996,6 +1996,36 @@ async function icerikYasiSaat(env) {
   }
 }
 
+/* Nobetcinin DURUMU -- sir sizdirmadan.
+ *
+ * NEDEN GEREKIYOR
+ * ---------------
+ * Nobetci, jeton kurulmamissa SESSIZCE cikiyor. Bu, dagitimi
+ * risksiz kilmak icin bilincli bir karardi ama bir yan etkisi
+ * vardi: dogru calisip beklerken de, hic yapilandirilmamisken de
+ * DISARIDAN AYNI GORUNUYOR -- ikisi de "hicbir sey olmuyor".
+ *
+ * Olculdu (2026-08-28): site 16 saat bayat kaldi, nobetci hic
+ * tetiklemedi ve sebebini disaridan anlamanin YOLU YOKTU. Kod
+ * dagitilmisti, cron kayitliydi; geriye jetonun konup konmadigi
+ * kaliyordu ve o soru ancak Cloudflare paneline girerek
+ * cevaplanabiliyordu.
+ *
+ * SIR SIZMIYOR: yalnizca jetonun VAR OLUP OLMADIGI, icerigin yasi
+ * ve esik donuyor. Jetonun kendisi, uzunlugu ya da bir parcasi
+ * HICBIR KOSULDA yanita girmiyor.
+ */
+async function nobetciDurum(env) {
+  const yas = await icerikYasiSaat(env);
+  return yanit({
+    jeton_kurulu: Boolean(env.GITHUB_TETIK_JETONU),
+    icerik_yasi_saat: yas === null ? null : Number(yas.toFixed(2)),
+    esik_saat: NOBET_ESIK_SAAT,
+    tetikler: Boolean(env.GITHUB_TETIK_JETONU) && yas !== null
+              && yas >= NOBET_ESIK_SAAT,
+  });
+}
+
 async function nobetci(env) {
   const jeton = env.GITHUB_TETIK_JETONU;
   if (!jeton) return;                       /* kurulmamis -- sessiz */
@@ -2094,6 +2124,10 @@ export default {
          yayimlanmis senaryolari doner. */
       if (y === "senaryo/acik" && m === "GET") return await senaryoAcik(istek, env);
       if (y === "senaryo/hepsi" && m === "GET") return await senaryoHepsi(env);
+      /* Nobetci tanilamasi: sir icermiyor, kimlik gerektirmiyor.
+         Amaci "sessiz mi, bozuk mu" sorusunu disaridan
+         cevaplanabilir kilmak. */
+      if (y === "nobetci" && m === "GET") return await nobetciDurum(env);
       /* SAYACLAR OTURUM ISTEMEZ.
          Okurun cogu uye degil; goruntulenme uyelige bagli olsaydi
          olcum sitenin kucuk bir dilimini gosterirdi. Begeni ise
