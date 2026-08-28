@@ -1,13 +1,13 @@
 ---
 slug: vkgyo-2026-2-ceyrek
 baslik: VAKIF GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın 0,95 milyar TL'den 0,87 milyar TL'ye düşmesi, net kârın 0,65 milyar TL'den 0,33 milyar TL'ye gerilemesiyle paralel bir azalmaya işaret eder; aynı dönemde özkaynakların 21,77 milyar TL'den 28,90 milyar TL'ye yükselmesi, aktif toplamının 25,91 milyar TL'den 37,27 milyar TL'ye artması özkayna…
+ozet: Hasılat gerilerken net kâr daha sert düştü; buna karşılık özkaynak ve aktif toplamı büyüdüğünden, özkaynaktaki artışın kaynağı dönem kârının dışında kalıyor ve aktifteki büyümenin özkaynak artışını aşan kısmı yükümlülük tarafına işaret ediyor.…
 sirket: VAKIF GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: VKGYO
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-24
+tarih: 2026-08-28
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın 0,95 milyar TL'den 0,87 milyar TL'ye düşmesi, net kârın 0,65 milyar TL'den 0,33 milyar TL'ye gerilemesiyle paralel bir azalmaya işaret eder; aynı dönemde özkaynakların 21,77 milyar TL'den 28,90 milyar TL'ye yükselmesi, aktif toplamının 25,91 milyar TL'den 37,27 milyar TL'ye artması özkaynak artışının varlık büyümesiyle birlikte gerçekleştiğini gösterir. Net borcun -1,67 milyar TL'den -0,30 milyar TL'ye yükselmesi, borç seviyesindeki artışın özkaynak artışıyla dengeye oturması anlamına gelir; bu durum borç/özkaynak oranının -0,01'e gerilemesiyle sektörel medyan 0,02'nin altında kalmasını sağlar. Net kâr marjının %32,9 ile sektör medyanı %14,3'ün çok üzerinde olması, özkaynak kârlılığının %0,5 ile medyan %0,4'ün biraz üzerinde kalması ve faaliyet nakit akışının 0,43 milyar TL'ye düşmesi, kârlılık ve nakit üretiminin farklı dinamiklerle hareket ettiğini ortaya koyar.
+Hasılat gerilerken net kâr daha sert düştü; buna karşılık özkaynak ve aktif toplamı büyüdüğünden, özkaynaktaki artışın kaynağı dönem kârının dışında kalıyor ve aktifteki büyümenin özkaynak artışını aşan kısmı yükümlülük tarafına işaret ediyor. Faaliyet nakit akışındaki azalma, net borcun eksi bölgede kalmakla birlikte sıfıra yaklaşmasıyla aynı yönde hareket etti; yani net nakit tamponu daraldı. Net kâr marjı sektör medyanının üzerinde, özkaynak kârlılığı medyana yakın, borç/özkaynak ise medyanın altında ve negatif konumda.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

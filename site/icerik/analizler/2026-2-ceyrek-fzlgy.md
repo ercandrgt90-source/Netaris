@@ -1,13 +1,13 @@
 ---
 slug: fzlgy-2026-2-ceyrek
 baslik: FUZUL GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat 2,81 milyar TL'ye yükselirken net kâr –0,25 milyar TL'ye gerilemiş; gelir artışı faaliyet nakit akışının –0,55 milyar TL'den 0,26 milyar TL'ye geçmesiyle desteklenmiş, ancak artan net borç (1,18 milyar TL, önceki 0,69 milyar TL) özkaynak kârlılığını ve net kâr marjını negatif yönde sürüklemi…
+ozet: Hasılat 0,11 milyar TL'den 2,81 milyar TL'ye çıkarken net kâr 0,21 milyar TL'lik kârdan 0,25 milyar TL'lik zarara döndü; bu ayrışma net kâr marjını -%19,9 ile sektör medyanı %14,3'ün, özkaynak kârlılığını da -%5,2 ile medyan %0,4'ün altındaki sıraya taşıdı.…
 sirket: FUZUL GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: FZLGY
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-26
+tarih: 2026-08-28
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat 2,81 milyar TL'ye yükselirken net kâr –0,25 milyar TL'ye gerilemiş; gelir artışı faaliyet nakit akışının –0,55 milyar TL'den 0,26 milyar TL'ye geçmesiyle desteklenmiş, ancak artan net borç (1,18 milyar TL, önceki 0,69 milyar TL) özkaynak kârlılığını ve net kâr marjını negatif yönde sürüklemiş. Öz kaynaklar hafif artarak 4,28 milyar TL olmuş, bu da borç/öz kaynak oranının %0,28'e (sektör medyanı %0,02) yükselmesine rağmen toplam aktiflerdeki (11,90 milyar TL) sınırlı artışla dengelenmiş. Net kâr marjı ve özkaynak kârlılığı negatif kalırken, faaliyet nakit akışının pozitifleşmesi likiditeyi iyileştirmiş, fakat borç artışı bu iyileşmeyi sınırlamış.
+Hasılat 0,11 milyar TL'den 2,81 milyar TL'ye çıkarken net kâr 0,21 milyar TL'lik kârdan 0,25 milyar TL'lik zarara döndü; bu ayrışma net kâr marjını -%19,9 ile sektör medyanı %14,3'ün, özkaynak kârlılığını da -%5,2 ile medyan %0,4'ün altındaki sıraya taşıdı. Aynı dönemde faaliyet nakit akışı -0,55 milyar TL'den 0,26 milyar TL'ye geçmesine karşın net borç 0,69 milyar TL'den 1,18 milyar TL'ye yükseldi, yani nakit üretimindeki dönüş borç kaleminde bir azalmaya eşlik etmedi. Zarara rağmen özkaynak 4,21 milyar TL'den 4,28 milyar TL'ye, aktif toplamı 11,87 milyar TL'den 11,90 milyar TL'ye çıkarak yatay seyretti; borç/özkaynak ise 0,28 ile medyan 0,02'nin üzerinde konumlandı.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

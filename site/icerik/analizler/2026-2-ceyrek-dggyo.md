@@ -1,13 +1,13 @@
 ---
 slug: dggyo-2026-2-ceyrek
 baslik: DOĞUŞ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın 0,70 milyar TL'ye yükselmesi net kârın 0,12 milyar TL'ye geçmesine paralel olarak özkaynakların 16,35 milyar TL'ye, aktif toplamının ise 23,37 milyar TL'ye artmasını sağladı; bu büyümeler net borcun sadece 3,93 milyara (önceki 3,79 milyar) hafifçe yükselmesiyle birlikte borç/özkaynak oranı…
+ozet: Hasılat 0,66 milyar TL'den 0,70 milyar TL'ye çıkarken net sonuç -0,18 milyar TL'den 0,12 milyar TL'ye geçti; ancak faaliyet nakit akışı 0,32 milyar TL'den 0,16 milyar TL'ye indi, yani kâra dönüş nakit üretimiyle aynı yönde hareket etmedi.…
 sirket: DOĞUŞ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: DGGYO
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-27
+tarih: 2026-08-28
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın 0,70 milyar TL'ye yükselmesi net kârın 0,12 milyar TL'ye geçmesine paralel olarak özkaynakların 16,35 milyar TL'ye, aktif toplamının ise 23,37 milyar TL'ye artmasını sağladı; bu büyümeler net borcun sadece 3,93 milyara (önceki 3,79 milyar) hafifçe yükselmesiyle birlikte borç/özkaynak oranının 0,24'e (sektör medyanı 0,02) çıkmasına yol açtı. Faaliyet nakit akışı ise 0,16 milyar TL'ye gerileyerek önceki 0,32 milyar TL'den azaldı; bu düşüş, net kâr marjının %7,3 (sektör medyanı %14,3) ve özkaynak kârlılığının %0,2 (sektör medyanı %0,4) seviyelerinde kalmasına rağmen, artan özkaynak ve aktif büyüklüğünün nakit akışı üzerindeki baskısını gösteriyor.
+Hasılat 0,66 milyar TL'den 0,70 milyar TL'ye çıkarken net sonuç -0,18 milyar TL'den 0,12 milyar TL'ye geçti; ancak faaliyet nakit akışı 0,32 milyar TL'den 0,16 milyar TL'ye indi, yani kâra dönüş nakit üretimiyle aynı yönde hareket etmedi. Aktif toplamı 17,41 milyar TL'den 23,37 milyar TL'ye, özkaynak 12,36 milyar TL'den 16,35 milyar TL'ye genişlerken net borç 3,79 milyar TL'den 3,93 milyar TL'ye sınırlı biçimde arttı; büyümenin ağırlığı borç tarafında değil özkaynak tarafında oluştu. Net kâr marjı %7,3 ve özkaynak kârlılığı %0,2 ile sektör medyanlarının (%14,3 ve %0,4) altında, borç/özkaynak ise 0,24 ile medyan 0,02'nin üzerinde konumlandı.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

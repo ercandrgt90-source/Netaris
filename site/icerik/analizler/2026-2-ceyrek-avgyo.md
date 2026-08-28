@@ -1,13 +1,13 @@
 ---
 slug: avgyo-2026-2-ceyrek
 baslik: AVRASYA GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat 0,20 milyar TL'ye yükselirken net kâr -0,06 milyar TL'ye düştü; gelir artışı maliyet ve giderlerdeki artışla birlikte kârın daha da azalmasına yol açtı.…
+ozet: Hasılat dört katına çıkarken net zarar da derinleşti; bu ikili hareket, net kâr marjını -%51,5 ile sektör medyanının (%14,3) altındaki sıraya, özkaynak kârlılığını da -%3,9 ile medyanın (%0,4) altına yerleştirdi.…
 sirket: AVRASYA GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: AVGYO
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-24
+tarih: 2026-08-28
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat 0,20 milyar TL'ye yükselirken net kâr -0,06 milyar TL'ye düştü; gelir artışı maliyet ve giderlerdeki artışla birlikte kârın daha da azalmasına yol açtı. Özkaynak 2,30 milyar TL'ye, aktif toplamı 2,76 milyar TL'ye ve net borç -0,10 milyar TL'ye (nakit fazlası) yükselmesi, özkaynak kârlılığı %-3,9'un (sektör medyanı %0,4) ve net kâr marjının %-51,5'in (sektör medyanı %14,3) negatif seyretmesinin, şirketin büyüyen varlıklarını finanse ederken kârlı bir dönüşüm sağlayamadığını gösterir. Borç/özkaynak oranı -0,04 (sektör medyanı 0,02) negatif olduğu için, borçlanma yerine özkaynak artışıyla finansman sağlanmış ve bu durum faaliyet nakit akışının -0,09 milyar TL'ye (önceki dönem 0,08 milyar TL) kaymasıyla birlikte likidite sıkışıklığını yansıtıyor.
+Hasılat dört katına çıkarken net zarar da derinleşti; bu ikili hareket, net kâr marjını -%51,5 ile sektör medyanının (%14,3) altındaki sıraya, özkaynak kârlılığını da -%3,9 ile medyanın (%0,4) altına yerleştirdi. Aktif toplamındaki büyüme özkaynaktaki artışı aştı, yani bilançonun genişleyen kısmı özkaynak dışı kaynaklarla birlikte ilerledi; buna karşın net borç iki dönemde de eksi kaldı ve borç/özkaynak -0,04 ile medyanın (0,02) diğer tarafında konumlandı. Ciro artışına rağmen faaliyet nakit akışı önceki dönemdeki artıdan eksiye geçti; dolayısıyla gelir kalemindeki büyüme ile nakit üretimi aynı yönde hareket etmedi ve eldeki net nakit tamponu bir miktar geriledi.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

@@ -1,13 +1,13 @@
 ---
 slug: isgyo-2026-2-ceyrek
 baslik: İŞ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın 1,71 milyar TL'ye düşmesi net kârın -0,89 milyar TL'ye kaymasıyla paralel seyretmiş, bu da net kâr marjının -%24,6'ya gerilemesine yol açmıştır; aynı dönemde faaliyet nakit akışı 1,20 milyar TL pozitif olmuş ve net borç 0,66 milyar TL'ye inerek borç/özkaynak oranı 0,01'e düşmüştür.…
+ozet: Hasılat 2,18 milyar TL'den 1,71 milyar TL'ye gerilerken net sonuç 0,49 milyar TL kârdan 0,89 milyar TL zarara döndü ve net kâr marjı -%24,6 ile sektör medyanı olan %14,3'ün altında konumlandı.…
 sirket: İŞ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: ISGYO
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-26
+tarih: 2026-08-28
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın 1,71 milyar TL'ye düşmesi net kârın -0,89 milyar TL'ye kaymasıyla paralel seyretmiş, bu da net kâr marjının -%24,6'ya gerilemesine yol açmıştır; aynı dönemde faaliyet nakit akışı 1,20 milyar TL pozitif olmuş ve net borç 0,66 milyar TL'ye inerek borç/özkaynak oranı 0,01'e düşmüştür. Özkaynak 58,19 milyar TL'ye yükselirken aktif toplamı 70,13 milyar TL'ye artmış, bu büyüme net borcun azalmasıyla birlikte özkaynak kârlılığının -%0,4'e gerilemesine rağmen sektörel medyan (%0,4) ile aynı seviyede kalmasını sağlamıştır.
+Hasılat 2,18 milyar TL'den 1,71 milyar TL'ye gerilerken net sonuç 0,49 milyar TL kârdan 0,89 milyar TL zarara döndü ve net kâr marjı -%24,6 ile sektör medyanı olan %14,3'ün altında konumlandı. Buna karşın özkaynak 46,01 milyar TL'den 58,19 milyar TL'ye, aktif toplamı da 52,75 milyar TL'den 70,13 milyar TL'ye çıktı; yani bilanço büyümesi dönem sonucundan değil, kâr/zarar dışı değerleme kalemlerinden geldi ve bu genişleyen özkaynak tabanı, zarara rağmen özkaynak kârlılığını -%0,4 gibi sıfıra yakın bir seviyede tuttu. Faaliyet nakit akışı -1,27 milyar TL'den 1,20 milyar TL'ye geçerken net borç 1,34 milyar TL'den 0,66 milyar TL'ye indi; borç/özkaynak oranı 0,01 ile sektör medyanı 0,02'nin altında kaldı.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

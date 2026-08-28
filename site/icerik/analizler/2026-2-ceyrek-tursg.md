@@ -1,13 +1,13 @@
 ---
 slug: tursg-2026-2-ceyrek
 baslik: TÜRKİYE SİGORTA A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın 41,20 milyar TL'den 53,84 milyar TL'ye yükselmesi, faaliyet kârı, FAVÖK ve net kârın sırasıyla 12,66 milyar TL'den 17,83 milyar TL, 12,82 milyar TL'den 17,99 milyar TL ve 9,39 milyar TL'den 13,50 milyar TL'ye artmasına paralel olarak özkaynak ve aktif toplamının da 35,54 milyar TL'den 59,0…
+ozet: Hasılattaki büyümeye faaliyet kârı, FAVÖK ve net kâr aynı yönde eşlik etti; net kâr marjı sektör medyanının üzerinde bir sıralamaya karşılık geldi. Özkaynak ile aktif toplamı birlikte genişledi, ancak özkaynaktaki artışın net kâr artışından hızlı olması özkaynak kârlılığını medyanın üzerinde bir kon…
 sirket: TÜRKİYE SİGORTA A.Ş.
 kod: TURSG
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Finans
-tarih: 2026-08-23
+tarih: 2026-08-28
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın 41,20 milyar TL'den 53,84 milyar TL'ye yükselmesi, faaliyet kârı, FAVÖK ve net kârın sırasıyla 12,66 milyar TL'den 17,83 milyar TL, 12,82 milyar TL'den 17,99 milyar TL ve 9,39 milyar TL'den 13,50 milyar TL'ye artmasına paralel olarak özkaynak ve aktif toplamının da 35,54 milyar TL'den 59,04 milyar TL, 138,19 milyar TL'den 191,06 milyar TL'ye yükselmesini sağladı; net borç ise önceki dönemde –2,45 milyar TL iken 5,61 milyar TL'ye geçerek borç/özkaynak oranını 0,10'a çıkardı. Faaliyet nakit akışı, önceki dönemde 3,07 milyar TL pozitifken 3,02 milyar TL negatif oldu; bu düşüş, artan kârların bir kısmının nakit dışı kalemlere (örneğin özkaynak artışı) yansımasıyla ilişkilendirilebilir. Net kâr marjı %24,2 ve özkaynak kârlılığı %11,9, her ikisi de sektör medyanı (%15,9 ve %4,5) üzerinde yer alırken, borç/özkaynak oranı sektördeki negatif medyan (–%0,06) karşısında pozitif bir değer göstermektedir.
+Hasılattaki büyümeye faaliyet kârı, FAVÖK ve net kâr aynı yönde eşlik etti; net kâr marjı sektör medyanının üzerinde bir sıralamaya karşılık geldi. Özkaynak ile aktif toplamı birlikte genişledi, ancak özkaynaktaki artışın net kâr artışından hızlı olması özkaynak kârlılığını medyanın üzerinde bir konumda tutarken kârın büyüyen sermaye tabanına oranını sınırladı. Faaliyet nakit akışının pozitiften negatife dönmesiyle eş zamanlı olarak net borç da negatif konumdan pozitife geçti ve borç/özkaynak oranı medyanın üstünde yer aldı; yatırım harcaması bu dönüşün yanında düşük tutarda kaldı.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
@@ -56,9 +56,9 @@ Karşılaştırma Finans sektöründeki 30 şirketin **medyanına** göre yapıl
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Net kâr marjı | %24,2 | %15,9 |
+| Net kâr marjı | %24,2 | %14,7 |
 | Özkaynak kârlılığı | %11,9 | %4,5 |
-| Borç / özkaynak | 0,10 | -0,06 |
+| Borç / özkaynak | 0,10 | -0,05 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

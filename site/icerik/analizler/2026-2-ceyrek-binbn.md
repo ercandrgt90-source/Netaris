@@ -1,0 +1,96 @@
+---
+slug: binbn-2026-2-ceyrek
+baslik: BİN ULAŞIM VE AKILLI ŞEHİR TEKNOLOJİLERİ A.Ş. 2026 2. çeyrek bilanço analizi
+ozet: Hasılat gerilerken brüt kâr artmış, bu ayrışma brüt kâr marjını sektör medyanının üzerindeki bir konuma taşımış; buna karşın faaliyet kârı ve FAVÖK ters yönde hareket ederek brüt kâr ile faaliyet sonucu arasındaki farkın operasyonel gider tarafında genişlediğine işaret etmiş.…
+sirket: BİN ULAŞIM VE AKILLI ŞEHİR TEKNOLOJİLERİ A.Ş.
+kod: BINBN
+donem: 2026 2. çeyrek
+kategori: Bilanço Analizi
+sektor: Bilişim
+tarih: 2026-08-28
+veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
+kurgusal: hayir
+grafik_tur: sutun
+grafik: 
+kaynaklar: 
+sayimlar: 
+---
+
+## Özet
+
+Hasılat gerilerken brüt kâr artmış, bu ayrışma brüt kâr marjını sektör medyanının üzerindeki bir konuma taşımış; buna karşın faaliyet kârı ve FAVÖK ters yönde hareket ederek brüt kâr ile faaliyet sonucu arasındaki farkın operasyonel gider tarafında genişlediğine işaret etmiş. Net zarardaki büyüme özkaynaktaki azalışla aynı yönde seyretmiş ve özkaynak kârlılığı ile net kâr marjını sektör medyanının altındaki bir sıraya yerleştirmiş. Faaliyet nakit akışı artarken yatırım harcaması da yükselmiş, net nakit pozisyonu (negatif net borç) daralmış; cari oran ve borç/özkaynak ise medyandan farklı bir konumda kalmış.
+
+## 2026 2. çeyrek — bir yıl öncesine göre
+
+| Kalem | Reel değişim |
+| --- | ---: |
+| Hasılat | -%24,1 |
+| Brüt kâr | %42,4 |
+| Faaliyet kârı | -%254,2 |
+| FAVÖK | -%151,6 |
+| Net kâr | -%437,5 |
+| Özkaynak | -%4,5 |
+| Aktif toplamı | -%1,7 |
+| Net borç | %73,9 |
+| Faaliyet nakit akışı | %750,4 |
+| Yatırım harcaması | %553,6 |
+
+*Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
+
+## 2026 2. çeyrek dönemi ölçümleri
+
+| Kalem | Değer |
+| --- | ---: |
+| Hasılat | 0,26 milyar TL |
+| Brüt kâr | 0,05 milyar TL |
+| Faaliyet kârı | -0,20 milyar TL |
+| FAVÖK | -0,05 milyar TL |
+| Net kâr | -0,36 milyar TL |
+| Özkaynak | 1,89 milyar TL |
+| Aktif toplamı | 2,21 milyar TL |
+| Net borç | -0,20 milyar TL |
+| Faaliyet nakit akışı | 0,18 milyar TL |
+| Yatırım harcaması | 0,17 milyar TL |
+
+## Sektör içindeki konum
+
+Karşılaştırma Bilişim sektöründeki 18 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+
+| Oran | Şirket | Sektör medyanı |
+| --- | ---: | ---: |
+| Brüt kâr marjı | %36,3 | %16,1 |
+| Net kâr marjı | -%24,7 | -%2,0 |
+| Özkaynak kârlılığı | -%2,2 | %2,1 |
+| Cari oran | 7,81 | 1,25 |
+| Borç / özkaynak | -0,11 | -0,02 |
+
+*Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
+
+## Öne çıkan ölçümler
+
+**Şirket lehine işleyenler**
+
+- Brüt marj 8,4 puan genişledi (%9,6 → %18,0).
+- Cari oran 7,81; dönen varlıklar kısa vadeli yükümlülüklerin üzerinde.
+
+**Dikkat gerektirenler**
+
+- Hasılat reel olarak -%24,1 geriledi.
+- Net kâr reel olarak -%437,5 geriledi.
+- Özkaynak kârlılığı -%2,2; sektör medyanı %2,1.
+
+*Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
+
+
+## Yazılım ve bilişimde hangi ayrım önemlidir
+
+Yazılım ile donanım/entegrasyon işinin marj yapısı çok farklıdır: lisans ve abonelik gelirinin brüt marjı yüksek, donanım satışı ve proje işininki düşüktür. Aynı sektörde iki şirketin brüt marjı bu yüzden kıyaslanamayacak kadar ayrışabilir.
+
+Ar-Ge harcaması muhasebeleştirme tercihine göre gidere yazılabilir ya da aktifleştirilebilir; ikisi net kârı farklı etkiler. Tablodaki tek bir rakam bu tercihi göstermez.
+
+Bu sektörde **faaliyet nakit akışı** özellikle önemlidir: abonelik modelinde nakit tahsilatı gelir kaydından önce gelebilir.
+
+
+---
+
+*Bu sayfa ölçülmüş mali tablo verisinden üretilmiştir ve **yatırım tavsiyesi değildir.** Sektör medyanına göre konum bir sıralamadır, değerlendirme değildir.*

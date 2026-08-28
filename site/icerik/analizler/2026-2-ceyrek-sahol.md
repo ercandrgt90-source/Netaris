@@ -1,13 +1,13 @@
 ---
 slug: sahol-2026-2-ceyrek
 baslik: HACI ÖMER SABANCI HOLDİNG A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat 146,66 milyar TL'den 167,15 milyar TL'ye yükselirken net kâr -1,80 milyar TL'den 14,50 milyar TL'ye geçmiştir; gelir artışı kârda pozitif dönüşümü tetiklemiş, bu da net kâr marjının %14,7 sektör medyanının üzerindeki %16,7'ye çıkmasını sağlamıştır.…
+ozet: Hasılattaki artışa net kârın önceki dönemdeki zarardan pozitife dönmesi eşlik etti; buna karşın faaliyet nakit akışı aynı dönemde geriledi ve yatırım harcaması da düşük seviyeye çekildi, yani kârdaki dönüş nakit yaratımıyla aynı yönde hareket etmedi.…
 sirket: HACI ÖMER SABANCI HOLDİNG A.Ş.
 kod: SAHOL
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Finans
-tarih: 2026-08-22
+tarih: 2026-08-28
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat 146,66 milyar TL'den 167,15 milyar TL'ye yükselirken net kâr -1,80 milyar TL'den 14,50 milyar TL'ye geçmiştir; gelir artışı kârda pozitif dönüşümü tetiklemiş, bu da net kâr marjının %14,7 sektör medyanının üzerindeki %16,7'ye çıkmasını sağlamıştır. Özkaynak 526,42 milyar TL'den 684,54 milyar TL'ye artarken aktif toplamı 3467,59 milyar TL'den 4653,12 milyar TL'ye yükselmiş, ancak net borç 533,13 milyar TL'den 798,04 milyar TL'ye çıktığı için borç/özkaynak oranı 1,17'ye yükselmiş ve özkaynak kârlılığı %4,5 medyanının altında %2,1 kalmıştır. Faaliyet nakit akışı 140,01 milyar TL'den 30,66 milyar TL'ye düşmüş, yatırım harcaması ise 13,21 milyar TL'den 9,97 milyar TL'ye azalarak sermaye harcamalarının kâr ve likidite üzerindeki baskısını hafifletmiştir.
+Hasılattaki artışa net kârın önceki dönemdeki zarardan pozitife dönmesi eşlik etti; buna karşın faaliyet nakit akışı aynı dönemde geriledi ve yatırım harcaması da düşük seviyeye çekildi, yani kârdaki dönüş nakit yaratımıyla aynı yönde hareket etmedi. Aktif toplamı ile özkaynak birlikte büyürken net borç da genişledi ve borç/özkaynak 1,19 ile sektör medyanı olan -0,05'in üzerinde konumlandı. Genişleyen özkaynak tabanı, net kâr marjı sektör medyanının üzerinde kalmasına rağmen özkaynak kârlılığının %2,1 ile medyanın altında yer almasıyla birlikte okunuyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
@@ -28,7 +28,7 @@ Hasılat 146,66 milyar TL'den 167,15 milyar TL'ye yükselirken net kâr -1,80 mi
 | Net kâr | %904,2 |
 | Özkaynak | %30,0 |
 | Aktif toplamı | %34,2 |
-| Net borç | %49,7 |
+| Net borç | %53,2 |
 | Faaliyet nakit akışı | -%78,1 |
 | Yatırım harcaması | -%24,5 |
 
@@ -42,7 +42,7 @@ Hasılat 146,66 milyar TL'den 167,15 milyar TL'ye yükselirken net kâr -1,80 mi
 | Net kâr | 14,50 milyar TL |
 | Özkaynak | 684,54 milyar TL |
 | Aktif toplamı | 4653,12 milyar TL |
-| Net borç | 798,04 milyar TL |
+| Net borç | 816,96 milyar TL |
 | Faaliyet nakit akışı | 30,66 milyar TL |
 | Yatırım harcaması | 9,97 milyar TL |
 
@@ -54,7 +54,7 @@ Karşılaştırma Finans sektöründeki 30 şirketin **medyanına** göre yapıl
 | --- | ---: | ---: |
 | Net kâr marjı | %16,7 | %14,7 |
 | Özkaynak kârlılığı | %2,1 | %4,5 |
-| Borç / özkaynak | 1,17 | -0,06 |
+| Borç / özkaynak | 1,19 | -0,05 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

@@ -1,0 +1,86 @@
+---
+slug: isfin-2026-2-ceyrek
+baslik: İŞ FİNANSAL KİRALAMA A.Ş. 2026 2. çeyrek bilanço analizi
+ozet: Hasılattaki artışın üzerinde bir hızla büyüyen faaliyet kârı ve ona neredeyse eşit seyreden FAVÖK, amortisman benzeri nakit dışı kalemlerin sonuç üzerindeki ağırlığının sınırlı kaldığına işaret ederken, net kârdaki artış faaliyet kârındaki artışın gerisinde kaldı.…
+sirket: İŞ FİNANSAL KİRALAMA A.Ş.
+kod: ISFIN
+donem: 2026 2. çeyrek
+kategori: Bilanço Analizi
+sektor: Finans
+tarih: 2026-08-28
+veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
+kurgusal: hayir
+grafik_tur: sutun
+grafik: 
+kaynaklar: 
+sayimlar: 
+---
+
+## Özet
+
+Hasılattaki artışın üzerinde bir hızla büyüyen faaliyet kârı ve ona neredeyse eşit seyreden FAVÖK, amortisman benzeri nakit dışı kalemlerin sonuç üzerindeki ağırlığının sınırlı kaldığına işaret ederken, net kârdaki artış faaliyet kârındaki artışın gerisinde kaldı. Bilanço tarafında 124,49 milyar TL'lik aktif toplamı 15,44 milyar TL'lik özkaynak ve 101,62 milyar TL'lik net borçla taşınıyor; buna bağlı olarak borç/özkaynak katsayısı sektör medyanının üzerinde konumlandı, aynı kaldıraç yapısı %69,7'lik net kâr marjının %8,1'lik özkaynak kârlılığına dönüşme biçimini de belirliyor ve her iki oran da medyanın üstünde yer aldı. Faaliyet nakit akışı önceki döneme göre daha küçük bir negatif bakiye verdi, yatırım harcaması ise bu dönemde daha düşük kaldı.
+
+## 2026 2. çeyrek — bir yıl öncesine göre
+
+| Kalem | Reel değişim |
+| --- | ---: |
+| Hasılat | %74,6 |
+| Faaliyet kârı | %224,4 |
+| FAVÖK | %215,7 |
+| Net kâr | %28,7 |
+| Faaliyet nakit akışı | %59,9 |
+| Yatırım harcaması | -%71,0 |
+
+*Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
+
+## 2026 2. çeyrek dönemi ölçümleri
+
+| Kalem | Değer |
+| --- | ---: |
+| Hasılat | 4,40 milyar TL |
+| Faaliyet kârı | 2,74 milyar TL |
+| FAVÖK | 2,77 milyar TL |
+| Net kâr | 2,06 milyar TL |
+| Özkaynak | 15,44 milyar TL |
+| Aktif toplamı | 124,49 milyar TL |
+| Net borç | 101,62 milyar TL |
+| Faaliyet nakit akışı | -2,08 milyar TL |
+| Yatırım harcaması | 0,02 milyar TL |
+
+## Sektör içindeki konum
+
+Karşılaştırma Finans sektöründeki 30 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+
+| Oran | Şirket | Sektör medyanı |
+| --- | ---: | ---: |
+| Net kâr marjı | %69,7 | %14,7 |
+| Özkaynak kârlılığı | %8,1 | %4,5 |
+| Borç / özkaynak | 6,58 | -0,05 |
+
+*Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
+
+## Öne çıkan ölçümler
+
+**Şirket lehine işleyenler**
+
+- Hasılat reel olarak %74,6 arttı.
+- Net kâr reel olarak %28,7 arttı.
+- Özkaynak kârlılığı %8,1; sektör medyanı %4,5.
+
+*Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
+
+
+## Bankada ve finans kuruluşunda hangi kalem okunur
+
+Bankaların gelir tablosunda **hasılat** kalemi, sanayi şirketlerindekiyle aynı anlama gelmez. Bir bankanın brüt faiz geliri, mevduata ödediği faizi içermez; şirkete kalan tutar **net faiz geliri**dir. Hasılatı tek başına okumak, maliyeti görmeden ciroya bakmak olur.
+
+Aynı sebeple **aktif toplamı** bankada bir büyüklük ölçüsüdür, bir performans ölçüsü değil: kredi hacmi büyüdükçe aktif de büyür. Kârlılık için **özkaynak kârlılığı** (ROE) okunur.
+
+Aracı kurumlarda tablo bir kez daha farklıdır. Alım satım işlemlerinin toplam hacmi hasılata yazılabildiği için hasılat çok büyük görünür; şirkete kalan tutar **brüt kâr**dır — komisyon gelirleri ile net alım satım kârının toplamı.
+
+**Net borç** bankada ve finans kuruluşunda anlamlı bir ölçü değildir: borçlanmak bu iş modelinin kendisidir, bir yük değil.
+
+
+---
+
+*Bu sayfa ölçülmüş mali tablo verisinden üretilmiştir ve **yatırım tavsiyesi değildir.** Sektör medyanına göre konum bir sıralamadır, değerlendirme değildir.*

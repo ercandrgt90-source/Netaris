@@ -1,13 +1,13 @@
 ---
 slug: eukyo-2026-2-ceyrek
 baslik: EURO KAPİTAL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Brüt kâr artışı (%47,1) net kârın negatif kalması (%-37,1) ve özkaynak kârlılığının (%-6,3) düşüklüğüyle birlikte, şirketin faaliyet verimliliği artarken kâr dağılımı ve özkaynak getirisi geride kalmıştır; bu durum, artan özkaynak (0,08 milyar TL) ve aktif toplamı (0,09 milyar TL) ile birlikte, nega…
+ozet: Hasılat yatay kalırken brüt kâr yükseldi ve brüt kâr marjı sektör medyanının üzerinde konumlandı; ancak bu fark faaliyet kârı ve FAVÖK satırlarına taşınmadı, her iki kalem de iki dönemde de yuvarlanmış olarak sıfır seviyesinde kaldı.…
 sirket: EURO KAPİTAL YATIRIM ORTAKLIĞI A.Ş.
 kod: EUKYO
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Finans
-tarih: 2026-08-27
+tarih: 2026-08-28
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,21 +18,21 @@ sayimlar:
 
 ## Özet
 
-Brüt kâr artışı (%47,1) net kârın negatif kalması (%-37,1) ve özkaynak kârlılığının (%-6,3) düşüklüğüyle birlikte, şirketin faaliyet verimliliği artarken kâr dağılımı ve özkaynak getirisi geride kalmıştır; bu durum, artan özkaynak (0,08 milyar TL) ve aktif toplamı (0,09 milyar TL) ile birlikte, negatif net borçun (%-0,90) iyileşmesi ve cari oranın (22,78) sektör medyanının (12,09) çok üzerindeki seviyeye yükselmesiyle likidite ve finansal esneklik açısından desteklenmiştir.
+Hasılat yatay kalırken brüt kâr yükseldi ve brüt kâr marjı sektör medyanının üzerinde konumlandı; ancak bu fark faaliyet kârı ve FAVÖK satırlarına taşınmadı, her iki kalem de iki dönemde de yuvarlanmış olarak sıfır seviyesinde kaldı. Net zarar daraldı, buna karşın net kâr marjı ve özkaynak kârlılığı medyanın altında negatif bölgede kaldı; özkaynak ve aktif toplamı ise negatif sonuca rağmen arttı. Faaliyet nakit akışı iki dönemde de negatifken net borç daha derin negatife geçti; bu net nakit konumu, medyanın üzerindeki cari oran ve negatif borç/özkaynak değeriyle aynı yönde hareket etti.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | %5,6 |
-| Brüt kâr | %33,1 |
-| Faaliyet kârı | -%93,5 |
-| FAVÖK | -%12,6 |
-| Net kâr | %12,7 |
+| Hasılat | %1,5 |
+| Brüt kâr | %37,3 |
+| Faaliyet kârı | %74,3 |
+| FAVÖK | %70,9 |
+| Net kâr | %26,0 |
 | Özkaynak | %10,9 |
 | Aktif toplamı | %12,4 |
 | Net borç | -%16,8 |
-| Faaliyet nakit akışı | %41,1 |
+| Faaliyet nakit akışı | %56,3 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -68,8 +68,7 @@ Karşılaştırma Finans sektöründeki 30 şirketin **medyanına** göre yapıl
 
 **Şirket lehine işleyenler**
 
-- Hasılat reel olarak %5,6 arttı.
-- Net kâr reel olarak %12,7 arttı.
+- Net kâr reel olarak %26,0 arttı.
 
 **Dikkat gerektirenler**
 

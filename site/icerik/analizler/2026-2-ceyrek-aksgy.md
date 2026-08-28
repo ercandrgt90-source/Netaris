@@ -1,13 +1,13 @@
 ---
 slug: aksgy-2026-2-ceyrek
 baslik: AKİŞ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın 2,68 milyar TL'ye yükselmesi net kârın 1,12 milyar TL'ye artmasını beraberinde getirmiş, bu da net kâr marjının %70,3'e çıkmasını sağlamıştır; aynı dönemde özkaynakların 52,49 milyar TL'ye, aktif toplamının ise 63,24 milyar TL'ye yükselmesi, özkaynak kârlılığının %1,8'e ulaşmasına zemin ha…
+ozet: Hasılat ve net kâr birlikte arttı; net kâr marjının %70,3 ile sektör medyanının üzerinde konumlanması, kârın hasılat büyüklüğünden bağımsız kalemlerle de beslendiğine işaret ediyor.…
 sirket: AKİŞ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: AKSGY
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-27
+tarih: 2026-08-28
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın 2,68 milyar TL'ye yükselmesi net kârın 1,12 milyar TL'ye artmasını beraberinde getirmiş, bu da net kâr marjının %70,3'e çıkmasını sağlamıştır; aynı dönemde özkaynakların 52,49 milyar TL'ye, aktif toplamının ise 63,24 milyar TL'ye yükselmesi, özkaynak kârlılığının %1,8'e ulaşmasına zemin hazırlamıştır. Net borcun –0,35 milyar TL'ye gerilemesi, borç/özkaynak oranının –0,01 olmasına yol açarken, faaliyet nakit akışının 1,47 milyar TL'ye çıkması likidite artışını ve özkaynakların büyümesiyle uyumlu bir finansal yapı oluşturmuştur. Bu artışların tümü, önceki döneme kıyasla hem gelir hem kâr hem de sermaye yapısında paralel bir iyileşme olduğunu göstermektedir.
+Hasılat ve net kâr birlikte arttı; net kâr marjının %70,3 ile sektör medyanının üzerinde konumlanması, kârın hasılat büyüklüğünden bağımsız kalemlerle de beslendiğine işaret ediyor. Özkaynak, net kârdan çok daha geniş bir aralıkta büyüdüğü için özkaynak kârlılığı %1,8'de kaldı; yani payda tarafındaki genişleme, kâr artışının orana yansımasını sınırladı. Faaliyet nakit akışının yükselmesiyle eş zamanlı olarak net borç negatife döndü ve borç/özkaynak oranı sektör medyanının altında, eksi bölgede oluştu.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

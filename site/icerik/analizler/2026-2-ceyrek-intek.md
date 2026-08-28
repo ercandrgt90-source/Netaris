@@ -1,13 +1,13 @@
 ---
 slug: intek-2026-2-ceyrek
 baslik: İNNOSA TEKNOLOJİ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %69,6 brüt kâr marjı ile birlikte %69,6 oranında artması brüt kârın da %69,6 yükselmesine yol açarken, faaliyet kârı ve FAVÖK artışları net kârın -%68,2'ye gerilemesiyle ters bir ilişki gösterdi; net kârın düşmesi özkaynak kârlılığının -%38,5'e inmesine ve özkaynakların %0,46'a yükselmesin…
+ozet: Hasılat ve brüt kâr birlikte büyürken brüt kâr marjı sektör medyanının belirgin üzerinde kaldı; buna karşın brüt kârın faaliyet kârına aktarılan kısmı sınırlı oldu ve net sonuç zarara döndü, dolayısıyla negatif net kâr marjı ile negatif özkaynak kârlılığı aynı kalemden besleniyor.…
 sirket: İNNOSA TEKNOLOJİ A.Ş.
 kod: INTEK
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Bilişim
-tarih: 2026-08-27
+tarih: 2026-08-28
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %69,6 brüt kâr marjı ile birlikte %69,6 oranında artması brüt kârın da %69,6 yükselmesine yol açarken, faaliyet kârı ve FAVÖK artışları net kârın -%68,2'ye gerilemesiyle ters bir ilişki gösterdi; net kârın düşmesi özkaynak kârlılığının -%38,5'e inmesine ve özkaynakların %0,46'a yükselmesine rağmen özkaynak kârlılığı üzerinde olumsuz etki yarattı. Net borcun %0,38'e çıkması cari oranı 0,35'e düşürürken, borç/özkaynak oranının 0,82'ye yükselmesi likiditeyi azaltarak sektörel medyan 1,25'in altında kalmasına neden oldu. Yatırım harcaması ve faaliyet nakit akışı her ikisi de 0,12-0,13 milyar TL seviyelerine yükselmiş, bu da aktif toplamının 1,07 milyar TL'ye çıkmasıyla paralel bir büyüme göstermektedir.
+Hasılat ve brüt kâr birlikte büyürken brüt kâr marjı sektör medyanının belirgin üzerinde kaldı; buna karşın brüt kârın faaliyet kârına aktarılan kısmı sınırlı oldu ve net sonuç zarara döndü, dolayısıyla negatif net kâr marjı ile negatif özkaynak kârlılığı aynı kalemden besleniyor. Aktif toplamı özkaynaktan daha hızlı büyüdü; aradaki fark net borcun sıfırdan 0,38 milyar TL'ye çıkmasıyla eşleşiyor ve borç/özkaynak oranının 0,82'ye ulaşması ile cari oranın sektör medyanının altında konumlanması bu tabloyla tutarlı. Faaliyet nakit akışı yatırım harcamasını karşılayacak düzeyde gerçekleşti, FAVÖK ile faaliyet kârı arasındaki fark ise nakit çıkışı gerektirmeyen giderlerin varlığına işaret ediyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

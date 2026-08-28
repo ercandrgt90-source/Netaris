@@ -1,13 +1,13 @@
 ---
 slug: anhyt-2026-2-ceyrek
 baslik: ANADOLU HAYAT EMEKLİLİK A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat 22,76 milyar TL'ye yükselirken faaliyet kârı 4,88 milyar TL, FAVÖK 5,06 milyar TL ve net kâr 3,63 milyar TL de önceki döneme göre artmış; bu artış özkaynakların 13,91 milyar TL'ye, aktif toplamının 482,81 milyar TL'ye yükselmesiyle paralel bir büyüme göstermektedir.…
+ozet: Hasılattaki artışa faaliyet kârı ve FAVÖK daha hızlı eşlik etti; net kâr da yükselerek net kâr marjını %16,9 ile sektör medyanı %14,7'nin üzerinde bir sıraya taşıdı.…
 sirket: ANADOLU HAYAT EMEKLİLİK A.Ş.
 kod: ANHYT
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Finans
-tarih: 2026-08-27
+tarih: 2026-08-28
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat 22,76 milyar TL'ye yükselirken faaliyet kârı 4,88 milyar TL, FAVÖK 5,06 milyar TL ve net kâr 3,63 milyar TL de önceki döneme göre artmış; bu artış özkaynakların 13,91 milyar TL'ye, aktif toplamının 482,81 milyar TL'ye yükselmesiyle paralel bir büyüme göstermektedir. Net borçun -6,39 milyar TL (daha negatif) olması, özkaynak/karlılık oranlarının (%14,5 özkaynak kârlılığı, %16,9 net kâr marjı) sektör medyanlarının (%4,5 ve %14,7) üzerinde kalmasına ve borç/özkaynak oranının -0,46 (sektör medyanı -0,05) daha düşük olmasına yol açmıştır. Faaliyet nakit akışı 4,34 milyar TL'ye gerilemiş, ancak yatırım harcamasının 0,09 milyar TL'ye çıkması, artan kârlılık ve özkaynak büyüklüğüyle birlikte nakit akışındaki düşüşün yatırım ihtiyacına bağlı olabileceğini gösterir.
+Hasılattaki artışa faaliyet kârı ve FAVÖK daha hızlı eşlik etti; net kâr da yükselerek net kâr marjını %16,9 ile sektör medyanı %14,7'nin üzerinde bir sıraya taşıdı. Aktif toplamı ile özkaynak birlikte büyüdü, ancak kâr birikimi özkaynak artışının önüne geçerek özkaynak kârlılığını %14,5'e, yani 30 şirketlik medyan olan %4,5'in üzerine yerleştirdi. Net kâr artarken faaliyet nakit akışı geriledi; buna karşın net borç negatif tarafta derinleşti ve borç/özkaynak -0,46 ile sektör medyanı -0,05'ten uzak bir konumda kaldı, yatırım harcaması ise bu büyüklüklerin yanında sınırlı bir kalem olarak durdu.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

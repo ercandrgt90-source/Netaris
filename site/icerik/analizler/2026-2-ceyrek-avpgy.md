@@ -1,13 +1,13 @@
 ---
 slug: avpgy-2026-2-ceyrek
 baslik: AVRUPAKENT GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın düşmesiyle birlikte brüt kâr da azalmış, fakat brüt kâr marjı %35,3 seviyesinde sektör medyanının altında kalırken net kâr marjı %57,1'e yükselerek kârın daha büyük bir kısmının net olarak kalmasını sağlamış; bu durum, faaliyet ve FAVÖK kârlarının da düşmesine rağmen net kârın daha az oran…
+ozet: Hasılat gerilerken brüt kârın daha sert düşmesi brüt kâr marjını sektör medyanının altına taşıdı; buna karşın faaliyet kârının brüt kârın üzerinde kalması ve net kâr marjının brüt marjı aşması, sonucun esas olarak esas faaliyet dışı kalemlerle şekillendiğine işaret ediyor.…
 sirket: AVRUPAKENT GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: AVPGY
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-25
+tarih: 2026-08-28
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın düşmesiyle birlikte brüt kâr da azalmış, fakat brüt kâr marjı %35,3 seviyesinde sektör medyanının altında kalırken net kâr marjı %57,1'e yükselerek kârın daha büyük bir kısmının net olarak kalmasını sağlamış; bu durum, faaliyet ve FAVÖK kârlarının da düşmesine rağmen net kârın daha az oranda gerilemesinden kaynaklanıyor. Özkaynakların %46,49 milyar TL'ye yükselmesi aktif toplamının artışıyla paralel ilerlemiş ve negatif net borç (nakit fazlası) seviyesinin hafifçe artması, cari oranı 7,31'e çıkararak likidite pozisyonunu güçlendirmiş; bu da borç/özkaynak oranının -%0,01 (sektör medyanının %0,02'sinin altında) kalmasını desteklemiş. Faaliyet nakit akışı artışı (1,99 milyar TL) yatırım harcamasının çok düşük seviyede (0,01 milyar TL) tutulmasıyla birlikte, şirketin nakit üretim kapasitesinin artmasına ve özkaynak kârlılığının %2,1 (sektör medyanının %0,4'ünün üzerinde) yükselmesine zemin hazırlamış.
+Hasılat gerilerken brüt kârın daha sert düşmesi brüt kâr marjını sektör medyanının altına taşıdı; buna karşın faaliyet kârının brüt kârın üzerinde kalması ve net kâr marjının brüt marjı aşması, sonucun esas olarak esas faaliyet dışı kalemlerle şekillendiğine işaret ediyor. Özkaynak ve aktif toplamı dönem net kârının çok üzerinde bir tutarda büyüdü; bu nedenle kâr azalmasına rağmen genişleyen sermaye tabanı, özkaynak kârlılığını sektör medyanının üzerinde bıraktı. Net borç eksi bakiyesini derinleştirdi ve borç/özkaynak negatif kalırken, faaliyet nakit akışı net kârın üzerinde seyretti ve yatırım harcaması bu nakit akışının yanında sınırlı bir tutarda gerçekleşti; cari oran da sektör medyanının üzerinde konumlandı.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

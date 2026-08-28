@@ -1,7 +1,7 @@
 ---
 slug: garfa-2026-2-ceyrek
 baslik: GARANTİ FAKTORİNG A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat 2,23 milyar TL'ye yükselirken faaliyet kârı 1,88 milyar TL, FAVÖK 1,89 milyar TL ve net kâr 1,46 milyar TL de artış gösterdi; bu kâr kalemlerinin yükselişi, net kâr marjının %65,0 (sektör medyanı %14,7) seviyesine ulaşmasıyla tutarlı.…
+ozet: Hasılattaki artışa faaliyet kârı, FAVÖK ve net kâr aynı yönde eşlik etti; faaliyet kârı ile FAVÖK'ün birbirine yakın seyretmesi amortisman dışı kalemlerin sonuç üzerinde sınırlı ağırlık taşıdığına, net kâr marjının %65,0 ile sektör medyanı %14,7'nin üzerinde konumlanmasına işaret ediyor.…
 sirket: GARANTİ FAKTORİNG A.Ş.
 kod: GARFA
 donem: 2026 2. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat 2,23 milyar TL'ye yükselirken faaliyet kârı 1,88 milyar TL, FAVÖK 1,89 milyar TL ve net kâr 1,46 milyar TL de artış gösterdi; bu kâr kalemlerinin yükselişi, net kâr marjının %65,0 (sektör medyanı %14,7) seviyesine ulaşmasıyla tutarlı. Aktif toplamı 45,75 milyar TL'ye çıkarırken net borç 36,28 milyar TL'ye yükseldi ve borç/özkaynak oranı 5,37 (sektör medyanı -0,05) oldu; özkaynak da 6,76 milyar TL'ye artarak özkaynak kârlılığı %11,4 (sektör medyanı %4,5) ile paralel bir büyüme izledi. Faaliyet nakit akışı negatif kalmasına rağmen (-0,68 milyar TL, önceki dönem -0,91 milyar TL) önceki döneme göre iyileşme gösterdi.
+Hasılattaki artışa faaliyet kârı, FAVÖK ve net kâr aynı yönde eşlik etti; faaliyet kârı ile FAVÖK'ün birbirine yakın seyretmesi amortisman dışı kalemlerin sonuç üzerinde sınırlı ağırlık taşıdığına, net kâr marjının %65,0 ile sektör medyanı %14,7'nin üzerinde konumlanmasına işaret ediyor. Aktif toplamı ve net borç birlikte büyürken özkaynak da genişledi, ancak borçlanmanın hızı özkaynağınkini aşarak borç/özkaynağı 5,37'ye taşıdı ve bu oran, medyanı -0,05 olan sektörden farklı bir konumda bulunuyor. Net kâr artmasına karşın faaliyet nakit akışı negatif bölgede kaldı; kârın kaydedildiği dönemde nakit yaratımının bilanço büyümesiyle ters yönde hareket ettiği görülüyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

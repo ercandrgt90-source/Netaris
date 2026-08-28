@@ -1,13 +1,13 @@
 ---
 slug: svgyo-2026-2-ceyrek
 baslik: SAVUR GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Brüt kâr marjının %100,0 olması, hasılat ve brüt kârın aynı seviyede gerçekleştiğini gösterirken, net kâr marjının -%63,2 olması net kârın negatif olmasına rağmen özkaynak kârlılığının sadece -%0,3 ile çok düşük bir negatiflikte kalmasını sağladı; bu durum net kârın artışı (net kâr 0,05 milyar TL) ö…
+ozet: Hasılatın tamamı brüt kâra dönüşürken (%100,0 brüt marj, sektör medyanı %51,4) faaliyet kârı bu tutarın altında kalıyor; yani satış maliyeti yerine faaliyet giderleri kalemi belirleyici konumda.…
 sirket: SAVUR GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: SVGYO
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-26
+tarih: 2026-08-28
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Brüt kâr marjının %100,0 olması, hasılat ve brüt kârın aynı seviyede gerçekleştiğini gösterirken, net kâr marjının -%63,2 olması net kârın negatif olmasına rağmen özkaynak kârlılığının sadece -%0,3 ile çok düşük bir negatiflikte kalmasını sağladı; bu durum net kârın artışı (net kâr 0,05 milyar TL) özkaynak büyüklüğüne (4,51 milyar TL) oranla çok sınırlı kaldığını gösterir. Cari oranının 9,75 olması sektör medyanının 5,25'ini aşarken, borç/özkaynak oranının -%0,13 olması negatif net borç (-0,60 milyar TL) ile özkaynak arasındaki güçlü dengeyi ve likidite fazlasını yansıtır; bu yüksek cari oran ve negatif borç, faaliyet nakit akışının –0,21 milyar TL olmasıyla birlikte şirketin kısa vadeli likiditeyi korurken operasyonel nakit üretiminde zorlandığını ortaya koyar.
+Hasılatın tamamı brüt kâra dönüşürken (%100,0 brüt marj, sektör medyanı %51,4) faaliyet kârı bu tutarın altında kalıyor; yani satış maliyeti yerine faaliyet giderleri kalemi belirleyici konumda. Net kâr faaliyet kârının üzerinde raporlanmış, bu da sonucun faaliyet dışı kalemlerle şekillendiğine işaret ediyor; buna karşın tabloda verilen net kâr marjı ve özkaynak kârlılığı negatif olduğundan bu iki gösterge ile net kâr rakamı aynı yönde okunmuyor. Net borcun eksi olması, yani nakdin borcu aşması, 9,75'lik cari oran ve -0,13'lük borç/özkaynak ile aynı tabloyu veriyor; faaliyet nakit akışı ise negatif ve bu nakit tamponu faaliyetlerden değil bilanço yapısından geliyor.
 
 ## 2026 2. çeyrek dönemi ölçümleri
 

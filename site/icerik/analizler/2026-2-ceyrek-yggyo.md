@@ -1,7 +1,7 @@
 ---
 slug: yggyo-2026-2-ceyrek
 baslik: YENİ GİMAT GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın 1,70 milyar TL'ye yükselmesiyle birlikte net kâr 0,46 milyar TL'ye artarken, net kâr marjı %28,8'e yükselmiş; bu artış, faaliyet nakit akışının 1,68 milyar TL'ye gerilemesiyle aynı dönemde gerçekleşmiş.…
+ozet: Hasılat 1,62 milyar TL'den 1,70 milyar TL'ye çıkarken net kâr 1,47 milyar TL'den 0,46 milyar TL'ye indi; dolayısıyla kârdaki değişim satış tarafından değil, hasılat dışı kalemlerden kaynaklandı ve net kâr marjı %28,8 ile sektör medyanı %14,3'ün üstünde sıralandı.…
 sirket: YENİ GİMAT GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: YGGYO
 donem: 2026 2. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın 1,70 milyar TL'ye yükselmesiyle birlikte net kâr 0,46 milyar TL'ye artarken, net kâr marjı %28,8'e yükselmiş; bu artış, faaliyet nakit akışının 1,68 milyar TL'ye gerilemesiyle aynı dönemde gerçekleşmiş. Özkaynak 28,11 milyar TL'ye çıkması, aktif toplamının 30,32 milyar TL'ye yükselmesi ve net borcun -2,48 milyar TL'ye (negatif) derinleşmesi, borç/özkaynak oranının -0,09'a (sektör medyanı 0,02) gerilemesine yol açmıştır. Özkaynak kârlılığı %0,9'a (sektör medyanı %0,4) yükselmiş, bu da özkaynak artışıyla paralel bir performans değişimini göstermektedir.
+Hasılat 1,62 milyar TL'den 1,70 milyar TL'ye çıkarken net kâr 1,47 milyar TL'den 0,46 milyar TL'ye indi; dolayısıyla kârdaki değişim satış tarafından değil, hasılat dışı kalemlerden kaynaklandı ve net kâr marjı %28,8 ile sektör medyanı %14,3'ün üstünde sıralandı. Özkaynak 16,55 milyar TL'den 28,11 milyar TL'ye, aktif toplamı 22,09 milyar TL'den 30,32 milyar TL'ye genişledi; özkaynaktaki artışın aktif artışını aşması, büyümenin yükümlülük tarafından gelmediğine işaret ediyor ve azalan net kârla birleşince özkaynak kârlılığını %0,9 düzeyinde bıraktı. Net borç -2,34 milyar TL'den -2,48 milyar TL'ye geçti, borç/özkaynak -0,09 ile medyan 0,02'nin altında konumlandı; buna karşılık faaliyet nakit akışı 3,45 milyar TL'den 1,68 milyar TL'ye geriledi.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

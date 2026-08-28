@@ -1,13 +1,13 @@
 ---
 slug: atatp-2026-2-ceyrek
 baslik: ATP YAZILIM VE TEKNOLOJİ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %89,6'lık brüt kâr marjıyla birlikte düşmesi, brüt kârın da %89,6 oranında azalarak %3,20 milyar'dan %3,31 milyar'a gerilemesine yol açtı; brüt kârdaki bu düşüş, faaliyet kârı ve FAVÖK'ün sırasıyla %2,57 milyar ve %2,63 milyar seviyelerine gerilemesinde temel etken oldu.…
+ozet: Hasılattaki gerileme brüt kâra, faaliyet kârına, FAVÖK'e ve net kâra aynı yönde yansıdı; brüt kâr marjı %89,6 ile sektör medyanı %16,1'in, net kâr marjı %38,7 ile medyanın (-%2,0) üzerinde konumlandı.…
 sirket: ATP YAZILIM VE TEKNOLOJİ A.Ş.
 kod: ATATP
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Bilişim
-tarih: 2026-08-26
+tarih: 2026-08-28
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %89,6'lık brüt kâr marjıyla birlikte düşmesi, brüt kârın da %89,6 oranında azalarak %3,20 milyar'dan %3,31 milyar'a gerilemesine yol açtı; brüt kârdaki bu düşüş, faaliyet kârı ve FAVÖK'ün sırasıyla %2,57 milyar ve %2,63 milyar seviyelerine gerilemesinde temel etken oldu. Net kâr marjının %38,7 seviyesinde kalması, net kârın %1,34 milyar'dan %1,42 milyar'a düşmesine rağmen özkaynak kârlılığının %8,7'ye yükselmesini sağladı; özkaynakların %10,29 milyar'a çıkması, aktif toplamının %11,05 milyar'a yükselmesiyle birlikte cari oranı 2,13'e, borç/özkaynak oranını ise -%0,04'e taşıdı. Faaliyet nakit akışı, yatırım harcamasının %0,48 milyar'a düşmesiyle birlikte %0,56 milyon TL'ye geriledi; net borcun -%0,39 milyar olarak hafifçe artması, likidite pozisyonunun sektör medyanı 1,25'in üzerindeki 2,13 seviyesinde kalmasını destekledi.
+Hasılattaki gerileme brüt kâra, faaliyet kârına, FAVÖK'e ve net kâra aynı yönde yansıdı; brüt kâr marjı %89,6 ile sektör medyanı %16,1'in, net kâr marjı %38,7 ile medyanın (-%2,0) üzerinde konumlandı. Özkaynak ve aktif toplamı bir önceki döneme göre iki katın üzerine çıkarken net kârın azalması, özkaynak kârlılığını %8,7 seviyesinde bıraktı; bu oran sektör medyanı %2,1'in üzerinde yer aldı. Net kâr sınırlı ölçüde düşerken faaliyet nakit akışı çok daha belirgin biçimde geriledi, buna karşın yatırım harcaması azaldı ve net borç eksi bölgede kaldı; cari oran 2,13 ile medyan 1,25'in üzerinde bulunuyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

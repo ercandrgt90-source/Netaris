@@ -1,13 +1,13 @@
 ---
 slug: dstkf-2026-2-ceyrek
 baslik: DESTEK FİNANS FAKTORİNG A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat ve brüt kâr neredeyse aynı seviyede seyrederek brüt kâr marjının %94,1'e yükselmesine, bu da sektör medyanının %45,1'inden çok daha yüksek olmasına yol açtı; brüt kârdaki hafif düşüş (3,22 → 3,21 milyar TL) net kâr marjının %78,7'ye çıkmasıyla birlikte net kârın 1,51 milyar TL'den 2,62 milya…
+ozet: Hasılat ve brüt kâr yatay seyrederken faaliyet kârı ile FAVÖK hasılatın üzerine çıktı; dolayısıyla net kârdaki artış satış hacminden değil, esas faaliyet dışı/karşılık kalemlerinden geldi ve brüt kâr marjı %94,1 ile net kâr marjı %78,7 arasındaki açıklık bu ayrışmayı yansıtıyor.…
 sirket: DESTEK FİNANS FAKTORİNG A.Ş.
 kod: DSTKF
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Finans
-tarih: 2026-08-27
+tarih: 2026-08-28
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat ve brüt kâr neredeyse aynı seviyede seyrederek brüt kâr marjının %94,1'e yükselmesine, bu da sektör medyanının %45,1'inden çok daha yüksek olmasına yol açtı; brüt kârdaki hafif düşüş (3,22 → 3,21 milyar TL) net kâr marjının %78,7'ye çıkmasıyla birlikte net kârın 1,51 milyar TL'den 2,62 milyar TL'ye artmasına rağmen, faaliyet kârı ve FAVÖK'ün 7,27 milyar TL ve 7,31 milyar TL'ye sıçraması, özkaynakların 9,93 milyar TL'den 14,82 milyar TL'ye yükselmesiyle desteklendi; bu büyüme aktif toplamının 36,83 milyar TL'den 60,90 milyar TL'ye artması ve net borcun 18,80 milyar TL'den 26,81 milyar TL'ye yükselmesiyle birlikte, cari oran 1,47'ye gerilemiş ve borç/özkaynak oranı 1,81'e çıkmıştır.
+Hasılat ve brüt kâr yatay seyrederken faaliyet kârı ile FAVÖK hasılatın üzerine çıktı; dolayısıyla net kârdaki artış satış hacminden değil, esas faaliyet dışı/karşılık kalemlerinden geldi ve brüt kâr marjı %94,1 ile net kâr marjı %78,7 arasındaki açıklık bu ayrışmayı yansıtıyor. Aktif toplamı, özkaynak ve net borç aynı yönde büyüdü; özkaynaktaki genişleme borç/özkaynağı 1,81'de tutarken, aynı dönemde artan net kâr özkaynak kârlılığını %9,8'e taşıdı ve bu oran sektör medyanı %4,5'in üzerinde konumlandı. Net kâr yükselirken faaliyet nakit akışı negatif kaldı; cari oran 1,47 ile sektör medyanı 12,09'un, borç/özkaynak ise medyan -0,05'in aksi yönünde sıralanıyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

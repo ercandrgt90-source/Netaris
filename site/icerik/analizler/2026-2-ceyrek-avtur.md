@@ -1,13 +1,13 @@
 ---
 slug: avtur-2026-2-ceyrek
 baslik: AVRASYA PETROL VE TURİSTİK TESİSLER YATIRIMLAR A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın iki katına çıkan brüt kâr, faaliyet kârı ve FAVÖK'ün aynı seviyeye yükselmesi, gelir artışıyla birlikte karlılık kalemlerinin de pozitif bir hareket yakaladığını gösterirken, net kârın negatif seyretmesi, faaliyet dışı giderlerin ya da vergi etkisinin artışını işaret eder; özkaynak ve akti…
+ozet: Hasılat ve brüt kâr artarken brüt kâr marjı sektör medyanının altında kaldı; buna karşılık faaliyet kârı ve FAVÖK hasılatın üzerinde oluştu, yani faaliyet satırı brüt kârdan değil onun dışındaki kalemlerden şekillendi.…
 sirket: AVRASYA PETROL VE TURİSTİK TESİSLER YATIRIMLAR A.Ş.
 kod: AVTUR
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Finans
-tarih: 2026-08-27
+tarih: 2026-08-28
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın iki katına çıkan brüt kâr, faaliyet kârı ve FAVÖK'ün aynı seviyeye yükselmesi, gelir artışıyla birlikte karlılık kalemlerinin de pozitif bir hareket yakaladığını gösterirken, net kârın negatif seyretmesi, faaliyet dışı giderlerin ya da vergi etkisinin artışını işaret eder; özkaynak ve aktif toplamının artışı, net borcun daha da negatif (nakit fazlası) olmasıyla birlikte şirketin likidite pozisyonunun güçlendiğini, bu da cari oranın %41,05'e çıkması ve borç/özkaynak oranının -%0,06'da kalmasıyla desteklenir.
+Hasılat ve brüt kâr artarken brüt kâr marjı sektör medyanının altında kaldı; buna karşılık faaliyet kârı ve FAVÖK hasılatın üzerinde oluştu, yani faaliyet satırı brüt kârdan değil onun dışındaki kalemlerden şekillendi. FAVÖK pozitif olmasına rağmen net sonuç zarara döndü ve net kâr marjı ile özkaynak kârlılığı sektör medyanlarının ters tarafında konumlandı; zarara karşın özkaynak ve aktif toplamı birlikte büyüdü, bu da dönem sonucunun dışında bir kaynağın bilançoyu genişlettiğine işaret ediyor. Faaliyet nakit akışı negatife geçerken net borç daha da negatif tarafa kaydı ve cari oran sektör medyanının üzerinde yer aldı — nakit çıkışı, likidite göstergesinin bulunduğu seviyeyle aynı yönde hareket etmedi.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

@@ -1,13 +1,13 @@
 ---
 slug: rygyo-2026-2-ceyrek
 baslik: REYSAŞ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat 2,05 milyar TL'ye yükselirken net kâr 1,99 milyar TL'ye düşmüş, bu durum faaliyet nakit akışının –3,59 milyar TL'ye kayması ve özkaynakların 103,25 milyar TL'ye artmasıyla birlikte aktif toplamının 128,14 milyar TL'ye yükselmesine paralel bir likidite sıkışması yaratmıştır; net borç da 11,22…
+ozet: Hasılat artarken net kârın gerilemesi, net kâr marjının hâlâ hasılatın üzerinde kalmasıyla birlikte okunduğunda, kârın esas faaliyet gelirinden çok onun dışındaki kalemlerle şekillendiğine işaret ediyor; nitekim özkaynak ve aktif toplamı, dönem kârının küçülmesine rağmen birlikte büyüdü.…
 sirket: REYSAŞ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: RYGYO
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-27
+tarih: 2026-08-28
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat 2,05 milyar TL'ye yükselirken net kâr 1,99 milyar TL'ye düşmüş, bu durum faaliyet nakit akışının –3,59 milyar TL'ye kayması ve özkaynakların 103,25 milyar TL'ye artmasıyla birlikte aktif toplamının 128,14 milyar TL'ye yükselmesine paralel bir likidite sıkışması yaratmıştır; net borç da 11,22 milyar TL'ye çıkarak özkaynak/kaynak oranını %0,11'e (sektör medyanı %0,02) yükseltmiştir. Net kâr marjı %118,2 (sektör medyanı %14,3) ve özkaynak kârlılığı %1,1 (sektör medyanı %0,4) artış gösterirken, artan borç seviyesi bu kârlılıkların sürdürülebilirliğini etkileyebilecek bir finansal risk unsuru oluşturur.
+Hasılat artarken net kârın gerilemesi, net kâr marjının hâlâ hasılatın üzerinde kalmasıyla birlikte okunduğunda, kârın esas faaliyet gelirinden çok onun dışındaki kalemlerle şekillendiğine işaret ediyor; nitekim özkaynak ve aktif toplamı, dönem kârının küçülmesine rağmen birlikte büyüdü. Aktif tarafındaki bu genişlemeye net borçtaki artış eşlik etti ve borç/özkaynak oranı sektör medyanının üzerinde konumlandı. Faaliyet nakit akışının pozitiften negatife dönmesi, muhasebeleştirilen kâr ile dönem içinde yaratılan nakit arasındaki ayrışmayı aynı çeyrekte görünür kılıyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

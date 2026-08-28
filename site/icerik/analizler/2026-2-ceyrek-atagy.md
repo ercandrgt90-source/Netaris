@@ -1,13 +1,13 @@
 ---
 slug: atagy-2026-2-ceyrek
 baslik: ATA GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat aynı kalırken net kâr negatiften pozitive dönmüş; bu düşüş, faaliyet nakit akışının önceki dönemde –%0,04 iken bu dönemde +%0,01'e yükselmesiyle birlikte özkaynakların %0,84'e (önceki %0,66) ve aktif toplamının %1,05'e (önceki %0,75) artmasına paralel gerçekleşti.…
+ozet: Hasılat iki dönemde de aynı düzeyde kalırken net sonuç kârdan zarara döndü; net kâr marjı ve özkaynak kârlılığı bu nedenle negatife geçerek sektör medyanlarının altında konumlandı.…
 sirket: ATA GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: ATAGY
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-27
+tarih: 2026-08-28
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat aynı kalırken net kâr negatiften pozitive dönmüş; bu düşüş, faaliyet nakit akışının önceki dönemde –%0,04 iken bu dönemde +%0,01'e yükselmesiyle birlikte özkaynakların %0,84'e (önceki %0,66) ve aktif toplamının %1,05'e (önceki %0,75) artmasına paralel gerçekleşti. Net borçun –%0,03'tan –%0,04'e iyileşmesi, borç/özkaynak oranının –%0,03'tan sektör medyanı 0,02'ye yaklaşmasıyla özkaynak kârlılığının –%0,5'den sektör medyanı %0,4'e kıyasla daha düşük kalmasına bağlanabilir. Net kâr marjının –%28,2 olması, aynı dönemde hasılatın sabit kalması ve net kârın –%0,02'ye gerilemesiyle birlikte şirketin kârlılık göstergelerinin sektör ortalamalarının altında kaldığını gösterir.
+Hasılat iki dönemde de aynı düzeyde kalırken net sonuç kârdan zarara döndü; net kâr marjı ve özkaynak kârlılığı bu nedenle negatife geçerek sektör medyanlarının altında konumlandı. Buna karşın özkaynak ve aktif toplamı birlikte büyüdü, yani özkaynaktaki artış dönem sonucundan değil başka kalemlerden geldi ve aktifteki genişleme özkaynak artışını aştı. Net borç her iki dönemde de eksi kaldı, borç/özkaynak oranı negatif bölgede seyretti ve faaliyet nakit akışı net kârın tersi yönde hareket ederek eksiden artıya döndü.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

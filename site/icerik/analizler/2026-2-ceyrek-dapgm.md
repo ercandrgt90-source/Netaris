@@ -1,13 +1,13 @@
 ---
 slug: dapgm-2026-2-ceyrek
 baslik: DAP GAYRİMENKUL GELİŞTİRME A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın yükselmesi brüt kârı ve brüt kâr marjını artırarak %85,7 seviyesine çıkmasını sağladı; bu artış aynı zamanda faaliyet kârı, FAVÖK ve net kârda da yükselişe yol açtı, ancak net kâr sadece %15,4'e gerileyen marjla önceki dönemdeki %0,8'den düşerek yarıya indi.…
+ozet: Hasılat, brüt kâr, faaliyet kârı ve FAVÖK birlikte yükselirken net kâr yarıya indi; bu ayrışma, farkın faaliyet kârı satırının altındaki kalemlerden kaynaklandığını gösteriyor.…
 sirket: DAP GAYRİMENKUL GELİŞTİRME A.Ş.
 kod: DAPGM
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-25
+tarih: 2026-08-28
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın yükselmesi brüt kârı ve brüt kâr marjını artırarak %85,7 seviyesine çıkmasını sağladı; bu artış aynı zamanda faaliyet kârı, FAVÖK ve net kârda da yükselişe yol açtı, ancak net kâr sadece %15,4'e gerileyen marjla önceki dönemdeki %0,8'den düşerek yarıya indi. Özkaynakların %17,69 milyar TL'ye çıkması özkaynak kârlılığını %2,0'ye yükseltirken, net borcun 1,29 milyar TL'ye düşmesi cari oranı 2,37'ye getirip likiditeyi iyileştirdi; borç/özkaynak oranı ise %0,07 ile sektör medyanının %0,02'sinin üzerindeydi. Faaliyet nakit akışının negatiften pozitif 0,24 milyar TL'ye dönmesi, yatırım harcamasının sıfır olmasıyla birlikte artan özkaynak ve azalan net borçla birlikte şirketin finansal yapısının güçlendiğini gösteriyor.
+Hasılat, brüt kâr, faaliyet kârı ve FAVÖK birlikte yükselirken net kâr yarıya indi; bu ayrışma, farkın faaliyet kârı satırının altındaki kalemlerden kaynaklandığını gösteriyor. Özkaynak ve aktif toplamı birlikte büyürken net borç geriledi ve faaliyet nakit akışı negatiften pozitife döndü; net kârdaki azalışa rağmen özkaynak kârlılığı sektör medyanının üzerinde konumlandı. Brüt kâr marjı sektör medyanının belirgin biçimde üzerinde kalırken net kâr marjı medyana yakın seyretti; cari oran medyanın altında, borç/özkaynak ise medyanın üzerinde yer aldı.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

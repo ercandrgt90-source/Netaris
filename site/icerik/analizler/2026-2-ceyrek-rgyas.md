@@ -1,13 +1,13 @@
 ---
 slug: rgyas-2026-2-ceyrek
 baslik: RÖNESANS GAYRİMENKUL YATIRIM A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat ve net kâr birlikte yükselmiş; hasılatın 9,12 milyar TL'ye (5,85 milyar TL'den) çıkması, net kârın 7,32 milyar TL'ye (4,31 milyar TL'den) artmasına paralel olarak net kâr marjının %92,5'e (sektör medyanı %14,3) yükselmesini sağlamıştır.…
+ozet: Hasılat ve net kâr birlikte artarken net kâr, hasılatın büyük bölümüne denk geldi ve net kâr marjı sektör medyanının üzerinde konumlandı; buna karşılık faaliyet nakit akışı net kârın altında kaldı, yani dönem kârının tamamı nakit girişiyle eşleşmedi.…
 sirket: RÖNESANS GAYRİMENKUL YATIRIM A.Ş.
 kod: RGYAS
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-27
+tarih: 2026-08-28
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat ve net kâr birlikte yükselmiş; hasılatın 9,12 milyar TL'ye (5,85 milyar TL'den) çıkması, net kârın 7,32 milyar TL'ye (4,31 milyar TL'den) artmasına paralel olarak net kâr marjının %92,5'e (sektör medyanı %14,3) yükselmesini sağlamıştır. Aktif toplamı ve özkaynak da artış göstermiş; aktif toplamı 238,98 milyar TL (149,29 milyar TL'den) ve özkaynak 163,93 milyar TL (107,76 milyar TL'den) yükselirken, özkaynak kârlılığı %2,6'ya (sektör medyanı %0,4) çıkmıştır. Net borç 25,67 milyar TL'ye (20,44 milyar TL'den) yükselmiş, bu da borç/özkaynak oranının %0,16'ya (sektör medyanı 0,02) yükselmesine yol açmıştır.
+Hasılat ve net kâr birlikte artarken net kâr, hasılatın büyük bölümüne denk geldi ve net kâr marjı sektör medyanının üzerinde konumlandı; buna karşılık faaliyet nakit akışı net kârın altında kaldı, yani dönem kârının tamamı nakit girişiyle eşleşmedi. Özkaynaktaki artış dönemin net kârından belirgin biçimde büyük gerçekleşti ve aktif toplamındaki genişlemeyle aynı yönde hareket etti; bu genişleme sürerken özkaynak kârlılığı sektör medyanının üzerinde bir sıralamada yer aldı. Net borç da arttı, ancak özkaynağın daha hızlı büyümesi nedeniyle borç/özkaynak oranı 0,16 düzeyinde oluştu ve sektör medyanının üzerinde bir konuma karşılık geldi.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

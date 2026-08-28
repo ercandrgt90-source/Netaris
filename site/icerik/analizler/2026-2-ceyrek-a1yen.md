@@ -1,13 +1,13 @@
 ---
 slug: a1yen-2026-2-ceyrek
 baslik: A1 YENİLENEBİLİR ENERJİ ÜRETİM A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat aynı kalırken net kârın negatiften pozitif (+0,04 milyar TL) dönüştüğü, aynı dönemde özkaynakların (+0,71 milyar TL) ve aktif toplamının (+0,73 milyar TL) artması, özkaynak kârlılığının (%0,6) sektör medyanının (%1,0) altında kalmasına rağmen net kâr marjının (%18,4) medyanın (%11,4) üzerind…
+ozet: Hasılat iki dönemde de aynı düzeyde kalırken net kâr eksiden artıya geçti; kârın kaynağı ciro büyümesi değil, satış dışı kalemler tarafında oluştu ve bu durum net kâr marjını sektör medyanının üzerine taşıdı.…
 sirket: A1 YENİLENEBİLİR ENERJİ ÜRETİM A.Ş.
 kod: A1YEN
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Kamu hizmetleri
-tarih: 2026-08-25
+tarih: 2026-08-28
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat aynı kalırken net kârın negatiften pozitif (+0,04 milyar TL) dönüştüğü, aynı dönemde özkaynakların (+0,71 milyar TL) ve aktif toplamının (+0,73 milyar TL) artması, özkaynak kârlılığının (%0,6) sektör medyanının (%1,0) altında kalmasına rağmen net kâr marjının (%18,4) medyanın (%11,4) üzerindeki seviyede kalmasını sağladı; bu artış net borcun (-0,25 milyar TL) ve borç/özkaynak oranının (-0,05) düşmesiyle likiditeyi (cari oran 1,18, medyan 0,90) destekledi ve faaliyet nakit akışındaki iyileşme (-0,09 milyar TL) özkaynak artışıyla paralel bir finansal yapı oluşturdu.
+Hasılat iki dönemde de aynı düzeyde kalırken net kâr eksiden artıya geçti; kârın kaynağı ciro büyümesi değil, satış dışı kalemler tarafında oluştu ve bu durum net kâr marjını sektör medyanının üzerine taşıdı. Buna karşın özkaynak ve aktif toplamı birlikte genişlediği için aynı kâr daha büyük bir sermaye tabanına bölündü ve özkaynak kârlılığı sektör medyanının altında kaldı. Net borç gerilerken borç/özkaynak sektör medyanının altında, cari oran ise üstünde konumlandı; faaliyet nakit akışı ise negatif bölgede kalmayı sürdürerek kârdaki dönüşten ayrıştı.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

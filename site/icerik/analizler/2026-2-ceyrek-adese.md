@@ -1,13 +1,13 @@
 ---
 slug: adese-2026-2-ceyrek
 baslik: ADESE GAYRİMENKUL YATIRIM A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat 0,90 milyar TL'ye yükselirken net kâr –0,27 milyar TL'ye gerilemiş; gelir artışı nakit akışının 0,05 milyar TL'ye düşmesi ve net borcun 0,13 milyar TL'ye azalmasıyla birlikte özkaynakların 20,91 milyar TL'ye, aktiflerin ise 27,23 milyar TL'ye yükselmesi, borç/özkaynak oranının sektör medyanı…
+ozet: Hasılat 0,40 milyar TL'den 0,90 milyar TL'ye çıkarken net kâr 0,13 milyar TL'den -0,27 milyar TL'ye döndü; ciro artışı kâra yansımadı ve net kâr marjı -%16,8 ile sektör medyanı %14,3'ün altında konumlandı.…
 sirket: ADESE GAYRİMENKUL YATIRIM A.Ş.
 kod: ADESE
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-26
+tarih: 2026-08-28
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat 0,90 milyar TL'ye yükselirken net kâr –0,27 milyar TL'ye gerilemiş; gelir artışı nakit akışının 0,05 milyar TL'ye düşmesi ve net borcun 0,13 milyar TL'ye azalmasıyla birlikte özkaynakların 20,91 milyar TL'ye, aktiflerin ise 27,23 milyar TL'ye yükselmesi, borç/özkaynak oranının sektör medyanının %0,02'sine göre daha düşük 0,01 seviyesinde kalmasını sağlamış. Net kâr marjı –%16,8 ve özkaynak kârlılığı –%0,5, sektör medyanlarının pozitif %14,3 ve %0,4 seviyelerinin altında kalırken, artan özkaynak ve aktif büyüklüğü bu negatif kârlılık oranlarının altında bir likidite ve sermaye tamponu oluşturmuş.
+Hasılat 0,40 milyar TL'den 0,90 milyar TL'ye çıkarken net kâr 0,13 milyar TL'den -0,27 milyar TL'ye döndü; ciro artışı kâra yansımadı ve net kâr marjı -%16,8 ile sektör medyanı %14,3'ün altında konumlandı. Aktif toplamı 20,51'den 27,23 milyar TL'ye, özkaynak 15,97'den 20,91 milyar TL'ye genişlerken dönemi zararla kapatan şirketin özkaynak kârlılığı -%0,5 olarak medyan %0,4'ün altında kaldı. Net borç 0,50'den 0,13 milyar TL'ye inerken faaliyet nakit akışı 0,87'den 0,05 milyar TL'ye geriledi; borç/özkaynak 0,01 ile sektör medyanı 0,02'nin altında bulunuyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

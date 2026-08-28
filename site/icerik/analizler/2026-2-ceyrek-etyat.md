@@ -1,13 +1,13 @@
 ---
 slug: etyat-2026-2-ceyrek
 baslik: EURO TREND YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat ve brüt kâr aynı seviyede kalırken, brüt kâr marjının %43,1 olması net kâr marjını %19,9'a yükseltmiş ve önceki dönemdeki –%2,0'lık net zarar yerine pozitif net kâr elde edilmesini sağlamıştır; bu kâr artışı, özkaynak kârlılığının %3,8'e çıkmasına da yansımıştır.…
+ozet: Hasılat ve brüt kâr yatay kalırken net kâr önceki dönemin negatif değerinden pozitife döndü; bu dönüş faaliyet kârının sıfıra yakın seyretmesi nedeniyle esas olarak faaliyet dışı kalemlerle ilişkili görünüyor ve net kâr marjını sektör medyanının üzerine, brüt kâr marjını ise medyanın altında bırakan…
 sirket: EURO TREND YATIRIM ORTAKLIĞI A.Ş.
 kod: ETYAT
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Finans
-tarih: 2026-08-27
+tarih: 2026-08-28
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat ve brüt kâr aynı seviyede kalırken, brüt kâr marjının %43,1 olması net kâr marjını %19,9'a yükseltmiş ve önceki dönemdeki –%2,0'lık net zarar yerine pozitif net kâr elde edilmesini sağlamıştır; bu kâr artışı, özkaynak kârlılığının %3,8'e çıkmasına da yansımıştır. Aktif toplamının 0,08 milyar TL'ye yükselmesi net borcun –0,07 milyar TL'ye (nakit fazlası) artmasıyla birlikte cari oranı 18,45'e, borç/özkaynak oranını –0,91'e çekmiş, yani likidite ve finansal esneklik artmıştır. Faaliyet nakit akışının –0,01 milyar TL'den 0,00 milyar TL'ye geçmesi, faaliyet kârının sabit kalmasıyla birlikte FAVÖK'in 0,00 milyar TL'den 0,01 milyar TL'ye yükselmesine paralel bir iyileşme göstermektedir.
+Hasılat ve brüt kâr yatay kalırken net kâr önceki dönemin negatif değerinden pozitife döndü; bu dönüş faaliyet kârının sıfıra yakın seyretmesi nedeniyle esas olarak faaliyet dışı kalemlerle ilişkili görünüyor ve net kâr marjını sektör medyanının üzerine, brüt kâr marjını ise medyanın altında bırakan bir bileşim oluşturuyor. Aynı dönemde faaliyet nakit akışı eksiden sıfır seviyesine gelirken net borcun negatifliği derinleşti, yani nakit pozisyonu büyüdü ve aktif toplamındaki artış özkaynak sabitken bu kalemden geldi. Net nakit yapısı, cari oranın sektör medyanının üzerinde, borç/özkaynak oranının ise medyandan daha negatif konumlanmasıyla aynı tabloyu iki farklı açıdan yansıtıyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

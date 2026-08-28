@@ -1,13 +1,13 @@
 ---
 slug: a1cap-2026-2-ceyrek
 baslik: A1 CAPİTAL YATIRIM MENKUL DEĞERLER A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat artarken faaliyet kârı ve net kâr negatiften pozitiften negatife döndü; bu, gelir artışının maliyet ve gider artışıyla birlikte gerçekleştiğini gösteriyor.…
+ozet: Hasılat büyürken faaliyet kârı negatife döndü ve net sonuç zarara geçti; buna karşılık faaliyet nakit akışı arttı, yani dönemin zararı nakit üretimiyle aynı yönde hareket etmedi.…
 sirket: A1 CAPİTAL YATIRIM MENKUL DEĞERLER A.Ş.
 kod: A1CAP
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Finans
-tarih: 2026-08-26
+tarih: 2026-08-28
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat artarken faaliyet kârı ve net kâr negatiften pozitiften negatife döndü; bu, gelir artışının maliyet ve gider artışıyla birlikte gerçekleştiğini gösteriyor. Özkaynak ve aktif toplamı yükselmiş, net borç ise daha negatif bir seviyeye inmiş; bu, şirketin özkaynaklarını artırarak borç pozisyonunu güçlendirdiğini ve likidite akışının (faaliyet nakit akışı) artışının özkaynak artışıyla paralel seyrettiğini ortaya koyar. Net kâr marjı, özkaynak kârlılığı ve borç/özkaynak oranı negatif değerlerde kalmış, bu da kârlılık ve sermaye yapısının sektör medyanının gerisinde kaldığını, ancak özkaynak artışı ve nakit akışı sayesinde borç yükünün azaldığını gösterir.
+Hasılat büyürken faaliyet kârı negatife döndü ve net sonuç zarara geçti; buna karşılık faaliyet nakit akışı arttı, yani dönemin zararı nakit üretimiyle aynı yönde hareket etmedi. Aktif toplamı ile özkaynak birlikte büyüdü ve net borç daha da negatif tarafa geçti; net nakit pozisyonunun özkaynağa oranını gösteren borç/özkaynak değeri de bu nedenle sektör medyanının altında konumlandı. Net kâr marjı ve özkaynak kârlılığı ise zararın etkisiyle negatif bölgede kaldı ve her ikisinde de şirket sektör medyanının aşağısında sıralandı.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

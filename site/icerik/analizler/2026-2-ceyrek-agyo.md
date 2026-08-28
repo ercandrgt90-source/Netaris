@@ -1,13 +1,13 @@
 ---
 slug: agyo-2026-2-ceyrek
 baslik: ATAKULE GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın 0,26 milyar TL'ye yükselmesi, faaliyet nakit akışının 0,01 milyar TL'den 0,04 milyar TL'ye artmasıyla paralel bir artış gösterirken, net kârın -0,15 milyar TL'ye iyileşmesi özkaynakların 5,21 milyar TL'den 6,66 milyar TL'ye artması ve aktif toplamının 5,84 milyar TL'den 7,93 milyar TL'ye y…
+ozet: Hasılat artarken net zarar daralmış, ancak faaliyet nakit akışının pozitif kalıp büyümesi net kârın negatif kalmasıyla aynı dönemde gerçekleşti; yani nakit üretimi ile kâr/zarar kalemi aynı yönde hareket etmedi.…
 sirket: ATAKULE GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: AGYO
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-26
+tarih: 2026-08-28
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın 0,26 milyar TL'ye yükselmesi, faaliyet nakit akışının 0,01 milyar TL'den 0,04 milyar TL'ye artmasıyla paralel bir artış gösterirken, net kârın -0,15 milyar TL'ye iyileşmesi özkaynakların 5,21 milyar TL'den 6,66 milyar TL'ye artması ve aktif toplamının 5,84 milyar TL'den 7,93 milyar TL'ye yükselmesiyle birlikte gerçekleşti; net borcun -0,04 milyar TL'ye hafifçe artması ise borç/özkaynak oranının -0,01'e gerilemesine yol açtı. Net kâr marjının -%31,2'ye düşmesi, özkaynak kârlılığının -%0,6 olmasına rağmen, özkaynakların büyümesi ve aktif toplamının genişlemesi, şirketin kârlılık ölçütlerinin negatif kalmasına rağmen bilanço büyüklüğünün artmasına neden oldu. Bu değişimler, gelir artışı ve nakit akışı iyileşmesinin bilanço kalemlerinde büyümeye, ancak kârlılık oranlarının hâlâ negatif kalmasına yol açtığını gösterir.
+Hasılat artarken net zarar daralmış, ancak faaliyet nakit akışının pozitif kalıp büyümesi net kârın negatif kalmasıyla aynı dönemde gerçekleşti; yani nakit üretimi ile kâr/zarar kalemi aynı yönde hareket etmedi. Aktif toplamındaki artış özkaynaktaki artıştan daha büyük oldu, dolayısıyla bilançonun yükümlülük tarafı da genişledi; buna karşın net borç negatif bölgede kalarak biraz daha derinleşti ve borç/özkaynak oranını sektör medyanının altında, eksi tarafta tuttu. Zarar kaynaklı olarak net kâr marjı ve özkaynak kârlılığı sektör medyanlarının altında, negatif tarafta konumlandı.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

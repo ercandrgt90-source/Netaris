@@ -1,13 +1,13 @@
 ---
 slug: garan-2026-2-ceyrek
 baslik: TÜRKİYE GARANTİ BANKASI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %32,1 oranındaki artışı net kârın %63,44 milyar TL'ye yükselmesiyle paralel seyretmiş, bu da net kâr marjının sektör medyanının %14,7'sinin çok üzerinde olmasını sağlamıştır; aynı dönemde özkaynakların %489,43 milyar TL'ye çıkması özkaynak kârlılığını %6,2'ye yükseltirken, aktif toplamında…
+ozet: Hasılat 144,10 milyar TL'den 196,44 milyar TL'ye çıkarken net kâr 52,94 milyar TL'den 63,44 milyar TL'ye yükseldi; gelirin kârdan daha hızlı artması nedeniyle net kâr marjı %32,1 düzeyinde oluştu ve 30 şirketlik sektör medyanı %14,7'nin üzerinde sıralandı.…
 sirket: TÜRKİYE GARANTİ BANKASI A.Ş.
 kod: GARAN
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Finans
-tarih: 2026-08-23
+tarih: 2026-08-28
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %32,1 oranındaki artışı net kârın %63,44 milyar TL'ye yükselmesiyle paralel seyretmiş, bu da net kâr marjının sektör medyanının %14,7'sinin çok üzerinde olmasını sağlamıştır; aynı dönemde özkaynakların %489,43 milyar TL'ye çıkması özkaynak kârlılığını %6,2'ye yükseltirken, aktif toplamındaki %5216,48 milyar TL artışa paralel olarak net borcun -146,21 milyar TL'ye (daha az negatif) gerilemesi borç/özkaynak oranını -0,30'a (sektör medyanının -0,06'sından daha düşük) çekmiştir; faaliyet nakit akışının -142,39 milyar TL'ye (önceki -458,44 milyar TL) iyileşmesi ve yatırım harcamasının 4,08 milyar TL'ye (önceki 7,63 milyar TL) düşmesi, artan kârlılık ve özkaynak büyüklüğüyle birlikte likidite ve sermaye harcama yapısının yeniden dengelendiğini göstermektedir.
+Hasılat 144,10 milyar TL'den 196,44 milyar TL'ye çıkarken net kâr 52,94 milyar TL'den 63,44 milyar TL'ye yükseldi; gelirin kârdan daha hızlı artması nedeniyle net kâr marjı %32,1 düzeyinde oluştu ve 30 şirketlik sektör medyanı %14,7'nin üzerinde sıralandı. Aktif toplamı 3.821,71 milyar TL'den 5.216,48 milyar TL'ye, özkaynak ise 379,13 milyar TL'den 489,43 milyar TL'ye genişledi; bu iki kalemin birlikte büyümesi karşısında özkaynak kârlılığı %6,2 ile medyan %4,5'in üstünde konumlandı. Net borç -174,02 milyar TL'den -146,21 milyar TL'ye gelerek nakit fazlası daraldı ve borç/özkaynak -0,30 ile medyan -0,05'ten uzakta kalırken, faaliyet nakit akışındaki -458,44 milyar TL'lik açık -142,39 milyar TL'ye, yatırım harcaması da 7,63 milyar TL'den 4,08 milyar TL'ye indi.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
@@ -53,8 +53,8 @@ Karşılaştırma Finans sektöründeki 30 şirketin **medyanına** göre yapıl
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
 | Net kâr marjı | %32,1 | %14,7 |
-| Özkaynak kârlılığı | %6,2 | %4,2 |
-| Borç / özkaynak | -0,30 | -0,06 |
+| Özkaynak kârlılığı | %6,2 | %4,5 |
+| Borç / özkaynak | -0,30 | -0,05 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -64,7 +64,7 @@ Karşılaştırma Finans sektöründeki 30 şirketin **medyanına** göre yapıl
 
 - Hasılat reel olarak %36,3 arttı.
 - Net kâr reel olarak %19,8 arttı.
-- Özkaynak kârlılığı %6,2; sektör medyanı %4,2.
+- Özkaynak kârlılığı %6,2; sektör medyanı %4,5.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

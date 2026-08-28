@@ -1,13 +1,13 @@
 ---
 slug: forte-2026-2-ceyrek
 baslik: FORTE BİLGİ İLETİŞİM TEKNOLOJİLERİ VE SAVUNMA SANAYİ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın üç katına yakın artması brüt kârı %30,5'e çıkararak brüt kâr marjının sektör medyanının iki katından yüksek olmasını sağladı; bu artış aynı zamanda faaliyet kârı, FAVÖK ve net kârda da benzer oranlarda yükselişlere yol açtı.…
+ozet: Hasılattaki üç katın üzerindeki büyümeye brüt kâr aynı yönde eşlik ederken, faaliyet kârı ve FAVÖK daha keskin biçimde yükseldi; sabit gider tabanının ciroya oranla seyrelmesi, önceki dönemin net zararının net kâra dönmesiyle birlikte okunuyor ve net kâr marjı sektör medyanının negatif seviyesinin ü…
 sirket: FORTE BİLGİ İLETİŞİM TEKNOLOJİLERİ VE SAVUNMA SANAYİ A.Ş.
 kod: FORTE
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Bilişim
-tarih: 2026-08-26
+tarih: 2026-08-28
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın üç katına yakın artması brüt kârı %30,5'e çıkararak brüt kâr marjının sektör medyanının iki katından yüksek olmasını sağladı; bu artış aynı zamanda faaliyet kârı, FAVÖK ve net kârda da benzer oranlarda yükselişlere yol açtı. Net kârın pozitifleşmesi özkaynakları 3,13 milyar TL'ye yükselterek özkaynak kârlılığını %6,5'e, cari oranı 1,41'e ve borç/özkaynak oranını 0,63'e taşıdı; bu göstergeler artan likidite ve özkaynak bazlı finansmanla birlikte net borcun 1,98 milyar TL'ye çıkmasına rağmen borç/özkaynak dengesinin sektöre göre daha yüksek kalmasını yansıttı. Faaliyet nakit akışının -0,28 milyar TL'den 0,35 milyar TL'ye geçmesi, yatırım harcamasındaki hafif artış (0,05-0,06 milyar TL) ile birlikte, operasyonel kârlılığın nakde dönüşümünü destekleyerek bilanço büyüklüğünün (8,34 milyar TL) ve özkaynakların artışını pekiştirdi.
+Hasılattaki üç katın üzerindeki büyümeye brüt kâr aynı yönde eşlik ederken, faaliyet kârı ve FAVÖK daha keskin biçimde yükseldi; sabit gider tabanının ciroya oranla seyrelmesi, önceki dönemin net zararının net kâra dönmesiyle birlikte okunuyor ve net kâr marjı sektör medyanının negatif seviyesinin üzerinde konumlandı. Aktif toplamı ve özkaynak eş anlı olarak genişlerken net borç da büyüdü; borç/özkaynak 0,63 ile net nakit pozisyonunu işaret eden sektör medyanının aksi yönde yer aldı, cari oran ise medyanın üzerinde kaldı. Faaliyet nakit akışı önceki dönemdeki negatif seviyeden pozitife geçti ve bu dönemde FAVÖK'e yakın bir düzeyde oluştu; yatırım harcaması ise iki dönem arasında benzer ölçekte kaldı.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
