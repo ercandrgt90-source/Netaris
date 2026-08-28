@@ -251,6 +251,48 @@ es("sayi olmayan giris degismez", denetim._sayi_anahtari("abc"), "abc")
 es("bos giris degismez", denetim._sayi_anahtari(""), "")
 
 print()
+print("\nHavuz dengesi boy turevlerini de sayiyor")
+# --------------------------------------------------------------------
+# Havuz kayitlari KOK yolu tutuyor (`/statik/foto/ad.jpg`) ama sayfa
+# boy turevini basiyor olabilir (`/statik/foto/y/ad.jpg`). Karsilastirma
+# koke indirgenmis sayaci kullanmazsa, kullanilan bir gorsel "0 kez"
+# gorunur.
+#
+# Olculdu (2026-08-28): tam bu oldu. 800 piksellik es eklendikten sonra
+# 29 gorsel yalnizca `y/` yoluyla basiliyordu ve denetim UC havuzda
+# yanlis dengesizlik alarmi uretti -- Borsa'da 15,15,15,14,14,0
+# gorunuyordu, dogrusu 15,15,15,14,14,14.
+#
+# Yanlis alarm sessiz bir zarardir: gercek bir dengesizlik ciktiginda
+# artik kimse bakmaz.
+#
+# ACIKLAMALAR ATILIYOR. Yukaridaki not `kullanim_kok` ve `asil_foto`
+# adlarini ANLATMAK icin yaziyor; aciklamayi tarayan bir sinama, kural
+# koddan kaldirildiginda bile yesil kalirdi. Bu tuzaga bu depoda
+# defalarca dusuldu.
+# --------------------------------------------------------------------
+import re as _re  # noqa: E402
+
+_ham = (_KOK / "denetim.py").read_text(encoding="utf-8")
+_kod = chr(10).join(s.split("#", 1)[0] for s in _ham.split(chr(10)))
+
+_m = _re.search(r"kullanilan\s*=\s*\[([^\]]*)\]", _kod)
+es("havuz karsilastirmasi koke indirgenmis sayaci kullaniyor",
+   bool(_m) and "kullanim_kok" in _m.group(1), True)
+
+# Indirgeme ASIL KAYNAKTAN geliyor. Buraya kopyalanan bir klasor
+# listesi, yeni bir boy eklendiginde ayni hatanin ikinci kez olmasi
+# demekti.
+es("indirgeme foto modulunden aliniyor",
+   "from kaynak.foto import asil_foto" in _kod, True)
+
+# Kirik gorsel denetimi HAM yolu kullanmali: `y/ad.jpg` kayipsa
+# `ad.jpg`ye bakmak kirigi gizlerdi.
+_k = _re.search(r"for yol, n in (\w+)\.items\(\):", _kod)
+es("kirik gorsel denetimi HAM yolu kullaniyor",
+   bool(_k) and _k.group(1) == "kullanim", True)
+
+print()
 for k in kaldi:
     print("  KALDI", k)
 print(f"{gecti} gecti, {len(kaldi)} kaldi")

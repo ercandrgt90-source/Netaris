@@ -956,10 +956,34 @@ def _gorsel_denetimi() -> list[Bulgu]:
                 "canli akista iki satir ust uste ayni gorsel"))
 
     # 2. HABER SAYFALARI -- havuz ici denge
+    #
+    # IKI SAYAC TUTULUYOR ve sebebi farkli sorulara hizmet etmeleri:
+    #
+    #   `kullanim`      sayfada YAZAN yol. "Dosya var mi" sorusu bunu
+    #                   ister; `y/ad.jpg` kirilmissa `ad.jpg`ye bakmak
+    #                   kirigi gizlerdi.
+    #   `kullanim_kok`  boy turevi KOKUNE indirgenmis yol. "Havuzdaki
+    #                   gorseller esit dagitiliyor mu" sorusu bunu
+    #                   ister; `y/ad.jpg` ile `ad.jpg` AYNI gorseldir.
+    #
+    # Olculdu (2026-08-28): bu ayrim yoktu ve 800 piksellik es
+    # eklendikten sonra 29 gorsel yalnizca `y/` yoluyla basiliyordu.
+    # Havuz karsilastirmasi onlari "0 kez" sayip UC havuzda yanlis
+    # dengesizlik alarmi uretti; gercek dagilim neredeyse kusursuzdu.
     kullanim: collections.Counter = collections.Counter()
+    kullanim_kok: collections.Counter = collections.Counter()
     sayfasiz = 0
     haber_dizini = CIKTI_DIZINI / "haber"
     if haber_dizini.exists():
+        # KOKE INDIRGEME ASIL KAYNAKTAN GELIYOR, ELLE YAZILMIYOR.
+        # Boy klasorlerinin listesi `foto.py`de duruyor; buraya
+        # kopyalanan bir liste, yeni bir boy eklendiginde ayni hatanin
+        # ikinci kez olmasi demekti.
+        try:
+            from kaynak.foto import asil_foto as _asil
+        except ImportError:  # pragma: no cover -- paket bicimiyle
+            def _asil(y: str) -> str:
+                return y
         for p in haber_dizini.iterdir():
             s = p / "index.html"
             if not s.exists():
@@ -968,6 +992,7 @@ def _gorsel_denetimi() -> list[Bulgu]:
                           s.read_text(encoding="utf-8"))
             if m:
                 kullanim[m.group(1)] += 1
+                kullanim_kok[_asil(m.group(1))] += 1
             else:
                 sayfasiz += 1
     if sayfasiz:
@@ -1030,7 +1055,9 @@ def _gorsel_denetimi() -> list[Bulgu]:
             yollar = [f["dosya"] for f in liste]
         if not yollar:
             continue
-        kullanilan = [kullanim.get(y, 0) for y in yollar]
+        # KOKE INDIRGENMIS sayac: havuz kok yollari tutuyor, sayfa ise
+        # boy turevini basiyor olabilir.
+        kullanilan = [kullanim_kok.get(y, 0) for y in yollar]
         # Havuzdan HIC kullanilmayan varsa o havuz o gun devrede degil;
         # kismen kullanilan havuzda denge aranir.
         etkin = [n for n in kullanilan if n]

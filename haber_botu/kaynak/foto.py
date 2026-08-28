@@ -1449,6 +1449,43 @@ ORTA_GENISLIK = 400
 YAZI_KLASOR = FOTO_KLASORU / "y"
 YAZI_GENISLIK = 800
 
+#: Boy turevlerinin klasor adlari -- TEK KAYNAK.
+#:
+#: `/statik/foto/y/ad.jpg` ile `/statik/foto/ad.jpg` AYNI gorseldir,
+#: farkli boyudur. Sayfalarda hangisinin gectigi yuvaya gore degisiyor
+#: ve gorseli SAYAN her kod bu esitligi bilmek zorunda.
+#:
+#: Olculdu (2026-08-28): `denetim.py` bilmiyordu. 800 piksellik es
+#: eklendikten sonra 29 gorsel yalnizca `y/` yoluyla basiliyordu ve
+#: denetim onlari "0 kez kullanildi" sayip UC havuzda yanlis
+#: dengesizlik alarmi uretti. Gercek dagilim neredeyse kusursuzdu:
+#:
+#:   Borsa   denetimin gordugu  15,15,15,14,14,0
+#:           gercek             15,15,15,14,14,14
+#:
+#: Liste ELLE YAZILMIYOR, klasor sabitlerinden TURETILIYOR: yeni bir
+#: boy eklendiginde burasi kendiliginden guncelleniyor. Elle yazilan
+#: bir kopya, tam bu hatanin ikinci kez olmasi demekti.
+BOY_KLASORLERI = tuple(
+    k.name for k in (KUCUK_KLASOR, ORTA_KLASOR, YAZI_KLASOR))
+
+
+def asil_foto(yol: str) -> str:
+    """Boy turevinin yolunu KOK gorselin yoluna cevirir.
+
+    `/statik/foto/y/ad.jpg` -> `/statik/foto/ad.jpg`
+    `/statik/foto/uretilen/ad.jpg` -> DEGISMEZ (ayri havuz, boy degil)
+    `/statik/foto/ad.jpg` -> DEGISMEZ
+    """
+    onek = "/statik/foto/"
+    if not yol or not yol.startswith(onek):
+        return yol
+    kalan = yol[len(onek):]
+    parca = kalan.split("/", 1)
+    if len(parca) == 2 and parca[0] in BOY_KLASORLERI:
+        return onek + parca[1]
+    return yol
+
 #: Kaynak bundan darsa 800 piksellik es URETILMIYOR.
 #:
 #: Commons olcekleme ucu yalnizca kucultuyor; kaynak istenen

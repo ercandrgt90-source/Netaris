@@ -402,6 +402,43 @@ dogru("yazi boyu esikle uretiliyor",
       "en_az_kaynak=YAZI_EN_AZ_KAYNAK" in _KAYNAK)
 
 # ------------------------------------------------------------------ sonuc
+print("\nBoy turevi kok gorsele indirgeniyor")
+# --------------------------------------------------------------------
+# `/statik/foto/y/ad.jpg` ile `/statik/foto/ad.jpg` AYNI gorseldir.
+# Gorseli SAYAN her kod bu esitligi bilmek zorunda.
+#
+# Olculdu (2026-08-28): `denetim.py` bilmiyordu. 800 piksellik es
+# eklendikten sonra 29 gorsel yalnizca `y/` yoluyla basiliyordu ve
+# denetim onlari "0 kez kullanildi" sayip UC havuzda yanlis
+# dengesizlik alarmi uretti. Gercek dagilim neredeyse kusursuzdu:
+# Borsa'da 15,15,15,14,14,0 gorunuyordu, dogrusu 15,15,15,14,14,14.
+# --------------------------------------------------------------------
+es("y/ (yazi boyu) koke iner",
+   foto.asil_foto("/statik/foto/y/ad.jpg"), "/statik/foto/ad.jpg")
+es("o/ (kart boyu) koke iner",
+   foto.asil_foto("/statik/foto/o/ad.jpg"), "/statik/foto/ad.jpg")
+es("k/ (kucuk boy) koke iner",
+   foto.asil_foto("/statik/foto/k/ad.jpg"), "/statik/foto/ad.jpg")
+es("kok yol degismeden gecer",
+   foto.asil_foto("/statik/foto/ad.jpg"), "/statik/foto/ad.jpg")
+
+# `uretilen/` BOY DEGIL AYRI HAVUZ: kavram gorselleri orada duruyor ve
+# kok karsiligi YOK. Kor bicimde "ilk klasoru at" diyen bir cozum
+# onlari da indirger ve var olmayan bir yola sayardi.
+es("uretilen/ AYRI HAVUZ -- indirgenmez",
+   foto.asil_foto("/statik/foto/uretilen/kavram-1.jpg"),
+   "/statik/foto/uretilen/kavram-1.jpg")
+es("foto disi yol degismez",
+   foto.asil_foto("/statik/amblem/x.svg"), "/statik/amblem/x.svg")
+es("bos yol cokmez", foto.asil_foto(""), "")
+
+# LISTE TURETILIYOR, ELLE YAZILMIYOR. Elle yazilan bir kopya, yeni bir
+# boy eklendiginde ayni hatanin ikinci kez olmasi demekti.
+dogru("boy klasorleri sabitlerden turetiliyor",
+      set(foto.BOY_KLASORLERI) == {foto.KUCUK_KLASOR.name,
+                                   foto.ORTA_KLASOR.name,
+                                   foto.YAZI_KLASOR.name})
+
 print()
 for k in kaldi:
     print("  KALDI", k)
