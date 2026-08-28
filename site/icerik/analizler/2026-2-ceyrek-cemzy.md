@@ -1,13 +1,13 @@
 ---
 slug: cemzy-2026-2-ceyrek
 baslik: CEM ZEYTİN A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın düşmesi brüt kârın da hafif gerilemesine yol açarken, brüt kâr marjının sektör medyanının (%16,5) üzerinde kalması brüt kârın hasılat değişiminden daha az etkilenmesini gösteriyor; faaliyet kârı ve FAVÖK ise brüt kârdaki azalmayı takip ederek daha büyük düşüşler kaydetti.…
+ozet: Hasılatın düşmesi brüt kârı ve brüt kâr marjını %23,8 seviyesinde tutmasına rağmen hafif gerilemesine yol açtı; brüt kârdaki azalma faaliyet kârı ve FAVÖK'teki düşüşle paralel ilerleyerek bu kalemlerin birbirini izlediği görülüyor.…
 sirket: CEM ZEYTİN A.Ş.
 kod: CEMZY
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Temel tüketim
-tarih: 2026-08-23
+tarih: 2026-08-28
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,22 +18,22 @@ sayimlar:
 
 ## Özet
 
-Hasılatın düşmesi brüt kârın da hafif gerilemesine yol açarken, brüt kâr marjının sektör medyanının (%16,5) üzerinde kalması brüt kârın hasılat değişiminden daha az etkilenmesini gösteriyor; faaliyet kârı ve FAVÖK ise brüt kârdaki azalmayı takip ederek daha büyük düşüşler kaydetti. Net kârın negatif seyri, net kâr marjının (%-61,3) sektör ortalamasının (%1,2) çok altında kalmasıyla birlikte özkaynak kârlılığının (%-8,6) da negatif olmasına bağlanıyor; aynı zamanda özkaynakların (%4,34 milyar) ve aktif toplamının (%5,51 milyar) artışı, net borcun negatif (-%0,04 milyar) kalmasıyla birlikte cari oranın (4,09) ve borç/özkaynak oranının (-0,01) sektör medyanlarının (1,36 ve 0,25) çok üzerindeyken likidite ve sermaye yapısının güçlendiğini gösteriyor. Faaliyet nakit akışının (%0,74 milyar) önceki döneme göre artması, yatırım harcamasının (%0,05 milyar) sabit kalmasıyla birlikte, operasyonel nakit üretiminin artışının özkaynak ve aktif büyümesiyle paralel olduğunu ortaya koyuyor.
+Hasılatın düşmesi brüt kârı ve brüt kâr marjını %23,8 seviyesinde tutmasına rağmen hafif gerilemesine yol açtı; brüt kârdaki azalma faaliyet kârı ve FAVÖK'teki düşüşle paralel ilerleyerek bu kalemlerin birbirini izlediği görülüyor. Net kârın -%61,3'ten -%61,3'e iyileşmesi, özkaynakların 4,34 milyar TL'ye yükselmesi ve net borcun -0,04 milyar TL'ye hafif artması, özkaynak kârlılığının -%8,6'dan -%8,6'ya gerilemesiyle birlikte özkaynak artışının zarar azaltımına yansıdığını gösteriyor. Cari oranının 4,09'a çıkması ve borç/özkaynak oranının -0,01'e gerilemesi, artan aktif toplamı (5,51 milyar TL) ve pozitif faaliyet nakit akışı (0,74 milyar TL) ile likidite ve sermaye yapısının güçlendiğini, yatırım harcamasının ise 0,05 milyar TL'ye düşmesiyle sermaye harcamalarının kısıtlandığını ortaya koyar.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | -%2,7 |
-| Brüt kâr | -%3,1 |
-| Faaliyet kârı | -%16,2 |
-| FAVÖK | -%14,4 |
-| Net kâr | %33,1 |
+| Hasılat | -%10,7 |
+| Brüt kâr | -%8,8 |
+| Faaliyet kârı | -%18,4 |
+| FAVÖK | -%16,4 |
+| Net kâr | %37,6 |
 | Özkaynak | %22,5 |
 | Aktif toplamı | %33,4 |
 | Net borç | %16,5 |
-| Faaliyet nakit akışı | %34,7 |
-| Yatırım harcaması | %18,3 |
+| Faaliyet nakit akışı | %28,9 |
+| Yatırım harcaması | -%4,8 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -59,10 +59,10 @@ Karşılaştırma Temel tüketim sektöründeki 31 şirketin **medyanına** gör
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
 | Brüt kâr marjı | %23,8 | %16,5 |
-| Net kâr marjı | -%61,3 | %1,2 |
+| Net kâr marjı | -%61,3 | %0,2 |
 | Özkaynak kârlılığı | -%8,6 | %0,8 |
 | Cari oran | 4,09 | 1,36 |
-| Borç / özkaynak | -0,01 | 0,25 |
+| Borç / özkaynak | -0,01 | 0,26 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -70,7 +70,11 @@ Karşılaştırma Temel tüketim sektöründeki 31 şirketin **medyanına** gör
 
 **Şirket lehine işleyenler**
 
-- Net kâr reel olarak %33,1 arttı.
+- Net kâr reel olarak %37,6 arttı.
+
+**Dikkat gerektirenler**
+
+- Hasılat reel olarak -%10,7 geriledi.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

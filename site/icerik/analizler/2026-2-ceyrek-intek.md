@@ -1,7 +1,7 @@
 ---
 slug: intek-2026-2-ceyrek
 baslik: İNNOSA TEKNOLOJİ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat ve brüt kâr birlikte büyürken brüt kâr marjı sektör medyanının belirgin üzerinde kaldı; buna karşın brüt kârın faaliyet kârına aktarılan kısmı sınırlı oldu ve net sonuç zarara döndü, dolayısıyla negatif net kâr marjı ile negatif özkaynak kârlılığı aynı kalemden besleniyor.…
+ozet: Hasılat, brüt kâr ve faaliyet kârı tümü önceki döneme göre sırasıyla 0,44 milyar TL, 0,30 milyar TL ve 0,09 milyar TL artmış; bu artış brüt kâr marjının %69,6'ya yükselmesine yol açarken, net kârın -%68,2'den -%68,2'ye gerilemesi, yatırım harcaması ve faaliyet nakit akışının 0,12 milyar TL ve 0,13 m…
 sirket: İNNOSA TEKNOLOJİ A.Ş.
 kod: INTEK
 donem: 2026 2. çeyrek
@@ -18,7 +18,11 @@ sayimlar:
 
 ## Özet
 
-Hasılat ve brüt kâr birlikte büyürken brüt kâr marjı sektör medyanının belirgin üzerinde kaldı; buna karşın brüt kârın faaliyet kârına aktarılan kısmı sınırlı oldu ve net sonuç zarara döndü, dolayısıyla negatif net kâr marjı ile negatif özkaynak kârlılığı aynı kalemden besleniyor. Aktif toplamı özkaynaktan daha hızlı büyüdü; aradaki fark net borcun sıfırdan 0,38 milyar TL'ye çıkmasıyla eşleşiyor ve borç/özkaynak oranının 0,82'ye ulaşması ile cari oranın sektör medyanının altında konumlanması bu tabloyla tutarlı. Faaliyet nakit akışı yatırım harcamasını karşılayacak düzeyde gerçekleşti, FAVÖK ile faaliyet kârı arasındaki fark ise nakit çıkışı gerektirmeyen giderlerin varlığına işaret ediyor.
+Hasılat, brüt kâr ve faaliyet kârı tümü önceki döneme göre sırasıyla 0,44 milyar TL, 0,30 milyar TL ve 0,09 milyar TL artmış; bu artış brüt kâr marjının %69,6'ya yükselmesine yol açarken, net kârın -%68,2'den -%68,2'ye gerilemesi, yatırım harcaması ve faaliyet nakit akışının 0,12 milyar TL ve 0,13 milyar TL'ye çıkmasıyla birlikte net borcun 0,38 milyar TL'ye yükselmesi ve cari oranın 0,35'e düşmesiyle özkaynak kârlılığının -%38,5'e gerilemesine neden olmuştur.  
+
+Net borç artışı, borç/özkaynak oranının 0,82'ye (sektör medyanı -%0,02) yükselmesiyle özkaynakların 0,46 milyar TL'ye (sektör medyanı 0,03 milyar TL) genişlemesine rağmen, cari oran ve özkaynak kârlılığı gibi likidite ve kârlılık göstergelerinin sektörel medyanların altında kalmasına yol açmıştır.  
+
+Aktif toplamı 1,07 milyar TL'ye (sektör medyanı 0,05 milyar TL) çıkması, artan faaliyet nakit akışı ve yatırım harcamasıyla birlikte şirketin büyüme odaklı sermaye yapısını yansıtmaktadır.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

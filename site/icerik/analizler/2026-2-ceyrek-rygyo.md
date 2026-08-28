@@ -1,7 +1,7 @@
 ---
 slug: rygyo-2026-2-ceyrek
 baslik: REYSAŞ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat artarken net kârın gerilemesi, net kâr marjının hâlâ hasılatın üzerinde kalmasıyla birlikte okunduğunda, kârın esas faaliyet gelirinden çok onun dışındaki kalemlerle şekillendiğine işaret ediyor; nitekim özkaynak ve aktif toplamı, dönem kârının küçülmesine rağmen birlikte büyüdü.…
+ozet: Hasılat 2,05 milyar TL'ye yükselirken net kâr 1,99 milyar TL'ye düşmüş, bu durum net kâr marjının %118,2'ye çıkmasına yol açmış; aynı dönemde özkaynak 103,25 milyar TL'ye, aktif toplamı 128,14 milyar TL'ye artmış ve bu büyümeye paralel olarak net borç 11,22 milyar TL'ye yükselmiş, borç/özkaynak oran…
 sirket: REYSAŞ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: RYGYO
 donem: 2026 2. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat artarken net kârın gerilemesi, net kâr marjının hâlâ hasılatın üzerinde kalmasıyla birlikte okunduğunda, kârın esas faaliyet gelirinden çok onun dışındaki kalemlerle şekillendiğine işaret ediyor; nitekim özkaynak ve aktif toplamı, dönem kârının küçülmesine rağmen birlikte büyüdü. Aktif tarafındaki bu genişlemeye net borçtaki artış eşlik etti ve borç/özkaynak oranı sektör medyanının üzerinde konumlandı. Faaliyet nakit akışının pozitiften negatife dönmesi, muhasebeleştirilen kâr ile dönem içinde yaratılan nakit arasındaki ayrışmayı aynı çeyrekte görünür kılıyor.
+Hasılat 2,05 milyar TL'ye yükselirken net kâr 1,99 milyar TL'ye düşmüş, bu durum net kâr marjının %118,2'ye çıkmasına yol açmış; aynı dönemde özkaynak 103,25 milyar TL'ye, aktif toplamı 128,14 milyar TL'ye artmış ve bu büyümeye paralel olarak net borç 11,22 milyar TL'ye yükselmiş, borç/özkaynak oranı %0,11'e (sektör medyanı %0,02) çıkmıştır. Faaliyet nakit akışı ise önceki dönemde 0,55 milyar TL pozitifken -3,59 milyar TL negatif olmuş, bu da artan özkaynak ve aktif toplamına rağmen nakit çıkışının artmasına işaret eder. Özkaynak kârlılığı %1,1'e (sektör medyanı %0,4) yükselmiş, bu da özkaynak artışıyla birlikte kârlılığın da iyileştiğini gösterir.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

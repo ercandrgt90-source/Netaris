@@ -1,7 +1,7 @@
 ---
 slug: atatp-2026-2-ceyrek
 baslik: ATP YAZILIM VE TEKNOLOJİ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılattaki gerileme brüt kâra, faaliyet kârına, FAVÖK'e ve net kâra aynı yönde yansıdı; brüt kâr marjı %89,6 ile sektör medyanı %16,1'in, net kâr marjı %38,7 ile medyanın (-%2,0) üzerinde konumlandı.…
+ozet: Hasılatın düşmesi brüt kârın da benzer oranda azalmasına yol açmış; brüt kârın yüksek %89,6'lık marjı hâlâ sektörel medyanın %16,1'inden çok üstünde olduğu için brüt kâr düşüşü net kârda %38,7'lik yüksek marjın korunmasına rağmen %1,08'lik bir azalmaya neden olmuştur.…
 sirket: ATP YAZILIM VE TEKNOLOJİ A.Ş.
 kod: ATATP
 donem: 2026 2. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılattaki gerileme brüt kâra, faaliyet kârına, FAVÖK'e ve net kâra aynı yönde yansıdı; brüt kâr marjı %89,6 ile sektör medyanı %16,1'in, net kâr marjı %38,7 ile medyanın (-%2,0) üzerinde konumlandı. Özkaynak ve aktif toplamı bir önceki döneme göre iki katın üzerine çıkarken net kârın azalması, özkaynak kârlılığını %8,7 seviyesinde bıraktı; bu oran sektör medyanı %2,1'in üzerinde yer aldı. Net kâr sınırlı ölçüde düşerken faaliyet nakit akışı çok daha belirgin biçimde geriledi, buna karşın yatırım harcaması azaldı ve net borç eksi bölgede kaldı; cari oran 2,13 ile medyan 1,25'in üzerinde bulunuyor.
+Hasılatın düşmesi brüt kârın da benzer oranda azalmasına yol açmış; brüt kârın yüksek %89,6'lık marjı hâlâ sektörel medyanın %16,1'inden çok üstünde olduğu için brüt kâr düşüşü net kârda %38,7'lik yüksek marjın korunmasına rağmen %1,08'lik bir azalmaya neden olmuştur. Net kârdaki gerileme özkaynakların %10,29 milyar TL'ye yükselmesiyle özkaynak kârlılığının %8,7'ye çıkmasına rağmen, faaliyet nakit akışının 3,10 milyar TL'den 0,56 milyar TL'ye düşmesiyle likidite artışının (cari oran 2,13) ve borç/özkaynak oranının -%0,04'e (sektör medyanı -%0,02) hafifçe iyileşmesine rağmen kâr dağılımının sınırlı kalmasına işaret eder. Aktif toplamının 5,28 milyar TL'den 11,05 milyar TL'ye neredeyse iki katına çıkması özkaynak artışıyla paralel bir büyüme sağlarken, negatif net borç (-0,39 milyar TL) ve düşük borç/özkaynak oranı şirketin finansal riskini azaltmış, fakat yatırım harcamasının 0,53 milyar TL'den 0,48 milyar TL'ye gerilemesi gelecekteki büyüme potansiyelinin sınırlı kalabileceğini gösterir.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

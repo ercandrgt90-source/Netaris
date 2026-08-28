@@ -1,13 +1,13 @@
 ---
 slug: cante-2026-2-ceyrek
 baslik: ÇAN2 TERMİK A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın 3,72 milyar TL'den 3,46 milyar TL'ye düşmesi, net kârın -0,84 milyar TL'den 0,25 milyar TL'ye geçmesiyle birlikte net kâr marjının -%55,6'dan pozitif bir seviyeye (sektör medyanı %11,4) yaklaşması, faaliyet nakit akışının -2,01 milyar TL'den -3,09 milyar TL'ye derinleşmesiyle paralel bir l…
+ozet: Hasılatın 3,46 milyar TL'ye düşmesi, net kârın -0,84 milyar TL'den 0,25 milyar TL'ye yükselmesiyle birlikte, faaliyet nakit akışının -2,01 milyar TL'den -3,09 milyar TL'ye gerilemesi, artan özkaynak (32,22 milyar TL) ve aktif toplamı (34,39 milyar TL) sayesinde net borcun -1,47 milyar TL'ye (nakit f…
 sirket: ÇAN2 TERMİK A.Ş.
 kod: CANTE
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Kamu hizmetleri
-tarih: 2026-08-25
+tarih: 2026-08-28
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın 3,72 milyar TL'den 3,46 milyar TL'ye düşmesi, net kârın -0,84 milyar TL'den 0,25 milyar TL'ye geçmesiyle birlikte net kâr marjının -%55,6'dan pozitif bir seviyeye (sektör medyanı %11,4) yaklaşması, faaliyet nakit akışının -2,01 milyar TL'den -3,09 milyar TL'ye derinleşmesiyle paralel bir likidite sıkıntısına işaret eder; bu süreçte özkaynakların 26,26 milyar TL'den 32,22 milyar TL'ye artması, aktif toplamının 30,36 milyar TL'den 34,39 milyar TL'ye yükselmesi ve net borcun -1,47 milyar TL'ye (nakit fazlası) dönüşmesi, cari oranı 0,90'dan 3,01'e yükselterek borç/özkaynak oranını -0,05'e (sektör medyanı 0,12) indirmiştir.
+Hasılatın 3,46 milyar TL'ye düşmesi, net kârın -0,84 milyar TL'den 0,25 milyar TL'ye yükselmesiyle birlikte, faaliyet nakit akışının -2,01 milyar TL'den -3,09 milyar TL'ye gerilemesi, artan özkaynak (32,22 milyar TL) ve aktif toplamı (34,39 milyar TL) sayesinde net borcun -1,47 milyar TL'ye (nakit fazlası) dönüşmesini desteklemiştir; bu durum, net kâr marjının -%55,6'dan pozitif bir değere ve özkaynak kârlılığının -%3,2'den sektör medyanının %1,0'ına yaklaşmasına rağmen, cari oranının 3,01 ve borç/özkaynak oranının -0,05 gibi sektör ortalamalarının çok üzerinde kalmasına yol açmıştır.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

@@ -1,7 +1,7 @@
 ---
 slug: svgyo-2026-2-ceyrek
 baslik: SAVUR GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın tamamı brüt kâra dönüşürken (%100,0 brüt marj, sektör medyanı %51,4) faaliyet kârı bu tutarın altında kalıyor; yani satış maliyeti yerine faaliyet giderleri kalemi belirleyici konumda.…
+ozet: Brüt kâr, hasılatla aynı seviyede olduğu için brüt kâr marjı %100,0'a ulaşmış; bu yüksek marj, net kâr marjının –%63,2 olmasıyla çelişiyor, çünkü faaliyet kârı ve net kâr, brüt kârdan çok daha düşük seviyelere gerilemiş.…
 sirket: SAVUR GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: SVGYO
 donem: 2026 2. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın tamamı brüt kâra dönüşürken (%100,0 brüt marj, sektör medyanı %51,4) faaliyet kârı bu tutarın altında kalıyor; yani satış maliyeti yerine faaliyet giderleri kalemi belirleyici konumda. Net kâr faaliyet kârının üzerinde raporlanmış, bu da sonucun faaliyet dışı kalemlerle şekillendiğine işaret ediyor; buna karşın tabloda verilen net kâr marjı ve özkaynak kârlılığı negatif olduğundan bu iki gösterge ile net kâr rakamı aynı yönde okunmuyor. Net borcun eksi olması, yani nakdin borcu aşması, 9,75'lik cari oran ve -0,13'lük borç/özkaynak ile aynı tabloyu veriyor; faaliyet nakit akışı ise negatif ve bu nakit tamponu faaliyetlerden değil bilanço yapısından geliyor.
+Brüt kâr, hasılatla aynı seviyede olduğu için brüt kâr marjı %100,0'a ulaşmış; bu yüksek marj, net kâr marjının –%63,2 olmasıyla çelişiyor, çünkü faaliyet kârı ve net kâr, brüt kârdan çok daha düşük seviyelere gerilemiş. Özsermaye 4,51 milyar TL iken net borç –0,60 milyar TL (negatif borç) ve cari oran 9,75 gibi güçlü likidite göstergeleri, düşük borç/özkaynak –%0,13 oranıyla birlikte şirketin finansal yapısının sağlam olduğunu, fakat faaliyet nakit akışının –0,21 milyar TL olması nedeniyle operasyonel nakit üretiminin yetersiz kaldığını gösteriyor. Bu durum, yüksek brüt kâr marjının net kâr ve özkaynak kârlılığına yansımadığı ve likidite ile borçluluk açısından sektöre göre avantajlı olduğu, fakat nakit akışı ve kârlılık açısından geride kaldığı bir ilişki ortaya koymaktadır.
 
 ## 2026 2. çeyrek dönemi ölçümleri
 

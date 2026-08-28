@@ -1,7 +1,7 @@
 ---
 slug: eukyo-2026-2-ceyrek
 baslik: EURO KAPİTAL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat yatay kalırken brüt kâr yükseldi ve brüt kâr marjı sektör medyanının üzerinde konumlandı; ancak bu fark faaliyet kârı ve FAVÖK satırlarına taşınmadı, her iki kalem de iki dönemde de yuvarlanmış olarak sıfır seviyesinde kaldı.…
+ozet: Brüt kâr artışı (%47,1) net kâr kaybının (%-37,1) azalmasıyla eş zamanlı gerçekleşmiş; brüt kârın yükselmesi satışların maliyetindeki azalmayı gösterirken, net kârın hâlâ negatif kalması faiz, vergi ve diğer giderlerin hâlâ kâra yansımadığını işaret eder.…
 sirket: EURO KAPİTAL YATIRIM ORTAKLIĞI A.Ş.
 kod: EUKYO
 donem: 2026 2. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat yatay kalırken brüt kâr yükseldi ve brüt kâr marjı sektör medyanının üzerinde konumlandı; ancak bu fark faaliyet kârı ve FAVÖK satırlarına taşınmadı, her iki kalem de iki dönemde de yuvarlanmış olarak sıfır seviyesinde kaldı. Net zarar daraldı, buna karşın net kâr marjı ve özkaynak kârlılığı medyanın altında negatif bölgede kaldı; özkaynak ve aktif toplamı ise negatif sonuca rağmen arttı. Faaliyet nakit akışı iki dönemde de negatifken net borç daha derin negatife geçti; bu net nakit konumu, medyanın üzerindeki cari oran ve negatif borç/özkaynak değeriyle aynı yönde hareket etti.
+Brüt kâr artışı (%47,1) net kâr kaybının (%-37,1) azalmasıyla eş zamanlı gerçekleşmiş; brüt kârın yükselmesi satışların maliyetindeki azalmayı gösterirken, net kârın hâlâ negatif kalması faiz, vergi ve diğer giderlerin hâlâ kâra yansımadığını işaret eder. Özkaynak artışı (%0,08) ve aktif toplamının (%0,09) büyümesi, net borcun (-%0,07) daha da negatifleşmesiyle birlikte cari oranı 22,78'e çıkararak sektörel medyanın (12,09) çok üzerinde bir likidite seviyesine yol açmıştır; borç/özkaynak oranının (-0,90) sektörel medyanın (-0,05) çok altında olması, şirketin özkaynaklarını aşan negatif net borçla (nakit fazlası) finanse edildiğini gösterir. Bu yapı, brüt kâr marjının sektörel ortalamanın (%45,1) üzerinde olmasına rağmen, net kâr marjı ve özkaynak kârlılığının (%-6,3) sektör ortalamalarının (%14,7 ve %4,5) altında kalmasının, yüksek likiditeye rağmen kârlılıkta hâlâ zorluklar olduğunu ortaya koyar.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

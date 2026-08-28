@@ -1,7 +1,7 @@
 ---
 slug: atagy-2026-2-ceyrek
 baslik: ATA GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat iki dönemde de aynı düzeyde kalırken net sonuç kârdan zarara döndü; net kâr marjı ve özkaynak kârlılığı bu nedenle negatife geçerek sektör medyanlarının altında konumlandı.…
+ozet: Hasılat aynı kalırken net kârın -0,02 milyar TL'ye düşmesi, faaliyet nakit akışının -0,04 milyar TL'den 0,01 milyar TL'ye yükselmesi net kâr marjının -%28,2'ye gerilemesine ve özkaynak kârlılığının -%0,5'e inmesine yol açtı; bu kâr kaybı özkaynakların 0,84 milyar TL'ye (önceki 0,66 milyar TL) ve akt…
 sirket: ATA GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: ATAGY
 donem: 2026 2. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat iki dönemde de aynı düzeyde kalırken net sonuç kârdan zarara döndü; net kâr marjı ve özkaynak kârlılığı bu nedenle negatife geçerek sektör medyanlarının altında konumlandı. Buna karşın özkaynak ve aktif toplamı birlikte büyüdü, yani özkaynaktaki artış dönem sonucundan değil başka kalemlerden geldi ve aktifteki genişleme özkaynak artışını aştı. Net borç her iki dönemde de eksi kaldı, borç/özkaynak oranı negatif bölgede seyretti ve faaliyet nakit akışı net kârın tersi yönde hareket ederek eksiden artıya döndü.
+Hasılat aynı kalırken net kârın -0,02 milyar TL'ye düşmesi, faaliyet nakit akışının -0,04 milyar TL'den 0,01 milyar TL'ye yükselmesi net kâr marjının -%28,2'ye gerilemesine ve özkaynak kârlılığının -%0,5'e inmesine yol açtı; bu kâr kaybı özkaynakların 0,84 milyar TL'ye (önceki 0,66 milyar TL) ve aktif toplamının 1,05 milyar TL'ye (önceki 0,75 milyar TL) artmasıyla finanse edildi. Net borcun -0,03 milyar TL (önceki -0,04 milyar TL) olması, borç/özkaynak oranının -0,03 (sektör medyanı 0,02) ile negatif seyretmesi, artan özkaynak ve aktif seviyelerinin borç yapısını hafiflettiğini gösteriyor. Bu değişimler, kâr kaybının artmasıyla özkaynakların ve varlıkların büyümesinin aynı anda gerçekleştiğini ve nakit akışının iyileşmesinin borç/özkaynak dengesine olumlu yansıdığını ortaya koyuyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

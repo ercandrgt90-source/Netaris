@@ -1,13 +1,13 @@
 ---
 slug: escom-2026-2-ceyrek
 baslik: ESCORT TEKNOLOJİ YATIRIM A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %100'üne tekabül eden brüt kâr, faaliyet kârı ve FAVÖK'ün de benzer seviyelerde artması, net kâr marjının %46,9'a yükselmesiyle birlikte özkaynak kârlılığının %4,9'a çıkmasına yol açtı; bu kârlılık artışı, özkaynakların 4,26 milyar TL'ye yükselmesiyle desteklenirken aktif toplamının 4,34 m…
+ozet: Hasılatın %100'e ulaşan brüt kârı, faaliyet kârı ve FAVÖK'ün de benzer seviyelerde artmasıyla birlikte net kâr %46,9'a yükselmiş; bu artış özkaynak kârlılığının %4,9'a çıkmasına ve özkaynakların 4,26 milyar TL'ye (önceki dönem 1,94 milyar TL) neredeyse iki katına çıkmasına paralel gerçekleşmiştir.…
 sirket: ESCORT TEKNOLOJİ YATIRIM A.Ş.
 kod: ESCOM
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Bilişim
-tarih: 2026-08-27
+tarih: 2026-08-28
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %100'üne tekabül eden brüt kâr, faaliyet kârı ve FAVÖK'ün de benzer seviyelerde artması, net kâr marjının %46,9'a yükselmesiyle birlikte özkaynak kârlılığının %4,9'a çıkmasına yol açtı; bu kârlılık artışı, özkaynakların 4,26 milyar TL'ye yükselmesiyle desteklenirken aktif toplamının 4,34 milyar TL'ye ulaşması, cari oranı 0,43'e düşürerek likiditeyi sınırladı. Net borçın sıfır kalması, borç/özkaynak oranının 0,00 olmasıyla birlikte finansal riskin düşük olduğunu gösterirken, faaliyet nakit akışının da sıfır kalması, kârlılık artışının nakit dönüşümünden ziyade muhasebe kalemlerine yansıdığını gösteriyor.
+Hasılatın %100'e ulaşan brüt kârı, faaliyet kârı ve FAVÖK'ün de benzer seviyelerde artmasıyla birlikte net kâr %46,9'a yükselmiş; bu artış özkaynak kârlılığının %4,9'a çıkmasına ve özkaynakların 4,26 milyar TL'ye (önceki dönem 1,94 milyar TL) neredeyse iki katına çıkmasına paralel gerçekleşmiştir. Aktif toplamının 4,34 milyar TL'ye (önceki dönem 2,01 milyar TL) yükselmesi, özkaynak artışıyla birlikte net borçta değişiklik olmaması ve borç/özkaynak oranının 0,00 kalması, likiditeyi olumsuz etkileyerek cari oranı 0,43'e (sektör medyanı 1,25) düşürmüştür. Dolayısıyla gelir ve kâr artışları özkaynak büyümesiyle birlikte gerçekleşirken, likidite göstergeleri artan varlık ve özkaynak seviyelerine rağmen gerilemiştir.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

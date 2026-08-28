@@ -1,7 +1,7 @@
 ---
 slug: fonet-2026-2-ceyrek
 baslik: FONET BİLGİ TEKNOLOJİLERİ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %41,4 brüt kâr marjı ile birlikte yükselmesi brüt kârın %0,21 milyar TL'ye, ardından %28,2 net kâr marjı sayesinde net kârın %0,13 milyar TL'ye çıkmasına yol açtı; bu kâr artışları özkaynakların %2,09 milyar TL'den %1,34 milyar TL'ye, aktif toplamının %2,32 milyar TL'ye ve cari oranın 3,02…
+ozet: Hasılatın %41,4 brüt kâr marjı ile yükselmesi brüt kârı %0,08 milyar TL artırırken, bu artışın ardından brüt kârın daha yüksek oranla net kâra dönüşmesi net kâr marjının %28,2'ye çıkmasını ve net kârın %0,08 milyar TL artmasını sağladı; aynı zamanda faaliyet kârı ve FAVÖK de brüt kârdan gelen kâr ak…
 sirket: FONET BİLGİ TEKNOLOJİLERİ A.Ş.
 kod: FONET
 donem: 2026 2. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %41,4 brüt kâr marjı ile birlikte yükselmesi brüt kârın %0,21 milyar TL'ye, ardından %28,2 net kâr marjı sayesinde net kârın %0,13 milyar TL'ye çıkmasına yol açtı; bu kâr artışları özkaynakların %2,09 milyar TL'den %1,34 milyar TL'ye, aktif toplamının %2,32 milyar TL'ye ve cari oranın 3,02'ye yükselmesiyle likidite ve özkaynak temelli güçlenmeye paralel gerçekleşti. Net borcun –%0,09 milyar TL'ye (nakit pozitif) dönüşmesi, faaliyet nakit akışının %0,21 milyar TL'ye (önceki %0,05 milyar TL) ve yatırım harcamasının %0,01 milyar TL'ye (önceki 0) artmasıyla birlikte borç/özkaynak oranının –%0,04'a (sektör medyanı –%0,02) gerilemesini destekledi. Bu bütünsel artışlar, brüt ve net kâr marjlarının sektör medyanlarının üzerindeki seviyelerinde kalmasıyla, kârlılık ve likidite göstergelerinin aynı dönemde birlikte iyileştiğini gösteriyor.
+Hasılatın %41,4 brüt kâr marjı ile yükselmesi brüt kârı %0,08 milyar TL artırırken, bu artışın ardından brüt kârın daha yüksek oranla net kâra dönüşmesi net kâr marjının %28,2'ye çıkmasını ve net kârın %0,08 milyar TL artmasını sağladı; aynı zamanda faaliyet kârı ve FAVÖK de brüt kârdan gelen kâr akışının etkisiyle sırasıyla %0,05 ve %0,05 milyar TL artış gösterdi. Özkaynakların %0,75 milyar TL artması aktif toplamındaki %0,58 milyar TL büyümeyi destekledi ve net borcun -%0,11 milyar TL'ye (nakit fazlası) dönüşmesi cari oranı 3,02'ye yükselterek sektörel medyanın 2,10'unu aşmasını sağladı. Faaliyet nakit akışındaki %0,16 milyar TL artış, yatırım harcamasındaki %0,01 milyar TL artışla birlikte özkaynak kârlılığının %3,8'e (sektör ortalamasının -%0,6'sından) yükselmesine katkıda bulundu.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

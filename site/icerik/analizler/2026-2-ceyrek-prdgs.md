@@ -1,7 +1,7 @@
 ---
 slug: prdgs-2026-2-ceyrek
 baslik: PARDUS GİRİŞİM SERMAYESİ YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın önceki dönemdeki negatif seviyeden pozitife dönmesiyle brüt kâr hasılatın tamamına eşit kaldı ve net kâr da bu tutarın neredeyse tümünü oluşturdu; maliyet ve faaliyet gideri kaleminin sınırlı olduğu bu yapıda brüt ve net kâr marjları sektör medyanlarının üzerinde konumlandı.…
+ozet: Hasılat, brüt kâr, faaliyet kârı ve net kâr aynı tutarda artış göstererek birbirini izledi; bu artış özkaynakların 2,94 milyar TL'ye yükselmesine ve aktif toplamının 2,96 milyar TL'ye ulaşmasına yol açtı.…
 sirket: PARDUS GİRİŞİM SERMAYESİ YATIRIM ORTAKLIĞI A.Ş.
 kod: PRDGS
 donem: 2026 2. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın önceki dönemdeki negatif seviyeden pozitife dönmesiyle brüt kâr hasılatın tamamına eşit kaldı ve net kâr da bu tutarın neredeyse tümünü oluşturdu; maliyet ve faaliyet gideri kaleminin sınırlı olduğu bu yapıda brüt ve net kâr marjları sektör medyanlarının üzerinde konumlandı. Özkaynaktaki 1,91 milyar TL'den 2,94 milyar TL'ye çıkış dönem kârının tek başına açıkladığından daha geniş olurken, aktif toplamı özkaynağa yakın seyretti ve net borç pozitiften negatife geçti. Net kârın 0,27 milyar TL olmasına karşın faaliyet nakit akışının 0,06 milyar TL'de kalması kârın nakde dönüşen kısmının sınırlı olduğunu gösterirken, cari oran sektör medyanının altında, borç/özkaynak ise medyanın üzerinde yer aldı.
+Hasılat, brüt kâr, faaliyet kârı ve net kâr aynı tutarda artış göstererek birbirini izledi; bu artış özkaynakların 2,94 milyar TL'ye yükselmesine ve aktif toplamının 2,96 milyar TL'ye ulaşmasına yol açtı. Net borcun –0,10 milyar TL (nakit fazlası) olması, faaliyet nakit akışının 0,06 milyar TL'ye çıkmasıyla birlikte, borç/özkaynak oranının –0,03 seviyesinde kalmasını sağladı. Brüt kâr marjının %100,0 ve net kâr marjının %98,8 olması, özkaynak kârlılığının %11,3'e yükselmesiyle uyumlu, ancak cari oranın 5,73 olması sektör medyanı 12,09'dan daha düşük bir likidite seviyesini gösteriyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

@@ -1,7 +1,7 @@
 ---
 slug: euyo-2026-2-ceyrek
 baslik: EURO MENKUL KIYMET YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat iki dönemde de aynı seviyede kalırken brüt kâr yükseldi ve brüt kâr marjı sektör medyanının üzerinde konumlandı; buna karşın net kâr negatif kaldığından net kâr marjı ile özkaynak kârlılığı medyanın altında yer aldı, yani brüt kârdan net sonuca geçişte kalan kalemler tabloyu ters yönde belir…
+ozet: Brüt kâr, hasılatın %49,1'i olarak sektör medyanının %45,1'ini aşarken aynı dönemde net kâr %-63,0 negatif kalmış; bu durum brüt kârdaki artışın (0,01 milyar TL'den 0,02 milyar TL'ye) net kârda iyileşme yaratmadığını, muhtemelen yüksek finansman ve vergi giderlerinin etkisiyle net zararın sürdüğünü…
 sirket: EURO MENKUL KIYMET YATIRIM ORTAKLIĞI A.Ş.
 kod: EUYO
 donem: 2026 2. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat iki dönemde de aynı seviyede kalırken brüt kâr yükseldi ve brüt kâr marjı sektör medyanının üzerinde konumlandı; buna karşın net kâr negatif kaldığından net kâr marjı ile özkaynak kârlılığı medyanın altında yer aldı, yani brüt kârdan net sonuca geçişte kalan kalemler tabloyu ters yönde belirledi. Negatif net sonuç ve negatif faaliyet nakit akışına rağmen özkaynak ve aktif toplamı büyüdü, dolayısıyla dönem kârı dışındaki kalemler bilanço büyüklüğünü taşıdı. Net borcun negatif alanda derinleşmesi, borç/özkaynak oranının sektör medyanından daha aşağıda, cari oranın ise medyanın üzerinde okunmasıyla birlikte hareket etti.
+Brüt kâr, hasılatın %49,1'i olarak sektör medyanının %45,1'ini aşarken aynı dönemde net kâr %-63,0 negatif kalmış; bu durum brüt kârdaki artışın (0,01 milyar TL'den 0,02 milyar TL'ye) net kârda iyileşme yaratmadığını, muhtemelen yüksek finansman ve vergi giderlerinin etkisiyle net zararın sürdüğünü gösterir. Özkaynak kârlılığı %-12,3 ile sektör medyanının %4,5'inin altında kalırken özkaynak 0,08 milyar TL'ye yükselmiş, bu da özkaynak artışının kârlılıkta pozitif bir yansıma yaratmadığını, çünkü zararların özkaynak üzerinden de devam ettiğini ortaya koyar. Cari oran 31,11 ve borç/özkaynak –0,92 gibi likidite ve borç yapısındaki iyileşmeler (net borç –0,08 milyar TL) brüt kâr ve özkaynak artışına paralel olarak artmış, fakat bu likidite güçlenmesinin kârlılık üzerindeki etkisi henüz gerçekleşmemiştir.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

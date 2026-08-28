@@ -1,7 +1,7 @@
 ---
 slug: fzlgy-2026-2-ceyrek
 baslik: FUZUL GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat 0,11 milyar TL'den 2,81 milyar TL'ye çıkarken net kâr 0,21 milyar TL'lik kârdan 0,25 milyar TL'lik zarara döndü; bu ayrışma net kâr marjını -%19,9 ile sektör medyanı %14,3'ün, özkaynak kârlılığını da -%5,2 ile medyan %0,4'ün altındaki sıraya taşıdı.…
+ozet: Hasılat 2,81 milyar TL'ye yükselirken net kâr –0,25 milyar TL'ye gerilemiş; gelir artışı nakit akışının 0,26 milyar TL pozitif olmasına rağmen kârda düşüşe yol açmış, bu da net kâr marjının –%19,9 olmasını ve özkaynak kârlılığının –%5,2'ye inmesini beraberinde getirmiş.…
 sirket: FUZUL GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: FZLGY
 donem: 2026 2. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat 0,11 milyar TL'den 2,81 milyar TL'ye çıkarken net kâr 0,21 milyar TL'lik kârdan 0,25 milyar TL'lik zarara döndü; bu ayrışma net kâr marjını -%19,9 ile sektör medyanı %14,3'ün, özkaynak kârlılığını da -%5,2 ile medyan %0,4'ün altındaki sıraya taşıdı. Aynı dönemde faaliyet nakit akışı -0,55 milyar TL'den 0,26 milyar TL'ye geçmesine karşın net borç 0,69 milyar TL'den 1,18 milyar TL'ye yükseldi, yani nakit üretimindeki dönüş borç kaleminde bir azalmaya eşlik etmedi. Zarara rağmen özkaynak 4,21 milyar TL'den 4,28 milyar TL'ye, aktif toplamı 11,87 milyar TL'den 11,90 milyar TL'ye çıkarak yatay seyretti; borç/özkaynak ise 0,28 ile medyan 0,02'nin üzerinde konumlandı.
+Hasılat 2,81 milyar TL'ye yükselirken net kâr –0,25 milyar TL'ye gerilemiş; gelir artışı nakit akışının 0,26 milyar TL pozitif olmasına rağmen kârda düşüşe yol açmış, bu da net kâr marjının –%19,9 olmasını ve özkaynak kârlılığının –%5,2'ye inmesini beraberinde getirmiş. Özkaynak 4,28 milyar TL'ye hafif artarken net borç 1,18 milyar TL'ye yükselmiş, bu durum borç/özkaynak oranının 0,28'e çıkmasına ve aktif toplamının 11,90 milyar TL'ye artmasına neden olmuştur. Artan borç ve sabit özkaynak seviyesi, kâr marjı ve özkaynak kârlılığı gibi kârlılık göstergelerinin negatif seyretmesiyle paralel bir ilişki göstermektedir.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

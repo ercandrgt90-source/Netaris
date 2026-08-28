@@ -1,7 +1,7 @@
 ---
 slug: adese-2026-2-ceyrek
 baslik: ADESE GAYRİMENKUL YATIRIM A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat 0,40 milyar TL'den 0,90 milyar TL'ye çıkarken net kâr 0,13 milyar TL'den -0,27 milyar TL'ye döndü; ciro artışı kâra yansımadı ve net kâr marjı -%16,8 ile sektör medyanı %14,3'ün altında konumlandı.…
+ozet: Hasılat 0,90 milyar TL'ye yükselirken net kâr –0,27 milyar TL'ye gerilemiş, bu durum faaliyet nakit akışının 0,05 milyar TL'ye düşmesiyle paralel bir azalmayı gösteriyor; artan aktif toplamı 27,23 milyar TL'ye çıkarken özkaynak 20,91 milyar TL'ye yükselmiş, bu da net borcun 0,13 milyar TL'ye gerilem…
 sirket: ADESE GAYRİMENKUL YATIRIM A.Ş.
 kod: ADESE
 donem: 2026 2. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat 0,40 milyar TL'den 0,90 milyar TL'ye çıkarken net kâr 0,13 milyar TL'den -0,27 milyar TL'ye döndü; ciro artışı kâra yansımadı ve net kâr marjı -%16,8 ile sektör medyanı %14,3'ün altında konumlandı. Aktif toplamı 20,51'den 27,23 milyar TL'ye, özkaynak 15,97'den 20,91 milyar TL'ye genişlerken dönemi zararla kapatan şirketin özkaynak kârlılığı -%0,5 olarak medyan %0,4'ün altında kaldı. Net borç 0,50'den 0,13 milyar TL'ye inerken faaliyet nakit akışı 0,87'den 0,05 milyar TL'ye geriledi; borç/özkaynak 0,01 ile sektör medyanı 0,02'nin altında bulunuyor.
+Hasılat 0,90 milyar TL'ye yükselirken net kâr –0,27 milyar TL'ye gerilemiş, bu durum faaliyet nakit akışının 0,05 milyar TL'ye düşmesiyle paralel bir azalmayı gösteriyor; artan aktif toplamı 27,23 milyar TL'ye çıkarken özkaynak 20,91 milyar TL'ye yükselmiş, bu da net borcun 0,13 milyar TL'ye gerilemesiyle borç/özkaynak oranının sektör medyanının altında %0,01'e inmesini sağlamış. Net kâr marjı –%16,8 ve özkaynak kârlılığı –%0,5, her ikisi de sektör medyanının pozitif değerlerinin tersine hareket ederek kârlılıkta gerilemenin özkaynak artışı ve borç azalmasıyla birlikte gerçekleştiğini gösteriyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

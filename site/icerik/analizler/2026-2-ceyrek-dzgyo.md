@@ -1,13 +1,13 @@
 ---
 slug: dzgyo-2026-2-ceyrek
 baslik: DENİZ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat ve brüt kâr aynı oranda yükselirken, faaliyet kârı ve FAVÖK negatiften daha büyük bir negatif değere kaymış; bu, gelir artışının maliyet ve gider artışını aşamadığını gösteriyor.…
+ozet: Hasılat ve brüt kâr artarken, brüt kâr marjı %40,6 seviyesinde kalmış ve sektör medyanının %51,4 altında kalmıştır; bu durum, gelir artışının maliyet artışıyla paralel seyrettiğini gösterir.…
 sirket: DENİZ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: DZGYO
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-26
+tarih: 2026-08-28
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat ve brüt kâr aynı oranda yükselirken, faaliyet kârı ve FAVÖK negatiften daha büyük bir negatif değere kaymış; bu, gelir artışının maliyet ve gider artışını aşamadığını gösteriyor. Özkaynak ve aktif toplamı artışları net borçta pozitif dönüşe yol açmış, net borç -1,41 milyar TL'den +0,17 milyar TL'ye yükselmiş; dolayısıyla likiditeyi gösteren cari oran 2,55'e yükselse de sektör medyanı 5,25'in altında kalmış. Brüt kâr marjı %40,6 ile sektör medyanının (%51,4) altında, net kâr marjı ise -%93,6 ve özkaynak kârlılığı -%0,6 ile medyanların (%14,3 ve %0,4) çok altında seyrediyor; bu, kârlılıkta gelir artışının yeterli olmadığını ve maliyet baskısının hâlâ yüksek olduğunu ortaya koyuyor.
+Hasılat ve brüt kâr artarken, brüt kâr marjı %40,6 seviyesinde kalmış ve sektör medyanının %51,4 altında kalmıştır; bu durum, gelir artışının maliyet artışıyla paralel seyrettiğini gösterir. Faaliyet kârı ve FAVÖK negatiften daha da derinleşmiş, net kâr da -%93,6 ile sektörel %14,3 medyanının çok altında kalmış; bu, faaliyet giderlerinin ve vergi/finansman kalemlerinin artışının kâr üzerindeki baskısını yansıtır. Özkaynak ve aktif toplamı yükselmiş, net borç ise pozitif 0,17 milyar TL'ye dönmüş; buna rağmen cari oran 2,55 ile sektör medyanı 5,25'in altında kalırken, borç/özkaynak oranı %3 (sektör %2) olarak hafif artmıştır.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

@@ -1,7 +1,7 @@
 ---
 slug: zrgyo-2026-2-ceyrek
 baslik: ZİRAAT GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat artarken net kâr geriledi; bu ayrışma, net kâr marjının sektör medyanının üzerinde kalmasına rağmen kârın hasılat dışı kalemlere bağlı olduğuna işaret ediyor ve faaliyet nakit akışı da satışlarla aynı yönde hareket etmeyip azaldı.…
+ozet: Hasılat 2,15 milyar TL'ye yükselirken net kâr 0,94 milyar TL'den 2,79 milyar TL'ye gerilemiş; bu düşüş, faaliyet nakit akışının 0,96 milyar TL'den 1,30 milyar TL'ye düşmesiyle paralel bir azalmayı yansıtıyor.…
 sirket: ZİRAAT GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: ZRGYO
 donem: 2026 2. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat artarken net kâr geriledi; bu ayrışma, net kâr marjının sektör medyanının üzerinde kalmasına rağmen kârın hasılat dışı kalemlere bağlı olduğuna işaret ediyor ve faaliyet nakit akışı da satışlarla aynı yönde hareket etmeyip azaldı. Özkaynak ile aktif toplamındaki büyüme dönem kârından kaynaklanmadığı için, artan özkaynak tabanı karşısında özkaynak kârlılığı sektör medyanına yakın bir düzeyde kaldı. Net borç, özkaynakla birlikte büyüdü ancak borç/özkaynak oranı sektör medyanının üzerinde konumlandı.
+Hasılat 2,15 milyar TL'ye yükselirken net kâr 0,94 milyar TL'den 2,79 milyar TL'ye gerilemiş; bu düşüş, faaliyet nakit akışının 0,96 milyar TL'den 1,30 milyar TL'ye düşmesiyle paralel bir azalmayı yansıtıyor. Özkaynak 93,73 milyar TL'ye artarken aktif toplamı 115,33 milyar TL'ye yükselmiş, bu da net borcun 5,59 milyar TL'den 10,14 milyar TL'ye çıkmasıyla borç/özkaynak oranının %0,02'den %0,11'e yükselmesine neden olmuş. Net kâr marjı %42,6 (sektör medyanı %14,3) ve özkaynak kârlılığı %0,6 (sektör medyanı %0,4) artış gösterse de, artan borç seviyesi bu kârlılık oranlarının yükselmesine karşı bir denge unsuru oluşturmuş.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

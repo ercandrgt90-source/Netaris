@@ -1,13 +1,13 @@
 ---
 slug: intem-2026-2-ceyrek
 baslik: İNTEMA İNŞAAT VE TESİSAT MALZEMELERİ YATIRIM VE PAZARLAMA A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat hafif gerilemiş olsa da brüt kâr artışı, brüt kâr marjının %57,3 seviyesinde kalmasıyla birlikte maliyetlerin daha düşük oranda artmasını gösteriyor; bu durum faaliyet kârı, FAVÖK ve net kârda belirgin yükselişlere yol açtı.…
+ozet: Hasılat hafif gerilemişken brüt kâr artmış; bu durum brüt kâr marjının %57,3'e yükselmesiyle, satışların maliyet oranının düşmesinden kaynaklanıyor. Brüt kârdaki yükseliş, faaliyet kârı ve FAVÖK'deki artışları tetikleyerek net kârı %14,2'ye çıkarırken özkaynak kârlılığı %7,7'ye yükselmiş, bu da özka…
 sirket: İNTEMA İNŞAAT VE TESİSAT MALZEMELERİ YATIRIM VE PAZARLAMA A.Ş.
 kod: INTEM
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: İsteğe bağlı tüketim
-tarih: 2026-08-26
+tarih: 2026-08-28
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat hafif gerilemiş olsa da brüt kâr artışı, brüt kâr marjının %57,3 seviyesinde kalmasıyla birlikte maliyetlerin daha düşük oranda artmasını gösteriyor; bu durum faaliyet kârı, FAVÖK ve net kârda belirgin yükselişlere yol açtı. Özkaynakların %1,06 milyar'a çıkması aktif toplamındaki %1,22 milyar artışla paralel seyredirken, net borç aynı seviyede kalmış olması cari oranı %1,28'e ve borç/özkaynak oranını %0,07'ye düşürerek likiditeyi ve finansal kaldıraçı iyileştirdi. Faaliyet nakit akışının negatiften pozitif (+%0,06) dönüşü, artan kârlılık ve düşük borç seviyesiyle birlikte şirketin operasyonel nakit üretim kapasitesinin güçlendiğini ortaya koyuyor.
+Hasılat hafif gerilemişken brüt kâr artmış; bu durum brüt kâr marjının %57,3'e yükselmesiyle, satışların maliyet oranının düşmesinden kaynaklanıyor. Brüt kârdaki yükseliş, faaliyet kârı ve FAVÖK'deki artışları tetikleyerek net kârı %14,2'ye çıkarırken özkaynak kârlılığı %7,7'ye yükselmiş, bu da özkaynakların %1,06'dan %0,77'ye artmasıyla desteklenmiş. Net borç aynı kalmışken aktif toplamı %4,57 milyara çıkmış, bu da cari oranı %1,28 (sektör medyanı 1,29) ve borç/özkaynak oranını %0,07 (sektör medyanı 0,13) koruyarak likidite ve finansal yapıdaki dengeyi sürdürmüş.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
