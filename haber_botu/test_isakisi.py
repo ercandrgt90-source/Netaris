@@ -243,7 +243,86 @@ for p_ in dosyalar:
     dogru(f"{p_.name} geri yazma adimi kosu kesilse de calisiyor",
           any("if: always()" in a for a in yazan))
 
+# --------------------------------------------------------------------
+# 8. ICERIK SILEN ADIM: SILDIGINI BILDIRMELI, GERI YAZMAYLA AYNI
+#    KOSULU TASIMALI VE SILMESI SAHNELENMELI.
+#
+#    Olculdu (2026-08-28): `kumulatif_temizle.py` aylardir kosuyordu
+#    ve TEK BIR SILMEYI bile depoya isleyememisti. Uc ayri eksik ust
+#    uste binmisti:
+#
+#      * Geri yazma `git add --ignore-removal` kullaniyor; o bayrak
+#        silmeleri sahnelemez. Yerel dogrulandi: temiz bir depoda
+#        `--ignore-removal` yalnizca `A yeni.md` uretti, `D eski.md`
+#        uretmedi.
+#      * Temizlik adiminda `if: always()` YOKTU, geri yazmada VARDI.
+#        Kosu uretim adiminda kesilince yeni ceyreklik sayfa depoya
+#        giriyor, eski kumulatif sayfa kaliyordu.
+#      * Sonuc canliya ciktı: ENDAE ve ENTRA'nin ayni donemi icin
+#        IKISER analiz sayfasi yayimlandi -- biri "2026/6" etiketiyle,
+#        yani okurun "ikinci ceyrek" sanacagi bicimde. Finans
+#        sitesinde ayni sirketin ayni donemine dair iki farkli sayfa,
+#        bicim hatasi degil GUVENILIRLIK hatasidir.
+#
+#    KURAL AYNI DOSYALARA DOKUNAN ADIMLAR HAKKINDA: silen adim ile
+#    yazan adim ayni dosya kumesini degistiriyor. Kosullari
+#    ayrisirsa, degisikligin yarisi islenip yarisi islenmeden kalir.
+#
+#    OLCUT NEDEN `.unlink()` DEGIL: ilk yazimda oyleydi ve UC ayri
+#    betigi yanlislikla yakaladi -- `insa.py` ve `gorsel_uret.py`
+#    de siliyor ama ikisi de `site/cikti` icinde, yani URETILEN ve
+#    izlenmeyen dosyalari. Kaynaga bakarak "izlenen icerigi mi
+#    siliyor" sorusunu guvenilir bicimde yanitlayamiyoruz.
+#
+#    Bu yuzden olcut DAVRANIS degil SOZLESME: sildigini `--liste` ile
+#    bildiren bir arac, izlenen icerige dokundugunu beyan etmis
+#    demektir. Kural o beyani takip ediyor.
+#
+#    Sozlesmenin kendisi de sabitlenmeli, yoksa `--liste`yi kaldiran
+#    biri kurali sessizce bosa dusururdu: asagidaki CAPA testi,
+#    bilanco hattinin temizleyiciyi `--liste` ile cagirmasini sart
+#    kosuyor.
+# --------------------------------------------------------------------
+for ad, d in cozulen.items():
+    for is_ in (d.get("jobs") or {}).values():
+        basamaklar = is_.get("steps") or []
+        # Geri yazma adimi: icinde `git push` gecen adim.
+        yazanlar = [a for a in basamaklar
+                    if "git push" in _kod(a.get("run") or "")]
+        if not yazanlar:
+            continue
+        y = yazanlar[0]
+        y_kod = _kod(y.get("run") or "")
 
+        for a in basamaklar:
+            # ACIKLAMALAR ATILIYOR. Bir adimin `run` blogu bu kurali
+            # ANLATAN satirlar tasiyabilir; yasakladigi metni aciklayan
+            # not ihlal degildir. Bu tuzaga bu depoda dort kez dusuldu.
+            a_kod = _kod(a.get("run") or "")
+            if "--liste" not in a_kod:
+                continue
+            etiket = f"{ad} silme adimi"
+            dogru(f"{etiket} geri yazmayla AYNI kosulu tasiyor",
+                  a.get("if") == y.get("if"))
+            dogru(f"{etiket} bildirdigi silmeler sahneleniyor",
+                  "git rm --cached" in y_kod)
+
+# CAPA: sozlesmenin kendisi.
+#
+# Yukaridaki kural `--liste` gorunce isliyor. `--liste` kaldirilirsa
+# kural bosa duser ve hata sessizce geri gelir -- bu oturumda "hicbir
+# sey olcmeyen test" tuzagina dort kez dusuldu, kural kendi
+# tetikleyicisini de korumak zorunda.
+_bil = cozulen.get("bilanco.yml") or {}
+_bas = [a for is_ in (_bil.get("jobs") or {}).values()
+        for a in (is_.get("steps") or [])]
+_temizlik = [a for a in _bas
+             if "kumulatif_temizle.py" in _kod(a.get("run") or "")]
+dogru("bilanco.yml kumulatif temizleyiciyi cagiriyor", len(_temizlik) == 1)
+if _temizlik:
+    _t = _kod(_temizlik[0].get("run") or "")
+    dogru("bilanco.yml temizleyiciye --liste veriyor", "--liste" in _t)
+    dogru("bilanco.yml temizleyiciye --uygula veriyor", "--uygula" in _t)
 
 
 print(f"\n{_gecti} gecti, {_kaldi} kaldi")

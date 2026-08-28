@@ -222,12 +222,33 @@ jobs:
       # Boylece uretimle temizlik ayni islemde: sayfa ceyreklige
       # cevrildigi anda kumulatif karsiligi dusuyor.
       #
+      # COZUM YARIM KALMISTI -- 2026-08-28'de olculdu.
+      #
+      # Temizligi kosunun icine almak, O KOSUNUN kurdugu siteyi
+      # temizliyor ama DEPOYU temizlemiyor: silme hala sahnelenmedigi
+      # icin dosya depoda kaliyor ve bir sonraki otomasyon kosusu onu
+      # yeniden yayimliyor. Yani arac hicbir zaman kalici bir sey
+      # yapmadi; ENDAE ve ENTRA'nin ikiser sayfasi bu yuzden canliydi.
+      #
+      # Iki eksik kapatiliyor:
+      #   1. `if: always()` -- kosu uretim adiminda kesildiginde geri
+      #      yazma calisiyordu ama temizlik ATLANIYORDU. Sonuc: yeni
+      #      ceyreklik sayfa depoya giriyor, eski kumulatif kaliyor ve
+      #      ayni sirketin ayni donemi icin IKI sayfa yayimlaniyor.
+      #      Aynı dosyalara dokunan iki adim, ayni kosulu tasimali.
+      #   2. `--liste` -- arac sildigi yollari bildiriyor; geri yazma
+      #      adimi yalnizca O YOLLARI sahneliyor. Genis silme yetkisi
+      #      verilmiyor, `--ignore-removal` yerinde kaliyor.
+      #
       # `--uygula` burada BILEREK veriliyor. Yorum denetiminden farkli:
       # orada silinen sey MODEL CIKTISI ve yeniden uretmek para/kota
       # harciyor. Burada silinen sey, yerine YENISI URETILMIS olan eski
       # bir dosya -- ve arac karsiligi olmayani zaten silmiyor.
       - name: Kümülatif bilanço sayfalarını topla
-        run: python haber_botu/kumulatif_temizle.py --uygula
+        if: always()
+        run: >-
+          python haber_botu/kumulatif_temizle.py --uygula
+          --liste "${RUNNER_TEMP}/silinen-kumulatif.txt"
 
       - name: Siteyi kur ve denetle
         run: |
@@ -259,6 +280,35 @@ jobs:
           done
           [ -z "$YOLLAR" ] && { echo "yazilacak veri yok"; exit 0; }
 
+          SILINEN="${RUNNER_TEMP}/silinen-kumulatif.txt"
+
+          # ASAMALAMA TEK YERDE TANIMLI.
+          #
+          # Once iki kez yaziliydi: burada bir kez, push yeniden
+          # deneme dongusunde bir kez daha. Ayni karari veren iki kod
+          # yolu, birinin degisip digerinin degismemesi demek -- bu
+          # depoda tam bu sinif hatadan defalarca dusuldu. Fonksiyon,
+          # yeniden denemenin ilk denemeden AYRISAMAMASINI garanti
+          # ediyor.
+          asamala() {
+            # Yeni ve degismis dosyalar: DAR yetki, silmeler haric.
+            git add --ignore-removal $YOLLAR
+
+            # Silmeler AYRICA ve yalnizca temizleyicinin BILDIRDIGI
+            # yollar icin. `git add -A` gibi genis bir yetki degil:
+            # burada silinen her yol, bu kosuda calisan aracin kendi
+            # sildigi ve yerine yenisini uretmis oldugu bir dosya.
+            #
+            # `-s` kullaniliyor, `-f` degil: dosya VAR ama BOS ise
+            # silinecek bir sey yok demektir ve dongu bos calisir.
+            if [ -s "$SILINEN" ]; then
+              while IFS= read -r yol; do
+                [ -n "$yol" ] || continue
+                git rm --cached --quiet --ignore-unmatch -- "$yol"
+              done < "$SILINEN"
+            fi
+          }
+
           # `--mixed` (varsayilan), `--soft` DEGIL. `--soft` indekse
           # dokunmadigi icin commit, kosu SURERKEN gonderilen kaynak
           # dosyalari sessizce geri aliyordu. Ana is akisinda olculdu.
@@ -282,9 +332,11 @@ jobs:
           # asamaya aliyor. Bu hattin URETTIGI dosyalar yaziliyor,
           # baskasinin urettikleri KORUNUYOR.
           #
-          # Gercek silmeler (foto ayiklama gibi) elle islenmeli;
-          # otomatik silme yetkisi, otomatik veri kaybi demek.
-          git add --ignore-removal $YOLLAR
+          # Genis otomatik silme yetkisi hala YOK. Tek istisna,
+          # `asamala` icinde acikca listelenen kumulatif sayfalar:
+          # onlari bu kosunun kendi araci sildi ve yerlerine yenisi
+          # uretildi.
+          asamala
 
           # KAPI: yontemden bagimsiz sonuc dogrulamasi.
           KACAK=$(git diff --staged --name-only | grep -vE \
@@ -318,7 +370,7 @@ jobs:
               echo "push reddedildi, uzak uc yeniden aliniyor ($deneme)"
               git fetch origin "${GITHUB_REF_NAME}"
               git reset "origin/${GITHUB_REF_NAME}"
-              git add --ignore-removal $YOLLAR
+              asamala
               git diff --staged --quiet && { echo "eklenecek yeni sey yok"; break; }
               git commit -m "otomatik: bilanço sayfaları $(date -u +'%Y-%m-%d %H:%M UTC')"
               sleep 3
