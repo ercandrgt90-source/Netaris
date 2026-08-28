@@ -10,7 +10,9 @@ import pathlib
 _BU = pathlib.Path(__file__).resolve().parent
 sys.path.insert(0, str(_BU))
 
-import foto  # noqa: E402
+import foto
+
+_KAYNAK = pathlib.Path(foto.__file__).read_text(encoding='utf-8')  # noqa: E402
 
 gecti = 0
 kaldi = []
@@ -324,6 +326,80 @@ es("gercekten tek gorselli havuz teke dusuyor", len(_k3.havuz_yayin("K")), 1)
 _k4 = _kayit([_f("x.jpg", "cc0", 1600), _f("y.jpg", "cc0", 900)])
 _h4 = _k4.havuz_yayin("K")
 es("katmanlar cakissa da tekrar yok", len(_h4), len({f.dosya for f in _h4}))
+
+# ------------------------------------------------------------------
+# KAYNAK ZATEN KUCUKSE 800 PIKSELLIK ES URETILMEZ.
+#
+# Olculdu (2026-08-28): 800 piksellik boy eklendikten sonra uretilen
+# 26 dosyanin 11'i (%42) KOK DOSYAYLA BIREBIR AYNI boyuttaydi --
+#
+#     bankacilik-7.jpg  960px  195 KB -> 195 KB
+#     borsa-8.jpg       960px  105 KB -> 105 KB
+#     duzenleme-5.jpg   960px  179 KB -> 179 KB
+#
+# Commons olcekleme ucu yalnizca KUCULTUYOR; kaynak istenen genislige
+# yakinsa ayni dosyayi veriyor. Sonuc: depoda iki kopya, okur icin
+# sifir kazanc.
+#
+# Havuzun 209 gorseli 1000 pikselin altinda. 960 piksellik bir
+# kaynagi 800 piksellik yuvaya basmak zaten 1,2x -- kabul edilebilir.
+#
+# `k/` (96px) ve `o/` (400px) bu esikten ETKILENMIYOR: her kaynaktan
+# cok kucukler, orada kopya sorunu yok.
+# ------------------------------------------------------------------
+print("\nBoy uretimi -- kucuk kaynak elenir")
+
+import tempfile as _tmp2  # noqa: E402
+
+# KARAR DOGRUDAN SINANIYOR. Once `boy_uret` uzerinden sinanmisti ve
+# HICBIR SEY OLCMUYORDU: sahte kayitta gecerli bir Commons adresi
+# olmadigi icin esik kaldirilsa da sonuc ayni cikiyordu. Bozarak
+# dogrulama bunu ortaya cikardi.
+dogru("960px kaynak icin 800px es URETILMEZ",
+      not foto._boy_gerekli({"genislik": 960}, 1000))
+dogru("1920px kaynak icin URETILIR",
+      foto._boy_gerekli({"genislik": 1920}, 1000))
+dogru("tam esikteki kaynak icin URETILIR",
+      foto._boy_gerekli({"genislik": 1000}, 1000))
+dogru("genislik bilinmiyorsa uretilmez (bilinmezlikte kopya uretme)",
+      not foto._boy_gerekli({}, 1000))
+# Esik 0: eleme YOK. `k/` ve `o/` bu yoldan geciyor.
+dogru("esik yoksa her kaynak icin uretilir",
+      foto._boy_gerekli({"genislik": 100}, 0)
+      and foto._boy_gerekli({}, 0))
+
+# Esik VERILMEZSE eski davranis: eleme yok. `k/` ve `o/` bu yoldan
+# geciyor ve etkilenmemeli.
+dogru("esik verilmezse eleme yapilmiyor",
+      foto.YAZI_EN_AZ_KAYNAK > 0)
+def _govde(ad):
+    """Bir islevin YALNIZCA kendi govdesi.
+
+    Ilk yazimda dilim `def kucuk_uret` ile `def orta_uret` arasi
+    alinmisti; arada `yazi_uret` durdugu icin onun `en_az_kaynak`
+    parametresi kucuk boya aitmis gibi gorundu ve sinama yanlis
+    kirmizi verdi. Islev sinirini bir sonraki `def` belirlemeli.
+    """
+    i = _KAYNAK.index("def " + ad)
+    j = _KAYNAK.find(chr(10) + "def ", i + 4)
+    return _KAYNAK[i:j if j != -1 else len(_KAYNAK)]
+
+
+dogru("kucuk boy esiksiz uretiliyor",
+      "en_az_kaynak" not in _govde("kucuk_uret"))
+dogru("orta boy esiksiz uretiliyor",
+      "en_az_kaynak" not in _govde("orta_uret"))
+dogru("yazi boyu govdesinde esik var",
+      "en_az_kaynak" in _govde("yazi_uret"))
+
+# KARARIN KULLANILDIGI DA SINANIYOR. Islev tek basina dogru olabilir
+# ama cagrilmazsa hicbir sey yapmaz -- bozarak dogrulamada tam bu
+# kacti: `_boy_gerekli` dogru calisiyordu, cagri satiri silininde
+# butun sinamalar yesil kaldi.
+dogru("boy uretimi karari SORUYOR",
+      "_boy_gerekli(f, en_az_kaynak)" in _govde("boy_uret"))
+dogru("yazi boyu esikle uretiliyor",
+      "en_az_kaynak=YAZI_EN_AZ_KAYNAK" in _KAYNAK)
 
 # ------------------------------------------------------------------ sonuc
 print()

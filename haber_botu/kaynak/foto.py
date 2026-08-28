@@ -1449,6 +1449,14 @@ ORTA_GENISLIK = 400
 YAZI_KLASOR = FOTO_KLASORU / "y"
 YAZI_GENISLIK = 800
 
+#: Kaynak bundan darsa 800 piksellik es URETILMIYOR.
+#:
+#: Commons olcekleme ucu yalnizca kucultuyor; kaynak istenen
+#: genislige yakinsa ayni dosyayi veriyor ve depoda iki kopya kaliyor.
+#: Olculdu: 960 piksellik uc gorselde `y/` dosyasi kok dosyayla
+#: BIREBIR ayni boyuttaydi.
+YAZI_EN_AZ_KAYNAK = 1000
+
 #: Commons `titles` parametresi anonim istekte 50 baslik aliyor.
 KUCUK_PARTI = 50
 
@@ -1501,9 +1509,28 @@ def _commons_kimligi(kaynak: str) -> str:
     return e.group(1) if e else ""
 
 
+def _boy_gerekli(f: dict, en_az_kaynak: int) -> bool:
+    """Bu gorsel icin kucultulmus es URETILMELI mi?
+
+    AYRI ISLEV, cunku `boy_uret` icinde gomulu oldugunda SINANAMIYORDU:
+    sinama sahte bir kayitla cagriliyor, kayitta gecerli bir Commons
+    adresi olmadigi icin hicbir sey indirilmiyor ve esik kaldirilsa da
+    sonuc AYNI cikiyordu. Yani kural dogruydu ama sinamasi hicbir sey
+    olcmuyordu -- bozarak dogrulandiginda ortaya cikti.
+
+    Kural: kaynak istenen genislige yakinsa kopya uretme. Commons
+    olcekleme ucu yalnizca KUCULTUYOR; yakin bir kaynak icin ayni
+    dosyayi veriyor ve depoda iki kopya kaliyor.
+    """
+    if not en_az_kaynak:
+        return True
+    return (f.get("genislik") or 0) >= en_az_kaynak
+
+
 def boy_uret(klasor: pathlib.Path, genislik: int,
              kayit: Kayit | None = None,
-             en_cok: int | None = None) -> int:
+             en_cok: int | None = None,
+             en_az_kaynak: int = 0) -> int:
     """Havuzdaki Commons gorselleri icin 96 piksellik surum indirir.
 
     Commons'in olcekleme ucu kullaniliyor -- yerel bir goruntu
@@ -1525,6 +1552,29 @@ def boy_uret(klasor: pathlib.Path, genislik: int,
         for f in liste:
             ad = f["dosya"].rsplit("/", 1)[-1]
             if (klasor / ad).exists():
+                continue
+            # KAYNAK ZATEN KUCUKSE KOPYA URETME.
+            #
+            # Olculdu (2026-08-28): 800 piksellik boy eklendikten sonra
+            # uretilen 26 dosyanin bir kismi KOK DOSYAYLA BIREBIR AYNI
+            # boyuttaydi --
+            #
+            #     bankacilik-7.jpg  960px  195 KB -> 195 KB
+            #     borsa-8.jpg       960px  105 KB -> 105 KB
+            #     duzenleme-5.jpg   960px  179 KB -> 179 KB
+            #
+            # Commons olcekleme ucu yalnizca KUCULTUYOR; kaynak istenen
+            # genislige yakinsa ayni dosyayi veriyor. Sonuc: depoda iki
+            # kopya, okur icin sifir kazanc.
+            #
+            # Havuzun 209 gorseli 1000 pikselin altinda (cogu tam
+            # 960px). Onlar icin kopya uretmemek ~35 MB kazandiriyor.
+            # 960 piksellik bir kaynagi 800 piksellik yuvaya basmak
+            # zaten 1,2x -- kabul edilebilir.
+            #
+            # `k/` ve `o/` bu esikten ETKILENMIYOR (96 ve 400 piksel,
+            # her kaynaktan cok kucuk) -- varsayilan 0.
+            if not _boy_gerekli(f, en_az_kaynak):
                 continue
             kaynak = f.get("kaynak", "")
             baslik = _commons_basligi(kaynak)
@@ -1600,7 +1650,8 @@ def yazi_uret(kayit: Kayit | None = None, en_cok: int | None = None) -> int:
     Kok dosya 1600 piksel ve retina icin dogru; 1x ekranda ise dort
     kat fazla piksel demek. `srcset` ikisini birden veriyor.
     """
-    return boy_uret(YAZI_KLASOR, YAZI_GENISLIK, kayit, en_cok)
+    return boy_uret(YAZI_KLASOR, YAZI_GENISLIK, kayit, en_cok,
+                    en_az_kaynak=YAZI_EN_AZ_KAYNAK)
 
 
 def orta_uret(kayit: Kayit | None = None, en_cok: int | None = None) -> int:
