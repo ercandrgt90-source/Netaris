@@ -1220,6 +1220,38 @@ BILINEN_CIFT = {
     ".senaryo-cagri", ".ilgili-haber",
 }
 
+
+def cakisan_bildirimler(
+        bloklar: list[dict[str, str]]) -> dict[str, tuple[str, str]]:
+    """Ayni secicinin tanimlari arasinda GERCEKTEN carpisanlari verir.
+
+    Ayni seciciyi iki kez yazmak tek basina hata degil: farkli
+    ozellikler yaziyorlarsa birlesirler. Hata, AYNI ozelligin farkli
+    degerle iki kez yazilmasi -- o zaman sonraki kazanir ve onceki OLU
+    koddur. Tehlikesi de burada: olu blogu duzenleyen biri hicbir sey
+    degismedigini gorur.
+
+    AYRI FONKSIYON OLMASI BILEREK. Kural su an gercek `stil.css`te HIC
+    ateslemiyor (olculdu 2026-08-28: 39 tekrarli secici, 0 carpisma).
+    Yalnizca gercek dosyaya bakan bir sinama, kural tumuyle bozulsa
+    bile yesil donerdi -- bu oturumda "hicbir sey olcmeyen test"
+    tuzagina defalarca dusuldu. Buradan kurgu girdiyle sinaniyor.
+    """
+    carpisan: dict[str, tuple[str, str]] = {}
+    for a in range(len(bloklar)):
+        for b in range(a + 1, len(bloklar)):
+            for oz in set(bloklar[a]) & set(bloklar[b]):
+                onceki, sonraki = bloklar[a][oz], bloklar[b][oz]
+                if onceki == sonraki:
+                    continue
+                # `!important` SIRAYI TERSINE CEVIRIR: oncekinde varsa
+                # ve sonrakinde yoksa KAZANAN oncekidir, yani "onceki
+                # olu" demek YANLIS olurdu.
+                if "!important" in onceki and "!important" not in sonraki:
+                    continue
+                carpisan[oz] = (onceki, sonraki)
+    return carpisan
+
 #: CSS'te tanimli ama su anki gundemde UretILMEYEN siniflar. Silinmemeli:
 #: uretilebilir olduklari olculdu, yalnizca bugun o deger gelmedi.
 URETILEBILIR = {
@@ -1288,7 +1320,19 @@ def stil_denetimi() -> list[Bulgu]:
     c = re.sub(r"/\*.*?\*/", lambda m: re.sub(r"[^\n]", " ", m.group()),
                ham, flags=re.S)
 
+    def _bildirimler(govde: str) -> dict[str, str]:
+        """`ozellik: deger` ciftlerini cikarir."""
+        cikti: dict[str, str] = {}
+        for parca in govde.split(";"):
+            if ":" not in parca:
+                continue
+            ad, _, deger = parca.partition(":")
+            cikti[ad.strip()] = " ".join(deger.split())
+        return cikti
+
     kurallar: list[tuple[str, str]] = []          # (baglam, secici)
+    #: (baglam, secici) -> her tanimin bildirimleri, KAYNAK SIRASINDA.
+    govdeler: dict[tuple[str, str], list[dict[str, str]]] = {}
     baglam = ""
     d = i = sb = 0
     while i < len(c):
@@ -1307,6 +1351,8 @@ def stil_denetimi() -> list[Bulgu]:
                             break
                     k += 1
                 kurallar.append((baglam, s))
+                govdeler.setdefault((baglam, s), []).append(
+                    _bildirimler(c[i + 1:k]))
                 i = sb = k + 1
                 continue
         elif c[i] == "}":
@@ -1316,14 +1362,36 @@ def stil_denetimi() -> list[Bulgu]:
             sb = i + 1
         i += 1
 
+    # YALNIZCA GERCEK CAKISMA BILDIRILIYOR.
+    #
+    # Once ayni secicinin iki kez gecmesi tek basina uyari sayiliyordu.
+    # Olculdu (2026-08-28): dosyada 106 tekrarli secici var ve 83'u
+    # ZARARSIZ -- farkli ozellikler yaziyorlar, birlesiyorlar. Yani
+    # uyarilarin dortte ucu eylem gerektirmiyordu.
+    #
+    # Sonucu, kuralin islevsiz kalmasi: ayirt etmeyen bir uyari yigini
+    # icinde gercek olan da goze carpmiyor ve kimse hicbirine bakmiyor.
+    # Bu depoda oyle oldu; 35 uyari haftalarca durdu.
+    #
+    # Olcut artik AYNI OZELLIGIN FARKLI DEGERLE yazilmasi. O zaman
+    # sonraki kazanir ve onceki OLU koddur -- tehlikesi de burada:
+    # olu blogu duzenleyen biri hicbir sey degismedigini gorur.
     bulgu: list[Bulgu] = []
-    for (bg, sec), n in collections.Counter(kurallar).items():
-        if n > 1 and sec not in BILINEN_CIFT:
-            bulgu.append(Bulgu(
-                "uyari", "stil", sec[:40],
-                f"ayni blokta {n} kez tanimli"
-                f"{' (' + bg[:30] + ')' if bg else ''}"
-                " -- hangisi kazandigi belirsiz, cakisma olabilir"))
+    for (bg, sec), bloklar in govdeler.items():
+        if len(bloklar) < 2 or sec in BILINEN_CIFT:
+            continue
+        carpisan = cakisan_bildirimler(bloklar)
+        if not carpisan:
+            continue
+        adlar = ", ".join(sorted(carpisan)[:3])
+        if len(carpisan) > 3:
+            adlar += f" (+{len(carpisan) - 3})"
+        bulgu.append(Bulgu(
+            "uyari", "stil", sec[:40],
+            f"{len(bloklar)} kez tanimli"
+            f"{' (' + bg[:30] + ')' if bg else ''}"
+            f" -- ayni ozellik farkli degerle: {adlar};"
+            " oncekiler OLU"))
 
     tanimli = {a for _, s in kurallar
                for a in re.findall(r"\.([a-zA-Z][\w-]*)", s)}

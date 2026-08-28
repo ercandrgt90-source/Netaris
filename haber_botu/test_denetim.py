@@ -251,6 +251,44 @@ es("sayi olmayan giris degismez", denetim._sayi_anahtari("abc"), "abc")
 es("bos giris degismez", denetim._sayi_anahtari(""), "")
 
 print()
+print("\nCSS cakismasi: ayni ozellik farkli degerle")
+# --------------------------------------------------------------------
+# Eski kural "ayni secici iki kez gecti" demeyi yeterli sayiyordu ve
+# mesaji "hangisi kazandigi belirsiz, cakisma olabilir" idi.
+#
+# Olculdu (2026-08-28): dosyada 39 tekrarli secici var ve HICBIRINDE
+# ozellik carpismasi yok -- hepsi farkli ozellikler yazip birlesiyor.
+# Yani uyari 39 vakanin 39'unda YANLIS bilgi veriyordu. Otuz bes uyari
+# haftalarca durdu; ayirt etmeyen bir yigin icinde gercek olan da goze
+# carpmaz.
+#
+# Yeni kural gercek dosyada HIC ateslemiyor. Bu yuzden kurgu girdiyle
+# sinaniyor: yalnizca `stil.css`e bakan bir sinama, kural tumuyle
+# bozulsa bile yesil donerdi.
+# --------------------------------------------------------------------
+es("ayrisik ozellikler carpisma DEGIL",
+   denetim.cakisan_bildirimler([{"color": "red"}, {"margin": "0"}]), {})
+es("ayni ozellik ayni deger carpisma DEGIL",
+   denetim.cakisan_bildirimler([{"color": "red"}, {"color": "red"}]), {})
+es("ayni ozellik FARKLI deger carpismadir",
+   denetim.cakisan_bildirimler([{"color": "red"}, {"color": "blue"}]),
+   {"color": ("red", "blue")})
+es("uc tanimda da yakalaniyor",
+   sorted(denetim.cakisan_bildirimler(
+       [{"color": "red"}, {"margin": "0"}, {"color": "blue"}])),
+   ["color"])
+# `!important` SIRAYI TERSINE CEVIRIR: onceki kazanir, dolayisiyla
+# "onceki olu" demek yanlis olurdu.
+es("onceki !important ise carpisma bildirilmez",
+   denetim.cakisan_bildirimler(
+       [{"color": "red !important"}, {"color": "blue"}]), {})
+es("ikisi de !important ise carpisma bildirilir",
+   denetim.cakisan_bildirimler(
+       [{"color": "red !important"}, {"color": "blue !important"}]),
+   {"color": ("red !important", "blue !important")})
+es("tek tanim carpisamaz",
+   denetim.cakisan_bildirimler([{"color": "red"}]), {})
+
 print("\nHavuz dengesi boy turevlerini de sayiyor")
 # --------------------------------------------------------------------
 # Havuz kayitlari KOK yolu tutuyor (`/statik/foto/ad.jpg`) ama sayfa
