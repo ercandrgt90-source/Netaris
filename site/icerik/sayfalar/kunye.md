@@ -6,7 +6,7 @@ ozet: Yayın sahibi ve iletişim bilgileri.
 
 **Yayının adı:** Netaris
 **Yayın sahibi ve sorumlu kişi:** Necati Ercan Durgut
-**E-posta:** ercandrgt90@gmail.com
+**E-posta:** destek@netaris.net
 
 Düzeltme talepleri, hata bildirimleri ve genel iletişim için yukarıdaki adrese yazabilirsiniz. Düzeltme politikamız [yayın ilkeleri](/yayin-ilkeleri/) sayfasında açıklanmıştır.
 

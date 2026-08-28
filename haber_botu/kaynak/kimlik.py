@@ -37,9 +37,18 @@ gore degismiyor.
 
 from __future__ import annotations
 
-#: Ulasilabilir tek adres. netaris.net'te posta kutusu acilirsa
-#: `iletisim@netaris.net` olarak degistirilebilir -- tek yerden.
-ILETISIM = "ercandrgt90@gmail.com"
+#: Ulasilabilir tek adres.
+#:
+#: 2026-08-28'de kisisel Gmail'den alan adi adresine gecildi.
+#: Cloudflare Email Routing ile kuruldu ve ucundan uca dogrulandi:
+#: SPF `_spf.mx.cloudflare.net` iceriyor, uc MX kaydi yerinde, hedef
+#: adres `Verified` ve baska bir adresten atilan deneme Gmail'e dustu.
+#:
+#: Neden onemliydi: bu adres yalnizca kunyede degil, dis veri
+#: saglayicilarina giden User-Agent basliklarinda da geciyor. Kisisel
+#: bir adresi oraya koymak, sitenin kimligini bir kisinin ozel
+#: hesabina baglamak demekti.
+ILETISIM = "destek@netaris.net"
 
 #: Kendi alan adimiz. `netaris.com` DEGIL; bkz. site/insa.py TABAN_ADRES.
 ALAN_ADI = "netaris.net"
