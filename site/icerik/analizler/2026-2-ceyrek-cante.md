@@ -1,13 +1,13 @@
 ---
 slug: cante-2026-2-ceyrek
 baslik: ÇAN2 TERMİK A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %6,9 azalması net kârın -0,84 milyar TL'den +0,25 milyar TL'ye geçmesiyle birlikte net kâr marjının -%55,6'dan pozitif bir seviyeye yükselmesi, faaliyet nakit akışının -3,09 milyar TL'ye gerilemesiyle paralel bir likidite sıkışması yaratırken, özkaynakların 32,22 milyar TL'ye yükselmesi ak…
+ozet: Hasılatın 3,72 milyar TL'den 3,46 milyar TL'ye düşmesi, net kârın -0,84 milyar TL'den 0,25 milyar TL'ye geçmesiyle birlikte net kâr marjının -%55,6'dan pozitif bir seviyeye (sektör medyanı %11,4) yaklaşması, faaliyet nakit akışının -2,01 milyar TL'den -3,09 milyar TL'ye derinleşmesiyle paralel bir l…
 sirket: ÇAN2 TERMİK A.Ş.
 kod: CANTE
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Kamu hizmetleri
-tarih: 2026-08-28
+tarih: 2026-08-25
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %6,9 azalması net kârın -0,84 milyar TL'den +0,25 milyar TL'ye geçmesiyle birlikte net kâr marjının -%55,6'dan pozitif bir seviyeye yükselmesi, faaliyet nakit akışının -3,09 milyar TL'ye gerilemesiyle paralel bir likidite sıkışması yaratırken, özkaynakların 32,22 milyar TL'ye yükselmesi aktif toplamının 34,39 milyar TL'ye artması ve net borcun -1,47 milyar TL'ye (nakit fazlası) dönüşmesi, borç/özkaynak oranının -0,05'a ve cari oranın 3,01'e (sektör medyanının çok üzerinde) yükselmesine yol açtı.
+Hasılatın 3,72 milyar TL'den 3,46 milyar TL'ye düşmesi, net kârın -0,84 milyar TL'den 0,25 milyar TL'ye geçmesiyle birlikte net kâr marjının -%55,6'dan pozitif bir seviyeye (sektör medyanı %11,4) yaklaşması, faaliyet nakit akışının -2,01 milyar TL'den -3,09 milyar TL'ye derinleşmesiyle paralel bir likidite sıkıntısına işaret eder; bu süreçte özkaynakların 26,26 milyar TL'den 32,22 milyar TL'ye artması, aktif toplamının 30,36 milyar TL'den 34,39 milyar TL'ye yükselmesi ve net borcun -1,47 milyar TL'ye (nakit fazlası) dönüşmesi, cari oranı 0,90'dan 3,01'e yükselterek borç/özkaynak oranını -0,05'e (sektör medyanı 0,12) indirmiştir.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

@@ -1,13 +1,13 @@
 ---
 slug: ismen-2026-2-ceyrek
 baslik: İŞ YATIRIM MENKUL DEĞERLER A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat 1089,92 milyar TL'den 1098,21 milyar TL'ye yükselirken, faaliyet kârı 10,58 milyar TL'den 8,56 milyar TL'ye düşmüş, bu da net kârın 4,04 milyar TL'den 2,62 milyar TL'ye gerilemesine paralel bir azalmayı gösteriyor; özkaynak 29,68 milyar TL'den 41,78 milyar TL'ye artarken aktif toplamı 100,96…
+ozet: Hasılat hafif artarken faaliyet kârı ve net kârda belirgin düşüş görülmüş; bu kâr erozyonu, faaliyet nakit akışının -41,93 milyar TL'ye gerilemesiyle paralel bir likidite sıkışması yaratmış ve özkaynakların 41,78 milyar TL'ye yükselmesi, artan net borç (22,98 milyar TL) ile birlikte özkaynak kârlılı…
 sirket: İŞ YATIRIM MENKUL DEĞERLER A.Ş.
 kod: ISMEN
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Finans
-tarih: 2026-08-28
+tarih: 2026-08-23
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat 1089,92 milyar TL'den 1098,21 milyar TL'ye yükselirken, faaliyet kârı 10,58 milyar TL'den 8,56 milyar TL'ye düşmüş, bu da net kârın 4,04 milyar TL'den 2,62 milyar TL'ye gerilemesine paralel bir azalmayı gösteriyor; özkaynak 29,68 milyar TL'den 41,78 milyar TL'ye artarken aktif toplamı 100,96 milyar TL'den 173,91 milyar TL'ye yükselmiş, fakat net borç -9,29 milyar TL'den 22,98 milyar TL'ye geçerek borç/özkaynak oranını 0,55'e çıkarmış; faaliyet nakit akışı -8,93 milyar TL'den -41,93 milyar TL'ye derinleşmiş, yatırım harcaması ise aynı kalmış.
+Hasılat hafif artarken faaliyet kârı ve net kârda belirgin düşüş görülmüş; bu kâr erozyonu, faaliyet nakit akışının -41,93 milyar TL'ye gerilemesiyle paralel bir likidite sıkışması yaratmış ve özkaynakların 41,78 milyar TL'ye yükselmesi, artan net borç (22,98 milyar TL) ile birlikte özkaynak kârlılığının %4,1 seviyesine gerilemesine yol açmıştır. Aktif toplamının 173,91 milyar TL'ye çıkması, borç/özkaynak oranının %0,55'e (sektör medyanı -%0,06) yükselmesiyle özkaynak bazlı finansman yerine borçlanmanın daha fazla kullanılmaya başlandığını göstermektedir. Net kâr marjının %0,3 (sektör medyanı %15,9) seviyesinde kalması, kârın büyüyen gelir ve varlıklarla orantısız bir şekilde azalmasına işaret eder.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
@@ -54,9 +54,9 @@ Karşılaştırma Finans sektöründeki 30 şirketin **medyanına** göre yapıl
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Net kâr marjı | %0,3 | %14,7 |
+| Net kâr marjı | %0,3 | %15,9 |
 | Özkaynak kârlılığı | %4,1 | %4,5 |
-| Borç / özkaynak | 0,55 | -0,05 |
+| Borç / özkaynak | 0,55 | -0,06 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

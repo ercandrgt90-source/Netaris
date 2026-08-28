@@ -1,13 +1,13 @@
 ---
 slug: altny-2026-2-ceyrek
 baslik: ALTINAY SAVUNMA TEKNOLOJİLERİ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın düşmesi brüt kârı ve FAVÖK'ü de azaltmış; brüt kâr marjının %25,0 seviyesinde kalması ise brüt kârın hasılat düşüşüne rağmen oran olarak sektör medyanının (%20,9) üzeri kalmasını sağlamış.…
+ozet: Hasılatın düşmesi brüt kârı ve brüt kâr marjını da aşağı çekmiş; brüt kâr azalması ise faaliyet kârı ve FAVÖK'ün de önceki döneme göre daha düşük seviyelere gerilemesine yol açmıştır.…
 sirket: ALTINAY SAVUNMA TEKNOLOJİLERİ A.Ş.
 kod: ALTNY
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Sanayi
-tarih: 2026-08-28
+tarih: 2026-08-27
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın düşmesi brüt kârı ve FAVÖK'ü de azaltmış; brüt kâr marjının %25,0 seviyesinde kalması ise brüt kârın hasılat düşüşüne rağmen oran olarak sektör medyanının (%20,9) üzeri kalmasını sağlamış. Net kârın negatifleşmesi, faaliyet kârı ve FAVÖK'teki azalmaya paralel olarak net borcun artışı (%2,27 milyar) ve özkaynakların %5,89 milyar'a yükselmesiyle birlikte, özkaynak kârlılığının (%0,8) sektör medyanının (%0,3) üzerinde kalmasına rağmen cari oranın (1,20) sektör ortalamasının (1,32) altında kalmasına yol açmıştır. Faaliyet nakit akışının pozitif (+0,41 milyar) olması, yatırım harcamasının (%0,02 milyar) önceki döneme göre düşmesiyle birlikte, aktif toplamının (%12,32 milyar) ve özkaynakların artışı arasında bir denge oluşturmuştur.
+Hasılatın düşmesi brüt kârı ve brüt kâr marjını da aşağı çekmiş; brüt kâr azalması ise faaliyet kârı ve FAVÖK'ün de önceki döneme göre daha düşük seviyelere gerilemesine yol açmıştır. Net kârın negatifleşmesi özkaynak kârlılığının sadece %0,8 olmasına neden olurken, özkaynak ve aktif toplamındaki artış net borcun yükselmesine (2,27 milyar TL) ve borç/özkaynak oranının sektörel medyandan (%0,16) daha yüksek %0,38'e çıkmasına sebep olmuştur. Faaliyet nakit akışının pozitifleşmesi ise yatırım harcamasının (0,02 milyar TL) önceki döneme göre büyük ölçüde azalmasıyla birlikte gerçekleşmiştir.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

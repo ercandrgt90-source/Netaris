@@ -1,13 +1,13 @@
 ---
 slug: egegy-2026-2-ceyrek
 baslik: EGEYAPI AVRUPA GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %40,4 oranındaki brüt kâr marjıyla birlikte brüt kâr %1,12 milyar olarak artmış; bu artış faaliyet kârını %0,93 milyara ve aynı seviyede FAVÖK'e yükseltirken net kâr %0,71 milyara çıkmıştır.…
+ozet: Hasılatın %40,4 oranındaki brüt kâr marjı sektör medyanının (%51,4) altında kalmasına rağmen, brüt kârın %1,12 milyar TL'ye yükselmesi net kâr marjının %16,1'e (sektör medyanı %14,3) çıkmasını ve özkaynak kârlılığının %5,6'ya (sektör medyanı %0,4) yükselmesini destekledi; bu artışlar özkaynakların 2…
 sirket: EGEYAPI AVRUPA GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: EGEGY
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-28
+tarih: 2026-08-27
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %40,4 oranındaki brüt kâr marjıyla birlikte brüt kâr %1,12 milyar olarak artmış; bu artış faaliyet kârını %0,93 milyara ve aynı seviyede FAVÖK'e yükseltirken net kâr %0,71 milyara çıkmıştır. Özkaynakların %5,6 oranındaki kârlılığı, net kâr marjının %16,1 olmasıyla birlikte, özkaynakların %2,67 milyara yükselmesi ve net borcun %0,40 milyara (önceki dönemde negatif) geçmesi, cari oranı 1,33'e ve borç/özkaynak oranını %0,15'e (sektör medyanının çok altında) çekmiştir. Aktif toplamı hafifçe %7,42 milyara gerilemişken, faaliyet nakit akışı negatiften %-0,20 milyara iyileşmiş, yatırım harcaması ise değişmemiştir.
+Hasılatın %40,4 oranındaki brüt kâr marjı sektör medyanının (%51,4) altında kalmasına rağmen, brüt kârın %1,12 milyar TL'ye yükselmesi net kâr marjının %16,1'e (sektör medyanı %14,3) çıkmasını ve özkaynak kârlılığının %5,6'ya (sektör medyanı %0,4) yükselmesini destekledi; bu artışlar özkaynakların 2,67 milyar TL'ye (önceki dönem 1,11 milyar TL) ve net borcun 0,40 milyar TL'ye (önceki dönem -0,23 milyar TL) yükselmesiyle birlikte, cari oranın 1,33'e (sektör medyanı 5,25) gerilemesine ve borç/özkaynak oranının 0,15'e (sektör medyanı 0,02) yükselmesine yol açtı.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

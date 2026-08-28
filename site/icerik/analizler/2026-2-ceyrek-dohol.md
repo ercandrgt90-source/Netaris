@@ -1,13 +1,13 @@
 ---
 slug: dohol-2026-2-ceyrek
 baslik: DOĞAN ŞİRKETLER GRUBU HOLDİNG A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın düşmesine rağmen brüt kâr, faaliyet kârı, FAVÖK ve net kârda artış görülmüş; bu durum maliyet ve giderlerdeki azalma ya da verimlilik artışıyla brüt kâr marjının %20,9 seviyesinde sabit kalmasını açıklıyor.…
+ozet: Hasılatın düşmesine rağmen brüt kâr, faaliyet kârı, FAVÖK ve net kârda artış görülmüş; bu, maliyet ve giderlerdeki iyileşmenin kâr kalemlerini yukarı çektiğini gösteriyor.…
 sirket: DOĞAN ŞİRKETLER GRUBU HOLDİNG A.Ş.
 kod: DOHOL
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Sanayi
-tarih: 2026-08-28
+tarih: 2026-08-27
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın düşmesine rağmen brüt kâr, faaliyet kârı, FAVÖK ve net kârda artış görülmüş; bu durum maliyet ve giderlerdeki azalma ya da verimlilik artışıyla brüt kâr marjının %20,9 seviyesinde sabit kalmasını açıklıyor. Özkaynak ve aktif toplamının yükselmesi, net borcun -45,43 milyar TL olarak daha da negatifleşmesiyle birlikte özkaynak kârlılığı %2,9'a ve cari oranın 1,59'a yükselmesine, yani likidite ve özkaynak dayanıklılığının iyileşmesine yol açtı. Yatırım harcamasının azalması (1,51 milyar TL) faaliyet nakit akışının 8,13 milyar TL'ye çıkmasıyla birlikte, şirketin nakit üretim kapasitesinin artışını ve sermaye harcamalarındaki tasarrufu destekledi.
+Hasılatın düşmesine rağmen brüt kâr, faaliyet kârı, FAVÖK ve net kârda artış görülmüş; bu, maliyet ve giderlerdeki iyileşmenin kâr kalemlerini yukarı çektiğini gösteriyor. Özkaynak ve aktif toplamının artışı, net borcun daha da negatif (nakit fazlası) hâle gelmesiyle birlikte cari oranı %1,59'a, borç/özkaynak oranını –%0,40'a yükseltmiş, bu da likidite ve finansal yapıdaki güçlenmenin kâr marjları ve özkaynak kârlılığı (%2,9) üzerindeki olumlu etkisini yansıtıyor. Brüt kâr marjı (%20,9) sektör medyanıyla eşit kalırken, net kâr marjı (%12,6) ve özkaynak kârlılığı (%2,9) medyanların çok üzerinde seyrederek kâr dağılımının verimliliğinin artığını ortaya koyuyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

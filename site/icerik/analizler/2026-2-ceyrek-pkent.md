@@ -1,13 +1,13 @@
 ---
 slug: pkent-2026-2-ceyrek
 baslik: PETROKENT TURİZM A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat aynı kalırken brüt kâr, faaliyet kârı, FAVÖK ve net kâr tümü negatiften daha negatif bir seviyeye kaymış; bu düşüş, maliyet ve giderlerin hasılat artışından daha hızlı artmasıyla brüt kâr marjının %-24,7'ye (sektör medyanı %16,0) gerilemesine yol açmıştır.…
+ozet: Hasılat aynı kalırken brüt kâr, faaliyet kârı, FAVÖK ve net kâr tümü negatiften daha da derinleşmiş; bu düşüşler özkaynak artışı (1,54 milyar TL) ve aktif toplamının (2,35 milyar TL) yükselmesiyle birlikte, net borcun (-0,46 milyar TL) daha da negatifleşmesi, şirketin borçlanmadan özkaynakla büyüdüğ…
 sirket: PETROKENT TURİZM A.Ş.
 kod: PKENT
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: İsteğe bağlı tüketim
-tarih: 2026-08-28
+tarih: 2026-08-26
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat aynı kalırken brüt kâr, faaliyet kârı, FAVÖK ve net kâr tümü negatiften daha negatif bir seviyeye kaymış; bu düşüş, maliyet ve giderlerin hasılat artışından daha hızlı artmasıyla brüt kâr marjının %-24,7'ye (sektör medyanı %16,0) gerilemesine yol açmıştır. Özkaynak 1,54 milyar TL'ye (önceki 1,07 milyar TL) yükselmiş, aktif toplamı da 2,35 milyar TL'ye (önceki 1,64 milyar TL) artmış; aynı zamanda net borç –0,46 milyar TL (önceki –0,27 milyar TL) olarak negatif kalmış, bu da borç/özkaynak oranının –0,30'dan (sektör medyanı 0,13) daha düşük olmasını sağlamış. Faaliyet nakit akışı –0,01 milyar TL'ye (önceki 0,10 milyar TL) düşmüş, bu da cari oranın 1,25 (sektör medyanı 1,29) seviyesinde hafif bir gerilemeye işaret ediyor.
+Hasılat aynı kalırken brüt kâr, faaliyet kârı, FAVÖK ve net kâr tümü negatiften daha da derinleşmiş; bu düşüşler özkaynak artışı (1,54 milyar TL) ve aktif toplamının (2,35 milyar TL) yükselmesiyle birlikte, net borcun (-0,46 milyar TL) daha da negatifleşmesi, şirketin borçlanmadan özkaynakla büyüdüğünü gösteriyor. Brüt kâr marjı (-%24,7) ve net kâr marjı (-%21,2) sektör medyanının çok altında kalırken, özkaynak kârlılığı (-%4,0) da negatif seyrediyor; bu durum kârlılık kaybının marjların ve özkaynak getirilerinin aynı yönde gerilemesiyle paralel olduğunu gösteriyor. Cari oran (1,25) ve borç/özkaynak oranı (-0,30) ise sektör medyanına yakın veya daha düşük bir borç seviyesini işaret ederken, faaliyet nakit akışının (-0,01 milyar TL) önceki dönemdeki pozitif akıştan (0,10 milyar TL) gerilemesi, kârlılık düşüşünün likidite üzerindeki olumsuz etkisini yansıtıyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
