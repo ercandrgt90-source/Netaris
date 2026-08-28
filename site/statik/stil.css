@@ -672,27 +672,7 @@ main.kabuk {
   border-radius: var(--r);
   box-shadow: var(--golge);
   margin: var(--b-7) 0;
-  overflow: hidden}
-
-.panel-ust {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: var(--b-3);
-  flex-wrap: wrap;
-  padding: var(--b-4) var(--b-4b);
-  border-bottom: 1px solid var(--cizgi);
-  background: var(--panel-2)}
-
-.panel-ust h2 {
-  margin: 0;
-  font-size: var(--p-s);
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--yazi-2)}
-
-/* Terminal hissi: satirlar dar, sayilar sabit genislikte ve saga dayali */
+  overflow: hidden}/* Terminal hissi: satirlar dar, sayilar sabit genislikte ve saga dayali */
 .panel-satir {
   display: grid;
   grid-template-columns: 1fr auto auto;
@@ -2359,6 +2339,18 @@ main.kabuk {
   color: var(--yazi-3)}
 .alt-yasal strong { color: var(--uyari)}
 
+/* SAYFA ICINDEKI yasal not -- alt bilgideki ile AYNI AGIRLIKTA.
+   Olculdu (2026-08-28): `olay.html` "Yatırım tavsiyesi değildir"
+   cumlesini `class="yasal-not"` ile basiyordu ama o sinifin CSS
+   karsiligi YOKTU; not govde metniyle ayni boyda ve ayni renkte
+   cikiyordu. Ayni ibare alt bilgide kucuk ve soluk, sayfa ortasinda
+   tam agirlikta gorununce okur hangisinin gecerli oldugunu sorar.
+   Alt bilgiden tek farki kendi ust bosluguna ihtiyaci olmasi. */
+.yasal-not {
+  margin: var(--b-5) 0 0;
+  font-size: var(--p-s);
+  color: var(--yazi-3)}
+
 .alt nav {
   display: flex;
   align-items: center;
@@ -2710,15 +2702,7 @@ main.kabuk {
   background: var(--panel-2)}
 .uyelik-not h2 { margin: 0 0 var(--b-2); font-size: var(--p-m)}
 .uyelik-not ul { margin: 0; padding: 18px}
-.uyelik-not li { font-size: var(--p-m); color: var(--yazi-2); margin: var(--b-1) 0; line-height: 1.55}
-
-/* --- panel --- */
-
-.panel-ust-cubuk {
-  display: flex; align-items: flex-start; justify-content: space-between;
-  gap: var(--b-4); flex-wrap: wrap; margin: var(--b-4b) 0}
-.panel-ust-cubuk h1 { margin: 0 0 var(--b-1); font-size: 1.6rem; letter-spacing: -0.02em}
-.panel-eylem { display: flex; gap: var(--b-2); flex-wrap: wrap; align-items: center}
+.uyelik-not li { font-size: var(--p-m); color: var(--yazi-2); margin: var(--b-1) 0; line-height: 1.55}.panel-eylem { display: flex; gap: var(--b-2); flex-wrap: wrap; align-items: center}
 
 /* --- KARSILAMA KARTI ------------------------------------------------
    Panelin ilk ekrani "Panel" basligi ve iki dugmeden ibaretti. Koyu
@@ -2883,16 +2867,7 @@ main.kabuk {
   display: grid; gap: var(--b-3);
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr))}
 .hesap-kart p { margin: 4px 0 0}
-.hesap-kart .panel-satir-ust b { overflow-wrap: anywhere}
-
-/* Uye durum rozetleri. Yesil/kirmizi BURADA yon degil DURUM
-   anlatiyor; serit ve kartlardaki fiyat rengi kuraliyla karismiyor
-   cunku baglam tumuyle ayri (yonetim ekrani). */
-.durum-etkin { background: var(--artis-zar); color: var(--artis)}
-.durum-beklemede { background: var(--uyari-zar); color: var(--uyari)}
-.durum-askida { background: var(--azalis-zar); color: var(--azalis)}
-
-/* --- BEGENDIKLERIM: akis karti --------------------------------------
+.hesap-kart .panel-satir-ust b { overflow-wrap: anywhere}/* --- BEGENDIKLERIM: akis karti --------------------------------------
    Once yalnizca baslik ve ham tarih ("2026-08-24") basiliyordu. Simdi
    her satir bir kart: bolum rozeti, baslik, begenme tarihi ve
    ETKILESIM SATIRI.
@@ -3034,9 +3009,7 @@ main.kabuk {
 .yazi-form textarea[name="govde"] { font-family: ui-monospace, SFMono-Regular, Menlo, monospace}
 
 @media (max-width: 640px) {
-  .uyelik-kutu { padding: var(--b-4b) var(--b-4); }
-  .panel-ust-cubuk { flex-direction: column; }
-}
+  .uyelik-kutu { padding: var(--b-4b) var(--b-4); }}
 
 
 /* ==================================================================
@@ -3536,12 +3509,7 @@ table td, table th, time, .tarih {
   border-radius: var(--r);
   background: var(--vurgu-zar)}
 .ai-sonuc h2 { margin: 0 0 var(--b-2); font-size: 0.95rem; color: var(--vurgu)}
-.ai-metin { margin: 0 0 10px; line-height: 1.65; color: var(--yazi)}
-.ai-not {
-  margin: 0; font-size: var(--p-xs); line-height: 1.5; color: var(--yazi-3)}
-.ai-not b { color: var(--yazi-2)}
-
-/* ================================================================
+.ai-metin { margin: 0 0 10px; line-height: 1.65; color: var(--yazi)}/* ================================================================
    URETIM ZINCIRI BANTLARI
    ================================================================
 
@@ -4926,16 +4894,7 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none}
    yoksa kosullu bir degerlendirmeyi bildirim gibi okur.
    ================================================================== */
 
-.senaryo-sayfa { max-width: var(--olcu); margin: 0 auto; padding: var(--b-7) 0}
-
-.senaryo-tur {
-  font-size: var(--p-xs);
-  font-weight: 700;
-  letter-spacing: .12em;
-  color: var(--vurgu);
-  margin: 0 0 var(--b-2)}
-
-.senaryo-sayfa h1 {
+.senaryo-sayfa { max-width: var(--olcu); margin: 0 auto; padding: var(--b-7) 0}.senaryo-sayfa h1 {
   font-size: var(--p-3xl);
   line-height: var(--satir-sik);
   margin: 0 0 var(--b-3)}
@@ -5075,30 +5034,7 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none}
   color: var(--yazi-3);
   margin: 0 0 var(--b-5)}
 
-.paylas-dugmeler { display: flex; flex-wrap: wrap; gap: var(--b-2)}
-
-.paylas-buton {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--b-2);
-  font-size: var(--p-m);
-  font-weight: 600;
-  font-family: inherit;
-  text-decoration: none;
-  color: var(--yazi);
-  background: var(--zemin);
-  border: 1px solid var(--cizgi);
-  border-radius: var(--r-kucuk);
-  padding: var(--b-3) var(--b-4);
-  cursor: pointer;
-  transition: border-color var(--sure-hizli), transform var(--sure-hizli)}
-
-.paylas-buton:hover,
-.paylas-buton:focus-visible {
-  border-color: var(--vurgu);
-  transform: translateY(-1px)}
-
-.paylas-tamam { border-color: var(--vurgu); color: var(--vurgu)}
+.paylas-dugmeler { display: flex; flex-wrap: wrap; gap: var(--b-2)}.paylas-tamam { border-color: var(--vurgu); color: var(--vurgu)}
 
 /* TOAST -- ekranin altinda, icerigi ORTMEDEN. */
 .paylas-toast {
@@ -5118,12 +5054,7 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none}
 
 .paylas-toast.gorunur { opacity: 1; transform: translate(-50%, 0)}
 
-@media (prefers-reduced-motion: reduce) {
-  .paylas-buton,
-  .paylas-toast { transition: none; }
-  .paylas-buton:hover,
-  .paylas-buton:focus-visible { transform: none; }
-  .paylas-toast { transform: translate(-50%, 0); }
+@media (prefers-reduced-motion: reduce) {.paylas-toast{ transition: none; }  .paylas-toast { transform: translate(-50%, 0); }
 }
 
 /* ====================================================================
@@ -5178,9 +5109,7 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none}
   .uyelik-form .dugme,
   .google-dugme { width: 100%; }
 
-  .paylas-dugmeler { flex-direction: column; }
-  .paylas-buton { width: 100%; justify-content: center; }
-}
+  .paylas-dugmeler { flex-direction: column; }}
 
 /* ====================================================================
    HABER SAYFASI  --  ROL HIYERARSISI
@@ -5664,11 +5593,7 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
     -webkit-box-orient: vertical;
     overflow: hidden;
     margin-bottom: var(--b-4);
-  }
-
-  /* Marka satiri kucuk: baslik zaten NETARIS diyor. */
-  .hero-dar .ust-satir,
-  .hero-marka { font-size: var(--p-xs); }
+  }.hero-dar .ust-satir{ font-size: var(--p-xs); }
 
   /* Hero dugmeleri iki satira sigsin, dordu birden degil.
      En cok kullanilan ikisi onde. */
@@ -6272,10 +6197,7 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
 
   /* AI yorumu haber govdesinden AYRI dursun; dar ekranda ikisi
      birbirine karisiyordu. */
-  .ai-metin { font-size: 1rem; line-height: 1.6; }
-  .ai-not { font-size: 0.8125rem; }
-
-  /* Asama numaralari ve etiketler kucuk kalsin. */
+  .ai-metin { font-size: 1rem; line-height: 1.6; }  /* Asama numaralari ve etiketler kucuk kalsin. */
   .asama-no { width: 26px; height: 26px; font-size: 0.75rem; }
   .asama-ad { font-size: 0.9375rem; }
 
@@ -6624,22 +6546,7 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
                 stroke-linejoin: round; stroke-linecap: round;
                 vector-effect: non-scaling-stroke}
 .grafik-alan  { fill: var(--vurgu); opacity: .10}
-.grafik-son   { fill: var(--vurgu)}
-
-/* YON RENGI ANLAMLI. Yukselen ve dusen seri ayni renkte olsaydi
-   grafigin ilk bakista soyledigi tek sey "bir seri var" olurdu.
-
-   JETON ADLARINI UYDURMUSTUM: --yukselis / --dusus / --yazi-soluk
-   diye yazdim, uculu de TANIMLI DEGILDI. Tanimsiz bir var()
-   bildirimi gecersiz kiliyor, yani yon renkleri HIC calismiyordu
-   -- ve tarayici hata vermedigi icin sayfada da belli olmuyordu.
-   Dogrulari: --artis / --azalis / --yazi-3. Jeton denetimi
-   (denetim.py) yakaladi; tam bunun icin yazilmisti. */
-.grafik-yukselis .grafik-cizgi,
-.grafik-yukselis .grafik-son   { stroke: var(--artis); fill: var(--artis)}
-.grafik-yukselis .grafik-cizgi { fill: none}
-.grafik-yukselis .grafik-alan  { fill: var(--artis)}
-.grafik-dusus .grafik-cizgi,
+.grafik-son   { fill: var(--vurgu)}.grafik-dusus .grafik-cizgi,
 .grafik-dusus .grafik-son      { stroke: var(--azalis); fill: var(--azalis)}
 .grafik-dusus .grafik-cizgi    { fill: none}
 .grafik-dusus .grafik-alan     { fill: var(--azalis)}
@@ -6998,16 +6905,7 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
   padding-left: var(--b-3);
   border-left: 2px solid var(--vurgu);
   line-height: 1.5}
-.birincil-kaynak a { color: var(--vurgu); font-weight: 650}
-
-/* SIFIR DEGISIM NOTR RENKTE.
-   Once `fark >= 0` ile ikiye ayriliyordu ve degismemiş gosterge YESIL
-   goruyordu -- yesil "yukseldi" demek, yani gorunmeyen bir yon iddiasi.
-   Ucuncu durum notr: deger duruyor ama vurgulanmiyor. */
-.tr-degisim.degismedi,
-.piyasa-gun.degismedi,
-.ema-fark.degismedi,
-.kivilcim-degismedi {
+.birincil-kaynak a { color: var(--vurgu); font-weight: 650}.tr-degisim.degismedi, .piyasa-gun.degismedi, .ema-fark.degismedi{
   color: var(--yazi-3);
 }
 
@@ -7156,16 +7054,7 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
 @media (max-width: 640px) {
   .senaryo-davet { padding: var(--b-4) var(--b-3); }
   .senaryo-davet-ikincil { display: block; margin: var(--b-3) 0 0; }
-}
-
-/* Telegram ve WhatsApp -- mobilde en cok kullanilan iki paylasim
-   kanali. Marka renkleri kullanilmiyor: bes farkli marka rengi yan
-   yana, sayfanin kendi rengini bogar. Hepsi ayni notr kabukta duruyor
-   ve ayrimi METIN yapiyor. */
-.paylas-tg,
-.paylas-wa { }
-
-/* SENARYO SAYFASINDA OY VE DAVET.
+}/* SENARYO SAYFASINDA OY VE DAVET.
    Sayfa oy SAYISINI gosteriyordu ama dugme yoktu; okuyan katkida
    bulunamiyordu. Davet blogu da dongunun kapanis halkasi: okur bir
    paylasimdan geliyor, okuyor, kendi senaryosunu yazabilmeli. */
@@ -7425,15 +7314,7 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
 .senaryo-yazar-ad span {
   font-size: var(--p-s);
   color: var(--yazi-3);
-}
-
-/* Sonuclanma rozeti -- yon renkleri sitenin geri kalaniyla AYNI
-   anlamda. */
-.rozet-gerceklesti   { background: var(--artis-zar); color: var(--artis); }
-.rozet-gerceklesmedi { background: var(--azalis-zar); color: var(--azalis); }
-.rozet-belirsiz      { color: var(--yazi-3); }
-
-/* --- Vurgu rengi karsilastirmasi (tasarim sayfasi) ----------------
+}/* --- Vurgu rengi karsilastirmasi (tasarim sayfasi) ----------------
  * Iki secenegi GERCEK BILESENLERLE yan yana koyuyor. Renk tek basina
  * degil, kullanildigi yerde degerlendirilir: palet karti "iki mavi
  * ton" der, dugme ve rozet uzerinde fark gorunur olur.

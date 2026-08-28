@@ -185,7 +185,14 @@
 
   {# --- KATMAN 2: SECIM ------------------------------------------ #}
   <section class="masa-ana modul" aria-label="Bugünün önemli gelişmeleri">
-    <div class="bolum-bas modul-bas-uyum">
+    {# `modul-bas-uyum` KALDIRILDI (2026-08-28): hicbir CSS kurali yoktu,
+       yani hicbir sey yapmiyordu. Isi `.modul > .bolum-bas` yapiyor ve
+       stil.css'teki notu neden modifier sinifi KULLANILMADIGINI zaten
+       anlatiyor: "ayni yapinin iki adi olmasi, sonradan birini
+       degistirip digerini unutmaya yol acar." Sinif o gecisten kalmis
+       olu bir isaretti ve bakan birine hizalamanin orada cozuldugunu
+       dusundururdu. #}
+    <div class="bolum-bas">
       <div>
         <h2>Bugünün önemli gelişmeleri</h2>
         <span class="bolum-not">Gün içinde düşen haberlerden seçildi</span>

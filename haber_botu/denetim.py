@@ -1267,6 +1267,26 @@ URETILEBILIR = {
     "tur-sirket", "tur-duzenleme", "tur-sektor", "tur-haber",
     # TAKVIM_ONEM_ESIGI=2 suzuyor; esik bir ayar
     "onem-1", "onem-2", "onem-3",
+    # `class="... akis-{{ h.katman | default('akis') }}"` (anasayfa.html)
+    #
+    # Gecerli kume `onem.py`de: kritik / onemli / normal, artı sablonun
+    # varsayilani `akis`. AILENIN TAMAMI yaziliyor, bugun basilmayan
+    # tek uye degil -- `tur-*`ta ogrenilen kural: liste veriye gore
+    # degil KAYNAGA gore olmali, yoksa her gun baska bir uye uyari
+    # uretir.
+    "akis-kritik", "akis-onemli", "akis-normal", "akis-akis",
+    # `class="takvim-surpriz surpriz-{{ k.surpriz.yon }}"` (_takvim.html)
+    #
+    # `yon` uc deger aliyor: ust / alt / tam (bkz. test_takvim_
+    # gerceklesen). Yalnizca `tam` biciimlendiriliyor ve bu BILEREK:
+    # yon zaten "beklentinin X puan üzerinde/altında" diye YAZIYLA
+    # soyleniyor, ayrica renk vermek okura ogretilmesi gereken ikinci
+    # bir dil olurdu. `tam` italik cunku farkli TURDE bir ifade:
+    # "beklentiyle aynı".
+    #
+    # Rozet yalnizca gercek konsensus varken basiliyor, dolayisiyla
+    # cogu gun hic gorunmuyor.
+    "surpriz-tam",
 }
 
 
@@ -1286,6 +1306,14 @@ KANCA = {
     # ayriliyor. Isim, ileride kapsamli bir kural gerekirse dursun diye.
     "takvim-dal-ustunde": "bilerek renksiz -- yargi bildirmemek icin",
     "takvim-dal-altinda": "bilerek renksiz -- yargi bildirmemek icin",
+    # Asagidaki uc ad BICIM ICIN DEGIL. Beyaz listeye alinmalari
+    # "bicimi unuttuk" degil "bicim gerekmiyor" demek; gerekcesi
+    # yaninda duruyor ki ileride biri bunu bicim eksigi sanmasin.
+    "sp-kopya": "JS secicisi -- `paylas.js` `.sp-kopya[hidden]` ariyor",
+    "tradingview-widget-container":
+        "TradingView'in kendi adi; bicimini onlarin betigi veriyor",
+    "ag-ad": "alt gezinmede etiket metni; boyut ve renk `a`dan geliyor "
+             "(kardesi `.ag-simge` yalnizca simge boyu icin var)",
 }
 
 
