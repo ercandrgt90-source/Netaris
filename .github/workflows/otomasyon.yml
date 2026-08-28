@@ -411,6 +411,44 @@ jobs:
           # `git add` YALNIZCA veri yollarini asamaya alir ve commit
           # yalnizca onlari icerir. Calisma dizini yine korunuyor.
           git fetch origin "${GITHUB_REF_NAME}"
+
+          # BASKASININ BILEREK SILDIGINI DIRILTME.
+          #
+          # `--ignore-removal` bir yonu koruyor (baskasinin dosyasini
+          # SILMIYORUZ) ama tersini acik birakiyordu: baskasinin
+          # SILDIGINI geri ekliyordu.
+          #
+          # Olculdu (2026-08-28):
+          #   14:44  bilanco kosusu `2026-6-garfa.md` ve
+          #          `2026-6-yggyo.md`yi sildi (ceyrekligi uretildi)
+          #   14:45  otomasyon kosusu IKISINI DE geri ekledi   A
+          #
+          # Sebep: otomasyon 14:30'da checkout almisti, dosyalar onun
+          # calisma agacinda duruyordu. `reset` indeksi uzak uca
+          # esitliyor, sonra `--ignore-removal` o dosyalari YENI sanip
+          # asamaya aliyor. Yani silme yalnizca bir sonraki es zamanli
+          # kosuya kadar yasiyor -- 63 sayfalik gecis boyunca her
+          # seferinde geri gelirdi.
+          #
+          # Kural: kosunun checkout'undan BU YANA uzak ucta silinmis
+          # dosya, calisma agacindan da dusurulur.
+          #
+          # SART: yalnizca BU KOSUNUN DOKUNMADIGI dosyalar. Kosu ayni
+          # dosyayi yeniden urettiyse iceriği daha tazedir ve
+          # korunmali; `git diff --quiet` tam bunu soruyor.
+          UST_SILINEN=$(git diff --diff-filter=D --name-only \
+            "${GITHUB_SHA}" "origin/${GITHUB_REF_NAME}" -- $YOLLAR \
+            2>/dev/null || true)
+          for y in $UST_SILINEN; do
+            [ -e "$y" ] || continue
+            if git diff --quiet "${GITHUB_SHA}" -- "$y" 2>/dev/null; then
+              rm -f "$y"
+              echo "uzak ucta silinmis, diriltilmedi: $y"
+            else
+              echo "uzak ucta silinmis AMA bu kosu yeniden uretti: $y"
+            fi
+          done
+
           git reset "origin/${GITHUB_REF_NAME}"
 
           # `-A` DEGIL `--ignore-removal` ve sebebi olculdu.

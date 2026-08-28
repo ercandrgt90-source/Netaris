@@ -351,6 +351,44 @@ if _temizlik:
 #      * `bilanco.yml`    adimin kendisini kosula bagliyor (`if:`)
 #    Ikisi ayni karari veriyor, dolayisiyla ayni kurala tabi. Yalnizca
 #    birine bakan bir sinama, hatanin digerine kacmasina izin verirdi.
+# --------------------------------------------------------------------
+# 10. GERI YAZMA, BASKASININ BILEREK SILDIGINI DIRILTMEMELI.
+#
+#     `--ignore-removal` bir yonu koruyor -- baskasinin dosyasini
+#     SILMIYORUZ -- ama tersi acikti: baskasinin SILDIGINI geri
+#     ekliyordu.
+#
+#     Olculdu (2026-08-28), ayni dakikalar icinde:
+#       14:44  bilanco kosusu `2026-6-garfa.md` ve `2026-6-yggyo.md`yi
+#              sildi -- ceyreklikleri uretilmisti
+#       14:45  otomasyon kosusu IKISINI DE geri ekledi (A)
+#
+#     Otomasyon 14:30'da checkout almisti ve dosyalar onun calisma
+#     agacinda duruyordu; `reset` indeksi uzak uca esitleyince
+#     `--ignore-removal` onlari YENI sanip asamaya aldi.
+#
+#     Sonucu tek bir commit degil: silme yalnizca bir sonraki es
+#     zamanli kosuya kadar yasiyor. 63 sayfalik kumulatif gecis boyunca
+#     her sayfa, her seferinde geri gelirdi -- ve hicbir kosu kirmizi
+#     donmezdi.
+#
+#     KURAL: `--ignore-removal` kullanan her geri yazma, checkout'tan
+#     bu yana uzak ucta silinen dosyalari calisma agacindan dusurmeli.
+# --------------------------------------------------------------------
+for p_ in dosyalar:
+    kod = _kod(p_.read_text(encoding="utf-8"))
+    if "--ignore-removal" not in kod:
+        continue
+    # ACIKLAMALAR ATILIYOR: adimlarin notlari `diff-filter=D` ifadesini
+    # ANLATMAK icin yaziyor. Yasakladigi -- ya da zorunlu kildigi --
+    # metni aciklayan bir not, kuralin karsilanmasi sayilamaz.
+    dogru(f"{p_.name} uzak ucta silineni diriltmiyor",
+          "--diff-filter=D" in kod and "GITHUB_SHA" in kod)
+    # Bu kosunun YENIDEN URETTIGI dosya korunmali: silinmis olmasi,
+    # taze icerigin atilmasi anlamina gelmemeli.
+    dogru(f"{p_.name} bu kosunun urettigini koruyor",
+          "git diff --quiet" in kod)
+
 _KAPI = re.compile(r"\$\{\{([^{}]*--yayinla[^{}]*)\}\}")
 for p_ in dosyalar:
     ham = p_.read_text(encoding="utf-8")

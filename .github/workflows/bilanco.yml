@@ -291,6 +291,28 @@ jobs:
           # yeniden denemenin ilk denemeden AYRISAMAMASINI garanti
           # ediyor.
           asamala() {
+            # BASKASININ BILEREK SILDIGINI DIRILTME.
+            #
+            # `--ignore-removal` baskasinin dosyasini SILMIYOR ama
+            # tersini acik birakiyordu: baskasinin SILDIGINI geri
+            # ekliyordu. Olculdu (2026-08-28): bilanco kosusu 14:44'te
+            # iki kumulatif sayfayi sildi, otomasyon kosusu 14:45'te
+            # ikisini de geri ekledi -- cunku 14:30'daki checkout'unda
+            # duruyorlardi.
+            #
+            # Kural: checkout'tan BU YANA uzak ucta silinmis dosya
+            # calisma agacindan da dusurulur. SART: yalnizca bu kosunun
+            # DOKUNMADIGI dosyalar; yeniden uretilmis olan daha tazedir.
+            for y in $(git diff --diff-filter=D --name-only \
+                       "${GITHUB_SHA}" "origin/${GITHUB_REF_NAME}" \
+                       -- $YOLLAR 2>/dev/null || true); do
+              [ -e "$y" ] || continue
+              if git diff --quiet "${GITHUB_SHA}" -- "$y" 2>/dev/null; then
+                rm -f "$y"
+                echo "uzak ucta silinmis, diriltilmedi: $y"
+              fi
+            done
+
             # Yeni ve degismis dosyalar: DAR yetki, silmeler haric.
             git add --ignore-removal $YOLLAR
 
