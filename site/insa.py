@@ -1997,7 +1997,9 @@ def yaz(goreli: str, icerik: str) -> pathlib.Path:
 
 
 def arama_dizini(analizler: list[Analiz],
-                 haberler: list[dict] | None = None) -> str:
+                 haberler: list[dict] | None = None,
+                 sayfalar: list | None = None,
+                 hakkimizda=None) -> str:
     """Istemci tarafi arama icin dizin.
 
     Sunucusuz bir sitede arama iki yolla yapilir: ucuncu parti arama
@@ -2065,6 +2067,37 @@ def arama_dizini(analizler: list[Analiz],
             "t": h.get("tarih_gorunur") or h.get("tarih", ""),
             # Kurum aranabilir olmali ama kartta gorunmuyor: ayri alan.
             "kr": h.get("kurum", ""),
+        })
+    # SABIT SAYFALAR DA DIZINE GIRIYOR -- girmiyorlardi.
+    #
+    # Olculdu (2026-08-28): dizinde 1.484 kayit vardi; 214 arastirma,
+    # 1.270 haber ve SIFIR sayfa. "Metodoloji", "gizlilik" ya da
+    # "kunye" arayan okur bos ekran goruyordu.
+    #
+    # Bu, yukarida haberler icin anlatilan bosluğun aynisi: arama
+    # kutusu var, calisiyor, hata vermiyor -- yalnizca aradiginiz
+    # sayfayi gormuyor. Ustelik metodoloji sayfasi bugun ayrildi, yani
+    # sitenin en yeni ve en aranabilir metinlerinden biri.
+    #
+    # Maliyet ihmal edilebilir: bes kayit, 628 KB'lik dizinde ~3 KB.
+    for s in (sayfalar or []):
+        kayitlar.append({
+            "tur": "sayfa",
+            "b": s.baslik,
+            "o": s.ozet,
+            "y": f"/{s.slug}/",
+            "k": "Sayfa",
+        })
+    # HAKKIMIZDA AYRI YOLDAN URETILIYOR ve bu yuzden ilk eklemede
+    # dizinin DISINDA kaldi: dort sayfa girdi, o girmedi. Ayri kod
+    # yolu, ayri unutma -- bu depoda tanidik bir desen.
+    if hakkimizda is not None:
+        kayitlar.append({
+            "tur": "sayfa",
+            "b": "Hakkımızda",
+            "o": hakkimizda.lead,
+            "y": "/hakkimizda/",
+            "k": "Sayfa",
         })
     return json.dumps(kayitlar, ensure_ascii=False, separators=(",", ":"))
 
@@ -5056,7 +5089,8 @@ def insa() -> int:
     # Bagimsiz sayfalar -- yayin ilkeleri, metodoloji, gizlilik,
     # iletisim. Her biri kendi adresinde: hem sayfalar okunabilir
     # kaliyor hem de disaridan dogrudan baglanti verilebiliyor.
-    for _s in duz_sayfalar():
+    _duz_sayfalar = duz_sayfalar()
+    for _s in _duz_sayfalar:
         yaz(
             f"/{_s.slug}/index.html",
             ortam.get_template("sayfa.html").render(
@@ -5455,7 +5489,8 @@ def insa() -> int:
 
 
     # Arama: dizin + sayfa
-    yaz("/arama.json", arama_dizini(listelenen, uretilecek))
+    yaz("/arama.json",
+        arama_dizini(listelenen, uretilecek, _duz_sayfalar, hakkimizda))
     yaz(
         "/ara/index.html",
         ortam.get_template("ara.html").render(**ortak, yol="/ara/"),

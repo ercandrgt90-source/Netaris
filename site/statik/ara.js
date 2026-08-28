@@ -51,7 +51,17 @@
      tarihe gore siralanan tek listede arastirma hic gorunmezdi. */
   var GRUPLAR = [
     { tur: "arastirma", ad: "Araştırmalar" },
-    { tur: "haber", ad: "Haberler" }
+    { tur: "haber", ad: "Haberler" },
+    /* SAYFALAR EN SONDA.
+
+       Dizine 2026-08-28'de eklendiler; oncesinde metodoloji, gizlilik
+       ve kunye sayfalari HIC ARANAMIYORDU.
+
+       Sona konmalari bilincli: "bilanco" arayan okur 233 analiz
+       istiyor, metodoloji sayfasini degil. Ama "metodoloji" ya da
+       "gizlilik" arandiginda toplam sonuc zaten az oluyor ve sayfa
+       hemen goruluyor. Grup basligi da onu bulunabilir kiliyor. */
+    { tur: "sayfa", ad: "Sayfalar" }
   ];
 
   function kart(k) {

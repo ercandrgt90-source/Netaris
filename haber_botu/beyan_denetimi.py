@@ -37,11 +37,22 @@ import sys
 
 KOK = pathlib.Path(__file__).resolve().parent.parent
 CIKTI = KOK / "site" / "cikti"
-#: Gizlilik metni AYRI SAYFA DEGIL -- /hakkimizda/ icinde bir bolum.
-#: Ilk yazimimda `/gizlilik/index.html` aradim ve "sayfa uretilmemis"
-#: dedi; sayfa vardi, YERI farkliydi. Denetim aracinin kendi
-#: varsayimini dogrulamasi gerekiyor.
-GIZLILIK = CIKTI / "hakkimizda" / "index.html"
+#: Gizlilik metni KENDI SAYFASINDA: `/gizlilik/`.
+#:
+#: Bir donem `/hakkimizda/` icinde bir bolumdu ve bu sabit oraya
+#: baglanmisti. 2026-08-28'de sayfalar ayrildi ve denetim KIRMIZI
+#: DONDU -- "TradingView gizlilik metninde HIC gecmiyor" dedi. Metin
+#: yerindeydi; araç yanlis dosyaya bakiyordu.
+#:
+#: Dosyanin kendi eski notu ilginc: "Ilk yazimimda
+#: `/gizlilik/index.html` aradim ve 'sayfa uretilmemis' aldim." Ilk
+#: sezgi dogruymus; yapi arada degisti, sonra geri dondu.
+#:
+#: DUSUS YOK, BILEREK. Sayfa bulunamazsa denetim "gizlilik sayfasi
+#: uretilmemis" deyip duruyor. `/hakkimizda/`a geri dusmek, yapi
+#: yeniden degistiginde hatayi SESSIZCE gizlerdi -- ve bu aracin isi
+#: tam da sessiz celiskiyi gorunur kilmak.
+GIZLILIK = CIKTI / "gizlilik" / "index.html"
 
 #: (davranis adi, sayfalarda arayacagimiz iz, beyanda YASAK kalip)
 #:
@@ -130,7 +141,11 @@ def denetle() -> list[str]:
     #
     # Butun sitede aramak yanlis alarm uretir: bir haber metninde
     # "TODO" gecebilir ve o bizim yer tutucumuz degildir.
-    for ad in ("hakkimizda",):
+    # Yer tutucu taramasi BUTUN yasal sayfalarda. Once yalnizca
+    # `hakkimizda` taraniyordu cunku hepsi o sayfada birlesiyordu;
+    # ayrildiktan sonra dordu de ayri ayri kontrol edilmeli.
+    for ad in ("hakkimizda", "yayin-ilkeleri", "metodoloji", "gizlilik",
+               "kunye"):
         p = CIKTI / ad / "index.html"
         m = _metin(p)
         for yt in YER_TUTUCU:
