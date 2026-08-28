@@ -508,6 +508,56 @@ dogru("boy yoksa srcset yazilmiyor",
       "{% if yazi_boy %}srcset=" in _HABER_SAB)
 dogru("boy yoksa kok dosya basiliyor", "yazi_boy or h.foto" in _HABER_SAB)
 
+# ------------------------------------------------------------------
+# YAPISAL VERIDEKI BASLIK 110 KARAKTERI ASMAZ.
+#
+# Google `NewsArticle.headline` icin 110 karakter sinirliyor; asan
+# alan zengin sonucta kirpiliyor ya da tumuyle yok sayilabiliyor.
+#
+# Olculdu (2026-08-28): 1711 kaydin 150'si (%9) siniri asiyordu, en
+# uzunu 231 karakter. Medyan 67 -- yani sorun genel degil bir
+# azinlikta, ama o azinlik uzun aktarim basliklarindan olusuyor ve
+# tam da arama sonucunda gorunmesi gereken haberler.
+#
+# `<title>` ve `<h1>` TAM basligi tasimaya devam ediyor: kisalan sey
+# yalnizca arama motoruna giden alan.
+# ------------------------------------------------------------------
+es("kisa baslik oldugu gibi kaliyor", insa.ld_baslik("Kisa bir baslik"),
+   "Kisa bir baslik")
+es("bos girdi bos donuyor", insa.ld_baslik(""), "")
+es("None girdi bos donuyor", insa.ld_baslik(None), "")
+
+_uzun = ("BOJ Ozeti: Bir uye, Japonya'nin altta yatan enflasyon "
+         "istikrarini tutarli seviyelerde gorup gormeyecegini olcmek icin "
+         "orta ve uzun vadeli enflasyon beklentilerine bakmak gerektigini "
+         "soyledi")
+_k = insa.ld_baslik(_uzun)
+dogru("uzun baslik sinirin altina iniyor",
+      len(_k) <= insa.LD_BASLIK_SINIRI)
+dogru("kirpildigi belli oluyor", _k.endswith("…"))
+# KELIME ORTASINDAN kesilmiyor: ham kirpma "enflasyon istik" gibi
+# yarim kelimeler birakiyor.
+dogru("kelime ortasindan kesilmiyor",
+      _uzun.startswith(_k[:-1]) and (
+          len(_k) - 1 == len(_uzun) or _uzun[len(_k) - 1] == " "))
+
+# TAM SINIRDA olan baslik kirpilmamali -- bir karakterlik hata
+# yuzunden gereksiz uc nokta konmasin.
+_tam = "x" * insa.LD_BASLIK_SINIRI
+es("tam sinirdaki baslik kirpilmiyor", insa.ld_baslik(_tam), _tam)
+dogru("bir karakter fazlasi kirpiliyor",
+      len(insa.ld_baslik("y" * (insa.LD_BASLIK_SINIRI + 1)))
+      <= insa.LD_BASLIK_SINIRI)
+
+# Bosluksuz devasa baslik: ham kirpmaya dusmeli, patlamamali.
+dogru("bosluksuz baslik da sinira uyuyor",
+      len(insa.ld_baslik("z" * 400)) <= insa.LD_BASLIK_SINIRI)
+
+_HABER_S = (_KOK / "sablonlar" / "haber.html").read_text(encoding="utf-8")
+_ANALIZ_S = (_KOK / "sablonlar" / "analiz.html").read_text(encoding="utf-8")
+dogru("haber sablonu ld_baslik kullaniyor", "ld_baslik" in _HABER_S)
+dogru("analiz sablonu ld_baslik kullaniyor", "ld_baslik" in _ANALIZ_S)
+
 # HANGI SINAMA KALDIGI YAZILIYOR.
 #
 # Onceden yalnizca sayi basiliyordu ("1 kaldi") ve o sayi tek basina

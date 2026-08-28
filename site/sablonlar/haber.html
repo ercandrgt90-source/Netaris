@@ -19,7 +19,10 @@
 {
   "@context": "https://schema.org",
   "@type": "NewsArticle",
-  "headline": {{ h.baslik | tojson }},
+  {# Google `headline` icin 110 karakter sinirlyor; asan alan
+     zengin sonucta kirpiliyor ya da tumuyle yok sayiliyor.
+     `<title>` ve `<h1>` TAM basligi tasimaya devam ediyor. #}
+  "headline": {{ h.baslik | ld_baslik | tojson }},
   "description": {{ h.neden_onemli | tojson }},
   "datePublished": "{{ h.tarih }}",
   "inLanguage": "tr-TR",

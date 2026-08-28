@@ -902,6 +902,36 @@ def _boy_foto(yol: str, klasor: str) -> str:
     return f"/statik/foto/{klasor}/{ad}" if hedef.exists() else ""
 
 
+#: Google'in `NewsArticle.headline` icin verdigi ust sinir.
+#: Asan basliklar zengin sonucta kirpilabiliyor ya da alan tumuyle
+#: yok sayilabiliyor.
+LD_BASLIK_SINIRI = 110
+
+
+def ld_baslik(baslik: str) -> str:
+    """Yapisal veriye giden basligi 110 karakterin altina indirir.
+
+    Olculdu (2026-08-28): 1711 `NewsArticle` kaydinin 150'si (%9)
+    siniri asiyordu; en uzunu 231 karakter. Medyan 67, yani sorun
+    genel degil bir azinlikta -- ama o azinlik uzun aktarim
+    basliklarindan olusuyor ve tam da arama sonucunda gorunmesi
+    gereken haberler.
+
+    KELIME SINIRINDA kesiliyor. Ham kirpma "enflasyon istik" gibi
+    yarim kelimeler birakiyor; uc nokta ise kirpildigini SOYLUYOR.
+    Sayfadaki `<title>` ve `<h1>` TAM basligi tasimaya devam ediyor:
+    kisalan sey yalnizca arama motoruna giden alan.
+    """
+    b = (baslik or "").strip()
+    if len(b) <= LD_BASLIK_SINIRI:
+        return b
+    kes = b[:LD_BASLIK_SINIRI - 1].rsplit(" ", 1)[0].rstrip(" ,;:-")
+    # Tek kelimelik devasa baslik: bosluk yoksa ham kirpma kaliyor.
+    if not kes:
+        kes = b[:LD_BASLIK_SINIRI - 1]
+    return kes + "…"
+
+
 def yazi_foto(yol: str) -> str:
     """HABER SAYFASI gorseli -- 800 piksel, 1x ekranlar icin.
 
@@ -4490,6 +4520,7 @@ def insa() -> int:
     ortam.filters["kucuk_foto"] = kucuk_foto
     ortam.filters["orta_foto"] = orta_foto
     ortam.filters["yazi_foto"] = yazi_foto
+    ortam.filters["ld_baslik"] = ld_baslik
     # GUN SUZGECI -- ham ISO tarih sayfada gorunmesin.
     #
     # Olculdu: 1481 sayfada "2026-08-18" bicimi vardi. Bir kismi
