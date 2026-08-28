@@ -636,6 +636,14 @@ class Kayit:
     #: 1200: 800 piksellik yuvada 1.5x, retinada kabul edilebilir.
     NET_GENISLIK = 1200
 
+    #: Yayin havuzunun altina inmemesi gereken boy.
+    #:
+    #: Dort: `sec()` tohumdan uniform seciyor, yani dort gorselli bir
+    #: havuzda ayni gorselin ust uste gelme olasiligi kabul edilebilir
+    #: seviyeye iniyor. Daha yuksek tutmak tercih sirasini anlamsiz
+    #: kilardi -- her konuda butun havuz birikirdi.
+    ASGARI_HAVUZ = 4
+
     def havuz_yayin(self, konu: str) -> list["Foto"]:
         """Yayinda kullanilacak havuz -- ATIFSIZ lisanslar oncelikli.
 
@@ -677,10 +685,40 @@ class Kayit:
         # artik sayfanin altinda tek satir (bkz. `haber.html`), yani
         # maliyeti kucuk; bulanik bir gorselin maliyeti ise sayfanin
         # en buyuk ogesinde ve her okurda.
+        # ILK DOLU KATMAN KAZANMAZ -- ASGARI HAVUZ DOLANA KADAR
+        # KATMANLAR BIRIKTIRILIR.
+        #
+        # Once `if liste: return liste` yaziyordu ve bunun bedeli
+        # olculdu (2026-08-28): bir konuda TEK bir fotograf hem atifsiz
+        # hem 1200 piksel oldugunda havuz o teke iniyor, digerleri
+        # tamamen eleniyordu.
+        #
+        #     Enerji           20 gorsel -> 1
+        #     Kripto varliklar  9 gorsel -> 1
+        #     TCMB             13 gorsel -> 1
+        #     ... 13 konu
+        #
+        # `sec()` belirlenimci ve havuzdan uniform seciyor; havuz bir
+        # taneyse HER SAYFA ayni gorseli aliyor. Enerji gorseli 89
+        # sayfada gorunuyordu, 78'i analiz sayfasi. Kullanicinin
+        # "fotograflar cok sik geciyor" dedigi sey buydu.
+        #
+        # Tercih sirasi KORUNUYOR: iyi katman once giriyor, havuz
+        # ondan doluyorsa alt katmana hic inilmiyor. Yalnizca havuz
+        # DAR kaldiginda bir sonraki katman ekleniyor -- yani "bulanik
+        # ya da atifli bir gorsel", "ayni gorsel yuzuncu kez"den
+        # iyidir.
+        birikmis: list = []
+        gorulen: set = set()
         for liste in (net(serbest), net(h), serbest, h):
-            if liste:
-                return liste
-        return h
+            for f in liste:
+                if f.dosya in gorulen:
+                    continue
+                gorulen.add(f.dosya)
+                birikmis.append(f)
+            if len(birikmis) >= self.ASGARI_HAVUZ:
+                break
+        return birikmis or h
 
     def sec(self, konu: str, tohum: str) -> Foto | None:
         """Konudan belirlenimci secim -- ayni haber her zaman ayni gorseli alir.

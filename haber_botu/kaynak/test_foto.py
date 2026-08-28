@@ -261,6 +261,70 @@ for baslik in (
     dogru(f"gecer: {baslik[:38]}",
           foto._editoryal_uygun({"title": baslik, "tags": []}))
 
+# ------------------------------------------------------------------
+# YAYIN HAVUZU BIRE DUSMEZ.
+#
+# `havuz_yayin` bir TERCIH MERDIVENI: once atifsiz+net, sonra net,
+# sonra atifsiz, sonra hepsi. Once "ilk dolu katman kazanir" diye
+# yaziliydi ve bedeli olculdu (2026-08-28):
+#
+#     Enerji           20 gorsel -> 1
+#     Kripto varliklar  9 gorsel -> 1
+#     TCMB             13 gorsel -> 1   (13 konuda ayni desen)
+#
+# Tek bir fotograf hem atifsiz hem 1200 piksel oldugunda havuz o teke
+# iniyor, digerleri tamamen eleniyordu. `sec()` havuzdan uniform
+# seciyor; havuz birse HER SAYFA ayni gorseli aliyor. Enerji gorseli
+# 89 sayfada gorunuyordu, 78'i analiz sayfasi.
+#
+# Tercih sirasi KORUNUYOR: iyi katman havuzu dolduruyorsa alt katmana
+# hic inilmiyor. Yalnizca havuz dar kalinca bir sonraki ekleniyor --
+# "atifli ya da biraz yumusak bir gorsel", "ayni gorsel yuzuncu
+# kez"den iyidir.
+# ------------------------------------------------------------------
+import json as _json          # noqa: E402
+import tempfile as _tmp       # noqa: E402
+
+
+def _kayit(ogeler):
+    y = pathlib.Path(_tmp.mkdtemp()) / "k.json"
+    y.write_text(_json.dumps({"K": ogeler}), encoding="utf-8")
+    return foto.Kayit(y)
+
+
+def _f(ad, lisans, genislik):
+    return {"dosya": f"/statik/foto/{ad}", "genislik": genislik,
+            "yukseklik": 800, "atif": "", "kunye": "", "sorgu": "",
+            "lisans": lisans, "kaynak": "commons"}
+
+
+print("\nYayin havuzu -- tek gorsele dusmuyor")
+
+# TEK atifsiz+net gorsel + dokuz iyi aday: havuz teke DUSMEMELI.
+_k = _kayit([_f("a.jpg", "cc0", 1600)]
+            + [_f(f"b{i}.jpg", "cc-by", 1600) for i in range(9)])
+_h = _k.havuz_yayin("K")
+dogru(f"havuz bire dusmuyor ({len(_h)} gorsel)", len(_h) >= foto.Kayit.ASGARI_HAVUZ)
+dogru("tercih edilen gorsel havuzda kaliyor",
+      any(f.dosya.endswith("a.jpg") for f in _h))
+
+# Iyi katman ZATEN genisse alt katmana INILMEMELI.
+_k2 = _kayit([_f(f"n{i}.jpg", "cc0", 1600) for i in range(6)]
+             + [_f("dusuk.jpg", "cc-by", 400)])
+_h2 = _k2.havuz_yayin("K")
+dogru("iyi katman yeterliyse alt katmana inilmiyor",
+      all(not f.dosya.endswith("dusuk.jpg") for f in _h2))
+es("iyi katman oldugu gibi geliyor", len(_h2), 6)
+
+# Havuz gercekten kucukse oldugu gibi donuyor -- uydurma yok.
+_k3 = _kayit([_f("tek.jpg", "cc0", 1600)])
+es("gercekten tek gorselli havuz teke dusuyor", len(_k3.havuz_yayin("K")), 1)
+
+# Ayni gorsel iki kez EKLENMIYOR: katmanlar cakisiyor.
+_k4 = _kayit([_f("x.jpg", "cc0", 1600), _f("y.jpg", "cc0", 900)])
+_h4 = _k4.havuz_yayin("K")
+es("katmanlar cakissa da tekrar yok", len(_h4), len({f.dosya for f in _h4}))
+
 # ------------------------------------------------------------------ sonuc
 print()
 for k in kaldi:
