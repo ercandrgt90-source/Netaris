@@ -35,7 +35,28 @@
      Sarmalla `.haber` her zaman IKI cocuk goruyor. #}
   {% if h.foto or gorsel %}
   <div class="haber-medya">
-  {% if h.yol %}<a class="haber-gorsel" href="{{ h.yol }}">{% else %}<div class="haber-gorsel">{% endif %}
+  {# GORSEL BAGLANTISI EKRAN OKUYUCUDA GORUNMEZ.
+
+     Kart AYNI HEDEFE IKI baglanti tasiyor: buradaki gorsel
+     sarmalayicisi ve asagidaki baslik. Baslik baglantisinin adi var
+     ("Guney Kore ulusal guvenlik danismani: ..."); buradaki ise
+     ADSIZ, cunku gorselin `alt`i bilerek bos (dekoratif -- gerekcesi
+     asagida).
+
+     Olculdu (2026-08-28): `/gundem/` sayfasinda 30 adsiz baglanti
+     vardi. Ekran okuyucu bunlari "baglanti" diye okuyup geciyor --
+     nereye gittigi soylenmiyor. Klavyeyle gezen okur da her kartta
+     ise yaramayan fazladan bir durak yapiyor.
+
+     `alt`e metin YAZMAK cozum degil: ayni basligi iki kez okutur ve
+     zaten asagidaki notta anlatilan hataya geri doner. Dogru cozum,
+     TEKRAR EDEN baglantiyi erisilebilirlik agacindan ve sekme
+     sirasindan cikarmak. Fare ile tiklama calismaya devam ediyor.
+
+     `aria-hidden` ile `tabindex="-1"` BIRLIKTE olmali: yalnizca
+     `aria-hidden` verilirse odaklanilabilir ama okunamayan bir oge
+     kalir -- ekran okuyucu kullanicisi icin en kotu hal. #}
+  {% if h.yol %}<a class="haber-gorsel" href="{{ h.yol }}" tabindex="-1" aria-hidden="true">{% else %}<div class="haber-gorsel">{% endif %}
     {# Gercek fotograf varsa o, yoksa uretilen SVG. Fotograflar CC
        lisansli ve atif zorunlu -- atif gorselin altinda basiliyor. #}
     {% if h.foto %}

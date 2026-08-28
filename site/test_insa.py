@@ -442,6 +442,38 @@ _veri = [{"an": f"2026-08-27T0{s}:00:00+00:00",
          for s in range(5)]
 es("veri basliklari kumelenmiyor", len(insa.canli_akis(_veri, 5)), 5)
 
+# ------------------------------------------------------------------
+# KARTIN GORSEL BAGLANTISI EKRAN OKUYUCUDA GORUNMEZ.
+#
+# `/gundem/` kartlari AYNI HEDEFE IKI baglanti tasiyor: gorsel
+# sarmalayicisi ve baslik. Baslik baglantisinin adi var; gorselinki
+# ADSIZ, cunku gorselin `alt`i bilerek bos (dekoratif).
+#
+# Olculdu (2026-08-28): sayfada 30 ADSIZ baglanti vardi. Ekran okuyucu
+# bunlari "baglanti" diye okuyup geciyor -- nereye gittigi
+# soylenmiyor. Klavyeyle gezen okur da her kartta ise yaramayan
+# fazladan bir durak yapiyor.
+#
+# `alt`e metin yazmak cozum DEGIL: ayni basligi iki kez okutur.
+# Dogrusu, TEKRAR EDEN baglantiyi erisilebilirlik agacindan ve sekme
+# sirasindan cikarmak. Fare ile tiklama calismaya devam ediyor.
+#
+# IKISI BIRLIKTE olmali: yalnizca `aria-hidden` verilirse
+# odaklanilabilir ama okunamayan bir oge kalir -- ekran okuyucu
+# kullanicisi icin en kotu hal.
+# ------------------------------------------------------------------
+_GUNDEM = (_KOK / "sablonlar" / "gundem.html").read_text(encoding="utf-8")
+_gorsel_bag = [s for s in _GUNDEM.split(chr(10))
+               if 'class="haber-gorsel"' in s
+               and "<a " in s]
+dogru("gundem karti gorsel baglantisi bulundu", bool(_gorsel_bag))
+if _gorsel_bag:
+    _satir = _gorsel_bag[0]
+    dogru("gorsel baglantisi erisilebilirlik agacinda degil",
+          'aria-hidden="true"' in _satir)
+    dogru("gorsel baglantisi sekme sirasinda degil",
+          'tabindex="-1"' in _satir)
+
 # HANGI SINAMA KALDIGI YAZILIYOR.
 #
 # Onceden yalnizca sayi basiliyordu ("1 kaldi") ve o sayi tek basina
