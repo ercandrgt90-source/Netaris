@@ -474,6 +474,40 @@ if _gorsel_bag:
     dogru("gorsel baglantisi sekme sirasinda degil",
           'tabindex="-1"' in _satir)
 
+# ------------------------------------------------------------------
+# HABER GORSELI 1x OKURA 800, 2x OKURA 1600 PIKSEL GONDERIR.
+#
+# Kok dosya bir donem 800 pikseldi ve sablon dogrudan onu basiyordu.
+# `COMMONS_GENISLIK` kalite icin 1600'e cikarildi ama SAYFA TARAFI
+# DEGISMEDI -- okurun indirdigi bayt sessizce ikiye katlandi.
+#
+# Olculdu (2026-08-28, 60 haber sayfasi): ortalama sayfa 356 KB ve
+# bunun 315 KB'i (%89) tek bir fotograf. En agir sayfa 730 KB.
+# Uretilen ornekte 1x dosya 120 KB, 2x dosya 352 KB -- %66 fark.
+#
+# 1600 SILINMIYOR: retina ekranda 800 piksellik yuva gercekten o kadar
+# fiziksel piksel istiyor. Secim tarayiciya birakiliyor.
+# ------------------------------------------------------------------
+dogru("yazi boyu olmayan gorselde bos donuyor",
+      insa.yazi_foto("/statik/foto/boyle-bir-dosya-yok.jpg") == "")
+dogru("statik olmayan yolda bos donuyor", insa.yazi_foto("/baska/yol.jpg") == "")
+dogru("bos girdide bos donuyor", insa.yazi_foto("") == "")
+
+_y = sorted((_KOK / "statik" / "foto" / "y").glob("*.jpg"))
+if _y:
+    es("var olan yazi boyu bulunuyor",
+       insa.yazi_foto("/statik/foto/" + _y[0].name),
+       "/statik/foto/y/" + _y[0].name)
+
+_HABER_SAB = (_KOK / "sablonlar" / "haber.html").read_text(encoding="utf-8")
+dogru("sablon yazi boyunu soruyor", "yazi_foto" in _HABER_SAB)
+dogru("srcset 1x/2x kuruluyor", "1x, {{ h.foto }} 2x" in _HABER_SAB)
+# BOY YOKSA srcset HIC yazilmamali: bos bir srcset, tarayiciya
+# cozulemeyen bir aday listesi verir.
+dogru("boy yoksa srcset yazilmiyor",
+      "{% if yazi_boy %}srcset=" in _HABER_SAB)
+dogru("boy yoksa kok dosya basiliyor", "yazi_boy or h.foto" in _HABER_SAB)
+
 # HANGI SINAMA KALDIGI YAZILIYOR.
 #
 # Onceden yalnizca sayi basiliyordu ("1 kaldi") ve o sayi tek basina

@@ -902,6 +902,23 @@ def _boy_foto(yol: str, klasor: str) -> str:
     return f"/statik/foto/{klasor}/{ad}" if hedef.exists() else ""
 
 
+def yazi_foto(yol: str) -> str:
+    """HABER SAYFASI gorseli -- 800 piksel, 1x ekranlar icin.
+
+    Kok dosya 1600 piksel: retina ekranda 800 piksellik yuva
+    gercekten o kadar fiziksel piksel istiyor. 1x ekranda ise dort kat
+    fazla veri demek.
+
+    Olculdu (2026-08-28, 60 haber sayfasi): ortalama sayfa 356 KB ve
+    bunun 315 KB'i (%89) tek bir fotograf.
+
+    BOS DONMESI NORMAL: 800 piksellik es yalnizca Commons kaynakli
+    gorsellerde uretilebiliyor. Sablon o durumda `srcset` yazmiyor ve
+    kok dosyayi basiyor -- yani eksik boy, gorselsiz sayfa DEGIL.
+    """
+    return _boy_foto(yol, "y")
+
+
 def orta_foto(yol: str) -> str:
     """KART gorseli -- 400 piksel.
 
@@ -4472,6 +4489,7 @@ def insa() -> int:
     ortam.filters["kart_turu"] = kart_turu
     ortam.filters["kucuk_foto"] = kucuk_foto
     ortam.filters["orta_foto"] = orta_foto
+    ortam.filters["yazi_foto"] = yazi_foto
     # GUN SUZGECI -- ham ISO tarih sayfada gorunmesin.
     #
     # Olculdu: 1481 sayfada "2026-08-18" bicimi vardi. Bir kismi

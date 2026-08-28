@@ -1316,6 +1316,9 @@ def hazirla(konular: list[str]) -> Kayit:
         n_orta = orta_uret(kayit, en_cok=KUCUK_PARTI)
         if n_orta:
             print(f"  {n_orta} orta (kart) gorseli indirildi")
+        n_yazi = yazi_uret(kayit, en_cok=KUCUK_PARTI)
+        if n_yazi:
+            print(f"  {n_yazi} yazi (haber sayfasi) gorseli indirildi")
     except Exception as e:                                # noqa: BLE001
         print(f"  kucuk gorsel uretilemedi: {type(e).__name__}")
     return kayit
@@ -1378,7 +1381,8 @@ def suz(kayit: Kayit | None = None, uygula: bool = False) -> list[tuple[str, str
                 # "Elendi" demek dosyanin gitmesi demek; yarim silme,
                 # silinmis SANMAKTIR.
                 ad = f["dosya"].rsplit("/", 1)[-1]
-                for klasor in (FOTO_KLASORU, ORTA_KLASOR, KUCUK_KLASOR):
+                for klasor in (FOTO_KLASORU, ORTA_KLASOR, KUCUK_KLASOR,
+                               YAZI_KLASOR):
                     p = klasor / ad
                     if p.exists():
                         p.unlink()
@@ -1426,6 +1430,24 @@ KUCUK_GENISLIK = 96
 #: genisligi gercekten 800.
 ORTA_KLASOR = FOTO_KLASORU / "o"
 ORTA_GENISLIK = 400
+
+#: YAZI BOYU -- haber sayfasindaki manset gorseli, 1x ekranlar icin.
+#:
+#: Yukaridaki notta "Haber sayfasindaki BUYUK gorsel 800'de kaliyor"
+#: yaziyor ve bir donem dogruydu: `COMMONS_GENISLIK` 800'du. Sonra
+#: kalite icin 1600'e cikarildi ama SAYFA TARAFI DEGISMEDI -- yani
+#: haber sayfasi 1600 piksellik dosyayi 800 piksellik yuvaya
+#: basmaya devam etti ve okurun indirdigi bayt sessizce ikiye
+#: katlandi.
+#:
+#: Olculdu (2026-08-28, 60 haber sayfasi): ortalama sayfa 356 KB ve
+#: bunun 315 KB'i (%89) tek bir fotograf. En agir sayfa 730 KB.
+#:
+#: 1600 SILINMIYOR: retina ekranda 800 piksellik yuva gercekten 1600
+#: fiziksel piksel istiyor. Cozum secim: `srcset` ile 1x okura 800,
+#: 2x okura 1600 gidiyor (bkz. `haber.html`).
+YAZI_KLASOR = FOTO_KLASORU / "y"
+YAZI_GENISLIK = 800
 
 #: Commons `titles` parametresi anonim istekte 50 baslik aliyor.
 KUCUK_PARTI = 50
@@ -1570,6 +1592,15 @@ def boy_uret(klasor: pathlib.Path, genislik: int,
 def kucuk_uret(kayit: Kayit | None = None, en_cok: int | None = None) -> int:
     """96 piksellik akis gorselleri."""
     return boy_uret(KUCUK_KLASOR, KUCUK_GENISLIK, kayit, en_cok)
+
+
+def yazi_uret(kayit: Kayit | None = None, en_cok: int | None = None) -> int:
+    """800 piksellik HABER SAYFASI gorselleri -- 1x ekranlar icin.
+
+    Kok dosya 1600 piksel ve retina icin dogru; 1x ekranda ise dort
+    kat fazla piksel demek. `srcset` ikisini birden veriyor.
+    """
+    return boy_uret(YAZI_KLASOR, YAZI_GENISLIK, kayit, en_cok)
 
 
 def orta_uret(kayit: Kayit | None = None, en_cok: int | None = None) -> int:

@@ -130,7 +130,25 @@
        okur okudugu satiri kaybediyor. Deger CERCEVENIN olcusu (16:9);
        CSS zaten `aspect-ratio: 16/9` uyguluyor, yani bu iki sayi
        cakismiyor, ayni kadraji tarif ediyor. #}
-    <img src="{{ h.foto }}" alt="" width="800" height="450"
+    {# SRCSET: 1x OKURA 800, 2x OKURA 1600.
+
+       Kok dosya 1600 piksel. Bir donem 800'du ve o zaman bu satir
+       dogruydu; `COMMONS_GENISLIK` kalite icin 1600'e cikarilinca
+       SAYFA TARAFI DEGISMEDI ve okurun indirdigi bayt sessizce ikiye
+       katlandi.
+
+       Olculdu (2026-08-28, 60 haber sayfasi): ortalama sayfa 356 KB,
+       bunun 315 KB'i (%89) bu tek gorsel. En agir sayfa 730 KB.
+
+       1600 SILINMIYOR -- retina ekranda 800 piksellik yuva gercekten
+       o kadar fiziksel piksel istiyor. Secim tarayiciya birakiliyor.
+
+       `yazi_foto` BOS DONEBILIR (800'lük es yalnizca Commons kaynakli
+       gorsellerde uretilebiliyor). O durumda `srcset` hic yazilmiyor
+       ve kok dosya basiliyor: eksik boy, gorselsiz sayfa degil. #}
+    {% set yazi_boy = h.foto | yazi_foto %}
+    <img src="{{ yazi_boy or h.foto }}" alt="" width="800" height="450"
+         {% if yazi_boy %}srcset="{{ yazi_boy }} 1x, {{ h.foto }} 2x"{% endif %}
          decoding="async">
     {# ATIF ARTIK BURADA DEGIL, SAYFA SONUNDA.
        ---------------------------------------
