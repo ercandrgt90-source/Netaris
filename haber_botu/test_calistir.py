@@ -1,0 +1,103 @@
+"""Hat sirasi testleri -- hangi denetim dagitimdan ONCE kosuyor.
+
+BU DOSYA NEDEN VAR
+------------------
+`calistir.py` dagitim kararini veren dosya ve HIC TESTI YOKTU.
+
+Olculdu (2026-08-28): gizlilik beyani denetimi is akisinda vardi ama
+DAGITIMDAN SONRA kosuyordu. Sayfa ayriminda denetim "site TradingView
+kullaniyor ama gizlilik metninde hic gecmiyor" dedi ve kosu kirmizi
+dondu -- ama site ZATEN YAYIMLANMISTI.
+
+Arac dogru calisti, yanlis anda konustu. Bir beyan denetiminin isi
+yanlis beyanla yayina cikmayi ONLEMEK; sonradan haber vermek yalnizca
+kaydini tutmak olur.
+
+NEDEN KAYNAK SIRASI SINANIYOR
+-----------------------------
+Hattin kendisi calistirilamaz: agla konusuyor, AI anahtari istiyor ve
+onbes dakika suruyor. Ama sorulan sey bir SIRA sorusu ve o kaynakta
+gorunuyor: denetim cagrisi dagitim cagrisindan once mi?
+
+Kaba bir olcut ama tam da kacan seyi yakaliyor. Davranisi degil
+SIRAYI koruyor -- ve hata siradaydi.
+
+Calistirma:  python haber_botu/test_calistir.py
+"""
+
+from __future__ import annotations
+
+import pathlib
+import sys
+
+_gecti = 0
+_kaldi: list[str] = []
+
+
+def dogru(aciklama: str, kosul) -> None:
+    global _gecti
+    if kosul:
+        _gecti += 1
+        print(f"  gecti  {aciklama}")
+    else:
+        _kaldi.append(aciklama)
+        print(f"  KALDI  {aciklama}")
+
+
+KOK = pathlib.Path(__file__).resolve().parent.parent
+KAYNAK = (KOK / "calistir.py").read_text(encoding="utf-8")
+
+#: Kod satirlari -- aciklamalar disarida. Bir kural aciklamada
+#: gecebilir; sira sorusunun cevabi yalnizca CALISAN kodda.
+KOD = "\n".join(s.split("#")[0] for s in KAYNAK.split("\n"))
+
+
+def _yer(parca: str) -> int:
+    return KOD.find(parca)
+
+
+_dagitim = _yer('"Cloudflare dağıtımı"')
+dogru("dagitim cagrisi bulundu", _dagitim != -1)
+
+for ad, parca in (
+    ("gizlilik beyani", 'beyan_denetimi.py'),
+    ("yorum kapisi", 'yorum_denetimi.py'),
+    ("veri denetimi", '"Veri denetimi"'),
+    ("site uretimi", '"Site üretimi"'),
+):
+    yer = _yer(parca)
+    dogru(f"{ad} dagitimdan ONCE kosuyor", yer != -1 and yer < _dagitim)
+
+# ENGELLEME: denetim kirmiziysa dagitim YAPILMAMALI. Sirada olmak
+# yetmez -- sonucu `ok` degiskenine yazilmali, yoksa denetim kosar ve
+# sonucu yok sayilir.
+_beyan = _yer("beyan_denetimi.py")
+_arasi = KOD[_beyan:_dagitim] if _beyan != -1 and _dagitim != -1 else ""
+dogru("beyan denetimi basarisizsa dagitim engelleniyor",
+      "ok = False" in _arasi)
+
+# Dagitim `ok` bayragina BAKMALI.
+dogru("dagitim ok bayragina bagli",
+      "if args.yayinla and ok:" in KOD)
+
+# KRITIK listesi: cikis kodu bu adimlara bakiyor. Beyan denetimi
+# listede degilse, engelleme calissa bile kosu YESIL doner ve hata
+# gorunmez olur.
+# KRITIK LISTESI OZEL OLARAK OKUNUYOR.
+#
+# Once yalnizca `'"Beyan denetimi"' in KOD` bakiliyordu ve HICBIR SEY
+# OLCMUYORDU: ayni dizge `sonuclar["Beyan denetimi"] = bd` satirinda
+# da geciyor, yani KRITIK listesinden cikarilsa bile bulunuyordu.
+# Bozarak dogrulamada kacti.
+_kb = KOD.find("KRITIK = ")
+_kritik = KOD[_kb:KOD.index(")", _kb) + 1] if _kb != -1 else ""
+dogru("KRITIK listesi bulundu", bool(_kritik))
+dogru("beyan denetimi KRITIK listesinde",
+      '"Beyan denetimi"' in _kritik)
+dogru("dagitim KRITIK listesinde", '"Dağıtım"' in _kritik)
+
+print()
+for k in _kaldi:
+    print(f"  KALDI  {k}")
+print(f"{_gecti} gecti, {len(_kaldi)} kaldi")
+sys.exit(1 if _kaldi else 0)

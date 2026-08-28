@@ -333,6 +333,31 @@ def main() -> int:
             print("  Bakilacak yer: site/insa.py -> _yorum_dogrulanabilir")
             ok = False
 
+    # GIZLILIK BEYANI DAGITIMDAN ONCE DENETLENIYOR.
+    #
+    # Bu denetim is akisinda vardi ama DAGITIMDAN SONRA kosuyordu.
+    # Sonucu 2026-08-28'de goruldu: sayfa ayrimindan sonra denetim
+    # "site TradingView kullaniyor ama gizlilik metninde hic gecmiyor"
+    # dedi ve kosu kirmizi dondu -- ama site ZATEN YAYIMLANMISTI.
+    #
+    # Yani arac dogru calisti, yanlis anda konustu. Bir beyan
+    # denetiminin isi yanlis beyanla yayina cikmayi ONLEMEK; sonradan
+    # haber vermek yalnizca kaydini tutmak olur.
+    #
+    # Yorum kapisi (`Yorum denetimi`) zaten bu sekilde: ihlal varsa
+    # `ok = False` ve dagitim hic yapilmiyor. Beyan denetimi de ayni
+    # yere alindi.
+    if ok:
+        bd, _ = _calistir("Gizlilik beyanı gerçekle uyuşuyor mu",
+                          [str(BOT / "beyan_denetimi.py")])
+        sonuclar["Beyan denetimi"] = bd
+        if not bd:
+            print()
+            print("  BEYAN ILE DAVRANIS AYRISIYOR -- dagitim YAPILMADI.")
+            print("  Gizlilik metni yayindaki gercegi anlatmali.")
+            print("  Ozellik eklendiginde ONCE metin guncellenir.")
+            ok = False
+
     if args.yayinla and ok:
         y, _ = _calistir("Cloudflare dağıtımı", [str(SITE / "yayinla.py")])
         sonuclar["Dağıtım"] = y
@@ -384,7 +409,8 @@ def main() -> int:
     # HATALAR GIZLENMIYOR: asagida ayri ayri yaziliyor ve `_ozet`
     # tablosunda da gorunuyorlar. Sessizce yutmakla, isi kirmiziya
     # cevirmek arasinda ucuncu bir yol var: SOYLE ama DURDURMA.
-    KRITIK = ("Veri denetimi", "Site üretimi", "Yorum denetimi", "Dağıtım")
+    KRITIK = ("Veri denetimi", "Site üretimi", "Yorum denetimi",
+              "Beyan denetimi", "Dağıtım")
     kritik_hata = [k for k in KRITIK if sonuclar.get(k) is False]
 
     if veri_hatasi:
