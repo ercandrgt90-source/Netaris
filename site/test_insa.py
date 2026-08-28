@@ -605,6 +605,35 @@ if _KUNYE.exists():
     dogru("kunye yayin sahibini bildiriyor", "Yayın sahibi" in _k)
     dogru("kunye iletisim adresi tasiyor", "@" in _k)
 
+# ------------------------------------------------------------------
+# ARAC SAYFALARI ARAMA MOTORUNA KAPALI.
+#
+# `/giris/`, `/kayit/` ve `/panel/` site haritasina KONMUYORDU ve
+# `insa.py` icindeki not "arama motoruna kapali sayfalar" diyordu --
+# ama etiket `index, follow` basiyordu. Niyet belgeliydi,
+# UYGULANMAMISTI.
+#
+# Olculdu (2026-08-28): 1817 uretilen sayfanin 1814'u haritada; disarida
+# kalan uc sayfanin ucu de dizine acikti. `/panel/` tarayiciya
+# "Oturum gerekli" gosteriyor -- boyle bir sayfanin arama sonucunda
+# cikmasi, gercek icerigin yerini almasi demek.
+#
+# `follow` KALIYOR: sayfa taraniyor ve baglantilari izleniyor,
+# yalnizca dizine alinmiyor.
+# ------------------------------------------------------------------
+_TEMEL = (_KOK / "sablonlar" / "temel.html").read_text(encoding="utf-8")
+dogru("sablon arama_disi bayragini soruyor",
+      "eskimis or arama_disi" in _TEMEL)
+dogru("kapali sayfa noindex aliyor",
+      'content="noindex, follow"' in _TEMEL)
+# `follow` KAYBOLMAMALI: tam kapatmak baglanti kesfini de durdurur.
+dogru("kapali sayfada follow korunuyor",
+      "noindex, nofollow" not in _TEMEL)
+
+_INSA = (_KOK / "insa.py").read_text(encoding="utf-8")
+dogru("uyelik sayfalari arama_disi olarak uretiliyor",
+      "arama_disi=True" in _INSA)
+
 # HANGI SINAMA KALDIGI YAZILIYOR.
 #
 # Onceden yalnizca sayi basiliyordu ("1 kaldi") ve o sayi tek basina

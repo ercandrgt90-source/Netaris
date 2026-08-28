@@ -37,7 +37,20 @@
    guncel surumun sirasini da dusurur. `follow` KALIYOR: sayfa
    taraniyor, baglantilari izleniyor, yalnizca dizine alinmiyor.
    Adres de kirilmiyor -- daha once paylasilmis bir baglanti calisir. #}
-{% if eskimis %}
+{# `arama_disi`: uyelik ve panel gibi ARAC sayfalari.
+
+   Bu sayfalar zaten site haritasina konmuyordu ve `insa.py` icindeki
+   not "arama motoruna kapali" diyordu -- ama etiket `index, follow`
+   basiyordu. Yani NIYET belgelenmis, UYGULANMAMISTI.
+
+   Olculdu (2026-08-28): `/giris/`, `/kayit/` ve `/panel/` dizine
+   acikti. `/panel/` tarayiciya "Oturum gerekli" gosteriyor; boyle bir
+   sayfanin arama sonucunda cikmasi, gercek icerigin yerini almasi
+   demek.
+
+   `follow` KALIYOR: sayfa taraniyor ve baglantilari izleniyor,
+   yalnizca dizine alinmiyor. #}
+{% if eskimis or arama_disi %}
 <meta name="robots" content="noindex, follow">
 {% else %}
 <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">

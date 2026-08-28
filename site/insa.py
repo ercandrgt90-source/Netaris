@@ -5396,6 +5396,9 @@ def insa() -> int:
             ortam.get_template("uyelik.html").render(
                 **ortak, yol=yol_u, sayfa=ad,
                 sayfa_baslik=sayfa_baslik, sayfa_aciklama=sayfa_aciklama,
+                # Site haritasina konmuyorlardi ama etiket `index`
+                # basiyordu -- niyet belgeliydi, uygulanmamisti.
+                arama_disi=True,
             ),
         )
         # Arama motoruna kapali sayfalar site haritasina GIRMEZ; `yollar`
