@@ -751,5 +751,64 @@ _olu = _olu_bildirimler(_CSS.read_text(encoding="utf-8"))
 _yeni = {(k, s, o) for k, s, o, _a, _b in _olu} - BEKLENEN_ISTISNA
 esit(sorted(_yeni), [], "olu CSS bildirimi yok")
 
+print()
+print("Her varlik turunun etiket rengi var")
+# --------------------------------------------------------------------
+# `varlik.html` etiketi `class="etiket etiket-{{ v.tur }}"` diye
+# yaziyor -- yani sinif adi VERIDEN geliyor. CSS'te karsiligi olmayan
+# bir tur, digerlerinden gorunur bicimde farkli ciziliyordu.
+#
+# Olculdu (2026-08-28): veritabaninda 11 tur var, CSS 7'sini
+# boyuyordu. `oran`, `endeks`, `kur` ve `politika` cizgisiz kaliyordu
+# -- 79 varligin 12'si.
+#
+# Kural CSS'te ZATEN YAZILIYDI: "butun turler icin etiket rengi
+# olmali". Ama tur kurallari IKI AYRI BLOGA bolunmustu ve yeni turler
+# eklendiginde ikisi de guncellenmedi. Yazili bir kural, kendisini
+# uygulayan bir sinama olmadan eskiyor.
+#
+# `.etiket` artik notr bir sol cizgi veriyor, yani eksik tur KIRIK
+# gorunmuyor -- ama yine de FARK EDILMELI; bu sinama onu yapiyor.
+# --------------------------------------------------------------------
+import sqlite3  # noqa: E402
+
+_VT = _SITE.parent / "haber_botu" / "netaris.db"
+if not _VT.is_file():
+    print("  veritabani yok -- tur sinamasi ATLANDI")
+else:
+    with sqlite3.connect(f"file:{_VT.as_posix()}?mode=ro", uri=True) as _b:
+        _turler = {t for (t,) in _b.execute(
+            "select distinct tur from varlik where tur is not null")}
+    _govde = re.sub(r"/\*.*?\*/", "", _CSS.read_text(encoding="utf-8"),
+                    flags=re.S)
+    # ACIKLAMALAR ATILIYOR: yukaridaki not eksik turlerin adlarini
+    # SAYIYOR. Aciklamayi tarayan bir sinama, kural kaldirildiginda
+    # bile yesil kalirdi -- bu oturumda tam bu tuzaga dort kez
+    # dusuldu.
+    _boyali = set(re.findall(r"\.etiket-([a-z]+)\s*\{", _govde))
+    esit(sorted(_turler - _boyali), [],
+         f"CSS karsiligi olmayan varlik turu ({len(_turler)} tur)")
+    # Ters yon UYARI degil bilgi: veride su an bulunmayan bir tur icin
+    # renk tanimli olmasi zararsiz, veri her kosuda degisiyor.
+    esit(bool(_turler), True, "veritabaninda varlik turu bulundu")
+
+# --------------------------------------------------------------------
+# GUVENLI VARSAYILAN: `.etiket` kendi sol cizgisini vermeli.
+#
+# Yukaridaki sinama "her turun rengi var mi" diye soruyor. Ama veri
+# CI'da her kosuda degisiyor ve yeni bir tur, o turun CSS satiri
+# yazilmadan once yayina cikabiliyor. `.etiket`in kendi sol cizgisi
+# o araligi kapatiyor: renk notr kalir, BICIM dogru kalir.
+#
+# Bu satir olmadan yukaridaki sinama hala yesil donuyor -- mutasyonla
+# dogrulandi (2026-08-28). Yani varsayilan ayrica sinanmali, yoksa
+# sessizce kaldirilabilir.
+# --------------------------------------------------------------------
+_govde_tam = re.sub(r"/\*.*?\*/", "", _CSS.read_text(encoding="utf-8"),
+                    flags=re.S)
+_m = re.search(r"\.etiket\s*\{(.*?)\}", _govde_tam, flags=re.S)
+esit(bool(_m and "border-left" in _m.group(1)), True,
+     ".etiket kendi sol cizgisini veriyor (turu olmayan etiket kirilmaz)")
+
 print(f"\n{_gecti} gecti, {_kaldi} kaldi")
 sys.exit(1 if _kaldi else 0)

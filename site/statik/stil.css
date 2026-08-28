@@ -3184,16 +3184,43 @@ main.kabuk {
   display: inline-block;
   padding: var(--b-1) var(--b-3); border-radius: 999px;
   border: 1px solid var(--cizgi-parlak);
+  /* SOL CIZGI VARSAYILAN OLARAK BURADA.
+     Once yalnizca `.etiket-{tur}` kurallari veriyordu ve kurali olmayan
+     tur 1px cizgiyle, digerleri 3px cizgiyle ciziliyordu. Varsayilani
+     burada vermek, yeni bir tur eklendiginde en kotu ihtimalle NOTR
+     renkli ama DOGRU BICIMLI bir etiket cikmasini saglar -- kirik
+     gorunmez. Tur kurallari yalnizca rengi degistiriyor. */
+  border-left: 3px solid var(--cizgi-parlak);
   background: var(--panel-2);
   font-size: var(--p-xs); font-weight: 600; color: var(--yazi-2);
   line-height: 1.5}
 .etiket:hover { border-color: var(--vurgu); color: var(--vurgu); text-decoration: none}
-/* Tur rengi ile DEGIL, sol cizgi ile ayriliyor: renk kodu okura ayrica
-   ogretilmesi gereken bir dil olurdu; kelimenin kendisi zaten yeterli. */
-.etiket-kurum    { border-left: 3px solid var(--vurgu)}
-.etiket-gosterge { border-left: 3px solid var(--artis)}
-.etiket-emtia    { border-left: 3px solid var(--uyari)}
-.etiket-ulke     { border-left: 3px solid var(--yazi-3)}
+
+/* TUR RENKLERI -- TEK YERDE.
+   Renk bir LEJANT DEGIL: okura ayrica ogretilmesi gereken bir dil
+   olurdu, kelimenin kendisi zaten yeterli. Cizgi yalnizca turleri
+   birbirinden ayirt edilebilir kiliyor, bu yuzden token'lar
+   tekrar edebilir.
+
+   ONCE IKI AYRI YERDEYDI ve ikinci blok "butun turler icin renk
+   olmali" diye yaziyordu -- yani kural biliniyordu ama iki yere
+   bolundugu icin uygulanmadi. Olculdu (2026-08-28): veride 11 tur
+   var, CSS 7'sini boyuyordu; `oran`, `endeks`, `kur` ve `politika`
+   cizgisiz kaliyordu (79 varligin 12'si).
+
+   Yeni bir tur eklendiginde buraya bir satir gerekiyor;
+   `site/test_stil.py` veritabanindaki her turu burada ariyor. */
+.etiket-kurum    { border-left-color: var(--vurgu)}
+.etiket-gosterge { border-left-color: var(--artis)}
+.etiket-emtia    { border-left-color: var(--uyari)}
+.etiket-ulke     { border-left-color: var(--yazi-3)}
+.etiket-piyasa   { border-left-color: var(--vurgu-koyu)}
+.etiket-sektor   { border-left-color: var(--uyari)}
+.etiket-kisi     { border-left-color: var(--azalis)}
+.etiket-endeks   { border-left-color: var(--vurgu-koyu)}
+.etiket-kur      { border-left-color: var(--uyari)}
+.etiket-oran     { border-left-color: var(--artis)}
+.etiket-politika { border-left-color: var(--yazi-3)}
 
 /* Varlik arsiv sayfasi. */
 .kirinti { font-size: var(--p-s); color: var(--yazi-3); margin: 0 0 10px}
@@ -3230,11 +3257,9 @@ main.kabuk {
   .varlik-liste li { grid-template-columns: 1fr; }
 }
 
-/* Graftaki butun turler icin etiket rengi olmali; eksik kalan tur
-   cizgisiz ve digerlerinden farkli gorunurdu. */
-.etiket-piyasa { border-left: 3px solid var(--vurgu-koyu)}
-.etiket-sektor { border-left: 3px solid var(--uyari)}
-.etiket-kisi   { border-left: 3px solid var(--azalis)}
+/* Tur renkleri buradan `.etiket` blogunun yanina TASINDI -- ayni
+   karari veren iki yer, birinin guncellenip digerinin unutulmasi
+   demekti ve tam bu oldu. */
 
 .varlik-en { font-style: italic; color: var(--yazi-3)}
 .varlik-tanim {
