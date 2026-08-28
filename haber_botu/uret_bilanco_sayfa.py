@@ -214,6 +214,58 @@ def govde_kur(kod, unvan, sektor, donem, d, oran, medyan, n, yorum,
     return "\n".join(s)
 
 
+#: Ret kaydinin yazilacagi depo. Haber hatti ayni tabloyu kullaniyor.
+VT = _KOK / "netaris.db"
+
+
+def ret_yaz(kod: str, unvan: str, donem: str, neden: str,
+            model: str, ham: str) -> None:
+    """Reddedilen bilanco yorumunu `ai_ret`e yazar.
+
+    NEDEN VAR
+    ---------
+    Olculdu (2026-08-28): bilanco kosusu 328 sirketten 287'sini
+    atladi ve 286'sinin sebebi "girdide olmayan sayi" idi -- yani
+    model, verilmeyen rakamlar uretti. O 286 kaydin TAMAMI gunluge
+    basilip kayboldu; `ai_ret` tablosunda bilanco hattindan TEK
+    SATIR yoktu (hepsi haber adresliydi).
+
+    Sonucu su: hangi sayilarin uydurulduğu, hangi sektorde
+    yogunlastigi, saglayici degisince duzelip duzelmedigi
+    OLCULEMIYOR. Is akisindaki `saglayici` girdisi tam bu
+    karsilastirma icin konmus ve olcecek verisi yok.
+
+    Haber hatti bunu zaten yapiyor ve gerekcesi ayni satirlarla
+    yazilmis: "Ilk calistirmada dokuz redden hicbirinin sebebi depoda
+    yoktu ve gunluge bakmadan tani konamiyordu."
+
+    HAM CIKTI DA SAKLANIYOR: "neden reddedildi" sorusu ancak metne
+    bakarak cevaplanir. `_ham` daha once yakalanip ATILIYORDU.
+
+    YAZAMAMAK ISI DUSURMEZ: uretim raporlamadan onemli. Depo kilitli
+    ya da salt-okunursa sessizce geciliyor.
+    """
+    try:
+        import contextlib                              # noqa: PLC0415
+        import sqlite3                                 # noqa: PLC0415
+        import beyin                                   # noqa: PLC0415
+        # `closing` SART. `with sqlite3.connect(...)` yalnizca ISLEMI
+        # kapatiyor, BAGLANTIYI degil -- dosya tanimlayicisi acik
+        # kaliyor. Windows'ta bu, dosyanin silinememesine yol aciyor
+        # (testte WinError 32 ile yakalandi); her yerde ise 328 sirketlik
+        # bir kosuda 328 acik baglanti demek.
+        with contextlib.closing(sqlite3.connect(VT)) as b, b:
+            b.execute(
+                "INSERT INTO ai_ret"
+                " (adres, baslik, neden, model, ham, kayit_ani)"
+                " VALUES (?,?,?,?,?,?)",
+                (f"bilanco:{kod}:{donem}", (unvan or kod)[:200],
+                 neden or "", model or "", (ham or "")[:2000],
+                 beyin.simdi()))
+    except Exception as e:                             # pragma: no cover
+        print(f"    (ret kaydedilemedi: {e})")
+
+
 def sirket_isle(kod, bilgi, sektor, donem, oran, medyan, n,
                 kuru=False) -> tuple[bool, str]:
     d, once, eksik = bilanco_ag.donem_getir(
@@ -225,9 +277,10 @@ def sirket_isle(kod, bilgi, sektor, donem, oran, medyan, n,
         kod, bilgi["unvan"], sektor, donem, simdi=d, once=once,
         oranlar_kendi=oran, medyanlar=medyan, sirket_sayisi=n)
 
-    metin, model, sebep, _ham = bilanco_yorum.yorum_uret(girdi)
+    metin, model, sebep, ham = bilanco_yorum.yorum_uret(girdi)
     if not metin:
         # YORUMSUZ SAYFA YAYIMLANMIYOR -- bkz. modul basi.
+        ret_yaz(kod, bilgi.get("unvan", ""), donem, sebep, model, ham)
         return False, f"yorum yok: {sebep}"
 
     govde = govde_kur(kod, bilgi["unvan"], sektor, donem, d, oran,
@@ -235,6 +288,13 @@ def sirket_isle(kod, bilgi, sektor, donem, oran, medyan, n,
 
     tamam, bulgular = guvenlik.yayinlanabilir(govde)
     if not tamam:
+        # BU RET DE KAYDEDILIYOR. Ikinci basarisizlik bicimi ve
+        # birincisinden AYRI bir tani gerektiriyor: sayi uydurma
+        # modelin sorunu, guvenlik takilmasi SABLONUN ya da yonergenin
+        # sorunu olabilir. Ayirt edebilmek icin ikisi de depoda.
+        ret_yaz(kod, bilgi.get("unvan", ""), donem,
+                f"güvenlik: {bulgular[0] if bulgular else '?'}",
+                model, metin)
         return False, f"güvenlik: {bulgular[0] if bulgular else '?'}"
 
     if kuru:

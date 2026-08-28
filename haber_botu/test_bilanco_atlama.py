@@ -93,6 +93,63 @@ def test_gercek_depoda_tera_atlaniyor():
     assert all("/" in donem for _, donem in v)
 
 
+def test_ret_depoya_yaziliyor():
+    """Reddedilen yorum `ai_ret`e girmeli -- gunluge degil.
+
+    Olculdu (2026-08-28): bilanco kosusu 287 sirketi atladi, 286'si
+    "girdide olmayan sayi" idi. Hepsi gunluge basilip kayboldu;
+    `ai_ret` tablosunda bilanco hattindan TEK SATIR yoktu. Yani hangi
+    sayilarin uydurulduğu ve saglayici degisince duzelip duzelmedigi
+    olculemiyordu -- oysa is akisinda tam bu karsilastirma icin bir
+    `saglayici` girdisi var.
+    """
+    import contextlib
+    import sqlite3
+    import tempfile
+    # `closing` SART: `with sqlite3.connect(...)` islemi kapatir,
+    # BAGLANTIYI degil. Windows acik tanimlayiciyla dosyayi
+    # sildirmiyor ve gecici dizin temizligi WinError 32 ile patliyor
+    # -- ilk yazimda tam bu oldu ve ayni kusur `ret_yaz`da da vardi.
+    with tempfile.TemporaryDirectory() as t:
+        vt = pathlib.Path(t) / "d.db"
+        with contextlib.closing(sqlite3.connect(vt)) as b, b:
+            b.execute("CREATE TABLE ai_ret (id INTEGER PRIMARY KEY"
+                      " AUTOINCREMENT, adres TEXT NOT NULL, baslik TEXT"
+                      " NOT NULL DEFAULT '', neden TEXT NOT NULL, model"
+                      " TEXT NOT NULL DEFAULT '', ham TEXT NOT NULL"
+                      " DEFAULT '', kayit_ani TEXT NOT NULL)")
+        eski, u.VT = u.VT, vt
+        try:
+            u.ret_yaz("ADEL", "ADEL KALEMCİLİK A.Ş.", "2026 2. çeyrek",
+                      "girdide olmayan sayi: 357.1", "@cf/x", "ham metin")
+        finally:
+            u.VT = eski
+        with contextlib.closing(sqlite3.connect(vt)) as b:
+            satir = b.execute("SELECT adres, baslik, neden, model, ham"
+                              " FROM ai_ret").fetchall()
+    assert len(satir) == 1, satir
+    adres, baslik, neden, model, ham = satir[0]
+    # Adres bilanco hattini AYIRT ETMELI: haber retleriyle ayni
+    # tabloda duruyorlar ve karsilastirma ancak ayirt edilebilirse
+    # yapilabilir.
+    assert adres.startswith("bilanco:"), adres
+    assert "ADEL" in adres, adres
+    assert "357.1" in neden, neden
+    assert model == "@cf/x", model
+    # HAM CIKTI SAKLANMALI: "neden reddedildi" ancak metne bakarak
+    # cevaplanir.
+    assert ham == "ham metin", ham
+
+
+def test_ret_yazamamak_isi_dusurmuyor():
+    """Depo yoksa uretim devam etmeli -- rapor uretimden onemsizdir."""
+    eski, u.VT = u.VT, pathlib.Path("Z:/olmayan/dizin/yok.db")
+    try:
+        u.ret_yaz("X", "X A.Ş.", "2026 2. çeyrek", "sebep", "m", "h")
+    finally:
+        u.VT = eski
+
+
 def _ozetle(sebepler, yazilan, atlanan):
     """`_dokum`u sahte bir kosu ozetiyle calistirir, yazilani dondurur."""
     import os
