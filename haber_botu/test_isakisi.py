@@ -324,6 +324,65 @@ if _temizlik:
     dogru("bilanco.yml temizleyiciye --liste veriyor", "--liste" in _t)
     dogru("bilanco.yml temizleyiciye --uygula veriyor", "--uygula" in _t)
 
+# --------------------------------------------------------------------
+# 9. HER OTOMATIK TETIKLEYICI DAGITMALI.
+#
+#    Olculdu (2026-08-28): nobetcinin tetikledigi kosu 14:00'te
+#    BASARIYLA bitti ama site 12:25'te kalmisti. Dagitim kapisi
+#    soyleydi:
+#
+#        github.event_name == 'schedule' || inputs.yayinla
+#
+#    `repository_dispatch` ne `schedule`dir ne de `inputs` tasir --
+#    yani nobetci tetikleyicisi eklendiginde bu satir guncellenmedi ve
+#    kosu icerik uretip DAGITMADAN bitti.
+#
+#    Zarar tek bir kosu degil: icerik bayat kaldigi icin nobetci yarim
+#    saat sonra YINE tetikliyor. Hepsi yesil donen, hicbiri yayimlamayan
+#    sonsuz bir dongu -- ve disaridan sistem saglikli gorunuyor. Sessiz
+#    kalan bir hat, kirmizi donen bir hattan tehlikelidir.
+#
+#    KURAL: dagitim kapisi tetikleyicileri SAYMAMALI. Elle kosuda
+#    kullanicinin secimi gecerli; digerlerinde varsayilan DAGIT.
+#    Sayan bir kapi, her yeni tetikleyicide yeniden unutulur.
+# --------------------------------------------------------------------
+#    KAPI IKI BICIMDE YAZILIYOR ve ikisi de sinaniyor:
+#      * `otomasyon.yml`  bayragi kosullu uretiyor (`--yayinla`)
+#      * `bilanco.yml`    adimin kendisini kosula bagliyor (`if:`)
+#    Ikisi ayni karari veriyor, dolayisiyla ayni kurala tabi. Yalnizca
+#    birine bakan bir sinama, hatanin digerine kacmasina izin verirdi.
+_KAPI = re.compile(r"\$\{\{([^{}]*--yayinla[^{}]*)\}\}")
+for p_ in dosyalar:
+    ham = p_.read_text(encoding="utf-8")
+    d_ = cozulen.get(p_.name) or {}
+    kapilar = []
+
+    m_ = _KAPI.search(ham)
+    if m_:
+        kapilar.append(("bayrak", m_.group(1)))
+
+    for is_ in (d_.get("jobs") or {}).values():
+        for a in (is_.get("steps") or []):
+            if "wrangler deploy" in _kod(a.get("run") or ""):
+                kapilar.append(("adim", str(a.get("if") or "")))
+
+    # Elle kosu disindaki her tetikleyici OTOMATIKtir.
+    otomatik = {t for t in tetik(d_) if t != "workflow_dispatch"}
+    for tur, ifade in kapilar:
+        if not ifade:
+            # Kosulsuz dagitim: her tetikleyicide dagitiyor demektir.
+            dogru(f"{p_.name} dagitim kapisi ({tur}) kosulsuz", True)
+        elif "!=" in ifade:
+            # Ters cevrilmis kapi: yalnizca elle kosu disarida kalmali.
+            dogru(f"{p_.name} dagitim kapisi ({tur}) yalnizca elle "
+                  f"kosuyu ayiriyor", "workflow_dispatch" in ifade)
+        else:
+            eksik = sorted(t for t in otomatik if t not in ifade)
+            dogru(f"{p_.name} dagitim kapisi ({tur}) hicbir otomatik "
+                  f"tetikleyiciyi atlamiyor", not eksik)
+            if eksik:
+                print(f"         kapida gecmeyen: {eksik}")
+
 
 print(f"\n{_gecti} gecti, {_kaldi} kaldi")
 sys.exit(1 if _kaldi else 0)

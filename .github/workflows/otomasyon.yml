@@ -253,9 +253,31 @@ jobs:
         # kosmali. Ikisini ayni 25 dakikaya sikistirmak, SIK kosan
         # hatti NADIR kosan yuzunden riske atmak demekti -- bilanco
         # yilda dort kez bildiriliyor, haber gun boyu akiyor.
+        #
+        # DAGITIM KAPISI: SAYARAK DEGIL, TERS CEVIREREK.
+        #
+        # Once `github.event_name == 'schedule' || inputs.yayinla`
+        # yaziyordu -- yani tetikleyiciler TEK TEK sayiliyordu. Sonra
+        # `repository_dispatch` eklendi (nobetci) ve bu satir
+        # guncellenmedi.
+        #
+        # Olculdu (2026-08-28): nobetcinin tetikledigi kosu 14:00'te
+        # BASARIYLA bitti, ama site 12:25'te kalmisti. Cunku
+        # `repository_dispatch` ne `schedule`dir ne de `inputs` tasir;
+        # bayrak hic verilmedi. Icerik toplandi, sayfalar uretildi,
+        # depoya yazildi -- DAGITILMADI.
+        #
+        # Sonucu yalnizca "bir kosu bosa gitti" degil: icerik bayat
+        # kaldigi icin nobetci yarim saat sonra YINE tetikliyor. Hepsi
+        # yesil donen, hicbiri yayimlamayan sonsuz bir dongu -- ve
+        # disaridan bakinca sistem saglikli gorunuyor.
+        #
+        # Yeni kural sayma yapmiyor: ELLE kosuda kullanici kapatmadiysa
+        # dagit. Boylece ileride eklenecek her otomatik tetikleyici
+        # kendiliginde kapsaniyor; unutulacak bir liste kalmiyor.
         run: |
           python calistir.py --atla bilanco bilanco_sayfa \
-            ${{ (github.event_name == 'schedule' || inputs.yayinla) && '--yayinla' || '' }}
+            ${{ (github.event_name != 'workflow_dispatch' || inputs.yayinla) && '--yayinla' || '' }}
 
       - name: Depo özeti
         if: always()
