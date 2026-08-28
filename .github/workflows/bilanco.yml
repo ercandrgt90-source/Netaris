@@ -84,14 +84,33 @@ on:
         type: string
         default: "60"
       saglayici:
-        # KARSILASTIRMA ICIN. Normalde Anthropic varsa o
-        # kullaniliyor ve bu dogru -- daha iyi metin uretiyor.
-        # Ama Workers AI'in dogrulama zincirinden kac sayfa
-        # gecirdigi ancak OLCULEREK bilinir.
-        description: "AI saglayici"
+        # "VARSAYILAN" SECENEGI KALDIRILDI -- yanlis sey vaat ediyordu.
+        #
+        # Liste soyleydi: ["varsayilan", "cloudflare", "anthropic"] ve
+        # varsayilan "varsayilan"di. Formu okuyan kisi bunu "sistemin
+        # normal tercihi" diye anlar; kodun normal tercihi ise
+        # `yorumcu.saglayici()`de yazili ve ANTHROPIC ONCELIKLI.
+        #
+        # Gercekte asagidaki ifade "varsayilan"i CLOUDFLARE'e
+        # ceviriyordu. Yani secenek adi, yaptigi seyin tersini
+        # soyluyordu. Ustelik bu blogun kendi aciklamasi da
+        # "Normalde Anthropic varsa o kullaniliyor" diyordu -- kod
+        # degismis, not eski davranisi anlatmaya devam etmisti.
+        #
+        # BEDELI OLCULDU (2026-08-28): kosu varsayilanla baslatildi,
+        # 44 dakika calisti, 328 sirketten 41'ini yazdi. 287 atlamanin
+        # 286'si "girdide olmayan sayi" -- yani ucuz model, verilmeyen
+        # rakamlar uretti ve dogrulama zinciri hepsini reddetti.
+        # Depodaki gecmis oranlar: anthropic %65, cloudflare %21.
+        #
+        # Liste artik yalnizca GERCEK saglayicilari iceriyor. Ucretsiz
+        # olan hala varsayilan -- gunde iki kez kendi kendine kosan bir
+        # isin sessizce faturaya yazmamasi bilincli bir karardi ve
+        # duruyor. Degisen tek sey, secenegin ne yaptigini SOYLEMESI.
+        description: "AI sağlayıcı — cloudflare ücretsiz (ölçüldü: %21 geçer), anthropic ücretli (%65)"
         type: choice
-        options: ["varsayilan", "cloudflare", "anthropic"]
-        default: "varsayilan"
+        options: ["cloudflare", "anthropic"]
+        default: "cloudflare"
 
 # KENDI GRUBU -- ana otomasyonla ORTAK DEGIL.
 #
@@ -194,9 +213,14 @@ jobs:
           # kendine kosan bir isin sessizce faturaya yazmasi, o
           # karari gecersiz kilardi.
           #
-          # Elle calistirmada `anthropic` secilebiliyor; varsayilan
-          # ise her iki durumda da cloudflare.
-          NETARIS_AI_SAGLAYICI: ${{ (inputs.saglayici != '' && inputs.saglayici != 'varsayilan') && inputs.saglayici || 'cloudflare' }}
+          # Elle calistirmada `anthropic` secilebiliyor. Zamanlanmis
+          # kosuda `inputs` bos gelir ve ucretsiz saglayiciya duser.
+          #
+          # IFADE SADELESTI: eskiden "varsayilan" secenegini de
+          # cloudflare'e cevirmesi gerekiyordu. O secenek kaldirildi --
+          # adi yaptiginin tersini soyluyordu ve bir kosuyu bosa
+          # harcadi (bkz. `saglayici` girdisinin notu).
+          NETARIS_AI_SAGLAYICI: ${{ inputs.saglayici || 'cloudflare' }}
         run: |
           python haber_botu/uret_bilanco_sayfa.py \
             --sinir ${{ inputs.sinir || '60' }}

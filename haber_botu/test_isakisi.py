@@ -352,6 +352,58 @@ if _temizlik:
 #    Ikisi ayni karari veriyor, dolayisiyla ayni kurala tabi. Yalnizca
 #    birine bakan bir sinama, hatanin digerine kacmasina izin verirdi.
 # --------------------------------------------------------------------
+# 9b. FORMDAKI HER SECENEK, KODUN TANIDIGI BIR DEGER OLMALI.
+#
+#     `bilanco.yml`in "AI saglayici" listesi soyleydi:
+#         ["varsayilan", "cloudflare", "anthropic"]   varsayilan: "varsayilan"
+#
+#     "varsayilan" bir saglayici DEGIL. Formu okuyan kisi bunu
+#     "sistemin normal tercihi" diye anlar -- ki kodun normal tercihi
+#     `yorumcu.saglayici()`de ANTHROPIC ONCELIKLI. Gercekte is akisi
+#     onu CLOUDFLARE'e ceviriyordu. Secenegin adi, yaptiginin tersini
+#     soyluyordu.
+#
+#     BEDELI OLCULDU (2026-08-28): kosu varsayilanla baslatildi, 44
+#     dakika calisti, 328 sirketten 41'ini yazdi. 287 atlamanin 286'si
+#     "girdide olmayan sayi" -- ucuz model verilmeyen rakamlar uretti.
+#     Depodaki oranlar: anthropic %65, cloudflare %21.
+#
+#     KURAL: secenek listesi yalnizca kodun TANIDIGI degerleri
+#     icermeli. Tanidigi kume `yorumcu.py`den TURETILIYOR, buraya
+#     yazilmiyor -- elle yazilan bir kopya, kod degisince eskir ve bu
+#     testin varlik sebebi tam olarak o.
+# --------------------------------------------------------------------
+# YOL DOGRULANIYOR, SESSIZCE ATLANMIYOR.
+#
+# Ilk yazimda `KOK / "ai" / "yorumcu.py"` deniyordu; `KOK` depo koku,
+# dosya ise `haber_botu/ai/` altinda. Dosya bulunamayinca blok sessizce
+# atlandi ve test HICBIR SEY OLCMEDI -- mutasyon (eski secenek
+# listesini geri koymak) bile yakalanmadi. Varligi ayrica sinaniyor.
+_yorumcu = KOK / "haber_botu" / "ai" / "yorumcu.py"
+dogru("yorumcu.py bulundu", _yorumcu.is_file())
+if _yorumcu.is_file():
+    _kaynak = _yorumcu.read_text(encoding="utf-8")
+    # `zorla == "cloudflare"` gibi karsilastirmalardan okunuyor.
+    _taninan = set(re.findall(r'zorla\s*==\s*"([a-z]+)"', _kaynak))
+    dogru("yorumcu.py'den saglayici kumesi okunabildi", len(_taninan) >= 2)
+    for ad, d in cozulen.items():
+        girdiler = (tetik(d).get("workflow_dispatch") or {}).get("inputs") or {}
+        for g_ad, g in girdiler.items():
+            if "saglayici" not in g_ad or not isinstance(g, dict):
+                continue
+            secenekler = [str(s) for s in (g.get("options") or [])]
+            if not secenekler:
+                continue
+            kacak = [s for s in secenekler if s not in _taninan]
+            dogru(f"{ad} '{g_ad}' secenekleri kodun tanidigi degerler",
+                  not kacak)
+            if kacak:
+                print(f"         taninmayan: {kacak}  (taninan: "
+                      f"{sorted(_taninan)})")
+            dogru(f"{ad} '{g_ad}' varsayilani da taninan bir deger",
+                  str(g.get("default", "")) in _taninan)
+
+# --------------------------------------------------------------------
 # 10. GERI YAZMA, BASKASININ BILEREK SILDIGINI DIRILTMEMELI.
 #
 #     `--ignore-removal` bir yonu koruyor -- baskasinin dosyasini
