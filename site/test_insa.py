@@ -634,6 +634,52 @@ _INSA = (_KOK / "insa.py").read_text(encoding="utf-8")
 dogru("uyelik sayfalari arama_disi olarak uretiliyor",
       "arama_disi=True" in _INSA)
 
+# ------------------------------------------------------------------
+# BESLEMEDE GERCEK SAAT VAR.
+#
+# Olculdu (2026-08-28): 40 ogenin 40'i da "00:00:00 +0000"
+# tasiyordu; `pubDate` yalnizca GUN bazli tarihten uretiliyordu.
+#
+# Bedeli iki tarafli: besleme okuyucu gun ICINDEKI sirayi kuramiyor
+# ve "yeni oge" tespiti guvenilmez oluyor. Ayrica bu, nobetcinin
+# yanlis olcum yapmasinin da kokeniydi -- "en yeni icerik" her zaman
+# gece yarisi gorunuyordu.
+#
+# ANALIZDE DAMGA UYDURULMUYOR: yayim saatini bilmiyoruz. Damgasiz
+# kayit gunun basinda duruyor -- olcumsuz bir saat yazmaktansa.
+# ------------------------------------------------------------------
+import xml.etree.ElementTree as _ET  # noqa: E402
+
+# DAMGALI KAYIT GIRDIDE IKINCI SIRADA: ilk yazimda ONCE yaziliydi ve
+# siralama sinamasi HICBIR SEY OLCMUYORDU -- ayni gunde tarihe gore
+# siralamak kararli oldugu icin girdi sirasini koruyor, yani damga
+# yok sayilsa da sonuc ayni cikiyordu. Bozarak dogrulamada kacti.
+_rss = insa.rss_uret([], [
+    ("2026-08-28", "Damgasiz haber", "ozet", "/haber/b/", ""),
+    ("2026-08-28", "Damgali haber", "ozet", "/haber/a/",
+     "2026-08-28T09:12:00+00:00"),
+])
+dogru("damgali oge gercek saati tasiyor", "09:12:00" in _rss)
+dogru("damgasiz oge gunun basinda", "00:00:00" in _rss)
+dogru("damgali oge ONDE", _rss.index("Damgali") < _rss.index("Damgasiz"))
+
+# ESKI DORTLU BICIM DE CALISMALI: cagiranlardan biri damgasiz kayit
+# gonderirse besleme patlamamali.
+_eski = insa.rss_uret([], [("2026-08-28", "Dortlu", "ozet", "/haber/c/")])
+dogru("dortlu bicim hala calisiyor", "Dortlu" in _eski)
+
+dogru("lastBuildDate basiliyor", "<lastBuildDate>" in _rss)
+dogru("atom:link kendine isaret ediyor", 'rel="self"' in _rss)
+dogru("atom ad alani tanimli", "xmlns:atom" in _rss)
+
+# XML GECERLILIGI: ad alani tanimsiz birakilirsa besleme okuyucular
+# dosyayi tumuyle reddeder -- bozuk besleme, eksik beslemeden kotudur.
+try:
+    _ET.fromstring(_rss)
+    dogru("besleme gecerli XML", True)
+except _ET.ParseError as _e:
+    dogru(f"besleme gecerli XML ({_e})", False)
+
 # HANGI SINAMA KALDIGI YAZILIYOR.
 #
 # Onceden yalnizca sayi basiliyordu ("1 kaldi") ve o sayi tek basina

@@ -2135,21 +2135,52 @@ def rss_uret(analizler: list[Analiz],
     SIRA TARIHE GORE: iki kaynak birlestirilip yeniden siralaniyor.
     Analizleri one almak, gunun haberini beslemenin dibine iterdi.
     """
-    kayitlar: list[tuple[str, str, str, str]] = [
-        (a.tarih, a.baslik, a.ozet, a.yol) for a in analizler
+    # BESINCI ALAN: DAMGA (`an`). Haberde var, analizde yok.
+    #
+    # Olculdu (2026-08-28): beslemedeki 40 ogenin 40'i da
+    # "00:00:00 +0000" tasiyordu. `pubDate` yalnizca GUN bazli
+    # `tarih`ten uretiliyordu.
+    #
+    # Bedeli iki tarafli: besleme okuyucu gun ICINDEKI sirayi
+    # kuramiyor ve "yeni oge" tespiti guvenilmez oluyor -- ayni gunun
+    # butun ogeleri ayni ana bakiyor.
+    #
+    # Ayrica bu, nobetcinin yanlis olcum yapmasinin da kokeniydi
+    # (bkz. `worker.js`): "en yeni icerik" her zaman gece yarisi
+    # gorunuyordu.
+    #
+    # ANALIZDE DAMGA UYDURULMUYOR: yayim saatini bilmiyoruz ve dosya
+    # zamanini yayim ani gibi sunmak, bu depoda defalarca reddedilmis
+    # bir sey. Damgasi olmayan kayit gunun basinda duruyor.
+    kayitlar: list[tuple] = [
+        (a.tarih, a.baslik, a.ozet, a.yol, "") for a in analizler
     ]
-    kayitlar += list(haberler or [])
-    # En yeni once. Tarihi cozulemeyen kayit sona duser -- uydurma bir
-    # tarih vermek yerine sirasi kaybolsun.
-    kayitlar.sort(key=lambda k: k[0] or "", reverse=True)
+    for k in (haberler or []):
+        kayitlar.append(tuple(k) if len(k) == 5 else (*k, ""))
+    # En yeni once. Damga varsa ona, yoksa tarihe gore.
+    # ISO damga ("2026-08-28T09:12") ayni gunun duz tarihinden
+    # ("2026-08-28") lexikografik olarak BUYUK, yani damgali kayit
+    # dogru sirada one geciyor.
+    kayitlar.sort(key=lambda k: (k[4] or k[0] or ""), reverse=True)
 
     ogeler = []
-    for tarih, baslik, ozet, yol in kayitlar[:40]:
-        try:
-            d = datetime.strptime(tarih, "%Y-%m-%d").replace(tzinfo=timezone.utc)
-            pub = d.strftime("%a, %d %b %Y %H:%M:%S +0000")
-        except (ValueError, TypeError):
-            pub = ""
+    for tarih, baslik, ozet, yol, damga in kayitlar[:40]:
+        pub = ""
+        if damga:
+            try:
+                d = datetime.fromisoformat(str(damga).replace("Z", "+00:00"))
+                if d.tzinfo is None:
+                    d = d.replace(tzinfo=timezone.utc)
+                pub = d.strftime("%a, %d %b %Y %H:%M:%S +0000")
+            except (ValueError, TypeError):
+                pub = ""
+        if not pub:
+            try:
+                d = datetime.strptime(tarih, "%Y-%m-%d").replace(
+                    tzinfo=timezone.utc)
+                pub = d.strftime("%a, %d %b %Y %H:%M:%S +0000")
+            except (ValueError, TypeError):
+                pub = ""
         ogeler.append(
             "    <item>\n"
             f'      <title>{html.escape(baslik)}</title>\n'
@@ -2161,12 +2192,20 @@ def rss_uret(analizler: list[Analiz],
         )
     return (
         '<?xml version="1.0" encoding="UTF-8"?>\n'
-        '<rss version="2.0">\n'
+        '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n'
         "  <channel>\n"
         f"    <title>{html.escape(SITE['ad'])}</title>\n"
         f"    <link>{SITE['adres']}/</link>\n"
         f"    <description>{html.escape(SITE['aciklama'])}</description>\n"
         "    <language>tr-TR</language>\n"
+        # `lastBuildDate`: beslemenin NE ZAMAN uretildigi. Okuyucular
+        # bunu "degisti mi" sorusuna cevap olarak kullaniyor; yoksa
+        # butun ogeleri yeniden okumak zorunda kaliyorlar.
+        f"    <lastBuildDate>{datetime.now(timezone.utc).strftime('%a, %d %b %Y %H:%M:%S +0000')}</lastBuildDate>" + chr(10)
+        # `atom:link` kendine isaret: beslemenin KENDI adresi.
+        # Besleme baska bir yerde yeniden yayimlandiginda aslinin
+        # nerede oldugunu soyluyor; dogrulayicilar da bunu ariyor.
+        + f'    <atom:link href="{SITE["adres"]}/rss.xml" rel="self" type="application/rss+xml"/>' + chr(10)
         + "\n".join(ogeler)
         + "\n  </channel>\n</rss>\n"
     )
@@ -5408,6 +5447,8 @@ def insa() -> int:
                 h.get("baslik") or "",
                 h.get("ozet") or h.get("neden_onemli") or "",
                 h_yol,
+                # DAMGA: `an_yaz` bu noktadan once kosuyor.
+                h.get("an") or "",
             ))
 
 
