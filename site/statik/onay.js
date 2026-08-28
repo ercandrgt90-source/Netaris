@@ -102,7 +102,7 @@
       '<p class="onay-metin">Ziyaret sayımı için Google Analytics kullanıyoruz. ' +
       '<b>Onay vermezseniz çerez yazılmaz</b>; yalnızca kimliksiz bir ' +
       'sayfa sayısı tutulur. ' +
-      '<a href="/hakkimizda/#gizlilik">Ayrıntı</a>.</p>' +
+      '<a href="/gizlilik/">Ayrıntı</a>.</p>' +
       '<div class="onay-dugmeler">' +
       '<button type="button" class="dugme dugme-sade" data-onay="ret">Sadece gerekli</button>' +
       '<button type="button" class="dugme dugme-birincil" data-onay="kabul">Kabul et</button>' +

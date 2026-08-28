@@ -1805,8 +1805,29 @@ class Bolum:
     govde: str
 
 
-#: Yasal metinler, hakkimizda sayfasinin ALTINDA bu sirayla.
-HAKKIMIZDA_SIRASI = ("yayin-ilkeleri", "kunye", "gizlilik")
+#: Hakkimizda sayfasina EKLENEN alt bolumler.
+#:
+#: BOS BIRAKILDI (2026-08-28). Once yayin ilkeleri, kunye ve gizlilik
+#: metinleri bu sayfanin ALTINA ekleniyordu ve sonuc, tek bir sayfada
+#: toplanan bir hukuk dokumantasyonuydu: KVKK, cerezler, TradingView,
+#: Google Analytics, IP adresleri ve yirmi satirlik skor metodolojisi
+#: hep birlikte.
+#:
+#: Hakkimizda sayfasinin isi okura KIM OLDUGUMUZU ve NE YAPTIGIMIZI
+#: anlatmak. Hukuki metinler kendi adreslerinde duruyor
+#: (`BAGIMSIZ_SAYFALAR`) -- boylece hem bu sayfa okunabilir kaliyor
+#: hem de o metinlere dogrudan baglanti verilebiliyor.
+#:
+#: Yapi SILINMEDI: birlestirme gerekirse buraya bir slug eklemek
+#: yeterli.
+HAKKIMIZDA_SIRASI: tuple[str, ...] = ()
+
+#: Kendi adresinde yayimlanan bagimsiz sayfalar.
+#:
+#: `/hakkimizda/#gizlilik` gibi eski capalara verilen baglantilar
+#: `_redirects` ile yeni adreslere yonlendiriliyor -- disaridan gelen
+#: ve paylasilmis baglantilar kirilmasin.
+BAGIMSIZ_SAYFALAR = ("yayin-ilkeleri", "metodoloji", "gizlilik", "kunye")
 
 #: Sayfa ici gezinmede h2 basliklarini yakalar. Capalar markdown'da
 #: "{#capa}" ile elle verilir; boylece baglantilar baslik metni degisse
@@ -1821,6 +1842,38 @@ class Hakkimizda:
     bolumler: list[Bolum]
     #: (capa, baslik) ciftleri -- sayfa ici gezinme icin
     gezinme: list[tuple[str, str]]
+
+
+@dataclass
+class DuzSayfa:
+    """Kendi adresinde yayimlanan bagimsiz icerik sayfasi."""
+
+    slug: str
+    baslik: str
+    ozet: str
+    govde: str
+
+
+def duz_sayfalar() -> list[DuzSayfa]:
+    """`BAGIMSIZ_SAYFALAR` icindeki markdown dosyalarini okur.
+
+    Basliklar INDIRILMIYOR: bu sayfalar kendi basina duruyor, yani
+    `h2` gercekten ikinci seviye. Birlestirilirken indirmek gerekiyordu
+    cunku sayfanin `h1`i zaten "Hakkimizda"ydi.
+    """
+    cikti: list[DuzSayfa] = []
+    for ad in BAGIMSIZ_SAYFALAR:
+        yol = ICERIK / "sayfalar" / f"{ad}.md"
+        if not yol.exists():
+            continue
+        b = ayristir(yol)
+        cikti.append(DuzSayfa(
+            slug=b.al("slug") or slugla(yol.stem),
+            baslik=b.al("baslik", yol.stem),
+            ozet=b.al("ozet", ""),
+            govde=md_html(b.govde_md),
+        ))
+    return cikti
 
 
 def hakkimizda_yukle() -> Hakkimizda | None:
@@ -4999,6 +5052,18 @@ def insa() -> int:
             ),
         )
         yollar.append("/hakkimizda/")
+
+    # Bagimsiz sayfalar -- yayin ilkeleri, metodoloji, gizlilik,
+    # iletisim. Her biri kendi adresinde: hem sayfalar okunabilir
+    # kaliyor hem de disaridan dogrudan baglanti verilebiliyor.
+    for _s in duz_sayfalar():
+        yaz(
+            f"/{_s.slug}/index.html",
+            ortam.get_template("sayfa.html").render(
+                **ortak, yol=f"/{_s.slug}/", s=_s
+            ),
+        )
+        yollar.append(f"/{_s.slug}/")
 
     # Tasarim sistemi -- jetonlar `stil.css`ten OKUNUYOR.
     #

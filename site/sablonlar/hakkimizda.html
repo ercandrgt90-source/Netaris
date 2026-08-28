@@ -17,6 +17,34 @@
 {% endblock %}
 
 {% block icerik %}
+{# ESKI CAPALAR YENI ADRESLERE YONLENDIRILIYOR.
+
+   Yayin ilkeleri, metodoloji, gizlilik ve iletisim metinleri bu
+   sayfanin ALTINDA birer bolumdu; artik kendi adreslerinde. Disarida
+   paylasilmis `/hakkimizda/#gizlilik` gibi baglantilar var olabilir.
+
+   `_redirects` bunu COZEMEZ: capa (`#...`) sunucuya hic gonderilmiyor,
+   tarayicida kaliyor. Yani sunucu tarafinda yonlendirme yazmak ise
+   yaramaz -- karsilamanin tek yeri burasi.
+
+   Yalnizca TASINMIS capalar eslesiyor; sayfanin kendi capalari
+   (`#vizyon`, `#nasil`...) dokunulmadan calisiyor. `replace`
+   kullaniliyor ki geri tusu okuru bu sayfaya geri atmasin. #}
+<script>
+  (function () {
+    var tasinan = {
+      "#yayin-ilkeleri": "/yayin-ilkeleri/",
+      "#ilkeler-tam": "/yayin-ilkeleri/",
+      "#kunye": "/kunye/",
+      "#gizlilik": "/gizlilik/",
+      "#skor": "/metodoloji/#skor",
+      "#sektor": "/metodoloji/#sektor",
+      "#veri": "/metodoloji/#veri"
+    };
+    var hedef = tasinan[location.hash];
+    if (hedef) { location.replace(hedef); }
+  })();
+</script>
 <div class="sayfa">
   <p class="ust-etiket">Hakkımızda</p>
   <h1>{{ h.lead }}</h1>

@@ -2,70 +2,57 @@
 slug: hakkimizda-giris
 baslik: Hakkımızda
 ozet: Netaris'in vizyonu, misyonu, çalışma yöntemi ve yayın ilkeleri.
-lead: Finansın geleceğini yapay zekâ ile inşa ediyoruz.
+lead: Finansal bilgiyi anlamlandırıyoruz.
 ---
 
-Netaris, finansal veriyi yalnızca yayımlayan değil; analiz eden, ilişkilendiren ve anlaşılır hâle getiren yeni nesil bir finans araştırma platformudur. Amacımız, yatırımcıların, araştırmacıların, öğrencilerin ve finans profesyonellerinin ihtiyaç duyduğu güvenilir bilgiye daha hızlı ve daha şeffaf şekilde ulaşmasını sağlamaktır.
+Netaris; finansal verileri, ekonomik gelişmeleri ve piyasa haberlerini bir araya getirerek bunları yapay zekâ destekli analizlerle anlaşılır hâle getiren yeni nesil bir finans araştırma platformudur.
 
-Bugün finans dünyasında milyonlarca veri noktası; şirket bilançoları, ekonomik göstergeler, merkez bankası kararları, siyasi gelişmeler ve küresel haber akışı farklı kaynaklarda dağınık olarak yer alıyor. Netaris, bu verileri tek bir ekosistemde bir araya getirerek yapay zekâ destekli analiz motorlarıyla işler ve herkesin anlayabileceği kapsamlı içeriklere dönüştürür.
-
-Her analiz yalnızca rakamlardan oluşmaz. Bir şirketin kârlılığı neden arttı, faaliyet nakit akışı neden zayıfladı, bilançodaki değişimin arkasındaki temel nedenler neler, küresel ekonomik gelişmeler şirketleri nasıl etkiliyor ve makroekonomik veriler piyasalara nasıl yansıyor gibi soruların cevaplarını da sunar.
+Amacımız yalnızca bilgi sunmak değil; bilginin neden önemli olduğunu, neleri etkileyebileceğini ve hangi gelişmelerin takip edilmesi gerektiğini ortaya koymaktır.
 
 ## Vizyonumuz {#vizyon}
 
-Netaris'in vizyonu, dünyanın her yerinden finansal verileri ve ekonomik gelişmeleri tek bir platform altında toplayarak yapay zekâ destekli küresel finans araştırma altyapısı oluşturmaktır.
+Finansal verilerin ve ekonomik gelişmelerin tek bir platformda bir araya geldiği, yapay zekâ destekli küresel bir finans araştırma altyapısı oluşturmak.
 
-Hedefimiz yalnızca Borsa İstanbul'u değil; ABD, Avrupa ve Asya piyasalarını, merkez bankalarını, ekonomik takvimleri, şirket bilançolarını, emtia piyasalarını, kripto varlıkları ve küresel haber akışını aynı sistem içerisinde analiz eden uluslararası bir bilgi ağı kurmaktır.
-
-Uzun vadede Netaris; farklı dillerde yayın yapan, her ülkede yerel finansal verileri kendi muhasebe standartlarına göre analiz edebilen ve milyonlarca kullanıcıya güvenilir finansal araştırma sunan küresel bir teknoloji şirketi olmayı hedeflemektedir.
+Netaris; Türkiye'nin yanı sıra ABD, Avrupa ve Asya piyasalarını, merkez bankalarını, ekonomik verileri, şirket bilançolarını, emtia ve kripto piyasalarını aynı ekosistem içerisinde analiz etmeyi hedefler.
 
 ## Misyonumuz {#misyon}
 
-Misyonumuz, finansal bilgiyi herkes için daha erişilebilir, daha anlaşılır ve daha şeffaf hâle getirmektir.
+Finansal bilgiyi daha erişilebilir, anlaşılır ve şeffaf hâle getirmek.
 
-Yapay zekâyı yalnızca içerik üretmek için değil; verileri doğrulamak, kaynakları ilişkilendirmek, karmaşık finansal tabloları sadeleştirmek ve kullanıcıların daha bilinçli değerlendirmeler yapmasına yardımcı olmak için kullanıyoruz.
-
-Amacımız; bilgi kirliliğini azaltan, doğrulanabilir kaynaklara dayanan ve neden-sonuç ilişkisini açıklayan içerikler üretmektir.
+Yapay zekâyı yalnızca içerik üretmek için değil; verileri ilişkilendirmek, finansal tabloları analiz etmek, gelişmeler arasındaki bağlantıları ortaya çıkarmak ve karmaşık bilgileri anlaşılır hâle getirmek için kullanıyoruz.
 
 ## Nasıl çalışıyoruz? {#nasil}
 
-Netaris, tamamen veri odaklı çalışan bir analiz altyapısına sahiptir.
+Netaris'in içerikleri güvenilir ve doğrulanabilir veri kaynaklarından beslenir.
 
-Bugün yayımladığımız içerikler şu kaynaklardan beslenir:
+**Veri → Haber → Bağlam → Analiz → Senaryo**
 
-- Şirketlerin **Kamuyu Aydınlatma Platformu'nda (KAP)** yayımladığı finansal tablolar
-- **Resmî istatistik kurumlarının** makroekonomik serileri
-- **Merkez bankası politika faizleri** ve tahvil getirileri
-- **Küresel emtia ve piyasa göstergeleri**
+Finansal veriler yazılım tarafından hesaplanır; yapay zekânın görevi bu verileri yorumlamak ve anlamlandırmaktır. Böylece hesaplama ile yorum birbirinden ayrılır.
 
-Makroekonomik seriler doğrudan resmî uçlardan otomatik olarak çekilir. Şirket finansal tabloları, KAP'ta yayımlanan resmî tablolardan alınır ve yayın öncesi aritmetik tutarlılık denetiminden geçirilir: brüt kâr ile satış ve maliyet, faaliyet kârı ile gider kalemleri, aktif toplamı ile kaynaklar birbirini tutmuyorsa içerik üretilmez.
+İçerikler yayımlanmadan önce otomatik kontrollerden ve insan denetiminden geçirilir.
 
-**Yapay zekâ bu verileri yorumlarken, tüm sayısal hesaplamalar yazılım tarafından gerçekleştirilir.** Oranlar, büyüme yüzdeleri, marjlar ve skorlar koddan gelir; modelin görevi bunları açıklamaktır. Böylece yorum ile hesaplama birbirinden ayrılır ve aynı tablolar her zaman aynı sonucu üretir.
+Hesaplama kurallarının ayrıntısı [metodoloji](/metodoloji/) sayfasındadır.
 
-Sektöre göre farklı analiz motorları çalışır. Bir aracı kurumun bilançosu sanayi şirketiyle aynı oranlarla okunmaz; stok devir hızı ya da net borç/FAVÖK gibi ölçüler oraya uygulanmaz. Doğru motorun bulunmadığı bir sektörde içerik üretmek yerine üretmemeyi tercih ederiz.
-
-Her içerik yayın öncesi otomatik bir dil taramasından geçer. Alım satım önerisi içeren ifadeler ve dayanağı gösterilmemiş değerleme yargıları tespit edilirse içerik yayına çıkmaz.
-
-## İlkelerimiz {#ilkeler}
+## Yayın ilkelerimiz {#ilkeler}
 
 - **Bağımsız ve tarafsız yayıncılık**
-- **Resmî ve doğrulanabilir veri kaynakları**
-- **Şeffaf analiz metodolojisi** — kurallarımız yayımlanmıştır ve itiraz edilebilir
-- **Yapay zekânın sorumlu kullanımı** — model sayı üretmez, yorumlar
-- **İnsan denetiminden geçen içerikler**
-- **Finansal okuryazarlığı artıran yayın anlayışı**
+- **Doğrulanabilir veri kaynakları**
+- **Şeffaf analiz**
+- **Yapay zekânın sorumlu kullanımı**
+- **İnsan denetimi**
+- **Finansal okuryazarlığı destekleyen içerik**
+
+Netaris yatırım tavsiyesi vermez. İçeriklerimiz kamuya açık verilerin ve finansal gelişmelerin analizine dayanır.
+
+İlkelerin tamamı ve düzeltme politikamız [yayın ilkeleri](/yayin-ilkeleri/) sayfasındadır.
 
 ## Geleceğe bakış {#gelecek}
 
-Netaris yalnızca bugünün finans haberlerini yayımlayan bir platform değildir. Geliştirdiğimiz yapay zekâ altyapısıyla gelecekte şunları tek bir platform üzerinden sunmayı hedefliyoruz:
+Netaris'i zaman içerisinde şunları bir araya getiren küresel bir finans araştırma ekosistemine dönüştürmeyi hedefliyoruz:
 
-- KAP bildirimlerinin ve ekonomik takvimin otomatik takibi
-- Merkez bankası açıklamalarının gerçek zamanlı yorumlanması
+- Gerçek zamanlı ekonomik veri takibi
 - Canlı bilanço analizleri
-- Çok dilli yayın sistemi
-- Kişiselleştirilmiş finans araştırmaları
 - Şirket karşılaştırmaları
-- Yatırımcı araştırma asistanları
-- Akademik ve profesyonel finans içerikleri
-
-Amacımız; finansal bilginin herkes tarafından daha kolay anlaşılabildiği, yapay zekâ ile desteklenen güvenilir ve küresel bir araştırma ekosistemi oluşturmaktır.
+- Kişiselleştirilmiş finans araştırmaları
+- Çok dilli içerikler
+- Yapay zekâ destekli araştırma araçları

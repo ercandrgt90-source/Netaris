@@ -186,7 +186,7 @@ verilerinizin işlenip işlenmediğini öğrenme, işlenmişse bilgi talep etme,
 işlenme amacını öğrenme, düzeltilmesini veya silinmesini isteme ve işlemeye
 itiraz etme haklarına sahipsiniz.
 
-Talep ve sorularınızı [künye](/hakkimizda/#kunye) sayfasındaki e-posta adresine
+Talep ve sorularınızı [künye](/kunye/) sayfasındaki e-posta adresine
 iletebilirsiniz.
 
 ## Dış bağlantılar

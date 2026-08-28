@@ -558,6 +558,53 @@ _ANALIZ_S = (_KOK / "sablonlar" / "analiz.html").read_text(encoding="utf-8")
 dogru("haber sablonu ld_baslik kullaniyor", "ld_baslik" in _HABER_S)
 dogru("analiz sablonu ld_baslik kullaniyor", "ld_baslik" in _ANALIZ_S)
 
+# ------------------------------------------------------------------
+# HAKKIMIZDA BIR HUKUK DOKUMANTASYONU DEGIL.
+#
+# Yayin ilkeleri, kunye ve gizlilik metinleri bu sayfanin ALTINA
+# ekleniyordu. Sonuc, tek sayfada toplanan bir yigindi: KVKK,
+# cerezler, TradingView, Google Analytics, IP adresleri ve yirmi
+# satirlik skor metodolojisi hep birlikte.
+#
+# Hakkimizda sayfasinin isi okura KIM OLDUGUMUZU ve NE YAPTIGIMIZI
+# anlatmak. Hukuki metinler kendi adreslerinde duruyor -- hem bu sayfa
+# okunabilir kaliyor hem de o metinlere dogrudan baglanti
+# verilebiliyor.
+# ------------------------------------------------------------------
+es("hakkimizda'ya yasal metin eklenmiyor", insa.HAKKIMIZDA_SIRASI, ())
+
+_duz = {s.slug for s in insa.duz_sayfalar()}
+for _b in ("yayin-ilkeleri", "metodoloji", "gizlilik", "kunye"):
+    dogru(f"bagimsiz sayfa uretiliyor: {_b}", _b in _duz)
+
+_hk = insa.hakkimizda_yukle()
+dogru("hakkimizda alt bolum tasimiyor", _hk is not None and not _hk.bolumler)
+
+# Hakkimizda METNI de temiz olmali: bolum birlestirmesi kapatilsa bile
+# metnin kendisine hukuki paragraf yazilabilir.
+_HK_MD = (_KOK / "icerik" / "sayfalar" / "hakkimizda.md").read_text(
+    encoding="utf-8").lower()
+for _y in ("kvkk", "çerez", "google analytics", "tradingview", "ip adres"):
+    dogru(f"hakkimizda metninde yok: {_y}", _y not in _HK_MD)
+
+# ESKI CAPALAR KARSILANIYOR.
+#
+# `_redirects` bunu cozemez: capa sunucuya hic gonderilmiyor. Disarida
+# paylasilmis `/hakkimizda/#gizlilik` baglantilari var olabilir.
+_HK_SAB = (_KOK / "sablonlar" / "hakkimizda.html").read_text(encoding="utf-8")
+for _c in ("#gizlilik", "#kunye", "#skor", "#yayin-ilkeleri"):
+    dogru(f"tasinan capa karsilaniyor: {_c}", f'"{_c}"' in _HK_SAB)
+
+# Kunye YASAL OLARAK GEREKLI: 5651 md.3 tanitici bilgilerin iletisim
+# basligi altinda bulundurulmasini sart kosuyor. Sayfa sadelesti ama
+# SILINMEDI; bu sinama yanlislikla kaldirilmasini engelliyor.
+_KUNYE = (_KOK / "icerik" / "sayfalar" / "kunye.md")
+dogru("kunye sayfasi duruyor", _KUNYE.exists())
+if _KUNYE.exists():
+    _k = _KUNYE.read_text(encoding="utf-8")
+    dogru("kunye yayin sahibini bildiriyor", "Yayın sahibi" in _k)
+    dogru("kunye iletisim adresi tasiyor", "@" in _k)
+
 # HANGI SINAMA KALDIGI YAZILIYOR.
 #
 # Onceden yalnizca sayi basiliyordu ("1 kaldi") ve o sayi tek basina
