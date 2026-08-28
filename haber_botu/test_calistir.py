@@ -97,6 +97,90 @@ dogru("beyan denetimi KRITIK listesinde",
 dogru("dagitim KRITIK listesinde", '"Dağıtım"' in _kritik)
 
 print()
+print()
+print("Kosu sonucu GitHub ozet sayfasina yaziliyor")
+# --------------------------------------------------------------------
+# Olculdu (2026-08-28): 16:30 otomasyon kosusu kirmizi dondu. HANGI
+# kritik adimin dustugu gunluge basilmisti -- ama Actions gunlukleri
+# API'den kimlik dogrulamasi istiyor (403) ve tarayicida da yuzlerce
+# satirin altinda kaliyor. 18:30'daki tekrar AYNI KODLA yesil dondu,
+# yani sorun gecici bir seydi; ama "hangi adim" cevaplanamadigi icin
+# gecici mi kalici mi oldugu da bilinemedi.
+#
+# Bugun ucuncu kez ayni bicimde karsilasildi: cevap URETILMISTI,
+# okunabilir yerde degildi.
+# --------------------------------------------------------------------
+import importlib.util  # noqa: E402
+import os  # noqa: E402
+import tempfile  # noqa: E402
+
+_spec = importlib.util.spec_from_file_location("_calistir", KOK / "calistir.py")
+_mod = importlib.util.module_from_spec(_spec)
+try:
+    _spec.loader.exec_module(_mod)
+    _yuklendi = True
+except Exception as _e:                                # pragma: no cover
+    _yuklendi = False
+    print(f"  (calistir.py yuklenemedi: {_e})")
+dogru("calistir.py ice aktarilabildi", _yuklendi)
+
+if _yuklendi:
+    def _ozet(sonuclar, kritik, veri):
+        with tempfile.TemporaryDirectory() as t:
+            p = pathlib.Path(t) / "ozet.md"
+            p.write_text("", encoding="utf-8")
+            eski = os.environ.get("GITHUB_STEP_SUMMARY")
+            os.environ["GITHUB_STEP_SUMMARY"] = str(p)
+            try:
+                _mod._kosu_ozeti(sonuclar, kritik, veri)
+            finally:
+                if eski is None:
+                    os.environ.pop("GITHUB_STEP_SUMMARY", None)
+                else:
+                    os.environ["GITHUB_STEP_SUMMARY"] = eski
+            return p.read_text(encoding="utf-8")
+
+    _c = _ozet({"Site üretimi": False, "Dağıtım": True},
+               ["Site üretimi"], ["FRED"])
+    # ADIM ADI TABLODA DA GECIYOR -- bu yuzden ciplak arama YETMEZ.
+    # Ilk yazimda `"Site üretimi" in _c` deniyordu ve kritik liste
+    # tumuyle kaldirildiginda test YINE YESIL donuyordu: ad, alttaki
+    # adim tablosundan esleşiyordu. Mutasyon bunu gosterdi.
+    dogru("kritik adim BASLIK ve madde olarak yaziliyor",
+          "KRİTİK ADIM BAŞARISIZ" in _c and "- Site üretimi" in _c)
+    dogru("guncellenemeyen veri kaynagi yaziliyor", "- FRED" in _c)
+    dogru("adim tablosu basiliyor", "| adım | sonuç |" in _c)
+    dogru("basarisiz adim tabloda isaretli", "| Site üretimi | ❌ |" in _c)
+
+    # YESIL KOSUDA DA YAZILIYOR. "Yesil ama iki kaynak guncellenemedi"
+    # bilgisi kirmizi kadar degerli -- sessiz bozulma boyle basliyor.
+    _y = _ozet({"Dağıtım": True}, [], ["EVDS"])
+    dogru("kritik hata yokken de ozet yaziliyor", "- EVDS" in _y)
+
+    # CAGRI YERI DE SINANIYOR, yalnizca fonksiyon degil.
+    #
+    # Yukaridaki sinamalar `_kosu_ozeti`yi DOGRUDAN cagiriyor; cagrinin
+    # `main()` icinde KOSULSUZ olup olmadigini olcmuyorlar. Mutasyon
+    # (cagriyi `if kritik_hata:` icine almak) bu yuzden KACTI -- ve o
+    # mutasyon tam da yesil kosularin ozetsiz kalmasi demekti.
+    _cagri = KOD.find("_kosu_ozeti(sonuclar")
+    _kosul = KOD.find("if kritik_hata:")
+    dogru("ozet cagrisi kaynakta bulundu", _cagri > 0)
+    dogru("ozet KOSULSUZ cagriliyor (kritik hata kapisindan ONCE)",
+          0 < _cagri < _kosul)
+
+    # Degisken tanimsizken (yerel calistirma) cokmemeli.
+    _e = os.environ.pop("GITHUB_STEP_SUMMARY", None)
+    try:
+        _mod._kosu_ozeti({"a": True}, [], [])
+        dogru("degisken tanimsizken cokmuyor", True)
+    except Exception as _x:                            # pragma: no cover
+        dogru(f"degisken tanimsizken cokmuyor ({_x})", False)
+    finally:
+        if _e is not None:
+            os.environ["GITHUB_STEP_SUMMARY"] = _e
+
+print()
 for k in _kaldi:
     print(f"  KALDI  {k}")
 print(f"{_gecti} gecti, {len(_kaldi)} kaldi")

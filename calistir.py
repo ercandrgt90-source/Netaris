@@ -32,6 +32,7 @@ Windows'ta Gorev Zamanlayici, sunucuda cron. Ornek: gunde iki kez
 from __future__ import annotations
 
 import argparse
+import os
 import pathlib
 import subprocess
 import sys
@@ -420,6 +421,8 @@ def main() -> int:
         for k in veri_hatasi:
             print(f"    - {k}")
 
+    _kosu_ozeti(sonuclar, kritik_hata, veri_hatasi)
+
     if kritik_hata:
         print()
         print("  KRITIK ADIM BASARISIZ -- is kirmizi doner:")
@@ -427,6 +430,53 @@ def main() -> int:
             print(f"    - {k}")
         return 1
     return 0
+
+
+def _kosu_ozeti(sonuclar: dict, kritik_hata: list, veri_hatasi: list) -> None:
+    """Sonucu GitHub kosu sayfasinin en ustune yazar.
+
+    NEDEN VAR
+    ---------
+    Olculdu (2026-08-28): 16:30 otomasyon kosusu "Veri topla ve icerik
+    uret" adiminda kirmizi dondu. HANGI kritik adimin dustugu gunluge
+    basilmisti -- ama Actions gunlukleri API'den kimlik dogrulamasi
+    istiyor (403) ve tarayicida da yuzlerce satirin altinda kaliyor.
+    Ayni kosuda 18:30'daki tekrar YESIL dondu, yani sorun gecici bir
+    seydi; ama "hangi adim" sorusu cevaplanamadigi icin gecici mi
+    kalici mi oldugu da bilinemedi.
+
+    Bu, bugun ucuncu kez ayni bicimde karsilasilan sorun: cevap
+    URETILMISTI, okunabilir yerde degildi. Bilanco hatti icin
+    `uret_bilanco_sayfa._dokum` ayni sekilde cozuldu.
+
+    KIRMIZI OLMAYAN KOSUDA DA YAZILIYOR: "yesil ama iki veri kaynagi
+    guncellenemedi" bilgisi, kirmizi kadar degerli -- sessiz bozulma
+    boyle basliyor.
+
+    Yazamamak isi DUSURMEZ: rapor, uretimden onemsizdir.
+    """
+    yol = os.environ.get("GITHUB_STEP_SUMMARY", "").strip()
+    if not yol:
+        return
+    satirlar = ["### Netaris otomasyon", ""]
+    if kritik_hata:
+        satirlar.append("**KRİTİK ADIM BAŞARISIZ — iş kırmızı döndü**")
+        satirlar += [f"- {k}" for k in kritik_hata]
+        satirlar.append("")
+    if veri_hatasi:
+        satirlar.append(f"**{len(veri_hatasi)} veri kaynağı "
+                        f"güncellenemedi** (iş durdurulmadı)")
+        satirlar += [f"- {k}" for k in veri_hatasi]
+        satirlar.append("")
+    if sonuclar:
+        satirlar += ["| adım | sonuç |", "|---|---|"]
+        satirlar += [f"| {k} | {'✅' if v else '❌'} |"
+                     for k, v in sonuclar.items()]
+    try:
+        with open(yol, "a", encoding="utf-8") as f:
+            f.write("\n".join(satirlar) + "\n")
+    except OSError as e:                               # pragma: no cover
+        print(f"  (kosu ozetine yazilamadi: {e})")
 
 
 if __name__ == "__main__":
