@@ -1,13 +1,13 @@
 ---
 slug: vkgyo-2026-2-ceyrek
 baslik: VAKIF GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın 0,95 milyar TL'den 0,87 milyar TL'ye düşmesi, net kârın 0,65 milyar TL'den 0,33 milyar TL'ye gerilemesiyle paralel bir azalmaya işaret eder; aynı dönemde özkaynakların 21,77 milyar TL'den 28,90 milyar TL'ye yükselmesi, aktif toplamının 25,91 milyar TL'den 37,27 milyar TL'ye artması özkayna…
+ozet: Hasılat 0,87 milyar TL'ye düşerken net kâr 0,33 milyar TL'ye gerilemiş, ancak net kâr marjı %32,9'a yükselerek sektör medyanının %14,3'ünden çok daha yüksek bir seviyeye ulaşmıştır; bu, kârın daha düşük satış hacmi içinde daha verimli gerçekleştiğini gösterir.…
 sirket: VAKIF GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: VKGYO
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-24
+tarih: 2026-08-28
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın 0,95 milyar TL'den 0,87 milyar TL'ye düşmesi, net kârın 0,65 milyar TL'den 0,33 milyar TL'ye gerilemesiyle paralel bir azalmaya işaret eder; aynı dönemde özkaynakların 21,77 milyar TL'den 28,90 milyar TL'ye yükselmesi, aktif toplamının 25,91 milyar TL'den 37,27 milyar TL'ye artması özkaynak artışının varlık büyümesiyle birlikte gerçekleştiğini gösterir. Net borcun -1,67 milyar TL'den -0,30 milyar TL'ye yükselmesi, borç seviyesindeki artışın özkaynak artışıyla dengeye oturması anlamına gelir; bu durum borç/özkaynak oranının -0,01'e gerilemesiyle sektörel medyan 0,02'nin altında kalmasını sağlar. Net kâr marjının %32,9 ile sektör medyanı %14,3'ün çok üzerinde olması, özkaynak kârlılığının %0,5 ile medyan %0,4'ün biraz üzerinde kalması ve faaliyet nakit akışının 0,43 milyar TL'ye düşmesi, kârlılık ve nakit üretiminin farklı dinamiklerle hareket ettiğini ortaya koyar.
+Hasılat 0,87 milyar TL'ye düşerken net kâr 0,33 milyar TL'ye gerilemiş, ancak net kâr marjı %32,9'a yükselerek sektör medyanının %14,3'ünden çok daha yüksek bir seviyeye ulaşmıştır; bu, kârın daha düşük satış hacmi içinde daha verimli gerçekleştiğini gösterir. Özkaynak 28,90 milyar TL'ye artmış ve aktif toplamı 37,27 milyar TL'ye yükselmiş, bu büyüme net borcun -0,30 milyar TL'ye (önceki -1,67 milyar TL) iyileşmesiyle birlikte özkaynak/kaynak oranının -%0,01 (sektör medyanı 0,02) seviyesine çekilmesine yol açmıştır. Faaliyet nakit akışı 0,43 milyar TL'ye gerilemiş olsa da, özkaynak kârlılığı %0,5 ile sektör medyanı %0,4'ün üzerinde kalmıştır.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

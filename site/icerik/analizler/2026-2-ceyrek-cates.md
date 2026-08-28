@@ -1,13 +1,13 @@
 ---
 slug: cates-2026-2-ceyrek
 baslik: ÇATES ELEKTRİK ÜRETİM A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %35,6'lık net kâr marjı ile birlikte artması, net kârın -0,26 milyar TL'ye yükselmesine rağmen zarar seviyesinin -0,31 milyar TL'den daralmasına yol açtı; bu kâr daralması özkaynakların 14,78 milyar TL'ye, aktif toplamının ise 16,76 milyar TL'ye yükselmesiyle desteklendi ve net borcun -0,8…
+ozet: Hasılatın %35,6'lık net kâr marjı ile birlikte artması, net kârın -0,26 milyar TL'ye iyileşmesine rağmen hâlâ negatif kalmasına yol açtı; bu durum, artan aktif toplamı (16,76 milyar TL) ve özkaynak (14,78 milyar TL) artışının, net borcun -0,84 milyar TL'ye düşmesiyle birlikte likiditeyi (cari oran 4…
 sirket: ÇATES ELEKTRİK ÜRETİM A.Ş.
 kod: CATES
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Kamu hizmetleri
-tarih: 2026-08-27
+tarih: 2026-08-28
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %35,6'lık net kâr marjı ile birlikte artması, net kârın -0,26 milyar TL'ye yükselmesine rağmen zarar seviyesinin -0,31 milyar TL'den daralmasına yol açtı; bu kâr daralması özkaynakların 14,78 milyar TL'ye, aktif toplamının ise 16,76 milyar TL'ye yükselmesiyle desteklendi ve net borcun -0,84 milyar TL'ye (nakit fazlası) dönüşmesi, borç/özkaynak oranının -0,06'ya gerilemesine neden oldu. Faaliyet nakit akışının -0,23 milyar TL'ye (önceki -0,47 milyar TL) iyileşmesi, yatırım harcamasının 0,03 milyar TL'ye (önceki 0,02 milyar TL) hafif artmasıyla birlikte, cari oranın 4,72'ye (sektör medyanı 0,90) yükselmesi ve özkaynak kârlılığının %3,9'a (sektör medyanı %1,0) çıkması, likidite ve özkaynak verimliliğinin birlikte güçlendiğini gösteriyor.
+Hasılatın %35,6'lık net kâr marjı ile birlikte artması, net kârın -0,26 milyar TL'ye iyileşmesine rağmen hâlâ negatif kalmasına yol açtı; bu durum, artan aktif toplamı (16,76 milyar TL) ve özkaynak (14,78 milyar TL) artışının, net borcun -0,84 milyar TL'ye düşmesiyle birlikte likiditeyi (cari oran 4,72) yükseltmesinden kaynaklanıyor. Özkaynak kârlılığı %3,9'a çıkarken, borç/özkaynak oranı -0,06'ya gerilemesi, şirketin borçlanmadan özkaynakla finanse edilen büyümesini ve faaliyet nakit akışının (-0,23 milyar TL) önceki döneme göre iyileşmesini gösteriyor. Yatırım harcamasındaki hafif artış (0,03 milyar TL) ise, artan varlık ve özkaynak seviyelerinin sürdürülebilirliğine yönelik sınırlı bir sermaye tahsisinin yansımasıdır.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

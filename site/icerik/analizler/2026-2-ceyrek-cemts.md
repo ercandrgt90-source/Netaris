@@ -1,13 +1,13 @@
 ---
 slug: cemts-2026-2-ceyrek
 baslik: ÇEMTAŞ ÇELİK MAKİNA SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın düşmesi brüt kârı ve FAVÖK'ü de azaltırken, brüt kâr marjının sektör medyanıyla aynı kalması bu düşüşün maliyet yapısındaki oranlı değişimle sınırlı olduğunu gösteriyor; net kârın negatifleşmesi ise faaliyet kârındaki büyük gerileme ve artan yatırım harcamasının (0,54 milyar TL) nakit akış…
+ozet: Hasılatın düşmesi brüt kârı ve FAVÖK'ü de azaltırken, aynı zamanda faaliyet kârının da gerilemesine yol açtı; ancak net kârın negatifleşmesi, yatırım harcamasının 0,54 milyar TL'ye yükselmesi ve net borcun 0,06 milyar TL'ye geçmesiyle birlikte, özkaynak artışının (7,35 milyar TL) ve aktif toplamının…
 sirket: ÇEMTAŞ ÇELİK MAKİNA SANAYİ VE TİCARET A.Ş.
 kod: CEMTS
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Temel malzeme
-tarih: 2026-08-26
+tarih: 2026-08-28
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın düşmesi brüt kârı ve FAVÖK'ü de azaltırken, brüt kâr marjının sektör medyanıyla aynı kalması bu düşüşün maliyet yapısındaki oranlı değişimle sınırlı olduğunu gösteriyor; net kârın negatifleşmesi ise faaliyet kârındaki büyük gerileme ve artan yatırım harcamasının (0,54 milyar TL) nakit akışını (0,08 milyar TL) desteklemesiyle ilişkilidir. Özkaynakların 7,35 milyar TL'ye yükselmesi aktif toplamının artışı (9,83 milyar TL) ve net borcun 0,06 milyar TL'ye dönüşmesiyle birlikte borç/özkaynak oranının %0,01'ye düşmesi, cari oranın 4,74'e yükselmesiyle likidite pozisyonunun güçlendiğini gösterir. Bu likidite iyileşmesi, negatif net kâr ve artan yatırım harcamasının finansal risk üzerindeki etkisini dengelemeye yöneliktir.
+Hasılatın düşmesi brüt kârı ve FAVÖK'ü de azaltırken, aynı zamanda faaliyet kârının da gerilemesine yol açtı; ancak net kârın negatifleşmesi, yatırım harcamasının 0,54 milyar TL'ye yükselmesi ve net borcun 0,06 milyar TL'ye geçmesiyle birlikte, özkaynak artışının (7,35 milyar TL) ve aktif toplamının (9,83 milyar TL) büyümesi, likiditeyi güçlendiren cari oranı (4,74) ve düşük borç/özkaynak oranını (0,01) destekledi.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
@@ -60,7 +60,7 @@ Karşılaştırma Temel malzeme sektöründeki 42 şirketin **medyanına** göre
 | --- | ---: | ---: |
 | Brüt kâr marjı | %14,1 | %14,1 |
 | Net kâr marjı | %6,4 | %2,4 |
-| Özkaynak kârlılığı | %1,6 | %1,1 |
+| Özkaynak kârlılığı | %1,6 | %1,3 |
 | Cari oran | 4,74 | 1,36 |
 | Borç / özkaynak | 0,01 | 0,21 |
 
@@ -71,7 +71,7 @@ Karşılaştırma Temel malzeme sektöründeki 42 şirketin **medyanına** göre
 **Şirket lehine işleyenler**
 
 - Cari oran 4,74; dönen varlıklar kısa vadeli yükümlülüklerin üzerinde.
-- Özkaynak kârlılığı %1,6; sektör medyanı %1,1.
+- Özkaynak kârlılığı %1,6; sektör medyanı %1,3.
 
 **Dikkat gerektirenler**
 

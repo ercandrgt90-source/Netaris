@@ -1,13 +1,13 @@
 ---
 slug: psgyo-2026-2-ceyrek
 baslik: PASİFİK GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Net kârın %28,6'lık yüksek marjı, özkaynak kârlılığının %0,6 olmasıyla birlikte, şirketin büyük özkaynak (42,59 milyar TL) ve aktif (89,56 milyar TL) büyüklüğüne rağmen kârın özkaynak üzerinden düşük bir getiri sağladığını gösterir; bu durum, yüksek net kârın büyük varlık ve özkaynak tabanına oranla…
+ozet: Net kâr marjının %28,6 olması, sektördeki %14,3 medyanının çok üzerinde olduğu için, hasılatın 1,04 milyar TL olması hâlinde kârın 2,00 milyar TL'ye çıkması, özkaynak kârlılığını %0,6'ya yükseltirken özkaynakların 42,59 milyar TL seviyesinde kalması bu yüksek marjın özkaynak getirisine sınırlı yansı…
 sirket: PASİFİK GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: PSGYO
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-26
+tarih: 2026-08-28
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Net kârın %28,6'lık yüksek marjı, özkaynak kârlılığının %0,6 olmasıyla birlikte, şirketin büyük özkaynak (42,59 milyar TL) ve aktif (89,56 milyar TL) büyüklüğüne rağmen kârın özkaynak üzerinden düşük bir getiri sağladığını gösterir; bu durum, yüksek net kârın büyük varlık ve özkaynak tabanına oranla sınırlı kaldığını işaret eder. Borç/özkaynak oranı %0,39, sektör medyanı %0,02'ye göre daha yüksek olmasına rağmen, net borç (16,76 milyar TL) hâlâ özkaynak seviyesinin altında kalmakta ve şirketin finansal kaldıraç kullanımının sınırlı olduğunu gösterir. Faaliyet nakit akışının –4,25 milyar TL olması, yüksek net kâr marjına rağmen kârın nakit dönüşümünün zayıf olduğunu ve özkaynak büyüklüğüne kıyasla nakit yaratmadığını ortaya koyar.
+Net kâr marjının %28,6 olması, sektördeki %14,3 medyanının çok üzerinde olduğu için, hasılatın 1,04 milyar TL olması hâlinde kârın 2,00 milyar TL'ye çıkması, özkaynak kârlılığını %0,6'ya yükseltirken özkaynakların 42,59 milyar TL seviyesinde kalması bu yüksek marjın özkaynak getirisine sınırlı yansımasını gösterir. Borç/özkaynak oranının 0,39 (sektör medyanı 0,02) olması, net borcun 16,76 milyar TL'ye ulaşmasıyla özkaynakların iki katından az bir borç yapısı oluştururken, faaliyet nakit akışının -4,25 milyar TL olması, yüksek kâr marjına rağmen likidite çıkışının gerçekleştiğini ve özkaynakların büyüklüğünün bu negatif nakit akışını sınırladığını gösterir. Aktif toplamının 89,56 milyar TL olması, özkaynakların iki katından biraz daha fazla bir varlık tabanı oluştururken, net borç ve negatif faaliyet nakdi arasındaki fark, varlıkların büyük bir kısmının borç dışı finansmanla desteklendiğini ortaya koyar.
 
 ## 2026 2. çeyrek dönemi ölçümleri
 

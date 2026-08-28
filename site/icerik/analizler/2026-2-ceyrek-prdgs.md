@@ -1,13 +1,13 @@
 ---
 slug: prdgs-2026-2-ceyrek
 baslik: PARDUS GİRİŞİM SERMAYESİ YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat, brüt kâr, faaliyet kârı ve net kâr aynı tutarda artış göstererek brüt kâr marjının %100,0 ve net kâr marjının %98,8 seviyelerine ulaşmasını sağladı; bu yüksek marjlar, gelirdeki artışın maliyet ve giderlerdeki artıştan daha fazla olmasıyla ilişkilidir.…
+ozet: Hasılat, brüt kâr ve net kârın aynı seviyede (+0,28 milyar TL) artması, brüt kâr marjının %100,0 ve net kâr marjının %98,8 olmasıyla birlikte faaliyet kârının da brüt kârı neredeyse tamamen yansıtması (0,27 milyar TL) şeklinde bir eşleşme gösterir; özkaynakların 2,94 milyar TL'ye yükselmesi ise akti…
 sirket: PARDUS GİRİŞİM SERMAYESİ YATIRIM ORTAKLIĞI A.Ş.
 kod: PRDGS
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Finans
-tarih: 2026-08-27
+tarih: 2026-08-28
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat, brüt kâr, faaliyet kârı ve net kâr aynı tutarda artış göstererek brüt kâr marjının %100,0 ve net kâr marjının %98,8 seviyelerine ulaşmasını sağladı; bu yüksek marjlar, gelirdeki artışın maliyet ve giderlerdeki artıştan daha fazla olmasıyla ilişkilidir. Özkaynak ve aktif toplamı da benzer oranda yükselmiş, özkaynak kârlılığı %11,3'e çıkarken net borçun -0,10 milyar TL'ye gerilemesi, özkaynak artışının borçlanma ihtiyacını azaltmasıyla bağlantılıdır. Cari oran 5,73'e düşmüş ve borç/özkaynak -0,03 olmuş; bu, likidite göstergesinin özkaynak artışı ve net borç azalmasıyla birlikte, sektör medyanının altında kalmasına rağmen negatif borç yapısının sürdürülmesinden kaynaklanmaktadır.
+Hasılat, brüt kâr ve net kârın aynı seviyede (+0,28 milyar TL) artması, brüt kâr marjının %100,0 ve net kâr marjının %98,8 olmasıyla birlikte faaliyet kârının da brüt kârı neredeyse tamamen yansıtması (0,27 milyar TL) şeklinde bir eşleşme gösterir; özkaynakların 2,94 milyar TL'ye yükselmesi ise aktif toplamının (2,96 milyar TL) artışıyla paralel bir büyüme oluşturur. Net borcun –0,10 milyar TL (nakit pozisyonu) olması, faaliyet nakit akışının 0,06 milyar TL'ye çıkmasıyla birlikte likiditeyi artırırken, cari oranın 5,73 olması ve borç/özkaynak oranının –0,03 olması, sektörel medyanların (12,09 ve –0,05) altında kalmasına rağmen negatif borç seviyesinin likiditeyi desteklediğini gösterir. Bu veriler, gelir artışıyla birlikte kârlılık ve özkaynak büyümesinin aynı yönde hareket ettiğini, likidite göstergelerinin ise borç yapısındaki iyileşme ile birlikte yükseldiğini ortaya koyar.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

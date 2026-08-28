@@ -1,13 +1,13 @@
 ---
 slug: avtur-2026-2-ceyrek
 baslik: AVRASYA PETROL VE TURİSTİK TESİSLER YATIRIMLAR A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın iki katına çıkan brüt kâr, faaliyet kârı ve FAVÖK'ün aynı seviyeye yükselmesi, gelir artışıyla birlikte karlılık kalemlerinin de pozitif bir hareket yakaladığını gösterirken, net kârın negatif seyretmesi, faaliyet dışı giderlerin ya da vergi etkisinin artışını işaret eder; özkaynak ve akti…
+ozet: Hasılatın iki katına çıkan brüt kâr, brüt kâr marjının %37,6 olmasıyla birlikte faaliyet kârı ve FAVÖK'ün de aynı seviyeye yükselmesini sağlarken, net kârın -%989,0 olması net kâr marjının negatif seyriyle özkaynak kârlılığının -%5,6'ya düşmesine yol açtı; aynı zamanda özkaynak artışı 1,32 milyar TL…
 sirket: AVRASYA PETROL VE TURİSTİK TESİSLER YATIRIMLAR A.Ş.
 kod: AVTUR
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Finans
-tarih: 2026-08-27
+tarih: 2026-08-28
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın iki katına çıkan brüt kâr, faaliyet kârı ve FAVÖK'ün aynı seviyeye yükselmesi, gelir artışıyla birlikte karlılık kalemlerinin de pozitif bir hareket yakaladığını gösterirken, net kârın negatif seyretmesi, faaliyet dışı giderlerin ya da vergi etkisinin artışını işaret eder; özkaynak ve aktif toplamının artışı, net borcun daha da negatif (nakit fazlası) olmasıyla birlikte şirketin likidite pozisyonunun güçlendiğini, bu da cari oranın %41,05'e çıkması ve borç/özkaynak oranının -%0,06'da kalmasıyla desteklenir.
+Hasılatın iki katına çıkan brüt kâr, brüt kâr marjının %37,6 olmasıyla birlikte faaliyet kârı ve FAVÖK'ün de aynı seviyeye yükselmesini sağlarken, net kârın -%989,0 olması net kâr marjının negatif seyriyle özkaynak kârlılığının -%5,6'ya düşmesine yol açtı; aynı zamanda özkaynak artışı 1,32 milyar TL'ye ulaşırken aktif toplamı da 1,50 milyar TL'ye yükseldi ve bu büyüme cari oranı 41,05'e çıkararak sektörel medyanın çok üzerindeki likidite seviyesini gösterdi, fakat net borcun -0,08 milyar TL'ye (negatif) gerilemesi borç/özkaynak oranını -0,06'da tutarak borçlulukta hafif bir artışa işaret etti.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

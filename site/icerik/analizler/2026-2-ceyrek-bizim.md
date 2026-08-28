@@ -1,13 +1,13 @@
 ---
 slug: bizim-2026-2-ceyrek
 baslik: BİZİM TOPTAN SATIŞ MAĞAZALARI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %8,0 düşmesi brüt kârın da %8,5 azalmasına yol açarken, brüt kâr marjı %15,8 ile sektör medyanının hemen altında kalmıştır; aynı düşüş gelir kalemlerinin daralmasıyla birlikte faaliyet kârının -%1.26 milyar seviyesine gerilemesine ve FAVÖK'ün negatifleşmesine neden olmuştur.…
+ozet: Hasılatın %8,0 düşmesi brüt kârın da %8,5 azalmasına yol açarken, brüt kâr marjı %15,8 ile sektör medyanına çok yakın kalmıştır; bu durum, satış azalmasına rağmen maliyet yapısının büyük ölçüde korunabildiğini gösterir.…
 sirket: BİZİM TOPTAN SATIŞ MAĞAZALARI A.Ş.
 kod: BIZIM
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: İsteğe bağlı tüketim
-tarih: 2026-08-26
+tarih: 2026-08-28
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %8,0 düşmesi brüt kârın da %8,5 azalmasına yol açarken, brüt kâr marjı %15,8 ile sektör medyanının hemen altında kalmıştır; aynı düşüş gelir kalemlerinin daralmasıyla birlikte faaliyet kârının -%1.26 milyar seviyesine gerilemesine ve FAVÖK'ün negatifleşmesine neden olmuştur. Net kârın -%0,49 milyar olması, özkaynakların -%0,22 milyar negatifleşmesiyle birlikte özkaynak kârlılığının %128,5 gibi aşırı yüksek bir oran göstermesine, ancak cari oranının 0,56 ve borç/özkaynak oranının -6,08 ile sektör medyanının çok altında kalmasına yol açmıştır. Faaliyet nakit akışının 1,54 milyar TL'ye yükselmesi, yatırım harcamasının sabit kalması ve net borcun hafif artması, artan aktif toplamı (14,03 milyar TL) ve düşük likidite göstergeleri arasında bir denge oluşturmuştur.
+Hasılatın %8,0 düşmesi brüt kârın da %8,5 azalmasına yol açarken, brüt kâr marjı %15,8 ile sektör medyanına çok yakın kalmıştır; bu durum, satış azalmasına rağmen maliyet yapısının büyük ölçüde korunabildiğini gösterir. Faaliyet kârının -%1.26 milyara gerilemesi, FAVÖK'ün -%0,32 milyara düşmesi ve net kârın -%0,49 milyara yükselmesi, faaliyet nakit akışının 1,54 milyar TL'ye çıkmasıyla birlikte, işletme faaliyetlerinden elde edilen nakdin artışının kâr kayıplarını tam olarak dengeleyemediğini ortaya koyar. Aktif toplamının %15,8 artması net borcun hafif yükselmesi (1,34 milyar TL) ve özkaynakların -%0,22 milyara gerilemesi, cari oranın 0,56'ya düşmesi ve borç/özkaynak oranının -6,08'e yükselmesiyle birlikte likidite ve sermaye yapısında zayıflamaya işaret eder.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

@@ -1,13 +1,13 @@
 ---
 slug: dzgyo-2026-2-ceyrek
 baslik: DENİZ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat ve brüt kâr aynı oranda yükselirken, faaliyet kârı ve FAVÖK negatiften daha büyük bir negatif değere kaymış; bu, gelir artışının maliyet ve gider artışını aşamadığını gösteriyor.…
+ozet: Hasılat ve brüt kâr aynı oranda yükselirken, faaliyet kârı ve FAVÖK negatiften daha büyük bir negatif değere kaymış; bu durum artan satışların maliyet ve gider artışıyla dengelenemediğini gösteriyor.…
 sirket: DENİZ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: DZGYO
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-26
+tarih: 2026-08-28
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat ve brüt kâr aynı oranda yükselirken, faaliyet kârı ve FAVÖK negatiften daha büyük bir negatif değere kaymış; bu, gelir artışının maliyet ve gider artışını aşamadığını gösteriyor. Özkaynak ve aktif toplamı artışları net borçta pozitif dönüşe yol açmış, net borç -1,41 milyar TL'den +0,17 milyar TL'ye yükselmiş; dolayısıyla likiditeyi gösteren cari oran 2,55'e yükselse de sektör medyanı 5,25'in altında kalmış. Brüt kâr marjı %40,6 ile sektör medyanının (%51,4) altında, net kâr marjı ise -%93,6 ve özkaynak kârlılığı -%0,6 ile medyanların (%14,3 ve %0,4) çok altında seyrediyor; bu, kârlılıkta gelir artışının yeterli olmadığını ve maliyet baskısının hâlâ yüksek olduğunu ortaya koyuyor.
+Hasılat ve brüt kâr aynı oranda yükselirken, faaliyet kârı ve FAVÖK negatiften daha büyük bir negatif değere kaymış; bu durum artan satışların maliyet ve gider artışıyla dengelenemediğini gösteriyor. Özkaynak ve aktif toplamı artış gösterirken net borç da pozitif bir değere dönmüş, bu da özkaynak artışının bir kısmının borçlanma yoluyla finanse edildiğini ve cari oranın sektörel medyanın altında kalmasına rağmen borç/özkaynak oranının medyanın biraz üzeri olduğunu ortaya koyuyor. Net kâr marjı ve özkaynak kârlılığı negatif olduğu için, brüt kâr marjının %40,6 seviyesinde kalması net kârın düşüşüne rağmen karlılık kaybının esas olarak sabit ve değişken giderlerdeki artıştan kaynaklandığını gösteriyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

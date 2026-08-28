@@ -1,13 +1,13 @@
 ---
 slug: nibas-2026-2-ceyrek
 baslik: NİĞBAŞ NİĞDE BETON SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat ve brüt kâr aynı oranda yükselirken, faaliyet kârı ve FAVÖK büyük ölçüde düşmüş; bu, satış artışının maliyet ve gider artışlarıyla birlikte kâra dönüşemediğini gösteriyor.…
+ozet: Hasılat ve brüt kâr aynı oranda yükselirken, faaliyet kârı, FAVÖK ve net kâr tümü negatiften daha da düşük seviyelere gerileyerek karlılık göstergelerinin düşüşüne paralel bir azalma gösterdi; bu durum, artan satışların maliyet ve gider artışıyla dengelenemediğini gösteriyor.…
 sirket: NİĞBAŞ NİĞDE BETON SANAYİ VE TİCARET A.Ş.
 kod: NIBAS
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Sanayi
-tarih: 2026-08-26
+tarih: 2026-08-28
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat ve brüt kâr aynı oranda yükselirken, faaliyet kârı ve FAVÖK büyük ölçüde düşmüş; bu, satış artışının maliyet ve gider artışlarıyla birlikte kâra dönüşemediğini gösteriyor. Özkaynak ve aktif toplamı ciddi oranda azalmış, net borç ise negatif (nakit fazlası) hâle gelmiş; bu durum likiditeyi artırsa da özkaynak kârlılığı ve net kâr marjı gibi kârlılık göstergelerinin negatif kalmasına yol açmış. Cari oranın 9,09'a çıkması, sektörel medyan 1,32'nin çok üzerinde bir kısa vadeli ödeme gücü sağlarken, borç/özkaynak oranının -0,12 olması özkaynak erozyonunun borçlanma ihtiyacını azaltmadığını, sadece özkaynak kaybının borçtan daha hızlı gerçekleştiğini işaret ediyor.
+Hasılat ve brüt kâr aynı oranda yükselirken, faaliyet kârı, FAVÖK ve net kâr tümü negatiften daha da düşük seviyelere gerileyerek karlılık göstergelerinin düşüşüne paralel bir azalma gösterdi; bu durum, artan satışların maliyet ve gider artışıyla dengelenemediğini gösteriyor. Özkaynak ve aktif toplamı büyük ölçüde azaldığı için özkaynak kârlılığı negatif %51,9'a ve borç/özkaynak oranı -%0,12'ye geriledi; aynı zamanda net borçun -%0,03'e düşmesi, likiditeyi artırarak cari oranı 9,09'a yükseltti ve sektör medyanının çok üzerindeydi. Faaliyet nakit akışının -%0,40'a düşmesi, yatırım harcamasının sıfır kalmasıyla birleşerek, nakit üretimindeki gerilemenin sermaye harcamalarına yansımadığını ortaya koyuyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

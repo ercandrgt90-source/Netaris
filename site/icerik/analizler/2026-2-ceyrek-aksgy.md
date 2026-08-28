@@ -1,13 +1,13 @@
 ---
 slug: aksgy-2026-2-ceyrek
 baslik: AKİŞ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın 2,68 milyar TL'ye yükselmesi net kârın 1,12 milyar TL'ye artmasını beraberinde getirmiş, bu da net kâr marjının %70,3'e çıkmasını sağlamıştır; aynı dönemde özkaynakların 52,49 milyar TL'ye, aktif toplamının ise 63,24 milyar TL'ye yükselmesi, özkaynak kârlılığının %1,8'e ulaşmasına zemin ha…
+ozet: Hasılatın 2,68 milyar TL'ye yükselmesi net kârın 1,12 milyar TL'ye artmasıyla paralel seyretmiş, bu da net kâr marjının %70,3'e (sektör medyanı %14,3) çıkmasını sağlamıştır; aynı dönemde özkaynakların 52,49 milyar TL'ye (önceki 37,71 milyar TL) ve aktif toplamının 63,24 milyar TL'ye (önceki 45,08 mi…
 sirket: AKİŞ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: AKSGY
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-27
+tarih: 2026-08-28
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın 2,68 milyar TL'ye yükselmesi net kârın 1,12 milyar TL'ye artmasını beraberinde getirmiş, bu da net kâr marjının %70,3'e çıkmasını sağlamıştır; aynı dönemde özkaynakların 52,49 milyar TL'ye, aktif toplamının ise 63,24 milyar TL'ye yükselmesi, özkaynak kârlılığının %1,8'e ulaşmasına zemin hazırlamıştır. Net borcun –0,35 milyar TL'ye gerilemesi, borç/özkaynak oranının –0,01 olmasına yol açarken, faaliyet nakit akışının 1,47 milyar TL'ye çıkması likidite artışını ve özkaynakların büyümesiyle uyumlu bir finansal yapı oluşturmuştur. Bu artışların tümü, önceki döneme kıyasla hem gelir hem kâr hem de sermaye yapısında paralel bir iyileşme olduğunu göstermektedir.
+Hasılatın 2,68 milyar TL'ye yükselmesi net kârın 1,12 milyar TL'ye artmasıyla paralel seyretmiş, bu da net kâr marjının %70,3'e (sektör medyanı %14,3) çıkmasını sağlamıştır; aynı dönemde özkaynakların 52,49 milyar TL'ye (önceki 37,71 milyar TL) ve aktif toplamının 63,24 milyar TL'ye (önceki 45,08 milyar TL) artması, özkaynak kârlılığının %1,8'e (sektör medyanı %0,4) yükselmesine zemin hazırlamıştır. Net borcun –0,35 milyar TL'ye (önceki 1,25 milyar TL) düşmesi, borç/özkaynak oranının –%0,01'e (sektör medyanı %0,02) gerilemesiyle birlikte, faaliyet nakit akışının 1,47 milyar TL'ye (önceki 0,41 milyar TL) artması, likidite ve özkaynak bazlı finansal güçlenmenin birbirini desteklediğini göstermektedir. Bu ilişkiler, gelir artışı, kâr marjı ve özkaynak büyüklüğünün aynı yönde hareket etmesiyle finansal yapıdaki iyileşmenin bütünsel bir tablo oluşturduğunu ortaya koyar.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

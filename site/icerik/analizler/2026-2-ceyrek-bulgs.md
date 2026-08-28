@@ -1,13 +1,13 @@
 ---
 slug: bulgs-2026-2-ceyrek
 baslik: BULLS GİRİŞİM SERMAYESİ YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat, brüt kâr, faaliyet kârı ve FAVÖK tümü önceki döneme göre büyük düşüş gösterirken, net kâr daha da derinleşerek negatif değerini artırdı; bu aynı zamanda özkaynak kârlılığının %13,1 negatif olmasına yol açtı.…
+ozet: Hasılat, brüt kâr, faaliyet kârı ve FAVÖK tümü önceki döneme göre büyük düşüş gösterirken, net kâr daha da derinleşerek negatif değerini artırdı; bu gelir düşüşleri kâr marjlarının dramatik şekilde bozulmasına yol açtı.…
 sirket: BULLS GİRİŞİM SERMAYESİ YATIRIM ORTAKLIĞI A.Ş.
 kod: BULGS
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Finans
-tarih: 2026-08-27
+tarih: 2026-08-28
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat, brüt kâr, faaliyet kârı ve FAVÖK tümü önceki döneme göre büyük düşüş gösterirken, net kâr daha da derinleşerek negatif değerini artırdı; bu aynı zamanda özkaynak kârlılığının %13,1 negatif olmasına yol açtı. Özkaynak ve toplam aktifin artışı, net borcun (negatif) hafifçe yükselmesiyle birlikte cari oranın 27,59'a çıkmasına ve borç/özkaynak oranının -0,13'e (sektör medyanının -0,05'inden daha düşük) kaymasına neden oldu. Brüt kâr marjının %97,3 (sektör medyanı %45,1) çok yüksek kalmasına rağmen, net kâr marjının -%3532,1 (sektör medyanı %14,7) olması, yüksek brüt kârın net kârı negatif yönde etkileyen diğer kalemlerdeki (örneğin faaliyet nakit akışı) büyük sapmalardan kaynaklandığını gösteriyor.
+Hasılat, brüt kâr, faaliyet kârı ve FAVÖK tümü önceki döneme göre büyük düşüş gösterirken, net kâr daha da derinleşerek negatif değerini artırdı; bu gelir düşüşleri kâr marjlarının dramatik şekilde bozulmasına yol açtı. Özkaynak ve toplam aktifin artışı, net borcun daha da negatif (nakit fazlası) olmasıyla birlikte cari oranı yükselterek likiditeyi güçlendirdi; aynı zamanda borç/özkaynak oranının negatif kalması özkaynak artışının borçtan daha hızlı gerçekleştiğini gösteriyor. Faaliyet nakit akışı negatif kalmasına rağmen önceki döneme göre iyileşme (-0,61 milyar TL → -0,82 milyar TL) gösterdi, bu da faaliyetlerden sağlanan nakdin azalan zararları kısmen dengelediğini ortaya koyuyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
