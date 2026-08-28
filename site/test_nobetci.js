@@ -84,19 +84,21 @@ const nobetci = ortam.nobetci;
    goruyor. */
 const ESIK = vm.runInContext("NOBET_ESIK_SAAT", ortam);
 
-/* Verilen yasa sahip bir RSS dondüren sahte ASSETS. */
+/* Verilen yasa sahip bir `istatistik.json` donduren sahte ASSETS. */
 function ortamKur(saat, jeton) {
   const govde = saat === null
-    ? "<rss><channel></channel></rss>"
-    : "<rss><channel><item><pubDate>"
-      + new Date(Date.now() - saat * 3600000).toUTCString()
-      + "</pubDate></item></channel></rss>";
+    ? JSON.stringify({ sayfa: 10 })              /* `uretim` alani YOK */
+    : JSON.stringify({
+        sayfa: 10,
+        uretim: new Date(Date.now() - saat * 3600000).toISOString(),
+      });
   return {
     GITHUB_TETIK_JETONU: jeton,
     ASSETS: {
       fetch: () => Promise.resolve({
         ok: true,
         text: () => Promise.resolve(govde),
+        json: () => Promise.resolve(JSON.parse(govde)),
       }),
     },
   };
@@ -148,7 +150,16 @@ async function kos() {
   esit(cagrilar.length, 1, "9 saatlik icerikte tetikliyor");
 
   console.log("\nISTEK DOGRU KURULUYOR\n");
-  const c = cagrilar[0];
+  /* BOS OLABILIR. Ilk yazimda dogrudan `cagrilar[0].ayar` okunuyordu
+     ve onceki bir sinama tetiklemedigi anda betik TypeError ile
+     coküyordu -- geriye kalan sinamalar hic kosmuyordu. Cikis kodu 1
+     donuyordu, yani "yakaladi" gibi gorunuyordu ama asil kural
+     sinanmamis oluyordu. Bir cokme, bir sinamanin yerini tutmaz. */
+  if (!cagrilar.length) {
+    kaldi.push("istek kurulumu sinanamadi -- onceki adim tetiklemedi");
+    console.log("  KALDI  istek kurulumu sinanamadi (cagri yok)");
+  }
+  const c = cagrilar[0] || { url: "", ayar: { headers: {}, body: "{}" } };
   esit(c.url.endsWith("/dispatches"), true, "dispatches ucuna gidiyor");
   esit(c.ayar.method, "POST", "POST kullaniyor");
   /* GitHub API User-Agent'i ZORUNLU kiliyor; yoksa 403 doner ve
@@ -189,6 +200,38 @@ async function kos() {
     esit(g.tetikler, false, "taze icerikte tetiklemem diyor");
     esit(g.icerik_yasi_saat < 1, true, "yasi saat cinsinden veriyor");
   }
+
+  /* GERILEME SINAMASI: OLCU RSS'TEN OKUNMAMALI.
+
+     Once `/rss.xml` icindeki en yeni `pubDate` okunuyordu. O alan GUN
+     bazinda uretiliyor ("Fri, 28 Aug 2026 00:00:00 +0000") -- saat
+     tasimiyor. Yani site az once kurulmus olsa bile en yeni haber
+     GECE YARISI gorunuyordu.
+
+     Olculdu (2026-08-28 08:24): kosu 08:05'te bitti, uc "icerik 8,41
+     saatlik" dedi. Jeton kurulu olsaydi sonuc bir DONGU olurdu: her
+     gun 01:30'dan sonra tetikle, kur, `pubDate` yine gece yarisi
+     kalsin, yarim saat sonra tekrar tetikle.
+
+     Asagidaki ortam tam o tuzagi kuruyor: `uretim` TAZE ama RSS gun
+     bazinda ve bayat gorunuyor. Nobetci tetiklememeli. */
+  cagrilar = [];
+  await nobetci({
+    GITHUB_TETIK_JETONU: "jtn",
+    ASSETS: {
+      fetch: () => Promise.resolve({
+        ok: true,
+        json: () => Promise.resolve({
+          uretim: new Date(Date.now() - 0.2 * 3600000).toISOString(),
+        }),
+        text: () => Promise.resolve(
+          "<rss><item><pubDate>" + new Date(Date.now() - 9 * 3600000)
+            .toUTCString() + "</pubDate></item></rss>"),
+      }),
+    },
+  });
+  esit(cagrilar.length, 0,
+       "gun bazli RSS bayat gorunse de kurulum taze ise tetiklemiyor");
 
   console.log("\nBILINMIYOR, BAYAT DEMEK DEGIL\n");
   /* RSS okunamazsa tetiklememeli: gecici bir okuma hatasi her saat

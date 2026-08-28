@@ -1974,47 +1974,42 @@ const NOBET_ESIK_SAAT = 1.5;
 const NOBET_DEPO = "ercandrgt90-source/Netaris";
 
 async function icerikYasiSaat(env) {
-  /* Kendi yayimladigimiz RSS'i okuyoruz -- dis aga cikmadan, kenar
-     dugumun elindeki dosyadan. En yeni `pubDate` sitenin gercekten
-     yayimladigi en taze icerigin zamani. */
+  /* SITENIN SON KURULMA ANI -- en yeni haberin tarihi DEGIL.
+   *
+   * Once `/rss.xml` icindeki en yeni `pubDate` okunuyordu ve bu
+   * SESSIZCE YANLISTI. Olculdu (2026-08-28 08:24, tanilama ucundan):
+   * kosu 08:05'te bitmisti ama uc "icerik 8,41 saatlik" diyordu.
+   *
+   * Sebep: RSS `pubDate` alani GUN bazinda uretiliyor
+   * ("Fri, 28 Aug 2026 00:00:00 +0000") -- saat tasimiyor. Yani en
+   * yeni haber her zaman GECE YARISI gorunuyor.
+   *
+   * Bunun sonucu bir dongu olurdu: her gun 01:30'dan sonra icerik
+   * esigi asmis gorunur, nobetci tetikler, site kurulur, en yeni
+   * `pubDate` YINE gece yarisi kalir ve yarim saat sonra tekrar
+   * tetiklenirdi. Jeton kurulmadigi icin bu hic yasanmadi -- once
+   * olculdugu icin de yasanmayacak.
+   *
+   * `istatistik.json` sitenin KENDI urettigi ozet ve `uretim` alani
+   * dakika hassasiyetinde. Nobetcinin sordugu soru zaten "site ne
+   * zaman guncellendi", "en son haber ne zamandi" degil.
+   */
   try {
-    const y = await env.ASSETS.fetch("https://netaris.net/rss.xml");
+    const y = await env.ASSETS.fetch(
+      "https://netaris.net/statik/istatistik.json");
     if (!y.ok) return null;
-    const metin = await y.text();
-    const bas = metin.indexOf("<pubDate>");
-    if (bas === -1) return null;
-    const son = metin.indexOf("</pubDate>", bas);
-    if (son === -1) return null;
-    const t = Date.parse(metin.slice(bas + 9, son).trim());
+    const g = await y.json();
+    const t = Date.parse(g && g.uretim);
     if (Number.isNaN(t)) return null;
     return (Date.now() - t) / 3600000;
   } catch (e) {
     /* Okunamadi: BILINMIYOR donuyor, "bayat" DEGIL. Bilinmezlikte
-       tetiklemek, her saat bosuna kosu baslatmak olurdu. */
-    console.error("nobetci: icerik yasi okunamadi", e);
+       tetiklemek, her yarim saatte bosuna kosu baslatmak olurdu. */
+    console.error("nobetci: uretim ani okunamadi", e);
     return null;
   }
 }
 
-/* Nobetcinin DURUMU -- sir sizdirmadan.
- *
- * NEDEN GEREKIYOR
- * ---------------
- * Nobetci, jeton kurulmamissa SESSIZCE cikiyor. Bu, dagitimi
- * risksiz kilmak icin bilincli bir karardi ama bir yan etkisi
- * vardi: dogru calisip beklerken de, hic yapilandirilmamisken de
- * DISARIDAN AYNI GORUNUYOR -- ikisi de "hicbir sey olmuyor".
- *
- * Olculdu (2026-08-28): site 16 saat bayat kaldi, nobetci hic
- * tetiklemedi ve sebebini disaridan anlamanin YOLU YOKTU. Kod
- * dagitilmisti, cron kayitliydi; geriye jetonun konup konmadigi
- * kaliyordu ve o soru ancak Cloudflare paneline girerek
- * cevaplanabiliyordu.
- *
- * SIR SIZMIYOR: yalnizca jetonun VAR OLUP OLMADIGI, icerigin yasi
- * ve esik donuyor. Jetonun kendisi, uzunlugu ya da bir parcasi
- * HICBIR KOSULDA yanita girmiyor.
- */
 async function nobetciDurum(env) {
   const yas = await icerikYasiSaat(env);
   return yanit({
