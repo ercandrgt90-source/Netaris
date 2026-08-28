@@ -93,6 +93,64 @@ def test_gercek_depoda_tera_atlaniyor():
     assert all("/" in donem for _, donem in v)
 
 
+def _ozetle(sebepler, yazilan, atlanan):
+    """`_dokum`u sahte bir kosu ozetiyle calistirir, yazilani dondurur."""
+    import os
+    import tempfile
+    with tempfile.TemporaryDirectory() as t:
+        yol = pathlib.Path(t) / "ozet.md"
+        yol.write_text("", encoding="utf-8")
+        eski = os.environ.get("GITHUB_STEP_SUMMARY")
+        os.environ["GITHUB_STEP_SUMMARY"] = str(yol)
+        try:
+            u._dokum(sebepler, yazilan, atlanan)
+        finally:
+            if eski is None:
+                os.environ.pop("GITHUB_STEP_SUMMARY", None)
+            else:
+                os.environ["GITHUB_STEP_SUMMARY"] = eski
+        return yol.read_text(encoding="utf-8")
+
+
+def test_sebep_dokumu_kosu_ozetine_yaziliyor():
+    """"Neden 2 sayfa" sorusu kosu SAYFASINDA cevaplanmali.
+
+    Olculdu (2026-08-28): kosu 44 dakika calisti, 149 adaydan ikisini
+    yazdi. Sebep dokumu URETILMISTI ama 328 satirlik gunlugun icinde
+    kaldi; ustelik Actions gunlukleri API'den kimlik dogrulamasi
+    istiyor (403). Yani cevap vardi ve okunamadi.
+    """
+    c = _ozetle({"güvenlik": 140, "yorum yok": 7}, 2, 147)
+    assert "yazılan 2" in c, c
+    assert "atlanan 147" in c, c
+    assert "güvenlik" in c and "140" in c, c
+    assert "yorum yok" in c and "7" in c, c
+
+
+def test_ozet_siklikla_siralaniyor():
+    """En cok goruleni once: uc satir okumak, 328 satiri okumaktan iyi.
+
+    ARANAN DIZGI TABLO HUCRESI, CIPLAK KELIME DEGIL. Ilk yazimda
+    `c.index("az")` deniyordu ve test KIRMIZI dondu: "az", ozetin
+    kendi "**yazılan 0**" satirinin icinde gecıyor. Bu depoda tekrar
+    eden hata sinifi -- parcali eslesme -- ve bu kez sinamanin
+    kendisine carpti.
+    """
+    c = _ozetle({"az": 1, "cok": 99}, 0, 100)
+    assert c.index("| cok |") < c.index("| az |"), c
+
+
+def test_ozet_degiskeni_yoksa_cokmuyor():
+    """Yerel calistirmada `GITHUB_STEP_SUMMARY` tanimsiz."""
+    import os
+    eski = os.environ.pop("GITHUB_STEP_SUMMARY", None)
+    try:
+        u._dokum({"güvenlik": 3}, 0, 3)      # coker mi
+    finally:
+        if eski is not None:
+            os.environ["GITHUB_STEP_SUMMARY"] = eski
+
+
 if __name__ == "__main__":
     n = 0
     for ad, f in sorted(globals().items()):

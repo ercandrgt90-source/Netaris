@@ -288,7 +288,8 @@ def _yayimlanmis() -> set[tuple[str, str]]:
     return cikti
 
 
-def _dokum(sebepler: dict[str, int]) -> None:
+def _dokum(sebepler: dict[str, int], yazilan: int = -1,
+           atlanan: int = -1) -> None:
     """Atlama sebeplerini SIKLIGA gore dok.
 
     Ozet satiri "kac tane" diyor, bu "neden" diyor -- ve ilki tek
@@ -298,12 +299,44 @@ def _dokum(sebepler: dict[str, int]) -> None:
 
     2026-08-20'de tam bu yasandi: kosu "yazilan 0, atlanan 325" ile
     bitti ve sebebi 325 satiri tek tek okumadan anlasilmadi.
+
+    KOSU OZETINE DE YAZILIYOR
+    -------------------------
+    Olculdu (2026-08-28): kosu 44 dakika calisti ve 149 adaydan
+    yalnizca IKISINI yazdi. Sebep dokumu gunluge basilmisti ama
+    gunluk 328 satir; ustelik Actions gunlukleri API'den kimlik
+    dogrulamasi istiyor (403). Yani "neden 2 sayfa" sorusu, cevabi
+    URETILMIS olmasina ragmen okunamadi.
+
+    `GITHUB_STEP_SUMMARY` kosu sayfasinin EN USTUNDE gorunuyor.
+    Ayni bilgi, aramadan.
     """
-    if not sebepler:
+    if not sebepler and yazilan < 0:
         return
-    print("sebep dökümü:")
-    for tur, n in sorted(sebepler.items(), key=lambda x: -x[1]):
-        print(f"  {n:>4}  {tur}")
+    if sebepler:
+        print("sebep dökümü:")
+        for tur, n in sorted(sebepler.items(), key=lambda x: -x[1]):
+            print(f"  {n:>4}  {tur}")
+
+    import os                                          # noqa: PLC0415
+    yol = os.environ.get("GITHUB_STEP_SUMMARY", "").strip()
+    if not yol:
+        return
+    satirlar = ["### Bilanço sayfaları", ""]
+    if yazilan >= 0:
+        satirlar.append(f"**yazılan {yazilan}, atlanan {atlanan}**")
+        satirlar.append("")
+    if sebepler:
+        satirlar += ["| adet | sebep |", "|---:|---|"]
+        satirlar += [f"| {n} | {tur} |"
+                     for tur, n in sorted(sebepler.items(),
+                                          key=lambda x: -x[1])]
+    try:
+        with open(yol, "a", encoding="utf-8") as f:
+            f.write(chr(10).join(satirlar) + chr(10))
+    except OSError as e:                               # pragma: no cover
+        # Ozet yazilamamasi isi DUSURMEZ: sayfalar zaten uretildi.
+        print(f"(kosu ozetine yazilamadi: {e})")
 
 
 def main() -> int:
@@ -393,7 +426,7 @@ def main() -> int:
             if yazilan >= n.sinir:
                 print(f"\nsınıra ulaşıldı ({n.sinir})")
                 print(f"yazılan {yazilan}, atlanan {atlanan}")
-                _dokum(sebepler)
+                _dokum(sebepler, yazilan, atlanan)
                 return 0
             bilgi = defter.get(kod)
             if not bilgi:
@@ -430,7 +463,7 @@ def main() -> int:
                 print(f"  {kod:<8}ATLANDI -- {not_}")
 
     print(f"\nyazılan {yazilan}, atlanan {atlanan}")
-    _dokum(sebepler)
+    _dokum(sebepler, yazilan, atlanan)
     return 0
 
 
