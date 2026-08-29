@@ -1,13 +1,13 @@
 ---
 slug: prdgs-2026-2-ceyrek
 baslik: PARDUS GİRİŞİM SERMAYESİ YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat, brüt kâr ve net kârın aynı seviyede (+0,28 milyar TL) olması, brüt kâr marjının %100,0 ve net kâr marjının %98,8 gibi çok yüksek oranlarla birlikte, faaliyet kârının da brüt kârın hemen altında (+0,27 milyar TL) kalmasını sağladı; bu durum gelir artışıyla kârların paralel yükselmesini göste…
+ozet: Hasılat, brüt kâr, faaliyet kârı ve net kâr aynı tutarda artış göstererek birbirini izledi; bu artış özkaynakların 2,94 milyar TL'ye yükselmesine ve aktif toplamının 2,96 milyar TL'ye ulaşmasına yol açtı.…
 sirket: PARDUS GİRİŞİM SERMAYESİ YATIRIM ORTAKLIĞI A.Ş.
 kod: PRDGS
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Finans
-tarih: 2026-08-29
+tarih: 2026-08-28
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat, brüt kâr ve net kârın aynı seviyede (+0,28 milyar TL) olması, brüt kâr marjının %100,0 ve net kâr marjının %98,8 gibi çok yüksek oranlarla birlikte, faaliyet kârının da brüt kârın hemen altında (+0,27 milyar TL) kalmasını sağladı; bu durum gelir artışıyla kârların paralel yükselmesini gösteriyor. Özkaynak 2,94 milyar TL'ye çıkarak aktif toplamının (2,96 milyar TL) büyük bir kısmını oluşturması, net borcun –0,10 milyar TL (nakit pozisyonu) ile birleşince borç/özkaynak oranının –0,03'a gerilemesi ve cari oranın 5,73'e düşmesi, likidite artışının özkaynak büyümesiyle birlikte borçlanmanın azalmasına işaret ediyor. Faaliyet nakit akışının 0,06 milyar TL'ye yükselmesi, artan kârlılık (özkaynak kârlılığı %11,3) ve düşük borç/özkaynak oranı ile uyumlu bir nakit üretim kapasitesi artışı olduğunu gösteriyor.
+Hasılat, brüt kâr, faaliyet kârı ve net kâr aynı tutarda artış göstererek birbirini izledi; bu artış özkaynakların 2,94 milyar TL'ye yükselmesine ve aktif toplamının 2,96 milyar TL'ye ulaşmasına yol açtı. Net borcun –0,10 milyar TL (nakit fazlası) olması, faaliyet nakit akışının 0,06 milyar TL'ye çıkmasıyla birlikte, borç/özkaynak oranının –0,03 seviyesinde kalmasını sağladı. Brüt kâr marjının %100,0 ve net kâr marjının %98,8 olması, özkaynak kârlılığının %11,3'e yükselmesiyle uyumlu, ancak cari oranın 5,73 olması sektör medyanı 12,09'dan daha düşük bir likidite seviyesini gösteriyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

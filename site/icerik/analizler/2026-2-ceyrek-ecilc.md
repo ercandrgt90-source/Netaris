@@ -1,13 +1,13 @@
 ---
 slug: ecilc-2026-2-ceyrek
 baslik: EİS ECZACIBAŞI İLAÇ SINAİ VE FİNANSAL YATIRIMLAR SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %9,4 düşmesi, brüt kârın artmasıyla birlikte brüt kâr marjının %37,5'e yükselmesi, satışların azalmasına rağmen maliyet yapısının daha verimli hale geldiğini gösteriyor; aynı zamanda faaliyet ve FAVÖK kârlarının negatif değerlerde artması, net kârın -%34,0'a gerilemesiyle birlikte kârlılık…
+ozet: Hasılat düşerken brüt kâr artmış, bu durum brüt kâr marjının %37,5 ile sektör medyanının %31,8'ini aşmasıyla ilişkilidir; aynı zamanda yatırım harcamasının 1,19 milyar TL'ye yükselmesi brüt kâr artışına katkı sağlamış olabilir.…
 sirket: EİS ECZACIBAŞI İLAÇ SINAİ VE FİNANSAL YATIRIMLAR SANAYİ VE TİCARET A.Ş.
 kod: ECILC
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Sağlık
-tarih: 2026-08-29
+tarih: 2026-08-23
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %9,4 düşmesi, brüt kârın artmasıyla birlikte brüt kâr marjının %37,5'e yükselmesi, satışların azalmasına rağmen maliyet yapısının daha verimli hale geldiğini gösteriyor; aynı zamanda faaliyet ve FAVÖK kârlarının negatif değerlerde artması, net kârın -%34,0'a gerilemesiyle birlikte kârlılık göstergelerinin (net kâr marjı, özkaynak kârlılığı) sektör medyanının çok altında kalmasına yol açtı. Özkaynakların 68,82 milyar TL'ye yükselmesi, aktif toplamının artması ve net borcun 1,47 milyar TL'ye geçmesi, borç/özkaynak oranının %0,02'ye (sektör medyanı -%0,02) yükselmesiyle likiditeyi zorlamış; bu durum cari oranın 1,47 (sektör medyanı 2,10) seviyesinde düşmesine yansıyor. Faaliyet nakit akışının 0,06 milyar TL'ye gerilemesi ve yatırım harcamasının 1,19 milyar TL'ye (önceki dönem 0,33 milyar TL) artması, nakit çıkışının artmasıyla birlikte sermaye harcamalarının kâr üretimini desteklemediğini gösteriyor.
+Hasılat düşerken brüt kâr artmış, bu durum brüt kâr marjının %37,5 ile sektör medyanının %31,8'ini aşmasıyla ilişkilidir; aynı zamanda yatırım harcamasının 1,19 milyar TL'ye yükselmesi brüt kâr artışına katkı sağlamış olabilir. Faaliyet ve FAVÖK kârlarının negatif kalması, net kârın -1,85 milyar TL'ye gerilemesi ve net kâr marjının -%34,0'a düşmesiyle birlikte faaliyet nakit akışının 0,06 milyar TL'ye düşmesi, artan özkaynak (68,82 milyar TL) ve aktif toplamı (84,87 milyar TL) karşısında net borcun 1,47 milyar TL'ye çıkmasıyla net borç/özkaynak oranının 0,02'ye yükselmesine bağlanabilir. Cari oran 1,47'nin sektör medyanı 2,10'un altında kalması, artan kısa vadeli yükümlülüklerin özkaynak artışıyla tam olarak dengelenemediğini gösterir.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
@@ -58,9 +58,9 @@ Karşılaştırma Sağlık sektöründeki 9 şirketin **medyanına** göre yapı
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %37,5 | %34,3 |
-| Net kâr marjı | -%34,0 | -%2,9 |
-| Özkaynak kârlılığı | -%1,1 | -%0,6 |
+| Brüt kâr marjı | %37,5 | %31,8 |
+| Net kâr marjı | -%34,0 | -%8,5 |
+| Özkaynak kârlılığı | -%1,1 | -%1,1 |
 | Cari oran | 1,47 | 2,10 |
 | Borç / özkaynak | 0,02 | -0,02 |
 

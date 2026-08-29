@@ -1,13 +1,13 @@
 ---
 slug: yggyo-2026-2-ceyrek
 baslik: YENİ GİMAT GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın 1,70 milyar TL'ye düşmesi net kârın 0,46 milyar TL'ye gerilemesiyle paralel seyretmiş; gelir azalması kârda da azalmaya yol açmış. Özkaynak ve aktif toplamının sırasıyla 28,11 milyar TL ve 30,32 milyar TL'ye yükselmesi, net borcun -2,48 milyar TL olarak hafiflemesiyle özkaynak/aktif oranın…
+ozet: Hasılat 1,62 milyar TL'den 1,70 milyar TL'ye çıkarken net kâr 1,47 milyar TL'den 0,46 milyar TL'ye indi; dolayısıyla kârdaki değişim satış tarafından değil, hasılat dışı kalemlerden kaynaklandı ve net kâr marjı %28,8 ile sektör medyanı %14,3'ün üstünde sıralandı.…
 sirket: YENİ GİMAT GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: YGGYO
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-29
+tarih: 2026-08-28
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,18 +18,18 @@ sayimlar:
 
 ## Özet
 
-Hasılatın 1,70 milyar TL'ye düşmesi net kârın 0,46 milyar TL'ye gerilemesiyle paralel seyretmiş; gelir azalması kârda da azalmaya yol açmış. Özkaynak ve aktif toplamının sırasıyla 28,11 milyar TL ve 30,32 milyar TL'ye yükselmesi, net borcun -2,48 milyar TL olarak hafiflemesiyle özkaynak/aktif oranının iyileşmesine ve borç/özkaynak oranının -0,09'dan -0,09'a sabit kalmasına neden olmuş. Net kâr marjı %29,0 ve özkaynak kârlılığı %0,9, sektör medyanlarının üzerindeki seviyeleri korurken, faaliyet nakit akışı 1,74 milyar TL'ye gerilemiş; nakit akışı düşüşü kâr marjının yüksek olmasına rağmen likidite akışının azalmasına işaret ediyor.
+Hasılat 1,62 milyar TL'den 1,70 milyar TL'ye çıkarken net kâr 1,47 milyar TL'den 0,46 milyar TL'ye indi; dolayısıyla kârdaki değişim satış tarafından değil, hasılat dışı kalemlerden kaynaklandı ve net kâr marjı %28,8 ile sektör medyanı %14,3'ün üstünde sıralandı. Özkaynak 16,55 milyar TL'den 28,11 milyar TL'ye, aktif toplamı 22,09 milyar TL'den 30,32 milyar TL'ye genişledi; özkaynaktaki artışın aktif artışını aşması, büyümenin yükümlülük tarafından gelmediğine işaret ediyor ve azalan net kârla birleşince özkaynak kârlılığını %0,9 düzeyinde bıraktı. Net borç -2,34 milyar TL'den -2,48 milyar TL'ye geçti, borç/özkaynak -0,09 ile medyan 0,02'nin altında konumlandı; buna karşılık faaliyet nakit akışı 3,45 milyar TL'den 1,68 milyar TL'ye geriledi.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | -%12,8 |
-| Net kâr | -%25,1 |
+| Hasılat | %5,0 |
+| Net kâr | -%68,5 |
 | Özkaynak | %69,9 |
 | Aktif toplamı | %37,3 |
 | Net borç | -%6,0 |
-| Faaliyet nakit akışı | -%15,7 |
+| Faaliyet nakit akışı | -%51,3 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -42,7 +42,7 @@ Hasılatın 1,70 milyar TL'ye düşmesi net kârın 0,46 milyar TL'ye gerilemesi
 | Özkaynak | 28,11 milyar TL |
 | Aktif toplamı | 30,32 milyar TL |
 | Net borç | -2,48 milyar TL |
-| Faaliyet nakit akışı | 1,74 milyar TL |
+| Faaliyet nakit akışı | 1,68 milyar TL |
 
 ## Sektör içindeki konum
 
@@ -50,7 +50,7 @@ Karşılaştırma Gayrimenkul sektöründeki 34 şirketin **medyanına** göre y
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Net kâr marjı | %29,0 | %14,3 |
+| Net kâr marjı | %28,8 | %14,3 |
 | Özkaynak kârlılığı | %0,9 | %0,4 |
 | Borç / özkaynak | -0,09 | 0,02 |
 
@@ -60,8 +60,7 @@ Karşılaştırma Gayrimenkul sektöründeki 34 şirketin **medyanına** göre y
 
 **Dikkat gerektirenler**
 
-- Hasılat reel olarak -%12,8 geriledi.
-- Net kâr reel olarak -%25,1 geriledi.
+- Net kâr reel olarak -%68,5 geriledi.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

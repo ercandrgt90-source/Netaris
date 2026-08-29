@@ -1,13 +1,13 @@
 ---
 slug: eygyo-2026-2-ceyrek
 baslik: EYG GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat 0,58 milyar TL'ye yükselirken brüt kâr 0,08 milyar TL'ye geçerek negatiften pozitifleşti; bu artış faaliyet kârının -0,02 milyar TL'ye (önceki -0,09 milyar TL) ve FAVÖK'ün -0,02 milyar TL'ye (önceki -0,08 milyar TL) iyileşmesine, net kârın ise -0,11 milyar TL'ye (önceki -0,18 milyar TL) dara…
+ozet: Hasılat iki katından fazlasına çıkarken brüt kâr negatiften pozitife döndü ve bu iyileşme faaliyet ile FAVÖK tarafındaki zararın daralmasına da taşındı; ancak net kâr hâlâ negatif kaldığı için özkaynak bir önceki döneme göre geriledi.…
 sirket: EYG GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: EYGYO
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-29
+tarih: 2026-08-28
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat 0,58 milyar TL'ye yükselirken brüt kâr 0,08 milyar TL'ye geçerek negatiften pozitifleşti; bu artış faaliyet kârının -0,02 milyar TL'ye (önceki -0,09 milyar TL) ve FAVÖK'ün -0,02 milyar TL'ye (önceki -0,08 milyar TL) iyileşmesine, net kârın ise -0,11 milyar TL'ye (önceki -0,18 milyar TL) daralmasına yol açtı. Aktif toplamı 3,66 milyar TL'ye (önceki 3,37 milyar TL) çıkarken net borç 0,87 milyar TL'ye (önceki 0,96 milyar TL) geriledi; bu durum cari oranı 1,17'ye (sektör medyanı 5,25) ve borç/özkaynak oranını 0,43'e (sektör medyanı 0,02) yükselterek likidite ve finansal kaldıraç profilinde değişiklik yarattı. Brüt kâr marjı %14,5 (sektör medyanı %51,4) ve net kâr marjı -%5,4 (sektör medyanı %14,3) gibi karlılık göstergeleri, özkaynak kârlılığının -%1,4 (sektör medyanı %0,4) olmasıyla birlikte, gelir artışının karlılık ve özkaynak verimliliğinde sektörel ortalamanın altında kalmasına işaret ediyor.
+Hasılat iki katından fazlasına çıkarken brüt kâr negatiften pozitife döndü ve bu iyileşme faaliyet ile FAVÖK tarafındaki zararın daralmasına da taşındı; ancak net kâr hâlâ negatif kaldığı için özkaynak bir önceki döneme göre geriledi. Aktif toplamı büyürken net borç azaldı, buna karşılık faaliyet nakit akışı sıfıra indi; yani borç azalışı dönem içinde üretilen nakitle değil bilançonun diğer kalemleriyle birlikte gerçekleşti. Sektör medyanlarına göre konumlanmada brüt kâr marjı ve cari oran medyanın altında, borç/özkaynak ise medyanın üzerinde yer alıyor; özkaynak kârlılığı da negatif olduğu için medyanın gerisinde kalıyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

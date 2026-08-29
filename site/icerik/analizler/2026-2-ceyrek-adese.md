@@ -1,13 +1,13 @@
 ---
 slug: adese-2026-2-ceyrek
 baslik: ADESE GAYRİMENKUL YATIRIM A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat 0,90 milyar TL'ye yükselirken net kâr -0,27 milyar TL'ye gerilemiş, bu durum net kâr marjının -%16,8'e düşmesine yol açmış; gelir artışı gerçekleşse de kârın azalması, faaliyet nakit akışının 0,05 milyar TL'ye düşmesiyle birlikte şirketin kârlılık göstergelerinin (özkaynak kârlılığı -%0,5) d…
+ozet: Hasılat 0,90 milyar TL'ye yükselirken net kâr –0,27 milyar TL'ye gerilemiş, bu durum faaliyet nakit akışının 0,05 milyar TL'ye düşmesiyle paralel bir azalmayı gösteriyor; artan aktif toplamı 27,23 milyar TL'ye çıkarken özkaynak 20,91 milyar TL'ye yükselmiş, bu da net borcun 0,13 milyar TL'ye gerilem…
 sirket: ADESE GAYRİMENKUL YATIRIM A.Ş.
 kod: ADESE
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-29
+tarih: 2026-08-28
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat 0,90 milyar TL'ye yükselirken net kâr -0,27 milyar TL'ye gerilemiş, bu durum net kâr marjının -%16,8'e düşmesine yol açmış; gelir artışı gerçekleşse de kârın azalması, faaliyet nakit akışının 0,05 milyar TL'ye düşmesiyle birlikte şirketin kârlılık göstergelerinin (özkaynak kârlılığı -%0,5) de gerilemesine neden olmuştur. Özkaynak 20,91 milyar TL'ye, aktif toplamı 27,23 milyar TL'ye yükselmiş, bu artış net borcun 0,13 milyar TL'ye düşmesiyle birlikte borç/özkaynak oranının 0,01'e inmesine ve sektörel medyan (0,02) altında kalmasına yol açmıştır. Net borçtaki azalma ve özkaynak artışı, şirketin finansal kaldıraç seviyesinin düşmesine rağmen, artan gelir ve azalan nakit akışı arasında bir uyumsuzluk olduğunu göstermektedir.
+Hasılat 0,90 milyar TL'ye yükselirken net kâr –0,27 milyar TL'ye gerilemiş, bu durum faaliyet nakit akışının 0,05 milyar TL'ye düşmesiyle paralel bir azalmayı gösteriyor; artan aktif toplamı 27,23 milyar TL'ye çıkarken özkaynak 20,91 milyar TL'ye yükselmiş, bu da net borcun 0,13 milyar TL'ye gerilemesiyle borç/özkaynak oranının sektör medyanının altında %0,01'e inmesini sağlamış. Net kâr marjı –%16,8 ve özkaynak kârlılığı –%0,5, her ikisi de sektör medyanının pozitif değerlerinin tersine hareket ederek kârlılıkta gerilemenin özkaynak artışı ve borç azalmasıyla birlikte gerçekleştiğini gösteriyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

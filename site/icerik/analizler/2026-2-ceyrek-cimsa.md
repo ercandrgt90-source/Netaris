@@ -1,13 +1,13 @@
 ---
 slug: cimsa-2026-2-ceyrek
 baslik: ÇİMSA ÇİMENTO SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın düşmesi brüt kârda ve FAVÖK'te de azalmaya yol açarken, net kârın artması özkaynak artışıyla birlikte özkaynak kârlılığının yükselmesine ( %2,8) neden oldu; net kârdaki yükseliş aynı zamanda net kâr marjının (%10,2) sektör medyanının (%2,4) çok üzerinde olmasını sağladı.…
+ozet: Hasılatın düşmesi brüt kârı ve faaliyet kârını de-genleştirmiş, bu da brüt kâr marjının %20,6 seviyesinde kalmasına rağmen net kâr marjının %10,2'ye yükselmesine yol açmıştır; net kâr artışı özkaynakların %47,46'e yükselmesiyle özkaynak kârlılığının %2,8'e çıkmasını desteklemiştir.…
 sirket: ÇİMSA ÇİMENTO SANAYİ VE TİCARET A.Ş.
 kod: CIMSA
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Temel malzeme
-tarih: 2026-08-29
+tarih: 2026-08-26
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın düşmesi brüt kârda ve FAVÖK'te de azalmaya yol açarken, net kârın artması özkaynak artışıyla birlikte özkaynak kârlılığının yükselmesine ( %2,8) neden oldu; net kârdaki yükseliş aynı zamanda net kâr marjının (%10,2) sektör medyanının (%2,4) çok üzerinde olmasını sağladı. Net borcun artışı (26,20 milyar TL) cari oranı (0,88) ve borç/özkaynak oranını (0,55) sektör medyanlarından (1,36 ve 0,21) daha düşük seviyelere çekti, bu da likidite ve finansal kaldıraçta farklı bir hareketlilik gösterdi. Faaliyet nakit akışının negatif (-1,59 milyar TL) olması, yatırım harcamasının (2,26 milyar TL) azalmasıyla birlikte aktif toplamının (99,32 milyar TL) ve özkaynakların (47,46 milyar TL) yükselmesine rağmen nakit akışı üzerindeki baskıyı sürdürdü.
+Hasılatın düşmesi brüt kârı ve faaliyet kârını de-genleştirmiş, bu da brüt kâr marjının %20,6 seviyesinde kalmasına rağmen net kâr marjının %10,2'ye yükselmesine yol açmıştır; net kâr artışı özkaynakların %47,46'e yükselmesiyle özkaynak kârlılığının %2,8'e çıkmasını desteklemiştir. Aktif toplamının %99,32'e ulaşması özkaynak artışıyla paralel bir büyüme sağlarken, net borçtaki artış (%26,20) borç/özkaynak oranını %0,55'e yükseltmiş ve cari oranı %0,88 ile sektör medyanının altında bırakmıştır. Faaliyet nakit akışının negatifleşmesi yatırım harcamasının %2,26'ya gerilemesiyle birlikte, likidite sıkışıklığının artmasına rağmen kârlılık göstergeleri sektör ortalamalarının üzerindedir.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
@@ -60,7 +60,7 @@ Karşılaştırma Temel malzeme sektöründeki 42 şirketin **medyanına** göre
 | --- | ---: | ---: |
 | Brüt kâr marjı | %20,6 | %14,1 |
 | Net kâr marjı | %10,2 | %2,4 |
-| Özkaynak kârlılığı | %2,8 | %1,3 |
+| Özkaynak kârlılığı | %2,8 | %1,1 |
 | Cari oran | 0,88 | 1,36 |
 | Borç / özkaynak | 0,55 | 0,21 |
 
@@ -71,7 +71,7 @@ Karşılaştırma Temel malzeme sektöründeki 42 şirketin **medyanına** göre
 **Şirket lehine işleyenler**
 
 - Net kâr reel olarak %51,8 arttı.
-- Özkaynak kârlılığı %2,8; sektör medyanı %1,3.
+- Özkaynak kârlılığı %2,8; sektör medyanı %1,1.
 
 **Dikkat gerektirenler**
 

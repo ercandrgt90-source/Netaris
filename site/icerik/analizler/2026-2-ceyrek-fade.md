@@ -1,13 +1,13 @@
 ---
 slug: fade-2026-2-ceyrek
 baslik: FADE GIDA YATIRIM SANAYİ TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın düşmesiyle brüt kâr artmış; brüt kâr marjının %19,2'ye yükselmesi brüt kârın hasılat düşüşüne rağmen büyümesini ve faaliyet kârı ile FAVÖK'ün sırasıyla %0,06 milyar ve %0,08 milyar olarak artmasını desteklemiştir.…
+ozet: Hasılatın düşmesine rağmen brüt kâr artışı, brüt kâr marjının %19,2'ye yükselmesiyle birlikte maliyet yapısının iyileştiğini gösteriyor; bu iyileşme, faaliyet kârı ve FAVÖK'ün sırasıyla %0,06 milyar ve %0,08 milyon artmasına, dolayısıyla net kârın %0,05 milyon olarak iki katına çıkmasına yol açtı.…
 sirket: FADE GIDA YATIRIM SANAYİ TİCARET A.Ş.
 kod: FADE
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Temel tüketim
-tarih: 2026-08-29
+tarih: 2026-08-27
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın düşmesiyle brüt kâr artmış; brüt kâr marjının %19,2'ye yükselmesi brüt kârın hasılat düşüşüne rağmen büyümesini ve faaliyet kârı ile FAVÖK'ün sırasıyla %0,06 milyar ve %0,08 milyar olarak artmasını desteklemiştir. Net kârın %0,05 milyar'a çıkması, net kâr marjının %1,2'ye (sektör medyanı %0,2) yükselmesiyle birlikte özkaynak kârlılığının %0,2'ye (sektör medyanı %0,8) gerilemesine yol açmış; bu, özkaynakların %2,18 milyon (önceki dönem %1,60 milyon) artması ve net borcun %0,08 milyon (önceki dönem %0,09 milyon) hafiflemesiyle likiditeyi güçlendirmiş. Cari oranının 2,12'ye (sektör medyanı 1,36) ve borç/özkaynak oranının 0,04'e (sektör medyanı 0,26) gerilemesi, artan faaliyet nakit akışı %0,13 milyon (önceki dönem %0,01 milyon) ve azalan yatırım harcaması %0,01 milyon (önceki dönem %0,02 milyon) ile birlikte şirketin kısa vadeli ödeme gücünün ve finansal riskinin azaldığını göstermektedir.
+Hasılatın düşmesine rağmen brüt kâr artışı, brüt kâr marjının %19,2'ye yükselmesiyle birlikte maliyet yapısının iyileştiğini gösteriyor; bu iyileşme, faaliyet kârı ve FAVÖK'ün sırasıyla %0,06 milyar ve %0,08 milyon artmasına, dolayısıyla net kârın %0,05 milyon olarak iki katına çıkmasına yol açtı. Özkaynakların %2,18 milyon seviyesine yükselmesi, özkaynak kârlılığının %0,2'ye gerilemesine rağmen, cari oranın 2,12'ye (sektör medyanı 1,36) ve borç/özkaynak oranının 0,04'e (sektör medyanı 0,26) düşmesiyle likidite ve finansal riskin azaldığını gösteriyor. Faaliyet nakit akışının 0,13 milyon (önceki dönem 0,01 milyon) artması, yatırım harcamasının 0,01 milyon (önceki dönem 0,02 milyon) azalmasıyla birlikte, işletmenin nakit üretim kapasitesinin yükseldiğini ve sermaye harcamalarını sınırlı tutarak borç seviyesini hafifçe düşürdüğünü ortaya koyuyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

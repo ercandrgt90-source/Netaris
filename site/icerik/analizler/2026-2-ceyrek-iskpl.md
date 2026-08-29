@@ -1,13 +1,13 @@
 ---
 slug: iskpl-2026-2-ceyrek
 baslik: IŞIK PLASTİK SANAYİ VE DIŞ TİCARET PAZARLAMA A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın 1,34 milyar TL'den 1,79 milyar TL'ye yükselmesi, brüt kârın 0,38 milyar TL'den 0,54 milyar TL'ye artmasıyla paralel seyrederek brüt kâr marjının %35,4'e (sektör medyanı %20,9) çıkmasını sağladı; aynı artış net kârı 0,19 milyar TL'den 0,25 milyar TL'ye taşıdı ve net kâr marjını %10,9 (sektö…
+ozet: Hasılatın 1,34 milyar TL'den 1,79 milyar TL'ye yükselmesi brüt kârın 0,38 milyar TL'den 0,54 milyar TL'ye artmasına paralel olarak gerçekleşti; brüt kâr marjı %35,4 ile sektör medyanının %21,2'sinin çok üzerindeydi.…
 sirket: IŞIK PLASTİK SANAYİ VE DIŞ TİCARET PAZARLAMA A.Ş.
 kod: ISKPL
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Sanayi
-tarih: 2026-08-29
+tarih: 2026-08-21
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın 1,34 milyar TL'den 1,79 milyar TL'ye yükselmesi, brüt kârın 0,38 milyar TL'den 0,54 milyar TL'ye artmasıyla paralel seyrederek brüt kâr marjının %35,4'e (sektör medyanı %20,9) çıkmasını sağladı; aynı artış net kârı 0,19 milyar TL'den 0,25 milyar TL'ye taşıdı ve net kâr marjını %10,9 (sektör medyanı %1,3) yaptı. Özkaynakların 2,31 milyar TL'den 3,42 milyar TL'ye yükselmesi, aktif toplamının 3,98 milyar TL'den 6,32 milyar TL'ye artmasıyla birlikte borç/özkaynak oranının %0,16'dan %0,59'a çıkmasına rağmen cari oran 1,11 (sektör medyanı 1,32) seviyesinde kaldı. Faaliyet nakit akışı 0,26 milyar TL'den 0,00 milyar TL'ye gerilerken yatırım harcaması 0,65 milyar TL'den 0,11 milyar TL'ye düşmüş, bu da faaliyet kârı ve FAVÖK'ün sırasıyla 0,23 milyar TL'den 0,28 milyar TL'ye ve 0,35 milyar TL'den 0,40 milyar TL'ye artışını sınırlı nakit dönüşümle destekledi.
+Hasılatın 1,34 milyar TL'den 1,79 milyar TL'ye yükselmesi brüt kârın 0,38 milyar TL'den 0,54 milyar TL'ye artmasına paralel olarak gerçekleşti; brüt kâr marjı %35,4 ile sektör medyanının %21,2'sinin çok üzerindeydi. Brüt kârdaki artış, faaliyet kârı, FAVÖK ve net kârda da sırasıyla 0,23 → 0,28 milyar TL, 0,35 → 0,40 milyar TL ve 0,19 → 0,25 milyar TL olarak yükselirken, net kâr marjı %10,9'a, özkaynak kârlılığı %3,0'a ve özkaynak seviyesine 3,42 milyar TL'ye (2,31 milyar TL'den) çıkmasına yol açtı; aynı zamanda aktif toplamı 3,98 → 6,32 milyar TL'ye artarken net borç da 1,39 → 2,03 milyar TL'ye yükseldi, bu da cari oranı 1,11 (sektör medyanı 1,37) ve borç/özkaynak oranını 0,59 (sektör medyanı 0,11) olarak etkiledi. Faaliyet nakit akışı negatiften 0,00 milyar TL'ye gerilemesi ve yatırım harcamasının 0,65 → 0,11 milyar TL'ye düşmesi, artan kârlılık ve bilanço büyükl
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
@@ -54,15 +54,15 @@ Hasılatın 1,34 milyar TL'den 1,79 milyar TL'ye yükselmesi, brüt kârın 
 
 ## Sektör içindeki konum
 
-Karşılaştırma Sanayi sektöründeki 69 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Sanayi sektöründeki 68 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %35,4 | %20,9 |
-| Net kâr marjı | %10,9 | %1,3 |
-| Özkaynak kârlılığı | %3,0 | %0,3 |
-| Cari oran | 1,11 | 1,32 |
-| Borç / özkaynak | 0,59 | 0,16 |
+| Brüt kâr marjı | %35,4 | %21,2 |
+| Net kâr marjı | %10,9 | %0,3 |
+| Özkaynak kârlılığı | %3,0 | %0,0 |
+| Cari oran | 1,11 | 1,37 |
+| Borç / özkaynak | 0,59 | 0,11 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

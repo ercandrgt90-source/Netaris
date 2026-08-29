@@ -1,13 +1,13 @@
 ---
 slug: entra-2026-2-ceyrek
 baslik: IC ENTERRA YENİLENEBİLİR ENERJİ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın 1,92 milyar TL'ye düşmesi net kârın -0,98 milyar TL'den 0,16 milyar TL'ye geçmesiyle birlikte özkaynakların 28,40 milyar TL'den 44,15 milyar TL'ye yükselmesine, aktif toplamının 42,21 milyar TL'den 59,31 milyar TL'ye artmasına ve net borcun 10,63 milyar TL'den 11,24 milyar TL'ye hafifçe ar…
+ozet: Hasılatın 1,92 milyar TL'ye düşmesi net kârın -0,98 milyar TL'den 0,16 milyar TL'ye geçmesiyle birlikte faaliyet nakit akışının 1,79 milyar TL'ye yükselmesi, gelir azalmasına rağmen nakit üretimindeki iyileşmenin net kâr artışını desteklediğini gösterir; aynı dönemde özkaynakların 44,15 milyar TL'ye…
 sirket: IC ENTERRA YENİLENEBİLİR ENERJİ A.Ş.
 kod: ENTRA
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Kamu hizmetleri
-tarih: 2026-08-29
+tarih: 2026-08-27
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın 1,92 milyar TL'ye düşmesi net kârın -0,98 milyar TL'den 0,16 milyar TL'ye geçmesiyle birlikte özkaynakların 28,40 milyar TL'den 44,15 milyar TL'ye yükselmesine, aktif toplamının 42,21 milyar TL'den 59,31 milyar TL'ye artmasına ve net borcun 10,63 milyar TL'den 11,24 milyar TL'ye hafifçe artmasına yol açtı; bu büyüyen bilanço kalemleri net kâr marjının %19,2'ye (sektör medyanı %11,4) çıkmasını sağlarken özkaynak kârlılığı sadece %0,4 (sektör medyanı %1,0) kaldı. Cari oran 0,21 (sektör medyanı 0,90) ve borç/özkaynak oranı 0,25 (sektör medyanı 0,12) artış gösterdi; düşük cari oran likiditeyi kısıtlarken borç/özkaynak oranındaki yükseliş özkaynak artışına kıyasla daha sınırlı bir finansal kaldıraç artışı olduğunu gösteriyor. Faaliyet nakit akışı 1,79 milyar TL iken yatırım harcaması sadece 0,06 milyar TL olduğundan, artan nakit akışı bilanço büyümesi ve kâr artışıyla birlikte şirketin operasyonel nakit üretim kapasitesinin genişlediği görülüyor.
+Hasılatın 1,92 milyar TL'ye düşmesi net kârın -0,98 milyar TL'den 0,16 milyar TL'ye geçmesiyle birlikte faaliyet nakit akışının 1,79 milyar TL'ye yükselmesi, gelir azalmasına rağmen nakit üretimindeki iyileşmenin net kâr artışını desteklediğini gösterir; aynı dönemde özkaynakların 44,15 milyar TL'ye çıkması aktif toplamının 59,31 milyar TL'ye yükselmesiyle özkaynak/aktif oranının artmasına yol açtı. Özkaynak kârlılığı %0,4 seviyesine gerilemişken borç/özkaynak oranı %0,25'e yükselmiş, bu durum net borcun 11,24 milyar TL'ye hafif artması ve özkaynakların daha hızlı büyümesiyle borç finansmanının özkaynak bazına göre daha düşük bir paya kaydığını gösterir. Cari oran 0,21'in sektör medyanı 0,90'ın altında kalması, kısa vadeli likidite ihtiyacının artan aktif ve özkaynak büyüklüğüne rağmen dönen varlıkların kısa vadeli yükümlülükleri karşılamada yetersiz kaldığını yansıtır.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
