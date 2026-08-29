@@ -2,13 +2,13 @@
  "Bilişim": {
   "sektor": "Bilişim",
   "donem": "2026 2. çeyrek",
-  "sirket_sayisi": 18,
+  "sirket_sayisi": 17,
   "medyan": {
-   "brut_marj": 16.111304530653236,
-   "net_marj": -1.957422134830752,
-   "roe": 2.0649803979495047,
-   "cari_oran": 1.2516469951415292,
-   "borc_ozkaynak": -0.01916319399689789
+   "brut_marj": 17.239980998945672,
+   "net_marj": 0.3070973136824501,
+   "roe": 2.823602414396119,
+   "cari_oran": 1.244613434727503,
+   "borc_ozkaynak": -0.03806125425376762
   },
   "sirket": {
    "ALCTL": {
@@ -45,13 +45,6 @@
     "roe": 8.655712202236266,
     "cari_oran": 2.127848607347519,
     "borc_ozkaynak": -0.03806125425376762
-   },
-   "AZTEK": {
-    "brut_marj": 14.982628062360801,
-    "net_marj": -7.867260579064587,
-    "roe": -9.531570426335671,
-    "cari_oran": 1.4443507588532885,
-    "borc_ozkaynak": 1.2525634106853751
    },
    "BINBN": {
     "brut_marj": 36.26752336448598,
@@ -142,6 +135,10 @@
    [
     "ALFAS",
     "eksik: brut_kar, faaliyet_kari"
+   ],
+   [
+    "AZTEK",
+    "eksik: aktif_toplami, ozkaynak, donen_varliklar"
    ],
    [
     "NETAS",
@@ -572,8 +569,8 @@
     "borc_ozkaynak": 0.21694789541998888
    },
    "YGGYO": {
-    "net_marj": 28.785355938067646,
-    "roe": 0.9471006759160442,
+    "net_marj": 29.02024775344166,
+    "roe": 0.8983991462113128,
     "borc_ozkaynak": -0.08804695837780149
    },
    "ZRGYO": {

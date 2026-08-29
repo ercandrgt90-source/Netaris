@@ -1,13 +1,13 @@
 ---
 slug: escom-2026-2-ceyrek
 baslik: ESCORT TEKNOLOJİ YATIRIM A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %100'e ulaşan brüt kârı, faaliyet kârı ve FAVÖK'ün de benzer seviyelerde artmasıyla birlikte net kâr %46,9'a yükselmiş; bu artış özkaynak kârlılığının %4,9'a çıkmasına ve özkaynakların 4,26 milyar TL'ye (önceki dönem 1,94 milyar TL) neredeyse iki katına çıkmasına paralel gerçekleşmiştir.…
+ozet: Hasılat ve brüt kâr aynı tutara yükselmiş, bu da brüt kâr marjının %100,0 olmasını ve sektör medyanı %17,2'nin çok üzerinde seyretmesini sağladı; faaliyet kârı ve FAVÖK de benzer şekilde artarak -%0,01'den +%0,94 milyar TL'ye yükselmiş, bu da net kârın %0,01'den %0,35 milyar TL'ye çıkmasına yol açtı…
 sirket: ESCORT TEKNOLOJİ YATIRIM A.Ş.
 kod: ESCOM
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Bilişim
-tarih: 2026-08-28
+tarih: 2026-08-29
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %100'e ulaşan brüt kârı, faaliyet kârı ve FAVÖK'ün de benzer seviyelerde artmasıyla birlikte net kâr %46,9'a yükselmiş; bu artış özkaynak kârlılığının %4,9'a çıkmasına ve özkaynakların 4,26 milyar TL'ye (önceki dönem 1,94 milyar TL) neredeyse iki katına çıkmasına paralel gerçekleşmiştir. Aktif toplamının 4,34 milyar TL'ye (önceki dönem 2,01 milyar TL) yükselmesi, özkaynak artışıyla birlikte net borçta değişiklik olmaması ve borç/özkaynak oranının 0,00 kalması, likiditeyi olumsuz etkileyerek cari oranı 0,43'e (sektör medyanı 1,25) düşürmüştür. Dolayısıyla gelir ve kâr artışları özkaynak büyümesiyle birlikte gerçekleşirken, likidite göstergeleri artan varlık ve özkaynak seviyelerine rağmen gerilemiştir.
+Hasılat ve brüt kâr aynı tutara yükselmiş, bu da brüt kâr marjının %100,0 olmasını ve sektör medyanı %17,2'nin çok üzerinde seyretmesini sağladı; faaliyet kârı ve FAVÖK de benzer şekilde artarak -%0,01'den +%0,94 milyar TL'ye yükselmiş, bu da net kârın %0,01'den %0,35 milyar TL'ye çıkmasına yol açtı. Özkaynak 4,26 milyar TL'ye çıkarak önceki dönemdeki 1,94 milyar TL'den artmış, ancak aktif toplamının 4,34 milyar TL'ye yükselmesiyle cari oran %0,43'e gerilemiş, sektör medyanı 1,24 iken likiditeyi düşürmüş. Net borç ve faaliyet nakit akışı hâlâ 0,00 milyar TL olduğu için borç/özkaynak oranı %0,00 kalmış, bu da sektör medyanı -%0,04 ile kıyaslandığında borçsuz bir yapı olduğunu gösteriyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
@@ -52,15 +52,15 @@ Hasılatın %100'e ulaşan brüt kârı, faaliyet kârı ve FAVÖK'ün de benzer
 
 ## Sektör içindeki konum
 
-Karşılaştırma Bilişim sektöründeki 18 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Bilişim sektöründeki 17 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %100,0 | %16,1 |
-| Net kâr marjı | %46,9 | -%2,0 |
-| Özkaynak kârlılığı | %4,9 | %2,1 |
-| Cari oran | 0,43 | 1,25 |
-| Borç / özkaynak | 0,00 | -0,02 |
+| Brüt kâr marjı | %100,0 | %17,2 |
+| Net kâr marjı | %46,9 | %0,3 |
+| Özkaynak kârlılığı | %4,9 | %2,8 |
+| Cari oran | 0,43 | 1,24 |
+| Borç / özkaynak | 0,00 | -0,04 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -70,7 +70,7 @@ Karşılaştırma Bilişim sektöründeki 18 şirketin **medyanına** göre yap�
 
 - Hasılat reel olarak %81474,1 arttı.
 - Net kâr reel olarak %3976,3 arttı.
-- Özkaynak kârlılığı %4,9; sektör medyanı %2,1.
+- Özkaynak kârlılığı %4,9; sektör medyanı %2,8.
 
 **Dikkat gerektirenler**
 

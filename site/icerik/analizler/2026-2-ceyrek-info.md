@@ -1,13 +1,13 @@
 ---
-slug: info-2026-6
-baslik: İNFO YATIRIM MENKUL DEĞERLER A.Ş. 2026/6 bilanço analizi
-ozet: Hasılat üçte bire yakın daralırken faaliyet kârı ve net kâr yükseldi; yani dönem kârı ciro hacminden değil, hasılatın kâra dönüşme oranındaki değişimden geldi ve net kâr marjı yine de sektör medyanının altında kaldı.…
+slug: info-2026-2-ceyrek
+baslik: İNFO YATIRIM MENKUL DEĞERLER A.Ş. 2026 2. çeyrek bilanço analizi
+ozet: Hasılat 9,14 milyar TL'ye gerileyip önceki 27,36 milyar TL'den düşerken, faaliyet kârı 1,02 milyar TL'ye yükselerek önceki 0,48 milyar TL'den artmış ve bu artış net kârın 0,83 milyar TL'ye (önceki 0,17 milyar TL) yükselmesine paralel bir seyir izlemiştir; özkaynak da 4,13 milyar TL'ye (önceki 2,23 m…
 sirket: İNFO YATIRIM MENKUL DEĞERLER A.Ş.
 kod: INFO
-donem: 2026/6
+donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Finans
-tarih: 2026-08-21
+tarih: 2026-08-29
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,9 +18,9 @@ sayimlar:
 
 ## Özet
 
-Hasılat üçte bire yakın daralırken faaliyet kârı ve net kâr yükseldi; yani dönem kârı ciro hacminden değil, hasılatın kâra dönüşme oranındaki değişimden geldi ve net kâr marjı yine de sektör medyanının altında kaldı. Aktif toplamı iki katından fazla büyürken özkaynak da yaklaşık iki katına çıktı, net borç ise daha derin negatife geçti — yani aktif büyümesi borçlanmadan çok nakit tarafında toplandı ve borç/özkaynak oranı sektör medyanının belirgin şekilde altında konumlandı. Faaliyet nakit akışı önceki dönemdeki negatif
+Hasılat 9,14 milyar TL'ye gerileyip önceki 27,36 milyar TL'den düşerken, faaliyet kârı 1,02 milyar TL'ye yükselerek önceki 0,48 milyar TL'den artmış ve bu artış net kârın 0,83 milyar TL'ye (önceki 0,17 milyar TL) yükselmesine paralel bir seyir izlemiştir; özkaynak da 4,13 milyar TL'ye (önceki 2,23 milyar TL) çıkarak özkaynak kârlılığının %8,9'a (sektör medyanı %4,5) yükselmesine katkı sağlamıştır. Aktif toplamı 38,53 milyar TL'ye (önceki 15,21 milyar TL) artarken, net borç -14,70 milyar TL'ye (önceki -3,83 milyar TL) derinleşmiş ve borç/özkaynak oranı -3,55'e (sektör medyanı -0,05) yükselmiştir; bu durum, faaliyet nakit akışının 1,67 milyar TL'ye (önceki -1,77 milyar TL) pozitif dönüşüyle birlikte, yatırım harcamasının sabit kalması (0,03 milyar TL) arasında bir denge oluşturmuştur.
 
-## 2026/6 — bir yıl öncesine göre
+## 2026 2. çeyrek — bir yıl öncesine göre
 
 | Kalem | Reel değişim |
 | --- | ---: |
@@ -35,7 +35,7 @@ Hasılat üçte bire yakın daralırken faaliyet kârı ve net kâr yükseldi; y
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
-## 2026/6 dönemi ölçümleri
+## 2026 2. çeyrek dönemi ölçümleri
 
 | Kalem | Değer |
 | --- | ---: |
@@ -54,9 +54,9 @@ Karşılaştırma Finans sektöründeki 30 şirketin **medyanına** göre yapıl
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Net kâr marjı | %9,1 | %13,9 |
-| Özkaynak kârlılığı | %20,2 | %9,8 |
-| Borç / özkaynak | -3,55 | -0,06 |
+| Net kâr marjı | %11,8 | %14,7 |
+| Özkaynak kârlılığı | %8,9 | %4,5 |
+| Borç / özkaynak | -3,55 | -0,05 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -65,7 +65,7 @@ Karşılaştırma Finans sektöründeki 30 şirketin **medyanına** göre yapıl
 **Şirket lehine işleyenler**
 
 - Net kâr reel olarak %395,5 arttı.
-- Özkaynak kârlılığı %20,2; sektör medyanı %9,8.
+- Özkaynak kârlılığı %8,9; sektör medyanı %4,5.
 
 **Dikkat gerektirenler**
 

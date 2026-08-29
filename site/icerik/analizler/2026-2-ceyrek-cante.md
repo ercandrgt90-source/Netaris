@@ -1,13 +1,13 @@
 ---
 slug: cante-2026-2-ceyrek
 baslik: ÇAN2 TERMİK A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın 3,46 milyar TL'ye düşmesi, net kârın -0,84 milyar TL'den 0,25 milyar TL'ye yükselmesiyle birlikte, faaliyet nakit akışının -2,01 milyar TL'den -3,09 milyar TL'ye gerilemesi, artan özkaynak (32,22 milyar TL) ve aktif toplamı (34,39 milyar TL) sayesinde net borcun -1,47 milyar TL'ye (nakit f…
+ozet: Hasılatın %6,6 azalması, net kârın -0,84 milyar TL'den +0,25 milyar TL'ye geçmesiyle birlikte faaliyet nakit akışının -2,01 milyar TL'den -3,09 milyar TL'ye düşmesi, gelir kaybının nakit çıkışını artırdığını gösteriyor.…
 sirket: ÇAN2 TERMİK A.Ş.
 kod: CANTE
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Kamu hizmetleri
-tarih: 2026-08-28
+tarih: 2026-08-29
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın 3,46 milyar TL'ye düşmesi, net kârın -0,84 milyar TL'den 0,25 milyar TL'ye yükselmesiyle birlikte, faaliyet nakit akışının -2,01 milyar TL'den -3,09 milyar TL'ye gerilemesi, artan özkaynak (32,22 milyar TL) ve aktif toplamı (34,39 milyar TL) sayesinde net borcun -1,47 milyar TL'ye (nakit fazlası) dönüşmesini desteklemiştir; bu durum, net kâr marjının -%55,6'dan pozitif bir değere ve özkaynak kârlılığının -%3,2'den sektör medyanının %1,0'ına yaklaşmasına rağmen, cari oranının 3,01 ve borç/özkaynak oranının -0,05 gibi sektör ortalamalarının çok üzerinde kalmasına yol açmıştır.
+Hasılatın %6,6 azalması, net kârın -0,84 milyar TL'den +0,25 milyar TL'ye geçmesiyle birlikte faaliyet nakit akışının -2,01 milyar TL'den -3,09 milyar TL'ye düşmesi, gelir kaybının nakit çıkışını artırdığını gösteriyor. Özkaynakların 26,26 milyar TL'den 32,22 milyar TL'ye yükselmesi, aktif toplamının 30,36 milyar TL'den 34,39 milyar TL'ye artması ve net borcun -0,45 milyar TL'den -1,47 milyar TL'ye (nakit pozisyonunun iyileşmesi) değişmesi, cari oranı 0,90'dan 3,01'e çıkararak likiditeyi güçlendirdi. Ancak net kâr marjının -%55,6'dan %11,4 sektör medyanına göre hâlâ düşük kalması, özkaynak kârlılığının -%3,2'ye gerilemesi ve borç/özkaynak oranının -0,05'e (sektör medyanı 0,12) inmesi, kârlılık ve sermaye verimliliği arasında bir ters ilişki olduğunu ortaya koyuyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

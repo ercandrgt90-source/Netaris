@@ -1,13 +1,13 @@
 ---
 slug: frigo-2026-2-ceyrek
 baslik: FRİGO-PAK GIDA MADDELERİ SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %2,6 düşmesiyle birlikte brüt kâr 0,04 milyar TL'ye yükselerek önceki dönemdeki -0,15 milyar TL zararını kapattı; bu artış, brüt kâr marjının %5,8'e çıkmasına yol açarken faaliyet ve net kârlarda hâlâ negatif kalmalarına rağmen kâr marjları %8,8 ve özkaynak kârlılığı -%2,9 seviyelerinde iy…
+ozet: Hasılatın %2,6 düşmesi brüt kârın negatiften pozitif (+%0,19 milyar) yönüne kaymasına eşlik ederken, brüt kâr marjı %5,8'e yükselmiş ve bu artış faaliyet kârının -%0,08 milyar seviyesine iyileşmesine, FAVÖK'ün -%0,02 milyar ve net kârın -%0,14 milyar olmasına yansımıştır; aynı dönemde özkaynak 1,42…
 sirket: FRİGO-PAK GIDA MADDELERİ SANAYİ VE TİCARET A.Ş.
 kod: FRIGO
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Temel tüketim
-tarih: 2026-08-26
+tarih: 2026-08-29
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %2,6 düşmesiyle birlikte brüt kâr 0,04 milyar TL'ye yükselerek önceki dönemdeki -0,15 milyar TL zararını kapattı; bu artış, brüt kâr marjının %5,8'e çıkmasına yol açarken faaliyet ve net kârlarda hâlâ negatif kalmalarına rağmen kâr marjları %8,8 ve özkaynak kârlılığı -%2,9 seviyelerinde iyileşme sağladı. Özkaynakların 1,42 milyar TL'ye, aktif toplamının 2,53 milyar TL'ye yükselmesi net borcun 0,41 milyar TL'ye artmasına rağmen cari oranı 1,41 (sektör medyanı 1,36) ve borç/özkaynak oranını 0,29 (sektör medyanı 0,26) tutarak likiditeyi korudu. Faaliyet nakit akışının -0,10 milyar TL'den 0,01 milyar TL'ye geçmesi, yatırım harcamasının hafifçe azalması (0,05 milyar TL'den 0,04 milyar TL) ile birlikte şirketin nakit üretim kapasitesinin iyileştiğini gösteriyor.
+Hasılatın %2,6 düşmesi brüt kârın negatiften pozitif (+%0,19 milyar) yönüne kaymasına eşlik ederken, brüt kâr marjı %5,8'e yükselmiş ve bu artış faaliyet kârının -%0,08 milyar seviyesine iyileşmesine, FAVÖK'ün -%0,02 milyar ve net kârın -%0,14 milyar olmasına yansımıştır; aynı dönemde özkaynak 1,42 milyar TL'ye, aktif toplamı 2,53 milyar TL'ye yükselmiş, net borç ise 0,41 milyar TL'ye artmıştır. Öz kaynak artışı ve aktif büyümesi cari oranı 1,41 (sektör medyanı 1,36) ve borç/öz kaynak oranını 0,29 (sektör medyanı 0,26) hafifçe yükseltirken, faaliyet nakit akışı 0,01 milyar TL'ye (önceki -0,10 milyar TL) dönüştürülmüş, yatırım harcaması ise 0,04 milyar TL'ye (önceki 0,05 milyar TL) gerilemiştir. Bu değişimler, satışların hafif düşmesine rağmen kârlılık ve likidite göstergelerinin iyileşmesiyle özkaynak kârlılığı -%2,9 (sektör medyanı %0,8) seviyesinde kalmasına paralel bir ilişki kurar.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

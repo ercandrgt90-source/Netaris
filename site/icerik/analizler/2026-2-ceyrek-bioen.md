@@ -1,13 +1,13 @@
 ---
 slug: bioen-2026-2-ceyrek
 baslik: BİOTREND ÇEVRE VE ENERJİ YATIRIMLARI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın 1,48 milyar TL'ye düşmesi, net kârın -0,57 milyar TL'den 0,06 milyar TL'ye geçmesiyle birlikte faaliyet nakit akışının -0,11 milyar TL'ye kayması, gelir azalmasının kârı pozitif yönde çevirmesine rağmen nakit üretiminde gerilemeye yol açtığını gösterir; aynı dönemde aktif toplamının 11,58…
+ozet: Hasılatın 1,48 milyar TL'ye düşmesi, net kârın -0,57 milyar TL'den 0,06 milyar TL'ye geçmesiyle birlikte faaliyet nakit akışının -0,11 milyar TL'ye kayması, gelir azalmasının likidite üzerindeki olumsuz etkisini gösterirken, aynı dönemde aktif toplamının 9,82 milyar TL'den 11,58 milyar TL'ye yükselm…
 sirket: BİOTREND ÇEVRE VE ENERJİ YATIRIMLARI A.Ş.
 kod: BIOEN
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Kamu hizmetleri
-tarih: 2026-08-28
+tarih: 2026-08-29
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın 1,48 milyar TL'ye düşmesi, net kârın -0,57 milyar TL'den 0,06 milyar TL'ye geçmesiyle birlikte faaliyet nakit akışının -0,11 milyar TL'ye kayması, gelir azalmasının kârı pozitif yönde çevirmesine rağmen nakit üretiminde gerilemeye yol açtığını gösterir; aynı dönemde aktif toplamının 11,58 milyar TL'ye yükselmesi net borcun 6,13 milyar TL'ye artmasıyla birlikte özkaynakların 3,27 milyar TL'ye gerilemesi, borç/özkaynak oranının 1,87'ye çıkması ve cari oranın 0,32'ye düşmesiyle likidite ve finansal kaldıraçta belirgin bir bozulma olduğunu ortaya koyar.
+Hasılatın 1,48 milyar TL'ye düşmesi, net kârın -0,57 milyar TL'den 0,06 milyar TL'ye geçmesiyle birlikte faaliyet nakit akışının -0,11 milyar TL'ye kayması, gelir azalmasının likidite üzerindeki olumsuz etkisini gösterirken, aynı dönemde aktif toplamının 9,82 milyar TL'den 11,58 milyar TL'ye yükselmesi net borcun 4,72 milyar TL'den 6,13 milyar TL'ye artmasına ve borç/özkaynak oranının 0,12'den 1,87'ye çıkmasına yol açtı; bu artış özkaynakların 4,14 milyar TL'den 3,27 milyar TL'ye gerilemesiyle birlikte özkaynak kârlılığının -%2,0'ye düşmesine ve cari oranın 0,90'dan 0,32'ye gerilemesine neden oldu.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

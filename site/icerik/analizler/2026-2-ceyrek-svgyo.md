@@ -1,13 +1,13 @@
 ---
 slug: svgyo-2026-2-ceyrek
 baslik: SAVUR GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Brüt kâr, hasılatla aynı seviyede olduğu için brüt kâr marjı %100,0'a ulaşmış; bu yüksek marj, net kâr marjının –%63,2 olmasıyla çelişiyor, çünkü faaliyet kârı ve net kâr, brüt kârdan çok daha düşük seviyelere gerilemiş.…
+ozet: Brüt kâr marjının %100,0 olması, hasılatın tamamının brüt kâr olarak kaydedilmesine yol açarken net kâr marjının -%63,2'ye düşmesi, faaliyet kârı ve FAVÖK'ün sadece %0,01 milyar olması ve aynı dönemde net kârın %0,05 milyar olarak yüksek çıkması, faaliyet nakit akışının -%0,21 milyar olmasıyla birli…
 sirket: SAVUR GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: SVGYO
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-28
+tarih: 2026-08-29
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Brüt kâr, hasılatla aynı seviyede olduğu için brüt kâr marjı %100,0'a ulaşmış; bu yüksek marj, net kâr marjının –%63,2 olmasıyla çelişiyor, çünkü faaliyet kârı ve net kâr, brüt kârdan çok daha düşük seviyelere gerilemiş. Özsermaye 4,51 milyar TL iken net borç –0,60 milyar TL (negatif borç) ve cari oran 9,75 gibi güçlü likidite göstergeleri, düşük borç/özkaynak –%0,13 oranıyla birlikte şirketin finansal yapısının sağlam olduğunu, fakat faaliyet nakit akışının –0,21 milyar TL olması nedeniyle operasyonel nakit üretiminin yetersiz kaldığını gösteriyor. Bu durum, yüksek brüt kâr marjının net kâr ve özkaynak kârlılığına yansımadığı ve likidite ile borçluluk açısından sektöre göre avantajlı olduğu, fakat nakit akışı ve kârlılık açısından geride kaldığı bir ilişki ortaya koymaktadır.
+Brüt kâr marjının %100,0 olması, hasılatın tamamının brüt kâr olarak kaydedilmesine yol açarken net kâr marjının -%63,2'ye düşmesi, faaliyet kârı ve FAVÖK'ün sadece %0,01 milyar olması ve aynı dönemde net kârın %0,05 milyar olarak yüksek çıkması, faaliyet nakit akışının -%0,21 milyar olmasıyla birlikte özkaynak kârlılığının -%0,3'e gerilemesine neden olur; bu durum, özkaynakların 4,51 milyar TL olması ve net borcun -%0,60 milyar TL (nakit fazlası) olmasıyla, cari oranın 9,75 ve borç/özkaynak oranının -%0,13 (özkaynakların borçtan daha yüksek olduğu) yüksek likidite göstergeleri arasında bir denge oluşturur.
 
 ## 2026 2. çeyrek dönemi ölçümleri
 

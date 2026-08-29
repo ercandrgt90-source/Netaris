@@ -1,13 +1,13 @@
 ---
 slug: cemzy-2026-2-ceyrek
 baslik: CEM ZEYTİN A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın düşmesi brüt kârı ve brüt kâr marjını %23,8 seviyesinde tutmasına rağmen hafif gerilemesine yol açtı; brüt kârdaki azalma faaliyet kârı ve FAVÖK'teki düşüşle paralel ilerleyerek bu kalemlerin birbirini izlediği görülüyor.…
+ozet: Hasılatın düşmesi brüt kâr ve brüt kâr marjının da hafif gerilemesine yol açarken, brüt kâr marjı %23,8 seviyesinde sektör medyanının %16,5 üzerindedir; bu durum, satışların azalmasına rağmen maliyet yapısının bir ölçüde kontrol altında tutulduğunu gösterir.…
 sirket: CEM ZEYTİN A.Ş.
 kod: CEMZY
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Temel tüketim
-tarih: 2026-08-28
+tarih: 2026-08-29
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın düşmesi brüt kârı ve brüt kâr marjını %23,8 seviyesinde tutmasına rağmen hafif gerilemesine yol açtı; brüt kârdaki azalma faaliyet kârı ve FAVÖK'teki düşüşle paralel ilerleyerek bu kalemlerin birbirini izlediği görülüyor. Net kârın -%61,3'ten -%61,3'e iyileşmesi, özkaynakların 4,34 milyar TL'ye yükselmesi ve net borcun -0,04 milyar TL'ye hafif artması, özkaynak kârlılığının -%8,6'dan -%8,6'ya gerilemesiyle birlikte özkaynak artışının zarar azaltımına yansıdığını gösteriyor. Cari oranının 4,09'a çıkması ve borç/özkaynak oranının -0,01'e gerilemesi, artan aktif toplamı (5,51 milyar TL) ve pozitif faaliyet nakit akışı (0,74 milyar TL) ile likidite ve sermaye yapısının güçlendiğini, yatırım harcamasının ise 0,05 milyar TL'ye düşmesiyle sermaye harcamalarının kısıtlandığını ortaya koyar.
+Hasılatın düşmesi brüt kâr ve brüt kâr marjının da hafif gerilemesine yol açarken, brüt kâr marjı %23,8 seviyesinde sektör medyanının %16,5 üzerindedir; bu durum, satışların azalmasına rağmen maliyet yapısının bir ölçüde kontrol altında tutulduğunu gösterir. Faaliyet kârı ve FAVÖK, hasılat ve brüt kârdaki azalmaya paralel olarak düşmüş, net kâr ise zarar büyüklüğünün azalmasıyla -%61,3 seviyesinden daha az negatif bir değere kaymıştır; bu, faaliyet giderlerinin ve vergi öncesi kârın azalan satışlara rağmen daha az eridiğini yansıtır. Özkaynak artışı ve negatif net borç, cari oranının 4,09'a yükselmesiyle birlikte likidite ve sermaye yapısının güçlendiğini, borç/özkaynak oranının -%0,01 olmasıyla şirketin finansal borç yükünün azaldığını gösterir.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

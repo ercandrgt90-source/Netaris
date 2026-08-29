@@ -1,13 +1,13 @@
 ---
 slug: avtur-2026-2-ceyrek
 baslik: AVRASYA PETROL VE TURİSTİK TESİSLER YATIRIMLAR A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat ve brüt kâr artarken brüt kâr marjı sektör medyanının altında kaldı; buna karşılık faaliyet kârı ve FAVÖK hasılatın üzerinde oluştu, yani faaliyet satırı brüt kârdan değil onun dışındaki kalemlerden şekillendi.…
+ozet: Hasılatın 0,01 milyar TL'den 0,02 milyar TL'ye yükselmesi brüt kârın 0,00 milyar TL'den 0,01 milyar TL'ye artmasını, bunun da faaliyet kârı ve FAVÖK'ün 0,00 milyar TL'den 0,04 milyar TL'ye çıkmasını tetiklemiştir; ancak aynı dönemde net kâr –0,07 milyar TL olarak gerçekleşmiş, bu da net kâr marjının…
 sirket: AVRASYA PETROL VE TURİSTİK TESİSLER YATIRIMLAR A.Ş.
 kod: AVTUR
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Finans
-tarih: 2026-08-28
+tarih: 2026-08-29
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat ve brüt kâr artarken brüt kâr marjı sektör medyanının altında kaldı; buna karşılık faaliyet kârı ve FAVÖK hasılatın üzerinde oluştu, yani faaliyet satırı brüt kârdan değil onun dışındaki kalemlerden şekillendi. FAVÖK pozitif olmasına rağmen net sonuç zarara döndü ve net kâr marjı ile özkaynak kârlılığı sektör medyanlarının ters tarafında konumlandı; zarara karşın özkaynak ve aktif toplamı birlikte büyüdü, bu da dönem sonucunun dışında bir kaynağın bilançoyu genişlettiğine işaret ediyor. Faaliyet nakit akışı negatife geçerken net borç daha da negatif tarafa kaydı ve cari oran sektör medyanının üzerinde yer aldı — nakit çıkışı, likidite göstergesinin bulunduğu seviyeyle aynı yönde hareket etmedi.
+Hasılatın 0,01 milyar TL'den 0,02 milyar TL'ye yükselmesi brüt kârın 0,00 milyar TL'den 0,01 milyar TL'ye artmasını, bunun da faaliyet kârı ve FAVÖK'ün 0,00 milyar TL'den 0,04 milyar TL'ye çıkmasını tetiklemiştir; ancak aynı dönemde net kâr –0,07 milyar TL olarak gerçekleşmiş, bu da net kâr marjının –%989,0'a düşmesine yol açmıştır. Özkaynak 1,00 milyar TL'den 1,32 milyar TL'ye, aktif toplamı 1,18 milyar TL'den 1,50 milyar TL'ye yükselmiş, net borç ise –0,02 milyar TL'den –0,08 milyar TL'ye artarak likidite pozisyonunun güçlenmesine (cari oran 41,05) ve borç/özkaynak oranının –0,05'den –0,06'ya hafifçe düşmesine neden olmuştur; bu artışlar faaliyet nakit akışının –0,18 milyar TL'ye gerilemesiyle birlikte gerçekleşmiştir.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

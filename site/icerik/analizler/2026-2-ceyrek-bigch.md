@@ -1,13 +1,13 @@
 ---
 slug: bigch-2026-2-ceyrek
 baslik: BÜYÜK ŞEFLER GIDA TURİZM TEKSTİL DANIŞMANLIK ORGANİZASYON EĞİTİM SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat sabit kalırken brüt kâr, faaliyet kârı, FAVÖK ve net kâr artışı, brüt kâr marjının %23,7'ye yükselmesiyle birlikte kârlılık göstergelerinin yükseldiğini gösteriyor; aynı zamanda özkaynak ve toplam aktifin artışı özkaynak kârlılığının %3,5'e (sektör medyanı %0,5) çıkmasına katkı sağladı.…
+ozet: Hasılat sabit kalırken brüt kâr, faaliyet kârı, FAVÖK ve net kâr artışları, brüt kâr marjı ve net kâr marjının sektör medyanlarının üzerindeki seviyelerine yükselmesiyle birlikte özkaynak ve aktif toplamının da yükselmesi, şirketin kârlılık ve büyüklük yönünden gelir artışına paralel bir iyileşme sa…
 sirket: BÜYÜK ŞEFLER GIDA TURİZM TEKSTİL DANIŞMANLIK ORGANİZASYON EĞİTİM SANAYİ VE TİCARET A.Ş.
 kod: BIGCH
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: İsteğe bağlı tüketim
-tarih: 2026-08-28
+tarih: 2026-08-29
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat sabit kalırken brüt kâr, faaliyet kârı, FAVÖK ve net kâr artışı, brüt kâr marjının %23,7'ye yükselmesiyle birlikte kârlılık göstergelerinin yükseldiğini gösteriyor; aynı zamanda özkaynak ve toplam aktifin artışı özkaynak kârlılığının %3,5'e (sektör medyanı %0,5) çıkmasına katkı sağladı. Net borç hafifçe artarken (0,72 milyar TL) cari oran %0,61'e (sektör medyanı 1,29) geriledi, bu durum likiditeye yönelik baskının artmasına işaret ediyor. Borç/özkaynak oranının %0,51'e (sektör medyanı %0,13) yükselmesi, finansal kaldıraçta sektör ortalamasının üzerinde bir artış olduğunu, ancak özkaynak büyümesiyle denge sağlandığını gösteriyor.
+Hasılat sabit kalırken brüt kâr, faaliyet kârı, FAVÖK ve net kâr artışları, brüt kâr marjı ve net kâr marjının sektör medyanlarının üzerindeki seviyelerine yükselmesiyle birlikte özkaynak ve aktif toplamının da yükselmesi, şirketin kârlılık ve büyüklük yönünden gelir artışına paralel bir iyileşme sağladığını gösteriyor. Öz kaynak artışı ve aktif toplamındaki büyüme, borç/özkaynak oranının sektör medyanının çok üzerinde kalmasına rağmen, cari oranın sektör ortalamasının altında kalmasıyla likidite baskısının hâlâ mevcut olduğunu ortaya koyuyor. Faaliyet nakit akışının artması, yatırım harcamasının ise bir miktar düşmesi, artan kârlılık ve özkaynak büyümesinin nakit akışı üzerinden finanse edildiğini, dış borçlanmaya çok az eklenerek gerçekleştiğini işaret ediyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
