@@ -1,7 +1,7 @@
 ---
 slug: eth-teknik-gorunum-2026-08-29
 baslik: Ethereum: fiyat üç ortalamanın da üzerinde
-ozet: Ethereum 2436 $ seviyesinde. Değişim: günlük -%0,3, haftalık +%0,5, aylık +%27,1. RSI(14) 69,4 ile nötr bandın üst yarısında. Fiyat 20, 50 ve 200 günlük ortalamaların tamamının üzerinde.
+ozet: Ethereum 2432 $ seviyesinde. Değişim: günlük -%0,4, haftalık +%0,4, aylık +%26,9. RSI(14) 69,0 ile nötr bandın üst yarısında. Fiyat 20, 50 ve 200 günlük ortalamaların tamamının üzerinde.
 sirket: ETH teknik görünüm
 kod: ETH
 donem: 2026-08-29
@@ -12,7 +12,7 @@ yazar:
 unvan: 
 kurgusal: hayir
 grafik_tur: cizgi
-grafik: 2003,99;1857,22;1810,58;1768,90;1583,16;1568,99;1690,22;1689,91;1638,31;1620,37;1671,53;1665,21;1680,48;1725,08;1795,36;1791,29;1748,99;1709,09;1709,67;1739,00;1704,98;1726,64;1665,12;1619,85;1565,05;1576,45;1571,61;1569,49;1610,44;1569,91;1607,90;1698,69;1757,04;1778,72;1784,48;1798,55;1769,69;1742,03;1743,93;1795,54;1786,52;1805,53;1774,65;1890,06;1916,61;1863,33;1840,56;1861,54;1871,33;1903,56;1928,41;1933,37;1877,03;1860,28;1873,37;1953,47;1891,10;1919,88;1908,21;1916,66;1860,49;1843,51;1882,88;1858,77;1868,45;1907,01;1902,26;1913,00;1915,15;1908,63;1871,15;1881,01;1878,32;1884,56;1880,21;1881,19;1873,89;1912,46;1916,04;2251,90;2326,33;2515,72;2422,94;2462,40;2482,69;2442,55;2507,08;2511,32;2442,73;2436,25
+grafik: 2003,99;1857,22;1810,58;1768,90;1583,16;1568,99;1690,22;1689,91;1638,31;1620,37;1671,53;1665,21;1680,48;1725,08;1795,36;1791,29;1748,99;1709,09;1709,67;1739,00;1704,98;1726,64;1665,12;1619,85;1565,05;1576,45;1571,61;1569,49;1610,44;1569,91;1607,90;1698,69;1757,04;1778,72;1784,48;1798,55;1769,69;1742,03;1743,93;1795,54;1786,52;1805,53;1774,65;1890,06;1916,61;1863,33;1840,56;1861,54;1871,33;1903,56;1928,41;1933,37;1877,03;1860,28;1873,37;1953,47;1891,10;1919,88;1908,21;1916,66;1860,49;1843,51;1882,88;1858,77;1868,45;1907,01;1902,26;1913,00;1915,15;1908,63;1871,15;1881,01;1878,32;1884,56;1880,21;1881,19;1873,89;1912,46;1916,04;2251,90;2326,33;2515,72;2422,94;2462,40;2482,69;2442,55;2507,08;2511,32;2442,73;2432,21
 grafik_kod: Ethereum
 grafik_birim: USD
 kaynaklar: Kraken
@@ -21,18 +21,18 @@ sayimlar: 260|günlük mum;3|fiyat seviyesi;7|hesaplanan gösterge;90|günlük p
 
 ## Özet
 
-Ethereum 2436 $ seviyesinde. Değişim: günlük -%0,3, haftalık +%0,5, aylık +%27,1. RSI(14) 69,4 ile nötr bandın üst yarısında. Fiyat 20, 50 ve 200 günlük ortalamaların tamamının üzerinde.
+Ethereum 2432 $ seviyesinde. Değişim: günlük -%0,4, haftalık +%0,4, aylık +%26,9. RSI(14) 69,0 ile nötr bandın üst yarısında. Fiyat 20, 50 ve 200 günlük ortalamaların tamamının üzerinde.
 
 ## Göstergeler
 
 | Gösterge | Değer |
 |---|---|
-| Fiyat | 2436 $ |
+| Fiyat | 2432 $ |
 | 20 günlük ortalama | 2189 $ |
 | 50 günlük ortalama | 2004 $ |
 | 200 günlük ortalama | 2020 $ |
-| RSI (14) | 69,4 |
-| MACD histogram | +20,80 |
+| RSI (14) | 69,0 |
+| MACD histogram | +20,54 |
 | Günlük oynaklık (ATR/fiyat) | %5,0 |
 | Bollinger bant genişliği | %51,1 |
 | 90 günlük zirve | 2565 $ |
@@ -44,11 +44,11 @@ Fiyat 20, 50 ve 200 günlük hareketli ortalamaların üçünün de üzerinde. T
 
 ## Momentum
 
-RSI(14) 69,4 ile nötr bandın üst yarısında. RSI, son 14 dönemdeki yükseliş ve düşüşlerin göreli büyüklüğünü ölçer; 0-100 aralığında hareket eder. MACD çizgisi 159,99, işaret çizgisi 139,19; histogram +20,80. Çizgi işaretin üzerinde. MACD iki üstel ortalamanın farkını izler; histogram bu farkın kendi ortalamasından ne kadar ayrıştığını gösterir.
+RSI(14) 69,0 ile nötr bandın üst yarısında. RSI, son 14 dönemdeki yükseliş ve düşüşlerin göreli büyüklüğünü ölçer; 0-100 aralığında hareket eder. MACD çizgisi 159,66, işaret çizgisi 139,13; histogram +20,54. Çizgi işaretin üzerinde. MACD iki üstel ortalamanın farkını izler; histogram bu farkın kendi ortalamasından ne kadar ayrıştığını gösterir.
 
 ## Oynaklık
 
-Ortalama günlük hareket aralığı (ATR-14) 122,34 $, fiyatın %5,0'ine denk geliyor. Bollinger bantları 1629 $ — 2749 $ aralığında; fiyat bantların içinde. Bant genişliği %51,1. Fiyat, 90 günlük zirveye göre -%5,0 konumda.
+Ortalama günlük hareket aralığı (ATR-14) 122,34 $, fiyatın %5,0'ine denk geliyor. Bollinger bantları 1630 $ — 2748 $ aralığında; fiyat bantların içinde. Bant genişliği %51,1. Fiyat, 90 günlük zirveye göre -%5,2 konumda.
 
 ## Fiyat seviyeleri
 
