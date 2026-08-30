@@ -24,7 +24,7 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Investing.
 ## Piyasada ne oldu
 
 - **Altın** 1 saat içinde yatay kaldı (son 4456,40).
-- **Bitcoin** 1 saat içinde yatay kaldı (son 78114,50).
+- **Bitcoin** 1 saat içinde yatay kaldı (son 78116,60).
 
 *Yukarıdaki rakamlar ölçülen fiyat hareketidir. Hareketin sebebinin bu gelişme olduğu iddia edilmemektedir; aynı pencerede başka etkenler de fiyatlanmış olabilir.*
 
