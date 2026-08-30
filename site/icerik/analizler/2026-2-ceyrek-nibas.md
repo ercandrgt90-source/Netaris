@@ -1,13 +1,13 @@
 ---
 slug: nibas-2026-2-ceyrek
 baslik: NİĞBAŞ NİĞDE BETON SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat ve brüt kâr aynı oranda yükselirken, faaliyet kârı ve FAVÖK büyük ölçüde düşmüş; bu, satış artışının maliyet ve gider artışlarıyla birlikte kâra dönüşemediğini gösteriyor.…
+ozet: Hasılat ve brüt kâr aynı oranda yükselirken, faaliyet ve FAVÖK kayıpları artarak net kârı daha da derinleştirdi; bu durum, gelir artışının maliyet ve gider artışlarını dengeleyemediğini gösteriyor.…
 sirket: NİĞBAŞ NİĞDE BETON SANAYİ VE TİCARET A.Ş.
 kod: NIBAS
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Sanayi
-tarih: 2026-08-26
+tarih: 2026-08-30
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,22 +18,22 @@ sayimlar:
 
 ## Özet
 
-Hasılat ve brüt kâr aynı oranda yükselirken, faaliyet kârı ve FAVÖK büyük ölçüde düşmüş; bu, satış artışının maliyet ve gider artışlarıyla birlikte kâra dönüşemediğini gösteriyor. Özkaynak ve aktif toplamı ciddi oranda azalmış, net borç ise negatif (nakit fazlası) hâle gelmiş; bu durum likiditeyi artırsa da özkaynak kârlılığı ve net kâr marjı gibi kârlılık göstergelerinin negatif kalmasına yol açmış. Cari oranın 9,09'a çıkması, sektörel medyan 1,32'nin çok üzerinde bir kısa vadeli ödeme gücü sağlarken, borç/özkaynak oranının -0,12 olması özkaynak erozyonunun borçlanma ihtiyacını azaltmadığını, sadece özkaynak kaybının borçtan daha hızlı gerçekleştiğini işaret ediyor.
+Hasılat ve brüt kâr aynı oranda yükselirken, faaliyet ve FAVÖK kayıpları artarak net kârı daha da derinleştirdi; bu durum, gelir artışının maliyet ve gider artışlarını dengeleyemediğini gösteriyor. Özkaynak ve aktif toplamı ciddi düşüş yaşarken, net borçın negatif (nakit fazlası) hâle gelmesi, likiditeyi artıran yüksek cari oran (9,09) ile birlikte özkaynak kârlılığının (%-51,9) ve net kâr marjının (%-362,1) sektör medyanlarının çok altında kalmasına yol açtı. Bu negatif kârlılık ve özkaynak erozyonu, aynı zamanda borç/özkaynak oranının (-0,12) sektörel ortalamanın (%0,16) altında kalmasına rağmen, özkaynakların azalmasıyla finansal riskin artmasına işaret ediyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | %62,8 |
-| Brüt kâr | %102,5 |
-| Faaliyet kârı | -%3983,6 |
-| FAVÖK | -%5570,2 |
-| Net kâr | -%887,2 |
+| Hasılat | %46,5 |
+| Brüt kâr | %83,3 |
+| Faaliyet kârı | -%2872,8 |
+| FAVÖK | -%3624,3 |
+| Net kâr | -%760,1 |
 | Özkaynak | -%64,9 |
 | Aktif toplamı | -%66,7 |
 | Net borç | -%463,4 |
-| Faaliyet nakit akışı | -%807,2 |
-| Yatırım harcaması | %1005,3 |
+| Faaliyet nakit akışı | -%539,0 |
+| Yatırım harcaması | %900,0 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -70,13 +70,13 @@ Karşılaştırma Sanayi sektöründeki 69 şirketin **medyanına** göre yapıl
 
 **Şirket lehine işleyenler**
 
-- Hasılat reel olarak %62,8 arttı.
-- Brüt marj 6,0 puan genişledi (%24,4 → %30,4).
+- Hasılat reel olarak %46,5 arttı.
+- Brüt marj 6,1 puan genişledi (%24,3 → %30,4).
 - Cari oran 9,09; dönen varlıklar kısa vadeli yükümlülüklerin üzerinde.
 
 **Dikkat gerektirenler**
 
-- Net kâr reel olarak -%887,2 geriledi.
+- Net kâr reel olarak -%760,1 geriledi.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

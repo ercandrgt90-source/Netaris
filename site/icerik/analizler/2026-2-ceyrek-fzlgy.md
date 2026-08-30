@@ -1,13 +1,13 @@
 ---
 slug: fzlgy-2026-2-ceyrek
 baslik: FUZUL GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat 2,81 milyar TL'ye yükselirken net kâr –0,25 milyar TL'ye gerilemiş; gelir artışı nakit akışının 0,26 milyar TL pozitif olmasına rağmen kârda düşüşe yol açmış, bu da net kâr marjının –%19,9 olmasını ve özkaynak kârlılığının –%5,2'ye inmesini beraberinde getirmiş.…
+ozet: Hasılat 2,81 milyar TL'ye yükselirken net kâr –0,25 milyar TL'ye geriledi; gelir artışı faaliyet nakit akışının –0,55 milyar TL'den 0,26 milyar TL'ye geçmesine paralel olarak gerçekleşti ve bu da net borcun 0,69 milyar TL'den 1,18 milyar TL'ye yükselmesinin, yani borç/özkaynak oranının 0,02'den 0,28…
 sirket: FUZUL GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: FZLGY
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-28
+tarih: 2026-08-30
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat 2,81 milyar TL'ye yükselirken net kâr –0,25 milyar TL'ye gerilemiş; gelir artışı nakit akışının 0,26 milyar TL pozitif olmasına rağmen kârda düşüşe yol açmış, bu da net kâr marjının –%19,9 olmasını ve özkaynak kârlılığının –%5,2'ye inmesini beraberinde getirmiş. Özkaynak 4,28 milyar TL'ye hafif artarken net borç 1,18 milyar TL'ye yükselmiş, bu durum borç/özkaynak oranının 0,28'e çıkmasına ve aktif toplamının 11,90 milyar TL'ye artmasına neden olmuştur. Artan borç ve sabit özkaynak seviyesi, kâr marjı ve özkaynak kârlılığı gibi kârlılık göstergelerinin negatif seyretmesiyle paralel bir ilişki göstermektedir.
+Hasılat 2,81 milyar TL'ye yükselirken net kâr –0,25 milyar TL'ye geriledi; gelir artışı faaliyet nakit akışının –0,55 milyar TL'den 0,26 milyar TL'ye geçmesine paralel olarak gerçekleşti ve bu da net borcun 0,69 milyar TL'den 1,18 milyar TL'ye yükselmesinin, yani borç/özkaynak oranının 0,02'den 0,28'e çıkmasının bir yansıması oldu. Özkaynak 4,28 milyar TL'ye hafif artarken aktif toplamı 11,90 milyar TL'ye yükseldi; bu büyüme, negatif net kâr marjının (-%19,9) ve özkaynak kârlılığının (-%5,2) sektör medyanlarının (%14,3 ve %0,4) çok altında kalmasına rağmen özkaynak seviyesinin artmasını sağladı.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

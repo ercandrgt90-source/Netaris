@@ -1,13 +1,13 @@
 ---
 slug: prdgs-2026-2-ceyrek
 baslik: PARDUS GİRİŞİM SERMAYESİ YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat, brüt kâr, faaliyet kârı ve net kâr aynı tutarda artış göstererek birbirini izledi; bu artış özkaynakların 2,94 milyar TL'ye yükselmesine ve aktif toplamının 2,96 milyar TL'ye ulaşmasına yol açtı.…
+ozet: Hasılat, brüt kâr, faaliyet kârı ve net kâr aynı tutarda artış gösterdiği için brüt kâr marjı %100, net kâr marjı %98,8 gibi çok yüksek oranlar ortaya çıktı; bu yüksek marjlar özkaynak kârlılığının %11,3 olmasına da katkı sağladı.…
 sirket: PARDUS GİRİŞİM SERMAYESİ YATIRIM ORTAKLIĞI A.Ş.
 kod: PRDGS
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Finans
-tarih: 2026-08-28
+tarih: 2026-08-30
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat, brüt kâr, faaliyet kârı ve net kâr aynı tutarda artış göstererek birbirini izledi; bu artış özkaynakların 2,94 milyar TL'ye yükselmesine ve aktif toplamının 2,96 milyar TL'ye ulaşmasına yol açtı. Net borcun –0,10 milyar TL (nakit fazlası) olması, faaliyet nakit akışının 0,06 milyar TL'ye çıkmasıyla birlikte, borç/özkaynak oranının –0,03 seviyesinde kalmasını sağladı. Brüt kâr marjının %100,0 ve net kâr marjının %98,8 olması, özkaynak kârlılığının %11,3'e yükselmesiyle uyumlu, ancak cari oranın 5,73 olması sektör medyanı 12,09'dan daha düşük bir likidite seviyesini gösteriyor.
+Hasılat, brüt kâr, faaliyet kârı ve net kâr aynı tutarda artış gösterdiği için brüt kâr marjı %100, net kâr marjı %98,8 gibi çok yüksek oranlar ortaya çıktı; bu yüksek marjlar özkaynak kârlılığının %11,3 olmasına da katkı sağladı. Özkaynak ve aktif toplamı artarken net borçun –0,10 milyar TL'ye düşmesi, özkaynak/aktif oranının yükselmesine ve borç/özkaynak oranının –0,03'tan –0,05'e iyileşmesine yol açtı. Faaliyet nakit akışının artışı, artan kârlılık ve azalan net borçla birlikte cari oranı 5,73 seviyesine getirirken sektör medyanı 12,09'dan daha düşük kaldı.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

@@ -1,13 +1,13 @@
 ---
 slug: edip-2026-2-ceyrek
 baslik: EDİP GAYRİMENKUL YATIRIM SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat 0,40 milyar TL'den 0,44 milyar TL'ye çıkarken net kâr 0,53 milyar TL'den 0,15 milyar TL'ye indi; faaliyet nakit akışı da 0,24 milyar TL'den 0,09 milyar TL'ye gerileyerek kâr kalemiyle aynı yönde hareket etti.…
+ozet: Hasılat 0,44 milyar TL'ye yükselirken net kâr 0,15 milyar TL'ye gerilemiş; bu durum, faaliyet nakit akışının 0,09 milyar TL'ye düşmesiyle birlikte, satışların kârlılıktan ziyade likiditeyi sınırladığına işaret eder.…
 sirket: EDİP GAYRİMENKUL YATIRIM SANAYİ VE TİCARET A.Ş.
 kod: EDIP
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-28
+tarih: 2026-08-30
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat 0,40 milyar TL'den 0,44 milyar TL'ye çıkarken net kâr 0,53 milyar TL'den 0,15 milyar TL'ye indi; faaliyet nakit akışı da 0,24 milyar TL'den 0,09 milyar TL'ye gerileyerek kâr kalemiyle aynı yönde hareket etti. Özkaynak 5,94 milyar TL'den 8,18 milyar TL'ye, aktif toplamı 7,42 milyar TL'den 9,55 milyar TL'ye genişledi; bu büyüme dönem kârının boyutunu aştığından kaynağı kâr dışı kalemlerde bulunuyor ve genişleyen özkaynak tabanı, net kâr marjı sektör medyanının üzerindeyken özkaynak kârlılığının medyana yakın kalmasını açıklıyor. Net borç 1,22 milyar TL'den 1,07 milyar TL'ye inerken özkaynağın artması borç/özkaynak oranını aşağı çeken iki etkiyi birleştirdi, oran yine de sektör medyanının üzerinde konumlandı.
+Hasılat 0,44 milyar TL'ye yükselirken net kâr 0,15 milyar TL'ye gerilemiş; bu durum, faaliyet nakit akışının 0,09 milyar TL'ye düşmesiyle birlikte, satışların kârlılıktan ziyade likiditeyi sınırladığına işaret eder. Özkaynak 8,18 milyar TL'ye artmış ve net borç 1,07 milyar TL'ye gerilemiş, bu da borç/özkaynak oranının 0,13'e yükselmesine rağmen özkaynak kârlılığı %0,5 ile sektör medyanının %0,4'ünün üzerinde kalmasını sağlamıştır. Aktif toplamının 9,55 milyar TL'ye çıkması, özkaynak artışı ve borç azalmasıyla birlikte varlıkların büyüdüğünü, ancak net kâr marjının %20,4 (sektör medyanı %14,3) seviyesinde kalmasının kârın satış hacmiyle paralel artmadığını gösterir.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

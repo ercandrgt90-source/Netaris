@@ -1,13 +1,13 @@
 ---
 slug: formt-2026-2-ceyrek
 baslik: FORMET METAL VE CAM SANAYİ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat sabit kalırken brüt kâr iki katına çıkarak brüt kâr marjının %21,8'e yükselmesi, maliyetlerdeki iyileşmenin faaliyet kârını -%0,01'e (önceki -%0,12) ve FAVÖK'ü +%0,04'e (önceki -%0,07) dönüştürmesinden kaynaklanıyor; aynı zamanda özkaynak artışı 2,73 milyar TL'ye (önceki 1,90 milyar TL) ve a…
+ozet: Hasılat aynı kalırken brüt kâr iki katına çıkmış, bu artış brüt kâr marjının %21,8'e yükselmesine ve net kâr marjının sektör medyanının çok üzerindeki %18,1'e yansımış; aynı zamanda özkaynak kârlılığı da %2,0'ye yükselerek sektörel ortalamanın üzerindedir.…
 sirket: FORMET METAL VE CAM SANAYİ A.Ş.
 kod: FORMT
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Sanayi
-tarih: 2026-08-28
+tarih: 2026-08-30
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat sabit kalırken brüt kâr iki katına çıkarak brüt kâr marjının %21,8'e yükselmesi, maliyetlerdeki iyileşmenin faaliyet kârını -%0,01'e (önceki -%0,12) ve FAVÖK'ü +%0,04'e (önceki -%0,07) dönüştürmesinden kaynaklanıyor; aynı zamanda özkaynak artışı 2,73 milyar TL'ye (önceki 1,90 milyar TL) ve aktif toplamının 3,50 milyar TL'ye (önceki 2,61 milyar TL) yükselmesi, cari oranı 1,91 (sektör medyanı 1,32) ve borç/özkaynak oranını 0,04 (sektör medyanı 0,16) düşük tutarak likiditeyi güçlendirmiştir; net kâr ise -%0,05 (önceki -%0,02) olarak düşmüş, bu da artan yatırım harcaması 0,06 milyar TL (önceki 0,04 milyar TL) ve faaliyet nakit akışının 0,00 milyar TL'ye (önceki 0,20 milyar TL) gerilemesinin bir yansımasıdır.
+Hasılat aynı kalırken brüt kâr iki katına çıkmış, bu artış brüt kâr marjının %21,8'e yükselmesine ve net kâr marjının sektör medyanının çok üzerindeki %18,1'e yansımış; aynı zamanda özkaynak kârlılığı da %2,0'ye yükselerek sektörel ortalamanın üzerindedir. Faaliyet kârı ve FAVÖK negatiften pozitife dönmüş, bu durum net borcun önceki dönemde negatif (nakit fazlası) iken bu çeyrekte 0,10 milyar TL'ye çıkmasıyla birlikte net borç/özkaynak oranının %0,04'e düşmesi ve cari oranın 1,91'e yükselmesiyle likidite ve finansal yapı güçlenmiştir. Aktif toplamı ve özkaynak artışı, yatırım harcamasındaki yükselişle paralel ilerleyerek bilanço büyüklüğünün ve özkaynak bazının genişlemesine neden olmuştur.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

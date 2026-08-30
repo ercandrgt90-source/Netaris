@@ -1,13 +1,13 @@
 ---
 slug: sahol-2026-2-ceyrek
 baslik: HACI ÖMER SABANCI HOLDİNG A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılattaki artışa net kârın önceki dönemdeki zarardan pozitife dönmesi eşlik etti; buna karşın faaliyet nakit akışı aynı dönemde geriledi ve yatırım harcaması da düşük seviyeye çekildi, yani kârdaki dönüş nakit yaratımıyla aynı yönde hareket etmedi.…
+ozet: Hasılat 146,66 milyar TL'den 167,15 milyar TL'ye yükselirken net kâr -1,80 milyar TL'den 14,50 milyar TL'ye geçmiştir; gelir artışı kârda pozitif dönüşümü tetiklemiş, bu da net kâr marjının %14,7 medyanın üzerindeki %16,7'ye çıkmasını sağlamıştır.…
 sirket: HACI ÖMER SABANCI HOLDİNG A.Ş.
 kod: SAHOL
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Finans
-tarih: 2026-08-28
+tarih: 2026-08-30
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılattaki artışa net kârın önceki dönemdeki zarardan pozitife dönmesi eşlik etti; buna karşın faaliyet nakit akışı aynı dönemde geriledi ve yatırım harcaması da düşük seviyeye çekildi, yani kârdaki dönüş nakit yaratımıyla aynı yönde hareket etmedi. Aktif toplamı ile özkaynak birlikte büyürken net borç da genişledi ve borç/özkaynak 1,19 ile sektör medyanı olan -0,05'in üzerinde konumlandı. Genişleyen özkaynak tabanı, net kâr marjı sektör medyanının üzerinde kalmasına rağmen özkaynak kârlılığının %2,1 ile medyanın altında yer almasıyla birlikte okunuyor.
+Hasılat 146,66 milyar TL'den 167,15 milyar TL'ye yükselirken net kâr -1,80 milyar TL'den 14,50 milyar TL'ye geçmiştir; gelir artışı kârda pozitif dönüşümü tetiklemiş, bu da net kâr marjının %14,7 medyanın üzerindeki %16,7'ye çıkmasını sağlamıştır. Özkaynak 526,42 milyar TL'den 684,54 milyar TL'ye artarken aktif toplamı 3467,59 milyar TL'den 4653,12 milyar TL'ye yükselmiş, fakat net borç 533,13 milyar TL'den 816,96 milyar TL'ye çıktığı için borç/özkaynak oranı 0,05 medyanının çok üzerindeki 1,19'a yükselmiştir. Faaliyet nakit akışı 140,01 milyar TL'den 30,66 milyar TL'ye düşmüş, yatırım harcaması ise 13,21 milyar TL'den 9,97 milyar TL'ye azalmış; nakit akışındaki gerileme, artan borç ve özkaynak büyüklüğünün kârlılık oranı (%2,1) üzerindeki sınırlayıcı etkisini yansıtmaktadır.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

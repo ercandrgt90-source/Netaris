@@ -1,13 +1,13 @@
 ---
 slug: bigch-2026-2-ceyrek
 baslik: BÜYÜK ŞEFLER GIDA TURİZM TEKSTİL DANIŞMANLIK ORGANİZASYON EĞİTİM SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat sabit kalırken brüt kâr, faaliyet kârı, FAVÖK ve net kâr artışı, brüt kâr marjının %23,7'ye yükselmesiyle birlikte kârlılık göstergelerinin yükseldiğini gösteriyor; aynı zamanda özkaynak ve toplam aktifin artışı özkaynak kârlılığının %3,5'e (sektör medyanı %0,5) çıkmasına katkı sağladı.…
+ozet: Hasılat sabit kalırken brüt kâr, faaliyet kârı, FAVÖK ve net kâr artışı, brüt kâr marjının %23,7'ye yükselmesiyle birlikte maliyetlerin daha az oranda artması ve kârlılık oranlarının sektör medyanlarının (%16,0 brüt kâr marjı, %0,6 net kâr marjı, %0,5 özkaynak kârlılığı) üzerinde gerçekleşti; aynı z…
 sirket: BÜYÜK ŞEFLER GIDA TURİZM TEKSTİL DANIŞMANLIK ORGANİZASYON EĞİTİM SANAYİ VE TİCARET A.Ş.
 kod: BIGCH
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: İsteğe bağlı tüketim
-tarih: 2026-08-28
+tarih: 2026-08-30
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat sabit kalırken brüt kâr, faaliyet kârı, FAVÖK ve net kâr artışı, brüt kâr marjının %23,7'ye yükselmesiyle birlikte kârlılık göstergelerinin yükseldiğini gösteriyor; aynı zamanda özkaynak ve toplam aktifin artışı özkaynak kârlılığının %3,5'e (sektör medyanı %0,5) çıkmasına katkı sağladı. Net borç hafifçe artarken (0,72 milyar TL) cari oran %0,61'e (sektör medyanı 1,29) geriledi, bu durum likiditeye yönelik baskının artmasına işaret ediyor. Borç/özkaynak oranının %0,51'e (sektör medyanı %0,13) yükselmesi, finansal kaldıraçta sektör ortalamasının üzerinde bir artış olduğunu, ancak özkaynak büyümesiyle denge sağlandığını gösteriyor.
+Hasılat sabit kalırken brüt kâr, faaliyet kârı, FAVÖK ve net kâr artışı, brüt kâr marjının %23,7'ye yükselmesiyle birlikte maliyetlerin daha az oranda artması ve kârlılık oranlarının sektör medyanlarının (%16,0 brüt kâr marjı, %0,6 net kâr marjı, %0,5 özkaynak kârlılığı) üzerinde gerçekleşti; aynı zamanda özkaynak ve aktif toplamının artışı, net borçta çok hafif bir yükselişle birlikte borç/özkaynak oranının %0,51'e çıkması, likiditeyi gösteren cari oranın %0,61'e gerilemesine yol açtı.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

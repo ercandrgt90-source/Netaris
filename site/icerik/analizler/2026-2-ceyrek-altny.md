@@ -1,13 +1,13 @@
 ---
 slug: altny-2026-2-ceyrek
 baslik: ALTINAY SAVUNMA TEKNOLOJİLERİ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın 1,47 milyar TL'den 1,40 milyar TL'ye düşmesi brüt kârın 0,59 milyar TL'den 0,44 milyar TL'ye, ardından FAVÖK'ün 0,55 milyar TL'den 0,45 milyar TL'ye ve faaliyet kârının 0,34 milyar TL'den 0,24 milyar TL'ye gerilemesiyle paralel bir azalma gösterdi; bu düşüş net kârın 0,03 milyar TL'den –0,…
+ozet: Hasılatın düşmesi brüt kârı ve FAVÖK'ü de azaltırken, brüt kâr marjının sektör medyanının üzerindeki %25,0 seviyesinde kalması brüt kârın toplam satışa oranının hâlâ güçlü olduğunu gösteriyor; net kârın negatifleşmesi ise faaliyet kârı ve FAVÖK'teki azalmaya paralel olarak, vergi ve finansman sonras…
 sirket: ALTINAY SAVUNMA TEKNOLOJİLERİ A.Ş.
 kod: ALTNY
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Sanayi
-tarih: 2026-08-28
+tarih: 2026-08-30
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın 1,47 milyar TL'den 1,40 milyar TL'ye düşmesi brüt kârın 0,59 milyar TL'den 0,44 milyar TL'ye, ardından FAVÖK'ün 0,55 milyar TL'den 0,45 milyar TL'ye ve faaliyet kârının 0,34 milyar TL'den 0,24 milyar TL'ye gerilemesiyle paralel bir azalma gösterdi; bu düşüş net kârın 0,03 milyar TL'den –0,06 milyar TL'ye geçmesine yol açtı. Özkaynak 4,50 milyar TL'den 5,89 milyar TL'ye artarken aktif toplamı 7,96 milyar TL'den 12,32 milyar TL'ye yükseldi, fakat net borç da 0,59 milyar TL'den 2,27 milyar TL'ye artarak borç/özkaynak oranını %0,16'dan %0,38'e çıkardı. Faaliyet nakit akışı –0,04 milyar TL'den 0,41 milyar TL'ye pozitifleşti, yatırım harcaması ise 0,19 milyar TL'den 0,02 milyar TL'ye azaldı; brüt kâr marjı %25,0 (sektör medyanı %20,9) ve net kâr marjı %5,8 (sektör medyanı %1,3) sektör ortalamalarının üzerindeyken cari oran 1,20 (sektör medyanı 1,32) biraz altında kaldı.
+Hasılatın düşmesi brüt kârı ve FAVÖK'ü de azaltırken, brüt kâr marjının sektör medyanının üzerindeki %25,0 seviyesinde kalması brüt kârın toplam satışa oranının hâlâ güçlü olduğunu gösteriyor; net kârın negatifleşmesi ise faaliyet kârı ve FAVÖK'teki azalmaya paralel olarak, vergi ve finansman sonrası kârın erimesine işaret ediyor. Özkaynakların 5,89 milyar TL'ye yükselmesi aktif toplamının artışıyla birlikte özkaynak kârlılığının %0,8'e çıkmasını sağlarken, net borcun 2,27 milyar TL'ye çıkması borç/özkaynak oranını %0,38'e yükselterek cari oranın 1,20'den sektörel medyanın altında kalmasına neden oluyor. Faaliyet nakit akışının pozitif 0,41 milyar TL'ye dönmesi, yatırım harcamasının 0,02 milyar TL'ye gerilemesiyle birlikte, nakit üretiminin artışının sermaye harcamalarındaki düşüşle desteklendiğini gösteriyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

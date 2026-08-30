@@ -1,13 +1,13 @@
 ---
 slug: fade-2026-2-ceyrek
 baslik: FADE GIDA YATIRIM SANAYİ TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın düşmesine rağmen brüt kâr artışı, brüt kâr marjının %19,2'ye yükselmesiyle birlikte maliyet yapısının iyileştiğini gösteriyor; bu iyileşme, faaliyet kârı ve FAVÖK'ün sırasıyla %0,06 milyar ve %0,08 milyon artmasına, dolayısıyla net kârın %0,05 milyon olarak iki katına çıkmasına yol açtı.…
+ozet: Hasılatın düşmesine rağmen brüt kâr ve brüt kâr marjı artmış; bu, satışların azalmasına rağmen maliyet yapısının iyileştiğini gösteriyor ve brüt kâr artışı faaliyet kârı, FAVÖK ve net kârda da aynı yönde yükselmeye yol açmış.…
 sirket: FADE GIDA YATIRIM SANAYİ TİCARET A.Ş.
 kod: FADE
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Temel tüketim
-tarih: 2026-08-27
+tarih: 2026-08-30
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın düşmesine rağmen brüt kâr artışı, brüt kâr marjının %19,2'ye yükselmesiyle birlikte maliyet yapısının iyileştiğini gösteriyor; bu iyileşme, faaliyet kârı ve FAVÖK'ün sırasıyla %0,06 milyar ve %0,08 milyon artmasına, dolayısıyla net kârın %0,05 milyon olarak iki katına çıkmasına yol açtı. Özkaynakların %2,18 milyon seviyesine yükselmesi, özkaynak kârlılığının %0,2'ye gerilemesine rağmen, cari oranın 2,12'ye (sektör medyanı 1,36) ve borç/özkaynak oranının 0,04'e (sektör medyanı 0,26) düşmesiyle likidite ve finansal riskin azaldığını gösteriyor. Faaliyet nakit akışının 0,13 milyon (önceki dönem 0,01 milyon) artması, yatırım harcamasının 0,01 milyon (önceki dönem 0,02 milyon) azalmasıyla birlikte, işletmenin nakit üretim kapasitesinin yükseldiğini ve sermaye harcamalarını sınırlı tutarak borç seviyesini hafifçe düşürdüğünü ortaya koyuyor.
+Hasılatın düşmesine rağmen brüt kâr ve brüt kâr marjı artmış; bu, satışların azalmasına rağmen maliyet yapısının iyileştiğini gösteriyor ve brüt kâr artışı faaliyet kârı, FAVÖK ve net kârda da aynı yönde yükselmeye yol açmış. Özkaynak ve aktif toplamının artışı, net borcun hafiflemesiyle birlikte cari oranı yükseltirken, düşük borç/özkaynak oranı özkaynak kârlılığının sektör medyanının altında kalmasına rağmen finansal riskin düşük olduğunu ortaya koyuyor. Faaliyet nakit akışının büyük bir artışı, yatırım harcamasının azalmasıyla birlikte şirketin likidite pozisyonunu güçlendirmiş ve bu da cari oranın sektör ortalamasının üzerindeki seviyede kalmasını desteklemiş.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

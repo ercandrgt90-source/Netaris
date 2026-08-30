@@ -1,13 +1,13 @@
 ---
 slug: crdfa-2026-2-ceyrek
 baslik: CREDITWEST FAKTORİNG A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat ile brüt kâr birlikte yükselirken aradaki farkın dar kalması brüt kâr marjını %95,3'e taşıdı; buna karşılık net kâr, faaliyet kârının ve FAVÖK'ün üzerine çıkarak 1,17 milyar TL'ye ulaştı, yani net kâr marjının %220,4 olması faaliyet dışı kalemlerin ağırlığına işaret ediyor.…
+ozet: Hasılatın yükselmesi brüt kârı ve faaliyet kârını artırdı; brüt kâr marjının %95,3 seviyesinde kalması brüt kârın hasılatla paralel artmasını sağladı. Net kârın %220,4'e çıkması özkaynak kârlılığını %30,1'e taşıdı; bu artış özkaynakların %2,64'e yükselmesi ve net borcun %0,23'e düşmesiyle desteklend…
 sirket: CREDITWEST FAKTORİNG A.Ş.
 kod: CRDFA
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Finans
-tarih: 2026-08-28
+tarih: 2026-08-30
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat ile brüt kâr birlikte yükselirken aradaki farkın dar kalması brüt kâr marjını %95,3'e taşıdı; buna karşılık net kâr, faaliyet kârının ve FAVÖK'ün üzerine çıkarak 1,17 milyar TL'ye ulaştı, yani net kâr marjının %220,4 olması faaliyet dışı kalemlerin ağırlığına işaret ediyor. Özkaynağın 0,70 milyar TL'den 2,64 milyar TL'ye çıkması net borcun 1,28 milyar TL'den 0,23 milyar TL'ye inmesiyle aynı döneme denk geldi ve borç/özkaynak 0,09'a, özkaynak kârlılığı %30,1'e karşılık geldi. Aktif toplamı 2,12 milyar TL'den 4,91 milyar TL'ye genişlerken faaliyet nakit akışı -0,42 milyar TL'den -0,50 milyar TL'ye geçti; cari oran 2,10 ile sektör medyanı 12,09'un altında sıralandı.
+Hasılatın yükselmesi brüt kârı ve faaliyet kârını artırdı; brüt kâr marjının %95,3 seviyesinde kalması brüt kârın hasılatla paralel artmasını sağladı. Net kârın %220,4'e çıkması özkaynak kârlılığını %30,1'e taşıdı; bu artış özkaynakların %2,64'e yükselmesi ve net borcun %0,23'e düşmesiyle desteklendi. Cari oran 2,10 iken borç/özkaynak oranı 0,09'a geriledi; net borcun azalması likiditeyi artırırken özkaynak artışı bilanço yapısını güçlendirdi.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

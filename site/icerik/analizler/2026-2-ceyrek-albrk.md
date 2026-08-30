@@ -1,13 +1,13 @@
 ---
 slug: albrk-2026-2-ceyrek
 baslik: ALBARAKA TÜRK KATILIM BANKASI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat gerilerken net kâr daha sert daraldı; buna karşın net kâr marjı sektör medyanının üzerinde konumlandı. Aktif toplamı ve özkaynak birlikte büyüdü, ancak kâr tarafındaki daralma nedeniyle genişleyen özkaynak tabanı özkaynak kârlılığını sınırladı — yine de bu oran medyanın üstünde kaldı.…
+ozet: Hasılat düştükten sonra net kârda keskin bir azalma (%9,67'den %3,96'ya) gerçekleşti; bu, kâr marjının %34,7'ye yükselmesiyle birlikte, gelirdeki düşüşün kâr üzerindeki etkisinin sınırlı kaldığını gösteriyor.…
 sirket: ALBARAKA TÜRK KATILIM BANKASI A.Ş.
 kod: ALBRK
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Finans
-tarih: 2026-08-28
+tarih: 2026-08-30
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat gerilerken net kâr daha sert daraldı; buna karşın net kâr marjı sektör medyanının üzerinde konumlandı. Aktif toplamı ve özkaynak birlikte büyüdü, ancak kâr tarafındaki daralma nedeniyle genişleyen özkaynak tabanı özkaynak kârlılığını sınırladı — yine de bu oran medyanın üstünde kaldı. Net borç, özkaynaktaki artıştan daha hızlı yükselerek borç/özkaynağı 1,66'ya taşıdı; faaliyet nakit akışı negatif bölgede kalırken yatırım harcaması azaldı.
+Hasılat düştükten sonra net kârda keskin bir azalma (%9,67'den %3,96'ya) gerçekleşti; bu, kâr marjının %34,7'ye yükselmesiyle birlikte, gelirdeki düşüşün kâr üzerindeki etkisinin sınırlı kaldığını gösteriyor. Özkaynak artışı (%32,18'den %21,95'ye) aktif toplamındaki %541,71 milyara çıkmasıyla paralel seyredirken, net borç da %53,31 milyara çıkarak özkaynakla birlikte yükseldi; bu durum borç/özkaynak oranının 1,66'ya çıkmasına yol açtı. Faaliyet nakit akışı negatif kalmaya devam ederken, yatırım harcamasının azalması (-46,67 milyardan -43,63 milyara) net kâr marjı ve özkaynak kârlılığı gibi kârlılık oranlarının sektör medyanının üzerinde olmasına katkı sağladı.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

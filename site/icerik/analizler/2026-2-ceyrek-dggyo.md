@@ -1,13 +1,13 @@
 ---
 slug: dggyo-2026-2-ceyrek
 baslik: DOĞUŞ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat 0,66 milyar TL'den 0,70 milyar TL'ye çıkarken net sonuç -0,18 milyar TL'den 0,12 milyar TL'ye geçti; ancak faaliyet nakit akışı 0,32 milyar TL'den 0,16 milyar TL'ye indi, yani kâra dönüş nakit üretimiyle aynı yönde hareket etmedi.…
+ozet: Hasılatın 0,70 milyar TL'ye yükselmesi net kârın 0,12 milyar TL'ye geçmesine paralel olarak özkaynakların 16,35 milyar TL'ye artmasına yol açtı; bu artış özkaynak kârlılığının %0,2'ye (sektör medyanı %0,4) yükselmesine rağmen, net kâr marjının %7,3 (sektör medyanı %14,3) seviyesinde kalmasını sağlad…
 sirket: DOĞUŞ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: DGGYO
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-28
+tarih: 2026-08-30
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat 0,66 milyar TL'den 0,70 milyar TL'ye çıkarken net sonuç -0,18 milyar TL'den 0,12 milyar TL'ye geçti; ancak faaliyet nakit akışı 0,32 milyar TL'den 0,16 milyar TL'ye indi, yani kâra dönüş nakit üretimiyle aynı yönde hareket etmedi. Aktif toplamı 17,41 milyar TL'den 23,37 milyar TL'ye, özkaynak 12,36 milyar TL'den 16,35 milyar TL'ye genişlerken net borç 3,79 milyar TL'den 3,93 milyar TL'ye sınırlı biçimde arttı; büyümenin ağırlığı borç tarafında değil özkaynak tarafında oluştu. Net kâr marjı %7,3 ve özkaynak kârlılığı %0,2 ile sektör medyanlarının (%14,3 ve %0,4) altında, borç/özkaynak ise 0,24 ile medyan 0,02'nin üzerinde konumlandı.
+Hasılatın 0,70 milyar TL'ye yükselmesi net kârın 0,12 milyar TL'ye geçmesine paralel olarak özkaynakların 16,35 milyar TL'ye artmasına yol açtı; bu artış özkaynak kârlılığının %0,2'ye (sektör medyanı %0,4) yükselmesine rağmen, net kâr marjının %7,3 (sektör medyanı %14,3) seviyesinde kalmasını sağladı. Aktif toplamının 23,37 milyar TL'ye (önceki dönem 17,41 milyar TL) ve net borcun 3,93 milyar TL'ye (önceki dönem 3,79 milyar TL) hafif artması, borç/özkaynak oranının %0,24'ye (sektör medyanı 0,02) yükselmesine neden oldu; bu durum faaliyet nakit akışının 0,16 milyar TL'ye (önceki dönem 0,32 milyar TL) gerilemesiyle birlikte, likidite akışının azaldığını gösteriyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

@@ -1,13 +1,13 @@
 ---
 slug: dapgm-2026-2-ceyrek
 baslik: DAP GAYRİMENKUL GELİŞTİRME A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat, brüt kâr, faaliyet kârı ve FAVÖK birlikte yükselirken net kâr yarıya indi; bu ayrışma, farkın faaliyet kârı satırının altındaki kalemlerden kaynaklandığını gösteriyor.…
+ozet: Hasılatın %85,7 brüt kâr marjı ile yükselmesi brüt kârı 3,84 milyar TL'ye, dolayısıyla faaliyet kârı ve FAVÖK'ün de sırasıyla 3,59 milyar TL ve 3,61 milyar TL'ye artmasına yol açtı; ancak net kâr sadece 0,40 milyar TL'ye gerileyerek net kâr marjının %15,4'ten %14,3 sektör medyanının üzerine çıkmasın…
 sirket: DAP GAYRİMENKUL GELİŞTİRME A.Ş.
 kod: DAPGM
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-28
+tarih: 2026-08-30
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat, brüt kâr, faaliyet kârı ve FAVÖK birlikte yükselirken net kâr yarıya indi; bu ayrışma, farkın faaliyet kârı satırının altındaki kalemlerden kaynaklandığını gösteriyor. Özkaynak ve aktif toplamı birlikte büyürken net borç geriledi ve faaliyet nakit akışı negatiften pozitife döndü; net kârdaki azalışa rağmen özkaynak kârlılığı sektör medyanının üzerinde konumlandı. Brüt kâr marjı sektör medyanının belirgin biçimde üzerinde kalırken net kâr marjı medyana yakın seyretti; cari oran medyanın altında, borç/özkaynak ise medyanın üzerinde yer aldı.
+Hasılatın %85,7 brüt kâr marjı ile yükselmesi brüt kârı 3,84 milyar TL'ye, dolayısıyla faaliyet kârı ve FAVÖK'ün de sırasıyla 3,59 milyar TL ve 3,61 milyar TL'ye artmasına yol açtı; ancak net kâr sadece 0,40 milyar TL'ye gerileyerek net kâr marjının %15,4'ten %14,3 sektör medyanının üzerine çıkmasına rağmen kârlılıkta düşüş yaşandı. Özkaynakların 17,69 milyar TL'ye, aktif toplamının 36,66 milyar TL'ye yükselmesi özkaynak kârlılığını %2,0'ye (sektör medyanı %0,4) ve borç/özkaynak oranını %0,07'ye (sektör medyanı %0,02) artırdı; aynı zamanda net borcun 1,29 milyar TL'ye düşmesi cari oranı 2,37'ye (sektör medyanı 5,25) yükseltti. Faaliyet nakit akışının -0,92 milyar TL'den 0,24 milyar TL'ye geçmesi, yatırım harcamasının sıfır olmasıyla birlikte likidite durumunun iyileştiğini gösterdi.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

@@ -1,13 +1,13 @@
 ---
 slug: rygyo-2026-2-ceyrek
 baslik: REYSAŞ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat 2,05 milyar TL'ye yükselirken net kâr 1,99 milyar TL'ye düşmüş, bu durum net kâr marjının %118,2'ye çıkmasına yol açmış; aynı dönemde özkaynak 103,25 milyar TL'ye, aktif toplamı 128,14 milyar TL'ye artmış ve bu büyümeye paralel olarak net borç 11,22 milyar TL'ye yükselmiş, borç/özkaynak oran…
+ozet: Hasılat 2,05 milyar TL'ye yükselirken net kâr 1,99 milyar TL'ye düşmüş, bu durum faaliyet nakit akışının –3,59 milyar TL'ye kaymasıyla birlikte özkaynakların 103,25 milyar TL'ye (önceki 62,27 milyar TL) ve aktif toplamının 128,14 milyar TL'ye (önceki 72,77 milyar TL) artmasına rağmen net borcun 11,2…
 sirket: REYSAŞ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: RYGYO
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-28
+tarih: 2026-08-30
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat 2,05 milyar TL'ye yükselirken net kâr 1,99 milyar TL'ye düşmüş, bu durum net kâr marjının %118,2'ye çıkmasına yol açmış; aynı dönemde özkaynak 103,25 milyar TL'ye, aktif toplamı 128,14 milyar TL'ye artmış ve bu büyümeye paralel olarak net borç 11,22 milyar TL'ye yükselmiş, borç/özkaynak oranı %0,11'e (sektör medyanı %0,02) çıkmıştır. Faaliyet nakit akışı ise önceki dönemde 0,55 milyar TL pozitifken -3,59 milyar TL negatif olmuş, bu da artan özkaynak ve aktif toplamına rağmen nakit çıkışının artmasına işaret eder. Özkaynak kârlılığı %1,1'e (sektör medyanı %0,4) yükselmiş, bu da özkaynak artışıyla birlikte kârlılığın da iyileştiğini gösterir.
+Hasılat 2,05 milyar TL'ye yükselirken net kâr 1,99 milyar TL'ye düşmüş, bu durum faaliyet nakit akışının –3,59 milyar TL'ye kaymasıyla birlikte özkaynakların 103,25 milyar TL'ye (önceki 62,27 milyar TL) ve aktif toplamının 128,14 milyar TL'ye (önceki 72,77 milyar TL) artmasına rağmen net borcun 11,22 milyar TL'ye (önceki 3,85 milyar TL) yükselmesinin bir yansımasıdır; net kâr marjının %118,2 (sektör medyanı %14,3) ve özkaynak kârlılığının %1,1 (sektör medyanı %0,4) olması, borç/özkaynak oranının %0,11 (sektör medyanı 0,02) ile birlikte, kârın artışıyla özkaynakların büyümesinin borçlanma seviyesindeki artışa paralel olduğunu gösterir.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

@@ -1,13 +1,13 @@
 ---
 slug: dzgyo-2026-2-ceyrek
 baslik: DENİZ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat ve brüt kâr artarken, brüt kâr marjı %40,6 seviyesinde kalmış ve sektör medyanının %51,4 altında kalmıştır; bu durum, gelir artışının maliyet artışıyla paralel seyrettiğini gösterir.…
+ozet: Hasılat ve brüt kâr birlikte yükselirken, brüt kâr marjı %40,6 seviyesinde kalmış ve sektör medyanının %51,4'ünün altında kalmıştır; bu durum, gelir artışının kâr oranına tam yansımadığını gösterir.…
 sirket: DENİZ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: DZGYO
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-28
+tarih: 2026-08-30
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat ve brüt kâr artarken, brüt kâr marjı %40,6 seviyesinde kalmış ve sektör medyanının %51,4 altında kalmıştır; bu durum, gelir artışının maliyet artışıyla paralel seyrettiğini gösterir. Faaliyet kârı ve FAVÖK negatiften daha da derinleşmiş, net kâr da -%93,6 ile sektörel %14,3 medyanının çok altında kalmış; bu, faaliyet giderlerinin ve vergi/finansman kalemlerinin artışının kâr üzerindeki baskısını yansıtır. Özkaynak ve aktif toplamı yükselmiş, net borç ise pozitif 0,17 milyar TL'ye dönmüş; buna rağmen cari oran 2,55 ile sektör medyanı 5,25'in altında kalırken, borç/özkaynak oranı %3 (sektör %2) olarak hafif artmıştır.
+Hasılat ve brüt kâr birlikte yükselirken, brüt kâr marjı %40,6 seviyesinde kalmış ve sektör medyanının %51,4'ünün altında kalmıştır; bu durum, gelir artışının kâr oranına tam yansımadığını gösterir. Faaliyet kârı, FAVÖK ve net kâr tümü negatif seyrederek önceki dönemdeki -%93,6 net kâr marjının daha da derinleşmesine yol açmış, aynı zamanda faaliyet nakit akışı da -0,13 milyar TL'ye düşmüştür. Özkaynak ve aktif toplamı artış gösterirken, net borç pozitifleşmiş ve cari oran 2,55'e yükselmiş, ancak borç/özkaynak oranı %0,03 ile sektör medyanının %0,02'sine yakın kalmıştır.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

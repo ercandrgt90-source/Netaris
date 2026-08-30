@@ -1,13 +1,13 @@
 ---
 slug: egegy-2026-2-ceyrek
 baslik: EGEYAPI AVRUPA GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %40,4 oranındaki brüt kâr marjı sektör medyanının (%51,4) altında kalmasına rağmen, brüt kârın %1,12 milyar TL'ye yükselmesi net kâr marjının %16,1'e (sektör medyanı %14,3) çıkmasını ve özkaynak kârlılığının %5,6'ya (sektör medyanı %0,4) yükselmesini destekledi; bu artışlar özkaynakların 2…
+ozet: Hasılatın %40,4 oranındaki brüt kâr marjına dönüşmesi, brüt kârın artmasıyla birlikte faaliyet kârı ve FAVÖK'ün de %0,93 milyara yükselmesine yol açtı; bu kâr artışı net kâr marjının %16,1'e çıkmasını ve özkaynak kârlılığının %5,6'ya yükselmesini sağladı.…
 sirket: EGEYAPI AVRUPA GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: EGEGY
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-27
+tarih: 2026-08-30
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %40,4 oranındaki brüt kâr marjı sektör medyanının (%51,4) altında kalmasına rağmen, brüt kârın %1,12 milyar TL'ye yükselmesi net kâr marjının %16,1'e (sektör medyanı %14,3) çıkmasını ve özkaynak kârlılığının %5,6'ya (sektör medyanı %0,4) yükselmesini destekledi; bu artışlar özkaynakların 2,67 milyar TL'ye (önceki dönem 1,11 milyar TL) ve net borcun 0,40 milyar TL'ye (önceki dönem -0,23 milyar TL) yükselmesiyle birlikte, cari oranın 1,33'e (sektör medyanı 5,25) gerilemesine ve borç/özkaynak oranının 0,15'e (sektör medyanı 0,02) yükselmesine yol açtı.
+Hasılatın %40,4 oranındaki brüt kâr marjına dönüşmesi, brüt kârın artmasıyla birlikte faaliyet kârı ve FAVÖK'ün de %0,93 milyara yükselmesine yol açtı; bu kâr artışı net kâr marjının %16,1'e çıkmasını ve özkaynak kârlılığının %5,6'ya yükselmesini sağladı. Net borcun –0,23 milyardan 0,40 milyara geçmesi, cari oranı 1,33'e düşürürken borç/özkaynak oranını %0,15'e çıkararak likidite göstergelerinin sektör medyanı (5,25 ve 0,02) altında kalmasına neden oldu. Aktif toplamının hafifçe 7,42 milyara gerilemesi, özkaynakların 2,67 milyara yükselmesiyle özkaynak/aktif oranının artmasına ve net borç artışının özkaynak bazında daha düşük bir oranda kalmasına (borç/özkaynak %0,15) yol açtı.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

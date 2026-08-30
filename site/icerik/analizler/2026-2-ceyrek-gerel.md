@@ -1,13 +1,13 @@
 ---
 slug: gerel-2026-2-ceyrek
 baslik: GERSAN ELEKTRİK TİCARET VE SANAYİ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %22,0 brüt kâr marjı ile birlikte %22,0'dan yüksek olması, brüt kârın önceki dönemdeki negatif –0,26 milyar TL'den 0,41 milyar TL'ye yükselmesine paralel olarak gerçekleşti; bu artış faaliyet kârını da –0,52 milyar TL'den 0,10 milyar TL'ye, FAVÖK'ü –0,49 milyar TL'den 0,12 milyar TL'ye ve…
+ozet: Hasılatın %22,0 brüt kâr marjı ile birlikte %22,0'lık bir oranla artması, brüt kârın negatiften pozitif 0,41 milyar TL'ye yükselmesine paralel olarak gerçekleşirken, faaliyet ve net kârların da negatiften sırasıyla 0,10 milyar TL ve 0,02 milyar TL'ye geçmesi, kârlılık göstergelerinin (net kâr marjı…
 sirket: GERSAN ELEKTRİK TİCARET VE SANAYİ A.Ş.
 kod: GEREL
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Sanayi
-tarih: 2026-08-27
+tarih: 2026-08-30
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %22,0 brüt kâr marjı ile birlikte %22,0'dan yüksek olması, brüt kârın önceki dönemdeki negatif –0,26 milyar TL'den 0,41 milyar TL'ye yükselmesine paralel olarak gerçekleşti; bu artış faaliyet kârını da –0,52 milyar TL'den 0,10 milyar TL'ye, FAVÖK'ü –0,49 milyar TL'den 0,12 milyar TL'ye ve net kârı –0,54 milyar TL'den 0,02 milyar TL'ye taşıdı. Özkaynakların 0,62 milyar TL'den 4,11 milyar TL'ye yükselmesi, aktif toplamının 3,42 milyar TL'den 7,39 milyar TL'ye artmasıyla birlikte cari oranı 1,32'den 1,75'e yükselterek likiditeyi güçlendirdi; aynı zamanda borç/özkaynak oranı 0,16'dan 0,50'ye çıkmış, borç seviyesindeki artış net kâr marjının –%3,5'ten hâlâ negatif kalmasına rağmen özkaynak kârlılığının –%0,7'ye gerilemesine yol açtı. Faaliyet nakit akışı –0,22 milyar TL'den –0,64 milyar TL'ye derinleşirken yatırım harcaması 0,03 milyar TL'den 0,07 milyar TL'ye yükselmiş, bu da artan faaliyet ve yatırım gereksinimlerinin nakit çıkışını artırdığını gösteriyor.
+Hasılatın %22,0 brüt kâr marjı ile birlikte %22,0'lık bir oranla artması, brüt kârın negatiften pozitif 0,41 milyar TL'ye yükselmesine paralel olarak gerçekleşirken, faaliyet ve net kârların da negatiften sırasıyla 0,10 milyar TL ve 0,02 milyar TL'ye geçmesi, kârlılık göstergelerinin (net kâr marjı –%3,5, özkaynak kârlılığı –%0,7) sektör medyanlarının altında kalmasına rağmen özkaynakların 4,11 milyar TL'ye (önceki 0,62 milyar TL) ve aktif toplamının 7,39 milyar TL'ye (önceki 3,42 milyar TL) yükselmesiyle bilanço büyüklüğünün genişlediğini gösterir; bu büyüme, net borcun 2,04 milyar TL'ye (önceki 0,99 milyar TL) artmasıyla birlikte borç/özkaynak oranının %0,50'ye (sektör medyanı %0,16) yükselmesine ve cari oranın 1,75 (sektör medyanı 1,32) seviyesinde kalmasına yol açmıştır.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

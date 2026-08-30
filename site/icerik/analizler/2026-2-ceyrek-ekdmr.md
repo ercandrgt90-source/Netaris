@@ -1,13 +1,13 @@
 ---
 slug: ekdmr-2026-2-ceyrek
 baslik: EKİNCİLER DEMİR VE ÇELİK SANAYİ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Brüt kâr marjının %6,0 olması, sektör medyanı %14,1'in çok altında kalması net kâr marjının %3,0 seviyesine yükselmesine ve net kârın 0,32 milyar TL'ye ulaşmasına zemin hazırlamış; düşük brüt kâr marjı satışların maliyet yapısının yüksek olduğunu gösterirken, net kâr marjının medyanın üzerindeki %3,…
+ozet: Brüt kâr marjının %6,0 olması sektör medyanı %14,1'in çok altında, bu durum brüt kârın hasılat içinde düşük bir paya sahip olduğunu ve dolayısıyla faaliyet kârı (%2,5) ve net kâr (%2,7) gibi kâr kalemlerinin de sınırlı kalmasına yol açtığını gösterir; net kâr marjının %3,0 olması ise sektörel ortala…
 sirket: EKİNCİLER DEMİR VE ÇELİK SANAYİ A.Ş.
 kod: EKDMR
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Temel malzeme
-tarih: 2026-08-28
+tarih: 2026-08-30
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Brüt kâr marjının %6,0 olması, sektör medyanı %14,1'in çok altında kalması net kâr marjının %3,0 seviyesine yükselmesine ve net kârın 0,32 milyar TL'ye ulaşmasına zemin hazırlamış; düşük brüt kâr marjı satışların maliyet yapısının yüksek olduğunu gösterirken, net kâr marjının medyanın üzerindeki %3,0 olması sabit giderlerin ve vergi öncesi kârların (FAVÖK 0,40 milyar TL, faaliyet kârı 0,29 milyar TL) nispeten kontrol altında tutulduğunu işaret eder. Özkaynak kârlılığı %1,3 sektör ortalamasıyla eşitlenirken, özkaynakların 17,03 milyar TL'ye kıyasla net borcun sadece 1,06 milyar TL olması borç/özkaynak oranını %0,06'ya (sektör medyanı %0,21) düşürmüş ve cari oran 1,31 (sektör medyanı 1,36) ile likidite durumunun sınırlı bir farkla sektöre yakın olduğunu göstermiştir. Faaliyet nakit akışının -1,22 milyar TL olması, yatırım harcamasının 0,81 milyar TL'ye kıyasla nakit çıkışının daha yüksek olduğunu ve bu durumun özkaynak kârlılığı ve likidite oranları üzerindeki baskıyı artırdığını ortaya koyar.
+Brüt kâr marjının %6,0 olması sektör medyanı %14,1'in çok altında, bu durum brüt kârın hasılat içinde düşük bir paya sahip olduğunu ve dolayısıyla faaliyet kârı (%2,5) ve net kâr (%2,7) gibi kâr kalemlerinin de sınırlı kalmasına yol açtığını gösterir; net kâr marjının %3,0 olması ise sektörel ortalamanın %2,4'ünden biraz daha yüksek olmasına rağmen brüt kârın düşük seviyesinden kaynaklanan bir dengeyi yansıtır. Özkaynak kârlılığı %1,3 sektör medyanıyla aynı seviyede olduğu için özkaynak getirisi brüt ve net kâr oranlarıyla paralel seyretmiş, bu da özkaynakların kârlı bir şekilde kullanılmadığını işaret eder. Cari oran 1,31 ve borç/özkaynak oranı 0,06, sektör medyanları (1,36 ve 0,21) ile karşılaştırıldığında likidite ve finansal kaldıraç açısından şirketin daha az borçlu ve likidite açısından biraz daha düşük bir tampon sunduğu, ancak düşük brüt kâr marjının faaliyet nakit akışının –1,22 milyar TL olarak negatif olmasına ve yatırım harcamasının 0,81 milyar TL'ye kadar çıkmasına zemin hazırladığı görülür.
 
 ## 2026 2. çeyrek dönemi ölçümleri
 

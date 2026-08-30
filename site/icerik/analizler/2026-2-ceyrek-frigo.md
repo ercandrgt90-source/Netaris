@@ -1,13 +1,13 @@
 ---
 slug: frigo-2026-2-ceyrek
 baslik: FRİGO-PAK GIDA MADDELERİ SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %2,6 düşmesiyle birlikte brüt kâr 0,04 milyar TL'ye yükselerek önceki dönemdeki -0,15 milyar TL zararını kapattı; bu artış, brüt kâr marjının %5,8'e çıkmasına yol açarken faaliyet ve net kârlarda hâlâ negatif kalmalarına rağmen kâr marjları %8,8 ve özkaynak kârlılığı -%2,9 seviyelerinde iy…
+ozet: Brüt kâr artışı (%5,8) net kârın (-%8,8) hâlâ negatif kalmasına rağmen faaliyet kârının (-%8) ve FAVÖK'ün (-%2) iyileşmesine paralel olarak gerçekleşti; bu, satışların (%0,75 milyar TL) hafif düşmesi (önceki dönem %0,77 milyar TL) yanında maliyetlerin daha çok kontrol altına alındığını gösteriyor.…
 sirket: FRİGO-PAK GIDA MADDELERİ SANAYİ VE TİCARET A.Ş.
 kod: FRIGO
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Temel tüketim
-tarih: 2026-08-26
+tarih: 2026-08-30
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %2,6 düşmesiyle birlikte brüt kâr 0,04 milyar TL'ye yükselerek önceki dönemdeki -0,15 milyar TL zararını kapattı; bu artış, brüt kâr marjının %5,8'e çıkmasına yol açarken faaliyet ve net kârlarda hâlâ negatif kalmalarına rağmen kâr marjları %8,8 ve özkaynak kârlılığı -%2,9 seviyelerinde iyileşme sağladı. Özkaynakların 1,42 milyar TL'ye, aktif toplamının 2,53 milyar TL'ye yükselmesi net borcun 0,41 milyar TL'ye artmasına rağmen cari oranı 1,41 (sektör medyanı 1,36) ve borç/özkaynak oranını 0,29 (sektör medyanı 0,26) tutarak likiditeyi korudu. Faaliyet nakit akışının -0,10 milyar TL'den 0,01 milyar TL'ye geçmesi, yatırım harcamasının hafifçe azalması (0,05 milyar TL'den 0,04 milyar TL) ile birlikte şirketin nakit üretim kapasitesinin iyileştiğini gösteriyor.
+Brüt kâr artışı (%5,8) net kârın (-%8,8) hâlâ negatif kalmasına rağmen faaliyet kârının (-%8) ve FAVÖK'ün (-%2) iyileşmesine paralel olarak gerçekleşti; bu, satışların (%0,75 milyar TL) hafif düşmesi (önceki dönem %0,77 milyar TL) yanında maliyetlerin daha çok kontrol altına alındığını gösteriyor. Özkaynakların 1,42 milyar TL'ye (önceki 1,07 milyar TL) yükselmesi, aktif toplamının 2,53 milyar TL'ye (önceki 2,04 milyar TL) artması ve net borcun 0,41 milyar TL'ye (önceki 0,23 milyar TL) çıkması, borç/özkaynak oranının %0,29 (sektör medyanı %0,26) yükselmesine rağmen cari oranın 1,41 (sektör medyanı 1,36) üzerinden likiditeyi korumasına yol açtı; bu da faaliyet nakit akışının 0,01 milyar TL'ye (önceki -0,10 milyar TL) dönüşmesinde etkili oldu.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

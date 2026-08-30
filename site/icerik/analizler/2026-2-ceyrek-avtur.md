@@ -1,13 +1,13 @@
 ---
 slug: avtur-2026-2-ceyrek
 baslik: AVRASYA PETROL VE TURİSTİK TESİSLER YATIRIMLAR A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat ve brüt kâr artarken brüt kâr marjı sektör medyanının altında kaldı; buna karşılık faaliyet kârı ve FAVÖK hasılatın üzerinde oluştu, yani faaliyet satırı brüt kârdan değil onun dışındaki kalemlerden şekillendi.…
+ozet: Hasılat ve brüt kâr birlikte yükselmiş; brüt kârın artışı, brüt kâr marjının %37,6 seviyesine ulaşmasıyla hasılat artışının kârlılığa yansıdığını gösteriyor.…
 sirket: AVRASYA PETROL VE TURİSTİK TESİSLER YATIRIMLAR A.Ş.
 kod: AVTUR
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Finans
-tarih: 2026-08-28
+tarih: 2026-08-30
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat ve brüt kâr artarken brüt kâr marjı sektör medyanının altında kaldı; buna karşılık faaliyet kârı ve FAVÖK hasılatın üzerinde oluştu, yani faaliyet satırı brüt kârdan değil onun dışındaki kalemlerden şekillendi. FAVÖK pozitif olmasına rağmen net sonuç zarara döndü ve net kâr marjı ile özkaynak kârlılığı sektör medyanlarının ters tarafında konumlandı; zarara karşın özkaynak ve aktif toplamı birlikte büyüdü, bu da dönem sonucunun dışında bir kaynağın bilançoyu genişlettiğine işaret ediyor. Faaliyet nakit akışı negatife geçerken net borç daha da negatif tarafa kaydı ve cari oran sektör medyanının üzerinde yer aldı — nakit çıkışı, likidite göstergesinin bulunduğu seviyeyle aynı yönde hareket etmedi.
+Hasılat ve brüt kâr birlikte yükselmiş; brüt kârın artışı, brüt kâr marjının %37,6 seviyesine ulaşmasıyla hasılat artışının kârlılığa yansıdığını gösteriyor. Faaliyet kârı, FAVÖK ve net kârda ise artış yerine negatif değerler ortaya çıkmış; bu, faaliyet nakit akışının -%0,18 milyar TL olması ve net borcun -%0,08 milyar TL'ye düşmesiyle birlikte işletme giderlerinin ve diğer maliyetlerin gelir artışını aşarak kârı erittiğini gösteriyor. Özkaynak ve aktif toplamı artarken cari oran 41,05'e yükselmiş; bu, likidite seviyesinin artışıyla özkaynakların büyümesinin birlikte gerçekleştiğini, ancak borç/özkaynak oranının sektörel medyanın altında kalması nedeniyle finansal yapıdaki değişimin sınırlı kaldığını ortaya koyuyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

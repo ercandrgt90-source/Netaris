@@ -1,13 +1,13 @@
 ---
 slug: pinsu-2026-2-ceyrek
 baslik: PINAR SU VE İÇECEK SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat ve brüt kâr aynı seviyede kalırken, brüt kâr marjının %49,9 olması sektör medyanının %16,5'ini aşması, maliyetlerin sabit kalıp satış fiyatlarından elde edilen kârın yükseldiğini gösteriyor; bu durum faaliyet kârının %0,04'ten %0,09'a, FAVÖK'ün ise %0,21'den %0,26'ya ve net kârın negatiften…
+ozet: Hasılat ve brüt kâr aynı seviyede kalırken, brüt kâr marjının %49,9 olması sektör medyanının %16,5'ini aşması, maliyetlerin sabit kalıp satış hacmindeki artışla kârın yükselmesine işaret eder; bu artış faaliyet kârını %0,04'den %0,09'a, FAVÖK'ü %0,21'den %0,26'ya ve net kârı negatiften %0,09'a taşıd…
 sirket: PINAR SU VE İÇECEK SANAYİ VE TİCARET A.Ş.
 kod: PINSU
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Temel tüketim
-tarih: 2026-08-27
+tarih: 2026-08-30
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat ve brüt kâr aynı seviyede kalırken, brüt kâr marjının %49,9 olması sektör medyanının %16,5'ini aşması, maliyetlerin sabit kalıp satış fiyatlarından elde edilen kârın yükseldiğini gösteriyor; bu durum faaliyet kârının %0,04'ten %0,09'a, FAVÖK'ün ise %0,21'den %0,26'ya ve net kârın negatiften %0,09'a geçişine paralel olarak artışa yol açtı. Özkaynakların 2,14 milyar TL'den 3,10 milyar TL'ye yükselmesi, aktif toplamının 3,58 milyar TL'den 4,80 milyar TL'ye artması ve net borcun 0,48 milyar TL'den 0,63 milyar TL'ye yükselmesi, özkaynak kârlılığının %0,8'den %2,5'e çıkmasıyla birlikte şirketin sermaye yapısının güçlendiğini, ancak cari oranın 1,36'dan 0,73'e düşmesiyle kısa vadeli likidite ihtiyacının artığını gösteriyor. Faaliyet nakit akışının 0,23 milyar TL'den 0,30 milyar TL'ye ve yatırım harcamasının 0,05 milyar TL'den 0,08 milyar TL'ye yükselmesi, artan kârlılıkla birlikte nakit üretiminin de desteklendiğini, fakat yeni yatırımların likiditeyi bir miktar zorladığını ortaya koyuyor.
+Hasılat ve brüt kâr aynı seviyede kalırken, brüt kâr marjının %49,9 olması sektör medyanının %16,5'ini aşması, maliyetlerin sabit kalıp satış hacmindeki artışla kârın yükselmesine işaret eder; bu artış faaliyet kârını %0,04'den %0,09'a, FAVÖK'ü %0,21'den %0,26'ya ve net kârı negatiften %0,09'a taşıdı. Özkaynakların 3,10 milyar TL'ye yükselmesi ve aktif toplamının 4,80 milyar TL'ye çıkması, net borcun 0,48 milyar TL'den 0,63 milyar TL'ye artmasına rağmen borç/özkaynak oranının %0,20 ile sektör medyanı %0,26'nın altında kalmasını sağladı; bu durum likiditeyi zorlayan cari oran 0,73'ün (sektör medyanı 1,36) düşük kalmasına rağmen özkaynak kârlılığının %2,5 ile medyan %0,8'i geçmesine yol açtı. Faaliyet nakit akışı ve yatırım harcamasının sırasıyla 0,30 milyar TL ve 0,08 milyar TL'ye yükselmesi, artan kârlılık ve özkaynak artışıyla birlikte işletmenin büyüme ve sermaye harcama kapasitesinin genişlediğini gösterir.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

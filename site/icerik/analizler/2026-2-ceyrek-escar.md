@@ -1,13 +1,13 @@
 ---
 slug: escar-2026-2-ceyrek
 baslik: ESCAR FİLO KİRALAMA HİZMETLERİ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %9,9'a yükselen brüt kâr marjı ile birlikte brüt kâr 0,06 milyar TL'ye çıkmış; brüt kârın artışı FAVÖK'ün 0,49 milyar TL'ye (önceki –0,08 milyar TL) ve net kârın 0,16 milyar TL'ye (önceki –0,55 milyar TL) dönüştüğünü gösteriyor; aynı zamanda net borcun –0,96 milyar TL'ye (önceki –1,67 mily…
+ozet: Hasılatın %9,9'luk brüt kâr marjına dönüşmesi, brüt kârın önceki dönemdeki -0,52 milyar TL'den 0,06 milyar TL'ye yükselmesiyle paralel ilerlemiş; bu artış aynı zamanda FAVÖK'ün -0,08 milyar TL'den 0,49 milyar TL'ye geçişini ve net kârın -0,55 milyar TL'den 0,16 milyar TL'ye dönüşmesini desteklemiş.…
 sirket: ESCAR FİLO KİRALAMA HİZMETLERİ A.Ş.
 kod: ESCAR
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Sanayi
-tarih: 2026-08-28
+tarih: 2026-08-30
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %9,9'a yükselen brüt kâr marjı ile birlikte brüt kâr 0,06 milyar TL'ye çıkmış; brüt kârın artışı FAVÖK'ün 0,49 milyar TL'ye (önceki –0,08 milyar TL) ve net kârın 0,16 milyar TL'ye (önceki –0,55 milyar TL) dönüştüğünü gösteriyor; aynı zamanda net borcun –0,96 milyar TL'ye (önceki –1,67 milyar TL) iyileşmesi cari oranı 2,94'ye (sektör medyanı 1,32) yükselterek özkaynak kârlılığının –%11,3 (sektör medyanı %0,3) seviyesinde kalmasına rağmen özkaynakların 6,60 milyar TL'ye (önceki 6,66 milyar TL) hafif düşmesine yol açtı.
+Hasılatın %9,9'luk brüt kâr marjına dönüşmesi, brüt kârın önceki dönemdeki -0,52 milyar TL'den 0,06 milyar TL'ye yükselmesiyle paralel ilerlemiş; bu artış aynı zamanda FAVÖK'ün -0,08 milyar TL'den 0,49 milyar TL'ye geçişini ve net kârın -0,55 milyar TL'den 0,16 milyar TL'ye dönüşmesini desteklemiş. Net kârın pozitifleşmesi, özkaynak kârlılığının -%11,3'ten iyileşmesine yol açarken, özkaynakların 6,60 milyar TL'ye hafif düşmesi ve net borcun -0,96 milyar TL'ye (daha az negatif) daralması, cari oranın 2,94'e (sektör medyanı 1,32) yükselmesi ve borç/özkaynak oranının -0,15'e (sektör medyanı 0,16) gerilemesiyle likidite ve finansal yapıdaki iyileşmeyi yansıtmaktadır. Faaliyet nakit akışı 1,29 milyar TL'ye (önceki dönem 1,49 milyar TL) gerilemiş olsa da, yatırım harcamasının sabit kalması (0,01 milyar TL) ve artan cari oran, işletmenin operasyonel nakit ihtiyacını karşılamada daha az dış finansmana bağımlı olduğunu göstermektedir.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

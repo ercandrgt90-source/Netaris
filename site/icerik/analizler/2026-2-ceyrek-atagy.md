@@ -1,13 +1,13 @@
 ---
 slug: atagy-2026-2-ceyrek
 baslik: ATA GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat aynı kalırken net kârın -0,02 milyar TL'ye düşmesi, faaliyet nakit akışının -0,04 milyar TL'den 0,01 milyar TL'ye yükselmesi net kâr marjının -%28,2'ye gerilemesine ve özkaynak kârlılığının -%0,5'e inmesine yol açtı; bu kâr kaybı özkaynakların 0,84 milyar TL'ye (önceki 0,66 milyar TL) ve akt…
+ozet: Hasılat aynı kalırken net kâr -0,02 milyar TL'ye düşmüş, bu durum net kâr marjının -%28,2'ye gerilemesine yol açmış; aynı dönemde faaliyet nakit akışı 0,01 milyar TL'ye yükselerek negatiften çıkmış ve net borç -0,03 milyar TL'ye azalarak özkaynak kârlılığına olumsuz yansıyan zararları bir nebze deng…
 sirket: ATA GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: ATAGY
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-28
+tarih: 2026-08-30
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat aynı kalırken net kârın -0,02 milyar TL'ye düşmesi, faaliyet nakit akışının -0,04 milyar TL'den 0,01 milyar TL'ye yükselmesi net kâr marjının -%28,2'ye gerilemesine ve özkaynak kârlılığının -%0,5'e inmesine yol açtı; bu kâr kaybı özkaynakların 0,84 milyar TL'ye (önceki 0,66 milyar TL) ve aktif toplamının 1,05 milyar TL'ye (önceki 0,75 milyar TL) artmasıyla finanse edildi. Net borcun -0,03 milyar TL (önceki -0,04 milyar TL) olması, borç/özkaynak oranının -0,03 (sektör medyanı 0,02) ile negatif seyretmesi, artan özkaynak ve aktif seviyelerinin borç yapısını hafiflettiğini gösteriyor. Bu değişimler, kâr kaybının artmasıyla özkaynakların ve varlıkların büyümesinin aynı anda gerçekleştiğini ve nakit akışının iyileşmesinin borç/özkaynak dengesine olumlu yansıdığını ortaya koyuyor.
+Hasılat aynı kalırken net kâr -0,02 milyar TL'ye düşmüş, bu durum net kâr marjının -%28,2'ye gerilemesine yol açmış; aynı dönemde faaliyet nakit akışı 0,01 milyar TL'ye yükselerek negatiften çıkmış ve net borç -0,03 milyar TL'ye azalarak özkaynak kârlılığına olumsuz yansıyan zararları bir nebze dengelemiş. Özkaynak 0,84 milyar TL'ye yükselmiş, aktif toplamının 1,05 milyar TL'ye artmasıyla birlikte borç/özkaynak oranı -0,03 (sektör medyanı 0,02) oluşmuş, bu da özkaynak artışının aktif büyümesiyle birlikte borç seviyesinin daha da azaldığını gösteriyor. Net kârdaki düşüş ve negatif marj, özkaynak ve aktif büyümesinin borç yapısındaki iyileşmeye rağmen kârlılıkta gerilemeye neden olduğunu ortaya koyuyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

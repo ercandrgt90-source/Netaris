@@ -1,13 +1,13 @@
 ---
 slug: ismen-2026-2-ceyrek
 baslik: İŞ YATIRIM MENKUL DEĞERLER A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat 1089,92 milyar TL'den 1098,21 milyar TL'ye yükselirken, faaliyet kârı 10,58 milyar TL'den 8,56 milyar TL'ye, net kâr ise 4,04 milyar TL'den 2,62 milyar TL'ye gerilemiştir; bu düşüş özkaynakların 29,68 milyar TL'den 41,78 milyar TL'ye artması ve aktif toplamının 100,96 milyar TL'den 173,91 mi…
+ozet: Hasılat hafif artarken faaliyet kârı ve net kârda belirgin düşüş görülmüş; bu, kâr marjının %0,3'e gerilemesine ve özkaynak kârlılığının %4,1'e düşmesine yol açmış.…
 sirket: İŞ YATIRIM MENKUL DEĞERLER A.Ş.
 kod: ISMEN
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Finans
-tarih: 2026-08-28
+tarih: 2026-08-30
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat 1089,92 milyar TL'den 1098,21 milyar TL'ye yükselirken, faaliyet kârı 10,58 milyar TL'den 8,56 milyar TL'ye, net kâr ise 4,04 milyar TL'den 2,62 milyar TL'ye gerilemiştir; bu düşüş özkaynakların 29,68 milyar TL'den 41,78 milyar TL'ye artması ve aktif toplamının 100,96 milyar TL'den 173,91 milyar TL'ye yükselmesiyle birlikte, net borcun –9,29 milyar TL'den 22,98 milyar TL'ye geçmesi ve faaliyet nakit akışının –8,93 milyar TL'den –41,93 milyar TL'ye derinleşmesiyle paralel bir seyir izlenmiştir. Net kâr marjı %0,3 seviyesinde kalırken, özkaynak kârlılığı %4,1'e, borç/özkaynak oranı ise 0,55'e yükselmiştir; bu oranlar sektör medyanı %14,7, %4,5 ve –%0,05 ile karşılaştırıldığında farklı bir dağılım göstermektedir. Yatırım harcaması iki dönemde de 0,08 milyar TL olarak sabit kalmıştır.
+Hasılat hafif artarken faaliyet kârı ve net kârda belirgin düşüş görülmüş; bu, kâr marjının %0,3'e gerilemesine ve özkaynak kârlılığının %4,1'e düşmesine yol açmış. Aynı dönemde özkaynak 41,78 milyar TL'ye yükselmiş ve aktif toplamı 173,91 milyar TL'ye çıkmış; bu büyüme, net borcun 22,98 milyar TL'ye (önceki dönemde negatif) kaymasıyla birlikte borç/özkaynak oranının 0,55'e yükselmesine neden olmuş. Faaliyet nakit akışı ise -41,93 milyar TL olarak artmış, bu da yatırım harcamasının sabit kalmasına rağmen likidite sıkışmasının derinleştiğini gösteriyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

@@ -1,13 +1,13 @@
 ---
 slug: avhol-2026-2-ceyrek
 baslik: AVRUPA YATIRIM HOLDİNG A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat gerilerken brüt kâr yatay kaldı; brüt kâr marjı %41,5 ile sektör medyanı %45,1'in altında sıralandı. Faaliyet kârı ve FAVÖK hasılatın üzerine çıkacak biçimde artmasına karşın net kâr zarara döndü ve özkaynak geriledi; bu ayrışma sonucun faaliyet dışı kalemlerce belirlendiğine işaret ediyor,…
+ozet: Hasılatın %30 azalması (0,20 milyar TL) gerçekleşirken brüt kâr aynı seviyede kalmış (0,07 milyar TL) ve brüt kâr marjı %41,5'e yükselmiş; bu durum maliyetlerdeki düşüşün kâr üzerindeki etkisini gösteriyor.…
 sirket: AVRUPA YATIRIM HOLDİNG A.Ş.
 kod: AVHOL
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Finans
-tarih: 2026-08-28
+tarih: 2026-08-30
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat gerilerken brüt kâr yatay kaldı; brüt kâr marjı %41,5 ile sektör medyanı %45,1'in altında sıralandı. Faaliyet kârı ve FAVÖK hasılatın üzerine çıkacak biçimde artmasına karşın net kâr zarara döndü ve özkaynak geriledi; bu ayrışma sonucun faaliyet dışı kalemlerce belirlendiğine işaret ediyor, öte yandan raporlanan net kâr marjı (%269,5) ve özkaynak kârlılığı (%16,2) sektör medyanlarının üzerinde konumlandı. Aktif toplamı büyürken net borç negatif bölgede daralmış, aynı dönemde faaliyet nakit akışı ve yatırım harcaması birlikte yükselmiş; cari oran 1,14 ile medyan 12,09'un, borç/özkaynak -0,16 ile medyan -0,05'in altında yer aldı.
+Hasılatın %30 azalması (0,20 milyar TL) gerçekleşirken brüt kâr aynı seviyede kalmış (0,07 milyar TL) ve brüt kâr marjı %41,5'e yükselmiş; bu durum maliyetlerdeki düşüşün kâr üzerindeki etkisini gösteriyor. Faaliyet kârı ve FAVÖK, sırasıyla 0,30 milyar TL ve 0,31 milyar TL olarak önceki döneme göre büyük artışlar (0,05 milyar TL ve 0,06 milyar TL) kaydetmiş, bu da faaliyet nakit akışının 0,28 milyar TL'ye çıkmasıyla paralel bir likidite iyileşmesi sağladı. Net kârın -0,10 milyar TL'ye gerilemesi (önceki 1,17 milyar TL) net kâr marjını %269,5'e çıkarırken, özkaynak kârlılığı %16,2'ye yükselmiş; aynı zamanda özkaynakların azalması (1,90 milyar TL) ve negatif net borcun (-0,31 milyar TL) iyileşmesi, borç/özkaynak oranını –0,16'ya çekmiş.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

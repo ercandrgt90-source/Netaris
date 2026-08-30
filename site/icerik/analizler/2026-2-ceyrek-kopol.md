@@ -1,13 +1,13 @@
 ---
 slug: kopol-2026-2-ceyrek
 baslik: KOZA POLYESTER SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %16,1 artışı brüt kâr marjını sektör medyanının %14,1'inden yukarıda tutarken, net kârın %21,2'ye yükselmesi net kâr marjını da medyan %2,4'ün çok üzerine taşıdı; bu durum brüt kâr artışıyla birlikte faaliyet kârının hafif düşmesi (0,36 → 0,35 milyar TL) ve FAVÖK'ün de benzer bir azalış gö…
+ozet: Hasılatın %16,1 artışı brüt kâr marjını sektör medyanının %14,1'ini aşacak seviyeye taşıdı; brüt kârdaki bu yükseliş net kâr marjının %21,2'ye çıkmasını ve net kârın önceki dönemdeki %0,13'den %0,44'e sıçramasını destekledi.…
 sirket: KOZA POLYESTER SANAYİ VE TİCARET A.Ş.
 kod: KOPOL
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Temel malzeme
-tarih: 2026-08-27
+tarih: 2026-08-30
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %16,1 artışı brüt kâr marjını sektör medyanının %14,1'inden yukarıda tutarken, net kârın %21,2'ye yükselmesi net kâr marjını da medyan %2,4'ün çok üzerine taşıdı; bu durum brüt kâr artışıyla birlikte faaliyet kârının hafif düşmesi (0,36 → 0,35 milyar TL) ve FAVÖK'ün de benzer bir azalış göstermesi (0,45 → 0,44 milyar TL) arasındaki ters ilişkiyi ortaya koyar. Özkaynakların 5,46 milyar TL'ye (4,20 milyar TL'den) yükselmesi özkaynak kârlılığını %7,7'ye (medyan %1,3) çıkarırken, aynı dönemde net borçtaki artış (2,25 → 2,62 milyar TL) borç/özkaynak oranını %0,48'ye (medyan %0,21) yükseltti; bu da likiditeyi gösteren cari oranın 1,67'ye (medyan 1,36) yükselmesiyle dengelendi. Faaliyet nakit akışının negatiften (+0,15 milyar TL) pozitife dönmesi, yatırım harcamasının sabit kalması (0,01 milyar TL) ve aktif toplamının 7,94 → 10,03 milyar TL'ye artması, büyüyen bilanço kalemlerinin nakit üretimindeki iyileşmeyle birlikte gerçekleşti.
+Hasılatın %16,1 artışı brüt kâr marjını sektör medyanının %14,1'ini aşacak seviyeye taşıdı; brüt kârdaki bu yükseliş net kâr marjının %21,2'ye çıkmasını ve net kârın önceki dönemdeki %0,13'den %0,44'e sıçramasını destekledi. Özkaynakların %5,46 milyar TL'ye yükselmesi özkaynak kârlılığını %7,7'ye getirirken, aktif toplamının %10,03 milyar TL'ye artması cari oranı 1,67'ye, borç/özkaynak oranını ise 0,48'e yükseltti; bu da likidite iyileşmesinin borç yapısının hafifçe artmasına rağmen özkaynak büyümesiyle dengelendiğini gösteriyor. Faaliyet nakit akışının negatiften +0,15 milyar TL'ye dönmesi, yatırım harcamasının sabit kalmasıyla birlikte işletme faaliyetlerinin nakit üretimindeki dönüşümün brüt ve net kâr artışlarıyla paralel olduğunu ortaya koyuyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

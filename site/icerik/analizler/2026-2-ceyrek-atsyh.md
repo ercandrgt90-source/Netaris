@@ -1,9 +1,9 @@
 ---
-slug: gents-2026-2-ceyrek
-baslik: GENTAŞ DEKORATİF YÜZEYLER SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın düşmesi brüt kârın da azalmasına yol açmış; brüt kârın azalması ise faaliyet ve FAVÖK kârlarındaki düşüşü tetiklemiş, bu da net kârda önceki döneme göre artış olmasına rağmen marjların negatif seyretmesine neden olmuş.…
-sirket: GENTAŞ DEKORATİF YÜZEYLER SANAYİ VE TİCARET A.Ş.
-kod: GENTS
+slug: atsyh-2026-2-ceyrek
+baslik: ATLANTİS YATIRIM HOLDİNG A.Ş. 2026 2. çeyrek bilanço analizi
+ozet: Hasılat iki katına çıkarken brüt kâr aynı seviyede kalmış, bu durum brüt kâr marjının %13,5 ile sektör medyanının %16,0 altında kalmasına yol açmıştır; aynı zamanda faaliyet ve FAVÖK kârları da önceki döneme göre artmış ancak net kâr hâlâ negatif kalmıştır.…
+sirket: ATLANTİS YATIRIM HOLDİNG A.Ş.
+kod: ATSYH
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: İsteğe bağlı tüketim
@@ -18,22 +18,21 @@ sayimlar:
 
 ## Özet
 
-Hasılatın düşmesi brüt kârın da azalmasına yol açmış; brüt kârın azalması ise faaliyet ve FAVÖK kârlarındaki düşüşü tetiklemiş, bu da net kârda önceki döneme göre artış olmasına rağmen marjların negatif seyretmesine neden olmuş. Özkaynak ve aktif toplamındaki artış net borcun daha da negatif (nakit fazlası) kalmasına katkı sağlarken, cari oranın yükselmesi likidite iyileşmesini, borç/özkaynak oranının negatif kalması ise finansal riskin düşük olduğunu gösteriyor.
+Hasılat iki katına çıkarken brüt kâr aynı seviyede kalmış, bu durum brüt kâr marjının %13,5 ile sektör medyanının %16,0 altında kalmasına yol açmıştır; aynı zamanda faaliyet ve FAVÖK kârları da önceki döneme göre artmış ancak net kâr hâlâ negatif kalmıştır. Özkaynakların %0,15'e yükselmesi aktif toplamının %0,38'e çıkmasıyla birlikte cari oran 1,16'ya, borç/özkaynak oranı ise 0,00'a gerilemiş; bu likidite iyileşmesi net kâr marjının –%1,5 ve özkaynak kârlılığının –%0,4 gibi negatif oranlarla birlikte sürmektedir. Dolayısıyla gelir artışı bilanço büyüklüğünü artırırken kârlılık göstergeleri sektör medyanının altında kalmaya devam etmektedir.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | -%3,6 |
-| Brüt kâr | -%5,7 |
-| Faaliyet kârı | -%17,9 |
-| FAVÖK | -%11,9 |
-| Net kâr | %284,3 |
-| Özkaynak | %44,6 |
-| Aktif toplamı | %35,8 |
-| Net borç | -%167,7 |
-| Faaliyet nakit akışı | -%153,7 |
-| Yatırım harcaması | -%53,3 |
+| Hasılat | %127,2 |
+| Brüt kâr | -%17,0 |
+| Faaliyet kârı | %150,7 |
+| FAVÖK | %138,7 |
+| Net kâr | %112,9 |
+| Özkaynak | %24,5 |
+| Aktif toplamı | %146,6 |
+| Net borç | -%6,2 |
+| Faaliyet nakit akışı | %75,0 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -41,16 +40,15 @@ Hasılatın düşmesi brüt kârın da azalmasına yol açmış; brüt kârın a
 
 | Kalem | Değer |
 | --- | ---: |
-| Hasılat | 2,64 milyar TL |
-| Brüt kâr | 0,57 milyar TL |
-| Faaliyet kârı | 0,18 milyar TL |
-| FAVÖK | 0,29 milyar TL |
-| Net kâr | 0,20 milyar TL |
-| Özkaynak | 4,30 milyar TL |
-| Aktif toplamı | 6,45 milyar TL |
-| Net borç | -0,18 milyar TL |
-| Faaliyet nakit akışı | -0,05 milyar TL |
-| Yatırım harcaması | 0,06 milyar TL |
+| Hasılat | 0,06 milyar TL |
+| Brüt kâr | 0,01 milyar TL |
+| Faaliyet kârı | 0,01 milyar TL |
+| FAVÖK | 0,01 milyar TL |
+| Net kâr | 0,00 milyar TL |
+| Özkaynak | 0,15 milyar TL |
+| Aktif toplamı | 0,38 milyar TL |
+| Net borç | 0,00 milyar TL |
+| Faaliyet nakit akışı | 0,00 milyar TL |
 
 ## Sektör içindeki konum
 
@@ -58,11 +56,11 @@ Karşılaştırma İsteğe bağlı tüketim sektöründeki 63 şirketin **medyan
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %23,6 | %16,0 |
-| Net kâr marjı | -%7,6 | %0,6 |
-| Özkaynak kârlılığı | -%2,3 | %0,5 |
-| Cari oran | 1,92 | 1,29 |
-| Borç / özkaynak | -0,04 | 0,13 |
+| Brüt kâr marjı | %13,5 | %16,0 |
+| Net kâr marjı | -%1,5 | %0,6 |
+| Özkaynak kârlılığı | -%0,4 | %0,5 |
+| Cari oran | 1,16 | 1,29 |
+| Borç / özkaynak | 0,00 | 0,13 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -70,11 +68,13 @@ Karşılaştırma İsteğe bağlı tüketim sektöründeki 63 şirketin **medyan
 
 **Şirket lehine işleyenler**
 
-- Net kâr reel olarak %284,3 arttı.
+- Hasılat reel olarak %127,2 arttı.
+- Net kâr reel olarak %112,9 arttı.
 
 **Dikkat gerektirenler**
 
-- Faaliyet nakit akışı net kârın -%26 kadarı; kâr ile nakit üretimi ayrışıyor.
+- Brüt marj 16,7 puan daraldı (%26,3 → %9,6).
+- Faaliyet nakit akışı net kârın -%29 kadarı; kâr ile nakit üretimi ayrışıyor.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

@@ -1,13 +1,13 @@
 ---
 slug: elite-2026-2-ceyrek
 baslik: ELİTE NATUREL ORGANİK GIDA SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %39,7 brüt kâr marjıyla birlikte yükselmesi brüt kârın 1,05 milyar TL'den 0,55 milyar TL'ye, ardından %4,0 net kâr marjının hâlâ düşük kalmasına rağmen net kârın 0,21 milyar TL'den 0,05 milyar TL'ye gerilemesine yol açtı; bu düşüş, faaliyet nakit akışının 0,31 milyar TL'den sıfıra inmesiyl…
+ozet: Hasılatın %39,7 brüt kâr marjı ile birlikte yükselmesi brüt kârda da artışa yol açarken, net kâr marjının %4,0 seviyesine gerilemesi net kârın önceki dönemdeki %0,21 milyar'dan %0,05 milyar'a düşmesine neden oldu; bu durum faaliyet kârı ve FAVÖK'ün ise hasılat artışına paralel olarak hafif artış gös…
 sirket: ELİTE NATUREL ORGANİK GIDA SANAYİ VE TİCARET A.Ş.
 kod: ELITE
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Temel tüketim
-tarih: 2026-08-28
+tarih: 2026-08-30
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %39,7 brüt kâr marjıyla birlikte yükselmesi brüt kârın 1,05 milyar TL'den 0,55 milyar TL'ye, ardından %4,0 net kâr marjının hâlâ düşük kalmasına rağmen net kârın 0,21 milyar TL'den 0,05 milyar TL'ye gerilemesine yol açtı; bu düşüş, faaliyet nakit akışının 0,31 milyar TL'den sıfıra inmesiyle paralel bir azalmayı işaret ediyor. Özkaynakların 1,86 milyar TL'den 2,70 milyar TL'ye artması ve net borcun –0,07 milyar TL'den 0,02 milyar TL'ye geçmesi, cari oranın 1,36'dan 2,94'e yükselmesi ve borç/özkaynak oranının 0,26'dan 0,01'e düşmesiyle birlikte likidite ve finansal kaldıraçta iyileşme gösterdi. Aktif toplamının 2,30 milyar TL'den 3,55 milyar TL'ye artışı, yatırım harcamasının 0,06 milyar TL'den 0,03 milyar TL'ye azalmasıyla birlikte varlık bazlı büyümenin sürdüğünü, ancak operasyonel kârlılıkta net kârın gerilemesiyle bir tutarsızlık olduğunu ortaya koydu.
+Hasılatın %39,7 brüt kâr marjı ile birlikte yükselmesi brüt kârda da artışa yol açarken, net kâr marjının %4,0 seviyesine gerilemesi net kârın önceki dönemdeki %0,21 milyar'dan %0,05 milyar'a düşmesine neden oldu; bu durum faaliyet kârı ve FAVÖK'ün ise hasılat artışına paralel olarak hafif artış göstermesine (faaliyet kârı %0,21 milyar, FAVÖK %0,27 milyar) yansıyor. Özkaynakların %2,70 milyar'a çıkması ve net borcun –%0,07 milyardan +%0,02 milyara geçmesi özkaynak/karlılık oranını %1,1'e yükseltirken, cari oran 2,94 ve borç/özkaynak oranı 0,01 gibi sektör medyanının üzerinde değerler bilanço likiditesinin güçlenmesini gösteriyor. Faaliyet nakit akışının sıfıra gerilemesi ve yatırım harcamasının %0,03 milyara düşmesi, artan aktif toplamı (%3,55 milyar) ve özkaynak artışıyla birlikte şirketin nakit üretiminden ziyade sermaye genişlemesine odaklandığını ortaya koyuyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

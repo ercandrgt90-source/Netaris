@@ -7,7 +7,7 @@ kod: ZRGYO
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-28
+tarih: 2026-08-30
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat 2,15 milyar TL'ye yükselirken net kâr 0,94 milyar TL'den 2,79 milyar TL'ye gerilemiş; bu düşüş, faaliyet nakit akışının 0,96 milyar TL'den 1,30 milyar TL'ye düşmesiyle paralel bir azalmayı yansıtıyor. Özkaynak 93,73 milyar TL'ye artarken aktif toplamı 115,33 milyar TL'ye yükselmiş, bu da net borcun 5,59 milyar TL'den 10,14 milyar TL'ye çıkmasıyla borç/özkaynak oranının %0,02'den %0,11'e yükselmesine neden olmuş. Net kâr marjı %42,6 (sektör medyanı %14,3) ve özkaynak kârlılığı %0,6 (sektör medyanı %0,4) artış gösterse de, artan borç seviyesi bu kârlılık oranlarının yükselmesine karşı bir denge unsuru oluşturmuş.
+Hasılat 2,15 milyar TL'ye yükselirken net kâr 0,94 milyar TL'den 2,79 milyar TL'ye gerilemiş; bu düşüş, faaliyet nakit akışının 0,96 milyar TL'den 1,30 milyar TL'ye düşmesiyle paralel bir azalmayı yansıtıyor. Özkaynak 93,73 milyar TL'ye artarken net borç 10,14 milyar TL'ye yükselmiş, bu da borç/özkaynak oranının %0,11'e (sektör medyanı %0,02) çıkmasına neden olmuş. Net kâr marjı %42,6 (sektör medyanı %14,3) ve özkaynak kârlılığı %0,6 (sektör medyanı %0,4) artış gösterse de, aktif toplamının 115,33 milyar TL'ye (önceki 75,44 milyar TL) genişlemesi bilanço büyüklüğündeki yükselişi işaret ediyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
