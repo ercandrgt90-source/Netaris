@@ -1,13 +1,13 @@
 ---
 slug: eggub-2026-2-ceyrek
 baslik: EGE GÜBRE SANAYİİ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın yükselmesi brüt kârı artırarak %53,4 brüt kâr marjının sektör medyanının %20,9'unu aşmasına, bunun da faaliyet kârı ve FAVÖK'te sırasıyla %0,83 milyar ve %1,14 milyar artışa yansıması; net kârın %0,28 milyar olması ise %18,2 net kâr marjını sağlayıp özkaynak kârlılığını %2,1'e çıkarırken ö…
+ozet: Hasılatın yükselmesiyle brüt kâr, faaliyet kârı, FAVÖK ve net kâr da artış göstererek brüt kâr marjı %53,4 ve net kâr marjı %18,2 seviyelerine ulaşmış; bu kâr artışı özkaynakların %10,20 milyar'dan %7,26 milyara yükselmesiyle özkaynak kârlılığının %2,1'e çıkmasına paralel ilerlemiş.…
 sirket: EGE GÜBRE SANAYİİ A.Ş.
 kod: EGGUB
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Sanayi
-tarih: 2026-08-28
+tarih: 2026-08-31
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın yükselmesi brüt kârı artırarak %53,4 brüt kâr marjının sektör medyanının %20,9'unu aşmasına, bunun da faaliyet kârı ve FAVÖK'te sırasıyla %0,83 milyar ve %1,14 milyar artışa yansıması; net kârın %0,28 milyar olması ise %18,2 net kâr marjını sağlayıp özkaynak kârlılığını %2,1'e çıkarırken özkaynakların %10,20 milyara yükselmesi bilanço büyüklüğünü %12,68 milyara taşıdı. Özsermaye artışı ve aktif toplamındaki büyüme, negatif net borç (-%0,33 milyar) ve borç/özkaynak oranının –%0,03 olmasıyla birlikte cari oranı 1,75'e yükselterek likidite pozisyonunu sektör medyanı 1,32'nin üzerine taşıdı. Yatırım harcamasının %0,51 milyara gerilemesi, faaliyet nakit akışının %1,14 milyarda sabit kalmasıyla birlikte sermaye harcamalarının kâr üretimine oranını sınırlı tutarak özkaynak kârlılığı ve marjların yükselmesine destek oldu.
+Hasılatın yükselmesiyle brüt kâr, faaliyet kârı, FAVÖK ve net kâr da artış göstererek brüt kâr marjı %53,4 ve net kâr marjı %18,2 seviyelerine ulaşmış; bu kâr artışı özkaynakların %10,20 milyar'dan %7,26 milyara yükselmesiyle özkaynak kârlılığının %2,1'e çıkmasına paralel ilerlemiş. Aktif toplamının %12,68 milyara çıkması ve net borcun –%0,33 milyara gerilemesi, cari oranı 1,75 ve borç/özkaynak oranını –%0,03'e indirerek likidite ve finansal yapıdaki iyileşmeyi yansıtmaktadır. Yatırım harcamasının %0,51 milyara düşmesi, faaliyet nakit akışının aynı seviyede (1,14 milyar) kalmasıyla birlikte, kârların büyümesinin büyük ölçüde operasyonel verimlilikten kaynaklandığını gösteriyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

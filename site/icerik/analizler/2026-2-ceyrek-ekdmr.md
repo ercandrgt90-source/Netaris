@@ -1,13 +1,13 @@
 ---
 slug: ekdmr-2026-2-ceyrek
 baslik: EKİNCİLER DEMİR VE ÇELİK SANAYİ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Brüt kâr marjının %6,0 olması sektör medyanı %14,1'in çok altında, bu durum brüt kârın hasılat içinde düşük bir paya sahip olduğunu ve dolayısıyla faaliyet kârı (%2,5) ve net kâr (%2,7) gibi kâr kalemlerinin de sınırlı kalmasına yol açtığını gösterir; net kâr marjının %3,0 olması ise sektörel ortala…
+ozet: Brüt kâr marjının %6,0 olması, hasılatın %6,0'ı kadar brüt kâr (0,69 milyar TL) üretildiği ve bu düşük marjın net kâr marjını %3,0'a (0,32 milyar TL) yükseltirken faaliyet kârı ve FAVÖK'ün de sırasıyla %2,5 (0,29 milyar TL) ve %3,2 (0,40 milyar TL) seviyelerinde kalmasına yol açtığını gösterir; net…
 sirket: EKİNCİLER DEMİR VE ÇELİK SANAYİ A.Ş.
 kod: EKDMR
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Temel malzeme
-tarih: 2026-08-30
+tarih: 2026-08-31
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Brüt kâr marjının %6,0 olması sektör medyanı %14,1'in çok altında, bu durum brüt kârın hasılat içinde düşük bir paya sahip olduğunu ve dolayısıyla faaliyet kârı (%2,5) ve net kâr (%2,7) gibi kâr kalemlerinin de sınırlı kalmasına yol açtığını gösterir; net kâr marjının %3,0 olması ise sektörel ortalamanın %2,4'ünden biraz daha yüksek olmasına rağmen brüt kârın düşük seviyesinden kaynaklanan bir dengeyi yansıtır. Özkaynak kârlılığı %1,3 sektör medyanıyla aynı seviyede olduğu için özkaynak getirisi brüt ve net kâr oranlarıyla paralel seyretmiş, bu da özkaynakların kârlı bir şekilde kullanılmadığını işaret eder. Cari oran 1,31 ve borç/özkaynak oranı 0,06, sektör medyanları (1,36 ve 0,21) ile karşılaştırıldığında likidite ve finansal kaldıraç açısından şirketin daha az borçlu ve likidite açısından biraz daha düşük bir tampon sunduğu, ancak düşük brüt kâr marjının faaliyet nakit akışının –1,22 milyar TL olarak negatif olmasına ve yatırım harcamasının 0,81 milyar TL'ye kadar çıkmasına zemin hazırladığı görülür.
+Brüt kâr marjının %6,0 olması, hasılatın %6,0'ı kadar brüt kâr (0,69 milyar TL) üretildiği ve bu düşük marjın net kâr marjını %3,0'a (0,32 milyar TL) yükseltirken faaliyet kârı ve FAVÖK'ün de sırasıyla %2,5 (0,29 milyar TL) ve %3,2 (0,40 milyar TL) seviyelerinde kalmasına yol açtığını gösterir; net borçın 1,06 milyar TL olması, aktif toplamının %4,1'i (1,06/26,04) olduğu için cari oran 1,31 ve borç/özkaynak oranı 0,06 gibi düşük finansal risk göstergeleriyle birlikte özkaynak kârlılığının %1,3'e (özkaynak 17,03 milyar TL) eşitlenmesini sağlar; faaliyet nakit akışının –1,22 milyar TL olması, yatırım harcaması 0,81 milyar TL ile karşılanamadığından özkaynakların artışına katkı sağlamaz ve net kârın nakit akışından bağımsız olarak gerçekleştiğini gösterir.
 
 ## 2026 2. çeyrek dönemi ölçümleri
 

@@ -1,13 +1,13 @@
 ---
 slug: bulgs-2026-2-ceyrek
 baslik: BULLS GİRİŞİM SERMAYESİ YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat, brüt kâr ve FAVÖK gibi gelir bazlı kalemler birlikte düşmüş; bu düşüş brüt kâr marjının %97,3 seviyesinde kalmasına rağmen net kâr marjının -%3532,1'e gerilemesiyle sonuçlanmış, çünkü faaliyet ve net kârlar aynı dönemde sırasıyla 0,12 milyar TL ve -1,12 milyar TL olarak azalmış.…
+ozet: Hasılat, brüt kâr, faaliyet kârı ve FAVÖK tümü önceki döneme göre büyük düşüş gösterirken, net kâr daha da derinleşerek negatif değerini artırdı; bu gelir düşüşü aynı zamanda özkaynak kârlılığının da negatif %13,1'e gerilemesine yol açtı.…
 sirket: BULLS GİRİŞİM SERMAYESİ YATIRIM ORTAKLIĞI A.Ş.
 kod: BULGS
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Finans
-tarih: 2026-08-30
+tarih: 2026-08-31
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat, brüt kâr ve FAVÖK gibi gelir bazlı kalemler birlikte düşmüş; bu düşüş brüt kâr marjının %97,3 seviyesinde kalmasına rağmen net kâr marjının -%3532,1'e gerilemesiyle sonuçlanmış, çünkü faaliyet ve net kârlar aynı dönemde sırasıyla 0,12 milyar TL ve -1,12 milyar TL olarak azalmış. Özkaynak ve aktif toplamı ise önceki döneme göre artmış; özkaynak 7,70 milyar TL'ye, aktif toplamı 7,74 milyar TL'ye yükselirken net borç -0,98 milyar TL (daha negatif) ve cari oran 27,59'a çıkmış, bu da likidite ve özkaynak bazlı finansal yapıdaki iyileşmeyi gösteriyor. Faaliyet nakit akışı negatif kalmış ancak önceki döneme göre -0,61 milyar TL'ye yükselmiş, bu da nakit çıkışının hafiflediğini ancak hâlâ negatif olduğunu ortaya koyuyor.
+Hasılat, brüt kâr, faaliyet kârı ve FAVÖK tümü önceki döneme göre büyük düşüş gösterirken, net kâr daha da derinleşerek negatif değerini artırdı; bu gelir düşüşü aynı zamanda özkaynak kârlılığının da negatif %13,1'e gerilemesine yol açtı. Özkaynak ve toplam aktifin artışı, net borcun negatif kalmasıyla birlikte cari oranın %27,59'a yükselmesine ve borç/özkaynak oranının -%0,13'e (sektör medyanının -%0,05) yaklaşmasına neden oldu. Brüt kâr marjı %97,3 ile sektör medyanının %45,1'ini çok aşarken, net kâr marjının -%3532,1 gibi aşırı negatif olması, karlılık ve verimlilik arasındaki dengesizliği gösteriyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

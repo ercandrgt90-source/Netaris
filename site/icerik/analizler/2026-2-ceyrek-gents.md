@@ -1,13 +1,13 @@
 ---
 slug: gents-2026-2-ceyrek
 baslik: GENTAŞ DEKORATİF YÜZEYLER SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın düşmesi brüt kârın da azalmasına yol açmış; brüt kârın azalması ise faaliyet ve FAVÖK kârlarındaki düşüşü tetiklemiş, bu da net kârda önceki döneme göre artış olmasına rağmen marjların negatif seyretmesine neden olmuş.…
+ozet: Hasılatın düşmesi brüt kârın da azalmasına yol açarken, brüt kâr marjının sektör medyanının (%16,3) üzerindeki %23,6 seviyesinde kalması, maliyet yapısının hasılat düşüşüne rağmen daha az etkilenmiş olduğunu gösterir; net kârın önceki döneme göre artması ise özkaynakların (%4,30) ve aktif toplamının…
 sirket: GENTAŞ DEKORATİF YÜZEYLER SANAYİ VE TİCARET A.Ş.
 kod: GENTS
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: İsteğe bağlı tüketim
-tarih: 2026-08-30
+tarih: 2026-08-31
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın düşmesi brüt kârın da azalmasına yol açmış; brüt kârın azalması ise faaliyet ve FAVÖK kârlarındaki düşüşü tetiklemiş, bu da net kârda önceki döneme göre artış olmasına rağmen marjların negatif seyretmesine neden olmuş. Özkaynak ve aktif toplamındaki artış net borcun daha da negatif (nakit fazlası) kalmasına katkı sağlarken, cari oranın yükselmesi likidite iyileşmesini, borç/özkaynak oranının negatif kalması ise finansal riskin düşük olduğunu gösteriyor.
+Hasılatın düşmesi brüt kârın da azalmasına yol açarken, brüt kâr marjının sektör medyanının (%16,3) üzerindeki %23,6 seviyesinde kalması, maliyet yapısının hasılat düşüşüne rağmen daha az etkilenmiş olduğunu gösterir; net kârın önceki döneme göre artması ise özkaynakların (%4,30) ve aktif toplamının (%6,45) önemli ölçüde yükselmesiyle birlikte özkaynak kârlılığının negatif (%-2,3) kalmasına rağmen net kâr marjının (%-7,6) sektör ortalamasının (%0,6) altında kalmasına neden olmuştur. Cari oranının (1,92) ve borç/özkaynak oranının (-0,04) sektör medyanlarının (1,29 ve 0,14) üzerinde olması, likidite ve finansal yapıdaki iyileşmenin faaliyet nakit akışının (-0,05) ve yatırım harcamasının (0,06) azalmasıyla birlikte gerçekleştiğini gösterir. Faaliyet nakit akışının negatifleşmesi, yatırım harcamasının azalması ve net borcun (-0,18) artması, özkaynak artışı ve aktif büyümesiyle birlikte şirketin likidite pozisyonunu destekleyen bir borçlanma stratejisine işaret eder.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
@@ -54,15 +54,15 @@ Hasılatın düşmesi brüt kârın da azalmasına yol açmış; brüt kârın a
 
 ## Sektör içindeki konum
 
-Karşılaştırma İsteğe bağlı tüketim sektöründeki 63 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma İsteğe bağlı tüketim sektöründeki 62 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %23,6 | %16,0 |
+| Brüt kâr marjı | %23,6 | %16,3 |
 | Net kâr marjı | -%7,6 | %0,6 |
-| Özkaynak kârlılığı | -%2,3 | %0,5 |
+| Özkaynak kârlılığı | -%2,3 | %0,6 |
 | Cari oran | 1,92 | 1,29 |
-| Borç / özkaynak | -0,04 | 0,13 |
+| Borç / özkaynak | -0,04 | 0,14 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

@@ -1,13 +1,13 @@
 ---
 slug: dzgyo-2026-2-ceyrek
 baslik: DENİZ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat ve brüt kâr birlikte yükselirken, brüt kâr marjı %40,6 seviyesinde kalmış ve sektör medyanının %51,4'ünün altında kalmıştır; bu durum, gelir artışının kâr oranına tam yansımadığını gösterir.…
+ozet: Hasılat ve brüt kâr birlikte yükselirken, brüt kâr marjının %40,6 seviyesinde kalması, kârın satış artışına paralel olarak büyüdüğünü gösteriyor; ancak faaliyet kârı ve FAVÖK'ün -0,16 milyar TL'ye gerilemesi, artan brüt kârdan sonra işletme giderlerinin (özellikle sabit maliyetlerin) daha hızlı yüks…
 sirket: DENİZ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: DZGYO
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-30
+tarih: 2026-08-31
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat ve brüt kâr birlikte yükselirken, brüt kâr marjı %40,6 seviyesinde kalmış ve sektör medyanının %51,4'ünün altında kalmıştır; bu durum, gelir artışının kâr oranına tam yansımadığını gösterir. Faaliyet kârı, FAVÖK ve net kâr tümü negatif seyrederek önceki dönemdeki -%93,6 net kâr marjının daha da derinleşmesine yol açmış, aynı zamanda faaliyet nakit akışı da -0,13 milyar TL'ye düşmüştür. Özkaynak ve aktif toplamı artış gösterirken, net borç pozitifleşmiş ve cari oran 2,55'e yükselmiş, ancak borç/özkaynak oranı %0,03 ile sektör medyanının %0,02'sine yakın kalmıştır.
+Hasılat ve brüt kâr birlikte yükselirken, brüt kâr marjının %40,6 seviyesinde kalması, kârın satış artışına paralel olarak büyüdüğünü gösteriyor; ancak faaliyet kârı ve FAVÖK'ün -0,16 milyar TL'ye gerilemesi, artan brüt kârdan sonra işletme giderlerinin (özellikle sabit maliyetlerin) daha hızlı yükseldiğini, bu yüzden net kârın -%93,6'lık negatif marja sürüklendiğini ortaya koyuyor. Özkaynak ve aktif toplamının artışı net borcun 0,17 milyar TL'ye çıkmasıyla birlikte borç/özkaynak oranının %0,03'a yükselmesi, şirketin özkaynak bazlı büyümesinin borçlanma yoluyla sınırlı bir ek finansman sağladığını ve cari oranın 2,55 seviyesinde kalmasının, likidite durumunun sektör medyanı 5,25'in altında kalarak kısa vadeli yükümlülükleri karşılamada sınırlı bir tampon oluşturduğunu gösteriyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

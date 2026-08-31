@@ -1,13 +1,13 @@
 ---
 slug: atagy-2026-2-ceyrek
 baslik: ATA GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat aynı kalırken net kâr -0,02 milyar TL'ye düşmüş, bu durum net kâr marjının -%28,2'ye gerilemesine yol açmış; aynı dönemde faaliyet nakit akışı 0,01 milyar TL'ye yükselerek negatiften çıkmış ve net borç -0,03 milyar TL'ye azalarak özkaynak kârlılığına olumsuz yansıyan zararları bir nebze deng…
+ozet: Hasılat aynı kalırken net kâr -%28,2 lik negatif marjla -0,02 milyar TL'ye geriledi; bu düşüş, özkaynak kârlılığının da -%0,5'e inmesiyle özkaynakların (0,84 milyar TL) artışına rağmen kârlı bir büyüme gerçekleşmediğini gösteriyor.…
 sirket: ATA GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: ATAGY
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-30
+tarih: 2026-08-31
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat aynı kalırken net kâr -0,02 milyar TL'ye düşmüş, bu durum net kâr marjının -%28,2'ye gerilemesine yol açmış; aynı dönemde faaliyet nakit akışı 0,01 milyar TL'ye yükselerek negatiften çıkmış ve net borç -0,03 milyar TL'ye azalarak özkaynak kârlılığına olumsuz yansıyan zararları bir nebze dengelemiş. Özkaynak 0,84 milyar TL'ye yükselmiş, aktif toplamının 1,05 milyar TL'ye artmasıyla birlikte borç/özkaynak oranı -0,03 (sektör medyanı 0,02) oluşmuş, bu da özkaynak artışının aktif büyümesiyle birlikte borç seviyesinin daha da azaldığını gösteriyor. Net kârdaki düşüş ve negatif marj, özkaynak ve aktif büyümesinin borç yapısındaki iyileşmeye rağmen kârlılıkta gerilemeye neden olduğunu ortaya koyuyor.
+Hasılat aynı kalırken net kâr -%28,2 lik negatif marjla -0,02 milyar TL'ye geriledi; bu düşüş, özkaynak kârlılığının da -%0,5'e inmesiyle özkaynakların (0,84 milyar TL) artışına rağmen kârlı bir büyüme gerçekleşmediğini gösteriyor. Aktif toplamı 1,05 milyar TL'ye yükselirken net borç -0,03 milyar TL (düşük borçlu) ve borç/özkaynak oranı -0,03 (sektör medyanı 0,02) artı bir likidite pozisyonu sağlasa da, faaliyet nakit akışı 0,01 milyar TL'ye geçerek negatiften pozitife dönmüş olması, kâr kaybının nakit akışı üzerindeki etkisinin hafiflediğini işaret ediyor. Bu veriler, gelirde değişiklik olmadan maliyet ve giderlerdeki artışın kârı erittiğini, özkaynakların büyümesinin ise kârlılık oranlarını iyileştirmediğini ortaya koyuyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

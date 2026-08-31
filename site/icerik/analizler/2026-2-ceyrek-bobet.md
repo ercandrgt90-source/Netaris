@@ -1,13 +1,13 @@
 ---
 slug: bobet-2026-2-ceyrek
 baslik: BOĞAZİÇİ BETON SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %2,1 artmasıyla birlikte brüt kâr negatiften %6,5'e gerileyerek FAVÖK düşmüş, bu da faaliyet ve net kârda azalmaya yol açtı; aynı zamanda artan aktif toplamı ve özkaynak, net borçtaki yükselişi dengeleyerek cari oranı %1,05 seviyesine tutarken borç/özkaynak oranını sektörel medyanın altınd…
+ozet: Hasılatın %2,0 artmasıyla birlikte brüt kâr negatiften %-6,5'e geriledi; bu düşüş, faaliyet kârının da %-0,54'e (önceki %-0,22) ve net kârın %-0,52'ye (önceki %-0,78) kaymasını sağladı.…
 sirket: BOĞAZİÇİ BETON SANAYİ VE TİCARET A.Ş.
 kod: BOBET
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Temel malzeme
-tarih: 2026-08-30
+tarih: 2026-08-31
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %2,1 artmasıyla birlikte brüt kâr negatiften %6,5'e gerileyerek FAVÖK düşmüş, bu da faaliyet ve net kârda azalmaya yol açtı; aynı zamanda artan aktif toplamı ve özkaynak, net borçtaki yükselişi dengeleyerek cari oranı %1,05 seviyesine tutarken borç/özkaynak oranını sektörel medyanın altında %0,12'ye indirdi. Faaliyet nakit akışının önceki dönemdeki negatiften pozitif (+%0,36 milyar) hâle gelmesi, yatırım harcamasındaki artış (+%0,97 milyar) ile birlikte likiditeyi destekledi ancak brüt kâr marjının negatif kalması net kâr marjını da %2,2 negatif tutarak özkaynak kârlılığını %1,0 negatif yaptı. Bu dinamiklerde, gelir artışı maliyet artışı ve kâr marjlarındaki düşüşle birlikte nakit akışı iyileşse de kârlılık göstergeleri sektör medyanının altında kalmaya devam etti.
+Hasılatın %2,0 artmasıyla birlikte brüt kâr negatiften %-6,5'e geriledi; bu düşüş, faaliyet kârının da %-0,54'e (önceki %-0,22) ve net kârın %-0,52'ye (önceki %-0,78) kaymasını sağladı. FAVÖK, brüt kâr kaybına rağmen %0,34'e (önceki %0,67) düşerken, faaliyet nakit akışı negatiften %0,36'ya (önceki -%1,45) dönüşmüş, ancak yatırım harcaması %2,07'ye (önceki %1,10) yükselmiş. Özkaynak 7,18 milyar TL'ye (önceki 6,45 milyar TL) çıkarken, net borç 0,83 milyar TL'ye (önceki 0,52 milyar TL) artmış; bu durum cari oranı 1,05 (sektör medyanı 1,36) ve borç/özkaynak oranını 0,12 (sektör medyanı 0,21) tutmuş.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

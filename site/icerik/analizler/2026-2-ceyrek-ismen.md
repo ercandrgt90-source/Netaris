@@ -1,13 +1,13 @@
 ---
 slug: ismen-2026-2-ceyrek
 baslik: İŞ YATIRIM MENKUL DEĞERLER A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat hafif artarken faaliyet kârı ve net kârda belirgin düşüş görülmüş; bu, kâr marjının %0,3'e gerilemesine ve özkaynak kârlılığının %4,1'e düşmesine yol açmış.…
+ozet: Hasılat hafif artarken faaliyet kârı ve net kârda belirgin düşüş görülmüş; bu düşüş özkaynak artışı (41,78 milyar TL, önceki 29,68 milyar TL) ve aktif toplamındaki büyük yükseliş (173,91 milyar TL, önceki 100,96 milyar TL) ile birlikte net borcun (22,98 milyar TL, önceki –9,29 milyar TL) pozitifleşm…
 sirket: İŞ YATIRIM MENKUL DEĞERLER A.Ş.
 kod: ISMEN
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Finans
-tarih: 2026-08-30
+tarih: 2026-08-31
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat hafif artarken faaliyet kârı ve net kârda belirgin düşüş görülmüş; bu, kâr marjının %0,3'e gerilemesine ve özkaynak kârlılığının %4,1'e düşmesine yol açmış. Aynı dönemde özkaynak 41,78 milyar TL'ye yükselmiş ve aktif toplamı 173,91 milyar TL'ye çıkmış; bu büyüme, net borcun 22,98 milyar TL'ye (önceki dönemde negatif) kaymasıyla birlikte borç/özkaynak oranının 0,55'e yükselmesine neden olmuş. Faaliyet nakit akışı ise -41,93 milyar TL olarak artmış, bu da yatırım harcamasının sabit kalmasına rağmen likidite sıkışmasının derinleştiğini gösteriyor.
+Hasılat hafif artarken faaliyet kârı ve net kârda belirgin düşüş görülmüş; bu düşüş özkaynak artışı (41,78 milyar TL, önceki 29,68 milyar TL) ve aktif toplamındaki büyük yükseliş (173,91 milyar TL, önceki 100,96 milyar TL) ile birlikte net borcun (22,98 milyar TL, önceki –9,29 milyar TL) pozitifleşmesi, borç/özkaynak oranının (0,55, sektör medyanı –0,05) yükselmesine yol açmış. Net borç artışı ve aktif büyümesi, faaliyet nakit akışının (-41,93 milyar TL, önceki -8,93 milyar TL) daha da olumsuzlaşmasına neden olurken, yatırım harcaması sabit kalmıştır. Net kâr marjı (%0,3) ve özkaynak kârlılığı (%4,1) sektör medyanlarının (sırasıyla %14,7 ve %4,5) çok altında kalmıştır.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

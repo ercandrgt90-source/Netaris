@@ -1,13 +1,13 @@
 ---
 slug: nibas-2026-2-ceyrek
 baslik: NİĞBAŞ NİĞDE BETON SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat ve brüt kâr aynı oranda yükselirken, faaliyet ve FAVÖK kayıpları artarak net kârı daha da derinleştirdi; bu durum, gelir artışının maliyet ve gider artışlarını dengeleyemediğini gösteriyor.…
+ozet: Hasılat ve brüt kâr artarken, faaliyet kârı, FAVÖK ve net kârda önceki döneme göre büyük düşüşler görülmüş; bu, artan satışların maliyet ve gider artışlarıyla birlikte kârlılığı olumsuz etkilemesinden kaynaklanıyor.…
 sirket: NİĞBAŞ NİĞDE BETON SANAYİ VE TİCARET A.Ş.
 kod: NIBAS
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Sanayi
-tarih: 2026-08-30
+tarih: 2026-08-31
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat ve brüt kâr aynı oranda yükselirken, faaliyet ve FAVÖK kayıpları artarak net kârı daha da derinleştirdi; bu durum, gelir artışının maliyet ve gider artışlarını dengeleyemediğini gösteriyor. Özkaynak ve aktif toplamı ciddi düşüş yaşarken, net borçın negatif (nakit fazlası) hâle gelmesi, likiditeyi artıran yüksek cari oran (9,09) ile birlikte özkaynak kârlılığının (%-51,9) ve net kâr marjının (%-362,1) sektör medyanlarının çok altında kalmasına yol açtı. Bu negatif kârlılık ve özkaynak erozyonu, aynı zamanda borç/özkaynak oranının (-0,12) sektörel ortalamanın (%0,16) altında kalmasına rağmen, özkaynakların azalmasıyla finansal riskin artmasına işaret ediyor.
+Hasılat ve brüt kâr artarken, faaliyet kârı, FAVÖK ve net kârda önceki döneme göre büyük düşüşler görülmüş; bu, artan satışların maliyet ve gider artışlarıyla birlikte kârlılığı olumsuz etkilemesinden kaynaklanıyor. Özkaynak ve aktif toplamı ciddi şekilde azalmış, ancak net borç negatif (nakit fazlası) hâline gelmiş; bu durum, özkaynak erozyonunun nakit pozisyonunu geçici olarak dengelediğini gösteriyor. Cari oranın %9,09'a yükselmesi, düşük borç/özkaynak oranı (-%0,12) ile birlikte, likidite sıkıntısının kârlılık kayıplarına rağmen hâlâ güçlü olduğunu ortaya koyuyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

@@ -1,13 +1,13 @@
 ---
 slug: avtur-2026-2-ceyrek
 baslik: AVRASYA PETROL VE TURİSTİK TESİSLER YATIRIMLAR A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat ve brüt kâr birlikte yükselmiş; brüt kârın artışı, brüt kâr marjının %37,6 seviyesine ulaşmasıyla hasılat artışının kârlılığa yansıdığını gösteriyor.…
+ozet: Hasılatın iki katına çıkan brüt kâr, brüt kâr marjının %37,6 seviyesine yükselmesiyle birlikte faaliyet kârı ve FAVÖK de aynı dönemde sıfırdan 0,04 milyar TL'ye ulaşmış; ancak net kârın -0,07 milyar TL olması, net kâr marjının -%989,0'a gerilemesiyle gelir artışının kârlılığı olumsuz etkilemiş.…
 sirket: AVRASYA PETROL VE TURİSTİK TESİSLER YATIRIMLAR A.Ş.
 kod: AVTUR
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Finans
-tarih: 2026-08-30
+tarih: 2026-08-31
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat ve brüt kâr birlikte yükselmiş; brüt kârın artışı, brüt kâr marjının %37,6 seviyesine ulaşmasıyla hasılat artışının kârlılığa yansıdığını gösteriyor. Faaliyet kârı, FAVÖK ve net kârda ise artış yerine negatif değerler ortaya çıkmış; bu, faaliyet nakit akışının -%0,18 milyar TL olması ve net borcun -%0,08 milyar TL'ye düşmesiyle birlikte işletme giderlerinin ve diğer maliyetlerin gelir artışını aşarak kârı erittiğini gösteriyor. Özkaynak ve aktif toplamı artarken cari oran 41,05'e yükselmiş; bu, likidite seviyesinin artışıyla özkaynakların büyümesinin birlikte gerçekleştiğini, ancak borç/özkaynak oranının sektörel medyanın altında kalması nedeniyle finansal yapıdaki değişimin sınırlı kaldığını ortaya koyuyor.
+Hasılatın iki katına çıkan brüt kâr, brüt kâr marjının %37,6 seviyesine yükselmesiyle birlikte faaliyet kârı ve FAVÖK de aynı dönemde sıfırdan 0,04 milyar TL'ye ulaşmış; ancak net kârın -0,07 milyar TL olması, net kâr marjının -%989,0'a gerilemesiyle gelir artışının kârlılığı olumsuz etkilemiş. Özkaynak 1,32 milyar TL'ye çıkarak özkaynak kârlılığının -%5,6 olmasına rağmen, özkaynak/borç dengesindeki negatif borç (-0,08 milyar TL) ve yüksek cari oran 41,05, likidite açısından sektörel medyanın (12,09) çok üzerindedir. Aktif toplamının 1,50 milyar TL'ye yükselmesi, özkaynak artışıyla paralel seyretmiş ve borç/özkaynak oranı -0,06, sektör medyanı -0,05 ile benzer bir yapı göstermiştir.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

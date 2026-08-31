@@ -1,13 +1,13 @@
 ---
 slug: prdgs-2026-2-ceyrek
 baslik: PARDUS GİRİŞİM SERMAYESİ YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat, brüt kâr, faaliyet kârı ve net kâr aynı tutarda artış gösterdiği için brüt kâr marjı %100, net kâr marjı %98,8 gibi çok yüksek oranlar ortaya çıktı; bu yüksek marjlar özkaynak kârlılığının %11,3 olmasına da katkı sağladı.…
+ozet: Hasılat, brüt kâr, faaliyet kârı ve net kâr aynı tutarda artış göstererek negatiften pozitif 0,28-0,27 milyar TL'ye yükselmiş; bu artış özkaynak ve aktif toplamının da sırasıyla 2,94-2,96 milyar TL'ye çıkmasıyla paralel bir büyüme oluşturmuş.…
 sirket: PARDUS GİRİŞİM SERMAYESİ YATIRIM ORTAKLIĞI A.Ş.
 kod: PRDGS
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Finans
-tarih: 2026-08-30
+tarih: 2026-08-31
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat, brüt kâr, faaliyet kârı ve net kâr aynı tutarda artış gösterdiği için brüt kâr marjı %100, net kâr marjı %98,8 gibi çok yüksek oranlar ortaya çıktı; bu yüksek marjlar özkaynak kârlılığının %11,3 olmasına da katkı sağladı. Özkaynak ve aktif toplamı artarken net borçun –0,10 milyar TL'ye düşmesi, özkaynak/aktif oranının yükselmesine ve borç/özkaynak oranının –0,03'tan –0,05'e iyileşmesine yol açtı. Faaliyet nakit akışının artışı, artan kârlılık ve azalan net borçla birlikte cari oranı 5,73 seviyesine getirirken sektör medyanı 12,09'dan daha düşük kaldı.
+Hasılat, brüt kâr, faaliyet kârı ve net kâr aynı tutarda artış göstererek negatiften pozitif 0,28-0,27 milyar TL'ye yükselmiş; bu artış özkaynak ve aktif toplamının da sırasıyla 2,94-2,96 milyar TL'ye çıkmasıyla paralel bir büyüme oluşturmuş. Net borçun –0,10 milyar TL'ye gerilemesi, faaliyet nakit akışının 0,06 milyar TL'ye çıkmasıyla birlikte likiditeyi artırırken, cari oranın 5,73 seviyesine düşmesi ve borç/özkaynak oranının –0,03'e yükselmesi, özkaynak artışının borçtan daha hızlı gerçekleştiğini gösteriyor. Brüt kâr marjının %100,0 ve net kâr marjının %98,8 gibi sektör medyanının çok üzerinde olması, özkaynak kârlılığının %11,3'e (medyan %4,5) çıkmasıyla birlikte kârlılıkta da aynı oranda bir iyileşme olduğunu ortaya koyuyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

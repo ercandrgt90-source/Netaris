@@ -1,13 +1,13 @@
 ---
 slug: bayrk-2026-2-ceyrek
 baslik: BAYRAK EBT TABAN SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın düşmesi %6,3 (0,16 → 0,15 milyar TL) ardından brüt kârın artması (%39,2) ve brüt kâr marjının sektör medyanının iki katına çıkması, maliyetlerdeki iyileşmenin gelire oranla daha fazla azaldığını gösteriyor; bu iyileşme faaliyet kârının da negatiften sıfıra çıkmasına (-0,04 → 0,00 milyar TL…
+ozet: Hasılatın düşmesi %6,3 (0,16 → 0,15 milyar TL) ardından brüt kârın artması (%39,2 brüt kâr marjı sektöre göre yüksek) özkaynak artışı (0,07 → 0,24 milyar TL) ve net borçtaki hafif artış (0,22 → 0,24 milyar TL) ile birlikte borç/özkaynak oranının %1,00'a yükselmesi, likiditeyi gösteren cari oranın (0…
 sirket: BAYRAK EBT TABAN SANAYİ VE TİCARET A.Ş.
 kod: BAYRK
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: İsteğe bağlı tüketim
-tarih: 2026-08-26
+tarih: 2026-08-31
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın düşmesi %6,3 (0,16 → 0,15 milyar TL) ardından brüt kârın artması (%39,2) ve brüt kâr marjının sektör medyanının iki katına çıkması, maliyetlerdeki iyileşmenin gelire oranla daha fazla azaldığını gösteriyor; bu iyileşme faaliyet kârının da negatiften sıfıra çıkmasına (-0,04 → 0,00 milyar TL) ve FAVÖK'ün 0,00 → 0,04 milyar TL'ye yükselmesine yol açtı. Net kâr hâlâ negatif (%-29,8) olsa da zarar, önceki dönemdeki –0,11 milyar TL'den –0,02 milyar TL'ye daraldı; aynı zamanda özkaynak 0,07 → 0,24 milyar TL artışı, özkaynak kârlılığının (-%8,8) hâlâ negatif kalmasına rağmen özkaynak bazlı büyümeyi destekledi. Net borçtaki hafif artış (0,22 → 0,24 milyar TL) ve cari oranın (%0,74) sektör medyanının altında kalması, likidite ve borç/özkaynak dengesinin (1,00) sektör ortalamasının çok üzerindeki seviyede kalmasına rağmen, artan özkaynak ve faaliyet nakit akışı (+0,04 milyar TL) bu riski bir ölçüde dengeledi.
+Hasılatın düşmesi %6,3 (0,16 → 0,15 milyar TL) ardından brüt kârın artması (%39,2 brüt kâr marjı sektöre göre yüksek) özkaynak artışı (0,07 → 0,24 milyar TL) ve net borçtaki hafif artış (0,22 → 0,24 milyar TL) ile birlikte borç/özkaynak oranının %1,00'a yükselmesi, likiditeyi gösteren cari oranın (0,74) sektör medyanının altında kalmasına yol açtı; faaliyet nakit akışının pozitifleşmesi (-0,03 → 0,04 milyar TL) ise yatırım harcamasının (0,05 → 0,01 milyar TL) azalmasıyla birlikte net kârın (-0,11 → -0,02 milyar TL) iyileşmesine paralel gerçekleşti.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
@@ -54,15 +54,15 @@ Hasılatın düşmesi %6,3 (0,16 → 0,15 milyar TL) ardından brüt kâr�
 
 ## Sektör içindeki konum
 
-Karşılaştırma İsteğe bağlı tüketim sektöründeki 63 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma İsteğe bağlı tüketim sektöründeki 62 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %39,2 | %16,0 |
+| Brüt kâr marjı | %39,2 | %16,3 |
 | Net kâr marjı | -%29,8 | %0,6 |
-| Özkaynak kârlılığı | -%8,8 | %0,5 |
+| Özkaynak kârlılığı | -%8,8 | %0,6 |
 | Cari oran | 0,74 | 1,29 |
-| Borç / özkaynak | 1,00 | 0,13 |
+| Borç / özkaynak | 1,00 | 0,14 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

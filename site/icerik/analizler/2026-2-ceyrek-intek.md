@@ -1,13 +1,13 @@
 ---
 slug: intek-2026-2-ceyrek
 baslik: İNNOSA TEKNOLOJİ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat, brüt kâr ve faaliyet kârı tümü önceki döneme göre sırasıyla 0,44 milyar TL, 0,30 milyar TL ve 0,09 milyar TL artmış; bu artış brüt kâr marjının %69,6'ya yükselmesine yol açarken, net kârın -%68,2'den -%68,2'ye gerilemesi, yatırım harcaması ve faaliyet nakit akışının 0,12 milyar TL ve 0,13 m…
+ozet: Hasılatın %69,6 brüt kâr marjıyla birlikte %0,31 milyar artması, brüt kârın yüksek oranlı büyümesinin faaliyet kârı ve FAVÖK'te de sırasıyla %0,10 milyar ve %0,12 milyar artışa yol açmasını, ancak aynı dönemde net borçta %0,38 milyar artışın özkaynak kârlılığını %-38,5'e ve net kâr marjını %-68,2'ye…
 sirket: İNNOSA TEKNOLOJİ A.Ş.
 kod: INTEK
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Bilişim
-tarih: 2026-08-28
+tarih: 2026-08-31
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,11 +18,9 @@ sayimlar:
 
 ## Özet
 
-Hasılat, brüt kâr ve faaliyet kârı tümü önceki döneme göre sırasıyla 0,44 milyar TL, 0,30 milyar TL ve 0,09 milyar TL artmış; bu artış brüt kâr marjının %69,6'ya yükselmesine yol açarken, net kârın -%68,2'den -%68,2'ye gerilemesi, yatırım harcaması ve faaliyet nakit akışının 0,12 milyar TL ve 0,13 milyar TL'ye çıkmasıyla birlikte net borcun 0,38 milyar TL'ye yükselmesi ve cari oranın 0,35'e düşmesiyle özkaynak kârlılığının -%38,5'e gerilemesine neden olmuştur.  
-
-Net borç artışı, borç/özkaynak oranının 0,82'ye (sektör medyanı -%0,02) yükselmesiyle özkaynakların 0,46 milyar TL'ye (sektör medyanı 0,03 milyar TL) genişlemesine rağmen, cari oran ve özkaynak kârlılığı gibi likidite ve kârlılık göstergelerinin sektörel medyanların altında kalmasına yol açmıştır.  
-
-Aktif toplamı 1,07 milyar TL'ye (sektör medyanı 0,05 milyar TL) çıkması, artan faaliyet nakit akışı ve yatırım harcamasıyla birlikte şirketin büyüme odaklı sermaye yapısını yansıtmaktadır.
+Hasılatın %69,6 brüt kâr marjıyla birlikte %0,31 milyar artması, brüt kârın yüksek oranlı büyümesinin faaliyet kârı ve FAVÖK'te de sırasıyla %0,10 milyar ve %0,12 milyar artışa yol açmasını, ancak aynı dönemde net borçta %0,38 milyar artışın özkaynak kârlılığını %-38,5'e ve net kâr marjını %-68,2'ye sürükleyerek net kârın %-0,12 milyar negatifleşmesini beraberinde getirdiğini gösterir.  
+Aktif toplamının %1,07 milyar yükselmesi, faaliyet nakit akışının %0,13 milyar ve yatırım harcamasının %0,12 milyar gerçekleşmesi, likiditeyi ölçen cari oranı %0,35'e düşürürken borç/özkaynak oranının %0,82'ye çıkmasıyla finansal riskin artışına işaret eder.  
+Dolayısıyla gelir ve brüt kârdaki güçlü artış, nakit çıkışı ve borçlanma artışıyla birlikte kârlılık ve likidite göstergelerinde gerilemeye neden olmuştur.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

@@ -1,13 +1,13 @@
 ---
 slug: dardl-2026-2-ceyrek
 baslik: DARDANEL ÖNENTAŞ GIDA SANAYİ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın düşmesi brüt kârı da azaltırken, brüt kâr marjının sektör medyanının üzerindeki %23,7 seviyesinde kalması brüt kârın yüzde olarak daha az gerilemesine yol açtı; bu durum net kârın ve özkaynak kârlılığının negatif %24,0 ve %13,1 seviyelerine sürüklenmesinde, faaliyet kârı ve FAVÖK'teki düşü…
+ozet: Hasılatın düşmesi brüt kârın da azalmasına yol açmış; brüt kârdaki düşüş ise brüt kâr marjının %23,7 seviyesinde kalmasına rağmen faaliyet ve net kârların daha fazla gerilemesine, net kâr marjının -%24,0'a ve özkaynak kârlılığının -%13,1'e sürüklenmesine neden olmuştur.…
 sirket: DARDANEL ÖNENTAŞ GIDA SANAYİ A.Ş.
 kod: DARDL
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Temel tüketim
-tarih: 2026-08-25
+tarih: 2026-08-31
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın düşmesi brüt kârı da azaltırken, brüt kâr marjının sektör medyanının üzerindeki %23,7 seviyesinde kalması brüt kârın yüzde olarak daha az gerilemesine yol açtı; bu durum net kârın ve özkaynak kârlılığının negatif %24,0 ve %13,1 seviyelerine sürüklenmesinde, faaliyet kârı ve FAVÖK'teki düşüşle birlikte nakit çıkışının artması etkili oldu. Özkaynakların %7,17 milyar seviyesine yükselmesi aktif toplamının %15,90 milyara çıkmasıyla birlikte borç/özkaynak oranının %0,82'ye (sektör medyanı %0,25) yükselmesine ve cari oranın 0,79 (sektör medyanı 1,36) altında kalmasına neden oldu; bu da likidite sıkışıklığını ve finansal riskin artmasını gösteriyor. Yatırım harcamasının %0,51 milyara (önceki dönem %0,32) çıkması aktif büyümesini desteklerken, aynı dönemde faaliyet nakit akışının -%0,62 milyara kayması net kârın daha da derinleşmesine ve net borcun %5,86 milyara (önceki dönem %3,69) yükselmesine yol açtı.
+Hasılatın düşmesi brüt kârın da azalmasına yol açmış; brüt kârdaki düşüş ise brüt kâr marjının %23,7 seviyesinde kalmasına rağmen faaliyet ve net kârların daha fazla gerilemesine, net kâr marjının -%24,0'a ve özkaynak kârlılığının -%13,1'e sürüklenmesine neden olmuştur. Net kârın negatif seyri özkaynak artışına rağmen borçların 5,86 milyar TL'ye yükselmesiyle cari oran 0,79'a gerilemiş ve borç/özkaynak oranı sektör medyanının çok üzerinde 0,82'ye çıkmıştır; bu da likidite sıkışıklığının artmasıyla faaliyet nakit akışının -0,62 milyar TL'ye dönmesine ve yatırım harcamasının 0,51 milyar TL'ye yükselmesine bağlanabilir.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
@@ -62,7 +62,7 @@ Karşılaştırma Temel tüketim sektöründeki 31 şirketin **medyanına** gör
 | Net kâr marjı | -%24,0 | %0,2 |
 | Özkaynak kârlılığı | -%13,1 | %0,8 |
 | Cari oran | 0,79 | 1,36 |
-| Borç / özkaynak | 0,82 | 0,25 |
+| Borç / özkaynak | 0,82 | 0,26 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

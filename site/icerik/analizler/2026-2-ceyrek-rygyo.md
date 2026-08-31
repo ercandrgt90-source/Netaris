@@ -1,13 +1,13 @@
 ---
 slug: rygyo-2026-2-ceyrek
 baslik: REYSAŞ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat 2,05 milyar TL'ye yükselirken net kâr 1,99 milyar TL'ye düşmüş, bu durum faaliyet nakit akışının –3,59 milyar TL'ye kaymasıyla birlikte özkaynakların 103,25 milyar TL'ye (önceki 62,27 milyar TL) ve aktif toplamının 128,14 milyar TL'ye (önceki 72,77 milyar TL) artmasına rağmen net borcun 11,2…
+ozet: Hasılat 2,05 milyar TL'ye yükselirken net kâr 1,99 milyar TL'ye artmış, ancak net kâr marjı %118,2'ye çıkmış; bu, gelir artışının kâr üzerindeki etkisinin çok yüksek olduğunu gösteriyor.…
 sirket: REYSAŞ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: RYGYO
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-30
+tarih: 2026-08-31
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat 2,05 milyar TL'ye yükselirken net kâr 1,99 milyar TL'ye düşmüş, bu durum faaliyet nakit akışının –3,59 milyar TL'ye kaymasıyla birlikte özkaynakların 103,25 milyar TL'ye (önceki 62,27 milyar TL) ve aktif toplamının 128,14 milyar TL'ye (önceki 72,77 milyar TL) artmasına rağmen net borcun 11,22 milyar TL'ye (önceki 3,85 milyar TL) yükselmesinin bir yansımasıdır; net kâr marjının %118,2 (sektör medyanı %14,3) ve özkaynak kârlılığının %1,1 (sektör medyanı %0,4) olması, borç/özkaynak oranının %0,11 (sektör medyanı 0,02) ile birlikte, kârın artışıyla özkaynakların büyümesinin borçlanma seviyesindeki artışa paralel olduğunu gösterir.
+Hasılat 2,05 milyar TL'ye yükselirken net kâr 1,99 milyar TL'ye artmış, ancak net kâr marjı %118,2'ye çıkmış; bu, gelir artışının kâr üzerindeki etkisinin çok yüksek olduğunu gösteriyor. Özkaynak 103,25 milyar TL'ye ve aktif toplamı 128,14 milyar TL'ye yükselmiş, bu büyümeye paralel olarak net borç 11,22 milyar TL'ye artmış ve borç/özkaynak oranı %0,11'e (sektör medyanı %0,02) yükselmiş; dolayısıyla özkaynak ve varlık artışı borçlanma seviyesinin de yükselmesine yol açmış. Faaliyet nakit akışı ise önceki dönemde +0,55 milyar TL iken -3,59 milyar TL'ye düşmüş, bu da artan kâr ve varlıkların nakit akışı üzerinden negatif bir dönüşümle gerçekleştiğini gösteriyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

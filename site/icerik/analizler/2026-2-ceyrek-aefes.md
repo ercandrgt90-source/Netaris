@@ -1,13 +1,13 @@
 ---
 slug: aefes-2026-2-ceyrek
 baslik: ANADOLU EFES BİRACILIK VE MALT SANAYİİ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın yükselmesi brüt kârı artırarak brüt kâr marjının %39,4 seviyesinde kalmasını sağladı; brüt kârdaki artış ise faaliyet kârı ve FAVÖK'teki yükseliğe (sırasıyla %17,74 ve %26,16) yansıyıp net kâr marjını %5,9'a taşıdı.…
+ozet: Hasılatın yükselmesi brüt kârı artırarak brüt kâr marjının %39,4 seviyesinde kalmasını sağladı; brüt kârdaki artış ise faaliyet kârı ve FAVÖK'teki yükseliğe (sırasıyla %17,74 ve %26,16 milyar TL) yol açtı.…
 sirket: ANADOLU EFES BİRACILIK VE MALT SANAYİİ A.Ş.
 kod: AEFES
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Temel tüketim
-tarih: 2026-08-27
+tarih: 2026-08-31
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın yükselmesi brüt kârı artırarak brüt kâr marjının %39,4 seviyesinde kalmasını sağladı; brüt kârdaki artış ise faaliyet kârı ve FAVÖK'teki yükseliğe (sırasıyla %17,74 ve %26,16) yansıyıp net kâr marjını %5,9'a taşıdı. Net kârın hafif düşmesi özkaynak kârlılığını %2,0'ye sabit tutarken, özkaynakların %252,42'ye çıkması bilanço toplamını %495,80'e yükseltti ve cari oranı 1,03'e, borç/özkaynak oranını ise sektör medyanıyla aynı %0,26 seviyesinde tutarak likidite ve finansal kaldıraç dengesini korudu. Faaliyet nakit akışının artması (12,14 bn TL) yatırım harcamasındaki düşüşle (9,24 bn TL) birlikte net borcun (65,99 bn TL) hafif artmasına rağmen borç/özkaynak oranını sabit tutmasını sağladı.
+Hasılatın yükselmesi brüt kârı artırarak brüt kâr marjının %39,4 seviyesinde kalmasını sağladı; brüt kârdaki artış ise faaliyet kârı ve FAVÖK'teki yükseliğe (sırasıyla %17,74 ve %26,16 milyar TL) yol açtı. Net kârın bir önceki döneme göre hafif düşmesi, net kâr marjının %5,9 olmasına rağmen özkaynak kârlılığının %2,0 seviyesinde sabit kalmasını ve özkaynakların %252,42 milyar TL'ye yükselmesini beraberinde getirdi. Aktif toplamındaki artış (%495,80 milyar) net borcun hafif yükselmesi (65,99 milyar TL) ve cari oranın 1,03'e gerilemesi, borç/özkaynak oranının sektör medyanı %0,26 ile aynı kalmasına rağmen likidite baskısının artmasına işaret ediyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

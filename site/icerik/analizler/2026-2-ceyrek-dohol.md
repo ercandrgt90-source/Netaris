@@ -1,13 +1,13 @@
 ---
 slug: dohol-2026-2-ceyrek
 baslik: DOĞAN ŞİRKETLER GRUBU HOLDİNG A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın düşmesiyle birlikte brüt kârın artması, maliyet yapısında iyileşme ve brüt kâr marjının sektör medyanıyla aynı seviyede kalmasıyla ilişkilidir; bu iyileşme faaliyet kârı ve FAVÖK'teki artışa, dolayısıyla net kârın negatiften pozitif değere geçmesine yol açmıştır.…
+ozet: Hasılatın düşmesine rağmen brüt kâr, faaliyet kârı, FAVÖK ve net kâr tümü artmış; bu durum maliyet ve giderlerdeki azalma ya da verimlilik artışıyla brüt kâr marjının %20,9 seviyesinde sabit kalmasını açıklıyor.…
 sirket: DOĞAN ŞİRKETLER GRUBU HOLDİNG A.Ş.
 kod: DOHOL
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Sanayi
-tarih: 2026-08-30
+tarih: 2026-08-31
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın düşmesiyle birlikte brüt kârın artması, maliyet yapısında iyileşme ve brüt kâr marjının sektör medyanıyla aynı seviyede kalmasıyla ilişkilidir; bu iyileşme faaliyet kârı ve FAVÖK'teki artışa, dolayısıyla net kârın negatiften pozitif değere geçmesine yol açmıştır. Net kârın yükselmesi özkaynak artışını desteklemiş, özkaynak kârlılığının sektör medyanının çok üzerindeki seviyeye ulaşmasını sağlamış ve aynı zamanda cari oranı yükselterek likidite durumunu iyileştirmiştir. Net borcun daha da negatifleşmesi (nakit fazlası) borç/özkaynak oranının sektör medyanının altında kalmasına ve finansal riskin azalmasına katkıda bulunmuştur.
+Hasılatın düşmesine rağmen brüt kâr, faaliyet kârı, FAVÖK ve net kâr tümü artmış; bu durum maliyet ve giderlerdeki azalma ya da verimlilik artışıyla brüt kâr marjının %20,9 seviyesinde sabit kalmasını açıklıyor. Özsermaye ve aktif toplamının yükselmesi, net borcun daha da negatif (nakit fazlası) hâle gelmesiyle birlikte cari oranı %1,59'a, borç/özsermaye oranını ise –%0,40'a çekerek likidite ve finansal yapıdaki iyileşmeyi destekliyor. Faaliyet nakit akışının artışı, yatırım harcamasının düşmesiyle birleşerek artan kârlılık ve özkaynak kârlılığı (%2,9) üzerinde olumlu bir etki yaratmış.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

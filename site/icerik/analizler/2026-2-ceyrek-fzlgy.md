@@ -1,13 +1,13 @@
 ---
 slug: fzlgy-2026-2-ceyrek
 baslik: FUZUL GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat 2,81 milyar TL'ye yükselirken net kâr –0,25 milyar TL'ye geriledi; gelir artışı faaliyet nakit akışının –0,55 milyar TL'den 0,26 milyar TL'ye geçmesine paralel olarak gerçekleşti ve bu da net borcun 0,69 milyar TL'den 1,18 milyar TL'ye yükselmesinin, yani borç/özkaynak oranının 0,02'den 0,28…
+ozet: Hasılat 2,81 milyar TL'ye yükselirken net kâr –0,25 milyar TL'ye gerilemiş, bu durum net kâr marjının –%19,9'a düşmesine ve özkaynak kârlılığının –%5,2'ye inmesine yol açmıştır; aynı dönemde faaliyet nakit akışı 0,26 milyar TL pozitif olmuş ve önceki –0,55 milyar TL'den iyileşmiştir.…
 sirket: FUZUL GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: FZLGY
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-30
+tarih: 2026-08-31
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat 2,81 milyar TL'ye yükselirken net kâr –0,25 milyar TL'ye geriledi; gelir artışı faaliyet nakit akışının –0,55 milyar TL'den 0,26 milyar TL'ye geçmesine paralel olarak gerçekleşti ve bu da net borcun 0,69 milyar TL'den 1,18 milyar TL'ye yükselmesinin, yani borç/özkaynak oranının 0,02'den 0,28'e çıkmasının bir yansıması oldu. Özkaynak 4,28 milyar TL'ye hafif artarken aktif toplamı 11,90 milyar TL'ye yükseldi; bu büyüme, negatif net kâr marjının (-%19,9) ve özkaynak kârlılığının (-%5,2) sektör medyanlarının (%14,3 ve %0,4) çok altında kalmasına rağmen özkaynak seviyesinin artmasını sağladı.
+Hasılat 2,81 milyar TL'ye yükselirken net kâr –0,25 milyar TL'ye gerilemiş, bu durum net kâr marjının –%19,9'a düşmesine ve özkaynak kârlılığının –%5,2'ye inmesine yol açmıştır; aynı dönemde faaliyet nakit akışı 0,26 milyar TL pozitif olmuş ve önceki –0,55 milyar TL'den iyileşmiştir. Özkaynak 4,28 milyar TL'ye hafif artarken aktif toplamı 11,90 milyar TL'ye yükselmiş, bu artış net borcun 1,18 milyar TL'ye (önceki 0,69 milyar TL) çıkmasıyla borç/özkaynak oranının 0,28'e (sektör medyanı 0,02) yükselmesine neden olmuştur. Artan hasılat ve aktif büyüklüğü, aynı anda artan net borç ve negatif kârlılık oranlarıyla birlikte, kârlılık göstergelerinin düşüşüyle paralel bir ilişki göstermektedir.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

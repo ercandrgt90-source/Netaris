@@ -1,13 +1,13 @@
 ---
 slug: bagfs-2026-2-ceyrek
 baslik: BAGFAŞ BANDIRMA GÜBRE FABRİKALARI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Brüt kâr artışı (%27,9) net kâr marjının (%14,2) yükselmesine paralel olarak gerçekleşirken, faaliyet kârı düşüşü (%0,08'den %0,25'e) FAVÖK (%0,62'den %0,79'a) gerilemesiyle uyumlu; bu durum, brüt kârdan operasyonel giderlere geçen payın azaldığını gösterir.…
+ozet: Brüt kâr artışı (%27,9) net kâr marjının (%14,2) yükselmesinden daha yüksek olduğu için brüt kâr marjı, net kâr marjı ve özkaynak kârlılığı (%3,7) birlikte yükselmiş; aynı zamanda faaliyet nakit akışı (1,27 milyar TL) ve özkaynak (8,94 milyar TL) de artmışken, faaliyet kârı (0,08 milyar TL) ve FAVÖK…
 sirket: BAGFAŞ BANDIRMA GÜBRE FABRİKALARI A.Ş.
 kod: BAGFS
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Temel malzeme
-tarih: 2026-08-27
+tarih: 2026-08-31
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Brüt kâr artışı (%27,9) net kâr marjının (%14,2) yükselmesine paralel olarak gerçekleşirken, faaliyet kârı düşüşü (%0,08'den %0,25'e) FAVÖK (%0,62'den %0,79'a) gerilemesiyle uyumlu; bu durum, brüt kârdan operasyonel giderlere geçen payın azaldığını gösterir. Özkaynakların (%8,94) ve aktif toplamının (%16,47) artışı net borcun (%6,34) yükselmesiyle birlikte cari oran (%0,51) ve borç/özkaynak (%0,71) oranlarının sektör medyanlarının (1,36 ve 0,21) altında kalmasına yol açtı. Faaliyet nakit akışı (%1,27) yatırım harcamasının (%0,11) üzerine çıkması, artan özkaynak ve aktif büyüklüğüne rağmen likidite sıkışıklığını yansıtmaktadır.
+Brüt kâr artışı (%27,9) net kâr marjının (%14,2) yükselmesinden daha yüksek olduğu için brüt kâr marjı, net kâr marjı ve özkaynak kârlılığı (%3,7) birlikte yükselmiş; aynı zamanda faaliyet nakit akışı (1,27 milyar TL) ve özkaynak (8,94 milyar TL) de artmışken, faaliyet kârı (0,08 milyar TL) ve FAVÖK (0,62 milyar TL) önceki döneme göre gerilemiş. Net borç (6,34 milyar TL) ve borç/özkaynak oranı (0,71) artarken, cari oran (0,51) düşük kalmış; bu durum likidite göstergesinin (cari oran) düşük, ancak borç finansmanının (net borç, borç/özkaynak) artışının özkaynak büyümesi (8,94 milyar TL) ve aktif toplamı (16,47 milyar TL) ile birlikte gerçekleştiğini gösteriyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

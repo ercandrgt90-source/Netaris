@@ -1,13 +1,13 @@
 ---
 slug: formt-2026-2-ceyrek
 baslik: FORMET METAL VE CAM SANAYİ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat aynı kalırken brüt kâr iki katına çıkmış, bu artış brüt kâr marjının %21,8'e yükselmesine ve net kâr marjının sektör medyanının çok üzerindeki %18,1'e yansımış; aynı zamanda özkaynak kârlılığı da %2,0'ye yükselerek sektörel ortalamanın üzerindedir.…
+ozet: Hasılat aynı kalırken brüt kâr iki katına yükselmiş, bu durum brüt kâr marjının %21,8'e (sektör medyanı %20,9) çıkmasıyla birlikte kârlılık artışının satış hacminden ziyade maliyet yapısındaki iyileşmeden kaynaklandığını gösteriyor; aynı zamanda faaliyet kârı ve FAVÖK negatiften pozitif seviyelere g…
 sirket: FORMET METAL VE CAM SANAYİ A.Ş.
 kod: FORMT
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Sanayi
-tarih: 2026-08-30
+tarih: 2026-08-31
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat aynı kalırken brüt kâr iki katına çıkmış, bu artış brüt kâr marjının %21,8'e yükselmesine ve net kâr marjının sektör medyanının çok üzerindeki %18,1'e yansımış; aynı zamanda özkaynak kârlılığı da %2,0'ye yükselerek sektörel ortalamanın üzerindedir. Faaliyet kârı ve FAVÖK negatiften pozitife dönmüş, bu durum net borcun önceki dönemde negatif (nakit fazlası) iken bu çeyrekte 0,10 milyar TL'ye çıkmasıyla birlikte net borç/özkaynak oranının %0,04'e düşmesi ve cari oranın 1,91'e yükselmesiyle likidite ve finansal yapı güçlenmiştir. Aktif toplamı ve özkaynak artışı, yatırım harcamasındaki yükselişle paralel ilerleyerek bilanço büyüklüğünün ve özkaynak bazının genişlemesine neden olmuştur.
+Hasılat aynı kalırken brüt kâr iki katına yükselmiş, bu durum brüt kâr marjının %21,8'e (sektör medyanı %20,9) çıkmasıyla birlikte kârlılık artışının satış hacminden ziyade maliyet yapısındaki iyileşmeden kaynaklandığını gösteriyor; aynı zamanda faaliyet kârı ve FAVÖK negatiften pozitif seviyelere geçerek net kârın daha da derinleşmesi (%18,1 net kâr marjı, sektör medyanı %1,3) özkaynak artışı (2,73 milyar TL) ve aktif toplamındaki büyüme (3,50 milyar TL) ile desteklenmiş. Özkaynak kârlılığı %2,0 (sektör medyanı %0,3) ve borç/özkaynak oranı 0,04 (sektör medyanı 0,16) artan özkaynak ve düşük borçlanma, cari oran 1,91 (sektör medyanı 1,32) ile birlikte likidite pozisyonunun güçlendiğini, fakat faaliyet nakit akışının 0,00 milyar TL'ye düşmesi (önceki dönem 0,20 milyar TL) yatırım harcamasının (0,06 milyar TL) artmasıyla nakit akışı üzerindeki baskının arttığını ortaya koyuyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

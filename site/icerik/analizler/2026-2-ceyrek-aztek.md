@@ -1,13 +1,13 @@
 ---
 slug: aztek-2026-2-ceyrek
 baslik: AZTEK TEKNOLOJİ ÜRÜNLERİ TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat yatay seyrederken brüt kâr geriledi; brüt kâr marjı %15,0 ile sektör medyanı %16,1'in altında kaldı ve bu daralma faaliyet kârı ile FAVÖK'e aynı yönde yansıdı, net sonuç ise kârdan zarara döndü.…
+ozet: Hasılat artarken brüt kâr ve brüt kâr marjı düşmüş; bu, satışların maliyet payının yükselmesiyle brüt kârın azalmasına ve dolayısıyla brüt kâr marjının sektör medyanının altında kalmasına yol açmıştır.…
 sirket: AZTEK TEKNOLOJİ ÜRÜNLERİ TİCARET A.Ş.
 kod: AZTEK
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Bilişim
-tarih: 2026-08-28
+tarih: 2026-08-31
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat yatay seyrederken brüt kâr geriledi; brüt kâr marjı %15,0 ile sektör medyanı %16,1'in altında kaldı ve bu daralma faaliyet kârı ile FAVÖK'e aynı yönde yansıdı, net sonuç ise kârdan zarara döndü. Aktif toplamı büyürken özkaynak azaldı; aradaki fark net borçtaki artışla birlikte hareket etti ve borç/özkaynak 1,25 ile medyanın (-0,02) üzerinde konumlandı, özkaynak kârlılığı -%9,5 ile medyanın (%2,1) altında yer aldı. Faaliyet nakit akışı negatif kalmakla birlikte önceki döneme göre daha az negatifti, yatırım harcaması ise değişmedi; cari oran 1,44 ile medyan 1,25'in üzerinde ölçüldü.
+Hasılat artarken brüt kâr ve brüt kâr marjı düşmüş; bu, satışların maliyet payının yükselmesiyle brüt kârın azalmasına ve dolayısıyla brüt kâr marjının sektör medyanının altında kalmasına yol açmıştır. Faaliyet kârı, FAVÖK ve net kâr da brüt kârdaki gerilemeden etkilenerek azalmış ve net kâr negatif olmuş; aynı zamanda faaliyet nakit akışı da iyileşerek daha az negatif seviyeye çekilmiştir. Özkaynak azalırken net borç iki katına çıkmış; bu durum borç/özkaynak oranının %1,25'e yükselmesine ve cari oranın sektör medyanının üzerinde kalmasına rağmen likidite baskısının artmasına neden olmuştur.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

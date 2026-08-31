@@ -1,13 +1,13 @@
 ---
 slug: vrgyo-2026-2-ceyrek
 baslik: VERA KONSEPT GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat bir önceki döneme göre gerilerken net sonuç zarar tarafında büyüdü; buna karşılık faaliyet nakit akışı aynı dönemde belirgin biçimde yükseldi, yani nakit üretimi gelir kalemiyle aynı yönde hareket etmedi.…
+ozet: Hasılatın 0,12 milyar TL'den 0,03 milyar TL'ye düşmesi, net kârın -0,08 milyar TL'den -0,36 milyar TL'ye gerilemesiyle paralel bir düşüş gösterirken, aynı dönemde faaliyet nakit akışının 0,10 milyar TL'den 3,55 milyar TL'ye yükselmesi özkaynak artışını (4,67 milyar TL'den 5,39 milyar TL'ye) ve aktif…
 sirket: VERA KONSEPT GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: VRGYO
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-28
+tarih: 2026-08-31
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat bir önceki döneme göre gerilerken net sonuç zarar tarafında büyüdü; buna karşılık faaliyet nakit akışı aynı dönemde belirgin biçimde yükseldi, yani nakit üretimi gelir kalemiyle aynı yönde hareket etmedi. Aktif toplamındaki artışın bir bölümü özkaynaktaki büyümeyle, bir bölümü ise net borcun yükselmesiyle birlikte oluştu; bu da borç/özkaynak oranını sektör medyanının üzerinde bir konuma taşıdı. Raporlanan net kâr marjı ve özkaynak kârlılığı da sektör medyanlarının üstünde sıralanıyor, ancak bu oranlar zarar açıklanan bir dönemin rakamlarıyla birlikte okunmalıdır.
+Hasılatın 0,12 milyar TL'den 0,03 milyar TL'ye düşmesi, net kârın -0,08 milyar TL'den -0,36 milyar TL'ye gerilemesiyle paralel bir düşüş gösterirken, aynı dönemde faaliyet nakit akışının 0,10 milyar TL'den 3,55 milyar TL'ye yükselmesi özkaynak artışını (4,67 milyar TL'den 5,39 milyar TL'ye) ve aktif toplamının (6,44 milyar TL'den 8,85 milyar TL'ye) destekledi; artan nakit akışı net borcun (0,14 milyar TL'den 1,17 milyar TL'ye) yükselmesine rağmen borç/özkaynak oranının (0,02'den 0,22'ye) hâlâ sektör medyanının altında kalmasını sağladı; net kâr marjının %14,3 sektör medyanının çok üzerindeki %760,5'e çıkması, özkaynak kârlılığının %0,4 medyanın üzerinde %2,3 olmasına yol açtı.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

@@ -1,13 +1,13 @@
 ---
 slug: pkent-2026-2-ceyrek
 baslik: PETROKENT TURİZM A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat aynı kalırken brüt kâr, faaliyet kârı, FAVÖK ve net kâr tümü negatiften daha da derinleşmiş; bu düşüş, brüt kâr marjının %-24,7'ye gerilemesiyle birlikte kâr marjlarının da negatif seyretmesinden kaynaklanıyor.…
+ozet: Hasılat aynı kalırken brüt kâr, faaliyet kârı, FAVÖK ve net kâr tümü negatiften daha negatif bir seviyeye kaymış; bu düşüş özkaynak artışı (1,54 milyar TL) ve aktif toplamındaki (2,35 milyar TL) büyüme ile birlikte gerçekleşmiş, çünkü zararların birikmesi özkaynakları artırırken aynı zamanda varlıkl…
 sirket: PETROKENT TURİZM A.Ş.
 kod: PKENT
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: İsteğe bağlı tüketim
-tarih: 2026-08-30
+tarih: 2026-08-31
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat aynı kalırken brüt kâr, faaliyet kârı, FAVÖK ve net kâr tümü negatiften daha da derinleşmiş; bu düşüş, brüt kâr marjının %-24,7'ye gerilemesiyle birlikte kâr marjlarının da negatif seyretmesinden kaynaklanıyor. Özkaynak 1,54 milyar TL'ye yükselmiş ve aktif toplamı 2,35 milyar TL'ye artmış; aynı anda net borçun –0,46 milyar TL (negatif borç) olması, cari oranı 1,25'e getirirken borç/özkaynak oranını –0,30'a (sektör ortalamasının altında) çekmiş. Faaliyet nakit akışı –0,01 milyar TL'ye düşmüş, yatırım harcaması ise sıfır kalmış; bu durum, kârların azalmasıyla birlikte nakit üretiminin gerilemesine ve özkaynak kârlılığının %-4,0'a (sektör medyanının %0,5'inin altında) inmesine paralel bir ilişki gösteriyor.
+Hasılat aynı kalırken brüt kâr, faaliyet kârı, FAVÖK ve net kâr tümü negatiften daha negatif bir seviyeye kaymış; bu düşüş özkaynak artışı (1,54 milyar TL) ve aktif toplamındaki (2,35 milyar TL) büyüme ile birlikte gerçekleşmiş, çünkü zararların birikmesi özkaynakları artırırken aynı zamanda varlıkların da genişlemesine yol açmış. Net borçun negatif (nakit fazlası) olması, önceki dönemdeki -0,27 milyar TL'den -0,46 milyar TL'ye derinleşmiş; bu durum, faaliyet nakit akışının -0,01 milyar TL'ye gerilemesi ve yatırım harcamasının sıfır kalmasıyla birlikte, şirketin likiditesinin cari oranını (1,25) sektör medyanının (1,29) altında tutmasına neden olmuş. Brüt kâr marjının -%24,7 ve net kâr marjının -%21,2 olması, sektör medyanı pozitifken kâr marjlarının negatif seyretmesi, özkaynak kârlılığının -%4,0'a düşmesiyle tutarlı bir şekilde şirketin kârlılık performansının sektörel ortalamanın çok altında olduğunu gösteriyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
@@ -53,15 +53,15 @@ Hasılat aynı kalırken brüt kâr, faaliyet kârı, FAVÖK ve net kâr tümü 
 
 ## Sektör içindeki konum
 
-Karşılaştırma İsteğe bağlı tüketim sektöründeki 63 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma İsteğe bağlı tüketim sektöründeki 62 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | -%24,7 | %16,0 |
+| Brüt kâr marjı | -%24,7 | %16,3 |
 | Net kâr marjı | -%21,2 | %0,6 |
-| Özkaynak kârlılığı | -%4,0 | %0,5 |
+| Özkaynak kârlılığı | -%4,0 | %0,6 |
 | Cari oran | 1,25 | 1,29 |
-| Borç / özkaynak | -0,30 | 0,13 |
+| Borç / özkaynak | -0,30 | 0,14 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

@@ -1,13 +1,13 @@
 ---
 slug: zrgyo-2026-2-ceyrek
 baslik: ZİRAAT GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat 2,15 milyar TL'ye yükselirken net kâr 0,94 milyar TL'den 2,79 milyar TL'ye gerilemiş; bu düşüş, faaliyet nakit akışının 0,96 milyar TL'den 1,30 milyar TL'ye düşmesiyle paralel bir azalmayı yansıtıyor.…
+ozet: Hasılat 2,15 milyar TL'ye yükselirken net kâr 0,94 milyar TL'den 2,79 milyar TL'ye gerilemiş, bu durum faaliyet nakit akışının 0,96 milyar TL'den 1,30 milyar TL'ye düşmesiyle paralel bir azalmayı yansıtıyor; aynı zamanda aktif toplamı 115,33 milyar TL'ye çıkarken özkaynak 93,73 milyar TL'ye artmış,…
 sirket: ZİRAAT GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: ZRGYO
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-08-30
+tarih: 2026-08-31
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat 2,15 milyar TL'ye yükselirken net kâr 0,94 milyar TL'den 2,79 milyar TL'ye gerilemiş; bu düşüş, faaliyet nakit akışının 0,96 milyar TL'den 1,30 milyar TL'ye düşmesiyle paralel bir azalmayı yansıtıyor. Özkaynak 93,73 milyar TL'ye artarken net borç 10,14 milyar TL'ye yükselmiş, bu da borç/özkaynak oranının %0,11'e (sektör medyanı %0,02) çıkmasına neden olmuş. Net kâr marjı %42,6 (sektör medyanı %14,3) ve özkaynak kârlılığı %0,6 (sektör medyanı %0,4) artış gösterse de, aktif toplamının 115,33 milyar TL'ye (önceki 75,44 milyar TL) genişlemesi bilanço büyüklüğündeki yükselişi işaret ediyor.
+Hasılat 2,15 milyar TL'ye yükselirken net kâr 0,94 milyar TL'den 2,79 milyar TL'ye gerilemiş, bu durum faaliyet nakit akışının 0,96 milyar TL'den 1,30 milyar TL'ye düşmesiyle paralel bir azalmayı yansıtıyor; aynı zamanda aktif toplamı 115,33 milyar TL'ye çıkarken özkaynak 93,73 milyar TL'ye artmış, bu büyüme net borcun 5,59 milyar TL'den 10,14 milyar TL'ye yükselmesiyle borç/özkaynak oranının %0,02'den %0,11'e çıkmasına neden olmuş. Net kâr marjı %42,6 ile sektör medyanının %14,3'ünden çok üstünde kalırken, özkaynak kârlılığı %0,6 sektörel %0,4 ortalamasının üzerinde seyrediyor; bu iki kârlılık göstergesi, artan özkaynak ve aktif büyüklüğünün kârlılık üzerindeki olumlu etkisini, ancak artan net borç ve azalan nakit akışının potansiyel riskini dengelediğini gösteriyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
