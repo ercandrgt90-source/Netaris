@@ -32,7 +32,7 @@
       "yon": "azalis",
       "tarih": "2026-08-31",
       "birim": "TL",
-      "gun": 0,
+      "gun": 1,
       "bayat": false
     },
     {
@@ -43,9 +43,9 @@
       "yon": "azalis",
       "tarih": "2026-08-25",
       "birim": "USD/varil",
-      "gun": 4,
+      "gun": 5,
       "bayat": true,
-      "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · sonraki 2 Eylül"
+      "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · yarın yenileniyor"
     },
     {
       "kod": "DCOILWTICO",
@@ -55,9 +55,9 @@
       "yon": "azalis",
       "tarih": "2026-08-25",
       "birim": "USD/varil",
-      "gun": 4,
+      "gun": 5,
       "bayat": true,
-      "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · sonraki 2 Eylül"
+      "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · yarın yenileniyor"
     },
     {
       "kod": "DFF",
@@ -67,7 +67,7 @@
       "yon": "yatay",
       "tarih": "2026-08-28",
       "birim": "%",
-      "gun": 1,
+      "gun": 2,
       "bayat": false
     },
     {
@@ -78,7 +78,7 @@
       "yon": "artis",
       "tarih": "2026-08-28",
       "birim": "%",
-      "gun": 1,
+      "gun": 2,
       "bayat": false
     },
     {
@@ -89,7 +89,7 @@
       "yon": "artis",
       "tarih": "2026-08-28",
       "birim": "%",
-      "gun": 1,
+      "gun": 2,
       "bayat": false
     },
     {
@@ -100,7 +100,7 @@
       "yon": "artis",
       "tarih": "2026-08-31",
       "birim": "puan",
-      "gun": 0,
+      "gun": 1,
       "bayat": false
     },
     {
@@ -111,7 +111,7 @@
       "yon": "artis",
       "tarih": "2026-08-28",
       "birim": "endeks",
-      "gun": 1,
+      "gun": 2,
       "bayat": false
     }
   ],
@@ -127,9 +127,9 @@
           "yon": "azalis",
           "tarih": "2026-08-25",
           "birim": "USD/varil",
-          "gun": 4,
+          "gun": 5,
           "bayat": true,
-          "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · sonraki 2 Eylül"
+          "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · yarın yenileniyor"
         },
         {
           "kod": "DCOILWTICO",
@@ -139,9 +139,9 @@
           "yon": "azalis",
           "tarih": "2026-08-25",
           "birim": "USD/varil",
-          "gun": 4,
+          "gun": 5,
           "bayat": true,
-          "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · sonraki 2 Eylül"
+          "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · yarın yenileniyor"
         }
       ]
     },
@@ -156,7 +156,7 @@
           "yon": "yatay",
           "tarih": "2026-08-28",
           "birim": "%",
-          "gun": 1,
+          "gun": 2,
           "bayat": false
         },
         {
@@ -167,7 +167,7 @@
           "yon": "artis",
           "tarih": "2026-08-28",
           "birim": "%",
-          "gun": 1,
+          "gun": 2,
           "bayat": false
         },
         {
@@ -178,7 +178,7 @@
           "yon": "artis",
           "tarih": "2026-08-28",
           "birim": "%",
-          "gun": 1,
+          "gun": 2,
           "bayat": false
         },
         {
@@ -189,7 +189,7 @@
           "yon": "artis",
           "tarih": "2026-08-31",
           "birim": "puan",
-          "gun": 0,
+          "gun": 1,
           "bayat": false
         }
       ]
@@ -205,7 +205,7 @@
           "yon": "artis",
           "tarih": "2026-08-28",
           "birim": "endeks",
-          "gun": 1,
+          "gun": 2,
           "bayat": false
         },
         {
@@ -216,7 +216,7 @@
           "yon": "azalis",
           "tarih": "2026-08-31",
           "birim": "TL",
-          "gun": 0,
+          "gun": 1,
           "bayat": false
         }
       ]
