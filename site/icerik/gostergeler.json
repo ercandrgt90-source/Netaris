@@ -95,12 +95,12 @@
     {
       "kod": "T10Y2Y",
       "ad": "10Y-2Y",
-      "deger": "0,41",
-      "fark": "+2 bp",
-      "yon": "artis",
-      "tarih": "2026-08-31",
+      "deger": "0,40",
+      "fark": "-1 bp",
+      "yon": "azalis",
+      "tarih": "2026-09-01",
       "birim": "puan",
-      "gun": 1,
+      "gun": 0,
       "bayat": false
     },
     {
@@ -184,12 +184,12 @@
         {
           "kod": "T10Y2Y",
           "ad": "10Y − 2Y farkı",
-          "deger": "0,41",
-          "fark": "+2 bp",
-          "yon": "artis",
-          "tarih": "2026-08-31",
+          "deger": "0,40",
+          "fark": "-1 bp",
+          "yon": "azalis",
+          "tarih": "2026-09-01",
           "birim": "puan",
-          "gun": 1,
+          "gun": 0,
           "bayat": false
         }
       ]
