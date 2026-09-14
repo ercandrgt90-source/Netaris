@@ -1,0 +1,150 @@
+"""`sektor_ozet.json` YAZMA kurallari.
+
+NEDEN BU DOSYA VAR
+------------------
+Cikti sozlugu her kosuda BOS basliyor ve dosyanin TAMAMINI eziyordu:
+
+    cikti = {}
+    ...
+    HEDEF.write_text(json.dumps(cikti, ...))
+
+Bunun iki sonucu vardi.
+
+1. `--sektor Sanayi` calistirmak, dosyadaki DIGER ON SEKTORU
+   siliyordu. Ustelik kapsam korumasi tam bu yolda BILEREK kapaliydi
+   (`not n.sektor and ...`), cunku tek sektorluk kosuda kapsamin
+   kuculmesi beklenen bir seydi. Yani korumanin kapatildigi tek yol,
+   korumanin en cok gerektigi yoldu. Bu oturumda teshis icin tam da
+   "Sanayi tek basina" kosusu yapildi.
+
+2. Kaynak kosu ortasinda istekleri reddedince (olculdu 2026-09-14:
+   56 ardisik HTTP 429) uc sektor cekilip sekizi kaybediliyor ve
+   kapsam korumasi HICBIR SEYIN yazilmasina izin vermiyordu. Yani
+   basariyla cekilen uc sektorun emegi de cope gidiyordu. Kosu ne
+   veriyi koruyordu ne de ilerletiyordu -- yalnizca duruyordu.
+
+Dogrusu BIRLESTIRMEK: cekilebilen sektor tazeleniyor, cekilemeyen
+sektor ONCEKI HALIYLE kaliyor. Boylece art arda kosular yakinsiyor.
+
+Birlestirme kendi tuzagini getiriyor: agir reddedilen bir sektor
+otuz sirket yerine iki sirketle donerse, saglam veriyi ezer. Bu
+yuzden ayni kuculme kurali SEKTOR duzeyinde de uygulaniyor -- dogru
+ayrinti duzeyi bu.
+"""
+
+from __future__ import annotations
+
+import io
+import json
+import contextlib
+import pathlib
+import sys
+import tempfile
+
+_KOK = pathlib.Path(__file__).resolve().parent
+sys.path[:0] = [str(_KOK), str(_KOK / "kaynak"), str(_KOK / "analiz"),
+                str(_KOK / "ai")]
+
+import uret_bilanco as ub          # noqa: E402
+
+_gecen = 0
+
+
+def esit(a, b, ad):
+    global _gecen
+    if a != b:
+        print(f"  DUSTU  {ad}\n    beklenen: {b!r}\n    gelen:    {a!r}")
+        raise SystemExit(1)
+    _gecen += 1
+    print(f"  gecti  {ad}")
+
+
+def _sektor(n: int) -> dict:
+    """n sirketlik sahte sektor kaydi."""
+    return {"donem": "2026/6",
+            "sirket": {f"K{i:03d}": {"roe": 1.0} for i in range(n)}}
+
+
+def _kosu(baslangic: dict, uretilen: dict, argv: list[str]) -> tuple[dict, int]:
+    """HEDEF'i baslangicla kurar, main()'i kosar, sonucu doner."""
+    with tempfile.TemporaryDirectory() as d:
+        hedef = pathlib.Path(d) / "sektor_ozet.json"
+        hedef.write_text(json.dumps(baslangic, ensure_ascii=False),
+                         encoding="utf-8")
+        eski = (ub.HEDEF, ub.sektor_isle, ub.sektor_donemi, sys.argv)
+        ub.HEDEF = hedef
+        ub.sektor_isle = lambda s, *a, **k: uretilen[s]
+        # Cekilemeyen sektor GERCEK yoldan eleniyor: donem etiketi bos
+        # donuyor. Bugunku kosuda sekiz sektor tam buradan dustu.
+        ub.sektor_donemi = lambda s, *a, **k: ("2026/6" if s in uretilen
+                                               else "")
+        sys.argv = ["uret_bilanco", *argv]
+        try:
+            with contextlib.redirect_stdout(io.StringIO()):
+                kod = ub.main()
+        finally:
+            (ub.HEDEF, ub.sektor_isle, ub.sektor_donemi,
+             sys.argv) = eski
+        return json.loads(hedef.read_text(encoding="utf-8")), kod
+
+
+print("\nTek sektorluk kosu, DIGER SEKTORLERI SILMEMELI")
+_bas = {"Sanayi": _sektor(69), "Finans": _sektor(30),
+        "Enerji": _sektor(12)}
+_son, _kod = _kosu(_bas, {"Sanayi": _sektor(70)},
+                   ["--sektor", "Sanayi", "--zorla"])
+esit(sorted(_son), ["Enerji", "Finans", "Sanayi"], "uc sektor de duruyor")
+esit(len(_son["Sanayi"]["sirket"]), 70, "Sanayi TAZELENDI")
+esit(len(_son["Finans"]["sirket"]), 30, "Finans dokunulmadan kaldi")
+esit(len(_son["Enerji"]["sirket"]), 12, "Enerji dokunulmadan kaldi")
+esit(_kod, 0, "cikis kodu 0")
+
+print("\nYarim kalan --hepsi kosusu, CEKILENI YAZAR gerisini korur")
+_bas = {"Sanayi": _sektor(69), "Finans": _sektor(30),
+        "Enerji": _sektor(12)}
+# Kaynak reddetti: yalnizca Finans cekilebildi.
+_son, _kod = _kosu(_bas, {"Finans": _sektor(31)},
+                   ["--hepsi", "--zorla"])
+esit(len(_son["Finans"]["sirket"]), 31, "cekilen sektor tazelendi")
+esit(len(_son["Sanayi"]["sirket"]), 69, "cekilemeyen sektor KORUNDU")
+esit(ub.kapsam(_son), 112, "kapsam korundu (69+31+12)")
+esit(_kod, 0, "yarim kosu YESIL -- ilerleme kaydedildi")
+
+print("\nCOKEN sektor, saglam veriyi EZMEMELI")
+# GENEL KORUMA BU SENARYOYU KURTARAMAZ -- bilerek boyle kuruldu.
+#
+# Ilk yazimda baslangic {Sanayi 69, Finans 30} idi ve Sanayi 2'ye
+# dusunce TOPLAM kapsam da coktu (99 -> 32). Yani sinama, sektor
+# korumasi tamamen kapatilsa bile GECIYORDU: onu genel koruma
+# kurtariyordu. Mutasyon kacti, sinama hicbir sey OLCMUYORDU.
+#
+# Finans buyuk tutuluyor ki toplam kapsam esigin USTUNDE kalsin
+# (302 > 369 * 0,6 = 221) ve Sanayi'yi yalnizca SEKTOR korumasi
+# kurtarabilsin.
+_bas = {"Sanayi": _sektor(69), "Finans": _sektor(300)}
+# Sanayi agir reddedildi: 69 yerine 2 sirketle dondu.
+_son, _kod = _kosu(_bas, {"Sanayi": _sektor(2)},
+                   ["--sektor", "Sanayi", "--zorla"])
+esit(ub.kapsam(_son) > ub.kapsam(_bas) * ub.KUCULME_ESIGI, True,
+     "genel koruma bu senaryoda ATESLEMEZ")
+esit(len(_son["Sanayi"]["sirket"]), 69, "coken sektor YAZILMADI")
+esit(len(_son["Finans"]["sirket"]), 300, "saglam sektor duruyor")
+
+print("\nSektor GERCEKTEN kuculduyse --zorla-yaz gecirir")
+_son, _kod = _kosu({"Sanayi": _sektor(69)}, {"Sanayi": _sektor(2)},
+                   ["--sektor", "Sanayi", "--zorla",
+                    "--zorla-yaz"])
+esit(len(_son["Sanayi"]["sirket"]), 2, "--zorla-yaz kararı insana birakiyor")
+
+print("\nOlculu kuculme normaldir -- esigin USTU gecer")
+# 30 -> 26 (bugunku gercek kosu). Esik 0,6 => 18.
+_son, _kod = _kosu({"Finans": _sektor(30)}, {"Finans": _sektor(26)},
+                   ["--sektor", "Finans", "--zorla"])
+esit(len(_son["Finans"]["sirket"]), 26, "30 -> 26 kabul edildi")
+
+print("\nYENI sektor eklenebiliyor")
+_son, _kod = _kosu({"Sanayi": _sektor(69)}, {"Enerji": _sektor(3)},
+                   ["--hepsi", "--zorla"])
+esit(sorted(_son), ["Enerji", "Sanayi"], "yeni sektor eklendi")
+
+print(f"\nTUM TESTLER GECTI ({_gecen})")

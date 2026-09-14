@@ -245,24 +245,31 @@ jobs:
           # betiginde dusuldu.
           #
           # Cikti once dosyaya yaziliyor, sonra gunluge basiliyor.
-          for t in $(find haber_botu site -name "test_*.py" | sort); do
-            echo "--- $t"
-            if ! python "$t" > /tmp/test-cikti.txt 2>&1; then
+          # GECEN TESTIN CIKTISI BASILMIYOR -- yalnizca DUSENINKI.
+          #
+          # Olculdu (2026-09-14): dusen dosyayi gostersin diye eklenen
+          # raporlamadan sonra bile cevap okunamadi, cunku gecen 58
+          # dosyanin ciktisi 50 BIN KARAKTERI asiyordu ve tek satirlik
+          # cevap onun altinda kaliyordu. Gunluk kesildi, dusen dosya
+          # gorunmedi, ariza UCUNCU kez teshis edilemedi.
+          #
+          # Gecen testin ciktisinin kimseye faydasi yok: gecti demek
+          # yeterli. Dusen testin ciktisi ise TAMAMEN basiliyor.
+          calistir() {                 # $1 = yorumlayici, $2 = dosya
+            if ! "$1" "$2" > /tmp/test-cikti.txt 2>&1; then
+              echo "--- DUSTU: $2"
               cat /tmp/test-cikti.txt
-              bildir "$t" /tmp/test-cikti.txt
+              bildir "$2" /tmp/test-cikti.txt
               exit 1
             fi
-            cat /tmp/test-cikti.txt
+            echo "gecti  $2"
+          }
+          for t in $(find haber_botu site -name "test_*.py" | sort); do
+            calistir python "$t"
             bulunan=$((bulunan + 1))
           done
           for t in $(find haber_botu site -name "test_*.js" | sort); do
-            echo "--- $t"
-            if ! node "$t" > /tmp/test-cikti.txt 2>&1; then
-              cat /tmp/test-cikti.txt
-              bildir "$t" /tmp/test-cikti.txt
-              exit 1
-            fi
-            cat /tmp/test-cikti.txt
+            calistir node "$t"
             bulunan=$((bulunan + 1))
           done
           echo "$bulunan test dosyasi calisti"

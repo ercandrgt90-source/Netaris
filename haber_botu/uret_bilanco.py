@@ -125,6 +125,22 @@ def sektor_donemi(sektor_tr: str, son_donem, ceyrek_etiketi) -> str:
     return ""
 
 
+def mevcut_ozet() -> dict:
+    """Diskteki ozeti verir. Okunamazsa BOS -- uydurulmaz."""
+    if not HEDEF.exists():
+        return {}
+    try:
+        d = json.loads(HEDEF.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, OSError):
+        return {}
+    return d if isinstance(d, dict) else {}
+
+
+def sirket_sayisi(sektor: dict | None) -> int:
+    """Bir sektor kaydindaki sirket sayisi."""
+    return len(((sektor or {}).get("sirket")) or {})
+
+
 def kapsam_coktu(yeni: int, onceki: int) -> bool:
     """Yeni kapsam, oncekine gore KATASTROFIK bicimde kucuk mu.
 
@@ -301,7 +317,27 @@ def main() -> int:
     else:
         sektorler = [n.sektor]
 
-    cikti = {}
+    # CIKTI BOS BASLAMIYOR -- onceki dosya TEMEL ALINIYOR.
+    #
+    # Once `cikti = {}` idi ve dosya oldugu gibi eziliyordu. Iki ayri
+    # sekilde veri kaybettiriyordu:
+    #
+    # 1. `--sektor Sanayi` calistirmak DIGER ON SEKTORU siliyordu.
+    #    Kapsam korumasi tam bu yolda BILEREK kapaliydi, cunku tek
+    #    sektorluk kosuda kuculme beklenen bir seydi. Yani korumanin
+    #    kapatildigi tek yol, korumanin en cok gerektigi yoldu.
+    #
+    # 2. Kaynak kosu ortasinda reddetmeye baslayinca (olculdu
+    #    2026-09-14: 56 ardisik HTTP 429) cekilebilen uc sektorun
+    #    emegi de cope gidiyordu: koruma HICBIR SEYIN yazilmasina
+    #    izin vermiyordu. Kosu ne koruyordu ne ilerletiyordu.
+    #
+    # Birlestirme ikisini de cozuyor: cekilen tazeleniyor, cekilemeyen
+    # onceki haliyle kaliyor, art arda kosular yakinsiyor.
+    onceki_ozet = mevcut_ozet()
+    cikti = dict(onceki_ozet)
+    tazelenen: list[str] = []
+    korunan: list[str] = []
     for s in sektorler:
         # DONEM ETIKETI VERIDEN TURETILIYOR, ELLE YAZILMIYOR.
         #
@@ -333,10 +369,36 @@ def main() -> int:
             # kazanir.
             etiket = sektor_donemi(s, _b.son_donem, _b.ceyrek_etiketi)
             if not etiket:
-                print(f"  {s}: donem belirlenemedi "
-                      f"({DONEM_DENEME} sirket denendi), atlandi")
+                # SEBEP DOGRU ADIYLA YAZILIYOR.
+                #
+                # Olculdu (2026-09-14): sekiz sektor "donem
+                # belirlenemedi" diye elendi. Bu, VERIDE bir eksiklik
+                # varmis gibi okunuyor; gercek sebep ise kaynagin
+                # istekleri reddetmesiydi (56 ardisik HTTP 429).
+                # Yanlis teshis, dogru teshisten daha pahali.
+                if getattr(_b, "KAPANDI", False):
+                    print(f"  {s}: KAYNAK REDDEDIYOR, atlandi "
+                          f"(veri eksikligi degil)")
+                else:
+                    print(f"  {s}: donem belirlenemedi "
+                          f"({DONEM_DENEME} sirket denendi), atlandi")
                 continue
-        cikti[s] = sektor_isle(s, etiket, n.ceyrek, n.sinir)
+        yeni_sektor = sektor_isle(s, etiket, n.ceyrek, n.sinir)
+
+        # AYNI KURAL, DOGRU AYRINTI DUZEYINDE.
+        #
+        # Birlestirme kendi tuzagini getiriyor: agir reddedilen bir
+        # sektor otuz sirket yerine ikiyle donerse, saglam veriyi ezer.
+        # Kuculme kurali bu yuzden SEKTOR duzeyinde de isliyor.
+        _eski_n = sirket_sayisi(onceki_ozet.get(s))
+        _yeni_n = sirket_sayisi(yeni_sektor)
+        if not n.zorla_yaz and kapsam_coktu(_yeni_n, _eski_n):
+            print(f"  {s}: kapsam coktu ({_eski_n} -> {_yeni_n}), "
+                  f"ONCEKI VERI KORUNDU")
+            korunan.append(s)
+            continue
+        cikti[s] = yeni_sektor
+        tazelenen.append(s)
 
     if n.kuru_calis:
         print("\n(kuru çalışma -- dosyaya yazılmadı)")
@@ -382,15 +444,35 @@ def main() -> int:
     except Exception:                                  # pragma: no cover
         pass
 
+    # DEFTERDE OLMAYAN SEKTOR GERCEKTEN YOK DEMEKTIR.
+    #
+    # Birlestirme, kaldirilmis bir sektoru sonsuza kadar tasima
+    # riskini getiriyor. Yalnizca TAM SUPURME (`--hepsi`) sektorlerin
+    # tam listesini bilir; orada defter yetkilidir.
+    if n.hepsi:
+        for _s in [k for k in cikti if k not in sektorler]:
+            print(f"  {_s}: defterde yok, dosyadan cikarildi")
+            del cikti[_s]
+
+    if tazelenen:
+        print()
+        print(f"  tazelenen sektor ({len(tazelenen)}): "
+              f"{', '.join(sorted(tazelenen))}")
+    _dokunulmayan = [k for k in cikti if k not in tazelenen]
+    if _dokunulmayan:
+        print(f"  onceki haliyle kalan ({len(_dokunulmayan)}): "
+              f"{', '.join(sorted(_dokunulmayan))}")
+
     _yeni = kapsam(cikti)
-    _onceki = 0
-    if HEDEF.exists():
-        try:
-            _onceki = kapsam(json.loads(HEDEF.read_text(encoding="utf-8")))
-        except (json.JSONDecodeError, OSError):
-            _onceki = 0
-    if (not n.sektor and not n.zorla_yaz
-            and kapsam_coktu(_yeni, _onceki)):
+    _onceki = kapsam(onceki_ozet)
+    # KORUMA ARTIK `--sektor` YOLUNDA DA ACIK.
+    #
+    # Once `not n.sektor` kosulu vardi: tek sektorluk kosuda kapsamin
+    # kuculmesi beklendigi icin koruma kapatiliyordu. Ama ayni kosu
+    # dosyanin TAMAMINI eziyordu -- yani koruma, en cok gerektigi
+    # yerde kapaliydi. Birlestirmeden sonra tek sektorluk kosu kapsami
+    # kucultmuyor; koruma da bedelsiz olarak acik kalabiliyor.
+    if not n.zorla_yaz and kapsam_coktu(_yeni, _onceki):
         print(f"\n  KAPSAM COKTU -- dosya YAZILMADI.")
         print(f"    onceki {_onceki} sirket, yeni {_yeni} "
               f"(esik: {_onceki * KUCULME_ESIGI:.0f})")

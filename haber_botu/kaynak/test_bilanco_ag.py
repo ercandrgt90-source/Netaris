@@ -265,39 +265,79 @@ class _SahteIstemci:
         return y
 
 
-def _dene(dizi):
-    eski_ara, eski_geri = ba.ARA_SN, ba.GERI_CEKILME
+def _dene(dizi, kez=1):
+    """`kez` kadar cek() cagirir. Kosu durumu basa alinir."""
+    eski_geri = ba.GERI_CEKILME
     ba.GERI_CEKILME = 0.0            # sinama beklemesin
-    ba.ARA_SN = 0.5
-    ba.OKUNAMAYAN.clear()
+    ba.sifirla()
     i = _SahteIstemci(dizi)
     try:
-        ba.cek("TEST", "gelir", istemci=i)
-        return i.n, list(ba.OKUNAMAYAN), ba.ARA_SN
+        for _ in range(kez):
+            ba.cek("TEST", "gelir", istemci=i)
+        # KAPANDI BURADA OKUNUYOR: `finally` icindeki sifirla()
+        # cagrisi onu temizliyor ve disaridan bakinca HER ZAMAN False
+        # gorunurdu -- sinama hicbir sey olcmezdi.
+        return i.n, list(ba.OKUNAMAYAN), ba.ARA_SN, ba.KAPANDI
     finally:
-        ba.ARA_SN, ba.GERI_CEKILME = eski_ara, eski_geri
-        ba.OKUNAMAYAN.clear()
+        ba.GERI_CEKILME = eski_geri
+        ba.sifirla()
 
 
-_n, _hata, _ara = _dene([_SahteYanit(429), _SahteYanit(200, "<table></table>")])
+_n, _hata, _ara, _kap = _dene([_SahteYanit(429), _SahteYanit(200, "<table></table>")])
 esit(_n, 2, "429 sonrasi YENIDEN DENIYOR")
 esit(_hata, [], "yeniden deneme basarili olunca hata kaydedilmiyor")
 # Bir kez reddedildikten sonra ayni hizla devam etmek, sinira tekrar
 # girmek demekti. Kosunun geri kalani seyreltiliyor.
 esit(_ara, ba.YAVAS_ARA_SN, "red sonrasi istek araligi BUYUTULUYOR")
 
-_n, _hata, _ = _dene([_SahteYanit(429)])
+_n, _hata, _, _kap = _dene([_SahteYanit(429)])
 esit(_n, ba.DENEME, "surekli red: DENEME kadar deneniyor, daha fazla degil")
 esit(_hata and _hata[0][1], "HTTP 429",
      "durum kodu kaydediliyor -- 'neden okunamadi' cevaplanabilsin")
 
 # 404 KAYNAGIN YAVASLA DEMESI DEGIL: o sayfa yok. Israr etmek hem
 # bosuna hem nazik degil.
-_n, _hata, _ara = _dene([_SahteYanit(404)])
+_n, _hata, _ara, _kap = _dene([_SahteYanit(404)])
 esit(_n, 1, "404'te yeniden DENENMIYOR")
 esit(_ara, 0.5, "404 istek araligini buyutmuyor")
 esit(_hata and _hata[0][1], "HTTP 404", "404 de kaydediliyor")
 
+
+# ------------------------------------------------------------------
+# KAPALI KAPIYI ZORLAMAMA
+# ------------------------------------------------------------------
+#
+# Olculdu (2026-09-14): kosu 56 ardisik HTTP 429 aldi. Her istek uc
+# kez deneniyordu; yani kapali bir kapiya yaklasik 168 istek gitti ve
+# hicbiri donmedi. Yavaslama da tek atislikti: 2 sn'ye cikip orada
+# kaliyordu.
+print()
+print("Kapali kapiyi zorlamama")
+
+_n, _hata, _ara, _kap = _dene([_SahteYanit(429)], kez=ba.ARDISIK_RED_SINIRI + 4)
+esit(_kap, True, "ardisik red sonrasi KAPANDI")
+# Sinira kadar her cagri DENEME kez, sonrasi HIC.
+esit(_n, ba.ARDISIK_RED_SINIRI * ba.DENEME,
+     "kapandiktan sonra HIC istek atilmiyor")
+esit(len(_hata), ba.ARDISIK_RED_SINIRI + 4,
+     "kapandiktan sonrasi da KAYDEDILIYOR -- eksik veri sessiz kalmiyor")
+esit(_hata[-1][1], "kaynak kapandi", "sebep adiyla yaziliyor")
+
+# Yavaslama BASAMAKLI: tek atislik olsaydi 2,0'da kalirdi.
+esit(_ara, ba.TAVAN_ARA_SN, "istek araligi TAVANA kadar buyuyor")
+esit(ba.TAVAN_ARA_SN > ba.YAVAS_ARA_SN, True,
+     "tavan ilk basamagin USTUNDE -- yoksa basamakli olmazdi")
+
+# 404 SAYACI ISLETMEMELI: "o sayfa yok" baska sey.
+_n, _hata, _, _kap = _dene([_SahteYanit(404)], kez=ba.ARDISIK_RED_SINIRI + 4)
+esit(_kap, False, "404 yigini kaynagi KAPATMIYOR")
+esit(_n, ba.ARDISIK_RED_SINIRI + 4, "404 tek deneme, istekler surdu")
+
+# BASARI SAYACI SIFIRLIYOR: araya giren basarili istek, dagilmis
+# redleri "ardisik" saydirmamali.
+_karisik = [_SahteYanit(429)] * (ba.ARDISIK_RED_SINIRI - 1) +            [_SahteYanit(200, "<table></table>")]
+_n, _hata, _, _kap = _dene(_karisik, kez=ba.ARDISIK_RED_SINIRI + 4)
+esit(_kap, False, "araya giren BASARI sayaci sifirliyor")
 
 print()
 if _kaldi:

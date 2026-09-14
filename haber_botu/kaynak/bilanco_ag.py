@@ -110,12 +110,62 @@ YAVASLATAN = frozenset({429, 503})
 YAVAS_ARA_SN = 2.0
 
 
+#: Bekleyerek asilmayacak tavan. Bunun otesi beklemek degil,
+#: kapali bir kapiyi zorlamaktir.
+TAVAN_ARA_SN = 8.0
+
+#: Ustuste bu kadar istek reddedilirse kaynak bizi kapatmis demektir
+#: ve kalan istekler HIC YAPILMAZ.
+#:
+#: Olculdu (2026-09-14): 56 ardisik HTTP 429. Yavaslama bir kez
+#: ateslenip 2 sn'de KALIYORDU; 56 red, 2 sn'nin yetmedigini
+#: kanitliyor. Ustelik her istek 3 kez deneniyordu -- yani kapali
+#: kapiya yaklasik 168 istek gonderildi. Ne ise yarar ne de nazik.
+ARDISIK_RED_SINIRI = 8
+
+#: Kaynak kapandi mi. Kosu boyunca surer, sektorden sektore tasinir.
+KAPANDI = False
+
+_ardisik_red = 0
+
+
 def _yavasla() -> None:
-    """Kaynak reddedince kosunun geri kalanini seyreltir."""
+    """Kaynak reddedince kosunun geri kalanini seyreltir.
+
+    BASAMAKLI: once tek atislik bir sicramaydi (0,5 -> 2,0) ve orada
+    KALIYORDU. Kaynak 2 saniyeyle de yetinmeyince yapacak bir sey
+    kalmiyordu. Artik her redde ikiye katlaniyor, tavana kadar.
+    """
     global ARA_SN
-    if ARA_SN < YAVAS_ARA_SN:
-        ARA_SN = YAVAS_ARA_SN
+    onceki = ARA_SN
+    ARA_SN = min(max(ARA_SN * 2, YAVAS_ARA_SN), TAVAN_ARA_SN)
+    if ARA_SN != onceki:
         print(f"    kaynak yavaslatti -- istek araligi {ARA_SN} sn")
+
+
+def _reddedildi() -> None:
+    """Bir istek, denemeleri bitince REDLE kapandi."""
+    global _ardisik_red, KAPANDI
+    _ardisik_red += 1
+    if _ardisik_red >= ARDISIK_RED_SINIRI and not KAPANDI:
+        KAPANDI = True
+        print(f"    KAYNAK KAPANDI -- {_ardisik_red} ardisik red. "
+              f"Kalan istekler YAPILMIYOR.")
+
+
+def _gecti() -> None:
+    """Bir istek basarili oldu: kapi hala acik."""
+    global _ardisik_red
+    _ardisik_red = 0
+
+
+def sifirla() -> None:
+    """Kosu durumunu basa alir (sinamalar ve art arda kosular icin)."""
+    global ARA_SN, _ardisik_red, KAPANDI
+    ARA_SN = 0.5
+    _ardisik_red = 0
+    KAPANDI = False
+    OKUNAMAYAN.clear()
 
 #: Turetilen kumulatif deger ile kaynagin kendi rakami arasinda kabul
 #: edilebilir sapma. Yuvarlamadan buyugu hesap hatasidir.
@@ -205,8 +255,17 @@ def cek(kod: str, sayfa: str = "gelir",
     if sayfa not in SAYFALAR:
         raise ValueError(f"bilinmeyen sayfa: {sayfa}")
     u = UC.format(kod=kod.upper(), sayfa=SAYFALAR[sayfa])
+    # KAPALI KAPIYA ISTEK ATILMIYOR.
+    #
+    # Kaynak ustuste reddetmeye basladiktan sonra kalan sektorlerin
+    # istekleri yalnizca gecikme ve gereksiz yuk uretiyordu. Kayit
+    # yine tutuluyor ki dokumde NEDEN eksik oldugu gorunsun.
+    if KAPANDI:
+        OKUNAMAYAN.append((f"{kod}/{sayfa}", "kaynak kapandi"))
+        return [], {}
     al = (istemci or httpx).get
     son_hata = "?"
+    son_yavaslatan = False
     for deneme in range(DENEME):
         try:
             r = al(u, headers=BASLIKLAR, timeout=ZAMAN_ASIMI,
@@ -215,6 +274,10 @@ def cek(kod: str, sayfa: str = "gelir",
         except httpx.HTTPStatusError as e:
             kodu = e.response.status_code
             son_hata = f"HTTP {kodu}"
+            # 404 sayaci ISLETMIYOR: "o sayfa yok" demek, "cok hizli
+            # gidiyorsun" demek degil. Ikisini karistirmak, eksik bir
+            # sirket yuzunden saglam bir kosuyu durdururdu.
+            son_yavaslatan = kodu in YAVASLATAN
             if kodu in YAVASLATAN and deneme < DENEME - 1:
                 # KAYNAK "YAVASLA" DIYOR -- dinleniyor.
                 #
@@ -238,8 +301,11 @@ def cek(kod: str, sayfa: str = "gelir",
                 continue
             break
         else:
+            _gecti()
             return _tablo(r.text)
     OKUNAMAYAN.append((f"{kod}/{sayfa}", son_hata))
+    if son_yavaslatan:
+        _reddedildi()
     return [], {}
 
 
@@ -311,7 +377,8 @@ def ara_donem(kod: str, ceyrek: int = 2,
             if (d := donem_toplami(deg, ceyrek, akis, kaydir=4)) is not None
         }
         cikti.setdefault("_donem", {})[sayfa] = donemler[:ceyrek]
-        time.sleep(ARA_SN)
+        if not KAPANDI:
+            time.sleep(ARA_SN)
     return cikti
 
 # ---------------------------------------------------------------------
