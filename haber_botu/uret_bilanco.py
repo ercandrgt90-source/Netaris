@@ -59,6 +59,39 @@ import sektor_ozet     # noqa: E402
 #: Ayin tamamı acik birakildi: sirketler ayni gun bildirmiyor.
 BILDIRIM_AYLARI = {3: 12, 5: 3, 8: 6, 11: 9}
 
+#: Yeni kapsam, oncekinin bu oraninin altina duserse dosya YAZILMAZ.
+#:
+#: Olculdu (2026-09-14): kosu yesil bitti ve kapsam 327 sirketten
+#: 47'ye dustu; ardindan sayfa uretimi 11 saniyede bos dondu. Tek bir
+#: kotu kosu, hattin tamamini bosa dusurdu ve hicbir yerde kirmizi
+#: gorunmedi.
+#:
+#: 0,6 secildi: bir sektorun gecici olarak cekilememesi normal
+#: (11 sektorde biri ~%9 kayip), ucte birden fazlasinin birden
+#: dusmesi ariza. Buyume ve kucuk dalgalanma serbest.
+KUCULME_ESIGI = 0.6
+
+
+def kapsam(ozet: dict) -> int:
+    """Ozetin kac sirketi kapsadigi."""
+    return sum(len(v.get("sirket") or {})
+               for v in (ozet or {}).values() if isinstance(v, dict))
+
+
+def kapsam_coktu(yeni: int, onceki: int) -> bool:
+    """Yeni kapsam, oncekine gore KATASTROFIK bicimde kucuk mu.
+
+    AYRI ISLEV OLMASI BILEREK: kural `main()` icinde satir ici kalsaydi
+    sinanamazdi ve bu depoda sinanmayan kural eskiyor.
+
+    Onceki kapsam BILINMIYORSA (dosya yok ya da bozuk) cokme YOK
+    sayiliyor: ilk kosuda yazmayi engellemek, korumanin kendisini
+    kilide cevirirdi.
+    """
+    if onceki <= 0:
+        return False
+    return yeni < onceki * KUCULME_ESIGI
+
 
 def donem_acik(bugun=None) -> tuple[bool, str]:
     """Bugun bilanco cekmenin anlamli oldugu bir ayda miyiz?
@@ -196,6 +229,8 @@ def main() -> int:
     a.add_argument("--ceyrek", type=int, default=1)
     a.add_argument("--sinir", type=int, help="sektör başına en fazla şirket")
     a.add_argument("--kuru-calis", action="store_true", help="dosyaya yazma")
+    a.add_argument("--zorla-yaz", action="store_true",
+                   help="kapsam cokse de yaz (bkz. KUCULME_ESIGI)")
     a.add_argument("--zorla", action="store_true",
                    help="bildirim ayı olmasa da çalıştır")
     n = a.parse_args()
@@ -244,9 +279,47 @@ def main() -> int:
     if n.kuru_calis:
         print("\n(kuru çalışma -- dosyaya yazılmadı)")
         return 0
+
+    # KATASTROFIK KUCULME KORUMASI.
+    #
+    # OLCULDU (2026-09-14): kosu YESIL bitti ve `sektor_ozet.json`
+    # 327 sirketten 47'ye dustu -- 2100 satir silindi. Ardindan
+    # "Bilanco sayfalari" adimi 11 SANIYEDE bitti cunku isleyecek
+    # sirket kalmamisti. Hicbir yerde kirmizi gorunmedi.
+    #
+    # Sebep: yazma KOSULSUZDU. Sektorlerin cogu icin veri
+    # cekilemediginde `cikti` az sayida sektor iceriyor ve dosya
+    # oldugu gibi eziliyor. Bir sonraki kosu da o eksik dosyayi
+    # okuyor -- yani tek bir kotu kosu, hattin tamamini bosa
+    # dusuruyor.
+    #
+    # Buyume ya da kucuk dalgalanma serbest; KATASTROFIK kayip
+    # degil. Esik yuzde 60: bir sektorun gecici olarak dusmesi
+    # normal, ucte ikisinin birden dusmesi ariza.
+    #
+    # `--zorla-yaz` ile gecilebiliyor: kapsam GERCEKTEN daraldiysa
+    # (sektor listesi kisaldi, `--sektor` ile tek sektor kosuldu)
+    # karar insanin.
+    _yeni = kapsam(cikti)
+    _onceki = 0
+    if HEDEF.exists():
+        try:
+            _onceki = kapsam(json.loads(HEDEF.read_text(encoding="utf-8")))
+        except (json.JSONDecodeError, OSError):
+            _onceki = 0
+    if (not n.sektor and not n.zorla_yaz
+            and kapsam_coktu(_yeni, _onceki)):
+        print(f"\n  KAPSAM COKTU -- dosya YAZILMADI.")
+        print(f"    onceki {_onceki} sirket, yeni {_yeni} "
+              f"(esik: {_onceki * KUCULME_ESIGI:.0f})")
+        print("    Veri cekilemeyen sektorler eksik ciktiyi tam ciktinin")
+        print("    uzerine yazacakti; mevcut dosya KORUNDU.")
+        print("    Gercekten daraldiysa: --zorla-yaz")
+        return 1
+
     HEDEF.write_text(json.dumps(cikti, ensure_ascii=False, indent=1),
                      encoding="utf-8")
-    print(f"\n{HEDEF} yazıldı")
+    print(f"\n{HEDEF} yazıldı ({_yeni} şirket)")
     return 0
 
 

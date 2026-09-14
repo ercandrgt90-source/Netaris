@@ -208,6 +208,50 @@ def test_ozet_degiskeni_yoksa_cokmuyor():
             os.environ["GITHUB_STEP_SUMMARY"] = eski
 
 
+
+# --- KAPSAM COKMESI ---------------------------------------------------
+#
+# OLCULDU (2026-09-14): bilanco kosusu YESIL bitti ve
+# `sektor_ozet.json` 327 sirketten 47'ye dustu -- 2100 satir silindi.
+# Ardindan "Bilanco sayfalari" adimi 11 SANIYEDE bos dondu; isleyecek
+# sirket kalmamisti. Hicbir yerde kirmizi gorunmedi.
+#
+# Sebep: yazma KOSULSUZDU. Sektorlerin cogu icin veri cekilemediginde
+# eksik cikti, tam ciktinin uzerine yaziliyordu. Bir sonraki kosu da o
+# eksik dosyayi okuyor -- yani tek bir kotu kosu hattin tamamini bosa
+# dusuruyor.
+
+
+def test_kapsam_sayimi():
+    import uret_bilanco as ub
+    ozet = {"A": {"sirket": {"X": 1, "Y": 2}}, "B": {"sirket": {"Z": 3}}}
+    assert ub.kapsam(ozet) == 3, ub.kapsam(ozet)
+    assert ub.kapsam({}) == 0
+    assert ub.kapsam(None) == 0
+
+
+def test_kapsam_cokmesi_yakalaniyor():
+    """Gercek sayilarla: 327 -> 47."""
+    import uret_bilanco as ub
+    assert ub.kapsam_coktu(47, 327) is True
+
+
+def test_kucuk_dalgalanma_serbest():
+    """Bir sektorun gecici olarak dusmesi normal, engellenmemeli."""
+    import uret_bilanco as ub
+    assert ub.kapsam_coktu(300, 327) is False
+    assert ub.kapsam_coktu(327, 327) is False
+    # Buyume de serbest.
+    assert ub.kapsam_coktu(400, 327) is False
+
+
+def test_onceki_bilinmiyorsa_engellemiyor():
+    """Ilk kosuda dosya YOK -- koruma kendisini kilide cevirmemeli."""
+    import uret_bilanco as ub
+    assert ub.kapsam_coktu(10, 0) is False
+    assert ub.kapsam_coktu(0, 0) is False
+
+
 if __name__ == "__main__":
     n = 0
     for ad, f in sorted(globals().items()):
