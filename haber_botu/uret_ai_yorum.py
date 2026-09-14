@@ -371,7 +371,16 @@ def main() -> int:
                     "INSERT OR REPLACE INTO ai_yorum"
                     " (adres, metin, saglayici, model, kayit_ani)"
                     " VALUES (?,?,?,?,?)",
-                    (h["adres"], metin, s, model, beyin.simdi()))
+                    # SAGLAYICI MODELDEN TURETILIYOR, `s`den DEGIL.
+                    #
+                    # `s` dongu baslamadan BIR KEZ okunuyor; `yorumla`
+                    # ise kosu ortasinda Anthropic'ten Cloudflare'e
+                    # gecebiliyor (bakiye bitince). Olculdu: 21 satir
+                    # Cloudflare'in urettigi yorumu Anthropic'e mal
+                    # etmisti.
+                    (h["adres"], metin,
+                     yorumcu.model_saglayicisi(model) or s,
+                     model, beyin.simdi()))
                 uretilen += 1
                 print(f"  ✓    {h['baslik'][:52]}")
                 print(f"       {metin[:150]}")

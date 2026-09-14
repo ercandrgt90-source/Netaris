@@ -304,6 +304,15 @@ try:
     _m, _model, _sebep, _ham = yorumcu.yorumla(_UZUN)
     sina("bakiye bitince ucretsiz saglayiciya geciyor", bool(_m))
     sina("geri dususte model cloudflare modeli", _model == "@cf/sahte")
+    # KOKEN KAYDI DA GECMELI.
+    #
+    # Olculdu (2026-09-14): depoda 21 satir `saglayici='anthropic'`
+    # yaninda `model='@cf/openai/gpt-oss-120b'` tasiyordu -- Cloudflare
+    # yorumu Anthropic'e mal edilmisti. Sebep: cagiran taraf
+    # saglayiciyi DONGUDEN ONCE bir kez soruyordu, `yorumla` ise kosu
+    # ortasinda gecebiliyor. Iki kaynak, tek soru.
+    sina("geri dususte KOKEN de cloudflare",
+         yorumcu.model_saglayicisi(_model) == "cloudflare")
     sina("anthropic bu kosuda devre disi", yorumcu._anthropic_kapali())
     sina("sonraki secim cloudflare", yorumcu.saglayici() == "cloudflare")
 
@@ -315,6 +324,22 @@ try:
     yorumcu._anthropic_cagir = lambda *a, **k: (_ for _ in ()).throw(
         _hata(400, "prompt is too long: 250000 tokens"))
     _m2, _, _sebep2, _ = yorumcu.yorumla(_UZUN)
+    # --- MODEL -> SAGLAYICI ESLEMESI ---
+    #
+    # Modul hangi modelleri uretebiliyorsa hepsi sinaniyor: liste
+    # degistiginde sinama da degismeli, elle yazilmis bir kopya
+    # sessizce eskimesin.
+    sina("anthropic modeli anthropic'e esleniyor",
+         yorumcu.model_saglayicisi(yorumcu.ANTHROPIC_MODEL) == "anthropic")
+    for _cf in yorumcu.CF_MODELLER:
+        sina(f"cloudflare modeli eslendi ({_cf[:26]})",
+             yorumcu.model_saglayicisi(_cf) == "cloudflare")
+    sina("bos model bos koken", yorumcu.model_saglayicisi("") == "")
+    # `NETARIS_AI_MODEL` yalnizca UCRETSIZ saglayicinin listesini
+    # degistiriyor; tanimadigimiz bir ad Anthropic olamaz.
+    sina("bilinmeyen model cloudflare sayiliyor",
+         yorumcu.model_saglayicisi("ozel-model-xyz") == "cloudflare")
+
     sina("istege ozel 400 saglayiciyi kapatmiyor",
          not yorumcu._anthropic_kapali())
     sina("istege ozel 400'de sebep bildiriliyor", "400" in _sebep2)

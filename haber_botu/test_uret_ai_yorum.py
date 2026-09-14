@@ -106,6 +106,50 @@ dogru("neden_onemli girdide yok",
           {**olcumlu, "neden_onemli": "Bu cumle kopyalanmamali"},
           SahteDosya()))
 
+
+# ---------------------------------------------------------------------
+# DEPODAKI KOKEN KAYDI TUTARLI OLMALI
+#
+# Olculdu (2026-09-14): `ai_yorum` tablosunda 21 satir
+# `saglayici='anthropic'` yaninda `model='@cf/openai/gpt-oss-120b'`
+# tasiyordu -- yani Cloudflare'in urettigi yorum Anthropic'e mal
+# edilmisti. Sebep: `uret_ai_yorum` saglayiciyi DONGUDEN ONCE bir kez
+# soruyor, `yorumla` ise bakiye bitince kosu ortasinda gecebiliyor.
+#
+# Sitede gorunmuyor, bu yuzden hicbir yerde kirmizi yanmiyordu. Ama
+# koken kaydi yanlis: saglayici basarimini ya da maliyetini olcmek
+# isteyen herkesi yaniltir.
+#
+# Kural artik GERCEK VERI uzerinde nobet tutuyor: kod duzeltildi ama
+# bir daha bozulursa depodaki satirlar bunu soyleyecek.
+# ---------------------------------------------------------------------
+import sqlite3  # noqa: E402
+
+# KAYIT YOLU DA SINANIYOR, YALNIZCA SONUC DEGIL.
+#
+# Depo taramasi mevcut veriyi koruyor ama KODUN geri alinmasini
+# yakalamiyor: satirlar zaten dogru oldugu icin tarama yesil kalirdi
+# ve kusur ancak yeni bozuk veri birikince gorunurdu. Bu depoda
+# `test_acilis_kurali` ayni sebeple kaynak metnini okuyor: iki yerin
+# ayni karari vermemesi gerekiyorsa, bunu sinama soylemeli.
+_kaynak = (_KOK / "uret_ai_yorum.py").read_text(encoding="utf-8")
+dogru("koken INSERT'te modelden turetiliyor",
+      "model_saglayicisi(model)" in _kaynak)
+
+_db = _KOK / "netaris.db"
+if _db.exists():
+    _b = sqlite3.connect(f"file:{_db}?mode=ro", uri=True)
+    try:
+        _satir = _b.execute("SELECT saglayici, model FROM ai_yorum").fetchall()
+    finally:
+        _b.close()
+    dogru("depoda yorum var", len(_satir) > 50)
+    _uyusmaz = [(s, m) for s, m in _satir
+                if yorumcu.model_saglayicisi(m) != s]
+    es("koken kaydi model ile uyusuyor", _uyusmaz[:3], [])
+else:
+    print("  ATLANDI  netaris.db yok")
+
 print()
 for k in kaldi:
     print("  KALDI", k)

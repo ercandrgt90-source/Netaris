@@ -70,6 +70,11 @@ CF_MODELLER = (
 )
 ANTHROPIC_MODEL = "claude-opus-5"
 
+#: Anthropic'e ait model adlari. Bunun DISINDAKI her sey Cloudflare:
+#: `NETARIS_AI_MODEL` yalnizca ucretsiz saglayicinin model listesini
+#: degistiriyor (`_cf_modeller`), Anthropic'inkini degil.
+ANTHROPIC_MODELLER = (ANTHROPIC_MODEL,)
+
 
 def cf_modelleri() -> tuple[str, ...]:
     ozel = os.environ.get("NETARIS_AI_MODEL", "").strip()
@@ -621,6 +626,35 @@ def _anthropic_kapat(sebep: str) -> None:
         _ANTHROPIC_KAPALI = True
         print(f"    anthropic bu kosuda devre disi ({sebep[:90]})"
               f" -- ucretsiz saglayiciya geciliyor")
+
+
+def model_saglayicisi(model: str) -> str:
+    """Yorumu URETEN saglayici -- model adindan. Bilinmiyorsa bos.
+
+    NEDEN MODELDEN TURETILIYOR
+    --------------------------
+    `uret_ai_yorum` saglayiciyi DONGUDEN ONCE bir kez soruyordu:
+
+        s = yorumcu.saglayici()          # <- tek sefer
+        ...
+        INSERT INTO ai_yorum (..., saglayici, model, ...) VALUES (..., s, model, ...)
+
+    Ama `yorumla` kosu ortasinda Anthropic'ten Cloudflare'e GECEBILIYOR
+    (bakiye bitince). Model dogru yaziliyordu, saglayici eski degerde
+    kaliyordu.
+
+    Olculdu (2026-09-14): 21 satirda `saglayici='anthropic'` yaninda
+    `model='@cf/openai/gpt-oss-120b'` yaziyordu -- yani Cloudflare'in
+    urettigi yorum Anthropic'e mal edilmisti. Sitede gorunmuyor, ama
+    koken kaydi yanlis: saglayici basarimini ya da maliyetini olcmek
+    isteyen herkesi yaniltir.
+
+    Iki ayri kaynak ayni soruya cevap veriyordu. Model, cagrinin
+    kendisinden donuyor -- tek dogru kaynak o.
+    """
+    if not model:
+        return ""
+    return "anthropic" if model in ANTHROPIC_MODELLER else "cloudflare"
 
 
 def saglayici() -> str:
