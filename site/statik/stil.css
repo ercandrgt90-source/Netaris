@@ -709,7 +709,7 @@ main.kabuk {
 
 .rakamlar {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(160px, 100%), 1fr));
   gap: 1px;
   margin: var(--b-2) 0;
   background: var(--cizgi);
@@ -891,7 +891,7 @@ main.kabuk {
   margin: 0 0 var(--b-6);
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(310px, 100%), 1fr));
   gap: 18px}
 
 .kart {
@@ -1144,7 +1144,7 @@ main.kabuk {
 
 .kriter {
   display: grid;
-  grid-template-columns: minmax(120px, 168px) 1fr auto;
+  grid-template-columns: minmax(min(120px, 100%), 168px) 1fr auto;
   align-items: center;
   gap: 14px;
   font-size: var(--p-m)}
@@ -1613,7 +1613,7 @@ main.kabuk {
 .serit-yatay {
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: minmax(260px, 78%);
+  grid-auto-columns: minmax(min(260px, 100%), 78%);
   gap: var(--b-3);
   overflow-x: auto;
   scroll-snap-type: x mandatory;
@@ -1628,7 +1628,7 @@ main.kabuk {
   background: var(--cizgi-parlak); border-radius: 3px}
 
 @media (min-width: 561px) {
-  .serit-yatay { grid-auto-columns: minmax(280px, 46%); }
+  .serit-yatay { grid-auto-columns: minmax(min(280px, 100%), 46%); }
 }
 @media (min-width: 900px) {
   /* Genis ekranda yatay kaydirma GEREKMIYOR: kartlar zaten yan yana
@@ -1642,7 +1642,7 @@ main.kabuk {
        goruluyordu.
        `auto-fit` dolmayan izleri KALDIRIYOR ve kalan kartlar satiri
        kapliyor -- bosluk kalmiyor. */
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
     grid-auto-columns: auto;
     overflow-x: visible;
     scroll-snap-type: none;
@@ -2155,7 +2155,7 @@ main.kabuk {
 
 .ilgili-izgara {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr));
   gap: 1px;
   background: var(--cizgi);
   border: 1px solid var(--cizgi);
@@ -2214,7 +2214,7 @@ main.kabuk {
 
 .uretim-rakamlar {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(112px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(112px, 100%), 1fr));
   gap: 1px;
   background: var(--cizgi);
   border: 1px solid var(--cizgi);
@@ -2509,7 +2509,7 @@ main.kabuk {
 .yorum-serit {
   list-style: none; margin: 0 0 var(--b-6); padding: 0;
   display: grid; gap: 14px;
-  grid-template-columns: repeat(auto-fill, minmax(235px, 1fr))}
+  grid-template-columns: repeat(auto-fill, minmax(min(235px, 100%), 1fr))}
 .yorum-kart {
   display: flex; flex-direction: column; gap: 10px; height: 100%;
   padding: var(--b-4); border: 1px solid var(--cizgi); border-radius: var(--r);
@@ -2834,7 +2834,7 @@ main.kabuk {
    da olabilir. */
 .nabiz {
   display: grid; gap: var(--b-3); margin: 0 0 var(--b-5);
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr))}
+  grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr))}
 .nabiz-oge {
   display: flex; flex-direction: column; gap: 2px;
   padding: var(--b-4); min-width: 0;
@@ -2889,7 +2889,7 @@ main.kabuk {
    bir KAYIT ve hep dolu, o yuzden daha sik bir izgarada duruyor. */
 .hesap-liste {
   display: grid; gap: var(--b-3);
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr))}
+  grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr))}
 .hesap-kart p { margin: 4px 0 0}
 .hesap-kart .panel-satir-ust b { overflow-wrap: anywhere}/* --- BEGENDIKLERIM: akis karti --------------------------------------
    Once yalnizca baslik ve ham tarih ("2026-08-24") basiliyordu. Simdi
@@ -2979,7 +2979,7 @@ main.kabuk {
    dizildiklerinde form gereksiz uzuyor. Dar ekranda alt alta duser. */
 .panel-ikili {
   display: grid; gap: var(--b-4);
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr))}
+  grid-template-columns: repeat(auto-fit, minmax(min(190px, 100%), 1fr))}
 
 .panel-form small {
   font-weight: 400; font-size: var(--p-xs); color: var(--yazi-3)}
@@ -2993,7 +2993,7 @@ main.kabuk {
    satirlik gerekceyle birlikte soruyu bastan kapatiyor. */
 .panel-salt {
   display: grid; gap: var(--b-4);
-  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(190px, 100%), 1fr));
   padding: var(--b-4); border: 1px solid var(--cizgi);
   border-radius: var(--r); background: var(--zemin-2)}
 .panel-salt > div { display: flex; flex-direction: column; gap: 3px; min-width: 0}
@@ -3064,7 +3064,7 @@ main.kabuk {
 
 .piyasa-ema {
   display: grid; gap: var(--b-2);
-  grid-template-columns: repeat(auto-fit, minmax(128px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(128px, 100%), 1fr));
   padding: var(--b-2); border-top: 1px solid var(--cizgi)}
 .ema-kalem { display: flex; flex-direction: column; gap: 1px; min-width: 0}
 .ema-ad {
@@ -3090,7 +3090,7 @@ main.kabuk {
 /* Turkiye gostergeleri -- haber sayfasi */
 .tr-izgara {
   display: grid; gap: 10px; margin: 0 0 var(--b-3);
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr))}
+  grid-template-columns: repeat(auto-fit, minmax(min(140px, 100%), 1fr))}
 .tr-kalem {
   display: flex; flex-direction: column; gap: 2px;
   padding: var(--b-3) 14px;
@@ -3238,7 +3238,7 @@ main.kabuk {
 /* Konu dizini. */
 .varlik-izgara {
   display: grid; gap: 10px; margin: 0 0 var(--b-5b);
-  grid-template-columns: repeat(auto-fill, minmax(168px, 1fr))}
+  grid-template-columns: repeat(auto-fill, minmax(min(168px, 100%), 1fr))}
 .varlik-kart {
   display: flex; flex-direction: column; gap: var(--b-1);
   padding: var(--b-3) 14px; border: 1px solid var(--cizgi);
@@ -3697,7 +3697,7 @@ table td, table th, time, .tarih {
 .okumaya-devam > h2 { font-size: var(--p-l); margin: 0 0 18px}
 .od-izgara {
   display: grid; gap: 26px;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr))}
+  grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr))}
 .od-blok h3 {
   font-size: var(--p-s); font-weight: 800; letter-spacing: 0.02em;
   text-transform: uppercase; color: var(--yazi-3);
@@ -4068,7 +4068,7 @@ a.akis-baslik:hover { color: var(--vurgu); text-decoration: none}
   display: grid; gap: 1px; background: var(--cizgi);
   border: 1px solid var(--cizgi); border-radius: var(--r);
   overflow: hidden;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr))}
+  grid-template-columns: repeat(auto-fit, minmax(min(290px, 100%), 1fr))}
 .ai-akis-liste li { background: var(--panel)}
 
 /* IKI SINIF, AYNI OZELLIK -- CAKISMA ACIKCA COZULUYOR.
@@ -4120,7 +4120,7 @@ a.akis-baslik:hover { color: var(--vurgu); text-decoration: none}
 @media (min-width: 900px) {
   .ai-akis-liste.serit-yatay {
     overflow: hidden;
-    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(min(290px, 100%), 1fr));
     gap: 1px;
     background: var(--cizgi);
     border: 1px solid var(--cizgi);
@@ -4331,7 +4331,7 @@ a.akis-baslik:hover { color: var(--vurgu); text-decoration: none}
 
 .takvim-dallar {
   display: grid; gap: var(--b-3);
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr))}
+  grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr))}
 .takvim-dal {
   padding: var(--b-3) 14px; border-radius: var(--r-kucuk);
   background: var(--panel); border: 1px solid var(--cizgi)}
@@ -4499,7 +4499,7 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none}
 
 .brifing-dallar {
   display: grid; gap: var(--b-3);
-  grid-template-columns: repeat(auto-fit, minmax(238px, 1fr))}
+  grid-template-columns: repeat(auto-fit, minmax(min(238px, 100%), 1fr))}
 .brifing-dal {
   padding: var(--b-3) var(--b-3); border-radius: var(--r-kucuk);
   background: var(--panel-2); border: 1px solid var(--cizgi)}
@@ -4650,7 +4650,7 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none}
 /* OLCUM SERIDI -- sayfanin kendi hakkindaki rakamlari. */
 .tasarim-olcum {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(140px, 100%), 1fr));
   gap: var(--b-3);
   margin: var(--b-7) 0}
 
@@ -4715,7 +4715,7 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none}
 
 .renk-izgara {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(150px, 100%), 1fr));
   gap: var(--b-3)}
 
 .renk-kart {
@@ -4766,7 +4766,7 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none}
 
 .arastirma-izgara {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(260px, 100%), 1fr));
   gap: var(--b-4)}
 
 /* KART BUTUN OLARAK TIKLANABILIR.
@@ -6916,7 +6916,7 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
 
 .izleme-neden li {
   display: grid;
-  grid-template-columns: minmax(160px, 34%) 1fr;
+  grid-template-columns: minmax(min(160px, 100%), 34%) 1fr;
   gap: var(--b-2) var(--b-4);
   padding: var(--b-3) 0;
   border-bottom: 1px solid var(--cizgi)}

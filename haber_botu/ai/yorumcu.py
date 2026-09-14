@@ -521,6 +521,46 @@ def _anthropic_cagir(girdi: str, sistem: str = "") -> str:
     return "".join(p.get("text", "") for p in parcalar).strip()
 
 
+#: Anthropic bu kosuda kullanilamaz durumda mi.
+#:
+#: OLCULDU (2026-09-14): hesabin bakiyesi bitti ve her cagri
+#:     HTTP 400 -- "Your credit balance is too low to access the
+#:     Anthropic API"
+#: donmeye basladi. Sonucu tek bir adim degil BUTUN HAT oldu: 12
+#: yorumun 12'si reddedildi, "Yorum denetimi" kritik adimi dustu ve
+#: kosu kirmizi bitti. Oysa ucretsiz saglayici (Workers AI) calisir
+#: durumdaydi ve hicbir zaman denenmedi -- cunku secim yalnizca
+#: ANAHTARIN VARLIGINA bakiyordu.
+#:
+#: Bir faturalandirma sorunu, sitenin tumunu durdurmamali. Bayrak bir
+#: kez doldugunda `saglayici()` Anthropic'i atliyor ve kosunun geri
+#: kalani ucretsiz saglayiciyla tamamlaniyor.
+#:
+#: SURECE OZEL, KALICI DEGIL: bir sonraki kosu yeniden Anthropic'i
+#: deniyor. Bakiye yuklendiginde kod degisikligi gerekmiyor.
+_ANTHROPIC_KAPALI = False
+
+#: Saglayicinin BU KOSUDA kullanilamaz oldugunu gosteren durumlar.
+#:
+#: 400 TEK BASINA YETMEZ: "istem cok uzun" da 400 doner ve o istege
+#: ozeldir, saglayiciya degil. Bu yuzden 400'de yanit metnine
+#: bakiliyor; 401/403 (yetki) ve 429 (kota) ise dogrudan sayiliyor.
+_KAPATAN_KOD = (401, 403, 429)
+_KAPATAN_IZ = ("credit balance", "billing", "quota", "insufficient")
+
+
+def _anthropic_kapali() -> bool:
+    return _ANTHROPIC_KAPALI
+
+
+def _anthropic_kapat(sebep: str) -> None:
+    global _ANTHROPIC_KAPALI
+    if not _ANTHROPIC_KAPALI:
+        _ANTHROPIC_KAPALI = True
+        print(f"    anthropic bu kosuda devre disi ({sebep[:90]})"
+              f" -- ucretsiz saglayiciya geciliyor")
+
+
 def saglayici() -> str:
     """Hangi saglayici kullanilabilir. Hicbiri yoksa bos.
 
@@ -539,7 +579,12 @@ def saglayici() -> str:
     zorla = os.environ.get("NETARIS_AI_SAGLAYICI", "").strip().lower()
     _cf = bool(os.environ.get("CLOUDFLARE_API_TOKEN", "").strip()
                and os.environ.get("CLOUDFLARE_ACCOUNT_ID", "").strip())
-    _an = bool(os.environ.get("ANTHROPIC_API_KEY", "").strip())
+    # ANAHTAR VAR AMA KULLANILAMIYOR OLABILIR. `_anthropic_kapali`,
+    # bu kosuda Anthropic'in bakiye/yetki sebebiyle reddettigini
+    # gordugumuz anda doluyor (bkz. `yorumla`). Anahtarin VARLIGI,
+    # calistigi anlamina gelmiyor.
+    _an = bool(os.environ.get("ANTHROPIC_API_KEY", "").strip()) \
+        and not _anthropic_kapali()
     if zorla == "cloudflare" and _cf:
         return "cloudflare"
     if zorla == "anthropic" and _an:
@@ -621,16 +666,50 @@ def yorumla(girdi: str, sistem_ozel: str = "") -> tuple[str, str, str, str]:
         #
         # Govde KISALTILIYOR (200 karakter): hata yanitlari bazen
         # istemin tamamini geri yansitiyor ve log'a sizabilir.
+        mesaj = ""
         try:
             g = e.response.json().get("error", {})
             mesaj = (g.get("message") or "").strip()
-            if mesaj:
-                ek += f" -- {mesaj[:200]}"
         except Exception:                              # noqa: BLE001
-            govde = (e.response.text or "").strip()
-            if govde:
-                ek += f" -- {govde[:200]}"
-        return "", "", f"{s} HTTP {kod}{ek}", ""
+            mesaj = (e.response.text or "").strip()
+        if mesaj:
+            ek += f" -- {mesaj[:200]}"
+
+        # SAGLAYICI KULLANILAMAZ HALE GELDIYSE DIGERINE GEC.
+        #
+        # Olculdu (2026-09-14): Anthropic bakiyesi bitti ve her cagri
+        # HTTP 400 "credit balance is too low" dondu. 12 yorumun 12'si
+        # reddedildi, "Yorum denetimi" kritik adimi dustu, kosu kirmizi
+        # bitti -- ve ucretsiz saglayici butun bu sure boyunca CALISIR
+        # DURUMDAYDI, hic denenmedi.
+        #
+        # Bir faturalandirma sorunu sitenin tumunu durdurmamali.
+        #
+        # 400 TEK BASINA YETMIYOR: "istem cok uzun" da 400 doner ve o
+        # bu iSTEGE ozeldir, saglayiciya degil. Bu yuzden 400'de
+        # yanitin METNINE bakiliyor.
+        _kapatan = kod in _KAPATAN_KOD or (
+            kod == 400
+            and any(iz in mesaj.lower() for iz in _KAPATAN_IZ))
+        _gecildi = False
+        if s == "anthropic" and _kapatan:
+            _anthropic_kapat(mesaj or f"HTTP {kod}")
+            # Bayrak dolduktan sonra `saglayici()` artik cloudflare
+            # donuyor -- yalnizca kimlik bilgisi varsa.
+            if saglayici() == "cloudflare":
+                try:
+                    metin, model = _cf_cagir(girdi, sistem)
+                    _gecildi = True
+                except httpx.HTTPError as e2:
+                    return "", "", (f"anthropic kapandi, cloudflare da "
+                                    f"basarisiz: {type(e2).__name__}"), ""
+        if not _gecildi:
+            return "", "", f"{s} HTTP {kod}{ek}", ""
+        # DOGRULAMA ZINCIRI KOPYALANMIYOR: akis asagida, `try` blogunun
+        # normal ciktisiyla AYNI yoldan devam ediyor. Ikinci bir kopya,
+        # birinin duzeltilip digerinin unutulmasi demekti -- bu modulun
+        # kendi notu ayni sebeple `yorumla`nin kopyalanmasini
+        # yasakliyor.
     except httpx.HTTPError as e:
         return "", "", f"{s} ag hatasi: {type(e).__name__}", ""
     if not metin:

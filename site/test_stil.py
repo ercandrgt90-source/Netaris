@@ -752,6 +752,41 @@ _yeni = {(k, s, o) for k, s, o, _a, _b in _olu} - BEKLENEN_ISTISNA
 esit(sorted(_yeni), [], "olu CSS bildirimi yok")
 
 print()
+print("Izgara sutunu dar ekranda kapsayiciyi asamaz")
+# --------------------------------------------------------------------
+# `minmax(290px, 1fr)` KAPSAYICI DAHA DARSA 290 PIKSEL ISTER. Izgara
+# kucultmez; tasar. Uzerine `.ai-akis-liste` `overflow: hidden`
+# tasidigi icin tasan kisim KAYDIRILMAZ, KIRPILIR -- kartin sagi
+# kesilir ve okur ona hicbir sekilde ulasamaz.
+#
+# OLCULDU (2026-09-14), 320 piksellik telefonda kullanilabilir
+# genislik:
+#
+#     320  -  32 (.kabuk padding-inline 16x2)
+#          -  32 (.modul padding 16x2)
+#     = 256 piksel
+#
+# Dosyadaki 25 `minmax(Npx, ...)` kuralinin 8'i 256'yi asiyordu
+# (260, 280, 290, 310) ve hicbirinde koruma yoktu.
+#
+# COZUM: `minmax(min(Npx, 100%), 1fr)`. `min()` YALNIZCA kapsayici
+# N'den darken devreye giriyor -- genis ekranda deger birebir ayni
+# kaliyor, dar ekranda kapsayiciya iniyor. Yani duzeltme, calisan
+# hicbir yerlesimi degistirmiyor.
+#
+# Kural BUYUKLUGE BAKMIYOR, bicime bakiyor: bugun kucuk olan bir
+# deger yarin buyuyebilir ve o gun kimse bu hesabi yeniden yapmaz.
+# --------------------------------------------------------------------
+_govde_izgara = re.sub(r"/\*.*?\*/", " ",
+                       _CSS.read_text(encoding="utf-8"), flags=re.S)
+_korumasiz = re.findall(r"minmax\(\s*(\d+)px\s*,", _govde_izgara)
+esit(sorted(set(_korumasiz)), [],
+     "her minmax(Npx) min(Npx, 100%) ile korunmus")
+# Kuralin BOSA calismadigini dogrula: dosyada gercekten minmax var.
+esit(len(re.findall(r"minmax\(min\(\s*\d+px\s*,\s*100%\s*\)", _govde_izgara)) > 10,
+     True, "korumali minmax kurallari bulundu (tarama bos degil)")
+
+print()
 print("Her varlik turunun etiket rengi var")
 # --------------------------------------------------------------------
 # `varlik.html` etiketi `class="etiket etiket-{{ v.tur }}"` diye

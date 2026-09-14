@@ -244,6 +244,103 @@ sina("olcumsuz yonerge olcum istemiyor",
      "en önemli tek ölçümü seç" not in yorumcu.SISTEM_OLCUMSUZ.lower())
 
 
+
+# --- SAGLAYICI GERI DUSUSU ------------------------------------------
+#
+# OLCULDU (2026-09-14): Anthropic hesabinin bakiyesi bitti ve her cagri
+#     HTTP 400 -- "Your credit balance is too low to access the
+#                  Anthropic API"
+# donmeye basladi. Sonucu tek bir adim degil BUTUN HAT oldu: 12 yorumun
+# 12'si reddedildi, "Yorum denetimi" kritik adimi dustu, kosu kirmizi
+# bitti. Ucretsiz saglayici (Workers AI) bu sure boyunca CALISIR
+# DURUMDAYDI ve hic denenmedi -- secim yalnizca ANAHTARIN VARLIGINA
+# bakiyordu.
+#
+# Bir faturalandirma sorunu sitenin tumunu durdurmamali.
+
+import os as _os  # noqa: E402
+
+import httpx as _httpx  # noqa: E402
+
+
+class _SahteYanit:
+    def __init__(self, kod, govde):
+        self.status_code = kod
+        self._g = govde
+        self.text = str(govde)
+
+    def json(self):
+        return self._g
+
+
+def _hata(kod, mesaj):
+    y = _SahteYanit(kod, {"error": {"message": mesaj}})
+    return _httpx.HTTPStatusError("hata", request=None, response=y)
+
+
+def _ortam_kur(anthropic=True, cloudflare=True):
+    for ad, var in (("ANTHROPIC_API_KEY", anthropic),
+                    ("CLOUDFLARE_API_TOKEN", cloudflare),
+                    ("CLOUDFLARE_ACCOUNT_ID", cloudflare)):
+        if var:
+            _os.environ[ad] = "sahte"
+        else:
+            _os.environ.pop(ad, None)
+    _os.environ.pop("NETARIS_AI_SAGLAYICI", None)
+    yorumcu._ANTHROPIC_KAPALI = False
+
+
+_asil_an, _asil_cf = yorumcu._anthropic_cagir, yorumcu._cf_cagir
+_UZUN = GIRDI + " " + ("dolgu " * 40)
+
+try:
+    # 1. BAKIYE BITTI -> ucretsiz saglayiciya geciliyor.
+    _ortam_kur()
+    yorumcu._anthropic_cagir = lambda *a, **k: (_ for _ in ()).throw(
+        _hata(400, "Your credit balance is too low to access the "
+                   "Anthropic API."))
+    yorumcu._cf_cagir = lambda *a, **k: ("TÜFE %31,75 seviyesinde.",
+                                         "@cf/sahte")
+    _m, _model, _sebep, _ham = yorumcu.yorumla(_UZUN)
+    sina("bakiye bitince ucretsiz saglayiciya geciyor", bool(_m))
+    sina("geri dususte model cloudflare modeli", _model == "@cf/sahte")
+    sina("anthropic bu kosuda devre disi", yorumcu._anthropic_kapali())
+    sina("sonraki secim cloudflare", yorumcu.saglayici() == "cloudflare")
+
+    # 2. ISTEGE OZEL 400 saglayiciyi KAPATMAMALI.
+    #    "Istem cok uzun" da 400 doner ve o bu isteye aittir; onu
+    #    saglayici arizasi saymak, calisan bir saglayiciyi bos yere
+    #    devre disi birakmak olurdu.
+    _ortam_kur()
+    yorumcu._anthropic_cagir = lambda *a, **k: (_ for _ in ()).throw(
+        _hata(400, "prompt is too long: 250000 tokens"))
+    _m2, _, _sebep2, _ = yorumcu.yorumla(_UZUN)
+    sina("istege ozel 400 saglayiciyi kapatmiyor",
+         not yorumcu._anthropic_kapali())
+    sina("istege ozel 400'de sebep bildiriliyor", "400" in _sebep2)
+
+    # 3. YETKI HATASI (401) da kapatiyor.
+    _ortam_kur()
+    yorumcu._anthropic_cagir = lambda *a, **k: (_ for _ in ()).throw(
+        _hata(401, "invalid x-api-key"))
+    yorumcu._cf_cagir = lambda *a, **k: ("TÜFE %31,75 seviyesinde.",
+                                         "@cf/sahte")
+    _m3, _, _, _ = yorumcu.yorumla(_UZUN)
+    sina("401 de ucretsiz saglayiciya gecirtiyor", bool(_m3))
+
+    # 4. UCRETSIZ SAGLAYICI YOKSA sessizce sebep bildiriliyor.
+    _ortam_kur(cloudflare=False)
+    yorumcu._anthropic_cagir = lambda *a, **k: (_ for _ in ()).throw(
+        _hata(400, "Your credit balance is too low."))
+    _m4, _, _sebep4, _ = yorumcu.yorumla(_UZUN)
+    sina("yedek saglayici yoksa yorum uretilmiyor", not _m4)
+    sina("yedek yokken sebep saglayiciyi adiyla soyluyor",
+         "anthropic" in _sebep4)
+finally:
+    yorumcu._anthropic_cagir, yorumcu._cf_cagir = _asil_an, _asil_cf
+    yorumcu._ANTHROPIC_KAPALI = False
+
+
 print("=" * 60)
 if kaldi:
     print(f"{kaldi} TEST BASARISIZ")
