@@ -30,7 +30,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 27,
+  "yorumlanan": 28,
   "haberler": [
     {
       "baslik": "Üç aktif madde içeren bitki koruma ürünlerinin ithalat, imalat ve kullanımı sonlandırılacak",
@@ -230,6 +230,27 @@
       "kanal_basligi": "Hangi piyasaları etkiler?",
       "foto": "/statik/foto/dis-ticaret-10-e6df7852.jpg",
       "foto_atif": "ImagePerson · CC-BY-4.0"
+    },
+    {
+      "baslik": "Kiralık sosyal konut kampanyası bugün başlıyor. Başvurular nasıl yapılacak?",
+      "baslik_kaynak": "Kiralık sosyal konut kampanyası bugün başlıyor! Başvurular nasıl yapılacak?",
+      "ozet": "TOKİ kiralık sosyal konut başvuruları başlıyor. Çevre, Şehircilik ve İklim Değişikliği Bakanlığınca yürütülen Yüzyılın Konut Projesi kapsamında İstanbul'da 15 bin sosyal konut Türkiye'de ilk kez uygulanacak sistemle kiraya verilecek. Peki son başvuru tarihi ne? İşte tüm detaylar...",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.cnnturk.com/ekonomi/kiralik-sosyal-konut-kampanyasi-bugun-basliyor-basvurular-nasil-yapilacak-3466219",
+      "kurum": "CNN Türk",
+      "kurum_tam": "CNN Türk",
+      "konu": "Konut ve kira",
+      "tarih": "2026-09-15",
+      "tarih_gorunur": "15 Eylül 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/konut-ve-kira-7-63b59cb3.jpg",
+      "foto_atif": "Joseph23gt · CC-BY-SA-4.0"
     },
     {
       "baslik": "İİT-İSEDAK Merkez Bankaları Forumu Toplantısına İlişkin Basın Duyurusu (2026-40)",
@@ -505,6 +526,27 @@
       "foto_atif": "Paul Harrison · CC-BY-SA-4.0"
     },
     {
+      "baslik": "USTR, 2027 Ulusal Ticaret Tahmin Raporu için Dış Ticaret Engelleri Hakkında Kamuoyu Yorumu İstiyor",
+      "baslik_kaynak": "USTR Seeks Public Comment on Foreign Trade Barriers for the 2027 National Trade Estimate Report",
+      "ozet": "USTR Seeks Public Comment on Foreign Trade Barriers for the 2027 National Trade Estimate Report myarbrough Mon, 09/14/2026 - 18:57 WASHINGTON – This week, the Office of the United States Trade Representative invited public comment on foreign barriers to U.S. exports of goods and services and U.S.",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": false,
+      "bolge": "DUNYA",
+      "adres": "https://ustr.gov/about/policy-offices/press-office/press-releases/2026/september/ustr-seeks-public-comment-foreign-trade-barriers-2027-national-trade-estimate-report",
+      "kurum": "USTR",
+      "kurum_tam": "ABD Ticaret Temsilciliği",
+      "konu": "Dış ticaret",
+      "tarih": "2026-09-14",
+      "tarih_gorunur": "14 Eylül 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/dis-ticaret-10-e6df7852.jpg",
+      "foto_atif": "ImagePerson · CC-BY-4.0"
+    },
+    {
       "baslik": "ABD Enerji Bakanı Chris Wright, Avusturya'nın Viyana kentinde düzenlenen Uluslararası Atom Enerjisi Ajansı Genel Konferansı'nda ABD Ulusal Bildirisini Sundu",
       "baslik_kaynak": "U.S. Secretary of Energy Chris Wright Delivers U.S. National Statement at the General Conference of the International Atomic Energy Agency in Vienna, Austria",
       "ozet": "U.S. Secretary of Energy Chris Wright today delivered the U.S. National Statement at the General Conference of the International Atomic Energy Agency (IAEA) in Vienna, Austria.",
@@ -524,6 +566,32 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/enerji-18-2333f432.jpg",
       "foto_atif": "Sgroey · CC-BY-SA-4.0"
+    },
+    {
+      "baslik": "Yemen'de Suudi liderliğindeki koalisyon: Pazartesi günü Suudi şehirleri Hamis Mushait, Abha ve Taif'e düzenlenen Husi saldırılarında 13 sivil yaralandı",
+      "baslik_kaynak": "Saudi-led coalition in Yemen: 13 civilians hurt in Houthis attacks on Saudi cities of Khamis Mushait, Abha and Taif on Monday",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9762672/Saudi-led-coalition-in-Yemen-13-civilians-hurt-in-Houthis-attacks-on-Saudi-cities-of-Khamis-Mushait-Abha-and-Taif-on-Monday.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Jeopolitik",
+      "tarih": "2026-09-14",
+      "tarih_gorunur": "14 Eylül 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
+      "kanallar": [
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-36-7cb6152c.jpg",
+      "foto_atif": "Captain Albert E. Theberge, NOAA Corps (ret.) · PDM"
     },
     {
       "baslik": "Yeni Zelanda'da gerçek elektronik kart perakende satışları Ağustos ayında bir önceki yıla göre %0,2 arttı",
@@ -1855,27 +1923,6 @@
       "foto_atif": "DXR · CC-BY-SA-4.0"
     },
     {
-      "baslik": "Ukrayna Devlet Başkanı Zelenskiy: Ukrayna, ortaklarının Rusya'yla kritik altyapının tahrip edilmesini durduracak bir anlaşma yapmasını önerdi",
-      "baslik_kaynak": "Ukraine’s President Zelenskiy: Ukraine proposed that its partners secure an agreement with Russia that would stop the destruction of critical infrastructure.",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9762196/Ukraines-President-Zelenskiy-Ukraine-proposed-that-its-partners-secure-an-agreement-with-Russia-that-would-stop-the-destruction-of-critical-infrastructure.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Şirket haberleri",
-      "tarih": "2026-09-14",
-      "tarih_gorunur": "14 Eylül 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-14-ebd53a63.jpg",
-      "foto_atif": "Rodhullandemu · CC-BY-SA-4.0"
-    },
-    {
       "baslik": "Salı günü Senato Açıklık Yasası oylaması öncesinde Beyaz Saray kripto danışmanı \"çok iyi\" hissediyor",
       "baslik_kaynak": "White House crypto adviser feels ‘very good’ ahead of Senate Clarity Act vote on Tuesday",
       "ozet": "The White House's top crypto advisor says he feels \"very good\" about an initial vote in the Senate on cryptocurrency legislation on Tuesday.",
@@ -2306,27 +2353,6 @@
       "foto_atif": "Satheesh Sankaran · CC-BY-2.0"
     },
     {
-      "baslik": "AB siber kuralları, kripto cüzdan üreticilerini 24 saat raporlama saatine bağladı",
-      "baslik_kaynak": "EU cyber rules put crypto wallet makers on 24-hour reporting clock",
-      "ozet": "Crypto wallet providers must submit an early vulnerability report within 24 hours and a full notification within 72 hours of exploits, or risk administrative fines of as much as $17.3 million.",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://cointelegraph.com/news/eu-cyber-rules-put-crypto-wallet-24-hour-reporting?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "kurum": "Cointelegraph",
-      "kurum_tam": "Cointelegraph",
-      "konu": "Kripto varlıklar",
-      "tarih": "2026-09-14",
-      "tarih_gorunur": "14 Eylül 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/kripto-varliklar-9-b82c3e85.jpg",
-      "foto_atif": "CryptoWallet.com Images · CC-BY-2.0"
-    },
-    {
       "baslik": "Başkan Fatih Karahan’ın “Enflasyon ve Makroekonomik Görünüm” Başlıklı Sunumu (Türkçe) (İstanbul)",
       "baslik_kaynak": "Başkan Fatih Karahan’ın “Enflasyon ve Makroekonomik Görünüm” Başlıklı Sunumu (Türkçe) (İstanbul)",
       "ozet": "",
@@ -2664,27 +2690,6 @@
       "kanal_basligi": "Piyasaya nasıl yansır?",
       "foto": "/statik/foto/para-politikasi-14-9b1627e1.jpg",
       "foto_atif": "Bernard Gagnon · CC-BY-SA-3.0"
-    },
-    {
-      "baslik": "Haftalık Akım Faiz ve Kâr Payı İstatistikleri",
-      "baslik_kaynak": "Haftalık Akım Faiz ve Kâr Payı İstatistikleri",
-      "ozet": "",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": false,
-      "bolge": "TR",
-      "adres": "http://www.tcmb.gov.tr/wps/wcm/connect/tr/tcmb+tr/main+menu/istatistikler/faiz+istatistikleri/haftalik",
-      "kurum": "TCMB",
-      "kurum_tam": "Türkiye Cumhuriyet Merkez Bankası",
-      "konu": "Para politikası",
-      "tarih": "2026-09-10",
-      "tarih_gorunur": "10 Eylül 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-9-683f4724.jpg",
-      "foto_atif": "Tony Webster · CC-BY-2.0"
     }
   ],
   "sinir_notu": "Yukarıdaki maddeler yapısal aktarım kanallarıdır, öngörü değildir. Etkinin ne zaman ve ne ölçüde görüleceği kur seviyesi, vergi düzenlemeleri ve sözleşme yapılarına bağlı olarak değişir; bu sayfada bir büyüklük tahmini yapılmamaktadır."
