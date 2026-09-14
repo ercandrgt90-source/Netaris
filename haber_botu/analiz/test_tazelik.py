@@ -87,18 +87,34 @@ if tazelik.DEPO.exists():
     esit(tazelik.seri_durumu(_b, "OLMAYAN_KOD"), None,
          "bilinmeyen seri -> karar yok")
 
-    # VARLIK SAYFALARININ SERILERI TAZE OLMALI.
+    # VARLIK->SERI TAZELIK KONTROLU BURADAN KALDIRILDI (2026-09-14).
+    # Yerine `denetim.varlik_seri_tazeligi()` kondu; asagida NEDEN.
     #
-    # Bu sinama, EURUSD/DEXUSEU hatasinin tekrarini engelliyor: bir
-    # varlik bayat bir seriye baglanirsa grafik eski tarihte biter ve
-    # ayni sayfadaki panelle celisir.
-    bayat_varlik = []
-    for kod, seri in _b.execute(
-            "SELECT kod, seri_kodu FROM varlik WHERE seri_kodu IS NOT NULL"):
-        d = tazelik.seri_durumu(_b, seri)
-        if d and d["bayat"]:
-            bayat_varlik.append(f"{kod}->{seri} ({d['gecikme']}g geride)")
-    esit(bayat_varlik, [], "varlik sayfalarinin serileri ritminde")
+    # KONTROLUN KENDISI DOGRUYDU ve gercek bir hata yakalamisti
+    # (EURUSD->DEXUSEU bayat kalirken panel ECB_EURUSD kullaniyordu).
+    # Yanlis olan YERIYDI.
+    #
+    # KISIR DONGU. `otomasyon.yml`de adim sirasi soyle:
+    #
+    #     Testleri calistir          <- burasi
+    #     Veri topla ve icerik uret  <- seriyi TAZELEYEN adim
+    #
+    # Yani bu sinama, "veri bayat" diye is akisini durduruyordu --
+    # veriyi tazeleyecek adimi da birlikte. Bir kez bayatlayinca
+    # sistem kendi kendine ASLA toparlanamiyordu.
+    #
+    # OLCULDU (2026-09-14): son basarili yazma 1 Eylul 23:04. On uc
+    # gun boyunca HER kosu ayni yerde dustu -- nobetci her yarim
+    # saatte tetikledi, tetiklediği kosu ayni kapiya carpti. Site
+    # 12,7 gun boyunca donmus icerik yayinladi. 200 donuyordu, yani
+    # disaridan "calisiyor" gorunuyordu.
+    #
+    # KURAL: bir sinama, CALISMASI ICIN BORU HATTININ KOSMASI GEREKEN
+    # bir kosulu kapi yapamaz. Veri tazeligi kodun degil, hattin
+    # durumudur; yeri denetimdir (raporlar, durdurmaz), test degil.
+    #
+    # Asagidaki sinamalar KALDI cunku hicbiri canli veriye bagli
+    # degil: frekans cikarimi ve donem etiketi saf islevler.
 
 print(f"\n{_gecti} gecti, {_kaldi} kaldi")
 sys.exit(1 if _kaldi else 0)

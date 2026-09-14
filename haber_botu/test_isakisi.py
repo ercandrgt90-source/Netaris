@@ -352,6 +352,50 @@ if _temizlik:
 #    Ikisi ayni karari veriyor, dolayisiyla ayni kurala tabi. Yalnizca
 #    birine bakan bir sinama, hatanin digerine kacmasina izin verirdi.
 # --------------------------------------------------------------------
+# 8b. SINAMA, KENDISINI DUZELTECEK ADIMI ENGELLEYEMEZ.
+#
+#     `otomasyon.yml`de adim sirasi soyle:
+#
+#         Testleri calistir          <- kapi
+#         Veri topla ve icerik uret  <- veriyi TAZELEYEN adim
+#
+#     `test_tazelik.py` "varlik serileri ritminde mi" diye soruyordu
+#     ve CANLI DEPOYA bakiyordu. Veri bayatlayinca sinama dusuyor, is
+#     akisi duruyor, duran is akisi veriyi tazeleyemiyor. Kisir dongu.
+#
+#     OLCULDU (2026-09-14): son basarili yazma 1 Eylul 23:04. On uc gun
+#     boyunca HER kosu ayni kapida dustu. Nobetci calisiyordu ve her
+#     yarim saatte tetikliyordu -- tetikledigi kosu da ayni yere
+#     carpiyordu. Site 200 donuyor ama 12,7 gunluk donmus icerik
+#     yayinliyordu; disaridan "calisiyor" gorunuyordu.
+#
+#     KURAL: bayatlik KODUN degil HATTIN durumudur. Yeri denetimdir --
+#     raporlar, durdurmaz (`denetim.varlik_seri_tazeligi`). Bir sinama,
+#     ancak boru hatti kosarsa saglanabilecek bir kosulu kapi yapamaz.
+#
+#     OLCUT: sinama dosyalari tazelik kararini (`bayat`) OKUYAMAZ.
+#     Aciklamalar atiliyor -- bu notun kendisi kelimeyi anlatmak icin
+#     yaziyor ve yasakladigi metni aciklayan bir not ihlal degildir.
+# --------------------------------------------------------------------
+_TAZELIK_KARARI = ('["bayat"]', "'bayat'", "bayat_seriler(", ".get(\"bayat\")")
+for _p in sorted((KOK / "haber_botu").rglob("test_*.py")) + \
+        sorted((KOK / "site").rglob("test_*.py")):
+    # BU DOSYA KENDI TARAMASININ DISINDA.
+    #
+    # Kural, yasakladigi desenleri DIZGI olarak tasimak zorunda ve
+    # `_kod` yalnizca aciklamalari atiyor -- dizgileri degil. Ilk
+    # yazimda tarama kendi tanimini yakaladi ve kirmizi dondu. Bu
+    # depoda ayni tuzaga defalarca dusuldu; farki, bu kez yasagin
+    # KENDISININ kacinilmaz olmasi.
+    if _p.name == pathlib.Path(__file__).name:
+        continue
+    _g = _kod(_p.read_text(encoding="utf-8", errors="replace"))
+    _bulunan = [d for d in _TAZELIK_KARARI if d in _g]
+    dogru(f"{_p.name} tazelik kararini kapi yapmiyor", not _bulunan)
+    if _bulunan:
+        print(f"         bulunan: {_bulunan}")
+
+# --------------------------------------------------------------------
 # 9b. FORMDAKI HER SECENEK, KODUN TANIDIGI BIR DEGER OLMALI.
 #
 #     `bilanco.yml`in "AI saglayici" listesi soyleydi:

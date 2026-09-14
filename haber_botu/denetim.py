@@ -280,6 +280,65 @@ def birim_denetimi() -> list[Bulgu]:
 #
 # Bayat bir sayi, yanlis bir sayi kadar zararli olabilir: sayfa onu
 # "bugunku gorunum" diye sunuyor.
+def varlik_seri_tazeligi(b) -> list[Bulgu]:
+    """Varlik sayfasinin bagli oldugu seri KENDI RITMININ gerisinde mi.
+
+    NEDEN AYRI BIR KONTROL
+    ----------------------
+    Ustteki `tazelik_denetimi` KATALOGA bakiyor -- "su seri bayat mi".
+    Bu ise BAGLANTIYA bakiyor: varligin `seri_kodu` dogru seriyi mi
+    gosteriyor. Ikisi farkli hata siniflari ve biri digerini yakalamaz.
+
+    Gercek ornek (kaynagi `test_tazelik.py`nin notu): ayni sayfada
+
+        varlik EURUSD -> DEXUSEU    -> son veri 31 Temmuz
+        panel kalemi  -> ECB_EURUSD -> son veri 21 Agustos
+
+    Panel bir donem once ECB'ye tasinmis, varligin `seri_kodu`
+    cevrilmemisti. Iki deger de "gercek"ti, yalnizca ayni gune ait
+    degildi -- ve grafik eski tarihte bitiyordu.
+
+    NEREDEN GELDI
+    -------------
+    Bu kontrol `test_tazelik.py`de, yani CI'in TEST ADIMINDA duruyordu.
+    Adim sirasi ise soyle:
+
+        Testleri calistir          <- kontrol burada
+        Veri topla ve icerik uret  <- seriyi TAZELEYEN adim
+
+    Yani "veri bayat" diye is akisi durduruluyordu ve duran is akisi
+    veriyi tazeleyemiyordu. Olculdu (2026-09-14): son basarili yazma
+    1 Eylul 23:04; on uc gun boyunca her kosu ayni kapida dustu, site
+    12,7 gunluk donmus icerik yayinladi.
+
+    SEVIYE "UYARI" VE BU BILEREK: ustteki tazelik denetimi de uyari
+    uretiyor. Bayatlik kodun degil HATTIN durumudur; raporlanmali,
+    dagitimi durdurmamali. Durdursaydi ayni kilit denetim katmaninda
+    kurulurdu -- yalnizca bir adim ilerde.
+    """
+    try:
+        sys.path.insert(0, str(_KOK / "analiz"))
+        import tazelik as _tz                          # noqa: PLC0415
+    except ImportError as e:                           # pragma: no cover
+        return [Bulgu("uyari", "tazelik", "modul",
+                      f"tazelik modulu okunamadi: {e}")]
+    bulgu: list[Bulgu] = []
+    try:
+        satirlar = b.execute(
+            "SELECT kod, seri_kodu FROM varlik"
+            " WHERE seri_kodu IS NOT NULL").fetchall()
+    except Exception:                                  # pragma: no cover
+        return bulgu
+    for kod, seri in satirlar:
+        d = _tz.seri_durumu(b, seri)
+        if d and d.get("bayat"):
+            bulgu.append(Bulgu(
+                "uyari", "tazelik", f"{kod}->{seri}",
+                f"varlik sayfasinin serisi {d['gecikme']} gun geride "
+                f"-- grafik eski tarihte bitiyor"))
+    return bulgu
+
+
 def tazelik_denetimi(b) -> list[Bulgu]:
     from datetime import date, datetime
     bugun = date.today()
@@ -1555,6 +1614,7 @@ def calistir(sessiz: bool = False) -> int:
     with beyin.baglan() as b:
         bulgular += aralik_denetimi(b)
         bulgular += tazelik_denetimi(b)
+        bulgular += varlik_seri_tazeligi(b)
     bulgular += cikti_denetimi()
     bulgular += editoryal_denetim()
     bulgular += stil_denetimi()
