@@ -1,5 +1,5 @@
 ---
-slug: piyasa-tepkisi-eylul-ayi-kira-artis-orani-hesaplama-2026-eylul-ayi-kira-artis-orani-belli-oldu-eylul-kira-zammi-ne-kadar-gozler-tuik-te-iste-tuik-aciklamasina-gore-tefe-tufe-ve-kira-artis-orani-hesaplama-2026-09-14
+slug: piyasa-tepkisi-eylul-ayi-kira-artis-orani-hesaplama-2026-eylul-ayi-kira-32f843-2026-09-14
 baslik: EYLÜL AYI KİRA ARTIŞ ORANI HESAPLAMA : 2026 Eylül Ayı Kira Artış Oranı Belli Oldu! Eylül Kira Zammı Ne Kadar? Gözler TÜİK'te! İşte TÜİK Açıklamasına Göre TEFE TÜFE ve Kira Artış Oranı Hesaplama
 ozet: Enflasyon verisi. Bitcoin 1 saat içinde +%0,26 yükseldi.
 sirket: Piyasa tepkisi: EYLÜL AYI KİRA ARTIŞ ORANI HESAPLAMA : 2026 Eylül Ayı Kira Artış Oranı Belli Oldu! Eylül Kira Zammı Ne Kadar? Gözler TÜİK'te! İşte TÜİK Açıklamasına Göre TEFE TÜFE ve Kira Artış Oranı Hesaplama

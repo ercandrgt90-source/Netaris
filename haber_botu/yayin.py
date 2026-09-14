@@ -14,6 +14,7 @@ sonra yapilir.
 
 from __future__ import annotations
 
+import hashlib
 import pathlib
 import re
 import unicodedata
@@ -46,6 +47,46 @@ _SLUG_ESLEME = str.maketrans(
 def slugla(metin: str) -> str:
     metin = unicodedata.normalize("NFC", metin).translate(_SLUG_ESLEME).lower()
     return re.sub(r"[^a-z0-9]+", "-", metin).strip("-")
+
+
+#: Dosya adina ve adrese girecek konu parcasinin en fazla uzunlugu.
+#:
+#: Olculdu (2026-09-14): ticari bir kaynagin anahtar kelime yigilmis
+#: basligindan 214 karakterlik bir slug uretildi ve dosya adi 223
+#: karaktere cikti. Windows'ta `git pull` DUSTU:
+#:
+#:     error: cannot stat '...': Filename too long
+#:
+#: Yani depo, Windows'ta klonlanamaz hale geliyordu. Adres de
+#: paylasilamaz uzunluktaydi. `insa.py` haber capalarini zaten 70
+#: karakterle sinirliyor -- karar verilmis, yalnizca URETIM tarafinda
+#: uygulanmamisti.
+SLUG_SINIRI = 80
+
+
+def slug_kisalt(s: str, sinir: int = SLUG_SINIRI) -> str:
+    """Slug'i kelime sinirindan keser. Sinirin altindaysa AYNEN doner.
+
+    KESILENE OZET EKLENIYOR
+    -----------------------
+    Kirpma tek basina CAKISMA uretir: ilk 80 karakteri ayni olan iki
+    farkli konu ayni dosyaya yazilir ve biri otekini sessizce ezer.
+    Kesilen slug'a icerigin kisa ozeti ekleniyor -- ayni konu her
+    zaman ayni ozeti verdigi icin yeniden uretim hala ayni dosyaya
+    yaziyor (istenen davranis), farkli konular ise ayrisiyor.
+
+    `hash()` KULLANILMIYOR: Python'da dizgi ozeti surec basina
+    rastgeleleniyor (PYTHONHASHSEED), yani ayni yazi her kosuda baska
+    bir adres alirdi.
+    """
+    if len(s) <= sinir:
+        return s
+    ozet = hashlib.sha1(s.encode("utf-8")).hexdigest()[:6]
+    kesik = s[:sinir - 7]
+    if "-" in kesik:
+        kesik = kesik[:kesik.rindex("-")]
+    kesik = kesik.strip("-")
+    return f"{kesik}-{ozet}" if kesik else ozet
 
 
 def _baslik_ayikla(govde: str) -> tuple[str, str]:
@@ -238,7 +279,13 @@ def yaz_makro(
         baslik = konu
 
     bugun = tarih_ustu.strip() or date.today().isoformat()
-    slug = slugla(f"{konu} {bugun}")
+    # TARIH KIRPMANIN DISINDA KALIYOR.
+    #
+    # Once `slugla(f"{konu} {bugun}")` yaziliyordu: tarih slug'in
+    # SONUNDA. Kirpma oldugu gibi uygulansaydi tarih kesilir ve farkli
+    # gunlerin yazilari ayni adrese duserdi.
+    _konu_slug = slug_kisalt(slugla(konu))
+    slug = f"{_konu_slug}-{bugun}"
 
     on = "\n".join(
         [
@@ -266,7 +313,7 @@ def yaz_makro(
             "---",
         ]
     )
-    dosya = hedef / f"{bugun}-makro-{slugla(konu)}.md"
+    dosya = hedef / f"{bugun}-makro-{_konu_slug}.md"
     dosya.write_text(f"{on}\n\n{temiz.rstrip()}\n", encoding="utf-8")
     return dosya
 

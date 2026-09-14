@@ -564,6 +564,23 @@ _SLUG_ESLEME = str.maketrans(
 )
 
 
+#: ADRESI DEGISEN SAYFALAR -- (eski, yeni). `_redirects` ile 301.
+#:
+#: Olculdu (2026-09-14): ticari bir kaynagin anahtar kelime yigilmis
+#: basligindan 214 karakterlik bir slug uretildi. Cikti yolu
+#: `site/cikti/analiz/<slug>/index.html` Windows'un 260 karakterlik
+#: yol sinirini asiyor ve SITE YERELDE HIC KURULAMIYORDU; `git pull`
+#: da "Filename too long" ile dusuyordu. Yani depo Windows'ta
+#: kullanilamaz hale gelmisti.
+#:
+#: Slug kisaltildi. Sayfa yayimlanmis oldugu icin eski adres silinmiyor,
+#: yenisine yonlendiriliyor -- disaridan gelen bag kirilmasin.
+ESKI_ADRESLER = (
+    ("/analiz/piyasa-tepkisi-eylul-ayi-kira-artis-orani-hesaplama-2026-eylul-ayi-kira-artis-orani-belli-oldu-eylul-kira-zammi-ne-kadar-gozler-tuik-te-iste-tuik-aciklamasina-gore-tefe-tufe-ve-kira-artis-orani-hesaplama-2026-09-14/",
+     "/analiz/piyasa-tepkisi-eylul-ayi-kira-artis-orani-hesaplama-2026-eylul-ayi-kira-32f843-2026-09-14/"),
+)
+
+
 def slugla(metin: str) -> str:
     metin = unicodedata.normalize("NFC", metin).translate(_SLUG_ESLEME).lower()
     metin = re.sub(r"[^a-z0-9]+", "-", metin)
@@ -5650,7 +5667,9 @@ def insa() -> int:
     # Yeni bir liste sayfasi URETMIYORUZ: `/gundem/` zaten tam olarak
     # o liste. Ikinci bir kopya iki adreste ayni icerik demek ve ikisi
     # birbirinin arama siralamasini yer.
-    yaz("/_redirects", "/haber/  /gundem/  301\n")
+    _yon = ["/haber/  /gundem/  301"]
+    _yon += [f"{_e}  {_y}  301" for _e, _y in ESKI_ADRESLER]
+    yaz("/_redirects", "\n".join(_yon) + "\n")
 
     # Varliklar
     # `dirs_exist_ok` SART: `amblem_dosyasi()` uretim sirasinda
