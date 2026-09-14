@@ -2,13 +2,13 @@
  "Bilişim": {
   "sektor": "Bilişim",
   "donem": "2026 2. çeyrek",
-  "sirket_sayisi": 18,
+  "sirket_sayisi": 19,
   "medyan": {
-   "brut_marj": 16.111304530653236,
-   "net_marj": -1.957422134830752,
-   "roe": 2.0649803979495047,
-   "cari_oran": 1.2516469951415292,
-   "borc_ozkaynak": -0.01916319399689789
+   "brut_marj": 14.994734322642413,
+   "net_marj": 0.3070973136824501,
+   "roe": 1.3063583815028903,
+   "cari_oran": 1.244613434727503,
+   "borc_ozkaynak": -0.03806125425376762
   },
   "sirket": {
    "ALCTL": {
@@ -47,9 +47,9 @@
     "borc_ozkaynak": -0.03806125425376762
    },
    "AZTEK": {
-    "brut_marj": 14.982628062360801,
-    "net_marj": -7.867260579064587,
-    "roe": -9.531570426335671,
+    "brut_marj": 14.994734322642413,
+    "net_marj": -7.872666347534706,
+    "roe": -8.875337290879655,
     "cari_oran": 1.4443507588532885,
     "borc_ozkaynak": 1.2525634106853751
    },
@@ -110,7 +110,7 @@
     "borc_ozkaynak": -0.07173303670745272
    },
    "INGRM": {
-    "brut_marj": 6.129089578760322,
+    "brut_marj": 6.084143409637295,
     "net_marj": 0.3070973136824501,
     "roe": 1.3063583815028903,
     "cari_oran": 1.354293758798686,
@@ -130,6 +130,13 @@
     "cari_oran": 0.722503348712606,
     "borc_ozkaynak": 3.426377118644068
    },
+   "NETAS": {
+    "brut_marj": 11.092910952288971,
+    "net_marj": 3.5402742901294184,
+    "roe": -135.39188889709683,
+    "cari_oran": 0.822098194819918,
+    "borc_ozkaynak": -19.612912757627242
+   },
    "PATEK": {
     "brut_marj": 0.6890787835371573,
     "net_marj": -77.13077146122225,
@@ -142,10 +149,6 @@
    [
     "ALFAS",
     "eksik: brut_kar, faaliyet_kari"
-   ],
-   [
-    "NETAS",
-    "eksik: aktif_toplami, donen_varliklar, kisa_vadeli_yukumlulukler"
    ]
   ]
  },
@@ -180,19 +183,19 @@
  "Finans": {
   "sektor": "Finans",
   "donem": "2026 2. çeyrek",
-  "sirket_sayisi": 30,
+  "sirket_sayisi": 28,
   "medyan": {
-   "brut_marj": 45.10865297493204,
+   "brut_marj": 47.14587737843552,
    "net_marj": 14.673466237311889,
-   "roe": 4.498132045303199,
-   "cari_oran": 12.086334826537898,
+   "roe": 5.434170883382176,
+   "cari_oran": 5.726019529006318,
    "borc_ozkaynak": -0.04716819333688323
   },
   "sirket": {
    "A1CAP": {
-    "net_marj": -9.027996781979084,
+    "net_marj": -9.023641042135736,
     "roe": -6.145564074479736,
-    "borc_ozkaynak": -1.0342825848849946
+    "borc_ozkaynak": -1.5125958378970428
    },
    "AGESA": {
     "net_marj": 15.205590989279413,
@@ -260,25 +263,25 @@
     "borc_ozkaynak": -0.12714415584415584
    },
    "COSMO": {
-    "brut_marj": 28.917253521126764,
+    "brut_marj": 28.840228873239436,
     "net_marj": -34.60607394366197,
     "roe": -16.602438895634272,
     "cari_oran": 1.7229290667831596,
-    "borc_ozkaynak": 0.13049675341814918
+    "borc_ozkaynak": 0.28448503404951697
    },
    "CRDFA": {
-    "brut_marj": 95.28688524590164,
+    "brut_marj": 95.2536552946389,
     "net_marj": 220.38934426229505,
     "roe": 30.135176069670578,
-    "cari_oran": 2.1001821493624773,
-    "borc_ozkaynak": 0.0859825823551685
+    "cari_oran": 1.244870651204282,
+    "borc_ozkaynak": 0.7890950397576676
    },
    "DCTTR": {
-    "brut_marj": -5.625403766833971,
+    "brut_marj": -5.774486905530985,
     "net_marj": -58.17721015753118,
     "roe": -10.613780598368088,
     "cari_oran": 3.3554665981123066,
-    "borc_ozkaynak": 0.20366273798730736
+    "borc_ozkaynak": 0.20843155031731642
    },
    "DSTKF": {
     "brut_marj": 94.06641262928687,
@@ -324,9 +327,9 @@
     "borc_ozkaynak": 5.3675099866844205
    },
    "GEDIK": {
-    "net_marj": -0.051622728704967966,
-    "roe": -1.0066564260112647,
-    "borc_ozkaynak": 1.3070489844683393
+    "net_marj": 0.5044638168259636,
+    "roe": 9.837173579109063,
+    "borc_ozkaynak": 1.3533026113671276
    },
    "INFO": {
     "net_marj": 11.753259141494436,
@@ -354,18 +357,6 @@
     "net_marj": 16.680606438996808,
     "roe": 2.0685544660908994,
     "borc_ozkaynak": 1.1934449028246872
-   },
-   "TURSG": {
-    "net_marj": 24.227832427598543,
-    "roe": 11.93089430894309,
-    "borc_ozkaynak": 0.09505420054200542
-   },
-   "VKFYO": {
-    "brut_marj": 1.7432869394067203,
-    "net_marj": -9.93954730774638,
-    "roe": -13.590926566705114,
-    "cari_oran": 40.2406015037594,
-    "borc_ozkaynak": -1.0188389081122644
    }
   },
   "atlanan": [
@@ -376,6 +367,14 @@
    [
     "TSK",
     "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "TURSG",
+    "eksik: aktif_toplami, ozkaynak"
+   ],
+   [
+    "VKFYO",
+    "eksik: aktif_toplami, ozkaynak"
    ]
   ]
  },
