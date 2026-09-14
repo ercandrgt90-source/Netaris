@@ -71,11 +71,58 @@ BILDIRIM_AYLARI = {3: 12, 5: 3, 8: 6, 11: 9}
 #: dusmesi ariza. Buyume ve kucuk dalgalanma serbest.
 KUCULME_ESIGI = 0.6
 
+#: Sektorun donemini belirlemek icin en fazla kac sirkete sorulur.
+#:
+#: Once TEK sirkete soruluyordu ve o istek basarisiz olunca butun
+#: sektor atlaniyordu. Olculdu (2026-09-14): 11 sektorun 8'i boyle
+#: elendi, kapsam 327 sirketten 47'ye dustu ve kosu YESIL bitti.
+#:
+#: Bes yeterli: ayni sektordeki bes sirketin hepsinin ayni anda
+#: cekilememesi, tek bir sirketin cekilememesinden cok daha guclu bir
+#: ariza isareti -- o durumda sektoru atlamak dogru. Maliyet en kotu
+#: ihtimalle sektor basina dort ek istek.
+DONEM_DENEME = 5
+
 
 def kapsam(ozet: dict) -> int:
     """Ozetin kac sirketi kapsadigi."""
     return sum(len(v.get("sirket") or {})
                for v in (ozet or {}).values() if isinstance(v, dict))
+
+
+def sektor_donemi(sektor_tr: str, son_donem, ceyrek_etiketi) -> str:
+    """Sektorun donem etiketi -- ILK YANIT VEREN sirketten. Yoksa "".
+
+    NEDEN BIRDEN FAZLA SIRKET
+    -------------------------
+    Once yalnizca sektorun ILK sirketine soruluyordu. O tek istek
+    basarisiz olunca BUTUN SEKTOR atlaniyordu.
+
+    Olculdu (2026-09-14): kosu YESIL bitti ve kapsam 327 sirketten
+    47'ye dustu -- 11 sektorun 8'i bu tek satirda elendi. Ardindan
+    sayfa uretimi 11 saniyede bos dondu ve bekleyen 29 bilanco icin
+    hicbir sey uretilmedi. Veri adimi 16 dakika yerine 131 saniye
+    surdu, cunku elenen sektor basina yalnizca BIR basarisiz istek
+    yapiliyordu.
+
+    Tek bir sirketin gecici olarak cekilememesi, o sektordeki otuz
+    sirketin hepsini kaybettirmemeli.
+
+    ISLEVLER DISARIDAN VERILIYOR (`son_donem`, `ceyrek_etiketi`):
+    kural boylece agsiz sinanabiliyor. Satir ici kalsaydi
+    sinanamazdi ve bu depoda sinanmayan kural eskiyor.
+    """
+    for kod, _ in sektordeki(sektor_tr)[:DONEM_DENEME]:
+        try:
+            son = son_donem(kod)
+        except Exception:                             # noqa: BLE001
+            continue
+        if not son:
+            continue
+        etiket = ceyrek_etiketi(*son)
+        if etiket:
+            return etiket
+    return ""
 
 
 def kapsam_coktu(yeni: int, onceki: int) -> bool:
@@ -268,11 +315,26 @@ def main() -> int:
         etiket = n.donem
         if not etiket:
             import bilanco_ag as _b                   # noqa: PLC0415
-            ilk = sektordeki(s)
-            son = _b.son_donem(ilk[0][0]) if ilk else None
-            etiket = _b.ceyrek_etiketi(*son) if son else ""
+            # DONEM BIRDEN FAZLA SIRKETTEN SORULUYOR.
+            #
+            # Once yalnizca sektorun ILK sirketine bakiliyordu:
+            #     son = _b.son_donem(ilk[0][0])
+            # O tek istek basarisiz olunca BUTUN SEKTOR atlaniyordu.
+            #
+            # Olculdu (2026-09-14): kosu YESIL bitti ve kapsam 327
+            # sirketten 47'ye dustu -- 11 sektorun 8'i bu satirda
+            # elendi. Ardindan sayfa uretimi 11 saniyede bos dondu.
+            # Veri adimi 16 dakika yerine 131 saniye surdu; cunku
+            # elenen sektor basina yalnizca BIR basarisiz istek
+            # yapiliyordu.
+            #
+            # Tek bir sirketin gecici olarak cekilememesi, o sektordeki
+            # otuz sirketin hepsini kaybettirmemeli. Ilk yanit veren
+            # kazanir.
+            etiket = sektor_donemi(s, _b.son_donem, _b.ceyrek_etiketi)
             if not etiket:
-                print(f"  {s}: donem belirlenemedi, atlandi")
+                print(f"  {s}: donem belirlenemedi "
+                      f"({DONEM_DENEME} sirket denendi), atlandi")
                 continue
         cikti[s] = sektor_isle(s, etiket, n.ceyrek, n.sinir)
 

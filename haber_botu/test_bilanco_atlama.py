@@ -252,6 +252,73 @@ def test_onceki_bilinmiyorsa_engellemiyor():
     assert ub.kapsam_coktu(0, 0) is False
 
 
+
+# --- SEKTOR DONEMI: TEK SIRKETE BAGLI DEGIL ---------------------------
+#
+# Once sektorun donemi yalnizca ILK sirketten soruluyordu ve o tek
+# istek basarisiz olunca BUTUN SEKTOR atlaniyordu.
+#
+# OLCULDU (2026-09-14): kosu YESIL bitti, kapsam 327 sirketten 47'ye
+# dustu -- 11 sektorun 8'i bu satirda elendi. Sayfa uretimi 11
+# saniyede bos dondu; bekleyen 29 bilanco icin hicbir sey uretilmedi.
+
+
+def _sektor_kur(kodlar):
+    import uret_bilanco as ub
+    asil = ub.sektordeki
+    ub.sektordeki = lambda s: [(k, {}) for k in kodlar]
+    return ub, asil
+
+
+def test_ilk_sirket_dusunce_sektor_elenmiyor():
+    ub, asil = _sektor_kur(["A", "B", "C"])
+    try:
+        cagrilan = []
+
+        def son_donem(kod):
+            cagrilan.append(kod)
+            if kod == "A":
+                raise RuntimeError("ag hatasi")
+            return (2026, 6)
+
+        e = ub.sektor_donemi("X", son_donem, lambda *a: "2026 2. çeyrek")
+        assert e == "2026 2. çeyrek", e
+        assert cagrilan == ["A", "B"], cagrilan
+    finally:
+        ub.sektordeki = asil
+
+
+def test_bos_yanit_da_atlaniyor():
+    """Hata atmadan BOS donen istek de bir sonrakine gecirtmeli."""
+    ub, asil = _sektor_kur(["A", "B"])
+    try:
+        e = ub.sektor_donemi(
+            "X", lambda k: None if k == "A" else (2026, 6),
+            lambda *a: "2026 2. çeyrek")
+        assert e == "2026 2. çeyrek", e
+    finally:
+        ub.sektordeki = asil
+
+
+def test_hepsi_dusunce_sektor_atlaniyor():
+    """Bes sirketin hepsi dusuyorsa bu gercek bir ariza isareti."""
+    ub, asil = _sektor_kur(["A", "B", "C", "D", "E", "F"])
+    try:
+        cagrilan = []
+
+        def son_donem(kod):
+            cagrilan.append(kod)
+            raise RuntimeError("ag")
+
+        e = ub.sektor_donemi("X", son_donem, lambda *a: "x")
+        assert e == "", e
+        # DENEME SAYISI SINIRLI: her sektor icin otuz istek atmak,
+        # gercek bir kesintide kosuyu saatlerce bekletirdi.
+        assert len(cagrilan) == ub.DONEM_DENEME, cagrilan
+    finally:
+        ub.sektordeki = asil
+
+
 if __name__ == "__main__":
     n = 0
     for ad, f in sorted(globals().items()):
