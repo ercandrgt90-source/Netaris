@@ -998,6 +998,25 @@ def _veri_tutarlilik_denetimi() -> list[Bulgu]:
     return bulgu
 
 
+#: Haber sayfasinin ONDER GORSELI -- sablonun DORT dali da bunu uretiyor:
+#: olcum grafigi, fotograf, uretilen kavram cizimi, son care deseni.
+#:
+#: Olculdu (2026-09-14): denetim yalnizca `src="/statik/foto/..."`
+#: ariyordu ve GRAFIGI olan uc sayfayi "fotograf yok" diye isaretledi.
+#: Oysa sablonun kurali acik: "SIRA ONEMLI: OLCUM FOTOGRAFTAN ONCE
+#: GELIR" -- grafigi olan sayfa en iyi durumdaki sayfadir. Yani
+#: denetim, urunun en dogru davranisini kusur sayiyordu.
+#:
+#: Yanlis alarmin bedeli gercek: yayin karari bosuna SARI'ya dusuyordu
+#: ve bu depoda zaten yazili olan kural isliyor -- yanlis kirmizi,
+#: sonraki GERCEK kirmiziyi de inandiriciliktan dusurur.
+#:
+#: Gorseli SABLON seciyor; denetim o karari dar bir bicimde yeniden
+#: yazmamali. Sorulan soru artik "fotograf var mi" degil, "onder
+#: gorsel var mi".
+GORSEL_FIGUR = re.compile(r'<figure class="yazi-gorsel')
+
+
 def _gorsel_denetimi() -> list[Bulgu]:
     """Yayimlanan sayfalardaki gorsel kullanimini denetler."""
     import collections
@@ -1054,7 +1073,7 @@ def _gorsel_denetimi() -> list[Bulgu]:
     # dengesizlik alarmi uretti; gercek dagilim neredeyse kusursuzdu.
     kullanim: collections.Counter = collections.Counter()
     kullanim_kok: collections.Counter = collections.Counter()
-    sayfasiz = 0
+    gorselsiz: list[str] = []
     haber_dizini = CIKTI_DIZINI / "haber"
     if haber_dizini.exists():
         # KOKE INDIRGEME ASIL KAYNAKTAN GELIYOR, ELLE YAZILMIYOR.
@@ -1070,16 +1089,24 @@ def _gorsel_denetimi() -> list[Bulgu]:
             s = p / "index.html"
             if not s.exists():
                 continue
-            m = re.search(r'src="(/statik/foto/[^"]+)"',
-                          s.read_text(encoding="utf-8"))
+            metin = s.read_text(encoding="utf-8")
+            m = re.search(r'src="(/statik/foto/[^"]+)"', metin)
             if m:
                 kullanim[m.group(1)] += 1
                 kullanim_kok[_asil(m.group(1))] += 1
-            else:
-                sayfasiz += 1
-    if sayfasiz:
+            elif not GORSEL_FIGUR.search(metin):
+                gorselsiz.append(p.name)
+    if gorselsiz:
+        # SAYFALAR ADIYLA YAZILIYOR.
+        #
+        # Once yalnizca sayi basiliyordu ("3 haber sayfasinda fotograf
+        # yok") ve hangileri oldugunu bulmak icin elle tarama gerekti.
+        # Bu depoda ayni bicimde tekrar eden kusur: cevap uretiliyor,
+        # okunabilir yerde durmuyor.
         bulgu.append(Bulgu("uyari", "gorsel", "-",
-                           f"{sayfasiz} haber sayfasinda fotograf yok"))
+                           f"{len(gorselsiz)} haber sayfasinda HICBIR "
+                           "gorsel yok: "
+                           + ", ".join(sorted(gorselsiz)[:5])))
 
     # DOSYASI OLMAYAN GORSEL HATADIR, UYARI DEGIL.
     #
