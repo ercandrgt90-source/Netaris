@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import pathlib
 import sys
+import tempfile
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 
@@ -93,8 +94,22 @@ def test_bilinmeyen_kategori_varsayilan_kota():
 def test_gercek_veriyle_denge():
     """Asil depo: tek tur hepsini kapmamali."""
     import insa                                        # noqa: PLC0415
-    s = A.dengeli(A and insa.guncel_olanlar(insa.analizleri_yukle()),
-                  sinir=9)
+    # SINAMA GERCEK CIKTI DIZININE YAZMIYOR.
+    #
+    # `analizleri_yukle()` kartlari kurarken `insa.amblem_dosyasi()`
+    # cagiriyor ve o, SVG'leri `insa.CIKTI/statik/amblem/` altina
+    # YAZIYOR. Bu sinama tek basina 549 dosya birakiyordu (olculdu
+    # 2026-09-14). Urunun gercek ciktisina dokunan bir sinama,
+    # sonraki sinamalarin gordugu dunyayi degistirir: ayni oturumda
+    # `site/test_izgara.py` tam bu yuzden kirmizi dondu.
+    with tempfile.TemporaryDirectory() as _g:
+        _asil = insa.CIKTI
+        insa.CIKTI = pathlib.Path(_g)
+        try:
+            s = A.dengeli(A and insa.guncel_olanlar(insa.analizleri_yukle()),
+                          sinir=9)
+        finally:
+            insa.CIKTI = _asil
     d = A.dagilim(s)
     assert len(d) >= 3, d          # en az uc farkli tur gorunuyor
     assert max(d.values()) <= 5, d

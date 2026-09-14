@@ -196,6 +196,7 @@ else:
 # Yanlis alarmin bedeli gercek: kirmizi donen ama aslinda basarili olan
 # bir kosu, sonraki GERCEK kirmiziyi de inandiriciliktan dusurur.
 
+import tempfile as _tempfile  # noqa: E402
 import time as _time  # noqa: E402
 
 try:
@@ -221,11 +222,34 @@ def _sayfa(surum):
 if _httpx is not None:
     _asil_uyku = _time.sleep
     _time.sleep = lambda s: None          # sinama beklemesin
-    _cikti = pathlib.Path(yayinla.CIKTI) / "index.html"
-    _yedek = _cikti.read_text(encoding="utf-8") if _cikti.exists() else None
+    # SINAMA GERCEK CIKTI DIZININE YAZMIYOR.
+    #
+    # Once `site/cikti/index.html` dosyasina 58 baytlik bir kalip
+    # yaziliyor ve `finally` icinde YALNIZCA dosya ONCEDEN VARSA geri
+    # aliniyordu:
+    #
+    #     _yedek = ... if _cikti.exists() else None
+    #     ...
+    #     if _yedek is not None: _cikti.write_text(_yedek)
+    #
+    # Yerelde dosya vardi: yedeklenip geri yaziliyordu, kimse fark
+    # etmiyordu. CI'da dosya YOKTU ve kalip GERIDE KALIYORDU. Daha
+    # sonra kosan `site/test_izgara.py` o 58 bayti gercek ana sayfa
+    # sanip `.masa` ariyor ve kirmizi donuyordu.
+    #
+    # Olculdu (2026-09-14): kusur, tum takimi kosturan zaman bombasi
+    # sinamasi eklenene kadar GORUNMEDI -- cunku `test_yayinla`
+    # alfabetik olarak `test_izgara`dan SONRA geliyor. Bombanin
+    # kirliligi one tasimasi, uyuyan hatayi uyandirdi.
+    #
+    # Asimetrik temizligi duzeltmek yetmez: bir sinama urunun gercek
+    # ciktisina HIC dokunmamali.
+    _gecici = _tempfile.TemporaryDirectory()
+    _asil_cikti = yayinla.CIKTI
+    yayinla.CIKTI = pathlib.Path(_gecici.name)
     try:
-        _cikti.parent.mkdir(parents=True, exist_ok=True)
-        _cikti.write_text(_sayfa("yeni1234"), encoding="utf-8")
+        (yayinla.CIKTI / "index.html").write_text(
+            _sayfa("yeni1234"), encoding="utf-8")
 
         # 1. ILK BAKISTA ESKI, IKINCIDE YENI -> BASARILI sayilmali.
         _istekler = []
@@ -253,8 +277,8 @@ if _httpx is not None:
     finally:
         _httpx.get = _asil_get
         _time.sleep = _asil_uyku
-        if _yedek is not None:
-            _cikti.write_text(_yedek, encoding="utf-8")
+        yayinla.CIKTI = _asil_cikti
+        _gecici.cleanup()
 
 
 print(f"\n{_gecti} gecti, {_kaldi} kaldi")

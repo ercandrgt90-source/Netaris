@@ -210,6 +210,10 @@ jobs:
           set -e
           bulunan=0
 
+          # Sinamalar baslamadan ONCEKI durum. Asagida karsilastiriliyor.
+          cikti_vardi=hayir
+          [ -e site/cikti ] && cikti_vardi=evet
+
           # DUSEN DOSYA KOSU SAYFASINA YAZILIYOR.
           #
           # `set -e` ilk hatada duruyor ve bu dogru -- ama HANGI dosyada
@@ -272,6 +276,29 @@ jobs:
             calistir node "$t"
             bulunan=$((bulunan + 1))
           done
+          # HICBIR SINAMA GERCEK CIKTI DIZININI KIRLETMEZ.
+          #
+          # Olculdu (2026-09-14): `site/test_yayinla.py`, dosya
+          # ONCEDEN YOKSA 58 baytlik kalibini `site/cikti/index.html`
+          # icinde birakiyordu -- geri alma yalnizca "dosya vardi"
+          # dalinda yaziliydi. Daha sonra kosan `site/test_izgara.py`
+          # o 58 bayti gercek ana sayfa sanip `.masa` ariyor ve kirmizi
+          # donuyordu.
+          #
+          # Yerelde HIC GORUNMEDI cunku gelistiricide `site/cikti`
+          # zaten var: kalip yedekten geri yaziliyordu. Yani ariza
+          # yalnizca CI'da, yalnizca sira degisince ortaya cikti.
+          #
+          # Kural: sinama urunun ciktisina dokunmaz. Once/sonra
+          # karsilastirmasi bu kurali her kosuda dogruluyor.
+          if [ "$cikti_vardi" = "hayir" ] && [ -e site/cikti ]; then
+            echo "HATA: sinamalar site/cikti dizinini olusturdu."
+            echo "Bir sinama gercek cikti dizinine yaziyor; gecici"
+            echo "dizin kullanmali. Birakilan dosyalar:"
+            find site/cikti -type f | head -20
+            exit 1
+          fi
+
           echo "$bulunan test dosyasi calisti"
           # Hic test bulunamadiysa bu bir basari degil, bir arizadir:
           # `find` yolu bozulursa adim sessizce yesil doner ve butun
