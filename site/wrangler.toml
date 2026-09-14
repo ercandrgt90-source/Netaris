@@ -70,8 +70,21 @@ routes = [
 # `GITHUB_TETIK_JETONU` tanimli degilse hicbir sey yapmiyor:
 #     npx wrangler secret put GITHUB_TETIK_JETONU
 # Ince taneli PAT, yalnizca bu depoda `contents: write`.
+# BAKIS SIKLIGI: 30 -> 10 dakika (2026-09-14).
+#
+# Olculdu: GitHub'in zamanlanmis kosulari `*/30` yazmasina ragmen
+# ardisik olarak ORTANCA 173 DAKIKA arayla dusuyor (%90: 295 dk, en
+# buyuk 369). Yani takvim var ama seyrek; nobetci akisin tek
+# duzenleyicisi.
+#
+# Tek duzenleyici yarim saatte bir bakarsa, esigi ne kadar dusurursek
+# duselim tempo bakis sikligindan iyi olamaz. On dakikada bir bakis +
+# 36 dakikalik esik (`worker.js`) ~40-49 dakikalik tempo veriyor.
+#
+# MALIYET: cron cagrisi saatte 2 -> 6. Worker ucretsiz katmani gunde
+# 100 bin istek veriyor; 144 cagri yaninda olculemez.
 [triggers]
-crons = ["*/30 * * * *"]
+crons = ["*/10 * * * *"]
 
 [assets]
 directory = "./cikti"

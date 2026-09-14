@@ -129,17 +129,33 @@ async function kos() {
   await nobetci(ortamKur(ESIK - 0.2, "jtn"));
   esit(cagrilar.length, 0, "esigin hemen altinda tetiklemiyor");
 
-  /* CIFT KOSU OLMAMALI.
-     GitHub'in takvimi hafta ici YARIM SAATTE BIR kosuyor. O calisirken
-     icerik yasi hicbir zaman ~30 dakikayi gecmez; nobetci o araliga hic
-     karismamali, yoksa her sey iki kez kosar. Esik asagi cekilirse once
-     bu sinama kirilir -- amaci tam olarak bu. */
+  /* CIFT KOSU OLMAMALI -- ama "olmamali" olcusu OLCULDU.
+     Bu blok once soyle diyordu: "GitHub'in takvimi hafta ici yarim
+     saatte bir kosuyor, nobetci o araliga karismamali; esik asagi
+     cekilirse once bu sinama kirilir -- amaci tam olarak bu."
+
+     Tuzak teli isini yapti: 2026-09-14'te esik dusurulmek istendi ve
+     once bu sinama kirildi. Sonra VARSAYIM olculdu ve tutmadigi
+     gorildu -- son 100 zamanlanmis kosu:
+
+         ardisik aralik  ortanca 173 dk, %90 295 dk, en buyuk 369 dk
+         99 araligin 93'u 45 dakikayi asiyor
+
+     GitHub yarim saatlik cron yaziyor ama cagrilarin buyuk kismini DUSURUYOR.
+     Sapma degil atlama: sapma ayrica olculdu, 15 dakikayi hic
+     gecmiyor. Yani carpisilacak duzenli bir takvim YOK ve nobetci
+     akisin tek duzenleyicisi.
+
+     KORUNAN SEY DEGISMEDI: nobetci, hattin NORMAL turunun ortasina
+     karismamali. Degisen, o turun ne kadar surdugu. */
   cagrilar = [];
   await nobetci(ortamKur(0.5, "jtn"));
-  esit(cagrilar.length, 0, "GitHub normal araliginda (30 dk) susuyor");
+  esit(cagrilar.length, 0, "normal tur icinde (30 dk) susuyor");
+  /* 45 dakika ARTIK tetikliyor: takvim seyrek dustugu icin bu yas
+     "biraz gecikmis saglikli tur" degil, "tur hic gelmedi" demek. */
   cagrilar = [];
   await nobetci(ortamKur(0.75, "jtn"));
-  esit(cagrilar.length, 0, "GitHub 15 dk gecikse de susuyor");
+  esit(cagrilar.length, 1, "45 dakikada tetikliyor (takvim seyrek)");
 
   console.log("\nBAYATLAYINCA TETIKLIYOR\n");
   cagrilar = [];

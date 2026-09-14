@@ -1953,23 +1953,49 @@ ${gorsel ? `<meta property="og:image" content="${kacir(
 
 /*: Yayindaki icerik bu saatten eskiyse hat tetikleniyor.
  *
- *  2 -> 1,5 (2026-08-27, ayni gun).
+ *  2 -> 1,5 (2026-08-27) -> 0,67 = 40 dakika (2026-09-14).
  *
- *  Ilk deger "nobetci YEDEK, asil zamanlayici GitHub" varsayimiyla
+ *  ILK DEGER "nobetci YEDEK, asil zamanlayici GitHub" varsayimiyla
  *  secilmisti. O varsayim tutmadi: zamanlanmis kosular 26 Agustos
- *  16:36'dan beri BIR KEZ BILE dusmedi -- 22 saat. Yani nobetci
- *  yedek degil, fiilen ASIL mekanizma.
+ *  16:36'dan beri bir kez bile dusmedi. Nobetci yedek degil, fiilen
+ *  ASIL mekanizma.
  *
- *  Saat basi bakip 2 saat esik koymak, en kotu durumda 3 saatlik
- *  bayatlik demekti; kullanici tam bu durumda "haber akisi yok"
- *  dedi. Yarim saatte bir bakis + 1,5 saat esik, en kotu durumu
- *  ~2 saate indiriyor.
+ *  1,5 SAAT DE GENIS KALDI ve sebebi OLCULDU (2026-09-14).
  *
- *  CIFT KOSU RISKI YOK: GitHub'in takvimi calisirken icerik yasi
- *  hicbir zaman 30 dakikayi gecmiyor, yani esigin yarisina bile
- *  ulasmiyor ve nobetci sessiz kaliyor. 1,5 saat ayrica GitHub'in
- *  olagan gecikmelerine de pay birakiyor. */
-const NOBET_ESIK_SAAT = 1.5;
+ *  Buradaki eski gerekce "GitHub'in takvimi yarim saatte bir
+ *  kosuyor, nobetci o araliga karismasin" diyordu. Son 100
+ *  zamanlanmis kosu olculunce o varsayim tutmadi:
+ *
+ *      ardisik zamanlanmis kosu araligi
+ *          ortanca  173 dk      (~3 saat, 30 dk DEGIL)
+ *          %90      295 dk
+ *          en buyuk 369 dk
+ *          99 araligin 93'u 45 dakikayi asiyor
+ *
+ *  Yani GitHub yarim saatlik cron yaziyor ama cagrilarin buyuk kismini
+ *  DUSURUYOR. Sapma degil, ATLAMA: sapma olculdu ve 15 dakikayi hic
+ *  gecmiyor (ortanca 8). Takvim var ama seyrek.
+ *
+ *  SONUC: nobetci "yedek" degil, akisin TEK duzenleyicisi. 1,5
+ *  saatlik esikle haberin fiili temposu 1,5-2 saat oluyordu --
+ *  tasarimin hedefledigi 30 dakikanin uc dort kati. Kullanicinin
+ *  "haberler akmiyor" dedigi durum buydu; hat calisiyordu, yalnizca
+ *  cok seyrek.
+ *
+ *  YENI DUZEN: bakis 10 dakikada bir (`wrangler.toml`), esik 36
+ *  dakika. Kosu ~3 dakika surdugune gore tempo ~40-49 dakika --
+ *  tasarimin hedefine yakin.
+ *
+ *  CIFT KOSU: eski gerekcenin korktugu sey, takvim duzenli kossaydi
+ *  gecerliydi. Kosmadigi olculdugune gore carpisacak bir es yok;
+ *  yine de `netaris-depo-yazma` es zamanlilik grubu cakismayi
+ *  kuyruga aliyor.
+ *
+ *  Bu esik OKURA GORUNEN uyarindan (`insa.BAYAT_UYARI_SAAT`, 12 saat)
+ *  BILEREK ayri: bu makineye "tetikle" diyor ve yanlis alarmi ucuz,
+ *  digeri okura gorunuyor ve gereksiz cikarsa inandiriciligi
+ *  zedeler. */
+const NOBET_ESIK_SAAT = 0.6;
 
 const NOBET_DEPO = "ercandrgt90-source/Netaris";
 
