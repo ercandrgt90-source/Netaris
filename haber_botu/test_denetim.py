@@ -251,6 +251,54 @@ es("sayi olmayan giris degismez", denetim._sayi_anahtari("abc"), "abc")
 es("bos giris degismez", denetim._sayi_anahtari(""), "")
 
 print()
+print("\nBilerek cekilmeyen seri tazelik uyarisi uretmiyor")
+# --------------------------------------------------------------------
+# SP500, DJIA, NASDAQCOM ve VIXCLS 2026-08-20'de yayindan CIKARILDI:
+# FRED onlari saglayicinin izniyle dagitiyor ve o izin bize gecmiyor.
+# Serilerinin donmus olmasi ariza degil, verilmis bir KARAR.
+#
+# Ayrim yapilmazsa kontrol her kosuda uc yanlis uyari uretir. Yanlis
+# alarm sessiz bir zarardir: gercek bir sorun ciktiginda artik kimse
+# bakmaz -- ayni ders bu depoda fotograf havuzu olcumunde de yasandi.
+# --------------------------------------------------------------------
+import contextlib as _ctx  # noqa: E402
+import sqlite3 as _sq  # noqa: E402
+import tempfile as _tmp  # noqa: E402
+from datetime import date as _d, timedelta as _td  # noqa: E402
+
+with _tmp.TemporaryDirectory() as _t:
+    _vt = pathlib.Path(_t) / "d.db"
+    with _ctx.closing(_sq.connect(_vt)) as _b, _b:
+        _b.execute("CREATE TABLE varlik (kod TEXT, seri_kodu TEXT)")
+        # SEMA GERCEGIYLE AYNI: `yayim_gecikmesi` `kayit_ani` sutununu
+        # sorguluyor ve eksik birakinca sinama SESSIZCE cokuyordu
+        # (sqlite3.OperationalError, cikis kodu yine 0).
+        _b.execute("CREATE TABLE gosterge (kod TEXT, tarih TEXT,"
+                   " deger REAL, birim TEXT, ad TEXT, kaynak TEXT,"
+                   " kayit_ani TEXT)")
+        # Ikisi de AYNI olcude bayat: fark yalnizca lisans durumu.
+        for _k in ("SP500", "DGS10"):
+            _b.execute("INSERT INTO varlik VALUES (?,?)", (_k, _k))
+            # Gunluk ritim kurmak icin ardisik gozlemler, hepsi eski.
+            for _i in range(8):
+                _g = _d.today() - _td(days=90 + _i)
+                _b.execute(
+                    "INSERT INTO gosterge (kod, tarih, deger, kayit_ani)"
+                    " VALUES (?,?,?,?)",
+                    (_k, _g.isoformat(), 1.0 + _i, _g.isoformat()))
+    with _ctx.closing(_sq.connect(_vt)) as _b:
+        _bulgular = denetim.varlik_seri_tazeligi(_b)
+    _kodlar = " ".join(b.kod for b in _bulgular)
+
+es("lisanssiz seri (SP500) uyari URETMIYOR", "SP500" in _kodlar, False)
+es("kamu serisi (DGS10) uyari URETIYOR", "DGS10" in _kodlar, True)
+# Liste TEK KAYNAKTAN okunuyor; buraya kopyalanan bir liste zamanla
+# ayrisir ve ayrisma hata vermez.
+_kaynak_den = (_KOK / "denetim.py").read_text(encoding="utf-8")
+_kod_den = "\n".join(s.split("#", 1)[0] for s in _kaynak_den.split("\n"))
+es("lisans listesi makro_uret_ucretsiz'ten okunuyor",
+   "LISANSSIZ_SERILER" in _kod_den, True)
+
 print("\nCSS cakismasi: ayni ozellik farkli degerle")
 # --------------------------------------------------------------------
 # Eski kural "ayni secici iki kez gecti" demeyi yeterli sayiyordu ve

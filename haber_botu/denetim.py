@@ -322,6 +322,27 @@ def varlik_seri_tazeligi(b) -> list[Bulgu]:
     except ImportError as e:                           # pragma: no cover
         return [Bulgu("uyari", "tazelik", "modul",
                       f"tazelik modulu okunamadi: {e}")]
+    # BILEREK CEKILMEYEN SERILER HESAP DISI.
+    #
+    # SP500, DJIA, NASDAQCOM ve VIXCLS 2026-08-20'de yayindan
+    # CIKARILDI: FRED onlari kendi verisi olarak degil, saglayicinin
+    # izniyle dagitiyor ve o izin bize gecmiyor. Serileri donmus
+    # olmasi bir ariza degil, verilmis bir KARAR.
+    #
+    # Bu ayrim yapilmazsa kontrol her kosuda uc yanlis uyari uretir --
+    # ve yanlis alarm sessiz bir zarardir: gercek bir dengesizlik
+    # ciktiginda artik kimse bakmaz. (Ayni ders bu depoda fotograf
+    # havuzu olcumunde de yasandi.)
+    #
+    # Liste `makro_uret_ucretsiz`ten OKUNUYOR, buraya kopyalanmiyor:
+    # iki yerde tutulan bir liste zamanla ayrisir ve ayrisma hata
+    # vermez.
+    try:
+        import makro_uret_ucretsiz as _mak            # noqa: PLC0415
+        disarida = set(_mak.LISANSSIZ_SERILER)
+    except Exception:                                  # pragma: no cover
+        disarida = set()
+
     bulgu: list[Bulgu] = []
     try:
         satirlar = b.execute(
@@ -330,6 +351,8 @@ def varlik_seri_tazeligi(b) -> list[Bulgu]:
     except Exception:                                  # pragma: no cover
         return bulgu
     for kod, seri in satirlar:
+        if seri in disarida:
+            continue
         d = _tz.seri_durumu(b, seri)
         if d and d.get("bayat"):
             bulgu.append(Bulgu(
