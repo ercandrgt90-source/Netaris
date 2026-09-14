@@ -30,7 +30,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 28,
+  "yorumlanan": 29,
   "haberler": [
     {
       "baslik": "Üç aktif madde içeren bitki koruma ürünlerinin ithalat, imalat ve kullanımı sonlandırılacak",
@@ -566,6 +566,32 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/enerji-18-2333f432.jpg",
       "foto_atif": "Sgroey · CC-BY-SA-4.0"
+    },
+    {
+      "baslik": "ABD Yüksek Mahkemesi, Trump yönetiminin posta yoluyla oylamayı sınırlayan posta hizmeti kuralını uygulama talebini reddetti",
+      "baslik_kaynak": "U.S. Supreme Court refuses Trump administration request to enforce postal service rule limiting mail-in voting",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9762696/US-Supreme-Court-refuses-Trump-administration-request-to-enforce-postal-service-rule-limiting-mail-in-voting.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Jeopolitik",
+      "tarih": "2026-09-14",
+      "tarih_gorunur": "14 Eylül 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
+      "kanallar": [
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-36-7cb6152c.jpg",
+      "foto_atif": "Captain Albert E. Theberge, NOAA Corps (ret.) · PDM"
     },
     {
       "baslik": "Yemen'de Suudi liderliğindeki koalisyon: Pazartesi günü Suudi şehirleri Hamis Mushait, Abha ve Taif'e düzenlenen Husi saldırılarında 13 sivil yaralandı",
@@ -1902,27 +1928,6 @@
       "foto_atif": "Moheen Reeyad · CC-BY-SA-4.0"
     },
     {
-      "baslik": "Ukrayna Devlet Başkanı Zelenskiy: Ukrayna, Rusya'nın herhangi bir anlaşmaya uymaya istekli olduğuna ikna olmamıştır",
-      "baslik_kaynak": "Ukraine’s President Zelenskiy: Ukraine is not convinced that Russia is willing to abide by any agreement.",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9762197/Ukraines-President-Zelenskiy-Ukraine-is-not-convinced-that-Russia-is-willing-to-abide-by-any-agreement.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Şirket haberleri",
-      "tarih": "2026-09-14",
-      "tarih_gorunur": "14 Eylül 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-7-8b52fc2e.jpg",
-      "foto_atif": "DXR · CC-BY-SA-4.0"
-    },
-    {
       "baslik": "Salı günü Senato Açıklık Yasası oylaması öncesinde Beyaz Saray kripto danışmanı \"çok iyi\" hissediyor",
       "baslik_kaynak": "White House crypto adviser feels ‘very good’ ahead of Senate Clarity Act vote on Tuesday",
       "ozet": "The White House's top crypto advisor says he feels \"very good\" about an initial vote in the Senate on cryptocurrency legislation on Tuesday.",
@@ -2068,6 +2073,27 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/kripto-varliklar-7-62d77ad7.jpg",
       "foto_atif": "Karlalhdz · CC-BY-SA-4.0"
+    },
+    {
+      "baslik": "SEC'TEN Atkins, Clarity Act'i destekliyor ancak ajansın bu olmadan kripto kurallarını zorlamaya devam edeceğini söylüyor",
+      "baslik_kaynak": "SEC's Atkins backs Clarity Act but says agency will keep pushing crypto rules without it",
+      "ozet": "The SEC chair said crypto issuance, transfer agent modernization and custody will form the backbone of the agency’s regulatory push.",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.coindesk.com/policy/2026/09/14/sec-s-atkins-backs-clarity-act-but-says-agency-will-keep-pushing-crypto-rules-without-it",
+      "kurum": "CoinDesk",
+      "kurum_tam": "CoinDesk",
+      "konu": "Kripto varlıklar",
+      "tarih": "2026-09-14",
+      "tarih_gorunur": "14 Eylül 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/kripto-varliklar-7-8bf172e8.jpg",
+      "foto_atif": "CryptoWallet.com Images · CC-BY-2.0"
     },
     {
       "baslik": "ABD Senatörü Lummis, Demokratların kripto Clarity Yasası hakkında daha fazla soru sormaktan vazgeçmeyeceğini söyledi",
@@ -2330,27 +2356,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/kripto-varliklar-8-8b36c240.jpg",
       "foto_atif": "de Vries, Alex; Stoll, Christian · PDM"
-    },
-    {
-      "baslik": "Binance gelirini alırken YUTTURMACA fiyatı zarar görebilir: Alice Liu",
-      "baslik_kaynak": "HYPE price could suffer as Binance takes its revenue: Alice Liu",
-      "ozet": "Token buybacks have pushed Hyperliquid to all time highs, but Alice Liu from CoinMarketCap warns that Binance poses a threat to the revenue stream it depends on to pay for them.",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://cointelegraph.com/magazine/hype-price-could-suffer-as-binance-takes-its-revenue-alice-liu?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "kurum": "Cointelegraph",
-      "kurum_tam": "Cointelegraph",
-      "konu": "Kripto varlıklar",
-      "tarih": "2026-09-14",
-      "tarih_gorunur": "14 Eylül 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/kripto-varliklar-9-651bf869.jpg",
-      "foto_atif": "Satheesh Sankaran · CC-BY-2.0"
     },
     {
       "baslik": "Başkan Fatih Karahan’ın “Enflasyon ve Makroekonomik Görünüm” Başlıklı Sunumu (Türkçe) (İstanbul)",
