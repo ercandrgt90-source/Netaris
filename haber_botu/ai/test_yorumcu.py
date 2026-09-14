@@ -288,6 +288,7 @@ def _ortam_kur(anthropic=True, cloudflare=True):
             _os.environ.pop(ad, None)
     _os.environ.pop("NETARIS_AI_SAGLAYICI", None)
     yorumcu._ANTHROPIC_KAPALI = False
+    yorumcu.cf_kotasini_sifirla()
 
 
 _asil_an, _asil_cf = yorumcu._anthropic_cagir, yorumcu._cf_cagir
@@ -324,6 +325,74 @@ try:
     yorumcu._anthropic_cagir = lambda *a, **k: (_ for _ in ()).throw(
         _hata(400, "prompt is too long: 250000 tokens"))
     _m2, _, _sebep2, _ = yorumcu.yorumla(_UZUN)
+    # --- UCRETSIZ SAGLAYICI KOTASI ---
+    #
+    # Kosu basina yorum sayisi 12 ile sinirliydi ve gerekcesi bir
+    # ONLEMDI: "ucretsiz kotayi tek seferde bitirmemek". Olculdu
+    # (2026-09-14): kosuda 391 aday vardi, 12'si yorumlaniyordu ve
+    # Cloudflare'dan bugune kadar HIC kota hatasi alinmamisti. Sinir
+    # 40'a cikarildi; yukseltmeyi guvenli kilan sey burada sinanan
+    # kesici.
+    # GERCEK `_cf_cagir` GERI KONUYOR.
+    #
+    # Yukaridaki sinamalar onu taklitle degistirdi; taklit httpx'e hic
+    # dokunmuyor. Ilk yazimda bu atlandi ve kota sinamalari HICBIR SEY
+    # olcmedi: istek sayaci bos kaldigi icin "istek atilmiyor" iddiasi
+    # kendiliginden geciyordu.
+    _taklit_cf = yorumcu._cf_cagir
+    yorumcu._cf_cagir = _asil_cf
+    _ortam_kur()
+    _istek = []
+
+    def _sahte_post(*a, **k):
+        _istek.append(1)
+        raise _hata(429, "Too Many Requests")
+
+    _asil_post = _httpx.post
+    _httpx.post = _sahte_post
+    try:
+        try:
+            yorumcu._cf_cagir("girdi", "sistem")
+        except Exception:
+            pass
+        sina("429 kotayi KAPATIYOR", yorumcu.cf_kota_doldu())
+        # Iki model var; kota HEPSINI kapsar, ikincisi denenmemeli.
+        sina("kota hatasinda ikinci model DENENMIYOR", len(_istek) == 1)
+        _once = len(_istek)
+        yorumcu._cf_cagir("girdi", "sistem")
+        sina("kota kapaliyken HIC istek atilmiyor", len(_istek) == _once)
+        # Sebep adiyla yazilmali: "bos yanit" sebebi gizlerdi.
+        _os.environ["NETARIS_AI_SAGLAYICI"] = "cloudflare"
+        _m, _md, _sebep, _h = yorumcu.yorumla(_UZUN)
+        _os.environ.pop("NETARIS_AI_SAGLAYICI", None)
+        sina("kota dolunca sebep adiyla yaziliyor",
+             "kota" in _sebep.lower())
+    finally:
+        _httpx.post = _asil_post
+
+    # GECICI HATA KOTA DEGILDIR: 500'de kesici ateslenmemeli, yoksa
+    # tek bir gecici ariza butun kosuyu susturur.
+    _ortam_kur()
+    _istek2 = []
+
+    def _sahte_500(*a, **k):
+        _istek2.append(1)
+        raise _hata(500, "Internal Server Error")
+
+    _httpx.post = _sahte_500
+    try:
+        try:
+            yorumcu._cf_cagir("girdi", "sistem")
+        except Exception:
+            pass
+        sina("500 kotayi KAPATMIYOR", not yorumcu.cf_kota_doldu())
+        sina("gecici hatada butun modeller deneniyor",
+             len(_istek2) == len(yorumcu.cf_modelleri()))
+    finally:
+        _httpx.post = _asil_post
+    yorumcu._cf_cagir = _taklit_cf
+    _ortam_kur()
+
     # --- MODEL -> SAGLAYICI ESLEMESI ---
     #
     # Modul hangi modelleri uretebiliyorsa hepsi sinaniyor: liste

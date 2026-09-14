@@ -49,9 +49,27 @@ import baglam as _baglam   # noqa: E402  (analiz/ yolda)
 
 GUNDEM = _KOK.parent / "site" / "icerik" / "gundem.json"
 
-#: Bir calistirmada en fazla kac yorum. Ucretsiz kotayi tek seferde
-#: bitirmemek ve hattin suresini sinirlamak icin.
-VARSAYILAN_SINIR = 12
+#: Bir calistirmada en fazla kac yorum.
+#:
+#: 12 -> 40. Eski deger bir ONLEMDI, olcum degil: "ucretsiz kotayi tek
+#: seferde bitirmemek".
+#:
+#: OLCULDU (2026-09-14):
+#:   * kosuda 391 aday vardi, 12'si yorumlaniyordu -- 32 kat kisit;
+#:   * yorumlanabilir 2355 haberin yalnizca %26'sinda yorum vardi;
+#:   * Cloudflare'dan BUGUNE KADAR HIC kota ya da oran hatasi
+#:     alinmamisti, yani onlem hic sinanmamis bir tahmine dayaniyordu;
+#:   * yorum basina sure ~4 sn (12 cagri 38-49 sn). 40 yorum ~160 sn,
+#:     is akisinin 25 dakikalik butcesi icinde rahat.
+#:
+#: Yukseltmeyi guvenli kilan sey `yorumcu` tarafindaki kota kesicisi:
+#: kota dolarsa kalan adaylar icin istek YAPILMIYOR, sebep adiyla
+#: yaziliyor ve kosu temiz bitiyor. Gercek tavan tahmin edilmiyor,
+#: veriden OKUNUYOR.
+#:
+#: Adaylar olay siddetine gore sirali: kota biterse once onemli haber
+#: yorumlanmis olur.
+VARSAYILAN_SINIR = 40
 
 SEMA = """
 CREATE TABLE IF NOT EXISTS ai_yorum (
@@ -323,6 +341,7 @@ def main() -> int:
                 metin, model, neden, ham = yorumcu.yorumla(girdi)
                 if not metin:
                     reddedilen += 1
+                    _kota = yorumcu.cf_kota_doldu()
                     # Ret sebebi DEPOYA da yaziliyor. Ilk calistirmada
                     # dokuz redden hicbirinin sebebi depoda yoktu ve
                     # gunluge bakmadan tani konamiyordu.
@@ -333,6 +352,12 @@ def main() -> int:
                         (h["adres"], h.get("baslik", "")[:200], neden,
                          model, (ham or "")[:2000], beyin.simdi()))
                     print(f"  RED  {h['baslik'][:48]}  ({neden})")
+                    if _kota:
+                        # KOTA DOLDU: kalan adaylar icin donmeye devam
+                        # etmek yalnizca ayni reddi tekrarlardi.
+                        print("  kota doldu -- kalan adaylar bir sonraki "
+                              "kosuya birakildi")
+                        break
                     if ham:
                         print(f"       ham: {ham[:120]}")
                     continue

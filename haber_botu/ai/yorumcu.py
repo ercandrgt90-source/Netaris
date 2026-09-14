@@ -471,6 +471,65 @@ def sayi_denetimi(cikti: str, girdi: str) -> list[str]:
     return kacak
 
 
+#: Ucretsiz saglayici "kota doldu" dediginde ateslenen bayrak.
+#:
+#: NEDEN GEREKLI
+#: -------------
+#: Kosu basina yorum sayisi 12 ile sinirliydi ve gerekcesi "ucretsiz
+#: kotayi tek seferde bitirmemek" idi -- yani bir ONLEM, olcum degil.
+#:
+#: Olculdu (2026-09-14): kosuda 391 aday varken yalnizca 12'si
+#: yorumlaniyordu (32 kat kisit) ve Cloudflare'dan BUGUNE KADAR HIC
+#: kota ya da oran hatasi alinmamisti. Yani onlem, hic sinanmamis bir
+#: tahmine dayaniyordu ve ucretsiz kapasitenin buyuk kismi bosta
+#: duruyordu.
+#:
+#: Sinirin yukseltilebilmesi icin kotaya carpmanin ZARARSIZ olmasi
+#: gerekiyor: kota dolunca kalan adaylar icin istek YAPILMIYOR, sebep
+#: adiyla yaziliyor ve kosu temiz bitiyor. Boylece gercek tavan
+#: tahmin edilmiyor, OLCULUYOR.
+_CF_KOTA_DOLDU = False
+
+#: "Yavasla" ya da "kotan bitti" anlamina gelen durum kodlari.
+_CF_KOTA_KODU = (429, 402)
+
+#: Durum kodu vermeyen ama kotayi anlatan yanit metinleri.
+_CF_KOTA_IZ = ("quota", "neuron", "rate limit", "capacity",
+               "too many requests", "usage limit")
+
+
+def cf_kota_doldu() -> bool:
+    """Ucretsiz saglayici bu kosuda kapandi mi."""
+    return _CF_KOTA_DOLDU
+
+
+def _cf_kota_kapat(sebep: str) -> None:
+    global _CF_KOTA_DOLDU
+    if not _CF_KOTA_DOLDU:
+        _CF_KOTA_DOLDU = True
+        print(f"    ucretsiz saglayici kotasi doldu ({sebep[:80]}) "
+              f"-- kalan adaylar icin istek YAPILMIYOR")
+
+
+def cf_kotasini_sifirla() -> None:
+    """Kosu durumunu basa alir (sinamalar icin)."""
+    global _CF_KOTA_DOLDU
+    _CF_KOTA_DOLDU = False
+
+
+def _kota_hatasi(e: Exception) -> bool:
+    """Hata "kota doldu" anlamina mi geliyor."""
+    if not isinstance(e, httpx.HTTPStatusError):
+        return False
+    if e.response.status_code in _CF_KOTA_KODU:
+        return True
+    try:
+        metin = (e.response.text or "").lower()
+    except Exception:                                 # pragma: no cover
+        return False
+    return any(iz in metin for iz in _CF_KOTA_IZ)
+
+
 def _cf_cagir(girdi: str, sistem: str = "") -> tuple[str, str]:
     """Workers AI. `(metin, kullanilan_model)` doner.
 
@@ -481,6 +540,13 @@ def _cf_cagir(girdi: str, sistem: str = "") -> tuple[str, str]:
     hesap = os.environ.get("CLOUDFLARE_ACCOUNT_ID", "").strip()
     jeton = os.environ.get("CLOUDFLARE_API_TOKEN", "").strip()
     if not hesap or not jeton:
+        return "", ""
+    # Kota dolduysa kalan adaylar icin istek atilmiyor: her biri iki
+    # model x bir istek demekti ve hicbiri donmeyecekti.
+    # ISTISNA FIRLATILMIYOR: `yorumla` yalnizca `httpx.HTTPError`
+    # yakaliyor; buradan cikan baska bir istisna kosuyu cokertirdi.
+    # Bos donus, cagiranin zaten bildigi yol.
+    if _CF_KOTA_DOLDU:
         return "", ""
     son_hata: Exception | None = None
     for model in cf_modelleri():
@@ -500,6 +566,10 @@ def _cf_cagir(girdi: str, sistem: str = "") -> tuple[str, str]:
             son_hata = son_hata or RuntimeError(f"{model}: bos yanit")
         except httpx.HTTPError as e:
             son_hata = e
+            if _kota_hatasi(e):
+                # Kota BUTUN modelleri kapsar; ikinciyi denemek bosuna.
+                _cf_kota_kapat(f"HTTP {e.response.status_code}")
+                break
             continue
     if isinstance(son_hata, httpx.HTTPError):
         raise son_hata
@@ -708,6 +778,12 @@ def yorumla(girdi: str, sistem_ozel: str = "") -> tuple[str, str, str, str]:
     s = saglayici()
     if not s:
         return "", "", "saglayici yok (anahtar tanimli degil)", ""
+    # KOTA DOLDUYSA ISTEK YAPILMIYOR, SEBEP ADIYLA YAZILIYOR.
+    #
+    # "bos yanit" demek sebebi gizlerdi; kota dolmasi ile modelin bos
+    # donmesi ayri seyler ve ayri cozumleri var.
+    if s == "cloudflare" and cf_kota_doldu():
+        return "", "", "ucretsiz saglayici kotasi doldu", ""
 
     # OLCUM YOKSA BASKA BIR SORU SORULUYOR.
     #
