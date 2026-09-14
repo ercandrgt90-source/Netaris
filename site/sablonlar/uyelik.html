@@ -5,8 +5,17 @@
 
 {# Uyelik sayfalari arama motoruna KAPALI. Giris formu ve panel dizine
    girecek bir icerik degil; ayrica indekslenmis bir panel adresi gereksiz
-   bot trafigi ceker. #}
-{% block ek_bas %}<meta name="robots" content="noindex, nofollow">{% endblock %}
+   bot trafigi ceker.
+
+   ROBOTS ETIKETI BURADA DEGIL, `temel.html`de. Burasi once kendi
+   etiketini basiyordu (`noindex, nofollow`) ve `temel.html` de
+   `arama_disi=True` yuzunden `noindex, follow` basiyordu -- yani
+   sayfada IKI etiket vardi. Olculdu (2026-09-14): `/giris/`,
+   `/kayit/` ve `/panel/` ucu de ikiser tasiyordu.
+
+   `follow` DAVRANISI TEMEL SABLONUN KARARI ve orada gerekcesi yazili:
+   "sayfa taraniyor ve baglantilari izleniyor, yalnizca dizine
+   alinmiyor". Buradaki `nofollow` o karari sessizce eziyordu. #}
 
 {% block icerik %}
 <div class="uyelik-kabuk">

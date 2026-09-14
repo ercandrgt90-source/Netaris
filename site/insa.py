@@ -5581,7 +5581,11 @@ def insa() -> int:
         arama_dizini(listelenen, uretilecek, _duz_sayfalar, hakkimizda))
     yaz(
         "/ara/index.html",
-        ortam.get_template("ara.html").render(**ortak, yol="/ara/"),
+        # `arama_disi`: robots karari `temel.html`de veriliyor. Bu
+        # sayfa once kendi etiketini basiyordu ve sonuc CELISKILI iki
+        # etiketti (bkz. `ara.html`in notu).
+        ortam.get_template("ara.html").render(**ortak, yol="/ara/",
+                                              arama_disi=True),
     )
     yollar.append("/ara/")
 

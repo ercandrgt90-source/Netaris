@@ -3,10 +3,25 @@
 {% block baslik %}Ara — {{ site.ad }}{% endblock %}
 {% block aciklama %}Analizler, bilançolar, makro ve teknik görünüm içinde arama.{% endblock %}
 
-{# Arama sonuc sayfalari arama motorlarina acilmaz -- ince icerik uretir #}
-{% block yapisal_veri %}
-<meta name="robots" content="noindex, follow">
-{% endblock %}
+{# ROBOTS ETIKETI BURADA DEGIL, `temel.html`de.
+   ============================================
+   Burasi once kendi `<meta name="robots">` etiketini basiyordu -- ve
+   bunu YAPISAL VERI blogunun icinde yapiyordu, ki o blok JSON-LD icin.
+   Sonucu olculdu (2026-09-14): `/ara/` sayfasi IKI robots etiketi
+   tasiyordu ve ikisi CELISIYORDU:
+
+       index, follow, max-snippet:-1, max-image-preview:large
+       noindex, follow
+
+   Arama motoru celiskide en kisitlayiciyi alir, yani sonuc dogruydu.
+   Ama sayfa iki farkli sey soyluyordu ve bunu duzeltmeye calisan biri
+   yanlis olani silebilirdi.
+
+   `temel.html` zaten dogru duzenege sahip: `arama_disi` verildiginde
+   `noindex, follow` basiyor. Karar TEK YERDE veriliyor; bu sayfa
+   yalnizca bayragi `insa.py`den aliyor.
+
+   Arama sonuc sayfalari dizine acilmaz -- ince icerik uretir. #}
 
 {% block icerik %}
 <div class="giris">
