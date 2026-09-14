@@ -281,20 +281,70 @@ def yayini_dogrula(adres: str = "https://netaris.net/") -> int:
         print("  DOGRULANAMADI: yerel ciktida stil surumu bulunamadi")
         return 0
 
-    try:
-        import httpx
-        y = httpx.get(adres, timeout=25, follow_redirects=True,
-                      headers={"cache-control": "no-cache"})
-        y.raise_for_status()
-        canli = _surum_izi(y.text)
-    except Exception as e:      # ag katmani cok cesitli hata atiyor
-        print(f"  DOGRULANAMADI: {adres} okunamadi ({e.__class__.__name__})")
-        print("  Yayin yapildi ama canli surum GORULEMEDI.")
-        return 0
+    # ONBELLEK YARISI -- OLCULDU (2026-09-14).
+    #
+    # Kosu "UYUSMUYOR: yerel 247e4dda / canli 068382f5" deyip KIRMIZI
+    # dondu. Dagitim BASARILIYDI: dakikalar sonra bakildiginda canli
+    # damga 247e4dda idi, yani yuklenen surumun ta kendisi. Ayni
+    # kosunun bir sonraki adimi da "canli sitede en yeni haber 0
+    # saatlik -- taze" diyordu.
+    #
+    # Sebep: Cloudflare kenari sayfayi `max-age=60,
+    # stale-while-revalidate=600` ile tutuyor. Yuklemeden hemen sonra
+    # bakan istek, ESKI kopyayi goruyor.
+    #
+    # `cache-control: no-cache` BASLIGI YETMIYOR: o bir ISTEK basligi
+    # ve tarayici onbellegine hitap ediyor; CDN kenarini atlatmiyor.
+    # Olculdu -- basligi gonderen kosu yine eski damgayi gordu.
+    #
+    # IKI KATMAN:
+    #   1. Her denemede FARKLI bir sorgu parametresi. Kenar onbellek
+    #      anahtari sorgu dizesini iceriyor, yani parametre degisince
+    #      kaynaktan cekiliyor.
+    #   2. Yine de uyusmazsa BEKLEYIP TEKRAR bakiliyor. Yayilma
+    #      gercekten birkac saniye surebilir.
+    #
+    # KONTROL ZAYIFLATILMADI: uc denemenin sonunda hala uyusmuyorsa
+    # kosu yine kirmizi doner. Bu kontrol, canli sitenin otuz bir
+    # commit geride kaldigi ve kimsenin fark etmedigi bir olcumden
+    # dogdu; kaldirmak degil, DOGRU OLCMEK gerekiyordu.
+    #
+    # Yanlis alarmin bedeli gercek: kirmizi donen ama aslinda basarili
+    # olan bir kosu, sonraki gercek kirmiziyi de inandiriciliktan
+    # dusurur.
+    import time                                        # noqa: PLC0415
 
-    if canli == yerel:
-        print(f"  canli surum yerelle ayni ({yerel})")
-        return 0
+    canli = ""
+    for deneme in range(3):
+        if deneme:
+            time.sleep(15)
+        # DENEME SAYACI DA EKLENIYOR, YALNIZCA SAAT DEGIL.
+        #
+        # Ilk yazimda parametre `int(time.time())` idi ve iki istek
+        # AYNI SANIYEYE dustugunde ayni adres cikiyordu -- yani
+        # onbellek kirilmiyordu. Sinama bunu yakaladi. Saat tek basina
+        # benzersizlik garantisi vermiyor.
+        ayrac = "&" if "?" in adres else "?"
+        istek = f"{adres}{ayrac}dogrulama={int(time.time())}-{deneme}"
+        try:
+            import httpx
+            y = httpx.get(istek, timeout=25, follow_redirects=True,
+                          headers={"cache-control": "no-cache"})
+            y.raise_for_status()
+            canli = _surum_izi(y.text)
+        except Exception as e:  # ag katmani cok cesitli hata atiyor
+            print(f"  DOGRULANAMADI: {adres} okunamadi "
+                  f"({e.__class__.__name__})")
+            print("  Yayin yapildi ama canli surum GORULEMEDI.")
+            return 0
+        if canli == yerel:
+            ek = "" if not deneme else f" ({deneme + 1}. denemede)"
+            print(f"  canli surum yerelle ayni ({yerel}){ek}")
+            return 0
+        if deneme < 2:
+            print(f"  henuz yayilmadi (canli {canli or '(yok)'})"
+                  f" -- 15 sn sonra tekrar bakilacak")
+
     print(f"  UYUSMUYOR: yerel {yerel or '(yok)'} / canli {canli or '(yok)'}")
     print("  Yuklenen yapi canlida GORUNMUYOR -- yayin eksik kalmis olabilir.")
     return 1

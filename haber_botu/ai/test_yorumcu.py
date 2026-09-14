@@ -341,6 +341,62 @@ finally:
     yorumcu._ANTHROPIC_KAPALI = False
 
 
+
+# --- POLITIKA FAIZINE ILISTIRILEN DEGER ------------------------------
+#
+# Once kural soyleydi: "politika faizi" adina DEGER iliStirmek YASAK.
+# Sebebi gercekti -- model "Politika faizi %40,00" yazmisti ve o sayi
+# agirlikli ortalama FONLAMA MALIYETINDEN geliyordu; politika faizi
+# ayri bir buyukluk ve o gun %37 idi.
+#
+# O sebep SONRADAN COZULDU: hat politika faizini PPK duyurusundan
+# okuyor ve ayri seride tutuyor. Ama yasak kaldi ve OLCULDU
+# (2026-09-14): 659 ret bu kaliptan -- TUM retlerin %42'si, ucretsiz
+# saglayicinin retlerinin %94,9'u. Reddedilen metinler DOGRUYDU.
+#
+# Kural artik YASAK degil DEGER DENETIMI. Korunan sey ayni: fonlama
+# maliyetini politika faizi diye yazmak hala yakalaniyor.
+
+_G_PF = "Gösterge: Politika faizi %37,00 (2026-09-10)"
+_G_PF2 = "Gösterge: Politika faizi 37,00% (2026-09-10)"
+
+sina("dogru deger geciyor",
+     yorumcu._politika_faizi_kusuru(
+         "Politika faizinin %37,00 seviyesinde bulunması belirleyici.",
+         _G_PF) == "")
+sina("yuvarlanmis deger geciyor",
+     yorumcu._politika_faizi_kusuru(
+         "Politika faizi %37 seviyesinde.", _G_PF) == "")
+sina("yuzde isareti sonra yazilmis girdi de okunuyor",
+     yorumcu._politika_faizi_kusuru(
+         "Politika faizinin %37,00 seviyesinde.", _G_PF2) == "")
+# KURALIN ASIL SEBEBI: bu ayrimi YAPAN metin de eleniyordu.
+sina("fonlama ile politika faizini AYIRAN metin geciyor",
+     yorumcu._politika_faizi_kusuru(
+         "Fonlama maliyetinin %40,00'da sabit kalması, politika faizi "
+         "olan %37,00'ın üzerinde bir maliyet demek.", _G_PF) == "")
+# KORUNAN SEY: yanlis buyuklugu bu adla yazmak.
+sina("fonlama maliyetini politika faizi diye yazmak YAKALANIYOR",
+     yorumcu._politika_faizi_kusuru(
+         "Politika faizi %40,00 seviyesinde sabit kaldı.", _G_PF) != "")
+sina("kavramdan degersiz soz etmek serbest",
+     yorumcu._politika_faizi_kusuru(
+         "Politika faizi kararı piyasanın odağında.", _G_PF) == "")
+sina("girdide politika faizi yoksa reddediliyor",
+     yorumcu._politika_faizi_kusuru(
+         "Politika faizi %37,00.", "Gösterge: TÜFE %31,75") != "")
+# IZINLI KUME YALNIZCA YUZDEYE BITISIK SAYILARDAN kuruluyor. Ilk
+# yazimda satirin tum sayilari aliniyordu ve TARIH izinli kumeye
+# siziyordu: "%37,00 (2026-09-10)" satiri 2026, 9 ve 10'u da gecerli
+# sayiyordu -- yani denetim kendi icinde bir delik aciyordu.
+sina("girdideki tarihten sizan deger KABUL EDILMIYOR",
+     yorumcu._politika_faizi_kusuru(
+         "Politika faizi %10 seviyesinde.", _G_PF) != "")
+sina("girdideki yildan sizan deger KABUL EDILMIYOR",
+     yorumcu._politika_faizi_kusuru(
+         "Politika faizi %2026 seviyesinde.", _G_PF) != "")
+
+
 print("=" * 60)
 if kaldi:
     print(f"{kaldi} TEST BASARISIZ")

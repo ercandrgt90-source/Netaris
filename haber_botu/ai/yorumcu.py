@@ -191,20 +191,10 @@ YASAK = (
     re.compile(r"\byatırım (tavsiyesi|önerisi)\b", re.I),
     re.compile(r"\b(kesinlikle|mutlaka|garanti)\b", re.I),
 
-    # YANLIS KAVRAM ADI + DEGER.
-    #
-    # Olculdu: model "Politika faizi %40,00 seviyesinde sabit kaldi"
-    # yazdi. Sayi DOGRUYDU -- ama o sayi TP.APIFON4'ten, yani agirlikli
-    # ortalama FONLAMA MALIYETINDEN geliyor. Politika faizi (bir hafta
-    # vadeli repo) ayri bir buyukluk ve o gun %37 idi.
-    #
-    # Model uydurmadi: girdisindeki bulgu cumlesi de ayni yanlis adi
-    # tasiyordu. Girdi duzeltildi, ama ayni hata bir daha gecmesin diye
-    # CIKTI da denetleniyor -- girdi bir gun yine kayabilir.
-    #
-    # Kavramdan SOZ ETMEK serbest ("politika faizi kararı piyasanın
-    # odağında"); yasak olan, o ada bir DEGER iliStirmek.
-    re.compile(r"politika faizi[^.]{0,14}%\s*\d", re.I),
+    # NOT: "politika faizi + deger" kalibi buradan KALDIRILDI ve yerine
+    # `_politika_faizi_kusuru()` kondu. Sebebi asagida, o islevin
+    # basinda yazili -- ozeti: yasak, kendi sebebini cozdukten sonra
+    # dogru analizleri elemeye devam etti.
 
     # HAM ONDALIK. Ucten fazla basamak, hicbir finansal buyuklukte
     # anlamli degil ve okura "hesap makinesinden kopyalanmis" izlenimi
@@ -382,6 +372,78 @@ def tekrar_orani(cikti: str, girdi: str) -> float:
     if not kc:
         return 0.0
     return len(kc & kg) / len(kc)
+
+
+#: "politika faizi ... %N" -- kavram adi ile ona ILISTIRILEN deger.
+_PF_CIKTI = re.compile(r"politika faiz\w*[^.]{0,20}?%\s*([\d.,]+)", re.I)
+
+
+def _politika_faizi_kusuru(cikti: str, girdi: str) -> str:
+    """Politika faizine YANLIS bir deger iliStirilmis mi. Temizse "".
+
+    NEDEN DEGER DENETIMI, NEDEN YASAK DEGIL
+    ---------------------------------------
+    Once kural soyleydi: "politika faizi" adina bir deger iliStirmek
+    YASAK. Sebebi gercekti -- model "Politika faizi %40,00 seviyesinde"
+    yazmisti ve o sayi TP.APIFON4'ten, yani agirlikli ortalama FONLAMA
+    MALIYETINDEN geliyordu. Politika faizi (bir hafta vadeli repo) ayri
+    bir buyukluk ve o gun %37 idi.
+
+    O sebep SONRADAN COZULDU: hat artik politika faizini PPK basin
+    duyurusundan okuyor ve depoda ayri bir seri olarak tutuyor
+    (`TCMB_POLITIKA`). Girdi dogru degeri tasiyor.
+
+    Ama yasak kaldi ve OLCULDU (2026-09-14): 659 ret bu kaliptan
+    geliyordu -- TUM retlerin %42'si, ucretsiz saglayicinin retlerinin
+    %94,9'u. Reddedilen metinler DOGRUYDU; ustelik bazilari kuralin
+    korumak istedigi ayrimi tam olarak yapiyordu:
+
+        "Fonlama maliyetinin %40,00'da sabit kalmasi, TCMB'nin ...
+         politika faizi olan %37,00'in uzerinde bir efektif maliyetle
+         fiyatlamayi surdurdugu anlamina geliyor"
+
+    Yani kural, kendi sebebini cozdukten sonra tam da tesvik etmesi
+    gereken analizleri elemeye devam etti.
+
+    YENI OLCUT: kavramdan soz etmek serbest, DEGER ise girdideki
+    politika faizi degerine uymak zorunda. Fonlama maliyetini politika
+    faizi diye yazmak hala yakalaniyor -- korunan sey degismedi,
+    yalnizca dogru olana yol acildi.
+
+    GIRDIDE POLITIKA FAIZI YOKSA REDDEDILIYOR: dogrulanamayan bir
+    iddiaya izin vermek, denetimi olmayan bir alan birakmak olurdu.
+    """
+    m = _PF_CIKTI.search(cikti)
+    if not m:
+        return ""
+    yazilan = _sayilar("%" + m.group(1))
+    if not yazilan:
+        return ""
+    # YALNIZCA YUZDE ISARETINE BITISIK SAYILAR.
+    #
+    # Ilk yazimda satirin TUM sayilari aliniyordu ve izinli kume
+    # tarihten kirleniyordu: "Politika faizi %37,00 (2026-09-10)"
+    # satiri 2026, 9 ve 10'u da izinli sayiyordu -- yani "politika
+    # faizi %10" yazan bir metin GECERDI. Denetimi olmayan bir alan
+    # birakmamak icin kondu, kendi icinde bir delik acmasin.
+    #
+    # Iki bicim de destekleniyor: "%37,00" ve "37,00%".
+    izinli: set[float] = set()
+    for satir in girdi.splitlines():
+        if "politika faiz" not in satir.lower():
+            continue
+        for once, sonra in re.findall(r"%\s*([\d.,]+)|([\d.,]+)\s*%", satir):
+            izinli |= _sayilar(once or sonra)
+    if not izinli:
+        return f"girdide politika faizi yok, cikti {m.group(1)!r} diyor"
+    for y in yazilan:
+        if any(abs(y - x) <= max(abs(x), 1.0) * _TOLERANS for x in izinli):
+            return ""
+        # Yuvarlanmis hali de kabul: %37,00 ~ %37
+        if any(abs(y - round(x, 1)) <= 0.05 for x in izinli):
+            return ""
+    return (f"cikti {m.group(1)!r} diyor, girdideki politika faizi "
+            f"{sorted(izinli)}")
 
 
 def sayi_denetimi(cikti: str, girdi: str) -> list[str]:
@@ -777,6 +839,14 @@ def yorumla(girdi: str, sistem_ozel: str = "") -> tuple[str, str, str, str]:
         m = d.search(metin)
         if m:
             return "", model, f"yasak kalip: {m.group(0)!r}", metin
+
+    # --- 2b. politika faizine ILISTIRILEN deger dogru mu ---
+    #
+    # Kavramdan soz etmek serbest; deger girdideki politika faizine
+    # uymak zorunda. Gerekcesi `_politika_faizi_kusuru`nun basinda.
+    _pf = _politika_faizi_kusuru(metin, girdi)
+    if _pf:
+        return "", model, f"politika faizine yanlis deger: {_pf}", metin
 
     m = SUREN_EGILIM.search(metin)
     if m:

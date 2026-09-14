@@ -180,5 +180,82 @@ else:
          "gonderilmemis commit yok -- uyari basilmiyor")
 
 
+
+# --- CDN ONBELLEK YARISI ---------------------------------------------
+#
+# OLCULDU (2026-09-14): kosu "UYUSMUYOR: yerel 247e4dda / canli
+# 068382f5" deyip KIRMIZI dondu. Dagitim BASARILIYDI -- dakikalar sonra
+# canli damga 247e4dda idi, yani yuklenen surumun kendisi. Ayni kosunun
+# bir sonraki adimi da "canli sitede en yeni haber 0 saatlik" diyordu.
+#
+# Sebep: Cloudflare kenari sayfayi `stale-while-revalidate` ile
+# tutuyor; yuklemeden hemen sonra bakan istek eski kopyayi goruyor.
+# `cache-control: no-cache` BASLIGI yetmiyor -- o bir ISTEK basligi ve
+# tarayici onbellegine hitap ediyor, CDN kenarini atlatmiyor.
+#
+# Yanlis alarmin bedeli gercek: kirmizi donen ama aslinda basarili olan
+# bir kosu, sonraki GERCEK kirmiziyi de inandiriciliktan dusurur.
+
+import time as _time  # noqa: E402
+
+try:
+    import httpx as _httpx
+    _asil_get = _httpx.get
+except ImportError:                                    # pragma: no cover
+    _httpx = None
+    _asil_get = None
+
+
+class _Yanit:
+    def __init__(self, metin):
+        self.text = metin
+
+    def raise_for_status(self):
+        return None
+
+
+def _sayfa(surum):
+    return f'<link rel="stylesheet" href="/statik/stil.css?v={surum}">'
+
+
+if _httpx is not None:
+    _asil_uyku = _time.sleep
+    _time.sleep = lambda s: None          # sinama beklemesin
+    _cikti = pathlib.Path(yayinla.CIKTI) / "index.html"
+    _yedek = _cikti.read_text(encoding="utf-8") if _cikti.exists() else None
+    try:
+        _cikti.parent.mkdir(parents=True, exist_ok=True)
+        _cikti.write_text(_sayfa("yeni1234"), encoding="utf-8")
+
+        # 1. ILK BAKISTA ESKI, IKINCIDE YENI -> BASARILI sayilmali.
+        _istekler = []
+
+        def _once_eski(url, **k):
+            _istekler.append(url)
+            return _Yanit(_sayfa("eski0000" if len(_istekler) == 1
+                                 else "yeni1234"))
+
+        _httpx.get = _once_eski
+        esit(yayinla.yayini_dogrula("https://ornek.test/"), 0,
+             "yayilma gecikince tekrar bakiyor, kirmizi donmuyor")
+        # HER DENEME AYRI ADRES: kenar onbellek anahtari sorgu dizesini
+        # iceriyor; ayni adres tekrar sorulsaydi ayni eski kopya gelirdi.
+        esit(len(set(_istekler)) == len(_istekler) and len(_istekler) >= 2,
+             True, "her deneme onbellek kirici parametreyle gidiyor")
+
+        # 2. GERCEKTEN YAYILMADIYSA hala KIRMIZI -- kontrol
+        #    ZAYIFLATILMADI. Bu kontrol, canli sitenin otuz bir commit
+        #    geride kaldigi ve kimsenin fark etmedigi bir olcumden
+        #    dogdu; kaldirmak degil DOGRU OLCMEK gerekiyordu.
+        _httpx.get = lambda url, **k: _Yanit(_sayfa("eski0000"))
+        esit(yayinla.yayini_dogrula("https://ornek.test/"), 1,
+             "surekli uyusmazsa yine kirmizi donuyor")
+    finally:
+        _httpx.get = _asil_get
+        _time.sleep = _asil_uyku
+        if _yedek is not None:
+            _cikti.write_text(_yedek, encoding="utf-8")
+
+
 print(f"\n{_gecti} gecti, {_kaldi} kaldi")
 sys.exit(1 if _kaldi else 0)
