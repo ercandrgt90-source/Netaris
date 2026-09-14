@@ -362,6 +362,26 @@ def main() -> int:
     # `--zorla-yaz` ile gecilebiliyor: kapsam GERCEKTEN daraldiysa
     # (sektor listesi kisaldi, `--sektor` ile tek sektor kosuldu)
     # karar insanin.
+    # OKUNAMAYAN ISTEKLERIN DOKUMU.
+    #
+    # Olculdu (2026-09-14): kosu 11 sektorun 8'ini kaybetti ve gunlukte
+    # yalnizca "donem belirlenemedi" yaziyordu. Isteklerin NEDEN
+    # okunamadigi hicbir yerde gorunmuyordu -- `bilanco_ag.OKUNAMAYAN`
+    # kaydi TUTUYORDU ama kimse basmiyordu.
+    #
+    # "Ne oldu" ile "neden oldu" ayri sorular; bu depoda bugun ucuncu
+    # kez ayni bicimde karsilasildi.
+    try:
+        import bilanco_ag as _ba                      # noqa: PLC0415
+        if _ba.OKUNAMAYAN:
+            import collections as _c                  # noqa: PLC0415
+            _say = _c.Counter(t for _, t in _ba.OKUNAMAYAN)
+            print(f"\n  okunamayan istek: {len(_ba.OKUNAMAYAN)}")
+            for _t, _n in _say.most_common(6):
+                print(f"    {_n:5}  {_t}")
+    except Exception:                                  # pragma: no cover
+        pass
+
     _yeni = kapsam(cikti)
     _onceki = 0
     if HEDEF.exists():

@@ -228,6 +228,77 @@ esit(NAKITLI["finansman_gideri"], 2_500_000_000.0,
 esit(ba.donemi_kur({"nakit": {"Capital Expenditures": 500.0}})["yatirim_harcamasi"],
      500.0, "pozitif capex bozulmuyor")
 
+
+# --- KAYNAK "YAVASLA" DEDIGINDE --------------------------------------
+#
+# OLCULDU (2026-09-14): bilanco kosusu 11 sektorun yalnizca ILK
+# UCUNU cekebildi; kalan 8'i "donem belirlenemedi" ile elendi ve
+# kapsam 327 sirketten 47'ye dustu. Sektor sirasi ALFABETIKTI ve
+# gecenler ilk uctu -- yani ariza sektore degil SIRAYA bagliydi.
+#
+# Ayni sektorler TEK BASINA calistirilinca sorunsuz cekildi:
+# Sanayi 69 sirket, Saglik 9 sirket, sifir hata. Yani kaynak belli
+# sayida istekten sonra reddediyor.
+#
+# O red SESSIZCE bos veri sayiliyordu: yeniden deneme yok, bekleme
+# yok, gunluge tek satir bile yok.
+
+import httpx as _hx  # noqa: E402
+
+
+class _SahteYanit:
+    def __init__(self, kod, metin=""):
+        self.status_code, self.text = kod, metin
+
+    def raise_for_status(self):
+        if self.status_code >= 400:
+            raise _hx.HTTPStatusError("x", request=None, response=self)
+
+
+class _SahteIstemci:
+    def __init__(self, dizi):
+        self.dizi, self.n = dizi, 0
+
+    def get(self, *a, **k):
+        y = self.dizi[min(self.n, len(self.dizi) - 1)]
+        self.n += 1
+        return y
+
+
+def _dene(dizi):
+    eski_ara, eski_geri = ba.ARA_SN, ba.GERI_CEKILME
+    ba.GERI_CEKILME = 0.0            # sinama beklemesin
+    ba.ARA_SN = 0.5
+    ba.OKUNAMAYAN.clear()
+    i = _SahteIstemci(dizi)
+    try:
+        ba.cek("TEST", "gelir", istemci=i)
+        return i.n, list(ba.OKUNAMAYAN), ba.ARA_SN
+    finally:
+        ba.ARA_SN, ba.GERI_CEKILME = eski_ara, eski_geri
+        ba.OKUNAMAYAN.clear()
+
+
+_n, _hata, _ara = _dene([_SahteYanit(429), _SahteYanit(200, "<table></table>")])
+esit(_n, 2, "429 sonrasi YENIDEN DENIYOR")
+esit(_hata, [], "yeniden deneme basarili olunca hata kaydedilmiyor")
+# Bir kez reddedildikten sonra ayni hizla devam etmek, sinira tekrar
+# girmek demekti. Kosunun geri kalani seyreltiliyor.
+esit(_ara, ba.YAVAS_ARA_SN, "red sonrasi istek araligi BUYUTULUYOR")
+
+_n, _hata, _ = _dene([_SahteYanit(429)])
+esit(_n, ba.DENEME, "surekli red: DENEME kadar deneniyor, daha fazla degil")
+esit(_hata and _hata[0][1], "HTTP 429",
+     "durum kodu kaydediliyor -- 'neden okunamadi' cevaplanabilsin")
+
+# 404 KAYNAGIN YAVASLA DEMESI DEGIL: o sayfa yok. Israr etmek hem
+# bosuna hem nazik degil.
+_n, _hata, _ara = _dene([_SahteYanit(404)])
+esit(_n, 1, "404'te yeniden DENENMIYOR")
+esit(_ara, 0.5, "404 istek araligini buyutmuyor")
+esit(_hata and _hata[0][1], "HTTP 404", "404 de kaydediliyor")
+
+
 print()
 if _kaldi:
     print(f"{_kaldi} TEST KALDI, {_gecti} gecti")

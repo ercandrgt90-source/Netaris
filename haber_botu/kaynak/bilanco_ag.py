@@ -78,7 +78,44 @@ ZAMAN_ASIMI = 40.0
 
 #: Istekler arasi bekleme. Kaynak bizim degil; hizli cekmek icin
 #: sebep yok ve yavas cekmek icin sebep var.
+#:
+#: DEGISKEN: kaynak "yavasla" dediginde `_yavasla()` bunu buyutuyor ve
+#: kosunun geri kalani daha seyrek istek atiyor. Sabit bir deger, bir
+#: kez sinira girildikten sonra ayni hizla devam etmek demekti.
 ARA_SN = 0.5
+
+#: Bir istek en fazla kac kez denenir.
+#:
+#: Olculdu (2026-09-14): kosu 11 sektorun yalnizca ILK UCUNU cekebildi,
+#: kalan 8'i "donem belirlenemedi" ile elendi ve kapsam 327 sirketten
+#: 47'ye dustu. Ayni sektorler TEK BASINA calistirilinca sorunsuz
+#: cekildi (Sanayi 69 sirket, Saglik 9, 0 hata). Yani ariza sektore
+#: degil SIRAYA bagliydi: kaynak belli sayida istekten sonra
+#: reddediyor.
+#:
+#: Uc deneme: gecici bir reddi asmaya yeter, kalici bir engeli
+#: asmaya calismaz. Kaynak gercekten kapatiyorsa israr etmek dogru
+#: olmaz -- ne ise yarar ne de nazik olur.
+DENEME = 3
+
+#: Yeniden denemeden once beklenen taban sure (deneme sayisiyla
+#: carpiliyor: 2, 4, 6 saniye).
+GERI_CEKILME = 2.0
+
+#: Bu durum kodlari "cok hizli gidiyorsun" demek.
+YAVASLATAN = frozenset({429, 503})
+
+#: Bir kez yavaslatildiktan sonra istekler arasi bekleme bu kadar
+#: olur. Kosunun geri kalanini korur.
+YAVAS_ARA_SN = 2.0
+
+
+def _yavasla() -> None:
+    """Kaynak reddedince kosunun geri kalanini seyreltir."""
+    global ARA_SN
+    if ARA_SN < YAVAS_ARA_SN:
+        ARA_SN = YAVAS_ARA_SN
+        print(f"    kaynak yavaslatti -- istek araligi {ARA_SN} sn")
 
 #: Turetilen kumulatif deger ile kaynagin kendi rakami arasinda kabul
 #: edilebilir sapma. Yuvarlamadan buyugu hesap hatasidir.
@@ -168,15 +205,42 @@ def cek(kod: str, sayfa: str = "gelir",
     if sayfa not in SAYFALAR:
         raise ValueError(f"bilinmeyen sayfa: {sayfa}")
     u = UC.format(kod=kod.upper(), sayfa=SAYFALAR[sayfa])
-    try:
-        al = (istemci or httpx).get
-        r = al(u, headers=BASLIKLAR, timeout=ZAMAN_ASIMI,
-               follow_redirects=True)
-        r.raise_for_status()
-    except (httpx.HTTPError, ValueError) as e:
-        OKUNAMAYAN.append((f"{kod}/{sayfa}", type(e).__name__))
-        return [], {}
-    return _tablo(r.text)
+    al = (istemci or httpx).get
+    son_hata = "?"
+    for deneme in range(DENEME):
+        try:
+            r = al(u, headers=BASLIKLAR, timeout=ZAMAN_ASIMI,
+                   follow_redirects=True)
+            r.raise_for_status()
+        except httpx.HTTPStatusError as e:
+            kodu = e.response.status_code
+            son_hata = f"HTTP {kodu}"
+            if kodu in YAVASLATAN and deneme < DENEME - 1:
+                # KAYNAK "YAVASLA" DIYOR -- dinleniyor.
+                #
+                # Olculdu (2026-09-14): kosu 11 sektorun 3'unu cekip
+                # kalan 8'ini kaybetti. Sektor sirasi alfabetikti ve
+                # gecenler ILK UCTU -- yani ariza sektore degil SIRAYA
+                # bagliydi. Tek basina calistirilinca ayni sektorler
+                # sorunsuz cekildi (Sanayi 69 sirket, Saglik 9).
+                #
+                # Yani kaynak belli sayida istekten sonra reddediyor ve
+                # bu kod reddi SESSIZCE bos veri sayiyordu: yeniden
+                # deneme yok, bekleme yok, gunluge tek satir bile yok.
+                _yavasla()
+                time.sleep(GERI_CEKILME * (deneme + 1))
+                continue
+            break
+        except (httpx.HTTPError, ValueError) as e:
+            son_hata = type(e).__name__
+            if deneme < DENEME - 1:
+                time.sleep(GERI_CEKILME * (deneme + 1))
+                continue
+            break
+        else:
+            return _tablo(r.text)
+    OKUNAMAYAN.append((f"{kod}/{sayfa}", son_hata))
+    return [], {}
 
 
 def donem_toplami(degerler: list[float | None], ceyrek: int,
