@@ -36,6 +36,7 @@ from __future__ import annotations
 
 import io
 import json
+import os
 import contextlib
 import pathlib
 import sys
@@ -65,10 +66,24 @@ def _sektor(n: int) -> dict:
             "sirket": {f"K{i:03d}": {"roe": 1.0} for i in range(n)}}
 
 
+def _defter_sektorleri() -> list[str]:
+    """`--hepsi` kosusunun gercekte gezecegi sektor listesi."""
+    return sorted({v["sektor_tr"] for v in ub._defter().values()
+                   if v.get("sektor_tr")})
+
+
+#: `_kosu` sirasinda kosu sayfasina yazilanlar. Cagri yerlerinin
+#: hepsini degistirmemek icin burada tutuluyor.
+SON_OZET = ""
+
+
 def _kosu(baslangic: dict, uretilen: dict, argv: list[str]) -> tuple[dict, int]:
     """HEDEF'i baslangicla kurar, main()'i kosar, sonucu doner."""
+    global SON_OZET
     with tempfile.TemporaryDirectory() as d:
         hedef = pathlib.Path(d) / "sektor_ozet.json"
+        ozet = pathlib.Path(d) / "ozet.md"
+        os.environ["GITHUB_STEP_SUMMARY"] = str(ozet)
         hedef.write_text(json.dumps(baslangic, ensure_ascii=False),
                          encoding="utf-8")
         eski = (ub.HEDEF, ub.sektor_isle, ub.sektor_donemi, sys.argv)
@@ -85,6 +100,9 @@ def _kosu(baslangic: dict, uretilen: dict, argv: list[str]) -> tuple[dict, int]:
         finally:
             (ub.HEDEF, ub.sektor_isle, ub.sektor_donemi,
              sys.argv) = eski
+            os.environ.pop("GITHUB_STEP_SUMMARY", None)
+        SON_OZET = (ozet.read_text(encoding="utf-8")
+                    if ozet.exists() else "")
         return json.loads(hedef.read_text(encoding="utf-8")), kod
 
 
@@ -146,5 +164,24 @@ print("\nYENI sektor eklenebiliyor")
 _son, _kod = _kosu({"Sanayi": _sektor(69)}, {"Enerji": _sektor(3)},
                    ["--hepsi", "--zorla"])
 esit(sorted(_son), ["Enerji", "Sanayi"], "yeni sektor eklendi")
+
+print("")
+print("EKSIK kosu, kosu sayfasinda GORUNUR")
+# Yesil ama bozuk kosu, tam olarak 13 gunluk kesintiyi doguran
+# sessizlikti. Birlestirmeden sonra yarim kosu artik kirmizi
+# donmuyor; eksikligi baska bir yerden soylemesi SART.
+_bas = {"Sanayi": _sektor(69), "Finans": _sektor(30),
+        "Enerji": _sektor(12)}
+_son, _kod = _kosu(_bas, {"Finans": _sektor(31)}, ["--hepsi", "--zorla"])
+esit(_kod, 0, "eksik kosu YESIL")
+esit("EKSİK tazelendi" in SON_OZET, True,
+     "eksiklik kosu sayfasina YAZILDI")
+esit("Sanayi" in SON_OZET, True, "cekilemeyen sektor adiyla yaziliyor")
+
+print("")
+print("TAM kosu, gereksiz uyari URETMEZ")
+_tam = {k: _sektor(5) for k in _defter_sektorleri()}
+_son, _kod = _kosu({}, _tam, ["--hepsi", "--zorla"])
+esit(SON_OZET, "", "her sektor cekilince uyari YOK")
 
 print(f"\nTUM TESTLER GECTI ({_gecen})")

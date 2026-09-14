@@ -34,6 +34,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import pathlib
 import sys
 import time
@@ -123,6 +124,29 @@ def sektor_donemi(sektor_tr: str, son_donem, ceyrek_etiketi) -> str:
         if etiket:
             return etiket
     return ""
+
+
+def kosu_ozeti(satirlar: list[str]) -> None:
+    """Kosu sayfasinin ustune yazar (GitHub Actions).
+
+    NEDEN GEREKLI
+    -------------
+    Birlestirmeden sonra yarim kalan kosu artik KIRMIZI donmuyor --
+    dogrusu bu, cunku cekilebilen sektorlerin sayfalari uretilmeli.
+    Ama "yesil ama bozuk" tam olarak 13 gunluk kesintiyi doguran
+    sessizlikti: hat calisiyor gorunuyordu, icerik donmustu.
+
+    Kosu yesil kalsin ama EKSIK oldugunu sayfanin ustunde soylesin.
+    """
+    yol = os.environ.get("GITHUB_STEP_SUMMARY")
+    if not yol:
+        return
+    try:
+        with open(yol, "a", encoding="utf-8") as f:
+            for satir in satirlar:
+                print(satir, file=f)
+    except OSError:                                   # pragma: no cover
+        pass
 
 
 def mevcut_ozet() -> dict:
@@ -462,6 +486,28 @@ def main() -> int:
     if _dokunulmayan:
         print(f"  onceki haliyle kalan ({len(_dokunulmayan)}): "
               f"{', '.join(sorted(_dokunulmayan))}")
+
+    # EKSIK TAZELENEN KOSU, KOSU SAYFASINDA GORUNUR.
+    _atlanan = [k for k in sektorler
+                if k not in tazelenen and k not in korunan]
+    if korunan or _atlanan:
+        _u = ["### Bilanço verisi EKSİK tazelendi", "",
+              f"tazelenen: **{len(tazelenen)} / {len(sektorler)}** sektör",
+              ""]
+        if _atlanan:
+            _u.append(f"- hiç çekilemeyen: {', '.join(sorted(_atlanan))}")
+        if korunan:
+            _u.append("- kapsamı çöktüğü için önceki hâliyle korunan: "
+                      f"{', '.join(sorted(korunan))}")
+        try:
+            import bilanco_ag as _bx                  # noqa: PLC0415
+            if getattr(_bx, "KAPANDI", False):
+                _u.append("- **kaynak istekleri reddetti** "
+                          "(veri eksikliği değil); sonraki koşu kaldığı "
+                          "yerden tamamlar")
+        except Exception:                             # pragma: no cover
+            pass
+        kosu_ozeti(_u)
 
     _yeni = kapsam(cikti)
     _onceki = kapsam(onceki_ozet)
