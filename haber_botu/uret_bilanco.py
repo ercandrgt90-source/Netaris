@@ -149,6 +149,12 @@ def kosu_ozeti(satirlar: list[str]) -> None:
         pass
 
 
+def _simdi_iso() -> str:
+    """Saniye cozunurluklu UTC damgasi."""
+    from datetime import datetime, timezone         # noqa: PLC0415
+    return datetime.now(timezone.utc).isoformat(timespec="seconds")
+
+
 def mevcut_ozet() -> dict:
     """Diskteki ozeti verir. Okunamazsa BOS -- uydurulmaz."""
     if not HEDEF.exists():
@@ -338,6 +344,23 @@ def main() -> int:
     if n.hepsi:
         sektorler = sorted({v["sektor_tr"] for v in _defter().values()
                             if v.get("sektor_tr")})
+        # EN BAYAT SEKTOR ONCE.
+        #
+        # Once alfabetik isleniyordu ve kaynak her kosuda yaklasik
+        # ayni yerde kapaniyordu (olculdu 2026-09-14: ~100 istek
+        # sonrasi 56 ardisik HTTP 429). Alfabetik sira sabit oldugu
+        # icin hep AYNI ilk uc sektor cekiliyor, sonrakiler HIC
+        # sirasini alamiyordu:
+        #
+        #   Bilisim, Enerji, Finans | Gayrimenkul, ... (hicbir zaman)
+        #
+        # Birlestirme veriyi koruyor ama tek basina yakinsamiyor:
+        # korunan veri sonsuza kadar bayatlardi. Sira bayatliga gore
+        # kurulunca her kosu en geride kalani one aliyor ve art arda
+        # kosular butun sektorleri dolasiyor.
+        _ozet_simdi = mevcut_ozet()
+        sektorler.sort(key=lambda k: (
+            (_ozet_simdi.get(k) or {}).get("tazelendi") or "", k))
     else:
         sektorler = [n.sektor]
 
@@ -421,6 +444,8 @@ def main() -> int:
                   f"ONCEKI VERI KORUNDU")
             korunan.append(s)
             continue
+        # Tazelenme ani, bir sonraki kosunun sirasini belirliyor.
+        yeni_sektor["tazelendi"] = _simdi_iso()
         cikti[s] = yeni_sektor
         tazelenen.append(s)
 

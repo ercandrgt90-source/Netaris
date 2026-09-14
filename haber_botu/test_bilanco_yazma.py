@@ -77,9 +77,19 @@ def _defter_sektorleri() -> list[str]:
 SON_OZET = ""
 
 
-def _kosu(baslangic: dict, uretilen: dict, argv: list[str]) -> tuple[dict, int]:
-    """HEDEF'i baslangicla kurar, main()'i kosar, sonucu doner."""
+#: `_kosu` sirasinda sektorlerin ISLENME sirasi.
+SIRA: list[str] = []
+
+
+def _kosu(baslangic: dict, uretilen: dict, argv: list[str],
+          izin: int | None = None) -> tuple[dict, int]:
+    """HEDEF'i baslangicla kurar, main()'i kosar, sonucu doner.
+
+    `izin` verilirse kaynak yalnizca ilk o kadar sektore izin verir --
+    kosu ortasinda kapanan kaynagi taklit eder.
+    """
     global SON_OZET
+    SIRA.clear()
     with tempfile.TemporaryDirectory() as d:
         hedef = pathlib.Path(d) / "sektor_ozet.json"
         ozet = pathlib.Path(d) / "ozet.md"
@@ -88,11 +98,16 @@ def _kosu(baslangic: dict, uretilen: dict, argv: list[str]) -> tuple[dict, int]:
                          encoding="utf-8")
         eski = (ub.HEDEF, ub.sektor_isle, ub.sektor_donemi, sys.argv)
         ub.HEDEF = hedef
-        ub.sektor_isle = lambda s, *a, **k: uretilen[s]
+        ub.sektor_isle = (lambda s, *a, **k: _sektor(5)) if izin             else (lambda s, *a, **k: uretilen[s])
         # Cekilemeyen sektor GERCEK yoldan eleniyor: donem etiketi bos
         # donuyor. Bugunku kosuda sekiz sektor tam buradan dustu.
-        ub.sektor_donemi = lambda s, *a, **k: ("2026/6" if s in uretilen
-                                               else "")
+        def _donem(sektor, *a, **k):
+            SIRA.append(sektor)
+            if izin is not None:
+                return "2026/6" if len(SIRA) <= izin else ""
+            return "2026/6" if sektor in uretilen else ""
+
+        ub.sektor_donemi = _donem
         sys.argv = ["uret_bilanco", *argv]
         try:
             with contextlib.redirect_stdout(io.StringIO()):
@@ -183,5 +198,40 @@ print("TAM kosu, gereksiz uyari URETMEZ")
 _tam = {k: _sektor(5) for k in _defter_sektorleri()}
 _son, _kod = _kosu({}, _tam, ["--hepsi", "--zorla"])
 esit(SON_OZET, "", "her sektor cekilince uyari YOK")
+
+print("")
+print("EN BAYAT SEKTOR ONCE islenir")
+# Alfabetik sirada kaynak hep ayni yerde kapaniyordu: ilk uc sektor
+# her kosuda cekiliyor, sonrakiler HIC sirasini almiyordu.
+#
+# Kurgu, bayatlik sirasini alfabetik siradan KESIN ayiriyor:
+# alfabetik olarak EN SONDAKI sektor en bayat yapiliyor. Sira
+# alfabetik kalsaydi bu sinama kirmizi donerdi.
+_tersi = sorted(_defter_sektorleri(), reverse=True)
+_bas = {k: dict(_sektor(5),
+                tazelendi=f"2026-09-{i + 1:02d}T00:00:00+00:00")
+        for i, k in enumerate(_tersi)}
+_son, _kod = _kosu(_bas, {}, ["--hepsi", "--zorla"])
+esit(SIRA, _tersi, "sira BAYATLIGA gore, alfabetik DEGIL")
+print("")
+print("Art arda kosular BUTUN sektorleri dolasiyor (yakinsama)")
+# Kaynak her kosuda yalnizca ILK UC sektore izin veriyor -- gercekte
+# olculen davranis bu (~100 istek sonrasi kapaniyor). Birlestirme
+# tek basina yakinsamiyordu: korunan veri sonsuza kadar bayatlardi.
+_dosya: dict = {}
+_hepsi = _defter_sektorleri()
+_kosu_sayisi = 0
+for _ in range(12):
+    _dosya, _ = _kosu(_dosya, {}, ["--hepsi", "--zorla"], izin=3)
+    _kosu_sayisi += 1
+    if all((_dosya.get(k) or {}).get("tazelendi") for k in _hepsi):
+        break
+esit(sorted(_dosya) == sorted(_hepsi), True,
+     "butun sektorler dosyada")
+esit(all((_dosya.get(k) or {}).get("tazelendi") for k in _hepsi), True,
+     "butun sektorler TAZELENDI -- hicbiri ac kalmadi")
+# 11 sektor, kosu basina 3 -> dort kosu yeter.
+esit(_kosu_sayisi <= 4, True,
+     f"dort kosuda yakinsadi ({_kosu_sayisi} kosu)")
 
 print(f"\nTUM TESTLER GECTI ({_gecen})")
