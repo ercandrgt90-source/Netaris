@@ -1280,6 +1280,46 @@ BILINEN_CIFT = {
 }
 
 
+def parcali_uretilebilir(ad: str, kaynak: str) -> bool:
+    """Sinif adi PARCALI kuruluyor olabilir mi.
+
+    `grafik-yukselis` hicbir dosyada BUTUN HALIYLE gecmiyor; kod onu
+    parca parca kuruyor:
+
+        yon = "yukselis" if degerler[-1] >= degerler[0] else "dusus"
+        ... class="grafik-{yon}"
+
+    NEDEN VAR -- OLCULMUS BIR HATA
+    ------------------------------
+    2026-08-28'de `.grafik-yukselis` kurallari "olu CSS" diye SILINDI.
+    Silme olcutu "uretilen 1814 sayfanin hicbirinde gecmiyor" idi ve o
+    gun DOGRUYDU: veride yukselen grafik yoktu. Ama sinif uretilemez
+    degildi, yalnizca o gun uretilmemisti.
+
+    Sonucu iki hafta yasadi: dususler kirmizi ciziliyor, yukselisler
+    kendi rengi yerine varsayilan vurgu rengine dusuyordu. Kimse
+    kirmizi bir sey gormedi -- sayfa "calisiyordu".
+
+    "BUGUN URETILMEDI" ILE "URETILEMEZ" AYNI SEY DEGIL. Ayni commit'te
+    `akis-onemli` ve `surpriz-tam` icin bu ayrim dogru yapilmisti ve
+    `grafik-*`e uygulanmamisti; ayrimi artik ARAC yapiyor, dikkat
+    degil.
+
+    OLCUT: adin bir `-` yerinden ikiye ayrilmasi, onekin kaynakta
+    gecmesi ve sonekin kaynakta DIZGI olarak bulunmasi. Ikisi birden
+    varsa kod o adi kurabiliyor demektir.
+    """
+    for i, k in enumerate(ad):
+        if k != "-":
+            continue
+        onek, sonek = ad[:i + 1], ad[i + 1:]
+        if not sonek or onek not in kaynak:
+            continue
+        if f'"{sonek}"' in kaynak or f"'{sonek}'" in kaynak:
+            return True
+    return False
+
+
 def cakisan_bildirimler(
         bloklar: list[dict[str, str]]) -> dict[str, tuple[str, str]]:
     """Ayni secicinin tanimlari arasinda GERCEKTEN carpisanlari verir.
@@ -1514,7 +1554,7 @@ def stil_denetimi() -> list[Bulgu]:
                    and "cikti" not in f.parts]
     metin = "\n".join(kaynak)
     olu = sorted(a for a in tanimli - uretilen - URETILEBILIR
-                 if a not in metin)
+                 if a not in metin and not parcali_uretilebilir(a, metin))
     if olu:
         bulgu.append(Bulgu(
             "uyari", "stil", f"{len(olu)} sinif",

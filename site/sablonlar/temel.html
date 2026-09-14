@@ -152,6 +152,65 @@
 </head>
 <body>
 
+{# VERI AKISI DURDUYSA OKUR BILSIN.
+   ====================================================================
+   OLCULDU (2026-09-14): site 1 Eylul 23:04'ten beri guncellenmiyordu.
+   On uc gun boyunca her otomasyon kosusu ayni testte dustu; nobetci
+   her yarim saatte tetikledi ve hicbiri gecemedi. Site 200 donuyor,
+   sayfalar aciliyor, tarihler dogru yaziyordu -- ama rakamlar on uc
+   gunluktu ve hicbir yerde bunu SOYLEYEN bir sey yoktu.
+
+   Bilgi aslinda UC yerde vardi: sayfadaki tarihler, `/api/nobetci`
+   uctaki icerik yasi ve Actions'taki kirmizi rozetler. Ucu de CEKME
+   kanali -- bakan gorur. Itme kanali yoktu ve kimse on uc gun
+   boyunca bakmadi.
+
+   KARAR TARAYICIDA VERILIYOR, KURULUMDA DEGIL
+   -------------------------------------------
+   Bu ayrim bu ozelligin TAMAMI. Hat kilitlenince site yeniden
+   KURULMUYOR; dolayisiyla kurulum aninda hesaplanacak bir
+   "taze/bayat" bayragi son saglikli kurulumun degerinde donar ve
+   sonsuza dek "taze" der. Yani tam ihtiyac duyuldugu anda susar --
+   az once duzeltilen kilidin ayni sinifi: kendisini dogrulayacak
+   kosuya bagli bir kontrol.
+
+   Sayfa yalnizca KURULUM ANINI tasiyor (bir olgu). Yas, sayfa her
+   acildiginda yeniden hesaplaniyor.
+
+   JS KAPALIYSA uyari cikmaz; zamana bagli bir karar sunucuda
+   verilemez. Sayfadaki tarihler zaten gorunur durumda.
+
+   Esik `insa.BAYAT_UYARI_SAAT` -- tek kaynak, buraya yazilmiyor. #}
+<div class="bayat-uyari" role="status" hidden
+     data-uretim="{{ uretim_ani }}" data-esik="{{ bayat_esik_saat }}">
+  <strong>Veri akışı durdu.</strong>
+  <span class="bayat-uyari-metin"></span>
+</div>
+<script>
+(function () {
+  var k = document.querySelector(".bayat-uyari");
+  if (!k) { return; }
+  var ms = Date.parse(k.getAttribute("data-uretim") || "");
+  var esik = parseFloat(k.getAttribute("data-esik") || "");
+  if (!ms || !esik) { return; }
+  var saat = (Date.now() - ms) / 3600000;
+  if (!(saat > esik)) { return; }
+  var sure = saat < 48 ? Math.round(saat) + " saat"
+                       : Math.round(saat / 24) + " gün";
+  var t = new Date(ms), tarih;
+  try {
+    tarih = t.toLocaleDateString("tr-TR",
+      { day: "numeric", month: "long", year: "numeric" });
+  } catch (e) { tarih = t.toISOString().slice(0, 10); }
+  var m = k.querySelector(".bayat-uyari-metin");
+  if (m) {
+    m.textContent = "Sayfadaki veriler " + tarih + " tarihinde güncellendi ("
+      + sure + " önce). Rakamlar güncel piyasa durumunu yansıtmıyor olabilir.";
+  }
+  k.hidden = false;
+})();
+</script>
+
 {# IKON SPRITE -- SAYFADA BIR KEZ.
    Olculdu (2026-08-24): `/bilancolar/` sayfasi 573 KB HTML tasiyor ve
    bunun 253 KB'i satir ici SVG. Iki ikon (goruntulenme gozu ve begeni

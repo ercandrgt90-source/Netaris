@@ -350,6 +350,30 @@ img, svg { max-width: 100%}
   margin: 0 auto;
   padding: 0 var(--b-4b)}
 
+/* ------------------------------------------------- veri akisi durdu serit */
+
+/* Sayfanin EN USTUNDE, baslikdan da once. Gorunurse okurun ilk gordugu
+   sey olmali: altindaki butun rakamlarin gecerliligi bu nota bagli.
+
+   Varsayilan GIZLI ve oyle kalmasi NORMAL -- serit yalnizca veri akisi
+   `insa.BAYAT_UYARI_SAAT` saatten uzun sure durdugunda beliriyor.
+   Karari tarayici veriyor; sebebi `temel.html`de yazili.
+
+   `[hidden]` ACIKCA yaziliyor: bu blok `display` vermiyor ama biri
+   ileride verirse `hidden` sessizce etkisiz kalirdi ve serit HER
+   sayfada gorunurdu. */
+.bayat-uyari {
+  padding: var(--b-3) var(--b-4);
+  background: var(--uyari-zar);
+  border-bottom: 2px solid var(--uyari);
+  color: var(--yazi);
+  font-size: var(--p-s);
+  line-height: 1.5;
+  text-align: center}
+.bayat-uyari[hidden] { display: none}
+.bayat-uyari strong { color: var(--uyari)}
+.bayat-uyari-metin { color: var(--yazi-2)}
+
 /* ---------------------------------------------------------------- ust bar */
 
 .ust {
@@ -6546,7 +6570,26 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
                 stroke-linejoin: round; stroke-linecap: round;
                 vector-effect: non-scaling-stroke}
 .grafik-alan  { fill: var(--vurgu); opacity: .10}
-.grafik-son   { fill: var(--vurgu)}.grafik-dusus .grafik-cizgi,
+.grafik-son   { fill: var(--vurgu)}
+
+/* YON RENKLERI -- ikisi de VERIDEN uretiliyor (`grafik.py`):
+       yon = "yukselis" if degerler[-1] >= degerler[0] else "dusus"
+
+   `.grafik-yukselis` 2026-08-28'de "olu CSS" diye SILINMISTI ve bu bir
+   hataydi. Silme olcutu "uretilen 1814 sayfanin hicbirinde gecmiyor"
+   idi; dogruydu ama YETERSIZDI -- o gun veride yukselen grafik yoktu,
+   sinif uretilemez degildi. Ayni commit'te `akis-onemli` ve
+   `surpriz-tam` icin tam bu ayrim yapilmis, `grafik-*`e
+   uygulanmamisti.
+
+   Sonucu iki hafta yasadi: dususler kirmizi, yukselisler ise kendi
+   rengi yerine varsayilan vurgu rengiyle cizildi. */
+.grafik-yukselis .grafik-cizgi,
+.grafik-yukselis .grafik-son   { stroke: var(--artis); fill: var(--artis)}
+.grafik-yukselis .grafik-cizgi { fill: none}
+.grafik-yukselis .grafik-alan  { fill: var(--artis)}
+
+.grafik-dusus .grafik-cizgi,
 .grafik-dusus .grafik-son      { stroke: var(--azalis); fill: var(--azalis)}
 .grafik-dusus .grafik-cizgi    { fill: none}
 .grafik-dusus .grafik-alan     { fill: var(--azalis)}

@@ -89,6 +89,27 @@ def _logo_kayit() -> dict:
 _AMBLEM_DOSYA: dict[str, str] = {}
 
 
+#: Bu kurulumun ani -- TEK KAYNAK.
+#:
+#: Once yalnizca `site_istatistigi()` icinde, kurulumun SONUNDA
+#: hesaplaniyordu. Sayfalar ondan once yaziliyor, yani sayfadaki an ile
+#: istatistikteki an ayri iki olcum olurdu. Tek degisken ikisini de
+#: besliyor.
+URETIM_ANI = datetime.now(timezone.utc).isoformat(timespec="seconds")
+
+#: Okura "veri akisi durdu" denmeden once beklenecek saat.
+#:
+#: NEDEN 12. Haber hatti hafta ici yarim saatte bir, gece ve hafta sonu
+#: saatte bir kosuyor -- yani normal isleyiste sayfa EN COT bir saat
+#: geride kalir. On iki saat, hangi gun olursa olsun ACIKCA anormal;
+#: hafta sonu ya da gece sessizligiyle karistirilamaz.
+#:
+#: Nobetci esigi (1,5 saat) BILEREK farkli: o, makineye "tetikle" diyor
+#: ve yanlis alarmi ucuz. Bu ise OKURA gorunuyor; gereksiz cikan bir
+#: uyari, gercek olanini da inandiriciliktan dusurur.
+BAYAT_UYARI_SAAT = 12
+
+
 def site_istatistigi() -> None:
     """Site geneli sayilari `cikti/statik/istatistik.json`a yazar.
 
@@ -131,7 +152,7 @@ def site_istatistigi() -> None:
                 "ai_yorum": say("select count(*) from ai_yorum"),
                 "olay": say("select count(*) from olay"),
                 "sayfa": len(list((CIKTI).rglob("index.html"))),
-                "uretim": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+                "uretim": URETIM_ANI,
             }
     except Exception:
         return
@@ -4971,6 +4992,14 @@ def insa() -> int:
         "son_dakika": son_dakika,
         "menu": menu,
         "kaynak_adlari": KAYNAK_ADLARI,
+        # BAYATLIK UYARISI ICIN. Karar TARAYICIDA veriliyor, burada
+        # degil -- sebebi asagida (`temel.html`) ve ozeti su: hat
+        # kilitlenince site YENIDEN KURULMUYOR, dolayisiyla kurulum
+        # aninda hesaplanan bir "taze/bayat" bayragi sonsuza dek
+        # "taze" kalirdi. Tam olarak 2026-09-14'te 13 gun suren
+        # kilidin sinifi.
+        "uretim_ani": URETIM_ANI,
+        "bayat_esik_saat": BAYAT_UYARI_SAAT,
     }
 
     # Analizler
