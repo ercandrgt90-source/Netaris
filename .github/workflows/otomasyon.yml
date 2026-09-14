@@ -209,14 +209,60 @@ jobs:
         run: |
           set -e
           bulunan=0
+
+          # DUSEN DOSYA KOSU SAYFASINA YAZILIYOR.
+          #
+          # `set -e` ilk hatada duruyor ve bu dogru -- ama HANGI dosyada
+          # durdugu yalnizca gunlugun icinde kaliyordu. Actions
+          # gunlukleri API'den kimlik dogrulamasi istiyor (403) ve
+          # tarayicida da 58 dosyalik ciktinin altinda.
+          #
+          # Olculdu (2026-09-14): ayni oturumda IKI KEZ "testler CI'da
+          # dustu ama yerelde geciyor" durumuyla karsilasildi ve ikisinde
+          # de fark, dusen dosyayi gormeden bulunamadi. Cevap
+          # uretilmisti; okunabilir yerde degildi.
+          bildir() {
+            if [ -n "${GITHUB_STEP_SUMMARY:-}" ]; then
+              {
+                echo "### Testler"
+                echo ""
+                echo "**DUSEN DOSYA: \`$1\`**"
+                echo ""
+                echo '```'
+                tail -n 25 "$2" 2>/dev/null || true
+                echo '```'
+              } >> "$GITHUB_STEP_SUMMARY"
+            fi
+          }
+
+          # BORU KULLANILMIYOR -- `| tee` cikis kodunu MASKELER.
+          #
+          # `python "$t" | tee dosya` ifadesinin cikis kodu `tee`ninkidir
+          # ve o her zaman 0. Yani dusen test FARK EDILMEZDI: bildirimi
+          # ekleyen degisiklik, testlerin tamamini sessizce devre disi
+          # birakirdi. Ilk yazimda tam bu yapildi ve gonderilmeden once
+          # yakalandi -- bu depoda ayni tuzaga bugun bir kez de olcum
+          # betiginde dusuldu.
+          #
+          # Cikti once dosyaya yaziliyor, sonra gunluge basiliyor.
           for t in $(find haber_botu site -name "test_*.py" | sort); do
             echo "--- $t"
-            python "$t"
+            if ! python "$t" > /tmp/test-cikti.txt 2>&1; then
+              cat /tmp/test-cikti.txt
+              bildir "$t" /tmp/test-cikti.txt
+              exit 1
+            fi
+            cat /tmp/test-cikti.txt
             bulunan=$((bulunan + 1))
           done
           for t in $(find haber_botu site -name "test_*.js" | sort); do
             echo "--- $t"
-            node "$t"
+            if ! node "$t" > /tmp/test-cikti.txt 2>&1; then
+              cat /tmp/test-cikti.txt
+              bildir "$t" /tmp/test-cikti.txt
+              exit 1
+            fi
+            cat /tmp/test-cikti.txt
             bulunan=$((bulunan + 1))
           done
           echo "$bulunan test dosyasi calisti"
