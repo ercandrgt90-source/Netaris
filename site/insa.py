@@ -2249,6 +2249,44 @@ def rss_uret(analizler: list[Analiz],
     )
 
 
+#: Uretilen sayfada `noindex` var mi.
+NOINDEX = re.compile(r'name="robots"[^>]*content="[^"]*noindex', re.I)
+
+
+def haritaya_girer(yol: str, kok: pathlib.Path | None = None) -> bool:
+    """Bu adres sitemap'e girmeli mi -- SAYFANIN KENDISINE soruluyor.
+
+    NEDEN LISTEYE DEGIL SAYFAYA SORULUYOR
+    -------------------------------------
+    Iki ayri yer ayni karari veriyordu: hangi sayfanin `noindex`
+    tasiyacagini sablon, hangisinin haritaya gireceğini `yollar`
+    listesi. Ikisi ayrisinca harita "bunu dizine ekle", sayfa "ekleme"
+    diyor ve arama motoru celiskili iki isaret aliyor.
+
+    Olculdu (2026-08-28): 276 eskimis analiz sayfasi haritadaydi ve
+    `noindex` tasiyordu -- haritanin %15'i. Google bunu "Submitted URL
+    marked noindex" diye HATA raporluyor ve her biri icin TARAMA
+    BUTCESI harciyor: guncel sayfalarin tarandigi butceden.
+
+    O zaman analiz tarafi elle duzeltildi. Olculdu (2026-09-15): ayni
+    celiski `/ara/` sayfasinda HALA duruyordu -- yani elle eslesmeyi
+    korumak yeterli olmadi, bir sonraki sayfa yine gozden kacti.
+
+    Artik karar TEK YERDE: sayfa kendi `noindex` etiketini basiyorsa
+    haritaya girmiyor. Celiski yapisal olarak imkansiz.
+
+    Dosya YOKSA harita disinda birakilmiyor: sayfa henuz yazilmamis
+    olabilir ve "bilmiyorum" ile "dizine ekleme" ayni sey degil.
+    """
+    p = (kok or CIKTI) / yol.strip("/") / "index.html"
+    if yol == "/":
+        p = (kok or CIKTI) / "index.html"
+    try:
+        return not NOINDEX.search(p.read_text(encoding="utf-8"))
+    except OSError:
+        return True
+
+
 def sitemap_uret(yollar: list[str],
                  tarihler: dict[str, str] | None = None) -> str:
     """Sitemap -- her adres BIR KEZ.
@@ -2280,7 +2318,9 @@ def sitemap_uret(yollar: list[str],
         ek = f"<lastmod>{t}</lastmod>" if t else ""
         return f'  <url><loc>{SITE["adres"]}{y}</loc>{ek}</url>'
 
-    girdiler = "\n".join(_satir(y) for y in dict.fromkeys(yollar))
+    # NOINDEX SAYFA HARITAYA GIRMIYOR -- karar sayfanin kendisinde.
+    girdiler = "\n".join(_satir(y) for y in dict.fromkeys(yollar)
+                         if haritaya_girer(y))
     return (
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
@@ -5610,6 +5650,13 @@ def insa() -> int:
         ortam.get_template("ara.html").render(**ortak, yol="/ara/",
                                               arama_disi=True),
     )
+    # ARAMA SAYFASI ADAY LISTESINDE KALIYOR; kararI `haritaya_girer`
+    # veriyor. Sayfa `arama_disi=True` ile uretildigi icin `noindex`
+    # tasiyor ve suzgec onu haritadan cikariyor.
+    #
+    # Adresi elle CIKARMIYORUZ: o zaman iki mekanizma ayni isi yapar
+    # ve biri bozuldugunda otekI onu maskeler -- mutasyon sinamasi tam
+    # bunu gosterdi. Karar TEK YERDE kalmali.
     yollar.append("/ara/")
 
     # Besleme ve arama motoru dosyalari
