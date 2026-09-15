@@ -348,6 +348,69 @@
     if (s && profilForm) s.textContent = String(profilForm.hakkinda.value.length);
   }
 
+  /* PAROLA DEGISTIRME.
+   *
+   * Profil formundan AYRI: ad-soyad guncelleyen birinin parolasini da
+   * gondermesi gerekmesin ve iki islemin durumu birbirine karismasin.
+   *
+   * BASARIDA ALANLAR TEMIZLENIYOR: parola ekranda asili kalmamali --
+   * omuz ustunden bakan biri ya da ekran paylasimi.
+   */
+  var parolaForm = $("[data-parola-form]");
+  if (parolaForm) {
+    parolaForm.addEventListener("submit", function (o) {
+      o.preventDefault();
+      var durum = $("[data-parola-durum]");
+      var dugme = $("[data-parola-kaydet]");
+      var eski = parolaForm.eski.value;
+      var yeni = parolaForm.yeni.value;
+
+      /* ISTEMCI KONTROLU SUNUCUNUNKININ YERINE GECMIYOR: sunucu ayni
+         kurali (`parolaKurali`) yeniden uyguluyor. Buradaki tek amaci,
+         kullaniciyi bir ag gidis-donusu beklemeden uyarmak. */
+      if (yeni.length < 10) {
+        if (durum) {
+          durum.textContent = "Yeni parola en az 10 karakter olmalı.";
+          durum.className = "panel-durum panel-durum-hata";
+        }
+        return;
+      }
+      if (eski === yeni) {
+        if (durum) {
+          durum.textContent = "Yeni parola eskisinden farklı olmalı.";
+          durum.className = "panel-durum panel-durum-hata";
+        }
+        return;
+      }
+
+      if (dugme) dugme.disabled = true;
+      if (durum) {
+        durum.textContent = "Değiştiriliyor…";
+        durum.className = "panel-durum";
+      }
+
+      istek("/api/parola", {
+        method: "POST",
+        govde: { eski: eski, yeni: yeni },
+      }).then(function (y) {
+        if (dugme) dugme.disabled = false;
+        if (!y.tamam) {
+          if (durum) {
+            durum.textContent = (y.veri && y.veri.hata) || "Değiştirilemedi.";
+            durum.className = "panel-durum panel-durum-hata";
+          }
+          return;
+        }
+        parolaForm.reset();
+        if (durum) {
+          durum.textContent =
+            "Parola değiştirildi. Diğer cihazlardaki oturumlar kapatıldı.";
+          durum.className = "panel-durum panel-durum-tamam";
+        }
+      });
+    });
+  }
+
   if (profilForm) {
     profilForm.hakkinda.addEventListener("input", hakkindaSay);
 

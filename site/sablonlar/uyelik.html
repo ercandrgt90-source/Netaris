@@ -284,6 +284,46 @@
                 aria-live="polite"></span>
         </div>
       </form>
+
+      {# PAROLA -- PROFILDEN AYRI FORM.
+         Tek forma koymak, ad-soyad guncelleyen birinin parolasini da
+         gonderdigi anlamina gelirdi; iki islemin riski ve dogrulamasi
+         ayri.
+
+         ESKI PAROLA soruluyor: oturum tek basina yetmez. Odunc
+         alinmis ya da calinmis bir oturum (acik birakilmis
+         bilgisayar) hesabi KALICI olarak ele geciremesin.
+
+         `autocomplete` degerleri tarayicinin parola yoneticisi icin:
+         `current-password` ve `new-password` olmadan tarayici yeni
+         parolayi kaydetmeyi teklif etmiyor.
+
+         Uyari metni gizlenmiyor: kullanici, diger cihazlardaki
+         oturumlarin kapanacagini ONCEDEN bilmeli. #}
+      <form data-parola-form class="uyelik-form panel-form" novalidate>
+        <h3>Parola</h3>
+        <p>
+          Parolanızı değiştirdiğinizde <b>diğer cihazlardaki
+          oturumlarınız kapanır</b>; bu cihazdaki oturum açık kalır.
+        </p>
+        <label class="alan">
+          <span class="alan-etiket">Mevcut parola</span>
+          <input type="password" name="eski" required
+                 autocomplete="current-password">
+        </label>
+        <label class="alan">
+          <span class="alan-etiket">Yeni parola</span>
+          <input type="password" name="yeni" required minlength="10"
+                 autocomplete="new-password">
+          <small>En az 10 karakter.</small>
+        </label>
+        <div class="panel-eylem">
+          <button class="dugme dugme-birincil" type="submit"
+                  data-parola-kaydet>Parolayı değiştir</button>
+          <span class="panel-durum" data-parola-durum role="status"
+                aria-live="polite"></span>
+        </div>
+      </form>
     </section>
 
     <section data-bolum="senaryolarim" hidden>
