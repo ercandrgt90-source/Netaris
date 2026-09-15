@@ -75,8 +75,9 @@ esit(baglam.haber_ulkesi("Rastgele bir baslik", "Ekonomim", "DUNYA"), "",
 if baglam.DEPO.exists():
     _b = sqlite3.connect(f"file:{baglam.DEPO}?mode=ro", uri=True)
 
-    def _var(metin, baslik, kurum="", bolge=""):
-        return baglam.uyusmazlik(_b, metin, baslik, kurum, bolge) is not None
+    def _var(metin, baslik, kurum="", bolge="", haber_metni=""):
+        return baglam.uyusmazlik(_b, metin, baslik, kurum, bolge,
+                                 haber_metni=haber_metni) is not None
 
     # YAKALANMALI: yabanci haber, bastan sona yerli veri.
     esit(_var("Temmuz 2026 verisine göre TÜFE yıllık %31,75; "
@@ -88,6 +89,47 @@ if baglam.DEPO.exists():
     esit(_var("ABD işsizlik oranı %4,10 seviyesinde.",
               "TCMB faizi sabit tuttu", "TCMB", "TR"),
          True, "TR haberi + yalniz US verisi -> uyusmazlik")
+
+    # ------------------------------------------------------------
+    # HABERIN KENDI SAYISI SERI ALINTISI DEGILDIR
+    #
+    # Kontrol, metindeki her sayiyi BIZIM SERIMIZDEN alinmis
+    # varsayiyordu. Oysa sayi cogu zaman haberin kendi ozetinden
+    # geliyor ve `sayiyi_coz` onu son 400 gunun butun serilerinde
+    # ariyor: "0,3", "1,86", "4,7" gibi sik degerler rastlantiyla tek
+    # bir yabanci seriye eslesiyor ve "birden fazla ulke -> karar
+    # verme" korumasi da devreye girmiyor.
+    #
+    # OLCULDU (2026-09-15): bir kosudaki 32 uyusmazligin 17'si (%53)
+    # boyleydi; ucu birden TURKIYE haberi, TURKIYE verisiydi.
+    # Gunun butun retlerinin %76'si bu kontroldendi.
+    # ------------------------------------------------------------
+    _ozet = ("TÜİK verilerine göre inşaat üretimi temmuzda "
+             "yıllık yüzde 4,7 azaldı.")
+    esit(_var("İnşaat üretimi yüzde 4,7 geriledi; sektör daralıyor.",
+              "İnşaat üretiminde daralma", "Ekonomist", "TR",
+              haber_metni=_ozet),
+         False, "haberin KENDI sayisi uyusmazlik SAYILMIYOR")
+    # Ayni metin, haberin metni VERILMEZSE eski davranis surer.
+    esit(_var("İnşaat üretimi yüzde 4,7 geriledi; sektör daralıyor.",
+              "İnşaat üretiminde daralma", "Ekonomist", "TR"),
+         True, "haber metni yoksa eski davranis (geriye uyum)")
+
+    # KONTROL ZAYIFLATILMADI: asil yakalamasi gereken vaka, haberin
+    # kendi metni GECILSE DE yakalaniyor. Fed vakasinda %31,75 haberin
+    # ozetinde gecmiyor -- bizim ekledigimiz Turkiye panelinde geciyor.
+    esit(_var("Temmuz 2026 verisine göre TÜFE yıllık %31,75; "
+              "çekirdek enflasyon %29,91.",
+              "Fed tutanakları: birkaç üye faiz artışını savundu",
+              "Ekonomim", "DUNYA",
+              haber_metni="Fed tutanaklarında üyeler faiz artışını savundu."),
+         True, "Fed vakasi HALA yakalaniyor")
+    # Haberin kendi metninde BASKA sayilar olmasi korumayi delmiyor.
+    esit(_var("Temmuz 2026 verisine göre TÜFE yıllık %31,75.",
+              "Fed tutanakları: birkaç üye faiz artışını savundu",
+              "Ekonomim", "DUNYA",
+              haber_metni="Toplantıya 12 üyeden 7'si katıldı."),
+         True, "ilgisiz kendi sayilari korumayi DELMIYOR")
 
     # YAKALANMAMALI: haberin kendi ulkesinden veri var.
     esit(_var("ABD politika faizi %3,63 seviyesinde.",

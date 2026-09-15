@@ -263,8 +263,21 @@ def sayiyi_coz(b: sqlite3.Connection, deger: float, basamak: int,
     return kodlar
 
 
+def _kendi_degerleri(haber_metni: str) -> set[tuple[float, int]]:
+    """Haberin KENDI metnindeki sayilar, (deger, basamak) olarak."""
+    kume = set()
+    for ham in SAYI.findall(haber_metni or ""):
+        d = _sayi_degeri(ham)
+        if d is None:
+            continue
+        basamak = len(ham.split(",")[-1]) if "," in ham else 0
+        kume.add((round(d, basamak), basamak))
+    return kume
+
+
 def uyusmazlik(b: sqlite3.Connection, metin: str, baslik: str,
-               kurum: str = "", bolge: str = "") -> dict | None:
+               kurum: str = "", bolge: str = "",
+               haber_metni: str = "") -> dict | None:
     """Metin, haberin ulkesi disinda BASKA bir ulkeyi mi anlatiyor.
 
     Doner: uyusmazlik varsa ayrinti sozlugu, yoksa None.
@@ -275,15 +288,48 @@ def uyusmazlik(b: sqlite3.Connection, metin: str, baslik: str,
       * Metin YALNIZCA baska bir ulkenin verisini aniyorsa -> uyusmazlik.
       * GLOBAL seriler (Brent, altin, kripto) her yerde serbest.
       * Haberin ulkesi bilinmiyorsa karar VERILMEZ.
+
+    HABERIN KENDI SAYILARI SERI ALINTISI SAYILMIYOR
+    -----------------------------------------------
+    `haber_metni` verilirse (baslik + ozet), orada gecen sayilar
+    ATLANIYOR. Sebep olculdu:
+
+    Kontrol, metindeki her sayiyi BIZIM SERIMIZDEN alinmis varsayiyordu.
+    Oysa sayi cogu zaman haberin kendi ozetinden geliyor ve
+    `sayiyi_coz` onu son 400 gunun butun serilerinde ariyor. "0,3",
+    "1,86", "4,7" gibi sik degerler rastlantiyla ABD serilerine
+    eslesiyor ve hepsi tek ulkeden oldugu icin "birden fazla ulke ->
+    karar verme" korumasi da devreye girmiyor.
+
+    Olculdu (2026-09-15): bir kosudaki 32 uyusmazligin 17'si (%53)
+    boyleydi. Ucu birden TURKIYE haberi, TURKIYE verisiydi:
+
+        "TUFE agustosta yuzde 1,86 artacagi tahmini"   -> "US verisi"
+        "issizlik 0,3 puan azalarak yuzde 7,9"         -> "US verisi"
+        "insaat uretimi Temmuz'da yuzde 4,7 azalis"    -> "US verisi"
+
+    Gunun butun retlerinin %76'si bu kontroldendi; yarisindan cogu
+    yanlisti. Yanlis alarm iki kez zarar veriyor: dogru yorum cope
+    gidiyor ve kontrolun gercek yakalamalari da inandiriciligini
+    kaybediyor.
+
+    Kontrolun ASIL yakalamasi bundan etkilenmiyor: Fed vakasinda
+    %31,75 haberin kendi metninde DEGIL, bizim ekledigimiz Turkiye
+    panelinde geciyordu.
     """
     h_ulke = haber_ulkesi(baslik, kurum, bolge)
     if not h_ulke:
         return None
 
+    kendi_deger = _kendi_degerleri(haber_metni)
     kendi, yabanci = 0, {}
     for ham in SAYI.findall(metin):
         d = _sayi_degeri(ham)
         if d is None:
+            continue
+        _bas = len(ham.split(",")[-1]) if "," in ham else 0
+        if (round(d, _bas), _bas) in kendi_deger:
+            # Haberin kendi rakami: seri alintisi degil.
             continue
         # Metnin YAZDIGI basamak sayisi: "31,75" -> 2, "95,3" -> 1.
         basamak = len(ham.split(",")[-1])

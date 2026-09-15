@@ -375,10 +375,20 @@ def main() -> int:
                 #
                 # Kapi URETIMDE: yanlis eslesmis yorum depoya hic
                 # girmiyor. Sonradan temizlemek, once yayimlamak demek.
+                # HABERIN KENDI METNI DE GECILIYOR.
+                #
+                # Kontrol, metindeki her sayiyi bizim serimizden
+                # alinmis varsayiyordu; oysa sayi cogu zaman haberin
+                # kendi ozetinden geliyor. Olculdu (2026-09-15): bir
+                # kosudaki 32 uyusmazligin 17'si boyleydi ve ucu birden
+                # TURKIYE haberi, TURKIYE verisiydi.
                 uy = _baglam.uyusmazlik(
                     b, metin,
                     h.get("baslik_kaynak") or h.get("baslik", ""),
-                    h.get("kurum", ""), h.get("bolge", ""))
+                    h.get("kurum", ""), h.get("bolge", ""),
+                    haber_metni=" ".join(str(h.get(_k) or "") for _k in
+                                         ("baslik", "baslik_kaynak",
+                                          "ozet")))
                 if uy:
                     reddedilen += 1
                     b.execute(

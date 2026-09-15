@@ -73,9 +73,15 @@ def es(ad, bulunan, beklenen):
 def _depo() -> sqlite3.Connection:
     k = sqlite3.connect(":memory:")
     k.execute("create table ai_yorum(adres text, metin text)")
+    # SEMA GERCEK SEMAYLA AYNI ALANLARI TASIYOR.
+    #
+    # `sayfa_veri` eklendiginde bu kurgu eksik kaldi ve sinama gercek
+    # kodu calistiramadan COKTU ("no such column"). Kurgu sematik
+    # olarak gercekten sapinca, sinadigi sey de gercek olmaktan cikar:
+    # burada haberin KENDI ozeti o sutundan okunuyor.
     k.execute("create table haber(adres text, yayin_yolu text, "
               "yayimlandi int, baslik_kaynak text, baslik_tr text, "
-              "kurum text)")
+              "kurum text, sayfa_veri text)")
     # `analiz.baglam` bu tabloyu okuyor; bos olmasi yeterli.
     k.execute("create table gosterge(kod text, tarih text, deger real, "
               "birim text, ad text, kaynak text, kayit_ani text)")
@@ -90,8 +96,16 @@ def _kur(kok: pathlib.Path, k: sqlite3.Connection,
     onu elemis demektir.
     """
     k.execute("insert into ai_yorum values(?,?)", (yol, depo_metni))
-    k.execute("insert into haber values(?,?,1,?,?,?)",
-              (yol, yol, "Baslik", "Baslik", "TCMB"))
+    # SUTUN ADLARI YAZILIYOR, sirali deger DEGIL.
+    #
+    # `values(?,?,1,?,?,?)` bicimi, tabloya yeni bir sutun eklendiginde
+    # sessizce degil GURULTULU bicimde kiriliyor ("7 columns but 6
+    # values") -- ama yine de her sema degisikliginde bu satiri elle
+    # duzeltmek gerekiyordu. Ad vermek o bagi koparir.
+    k.execute("insert into haber(adres, yayin_yolu, yayimlandi,"
+              " baslik_kaynak, baslik_tr, kurum, sayfa_veri)"
+              " values(?,?,1,?,?,?,?)",
+              (yol, yol, "Baslik", "Baslik", "TCMB", "{}"))
     p = kok / yol.strip("/") / "index.html"
     p.parent.mkdir(parents=True, exist_ok=True)
     blok = f'<p class="ai-metin">{yorum}</p>' if yorum is not None else ""

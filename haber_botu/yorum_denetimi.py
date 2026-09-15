@@ -151,11 +151,12 @@ def ihlaller(k: sqlite3.Connection) -> list[tuple[str, str, list[str]]]:
     """
     r = k.execute(
         """SELECT a.adres, h.yayin_yolu, a.metin,
-                  COALESCE(h.baslik_kaynak, h.baslik_tr, ''), h.kurum
+                  COALESCE(h.baslik_kaynak, h.baslik_tr, ''), h.kurum,
+                  h.sayfa_veri
              FROM ai_yorum a JOIN haber h ON h.adres = a.adres
             WHERE h.yayimlandi = 1 AND h.yayin_yolu IS NOT NULL""").fetchall()
     kotu = []
-    for adres, yol, depo_metni, baslik, kurum in r:
+    for adres, yol, depo_metni, baslik, kurum, _sayfa_veri in r:
         # OLCUT: OKURUN GORDUGU METIN.
         #
         # Sayfa henuz uretilmemisse bu bir ihlal DEGIL, bilgi
@@ -182,7 +183,20 @@ def ihlaller(k: sqlite3.Connection) -> list[tuple[str, str, list[str]]]:
         if not metin.rstrip().endswith((".", "!", "?", "…", '."', ".)")):
             kotu.append((adres, yol, ["KESIK: cümle bitmiyor"]))
             continue
-        uy = _baglam.uyusmazlik(k, metin, baslik, kurum or "", "")
+        # HABERIN KENDI METNI DE GECILIYOR.
+        #
+        # Bu denetim bulduklarini SILIYOR. Kontrol yanlis alarm
+        # verdiginde yayimlanmis DOGRU yorumlar siliniyordu: metindeki
+        # sayi cogu zaman haberin kendi ozetinden geliyor, bizim
+        # serimizden degil (olculdu 2026-09-15, yanlis alarm %53).
+        _ozet = ""
+        try:
+            import json as _json                       # noqa: PLC0415
+            _ozet = (_json.loads(_sayfa_veri or "{}") or {}).get("ozet", "")
+        except (TypeError, ValueError):
+            _ozet = ""
+        uy = _baglam.uyusmazlik(k, metin, baslik, kurum or "", "",
+                                haber_metni=f"{baslik} {_ozet}")
         if uy:
             kotu.append((adres, yol, [f"BAGLAM: {uy['aciklama']}"]))
             continue
