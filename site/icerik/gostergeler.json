@@ -84,23 +84,23 @@
     {
       "kod": "DGS10",
       "ad": "ABD 10Y",
-      "deger": "%4,96",
+      "deger": "%4,97",
       "fark": "+1 bp",
       "yon": "artis",
-      "tarih": "2026-09-11",
+      "tarih": "2026-09-14",
       "birim": "%",
-      "gun": 2,
+      "gun": 1,
       "bayat": false
     },
     {
       "kod": "T10Y2Y",
       "ad": "10Y-2Y",
-      "deger": "0,32",
-      "fark": "-1 bp",
-      "yon": "azalis",
-      "tarih": "2026-09-14",
+      "deger": "0,33",
+      "fark": "+1 bp",
+      "yon": "artis",
+      "tarih": "2026-09-15",
       "birim": "puan",
-      "gun": 1,
+      "gun": 0,
       "bayat": false
     },
     {
@@ -173,23 +173,23 @@
         {
           "kod": "DGS10",
           "ad": "ABD 10 yıllık",
-          "deger": "%4,96",
+          "deger": "%4,97",
           "fark": "+1 bp",
           "yon": "artis",
-          "tarih": "2026-09-11",
+          "tarih": "2026-09-14",
           "birim": "%",
-          "gun": 2,
+          "gun": 1,
           "bayat": false
         },
         {
           "kod": "T10Y2Y",
           "ad": "10Y − 2Y farkı",
-          "deger": "0,32",
-          "fark": "-1 bp",
-          "yon": "azalis",
-          "tarih": "2026-09-14",
+          "deger": "0,33",
+          "fark": "+1 bp",
+          "yon": "artis",
+          "tarih": "2026-09-15",
           "birim": "puan",
-          "gun": 1,
+          "gun": 0,
           "bayat": false
         }
       ]
