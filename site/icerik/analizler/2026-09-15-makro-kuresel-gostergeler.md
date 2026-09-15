@@ -1,0 +1,64 @@
+---
+slug: kuresel-gostergeler-2026-09-15
+baslik: Brent petrolde %24,8 yükseliş: etkiler nereye düşüyor
+ozet: Brent petrol 9 Eylül 2026 itibarıyla 109,51 USD/varil seviyesinde. İzlenen 14 işlem gününde 26 Ağustos 2026 tarihli 87,77 dolarlık dibi ile 9 Eylül 2026 tarihli 109,51 dolarlık zirvesi arasında hareket etti. ABD 10 yıllık tahvil getirisi %4,96 (11 Eylül 2026), aynı dönemde 26 baz puan yükseldi.…
+sirket: Küresel göstergeler
+kod: MAKRO
+donem: 2026-09-15
+kategori: Makro
+tarih: 2026-09-15
+veri_kaynagi: FRED (St. Louis Fed)
+yazar: 
+unvan: 
+kurgusal: hayir
+grafik_tur: cizgi
+grafik: 94,00;96,92;92,71;88,24;87,77;90,18;89,75;96,02;97,59;100,52;102,24;104,47;106,12;109,51
+grafik_kod: Brent petrol
+grafik_birim: USD/varil
+kaynaklar: FRED
+sayimlar: 4|yorumlanan gösterge;56|gözlem noktası;14|işlem günü penceresi;7|panelde izlenen seri
+---
+
+## Özet
+
+Brent petrol 9 Eylül 2026 itibarıyla 109,51 USD/varil seviyesinde. İzlenen 14 işlem gününde 26 Ağustos 2026 tarihli 87,77 dolarlık dibi ile 9 Eylül 2026 tarihli 109,51 dolarlık zirvesi arasında hareket etti. ABD 10 yıllık tahvil getirisi %4,96 (11 Eylül 2026), aynı dönemde 26 baz puan yükseldi. 10 yıllık ile 2 yıllık arasındaki fark 33 baz puan; getiri eğrisi pozitif eğimli.
+
+## Göstergeler
+
+| Gösterge | Son değer | Tarih | Dönem değişimi |
+|---|---|---|---|
+| Brent petrol | 109,51 USD/varil | 9 Eylül 2026 | %16,5 yükseldi |
+| ABD efektif fed fonu oranı | %3,63 | 11 Eylül 2026 | yatay kaldı |
+| ABD 2 yıllık tahvil getirisi | %4,63 | 11 Eylül 2026 | 39 baz puan yükseldi |
+| ABD 10 yıllık tahvil getirisi | %4,96 | 11 Eylül 2026 | 26 baz puan yükseldi |
+
+Her göstergenin son gözlem tarihi farklı olabilir; tabloda her satır kendi tarihini taşır. Dönem değişimi, yukarıdaki pencerenin ilk gözlemine göre hesaplanmıştır.
+
+## Enerji tarafı
+
+26 Ağustos 2026 tarihindeki 87,77 dolardan 9 Eylül 2026 tarihindeki 109,51 dolara kadar %24,8 yükseldi. Son iki gözlem arasında (8 Eylül 2026 → 9 Eylül 2026) 3,39 dolarlık bir yükseliş kaydedildi. **Bu hareketin nedeni bu yazının konusu değildir.** Fiyat serisi fiyatın ne yaptığını gösterir, neden öyle yaptığını göstermez; nedene ilişkin bir açıklama ancak birincil haber kaynaklarına dayanarak yapılabilir.
+
+## ABD faiz tarafı
+
+Efektif fed fonu faizi %3,63 (11 Eylül 2026); izlenen dönemde sabit kaldı. Piyasa tarafında 2 yıllık getiri %4,63, 10 yıllık %4,96. Dönem içinde 2 yıllık 39 baz puan yükseldi, 10 yıllık 26 baz puan yükseldi. Aradaki 33 baz puanlık pozitif fark, uzun vadeli borçlanma faizinin kısa vadeliden yüksek olduğu normal eğim anlamına gelir.
+
+## Türkiye'ye hangi kanallardan geliyor
+
+**Brent petrol.** Türkiye net enerji ithalatçısıdır; ham petrol ve doğal gaz faturası cari işlemler dengesinin en büyük kalemlerinden biridir. Brent'teki hareket, ithalat faturasına doğrudan yansıyan bir girdidir. Akaryakıt fiyatları üzerinden tüketici enflasyonuna geçiş kanalı vardır. Geçişin hızı ve büyüklüğü vergi yapısına, kur seviyesine ve dağıtım marjlarına bağlı olduğu için doğrudan okunamaz. Yakıt maliyetinin gider içindeki payı yüksek olan sektörler bu kalemden daha erken etkilenir: havayolu taşımacılığı, karayolu lojistiği, petrokimya ve enerji yoğun üretim yapan sanayi kolları.
+
+**ABD efektif fed fonu oranı.** Politika faizi, küresel likiditenin fiyatını belirleyen ana değişkendir; gelişmekte olan ülke varlıklarına yönelen sermaye akımlarının arka planındaki referans budur.
+
+**ABD 10 yıllık tahvil getirisi.** ABD uzun vadeli tahvil getirisi, gelişmekte olan ülkelerin dış borçlanma maliyeti için referans oluşturur. Getirilerin yükseldiği dönemlerde bu ülkelerin tahvillerine talep görece azalır.
+
+Bu kanallar yapısal ilişkilerdir, öngörü değildir. Etkinin ne zaman ve ne ölçüde görüleceği kur seviyesi, vergi düzenlemeleri, stok politikaları ve sözleşme yapılarına bağlı olarak değişir; bu yazıda bir büyüklük tahmini yapılmamaktadır.
+
+## Neye bakmalı
+
+- Brent'in zirve seviyesine geri dönüp dönmediği; kalıcılık, tek seferlik sıçramadan farklı sonuç doğurur.
+- Enerji yoğun sektörlerin çeyrek bilançolarında maliyet kaleminin seyri.
+- ABD uzun vadeli getirilerinin yönü ve gelişmekte olan ülke risk primlerine yansıması.
+- 2 yıllık ile 10 yıllık arasındaki farkın yönü.
+
+## Veri kaynağı ve yöntem
+
+Veriler FRED (St. Louis Fed) üzerinden alınmıştır. Seriler kamuya açıktır ve ticari kullanıma izin verir. Bu sayfadaki bütün değişim, yüzde ve baz puan hesapları ham serilerden tarafımızca yapılmıştır.
