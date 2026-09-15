@@ -1317,7 +1317,14 @@
           '</span><span class="kart-kunye">' + tarih(u.kayit_ani) + '</span></div>' +
           '<div class="panel-eylem">' +
           '<button class="dugme dugme-birincil" type="button" data-uye-etkin="' + u.id + '">Etkinleştir</button>' +
-          '<button class="dugme dugme-sade" type="button" data-uye-askı="' + u.id + '">Askıya al</button>' +
+          /* OZNITELIK ADI ASCII.
+             `data-uye-askı` idi -- depodaki TEK ASCII disi oznitelik
+             adi. Bozuldugunu kanitlayamadim (elde DOM yok), ama
+             oznitelik adlarinin islenmesi ASCII disinda uygulamadan
+             uygulamaya degisen bir yer: HTML kucuk harfe cevirimi,
+             CSS ident kacislari, ada dokunan her arac. Belirsizligi
+             bedava kaldirmak, "muhtemelen calisiyor" demekten iyidir. */
+          '<button class="dugme dugme-sade" type="button" data-uye-askiya="' + u.id + '">Askıya al</button>' +
           '</div></article>';
       }).join("");
     }
@@ -1407,7 +1414,7 @@
 
     function kararlariBagla() {
       karar("[data-uye-etkin]", "uye", "etkin", false);
-      karar("[data-uye-askı]", "uye", "askida", false);
+      karar("[data-uye-askiya]", "uye", "askida", false);
       karar("[data-yazi-onay]", "yazi", "onaylandi", false);
       karar("[data-yazi-ret]", "yazi", "reddedildi", true);
       karar("[data-sen-onay]", "senaryo", "yayimlandi", false);
