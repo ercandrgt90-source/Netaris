@@ -113,9 +113,31 @@
         },
       }).then(function (y) {
         if (y.tamam) {
-          kayitForm.innerHTML =
-            '<p class="uyelik-mesaj iyi">' + (y.veri.mesaj || "Kaydınız alındı.") +
-            '</p><p><a class="dugme" href="/giris/">Giriş sayfasına dön</a></p>';
+          /* UC DURUM, UC EKRAN.
+           *
+           * Once her basarili kayit "iyi" stiliyle gosteriliyor ve
+           * GIRIS sayfasina yonlendiriyordu. Ama posta acikken
+           * gonderim duserse uye `beklemede` kaliyor ve GIRIS
+           * YAPAMIYOR -- yani ekran, calismayacak bir adimi teklif
+           * ediyordu.
+           *
+           * `girisHazir` sunucudan geliyor; istemci "giris yapabilir
+           * miyim" sorusunu TAHMIN ETMIYOR.
+           */
+          var iyi = y.veri.posta || y.veri.girisHazir;
+          var govde =
+            '<p class="uyelik-mesaj ' + (iyi ? "iyi" : "uyari") + '">' +
+            (y.veri.mesaj || "Kaydınız alındı.") + "</p>";
+          /* Baglanti YALNIZCA gonderim dustugunde gizleniyor.
+             Posta gittiyse kullanici once dogrulayacak ama giris
+             sayfasina gitmesi zararsiz -- mevcut akis korunuyor.
+             Gonderim dustugunde ise giris CALISMAZ; calismayacak bir
+             adimi teklif etmek, kullaniciya yalan soylemektir. */
+          if (iyi) {
+            govde +=
+              '<p><a class="dugme" href="/giris/">Giriş sayfasına dön</a></p>';
+          }
+          kayitForm.innerHTML = govde;
           return;
         }
         hataGoster(h, y.veri.hata || "Kayıt yapılamadı.");

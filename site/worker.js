@@ -664,17 +664,47 @@ async function kayit(istek, env) {
     ? await dogrulamaGonder(env, eposta, ad, baglanti)
     : { gonderildi: false, sebep: "posta kapali -- uye dogrudan etkin" };
 
+  /* MESAJ GERCEGI SOYLUYOR -- UC DURUM, UC CEVAP.
+     ----------------------------------------------
+     Once posta gonderilemedigi durumda "yonetici onayindan sonra
+     etkinlesecek" yaziyordu; boyle bir onay adimi YOKTU ve kimseye
+     bildirim gitmiyordu. Kullaniciya olmayan bir sureci beklettik.
+
+     Ama duzeltme EKSIK kaldi: mesaj IKI duruma bakiyordu, oysa UC
+     durum var --
+
+       1. posta kapali (anahtar yok)  -> uye ETKIN, giris yapabilir.
+       2. posta acik, gonderim TAMAM  -> uye BEKLEMEDE, baglanti geldi.
+       3. posta acik, gonderim DUSTU  -> uye BEKLEMEDE ve baglanti
+                                         GELMEDI.
+
+     Ucuncusunde kullaniciya "Kaydiniz tamamlandi. Giris
+     yapabilirsiniz." deniyordu -- oysa `durum` hala `beklemede` ve
+     giris YAPILAMIYOR. Yani mesaj, depodaki gercegin tersini
+     soyluyordu.
+
+     DURUM DEGISTIRILMIYOR, MESAJ DUZELTILIYOR: gonderim dusunce
+     hesabi etkinlestirmek, baskasinin e-postasiyla kayit olup
+     dogrulamayi atlamaya izin verirdi. Dogru olan, dogrulamayi
+     korumak ve durumu DOGRU ANLATMAK.
+
+     SEBEP GUNLUGE YAZILIYOR: "posta gitmedi" bilgisi hicbir yerde
+     durmuyordu; anahtar gecersizse ya da gonderen alan adi
+     dogrulanmamissa bunu kimse goremezdi. */
+  if (postaVar && !posta.gonderildi) {
+    console.error("dogrulama postasi gonderilemedi", posta.sebep);
+  }
   return yanit({
     tamam: true,
-    /* MESAJ GERCEGI SOYLUYOR.
-       Once posta gonderilemedigi durumda "yonetici onayindan sonra
-       etkinlesecek" yaziyordu -- ama boyle bir onay adimi YOKTU ve
-       kimseye bildirim gitmiyordu. Kullaniciya olmayan bir sureci
-       beklettik. Artik hesap dogrudan etkin ve mesaj bunu soyluyor. */
     mesaj: posta.gonderildi
       ? "Doğrulama bağlantısı e-postanıza gönderildi."
-      : "Kaydınız tamamlandı. Giriş yapabilirsiniz.",
+      : (postaVar
+        ? "Kaydınız alındı ama doğrulama e-postası gönderilemedi. "
+          + "Lütfen daha sonra tekrar deneyin ya da bizimle iletişime geçin."
+        : "Kaydınız tamamlandı. Giriş yapabilirsiniz."),
     posta: posta.gonderildi,
+    /* Istemci "giris yapabilir miyim" sorusunu TAHMIN ETMESIN. */
+    girisHazir: !postaVar,
   });
 }
 
