@@ -693,6 +693,29 @@ async function giris(istek, env) {
   const parola = typeof g.parola === "string" ? g.parola : "";
   if (!eposta || !parola) return hata("E-posta ve parola gerekli.");
 
+  /* IKI AYRI SINIR: HESABA ve KAYNAGA.
+   *
+   * E-posta sinirI tek bir hesaba yapilan kaba kuvveti durduruyor.
+   * Ama PAROLA PUSKURTMEsi (her hesaba BIRER deneme, binlerce hesap)
+   * o siniri hic gormez: her anahtar ilk denemesinde, sayac hep 1.
+   *
+   * Sizmis e-posta listeleriyle yapilan gercek saldirinin bicimi
+   * budur ve 100.000 donguluk PBKDF2 tavani (platform siniri, bkz.
+   * `PBKDF2_DONGU`) tek basina yeterli bir telafi degil.
+   *
+   * IP siniri BOL tutuldu: ayni is yerinden ya da operator NAT'i
+   * arkasindan gelen mesru kullanicilar birbirini kilitlememeli.
+   * 15 dakikada 40 basarisiz deneme, insan kullanimi icin fazlasiyla
+   * genis; puskurtme icin dar.
+   *
+   * KILITLEME DOS'U: e-posta sinirI, saldirganin bir baskasinin
+   * hesabini 15 dakika kilitlemesine izin veriyor. Bu bilincli bir
+   * takas -- alternatifi kaba kuvveti serbest birakmak olurdu.
+   */
+  const ip = istek.headers.get("cf-connecting-ip") || "?";
+  if (await denemeArtir(db, `giris-ip:${ip}`, 900, 40)) {
+    return hata("Çok fazla başarısız deneme. 15 dakika sonra tekrar deneyin.", 429);
+  }
   if (await denemeArtir(db, `giris:${eposta}`, 900, 8)) {
     return hata("Çok fazla başarısız deneme. 15 dakika sonra tekrar deneyin.", 429);
   }
@@ -723,6 +746,10 @@ async function giris(istek, env) {
   }
 
   await denemeSifirla(db, `giris:${eposta}`);
+  /* IP sayaci da sifirlaniyor: basarili giris, o kaynagin mesru
+     oldugunun en guclu isareti. Sifirlanmazsa ayni ag arkasindaki
+     kullanicilar birikimli olarak birbirini kilitlerdi. */
+  await denemeSifirla(db, `giris-ip:${ip}`);
   const jeton = await oturumAc(db, u.id);
   await db.prepare("UPDATE uye SET son_giris = ? WHERE id = ?")
     .bind(simdi(), u.id).run();
