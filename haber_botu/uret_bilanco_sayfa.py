@@ -307,6 +307,44 @@ def sirket_isle(kod, bilgi, sektor, donem, oran, medyan, n,
     return True, str(yol.name)
 
 
+def kuyruk_kur(ozet: dict, bekleyen: set, sektor_suzgeci: str = "") -> list:
+    """Uretim kuyrugu -- BEKLEYENLER basta.
+
+    Doner: (oncelik, ilk_gorulme, sektor, sektor_verisi, kod, oran)
+    demetlerinden olusan liste.
+
+    NEDEN AYRI ISLEV
+    ----------------
+    Sira `main` icinde satir iciydi ve sinanamiyordu: ilk yazilan
+    sinama mantigi YENIDEN YAZIYORDU, dolayisiyla uretim kodundaki
+    oncelik kaldirildiginda KIRMIZI DONMEDI. Mantigi kopyalayan bir
+    sinama, o mantigi olcmuyor.
+
+    ONCELIK NEDEN VAR
+    -----------------
+    Uretim ceyreklige cevrildi ama bir kisim sirket hala ESKI
+    (kumulatif) sayfayla duruyor; ceyrekligi uretilene kadar da
+    silinemiyorlar. Site o sure boyunca IKI YONTEMI birden tasiyor.
+
+    Sira alfabetikti ve `--sinir` kuyrugun sonunu kesiyordu. Olculdu
+    (2026-09-15): bekleyen 28 sirketin 24'u ilk 60'ta, 4'u 141. siraya
+    kadar dagilmisti -- gocu bitirmek icin gereksiz yere IKINCI bir
+    kosu gerekiyordu.
+
+    GERI KALANIN SIRASI DEGISMIYOR: ikincil anahtar ilk gorulme
+    sirasi, yani ayni oncelikte alfabetik duzen korunuyor.
+    """
+    kuyruk: list = []
+    for sektor, v in sorted(ozet.items()):
+        if sektor_suzgeci and sektor != sektor_suzgeci:
+            continue
+        for kod, oran in sorted(v["sirket"].items()):
+            kuyruk.append((0 if kod.upper() in bekleyen else 1,
+                           len(kuyruk), sektor, v, kod, oran))
+    kuyruk.sort(key=lambda x: (x[0], x[1]))
+    return kuyruk
+
+
 def _bilanco_sayfasi(kategori: str) -> bool:
     """Bu sayfa bir bilanco analizi mi.
 
@@ -512,48 +550,73 @@ def main() -> int:
     # 325 satiri okumak yerine uc satir okunuyor; ve sebepler
     # SIRALANIYOR, en cok goruleni once.
     sebepler: dict[str, int] = {}
-    for sektor, v in sorted(ozet.items()):
-        if n.sektor and sektor != n.sektor:
+    # GOCU BITIRMEK, YENI SAYFA URETMEKTEN ONCELIKLI.
+    #
+    # Uretim ceyreklige cevrildi ama bir kisim sirket hala ESKI
+    # (kumulatif) sayfayla duruyor; ceyrekligi uretilene kadar da
+    # silinemiyorlar. Site o sure boyunca IKI YONTEMI birden tasiyor --
+    # okur ayni bolumde "2026/6" ve "2026 2. ceyrek" goruyor.
+    #
+    # Sira alfabetikti ve `--sinir` kuyrugun sonunu kesiyordu.
+    # Olculdu (2026-09-15): bekleyen 28 sirketin 24'u ilk 60'ta, 4'u
+    # 141. siraya kadar dagilmisti -- yani gocu bitirmek icin gereksiz
+    # yere IKINCI bir kosu gerekiyordu.
+    #
+    # Bekleyenler one aliniyor; geri kalanin sirasi DEGISMIYOR.
+    # Ayrim `kumulatif_temizle.tara` icinde yasiyor ve oradan
+    # cagriliyor -- ikinci bir kopya, birinin duzeltilip otekinin
+    # unutulmasi demekti.
+    try:
+        import kumulatif_temizle as _kt                # noqa: PLC0415
+        _kum, _cey = _kt.tara()
+        _bekleyen = {k.upper() for k in _kum if k not in _cey}
+    except Exception:                                  # pragma: no cover
+        _bekleyen = set()
+    if _bekleyen:
+        print(f"{len(_bekleyen)} şirket kümülatif karşılığını bekliyor "
+              f"-- kuyruğun başına alındı")
+
+    kuyruk = kuyruk_kur(ozet, _bekleyen, n.sektor)
+
+    for _oncelik, _sira, sektor, v, kod, oran in kuyruk:
+        if yazilan >= n.sinir:
+            print(f"\nsınıra ulaşıldı ({n.sinir})")
+            print(f"yazılan {yazilan}, atlanan {atlanan}")
+            _dokum(sebepler, yazilan, atlanan)
+            return 0
+        bilgi = defter.get(kod)
+        if not bilgi:
             continue
-        for kod, oran in sorted(v["sirket"].items()):
-            if yazilan >= n.sinir:
-                print(f"\nsınıra ulaşıldı ({n.sinir})")
-                print(f"yazılan {yazilan}, atlanan {atlanan}")
-                _dokum(sebepler, yazilan, atlanan)
-                return 0
-            bilgi = defter.get(kod)
-            if not bilgi:
-                continue
-            # DONEME GORE ATLIYOR, SONSUZA DEK DEGIL.
-            #
-            # Once yalnizca koda bakiyordu: sirketin bir sayfasi varsa
-            # bir daha HIC uretilmiyordu. Yeni ceyrek geldiginde de
-            # atlanacakti -- yani "bir sonraki bilancolar" hic
-            # yayimlanmazdi. Sessiz bir kilit: hata vermeden, hicbir
-            # sey yapmadan.
-            #
-            # Artik kod VE donem birlikte, ON BILGIDEN araniyor
-            # (bkz. `_yayimlanmis`).
-            if (kod.upper(), v["donem"]) in var:
-                atlanan += 1
-                sebepler["zaten yayımlanmış"] = \
-                    sebepler.get("zaten yayımlanmış", 0) + 1
-                continue
-            ok, not_ = sirket_isle(kod, bilgi, sektor, v["donem"], oran,
-                                   v["medyan"], v["sirket_sayisi"],
-                                   kuru=n.kuru_calis)
-            if ok:
-                yazilan += 1
-                print(f"  {kod:<8}{not_}")
-            else:
-                atlanan += 1
-                # Sebebi TURUNE gore topla: ":" sonrasi sirkete ozel
-                # ayrinti (hangi kalem eksik), oncesi TUR. Ayrintiyi da
-                # saysaydik 325 ayri "sebep" cikar ve dokum ozet olmaktan
-                # cikip ikinci bir liste olurdu.
-                sebepler[not_.split(":")[0].strip() or not_] = \
-                    sebepler.get(not_.split(":")[0].strip() or not_, 0) + 1
-                print(f"  {kod:<8}ATLANDI -- {not_}")
+        # DONEME GORE ATLIYOR, SONSUZA DEK DEGIL.
+        #
+        # Once yalnizca koda bakiyordu: sirketin bir sayfasi varsa
+        # bir daha HIC uretilmiyordu. Yeni ceyrek geldiginde de
+        # atlanacakti -- yani "bir sonraki bilancolar" hic
+        # yayimlanmazdi. Sessiz bir kilit: hata vermeden, hicbir
+        # sey yapmadan.
+        #
+        # Artik kod VE donem birlikte, ON BILGIDEN araniyor
+        # (bkz. `_yayimlanmis`).
+        if (kod.upper(), v["donem"]) in var:
+            atlanan += 1
+            sebepler["zaten yayımlanmış"] = \
+                sebepler.get("zaten yayımlanmış", 0) + 1
+            continue
+        ok, not_ = sirket_isle(kod, bilgi, sektor, v["donem"], oran,
+                               v["medyan"], v["sirket_sayisi"],
+                               kuru=n.kuru_calis)
+        if ok:
+            yazilan += 1
+            print(f"  {kod:<8}{not_}")
+        else:
+            atlanan += 1
+            # Sebebi TURUNE gore topla: ":" sonrasi sirkete ozel
+            # ayrinti (hangi kalem eksik), oncesi TUR. Ayrintiyi da
+            # saysaydik 325 ayri "sebep" cikar ve dokum ozet olmaktan
+            # cikip ikinci bir liste olurdu.
+            sebepler[not_.split(":")[0].strip() or not_] = \
+                sebepler.get(not_.split(":")[0].strip() or not_, 0) + 1
+            print(f"  {kod:<8}ATLANDI -- {not_}")
 
     print(f"\nyazılan {yazilan}, atlanan {atlanan}")
     _dokum(sebepler, yazilan, atlanan)

@@ -371,6 +371,56 @@ def test_hepsi_dusunce_sektor_atlaniyor():
         ub.sektordeki = asil
 
 
+def test_bekleyenler_kuyrugun_basina_aliniyor():
+    """GOCU BITIRMEK, YENI SAYFA URETMEKTEN ONCELIKLI.
+
+    Uretim ceyreklige cevrildi ama bir kisim sirket hala ESKI
+    (kumulatif) sayfayla duruyor; ceyrekligi uretilene kadar da
+    silinemiyorlar. Site o sure boyunca IKI YONTEMI birden tasiyor --
+    okur ayni bolumde "2026/6" ve "2026 2. ceyrek" goruyor.
+
+    Sira alfabetikti ve `--sinir` kuyrugun sonunu kesiyordu. Olculdu
+    (2026-09-15): bekleyen 28 sirketin 24'u ilk 60'ta, 4'u 141. siraya
+    kadar dagilmisti -- gocu bitirmek icin gereksiz yere IKINCI bir
+    kosu gerekiyordu. Oncelikten sonra hepsi 1-28 arasinda.
+
+    GERI KALANIN SIRASI DEGISMIYOR: ayni oncelikte ilk gorulme sirasi
+    korunuyor, yani alfabetik duzen bozulmadan duruyor.
+    """
+    # URETIM KODU CAGRILIYOR, mantik YENIDEN YAZILMIYOR.
+    # Ilk yazimda sira burada elle kuruluyordu; uretimdeki oncelik
+    # kaldirildiginda sinama KIRMIZI DONMEDI -- mantigi kopyalayan
+    # bir sinama, o mantigi olcmuyor.
+    ozet = {"A sektor": {"sirket": {"ZZZ": 1, "AAA": 2}},
+            "B sektor": {"sirket": {"MMM": 3, "BBB": 4}}}
+    kuyruk = u.kuyruk_kur(ozet, {"ZZZ", "MMM"})
+    sira = [x[4] for x in kuyruk]
+    assert sira[:2] == ["ZZZ", "MMM"], sira
+    # Geri kalan ALFABETIK duzenini koruyor (AAA, sonra BBB).
+    assert sira[2:] == ["AAA", "BBB"], sira
+
+
+def test_gercek_depoda_bekleyenler_once():
+    """Asil depo: bekleyen kumulatif sirketler kuyrugun basinda."""
+    import json
+    import kumulatif_temizle as kt
+    ozet = json.loads((_KOK / "kaynak" / "sektor_ozet.json")
+                      .read_text(encoding="utf-8"))
+    kum, cey = kt.tara()
+    bekleyen = {k.upper() for k in kum if k not in cey}
+    if not bekleyen:
+        return                      # gocu bitmis: iddia edilecek sey yok
+    var = u._yayimlanmis()
+    kuyruk = u.kuyruk_kur(ozet, bekleyen)
+    uretilecek = [(x[4].upper(), x[3]["donem"]) for x in kuyruk
+                  if (x[4].upper(), x[3]["donem"]) not in var]
+    yerler = [i for i, (k, _d) in enumerate(uretilecek) if k in bekleyen]
+    if not yerler:
+        return
+    # Hepsi BASTA: en gec sirasi, bekleyen sayisindan kucuk olmali.
+    assert max(yerler) < len(yerler), (max(yerler), len(yerler))
+
+
 if __name__ == "__main__":
     n = 0
     for ad, f in sorted(globals().items()):
