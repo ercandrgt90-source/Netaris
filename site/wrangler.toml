@@ -90,9 +90,32 @@ crons = ["*/10 * * * *"]
 directory = "./cikti"
 binding = "ASSETS"
 
-# Bulunamayan adreste 404 dondur. "single-page-application" secilirse her
-# adres index.html'e yonlenir ve kirik baglantilar sessizce ana sayfayi
-# gosterir -- haber sitesinde istenmeyen davranis.
+# "none" KALIYOR -- 404 sayfasini WORKER servis ediyor.
+#
+# `/analiz/` SIFIR BAYT donuyordu (olculdu 2026-09-15) ve sitede 404
+# sayfasi yoktu. Ilk duzeltme bunu `not_found_handling = "404-page"`
+# ile cozuyordu; SONRA GERI ALINDI, sebebi burada duruyor.
+#
+# "404-page" ve "single-page-application" ayni duzenegin iki yuzu:
+# eslesmeyen adres icin varlik katmani bir DOSYA servis ediyor. Varlik
+# katmani worker'dan ONCE calisiyor (`run_worker_first` verilmedi) ve
+# `assets_navigation_prefers_asset_serving` -- 2025-04-01 sonrasi
+# uyumluluk tarihlerinde varsayilan, bizimki 2026-07-31 -- gezinme
+# isteklerinin worker'i HIC cagirmamasina yol aciyor.
+#
+# Bu sitede eslesen dosyasi olmayan ama worker'in URETTIGI adresler
+# var. Olculdu, `Sec-Fetch-Mode: navigate` ile:
+#
+#   /senaryo/1/   -> 200, 10888 bayt   (worker uretti)
+#   /haber        -> 301 /gundem       (worker yonlendirdi)
+#
+# "404-page" bunlari 404 sayfasina cevirme riski tasiyordu; belgeler
+# de bu etkilesimi acikca yazmiyor. Calisan bir ozelligi belgesiz bir
+# davranisa yaslamak icin sebep yok: 404 sayfasi worker'da, varlik
+# katmani 404 dondugu yerde servis ediliyor (bkz. `worker.js`).
+#
+# "single-page-application" ayrica SECILMEZDI: kirik baglantiyi 200
+# ile ana sayfa gosterir -- haber sitesinde istenmeyen davranis.
 not_found_handling = "none"
 
 # Uyelik veritabani. `database_id` `wrangler d1 create netaris-uyelik`

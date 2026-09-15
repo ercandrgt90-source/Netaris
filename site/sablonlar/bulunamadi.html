@@ -1,0 +1,59 @@
+{% extends "temel.html" %}
+
+{% block baslik %}Sayfa bulunamadı — {{ site.ad }}{% endblock %}
+{% block aciklama %}Aradığınız sayfa bulunamadı. Gündem, araştırmalar, bilançolar ve arama buradan.{% endblock %}
+
+{# BU SAYFANIN KENDI ADRESI YOK.
+   =============================
+   Cloudflare bunu, BULUNAMAYAN her adresin govdesi olarak servis
+   ediyor (`not_found_handling = "404-page"`). Yani icerideki butun
+   baglantilar MUTLAK olmali: goreli bir baglanti, sayfanin servis
+   edildigi adrese gore cozulur ve `/haber/abc/` altinda kirilir.
+
+   `arama_disi`: robots karari `temel.html`de veriliyor, burada
+   degil -- `/ara/` sayfasinda tam bu yuzden CELISKILI iki etiket
+   olusmustu (bkz. `ara.html`in notu).
+
+   HARITAYA DA GIRMIYOR: `yollar` listesine eklenmiyor. Sebep
+   `noindex` degil -- gezilebilir bir adres OLMAMASI. `haritaya_girer`
+   `cikti/<yol>/index.html` ariyor, `404.html` o kalibin disinda. #}
+
+{% block icerik %}
+<div class="giris">
+  <p class="ust-etiket">404</p>
+  <h1>Bu sayfa yok</h1>
+  <p>Adres yanlış yazılmış, sayfa kaldırılmış ya da bağlantı eskimiş
+  olabilir. Aradığınız şey büyük ihtimalle aşağıdakilerden birinde.</p>
+</div>
+
+<div class="ara-alan">
+  <input type="search" class="ara-kutu" data-ara-kutu disabled
+         placeholder="Yükleniyor…" autocomplete="off"
+         aria-label="Sitede ara">
+  <span class="ara-sayac" data-ara-sayac aria-live="polite"></span>
+</div>
+
+<ul class="izgara ara-sonuc" data-ara-sonuc></ul>
+
+<div class="giris">
+  <h2>Bölümler</h2>
+  <ul>
+    <li><a href="/gundem/">Gündem</a> — günün haberleri</li>
+    <li><a href="/arastirmalar/">Araştırmalar</a> — şirket ve sektör incelemeleri</li>
+    <li><a href="/bilancolar/">Bilançolar</a> — çeyreklik mali tablolar</li>
+    <li><a href="/makro/">Makro</a> — enflasyon, faiz, kur</li>
+    <li><a href="/teknik/">Teknik</a> — teknik görünüm</li>
+    <li><a href="/yorum/">Yorum</a></li>
+    <li><a href="/ara/">Arama sayfası</a></li>
+  </ul>
+</div>
+
+<noscript>
+  <p class="ara-bos">Arama için JavaScript gerekiyor. Yukarıdaki bölüm
+  bağlantıları JavaScript olmadan da çalışır.</p>
+</noscript>
+{% endblock %}
+
+{% block betikler %}
+<script src="/statik/ara.js?v={{ js_surum }}" defer></script>
+{% endblock %}

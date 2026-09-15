@@ -2352,7 +2352,15 @@ export default {
 
     /* SENARYO SAYFASI statik dosyadan ONCE. Bulunamazsa (taslak,
        silinmis, gecersiz id) statik akisa dusuyor ve normal 404
-       sayfasi cikiyor -- worker kendi hata sayfasini uydurmuyor. */
+       sayfasi cikiyor -- worker kendi hata sayfasini uydurmuyor.
+
+       BU CUMLE 2026-09-15'E KADAR DOGRU DEGILDI. Ortada "normal 404
+       sayfasi" yoktu: `wrangler.toml` `not_found_handling = "none"`
+       diyordu ve govde SIFIR BAYT donuyordu. Yorum bir varsayimi
+       anlatiyordu, davranisi degil; olcen bir sinama olmadigi icin
+       de kimse fark etmedi. Sayfayi `insa.py` uretiyor, ayari
+       `wrangler.toml` veriyor, ikisini `site/test_bulunamadi.py`
+       olcuyor. */
     const sp = u.pathname.match(/^\/senaryo\/(\d+)\/?$/);
     if (sp) {
       const y = await senaryoSayfa(istek, env, Number(sp[1]));
@@ -2378,7 +2386,38 @@ export default {
     }
 
     if (!u.pathname.startsWith("/api/")) {
-      return env.ASSETS.fetch(istek);
+      const varlik = await env.ASSETS.fetch(istek);
+      if (varlik.status !== 404) return varlik;
+
+      /* 404 SAYFASI BURADA, `not_found_handling` ILE DEGIL.
+         ================================================
+         Olculdu (2026-09-15): `/analiz/` SIFIR BAYT donuyordu ve
+         sitede 404 sayfasi hic yoktu -- yanlis yazilmis her adres
+         bembeyaz bir sayfaydi.
+
+         Ayar ("404-page") tek satirlik cozum GORUNUYORDU ama varlik
+         katmani worker'dan ONCE calisiyor ve
+         `assets_navigation_prefers_asset_serving` gezinme
+         isteklerinin worker'i hic cagirmamasina yol aciyor. Bu
+         sitede eslesen dosyasi olmayan ama worker'in URETTIGI
+         adresler var: `/senaryo/1/` (200, 10888 bayt) ve `/haber`
+         (301 -> /gundem). Ayari acmak onlari 404'e cevirebilirdi.
+
+         Burada risk yok: karar, varlik katmani ZATEN 404 dedikten
+         SONRA veriliyor. Senaryo sayfasi yukarida donuyor, `/api/`
+         asagida; ikisi de buraya hic ugramıyor. */
+      const s404 = await env.ASSETS.fetch(new URL("/404.html", u.origin));
+      if (!s404.ok) return varlik;          // sayfa yoksa ciplak 404
+      return new Response(s404.body, {
+        status: 404,
+        headers: {
+          "Content-Type": "text/html; charset=utf-8",
+          /* Onbelleklenmiyor: ayni govde FARKLI adresler icin
+             donuyor ve bir ara onbellek bunu o adreslerin icerigi
+             saymamali. */
+          "Cache-Control": "no-store",
+        },
+      });
     }
     if (!env.DB) {
       return hata("Veritabanı bağlı değil.", 503);

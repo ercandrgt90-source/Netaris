@@ -5677,6 +5677,34 @@ def insa() -> int:
     # bunu gosterdi. Karar TEK YERDE kalmali.
     yollar.append("/ara/")
 
+    # 404 SAYFASI -- BOS DUVAR YERINE.
+    #
+    # Olculdu (2026-09-15): `/analiz/` SIFIR BAYT donuyordu. Yalniz o
+    # da degil; sitede 404 sayfasi HIC YOKTU ve `wrangler.toml`
+    # `not_found_handling = "none"` diyordu. Yani yanlis yazilmis her
+    # adres, eskimis her paylasim, adresini kirpan her okur bembeyaz
+    # bir sayfa goruyordu. `worker.js`teki not "normal 404 sayfasi
+    # cikiyor" diyor -- hicbir zaman dogru olmamis bir varsayim.
+    #
+    # `/haber/` gibi GERCEK karsiligi olan kokler yonlendiriliyor
+    # (worker.js). Karsiligi OLMAYANLAR icin dogru cevap 301 degil:
+    # `/analiz/` diye bir liste sayfasi yok ve 579 sayfayi tek bir
+    # hub kapsamiyor. Dogru cevap "yok" demek -- ama okura nereye
+    # gidecegini soyleyerek.
+    #
+    # `/varlik/` BILEREK 404: dizin `dizin_yaz=False` ile basilmiyor,
+    # o sayfalara yalnizca izleme listesinden gidilsin diye.
+    #
+    # `yollar`a EKLENMIYOR: sebep `noindex` degil, gezilebilir bir
+    # adres olmamasi. `haritaya_girer` `cikti/<yol>/index.html`
+    # ariyor; `404.html` o kalibin disinda ve dosya bulunamayinca
+    # "bilmiyorum" deyip True donuyor -- yani harita ONU ICERIRDI.
+    yaz(
+        "/404.html",
+        ortam.get_template("bulunamadi.html").render(
+            **ortak, yol="/404.html", arama_disi=True),
+    )
+
     # Besleme ve arama motoru dosyalari
     yaz("/rss.xml", rss_uret(listelenen, _rss_haber))
     yaz("/sitemap.xml", sitemap_uret(yollar, _lastmod))
