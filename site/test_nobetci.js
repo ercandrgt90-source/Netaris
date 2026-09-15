@@ -104,6 +104,43 @@ function ortamKur(saat, jeton) {
   };
 }
 
+/* Sahte D1. `prepare().bind().run()` ve `.all()` zincirini tasiyor;
+   calistirilan her ifade `sorgular`a yaziliyor. */
+function sahteDB(patlat) {
+  const sorgular = [];
+  const db = {
+    sorgular,
+    prepare(sql) {
+      const kayit = { sql, par: null };
+      return {
+        bind(...p) { kayit.par = p; return this; },
+        run() {
+          if (patlat) return Promise.reject(new Error("D1 dustu"));
+          sorgular.push(kayit);
+          return Promise.resolve({});
+        },
+        all() {
+          if (patlat) return Promise.reject(new Error("D1 dustu"));
+          sorgular.push(kayit);
+          return Promise.resolve({ results: [
+            { an: "2026-09-15T11:00:00Z", yas: 0.7,
+              karar: "tetiklendi", yanit: 204 },
+          ] });
+        },
+      };
+    },
+  };
+  return db;
+}
+
+/* Yazilan iz satirlarinin `karar` alanlari. */
+function kararlar(db) {
+  return db.sorgular
+    .filter((x) => x.sql.startsWith("INSERT INTO nobet_izi"))
+    .map((x) => x.par[2]);
+}
+
+
 async function kos() {
   console.log("\nNobetci -- alan yuklendi mi\n");
   esit(typeof nobetci, "function", "nobetci bulundu");
@@ -282,6 +319,69 @@ async function kos() {
     },
   });
   esit(cagrilar.length, 0, "tarih cozulemezse tetiklemiyor");
+
+  /* ------------------------------------------------------------
+     KARAR IZI
+     ---------
+     Nobetcinin tek kaydi `console.log`du -- Cloudflare gunlugu,
+     Logpush olmadan saklanmiyor ve depodan okunamiyor.
+
+     Olculdu (2026-09-15): otomasyon kosularinda 155 dakikalik bir
+     bosluk vardi ve o araliga ait HIC calisma kaydi yoktu. "Nobetci
+     atesledi de GitHub mi almadi, yoksa nobetci hic bakmadi mi"
+     sorusu CEVAPLANAMADI -- siteyi 13 gun donduran arizanin ayni
+     kor noktasi.
+
+     DORT KARARIN DORDU DE yaziliyor: "taze oldugu icin dokunmadim"
+     ile "bakamadim" ayni sey degil; ikisi de tetik uretmiyor ama
+     biri saglik, digeri ariza. ------------------------------------ */
+  console.log("\nKarar izi\n");
+
+  let db = sahteDB(false);
+  let env = ortamKur(ESIK + 0.5, "jeton");
+  env.DB = db;
+  await nobetci(env);
+  esit(kararlar(db).join(","), "tetiklendi", "tetikleme iz birakiyor");
+
+  db = sahteDB(false);
+  env = ortamKur(ESIK - 0.3, "jeton");
+  env.DB = db;
+  await nobetci(env);
+  esit(kararlar(db).join(","), "taze", "TAZE karari da iz birakiyor");
+
+  db = sahteDB(false);
+  env = ortamKur(null, "jeton");            /* yas okunamadi */
+  env.DB = db;
+  await nobetci(env);
+  esit(kararlar(db).join(","), "yas_bilinmiyor",
+       "BILINMIYOR ile TAZE ayri kaydediliyor");
+
+  db = sahteDB(false);
+  env = ortamKur(ESIK + 0.5, undefined);    /* jeton yok */
+  env.DB = db;
+  await nobetci(env);
+  esit(kararlar(db).join(","), "jetonsuz", "jeton yoksa sebep yaziliyor");
+
+  /* GOZLEM YENI BIR ARIZA KAYNAGI OLMAMALI. */
+  const once = cagrilar.length;
+  env = ortamKur(ESIK + 0.5, "jeton");      /* env.DB YOK */
+  await nobetci(env);
+  esit(cagrilar.length, once + 1, "DB yokken nobetci yine tetikliyor");
+
+  const once2 = cagrilar.length;
+  env = ortamKur(ESIK + 0.5, "jeton");
+  env.DB = sahteDB(true);                   /* her yazma patliyor */
+  await nobetci(env);
+  esit(cagrilar.length, once2 + 1, "DB patlasa da nobetci tetikliyor");
+
+  /* Durum uc noktasi gecmisi de donuyor: "su an tetikler mi" sorusu,
+     "son iki saatte ne yapti" sorusunu cevaplamiyor. */
+  env = ortamKur(0.1, "jeton");
+  env.DB = sahteDB(false);
+  const d = await (ortam.nobetciDurum)(env);
+  const g = await d.json();
+  esit(Array.isArray(g.son_kararlar), true, "durum son kararlari donuyor");
+  esit(g.son_kararlar.length > 0, true, "gecmis dolu");
 
   console.log("\n" + gecti + " gecti, " + kaldi.length + " kaldi");
   process.exit(kaldi.length ? 1 : 0);

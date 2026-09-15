@@ -2036,24 +2036,91 @@ async function icerikYasiSaat(env) {
   }
 }
 
+/* NOBETCININ KARARI KALICI OLARAK YAZILIYOR.
+ *
+ * Tek kayit `console.log`du -- Cloudflare gunlugu, Logpush olmadan
+ * saklanmiyor ve depodan okunamiyor. Olculdu (2026-09-15): otomasyon
+ * kosularinda 155 dakikalik bir bosluk vardi ve o araliga ait HIC
+ * calisma kaydi yoktu. "Nobetci atesledi de GitHub mi almadi, yoksa
+ * nobetci hic bakmadi mi" sorusu CEVAPLANAMADI -- siteyi 13 gun
+ * donduran arizanin ayni kor noktasi.
+ *
+ * GOZLEM YENI BIR ARIZA KAYNAGI OLMAMALI: yazma basarisiz olursa
+ * nobetci gorevini yapmaya DEVAM EDER. Bu yuzden her sey try/catch
+ * icinde ve donus degeri kullanilmiyor.
+ *
+ * Tablo tembel olusturuluyor: gecis dosyasi (`d1/gecis_nobet_izi.sql`)
+ * calistirilmamis olsa bile iz tutulur. Gecis dosyasi yine duruyor --
+ * semanin nerede tanimlandigi belli olsun diye. */
+const IZ_SAKLAMA_GUN = 7;
+
+async function nobetIziYaz(env, yas, karar, yanit) {
+  if (!env || !env.DB) return;
+  try {
+    await env.DB.prepare(
+      "CREATE TABLE IF NOT EXISTS nobet_izi (an TEXT NOT NULL,"
+      + " yas REAL, karar TEXT NOT NULL, yanit INTEGER)").run();
+    await env.DB.prepare(
+      "INSERT INTO nobet_izi (an, yas, karar, yanit) VALUES (?,?,?,?)")
+      .bind(new Date().toISOString(),
+            yas === null || yas === undefined ? null : Number(yas.toFixed(2)),
+            karar,
+            yanit === undefined ? null : yanit).run();
+    await env.DB.prepare(
+      "DELETE FROM nobet_izi WHERE an < ?")
+      .bind(new Date(Date.now() - IZ_SAKLAMA_GUN * 86400000).toISOString())
+      .run();
+  } catch (e) {
+    console.error("nobetci: iz yazilamadi", e);
+  }
+}
+
+async function nobetIziOku(env, adet) {
+  if (!env || !env.DB) return [];
+  try {
+    const r = await env.DB.prepare(
+      "SELECT an, yas, karar, yanit FROM nobet_izi"
+      + " ORDER BY an DESC LIMIT ?").bind(adet).all();
+    return (r && r.results) || [];
+  } catch (e) {
+    return [];
+  }
+}
+
+
 async function nobetciDurum(env) {
   const yas = await icerikYasiSaat(env);
+  /* SON KARARLAR DA DONUYOR: "su an tetikler mi" sorusu, "son iki
+     saatte ne yapti" sorusunu cevaplamiyor. Bosluklarin teshisi
+     ancak GECMISLE mumkun. */
   return yanit({
     jeton_kurulu: Boolean(env.GITHUB_TETIK_JETONU),
     icerik_yasi_saat: yas === null ? null : Number(yas.toFixed(2)),
     esik_saat: NOBET_ESIK_SAAT,
     tetikler: Boolean(env.GITHUB_TETIK_JETONU) && yas !== null
               && yas >= NOBET_ESIK_SAAT,
+    son_kararlar: await nobetIziOku(env, 20),
   });
 }
 
 async function nobetci(env) {
   const jeton = env.GITHUB_TETIK_JETONU;
-  if (!jeton) return;                       /* kurulmamis -- sessiz */
+  if (!jeton) {                             /* kurulmamis */
+    await nobetIziYaz(env, null, "jetonsuz");
+    return;
+  }
 
   const yas = await icerikYasiSaat(env);
-  if (yas === null) return;
-  if (yas < NOBET_ESIK_SAAT) return;        /* taze -- karisma */
+  /* BILINMIYOR ile BAYAT AYNI SEY DEGIL: ikisi de tetik uretmiyor
+     ama biri ariza, digeri saglik. Iz bu ayrimi koruyor. */
+  if (yas === null) {
+    await nobetIziYaz(env, null, "yas_bilinmiyor");
+    return;
+  }
+  if (yas < NOBET_ESIK_SAAT) {              /* taze -- karisma */
+    await nobetIziYaz(env, yas, "taze");
+    return;
+  }
 
   try {
     const c = await fetch(
@@ -2076,8 +2143,10 @@ async function nobetci(env) {
     );
     console.log(`nobetci: ${yas.toFixed(1)} saatlik icerik, `
                 + `tetik yaniti ${c.status}`);
+    await nobetIziYaz(env, yas, "tetiklendi", c.status);
   } catch (e) {
     console.error("nobetci: tetiklenemedi", e);
+    await nobetIziYaz(env, yas, "tetik_hatasi");
   }
 }
 
