@@ -18,10 +18,16 @@ sys.path[:0] = [str(_KOK), str(_KOK / "kaynak"), str(_KOK / "analiz"),
 import uret_bilanco_sayfa as u    # noqa: E402
 
 
-def _yaz(klasor, ad, kod, donem):
+def _yaz(klasor, ad, kod, donem, kategori="Bilanço Analizi"):
+    """KATEGORI PARAMETRE: ayrim artik ona dayaniyor.
+
+    Once her kurgu "Bilanço Analizi" yaziyordu -- makro sayfasini
+    taklit eden kurgu bile. Ayrim donem BICIMINE dayandigi surece bu
+    gorunmuyordu; kategoriye gecince kurgu gercegi temsil etmez oldu.
+    """
     (klasor / ad).write_text(
         f"---\nslug: x\nbaslik: X\nkod: {kod}\ndonem: {donem}\n"
-        f"kategori: Bilanço Analizi\n---\n\ngövde\n", encoding="utf-8")
+        f"kategori: {kategori}\n---\n\ngövde\n", encoding="utf-8")
 
 
 def test_dosya_adi_ters_olsa_da_buluyor(tmp=None):
@@ -59,14 +65,21 @@ def test_yeni_ceyrek_atlanmiyor():
 def test_makro_analiz_bilanco_sanilmiyor():
     """Ayni klasordeki makro analizler sizmamali.
 
-    Onlarin `donem` alani TARIH ("2026-08-20"); bilanco donemi
-    "YIL/AY". Suzgec bicime dayaniyor, ada degil -- ad kurali yarin
-    degisirse suzgec de bozulurdu.
+    Ayrim KATEGORIYE dayaniyor: gercek makro sayfalari
+    `kategori: Makro` tasiyor (olculdu -- 26 sayfa), bilanco
+    sayfalari `Bilanço Analizi`.
+
+    Once ayrim donem BICIMINE dayaniyordu ("YIL/AY"). O kural
+    donemler kumulatifken dogruydu; uretim ceyreklige gecince
+    ("2026 2. ceyrek") 230 bilanco sayfasinin HICBIRI taninmaz oldu.
     """
     import tempfile
     with tempfile.TemporaryDirectory() as d:
         k = pathlib.Path(d)
-        _yaz(k, "2026-08-20-makro.md", "MAKRO", "2026-08-20")
+        _yaz(k, "2026-08-20-makro.md", "MAKRO", "2026-08-20",
+             kategori="Makro")
+        _yaz(k, "2026-09-01-teknik.md", "BTC", "2026-09-01",
+             kategori="Teknik Görünüm")
         _yaz(k, "2026-6-tera.md", "TERA", "2026/6")
         eski, u.SITE = u.SITE, k
         try:
@@ -85,12 +98,51 @@ def test_klasor_yoksa_cokmuyor():
         u.SITE = eski
 
 
-def test_gercek_depoda_tera_atlaniyor():
-    """Asil depo: TERA yayimlanmis, bir daha uretilmemeli."""
+def test_ceyreklik_sayfa_da_yayimlanmis_sayiliyor():
+    """ASIL KUSUR -- olculdu (2026-09-15).
+
+    Suzgec `"/" in donem` idi ve gerekcesi "bilanco donemi her zaman
+    YIL/AY bicimi". O gerekce donemler KUMULATIFKEN dogruydu (2026/6).
+    Uretim ceyreklige cevrilince etiket "2026 2. ceyrek" oldu --
+    icinde "/" YOK.
+
+    Sonuc: 230 ceyreklik sayfanin HICBIRI "yayimlanmis" sayilmiyordu.
+    Atlama calismiyor, her kosu bastaki ayni sirketleri yeniden
+    uretiyor, sinira takiliyor ve KUYRUKTAKILERE HIC SIRA GELMIYOR.
+    Ceyreklik karsiligi bekleyen 29 kumulatif sayfa haftalardir bu
+    yuzden bekliyordu.
+
+    Olculdu: duzeltmeden once 0 sirket atlaniyordu, sonra 171.
+    """
+    import tempfile
+    with tempfile.TemporaryDirectory() as d:
+        k = pathlib.Path(d)
+        _yaz(k, "2026-2c-a1cap.md", "A1CAP", "2026 2. çeyrek")
+        _yaz(k, "2026-1c-adese.md", "ADESE", "2026 1. çeyrek")
+        _yaz(k, "2026-6-adel.md", "ADEL", "2026/6")
+        eski, u.SITE = u.SITE, k
+        try:
+            v = u._yayimlanmis()
+            assert ("A1CAP", "2026 2. çeyrek") in v, sorted(v)
+            assert ("ADESE", "2026 1. çeyrek") in v, sorted(v)
+            # Kumulatif olan da taninmaya devam ediyor.
+            assert ("ADEL", "2026/6") in v, sorted(v)
+            assert len(v) == 3, sorted(v)
+        finally:
+            u.SITE = eski
+
+
+def test_gercek_depoda_ceyreklikler_taniniyor():
+    """Asil depo: ceyreklik sayfalar yayimlanmis sayilmali."""
     v = u._yayimlanmis()
     assert ("TERA", "2026/6") in v, sorted(v)[:5]
-    # Makro analizler sizmadi mi?
-    assert all("/" in donem for _, donem in v)
+    ceyreklik = [d for _k, d in v if "çeyrek" in d]
+    # Depoda 230 ceyreklik bilanco sayfasi var; hicbiri kacmamali.
+    assert len(ceyreklik) > 100, len(ceyreklik)
+    # Makro ve teknik analizler sizmadi mi? Onlarin donemi TARIH.
+    import re
+    tarih = [d for _k, d in v if re.fullmatch(r"\d{4}-\d{2}-\d{2}", d)]
+    assert tarih == [], tarih[:5]
 
 
 def test_ret_depoya_yaziliyor():

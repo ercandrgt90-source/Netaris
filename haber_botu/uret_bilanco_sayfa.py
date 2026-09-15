@@ -307,6 +307,20 @@ def sirket_isle(kod, bilgi, sektor, donem, oran, medyan, n,
     return True, str(yol.name)
 
 
+def _bilanco_sayfasi(kategori: str) -> bool:
+    """Bu sayfa bir bilanco analizi mi.
+
+    Sabit `kumulatif_temizle`den okunuyor: ayni ayrimi iki yerde
+    tanimlamak, birinin degisip otekinin unutulmasi demekti. O modul
+    de ayni sebeple donem bicimi yerine KATEGORI alanina gecmisti.
+    """
+    try:
+        from kumulatif_temizle import KATEGORI          # noqa: PLC0415
+    except ImportError:                                 # pragma: no cover
+        KATEGORI = "Bilanço Analizi"
+    return kategori.strip() == KATEGORI
+
+
 def _yayimlanmis() -> set[tuple[str, str]]:
     """Yayimlanmis (kod, donem) ciftleri -- ON BILGIDEN okunur.
 
@@ -331,19 +345,38 @@ def _yayimlanmis() -> set[tuple[str, str]]:
         return set()
     cikti: set[tuple[str, str]] = set()
     for p in SITE.glob("*.md"):
-        kod = donem = ""
+        kod = donem = kat = ""
         for satir in p.read_text(encoding="utf-8").splitlines()[:25]:
             if satir.startswith("kod:"):
                 kod = satir[4:].strip().upper()
             elif satir.startswith("donem:"):
                 donem = satir[6:].strip()
+            elif satir.startswith("kategori:"):
+                kat = satir[9:].strip()
             elif satir == "---" and kod:
                 break
-        # YALNIZCA BILANCO DONEMLERI. Ayni klasorde makro analizler de
-        # duruyor ve onlarin `donem` alani tarih ("2026-08-20"), kodu
-        # da MAKRO/BTC/OLAY gibi. Bilanco donemi her zaman "YIL/AY"
-        # bicimi; suzgec bu farka dayaniyor, ada degil.
-        if kod and "/" in donem:
+        # BILANCO SAYFASI KATEGORIDEN ANLASILIYOR, DONEM BICIMINDEN DEGIL.
+        #
+        # Suzgec once `"/" in donem` idi ve gerekcesi soyleydi:
+        # "bilanco donemi her zaman YIL/AY bicimi". O gerekce DONEMLER
+        # KUMULATIFKEN dogruydu (2026/6). Uretim CEYREKLIGE cevrilince
+        # etiket "2026 2. ceyrek" oldu -- icinde "/" YOK.
+        #
+        # Olculdu (2026-09-15): 230 ceyreklik sayfanin HICBIRI
+        # "yayimlanmis" sayilmiyordu; yalnizca 29 kumulatif sayfa
+        # sayiliyordu. Yani atlama yine calismiyordu ve bu islevin
+        # varlik sebebi tam olarak buydu: "hat sessizce ayni sirketi
+        # yeniden uretip AYNI MODEL CAGRISINI ikinci kez odeyecek".
+        #
+        # Sonucu somut: her kosu bastaki ayni sirketleri yeniden
+        # uretiyor, sinira takiliyor ve KUYRUKTAKILERE HIC SIRA
+        # GELMIYOR. Ceyreklik karsiligi bekleyen 29 kumulatif sayfa
+        # haftalardir bu yuzden bekliyordu.
+        #
+        # Varsayim, sebebinden sonra yasadi. Artik ayrim KATEGORIYE
+        # dayaniyor -- `kumulatif_temizle` de ayni sebeple ayni
+        # alani kullaniyor ve sabit ORADAN okunuyor.
+        if kod and donem and _bilanco_sayfasi(kat):
             cikti.add((kod, donem))
     return cikti
 
