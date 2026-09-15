@@ -266,9 +266,23 @@ def _gocur(b) -> None:
 
 
 @contextmanager
-def baglan(yol: pathlib.Path = VERITABANI):
-    """Baglanti acar, semayi garantiler, cikista kapatir."""
-    b = sqlite3.connect(yol)
+def baglan(yol: pathlib.Path | None = None):
+    """Baglanti acar, semayi garantiler, cikista kapatir.
+
+    YOL CAGRI ANINDA COZULUYOR, TANIM ANINDA DEGIL.
+    -----------------------------------------------
+    Imza once `yol: pathlib.Path = VERITABANI` idi. Python varsayilan
+    degeri ISLEV TANIMLANIRKEN bir kez hesapliyor; yani
+    `beyin.VERITABANI` sonradan degistirildiginde `baglan()` ESKI yola
+    baglanmaya devam ediyordu. Yonlendirilebilir GORUNUP
+    yonlendirilemiyordu -- sessiz ve kendinden emin bir yanlis.
+
+    Olculdu (2026-09-15): hatti agsiz olcmek icin `beyin.VERITABANI`
+    bir kopyaya cevrildi ve olcum yine de GERCEK depoya yazdi -- 320
+    sahte `ai_ret` ve 6 sahte `calisma` satiri. Artiklar temizlendi.
+    Bunlar red oranlarini olcen her cozumlemeyi bozardi.
+    """
+    b = sqlite3.connect(VERITABANI if yol is None else yol)
     b.row_factory = sqlite3.Row
     try:
         b.executescript(SEMA)
