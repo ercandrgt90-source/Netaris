@@ -339,6 +339,101 @@ _karisik = [_SahteYanit(429)] * (ba.ARDISIK_RED_SINIRI - 1) +            [_Sahte
 _n, _hata, _, _kap = _dene(_karisik, kez=ba.ARDISIK_RED_SINIRI + 4)
 esit(_kap, False, "araya giren BASARI sayaci sifirliyor")
 
+
+# ---------------------------------------------------------------------
+# YAVASLAMA GERI DONUYOR MU
+#
+# Olculdu 2026-09-15: calisan kosu "Bilanco verisi" adiminda 81
+# DAKIKADIR duruyordu, onceki kosuda ayni adim dakikalar surmustu.
+# Asili degildi -- BEKLIYORDU. 326 sirket x 2 sayfa = 652 istek, her
+# biri tavandaki 8 saniyeyi odeyerek = 87 dakika sadece uyku.
+#
+# Tek bir erken 429, kalan 650 istegin HEPSINE tavan fiyati
+# odetiyordu; kaynak bes dakika sonra toparlamis olsa bile. Kalici
+# yavaslama, DEVRE KESICI YOKKEN yazilmisti: o zaman israr etmemenin
+# tek yoluydu. `ARDISIK_RED_SINIRI` geldiginde gercek koruma oraya
+# gecti, kalici tavan ise yerinde kaldi ve artik korumuyor -- odetiyor.
+_eski_geri = ba.GERI_CEKILME
+ba.GERI_CEKILME = 0.0                # sinama beklemesin
+ba.sifirla()
+try:
+    _OK = _SahteYanit(200, "<table></table>")
+    _RED = _SahteYanit(429)
+
+    # Surekli red olan bir cek(), icinde IKI kez yavaslatir:
+    # 0,5 -> 2,0 -> 4,0, sonraki cagri 4,0 -> 8,0 (tavan).
+    _i = _SahteIstemci([_RED])
+    ba.cek("TEST", "gelir", istemci=_i)
+    ba.cek("TEST", "gelir", istemci=_i)
+    esit(ba.ARA_SN, ba.TAVAN_ARA_SN, "art arda red TAVANA cikariyor")
+    esit(ba.KAPANDI, False, "iki red devreyi kesmiyor (esik 8)")
+
+    # ESIGIN ALTINDA INMIYOR: yavas yaklasmak sartin yarisi.
+    _i = _SahteIstemci([_OK])
+    for _ in range(ba.IYILESME_ESIGI - 1):
+        ba.cek("TEST", "gelir", istemci=_i)
+    esit(ba.ARA_SN, ba.TAVAN_ARA_SN, "esigin altindaki temiz trafik INDIRMIYOR")
+
+    ba.cek("TEST", "gelir", istemci=_i)
+    esit(ba.ARA_SN, ba.TAVAN_ARA_SN / 2, "esik dolunca aralik YARIYA iniyor")
+
+    # TABANDA DURUYOR: altina inmek, hic yavaslamamistan hizli gitmek olurdu.
+    for _ in range(ba.IYILESME_ESIGI * 8):
+        ba.cek("TEST", "gelir", istemci=_i)
+    esit(ba.ARA_SN, ba.TABAN_ARA_SN, "temiz trafik TABANA kadar indiriyor")
+
+    # TABAN, IKININ KUVVETI OLMAYAN BIR DEGERDEN DE TUTUYOR.
+    #
+    # Ilk yazimda bu iddia YOKTU ve tabani sokmek (max() -> ARA_SN/2)
+    # hicbir sinamayi kirmizi yakmadi: yukaridaki dongu 4,0'dan
+    # basliyor, yariya inerek tam 0,5'e oturuyor ve oradan "zaten
+    # tabandayim" dallanmasi devraliyor. Yani taban, sabitlerin ikinin
+    # kuvveti OLMASI sayesinde tutuyordu -- korumanin kendisi degil.
+    # Sabitlerden birini degistiren biri, sessizce tabanin altina
+    # inerdi.
+    ba.sifirla()
+    ba.ARA_SN = ba.TABAN_ARA_SN * 1.5        # 0,75 -- yarisi 0,375
+    _i = _SahteIstemci([_OK])
+    for _ in range(ba.IYILESME_ESIGI):
+        ba.cek("TEST", "gelir", istemci=_i)
+    esit(ba.ARA_SN, ba.TABAN_ARA_SN, "iyilesme TABANIN ALTINA inmiyor")
+
+    # ARADA GIREN RED SAYACI SIFIRLIYOR -- "ardisik" gercekten ardisik
+    # olmali. Dagilmis redlerin arasindaki basarilar, kaynagin
+    # toparladigini gostermez.
+    ba.sifirla()
+    _i = _SahteIstemci([_RED])
+    ba.cek("TEST", "gelir", istemci=_i)                  # 0,5 -> 4,0
+    _i = _SahteIstemci([_OK])
+    for _ in range(ba.IYILESME_ESIGI - 1):               # 19 temiz
+        ba.cek("TEST", "gelir", istemci=_i)
+    _i = _SahteIstemci([_RED])
+    ba.cek("TEST", "gelir", istemci=_i)                  # araya RED: 8,0
+    _i = _SahteIstemci([_OK])
+    for _ in range(ba.IYILESME_ESIGI - 1):               # 19 temiz daha
+        ba.cek("TEST", "gelir", istemci=_i)
+    esit(ba.ARA_SN, ba.TAVAN_ARA_SN,
+         "arada giren RED iyilesme sayacini sifirliyor")
+
+    # ASIL OLCUM -- kusurun kendisi: erken tek bir 429, butun kosuyu
+    # bogmamali. 652 istek, gercek `cek()` cagrilariyla.
+    ba.sifirla()
+    _i = _SahteIstemci([_RED, _OK])
+    ba.cek("TEST", "gelir", istemci=_i)                  # erken TEK red
+    _uyku = 0.0
+    _i = _SahteIstemci([_OK])
+    for _ in range(652):
+        _uyku += ba.ARA_SN           # uretimdeki `time.sleep(ARA_SN)`
+        ba.cek("TEST", "gelir", istemci=_i)
+    # Hic yavaslamamis bir kosunun IKI KATINI gecmiyor. Geri donmeyen
+    # yavaslamada bu 21,7 dakika, yani dort kati oluyordu.
+    esit(_uyku < 2 * 652 * ba.TABAN_ARA_SN, True,
+         f"erken tek red kosuyu bogmuyor ({_uyku / 60:.1f} dk uyku)")
+finally:
+    ba.GERI_CEKILME = _eski_geri
+    ba.sifirla()
+
+
 print()
 if _kaldi:
     print(f"{_kaldi} TEST KALDI, {_gecti} gecti")

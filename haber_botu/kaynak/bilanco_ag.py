@@ -80,9 +80,13 @@ ZAMAN_ASIMI = 40.0
 #: sebep yok ve yavas cekmek icin sebep var.
 #:
 #: DEGISKEN: kaynak "yavasla" dediginde `_yavasla()` bunu buyutuyor ve
-#: kosunun geri kalani daha seyrek istek atiyor. Sabit bir deger, bir
-#: kez sinira girildikten sonra ayni hizla devam etmek demekti.
+#: kaynak toparlayinca `_gecti()` geri indiriyor.
 ARA_SN = 0.5
+
+#: Yavaslama olmadigindaki normal aralik. `ARA_SN` degisken oldugu
+#: icin baslangic degeri AYRI bir sabitte duruyor -- iki yerde 0,5
+#: yazmak, birini degistirip otekini unutmak demekti.
+TABAN_ARA_SN = 0.5
 
 #: Bir istek en fazla kac kez denenir.
 #:
@@ -123,10 +127,37 @@ TAVAN_ARA_SN = 8.0
 #: kapiya yaklasik 168 istek gonderildi. Ne ise yarar ne de nazik.
 ARDISIK_RED_SINIRI = 8
 
+#: Bu kadar ARDISIK basarili istekten sonra aralik YARIYA iner.
+#:
+#: YAVASLAMA GERI DONMUYORDU -- olculdu 2026-09-15.
+#:
+#: 15:12'de calisan kosu, "Bilanco verisi" adiminda 81 DAKIKADIR
+#: duruyordu; ayni adim onceki kosuda dakikalar surmustu. Asili
+#: degildi, BEKLIYORDU: 326 sirket x 2 sayfa = 652 istek, her biri
+#: tavandaki 8 saniyeyi odeyerek = 87 dakika SADECE uyku. Olcum:
+#:
+#:     ara 0,5 sn ->  5,4 dk      ara 4,0 sn -> 43,5 dk
+#:     ara 2,0 sn -> 21,7 dk      ara 8,0 sn -> 86,9 dk
+#:
+#: Tek bir erken 429, kalan 650 istegin HEPSINE tavan fiyati
+#: odetiyordu. Kaynak bes dakika sonra toparlamis olsa bile.
+#:
+#: "Kosunun geri kalanini korur" gerekcesi, DEVRE KESICI YOKKEN
+#: yazilmisti: o zaman kalici yavaslama, israr etmemenin tek
+#: yoluydu. `ARDISIK_RED_SINIRI` geldiginde gercek koruma oraya
+#: gecti; kalici tavan ise yerinde kaldi ve artik hicbir seyi
+#: korumuyor -- yalnizca odetiyor. Sebebi olen bir varsayim.
+#:
+#: ASIMETRIK, BILEREK: bir redde ikiye katlaniyor, inmek icin yirmi
+#: temiz istek gerekiyor. Tavanda bu 160 saniyelik kesintisiz temiz
+#: trafik demek. Hizli cekil, yavas yaklas.
+IYILESME_ESIGI = 20
+
 #: Kaynak kapandi mi. Kosu boyunca surer, sektorden sektore tasinir.
 KAPANDI = False
 
 _ardisik_red = 0
+_ardisik_gecen = 0
 
 
 def _yavasla() -> None:
@@ -136,7 +167,10 @@ def _yavasla() -> None:
     KALIYORDU. Kaynak 2 saniyeyle de yetinmeyince yapacak bir sey
     kalmiyordu. Artik her redde ikiye katlaniyor, tavana kadar.
     """
-    global ARA_SN
+    global ARA_SN, _ardisik_gecen
+    # Iyilesme sayaci sifirlaniyor: "ardisik" gercekten ardisik olsun.
+    # Arasinda red olan yirmi basari, kaynagin toparladigini gostermez.
+    _ardisik_gecen = 0
     onceki = ARA_SN
     ARA_SN = min(max(ARA_SN * 2, YAVAS_ARA_SN), TAVAN_ARA_SN)
     if ARA_SN != onceki:
@@ -154,16 +188,30 @@ def _reddedildi() -> None:
 
 
 def _gecti() -> None:
-    """Bir istek basarili oldu: kapi hala acik."""
-    global _ardisik_red
+    """Bir istek basarili oldu: kapi hala acik.
+
+    YAVASLAMAYI GERI ALIR. Yukselmek tek redde oluyor, inmek
+    `IYILESME_ESIGI` kadar ardisik temiz istek istiyor -- neden orada
+    yaziyor.
+    """
+    global _ardisik_red, _ardisik_gecen, ARA_SN
     _ardisik_red = 0
+    if ARA_SN <= TABAN_ARA_SN:
+        return                       # zaten normal hizda; sayacak sey yok
+    _ardisik_gecen += 1
+    if _ardisik_gecen < IYILESME_ESIGI:
+        return
+    _ardisik_gecen = 0
+    ARA_SN = max(ARA_SN / 2, TABAN_ARA_SN)
+    print(f"    kaynak toparladi -- istek araligi {ARA_SN} sn")
 
 
 def sifirla() -> None:
     """Kosu durumunu basa alir (sinamalar ve art arda kosular icin)."""
-    global ARA_SN, _ardisik_red, KAPANDI
-    ARA_SN = 0.5
+    global ARA_SN, _ardisik_red, _ardisik_gecen, KAPANDI
+    ARA_SN = TABAN_ARA_SN
     _ardisik_red = 0
+    _ardisik_gecen = 0
     KAPANDI = False
     OKUNAMAYAN.clear()
 
