@@ -255,6 +255,24 @@ async function pbkdf2(parola, tuz, dongu) {
   return onaltilik(bit);
 }
 
+/* PAROLA KURALI TEK YERDE.
+ *
+ * Kural once `kayit` icinde satir iciydi. Parola degistirme ucu
+ * eklenince ayni kurali IKINCI KEZ yazmak gerekiyordu -- bu depoda
+ * "ayni karari veren iki kod yolu" defalarca birbirinden ayristi.
+ *
+ * Alt sinir 10 karakter, PBKDF2 dongusunun 100.000'de tavanli
+ * olmasinin telafisi (bkz. `PBKDF2_DONGU`). Ust sinir, uzun girdiyle
+ * CPU yakmaya karsi.
+ */
+function parolaKurali(parola) {
+  if (typeof parola !== "string" || !parola) return "Parola gerekli.";
+  if (parola.length < 10) return "Parola en az 10 karakter olmalı.";
+  if (parola.length > 200) return "Parola çok uzun.";
+  return "";
+}
+
+
 async function parolaOzetle(parola) {
   const tuz = rastgele(16);
   return `pbkdf2$${PBKDF2_DONGU}$${tuz}$${await pbkdf2(parola, tuz, PBKDF2_DONGU)}`;
@@ -589,10 +607,8 @@ async function kayit(istek, env) {
 
   if (!epostaGecerli(eposta)) return hata("Geçerli bir e-posta adresi girin.");
   if (ad.length < 2) return hata("Adınızı yazın.");
-  if (parola.length < 10) {
-    return hata("Parola en az 10 karakter olmalı.");
-  }
-  if (parola.length > 200) return hata("Parola çok uzun.");
+  const parolaKusuru = parolaKurali(parola);
+  if (parolaKusuru) return hata(parolaKusuru);
 
   const ip = istek.headers.get("cf-connecting-ip") || "?";
   if (await denemeArtir(db, `kayit:${ip}`, 3600, 5)) {
@@ -820,6 +836,79 @@ async function avatarKaydet(istek, env, u) {
  *
  * Ikisi de panelde SALT OKUNUR gosteriliyor -- gizlenmiyor. Alanin
  * neden degistirilemedigini gormek, alani hic gormemekten iyidir. */
+/* PAROLA DEGISTIRME.
+ *
+ * NEDEN VAR
+ * ---------
+ * Denetimde (2026-09-15) gorulen eksik: uye parolasini
+ * DEGISTIREMIYORDU. Parolasi baska bir sitede sizan bir kullanicinin
+ * yapabilecegi hicbir sey yoktu -- hesabi terk etmekten baska.
+ *
+ * ESKI PAROLA SORULUYOR
+ * ---------------------
+ * Oturum tek basina yetmez: odunc alinmis ya da calinmis bir oturum
+ * (acik birakilmis bilgisayar, calinan cerez) parolayi degistirip
+ * hesabi KALICI olarak ele geciremesin.
+ *
+ * DIGER OTURUMLAR KAPATILIYOR
+ * ---------------------------
+ * Parola degistirmenin asil amaci budur: "baskasi hesabimda" deyip
+ * parolayi degistiren kullanici, o baskasinin da dusmesini bekler.
+ * Yalnizca parolayi guncelleyip oturumlari birakmak, kullaniciya
+ * YAPILMAMIS bir seyi yapilmis gibi gosterirdi.
+ *
+ * KENDI oturumu KORUNUYOR: kullanici kendi islemi yuzunden
+ * disari atilmamali.
+ *
+ * GOOGLE HESABINDA PAROLA YOK
+ * ---------------------------
+ * `parola_ozet` bos olan hesaplar Google ile acilmis. Onlara burada
+ * parola KURDURULMUYOR: oturumu ele geciren biri, hesaba kalici bir
+ * giris yolu eklemis olurdu. Sebep sessizce gizlenmiyor, adiyla
+ * yaziliyor.
+ */
+async function parolaDegistir(istek, env, u) {
+  const db = env.DB;
+  const g = await istek.json().catch(() => ({}));
+  const eski = typeof g.eski === "string" ? g.eski : "";
+  const yeni = typeof g.yeni === "string" ? g.yeni : "";
+
+  /* SINIR HESABA BAGLI: eski parolayi deneyerek bulmaya calisan bir
+     saldirgan, calinan oturumla sinirsiz deneme yapamasin. */
+  if (await denemeArtir(db, `parola:${u.id}`, 900, 8)) {
+    return hata("Çok fazla deneme. 15 dakika sonra tekrar deneyin.", 429);
+  }
+
+  const kusur = parolaKurali(yeni);
+  if (kusur) return hata(kusur);
+
+  const k = await db.prepare("SELECT parola_ozet FROM uye WHERE id = ?")
+    .bind(u.id).first();
+  if (!k || !k.parola_ozet) {
+    return hata("Bu hesap Google ile açıldı ve parolası yok. "
+                + "Girişinizi Google üzerinden yapın.", 400);
+  }
+  if (!(await parolaDogrula(eski, k.parola_ozet))) {
+    return hata("Mevcut parola yanlış.", 400);
+  }
+  if (eski === yeni) {
+    return hata("Yeni parola eskisinden farklı olmalı.");
+  }
+
+  await db.prepare("UPDATE uye SET parola_ozet = ? WHERE id = ?")
+    .bind(await parolaOzetle(yeni), u.id).run();
+  await denemeSifirla(db, `parola:${u.id}`);
+
+  /* KENDI oturumu haric hepsi kapatiliyor. */
+  const jeton = cerezOku(istek, OTURUM_CEREZ);
+  await db.prepare(
+    "DELETE FROM oturum WHERE uye_id = ? AND jeton_ozeti <> ?",
+  ).bind(u.id, await sha256(jeton || "")).run();
+
+  return yanit({ tamam: true });
+}
+
+
 async function profilKaydet(istek, env, u) {
   const g = await istek.json().catch(() => ({}));
   const s = profilDogrula(g);
@@ -2305,6 +2394,8 @@ export default {
 
       if (y === "profil" && m === "POST")
         return await profilKaydet(istek, env, uye);
+      if (y === "parola" && m === "POST")
+        return await parolaDegistir(istek, env, uye);
       if (y === "avatar" && m === "POST")
         return await avatarKaydet(istek, env, uye);
 
