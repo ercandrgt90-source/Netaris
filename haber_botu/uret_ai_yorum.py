@@ -267,9 +267,27 @@ def secilenler(haberler: list[dict], var: set[str], dosyalar: dict) -> list[dict
         if not h.get("yorumlanir") or adres in var:
             continue
         d = dosyalar.get(adres)
+        # OLCUT "VERI VAR MI" DEGIL, "SAYFADA BASILACAK VERI VAR MI".
+        #
+        # Once `d.acilis` yeterliydi. Ama sablon acilisi yalnizca
+        # `acilis_basilir` iken basiyor (kutu basilan sayfalarda
+        # basmiyor). Yani sayfada GORUNMEYECEK bir veriye dayanip
+        # yorum uretiliyor, sonra `insa.py` onu "sayfada karsiligi
+        # olmayan sayi" diye ELIYOR.
+        #
+        # Olculdu (2026-09-15): 132 sayfa tam bu durumdaydi -- depoda
+        # yorumu var, sayfada yorumu yok, ve `uret_ai_yorum` "yorumu
+        # var" deyip bir daha uretmiyor. Sessiz bir kilit.
+        # Olcut hizalaninca aday sayisi 132'den 31'e iniyor: kalan
+        # 101'in gercekten anlatacak basili verisi yok.
+        #
+        # Ayni kosul `girdi_kur`, `haber.html` ve
+        # `insa._yorum_dogrulanabilir` icinde de `acilis_basilir`
+        # uzerinden soruluyor -- dordu de ayni soruyu sormali.
         veri_var = bool(
             (h.get("ozet") or "").strip()
-            or (d is not None and (d.acilis or d.bulgular or d.turkiye)))
+            or (d is not None and ((d.acilis and d.acilis_basilir)
+                                   or d.bulgular or d.turkiye)))
         if not veri_var:
             continue
         o = olay.siniflandir(h.get("baslik_kaynak") or h.get("baslik", ""),

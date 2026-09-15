@@ -231,6 +231,58 @@ def ihlaller(k: sqlite3.Connection) -> list[tuple[str, str, list[str]]]:
     return kotu
 
 
+def elenenler(k) -> list[tuple[str, str]]:
+    """Sayfasi VAR ama yorumu BASILMAMIS kayitlar -- (adres, yol).
+
+    NEDEN AYRI BIR KATEGORI
+    -----------------------
+    `insa.py` sayfada karsiligi olmayan sayi tasiyan yorumu ELIYOR ve
+    bu dogru: okur, yorumda gordugu rakami sayfada bulamamali.
+
+    Ama elenen yorum DEPODA KALIYOR ve `uret_ai_yorum` "bu adresin
+    yorumu var" deyip bir daha uretmiyor. Sonuc sessiz bir kilit:
+    sayfa KALICI olarak yorumsuz kaliyor, hicbir yerde kirmizi
+    yanmiyor.
+
+    Olculdu (2026-09-15): 110 sayfa bu durumda. 97'si Jeopolitik ve
+    sayfalarinda hicbir veri yok (ozet yok, acilis basilmiyor, bulgu
+    ve gosterge sifir). Yorumlar 22-27 Agustos'ta, girdinin daha genis
+    oldugu donemde uretilmisti; icerikleri sayfayla artik ortusmuyor.
+
+    Bazilari ayrica LISANSSIZ endeks degeri tasiyor:
+
+        "S&P 500'un 20 Agustos 2026 kapanisindaki 7641,16 seviyesi..."
+
+    Yayimlanmiyorlar -- render suzgeci onlari zaten dusuruyor -- ama
+    depoda durmalarinin da bir faydasi yok.
+
+    TEMIZLIK NEDEN DONGU YARATMIYOR
+    -------------------------------
+    `uret_ai_yorum.secilenler` adayligi "anlatacak olculmus bir sey
+    var mi" olcutune bagliyor: ozet, acilis, bulgu ya da Turkiye
+    paneli. Bu sayfalarda hicbiri yok, yani silinen kayit ADAY
+    OLARAK GERI GELMIYOR ve ikinci bir model cagrisi olusmuyor.
+
+    IHLAL DEGIL: cikis kodunu etkilemiyor. Bu kapi bir kez butun
+    siteyi durdurmustu (2026-08-24, 18 ihlalin 16'si tam bu
+    kategoriydi) ve dersi kodda yazili -- okurun goremedigi bir metin
+    yayini durdurmamali.
+    """
+    cikti: list[tuple[str, str]] = []
+    for adres, yol in k.execute(
+            """SELECT a.adres, h.yayin_yolu FROM ai_yorum a
+                 JOIN haber h ON h.adres = a.adres
+                WHERE h.yayimlandi = 1 AND h.yayin_yolu IS NOT NULL"""):
+        if sayfa_yorumu(yol) is not None:
+            continue
+        # SAYFA GERCEKTEN VAR MI: uretilmemis sayfayi "elenmis"
+        # saymak, her temiz kurulumda butun yorumlari silerdi.
+        p = CIKTI / yol.strip("/") / "index.html"
+        if p.exists():
+            cikti.append((adres, yol))
+    return cikti
+
+
 def denetlenen_sayisi(k: sqlite3.Connection) -> int:
     """Sayfada GERCEKTEN basilmis, yani denetlenebilen yorum sayisi.
 
@@ -273,6 +325,9 @@ def main() -> int:
     print(f"depodaki yorum   : {toplam}")
     print(f"sayfada basilan  : {basili}   <- DENETLENEN")
     print(f"ihlal            : {len(kotu)}")
+    _elenen = elenenler(k)
+    print(f"elenmis (kilitli): {len(_elenen)}"
+          + ("   <- sayfa kalici olarak yorumsuz" if _elenen else ""))
     if toplam and not basili:
         # Sifir basili yorum + sifir ihlal = kontrol HICBIR SEY
         # olcmuyor demek. Bu arac iki kez tam bu durumda "temiz"
@@ -283,6 +338,26 @@ def main() -> int:
         print(f"  {', '.join(yok[:3]):<26} {yol}")
     if len(kotu) > 10:
         print(f"  ... {len(kotu) - 10} tane daha")
+
+    # ELENENLERIN TEMIZLIGI -- IHLAL DEGIL.
+    #
+    # `insa.py` sayfada karsiligi olmayan sayi tasiyan yorumu eliyor
+    # ve bu dogru. Ama elenen yorum DEPODA KALIYOR ve
+    # `uret_ai_yorum` "bu adresin yorumu var" deyip bir daha
+    # uretmiyor: sayfa KALICI olarak yorumsuz kaliyor.
+    #
+    # Cikis kodunu ETKILEMIYOR. Bu kapi bir kez butun siteyi
+    # durdurmustu (2026-08-24) ve dersi yukarida yazili: okurun
+    # goremedigi bir metin yayini durdurmamali.
+    if _elenen and n.temizle:
+        k.executemany("DELETE FROM ai_yorum WHERE adres = ?",
+                      [(a,) for a, _y in _elenen])
+        k.commit()
+        print(f"{len(_elenen)} elenmis yorum depodan silindi.")
+    elif _elenen:
+        print("Silmek icin --temizle. Bu kayitlar sayfaya HIC "
+              "ulasmiyor;\ndepoda durmalari yalnizca yeniden "
+              "uretimi engelliyor.")
 
     if not kotu:
         print("\nHer yorumdaki her sayi sayfasinda geciyor.")

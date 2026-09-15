@@ -183,6 +183,56 @@ finally:
     yd.CIKTI = onceki
     shutil.rmtree(kok, ignore_errors=True)
 
+
+# ---------------------------------------------------------------------
+# ELENEN YORUM DEPODA KILITLENIYORDU
+#
+# `insa.py` sayfada karsiligi olmayan sayi tasiyan yorumu ELIYOR --
+# dogru: okur, yorumda gordugu rakami sayfada bulamamali. Ama elenen
+# yorum DEPODA KALIYOR ve `uret_ai_yorum` "bu adresin yorumu var"
+# deyip bir daha uretmiyor. Sayfa KALICI olarak yorumsuz kaliyor ve
+# hicbir yerde kirmizi yanmiyor.
+#
+# Olculdu (2026-09-15): 132 kayit bu durumdaydi. Bazilari ayrica
+# LISANSSIZ endeks degeri tasiyordu ("S&P 500'un ... 7641,16
+# seviyesi") -- yayimlanmiyorlardi ama depoda durmalarinin da faydasi
+# yoktu.
+#
+# IHLAL DEGIL: cikis kodunu etkilemiyor. Bu kapi bir kez butun siteyi
+# durdurmustu (2026-08-24) ve dersi kodda yazili.
+# ---------------------------------------------------------------------
+print("\nElenen yorum: sayfa VAR, yorum BASILMAMIS")
+with tempfile.TemporaryDirectory() as _d:
+    _kok = pathlib.Path(_d)
+    _k = _depo()
+    _asil_cikti, yd.CIKTI = yd.CIKTI, _kok
+    try:
+        # 1. Sayfa var, yorum BASILMIS -> elenmis degil.
+        _kur(_kok, _k, "/haber/a1/", "Sayfada 3,33 yaziyor.",
+             "Yorum 3,33 diyor.", "Yorum 3,33 diyor.")
+        # 2. Sayfa var, yorum blogu YOK -> elenmis.
+        _kur(_kok, _k, "/haber/a2/", "Sayfada bir sey yok.",
+             None, "Yorum 9,99 diyor.")
+        _e = {y for _a, y in yd.elenenler(_k)}
+        es("basilmayan yorum yakalaniyor", "/haber/a2/" in _e, True)
+        es("basilan yorum yakalanmiyor", "/haber/a1/" not in _e, True)
+
+        # 3. SAYFASI OLMAYAN kayit elenmis SAYILMAZ.
+        #    Uretilmemis sayfayi "elenmis" saymak, her temiz
+        #    kurulumda butun yorumlari silerdi.
+        _k.execute("insert into ai_yorum values(?,?)",
+                   ("/haber/a3/", "Yorum"))
+        _k.execute("insert into haber(adres, yayin_yolu, yayimlandi,"
+                   " baslik_kaynak, baslik_tr, kurum, sayfa_veri)"
+                   " values(?,?,1,?,?,?,?)",
+                   ("/haber/a3/", "/haber/a3/", "B", "B", "TCMB", "{}"))
+        _e = {y for _a, y in yd.elenenler(_k)}
+        es("sayfasi olmayan kayit elenmis SAYILMIYOR",
+           "/haber/a3/" not in _e, True)
+    finally:
+        yd.CIKTI = _asil_cikti
+        _k.close()
+
 print()
 for x in kaldi:
     print("  KALDI", x)
