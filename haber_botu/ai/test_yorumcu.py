@@ -80,6 +80,60 @@ sina("yuvarlama serbest (31,75 -> 31,8)",
 sina("gercekten uydurulan sayi HALA yakalanir",
      yorumcu.sayi_denetimi("TÜFE %28,40'a inecek.", GIRDI) != [])
 
+# --- bosluklu binlik ayraci ------------------------------------------
+#
+# Sayi deseni (-?\d[\d.,]*) bosluk icermiyor. Model binlik ayracini
+# BOSLUKLA yaziyor -- Turkce ve SI tipografisinde dogru olan bu -- ve
+# denetleyici tek sayiyi PARCALIYORDU:
+#
+#     cikti "77 913,10 $"  ->  77  ve  913.1   -> "girdide olmayan sayi"
+#
+# Olculdu (2026-09-15): gunun "uydurulan sayi" retlerinden incelenen
+# dordunun DORDU de bu bicim sorunuydu; model dogru rakami dogru
+# yazmisti.
+
+sina("bosluklu binlik: 77 913,10",
+     yorumcu.sayi_denetimi(
+         "Bitcoin fiyatı 77 913,10 $ seviyesine geriledi.",
+         "Gösterge: Bitcoin kapanış 77.913,10 $ (önceki 80.512,00 $)") == [])
+
+sina("bosluklu binlik: ingilizce girdi 107,500",
+     yorumcu.sayi_denetimi(
+         "Sözleşmelerde 107 500 $ kazanç sağladı.",
+         "Veri: profiting more than $107,500 before the CFTC") == [])
+
+sina("bosluklu binlik: 27 156 BTC",
+     yorumcu.sayi_denetimi(
+         "2026 sonunda 27 156 BTC tutmasını öngörüyor.",
+         "Veri: TD Cowen expects Strive to end 2026 with 27,156 BTC") == [])
+
+# DAR BOSLUK (U+202F) ve KIRILMAZ BOSLUK (U+00A0) de ayrac sayiliyor:
+# model duz bosluk yerine bunlari da yaziyor ve gozle ayirt edilmiyor.
+sina("dar bosluk (U+202F) ayrac sayiliyor",
+     yorumcu.sayi_denetimi(
+         "Fiyat 77\u202f913,10 $ oldu.",
+         "Gösterge: Bitcoin kapanış 77.913,10 $") == [])
+sina("kirilmaz bosluk (U+00A0) ayrac sayiliyor",
+     yorumcu.sayi_denetimi(
+         "Fiyat 77\u00a0913,10 $ oldu.",
+         "Gösterge: Bitcoin kapanış 77.913,10 $") == [])
+
+# KORUMA ZAYIFLAMADI -- birlestirme yalnizca GIRDIDE KARSILIGI VARSA
+# yapiliyor. Kor birlestirme yeni yanlis pozitifler uretirdi.
+sina("uydurulan bosluklu sayi HALA yakalaniyor",
+     yorumcu.sayi_denetimi(
+         "Fiyat 99 999 $ oldu.",
+         "Gösterge: Bitcoin kapanış 77.913,10 $") != [])
+sina("uydurulan duz sayi HALA yakalaniyor",
+     yorumcu.sayi_denetimi(
+         "Enflasyon %44,5 oldu.", "Gösterge: TÜFE %31,75") != [])
+
+# Girdide karsiligi YOKSA parcalar oldugu gibi kaliyor: "75 100"
+# gercekten iki ayri sayi olabilir ve ikisi de girdide varsa gecer.
+sina("gercekten ayri iki sayi bozulmuyor",
+     yorumcu.sayi_denetimi(
+         "Değer 75 100 arasında.", "Bulgu: alt sınır 75, üst sınır 100") == [])
+
 # --- yasak kaliplar --------------------------------------------------
 
 YASAK_ORNEK = [

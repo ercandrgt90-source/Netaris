@@ -518,6 +518,55 @@ def _politika_faizi_kusuru(cikti: str, girdi: str) -> str:
             f"{sorted(izinli)}")
 
 
+#: Bosluk aileli binlik ayraclari. Model duz bosluk yerine DAR
+#: BOSLUK (U+202F) ya da kirilmaz bosluk (U+00A0) da yaziyor.
+_BINLIK_BOSLUK = "\u0020\u00a0\u202f\u2009\u2007"
+
+#: "77 913,10" / "27 156" bicimindeki gruplar.
+_BOSLUKLU_BINLIK = re.compile(
+    r"\d{1,3}(?:[" + _BINLIK_BOSLUK + r"]\d{3})+(?:,\d+)?")
+
+
+def _binligi_birlestir(cikti: str, girdi_degerleri: set[float]) -> str:
+    r"""Bosluklu binlik gruplarini, GIRDIDE KARSILIGI VARSA birlestirir.
+
+    NEDEN GEREKLI
+    -------------
+    Sayi deseni (`-?\d[\d.,]*`) bosluk icermiyor. Model binlik
+    ayracini BOSLUKLA yaziyor -- Turkce ve SI tipografisinde dogru olan
+    bu -- ve denetleyici tek sayiyi PARCALIYOR:
+
+        cikti "77 913,10 $"  ->  77  ve  913.1
+        cikti "107 500 $"    ->  107 ve  500
+        cikti "27 156 BTC"   ->  27  ve  156
+
+    Parcalar girdide bulunmadigi icin "girdide olmayan sayi" deniyor.
+    Olculdu (2026-09-15): gunun 27 "uydurulan sayi" reddinin
+    incelenen dordunun DORDU de bu bicim sorunuydu; model dogru
+    rakami dogru yazmisti:
+
+        Ozet  : "...profiting more than $107,500 before the CFTC..."
+        Cikti : "...sozlesmelerinde 107 500 $ kazanc sagladi..."  -> RED
+
+    BELIRSIZLIK GIRDIYLE COZULUYOR
+    ------------------------------
+    "75 100" iki ayri sayi da olabilir, 75.100 de. Kor birlestirme
+    YENI yanlis pozitifler uretirdi. Bu yuzden birlestirme yalnizca
+    birlesik degerin GIRDIDE karsiligi varsa yapiliyor; yoksa parcalar
+    oldugu gibi birakiliyor ve uydurma tespiti aynen surer.
+    """
+    def _degistir(m: "re.Match[str]") -> str:
+        ham = m.group(0)
+        duz = re.sub("[" + _BINLIK_BOSLUK + "]", "", ham)
+        for d in _sayilar(duz):
+            if any(abs(d - x) <= max(abs(x), 1.0) * _TOLERANS
+                   for x in girdi_degerleri):
+                return duz
+        return ham
+
+    return _BOSLUKLU_BINLIK.sub(_degistir, cikti)
+
+
 def sayi_denetimi(cikti: str, girdi: str) -> list[str]:
     """Ciktida olup girdide olmayan sayilari dondurur.
 
@@ -525,6 +574,9 @@ def sayi_denetimi(cikti: str, girdi: str) -> list[str]:
     rakam uretemiyorsa uydurma yapamaz.
     """
     g = _sayilar(girdi)
+    # Bosluklu binlik ayraci, girdide karsiligi varsa tek sayi sayilir.
+    # Gerekcesi `_binligi_birlestir` basinda.
+    cikti = _binligi_birlestir(cikti, g)
     kacak = []
     for s in _sayilar(cikti):
         if s < 10:            # tek haneli: "3 cumle", "1 puan"
