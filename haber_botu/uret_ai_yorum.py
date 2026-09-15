@@ -138,6 +138,17 @@ def anlatacak_veri_yok(b, girdi: str, h: dict) -> bool:
     anlatabilir ve baglam kontrolu (haber_metni ile) onu zaten dogru
     degerlendiriyor.
     """
+    # GIRDI HIC OLUSMADIYSA da anlatacak sey yoktur.
+    #
+    # `yorumla` bunu zaten reddediyor ve MODEL CAGIRMIYOR -- yani
+    # maliyeti yok. Ama iki seye mal oluyordu: kota yuvasi harciyordu
+    # ve model hatasi OLMADIGI halde `ai_ret`e "red" olarak
+    # yaziliyordu, yani red istatistiklerini sisiriyordu. Bu oturumda
+    # hattin teshisi tam da o istatistiklere dayandi.
+    #
+    # Esik `yorumcu.EN_AZ_GIRDI`den okunuyor, kopyalanmiyor.
+    if len(girdi) < yorumcu.EN_AZ_GIRDI:
+        return True
     kendi = haberin_kendi_metni(h)
     # `olcum_var` GIRDI BICIMINI bekliyor ("Veri:", "Gosterge:",
     # "Acilis:" onekli satirlar). Ham ozeti dogrudan vermek her zaman

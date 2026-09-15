@@ -184,7 +184,9 @@ _YABANCI = "Açılış: ABD 10 yıllık tahvil getirisi %4,96; 1 ayda yükseldi.
 _YERLI = "Gösterge: TÜFE %31,75 (önceki %32,10)."
 
 _G_YABANCI = """Haber: Guangzhou Automobile hissesi neden yükselişte?
-Açılış: ABD 10 yıllık tahvil getirisi %4,96; 1 ayda yükseldi."""
+Açılış: ABD 10 yıllık tahvil getirisi %4,96; 1 ayda yükseldi.
+Bulgu: Sektör görünümü değerlendirmesi sürüyor ve izlenecek başlıklar arasında yer alıyor.
+Etkilenen sektörler (sırayla): Bankacılık, Sanayi"""
 
 # KURGU, YALNIZCA "kendi olcumu var" KORUMASININ BELIRLEYICI OLDUGU
 # HALDE kuruldu.
@@ -202,13 +204,43 @@ Veri: Sanayi üretimi yüzde 2,5 azaldı.
 Açılış: ABD 10 yıllık tahvil getirisi %4,96; 1 ayda yükseldi."""
 
 _G_YERLI = """Haber: Enflasyon açıklandı
-Gösterge: TÜFE %31,75 (önceki %32,10)."""
+Gösterge: TÜFE %31,75 (önceki %32,10).
+Bulgu: Sektör görünümü değerlendirmesi sürüyor ve izlenecek başlıklar arasında yer alıyor.
+Etkilenen sektörler (sırayla): Bankacılık, Sanayi"""
 
 _G_BAGLANMAYAN = """Haber: Bir başlık
-Açılış: değer 777,77 seviyesinde."""
+Açılış: değer 777,77 seviyesinde.
+Bulgu: Sektör görünümü değerlendirmesi sürüyor ve izlenecek başlıklar arasında yer alıyor.
+Etkilenen sektörler (sırayla): Bankacılık, Sanayi"""
 
 _G_ULKESIZ = """Haber: Bir başlık
-Açılış: ABD 10 yıllık tahvil getirisi %4,96; 1 ayda yükseldi."""
+Açılış: ABD 10 yıllık tahvil getirisi %4,96; 1 ayda yükseldi.
+Bulgu: Sektör görünümü değerlendirmesi sürüyor ve izlenecek başlıklar arasında yer alıyor.
+Etkilenen sektörler (sırayla): Bankacılık, Sanayi"""
+
+# 0. GIRDI HIC OLUSMADIYSA da anlatacak sey yoktur.
+#
+# `yorumla` bunu zaten reddediyor ve MODEL CAGIRMIYOR -- maliyeti yok.
+# Ama kota yuvasi harciyor ve model hatasi OLMADIGI halde `ai_ret`e
+# "red" olarak yaziliyordu; red istatistiklerini sisiriyordu.
+# Olculdu (2026-09-15): 55 girdinin 1'i bu durumda.
+#
+# ESIK KOPYALANMIYOR: `yorumcu.EN_AZ_GIRDI`den okunuyor. Sayiyi ikinci
+# kez yazmak, bu depoda defalarca ayrisan "ayni karari veren iki kod
+# yolu" demekti.
+_KISA = "Haber: Kısa\nKonu: X"
+dogru("kisa girdi kurgusu gercekten kisa",
+      len(_KISA) < yorumcu.EN_AZ_GIRDI)
+dogru("kisa girdi atlaniyor",
+      U.anlatacak_veri_yok(
+          _sahte, _KISA,
+          {"baslik": "Kısa", "kurum": "TCMB", "bolge": "TR", "ozet": ""}))
+# Esigin USTUNDEKI girdi bu kapiya takilmiyor.
+dogru("yeterli uzunluktaki girdi bu kapiya takilmiyor",
+      not U.anlatacak_veri_yok(
+          _sahte, _G_YERLI + " " + "dolgu " * 30,
+          {"baslik": "Enflasyon açıklandı", "kurum": "TCMB", "bolge": "TR",
+           "ozet": ""}))
 
 # 1. Kendi olcumu YOK + veri baska ulkeden -> ATLA.
 dogru("olcumsuz haber + yabanci veri -> atlaniyor",

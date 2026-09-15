@@ -264,6 +264,14 @@ CEVAPSIZ = re.compile(
 #: ifadeler girdide gecmiyor ama uydurma da degil.
 _KISA_SAYI = 2
 
+#: Modele gonderilmeye deger en kisa girdi.
+#:
+#: SAYI OLARAK GOMULUYDU (`len(girdi) < 120`). Cagiran taraf ayni
+#: karari vermek istediginde sayiyi KOPYALAMAK zorunda kalirdi ve bu
+#: depoda "ayni karari veren iki kod yolu" defalarca birbirinden
+#: ayrildi. Tek yerde duruyor.
+EN_AZ_GIRDI = 120
+
 #: En fazla cumle. Yonergede de yazili ama zayif model duzenli olarak
 #: asiyor ve girdiyi tekrarlayan paragraflar uretiyor. Dort cumleye
 #: musaade var: uc cumle hedef, biri pay.
@@ -892,7 +900,7 @@ def yorumla(girdi: str, sistem_ozel: str = "") -> tuple[str, str, str, str]:
     modelin ne yazdigina bakarak cevaplanabiliyor. Sessiz basarisizlik
     olmuyor -- hem gunluge hem depoya yaziliyor.
     """
-    if len(girdi) < 120:
+    if len(girdi) < EN_AZ_GIRDI:
         return "", "", "girdi cok kisa", ""
     s = saglayici()
     if not s:
