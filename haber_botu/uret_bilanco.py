@@ -78,6 +78,27 @@ KUCULME_ESIGI = 0.6
 #: sektor atlaniyordu. Olculdu (2026-09-14): 11 sektorun 8'i boyle
 #: elendi, kapsam 327 sirketten 47'ye dustu ve kosu YESIL bitti.
 #:
+#: Sektor supurmesinin SURE BUTCESI (dakika). Asilinca kalan
+#: sektorler atlaniyor ve o ana kadarki veri NORMAL YOLDAN yaziliyor.
+#:
+#: NEDEN VAR -- olculdu 2026-09-15.
+#:
+#: `sektor_ozet.json` TEK SEFERDE, dongunun en sonunda yaziliyor.
+#: Yani kosu ortada kesilirse o ana kadarki butun emek cope gidiyor:
+#: yarim kalan bir kosu, hic kosmamis bir kosuyla ayni sonucu
+#: veriyordu.
+#:
+#: O gun calisan kosu "Bilanco verisi" adiminda 97 DAKIKAYI gecti ve
+#: hala tek satir yazmamisti. Is akisinin kendi siniri
+#: `timeout-minutes: 330` -- yani en kotu durumda bes buçuk saat
+#: calisip SIFIR uretebilirdi.
+#:
+#: Butce dolunca durmak veri kaybettirmiyor: cekilmeyen sektorler
+#: `onceki_ozet`ten geliyor (birlestirme) ve sira BAYATLIGA gore
+#: kuruldugu icin bir sonraki kosu kaldigi yerden devam ediyor. Uc
+#: duzenek birlikte yakinsiyor.
+SURE_BUTCESI_DK = 45
+
 #: Bes yeterli: ayni sektordeki bes sirketin hepsinin ayni anda
 #: cekilememesi, tek bir sirketin cekilememesinden cok daha guclu bir
 #: ariza isareti -- o durumda sektoru atlamak dogru. Maliyet en kotu
@@ -153,6 +174,29 @@ def _simdi_iso() -> str:
     """Saniye cozunurluklu UTC damgasi."""
     from datetime import datetime, timezone         # noqa: PLC0415
     return datetime.now(timezone.utc).isoformat(timespec="seconds")
+
+
+def butce_doldu(gecen_dk: float, butce_dk: float, islenen: int) -> bool:
+    """Sektor supurmesi burada kesilmeli mi.
+
+    NEDEN AYRI ISLEV
+    ----------------
+    Karar `main` icinde satir iciydi ve sinanamiyordu. Bu depoda
+    mantigi KOPYALAYAN bir sinama daha once mutasyonu kacirdi
+    (`kuyruk_kur`): uretimdeki kural kaldirildiginda sinama yine
+    yesil kaldi, cunku olctugu sey kendi kopyasiydi.
+
+    ILK SEKTOR HER ZAMAN ISLENIYOR (`islenen` sifirken False).
+    Bu bir ozen degil, KORUMA: butce sifir ya da cok kucuk
+    verildiginde dongu hic donmeden cikardi, `cikti` yalnizca onceki
+    veriyi tasirdi ve kosu "tazelenen 0" diye biterdi. Daha kotusu,
+    `--sektor` ile tek sektorluk kosularda butce o tek sektoru de
+    atlardi -- yani en cok is goren yol, hic is gormezdi.
+
+    Esik KATI (`>`): tam butcede duran bir kosu, butceyi "asmadan"
+    bitmis sayilir.
+    """
+    return bool(islenen) and gecen_dk > butce_dk
 
 
 def mevcut_ozet() -> dict:
@@ -322,6 +366,8 @@ def main() -> int:
     a.add_argument("--ceyrek", type=int, default=1)
     a.add_argument("--sinir", type=int, help="sektör başına en fazla şirket")
     a.add_argument("--kuru-calis", action="store_true", help="dosyaya yazma")
+    a.add_argument("--butce-dk", type=float, default=SURE_BUTCESI_DK,
+                   help="sektor supurmesi sure butcesi (dakika)")
     a.add_argument("--zorla-yaz", action="store_true",
                    help="kapsam cokse de yaz (bkz. KUCULME_ESIGI)")
     a.add_argument("--zorla", action="store_true",
@@ -385,7 +431,24 @@ def main() -> int:
     cikti = dict(onceki_ozet)
     tazelenen: list[str] = []
     korunan: list[str] = []
-    for s in sektorler:
+    butce_atladi: list[str] = []
+    _baslangic = time.monotonic()
+    for _i, s in enumerate(sektorler):
+        # SURE BUTCESI -- bkz. `SURE_BUTCESI_DK`.
+        #
+        # Butce dolunca kalan sektorler atlaniyor ve donguden
+        # CIKILIYOR; yazma asagida, NORMAL yoldan oluyor. Burada ayri
+        # bir yazma yok: ayni karari iki yerde vermek, birinin
+        # korumalari atlamasi demekti.
+        _gecen = (time.monotonic() - _baslangic) / 60
+        if butce_doldu(_gecen, n.butce_dk, _i):
+            butce_atladi = list(sektorler[_i:])
+            print(f"\n  SURE BUTCESI DOLDU ({_gecen:.0f} dk > "
+                  f"{n.butce_dk:.0f} dk) -- {len(butce_atladi)} sektor atlandi: "
+                  f"{', '.join(butce_atladi)}")
+            print("    Bunlar onceki verileriyle korunuyor; siradaki kosu "
+                  "en bayat olandan basliyor.")
+            break
         # DONEM ETIKETI VERIDEN TURETILIYOR, ELLE YAZILMIYOR.
         #
         # Once `--donem 2026/6` varsayilaniyla geliyordu ve KASIM'da
@@ -513,9 +576,15 @@ def main() -> int:
               f"{', '.join(sorted(_dokunulmayan))}")
 
     # EKSIK TAZELENEN KOSU, KOSU SAYFASINDA GORUNUR.
+    #
+    # BUTCEYLE ATLANAN, "HIC CEKILEMEYEN" DEGILDIR. Ikisini ayni
+    # satirda saymak, planli bir durusu ariza gibi okuturdu -- ve
+    # tersi daha kotu: gercek bir arizayi "zaten butce doldu" diye
+    # gecistirirdi.
     _atlanan = [k for k in sektorler
-                if k not in tazelenen and k not in korunan]
-    if korunan or _atlanan:
+                if k not in tazelenen and k not in korunan
+                and k not in butce_atladi]
+    if korunan or _atlanan or butce_atladi:
         _u = ["### Bilanço verisi EKSİK tazelendi", "",
               f"tazelenen: **{len(tazelenen)} / {len(sektorler)}** sektör",
               ""]
@@ -524,6 +593,12 @@ def main() -> int:
         if korunan:
             _u.append("- kapsamı çöktüğü için önceki hâliyle korunan: "
                       f"{', '.join(sorted(korunan))}")
+        if butce_atladi:
+            _u.append(f"- **süre bütçesi** ({n.butce_dk:.0f} dk) dolduğu "
+                      "için sıraya bırakılan: "
+                      f"{', '.join(sorted(butce_atladi))}")
+            _u.append("  (arıza değil: sıra bayatlığa göre kurulduğu için "
+                      "sonraki koşu bunlardan başlıyor)")
         try:
             import bilanco_ag as _bx                  # noqa: PLC0415
             if getattr(_bx, "KAPANDI", False):
