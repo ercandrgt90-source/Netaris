@@ -135,6 +135,55 @@ async function iste(yol, dosyalar = DOSYALAR, izle) {
   esit(y.status, 404, "sayfasiz da olsa 404");
   esit(await y.text(), "", "govde bos -- worker kendi sayfasini uydurmuyor");
 
+  console.log("\nIki yonlendirme katmani AYRISMIYOR\n");
+  /* AYNI KARAR IKI YERDE YAZILI ve ikisi de CALISIYOR.
+     Olculdu (2026-09-15), ayirt eden sey `Location` bicimi:
+
+         /haber/   ->  Location: /gundem/                 (_redirects)
+         /haber    ->  Location: https://netaris.net/gundem  (worker.js)
+
+     Varlik katmani worker'dan ONCE calisiyor ve `_redirects`i o
+     uyguluyor; slash'li yazim orada eslesip worker'a hic gelmiyor,
+     slash'siz yazim `_redirects`te olmadigi icin worker'a dusuyor.
+
+     worker.js'teki eski not "`_redirects` hic degerlendirilmiyor"
+     diyordu -- yanlisti, ve o inanca dayanarak yeni bir yonlendirmeyi
+     yalnizca worker'a ekleyen biri, `/x/` yazimini SESSIZCE 404'te
+     birakirdi. Bu sinama ikisini karsilastiriyor: bolum koku
+     yonlendirmeleri (tek parcali yollar) iki katmanda da ayni yere
+     gitmeli. */
+  const kokSatir = kaynak.match(/const kok = \{([^}]*)\}/);
+  esit(Boolean(kokSatir), true, "worker.js kok haritasi bulundu");
+
+  function sadelestir(y) {
+    return y.length > 1 && y.endsWith("/") ? y.slice(0, -1) : y;
+  }
+  function tekParcali(y) {
+    return sadelestir(y).split("/").filter(Boolean).length === 1;
+  }
+
+  const wrkKok = {};
+  for (const m of kokSatir[1].matchAll(/"([^"]+)"\s*:\s*"([^"]+)"/g)) {
+    if (tekParcali(m[1])) wrkKok[sadelestir(m[1])] = sadelestir(m[2]);
+  }
+
+  const yonDosya = path.join(__dirname, "cikti", "_redirects");
+  if (!fs.existsSync(yonDosya)) {
+    console.log("  ATLANDI  cikti/_redirects yok (once `python site/insa.py`)");
+  } else {
+    const statikKok = {};
+    for (const satir of fs.readFileSync(yonDosya, "utf8").split("\n")) {
+      const p = satir.trim().split(/\s+/);
+      if (p.length < 2 || !p[0].startsWith("/")) continue;
+      if (tekParcali(p[0])) statikKok[sadelestir(p[0])] = sadelestir(p[1]);
+    }
+    esit(Object.keys(wrkKok).sort(), Object.keys(statikKok).sort(),
+         "ayni bolum kokleri iki katmanda da tanimli");
+    esit(wrkKok, statikKok, "hedefler ayni yere gidiyor");
+    esit(Object.keys(wrkKok).length > 0, true,
+         "karsilastirma bos degil (en az bir kok)");
+  }
+
   console.log("\n" + gecti + " gecti, " + kaldi.length + " kaldi");
   process.exit(kaldi.length ? 1 : 0);
 })();

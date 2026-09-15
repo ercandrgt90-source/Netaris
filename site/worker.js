@@ -2367,19 +2367,33 @@ export default {
       if (y) return y;
     }
 
-    /* BOLUM KOKU YONLENDIRMESI -- statik akistan ONCE.
+    /* BOLUM KOKU YONLENDIRMESI.
        Olculdu: `/haber/` 404 donuyordu. Dizinde tek tek haber
        sayfalari var ama liste sayfasi yok.
 
-       Once bunu `_redirects` dosyasiyla cozmeye calistim ve
-       CALISMADI: istek buraya once giriyor, `env.ASSETS.fetch`
-       dosyayi bulamayinca 404 donuyor ve `_redirects` hic
-       degerlendirilmiyor. Yonlendirme, statik akisa DUSMEDEN once
-       burada olmali.
-
        Hedef `/gundem/`: zaten tam olarak o liste. Ikinci bir kopya
        uretmek iki adreste ayni icerik demek ve ikisi birbirinin
-       arama siralamasini yer. */
+       arama siralamasini yer.
+
+       BURADAKI ESKI NOT YANLISTI. "`_redirects` hic
+       degerlendirilmiyor" yaziyordu; olculdu (2026-09-15) ve tersi
+       cikti. Iki katman da CALISIYOR, her biri adresin farkli bir
+       yazimini yakaliyor -- ayirt eden sey `Location` bicimi:
+
+           /haber/   ->  Location: /gundem/                (_redirects)
+           /haber    ->  Location: https://netaris.net/gundem  (burasi)
+
+       Sebep: varlik katmani worker'dan ONCE calisiyor
+       (`run_worker_first` verilmedi) ve `_redirects`i o uyguluyor.
+       Slash'li yazim orada eslesiyor, buraya hic gelmiyor;
+       slash'siz yazim `_redirects`te YOK, dolayisiyla buraya
+       dusuyor.
+
+       IKISI DE KALIYOR ama AYRISMAMALARI gerekiyor: ayni karar iki
+       yerde yaziliysa biri guncellenip oteki unutulur ve `/x` ile
+       `/x/` farkli davranir. `site/test_bulunamadi_servis.js` ikisini
+       karsilastiriyor -- buradaki her hedef, `insa.py`in urettigi
+       `_redirects` ile ayni yere gitmeli. */
     const kok = { "/haber": "/gundem", "/haber/": "/gundem/" };
     if (kok[u.pathname]) {
       return Response.redirect(new URL(kok[u.pathname], u.origin), 301);
