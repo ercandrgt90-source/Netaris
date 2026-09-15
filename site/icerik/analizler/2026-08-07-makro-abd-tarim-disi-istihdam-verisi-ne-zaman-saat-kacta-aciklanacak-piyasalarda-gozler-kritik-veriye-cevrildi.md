@@ -37,7 +37,7 @@ sayimlar:
 
 ## Daha önce ne olmuştu
 
-- 2026-08-07 — Küresel piyasalarda gözler ABD'de açıklanacak tarım dışı istihdam verisinde (SP500 -%0,2)
+- 2026-08-07 — Küresel piyasalarda gözler ABD'de açıklanacak tarım dışı istihdam verisinde 
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*
 

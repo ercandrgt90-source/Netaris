@@ -622,20 +622,77 @@ def benzer_olaylar(b, tur: str, haric_id: int | None = None,
     Motorun en degerli sorgusu bu. "Bu daha once ne zaman oldu ve o zaman
     ne olmustu" sorusunun cevabi; yaziyi yorumdan arastirmaya ceviren sey.
     """
+    # LISANSSIZ VARLIK DEGERI YAYIMLANMIYOR -- bkz. `lisanssiz_varliklar`.
+    suz, par = _lisans_suzgeci(b, "t.varlik")
     return b.execute(
         "SELECT o.*, ("
         "  SELECT json_group_array(json_object("
         "    'varlik', t.varlik, 'degisim', t.degisim))"
         "  FROM tepki t WHERE t.olay_id = o.id AND t.degisim IS NOT NULL"
+        + suz +
         ") AS tepkiler"
         " FROM olay o WHERE o.tur = ? AND o.id IS NOT ?"
         " ORDER BY o.an DESC LIMIT ?",
-        (tur, haric_id, adet),
+        par + (tur, haric_id, adet),
     ).fetchall()
+
+
+def lisanssiz_varliklar(b) -> frozenset[str]:
+    """Degeri YAYIMLANAMAYAN varlik kodlari.
+
+    NEDEN DEPODAN CIKISTA SUZULUYOR
+    -------------------------------
+    `olay.OLAY_VARLIKLARI` SP500 ve VIX'i zaten disarida birakiyor --
+    yani YENI olcum yapilmiyor. Ama eski satirlar `tepki` tablosunda
+    duruyor ve okuyucularin hicbiri lisans suzgeci uygulamiyordu.
+
+    Olculdu (2026-09-15): yayimlanan sayfalarda
+
+        2026-08-07 — ... (BTC +%0,2, SP500 -%0,2, XAU +%0,2)
+
+    satirlari basiliyordu; depoda 63 VIX ve 5 SP500 tepki kaydi vardi
+    (son kayit 2026-08-20). Karar dogruydu, veriye uygulanmiyordu.
+
+    Kodu duzeltmek yetmez: depoda kalmis bir satir bir daha
+    SIZMAMALI. Suzgec bu yuzden okuma sorgularinda.
+
+    VARLIK KODU DEPODAN TURETILIYOR
+    -------------------------------
+    Kanonik liste FRED seri kodlarini tutuyor (VIXCLS, NASDAQCOM);
+    `tepki.varlik` ise varlik kodunu (VIX, NASDAQ). Eslemeyi elle
+    yazmak ikinci bir dogruluk kaynagi olurdu -- `varlik` tablosu
+    zaten `seri_kodu` sutununu tasiyor, oradan turetiliyor.
+    """
+    try:                                              # noqa: PLC0415
+        from makro_uret_ucretsiz import LISANSSIZ_SERILER
+    except ImportError:                               # pragma: no cover
+        return frozenset()
+    seriler = frozenset(LISANSSIZ_SERILER)
+    if not seriler:
+        return frozenset()
+    try:
+        soru = ",".join("?" * len(seriler))
+        kodlar = {r[0] for r in b.execute(
+            f"SELECT kod FROM varlik WHERE seri_kodu IN ({soru})",
+            tuple(sorted(seriler)))}
+    except sqlite3.Error:                             # pragma: no cover
+        kodlar = set()
+    return frozenset(seriler | kodlar)
+
+
+def _lisans_suzgeci(b, sutun: str) -> tuple[str, tuple]:
+    """(SQL parcasi, parametreler) -- lisanssiz varliklari diser."""
+    yasak = lisanssiz_varliklar(b)
+    if not yasak:
+        return "", ()
+    soru = ",".join("?" * len(yasak))
+    return f" AND {sutun} NOT IN ({soru})", tuple(sorted(yasak))
 
 
 def olay_gecmisi(b, varlik: str, adet: int = 20) -> list[sqlite3.Row]:
     """Bir varligin gecmiste hangi olaylarda nasil tepki verdigi."""
+    if varlik in lisanssiz_varliklar(b):
+        return []
     return b.execute(
         "SELECT o.an, o.tur, o.baslik, t.degisim, t.pencere_sn"
         " FROM tepki t JOIN olay o ON o.id = t.olay_id"

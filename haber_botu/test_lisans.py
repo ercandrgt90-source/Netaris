@@ -112,6 +112,84 @@ esit(sorted(set(mak.SERILER) & LIS), [], "makro yazisi serileri temiz")
 # eklenirse ve icine lisanssiz bir kod girerse, o dosya bu taramaya
 # yakalanir -- listeyi elle eklemeyi beklemeden.
 # --------------------------------------------------------------------
+
+# ---------------------------------------------------------------------
+# DEGER YAYIMLANMIYOR -- AD ANMAK SERBEST
+#
+# `olay.OLAY_VARLIKLARI` SP500 ve VIX'i zaten disarida birakiyor, yani
+# YENI olcum yapilmiyor. Ama eski satirlar `tepki` tablosunda duruyordu
+# ve okuyucularin hicbiri lisans suzgeci uygulamiyordu.
+#
+# Olculdu (2026-09-15): yayimlanan 10 sayfada su satirlar vardi --
+#
+#     2026-08-07 — ... (BTC +%0,2, SP500 -%0,2, XAU +%0,2)
+#     2026-08-23 — ... (BRENT +%3,1, BTC +%0,4, VIX +%7,5, XAU +%0,1)
+#
+# depoda 63 VIX ve 5 SP500 tepki kaydi duruyordu. Karar dogruydu,
+# VERIYE uygulanmiyordu. Ayrica bu satirlar donmus icerige (`.md`)
+# yazilmisti: kodu duzeltmek yayimlanmis metni duzeltmiyor.
+#
+# Ad anmak serbest ("gazetecilikte oldugu gibi"); lisans DEGERI
+# yayimlamak icin gerekiyor. Sinama bu ayrimi tutuyor.
+# ---------------------------------------------------------------------
+import re as _re                                      # noqa: E402
+
+_KODLAR = sorted(set(LIS) | {"VIX", "NASDAQ"})
+#: "SP500 -%0,2" gibi KOD+DEGER ciftleri. Yalniz ad eslesmiyor.
+_DEGERLI = _re.compile(
+    r"\b(?:" + "|".join(_KODLAR) + r")\b[^<)\n]{0,12}[+-]?%\s*\d")
+
+_ICERIK = _KOK.parent / "site" / "icerik"
+_kirli = [y.name for y in _ICERIK.rglob("*.md")
+          if _DEGERLI.search(y.read_text(encoding="utf-8", errors="replace"))]
+esit(_kirli[:3], [], "yayimlanan icerikte lisanssiz DEGER yok")
+
+_CIKTI = _KOK.parent / "site" / "cikti"
+if _CIKTI.exists():
+    _sayfa = [p.parent.name for p in _CIKTI.rglob("index.html")
+              if _DEGERLI.search(p.read_text(encoding="utf-8",
+                                             errors="replace"))]
+    esit(_sayfa[:3], [], "uretilen sayfalarda lisanssiz DEGER yok")
+else:
+    print("  ATLANDI  cikti yok (once `python site/insa.py`)")
+
+# AD ANMAK SERBEST: kural degeri eliyor, adi degil.
+esit(bool(_DEGERLI.search("S&P 500 ve VIX endeksleri izleniyor.")), False,
+     "yalniz ad eslesmiyor")
+esit(bool(_DEGERLI.search("(BTC +%0,2, SP500 -%0,2)")), True,
+     "ad + deger eslesiyor")
+
+# DEPODAN CIKISTA SUZULUYOR: kodu duzeltmek yetmez, depoda kalmis
+# satir bir daha sizmamali.
+import sqlite3 as _sq                                 # noqa: E402
+import beyin as _beyin                                # noqa: E402
+
+_db = _KOK / "netaris.db"
+if _db.exists():
+    _b = _sq.connect(f"file:{_db}?mode=ro", uri=True)
+    _b.row_factory = _sq.Row
+    try:
+        _yasak = _beyin.lisanssiz_varliklar(_b)
+        esit("VIX" in _yasak and "VIXCLS" in _yasak, True,
+             "varlik kodu depodan turetiliyor (VIXCLS -> VIX)")
+        esit("NASDAQ" in _yasak, True, "NASDAQCOM -> NASDAQ")
+        esit(_beyin.olay_gecmisi(_b, "VIX"), [],
+             "lisanssiz varligin gecmisi BOS doner")
+        esit(len(_beyin.olay_gecmisi(_b, "XAU")) > 0, True,
+             "lisansli varligin gecmisi etkilenmiyor")
+        import json as _json                          # noqa: E402
+        _kacak = 0
+        for _tur in ("faiz", "enflasyon", "istihdam", "jeopolitik"):
+            for _r in _beyin.benzer_olaylar(_b, _tur, None, 40):
+                for _t in _json.loads(_r["tepkiler"] or "[]"):
+                    if _t["varlik"] in _yasak:
+                        _kacak += 1
+        esit(_kacak, 0, "benzer_olaylar lisanssiz tepki DONDURMUYOR")
+    finally:
+        _b.close()
+else:
+    print("  ATLANDI  netaris.db yok")
+
 print()
 print("Kaynak dosyalarda VERI LISTESI olarak gecmiyor")
 

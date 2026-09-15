@@ -3885,6 +3885,12 @@ def _tepkiler(b, tur: str) -> list[tuple[str, float]]:
             "SELECT t.varlik, t.degisim FROM tepki t"
             " JOIN olay o ON o.id = t.olay_id"
             " WHERE o.tur = ? AND t.pencere_sn = 3600", (tur,)).fetchall()
+        # LISANSSIZ VARLIK DEGERI YAYIMLANMIYOR.
+        # Tek kaynak `beyin.lisanssiz_varliklar`; burada liste yeniden
+        # yazilmiyor ki ikisi ayrisamasin.
+        import beyin as _beyin                        # noqa: PLC0415
+        _yasak = _beyin.lisanssiz_varliklar(b)
+        r = [x for x in r if x[0] not in _yasak]
     except Exception:
         return []
     # NULL degisim ATLANIYOR. Olcum tamamlanmamis bir tepki kaydi var

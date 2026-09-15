@@ -37,9 +37,9 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Dünya.
 ## Daha önce ne olmuştu
 
 - 2026-08-23 — Trump Hürmüz haritasını yeniden paylaştı: "Yeni ABD toprağı" (BTC +%0,5, XAU -%0,1)
-- 2026-08-22 — İran, Irak petrol tankerlerinin Hürmüz’den geçişine izin verdi (BRENT +%3,1, BTC +%0,4, VIX +%7,5, XAU +%0,1)
-- 2026-08-22 — Petrolde Hürmüz kördüğümü! Üste üste çift haneli yükseldi, 100 dolar riski kapıd (BRENT +%3,1, BTC -%0,2, VIX +%7,5, XAU %0,0)
-- 2026-08-21 — Umman ve İran, Hürmüz Boğazı'nın yeniden seyrüsefere açılmasını görüştü (BRENT +%3,1, BTC +%0,1, VIX +%7,5, XAU -%0,1)
+- 2026-08-22 — İran, Irak petrol tankerlerinin Hürmüz’den geçişine izin verdi (BRENT +%3,1, BTC +%0,4, XAU +%0,1)
+- 2026-08-22 — Petrolde Hürmüz kördüğümü! Üste üste çift haneli yükseldi, 100 dolar riski kapıd (BRENT +%3,1, BTC -%0,2, XAU %0,0)
+- 2026-08-21 — Umman ve İran, Hürmüz Boğazı'nın yeniden seyrüsefere açılmasını görüştü (BRENT +%3,1, BTC +%0,1, XAU -%0,1)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*
 

@@ -39,9 +39,9 @@ sayimlar:
 ## Daha önce ne olmuştu
 
 - 2026-08-29 — Küresel piyasalar ABD'de açıklanacak tarım dışı istihdam verisine odaklandı (BTC +%0,1)
-- 2026-08-07 — Nonfarm Payrolls Market Reactions & Deviations - FJElite (BTC +%0,2, SP500 -%0,2, XAU +%0,4)
-- 2026-08-07 — ABD'de tarım dışı istihdam temmuzda beklentilerin aksine geriledi (BTC +%0,2, SP500 -%0,2, XAU +%0,4)
-- 2026-08-07 — Bitcoin ABD tarım dışı istihdam verisi öncesi geriledi: Gözler Fed ve Hürmüz Boğ (BTC +%0,2, SP500 -%0,2, XAU +%0,2)
+- 2026-08-07 — Nonfarm Payrolls Market Reactions & Deviations - FJElite (BTC +%0,2, XAU +%0,4)
+- 2026-08-07 — ABD'de tarım dışı istihdam temmuzda beklentilerin aksine geriledi (BTC +%0,2, XAU +%0,4)
+- 2026-08-07 — Bitcoin ABD tarım dışı istihdam verisi öncesi geriledi: Gözler Fed ve Hürmüz Boğ (BTC +%0,2, XAU +%0,2)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*
 
