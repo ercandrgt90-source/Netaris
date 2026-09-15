@@ -102,6 +102,59 @@ CREATE INDEX IF NOT EXISTS ai_ret_neden ON ai_ret(neden);
 """
 
 
+def haberin_kendi_metni(h: dict) -> str:
+    """Haberin KENDI sozleri -- baslik ve ozet. Bizim ekledigimiz veri degil."""
+    return " ".join(str(h.get(k) or "") for k in
+                    ("baslik", "baslik_kaynak", "ozet"))
+
+
+def anlatacak_veri_yok(b, girdi: str, h: dict) -> bool:
+    """Bu habere model cagirmak BOSA gider mi.
+
+    Kosul IKISI BIRDEN:
+      * haberin KENDI olcumu yok (ozet bos ya da sayisiz), VE
+      * elimizdeki veri baska bir ulkeye ait.
+
+    O zaman modele verilen tek sayi yabanci oluyor; model onu
+    kullaniyor ve ardindan baglam kapisi "yalnizca X verisi aniyor"
+    diye REDDEDIYOR. Hat kendi kendisiyle celisiyor: baska secenek
+    birakmadigi bir seyi cezalandiriyor.
+
+    Olculdu (2026-09-15): 40 adayin 15'i tam boyleydi --
+
+        Haber : Guangzhou Automobile hissesi neden yukseliste?
+        Kaynak: Investing.com Turkiye          (haber_ulkesi = TR)
+        Acilis: ABD 10 yillik tahvil getirisi %4,96
+
+    Gunun 340 reddinin 259'u baglam kapisindandi.
+
+    NEDEN VERIYI AYIKLAYIP "OLCUMSUZ" YONERGESINE DUSURMUYORUZ
+    ---------------------------------------------------------
+    Denendi ve olculdu: 15'inin 15'i olcumsuz kaliyor. Yani geriye
+    yalnizca baslik kaliyor ve modelden mekanizma istemek, ozeti bile
+    olmayan bir baslikdan cikarim uydurtmak olurdu. O doldurmadir.
+
+    KENDI OLCUMU OLAN HABER BU KAPIYA TAKILMIYOR: kendi rakamini
+    anlatabilir ve baglam kontrolu (haber_metni ile) onu zaten dogru
+    degerlendiriyor.
+    """
+    kendi = haberin_kendi_metni(h)
+    # `olcum_var` GIRDI BICIMINI bekliyor ("Veri:", "Gosterge:",
+    # "Acilis:" onekli satirlar). Ham ozeti dogrudan vermek her zaman
+    # False donduruyordu -- yani bu kosul hic calismiyordu ve kapi
+    # kendi olcumu OLAN haberleri de atliyordu. Mutasyon sinamasi
+    # yakaladi: korumayi kaldirmak hicbir sinamayi kirmamisti.
+    #
+    # Ayni kural ikinci kez yazilmiyor: ozet, girdideki "Veri:"
+    # satirinin ta kendisi; oyle sarilip ayni olcute veriliyor.
+    if yorumcu.olcum_var(f"Veri: {kendi}"):
+        return False
+    return _baglam.uyusmazlik(
+        b, girdi, h.get("baslik_kaynak") or h.get("baslik", ""),
+        h.get("kurum", ""), h.get("bolge", ""),
+        haber_metni=kendi) is not None
+
+
 def girdi_kur(h: dict, d) -> str:
     """Modele gidecek metin -- SAYFADA NE VARSA O.
 
@@ -328,16 +381,29 @@ def main() -> int:
     if not aday:
         return 0
 
-    uretilen = reddedilen = 0
+    uretilen = reddedilen = atlanan = 0
     with beyin.baglan() as b:
         b.executescript(SEMA)
         with beyin.calisma_kaydi(b, "ai_yorum") as ozet:
-            for h in aday[:args.sinir]:
+            denenen = 0
+            for h in aday:
+                if denenen >= args.sinir:
+                    break
                 girdi = girdi_kur(h, dosyalar.get(h["adres"]))
                 if args.kuru:
-                    print(f"\n--- {h['baslik'][:64]}\n{girdi[:400]}")
+                    denenen += 1
+                    print()
+                    print(f"--- {h['baslik'][:64]}")
+                    print(girdi[:400])
                     continue
 
+                # ANLATACAK BIR SEYI OLMAYAN HABERE MODEL CAGRILMIYOR.
+                # Gerekce ve olcum `anlatacak_veri_yok` belgesinde.
+                if anlatacak_veri_yok(b, girdi, h):
+                    atlanan += 1
+                    continue
+
+                denenen += 1
                 metin, model, neden, ham = yorumcu.yorumla(girdi)
                 if not metin:
                     reddedilen += 1
@@ -419,9 +485,18 @@ def main() -> int:
                 uretilen += 1
                 print(f"  ✓    {h['baslik'][:52]}")
                 print(f"       {metin[:150]}")
-            ozet.update({"uretilen": uretilen, "reddedilen": reddedilen})
+            ozet.update({"uretilen": uretilen,
+                         "reddedilen": reddedilen,
+                         "atlanan": atlanan})
 
-    print(f"\n{uretilen} yorum uretildi, {reddedilen} reddedildi")
+    print()
+    # ATLANAN DA YAZILIYOR: sessiz atlama, olculemeyen atlama
+    # demektir ve bu depoda kac kez "cevap uretildi, okunabilir
+    # yerde durmuyor" durumuyla karsilasildiysa hepsi boyle
+    # baslamisti.
+    _ek = (f", {atlanan} aday atlandi (anlatacak veri yok)"
+           if atlanan else "")
+    print(f"{uretilen} yorum uretildi, {reddedilen} reddedildi{_ek}")
     return 0
 
 

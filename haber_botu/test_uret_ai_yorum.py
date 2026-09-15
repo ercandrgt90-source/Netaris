@@ -150,6 +150,101 @@ if _db.exists():
 else:
     print("  ATLANDI  netaris.db yok")
 
+
+# ---------------------------------------------------------------------
+# ANLATACAK VERISI OLMAYAN HABERE MODEL CAGRILMIYOR
+#
+# Olculdu (2026-09-15): 40 adayin 15'i su sekildeydi -- haberin KENDI
+# olcumu yok (ozet bos) ve elimizdeki tek veri BASKA bir ulkeye ait:
+#
+#     Haber : Guangzhou Automobile hissesi neden yukseliste?
+#     Kaynak: Investing.com Turkiye         (haber_ulkesi = TR)
+#     Acilis: ABD 10 yillik tahvil getirisi %4,96
+#
+# Modele verilen tek sayi ABD'ye ait; model onu kullaniyor ve ardindan
+# "TR haberi ama yalnizca US verisi aniyor" diye reddediliyor. Gunun
+# 340 reddinin 259'u bu kapidandi.
+# ---------------------------------------------------------------------
+import sqlite3 as _sq3  # noqa: E402
+
+_sahte = _sq3.connect(":memory:")
+_sahte.execute("create table gosterge(kod text, tarih text, deger real,"
+               " birim text, ad text, kaynak text, kayit_ani text)")
+_sahte.execute("create table fiyat(sembol text, tarih text, kapanis real,"
+               " yuksek real, dusuk real, hacim real)")
+# DGS10 -> US, TP.* -> TR (bkz. baglam.seri_ulkesi).
+import datetime as _dt  # noqa: E402
+_bugun = _dt.date.today().isoformat()
+_sahte.execute("insert into gosterge values('DGS10',?,4.96,'%','ABD 10Y',"
+               "'FRED','')", (_bugun,))
+_sahte.execute("insert into gosterge values('TP.TUKFIY2025.GENEL',?,31.75,"
+               "'%','TUFE','TCMB','')", (_bugun,))
+
+_YABANCI = "Açılış: ABD 10 yıllık tahvil getirisi %4,96; 1 ayda yükseldi."
+_YERLI = "Gösterge: TÜFE %31,75 (önceki %32,10)."
+
+_G_YABANCI = """Haber: Guangzhou Automobile hissesi neden yükselişte?
+Açılış: ABD 10 yıllık tahvil getirisi %4,96; 1 ayda yükseldi."""
+
+# KURGU, YALNIZCA "kendi olcumu var" KORUMASININ BELIRLEYICI OLDUGU
+# HALDE kuruldu.
+#
+# Ilk yazimda haberin kendi sayisi 4,96 idi -- yani girdideki yabanci
+# sayiyla AYNI. O sayi zaten `haber_metni` ile haric tutuldugu icin
+# uyusmazlik hic olusmuyordu ve koruma kaldirilsa bile sinama
+# GECIYORDU: mutasyon kacti, sinama hicbir sey olcmuyordu.
+#
+# Simdi haberin kendi olcumu (2,5) hicbir seriye baglanmiyor, girdideki
+# 4,96 ise ABD serisine baglaniyor. Yani uyusmazlik OLUSUYOR ve haberi
+# kapidan yalnizca "kendi olcumu var" kurali gecirebiliyor.
+_G_KENDI_OLCUM = """Haber: Sanayi üretimi açıklandı
+Veri: Sanayi üretimi yüzde 2,5 azaldı.
+Açılış: ABD 10 yıllık tahvil getirisi %4,96; 1 ayda yükseldi."""
+
+_G_YERLI = """Haber: Enflasyon açıklandı
+Gösterge: TÜFE %31,75 (önceki %32,10)."""
+
+_G_BAGLANMAYAN = """Haber: Bir başlık
+Açılış: değer 777,77 seviyesinde."""
+
+_G_ULKESIZ = """Haber: Bir başlık
+Açılış: ABD 10 yıllık tahvil getirisi %4,96; 1 ayda yükseldi."""
+
+# 1. Kendi olcumu YOK + veri baska ulkeden -> ATLA.
+dogru("olcumsuz haber + yabanci veri -> atlaniyor",
+      U.anlatacak_veri_yok(
+          _sahte, _G_YABANCI,
+          {"baslik": "Guangzhou Automobile hissesi neden yükselişte?",
+           "kurum": "Investing.com Türkiye", "bolge": "TR", "ozet": ""}))
+
+# 2. Kendi olcumu VAR -> kapiya takilmiyor; baglam kontrolu karar verir.
+dogru("KENDI olcumu olan haber atlanmiyor",
+      not U.anlatacak_veri_yok(
+          _sahte, _G_KENDI_OLCUM,
+          {"baslik": "Sanayi üretimi açıklandı", "kurum": "TÜİK",
+           "bolge": "TR", "ozet": "Sanayi üretimi yüzde 2,5 azaldı."}))
+
+# 3. Veri haberin KENDI ulkesinden -> atlanmiyor.
+dogru("yerli veri verilen haber atlanmiyor",
+      not U.anlatacak_veri_yok(
+          _sahte, _G_YERLI,
+          {"baslik": "Enflasyon açıklandı", "kurum": "TCMB", "bolge": "TR",
+           "ozet": ""}))
+
+# 4. Hicbir sayi seriye baglanmiyorsa cakisma da yok -> atlanmiyor.
+dogru("seriye baglanmayan sayi atlatmaz",
+      not U.anlatacak_veri_yok(
+          _sahte, _G_BAGLANMAYAN,
+          {"baslik": "Bir başlık", "kurum": "Ekonomim", "bolge": "TR",
+           "ozet": ""}))
+
+# 5. Haberin ulkesi bilinmiyorsa karar VERILMEZ (baglam kurali).
+dogru("ulkesi bilinmeyen haber atlanmiyor",
+      not U.anlatacak_veri_yok(
+          _sahte, _G_ULKESIZ,
+          {"baslik": "Bir başlık", "kurum": "Ekonomim", "bolge": "DUNYA",
+           "ozet": ""}))
+
 print()
 for k in kaldi:
     print("  KALDI", k)
