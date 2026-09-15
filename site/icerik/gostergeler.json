@@ -27,12 +27,12 @@
     {
       "kod": "ECB_EURUSD",
       "ad": "EUR/USD",
-      "deger": "1,16",
-      "fark": "-%0,35",
+      "deger": "1,15",
+      "fark": "-%0,10",
       "yon": "azalis",
-      "tarih": "2026-09-14",
+      "tarih": "2026-09-15",
       "birim": "TL",
-      "gun": 1,
+      "gun": 0,
       "bayat": false
     },
     {
@@ -211,12 +211,12 @@
         {
           "kod": "ECB_EURUSD",
           "ad": "EUR/USD",
-          "deger": "1,16",
-          "fark": "-%0,35",
+          "deger": "1,15",
+          "fark": "-%0,10",
           "yon": "azalis",
-          "tarih": "2026-09-14",
+          "tarih": "2026-09-15",
           "birim": "TL",
-          "gun": 1,
+          "gun": 0,
           "bayat": false
         }
       ]
