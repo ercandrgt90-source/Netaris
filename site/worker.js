@@ -2177,12 +2177,55 @@ async function nobetci(env) {
   }
 }
 
+/* SURESI DOLMUS KIMLIK SATIRLARI BUDANIYOR.
+ *
+ * Iki tablo da sinirsiz buyuyordu:
+ *
+ *   `oturum`  -- her giris bir satir yaziyor, sure 30 gun ve
+ *                `uyeBul` zaten `biter > simdi` suzuyor; yani dolmus
+ *                satir KULLANILAMIYOR ama SILINMIYORDU. Cikis yalnizca
+ *                o andaki jetonu siliyor.
+ *   `deneme`  -- satirlar anahtar basina yeniden kullaniliyor, ama
+ *                ANAHTAR SAYISI sinirsiz: her yeni e-posta ve her yeni
+ *                IP kalici bir satir birakiyor. Giris sinirIna IP
+ *                anahtari eklenince bu daha da belirginlesti --
+ *                puskurten bir saldirgan IP basina bir satir uretir.
+ *
+ * Guvenlik acigi DEGIL (dolmus satirla oturum acilamiyor, dolmus
+ * sayac kilit uretmiyor) ama sinirsiz buyume D1 kotasini yiyor ve
+ * bir gun yazma hatasi olarak geri doner.
+ *
+ * Semada `oturum_biter` indeksi zaten vardi -- yani temizlik
+ * dusunulmus, yazilmamisti.
+ *
+ * NOBETCI TURUNDA, cunku zaten on dakikada bir calisiyor ve artik
+ * D1'e dokunuyor. Ayri bir zamanlayici, ayri bir ariza kaynagi olurdu.
+ *
+ * HATA YUTULUYOR: budama basarisiz olursa nobetci gorevini yapmaya
+ * DEVAM EDER. Bakim isi, asil isi bozmamali.
+ */
+async function kimlikBuda(env) {
+  if (!env || !env.DB) return;
+  const t = damga();
+  try {
+    await env.DB.prepare("DELETE FROM oturum WHERE biter < ?").bind(t).run();
+    await env.DB.prepare("DELETE FROM deneme WHERE sifirlanir < ?")
+      .bind(t).run();
+  } catch (e) {
+    console.error("budama basarisiz", e);
+  }
+}
+
+
 export default {
   /* Cloudflare cron tetikleyicisi. `waitUntil` SART: `scheduled`
      donunce calisma baglamı kapanıyor ve bekleyen istek yarida
      kalıyor. */
   async scheduled(_olay, env, ctx) {
     ctx.waitUntil(nobetci(env));
+    /* Bakim isi NOBETCIDEN AYRI bekletiliyor: biri dusse oteki
+       calismaya devam etsin. */
+    ctx.waitUntil(kimlikBuda(env));
   },
 
   async fetch(istek, env) {

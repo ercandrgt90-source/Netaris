@@ -383,6 +383,53 @@ async function kos() {
   esit(Array.isArray(g.son_kararlar), true, "durum son kararlari donuyor");
   esit(g.son_kararlar.length > 0, true, "gecmis dolu");
 
+  /* ------------------------------------------------------------
+     SURESI DOLMUS KIMLIK SATIRLARI BUDANIYOR
+     ----------------------------------------
+     `oturum` ve `deneme` tablolari sinirsiz buyuyordu. Dolmus satir
+     KULLANILAMIYOR (`uyeBul` `biter > simdi` suzuyor, dolmus sayac
+     kilit uretmiyor) ama SILINMIYORDU.
+
+     Guvenlik acigi degil; sinirsiz buyume D1 kotasini yiyor ve bir
+     gun yazma hatasi olarak geri doner. Semada `oturum_biter`
+     indeksi zaten vardi -- temizlik dusunulmus, yazilmamisti.
+
+     BAKIM ISI ASIL ISI BOZMAMALI: budama dusse de nobetci calisir.
+     ------------------------------------------------------------ */
+  console.log();
+  console.log("Suresi dolmus kimlik satirlari");
+  console.log();
+  const buda = ortam.kimlikBuda;
+  esit(typeof buda, "function", "kimlikBuda bulundu");
+
+  let bdb = sahteDB(false);
+  await buda({ DB: bdb });
+  const silmeler = bdb.sorgular
+    .filter((x) => x.sql.indexOf("DELETE FROM") !== -1)
+    .map((x) => x.sql.split(" ")[2]);
+  esit(silmeler.join(","), "oturum,deneme",
+       "iki tablo da budaniyor");
+
+  /* DB yoksa ya da patlarsa cokmuyor. */
+  await buda({});
+  esit(true, true, "DB yokken cokmuyor");
+  let patlak = false;
+  try {
+    await buda({ DB: sahteDB(true) });
+  } catch (e) {
+    patlak = true;
+  }
+  esit(patlak, false, "DB patlasa da istisna FIRLATMIYOR");
+
+  /* Zamanlayici ikisini AYRI bekletiyor: biri dusse oteki calissin. */
+  const govde = fs.readFileSync(path.join(__dirname, "worker.js"), "utf8");
+  const zam = govde.slice(govde.indexOf("async scheduled("),
+                          govde.indexOf("async fetch("));
+  esit(zam.indexOf("ctx.waitUntil(nobetci(env))") !== -1, true,
+       "nobetci ayri bekletiliyor");
+  esit(zam.indexOf("ctx.waitUntil(kimlikBuda(env))") !== -1, true,
+       "budama ayri bekletiliyor");
+
   console.log("\n" + gecti + " gecti, " + kaldi.length + " kaldi");
   process.exit(kaldi.length ? 1 : 0);
 }
