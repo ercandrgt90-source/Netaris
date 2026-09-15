@@ -86,7 +86,6 @@ YASAK_ORNEK = [
     ("alim onerisi", "Bankacılık hisselerinde alım önerisi öne çıkıyor."),
     ("hedef fiyat", "Hedef fiyat %35 olarak görülüyor."),
     ("olasilik beyani", "%60 ihtimalle enflasyon geriler."),
-    ("yon tahmini", "Enflasyon önümüzdeki ay düşecek."),
     ("kesinlik iddiasi", "Bu kesinlikle bankacılığı etkiler."),
 ]
 for ad, metin in YASAK_ORNEK:
@@ -97,6 +96,73 @@ sina("temiz metin yasak kalipa takilmaz",
      not any(d.search(
          "TÜFE %31,75; çekirdek %29,91. Fark, fiyat katılığının ölçüsü."
      ) for d in yorumcu.YASAK))
+
+# --- gelecek zaman kipi: aktarim mi, KENDI tahmini mi ----------------
+#
+# Toplu yasak (\b(yükselecek|düşecek|artacak|...)\b) kaldirildi.
+# Olculdu (2026-09-15): bu sebeple reddedilen 36 ciktinin 35'i (%97)
+# site tahmini DEGIL, haberin kendi beklenti anketinin aktarimiydi.
+# Haberin konusu anketin kendisiydi; yasak, haberin kendisini
+# yasakliyordu.
+#
+# KORUMA ZAYIFLAMADI: asagidaki ilk iki sinama, kipin hangi durumlarda
+# HALA reddedildigini tutuyor.
+
+_ANKET_GIRDI = (
+    "Haber: AA Finans Enflasyon Beklenti Anketi sonuçlandı\n"
+    "Veri: AA Finans Enflasyon Beklenti Anketi'ne katılan ekonomistler, "
+    "Tüketici Fiyat Endeksi'nin (TÜFE) ağustosta yüzde 1,86 artacağını "
+    "tahmin ediyor."
+)
+
+# 1. GIRDIDE YOKSA modelin kendi tahminidir -- yasak.
+sina("kip girdide yoksa REDDEDILIYOR",
+     bool(yorumcu._gelecek_kipi_kusuru(
+         "Enflasyon önümüzdeki ay düşecek.", _ANKET_GIRDI)))
+
+# 2. GIRDIDE VAR ama cumlede aktarim isareti YOK -- yine yasak.
+#    Kaynagi belirtilmeden kurulan yon iddiasi, aktarim degildir.
+sina("aktarim isareti yoksa REDDEDILIYOR",
+     bool(yorumcu._gelecek_kipi_kusuru(
+         "TÜFE ağustosta %1,86 artacak.", _ANKET_GIRDI)))
+
+# 3. GIRDIDE VAR ve cumle kaynagi soyluyor -- AKTARIM, serbest.
+#    Olculen gercek vaka.
+sina("aktarim serbest: 'ekonomistlerin tahminine göre'",
+     not yorumcu._gelecek_kipi_kusuru(
+         "Ekonomistlerin tahminine göre, TÜFE ağustos ayında %1,86 "
+         "oranında artacak.", _ANKET_GIRDI))
+
+# 4. TURKCE YUMUSAMA: girdide "artacağını", ciktida "artacak".
+#    Duz alt dizge aramasi bunu KACIRIRDI.
+sina("k/g yumusamasi govdeden eslesiyor",
+     not yorumcu._gelecek_kipi_kusuru(
+         "Ankete göre fiyatlar artacak.", _ANKET_GIRDI))
+
+# 5. Kip hic yoksa bulgu da yok.
+sina("kipsiz metin temiz",
+     not yorumcu._gelecek_kipi_kusuru(
+         "TÜFE %31,75; çekirdek %29,91.", _ANKET_GIRDI))
+
+# 6. Farkli kip, girdide olmayan: yine yasak.
+sina("girdide olmayan 'yükselecek' REDDEDILIYOR",
+     bool(yorumcu._gelecek_kipi_kusuru(
+         "Bankacılık endeksi yükselecek.", _ANKET_GIRDI)))
+
+# 7. ATIF VAR ama kip GIRDIDE YOK -- yine yasak.
+#
+# Bu kurgu, "girdide var mi" kosulunu YALNIZ BASINA olcuyor. Ilk
+# yazimda 1. ve 6. sinamalar bunu olctugu saniliyordu; oysa ikisi de
+# atif isareti TASIMIYORDU, yani onlari zaten ikinci kural reddediyordu.
+# Mutasyon kacti: "girdide var mi" kosulu tamamen kaldirildiginda
+# hicbir sinama kirilmadi.
+#
+# Onemi somut: model "tahminine gore" diye bir atif UYDURUP girdide
+# hic gecmeyen bir yon iddiasi kurabilir. Atif, iddiayi dogru yapmaz.
+sina("atif olsa da girdide yoksa REDDEDILIYOR",
+     bool(yorumcu._gelecek_kipi_kusuru(
+         "Ekonomistlerin tahminine göre bankacılık endeksi yükselecek.",
+         _ANKET_GIRDI)))
 
 # --- saglayici secimi ------------------------------------------------
 

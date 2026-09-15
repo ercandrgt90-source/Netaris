@@ -192,7 +192,10 @@ YASAK = (
     re.compile(r"\b(alım|satım|tut)\s*(öneri|tavsiye|sinyal)", re.I),
     re.compile(r"hedef fiyat", re.I),
     re.compile(r"%\s*\d+\s*(ihtimal|olasılık)", re.I),
-    re.compile(r"\b(yükselecek|düşecek|artacak|azalacak|gerileyecek)\b", re.I),
+    # NOT: gelecek zaman kipi ("artacak", "yukselecek", ...)
+    # buradan KALDIRILDI ve yerine `_gelecek_kipi_kusuru()` kondu.
+    # Sebebi o islevin basinda yazili -- ozeti: yasak, haberin
+    # KENDI anketini aktaran dogru cumleleri eliyordu.
     re.compile(r"\byatırım (tavsiyesi|önerisi)\b", re.I),
     re.compile(r"\b(kesinlikle|mutlaka|garanti)\b", re.I),
 
@@ -381,6 +384,70 @@ def tekrar_orani(cikti: str, girdi: str) -> float:
 
 #: "politika faizi ... %N" -- kavram adi ile ona ILISTIRILEN deger.
 _PF_CIKTI = re.compile(r"politika faiz\w*[^.]{0,20}?%\s*([\d.,]+)", re.I)
+
+
+#: Gelecege donuk yon iddiasi.
+_GELECEK_KIP = re.compile(
+    r"\b(yükselecek|düşecek|artacak|azalacak|gerileyecek)\w*", re.I)
+
+#: Iddianin BASKASINA ait oldugunu gosteren isaretler.
+_AKTARIM = re.compile(
+    r"(tahmin|beklenti|anket|öngör|projeksiyon|göre|"
+    r"açıkladı|duyurdu|bekliyor)", re.I)
+
+
+def _gelecek_kipi_kusuru(cikti: str, girdi: str) -> str:
+    """Gelecek zaman kipi KENDI tahmini mi, aktarim mi. Kusursa sebep.
+
+    NEDEN TOPLU YASAK KALDIRILDI
+    ----------------------------
+    Desen sunlari topluca eliyordu:
+
+        \b(yükselecek|düşecek|artacak|azalacak|gerileyecek)\b
+
+    Amaci dogru: site KENDI fiyat/yon tahminini yapmamali. Ama olculdu
+    (2026-09-15) -- bu sebeple reddedilen 36 ciktinin 35'i (%97) site
+    tahmini DEGIL, haberin kendi anketinin aktarimiydi:
+
+        Girdi : "AA Finans Enflasyon Beklenti Anketi'ne katilan
+                 ekonomistler, TUFE'nin agustosta yuzde 1,86
+                 ARTACAGINI tahmin ediyor."
+        Cikti : "Ekonomistlerin tahminine gore, TUFE agustos ayinda
+                 %1,86 oraninda ARTACAK; ..."          -> REDDEDILDI
+
+    Haberin konusu bir beklenti anketi; anketi anlatmadan o haberi
+    yorumlamak mumkun degil. Yasak, haberin kendisini yasakliyordu.
+
+    Bu depoda ikinci kez ayni sey yasandi: politika faizi kalibi da
+    kendi sebebini cozdukten sonra dogru analizleri elemeye devam
+    etmisti.
+
+    KURAL -- IKISI BIRDEN GEREKLI
+    -----------------------------
+    1. Ayni fiil govdesi GIRDIDE de gecmeli. Girdide yoksa iddia
+       modelin kendisine aittir: yasak. ("artacak" -> "artaca";
+       Turkce'de k/g yumusamasi yuzunden girdideki bicim
+       "artacagini" olabiliyor.)
+    2. Ayni cumlede AKTARIM isareti bulunmali ("tahminine gore",
+       "anket", "bekliyor"). Isaret yoksa cumle, kaynagi
+       belirtilmeden kurulmus bir yon iddiasidir: yasak.
+
+    Ikisi birden saglanmadikca kip yasak kalmaya devam ediyor. Koruma
+    zayiflamiyor; yalnizca AKTARIM ile KENDI IDDIASI ayriliyor.
+    """
+    m = _GELECEK_KIP.search(cikti)
+    if not m:
+        return ""
+    kip = m.group(0)
+    kok = guvenlik.normalize(m.group(1))[:-1]      # "artacak" -> "artaca"
+    if kok and kok not in guvenlik.normalize(girdi):
+        return f"{kip!r} girdide yok -- modelin KENDI tahmini"
+    bas = cikti.rfind(".", 0, m.start()) + 1
+    son = cikti.find(".", m.end())
+    cumle = cikti[bas: son + 1 if son != -1 else len(cikti)]
+    if not _AKTARIM.search(cumle):
+        return f"{kip!r} aktarim isareti TASIMIYOR -- kaynaksiz yon iddiasi"
+    return ""
 
 
 def _politika_faizi_kusuru(cikti: str, girdi: str) -> str:
@@ -957,6 +1024,14 @@ def yorumla(girdi: str, sistem_ozel: str = "") -> tuple[str, str, str, str]:
     _pf = _politika_faizi_kusuru(metin, girdi)
     if _pf:
         return "", model, f"politika faizine yanlis deger: {_pf}", metin
+
+    # --- 2c. gelecek zaman kipi: aktarim mi, KENDI tahmini mi ---
+    #
+    # Toplu yasak dogru cumleleri de eliyordu; gerekcesi
+    # `_gelecek_kipi_kusuru`nun basinda.
+    _gk = _gelecek_kipi_kusuru(metin, girdi)
+    if _gk:
+        return "", model, f"gelecek zaman kipi: {_gk}", metin
 
     m = SUREN_EGILIM.search(metin)
     if m:
