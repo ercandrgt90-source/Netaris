@@ -65,20 +65,20 @@
       "deger": "%3,63",
       "fark": "0 bp",
       "yon": "yatay",
-      "tarih": "2026-09-11",
+      "tarih": "2026-09-14",
       "birim": "%",
-      "gun": 2,
+      "gun": 1,
       "bayat": false
     },
     {
       "kod": "DGS2",
       "ad": "ABD 2Y",
-      "deger": "%4,63",
-      "fark": "+7 bp",
+      "deger": "%4,65",
+      "fark": "+2 bp",
       "yon": "artis",
-      "tarih": "2026-09-11",
+      "tarih": "2026-09-14",
       "birim": "%",
-      "gun": 2,
+      "gun": 1,
       "bayat": false
     },
     {
@@ -154,20 +154,20 @@
           "deger": "%3,63",
           "fark": "0 bp",
           "yon": "yatay",
-          "tarih": "2026-09-11",
+          "tarih": "2026-09-14",
           "birim": "%",
-          "gun": 2,
+          "gun": 1,
           "bayat": false
         },
         {
           "kod": "DGS2",
           "ad": "ABD 2 yıllık",
-          "deger": "%4,63",
-          "fark": "+7 bp",
+          "deger": "%4,65",
+          "fark": "+2 bp",
           "yon": "artis",
-          "tarih": "2026-09-11",
+          "tarih": "2026-09-14",
           "birim": "%",
-          "gun": 2,
+          "gun": 1,
           "bayat": false
         },
         {
