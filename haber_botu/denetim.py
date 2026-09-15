@@ -80,7 +80,18 @@ import politika_faizi  # noqa: E402
 
 @dataclass(frozen=True)
 class Bulgu:
-    agirlik: str      # "hata" | "uyari"
+    # "hata"  -> yayina uygun degil
+    # "uyari" -> duzeltilmeden yayinlanmamali
+    # "bilgi" -> YAYINI ENGELLEMEZ; izlenen ama kusur olmayan durum.
+    #
+    # Ucuncu seviye neden var: bilanco sayfalarinin bir kismi eski
+    # (kumulatif) yontemde duruyor ve cozumu bir URETIM KOSUSU,
+    # bir duzeltme degil. Bunu "uyari" saymak, hat yalnizca
+    # bildirim aylarinda kostugu icin karari AYLARCA sari
+    # tutardi. Surekli sari bir karar, gercek bir sariyi
+    # inandiriciliktan dusurur -- bu depoda ayni ders bugun
+    # gorsel denetiminde de yasandi.
+    agirlik: str      # "hata" | "uyari" | "bilgi"
     alan: str
     kod: str
     mesaj: str
@@ -1017,6 +1028,52 @@ def _veri_tutarlilik_denetimi() -> list[Bulgu]:
 GORSEL_FIGUR = re.compile(r'<figure class="yazi-gorsel')
 
 
+def _kumulatif_bilanco_denetimi() -> list[Bulgu]:
+    """Eski YONTEMLE duran bilanco sayfalari.
+
+    Uretim ceyreklige cevrildi: bir ceyregin kendi performansi
+    kumulatifte GORUNMUYOR (guclu bir Q1, zayif bir Q2'yi ortuyor).
+    Eski sayfalar silinmedi -- yerine ceyreklik karsiligi uretilene
+    kadar duruyorlar, cunku sayfayi once silmek adresi kirardi.
+
+    NEDEN DENETIME GIRDI
+    --------------------
+    Olculdu (2026-09-15): 29 sayfa hala kumulatif ve karsiligi yok.
+    Bilanco hatti yalnizca bildirim aylarinda kosuyor (3, 5, 8, 11);
+    eylulde `donem_acik()` False donuyor. Yani bu 29 sayfa, elle
+    kosturulmazsa KASIMA KADAR eski yontemle duracak.
+
+    Hicbir yerde gorunmuyordu: `denetim.py` "0 bulgu" diyordu ve
+    sayiyi ancak `kumulatif_temizle.py` elle kosturulunca ogrenmek
+    mumkundu. Bu depoda tekrar eden kusur -- cevap uretiliyor,
+    okunabilir yerde durmuyor.
+
+    SEVIYE "bilgi": yayin kararini DEGISTIRMIYOR. Sayfalar yanlis
+    degil, ESKI yontemde; ve cozumu bir uretim kosusu, bir duzeltme
+    degil. "uyari" olsaydi hat yalnizca bildirim aylarinda kostugu
+    icin karar AYLARCA sari kalirdi -- surekli sari bir karar, gercek
+    bir sariyi inandiriciliktan dusurur.
+
+    TARAMA KOPYALANMIYOR: ayrim `kumulatif_temizle.tara` icinde
+    yasiyor ve oradan cagriliyor. Ikinci bir kopya, biri
+    duzeltilirken otekinin unutulmasi demekti.
+    """
+    bulgu: list[Bulgu] = []
+    try:
+        import kumulatif_temizle as _kt                # noqa: PLC0415
+        kum, cey = _kt.tara()
+    except Exception:                                   # pragma: no cover
+        return bulgu
+    bekleyen = sorted(k for k in kum if k not in cey)
+    if bekleyen:
+        bulgu.append(Bulgu(
+            "bilgi", "bilanco", "-",
+            f"{len(bekleyen)} sayfa hala KUMULATIF yontemde, ceyreklik "
+            f"karsiligi yok: " + ", ".join(bekleyen[:6])
+            + " -- bilanco uretim kosusu gerekiyor"))
+    return bulgu
+
+
 def _gorsel_denetimi() -> list[Bulgu]:
     """Yayimlanan sayfalardaki gorsel kullanimini denetler."""
     import collections
@@ -1229,6 +1286,8 @@ def editoryal_denetim() -> list[Bulgu]:
     bulgu += _veri_tutarlilik_denetimi()
     bulgu += _lisans_denetimi()
     bulgu += _uretilen_gorsel_denetimi()
+    # ESKI YONTEMLE DUREN SAYFALAR -- gerekce islevin basinda.
+    bulgu += _kumulatif_bilanco_denetimi()
     bulgu += _serit_cakismasi_denetimi()
     bulgu += _cop_denetimi()
     bulgu += _foto_butunluk_denetimi()
@@ -1663,6 +1722,21 @@ def sinif(b: Bulgu) -> str:
     return simge
 
 
+def bilgi_satirlari(bulgular: list) -> list[str]:
+    """BILGI bulgularinin basilacak satirlari.
+
+    Yayin kararini degistirmiyorlar ama GORUNMELERI gerekiyor:
+    sayilip basilmayan bir bulgu, bu depoda defalarca yasanan "cevap
+    uretildi, okunabilir yerde durmuyor" durumudur.
+
+    AYRI ISLEV, cunku satir ici bir donguyu sinamak icin butun
+    denetimi kosturmak gerekirdi; o da sinamayi yavaslatip kirilgan
+    kilardi. Isaret kararla karistirilmasin diye farkli.
+    """
+    return [f"  ℹ️   [{x.alan}] {x.kod}: {x.mesaj}"
+            for x in bulgular if x.agirlik == "bilgi"]
+
+
 def yayin_karari(hata: list, uyari: list) -> tuple[str, str]:
     """Promptun 19. maddesi -- uc seviye."""
     if hata:
@@ -1674,6 +1748,9 @@ def yayin_karari(hata: list, uyari: list) -> tuple[str, str]:
 
 def _rapor_yaz(bulgular: list, hata: list, uyari: list) -> None:
     """Promptun 20. maddesindeki cikti bicimi."""
+
+    # BILGI yayin kararina GIRMIYOR -- bilerek. Gerekce `Bulgu`da.
+    bilgi = [x for x in bulgular if x.agirlik == "bilgi"]
     simge, karar = yayin_karari(hata, uyari)
     alanlar = {b.alan for b in bulgular}
 
@@ -1683,7 +1760,8 @@ def _rapor_yaz(bulgular: list, hata: list, uyari: list) -> None:
     for ad, kodlar, iyi, kotu in RAPOR_ALANLARI:
         var = alanlar & set(kodlar)
         print(f"  {ad + ':':<14}{kotu if var else iyi}")
-    print(f"  {'BULGU:':<14}{len(hata)} hata, {len(uyari)} uyari")
+    print(f"  {'BULGU:':<14}{len(hata)} hata, {len(uyari)} uyari"
+          + (f", {len(bilgi)} bilgi" if bilgi else ""))
 
     if bulgular:
         sayim: dict[str, int] = {}
@@ -1739,6 +1817,8 @@ def calistir(sessiz: bool = False) -> int:
     if not sessiz:
         for x in uyari:
             _yaz(f"  {sinif(x)}  [{x.alan}] {x.kod}: {x.mesaj}")
+        for satir in bilgi_satirlari(bulgular):
+            _yaz(satir)
         _rapor_yaz(bulgular, hata, uyari)
 
     # UYARI ISI DUSURMUYOR, HATA DUSURUYOR.

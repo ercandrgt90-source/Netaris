@@ -68,6 +68,55 @@ es("karar metni", denetim.yayin_karari([], [])[1], "YAYINA HAZIR")
 # HER SINIF ALANI RAPORDA BIR BOLUME DUSMELI. Bir alan hicbir bolume
 # dusmezse bulgu uretilir ama raporun ust ozetinde GORUNMEZ.
 # ------------------------------------------------------------------
+print("\nBILGI seviyesi yayin kararini DEGISTIRMIYOR")
+# Bilanco sayfalarinin bir kismi eski (kumulatif) yontemde duruyor ve
+# cozumu bir URETIM KOSUSU, bir duzeltme degil. Bunu "uyari" saymak,
+# hat yalnizca bildirim aylarinda kostugu icin (3, 5, 8, 11) karari
+# AYLARCA sari tutardi. Surekli sari bir karar, gercek bir sariyi
+# inandiriciliktan dusurur -- ayni ders bugun gorsel denetiminde de
+# yasandi.
+_b = denetim.Bulgu("bilgi", "bilanco", "-", "29 sayfa kumulatif")
+es("yalniz bilgi varken YESIL",
+   denetim.yayin_karari([], [])[0], "🟢")
+es("bilgi hata listesine girmiyor",
+   [x for x in [_b] if x.agirlik == "hata"], [])
+es("bilgi uyari listesine girmiyor",
+   [x for x in [_b] if x.agirlik == "uyari"], [])
+# UYARI OLSAYDI karar sarardi -- seviyenin gercekten fark yarattigini
+# gosteren karsi ornek.
+es("ayni bulgu UYARI olsaydi karar sari olurdu",
+   denetim.yayin_karari([], [_b])[0], "🟡")
+
+print("\nBILGI bulgusu GORUNUYOR")
+# Sayilip basilmayan bir bulgu, bu depoda defalarca yasanan
+# "cevap uretildi, okunabilir yerde durmuyor" durumudur.
+# KAYNAK DEGIL DAVRANIS sinaniyor: ilk yazimda kaynakta
+# `if x.agirlik == "bilgi"` dizgesi aranmisti ve o dizge BASKA bir
+# satirda da geciyordu (sayimda). Basimi kaldiran mutasyon KACTI --
+# alt dizge tuzagi.
+_karisik = [denetim.Bulgu("hata", "veri", "k1", "bozuk"),
+            denetim.Bulgu("uyari", "gorsel", "k2", "eksik"),
+            denetim.Bulgu("bilgi", "bilanco", "-", "29 sayfa kumulatif")]
+_satir = denetim.bilgi_satirlari(_karisik)
+es("yalnizca BILGI satiri uretiliyor", len(_satir), 1)
+es("satir mesaji tasiyor", "29 sayfa kumulatif" in _satir[0], True)
+es("satir alani tasiyor", "[bilanco]" in _satir[0], True)
+es("hata/uyari bu listeye GIRMIYOR",
+   any("bozuk" in x or "eksik" in x for x in _satir), False)
+es("bilgi yoksa satir da yok", denetim.bilgi_satirlari(_karisik[:2]), [])
+
+print("\nKumulatif bilanco kontrolu BILGI uretiyor")
+_bulgular = denetim._kumulatif_bilanco_denetimi()
+es("hicbiri hata ya da uyari degil",
+   [x.agirlik for x in _bulgular if x.agirlik != "bilgi"], [])
+if _bulgular:
+    es("bulgu sayfa ADLARINI tasiyor",
+       any(c.isupper() for c in _bulgular[0].mesaj), True)
+    es("cozumun uretim kosusu oldugu yaziyor",
+       "uretim kosusu" in _bulgular[0].mesaj, True)
+else:
+    print("  (bekleyen kumulatif sayfa yok -- iddia atlandi)")
+
 print("\nHer alan raporda bir bolume dusuyor")
 rapor_alanlari = {k for _ad, kodlar, _i, _k in denetim.RAPOR_ALANLARI
                   for k in kodlar}
