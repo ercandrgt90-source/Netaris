@@ -1064,13 +1064,43 @@ def _kumulatif_bilanco_denetimi() -> list[Bulgu]:
         kum, cey = _kt.tara()
     except Exception:                                   # pragma: no cover
         return bulgu
-    bekleyen = sorted(k for k in kum if k not in cey)
+    kalan = sorted(k for k in kum if k not in cey)
+
+    # "KOSU COZER" ILE "KOSU COZMEZ" AYRI SATIRLAR.
+    #
+    # Once hepsi tek satirdi ve hepsi icin "bilanco uretim kosusu
+    # gerekiyor" yaziyordu. Olculdu (2026-09-15): bekleyen 29 sayfanin
+    # 1'i (TERA) defterde `sektor_tr` TASIMIYOR. `uret_bilanco.py
+    # --hepsi` sektor listesini o alandan kuruyor, yani bu sirket
+    # hicbir sektore dusmuyor ve kac kosu kosulursa kosulsun
+    # ceyrekligi URETILMEYECEK.
+    #
+    # Yanlis tavsiye, yanlis sayidan daha pahali: kosuyu tekrarlayan
+    # biri sonucun degismedigini gorur ve bir sure sonra satiri hic
+    # okumaz. Hic kapanmayan bir uyari, yanindaki GERCEK uyariyi da
+    # goturur.
+    #
+    # AYRIM KOPYALANMIYOR: `uretilebilir_kodlar` da `kumulatif_temizle`
+    # icinde yasiyor, tarama gibi. Ikinci bir kopya, biri
+    # duzeltilirken otekinin unutulmasi demekti.
+    try:
+        _uretilebilir = _kt.uretilebilir_kodlar()
+    except Exception:                                   # pragma: no cover
+        _uretilebilir = None                # "bilmiyorum" != "uretilemez"
+    bekleyen, oksuz = _kt.bekleyen_ve_oksuz(kalan, _uretilebilir)
+
     if bekleyen:
         bulgu.append(Bulgu(
             "bilgi", "bilanco", "-",
             f"{len(bekleyen)} sayfa hala KUMULATIF yontemde, ceyreklik "
             f"karsiligi yok: " + ", ".join(bekleyen[:6])
             + " -- bilanco uretim kosusu gerekiyor"))
+    if oksuz:
+        bulgu.append(Bulgu(
+            "bilgi", "bilanco", "-",
+            f"{len(oksuz)} kumulatif sayfa OKSUZ: " + ", ".join(oksuz[:6])
+            + " -- defterde `sektor_tr` yok, uretim kosusu COZMEZ; "
+              "sektor atanmali ya da sayfa kaldirilmali"))
     return bulgu
 
 
