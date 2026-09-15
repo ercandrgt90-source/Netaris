@@ -92,7 +92,12 @@ function sahteVarlik(dosyalar, izle) {
       if (dosyalar[y] === undefined) return new Response("", { status: 404 });
       return new Response(dosyalar[y], {
         status: 200,
-        headers: { "Content-Type": "text/html" },
+        headers: {
+          "Content-Type": "text/html",
+          /* `_headers` bunlari veriyor; 404 yaniti KAYBETMEMELI. */
+          "X-Frame-Options": "SAMEORIGIN",
+          "Referrer-Policy": "strict-origin-when-cross-origin",
+        },
       });
     },
   };
@@ -112,6 +117,18 @@ async function iste(yol, dosyalar = DOSYALAR, izle) {
   esit(await y.text(), SAYFA_404, "govde 404 sayfasi -- bos degil");
   esit((y.headers.get("Content-Type") || "").includes("text/html"), true,
        "icerik turu html");
+  /* GUVENLIK BASLIKLARI KORUNUYOR.
+     Ilk yazimda burada elle bir baslik sozlugu kuruluyordu ve varlik
+     yanitindaki her seyi atiyordu -- yani sitenin TEK korumasiz
+     sayfasi, en cok yabanci trafigi goren sayfa olurdu. Basliklari
+     worker'da TEKRARLAMAK da cozum degildi: ayni liste iki yerde
+     yasar, biri guncellenir, oteki unutulur. */
+  esit(y.headers.get("X-Frame-Options"), "SAMEORIGIN",
+       "cerceve korumasi 404'te de duruyor");
+  esit(y.headers.get("Referrer-Policy"), "strict-origin-when-cross-origin",
+       "Referrer-Policy 404'te de duruyor");
+  esit(y.headers.get("Cache-Control"), "no-store",
+       "404 onbelleklenmiyor (ayni govde farkli adresler icin doniyor)");
 
   console.log("\nBulunan sayfaya KARISMIYOR\n");
   y = await iste("/gundem/");

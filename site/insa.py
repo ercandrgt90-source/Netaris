@@ -5742,9 +5742,54 @@ def insa() -> int:
     # kurali EKLIYOR; ezmek icin onceki deger `! Basliginadi` ile
     # KALDIRILMALI. Yoksa istemci hangi omru uygulayacagini kendi
     # secer ve davranis tarayiciya gore degisir.
+    # GUVENLIK BASLIKLARI.
+    #
+    # Olculdu (2026-09-15): canli yanitta bunlarin HICBIRI yoktu --
+    # ne `nosniff`, ne `Referrer-Policy`, ne cerceve korumasi. Statik
+    # bir blog icin kucuk bir eksik; UYELIK ve OTURUMU olan bir site
+    # icin degil. `/giris/` ve `/panel/` cerez tasiyor.
+    #
+    # Neden bunlar, neden simdilik bu kadar:
+    #
+    # nosniff -- tarayici icerik turunu TAHMIN ETMESIN. Bu sitede
+    #   `arama.json` gibi kullanici gormeden yuklenen dosyalar var.
+    #
+    # Referrer-Policy -- tam adres disariya SIZMASIN. Sayfalar
+    #   TradingView parcaciklari tasiyor; kaynak adres ucuncu tarafa
+    #   gidiyordu. `strict-origin-when-cross-origin` ayni kaynakta
+    #   tam adresi koruyor, disariya yalnizca alan adini veriyor.
+    #
+    # X-Frame-Options -- baskasinin sayfasinda GIZLI CERCEVE icinde
+    #   acilmayi engelliyor. Somut risk: uye, gormedigi bir panelde
+    #   "Askiya al"a tiklatilabilir. `frame-ancestors` daha modern
+    #   olani ama CSP acmak gerektiriyor; CSP bu sitede TradingView,
+    #   Google ve etiket yoneticisi yuzunden DIKKATLI kurulmali ve
+    #   yanlis kurulmus bir CSP sayfayi sessizce bozar. Cerceve
+    #   korumasi tek basina, bugun, bedava.
+    #
+    # Permissions-Policy -- kullanilmayan yetenekleri kapatiyor.
+    #   Olculdu: depoda `geolocation`, `getUserMedia`, `PaymentRequest`
+    #   ve `requestFullscreen` HIC gecmiyor, yani kisitlamanin
+    #   bedeli yok.
+    #
+    # BILEREK EKLENMEYENLER:
+    #   HSTS -- tarayicida onbelleklenir ve SURESI DOLANA KADAR geri
+    #     alinamaz. Bir yila kadar baglayici bir karar; bu kod degil,
+    #     alan adi sahibinin karari.
+    #   COOP/COEP -- `accounts.google.com` acilir pencere akisini
+    #     bozabilir. Olcmeden acmak, calisani kirmak demek.
+    #   CSP -- yukarida.
+    _GUVENLIK = (
+        "  X-Content-Type-Options: nosniff",
+        "  Referrer-Policy: strict-origin-when-cross-origin",
+        "  X-Frame-Options: SAMEORIGIN",
+        "  Permissions-Policy: camera=(), microphone=(), "
+        "geolocation=(), payment=()",
+    )
     yaz("/_headers", "\n".join((
         "/*",
         "  Cache-Control: public, max-age=60, stale-while-revalidate=600",
+        *_GUVENLIK,
         "",
         "/statik/*",
         "  ! Cache-Control",

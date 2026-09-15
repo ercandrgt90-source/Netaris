@@ -2422,16 +2422,20 @@ export default {
          asagida; ikisi de buraya hic ugramıyor. */
       const s404 = await env.ASSETS.fetch(new URL("/404.html", u.origin));
       if (!s404.ok) return varlik;          // sayfa yoksa ciplak 404
-      return new Response(s404.body, {
-        status: 404,
-        headers: {
-          "Content-Type": "text/html; charset=utf-8",
-          /* Onbelleklenmiyor: ayni govde FARKLI adresler icin
-             donuyor ve bir ara onbellek bunu o adreslerin icerigi
-             saymamali. */
-          "Cache-Control": "no-store",
-        },
-      });
+      /* BASLIKLAR KORUNUYOR, YENIDEN YAZILMIYOR.
+         Ilk yazimda burada elle bir baslik sozlugu kuruluyordu ve
+         varlik yanitindaki HER SEYI atiyordu -- `_headers`in verdigi
+         `nosniff`, `Referrer-Policy`, `X-Frame-Options` dahil. Yani
+         sitenin TEK korumasiz sayfasi, en cok yabanci trafigi goren
+         sayfa olurdu. Guvenlik basliklarini burada TEKRARLAMAK da
+         cozum degildi: ayni liste iki yerde yasar, biri guncellenir,
+         oteki unutulurdu. */
+      const basliklar = new Headers(s404.headers);
+      basliklar.set("Content-Type", "text/html; charset=utf-8");
+      /* Onbelleklenmiyor: ayni govde FARKLI adresler icin donuyor ve
+         bir ara onbellek bunu o adreslerin icerigi saymamali. */
+      basliklar.set("Cache-Control", "no-store");
+      return new Response(s404.body, { status: 404, headers: basliklar });
     }
     if (!env.DB) {
       return hata("Veritabanı bağlı değil.", 503);
