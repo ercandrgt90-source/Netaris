@@ -4486,17 +4486,35 @@ def canli_akis(haberler: list[dict], en_cok: int = AKIS_SAYISI) -> list[dict]:
     #
     # Ikiye kadar serbest: kirk satirlik bir listede ayni 40 piksellik
     # kareyi iki kez gormek dogal, yedi kez duvar kagidi.
+    #
+    # YAN YANA AYNI GORSEL AYRICA ENGELLENIYOR.
+    #
+    # Tavan "en cok iki kez" diyor ama o iki kezin NEREDE oldugunu
+    # soylemiyor: ikisi ust uste dusebiliyor ve okur onlari TEK
+    # BAKISTA goruyor -- tavanin onlemek istedigi sey tam olarak bu.
+    #
+    # Denetim bu durumu zaten yakaliyordu (`canli akista iki satir ust
+    # uste ayni gorsel`) ve kendi notunda "kusur YAN YANA dusmesidir"
+    # yaziyordu; yani kural biliniyor, dagitici tarafinda
+    # uygulanmiyordu. Olculdu (2026-09-15): ana sayfada bir vaka.
+    #
+    # SAYAC YALNIZCA GOSTERILENI SAYIYOR. Onceki surum silineni de
+    # sayiyordu; komsuluk yuzunden dusen bir satir, daha sonraki
+    # MESRU bir kullanimi da harcardi.
     sayim: dict[str, int] = {}
     cikti: list[dict] = []
+    onceki = ""
     for h in sirali:
         f = h.get("foto") or ""
-        if f:
+        if f and (f == onceki or sayim.get(f, 0) >= AKIS_FOTO_TEKRARI):
+            # KOPYA uzerinde siliniyor: ayni sozluk onem ve AI
+            # bolumlerinde de kullaniliyor, orada gorsel kalmali.
+            h = dict(h)
+            h["foto"] = ""
+            f = ""
+        elif f:
             sayim[f] = sayim.get(f, 0) + 1
-            if sayim[f] > AKIS_FOTO_TEKRARI:
-                # KOPYA uzerinde siliniyor: ayni sozluk onem ve AI
-                # bolumlerinde de kullaniliyor, orada gorsel kalmali.
-                h = dict(h)
-                h["foto"] = ""
+        onceki = f
         cikti.append(h)
     return cikti
 

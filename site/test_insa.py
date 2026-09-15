@@ -380,8 +380,27 @@ _akis = insa.canli_akis(list(_akis_girdi), 10)
 es("akis haber DUSURMUYOR", len(_akis), 10)
 es("ayni gorsel en fazla iki satirda",
    sum(1 for h in _akis if h.get("foto")), insa.AKIS_FOTO_TEKRARI)
-dogru("tasan satirlar gorselsiz, bos dizgi ile",
-      all(h.get("foto") == "" for h in _akis[insa.AKIS_FOTO_TEKRARI:]))
+dogru("dusen satirlar gorselsiz, bos dizgi ile",
+      all(h.get("foto") in ("", "/statik/foto/tek.jpg") for h in _akis))
+
+# YAN YANA AYNI GORSEL YOK.
+#
+# Tavan "en cok iki kez" diyor ama o iki kezin NEREDE oldugunu
+# soylemiyordu: ikisi ust uste dusebiliyordu ve okur onlari TEK
+# BAKISTA goruyor -- tavanin onlemek istedigi sey tam olarak bu.
+#
+# Denetim bunu zaten yakaliyordu ("canli akista iki satir ust uste
+# ayni gorsel") ve kendi notunda "kusur YAN YANA dusmesidir"
+# yaziyordu; kural biliniyor, dagitici tarafinda uygulanmiyordu.
+# Olculdu (2026-09-15): ana sayfada bir vaka.
+#
+# ONCEKI IDDIA ESKI DAVRANISI KODLUYORDU ("ilk N'den sonrasi
+# gorselsiz"). Artik iki gosterim 1. ve 3. satirda; degismez olan
+# "tavan" ve "komsuluk yok", satirlarin sirasi degil.
+_goruntu = [h.get("foto") or "" for h in _akis]
+dogru("iki satir ust uste ayni gorsel YOK",
+      all(not (_goruntu[i] and _goruntu[i] == _goruntu[i - 1])
+          for i in range(1, len(_goruntu))))
 
 # OZGUN SOZLUKLER BOZULMAMALI: ayni haber onem ve AI bolumlerinde de
 # kullaniliyor, orada gorseli kalmali. Kopya uzerinde siliniyor.
