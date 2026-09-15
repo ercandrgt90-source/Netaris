@@ -277,6 +277,64 @@ dogru("ulkesi bilinmeyen haber atlanmiyor",
           {"baslik": "Bir başlık", "kurum": "Ekonomim", "bolge": "DUNYA",
            "ozet": ""}))
 
+
+# ---------------------------------------------------------------------
+# KURU CALISTIRMA KOSU KAYDI YAZMAZ
+#
+# `--kuru` model cagirmiyor, hicbir sey uretmiyor; yalnizca "ne
+# yapilacakti" sorusunu cevapliyor. Ama `calisma` tablosuna 0/0/0
+# satirlari birakiyordu.
+#
+# Olculdu (2026-09-15): aday sayisini olcmek icin yapilan kuru kosular,
+# hattin ritmini olcen sorgulari kirletti. Olcum araci, olctugu seyi
+# DEGISTIRMEMELI -- ayni ders bugun `beyin.baglan`da da yasandi
+# (320 sahte `ai_ret` satiri gercek depoya yazilmisti).
+#
+# Bu sinama ancak `beyin.baglan` cagri aninda cozuldugu icin guvenli:
+# once varsayilan TANIM aninda baglaniyordu ve yonlendirme ise
+# yaramiyordu.
+# ---------------------------------------------------------------------
+import contextlib as _ctx                              # noqa: E402
+import io as _io                                       # noqa: E402
+import os as _os                                       # noqa: E402
+import shutil as _sh                                   # noqa: E402
+import sqlite3 as _sq                                  # noqa: E402
+import tempfile as _tf                                 # noqa: E402
+
+import beyin as _beyin                                 # noqa: E402
+
+_d = _tf.mkdtemp()
+try:
+    _kopya = pathlib.Path(_d) / "kopya.db"
+    _sh.copy2(_KOK / "netaris.db", _kopya)
+    _asil_db, _beyin.VERITABANI = _beyin.VERITABANI, _kopya
+    _asil_argv = sys.argv
+    _b = _sq.connect(_kopya)
+    _once = _b.execute(
+        "SELECT COUNT(*) FROM calisma WHERE hat='ai_yorum'").fetchone()[0]
+    _b.close()
+    try:
+        sys.argv = ["uret_ai_yorum", "--kuru", "--sinir", "3"]
+        with _ctx.redirect_stdout(_io.StringIO()):
+            U.main()
+    finally:
+        _beyin.VERITABANI = _asil_db
+        sys.argv = _asil_argv
+    _b = _sq.connect(_kopya)
+    _sonra = _b.execute(
+        "SELECT COUNT(*) FROM calisma WHERE hat='ai_yorum'").fetchone()[0]
+    _b.close()
+    es("kuru calistirma kosu kaydi YAZMIYOR", _sonra, _once)
+    # GERCEK DEPOYA da dokunulmadi.
+    _b = _sq.connect(f"file:{_KOK / 'netaris.db'}?mode=ro", uri=True)
+    try:
+        dogru("gercek depo hic acilmadi (kopya kullanildi)",
+              _kopya.stat().st_size > 0)
+    finally:
+        _b.close()
+finally:
+    _sh.rmtree(_d, ignore_errors=True)
+
 print()
 for k in kaldi:
     print("  KALDI", k)

@@ -31,6 +31,7 @@ yenileyince metin degismemeli.
 from __future__ import annotations
 
 import argparse
+import contextlib
 import json
 import pathlib
 import sys
@@ -413,7 +414,20 @@ def main() -> int:
     uretilen = reddedilen = atlanan = 0
     with beyin.baglan() as b:
         b.executescript(SEMA)
-        with beyin.calisma_kaydi(b, "ai_yorum") as ozet:
+        # KURU CALISTIRMA KOSU KAYDI YAZMIYOR.
+        #
+        # `--kuru` model cagirmiyor, hicbir sey uretmiyor; yalnizca
+        # "ne yapilacakti" sorusunu cevapliyor. Ama kaydi
+        # yaziyordu ve `calisma` tablosuna 0/0/0 satirlari birakiyordu.
+        #
+        # Olculdu (2026-09-15): bu oturumda aday sayisini olcmek icin
+        # yapilan kuru kosular, hattin ritmini olcen sorgulari
+        # kirletti. Olcum araci, olctugu seyi degistirmemeli --
+        # ayni ders bugun `beyin.baglan`da da yasandi (320 sahte
+        # `ai_ret` satiri).
+        _kayit = (contextlib.nullcontext({}) if args.kuru
+                  else beyin.calisma_kaydi(b, "ai_yorum"))
+        with _kayit as ozet:
             denenen = 0
             for h in aday:
                 if denenen >= args.sinir:
