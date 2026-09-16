@@ -1,5 +1,6 @@
 {% import "_paylas.html" as pl %}
 {% extends "temel.html" %}
+{% import "_yapisal.html" as yv with context %}
 {% block ek_bas %}
 {# Sayfa paylasimindaki "kopyala" dugmesi icin. Digerleri duz
    baglanti; betik yalnizca kopyalamayi aciyor. #}
@@ -9,6 +10,59 @@
 {% block baslik %}{{ grup.baslik }} — {{ site.ad }}{% endblock %}
 {% block aciklama %}{{ grup.baslik }}: {{ grup.haberler|length }} haber,
 ölçülmüş göstergeler ve zaman çizelgesi.{% endblock %}
+
+{# OLAY SAYFASININ SEMASI.
+   ======================
+   Olculdu (2026-09-16): 12 olay sayfasinin hicbirinde yapisal veri
+   YOKTU -- ne sema ne kirinti. Oysa bunlar brief'in istedigi
+   "dosya / event hub" yapisinin zaten var olan hali: bir olayin
+   etrafinda toplanmis haberler.
+
+   NEDEN `CollectionPage`, `NewsArticle` DEGIL
+   -------------------------------------------
+   Bu sayfa bir makale degil; baska sayfalara acilan bir derlemedir.
+   `NewsArticle` isaretlemek Google'a olmayan bir makale bildirmek
+   olurdu ve `headline`/`author` gibi alanlar icin uydurma deger
+   gerekirdi. `/varlik/` sayfalari da `CollectionPage` kullaniyor --
+   ayni tur icerik, ayni tip.
+
+   `ItemList` gercekten sayfada gorunen listeyi anlatiyor: ayni
+   haberler, ayni sirada. Gorunmeyen bir sey isaretlenmiyor. #}
+{% block yapisal_veri %}
+{%- if grup.haberler %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": {{ grup.baslik | tojson }},
+  "url": {{ (site.adres ~ yol) | tojson }},
+  "inLanguage": "tr-TR",
+  "isAccessibleForFree": true,
+  "isPartOf": { "@type": "WebSite", "name": {{ site.ad | tojson }},
+                "url": {{ (site.adres ~ "/") | tojson }} },
+  "mainEntity": {
+    "@type": "ItemList",
+    "numberOfItems": {{ grup.haberler | length }},
+    "itemListElement": [
+      {%- for x in grup.haberler %}
+      {
+        "@type": "ListItem",
+        "position": {{ loop.index }},
+        "name": {{ (x.baslik or "") | tojson }}
+        {%- if x.yol %},
+        "url": {{ (site.adres ~ x.yol) | tojson }}
+        {%- endif %}
+      }{% if not loop.last %},{% endif %}
+      {%- endfor %}
+    ]
+  }
+}
+</script>
+{%- endif %}
+{# Kirinti, sayfadaki gezinme ile ayni: Ana sayfa > Haberler > olay. #}
+{{ yv.kirinti([(site.ad, "/"), ("Haberler", "/gundem/"),
+               (grup.baslik, "")], site.adres) }}
+{% endblock %}
 
 {% block icerik %}
 {# OLAY SAYFASI -- dagilmis bir gelismeyi tek yerde toplar.

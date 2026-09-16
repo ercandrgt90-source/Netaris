@@ -47,12 +47,38 @@
      zengin sonucta kirpiliyor ya da tumuyle yok sayiliyor.
      `<title>` ve `<h1>` TAM basligi tasimaya devam ediyor. #}
   "headline": {{ h.baslik | ld_baslik | tojson }},
-  "description": {{ h.neden_onemli | tojson }},
+  {# ACIKLAMA SAYFADAKIYLE AYNI KAYNAKTAN. Once `h.neden_onemli`
+     yaziliydi -- konu basina SABIT bir metin, yani yuzlerce sayfada
+     ayni. `self.aciklama()` meta etiketin ta kendisini uretiyor;
+     ikisinin ayrismasi imkansiz hale geliyor. #}
+  {# `striptags` SART: blok ciktisi HTML olarak kaciriliyor
+     (autoescape) ve `tojson` o kacislari OLDUGU GIBI JSON'a
+     yaziyordu -- sonuc semada "&#39;" gibi ham varliklardi.
+     JSON-LD HTML degil; Google onlari duz metin okur.
+     `striptags` hem etiketi hem varligi cozuyor ve depoda
+     zaten kullanilan deyim (bkz. `og:image:alt`). #}
+  "description": {{ self.aciklama() | striptags | trim | tojson }},
+  {# GORSEL. Olculdu (2026-09-16): 800 makale semasinin 800'unde
+     `image` bostu -- oysa `og:image` 1.837 sayfanin HEPSINDE dolu.
+     Veri vardi, semaya baglanmamisti. Google News ve Discover
+     gorseli olmayan makaleyi buyuk olcude eliyor.
+
+     `og_gorsel` `temel.html`de (satir 128) hesaplaniyor ve bu blok
+     ondan SONRA basiliyor; ikinci bir yedek zinciri yazilmiyor. #}
+  {%- if og_gorsel %}
+  "image": [{{ (site.adres ~ og_gorsel) | tojson }}],
+  {%- endif %}
   "datePublished": "{{ h.tarih }}",
+  {# `dateModified` = `datePublished`: haber yayimlandiktan sonra
+     DEGISMEDI. Brief'in kurali acik -- guncellenmeyen icerikte sirf
+     SEO icin tarih oynatilmaz. Elde gercek bir guncelleme damgasi
+     olmadigi icin yayin tarihi bildiriliyor, uydurma yok. #}
+  "dateModified": "{{ h.tarih }}",
+  "mainEntityOfPage": { "@type": "WebPage", "@id": {{ (site.adres ~ yol) | tojson }} },
   "inLanguage": "tr-TR",
   "isAccessibleForFree": true,
   "author": { "@type": "Organization", "name": {{ site.ad | tojson }} },
-  "publisher": { "@type": "Organization", "name": {{ site.ad | tojson }} },
+  "publisher": {{ yv.yayinci(site.ad, site.adres) }},
   "citation": {
     "@type": "CreativeWork",
     "name": {{ h.baslik_kaynak | tojson }},

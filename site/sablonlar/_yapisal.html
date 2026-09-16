@@ -46,6 +46,28 @@
 {%- endif -%}
 {% endmacro %}
 
+{# YAYINCI -- logosuyla birlikte, TEK TANIM.
+   Google'in Article yonergesi `publisher.logo` istiyor ve olculdu
+   (2026-09-16): orneklenen 800 makale semasinin 800'unde de YOKTU.
+   Logo bugun uretildi ve taranabilir bir adreste duruyor; sema onu
+   yalnizca gostermiyordu.
+
+   Iki sablon (haber, analiz) ayni nesneyi basiyor. Makro olmasaydi
+   ayni tanim iki yerde yasar, biri guncellenip oteki unutulurdu --
+   bu depoda tekrarlayan kusur sinifi. #}
+{% macro yayinci(ad, site_adres) %}
+{
+  "@type": "Organization",
+  "name": {{ ad | tojson }},
+  "logo": {
+    "@type": "ImageObject",
+    "url": {{ (site_adres ~ "/statik/marka/netaris-512.png") | tojson }},
+    "width": 512,
+    "height": 512
+  }
+}
+{%- endmacro %}
+
 {# Yazar -- INSAN imzali icerik icin Person, kurum icerigi icin
    Organization.
 
