@@ -107,22 +107,52 @@
    karta basamiyor -- 439 analiz sayfasi bu yuzden gorselsiz
    paylasiliyordu. `og_foto` sayfada gorunmez, yalnizca burada
    kullanilir. #}
+{# MARKA KARTI -- zincirin SONUNDA, ana sayfada ONUNDE.
+   ====================================================
+   Buradaki eski not "uydurma bir gorsel koymaktansa duzgun bir kucuk
+   kart daha iyi" diyordu ve DOGRUYDU: ortada markanin kendi gorseli
+   YOKTU, elde olan tek sey konuyla ilgisi olmayan bir stok fotograf.
+   Artik marka karti var ve o "uydurma" degil -- markanin kendisi.
+
+   Olculdu (2026-09-16):
+     * 106 sayfanin hic `og:image`i yoktu; paylasildiklarinda
+       onizleme BOS kutuydu.
+     * Ana sayfa `haberler[0].foto`ya dusuyordu; yani "netaris.net"
+       paylasan biri markayi degil o anki EN YENI HABER FOTOGRAFINI
+       goruyordu (olcum aninda rastgele bir Fed fotografi).
+
+   ANA SAYFADA ONCE MARKA: orayi paylasan kisi bir yaziyi degil
+   SITEYI paylasiyor. Yazi sayfalarinda sira DEGISMIYOR -- yazinin
+   kendi fotografi her zaman daha iyi anlatir. #}
+{% set og_marka = "/statik/marka/netaris-kart.png" %}
 {% set og_gorsel =
-     (h.foto if h is defined and h and h.foto else "")
+     (og_marka if yol == "/" else "")
+     or (h.foto if h is defined and h and h.foto else "")
      or (a.foto if a is defined and a and a.foto else "")
      or (a.og_foto if a is defined and a and a.og_foto else "")
      or og_uretilen
      or (haberler[0].foto if haberler is defined and haberler
          and haberler[0].foto else "")
      or (one_cikanlar[0].foto if one_cikanlar is defined and one_cikanlar
-         and one_cikanlar[0].foto else "") %}
+         and one_cikanlar[0].foto else "")
+     or og_marka %}
 {% if og_gorsel %}
 <meta property="og:image" content="{{ site.adres }}{{ og_gorsel }}">
 {# `alt` uretilmis gorselde BUNU SOYLUYOR. Gorunur etiketin yerini
    tutmuyor ama sessiz kalmaktan iyi: bazi istemciler okuyor ve
    metadata durust kaliyor. #}
+{% if og_gorsel == og_marka %}
+{# Olcu BILDIRILIYOR: kaziyici gorseli indirmeden yerlesimi kurabilir.
+   Yalnizca marka karti icin -- fotograflarin olcusu burada bilinmiyor
+   ve yanlis olcu bildirmek hic bildirmemekten kotu. #}
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+{% endif %}
 <meta property="og:image:alt" content="{% if og_gorsel == og_uretilen %}Netaris tarafından yapay zeka ile üretilmiş kavram çizimi — {% endif %}{{ self.baslik() | striptags | trim }}">
-<meta property="og:image:type" content="image/jpeg">
+{# TUR UZANTIDAN TURETILIYOR, SABIT DEGIL. Once "image/jpeg"
+   yaziliydi; marka karti PNG ve yanlis tur bildirmek, bazi
+   kaziyicilarin gorseli hic basmamasina yol acar. #}
+<meta property="og:image:type" content="image/{{ 'png' if og_gorsel.endswith('.png') else 'jpeg' }}">
 <meta name="twitter:card" content="summary_large_image">
 {# `twitter:image` ACIKCA YAZILIYOR -- `og:image` yedegine
    guvenilmiyor.

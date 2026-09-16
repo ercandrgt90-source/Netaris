@@ -174,6 +174,80 @@ def png(boy: int, pikseller: bytes) -> bytes:
             + parca(b"IEND", b""))
 
 
+#: Paylasim kartinin olcusu. 1200x630 Open Graph'in yerlesik olcusu;
+#: `twitter:card="summary_large_image"` de bu orani bekliyor.
+KART = (1200, 630)
+
+
+def kart_cizimi(px: int, py: int, g: int, h: int) -> tuple[int, int, int, int]:
+    """Paylasim kartinin bir pikselinin rengi.
+
+    ISARET TILESIZ CIZILIYOR. Ikon surumunde isaret kendi koyu
+    yuvarlak karesini tasiyor; kartin zemini de ayni koyu renk oldugu
+    icin o kareyi basmak, zeminde GORUNMEYEN bir dikdortgen birakirdi.
+    Kartta yalnizca "N" ve cubuklar var, buyutulmus halde.
+
+    METIN YOK -- BILEREK. Yazi tipi cizmek icin bir bagimlilik
+    gerekiyordu ve `requirements.txt` bilincli olarak kucuk. Markayi
+    harfle degil isaretle anlatmak, eksik bir kart basmaktan iyi;
+    baslik ve aciklama zaten kartin metin alaninda cikiyor.
+    """
+    # Isaretin icerigi 32'lik uzayda kabaca x 5..30, y 6..27.
+    ic_g, ic_y = 25.0, 21.0
+    olcek = (h * 0.46) / ic_y
+    # Ortala: icerigin sol-ust kosesi (5, 6) kart merkezine gore.
+    ox = g / 2.0 - (ic_g * olcek) / 2.0 - 5.0 * olcek
+    oy = h / 2.0 - (ic_y * olcek) / 2.0 - 6.0 * olcek
+
+    r = gr = b = a = 0
+    adim = 1.0 / ORNEK
+    for sy in range(ORNEK):
+        for sx in range(ORNEK):
+            x = ((px + (sx + 0.5) * adim) - ox) / olcek
+            y = ((py + (sy + 0.5) * adim) - oy) / olcek
+            n = None
+            for kx, ky, cg, ch, cr in CUBUKLAR:
+                if _yuvarlak_kare(x, y, kx, ky, cg, ch, cr):
+                    n = (*VURGU, 255)
+                    break
+            if n is None:
+                for i in range(len(N_YOLU) - 1):
+                    (ax, ay), (bx, by) = N_YOLU[i], N_YOLU[i + 1]
+                    if _parca_uzakligi(x, y, ax, ay, bx, by) <= N_YARI:
+                        n = (*CIZGI, 255)
+                        break
+            if n is None:
+                n = (*ZEMIN, 255)      # kart zemini: markanin koyusu
+            r += n[0]; gr += n[1]; b += n[2]; a += n[3]
+    k = ORNEK * ORNEK
+    return (r // k, gr // k, b // k, a // k)
+
+
+def kart() -> bytes:
+    """Paylasim kartinin RGBA pikselleri."""
+    g, h = KART
+    veri = bytearray()
+    for py in range(h):
+        for px in range(g):
+            veri += bytes(kart_cizimi(px, py, g, h))
+    return bytes(veri)
+
+
+def png_dikdortgen(g: int, h: int, pikseller: bytes) -> bytes:
+    """Kare olmayan PNG. `png()` kare varsayiyor; kart kare degil."""
+    satirli = b"".join(b"\x00" + pikseller[y * g * 4:(y + 1) * g * 4]
+                       for y in range(h))
+
+    def parca(tur: bytes, veri: bytes) -> bytes:
+        return (struct.pack(">I", len(veri)) + tur + veri
+                + struct.pack(">I", zlib.crc32(tur + veri) & 0xFFFFFFFF))
+
+    return (b"\x89PNG\r\n\x1a\n"
+            + parca(b"IHDR", struct.pack(">IIBBBBB", g, h, 8, 6, 0, 0, 0))
+            + parca(b"IDAT", zlib.compress(satirli, 9))
+            + parca(b"IEND", b""))
+
+
 #: Uretilecek boyutlar ve NEDEN.
 BOYUTLAR = {
     # Google favicon'u: "48x48'ten buyugu" oneriliyor; 192 ayrica
@@ -196,6 +270,15 @@ def uret(hedef: pathlib.Path | None = None) -> list[pathlib.Path]:
         p.write_bytes(png(boy, ciz(boy)))
         print(f"  {p.name:18s} {p.stat().st_size:6d} bayt   ({sebep})")
         yazilan.append(p)
+    # PAYLASIM KARTI. Olculdu (2026-09-16): ana sayfa paylasildiginda
+    # onizlemede en yeni HABER FOTOGRAFI cikiyordu -- marka degil,
+    # rastgele bir Fed fotografi. Ayrica 106 sayfanin hic `og:image`i
+    # yoktu ve bos kutu olarak paylasiliyordu.
+    kp = h / "netaris-kart.png"
+    kp.write_bytes(png_dikdortgen(*KART, kart()))
+    print(f"  {kp.name:18s} {kp.stat().st_size:6d} bayt   "
+          f"(og:image {KART[0]}x{KART[1]})")
+    yazilan.append(kp)
     return yazilan
 
 

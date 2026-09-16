@@ -146,6 +146,41 @@ esit(_lg >= LOGO_EN_AZ and _ly >= LOGO_EN_AZ, True,
 esit(_site[0].get("publisher"), {"@id": _k["@id"]},
      "WebSite.publisher AYNI kurulusa isaret ediyor")
 
+print("\nPaylasim karti")
+# Olculdu (2026-09-16): 106 sayfanin hic `og:image`i yoktu ve
+# paylasildiklarinda onizleme BOS kutuydu. Ana sayfa ise
+# `haberler[0].foto`ya dusuyordu -- "netaris.net" paylasan biri
+# markayi degil o anki en yeni haber fotografini goruyordu.
+_KART = "/statik/marka/netaris-kart.png"
+_kart_yolu = _CIKTI / _KART.lstrip("/")
+esit(_kart_yolu.exists(), True, "marka karti YAYINDA")
+_kg, _ky = png_olcu(_kart_yolu)
+esit((_kg, _ky), (1200, 630), f"kart Open Graph olcusunde ({_kg}x{_ky})")
+
+_ana_og = re.search(r'property="og:image"[^>]*content="([^"]*)"', _h)
+esit(bool(_ana_og) and _ana_og.group(1).endswith(_KART), True,
+     "ANA SAYFA markayi paylasiyor (haber fotografini degil)")
+
+# HER SAYFADA gorsel var mi -- ve bildirilen tur DOGRU mu. Yanlis tur
+# bildirmek, bazi kaziyicilarin gorseli hic basmamasina yol aciyor.
+_gorselsiz = []
+_tur_yanlis = []
+_n = 0
+for _p in _CIKTI.rglob("index.html"):
+    _n += 1
+    _g = _p.read_text(encoding="utf-8", errors="replace")
+    _mi = re.search(r'property="og:image"[^>]*content="([^"]*)"', _g)
+    if not _mi:
+        _gorselsiz.append(str(_p.relative_to(_CIKTI)))
+        continue
+    _mt = re.search(r'property="og:image:type"[^>]*content="([^"]*)"', _g)
+    _bekle = "image/png" if _mi.group(1).endswith(".png") else "image/jpeg"
+    if _mt and _mt.group(1) != _bekle:
+        _tur_yanlis.append((str(_p.relative_to(_CIKTI)), _mt.group(1), _bekle))
+esit(_n > 200, True, f"tarama dolu ({_n} sayfa)")
+esit(_gorselsiz[:5], [], "og:image'i OLMAYAN sayfa yok (onceden 106)")
+esit(_tur_yanlis[:5], [], "og:image:type uzantiyla UYUSUYOR")
+
 print("\nTaranabilir")
 _r = (_CIKTI / "robots.txt").read_text(encoding="utf-8")
 _yasak = [s.split(":", 1)[1].strip() for s in _r.splitlines()
