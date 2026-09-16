@@ -1,7 +1,7 @@
 ---
 slug: kuresel-gostergeler-2026-09-16
-baslik: Brent petrolde %24,8 yükseliş: etkiler nereye düşüyor
-ozet: Brent petrol 9 Eylül 2026 itibarıyla 109,51 USD/varil seviyesinde. İzlenen 14 işlem gününde 26 Ağustos 2026 tarihli 87,77 dolarlık dibi ile 9 Eylül 2026 tarihli 109,51 dolarlık zirvesi arasında hareket etti. ABD 10 yıllık tahvil getirisi %4,97 (14 Eylül 2026), aynı dönemde 33 baz puan yükseldi.…
+baslik: Brent petrolde %49,0 yükseliş: etkiler nereye düşüyor
+ozet: Brent petrol 15 Eylül 2026 itibarıyla 130,80 USD/varil seviyesinde. İzlenen 14 işlem gününde 26 Ağustos 2026 tarihli 87,77 dolarlık dibi ile 15 Eylül 2026 tarihli 130,80 dolarlık zirvesi arasında hareket etti. ABD 10 yıllık tahvil getirisi %4,97 (14 Eylül 2026), aynı dönemde 33 baz puan yükseldi.…
 sirket: Küresel göstergeler
 kod: MAKRO
 donem: 2026-09-16
@@ -12,7 +12,7 @@ yazar:
 unvan: 
 kurgusal: hayir
 grafik_tur: cizgi
-grafik: 94,00;96,92;92,71;88,24;87,77;90,18;89,75;96,02;97,59;100,52;102,24;104,47;106,12;109,51
+grafik: 87,77;90,18;89,75;96,02;97,59;100,52;102,24;104,47;106,12;109,51;120,98;118,06;121,25;130,80
 grafik_kod: Brent petrol
 grafik_birim: USD/varil
 kaynaklar: FRED
@@ -21,13 +21,13 @@ sayimlar: 4|yorumlanan gösterge;56|gözlem noktası;14|işlem günü penceresi;
 
 ## Özet
 
-Brent petrol 9 Eylül 2026 itibarıyla 109,51 USD/varil seviyesinde. İzlenen 14 işlem gününde 26 Ağustos 2026 tarihli 87,77 dolarlık dibi ile 9 Eylül 2026 tarihli 109,51 dolarlık zirvesi arasında hareket etti. ABD 10 yıllık tahvil getirisi %4,97 (14 Eylül 2026), aynı dönemde 33 baz puan yükseldi. 10 yıllık ile 2 yıllık arasındaki fark 32 baz puan; getiri eğrisi pozitif eğimli.
+Brent petrol 15 Eylül 2026 itibarıyla 130,80 USD/varil seviyesinde. İzlenen 14 işlem gününde 26 Ağustos 2026 tarihli 87,77 dolarlık dibi ile 15 Eylül 2026 tarihli 130,80 dolarlık zirvesi arasında hareket etti. ABD 10 yıllık tahvil getirisi %4,97 (14 Eylül 2026), aynı dönemde 33 baz puan yükseldi. 10 yıllık ile 2 yıllık arasındaki fark 32 baz puan; getiri eğrisi pozitif eğimli.
 
 ## Göstergeler
 
 | Gösterge | Son değer | Tarih | Dönem değişimi |
 |---|---|---|---|
-| Brent petrol | 109,51 USD/varil | 9 Eylül 2026 | %16,5 yükseldi |
+| Brent petrol | 130,80 USD/varil | 15 Eylül 2026 | %49,0 yükseldi |
 | ABD efektif fed fonu oranı | %3,63 | 14 Eylül 2026 | yatay kaldı |
 | ABD 2 yıllık tahvil getirisi | %4,65 | 14 Eylül 2026 | 48 baz puan yükseldi |
 | ABD 10 yıllık tahvil getirisi | %4,97 | 14 Eylül 2026 | 33 baz puan yükseldi |
@@ -36,7 +36,7 @@ Her göstergenin son gözlem tarihi farklı olabilir; tabloda her satır kendi t
 
 ## Enerji tarafı
 
-26 Ağustos 2026 tarihindeki 87,77 dolardan 9 Eylül 2026 tarihindeki 109,51 dolara kadar %24,8 yükseldi. Son iki gözlem arasında (8 Eylül 2026 → 9 Eylül 2026) 3,39 dolarlık bir yükseliş kaydedildi. **Bu hareketin nedeni bu yazının konusu değildir.** Fiyat serisi fiyatın ne yaptığını gösterir, neden öyle yaptığını göstermez; nedene ilişkin bir açıklama ancak birincil haber kaynaklarına dayanarak yapılabilir.
+26 Ağustos 2026 tarihindeki 87,77 dolardan 15 Eylül 2026 tarihindeki 130,80 dolara kadar %49,0 yükseldi. Son iki gözlem arasında (14 Eylül 2026 → 15 Eylül 2026) 9,55 dolarlık bir yükseliş kaydedildi. **Bu hareketin nedeni bu yazının konusu değildir.** Fiyat serisi fiyatın ne yaptığını gösterir, neden öyle yaptığını göstermez; nedene ilişkin bir açıklama ancak birincil haber kaynaklarına dayanarak yapılabilir.
 
 ## ABD faiz tarafı
 

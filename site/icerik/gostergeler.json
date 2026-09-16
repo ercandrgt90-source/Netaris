@@ -38,26 +38,24 @@
     {
       "kod": "DCOILBRENTEU",
       "ad": "BRENT",
-      "deger": "109,51",
-      "fark": "+%3,19",
+      "deger": "130,80",
+      "fark": "+%7,88",
       "yon": "artis",
-      "tarih": "2026-09-09",
+      "tarih": "2026-09-15",
       "birim": "USD/varil",
-      "gun": 5,
-      "bayat": true,
-      "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · sonraki 23 Eylül"
+      "gun": 1,
+      "bayat": false
     },
     {
       "kod": "DCOILWTICO",
       "ad": "WTI",
-      "deger": "97,26",
-      "fark": "+%3,24",
+      "deger": "107,02",
+      "fark": "+%4,49",
       "yon": "artis",
-      "tarih": "2026-09-09",
+      "tarih": "2026-09-15",
       "birim": "USD/varil",
-      "gun": 5,
-      "bayat": true,
-      "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · sonraki 23 Eylül"
+      "gun": 1,
+      "bayat": false
     },
     {
       "kod": "DFF",
@@ -123,26 +121,24 @@
         {
           "kod": "DCOILBRENTEU",
           "ad": "Brent",
-          "deger": "109,51",
-          "fark": "+%3,19",
+          "deger": "130,80",
+          "fark": "+%7,88",
           "yon": "artis",
-          "tarih": "2026-09-09",
+          "tarih": "2026-09-15",
           "birim": "USD/varil",
-          "gun": 5,
-          "bayat": true,
-          "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · sonraki 23 Eylül"
+          "gun": 1,
+          "bayat": false
         },
         {
           "kod": "DCOILWTICO",
           "ad": "WTI",
-          "deger": "97,26",
-          "fark": "+%3,24",
+          "deger": "107,02",
+          "fark": "+%4,49",
           "yon": "artis",
-          "tarih": "2026-09-09",
+          "tarih": "2026-09-15",
           "birim": "USD/varil",
-          "gun": 5,
-          "bayat": true,
-          "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · sonraki 23 Eylül"
+          "gun": 1,
+          "bayat": false
         }
       ]
     },
