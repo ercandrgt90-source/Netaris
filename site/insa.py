@@ -2335,6 +2335,33 @@ def haritaya_girer(yol: str, kok: pathlib.Path | None = None) -> bool:
         return True
 
 
+def lastmod_kur(tarihler: dict, yol: str, tarih: str | None) -> None:
+    """`yol` icin `lastmod` degerini yazar -- BILINIYORSA.
+
+    NEDEN "BILINIYORSA" VURGULU
+    ---------------------------
+    Google `lastmod`u yalnizca TUTARLI DOGRU oldugunda kullaniyor;
+    guvenilmez bulursa alani bastan yok sayiyor. Yani yanlis bir
+    tarih, hic tarih vermemekten KOTU.
+
+    En sik yapilan yanlis, her kurulumda "bugun" yazmak: site gunde
+    birkac kez kuruluyor ve o zaman butun sayfalar her gun degismis
+    gibi gorunurdu. Buradaki degerlerin hepsi ICERIKTEN turetiliyor
+    -- hub icin listesindeki en yeni yazinin tarihi, olay icin
+    grubun son haberi, varlik icin o varliga bagli en yeni haber.
+
+    Tarih yoksa alan BASILMIYOR: "bilmiyorum" ile "bugun degisti"
+    ayni sey degil. Yasal/statik sayfalar (kunye, gizlilik,
+    metodoloji) bilerek tarihsiz kaliyor -- ne zaman degistiklerini
+    uretim aninda bilmiyoruz.
+    """
+    if not tarih:
+        return
+    t = str(tarih)[:10]
+    if len(t) == 10 and t[4] == "-" and t[7] == "-":
+        tarihler[yol] = t
+
+
 def sitemap_uret(yollar: list[str],
                  tarihler: dict[str, str] | None = None) -> str:
     """Sitemap -- her adres BIR KEZ.
@@ -4691,7 +4718,8 @@ def varlik_yolu(kod: str) -> str:
 
 
 def varlik_sayfalari(ortam, yaz, ortak: dict,
-                     dizin_yaz: bool = True) -> list[str]:
+                     dizin_yaz: bool = True,
+                     tarihler: dict | None = None) -> list[str]:
     """Varlik sayfalarini uretir: /varlik/<kod>/.
 
     Bu sayfalar sitenin arama motorundaki tasiyicisi: "Fed faiz karari"
@@ -4745,6 +4773,8 @@ def varlik_sayfalari(ortam, yaz, ortak: dict,
                 # etkiler") BIZIM ve degerli. Kisitlama VERIYE, isim
                 # anmaya degil -- ayni ayrim `test_lisans.py` icinde
                 # de yazili.
+                # TEK SORGU: asagida hem sablona hem `lastmod`a gidiyor.
+                _gecmis = _varlik.varlik_gecmisi(b, kod, 30)
                 seri_kodu = (k or {}).get("seri_kodu")
                 veri = (None if seri_kodu in LISANSSIZ_SERI
                         else _varlik.seri_ozet(b, seri_kodu))
@@ -4754,7 +4784,11 @@ def varlik_sayfalari(ortam, yaz, ortak: dict,
                         kivilcim=(kivilcim.cizgi(veri["seri"])
                                   if veri else ""),
                         baglar=_varlik.baglar(b, kod),
-                        haberler=_varlik.varlik_gecmisi(b, kod, 30)))
+                        haberler=_gecmis))
+                # Varlik sayfasi, o varliga yeni haber baglandikca
+                # degisiyor. `varlik_gecmisi` yeniden eskiye sirali.
+                if tarihler is not None and _gecmis:
+                    lastmod_kur(tarihler, v["yol"], _gecmis[0].get("tarih"))
                 yollar.append(v["yol"])
                 if n >= DIZIN_ESIGI:
                     dizin.append(v)
@@ -5225,6 +5259,9 @@ def insa() -> int:
             "kod": slug,
         })
         yol_k = f"/{slug}/"
+        # Hub, listesindeki en yeni yaziyla birlikte degisiyor.
+        # `secilen` yeniden eskiye sirali.
+        lastmod_kur(_lastmod, yol_k, secilen[0].tarih if secilen else "")
         yaz(
             f"{yol_k}index.html",
             ortam.get_template("kategori.html").render(
@@ -5277,6 +5314,8 @@ def insa() -> int:
                 kategori_kodu={k: s for s, _b, k, _a in KATEGORILER},
             ),
         )
+        lastmod_kur(_lastmod, "/arastirmalar/",
+                    listelenen[0].tarih if listelenen else "")
         yollar.append("/arastirmalar/")
 
     # OLAY SAYFALARI -- dagilmis bir gelismeyi tek yerde toplar.
@@ -5300,6 +5339,9 @@ def insa() -> int:
                                      key=lambda x: -len(x[1])):
             _yol = f"/olay/{olay_slug(_anahtar)}/"
             _sirali = sorted(_hab, key=lambda h: h.get("tarih") or "")
+            # Olay sayfasi, grubuna yeni haber girdikce degisiyor.
+            lastmod_kur(_lastmod, _yol,
+                        _sirali[-1].get("tarih") if _sirali else "")
             yaz(
                 _yol + "index.html",
                 ortam.get_template("olay.html").render(
@@ -5384,7 +5426,8 @@ def insa() -> int:
         #
         # Sonuc: sayfalar var, kapisi yok. Okur onlara yalnizca izleme
         # listesinden ulasiyor.
-        for v_yol in varlik_sayfalari(ortam, yaz, ortak, dizin_yaz=False):
+        for v_yol in varlik_sayfalari(ortam, yaz, ortak, dizin_yaz=False,
+                                      tarihler=_lastmod):
             yollar.append(v_yol)
         varlik_sayfasi_olan = {
             y.strip("/").split("/")[-1].upper().replace("-", "_")
@@ -5663,6 +5706,11 @@ def insa() -> int:
             "/gundem/index.html",
             ortam.get_template("gundem.html").render(**ortak, yol="/gundem/"),
         )
+        # Gundem, akisina yeni haber girdikce degisiyor. `_rss_haber`
+        # ilk ogesi (tarih) ile dolu ve bu noktada butun yayimlanan
+        # haberleri tasiyor.
+        if _rss_haber:
+            lastmod_kur(_lastmod, "/gundem/", max(x[0] for x in _rss_haber))
         yollar.append("/gundem/")
 
     # Uyelik sayfalari.
@@ -5786,6 +5834,15 @@ def insa() -> int:
 
     # Besleme ve arama motoru dosyalari
     yaz("/rss.xml", rss_uret(listelenen, _rss_haber))
+    # ANA SAYFA, SITEDEKI EN YENI ICERIKLE BIRLIKTE DEGISIYOR.
+    #
+    # Burada, harita yazilmadan hemen once hesaplaniyor: o ana kadar
+    # butun icerik tarihleri `_lastmod`a girmis oluyor. "Bugun" yazmak
+    # kolay olurdu ama yanlis olurdu -- site gunde birkac kez
+    # kuruluyor ve Google guvenilmez buldugu `lastmod`u bastan yok
+    # sayiyor.
+    if _lastmod:
+        lastmod_kur(_lastmod, "/", max(_lastmod.values()))
     yaz("/sitemap.xml", sitemap_uret(yollar, _lastmod))
     yaz(
         "/robots.txt",
