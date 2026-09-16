@@ -38,15 +38,59 @@
 {% endblock %}
 
 {% block yapisal_veri %}
+{# KURULUS VE LOGO -- arama sonucunda markayi gostermek icin.
+   ==========================================================
+   Onceki halde `publisher` yalnizca bir ISIMDI:
+
+       "publisher": { "@type": "Organization", "name": "Netaris" }
+
+   Google'in logo sartlari (structured-data/logo) bunu tanimiyor;
+   marka logosu icin `Organization` uzerinde `logo` gerekiyor:
+
+     * "The image must be 112x112px, at minimum."     -> 512x512
+     * "The image URL must be crawlable and indexable." -> gercek dosya
+     * "Make sure the image looks how you intend it to look on a
+       purely white background" -> isaret kendi koyu karesini tasiyor.
+
+   TEK KURULUS, IKI YERDE ANILIYOR. `@graph` + `@id` kullaniliyor ki
+   `WebSite.publisher` ile `Organization` AYNI varlik olsun. Ikisini
+   ayri ayri yazmak, Google'a birbirinin ayni iki kurulus bildirmek
+   demekti -- bu depoda tekrar eden "ayni seyi iki yerde sOylemek"
+   kusurunun yapisal veri surumu.
+
+   `sameAs` BILEREK YOK: markanin kendi sosyal hesabi sitede
+   baglanmiyor ve olmayan bir hesabi bildirmek yanlis veri olurdu.
+   Hesaplar acilinca buraya eklenmeli -- Knowledge Graph'ta varligi
+   guclendiren asil alan odur. #}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": {{ site.ad | tojson }},
-  "url": "{{ site.adres }}/",
-  "description": {{ site.aciklama | tojson }},
-  "inLanguage": "tr-TR",
-  "publisher": { "@type": "Organization", "name": {{ site.ad | tojson }} }
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "{{ site.adres }}/#kurulus",
+      "name": {{ site.ad | tojson }},
+      "url": "{{ site.adres }}/",
+      "description": {{ site.meta_aciklama | tojson }},
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{ site.adres }}/statik/marka/netaris-512.png",
+        "contentUrl": "{{ site.adres }}/statik/marka/netaris-512.png",
+        "width": 512,
+        "height": 512,
+        "caption": {{ site.ad | tojson }}
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "{{ site.adres }}/#site",
+      "name": {{ site.ad | tojson }},
+      "url": "{{ site.adres }}/",
+      "description": {{ site.aciklama | tojson }},
+      "inLanguage": "tr-TR",
+      "publisher": { "@id": "{{ site.adres }}/#kurulus" }
+    }
+  ]
 }
 </script>
 {% endblock %}
