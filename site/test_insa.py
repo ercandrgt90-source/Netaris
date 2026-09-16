@@ -724,9 +724,28 @@ dogru("eskimis surum haritaya EKLENMIYOR",
        + "            yollar.append(a.yol)") in _INSA_K)
 dogru("eskimis bayragi hala sablona gidiyor",
       "eskimis=_eskimis" in _INSA_K)
-# Bayrak hesabi KORUNMALI: `guncel_sluglar` disindaki her surum eski.
-dogru("eskimis olcutu guncel listeye bakiyor",
-      "a.slug not in guncel_sluglar" in _INSA_K)
+# OLCUT DEGISTI -- 2026-09-16. Eski hali `a.slug not in
+# guncel_sluglar` idi, yani "ana sayfa listesine girmediyse dizine de
+# girmesin". Tek karar UC isi birden yapiyordu: ana sayfa karisimi,
+# kategori hub'i ve `noindex`.
+#
+# Olculdu: `uret_olay.py` her olay analizine SABIT `kod="OLAY"`
+# yaziyor ve liste elemesi `(kategori, kod)`e bakiyor. Sonuc:
+# ('Makro','OLAY') altindaki 208 sayfanin 208'i de FARKLI baslik
+# tasiyor (%100) ama 207'si eleniyordu. Elenen 380 analizin 380'ine
+# site icinden HIC baglanti yoktu ve hepsi `noindex` idi.
+#
+# Ana sayfada yer kisiti GERCEK, eleme orada kaliyor. Dizine girmede
+# yer kisiti YOK: olcut artik "yerini daha yeni bir surum aldi mi".
+dogru("eskimis olcutu GECERSIZ KILINMAYA bakiyor",
+      "_eskimis = a.slug in _gecersiz_sluglar" in _INSA_K)
+# Yer tutucu kodlar konu adlandirmiyor -- her olay kendi icerigi.
+dogru("yer tutucu kod kavrami duruyor",
+      "YER_TUTUCU_KOD" in _INSA_K and "gecersiz_kilindi" in _INSA_K)
+# Kategori hub'i TAM arsiv: ana sayfa secer, hub arsivler. Aksi halde
+# ozgun sayfalar hicbir yerden baglanti almiyor.
+dogru("kategori hub'i ana sayfa listesinden BESLENMIYOR",
+      "secilen = [a for a in listelenen" not in _INSA_K)
 
 # HANGI SINAMA KALDIGI YAZILIYOR.
 #

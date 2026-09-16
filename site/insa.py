@@ -1783,6 +1783,54 @@ def analizleri_yukle() -> list[Analiz]:
     return liste
 
 
+#: `kod` alaninda VARLIK degil TUR bildiren degerler.
+#:
+#: NEDEN AYRI DURUYOR -- olculdu 2026-09-16.
+#:
+#: `guncel_olanlar` ayni varligin ayni turdeki analizinden yalnizca
+#: en gunceli birakiyor ve olcutu `(kategori, kod)`. Olcut `kod`un
+#: bir KONUYU adlandirdigini varsayiyor -- BTC, ETH, AKBNK gibi.
+#:
+#: `uret_olay.py` ise her olay analizine sabit `kod="OLAY"` yaziyor
+#: (satir 377). Yani 208 FARKLI olay ayni imzayi tasiyor:
+#:
+#:     UK Core CPI MoM Actual 0.3%
+#:     Zcash climbs 6% as majors slide ahead of Fed rate decision
+#:     Japonya Merkez Bankasi politika faizini 31 yilin zirvesine cikardi
+#:
+#: Olculdu: ('Makro','OLAY') altinda 208 sayfa var ve 208'i de FARKLI
+#: baslik tasiyor -- %100. Karsilastirma icin ('Teknik Gorunum','BTC')
+#: 34 sayfada 18 tekil baslik (%53), yani orada eleme dogru calisiyor.
+#:
+#: Sonuc agirdi: 207 ozgun analiz hem listelerden dusuyor hem
+#: `noindex` aliyordu. Olculdu: elenen 380 analizin 380'ine site
+#: icinden HIC baglanti yok. Dosya olarak varlar, deger olarak yoklar.
+#:
+#: Bir varsayimin sebebi olmus: `kod` bir zamanlar hep varlik koduydu.
+YER_TUTUCU_KOD = frozenset({"OLAY"})
+
+
+def gecersiz_kilindi(a: "Analiz", gorulen: set) -> bool:
+    """Bu analizin yerini DAHA YENI bir surum aldi mi.
+
+    "Gecersiz kilinma" bir KONU iliskisi: ayni konunun daha yeni
+    olcumu yayimlandiysa eskisi tekrar sayilir. Konu kimligi `kod`tan
+    geliyor ve `kod` bir konu adlandirmiyorsa (bkz. `YER_TUTUCU_KOD`)
+    boyle bir iliski KURULAMAZ -- her olay kendi basina icerik, tipki
+    elle yazilmis yazilar gibi.
+
+    `gorulen` cagirandaki kumeyi GUNCELLIYOR: liste yeniden eskiye
+    dogru geziliyor, ilk gorulen en yenisi.
+    """
+    if not a.kod or a.kod in YER_TUTUCU_KOD:
+        return False
+    imza = (a.kategori, a.kod)
+    if imza in gorulen:
+        return True
+    gorulen.add(imza)
+    return False
+
+
 def guncel_olanlar(analizler: list[Analiz]) -> list[Analiz]:
     """Yinelenen otomatik analizlerden yalnizca EN GUNCELINI birakir.
 
@@ -4790,6 +4838,12 @@ def insa() -> int:
     analizler = analizleri_yukle()
     listelenen = guncel_olanlar(analizler)
     guncel_sluglar = {a.slug for a in listelenen}
+
+    # GECERSIZ KILINANLAR -- `noindex` alacak olanlar. Listeleme
+    # elemesinden AYRI: orada yer kisiti var, burada yok.
+    _g: set = set()
+    _gecersiz_sluglar = {a.slug for a in analizler
+                         if gecersiz_kilindi(a, _g)}
     if len(listelenen) < len(analizler):
         print(f"listeleme: {len(analizler) - len(listelenen)} yinelenen "
               f"otomatik analiz gizlendi (sayfalari duruyor)")
@@ -5087,7 +5141,20 @@ def insa() -> int:
     for a in analizler:
         # Listeden elenmis surum: sayfasi duruyor ama dizine girmiyor
         # (bkz. temel.html'deki robots blogu).
-        _eskimis = a.slug not in guncel_sluglar
+        # `noindex` KARARI LISTEDEN AYRILDI.
+        #
+        # Once "listede yoksa noindex" deniyordu ve tek karar UC isi
+        # birden yapiyordu: ana sayfa karisimi, hub icerigi ve dizine
+        # girme. Ucu ayri sorular.
+        #
+        # Ana sayfada yer kisitli, o yuzden eleme orada DOGRU: eleme
+        # kaldirilinca ilk 16 kartin 11 bilancosu 15 makro olaya
+        # donuyor ve sitenin ayirt edici icerigi gomuluyor (olculdu).
+        #
+        # Dizine girmede ise yer kisiti YOK. Ozgun bir sayfayi
+        # "listede yer kalmadi" diye dizinden cikarmak, kazanci olmayan
+        # bir kayip.
+        _eskimis = a.slug in _gecersiz_sluglar
         yaz(
             f"{a.yol}index.html",
             ortam.get_template("analiz.html").render(
@@ -5131,7 +5198,19 @@ def insa() -> int:
     merkez = []
 
     for slug, baslik, kategori, aciklama in KATEGORILER:
-        secilen = [a for a in listelenen if a.kategori == kategori]
+        # HUB TAM ARSIV, ana sayfa karisimi DEGIL.
+        #
+        # Once burasi da `listelenen`den besleniyordu ve `/makro/`
+        # 208 olaydan YALNIZCA BIRINI gosteriyordu. Olculdu: elenen
+        # 380 analizin 380'ine site icinden hic baglanti yok -- yani
+        # o sayfalara yalnizca adresi bilen gidebiliyordu.
+        #
+        # Kategori sayfasi tam olarak bunun icin var: ana sayfa
+        # secer, hub arsivler. Gecersiz kilinmis olanlar yine disarida
+        # -- onlarin yerini daha yeni surum aldi.
+        secilen = [a for a in analizler
+                   if a.kategori == kategori
+                   and a.slug not in _gecersiz_sluglar]
         if not secilen:
             continue
         # Bos kategori merkeze de girmiyor: tiklayinca bos sayfa cikan
