@@ -4878,6 +4878,28 @@ def insa() -> int:
     _g: set = set()
     _gecersiz_sluglar = {a.slug for a in analizler
                          if gecersiz_kilindi(a, _g)}
+
+    # PAYLASILAN OZETLER -- meta aciklama sayfaya OZGU olmali.
+    #
+    # Olculdu (2026-09-16): 167 analiz sayfasi 43 ozeti paylasiyordu;
+    # en kotusu 54 sayfada "Jeopolitik gelisme." -- yirmi karakter ve
+    # okura hicbir sey soylemiyor. Ozet `uret_olay.py` icinde tur
+    # etiketi + piyasa hareketinden kuruluyor, yani farkli olaylar
+    # ayni metni uretebiliyor.
+    #
+    # Google yinelenen aciklamalari buyuk olcude yok sayip kendi
+    # snippet'ini uretiyor; arama sonucunu kontrol edebildigimiz tek
+    # alan bosa gidiyor.
+    #
+    # YENI METIN URETILMIYOR: ozet birden fazla sayfada geciyorsa
+    # BASLIK one aliniyor. Baslik zaten tekil (208 olay analizinin
+    # 208 farkli basligi var) ve sayfada gorunur durumda.
+    _ozet_sayaci: dict[str, int] = {}
+    for _a in analizler:
+        _o = (_a.ozet or "").strip()
+        if _o:
+            _ozet_sayaci[_o] = _ozet_sayaci.get(_o, 0) + 1
+    _paylasilan_ozet = {o for o, n in _ozet_sayaci.items() if n > 1}
     if len(listelenen) < len(analizler):
         print(f"listeleme: {len(analizler) - len(listelenen)} yinelenen "
               f"otomatik analiz gizlendi (sayfalari duruyor)")
@@ -5192,7 +5214,10 @@ def insa() -> int:
         yaz(
             f"{a.yol}index.html",
             ortam.get_template("analiz.html").render(
-                **ortak, yol=a.yol, a=a, eskimis=_eskimis),
+                **ortak, yol=a.yol, a=a, eskimis=_eskimis,
+                # Ozet baskalariyla paylasiliyorsa aciklama basliktan
+                # baslasin -- bkz. `_paylasilan_ozet`.
+                ozet_paylasilan=(a.ozet or "").strip() in _paylasilan_ozet),
         )
         # NOINDEX SAYFA SITE HARITASINA GIRMEZ.
         #

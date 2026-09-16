@@ -24,7 +24,11 @@
    ETIKETINE ekleniyor; sayfanin gorunen basligi kisa kaliyor ve tarih
    zaten kunyede duruyor. #}
 {% block baslik %}{{ a.baslik }} — {{ a.tarih_tr or a.tarih }} — {{ site.ad }}{% endblock %}
-{% block aciklama %}{{ a.ozet }}{% endblock %}
+{# Ozet BASKA sayfalarla paylasiliyorsa basligi one al: aciklama
+   sayfaya ozgu olmali, yoksa Google onu yok sayip kendi snippet'ini
+   uretiyor. Karar `insa.py`de OLCULEREK veriliyor (`_paylasilan_ozet`)
+   -- sablonda "kisa ise" gibi bir tahmin yok. #}
+{% block aciklama %}{% if ozet_paylasilan is defined and ozet_paylasilan %}{{ a.baslik }} — {{ a.ozet }}{% else %}{{ a.ozet }}{% endif %}{% endblock %}
 {% block og_tur %}article{% endblock %}
 
 {% block yapisal_veri %}

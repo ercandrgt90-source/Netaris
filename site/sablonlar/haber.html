@@ -9,7 +9,31 @@
    `og:description` BOS basiliyordu. Bos meta, arama sonucunda ve
    paylasimda sayfayi adsiz birakir. Ozet ve baslik sirayla
    devreye giriyor; ucu birden bos olamaz cunku baslik zorunlu. #}
-{% block aciklama %}{{ h.neden_onemli or h.ozet or h.baslik }}{% endblock %}
+{# META ACIKLAMA: SAYFANIN KENDI OZETI ONCE.
+   ==========================================
+   Sira eskiden `neden_onemli or ozet or baslik` idi ve `neden_onemli`
+   KONU BASINA SABIT bir metin (`gundem_yorum.KONU_BAGLAMI`). Sayfada
+   dogru -- o haber sinifinin neden onemli oldugunu anlatiyor -- ama
+   meta aciklama olarak yanlis: sayfaya ozgu degil.
+
+   Olculdu (2026-09-16): 1.257 sayfa 57 metni paylasiyordu.
+
+       514 sayfa  "Jeopolitik gelisme fiyata olayin kendisiyle..."
+       118 sayfa  "Enerji fiyati hem bir maliyet kalemi hem..."
+        94 sayfa  "Endeks hareketi tek basina bir bilgi degildir..."
+
+   Google yinelenen aciklamalari buyuk olcude yok sayip kendi
+   snippet'ini uretiyor; yani arama sonucunu kontrol edebildigimiz tek
+   alan bosa gidiyordu.
+
+   YENI METIN URETILMIYOR, SIRA DEGISIYOR. Olculdu: 1.159 haberin
+   659'unda `ozet` var ve %98'i birbirinden farkli.
+
+   OZETI OLMAYAN 500 HABER icin baslik one aliniyor, konu baglami
+   arkasina ekleniyor. Baslik %97 tekil, yani aciklama sayfaya ozgu
+   oluyor; konu baglami da neden onemli oldugunu soyluyor. Uydurma
+   yok -- ikisi de zaten sayfada duran gercek alanlar. #}
+{% block aciklama %}{{ h.ozet or (h.baslik ~ (" — " ~ h.neden_onemli if h.neden_onemli else "")) }}{% endblock %}
 {% block og_tur %}article{% endblock %}
 
 {% block yapisal_veri %}
