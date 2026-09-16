@@ -5821,6 +5821,19 @@ def insa() -> int:
     # varsayilan olarak var olan hedefte COKUYOR. Ilk kosuda tam
     # bu oldu ve stil.css dahil butun varliklar kopyalanmadi.
     shutil.copytree(STATIK, CIKTI / "statik", dirs_exist_ok=True)
+
+    # `/favicon.ico` KOKE. Asil yol ana sayfadaki `<link rel="icon">`
+    # ve Google onu okuyor; bu, yanindaki YEDEK yol. Tarayicilar ve
+    # bazi kaziyicilar etiketi okumadan once kokteki `/favicon.ico`
+    # adresini yokluyor -- olculdu (2026-09-16): orasi 404 donuyordu.
+    #
+    # Dosya `site/marka.py` ile uretilip depoda duruyor; burada
+    # yalnizca koke tasiniyor, cunku `statik/` altindaki her sey
+    # `/statik/...` altinda yayimlaniyor ve kok adresi oradan
+    # verilemiyor.
+    _ico = STATIK / "marka" / "favicon.ico"
+    if _ico.exists():
+        shutil.copy2(_ico, CIKTI / "favicon.ico")
     site_istatistigi()
     css_kucult(CIKTI / "statik" / "stil.css")
 

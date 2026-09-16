@@ -174,6 +174,40 @@ def png(boy: int, pikseller: bytes) -> bytes:
             + parca(b"IEND", b""))
 
 
+#: `/favicon.ico` icine konan olculer.
+#:
+#: NEDEN AYRICA .ICO -- `<link rel="icon">` ZATEN VAR.
+#: Google favicon'u ana sayfanin `<link>` etiketinden okuyor, yani
+#: asil yol o. Ama kokteki `/favicon.ico` bir TARAYICI GELENEGI:
+#: etiket okunmadan ya da okunamadan once oraya bakiliyor ve olculdu
+#: (2026-09-16) orasi 404 donuyordu. Ucuz bir yedek; etiketin yerini
+#: ALMIYOR, yaninda duruyor.
+#:
+#: Iki olcu: 48 Google'in onerdigi alt sinir, 96 yuksek yogunluklu
+#: ekranlar icin. Daha fazlasi dosyayi bosuna buyutur.
+ICO_OLCULER = (48, 96)
+
+
+def ico(olculer=ICO_OLCULER) -> bytes:
+    """Cok olculu ICO -- icinde PNG tasiyan bicim.
+
+    ICO basligi + her olcu icin 16 baytlik dizin girdisi + PNG
+    govdeleri. PNG gomulu ICO, Vista'dan beri her yerde okunuyor ve
+    Google'in kabul ettigi bicimler arasinda ICO var.
+    """
+    govdeler = [png(b, ciz(b)) for b in olculer]
+    bas = struct.pack("<HHH", 0, 1, len(olculer))
+    kayma = len(bas) + 16 * len(olculer)
+    dizin = b""
+    for b, g in zip(olculer, govdeler):
+        # 256 piksel "0" ile yaziliyor; bizim olculer kucuk, yine de
+        # dogru kural burada dursun.
+        dizin += struct.pack("<BBBBHHII", b % 256, b % 256, 0, 0, 1, 32,
+                             len(g), kayma)
+        kayma += len(g)
+    return bas + dizin + b"".join(govdeler)
+
+
 #: Paylasim kartinin olcusu. 1200x630 Open Graph'in yerlesik olcusu;
 #: `twitter:card="summary_large_image"` de bu orani bekliyor.
 KART = (1200, 630)
@@ -279,6 +313,15 @@ def uret(hedef: pathlib.Path | None = None) -> list[pathlib.Path]:
     print(f"  {kp.name:18s} {kp.stat().st_size:6d} bayt   "
           f"(og:image {KART[0]}x{KART[1]})")
     yazilan.append(kp)
+
+    # /favicon.ico KAYNAGI. `site/insa.py` bunu cikti KOKUNE
+    # kopyaliyor -- tarayici ve bazi kaziyicilar `/favicon.ico`
+    # adresini yokluyor ve olculdu (2026-09-16) orasi 404 donuyordu.
+    ip = h / "favicon.ico"
+    ip.write_bytes(ico())
+    print(f"  {ip.name:18s} {ip.stat().st_size:6d} bayt   "
+          f"(kok yedegi, {'+'.join(str(x) for x in ICO_OLCULER)})")
+    yazilan.append(ip)
     return yazilan
 
 

@@ -146,6 +146,26 @@ esit(_lg >= LOGO_EN_AZ and _ly >= LOGO_EN_AZ, True,
 esit(_site[0].get("publisher"), {"@id": _k["@id"]},
      "WebSite.publisher AYNI kurulusa isaret ediyor")
 
+# KOKTEKI /favicon.ico -- YEDEK YOL.
+# Asil yol ana sayfadaki `<link rel="icon">`; Google onu okuyor. Ama
+# tarayicilar ve bazi kaziyicilar etiketi okumadan once kokteki
+# `/favicon.ico` adresini yokluyor ve olculdu (2026-09-16): orasi 404
+# donuyordu. Etiketin YERINI ALMIYOR, yaninda duruyor.
+_ico = _CIKTI / "favicon.ico"
+esit(_ico.exists(), True, "/favicon.ico cikti KOKUNDE")
+_ib = _ico.read_bytes()
+esit(struct.unpack("<HH", _ib[:4]), (0, 1), "gecerli ICO basligi")
+_girdi = struct.unpack("<H", _ib[4:6])[0]
+esit(_girdi >= 1, True, f"ICO en az bir olcu tasiyor ({_girdi})")
+# Govdelerin GERCEKTEN goruntu olmasi sinaniyor: bos ya da bozuk bir
+# govde tasiyan ICO, "dosya var" diyen bir sinamayi gecerdi.
+for _i in range(_girdi):
+    _ig, _iy, _, _, _, _, _iboy, _ikay = struct.unpack(
+        "<BBBBHHII", _ib[6 + _i * 16:22 + _i * 16])
+    esit(_ib[_ikay:_ikay + 8] == b"\x89PNG\r\n\x1a\n", True,
+         f"ICO {_ig}x{_iy} govdesi gercek PNG")
+    esit(_ig >= FAVICON_EN_AZ, True, f"ICO olcusu {FAVICON_EN_AZ}+ ({_ig})")
+
 print("\nPaylasim karti")
 # Olculdu (2026-09-16): 106 sayfanin hic `og:image`i yoktu ve
 # paylasildiklarinda onizleme BOS kutuydu. Ana sayfa ise
