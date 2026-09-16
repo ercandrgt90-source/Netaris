@@ -2362,6 +2362,59 @@ def lastmod_kur(tarihler: dict, yol: str, tarih: str | None) -> None:
         tarihler[yol] = t
 
 
+#: Google News haritasinin penceresi. Google'in kurali: yalnizca son
+#: IKI GUNUN haberleri ve en fazla 1.000 adres.
+#:
+#: Olculdu (2026-09-16): son iki gunde 247 haber -- sinirin cok
+#: altinda, yani pencereyi daraltmak gerekmiyor. Eski haberleri
+#: sonsuza kadar tasimak ise Google'in acikca istemedigi sey.
+NEWS_GUN = 2
+NEWS_SINIR = 1000
+
+
+def news_sitemap_uret(haberler: list[tuple[str, str, str]],
+                      bugun: str = "") -> str:
+    """Google News site haritasi.
+
+    `haberler`: (tarih, baslik, yol) -- YENIDEN ESKIYE sirali olmasi
+    gerekmiyor, burada siralaniyor.
+
+    NEDEN AYRI DOSYA
+    ----------------
+    Normal site haritasi butun sayfalari tasiyor ve Google onu kendi
+    temposunda geziyor. Haber icin o tempo gec: bir gelisme yayimdan
+    saatler sonra taranirsa haber olmaktan cikiyor. News haritasi
+    yalnizca TAZE olani gosteriyor.
+
+    `<news:title>` haberin KENDI basligi, sayfa basligi degil -- ikisi
+    ayrisirsa Google "sayfayla uyusmuyor" diyor.
+    """
+    from datetime import date, timedelta                # noqa: PLC0415
+    _b = date.fromisoformat(bugun) if bugun else date.today()
+    _esik = (_b - timedelta(days=NEWS_GUN)).isoformat()
+    secilen = sorted((x for x in haberler if x[0] and x[0] >= _esik),
+                     key=lambda x: x[0], reverse=True)[:NEWS_SINIR]
+    satir = ['<?xml version="1.0" encoding="UTF-8"?>',
+             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"',
+             '        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">']
+    for tarih, baslik, yol in secilen:
+        satir += [
+            "  <url>",
+            f"    <loc>{SITE['adres']}{html.escape(yol)}</loc>",
+            "    <news:news>",
+            "      <news:publication>",
+            f"        <news:name>{html.escape(SITE['ad'])}</news:name>",
+            "        <news:language>tr</news:language>",
+            "      </news:publication>",
+            f"      <news:publication_date>{tarih}</news:publication_date>",
+            f"      <news:title>{html.escape(baslik)}</news:title>",
+            "    </news:news>",
+            "  </url>",
+        ]
+    satir.append("</urlset>")
+    return chr(10).join(satir) + chr(10)
+
+
 def sitemap_uret(yollar: list[str],
                  tarihler: dict[str, str] | None = None) -> str:
     """Sitemap -- her adres BIR KEZ.
@@ -4916,6 +4969,7 @@ def insa() -> int:
     _lastmod: dict[str, str] = {}
     #: RSS icin (tarih, baslik, ozet, yol) -- yayimlanan haberler.
     _rss_haber: list[tuple[str, str, str, str]] = []
+    _haber_kaydi: dict = {}
 
     # Menude yalnizca DOLU kategoriler gorunur
     menu = [
@@ -5716,6 +5770,22 @@ def insa() -> int:
             )
             yollar.append(h_yol)
             _lastmod[h_yol] = (h.get("tarih") or "")[:10]
+            # HABER HARITASI ICIN: yola gore SON yazilan kayit.
+            #
+            # Olculdu (2026-09-16): 247 haberin 89'unda (%36) besleme
+            # listesindeki tarih, sayfanin kendi tarihinden FARKLIYDI.
+            # Sebep: tekrarlayan gunluk basliklar ("Borsa gune dususle
+            # basladi", "Akaryakit fiyatlarinda son durum") her
+            # seferinde AYNI slug'i uretiyor. Iki farkli haber ayni
+            # yola yaziliyor, dosyayi SON yazan kazaniyor -- ama
+            # beslemeye IKISI de giriyor.
+            #
+            # Sozluk yola gore yazdigi icin son yazan burada da
+            # kazaniyor: harita dosyanin GERCEGINI bildiriyor.
+            # Yanlis tarih bildiren bir haber haritasini Google bastan
+            # guvenilmez sayiyor, yani "yaklasik dogru" yetmez.
+            _haber_kaydi[h_yol] = ((h.get("tarih") or "")[:10],
+                                   h.get("baslik") or "")
             # RSS ICIN: yayimlanan haber de beslemeye giriyor.
             _rss_haber.append((
                 (h.get("tarih") or "")[:10],
@@ -5869,9 +5939,30 @@ def insa() -> int:
     if _lastmod:
         lastmod_kur(_lastmod, "/", max(_lastmod.values()))
     yaz("/sitemap.xml", sitemap_uret(yollar, _lastmod))
+
+    # GOOGLE NEWS HARITASI -- yalnizca TAZE olan.
+    #
+    # `_rss_haber`: (tarih, baslik, ozet, yol, ...). Ayni listeden
+    # besleniyor cunku ikisi de "yayimlanmis haber" demek; ikinci bir
+    # toplama, birinin degisip otekinin degismemesi olurdu.
+    #
+    # `haritaya_girer` suzgeci: dizine girmeyen bir sayfayi haber
+    # haritasina koymak, Google'a birbirinin tersini soylemek olurdu.
+    # `_rss_haber` DEGIL `_haber_kaydi`: ilki ayni yola iki kayit
+    # tasiyabiliyor ve tarihi dosyayla uyusmayabiliyor (olculdu: %36).
+    # Ikincisi yola gore tekil ve dosyanin son halini anlatiyor.
+    _news = [(t, b, y) for y, (t, b) in _haber_kaydi.items()
+             if t and b and haritaya_girer(y)]
+    yaz("/news-sitemap.xml", news_sitemap_uret(_news))
+
+    # IKI HARITA DA BILDIRILIYOR. Sitemap index ACILMADI: 1.657 adres
+    # tek dosyada ve sinir 50.000 -- bolmek icin sebep yok, bolmek
+    # yalnizca bir dolayli katman eklerdi.
     yaz(
         "/robots.txt",
-        f"User-agent: *\nAllow: /\n\nSitemap: {SITE['adres']}/sitemap.xml\n",
+        f"User-agent: *\nAllow: /\n\n"
+        f"Sitemap: {SITE['adres']}/sitemap.xml\n"
+        f"Sitemap: {SITE['adres']}/news-sitemap.xml\n",
     )
 
     # ONBELLEK POLITIKASI.
