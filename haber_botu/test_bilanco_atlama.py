@@ -421,6 +421,83 @@ def test_gercek_depoda_bekleyenler_once():
     assert max(yerler) < len(yerler), (max(yerler), len(yerler))
 
 
+def test_sebep_turu_ai_arizasini_KORUYOR():
+    """Dokum "150 yorum yok" demekle yetinmemeli.
+
+    Olculdu (2026-09-16): 15 Eylul bilanco kosusu "yazilan 1, atlanan
+    322" ile bitti ve kosu ozeti soyle diyordu:
+
+        171  zaten yayimlanmis
+        150  yorum yok          <- 150 kez NE OLDU?
+          1  eksik
+
+    Sebep URETILMISTI -- `yorum_uret` donduruyor ve `ai_ret` tablosuna
+    da yaziliyor. Ama iki ayri yoldan kayboluyordu:
+      1. Dokum `":"` oncesini aliyordu, yani sebebi atiyordu.
+      2. `bilanco.yml` geri yazma adimi `netaris.db`yi gondermiyor,
+         yani `ai_ret` satirlari kosucuda kalip siliniyor (olculdu:
+         15:30-16:00 arasinda tek kayit yok).
+
+    Bu depoda tekrarlayan sinif: cevap uretiliyor, okunabilir yerde
+    durmuyor.
+    """
+    assert u.sebep_turu("yorum yok: girdide olmayan sayi: 300, 27") == \
+        "yorum yok: girdide olmayan sayi"
+    assert u.sebep_turu("yorum yok: yasak kalip: 'artacak'") == \
+        "yorum yok: yasak kalip"
+    assert u.sebep_turu("yorum yok: girdi cok kisa") == \
+        "yorum yok: girdi cok kisa"
+
+
+def test_sebep_turu_SIRKETE_OZEL_ayrintiyi_ATIYOR():
+    """`eksik:` sonrasi hangi kalemin eksik oldugu -- sirkete ozel.
+
+    Onu da saysaydik 325 ayri "sebep" cikar ve dokum ozet olmaktan
+    cikip ikinci bir liste olurdu. Iki notun AYNI kurala tabi
+    olmamasinin sebebi bu: birinde iki nokta sonrasi DEGER, otekinde
+    ARIZANIN TURU.
+    """
+    assert u.sebep_turu("eksik: hasilat, net_kar, aktif_toplami") == "eksik"
+    assert u.sebep_turu("eksik: brut_kar") == "eksik"
+    assert u.sebep_turu("güvenlik: dogrudan alim yonlendirmesi") == "güvenlik"
+
+
+def test_sebep_turu_UZUN_gerekceyi_kirpiyor():
+    """Dokum OZET kalmali.
+
+    Saglayici hatalari cok uzun olabiliyor ("anthropic HTTP 400 --
+    Your credit balance is too low to access the Anthropic API.
+    Please go to..."). Kirpilmazsa tek satir dokumu bir paragrafa
+    cevirirdi.
+    """
+    uzun = ("yorum yok: anthropic HTTP 400 -- Your credit balance is "
+            "too low to access the Anthropic API. Please go to Plans")
+    t = u.sebep_turu(uzun)
+    assert t.startswith("yorum yok: anthropic HTTP 400"), t
+    assert len(t) <= len("yorum yok: ") + 44, (len(t), t)
+
+
+def test_dokum_sebep_turunu_GERCEKTEN_cagiriyor():
+    """Islev CIKARILDI ama BAGLANDI mi.
+
+    Mutasyonla olculdu: `sebep_turu` dogru calisirken cagrisini
+    donguden sokmek HICBIR sinamayi kirmizi yakmiyordu -- yani islev
+    duruyor, dokum eski davraniyordu. Cikarilan bir islev, cagrilmadigi
+    surece hicbir sey duzeltmez.
+
+    Arama CAGRIYA OZEL: ciplak "sebep_turu" tanimda ve bu dosyanin
+    kendi yorumlarinda da geciyor; onu saymak kaldirilmis bir cagriyi
+    duruyor gosterirdi.
+    """
+    k = (_KOK / "uret_bilanco_sayfa.py").read_text(encoding="utf-8")
+    assert "_tur = sebep_turu(not_)" in k
+    assert "sebepler[_tur] = sebepler.get(_tur, 0) + 1" in k
+
+
+def test_sebep_turu_iki_noktasiz_notu_BOZMUYOR():
+    assert u.sebep_turu("zaten yayımlanmış") == "zaten yayımlanmış"
+
+
 if __name__ == "__main__":
     n = 0
     for ad, f in sorted(globals().items()):

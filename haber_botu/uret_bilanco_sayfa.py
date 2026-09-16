@@ -419,6 +419,44 @@ def _yayimlanmis() -> set[tuple[str, str]]:
     return cikti
 
 
+def sebep_turu(not_: str) -> str:
+    """Atlama notunu DOKUMDE gruplanacak TURE indirger.
+
+    Kural eskiden "ilk `:`e kadar al" idi ve gerekcesi dogruydu:
+    `eksik: hasilat, net_kar` notunda iki nokta sonrasi SIRKETE OZEL
+    ayrinti, onu saymak 325 ayri "sebep" uretirdi.
+
+    Ama ayni kural `yorum yok: ...` icin YANLIS. Orada iki nokta
+    sonrasi sirkete ozel degil, ARIZANIN TURU -- ve dokumun cevaplamasi
+    gereken soru tam olarak o.
+
+    Olculdu (2026-09-16): 15 Eylul kosusu "yazilan 1, atlanan 322" ile
+    bitti ve dokum soyle diyordu:
+
+        171  zaten yayimlanmis
+        150  yorum yok          <- 150 kez NE OLDU?
+          1  eksik
+
+    Sebep URETILMISTI (`yorum_uret` donduruyor) ve `ai_ret` tablosuna
+    da yaziliyor -- ama `bilanco.yml` geri yazma adimi `netaris.db`yi
+    gondermiyor, yani o satirlar kosucuda kalip siliniyor. Iki ayri
+    yoldan ayni cevap kayboluyordu. Bu depoda tekrarlayan sinif:
+    cevap uretiliyor, okunabilir yerde durmuyor.
+
+    Ikinci parca da kendi icinde `:` tasiyabiliyor
+    (`girdide olmayan sayi: 300, 27`) ve ORASI yine degerdir; bu
+    yuzden yalnizca ilk parcasi aliniyor ve uzunlugu kirpiliyor --
+    "anthropic HTTP 400 -- Your credit balance is too low..." gibi
+    uzun bir gerekce dokumu ikinci bir listeye cevirmesin.
+    """
+    parcalar = [p.strip() for p in not_.split(":")]
+    bas = parcalar[0] or not_
+    if bas != "yorum yok" or len(parcalar) < 2:
+        return bas
+    ayrinti = parcalar[1].strip()
+    return f"{bas}: {ayrinti[:44]}" if ayrinti else bas
+
+
 def _dokum(sebepler: dict[str, int], yazilan: int = -1,
            atlanan: int = -1) -> None:
     """Atlama sebeplerini SIKLIGA gore dok.
@@ -610,12 +648,13 @@ def main() -> int:
             print(f"  {kod:<8}{not_}")
         else:
             atlanan += 1
-            # Sebebi TURUNE gore topla: ":" sonrasi sirkete ozel
-            # ayrinti (hangi kalem eksik), oncesi TUR. Ayrintiyi da
-            # saysaydik 325 ayri "sebep" cikar ve dokum ozet olmaktan
-            # cikip ikinci bir liste olurdu.
-            sebepler[not_.split(":")[0].strip() or not_] = \
-                sebepler.get(not_.split(":")[0].strip() or not_, 0) + 1
+            # Sebebi TURUNE gore topla -- bkz. `sebep_turu`.
+            # `eksik:` icin ":" sonrasi sirkete ozel ayrinti ve
+            # atiliyor; `yorum yok:` icin ARIZANIN TURU ve
+            # korunuyor. Ikisine ayni kurali uygulamak, dokumun
+            # cevaplamasi gereken soruyu goturuyordu.
+            _tur = sebep_turu(not_)
+            sebepler[_tur] = sebepler.get(_tur, 0) + 1
             print(f"  {kod:<8}ATLANDI -- {not_}")
 
     print(f"\nyazılan {yazilan}, atlanan {atlanan}")
