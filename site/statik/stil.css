@@ -1785,7 +1785,6 @@ main.kabuk {
 }
 
 @media (max-width: 699px) {
-  .akis-gun { position: static; }
 
   /* MOBILDEKI AKIS MODULU KURALLARI KALDIRILDI.
      Dar ekranda canli akis artik HIC BASILMIYOR (yukaridaki
@@ -3930,9 +3929,6 @@ table td, table th, time, .tarih {
    ve daraltilmis haliyle duruyor; bu blok yan sutunun HIC
    olmadigi duruma ait. 900'de birakilsaydi tablette yan sutun
    gorunur ama yapiskanligi ve tam listesi kaybolurdu. */
-@media (max-width: 699px) {
-  .masa-akis { position: static; max-height: none; }
-}
 .akis-bas { flex: none; padding: 10px; border-bottom: 1px solid var(--cizgi)}
 .akis-bas h2 {
   font-size: var(--p-m); margin: 0 0 var(--b-1); display: flex;
@@ -5752,67 +5748,33 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
   .bolum-not,
   .akis-kunye,
   .foto-atif { font-size: 0.8125rem; }
-
-  .akis-baslik { }
 }
 
-/* ====================================================================
-   MOBIL  --  CANLI AKIS KISALIYOR
-   --------------------------------------------------------------------
-   OLCULDU: canli akista 61 oge var ve mobilde ~4.600 PIKSEL yer
-   kapliyor -- tek basina on iki ekran boyu. Masaustunde bu bir sorun
-   degil: akis YAN SUTUNDA ve kendi icinde kayiyor, sayfayi uzatmiyor.
-   Dar ekranda ise yan sutun diye bir sey yok; akis ana icerigin
-   ALTINA dusuyor ve sayfayi bitmez hale getiriyor.
+/* ==================================================================
+   MOBILDE CANLI AKIS YOK -- ve buradaki kurallar da yok.
 
-   Ayni bilesen, iki ekranda iki farkli sey oluyor. Masaustundeki
-   karar (40'tan 61'e cikarmak, "akisin kapsadigi sure uzasin") dar
-   ekranda tersine calisiyor.
+   Yan sutun (`.masa-yan`) 899 pikselin altinda `display: none`.
+   Canli akis O SUTUNUN ICINDE yasiyor (`main > .ana-akis > .masa >
+   .masa-yan > .masa-akis > .akis-liste`, olculdu), yani dar ekranda
+   ciziImiyor.
 
-   ALTI OGE GOSTERILIYOR, gerisi "Tüm gelişmeler" baglantisinda --
-   o baglanti zaten listenin altinda duruyor.
+   BURADA BIR ZAMANLAR 20 SATIRLIK BIR ACIKLAMA VARDI ve akisin
+   mobilde ALTI OGEYE kisaldigini anlatiyordu (`.akis-liste >
+   li:nth-child(n+7) { display: none }`). O karar 21 Agustos'ta
+   alindi; 23 Agustos'ta akis mobilde tumuyle kaldirildi ve kural
+   uygulanacak bir oge bulamaz oldu. Aciklama kaldi, davranis gitti.
 
-   NEDEN ALTI: bir telefon ekranina sigan sayi. Daha azi akisin
-   canliligini gostermez, daha cogu okuru ana icerikten uzaklastirir.
+   Olculdu (2026-09-18): bu kapsamda `.akis-gun`, `.masa-akis`,
+   `.akis-liste` ve `.masa-akis .kaynak-not` kurallarinin HICBIRI
+   uygulanmiyordu. Ayni dosyada daha once "8 olu kural" temizlenmisti
+   ve gerekcesi yazili: erisilmeyen kod, sonraki okuyucuyu "burada
+   bir sey var" diye yanlis yonlendirir.
 
-   OGELER SILINMIYOR, GIZLENIYOR: HTML ayni kaliyor, yani arama
-   motoru ve ekran okuyucu icin bir kayip yok; yalnizca dar ekranda
-   cizilmiyorlar.
+   GERI GEREKIRSE: akis mobilde tekrar basilacaksa once `.masa-yan`in
+   899'daki `display: none` kurali kaldirilmali; o olmadan buraya
+   yazilan hicbir sey calismaz. `site/test_olu_kural.py` bunu olcuyor.
    ================================================================== */
 
-/* ESIK 900 -> 699. Ara aralikta (700-899) yan sutun ARTIK VAR
-   ve daraltilmis haliyle duruyor; bu blok yan sutunun HIC
-   olmadigi duruma ait. 900'de birakilsaydi tablette yan sutun
-   gorunur ama yapiskanligi ve tam listesi kaybolurdu. */
-@media (max-width: 699px) {
-  .akis-liste > li:nth-child(n+7) { display: none; }
-
-  /* Liste artik kisa: kendi icinde kaydirma GEREKMIYOR ve
-     yuksekligi sabitlemek bos alan birakirdi. */
-  .masa-akis {
-    position: static;
-    max-height: none;
-  }
-  .akis-liste {
-    overflow-y: visible;
-    max-height: none;
-  }
-
-  /* "Tüm gelişmeler" artik bir dipnot degil, ASIL yol -- akisin
-     devami orada. Dugme gorunumu aliyor. */
-  .masa-akis .kaynak-not {
-    margin-top: var(--b-4);
-    text-align: center;
-  }
-  .masa-akis .kaynak-not a {
-    display: block;
-    padding: var(--b-3);
-    border: 1px solid var(--cizgi);
-    border-radius: var(--r-kucuk);
-    font-weight: 600;
-    text-decoration: none;
-  }
-}
 
 /* ====================================================================
    IZGARA COCUKLARI DARALABILMELI
@@ -5984,10 +5946,7 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
    ikisi ayni satiri paylasamiyor. */
 @media (max-width: 640px) {
   .akis-foto { width: 32px; height: 32px; }
-  .akis-liste li { padding: var(--b-2) 0 var(--b-2) var(--b-2); gap: var(--b-1) var(--b-2); }
   .akis-tema { display: none; }
-  .akis-zaman, .akis-kunye { font-size: 0.75rem; }
-  .akis-baslik { font-size: 0.875rem; line-height: 1.35; }
 }
 
 /* ====================================================================
@@ -7001,33 +6960,20 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
    basliklariyla dolabiliyor ve okur "akis" hissini kaybediyor.
    ================================================================== */
 
-/* SIRA DUZELTILDI -- BU KURAL ARTIK ONDE.
-   Asagidaki medya blogu bagi `display: block` yapiyordu, bu kural ise
-   `display: none` ile ve BLOKTAN SONRA geliyordu. Esit ozgullukte
-   sirayi sonraki kazanir: "Tüm canlı akışı gör →" bagi mobilde HIC
-   GORUNMEDI. Yorum "masaustunde gizleme yok, baglanti da gereksiz"
-   diyordu -- niyet dogru, sira ters. */
+/* CANLI AKIS MOBILDE HIC CIZILMIYOR -- bkz. `.masa-yan`.
+   Burada bir zamanlar `.akis-liste > li:nth-child(n + 9)` ve
+   `.masa-akis .akis-devam` kurallari vardi; ikisi de `.masa-yan`in
+   ICINDEKI ogelere bakiyordu ve o sutun 899 pikselin altinda
+   `display: none`. Kurallar uygulanacak bir oge bulamiyordu.
+
+   Ustlerindeki aciklama "bag mobilde HIC GORUNMEDI, sira ters"
+   diyordu; teshis dogruydu ama sebep degismisti -- sira degil,
+   kapsayicinin kendisi yok. Olculdu 2026-09-18.
+
+   Asagidaki genel kural KALIYOR: masaustunde "Tüm canlı akışı gör"
+   bagi gizleniyor, cunku orada liste zaten tam. */
 .masa-akis .akis-devam { display: none; }
 
-@media (max-width: 640px) {
-  .akis-liste > li:nth-child(n + 9) { display: none; }
-
-  /* Akisin devami ayri sayfada; gizlenen kalemler oraya gidiyor.
-     "Daha fazla goster" gibi bir betik dugmesi degil, GERCEK
-     baglanti: betiksiz de calisiyor. */
-  .masa-akis .akis-devam {
-    display: block;
-    margin: var(--b-3) 0 0;
-    padding: var(--b-3);
-    text-align: center;
-    border: 1px solid var(--cizgi);
-    border-radius: var(--r-kucuk);
-    font-size: var(--p-s);
-    font-weight: 650;
-    color: var(--vurgu);
-    text-decoration: none;
-  }
-}
 
 /* (Masaustu gizlemesi yukari tasindi -- sira gerekcesi orada.) */
 
@@ -7443,3 +7389,9 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
 .tv-yedek {
   margin: 0; padding: var(--b-4) 0;
   color: var(--yazi-3); font-size: var(--p-s)}
+
+/* CANLI AKIS MOBILDE CIZILMIYOR -- buraya kural yazilmaz.
+   `.masa-yan` 899 pikselin altinda `display: none` ve akis o sutunun
+   icinde. Burada bir zamanlar `.akis-baslik`, `.akis-liste li` ve
+   `.akis-zaman/.akis-kunye` icin kurallar vardi; hicbiri uygulanmiyordu.
+   `site/test_olu_kural.py` bunu her kosuda olcuyor. */
