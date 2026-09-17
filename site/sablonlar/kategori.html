@@ -52,8 +52,23 @@
 </section>
 {% endif %}
 
+{# KART SAYISI SINIRLI -- DOM AGIRLIGI.
+   Olculdu (2026-09-18): `/makro/` 6.904, `/bilancolar/` 6.669,
+   `/arastirmalar/` 5.753 DOM ogesi tasiyordu. Lighthouse'un "asiri
+   DOM" esigi ~1.400 uyari, ~3.000 hata. Dusuk donanimli telefonda
+   bedeli cizim ve INP.
+
+   AKTARIM SORUN DEGILDI, o ayri olculdu: sayfa tel uzerinde 36 KB
+   (sikistirilmis). "426 KB" rakami HAM boyut ve yanlis alarmdi --
+   bu notun sebebi DOM, bayt degil.
+
+   BAGLANTI KAYBI YOK: sinirin otesindeki her analiz asagidaki
+   listede, gercek baglantiyla duruyor. Kart kirpip baglantiyi da
+   kesmek, bu oturumda 207 analizde duzeltilen kusuru geri
+   getirirdi. #}
+{% set kart_siniri = 60 %}
 <ul class="izgara arastirma-liste">
-  {% for a in analizler %}
+  {% for a in analizler[:kart_siniri] %}
   <li{% if a.sektor %} data-tur="{{ a.sektor | slugla }}"{% endif %}>
     <a class="kart" href="{{ a.yol }}">
       <span class="kart-gorsel">
@@ -123,5 +138,24 @@
   </li>
   {% endfor %}
 </ul>
+
+{% if analizler | length > kart_siniri %}
+{# KALANLAR -- kart degil, satir. Ayni bilgi, otuzda bir DOM.
+   `olay-cizelge` zaten sitede kullanilan bilesen; yeni bir kart
+   turu uretilmedi (brief: "mevcut component'leri yeniden kullan"). #}
+<h2>Arşiv</h2>
+<p>{{ analizler | length }} analizden {{ kart_siniri }} tanesi yukarıda;
+   kalan {{ analizler | length - kart_siniri }} tanesi burada.</p>
+<ol class="olay-cizelge">
+  {% for a in analizler[kart_siniri:] %}
+  <li>
+    <time class="olay-an" datetime="{{ a.tarih }}">{{ a.tarih_tr }}</time>
+    <a class="olay-baslik" href="{{ a.yol }}">{{ a.baslik }}</a>
+    {% if a.kod and a.kod != "MAKRO" %}<span class="olay-kaynak">{{ a.kod }}</span>{% endif %}
+  </li>
+  {% endfor %}
+</ol>
+{% endif %}
+
 <p class="kaynak-not" data-akis-bos hidden>Bu sektörde analiz yok.</p>
 {% endblock %}

@@ -41,8 +41,13 @@
     {% endfor %}
   </div>
 
+  {# KART SAYISI SINIRLI -- DOM AGIRLIGI. Gerekce `kategori.html`de
+     yazili; olculdu (2026-09-18): bu sayfa 5.753 DOM ogesi
+     tasiyordu. Kalanlar asagida GERCEK BAGLANTIYLA duruyor, yani
+     hicbir analiz erisilemez hale gelmiyor. #}
+  {% set kart_siniri = 60 %}
   <ul class="izgara arastirma-liste">
-    {% for a in analizler %}
+    {% for a in analizler[:kart_siniri] %}
     <li data-tur="{{ kategori_kodu.get(a.kategori, '') }}">
       <a class="kart" href="{{ a.yol }}">
         <span class="kart-gorsel">
@@ -66,6 +71,24 @@
     </li>
     {% endfor %}
   </ul>
+
+  {% if analizler | length > kart_siniri %}
+  {# Kalanlar: kart degil satir. `olay-cizelge` zaten sitede
+     kullanilan bilesen -- yeni kart turu uretilmedi. #}
+  <h2>Arşiv</h2>
+  <p>{{ analizler | length }} araştırmadan {{ kart_siniri }} tanesi yukarıda;
+     kalan {{ analizler | length - kart_siniri }} tanesi burada.</p>
+  <ol class="olay-cizelge">
+    {% for a in analizler[kart_siniri:] %}
+    <li>
+      <time class="olay-an" datetime="{{ a.tarih }}">{{ a.tarih_tr }}</time>
+      <a class="olay-baslik" href="{{ a.yol }}">{{ a.baslik }}</a>
+      {% if a.kod and a.kod != "MAKRO" %}<span class="olay-kaynak">{{ a.kod }}</span>{% endif %}
+    </li>
+    {% endfor %}
+  </ol>
+  {% endif %}
+
   <p class="kaynak-not" data-akis-bos hidden>Bu türde araştırma yok.</p>
   {% endif %}
 
