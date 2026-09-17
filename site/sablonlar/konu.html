@@ -1,0 +1,104 @@
+{% import "_paylas.html" as pl %}
+{% import "_yapisal.html" as yv with context %}
+{% extends "temel.html" %}
+
+{# KONU HUB'I -- dagilmis haberleri konu basinda toplar.
+
+   NEDEN VAR
+   ---------
+   Olculdu (2026-09-16): 15 konu etiketi vardi ve HICBIRININ sayfasi
+   yoktu. Haber sayfasindaki kirinti yolu konuyu YAZIYOR ama hicbir
+   yere baglamiyordu -- okur "Enflasyon" gorup tiklayamiyordu.
+
+   COGALTMA DEGIL, olculdu: `/gundem/` suzgeci TURE gore calisiyor
+   (makro/haber), konuya gore degil. 15 konunun yalnizca 3'unun
+   `/varlik/` karsiligi var, onlar da sektor kayitlari.
+
+   SAYFA UYDURMUYOR. Ustteki aciklama ve aktarim kanallari
+   `gundem_yorum.KONU_BAGLAMI` icinde YAZILMIS metinler -- ayni
+   metin, meta aciklama olarak yanlisti (yuzlerce sayfada ayniydi)
+   ama konu sayfasinda tam yerinde: burada gercekten o konunun
+   aciklamasi.
+
+   ESIK VAR: `insa.KONU_ESIGI`. Uc haberlik bir konu sayfasi, brief'in
+   yasakladigi ince sayfadir. #}
+
+{% block baslik %}{{ konu.ad }} — haberler ve analizler — {{ site.ad }}{% endblock %}
+{% block aciklama %}{{ konu.neden }}{% endblock %}
+
+{% block yapisal_veri %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": {{ (konu.ad ~ " — haberler ve analizler") | tojson }},
+  "description": {{ konu.neden | tojson }},
+  "url": {{ (site.adres ~ yol) | tojson }},
+  "inLanguage": "tr-TR",
+  "isAccessibleForFree": true,
+  "isPartOf": { "@type": "WebSite", "name": {{ site.ad | tojson }},
+                "url": {{ (site.adres ~ "/") | tojson }} },
+  "mainEntity": {
+    "@type": "ItemList",
+    "numberOfItems": {{ konu.toplam }},
+    "itemListElement": [
+      {%- for h in konu.haberler %}
+      {
+        "@type": "ListItem",
+        "position": {{ loop.index }},
+        "name": {{ h.baslik | tojson }},
+        "url": {{ (site.adres ~ h.yol) | tojson }}
+      }{% if not loop.last %},{% endif %}
+      {%- endfor %}
+    ]
+  }
+}
+</script>
+{# Kirinti sayfadaki gezinme ile AYNI. #}
+{{ yv.kirinti([(site.ad, "/"), ("Haberler", "/gundem/"),
+               (konu.ad, "")], site.adres) }}
+{% endblock %}
+
+{% block icerik %}
+<nav class="konum-izi" aria-label="Konum">
+  <a href="/">{{ site.ad }}</a>
+  <span aria-hidden="true">›</span>
+  <a href="/gundem/">Haberler</a>
+  <span aria-hidden="true">›</span>
+  <span aria-current="page">{{ konu.ad }}</span>
+</nav>
+
+<div class="giris">
+  <p class="ust-etiket">Konu</p>
+  <h1>{{ konu.ad }}</h1>
+  <p>{{ konu.neden }}</p>
+</div>
+
+{% if konu.kanallar %}
+{# AKTARIM KANALLARI -- bu konunun Turkiye'ye hangi yollardan
+   degdigi. Metinler yazilmis; sayfa onlari derliyor. #}
+<h2>Aktarım kanalları</h2>
+{# YENI SINIF YOK: denetim `konu-kanal` ve `konu-sayi` icin
+   "CSS'te tanimsiz" uyarisi verdi ve hakliydi -- brief de
+   "yeni kart uretmek yerine mevcut bilesenleri kullan"
+   diyor. Duz liste, sitenin temel stiliyle basiliyor. #}
+<ul>
+  {% for k in konu.kanallar %}<li>{{ k }}</li>{% endfor %}
+</ul>
+{% endif %}
+
+<h2>Bu konudaki haberler</h2>
+<p>{{ konu.toplam }} haber{% if konu.toplam > konu.haberler|length %} · en yeni {{ konu.haberler|length }} tanesi{% endif %}</p>
+{# EN YENI USTTE: buradaki soru "bu konuda ne var", olay dosyasindaki
+   gibi "bu nasil gelisti" degil. #}
+<ol class="olay-cizelge">
+  {% for h in konu.haberler %}
+  <li>
+    <time class="olay-an" datetime="{{ h.tarih }}">{{ h.gorunur }}</time>
+    <a class="olay-baslik" href="{{ h.yol }}">{{ h.baslik }}</a>
+  </li>
+  {% endfor %}
+</ol>
+
+{{ pl.paylas(konu.ad, konu.toplam ~ " haber", yol, site.adres) }}
+{% endblock %}

@@ -2372,6 +2372,46 @@ NEWS_GUN = 2
 NEWS_SINIR = 1000
 
 
+#: Bir konunun kendi sayfasini hak etmesi icin gereken en az haber.
+#:
+#: Brief'in kendi kurali: "yalnizca gercekten yeterli icerik varsa
+#: indexlenebilir sayfa olustur; bos veya birkac icerikli konu sayfasi
+#: uretme". Uc haberlik bir konu sayfasi, tam da yasaklanan ince
+#: sayfadir.
+#:
+#: Olculdu (2026-09-16): 15 konu etiketi var; 13'u on haberi asiyor,
+#: 11'i yirmiyi. Esik 10'da 13 sayfa uretiliyor -- hepsi gercek arsiv.
+KONU_ESIGI = 10
+
+#: Bir konu sayfasinda listelenen en fazla haber. Gerekce sayfa
+#: agirligi: `/bilancolar/` 220 kartla 426 KB'ye cikiyor ve mobilde
+#: LCP'yi zorluyor. Jeopolitik'te 515 haber var; hepsini basmak ayni
+#: sorunu uretirdi. Toplam sayi yine yaziliyor, gizlenmiyor.
+KONU_LISTE_SINIRI = 80
+
+
+def konu_yolu(ad: str) -> str:
+    """Konu adindan adres. Slug uretimi TEK YERDE (`slugla`)."""
+    return f"/konu/{slugla(ad)}/"
+
+
+def uygun_konular(haberler: list, esik: int = 0) -> set:
+    """Kendi sayfasini hak eden konular.
+
+    KUME BIR KEZ HESAPLANIYOR ve iki yer onu kullaniyor: haber
+    sayfasindaki kirinti baglantisi ve sayfa uretimi. Ayri ayri
+    hesaplansalardi biri otekinden kayabilir ve kirinti OLMAYAN bir
+    adrese baglanabilirdi -- kirik baglanti, hem de her haber
+    sayfasinda.
+    """
+    say: dict[str, int] = {}
+    for h in haberler:
+        k = (h.get("konu") or "").strip()
+        if k and k != "Şirket haberleri":
+            say[k] = say.get(k, 0) + 1
+    return {k for k, n in say.items() if n >= (esik or KONU_ESIGI)}
+
+
 def news_sitemap_uret(haberler: list[tuple[str, str, str]],
                       bugun: str = "") -> str:
     """Google News site haritasi.
@@ -5226,7 +5266,16 @@ def insa() -> int:
     css_surum = _surum(STATIK / "stil.css")
     js_surum = _surum(*sorted(STATIK.glob("*.js")))
 
+    # UYGUN KONULAR -- haber sayfalari uretilmeden ONCE.
+    #
+    # Kirinti baglantisi bu kumeye bakiyor ve konu sayfalari da ayni
+    # kumeden uretiliyor; ikisi yapisal olarak ayrisamiyor.
+    _uygun_konu = uygun_konular(uretilecek)
+
     ortak = {
+        # Kirinti hangi konuya baglanabilir -- bkz. `uygun_konular`.
+        "konu_sayfalari": _uygun_konu,
+        "konu_yolu": konu_yolu,
         "site": SITE,
         "css_surum": css_surum,
         "js_surum": js_surum,
@@ -5785,7 +5834,8 @@ def insa() -> int:
             # Yanlis tarih bildiren bir haber haritasini Google bastan
             # guvenilmez sayiyor, yani "yaklasik dogru" yetmez.
             _haber_kaydi[h_yol] = ((h.get("tarih") or "")[:10],
-                                   h.get("baslik") or "")
+                                   h.get("baslik") or "",
+                                   h.get("konu") or "")
             # RSS ICIN: yayimlanan haber de beslemeye giriyor.
             _rss_haber.append((
                 (h.get("tarih") or "")[:10],
@@ -5938,6 +5988,57 @@ def insa() -> int:
     # sayiyor.
     if _lastmod:
         lastmod_kur(_lastmod, "/", max(_lastmod.values()))
+    # KONU HUB'LARI -- bkz. `KONU_ESIGI`.
+    #
+    # `_haber_kaydi`den besleniyor: yola gore tekil ve dosyanin son
+    # halini anlatiyor. Ikinci bir toplama, birinin degisip otekinin
+    # degismemesi olurdu -- news haritasinda tam bu yasandi.
+    try:
+        import gundem_yorum as _gy                      # noqa: PLC0415
+        _konu_baglam = dict(_gy.KONU_BAGLAMI)
+    except Exception as _e:                             # pragma: no cover
+        print(f"  konu sayfalari atlandi: {_e}")
+        _konu_baglam = {}
+
+    _konu_haber: dict = {}
+    for _y, (_t, _b, _k) in _haber_kaydi.items():
+        if _k and _t and _b and haritaya_girer(_y):
+            _konu_haber.setdefault(_k, []).append((_t, _b, _y))
+
+    _konu_yazilan = 0
+    for _ad in sorted(_uygun_konu):
+        _liste = _konu_haber.get(_ad) or []
+        # Baglami OLMAYAN konuya sayfa acilmiyor: ustteki aciklama ve
+        # aktarim kanallari o sozlukten geliyor ve onlarsiz sayfa
+        # yalnizca bir baglanti listesi olurdu.
+        if not _liste or _ad not in _konu_baglam:
+            continue
+        _liste.sort(key=lambda x: x[0], reverse=True)
+        _neden, _kanallar = _konu_baglam[_ad]
+        _ky = konu_yolu(_ad)
+        yaz(
+            f"{_ky}index.html",
+            ortam.get_template("konu.html").render(
+                **ortak, yol=_ky,
+                konu={
+                    "ad": _ad,
+                    "neden": _neden,
+                    "kanallar": list(_kanallar),
+                    "toplam": len(_liste),
+                    "haberler": [
+                        {"tarih": _t, "baslik": _b, "yol": _y,
+                         "gorunur": gun_etiketi(_t)}
+                        for _t, _b, _y in _liste[:KONU_LISTE_SINIRI]
+                    ],
+                }),
+        )
+        yollar.append(_ky)
+        lastmod_kur(_lastmod, _ky, _liste[0][0])
+        _konu_yazilan += 1
+    if _konu_yazilan:
+        print(f"{_konu_yazilan} konu sayfasi "
+              f"({len(_konu_haber)} konudan, esik {KONU_ESIGI})")
+
     yaz("/sitemap.xml", sitemap_uret(yollar, _lastmod))
 
     # GOOGLE NEWS HARITASI -- yalnizca TAZE olan.
@@ -5951,7 +6052,7 @@ def insa() -> int:
     # `_rss_haber` DEGIL `_haber_kaydi`: ilki ayni yola iki kayit
     # tasiyabiliyor ve tarihi dosyayla uyusmayabiliyor (olculdu: %36).
     # Ikincisi yola gore tekil ve dosyanin son halini anlatiyor.
-    _news = [(t, b, y) for y, (t, b) in _haber_kaydi.items()
+    _news = [(t, b, y) for y, (t, b, _k) in _haber_kaydi.items()
              if t and b and haritaya_girer(y)]
     yaz("/news-sitemap.xml", news_sitemap_uret(_news))
 

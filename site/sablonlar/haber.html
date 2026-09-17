@@ -90,10 +90,17 @@
 {# KIRINTI, SAYFADAKI YOLLA AYNI VERIDEN.
    Yukaridaki `konum-izi` ile birebir ayni ogeler: ikisi ayrisirsa
    Google "yapisal veri sayfayla uyusmuyor" uyarisi uretir. #}
+{# KONU ARTIK GERCEK BIR SAYFA: kirinti oraya baglaniyor. Once
+   `item`siz basiliyordu -- okur "Enflasyon" goruyor ama
+   tiklayamiyordu. Esigin altindaki konu baglantisiz kaliyor:
+   olmayan bir adrese baglamak kirik baglanti uretmek olurdu.
+   Jinja yorumu IFADE ICINE konulamiyor -- ilk yazimda oraya
+   koydum ve sablon derlenmedi. #}
 {{ yv.kirinti(
      [(site.ad, "/")]
      + [(geri_ad|default("Haberler"), geri_yol|default("/gundem/"))]
-     + ([(h.konu, "")] if h.konu and h.konu != "Şirket haberleri" else []),
+     + ([(h.konu, konu_yolu(h.konu) if h.konu in konu_sayfalari else "")]
+        if h.konu and h.konu != "Şirket haberleri" else []),
      site.adres) }}
 {% endblock %}
 
@@ -135,7 +142,17 @@
   <a href="{{ geri_yol|default("/gundem/") }}">{{ geri_ad|default("Haberler") }}</a>
   {% if h.konu and h.konu != "Şirket haberleri" %}
   <span class="konum-ayrac" aria-hidden="true">›</span>
+  {# GORUNUR KIRINTI da konuya BAGLANIYOR.
+     Ilk yazimda yalnizca JSON-LD tarafini baglamistim ve 13 konu
+     sayfasi HIC ic baglanti almadi -- sema `item`i bir `href` degil.
+     Ustelik bu deponun kendi kurali ikisinin AYNI olmasini istiyor:
+     "sayfada zaten gorunen kirinti yolu ile buradaki veri AYNI
+     olmali". Esigin altindaki konu duz metin kaliyor. #}
+  {% if h.konu in konu_sayfalari %}
+  <a class="konum-simdi" href="{{ konu_yolu(h.konu) }}">{{ h.konu }}</a>
+  {% else %}
   <span class="konum-simdi">{{ h.konu }}</span>
+  {% endif %}
   {% endif %}
 </nav>
 {# ASAMA NUMARASI SAYAÇLA VERILIYOR, ELLE DEGIL.
