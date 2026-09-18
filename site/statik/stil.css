@@ -386,6 +386,23 @@ img, svg { max-width: 100%}
      katmani maliyeti biniyordu. */
   border-bottom: 1px solid var(--ust-cizgi)}
 
+/* CAPA HEDEFI YAPISKAN BASLIGIN ALTINDA KALMASIN.
+   ------------------------------------------------
+   `.ust` yapiskan (yukarida) ve yuksekligi 62px (mobilde 56px). Sayfa
+   ici bir capaya tiklandiginda tarayici hedefi ekranin TAM ustune
+   getiriyor -- yani basligin arkasina. Okur tikladigi basligi
+   goremiyor, bir paragraf asagidan basliyor.
+
+   OLCEK DURUST OLSUN: bu 7 capa ve 2 sayfa (/hakkimizda/, /tasarim/).
+   Once "1.165 capa" olcmustum; yanlisti -- tarama `<use href="#...">`
+   SVG jeton referanslarini da capa saymisti. Kucuk bir kusur, ama
+   duzeltmesi tek kural ve sonradan eklenecek her capayi da kapsiyor.
+
+   `scroll-margin-top` SECILDI: kok ogeye `scroll-padding-top` vermek
+   de calisirdi ama o, sayfadaki HER kaydirma kabini etkiliyor --
+   canli akis kendi icinde kayiyor ve orada bu pay anlamsiz. */
+[id] { scroll-margin-top: calc(62px + var(--b-3)); }
+
 .ust-ic {
   min-height: 62px;
   flex-wrap: wrap}
@@ -2420,6 +2437,9 @@ main.kabuk {
   /* `.ust .ust-ic` -- tek sinif olsaydi 3.500 satir asagidaki
      `.ust-ic { gap: var(--b-3) }` kurali bunu ezerdi. */
   .ust .ust-ic { min-height: 56px; gap: 14px; }
+  /* Baslik burada 56px; capa payi da onunla birlikte kuculuyor,
+     yoksa hedefin ustunde gereksiz bos alan kalirdi. */
+  [id] { scroll-margin-top: calc(56px + var(--b-3)); }
   .ust nav { width: 100%; margin: 0; overflow-x: auto; }
   .one-cikan-metin { padding: 22px; }
   .kriter { grid-template-columns: 1fr; gap: var(--b-1); }
