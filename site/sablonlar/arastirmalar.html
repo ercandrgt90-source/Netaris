@@ -1,4 +1,5 @@
 {% import "_sayac.html" as sy %}
+{% import "_yapisal.html" as yv with context %}
 {% extends "temel.html" %}
 
 {% block baslik %}Araştırmalar — {{ site.ad }}{% endblock %}
@@ -6,6 +7,47 @@
 
 {% block ek_bas %}
 <script src="/statik/akis_suzgec.js?v={{ js_surum }}" defer></script>
+{% endblock %}
+
+{% block yapisal_veri %}
+{# HUB SEMASI. Olculdu (2026-09-16): `/bilancolar/`, `/makro/`,
+   `/arastirmalar/`, `/gundem/` sayfalarinda yapisal veri HIC yoktu --
+   oysa bunlar sitenin en cok taranan giris noktalari.
+
+   `CollectionPage` + `ItemList`: sayfa bir makale degil, baska
+   sayfalara acilan bir derleme. `NewsArticle` isaretlemek olmayan bir
+   makale bildirmek olurdu.
+
+   LISTE SAYFADA GORUNENI ANLATIYOR: ayni analizler, ayni sirada.
+   Gorunmeyen bir sey isaretlenmiyor. #}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": {{ ("Araştırmalar") | tojson }},
+  "description": {{ (site.meta_aciklama) | tojson }},
+  "url": {{ (site.adres ~ yol) | tojson }},
+  "inLanguage": "tr-TR",
+  "isAccessibleForFree": true,
+  "isPartOf": { "@type": "WebSite", "name": {{ site.ad | tojson }},
+                "url": {{ (site.adres ~ "/") | tojson }} },
+  "mainEntity": {
+    "@type": "ItemList",
+    "numberOfItems": {{ analizler | length }},
+    "itemListElement": [
+      {%- for a in analizler %}
+      {
+        "@type": "ListItem",
+        "position": {{ loop.index }},
+        "name": {{ a.baslik | tojson }},
+        "url": {{ (site.adres ~ a.yol) | tojson }}
+      }{% if not loop.last %},{% endif %}
+      {%- endfor %}
+    ]
+  }
+}
+</script>
+{{ yv.kirinti([(site.ad, "/"), ("Araştırmalar", "")], site.adres) }}
 {% endblock %}
 
 {% block icerik %}
