@@ -3579,6 +3579,68 @@ def tekilles(haberler: list[dict]) -> list[dict]:
         if yeni_an > eski_an:
             sira[sira.index(onceki)] = h
             gorulen[anahtar] = h
+    return _yolla_tekilles(sira)
+
+
+def _yolla_tekilles(haberler: list[dict]) -> list[dict]:
+    """AYNI ADRESE dusen kayitlardan EN YENISI kalir.
+
+    NEDEN `tekilles`IN ICINDE, AYRI BIR ADIM DEGIL
+    ----------------------------------------------
+    Yukaridaki eleme "ayni gun + ayni baslik" diyor ve FARKLI GUNLERI
+    bilerek ayri haber sayiyor -- dogru karar: "Borsa gunu yukselisle
+    tamamladi" her yukselis gununun ayri haberi.
+
+    Ama `haber_yolu` adresi YALNIZCA BASLIKTAN uretiyor. Yani iki kod
+    yolu ayni soruya iki farkli cevap veriyordu:
+
+        tekilles  -> "bunlar ayri haber"
+        haber_yolu-> "bunlarin adresi ayni"
+
+    Sonuc olculdu (2026-09-18): 13 adres 54 kaydi tasiyordu ve yazma
+    dongusu tarih-azalan sirada ilerleyip her seferinde uzerine
+    yazdigi icin SON yazilan, yani EN ESKI surum yayinda kaliyordu.
+    On ucunde de. Okur bugunun akisindan "Akaryakit fiyatlarinda son
+    durum"a tikladiginda 28 gun onceki yakit fiyatini goruyordu; bu
+    eksik sayfa degil, YANLIS BILGI. O adreslere siteden ~512 ic
+    baglanti gidiyordu (ana sayfa, /gundem/, 96 haber sayfasi).
+
+    Eleme buraya kondu ki iki cevap bir daha ayrisamasin: `tekilles`in
+    ciktisi artik "her kalem AYRI BIR SAYFA" garantisi veriyor.
+
+    NEDEN TARIH EKLI AYRI ADRES DEGIL
+    ---------------------------------
+    Olculdu: 13 grubun 11'inde baslik BIREBIR ayni. Tarih eki 41 yeni
+    adres uretirdi ve hepsi ozdes baslikli, ayni sablonlu, yalnizca
+    rakamlari degisen sayfalar olurdu -- "ayni icerigi farkli adreslere
+    dagitma" yasagina dogrudan giriyor. Dusen 41 kart zaten AYNI
+    sayfaya gidiyordu; kaybedilen bir sayfa yok, tekrar eden bir
+    baglanti eksiliyor.
+
+    EN YENI OLAN ILK SIRADA: liste tarih-azalan geldigi icin bir
+    adresin ilk gorulen kaydi en tazesidir. Yine de damgaya bakiliyor
+    -- sira bozulursa sessizce eski surume donmesin.
+    """
+    gorulen: dict[str, dict] = {}
+    sira: list[dict] = []
+    for h in haberler:
+        yol = h.get("yol")
+        if not yol:
+            # Sayfasi olmayan haber adres capismaz; listede kalir.
+            sira.append(h)
+            continue
+        onceki = gorulen.get(yol)
+        if onceki is None:
+            gorulen[yol] = h
+            sira.append(h)
+            continue
+        if (h.get("tarih") or "") > (onceki.get("tarih") or ""):
+            sira[sira.index(onceki)] = h
+            gorulen[yol] = h
+    dusen = len(haberler) - len(sira)
+    if dusen:
+        print(f"  {dusen} haber adres cakismasinda elendi"
+              f" (en yeni surum kaldi)")
     return sira
 
 
