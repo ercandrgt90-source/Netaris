@@ -3211,11 +3211,20 @@ main.kabuk {
      dayanagi gorunmeyen ve kendi notunun anlam yuklemedigi bir
      siralamayla bas basa kaliyordu. Olculdu: 793 sayfa, 3.544 satir.
 
-     SIGIYOR: gerekce KISA -- ortanca 30, en uzun 44 karakter. `.yildiz`
-     zaten `width: 1%` ile daraliyor, `th` sarabiliyor. Tablo yapisi
-     BOZULMUYOR: satirlari `display: block`a cevirmek bazi tarayicilarda
-     tablo anlamini ekran okuyucudan siliyor; burada gerek yok.
-     Yalnizca punto kuculuyor, sutun ikincil renge geciyor. */
+     SIGIYOR: gerekce KISA -- ortanca 30, en uzun 44 karakter (793
+     sayfa, 3.544 satir olculdu). `.yildiz` zaten `width: 1%` ile
+     daraliyor, `th` sarabiliyor.
+
+     SAYFA YATAY KAYMAZ: 640px altinda taban kural `table { display:
+     block; overflow-x: auto }` uyguluyor (bu dosyanin sonundaki
+     "yatay tasma yok" blogu). Yani tablo once sararak sigmaya
+     calisir, sigmazsa KENDI KUTUSUNDA kayar -- ucuncu sutunu geri
+     getirmek sayfa govdesini tasiramaz.
+
+     Satirlar `display: block`a CEVRILMEDI: o, hucre izgarasini
+     bozar ve sektor-yildiz-gerekce hizasini kaybettirir. Burada
+     gerek de yok. Yalnizca punto kuculuyor, sutun ikincil renge
+     geciyor. */
   .duyarlilik .neden {
     font-size: var(--p-s);
     color: var(--yazi-3);
