@@ -29,6 +29,9 @@ import re
 
 STIL = pathlib.Path(__file__).resolve().parent / "statik" / "stil.css"
 
+#: CSS yorumu. `_css()` bunu ayikliyor -- gerekcesi orada.
+_YORUM = re.compile(r"/\*.*?\*/", re.S)
+
 #: Sayfada gosterilecek jeton oBEKLERI: (onek, baslik, aciklama).
 #:
 #: Renkler bilerek DISARIDA: onlarin dogru gosterimi ornek kutu,
@@ -49,12 +52,41 @@ OBEK = (
 
 
 def _css() -> str:
-    return STIL.read_text(encoding="utf-8")
+    """`stil.css` -- YORUMLARI AYIKLANMIS.
+
+    NEDEN AYIKLANIYOR
+    -----------------
+    Olculdu (2026-09-18): `renkler()` temel blogu
+    `:root\\s*\\{(.*?)\\}` ile, yani TEMBEL eslesmeyle ariyor. Bu
+    dosyanin yorumlari ornek CSS icerebiliyor ve bir yorumun icindeki
+    tek bir `}` blogu erkenden kapatiyor. Nitekim `--vurgu` jetonunun
+    yanina yazilan "`a { color: var(--vurgu) }` sitedeki BUTUN
+    baglantilar demek" aciklamasi jeton listesini 59'dan 3'e dusurdu
+    ve /tasarim/ sayfasi renk kutularini kaybetti.
+
+    Kusur aciklamada degil AYRISTIRICIDA: bir CSS okuyucusu, yorumun
+    icindekini kural sanmamali. Ayni sinif daha once ters yonde de
+    yasandi -- bir denetim, yorum icindeki ornegi GERCEK kural sanip
+    sahte bulgu uretmisti.
+    """
+    return _YORUM.sub(" ", STIL.read_text(encoding="utf-8"))
+
+
+def _hazirla(css: str | None) -> str:
+    """Disaridan gelen CSS de yorumsuz olmali.
+
+    Ilk duzeltmede yalnizca `olculer()` yorumlari ayikliyordu;
+    `renkler()` ve `jetonlar()` disaridan CSS aldiklarinda
+    ayiklamiyordu. Uretimde fark etmiyordu (orada `css is None`)
+    ama ayni soruya iki farkli cevap veren iki kod yolu demekti --
+    ve bu depoda o desen defalarca sessiz kusur uretti.
+    """
+    return _css() if css is None else _YORUM.sub(" ", css)
 
 
 def jetonlar(css: str | None = None) -> list[dict]:
     """`stil.css`teki jeton obekleri, kullanim sayilariyla."""
-    css = _css() if css is None else css
+    css = _hazirla(css)
     tanim: dict[str, str] = {}
     for ad, deger in re.findall(r"--([\w-]+)\s*:\s*([^;{}]+);", css):
         # ILK tanim geceriyor: sonrakiler karanlik tema ya da dar
@@ -83,7 +115,7 @@ def renkler(css: str | None = None) -> list[dict]:
     tek bir kutu ile gosterilemez -- yanlis kutu, kutu olmamasindan
     kotudur.
     """
-    css = _css() if css is None else css
+    css = _hazirla(css)
     # Temel (acik) tema: ilk :root blogu.
     m = re.search(r":root\s*\{(.*?)\}", css, re.S)
     govde = m.group(1) if m else ""
@@ -104,7 +136,18 @@ def olculer(css: str | None = None) -> dict:
     kurallarin NE KADAR TUTTUGU da yaziyor. Izgara disi deger sayisi
     gizlenmiyor cunku gizlenen sayi duzelmiyor.
     """
-    css = _css() if css is None else css
+    # SAYIM YORUMSUZ, BOYUT HAM DOSYADAN.
+    #
+    # Olculdu (2026-09-18): yorumlar sayilinca `--b-` kullanimi 658
+    # gorunuyordu, gercegi 648; "izgara disi" 168 idi, gercegi 165 --
+    # uc tanesi yorumun icindeki ORNEKTI. Bir olcum sayfasi kendi
+    # yorumlarini kural sayamaz.
+    #
+    # "CSS satiri" ise DOSYANIN BOYUTU: orada yorumlar da sayiliyor,
+    # cunku okurun sordugu "bu stil dosyasi ne kadar buyuk" ve
+    # yorumlar da bakilan, tutulan, tasinan satirlar.
+    ham = STIL.read_text(encoding="utf-8") if css is None else css
+    css = _hazirla(css)
     izgara_disi = 0
     for m in re.finditer(
             r"\b(padding|margin|gap|row-gap|column-gap)[a-z-]*\s*:"
@@ -116,5 +159,5 @@ def olculer(css: str | None = None) -> dict:
         "punto_kullanim": len(re.findall(r"var\(--p-", css)),
         "bosluk_kullanim": len(re.findall(r"var\(--b-", css)),
         "izgara_disi": izgara_disi,
-        "satir": len(css.splitlines()),
+        "satir": len(ham.splitlines()),
     }

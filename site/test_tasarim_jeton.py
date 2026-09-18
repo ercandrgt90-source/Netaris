@@ -92,6 +92,34 @@ def test_izgara_disi_gercekten_olculuyor():
     assert tj.olculer(css)["izgara_disi"] == 2, tj.olculer(css)
 
 
+def test_yorum_kural_sayilmiyor():
+    """YORUMUN ICINDEKI CSS, CSS DEGILDIR.
+
+    Olculdu (2026-09-18): `--vurgu` jetonunun yanina "`a { color:
+    var(--vurgu) }` sitedeki BUTUN baglantilar demek" diye bir
+    aciklama yazildi ve /tasarim/ sayfasi renk kutularini KAYBETTI.
+    Sebep: `renkler()` temel blogu TEMBEL eslesmeyle ariyor ve
+    yorumun icindeki tek bir `}` blogu erkenden kapatiyordu.
+
+    Ayni sinif ters yonde de vurdu: yorumdaki ornek degerler gercek
+    kullanim sanilip sayilara ekleniyordu (`--b-` 658 gorunuyordu,
+    gercegi 648; "izgara disi" 168 idi, gercegi 165).
+
+    Bir olcum sayfasi kendi yorumlarini kural sayamaz.
+    """
+    css = (":root { --vurgu: #0a7974; "
+           "/* ornek: a { color: var(--vurgu) } ve padding: 7px; */ "
+           "--zemin: #eef2f7; }")
+    renk = {r["ad"] for r in tj.renkler(css)}
+    assert renk == {"--vurgu", "--zemin"}, renk      # yorum blogu kapatmadi
+    o = tj.olculer(css)
+    assert o["izgara_disi"] == 0, o                  # 7px YORUMDAYDI
+
+    # ... ama "CSS satiri" DOSYA BOYUTU: yorumlar da sayilir.
+    cok_satirli = ":root{--a:#fff;}\n/* yorum\n satiri\n */\n.b{color:red}"
+    assert tj.olculer(cok_satirli)["satir"] == 5, tj.olculer(cok_satirli)
+
+
 def test_gercek_css_okunuyor():
     """Asil dosya. Olcek yerinde mi?"""
     o = tj.olculer()
@@ -99,7 +127,10 @@ def test_gercek_css_okunuyor():
     assert o["bosluk_kullanim"] >= 300, o
     obek = tj.jetonlar()
     assert {b["onek"] for b in obek} >= {"p-", "b-"}, obek
-    assert len(tj.renkler()) > 10
+    # 26 renk jetonu var. Esik 20: tek tek saymak kirilgan olurdu ama
+    # "10'dan cok" da az -- kusur yasandiginda sayi 9'a dusmustu ve
+    # eski esik (>10) onu YAKALAMAZDI.
+    assert len(tj.renkler()) >= 20, len(tj.renkler())
 
 
 if __name__ == "__main__":

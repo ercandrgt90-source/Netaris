@@ -83,8 +83,31 @@
 
      Cozum ton mesafesi. OLCULDU:
        sinyal artis  #0a7f47  ton 151 derece
-       marka         #0a7d78  ton 177 derece
+       marka         #0a7974  ton 177 derece
        fark          26 derece
+
+     MARKA 2026-09-18'DE BIR TIK KOYULDU: #0a7d78 -> #0a7974.
+     Sebep kontrast, tasarim degil. Olculdu:
+
+       baglanti / sayfa zemini (#eef2f7)   4.43  -- WCAG AA esigi 4.5
+       `.suzgec-etkin` yazisi ayni zeminde 4.43
+
+     `a { color: var(--vurgu) }` sitedeki BUTUN baglantilar demek ve
+     govde metni dogrudan sayfa zemininin uzerinde duruyor
+     (`main.kabuk > .sayfa > .govde`, hicbiri kendi zeminini vermiyor).
+     Yani acik temada her baglanti esigin 0,07 altindaydi.
+
+     DEGISEN YALNIZCA AYDINLIK: ton 177,4 -> 177,3 derece, doygunluk
+     %85,2 -> %84,7, aydinlik %26,5 -> %25,7. Artis yesiliyle ton
+     farki 26,1 -> 26,0 derece, yani yukaridaki gerekce aynen gecerli.
+     Yeni oranlar: zemin 4,67 / panel 5,25.
+
+     `.panel-avatar` KONTROL EDILDI: koyu yazi (#08121c) vurgu
+     zemininde ve koyultma orayi 3,79 -> 3,59 DUSURUYOR. Sorun degil --
+     22,4px ve kalinlik 800, yani WCAG'de BUYUK METIN (esik 3,0);
+     ustelik `aria-hidden="true"`, dekoratif.
+
+     KOYU TEMAYA DOKUNULMADI: orada vurgu #2dd4bf ve zaten 10,24.
 
      Yirmi alti derece, yan yana duran iki ogenin farkli renkler
      oldugunun anlasilmasi icin yeterli; yine de ikisi de yesil
@@ -94,7 +117,7 @@
      Sinyal renklerine DOKUNULMADI: yesil=artis, kirmizi=azalis
      yerlesik bir kod ve onu degistirmek okurun getirdigi bilgiyi
      gecersiz kilardi. Degisen taraf marka olmali, kod degil. */
-  --vurgu: #0a7d78;
+  --vurgu: #0a7974;
   --vurgu-koyu: #075f5c;
   --vurgu-parlak: #3b7cf0;
 
@@ -269,7 +292,7 @@
   --zemin: #eef2f7; --zemin-2: #e3eaf3; --panel: #ffffff; --panel-2: #f7f9fc;
   --cizgi: #e4e9f1; --cizgi-parlak: #c6cfdd;
   --yazi: #0c1524; --yazi-2: #414f66; --yazi-3: #616f86;
-  --vurgu: #0a7d78; --vurgu-koyu: #075f5c; --vurgu-parlak: #14b8a6;
+  --vurgu: #0a7974; --vurgu-koyu: #075f5c; --vurgu-parlak: #14b8a6;
   --artis: #0a7f47; --azalis: #c8203a; --uyari: #9a5700;
   --vurgu-zar: rgba(29, 95, 216, 0.09);
   --vurgu-zar-2: rgba(29, 95, 216, 0.28);

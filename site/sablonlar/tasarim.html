@@ -72,7 +72,9 @@
   {# VURGU RENGI -- KARAR VERILDI (teal), gerekcesiyle birlikte durur.
 
      Gonderilen tasarim mavi (#146EF5) oneriyordu, site teal
-     (#0a7d78) kullaniyor. Marka karari oldugu icin kod icinde tek
+     (#0a7974) kullaniyor. (2026-09-18'e kadar #0a7d78 idi; kontrast
+     icin bir tik koyultuldu -- gerekce `stil.css`teki jeton
+     bildiriminin yaninda.) Marka karari oldugu icin kod icinde tek
      tarafli verilmedi: iki secenek GERCEK BILESENLERLE yan yana
      konup bakildi ve TEAL secildi.
 
@@ -92,8 +94,8 @@
 
     <div class="vurgu-karsilastirma">
       {% for ad, vurgu, koyu, parlak, zar in [
-           ("Seçilen — teal", "#0a7d78", "#075f5c", "#14b8a6",
-            "rgba(10,125,120,0.10)"),
+           ("Seçilen — teal", "#0a7974", "#075f5c", "#14b8a6",
+            "rgba(10,121,116,0.10)"),
            ("Değerlendirilen — mavi", "#146EF5", "#0b52c0", "#4a92ff",
             "rgba(20,110,245,0.10)")] %}
       <div class="vurgu-ornek" style="--vurgu: {{ vurgu }};
