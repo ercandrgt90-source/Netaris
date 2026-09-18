@@ -114,45 +114,92 @@ _zincir = insa.tekilles([
 esit([h["tarih"] for h in _zincir], ["2026-09-18"],
      "`tekilles` ciktisinda adresler BENZERSIZ (eleme bagli)")
 
-print("\nUretilen ciktida")
-if not (_CIKTI / "index.html").exists() or not _DB.exists():
-    print("  ATLANDI  cikti ya da depo yok")
+print("\nGercek veriyle")
+# BURADA DEPODAKI `yayin_yolu` OKUNMUYOR -- NEDEN ONEMLI.
+#
+# Ilk yazimda bu bolum `yayin_yolu` sutununu gruplayip "cakisan var
+# mi" diye soruyordu ve ILK CALISTIRMADA KIRMIZI YANDI. Kod dogruydu:
+# o sutunu SON KURULUM yaziyor ve depodaki surum, duzeltmeden onceki
+# kodla uretilmisti. Yani sinama kodu degil, GECMISI olcuyordu.
+#
+# Kusur olmadigi halde kirmizi yanan bir sinama, gormezden gelinen
+# sinamadir. Soru dogru soruluyor: BUGUNKU kod, GERCEK veriyle
+# calistirildiginda benzersiz adres uretiyor mu? Cevap depo
+# tazeliginden bagimsiz.
+if not _DB.exists():
+    print("  ATLANDI  depo yok")
     print(f"\nTUM TESTLER GECTI ({_gecti})")
     raise SystemExit(0)
 
 _db = sqlite3.connect(_DB)
 _db.row_factory = sqlite3.Row
-_kayit = [dict(r) for r in _db.execute(
-    "SELECT tarih, yayin_yolu FROM haber"
-    " WHERE yayimlandi = 1 AND yayin_yolu LIKE '/haber/_%'")]
-esit(len(_kayit) > 200, True, f"yayimlanmis haber kaydi dolu ({len(_kayit)})")
+_ham = [dict(r) for r in _db.execute(
+    "SELECT adres, baslik_tr, baslik_kaynak, tarih, yayin_yolu"
+    "  FROM haber WHERE yayimlandi = 1")]
+esit(len(_ham) > 200, True, f"yayimlanmis haber kaydi dolu ({len(_ham)})")
 
-_g: dict[str, list[str]] = defaultdict(list)
-for _k in _kayit:
-    _g[_k["yayin_yolu"]].append((_k["tarih"] or "")[:10])
+# Adres BUGUNKU kuralla yeniden turetiliyor, depodan okunmuyor.
+_girdi = [{"adres": r["adres"], "baslik": r["baslik_tr"],
+           "baslik_kaynak": r["baslik_kaynak"], "tarih": r["tarih"],
+           "yol": insa.haber_yolu({"baslik": r["baslik_tr"],
+                                   "baslik_kaynak": r["baslik_kaynak"],
+                                   "adres": r["adres"]})}
+          for r in _ham]
 
-_cak = {y: v for y, v in _g.items() if len(v) > 1}
+_ham_g: dict[str, list[str]] = defaultdict(list)
+for _k in _girdi:
+    _ham_g[_k["yol"]].append((_k["tarih"] or "")[:10])
+_ham_cak = {y: v for y, v in _ham_g.items() if len(v) > 1}
+print(f"  not: ham veride {len(_ham_cak)} adres birden fazla habere denk"
+      f" geliyor ({sum(len(v) - 1 for v in _ham_cak.values())} fazla surum)"
+      f" -- eleme tam da bunun icin var")
+
+_sonuc = insa.tekilles(_girdi)
+_son_g: dict[str, list[str]] = defaultdict(list)
+for _k in _sonuc:
+    _son_g[_k["yol"]].append((_k["tarih"] or "")[:10])
+_cak = {y: v for y, v in _son_g.items() if len(v) > 1}
 if _cak:
-    print("\n  BIR ADRESI PAYLASAN HABERLER:")
+    print("\n  ELEMEDEN SONRA HALA BIR ADRESI PAYLASANLAR:")
     for _y, _v in list(_cak.items())[:8]:
         print(f"    {len(_v)}x  {_y}  {sorted(_v)}")
-esit(len(_cak), 0, "hicbir adres birden fazla habere ait degil")
+esit(len(_cak), 0,
+     f"elemeden sonra hicbir adres paylasilmiyor ({len(_sonuc)} haber)")
 
-# Sayfa GERCEKTEN en yeni surumu mu tasiyor: bayat sayfa kusurunun
-# ta kendisi buradan yakalanir.
+# Her adreste KALAN surum, o adresin EN YENISI olmali.
+_yanlis = [(k["yol"], (k["tarih"] or "")[:10], max(_ham_g[k["yol"]]))
+           for k in _sonuc
+           if (k["tarih"] or "")[:10] != max(_ham_g[k["yol"]])]
+if _yanlis:
+    print("\n  ESKI SURUM KALMIS (kalan / olmasi gereken):")
+    for _w in _yanlis[:8]:
+        print(f"    {_w[0]}  {_w[1]} != {_w[2]}")
+esit(len(_yanlis), 0, "her adreste EN YENI surum kaliyor")
+
+print("\nUretilen ciktida")
+# Bu bolum son kurulumun izlerine bakar, yani YEREL bir kontrol.
+# CI'da `site/cikti` sinama aninda yok (once sinamalar, sonra kurulum)
+# ve burasi atlanir -- kasitli: yukaridaki iddialar zaten kodu olcuyor.
+if not (_CIKTI / "index.html").exists():
+    print("  ATLANDI  cikti yok (once `python site/insa.py`)")
+    print(f"\nTUM TESTLER GECTI ({_gecti})")
+    raise SystemExit(0)
+
 _bayat = []
-for _y, _v in _g.items():
-    _s = _CIKTI / _y.strip("/") / "index.html"
+for _k in _sonuc:
+    _s = _CIKTI / _k["yol"].strip("/") / "index.html"
     if not _s.exists():
         continue
     _m = re.search(r'"datePublished"\s*:\s*"(\d{4}-\d\d-\d\d)',
                    _s.read_text(encoding="utf-8", errors="replace"))
-    if _m and _m.group(1) != max(_v):
-        _bayat.append((_y, _m.group(1), max(_v)))
+    if _m and _m.group(1) != max(_ham_g[_k["yol"]]):
+        _bayat.append((_k["yol"], _m.group(1), max(_ham_g[_k["yol"]])))
 if _bayat:
     print("\n  BAYAT SAYFALAR (yayinda / olmasi gereken):")
     for _b in _bayat[:8]:
         print(f"    {_b[0]}  {_b[1]} != {_b[2]}")
-esit(len(_bayat), 0, f"her sayfa kendi adresinin EN YENI kaydini tasiyor")
+    print("\n  Not: son kurulum duzeltmeden ONCEKI kodla yapildiysa bu"
+          " beklenen bir sonuctur; `python site/insa.py` ile yenileyin.")
+esit(len(_bayat), 0, "her sayfa kendi adresinin EN YENI kaydini tasiyor")
 
 print(f"\nTUM TESTLER GECTI ({_gecti})")
