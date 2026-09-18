@@ -156,8 +156,21 @@ print("\nCSS okunuyor")
 _css = yorumsuz((_SITE / "statik" / "stil.css").read_text(encoding="utf-8"))
 _kaplar = gizlenen_kaplar(_css)
 esit(len(_kaplar) > 0, True, f"gizlenen kap bulundu ({len(_kaplar)})")
-esit("masa-yan" in _kaplar, True,
-     f"`.masa-yan` gizleniyor (esik {_kaplar.get('masa-yan')}px)")
+# TARAMA GERCEKTEN CALISIYOR MU -- SITE ICERIGINE BAGLANMADAN.
+#
+# Burada once `.masa-yan`in gizlendigi sabitlenmisti. O dogruydu ama
+# KIRILGANDI: 2026-09-18'de canli akis mobilde geri getirilince kural
+# `display: block` oldu ve sinama, hicbir sey bozulmadigi halde
+# kirmizi yandi. Bir sinamanin capasi, olcmedigi bir karara
+# baglanmamali.
+#
+# Yerine: taramaya BILINEN bir girdi verilip dogru cevabi bulup
+# bulmadigina bakiliyor. Site nasil degisirse degissin gecerli.
+_deneme = ("@media (max-width: 500px) { .deneme-kap { display: none; } "
+           ".baska { color: red; } }")
+_bulunan = gizlenen_kaplar(_deneme)
+esit(_bulunan.get("deneme-kap"), 500, "tarama gizli kabi ve esigini buluyor")
+esit("baska" in _bulunan, False, "gizli olmayan kural kap sayilmiyor")
 
 if not _CIKTI.exists():
     print("  ATLANDI  cikti yok (once `python site/insa.py`)")

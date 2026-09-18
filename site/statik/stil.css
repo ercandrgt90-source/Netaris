@@ -1781,7 +1781,23 @@ main.kabuk {
 
      Bu tuzak bu oturumda UCUNCU kez cikti (`.ana-akis`,
      `.senaryo-davet`, `.masa-yan`). `test_stil.py` artik tutuyor. */
-  .masa > .masa-yan { display: none; }
+  /* CANLI AKIS MOBILDE GERI GELDI -- 2026-09-18.
+     Kullanici bildirdi: "sitede haberler akmiyor". Olculdu ve haklidir
+     -- 900 pikselin ALTINDAKI her ekranda, yani her telefonda, canli
+     akis TUMUYLE yoktu. Masaustunde 41 taze oge gorunuyordu.
+
+     KASITLI BIR KAYIP DEGILDI. 21 Agustos'ta olculup karara
+     baglanmisti: "dar ekranda akis ana icerigin ALTINA duser ve ALTI
+     OGE gosterir" (61 oge mobilde ~4.600 piksel, on iki ekran boyu).
+     23 Agustos'ta sutunun tamami gizlenince o karar hic yururluge
+     girmedi; kurallari da olu kod olarak kaldi ve 2026-09-18'de
+     temizlendi. Yani iki degisiklik birbirini sessizce iptal etti.
+
+     PIYASA KUTUSU MOBILDE GIZLI KALIYOR: TradingView parcacigi dar
+     ekranda hem agir hem dar. Gizlenen sey bilesen, icerik degil --
+     ayni veri `/gundem/` ve varlik sayfalarinda duruyor. */
+  .masa > .masa-yan { display: block; }
+  .masa > .masa-yan > .tv-kutu { display: none; }
 }
 
 @media (max-width: 699px) {
@@ -7411,3 +7427,30 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
    icinde. Burada bir zamanlar `.akis-baslik`, `.akis-liste li` ve
    `.akis-zaman/.akis-kunye` icin kurallar vardi; hicbiri uygulanmiyordu.
    `site/test_olu_kural.py` bunu her kosuda olcuyor. */
+
+/* ==================================================================
+   MOBILDE CANLI AKIS ALTI OGE.
+   Olculdu (2026-08-21): akista 61 oge var ve mobilde ~4.600 piksel
+   yer kapliyor -- on iki ekran boyu. Masaustunde sorun degil, cunku
+   akis yan sutunda ve KENDI ICINDE kayiyor; dar ekranda ise ana
+   icerigin altina dusuyor ve sayfayi bitmez hale getiriyor.
+
+   NEDEN ALTI: bir telefon ekranina sigan sayi. Azi akisin
+   canliligini gostermez, cogu okuru ana icerikten uzaklastirir.
+   Gerisi "Tüm gelişmeler" baglantisinda -- o baglanti zaten
+   listenin altinda.
+
+   OGELER SILINMIYOR, GIZLENIYOR: HTML ayni kaliyor, arama motoru ve
+   ekran okuyucu icin kayip yok.
+   ================================================================== */
+@media (max-width: 699px) {
+  .akis-liste > li:nth-child(n + 7) { display: none; }
+
+  /* Liste kisaldi: kendi icinde kaydirma gereksiz, yapiskanlik da. */
+  .masa-akis { position: static; max-height: none; }
+  .akis-liste { overflow-y: visible; max-height: none; }
+
+  /* "Tüm canlı akışı gör" bagi mobilde GORUNUYOR -- masaustunde
+     liste zaten tam oldugu icin gizli. */
+  .masa-akis .akis-devam { display: block; }
+}
