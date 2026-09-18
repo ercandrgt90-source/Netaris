@@ -301,7 +301,13 @@
          Uyari metni gizlenmiyor: kullanici, diger cihazlardaki
          oturumlarin kapanacagini ONCEDEN bilmeli. #}
       <form data-parola-form class="uyelik-form panel-form" novalidate>
-        <h3>Parola</h3>
+        {# BASLIK SEVIYESI h2 -- h3 DEGIL.
+           Olculdu (2026-09-18): bu sayfada baslik dizisi 1,3,2,2,1
+           gidiyordu; "Parola" h1'in hemen altinda ve h2 atlanmisti.
+           Ekran okuyucu baslik listesinde bolum bir alt basamak
+           derinde gorunuyordu. Sayfadaki diger bolum basliklari
+           ("Senaryo yazarken", "Yayimlanmayan icerik") zaten h2. #}
+        <h2>Parola</h2>
         <p>
           Parolanızı değiştirdiğinizde <b>diğer cihazlardaki
           oturumlarınız kapanır</b>; bu cihazdaki oturum açık kalır.
