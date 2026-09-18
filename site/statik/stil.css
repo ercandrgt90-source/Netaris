@@ -2652,7 +2652,29 @@ main.kabuk {
 @media (max-width: 640px) {
   .sondakika-ic { gap: var(--b-2); }
   .sondakika-etiket { font-size: 0.63rem; padding: var(--b-1) var(--b-2); }
-  .sondakika-durdur { display: none; }
+
+  /* DURAKLATMA DUGMESI MOBILDE DE DURUYOR -- 2026-09-18.
+     Burada `display: none` vardi ve gerekcesi yaziliydi degildi;
+     iki bosluk ayarinin yanina ilistirilmis, yer kazanmak icin
+     konmus gorunuyor.
+
+     Ama serit KENDILIGINDEN AKIYOR (`sondakika.js` diziyi kopyalayip
+     `akiyor` sinifini veriyor, animasyon 30s sonsuz) ve duraklatmanin
+     TEK yolu bu dugmeydi. Yani 640 pikselin altindaki her ekranda --
+     her telefonda -- akan seridi durdurmanin hicbir yolu yoktu.
+
+     WCAG 2.2 SC 2.2.2 (Duraklat, Durdur, Gizle), SEVIYE A: kendiliginden
+     baslayan, bes saniyeden uzun suren ve baska icerikle birlikte sunulan
+     hareket icin duraklatma mekanizmasi ZORUNLU.
+
+     `prefers-reduced-motion` zaten onurlandiriliyor (betik kopyayi hic
+     eklemiyor) ama o, isletim sistemi ayarini yapmis kullaniciyi
+     kurtarir; olcut ayardan BAGIMSIZ bir mekanizma istiyor.
+
+     YER SORUNU DEGIL: 360 piksellik ekranda etiket ~75px, dugme 24px,
+     bosluk 8px -- seride ~213px kaliyor ve serit zaten `overflow:
+     hidden` ile kayiyor, genislik istemiyor. Dugme 24x24 olarak
+     kaliyor; SC 2.5.8'in dokunma hedefi alt siniri bu. */
   .bolum-bas-sekme { align-items: flex-start; }
 }
 
@@ -3178,7 +3200,26 @@ main.kabuk {
 @media (max-width: 560px) {
   .ozet-kutu dl { grid-template-columns: 1fr; gap: var(--b-1) 0; }
   .ozet-kutu dd { margin: var(--b-2) 0; }
-  .duyarlilik .neden { display: none; }
+  /* GEREKCE MOBILDE DE DURUYOR -- 2026-09-18.
+     Burada `display: none` vardi. Ama sablonun kendi gerekcesi sunu
+     soyluyor: "Gerekce her satirda yaziyor ki okur katilmadigi yeri
+     gorebilsin." Mobilde gizlenen sey TAM OLARAK oydu.
+
+     Geriye yalniz yildizlar kaliyordu -- ustelik tablonun hemen
+     altindaki not "Yildizlar etkinin yonunu ya da buyuklugunu degil,
+     duyarlilik SIRASINI gosterir" diyor. Yani telefonda okur,
+     dayanagi gorunmeyen ve kendi notunun anlam yuklemedigi bir
+     siralamayla bas basa kaliyordu. Olculdu: 793 sayfa, 3.544 satir.
+
+     SIGIYOR: gerekce KISA -- ortanca 30, en uzun 44 karakter. `.yildiz`
+     zaten `width: 1%` ile daraliyor, `th` sarabiliyor. Tablo yapisi
+     BOZULMUYOR: satirlari `display: block`a cevirmek bazi tarayicilarda
+     tablo anlamini ekran okuyucudan siliyor; burada gerek yok.
+     Yalnizca punto kuculuyor, sutun ikincil renge geciyor. */
+  .duyarlilik .neden {
+    font-size: var(--p-s);
+    color: var(--yazi-3);
+    line-height: 1.4; }
 }
 .ilgili-haber h2 { font-size: var(--p-l); margin: 0 0 var(--b-3)}
 .ilgili-liste { list-style: none; padding: 0; margin: 0}
