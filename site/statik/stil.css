@@ -4562,7 +4562,23 @@ a.ds-baslik:hover { color: var(--vurgu); text-decoration: none}
 .paylas-etiket {
   font-size: var(--p-xs); color: var(--yazi-3);
   letter-spacing: 0.02em}
+/* DOKUNMA HEDEFI EN AZ 24x24 -- WCAG 2.2 AA (SC 2.5.8).
+   Olculdu (2026-09-18): dugmenin yuksekligi 22px idi --
+   12px yazi + 2x4px dolgu + 2x1px kenarlik. Olcunun kendisi
+   asgarinin ALTINDA.
+
+   Not: aradaki 8px bosluk (`gap: var(--b-2)`) olcutun "spacing"
+   istisnasini buyuk ihtimalle karsiliyordu, yani sayfa muhtemelen
+   zaten uygundu. Ama "muhtemelen uygun" ile "olculebilir sekilde
+   uygun" ayni sey degil ve aradaki fark 2 piksel.
+
+   `min-height` secildi, dolgu buyutulmedi: dolgu degisimi 1.758
+   sayfadaki serit genisligini de degistirirdi. Kap zaten
+   `display: flex`, yani dugme bir esnek oge -- `align-items`
+   etiketi dikeyde ortaliyor, gorunum neredeyse ayni. */
 .paylas-dugme {
+  min-height: 24px; min-width: 24px;
+  display: inline-flex; align-items: center; justify-content: center;
   font: inherit; font-size: var(--p-xs); line-height: 1;
   color: var(--yazi-2); background: none;
   border: 1px solid var(--cizgi); border-radius: 3px;
