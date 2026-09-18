@@ -30,7 +30,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 28,
+  "yorumlanan": 29,
   "haberler": [
     {
       "baslik": "Ticaret Bakanlığı, fındık piyasasına yönelik denetim başlattı",
@@ -427,6 +427,32 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/duzenleme-9-d70a1c54.jpg",
       "foto_atif": "Harrison Keely · CC-BY-4.0"
+    },
+    {
+      "baslik": "Nvidia CEO'su Jensen Huang: Trump'la yapay zeka konusunda hemfikir, 2030'a kadar dünyanın sonunu getireceğini düşünmüyor",
+      "baslik_kaynak": "Nvidia CEO Jensen Huang: agrees with Trump on AI, doesn’t think it will end world by 2030 - CBS News",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9770096/Nvidia-CEO-Jensen-Huang-agrees-with-Trump-on-AI-doesnt-think-it-will-end-world-by-2030---CBS-News.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Jeopolitik",
+      "tarih": "2026-09-18",
+      "tarih_gorunur": "18 Eylül 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
+      "kanallar": [
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-15-ccd8ab8d.jpg",
+      "foto_atif": "usepagov · PDM"
     },
     {
       "baslik": "OpenAI, 2030 yılına kadar 840 milyar $ gelir elde etmeyi planlıyor - FT",
@@ -1778,27 +1804,6 @@
       "foto_atif": "Colin Stepney · CC-BY-SA-4.0"
     },
     {
-      "baslik": "NYMEX Doğal Gaz Ekim vadeli işlemleri $ 2.9120/MMBtu adresinde işlem görmektedir",
-      "baslik_kaynak": "NYMEX Natural Gas October futures settle at $2.9120/MMBtu.",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9769753/NYMEX-Natural-Gas-October-futures-settle-at-29120MMBtu.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Enerji",
-      "tarih": "2026-09-18",
-      "tarih_gorunur": "18 Eylül 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enerji-11-0e06d6d4.jpg",
-      "foto_atif": "Djmaschek · CC-BY-SA-3.0"
-    },
-    {
       "baslik": "Kripto piyasaları Clarity'deki gerilemeyi atlatırken Bitcoin 80 bin $, Solana ve Hyperliquid'i geri aldı",
       "baslik_kaynak": "Bitcoin reclaims $80,000, Solana and Hyperliquid rally as crypto markets shrug off Clarity setback",
       "ozet": "The moves comes as the SEC and CFTC advance crypto-related rulemaking despite the Clarity Act stalling in the Senate.",
@@ -2476,6 +2481,27 @@
       "foto_atif": "Daniel Schwen · CC-BY-SA-4.0"
     },
     {
+      "baslik": "Banka faizi %3,75'te tutuldu - Eylül 2026 Para Politikası Özeti ve Tutanakları",
+      "baslik_kaynak": "Bank rate maintained at 3.75% - September 2026 Monetary Policy Summary and Minutes",
+      "ozet": "The Bank of England’s Monetary Policy Committee is responsible for making decisions about Bank Rate.",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": false,
+      "bolge": "DUNYA",
+      "adres": "https://www.bankofengland.co.uk/monetary-policy-summary-and-minutes/2026/september-2026",
+      "kurum": "BoE",
+      "kurum_tam": "İngiltere Merkez Bankası",
+      "konu": "Para politikası",
+      "tarih": "2026-09-17",
+      "tarih_gorunur": "17 Eylül 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/para-politikasi-9-683f4724.jpg",
+      "foto_atif": "Tony Webster · CC-BY-2.0"
+    },
+    {
       "baslik": "Vali ve Şansölye arasında TÜFE Enflasyonu ile ilgili mektup alışverişi - Eylül 2026",
       "baslik_kaynak": "Exchange of letters between the Governor and the Chancellor regarding CPI Inflation - September 2026",
       "ozet": "Exchange of letters between the Governor and the Chancellor",
@@ -2521,27 +2547,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/para-politikasi-12-2ca29aaf.jpg",
       "foto_atif": "Kidfly182 · CC-BY-4.0"
-    },
-    {
-      "baslik": "Banka faizi %3,75'te tutuldu - Eylül 2026 Para Politikası Özeti ve Tutanakları",
-      "baslik_kaynak": "Bank rate maintained at 3.75% - September 2026 Monetary Policy Summary and Minutes",
-      "ozet": "The Bank of England’s Monetary Policy Committee is responsible for making decisions about Bank Rate.",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": false,
-      "bolge": "DUNYA",
-      "adres": "https://www.bankofengland.co.uk/monetary-policy-summary-and-minutes/2026/september-2026",
-      "kurum": "BoE",
-      "kurum_tam": "İngiltere Merkez Bankası",
-      "konu": "Para politikası",
-      "tarih": "2026-09-17",
-      "tarih_gorunur": "17 Eylül 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-9-683f4724.jpg",
-      "foto_atif": "Tony Webster · CC-BY-2.0"
     },
     {
       "baslik": "Reel İhracat ve Reel İthalattaki Gelişmeler",
