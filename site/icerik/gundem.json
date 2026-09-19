@@ -28,7 +28,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 36,
+  "yorumlanan": 35,
   "haberler": [
     {
       "baslik": "Enerji Bakanı, Sıcak Hava Koşullarının Ortasında Carolinas'ın Şebekesini Güvence Altına Aldı",
@@ -1019,32 +1019,6 @@
       "foto_atif": "Bernard Gagnon · CC0"
     },
     {
-      "baslik": "Saudi Aramco Avrupa'ya sevkiyatı kesti, Norveç petrolü yükseldi",
-      "baslik_kaynak": "Saudi Aramco Avrupa'ya sevkiyatı kesti, Norveç petrolü yükseldi",
-      "ozet": "Saudi Aramco'nun bazı Avrupalı rafinerilere ekim ayında petrol vermeyeceğini bildirmesi, piyasada alternatif türlere talebi artırdı.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.ekonomim.com/sektorler/enerji/saudi-aramco-avrupaya-sevkiyati-kesti-norvec-petrolu-yukseldi-haberi-919357",
-      "kurum": "Ekonomim",
-      "kurum_tam": "Ekonomim",
-      "konu": "Enerji",
-      "tarih": "2026-09-19",
-      "tarih_gorunur": "19 Eylül 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Enerji fiyatı hem bir maliyet kalemi hem bir enflasyon girdisidir; arz tarafındaki değişim önce vadeli piyasada, sonra üretici fiyatlarında görünür.",
-      "kanallar": [
-        "Arz kapasitesi: OPEC+ kotası, stok seviyesi ve üretim kesintisi haberleri vadeli eğrinin şeklini değiştirir.",
-        "Talep beklentisi: büyüme verisi ve sanayi üretimi fiyatın talep bacağını belirler.",
-        "Bölgeler arası akış: doğal gaz ile LNG arasındaki fiyat farkı, kargoların hangi bölgeye gideceğini değiştirir.",
-        "Enflasyon aktarımı: enerji maliyeti ulaştırma ve gıda üzerinden manşet enflasyona geçer; merkez bankaları çekirdek enflasyona daha çok bakar."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/enerji-13-2cf47f9f.jpg",
-      "foto_atif": "Quintin Soloviev · CC-BY-4.0"
-    },
-    {
       "baslik": "Fed arz şokuna rağmen neden faiz artırdı?",
       "baslik_kaynak": "Fed arz şokuna rağmen neden faiz artırdı?",
       "ozet": "",
@@ -1335,6 +1309,27 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/enerji-18-2333f432.jpg",
       "foto_atif": "Sgroey · CC-BY-SA-4.0"
+    },
+    {
+      "baslik": "Bu hafta yatırım araçları ne kazandırdı? Borsa, altın, dolar ve avronun haftalık performansı",
+      "baslik_kaynak": "Bu hafta yatırım araçları ne kazandırdı? Borsa, altın, dolar ve avronun haftalık performansı",
+      "ozet": "Borsa İstanbul'da işlem gören hisse senetleri bu hafta değer kaybederken, dolar/TL yükseldi. BIST 100 endeksi haftayı yüzde 8,18, gram altın yüzde 0,06 ve avro/TL yüzde 0,91 düşüşle tamamlarken, dolar/TL yüzde 0,36 değer kazandı.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.cnnturk.com/ekonomi/bu-hafta-yatirim-araclari-ne-kazandirdi-borsa-altin-dolar-ve-avronun-haftalik-performansi-3468673",
+      "kurum": "CNN Türk",
+      "kurum_tam": "CNN Türk",
+      "konu": "Altın ve emtia",
+      "tarih": "2026-09-19",
+      "tarih_gorunur": "19 Eylül 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/altin-ve-emtia-7-f0316ba0.jpg",
+      "foto_atif": "Chepry 💬 ( Andrzej Barabasz ) 📷 🇵🇱 · CC-BY-SA-4.0"
     },
     {
       "baslik": "Uluslararası Yatırım Pozisyonu (Temmuz 2026)",
