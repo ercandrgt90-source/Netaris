@@ -28,7 +28,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 41,
+  "yorumlanan": 39,
   "haberler": [
     {
       "baslik": "Enerji Bakanı, Sıcak Hava Koşullarının Ortasında Carolinas'ın Şebekesini Güvence Altına Aldı",
@@ -71,6 +71,58 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/jeopolitik-14-4ca6b4fe.jpg",
       "foto_atif": "Bernard Gagnon · CC0"
+    },
+    {
+      "baslik": "Suudi liderliğindeki koalisyon: Suudi şehirleri Bish, Taif, Farasan ve Yanbu'da Husilerin sivillere yönelik saldırılarını engelledi",
+      "baslik_kaynak": "Saudi-led coalition: foils Houthi attacks on civilians in Saudi cities Bish, Taif, Farasan, Yanbu",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9770574/Saudi-led-coalition-foils-Houthi-attacks-on-civilians-in-Saudi-cities-Bish-Taif-Farasan-Yanbu.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Jeopolitik",
+      "tarih": "2026-09-19",
+      "tarih_gorunur": "19 Eylül 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
+      "kanallar": [
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-36-7cb6152c.jpg",
+      "foto_atif": "Captain Albert E. Theberge, NOAA Corps (ret.) · PDM"
+    },
+    {
+      "baslik": "Suudi liderliğindeki koalisyon: Yemen'deki Husilerin Riyad'a fırlattığı balistik füze cumartesi günü ele geçirilip imha edildi",
+      "baslik_kaynak": "Saudi-led coalition: ballistic missile launched by Yemen's Houthis toward Riyadh intercepted and destroyed on Saturday",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9770573/Saudi-led-coalition-ballistic-missile-launched-by-Yemens-Houthis-toward-Riyadh-intercepted-and-destroyed-on-Saturday.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Jeopolitik",
+      "tarih": "2026-09-19",
+      "tarih_gorunur": "19 Eylül 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
+      "kanallar": [
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-15-ccd8ab8d.jpg",
+      "foto_atif": "usepagov · PDM"
     },
     {
       "baslik": "ABD ile S -400 sorununu çözmede yaratıcı fikirler ortaya çıktı, işbirliği olumlu ilerlemeyi hedefliyor",
@@ -399,32 +451,6 @@
       "kanal_basligi": "Hangi piyasaları etkiler?",
       "foto": "/statik/foto/jeopolitik-36-7cb6152c.jpg",
       "foto_atif": "Captain Albert E. Theberge, NOAA Corps (ret.) · PDM"
-    },
-    {
-      "baslik": "Yemen'in Husileri: Riyad'daki \"hassas\" bölgeler balistik füzeler ve insansız hava araçlarıyla hedef alındı",
-      "baslik_kaynak": "Yemen's Houthis: 'sensitive' sites in Riyadh targeted with ballistic missiles, drones",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9770532/Yemens-Houthis-sensitive-sites-in-Riyadh-targeted-with-ballistic-missiles-drones.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Jeopolitik",
-      "tarih": "2026-09-19",
-      "tarih_gorunur": "19 Eylül 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
-      "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
-        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
-        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/jeopolitik-15-ccd8ab8d.jpg",
-      "foto_atif": "usepagov · PDM"
     },
     {
       "baslik": "Yemen'in Husileri: Yanbu'daki Aramco tesisine saldırı",
@@ -1128,6 +1154,27 @@
       "foto_atif": "CryptoWallet.com Images · CC-BY-2.0"
     },
     {
+      "baslik": "REX, Bitcoin hazine firması Strive'a bağlı 2 kat kaldıraçlı ETF'yi piyasaya sürdü",
+      "baslik_kaynak": "REX launches 2x leveraged ETF tied to Bitcoin treasury firm Strive",
+      "ozet": "The new ASSX fund offers 2x daily exposure to Strive shares, giving traders a leveraged way to bet on the Bitcoin treasury company.",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://cointelegraph.com/news/rex-launches-2x-leveraged-etf-tied-to-bitcoin-treasury-firm-strive?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "kurum": "Cointelegraph",
+      "kurum_tam": "Cointelegraph",
+      "konu": "Kripto varlıklar",
+      "tarih": "2026-09-19",
+      "tarih_gorunur": "19 Eylül 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/kripto-varliklar-9-b82c3e85.jpg",
+      "foto_atif": "CryptoWallet.com Images · CC-BY-2.0"
+    },
+    {
       "baslik": "Kalshi, ABD hisse senedi kalıcı vadeli işlemleri için Coinbase'e katıldı",
       "baslik_kaynak": "Kalshi joins Coinbase with filing for US stock perpetual futures",
       "ozet": "Kalshi’s proposal would bring perpetual futures tied to individual stocks to US traders, as Coinbase and Bitnomial pursue similar products.",
@@ -1347,6 +1394,32 @@
       "foto_atif": "Calistemon · CC-BY-SA-4.0"
     },
     {
+      "baslik": "Trump, yapay zeka için yönetici atayacak",
+      "baslik_kaynak": "Trump, yapay zeka için yönetici atayacak",
+      "ozet": "ABD Başkanı Donald Trump, yapay zeka yarışında ülkenin ilk sıradaki yerini korumak için bir yapay zeka ekibi oluşturduğunu ve başına bir \"Yapay Zeka Çarı\" atayacağını açıkladı.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.dunya.com/dunya/trump-yapay-zeka-icin-yonetici-atayacak-haberi-840668",
+      "kurum": "Dünya",
+      "kurum_tam": "Dünya Gazetesi",
+      "konu": "Jeopolitik",
+      "tarih": "2026-09-19",
+      "tarih_gorunur": "19 Eylül 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
+      "kanallar": [
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-18-d6206fae.jpg",
+      "foto_atif": "United Nation · PDM"
+    },
+    {
       "baslik": "İran, savaşın sona ermesi için şartlarını açıkladı: ABD'ye ateşkes için 3 talep iletildi",
       "baslik_kaynak": "İran, savaşın sona ermesi için şartlarını açıkladı: ABD'ye ateşkes için 3 talep iletildi",
       "ozet": "İran Ulusal Güvenlik Yüksek Konseyi Genel Sekreteri Muhsin Rızai, ABD ile savaşın sona erdirilmesi için şartlarını Katar ve Pakistanlı arabuluculara ilettiklerini açıkladı. Rızai, İran'ın ABD'nin hava saldırılarına karşılık vermeye ve “sonuçları belirleyecek bir savaşa” hazır olduğunu söyledi.",
@@ -1371,32 +1444,6 @@
       "kanal_basligi": "Hangi piyasaları etkiler?",
       "foto": "/statik/foto/jeopolitik-40-59a567ac.jpg",
       "foto_atif": "Peter Griffin · CC0"
-    },
-    {
-      "baslik": "Trump'tan yapay zeka için yeni isim önerisi",
-      "baslik_kaynak": "Trump'tan yapay zeka için yeni isim önerisi",
-      "ozet": "Yapay zekanın gelişme hızına ilişkin tartışmalar sürerken, ABD Başkanı Donald Trump, \"yapay zeka\" isminin değiştirilmesini önerdi.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.dunya.com/dunya/trumptan-yapay-zeka-icin-yeni-isim-onerisi-haberi-840659",
-      "kurum": "Dünya",
-      "kurum_tam": "Dünya Gazetesi",
-      "konu": "Jeopolitik",
-      "tarih": "2026-09-19",
-      "tarih_gorunur": "19 Eylül 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
-      "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
-        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
-        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/jeopolitik-14-4ca6b4fe.jpg",
-      "foto_atif": "Bernard Gagnon · CC0"
     },
     {
       "baslik": "Alman Genelkurmay Başkanı Breuer, NATO Askeri Komitesi'nin yeni başkanı seçildi",
@@ -1425,16 +1472,16 @@
       "foto_atif": "Captain Albert E. Theberge, NOAA Corps (ret.) · PDM"
     },
     {
-      "baslik": "Beyaz Saray'dan CNN ve MS NOW muhabirlerine giriş engeli",
-      "baslik_kaynak": "Beyaz Saray'dan CNN ve MS NOW muhabirlerine giriş engeli",
-      "ozet": "ABD Başkanı Donald Trump'ın \"yalan haberler yaptıkları\" gerekçesiyle Beyaz Saray'a erişimlerini yasaklamasının ardından CNN ve MS NOW haber kanallarının muhabirlerinin yerleşkeye girişi engellendi.",
+      "baslik": "Mekke İttifakı devreye girer mi? Bakan Fidan: Askeri ihtiyaçlar olabilir, bakıyoruz",
+      "baslik_kaynak": "Mekke İttifakı devreye girer mi? Bakan Fidan: Askeri ihtiyaçlar olabilir, bakıyoruz",
+      "ozet": "Dışişleri Bakanı Hakan Fidan, Suudi Arabistan'a yönelik saldırılara ilişkin \"Bu konuda bir dayanışma içerisindeyiz. Mekke İttifakı olarak yakından takip ediyoruz. Askeri ihtiyaçları özellikle belli teknik konularda olabilir, Bunu da karşılama yönünde sıkıntımız olmaz.” dedi.",
       "cevrildi": false,
       "dil": "tr",
       "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.dunya.com/dunya/beyaz-saraydan-cnn-ve-ms-now-muhabirlerine-giris-engeli-haberi-840656",
-      "kurum": "Dünya",
-      "kurum_tam": "Dünya Gazetesi",
+      "bolge": "TR",
+      "adres": "https://www.ekonomim.com/gundem/mekke-ittifaki-devreye-girer-mi-bakan-fidan-askeri-ihtiyaclar-olabilir-bakiyoruz-haberi-919381",
+      "kurum": "Ekonomim",
+      "kurum_tam": "Ekonomim",
       "konu": "Jeopolitik",
       "tarih": "2026-09-19",
       "tarih_gorunur": "19 Eylül 2026",
@@ -1447,8 +1494,8 @@
         "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
       ],
       "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/jeopolitik-18-d6206fae.jpg",
-      "foto_atif": "United Nation · PDM"
+      "foto": "/statik/foto/jeopolitik-40-59a567ac.jpg",
+      "foto_atif": "Peter Griffin · CC0"
     },
     {
       "baslik": "Dervişoğlu: Utanmazlar ittifakı, şimdi de İmralı’da inşaat yapıyormuş",
@@ -1470,32 +1517,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/konut-ve-kira-7-63b59cb3.jpg",
       "foto_atif": "Joseph23gt · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "Trump, yapay zeka isminin değiştirilmesini önerdi: 3 seçenek sundu",
-      "baslik_kaynak": "Trump, yapay zeka isminin değiştirilmesini önerdi: 3 seçenek sundu",
-      "ozet": "ABD Başkanı Donald Trump, yapay zeka isminin yetersiz olduğunu belirterek kavramın \"Üstün Zeka\", \"Aşırı Zeka\" veya \"Süper Zeka\" olarak değiştirilmesini önerdi.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.ekonomim.com/dunya/trump-yapay-zeka-isminin-degistirilmesini-onerdi-3-secenek-sundu-haberi-919370",
-      "kurum": "Ekonomim",
-      "kurum_tam": "Ekonomim",
-      "konu": "Jeopolitik",
-      "tarih": "2026-09-19",
-      "tarih_gorunur": "19 Eylül 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
-      "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
-        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
-        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/jeopolitik-14-4ca6b4fe.jpg",
-      "foto_atif": "Bernard Gagnon · CC0"
     },
     {
       "baslik": "Trump federal ’YZ Gücü’ kurma planlarını duyurdu",
@@ -1629,32 +1650,6 @@
       "foto_atif": "Syced · CC0"
     },
     {
-      "baslik": "InvestingPro Gerçeğe Uygun Değeri Sterling Infrastructure’ın %40 Düşüşünü Öngördü",
-      "baslik_kaynak": "InvestingPro Gerçeğe Uygun Değeri Sterling Infrastructure’ın %40 Düşüşünü Öngördü",
-      "ozet": "",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://tr.investing.com/news/investment-ideas/investingpro-gercege-uygun-degeri-sterling-infrastructuren-40-dususunu-ongordu-93CH-4072042",
-      "kurum": "Investing",
-      "kurum_tam": "Investing.com Türkiye",
-      "konu": "Döviz",
-      "tarih": "2026-09-19",
-      "tarih_gorunur": "19 Eylül 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Kur, ithalat maliyetinin ve döviz cinsi borç servisinin ortak değişkenidir. Üretimin ara malı ithalatına bağımlılığı yüksek olduğu için kur hareketi maliyet tarafına hızlı geçer.",
-      "kanallar": [
-        "İthalat maliyeti: ara malı ve enerji ithalatı döviz cinsinden fiyatlanır; kur hareketi üretici maliyetine doğrudan yansır.",
-        "Enflasyon geçişi: maliyet artışının tüketici fiyatına yansıma hızı, sektörün fiyatlama gücüne ve stok devir süresine bağlıdır.",
-        "Şirket bilançosu: döviz açık pozisyonu taşıyan şirkette kur farkı gideri kâr tablosuna yazılır; ihracatçıda ters yönde çalışır. Yön, şirketin net döviz pozisyonuna bağlıdır.",
-        "Dış borç servisi: döviz cinsi yükümlülüğün TL karşılığı değişir."
-      ],
-      "kanal_basligi": "Piyasaya nasıl yansır?",
-      "foto": "/statik/foto/doviz-11-d1f90514.jpg",
-      "foto_atif": "Ralff Nestor Nacor · CC-BY-SA-4.0"
-    },
-    {
       "baslik": "Gümrüklerde 8 ayda 19 bin 247 puro ele geçirildi",
       "baslik_kaynak": "Gümrüklerde 8 ayda 19 bin 247 puro ele geçirildi",
       "ozet": "Ticaret Bakanlığı Gümrükler Muhafaza ekipleri, kaçakçılıkla mücadele ve kamu sağlığının korunması hedefiyle 8 ayda 202,8 milyon liralık tütün mamulleri ve ilgili malzemelere el koyarken, 19 bin 247 puro ele geçirdi.",
@@ -1720,6 +1715,27 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/bankacilik-9-8cfafe78.jpg",
       "foto_atif": "Myotus · CC-BY-4.0"
+    },
+    {
+      "baslik": "Türkiye'de elektrikli araçların şarj tüketimi arttı: 48 bin 649 noktaya ulaşıldı",
+      "baslik_kaynak": "Türkiye'de elektrikli araçların şarj tüketimi arttı: 48 bin 649 noktaya ulaşıldı",
+      "ozet": "Türkiye'de elektrikli araç kullanımındaki artışla birlikte şarj hizmetleri piyasasındaki elektrik tüketimi de yükselmeye devam ediyor. Enerji Piyasası Düzenleme Kurumunun (EPDK) verilerine göre, ağustos ayında elektrikli araçlar için toplam 3 milyon 527 bin 70 şarj işlemi gerçekleştirildi.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.cnnturk.com/ekonomi/turkiyede-elektrikli-araclarin-sarj-tuketimi-artti-48-bin-649-noktaya-ulasildi-3468705",
+      "kurum": "CNN Türk",
+      "kurum_tam": "CNN Türk",
+      "konu": "Enerji",
+      "tarih": "2026-09-19",
+      "tarih_gorunur": "19 Eylül 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/enerji-14-d727b7f7.jpg",
+      "foto_atif": "Quintin Soloviev · CC-BY-4.0"
     },
     {
       "baslik": "Uluslararası Yatırım Pozisyonu (Temmuz 2026)",
@@ -2382,32 +2398,6 @@
       "foto_atif": "United Nation · PDM"
     },
     {
-      "baslik": "ABD'nin BM Büyükelçisi: Trump Venezüella lideri Rodriguez'le görüşecek",
-      "baslik_kaynak": "US ambassador to UN: Trump will meet Venezuela's Rodriguez",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9770035/US-ambassador-to-UN-Trump-will-meet-Venezuelas-Rodriguez.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Jeopolitik",
-      "tarih": "2026-09-18",
-      "tarih_gorunur": "18 Eylül 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
-      "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
-        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
-        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/jeopolitik-40-59a567ac.jpg",
-      "foto_atif": "Peter Griffin · CC0"
-    },
-    {
       "baslik": "Para Politikası Kurulu Toplantı Özeti (2026-42)",
       "baslik_kaynak": "Para Politikası Kurulu Toplantı Özeti (2026-42)",
       "ozet": "",
@@ -2602,27 +2592,6 @@
       "foto_atif": "Daniel Schwen · CC-BY-SA-4.0"
     },
     {
-      "baslik": "Banka faizi %3,75'te tutuldu - Eylül 2026 Para Politikası Özeti ve Tutanakları",
-      "baslik_kaynak": "Bank rate maintained at 3.75% - September 2026 Monetary Policy Summary and Minutes",
-      "ozet": "The Bank of England’s Monetary Policy Committee is responsible for making decisions about Bank Rate.",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": false,
-      "bolge": "DUNYA",
-      "adres": "https://www.bankofengland.co.uk/monetary-policy-summary-and-minutes/2026/september-2026",
-      "kurum": "BoE",
-      "kurum_tam": "İngiltere Merkez Bankası",
-      "konu": "Para politikası",
-      "tarih": "2026-09-17",
-      "tarih_gorunur": "17 Eylül 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-9-683f4724.jpg",
-      "foto_atif": "Tony Webster · CC-BY-2.0"
-    },
-    {
       "baslik": "Vali ve Şansölye arasında TÜFE Enflasyonu ile ilgili mektup alışverişi - Eylül 2026",
       "baslik_kaynak": "Exchange of letters between the Governor and the Chancellor regarding CPI Inflation - September 2026",
       "ozet": "Exchange of letters between the Governor and the Chancellor",
@@ -2668,6 +2637,27 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/para-politikasi-12-2ca29aaf.jpg",
       "foto_atif": "Kidfly182 · CC-BY-4.0"
+    },
+    {
+      "baslik": "Banka faizi %3,75'te tutuldu - Eylül 2026 Para Politikası Özeti ve Tutanakları",
+      "baslik_kaynak": "Bank rate maintained at 3.75% - September 2026 Monetary Policy Summary and Minutes",
+      "ozet": "The Bank of England’s Monetary Policy Committee is responsible for making decisions about Bank Rate.",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": false,
+      "bolge": "DUNYA",
+      "adres": "https://www.bankofengland.co.uk/monetary-policy-summary-and-minutes/2026/september-2026",
+      "kurum": "BoE",
+      "kurum_tam": "İngiltere Merkez Bankası",
+      "konu": "Para politikası",
+      "tarih": "2026-09-17",
+      "tarih_gorunur": "17 Eylül 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/para-politikasi-9-683f4724.jpg",
+      "foto_atif": "Tony Webster · CC-BY-2.0"
     },
     {
       "baslik": "Reel İhracat ve Reel İthalattaki Gelişmeler",
