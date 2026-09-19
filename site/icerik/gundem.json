@@ -211,6 +211,31 @@
       "foto_atif": "Humphrey Bolton · CC-BY-SA-2.0"
     },
     {
+      "baslik": "BDDK, Bank Mellat'ın İstanbul şubesinin faaliyet iznini kaldırdı",
+      "baslik_kaynak": "BDDK, Bank Mellat'ın İstanbul şubesinin faaliyet iznini kaldırdı",
+      "ozet": "Bankacılık Düzenleme ve Denetleme Kurumu (BDDK), Bank Mellat İstanbul Merkez Şubesinin faaliyet izninin kaldırılmasına karar verdi.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.aa.com.tr/tr/ekonomi/bddk-bank-mellatin-istanbul-subesinin-faaliyet-iznini-kaldirdi/4061722",
+      "kurum": "AA",
+      "kurum_tam": "Anadolu Ajansı",
+      "konu": "Bankacılık",
+      "tarih": "2026-09-19",
+      "tarih_gorunur": "19 Eylül 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Zorunlu karşılık, likidite ve teminat düzenlemeleri kredi arzının miktarını ve maliyetini doğrudan belirler.",
+      "kanallar": [
+        "Kredi arzı: zorunlu karşılık oranları, bankaların kredi olarak kullandırabileceği kaynağın büyüklüğünü değiştirir.",
+        "Fonlama kompozisyonu: TL ve döviz mevduat arasındaki maliyet farkı, bankaların bilanço yapısını etkiler.",
+        "Reel sektör: kredi kanalının daralması, işletme sermayesini kısa vadeli borçla çeviren şirketlerde önce hissedilir."
+      ],
+      "kanal_basligi": "Piyasaya nasıl yansır?",
+      "foto": "/statik/foto/bankacilik-9-8cfafe78.jpg",
+      "foto_atif": "Myotus · CC-BY-4.0"
+    },
+    {
       "baslik": "Ticaret Bakanlığı, fındık piyasasına yönelik denetim başlattı",
       "baslik_kaynak": "Ticaret Bakanlığı, fındık piyasasına yönelik denetim başlattı",
       "ozet": "Ticaret Bakanlığı, fındık piyasasındaki işlemlerin ve piyasa koşullarının incelenmesi amacıyla Ordu ve Giresun'daki ticaret borsalarında kapsamlı denetim süreci başlattı.",
@@ -608,31 +633,6 @@
       "foto_atif": "Syced · CC0"
     },
     {
-      "baslik": "BDDK, bir bankanın İstanbul şubesinin faaliyet iznini kaldırdı",
-      "baslik_kaynak": "BDDK, bir bankanın İstanbul şubesinin faaliyet iznini kaldırdı",
-      "ozet": "Bankacılık Düzenleme ve Denetleme Kurumu (BDDK), Bank Mellat İstanbul Merkez Şubesinin faaliyet izninin kaldırılmasına karar verdi.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.trthaber.com/haber/ekonomi/bddk-bir-bankanin-istanbul-subesinin-faaliyet-iznini-kaldirdi-957340.html",
-      "kurum": "TRT Haber",
-      "kurum_tam": "TRT Haber",
-      "konu": "Bankacılık",
-      "tarih": "2026-09-19",
-      "tarih_gorunur": "19 Eylül 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Zorunlu karşılık, likidite ve teminat düzenlemeleri kredi arzının miktarını ve maliyetini doğrudan belirler.",
-      "kanallar": [
-        "Kredi arzı: zorunlu karşılık oranları, bankaların kredi olarak kullandırabileceği kaynağın büyüklüğünü değiştirir.",
-        "Fonlama kompozisyonu: TL ve döviz mevduat arasındaki maliyet farkı, bankaların bilanço yapısını etkiler.",
-        "Reel sektör: kredi kanalının daralması, işletme sermayesini kısa vadeli borçla çeviren şirketlerde önce hissedilir."
-      ],
-      "kanal_basligi": "Piyasaya nasıl yansır?",
-      "foto": "/statik/foto/bankacilik-8-685abb38.jpg",
-      "foto_atif": "Myotus · CC-BY-4.0"
-    },
-    {
       "baslik": "İran bankası Bank Mellat'ın Türkiye'deki faaliyet izni kaldırıldı",
       "baslik_kaynak": "İran bankası Bank Mellat'ın Türkiye'deki faaliyet izni kaldırıldı",
       "ozet": "Bankacılık Düzenleme ve Denetleme Kurumu (BDDK), İran merkezli Bank Mellat’ın İstanbul’daki Türkiye Merkez Şubesi’nin faaliyet izninin kaldırılmasına karar verdi. Karar Resmi Gazete'de yayımlandı.",
@@ -724,6 +724,27 @@
       "kanal_basligi": "Piyasaya nasıl yansır?",
       "foto": "/statik/foto/bankacilik-8-d4d74101.jpg",
       "foto_atif": "Myotus · CC-BY-4.0"
+    },
+    {
+      "baslik": "BDDK İran merkezli bankanın faaliyet iznini sona erdirdi",
+      "baslik_kaynak": "BDDK İran merkezli bankanın faaliyet iznini sona erdirdi",
+      "ozet": "Bankacılık Düzenleme ve Denetleme Kurumu (BDDK), Bank Mellat Merkezi Tahran İstanbul Türkiye Merkez Şubesinin faaliyet izninin kaldırılmasına karar verdi. Karar, Resmi Gazete'nin bugünkü sayısında yayımlandı... Devamı için tıklayınız",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.sabah.com.tr/ekonomi/bddk-iran-merkezli-bankanin-faaliyet-iznini-sona-erdirdi-7663920",
+      "kurum": "Sabah",
+      "kurum_tam": "Sabah",
+      "konu": "Bankacılık",
+      "tarih": "2026-09-19",
+      "tarih_gorunur": "19 Eylül 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/bankacilik-7-62bd3092.jpg",
+      "foto_atif": "Dietmar Rabich · CC-BY-SA-4.0"
     },
     {
       "baslik": "Uluslararası Yatırım Pozisyonu (Temmuz 2026)",
@@ -2299,27 +2320,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/kripto-varliklar-8-740eb829.jpg",
       "foto_atif": "Satheesh Sankaran · CC-BY-2.0"
-    },
-    {
-      "baslik": "ECB Başkanı Christine Lagarde, Binance'in AB MiCA lisansını engellemek için müdahale etti: WSJ",
-      "baslik_kaynak": "ECB President Christine Lagarde intervened to block Binance’s EU MiCA license: WSJ",
-      "ozet": "Although the ECB holds no formal licensing authority under MiCA, high-level intervention led Greece to stall an application that regulators had previously deemed complete, the Journal said.",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.coindesk.com/policy/2026/09/18/ecb-president-christine-lagarde-intervened-to-block-binance-s-eu-mica-license-wsj",
-      "kurum": "CoinDesk",
-      "kurum_tam": "CoinDesk",
-      "konu": "Kripto varlıklar",
-      "tarih": "2026-09-18",
-      "tarih_gorunur": "18 Eylül 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/kripto-varliklar-9-b82c3e85.jpg",
-      "foto_atif": "CryptoWallet.com Images · CC-BY-2.0"
     },
     {
       "baslik": "Para Politikası Kurulu Toplantı Özeti (2026-42)",
