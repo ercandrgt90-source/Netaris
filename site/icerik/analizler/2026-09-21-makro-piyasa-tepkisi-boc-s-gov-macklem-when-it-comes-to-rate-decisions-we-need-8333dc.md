@@ -1,7 +1,7 @@
 ---
 slug: piyasa-tepkisi-boc-s-gov-macklem-when-it-comes-to-rate-decisions-we-need-8333dc-2026-09-21
 baslik: BoC's Gov. Macklem: When it comes to rate decisions, we need to look beyond the initial shock of higher oil prices.
-ozet: Faiz kararı. Altın 1 saat içinde +%0,08 yükseldi.
+ozet: Faiz kararı. Bitcoin 1 saat içinde -%0,40 geriledi.
 sirket: Piyasa tepkisi: BoC's Gov. Macklem: When it comes to rate decisions, we need to look beyond the initial shock of higher oil prices.
 kod: OLAY
 donem: 2026-09-21
@@ -23,8 +23,8 @@ Para politikası kararı açıklandı. Kaynak: FinancialJuice.
 
 ## Piyasada ne oldu
 
-- **Altın** 1 saat içinde yükseldi: +%0,08 (son 4355,40).
-- **Bitcoin** 1 saat içinde yatay kaldı (son 85832,80).
+- **Altın** 1 saat içinde yatay kaldı (son 4350,80).
+- **Bitcoin** 1 saat içinde geriledi: -%0,40 (son 85755,30).
 
 *Yukarıdaki rakamlar ölçülen fiyat hareketidir. Hareketin sebebinin bu gelişme olduğu iddia edilmemektedir; aynı pencerede başka etkenler de fiyatlanmış olabilir.*
 
