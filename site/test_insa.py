@@ -320,15 +320,49 @@ def _hbr(ad, saat, puan, katman="normal", konu="Para politikası"):
 
 _bugun = _simdi.strftime("%Y-%m-%d")
 
+#: "DUN" DEMENIN GUNUN SAATINE BAGLI OLMAYAN YOLU.
+#
+# Burada 26 yaziyordu ve otomasyon HER GECE 00:00-02:00 UTC arasinda
+# dusuyordu -- 2026-09-20/22 arasinda o pencerede acilan 21 kosunun
+# 21'i de kirmizi, disindaki 79 kosunun hepsi yesil. Gunde iki saat
+# hicbir icerik uretilmiyordu ("Veri topla ve icerik uret" adimi
+# atlaniyor) ve dort gun kimse fark etmedi.
+#
+# Sebep: 01:10'da "26 saat once" DUN DEGIL, ONCEKI GUNDUR. Iki takvim
+# gunu geri dusuyor, `gun_farki` 2 oluyor ve kalem
+# `ONE_CIKAN_PENCERE`nin (2) DISINDA kaliyor -- yani siralamaya hic
+# girmiyor. Uretim kodu dogru davraniyordu; kurgu yanlisti.
+#
+# TAM 24 SAAT her saatte AYNI cevabi veriyor:
+#   takvim gunu   -> tam olarak dun  (`gun_farki` = 1, pencere ICINDE)
+#   yas           -> tam 24 saat     (tazelik katmani 2, sinir `< 24`)
+# Baska hicbir sabit bunu saglamiyor: 13 saat 01:10'da dune dusuyor
+# ama 23:10'da bugune; 26 saat ise tam tersi.
+DUN_SAAT = 24
+
 # Dunku YUKSEK puanli haber, bugunku DUSUK puanliyi gecmemeli.
-_liste = [_hbr("Dun yuksek puanli gelisme", 26, 58),
+#
+# 26 saatle bu iddia 00:00-02:00 arasinda YANLIS SEBEPLE geciyordu:
+# dunku kalem siralamada yenildigi icin degil, pencereden tumuyle
+# elendigi icin. Yanlis sebeple gecen sinama hicbir sey olcmez.
+_liste = [_hbr("Dun yuksek puanli gelisme", DUN_SAAT, 58),
           _hbr("Bugun dusuk puanli gelisme", 1, 44)]
 _sonuc = insa.one_cikan_haberler(list(_liste), _bugun)
 es("taze haber, dunku yuksek puanliyi geciyor",
    _sonuc[0]["baslik"] if _sonuc else "", "Bugun dusuk puanli gelisme")
+# KURGU PENCERENIN ICINDE MI -- IDDIA SIRALAMAYI OLCSUN.
+#
+# Ciktida aranmiyor: `onem.sec` ayni konudaki ikinci kalemi CESITLILIK
+# geregi eliyor (iki kurgu da "Para politikası") ve o eleme bu
+# iddianin konusu degil. Olculmesi gereken sey, dunku kalemin
+# `one_cikan_haberler`in TARIH suzgecini gecmesi: gecmiyorsa yukaridaki
+# iddia siralamayi degil elemeyi olcer ve yanlis sebeple yesil kalir.
+es("dunku kurgu pencerede (iddia siralamayi olcuyor)",
+   insa.gun_farki(_liste[0]["tarih"], _bugun) < insa.ONE_CIKAN_PENCERE,
+   True)
 
 # KRITIK muaf: gercek bir kriz dun olsa da mansettir.
-_liste2 = [_hbr("Dun kritik gelisme", 26, 88, katman="kritik"),
+_liste2 = [_hbr("Dun kritik gelisme", DUN_SAAT, 88, katman="kritik"),
            _hbr("Bugun normal gelisme", 1, 44)]
 _sonuc2 = insa.one_cikan_haberler(list(_liste2), _bugun)
 es("kritik haber yastan bagimsiz onde", _sonuc2[0]["baslik"],

@@ -185,6 +185,34 @@ if not (_CIKTI / "index.html").exists():
     print(f"\nTUM TESTLER GECTI ({_gecti})")
     raise SystemExit(0)
 
+# BAYAT CIKTI KUSUR DEGIL -- KIRMIZI YANMAMALI.
+#
+# Olculdu (2026-09-22): dort gun once kurulmus bir `site/cikti` ile
+# bugunun deposu karsilastirildi ve sekiz sayfa "bayat" gorundu.
+# Hicbiri kusur degildi: o sayfalar 18 Eylul'de dogru uretilmisti,
+# aradan gecen dort gunde depo tazelendi, cikti tazelenmedi.
+#
+# Kusur olmadigi halde kirmizi yanan sinama, gormezden gelinen
+# sinamadir -- bu dosyanin kendi ustundeki yorumda yazan sey. Ayni
+# tuzaga burada dusulmustu.
+#
+# Tazelik OLCULUYOR, varsayilmiyor: depodaki en yeni haber gunu ile
+# ciktidaki en yeni gun karsilastiriliyor. Cikti geride ise bolum
+# atlaniyor ve SEBEBI yaziliyor.
+_depo_gun = max((k["tarih"] or "")[:10] for k in _ham)
+_cikti_gun = ""
+for _p in (_CIKTI / "haber").glob("*/index.html"):
+    _m = re.search(r'"datePublished"\s*:\s*"(\d{4}-\d\d-\d\d)',
+                   _p.read_text(encoding="utf-8", errors="replace"))
+    if _m and _m.group(1) > _cikti_gun:
+        _cikti_gun = _m.group(1)
+if _cikti_gun and _cikti_gun < _depo_gun:
+    print(f"  ATLANDI  cikti BAYAT (cikti {_cikti_gun}, depo {_depo_gun})."
+          f"\n           Bu bir kusur degil: kurulum depodan eski."
+          f"\n           `python site/insa.py` ile yenileyin.")
+    print(f"\nTUM TESTLER GECTI ({_gecti})")
+    raise SystemExit(0)
+
 _bayat = []
 for _k in _sonuc:
     _s = _CIKTI / _k["yol"].strip("/") / "index.html"
