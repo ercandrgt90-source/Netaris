@@ -19,12 +19,24 @@ Dosyanin kendi yorumu su ilkeyi yaziyordu: "iki punto arasindaki fark
 okurun ayirt edebilecegi kadar buyuk olmali, yoksa hiyerarsi degil
 gurultu uretir." Ilke yaziliydi; UYGULANDIGINI kontrol eden yoktu.
 
+SATIR YUKSEKLIGINDE AYNI HIKAYE
+-------------------------------
+112 bildirimin 89'u elle yazilmisti ve icinde SAHTE AYRIMLAR vardi:
+1.5 ile 1.55 (onar kullanim) ayni isi yapiyordu, 1.35 ile 1.4 ayni
+isi. Gozle gorulur fark yok ama sistem "burada bir karar var" diye
+okunuyordu. Katmanlar adlandirildi (1.3 / 1.4 / 1.5 / 1.6 / 1.7) ve
+her esleme en fazla 0,05em oynatti.
+
 NE SINANIYOR
 ------------
 1. Tarama gercekten calisiyor (kendi kendini sinar).
 2. Hicbir metin 12 pikselin altinda degil.
-3. Olcek adimlari birbirinden AYIRT EDILEBILIR.
+3. Olcek adimlari birbirinden AYIRT EDILEBILIR -- hem puntoda hem
+   satir yuksekliginde.
 4. Olcek disi her bildirimin yazili gerekcesi var.
+5. Her ISTISNANIN SINIRI da sinaniyor: defter genisletilirse ya da
+   bir esik gevsetilirse kural KIRMIZI yanar. Bu, yazarken degil
+   MUTASYONLA bulundu -- dort esigin dordu de once korumasizdi.
 """
 
 from __future__ import annotations
@@ -264,5 +276,72 @@ if _disi:
     print("\n  Bunlar ya bir jetona cevrilmeli ya da GEREKCE defterine")
     print("  sebebiyle eklenmeli. 'Ugrasmadim' bir gerekce degildir.")
 esit(len(_disi), 0, "her olcek disi bildirimin gerekcesi var")
+
+print("\nSatir yuksekligi olcegi")
+# Olculdu (2026-09-22): 112 satir yuksekligi bildiriminin 89'u elle
+# yazilmisti ve icinde SAHTE AYRIMLAR vardi -- 1.5 ile 1.55 (onar
+# kullanim) ayni isi yapiyordu, 1.35 ile 1.4 ayni isi. Gozle gorulur
+# fark yok, ama sistem "burada bir karar var" diye okunuyordu.
+#
+# Katmanlar ADLANDIRILDI: 1.3 baslik, 1.4 kart/olay basligi, 1.5
+# arayuz kunyesi, 1.6 okuma metni, 1.7 uzun govde. Her esleme en
+# fazla 0,05em oynatti.
+
+#: Jetona baglanmayan satir yuksekligi degerleri ve NEDEN.
+SATIR_GEREKCE = {
+    "1": "simge ve tek satirlik sayi/etiket: fazladan bosluk hizayi "
+         "bozar. Bir 'ritim' degeri degil, 'ritim YOK' demek",
+    "manset": "1.1 / 1.14 / 1.16 / 1.2 / 1.24 -- manset ve hero "
+              "basliklari. Burada fark GERCEK: 30 piksellik bir "
+              "baslikta 1.14 ile 1.3 arasi bes piksel, yani gorunur",
+}
+_MANSET = {"1.1", "1.14", "1.16", "1.2", "1.24"}
+
+
+def satir_muaf(deger: str) -> bool:
+    """Bu satir yuksekligi jetona baglanmak ZORUNDA degil mi?"""
+    return deger == "1" or deger in _MANSET
+
+
+# MUAFIYETIN SINIRI DA SINANIYOR.
+#
+# Olculdu (mutasyon J): muafiyet kontrolunu `if True` yapmak -- yani
+# HER degeri muaf saymak -- sinamayi kirmizi YAPMIYORDU, cunku CSS
+# zaten temizdi. Ayni katman eksigi bu oturumda DORDUNCU kez: mobil
+# gizleme, gorsel boyutu, punto gerekcesi, simdi burada.
+#
+# Artik bir kural yazarken varsayilan olarak sunu soruyorum: "bu
+# kuralin ISTISNASI genisletilirse kim fark eder?"
+esit(satir_muaf("1"), True, "`1` muaf (simge/tek satir)")
+esit(satir_muaf("1.14"), True, "manset degeri muaf")
+esit(satir_muaf("1.55"), False, "sahte ayrim muaf DEGIL (istisna genisletilemez)")
+
+_satir_jeton = {}
+_kok_m = re.search(r":root\s*\{([^}]*)\}", _css, re.S)
+for _ad, _v in re.findall(r"(--satir-[\w-]+)\s*:\s*([\d.]+)", _kok_m.group(1)):
+    _satir_jeton[_ad] = float(_v)
+esit(len(_satir_jeton) >= 3, True,
+     f"satir yuksekligi jetonu okundu ({sorted(_satir_jeton.values())})")
+
+_satir_dar = dar_adimlar(list(_satir_jeton.values()))
+esit(_satir_dar, [], "satir yuksekligi adimlari ayirt edilebilir")
+
+_kok_metin = _kok_m.group(0)
+_disi_satir = []
+for _m in re.finditer(r"([^{}]+)\{([^}]*)\}", _css.replace(_kok_metin, " ", 1)):
+    _sec = " ".join(_m.group(1).split())
+    for _v in re.finditer(r"(?<![\w-])line-height\s*:\s*([\d.]+)\s*[;}]",
+                          _m.group(2)):
+        _d = _v.group(1)
+        if satir_muaf(_d):
+            continue
+        _disi_satir.append((_d, _sec[:52]))
+if _disi_satir:
+    print("\n  JETONA BAGLANMAMIS SATIR YUKSEKLIGI:")
+    for _d, _s in sorted(set(_disi_satir)):
+        print(f"    {_d:<6} {_s}")
+    print("\n  Ya bir jetona baglanmali ya da SATIR_GEREKCE'ye sebebiyle")
+    print("  eklenmeli. Iki deger ayni isi yapiyorsa ikisi de gerekmez.")
+esit(_disi_satir, [], "her satir yuksekligi jetonlu ya da gerekceli")
 
 print(f"\nTUM TESTLER GECTI ({_gecti})")
