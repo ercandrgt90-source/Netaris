@@ -164,6 +164,9 @@ jobs:
       # Biriken veriyi (depo, onbellek, uretilen icerik) geri commit etmek
       # icin yazma yetkisi gerekiyor
       contents: write
+      # Kirmizi kosuyu bir kayit olarak acmak/kapatmak icin. Yeni bir
+      # gizli anahtar GEREKMIYOR -- kosunun kendi jetonu yetiyor.
+      issues: write
 
     steps:
       - name: Depoyu al
@@ -594,4 +597,80 @@ jobs:
               git commit -m "otomatik: veri güncellemesi $(date -u +'%Y-%m-%d %H:%M UTC')"
               sleep 3
             done
+          fi
+
+      # ============================================================
+      # KIRMIZI KOSU KIMSEYE ULASMIYORDU.
+      #
+      # OLCULDU (2026-09-22): 20-22 Eylul arasi 00:00-02:00 UTC
+      # penceresinde acilan 21 kosunun 21'i de basarisizdi ve bu DORT
+      # GUN surdu. Hat o saatlerde hic icerik uretmiyordu. Kimse fark
+      # etmedi, cunku kirmizi bir kosu yalnizca Actions sayfasinda
+      # duruyor ve oraya kimse bakmiyor.
+      #
+      # `bildir()` dusen dosyayi kosu ozetine yaziyor -- iyi bir kayit
+      # ama DISARI CIKAN bir sinyal degil. Teshis icin mukemmel,
+      # UYARI icin ise yaramaz: once bakmayi bilmek gerekiyor.
+      #
+      # NEDEN KAYIT (issue), WEBHOOK DEGIL: webhook yeni bir gizli
+      # anahtar ve ucuncu bir servis demek. Kayit, kosunun KENDI
+      # jetonuyla aciliyor; depo sahibine bildirim gidiyor ve kayit
+      # sorun cozulene kadar GORUNUR kaliyor.
+      #
+      # TEK KAYIT: ayni kusur 21 kez dustugunde 21 kayit acmak alarmi
+      # degersizlestirirdi. Acik kayit varsa yenisi ACILMIYOR; yalnizca
+      # son yorumdan alti saat gectiyse bir satir ekleniyor, yani
+      # surmekte olan bir arizanin zaman cizelgesi olusuyor ama gurultu
+      # olmuyor.
+      # ============================================================
+      - name: Kırmızı koşuyu duyur
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BASLIK: "Otomasyon kirmizi -- kosu basarisiz"
+        run: |
+          kosu="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          govde="Koşu: $kosu
+          Tetikleyici: ${{ github.event_name }}
+          Commit: ${{ github.sha }}
+          Zaman (UTC): $(date -u +'%Y-%m-%d %H:%M')
+
+          Düşen adımı görmek için koşu özetine bakın.
+          Bu kayıt, koşu yeşile döndüğünde KENDİLİĞİNDEN kapanır."
+          mevcut=$(gh issue list --state open --label otomasyon                    --json number --jq '.[0].number // empty' 2>/dev/null || true)
+          if [ -z "$mevcut" ]; then
+            gh label create otomasyon --color B60205               --description "Otomasyon kosusu basarisiz" 2>/dev/null || true
+            gh issue create --title "$BASLIK" --label otomasyon --body "$govde"               || echo "kayit acilamadi (yetki?) -- kosu yine de kirmizi"
+            exit 0
+          fi
+          # ALTI SAATTE BIR: zaman cizelgesi olussun ama gurultu olmasin.
+          guncel=$(gh issue view "$mevcut" --json updatedAt --jq .updatedAt 2>/dev/null || echo "")
+          if [ -n "$guncel" ]; then
+            gecen=$(( $(date -u +%s) - $(date -u -d "$guncel" +%s) ))
+            if [ "$gecen" -lt 21600 ]; then
+              echo "kayit #$mevcut acik ve $((gecen/60)) dk once guncellendi -- yorum eklenmiyor"
+              exit 0
+            fi
+          fi
+          gh issue comment "$mevcut" --body "$govde" || true
+
+      # SAGLIGA DONUNCE ALARM KENDILIGINDEN SUSUYOR.
+      #
+      # Elle kapatilmasi gereken bir alarm, birkac gun sonra kapatilmayi
+      # bekleyen bir gurultuye donusur ve bir sonraki gercek arizada
+      # kimse bakmaz. Kayit yesil kosuda kapaniyor; yani ACIK bir kayit
+      # her zaman "su anda bozuk" demek.
+      #
+      # `|| true` BILEREK: alarmi kapatamamak, YESIL bir kosuyu kirmizi
+      # yapmamali. Kapanmayan kayit en fazla fazladan bir bildirim;
+      # saglikli kosuyu kirmiziya cevirmek ise bu dosyanin cozmeye
+      # calistigi sorunun ta kendisi.
+      - name: Sağlığa dönünce alarmı kapat
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mevcut=$(gh issue list --state open --label otomasyon                    --json number --jq '.[0].number // empty' 2>/dev/null || true)
+          if [ -n "$mevcut" ]; then
+            gh issue close "$mevcut" --comment               "Koşu yeşile döndü ($(date -u +'%Y-%m-%d %H:%M') UTC). Alarm kapatıldı."               || true
           fi
