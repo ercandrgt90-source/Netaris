@@ -28,7 +28,7 @@ Brent petrol 15 Eylül 2026 itibarıyla 130,80 USD/varil seviyesinde. İzlenen 1
 | Gösterge | Son değer | Tarih | Dönem değişimi |
 |---|---|---|---|
 | Brent petrol | 130,80 USD/varil | 15 Eylül 2026 | %49,0 yükseldi |
-| ABD efektif fed fonu oranı | %3,88 | 18 Eylül 2026 | 25 baz puan yükseldi |
+| ABD efektif fed fonu oranı | %3,88 | 21 Eylül 2026 | 25 baz puan yükseldi |
 | ABD 2 yıllık tahvil getirisi | %4,76 | 21 Eylül 2026 | 37 baz puan yükseldi |
 | ABD 10 yıllık tahvil getirisi | %4,96 | 21 Eylül 2026 | 17 baz puan yükseldi |
 
@@ -40,7 +40,7 @@ Her göstergenin son gözlem tarihi farklı olabilir; tabloda her satır kendi t
 
 ## ABD faiz tarafı
 
-Efektif fed fonu faizi %3,88 (18 Eylül 2026); dönem içinde 25 baz puan yükseldi. Piyasa tarafında 2 yıllık getiri %4,76, 10 yıllık %4,96. Dönem içinde 2 yıllık 37 baz puan yükseldi, 10 yıllık 17 baz puan yükseldi. Aradaki 20 baz puanlık pozitif fark, uzun vadeli borçlanma faizinin kısa vadeliden yüksek olduğu normal eğim anlamına gelir.
+Efektif fed fonu faizi %3,88 (21 Eylül 2026); dönem içinde 25 baz puan yükseldi. Piyasa tarafında 2 yıllık getiri %4,76, 10 yıllık %4,96. Dönem içinde 2 yıllık 37 baz puan yükseldi, 10 yıllık 17 baz puan yükseldi. Aradaki 20 baz puanlık pozitif fark, uzun vadeli borçlanma faizinin kısa vadeliden yüksek olduğu normal eğim anlamına gelir.
 
 ## Türkiye'ye hangi kanallardan geliyor
 
