@@ -640,7 +640,20 @@ jobs:
           mevcut=$(gh issue list --state open --label otomasyon                    --json number --jq '.[0].number // empty' 2>/dev/null || true)
           if [ -z "$mevcut" ]; then
             gh label create otomasyon --color B60205               --description "Otomasyon kosusu basarisiz" 2>/dev/null || true
-            gh issue create --title "$BASLIK" --label otomasyon --body "$govde"               || echo "kayit acilamadi (yetki?) -- kosu yine de kirmizi"
+            # ALARMIN KENDI ARIZASI SESSIZ KALMAMALI.
+            #
+            # Kayit acilamazsa (yetki, kota, Issues kapali) alarm hic
+            # CALMAZ ve "acik kayit yok" YANLISLIKLA "saglikli" diye
+            # okunur -- calmayan alarm, alarmsizliktan kotudur.
+            #
+            # O yuzden hata YUTULMUYOR: adim kirmizi yaniyor. Kosu
+            # zaten kirmizi (bu dal `failure()`), yani durumu
+            # kotulestirmiyor; yalnizca ADIM LISTESINDE "alarm da
+            # bozuk" diye gorunur oluyor.
+            if ! gh issue create --title "$BASLIK" --label otomasyon --body "$govde"; then
+              echo "::error::ALARM CALISMADI -- kayit acilamadi (yetki? Issues kapali?)"
+              exit 1
+            fi
             exit 0
           fi
           # ALTI SAATTE BIR: zaman cizelgesi olussun ama gurultu olmasin.
