@@ -148,12 +148,30 @@ def olculer(css: str | None = None) -> dict:
     # yorumlar da bakilan, tutulan, tasinan satirlar.
     ham = STIL.read_text(encoding="utf-8") if css is None else css
     css = _hazirla(css)
+
+    # IZGARA IKI PIKSEL, DORT DEGIL -- OLCULDU.
+    #
+    # Burada `% 4` yaziyordu ve sayfa "izgara disi 165" diyordu. O sayi
+    # YANLISTI: `stil.css`teki jeton blogunun kendi yorumu izgaranin
+    # aslinda IKI piksel oldugunu olcup yaziyor ("dort piksel yalnizca
+    # ANA adimlar"). Yani sayfa, yanlis oldugu BELGELENMIS bir kurala
+    # gore ihlal sayiyordu.
+    #
+    # Gercek dagilim (2026-09-23):
+    #     4'un kati    11
+    #     2'nin kati  157   <- belgelenen yarim adimlar, ihlal DEGIL
+    #     tek sayi      8   <- asil izgara disi (sonra sifirlandi)
+    #
+    # Bir olcum sayfasinin tek isi dogruyu soylemek; yirmi kat sisik
+    # bir "ihlal" sayisi, bakan kisiyi sorunun oraya bakmaya
+    # degmeyecegine ikna eder.
     izgara_disi = 0
     for m in re.finditer(
             r"\b(padding|margin|gap|row-gap|column-gap)[a-z-]*\s*:"
             r"([^;{}]+);", css):
         for v in re.findall(r"(\d+)px", m.group(2)):
-            if int(v) > 2 and int(v) % 4:
+            # 2 ve altI kenarlik/cizgi payi, olcek disi sayilmiyor.
+            if int(v) > 2 and int(v) % 2:
                 izgara_disi += 1
     return {
         "punto_kullanim": len(re.findall(r"var\(--p-", css)),

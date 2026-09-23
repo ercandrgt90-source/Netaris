@@ -86,10 +86,31 @@ def test_izgara_disi_gercekten_olculuyor():
     Sayfa kendi uyum oranini yaziyor. Sayac calismasaydi sayfa her
     zaman "sifir ihlal" derdi ve bu en kotu tur yanlis olurdu:
     olcum kiligina girmis bir temenni.
+
+    IZGARA IKI PIKSEL OLDUGU ICIN CAPA DEGISTI (2026-09-23).
+
+    Once bu kurgu 6px ve 10px'i "ihlal" sayiyordu, cunku sayac `% 4`
+    ile olcuyordu. Ama `stil.css`in kendi yorumu izgaranin ASLINDA iki
+    piksel oldugunu olcup yaziyor -- yani sayac, yanlis oldugu
+    BELGELENMIS bir kurala gore sayiyordu ve sayfa "165 ihlal"
+    diyordu. Gercek sayi 8'di (dort 3px, dort 5px) ve o sekizi de
+    izgaraya oturttuk.
+
+    Kurgu artik GERCEK kurali sinar: tek sayi ihlal, cift sayi degil.
     """
-    css = ".a{padding:6px;margin:16px;gap:10px;} .b{padding:2px;}"
-    # 6 ve 10 izgara disi; 16 izgarada; 2 esik altinda (kenarlik payi)
+    css = (".a{padding:3px;margin:16px;gap:5px;}"
+           " .b{padding:1px;} .c{gap:10px;margin:6px;}")
+    # 3 ve 5 TEK -> ihlal; 16/10/6 cift -> izgarada.
+    #
+    # `.b` ESIGI sinar: 1px TEK ama iki pikselin altinda, yani
+    # kenarlik/cizgi payi -- sayilmamali. Once burada `2px` yaziyordu
+    # ve o CIFT oldugu icin esik hic denenmiyordu: esigi kaldiran bir
+    # mutasyon (`int(v) % 2`) sinamayi kirmizi YAPMIYORDU.
     assert tj.olculer(css)["izgara_disi"] == 2, tj.olculer(css)
+
+    # Ters yon: hepsi cift olan bir girdi SIFIR ihlal vermeli --
+    # sayacin "her seye ihlal diyen" bicimde bozulmasini yakalar.
+    assert tj.olculer(".d{padding:4px 8px;gap:12px;}")["izgara_disi"] == 0
 
 
 def test_yorum_kural_sayilmiyor():
