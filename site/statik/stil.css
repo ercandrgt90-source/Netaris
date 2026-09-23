@@ -2537,7 +2537,7 @@ main.kabuk {
   flex: 0 0 auto;
   display: inline-flex; align-items: center; justify-content: center;
   width: 24px; height: 24px; padding: 0;
-  border: 1px solid var(--cizgi); border-radius: 6px;
+  border: 1px solid var(--cizgi); border-radius: var(--r-mini);
   background: var(--panel); color: var(--yazi-3); cursor: pointer}
 .sondakika-durdur:hover { color: var(--yazi); border-color: var(--cizgi-parlak)}
 
@@ -3986,7 +3986,7 @@ table td, table th, time, .tarih {
   transition: box-shadow var(--sure-orta), transform var(--sure-orta)}
 .basmanset:hover {
   text-decoration: none; transform: translateY(-2px);
-  box-shadow: 0 2px 4px rgba(12,21,36,.06), 0 14px 34px rgba(12,21,36,.10)}
+  box-shadow: var(--golge-yuksek)}
 .basmanset-gorsel { display: block; background: var(--gorsel-zemin)}
 .basmanset-gorsel img {
   display: block; height: auto; aspect-ratio: 16/9}
