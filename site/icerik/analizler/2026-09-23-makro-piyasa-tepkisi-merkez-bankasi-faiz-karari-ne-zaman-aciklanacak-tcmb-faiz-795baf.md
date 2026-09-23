@@ -1,7 +1,7 @@
 ---
 slug: piyasa-tepkisi-merkez-bankasi-faiz-karari-ne-zaman-aciklanacak-tcmb-faiz-795baf-2026-09-23
 baslik: Merkez Bankası faiz kararı ne zaman açıklanacak? TCMB faiz indirecek mi?
-ozet: Faiz kararı. Bitcoin 1 saat içinde -%0,31 geriledi.
+ozet: Faiz kararı. Altın 1 saat içinde -%0,17 geriledi.
 sirket: Piyasa tepkisi: Merkez Bankası faiz kararı ne zaman açıklanacak? TCMB faiz indirecek mi?
 kod: OLAY
 donem: 2026-09-23
@@ -23,8 +23,8 @@ Para politikası kararı açıklandı. Kaynak: Dünya.
 
 ## Piyasada ne oldu
 
-- **Altın** 1 saat içinde yatay kaldı (son 4315,50).
-- **Bitcoin** 1 saat içinde geriledi: -%0,31 (son 85806,80).
+- **Altın** 1 saat içinde geriledi: -%0,17 (son 4310,30).
+- **Bitcoin** 1 saat içinde geriledi: -%0,07 (son 85835,10).
 
 *Yukarıdaki rakamlar ölçülen fiyat hareketidir. Hareketin sebebinin bu gelişme olduğu iddia edilmemektedir; aynı pencerede başka etkenler de fiyatlanmış olabilir.*
 

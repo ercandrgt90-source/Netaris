@@ -1,7 +1,7 @@
 ---
 slug: piyasa-tepkisi-hurmuz-bogazi-nda-sular-durulmuyor-el-koyduklari-yabanci-1f5391-2026-09-23
 baslik: Hürmüz Boğazı'nda sular durulmuyor: El koydukları yabancı gemileri satacaklar
-ozet: Jeopolitik gelişme. Bitcoin 1 saat içinde -%0,31 geriledi.
+ozet: Jeopolitik gelişme. Altın 1 saat içinde -%0,17 geriledi.
 sirket: Piyasa tepkisi: Hürmüz Boğazı'nda sular durulmuyor: El koydukları yabancı gemileri satacaklar
 kod: OLAY
 donem: 2026-09-23
@@ -23,8 +23,8 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Ekonomim.
 
 ## Piyasada ne oldu
 
-- **Altın** 1 saat içinde yatay kaldı (son 4315,50).
-- **Bitcoin** 1 saat içinde geriledi: -%0,31 (son 85806,80).
+- **Altın** 1 saat içinde geriledi: -%0,17 (son 4310,30).
+- **Bitcoin** 1 saat içinde geriledi: -%0,07 (son 85835,10).
 
 *Yukarıdaki rakamlar ölçülen fiyat hareketidir. Hareketin sebebinin bu gelişme olduğu iddia edilmemektedir; aynı pencerede başka etkenler de fiyatlanmış olabilir.*
 
