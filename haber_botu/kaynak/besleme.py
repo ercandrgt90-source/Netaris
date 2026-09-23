@@ -743,6 +743,60 @@ def _metin(ham: str) -> str:
     return "" if _KOD_IZI.search(metin) else metin
 
 
+#: TURKIYE saat dilimi.
+#:
+#: `yayin_takvimi._bolge` ile ayni desen: tz veritabani yoksa sabit
+#: ofsete duser ve UYARIR. Turkiye 2016'dan beri kalici UTC+3, yani
+#: yedek ofset pratikte dogru; yine de sessiz dusus yapilmiyor.
+def _tr_bolgesi():
+    try:
+        from zoneinfo import ZoneInfo
+        return ZoneInfo("Europe/Istanbul")
+    except Exception:
+        print("  UYARI: saat dilimi veritabani yok; sabit UTC+3 "
+              "kullaniliyor. Cozum: pip install tzdata")
+        return timezone(timedelta(hours=3))
+
+
+_TR = _tr_bolgesi()
+
+
+def _tr_gunu(d: datetime, ham: str) -> date:
+    """Damgayi TURKIYE gunune cevirir -- dilim BILINIYORSA.
+
+    NEDEN GEREKLI
+    -------------
+    OLCULDU (2026-09-23): arsivdeki 1045 haberin 77'sinde gosterilen
+    tarih UTC gunune esitti ve TURKIYE gunune DEGILDI. Hepsi
+    21:00-23:00 UTC arasinda, yani UTC ile TR tarihinin ayrildigi
+    tek pencerede; 74'u tek kaynaktan (FinancialJuice).
+
+    Somut sonuc: Turkiye saatiyle 00:30'da gelen taze bir haber,
+    okura DUNUN tarihiyle gorunuyordu. Site Turkce ve okuru
+    Turkiye'de; gun sinirinin nerede oldugu okurun takviminde
+    belirlenir, sunucunun takviminde degil.
+
+    NEDEN HER DAMGA CEVRILMIYOR
+    ---------------------------
+    Dilimi BELLI OLMAYAN bir damgayi UTC varsaymak kusuru ters yone
+    cevirirdi: Turkce bir kaynak "23 Eyl 2026 23:00" yazdiginda o
+    zaten TR saati; UTC sayip cevirmek tarihi bir gun ILERI atardi.
+    O yuzden yalnizca dilimi acikca bildiren damgalar cevriliyor;
+    digerleri OLDUGU GIBI kaliyor.
+    """
+    if d.tzinfo is None:
+        # SONDAKI 'Z' ICIN AYRI KURAL GEREKMIYOR: `%z` bicimi
+        # listede ONCE geliyor ve Python 3.7'den beri 'Z'yi UTC
+        # olarak cozuyor -- damga zaten tz-aware geliyor. Bunun
+        # icin yazdigim ayri mekanizmayi MUTASYON olu kod olarak
+        # yakaladi: bozmak sinamayi kirmizi yapmiyordu.
+        if re.search(r"\b(GMT|UTC)\b", ham):
+            d = d.replace(tzinfo=timezone.utc)
+        else:
+            return d.date()
+    return d.astimezone(_TR).date()
+
+
 _TARIH_BICIMLERI = (
     "%a, %d %b %Y %H:%M:%S %z",
     "%a, %d %b %Y %H:%M:%S %Z",
@@ -775,9 +829,10 @@ def _tarih_coz(ham: str) -> str:
     ham = ham.strip()
     for bicim in _TARIH_BICIMLERI:
         try:
-            return datetime.strptime(ham, bicim).date().isoformat()
+            d = datetime.strptime(ham, bicim)
         except ValueError:
             continue
+        return _tr_gunu(d, ham).isoformat()
 
     # "30 Tem 2026 14:00:00" -- TCMB
     m = re.match(r"(\d{1,2})\s+([^\W\d_]+)\s+(\d{4})", ham)
