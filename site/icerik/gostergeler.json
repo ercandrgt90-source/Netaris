@@ -38,26 +38,24 @@
     {
       "kod": "DCOILBRENTEU",
       "ad": "BRENT",
-      "deger": "130,80",
-      "fark": "+%7,88",
-      "yon": "artis",
-      "tarih": "2026-09-15",
+      "deger": "114,89",
+      "fark": "-%1,08",
+      "yon": "azalis",
+      "tarih": "2026-09-22",
       "birim": "USD/varil",
-      "gun": 6,
-      "bayat": true,
-      "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · bugün yenileniyor"
+      "gun": 1,
+      "bayat": false
     },
     {
       "kod": "DCOILWTICO",
       "ad": "WTI",
-      "deger": "107,02",
-      "fark": "+%4,49",
-      "yon": "artis",
-      "tarih": "2026-09-15",
+      "deger": "96,41",
+      "fark": "-%0,58",
+      "yon": "azalis",
+      "tarih": "2026-09-22",
       "birim": "USD/varil",
-      "gun": 6,
-      "bayat": true,
-      "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · bugün yenileniyor"
+      "gun": 1,
+      "bayat": false
     },
     {
       "kod": "DFF",
@@ -123,26 +121,24 @@
         {
           "kod": "DCOILBRENTEU",
           "ad": "Brent",
-          "deger": "130,80",
-          "fark": "+%7,88",
-          "yon": "artis",
-          "tarih": "2026-09-15",
+          "deger": "114,89",
+          "fark": "-%1,08",
+          "yon": "azalis",
+          "tarih": "2026-09-22",
           "birim": "USD/varil",
-          "gun": 6,
-          "bayat": true,
-          "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · bugün yenileniyor"
+          "gun": 1,
+          "bayat": false
         },
         {
           "kod": "DCOILWTICO",
           "ad": "WTI",
-          "deger": "107,02",
-          "fark": "+%4,49",
-          "yon": "artis",
-          "tarih": "2026-09-15",
+          "deger": "96,41",
+          "fark": "-%0,58",
+          "yon": "azalis",
+          "tarih": "2026-09-22",
           "birim": "USD/varil",
-          "gun": 6,
-          "bayat": true,
-          "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · bugün yenileniyor"
+          "gun": 1,
+          "bayat": false
         }
       ]
     },
