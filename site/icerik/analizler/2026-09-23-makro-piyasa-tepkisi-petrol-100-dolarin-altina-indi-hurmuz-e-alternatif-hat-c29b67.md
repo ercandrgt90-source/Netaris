@@ -1,7 +1,7 @@
 ---
 slug: piyasa-tepkisi-petrol-100-dolarin-altina-indi-hurmuz-e-alternatif-hat-c29b67-2026-09-23
 baslik: Petrol 100 doların altına indi: Hürmüz’e alternatif hat yeniden açıldı
-ozet: Jeopolitik gelişme. Bitcoin 1 saat içinde +%0,28 yükseldi.
+ozet: Jeopolitik gelişme. Bitcoin 1 saat içinde +%0,53 yükseldi.
 sirket: Piyasa tepkisi: Petrol 100 doların altına indi: Hürmüz’e alternatif hat yeniden açıldı
 kod: OLAY
 donem: 2026-09-23
@@ -23,8 +23,8 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Dünya.
 
 ## Piyasada ne oldu
 
-- **Altın** 1 saat içinde yükseldi: +%0,08 (son 4346,30).
-- **Bitcoin** 1 saat içinde yükseldi: +%0,28 (son 87114,90).
+- **Altın** 1 saat içinde yatay kaldı (son 4345,90).
+- **Bitcoin** 1 saat içinde yükseldi: +%0,53 (son 87158,10).
 
 *Yukarıdaki rakamlar ölçülen fiyat hareketidir. Hareketin sebebinin bu gelişme olduğu iddia edilmemektedir; aynı pencerede başka etkenler de fiyatlanmış olabilir.*
 
