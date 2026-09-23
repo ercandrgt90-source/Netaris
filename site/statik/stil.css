@@ -7550,3 +7550,47 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
      liste zaten tam oldugu icin gizli. */
   .masa-akis .akis-devam { display: block; }
 }
+
+/* ==================================================================
+   GRAFIK SVG'LERI TEMAYA UYAR
+   ------------------------------------------------------------------
+   OLCULDU (2026-09-23): 680 sayfada gomulu grafik SVG'si var ve
+   HICBIRI temayi takip etmiyordu. Koyu temada okur, koyu bir sayfanin
+   ortasinda PARLAK BEYAZ bir dikdortgen goruyordu.
+
+   Ustelik `gorsel.py`nin kendi yorumu su kurali yaziyordu: "Tema
+   renkleri -- stil.css :root degerleriyle AYNI olmali. Ayrisirsa
+   gorsel sayfadan kopuk durur." Yedi rengin yedisi de ayrismisti
+   (#0a7ea4 mavi-teal marka teal'i degil, #cf2740 kirmizi --azalis
+   degil...). Kural yaziliydi, uygulandigini kontrol eden yoktu.
+
+   NEDEN OZNITELIK SECICISI, NEDEN `var()` DOGRUDAN OZNITELIKTE DEGIL
+   ------------------------------------------------------------------
+   `fill="var(--zemin)"` yazmak cazip ama GUVENILIR DEGIL: SVG2
+   sunum ozniteliklerini CSS bildirimi saymiyor ve Chromium bircok
+   oznitelikte `var()` cozmuyor (W3C SVG calisma grubunda acik kayit).
+   Cozulemezse oznitelik gecersiz olur ve dolgu SIYAHA duser -- yani
+   kusuru duzeltmek yerine buyuturdu.
+
+   Burada oznitelikteki hex OLDUGU GIBI kaliyor (her tarayicida
+   gecerli bir yedek) ve CSS onu eziyor: CSS kurallari sunum
+   ozniteliklerinden HER ZAMAN once gelir. Acik temada jeton zaten
+   ayni degere cozuluyor, yani gorunum DEGISMIYOR; degisen yalnizca
+   koyu tema.
+
+   `#ffffff` DOKUNULMUYOR: o bir tema rengi degil, cubuk uzerindeki
+   yari saydam parlaklik (opacity 0.22 / 0.4) ve koyu zeminde de
+   dogru calisiyor.
+   ================================================================== */
+.yazi-gorsel svg [fill="#eef2f7"] { fill: var(--zemin); }
+.yazi-gorsel svg [stop-color="#eef2f7"] { stop-color: var(--zemin); }
+.yazi-gorsel svg [stop-color="#eef4fd"] { stop-color: var(--sayfa-isik); }
+.yazi-gorsel svg [stroke="#e4e9f1"] { stroke: var(--cizgi); }
+.yazi-gorsel svg [fill="#0c1524"] { fill: var(--yazi); }
+.yazi-gorsel svg [fill="#616f86"] { fill: var(--yazi-3); }
+.yazi-gorsel svg [fill="#0a7974"] { fill: var(--vurgu); }
+.yazi-gorsel svg [stop-color="#0a7974"] { stop-color: var(--vurgu); }
+.yazi-gorsel svg [stop-color="#075f5c"] { stop-color: var(--vurgu-koyu); }
+.yazi-gorsel svg [fill="#0a7f47"] { fill: var(--artis); }
+.yazi-gorsel svg [fill="#c8203a"] { fill: var(--azalis); }
+

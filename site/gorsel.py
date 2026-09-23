@@ -27,14 +27,20 @@ from dataclasses import dataclass
 #
 # ACIK TEMA: gorsel zemini saf beyaz DEGIL, bir ton gri. Beyaz zeminli bir
 # gorsel beyaz sayfada sinirsiz kalir ve "gorsel var mi yok mu" belli olmaz.
-ZEMIN = "#eef2f8"
-CIZGI = "#d3dcea"
-VURGU = "#0a7ea4"
-VURGU_KOYU = "#075c78"
-YAZI = "#0f1b2d"
-YAZI_3 = "#6b7c96"
-ARTIS = "#0f8a4d"
-AZALIS = "#cf2740"
+ZEMIN = "#eef2f7"
+CIZGI = "#e4e9f1"
+VURGU = "#0a7974"
+VURGU_KOYU = "#075f5c"
+YAZI = "#0c1524"
+YAZI_3 = "#616f86"
+ARTIS = "#0a7f47"
+AZALIS = "#c8203a"
+
+#: Ust kenardaki yumusak parlama. Onceden `#dce6f2` yaziliydi ve bu
+#: renk stil.css'te HIC YOKTU -- yani yukaridaki kurala ("jetonlarla
+#: ayni olmali") uymayan tek basina bir degerdi. `--sayfa-isik`
+#: sayfanin kendi ust parlamasi; grafik de ayni isigi kullaniyor.
+PARLAMA = "#eef4fd"
 
 # 16:9. Kart kutusu 16:9 oldugu icin gorsel de 16:9 uretilir.
 # Onceden 1200x480 (2,5:1) uretiliyordu ve kart icinde yanlardan
@@ -89,7 +95,7 @@ def _tanimlar() -> str:
     return (
         "<defs>"
         '<radialGradient id="parlama" cx="50%" cy="0%" r="90%">'
-        f'<stop offset="0%" stop-color="#dce6f2" stop-opacity="0.9"/>'
+        f'<stop offset="0%" stop-color="{PARLAMA}" stop-opacity="0.9"/>'
         f'<stop offset="100%" stop-color="{ZEMIN}" stop-opacity="0"/>'
         "</radialGradient>"
         '<linearGradient id="sutun" x1="0" y1="1" x2="0" y2="0">'
