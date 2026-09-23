@@ -1,7 +1,7 @@
 ---
 slug: piyasa-tepkisi-fed-politika-faizini-4-un-uzerine-tasir-mi-hsbc-den-yeni-d2d479-2026-09-23
 baslik: Fed politika faizini %4'ün üzerine taşır mı? HSBC’den yeni faiz patikası analizi
-ozet: Faiz kararı. Bitcoin 1 saat içinde -%0,19 geriledi.
+ozet: Faiz kararı. Bitcoin 1 saat içinde -%0,17 geriledi.
 sirket: Piyasa tepkisi: Fed politika faizini %4'ün üzerine taşır mı? HSBC’den yeni faiz patikası analizi
 kod: OLAY
 donem: 2026-09-23
@@ -23,8 +23,8 @@ Para politikası kararı açıklandı. Kaynak: Ekonomim.
 
 ## Piyasada ne oldu
 
-- **Altın** 1 saat içinde geriledi: -%0,16 (son 4318,60).
-- **Bitcoin** 1 saat içinde geriledi: -%0,19 (son 86185,50).
+- **Altın** 1 saat içinde geriledi: -%0,10 (son 4319,40).
+- **Bitcoin** 1 saat içinde geriledi: -%0,17 (son 86252,00).
 
 *Yukarıdaki rakamlar ölçülen fiyat hareketidir. Hareketin sebebinin bu gelişme olduğu iddia edilmemektedir; aynı pencerede başka etkenler de fiyatlanmış olabilir.*
 
