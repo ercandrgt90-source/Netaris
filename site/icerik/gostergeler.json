@@ -45,7 +45,7 @@
       "birim": "USD/varil",
       "gun": 6,
       "bayat": true,
-      "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · bugün yenileniyor"
+      "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba)"
     },
     {
       "kod": "DCOILWTICO",
@@ -130,7 +130,7 @@
           "birim": "USD/varil",
           "gun": 6,
           "bayat": true,
-          "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · bugün yenileniyor"
+          "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba)"
         },
         {
           "kod": "DCOILWTICO",
