@@ -34,6 +34,7 @@ NE SINANIYOR
 
 from __future__ import annotations
 
+import json
 import pathlib
 import re
 import sqlite3
@@ -134,7 +135,7 @@ if not _DB.exists():
 _db = sqlite3.connect(_DB)
 _db.row_factory = sqlite3.Row
 _ham = [dict(r) for r in _db.execute(
-    "SELECT adres, baslik_tr, baslik_kaynak, tarih, yayin_yolu"
+    "SELECT adres, baslik_tr, baslik_kaynak, tarih, yayin_yolu, sayfa_veri"
     "  FROM haber WHERE yayimlandi = 1")]
 esit(len(_ham) > 200, True, f"yayimlanmis haber kaydi dolu ({len(_ham)})")
 
@@ -213,6 +214,37 @@ if _cikti_gun and _cikti_gun < _depo_gun:
     print(f"\nTUM TESTLER GECTI ({_gecti})")
     raise SystemExit(0)
 
+# SAYFAYI BESLEYEN ALANLA KARSILASTIR -- SUTUNLA DEGIL.
+#
+# Olculdu (2026-09-24): bu iddia iki sayfayi "bayat" diye bildirdi ve
+# IKISI DE DOGRUYDU. Sebep karsilastirmanin kendisiydi: sayfa
+# `haber.sayfa_veri` JSON'undan uretiliyor, ben ise `haber.tarih`
+# SUTUNUYLA kiyasliyordum. 3770 kaydin 5'inde ikisi ayrisik --
+# ucunde saat dilimi sinirindan (21:34 / 23:02 / 00:11 UTC), ikisinde
+# periyodik bir yayinin sayfa yuku tazelenirken sutunun kalmasindan.
+#
+# Sayfanin okumadigi bir alanla kiyaslamak, kusuru degil FARKI olcer.
+# Kusur olmadigi halde kirmizi yanan sinama gormezden gelinir; bu
+# dosyanin kendi ustundeki yorum da bunu soyluyor.
+def _sayfa_tarihi(kayit: dict) -> str:
+    """Sayfanin GERCEKTEN bastigi tarih: `sayfa_veri` varsa o."""
+    ham = kayit.get("sayfa_veri") or ""
+    if ham:
+        try:
+            sv = (json.loads(ham).get("tarih") or "")[:10]
+            if sv:
+                return sv
+        except (ValueError, TypeError):
+            pass
+    return (kayit.get("tarih") or "")[:10]
+
+
+_yol_kayit: dict[str, dict] = {}
+for _r in _ham:
+    _y = _r["yayin_yolu"]
+    if _y not in _yol_kayit or (_r["tarih"] or "") > (_yol_kayit[_y]["tarih"] or ""):
+        _yol_kayit[_y] = _r
+
 _bayat = []
 for _k in _sonuc:
     _s = _CIKTI / _k["yol"].strip("/") / "index.html"
@@ -220,8 +252,12 @@ for _k in _sonuc:
         continue
     _m = re.search(r'"datePublished"\s*:\s*"(\d{4}-\d\d-\d\d)',
                    _s.read_text(encoding="utf-8", errors="replace"))
-    if _m and _m.group(1) != max(_ham_g[_k["yol"]]):
-        _bayat.append((_k["yol"], _m.group(1), max(_ham_g[_k["yol"]])))
+    _kazanan = _yol_kayit.get(_k["yol"])
+    if not _m or not _kazanan:
+        continue
+    _beklenen = _sayfa_tarihi(_kazanan)
+    if _m.group(1) != _beklenen:
+        _bayat.append((_k["yol"], _m.group(1), _beklenen))
 if _bayat:
     print("\n  BAYAT SAYFALAR (yayinda / olmasi gereken):")
     for _b in _bayat[:8]:

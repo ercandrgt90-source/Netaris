@@ -30,6 +30,13 @@
    -- sablonda "kisa ise" gibi bir tahmin yok. #}
 {% block aciklama %}{% if ozet_paylasilan is defined and ozet_paylasilan %}{{ a.baslik }} — {{ a.ozet }}{% else %}{{ a.ozet }}{% endif %}{% endblock %}
 {% block og_tur %}article{% endblock %}
+{# Degerler JSON-LD ile AYNI alanlardan -- gerekce `temel.html`te. #}
+{% block og_makale %}
+<meta property="article:published_time" content="{{ a.tarih }}">
+<meta property="article:modified_time" content="{{ a.tarih }}">
+<meta property="article:author" content="{{ site.ad }}">
+{% if a.kategori %}<meta property="article:section" content="{{ a.kategori }}">{% endif %}
+{% endblock %}
 
 {% block yapisal_veri %}
 {# NewsArticle yapisal verisi. Yazar olarak sirket tuzel kisiligi

@@ -63,6 +63,26 @@
 <meta property="og:description" content="{% block og_aciklama %}{{ self.aciklama() }}{% endblock %}">
 <meta property="og:url" content="{{ site.adres }}{{ yol }}">
 
+{# MAKALE OZELLIKLERI -- `og:type` "article" diyen sayfalar icin.
+   ====================================================================
+   OLCULDU (2026-09-24): 1837 sayfanin 1724'u `og:type="article"`
+   bildiriyordu ama `article:published_time` ve `article:author` HIC
+   yoktu. Bir sayfanin "ben makaleyim" deyip yayim tarihini
+   sylememesi, paylasim kartini tarihsiz birakiyor.
+
+   NEDEN JSON-LD YETMIYOR: arama motorlari yapisal veriyi okuyor ve o
+   eksiksiz (datePublished, dateModified, author, publisher hepsi
+   var). Ama LinkedIn ve Facebook paylasim kartini OPEN GRAPH'tan
+   kuruyor, JSON-LD'ye bakmiyor. Finans icerigi agirlikli olarak
+   LinkedIn'de dolasiyor; orada tarihsiz gorunmek, icerigi eski ya da
+   kaynaksiz gosteriyor.
+
+   AYNI KAYNAKTAN: degerler JSON-LD ile AYNI alanlardan geliyor
+   (`h.tarih` / `a.tarih`). Ikinci bir dogruluk kaynagi acmak, iki
+   tarihin zamanla ayrismasi demekti -- bu depoda "ayni soruya iki
+   cevap" kusuru defalarca yasandi. #}
+{% block og_makale %}{% endblock %}
+
 {# PAYLASIM GORSELI.
    `twitter:card` "summary_large_image" yaziliydi ama `og:image` HIC
    YOKTU -- olculdu, 638 sayfanin sifirinda. Gorselsiz buyuk kart, X
