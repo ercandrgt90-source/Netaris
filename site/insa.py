@@ -2198,6 +2198,13 @@ def _ara_metni(metin: str) -> str:
     return metin.translate(_SLUG_ESLEME).lower()
 
 
+#: Beslemedeki toplam oge sayisi.
+RSS_OGE_SAYISI = 40
+#: Bu kadar slot ANALIZE ayrilir -- yeterli analiz varsa. Taban,
+#: tavan degil: haber yetmezse analiz gerisini de doldurur.
+RSS_ANALIZ_PAYI = 10
+
+
 def rss_uret(analizler: list[Analiz],
              haberler: list[tuple[str, str, str, str]] | None = None,
              kanal_ad: str = "", kanal_aciklama: str = "",
@@ -2240,19 +2247,53 @@ def rss_uret(analizler: list[Analiz],
     # ANALIZDE DAMGA UYDURULMUYOR: yayim saatini bilmiyoruz ve dosya
     # zamanini yayim ani gibi sunmak, bu depoda defalarca reddedilmis
     # bir sey. Damgasi olmayan kayit gunun basinda duruyor.
-    kayitlar: list[tuple] = [
-        (a.tarih, a.baslik, a.ozet, a.yol, "") for a in analizler
-    ]
-    for k in (haberler or []):
-        kayitlar.append(tuple(k) if len(k) == 5 else (*k, ""))
     # En yeni once. Damga varsa ona, yoksa tarihe gore.
     # ISO damga ("2026-08-28T09:12") ayni gunun duz tarihinden
     # ("2026-08-28") lexikografik olarak BUYUK, yani damgali kayit
     # dogru sirada one geciyor.
-    kayitlar.sort(key=lambda k: (k[4] or k[0] or ""), reverse=True)
+    def _sira(k: tuple) -> str:
+        return k[4] or k[0] or ""
+
+    analiz_kayit: list[tuple] = sorted(
+        ((a.tarih, a.baslik, a.ozet, a.yol, "") for a in analizler),
+        key=_sira, reverse=True)
+    haber_kayit: list[tuple] = sorted(
+        ((tuple(k) if len(k) == 5 else (*k, "")) for k in (haberler or [])),
+        key=_sira, reverse=True)
+
+    # ANALIZE AYRILMIS TABAN PAY -- SIRALAMA BIR TARAFI EZIYORDU.
+    #
+    # Olculdu (2026-09-24): `/rss.xml` 40 oge tasiyordu ve 40'i da
+    # HABERDI. Sitenin 689 analizinden HICBIRI beslemede yoktu.
+    #
+    # Sebep durgunluk degil: son yedi gunde 72 analiz yayimlanmisti,
+    # yalnizca dun 16 tane. Sebep SIRALAMA. Haberin ISO damgasi var
+    # ("2026-09-24T06:09"), analizin yalnizca gunu ("2026-09-24").
+    # Ayni gunde damgali kayit lexikografik olarak BUYUK, yani her
+    # haber her analizi geciyor ve 40 slotu haber dolduruyor.
+    #
+    # Bu, Agustos'taki kusurun AYNISI ters yonde: o zaman besleme
+    # yalnizca analiz tasiyordu, duzeltildi, ve kimse obur tarafi
+    # olcmedi. Sarkac otekine gitti.
+    #
+    # Bedeli dogrudan: abone tam olarak herkeste bulunan haberi
+    # aliyor, sitenin kendine ozgu urununu HIC almiyor.
+    #
+    # PAY BIR TABAN, TAVAN DEGIL: bir taraf az oge uretirse bosluk
+    # bos kalmiyor, digerinden doluyor.
+    _pay = min(RSS_ANALIZ_PAYI, len(analiz_kayit))
+    kayitlar = analiz_kayit[:_pay] + haber_kayit[:RSS_OGE_SAYISI - _pay]
+    if len(kayitlar) < RSS_OGE_SAYISI:
+        artan = analiz_kayit[_pay:] + haber_kayit[RSS_OGE_SAYISI - _pay:]
+        artan.sort(key=_sira, reverse=True)
+        kayitlar += artan[:RSS_OGE_SAYISI - len(kayitlar)]
+    # SIRA KRONOLOJIK KALIYOR: pay yalnizca KIMIN girecegini
+    # belirliyor, NEREDE duracagini degil. Analizi tepeye tasimak
+    # gunun haberini beslemenin dibine iterdi.
+    kayitlar.sort(key=_sira, reverse=True)
 
     ogeler = []
-    for tarih, baslik, ozet, yol, damga in kayitlar[:40]:
+    for tarih, baslik, ozet, yol, damga in kayitlar[:RSS_OGE_SAYISI]:
         pub = ""
         if damga:
             try:
