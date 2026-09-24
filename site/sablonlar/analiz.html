@@ -293,6 +293,67 @@
   {% endif %}
 
 
+  {# MAKALE SONU -- okur bosluga dusmesin.
+     ------------------------------------
+     Olculdu (2026-09-24): analiz sayfalarinda `<main>` icinde ortalama
+     1.9 ic bag vardi ve ikisi de hub'a gidiyordu (`/arastirmalar/`,
+     `/makro/`). Haber sayfalarinda ayni sayi 22. Sitenin AYIRT EDICI
+     icerigi, en yalitik icerigiydi.
+
+     Somut sonuc: 40 sirketin iki ceyregi yayimlanmisti (80 sayfa) ve
+     hicbiri otekine baglanmiyordu -- ADESE'nin ikinci ceyregini okuyan
+     okur birinci ceyrege gidemiyordu.
+
+     BILESEN YENIDEN KULLANILIYOR, KOPYALANMIYOR.
+     `haber.html` ayni isi `.okumaya-devam` / `.od-izgara` / `.od-blok`
+     ile yapiyor. Ikinci bir "ilgili icerik" bileseni yazmak, ayni
+     soruya iki cevap veren iki kod yolu olurdu -- bu depoda defalarca
+     temizlenen kusur. Yeni CSS EKLENMEDI.
+
+     IKI ILISKI, IKISI DE GERCEK:
+       donemler -> ayni sirketin oteki ceyregi
+       akranlar -> ayni sektorde, AYNI DONEMDE baska sirket
+
+     "Ayni donem" sarti akranlarda ZORUNLU: farkli ceyreklerin
+     rakamlarini yan yana koymak, karsilastirma gibi gorunen ama
+     olmayan bir sey uretirdi.
+
+     Biri bossa o blok hic basilmiyor -- `haber.html`teki ayni kural. #}
+  {% if donemler or akranlar %}
+  <section class="okumaya-devam">
+    <h2>Bunu da okuyun</h2>
+    <div class="od-izgara">
+      {% if donemler %}
+      <div class="od-blok">
+        <h3>{{ a.sirket }} &mdash; diğer dönemler</h3>
+        <ul>
+          {% for d in donemler %}
+          <li>
+            <a href="{{ d.yol }}">{{ d.donem }}</a>
+            <span class="ilgili-kunye">{{ d.tarih_tr }}</span>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+
+      {% if akranlar %}
+      <div class="od-blok">
+        <h3>{{ a.sektor }} &mdash; aynı dönem</h3>
+        <ul>
+          {% for k in akranlar %}
+          <li>
+            <a href="{{ k.yol }}">{{ k.sirket }}</a>
+            <span class="ilgili-kunye">{{ k.kod }}</span>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+    </div>
+  </section>
+  {% endif %}
+
   <p class="kaynak-not">Veri: {{ a.veri_kaynagi }} · Yayın: {{ a.tarih_tr }}</p>
   {% if a.foto_atif %}
   {# CC BY geregi ZORUNLU -- `_lisans_denetimi` "hata" seviyesinde tutuyor. #}

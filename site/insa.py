@@ -2238,6 +2238,13 @@ def opml_uret(beslemeler: list[dict]) -> str:
         + "\n  </body>\n</opml>\n"
     )
 
+#: Bir analiz sayfasinda gosterilecek en fazla sektor akrani.
+#:
+#: Dort: okurun tarayabilecegi kadar az, "ilgili" hissi verecek kadar
+#: cok. Sinirsiz birakmak Gayrimenkul sektorunde 50 bag demekti ve o
+#: liste bir gezinme araci degil, gurultu olurdu.
+ILGILI_AKRAN_SINIRI = 4
+
 #: Beslemedeki toplam oge sayisi.
 RSS_OGE_SAYISI = 40
 #: Bu kadar slot ANALIZE ayrilir -- yeterli analiz varsa. Taban,
@@ -5441,6 +5448,46 @@ def insa() -> int:
         "bayat_esik_saat": BAYAT_UYARI_SAAT,
     }
 
+    # ILGILI ANALIZ BAGLARI -- SITENIN AYIRT EDICI ICERIGI YALITIKTI.
+    #
+    # Olculdu (2026-09-24): 696 analiz sayfasinin her birinde `<main>`
+    # icinde YALNIZCA 1-2 ic bag vardi (ortalama 1.9) ve ikisi de
+    # hub'a gidiyordu: `/arastirmalar/` ve `/makro/`. Kiyas: haber
+    # sayfalarinda ortalama 22 ic bag var.
+    #
+    # Somut sonuc: 40 sirketin iki ceyregi yayimlanmisti (80 sayfa) ve
+    # HICBIRI otekine baglanmiyordu. ADESE'nin ikinci ceyregini okuyan
+    # okur, birinci ceyrege gidemiyordu.
+    #
+    # YALNIZCA BILANCO ANALIZI -- `kod` ALANI TURE GORE BASKA SEY.
+    #
+    # `kod`, 696 kaydin hepsinde dolu ama anlami ayni degil:
+    #   Bilanco Analizi -> gercek sirket kodu (ADESE), donem = ceyrek
+    #   Teknik Gorunum  -> varlik kodu (ETH, PAXG), donem = TARIH
+    #   Makro           -> SABIT yer tutucu ("OLAY", "MAKRO")
+    #
+    # Makro'da kod sabit oldugu icin "ayni kod" olcutu 309 alakasiz
+    # olayi birbirine baglardi. Ayni yer tutucu bu depoda daha once de
+    # yanlis eslesme uretti (bkz. `guncel_olanlar` ve `uret_olay.py`
+    # cevresindeki notlar). Bu yuzden kapsam bilincli olarak dar.
+    _ilgili_kaynak = [
+        _x for _x in analizler
+        if _x.kategori == "Bilanço Analizi" and (_x.kod or "").strip()
+    ]
+    _sirket_donemleri: dict[str, list] = {}
+    _sektor_akranlari: dict[tuple, list] = {}
+    for _x in _ilgili_kaynak:
+        _sirket_donemleri.setdefault(_x.kod, []).append(_x)
+        if (_x.sektor or "").strip():
+            _sektor_akranlari.setdefault((_x.sektor, _x.donem), []).append(_x)
+    # SIRA BELIRLI: kurulum iki kez kosunca ayni ciktiyi vermeli.
+    # Rastgele ya da sozluk sirasina birakilan bir liste, her kurulumda
+    # degisen bir sayfa demek -- `lastmod` bosuna tazelenir.
+    for _v in _sirket_donemleri.values():
+        _v.sort(key=lambda z: z.donem, reverse=True)
+    for _v in _sektor_akranlari.values():
+        _v.sort(key=lambda z: z.kod)
+
     # Analizler
     for a in analizler:
         # Listeden elenmis surum: sayfasi duruyor ama dizine girmiyor
@@ -5459,10 +5506,21 @@ def insa() -> int:
         # "listede yer kalmadi" diye dizinden cikarmak, kazanci olmayan
         # bir kayip.
         _eskimis = a.slug in _gecersiz_sluglar
+        # Ayni sirketin OTEKI donemleri ve ayni sektorden AKRANLAR.
+        # Ikisi de bos olabilir; sablon o zaman blogu hic basmiyor.
+        _donemler = [
+            _x for _x in _sirket_donemleri.get(a.kod, [])
+            if _x.slug != a.slug
+        ] if a.kategori == "Bilanço Analizi" else []
+        _akranlar = [
+            _x for _x in _sektor_akranlari.get((a.sektor, a.donem), [])
+            if _x.kod != a.kod
+        ][:ILGILI_AKRAN_SINIRI] if a.kategori == "Bilanço Analizi" else []
         yaz(
             f"{a.yol}index.html",
             ortam.get_template("analiz.html").render(
                 **ortak, yol=a.yol, a=a, eskimis=_eskimis,
+                donemler=_donemler, akranlar=_akranlar,
                 # Ozet baskalariyla paylasiliyorsa aciklama basliktan
                 # baslasin -- bkz. `_paylasilan_ozet`.
                 ozet_paylasilan=(a.ozet or "").strip() in _paylasilan_ozet),
