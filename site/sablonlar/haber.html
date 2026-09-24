@@ -906,6 +906,26 @@
       </li>
       {% endfor %}
     </ol>
+    {% endif %}
+
+    {# YASAL AYRIM HER ZINCIRI KAPSAR -- KALDIRMAYIN.
+       -------------------------------------------
+       Not onceden YALNIZCA `yerel_kanal` blogunun icindeydi.
+       Olculdu (2026-09-24): 177 sayfa aktarim zinciri basiyordu,
+       151'i notu tasiyordu, 26'si TASIMIYORDU. O 26 sayfada yalnizca
+       `piyasa_kanali` vardi -- ornegin "ABD piyasasinda etki kanali:
+       FED -> politika faizi -> 2 yillik tahvil getirisi" zinciri,
+       bunun bir tahmin OLMADIGINI soyleyen cumle olmadan.
+
+       Mekanizma ile tahmin arasindaki fark bu sitenin en hassas
+       cizgisi (ayni ifade `stil.css` icinde de yazili). Zincirin
+       kendisi yapisal bir iddia; notsuz yayimlanmasi onu bir yon
+       tahmini gibi okutabilir.
+
+       Not artik zincirlerin DISINDA ve "herhangi biri varsa" sartina
+       bagli. Ikinci bir not metni yazilmadi: ayni cumlenin iki kopyasi,
+       birini duzeltip otekini unutmak demekti. #}
+    {% if piyasa_kanali or yerel_kanal %}
     <p class="kanal-not">
       Bu zincir yapısal bir aktarım kanalıdır; yön ve büyüklük tahmini
       içermez. Etkinin ne zaman ve ne ölçüde görüleceği kur seviyesi,
