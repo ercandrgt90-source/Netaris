@@ -28,7 +28,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 20,
+  "yorumlanan": 19,
   "haberler": [
     {
       "baslik": "Japonya'daki Menkul Kıymet Finansman İşlemlerine İlişkin İstatistikler",
@@ -50,6 +50,27 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/piyasa-duzenlemesi-9-29b01285.jpg",
       "foto_atif": "Syced · CC0"
+    },
+    {
+      "baslik": "Dolar/yen %0,33 düşüşle 157,80'e geriledi",
+      "baslik_kaynak": "Dollar/yen declines 0.33% to 157.80",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9776594/Dollaryen-declines-033-to-15780.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Şirket haberleri",
+      "tarih": "2026-09-24",
+      "tarih_gorunur": "24 Eylül 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/sirket-haberleri-17-a6dd0c61.jpg",
+      "foto_atif": "Stephen Craven · CC-BY-SA-2.0"
     },
     {
       "baslik": "Google, amiral gemisi Gemini 4 AI modelinin lansmanına yaklaşıyor: The Information",
@@ -1417,6 +1438,27 @@
       "foto_atif": "Bernard Gagnon · CC0"
     },
     {
+      "baslik": "İran endişeleri petrolü yükseltti, Asya enerji hisseleri kazandı",
+      "baslik_kaynak": "İran endişeleri petrolü yükseltti, Asya enerji hisseleri kazandı",
+      "ozet": "",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://tr.investing.com/news/commodities-news/iran-endiseleri-petrolu-yukseltti-asya-enerji-hisseleri-kazand-4076850",
+      "kurum": "Investing",
+      "kurum_tam": "Investing.com Türkiye",
+      "konu": "Enerji",
+      "tarih": "2026-09-24",
+      "tarih_gorunur": "24 Eylül 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/enerji-13-96820bdd.jpg",
+      "foto_atif": "AyyanD · CC-BY-SA-4.0"
+    },
+    {
       "baslik": "Endeavor Blockchain, Big Digital Energy hisselerini 4.936 dolara aldı",
       "baslik_kaynak": "Endeavor Blockchain, Big Digital Energy hisselerini 4.936 dolara aldı",
       "ozet": "",
@@ -1567,32 +1609,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/borsa-24-b47c4be0.jpg",
       "foto_atif": "User:A,Ocram · PDM"
-    },
-    {
-      "baslik": "SoftBank hisseleri neden yükselişte?",
-      "baslik_kaynak": "SoftBank hisseleri neden yükselişte?",
-      "ozet": "",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://tr.investing.com/news/stock-market-news/softbank-hisseleri-neden-yukseliste-93CH-4076839",
-      "kurum": "Investing",
-      "kurum_tam": "Investing.com Türkiye",
-      "konu": "Borsa",
-      "tarih": "2026-09-24",
-      "tarih_gorunur": "24 Eylül 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Endeks hareketi tek başına bir bilgi değildir; hareketi hangi sektörlerin taşıdığı ve işlem hacminin ne olduğu kalıcılığı belirler.",
-      "kanallar": [
-        "Sektör dağılımı: hareketin dar bir gruptan mı geniş tabandan mı geldiği, kalıcılığa dair ipucu verir.",
-        "Hacim: düşük hacimli hareket fiyat keşfinden çok pozisyon ayarlaması olabilir.",
-        "Volatilite: opsiyon fiyatlarındaki değişim piyasanın beklediği oynaklığı gösterir.",
-        "Korelasyon: hisse ile tahvil arasındaki ilişkinin işareti portföy riskinin nasıl dağıldığını değiştirir."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/borsa-9-78cc676a.jpg",
-      "foto_atif": "Syced · CC0"
     },
     {
       "baslik": "ABD-Çin görüşmesi altın, döviz ve borsayı nasıl etkiler?",
@@ -2070,27 +2086,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/sirket-haberleri-10-72a9566a.jpg",
       "foto_atif": "Larry D. Moore · CC-BY-4.0"
-    },
-    {
-      "baslik": "Pentagon: Gizli jet parçalarını geri almak için çalışıyoruz",
-      "baslik_kaynak": "Pentagon: We're working to retrieve stealthy jet parts.",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9776072/Pentagon-Were-working-to-retrieve-stealthy-jet-parts.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Şirket haberleri",
-      "tarih": "2026-09-23",
-      "tarih_gorunur": "23 Eylül 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-11-5c2f88fc.jpg",
-      "foto_atif": "Bill Boaden · CC-BY-SA-2.0"
     },
     {
       "baslik": "\"Kapalı kapılar ardında değil \": Senato Bankacılık Demokratları, Cumhuriyetçi Parti Kalshi ile özel olarak görüşürken tahmin piyasalarının dinlenmesi çağrısında bulundu",
