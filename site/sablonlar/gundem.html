@@ -245,15 +245,40 @@
 <div class="bolum-bas" style="margin-top:38px" data-akis-bolum="rutin">
   <h2>Diğer duyurular <span data-akis-say>({{ rutin | length }})</span></h2>
 </div>
-{# Rutin duyurular: baslik ve kurum bilgisi yeterli, ayri sayfa acilmiyor
-   ve disari da yonlendirilmiyor. Bunlar zaten yorum gerektirmeyen idari
-   bildirimler. #}
+{# Rutin duyurular: ayri sayfa acilmiyor. Resmi kurum duyurusu kamu
+   belgesi ve yorum gerektirmeyen idari bildirim -- orada disari
+   yonlendirme YOK, bu bilincli.
+
+   TICARI KAYNAKTA KUNYE BAGLANTISI ZORUNLU -- KALDIRMAYIN.
+   ---------------------------------------------------------
+   Olculdu (2026-09-24): bu listedeki 96 ogenin 69'u ticari kaynaktan
+   geliyordu (FinancialJuice 46, Investing 5, Cointelegraph 5,
+   Dunya 4) ve HICBIRI kaynaga baglanmiyordu. Kaynak ADI yaziyordu,
+   baglantisi yoktu.
+
+   Ustteki "idari bildirim" gerekcesi DUZENLEYICILER icin
+   yazilmisti; liste sonradan ticari ajans basliklariyla doldu ve
+   gerekce sebebini asti. Deponun kendi kurali acik
+   (`haber_botu/kaynak/besleme.py`): `ticari=True` olan her ogede
+   kaynak adi VE baglanti sayfada gosterilir. RSS yayimlamak
+   "basligi al, ozetle, bana baglanti ver" davetidir; baglantiyi
+   silmek o davetin disina cikmaktir.
+
+   Kalip `haber.html`teki kunye ile AYNI: kurum adi baglaniyor,
+   `rel="nofollow noopener"`. Ikinci bir bicim, zamanla ayrisan
+   iki kural demekti. #}
 <ul class="gundem-liste" data-akis-kap="rutin">
   {% for h in rutin %}
   <li class="gundem-oge gundem-duz" data-tur="{{ h | kart_turu }}">
     <span class="gundem-ust">
       <span class="rozet rozet-vurgu">{{ h.konu }}</span>
+      {% if h.ticari and h.adres and h.adres.startswith("http") %}
+      <a class="rozet rozet-kaynak-bag" href="{{ h.adres }}"
+         rel="nofollow noopener" target="_blank"
+         title="{{ h.kurum_tam or h.kurum }} sitesinde aç">{{ h.kurum }}</a>
+      {% else %}
       <span class="rozet">{{ h.kurum }}</span>
+      {% endif %}
       <span class="tarih">{{ h.tarih_gorunur or "tarihsiz" }}</span>
     </span>
     <span class="gundem-baslik">{{ h.baslik }}</span>
