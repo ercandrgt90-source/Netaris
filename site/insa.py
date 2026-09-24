@@ -2199,7 +2199,9 @@ def _ara_metni(metin: str) -> str:
 
 
 def rss_uret(analizler: list[Analiz],
-             haberler: list[tuple[str, str, str, str]] | None = None) -> str:
+             haberler: list[tuple[str, str, str, str]] | None = None,
+             kanal_ad: str = "", kanal_aciklama: str = "",
+             besleme_yolu: str = "/rss.xml") -> str:
     """Besleme: yayimlanan HABERLER ve ANALIZLER birlikte.
 
     NEDEN HABER DE GIRIYOR
@@ -2280,9 +2282,9 @@ def rss_uret(analizler: list[Analiz],
         '<?xml version="1.0" encoding="UTF-8"?>\n'
         '<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n'
         "  <channel>\n"
-        f"    <title>{html.escape(SITE['ad'])}</title>\n"
+        f"    <title>{html.escape(kanal_ad or SITE['ad'])}</title>\n"
         f"    <link>{SITE['adres']}/</link>\n"
-        f"    <description>{html.escape(SITE['aciklama'])}</description>\n"
+        f"    <description>{html.escape(kanal_aciklama or SITE['aciklama'])}</description>\n"
         "    <language>tr-TR</language>\n"
         # `lastBuildDate`: beslemenin NE ZAMAN uretildigi. Okuyucular
         # bunu "degisti mi" sorusuna cevap olarak kullaniyor; yoksa
@@ -2291,7 +2293,7 @@ def rss_uret(analizler: list[Analiz],
         # `atom:link` kendine isaret: beslemenin KENDI adresi.
         # Besleme baska bir yerde yeniden yayimlandiginda aslinin
         # nerede oldugunu soyluyor; dogrulayicilar da bunu ariyor.
-        + f'    <atom:link href="{SITE["adres"]}/rss.xml" rel="self" type="application/rss+xml"/>' + chr(10)
+        + f'    <atom:link href="{SITE["adres"]}{besleme_yolu}" rel="self" type="application/rss+xml"/>' + chr(10)
         + "\n".join(ogeler)
         + "\n  </channel>\n</rss>\n"
     )
@@ -6094,6 +6096,32 @@ def insa() -> int:
                     ],
                 }),
         )
+        # KONU BESLEMESI -- yalnizca bu konuyu izleyen okur icin.
+        #
+        # Sitede tek besleme vardi (`/rss.xml`) ve icine her sey
+        # giriyordu. Yalnizca para politikasini izleyen bir okur,
+        # jeopolitik ve sirket haberlerini de almak zorundaydi --
+        # besleme okuyucusunda bu, aboneligi birakma sebebi.
+        #
+        # `rss_uret` KOPYALANMADI, parametrelendi: ayni isi yapan
+        # ikinci bir uretec, bu depoda defalarca yasanan "iki kod
+        # yolu ayni soruya iki cevap veriyor" kusuru olurdu.
+        #
+        # OZET VE DAMGA ICIN `_rss_haber` SUZULUYOR: konu
+        # listesinde (`_liste`) yalnizca tarih/baslik/yol var;
+        # besleme ogesi ozet ve saat damgasi da istiyor.
+        _konu_ogeleri = [
+            _r for _r in _rss_haber
+            if (_haber_kaydi.get(_r[3]) or ("", "", ""))[2] == _ad
+        ]
+        if _konu_ogeleri:
+            _besleme = f"{_ky}rss.xml"
+            yaz(_besleme, rss_uret(
+                [], _konu_ogeleri,
+                kanal_ad=f"{SITE['ad']} — {_ad}",
+                kanal_aciklama=_neden,
+                besleme_yolu=_besleme))
+
         yollar.append(_ky)
         lastmod_kur(_lastmod, _ky, _liste[0][0])
         _konu_yazilan += 1

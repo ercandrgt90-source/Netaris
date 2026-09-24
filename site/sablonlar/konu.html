@@ -59,6 +59,14 @@
                (konu.ad, "")], site.adres) }}
 {% endblock %}
 
+{# BESLEME KESIF BAGI.
+   Okuyucular (Feedly, Inoreader) sayfayi acinca bu satiri arar ve
+   "abone ol" dugmesini ona gore gosterir. Gorunur bag asagida da
+   var; ikisi ayri is yapiyor -- biri makineye, biri insana. #}
+{% block ek_bas %}<link rel="alternate" type="application/rss+xml"
+      title="{{ site.ad }} — {{ konu.ad }}"
+      href="{{ site.adres }}{{ yol }}rss.xml">{% endblock %}
+
 {% block icerik %}
 <nav class="konum-izi" aria-label="Konum">
   <a href="/">{{ site.ad }}</a>
@@ -88,7 +96,11 @@
 {% endif %}
 
 <h2>Bu konudaki haberler</h2>
-<p>{{ konu.toplam }} haber{% if konu.toplam > konu.haberler|length %} · en yeni {{ konu.haberler|length }} tanesi{% endif %}</p>
+<p>{{ konu.toplam }} haber{% if konu.toplam > konu.haberler|length %} · en yeni {{ konu.haberler|length }} tanesi{% endif %}
+  {# YALNIZCA BU KONUYU izlemek isteyen okur icin. Sitede tek
+     besleme vardi ve icine her sey giriyordu; para politikasini
+     izleyen okur jeopolitigi de almak zorundaydi. #}
+  · <a href="{{ yol }}rss.xml">RSS</a></p>
 {# EN YENI USTTE: buradaki soru "bu konuda ne var", olay dosyasindaki
    gibi "bu nasil gelisti" degil. #}
 <ol class="olay-cizelge">

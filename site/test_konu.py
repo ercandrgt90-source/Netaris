@@ -98,8 +98,30 @@ for _p in _CIKTI.rglob("index.html"):
 _var = {"/konu/" + _p.parent.name + "/" for _p in _sayfalar}
 _oksuz = sorted(y for y in _var if _gelen[y] == 0)
 esit(_oksuz[:5], [], "her konu sayfasi IC BAGLANTI aliyor")
-_kirik = sorted(_baglanan - _var)
+
+# KONU ALTINDA SAYFA DISI DOSYA DA OLABILIR.
+#
+# Olculdu (2026-09-24): her konuya kendi RSS beslemesi eklendi
+# (`/konu/<konu>/rss.xml`) ve bu iddia KIRMIZI yandi -- cunku varlik
+# kontrolu yalnizca `index.html` ariyordu. Baglanti kirik degildi;
+# KONTROL eksikti.
+#
+# Uzantili yol DOSYANIN KENDISINE bakilarak dogrulaniyor. Boylece
+# kural zayiflamiyor: olmayan bir besleme adresine baglanmak yine
+# kirmizi yanar.
+def _hedef_var(yol: str) -> bool:
+    ic = yol.lstrip("/")
+    if yol.endswith("/"):
+        return (_CIKTI / ic / "index.html").exists()
+    return (_CIKTI / ic).exists()
+
+
+_kirik = sorted(y for y in _baglanan if y not in _var and not _hedef_var(y))
 esit(_kirik[:5], [], "baglanan her konu adresi GERCEKTEN var")
+
+# Kontrolun kendisi calisiyor mu: olmayan bir adres YAKALANMALI.
+esit(_hedef_var("/konu/olmayan-konu/rss.xml"), False,
+     "olmayan dosya `var` sayilmiyor (kontrol zayiflamadi)")
 
 print("\nSayfa icerigi")
 _agir, _semasiz, _uyusmaz = [], [], []
