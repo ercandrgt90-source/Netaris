@@ -1,0 +1,56 @@
+{% extends "temel.html" %}
+
+{% block baslik %}RSS Beslemeleri — {{ site.ad }}{% endblock %}
+{% block aciklama %}{{ site.ad }} beslemeleri: tüm yayın akışı ve {{ (beslemeler|length) - 1 }} konu beslemesi. Hepsini tek dosyayla okuyucunuza aktarın.{% endblock %}
+
+{% block ek_bas %}
+{# Bu sayfa beslemelerin ADRES DEFTERI. Okuyucunun otomatik
+   bulabilmesi icin hepsi `rel=alternate` olarak da bildiriliyor;
+   gorunur liste insan icin, bu bloklar makine icin. #}
+{% for b in beslemeler %}
+<link rel="alternate" type="application/rss+xml" title="{{ b.ad }}" href="{{ site.adres }}{{ b.yol }}">
+{% endfor %}
+{% endblock %}
+
+{% block icerik %}
+<article class="sayfa">
+  <h1>RSS Beslemeleri</h1>
+  <div class="govde">
+    <p>
+      {{ site.ad }} içeriğini bir besleme okuyucusuyla takip
+      edebilirsiniz. Tüm akışı almak yerine yalnızca ilgilendiğiniz
+      konuya abone olabilirsiniz — beslemeler birbirinden ayrıdır,
+      bir haber tek beslemede görünür.
+    </p>
+
+    <p class="beslemeler-paket">
+      <a class="dugme" href="/beslemeler.opml" download>
+        Hepsini indir (OPML)
+      </a>
+      <span class="beslemeler-ipucu">
+        Feedly, Inoreader, NetNewsWire ve benzerleri bu dosyayı içe
+        aktarır; {{ beslemeler|length }} beslemenin hepsi tek seferde eklenir.
+      </span>
+    </p>
+
+    <ul class="beslemeler-liste">
+      {% for b in beslemeler %}
+      <li class="beslemeler-oge">
+        <a class="beslemeler-bag" href="{{ b.yol }}">{{ b.ad }}</a>
+        <span class="beslemeler-sayi">{{ b.sayi }} öğe</span>
+        {% if b.neden %}<p class="beslemeler-neden">{{ b.neden }}</p>{% endif %}
+        {% if b.sayfa %}<a class="beslemeler-sayfa" href="{{ b.sayfa }}">Konu sayfası</a>{% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+
+    <h2>Yeniden yayımlama</h2>
+    <p>
+      Beslemeleri okumak serbesttir. İçeriği kendi sitenizde
+      yayımlıyorsanız başlık ve özetle sınırlı kalmanızı, her öğede
+      kaynağa görünür bir bağlantı vermenizi bekliyoruz. Ayrıntı için
+      <a href="/yayin-ilkeleri/">yayın ilkelerimize</a> bakabilirsiniz.
+    </p>
+  </div>
+</article>
+{% endblock %}

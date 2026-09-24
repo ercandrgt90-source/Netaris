@@ -2198,6 +2198,46 @@ def _ara_metni(metin: str) -> str:
     return metin.translate(_SLUG_ESLEME).lower()
 
 
+def opml_uret(beslemeler: list[dict]) -> str:
+    """Butun beslemeleri TEK DOSYADA paketler.
+
+    NEDEN VAR
+    ---------
+    Olculdu (2026-09-24): on iki konu beslemesi uretilmisti ve her
+    biri YALNIZCA kendi hub'indan baglaniyordu -- on iki besleme,
+    on iki bag, hepsi kendine. Zaten o sayfada olmayan kimse
+    varliklarindan haberdar olamiyordu.
+
+    Bu, depoda tekrarlayan bir kusur: CEVAP URETILIYOR AMA
+    OKUNABILIR DEGIL. Beslemelerin kendisi dogruydu; eksik olan
+    onlara giden yoldu.
+
+    OPML, besleme okuyucularinin ortak ice aktarma bicimi (Feedly,
+    Inoreader, NetNewsWire). Tek dosya, tek tik, hepsi ekleniyor --
+    ve bir gazeteciye ya da toplayiciya verilecek TEK bag oluyor.
+    """
+    satir = []
+    for b in beslemeler:
+        satir.append(
+            '    <outline type="rss" '
+            f'text="{html.escape(b["ad"], quote=True)}" '
+            f'title="{html.escape(b["ad"], quote=True)}" '
+            f'xmlUrl="{SITE["adres"]}{b["yol"]}" '
+            f'htmlUrl="{SITE["adres"]}{b.get("sayfa") or chr(47)}"/>'
+        )
+    return (
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<opml version="2.0">\n'
+        "  <head>\n"
+        f"    <title>{html.escape(SITE['ad'])} beslemeleri</title>\n"
+        f"    <ownerName>{html.escape(SITE['ad'])}</ownerName>\n"
+        f"    <dateCreated>{datetime.now(timezone.utc).strftime('%a, %d %b %Y %H:%M:%S +0000')}</dateCreated>"
+        + chr(10)
+        + "  </head>\n  <body>\n"
+        + "\n".join(satir)
+        + "\n  </body>\n</opml>\n"
+    )
+
 #: Beslemedeki toplam oge sayisi.
 RSS_OGE_SAYISI = 40
 #: Bu kadar slot ANALIZE ayrilir -- yeterli analiz varsa. Taban,
@@ -6111,6 +6151,17 @@ def insa() -> int:
             _konu_haber.setdefault(_k, []).append((_t, _b, _y))
 
     _konu_yazilan = 0
+    #: Uretilen butun beslemeler -- `/beslemeler/` ve OPML icin.
+    #: TEK KAYNAK: sayfa ile paket ayri toplansaydi, birinin
+    #: degisip otekinin degismemesi olurdu; bu depoda defalarca
+    #: yasanan kusur tam olarak bu.
+    _beslemeler: list[dict] = [{
+        "ad": f"{SITE['ad']} — Tum akis",
+        "yol": "/rss.xml",
+        "sayfa": "/",
+        "neden": "Haberler ve bilanco analizleri birlikte.",
+        "sayi": 0,
+    }]
     for _ad in sorted(_uygun_konu):
         _liste = _konu_haber.get(_ad) or []
         # Baglami OLMAYAN konuya sayfa acilmiyor: ustteki aciklama ve
@@ -6162,6 +6213,13 @@ def insa() -> int:
                 kanal_ad=f"{SITE['ad']} — {_ad}",
                 kanal_aciklama=_neden,
                 besleme_yolu=_besleme))
+            _beslemeler.append({
+                "ad": f"{SITE['ad']} — {_ad}",
+                "yol": _besleme,
+                "sayfa": _ky,
+                "neden": _neden,
+                "sayi": min(len(_konu_ogeleri), RSS_OGE_SAYISI),
+            })
 
         yollar.append(_ky)
         lastmod_kur(_lastmod, _ky, _liste[0][0])
@@ -6169,6 +6227,21 @@ def insa() -> int:
     if _konu_yazilan:
         print(f"{_konu_yazilan} konu sayfasi "
               f"({len(_konu_haber)} konudan, esik {KONU_ESIGI})")
+
+    # BESLEMELERIN ADRES DEFTERI.
+    #
+    # Ana beslemenin oge sayisi burada OLCULUYOR, varsayilmiyor:
+    # sayfada yazan sayi ile dosyanin icindeki ayrilirsa, sayfa
+    # ilk gun dogru olup sessizce yanilticiya doner.
+    _beslemeler[0]["sayi"] = min(
+        len(listelenen) + len(_rss_haber), RSS_OGE_SAYISI)
+    yaz("/beslemeler.opml", opml_uret(_beslemeler))
+    yaz(
+        "/beslemeler/index.html",
+        ortam.get_template("beslemeler.html").render(
+            **ortak, yol="/beslemeler/", beslemeler=_beslemeler),
+    )
+    yollar.append("/beslemeler/")
 
     yaz("/sitemap.xml", sitemap_uret(yollar, _lastmod))
 

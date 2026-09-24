@@ -7594,3 +7594,67 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
 .yazi-gorsel svg [fill="#0a7f47"] { fill: var(--artis); }
 .yazi-gorsel svg [fill="#c8203a"] { fill: var(--azalis); }
 
+
+
+/* --- Besleme adres defteri (`/beslemeler/`) ----------------------- */
+/* Olculdu (2026-09-24): on iki konu beslemesi vardi ve her biri
+   YALNIZCA kendi hub'indan baglaniyordu. Bu sayfa hepsinin tek
+   bulusma noktasi; liste TARANMAK icin var, okunmak icin degil --
+   ad, buyukluk ve gerekce ayri satirlarda duruyor. */
+.beslemeler-paket {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--b-3);
+  margin: var(--b-5) 0}
+.beslemeler-ipucu {
+  flex: 1 1 22ch;
+  font-size: var(--p-s);
+  line-height: var(--satir-orta);
+  color: var(--yazi-3)}
+
+.beslemeler-liste {
+  list-style: none;
+  margin: var(--b-5) 0 0;
+  padding: 0;
+  display: grid;
+  gap: var(--b-3)}
+.beslemeler-oge {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: var(--b-1) var(--b-3);
+  align-items: baseline;
+  padding: var(--b-4) var(--b-4b);
+  border: 1px solid var(--cizgi);
+  border-radius: var(--r-kucuk);
+  background: var(--panel)}
+.beslemeler-bag {
+  font-size: var(--p-ml);
+  font-weight: 600;
+  color: var(--yazi);
+  text-decoration: none}
+.beslemeler-bag:hover { color: var(--vurgu)}
+.beslemeler-sayi {
+  font-size: var(--p-xs);
+  font-variant-numeric: tabular-nums;
+  color: var(--yazi-3);
+  white-space: nowrap}
+.beslemeler-neden {
+  grid-column: 1 / -1;
+  margin: 0;
+  max-width: 68ch;
+  font-size: var(--p-m);
+  line-height: var(--satir-metin);
+  color: var(--yazi-2)}
+.beslemeler-sayfa {
+  grid-column: 1 / -1;
+  font-size: var(--p-s);
+  color: var(--yazi-3)}
+.beslemeler-sayfa:hover { color: var(--vurgu)}
+
+/* Dar ekranda oge sayisi basligin altina iniyor: 24ch'lik bir
+   besleme adi ile sayiyi ayni satirda tutmak adi kirpiyordu. */
+@media (max-width: 560px) {
+  .beslemeler-oge { grid-template-columns: 1fr}
+  .beslemeler-sayi { grid-column: 1}
+}
