@@ -1,7 +1,7 @@
 ---
 slug: paxg-teknik-gorunum-2026-09-25
 baslik: Altın: fiyat üç ortalamanın da altında
-ozet: Altın 4282 $ seviyesinde. Değişim: günlük +%0,5, haftalık -%2,0, aylık -%7,2. RSI(14) 41,0 ile nötr bandın alt yarısında. Fiyat 20, 50 ve 200 günlük ortalamaların tamamının altında.
+ozet: Altın 4273 $ seviyesinde. Değişim: günlük +%0,3, haftalık -%2,2, aylık -%7,4. RSI(14) 39,9 ile nötr bandın alt yarısında. Fiyat 20, 50 ve 200 günlük ortalamaların tamamının altında.
 sirket: PAXG teknik görünüm
 kod: PAXG
 donem: 2026-09-25
@@ -12,7 +12,7 @@ yazar:
 unvan: 
 kurgusal: hayir
 grafik_tur: cizgi
-grafik: 4051,95;4006,36;3997,68;4029,33;4120,26;4165,27;4164,23;4175,67;4149,31;4091,08;4070,91;4116,12;4111,11;4100,01;4076,63;3992,87;4044,56;4048,90;3979,81;4003,05;4008,54;3988,88;4002,54;4071,37;4124,78;4044,51;4051,85;4052,64;4085,69;4063,83;4017,98;4076,46;4099,38;4043,75;4043,72;4065,25;4047,13;4064,27;4266,25;4244,08;4343,25;4345,98;4329,13;4390,31;4367,02;4402,42;4353,87;4374,35;4374,63;4363,49;4413,65;4332,68;4495,21;4514,10;4599,41;4586,99;4614,10;4671,18;4646,35;4616,04;4587,51;4462,37;4462,49;4454,40;4449,97;4335,61;4392,00;4481,32;4432,12;4431,73;4425,15;4420,46;4357,34;4393,57;4317,40;4354,77;4354,58;4335,68;4294,17;4281,79;4273,03;4342,25;4368,68;4365,28;4362,98;4362,96;4359,62;4286,52;4259,88;4281,66
+grafik: 4051,95;4006,36;3997,68;4029,33;4120,26;4165,27;4164,23;4175,67;4149,31;4091,08;4070,91;4116,12;4111,11;4100,01;4076,63;3992,87;4044,56;4048,90;3979,81;4003,05;4008,54;3988,88;4002,54;4071,37;4124,78;4044,51;4051,85;4052,64;4085,69;4063,83;4017,98;4076,46;4099,38;4043,75;4043,72;4065,25;4047,13;4064,27;4266,25;4244,08;4343,25;4345,98;4329,13;4390,31;4367,02;4402,42;4353,87;4374,35;4374,63;4363,49;4413,65;4332,68;4495,21;4514,10;4599,41;4586,99;4614,10;4671,18;4646,35;4616,04;4587,51;4462,37;4462,49;4454,40;4449,97;4335,61;4392,00;4481,32;4432,12;4431,73;4425,15;4420,46;4357,34;4393,57;4317,40;4354,77;4354,58;4335,68;4294,17;4281,79;4273,03;4342,25;4368,68;4365,28;4362,98;4362,96;4359,62;4286,52;4259,88;4273,42
 grafik_kod: Altın
 grafik_birim: USD
 kaynaklar: Kraken
@@ -21,19 +21,19 @@ sayimlar: 260|günlük mum;3|fiyat seviyesi;7|hesaplanan gösterge;90|günlük p
 
 ## Özet
 
-Altın 4282 $ seviyesinde. Değişim: günlük +%0,5, haftalık -%2,0, aylık -%7,2. RSI(14) 41,0 ile nötr bandın alt yarısında. Fiyat 20, 50 ve 200 günlük ortalamaların tamamının altında.
+Altın 4273 $ seviyesinde. Değişim: günlük +%0,3, haftalık -%2,2, aylık -%7,4. RSI(14) 39,9 ile nötr bandın alt yarısında. Fiyat 20, 50 ve 200 günlük ortalamaların tamamının altında.
 
 ## Göstergeler
 
 | Gösterge | Değer |
 |---|---|
-| Fiyat | 4282 $ |
-| 20 günlük ortalama | 4340 $ |
+| Fiyat | 4273 $ |
+| 20 günlük ortalama | 4339 $ |
 | 50 günlük ortalama | 4408 $ |
 | 200 günlük ortalama | 4425 $ |
-| RSI (14) | 41,0 |
-| MACD histogram | -6,31 |
-| Günlük oynaklık (ATR/fiyat) | %1,3 |
+| RSI (14) | 39,9 |
+| MACD histogram | -6,84 |
+| Günlük oynaklık (ATR/fiyat) | %1,4 |
 | Bollinger bant genişliği | %4,3 |
 | 90 günlük zirve | 4750 $ |
 | 90 günlük dip | 3937 $ |
@@ -44,11 +44,11 @@ Fiyat 20, 50 ve 200 günlük hareketli ortalamaların üçünün de altında. Te
 
 ## Momentum
 
-RSI(14) 41,0 ile nötr bandın alt yarısında. RSI, son 14 dönemdeki yükseliş ve düşüşlerin göreli büyüklüğünü ölçer; 0-100 aralığında hareket eder. MACD çizgisi -27,12, işaret çizgisi -20,81; histogram -6,31. Çizgi işaretin altında. MACD iki üstel ortalamanın farkını izler; histogram bu farkın kendi ortalamasından ne kadar ayrıştığını gösterir.
+RSI(14) 39,9 ile nötr bandın alt yarısında. RSI, son 14 dönemdeki yükseliş ve düşüşlerin göreli büyüklüğünü ölçer; 0-100 aralığında hareket eder. MACD çizgisi -27,77, işaret çizgisi -20,94; histogram -6,84. Çizgi işaretin altında. MACD iki üstel ortalamanın farkını izler; histogram bu farkın kendi ortalamasından ne kadar ayrıştığını gösterir.
 
 ## Oynaklık
 
-Ortalama günlük hareket aralığı (ATR-14) 57,73 $, fiyatın %1,3'ine denk geliyor. Bollinger bantları 4247 $ — 4433 $ aralığında; fiyat bantların içinde. Bant genişliği %4,3. Fiyat, 90 günlük zirveye göre -%9,9 konumda.
+Ortalama günlük hareket aralığı (ATR-14) 57,73 $, fiyatın %1,4'ine denk geliyor. Bollinger bantları 4245 $ — 4434 $ aralığında; fiyat bantların içinde. Bant genişliği %4,3. Fiyat, 90 günlük zirveye göre -%10,0 konumda.
 
 ## Fiyat seviyeleri
 

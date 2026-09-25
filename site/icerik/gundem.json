@@ -39,7 +39,7 @@
       "dil": "en",
       "ticari": false,
       "bolge": "DUNYA",
-      "adres": "http://www.boj.or.jp/en/statistics/boj/other/acmai/release/2026/ac260920.htm",
+      "adres": "https://www.boj.or.jp/en/statistics/boj/other/acmai/release/2026/ac260920.htm",
       "kurum": "BoJ",
       "kurum_tam": "Japonya Merkez Bankası",
       "konu": "Bankacılık",
@@ -49,8 +49,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/bankacilik-7-8f64866b.jpg",
-      "foto_atif": "Artaxerxes · CC-BY-SA-4.0"
+      "foto": "/statik/foto/bankacilik-9-8cfafe78.jpg",
+      "foto_atif": "Myotus · CC-BY-4.0"
     },
     {
       "baslik": "Japonya'da BIS Uluslararası Yerel Bankacılık İstatistikleri ve Uluslararası Konsolide Bankacılık İstatistikleri Sonuçları",
@@ -60,7 +60,7 @@
       "dil": "en",
       "ticari": false,
       "bolge": "DUNYA",
-      "adres": "http://www.boj.or.jp/en/statistics/bis/ibs/index.htm",
+      "adres": "https://www.boj.or.jp/en/statistics/bis/ibs/index.htm",
       "kurum": "BoJ",
       "kurum_tam": "Japonya Merkez Bankası",
       "konu": "Bankacılık",
@@ -70,8 +70,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/bankacilik-7-8f64866b.jpg",
-      "foto_atif": "Artaxerxes · CC-BY-SA-4.0"
+      "foto": "/statik/foto/bankacilik-8-685abb38.jpg",
+      "foto_atif": "Myotus · CC-BY-4.0"
     },
     {
       "baslik": "Japonya Maliye Bakanı Katayama: Boj'un enflasyon hedefine ulaşmayı amaçlayan son faiz artırımı",
@@ -1243,7 +1243,7 @@
       "dil": "en",
       "ticari": false,
       "bolge": "DUNYA",
-      "adres": "http://www.boj.or.jp/en/statistics/bis/repo/index.htm",
+      "adres": "https://www.boj.or.jp/en/statistics/bis/repo/index.htm",
       "kurum": "BoJ",
       "kurum_tam": "Japonya Merkez Bankası",
       "konu": "Piyasa düzenlemesi",
@@ -1253,8 +1253,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/piyasa-duzenlemesi-9-29b01285.jpg",
-      "foto_atif": "Syced · CC0"
+      "foto": "/statik/foto/piyasa-duzenlemesi-7-845579cb.jpg",
+      "foto_atif": "Arild Vågen · CC-BY-SA-4.0"
     },
     {
       "baslik": "Euribor Panelinde yapılacak değişiklikler",
