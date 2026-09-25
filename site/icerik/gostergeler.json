@@ -32,7 +32,7 @@
       "yon": "azalis",
       "tarih": "2026-09-24",
       "birim": "TL",
-      "gun": 0,
+      "gun": 1,
       "bayat": false
     },
     {
@@ -43,8 +43,9 @@
       "yon": "azalis",
       "tarih": "2026-09-22",
       "birim": "USD/varil",
-      "gun": 2,
-      "bayat": false
+      "gun": 3,
+      "bayat": true,
+      "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · sonraki 30 Eylül"
     },
     {
       "kod": "DCOILWTICO",
@@ -54,8 +55,9 @@
       "yon": "azalis",
       "tarih": "2026-09-22",
       "birim": "USD/varil",
-      "gun": 2,
-      "bayat": false
+      "gun": 3,
+      "bayat": true,
+      "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · sonraki 30 Eylül"
     },
     {
       "kod": "DFF",
@@ -65,7 +67,7 @@
       "yon": "yatay",
       "tarih": "2026-09-23",
       "birim": "%",
-      "gun": 1,
+      "gun": 2,
       "bayat": false
     },
     {
@@ -76,7 +78,7 @@
       "yon": "artis",
       "tarih": "2026-09-23",
       "birim": "%",
-      "gun": 1,
+      "gun": 2,
       "bayat": false
     },
     {
@@ -87,7 +89,7 @@
       "yon": "artis",
       "tarih": "2026-09-23",
       "birim": "%",
-      "gun": 1,
+      "gun": 2,
       "bayat": false
     },
     {
@@ -98,7 +100,7 @@
       "yon": "artis",
       "tarih": "2026-09-24",
       "birim": "puan",
-      "gun": 0,
+      "gun": 1,
       "bayat": false
     },
     {
@@ -109,7 +111,7 @@
       "yon": "artis",
       "tarih": "2026-09-18",
       "birim": "endeks",
-      "gun": 4,
+      "gun": 5,
       "bayat": true,
       "ritim": "Fed bu endeksi haftalık yayımlıyor"
     }
@@ -126,8 +128,9 @@
           "yon": "azalis",
           "tarih": "2026-09-22",
           "birim": "USD/varil",
-          "gun": 2,
-          "bayat": false
+          "gun": 3,
+          "bayat": true,
+          "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · sonraki 30 Eylül"
         },
         {
           "kod": "DCOILWTICO",
@@ -137,8 +140,9 @@
           "yon": "azalis",
           "tarih": "2026-09-22",
           "birim": "USD/varil",
-          "gun": 2,
-          "bayat": false
+          "gun": 3,
+          "bayat": true,
+          "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · sonraki 30 Eylül"
         }
       ]
     },
@@ -153,7 +157,7 @@
           "yon": "yatay",
           "tarih": "2026-09-23",
           "birim": "%",
-          "gun": 1,
+          "gun": 2,
           "bayat": false
         },
         {
@@ -164,7 +168,7 @@
           "yon": "artis",
           "tarih": "2026-09-23",
           "birim": "%",
-          "gun": 1,
+          "gun": 2,
           "bayat": false
         },
         {
@@ -175,7 +179,7 @@
           "yon": "artis",
           "tarih": "2026-09-23",
           "birim": "%",
-          "gun": 1,
+          "gun": 2,
           "bayat": false
         },
         {
@@ -186,7 +190,7 @@
           "yon": "artis",
           "tarih": "2026-09-24",
           "birim": "puan",
-          "gun": 0,
+          "gun": 1,
           "bayat": false
         }
       ]
@@ -202,7 +206,7 @@
           "yon": "artis",
           "tarih": "2026-09-18",
           "birim": "endeks",
-          "gun": 4,
+          "gun": 5,
           "bayat": true,
           "ritim": "Fed bu endeksi haftalık yayımlıyor"
         },
@@ -214,7 +218,7 @@
           "yon": "azalis",
           "tarih": "2026-09-24",
           "birim": "TL",
-          "gun": 0,
+          "gun": 1,
           "bayat": false
         }
       ]
