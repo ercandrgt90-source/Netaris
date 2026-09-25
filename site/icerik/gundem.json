@@ -29,7 +29,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 21,
+  "yorumlanan": 19,
   "haberler": [
     {
       "baslik": "SON DAKİKA | Borsa haftayı yükselişle tamamladı",
@@ -339,6 +339,27 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/dis-ticaret-7-912e1aa5.jpg",
       "foto_atif": "Olga Ernst · CC-BY-SA-4.0"
+    },
+    {
+      "baslik": "MOC Dengesizliği",
+      "baslik_kaynak": "MOC Imbalance",
+      "ozet": "S&P 500: +1926 mln Nasdaq 100: +1155 mln Dow 30: +591 mln Mag 7: +794 mln",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9779730/MOC-Imbalance.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Şirket haberleri",
+      "tarih": "2026-09-25",
+      "tarih_gorunur": "25 Eylül 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/sirket-haberleri-12-22856bbd.jpg",
+      "foto_atif": "Diliff · CC-BY-SA-3.0"
     },
     {
       "baslik": "22 Eylül 2026 Haftası CFTC Pozisyonları",
@@ -1650,30 +1671,25 @@
       "foto_atif": "United Nation · PDM"
     },
     {
-      "baslik": "Şi Ziyaretinde Trump: Çiftçilerimizin çok mutlu olacağını düşünüyorum",
-      "baslik_kaynak": "Trump on Xi Visit: I think our farmers will be very happy .",
-      "ozet": "",
+      "baslik": "Blockchain Derneği CEO'su Summer Mersinger istifa edecek, Kristin Smith geçici CEO olarak geri dönecek",
+      "baslik_kaynak": "Blockchain Association CEO Summer Mersinger to step down, Kristin Smith to return as interim CEO",
+      "ozet": "The Blockchain Association is switching up its leadership with CEO Summer Mersinger set to step down next month.",
       "cevrildi": true,
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9779394/Trump-on-Xi-Visit-I-think-our-farmers-will-be-very-happy.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Jeopolitik",
+      "adres": "https://www.theblock.co/news/regulation/2026-09-25-blockchain-association-ceo-summer-mersinger-tstep-down-kristin-smith-interim-ceo-416913",
+      "kurum": "The Block",
+      "kurum_tam": "The Block",
+      "konu": "Kripto varlıklar",
       "tarih": "2026-09-25",
       "tarih_gorunur": "25 Eylül 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
-      "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
-        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
-        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/jeopolitik-18-d6206fae.jpg",
-      "foto_atif": "United Nation · PDM"
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/kripto-varliklar-7-62d77ad7.jpg",
+      "foto_atif": "Karlalhdz · CC-BY-SA-4.0"
     },
     {
       "baslik": "Adam 16 milyon $ değerinde kripto \"devasa domuz katliamı\" dolandırıcılığıyla suçlandı",
@@ -1757,6 +1773,27 @@
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/kripto-varliklar-9-651bf869.jpg",
+      "foto_atif": "Satheesh Sankaran · CC-BY-2.0"
+    },
+    {
+      "baslik": "Blockchain Derneği, kripto Clarity Act'in fiyaskosundan kısa bir süre sonra liderliğin değiştiğini görüyor",
+      "baslik_kaynak": "Blockchain Association sees leadership shift shortly after crypto Clarity Act fizzles",
+      "ozet": "The trade group will be run again by its original CEO, Kristin Smith, when Summer Mersinger leaves at the end of a long congressional tussle.",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.coindesk.com/policy/2026/09/25/blockchain-association-sees-leadership-shift-shortly-after-crypto-clarity-act-fizzles",
+      "kurum": "CoinDesk",
+      "kurum_tam": "CoinDesk",
+      "konu": "Kripto varlıklar",
+      "tarih": "2026-09-25",
+      "tarih_gorunur": "25 Eylül 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/kripto-varliklar-8-740eb829.jpg",
       "foto_atif": "Satheesh Sankaran · CC-BY-2.0"
     },
     {
@@ -2159,27 +2196,6 @@
       "foto_atif": "de Vries, Alex; Stoll, Christian · PDM"
     },
     {
-      "baslik": "Araştırmacılar Özel Bitcoin Transferleri için \"Zcash Tarzı\" Tasarım Yayınladı",
-      "baslik_kaynak": "Researchers Publish 'Zcash-Style' Design for Private Bitcoin Transfers",
-      "ozet": "The Shielded Bitcoin spec hides senders, receivers and amounts, but leaves how BTC enters and exits the system to a later paper.",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://decrypt.co/379280/researchers-publish-zcash-style-design-for-private-bitcoin-transfers",
-      "kurum": "Decrypt",
-      "kurum_tam": "Decrypt",
-      "konu": "Kripto varlıklar",
-      "tarih": "2026-09-25",
-      "tarih_gorunur": "25 Eylül 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/kripto-varliklar-8-8b36c240.jpg",
-      "foto_atif": "de Vries, Alex; Stoll, Christian · PDM"
-    },
-    {
       "baslik": "Borsa günü yükselişle tamamladı",
       "baslik_kaynak": "Borsa günü yükselişle tamamladı",
       "ozet": "Borsa İstanbul'da BIST 100 endeksi, günü yüzde 0,09 değer kazanarak 12.899,35 puandan tamamladı.",
@@ -2267,32 +2283,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/istihdam-ve-ucret-9-3b6311d7.jpg",
       "foto_atif": "YeraC · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "Fitch'ten Türkiye ekonomisi değerlendirmesi: Kritik enflasyon ve dolar tahmini",
-      "baslik_kaynak": "Fitch'ten Türkiye ekonomisi değerlendirmesi: Kritik enflasyon ve dolar tahmini",
-      "ozet": "Uluslararası derecelendirme kuruluşu Fitch Ratings, Türkiye ekonomisine ilişkin değerlendirmesinde rezervlerdeki toparlanma ve sıkı politika bileşiminin dış riskleri sınırladığını belirtirken, yüksek enflasyon ve politika risklerinin sürdüğüne dikkati çekti.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.dunya.com/ekonomi/fitchten-turkiye-ekonomisi-degerlendirmesi-kritik-enflasyon-ve-dolar-tahmini-haberi-841492",
-      "kurum": "Dünya",
-      "kurum_tam": "Dünya Gazetesi",
-      "konu": "Enflasyon",
-      "tarih": "2026-09-25",
-      "tarih_gorunur": "25 Eylül 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Enflasyon verisi merkez bankası patikasına dair beklentiyi değiştirdiği ölçüde fiyatlanır; manşet ile çekirdek arasındaki fark bu yüzden önemlidir.",
-      "kanallar": [
-        "Çekirdek ayrımı: enerji ve gıda dışı kalemler kalıcı eğilimi gösterir.",
-        "Faiz beklentisi: beklentiden sapma getiri eğrisinin ön ucunu hareket ettirir.",
-        "Hizmet enflasyonu: ücretlere bağlı olduğu için en yapışkan bileşendir.",
-        "Baz etkisi: bir önceki yılın aynı ayındaki seviye yıllık oranı mekanik olarak değiştirir."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/enflasyon-10-f56d310e.jpg",
-      "foto_atif": "KOMUnews · CC-BY-2.0"
     },
     {
       "baslik": "Haftalık Akım Faiz ve Kâr Payı İstatistikleri",
