@@ -29,7 +29,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 16,
+  "yorumlanan": 15,
   "haberler": [
     {
       "baslik": "Suudi liderliğindeki koalisyon: Yemen'in Husileri tarafından Hamis Mushait'e fırlatılan balistik füze ele geçirildi",
@@ -472,6 +472,27 @@
       "foto_atif": "Myotus · CC-BY-4.0"
     },
     {
+      "baslik": "Altında dengeler yeniden kuruluyor: Gram altını bekleyen 5 kritik gün",
+      "baslik_kaynak": "Altında dengeler yeniden kuruluyor: Gram altını bekleyen 5 kritik gün",
+      "ozet": "Altın yatırımcısı sert satışların ardından yeni haftaya kritik bir bölgede giriyor. Ons altında 4.300 dolar yeniden hedefe girerken, ABD’den gelecek iki büyük veri fiyatların yönünü değiştirebilir. Gram altında ise kur hesabı öne çıkıyor.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.dunya.com/foto-galeri/ekonomi/altinda-dengeler-yeniden-kuruluyor-gram-altini-bekleyen-5-kritik-gun-galeri-841500",
+      "kurum": "Dünya",
+      "kurum_tam": "Dünya Gazetesi",
+      "konu": "Altın ve emtia",
+      "tarih": "2026-09-26",
+      "tarih_gorunur": "26 Eylül 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/altin-ve-emtia-8-0eb87a46.jpg",
+      "foto_atif": "Osmar Valdebenito from Santiago, Chile · CC-BY-SA-2.0"
+    },
+    {
       "baslik": "Putin'den Ukrayna mesajı: Müzakereleri Rusya'nın çıkarları doğrultusunda başlatacağız",
       "baslik_kaynak": "Putin'den Ukrayna mesajı: Müzakereleri Rusya'nın çıkarları doğrultusunda başlatacağız",
       "ozet": "Rusya Devlet Başkanı Vladimir Putin, Ukrayna'yla müzakerelerin yeniden başlatılmasına ilişkin kararları Rusya'nın çıkarları doğrultusunda alacaklarını belirtirken, Avrupa ile çatışma planlarının olmadığını ve ABD ile Çin arasındaki görüşmeleri memnuniyetle karşıladıklarını ifade etti.",
@@ -564,32 +585,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/para-politikasi-9-683f4724.jpg",
       "foto_atif": "Tony Webster · CC-BY-2.0"
-    },
-    {
-      "baslik": "Yılmaz'dan önemli açıklama: Büyümeyi ihracat ve yatırım taşıyor",
-      "baslik_kaynak": "Yılmaz'dan önemli açıklama: Büyümeyi ihracat ve yatırım taşıyor",
-      "ozet": "Cumhurbaşkanı Yardımcısı Cevdet Yılmaz, Bursa iş dünyası temsilcileri ile bir araya geldiği toplantıda, enflasyonla mücadelede üretim odaklı seçici desteklerin süreceği mesajını verdi. Yılmaz, Türkiye’nin kalkınma hedeflerine kamu ve özel sektörün ortak aklıyla ulaşabileceğini belirtti.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.dunya.com/ekonomi/yilmazdan-onemli-aciklama-buyumeyi-ihracat-ve-yatirim-tasiyor-haberi-841483",
-      "kurum": "Dünya",
-      "kurum_tam": "Dünya Gazetesi",
-      "konu": "Dış ticaret",
-      "tarih": "2026-09-26",
-      "tarih_gorunur": "26 Eylül 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Ticaret politikası kararları tarafların birbirine bağımlılığı ölçüsünde fiyatlanır; etki önce ilgili sektör hisselerinde ve para birimlerinde görülür.",
-      "kanallar": [
-        "Sektör maruziyeti: gümrük vergisi ihracatçı sektörün marjını doğrudan sıkıştırır; otomotiv, çelik ve tarım en sık hedef alınan kalemlerdir.",
-        "Para birimi: ticaret dengesinde beklenen değişim ilgili ülke kurunu yeniden fiyatlar.",
-        "Tedarik zinciri: ara mal akışı kesilirse maliyet üretici fiyatlarına yazılır ve etki üçüncü ülkelere yayılır.",
-        "Anlaşma yapısı: USMCA ya da gümrük birliği gibi çerçeveler, etkinin hangi kalemlerde ve hangi takvimde doğacağını belirler."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/dis-ticaret-7-912e1aa5.jpg",
-      "foto_atif": "Olga Ernst · CC-BY-SA-4.0"
     },
     {
       "baslik": "Türkiye ihracatta ABD'ye ne kadar bağımlı?",
