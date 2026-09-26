@@ -29,7 +29,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 31,
+  "yorumlanan": 30,
   "haberler": [
     {
       "baslik": "Trump Yönetimi, Colorado Kömür Fabrikasını Çevrim İçi Tutarak Elektrik Kesintisi Risklerini Azaltıyor",
@@ -1083,6 +1083,27 @@
       "foto_atif": "Peter Griffin · CC0"
     },
     {
+      "baslik": "Bitcoin ETF'leri, Ekim ayından bu yana en büyük haftalık girişi olan 2,4 milyar $ ile 2026 için pozitife döndü",
+      "baslik_kaynak": "Bitcoin ETFs turn positive for 2026 with $2.4 billion weekly inflow, their largest since October",
+      "ozet": "The inflows pushed bitcoin ETFs' year-to-date net flows back above zero, after the funds sat roughly $5.8 billion in the red just two months ago.",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.theblock.co/news/markets/2026-09-26-bitcoin-etfs-turn-positive-for-2026-with-2-4-billion-weekly-inflow-their-largest-since-october-416944",
+      "kurum": "The Block",
+      "kurum_tam": "The Block",
+      "konu": "Kripto varlıklar",
+      "tarih": "2026-09-26",
+      "tarih_gorunur": "26 Eylül 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/kripto-varliklar-9-b82c3e85.jpg",
+      "foto_atif": "CryptoWallet.com Images · CC-BY-2.0"
+    },
+    {
       "baslik": "Kraken'in ebeveyni Payward, sadece bir kripto borsası değil, finansal altyapı olma konusunda milyarlarca dolar bahse giriyor",
       "baslik_kaynak": "Kraken’s parent Payward is betting billions on becoming financial infrastructure, not just a crypto exchange",
       "ozet": "Kraken parent Payward is unifying trading, payments, asset management and institutional services on common rails, co-CEO Arjun Sethi said.",
@@ -1464,31 +1485,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/enerji-11-a5cdd29f.jpg",
       "foto_atif": "W.carter · CC0"
-    },
-    {
-      "baslik": "Cumhurbaşkanı Erdoğan MÜSİAD verilerini paylaştı: 60 bin işletme, 3 milyon istihdam",
-      "baslik_kaynak": "Cumhurbaşkanı Erdoğan MÜSİAD verilerini paylaştı: 60 bin işletme, 3 milyon istihdam",
-      "ozet": "Cumhurbaşkanı Recep Tayyip Erdoğan, MÜSİAD EXPO'nun kapanışında yaptığı konuşmada derneğin 14 binden fazla üyesiyle 60 bin işletmeyi temsil ettiğini, yaklaşık 3 milyon kişiye istihdam sağladığını ve 84 ülkede faaliyet gösterdiğini söyledi.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.dunya.com/gundem/cumhurbaskani-erdogan-musiad-verilerini-paylasti-60-bin-isletme-3-milyon-istihdam-haberi-841545",
-      "kurum": "Dünya",
-      "kurum_tam": "Dünya Gazetesi",
-      "konu": "İstihdam ve ücret",
-      "tarih": "2026-09-26",
-      "tarih_gorunur": "26 Eylül 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Ücret hem hanehalkı gelirinin hem işletme maliyetinin iki tarafıdır; asgari ücret ve aylık ayarlamaları geniş bir kitleyi aynı anda etkiler.",
-      "kanallar": [
-        "İç talep: ücret ve aylık ayarlamaları harcanabilir geliri değiştirir; perakende ve gıda talebine yansır.",
-        "İşletme maliyeti: emek yoğun sektörlerde (tekstil, hizmet, lojistik) ücret gideri kâr marjının ana belirleyicisidir.",
-        "Bütçe kalemi: kamu personeli ve emekli ödemeleri bütçe harcamalarının büyük bir bölümünü oluşturur."
-      ],
-      "kanal_basligi": "Piyasaya nasıl yansır?",
-      "foto": "/statik/foto/istihdam-ve-ucret-7-786507f1.jpg",
-      "foto_atif": "Tim Brunauer on behalf of Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ) · CC-BY-SA-4.0"
     },
     {
       "baslik": "Azerbaycan'da enerjide 10 milyar doları aşan dev adım: SOCAR, TotalEnergies ve XRG ile anlaştı",
