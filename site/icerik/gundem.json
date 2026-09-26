@@ -1083,6 +1083,32 @@
       "foto_atif": "Ximonic (Simo Räsänen) · CC-BY-4.0"
     },
     {
+      "baslik": "Savaşların petrol arzına darbesi: Suudi Arabistan ve Rusya’da tarihi düşüş",
+      "baslik_kaynak": "Savaşların petrol arzına darbesi: Suudi Arabistan ve Rusya’da tarihi düşüş",
+      "ozet": "ABD/İsrail-İran ve Rusya-Ukrayna savaşlarının petrol arzına etkisiyle, Suudi Arabistan'ın ham petrol arzı son 30 yılın en dip seviyesini görürken, Rusya'nın üretimi ise 2003'ten bu yana en düşük seviyesine geriledi.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.ekonomim.com/kuresel-ekonomi/savaslarin-petrol-arzina-darbesi-suudi-arabistan-ve-rusyada-tarihi-dusus-haberi-920918",
+      "kurum": "Ekonomim",
+      "kurum_tam": "Ekonomim",
+      "konu": "Enerji",
+      "tarih": "2026-09-26",
+      "tarih_gorunur": "26 Eylül 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Enerji fiyatı hem bir maliyet kalemi hem bir enflasyon girdisidir; arz tarafındaki değişim önce vadeli piyasada, sonra üretici fiyatlarında görünür.",
+      "kanallar": [
+        "Arz kapasitesi: OPEC+ kotası, stok seviyesi ve üretim kesintisi haberleri vadeli eğrinin şeklini değiştirir.",
+        "Talep beklentisi: büyüme verisi ve sanayi üretimi fiyatın talep bacağını belirler.",
+        "Bölgeler arası akış: doğal gaz ile LNG arasındaki fiyat farkı, kargoların hangi bölgeye gideceğini değiştirir.",
+        "Enflasyon aktarımı: enerji maliyeti ulaştırma ve gıda üzerinden manşet enflasyona geçer; merkez bankaları çekirdek enflasyona daha çok bakar."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/enerji-11-a5cdd29f.jpg",
+      "foto_atif": "W.carter · CC0"
+    },
+    {
       "baslik": "Bitget saldırısı sonrası Kuzey Kore'nin kripto geliri 1 milyar doları geçti",
       "baslik_kaynak": "Bitget saldırısı sonrası Kuzey Kore'nin kripto geliri 1 milyar doları geçti",
       "ozet": "Bitget saldırısı sonrası Kuzey Kore'nin kripto geliri 1 milyar doları geçti Kripto para borsası Bitget'e düzenlenen siber saldırının ardından Kuzey Kore bağlantılı siber korsan grubunun elde ettiği dijital varlık hacmi 1 milyar dolar eşiğini aştı.",
@@ -1362,32 +1388,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/borsa-10-1d3f5b6f.jpg",
       "foto_atif": "Syced · CC0"
-    },
-    {
-      "baslik": "Ukrayna Rus rafinerisini vurduğunu açıkladı",
-      "baslik_kaynak": "Ukrayna Rus rafinerisini vurduğunu açıkladı",
-      "ozet": "",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://tr.investing.com/news/economy-news/ukrayna-rus-rafinerisini-vurdugunu-acklad-4079939",
-      "kurum": "Investing",
-      "kurum_tam": "Investing.com Türkiye",
-      "konu": "Enerji",
-      "tarih": "2026-09-26",
-      "tarih_gorunur": "26 Eylül 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Enerji fiyatı hem bir maliyet kalemi hem bir enflasyon girdisidir; arz tarafındaki değişim önce vadeli piyasada, sonra üretici fiyatlarında görünür.",
-      "kanallar": [
-        "Arz kapasitesi: OPEC+ kotası, stok seviyesi ve üretim kesintisi haberleri vadeli eğrinin şeklini değiştirir.",
-        "Talep beklentisi: büyüme verisi ve sanayi üretimi fiyatın talep bacağını belirler.",
-        "Bölgeler arası akış: doğal gaz ile LNG arasındaki fiyat farkı, kargoların hangi bölgeye gideceğini değiştirir.",
-        "Enflasyon aktarımı: enerji maliyeti ulaştırma ve gıda üzerinden manşet enflasyona geçer; merkez bankaları çekirdek enflasyona daha çok bakar."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/enerji-15-f47dcf5c.jpg",
-      "foto_atif": "Sw257 · CC-BY-SA-4.0"
     },
     {
       "baslik": "Fed Kurulu, Peoples Bancorp Inc.' in başvurusunun onaylandığını duyurdu",
