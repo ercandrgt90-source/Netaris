@@ -29,7 +29,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 30,
+  "yorumlanan": 31,
   "haberler": [
     {
       "baslik": "Trump Yönetimi, Colorado Kömür Fabrikasını Çevrim İçi Tutarak Elektrik Kesintisi Risklerini Azaltıyor",
@@ -51,6 +51,32 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/jeopolitik-36-7cb6152c.jpg",
       "foto_atif": "Captain Albert E. Theberge, NOAA Corps (ret.) · PDM"
+    },
+    {
+      "baslik": "Birleşmiş Milletler: Rusya Dışişleri Bakanı Lavrov, ABD'nin Küba'ya yönelik \"kuşatma\" ve ticaret kısıtlamalarına son vermesi gerektiğini söyledi",
+      "baslik_kaynak": "United Nations: Russian Foreign Minister Lavrov says US must end 'siege' and trade restrictions on Cuba",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9780260/United-Nations-Russian-Foreign-Minister-Lavrov-says-US-must-end-siege-and-trade-restrictions-on-Cuba.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Jeopolitik",
+      "tarih": "2026-09-26",
+      "tarih_gorunur": "26 Eylül 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
+      "kanallar": [
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-18-d6206fae.jpg",
+      "foto_atif": "United Nation · PDM"
     },
     {
       "baslik": "BM misyonu: Libya'nın petrol ve enerji altyapısına yönelik saldırılar, Güvenlik Konseyi kararları kapsamında yaptırımlara yol açabilir",
@@ -1204,6 +1230,27 @@
       "foto_atif": "de Vries, Alex; Stoll, Christian · PDM"
     },
     {
+      "baslik": "Kripto, Kongreyi Beklemeyi Nasıl Durdurdu ve Düzenleyicileri Sevmeyi Nasıl Öğrendi?",
+      "baslik_kaynak": "How Crypto Stopped Waiting for Congress and Learned to Love the Regulators",
+      "ozet": "After the Clarity Act failed in the Senate, the SEC, CFTC, and the Fed moved within days to write crypto's rules themselves. Will it be enough?",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://decrypt.co/379383/how-crypto-stopped-waiting-congress-learned-love-regulators",
+      "kurum": "Decrypt",
+      "kurum_tam": "Decrypt",
+      "konu": "Kripto varlıklar",
+      "tarih": "2026-09-26",
+      "tarih_gorunur": "26 Eylül 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/kripto-varliklar-8-8b36c240.jpg",
+      "foto_atif": "de Vries, Alex; Stoll, Christian · PDM"
+    },
+    {
       "baslik": "Yapay Zeka Ajanları, Kuantum Güvenli Bitcoin'i Ucuz Hale Getirmek ve Kazanmak İçin Yarışıyor",
       "baslik_kaynak": "AI Agents Are Racing to Make Quantum-Safe Bitcoin Cheap—And Winning",
       "ozet": "An open competition run by StarkWare, Yukon Research, and Eigen Labs drove the estimated cost of building a quantum-safe Bitcoin transaction from about $320 to roughly $67, with AI models topping the leaderboards.",
@@ -1423,6 +1470,32 @@
       "foto_atif": "Malcolm Neal · CC-BY-SA-2.0"
     },
     {
+      "baslik": "Azerbaycan'da enerjide 10 milyar doları aşan dev adım: SOCAR, TotalEnergies ve XRG ile anlaştı",
+      "baslik_kaynak": "Azerbaycan'da enerjide 10 milyar doları aşan dev adım: SOCAR, TotalEnergies ve XRG ile anlaştı",
+      "ozet": "Azerbaycan'da düzenlenen Uluslararası Yatırım Forumu'nda 10 milyar doları aşan potansiyel yatırımları kapsayan anlaşmalar imzalandı. SOCAR, TotalEnergies ve XRG ise Abşeron gaz ve kondensat sahasının tam ölçekli geliştirilmesi için nihai yatırım kararını aldı.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.ekonomim.com/ekonomi/azerbaycanda-enerjide-10-milyar-dolari-asan-dev-adim-socar-totalenergies-ve-xrg-ile-anlasti-haberi-920942",
+      "kurum": "Ekonomim",
+      "kurum_tam": "Ekonomim",
+      "konu": "Enerji",
+      "tarih": "2026-09-26",
+      "tarih_gorunur": "26 Eylül 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Enerji fiyatı hem bir maliyet kalemi hem bir enflasyon girdisidir; arz tarafındaki değişim önce vadeli piyasada, sonra üretici fiyatlarında görünür.",
+      "kanallar": [
+        "Arz kapasitesi: OPEC+ kotası, stok seviyesi ve üretim kesintisi haberleri vadeli eğrinin şeklini değiştirir.",
+        "Talep beklentisi: büyüme verisi ve sanayi üretimi fiyatın talep bacağını belirler.",
+        "Bölgeler arası akış: doğal gaz ile LNG arasındaki fiyat farkı, kargoların hangi bölgeye gideceğini değiştirir.",
+        "Enflasyon aktarımı: enerji maliyeti ulaştırma ve gıda üzerinden manşet enflasyona geçer; merkez bankaları çekirdek enflasyona daha çok bakar."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/enerji-16-71b1ce54.jpg",
+      "foto_atif": "HdeK · CC-BY-SA-3.0"
+    },
+    {
       "baslik": "Marmarabirlik’te yeni sezon için rekolte beyan dönemi başladı",
       "baslik_kaynak": "Marmarabirlik’te yeni sezon için rekolte beyan dönemi başladı",
       "ozet": "Marmarabirlik’te 2026/2027 iş yılı ürün alım kampanyası öncesinde rekolte süreci başladı. Üreticilerin 23 Ekim’e kadar gerçek üretim miktarlarını esas alarak beyanda bulunması istenirken, alım planında rekoltenin yanı sıra kalite, piyasa koşulları ve Birliğin kapasitesi de dikkate alınacak.",
@@ -1629,52 +1702,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/borsa-12-5544ef41.jpg",
       "foto_atif": "Bernard Lee · CC0"
-    },
-    {
-      "baslik": "Borsada bu hafta en çok kazandıran ve kaybettiren 3 hisse",
-      "baslik_kaynak": "Borsada bu hafta en çok kazandıran ve kaybettiren 3 hisse",
-      "ozet": "Bu hafta yatırım araçlarından borsa ve altın değer kaybetti.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.ekonomist.com.tr/borsa/borsada-bu-hafta-en-cok-kazandiran-ve-kaybettiren-3-hisse-79208",
-      "kurum": "Ekonomist",
-      "kurum_tam": "Ekonomist",
-      "konu": "Borsa",
-      "tarih": "2026-09-26",
-      "tarih_gorunur": "26 Eylül 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/borsa-10-1d3f5b6f.jpg",
-      "foto_atif": "Syced · CC0"
-    },
-    {
-      "baslik": "Kiracılar dikkat. Yargıtay'dan emsal karar: Bunu yaparsanız tazminat ödeyebilirsiniz",
-      "baslik_kaynak": "Kiracılar dikkat! Yargıtay'dan emsal karar: Bunu yaparsanız tazminat ödeyebilirsiniz",
-      "ozet": "Yargıtay 3. Hukuk Dairesi'nden kiracıları yakından ilgilendiren emsal nitelikte bir karar çıktı. Sözleşmede 6 ay önceden bildirim şartı bulunmasına rağmen haber vermeden evi boşaltan kiracının, makul süre tazminatı kapsamında 6 aylık kira bedelini ödemesine hükmedildi.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.ekonomist.com.tr/emlak/kiracilar-dikkat-yargitay-dan-emsal-karar-bunu-yaparsaniz-tazminat-odeyebilirsiniz-79206",
-      "kurum": "Ekonomist",
-      "kurum_tam": "Ekonomist",
-      "konu": "Konut ve kira",
-      "tarih": "2026-09-26",
-      "tarih_gorunur": "26 Eylül 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Konut hem hanehalkının en büyük varlık kalemi hem tüketici fiyat endeksinde ağırlığı yüksek bir harcama başlığıdır.",
-      "kanallar": [
-        "Enflasyon sepeti: kira, TÜFE'de ağırlığı yüksek kalemlerden biridir ve endekse gecikmeli yansır.",
-        "Bağlantılı sektörler: konut talebi çimento, demir, beyaz eşya ve mobilyaya yayılır.",
-        "Kredi kanalı: konut kredisi faizi talebi belirler; bu da politika faizi kararlarına doğrudan bağlıdır."
-      ],
-      "kanal_basligi": "Piyasaya nasıl yansır?",
-      "foto": "/statik/foto/konut-ve-kira-8-a8a0f60c.jpg",
-      "foto_atif": "Ximonic (Simo Räsänen) · CC-BY-4.0"
     },
     {
       "baslik": "Fed Kurulu, Peoples Bancorp Inc.' in başvurusunun onaylandığını duyurdu",
@@ -2377,27 +2404,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/vergi-ve-kamu-maliyesi-9-96673ab0.jpg",
       "foto_atif": "RegionalQueenslander · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "Fed'in hamağı: Enflasyon beklentileri makul ölçüde sağlam",
-      "baslik_kaynak": "Fed's hammock: Inflation expectations are reasonably well anchored.",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9779647/Feds-hammock-Inflation-expectations-are-reasonably-well-anchored.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Enflasyon",
-      "tarih": "2026-09-25",
-      "tarih_gorunur": "25 Eylül 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enflasyon-7-87d51a9b.jpg",
-      "foto_atif": "safaritravelplus · CC0"
     },
     {
       "baslik": "Haftalık Akım Faiz ve Kâr Payı İstatistikleri",
