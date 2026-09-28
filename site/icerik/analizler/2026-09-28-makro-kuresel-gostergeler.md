@@ -1,7 +1,7 @@
 ---
 slug: kuresel-gostergeler-2026-09-28
 baslik: Brent %30,1 yükselip geri çekildi: Türkiye'ye hangi kanallardan geliyor
-ozet: Brent petrol 22 Eylül 2026 itibarıyla 114,89 USD/varil seviyesinde. İzlenen 14 işlem gününde 3 Eylül 2026 tarihli 100,52 dolarlık dibi ile 15 Eylül 2026 tarihli 130,80 dolarlık zirvesi arasında hareket etti. ABD 10 yıllık tahvil getirisi %5,18 (24 Eylül 2026), aynı dönemde 40 baz puan yükseldi.…
+ozet: Brent petrol 22 Eylül 2026 itibarıyla 114,89 USD/varil seviyesinde. İzlenen 14 işlem gününde 3 Eylül 2026 tarihli 100,52 dolarlık dibi ile 15 Eylül 2026 tarihli 130,80 dolarlık zirvesi arasında hareket etti. ABD 10 yıllık tahvil getirisi %5,17 (25 Eylül 2026), aynı dönemde 37 baz puan yükseldi.…
 sirket: Küresel göstergeler
 kod: MAKRO
 donem: 2026-09-28
@@ -21,16 +21,16 @@ sayimlar: 4|yorumlanan gösterge;56|gözlem noktası;14|işlem günü penceresi;
 
 ## Özet
 
-Brent petrol 22 Eylül 2026 itibarıyla 114,89 USD/varil seviyesinde. İzlenen 14 işlem gününde 3 Eylül 2026 tarihli 100,52 dolarlık dibi ile 15 Eylül 2026 tarihli 130,80 dolarlık zirvesi arasında hareket etti. ABD 10 yıllık tahvil getirisi %5,18 (24 Eylül 2026), aynı dönemde 40 baz puan yükseldi. 10 yıllık ile 2 yıllık arasındaki fark 31 baz puan; getiri eğrisi pozitif eğimli.
+Brent petrol 22 Eylül 2026 itibarıyla 114,89 USD/varil seviyesinde. İzlenen 14 işlem gününde 3 Eylül 2026 tarihli 100,52 dolarlık dibi ile 15 Eylül 2026 tarihli 130,80 dolarlık zirvesi arasında hareket etti. ABD 10 yıllık tahvil getirisi %5,17 (25 Eylül 2026), aynı dönemde 37 baz puan yükseldi. 10 yıllık ile 2 yıllık arasındaki fark 36 baz puan; getiri eğrisi pozitif eğimli.
 
 ## Göstergeler
 
 | Gösterge | Son değer | Tarih | Dönem değişimi |
 |---|---|---|---|
 | Brent petrol | 114,89 USD/varil | 22 Eylül 2026 | %14,3 yükseldi |
-| ABD efektif fed fonu oranı | %3,88 | 24 Eylül 2026 | 25 baz puan yükseldi |
-| ABD 2 yıllık tahvil getirisi | %4,87 | 24 Eylül 2026 | 50 baz puan yükseldi |
-| ABD 10 yıllık tahvil getirisi | %5,18 | 24 Eylül 2026 | 40 baz puan yükseldi |
+| ABD efektif fed fonu oranı | %3,88 | 25 Eylül 2026 | 25 baz puan yükseldi |
+| ABD 2 yıllık tahvil getirisi | %4,81 | 25 Eylül 2026 | 42 baz puan yükseldi |
+| ABD 10 yıllık tahvil getirisi | %5,17 | 25 Eylül 2026 | 37 baz puan yükseldi |
 
 Her göstergenin son gözlem tarihi farklı olabilir; tabloda her satır kendi tarihini taşır. Dönem değişimi, yukarıdaki pencerenin ilk gözlemine göre hesaplanmıştır.
 
@@ -40,7 +40,7 @@ Her göstergenin son gözlem tarihi farklı olabilir; tabloda her satır kendi t
 
 ## ABD faiz tarafı
 
-Efektif fed fonu faizi %3,88 (24 Eylül 2026); dönem içinde 25 baz puan yükseldi. Piyasa tarafında 2 yıllık getiri %4,87, 10 yıllık %5,18. Dönem içinde 2 yıllık 50 baz puan yükseldi, 10 yıllık 40 baz puan yükseldi. Aradaki 31 baz puanlık pozitif fark, uzun vadeli borçlanma faizinin kısa vadeliden yüksek olduğu normal eğim anlamına gelir.
+Efektif fed fonu faizi %3,88 (25 Eylül 2026); dönem içinde 25 baz puan yükseldi. Piyasa tarafında 2 yıllık getiri %4,81, 10 yıllık %5,17. Dönem içinde 2 yıllık 42 baz puan yükseldi, 10 yıllık 37 baz puan yükseldi. Aradaki 36 baz puanlık pozitif fark, uzun vadeli borçlanma faizinin kısa vadeliden yüksek olduğu normal eğim anlamına gelir.
 
 ## Türkiye'ye hangi kanallardan geliyor
 
