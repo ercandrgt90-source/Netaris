@@ -2245,11 +2245,32 @@ def opml_uret(beslemeler: list[dict]) -> str:
 #: liste bir gezinme araci degil, gurultu olurdu.
 ILGILI_AKRAN_SINIRI = 4
 
+#: Ayni gelismeye ait en fazla kac analiz gosterilir.
+#:
+#: Olculdu (2026-09-29): en buyuk olay grubu 31 uyeli
+#: ("ABD faiz karari -- Eylul 2026"). Otuz bir bag bir gezinme araci
+#: degil, bir dokum olurdu. Secim TARIHE EN YAKIN komsular: ayni
+#: gelisme icinde okura en cok sey soyleyen, zamanda en yakin olandir.
+ILGILI_OLAY_SINIRI = 4
+
 #: Beslemedeki toplam oge sayisi.
 RSS_OGE_SAYISI = 40
 #: Bu kadar slot ANALIZE ayrilir -- yeterli analiz varsa. Taban,
 #: tavan degil: haber yetmezse analiz gerisini de doldurur.
 RSS_ANALIZ_PAYI = 10
+
+
+def _gun_farki(a: str, b: str) -> int:
+    """Iki ISO tarih arasindaki gun farki. Cozulemezse BUYUK bir sayi.
+
+    Buyuk deger bilincli: tarihi okunamayan kayit siralamada SONA
+    duser, yani "en yakin komsu" secimine sizmaz.
+    """
+    try:
+        return abs((datetime.strptime(a[:10], "%Y-%m-%d")
+                    - datetime.strptime(b[:10], "%Y-%m-%d")).days)
+    except (ValueError, TypeError):
+        return 10_000
 
 
 def rss_uret(analizler: list[Analiz],
@@ -5474,6 +5495,52 @@ def insa() -> int:
         _x for _x in analizler
         if _x.kategori == "Bilanço Analizi" and (_x.kod or "").strip()
     ]
+    # MAKRO ANALIZLER: AYNI GELISMEYE AIT OLANLAR.
+    #
+    # Olculdu (2026-09-29): 334 makro analizinin her birinde `<main>`
+    # icinde 1-2 ic bag vardi. Bilanco analizleri icin kullanilan
+    # "ayni sirket / ayni sektor" olcutu burada ISE YARAMIYOR: `kod`
+    # alani makroda SABIT bir yer tutucu ("OLAY", "MAKRO"), yani o
+    # olcut 300'den fazla alakasiz olayi birbirine baglardi.
+    #
+    # ONCE "ILISKI ANAHTARI YOK" DIYE ERTELEDIM -- YANLISTI.
+    # Depoda zaten var: `olay_grubu.kimlik()` ULKE:TUR:DONEM biciminde
+    # kaba bir kimlik uretiyor ("US:faiz:2026-09") ve haberler icin
+    # sinanmis. Makro analizlerine uygulandiginda 15 grup olusuyor ve
+    # gruplar ANLAMLI cikti (orneklendi): "US:faiz:2026-09" altinda
+    # Fed kararinin kendisi, Goolsbee'nin aciklamasi, HSBC'nin faiz
+    # patikasi ve emtia tepkisi -- hepsi tek gelisme.
+    #
+    # METIN ESLESTIRMESI KULLANILMADI: basliklardan benzerlik cikarmak
+    # "alakasiz baglanti" uretir ve sablonun kendi kurali bunu
+    # yasakliyor. Buradaki anahtar uydurma degil, deponun kendi
+    # siniflandirmasi.
+    try:
+        # ICE AKTARMA BICIMI: `insa.py` `haber_botu` dizinini
+        # DOGRUDAN sys.path'e koyuyor (bkz. dosya basi), yani paket
+        # adi ONEK DEGIL. `from haber_botu.analiz import ...` burada
+        # ModuleNotFoundError verir -- ilk yazimda tam bunu yaptim ve
+        # try/except hatayi YUTTU: site sorunsuz kuruldu, blok hic
+        # basilmadi. Yakalayan sey sinama degil, sonraki OLCUM oldu.
+        from analiz import olay_grubu as _og                # noqa: PLC0415
+    except Exception as _e:                               # pragma: no cover
+        print(f"  olay bagi atlandi: {_e}")
+        _og = None
+    _olay_uyeleri: dict[str, list] = {}
+    _olay_kimligi: dict[str, str] = {}
+    if _og is not None:
+        for _x in analizler:
+            if _x.kategori != "Makro":
+                continue
+            _k = _og.kimlik(_x.baslik or "", "", _x.tarih or "")
+            if not _k:
+                continue
+            _olay_kimligi[_x.slug] = _k
+            _olay_uyeleri.setdefault(_k, []).append(_x)
+        # SIRA BELIRLI (bkz. asagidaki ayni gerekce).
+        for _v in _olay_uyeleri.values():
+            _v.sort(key=lambda z: (z.tarih or "", z.slug), reverse=True)
+
     _sirket_donemleri: dict[str, list] = {}
     _sektor_akranlari: dict[tuple, list] = {}
     for _x in _ilgili_kaynak:
@@ -5516,11 +5583,28 @@ def insa() -> int:
             _x for _x in _sektor_akranlari.get((a.sektor, a.donem), [])
             if _x.kod != a.kod
         ][:ILGILI_AKRAN_SINIRI] if a.kategori == "Bilanço Analizi" else []
+        # AYNI GELISME -- TARIHE EN YAKIN komsular.
+        #
+        # Grup 31 uyeli olabiliyor; listenin tamamini basmak gezinme
+        # degil dokum olurdu. Yakinlik `tarih` uzerinden: ayni
+        # gelismenin icinde okura en cok sey soyleyen, zamanda en
+        # yakin olandir.
+        _olay = _olay_kimligi.get(a.slug, "")
+        _ayni_olay = []
+        if _olay:
+            _kardes = [_x for _x in _olay_uyeleri.get(_olay, [])
+                       if _x.slug != a.slug]
+            _kardes.sort(key=lambda z: (
+                abs(_gun_farki(z.tarih, a.tarih)), z.slug))
+            _ayni_olay = _kardes[:ILGILI_OLAY_SINIRI]
         yaz(
             f"{a.yol}index.html",
             ortam.get_template("analiz.html").render(
                 **ortak, yol=a.yol, a=a, eskimis=_eskimis,
                 donemler=_donemler, akranlar=_akranlar,
+                ayni_olay=_ayni_olay,
+                olay_basligi=(_og.grup_basligi(_olay)
+                              if (_og and _olay) else ""),
                 # Ozet baskalariyla paylasiliyorsa aciklama basliktan
                 # baslasin -- bkz. `_paylasilan_ozet`.
                 ozet_paylasilan=(a.ozet or "").strip() in _paylasilan_ozet),

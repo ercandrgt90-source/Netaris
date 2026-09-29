@@ -319,7 +319,7 @@
      olmayan bir sey uretirdi.
 
      Biri bossa o blok hic basilmiyor -- `haber.html`teki ayni kural. #}
-  {% if donemler or akranlar %}
+  {% if donemler or akranlar or ayni_olay %}
   <section class="okumaya-devam">
     <h2>Bunu da okuyun</h2>
     <div class="od-izgara">
@@ -331,6 +331,35 @@
           <li>
             <a href="{{ d.yol }}">{{ d.donem }}</a>
             <span class="ilgili-kunye">{{ d.tarih_tr }}</span>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+
+      {# AYNI GELISME.
+         Olculdu (2026-09-29): 334 makro analizinin her birinde
+         `<main>` icinde 1-2 ic bag vardi; bilanco analizlerine
+         verilen "ayni sirket / ayni sektor" olcutu makroda ISE
+         YARAMIYOR cunku `kod` orada sabit bir yer tutucu.
+
+         Anahtar UYDURULMADI: `olay_grubu.kimlik()` ULKE:TUR:DONEM
+         biciminde kaba bir kimlik uretiyor ve haberler icin zaten
+         sinanmis. Makroya uygulandiginda gruplar anlamli cikti --
+         "ABD faiz karari, Eylul 2026" altinda kararin kendisi,
+         Goolsbee'nin aciklamasi ve HSBC'nin faiz patikasi birlikte.
+
+         Basliktan benzerlik cikarilmadi: metin eslestirmesi
+         "alakasiz baglanti" uretir ve bu sablonun kendi kurali onu
+         yasakliyor. #}
+      {% if ayni_olay %}
+      <div class="od-blok">
+        <h3>{{ olay_basligi or "Aynı gelişme" }}</h3>
+        <ul>
+          {% for o in ayni_olay %}
+          <li>
+            <a href="{{ o.yol }}">{{ o.baslik }}</a>
+            <span class="ilgili-kunye">{{ o.tarih_tr }}</span>
           </li>
           {% endfor %}
         </ul>

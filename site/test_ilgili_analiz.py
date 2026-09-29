@@ -50,6 +50,16 @@ sys.path[:0] = [str(_SITE)]
 
 import insa  # noqa: E402
 
+# `olay_grubu` `haber_botu` icinde; `insa.py` o dizini sys.path'e
+# koyuyor, yani paket adi ONEK DEGIL.
+sys.path[:0] = [str(_SITE.parent / "haber_botu")]
+from analiz import olay_grubu as _og  # noqa: E402
+
+
+def _olay_kimlik(a) -> str:
+    """Analizin olay kimligi. Uretimdeki ile AYNI cagri."""
+    return _og.kimlik(a.baslik or "", "", a.tarih or "") or ""
+
 _gecti = 0
 
 
@@ -145,24 +155,57 @@ if _yanlis_sektor:
     print(f"\n  FARKLI SEKTORDEN AKRAN: {_yanlis_sektor[:3]}")
 esit(_yanlis_sektor[:3], [], "her akran AYNI sektorden")
 
-print("\nKAPSAM DAR KALIYOR MU")
-# Asil koruma burasi: yer tutucu kodlu analizler sahte "ayni sirket"
-# bagi ALMAMALI. Olcut genisletilirse burasi kirmizi yanar.
+print("\nYER TUTUCU KOD HALA OLCUT DEGIL")
+# IDDIANIN ANLAMI DEGISTI, GUCU DEGISMEDI.
+#
+# Ilk yazimda iddia suydu: "yer tutucu kodlu analiz HIC ilgili bag
+# ALMAZ". 2026-09-29'da makro analizleri OLAY KIMLIGIYLE baglandi
+# (`olay_grubu.kimlik()`, ULKE:TUR:DONEM) ve o iddia kirmizi yandi --
+# DOGRU davranis: sinama degisikligi bilincli olmaya zorladi.
+#
+# Yeni iddia daha guclu: makro sayfasindaki her bag, sayfanin KENDI
+# olay kimligini PAYLASMAK zorunda. Olcut yer tutucu koda
+# genisletilirse ("ayni sirket" gibi) farkli olaylar birbirine
+# baglanir ve burasi kirmizi yanar.
 _yer_tutuculu = [a for a in _analizler.values() if a.kod in YER_TUTUCU]
 esit(len(_yer_tutuculu) > 50, True,
      f"yer tutucu kodlu analiz var ({len(_yer_tutuculu)}) -- olcut onlari "
-     f"kapsasaydi hepsi birbirine baglanirdi")
-_sahte_bag = []
-for _a in _yer_tutuculu[:120]:
+     f"KOD uzerinden kapsasaydi hepsi birbirine baglanirdi")
+
+_yol_analiz = {a.yol: a for a in _analizler.values()}
+_kimlik_yok, _farkli_olay, _bloklu_makro = [], [], 0
+for _a in _yer_tutuculu:
     _p = _CIKTI / _a.yol.strip("/") / "index.html"
     if not _p.exists():
         continue
     _g = _p.read_text(encoding="utf-8", errors="replace")
-    if "okumaya-devam" in _g:
-        _sahte_bag.append(_a.yol)
-if _sahte_bag:
-    print(f"\n  YER TUTUCU KODLU SAYFAYA BLOK BASILMIS: {_sahte_bag[:4]}")
-esit(_sahte_bag, [], "yer tutucu kodlu analiz sahte ilgili bagi ALMIYOR")
+    _m = re.search(r'<section class="okumaya-devam">.*?</section>', _g, re.S)
+    if not _m:
+        continue
+    _bloklu_makro += 1
+    _kendi = _olay_kimlik(_a)
+    if not _kendi:
+        # Kimligi olmayan bir sayfaya blok basilmissa, bag baska bir
+        # olcutten gelmis demektir -- tam da yasakladigimiz sey.
+        _kimlik_yok.append(_a.yol)
+        continue
+    for _b in set(re.findall(r'href="(/analiz/[^"]+)"', _m.group(0))):
+        _hedef = _yol_analiz.get(_b)
+        if _hedef is None:
+            continue
+        if _olay_kimlik(_hedef) != _kendi:
+            _farkli_olay.append((_a.yol, _b))
+
+esit(_bloklu_makro > 0, True,
+     f"olay kimligiyle baglanan makro sayfasi var ({_bloklu_makro})")
+if _kimlik_yok:
+    print(f"\n  KIMLIKSIZ SAYFAYA BLOK: {_kimlik_yok[:4]}")
+esit(_kimlik_yok, [],
+     "olay kimligi OLMAYAN makro sayfasina bag basilmiyor")
+if _farkli_olay:
+    print(f"\n  FARKLI OLAYA BAGLANMIS: {_farkli_olay[:4]}")
+esit(_farkli_olay[:3], [],
+     "makro sayfasindaki her bag AYNI olay kimligini paylasiyor")
 
 print("\nAkran sayisi sinirli")
 _asan = []
@@ -176,6 +219,29 @@ for _p in _sayfalar:
 if _asan:
     print(f"\n  TAVANI ASAN: {_asan[:4]}")
 esit(_asan, [], f"hicbir sayfada {AKRAN_TAVANI}'ten fazla akran yok")
+
+# OLAY OBERKININ TAVANI AYRICA TUTULUYOR.
+#
+# Ilk yazimda tavan yalnizca SEKTOR oberkini sayiyordu. Olay gruplari
+# cok daha buyuk (en buyugu 31 uyeli: "ABD faiz karari -- Eylul
+# 2026"), yani tavanin asil gerekli oldugu yer burasi. Sinanmayan
+# tavan, tavan degildir.
+_olay_asan = []
+for _p in _sayfalar:
+    _g = _p.read_text(encoding="utf-8", errors="replace")
+    _m = re.search(r'<section class="okumaya-devam">.*?</section>', _g, re.S)
+    if not _m:
+        continue
+    for _blok in re.findall(r"<h3>(.*?)</h3>(.*?)</ul>", _m.group(0), re.S):
+        if "diğer dönemler" in _blok[0] or "aynı dönem" in _blok[0]:
+            continue                       # bilanco oberkleri yukarida
+        _n = len(re.findall(r'href="/analiz/', _blok[1]))
+        if _n > AKRAN_TAVANI:
+            _olay_asan.append((_p.parent.name, _n))
+if _olay_asan:
+    print(f"\n  OLAY OBERKINDE TAVAN ASILMIS: {_olay_asan[:4]}")
+esit(_olay_asan, [],
+     f"olay oberkinde de {AKRAN_TAVANI} tavani tutuyor")
 
 print("\nYENI BILESEN URETILMEDI")
 # `haber.html` ayni isi `.okumaya-devam` ile yapiyor. Ikinci bir
