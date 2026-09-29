@@ -687,3 +687,99 @@ jobs:
           if [ -n "$mevcut" ]; then
             gh issue close "$mevcut" --comment               "Koşu yeşile döndü ($(date -u +'%Y-%m-%d %H:%M') UTC). Alarm kapatıldı."               || true
           fi
+
+      # NOBETCI TETIKLEYEMIYORSA HICBIR ALARM CALMAZ.
+      #
+      # Olculdu (2026-09-29): kurulma tempsu 38 kosu/gunden 4'e dustu.
+      # Sebep tanilama ucunda AYNEN yaziyordu:
+      #
+      #     /api/nobetci -> 17 tetigin 17'si "yanit": 401
+      #
+      # Nobetci dogru calisiyordu; GitHub jetonu REDDEDIYORDU.
+      #
+      # Ustteki alarm KIRMIZI KOSUYU duyuruyor. Ama burada kirmizi kosu
+      # YOK -- kosu hic baslamiyor. Basarisiz bir `repository_dispatch`
+      # GitHub tarafinda hicbir iz birakmiyor. Yani bu ariza, var olan
+      # butun alarmlarin KOR NOKTASI.
+      #
+      # NEDEN SINAMA DEGIL: `calistir` dusen sinamada `exit 1` yapiyor,
+      # yani kirmizi bir sinama butun kosuyu ve DAGITIMI durdurur.
+      # "Site seyrek guncelleniyor" sorununu "site hic guncellenmiyor"a
+      # cevirmek, cozumden kotu olurdu. Bu adim `continue-on-error`.
+      #
+      # Mantik `site/nobet_denetimi.py` icinde ve sinaniyor
+      # (`site/test_nobet_denetimi.py`, ag kullanmadan). Burada yalnizca
+      # karar okunuyor.
+      #
+      # ETIKET AYRI (`nobetci`): ustteki `otomasyon` alarmini yesil kosu
+      # kapatiyor. Ayni etiket kullanilsaydi, nobetci hala bozukken
+      # basarili bir kosu alarmi susturur ve ariza yine gorunmez olurdu.
+      - name: Nöbetçi tetiği çalışıyor mu
+        if: always()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BASLIK: "Nöbetçi tetikleyemiyor -- site seyrek kuruluyor"
+        run: |
+          cikti=$(python site/nobet_denetimi.py 2>&1 || true)
+          printf '%s\n' "$cikti"
+          durum=$(printf '%s\n' "$cikti" | sed -n 's/^DURUM=//p' | head -1)
+          aciklama=$(printf '%s\n' "$cikti" | sed -n 's/^ACIKLAMA=//p' | head -1)
+
+          if [ "$durum" = "saglikli" ]; then
+            mevcut=$(gh issue list --state open --label nobetci \
+              --json number --jq '.[0].number // empty' 2>/dev/null || true)
+            if [ -n "$mevcut" ]; then
+              gh issue close "$mevcut" --comment \
+                "Nöbetçi yeniden tetikleyebiliyor ($(date -u +'%Y-%m-%d %H:%M') UTC). $aciklama" || true
+            fi
+            exit 0
+          fi
+
+          # BILINMIYOR ALARM URETMEZ. Uca ulasilamamasi ariza degil;
+          # bu depoda olcum aracinin kendisi defalarca yanlis alarm
+          # uretti ve yanlis alarm, gercek olani da inandiriciliktan
+          # dusuruyor.
+          if [ "$durum" != "bozuk" ]; then
+            echo "durum=$durum -- alarm uretilmiyor"
+            exit 0
+          fi
+
+          govde="Nöbetçi bayatlığı görüyor ve tetikliyor, ama GitHub tetiği kabul etmiyor.
+
+          $aciklama
+
+          Sonuç: zamanlanmış koşular GitHub tarafında düzensiz çalışıyor ve
+          nöbetçi devreye giremediği için site seyrek kuruluyor.
+
+          Çözüm — yeni bir fine-grained PAT üretip Cloudflare'a yazın:
+
+              npx wrangler secret put NOBET_JETON
+
+          Yetki: ercandrgt90-source/Netaris deposunda **Contents: write**
+          (repository_dispatch bunu istiyor). Jetonu hiçbir yere yapıştırmayın.
+
+          Tanılama: https://netaris.net/api/nobetci
+          Zaman (UTC): $(date -u +'%Y-%m-%d %H:%M')
+
+          Bu kayıt, nöbetçi yeniden tetikleyebildiğinde KENDİLİĞİNDEN kapanır."
+
+          mevcut=$(gh issue list --state open --label nobetci \
+            --json number --jq '.[0].number // empty' 2>/dev/null || true)
+          if [ -z "$mevcut" ]; then
+            gh label create nobetci --color D93F0B \
+              --description "Nobetci tetigi calismiyor" 2>/dev/null || true
+            gh issue create --title "$BASLIK" --label nobetci --body "$govde" \
+              || echo "::warning::nobetci alarmi kaydi acilamadi"
+            exit 0
+          fi
+          # ALTI SAATTE BIR: zaman cizelgesi olussun ama gurultu olmasin.
+          guncel=$(gh issue view "$mevcut" --json updatedAt --jq .updatedAt 2>/dev/null || echo "")
+          if [ -n "$guncel" ]; then
+            gecen=$(( $(date -u +%s) - $(date -u -d "$guncel" +%s) ))
+            if [ "$gecen" -lt 21600 ]; then
+              echo "kayit #$mevcut acik ve $((gecen/60)) dk once guncellendi"
+              exit 0
+            fi
+          fi
+          gh issue comment "$mevcut" --body "$govde" || true
