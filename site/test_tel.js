@@ -316,6 +316,56 @@ async function kos() {
   esit(d.ogeler[1].cevrildi, false, "cevrilmemis oge boyle isaretlendi");
   dogru(d.ogeler.every((o) => o.adres && o.kurum),
         "her yanit ogesinde atif alanlari var");
+
+  /* TANILAMA UCU -- "sessiz mi, bozuk mu" ayrimi.
+     Bos liste dort ayri sebepten gelebiliyor ve disaridan bakan
+     biri hicbirini ayirt edemez. Tanilama o dordunu ayiriyor; ama
+     tanilamanin KENDISI dogrulanmazsa o da yalnizca bir iyi niyet
+     beyani olur. */
+  console.log("\nTanilama ucu");
+  const { telDurum } = ortam;
+
+  /* 1) Tablo YOK: goc kosmamis. */
+  const tablosuz = {
+    DB: { prepare() {
+      return { bind() { return this; },
+               first() { throw new Error("no such table: tel"); } };
+    } },
+    ASSETS: { fetch: () => Promise.resolve({
+      ok: true, json: () => Promise.resolve(TEST_KURAL) }) },
+  };
+  const d1 = await (await telDurum(tablosuz)).json();
+  esit(d1.tablo_var, false, "tablo yoksa tablo_var=false");
+  dogru(d1.tablo_hatasi, "tablo yoksa SEBEBI bildiriliyor");
+  esit(d1.kurallar_okundu, true, "kurallar ayrica okunabiliyor");
+
+  /* 2) Kurallar YOK: insa calismamis ya da dosya yayilmamis. */
+  const kuralsiz = {
+    DB: { prepare() {
+      return { bind() { return this; },
+               first: async () => ({ n: 0, yeni: null, eski: null }) };
+    } },
+    ASSETS: { fetch: () => Promise.resolve({ ok: false, status: 404 }) },
+  };
+  const d2 = await (await telDurum(kuralsiz)).json();
+  esit(d2.kurallar_okundu, false, "kurallar okunamazsa false");
+  esit(d2.tablo_var, true, "tablo ayrica dogrulanabiliyor");
+
+  /* 3) Her sey calisiyor, yalnizca yeni oge yok -- bu SAGLIK. */
+  const saglikli = {
+    DB: { prepare() {
+      return { bind() { return this; },
+               first: async () => ({ n: 12, yeni: "2026-09-30T12:00:00Z",
+                                     eski: "2026-09-30T06:00:00Z" }) };
+    } },
+    ASSETS: { fetch: () => Promise.resolve({
+      ok: true, json: () => Promise.resolve(TEST_KURAL) }) },
+  };
+  const d3 = await (await telDurum(saglikli)).json();
+  esit(d3.oge_sayisi, 12, "oge sayisi bildiriliyor");
+  esit(d3.en_yeni, "2026-09-30T12:00:00Z", "en yeni oge ani bildiriliyor");
+  dogru(d3.tablo_var && d3.kurallar_okundu,
+        "saglikli durumda iki taraf da yesil");
 }
 
 kos().then(() => {

@@ -2610,6 +2610,59 @@ async function telTopla(env) {
   }
 }
 
+/* `/api/tel/durum` -- "sessiz mi, bozuk mu" sorusunu DISARIDAN
+ * cevaplanabilir kiliyor.
+ *
+ * NEDEN VAR: tel bos donerse sebebi dort ayri sey olabilir ve
+ * disaridan bakan biri hicbirini ayirt edemez --
+ *
+ *   1. kurallar dosyasi yayilmamis (insa calismamis)
+ *   2. D1 tablolari kurulmamis (goc dusmus)
+ *   3. besleme cekilemiyor (kaynak 429 veriyor ya da erisilemiyor)
+ *   4. her sey calisiyor ama insa COK YENI, yani gercekten daha
+ *      yeni oge yok
+ *
+ * Dorduncusu SAGLIK, digerleri ARIZA; ama dordu de "bos liste"
+ * olarak gorunuyor. Ayni kor nokta bu depoda daha once yasandi:
+ * nobetci tanilamasi (`/api/nobetci`) tam olarak "nobetci atesledi
+ * de GitHub mi almadi, yoksa hic bakmadi mi" sorusu CEVAPLANAMADIGI
+ * icin yazilmisti.
+ *
+ * Sir icermiyor, kimlik gerektirmiyor: yalnizca sayilar ve zaman
+ * damgalari. */
+async function telDurum(env) {
+  const d = { kurallar_okundu: false, besleme_sayisi: 0,
+              tablo_var: false, oge_sayisi: 0, ceviri_sayisi: 0,
+              en_yeni: null, en_eski: null };
+  const k = await telKurallari(env);
+  if (k && Array.isArray(k.beslemeler)) {
+    d.kurallar_okundu = true;
+    d.besleme_sayisi = k.beslemeler.length;
+    d.saklama_saat = k.saklama_saat;
+  }
+  try {
+    const r = await env.DB.prepare(
+      "SELECT COUNT(*) AS n, MAX(tarih) AS yeni, MIN(tarih) AS eski "
+      + "FROM tel").first();
+    d.tablo_var = true;
+    d.oge_sayisi = (r && r.n) || 0;
+    d.en_yeni = (r && r.yeni) || null;
+    d.en_eski = (r && r.eski) || null;
+  } catch (e) {
+    /* Tablo yoksa sorgu duser -- bu, gocun kosmadigini gosteriyor
+       ve TAM OLARAK ogrenmek istedigimiz sey. */
+    d.tablo_hatasi = String(e).slice(0, 120);
+  }
+  try {
+    const c = await env.DB.prepare(
+      "SELECT COUNT(*) AS n FROM tel_ceviri").first();
+    d.ceviri_sayisi = (c && c.n) || 0;
+  } catch (e) {
+    d.ceviri_hatasi = String(e).slice(0, 120);
+  }
+  return yanit(d);
+}
+
 /* `/api/tel` -- sayfanin okudugu uc.
  *
  * OTURUM ISTEMEZ: okurun cogu uye degil ve bu, sitenin OKUMA tarafi.
@@ -2796,6 +2849,8 @@ export default {
       if (y === "nobetci" && m === "GET") return await nobetciDurum(env);
       /* Tel: sitenin OKUMA tarafi, oturum istemez. */
       if (y === "tel" && m === "GET") return await telListe(istek, env);
+      /* Tanilama: sir icermiyor, kimlik gerektirmiyor. */
+      if (y === "tel/durum" && m === "GET") return await telDurum(env);
       /* SAYACLAR OTURUM ISTEMEZ.
          Okurun cogu uye degil; goruntulenme uyelige bagli olsaydi
          olcum sitenin kucuk bir dilimini gosterirdi. Begeni ise
