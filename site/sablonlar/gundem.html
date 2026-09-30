@@ -8,6 +8,9 @@
 {# `defer`: suzgec sayfanin cizilmesini beklemeli. Betik yuklenmezse
    suzgec serisi `hidden` kaliyor ve okur tam listeyi goruyor. #}
 <script src="/statik/akis_suzgec.js?v={{ js_surum }}" defer></script>
+{# Tel: insadan daha yeni basliklar. `defer` -- sayfanin basilmasini
+   hicbir kosulda geciktirmiyor; tel bir EK katman. #}
+<script src="/statik/tel.js?v={{ js_surum }}" defer></script>
 {% endblock %}
 
 {% macro oge(h, gorsel) %}
@@ -267,6 +270,26 @@
    Kalip `haber.html`teki kunye ile AYNI: kurum adi baglaniyor,
    `rel="nofollow noopener"`. Ikinci bir bicim, zamanla ayrisan
    iki kural demekti. #}
+{# TEL -- INSADAN DAHA YENI BASLIKLAR.
+   ==================================
+   Olculdu (2026-09-30): zamanlanmis GitHub kosulari cron'un istedigi
+   ~37 kosunun yalnizca %19'unu teslim ediyor; ardisik kosular
+   arasindaki ortanca boslук ~4 saat. Yani 14:00'te dusen bir haber
+   okura 18:00'de gorunebiliyordu.
+
+   Bu serit, Cloudflare'in KENDI cron'unun (on dakikada bir,
+   guvenilir) topladigi ogeleri gosteriyor -- GitHub'a hic
+   dokunmadan. `data-tel-uretim` sayfanin kendi uretim ani: uctan
+   yalnizca ONDAN YENI olanlar isteniyor, yoksa ayni haber iki kez
+   gorunurdu.
+
+   JAVASCRIPT YOKSA gizli kaliyor ve sayfa basildigi gibi calisiyor;
+   tel bir EK katman, sitenin okuma tarafi ona bagli degil. #}
+<div class="tel-kap" data-tel-kap data-tel-uretim="{{ uretim_ani }}" hidden>
+  <span class="tel-nokta" aria-hidden="true"></span>
+  <span class="tel-metin"><b data-tel-sayi>0</b> başlık siteye
+    işlenmeden, kaynaktan doğrudan geldi</span>
+</div>
 <ul class="gundem-liste" data-akis-kap="rutin">
   {% for h in rutin %}
   <li class="gundem-oge gundem-duz" data-tur="{{ h | kart_turu }}">

@@ -2253,6 +2253,87 @@ ILGILI_AKRAN_SINIRI = 4
 #: gelisme icinde okura en cok sey soyleyen, zamanda en yakin olandir.
 ILGILI_OLAY_SINIRI = 4
 
+#: UC KATMANI BU KADAR ESKI OGEYI TUTAR (saat).
+#:
+#: Uc katman yalnizca "insadan DAHA YENI" olani gosteriyor; daha
+#: eskisini zaten basilmis sayfa tasiyor. Pencere, insa araligindan
+#: (olculdu: ortanca ~4 saat, en kotu ~7) rahatca genis olmali ki
+#: iki kaynak arasinda DELIK kalmasin.
+TEL_SAKLAMA_SAAT = 36
+
+#: Uc katmanin cektigi besleme basina en fazla oge.
+TEL_OGE_SINIRI = 60
+
+
+def tel_kurallari_uret(besleme) -> str:
+    """Uc katmaninin (Cloudflare Worker) uyacagi kurallar -- VERI olarak.
+
+    NEDEN BU DOSYA VAR
+    ------------------
+    Site yeniden kurulmadan taze baslik gosterebilmek icin Worker'in
+    besleme adreslerini, konu eslemesini ve baslik onek temizligini
+    BILMESI gerekiyor. Bunlari `worker.js` icine elle yazmak, ayni
+    karari iki dilde iki kez yazmak olurdu -- bu depoda en pahaliya
+    mal olan kusur sinifi tam olarak bu (bkz. tema paleti, 2026-09-30:
+    ayni jetona karar veren dort blok birbirinden ayri dustu).
+
+    Bu yuzden kurallar TEK YERDE, `haber_botu/kaynak/besleme.py`de
+    yasiyor ve buradan JSON olarak yayiliyor. Worker dosyayi kendi
+    varlik katmanindan okuyor. Python degisince Worker kendiliginden
+    dogru davraniyor; ayrisma IMKANSIZ, hatirlanmasi gereken bir sey
+    degil.
+
+    NEDEN YALNIZCA `AKIS_BESLEMELERI`
+    ---------------------------------
+    Ticari bir ogede normalde POZITIF konu eslesmesi sart: `konu_bul`
+    bir ekonomi konusu bulamazsa oge alinmaz, yoksa gundeme Super Loto
+    sonuclari girer. `konu_bul` ise ince bir mantik -- Turkce diakritik
+    normallestirme, yalnizca basa konan kelime siniri, kosullu
+    isaretler, mecaz on-cozumu. Dosyanin kendi kaydi oradaki kucuk bir
+    degisikligin 58 yayimlanmis sayfayi SESSIZCE dusurdugunu yaziyor.
+    Onu JavaScript'e tasimak, en tehlikeli bicimiyle ayni kusuru
+    uretmek olurdu.
+
+    `AKIS_BESLEMELERI` tam olarak Python'un KENDISININ bu kuraldan
+    MUAF tuttugu beslemeler: konu bulunamazsa beslemenin varsayilan
+    konusu kullaniliyor. Yani uc katman hicbir KONU KARARI vermiyor;
+    yalnizca duz bir alt dize tablosuna (`VERI_KONULARI`) bakiyor ve
+    bulamazsa varsayilani yaziyor. Sinir keyfi degil, kodun kendi
+    sinirinin aynisi.
+    """
+    akis = set(getattr(besleme, "AKIS_BESLEMELERI", ()) or ())
+    sinirlar = getattr(besleme, "BESLEME_SINIRI", {}) or {}
+    ogeler = []
+    for kod, kisa, tam, adres, konu, dil, ticari in besleme.BESLEMELER:
+        if kod not in akis:
+            continue
+        ogeler.append({
+            "kod": kod,
+            "kurum": kisa,
+            "kurum_tam": tam,
+            "besleme": adres,
+            "konu": konu,
+            "dil": dil,
+            "ticari": bool(ticari),
+            "sinir": min(int(sinirlar.get(kod, TEL_OGE_SINIRI)),
+                         TEL_OGE_SINIRI),
+        })
+
+    return json.dumps({
+        "surum": 1,
+        "uretildi": datetime.now(timezone.utc).strftime(
+            "%Y-%m-%dT%H:%M:%SZ"),
+        "saklama_saat": TEL_SAKLAMA_SAAT,
+        "beslemeler": ogeler,
+        # Baslik onekleri: kunye sayfada ayrica basildigi icin
+        # basliktaki "FinancialJuice:" tekrari siliniyor.
+        "onekler": [d.pattern for d in getattr(besleme, "_ONEKLER", ())],
+        # Duz alt dize tablosu -- karar degil, ARAMA.
+        "veri_konulari": [[list(im), ko]
+                          for im, ko in besleme.VERI_KONULARI],
+    }, ensure_ascii=False, indent=1)
+
+
 #: Beslemedeki toplam oge sayisi.
 RSS_OGE_SAYISI = 40
 #: Bu kadar slot ANALIZE ayrilir -- yeterli analiz varsa. Taban,
@@ -6378,6 +6459,40 @@ def insa() -> int:
     _beslemeler[0]["sayi"] = min(
         len(listelenen) + len(_rss_haber), RSS_OGE_SAYISI)
     yaz("/beslemeler.opml", opml_uret(_beslemeler))
+
+    # UC KATMANI KURALLARI -- Worker bunu okuyor.
+    #
+    # SESSIZ ATLAMA YOK. `_besleme` iceri alinamazsa (dosya basindaki
+    # korumali `import`) dosya uretilmez ve Worker eski kurallarla
+    # calismaya devam eder. Bugun tam bu bicimde bir kusur yasandi:
+    # yanlis `import` bicimi `try/except` tarafindan yutuldu, blok hic
+    # calismadi ve site YESIL kuruldu. O yuzden burada sebep
+    # YAZDIRILIYOR -- sessizlik, calistigina dair kanit degil.
+    # AD CAKISMASI -- `_besleme` BURADA MODUL DEGIL.
+    #
+    # Dosya basinda `import besleme as _besleme` var, ama bu fonksiyonun
+    # ICINDE konu dongusu `_besleme = f"{_ky}rss.xml"` diye yaziyor.
+    # Python bir ada fonksiyon govdesinde bir kez atama gorurse o adi
+    # TUM govde boyunca YEREL sayar -- yani modul bu fonksiyonda hic
+    # erisilebilir degil. Ilk yazimda `tel_kurallari_uret(_besleme)`
+    # cagrildi ve inşa `'str' object has no attribute 'BESLEMELER'`
+    # ile dustu.
+    #
+    # Ayni adin iki sey ifade etmesi, bu depoda tekrar eden kusur
+    # sinifinin degisken adindaki hali. Cozum ayri bir ad.
+    try:
+        import besleme as _besleme_modulu    # noqa: PLC0415
+    except Exception as _e:                  # noqa: BLE001
+        # SESSIZ ATLAMA YOK: sebep yazdiriliyor. Bugun tam bu bicimde
+        # bir kusur yasandi -- yanlis `import` bicimi `try/except`
+        # tarafindan yutuldu, blok hic calismadi ve site YESIL
+        # kuruldu. Sessizlik, calistigina dair kanit degil.
+        print(f"  tel kurallari ATLANDI: {_e}")
+    else:
+        _tel = tel_kurallari_uret(_besleme_modulu)
+        yaz("/tel-kurallari.json", _tel)
+        print(f"  tel kurallari: {len(json.loads(_tel)['beslemeler'])} "
+              f"akis beslemesi")
     yaz(
         "/beslemeler/index.html",
         ortam.get_template("beslemeler.html").render(

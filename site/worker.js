@@ -2336,6 +2336,333 @@ async function kimlikBuda(env) {
 }
 
 
+/* ----------------------------------------------------------- tel ---
+ *
+ * TAZELIK ARTIK YENIDEN INSAYA BAGLI DEGIL.
+ *
+ * Olculdu (2026-09-30): zamanlanmis GitHub kosulari cron'un istedigi
+ * ~37 kosunun %19'unu teslim ediyor; ardisik kosular arasindaki
+ * ortanca boslук ~4 saat, gorulen en buyuk ~7. Nobetci bu boslugu
+ * kapatiyordu ama GitHub'a `repository_dispatch` icin JETON gerekiyor
+ * ve jeton olunce tempo tabana dustu. GitHub'da jetonsuz tetik YOK.
+ *
+ * Bu modul bagimliligi kaldiriyor: Cloudflare'in kendi cron'u (on
+ * dakikada bir, guvenilir) beslemeyi cekip D1'e yaziyor, sayfa da
+ * insadan DAHA YENI olanlari oradan gosteriyor.
+ *
+ * HICBIR KURAL BURADA YAZILI DEGIL
+ * --------------------------------
+ * Besleme adresi, konu eslemesi ve baslik onek temizligi
+ * `/tel-kurallari.json`dan okunuyor; o dosyayi `insa.py`
+ * `haber_botu/kaynak/besleme.py`den URETIYOR. Kurali buraya elle
+ * yazmak, ayni karari iki dilde iki kez yazmak olurdu -- bu depoda en
+ * pahaliya mal olan kusur sinifi tam olarak bu (2026-09-30, tema
+ * paleti: ayni jetona karar veren dort blok birbirinden ayri dustu).
+ *
+ * KONU KARARI VERILMIYOR
+ * ----------------------
+ * Yayilan dosya yalnizca `AKIS_BESLEMELERI` tasiyor -- Python'un
+ * KENDISININ "konu bulunamazsa varsayilani kullan" dedigi kume.
+ * Buradaki `konuSec` duz bir alt dize aramasi; bulamazsa beslemenin
+ * varsayilani yaziliyor. `konu_bul`un ince mantigi (diakritik
+ * normallestirme, basa konan kelime siniri, kosullu isaretler, mecaz
+ * on-cozumu) uca TASINMADI ve tasinmamali: dosyanin kendi kaydi
+ * oradaki kucuk bir degisikligin 58 yayimlanmis sayfayi sessizce
+ * dusurdugunu yaziyor.
+ */
+
+/** Beslemeye gonderilen kimlik. Kim oldugumuzu SOYLUYOR. */
+const TEL_KIMLIK = "Netaris-tel/1.0 (+https://netaris.net)";
+
+/** Tek turda bir beslemeden alinacak en fazla oge. */
+const TEL_TUR_SINIRI = 60;
+
+/** `/api/tel` bir istekte en fazla bu kadar oge donuyor. */
+const TEL_YANIT_SINIRI = 40;
+
+/** Kurallar dosyasi -- `insa.py` uretiyor, varlik katmanindan okunuyor. */
+async function telKurallari(env) {
+  if (!env.ASSETS) return null;
+  try {
+    const r = await env.ASSETS.fetch(
+      new URL("/tel-kurallari.json", "https://netaris.net"));
+    if (!r.ok) {
+      console.error("tel: kurallar okunamadi", r.status);
+      return null;
+    }
+    return await r.json();
+  } catch (e) {
+    console.error("tel: kurallar cozulemedi", e);
+    return null;
+  }
+}
+
+/** Basit RSS ayristirma: `<item>` icinden baslik, baglanti, tarih, guid. */
+function telRssAyristir(xml) {
+  const ogeler = [];
+  const alan = (govde, ad) => {
+    const m = govde.match(
+      new RegExp("<" + ad + "[^>]*>([\\s\\S]*?)</" + ad + ">", "i"));
+    return m ? telMetin(m[1]) : "";
+  };
+  const kalip = /<item[^>]*>([\s\S]*?)<\/item>/gi;
+  let m;
+  while ((m = kalip.exec(xml)) !== null) {
+    const g = m[1];
+    ogeler.push({
+      baslik: alan(g, "title"),
+      adres: alan(g, "link"),
+      tarih: alan(g, "pubDate"),
+      guid: alan(g, "guid"),
+    });
+    if (ogeler.length >= TEL_TUR_SINIRI) break;
+  }
+  return ogeler;
+}
+
+/** CDATA ve HTML varliklarini cozer. */
+function telMetin(s) {
+  return s
+    .replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, "$1")
+    .replace(/&lt;/g, "<").replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"').replace(/&#39;/g, "'")
+    .replace(/&apos;/g, "'")
+    /* `&amp;` EN SONA: once cozulseydi `&amp;lt;` once `&lt;` olur,
+       sonra `<`e donusurdu -- yani kaynaktaki duz metin isaretlemeye
+       cevrilirdi. Bu, klasik cift-cozme kusuru. */
+    .replace(/&amp;/g, "&")
+    .trim();
+}
+
+/** Yayilan onek desenleriyle baslik basindaki kaynak adini siler. */
+function telOnekSil(baslik, kurallar) {
+  let b = baslik;
+  for (const desen of (kurallar.onekler || [])) {
+    try {
+      b = b.replace(new RegExp(desen, "i"), "");
+    } catch (e) {
+      console.error("tel: onek deseni gecersiz", desen, e);
+    }
+  }
+  return b.trim();
+}
+
+/** Veri tablosundan konu. Bulamazsa beslemenin varsayilani. */
+function telKonuSec(baslik, kurallar, varsayilan) {
+  const k = baslik.toLowerCase();
+  for (const [isaretler, konu] of (kurallar.veri_konulari || [])) {
+    for (const i of isaretler) {
+      if (k.includes(i)) return konu;
+    }
+  }
+  return varsayilan;
+}
+
+/** RFC-822 ya da ISO tarihi ISO 8601 UTC'ye cevirir. */
+function telTarih(ham) {
+  const t = Date.parse(ham);
+  if (Number.isNaN(t)) return null;
+  return new Date(t).toISOString().replace(/\.\d+Z$/, "Z");
+}
+
+async function telSha(metin) {
+  const veri = new TextEncoder().encode(metin);
+  const ozet = await crypto.subtle.digest("SHA-256", veri);
+  return [...new Uint8Array(ozet)]
+    .map((b) => b.toString(16).padStart(2, "0")).join("");
+}
+
+/* CEVIRI -- ucretsiz ve ANAHTARSIZ.
+ *
+ * MyMemory, `haber_botu/kaynak/ceviri.py` ile AYNI uc. Anahtar
+ * istemiyor; yani bu modul hicbir yeni gizli deger gerektirmiyor --
+ * "jetonsuz cozum" sartinin geregi.
+ *
+ * ONBELLEK SART: tel on dakikada bir ayni basliklarin cogunu yeniden
+ * goruyor. Onbelleksiz her tur gunluk kotayi bastan harcardi ve kota
+ * bitince ceviri SESSIZCE kapanirdi.
+ *
+ * CEVIRI BEKLENMIYOR: uc cevap vermezse oge yine yaziliyor, orijinal
+ * basligiyla. Tazelik icin kurulan seyi ceviri ugruna geciktirmek,
+ * amaci kendine karsi kullanmak olurdu.
+ */
+async function telCevir(env, metin) {
+  const anahtar = await telSha(metin);
+  try {
+    const v = await env.DB.prepare(
+      "SELECT ceviri FROM tel_ceviri WHERE anahtar = ?").bind(anahtar).first();
+    if (v && v.ceviri) return v.ceviri;
+  } catch (e) {
+    console.error("tel: ceviri onbellegi okunamadi", e);
+  }
+  let ceviri = "";
+  try {
+    const u = "https://api.mymemory.translated.net/get?q="
+      + encodeURIComponent(metin.slice(0, 480)) + "&langpair=en|tr";
+    const r = await fetch(u, { headers: { "User-Agent": TEL_KIMLIK } });
+    if (r.ok) {
+      const d = await r.json();
+      const c = d && d.responseData && d.responseData.translatedText;
+      /* Ucun "cevrilemedi" dedigi durumda kaynagi AYNEN geri
+         verdigi oluyor; onu ceviri diye saklamak, onbellegi yanlis
+         bir cevapla kalici olarak zehirlemek olurdu. */
+      if (c && c.toLowerCase() !== metin.toLowerCase()
+          && !/^[A-Z ]*$/.test(c)) {
+        ceviri = c;
+      }
+    }
+  } catch (e) {
+    console.error("tel: ceviri alinamadi", e);
+  }
+  if (!ceviri) return "";
+  try {
+    await env.DB.prepare(
+      "INSERT OR REPLACE INTO tel_ceviri (anahtar, ceviri, eklendi) "
+      + "VALUES (?, ?, ?)").bind(anahtar, ceviri, damga()).run();
+  } catch (e) {
+    console.error("tel: ceviri yazilamadi", e);
+  }
+  return ceviri;
+}
+
+/** Bir turda: beslemeleri cek, ogeleri yaz, eskiyeni buda. */
+async function telTopla(env) {
+  if (!env || !env.DB) return;
+  const kurallar = await telKurallari(env);
+  if (!kurallar || !Array.isArray(kurallar.beslemeler)) return;
+
+  const simdi = damga();
+  for (const b of kurallar.beslemeler) {
+    let xml = "";
+    try {
+      const r = await fetch(b.besleme, {
+        headers: {
+          "User-Agent": TEL_KIMLIK,
+          "Accept": "application/rss+xml, application/xml, text/xml",
+        },
+      });
+      /* 429 = kaynagin hiz siniri. TEKRAR DENENMIYOR: olculdu
+         (2026-09-30), sinir ~30 saniyede aciliyor ve bizim turumuz
+         on dakikada bir. Yani bir turu atlamak yeterli; ustune
+         gitmek, kaynagin acikca koydugu siniri asmaya calismak
+         olurdu ve bu depoda kalici blogu asmaya calismamak yerlesik
+         bir ilke (bkz. bilanco_ag). */
+      if (!r.ok) {
+        console.error("tel: besleme alinamadi", b.kod, r.status);
+        continue;
+      }
+      xml = await r.text();
+    } catch (e) {
+      console.error("tel: besleme hatasi", b.kod, e);
+      continue;
+    }
+
+    const sinir = Math.min(b.sinir || TEL_TUR_SINIRI, TEL_TUR_SINIRI);
+    const ogeler = telRssAyristir(xml).slice(0, sinir);
+    for (const o of ogeler) {
+      const adres = (o.adres || "").trim();
+      const baslik = telOnekSil(o.baslik || "", kurallar);
+      const tarih = telTarih(o.tarih);
+      /* ATIF EKSIKSE OGE ALINMIYOR.
+         `ticari` kaynakta kurum adi VE baglanti gosterilmek zorunda.
+         Semada da `CHECK` var; burasi ondan ONCE eliyor ki her turda
+         ayni satir icin hata uretilmesin. */
+      if (!baslik || !adres || !/^https?:\/\//i.test(adres) || !tarih) {
+        continue;
+      }
+      const kimlik = (o.guid && o.guid.trim()) || adres;
+      let mevcut = null;
+      try {
+        mevcut = await env.DB.prepare(
+          "SELECT baslik_tr FROM tel WHERE kimlik = ?").bind(kimlik).first();
+      } catch (e) {
+        console.error("tel: okuma hatasi", e);
+      }
+      /* ZATEN VARSA CEVIRI YENIDEN ISTENMIYOR -- kota ve sure. */
+      let trBaslik = mevcut ? (mevcut.baslik_tr || "") : "";
+      if (!mevcut && b.dil && b.dil !== "tr") {
+        trBaslik = await telCevir(env, baslik);
+      }
+      try {
+        await env.DB.prepare(
+          "INSERT OR REPLACE INTO tel (kimlik, kod, kurum, kurum_tam, "
+          + "adres, baslik_kaynak, baslik_tr, konu, ticari, tarih, eklendi) "
+          + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)")
+          .bind(kimlik, b.kod, b.kurum, b.kurum_tam, adres, baslik,
+                trBaslik, telKonuSec(baslik, kurallar, b.konu),
+                b.ticari ? 1 : 0, tarih, simdi)
+          .run();
+      } catch (e) {
+        console.error("tel: yazilamadi", kimlik, e);
+      }
+    }
+  }
+
+  /* BUDAMA. Pencere yayilan dosyadan geliyor, burada yazili degil. */
+  const saat = Number(kurallar.saklama_saat) || 36;
+  const sinirAn = new Date(Date.now() - saat * 3600e3)
+    .toISOString().replace(/\.\d+Z$/, "Z");
+  try {
+    await env.DB.prepare("DELETE FROM tel WHERE tarih < ?")
+      .bind(sinirAn).run();
+  } catch (e) {
+    console.error("tel: budama basarisiz", e);
+  }
+}
+
+/* `/api/tel` -- sayfanin okudugu uc.
+ *
+ * OTURUM ISTEMEZ: okurun cogu uye degil ve bu, sitenin OKUMA tarafi.
+ *
+ * `sonra` parametresi: sayfa kendi insa anini gonderiyor ve yalnizca
+ * ONDAN YENI ogeler donuyor. Boylece basilmis sayfada ZATEN duran bir
+ * haber ikinci kez gosterilmiyor -- ayni olayin iki kopyasi, okurun
+ * gozunde sitenin kendini tekrar etmesi demek. */
+async function telListe(istek, env) {
+  const u = new URL(istek.url);
+  /* SAAT DILIMI BICIMI NORMALLESTIRILIYOR.
+     Sayfa kendi uretim anini `insa.py`den aliyor ve orasi
+     `isoformat()` kullaniyor: `2026-09-30T11:00:00+00:00`. Tel ise
+     `Z` bicimiyle yaziyor: `2026-09-30T11:31:51Z`. SQLite bunlari
+     METIN olarak karsilastiriyor ve 19. karakterde `Z` (0x5A) ile
+     `+` (0x2B) yan yana geliyor -- yani AYNI ANI tasiyan iki damga
+     "buyuk/kucuk" cikiyor ve suzgec sessizce yanlis calisirdi.
+     Gorunur belirti "hic oge gelmiyor" olurdu; yani mekanizma
+     VARMIS gibi durup hicbir sey yapmazdi. */
+  const ham = (u.searchParams.get("sonra") || "").slice(0, 40);
+  const sonra = telTarih(ham) || "";
+  const kosul = sonra ? " WHERE tarih > ?" : "";
+  const sorgu = "SELECT kurum, kurum_tam, adres, baslik_kaynak, baslik_tr, "
+    + "konu, ticari, tarih FROM tel" + kosul
+    + " ORDER BY tarih DESC LIMIT " + TEL_YANIT_SINIRI;
+  let satir = [];
+  try {
+    const hazir = kosul ? env.DB.prepare(sorgu).bind(sonra)
+                        : env.DB.prepare(sorgu);
+    satir = ((await hazir.all()) || {}).results || [];
+  } catch (e) {
+    console.error("tel: liste hatasi", e);
+    return yanit({ ogeler: [] });
+  }
+  return yanit({
+    ogeler: satir.map((s) => ({
+      baslik: s.baslik_tr || s.baslik_kaynak,
+      baslik_kaynak: s.baslik_kaynak,
+      /* Cevrilmis mi: sayfa "makine cevirisi" notunu buna gore
+         basiyor. Ceviri oldugunu SOYLEMEK, ceviri yapmak kadar
+         onemli -- kaynak nuansi kaybolabilir. */
+      cevrildi: Boolean(s.baslik_tr) && s.baslik_tr !== s.baslik_kaynak,
+      kurum: s.kurum,
+      kurum_tam: s.kurum_tam,
+      adres: s.adres,
+      konu: s.konu,
+      ticari: Boolean(s.ticari),
+      tarih: s.tarih,
+    })),
+  }, 200, { "cache-control": "public, max-age=60" });
+}
+
+
 export default {
   /* Cloudflare cron tetikleyicisi. `waitUntil` SART: `scheduled`
      donunce calisma baglamı kapanıyor ve bekleyen istek yarida
@@ -2345,6 +2672,9 @@ export default {
     /* Bakim isi NOBETCIDEN AYRI bekletiliyor: biri dusse oteki
        calismaya devam etsin. */
     ctx.waitUntil(kimlikBuda(env));
+    /* Tel de AYRI: besleme coksun, nobetci ve budama calismaya
+       devam etsin. */
+    ctx.waitUntil(telTopla(env));
   },
 
   async fetch(istek, env) {
@@ -2464,6 +2794,8 @@ export default {
          Amaci "sessiz mi, bozuk mu" sorusunu disaridan
          cevaplanabilir kilmak. */
       if (y === "nobetci" && m === "GET") return await nobetciDurum(env);
+      /* Tel: sitenin OKUMA tarafi, oturum istemez. */
+      if (y === "tel" && m === "GET") return await telListe(istek, env);
       /* SAYACLAR OTURUM ISTEMEZ.
          Okurun cogu uye degil; goruntulenme uyelige bagli olsaydi
          olcum sitenin kucuk bir dilimini gosterirdi. Begeni ise

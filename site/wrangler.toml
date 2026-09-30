@@ -72,6 +72,33 @@ routes = [
 # Ince taneli PAT, yalnizca bu depoda `contents: write`.
 # BAKIS SIKLIGI: 30 -> 10 dakika (2026-09-14).
 #
+# NOBETCI ARTIK TEK YOL DEGIL -- 2026-09-30.
+# =========================================
+# Jeton suresi doldu ve nobetci 401 almaya basladi. Olculdu: son 300
+# kosunun 235'i nobetciden geliyordu, yani nobetci "yedek" degil
+# fiilen TEK duzenleyiciydi; olunce tempo tabana dustu. Zamanlanmis
+# GitHub kosulari cron'un istedigi ~37 kosunun yalnizca %19'unu
+# teslim ediyor ve ardisik kosular arasindaki ortanca boslук ~4 saat.
+#
+# GitHub tarafinda JETONSUZ TETIK YOK: `repository_dispatch` da
+# `workflow_dispatch` da kimlik istiyor. Bu yuzden cozum tetiklemeyi
+# onarmak degil, TAZELIGI YENIDEN INSAYA BAGLI OLMAKTAN CIKARMAK
+# oldu.
+#
+# Ayni cron turunde artik `telTopla` da calisiyor (bkz. worker.js):
+# besleme cekiliyor, D1'deki `tel` tablosuna yaziliyor ve `/gundem/`
+# insadan DAHA YENI olan basliklari `/api/tel`den aliyor. GitHub
+# tumden dursa bile basliklar akmaya devam ediyor.
+#
+# Nobetci YERINDE KALIYOR: jeton yenilenirse sayfa uretimi de
+# (analiz, yorum, fotograf) yine sik sik tazelenir. Tel yalnizca
+# BASLIGI tasiyor, islenmis icerigi degil.
+#
+# Tel HICBIR YENI GIZLI DEGER ISTEMIYOR: besleme herkese acik RSS,
+# ceviri ucu (MyMemory) anahtarsiz. Gereken tek sey `tel` ve
+# `tel_ceviri` tablolari ve onlari `otomasyon.yml` icindeki "D1
+# göçü" adimi kendiliginden kuruyor (`d1/gecis_tel.sql`).
+#
 # Olculdu: GitHub'in zamanlanmis kosulari `*/30` yazmasina ragmen
 # ardisik olarak ORTANCA 173 DAKIKA arayla dusuyor (%90: 295 dk, en
 # buyuk 369). Yani takvim var ama seyrek; nobetci akisin tek

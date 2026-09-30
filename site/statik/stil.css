@@ -1491,6 +1491,59 @@ main.kabuk {
   gap: var(--b-2);
   padding: var(--b-4) var(--b-4b)}
 
+/* TEL -- INSADAN DAHA YENI BASLIKLAR.
+   ==================================
+   Ogeler sayfaya ISTEMCIDE ekleniyor (`statik/tel.js`), kaynak
+   Cloudflare Worker'in on dakikada bir topladigi besleme.
+
+   NEDEN AYRI GORUNUYOR: bu basliklar sitenin islemesinden GECMEDI --
+   yorum yok, siniflandirma yok, sayfa yok. Okur ikisini ayirt
+   edebilmeli; "canli" rozeti ve sol serit tam olarak bunun icin.
+   Ayni listede ayirt edilemez bicimde durmalari, islenmis icerikle
+   ham teli ayni sey gibi sunmak olurdu.
+
+   YENI RENK YOK: serit `--vurgu-zar-2`, rozet `--vurgu-zar`. Ikisi de
+   mevcut jeton; tel icin ucuncu bir vurgu rengi acmak, olcegi
+   genisletmeden once sebebini yazmayi gerektirirdi. */
+.tel-kap {
+  display: flex; align-items: center; gap: var(--b-2);
+  margin: var(--b-3) 0 var(--b-2);
+  padding: var(--b-2) var(--b-3);
+  border: 1px solid var(--vurgu-zar-2);
+  border-radius: var(--r-kucuk);
+  background: var(--vurgu-zar);
+  font-size: var(--p-s);
+  color: var(--yazi-2)}
+.tel-kap[hidden] { display: none}
+.tel-metin b { color: var(--yazi); font-variant-numeric: tabular-nums}
+
+/* Nabiz `--artis` DEGIL `--vurgu`: yesil bu arayuzde fiyat YONU
+   demek ve ayni rengi "canli" icin de kullanmak iki sinyali
+   zayiflatirdi (ayni gerekce `.nokta` blogunda da yazili). */
+.tel-nokta {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--vurgu); flex: none;
+  box-shadow: 0 0 0 0 var(--vurgu-zar-2);
+  animation: tel-nabiz 2.4s ease-out infinite}
+@keyframes tel-nabiz {
+  0%   { box-shadow: 0 0 0 0 var(--vurgu-zar-2)}
+  70%  { box-shadow: 0 0 0 7px transparent}
+  100% { box-shadow: 0 0 0 0 transparent}
+}
+
+.tel-oge { border-left: 2px solid var(--vurgu-zar-2)}
+.tel-rozet {
+  background: var(--vurgu-zar);
+  border-color: var(--vurgu-zar-2);
+  color: var(--vurgu-koyu)}
+
+/* Makine cevirisi oldugu SOYLENIYOR -- `ceviri.py` basindaki ilke:
+   nuans kaybi olabilir, okur kaynaga gidip kendi okuyabilmeli. */
+.tel-ceviri {
+  font-size: var(--p-xs);
+  color: var(--yazi-3);
+  white-space: nowrap}
+
 /* Yatay kartta dolgu HER YANDAN esit: dikey kartta ust dolgu
    gorselden ayirmak icin buyuktu, artik gorsel YANDA. */
 .haber-ic {

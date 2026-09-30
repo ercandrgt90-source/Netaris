@@ -311,6 +311,43 @@ jobs:
             exit 1
           fi
 
+      # D1 GOCU -- ELLE ADIM BIRAKMIYORUZ.
+      #
+      # `gecis_tel.sql` yalnizca `CREATE TABLE IF NOT EXISTS` ve
+      # `CREATE INDEX IF NOT EXISTS` iceriyor: tekrar calistirilabilir
+      # ve var olan hicbir tabloya ya da satira dokunmuyor.
+      #
+      # NEDEN BURADA, ELLE DEGIL: tablo olmadan tel katmani her on
+      # dakikada bir hata yazip hicbir sey yapmaz -- yani ozellik
+      # "kurulu ama calismiyor" halinde sessizce durur. Elle
+      # atilmasi gereken bir adim, atilmadigi gun gorunmez bir ariza
+      # uretir. Bu depoda tam olarak o bicimde kusurlar yasandi.
+      #
+      # `gocler.sql` BURADA CALISTIRILMIYOR: icinde `ALTER TABLE ADD
+      # COLUMN` var ve ikinci calistirmada "duplicate column" ile
+      # duser. Otomatige alinabilecek gocun sarti tekrar
+      # calistirilabilir olmasi.
+      #
+      # `continue-on-error`: goc basarisiz olursa site YINE yayina
+      # cikar. Tel bir EK katman; onun eksikligi sitenin okuma
+      # tarafini durdurmamali.
+      # Jeton kontrolu KABUKTA -- dosyanin kendi kalibi boyle
+      # (bkz. "sonuclandirma" adimi). Adim duzeyindeki `if` icinde
+      # `env` bu asamada henuz cozulmuyor.
+      - name: D1 göçü (tel tabloları)
+        continue-on-error: true
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        working-directory: site
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ]; then
+            echo "CLOUDFLARE_API_TOKEN yok -- D1 göçü atlandı."
+            exit 0
+          fi
+          npx --yes wrangler@latest d1 execute netaris-uyelik \
+            --remote --file=./d1/gecis_tel.sql --yes
+
       - name: Veri topla ve içerik üret
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
