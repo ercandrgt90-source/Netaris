@@ -159,4 +159,42 @@ _bulundu = [
 ]
 esit(len(_bulundu), 1, "atfi gizleyen CSS kurali YAKALANIYOR")
 
+print("\nKAGIDA BASILAN KOPYA DA ATIF TASIYOR")
+# AYNI YUKUMLULUK, BASKA ORTAM.
+#
+# 2026-09-30'da baski bicimi (`@media print`) eklendi: yazdirirken
+# gezinme, serit, paylasim ve altbilgi gizleniyor. O blok atif
+# kunyelerini de gizleseydi, ekranda cozdugumuz ihlali kagitta
+# YENIDEN uretmis olurduk -- CC BY atfi yazdirilan kopyada da
+# zorunlu, ticari kaynak kunyesi de oyle.
+_baski = re.search(r"@media print\s*\{(.*)\n\}", _css, re.S)
+esit(_baski is not None, True, "baski bicimi tanimli")
+_ic = _baski.group(1)
+
+_gizlenen_atif = []
+for _sec, _gov in re.findall(r"([^{}]+)\{([^{}]*)\}", _ic):
+    if not re.search(r"display\s*:\s*none|visibility\s*:\s*hidden", _gov):
+        continue
+    for _sinif in ("foto-kunye", "foto-atif", "haber-kunye",
+                   "kanal-not", "kaynak-not", TV_ATIF):
+        if re.search(rf"\.{re.escape(_sinif)}\b", _sec):
+            _gizlenen_atif.append((_sinif, _sec.strip()[:40]))
+if _gizlenen_atif:
+    print(f"\n  BASKIDA GIZLENEN ATIF: {_gizlenen_atif}")
+esit(_gizlenen_atif, [], "baski bicimi hicbir atfi gizlemiyor")
+
+# Blok GERCEKTEN bir sey yapiyor mu -- bos bir `@media print` de
+# "atif gizlemiyor" der ve iddia bosa duser.
+esit(bool(re.search(r"display\s*:\s*none", _ic)), True,
+     "baski bicimi arayuzu GERCEKTEN gizliyor (blok bos degil)")
+
+print("\nKONTROL: baskida gizlenen atif YAKALANIR MI")
+_sahte_baski = ".ust, .foto-kunye { display: none !important}"
+_yakalanan = [
+    s for s, gov in re.findall(r"([^{}]+)\{([^{}]*)\}", _sahte_baski)
+    if re.search(r"display\s*:\s*none", gov)
+    and re.search(r"\.foto-kunye\b", s)
+]
+esit(len(_yakalanan), 1, "baskida atif gizlense YAKALANIRDI")
+
 print(f"\nTUM TESTLER GECTI ({_gecti})")

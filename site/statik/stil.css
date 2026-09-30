@@ -198,10 +198,10 @@
   --p-s: 0.8125rem;   /* 13,0 px */
   --p-m: 0.875rem;    /* 14,0 px */
   --p-ml: 1rem;
-  --p-l: 1.125rem;   /* 17,0 px */
-  --p-xl: 1.3125rem;  /* 19,0 px */
-  --p-2xl: 1.5625rem;  /* 22,0 px */
-  --p-3xl: 1.9375rem;   /* 28,0 px */
+  --p-l: 1.125rem;   /* 18,0 px */
+  --p-xl: 1.3125rem;  /* 21,0 px */
+  --p-2xl: 1.5625rem;  /* 25,0 px */
+  --p-3xl: 1.9375rem;   /* 31,0 px */
 
   /* Satir araligi da olcege bagli: kucuk metin sik, uzun metin genis.
      Tek bir deger butun boylara uymuyor -- 12 piksellik bir rozette
@@ -5360,13 +5360,38 @@ h1 {
   letter-spacing: -0.015em}
 
 h2 {
-  font-size: var(--p-2xl);
+  /* AKISKAN -- h1 ILE BIRLIKTE KUCULSUN.
+     -----------------------------------
+     Olculdu (2026-09-30): h1 akiskandi (28-42px) ama h2 SABIT 25px
+     duruyordu. Sonuc, hiyerarsinin DAR EKRANDA DUZLESMESI:
+
+         360px  h1 28 / h2 25  -> oran 1,12
+        1200px  h1 42 / h2 25  -> oran 1,68
+
+     Uc piksellik fark basligi alt bashktan ayirmaya yetmiyor; okur
+     iki satiri ayni duzeyde goruyor ve sayfa duzeyi kayboluyor.
+
+     SINIRLAR JETONDAN. `clamp` punto sinamasinda otomatik muaf
+     ("akiskan deger her secicide muaf") -- yani ham bir deger
+     yazsaydim olcek denetiminin DISINA cikmis olurdum. Sinirlari
+     jetona baglamak muafiyeti gereksiz kiliyor: deger akiyor ama
+     olcegin icinde kaliyor.
+
+     Ust satirdaki h1 yorumunun ilkesi aynen gecerli: tek tanim,
+     medya sorgusu yok -- iki ayri kural bir gun ayrisirdi. */
+  font-size: clamp(var(--p-xl), 2.6vw, var(--p-2xl));
   line-height: var(--satir-sik);
   font-weight: 700;
   letter-spacing: -0.01em}
 
 h3 {
-  font-size: var(--p-xl);
+  /* h2 KUCULURKEN h3 SABIT KALSAYDI IKISI CAKISIRDI.
+     h2'nin dar ekrandaki degeri `--p-xl` (21px) ve h3 de tam olarak
+     o jetondaydi. Yani h2 akiskan yapilip h3 birakilsaydi 360px'te
+     ikisi de 21px olur, alt basligi ust bashktan ayirmak IMKANSIZ
+     hale gelirdi -- duzeltilen kusurun aynisi bir basamak asagida
+     yeniden uretilirdi. */
+  font-size: clamp(var(--p-l), 2.2vw, var(--p-xl));
   line-height: var(--satir-sik);
   font-weight: 600}
 
@@ -7682,3 +7707,68 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
   border-style: solid;
   border-color: var(--vurgu);
   color: var(--vurgu)}
+
+
+/* ====================================================================
+   BASKI -- ANALIZ KAGIDA DOKULUNCE OKUNABILIR OLSUN
+   ====================================================================
+   Olculdu (2026-09-30): sitede `@media print` HIC YOKTU. Bir bilanco
+   analizi yazdirildiginda gezinme, fiyat seridi, paylasim dugmeleri,
+   makale sonu blogu ve altbilgi menusu de kagida basiyordu.
+
+   Bu bir finans arastirma yayini: analist bir analizi yazdirir,
+   dosyalar, toplantiya goturur. Kagida basilan sey okurun elinde
+   kalan SON surumdur ve orada arayuz degil ICERIK olmali.
+
+   EKRANA SIFIR RISK: bu blok yalnizca yazdirma anında uygulanir.
+   Ekran gorunumunun tek bir pikseli degismiyor.
+
+   ATIFLAR BASILMAYA DEVAM EDIYOR -- GIZLENMIYOR.
+   ---------------------------------------------
+   `.foto-kunye`, `.foto-atif`, `.haber-kunye`, `.kanal-not` ve
+   `.kaynak-not` BILEREK duruyor. CC BY atfi ve ticari kaynak kunyesi
+   ekranda zorunlu oldugu gibi kagitta da zorunlu; yazdirilan kopya
+   ayni yukumlulugu tasiyor. Onlari "arayuz" sayip gizlemek, ayni
+   ihlali baska bir ortamda uretmek olurdu. */
+@media print {
+  /* Tarayici varsayilani zaten beyaz kagit; zemin jetonlarini
+     zorlamak koyu temada dev murekkep bloklari basardi. */
+  :root, :root[data-tema="dark"], :root[data-tema="light"] {
+    --zemin: #fff; --zemin-2: #fff; --panel: #fff; --panel-2: #fff;
+    --yazi: #000; --yazi-2: #222; --yazi-3: #444;
+    --cizgi: #bbb; --cizgi-parlak: #999;
+    --golge: none; --golge-yuksek: none}
+
+  body { background: #fff; color: #000}
+
+  /* ARAYUZ KAGIDA GITMEZ. */
+  .ust, .alt, .serit, .sondakika, .sayfa-paylas, .okumaya-devam,
+  .menu, .mobil-menu, .masa-yan, .tv-kutu, .ara-kutu,
+  .uyelik-cagri, .senaryo-davet, .senaryo-cagri,
+  .suzgec, .akis-suzgec, .sayac, .begeni,
+  [data-panel], [data-sd-durdur], [data-paylas-yerel] { display: none !important}
+
+  /* Olcu kisiti kagitta gereksiz: sayfa zaten dar. */
+  .yazi, .sayfa, .kabuk, main.kabuk { max-width: none; padding: 0; margin: 0}
+  .govde > p, .govde > ul, .govde > ol, .govde > blockquote,
+  .govde > h3 { max-width: none}
+
+  /* DIS BAGLANTININ ADRESI GORUNSUN.
+     Sitenin butun iddiasi dogrulanabilirlik. Kagitta tiklanamayan
+     bir baglanti, adresi yazilmadikca dogrulanamaz. Ic baglantilar
+     HARIC: 1.600 adresin hepsini basmak sayfayi cop eder. */
+  .govde a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 85%;
+    color: #444;
+    word-break: break-all}
+
+  /* Tablo ve sekil sayfa arasinda BOLUNMESIN. */
+  table, figure, .yazi-gorsel, .skor-kutu { break-inside: avoid}
+  h1, h2, h3 { break-after: avoid}
+  img, svg { max-width: 100% !important; height: auto}
+
+  /* Baglantilar murekkep tasarrufu icin duz siyah; alti cizili
+     kalIyor ki metin icinde baglanti oldugu anlasilsin. */
+  a { color: #000; text-decoration: underline}
+}
