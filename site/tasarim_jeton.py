@@ -36,11 +36,26 @@ _YORUM = re.compile(r"/\*.*?\*/", re.S)
 #:
 #: Renkler bilerek DISARIDA: onlarin dogru gosterimi ornek kutu,
 #: liste degil -- ayri bolumde ele aliniyor.
+#: ACIKLAMADAKI SAYI DA URETILIYOR.
+#:
+#: Olculdu (2026-09-30): aciklama "Yedi adimli olcek" diyordu ama
+#: tabloda SEKIZ jeton vardi -- `--p-ml` 2026-09-24'te eklenmis,
+#: TABLO guncellenmis, CUMLE guncellenmemisti. Ustelik ayni cumle
+#: "Ara degerler kullanilmiyor" diyordu ve `--p-ml` tam olarak bir
+#: ara deger.
+#:
+#: Sayfanin kendi girisi su vaadi veriyor: "Bu sayfadaki hicbir deger
+#: elle yazilmadi... Elle yazilsaydi sayfa ilk gun dogru olur, ikinci
+#: gun sessizce yanilticiya doner." Vaat DEGERLER icin tutuluyordu,
+#: DEGERLER HAKKINDAKI CUMLELER icin tutulmuyordu.
+#:
+#: `{n}` render aninda dolduruluyor: jeton eklenince cumle kendiligi
+#: nden duzeliyor.
 OBEK = (
     ("p-", "Punto",
-     "Yedi adimli olcek. Ara degerler kullanilmiyor: iki punto "
-     "arasindaki fark okurun ayirt edebilecegi kadar buyuk olmali, "
-     "yoksa hiyerarsi degil gurultu uretir."),
+     "{n} adimli olcek. Adimlar arasindaki fark okurun ayirt "
+     "edebilecegi kadar buyuk tutuluyor; yakin iki punto hiyerarsi "
+     "degil gurultu uretir (bkz. `test_punto_olcegi.py`)."),
     ("b-", "Bosluk",
      "Dort piksel tabanli izgara. 20 ve 28 sonradan eklendi, cunku "
      "ikisi de izgaradaydi ve sirasiyla 30 ve 12 yerde kullaniliyordu "
@@ -102,8 +117,12 @@ def jetonlar(css: str | None = None) -> list[dict]:
             n = len(re.findall(rf"var\(--{re.escape(ad)}\s*[,)]", css))
             satir.append({"ad": f"--{ad}", "deger": deger, "kullanim": n})
         if satir:
+            # Aciklamadaki sayi BURADA dolduruluyor -- elle yazilan
+            # bir sayi, jeton eklendigi gun yanlis olur.
             cikti.append({"onek": onek, "baslik": baslik,
-                          "aciklama": aciklama, "jeton": satir})
+                          "aciklama": aciklama.replace("{n}",
+                                                       str(len(satir))),
+                          "jeton": satir})
     return cikti
 
 

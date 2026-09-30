@@ -141,6 +141,45 @@ def test_yorum_kural_sayilmiyor():
     assert tj.olculer(cok_satirli)["satir"] == 5, tj.olculer(cok_satirli)
 
 
+def test_aciklamadaki_sayi_uretiliyor():
+    """Obek aciklamasindaki adim sayisi GERCEK sayiyla ayni olmali.
+
+    Olculdu (2026-09-30): aciklama "Yedi adimli olcek" diyordu ama
+    tabloda SEKIZ jeton vardi. `--p-ml` 2026-09-24'te eklenmis,
+    TABLO guncellenmis, CUMLE guncellenmemisti. Ayni cumle "Ara
+    degerler kullanilmiyor" da diyordu ve `--p-ml` tam olarak bir
+    ara deger.
+
+    Sayfanin kendi girisi "hicbir deger elle yazilmadi... elle
+    yazilsaydi ikinci gun sessizce yanilticiya donerdi" diyor. Vaat
+    DEGERLER icin tutuluyordu, DEGERLER HAKKINDAKI CUMLELER icin
+    tutulmuyordu -- kusur, sayfanin onlemek icin kuruldugu seyin
+    bir katman yukarisiydi.
+
+    Uydurma CSS ile kosuyor: jeton sayisi degisince cumlenin de
+    degistigi dogrulaniyor. Sabit sayi yazan bir aciklama duser.
+    """
+    import re
+
+    az = ":root { --p-a: 1px; --p-b: 2px; }"
+    cok = ":root { --p-a: 1px; --p-b: 2px; --p-c: 3px; --p-d: 4px; }"
+    for css, beklenen in ((az, 2), (cok, 4)):
+        punto = [o for o in tj.jetonlar(css) if o["onek"] == "p-"]
+        assert punto, css
+        a = punto[0]["aciklama"]
+        sayilar = [int(x) for x in re.findall(r"\b(\d+)\b", a)]
+        assert beklenen in sayilar, (beklenen, a)
+        # Yer tutucu cozulmemis kalmamali.
+        assert "{n}" not in a, a
+
+    # GERCEK CSS'te de tutmali.
+    gercek = [o for o in tj.jetonlar() if o["onek"] == "p-"][0]
+    ilk = re.match(r"\s*(\d+)", gercek["aciklama"])
+    assert ilk, gercek["aciklama"]
+    assert int(ilk.group(1)) == len(gercek["jeton"]), (
+        ilk.group(1), len(gercek["jeton"]))
+
+
 def test_gercek_css_okunuyor():
     """Asil dosya. Olcek yerinde mi?"""
     o = tj.olculer()
