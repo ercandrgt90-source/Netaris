@@ -3,9 +3,20 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-{# Tarayici arayuzu (mobil adres cubugu) sayfayla ayni tonu alsin. #}
-<meta name="theme-color" content="#fbfcfe" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0b1018" media="(prefers-color-scheme: dark)">
+{# Mobil adres cubugu UST SERITLE ayni tonu alsin -- sayfayla degil.
+
+   Adres cubugu ekranda seridin hemen USTUNDE duruyor; komsusu sayfa
+   govdesi degil, serit. Onceki degerler sayfa zeminindendi (#fbfcfe /
+   #0b1018) ve acik temada cubuk neredeyse beyaz, hemen altindaki
+   serit ise koyu laciverttti: iki ton arasinda gerekcesiz bir kesik
+   olusuyordu.
+
+   Serit her iki temada da ayni lacivert (`--ust-zemin: #071426`), bu
+   yuzden burada da tek deger yeterli ve medya ayrimina gerek yok.
+
+   #fbfcfe AYRICA BAYATTI: sayfa zemini 2026'da #eef2f7'ye
+   koyulastirilmisti, bu meta guncellenmemisti. #}
+<meta name="theme-color" content="#071426">
 
 {# TEMA, STIL DOSYASINDAN ONCE VE SATIR ICI SECILIYOR.
    Betik <head> icinde ve senkron; boylece kok elemana `data-tema` ilk

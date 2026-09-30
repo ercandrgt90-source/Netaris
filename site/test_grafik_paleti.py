@@ -65,14 +65,37 @@ _css = re.sub(r"/\*.*?\*/", " ",
               flags=re.S)
 
 
-def jetonlar(desen: str) -> dict[str, str]:
-    m = re.search(desen + r"\s*\{([^}]*)\}", _css, re.S)
-    return dict(re.findall(r"(--[\w-]+)\s*:\s*(#[0-9a-fA-F]{3,8})",
-                           m.group(1))) if m else {}
+# PALET ARTIK BLOK ARANARAK BULUNMUYOR -- HESAPLANIYOR.
+#
+# Onceki surum acik paleti `:root[data-tema="light"] { ... }` blogunu
+# REGEX'LE ARAYARAK okuyordu. 2026-09-30'da tema yapisi sadelestirilip
+# o blok kaldirilinca (taban `:root` zaten acik palet), desen sessizce
+# BASKA bir bloga -- `@media print` sifirlamasina -- dustu ve sinama
+# "VURGU #0a7974 != --vurgu #075f5c" gibi sahte ayrisimlar bildirdi.
+# Renkler dogruydu; ADRES yanlisti.
+#
+# Ders: bir paleti "su blokta yaziyor" diye aramak, palet nerede
+# durursa dursun degismeyen bir olcuye gore SABIT bir varsayim. Blok
+# tasinabilir, bolunebilir, silinebilir. Okurun gordugu SONUC tasinmaz.
+# Bu yuzden palet artik `test_tema_paleti` ile hesaplaniyor: ozgulluk
+# ve belge sirasi uygulanarak, belirli bir okur durumunda jetonun
+# aldigi son deger.
+import test_tema_paleti as _tema  # noqa: E402
+
+_KURALLAR = _tema.kok_kurallari(_tema._css())
 
 
-ACIK = jetonlar(r':root\[data-tema="light"\]')
-KOYU = jetonlar(r':root\[data-tema="dark"\]')
+def _hex_palet(sistem_koyu: bool, damga) -> dict[str, str]:
+    """Ekran (baski DEGIL) paletinin yalnizca duz hex degerleri."""
+    return {a: d for a, d in _tema.palet(_KURALLAR, sistem_koyu, damga).items()
+            if re.fullmatch(r"#[0-9a-fA-F]{3,8}", d.strip())}
+
+
+#: Damgasiz + sistem acik: okurlarin COGUNLUGUNUN gordugu palet.
+ACIK = _hex_palet(False, None)
+#: Damgasiz + sistem koyu. `[data-tema="dark"]` ile AYNI olmasini
+#: `test_tema_paleti.test_koyu_tema_tek_surum` zorluyor.
+KOYU = _hex_palet(True, None)
 
 #: `gorsel.py` sabiti -> stil.css jetonu.
 #:

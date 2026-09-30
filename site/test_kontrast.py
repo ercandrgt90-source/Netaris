@@ -99,15 +99,36 @@ _css = re.sub(r"/\*.*?\*/", " ",
               flags=re.S)
 
 
-def jeton_blogu(desen: str) -> dict[str, str]:
-    m = re.search(desen, _css, re.S)
-    return dict(re.findall(r"(--[\w-]+)\s*:\s*([^;}]+)", m.group(1))) if m else {}
+# PALET BLOK ARANARAK DEGIL, HESAPLANARAK BULUNUYOR.
+#
+# OLCULDU (2026-09-30) -- bu dosyanin BASINA gelen sey:
+# Onceki surum acik paleti `:root[data-tema="light"] { ... }` blogunu
+# regexle arayarak okuyordu. Tema yapisi sadelestirilip o blok
+# kaldirilinca desen, `@media print` sifirlamasinin secici listesinde
+# gecen AYNI metne dustu ve BASKI paletini okumaya basladi:
+#     --zemin #fff   --panel #fff   --yazi #000   --cizgi #bbb
+# Yani bu dosya, kagit paletini "acik tema" diye olcuyordu. Siyah
+# uzerine beyaz 21:1 oldugu icin BUTUN ciftler kolayca geciyordu --
+# sinama kirmizi yanmadi, SESSIZCE KORLESTI. Kirmizi bir sinama
+# sorunu duyurur; korlesen bir sinama sorunu ORTBAS EDER.
+#
+# Asagidaki "etiketler dogru mu" korumasi da yakalayamadi: o, acik
+# zeminin koyu zeminden aydinlik oldugunu sinar ve #fff bunu fazlasiyla
+# saglar. Bir korumanin var olmasi yetmiyor; KACIRDIGI durumu
+# sormak gerekiyor.
+import test_tema_paleti as _tema  # noqa: E402
 
-
-ACIK = jeton_blogu(r':root\[data-tema="light"\]\s*\{([^}]*)\}')
-KOYU = jeton_blogu(r':root\[data-tema="dark"\]\s*\{([^}]*)\}')
+_KURALLAR = _tema.kok_kurallari(_tema._css())
+#: Damgasiz okur -- yani ziyaretcilerin COGUNLUGU. Ekran paleti;
+#: `baski=False` oldugu icin `@media print` kurallari HARIC.
+ACIK = _tema.palet(_KURALLAR, False, None)
+KOYU = _tema.palet(_KURALLAR, True, None)
 esit(len(ACIK) > 10 and len(KOYU) > 10, True,
      f"iki tema jetonu okundu (acik {len(ACIK)}, koyu {len(KOYU)})")
+# BASKI PALETI SIZMADI. Yukaridaki kusurun dogrudan bekcisi: kagit
+# sifirlamasi saf beyaz/siyah kullaniyor ve sayfa paleti kullanmiyor.
+esit(ACIK["--zemin"] != "#fff" and ACIK["--yazi"] != "#000", True,
+     "acik palet BASKI blogundan gelmiyor")
 # Etiketler DOGRU mu: acik temanin zemini gercekten acik olmali.
 # Olculdu: ilk taramada `:root` blogunu "acik tema" diye etiketlemistim
 # ve dogru cikti -- ama dogrulamadan gecmek, etiket kaydiginda butun

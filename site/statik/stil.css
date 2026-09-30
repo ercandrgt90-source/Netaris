@@ -72,8 +72,6 @@
   --yazi-2: #414f66;
   --yazi-3: #616f86;
 
-  /* Kobalt. Onceki camgobegi (#0a7ea4) yesile fazla yakindi ve kucuk
-     metinde artis rengiyle karisabiliyordu. Mavi o riski tasimiyor. */
   /* MARKA RENGI TEAL-YESIL, SINYAL YESILI DEGIL.
      -------------------------------------------
      Marka yesile cevrildi ama duz yesil ALINAMAZDI: sitede yesilin
@@ -119,29 +117,75 @@
      gecersiz kilardi. Degisen taraf marka olmali, kod degil. */
   --vurgu: #0a7974;
   --vurgu-koyu: #075f5c;
-  --vurgu-parlak: #3b7cf0;
+  /* MAVIDEN TEALE GECIS BURADA YARIM KALMISTI -- OLCULDU 2026-09-30.
+     Deger `#3b7cf0` (kobalt) idi ve ustunde "Kobalt... Mavi o riski
+     tasimiyor" yazan, markanin MAVI oldugu donemden kalma bir yorum
+     duruyordu. Marka teale cevrilirken `--vurgu` guncellenmis,
+     `--vurgu-parlak` unutulmustu. `:root[data-tema="light"]` ise dogru
+     degeri (#14b8a6) tasiyordu: yani ayni temanin iki surumu vardi ve
+     hangisini gordugunuz tema dugmesine BASMIS olmanza bagliydi. */
+  --vurgu-parlak: #14b8a6;
 
   --artis: #0a7f47;
   --azalis: #c8203a;
   --uyari: #9a5700;
 
   /* Zar (tint): ayni rengin saydam hali. Bilesenlerde rgba yazmak yerine
-     buradan aliniyor; boylece koyu temada da dogru yogunluga geciyor. */
-  --vurgu-zar: rgba(10, 125, 120, 0.10);
-  --vurgu-zar-2: rgba(10, 125, 120, 0.30);
+     buradan aliniyor; boylece koyu temada da dogru yogunluga geciyor.
+     Deger markanin 2026-09-18 tonundan (#0a7974) tureniyor; onceki
+     rgba(10,125,120) bir revizyon geride kalmisti. */
+  --vurgu-zar: rgba(10, 121, 116, 0.10);
+  --vurgu-zar-2: rgba(10, 121, 116, 0.30);
   --artis-zar: rgba(10, 127, 71, 0.09);
   --azalis-zar: rgba(200, 32, 58, 0.09);
   --uyari-zar: rgba(154, 87, 0, 0.09);
   --uyari-cizgi: rgba(154, 87, 0, 0.3);
   --nabiz: rgba(10, 127, 71, 0.5);
-  --notr: #93a1b5;
+  /* NOTR KOYULASTIRILDI: #93a1b5 -> #717f96 (olculdu 2026-09-30).
+     Tek kullanim yeri `.nokta-gecmis`, yani serit kaleminin "canli
+     degil, son veri" noktasi. Nokta `--zemin-2` (#e3eaf3) uzerinde
+     duruyor ve eski deger orada 2,16:1 idi; WCAG 1.4.11 metin disi
+     ogeler icin 3,0 istiyor. Yeni deger 3,35:1.
+
+     DAHA FAZLA KOYULASTIRILMADI: `.nokta` taban rengi `--yazi-3`
+     (#616f86, 4,20:1) ve bayat noktasi ondan tureniyor. `--notr`
+     oraya kadar koyultulsaydi "gecmis" ile "bayat" ayirt
+     edilemezdi -- esigi gecmek, tasidigi ayrimi yok etme pahasina
+     olmamali. */
+  --notr: #717f96;
 
   /* Koyu zemin uzerindeki metin (birincil buton, rozet). Koyu temada da
      ACIK kalir -- buton zemini her iki temada da koyu. */
   --zit-yazi: #ffffff;
 
-  /* Ust bar saydam; zeminle ayni ama bulanik. */
-  --ust-zemin: rgba(251, 252, 254, 0.82);
+  /* UST SERIT KENDI JETON SETINI TASIYOR -- VE ARTIK TABANDA.
+   *
+   * Serit sayfa temasindan BAGIMSIZ: acik temada da koyu lacivert
+   * kaliyor. Dolayisiyla icindeki metin sayfa metniyle ayni jetonu
+   * KULLANAMAZ; koyu zeminde koyu yazi cikardi.
+   *
+   * OLCULDU (2026-09-30): bu bes jeton yalnizca `[data-tema="light"]`
+   * ve `[data-tema="dark"]` bloklarinda tanimliydi. Tema damgasi ise
+   * yalnizca okur dugmeye BASMISSA yaziliyor (bkz. `temel.html` acilis
+   * betigi ve `tema.js`: "secim yok -> `data-tema` yazili degil").
+   * Yani ILK KEZ GELEN HER OKURDA bu jetonlar TANIMSIZDI:
+   *   --ust-zemin  koyu lacivert yerine acik saydam bant
+   *   --ust-yazi   21 bildirimde yedeksiz `var()`, hepsi dusuyordu
+   *   --ust-cizgi  seridin alt cizgisi hic cizilmiyordu
+   *   --ust-panel  serit dugmelerinin zemini saydam kaliyordu
+   * Metin okunakli kaliyordu -- cunku `color` dusunce DEVRALIYOR ve
+   * devralinan renk tesadufen dogru tarafta kaliyordu. Kusurun
+   * gorunmemesinin sebebi buydu: bozulma degil, SESSIZ bir geri
+   * dusus. Tasarim karari okurlarin cogunluguna hic ulasmiyordu.
+   *
+   * `denetim.py` bunu yakalayamazdi: oradaki `jeton-tanimsiz` kurali
+   * bir adin DOSYADA HERHANGI BIR YERDE tanimli olup olmadigina
+   * bakiyor, HER TEMA DURUMUNDA tanimli olup olmadigina degil. */
+  --ust-zemin: #071426;
+  --ust-yazi: #f2f6fc;
+  --ust-yazi-2: #9fb0cb;
+  --ust-cizgi: rgba(255, 255, 255, 0.10);
+  --ust-panel: rgba(255, 255, 255, 0.08);
   --sayfa-isik: #eef4fd;
 
   --r: 14px;
@@ -281,50 +325,78 @@
      beyaz gorsel siniri kaybolur */
   --gorsel-zemin: #eaeff7}
 
-/* --- KOYU TEMA ---
-   Mavi-siyah, saf siyah degil: saf siyah uzerinde beyaz metin OLED
-   ekranlarda titresim (halation) yapiyor ve uzun okumada yoruyor.
-   Yuzeyler yukseldikce aciliyor -- koyu temada golge is gormez, derinlik
-   ACIKLIK farkiyla anlatilir. Bu yuzden --panel zeminden ACIK. */
+/* === TEMA DURUMLARI: UC DEGIL, IKI PALET ==========================
+ *
+ * OKURUN UC DURUMU VAR, IKI DEGIL:
+ *   1. "light" secti   -> koke `data-tema="light"` yazilir
+ *   2. "dark" secti    -> koke `data-tema="dark"` yazilir
+ *   3. HIC SECMEDI     -> koke HICBIR SEY yazilmaz  <-- COGUNLUK
+ *
+ * Ucuncu durum varsayilan: acilis betigi (`temel.html`) damgayi
+ * yalnizca localStorage'da acik bir secim varsa basiyor, `tema.js`
+ * de bunu "secim yok -> sistem tercihi gecerli" diye belgeliyor.
+ * Aramadan gelen ilk ziyaretin TAMAMI bu durumda.
+ *
+ * ESKI YAPI UC BLOKTU ve ucu de ayni jetonlari yeniden tanimliyordu:
+ * taban `:root`, `[data-tema="light"]`, `[data-tema="dark"]`, arti
+ * dosyanin cok asagisinda dorduncu bir `prefers-color-scheme` blogu.
+ * Ayni seye karar veren dort yer, kacinilmaz olarak birbirinden
+ * ayri dustu (olculdu 2026-09-30):
+ *   --vurgu-parlak   tabanda kobalt mavi, secili acik temada teal
+ *   --vurgu-zar      tabanda teal, secili acik temada mavi
+ *   --ust-*          yalnizca secili temalarda; varsayilanda TANIMSIZ
+ *   --vurgu (koyu)   medya blogunda #6f9dfb MAVI, secili koyuda
+ *                    #2dd4bf TEAL -- yani ayni koyu temanin iki
+ *                    surumu vardi ve hangisini gordugunuz tema
+ *                    dugmesine basmis olmanza bagliydi
+ *
+ * YENI YAPI IKI PALET:
+ *   taban `:root`                    = eksiksiz ACIK palet
+ *   `:not([data-tema="light"])` + medya = KOYU ustyazim (sistem)
+ *   `[data-tema="dark"]`             = ayni KOYU ustyazim (secim)
+ *
+ * `[data-tema="light"]` blogu SILINDI: taban zaten acik palet ve
+ * medya blogu `:not([data-tema="light"])` ile korundugu icin acik
+ * secimi sistem tercihini yine eziyor -- ama artik ozgullukle degil,
+ * NIYETLE. Koyu liste hala iki kez yaziliyor (medya sorgusuyla
+ * oznitelik secicisi tek kurulda birlestirilemez); ikisinin ayni
+ * kalmasini `site/test_tema_paleti.py` zorluyor.
+ *
+ * --- KOYU TEMA RENK GEREKCESI ---
+ * Mavi-siyah, saf siyah degil: saf siyah uzerinde beyaz metin OLED
+ * ekranlarda titresim (halation) yapiyor ve uzun okumada yoruyor.
+ * Yuzeyler yukseldikce aciliyor -- koyu temada golge is gormez,
+ * derinlik ACIKLIK farkiyla anlatilir; bu yuzden --panel zeminden
+ * ACIK.                                                            */
 @media (prefers-color-scheme: dark) {
+  :root:not([data-tema="light"]) {
+    --zemin: #0b1018; --zemin-2: #121926; --panel: #151d2b; --panel-2: #1b2434;
+    --cizgi: #26324a; --cizgi-parlak: #3a4a68;
+    --yazi: #e9eef7; --yazi-2: #a7b4c9; --yazi-3: #7d8ca5;
+    --vurgu: #2dd4bf; --vurgu-koyu: #14b8a6; --vurgu-parlak: #5eead4;
+    --artis: #3ecf8e; --azalis: #ff6b81; --uyari: #e0a44a;
+    --vurgu-zar: rgba(45, 212, 191, 0.14);
+    --vurgu-zar-2: rgba(45, 212, 191, 0.34);
+    --artis-zar: rgba(62, 207, 142, 0.13);
+    --azalis-zar: rgba(255, 107, 129, 0.13);
+    --uyari-zar: rgba(224, 164, 74, 0.13);
+    --uyari-cizgi: rgba(224, 164, 74, 0.34);
+    --nabiz: rgba(62, 207, 142, 0.45); --notr: #64748b;
+    --ust-zemin: #071426;
+    --ust-yazi: #f2f6fc;
+    --ust-yazi-2: #9fb0cb;
+    --ust-cizgi: rgba(255, 255, 255, 0.10);
+    --ust-panel: rgba(255, 255, 255, 0.08);
+    --sayfa-isik: #101a2b;
+    --golge: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.34);
+    --golge-yuksek: 0 2px 6px rgba(0, 0, 0, 0.45), 0 18px 44px rgba(0, 0, 0, 0.5);
+    --gorsel-zemin: #101825;
+  }
 }
 
 /* Kullanici secimi sistem tercihini EZER. Medya sorgusundan SONRA
-   gelmeli, yoksa sistem koyu iken "acik" secimi calismaz. */
-:root[data-tema="light"] {
-  --zemin: #eef2f7; --zemin-2: #e3eaf3; --panel: #ffffff; --panel-2: #f7f9fc;
-  --cizgi: #e4e9f1; --cizgi-parlak: #c6cfdd;
-  --yazi: #0c1524; --yazi-2: #414f66; --yazi-3: #616f86;
-  --vurgu: #0a7974; --vurgu-koyu: #075f5c; --vurgu-parlak: #14b8a6;
-  --artis: #0a7f47; --azalis: #c8203a; --uyari: #9a5700;
-  --vurgu-zar: rgba(29, 95, 216, 0.09);
-  --vurgu-zar-2: rgba(29, 95, 216, 0.28);
-  --artis-zar: rgba(10, 127, 71, 0.09);
-  --azalis-zar: rgba(200, 32, 58, 0.09);
-  --uyari-zar: rgba(154, 87, 0, 0.09);
-  --uyari-cizgi: rgba(154, 87, 0, 0.3);
-  --nabiz: rgba(10, 127, 71, 0.5); --notr: #93a1b5;
-  /* UST SERIT KENDI JETON SETINI TASIYOR.
-   *
-   * Once serit sayfa jetonlarini kullaniyordu (`--yazi`, `--panel`)
-   * ve yari saydam acik bir bant olarak duruyordu. Koyu lacivert
-   * serit sayfa temasindan BAGIMSIZ olmali: acik temada da koyu
-   * kaliyor, dolayisiyla icindeki metin sayfa metniyle ayni jetonu
-   * KULLANAMAZ -- koyu zeminde koyu yazi cikardi.
-   *
-   * Serit acik temada da koyu oldugu icin `--ust-*` jetonlari iki
-   * temada da AYNI. Ayni degerleri iki yere yazmak yerine burada tek
-   * kez tanimlanip koyu temada olduğu gibi devraliniyor. */
-  --ust-zemin: #071426;
-  --ust-yazi: #f2f6fc;
-  --ust-yazi-2: #9fb0cb;
-  --ust-cizgi: rgba(255, 255, 255, 0.10);
-  --ust-panel: rgba(255, 255, 255, 0.08);
-  --sayfa-isik: #eef4fd;
-  --golge: 0 1px 2px rgba(12, 21, 36, 0.05), 0 8px 24px rgba(12, 21, 36, 0.06);
-  --golge-yuksek: 0 2px 4px rgba(12, 21, 36, 0.06), 0 16px 40px rgba(12, 21, 36, 0.10);
-  --gorsel-zemin: #eaeff7}
-
+   gelmeli, yoksa sistem acik iken "koyu" secimi calismaz. Yukaridaki
+   listeyle AYNI olmali -- `test_tema_paleti.py` bunu tutuyor. */
 :root[data-tema="dark"] {
   --zemin: #0b1018; --zemin-2: #121926; --panel: #151d2b; --panel-2: #1b2434;
   --cizgi: #26324a; --cizgi-parlak: #3a4a68;
@@ -407,9 +479,18 @@ img, svg { max-width: 100%}
   top: 0;
   z-index: 50;
   background: var(--ust-zemin);
-  /* `backdrop-filter` KALDIRILDI: zemin artik OPAK ve bulaniklastirma
+  /* `backdrop-filter` KALDIRILDI: zemin OPAK ve bulaniklastirma
      hicbir sey yapmiyordu -- yalnizca her kaydirmada bir birlestirme
-     katmani maliyeti biniyordu. */
+     katmani maliyeti biniyordu.
+
+     BU CUMLE BIR SURE YALNIZCA YARI DOGRUYDU (olculdu 2026-09-30).
+     `--ust-zemin` opak lacivert YALNIZCA `[data-tema]` damgasi olan
+     okurlarda tanimliydi; damgasiz okurda taban deger
+     `rgba(251,252,254,0.82)` idi, yani SAYDAM. O okurlar icin serit
+     hem saydamdi hem de bulaniklastirmasi kaldirilmisti: sayfa
+     icerigi yapiskan basligin arkasindan gorunuyordu. Jeton artik
+     tabanda opak tanimli, dolayisiyla gerekce her durumda gecerli.
+     bkz. `site/test_tema_paleti.py`. */
   border-bottom: 1px solid var(--ust-cizgi)}
 
 /* CAPA HEDEFI YAPISKAN BASLIGIN ALTINDA KALMASIN.
@@ -3865,35 +3946,25 @@ table td, table th, time, .tarih {
   --t-duzenleme: #5a6478;
   --t-sektor: #0a7f47;
   --t-haber: #616f86}
-@media (prefers-color-scheme: dark) {  :root {
-    --zemin: #0b1018;
-    --zemin-2: #121926;
-    --panel: #151d2b;
-    --panel-2: #1b2434;
-    --cizgi: #26324a;
-    --cizgi-parlak: #3a4a68;
-    --yazi: #e9eef7;
-    --yazi-2: #a7b4c9;
-    --yazi-3: #7d8ca5;
-    --vurgu: #6f9dfb;
-    --vurgu-koyu: #4d81ea;
-    --vurgu-parlak: #9dbcff;
-    --artis: #3ecf8e;
-    --azalis: #ff6b81;
-    --uyari: #e0a44a;
-    --vurgu-zar: rgba(111, 157, 251, 0.14);
-    --vurgu-zar-2: rgba(111, 157, 251, 0.34);
-    --artis-zar: rgba(62, 207, 142, 0.13);
-    --azalis-zar: rgba(255, 107, 129, 0.13);
-    --uyari-zar: rgba(224, 164, 74, 0.13);
-    --uyari-cizgi: rgba(224, 164, 74, 0.34);
-    --nabiz: rgba(62, 207, 142, 0.45);
-    --notr: #64748b;
-    --ust-zemin: rgba(11, 16, 24, 0.82);
-    --sayfa-isik: #101a2b;
-    --golge: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.34);
-    --golge-yuksek: 0 2px 6px rgba(0, 0, 0, 0.45), 0 18px 44px rgba(0, 0, 0, 0.5);
-    --gorsel-zemin: #101825;
+/* KOYU TEMADA KART RENKLERI ACILIYOR.
+ *
+ * Acik temadaki degerler koyu panelde (#151d2b) okunmuyor: en
+ * kotusu `--t-duzenleme` (#5a6478), koyu gri-mavi uzerine koyu
+ * gri-mavi. Bu yuzden koyu temada hepsi aciltilmis surumleriyle
+ * degistiriliyor.
+ *
+ * OLCULDU (2026-09-30): bu liste YALNIZCA `prefers-color-scheme`
+ * blogunda vardi. Yani tema dugmesiyle "koyu" secen ama isletim
+ * sistemi ACIK olan okur, koyu zemin uzerinde ACIK TEMANIN kart
+ * renklerini goruyordu. Cekirdek paletteki kusurun aynisi, ters
+ * yonu: orada sistem koyusu yanlisti, burada SECILMIS koyu.
+ *
+ * Liste iki kez yaziliyor cunku medya sorgusuyla oznitelik secicisi
+ * tek kurulda birlestirilemez. Ikisinin ayni kalmasini
+ * `site/test_tema_paleti.py` zorluyor -- birine eklenip digerine
+ * eklenmeyen her jeton kirmizi yanar. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-tema="light"]) {
     --t-makro: #6f9dfb;
     --t-jeopolitik: #ff6b81;
     --t-emtia: #e0a44a;
@@ -3903,6 +3974,16 @@ table td, table th, time, .tarih {
     --t-sektor: #3ecf8e;
     --t-haber: #8b99ae;
   }
+}
+:root[data-tema="dark"] {
+  --t-makro: #6f9dfb;
+  --t-jeopolitik: #ff6b81;
+  --t-emtia: #e0a44a;
+  --t-piyasa: #a98cf5;
+  --t-sirket: #3ecfb4;
+  --t-duzenleme: #93a1b5;
+  --t-sektor: #3ecf8e;
+  --t-haber: #8b99ae;
 }
 /* Sinif adi SABLONDA BIRLESTIRILIYOR: `class="tur-{{ h|kart_turu }}"`.
    Yani bu adlarin hicbiri kaynakta duz metin olarak GECMEZ. "Olu CSS"
@@ -7732,11 +7813,28 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
    ihlali baska bir ortamda uretmek olurdu. */
 @media print {
   /* Tarayici varsayilani zaten beyaz kagit; zemin jetonlarini
-     zorlamak koyu temada dev murekkep bloklari basardi. */
-  :root, :root[data-tema="dark"], :root[data-tema="light"] {
+     zorlamak koyu temada dev murekkep bloklari basardi.
+
+     SECICI LISTESI OZGULLUK ICIN BOYLE UZUN.
+     Koyu tema `:root:not([data-tema="light"])` ile yaziliyor (0,1,1).
+     Buradaki sadece `:root` olsaydi (0,1,0) sistem koyusundaki bir
+     okur icin koyu palet BU BLOGU EZERDI ve sayfa simsiyah basardi
+     -- dosyada daha sonra gelmek yetmez, once ozgulluk bakilir.
+     Ikinci secici o yuzden var: ayni 0,1,1 ama DAHA SONRA geliyor.
+
+     SINYAL RENKLERI DE SIFIRLANIYOR. Onceden yalnizca zemin ve yazi
+     sifirlaniyordu; koyu temanin parlak vurgusu (#2dd4bf) beyaz
+     kagitta yaklasik 1,9:1 -- yani baglantilar ve artis/azalis
+     rakamlari kagitta okunmuyordu. Acik tema degerleri yaziliyor. */
+  :root,
+  :root:not([data-tema="light"]),
+  :root[data-tema="dark"],
+  :root[data-tema="light"] {
     --zemin: #fff; --zemin-2: #fff; --panel: #fff; --panel-2: #fff;
     --yazi: #000; --yazi-2: #222; --yazi-3: #444;
     --cizgi: #bbb; --cizgi-parlak: #999;
+    --vurgu: #075f5c; --vurgu-koyu: #075f5c; --vurgu-parlak: #0a7974;
+    --artis: #0a7f47; --azalis: #c8203a; --uyari: #9a5700;
     --golge: none; --golge-yuksek: none}
 
   body { background: #fff; color: #000}
