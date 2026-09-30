@@ -2374,23 +2374,118 @@ async function kimlikBuda(env) {
 /** Beslemeye gonderilen kimlik. Kim oldugumuzu SOYLUYOR. */
 const TEL_KIMLIK = "Netaris-tel/1.0 (+https://netaris.net)";
 
+/* SEMA WORKER'IN KENDISI KURUYOR -- GOC ADIMINA GUVENILMIYOR.
+ * ===========================================================
+ * OLCULDU (2026-09-30): `otomasyon.yml`deki "D1 göçü" adimi
+ * `conclusion: success` bildirdi, ama tablolar KURULMAMISTI --
+ * `/api/tel/durum` "no such table: tel" dedi.
+ *
+ * Sebep adimin `continue-on-error: true` olmasi: GitHub boyle bir
+ * adimi, komut BASARISIZ OLSA DA adim API'sinde `success` olarak
+ * bildiriyor. Yani "adim yesil" ile "goc calisti" ayni sey degil ve
+ * disaridan bakan biri (ben) ikisini ayirt edemedi.
+ *
+ * `continue-on-error` kaldirilamazdi: goc dustugunde sitenin yayina
+ * cikmamasi, tazelik icin kurulan bir katmanin sitenin tamamini
+ * durdurmasi olurdu.
+ *
+ * Cozum adimi onarmak degil, ONA BAGIMLILIGI KALDIRMAK. Worker
+ * D1'e BAGLANTI uzerinden erisiyor -- API jetonu, hesap kimligi,
+ * ayri yetki gerekmiyor. Kendi tablosunu kendi kurabiliyorsa
+ * aradaki butun ariza noktalari dusuyor.
+ *
+ * `IF NOT EXISTS`: tekrar calistirilabilir, var olan veriye
+ * dokunmuyor. Izolasyon basina BIR KEZ kosuyor.
+ *
+ * TEK KAYNAK HALA `d1/gecis_tel.sql`: asagidaki ifadelerin o
+ * dosyayla AYNI kalmasini `site/test_tel_sema.js` zorluyor. Ayni
+ * semayi iki yerde tutmak, bu depoda defalarca ayrisma uretti --
+ * fark su ki burada ayrisma mekanik olarak yakalaniyor. */
+const TEL_SEMA = [
+  "CREATE TABLE IF NOT EXISTS tel ("
+  + "kimlik TEXT PRIMARY KEY, kod TEXT NOT NULL, "
+  + "kurum TEXT NOT NULL CHECK (length(kurum) > 0), "
+  + "kurum_tam TEXT NOT NULL CHECK (length(kurum_tam) > 0), "
+  + "adres TEXT NOT NULL CHECK (length(adres) > 0), "
+  + "baslik_kaynak TEXT NOT NULL CHECK (length(baslik_kaynak) > 0), "
+  + "baslik_tr TEXT NOT NULL DEFAULT '', konu TEXT NOT NULL, "
+  + "ticari INTEGER NOT NULL DEFAULT 1, tarih TEXT NOT NULL, "
+  + "eklendi TEXT NOT NULL)",
+  "CREATE INDEX IF NOT EXISTS tel_tarih ON tel(tarih DESC)",
+  "CREATE TABLE IF NOT EXISTS tel_ceviri ("
+  + "anahtar TEXT PRIMARY KEY, ceviri TEXT NOT NULL, "
+  + "eklendi TEXT NOT NULL)",
+  "CREATE TABLE IF NOT EXISTS tel_iz ("
+  + "an TEXT NOT NULL, kod TEXT NOT NULL, http INTEGER, "
+  + "ayrisan INTEGER NOT NULL DEFAULT 0, "
+  + "yazilan INTEGER NOT NULL DEFAULT 0, "
+  + "ceviri INTEGER NOT NULL DEFAULT 0, hata TEXT)",
+  "CREATE INDEX IF NOT EXISTS tel_iz_an ON tel_iz(an)",
+];
+
+let _telSemaKuruldu = false;
+
+async function telSemaKur(env) {
+  if (_telSemaKuruldu || !env || !env.DB) return;
+  try {
+    await env.DB.batch(TEL_SEMA.map((s) => env.DB.prepare(s)));
+    _telSemaKuruldu = true;
+  } catch (e) {
+    /* Kurulamazsa tel bu turda hicbir sey yapamaz; bir sonraki
+       turda yeniden denenecek (bayrak yazilmadi). */
+    console.error("tel: sema kurulamadi", e);
+  }
+}
+
 /** Tek turda bir beslemeden alinacak en fazla oge. */
 const TEL_TUR_SINIRI = 60;
 
 /** `/api/tel` bir istekte en fazla bu kadar oge donuyor. */
 const TEL_YANIT_SINIRI = 40;
 
-/** Kurallar dosyasi -- `insa.py` uretiyor, varlik katmanindan okunuyor. */
+/** Kurallar dosyasi -- `insa.py` uretiyor.
+ *
+ * IKI YOL DENENIYOR ve sirasi onemli:
+ *
+ *   1. `env.ASSETS` baglantisi -- ag istegi degil, dolayisiyla
+ *      alt-istek saymiyor ve gecikmesi yok.
+ *   2. Ayni kaynaktan duz `fetch` -- birincisi calismazsa.
+ *
+ * NEDEN YEDEK VAR: varlik baglantisinin `scheduled` (cron)
+ * baglaminda `fetch` baglamindaki gibi davranacagi bir VARSAYIMDI ve
+ * bu depoda varsayimlar pahaliya mal oluyor. Birincisi susarsa
+ * `telTopla` dongüye hic girmez, hicbir iz birakmaz ve disaridan
+ * "bos liste" olarak gorunur -- yani kusur tam da gorulmesi en zor
+ * bicimde ortaya cikardi.
+ *
+ * Hangi yolun calistigi DONUYOR (`_yol`), cunku "calisiyor" ile
+ * "hangi yolla calisiyor" ayri sorular ve ikincisi bir gun
+ * birincisinin cevabini aciklayacak. */
 async function telKurallari(env) {
-  if (!env.ASSETS) return null;
+  if (env.ASSETS) {
+    try {
+      const r = await env.ASSETS.fetch(
+        new URL("/tel-kurallari.json", "https://netaris.net"));
+      if (r.ok) {
+        const d = await r.json();
+        d._yol = "assets";
+        return d;
+      }
+      console.error("tel: kurallar varlik katmaninda yok", r.status);
+    } catch (e) {
+      console.error("tel: varlik katmani okunamadi", e);
+    }
+  }
   try {
-    const r = await env.ASSETS.fetch(
-      new URL("/tel-kurallari.json", "https://netaris.net"));
+    const r = await fetch("https://netaris.net/tel-kurallari.json",
+                          { headers: { "User-Agent": TEL_KIMLIK } });
     if (!r.ok) {
       console.error("tel: kurallar okunamadi", r.status);
       return null;
     }
-    return await r.json();
+    const d = await r.json();
+    d._yol = "fetch";
+    return d;
   } catch (e) {
     console.error("tel: kurallar cozulemedi", e);
     return null;
@@ -2528,10 +2623,29 @@ async function telCevir(env, metin) {
 /** Bir turda: beslemeleri cek, ogeleri yaz, eskiyeni buda. */
 async function telTopla(env) {
   if (!env || !env.DB) return;
-  const kurallar = await telKurallari(env);
-  if (!kurallar || !Array.isArray(kurallar.beslemeler)) return;
-
+  await telSemaKur(env);
   const simdi = damga();
+  const kurallar = await telKurallari(env);
+  if (!kurallar || !Array.isArray(kurallar.beslemeler)) {
+    /* KURALSIZ TUR DA IZ BIRAKIYOR.
+     *
+     * Ilk surumde burasi sessizce `return` ediyordu ve iz dongunun
+     * ICINDE yaziliyordu -- yani kurallar okunamadiginda HIC iz
+     * olusmuyordu. Teshis edilmek istenen ilk durum tam da buydu:
+     * "cron dondu mu, dondu de kurallari mi bulamadi?" Bir tani
+     * aracinin en kor oldugu yer, kendi giris kosulu. */
+    try {
+      await env.DB.prepare(
+        "INSERT INTO tel_iz (an, kod, http, ayrisan, yazilan, ceviri, "
+        + "hata) VALUES (?, ?, ?, ?, ?, ?, ?)")
+        .bind(simdi, "(kurallar)", null, 0, 0, 0,
+              "kurallar okunamadi")
+        .run();
+    } catch (e) {
+      console.error("tel: kuralsiz iz yazilamadi", e);
+    }
+    return;
+  }
   for (const b of kurallar.beslemeler) {
     /* HER TURUN IZI BIRAKILIYOR.
      *
@@ -2683,6 +2797,10 @@ async function telDurum(env) {
   const d = { kurallar_okundu: false, besleme_sayisi: 0,
               tablo_var: false, oge_sayisi: 0, ceviri_sayisi: 0,
               en_yeni: null, en_eski: null };
+  /* Tanilama ucu da semayi kurabiliyor: tel'in ilk cron turunu
+     beklemeden "tablo var mi" sorusu cevaplanabilsin ve tablo
+     yoksa buradan da onarilsin. */
+  await telSemaKur(env);
   const k = await telKurallari(env);
   if (k && Array.isArray(k.beslemeler)) {
     d.kurallar_okundu = true;

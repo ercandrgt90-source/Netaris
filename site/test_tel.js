@@ -103,10 +103,19 @@ const {
 function sahteDB() {
   const yazilan = [];
   const izler = [];
+  const semaCagrilari = [];
   const ceviri = new Map();
   return {
     yazilan,
     izler,
+    semaCagrilari,
+    /* `telSemaKur` bunu kullaniyor. Sahte DB'de `batch` OLMASAYDI
+       cagri istisna atar, yutulur ve sema kurulumu sinamada HIC
+       kosmazdi -- yani olculdugu sanilan sey olculmemis olurdu. */
+    batch(ifadeler) {
+      semaCagrilari.push(ifadeler.length);
+      return Promise.resolve([]);
+    },
     prepare(sorgu) {
       const s = sorgu;
       return {
@@ -210,6 +219,30 @@ async function kos() {
        "RFC-822 -> ISO");
   esit(telTarih("cozulemez"), null, "cozulemeyen tarih null");
 
+  /* SEMAYI WORKER KENDISI KURUYOR.
+     Olculdu (2026-09-30): "D1 göçü" adimi `success` bildirdi ama
+     tablolar kurulmamisti -- `continue-on-error: true` olan bir
+     adim, komut dusse bile adim API'sinde `success` gorunuyor.
+     Worker D1'e BAGLANTI uzerinden eristigi icin kendi tablosunu
+     kurabiliyor ve o ariza noktasi tumden dusuyor. */
+  console.log("\nSema kurulumu");
+  const dbSema = sahteDB();
+  sahteYanitlar = [
+    { ok: true, status: 200, text: () => Promise.resolve(RSS_ORNEK) },
+    { ok: false, status: 500 }, { ok: false, status: 500 },
+  ];
+  await telTopla(kuralliOrtam(dbSema, TEST_KURAL));
+  esit(dbSema.semaCagrilari.length, 1, "sema BIR KEZ kuruldu");
+  esit(dbSema.semaCagrilari[0], 5, "bes ifade (3 tablo + 2 indeks)");
+  const dbSema2 = sahteDB();
+  sahteYanitlar = [
+    { ok: true, status: 200, text: () => Promise.resolve(RSS_ORNEK) },
+    { ok: false, status: 500 }, { ok: false, status: 500 },
+  ];
+  await telTopla(kuralliOrtam(dbSema2, TEST_KURAL));
+  esit(dbSema2.semaCagrilari.length, 0,
+       "ikinci turda yeniden kurulmuyor (izolasyon basina bir kez)");
+
   console.log("\nToplama -- ATIF ZORUNLU");
   let db = sahteDB();
   sahteYanitlar = [
@@ -269,6 +302,43 @@ async function kos() {
   esit(db3.izler[0].yazilan, 2, "yazilan oge sayisi izde (atifsiz elendi)");
   esit(db3.izler[0].ceviri, 2, "ceviri sayisi izde");
   esit(db3.izler[0].hata, null, "saglikli turda hata alani bos");
+
+  /* KURALLAR OKUNAMAZSA -- tani aracinin en kor oldugu yer.
+     Ilk surumde `telTopla` burada sessizce donuyordu ve iz dongunun
+     ICINDE yaziliyordu; yani teshis edilmek istenen ILK durum hic
+     iz birakmiyordu. */
+  console.log("\nKurallar okunamadiginda");
+  const db4 = sahteDB();
+  sahteYanitlar = [{ ok: false, status: 404 }];   /* yedek fetch de dussun */
+  await telTopla({
+    DB: db4,
+    ASSETS: { fetch: () => Promise.resolve({ ok: false, status: 404 }) },
+  });
+  esit(db4.yazilan.length, 0, "kuralsiz turda oge yazilmadi");
+  esit(db4.izler.length, 1, "kuralsiz turda da IZ yazildi");
+  esit(db4.izler[0].kod, "(kurallar)", "iz kuralsizligi isaretliyor");
+  dogru(db4.izler[0].hata, "iz sebebi tasiyor");
+
+  /* YEDEK YOL: varlik baglantisi susarsa duz fetch denenmeli.
+     `scheduled` baglaminda varlik baglantisinin `fetch` baglamindaki
+     gibi davranacagi bir VARSAYIMDI; yedek onu varsayim olmaktan
+     cikariyor. */
+  console.log("\nKurallarin yedek yolu");
+  const db5 = sahteDB();
+  sahteYanitlar = [
+    { ok: true, status: 200,
+      json: () => Promise.resolve(TEST_KURAL) },      /* yedek fetch */
+    { ok: true, status: 200,
+      text: () => Promise.resolve(RSS_ORNEK) },       /* besleme */
+    { ok: false, status: 500 }, { ok: false, status: 500 },
+  ];
+  await telTopla({
+    DB: db5,
+    ASSETS: { fetch: () => { throw new Error("assets yok"); } },
+  });
+  esit(db5.yazilan.length, 2,
+       "varlik baglantisi dusunce yedek fetch ile calisti");
+  esit(db5.izler[0].http, 200, "yedek yolda da iz dogru");
 
   console.log("\nYayilan gercek kurallar");
   if (!KURALLAR) {
