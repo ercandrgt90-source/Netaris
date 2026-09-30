@@ -238,8 +238,27 @@ async function kos() {
 
   console.log("\nYayilan gercek kurallar");
   if (!KURALLAR) {
-    kaldi.push("cikti/tel-kurallari.json yok -- once `python site/insa.py`");
-    console.log("  KALDI  cikti/tel-kurallari.json bulunamadi");
+    /* CIKTI YOKSA ATLANIYOR -- KIRMIZI YANMIYOR.
+     *
+     * Deponun kurali bu: uretilen ciktiyi okuyan sinamalar cikti
+     * yokken "ATLANDI" deyip 0 ile cikiyor (bkz.
+     * `test_ticari_atif.py`). Sebebi CI sirasi: `otomasyon.yml`de
+     * testler INSADAN ONCE kosuyor, yani o anda `site/cikti` henuz
+     * yok.
+     *
+     * Ilk yazimda burasi KALDI veriyordu ve kosu #1497 tam bu
+     * yuzden dustu -- yerelde 119 sinamanin 119'u yesildi cunku
+     * yerelde cikti VARDI. Ardindan "gizlilik beyani" adimi da
+     * dustu; o bagimsiz bir kusur degil, ayni zincirin devami:
+     * insa atlandigi icin denetleyecek cikti yoktu.
+     *
+     * ATLAMAK BURADA GUVENLI, cunku sozlesmenin ASIL bekcisi
+     * `test_tel_kurallari.py`: o, `insa.tel_kurallari_uret`i
+     * DOGRUDAN cagiriyor ve ciktiya hic ihtiyac duymuyor. Burasi
+     * yalnizca "yayilan dosya gercekten okunabiliyor mu" ek
+     * kontrolu. */
+    console.log("  ATLANDI  cikti/tel-kurallari.json yok "
+                + "(once `python site/insa.py`)");
   } else {
     dogru(Array.isArray(KURALLAR.beslemeler) && KURALLAR.beslemeler.length > 0,
           "yayilan dosyada besleme var");

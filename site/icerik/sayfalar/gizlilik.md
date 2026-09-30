@@ -143,6 +143,28 @@ etkilenmez.
 
 Bu servislerin kendi gizlilik politikaları geçerlidir.
 
+## Canlı başlık akışı (tel)
+
+Gündem sayfasında, sitenin son kurulumundan sonra düşen başlıklar
+"canlı" etiketiyle gösterilir. Bu başlıkları **sunucumuz** toplar:
+
+- **financialjuice.com** — haber beslemesi (RSS)
+- **api.mymemory.translated.net** — İngilizce başlıkların makine
+  çevirisi
+
+Yukarıdaki fiyat şeridinden **önemli bir farkı var**: bu iki adrese
+istek **sizin tarayıcınızdan değil, bizim sunucumuzdan** gider. Yani
+bu servisler sizin IP adresinizi veya tarayıcı bilgilerinizi
+görmez. Çeviri servisine gönderilen tek şey haber başlığının
+kendisidir; okurla ilgili hiçbir veri gönderilmez.
+
+Tarayıcınız bu özellik için yalnızca **netaris.net** adresine istek
+gönderir. JavaScript kapalıysa canlı başlıklar hiç yüklenmez ve
+sayfa basıldığı hâliyle çalışmaya devam eder.
+
+Makine çevirisi olan başlıklarda bu açıkça belirtilir ve özgün
+başlık ile kaynağa bağlantı her zaman gösterilir.
+
 ## Borsa İstanbul verisi (TradingView)
 
 Ana sayfadaki **Borsa İstanbul** şeridi ve bilanço analizlerindeki hisse
