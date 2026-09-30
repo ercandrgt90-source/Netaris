@@ -102,9 +102,11 @@ const {
    `CHECK` ikinci savunma hatti, birincisi degil. */
 function sahteDB() {
   const yazilan = [];
+  const izler = [];
   const ceviri = new Map();
   return {
     yazilan,
+    izler,
     prepare(sorgu) {
       const s = sorgu;
       return {
@@ -120,6 +122,12 @@ function sahteDB() {
         async run() {
           if (/INSERT OR REPLACE INTO tel_ceviri/.test(s)) {
             ceviri.set(this._a[0], this._a[1]);
+          } else if (/INSERT INTO tel_iz/.test(s)) {
+            izler.push({
+              an: this._a[0], kod: this._a[1], http: this._a[2],
+              ayrisan: this._a[3], yazilan: this._a[4],
+              ceviri: this._a[5], hata: this._a[6],
+            });
           } else if (/INSERT OR REPLACE INTO tel\b/.test(s)) {
             yazilan.push({
               kimlik: this._a[0], kod: this._a[1], kurum: this._a[2],
@@ -235,6 +243,32 @@ async function kos() {
   console.log("\nKimlik gonderiliyor");
   dogru(/Netaris/.test(fetchCagrilari[0].ayar.headers["User-Agent"]),
         "besleme istegi kendini TANITIYOR");
+
+  /* IZ -- teshisin kendisi de dogrulanmali.
+     Tel dagitildi, cron dondu, `/api/tel` BOS kaldi ve sebebi
+     disaridan gorulemedi. Iz tam o sorunun cevabi; ama iz yazilmiyor
+     olsaydi bunu da fark edemezdik. */
+  console.log("\nTur izi");
+  esit(db.izler.length, 1, "429 turunda da iz YAZILDI");
+  esit(db.izler[0].http, 429, "izde besleme yanit kodu var");
+  esit(db.izler[0].ayrisan, 0, "429'da ayrisan oge 0");
+  esit(db.izler[0].yazilan, 0, "429'da yazilan oge 0");
+
+  const db3 = sahteDB();
+  sahteYanitlar = [
+    { ok: true, status: 200, text: () => Promise.resolve(RSS_ORNEK) },
+    { ok: true, status: 200, json: () => Promise.resolve(
+        { responseData: { translatedText: "ABD TÜFE yıllık %3,1" } }) },
+    { ok: true, status: 200, json: () => Promise.resolve(
+        { responseData: { translatedText: "Powell faiz konuştu" } }) },
+  ];
+  await telTopla(kuralliOrtam(db3, TEST_KURAL));
+  esit(db3.izler.length, 1, "basarili turda da iz yazildi");
+  esit(db3.izler[0].http, 200, "izde 200 kayitli");
+  esit(db3.izler[0].ayrisan, 3, "ayrisan oge sayisi izde");
+  esit(db3.izler[0].yazilan, 2, "yazilan oge sayisi izde (atifsiz elendi)");
+  esit(db3.izler[0].ceviri, 2, "ceviri sayisi izde");
+  esit(db3.izler[0].hata, null, "saglikli turda hata alani bos");
 
   console.log("\nYayilan gercek kurallar");
   if (!KURALLAR) {

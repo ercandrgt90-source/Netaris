@@ -2533,6 +2533,21 @@ async function telTopla(env) {
 
   const simdi = damga();
   for (const b of kurallar.beslemeler) {
+    /* HER TURUN IZI BIRAKILIYOR.
+     *
+     * Olculdu (2026-09-30): tel dagitildi, cron dondu, `/api/tel`
+     * BOS kaldi ve sebebi disaridan gorulemedi -- tek kayit
+     * `console.error`di ve Cloudflare gunlugu Logpush olmadan
+     * saklanmiyor. `nobet_izi`nin yazilmasina yol acan kor noktanin
+     * aynisi; ayni hatayi ikinci kez yapmamak icin.
+     *
+     * `finally` ICINDE yaziliyor: dongu ortasinda bir istisna
+     * olursa bile o ana kadarki sayilar kaydediliyor. Iz yalnizca
+     * basarili turlarda yazilsaydi, tam da ogrenmek istedigimiz
+     * durumda susardi. */
+    const iz = { http: null, ayrisan: 0, yazilan: 0, ceviri: 0,
+                 hata: null };
+    try {
     let xml = "";
     try {
       const r = await fetch(b.besleme, {
@@ -2547,6 +2562,7 @@ async function telTopla(env) {
          gitmek, kaynagin acikca koydugu siniri asmaya calismak
          olurdu ve bu depoda kalici blogu asmaya calismamak yerlesik
          bir ilke (bkz. bilanco_ag). */
+      iz.http = r.status;
       if (!r.ok) {
         console.error("tel: besleme alinamadi", b.kod, r.status);
         continue;
@@ -2554,11 +2570,13 @@ async function telTopla(env) {
       xml = await r.text();
     } catch (e) {
       console.error("tel: besleme hatasi", b.kod, e);
+      iz.hata = String(e).slice(0, 200);
       continue;
     }
 
     const sinir = Math.min(b.sinir || TEL_TUR_SINIRI, TEL_TUR_SINIRI);
     const ogeler = telRssAyristir(xml).slice(0, sinir);
+    iz.ayrisan = ogeler.length;
     for (const o of ogeler) {
       const adres = (o.adres || "").trim();
       const baslik = telOnekSil(o.baslik || "", kurallar);
@@ -2582,6 +2600,7 @@ async function telTopla(env) {
       let trBaslik = mevcut ? (mevcut.baslik_tr || "") : "";
       if (!mevcut && b.dil && b.dil !== "tr") {
         trBaslik = await telCevir(env, baslik);
+        if (trBaslik) iz.ceviri++;
       }
       try {
         await env.DB.prepare(
@@ -2592,10 +2611,40 @@ async function telTopla(env) {
                 trBaslik, telKonuSec(baslik, kurallar, b.konu),
                 b.ticari ? 1 : 0, tarih, simdi)
           .run();
+        iz.yazilan++;
       } catch (e) {
         console.error("tel: yazilamadi", kimlik, e);
+        if (!iz.hata) iz.hata = String(e).slice(0, 200);
       }
     }
+    } catch (e) {
+      /* Dongu disinda kalan her sey. Iz `finally`de yine yaziliyor. */
+      console.error("tel: tur hatasi", b.kod, e);
+      iz.hata = String(e).slice(0, 200);
+    } finally {
+      try {
+        await env.DB.prepare(
+          "INSERT INTO tel_iz (an, kod, http, ayrisan, yazilan, ceviri, "
+          + "hata) VALUES (?, ?, ?, ?, ?, ?, ?)")
+          .bind(simdi, b.kod, iz.http, iz.ayrisan, iz.yazilan,
+                iz.ceviri, iz.hata)
+          .run();
+      } catch (e) {
+        /* Iz yazilamazsa tel gorevini yapmaya DEVAM EDER. Tani, asil
+           isi bozmamali -- `nobet_izi`de de ayni ilke. */
+        console.error("tel: iz yazilamadi", e);
+      }
+    }
+  }
+
+  /* IZ BUDAMASI -- sinirsiz buyumesin. Son ~200 satir yeter;
+     teshis icin gecmis saatler gerekiyor, gunler degil. */
+  try {
+    await env.DB.prepare(
+      "DELETE FROM tel_iz WHERE rowid NOT IN "
+      + "(SELECT rowid FROM tel_iz ORDER BY an DESC LIMIT 200)").run();
+  } catch (e) {
+    console.error("tel: iz budamasi basarisiz", e);
   }
 
   /* BUDAMA. Pencere yayilan dosyadan geliyor, burada yazili degil. */
@@ -2659,6 +2708,18 @@ async function telDurum(env) {
     d.ceviri_sayisi = (c && c.n) || 0;
   } catch (e) {
     d.ceviri_hatasi = String(e).slice(0, 120);
+  }
+  /* SON TURLARIN IZI -- asil teshis burada.
+     "Su an bos mu" sorusu, "son turlarda ne oldu" sorusunu
+     cevaplamiyor. Bosluklarin teshisi ancak GECMISLE mumkun
+     (ayni gerekce `nobetciDurum`da da yazili). */
+  try {
+    const r = await env.DB.prepare(
+      "SELECT an, kod, http, ayrisan, yazilan, ceviri, hata FROM tel_iz "
+      + "ORDER BY an DESC LIMIT 12").all();
+    d.son_turlar = (r && r.results) || [];
+  } catch (e) {
+    d.iz_hatasi = String(e).slice(0, 120);
   }
   return yanit(d);
 }

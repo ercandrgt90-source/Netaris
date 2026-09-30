@@ -73,3 +73,37 @@ CREATE TABLE IF NOT EXISTS tel_ceviri (
   ceviri  TEXT NOT NULL,
   eklendi TEXT NOT NULL
 );
+
+-- TEL TURUNUN KARAR IZI
+--
+-- NEDEN VAR
+-- ---------
+-- Olculdu (2026-09-30): tel dagitildi, Cloudflare cron'u dondu
+-- (12:50:24 turu `nobet_izi`de kayitli) ama `/api/tel` BOS kaldi.
+-- Yani `telTopla` calisti ve hicbir oge yazmadi -- SEBEBI ise
+-- disaridan GORULEMIYORDU. Tek kayit `console.error`du ve Cloudflare
+-- gunlugu Logpush olmadan saklanmiyor.
+--
+-- Bu, `nobet_izi`nin yazilmasina yol acan kor noktanin AYNISI:
+-- "nobetci atesledi de GitHub mi almadi, yoksa hic bakmadi mi"
+-- sorusu cevaplanamiyordu. Ayni hatayi ikinci kez yapmamak icin tel
+-- de kendi izini birakiyor.
+--
+-- HANGI SORULARI AYIRIYOR
+--   http = 429     kaynak hiz siniri (Cloudflare paylasimli IP)
+--   http = 200 ama ayrisan = 0   RSS bicimi beklendigi gibi degil
+--   ayrisan > 0 ama yazilan = 0  atif suzgeci ya da D1 yazmasi
+--   hata dolu                    istisna; metni burada
+--
+-- Dordu de disaridan "bos liste" olarak gorunuyordu.
+CREATE TABLE IF NOT EXISTS tel_iz (
+  an      TEXT NOT NULL,         -- ISO 8601, UTC
+  kod     TEXT NOT NULL,         -- besleme kodu
+  http    INTEGER,               -- besleme yanit kodu; bilinmiyorsa NULL
+  ayrisan INTEGER NOT NULL DEFAULT 0,   -- RSS'ten cikan oge sayisi
+  yazilan INTEGER NOT NULL DEFAULT 0,   -- D1'e giren oge sayisi
+  ceviri  INTEGER NOT NULL DEFAULT 0,   -- bu turda yapilan ceviri
+  hata    TEXT                   -- istisna metni; yoksa NULL
+);
+
+CREATE INDEX IF NOT EXISTS tel_iz_an ON tel_iz(an);
