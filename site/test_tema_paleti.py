@@ -169,7 +169,17 @@ def kok_kurallari(css: str):
         for prelude, ic, _ in _bloklar(govde):
             p = " ".join(prelude.split())
             if p.startswith("@media"):
-                yeni_koyu = medya_koyu or "prefers-color-scheme: dark" in p
+                # BOSLUGA DUYARSIZ. Kaynakta kosul
+                # `(prefers-color-scheme: dark)` diye yaziliyor ama
+                # kucultulmus ciktida `(prefers-color-scheme:dark)`
+                # oluyor. Ilk surum bosluklu metni ariyordu; canli
+                # CSS'e dogrultuldugunda HER medya blogunu kosulsuz
+                # sandi ve "sistem acik / secim yok" durumunu KOYU
+                # palet gibi olctu. Sonuc imkansizdi, o yuzden fark
+                # edildi -- ama imkansiz olmasaydi sessizce yanlis
+                # olurdu.
+                yeni_koyu = medya_koyu or re.search(
+                    r"prefers-color-scheme\s*:\s*dark", p) is not None
                 yeni_baski = baski or re.search(r"\bprint\b", p) is not None
                 gez(ic, yeni_koyu, yeni_baski)
                 continue
