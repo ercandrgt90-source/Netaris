@@ -29,7 +29,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 28,
+  "yorumlanan": 27,
   "haberler": [
     {
       "baslik": "Cari Hesap Bakiyeleri ve Piyasa İşlemlerindeki Değişikliklerin Kaynakları (Eylül)",
@@ -1503,6 +1503,27 @@
       "foto_atif": "CryptoWallet.com Images · CC-BY-2.0"
     },
     {
+      "baslik": "Bitcoin boğaları dev bir çeyreğin tadını çıkarırken kripto 1,26 milyar $ değer kaybetti",
+      "baslik_kaynak": "Crypto lost $1.26 billion in hacks while bitcoin bulls enjoyed a monster quarter",
+      "ozet": "Your day-ahead look for Oct. 1, 2026",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.coindesk.com/daybook-us/2026/10/01/crypto-lost-usd1-26-billion-in-hacks-while-bitcoin-bulls-enjoyed-a-monster-quarter",
+      "kurum": "CoinDesk",
+      "kurum_tam": "CoinDesk",
+      "konu": "Kripto varlıklar",
+      "tarih": "2026-10-01",
+      "tarih_gorunur": "1 Ekim 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/kripto-varliklar-7-62d77ad7.jpg",
+      "foto_atif": "Karlalhdz · CC-BY-SA-4.0"
+    },
+    {
       "baslik": "Sentetik tokenize hisse senetleri Amerikalı yatırımcılar için kötü",
       "baslik_kaynak": "Synthetic tokenized stocks are bad for American investors",
       "ozet": "U.S. markets are the envy of the world because investors trust that whoever owns a share owns it fully, writes Aaron Kaplan, founder of Promethum. The synthetic models cheapens that trust, shortchanges U.S. investors, and undercuts the issuer-led capital markets model.",
@@ -1776,6 +1797,32 @@
       "foto_atif": "CryptoWallet.com Images · CC-BY-2.0"
     },
     {
+      "baslik": "Bankacılık sektörünün kredi hacmi 28,4 trilyon liraya çıktı",
+      "baslik_kaynak": "Bankacılık sektörünün kredi hacmi 28,4 trilyon liraya çıktı",
+      "ozet": "Bankacılık sektörünün toplam kredi hacmi 25 Eylül itibarıyla 28,4 trilyon liraya yükseldi.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.aa.com.tr/tr/ekonomi/bankacilik-sektorunun-kredi-hacmi-28-4-trilyon-liraya-cikti/4074854",
+      "kurum": "AA",
+      "kurum_tam": "Anadolu Ajansı",
+      "konu": "Bankacılık",
+      "tarih": "2026-10-01",
+      "tarih_gorunur": "1 Ekim 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Bankacılık kararları kredi kanalının genişliğini belirler; etki önce fonlama maliyetinde, sonra kredi hacminde görünür.",
+      "kanallar": [
+        "Fonlama maliyeti: mevduat ve tahvil faizindeki değişim net faiz marjına yazılır.",
+        "Sermaye yeterliliği: rasyo üzerindeki baskı kredi büyümesini sınırlar.",
+        "Aktif kalitesi: takipteki kredi oranı, karşılık giderleri üzerinden kârlılığa geçer.",
+        "Yayılım: bankacılık sistemi ekonominin geri kalanına kredi kanalıyla bağlı olduğu için etki sektörle sınırlı kalmaz."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/bankacilik-8-d4d74101.jpg",
+      "foto_atif": "Myotus · CC-BY-4.0"
+    },
+    {
       "baslik": "TÜME Vakfınca yapay zeka destekli otonom tarım aracı geliştirildi",
       "baslik_kaynak": "TÜME Vakfınca yapay zeka destekli otonom tarım aracı geliştirildi",
       "ozet": "Tarım Teknolojileri Kümelenmesi (TÜME) tarafından seralarda ilaçlama başta olmak üzere farklı tarımsal faaliyetlerde kullanılabilen yapay zeka destekli otonom kara aracı, TEKNOFEST Güneydoğu'da ziyaretçilerin ilgisini çekiyor.",
@@ -1899,6 +1946,27 @@
       "foto_atif": "RegionalQueenslander · CC-BY-SA-4.0"
     },
     {
+      "baslik": "SPK’dan Bulls, A1 Capital ve Pardus fonları için yeni karar: Tasfiye para piyasası fonlarından başlayacak",
+      "baslik_kaynak": "SPK’dan Bulls, A1 Capital ve Pardus fonları için yeni karar: Tasfiye para piyasası fonlarından başlayacak",
+      "ozet": "Sermaye Piyasası Kurulu (SPK), A1 Capital Portföy Yönetimi, Bulls Portföy Yönetimi ve Pardus Portföy Yönetimi’nin kurucusu olduğu tasfiye listesindeki fonlara ilişkin sürecin nasıl yürütüleceğini açıkladı.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.dunya.com/ekonomi/spkdan-bulls-a1-capital-ve-pardus-fonlari-icin-yeni-karar-tasfiye-para-piyasasi-fonlarindan-baslayacak-haberi-842197",
+      "kurum": "Dünya",
+      "kurum_tam": "Dünya Gazetesi",
+      "konu": "Piyasa düzenlemesi",
+      "tarih": "2026-10-01",
+      "tarih_gorunur": "1 Ekim 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/piyasa-duzenlemesi-7-24361cea.jpg",
+      "foto_atif": "Ank Kumar · CC-BY-SA-4.0"
+    },
+    {
       "baslik": "Avrupa borsalarında üç ayın dibi: Bankalarda kayıp yüzde 3’ü aştı",
       "baslik_kaynak": "Avrupa borsalarında üç ayın dibi: Bankalarda kayıp yüzde 3’ü aştı",
       "ozet": "Avrupa borsaları son çeyreğe sert satışla başladı. STOXX 600 üç ayın en düşük seviyesine inerken banka hisselerinde kayıp yüzde 3,2'ye ulaştı. Tahvil faizlerindeki yükseliş ve yüksek enerji maliyetleri risk iştahını baskılıyor.",
@@ -2019,27 +2087,6 @@
       "foto_atif": "Bill Holler · CC-BY-SA-2.0"
     },
     {
-      "baslik": "BODE'nin odağında elektrikli otobüsler ve siber güvenlik var",
-      "baslik_kaynak": "BODE'nin odağında elektrikli otobüsler ve siber güvenlik var",
-      "ozet": "Ticari araç üreticilerine yönelik otobüs kapı sistemleri geliştiren BODE Araç Kapı Sistemleri, mevcut müşteri portföyünü korurken yeni projeler için çalışmalarını sürdürüyor.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.ekonomim.com/sektorler/otomotiv/bodenin-odaginda-elektrikli-otobusler-ve-siber-guvenlik-var-haberi-921942",
-      "kurum": "Ekonomim",
-      "kurum_tam": "Ekonomim",
-      "konu": "Enerji",
-      "tarih": "2026-10-01",
-      "tarih_gorunur": "1 Ekim 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enerji-11-a5cdd29f.jpg",
-      "foto_atif": "W.carter · CC0"
-    },
-    {
       "baslik": "SPK açıkladı: İsteğe bağlı iade hesapları açıldı",
       "baslik_kaynak": "SPK açıkladı: İsteğe bağlı iade hesapları açıldı",
       "ozet": "Sermaye Piyasası Kurulu (SPK), Birleşik Fon Bankası bünyesinde Tasarruf Mevduatı Sigorta Fonu (TMSF) adına \"İsteğe Bağlı İade Hesapları\"nın açıldığını açıkladı.",
@@ -2085,57 +2132,6 @@
       "kanal_basligi": "Hangi piyasaları etkiler?",
       "foto": "/statik/foto/istihdam-ve-ucret-8-418ab6fc.jpg",
       "foto_atif": "Greg Walters · CC-BY-2.0"
-    },
-    {
-      "baslik": "İstanbul'da eylül enflasyonu açıklandı: En yüksek artış eğitimde",
-      "baslik_kaynak": "İstanbul'da eylül enflasyonu açıklandı: En yüksek artış eğitimde",
-      "ozet": "İstanbul Ticaret Odası (İTO) verileri, İstanbul'da aylık enflasyonun eylülde yüzde 2,11'e çıktığını, yıllık enflasyonun ise yüzde 33,55'e indiğini gösterdi. Eylülde fiyatların en fazla arttığı grup, yüzde 22,59 ile eğitim oldu.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.ekonomist.com.tr/ekonomi-haberleri/istanbul-da-eylul-enflasyonu-aciklandi-en-yuksek-artis-egitimde-79399",
-      "kurum": "Ekonomist",
-      "kurum_tam": "Ekonomist",
-      "konu": "Enflasyon",
-      "tarih": "2026-10-01",
-      "tarih_gorunur": "1 Ekim 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Enflasyon verisi merkez bankası patikasına dair beklentiyi değiştirdiği ölçüde fiyatlanır; manşet ile çekirdek arasındaki fark bu yüzden önemlidir.",
-      "kanallar": [
-        "Çekirdek ayrımı: enerji ve gıda dışı kalemler kalıcı eğilimi gösterir.",
-        "Faiz beklentisi: beklentiden sapma getiri eğrisinin ön ucunu hareket ettirir.",
-        "Hizmet enflasyonu: ücretlere bağlı olduğu için en yapışkan bileşendir.",
-        "Baz etkisi: bir önceki yılın aynı ayındaki seviye yıllık oranı mekanik olarak değiştirir."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/enflasyon-10-f56d310e.jpg",
-      "foto_atif": "KOMUnews · CC-BY-2.0"
-    },
-    {
-      "baslik": "Fransa 2027 bütçesini açıkladı, açığı düşürmeyi planlıyor",
-      "baslik_kaynak": "Fransa 2027 bütçesini açıkladı, açığı düşürmeyi planlıyor",
-      "ozet": "",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://tr.investing.com/news/economy-news/fransa-2027-butcesini-acklad-acg-dusurmeyi-planlyor-93CH-4086180",
-      "kurum": "Investing",
-      "kurum_tam": "Investing.com Türkiye",
-      "konu": "Vergi ve kamu maliyesi",
-      "tarih": "2026-10-01",
-      "tarih_gorunur": "1 Ekim 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Vergi düzenlemeleri ve bütçe dengesi hem şirket kârlılığını hem devletin borçlanma ihtiyacını belirler.",
-      "kanallar": [
-        "Şirket kârlılığı: vergi oranı ve istisna değişiklikleri net kâra doğrudan yansır.",
-        "Borçlanma ihtiyacı: bütçe açığı iç borçlanmayı artırır; bu da tahvil getirilerini ve banka bilançolarını etkiler.",
-        "Tüketici fiyatı: dolaylı vergiler (ÖTV, KDV) nihai fiyata doğrudan geçer."
-      ],
-      "kanal_basligi": "Piyasaya nasıl yansır?",
-      "foto": "/statik/foto/vergi-ve-kamu-maliyesi-8-eb2911ed.jpg",
-      "foto_atif": "RegionalQueenslander · CC-BY-SA-4.0"
     },
     {
       "baslik": "Aylık Para ve Banka İstatistikleri ve Parasal Gelişmeler (Ağustos 2026)",
