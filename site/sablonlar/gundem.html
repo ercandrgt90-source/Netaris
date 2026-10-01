@@ -285,7 +285,8 @@
 
    JAVASCRIPT YOKSA gizli kaliyor ve sayfa basildigi gibi calisiyor;
    tel bir EK katman, sitenin okuma tarafi ona bagli degil. #}
-<div class="tel-kap" data-tel-kap data-tel-uretim="{{ uretim_ani }}" hidden>
+<div class="tel-kap" data-tel-kap aria-live="polite"
+     data-tel-uretim="{{ uretim_ani }}" hidden>
   <span class="tel-nokta" aria-hidden="true"></span>
   {# OZGUN DIL SOYLENIYOR.
      Olculdu (2026-10-01): uc katmaninda makine cevirisi mumkun

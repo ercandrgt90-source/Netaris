@@ -187,6 +187,17 @@
         if (liste) n = doldur(liste, oge, d.ogeler);
         else if (akis) n = doldur(akis, akisOgesi, d.ogeler);
         if (!n) return;
+        /* SIRA ONEMLI: once GORUNUR yapiliyor, sonra sayi
+           yaziliyor.
+           `aria-live` bolgesi GIZLIYKEN yapilan degisiklikler
+           duyurulmaz. Ters sirada ekran okuyucu kullanan okur
+           canli basliklarin geldigini HIC duymazdi -- ogeler
+           sayfada olur ama neden "canli" dediklerini aciklayan
+           cumle sessizce belirirdi.
+
+           Liste DEGIL bildirim duyuruluyor: kirk basligi
+           okutmak gurultu olurdu; "N baslik ... geldi" tek
+           cumlede ayni bilgiyi veriyor. */
         kap.removeAttribute("hidden");
         var sayi = kap.querySelector("[data-tel-sayi]");
         if (sayi) sayi.textContent = String(n);

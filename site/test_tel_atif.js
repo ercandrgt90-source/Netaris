@@ -288,6 +288,34 @@ async function kos() {
   dogru(/\.akis-liste li\s*\{[^}]*var\(--tur/.test(css),
         "ana sayfa listesi sol kenarligi `--tur`dan aliyor");
 
+  /* EKRAN OKUYUCU CANLI BASLIKLARDAN HABERDAR OLMALI.
+     Ogeler sayfaya SONRADAN ekleniyor; hicbir duyuru olmazsa ekran
+     okuyucu kullanan okur onlarin geldigini bilmez. Depoda kalip
+     zaten var (`ara-sayac`, `paylas.js`): dinamik sayac
+     `aria-live="polite"`.
+
+     LISTE DEGIL BILDIRIM duyuruluyor -- kirk basligi okutmak
+     gurultu olurdu.
+
+     SIRA DA ONEMLI: `aria-live` bolgesi GIZLIYKEN yapilan
+     degisiklikler duyurulmaz, o yuzden once `hidden` kalkiyor
+     sonra sayi yaziliyor. */
+  console.log("\nEkran okuyucuya duyuru");
+  for (const sablon of ["gundem.html", "anasayfa.html"]) {
+    const h = fs.readFileSync(
+      path.join(__dirname, "sablonlar", sablon), "utf8");
+    const blok = /<div class="tel-kap"[\s\S]{0,200}?>/.exec(h);
+    dogru(blok, `${sablon}: tel bildirimi var`);
+    if (blok) {
+      dogru(/aria-live="polite"/.test(blok[0]),
+            sablon + ': bildirim aria-live="polite" tasiyor');
+    }
+  }
+  const sira = KAYNAK.indexOf('removeAttribute("hidden")');
+  const sayiYaz = KAYNAK.indexOf("sayi.textContent");
+  dogru(sira > 0 && sayiYaz > sira,
+        "once gorunur yapiliyor, SONRA sayi yaziliyor (yoksa duyurulmaz)");
+
   /* --- ANA SAYFA BASICISI -- AYNI ATIF KURALI --------------------
      Iki ayri isaretleme var ve ayni kurali iki yere yazmak bu
      depoda en pahaliya mal olan kusur sinifi. Atif karari tek bir
