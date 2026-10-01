@@ -2581,7 +2581,7 @@ async function telSha(metin) {
  * basligiyla. Tazelik icin kurulan seyi ceviri ugruna geciktirmek,
  * amaci kendine karsi kullanmak olurdu.
  */
-async function telCevir(env, metin) {
+async function telCevir(env, metin, ayar, iz) {
   const anahtar = await telSha(metin);
   try {
     const v = await env.DB.prepare(
@@ -2590,24 +2590,50 @@ async function telCevir(env, metin) {
   } catch (e) {
     console.error("tel: ceviri onbellegi okunamadi", e);
   }
+  if (!ayar || !ayar.uc) return "";
   let ceviri = "";
   try {
-    const u = "https://api.mymemory.translated.net/get?q="
-      + encodeURIComponent(metin.slice(0, 480)) + "&langpair=en|tr";
+    /* `de` PARAMETRESI SART.
+       Kotayi 1.000 kelimeden 50.000'e cikariyor. Onsuz sinir IP
+       BASINA 1.000 ve Cloudflare'in paylasimli cikis IP'lerinde o
+       kota coktan tukenmis oluyor -- olculdu: ilk turda 60 istekten
+       SIFIRI cevrildi. `ceviri.py` bu parametreyi en bastan beri
+       gonderiyor; JS surumu ayrismisti. */
+    const u = ayar.uc + "?q=" + encodeURIComponent(metin.slice(0, 480))
+      + "&langpair=" + encodeURIComponent(ayar.cift || "en|tr")
+      + (ayar.iletisim ? "&de=" + encodeURIComponent(ayar.iletisim) : "");
     const r = await fetch(u, { headers: { "User-Agent": TEL_KIMLIK } });
-    if (r.ok) {
-      const d = await r.json();
-      const c = d && d.responseData && d.responseData.translatedText;
-      /* Ucun "cevrilemedi" dedigi durumda kaynagi AYNEN geri
-         verdigi oluyor; onu ceviri diye saklamak, onbellegi yanlis
-         bir cevapla kalici olarak zehirlemek olurdu. */
-      if (c && c.toLowerCase() !== metin.toLowerCase()
-          && !/^[A-Z ]*$/.test(c)) {
-        ceviri = c;
-      }
+    if (!r.ok) {
+      if (iz && !iz.ceviri_hata) iz.ceviri_hata = "http " + r.status;
+      return "";
     }
+    const d = await r.json();
+    /* KOTA BITTIGINDE UC 200 DONUYOR -- govdede soyluyor.
+       Durum koduna bakip gecmek, kota bitimini "basarili ceviri"
+       saymak olurdu. */
+    if (d && d.quotaFinished) {
+      if (iz && !iz.ceviri_hata) iz.ceviri_hata = "kota bitti";
+      return "";
+    }
+    const c = ((d && d.responseData && d.responseData.translatedText)
+               || "").trim();
+    /* UC, CEVIREMEDIGINDE UYARIYI CEVIRI ALANINDA DONUYOR.
+       "MYMEMORY WARNING: ..." metnini ceviri diye saklamak,
+       onbellegi kalici olarak zehirlemek olurdu. `ceviri.py` ayni
+       kontrolu yapiyor. */
+    if (!c || c.toUpperCase().startsWith("MYMEMORY WARNING")) {
+      if (iz && !iz.ceviri_hata) {
+        iz.ceviri_hata = c ? c.slice(0, 80) : "bos yanit";
+      }
+      return "";
+    }
+    /* Ucun "cevrilemedi" dedigi durumda kaynagi AYNEN geri verdigi
+       oluyor; onu ceviri saymak okura yanlis bilgi verirdi. */
+    if (c.toLowerCase() === metin.toLowerCase()) return "";
+    ceviri = c;
   } catch (e) {
     console.error("tel: ceviri alinamadi", e);
+    if (iz && !iz.ceviri_hata) iz.ceviri_hata = String(e).slice(0, 80);
   }
   if (!ceviri) return "";
   try {
@@ -2660,7 +2686,14 @@ async function telTopla(env) {
      * basarili turlarda yazilsaydi, tam da ogrenmek istedigimiz
      * durumda susardi. */
     const iz = { http: null, ayrisan: 0, yazilan: 0, ceviri: 0,
-                 hata: null };
+                 hata: null, ceviri_hata: null };
+    /* Tur basina ceviri SINIRI. Python istemcisi istekler arasi
+       0,35 sn bekliyor ("ucretsiz servise saygili davranmak"); uc
+       katmaninda bekleme cron turunu uzatip alt-istek butcesini
+       yerdi, o yuzden karsiligi SINIR. Cevrilmeyen oge yine
+       gosteriliyor ve sonraki turlarda tamamlaniyor. */
+    const cevAyar = kurallar.ceviri || {};
+    let cevKalan = Number(cevAyar.tur_siniri) || 12;
     try {
     let xml = "";
     try {
@@ -2711,9 +2744,14 @@ async function telTopla(env) {
         console.error("tel: okuma hatasi", e);
       }
       /* ZATEN VARSA CEVIRI YENIDEN ISTENMIYOR -- kota ve sure. */
+      /* CEVIRISI EKSIK KALAN OGE SONRAKI TURDA TAMAMLANIYOR.
+         Ilk surumde ceviri yalnizca YENI ogede deneniyordu; tur
+         sinirina takilan ya da ucun cevap vermedigi bir oge, bir
+         daha hic cevrilmezdi. */
       let trBaslik = mevcut ? (mevcut.baslik_tr || "") : "";
-      if (!mevcut && b.dil && b.dil !== "tr") {
-        trBaslik = await telCevir(env, baslik);
+      if (!trBaslik && cevKalan > 0 && b.dil && b.dil !== "tr") {
+        cevKalan--;
+        trBaslik = await telCevir(env, baslik, cevAyar, iz);
         if (trBaslik) iz.ceviri++;
       }
       try {
@@ -2736,6 +2774,15 @@ async function telTopla(env) {
       console.error("tel: tur hatasi", b.kod, e);
       iz.hata = String(e).slice(0, 200);
     } finally {
+      /* CEVIRI HATASI DA `hata` SUTUNUNA YAZILIYOR -- ayri sutun
+         DEGIL. Yeni sutun, var olan tabloya `CREATE TABLE IF NOT
+         EXISTS` ile EKLENMEZ; sessizce hicbir sey yapar ve eksik
+         sutun ancak ilk sorguda, calisma aninda ortaya cikar
+         (`gocler.sql` bu tuzagi acikca yaziyor). Var olan sutunu
+         kullanmak, bir goc adimi daha eklemekten guvenli. */
+      if (!iz.hata && iz.ceviri_hata) {
+        iz.hata = "ceviri: " + iz.ceviri_hata;
+      }
       try {
         await env.DB.prepare(
           "INSERT INTO tel_iz (an, kod, http, ayrisan, yazilan, ceviri, "

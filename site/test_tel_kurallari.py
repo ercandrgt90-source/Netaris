@@ -158,6 +158,35 @@ def test_saklama_penceresi_insa_araligindan_genis():
     dogru("saklama <= 72 saat", _d["saklama_saat"] <= 72)
 
 
+def test_ceviri_yapilandirmasi_kaynaktan():
+    """Ceviri ayarlari da ELLE yazilmamis olmali.
+
+    Olculdu (2026-09-30, canli): Worker'in ilk turu 60 oge yazdi ve
+    SIFIR ceviri yapti. JS surumu `ceviri.py`den dort yerde
+    ayrilmisti; en belirleyicisi `de` (iletisim) parametresinin hic
+    gonderilmemesiydi. O parametre kotayi 1.000 kelimeden 50.000'e
+    cikariyor ve onsuz sinir IP BASINA 1.000 -- Cloudflare'in
+    paylasimli cikis IP'lerinde coktan tukenmis oluyor.
+
+    Adres ve uc artik kaynaktan aliniyor; burasi ayni kaldigini
+    tutuyor.
+    """
+    import ceviri as _ceviri  # noqa: PLC0415
+    import kimlik as _kimlik  # noqa: PLC0415
+
+    c = _d.get("ceviri") or {}
+    es("ceviri ucu", c.get("uc"), _ceviri.UC)
+    es("iletisim adresi", c.get("iletisim"), _kimlik.ILETISIM)
+    es("dil cifti", c.get("cift"), "en|tr")
+    dogru("tur siniri makul",
+          isinstance(c.get("tur_siniri"), int)
+          and 1 <= c["tur_siniri"] <= 40)
+    # Adres KURUMSAL olmali: kisisel bir adres yayilan bir dosyada
+    # durmamali. `kimlik.py` bu karari zaten gerekcesiyle yaziyor.
+    dogru("adres kurumsal alan adinda",
+          str(c.get("iletisim", "")).endswith("@netaris.net"))
+
+
 def test_gecerli_json_ve_utf8():
     """Turkce karakterler kacisla degil, dogrudan yazilmali."""
     dogru("turkce karakter kacissiz", "\\u" not in _ham)

@@ -212,6 +212,38 @@ async function kos() {
   dogru(k.adres().indexOf("2026-09-30T09%3A00%3A00Z") !== -1,
         "sayfanin uretim ani gonderiliyor");
 
+  /* URETILEN HER SINIF CSS'TE TANIMLI OLMALI.
+     Uctan gelen ogeler sayfaya ISTEMCIDE ekleniyor; bir sinif adi
+     degisirse ya da yeni bir sinif eklenip bicimi yazilmazsa oge
+     BICIMSIZ basilir. Sayfa calisir gorunur, yalnizca oge kirik
+     durur -- yani kusur sessizdir. Hicbir baska sinama bunu
+     gormezdi: isaretleme dogru, bicim yok. */
+  console.log("\nUretilen siniflar bicimlendirilmis");
+  const css = fs.readFileSync(
+    path.join(__dirname, "statik", "stil.css"), "utf8")
+    .replace(/\/\*[\s\S]*?\*\//g, "");
+  const sablon = fs.readFileSync(
+    path.join(__dirname, "sablonlar", "gundem.html"), "utf8");
+  const siniflar = new Set();
+  for (const m of KAYNAK.matchAll(/class="([^"]+)"/g)) {
+    m[1].split(/\s+/).forEach((x) => x && siniflar.add(x));
+  }
+  for (const m of KAYNAK.matchAll(/className\s*=\s*"([^"]+)"/g)) {
+    m[1].split(/\s+/).forEach((x) => x && siniflar.add(x));
+  }
+  for (const m of sablon.matchAll(/class="(tel[^"]*)"/g)) {
+    m[1].split(/\s+/).forEach((x) => x && siniflar.add(x));
+  }
+  dogru(siniflar.size >= 10,
+        `uretilen sinif sayisi olculdu (${siniflar.size})`);
+  const eksik = [];
+  for (const s of siniflar) {
+    const kalip = new RegExp("\\." + s.replace(/[-]/g, "\\-")
+                             + "[\\s,{:.\\[]");
+    if (!kalip.test(css)) eksik.push(s);
+  }
+  esit(eksik, [], "her sinif stil.css'te tanimli");
+
   console.log("\nTel dusse sayfa bozulmuyor");
   k = ortamKur([], "2026-09-30T09:00:00Z");
   k.ortam.fetch = function () { return Promise.reject(new Error("ag")); };

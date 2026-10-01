@@ -180,8 +180,14 @@ const RSS_ORNEK = `<rss><channel>
 </channel></rss>`;
 
 const TEST_KURAL = {
-  surum: 1,
+  surum: 2,
   saklama_saat: 36,
+  ceviri: {
+    uc: "https://ornek.ceviri/get",
+    cift: "en|tr",
+    iletisim: "destek@netaris.net",
+    tur_siniri: 12,
+  },
   beslemeler: [{
     kod: "FJUICE", kurum: "FinancialJuice", kurum_tam: "FinancialJuice",
     besleme: "https://ornek/rss", konu: "Şirket haberleri",
@@ -302,6 +308,71 @@ async function kos() {
   esit(db3.izler[0].yazilan, 2, "yazilan oge sayisi izde (atifsiz elendi)");
   esit(db3.izler[0].ceviri, 2, "ceviri sayisi izde");
   esit(db3.izler[0].hata, null, "saglikli turda hata alani bos");
+
+  /* CEVIRI ISTEMCISI PYTHON'UNKIYLE AYNI SOZLESMEYE UYMALI.
+     Olculdu (2026-09-30, canli): ilk tur 60 oge yazdi ve SIFIR
+     ceviri yapti. JS surumu `ceviri.py`den dort yerde ayrilmisti:
+     `de` gonderilmiyordu (kota 1.000 -> 50.000), `quotaFinished`
+     bakilmiyordu, "MYMEMORY WARNING" ceviri saniliyordu ve tur
+     sinirI yoktu. */
+  console.log("\nCeviri sozlesmesi");
+  const cevIstek = fetchCagrilari.filter(
+    (c) => c.url.indexOf("ornek.ceviri") !== -1);
+  dogru(cevIstek.length >= 1, "ceviri ucu cagrildi");
+  dogru(cevIstek[0].url.indexOf("de=destek%40netaris.net") !== -1,
+        "`de` parametresi gonderiliyor (kota 1.000 -> 50.000)");
+  dogru(cevIstek[0].url.indexOf("langpair=en%7Ctr") !== -1,
+        "dil cifti gonderiliyor");
+
+  /* Kota bitmis: uc 200 donuyor ama govdede soyluyor. */
+  const dbKota = sahteDB();
+  sahteYanitlar = [
+    { ok: true, status: 200, text: () => Promise.resolve(RSS_ORNEK) },
+    { ok: true, status: 200,
+      json: () => Promise.resolve({ quotaFinished: true,
+                                    responseData: { translatedText: "x" } }) },
+    { ok: true, status: 200,
+      json: () => Promise.resolve({ quotaFinished: true,
+                                    responseData: { translatedText: "x" } }) },
+  ];
+  await telTopla(kuralliOrtam(dbKota, TEST_KURAL));
+  esit(dbKota.yazilan.length, 2, "kota bitince oge YINE yaziliyor");
+  esit(dbKota.yazilan[0].baslik_tr, "", "kota bitince ceviri bos");
+  esit(dbKota.izler[0].ceviri, 0, "kota bitince ceviri sayisi 0");
+  dogru(/kota bitti/.test(dbKota.izler[0].hata || ""),
+        "kota bitimi IZDE yaziyor");
+
+  /* Uc, ceviremedigini CEVIRI ALANINDA soyluyor. */
+  const dbUyari = sahteDB();
+  sahteYanitlar = [
+    { ok: true, status: 200, text: () => Promise.resolve(RSS_ORNEK) },
+    { ok: true, status: 200, json: () => Promise.resolve(
+        { responseData: { translatedText:
+          "MYMEMORY WARNING: YOU USED ALL AVAILABLE FREE TRANSLATIONS" } }) },
+    { ok: true, status: 200, json: () => Promise.resolve(
+        { responseData: { translatedText: "MYMEMORY WARNING: ..." } }) },
+  ];
+  await telTopla(kuralliOrtam(dbUyari, TEST_KURAL));
+  esit(dbUyari.yazilan[0].baslik_tr, "",
+       "MYMEMORY WARNING ceviri sayilmiyor");
+  dogru(/MYMEMORY WARNING/.test(dbUyari.izler[0].hata || ""),
+        "uyari metni IZDE yaziyor");
+
+  /* Tur sinirI: bir turda sinirsiz ceviri istenmiyor. */
+  const dbSinir = sahteDB();
+  const azKural = JSON.parse(JSON.stringify(TEST_KURAL));
+  azKural.ceviri.tur_siniri = 1;
+  sahteYanitlar = [
+    { ok: true, status: 200, text: () => Promise.resolve(RSS_ORNEK) },
+    { ok: true, status: 200, json: () => Promise.resolve(
+        { responseData: { translatedText: "Birinci çeviri" } }) },
+    { ok: true, status: 200, json: () => Promise.resolve(
+        { responseData: { translatedText: "Ikinci çeviri" } }) },
+  ];
+  await telTopla(kuralliOrtam(dbSinir, azKural));
+  esit(dbSinir.izler[0].ceviri, 1, "tur sinirI uygulaniyor");
+  esit(dbSinir.yazilan.length, 2,
+       "sinira takilan oge YINE yaziliyor (cevirisiz)");
 
   /* KURALLAR OKUNAMAZSA -- tani aracinin en kor oldugu yer.
      Ilk surumde `telTopla` burada sessizce donuyordu ve iz dongunun

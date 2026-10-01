@@ -2319,11 +2319,51 @@ def tel_kurallari_uret(besleme) -> str:
                          TEL_OGE_SINIRI),
         })
 
+    # CEVIRI YAPILANDIRMASI DA BURADAN GELIYOR.
+    #
+    # Olculdu (2026-09-30): Worker'in ilk turu 60 oge yazdi ve
+    # SIFIR ceviri yapti. Sebep, JS surumunun Python istemcisinden
+    # DORT yerde ayrilmasiydi:
+    #
+    #   * `de` (iletisim adresi) gonderilmiyordu. O parametre kotayi
+    #     1.000 kelimeden 50.000'e cikariyor; onsuz sinir IP BASINA
+    #     1.000 ve Cloudflare'in paylasimli cikis IP'lerinde o kota
+    #     coktan tukenmis oluyor.
+    #   * `quotaFinished` bayragi kontrol edilmiyordu.
+    #   * "MYMEMORY WARNING" ile baslayan yanit ceviri saniliyordu.
+    #   * Istekler arasi bekleme yoktu (Python 0,35 sn bekliyor --
+    #     "ucretsiz servise saygili davranmak").
+    #
+    # Yani ceviri istemcisini ikinci kez yazarken dordunde birden
+    # ayristim. Cozum ayni cozum: KARARI TEK YERDE tut, digerine
+    # VERI olarak gonder.
+    try:
+        from kimlik import ILETISIM as _iletisim   # noqa: PLC0415
+    except ImportError:                            # pragma: no cover
+        from kaynak.kimlik import ILETISIM as _iletisim  # noqa: PLC0415
+    try:
+        from ceviri import UC as _ceviri_uc        # noqa: PLC0415
+    except ImportError:                            # pragma: no cover
+        from kaynak.ceviri import UC as _ceviri_uc  # noqa: PLC0415
+
     return json.dumps({
-        "surum": 1,
+        "surum": 2,
         "uretildi": datetime.now(timezone.utc).strftime(
             "%Y-%m-%dT%H:%M:%SZ"),
         "saklama_saat": TEL_SAKLAMA_SAAT,
+        "ceviri": {
+            "uc": _ceviri_uc,
+            "cift": "en|tr",
+            # Kurumsal adres; kunyede ve dis isteklerin User-Agent
+            # basliklarinda zaten geciyor (bkz. `kimlik.py`).
+            "iletisim": _iletisim,
+            # Tek turda en fazla bu kadar ceviri. Python 0,35 sn
+            # bekliyor; uc katmaninda bekleme yerine SINIR var --
+            # bekleme, cron turunu uzatip alt-istek butcesini yer.
+            # Cevrilmeyen oge yine gosteriliyor, sonraki turlarda
+            # tamamlaniyor.
+            "tur_siniri": 12,
+        },
         "beslemeler": ogeler,
         # Baslik onekleri: kunye sayfada ayrica basildigi icin
         # basliktaki "FinancialJuice:" tekrari siliniyor.
