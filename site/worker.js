@@ -2639,7 +2639,7 @@ async function telCevir(env, metin, ayar, iz) {
   try {
     await env.DB.prepare(
       "INSERT OR REPLACE INTO tel_ceviri (anahtar, ceviri, eklendi) "
-      + "VALUES (?, ?, ?)").bind(anahtar, ceviri, damga()).run();
+      + "VALUES (?, ?, ?)").bind(anahtar, ceviri, simdi()).run();
   } catch (e) {
     console.error("tel: ceviri yazilamadi", e);
   }
@@ -2650,7 +2650,23 @@ async function telCevir(env, metin, ayar, iz) {
 async function telTopla(env) {
   if (!env || !env.DB) return;
   await telSemaKur(env);
-  const simdi = damga();
+  /* ISO DAMGA -- `damga()` DEGIL.
+   *
+   * Ilk surumde burada `const simdi = damga();` yaziyordu ve iki
+   * ayri kusur uretiyordu:
+   *
+   *   1. `damga()` Unix saniyesi donduruyor (oturum sureleri icin
+   *      var). Sema ise `an TEXT -- ISO 8601, UTC` diyordu; yani
+   *      BELGE YALAN SOYLUYORDU. Olculdu: iz satirlari
+   *      `"1790848842.0"` tasiyordu.
+   *   2. Daha kotusu, bu satir modul duzeyindeki `simdi`yi
+   *      (satir 296, ISO ureten) GOLGELIYORDU -- yani `simdi` bu
+   *      fonksiyonun icinde dosyanin geri kalanindan FARKLI bir sey
+   *      ifade ediyordu. Ayni tuzaga bugun `insa.py`de `_besleme`
+   *      adiyla da dusuldu.
+   *
+   * Ad artik golgelemiyor ve deger gercekten ISO. */
+  const an = simdi();
   const kurallar = await telKurallari(env);
   if (!kurallar || !Array.isArray(kurallar.beslemeler)) {
     /* KURALSIZ TUR DA IZ BIRAKIYOR.
@@ -2664,7 +2680,7 @@ async function telTopla(env) {
       await env.DB.prepare(
         "INSERT INTO tel_iz (an, kod, http, ayrisan, yazilan, ceviri, "
         + "hata) VALUES (?, ?, ?, ?, ?, ?, ?)")
-        .bind(simdi, "(kurallar)", null, 0, 0, 0,
+        .bind(an, "(kurallar)", null, 0, 0, 0,
               "kurallar okunamadi")
         .run();
     } catch (e) {
@@ -2761,7 +2777,7 @@ async function telTopla(env) {
           + "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)")
           .bind(kimlik, b.kod, b.kurum, b.kurum_tam, adres, baslik,
                 trBaslik, telKonuSec(baslik, kurallar, b.konu),
-                b.ticari ? 1 : 0, tarih, simdi)
+                b.ticari ? 1 : 0, tarih, an)
           .run();
         iz.yazilan++;
       } catch (e) {
@@ -2787,7 +2803,7 @@ async function telTopla(env) {
         await env.DB.prepare(
           "INSERT INTO tel_iz (an, kod, http, ayrisan, yazilan, ceviri, "
           + "hata) VALUES (?, ?, ?, ?, ?, ?, ?)")
-          .bind(simdi, b.kod, iz.http, iz.ayrisan, iz.yazilan,
+          .bind(an, b.kod, iz.http, iz.ayrisan, iz.yazilan,
                 iz.ceviri, iz.hata)
           .run();
       } catch (e) {

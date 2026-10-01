@@ -143,6 +143,7 @@ function sahteDB() {
               kurum_tam: this._a[3], adres: this._a[4],
               baslik: this._a[5], baslik_tr: this._a[6], konu: this._a[7],
               ticari: this._a[8], tarih: this._a[9],
+              eklendi: this._a[10],
             });
           }
           return {};
@@ -288,6 +289,18 @@ async function kos() {
      disaridan gorulemedi. Iz tam o sorunun cevabi; ama iz yazilmiyor
      olsaydi bunu da fark edemezdik. */
   console.log("\nTur izi");
+  /* DAMGA ISO OLMALI -- Unix saniyesi DEGIL.
+     Olculdu (2026-10-01, canli): iz satirlari `"1790848842.0"`
+     tasiyordu. Iki sebep ust uste binmisti: `damga()` oturum
+     sureleri icin Unix saniyesi donduruyor, VE o satir modul
+     duzeyindeki ISO ureten `simdi`yi GOLGELIYORDU -- yani `simdi`
+     bu fonksiyonun icinde dosyanin geri kalanindan farkli bir sey
+     ifade ediyordu. Sema ise `ISO 8601, UTC` diyordu; belge yalan
+     soyluyordu. Ayni ad-golgeleme tuzagina bugun `insa.py`de de
+     dusuldu. */
+  const isoKalip = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}/;
+  dogru(isoKalip.test(db.izler[0].an || ""),
+        `iz damgasi ISO 8601 (${db.izler[0].an})`);
   esit(db.izler.length, 1, "429 turunda da iz YAZILDI");
   esit(db.izler[0].http, 429, "izde besleme yanit kodu var");
   esit(db.izler[0].ayrisan, 0, "429'da ayrisan oge 0");
@@ -308,6 +321,10 @@ async function kos() {
   esit(db3.izler[0].yazilan, 2, "yazilan oge sayisi izde (atifsiz elendi)");
   esit(db3.izler[0].ceviri, 2, "ceviri sayisi izde");
   esit(db3.izler[0].hata, null, "saglikli turda hata alani bos");
+  /* Ogenin `eklendi` alani da ISO olmali -- ayni golgeleme oradaki
+     degeri de bozuyordu. */
+  dogru(isoKalip.test(db3.yazilan[0].eklendi || ""),
+        `oge eklendi damgasi ISO (${db3.yazilan[0].eklendi})`);
 
   /* CEVIRI ISTEMCISI PYTHON'UNKIYLE AYNI SOZLESMEYE UYMALI.
      Olculdu (2026-09-30, canli): ilk tur 60 oge yazdi ve SIFIR
