@@ -1531,7 +1531,26 @@ main.kabuk {
   100% { box-shadow: 0 0 0 0 transparent}
 }
 
-.tel-oge { border-left: 2px solid var(--vurgu-zar-2)}
+/* CANLI OGENIN SOL ISARETI -- IKI LISTEDE DE.
+   ===========================================
+   Tel ogeleri iki ayri listeye giriyor ve ikisi sol kenarligi
+   FARKLI kuruyor:
+
+     `.gundem-oge`    sol kenarlik YOK -- asagidaki kural gecerli
+     `.akis-liste li` `border-left: 2px solid var(--tur, --cizgi)`
+                      ve ozgullugu (0,1,1); `.tel-oge` (0,1,0)
+                      oldugu icin ana sayfada ONU EZIYORDU
+
+   Yani ana sayfada canli ogeler isaretsiz kaliyordu (rozet vardi,
+   renkli kenar yoktu). Olculdu 2026-10-01.
+
+   COZUM OZGULLUK YARISI DEGIL, JETON: `--tur` veriliyor ve ana
+   sayfanin KENDI kurali onu kullaniyor. Tasarim sistemine karsi
+   degil onunla calisiyor; `.akis-liste li.tel-oge` yazmak ayni
+   sonucu verirdi ama bir sonraki benzer kuralda yine yarisilirdi. */
+.tel-oge {
+  --tur: var(--vurgu);
+  border-left: 2px solid var(--vurgu-zar-2)}
 .tel-rozet {
   background: var(--vurgu-zar);
   border-color: var(--vurgu-zar-2);

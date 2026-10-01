@@ -268,6 +268,26 @@ async function kos() {
   }
   esit(eksik, [], "her sinif stil.css'te tanimli");
 
+  /* CANLI ISARETI IKI LISTEDE DE GORUNMELI.
+     Olculdu (2026-10-01): `.akis-liste li` sol kenarligi
+     `var(--tur, --cizgi)` ile kuruyor ve ozgullugu (0,1,1);
+     `.tel-oge` (0,1,0) oldugu icin ANA SAYFADA eziliyordu -- canli
+     ogeler rozetliydi ama renkli kenari yoktu. Cozum ozgullук
+     yarisi degil, `--tur` jetonu vermek: ana sayfanin KENDI kurali
+     onu kullaniyor.
+
+     Bu sinama o jetonun kalmasini tutuyor; kaldirilirsa isaret ana
+     sayfada sessizce kaybolur -- sayfa calisir gorunur, yalnizca
+     canli ogeler islenmis ogelerden ayirt edilemez. */
+  const telKural = /\.tel-oge\s*\{([^}]*)\}/.exec(css);
+  dogru(telKural, ".tel-oge kurali var");
+  if (telKural) {
+    dogru(/--tur\s*:/.test(telKural[1]),
+          ".tel-oge `--tur` veriyor (ana sayfada da isaretlensin)");
+  }
+  dogru(/\.akis-liste li\s*\{[^}]*var\(--tur/.test(css),
+        "ana sayfa listesi sol kenarligi `--tur`dan aliyor");
+
   /* --- ANA SAYFA BASICISI -- AYNI ATIF KURALI --------------------
      Iki ayri isaretleme var ve ayni kurali iki yere yazmak bu
      depoda en pahaliya mal olan kusur sinifi. Atif karari tek bir
