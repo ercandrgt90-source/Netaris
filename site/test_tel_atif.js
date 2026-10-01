@@ -80,16 +80,21 @@ function sahteOge(etiket) {
   };
 }
 
-function ortamKur(ogeler, uretim) {
+function ortamKur(ogeler, uretim, sayfa) {
   const kap = sahteOge("div");
   kap.setAttribute("data-tel-uretim", uretim);
   kap.setAttribute("hidden", "");
   const liste = sahteOge("ul");
 
+  /* IKI SAYFA: `/gundem/` rutin listesi ve ana sayfanin "Canli
+     akis" bolumu. Isaretlemeleri farkli, ATIF KURALI ayni. */
+  const anasayfa = sayfa === "anasayfa";
+
   const belge = {
     querySelector(sec) {
       if (sec === "[data-tel-kap]") return kap;
-      if (sec === '[data-akis-kap="rutin"]') return liste;
+      if (sec === '[data-akis-kap="rutin"]') return anasayfa ? null : liste;
+      if (sec === "[data-tel-akis]") return anasayfa ? liste : null;
       return null;
     },
     createElement: sahteOge,
@@ -224,12 +229,31 @@ async function kos() {
     .replace(/\/\*[\s\S]*?\*\//g, "");
   const sablon = fs.readFileSync(
     path.join(__dirname, "sablonlar", "gundem.html"), "utf8");
+  /* GECERLI SINIF ADI SUZGECI.
+     Kunye isaretlemesi artik DEGISKEN sinif aliyor
+     (`class="' + sinif + '"`), cunku ayni atif karari iki farkli
+     bicimde basiliyor. Suzgecsiz cikarma o kaynagi okuyup `'`, `+`
+     ve `sinif` kelimelerini sinif saniyordu -- yani olcum araci
+     kendi kodunu yanlis okuyordu. Degisken olarak GECEN sinif
+     adlari asagida `kunyeHtml` cagrilarindan ayrica toplaniyor. */
+  const gecerli = (x) => /^[a-z][a-z0-9-]*$/.test(x);
+  /* Birlestirmeyle uretilen oznitelik (`class="' + sinif + '"`)
+     ATLANIYOR: icindeki `sinif` bir degisken ADI, basilan bir sinif
+     degil. Gercek degerleri asagida `kunyeHtml` cagrilarindan
+     okunuyor. */
+  const birlestirme = (s) => s.indexOf("+") !== -1 || s.indexOf("'") !== -1;
   const siniflar = new Set();
   for (const m of KAYNAK.matchAll(/class="([^"]+)"/g)) {
-    m[1].split(/\s+/).forEach((x) => x && siniflar.add(x));
+    if (birlestirme(m[1])) continue;
+    m[1].split(/\s+/).forEach((x) => gecerli(x) && siniflar.add(x));
   }
   for (const m of KAYNAK.matchAll(/className\s*=\s*"([^"]+)"/g)) {
-    m[1].split(/\s+/).forEach((x) => x && siniflar.add(x));
+    m[1].split(/\s+/).forEach((x) => gecerli(x) && siniflar.add(x));
+  }
+  /* `kunyeHtml(o, "sinif", "baglantiSinifi", ...)` cagrilari. */
+  for (const m of KAYNAK.matchAll(
+    /kunyeHtml\([^,]+,\s*"([^"]+)"\s*,\s*"([^"]+)"/g)) {
+    [m[1], m[2]].forEach((x) => gecerli(x) && siniflar.add(x));
   }
   for (const m of sablon.matchAll(/class="(tel[^"]*)"/g)) {
     m[1].split(/\s+/).forEach((x) => x && siniflar.add(x));
@@ -243,6 +267,50 @@ async function kos() {
     if (!kalip.test(css)) eksik.push(s);
   }
   esit(eksik, [], "her sinif stil.css'te tanimli");
+
+  /* --- ANA SAYFA BASICISI -- AYNI ATIF KURALI --------------------
+     Iki ayri isaretleme var ve ayni kurali iki yere yazmak bu
+     depoda en pahaliya mal olan kusur sinifi. Atif karari tek bir
+     fonksiyonda (`atifGecerli` + `kunyeHtml`) yasiyor; asagisi
+     ikinci basicida da tuttugunu olcuyor. */
+  console.log("\nAna sayfa basicisi -- ayni atif kurali");
+  k = ortamKur([TICARI], "2026-10-01T09:00:00Z", "anasayfa");
+  vm.runInContext(KAYNAK, k.ortam);
+  await new Promise((r) => setTimeout(r, 10));
+  ogeler = basilanlar(k.liste);
+  esit(ogeler.length, 1, "ana sayfada oge basildi");
+  const ah = ogeler[0].innerHTML;
+  dogru(ah.indexOf('class="akis-kunye akis-kunye-baglanti"') !== -1,
+        "kunye BAGLANTI olarak basildi (akis bicimi)");
+  dogru(ah.indexOf('href="' + TICARI.adres + '"') !== -1,
+        "ana sayfada da kaynak adresi href'te");
+  dogru(ah.indexOf('rel="nofollow noopener"') !== -1,
+        "ana sayfada da rel dogru");
+  dogru(ah.indexOf("akis-baslik") !== -1,
+        "baslik akis bicimindeki sinifi tasiyor");
+  dogru(ah.indexOf("akis-sayfasiz") !== -1,
+        "baslik TIKLANMAZ (sayfasi yok, okur siteden cikmiyor)");
+
+  /* Varsayilan kova tema olarak basilmamali -- sablon da basmiyor. */
+  k = ortamKur([Object.assign({}, TICARI, { konu: "Şirket haberleri" })],
+               "2026-10-01T09:00:00Z", "anasayfa");
+  vm.runInContext(KAYNAK, k.ortam);
+  await new Promise((r) => setTimeout(r, 10));
+  dogru(basilanlar(k.liste)[0].innerHTML.indexOf("akis-tema") === -1,
+        '"Şirket haberleri" tema olarak BASILMIYOR (varsayilan kova)');
+
+  console.log("\nAna sayfada da atifsiz oge basilmiyor");
+  k = ortamKur([Object.assign({}, TICARI, { adres: "" })],
+               "2026-10-01T09:00:00Z", "anasayfa");
+  vm.runInContext(KAYNAK, k.ortam);
+  await new Promise((r) => setTimeout(r, 10));
+  esit(basilanlar(k.liste).length, 0,
+       "ana sayfada baglantisiz oge basilmadi");
+  k = ortamKur([Object.assign({}, TICARI, { kurum: "" })],
+               "2026-10-01T09:00:00Z", "anasayfa");
+  vm.runInContext(KAYNAK, k.ortam);
+  await new Promise((r) => setTimeout(r, 10));
+  esit(basilanlar(k.liste).length, 0, "ana sayfada kunyesiz oge basilmadi");
 
   console.log("\nTel dusse sayfa bozulmuyor");
   k = ortamKur([], "2026-09-30T09:00:00Z");

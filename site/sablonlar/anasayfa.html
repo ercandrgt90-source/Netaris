@@ -35,6 +35,10 @@
    gomulseydi sayfa yayimlandigi dakikada dogru, iki saat sonra yanlis
    olurdu -- ve statik site gunde birkac kez kuruluyor. #}
 <script src="/statik/zaman.js?v={{ js_surum }}" defer></script>
+{# Tel: insadan daha yeni basliklar. `defer` -- sayfanin basilmasini
+   hicbir kosulda geciktirmiyor; tel bir EK katman ve JavaScript
+   yoksa sayfa basildigi gibi calisiyor. #}
+<script src="/statik/tel.js?v={{ js_surum }}" defer></script>
 {% endblock %}
 
 {% block yapisal_veri %}
@@ -386,8 +390,24 @@
        yalnizca `<li>` gecerli oldugu icin baslik da bir `<li>` ve
        `role="presentation"` ile sayimdan cikariliyor; yoksa ekran
        okuyucu "5 ogeden 3'u" derken basliklari da sayardi. #}
+    {# TEL -- INSADAN DAHA YENI BASLIKLAR.
+       Bu bolumun kendi tarifi "okur 'bir sey oldu mu' sorusunun
+       cevabini burada buluyor" diyor; tel o cevabi SON INSA ANINA
+       degil SU ANA kadar getiriyor. Olculdu (2026-10-01):
+       zamanlanmis kosular arasindaki boslук 4-6 saat.
+
+       Ogeler listenin BASINA, gun basligindan once ekleniyor --
+       hepsi bugune ait ve en yeniler. Basliklari OZGUN DILINDE
+       geliyor (uc katmaninda makine cevirisi yapilamiyor, bkz.
+       `insa.tel_kurallari_uret`); kutu bunu acikca yaziyor. #}
+    <div class="tel-kap" data-tel-kap data-tel-uretim="{{ uretim_ani }}"
+         hidden>
+      <span class="tel-nokta" aria-hidden="true"></span>
+      <span class="tel-metin"><b data-tel-sayi>0</b> başlık siteye
+        işlenmeden, kaynaktan doğrudan geldi — <b>özgün dilinde</b></span>
+    </div>
     {% set ns = namespace(gun="") %}
-    <ol class="akis-liste">
+    <ol class="akis-liste" data-tel-akis>
       {% for h in akis %}
       {% if h.tarih and h.tarih != ns.gun %}
       {% set ns.gun = h.tarih %}

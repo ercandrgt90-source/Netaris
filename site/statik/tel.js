@@ -43,8 +43,19 @@
   var uretim = kap.getAttribute("data-tel-uretim") || "";
   if (!uretim) return;
 
+  /* IKI SAYFA, IKI ISARETLEME -- AMA TEK ATIF KARARI.
+     ================================================
+     `/gundem/` rutin listesi `gundem-*` siniflarini, ana sayfanin
+     "Canli akis" bolumu `akis-*` siniflarini kullaniyor. Ayni
+     ogeyi iki bicimde basmak gerekiyor.
+
+     RISK ACIK: ayni kurali iki yere yazmak, bu depoda en pahaliya
+     mal olan kusur sinifi. O yuzden ATIF KARARI tek bir yerde
+     (`atifGecerli` + `kunye`) yasiyor ve iki basici da onu
+     cagiriyor; `test_tel_atif.js` ikisini birden tutuyor. */
   var liste = document.querySelector('[data-akis-kap="rutin"]');
-  if (!liste) return;
+  var akis = document.querySelector("[data-tel-akis]");
+  if (!liste && !akis) return;
 
   function metin(s) {
     var d = document.createElement("div");
@@ -64,21 +75,40 @@
     }
   }
 
+  /* ATIF SARTI -- TEK YERDE.
+     `ticari` kaynakta kurum adi VE kaynaga baglanti gosterilmek
+     zorunda (bkz. haber_botu/kaynak/besleme.py). Sarti saglamayan
+     oge HIC basilmiyor: "once goster, atfi sonra ekle" diye bir ara
+     durum yok, cunku atifsiz gosterim ihlalin kendisi.
+
+     Iki basici da bunu cagiriyor; sart ikiye bolunmuyor. */
+  function atifGecerli(o) {
+    if (!o || !o.adres || !/^https?:\/\//i.test(o.adres)) return false;
+    return Boolean(o.kurum && o.baslik);
+  }
+
+  /* Kunye isaretlemesi -- sayfaya gore sinif adlari degisiyor, ama
+     BAGLANTININ VARLIGI degismiyor. */
+  function kunyeHtml(o, sinif, baglantiSinifi, ok) {
+    if (!o.ticari) {
+      return '<span class="' + sinif + '">' + metin(o.kurum) + "</span>";
+    }
+    return '<a class="' + sinif + " " + baglantiSinifi + '" href="'
+      + metin(o.adres) + '" rel="nofollow noopener" target="_blank"'
+      + ' title="' + metin((o.kurum_tam || o.kurum) + " sitesinde aç")
+      + '">' + metin(o.kurum)
+      + (ok ? '<span class="dis-ok" aria-hidden="true">↗</span>' : "")
+      + "</a>";
+  }
+
   function oge(o) {
-    /* ATIF SARTI. Baglantisi ya da kunyesi olmayan oge BASILMIYOR. */
-    if (!o || !o.adres || !/^https?:\/\//i.test(o.adres)) return null;
-    if (!o.kurum || !o.baslik) return null;
+    if (!atifGecerli(o)) return null;
 
     var li = document.createElement("li");
     li.className = "gundem-oge gundem-duz tel-oge";
     li.setAttribute("data-tel", "1");
 
-    var kunye = o.ticari
-      ? '<a class="rozet rozet-kaynak-bag" href="' + metin(o.adres) + '"'
-        + ' rel="nofollow noopener" target="_blank" title="'
-        + metin((o.kurum_tam || o.kurum) + " sitesinde aç") + '">'
-        + metin(o.kurum) + "</a>"
-      : '<span class="rozet">' + metin(o.kurum) + "</span>";
+    var kunye = kunyeHtml(o, "rozet", "rozet-kaynak-bag", false);
 
     /* MAKINE CEVIRISI OLDUGU SOYLENIYOR.
        Ceviri yapmak kadar, ceviri oldugunu soylemek de gerekiyor:
@@ -102,22 +132,61 @@
     return li;
   }
 
+  /* ANA SAYFA BICIMI.
+     Sablonun kendi ifadesiyle "Canli akis" bir KAYIT, secim degil:
+     "okur 'bir sey oldu mu' sorusunun cevabini burada buluyor".
+     Su ana kadar o soruyu yalnizca son insa anina kadar
+     cevapliyordu.
+
+     BASLIK TIKLANMAZ: bu ogelerin sayfasi yok ve `anasayfa.html`in
+     kendi notu acik -- "kendi ana sayfasindan okurunu baska siteye
+     yollamak akisin isi degil". Zorunlu atif KUNYEDE baglanti
+     olarak duruyor; aynen basilmis ogelerdeki gibi.
+
+     "Sirket haberleri" TEMA OLARAK BASILMIYOR: o, siniflandirici
+     bir sey bulamadiginda dusulen varsayilan kova. Sablon da ayni
+     ayrimi yapiyor; yanlis etiket basmaktansa etiketsiz birakmak
+     dogru. */
+  function akisOgesi(o) {
+    if (!atifGecerli(o)) return null;
+    var li = document.createElement("li");
+    li.className = "akis-normal tel-oge";
+    li.setAttribute("data-tel", "1");
+    var tema = (o.konu && o.konu !== "Şirket haberleri")
+      ? '<span class="akis-tema">' + metin(o.konu) + "</span>" : "";
+    li.innerHTML =
+      '<span class="akis-zaman">' + metin(saat(o.tarih)) + "</span>"
+      + '<span class="akis-baslik akis-sayfasiz">' + metin(o.baslik)
+      + "</span>"
+      + tema
+      + kunyeHtml(o, "akis-kunye", "akis-kunye-baglanti", true)
+      + '<span class="rozet tel-rozet" title="Bu başlık siteye henüz'
+      + ' işlenmeden, kaynaktan doğrudan geldi">canlı</span>';
+    return li;
+  }
+
+  function doldur(hedef, basici, ogeler) {
+    /* Eskiden yeniye dizilip basa ekleniyor; sonuc en yeni ustte. */
+    var parca = document.createDocumentFragment();
+    var n = 0;
+    ogeler.slice().reverse().forEach(function (o) {
+      var li = basici(o);
+      if (li) { parca.appendChild(li); n++; }
+    });
+    if (n) hedef.insertBefore(parca, hedef.firstChild);
+    return n;
+  }
+
   function getir() {
     fetch("/api/tel?sonra=" + encodeURIComponent(uretim),
           { headers: { accept: "application/json" } })
       .then(function (y) { return y.ok ? y.json() : null; })
       .then(function (d) {
         if (!d || !d.ogeler || !d.ogeler.length) return;
-        /* Eskiden yeniye dizilip basa ekleniyor; sonuc en yeni
-           ustte. */
-        var parca = document.createDocumentFragment();
         var n = 0;
-        d.ogeler.slice().reverse().forEach(function (o) {
-          var li = oge(o);
-          if (li) { parca.appendChild(li); n++; }
-        });
+        if (liste) n = doldur(liste, oge, d.ogeler);
+        else if (akis) n = doldur(akis, akisOgesi, d.ogeler);
         if (!n) return;
-        liste.insertBefore(parca, liste.firstChild);
         kap.removeAttribute("hidden");
         var sayi = kap.querySelector("[data-tel-sayi]");
         if (sayi) sayi.textContent = String(n);
