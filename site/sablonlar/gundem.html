@@ -287,8 +287,19 @@
    tel bir EK katman, sitenin okuma tarafi ona bagli degil. #}
 <div class="tel-kap" data-tel-kap data-tel-uretim="{{ uretim_ani }}" hidden>
   <span class="tel-nokta" aria-hidden="true"></span>
+  {# OZGUN DIL SOYLENIYOR.
+     Olculdu (2026-10-01): uc katmaninda makine cevirisi mumkun
+     degil -- MyMemory, Cloudflare'in paylasimli cikis IP'lerine
+     `de` parametresiyle bile 429 donuyor (ayni adresle bizim
+     IP'mizden bes ardisik istek 200 donuyor, yani kota degil IP
+     meselesi) ve saglayicinin koydugu siniri asmaya calismak bu
+     depoda yapilmiyor.
+
+     Dolayisiyla bu basliklar KAYNAGIN DILINDE duruyor ve okur bunu
+     tahmin etmek zorunda kalmamali. Islenmis Turkce surumu bir
+     sonraki insa getiriyor. #}
   <span class="tel-metin"><b data-tel-sayi>0</b> başlık siteye
-    işlenmeden, kaynaktan doğrudan geldi</span>
+    işlenmeden, kaynaktan doğrudan geldi — <b>özgün dilinde</b></span>
 </div>
 <ul class="gundem-liste" data-akis-kap="rutin">
   {% for h in rutin %}

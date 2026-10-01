@@ -375,6 +375,28 @@ async function kos() {
   dogru(/MYMEMORY WARNING/.test(dbUyari.izler[0].hata || ""),
         "uyari metni IZDE yaziyor");
 
+  /* CEVIRI KAPALIYSA UC HIC CAGRILMIYOR.
+     Olculdu (2026-10-01): MyMemory, Cloudflare'in paylasimli cikis
+     IP'lerine `de` parametresiyle bile 429 donuyor -- iki ardisik
+     turda 12'ser istegin tamami reddedildi. Ayni adresle bizim
+     IP'mizden bes ardisik istek 200 donuyor, yani kota degil IP
+     meselesi. Her oge icin bir alt-istek harcayip kesin basarisiz
+     olmak hem bos is hem servise saygisizlik. */
+  const dbKapali = sahteDB();
+  const kapaliKural = JSON.parse(JSON.stringify(TEST_KURAL));
+  kapaliKural.ceviri.etkin = false;
+  fetchCagrilari = [];
+  sahteYanitlar = [
+    { ok: true, status: 200, text: () => Promise.resolve(RSS_ORNEK) },
+  ];
+  await telTopla(kuralliOrtam(dbKapali, kapaliKural));
+  esit(dbKapali.yazilan.length, 2, "ceviri kapaliyken oge YINE yaziliyor");
+  esit(dbKapali.izler[0].ceviri, 0, "ceviri sayaci 0");
+  esit(fetchCagrilari.filter(
+    (c) => c.url.indexOf("ornek.ceviri") !== -1).length, 0,
+       "ceviri ucuna HIC istek gitmedi (alt-istek harcanmiyor)");
+  esit(dbKapali.yazilan[0].baslik_tr, "", "baslik ozgun dilinde kaliyor");
+
   /* Tur sinirI: bir turda sinirsiz ceviri istenmiyor. */
   const dbSinir = sahteDB();
   const azKural = JSON.parse(JSON.stringify(TEST_KURAL));

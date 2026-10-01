@@ -149,21 +149,18 @@ Gündem sayfasında, sitenin son kurulumundan sonra düşen başlıklar
 "canlı" etiketiyle gösterilir. Bu başlıkları **sunucumuz** toplar:
 
 - **financialjuice.com** — haber beslemesi (RSS)
-- **api.mymemory.translated.net** — İngilizce başlıkların makine
-  çevirisi
 
-Yukarıdaki fiyat şeridinden **önemli bir farkı var**: bu iki adrese
+Yukarıdaki fiyat şeridinden **önemli bir farkı var**: bu adrese
 istek **sizin tarayıcınızdan değil, bizim sunucumuzdan** gider. Yani
-bu servisler sizin IP adresinizi veya tarayıcı bilgilerinizi
-görmez. Çeviri servisine gönderilen tek şey haber başlığının
-kendisidir; okurla ilgili hiçbir veri gönderilmez.
+bu servis sizin IP adresinizi veya tarayıcı bilgilerinizi görmez.
 
 Tarayıcınız bu özellik için yalnızca **netaris.net** adresine istek
 gönderir. JavaScript kapalıysa canlı başlıklar hiç yüklenmez ve
 sayfa basıldığı hâliyle çalışmaya devam eder.
 
-Makine çevirisi olan başlıklarda bu açıkça belirtilir ve özgün
-başlık ile kaynağa bağlantı her zaman gösterilir.
+Canlı başlıklar **özgün dilinde** gösterilir ve kaynağa bağlantı her
+zaman verilir; işlenmiş ve çevrilmiş sürümleri site bir sonraki kez
+kurulduğunda yayımlanır.
 
 ## Borsa İstanbul verisi (TradingView)
 

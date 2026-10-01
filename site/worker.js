@@ -2590,7 +2590,14 @@ async function telCevir(env, metin, ayar, iz) {
   } catch (e) {
     console.error("tel: ceviri onbellegi okunamadi", e);
   }
-  if (!ayar || !ayar.uc) return "";
+  /* KAPALIYSA DENENMIYOR.
+     Olculdu (2026-10-01): MyMemory Cloudflare'in cikis IP'lerine
+     `de` parametresiyle bile 429 donuyor; iki ardisik turda 12'ser
+     istegin tamami reddedildi. Ayni adresle BIZIM IP'mizden bes
+     ardisik istek 200 donuyor, yani kota degil PAYLASIMLI IP
+     meselesi. Her oge icin bir alt-istek harcayip kesin basarisiz
+     olmak hem bos is, hem saglayicinin koydugu sinira saygisizlik. */
+  if (!ayar || ayar.etkin === false || !ayar.uc) return "";
   let ceviri = "";
   try {
     /* `de` PARAMETRESI SART.

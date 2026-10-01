@@ -2352,6 +2352,35 @@ def tel_kurallari_uret(besleme) -> str:
             "%Y-%m-%dT%H:%M:%SZ"),
         "saklama_saat": TEL_SAKLAMA_SAAT,
         "ceviri": {
+            # UC KATMANINDA CEVIRI KAPALI -- OLCULDU 2026-10-01.
+            #
+            # `de` parametresi eklendikten SONRA bile MyMemory
+            # Cloudflare'in cikis IP'lerine 429 donuyor. Iki ardisik
+            # cron turunda 12'ser istegin tamami reddedildi
+            # (`tel_iz`: "ceviri: http 429").
+            #
+            # Kota sorunu DEGIL: ayni adres ve ayni parametrelerle
+            # BIZIM IP'mizden bes ardisik istek 200 donuyor,
+            # `quotaFinished: false` ve gercek ceviri geliyor
+            # ("Fed holds rates" -> "Fed faizleri tutuyor"). Yani
+            # servis calisiyor, kotamiz dolu degil; reddedilen sey
+            # PAYLASIMLI CIKIS IP'LERI.
+            #
+            # Bu bir sinirin ASILMASI degil, saglayicinin koydugu bir
+            # sinir. Bu depoda saglayicinin engelini asmaya calismamak
+            # yerlesik ilke (bkz. bilanco_ag). Dolayisiyla uc
+            # katmaninda ceviri DENENMIYOR: her oge icin bir alt-istek
+            # harcayip kesin basarisiz olmak, hem bos is hem servise
+            # saygisizlik.
+            #
+            # SONUC OKURA NE DEMEK: canli seritteki basliklar OZGUN
+            # DILINDE gorunuyor ve sayfa bunu acikca yaziyor. Islenmis
+            # Turkce surumu bir sonraki insa getiriyor; `ceviri.py`
+            # GitHub Actions'tan calisiyor ve orada sorun yok.
+            #
+            # Jeton isteyen bir ceviri servisi cozerdi ama istek
+            # acikca "jetonsuz" idi; o karar kullanicinin.
+            "etkin": False,
             "uc": _ceviri_uc,
             "cift": "en|tr",
             # Kurumsal adres; kunyede ve dis isteklerin User-Agent
