@@ -1,14 +1,14 @@
 {
-  "guncelleme": "2026-10-02",
+  "guncelleme": "2026-10-05",
   "kaynak": "FRED (St. Louis Fed)",
   "kalemler": [
     {
       "kod": "TP.DK.USD.S.YTL",
       "ad": "USD/TRY",
-      "deger": "49,03",
-      "fark": "+%0,03",
+      "deger": "49,06",
+      "fark": "+%0,05",
       "yon": "artis",
-      "tarih": "2026-10-02",
+      "tarih": "2026-10-05",
       "birim": "TL",
       "gun": 0,
       "bayat": false
@@ -16,10 +16,10 @@
     {
       "kod": "TP.DK.EUR.S.YTL",
       "ad": "EUR/TRY",
-      "deger": "55,40",
-      "fark": "-%0,47",
+      "deger": "55,18",
+      "fark": "-%0,39",
       "yon": "azalis",
-      "tarih": "2026-10-02",
+      "tarih": "2026-10-05",
       "birim": "TL",
       "gun": 0,
       "bayat": false
@@ -27,12 +27,12 @@
     {
       "kod": "ECB_EURUSD",
       "ad": "EUR/USD",
-      "deger": "1,13",
-      "fark": "-%0,50",
+      "deger": "1,12",
+      "fark": "-%0,65",
       "yon": "azalis",
-      "tarih": "2026-10-01",
+      "tarih": "2026-10-02",
       "birim": "TL",
-      "gun": 1,
+      "gun": 0,
       "bayat": false
     },
     {
@@ -65,31 +65,31 @@
       "deger": "%3,88",
       "fark": "0 bp",
       "yon": "yatay",
-      "tarih": "2026-09-30",
+      "tarih": "2026-10-01",
       "birim": "%",
-      "gun": 2,
+      "gun": 1,
       "bayat": false
     },
     {
       "kod": "DGS2",
       "ad": "ABD 2Y",
-      "deger": "%4,88",
-      "fark": "-1 bp",
+      "deger": "%4,78",
+      "fark": "-10 bp",
       "yon": "azalis",
-      "tarih": "2026-09-30",
+      "tarih": "2026-10-01",
       "birim": "%",
-      "gun": 2,
+      "gun": 1,
       "bayat": false
     },
     {
       "kod": "DGS10",
       "ad": "ABD 10Y",
-      "deger": "%5,29",
-      "fark": "+3 bp",
-      "yon": "artis",
-      "tarih": "2026-09-30",
+      "deger": "%5,24",
+      "fark": "-5 bp",
+      "yon": "azalis",
+      "tarih": "2026-10-01",
       "birim": "%",
-      "gun": 2,
+      "gun": 1,
       "bayat": false
     },
     {
@@ -155,31 +155,31 @@
           "deger": "%3,88",
           "fark": "0 bp",
           "yon": "yatay",
-          "tarih": "2026-09-30",
+          "tarih": "2026-10-01",
           "birim": "%",
-          "gun": 2,
+          "gun": 1,
           "bayat": false
         },
         {
           "kod": "DGS2",
           "ad": "ABD 2 yıllık",
-          "deger": "%4,88",
-          "fark": "-1 bp",
+          "deger": "%4,78",
+          "fark": "-10 bp",
           "yon": "azalis",
-          "tarih": "2026-09-30",
+          "tarih": "2026-10-01",
           "birim": "%",
-          "gun": 2,
+          "gun": 1,
           "bayat": false
         },
         {
           "kod": "DGS10",
           "ad": "ABD 10 yıllık",
-          "deger": "%5,29",
-          "fark": "+3 bp",
-          "yon": "artis",
-          "tarih": "2026-09-30",
+          "deger": "%5,24",
+          "fark": "-5 bp",
+          "yon": "azalis",
+          "tarih": "2026-10-01",
           "birim": "%",
-          "gun": 2,
+          "gun": 1,
           "bayat": false
         },
         {
@@ -213,12 +213,12 @@
         {
           "kod": "ECB_EURUSD",
           "ad": "EUR/USD",
-          "deger": "1,13",
-          "fark": "-%0,50",
+          "deger": "1,12",
+          "fark": "-%0,65",
           "yon": "azalis",
-          "tarih": "2026-10-01",
+          "tarih": "2026-10-02",
           "birim": "TL",
-          "gun": 1,
+          "gun": 0,
           "bayat": false
         }
       ]
