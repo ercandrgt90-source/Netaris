@@ -220,6 +220,48 @@ def test_kimlik_alinamazsa_cokmuyor():
         yn.GIT_ADAYLARI = eski
 
 
+def test_kimlik_okuma_asilamaz():
+    """Kimlik yardimcisi SORU SORMAMALI ve suresi KISA olmali.
+
+    OLCULDU (2026-10-01 15:15): gorev baglaminda kimlik okunamadi
+    ("makinede git kimligi yok") ve ardindan ~50 tur gunluge HIC
+    satir yazmadi. Etkileşimli oturum yokken kimlik yardimcisi soru
+    sormaya calisabiliyor; soru cevapsiz kalinca cagri suruncemede
+    kaliyor ve gorev 5 dakikalik sinira takilip oldurulunce gunluge
+    hicbir sey dusmuyor -- yani ariza KENDI IZINI DE siliyor.
+
+    Bu gozlem tam olarak aciklanmis DEGIL (oturum kilidi en olasi
+    sebep, kanitlanmadi); bu yuzden hem sormak kapatildi hem sure
+    kisaltildi hem de tur suresi gunluge yazildi.
+    """
+    kod = _kod((_KOK / "yerel_nobetci.py").read_text(encoding="utf-8"))
+    dogru("GIT_TERMINAL_PROMPT kapatiliyor",
+          'GIT_TERMINAL_PROMPT"] = "0"' in kod)
+    dogru("GCM_INTERACTIVE kapatiliyor",
+          'GCM_INTERACTIVE"] = "never"' in kod)
+    dogru("cevre degiskeni gecirilmis", "env=cevre" in kod)
+    # Sure 5 dakikalik gorev sinirindan COK kisa olmali.
+    import re as _re  # noqa: PLC0415
+
+    m = _re.search(r"credential[\s\S]{0,300}?timeout=(\d+)", kod)
+    dogru("kimlik cagrisinda sure siniri var", m)
+    if m:
+        dogru(f"sure siniri kisa ({m.group(1)}s <= 10)",
+              int(m.group(1)) <= 10)
+
+
+def test_tur_suresi_gunluge_yaziliyor():
+    """Yavaslayan tur gorunur olmali.
+
+    ~50 turun hic satir yazmamasinin sebebi disaridan
+    gorulemiyordu. Sure, bir turun gorev sinirina yaklasmasini
+    gunlukte okunabilir kiliyor.
+    """
+    kod = _kod((_KOK / "yerel_nobetci.py").read_text(encoding="utf-8"))
+    dogru("baslangic olculuyor", "time.monotonic()" in kod)
+    dogru("sure satira yaziliyor", "{sure:.1f}s" in kod)
+
+
 def test_coku_gunluge_yaziliyor():
     """Tani aracinin en kor oldugu yer kendi arizasi.
 

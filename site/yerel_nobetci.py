@@ -225,11 +225,34 @@ def kimlik_al() -> str:
     git = git_yolu()
     if not git:
         return ""
+    # ETKILESIMLI SORU SORMASI ENGELLENIYOR.
+    #
+    # OLCULDU (2026-10-01 15:15): gorev baglaminda kimlik
+    # okunamadi ("makinede git kimligi yok") ve ardindan ~50 tur
+    # GUNLUGE HIC SATIR YAZMADI. Etkileşimli oturum yokken (ekran
+    # kilitli ya da oturum kapali) kimlik yardimcisi SORU SORMAYA
+    # calisabiliyor; soru cevapsiz kaldigi icin cagri suruncemede
+    # kaliyor ve gorev 5 dakikalik sinira takilip oldurulunce
+    # gunluge hicbir sey dusmuyor.
+    #
+    # `GIT_TERMINAL_PROMPT=0` ve `GCM_INTERACTIVE=never` sormayi
+    # kapatiyor: yardimci ya hazir degeri verir ya HEMEN basarisiz
+    # olur. Sure de 20 -> 8 saniyeye indirildi; bir yardimci sekiz
+    # saniyede cevap vermiyorsa o turda vermeyecek.
+    #
+    # NOT: bu gozlem TAM OLARAK aciklanmis degil -- oturum kilidi
+    # en olasi sebep ama kanitlanmadi. Bu yuzden asagidaki `sure`
+    # olcumu de eklendi: yavaslama artik gunlukte gorunuyor.
+    import os                                    # noqa: PLC0415
+
+    cevre = dict(os.environ)
+    cevre["GIT_TERMINAL_PROMPT"] = "0"
+    cevre["GCM_INTERACTIVE"] = "never"
     try:
         p = subprocess.run([git, "credential", "fill"],
                            input="protocol=https\nhost=github.com\n\n",
                            capture_output=True, text=True,
-                           encoding="utf-8", timeout=20)
+                           encoding="utf-8", timeout=8, env=cevre)
     except (OSError, subprocess.SubprocessError):
         return ""
     if p.returncode != 0:
@@ -326,6 +349,9 @@ def main() -> int:
                     help="icerik taze olsa da TETIKLE (elle tazeleme)")
     a = ap.parse_args()
 
+    import time                                  # noqa: PLC0415
+
+    baslangic = time.monotonic()
     an = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     kod, govde = _istek(DURUM_UCU)
     veri = None
@@ -366,7 +392,13 @@ def main() -> int:
                 # bu, tam olarak ogrenilmesi gereken sey.
                 sebep += f" -- TETIK BASARISIZ ({k})"
 
-    satir = f"{an} {karar}: {sebep}{yanit}"
+    # SURE DE YAZILIYOR.
+    #
+    # 2026-10-01'de ~50 tur gunluge hic satir yazmadi ve sebebi
+    # disaridan gorulemedi. Sure, yavaslayan bir turu (ve 5 dakikalik
+    # gorev sinirina yaklasmayi) gorunur kiliyor.
+    sure = time.monotonic() - baslangic
+    satir = f"{an} {karar}: {sebep}{yanit} ({sure:.1f}s)"
     _yaz(satir)
     gunluge_yaz(satir)
     # HER ZAMAN 0: bu bir bakim isi; kirmizi donmesi gereken bir
