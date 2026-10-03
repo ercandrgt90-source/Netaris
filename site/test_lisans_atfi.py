@@ -40,10 +40,21 @@ from __future__ import annotations
 
 import pathlib
 import re
+import sys
 
 _SITE = pathlib.Path(__file__).resolve().parent
 _CIKTI = _SITE / "cikti"
 _CSS = _SITE / "statik" / "stil.css"
+
+# `insa._KART_GORSELI` BIRIM DUZEYINDE denetleniyor: toplu kunye
+# eslestiricisi bir donem `/k/` boyunu disliyordu ve ana sayfada 48
+# lisansli fotograf atifsiz kaldi (olculdu 2026-10-03). Ciktiyi
+# taramak o kusuru yakaladi ama ancak VERI onu gorunur kildiginda;
+# eslestiriciye dogrudan bakmak kusuru aninda yakaliyor.
+sys.path[:0] = [str(_SITE), str(_SITE.parent / "haber_botu"),
+                str(_SITE.parent / "haber_botu" / "kaynak"),
+                str(_SITE.parent / "haber_botu" / "analiz")]
+import insa as _insa  # noqa: E402
 
 _gecti = 0
 
@@ -85,6 +96,31 @@ esit(lisansli_foto('<img src="/statik/foto/k/tcmb-7.jpg">'),
 esit(lisansli_foto('<img src="/statik/foto/uretilen2/x.jpg">'),
      ["/statik/foto/uretilen2/x.jpg"],
      "benzer isimli dizin muafiyete girmiyor")
+
+# ------------------------------------------------------------------
+# TOPLU KUNYE ESLESTIRICISI HER BOYU SAYMALI
+#
+# `insa._KART_GORSELI` bir donem `/k/` boyunu DISLIYORDU ve gerekcesi
+# su varsayimdi: "onlar 40 piksel ve zaten ayni sayfada buyugu
+# kunyeli basiliyor."
+#
+# VARSAYIM SEBEBINI ASTI. Olculdu (2026-10-03, uretilen ciktinin
+# tamami tarandi): ana sayfadaki lisansli kart gorsellerinin TAMAMI
+# (48 tane) `/k/` boyundan geliyor ve buyuk surumleri o sayfada HIC
+# basilmiyor. Sonuc: sitenin EN COK GORULEN sayfasinda 48 lisansli
+# fotograf ATIFSIZ yayimlaniyordu.
+#
+# Asagidaki denetim birim duzeyinde: ciktiyi taramaya gerek kalmadan,
+# eslestiriciyi daraltan bir degisiklik aninda kirmizi yaniyor.
+# Cikti taramasi (dosya sonunda) ikinci savunma hatti olarak duruyor.
+print("\nToplu kunye eslestiricisi her boyu sayiyor")
+_K = '<img src="/statik/foto/k/tcmb-7.jpg">'
+esit(bool(_insa._KART_GORSELI.search(_K)), True,
+     "`/k/` boyu eslestiriciye GIRIYOR (dislanmiyor)")
+esit(bool(_insa._KART_GORSELI.search('<img src="/statik/foto/o/x.jpg">')),
+     True, "`/o/` boyu da giriyor")
+esit(bool(_insa._KART_GORSELI.search('<img src="/statik/foto/tcmb-7.jpg">')),
+     True, "boy klasorsuz yol da giriyor")
 
 print("\nKunye bicimleri taniniyor")
 esit(bool(KUNYE.search('<p class="foto-kunye">Fotograf: X</p>')), True,

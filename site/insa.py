@@ -2015,9 +2015,39 @@ def hakkimizda_yukle() -> Hakkimizda | None:
 #: Kart gorsellerinin toplu kunyesi bu isaretin yerine yaziliyor.
 _KUNYE_ISARETI = "</footer>"
 
-#: `<figure>` disinda basilan havuz gorseli. Kucuk (akis) surumler
-#: haric: onlar 40 piksel ve zaten ayni sayfada buyugu kunyeli basiliyor.
-_KART_GORSELI = re.compile(r'src="(/statik/foto/(?!k/)[^"]+)"')
+#: `<figure>` disinda basilan havuz gorseli -- HER BOY.
+#:
+#: ESKI HALI `/k/` BOYUNU DISLIYORDU ve gerekcesi su varsayimdi:
+#: "onlar 40 piksel ve zaten ayni sayfada buyugu kunyeli basiliyor."
+#:
+#: VARSAYIM SEBEBINI ASTI. Olculdu (2026-10-03, uretilen ciktinin
+#: tamami taranarak):
+#:
+#:   lisansli foto tasiyan sayfa          807
+#:   yalnizca `/k/` tasiyan               1   -> /index.html
+#:   o sayfadaki lisansli foto            48
+#:   o sayfada kunye                      YOK
+#:   hem `/k/` hem baska boy tasiyan      0
+#:
+#: Yani ana sayfadaki kart gorsellerinin TAMAMI `/k/` boyundan
+#: geliyor ve buyuk surumleri o sayfada HIC basilmiyor -- dolayisiyla
+#: 48 lisansli fotograf atifsiz yayimlaniyordu. CC BY atfi zorunlu ve
+#: bu, sitenin en cok gorulen sayfasiydi.
+#:
+#: Fonksiyonun kendi yorumu ayni tuzagi daha once de yasamis:
+#: "Kart gorselleri artik `/o/` yolundan basiliyor ama defterde
+#: `/statik/foto/` yaziyor... eslesme kacinca kunye URETILMEDI."
+#: Ayni sinif, bu kez `/k/` ile.
+#:
+#: DISLAMA KALDIRILDI, cift kunye riski YOK: hicbir sayfa hem `/k/`
+#: hem baska boy tasimiyor (olculdu, 0) ve atiflar `kisa_atif`
+#: uzerinden ZATEN tekilleniyor -- ayni fotografin iki boyu ayni
+#: atfi uretir.
+#:
+#: Depoda bunu yakalayan sinama ZATEN vardi (`test_lisans_atfi.py`)
+#: ve veri gizli kusuru gorunur kildigi anda KIRMIZI yandi. Bu satiri
+#: daraltan bir degisiklik ayni sinamayi yine kirmizi yakar.
+_KART_GORSELI = re.compile(r'src="(/statik/foto/[^"]+)"')
 
 
 def _foto_kunyeleri(html_metni: str) -> str:
