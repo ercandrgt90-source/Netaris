@@ -1506,32 +1506,6 @@
       "foto_atif": "Myotus · CC-BY-4.0"
     },
     {
-      "baslik": "2026 KYK burs ve kredi başvuru tarihi GSB tarafından açıklandı mı, başvurular ne zaman başlıyor?",
-      "baslik_kaynak": "2026 KYK burs ve kredi başvuru tarihi GSB tarafından açıklandı mı, başvurular ne zaman başlıyor?",
-      "ozet": "Haftalardır üniversite öğrencileri tarafından merak edilen konu KYK burs ve kredi başvuru tarihi... Hafta sonu da konu gündemde ve cevap aranan soru \"2026 KYK burs ve kredi başvuruları ne zaman başlayacak\" şeklinde...",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.dunya.com/gundem/2026-kyk-burs-ve-kredi-basvuru-tarihi-gsb-tarafindan-aciklandi-mi-basvurular-ne-zaman-basliyor-haberi-842449",
-      "kurum": "Dünya",
-      "kurum_tam": "Dünya Gazetesi",
-      "konu": "Bankacılık",
-      "tarih": "2026-10-03",
-      "tarih_gorunur": "3 Ekim 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Bankacılık kararları kredi kanalının genişliğini belirler; etki önce fonlama maliyetinde, sonra kredi hacminde görünür.",
-      "kanallar": [
-        "Fonlama maliyeti: mevduat ve tahvil faizindeki değişim net faiz marjına yazılır.",
-        "Sermaye yeterliliği: rasyo üzerindeki baskı kredi büyümesini sınırlar.",
-        "Aktif kalitesi: takipteki kredi oranı, karşılık giderleri üzerinden kârlılığa geçer.",
-        "Yayılım: bankacılık sistemi ekonominin geri kalanına kredi kanalıyla bağlı olduğu için etki sektörle sınırlı kalmaz."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/bankacilik-8-d4d74101.jpg",
-      "foto_atif": "Myotus · CC-BY-4.0"
-    },
-    {
       "baslik": "Bakan Bolat, MÜSİAD heyetiyle bir araya geldi: İhracatta artış 10,5 milyar dolar",
       "baslik_kaynak": "Bakan Bolat, MÜSİAD heyetiyle bir araya geldi: İhracatta artış 10,5 milyar dolar",
       "ozet": "Ticaret Bakanı Ömer Bolat, İstanbul'da Müstakil Sanayici ve İşadamları Derneği (MÜSİAD) Yüksek İstişare Heyeti ile bir araya geldi. Görüşmede küresel ekonomideki gelişmeler, Türkiye ekonomisinin mevcut görünümü, dış ticaret performansı ve önümüzdeki döneme ilişkin hedefler kapsamlı şekilde değerlendirildi.",
@@ -1603,32 +1577,6 @@
       "kanal_basligi": "Hangi piyasaları etkiler?",
       "foto": "/statik/foto/para-politikasi-14-9b1627e1.jpg",
       "foto_atif": "Bernard Gagnon · CC-BY-SA-3.0"
-    },
-    {
-      "baslik": "Belarus Dışişleri Bakanı: Batı'nın baskısı durumu kötüleştiriyor",
-      "baslik_kaynak": "Belarus Dışişleri Bakanı: Batı'nın baskısı durumu kötüleştiriyor",
-      "ozet": "Belarus Dışişleri Bakanı, ABD ve Avrupa Birliği'nin uyguladığı yaptırımlar ile baskı politikalarının bölgesel güvenlik durumunu her geçen gün daha da kötüleştirdiğini belirtti.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.ekonomim.com/dunya/belarus-disisleri-bakani-batinin-baskisi-durumu-kotulestiriyor-haberi-922387",
-      "kurum": "Ekonomim",
-      "kurum_tam": "Ekonomim",
-      "konu": "Jeopolitik",
-      "tarih": "2026-10-03",
-      "tarih_gorunur": "3 Ekim 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
-      "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
-        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
-        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/jeopolitik-18-d6206fae.jpg",
-      "foto_atif": "United Nation · PDM"
     },
     {
       "baslik": "Bakan Bolat: Yıl sonu ihracat hedefimizi 3 ay öncesinden aştık",
@@ -1879,6 +1827,57 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/tarim-ve-gida-9-5b46670d.jpg",
       "foto_atif": "Malcolm Neal · CC-BY-SA-2.0"
+    },
+    {
+      "baslik": "\"En yüksek Eylül ayı ihracat rekoru kırıldı\"",
+      "baslik_kaynak": "\"En yüksek Eylül ayı ihracat rekoru kırıldı\"",
+      "ozet": "Ticaret Bakanı Ömer Bolat \"(Geçen ay) En yüksek eylül ayı ihracat rekoru kırıldı. Yıllık bazda yüzde 15,4'lük artışla 26 milyar dolar ihracatı başardık\" dedi.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.ekonomist.com.tr/ekonomi-haberleri/en-yuksek-eylul-ayi-ihracat-rekoru-kirildi-79490",
+      "kurum": "Ekonomist",
+      "kurum_tam": "Ekonomist",
+      "konu": "Dış ticaret",
+      "tarih": "2026-10-03",
+      "tarih_gorunur": "3 Ekim 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Ticaret politikası kararları tarafların birbirine bağımlılığı ölçüsünde fiyatlanır; etki önce ilgili sektör hisselerinde ve para birimlerinde görülür.",
+      "kanallar": [
+        "Sektör maruziyeti: gümrük vergisi ihracatçı sektörün marjını doğrudan sıkıştırır; otomotiv, çelik ve tarım en sık hedef alınan kalemlerdir.",
+        "Para birimi: ticaret dengesinde beklenen değişim ilgili ülke kurunu yeniden fiyatlar.",
+        "Tedarik zinciri: ara mal akışı kesilirse maliyet üretici fiyatlarına yazılır ve etki üçüncü ülkelere yayılır.",
+        "Anlaşma yapısı: USMCA ya da gümrük birliği gibi çerçeveler, etkinin hangi kalemlerde ve hangi takvimde doğacağını belirler."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/dis-ticaret-8-de18e08e.jpg",
+      "foto_atif": "Nathan.cima · CC-BY-SA-4.0"
+    },
+    {
+      "baslik": "Kirada 5 yıl şartına ilişkin dikkat çeken karar. Yargıtay’dan emsal bedel vurgusu",
+      "baslik_kaynak": "Kirada 5 yıl şartına ilişkin dikkat çeken karar! Yargıtay’dan emsal bedel vurgusu",
+      "ozet": "Yargıtay 3. Hukuk Dairesinden kira bedellerine ilişkin dikkat çeken bir karar geldi. Yargıtay, kira sözleşmesi henüz 5 yılını doldurmamış olsa da emsallerin altında kalan kiralar için kira tespit davası açılabileceğine karar verdi.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.ekonomist.com.tr/emlak/kirada-5-yil-sartina-iliskin-dikkat-ceken-karar-yargitay-dan-emsal-bedel-vurgusu-79489",
+      "kurum": "Ekonomist",
+      "kurum_tam": "Ekonomist",
+      "konu": "Konut ve kira",
+      "tarih": "2026-10-03",
+      "tarih_gorunur": "3 Ekim 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Konut hem hanehalkının en büyük varlık kalemi hem tüketici fiyat endeksinde ağırlığı yüksek bir harcama başlığıdır.",
+      "kanallar": [
+        "Enflasyon sepeti: kira, TÜFE'de ağırlığı yüksek kalemlerden biridir ve endekse gecikmeli yansır.",
+        "Bağlantılı sektörler: konut talebi çimento, demir, beyaz eşya ve mobilyaya yayılır.",
+        "Kredi kanalı: konut kredisi faizi talebi belirler; bu da politika faizi kararlarına doğrudan bağlıdır."
+      ],
+      "kanal_basligi": "Piyasaya nasıl yansır?",
+      "foto": "/statik/foto/konut-ve-kira-8-07036aec.jpg",
+      "foto_atif": "kallerna · CC-BY-SA-4.0"
     },
     {
       "baslik": "Aylık Stok Faiz ve Kâr Payı İstatistikleri",
