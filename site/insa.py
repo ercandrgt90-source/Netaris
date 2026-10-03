@@ -5243,8 +5243,29 @@ def varlik_sayfalari(ortam, yaz, ortak: dict,
             # konusuluyor" cevabini ust sirada gormek istiyor.
             dizin.sort(key=lambda x: (-x["sayi"], x["ad"]))
             # `dizin_yaz=False` iken tek tek sayfalar uretiliyor ama
-            # gezilebilir DIZIN basilmiyor: okur bu sayfalara yalnizca
-            # izleme listesinden ulassin.
+            # gezilebilir DIZIN basilmiyor.
+            #
+            # GEREKCE "YALNIZCA IZLEME LISTESINDEN ULASILSIN" IDI --
+            # OLCULDU (2026-10-03) ve oyle DEGIL:
+            #
+            #   izleme listesi tasiyan sayfa   1056
+            #   izlemeden baglanan varlik        19
+            #   izleme DISINDAN baglanan         67
+            #   yalnizca izleme disindan         48
+            #
+            # Yani okur bu sayfalarin cogunluguna haber ve analiz
+            # metinlerindeki anmalardan gidiyor; izleme listesi
+            # 76 varligin 19'unu kapsiyor.
+            #
+            # DAVRANIS KORUNUYOR: dizini basmamak zararli degil ve
+            # sayfalar erisilebilir. Duzeltilen sey GEREKCE -- yanlis
+            # belge, yanlis koddan kotudur.
+            #
+            # BILINEN SONUC: hakkinda guncel haber olmayan varliklar
+            # hicbir yerden baglanti almiyor. Olculdu: 76 sayfanin
+            # 9'u (bddk, eia, eth, goldman, jpmorgan, morganstanley,
+            # sec, spk, warsh). Sitemap'te duruyorlar; icerik olarak
+            # gecerli, yalnizca o an gundemde degil.
             if dizin and dizin_yaz:
                 yaz("/varlik/index.html",
                     ortam.get_template("varlik_dizin.html").render(
@@ -6539,8 +6560,11 @@ def insa() -> int:
     # hub kapsamiyor. Dogru cevap "yok" demek -- ama okura nereye
     # gidecegini soyleyerek.
     #
-    # `/varlik/` BILEREK 404: dizin `dizin_yaz=False` ile basilmiyor,
-    # o sayfalara yalnizca izleme listesinden gidilsin diye.
+    # `/varlik/` BILEREK 404: dizin `dizin_yaz=False` ile basilmiyor.
+    # Gerekcesi `varlik_sayfalari` icinde yazili -- ve orada duzeltildi:
+    # okur o sayfalara agirlikla metin icindeki anmalardan gidiyor,
+    # izleme listesinden degil (olculdu 2026-10-03: 76 varligin 19'u
+    # izlemede, 67'si metinden baglanti aliyor).
     #
     # `yollar`a EKLENMIYOR: sebep `noindex` degil, gezilebilir bir
     # adres olmamasi. `haritaya_girer` `cikti/<yol>/index.html`
