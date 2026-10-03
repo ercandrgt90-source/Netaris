@@ -31,7 +31,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 38,
+  "yorumlanan": 40,
   "haberler": [
     {
       "baslik": "USTR, USMCA'nın 2027 Ortak İncelemesi Hakkında Kamuoyu Yorumu İstiyor",
@@ -1157,6 +1157,32 @@
       "foto_atif": "Artyom Svetlov · CC-BY-4.0"
     },
     {
+      "baslik": "2026 KYK burs ve kredi başvuru tarihi GSB tarafından açıklandı mı, başvurular ne zaman başlıyor?",
+      "baslik_kaynak": "2026 KYK burs ve kredi başvuru tarihi GSB tarafından açıklandı mı, başvurular ne zaman başlıyor?",
+      "ozet": "Haftalardır üniversite öğrencileri tarafından merak edilen konu KYK burs ve kredi başvuru tarihi... Hafta sonu da konu gündemde ve cevap aranan soru \"2026 KYK burs ve kredi başvuruları ne zaman başlayacak\" şeklinde...",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.dunya.com/gundem/2026-kyk-burs-ve-kredi-basvuru-tarihi-gsb-tarafindan-aciklandi-mi-basvurular-ne-zaman-basliyor-haberi-842449",
+      "kurum": "Dünya",
+      "kurum_tam": "Dünya Gazetesi",
+      "konu": "Bankacılık",
+      "tarih": "2026-10-03",
+      "tarih_gorunur": "3 Ekim 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Bankacılık kararları kredi kanalının genişliğini belirler; etki önce fonlama maliyetinde, sonra kredi hacminde görünür.",
+      "kanallar": [
+        "Fonlama maliyeti: mevduat ve tahvil faizindeki değişim net faiz marjına yazılır.",
+        "Sermaye yeterliliği: rasyo üzerindeki baskı kredi büyümesini sınırlar.",
+        "Aktif kalitesi: takipteki kredi oranı, karşılık giderleri üzerinden kârlılığa geçer.",
+        "Yayılım: bankacılık sistemi ekonominin geri kalanına kredi kanalıyla bağlı olduğu için etki sektörle sınırlı kalmaz."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/bankacilik-8-d4d74101.jpg",
+      "foto_atif": "Myotus · CC-BY-4.0"
+    },
+    {
       "baslik": "GastroAntep Kültür Yolu Festivali başladı: 9 günde 246 etkinlik, 70’ten fazla lezzet noktası",
       "baslik_kaynak": "GastroAntep Kültür Yolu Festivali başladı: 9 günde 246 etkinlik, 70’ten fazla lezzet noktası",
       "ozet": "Türkiye Kültür Yolu Festivali’nin 2026’daki 21’inci durağı Gaziantep oldu. GastroAntep Kültür Yolu Festivali, 3-11 Ekim tarihleri arasında 14 farklı mekanda 246 etkinlik ve 7 sergiyle düzenlenecek. Gaziantep mutfağı ise 70’ten fazla Lezzet Noktası’nda ziyaretçilerle buluşacak.",
@@ -1222,6 +1248,31 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/altin-ve-emtia-8-0eb87a46.jpg",
       "foto_atif": "Osmar Valdebenito from Santiago, Chile · CC-BY-SA-2.0"
+    },
+    {
+      "baslik": "SPK'dan kredili işlemlerde süre uzatma kararı",
+      "baslik_kaynak": "SPK'dan kredili işlemlerde süre uzatma kararı",
+      "ozet": "Sermaye Piyasası Kurulu, Borsa İstanbul'daki gelişmeleri dikkate alarak kredili sermaye piyasası işlemlerinde özkaynak oranının esnetilmesine yönelik uygulamanın süresini 30 Ekim 2026 seans sonuna kadar uzattı.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.ekonomim.com/finans/haberler/borsa/spkdan-kredili-islemlerde-sure-uzatma-karari-haberi-922379",
+      "kurum": "Ekonomim",
+      "kurum_tam": "Ekonomim",
+      "konu": "Bankacılık",
+      "tarih": "2026-10-03",
+      "tarih_gorunur": "3 Ekim 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Zorunlu karşılık, likidite ve teminat düzenlemeleri kredi arzının miktarını ve maliyetini doğrudan belirler.",
+      "kanallar": [
+        "Kredi arzı: zorunlu karşılık oranları, bankaların kredi olarak kullandırabileceği kaynağın büyüklüğünü değiştirir.",
+        "Fonlama kompozisyonu: TL ve döviz mevduat arasındaki maliyet farkı, bankaların bilanço yapısını etkiler.",
+        "Reel sektör: kredi kanalının daralması, işletme sermayesini kısa vadeli borçla çeviren şirketlerde önce hissedilir."
+      ],
+      "kanal_basligi": "Piyasaya nasıl yansır?",
+      "foto": "/statik/foto/bankacilik-8-d4d74101.jpg",
+      "foto_atif": "Myotus · CC-BY-4.0"
     },
     {
       "baslik": "Arjantin “altın pasaport” dönemini başlatıyor: İşte şartlar",
@@ -1332,6 +1383,31 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/enerji-14-d727b7f7.jpg",
       "foto_atif": "Quintin Soloviev · CC-BY-4.0"
+    },
+    {
+      "baslik": "SPK, kredili işlemlerde özkaynak oranı uygulamasını uzattı",
+      "baslik_kaynak": "SPK, kredili işlemlerde özkaynak oranı uygulamasını uzattı",
+      "ozet": "Sermaye Piyasası Kurulu (SPK), Borsa İstanbul piyasalarındaki gelişmeleri dikkate alarak, kredili sermaye piyasası işlemlerinde özkaynak oranının esnetilerek uygulanmasına ilişkin tedbirin süresini 30 Ekim 2026 seans sonuna kadar uzattı.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.bloomberght.com/spk-kredili-islemlerde-ozkaynak-orani-uygulamasini-uzatti-3790278",
+      "kurum": "BloombergHT",
+      "kurum_tam": "Bloomberg HT",
+      "konu": "Bankacılık",
+      "tarih": "2026-10-03",
+      "tarih_gorunur": "3 Ekim 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Zorunlu karşılık, likidite ve teminat düzenlemeleri kredi arzının miktarını ve maliyetini doğrudan belirler.",
+      "kanallar": [
+        "Kredi arzı: zorunlu karşılık oranları, bankaların kredi olarak kullandırabileceği kaynağın büyüklüğünü değiştirir.",
+        "Fonlama kompozisyonu: TL ve döviz mevduat arasındaki maliyet farkı, bankaların bilanço yapısını etkiler.",
+        "Reel sektör: kredi kanalının daralması, işletme sermayesini kısa vadeli borçla çeviren şirketlerde önce hissedilir."
+      ],
+      "kanal_basligi": "Piyasaya nasıl yansır?",
+      "foto": "/statik/foto/bankacilik-7-62bd3092.jpg",
+      "foto_atif": "Dietmar Rabich · CC-BY-SA-4.0"
     },
     {
       "baslik": "Bakan Bolat: Yıl sonu ihracat hedefimizi 3 ay öncesinden aştık",
@@ -1556,74 +1632,6 @@
       "kanal_basligi": "Hangi piyasaları etkiler?",
       "foto": "/statik/foto/jeopolitik-18-d6206fae.jpg",
       "foto_atif": "United Nation · PDM"
-    },
-    {
-      "baslik": "TMO, bu ay piyasaya 5,5 milyon ton buğday arz edecek",
-      "baslik_kaynak": "TMO, bu ay piyasaya 5,5 milyon ton buğday arz edecek",
-      "ozet": "Toprak Mahsulleri Ofisi (TMO), 5 Ekim'den itibaren 5,5 milyon ton ekmeklik ve makarnalık buğdayın satışa sunulacağını duyurdu.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.ekonomist.com.tr/tarim/tmo-bu-ay-piyasaya-5-5-milyon-ton-bugday-arz-edecek-79491",
-      "kurum": "Ekonomist",
-      "kurum_tam": "Ekonomist",
-      "konu": "Tarım ve gıda",
-      "tarih": "2026-10-03",
-      "tarih_gorunur": "3 Ekim 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/tarim-ve-gida-9-5b46670d.jpg",
-      "foto_atif": "Malcolm Neal · CC-BY-SA-2.0"
-    },
-    {
-      "baslik": "\"En yüksek Eylül ayı ihracat rekoru kırıldı\"",
-      "baslik_kaynak": "\"En yüksek Eylül ayı ihracat rekoru kırıldı\"",
-      "ozet": "Ticaret Bakanı Ömer Bolat \"(Geçen ay) En yüksek eylül ayı ihracat rekoru kırıldı. Yıllık bazda yüzde 15,4'lük artışla 26 milyar dolar ihracatı başardık\" dedi.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.ekonomist.com.tr/ekonomi-haberleri/en-yuksek-eylul-ayi-ihracat-rekoru-kirildi-79490",
-      "kurum": "Ekonomist",
-      "kurum_tam": "Ekonomist",
-      "konu": "Dış ticaret",
-      "tarih": "2026-10-03",
-      "tarih_gorunur": "3 Ekim 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Ticaret politikası kararları tarafların birbirine bağımlılığı ölçüsünde fiyatlanır; etki önce ilgili sektör hisselerinde ve para birimlerinde görülür.",
-      "kanallar": [
-        "Sektör maruziyeti: gümrük vergisi ihracatçı sektörün marjını doğrudan sıkıştırır; otomotiv, çelik ve tarım en sık hedef alınan kalemlerdir.",
-        "Para birimi: ticaret dengesinde beklenen değişim ilgili ülke kurunu yeniden fiyatlar.",
-        "Tedarik zinciri: ara mal akışı kesilirse maliyet üretici fiyatlarına yazılır ve etki üçüncü ülkelere yayılır.",
-        "Anlaşma yapısı: USMCA ya da gümrük birliği gibi çerçeveler, etkinin hangi kalemlerde ve hangi takvimde doğacağını belirler."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/dis-ticaret-8-de18e08e.jpg",
-      "foto_atif": "Nathan.cima · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "Merkez Bankası 95 yaşında",
-      "baslik_kaynak": "Merkez Bankası 95 yaşında",
-      "ozet": "Türkiye Cumhuriyet Merkez Bankası (TCMB), faaliyete başlamasının 95. yıl dönümünü kutluyor.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.ekonomist.com.tr/ekonomi-haberleri/merkez-bankasi-95-yasinda-79487",
-      "kurum": "Ekonomist",
-      "kurum_tam": "Ekonomist",
-      "konu": "Para politikası",
-      "tarih": "2026-10-03",
-      "tarih_gorunur": "3 Ekim 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-12-2ca29aaf.jpg",
-      "foto_atif": "Kidfly182 · CC-BY-4.0"
     },
     {
       "baslik": "Aylık Stok Faiz ve Kâr Payı İstatistikleri",
