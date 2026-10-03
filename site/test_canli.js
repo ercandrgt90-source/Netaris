@@ -48,6 +48,11 @@ function ogeYap(ad) {
     etiket: ad,
     className: "",
     innerHTML: "",
+    /* `textContent` BASLANGICTA TANIMLI: tanimsiz birakilirsa
+       "dolmadi" sinamasi `undefined` gorur ve bos dizeyle
+       karsilastirma yanlis yere kirmizi yanar -- olculen sey kod
+       degil olcum araci olurdu. */
+    textContent: "",
     title: "",
     cocuklar: [],
     ozellikler: {},
@@ -84,16 +89,37 @@ function ogeYap(ad) {
   return o;
 }
 
-function ortamKur({ aglarCalisir, hareketAzalt }) {
+function ortamKur({ aglarCalisir, hareketAzalt, analizKodu }) {
   const akis = ogeYap("div");
   const sira = ogeYap("div");
   sira.ozellikler["data-serit-sira"] = "";
   akis.appendChild(sira);
 
+  /* ANALIZ SAYFASINDAKI CANLI FIYAT KUTUSU.
+     Teknik gorunum analizleri fiyati METNIN ICINE yaziyor ve o
+     rakam insa anindan; insa gunde ~7 kez kosuyor (olculdu
+     2026-10-01) ve sayfadaki tek tarih GUN duzeyinde. Kutu, canli
+     fiyati AYRI ve etiketli gosteriyor -- analizin rakamini
+     DEGISTIRMIYOR, cunku metnin gerekcesi o rakamla yazildi. */
+  let kutu = null;
+  if (analizKodu) {
+    kutu = ogeYap("p");
+    kutu.ozellikler["data-canli-fiyat"] = analizKodu;
+    kutu.ozellikler.hidden = "";
+    const deger = ogeYap("b");
+    deger.ozellikler["data-canli-deger"] = "";
+    const yon = ogeYap("span");
+    yon.ozellikler["data-canli-yon"] = "";
+    kutu.appendChild(deger);
+    kutu.appendChild(yon);
+  }
+
   const belge = {
     querySelector: (s) => {
       if (s === "[data-serit-sira]") return sira;
       if (s === "[data-serit-akis]") return akis;
+      const m = /^\[data-canli-fiyat="([^"]+)"\]$/.exec(s);
+      if (m) return (kutu && analizKodu === m[1]) ? kutu : null;
       return null;
     },
     createElement: ogeYap,
@@ -120,7 +146,7 @@ function ortamKur({ aglarCalisir, hareketAzalt }) {
     path.join(__dirname, "statik", "canli.js"), "utf8");
   vm.createContext(pencere);
   vm.runInContext(kaynak, pencere);
-  return { akis, sira };
+  return { akis, sira, kutu };
 }
 
 console.log("\nFiyat seridi -- akis ag istegine BAGLI OLMAMALI\n");
@@ -155,9 +181,87 @@ console.log("\nFiyat seridi -- akis ag istegine BAGLI OLMAMALI\n");
        "hareket azaltma acikken akis sinifi eklenmiyor");
 }
 
-console.log("");
-if (kaldi.length) {
-  console.log(kaldi.length + " TEST KALDI, " + gecti + " gecti");
-  process.exit(1);
+/* ------------------------------------------------------------------
+   ANALIZ SAYFASINDAKI CANLI FIYAT
+
+   Uc sey ayni anda dogru olmali ve ucu de SESSIZCE bozulabilir:
+
+     1. Eslesen varlikta kutu dolmali -- yoksa ozellik "kurulu ama
+        calismiyor" halinde durur.
+     2. BIST kodunda ASLA dolmamali. BIST verisi Borsa Istanbul
+        dagitim lisansi gerektiriyor ve o veri siteye hic girmiyor;
+        koruma YAPISAL olmali, hatirlanmasi gereken bir sey degil.
+     3. Ikinci bir ag cagrisi acilmamali -- fiyati `krakenCek`
+        zaten cekiyor.
+   ------------------------------------------------------------------ */
+/* SOZ COZULDUKTEN SONRA OLCULUYOR.
+   `krakenCek()` bir soz donduruyor; fiyat mikro-gorev sirasinda
+   yaziliyor. Ilk yazimda es zamanli olculdu ve uc sinama kirmizi
+   yandi -- kod dogruydu, OLCUM erkendi. Bu depoda ayni sinif
+   defalarca cikti: sahte ariza genelde olcumun kendisi. */
+async function canliFiyatSinamalari() {
+  const bekle = () => new Promise((r) => setTimeout(r, 5));
+
+  console.log("\nAnaliz sayfasinda canli fiyat\n");
+
+  // 4. Eslesen varlik: kutu doluyor ve GORUNUR oluyor.
+  {
+    const { kutu } = ortamKur({ aglarCalisir: true, hareketAzalt: false,
+                                analizKodu: "BTC" });
+    await bekle();
+    const deger = kutu.querySelector("[data-canli-deger]");
+    esit(deger.textContent !== "", true,
+         "BTC kutusu DOLDU (sahte Kraken yaniti)");
+    esit("hidden" in kutu.ozellikler, false, "kutu GORUNUR oldu");
+  }
+
+  // 5. BIST kodu: kutu dolmuyor, gizli kaliyor.
+  //    `KRAKEN_ADLARI` yalnizca kripto/emtia tasiyor, dolayisiyla
+  //    eslesme HIC olusmuyor -- koruma yapisal, hatirlanmasi
+  //    gereken bir sey degil.
+  {
+    const { kutu } = ortamKur({ aglarCalisir: true, hareketAzalt: false,
+                                analizKodu: "THYAO" });
+    await bekle();
+    const deger = kutu.querySelector("[data-canli-deger]");
+    esit(deger.textContent, "", "BIST kodunda kutu DOLMADI (lisans)");
+    esit("hidden" in kutu.ozellikler, true,
+         "BIST kodunda kutu GIZLI kaldi");
+  }
+
+  // 6. Ag yokken kutu sessizce gizli kaliyor -- sayfa bozulmuyor.
+  {
+    const { kutu } = ortamKur({ aglarCalisir: false, hareketAzalt: false,
+                                analizKodu: "BTC" });
+    await bekle();
+    esit("hidden" in kutu.ozellikler, true,
+         "ag yokken kutu gizli kaliyor (sayfa aynen calisiyor)");
+  }
+
+  // 7. Esleme tablosunda BIST izi OLMAMALI -- kaynak denetimi.
+  {
+    const kaynak = fs.readFileSync(
+      path.join(__dirname, "statik", "canli.js"), "utf8");
+    const tablo = /var KRAKEN_ADLARI = \[([\s\S]*?)\];/.exec(kaynak);
+    esit(tablo !== null, true, "KRAKEN_ADLARI tablosu okunabiliyor");
+    const kodlar = [...tablo[1].matchAll(/kod:\s*"([^"]+)"/g)]
+      .map((m) => m[1]).sort();
+    esit(JSON.stringify(kodlar), JSON.stringify(["BTC", "ETH", "PAXG"]),
+         "tabloda yalnizca kripto/emtia kodu var");
+    esit(/BIST|XU100|THYAO|ASELS/i.test(tablo[1]), false,
+         "tabloda BIST izi YOK");
+    const govde = /function analizFiyatiKur\([\s\S]*?\n  \}/.exec(kaynak);
+    esit(govde !== null, true, "analizFiyatiKur govdesi okunabiliyor");
+    esit(/fetch\(/.test(govde[0]), false,
+         "analizFiyatiKur AG CAGRISI yapmiyor (ayni veriden besleniyor)");
+  }
 }
-console.log("TUM TESTLER GECTI (" + gecti + ")");
+
+canliFiyatSinamalari().then(() => {
+    console.log("");
+  if (kaldi.length) {
+    console.log(kaldi.length + " TEST KALDI, " + gecti + " gecti");
+    process.exit(1);
+  }
+  console.log("TUM TESTLER GECTI (" + gecti + ")");
+}).catch((e) => { console.error(e); process.exit(1); });

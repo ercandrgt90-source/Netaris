@@ -5619,6 +5619,35 @@ def insa() -> int:
     css_surum = _surum(STATIK / "stil.css")
     js_surum = _surum(*sorted(STATIK.glob("*.js")))
 
+    # CANLI FIYATI OLAN VARLIKLAR -- LISTE `canli.js`TEN OKUNUYOR.
+    #
+    # Analiz sayfasindaki canli fiyat kutusu yalnizca bu kodlar icin
+    # basiliyor. Listeyi sablona ELLE yazmak, `canli.js`teki
+    # `KRAKEN_ADLARI` tablosunu ikinci kez yazmak olurdu -- bu depoda
+    # en pahaliya mal olan kusur sinifi (bkz. tema paleti, ceviri
+    # istemcisi: ayni gun iki kez bedeli odendi).
+    #
+    # NEDEN SADECE BASILMASI GEREKENLER: olculdu (2026-10-03), kutu
+    # kosulsuz basildiginda 147 sayfada doluyor ama 292 "OLAY" ve 221
+    # BIST kodu sayfasinda -- yani ~730 sayfada -- HIC dolmuyordu.
+    # Olu isaretleme hem DOM agirligi hem de "neden burada?" sorusu.
+    #
+    # BIST BURAYA ASLA GIRMEZ: `canli.js` yalnizca kripto/emtia
+    # cekiyor (Kraken). BIST verisi Borsa Istanbul dagitim lisansi
+    # gerektiriyor ve o veri siteye hic girmiyor. Koruma yapisal --
+    # liste kaynagi zaten BIST tasimiyor.
+    _canli_js = (STATIK / "canli.js").read_text(encoding="utf-8")
+    _tablo = re.search(r"var KRAKEN_ADLARI = \[(.*?)\];", _canli_js, re.S)
+    canli_kodlar = (
+        sorted(set(re.findall(r'kod:\s*"([^"]+)"', _tablo.group(1))))
+        if _tablo else [])
+    if not canli_kodlar:
+        # SESSIZ ATLAMA YOK: liste okunamazsa kutu hic basilmaz ve
+        # ozellik "kurulu ama gorunmuyor" halinde sessizce durur.
+        print("  canli fiyat kodlari OKUNAMADI -- kutu basilmayacak")
+    else:
+        print(f"  canli fiyat: {', '.join(canli_kodlar)}")
+
     # UYGUN KONULAR -- haber sayfalari uretilmeden ONCE.
     #
     # Kirinti baglantisi bu kumeye bakiyor ve konu sayfalari da ayni
@@ -5632,6 +5661,8 @@ def insa() -> int:
         "site": SITE,
         "css_surum": css_surum,
         "js_surum": js_surum,
+        # Analiz sayfasi kutuyu yalnizca bu kodlar icin basiyor.
+        "canli_kodlar": canli_kodlar,
         "gostergeler": gostergeler,
         "gundem": gundem,
         "gundem_gorseller": gundem_gorseller,

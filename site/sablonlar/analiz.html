@@ -166,6 +166,52 @@
     <h1>{{ a.baslik }}</h1>
     <p class="ozet-cumle">{{ a.ozet }}</p>
 
+    {# CANLI FIYAT -- ANALIZIN RAKAMINI DEGISTIRMEZ, YANINA KOYAR.
+       ==========================================================
+       Teknik gorunum analizleri fiyati METNIN ICINE yaziyor
+       ("Bitcoin 83.900 $ seviyesinde") ve o rakam INSA ANINDAN.
+       Insa gunde ~7 kez kosuyor (olculdu 2026-10-01) ve sayfadaki
+       tek tarih GUN duzeyinde -- okur 23:00'te 09:00'un fiyatini
+       guncel saniyor.
+
+       RAKAM TAZELENMIYOR, bilerek: metnin gerekcesi ("uc
+       ortalamanin da uzerinde", "RSI notr bandin ust yarisinda") O
+       rakamla yazildi. Yalnizca sayiyi degistirmek kendi kendiyle
+       celisen bir analiz uretirdi. Depo ayni ilkeyi AI yorumlarinda
+       zaten uyguluyor: "sayfada karsiligi olmayan sayi tasiyan
+       yorum BASILMIYOR."
+
+       Bu yuzden canli fiyat AYRI ve ETIKETLI duruyor; okur ikisini
+       karsilastirabiliyor.
+
+       BIST'TE ASLA DOLMAZ. Kutu `canli.js` tarafindan yalnizca
+       `KRAKEN_ADLARI` listesindeki kodlar icin dolduruluyor (BTC,
+       ETH, PAXG). BIST verisi Borsa Istanbul dagitim lisansi
+       gerektiriyor ve o veri bu siteye hic girmiyor; eslesme
+       olmayinca kutu GIZLI kaliyor. Koruma yapisal, hatirlanmasi
+       gereken bir sey degil.
+
+       JavaScript yoksa gizli kaliyor ve sayfa basildigi gibi
+       calisiyor. #}
+    {# Kutu YALNIZCA canli fiyati olan varliklarda basiliyor.
+       `canli_kodlar` listesi `insa.py` tarafindan `canli.js`in
+       `KRAKEN_ADLARI` tablosundan OKUNUYOR -- burada elle yazmak
+       ayni listeyi iki yerde tutmak olurdu.
+
+       Olculdu (2026-10-03): kosulsuz basildiginda kutu 147 sayfada
+       doluyor ama 292 "OLAY" ve 221 BIST kodu sayfasinda, yani
+       ~730 sayfada HIC dolmuyordu -- olu isaretleme. #}
+    {% if a.kod and a.kod in canli_kodlar %}
+    <p class="canli-fiyat" data-canli-fiyat="{{ a.kod }}"
+       aria-live="polite" hidden>
+      <span class="canli-etiket">Şu an</span>
+      <b data-canli-deger>—</b>
+      <span data-canli-yon class="canli-yon"></span>
+      <span class="canli-not">Analizdeki rakam yazıldığı andaki
+        değerdir; bu satır canlı piyasa fiyatını gösterir.</span>
+    </p>
+    {% endif %}
+
     {# Imzali yorum ile otomatik analizin okur tarafindan AYIRT EDILEBILMESI
        sart. Yorum neden-sonuc ve gelecek senaryosu icerir; otomatik analiz
        icermez. Hangisini okudugunu bilmeyen okur ikisine ayni agirligi

@@ -70,13 +70,59 @@
      Enstrumanin ne oldugu kaleme gelince cikan aciklamada yaziyor: PAXG
      bir ons altina dayali token, spot altini yakindan izler ama LBMA
      fiksingi degildir. Bilgi kayboluyor degil, yer degistiriyor. */
+  /* `kod` ALANI: analiz sayfasindaki `a.kod` ile eslesiyor.
+   *
+   * NEDEN VAR: teknik gorunum analizleri fiyati METNIN ICINE
+   * yaziyor ("Bitcoin 83.900 $ seviyesinde") ve o rakam INSA
+   * ANINDAN geliyor. Insa gunde ~7 kez kosuyor (olculdu
+   * 2026-10-01) ve sayfadaki tek tarih GUN duzeyinde -- yani okur
+   * 23:00'te 09:00'un fiyatini guncel saniyor.
+   *
+   * COZUM RAKAMI DEGISTIRMEK DEGIL. Metnin gerekcesi ("uc
+   * ortalamanin da uzerinde", "RSI notr bandin ust yarisinda") O
+   * rakamla yazildi; yalnizca sayiyi tazelemek kendi kendiyle
+   * celisen bir analiz uretirdi -- bu depoda AI yorumlarinda ayni
+   * ilke zaten uygulaniyor ("sayfada karsiligi olmayan sayi
+   * tasiyan yorum BASILMIYOR").
+   *
+   * Bunun yerine CANLI fiyat AYRI bir oge olarak, acikca etiketli
+   * gosteriliyor. Esleme burada duruyor cunku fiyati ZATEN bu
+   * dosya cekiyor; ikinci bir cagri ayni veriyi iki yerden almak
+   * olurdu. */
   var KRAKEN_ADLARI = [
-    { iz: "XBT", ad: "BTC/USD", basamak: 0, aciklama: "Bitcoin — Kraken" },
-    { iz: "ETH", ad: "ETH/USD", basamak: 0, aciklama: "Ethereum — Kraken" },
-    { iz: "PAXG", ad: "ALTIN", basamak: 0,
+    { iz: "XBT", kod: "BTC", ad: "BTC/USD", basamak: 0,
+      aciklama: "Bitcoin — Kraken" },
+    { iz: "ETH", kod: "ETH", ad: "ETH/USD", basamak: 0,
+      aciklama: "Ethereum — Kraken" },
+    { iz: "PAXG", kod: "PAXG", ad: "ALTIN", basamak: 0,
       aciklama: "Altın — PAXG token fiyatı (Kraken). Bir ons altına "
               + "dayalıdır, LBMA fiksingi değildir." }
   ];
+
+  /* Analiz sayfasindaki canli fiyat kutusu.
+   *
+   * YALNIZCA `KRAKEN_ADLARI`ndaki varliklar doluyor. BIST hisseleri
+   * buraya ASLA giremez: BIST verisi Borsa Istanbul dagitim lisansi
+   * gerektiriyor ve bu dosya yalnizca kripto/emtia cekiyor. Eslesme
+   * yoksa kutu GIZLI kaliyor -- yani yanlislikla bir hisse sayfasina
+   * fiyat dusmesi YAPISAL olarak imkansiz. */
+  function analizFiyatiKur(kod, metin, yuzde) {
+    var kutu = document.querySelector('[data-canli-fiyat="' + kod + '"]');
+    if (!kutu) return;
+    var deger = kutu.querySelector("[data-canli-deger]");
+    if (deger) deger.textContent = metin;
+    var yon = kutu.querySelector("[data-canli-yon]");
+    if (yon && yuzde !== null && isFinite(yuzde)) {
+      yon.textContent = (yuzde >= 0 ? "+" : "")
+        + yuzde.toLocaleString("tr-TR", { minimumFractionDigits: 1,
+                                          maximumFractionDigits: 1 }) + "%";
+      yon.className = "canli-yon " + (yuzde >= 0 ? "artis" : "azalis");
+    }
+    /* Once GORUNUR, sonra deger: `aria-live` bolgesi gizliyken
+       yapilan degisiklik DUYURULMAZ. Ayni tuzak `tel.js`te de
+       vardi ve orada da bu sirayla cozuldu. */
+    kutu.removeAttribute("hidden");
+  }
 
   function trSayi(deger, basamak) {
     return deger.toLocaleString("tr-TR", {
@@ -176,6 +222,12 @@
             : null;
           kalemKur(anahtar, tanim.ad, trSayi(fiyat, tanim.basamak),
                    yuzde, tanim.aciklama);
+          /* Analiz sayfasindaki kutu AYNI veriden doluyor --
+             ikinci bir ag cagrisi YOK. */
+          if (tanim.kod) {
+            analizFiyatiKur(tanim.kod, trSayi(fiyat, tanim.basamak),
+                            yuzde);
+          }
         });
         kopyaTazele();
       })
