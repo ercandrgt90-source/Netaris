@@ -5702,9 +5702,52 @@ def insa() -> int:
     # olayi birbirine baglardi. Ayni yer tutucu bu depoda daha once de
     # yanlis eslesme uretti (bkz. `guncel_olanlar` ve `uret_olay.py`
     # cevresindeki notlar). Bu yuzden kapsam bilincli olarak dar.
+    # TEKNIK GORUNUM DE DAHIL -- 2026-10-03.
+    #
+    # Kapsam basta yalnizca "Bilanço Analizi" idi ve gerekcesi
+    # yukarida yazili: `kod` alaninin ANLAMI ture gore degisiyor ve
+    # Makro'da SABIT bir yer tutucu ("OLAY", "MAKRO"), dolayisiyla
+    # "ayni kod" olcutu 309 alakasiz olayi birbirine baglardi.
+    #
+    # AMA TEKNIK GORUNUM YAN HASARDI: onun `kod`u gercek bir varlik
+    # kodu (BTC, ETH, PAXG) ve "ayni kod" olcutu orada TAM DOGRU
+    # calisiyor. Dislanmasinin bir gerekcesi yoktu.
+    #
+    # Olculdu (2026-10-03): 1915 uretilen sayfanin 269'u YETIM --
+    # hicbir sayfadan baglanti almiyor. 193'u `/analiz/` ve buyuk
+    # bolumu gunluk teknik gorunumler (`btc-teknik-gorunum-2026-08-02`
+    # ...). 76'si sitemap'te, yani arama motoru buluyor ama siteye
+    # giren okur BULAMIYOR.
+    #
+    # `donem` teknik gorunumde TARIH oldugu icin esleme "ayni varligin
+    # en yakin tarihleri" anlamina geliyor ve ogeler ZINCIR olusturuyor:
+    # en yeni sayfadan geriye dogru yurunebiliyor. Hub gerekmiyor.
+    #
+    # MAKRO HALA DISARIDA: yer tutucu kodu degismedi.
+    # GUNLUK MAKRO SERISI DE DAHIL -- AMA YALNIZCA `MAKRO` KODU.
+    #
+    # Ustteki gerekce "Makro'da `kod` sabit bir yer tutucu, o olcut
+    # 300'den fazla alakasiz olayi birbirine baglardi" diyordu. Bu
+    # `OLAY` icin DOGRU, `MAKRO` icin DEGIL -- olculdu (2026-10-03,
+    # 771 analiz):
+    #
+    #   Makro toplam          357
+    #   kod = "OLAY"          305   -> 305 AYRI gelisme (zincirlenmez)
+    #   kod = "MAKRO"          52   -> hepsi TEK seri
+    #   `sirket` alaninda 306 ayri deger var ve YALNIZCA BIRI
+    #   tekrarliyor: "Küresel göstergeler", tam 52 kayit.
+    #
+    # Yani `MAKRO` bir yer tutucu degil, fiilen SERI KODU: gunluk
+    # "Küresel göstergeler" analizlerini tam olarak tanimliyor ve
+    # yanlis eslesme uretmesi IMKANSIZ.
+    #
+    # `OLAY` disarida kaliyor; onlar `olay_grubu.kimlik()` ile
+    # gelismeye gore gruplaniyor (asagida).
     _ilgili_kaynak = [
         _x for _x in analizler
-        if _x.kategori == "Bilanço Analizi" and (_x.kod or "").strip()
+        if (_x.kategori in ("Bilanço Analizi", "Teknik Görünüm")
+            or (_x.kategori == "Makro" and (_x.kod or "") == "MAKRO"))
+        and (_x.kod or "").strip()
     ]
     # MAKRO ANALIZLER: AYNI GELISMEYE AIT OLANLAR.
     #
@@ -5786,10 +5829,44 @@ def insa() -> int:
         _eskimis = a.slug in _gecersiz_sluglar
         # Ayni sirketin OTEKI donemleri ve ayni sektorden AKRANLAR.
         # Ikisi de bos olabilir; sablon o zaman blogu hic basmiyor.
-        _donemler = [
-            _x for _x in _sirket_donemleri.get(a.kod, [])
-            if _x.slug != a.slug
-        ] if a.kategori == "Bilanço Analizi" else []
+        # KAPSAM BURADA DA GENISLETILDI -- 2026-10-03.
+        #
+        # `_ilgili_kaynak` (yukarida) "Teknik Görünüm"u de alacak
+        # sekilde genisletildi, AMA bu satirda IKINCI bir
+        # `kategori == "Bilanço Analizi"` kapisi vardi ve degisiklik
+        # hicbir sey yapmadi: yeniden kuruldu, yetim sayisi DUSMEDI.
+        #
+        # Ayni karari iki yerde tutmanin bedeli -- bu depoda en pahaliya
+        # mal olan kusur sinifi. Ustelik biliniyordu: ilgili analiz
+        # ilk yazilirken "kapsam genisletme mutasyonu YESIL kaldi
+        # cunku kapsam IKI YERDE korunuyor" diye not dusulmustu.
+        #
+        # TEKNIK GORUNUMDE DONEM = TARIH, dolayisiyla liste 49 ogeye
+        # kadar cikiyor. Tamamini basmak gezinme degil DOKUM olurdu;
+        # tarihe EN YAKIN komsular aliniyor ve ogeler ZINCIR olusturuyor
+        # -- en yeni sayfadan geriye dogru yurunebiliyor.
+        #
+        # Bilancoda sinir YOK cunku ceyrek sayisi az ve hepsi anlamli.
+        if a.kategori == "Bilanço Analizi":
+            _donemler = [
+                _x for _x in _sirket_donemleri.get(a.kod, [])
+                if _x.slug != a.slug
+            ]
+        elif (a.kategori == "Teknik Görünüm"
+              or (a.kategori == "Makro" and (a.kod or "") == "MAKRO")):
+            # IKISI DE GUNLUK SERI: donem = TARIH. Tarihe en yakin
+            # komsular aliniyor ve ogeler ZINCIR olusturuyor -- en
+            # yeni sayfadan geriye dogru yurunebiliyor.
+            #
+            # `MAKRO` kodu burada yer tutucu DEGIL, seri kodu:
+            # olculdu, 52 kaydin hepsi "Küresel göstergeler".
+            _donemler = sorted(
+                (_x for _x in _sirket_donemleri.get(a.kod, [])
+                 if _x.slug != a.slug),
+                key=lambda z: (abs(_gun_farki(z.tarih, a.tarih)), z.slug),
+            )[:ILGILI_AKRAN_SINIRI]
+        else:
+            _donemler = []
         _akranlar = [
             _x for _x in _sektor_akranlari.get((a.sektor, a.donem), [])
             if _x.kod != a.kod

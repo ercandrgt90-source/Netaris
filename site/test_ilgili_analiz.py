@@ -174,6 +174,8 @@ esit(len(_yer_tutuculu) > 50, True,
 
 _yol_analiz = {a.yol: a for a in _analizler.values()}
 _kimlik_yok, _farkli_olay, _bloklu_makro = [], [], 0
+#: Gunluk seri sayfalari ve seri DISINA cikan baglari.
+_seri_disi, _seri_bloklu = [], 0
 for _a in _yer_tutuculu:
     _p = _CIKTI / _a.yol.strip("/") / "index.html"
     if not _p.exists():
@@ -183,6 +185,28 @@ for _a in _yer_tutuculu:
     if not _m:
         continue
     _bloklu_makro += 1
+    # GUNLUK SERI AYRI -- 2026-10-03.
+    #
+    # `kod == "MAKRO"` bir yer tutucu DEGIL, fiilen SERI KODU.
+    # Olculdu (771 analiz): Makro'da `kod` ikiye ayriliyor --
+    # "OLAY" 305 AYRI gelisme, "MAKRO" ise tam 52 kayit ve
+    # `sirket` alani 306 ayri degerden YALNIZCA bunda tekrarliyor
+    # ("Küresel göstergeler", 52 kez). Yani o 52 kayit gercekten
+    # tek bir gunluk seri ve tarihe gore zincirlenmeleri DOGRU.
+    #
+    # Yasak `OLAY` icin AYNEN duruyor: kimligi olmayan bir olay
+    # sayfasina blok basilmasi hala kusur. Asagida serinin
+    # baglarinin da ayni seriden oldugu ayrica denetleniyor --
+    # istisna, kontrolu gevsetmek icin degil.
+    if (_a.kod or "") == "MAKRO":
+        for _b in set(re.findall(r'href="(/analiz/[^"]+)"', _m.group(0))):
+            _hedef = _yol_analiz.get(_b)
+            if _hedef is None:
+                continue
+            if (_hedef.kod or "") != "MAKRO":
+                _seri_disi.append((_a.yol, _b))
+        _seri_bloklu += 1
+        continue
     _kendi = _olay_kimlik(_a)
     if not _kendi:
         # Kimligi olmayan bir sayfaya blok basilmissa, bag baska bir
@@ -198,6 +222,12 @@ for _a in _yer_tutuculu:
 
 esit(_bloklu_makro > 0, True,
      f"olay kimligiyle baglanan makro sayfasi var ({_bloklu_makro})")
+# GUNLUK SERI: zincir kurulmus VE seri disina cikmamis olmali.
+esit(_seri_bloklu > 0, True,
+     f"gunluk makro serisi zincirlenmis ({_seri_bloklu} sayfa)")
+if _seri_disi:
+    print(f"\n  SERI DISINA BAG: {_seri_disi[:4]}")
+esit(_seri_disi, [], "gunluk serinin her bagi AYNI seriden")
 if _kimlik_yok:
     print(f"\n  KIMLIKSIZ SAYFAYA BLOK: {_kimlik_yok[:4]}")
 esit(_kimlik_yok, [],
