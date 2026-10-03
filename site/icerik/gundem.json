@@ -31,7 +31,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 39,
+  "yorumlanan": 38,
   "haberler": [
     {
       "baslik": "USTR, USMCA'nın 2027 Ortak İncelemesi Hakkında Kamuoyu Yorumu İstiyor",
@@ -1570,6 +1570,27 @@
       "foto_atif": "William Iven firmbee · CC0"
     },
     {
+      "baslik": "Altın Koza'da ödüller sahiplerini buldu: En İyi Film \"Bir Arada Yalnız\"",
+      "baslik_kaynak": "Altın Koza'da ödüller sahiplerini buldu: En İyi Film \"Bir Arada Yalnız\"",
+      "ozet": "Uluslararası Adana Altın Koza Film Festivali'nde Ulusal Uzun Metraj Film Yarışması ödülleri sahiplerini buldu. En İyi Film ve En İyi Yönetmen ödülleri, Ali Vatansever'in \"Bir Arada Yalnız\" filmine verildi.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.dunya.com/kultur-sanat/altin-kozada-oduller-sahiplerini-buldu-en-iyi-film-bir-arada-yalniz-haberi-842464",
+      "kurum": "Dünya",
+      "kurum_tam": "Dünya Gazetesi",
+      "konu": "Altın ve emtia",
+      "tarih": "2026-10-03",
+      "tarih_gorunur": "3 Ekim 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/altin-ve-emtia-9-96578871.jpg",
+      "foto_atif": "Bill Holler · CC-BY-SA-2.0"
+    },
+    {
       "baslik": "Ukrayna: Rusya'da askeri tesislere saldırılar düzenledik",
       "baslik_kaynak": "Ukrayna: Rusya'da askeri tesislere saldırılar düzenledik",
       "ozet": "Ukrayna Devlet Başkanı Volodimir Zelenskiy, Rusya'nın farklı bölgelerinde askeri tesislere yönelik saldırılar gerçekleştirdiklerini bildirdi.",
@@ -1596,29 +1617,25 @@
       "foto_atif": "Bernard Gagnon · CC0"
     },
     {
-      "baslik": "SPK’dan kredili işlemler için yeni karar: Süre 30 Ekim’e uzatıldı",
-      "baslik_kaynak": "SPK’dan kredili işlemler için yeni karar: Süre 30 Ekim’e uzatıldı",
-      "ozet": "Sermaye Piyasası Kurulu (SPK), Borsa İstanbul’daki gelişmeleri dikkate alarak kredili sermaye piyasası işlemlerinde özkaynak oranının esnetilerek uygulanmasına ilişkin tedbirin süresini 30 Ekim 2026 seans sonuna kadar uzattı.",
+      "baslik": "DAP, Sanko, Kuzugrup, Limak... Son işlem gününde 40 borsa devi hisselerini geri aldı",
+      "baslik_kaynak": "DAP, Sanko, Kuzugrup, Limak... Son işlem gününde 40 borsa devi hisselerini geri aldı",
+      "ozet": "Bu hafta borsada 74 şirket hisse alımına gitti. Haftanın son işlem günü 2 Ekim'de 40 şirketin birden hisse alımına gitmesi dikkat çekti.",
       "cevrildi": false,
       "dil": "tr",
       "ticari": true,
       "bolge": "TR",
-      "adres": "https://www.dunya.com/ekonomi/spkdan-kredili-islemler-icin-yeni-karar-sure-30-ekime-uzatildi-haberi-842452",
-      "kurum": "Dünya",
-      "kurum_tam": "Dünya Gazetesi",
-      "konu": "Bankacılık",
+      "adres": "https://www.ekonomim.com/foto-galeri/ekonomi/dap-sanko-kuzugrup-limak-son-islem-gununde-40-borsa-devi-hisselerini-geri-aldi-galeri-922408",
+      "kurum": "Ekonomim",
+      "kurum_tam": "Ekonomim",
+      "konu": "Borsa",
       "tarih": "2026-10-03",
       "tarih_gorunur": "3 Ekim 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Zorunlu karşılık, likidite ve teminat düzenlemeleri kredi arzının miktarını ve maliyetini doğrudan belirler.",
-      "kanallar": [
-        "Kredi arzı: zorunlu karşılık oranları, bankaların kredi olarak kullandırabileceği kaynağın büyüklüğünü değiştirir.",
-        "Fonlama kompozisyonu: TL ve döviz mevduat arasındaki maliyet farkı, bankaların bilanço yapısını etkiler.",
-        "Reel sektör: kredi kanalının daralması, işletme sermayesini kısa vadeli borçla çeviren şirketlerde önce hissedilir."
-      ],
-      "kanal_basligi": "Piyasaya nasıl yansır?",
-      "foto": "/statik/foto/bankacilik-9-93533b82.jpg",
-      "foto_atif": "Myotus · CC-BY-4.0"
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/borsa-12-5544ef41.jpg",
+      "foto_atif": "Bernard Lee · CC0"
     },
     {
       "baslik": "Bakan Bolat, MÜSİAD heyetiyle bir araya geldi: İhracatta artış 10,5 milyar dolar",
@@ -1941,27 +1958,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/para-politikasi-12-2ca29aaf.jpg",
       "foto_atif": "Kidfly182 · CC-BY-4.0"
-    },
-    {
-      "baslik": "Küresel piyasalarda gelecek hafta takip edilecek 4 gelişme hangileri olacak?",
-      "baslik_kaynak": "Küresel piyasalarda gelecek hafta takip edilecek 4 gelişme hangileri olacak?",
-      "ozet": "Küresel piyasalarda tahvil piyasasındaki satış baskısının etkisiyle bu hafta satış ağırlıklı bir seyir öne çıkarken, gözler gelecek hafta yoğun veri gündemine çevrildi.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.ekonomist.com.tr/piyasalar/kuresel-piyasalarda-gelecek-hafta-takip-edilecek-4-gelisme-hangileri-olacak--79484",
-      "kurum": "Ekonomist",
-      "kurum_tam": "Ekonomist",
-      "konu": "Borsa",
-      "tarih": "2026-10-03",
-      "tarih_gorunur": "3 Ekim 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/borsa-11-39672784.jpg",
-      "foto_atif": "Syced · CC0"
     },
     {
       "baslik": "Aylık Stok Faiz ve Kâr Payı İstatistikleri",
