@@ -180,6 +180,58 @@ def test_aciklamadaki_sayi_uretiliyor():
         ilk.group(1), len(gercek["jeton"]))
 
 
+def test_yayin_metni_gercek_turkce():
+    """`OBEK` metinleri OKURA GORUNUYOR -- yorum gibi yazilamaz.
+
+    Bu depoda kaynak yorumlari bilincli olarak ASCII yaziliyor.
+    `OBEK` ise yorum DEGIL: icerigi dogrudan /tasarim/ sayfasina
+    basiliyor. Ayrim gorunmuyordu -- ikisi de ayni dosyada, ayni
+    bicimde duruyordu.
+
+    OLCULDU (2026-10-04): ucunun ucu de ASCII'ye indirgenmis halde
+    YAYIMLANIYORDU --
+
+        "8 adimli olcek"
+        "Bosluk"
+        "hiyerarsi degil gurultu uretir"
+
+    Okur bunlari goruyordu ve hicbir sey hata vermiyordu.
+
+    IKI AYRI OLCU, CUNKU TEK OLCU YETMIYOR
+    --------------------------------------
+    ACIKLAMALAR yapisal olarak olculuyor: 40 karakterden uzun hicbir
+    dogal Turkce metin, Turkceye ozgu harflerin HICBIRINI icermeden
+    yazilamaz. Kelime listesi tutulmuyor -- liste eksik kalir ve
+    bakimi gerekir.
+
+    BASLIKLAR o olcuye girmiyor ve bu bir EKSIK, gizlenmiyor:
+    "Punto" bes harf ve tamamen ASCII olmasi DOGRU. Uzunluk olcusu
+    bu boyda calismaz. Basliklar az sayida ve nadiren degistigi icin
+    DEGERLERI yazilarak sabitleniyor: birini degistiren bu sinamayi
+    da guncellemek zorunda kalir ve o an "bu metin okura gorunuyor"
+    sorusuyla karsilasir. Amac zaten bu.
+    """
+    tr_harf = set("ıİğĞşŞçÇöÖüÜâÂîÎûÛ")
+
+    # --- aciklamalar: yapisal olcu ---
+    dusen = []
+    for onek, _baslik, aciklama in tj.OBEK:
+        if len(aciklama) >= 40 and not (set(aciklama) & tr_harf):
+            dusen.append(f"{onek}: {aciklama[:60]}")
+    assert not dusen, "ASCII'ye indirgenmis aciklama: " + "; ".join(dusen)
+
+    # Uretilen aciklama da ayni kurala uymali (`{n}` cozuldukten sonra).
+    for o in tj.jetonlar():
+        a = o.get("aciklama") or ""
+        if len(a) >= 40:
+            assert set(a) & tr_harf, (o.get("onek"), a[:60])
+
+    # --- basliklar: deger sabitlemesi ---
+    BEKLENEN = {"p-": "Punto", "b-": "Boşluk", "satir-": "Satır yüksekliği"}
+    gelen = {o[0]: o[1] for o in tj.OBEK}
+    assert gelen == BEKLENEN, (gelen, BEKLENEN)
+
+
 def test_gercek_css_okunuyor():
     """Asil dosya. Olcek yerinde mi?"""
     o = tj.olculer()

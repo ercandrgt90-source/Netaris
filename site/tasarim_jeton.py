@@ -51,18 +51,33 @@ _YORUM = re.compile(r"/\*.*?\*/", re.S)
 #:
 #: `{n}` render aninda dolduruluyor: jeton eklenince cumle kendiligi
 #: nden duzeliyor.
+#: BU METINLER OKURA GORUNUYOR -- YORUM DEGIL, YAYIN.
+#:
+#: Olculdu (2026-10-04): uclu de deponun IC yazim bicimiyle, yani
+#: Turkce harfler ASCII'ye indirgenmis halde yaziliydi ve /tasarim/
+#: sayfasinda AYNEN basiliyordu: "8 adimli olcek", "Bosluk",
+#: "hiyerarsi degil gurultu uretir".
+#:
+#: Kaynak dosyalardaki yorumlarin ASCII olmasi bilincli bir karar
+#: (kodlama sorunlarindan kacinmak icin). Ama bu dizgeler yorum
+#: degil, SAYFA METNI. Ayrim gorunmezdi: ikisi de ayni dosyada, ayni
+#: bicimde duruyordu.
+#:
+#: `test_tasarim_jeton.py` artik her yayin metninde en az bir Turkce
+#: harf ariyor -- 40 karakterden uzun hicbir dogal Turkce cumle
+#: tamamen ASCII olamaz.
 OBEK = (
     ("p-", "Punto",
-     "{n} adimli olcek. Adimlar arasindaki fark okurun ayirt "
-     "edebilecegi kadar buyuk tutuluyor; yakin iki punto hiyerarsi "
-     "degil gurultu uretir (bkz. `test_punto_olcegi.py`)."),
-    ("b-", "Bosluk",
-     "Dort piksel tabanli izgara. 20 ve 28 sonradan eklendi, cunku "
-     "ikisi de izgaradaydi ve sirasiyla 30 ve 12 yerde kullaniliyordu "
-     "-- eksik olan kullanim degil, olcegin kendisiydi."),
-    ("satir-", "Satir yuksekligi",
-     "Uzun metin genis, baslik dar. Baslikta satirlar birbirine "
-     "yaklasir cunku goz zaten kisa mesafe kat ediyor."),
+     "{n} adımlı ölçek. Adımlar arasındaki fark okurun ayırt "
+     "edebileceği kadar büyük tutuluyor; yakın iki punto hiyerarşi "
+     "değil gürültü üretir (bkz. `test_punto_olcegi.py`)."),
+    ("b-", "Boşluk",
+     "Dört piksel tabanlı ızgara. 20 ve 28 sonradan eklendi, çünkü "
+     "ikisi de ızgaradaydı ve sırasıyla 30 ve 12 yerde kullanılıyordu "
+     "— eksik olan kullanım değil, ölçeğin kendisiydi."),
+    ("satir-", "Satır yüksekliği",
+     "Uzun metin geniş, başlık dar. Başlıkta satırlar birbirine "
+     "yaklaşır çünkü göz zaten kısa mesafe kat ediyor."),
 )
 
 
