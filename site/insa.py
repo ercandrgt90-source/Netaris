@@ -4236,6 +4236,12 @@ def olay_slug(anahtar: str) -> str:
 #: Yuzde birimleri -- ondalik ANLAMLI ve isaret ONDE.
 _ORAN_BIRIM = {"%", "puan", "bp"}
 
+#: Sayim birimleri -- ondalik ANLAMSIZ. Parca eslesme BILEREK:
+#: "kisi", "bin kisi", "bin adet" hepsi ayni turden. Tam liste
+#: tutmak, veritabanina yeni bir birim yazisi girdiginde sessizce
+#: eskiyen bir liste demekti.
+_SAYIM_BIRIM = ("kişi", "adet")
+
 
 def ozet_bicimi(metin: str) -> str:
     """Kelime ortasinda kesilmis ozeti CUMLE SINIRINA ceker.
@@ -4298,10 +4304,28 @@ def olcum_bicimi(deger, birim: str = "", basamak: int = 2) -> str:
     except (TypeError, ValueError):
         return str(deger)
     b = (birim or "").strip()
-    # Sayim biriminde ondalik sahte hassasiyet uretiyor (bkz.
-    # takvim_gerceklesen._basamak) -- tam sayilar ondaliksiz.
+    # Sayim biriminde ondalik sahte hassasiyet uretiyor -- tam sayilar
+    # ondaliksiz.
+    #
+    # `abs(d) < 100` KOSULU SAYIM BIRIMLERINDE GECERSIZ.
+    #
+    # Kuralin kendi gerekcesi "sayinin BUYUKLUGUNE degil TURUNE
+    # bakiyor" diyordu ama kod buyukluge bakiyordu. Sonuc: 100'un
+    # altindaki TAM SAYILAR iki ondalikla basiliyordu ve bu, sayim
+    # birimlerinde anlamsiz --
+    #
+    #     "29,00 bin kisi"   (olculdu, /makro/ takvimi)
+    #
+    # 29 bin kisi sayilir; virgulden sonraki iki sifir bir olcum
+    # degil, bicimlendirme artigi. `abs(d) < 100` kosulu PARA ve
+    # ENDEKS degerleri icin dogru kaliyor (95,00 $ beklenen yazim),
+    # yalnizca sayim birimlerinde devre disi.
+    #
+    # OLCULDU: veritabanindaki 6.824 olcumun 17'sinin yazimi
+    # degisiyor, hepsi `bin kisi`. Baska hicbir birim etkilenmiyor.
+    sayim = any(k in b for k in _SAYIM_BIRIM)
     bas = basamak if (b in _ORAN_BIRIM or not float(d).is_integer()
-                      or abs(d) < 100) else 0
+                      or (abs(d) < 100 and not sayim)) else 0
     sayi = f"{d:,.{bas}f}".replace(",", " ").replace(".", ",")
     if b == "%":
         return f"%{sayi}"

@@ -99,7 +99,19 @@ def test_gercek_depoda_temmuz_tufesi():
     if "gerceklesen" not in k:
         return                     # depo yoksa test atlanir
     assert k["gerceklesen"]["donem"].startswith("2026-07")
-    assert "," in k["gerceklesen"]["metin"]
+    # `metin` ARTIK URETILMIYOR -- bicimlendirme sablondaki site
+    # geneli `olcum` suzgecine tasindi. Eskiden `_tr` burada sayiyi
+    # BIRIMSIZ basiyordu ve takvimde "29,00" gibi degerler cikiyordu;
+    # ayni serinin yanindaki iki degeri ise "162 bin" ve "89 bin"di.
+    #
+    # Sinama artik SOZLESMEYI olcuyor: ham deger ve BIRIM var mi.
+    assert isinstance(k["gerceklesen"]["deger"], float)
+    assert "birim" in k["gerceklesen"], k["gerceklesen"]
+    # Birim bos olabilir (her seride yazili degil) ama ALAN olmali:
+    # eksik alan, sablonda sessizce bos basilmak demek.
+    assert isinstance(k["gerceklesen"]["birim"], str)
+    assert "metin" not in k["gerceklesen"], (
+        "bicimlendirme tek yerde olmali -- sablondaki `olcum`")
 
 
 if __name__ == "__main__":

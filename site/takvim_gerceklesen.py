@@ -71,14 +71,26 @@ def gerceklesen(kod: str, an: _dt.datetime, b=None) -> dict | None:
     try:
         alt = an.astimezone(_dt.timezone.utc).replace(tzinfo=None)
         ust = alt + _dt.timedelta(hours=PENCERE_SAAT)
+        # BIRIM DE OKUNUYOR -- yoksa sayi birimsiz basiliyor.
+        #
+        # OLCULDU (2026-10-04): takvimde "ABD Tarim Disi Istihdam"
+        # satiri "ACIKLANDI 29,00" yaziyordu; hemen altinda ayni
+        # serinin iki degeri "162 bin" ve "89 bin" olarak, yani
+        # BIRIMIYLE duruyordu. Uc sayi; ikisi birimli, biri degil.
+        #
+        # `gosterge` tablosunda `birim` sutunu VAR ve bu seri icin
+        # "bin kisi" yaziyor; sorgu onu secmiyordu. Finans
+        # sitesinde birimsiz bir sayi tehlikeli: okur 29,00'i
+        # yuzde ya da endeks seviyesi sanabilir.
         s = b.execute(
-            "SELECT deger, tarih FROM gosterge "
+            "SELECT deger, tarih, birim FROM gosterge "
             "WHERE kod = ? AND kayit_ani >= ? AND kayit_ani <= ? "
             "ORDER BY tarih DESC, kayit_ani DESC LIMIT 1",
             (kod, alt.isoformat(sep=" "), ust.isoformat(sep=" "))).fetchone()
         if s is None:
             return None
-        return {"deger": float(s["deger"]), "donem": s["tarih"]}
+        return {"deger": float(s["deger"]), "donem": s["tarih"],
+                "birim": (s["birim"] or "").strip()}
     except (sqlite3.Error, TypeError, ValueError):
         return None
     finally:
@@ -155,7 +167,21 @@ def kutuya_ekle(kutu: dict, b=None) -> dict:
     g = gerceklesen(kod, an, b)
     if g is None:
         return kutu
-    g["metin"] = _tr(g["deger"])
+    # BICIMLENDIRME BURADA YAPILMIYOR -- SABLONDAKI `olcum` SUZGECI
+    # YAPIYOR.
+    #
+    # `_tr` sayiyi BIRIMSIZ basiyordu; sitede ayni turden sayilar
+    # `insa.olcum_bicimi` ile, birimiyle birlikte basiliyor. Yani
+    # ayni deger iki farkli kuralla yaziliyordu -- tam da `_tr`nin
+    # kendi aciklamasinin uyardigi durum:
+    #
+    #   "Ayrica ayni sayi iki yerde farkli bicimlenirse okur
+    #    hangisinin dogru oldugunu bilemez."
+    #
+    # `metin` artik URETILMIYOR: sablon ham degeri ve birimi alip
+    # site geneli suzgecten geciriyor, boylece ikinci bicimlendirici
+    # kalmiyor.
+    g.pop("metin", None)
     kutu["gerceklesen"] = g
 
     # BEKLENTI SOZLUK OLMAYABILIR. Hat onu bir NESNE olarak koyuyor

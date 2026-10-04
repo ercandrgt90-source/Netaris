@@ -48,7 +48,12 @@
       {% if k.gerceklesen %}
       <p class="takvim-gerceklesen">
         <span class="takvim-cikti-etiket">AÇIKLANDI</span>
-        <b class="takvim-cikti">{{ k.gerceklesen.metin }}</b>
+        {# Site geneli `olcum` suzgeci: sayi + birim, TEK kural.
+           Once `takvim_gerceklesen._tr` basiyordu ve birimi
+           atliyordu: "29,00" yaziyordu, oysa ayni serinin
+           hemen altindaki iki degeri "162 bin" ve "89 bin". #}
+        <b class="takvim-cikti">{{ k.gerceklesen.deger
+          | olcum(k.gerceklesen.birim) }}</b>
         {% if k.surpriz %}
         {# SURPRIZ YALNIZCA GERCEK KONSENSUS varken yaziliyor. Onceki
            degere gore sapmaya "surpriz" demek, olcutu degistirip ayni
