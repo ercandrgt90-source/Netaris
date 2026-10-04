@@ -175,12 +175,40 @@
 {% endmacro %}
 
 {% block icerik %}
+{# BASLIK SAYFANIN %22'SINI ANLATIYORDU.
+   ======================================
+   Eski hali "Merkez bankalari ve duzenleyiciler" idi ve giris metni
+   yalnizca Fed, ECB, SEC ve EIA'yi sayiyordu. Sayfa o gun boyleydi;
+   sonra buyudu ve kimse basligi guncellemedi.
+
+   OLCULDU (2026-10-04, uretilen sayfa, 120 oge):
+
+       Jeopolitik        40      Duzenleme     3
+       Sirketler         25      Sektorler     3
+       Makro             24      Diger         2
+       Emtia ve enerji   18
+       Piyasalar          5
+
+   "Merkez bankalari ve duzenleyiciler" = Makro + Duzenleme = 27,
+   yani sayfanin %22'si. En buyuk kume Jeopolitik ve basligin onunla
+   hicbir ilgisi yok. Kaynak dagilimi da ayni seyi soyluyor:
+   FinancialJuice 32, TCMB 6, BoJ 6, USTR 4, ECB 4, Fed 3 -- yani
+   ajans ve finans medyasi agirlikta.
+
+   Yanlis baslik, yanlis koddan kotudur: kod calisir, baslik okuyani
+   yanlis yone gonderir. Ustelik bu sayfanin H1'i arama motoruna
+   verilen en guclu isaret.
+
+   Yeni metin kurum SAYMIYOR -- saymak, bu kusurun tekrar etmesinin
+   yoluydu. Kaynak turunu anlatiyor ve her kartta kaynagin zaten
+   gorundugunu soyluyor. #}
 <div class="giris">
   <p class="ust-etiket">Haberler</p>
-  <h1>Merkez bankaları ve düzenleyiciler</h1>
-  <p>Fed, Avrupa Merkez Bankası, SEC ve ABD Enerji Bilgi İdaresi'nin
-  açıklamaları otomatik derlenir, Türkçeleştirilir ve konuya göre
-  sınıflandırılır. Piyasa etkisi olanlara aktarım kanalları eklenir.</p>
+  <h1>Piyasa gündemi</h1>
+  <p>Haber ajansları, finans medyası ve merkez bankası ile düzenleyici
+  duyuruları otomatik derlenir, Türkçeleştirilir ve konuya göre
+  sınıflandırılır. Piyasa etkisi olanlara aktarım kanalları eklenir;
+  her kartta kaynağı görünür.</p>
 </div>
 
 {% set yorumlu = gundem.haberler | selectattr("yorumlanir") | list %}
