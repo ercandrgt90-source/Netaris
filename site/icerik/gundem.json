@@ -358,6 +358,32 @@
       "foto_atif": "AliAbuRas · CC-BY-SA-4.0"
     },
     {
+      "baslik": "Husiler: Riyad'da Aramco'yu füze ve İHA'larla vurduk",
+      "baslik_kaynak": "Husiler: Riyad'da Aramco'yu füze ve İHA'larla vurduk",
+      "ozet": "Yemen'deki İran destekli Husiler, Suudi Arabistan'ın başkenti Riyad'daki ulusal petrol şirketi Aramco'yu balistik füzeler ve insansız hava araçlarıyla (İHA) hedef aldıklarını duyurdu.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.ekonomim.com/dunya/husiler-riyadda-aramcoyu-fuze-ve-ihalarla-vurduk-haberi-922421",
+      "kurum": "Ekonomim",
+      "kurum_tam": "Ekonomim",
+      "konu": "Jeopolitik",
+      "tarih": "2026-10-04",
+      "tarih_gorunur": "4 Ekim 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
+      "kanallar": [
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-40-59a567ac.jpg",
+      "foto_atif": "Peter Griffin · CC0"
+    },
+    {
       "baslik": "Benzin bidonuyla gelip galerideki 6 aracı yaktı. O anlar kamerada",
       "baslik_kaynak": "Benzin bidonuyla gelip galerideki 6 aracı yaktı! O anlar kamerada",
       "ozet": "Antalya’nın Serik ilçesinde bir saldırgan oto galerideki 6 aracın üzerine benzin dökerek yaktı. Kundaklanma anı güvenlik kamerasına yansıdı. Olayın ardından şüpheli, polise teslim oldu.",
@@ -2075,32 +2101,6 @@
       "kanal_basligi": "Hangi piyasaları etkiler?",
       "foto": "/statik/foto/para-politikasi-14-9b1627e1.jpg",
       "foto_atif": "Bernard Gagnon · CC-BY-SA-3.0"
-    },
-    {
-      "baslik": "Bankacılık sektöründen yeşil dönüşüme 1 trilyon TL’lik destek",
-      "baslik_kaynak": "Bankacılık sektöründen yeşil dönüşüme 1 trilyon TL’lik destek",
-      "ozet": "Türkiye Bankalar Birliği Başkanı Alpaslan Çakar, bankacılık sektörünün enerji sektörüne sağladığı kredilerin 1 trilyon TL’yi aştığını açıklarken, IEA Başkanı Fatih Birol, küresel enerji yatırımlarındaki dönüşüme dikkat çekti.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.ekonomist.com.tr/finans/bankacilik-sektorunden-yesil-donusume-1-trilyon-tl-lik-destek-79493",
-      "kurum": "Ekonomist",
-      "kurum_tam": "Ekonomist",
-      "konu": "Bankacılık",
-      "tarih": "2026-10-03",
-      "tarih_gorunur": "3 Ekim 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Bankacılık kararları kredi kanalının genişliğini belirler; etki önce fonlama maliyetinde, sonra kredi hacminde görünür.",
-      "kanallar": [
-        "Fonlama maliyeti: mevduat ve tahvil faizindeki değişim net faiz marjına yazılır.",
-        "Sermaye yeterliliği: rasyo üzerindeki baskı kredi büyümesini sınırlar.",
-        "Aktif kalitesi: takipteki kredi oranı, karşılık giderleri üzerinden kârlılığa geçer.",
-        "Yayılım: bankacılık sistemi ekonominin geri kalanına kredi kanalıyla bağlı olduğu için etki sektörle sınırlı kalmaz."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/bankacilik-7-8f64866b.jpg",
-      "foto_atif": "Artaxerxes · CC-BY-SA-4.0"
     },
     {
       "baslik": "Aylık Stok Faiz ve Kâr Payı İstatistikleri",
