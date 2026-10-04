@@ -31,7 +31,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 33,
+  "yorumlanan": 31,
   "haberler": [
     {
       "baslik": "Grenada hükümeti genel seçimleri 5 Kasım'a erteledi: resmi gazete",
@@ -379,6 +379,27 @@
       "foto_atif": "AliAbuRas · CC-BY-SA-4.0"
     },
     {
+      "baslik": "Çeyrek, gram ve yarım altın fiyatları bugün ne kadar? (4 Ekim 2026 güncel altın satış fiyatları)",
+      "baslik_kaynak": "Çeyrek, gram ve yarım altın fiyatları bugün ne kadar? (4 Ekim 2026 güncel altın satış fiyatları)",
+      "ozet": "Altın alım satımı yapacaklar ve yatırımcılar merakla güncel altın fiyatlarını araştırıp takip ediyor. Peki, çeyrek altın fiyatları bugün ne kadar oldu? Yarım altın bugün kaç lira? İşte 4 Ekim 2026 çeyrek, ons, gram ve yarım altın satış fiyatları...",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.ekonomim.com/finans/haberler/ceyrek-gram-ve-yarim-altin-fiyatlari-bugun-ne-kadar-4-ekim-2026-guncel-altin-satis-fiyatlari-haberi-922425",
+      "kurum": "Ekonomim",
+      "kurum_tam": "Ekonomim",
+      "konu": "Altın ve emtia",
+      "tarih": "2026-10-04",
+      "tarih_gorunur": "4 Ekim 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/altin-ve-emtia-8-0eb87a46.jpg",
+      "foto_atif": "Osmar Valdebenito from Santiago, Chile · CC-BY-SA-2.0"
+    },
+    {
       "baslik": "Husiler: Riyad'da Aramco'yu füze ve İHA'larla vurduk",
       "baslik_kaynak": "Husiler: Riyad'da Aramco'yu füze ve İHA'larla vurduk",
       "ozet": "Yemen'deki İran destekli Husiler, Suudi Arabistan'ın başkenti Riyad'daki ulusal petrol şirketi Aramco'yu balistik füzeler ve insansız hava araçlarıyla (İHA) hedef aldıklarını duyurdu.",
@@ -510,14 +531,14 @@
       "foto_atif": "Dietmar Rabich · CC-BY-SA-4.0"
     },
     {
-      "baslik": "Avustralya Maliye Bakanı Chalmers, ABD-İran savaşını suçladı",
-      "baslik_kaynak": "Avustralya Maliye Bakanı Chalmers, ABD-İran savaşını suçladı",
+      "baslik": "Trump’ın yeni yapay zeka sorumlusu ABD stratejisini açıkladı",
+      "baslik_kaynak": "Trump’ın yeni yapay zeka sorumlusu ABD stratejisini açıkladı",
       "ozet": "",
       "cevrildi": false,
       "dil": "tr",
       "ticari": true,
-      "bolge": "TR",
-      "adres": "https://tr.investing.com/news/economy-news/avustralya-maliye-bakan-chalmers-abdiran-savasn-suclad-4088999",
+      "bolge": "DUNYA",
+      "adres": "https://tr.investing.com/news/economy-news/trumpn-yeni-yapay-zeka-sorumlusu-abd-stratejisini-acklad-4089001",
       "kurum": "Investing",
       "kurum_tam": "Investing.com Türkiye",
       "konu": "Jeopolitik",
@@ -534,6 +555,27 @@
       "kanal_basligi": "Hangi piyasaları etkiler?",
       "foto": "/statik/foto/jeopolitik-14-4ca6b4fe.jpg",
       "foto_atif": "Bernard Gagnon · CC0"
+    },
+    {
+      "baslik": "Avustralya Hazine Bakanı Chalmers, yüksek enflasyonu ABD-İran savaşına bağladı",
+      "baslik_kaynak": "Avustralya Hazine Bakanı Chalmers, yüksek enflasyonu ABD-İran savaşına bağladı",
+      "ozet": "",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://tr.investing.com/news/economy-news/avustralya-maliye-bakan-chalmers-abdiran-savasn-suclad-4088999",
+      "kurum": "Investing",
+      "kurum_tam": "Investing.com Türkiye",
+      "konu": "Enflasyon",
+      "tarih": "2026-10-04",
+      "tarih_gorunur": "4 Ekim 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/enflasyon-14-e2f22d70.jpg",
+      "foto_atif": "William Iven firmbee · CC0"
     },
     {
       "baslik": "USTR, USMCA'nın 2027 Ortak İncelemesi Hakkında Kamuoyu Yorumu İstiyor",
@@ -2049,58 +2091,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/turizm-8-7a709033.jpg",
       "foto_atif": "Basile Morin · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "Gelecek hafta küresel piyasalar yoğun veri gündemine odaklandı",
-      "baslik_kaynak": "Gelecek hafta küresel piyasalar yoğun veri gündemine odaklandı",
-      "ozet": "Küresel piyasalarda tahvil piyasasındaki satış baskısının etkisiyle bu hafta satış ağırlıklı bir seyir öne çıkarken, gözler gelecek hafta yoğun veri gündemine çevrildi.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.bloomberght.com/gelecek-hafta-kuresel-piyasalar-yogun-veri-gundemine-odaklandi-3790272",
-      "kurum": "BloombergHT",
-      "kurum_tam": "Bloomberg HT",
-      "konu": "Borsa",
-      "tarih": "2026-10-03",
-      "tarih_gorunur": "3 Ekim 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Endeks hareketi tek başına bir bilgi değildir; hareketi hangi sektörlerin taşıdığı ve işlem hacminin ne olduğu kalıcılığı belirler.",
-      "kanallar": [
-        "Sektör dağılımı: hareketin dar bir gruptan mı geniş tabandan mı geldiği, kalıcılığa dair ipucu verir.",
-        "Hacim: düşük hacimli hareket fiyat keşfinden çok pozisyon ayarlaması olabilir.",
-        "Volatilite: opsiyon fiyatlarındaki değişim piyasanın beklediği oynaklığı gösterir.",
-        "Korelasyon: hisse ile tahvil arasındaki ilişkinin işareti portföy riskinin nasıl dağıldığını değiştirir."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/borsa-10-1d3f5b6f.jpg",
-      "foto_atif": "Syced · CC0"
-    },
-    {
-      "baslik": "Eylül ayı dış ticaret verileri açıklandı",
-      "baslik_kaynak": "Eylül ayı dış ticaret verileri açıklandı",
-      "ozet": "Ticaret Bakanı Ömer Bolat, geçen ay mal ihracatında en yüksek eylül ayı rekorunun kırıldığını belirterek, \"Yıllık bazda yüzde 15,4'lük artışla 26 milyar dolar ihracatı başardık.\" dedi.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.bloomberght.com/ticaret-bakani-bolat-eylul-ayi-dis-ticaret-verilerini-acikladi-3790271",
-      "kurum": "BloombergHT",
-      "kurum_tam": "Bloomberg HT",
-      "konu": "Dış ticaret",
-      "tarih": "2026-10-03",
-      "tarih_gorunur": "3 Ekim 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Ticaret politikası kararları tarafların birbirine bağımlılığı ölçüsünde fiyatlanır; etki önce ilgili sektör hisselerinde ve para birimlerinde görülür.",
-      "kanallar": [
-        "Sektör maruziyeti: gümrük vergisi ihracatçı sektörün marjını doğrudan sıkıştırır; otomotiv, çelik ve tarım en sık hedef alınan kalemlerdir.",
-        "Para birimi: ticaret dengesinde beklenen değişim ilgili ülke kurunu yeniden fiyatlar.",
-        "Tedarik zinciri: ara mal akışı kesilirse maliyet üretici fiyatlarına yazılır ve etki üçüncü ülkelere yayılır.",
-        "Anlaşma yapısı: USMCA ya da gümrük birliği gibi çerçeveler, etkinin hangi kalemlerde ve hangi takvimde doğacağını belirler."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/dis-ticaret-7-9d7c2bb7.jpg",
-      "foto_atif": "King of Hearts · CC-BY-SA-4.0"
     },
     {
       "baslik": "Aylık Stok Faiz ve Kâr Payı İstatistikleri",
