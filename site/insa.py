@@ -27,6 +27,10 @@ import anasayfa_secim
 import argparse
 import hashlib
 import html
+
+#: Jinja ile birlikte geliyor; `bolumle` suzgeci islenmis HTML
+#: donduruyor ve sablonda yeniden kacislanmamali.
+import markupsafe
 import json
 import os
 import pathlib
@@ -839,6 +843,72 @@ def ozet_govdede_tekrarlaniyor(ozet: str, govde_html: str) -> bool:
     # yeter, ama kisa ve rastlanti eseri benzeyen acilislari elemez.
     kisa = min(len(ust), len(alt), 60)
     return ust == alt or ust[:kisa] == alt[:kisa]
+
+
+_H2 = re.compile(r"<h2(?P<nitelik>[^>]*)>(?P<ic>.*?)</h2>", re.S)
+
+
+def bolumle(govde: str) -> dict[str, object]:
+    """Islenmis yazidan bolum basliklarini cikarir ve capa verir.
+
+    NEDEN ISLENMIS HTML UZERINDE
+    ----------------------------
+    Haber sayfasindaki yirmi kadar `<h2>` SABLONDAN geliyor ve her
+    biri kendi kosuluna bagli ("Kim etkilenir?" yalnizca duyarlilik
+    tablosu varsa basiliyor). Hangilerinin gercekten cizildigini
+    bilmenin tek dogru yolu, cizilmis sayfaya bakmak.
+
+    Listeyi sablonda ELLE yazmak, ayni yirmi kosulu ikinci kez
+    yazmak olurdu -- bu depoda en pahaliya mal olan kusur sinifi
+    (bkz. tema paleti, ceviri istemcisi, iki kapi). Kosul bir yerde
+    degisip digerinde degismeyince, kenar serit var olmayan bir
+    bolume baglanir ve kimse fark etmez.
+
+    OLCULDU (2026-10-04): haber sayfalarinda h2 ortancasi 11
+    (en az 6, en cok 18) ve metin ortancasi 5.829 karakter --
+    analiz sayfalarindan (8 h2 / 3.642 karakter) DAHA uzun. Kenar
+    serit burada daha da gerekli.
+
+    CAPA URETIMI `slugla` ILE: ikinci bir Turkce slug ureteci
+    yazmamak icin. Ayni baslik iki kez gecerse sonuna sayi
+    ekleniyor -- yoksa iki bolum ayni capayi paylasir ve baglanti
+    hep ilkine gider.
+
+    ZATEN `id` TASIYAN BASLIGA DOKUNULMUYOR: bir sablon bilerek capa
+    vermisse (paylasim bolumu gibi) o korunuyor.
+    """
+    bolumler: list[dict[str, str]] = []
+    gorulen: dict[str, int] = {}
+
+    def _duzelt(m: re.Match) -> str:
+        nitelik, ic = m.group("nitelik"), m.group("ic")
+        # ACIK DISLAMA. Bazi `<h2>` ogeleri icerik bolumu degil,
+        # bir aracin etiketi (paylasim paneli). Onlar kendilerini
+        # `data-bolum="hayir"` ile isaretliyor. Tahmine dayali bir
+        # kural -- ornegin "id tasiyan basligi atla" -- burada yanlis
+        # olurdu: `id` erisilebilirlik icin de veriliyor.
+        if 'data-bolum="hayir"' in nitelik:
+            return m.group(0)
+        ad = re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", ic)).strip()
+        if not ad:
+            return m.group(0)
+        # Desen bosluk ya da satir basiyla BASLAMALI: yoksa
+        # `data-id="..."` gibi baska nitelikleri de yakalar ve
+        # capayi oradan alirdi.
+        var = re.search(r'(?:^|\s)id="([^"]+)"', nitelik)
+        if var:
+            capa = var.group(1)
+            yeni_nitelik = nitelik
+        else:
+            kok = slugla(ad) or "bolum"
+            gorulen[kok] = gorulen.get(kok, 0) + 1
+            capa = kok if gorulen[kok] == 1 else f"{kok}-{gorulen[kok]}"
+            yeni_nitelik = f'{nitelik} id="{html.escape(capa, quote=True)}"'
+        bolumler.append({"capa": capa, "ad": ad})
+        return f"<h2{yeni_nitelik}>{ic}</h2>"
+
+    yeni = _H2.sub(_duzelt, govde)
+    return {"html": markupsafe.Markup(yeni), "bolumler": bolumler}
 
 
 def md_html_bolumlerle(metin: str) -> tuple[str, list[dict[str, str]]]:
@@ -5513,6 +5583,8 @@ def insa() -> int:
     # kart ayni fonksiyondan gecmeli, yoksa sekme hicbir seyi
     # secmez ve HATA DA VERMEZ.
     ortam.filters["slugla"] = slugla
+    # Yazinin KENDI basliklarindan bolum listesi -- bkz. `bolumle`.
+    ortam.filters["bolumle"] = bolumle
     # OLCUM SUZGECI -- deger + birim, TURKCE kurallarina gore.
     #
     # Olculdu: 544 sayfada "31,75%" yaziyordu. Turkce'de yuzde isareti

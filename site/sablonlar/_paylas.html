@@ -40,7 +40,17 @@
 {% set metin = (baslik ~ (" — " ~ ozet if ozet else ""))|truncate(200, True, "…") %}
 <section class="sayfa-paylas{% if dar %} sayfa-paylas-dar{% endif %}"
          aria-labelledby="sp-{{ yol|replace('/', '') }}">
-  <h2 id="sp-{{ yol|replace('/', '') }}" class="sayfa-paylas-bas">{{
+  {# `data-bolum="hayir"`: bu bir ICERIK bolumu degil, paylasim
+     araci icin bir ETIKET. Oge `<h2>` kaliyor cunku hemen ustundeki
+     bolum `aria-labelledby` ile buna baglaniyor -- degistirmek
+     ekran okuyucudaki adlandirmayi bozardi.
+
+     Isaret OLMASAYDI kenar seritteki "Bu yazida" listesinde
+     "Paylas" bir bolum gibi gorunurdu; olculdu (2026-10-04) ve
+     listenin ilk satirindaydi. Tahmine dayali bir kural (ornegin
+     "id tasiyan basliklari atla") yerine ACIK isaret tercih edildi:
+     sonraki okuyucu niyeti tahmin etmek zorunda kalmasin. #}
+  <h2 data-bolum="hayir" id="sp-{{ yol|replace('/', '') }}" class="sayfa-paylas-bas">{{
       "Paylaş" if dar else etiket }}</h2>
   {# IKONLAR SATIR ICI SVG.
      Dis kaynaktan ikon yuklemek uc sorun getirir: ek istek, gizlilik

@@ -179,6 +179,28 @@
 {% endmacro %}
 
 
+{# ========================================================= YAZI DUZENI
+   Masaustunde yaziya yapisik bir kenar serit esliK ediyor; dar
+   ekranda serit tamamen kayboluyor ve yazi tek kolona donuyor.
+
+   NEDEN: olculdu (2026-10-04, 1440 piksel) -- kabuk 1320 piksel
+   genis, yazi kolonu 800. Her masaustu okurunda 520 piksel BOS
+   duruyordu. Kolonu genisletmek cozum DEGIL: 800 piksel ~68 karakter
+   eder ve okunabilirligin ust siniri orasi.
+
+   HABERDE DAHA DA GEREKLI. Olculdu: haber sayfalarinda h2 ortancasi
+   11 (en az 6, en cok 18) ve metin ortancasi 5.829 karakter --
+   analiz sayfalarindan (8 h2 / 3.642 karakter) DAHA uzun. Varsayim
+   tersiydi; olcum duzeltti.
+
+   BOLUM LISTESI ISLENMIS YAZIDAN CIKIYOR. Buradaki yirmi kadar
+   `<h2>` kendi kosuluna bagli ("Kim etkilenir?" yalnizca duyarlilik
+   tablosu varsa basiliyor). Listeyi elle yazmak ayni yirmi kosulu
+   IKINCI kez yazmak olurdu -- bu depoda en pahaliya mal olan kusur
+   sinifi. `bolumle` suzgeci cizilmis sayfaya bakiyor, yani kosullar
+   degisse bile liste dogru kaliyor.
+   ==================================================================== #}
+{% set _yazi_ham %}
 <article class="yazi">
   {# SIRA ONEMLI: OLCUM FOTOGRAFTAN ONCE GELIR.
      Once `{% if h.foto %}` ustteydi ve grafik yalnizca fotograf
@@ -1179,4 +1201,23 @@
   <p class="foto-kunye">Fotoğraf: {{ h.foto_atif }}</p>
   {% endif %}
 </article>
+{% endset %}
+{% set _yazi = _yazi_ham | bolumle %}
+<div class="yazi-duzen{% if _yazi.bolumler|length >= 3 %} yazi-duzen-seritli{% endif %}">
+{% if _yazi.bolumler|length >= 3 %}
+{# UC BOLUMDEN AZSA SERIT YOK: iki satirlik bir "icindekiler" okura
+   hicbir sey kazandirmaz, yalnizca yer kaplar. #}
+<aside class="yazi-serit" aria-label="Bu yazı">
+  <nav class="serit-bolum" aria-label="Bölümler">
+    <p class="serit-baslik">Bu yazıda</p>
+    <ol>
+      {% for b in _yazi.bolumler %}
+      <li><a href="#{{ b.capa }}">{{ b.ad }}</a></li>
+      {% endfor %}
+    </ol>
+  </nav>
+</aside>
+{% endif %}
+{{ _yazi.html }}
+</div>{# /.yazi-duzen #}
 {% endblock %}
