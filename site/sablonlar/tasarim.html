@@ -71,10 +71,11 @@
 
   {# VURGU RENGI -- KARAR VERILDI (teal), gerekcesiyle birlikte durur.
 
-     Gonderilen tasarim mavi (#146EF5) oneriyordu, site teal
-     (#0a7974) kullaniyor. (2026-09-18'e kadar #0a7d78 idi; kontrast
-     icin bir tik koyultuldu -- gerekce `stil.css`teki jeton
-     bildiriminin yaninda.) Marka karari oldugu icin kod icinde tek
+     Gonderilen tasarim mavi (#146EF5) oneriyordu, site TEAL
+     kullaniyor. Degerin kendisi burada YAZILMIYOR: `--vurgu`
+     jetonundan okunuyor ve zaman icinde degisti (#0a7d78 ->
+     #0a7974 -> #09726d, her seferinde kontrast icin koyultularak;
+     gerekceler `stil.css`teki jeton bildiriminin yaninda). Marka karari oldugu icin kod icinde tek
      tarafli verilmedi: iki secenek GERCEK BILESENLERLE yan yana
      konup bakildi ve TEAL secildi.
 
@@ -92,10 +93,31 @@
     Karar iki paleti gerçek bileşenlerle yan yana koyarak verildi;
     renk tek başına değil, kullanıldığı yerde değerlendirilir.</p>
 
+    {# SECILEN RENK ELLE YAZILMIYOR -- JETONLARDAN OKUNUYOR.
+       ====================================================
+       Burada uc deger duz yaziliydi (#0a7974 / #075f5c / #14b8a6).
+       2026-10-04'te palet degisti, vurgu #09726d oldu ve BU BOLUM
+       guncellenmedi: sayfa "secilen renk" diye ARTIK KULLANILMAYAN
+       bir rengi gosteriyordu.
+
+       Sayfanin kendi girisi "Bu sayfadaki hicbir deger elle
+       yazilmadi; elle yazilsaydi ilk gun dogru olur, ikinci gun
+       sessizce yaniltici olurdu" diyor. Elle yazilan birkac seyden
+       biri tam da buydu ve aynen oyle oldu.
+
+       Degerlendirilen MAVI elle kaliyor ve bu dogru: o bir TARIHSEL
+       karsilastirma, sitenin bir jetonu degil. Donup bakildiginda
+       "neden mavi degil" sorusunun cevabi o degerle anlamli. #}
+    {% set _v = (renkler | selectattr("ad", "equalto", "--vurgu")
+                 | list | first) %}
+    {% set _vk = (renkler | selectattr("ad", "equalto", "--vurgu-koyu")
+                  | list | first) %}
+    {% set _vp = (renkler | selectattr("ad", "equalto", "--vurgu-parlak")
+                  | list | first) %}
     <div class="vurgu-karsilastirma">
       {% for ad, vurgu, koyu, parlak, zar in [
-           ("Seçilen — teal", "#0a7974", "#075f5c", "#14b8a6",
-            "rgba(10,121,116,0.10)"),
+           ("Seçilen — teal", _v.deger, _vk.deger, _vp.deger,
+            "var(--vurgu-zar)"),
            ("Değerlendirilen — mavi", "#146EF5", "#0b52c0", "#4a92ff",
             "rgba(20,110,245,0.10)")] %}
       <div class="vurgu-ornek" style="--vurgu: {{ vurgu }};

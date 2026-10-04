@@ -132,6 +132,30 @@ def logolu(yol: str, kod: str, sirket: str = "", sektor: str = "",
     )
 
 
+#: AMBLEM ORANI, KARTIN GORSEL YUVASIYLA AYNI OLMALI.
+#:
+#: OLCULDU (2026-10-04): amblem 1200x400 (3:1) uretiliyordu ama
+#: kartin gorsel yuvasi 16:9 ve `.kart-amblem .amblem` kurali
+#: `object-fit: cover` kullaniyor. Sonuc: amblemin genisliginin
+#: yalnizca %60'i goruluyordu; %40'i -- her yandan %20 -- KIRPILIYORDU.
+#:
+#: Gorunur sonuc: uzun sirket adlari iki yanindan kesiliyordu.
+#: "GIRISIM ELEKTRIK SANAYI TAAHHUT VE TICARET A.S." kartta
+#: "RISIM ELEKTRIK SANAYI TAAHHUT VE TICARET" olarak cikiyordu.
+#: SVG kendi icinde SIGIYORDU (metin 815 / viewBox 1200) -- kirpan
+#: sey kartin kendisiydi. Bu yuzden metni kisaltmak yanlis cozumdu;
+#: duzeltilmesi gereken ORANDI.
+#:
+#: `.yazi-amblem` (3:1 bekleyen tek kullanim) zaten kalmamisti:
+#: analiz sayfasindan kaldirilmisti ve uretilen hicbir sayfada
+#: gecmiyordu -- olculdu.
+GEN, BOY = 1200, 675
+
+#: Uc satirin dikey yerlesimi. Kutu yukseldigi icin blok yeniden
+#: ortalandi; degerler tek yerde dursun diye sabit tutuluyor.
+KOD_Y, AD_Y, ALT_Y = 300, 420, 470
+
+
 def amblem(kod: str, sirket: str = "", sektor: str = "",
            donem: str = "") -> str:
     """Sirket amblemini SVG olarak dondurur (satir ici basilir).
@@ -157,14 +181,14 @@ def amblem(kod: str, sirket: str = "", sektor: str = "",
     alt_satir = ""
     if ad:
         alt_satir += (
-            f'<text x="600" y="286" text-anchor="middle" fill="#ffffff" '
+            f'<text x="600" y="{AD_Y}" text-anchor="middle" fill="#ffffff" '
             f'fill-opacity="0.88" font-size="34" font-weight="600" '
             f'font-family="system-ui,-apple-system,Segoe UI,Roboto,sans-serif"'
             f'>{ad[:46]}</text>'
         )
     if alt:
         alt_satir += (
-            f'<text x="600" y="330" text-anchor="middle" fill="#ffffff" '
+            f'<text x="600" y="{ALT_Y}" text-anchor="middle" fill="#ffffff" '
             f'fill-opacity="0.62" font-size="24" font-weight="500" '
             f'letter-spacing="1.6" '
             f'font-family="system-ui,-apple-system,Segoe UI,Roboto,sans-serif"'
@@ -172,13 +196,13 @@ def amblem(kod: str, sirket: str = "", sektor: str = "",
         )
 
     return (
-        f'<svg class="amblem" viewBox="0 0 1200 400" width="1200" '
-        f'height="400" role="img" aria-label="{etiket}" '
+        f'<svg class="amblem" viewBox="0 0 {GEN} {BOY}" width="{GEN}" '
+        f'height="{BOY}" role="img" aria-label="{etiket}" '
         f'xmlns="http://www.w3.org/2000/svg">'
-        f'<rect width="1200" height="400" fill="{zemin}"/>'
+        f'<rect width="{GEN}" height="{BOY}" fill="{zemin}"/>'
         # Tek bir ince ust cizgi: kutuyu sayfadan ayiriyor, sus degil.
-        f'<rect width="1200" height="4" fill="#ffffff" fill-opacity="0.22"/>'
-        f'<text x="600" y="{200 if not alt_satir else 186}" '
+        f'<rect width="{GEN}" height="4" fill="#ffffff" fill-opacity="0.22"/>'
+        f'<text x="600" y="{BOY // 2 if not alt_satir else KOD_Y}" '
         f'text-anchor="middle" dominant-baseline="middle" fill="#ffffff" '
         f'font-size="{punto}" font-weight="800" letter-spacing="{
             2 if len(metin) > 4 else 6}" '

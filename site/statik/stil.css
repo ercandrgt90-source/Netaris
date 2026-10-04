@@ -2505,19 +2505,19 @@ main.kabuk {
 .kart-amblem .amblem { display: block; width: 100%; height: 100%;
   object-fit: cover}
 
-.yazi-amblem { aspect-ratio: 3 / 1}  /* `overflow` ve `border-radius` `.yazi-gorsel`den geliyor */
-/* SECICI DARALTILDI: `.yazi-amblem .amblem` (0,2,0) idi ve gercek
-   logo kutusunun `display: flex` kuralini (0,1,0) EZIYORDU. Sonuc:
-   logo sola yapisiyor, altinda buyuk bir bosluk kaliyordu -- ekran
-   goruntusunde gorulen tam olarak buydu.
-   `svg` ile sinirlandirildi; uretilmis amblem zaten bir <svg>, gercek
-   logo kutusu ise bir <div>. */
-.yazi-amblem > svg.amblem { display: block; width: 100%; height: 100%}
-@media (max-width: 560px) {
-  /* Dar ekranda daha kare: 3:1 bir seritte kod okunamayacak kadar
-     kuculuyordu. */
-  .yazi-amblem { aspect-ratio: 2 / 1; }
-}
+/* `.yazi-amblem` KURALLARI KALDIRILDI -- hem olu hem YANLIS.
+   ==========================================================
+   Sinif, analiz sayfasindaki amblem blogu icin vardi; o blok
+   kaldirildiginda (ayni dort bilgiyi dorduncu kez yaziyordu)
+   sinif da kullanimsiz kaldi. Olculdu: uretilen 1.713 sayfanin
+   HICBIRINDE gecmiyordu.
+
+   Yalnizca olu olsa birakilabilirdi. Ama kurallar `aspect-ratio:
+   3 / 1` diyordu ve amblem 2026-10-04'te 16:9'a tasindi. Yani
+   birakilsalardi sonraki kullanimda KUTU ILE GORSEL ORANI
+   UYUSMAZDI -- tam da yeni duzeltilen kusurun aynisi, bu kez
+   gelecege kurulmus olarak. Olu kod zararsiz sanilir; yanlis
+   varsayim tasiyan olu kod bir tuzaktir. */
 
 /* ------------------------------------------------------------------ arama */
 
