@@ -65,6 +65,7 @@ _kaldi = 0
 
 
 def esit(bulunan, beklenen, aciklama: str) -> None:
+
     global _gecti, _kaldi
     if bulunan == beklenen:
         _gecti += 1
@@ -887,6 +888,49 @@ esit(bool(_mm and _kok), True, "theme-color ve --ust-zemin okunabildi")
 esit((_mm.group(1) if _mm else "").lower(),
      (_kok.group(1) if _kok else "").lower(),
      "theme-color metasi --ust-zemin jetonuyla ayni")
+
+print()
+print("Izgara ogesi SATIR verip SUTUN atlamiyor")
+# --------------------------------------------------------------------
+# `grid-row` verilen bir oge KESIN YERLESIMLI olur ve izgara, kesin
+# ogeleri once koyar. Sutun verilmezse oge BOS BULDUGU ILK SUTUNU
+# kapar; otomatik yerlesen kardesleri de bir sonrakine itilir.
+#
+# OLCULDU (2026-10-05, `/varlik/brent/`, 1440 piksel): `.bag-dayanak`
+# yalnizca `grid-row: 1` tasiyordu --
+#
+#     sutunlar       459,7px   313,3px
+#     .bag-dayanak   x=741     (1. sutunun saginda)
+#     .bag-cumle     x=807     (2. sutuna itilmis)
+#
+# Gorunur sonuc: iliski cumleleri saga kaymis ve HER SATIR FARKLI
+# bir noktadan basliyordu (807, 824, 913, 890, 908, 927...), cunku
+# her birinin genisligi farkli. Goz sutunu tarayamiyor. Hemen
+# altindaki aciklama ise 335'te hizali -- ayni satirin iki parcasi
+# birbirini tutmuyordu. 126 varlik sayfasinda boyleydi.
+#
+# Kusur GORUNMUYORDU: metin okunakli cikiyor, hicbir sey hata
+# vermiyor. Yalnizca tasarlanan duzen degildi.
+#
+# ISTISNA LISTESI YOK. Tek aday `.akis-foto` idi ve orada sutun
+# dogru kapiliyordu -- ama yalnizca ILK COCUK oldugu icin, yani
+# sans eseri. Acikca yazildi; kural istisnasiz kaldi.
+_izg = re.sub(r"/\*.*?\*/", " ", _CSS.read_text(encoding="utf-8"), flags=re.S)
+_eksik = []
+for _m in re.finditer(r"([^{}]+)\{([^{}]*)\}", _izg):
+    _sec, _gov = _m.group(1).strip(), _m.group(2)
+    if not re.search(r"(?<![\w-])grid-row\s*:", _gov):
+        continue
+    if re.search(r"(?<![\w-])grid-(column|area)\s*:", _gov):
+        continue
+    _eksik.append(re.sub(r"\s+", " ", _sec)[:60])
+if _eksik:
+    print("\n  SATIR VERIP SUTUN ATLAYAN KURAL:")
+    for _e in _eksik:
+        print(f"    {_e}")
+    print("  `grid-column` da yazin -- yoksa oge bos buldugu ilk")
+    print("  sutunu kapar ve kardeslerini iter.")
+esit(_eksik, [], "grid-row veren her kural grid-column da veriyor")
 
 print(f"\n{_gecti} gecti, {_kaldi} kaldi")
 sys.exit(1 if _kaldi else 0)

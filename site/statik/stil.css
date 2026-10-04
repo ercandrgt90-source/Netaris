@@ -3907,10 +3907,25 @@ main.kabuk {
   border-top: 1px solid var(--cizgi);
   border-left: 3px solid transparent}
 /* Dayanak turu SOL CIZGIYLE ayriliyor: muhasebe kimligi ile gozlem
-   ayni agirlikta gorunmemeli. */
-.bag-yapisal { border-left-color: var(--artis)}
-.bag-veri    { border-left-color: var(--uyari)}
-.bag-kaynak  { border-left-color: var(--yazi-3)}
+   ayni agirlikta gorunmemeli.
+   ==================================================================
+   RENKLER DEGISTI -- SINYAL RENGI KULLANILMIYORDU, KULLANILIYORDU.
+
+   Once `--artis` (yon yesili) ve `--uyari` (uyari amberi) idi.
+   `stil.css`in ilk sayfasindaki kural kesin: yesil ve kirmizi
+   YALNIZCA sayisal yon icin, amber uyari icin. Bir iliskinin
+   DAYANAK TURU ne bir yon ne bir uyaridir; okur yesil bir seridi
+   "artis", amber bir seridi "dikkat" diye okuyabiliyordu.
+
+   UCU BIR SIRA, UC AYRI SEY DEGIL. Notun kendisi bunu soyluyor:
+   "ayni agirlikta gorunmemeli". Siralama varsa dogru gosterim UC
+   FARKLI TON degil, TEK TONUN UC GUCUDUR -- aksi halde okur uc
+   bagimsiz kategori goruyor ve siralamayi kaciriyor.
+
+   Marka tonu uzerinden guc rampasi kuruldu; yeni jeton gerekmedi. */
+.bag-yapisal { border-left-color: var(--vurgu)}
+.bag-veri    { border-left-color: var(--vurgu-zar-2)}
+.bag-kaynak  { border-left-color: var(--cizgi-parlak)}
 .bag-cumle { font-size: var(--p-ml)}
 .bag-cumle b { color: var(--yazi)}
 .bag-tur {
@@ -3940,6 +3955,31 @@ main.kabuk {
      Ayni satir `max-width: 560px` kuralinda ZATEN vardi -- yani dogru
      davranis yalnizca telefonda tanimliydi. (Bugun `.hero-butonlar`
      ile birebir ayni sey: karar mobil kuralda kalmis.) */
+  /* SUTUN DA ACIKCA VERILIYOR -- yoksa duzen TERSINE DONUYOR.
+     --------------------------------------------------------
+     Yukaridaki not `grid-row: 1` eklemesini anlatiyor ve o kismi
+     dogru. Eksik olan SUTUNDU.
+
+     Izgara, KESIN YERLESTIRILMIS ogeleri once koyar. `grid-row: 1`
+     tek basina bu ogeyi kesin yapiyordu ama sutunu serbest
+     birakiyordu, dolayisiyla BIRINCI sutunu kapiyordu; otomatik
+     yerlesen `.bag-cumle` de ikinci sutuna itiliyordu.
+
+     OLCULDU (2026-10-05, 1440 piksel):
+
+         sutunlar          459,7px  313,3px
+         .bag-dayanak      x=741  (1. sutunun SAGINA yaslanmis)
+         .bag-cumle        x=807  (2. sutuna itilmis)
+
+     Gorunur sonuc: iliski cumleleri saga kayiyor ve HER SATIR
+     FARKLI bir noktadan basliyordu (807, 824, 913, 890, 908, 927...)
+     cunku her birinin genisligi farkli. Goz sutunu tarayamiyor;
+     ustelik hemen altindaki aciklama 335'te hizali duruyor, yani
+     ayni satirin iki parcasi birbirini tutmuyordu.
+
+     Kusur gorunmuyordu cunku metin okunakli cikiyor -- yalnizca
+     tasarlanan duzen degildi. 126 varlik sayfasinda boyleydi. */
+  grid-column: 2;
   grid-row: 1;
   justify-self: end;
   font-size: var(--p-xs); font-weight: 700; letter-spacing: 0.02em;
@@ -3947,7 +3987,10 @@ main.kabuk {
 
 @media (max-width: 560px) {
   .bag { grid-template-columns: 1fr; }
-  .bag-dayanak { grid-row: 1; justify-self: start; }
+  /* Tek sutunda `grid-column: 2` diye bir sutun YOK; verilirse
+     tarayici ortulu bir ikinci sutun uretir ve oge yanlis yere
+     duser. Acikca 1'e geri aliniyor. */
+  .bag-dayanak { grid-column: 1; grid-row: 1; justify-self: start; }
 }
 
 /* Arsiv uyarisi -- eski haberde bugunun verisi gosterildigini soyler. */
@@ -4599,6 +4642,14 @@ table td, table th, time, .tarih {
   align-items: start}
 /* Gorsel iki satir boyu uzaniyor; metin sutunu kendi icinde akiyor. */
 .akis-foto {
+  /* SUTUN DA ACIKCA: sonucu degistirmiyor, KAZAYI engelliyor.
+     `grid-row` tek basina verildiginde oge KESIN yerlesimli olur ve
+     bos buldugu ILK sutunu kapar. Burada dogru sutunu kapiyor ama
+     yalnizca ilk cocuk oldugu icin. DOM sirasi degisseydi sessizce
+     metin sutununa gecer ve gorsel ile metin yer degistirirdi.
+     Ayni kusur `.bag-dayanak` icinde GERCEKLESTI (2026-10-05):
+     etiket birinci sutunu kapmis, cumle ikinciye itilmisti. */
+  grid-column: 1;
   grid-row: 1 / span 3;
   width: 40px; height: 40px;
   object-fit: cover; border-radius: var(--r-kucuk);
