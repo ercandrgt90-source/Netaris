@@ -224,7 +224,29 @@
    sayfa calismaya devam eder.
 
    SIRA: once sans. Sayfadaki metnin buyuk cogunlugu onunla cizilecek;
-   serif yalnizca basliklarda. #}
+   serif yalnizca basliklarda.
+
+   SERIF KOSULLU ONYUKLENMIYOR -- OLCULDU, GEREKMIYOR.
+   Sayfa turune gore onyukleme akla geliyor: serif kullanilmayan bir
+   sayfada 66 KB bosa iner. Olculdu (2026-10-04, tarayicida
+   `document.fonts` ve hesaplanmis `font-family`):
+
+       /                 serif kullanan oge  8
+       /arastirmalar/                       60
+       /analiz/<...>/                        8
+       /hakkimizda/                          5
+       /gundem/                              0
+       /tasarim/                             0
+
+   Yani serif neredeyse her sayfa turunde kullaniliyor; istisna iki
+   tane. Iki sayfa icin sablon basina bir bayrak eklemek, SURUKLENMEYE
+   acik yeni bir mekanizma demekti: bir sablon serif kullanmaya baslar,
+   bayragi eklemeyi unutur ve o sayfada yazi tipi gec gelir. Ustelik
+   gundem'e giren okur neredeyse her zaman bir yaziya tikliyor --
+   oradaki onyukleme onbellegi isitiyor, bosa gitmiyor.
+
+   Degistirmeme karari BU OLCUME dayaniyor; sayfa yapisi degisirse
+   olcum tekrarlanmali. #}
 <link rel="preload" as="font" type="font/woff2" crossorigin
       href="/statik/yuz/archivo-tr.woff2?v={{ yuz_surum }}">
 <link rel="preload" as="font" type="font/woff2" crossorigin
