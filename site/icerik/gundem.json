@@ -30,7 +30,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 31,
+  "yorumlanan": 32,
   "haberler": [
     {
       "baslik": "İran petrol bakanı istifa etti: devlet medyası",
@@ -1230,25 +1230,30 @@
       "foto_atif": "Sgroey · CC-BY-SA-4.0"
     },
     {
-      "baslik": "Devletler daha pahalı borçlanıyor: Altın için hesap değişiyor mu?",
-      "baslik_kaynak": "Devletler daha pahalı borçlanıyor: Altın için hesap değişiyor mu?",
-      "ozet": "Tahvil getirilerindeki sert yükseliş altın için güçlü baskı unsuru olsa da ons altının 4 bin doların üzerinde kalması, piyasalardaki alışılmış denklemi sorgulatıyor. Analistler ise faizlerin ne kadar yükseldiğinden çok, yükselişin arkasında ne olduğuna dikkat çekiyor.",
+      "baslik": "Yemen ordusu: Husilere karşı \"kurtuluş savaşı\" başlattık",
+      "baslik_kaynak": "Yemen ordusu: Husilere karşı \"kurtuluş savaşı\" başlattık",
+      "ozet": "Yemen ordusu, ülkede devlet kurumlarının yeniden tesisi ve darbenin sonlanması için İran destekli Husilere karşı \"kurtuluş savaşı\" başlattığını duyurdu.",
       "cevrildi": false,
       "dil": "tr",
       "ticari": true,
       "bolge": "TR",
-      "adres": "https://www.dunya.com/foto-galeri/ekonomi/devletler-daha-pahali-borclaniyor-altin-icin-hesap-degisiyor-mu-galeri-842526",
+      "adres": "https://www.dunya.com/dunya/yemen-ordusu-husilere-karsi-kurtulus-savasi-baslattik-haberi-842555",
       "kurum": "Dünya",
       "kurum_tam": "Dünya Gazetesi",
-      "konu": "Altın ve emtia",
+      "konu": "Jeopolitik",
       "tarih": "2026-10-04",
       "tarih_gorunur": "4 Ekim 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/altin-ve-emtia-8-882b68ff.jpg",
-      "foto_atif": "Stevebidmead · CC0"
+      "yorumlanir": true,
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
+      "kanallar": [
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-15-ccd8ab8d.jpg",
+      "foto_atif": "usepagov · PDM"
     },
     {
       "baslik": "\"İran'ın sunduğu 7 şart uygulanmadıkça Hürmüz Boğazı açılmayacak\"",
