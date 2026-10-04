@@ -31,7 +31,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 35,
+  "yorumlanan": 34,
   "haberler": [
     {
       "baslik": "Ukrayna ve Almanya, AB firmalarının Kiev'in gaz depolama tesisleriyle işbirliğini içeren Alman altyapısı aracılığıyla LNG tedarikini görüştü",
@@ -1168,32 +1168,6 @@
       "foto_atif": "Sgroey · CC-BY-SA-4.0"
     },
     {
-      "baslik": "Emtia piyasalarındaki fiyatlamalarda metallerde gerileme, enerjide yükseliş görüldü",
-      "baslik_kaynak": "Emtia piyasalarındaki fiyatlamalarda metallerde gerileme, enerjide yükseliş görüldü",
-      "ozet": "Emtia piyasalarında tamamlanan haftada, güçlenen dolar ve yükselen ABD tahvil faizleri metallere satış getirirken, Orta Doğu kaynaklı arz riskleri enerji fiyatlarını destekledi.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.aa.com.tr/tr/ekonomi/emtia-piyasalarindaki-fiyatlamalarda-metallerde-gerileme-enerjide-yukselis-goruldu/4077415",
-      "kurum": "AA",
-      "kurum_tam": "Anadolu Ajansı",
-      "konu": "Enerji",
-      "tarih": "2026-10-04",
-      "tarih_gorunur": "4 Ekim 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Enerji fiyatı hem bir maliyet kalemi hem bir enflasyon girdisidir; arz tarafındaki değişim önce vadeli piyasada, sonra üretici fiyatlarında görünür.",
-      "kanallar": [
-        "Arz kapasitesi: OPEC+ kotası, stok seviyesi ve üretim kesintisi haberleri vadeli eğrinin şeklini değiştirir.",
-        "Talep beklentisi: büyüme verisi ve sanayi üretimi fiyatın talep bacağını belirler.",
-        "Bölgeler arası akış: doğal gaz ile LNG arasındaki fiyat farkı, kargoların hangi bölgeye gideceğini değiştirir.",
-        "Enflasyon aktarımı: enerji maliyeti ulaştırma ve gıda üzerinden manşet enflasyona geçer; merkez bankaları çekirdek enflasyona daha çok bakar."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/enerji-15-f47dcf5c.jpg",
-      "foto_atif": "Sw257 · CC-BY-SA-4.0"
-    },
-    {
       "baslik": "Devletler daha pahalı borçlanıyor: Altın için hesap değişiyor mu?",
       "baslik_kaynak": "Devletler daha pahalı borçlanıyor: Altın için hesap değişiyor mu?",
       "ozet": "Tahvil getirilerindeki sert yükseliş altın için güçlü baskı unsuru olsa da ons altının 4 bin doların üzerinde kalması, piyasalardaki alışılmış denklemi sorgulatıyor. Analistler ise faizlerin ne kadar yükseldiğinden çok, yükselişin arkasında ne olduğuna dikkat çekiyor.",
@@ -1311,27 +1285,6 @@
       "kanal_basligi": "Hangi piyasaları etkiler?",
       "foto": "/statik/foto/enerji-18-2333f432.jpg",
       "foto_atif": "Sgroey · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "Halk GYO-Kuzu Toplu Konut Adi Ortaklığı, Peninsula İnşaat ile sözleşme imzaladı",
-      "baslik_kaynak": "Halk GYO-Kuzu Toplu Konut Adi Ortaklığı, Peninsula İnşaat ile sözleşme imzaladı",
-      "ozet": "Halk GYO-Kuzu Toplu Konut Adi Ortaklığı, İstanbul Eyüpsultan Kemerburgaz’da gerçekleştirilecek proje kapsamında, ihalede en uygun teklifi veren Peninsula Çevre Teknolojileri ve İnşaat A.Ş. ile Ana Yüklenici Sözleşmesi imzaladı.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.ekonomim.com/sirketler/halk-gyo-kuzu-toplu-konut-adi-ortakligi-peninsula-insaat-ile-sozlesme-imzaladi-haberi-922492",
-      "kurum": "Ekonomim",
-      "kurum_tam": "Ekonomim",
-      "konu": "Konut ve kira",
-      "tarih": "2026-10-04",
-      "tarih_gorunur": "4 Ekim 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/konut-ve-kira-8-a8a0f60c.jpg",
-      "foto_atif": "Ximonic (Simo Räsänen) · CC-BY-4.0"
     },
     {
       "baslik": "\"İran'ın sunduğu 7 şart uygulanmadıkça Hürmüz Boğazı açılmayacak\"",
@@ -1567,6 +1520,48 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/borsa-21-e2f22d70.jpg",
       "foto_atif": "William Iven firmbee · CC0"
+    },
+    {
+      "baslik": "InvestingPro’nun Adil Değer modelleri TaskUs hissesinde %62 kazanç yakaladı",
+      "baslik_kaynak": "InvestingPro’nun Adil Değer modelleri TaskUs hissesinde %62 kazanç yakaladı",
+      "ozet": "",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://tr.investing.com/news/investment-ideas/investingpronun-adil-deger-modelleri-taskus-hissesinde-62-kazanc-yakalad-93CH-4089026",
+      "kurum": "Investing",
+      "kurum_tam": "Investing.com Türkiye",
+      "konu": "Borsa",
+      "tarih": "2026-10-04",
+      "tarih_gorunur": "4 Ekim 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/borsa-9-78cc676a.jpg",
+      "foto_atif": "Syced · CC0"
+    },
+    {
+      "baslik": "OPEC+ Kasım üretim hedeflerini sabit tuttu",
+      "baslik_kaynak": "OPEC+ Kasım üretim hedeflerini sabit tuttu",
+      "ozet": "",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://tr.investing.com/news/commodities-news/opec-kasm-kota-hedeflerini-sabit-tutmaya-hazrlanyor-4089017",
+      "kurum": "Investing",
+      "kurum_tam": "Investing.com Türkiye",
+      "konu": "Enerji",
+      "tarih": "2026-10-04",
+      "tarih_gorunur": "4 Ekim 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/enerji-16-71b1ce54.jpg",
+      "foto_atif": "HdeK · CC-BY-SA-3.0"
     },
     {
       "baslik": "USTR, USMCA'nın 2027 Ortak İncelemesi Hakkında Kamuoyu Yorumu İstiyor",
