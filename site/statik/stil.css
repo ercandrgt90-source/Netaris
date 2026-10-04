@@ -8229,11 +8229,53 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
   body { background: #fff; color: #000}
 
   /* ARAYUZ KAGIDA GITMEZ. */
+  /* DORT OLU SECICI KALDIRILDI -- OLCULDU (2026-10-04).
+     `.menu`, `.mobil-menu`, `.suzgec` ve `.uyelik-cagri` hicbir
+     sablonda, hicbir betikte ve uretilen hicbir sayfada YOKTU.
+     Yani bu kurallar hicbir seyi gizlemiyordu.
+
+     Zararlari gorunmez ama gercek: sonraki okuyucu "menu baskida
+     gizleniyor" diye okuyor ve orayi kontrol etmiyor. Gizleyen sey
+     aslinda `.ust` (menu onun icinde); suzgec kabinin gercek adi
+     `.akis-suzgec` ve o zaten listede. Tarayicida baski kipinde
+     dogrulandi: dordunun de kapsadigi sanilan bilesenler GORUNMUYOR.
+
+     `.begeni`, `.senaryo-cagri` ve `.sondakika` KALDI -- onlar
+     gercekten kullaniliyor (sirasiyla uyelik.js/uyelik.html,
+     haber.html, temel.html). */
   .ust, .alt, .serit, .sondakika, .sayfa-paylas, .okumaya-devam,
-  .menu, .mobil-menu, .masa-yan, .tv-kutu, .ara-kutu,
-  .uyelik-cagri, .senaryo-davet, .senaryo-cagri,
-  .suzgec, .akis-suzgec, .sayac, .begeni,
+  .masa-yan, .tv-kutu, .ara-kutu,
+  .senaryo-davet, .senaryo-cagri,
+  .akis-suzgec, .sayac, .begeni,
   [data-panel], [data-sd-durdur], [data-paylas-yerel] { display: none !important}
+
+  /* BASKIDA GORUNMEYE DEVAM EDEN UC SEY -- OLCULDU (2026-10-04).
+     ===========================================================
+     Sayfayi `emulateMediaType("print")` ile cizdirip BAKILDI; liste
+     tahminle degil, kagitta gorunen seyle guncellendi:
+
+     * `.onay-bandi` -- cerez cubugu. Koyu zeminli, sayfanin altinda
+       ve `position: fixed`. Kagitta ilk sayfanin dibinde siyah bir
+       serit olarak cikiyordu. Okurun kagit uzerinde "Kabul et"
+       dugmesine basmasi mumkun degil.
+     * `.yazi-serit` -- kenar serit. Icinde yalnizca `#capa`
+       baglantilari var ve kagitta tiklanamazlar; ustelik metin
+       sutununu 216 piksel daraltiyordu.
+     * `.alt-gezinme` -- mobil alt cubuk. Dar kagitta cikardi.
+     * `.tel-kap` -- canli baslik seridi. Icerigi dakikalik; kagida
+       basildigi anda zaten bayat.
+
+     IZGARA DA SIFIRLANIYOR: serit `display: none` olunca
+     `grid-template-columns: 216px ...` BOS bir ilk sutun birakir ve
+     yazi sagda asili kalirdi. Gizlemek yetmiyor, duzeni de geri
+     almak gerekiyor. */
+  .onay-bandi, .yazi-serit, .alt-gezinme, .tel-kap { display: none !important}
+  /* `grid-template-columns` YAZILMIYOR. Ilk yazimda vardi;
+     `test_stil.py` kirmizi yandi ve HAKLIYDI: `display: block` olan
+     bir kapta izgara ozellikleri HICBIR SEY yapmaz. Yazili ama hic
+     uygulanmayan bir bildirim, sonraki okuyucuya "burada bir izgara
+     var" diye yalan soyler. */
+  .yazi-duzen, .yazi-duzen-seritli { display: block !important}
 
   /* Olcu kisiti kagitta gereksiz: sayfa zaten dar. */
   .yazi, .sayfa, .kabuk, main.kabuk { max-width: none; padding: 0; margin: 0}
