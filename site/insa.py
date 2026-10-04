@@ -5787,6 +5787,42 @@ def insa() -> int:
         # tekrar etme riski tasimiyor.
         h["neden_kart"] = kart_yorumu(h.get("neden_onemli", ""))
 
+    # AYNI KATEGORI ACIKLAMASI TEKRARLANIYOR -- BILINEN SONUC.
+    #
+    # OLCULDU (2026-10-04, uretilen `/gundem/`):
+    #
+    #     "Bu neden kritik?"   26 kutu,  1 FARKLI metin
+    #     "Netaris yorumu"     19 kutu, 19 FARKLI metin
+    #
+    # `neden_onemli` haberin kendisinden degil KATEGORISINDEN
+    # tureniyor, dolayisiyla ayni kategorideki her kart kelimesi
+    # kelimesine ayni iki cumleyi tasiyor.
+    #
+    # TEKRARI KESMEYI DENEDIM, GERI ALDIM. Tekrari susturunca 27 kart
+    # TAMAMEN BOS kaldi ve `test_kart_metni.py` kirmizi yandi. O
+    # dosyanin gerekcesi 2026-08-23'te OLCULEREK yazilmis: 35 kartin
+    # 12'si bostu ve "bolumun adi 'piyasa etkisi olanlar' iken kart o
+    # etkiye dair tek kelime etmiyordu". Yani bos kart, tekrardan
+    # once gelen ve daha agir basan bir kusur olarak zaten tartilmis.
+    #
+    # Bu 27 kartta ucuncu secenek de yok: `ozet_kart` dagilimi 0
+    # gosteriyor, yani kaynagin ozeti de bos. Secim gercekten "ayni
+    # aciklama" ile "hicbir sey" arasinda.
+    #
+    # KAYDA GECIRILIYOR, KUSUR OLARAK ISARETLENMIYOR. Kutu zaten
+    # "Bu neden kritik?" diye etiketli -- haberin kendi analizi diye
+    # SUNULMUYOR, kategorinin aktarim mekanizmasini anlatiyor. Depodaki
+    # kural ("haberi farkli cumlelerle tekrar etmek analiz sayilmaz")
+    # modelin URETTIGI yoruma bakar; bu metin modele hic gonderilmiyor
+    # (bkz. `test_uret_ai_yorum.py`).
+    #
+    # GERCEKTEN onemli olan yer korunuyor: `site/test_kart_tekrari.py`
+    # "Netaris yorumu" kutusunun ayni sayfada tekrar etmemesini
+    # zorluyor -- orasi habere OZEL olmayi vaat eden tek kutu.
+    #
+    # Asil cozum bu katmanda degil: `neden_onemli` habere ozel hale
+    # gelirse tekrar kendiliginden biter.
+
     # HAM AKIS DA PUANLANIYOR -- SON DAKIKA BUNA BAGLI.
     #
     # OLCULDU: `onem_puanla` yalnizca `uretilecek` uzerinde

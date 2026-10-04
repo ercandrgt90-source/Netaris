@@ -331,4 +331,41 @@ for _tad, _p in (("acik", ACIK), ("koyu", KOYU)):
     esit(_yakin, [], f"{_tad}: doygun konu renkleri birbirinden >= 18 derece")
 
 
+
+print(chr(10) + "Jeton ADI ile DEGERI uyusuyor")
+# "koyu" ve "parlak" ekleri bir VAAT: `--vurgu-koyu`, `--vurgu`dan
+# daha koyu olmali; `--vurgu-parlak` daha acik. Bilesenler bu vaade
+# gore yaziliyor -- ornegin `.dugme-birincil` gecisi
+# `linear-gradient(96deg, var(--vurgu-koyu), var(--vurgu))` ve ters
+# cevrilirse gecis yonu de ters doner.
+#
+# OLCULDU (2026-10-04): BASKI paletinde iliski TERSTI --
+#
+#     --vurgu        #055c58   aydinlik %19
+#     --vurgu-koyu   #075f5c   aydinlik %20   <- DAHA ACIK
+#     --vurgu-parlak #0a7974                  <- eski marka degeri
+#
+# Kusur gorunmezdi cunku yalnizca YAZDIRMA sirasinda etkili ve kimse
+# sayfa yazdirmiyor. Bayat deger de ayni yerde saklanmisti: palet
+# turkuaza donerken bu blok guncellenmemisti.
+#
+# Baski bloku ekranda hic kurulmadigi icin `palet(..., baski=True)`
+# ile ayrica okunuyor.
+_BASKI = _tema.palet(_KURALLAR, False, None, baski=True)
+esit(_BASKI.get("--zemin"), "#fff", "baski paleti okundu")
+
+for _tad, _p in (("acik", ACIK), ("koyu", KOYU), ("baski", _BASKI)):
+    _ana = coz("--vurgu", _p)
+    _koyu = coz("--vurgu-koyu", _p)
+    _parlak = coz("--vurgu-parlak", _p)
+    if not (_ana and _koyu and _parlak):
+        print(f"    ATLANDI  {_tad}: jeton eksik")
+        continue
+    esit(isik(rgb(_koyu)) < isik(rgb(_ana)), True,
+         f"{_tad}: --vurgu-koyu ({_koyu}) gercekten --vurgudan"
+         f" ({_ana}) KOYU")
+    esit(isik(rgb(_parlak)) > isik(rgb(_ana)), True,
+         f"{_tad}: --vurgu-parlak ({_parlak}) gercekten --vurgudan"
+         f" ({_ana}) PARLAK")
+
 print(f"\nTUM TESTLER GECTI ({_gecti})")
