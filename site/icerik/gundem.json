@@ -510,6 +510,32 @@
       "foto_atif": "Dietmar Rabich · CC-BY-SA-4.0"
     },
     {
+      "baslik": "Avustralya Maliye Bakanı Chalmers, ABD-İran savaşını suçladı",
+      "baslik_kaynak": "Avustralya Maliye Bakanı Chalmers, ABD-İran savaşını suçladı",
+      "ozet": "",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://tr.investing.com/news/economy-news/avustralya-maliye-bakan-chalmers-abdiran-savasn-suclad-4088999",
+      "kurum": "Investing",
+      "kurum_tam": "Investing.com Türkiye",
+      "konu": "Jeopolitik",
+      "tarih": "2026-10-04",
+      "tarih_gorunur": "4 Ekim 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
+      "kanallar": [
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-14-4ca6b4fe.jpg",
+      "foto_atif": "Bernard Gagnon · CC0"
+    },
+    {
       "baslik": "USTR, USMCA'nın 2027 Ortak İncelemesi Hakkında Kamuoyu Yorumu İstiyor",
       "baslik_kaynak": "USTR Seeks Public Comment on the 2027 Joint Review of USMCA",
       "ozet": "USTR Seeks Public Comment on the 2027 Joint Review of USMCA pbrouillette Fri, 10/02/2026 - 17:53 WASHINGTON – Today, the Office of the U.S. Trade Representative announced a public consultation process in advance of the 2027 joint review of the Agreement between the United States of America, the United Mexican States…",
@@ -2075,32 +2101,6 @@
       "kanal_basligi": "Hangi piyasaları etkiler?",
       "foto": "/statik/foto/dis-ticaret-7-9d7c2bb7.jpg",
       "foto_atif": "King of Hearts · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "Fed yetkililerinin açıklamaları faiz artışı beklentisini düşürdü",
-      "baslik_kaynak": "Fed yetkililerinin açıklamaları faiz artışı beklentisini düşürdü",
-      "ozet": "Fed Başkanı Kevin Warsh, faizlerin gelecekteki seyrine ilişkin yatırımcılara net sinyaller vermekten kaçınacağını belirtirken, Başkan Yardımcısı Philip Jefferson ve New York Fed Başkanı John Williams da bu hafta benzer bir yaklaşım sergiledi.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.bloomberght.com/fed-yetkililerinin-aciklamalari-faiz-artisi-beklentisini-dusurdu-3790270",
-      "kurum": "BloombergHT",
-      "kurum_tam": "Bloomberg HT",
-      "konu": "Para politikası",
-      "tarih": "2026-10-03",
-      "tarih_gorunur": "3 Ekim 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Politika faizi kararları küresel sermayenin fiyatını belirler; asıl fiyatlanan şey kararın kendisi değil, karar sonrası patikaya dair beklentidir.",
-      "kanallar": [
-        "Tahvil getirisi: kısa vadeli faiz beklentisi getiri eğrisinin ön ucunu, enflasyon beklentisi uzun ucunu hareket ettirir.",
-        "Parite: iki merkez bankası arasındaki faiz farkı beklentisi kuru yeniden fiyatlar.",
-        "Değerleme: iskonto oranı değişimi en çok uzun vadeli nakit akışı olan teknoloji ve büyüme hisselerinde hissedilir.",
-        "Sermaye akımı: gelişmiş ülke faizi yükseldiğinde gelişmekte olan piyasalardan çıkış görülebilir."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/para-politikasi-14-9b1627e1.jpg",
-      "foto_atif": "Bernard Gagnon · CC-BY-SA-3.0"
     },
     {
       "baslik": "Aylık Stok Faiz ve Kâr Payı İstatistikleri",
