@@ -516,7 +516,45 @@ body {
   font-family: var(--yuz-metin);
   font-size: var(--p-ml);
   line-height: var(--satir-genis);
-  -webkit-font-smoothing: antialiased}
+  -webkit-font-smoothing: antialiased;
+
+  /* ALTBILGI KISA SAYFALARDA EKRANIN ORTASINDA KALMASIN.
+     ====================================================
+     OLCULDU (2026-10-05):
+
+       sayfa      belge boyu     1440x900 ekranda altinda kalan
+       /panel/       493 px      407 px ciplak zemin
+       /giris/       717 px      183 px
+       /ara/         623 px      277 px
+
+     Telefonda da aynisi: `/panel/` 684 piksel ve 932 piksellik bir
+     cihazda altbilginin altinda 248 piksel bos zemin kaliyordu.
+
+     Okur icin bu "sayfa yuklenmedi / icerik eksik" gibi gorunuyor --
+     ozellikle `/panel/` ve `/giris/` gibi ZATEN kisa olan ekranlarda,
+     yani okurun en tereddutlu oldugu anda.
+
+     `dvh` KULLANILIYOR, `vh` YEDEGI YOK. Once ikisi de yazilmisti
+     (`100vh` sonra `100dvh`) ama `test_stil.py` bunu OLU BILDIRIM
+     diye yakaladi ve hakliydi: o dosyanin kurali "istisna listesi
+     tutmak, kurali yavasca bosaltmanin yoludur" diyor.
+
+     Yedegi dusurmek guvenli. `dvh` destegi Chrome 108, Safari 15.4
+     ve Firefox 101'den beri var (2022); desteklemeyen bir tarayici
+     yapiskan altbilgiyi KAYBEDER, sayfa KIRILMAZ -- zarafetli
+     bozulma.
+
+     `vh` zaten mobilde yanlis olani: adres cubugu acilip
+     kapandikca degisen gercek yuksekligi gormuyor. */
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column}
+
+/* Icerik buyur, altbilgi buyumez. `flex: 1 0 auto` -- `auto` taban
+   olarak icerigin kendi yuksekligini aliyor, yani uzun sayfalarda
+   hicbir sey degismiyor. */
+main { flex: 1 0 auto}
+body > footer, body > .alt { flex: 0 0 auto}
 
 a { color: var(--vurgu); text-decoration: none}
 a:hover { text-decoration: underline}
@@ -3197,6 +3235,30 @@ main.kabuk {
 .dugme-mini:hover { background: var(--vurgu-koyu); text-decoration: none}
 
 .uyelik-kabuk { max-width: 780px; margin: 0 auto}
+
+/* Oturum gerekli ekranindaki iki eylem.
+   ====================================
+   Dar yerde ALT ALTA ve tam genislik, genis yerde yan yana.
+
+   MEDYA SORGUSU YOK -- KAP KARAR VERIYOR. Ilk yazimda
+   `@media (min-width: 420px)` vardi; `test_stil.py` bunu dosyadaki
+   `@media (max-width: 420px)` ile CAKISTIGI icin yakaladi ve
+   hakliydi: tam 420 pikselde ikisi birden gecerli olur.
+
+   `flex-basis: 11rem` + `flex-wrap` ayni isi daha dogru yapiyor:
+   olcut GORUS ALANI degil, dugmelerin icinde durdugu KUTU. Kart bir
+   kenar seride ya da dar bir sutuna girerse yerlesim yine dogru
+   kalir -- gorus alani genis olsa bile. Yeni bir kirilma noktasi da
+   dogmuyor. */
+.uyelik-eylem {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--b-3);
+  margin: var(--b-5) 0 0}
+.uyelik-eylem .dugme {
+  flex: 1 1 11rem;
+  justify-content: center;
+  text-align: center}
 
 .uyelik-kutu {
   padding: var(--b-5b);

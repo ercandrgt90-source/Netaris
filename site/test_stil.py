@@ -446,7 +446,24 @@ print("Kirilma noktalari CAKISMIYOR")
 #
 # Olculdu (2026-08-24): sitede 899/900 ve 699/700 dogru eslenmisti,
 # 560/560 eslenmemisti. Dogru kalip `min = max + 1`.
-_ct = _CSS.read_text(encoding="utf-8")
+# YORUMLAR AYIKLANIYOR -- YOKSA KENDI GEREKCEMIZI KURAL SANIYORUZ.
+#
+# OLCULDU (2026-10-05): `.uyelik-eylem` kurali bir medya sorgusundan
+# kaba bagli sarmaya cevrildi ve KALDIRILAN sorgu, neden
+# kaldirildigini anlatan YORUMDA anildi:
+#
+#     /* Ilk yazimda `@media (min-width: 420px)` vardi; ...
+#        `@media (max-width: 420px)` ile CAKISTIGI icin ... */
+#
+# Desen yorumun icindeki metni gercek bir kural sandi ve sinama,
+# DUZELTILMIS bir kusuru bildirmeye devam etti. Kusur sinamada degil
+# AYRISTIRICIDA: bir CSS okuyucusu, yorumun icindekini kural
+# saymamali. Ayni sinif bu depoda daha once de yasandi (bkz.
+# `tasarim_jeton._css`).
+#
+# Ters yonu daha tehlikeli: yorumda gecen bir deger yuzunden GERCEK
+# bir cakisma gozden kacabilirdi.
+_ct = re.sub(r"/\*.*?\*/", " ", _CSS.read_text(encoding="utf-8"), flags=re.S)
 _mx = {int(x) for x in re.findall(r"@media[^{]*max-width:\s*(\d+)px", _ct)}
 _mn = {int(x) for x in re.findall(r"@media[^{]*min-width:\s*(\d+)px", _ct)}
 

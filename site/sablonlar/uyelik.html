@@ -549,7 +549,30 @@
   <div data-giris-gerek hidden>
     <section class="uyelik-kutu">
       <h1>Oturum gerekli</h1>
-      <p>Panele girmek için <a href="/giris/">giriş yapın</a>.</p>
+      <p>Panelde senaryolarınız, takip listeniz ve yazılarınız duruyor.
+      Görmek için oturum açmanız gerekiyor.</p>
+      {# BIRINCIL EYLEM DUGME, METIN BAGLANTISI DEGIL.
+         ============================================
+         Once tek satirdi: "Panele girmek icin giris yapin." --
+         eylem, cumlenin ortasinda bir metin baglantisiydi.
+
+         Telefonda bu iki sorun uretiyor: hedef kucuk (satir
+         yuksekligi kadar, ~20 piksel; dokunma hedefi icin esik 44)
+         ve EYLEM GORUNMUYOR -- okur bos bir karta bakip ne
+         yapacagini aramak zorunda kaliyor. Ustelik bu, okurun en
+         tereddutlu oldugu an.
+
+         Ikinci secenek (uye ol) ikincil agirlikta: hesabi olan
+         okuru yanlis yone cekmesin diye. #}
+      <div class="uyelik-eylem">
+        <a class="dugme dugme-birincil" href="/giris/">Giriş yap</a>
+        <a class="dugme" href="/kayit/">Üye ol</a>
+      </div>
+      {# SIFRE SIFIRLAMA BAGLANTISI YOK -- CUNKU AKIS YOK.
+         Olculdu (2026-10-05): `worker.js` icinde sifre sifirlama ucu
+         bulunmuyor; "sifirla" gecisleri hiz siniri sayacina ait.
+         Calismayan bir baglanti koymak, eksikligi gizlemenin en
+         kotu yolu olurdu. #}
     </section>
   </div>
 {% endif %}
