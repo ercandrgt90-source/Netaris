@@ -31,8 +31,29 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 33,
+  "yorumlanan": 32,
   "haberler": [
+    {
+      "baslik": "Eski Antropik araştırmacısı Jacob Coxon, New York'taki duruşmada yapay zeka hakkında ifade verecek",
+      "baslik_kaynak": "Ex-Anthropic researcher Jacob Coxon to testify at NYC hearing on AI",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9790965/Ex-Anthropic-researcher-Jacob-Coxon-to-testify-at-NYC-hearing-on-AI.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Şirket haberleri",
+      "tarih": "2026-10-04",
+      "tarih_gorunur": "4 Ekim 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/sirket-haberleri-10-72a9566a.jpg",
+      "foto_atif": "Larry D. Moore · CC-BY-4.0"
+    },
     {
       "baslik": "Avusturya Şansölye Yardımcısı Andreas Babler: Maliye Bakanı Markus Marterbauer gelecek yılın başında başbakan yardımcılığını devralacak",
       "baslik_kaynak": "Austrian Vice Chancellor Andreas Babler: Finance Minister Markus Marterbauer to succeed him as vice chancellor at start of next year",
@@ -2076,32 +2097,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/sirket-haberleri-11-5c2f88fc.jpg",
       "foto_atif": "Bill Boaden · CC-BY-SA-2.0"
-    },
-    {
-      "baslik": "Kuzey Koreli Kim Yo Jong: Tatbikatta kullanılan orta menzilli stratejik füze - KCNA",
-      "baslik_kaynak": "North Korea's Kim Yo Jong: Intermediate-range strategic missile employed in drill - KCNA",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790433/North-Koreas-Kim-Yo-Jong-Intermediate-range-strategic-missile-employed-in-drill---KCNA.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Jeopolitik",
-      "tarih": "2026-10-03",
-      "tarih_gorunur": "3 Ekim 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
-      "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
-        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
-        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/jeopolitik-18-d6206fae.jpg",
-      "foto_atif": "United Nation · PDM"
     },
     {
       "baslik": "Aylık Stok Faiz ve Kâr Payı İstatistikleri",
