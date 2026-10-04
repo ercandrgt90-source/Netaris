@@ -845,5 +845,31 @@ _m = re.search(r"\.etiket\s*\{(.*?)\}", _govde_tam, flags=re.S)
 esit(bool(_m and "border-left" in _m.group(1)), True,
      ".etiket kendi sol cizgisini veriyor (turu olmayan etiket kirilmaz)")
 
+# --------------------------------------------------------------------
+# MOBIL ADRES CUBUGU RENGI, UST SERIT JETONUYLA AYNI OLMALI
+# --------------------------------------------------------------------
+# `temel.html` icindeki `<meta name="theme-color">` ile `stil.css`
+# icindeki `--ust-zemin` AYNI KARARI iki yerde veriyor: telefonun
+# adres cubugu, ekranda seridin hemen ustunde duruyor ve komsusu sayfa
+# zemini degil SERIT.
+#
+# Bu zaten IKI KEZ ayristi:
+#   * meta #fbfcfe idi, sayfa zemini #eef2f7'ye koyulasmisti
+#   * 2026-10-04: serit lacivertten (#071426) murekkebe (#15130d)
+#     gecti, meta yine elle guncellendi
+#
+# Ikisi de gorunmez kusurdu: sayfa calisir, yalnizca telefonda cubuk
+# ile serit arasinda gerekcesiz bir renk kesigi olusur. Ucuncu kez
+# ayrismasin diye olcu buraya kondu.
+_TEMEL = (_CSS.parent.parent / "sablonlar" / "temel.html").read_text(
+    encoding="utf-8")
+_mm = re.search(r'<meta name="theme-color" content="(#[0-9a-fA-F]{3,6})"',
+                _TEMEL)
+_kok = re.search(r"--ust-zemin:\s*(#[0-9a-fA-F]{3,6})", _govde_tam)
+esit(bool(_mm and _kok), True, "theme-color ve --ust-zemin okunabildi")
+esit((_mm.group(1) if _mm else "").lower(),
+     (_kok.group(1) if _kok else "").lower(),
+     "theme-color metasi --ust-zemin jetonuyla ayni")
+
 print(f"\n{_gecti} gecti, {_kaldi} kaldi")
 sys.exit(1 if _kaldi else 0)

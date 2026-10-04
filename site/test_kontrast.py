@@ -164,6 +164,40 @@ CIFTLER = [
     ("uyari / sayfa", "--uyari", "--zemin", AA_NORMAL),
     ("artis / panel", "--artis", "--panel", AA_NORMAL),
     ("azalis / panel", "--azalis", "--panel", AA_NORMAL),
+    ("uyari / panel", "--uyari", "--panel", AA_NORMAL),
+
+    # --- 2026-10-04'TE EKLENEN CIFTLER ----------------------------
+    # Hepsi sitede GERCEKTEN kullanilan ama bu listede OLMAYAN
+    # ciftlerdi. Yukarida "baski paleti sizmasi" olayinin dersi
+    # buydu zaten: bir korumanin VAR OLMASI yetmiyor, NEYE
+    # BAKMADIGINI sormak gerekiyor. Liste o soruyla genisletildi.
+
+    # `--zit-yazi` vurgu zeminli her seyin yazisi: ust bardaki
+    # "Uye ol", `.dugme-mini`, `.asama-no`, `.sp-yerel`. OLCULDU:
+    # jeton KOYU blokta hic tanimli degildi, tabandan (#ffffff)
+    # dusuyordu ve koyu temada vurgu parlak turkuaz -- oran 1,87.
+    # Yani o dugmelerin yazisi koyu temada okunmuyordu.
+    ("zit yazi / vurgu", "--zit-yazi", "--vurgu", AA_NORMAL),
+    # `.sondakika-etiket` AZALIS zeminli, ayni jetonla yaziliyor.
+    ("zit yazi / azalis", "--zit-yazi", "--azalis", AA_NORMAL),
+
+    # `--notr` "degismedi" sinyali; seritte ve fiyat kutularinda
+    # yesil/kirmizinin YANINDA, ayni puntoda okunuyor.
+    ("notr / sayfa", "--notr", "--zemin", AA_NORMAL),
+    ("notr / cokuk yuzey", "--notr", "--zemin-2", AA_NORMAL),
+    ("notr / panel", "--notr", "--panel", AA_NORMAL),
+
+    # COKUK YUZEY: rozet, girdi alani, ilerleme cubugu zeminleri --
+    # 33 yerde zemin olarak kullaniliyor ama tek cift sinanmiyordu.
+    ("BAGLANTI / cokuk yuzey", "--vurgu", "--zemin-2", AA_NORMAL),
+    ("ikincil yazi / cokuk", "--yazi-2", "--zemin-2", AA_NORMAL),
+    ("ucuncul yazi / cokuk", "--yazi-3", "--zemin-2", AA_NORMAL),
+    ("ucuncul yazi / panel-2", "--yazi-3", "--panel-2", AA_NORMAL),
+
+    # UST SERIT her iki temada da AYNI koyu zemin tasiyor; yazisi
+    # sayfa paletinden DEGIL, kendi jetonlarindan geliyor.
+    ("ust yazi / ust serit", "--ust-yazi", "--ust-zemin", AA_NORMAL),
+    ("ust ikincil / ust serit", "--ust-yazi-2", "--ust-zemin", AA_NORMAL),
 ]
 
 for _tema_ad, _j in (("ACIK", ACIK), ("KOYU", KOYU)):
@@ -187,12 +221,114 @@ for _tema_ad, _j in (("ACIK", ACIK), ("KOYU", KOYU)):
                      f" ({len(CIFTLER)} cift)")
 
 print("\nMarka ile sinyal rengi ayirt edilebiliyor")
-# `stil.css`te yazili karar: marka ile "artis" yesili arasinda en az
-# ~26 derece ton farki olsun, yoksa okur "yesil = artis" ile
-# "yesil = Netaris" arasinda ayrim yapamaz.
-_mark, _art = coz("--vurgu", ACIK), coz("--artis", ACIK)
-_fark = abs(ton(_mark) - ton(_art))
-esit(_fark >= 20, True,
-     f"marka ({_mark}) ile artis ({_art}) arasi {_fark:.1f} derece")
+# `stil.css`te yazili karar: marka yesil "artis" sinyaliyle
+# karistirilmasin, yoksa okur "yesil = artis" ile "yesil = Netaris"
+# arasinda ayrim yapamaz.
+#
+# ESIK 20 -> 45 DERECE (2026-10-04). Eskisi fiilen HICBIR SEY
+# ELEMIYORDU: olculen deger 26 derece idi ve iki renk ayni
+# doygunlukta (%85) ve ayni aydinlikta (%26 / %27) duruyordu --
+# yani aralarindaki TEK fark tondu, o da goz icin ayirt
+# edilemeyecek kadar azdi. Sinama "gecti" diyordu cunku esik,
+# gercekte karsilasilan degerin ALTINA birakilmisti. Gecen bir
+# sinama, sinanan seyin DOGRU oldugunu gostermez -- yalnizca
+# esigin asilmadigini gosterir.
+#
+# IKI TEMA DA OLCULUYOR. Onceki surum yalnizca ACIK paleti
+# okuyordu. Koyu temada vurgu #2dd4bf (173 derece) ve artis
+# #3ecf8e (156 derece) idi: 17 DERECE, yani kendi esiginin bile
+# ALTINDA -- ve kimse gormedi, cunku o palet HIC olculmuyordu.
+# Bir korumanin var olmasi yetmiyor; NEYE BAKMADIGINI sormak
+# gerekiyor.
+_ESIK_TON = 45
+for _tad, _p in (("acik", ACIK), ("koyu", KOYU)):
+    _mark, _art = coz("--vurgu", _p), coz("--artis", _p)
+    _fark = abs(ton(_mark) - ton(_art))
+    _fark = min(_fark, 360 - _fark)
+    esit(_fark >= _ESIK_TON, True,
+         f"{_tad}: marka ({_mark}) / artis ({_art}) arasi"
+         f" {_fark:.1f} derece (esik {_ESIK_TON})")
+
+
+print(chr(10) + "Konu renkleri yon renklerini KULLANMIYOR")
+# `stil.css`in ILK SAYFASINDAKI kural, bu dosyadaki her seyden once
+# gelir ve kesindir:
+#
+#   "YESIL VE KIRMIZI YALNIZCA SAYISAL YON ICINDIR. Arayuzun baska
+#    hicbir yerinde kullanilmaz: buton, etiket, baglanti, uyari...
+#    hicbiri. Okur bu iki rengi gordugunde her zaman 'bir rakam
+#    degisti' diye okumali."
+#
+# OLCULDU (2026-10-04): kart TURU renkleri o kurali cigniyordu ve bu,
+# benzerlik degil AYNILIK duzeyindeydi --
+#
+#   --t-jeopolitik  #c8203a  = o gunku --azalis ile BAYT BAYT AYNI
+#   --t-sektor      #0a7f47  = o gunku --artis  ile BAYT BAYT AYNI
+#   --t-sirket      #0a7f6b  = markanin bir tonu
+#
+# Yani okur, jeopolitik bir haberin seridini "dusus" diye
+# okuyabiliyordu. Kural dosyanin basinda YAZILIYDI; uygulayan hicbir
+# sey YOKTU. Bu depodaki en pahali kusur sinifi tam olarak bu:
+# yazilmis ama zorlanmamis kural.
+#
+# Konu renkleri yalnizca ince sol seritlerde kullaniliyor (7 yerde
+# `border-left`), bu yuzden AA araniyor DEGIL -- aranan sey, yon ve
+# marka tonlarindan YETERINCE UZAK durmalari.
+_YON_TONLARI = ("--artis", "--azalis", "--vurgu", "--uyari")
+_KONULAR = ("--t-makro", "--t-duzenleme", "--t-jeopolitik", "--t-piyasa",
+            "--t-sirket", "--t-sektor", "--t-emtia", "--t-haber")
+#: Ton ayrimi DOYGUNLUGU dusuk renkler icin anlamsiz: %6 doygunluktaki
+#: bir gri, tonu ne olursa olsun "kirmizi" diye okunmaz. Esik bu yuzden
+#: yalnizca doygun renklere uygulaniyor -- aksi halde her notr gri,
+#: tonu uyariya yakin diye kirmizi yanardi ve kural anlamini yitirirdi.
+_DOYGUNLUK_ESIGI = 0.20
+_TON_ESIGI = 30
+
+
+def doygunluk(renk: str) -> float:
+    return colorsys.rgb_to_hls(*[v / 255 for v in rgb(renk)])[2]
+
+
+for _tad, _p in (("acik", ACIK), ("koyu", KOYU)):
+    _carpisma = []
+    for _k in _KONULAR:
+        _kr = coz(_k, _p)
+        if not _kr or doygunluk(_kr) < _DOYGUNLUK_ESIGI:
+            continue
+        for _y in _YON_TONLARI:
+            _yr = coz(_y, _p)
+            if not _yr:
+                continue
+            if _kr.lower() == _yr.lower():
+                _carpisma.append(f"{_k} {_kr} == {_y}  (AYNI RENK)")
+                continue
+            _d = abs(ton(_kr) - ton(_yr))
+            _d = min(_d, 360 - _d)
+            if _d < _TON_ESIGI:
+                _carpisma.append(f"{_k} {_kr} / {_y} {_yr}: {_d:.0f} derece")
+    if _carpisma:
+        print(chr(10) + "  CAKISMA:")
+        for _c in _carpisma:
+            print(f"    {_c}")
+    esit(_carpisma, [], f"{_tad}: konu renkleri yon/marka tonlarindan"
+                        f" en az {_TON_ESIGI} derece uzak")
+
+# Konular BIRBIRINDEN de ayirt edilebilmeli -- yoksa renk bilgi
+# tasimaz, yalnizca gurultu ekler. Dusuk doygunlukta olanlar kiyasin
+# DISINDA: onlar zaten "notr" rolunde ve kromatik komsulariyla
+# karismazlar.
+for _tad, _p in (("acik", ACIK), ("koyu", KOYU)):
+    _doygun = [(_k, coz(_k, _p)) for _k in _KONULAR
+               if coz(_k, _p) and doygunluk(coz(_k, _p)) >= _DOYGUNLUK_ESIGI]
+    _yakin = []
+    for _i in range(len(_doygun)):
+        for _j in range(_i + 1, len(_doygun)):
+            _a, _b = _doygun[_i], _doygun[_j]
+            _d = abs(ton(_a[1]) - ton(_b[1]))
+            _d = min(_d, 360 - _d)
+            if _d < 18:
+                _yakin.append(f"{_a[0]} {_a[1]} / {_b[0]} {_b[1]}: {_d:.0f}")
+    esit(_yakin, [], f"{_tad}: doygun konu renkleri birbirinden >= 18 derece")
+
 
 print(f"\nTUM TESTLER GECTI ({_gecti})")

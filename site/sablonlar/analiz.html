@@ -128,18 +128,72 @@
 </div>
 {% endif %}
 
+{# ========================================================= YAZI DUZENI
+   Masaustunde yaziya YAPISIK bir kenar serit esliK ediyor; dar
+   ekranda serit tamamen kayboluyor ve yazi tek kolona donuyor.
+
+   NEDEN: olculdu (2026-10-04, 1440px) -- kabuk 1320 piksel genisti,
+   yazi kolonu 800. Yani her masaustu okurunda 520 piksel BOS
+   duruyordu. Kolonu genisletmek cozum DEGIL: 800 piksel ~68 karakter
+   eder ve okunabilirligin ust siniri orasi. Bos alan daraltilmadi,
+   ISE KOSULDU.
+   ==================================================================== #}
+<div class="yazi-duzen{% if a.bolumler %} yazi-duzen-seritli{% endif %}">
+
+{% if a.bolumler %}
+{# KIMLIK BURADA, BIR KEZ VE KALICI.
+   ==================================
+   OLCULDU (2026-10-04): bu sayfada ayni dort bilgi -- kod, sirket adi,
+   sektor, donem -- icerige gecmeden ONCE DORT KEZ yaziliyordu:
+
+     1. kirinti yolu            Arastirmalar > Bilanco Analizi > A1CAP
+     2. amblem blogu            A1CAP + tam unvan + "Finans - 2026 2. ceyrek"
+     3. grafigin kendi basligi  A1CAP + A1 Capital
+     4. rozetler + h1           kategori + kod + sektor + donem + tam unvan
+
+   Ikisi geregli (kirinti bir gezinme araci, h1 sayfanin basligi).
+   Amblem blogu ise 240 piksel yer kapliyor ve TEK basina hicbir yeni
+   sey soylemiyordu: 771 analiz sayfasinin HICBIRINDE gercek logo yok
+   (olculdu), yani her seferinde yalnizca metin basiliyordu.
+
+   Tekrar silinmedi, ISE YARAR HALE GETIRILDI: ayni bilgi kaydirirken
+   ekranda KALAN bir seride tasindi. Amblem KARTLARDA duruyor (ana
+   sayfa, arastirmalar, kategori) -- orada listede tek gorsel o. #}
+<aside class="yazi-serit" aria-label="Bu yazı">
+  <div class="serit-kimlik">
+    {% if a.kod and a.kod != "MAKRO" %}
+    <span class="serit-kod">{{ a.kod }}</span>
+    {% endif %}
+    {% if a.sirket %}<p class="serit-ad">{{ a.sirket }}</p>{% endif %}
+    <p class="serit-meta">
+      {%- if a.sektor %}{{ a.sektor }}{% endif -%}
+      {%- if a.sektor and a.donem %} · {% endif -%}
+      {%- if a.donem %}{{ a.donem|gun }}{% endif -%}
+    </p>
+  </div>
+
+  {# Bolum listesi yazinin KENDI basliklarindan; elle yazilmiyor, yani
+     yazi degisince liste de degisiyor ve ayrismasi mumkun degil. #}
+  <nav class="serit-bolum" aria-label="Bölümler">
+    <p class="serit-baslik">Bu yazıda</p>
+    <ol>
+      {% for b in a.bolumler %}
+      <li><a href="#{{ b.capa }}">{{ b.ad }}</a></li>
+      {% endfor %}
+    </ol>
+  </nav>
+</aside>
+{% endif %}
+
 <article class="yazi">
   {# IKI GORSEL, IKI IS.
      Fotograf konuyu anlatir ve yazinin basinda durur.
      Altindaki grafik yazinin KENDI rakamlarindan cizilir -- stok gorsel
      degil, icerik. Bu yuzden fotograf grafigin YERINE GECMEZ; grafik
      olmasa temsili bir sey uydurmak yerine hic cizilmiyor. #}
-  {# SIRKET AMBLEMI -- stok fotografin yerine.
-     Gerekce `amblem.py` icinde yazili: konu havuzu SIRKETE gore secim
-     yapamiyor ve 384 sayfada alakasiz bir fotograf duruyordu. #}
-  {% if a.amblem_svg %}
-  <figure class="yazi-gorsel yazi-amblem">{{ a.amblem_svg | safe }}</figure>
-  {% elif a.foto %}
+  {# AMBLEM BLOGU BURADAN KALDIRILDI -- gerekce yukaridaki seritte.
+     Kosul `a.foto`ya dustu: gercek fotograf varsa o basiliyor. #}
+  {% if a.foto %}
   <figure class="yazi-foto">
     <img src="{{ a.foto }}" alt="" width="1200" height="675"
          decoding="async" fetchpriority="high">
@@ -164,7 +218,14 @@
       <span class="tarih">{{ a.donem|gun }}</span>
     </p>
     <h1>{{ a.baslik }}</h1>
+    {# OZET CUMLESI, GOVDEDEKI "Ozet" BOLUMUNU TEKRARLIYORSA BASILMIYOR.
+       Olculdu (2026-10-04): 772 analizin 379'unda ayni cumle ~200 piksel
+       arayla iki kez duruyordu ve USTTEKI kirpikti (772 ozetin 306'si
+       "..." ile bitiyor). Govdedeki surum TAM ve kendi basligi altinda.
+       Karar `insa.py` icinde olculuyor -- `ozet_govdede_tekrarlaniyor`. #}
+    {% if not a.ozet_yineli %}
     <p class="ozet-cumle">{{ a.ozet }}</p>
+    {% endif %}
 
     {# CANLI FIYAT -- ANALIZIN RAKAMINI DEGISTIRMEZ, YANINA KOYAR.
        ==========================================================
@@ -331,7 +392,7 @@
     <div class="kaynak-rozetleri">
       <span class="kaynak-etiket">Kaynaklar</span>
       {% for k in a.kaynaklar %}
-      <span class="rozet rozet-kaynak" title="{{ kaynak_adlari.get(k, k) }}">✓ {{ k }}</span>
+      <span class="rozet rozet-kaynak" title="{{ kaynak_adlari.get(k, k) }}"><svg class="rozet-onay" viewBox="0 0 12 12" width="10" height="10" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m2.4 6.2 2.4 2.4 4.8-5"/></svg> {{ k }}</span>
       {% endfor %}
     </div>
     {% endif %}
@@ -435,4 +496,5 @@
   <p class="foto-kunye">Fotoğraf: {{ a.foto_atif }}</p>
   {% endif %}
 </article>
+</div>{# /.yazi-duzen #}
 {% endblock %}

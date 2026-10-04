@@ -110,6 +110,114 @@ URETIM_ANI = datetime.now(timezone.utc).isoformat(timespec="seconds")
 BAYAT_UYARI_SAAT = 12
 
 
+def _yuz_kapsam_denetimi() -> None:
+    """Basilan her karakter, yazi tiplerinin kapsadigi aralikta mi.
+
+    NEDEN INSA ANINDA, SINAMADA DEGIL
+    ---------------------------------
+    Sinamalar CI'da insadan ONCE kosuyor ve `site/cikti/` depoda
+    tutulmuyor; yani bir sinama bu soruyu soramaz -- bakacagi sayfa
+    henuz yok. Soru ancak sayfalar uretildikten sonra anlamli.
+
+    NE YAKALIYOR
+    ------------
+    Yazi tipleri Unicode bloklarina gore kesildi (bkz.
+    `site/yuz_kes.py`). Kapsam disinda bir karakter basilirsa sayfa
+    KIRILMAZ: tarayici o tek harfi yedek yazi tipiyle cizer. Kelimenin
+    ortasinda yuz degisir, kimse sebebini anlamaz ve kimse bildirmez.
+    Tam da sessiz kaldigi icin olculmesi gerekiyor.
+
+    Bulgu insayi DURDURMUYOR. Yarin Yunanca bir sembol ya da bir emoji
+    iceren tek bir haber yuzunden butun yayinin durmasi, kusurdan
+    buyuk bir zarar olurdu. Ekrana yaziliyor; karar insana kaliyor.
+    """
+    kapsam_yolu = STATIK / "yuz" / "kapsam.json"
+    if not kapsam_yolu.exists():
+        print("  yazi tipi kapsami: kapsam.json yok, denetim ATLANDI")
+        return
+    try:
+        araliklar = [tuple(x) for x in
+                     json.loads(kapsam_yolu.read_text(encoding="utf-8"))
+                     ["araliklar"]]
+    except (ValueError, KeyError, OSError) as hata:
+        print(f"  yazi tipi kapsami: kapsam.json okunamadi ({hata})")
+        return
+
+    kapsanan = set()
+    for bas, son in araliklar:
+        kapsanan.update(range(bas, son + 1))
+
+    # Etiketler, betikler ve stil bloklari HARIC: oralardaki metin
+    # okura cizilmiyor. Ayrica kacis dizileri (&nbsp; gibi) coz.
+    etiket = re.compile(r"<(script|style).*?</>|<[^>]+>", re.S | re.I)
+    disarida: dict[str, int] = {}
+    ornek: dict[str, str] = {}
+    for sayfa in CIKTI.rglob("*.html"):
+        metin = html.unescape(etiket.sub(" ", sayfa.read_text(
+            encoding="utf-8", errors="replace")))
+        for karakter in set(metin):
+            kod = ord(karakter)
+            if kod in kapsanan or karakter.isspace():
+                continue
+            disarida[karakter] = disarida.get(karakter, 0) + 1
+            ornek.setdefault(karakter, str(sayfa.relative_to(CIKTI)))
+
+    # BULGULAR IKIYE AYRILIYOR -- yoksa rapor gurultuye doner.
+    #
+    # Ilk kosuda 22 karakter cikti. Yedisi SEMBOLDU (gezinme ikonlari
+    # ve yildizlar, 1959 ve 869 sayfada) ve duzeltilebilirdi: SVG'ye
+    # cevrildiler. Geri kalani Rusca, Cince ve Vietnamca METINDI --
+    # haberin kendi icerigi.
+    #
+    # Ikisini ayni listede birakmak en kotu secenekti: her insada
+    # degismeyen 15 satirlik bir uyari basilir, birkac gun sonra
+    # kimse bakmaz, ve ICINE DUSEN gercek bir bulgu da gorulmezdi.
+    # Okunmayan bir rapor, olmayan rapordan beterdir -- "bakiyoruz"
+    # hissi verir.
+    #
+    # AYRIM HARF / SEMBOL uzerinden: Latin disi bir HARF, hicbir Latin
+    # yazi tipiyle kapatilamaz ve yedek yuz dogru davranistir. Harf
+    # OLMAYAN bir isaret ise neredeyse her zaman arayuz susudur ve
+    # SVG'ye cevrilmelidir.
+    # EMOJI de BEKLENEN tarafta. Hicbir METIN yazi tipi emoji
+    # tasimaz; onlari isletim sisteminin kendi emoji yuzu cizer ve
+    # dogru davranis budur. Haber metninde gecen bir bayrak ya da
+    # kamera isareti, duzeltilecek bir sey degil.
+    def _emoji(k: str) -> bool:
+        kod = ord(k)
+        return (0x1F000 <= kod <= 0x1FAFF      # emoji blogu
+                or 0x1F1E6 <= kod <= 0x1F1FF   # bayrak harfleri
+                or 0x2600 <= kod <= 0x27BF     # cesitli semboller/dingbat
+                or kod in (0xFE0F, 0x200D, 0x20E3))
+
+    harfler = {k: v for k, v in disarida.items()
+               if k.isalpha() or _emoji(k)}
+    isaretler = {k: v for k, v in disarida.items()
+                 if not k.isalpha() and not _emoji(k)}
+
+    if isaretler:
+        print(f"  YAZI TIPI KAPSAMI: {len(isaretler)} ISARET yedek yuze"
+              f" dusuyor -- SVG'ye cevrilmeli:")
+        for karakter, kac in sorted(isaretler.items(), key=lambda t: -t[1]):
+            print(f"    U+{ord(karakter):04X} {karakter!r} {kac} sayfa"
+                  f"   ornek: {ornek[karakter]}")
+    if harfler:
+        # Hangi yazi sistemi oldugu, tek tek harf listesinden daha
+        # bilgilendirici: "17 sayfada Kiril" okunur, "й и р К Д Ю" degil.
+        import unicodedata as _ud
+        sistemler: dict[str, int] = {}
+        for karakter, kac in harfler.items():
+            ad = _ud.name(karakter, "BILINMEYEN").split(" ")[0]
+            sistemler[ad] = max(sistemler.get(ad, 0), kac)
+        ozet = ", ".join(f"{a.lower()} ({n} sayfa)"
+                         for a, n in sorted(sistemler.items(),
+                                            key=lambda t: -t[1]))
+        print(f"  yazi tipi kapsami: {len(harfler)} Latin disi"
+              f" harf/emoji -- yedek yuzle ciziliyor, BEKLENEN: {ozet}")
+    if not isaretler and not harfler:
+        print(f"  yazi tipi kapsami: temiz ({len(kapsanan)} kod nokta)")
+
+
 def site_istatistigi() -> None:
     """Site geneli sayilari `cikti/statik/istatistik.json`a yazar.
 
@@ -669,15 +777,93 @@ def ayristir(yol: pathlib.Path) -> Belge:
 #: `attr_list` OLMADAN "## Baslik {#capa}" yazimi calismaz: capa
 #: uretilmez ve "{#capa}" metni sayfada AYNEN gorunur. Bu sessiz bir
 #: bicimlendirme hatasiydi -- yayin ilkelerinde "{#skor}" ekranda yaziyordu.
-MD_EKLENTILER = ["tables", "sane_lists", "attr_list"]
+MD_EKLENTILER = ["tables", "sane_lists", "attr_list", "toc"]
+
+#: `toc` KENDI slug uretecini KULLANMIYOR.
+#:
+#: Varsayilani ASCII disini atiyor: "Ozet" -> "zet", "Oncu gostergeler"
+#: -> "ncu-gostergeler". Turkce bir sitede bu, capalarin yarisini bozuk
+#: ve bir kismini CAKISIK yapardi (iki baslik ayni bos sluga duserse
+#: ikincisi "_1" alir ve baglanti yanlis bolume gider).
+#:
+#: Ikinci bir slug ureteci YAZMIYORUZ: `slugla` zaten var, adres
+#: uretiminde kullaniliyor ve Turkce esleme tablosunu tasiyor. Ayni
+#: karari iki yerde vermek bu depoda en pahaliya mal olan kusur sinifi
+#: (bkz. tema paleti, ceviri istemcisi, iki kapi).
+MD_YAPILANDIRMA = {"toc": {"slugify": lambda deger, ayrac: slugla(deger),
+                           "toc_depth": "2-3",
+                           "anchorlink": False,
+                           "permalink": False}}
+
+
+def ozet_govdede_tekrarlaniyor(ozet: str, govde_html: str) -> bool:
+    """Ust ozet cumlesi, govdenin "Ozet" bolumunu TEKRARLIYOR mu.
+
+    OLCULDU (2026-10-04, uretilen 772 analiz sayfasi):
+
+        ozet cumlesi = Ozet bolumunun ilk paragrafi
+          TAM AYNI    120
+          BASI AYNI   259        -> toplam 379, yani sayfalarin %49'u
+          farkli       86
+          biri yok    307
+
+    Iki metin ~200 piksel arayla ust uste duruyordu ve USTTEKI
+    KIRPIKTI: 772 ozetin 306'si "..." ile bitiyor. Yani okur ayni
+    cumleyi iki kez okuyor, ilkinde de yarim birakilmis halde.
+
+    Silinen USTTEKI olmali: govdedeki surum TAM ve kendi basligi
+    altinda duruyor. Ters yonde silmek okuru eksik cumleye mahkum
+    ederdi.
+
+    KARAR SABLONDA DEGIL BURADA VERILIYOR: Jinja icinde etiket
+    temizleyip bosluk normallestirmek kirilgan olurdu ve ayni mantik
+    bir gun ikinci bir sablonda tekrar yazilirdi.
+    """
+    import re as _re
+    if not ozet or not govde_html:
+        return False
+
+    def sade(x: str) -> str:
+        x = _re.sub(r"<[^>]+>", " ", x)
+        x = _re.sub(r"&[a-zA-Z#0-9]+;", " ", x)
+        return _re.sub(r"\s+", " ", x).strip().strip(".… ").lower()
+
+    m = _re.search(r'<h2 id="ozet"[^>]*>.*?</h2>\s*<p>(.*?)</p>',
+                   govde_html, _re.S)
+    if not m:
+        return False
+    ust, alt = sade(ozet), sade(m.group(1))
+    if not ust or not alt:
+        return False
+    # Esik 60 karakter: iki metnin ayni cumleyle BASLADIGINI soylemeye
+    # yeter, ama kisa ve rastlanti eseri benzeyen acilislari elemez.
+    kisa = min(len(ust), len(alt), 60)
+    return ust == alt or ust[:kisa] == alt[:kisa]
+
+
+def md_html_bolumlerle(metin: str) -> tuple[str, list[dict[str, str]]]:
+    """HTML ve yazinin KENDI bolum basliklarini birlikte dondurur.
+
+    Bolum listesi, masaustunde yazinin yanindaki kenar seridini
+    besliyor. Basliklari ikinci kez ayristirmak yerine `toc`
+    eklentisinin zaten urettigi agac okunuyor -- ayni seyi iki yerde
+    hesaplamamak icin.
+    """
+    md = markdown.Markdown(extensions=MD_EKLENTILER,
+                           extension_configs=MD_YAPILANDIRMA)
+    cikti = md.convert(metin)
+    # Genis tablolar dar ekranda sayfayi degil kendi kutusunu kaydirmali
+    cikti = cikti.replace("<table>", '<div class="tablo-kaydir"><table>').replace(
+        "</table>", "</table></div>"
+    )
+    bolumler = [{"capa": d.get("id", ""), "ad": d.get("name", "")}
+                for d in getattr(md, "toc_tokens", [])
+                if d.get("id") and d.get("name")]
+    return cikti, bolumler
 
 
 def md_html(metin: str) -> str:
-    cikti = markdown.markdown(metin, extensions=MD_EKLENTILER)
-    # Genis tablolar dar ekranda sayfayi degil kendi kutusunu kaydirmali
-    return cikti.replace("<table>", '<div class="tablo-kaydir"><table>').replace(
-        "</table>", "</table></div>"
-    )
+    return md_html_bolumlerle(metin)[0]
 
 
 def _basliklari_indir(metin: str) -> str:
@@ -725,6 +911,13 @@ class Analiz:
     #: uygun gorsel yoksa bos kalir ve SVG grafige dusulur.
     foto: str = ""
     foto_atif: str = ""
+    #: Yazinin KENDI bolum basliklari -- masaustunde yan seridi besler.
+    #: `md_html_bolumlerle` dolduruyor; basliklari ikinci kez
+    #: ayristirmak yerine `toc` eklentisinin agaci okunuyor.
+    bolumler: tuple[dict[str, str], ...] = ()
+    #: Ust ozet cumlesi govdedeki "Ozet" bolumunu tekrarliyorsa
+    #: sablon onu BASMIYOR -- gerekce `ozet_govdede_tekrarlaniyor`.
+    ozet_yineli: bool = False
     #: Sirket amblemi (SVG). Bilanco sayfalarinda stok fotografin
     #: YERINE geciyor -- bkz. `amblem.py`. DETAY sayfasinda satir ici
     #: basiliyor: tek amblem var ve ek istek yapmadan ilk boyamada
@@ -1722,6 +1915,11 @@ def analizleri_yukle() -> list[Analiz]:
             b.al("kod"), b.al("sirket"), b.al("sektor"), b.al("donem"))
         foto_yol, foto_atif = analiz_fotografi(_foto_kayit, baslik, kategori, kod)
 
+        # Govde ve bolum basliklari TEK gecisten geliyor. Basliklari
+        # uretilmis HTML uzerinde ikinci kez aramak, ayni seyi iki
+        # yerde hesaplamak olurdu.
+        _govde_html, _bolumler = md_html_bolumlerle(b.govde_md)
+
         liste.append(
             Analiz(
                 slug=b.al("slug") or slugla(yol.stem),
@@ -1738,7 +1936,10 @@ def analizleri_yukle() -> list[Analiz]:
                 skor=skor,
                 kapsam=b.al("kapsam", "100"),
                 kriterler=b.kriterler,
-                govde=md_html(b.govde_md),
+                govde=_govde_html,
+                bolumler=tuple(_bolumler),
+                ozet_yineli=ozet_govdede_tekrarlaniyor(
+                    b.al("ozet"), _govde_html),
                 sektor=b.al("sektor"),
                 gorsel_svg=gorsel_svg,
                 # STOK FOTOGRAF KALDIRILDI.
@@ -5638,6 +5839,14 @@ def insa() -> int:
         return h.hexdigest()[:8]
 
     css_surum = _surum(STATIK / "stil.css")
+
+    # YAZI TIPI SURUMU AYRI TUTULUYOR.
+    #
+    # `stil.css` gunde birkac kez degisebiliyor; yazi tipi dosyalari
+    # neredeyse hic degismiyor. Ikisi ayni damgayi paylassaydi her CSS
+    # degisikliginde okur 104 KB yazi tipini YENIDEN indirirdi --
+    # onbellegin tam da onlemesi gereken sey.
+    yuz_surum = _surum(*sorted(STATIK.glob("yuz/*.woff2")))
     js_surum = _surum(*sorted(STATIK.glob("*.js")))
 
     # CANLI FIYATI OLAN VARLIKLAR -- LISTE `canli.js`TEN OKUNUYOR.
@@ -5681,6 +5890,7 @@ def insa() -> int:
         "konu_yolu": konu_yolu,
         "site": SITE,
         "css_surum": css_surum,
+        "yuz_surum": yuz_surum,
         "js_surum": js_surum,
         # Analiz sayfasi kutuyu yalnizca bu kodlar icin basiyor.
         "canli_kodlar": canli_kodlar,
@@ -6880,7 +7090,27 @@ def insa() -> int:
     if _ico.exists():
         shutil.copy2(_ico, CIKTI / "favicon.ico")
     site_istatistigi()
-    css_kucult(CIKTI / "statik" / "stil.css")
+    _yuz_kapsam_denetimi()
+
+    # YAZI TIPI ADRESI TEK KAYNAKTAN SURUMLENIYOR.
+    #
+    # `@font-face` kuralindaki adres `stil.css` icinde DUZ yaziliyor,
+    # `<head>`teki `preload` ise `?v={{ yuz_surum }}` tasiyordu. Iki
+    # FARKLI adres demek: tarayici onyuklenen dosyayi kullanmaz, ayni
+    # yazi tipini IKINCI kez indirir. Kusur sessiz -- sayfa calisir,
+    # yalnizca 104 KB bosa gider ve konsolda tek satir uyari kalir.
+    #
+    # Cozum iddia degil YAPI: adres burada, sablondakiyle AYNI
+    # degiskenden yazilir. Ikisi artik ayrilamaz.
+    _css = CIKTI / "statik" / "stil.css"
+    _ham = _css.read_text(encoding="utf-8")
+    _yeni = _ham.replace(".woff2\") format(", f'.woff2?v={yuz_surum}") format(')
+    if _yeni == _ham and "/statik/yuz/" in _ham:
+        raise SystemExit("insa: yazi tipi adresi surumlenemedi -- "
+                         "`@font-face` src bicimi degismis olabilir")
+    _css.write_text(_yeni, encoding="utf-8")
+
+    css_kucult(_css)
 
     # Uretilen icerigi depoya bildir. Site ureteci butun icerigi tek yerde
     # gordugu icin bu kaydi atmak icin en dogru yer burasi; her hattin ayri

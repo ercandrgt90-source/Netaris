@@ -15,8 +15,14 @@
    yuzden burada da tek deger yeterli ve medya ayrimina gerek yok.
 
    #fbfcfe AYRICA BAYATTI: sayfa zemini 2026'da #eef2f7'ye
-   koyulastirilmisti, bu meta guncellenmemisti. #}
-<meta name="theme-color" content="#071426">
+   koyulastirilmisti, bu meta guncellenmemisti.
+
+   2026-10-04: palet ilik kagida tasininca serit de lacivertten
+   (#071426) murekkep tonuna (#15130d) gecti ve bu deger YINE elle
+   guncellenmek zorunda kaldi. Ayni karar iki yerde duruyor --
+   `--ust-zemin` jetonu ve bu meta. `site/test_stil.py` ikisinin
+   ayni kalmasini zorluyor; ayrisirsa kirmizi yanar. #}
+<meta name="theme-color" content="#15130d">
 
 {# TEMA, STIL DOSYASINDAN ONCE VE SATIR ICI SECILIYOR.
    Betik <head> icinde ve senkron; boylece kok elemana `data-tema` ilk
@@ -204,6 +210,25 @@
 {% endif %}
 
 <link rel="alternate" type="application/rss+xml" title="{{ site.ad }}" href="{{ site.adres }}/rss.xml">
+{# YAZI TIPLERI STILDEN ONCE ISTENIYOR.
+
+   `@font-face` stil dosyasinin ICINDE; tarayici onu ancak CSS'i
+   indirip ayristirdiktan SONRA gorur ve indirmeye O ZAMAN baslar.
+   Yani yazi tipi, kritik yolda CSS'in ARKASINA diziliyordu.
+   `preload` o zinciri kiriyor: ikisi ayni anda iniyor.
+
+   `crossorigin` ZORUNLU, ayni kokten gelse bile: yazi tipi istekleri
+   CORS kipinde yapilir ve nitelik yoksa tarayici onyuklenen dosyayi
+   KULLANMAZ, ikinci kez indirir. Yani eksikligi yavaslatir --
+   hizlandirmaz. Sessiz bir kusur: konsolda tek satir uyari cikar,
+   sayfa calismaya devam eder.
+
+   SIRA: once sans. Sayfadaki metnin buyuk cogunlugu onunla cizilecek;
+   serif yalnizca basliklarda. #}
+<link rel="preload" as="font" type="font/woff2" crossorigin
+      href="/statik/yuz/archivo-tr.woff2?v={{ yuz_surum }}">
+<link rel="preload" as="font" type="font/woff2" crossorigin
+      href="/statik/yuz/newsreader-tr.woff2?v={{ yuz_surum }}">
 <link rel="stylesheet" href="/statik/stil.css?v={{ css_surum }}">
 <script src="/statik/menu.js?v={{ js_surum }}" defer></script>
 {# MARKA ISARETI -- GERCEK DOSYA, `data:` URI DEGIL.
@@ -359,7 +384,7 @@
       <div class="menu-grup">
         <button type="button" class="menu-baslik" aria-expanded="false"
                 aria-haspopup="true">Araştırmalar
-          <span class="menu-ok" aria-hidden="true">▾</span>
+          <svg class="menu-ok" viewBox="0 0 12 12" width="10" height="10" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m2.5 4.5 3.5 3.5 3.5-3.5"/></svg>
         </button>
         <div class="menu-katman">
           <a class="menu-tumu" href="/arastirmalar/"{% if yol == "/arastirmalar/" %} aria-current="page"{% endif %}>Tüm araştırmalar</a>
@@ -564,25 +589,45 @@
    masaustunde tam listeyi tasiyor, bu ise mobilde EN COK KULLANILAN
    besini. Ayni listeyi iki yerde tutmak, birini guncelleyip
    digerini unutmak demekti. #}
+{# ALT GEZINME IKONLARI SVG -- UNICODE SEMBOL DEGIL.
+   ==================================================
+   Besi de Unicode geometrik sekilleriydi: ◆ ▤ ◱ ◎ ⌕.
+
+   OLCULDU (2026-10-04, insa denetimi `_yuz_kapsam_denetimi`): bu bes
+   karakter 1959 sayfanin HEPSINDE basiliyor ve sitenin iki yazi
+   tipinin HICBIRINDE yok. Yani hepsi yedek yuzle ciziliyordu --
+   cevresindeki yaziyla farkli bir yuz, farkli bir kalinlik, farkli
+   bir optik boy.
+
+   Daha kotusu: bir sembolun yedegi de yoksa okur BOS KUTU gorur.
+   ◱ (U+25F1) ve ⌕ (U+2315) yaygin mobil yazi tiplerinde seyrek;
+   bu, telefonda ana gezinme cubugunun anlasilmaz hale gelmesi
+   demekti. Risk sessizdi: bizim cihazimizda calisiyordu.
+
+   SVG bu sinifin tamamini kapatiyor: her cihazda ayni cizim, ek
+   istek yok (satir ici), `currentColor` sayesinde tema ve aktif
+   sekme rengi kendiliginden geliyor. Deponun kendi ilkesi de bu --
+   `stil.css` basinda yazili: "ikon dosyasi yok, yazi gorselleri SVG
+   olarak sayfaya gomulu geliyor". #}
 <nav class="alt-gezinme" aria-label="Ana bölümler">
   <a href="/"{% if yol == "/" %} aria-current="page"{% endif %}>
-    <span class="ag-simge" aria-hidden="true">◆</span>
+    <svg class="ag-simge" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5.5 9.5V20h13V9.5"/><path d="M9.75 20v-5.5h4.5V20"/></svg>
     <span class="ag-ad">Ana sayfa</span>
   </a>
   <a href="/gundem/"{% if yol == "/gundem/" %} aria-current="page"{% endif %}>
-    <span class="ag-simge" aria-hidden="true">▤</span>
+    <svg class="ag-simge" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="14" height="15" rx="1.6"/><path d="M17 9h3a1 1 0 0 1 1 1v8a2 2 0 0 1-2 2h-2"/><path d="M6.5 9h7M6.5 12.5h7M6.5 16h4"/></svg>
     <span class="ag-ad">Haberler</span>
   </a>
   <a href="/arastirmalar/"{% if yol.startswith("/arastirmalar") or yol.startswith("/analiz") or yol.startswith("/bilancolar") %} aria-current="page"{% endif %}>
-    <span class="ag-simge" aria-hidden="true">◱</span>
+    <svg class="ag-simge" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><rect x="5.5" y="12" width="3.4" height="5.5" rx="0.8"/><rect x="10.3" y="8" width="3.4" height="9.5" rx="0.8"/><rect x="15.1" y="4.5" width="3.4" height="13" rx="0.8"/></svg>
     <span class="ag-ad">Araştırma</span>
   </a>
   <a href="/topluluk/"{% if yol.startswith("/topluluk") %} aria-current="page"{% endif %}>
-    <span class="ag-simge" aria-hidden="true">◎</span>
+    <svg class="ag-simge" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9.2" cy="8.4" r="3.2"/><path d="M3.4 19.2a5.9 5.9 0 0 1 11.6 0"/><path d="M16.2 6.1a3 3 0 0 1 0 5.8"/><path d="M17.6 14.4a5.4 5.4 0 0 1 3.1 4.8"/></svg>
     <span class="ag-ad">Topluluk</span>
   </a>
   <a href="/ara/"{% if yol == "/ara/" %} aria-current="page"{% endif %}>
-    <span class="ag-simge" aria-hidden="true">⌕</span>
+    <svg class="ag-simge" viewBox="0 0 24 24" width="22" height="22" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.6" cy="10.6" r="6.1"/><path d="m15.2 15.2 4.4 4.4"/></svg>
     <span class="ag-ad">Ara</span>
   </a>
 </nav>

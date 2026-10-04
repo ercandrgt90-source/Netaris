@@ -1,7 +1,10 @@
 ﻿/* Netaris -- tasarim sistemi
  *
- * HARICI VARLIK YOK: yazi tipi sistemden, ikon yok, resim dosyasi yok --
- * yazi gorselleri SVG olarak sayfaya gomulu geliyor.
+ * UCUNCU TARAF ISTEGI YOK: iki yazi tipi KENDI KOKUMUZDEN geliyor
+ * (`/statik/yuz/`), ikon dosyasi yok, yazi gorselleri SVG olarak sayfaya
+ * gomulu geliyor. Google Fonts'a BAGLANMIYORUZ: o, her okur icin ucuncu
+ * bir alan adina DNS + TLS el sikismasi ve okurun IP adresinin Google'a
+ * gitmesi demekti. Ikisi de gereksiz.
  *
  * TEK HARICI ISTEK: fiyat seridi (statik/canli.js) Binance ve Frankfurter
  * uclarina istek atar. Gizlilik sayfasinda aciklaniyor.
@@ -15,7 +18,21 @@
  * okumali. Bir kez "kaydet" butonunu yesil yaparsaniz o okuma bozulur ve
  * bir daha kurulmaz. Bu kurala uymayan renk onerisi kabul etmeyin.
  *
- * Vurgu rengi bu yuzden MAVI ailesinden: yon renkleriyle karismaz.
+ * KURAL KART TURU RENKLERINI DE BAGLAR. Uzun sure baglamiyordu:
+ * `--t-jeopolitik` o gunku `--azalis` ile, `--t-sektor` ise o gunku
+ * `--artis` ile BAYT BAYT AYNI degeri tasiyordu. Yani okur, jeopolitik
+ * bir haberin sol seridini "dusus" diye okuyabiliyordu. Kural burada
+ * yaziliydi, UYGULAYAN hicbir sey yoktu.
+ *
+ * Artik var: `site/test_kontrast.py` her konu rengini yon ve marka
+ * tonlarina karsi olcuyor ve 30 dereceden yakin olani KIRMIZI yakiyor.
+ *
+ * VURGU ESKIDEN MAVIYDI, ARTIK TURKUAZ. Eski not "vurgu mavi
+ * ailesinden, bu yuzden yon renkleriyle karismaz" diyordu; marka
+ * turkuaza donunce o cumle dogru olmaktan cikti ama yerinde kaldi.
+ * Turkuaz (177 derece) yesile mavi kadar uzak DEGIL, bu yuzden ayrimi
+ * artik gerekce degil OLCU koruyor: artis yesili 123 dereceye
+ * tasindi, aradaki fark 26 -> 58 derece.
  *
  *
  * IKI TEMA, TEK TOKEN KATMANI
@@ -43,6 +60,46 @@
  * ama olcunce gecmiyordu. Koyulastirildi.
  */
 
+/* ===================================================================
+   YAZI TIPLERI -- kendi kokumuzden, degisken, Turkce icin kesilmis
+   ===================================================================
+   Uretim: `site/yuz_kes.py` (fontTools; elle calistirilir, CI'da
+   degil -- bagimlilik listesi bilincli olarak kucuk tutuluyor).
+   Lisans: `site/statik/yuz/LISANS.md` (ikisi de SIL OFL 1.1).
+
+   KESIM SINIRI ICERIKTEN DEGIL, UNICODE BLOKLARINDAN GELIYOR.
+   O an basilan karakterlere gore kesmek, yarin yayimlanacak tek bir
+   Lehce ada ya da sembole takilip sessizce yedek yuze duserdi --
+   sayfa kirilmaz, yalnizca o kelime baska bir yazi tipiyle cizilir ve
+   kimse fark etmez. Sinir bu yuzden olculebilir bir yerde duruyor.
+   `insa.py` icindeki `_yuz_kapsam_denetimi` her insada basilan her
+   karakteri bu kapsama karsi dogruluyor.
+
+   AGIRLIK ARALIGI 380-800: stil dosyasinda kullanilan agirliklarin
+   tamami (400/500/600/650/700/800) bu aralikta. Dar tutulsaydi 800
+   isteyen basliklar SAHTE KALIN cizilirdi -- tarayici glifi kendi
+   kalinlastirir ve sonuc bulanik olur.
+
+   `font-display: swap`: metin once yedek yuzle GORUNUR, yazi tipi
+   gelince degisir. Haber sitesinde dogru takas bu -- okur bos ekrana
+   bakmaz. Ikisi de `<head>`te `preload` ediliyor, degisim penceresi
+   bu yuzden cok kisa.
+   =================================================================== */
+
+@font-face {
+  font-family: "Netaris Serif";
+  src: url("/statik/yuz/newsreader-tr.woff2") format("woff2");
+  font-weight: 380 800;
+  font-style: normal;
+  font-display: swap}
+
+@font-face {
+  font-family: "Netaris Sans";
+  src: url("/statik/yuz/archivo-tr.woff2") format("woff2");
+  font-weight: 380 800;
+  font-style: normal;
+  font-display: swap}
+
 :root {
   color-scheme: light dark;
 
@@ -61,16 +118,16 @@
      gorunuyor" diyordu; niyet dogruydu, deger onu
      karsilamiyordu. Bir tasarim kararinin gerceklesip
      gerceklesmedigi, niyetten degil OLCUDEN anlasilir. */
-  --zemin: #eef2f7;
-  --zemin-2: #e3eaf3;
+  --zemin: #f3f2ee;
+  --zemin-2: #e9e7e1;
   --panel: #ffffff;
-  --panel-2: #f7f9fc;
-  --cizgi: #e4e9f1;
-  --cizgi-parlak: #c6cfdd;
+  --panel-2: #faf9f6;
+  --cizgi: #e4e1d9;
+  --cizgi-parlak: #c7c2b6;
 
-  --yazi: #0c1524;
-  --yazi-2: #414f66;
-  --yazi-3: #616f86;
+  --yazi: #17160f;
+  --yazi-2: #45423a;
+  --yazi-3: #6a655b;
 
   /* MARKA RENGI TEAL-YESIL, SINYAL YESILI DEGIL.
      -------------------------------------------
@@ -115,8 +172,8 @@
      Sinyal renklerine DOKUNULMADI: yesil=artis, kirmizi=azalis
      yerlesik bir kod ve onu degistirmek okurun getirdigi bilgiyi
      gecersiz kilardi. Degisen taraf marka olmali, kod degil. */
-  --vurgu: #0a7974;
-  --vurgu-koyu: #075f5c;
+  --vurgu: #09726d;
+  --vurgu-koyu: #055c58;
   /* MAVIDEN TEALE GECIS BURADA YARIM KALMISTI -- OLCULDU 2026-09-30.
      Deger `#3b7cf0` (kobalt) idi ve ustunde "Kobalt... Mavi o riski
      tasimiyor" yazan, markanin MAVI oldugu donemden kalma bir yorum
@@ -126,21 +183,21 @@
      hangisini gordugunuz tema dugmesine BASMIS olmanza bagliydi. */
   --vurgu-parlak: #14b8a6;
 
-  --artis: #0a7f47;
-  --azalis: #c8203a;
-  --uyari: #9a5700;
+  --artis: #2f7a2e;
+  --azalis: #bb1f2e;
+  --uyari: #90540a;
 
   /* Zar (tint): ayni rengin saydam hali. Bilesenlerde rgba yazmak yerine
      buradan aliniyor; boylece koyu temada da dogru yogunluga geciyor.
      Deger markanin 2026-09-18 tonundan (#0a7974) tureniyor; onceki
      rgba(10,125,120) bir revizyon geride kalmisti. */
-  --vurgu-zar: rgba(10, 121, 116, 0.10);
-  --vurgu-zar-2: rgba(10, 121, 116, 0.30);
-  --artis-zar: rgba(10, 127, 71, 0.09);
-  --azalis-zar: rgba(200, 32, 58, 0.09);
-  --uyari-zar: rgba(154, 87, 0, 0.09);
-  --uyari-cizgi: rgba(154, 87, 0, 0.3);
-  --nabiz: rgba(10, 127, 71, 0.5);
+  --vurgu-zar: rgba(9, 114, 109, 0.10);
+  --vurgu-zar-2: rgba(9, 114, 109, 0.28);
+  --artis-zar: rgba(47, 122, 46, 0.10);
+  --azalis-zar: rgba(187, 31, 46, 0.09);
+  --uyari-zar: rgba(144, 84, 10, 0.10);
+  --uyari-cizgi: rgba(144, 84, 10, 0.32);
+  --nabiz: rgba(47, 122, 46, 0.5);
   /* NOTR KOYULASTIRILDI: #93a1b5 -> #717f96 (olculdu 2026-09-30).
      Tek kullanim yeri `.nokta-gecmis`, yani serit kaleminin "canli
      degil, son veri" noktasi. Nokta `--zemin-2` (#e3eaf3) uzerinde
@@ -152,7 +209,7 @@
      oraya kadar koyultulsaydi "gecmis" ile "bayat" ayirt
      edilemezdi -- esigi gecmek, tasidigi ayrimi yok etme pahasina
      olmamali. */
-  --notr: #717f96;
+  --notr: #6a6458;
 
   /* Koyu zemin uzerindeki metin (birincil buton, rozet). Koyu temada da
      ACIK kalir -- buton zemini her iki temada da koyu. */
@@ -181,12 +238,12 @@
    * `denetim.py` bunu yakalayamazdi: oradaki `jeton-tanimsiz` kurali
    * bir adin DOSYADA HERHANGI BIR YERDE tanimli olup olmadigina
    * bakiyor, HER TEMA DURUMUNDA tanimli olup olmadigina degil. */
-  --ust-zemin: #071426;
-  --ust-yazi: #f2f6fc;
-  --ust-yazi-2: #9fb0cb;
-  --ust-cizgi: rgba(255, 255, 255, 0.10);
+  --ust-zemin: #15130d;
+  --ust-yazi: #f5f3ec;
+  --ust-yazi-2: #b0a99a;
+  --ust-cizgi: rgba(255, 255, 255, 0.11);
   --ust-panel: rgba(255, 255, 255, 0.08);
-  --sayfa-isik: #eef4fd;
+  --sayfa-isik: #faf9f4;
 
   --r: 14px;
   /* KOSE JETONLARI -- BOSLUK JETONLARINDAN AYRI.
@@ -265,8 +322,15 @@
      kendi sunucumuza) bir istek daha demek ve sayfa yuklenirken yazi
      siciyor. Sistem serifleri her isletim sisteminde var, Turkce
      diakritikleri eksiksiz tasiyor ve SIFIR istek maliyeti var. */
-  --yuz-baslik: "Iowan Old Style", "Palatino Linotype", Palatino,
-                Charter, Georgia, "Times New Roman", serif;
+  /* YEDEK ZINCIRI KASITLI: serif yuzun KAPSAMADIGI bir karakter
+     (ornegin ok isareti ->) bir SONRAKI adi dener. "Netaris Sans"
+     ikinci sirada durdugu icin o karakter sans yuzden gelir, sistem
+     yuzune DUSMEZ. Newsreader'da ok glifi YOK -- olculdu. Bu, iddiayla
+     degil YAPIYLA cozulmus bir kusur: sira degismedikce tekrar edemez. */
+  --yuz-baslik: "Netaris Serif", "Netaris Sans", "Iowan Old Style",
+                "Palatino Linotype", Charter, Georgia, serif;
+  --yuz-metin: "Netaris Sans", -apple-system, BlinkMacSystemFont,
+               "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 
   /* OKUMA OLCUSU -- satir uzunlugu.
      `.yazi` 800 piksel genisti ve 16 piksellik sans'ta bu satir basina
@@ -318,12 +382,12 @@
   --b-7: 48px;
   --b-7b: 56px;   /* ust duzey bolum araligi -- bkz. .ana-akis */
   --b-8: 64px;
-  --golge: 0 1px 2px rgba(12, 21, 36, 0.05), 0 8px 24px rgba(12, 21, 36, 0.06);
-  --golge-yuksek: 0 2px 4px rgba(12, 21, 36, 0.06), 0 16px 40px rgba(12, 21, 36, 0.10);
+  --golge: 0 1px 2px rgba(23, 22, 15, 0.05), 0 8px 24px rgba(23, 22, 15, 0.06);
+  --golge-yuksek: 0 2px 4px rgba(23, 22, 15, 0.06), 0 16px 40px rgba(23, 22, 15, 0.10);
 
   /* Gorsellerin zemini metin alanindan bir ton koyu -- beyaz uzerinde
      beyaz gorsel siniri kaybolur */
-  --gorsel-zemin: #eaeff7}
+  --gorsel-zemin: #e9e7e1}
 
 /* === TEMA DURUMLARI: UC DEGIL, IKI PALET ==========================
  *
@@ -370,27 +434,36 @@
  * ACIK.                                                            */
 @media (prefers-color-scheme: dark) {
   :root:not([data-tema="light"]) {
-    --zemin: #0b1018; --zemin-2: #121926; --panel: #151d2b; --panel-2: #1b2434;
-    --cizgi: #26324a; --cizgi-parlak: #3a4a68;
-    --yazi: #e9eef7; --yazi-2: #a7b4c9; --yazi-3: #7d8ca5;
+    --zemin: #14130f; --zemin-2: #1c1a15; --panel: #1e1c17; --panel-2: #26231d;
+    --cizgi: #33302a; --cizgi-parlak: #4e493f;
+    --yazi: #f3f1ea; --yazi-2: #c0bbaf; --yazi-3: #978f82;
     --vurgu: #2dd4bf; --vurgu-koyu: #14b8a6; --vurgu-parlak: #5eead4;
-    --artis: #3ecf8e; --azalis: #ff6b81; --uyari: #e0a44a;
+    --artis: #5fc45c; --azalis: #fa6b73; --uyari: #e0a44a;
     --vurgu-zar: rgba(45, 212, 191, 0.14);
-    --vurgu-zar-2: rgba(45, 212, 191, 0.34);
-    --artis-zar: rgba(62, 207, 142, 0.13);
-    --azalis-zar: rgba(255, 107, 129, 0.13);
+    --vurgu-zar-2: rgba(45, 212, 191, 0.32);
+    --artis-zar: rgba(95, 196, 92, 0.14);
+    --azalis-zar: rgba(250, 107, 115, 0.13);
     --uyari-zar: rgba(224, 164, 74, 0.13);
     --uyari-cizgi: rgba(224, 164, 74, 0.34);
-    --nabiz: rgba(62, 207, 142, 0.45); --notr: #64748b;
-    --ust-zemin: #071426;
-    --ust-yazi: #f2f6fc;
-    --ust-yazi-2: #9fb0cb;
+    --nabiz: rgba(95, 196, 92, 0.45); --notr: #8d8679;
+    /* KOYU TEMADA ZIT YAZI KOYU OLMALI.
+       `--zit-yazi` vurgu zeminli her seyin yazisi: ust bardaki
+       "Uye ol", son dakika etiketi, asama numaralari. Taban degeri
+       BEYAZ ve koyu temada vurgu PARLAK turkuaz (#2dd4bf) --
+       beyaz uzerine oran 1,87. Yani bu dugmelerin yazisi koyu
+       temada OKUNMUYORDU. Jeton koyu blokta HIC tanimli degildi,
+       tabandan dusuyordu; kontrast sinamasi da bu cifte
+       BAKMIYORDU. Ikisi de duzeltildi. */
+    --zit-yazi: #0c1a18;
+    --ust-zemin: #15130d;
+    --ust-yazi: #f5f3ec;
+    --ust-yazi-2: #b0a99a;
     --ust-cizgi: rgba(255, 255, 255, 0.10);
     --ust-panel: rgba(255, 255, 255, 0.08);
-    --sayfa-isik: #101a2b;
+    --sayfa-isik: #1b1913;
     --golge: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.34);
     --golge-yuksek: 0 2px 6px rgba(0, 0, 0, 0.45), 0 18px 44px rgba(0, 0, 0, 0.5);
-    --gorsel-zemin: #101825;
+    --gorsel-zemin: #1a1813;
   }
 }
 
@@ -398,29 +471,38 @@
    gelmeli, yoksa sistem acik iken "koyu" secimi calismaz. Yukaridaki
    listeyle AYNI olmali -- `test_tema_paleti.py` bunu tutuyor. */
 :root[data-tema="dark"] {
-  --zemin: #0b1018; --zemin-2: #121926; --panel: #151d2b; --panel-2: #1b2434;
-  --cizgi: #26324a; --cizgi-parlak: #3a4a68;
-  --yazi: #e9eef7; --yazi-2: #a7b4c9; --yazi-3: #7d8ca5;
+  --zemin: #14130f; --zemin-2: #1c1a15; --panel: #1e1c17; --panel-2: #26231d;
+  --cizgi: #33302a; --cizgi-parlak: #4e493f;
+  --yazi: #f3f1ea; --yazi-2: #c0bbaf; --yazi-3: #978f82;
   --vurgu: #2dd4bf; --vurgu-koyu: #14b8a6; --vurgu-parlak: #5eead4;
-  --artis: #3ecf8e; --azalis: #ff6b81; --uyari: #e0a44a;
+  --artis: #5fc45c; --azalis: #fa6b73; --uyari: #e0a44a;
   --vurgu-zar: rgba(45, 212, 191, 0.14);
-  --vurgu-zar-2: rgba(45, 212, 191, 0.34);
-  --artis-zar: rgba(62, 207, 142, 0.13);
-  --azalis-zar: rgba(255, 107, 129, 0.13);
+  --vurgu-zar-2: rgba(45, 212, 191, 0.32);
+  --artis-zar: rgba(95, 196, 92, 0.14);
+  --azalis-zar: rgba(250, 107, 115, 0.13);
   --uyari-zar: rgba(224, 164, 74, 0.13);
   --uyari-cizgi: rgba(224, 164, 74, 0.34);
-  --nabiz: rgba(62, 207, 142, 0.45); --notr: #64748b;
+  --nabiz: rgba(95, 196, 92, 0.45); --notr: #8d8679;
+  /* KOYU TEMADA ZIT YAZI KOYU OLMALI.
+     `--zit-yazi` vurgu zeminli her seyin yazisi: ust bardaki
+     "Uye ol", son dakika etiketi, asama numaralari. Taban degeri
+     BEYAZ ve koyu temada vurgu PARLAK turkuaz (#2dd4bf) --
+     beyaz uzerine oran 1,87. Yani bu dugmelerin yazisi koyu
+     temada OKUNMUYORDU. Jeton koyu blokta HIC tanimli degildi,
+     tabandan dusuyordu; kontrast sinamasi da bu cifte
+     BAKMIYORDU. Ikisi de duzeltildi. */
+  --zit-yazi: #0c1a18;
   /* Koyu temada serit ZATEN koyu; ayni lacivert kullaniliyor ki iki
      tema arasinda gecerken serit yerinde dursun. */
-  --ust-zemin: #071426;
-  --ust-yazi: #f2f6fc;
-  --ust-yazi-2: #9fb0cb;
+  --ust-zemin: #15130d;
+  --ust-yazi: #f5f3ec;
+  --ust-yazi-2: #b0a99a;
   --ust-cizgi: rgba(255, 255, 255, 0.10);
   --ust-panel: rgba(255, 255, 255, 0.08);
-  --sayfa-isik: #101a2b;
+  --sayfa-isik: #1b1913;
   --golge: 0 1px 2px rgba(0, 0, 0, 0.4), 0 8px 24px rgba(0, 0, 0, 0.34);
   --golge-yuksek: 0 2px 6px rgba(0, 0, 0, 0.45), 0 18px 44px rgba(0, 0, 0, 0.5);
-  --gorsel-zemin: #101825}
+  --gorsel-zemin: #1a1813}
 
 *, *::before, *::after { box-sizing: border-box}
 
@@ -431,8 +513,7 @@ body {
   background:
     linear-gradient(180deg, var(--sayfa-isik) 0%, transparent 340px), var(--zemin);
   color: var(--yazi);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-               "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--yuz-metin);
   font-size: var(--p-ml);
   line-height: var(--satir-genis);
   -webkit-font-smoothing: antialiased}
@@ -725,6 +806,51 @@ main.kabuk {
 /* --------------------------------------------------------------------- hero */
 
 .hero h1 { max-width: 20ch}
+
+/* --- GIRIS BLOGU GENIS EKRANDA IKI KOLON -----------------------------
+   OLCULDU (2026-10-04, 1440 piksel): blok 459 piksel YUKSEK ve 1224
+   pikselin yalnizca 741'ini kullaniyordu. Yani okur, gunun ilk
+   haberini gormek icin yarisi bos duran bir tanitim metnini
+   gecmek zorundaydi.
+
+   Bir haber sitesinde ilk ekran HABERIN. Blogun yukarisindaki not
+   bunu zaten soyluyor ("asil isi gunun gelismelerini gostermek") ama
+   duzen hala tersini yapiyordu.
+
+   HICBIR METIN SILINMEDI. Kimlik (etiket + baslik + dugmeler) solda,
+   aciklama sagda; yukseklik yariya iniyor, genislik tamamen
+   kullaniliyor. Dar ekranda izgara hic kurulmuyor ve blok eskisi gibi
+   tek kolon akiyor -- telefonda iki kolon zaten okunmazdi.
+
+   Yerlesim ACIKCA veriliyor (`grid-row` ile). Otomatik akisa
+   birakilsaydi aradan bir oge eklendiginde sutunlar sessizce
+   kayardi. */
+@media (min-width: 900px) {
+  .hero-dar {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    column-gap: var(--b-8);
+    align-items: start;
+  }
+  .hero-dar > .ust-etiket   { grid-column: 1; grid-row: 1}
+  .hero-dar > h1            { grid-column: 1; grid-row: 2; max-width: 18ch}
+  .hero-dar > .hero-butonlar{ grid-column: 1; grid-row: 3}
+  .hero-dar > .hero-alt     { grid-column: 1; grid-row: 4}
+  /* Aciklama saga, dort satirin tamami boyunca. `align-self` yok:
+     ustten hizalaninca basligin ilk satiriyla ayni cizgide basliyor. */
+  .hero-dar > .hero-ozet {
+    grid-column: 2;
+    grid-row: 1 / 5;
+    max-width: 46ch;
+    margin: 0;
+    /* Yan sutun ikincil: ayni puntoda olsaydi iki kolon birbiriyle
+       yarisirdi. Kucuk fark, hiyerarsiyi renk kullanmadan kuruyor. */
+    font-size: var(--p-m);
+    line-height: var(--satir-genis);
+    padding-left: var(--b-5);
+    border-left: 1px solid var(--cizgi);
+  }
+}
 
 .hero-butonlar {
   display: flex;
@@ -1328,6 +1454,129 @@ main.kabuk {
 
 .skor-not { margin: 18px 0 0; font-size: var(--p-s); color: var(--yazi-3)}
 
+
+/* ===================================================================
+   YAZI DUZENI -- KENAR SERIDI
+   ===================================================================
+   OLCULDU (2026-10-04, 1440 piksel): kabuk 1320 piksel, yazi kolonu
+   800. Her masaustu okurunda 520 piksel BOS duruyordu.
+
+   Kolonu genisletmek cozum DEGIL: 800 piksel yaklasik 68 karakter
+   eder ve `--olcu` jetonu da bunu soyluyor. Satir uzadikca goz satir
+   basini kaybeder. Bos alan bu yuzden DARALTILMADI, ISE KOSULDU.
+
+   SERIT YAZININ YANINDA, ICINDE DEGIL: `position: sticky` ile
+   kaydirirken ekranda kaliyor. Icinde iki sey var ve ikisi de yazinin
+   KENDISINDEN geliyor -- elle yazilan hicbir sey yok, dolayisiyla
+   yaziyla ayrismasi mumkun degil.
+
+   IZGARA SIMETRIK DEGIL. Serit 216 piksel, yazi 800; toplam 1064 ve
+   kalan 256 piksel SAG tarafta birakiliyor. Ortalanmis bir izgara,
+   yaziyi ekranin sagina iterdi; oysa goz satir basini SOLDA ariyor.
+   =================================================================== */
+
+.yazi-duzen { display: block}
+
+@media (min-width: 1100px) {
+  .yazi-duzen-seritli {
+    display: grid;
+    grid-template-columns: 216px minmax(0, 800px);
+    column-gap: var(--b-7);
+    align-items: start;
+  }
+  /* `.yazi` kendi `margin: auto`suyla ortalaniyordu; izgara icinde o
+     ortalama seridi yazidan KOPARIR. Hucre zaten dogru yerde. */
+  .yazi-duzen-seritli > .yazi { margin-left: 0; margin-right: 0}
+}
+
+.yazi-serit { display: none}
+
+@media (min-width: 1100px) {
+  .yazi-serit {
+    display: block;
+    position: sticky;
+    /* Ust serit + fiyat seridi yapiskan; deger ikisinin toplamindan
+       geliyor, yoksa bolum basliklari onlarin ALTINDA kalirdi. */
+    top: 104px;
+    max-height: calc(100vh - 136px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding-right: var(--b-3);
+    /* Yazidan ince bir cizgiyle ayriliyor -- kutu DEGIL. Kutu olsaydi
+       sayfada bir "pano" daha acilmis olurdu; burada amac yazinin
+       kenar notu gibi okunmasi. */
+    border-right: 1px solid var(--cizgi);
+  }
+  .yazi-serit::-webkit-scrollbar { width: 6px}
+  .yazi-serit::-webkit-scrollbar-thumb {
+    background: var(--cizgi-parlak); border-radius: 999px}
+}
+
+.serit-kimlik { margin: 0 0 var(--b-5)}
+
+.serit-kod {
+  display: inline-block;
+  padding: 3px 9px;
+  border-radius: var(--r-mini);
+  background: var(--vurgu-zar);
+  border: 1px solid var(--vurgu-zar-2);
+  color: var(--vurgu-koyu);
+  font-size: var(--p-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  font-variant-numeric: tabular-nums}
+
+.serit-ad {
+  margin: var(--b-2) 0 0;
+  font-family: var(--yuz-baslik);
+  font-size: var(--p-ml);
+  font-weight: 600;
+  line-height: var(--satir-baslik);
+  color: var(--yazi)}
+
+.serit-meta {
+  margin: var(--b-1) 0 0;
+  font-size: var(--p-xs);
+  line-height: var(--satir-orta);
+  color: var(--yazi-3);
+  text-transform: uppercase;
+  letter-spacing: 0.06em}
+
+.serit-baslik {
+  margin: 0 0 var(--b-2);
+  font-size: var(--p-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--yazi-3)}
+
+/* Numaralandirma KALDIRILDI: bolumler bir SIRA degil, bir icindekiler
+   listesi. Numara, okura "once bunu, sonra sunu" diye bir duzen
+   vaat eder ve bu yazilarda boyle bir duzen yok. */
+.serit-bolum ol {
+  list-style: none;
+  margin: 0; padding: 0;
+  display: flex; flex-direction: column; gap: 2px}
+
+.serit-bolum a {
+  display: block;
+  padding: 5px 0 5px var(--b-3);
+  border-left: 2px solid var(--cizgi);
+  font-size: var(--p-s);
+  line-height: var(--satir-orta);
+  color: var(--yazi-2);
+  text-decoration: none;
+  transition: border-color var(--sure-hizli), color var(--sure-hizli)}
+
+.serit-bolum a:hover,
+.serit-bolum a:focus-visible {
+  border-left-color: var(--vurgu);
+  color: var(--yazi);
+  text-decoration: none}
+
+/* Capa ile atlanan baslik ust seridin ALTINDA kalmasin. */
+.govde h2[id], .govde h3[id] { scroll-margin-top: 112px}
+
 /* ------------------------------------------------------------------- govde */
 
 .govde { font-size: var(--p-l)}
@@ -1706,7 +1955,7 @@ main.kabuk {
   gap: var(--b-3);
   width: 100%; height: 100%;
   padding: var(--b-5) var(--b-4) var(--b-4);
-  background: #f4f6f8}
+  background: #fbfaf7}
 .amblem-serit {
   position: absolute; inset: 0 0 auto 0; height: 4px}
 /* LOGO KUTUYU DOLDURUYOR.
@@ -1723,10 +1972,10 @@ main.kabuk {
 .amblem-yazi {
   display: flex; flex-direction: column; align-items: center; gap: 2px;
   text-align: center;
-  color: #2b3440}
+  color: #2f2c25}
 .amblem-yazi b { font-size: var(--p-m); font-weight: 700}
 .amblem-yazi span {
-  font-size: var(--p-xs); color: #64707e;
+  font-size: var(--p-xs); color: #6d685d;
   letter-spacing: 0.04em; text-transform: uppercase}
 /* Kart icinde daha kucuk: orada logo bir kunye, bir kapak degil. */
 .kart-amblem .amblem-logo { padding: var(--b-4) var(--b-3); gap: var(--b-2)}
@@ -3036,7 +3285,7 @@ main.kabuk {
   flex: none;
   display: grid; place-items: center;
   width: 52px; height: 52px; border-radius: 50%;
-  background: var(--vurgu); color: #08121c;
+  background: var(--vurgu); color: var(--zit-yazi);
   font-size: 1.4rem; font-weight: 800; line-height: 1}
 
 /* Serit ve dugmeler ikinci satira gecer; ad ile dugmelerin cakismasi
@@ -3415,6 +3664,27 @@ main.kabuk {
 .duyarlilik td { padding: var(--b-2) var(--b-3) var(--b-2) 0; font-size: var(--p-m); color: var(--yazi-2)}
 .yildiz { white-space: nowrap; color: var(--vurgu); letter-spacing: 1px; width: 1%}
 .duyarlilik .neden { line-height: var(--satir-orta)}
+
+/* Yildiz sirasi SVG; bos yildiz ICI BOS ama ayni cizgide -- "kac
+   tane" sorusu renk ayrimina degil, DOLULUK ayrimina dayaniyor.
+   Renk korlugunde de okunur kalmasinin sebebi bu. */
+.yildiz-sira { display: inline-flex; gap: 2px; align-items: center;
+  color: var(--vurgu)}
+.yildiz-tek { flex: none; overflow: visible}
+
+/* Takvim onem noktalari -- yildizlarla ayni mantik: doluluk farki,
+   renk farki degil. */
+.onem-nokta { display: inline-flex; gap: 3px; align-items: center;
+  vertical-align: middle}
+.onem-nokta svg { flex: none}
+
+/* Kaynak rozetindeki onay isareti -- `rozet-kaynak` icinde, metinle
+   ayni renkte ve ayni cizgide. */
+.rozet-onay { display: inline-block; vertical-align: -1px; margin-right: 2px;
+  flex: none}
+
+
+
 
 /* --- senaryolar --- */
 .senaryolar { list-style: none; margin: 0 0 10px; padding: 0; display: flex; flex-direction: column; gap: var(--b-2)}
@@ -4046,14 +4316,14 @@ table td, table th, time, .tarih {
    Renkler yalnizca INCE bir sol seritte ve rozet zemininde kullaniliyor
    -- kart govdesini boyamak, yedi renkli bir sayfa demekti.            */
 :root {
-  --t-makro: #1d5fd8;
-  --t-jeopolitik: #c8203a;
-  --t-emtia: #9a5700;
-  --t-piyasa: #6d3bd8;
-  --t-sirket: #0a7f6b;
-  --t-duzenleme: #5a6478;
-  --t-sektor: #0a7f47;
-  --t-haber: #616f86}
+  --t-makro: #2766a5;
+  --t-jeopolitik: #4235b6;
+  --t-emtia: #59741b;
+  --t-piyasa: #793bb0;
+  --t-sirket: #973c9a;
+  --t-duzenleme: #595f73;
+  --t-sektor: #9c3a7f;
+  --t-haber: #726d65}
 /* KOYU TEMADA KART RENKLERI ACILIYOR.
  *
  * Acik temadaki degerler koyu panelde (#151d2b) okunmuyor: en
@@ -4073,25 +4343,25 @@ table td, table th, time, .tarih {
  * eklenmeyen her jeton kirmizi yanar. */
 @media (prefers-color-scheme: dark) {
   :root:not([data-tema="light"]) {
-    --t-makro: #6f9dfb;
-    --t-jeopolitik: #ff6b81;
-    --t-emtia: #e0a44a;
-    --t-piyasa: #a98cf5;
-    --t-sirket: #3ecfb4;
-    --t-duzenleme: #93a1b5;
-    --t-sektor: #3ecf8e;
-    --t-haber: #8b99ae;
+    --t-makro: #73a8de;
+    --t-jeopolitik: #9890df;
+    --t-emtia: #abd449;
+    --t-piyasa: #ba94db;
+    --t-sirket: #d291d4;
+    --t-duzenleme: #a3a8b8;
+    --t-sektor: #d68fc1;
+    --t-haber: #a4a098;
   }
 }
 :root[data-tema="dark"] {
-  --t-makro: #6f9dfb;
-  --t-jeopolitik: #ff6b81;
-  --t-emtia: #e0a44a;
-  --t-piyasa: #a98cf5;
-  --t-sirket: #3ecfb4;
-  --t-duzenleme: #93a1b5;
-  --t-sektor: #3ecf8e;
-  --t-haber: #8b99ae;
+  --t-makro: #73a8de;
+  --t-jeopolitik: #9890df;
+  --t-emtia: #abd449;
+  --t-piyasa: #ba94db;
+  --t-sirket: #d291d4;
+  --t-duzenleme: #a3a8b8;
+  --t-sektor: #d68fc1;
+  --t-haber: #a4a098;
 }
 /* Sinif adi SABLONDA BIRLESTIRILIYOR: `class="tur-{{ h|kart_turu }}"`.
    Yani bu adlarin hicbiri kaynakta duz metin olarak GECMEZ. "Olu CSS"
@@ -4307,7 +4577,10 @@ a.akis-baslik:hover { color: var(--vurgu); text-decoration: none}
    Isaret zorunlu -- okur site icinde mi kalacagini basmadan bilsin. */
 .akis-dis { color: var(--yazi-2)}
 .akis-dis:hover { color: var(--vurgu); text-decoration: none}
-.dis-ok { font-size: 0.72em; opacity: .6; margin: var(--b-1) 0}
+/* Artik SVG -- olcu `width`/`height` niteliklerinden geliyor,
+   `font-size` ONU DEGISTIRMEZ. Kural hizalama icin duruyor. */
+.dis-ok { display: inline-block; vertical-align: -1px; opacity: .65;
+  margin-left: 3px; flex: none}
 
 /* ================================================================
    HABER KARTI -- ANALIZ DEGIL, DAVET
@@ -4512,7 +4785,8 @@ a.akis-baslik:hover { color: var(--vurgu); text-decoration: none}
   display: inline-flex; align-items: center; gap: var(--b-1)}
 .menu-baslik:hover,
 .menu-grup:focus-within .menu-baslik { color: var(--vurgu); background: var(--vurgu-zar)}
-.menu-ok { font-size: 0.7em; opacity: .65; transition: transform var(--sure-orta)}
+.menu-ok { display: inline-block; vertical-align: -1px; opacity: .7;
+  flex: none; transition: transform var(--sure-orta)}
 .menu-grup:hover .menu-ok,
 .menu-grup:focus-within .menu-ok { transform: rotate(180deg)}
 
@@ -6652,7 +6926,11 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
     box-shadow: inset 0 2px 0 var(--vurgu);
   }
 
-  .ag-simge { font-size: 1.05rem; line-height: 1; }
+  /* IKONLAR ARTIK SVG. `font-size` onlari BUYUTMEZ -- olcu
+     `width`/`height` niteliklerinden geliyor. Kural yine de duruyor
+     cunku `.ag-simge` sinifi aktif sekme renginde `currentColor`
+     uzerinden calisiyor ve `display` davranisi hizalamayi etkiliyor. */
+  .ag-simge { display: block; margin: 0 auto; line-height: 1; }
 
   /* Sayfanin sonu alt cubugun ALTINDA kalmasin. */
   body { padding-bottom: calc(56px + env(safe-area-inset-bottom, 0)); }
@@ -7796,17 +8074,20 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
    yari saydam parlaklik (opacity 0.22 / 0.4) ve koyu zeminde de
    dogru calisiyor.
    ================================================================== */
-.yazi-gorsel svg [fill="#eef2f7"] { fill: var(--zemin); }
-.yazi-gorsel svg [stop-color="#eef2f7"] { stop-color: var(--zemin); }
-.yazi-gorsel svg [stop-color="#eef4fd"] { stop-color: var(--sayfa-isik); }
-.yazi-gorsel svg [stroke="#e4e9f1"] { stroke: var(--cizgi); }
-.yazi-gorsel svg [fill="#0c1524"] { fill: var(--yazi); }
-.yazi-gorsel svg [fill="#616f86"] { fill: var(--yazi-3); }
-.yazi-gorsel svg [fill="#0a7974"] { fill: var(--vurgu); }
-.yazi-gorsel svg [stop-color="#0a7974"] { stop-color: var(--vurgu); }
-.yazi-gorsel svg [stop-color="#075f5c"] { stop-color: var(--vurgu-koyu); }
-.yazi-gorsel svg [fill="#0a7f47"] { fill: var(--artis); }
-.yazi-gorsel svg [fill="#c8203a"] { fill: var(--azalis); }
+.yazi-gorsel svg [fill="#f3f2ee"] { fill: var(--zemin); }
+.yazi-gorsel svg [stop-color="#f3f2ee"] { stop-color: var(--zemin); }
+.yazi-gorsel svg [stop-color="#faf9f4"] { stop-color: var(--sayfa-isik); }
+.yazi-gorsel svg [stroke="#e4e1d9"] { stroke: var(--cizgi); }
+.yazi-gorsel svg [fill="#17160f"] { fill: var(--yazi); }
+.yazi-gorsel svg [fill="#6a655b"] { fill: var(--yazi-3); }
+.yazi-gorsel svg [fill="#09726d"] { fill: var(--vurgu); }
+.yazi-gorsel svg [stop-color="#09726d"] { stop-color: var(--vurgu); }
+.yazi-gorsel svg [stop-color="#055c58"] { stop-color: var(--vurgu-koyu); }
+.yazi-gorsel svg [fill="#2f7a2e"] { fill: var(--artis); }
+/* Yukselen sutunun gradyani da ARTIS: iki ucu ayni renk, farkli
+   saydamlik. Once marka turkuaziydi -- bkz. `gorsel.py`. */
+.yazi-gorsel svg [stop-color="#2f7a2e"] { stop-color: var(--artis); }
+.yazi-gorsel svg [fill="#bb1f2e"] { fill: var(--azalis); }
 
 
 
@@ -7941,8 +8222,8 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
     --zemin: #fff; --zemin-2: #fff; --panel: #fff; --panel-2: #fff;
     --yazi: #000; --yazi-2: #222; --yazi-3: #444;
     --cizgi: #bbb; --cizgi-parlak: #999;
-    --vurgu: #075f5c; --vurgu-koyu: #075f5c; --vurgu-parlak: #0a7974;
-    --artis: #0a7f47; --azalis: #c8203a; --uyari: #9a5700;
+    --vurgu: #055c58; --vurgu-koyu: #075f5c; --vurgu-parlak: #0a7974;
+    --artis: #245f23; --azalis: #9c1927; --uyari: #7a4608;
     --golge: none; --golge-yuksek: none}
 
   body { background: #fff; color: #000}

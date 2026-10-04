@@ -97,7 +97,7 @@
       + metin(o.adres) + '" rel="nofollow noopener" target="_blank"'
       + ' title="' + metin((o.kurum_tam || o.kurum) + " sitesinde aç")
       + '">' + metin(o.kurum)
-      + (ok ? '<span class="dis-ok" aria-hidden="true">↗</span>' : "")
+      + (ok ? '<svg class="dis-ok" viewBox="0 0 12 12" width="9" height="9" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8 8.5 3.5"/><path d="M4.6 3.5h3.9v3.9"/></svg>' : "")
       + "</a>";
   }
 

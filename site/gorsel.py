@@ -27,20 +27,20 @@ from dataclasses import dataclass
 #
 # ACIK TEMA: gorsel zemini saf beyaz DEGIL, bir ton gri. Beyaz zeminli bir
 # gorsel beyaz sayfada sinirsiz kalir ve "gorsel var mi yok mu" belli olmaz.
-ZEMIN = "#eef2f7"
-CIZGI = "#e4e9f1"
-VURGU = "#0a7974"
-VURGU_KOYU = "#075f5c"
-YAZI = "#0c1524"
-YAZI_3 = "#616f86"
-ARTIS = "#0a7f47"
-AZALIS = "#c8203a"
+ZEMIN = "#f3f2ee"
+CIZGI = "#e4e1d9"
+VURGU = "#09726d"
+VURGU_KOYU = "#055c58"
+YAZI = "#17160f"
+YAZI_3 = "#6a655b"
+ARTIS = "#2f7a2e"
+AZALIS = "#bb1f2e"
 
 #: Ust kenardaki yumusak parlama. Onceden `#dce6f2` yaziliydi ve bu
 #: renk stil.css'te HIC YOKTU -- yani yukaridaki kurala ("jetonlarla
 #: ayni olmali") uymayan tek basina bir degerdi. `--sayfa-isik`
 #: sayfanin kendi ust parlamasi; grafik de ayni isigi kullaniyor.
-PARLAMA = "#eef4fd"
+PARLAMA = "#faf9f4"
 
 # 16:9. Kart kutusu 16:9 oldugu icin gorsel de 16:9 uretilir.
 # Onceden 1200x480 (2,5:1) uretiliyordu ve kart icinde yanlardan
@@ -98,9 +98,23 @@ def _tanimlar() -> str:
         f'<stop offset="0%" stop-color="{PARLAMA}" stop-opacity="0.9"/>'
         f'<stop offset="100%" stop-color="{ZEMIN}" stop-opacity="0"/>'
         "</radialGradient>"
+        # YUKSELEN SUTUN "ARTIS" RENGIYLE, MARKAYLA DEGIL.
+        #
+        # Gradyan VURGU_KOYU -> VURGU idi, yani yukselen sutunlar MARKA
+        # turkuaziyla boyaniyordu. Ayni sayfada ayni yon iki farkli
+        # renkle anlatiliyordu: tabloda ve seritte "+%15" YESIL,
+        # grafikte ayni kalem TURKUAZ. Ustune stil dosyasinin ilk
+        # sayfasindaki kural tersine isliyordu -- marka rengi "artis"
+        # anlamina gelmeye baslamisti.
+        #
+        # IKINCI RENK EKLENMEDI: iki ucu da ARTIS, ustteki tam
+        # yogunlukta, alttaki saydam. Boylece hacim hissi korunuyor ama
+        # esleme tablosuna tek bir renk giriyor; ikinci bir "artis
+        # koyu" jetonu uydurmak, bakimi gereken bir deger daha
+        # demekti.
         '<linearGradient id="sutun" x1="0" y1="1" x2="0" y2="0">'
-        f'<stop offset="0%" stop-color="{VURGU_KOYU}"/>'
-        f'<stop offset="100%" stop-color="{VURGU}"/>'
+        f'<stop offset="0%" stop-color="{ARTIS}" stop-opacity="0.70"/>'
+        f'<stop offset="100%" stop-color="{ARTIS}"/>'
         "</linearGradient>"
         '<linearGradient id="cizgiDolgu" x1="0" y1="0" x2="0" y2="1">'
         f'<stop offset="0%" stop-color="{VURGU}" stop-opacity="0.28"/>'
@@ -230,7 +244,12 @@ def sutun_grafik(kod: str, konu: str, noktalar: list[Nokta]) -> str:
         p.append(
             f'<text x="{merkez:.1f}" y="{deger_y:.1f}" text-anchor="middle" '
             f'font-family="Segoe UI, Arial, sans-serif" font-size="28" '
-            f'font-weight="800" fill="{YAZI if pozitif else AZALIS}">{metin}</text>'
+            # ETIKET KENDI SUTUNUYLA AYNI RENKTE.
+            # Once pozitif etiket duz MUREKKEPTI, negatif KIRMIZI --
+            # yani yon yalnizca bir yone boyaniyordu. Fonksiyonun kendi
+            # gerekcesi ("okur rakami okumadan once yonu gorsun") iki
+            # yon icin de gecerli.
+            f'font-weight="800" fill="{ARTIS if pozitif else AZALIS}">{metin}</text>'
         )
         # Kalem adi
         p.append(

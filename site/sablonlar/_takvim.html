@@ -19,7 +19,22 @@
         <span class="takvim-ulke">{{ k.ulke }}</span>
         <span class="takvim-ad">{{ k.ad }}</span>
         <span class="takvim-onem" aria-label="Önem {{ k.onem }} / 3">
-          <span aria-hidden="true">{{ "●" * k.onem }}{{ "○" * (3 - k.onem) }}</span>
+          {# ONEM NOKTALARI SVG -- ● / ○ KARAKTERI DEGIL.
+             Olculdu (2026-10-04): ikisi de sitenin yazi tiplerinin
+             HICBIRINDE yok. Daha incesi, ● ILK OLCUMDE "kapsandi"
+             gorunuyordu: kapsam dosyasi ISTENEN araliklari
+             yaziyordu, gerceklesen glifleri degil. Yani ayni satirda
+             dolu nokta bir yuzle, bos nokta baska bir yuzle
+             ciziliyordu ve denetim bunu gormuyordu.
+             SVG ikisini de ayni cizime baglıyor. #}
+          <span class="onem-nokta" aria-hidden="true">
+            {%- for _ in range(3) -%}
+            <svg viewBox="0 0 10 10" width="7" height="7"
+                 fill="{% if loop.index <= k.onem %}currentColor{% else %}none{% endif %}"
+                 stroke="currentColor" stroke-width="1.3"
+                 ><circle cx="5" cy="5" r="3.5"/></svg>
+            {%- endfor -%}
+          </span>
         </span>
         {% if not k.kesin %}
         <span class="takvim-tahmin" title="Kurum makine okunur takvim
