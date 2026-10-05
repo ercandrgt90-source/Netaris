@@ -442,6 +442,32 @@
       "foto_atif": "RegionalQueenslander · CC-BY-SA-4.0"
     },
     {
+      "baslik": "Zayıf istihdam verisi Fed faiz artışı beklentilerini azaltırken altın yükseldi",
+      "baslik_kaynak": "Zayıf istihdam verisi Fed faiz artışı beklentilerini azaltırken altın yükseldi",
+      "ozet": "",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://tr.investing.com/news/commodities-news/altn-zayf-istihdam-verileriyle-yukselise-gecti-4089064",
+      "kurum": "Investing",
+      "kurum_tam": "Investing.com Türkiye",
+      "konu": "İstihdam ve ücret",
+      "tarih": "2026-10-05",
+      "tarih_gorunur": "5 Ekim 2026",
+      "yorumlanir": true,
+      "neden_onemli": "İstihdam verisi merkez bankalarının en yakından izlediği göstergedir; ücret artışı hizmet enflasyonunun ana girdisidir.",
+      "kanallar": [
+        "Faiz beklentisi: güçlü istihdam faiz indirimi beklentisini öteler, zayıf veri öne çeker.",
+        "Ücret-fiyat ilişkisi: birim işgücü maliyeti hizmet enflasyonuna doğrudan geçer.",
+        "Tüketim: hane geliri perakende talebini ve şirket gelirlerini belirler.",
+        "Katılım oranı: işgücüne katılımdaki değişim, işsizlik oranını istihdam artışından bağımsız hareket ettirebilir."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/istihdam-ve-ucret-10-2fc976d7.jpg",
+      "foto_atif": "YeraC · CC-BY-SA-4.0"
+    },
+    {
       "baslik": "Japonya hizmet PMI’ı Eylül’de beklentileri karşılamadı",
       "baslik_kaynak": "Japonya hizmet PMI’ı Eylül’de beklentileri karşılamadı",
       "ozet": "",
@@ -466,32 +492,6 @@
       "kanal_basligi": "Hangi piyasaları etkiler?",
       "foto": "/statik/foto/borsa-10-1d3f5b6f.jpg",
       "foto_atif": "Syced · CC0"
-    },
-    {
-      "baslik": "Zayıf istihdam verisi Fed’in faiz artırımı beklentilerini azalttı",
-      "baslik_kaynak": "Zayıf istihdam verisi Fed’in faiz artırımı beklentilerini azalttı",
-      "ozet": "",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://tr.investing.com/news/stock-market-news/zayf-istihdam-verisi-fedin-faiz-artrm-beklentilerini-azaltt-4089058",
-      "kurum": "Investing",
-      "kurum_tam": "Investing.com Türkiye",
-      "konu": "Para politikası",
-      "tarih": "2026-10-05",
-      "tarih_gorunur": "5 Ekim 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Politika faizi kararları küresel sermayenin fiyatını belirler; asıl fiyatlanan şey kararın kendisi değil, karar sonrası patikaya dair beklentidir.",
-      "kanallar": [
-        "Tahvil getirisi: kısa vadeli faiz beklentisi getiri eğrisinin ön ucunu, enflasyon beklentisi uzun ucunu hareket ettirir.",
-        "Parite: iki merkez bankası arasındaki faiz farkı beklentisi kuru yeniden fiyatlar.",
-        "Değerleme: iskonto oranı değişimi en çok uzun vadeli nakit akışı olan teknoloji ve büyüme hisselerinde hissedilir.",
-        "Sermaye akımı: gelişmiş ülke faizi yükseldiğinde gelişmekte olan piyasalardan çıkış görülebilir."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/para-politikasi-7-d50cfe6c.jpg",
-      "foto_atif": "Infrogmation of New Orleans · CC-BY-SA-4.0"
     },
     {
       "baslik": "Eylül ayı enflasyonu bugün açıklanacak",
