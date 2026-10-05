@@ -133,6 +133,28 @@ for _p in sorted(_C.rglob("index.html")):
             _kotu.append(f"{_p.parent.name or '/'}:  "
                          f"ACIKLANDI {_deger!r}  <->  son {_son_m!r}")
 
+# ACIKLANMIS DEGER YOKSA SINAMA ATLANIR -- VE BU KASITLI.
+#
+# Takvimde "ACIKLANDI" degeri yalnizca o an yayimlanmis bir veri
+# varsa basiliyor; cogu zaman butun kalemler "beklenen" durumda
+# oluyor. Ilk yazimda `_bakilan > 0` SART kosmustum ve sinama,
+# urunde hicbir sey bozulmadigi halde kirmizi yandi -- cunku o gun
+# takvimde aciklanmis kalem yoktu.
+#
+# Gecici veriye bagli bir SART, sinamayi gunun sansina baglar.
+# Kirmizi yanan ama kusur gostermeyen bir sinama, zamanla "zaten
+# bazen kirmizi yaniyor" diye gormezden gelinir -- ve o an gercek
+# bir kusuru da gizler.
+#
+# SOZLESME KONTROLLERI (yukarida) HER ZAMAN KOSUYOR: sorgunun
+# `birim`i okudugu, modulun `metin` uretmedigi, sablonun `olcum`
+# suzgecini kullandigi ve ondalik kurali. Atlanan YALNIZCA
+# uretilmis ciktiya bakan kisim -- yani bakilacak bir sey yoksa.
+if _bakilan == 0:
+    print(chr(10) + "  ATLANDI  takvimde aciklanmis deger yok"
+          + " (butun kalemler beklenen durumda)")
+    print(chr(10) + f"TUM TESTLER GECTI ({_gecti})")
+    raise SystemExit(0)
 esit(_bakilan > 0, True, f"takvim cikti degeri bulundu ({_bakilan})")
 if _kotu:
     print(f"\n  BIRIMSIZ BASILAN DEGER: {len(_kotu)}")

@@ -197,7 +197,10 @@
   --azalis-zar: rgba(187, 31, 46, 0.09);
   --uyari-zar: rgba(144, 84, 10, 0.10);
   --uyari-cizgi: rgba(144, 84, 10, 0.32);
-  --nabiz: rgba(47, 122, 46, 0.5);
+  /* MARKA TONUNDAN: nabiz, canli noktanin halkasi ve o nokta artik
+     yon yesili degil marka rengi. Yesil kalsaydi halka ile nokta
+     birbirini tutmazdi. */
+  --nabiz: rgba(9, 114, 109, 0.5);
   /* NOTR KOYULASTIRILDI: #93a1b5 -> #717f96 (olculdu 2026-09-30).
      Tek kullanim yeri `.nokta-gecmis`, yani serit kaleminin "canli
      degil, son veri" noktasi. Nokta `--zemin-2` (#e3eaf3) uzerinde
@@ -445,7 +448,7 @@
     --azalis-zar: rgba(250, 107, 115, 0.13);
     --uyari-zar: rgba(224, 164, 74, 0.13);
     --uyari-cizgi: rgba(224, 164, 74, 0.34);
-    --nabiz: rgba(95, 196, 92, 0.45); --notr: #8d8679;
+    --nabiz: rgba(45, 212, 191, 0.45); --notr: #8d8679;
     /* KOYU TEMADA ZIT YAZI KOYU OLMALI.
        `--zit-yazi` vurgu zeminli her seyin yazisi: ust bardaki
        "Uye ol", son dakika etiketi, asama numaralari. Taban degeri
@@ -482,7 +485,7 @@
   --azalis-zar: rgba(250, 107, 115, 0.13);
   --uyari-zar: rgba(224, 164, 74, 0.13);
   --uyari-cizgi: rgba(224, 164, 74, 0.34);
-  --nabiz: rgba(95, 196, 92, 0.45); --notr: #8d8679;
+  --nabiz: rgba(45, 212, 191, 0.45); --notr: #8d8679;
   /* KOYU TEMADA ZIT YAZI KOYU OLMALI.
      `--zit-yazi` vurgu zeminli her seyin yazisi: ust bardaki
      "Uye ol", son dakika etiketi, asama numaralari. Taban degeri
@@ -758,7 +761,7 @@ img, svg { max-width: 100%}
   background: var(--yazi-3)}
 
 .nokta-canli {
-  background: var(--artis);
+  background: var(--vurgu);
   box-shadow: 0 0 0 0 var(--nabiz);
   animation: nabiz 2.2s ease-out infinite}
 
@@ -2909,8 +2912,8 @@ main.kabuk {
   margin: 2px 0}
 
 .rozet-kaynak {
-  color: var(--artis);
-  border-color: var(--artis-zar);
+  color: var(--vurgu);
+  border-color: var(--vurgu-zar);
   background: var(--artis-zar)}
 
 /* -------------------------------------------------------------- hakkimizda */
@@ -3095,7 +3098,7 @@ main.kabuk {
   flex: 0 0 auto;
   padding: var(--b-1) var(--b-3);
   border-radius: 999px;
-  background: var(--azalis);
+  background: var(--uyari);
   color: var(--zit-yazi);
   font-size: var(--p-xs); font-weight: 800; letter-spacing: 0.06em;
   white-space: nowrap}
@@ -3404,14 +3407,14 @@ main.kabuk {
    kuraliyla karismiyor. */
 .uyelik-hata {
   margin: 0; padding: 10px var(--b-3);
-  border-left: 3px solid var(--azalis); border-radius: 0 var(--r-kucuk) var(--r-kucuk) 0;
+  border-left: 3px solid var(--uyari); border-radius: 0 var(--r-kucuk) var(--r-kucuk) 0;
   background: var(--azalis-zar);
-  color: var(--azalis); font-size: var(--p-m)}
+  color: var(--uyari); font-size: var(--p-m)}
 .uyelik-mesaj {
   margin: 0 0 var(--b-4); padding: 10px var(--b-3);
   border-left: 3px solid var(--vurgu); border-radius: 0 var(--r-kucuk) var(--r-kucuk) 0;
   background: var(--panel-2); font-size: var(--p-m)}
-.uyelik-mesaj.iyi { border-left-color: var(--artis)}
+.uyelik-mesaj.iyi { border-left-color: var(--vurgu)}
 .uyelik-mesaj.uyari { border-left-color: var(--uyari)}
 
 .uyelik-not {
@@ -3700,8 +3703,8 @@ main.kabuk {
 /* Kaydetme durumu. Renk TEK BASINA anlam tasimiyor -- metin zaten
    ne oldugunu yaziyor; renk yalnizca onu pekistiriyor. */
 .panel-durum { font-size: var(--p-m); color: var(--yazi-2)}
-.panel-durum-tamam { color: var(--artis)}
-.panel-durum-hata { color: var(--azalis)}
+.panel-durum-tamam { color: var(--vurgu)}
+.panel-durum-hata { color: var(--uyari)}
 
 .panel-liste { display: flex; flex-direction: column; gap: var(--b-3)}
 .panel-liste h3 { margin: var(--b-3) 0 2px; font-size: var(--p-ml)}
@@ -3951,15 +3954,15 @@ main.kabuk {
    Yeni bir tur eklendiginde buraya bir satir gerekiyor;
    `site/test_stil.py` veritabanindaki her turu burada ariyor. */
 .etiket-kurum    { border-left-color: var(--vurgu)}
-.etiket-gosterge { border-left-color: var(--artis)}
-.etiket-emtia    { border-left-color: var(--uyari)}
+.etiket-gosterge { border-left-color: var(--t-makro)}
+.etiket-emtia    { border-left-color: var(--t-emtia)}
 .etiket-ulke     { border-left-color: var(--yazi-3)}
 .etiket-piyasa   { border-left-color: var(--vurgu-koyu)}
-.etiket-sektor   { border-left-color: var(--uyari)}
-.etiket-kisi     { border-left-color: var(--azalis)}
+.etiket-sektor   { border-left-color: var(--t-sektor)}
+.etiket-kisi     { border-left-color: var(--t-jeopolitik)}
 .etiket-endeks   { border-left-color: var(--vurgu-koyu)}
-.etiket-kur      { border-left-color: var(--uyari)}
-.etiket-oran     { border-left-color: var(--artis)}
+.etiket-kur      { border-left-color: var(--t-piyasa)}
+.etiket-oran     { border-left-color: var(--t-duzenleme)}
 .etiket-politika { border-left-color: var(--yazi-3)}
 
 /* Varlik arsiv sayfasi. */
@@ -4277,8 +4280,8 @@ table td, table th, time, .tarih {
 .senaryo-sonuclanma {
   padding: 1px var(--b-2); border-radius: 999px; font-weight: 700;
   border: 1px solid var(--cizgi-parlak)}
-.senaryo-sonuclanma.olumlu  { color: var(--artis); border-color: var(--artis)}
-.senaryo-sonuclanma.olumsuz { color: var(--azalis); border-color: var(--azalis)}
+.senaryo-sonuclanma.olumlu  { color: var(--vurgu); border-color: var(--vurgu)}
+.senaryo-sonuclanma.olumsuz { color: var(--uyari); border-color: var(--uyari)}
 .senaryo-sonuclanma.notr    { color: var(--yazi-3)}
 
 /* Panelde capa bilgisi -- hangi habere yazildigi. */
@@ -4700,7 +4703,7 @@ table td, table th, time, .tarih {
 /* Kritik rozet. Bu etiket ARTIK SECICI: yalnizca kritik katman
    aliyor. Her habere yapistigi surumde hicbir seye yapismiyordu. */
 .rozet-kritik {
-  background: var(--azalis); color: #fff; font-weight: 800;
+  background: var(--uyari); color: #fff; font-weight: 800;
   letter-spacing: 0.04em; text-transform: uppercase; font-size: var(--p-xs)}
 
 /* --- KATMAN 1: canli akis ----------------------------------------- */
@@ -4722,7 +4725,7 @@ table td, table th, time, .tarih {
   align-items: center; gap: var(--b-2); letter-spacing: 0.01em}
 .akis-nokta {
   width: 8px; height: 8px; border-radius: 50%;
-  background: var(--artis); flex: none;
+  background: var(--vurgu); flex: none;
   box-shadow: 0 0 0 0 var(--nabiz);
   animation: akis-nabiz 2.4s ease-out infinite}
 @keyframes akis-nabiz {
@@ -5089,8 +5092,8 @@ a.akis-baslik:hover { color: var(--vurgu); text-decoration: none}
   background: var(--panel); margin: 10px 0; overflow: hidden}
 /* Onem sol seritte: uc yildizli veri ile rutin yayin ayni agirlikta
    gorunmemeli. */
-.takvim-oge.onem-3 { border-left: 4px solid var(--azalis)}
-.takvim-oge.onem-2 { border-left: 4px solid var(--uyari)}
+.takvim-oge.onem-3 { border-left: 4px solid var(--vurgu)}
+.takvim-oge.onem-2 { border-left: 4px solid var(--vurgu-zar-2)}
 /* onem-1 SU AN BASILMIYOR: `TAKVIM_ONEM_ESIGI = 2` bir yildizli
    yayinlari suzuyor. Esik bir AYAR -- dusurulurse bu kural gerekir,
    yoksa seritsiz oge cikar. Silinmeyecek. */
@@ -5169,7 +5172,7 @@ a.akis-baslik:hover { color: var(--vurgu); text-decoration: none}
 .ds-yeni {
   font-size: var(--p-xs); font-weight: 700; padding: var(--b-1) 10px;
   border-radius: 999px; background: var(--artis-zar);
-  color: var(--artis); border: 1px solid var(--artis)}
+  color: var(--vurgu); border: 1px solid var(--vurgu)}
 
 .ds-liste { list-style: none; padding: 0; margin: 0; position: relative}
 /* Dikey cizgi: adimlarin BIR ZINCIR oldugunu tek bakista anlatiyor.
