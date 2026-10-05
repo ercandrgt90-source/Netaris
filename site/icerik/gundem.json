@@ -1,5 +1,5 @@
 {
-  "guncelleme": "2026-10-04",
+  "guncelleme": "2026-10-05",
   "kaynaklar": [
     "AA",
     "BloombergHT",
@@ -33,6 +33,90 @@
   "yorumlanan": 32,
   "haberler": [
     {
+      "baslik": "ECONDAT 2026 Güz Toplantısında Vali Yardımcısı UCHİDA'NIN Açılış Konuşmaları (Yapay Zeka, Büyük Veri ve Para Politikası)",
+      "baslik_kaynak": "Opening Remarks by Deputy Governor UCHIDA at the ECONDAT 2026 Fall Meeting (AI, Big Data, and Monetary Policy)",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": false,
+      "bolge": "DUNYA",
+      "adres": "http://www.boj.or.jp/en/about/press/koen_2026/ko261005a.htm",
+      "kurum": "BoJ",
+      "kurum_tam": "Japonya Merkez Bankası",
+      "konu": "Para politikası",
+      "tarih": "2026-10-05",
+      "tarih_gorunur": "5 Ekim 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/para-politikasi-12-2ca29aaf.jpg",
+      "foto_atif": "Kidfly182 · CC-BY-4.0"
+    },
+    {
+      "baslik": "8. Makroekonomide Geleneksel Olmayan Veri, Makine Öğrenimi ve Doğal Dil İşleme Konferansı (ECONDAT 2026 Güz Toplantısı)",
+      "baslik_kaynak": "8th Conference on Nontraditional Data, Machine Learning, and Natural Language Processing in Macroeconomics (ECONDAT 2026 Fall Meeting)",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": false,
+      "bolge": "DUNYA",
+      "adres": "http://www.boj.or.jp/en/research/conf/conf2610a.htm",
+      "kurum": "BoJ",
+      "kurum_tam": "Japonya Merkez Bankası",
+      "konu": "Para politikası",
+      "tarih": "2026-10-05",
+      "tarih_gorunur": "5 Ekim 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/para-politikasi-7-d50cfe6c.jpg",
+      "foto_atif": "Infrogmation of New Orleans · CC-BY-SA-4.0"
+    },
+    {
+      "baslik": "Cari Hesap Bakiyelerindeki Değişimin Kaynakları (Ekim Ayı Projeksiyonları)",
+      "baslik_kaynak": "Sources of Changes in Current Account Balances (Projections for Oct.)",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": false,
+      "bolge": "DUNYA",
+      "adres": "http://www.boj.or.jp/en/statistics/boj/fm/juqp/juqp2610.xlsx",
+      "kurum": "BoJ",
+      "kurum_tam": "Japonya Merkez Bankası",
+      "konu": "Para politikası",
+      "tarih": "2026-10-05",
+      "tarih_gorunur": "5 Ekim 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/para-politikasi-11-fd54475f.jpg",
+      "foto_atif": "Innotata · CC-BY-SA-3.0"
+    },
+    {
+      "baslik": "İrlanda S&P Global Eylül hizmetleri PMI, Ağustos ayında 55,4'e karşı 54,1' de",
+      "baslik_kaynak": "Ireland S&P Global September services PMI at 54.1 versus 55.4 in August",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9791013/Ireland-SP-Global-September-services-PMI-at-541-versus-554-in-August.aspx",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Borsa",
+      "tarih": "2026-10-05",
+      "tarih_gorunur": "5 Ekim 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/borsa-9-78cc676a.jpg",
+      "foto_atif": "Syced · CC0"
+    },
+    {
       "baslik": "İran'dan gelen saldırı tehditlerinin ardından ABD B -1 bombardıman uçakları İngiltere üssünden tahliye edildi - Axios",
       "baslik_kaynak": "US B-1 bombers evacuated from UK base after attack threats from Iran - Axios",
       "ozet": "",
@@ -40,7 +124,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790995/US-B-1-bombers-evacuated-from-UK-base-after-attack-threats-from-Iran---Axios.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9790995/US-B-1-bombers-evacuated-from-UK-base-after-attack-threats-from-Iran---Axios.aspx",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -50,8 +134,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-7-0e2a9249.jpg",
-      "foto_atif": "Myotus · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-16-dfb346f6.jpg",
+      "foto_atif": "Stephen Craven · CC-BY-SA-2.0"
     },
     {
       "baslik": "Avustralya Kompozit PMI Finali: 51,30 — önceki 50,80",
@@ -61,7 +145,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790989/Australian-Composite-PMI-Final-Actual-513-Forecast---Previous-508.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9790989/Australian-Composite-PMI-Final-Actual-513-Forecast---Previous-508.aspx",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Borsa",
@@ -76,8 +160,8 @@
         "Korelasyon: hisse ile tahvil arasındaki ilişkinin işareti portföy riskinin nasıl dağıldığını değiştirir."
       ],
       "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/borsa-24-b47c4be0.jpg",
-      "foto_atif": "User:A,Ocram · PDM"
+      "foto": "/statik/foto/borsa-21-e2f22d70.jpg",
+      "foto_atif": "William Iven firmbee · CC0"
     },
     {
       "baslik": "Eski SEC patronu AI Czar'ı yaptı, Bitcoin bu döngüde 600 bin $'a ulaşabilir: Hodler's Digest",
@@ -181,7 +265,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790965/Ex-Anthropic-researcher-Jacob-Coxon-to-testify-at-NYC-hearing-on-AI.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9790965/Ex-Anthropic-researcher-Jacob-Coxon-to-testify-at-NYC-hearing-on-AI.aspx",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -191,8 +275,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-10-72a9566a.jpg",
-      "foto_atif": "Larry D. Moore · CC-BY-4.0"
+      "foto": "/statik/foto/sirket-haberleri-9-c71a9b17.jpg",
+      "foto_atif": "Dietmar Rabich · CC-BY-SA-4.0"
     },
     {
       "baslik": "Avusturya Şansölye Yardımcısı Andreas Babler: Maliye Bakanı Markus Marterbauer gelecek yılın başında başbakan yardımcılığını devralacak",
@@ -202,7 +286,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790950/Austrian-Vice-Chancellor-Andreas-Babler-Finance-Minister-Markus-Marterbauer-to-succeed-him-as-vice-chancellor-at-start-of-next-year.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9790950/Austrian-Vice-Chancellor-Andreas-Babler-Finance-Minister-Markus-Marterbauer-to-succeed-him-as-vice-chancellor-at-start-of-next-year.aspx",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -212,8 +296,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-7-8b52fc2e.jpg",
-      "foto_atif": "DXR · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-15-c1626940.jpg",
+      "foto_atif": "Gkbediako · CC-BY-SA-4.0"
     },
     {
       "baslik": "UkMto: mürettebat güvenli, çevresel etki bildirilmedi",
@@ -223,7 +307,28 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790945/UkMto-crew-safe-no-environmental-impact-reported.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9790945/UkMto-crew-safe-no-environmental-impact-reported.aspx",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Şirket haberleri",
+      "tarih": "2026-10-04",
+      "tarih_gorunur": "4 Ekim 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/sirket-haberleri-17-a6dd0c61.jpg",
+      "foto_atif": "Stephen Craven · CC-BY-SA-2.0"
+    },
+    {
+      "baslik": "UKMTO: Tanker, geminin yakınında birkaç patlama olduğunu bildirdi",
+      "baslik_kaynak": "UKMTO: tanker reports several explosions near vessel",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9790944/UKMTO-tanker-reports-several-explosions-near-vessel.aspx",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -237,27 +342,6 @@
       "foto_atif": "Stephen Craven · CC-BY-SA-2.0"
     },
     {
-      "baslik": "UKMTO: Tanker, geminin yakınında birkaç patlama olduğunu bildirdi",
-      "baslik_kaynak": "UKMTO: tanker reports several explosions near vessel",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790944/UKMTO-tanker-reports-several-explosions-near-vessel.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Şirket haberleri",
-      "tarih": "2026-10-04",
-      "tarih_gorunur": "4 Ekim 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-18-3ea88e13.jpg",
-      "foto_atif": "Basile Morin · CC-BY-SA-4.0"
-    },
-    {
       "baslik": "UKMTO: Yemen, Al Mukha'nın 60 nm güneyindeki olayı bildirdi",
       "baslik_kaynak": "UKMTO: reports incident 60 nm south of Al Mukha, Yemen",
       "ozet": "",
@@ -265,7 +349,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790943/UKMTO-reports-incident-60-nm-south-of-Al-Mukha-Yemen.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9790943/UKMTO-reports-incident-60-nm-south-of-Al-Mukha-Yemen.aspx",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -275,8 +359,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-8-9a709a75.jpg",
-      "foto_atif": "Sixflashphoto · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-17-a6dd0c61.jpg",
+      "foto_atif": "Stephen Craven · CC-BY-SA-2.0"
     },
     {
       "baslik": "Kısmi ön sonuçlar, Bosna'nın etnik gruplar arası üçlü cumhurbaşkanlığı seçimlerine bir solcu, iki milliyetçi yarışmacının liderlik ettiğini gösteriyor",
@@ -286,7 +370,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790935/One-leftist-two-nationalist-contenders-lead-election-for-Bosnias-inter-ethnic-tripartite-presidency-partial-preliminary-results-show.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9790935/One-leftist-two-nationalist-contenders-lead-election-for-Bosnias-inter-ethnic-tripartite-presidency-partial-preliminary-results-show.aspx",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -296,8 +380,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-7-8b52fc2e.jpg",
-      "foto_atif": "DXR · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-8-ed7b45c9.jpg",
+      "foto_atif": "Myotus · CC-BY-SA-4.0"
     },
     {
       "baslik": "İran petrol bakanı istifa etti: devlet medyası",
@@ -307,7 +391,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790919/Iran-oil-minister-steps-down-state-media.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9790919/Iran-oil-minister-steps-down-state-media.aspx",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Enerji",
@@ -317,8 +401,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enerji-13-96820bdd.jpg",
-      "foto_atif": "AyyanD · CC-BY-SA-4.0"
+      "foto": "/statik/foto/enerji-17-1a57ece0.jpg",
+      "foto_atif": "Colin Stepney · CC-BY-SA-4.0"
     },
     {
       "baslik": "Ukrayna ve Almanya, AB firmalarının Kiev'in gaz depolama tesisleriyle işbirliğini içeren Alman altyapısı aracılığıyla LNG tedarikini görüştü",
@@ -328,7 +412,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790861/Ukraine-Germany-discuss-LNG-supply-through-German-infrastructure-involving-EU-firms-in-cooperation-with-Kyivs-gas-storage-facilities.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9790861/Ukraine-Germany-discuss-LNG-supply-through-German-infrastructure-involving-EU-firms-in-cooperation-with-Kyivs-gas-storage-facilities.aspx",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Enerji",
@@ -338,8 +422,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enerji-14-d727b7f7.jpg",
-      "foto_atif": "Quintin Soloviev · CC-BY-4.0"
+      "foto": "/statik/foto/enerji-12-34dd93e8.jpg",
+      "foto_atif": "WClarke · CC-BY-SA-4.0"
     },
     {
       "baslik": "husi iddiasının hemen Suudi onayı yok",
@@ -349,7 +433,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790846/no-immediate-Saudi-confirmation-of-Houthi-claim.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9790846/no-immediate-Saudi-confirmation-of-Houthi-claim.aspx",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Jeopolitik",
@@ -364,8 +448,8 @@
         "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
       ],
       "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/jeopolitik-40-59a567ac.jpg",
-      "foto_atif": "Peter Griffin · CC0"
+      "foto": "/statik/foto/jeopolitik-15-ccd8ab8d.jpg",
+      "foto_atif": "usepagov · PDM"
     },
     {
       "baslik": "Yemen'in Husileri: Riyad ve Horais'teki Suudi Aramco tesislerine balistik füzeler ve insansız hava araçlarıyla yapılan saldırı büyük yangınlara neden oldu",
@@ -375,7 +459,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790845/Yemens-Houthis-Attack-on-Saudi-Aramco-sites-in-Riyadh-and-Khurais-with-ballistic-missiles-and-drones-causes-major-fires.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9790845/Yemens-Houthis-Attack-on-Saudi-Aramco-sites-in-Riyadh-and-Khurais-with-ballistic-missiles-and-drones-causes-major-fires.aspx",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Jeopolitik",
@@ -401,7 +485,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790840/Russias-Deputy-PM-Novak-russia-and-Saudi-Arabia-to-discuss-oil-market-and-2026-2027-outlook-on-October-12-in-Riyadh.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9790840/Russias-Deputy-PM-Novak-russia-and-Saudi-Arabia-to-discuss-oil-market-and-2026-2027-outlook-on-October-12-in-Riyadh.aspx",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Enerji",
@@ -411,8 +495,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enerji-15-f47dcf5c.jpg",
-      "foto_atif": "Sw257 · CC-BY-SA-4.0"
+      "foto": "/statik/foto/enerji-14-d727b7f7.jpg",
+      "foto_atif": "Quintin Soloviev · CC-BY-4.0"
     },
     {
       "baslik": "Rusya Başbakan Yardımcısı Novak: JMMC, arz açığını gerekçe göstererek küresel petrol piyasalarında önemli dalgalanmalar gözlemledi",
@@ -422,7 +506,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790839/Russias-deputy-PM-Novak-JMMC-observed-significant-fluctuations-in-global-oil-markets-citing-a-supply-shortfall.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9790839/Russias-deputy-PM-Novak-JMMC-observed-significant-fluctuations-in-global-oil-markets-citing-a-supply-shortfall.aspx",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Enerji",
@@ -432,8 +516,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enerji-13-96820bdd.jpg",
-      "foto_atif": "AyyanD · CC-BY-SA-4.0"
+      "foto": "/statik/foto/enerji-13-2cf47f9f.jpg",
+      "foto_atif": "Quintin Soloviev · CC-BY-4.0"
     },
     {
       "baslik": "Trump: John Coale, rehine işlerinden sorumlu yeni özel başkanlık elçisi olarak atandı",
@@ -443,7 +527,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790831/Trump-John-Coale-named-as-new-special-presidential-envoy-for-hostage-affairs.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9790831/Trump-John-Coale-named-as-new-special-presidential-envoy-for-hostage-affairs.aspx",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Jeopolitik",
@@ -458,8 +542,8 @@
         "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
       ],
       "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/jeopolitik-18-d6206fae.jpg",
-      "foto_atif": "United Nation · PDM"
+      "foto": "/statik/foto/jeopolitik-14-4ca6b4fe.jpg",
+      "foto_atif": "Bernard Gagnon · CC0"
     },
     {
       "baslik": "Yemen cumhurbaşkanlığı liderlik konseyi al - alimi başkanı: Askeri operasyonlar Husi kontrolündeki kalan toprakları geri almaya başladı",
@@ -469,7 +553,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790821/Head-of-Yemens-presidential-leadership-council-al-Alimi-military-operations-have-started-to-reclaim-remaining-Houthi-held-territory.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9790821/Head-of-Yemens-presidential-leadership-council-al-Alimi-military-operations-have-started-to-reclaim-remaining-Houthi-held-territory.aspx",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Jeopolitik",
@@ -495,7 +579,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790819/Germanys-Chancellor-Merz-preparing-winter-energy-support-package-of-about-350-million-euros-for-Ukraine.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9790819/Germanys-Chancellor-Merz-preparing-winter-energy-support-package-of-about-350-million-euros-for-Ukraine.aspx",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Enerji",
@@ -505,8 +589,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enerji-17-1a57ece0.jpg",
-      "foto_atif": "Colin Stepney · CC-BY-SA-4.0"
+      "foto": "/statik/foto/enerji-16-71b1ce54.jpg",
+      "foto_atif": "HdeK · CC-BY-SA-3.0"
     },
     {
       "baslik": "Almanya Başbakanı Merz: Rusya Ukraynalıların moralini bozmaya niyetli",
@@ -516,7 +600,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790817/Germanys-Chancellor-Merz-Russia-intends-to-shatter-morale-of-Ukrainians.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9790817/Germanys-Chancellor-Merz-Russia-intends-to-shatter-morale-of-Ukrainians.aspx",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -526,8 +610,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-7-8b52fc2e.jpg",
-      "foto_atif": "DXR · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-12-22856bbd.jpg",
+      "foto_atif": "Diliff · CC-BY-SA-3.0"
     },
     {
       "baslik": "Almanya Başbakanı Merz: Hükümetin zorluklarla başa çıkamaması durumunda Avrupa için ölçülemez sonuçlar, hükümeti istikrarlı tutmak için her şeyi yapacak",
@@ -537,7 +621,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790815/Germanys-Chancellor-Merz-immeasurable-consequences-for-Europe-if-government-fails-to-meet-challenges-will-do-everything-to-keep-government-stable.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9790815/Germanys-Chancellor-Merz-immeasurable-consequences-for-Europe-if-government-fails-to-meet-challenges-will-do-everything-to-keep-government-stable.aspx",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -547,8 +631,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-14-ebd53a63.jpg",
-      "foto_atif": "Rodhullandemu · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-7-0e2a9249.jpg",
+      "foto_atif": "Myotus · CC-BY-SA-4.0"
     },
     {
       "baslik": "Almanya Başbakanı Merz, Rusya'yı barış görüşmelerine katılmaya çağırdı",
@@ -558,7 +642,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790814/Germanys-Chancellor-Merz-urges-Russia-to-join-peace-talks.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9790814/Germanys-Chancellor-Merz-urges-Russia-to-join-peace-talks.aspx",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Jeopolitik",
@@ -584,7 +668,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790813/Germanys-Chancellor-Merz-undeterred-by-assault-during-our-visit.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9790813/Germanys-Chancellor-Merz-undeterred-by-assault-during-our-visit.aspx",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -594,8 +678,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-9-0b526049.jpg",
-      "foto_atif": "Moheen Reeyad · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-8-ed7b45c9.jpg",
+      "foto_atif": "Myotus · CC-BY-SA-4.0"
     },
     {
       "baslik": "OPEC+, Pazar günkü toplantıda petrol üretim kotalarını Kasım ayı için değişmeden tuttu: açıklama",
@@ -605,7 +689,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790797/OPEC-keeps-oil-output-quotas-unchanged-for-November-at-Sunday-meeting-statement.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9790797/OPEC-keeps-oil-output-quotas-unchanged-for-November-at-Sunday-meeting-statement.aspx",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Enerji",
@@ -615,8 +699,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enerji-12-87d7f650.jpg",
-      "foto_atif": "AliAbuRas · CC-BY-SA-4.0"
+      "foto": "/statik/foto/enerji-13-2cf47f9f.jpg",
+      "foto_atif": "Quintin Soloviev · CC-BY-4.0"
     },
     {
       "baslik": "İran ordusu sözcüsü: ABD'yle savaştan sonra Tahran füze menzilini artırmayı planlıyor",
@@ -626,7 +710,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790774/Irans-army-spokesperson-After-war-with-US-Tehran-plans-to-enhance-missile-range---Fars-News.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9790774/Irans-army-spokesperson-After-war-with-US-Tehran-plans-to-enhance-missile-range---Fars-News.aspx",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Jeopolitik",
@@ -641,8 +725,8 @@
         "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
       ],
       "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/jeopolitik-18-d6206fae.jpg",
-      "foto_atif": "United Nation · PDM"
+      "foto": "/statik/foto/jeopolitik-40-59a567ac.jpg",
+      "foto_atif": "Peter Griffin · CC0"
     },
     {
       "baslik": "Zelenskiy'in açıklamalarının ardından Rusya, Kiev ve diğer Ukrayna bölgelerine yönelik saldırıları artıracak: Tass, Rusya savunma bakanlığına atıfta bulundu",
@@ -652,7 +736,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790768/Russia-to-ramp-up-strikes-on-Kyiv-and-other-Ukraine-regions-following-Zelenskiy-remarks-Tass-cites-Russia-defence-ministry.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9790768/Russia-to-ramp-up-strikes-on-Kyiv-and-other-Ukraine-regions-following-Zelenskiy-remarks-Tass-cites-Russia-defence-ministry.aspx",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Jeopolitik",
@@ -667,8 +751,8 @@
         "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
       ],
       "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/jeopolitik-40-59a567ac.jpg",
-      "foto_atif": "Peter Griffin · CC0"
+      "foto": "/statik/foto/jeopolitik-36-7cb6152c.jpg",
+      "foto_atif": "Captain Albert E. Theberge, NOAA Corps (ret.) · PDM"
     },
     {
       "baslik": "İran dışişleri bakanlığı sözcüsü: Tahran, ABD'nin 7 günlük plana tepkisine arabulucular aracılığıyla pozisyonlarını netleştirdi",
@@ -678,59 +762,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790754/Irans-foreign-ministry-spokesperson-Tehran-has-clarified-its-positions-via-mediators-to-US-response-to-7-day-plan.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Jeopolitik",
-      "tarih": "2026-10-04",
-      "tarih_gorunur": "4 Ekim 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
-      "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
-        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
-        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/jeopolitik-40-59a567ac.jpg",
-      "foto_atif": "Peter Griffin · CC0"
-    },
-    {
-      "baslik": "İran dışişleri bakanlığı sözcüsü: ABD ile hala paylaşılması gereken bazı ayrıntılar var",
-      "baslik_kaynak": "Iran foreign ministry spokesperson: some further details still to be shared with U.S.",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790747/Iran-foreign-ministry-spokesperson-some-further-details-still-to-be-shared-with-US.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Jeopolitik",
-      "tarih": "2026-10-04",
-      "tarih_gorunur": "4 Ekim 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
-      "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
-        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
-        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/jeopolitik-18-d6206fae.jpg",
-      "foto_atif": "United Nation · PDM"
-    },
-    {
-      "baslik": "İran dışişleri bakanı sözcüsü: UAEK müfettişlerinin dönüşü tartışılmadı",
-      "baslik_kaynak": "Iran foreign minister spokesman: return of IAEA inspectors not discussed",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790743/Iran-foreign-minister-spokesman-return-of-IAEA-inspectors-not-discussed.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9790754/Irans-foreign-ministry-spokesperson-Tehran-has-clarified-its-positions-via-mediators-to-US-response-to-7-day-plan.aspx",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Jeopolitik",
@@ -749,6 +781,58 @@
       "foto_atif": "Bernard Gagnon · CC0"
     },
     {
+      "baslik": "İran dışişleri bakanlığı sözcüsü: ABD ile hala paylaşılması gereken bazı ayrıntılar var",
+      "baslik_kaynak": "Iran foreign ministry spokesperson: some further details still to be shared with U.S.",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9790747/Iran-foreign-ministry-spokesperson-some-further-details-still-to-be-shared-with-US.aspx",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Jeopolitik",
+      "tarih": "2026-10-04",
+      "tarih_gorunur": "4 Ekim 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
+      "kanallar": [
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-14-4ca6b4fe.jpg",
+      "foto_atif": "Bernard Gagnon · CC0"
+    },
+    {
+      "baslik": "İran dışişleri bakanı sözcüsü: UAEK müfettişlerinin dönüşü tartışılmadı",
+      "baslik_kaynak": "Iran foreign minister spokesman: return of IAEA inspectors not discussed",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9790743/Iran-foreign-minister-spokesman-return-of-IAEA-inspectors-not-discussed.aspx",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Jeopolitik",
+      "tarih": "2026-10-04",
+      "tarih_gorunur": "4 Ekim 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
+      "kanallar": [
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-18-d6206fae.jpg",
+      "foto_atif": "United Nation · PDM"
+    },
+    {
       "baslik": "UKMTO: tanımlanamayan bir mermi tankere isabet etti, makine dairesi hasar gördü",
       "baslik_kaynak": "UKMTO: tanker hit by unidentified projectile, engine room damaged",
       "ozet": "",
@@ -756,7 +840,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790741/UKMTO-tanker-hit-by-unidentified-projectile-engine-room-damaged.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9790741/UKMTO-tanker-hit-by-unidentified-projectile-engine-room-damaged.aspx",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -766,8 +850,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-13-4ee7beec.jpg",
-      "foto_atif": "Humphrey Bolton · CC-BY-SA-2.0"
+      "foto": "/statik/foto/sirket-haberleri-9-0b526049.jpg",
+      "foto_atif": "Moheen Reeyad · CC-BY-SA-4.0"
     },
     {
       "baslik": "Delege, OPEC+' ın kasım ayında petrol üretim hedeflerini korumak için prensipte anlaşmaya vardığını söyledi",
@@ -777,7 +861,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790739/OPEC-reaches-agreement-in-principle-to-maintain-oil-output-targets-in-November-delegate-says.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9790739/OPEC-reaches-agreement-in-principle-to-maintain-oil-output-targets-in-November-delegate-says.aspx",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Enerji",
@@ -792,8 +876,8 @@
         "Enflasyon aktarımı: enerji maliyeti ulaştırma ve gıda üzerinden manşet enflasyona geçer; merkez bankaları çekirdek enflasyona daha çok bakar."
       ],
       "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/enerji-17-1a57ece0.jpg",
-      "foto_atif": "Colin Stepney · CC-BY-SA-4.0"
+      "foto": "/statik/foto/enerji-15-f47dcf5c.jpg",
+      "foto_atif": "Sw257 · CC-BY-SA-4.0"
     },
     {
       "baslik": "İran Meclis Başkanı Kalibaf: Hürmüz Boğazı Tahran'ın şartları yerine getirilene kadar yeniden açılmayacak, ABD daha fazla erteleyemez",
@@ -803,7 +887,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790725/Irans-parliament-speaker-Qalibaf-Strait-of-Hormuz-wont-reopen-until-Tehrans-conditions-met-US-can-no-longer-delay--Nournews.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9790725/Irans-parliament-speaker-Qalibaf-Strait-of-Hormuz-wont-reopen-until-Tehrans-conditions-met-US-can-no-longer-delay--Nournews.aspx",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Jeopolitik",
@@ -829,7 +913,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790712/German-Chancellor-Merz-arrives-in-Kyiv-Ukraine-needs-all-support-in-coming-weeks.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9790712/German-Chancellor-Merz-arrives-in-Kyiv-Ukraine-needs-all-support-in-coming-weeks.aspx",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -839,8 +923,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-7-0e2a9249.jpg",
-      "foto_atif": "Myotus · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-9-0b526049.jpg",
+      "foto_atif": "Moheen Reeyad · CC-BY-SA-4.0"
     },
     {
       "baslik": "Grenada hükümeti genel seçimleri 5 Kasım'a erteledi: resmi gazete",
@@ -850,7 +934,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790650/Grenadas-government-schedules-general-election-for-November-5-official-gazette.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9790650/Grenadas-government-schedules-general-election-for-November-5-official-gazette.aspx",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -860,8 +944,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-14-ebd53a63.jpg",
-      "foto_atif": "Rodhullandemu · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-11-5c2f88fc.jpg",
+      "foto_atif": "Bill Boaden · CC-BY-SA-2.0"
     },
     {
       "baslik": "Petroecuador: SOTE boru hattındaki operasyonları altı gün içinde yeniden başlatmak için çalışıyoruz - açıklama",
@@ -871,7 +955,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790621/Petroecuador-working-to-restart-operations-at-SOTE-pipeline-within-six-days---statement.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9790621/Petroecuador-working-to-restart-operations-at-SOTE-pipeline-within-six-days---statement.aspx",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -881,8 +965,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-9-c71a9b17.jpg",
-      "foto_atif": "Dietmar Rabich · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-10-72a9566a.jpg",
+      "foto_atif": "Larry D. Moore · CC-BY-4.0"
     },
     {
       "baslik": "Ulusal İstihbarat Direktörü Ofisi Başkanı Jay Clayton, WSJ'yi etkin bir şekilde Başkan Trump'ın al czar'ı yaparak gruba başkanlık edecek",
@@ -892,7 +976,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790614/Jay-Clayton-head-of-Office-of-the-Director-of-National-Intelligence-to-chair-group-effectively-making-him-President-Trumps-al-czar---WSJ.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9790614/Jay-Clayton-head-of-Office-of-the-Director-of-National-Intelligence-to-chair-group-effectively-making-him-President-Trumps-al-czar---WSJ.aspx",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Jeopolitik",
@@ -907,8 +991,8 @@
         "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
       ],
       "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/jeopolitik-15-ccd8ab8d.jpg",
-      "foto_atif": "usepagov · PDM"
+      "foto": "/statik/foto/jeopolitik-36-7cb6152c.jpg",
+      "foto_atif": "Captain Albert E. Theberge, NOAA Corps (ret.) · PDM"
     },
     {
       "baslik": "Beyaz Saray görev gücünün yapay zeka riskleri, fırsatları ve ABD hükümetinin sorumluluğu hakkında rapor hazırlamak için 120 günü var - WSJ",
@@ -918,7 +1002,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790611/White-House-task-force-has-120-days-to-prepare-report-on-AI-risks-opportunities-and-US-governments-responsibility---WSJ.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9790611/White-House-task-force-has-120-days-to-prepare-report-on-AI-risks-opportunities-and-US-governments-responsibility---WSJ.aspx",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Jeopolitik",
@@ -944,7 +1028,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790610/New-AI-group-to-outline-technology-risks-following-public-and-industry-worries-WSJ.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9790610/New-AI-group-to-outline-technology-risks-following-public-and-industry-worries-WSJ.aspx",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -954,8 +1038,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-8-9a709a75.jpg",
-      "foto_atif": "Sixflashphoto · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-10-72a9566a.jpg",
+      "foto_atif": "Larry D. Moore · CC-BY-4.0"
     },
     {
       "baslik": "Petroecuador, 1 Ekim'deki yangından sonra Sote boru hattındaki pompa istasyonunda mücbir sebep ilan etti",
@@ -965,7 +1049,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790606/Petroecuador-declares-force-majeure-at-pumping-station-in-Sote-pipeline-after-fire-on-Oct-1.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9790606/Petroecuador-declares-force-majeure-at-pumping-station-in-Sote-pipeline-after-fire-on-Oct-1.aspx",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -975,8 +1059,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-7-8b52fc2e.jpg",
-      "foto_atif": "DXR · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-14-ebd53a63.jpg",
+      "foto_atif": "Rodhullandemu · CC-BY-SA-4.0"
     },
     {
       "baslik": "ABD Dışişleri Bakanlığı: Etiyopya ve Eritre'yi azami itidal göstermeye, diyaloğu ve işbirliğini sürdürmeye şiddetle çağırıyoruz",
@@ -986,7 +1070,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790601/US-State-Dept-strongly-urge-Ethiopia-and-Eritrea-to-show-maximum-restraint-resume-dialogue-and-cooperation.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9790601/US-State-Dept-strongly-urge-Ethiopia-and-Eritrea-to-show-maximum-restraint-resume-dialogue-and-cooperation.aspx",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -1007,7 +1091,28 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790600/US-State-Dept-Urges-Ethiopia-and-Eritrea-to-respect-neighbors-sovereignty-and-territorial-integrity.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9790600/US-State-Dept-Urges-Ethiopia-and-Eritrea-to-respect-neighbors-sovereignty-and-territorial-integrity.aspx",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Şirket haberleri",
+      "tarih": "2026-10-04",
+      "tarih_gorunur": "4 Ekim 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/sirket-haberleri-7-8b52fc2e.jpg",
+      "foto_atif": "DXR · CC-BY-SA-4.0"
+    },
+    {
+      "baslik": "ABD Dışişleri Bakanlığı: Etiyopya ve Eritre arasındaki sınır ötesi gerilimlerin tüm bölgeyi etkileme riski artıyor",
+      "baslik_kaynak": "US State Dept: rising cross-border tensions between Ethiopia and Eritrea risk impacting entire region",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9790599/US-State-Dept-rising-cross-border-tensions-between-Ethiopia-and-Eritrea-risk-impacting-entire-region.aspx",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -1021,27 +1126,6 @@
       "foto_atif": "Humphrey Bolton · CC-BY-SA-2.0"
     },
     {
-      "baslik": "ABD Dışişleri Bakanlığı: Etiyopya ve Eritre arasındaki sınır ötesi gerilimlerin tüm bölgeyi etkileme riski artıyor",
-      "baslik_kaynak": "US State Dept: rising cross-border tensions between Ethiopia and Eritrea risk impacting entire region",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790599/US-State-Dept-rising-cross-border-tensions-between-Ethiopia-and-Eritrea-risk-impacting-entire-region.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Şirket haberleri",
-      "tarih": "2026-10-04",
-      "tarih_gorunur": "4 Ekim 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-14-ebd53a63.jpg",
-      "foto_atif": "Rodhullandemu · CC-BY-SA-4.0"
-    },
-    {
       "baslik": "Kuzey Kore: Kim Jong Un denetimli füze testi - KCNA",
       "baslik_kaynak": "North Korea: Kim Jong Un supervised missile test - KCNA",
       "ozet": "",
@@ -1049,7 +1133,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790597/North-Korea-Kim-Jong-Un-supervised-missile-test---KCNA.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9790597/North-Korea-Kim-Jong-Un-supervised-missile-test---KCNA.aspx",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Jeopolitik",
@@ -1064,8 +1148,8 @@
         "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
       ],
       "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/jeopolitik-36-7cb6152c.jpg",
-      "foto_atif": "Captain Albert E. Theberge, NOAA Corps (ret.) · PDM"
+      "foto": "/statik/foto/jeopolitik-14-4ca6b4fe.jpg",
+      "foto_atif": "Bernard Gagnon · CC0"
     },
     {
       "baslik": "Kuzey Kore, füzenin doğu kıyısındaki denizde 1000 km uzaklıktaki hedefi vurduğunu söyledi",
@@ -1075,7 +1159,33 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790596/North-Korea-says-missile-struck-target-1000-km-away-in-sea-off-eastern-coast.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9790596/North-Korea-says-missile-struck-target-1000-km-away-in-sea-off-eastern-coast.aspx",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Jeopolitik",
+      "tarih": "2026-10-04",
+      "tarih_gorunur": "4 Ekim 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
+      "kanallar": [
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-14-4ca6b4fe.jpg",
+      "foto_atif": "Bernard Gagnon · CC0"
+    },
+    {
+      "baslik": "Kuzey Kore 3 Ekim'de orta menzilli stratejik füze fırlatma tatbikatı gerçekleştirdi: KCNA",
+      "baslik_kaynak": "North Korea conducts intermediate-range strategic missile launch drill on Oct. 3: KCNA",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9790595/North-Korea-conducts-intermediate-range-strategic-missile-launch-drill-on-Oct-3-KCNA.aspx",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Jeopolitik",
@@ -1092,32 +1202,6 @@
       "kanal_basligi": "Hangi piyasaları etkiler?",
       "foto": "/statik/foto/jeopolitik-40-59a567ac.jpg",
       "foto_atif": "Peter Griffin · CC0"
-    },
-    {
-      "baslik": "Kuzey Kore 3 Ekim'de orta menzilli stratejik füze fırlatma tatbikatı gerçekleştirdi: KCNA",
-      "baslik_kaynak": "North Korea conducts intermediate-range strategic missile launch drill on Oct. 3: KCNA",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790595/North-Korea-conducts-intermediate-range-strategic-missile-launch-drill-on-Oct-3-KCNA.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Jeopolitik",
-      "tarih": "2026-10-04",
-      "tarih_gorunur": "4 Ekim 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
-      "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
-        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
-        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/jeopolitik-15-ccd8ab8d.jpg",
-      "foto_atif": "usepagov · PDM"
     },
     {
       "baslik": "Gelecek ay bir seçim var: Kripto Devleti",
@@ -1733,7 +1817,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790570/Iraqi-oil-tankers-company-seeking-to-acquire-specialised-crude-tankers-to-grow-fleet.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9790570/Iraqi-oil-tankers-company-seeking-to-acquire-specialised-crude-tankers-to-grow-fleet.aspx",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Enerji",
@@ -1743,8 +1827,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enerji-13-2cf47f9f.jpg",
-      "foto_atif": "Quintin Soloviev · CC-BY-4.0"
+      "foto": "/statik/foto/enerji-19-7f38d155.jpg",
+      "foto_atif": "Calistemon · CC-BY-SA-4.0"
     },
     {
       "baslik": "Irak: hamle, devlet petrol pazarlamacısı Somo'ya daha fazla satış esnekliği sağlamayı amaçlıyor",
@@ -1754,7 +1838,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790569/Iraq-move-aims-to-give-state-oil-marketer-Somo-greater-sales-flexibility.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9790569/Iraq-move-aims-to-give-state-oil-marketer-Somo-greater-sales-flexibility.aspx",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Enerji",
@@ -1775,7 +1859,28 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790568/Iraqi-oil-tankers-company-shipment-is-first-of-its-kind-in-decades---statement.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9790568/Iraqi-oil-tankers-company-shipment-is-first-of-its-kind-in-decades---statement.aspx",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Enerji",
+      "tarih": "2026-10-03",
+      "tarih_gorunur": "3 Ekim 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/enerji-11-a5cdd29f.jpg",
+      "foto_atif": "W.carter · CC0"
+    },
+    {
+      "baslik": "Irak: Hürmüz Boğazı'nı geçen VLCC'de 2 milyon varil ham petrol sevk edildi - açıklama",
+      "baslik_kaynak": "Iraq: shipped 2 million barrels of crude on VLCC past Strait of Hormuz - statement",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9790567/Iraq-shipped-2-million-barrels-of-crude-on-VLCC-past-Strait-of-Hormuz---statement.aspx",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Enerji",
@@ -1789,27 +1894,6 @@
       "foto_atif": "Quintin Soloviev · CC-BY-4.0"
     },
     {
-      "baslik": "Irak: Hürmüz Boğazı'nı geçen VLCC'de 2 milyon varil ham petrol sevk edildi - açıklama",
-      "baslik_kaynak": "Iraq: shipped 2 million barrels of crude on VLCC past Strait of Hormuz - statement",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790567/Iraq-shipped-2-million-barrels-of-crude-on-VLCC-past-Strait-of-Hormuz---statement.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Enerji",
-      "tarih": "2026-10-03",
-      "tarih_gorunur": "3 Ekim 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enerji-13-96820bdd.jpg",
-      "foto_atif": "AyyanD · CC-BY-SA-4.0"
-    },
-    {
       "baslik": "Husilerin Riyad'daki Aramco tesisine saldırdığı iddiasına dair Suudi Arabistan'dan acil bir teyit gelmedi",
       "baslik_kaynak": "No immediate Saudi confirmation of Houthis' claim on attacking Aramco facility in Riyadh",
       "ozet": "",
@@ -1817,7 +1901,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790566/No-immediate-Saudi-confirmation-of-Houthis-claim-on-attacking-Aramco-facility-in-Riyadh.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9790566/No-immediate-Saudi-confirmation-of-Houthis-claim-on-attacking-Aramco-facility-in-Riyadh.aspx",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Jeopolitik",
@@ -1832,8 +1916,8 @@
         "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
       ],
       "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/jeopolitik-14-4ca6b4fe.jpg",
-      "foto_atif": "Bernard Gagnon · CC0"
+      "foto": "/statik/foto/jeopolitik-15-ccd8ab8d.jpg",
+      "foto_atif": "usepagov · PDM"
     },
     {
       "baslik": "Irak devlet haber ajansı: İran ile Iraklı Necef arasındaki uçuşlar pazar günü yeniden başlayacak",
@@ -1843,7 +1927,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790557/Flights-between-Iran-and-Iraqs-Najaf-to-restart-on-Sunday-Iraqi-state-news-agency.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9790557/Flights-between-Iran-and-Iraqs-Najaf-to-restart-on-Sunday-Iraqi-state-news-agency.aspx",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -1864,7 +1948,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790546/India-government-India-denies-accusations-about-incident-in-Ferozepur-sector-Punjab-along-international-border-on-2-October-2026.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9790546/India-government-India-denies-accusations-about-incident-in-Ferozepur-sector-Punjab-along-international-border-on-2-October-2026.aspx",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -1874,8 +1958,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-8-ed7b45c9.jpg",
-      "foto_atif": "Myotus · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-11-5c2f88fc.jpg",
+      "foto_atif": "Bill Boaden · CC-BY-SA-2.0"
     },
     {
       "baslik": "Hindistan hükümeti: Pakistan dışişleri bakanlığı yüksek komisyonu maslahatgüzarlarını celp ediyor",
@@ -1885,7 +1969,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790545/India-govt-ministry-of-external-affairs-summons-charge-daffaires-of-Pakistan-high-commission.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9790545/India-govt-ministry-of-external-affairs-summons-charge-daffaires-of-Pakistan-high-commission.aspx",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -1895,8 +1979,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-17-a6dd0c61.jpg",
-      "foto_atif": "Stephen Craven · CC-BY-SA-2.0"
+      "foto": "/statik/foto/sirket-haberleri-13-4ee7beec.jpg",
+      "foto_atif": "Humphrey Bolton · CC-BY-SA-2.0"
     },
     {
       "baslik": "Zelenskiy, Ukrayna'nın yerli FP -9 balistik füzesinin sonbahara kadar üretilmesinin beklendiğini söyledi",
@@ -1906,7 +1990,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790543/Zelenskiy-says-Ukraines-domestically-made-FP-9-ballistic-missile-expected-by-autumn.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9790543/Zelenskiy-says-Ukraines-domestically-made-FP-9-ballistic-missile-expected-by-autumn.aspx",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Jeopolitik",
@@ -1932,7 +2016,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790542/Zelenskiy-Ukraine-stabilised-situation-on-eastern-Donetsk-front-operation-Vivaldi-successful-and-ongoing.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9790542/Zelenskiy-Ukraine-stabilised-situation-on-eastern-Donetsk-front-operation-Vivaldi-successful-and-ongoing.aspx",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -1953,7 +2037,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790541/Zelenskiy-Ukraine-heavily-depends-on-aviation-to-shoot-down-jet-powered-Russian-drones-requires-20-mm-ammunition.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9790541/Zelenskiy-Ukraine-heavily-depends-on-aviation-to-shoot-down-jet-powered-Russian-drones-requires-20-mm-ammunition.aspx",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -1974,7 +2058,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790540/Zelenskiy-Ukraine-will-not-strike-civilian-Russian-targets-source-says-in-interview.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9790540/Zelenskiy-Ukraine-will-not-strike-civilian-Russian-targets-source-says-in-interview.aspx",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -1984,8 +2068,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-15-c1626940.jpg",
-      "foto_atif": "Gkbediako · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-18-3ea88e13.jpg",
+      "foto_atif": "Basile Morin · CC-BY-SA-4.0"
     },
     {
       "baslik": "Zelenskiy: Rusya'nın Avrupa'ya yönelik hibrit saldırıları bölünmeyi ve Ukrayna'nın desteğini kesmeyi hedefliyor",
@@ -1995,7 +2079,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790539/Zelenskiy-Russias-hybrid-attacks-on-Europe-aim-to-split-cut-backing-for-Ukraine.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9790539/Zelenskiy-Russias-hybrid-attacks-on-Europe-aim-to-split-cut-backing-for-Ukraine.aspx",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -2016,7 +2100,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790538/President-Zelenskiy-Ukraine-will-respond-to-intensified-Russian-strikes-targeting-oil-refineries.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9790538/President-Zelenskiy-Ukraine-will-respond-to-intensified-Russian-strikes-targeting-oil-refineries.aspx",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Enerji",
@@ -2026,8 +2110,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enerji-13-96820bdd.jpg",
-      "foto_atif": "AyyanD · CC-BY-SA-4.0"
+      "foto": "/statik/foto/enerji-12-87d7f650.jpg",
+      "foto_atif": "AliAbuRas · CC-BY-SA-4.0"
     },
     {
       "baslik": "Zelenskiy: Rusya'nın Ukrayna şehirlerine yönelik saldırıları, Moskova'nın savaş alanı hedeflerine ulaşamaması üzerine gerçekleşti",
@@ -2037,7 +2121,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790537/Zelenskiy-Russias-strikes-on-Ukrainian-cities-occur-as-Moscow-fails-to-meet-battlefield-objectives.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9790537/Zelenskiy-Russias-strikes-on-Ukrainian-cities-occur-as-Moscow-fails-to-meet-battlefield-objectives.aspx",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -2047,8 +2131,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-10-72a9566a.jpg",
-      "foto_atif": "Larry D. Moore · CC-BY-4.0"
+      "foto": "/statik/foto/sirket-haberleri-15-c1626940.jpg",
+      "foto_atif": "Gkbediako · CC-BY-SA-4.0"
     },
     {
       "baslik": "Ukrayna bombardımanı Zaporijya nükleer santralindeki harici güç kaynağı ekipmanına zarar verdi: İstasyon yönetimi durumun kontrol altında olduğunu söyledi",
@@ -2058,7 +2142,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790530/Ukrainian-shelling-damages-external-power-supply-equipment-at-Zaporizhzhia-nuclear-power-plant-station-management-says-situation-under-control.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9790530/Ukrainian-shelling-damages-external-power-supply-equipment-at-Zaporizhzhia-nuclear-power-plant-station-management-says-situation-under-control.aspx",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Jeopolitik",
@@ -2073,29 +2157,8 @@
         "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
       ],
       "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/jeopolitik-18-d6206fae.jpg",
-      "foto_atif": "United Nation · PDM"
-    },
-    {
-      "baslik": "Rusya, Ukrayna'nın Odesa limanında kargo gemisine çarptı: Ifax",
-      "baslik_kaynak": "Russia hits cargo vessel in Ukraine's Odesa port: Ifax",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9790517/Russia-hits-cargo-vessel-in-Ukraines-Odesa-port-Ifax.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Şirket haberleri",
-      "tarih": "2026-10-03",
-      "tarih_gorunur": "3 Ekim 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-11-5c2f88fc.jpg",
-      "foto_atif": "Bill Boaden · CC-BY-SA-2.0"
+      "foto": "/statik/foto/jeopolitik-15-ccd8ab8d.jpg",
+      "foto_atif": "usepagov · PDM"
     },
     {
       "baslik": "Aylık Stok Faiz ve Kâr Payı İstatistikleri",
@@ -2647,69 +2710,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/duzenleme-8-5e8a2716.jpg",
       "foto_atif": "Mrs Puff · CC-BY-SA-2.0"
-    },
-    {
-      "baslik": "ABD'nin propan ihracatı 2026'nın ilk yarısında rekorlara ulaştı",
-      "baslik_kaynak": "U.S. exports of propane reached records in the first half of 2026",
-      "ozet": "U.S. propane exports increased to 2 million barrels per day (b/d) in the first half of 2026, 11% more than during the same period in 2025. Increased U.S. propane production and changing trade flows, particularly increased exports to India and other countries in South Asia, drove propane exports to a record high of 2.1…",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": false,
-      "bolge": "DUNYA",
-      "adres": "https://www.eia.gov/todayinenergy/detail.php?id=68244",
-      "kurum": "EIA",
-      "kurum_tam": "ABD Enerji Bilgi İdaresi",
-      "konu": "Dış ticaret",
-      "tarih": "2026-10-01",
-      "tarih_gorunur": "1 Ekim 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/dis-ticaret-7-912e1aa5.jpg",
-      "foto_atif": "Olga Ernst · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "16 Temmuz 2026 Tarihinde Yapılan Yönetim Kurulu Toplantı Tutanağı",
-      "baslik_kaynak": "Minutes of the Meeting of the Court of Directors held on 16 July 2026",
-      "ozet": "The Bank's Court of Directors acts as a unitary board, setting the organisation's strategy and budget and taking key decisions on resourcing and appointments. Required to meet a minimum seven times per year, it has five executive members from the Bank and up to nine non-executive members.",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": false,
-      "bolge": "DUNYA",
-      "adres": "https://www.bankofengland.co.uk/minutes/2026/july/court-minutes-16-july-2026",
-      "kurum": "BoE",
-      "kurum_tam": "İngiltere Merkez Bankası",
-      "konu": "Para politikası",
-      "tarih": "2026-10-01",
-      "tarih_gorunur": "1 Ekim 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-10-bce0f56d.jpg",
-      "foto_atif": "Tony Webster · CC-BY-2.0"
-    },
-    {
-      "baslik": "Cari Hesap Bakiyeleri ve Piyasa İşlemlerindeki Değişikliklerin Kaynakları (Eylül)",
-      "baslik_kaynak": "Sources of Changes in Current Account Balances and Market Operations (Sept.)",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": false,
-      "bolge": "DUNYA",
-      "adres": "http://www.boj.or.jp/en/statistics/boj/fm/juqf/juqf09.xlsx",
-      "kurum": "BoJ",
-      "kurum_tam": "Japonya Merkez Bankası",
-      "konu": "Para politikası",
-      "tarih": "2026-10-01",
-      "tarih_gorunur": "1 Ekim 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-14-9b1627e1.jpg",
-      "foto_atif": "Bernard Gagnon · CC-BY-SA-3.0"
     }
   ],
   "sinir_notu": "Yukarıdaki maddeler yapısal aktarım kanallarıdır, öngörü değildir. Etkinin ne zaman ve ne ölçüde görüleceği kur seviyesi, vergi düzenlemeleri ve sözleşme yapılarına bağlı olarak değişir; bu sayfada bir büyüklük tahmini yapılmamaktadır."
