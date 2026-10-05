@@ -644,7 +644,12 @@ img, svg { max-width: 100%}
   letter-spacing: -0.01em;
   color: var(--ust-yazi);
   text-decoration: none;
-  white-space: nowrap}
+  white-space: nowrap;
+  /* Dokunma hedefi seritteki digerleriyle AYNI olcuden.
+     Marka isareti BUYUMUYOR: kural yalnizca tiklanabilir alani
+     yukseltiyor, `align-items: center` isareti ayni yerde
+     tutuyor. Olculdu: 91x28 -> 91x44. */
+  min-height: var(--ust-oge)}
 .logo:hover { text-decoration: none}
 
 .ust nav {
@@ -1615,6 +1620,43 @@ main.kabuk {
 /* Capa ile atlanan baslik ust seridin ALTINDA kalmasin. */
 .govde h2[id], .govde h3[id] { scroll-margin-top: 112px}
 
+/* ===================================================================
+   DOKUNMA HEDEFLERI -- 44 PIKSEL
+   ===================================================================
+   OLCULDU (2026-10-05, 390x844 mobil, sayfa turu basina):
+
+       summary "Ne olursa ne olur?"   295x29    (7 adet /makro/)
+       .modul-tum "Tum gelismeler ->"  87x21    (5 adet ana sayfa)
+       .bolum-baglanti                 99x26
+       .akis-devam                    324x26
+       .senaryo-davet-ikincil         332x21
+       .sp-dugme (paylasim ikonu)      36x44    <- GENISLIK dar
+
+   Hepsi WCAG 2.5.8 (AA, 24x24) esigini GECIYOR, yani kural ihlali
+   degil. Ama 2.5.5 (AAA) ve hem Apple hem Google 44 piksel diyor;
+   bunlarin tamami BAGIMSIZ EYLEM -- cumle icinde gecen baglantilar
+   degil. Cumle ici baglantilar (kirinti yolu, gizlilik metnindeki
+   atiflar) BILEREK disarida: onlari buyutmek satir araligini bozar
+   ve WCAG de metin ici baglantilari muaf tutuyor.
+
+   TEKNIK: `min-height` + satir ici esnek kutu. `.haber-git` icin
+   kullanilan "dolgu + negatif kenar" numarasi burada GEREKMIYOR --
+   o, 36 kartta tekrarlandigi icin sayfayi 612 piksel uzatacakti.
+   Burada sayfa basina 5-7 oge var; birkac pikselin buyumesi
+   gorunmuyor ve numara gereksiz karmasiklik olurdu.
+   =================================================================== */
+.modul-tum,
+.bolum-baglanti,
+.akis-devam,
+.senaryo-davet-ikincil {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px}
+
+
+/* Ikon dugmesi: yukseklik zaten 44, GENISLIK 36 idi. */
+.sp-dugme { min-width: 44px}
+
 /* ------------------------------------------------------------------- govde */
 
 .govde { font-size: var(--p-l)}
@@ -2339,6 +2381,13 @@ main.kabuk {
 .takvim-dallar > summary {
   cursor: pointer;
   display: inline-flex; align-items: center; gap: 6px;
+  /* DOKUNMA HEDEFI: olculdu 295x29, 44'e cikarildi.
+     Ikinci bir kural yazmistim; `test_stil.py` onu OLU BILDIRIM diye
+     yakaladi ve hakliydi -- bu kural zaten `display: inline-flex`
+     veriyordu ve DAHA SONRA geldigi icin benimkini eziyordu. Ayni
+     seciciye ikinci bir blok acmak, ezme sirasina bagli sessiz bir
+     kusur uretir. Deger buraya, var olan kurala eklendi. */
+  min-height: 44px;
   padding: var(--b-1) 0;
   font-size: var(--p-s); font-weight: 600;
   color: var(--vurgu);
@@ -2513,7 +2562,37 @@ main.kabuk {
 .haber-alt {
   display: flex; align-items: center; justify-content: space-between;
   gap: var(--b-3); flex-wrap: wrap; margin: auto 0 0}
-.haber-alt .haber-git { margin: 0; padding: 6px 0 0}
+/* DOKUNMA HEDEFI 27 -> 44 PIKSEL, DUZEN DEGISMEDEN.
+   ================================================
+   "Haberi oku →" kartin TEK eylemi ve `/gundem/` sayfasinda 36 kez
+   geciyor. Olculdu (2026-10-05, 390x844): 80x27 piksel. WCAG 2.5.8
+   (AA, 24x24) esigini geciyor, yani ihlal DEGIL -- ama 44 piksel
+   hem 2.5.5 (AAA) hem de Apple/Google kilavuzlarinin olcusu ve bu,
+   mobilde en cok dokunulan ogelerden biri.
+
+   ASAGI DOGRU BUYUYOR, YUKARI DEGIL. Olculdu: baglantinin ALTINDA
+   kart icinde 17 piksel bos alan var (kart dibi 1207, baglanti dibi
+   1190). Yukarida ise 22 piksel bosluk ve onun ustunde METIN var --
+   yukari buyuseydi hedef, okunan metnin son satirindan dokunus
+   calardi.
+
+   `margin-bottom: -17px` DUZENI SABIT TUTUYOR: kutu 44 piksel ama
+   akista 27 piksel yer kapliyor. Yani sayfa UZAMIYOR (36 kartta
+   612 piksel eder) ve hicbir sey kaymiyor -- yalnizca parmak icin
+   daha buyuk bir alan olusuyor.
+
+   `display: inline-flex` + `align-items: center`: metin, buyuyen
+   kutunun ortasinda degil USTUNDE kalsin diye DEGIL -- dolgu zaten
+   asagi veriliyor, metin yerinde duruyor. Kural, kutunun satir
+   kutusuna gore dogru hesaplanmasi icin. */
+.haber-alt .haber-git {
+  /* 18 PIKSEL, 17 DEGIL. Ilk denemede 17 yazmistim ve olcum "44"
+     gosteriyordu -- ama bu, aracin YUVARLATILMIS ciktisiydi. Ham
+     deger 43,797 idi (satir kutusu 20,797 + 6 + 17), yani esigin
+     0,2 piksel ALTINDA. Olcum araci goruntude yuvarlar, kiyasi ham
+     degerle yapar; iki sayi ayni gorunur. Bir piksel eklendi. */
+  margin: 0 0 -18px;
+  padding: 6px 0 18px}
 
 /* Yazi basinda paylasim ve sayac ayni satirda. */
 .yazi-eylem {
@@ -6057,7 +6136,33 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
    tasimasi dogru; hizasizlik tasimiyordu.
    ================================================================== */
 
-:root { --ust-oge: 36px}
+/* DOKUNMA HEDEFI 36 -> 44 PIKSEL.
+   ==============================
+   OLCULDU (2026-10-05, 390x844 mobil): ust seritteki dort hedef
+   36 piksel ya da altindaydi --
+
+       .logo        91x28
+       .ust-giris   61x36
+       .ust-kayit   53x36
+       .tema-dugme  36x36
+
+   Dordu de WCAG 2.5.8 (AA, 24x24) esigini GECIYOR, yani kural
+   ihlali DEGIL. Ama 2.5.5 (AAA) ve hem Apple hem Google'in kendi
+   kilavuzlari 44 piksel diyor; parmak ucunun gercek temas alani
+   boyle. Serit YAPISKAN: okur bu dort hedefe HER SAYFADA ve
+   cogunlukla tek elle uzaniyor.
+
+   SERIT BUYUMUYOR. Olculdu: serit 57 piksel yuksek, eylem grubu
+   36 -- 21 piksel dikey bosluk zaten vardi. Yatayda 360 pikselde
+   ~79 piksel pay var, yani 8 piksellik genisleme tasma uretmiyor.
+
+   DEGER BURADA, CUNKU OLCU BURADA. Ilk denememde `.tema-dugme`
+   icin ayri bir `min-height` yazmistim; `.ust-eylem .tema-dugme`
+   (0,2,0) onu eziyordu ve dugme 44x36 kaliyordu. Jetonla yarismak
+   yanlis hamleydi -- yukaridaki not zaten "COZUM ORTAK OLCU"
+   diyor. Tek sayiyi degistirmek dokuz kullanim yerini birden
+   dogru yapiyor. */
+:root { --ust-oge: 44px}
 
 .ust nav a,
 .ust nav .menu-baslik,
