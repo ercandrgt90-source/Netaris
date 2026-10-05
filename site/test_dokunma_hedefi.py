@@ -120,9 +120,9 @@ esit(bool(re.search(r"\.sp-dugme\s*\{[^{}]*min-width:\s*44px", _SADE, re.S)),
 #: dokunusu alinmasin.
 _b = re.search(r"\.sayac-begeni\s*\{([^{}]*)\}", _SADE, re.S)
 esit(bool(_b), True, "`.sayac-begeni` kurali bulundu")
-esit(bool(re.search(r"padding:\s*4px 9px 18px", _b.group(1))), True,
+esit(bool(re.search(r"padding:\s*4px 10px 21px", _b.group(1))), True,
      "begeni dolgusu asimetrik (agirlik ASAGI)")
-esit(bool(re.search(r"margin:\s*-4px -9px -18px", _b.group(1))), True,
+esit(bool(re.search(r"margin:\s*-4px -10px -21px", _b.group(1))), True,
      "negatif kenar dolguyu dengeliyor (kart uzamiyor)")
 
 print(f"\nTUM TESTLER GECTI ({_gecti})")
