@@ -1,7 +1,7 @@
 ---
 slug: piyasa-tepkisi-tuik-acikladi-eylul-ayi-enflasyon-rakamlari-belli-oldu-2026-10-05
 baslik: TÜİK açıkladı: Eylül ayı enflasyon rakamları belli oldu
-ozet: Enflasyon verisi. Bitcoin 1 saat içinde -%0,08 geriledi.
+ozet: Enflasyon verisi. Bitcoin 1 saat içinde -%0,12 geriledi.
 sirket: Piyasa tepkisi: TÜİK açıkladı: Eylül ayı enflasyon rakamları belli oldu
 kod: OLAY
 donem: 2026-10-05
@@ -23,8 +23,8 @@ Enflasyon verisi yayımlandı. Kaynak: Ekonomist.
 
 ## Piyasada ne oldu
 
-- **Altın** 1 saat içinde yatay kaldı (son 4161,40).
-- **Bitcoin** 1 saat içinde geriledi: -%0,08 (son 85948,00).
+- **Altın** 1 saat içinde yatay kaldı (son 4162,20).
+- **Bitcoin** 1 saat içinde geriledi: -%0,12 (son 85933,10).
 
 *Yukarıdaki rakamlar ölçülen fiyat hareketidir. Hareketin sebebinin bu gelişme olduğu iddia edilmemektedir; aynı pencerede başka etkenler de fiyatlanmış olabilir.*
 
