@@ -105,4 +105,24 @@ esit(bool(re.search(r"summary\s*\{[^{}]*min-height:\s*44px", _SADE, re.S)),
 esit(bool(re.search(r"\.sp-dugme\s*\{[^{}]*min-width:\s*44px", _SADE, re.S)),
      True, "paylasim ikon dugmesi 44px GENISLIK (yukseklik zaten 44)")
 
+#: BEGENI DUGMESI -- yalnizca CANLIDA goruluyor (sayac `sayac.js`
+#: ile doluyor; yerel sunucuda API yok). Yerel tarama "temiz"
+#: demisti, kusuru canli olcum gosterdi: 25,2x19,2 ve sayfa basina
+#: 26-60 adet.
+#:
+#: WCAG 2.5.8 IHLALI DEGIL -- standardin ARALIK istisnasi var ve en
+#: yakin HEDEF satirin diger ucunda. Yine de parmakla basilan bir
+#: dugme icin kucuk.
+#:
+#: ASIMETRIK dolgu BILINCLI: saginda 17, altinda 21 piksel bosluk
+#: var; solunda goruntulenme sayaci, USTUNDE kart metni. Buyume
+#: asagi veriliyor ki metnin son satirindan yanlislikla begeni
+#: dokunusu alinmasin.
+_b = re.search(r"\.sayac-begeni\s*\{([^{}]*)\}", _SADE, re.S)
+esit(bool(_b), True, "`.sayac-begeni` kurali bulundu")
+esit(bool(re.search(r"padding:\s*4px 9px 18px", _b.group(1))), True,
+     "begeni dolgusu asimetrik (agirlik ASAGI)")
+esit(bool(re.search(r"margin:\s*-4px -9px -18px", _b.group(1))), True,
+     "negatif kenar dolguyu dengeliyor (kart uzamiyor)")
+
 print(f"\nTUM TESTLER GECTI ({_gecti})")

@@ -2550,7 +2550,35 @@ main.kabuk {
   background: none; border: 0; padding: 0; margin: 0;
   font: inherit; color: inherit}
 .sayac-oge b { font-weight: 700}
-.sayac-begeni { cursor: pointer; border-radius: var(--r-kucuk)}
+/* BEGENI DUGMESI -- DOKUNMA ALANI BUYUTULDU, DUZEN DEGISMEDEN.
+   ===========================================================
+   OLCULDU (2026-10-05, canli site, 390x844): 25,2x19,2 piksel ve
+   sayfa basina 26-60 adet. Yalnizca CANLIDA goruluyor -- sayac
+   `sayac.js` ile dolduruluyor, yerel sunucuda API olmadigi icin
+   gizli kaliyor. Yerel tarama bu yuzden "temiz" demisti; kusuru
+   canli olcum gosterdi.
+
+   WCAG 2.5.8 IHLALI DEGIL: olcut 24x24 ama standardin ARALIK
+   istisnasi var -- kucuk hedef, cevresinde 24 piksellik daireler
+   baska bir HEDEFLE kesismeyecek kadar ayriksa gecerli sayiliyor.
+   Buradaki en yakin hedef (`.haber-git`) satirin diger ucunda;
+   yanindaki goruntulenme sayaci ise `<span>`, yani hedef degil.
+   Yine de 19 piksel, parmakla basilan bir dugme icin kucuk.
+
+   ASIMETRIK BUYUYOR -- cunku cevre asimetrik. Olculdu: saginda 17,
+   altinda 21 piksel bos alan var; SOLUNDA 12 piksel otede
+   goruntulenme sayaci, USTUNDE ise kart metni duruyor. Buyume
+   agirlikla ASAGI veriliyor (18 piksel), yukari yalnizca 4 --
+   yukari buyuseydi metnin son satirindan yanlislikla BEGENI
+   dokunusu alinabilirdi.
+
+   Negatif kenarlar dolguyu dengeliyor: kutu 43x41 piksel ama
+   akista yeri 25x19 kaliyor, yani hicbir kart uzamiyor. */
+.sayac-begeni {
+  cursor: pointer;
+  border-radius: var(--r-kucuk);
+  padding: 4px 9px 18px;
+  margin: -4px -9px -18px}
 .sayac-begeni:hover { color: var(--vurgu)}
 .sayac-begeni:disabled { opacity: 0.55; cursor: default}
 /* Begenilmis durum RENKLE ANLATILMIYOR YALNIZCA: `aria-pressed`
