@@ -181,6 +181,16 @@ def main() -> int:
         print(f"HATA kaliplar grafta yok: {', '.join(kayip)}")
         hata += 1
 
+    # NORMALLESTIRMEDEN SAG CIKMAYAN KALIP = SESSIZ KALIP.
+    # Icinde kesme isareti/nokta/tire tasiyan bir kalip, aranan
+    # metinde hicbir zaman bulunamaz; listede DURUR ve dogru GORUNUR.
+    # Olculdu (2026-10-06): alti tane vardi, biri 38 basligi
+    # kaciriyordu ("Fed'in faiz politikasi" -> FED_FAIZ yok).
+    olu = varlik.olu_kaliplar()
+    if olu:
+        print(f"HATA normallestirmeden gecmeyen kalip: {', '.join(olu)}")
+        hata += 1
+
     for durum in DURUMLAR:
         baslik, olmali, olmamali = durum[0], durum[1], durum[2]
         # Kurum istege bagli -- yalnizca baglamin belirleyici oldugu

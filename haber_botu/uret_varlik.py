@@ -33,6 +33,14 @@ def main() -> int:
         print("HATA: grafta karsiligi olmayan kalip kodlari:", ", ".join(kayip))
         return 1
 
+    # Ayni sessizligin ikinci bicimi: kalip, normallestirilmis metinde
+    # hic gecemeyecek bir karakter tasiyor. Grafta karsiligi VAR,
+    # yazimi dogru GORUNUYOR, ve hicbir seyi yakalamiyor.
+    olu = varlik.olu_kaliplar()
+    if olu:
+        print("HATA: normallestirmeden gecmeyen kaliplar:", ", ".join(olu))
+        return 1
+
     with beyin.baglan() as b:
         # Graf ONCE tohumlaniyor: yeni bir varlik eklendiginde kalibi de
         # ayni turda ekleniyor, ama depoya yazilmamis bir koda bag

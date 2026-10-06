@@ -108,7 +108,7 @@ KALIPLAR: dict[str, tuple[str, ...]] = {
     # "sp global" ile SP500 karismasin diye " s&p " tek basina YAZILMADI:
     # "S&P 500 rekor kirdi" basligi derecelendirme kurulusuna baglanirdi.
     "MOODYS": ("moody",),
-    "FITCH": (" fitch ", "fitch'"),
+    "FITCH": (" fitch ",),
     "SPRATING": ("s&p global", "standard & poor"),
     "GOLDMAN": ("goldman",),
     "JPMORGAN": ("jp morgan", "jpmorgan"),
@@ -127,7 +127,7 @@ KALIPLAR: dict[str, tuple[str, ...]] = {
     "LAGARDE": ("christine lagarde", "lagarde"),
 
     # --- gostergeler ---
-    "FED_FAIZ": ("fed faiz", "fed'in faiz", "federal fonlama"),
+    "FED_FAIZ": ("fed faiz", "fed in faiz", "federal fonlama"),
     # "~faiz" govdesi: faiz, faizi, faizler, faize, faizin...
     # Tek tek yazildiginda "faiz uyarisi" gibi bir bicim kaciyordu ve
     # vitrin haberinin ANA varligi eksik kaliyordu. Turkiye baglami
@@ -140,7 +140,7 @@ KALIPLAR: dict[str, tuple[str, ...]] = {
     # "beklenti anketi" ve "fiyati en cok artan" TCMB/TUIK'in duzenli
     # yayinlari; ikisi de enflasyon verisi ama basliginda "enflasyon"
     # gecmiyor ve hicbir varliga baglanmiyorlardi.
-    "TUFE_TR": (" tufe ", "~tufe'", "tuketici fiyat", "~enflasyon",
+    "TUFE_TR": (" tufe ", "tuketici fiyat", "~enflasyon",
                 "beklenti anketi", "fiyati en cok artan",
                 "fiyati en cok azalan"),
     "CPI_US": ("abd tufe", "abd enflasyon", " cpi ", "abd tuketici fiyat"),
@@ -241,16 +241,16 @@ KALIPLAR: dict[str, tuple[str, ...]] = {
     # "SGK acikladi: En dusuk emekli ayligi farki" ya da "TOKI kiralik
     # konut projesi" gibi tamamen yurt ici haberler hicbir varliga
     # baglanmiyor, dolayisiyla Turkiye paneli de basilmiyordu.
-    "TR": ("turkiye", " turk ", " turkiye'", "~sgk", "emekli ayli",
+    "TR": ("turkiye", " turk ", "~sgk", "emekli ayli",
            "asgari ucret", "~yargitay", "~danistay", "kidem tazminat",
            "memur zam", "~iskur", "~tbmm", "resmi gazete", "~hazine"),
     "US": (" abd ", "amerika", "washington", "birlesik devletler"),
     "EA": ("avro bolge", "euro bolge", "avrupa birligi", " ab "),
-    "CN": (" cin ", "cin'", " pekin ", " china "),
+    "CN": (" cin ", " pekin ", " china "),
     "RU": ("rusya", " moskova ", " kremlin "),
     # " iran " bosluklu OLMAK ZORUNDA: "haziranin" icinde eslesiyordu ve
     # her haziran tarihli Turkce haber Iran'a baglaniyordu.
-    "IR": (" iran ", " iran'", " tahran "),
+    "IR": (" iran ", " tahran "),
 }
 
 #: Duyuruyu YAYIMLAYAN kurum da bir varliktir.
@@ -340,6 +340,40 @@ def dogrula() -> list[str]:
         return []
     kodlar = {v[0] for v in _G}
     return sorted(k for k in KALIPLAR if k not in kodlar)
+
+
+def olu_kaliplar() -> list[str]:
+    """Normallestirmeden SAG CIKMAYAN kaliplar -- yani HIC eslesemeyenler.
+
+    `_aranacak` metindeki kesme isaretini, noktayi ve tireyi BOSLUGA
+    ceviriyor. Icinde boyle bir karakter tasiyan kalip, aranan metinde
+    hicbir zaman bulunamaz: kalip listesinde DURUR, dogru GORUNUR ve
+    sessizce hicbir sey yapmaz.
+
+    Olculdu (2026-10-06): alti kalip bu durumdaydi.
+
+      FITCH     "fitch'"       kardes kalip zaten yakaliyordu
+      TUFE_TR   "~tufe'"       kardes kalip zaten yakaliyordu
+      TR        " turkiye'"    kardes kalip zaten yakaliyordu
+      CN        "cin'"         kardes kalip zaten yakaliyordu
+      IR        " iran'"       kardes kalip zaten yakaliyordu
+      FED_FAIZ  "fed'in faiz"  KARDESI YOKTU -- 38 baslik kaciyordu
+
+    Yani besi zararsiz tekrardi, biri GERCEK BIR BOSLUKTU: "Fed'in
+    faiz politikasi" basligi Fed'e baglaniyor ama Fed POLITIKA FAIZI
+    arsivine baglanmiyordu.
+
+    Bu fonksiyon `uret_varlik.py` ve `test_varlik.py` tarafindan
+    cagriliyor; yeni bir kalip eklendiginde ayni sessizlik tekrar
+    olusamaz.
+    """
+    olu = []
+    for kod, kaliplar in KALIPLAR.items():
+        for kalip in kaliplar:
+            govde = kalip[1:] if kalip.startswith(GOVDE) else kalip
+            if _aranacak(govde).strip() != govde.strip():
+                olu.append(f"{kod}: {kalip!r}")
+    return olu
 
 
 #: Tek kelimelik, bosluksuz yazilmis bir kalibin ARDINA gelebilecek
