@@ -1,7 +1,7 @@
 ---
 slug: piyasa-tepkisi-trump-hurmuz-den-inanilmaz-miktarda-petrol-sevkiyati-yapiliyor-2026-10-06
 baslik: Trump: Hürmüz'den inanılmaz miktarda petrol sevkiyatı yapılıyor
-ozet: Jeopolitik gelişme. Bitcoin 1 saat içinde +%0,17 yükseldi.
+ozet: Jeopolitik gelişme. Altın 1 saat içinde -%0,12 geriledi.
 sirket: Piyasa tepkisi: Trump: Hürmüz'den inanılmaz miktarda petrol sevkiyatı yapılıyor
 kod: OLAY
 donem: 2026-10-06
@@ -23,8 +23,8 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Dünya.
 
 ## Piyasada ne oldu
 
-- **Altın** 1 saat içinde geriledi: -%0,11 (son 4165,00).
-- **Bitcoin** 1 saat içinde yükseldi: +%0,17 (son 85632,30).
+- **Altın** 1 saat içinde geriledi: -%0,12 (son 4164,50).
+- **Bitcoin** 1 saat içinde yatay kaldı (son 85639,10).
 
 *Yukarıdaki rakamlar ölçülen fiyat hareketidir. Hareketin sebebinin bu gelişme olduğu iddia edilmemektedir; aynı pencerede başka etkenler de fiyatlanmış olabilir.*
 

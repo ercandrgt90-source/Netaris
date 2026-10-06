@@ -23,8 +23,8 @@ Enflasyon verisi yayımlandı. Kaynak: TCMB.
 
 ## Piyasada ne oldu
 
-- **Altın** 1 saat içinde geriledi: -%0,11 (son 4165,00).
-- **Bitcoin** 1 saat içinde yükseldi: +%0,17 (son 85632,30).
+- **Altın** 1 saat içinde geriledi: -%0,11 (son 4169,20).
+- **Bitcoin** 1 saat içinde yükseldi: +%0,19 (son 85648,10).
 - **Dolar endeksi** günlük bazda geriledi: -%0,33 — 2026-10-02 tarihli gözlem.
 
 *Yukarıdaki rakamlar ölçülen fiyat hareketidir. Hareketin sebebinin bu gelişme olduğu iddia edilmemektedir; aynı pencerede başka etkenler de fiyatlanmış olabilir.*
