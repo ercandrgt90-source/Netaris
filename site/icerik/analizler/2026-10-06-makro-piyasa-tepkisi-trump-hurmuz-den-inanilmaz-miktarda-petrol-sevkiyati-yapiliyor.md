@@ -1,8 +1,8 @@
 ---
-slug: piyasa-tepkisi-aylik-fiyat-gelismeleri-eylul-2026-2026-10-06
-baslik: Aylık Fiyat Gelişmeleri (Eylül 2026)
-ozet: Enflasyon verisi. Dolar endeksi günlük içinde -%0,33 geriledi.
-sirket: Piyasa tepkisi: Aylık Fiyat Gelişmeleri (Eylül 2026)
+slug: piyasa-tepkisi-trump-hurmuz-den-inanilmaz-miktarda-petrol-sevkiyati-yapiliyor-2026-10-06
+baslik: Trump: Hürmüz'den inanılmaz miktarda petrol sevkiyatı yapılıyor
+ozet: Jeopolitik gelişme. Bitcoin 1 saat içinde +%0,17 yükseldi.
+sirket: Piyasa tepkisi: Trump: Hürmüz'den inanılmaz miktarda petrol sevkiyatı yapılıyor
 kod: OLAY
 donem: 2026-10-06
 kategori: Makro
@@ -19,33 +19,27 @@ kaynaklar: Gold-API, Kraken, FRED
 sayimlar: 
 ---
 
-Enflasyon verisi yayımlandı. Kaynak: TCMB.
+Jeopolitik bir gelişme yaşandı. Kaynak: Dünya.
 
 ## Piyasada ne oldu
 
 - **Altın** 1 saat içinde geriledi: -%0,11 (son 4165,00).
 - **Bitcoin** 1 saat içinde yükseldi: +%0,17 (son 85632,30).
-- **Dolar endeksi** günlük bazda geriledi: -%0,33 — 2026-10-02 tarihli gözlem.
 
 *Yukarıdaki rakamlar ölçülen fiyat hareketidir. Hareketin sebebinin bu gelişme olduğu iddia edilmemektedir; aynı pencerede başka etkenler de fiyatlanmış olabilir.*
 
 ## Hangi kanallardan yansır
 
-- **EUR/USD** — Euro, dolar endeksinin en büyük ağırlıklı bileşeni.
-- **Altın** — Altın dolar cinsinden fiyatlanır; doların değeri fiyatın bileşenlerinden biridir.
 - **Gümüş** — İki maden büyük ölçüde birlikte hareket eder; gümüşün sanayi talebi ayrışmaya yol açabilir.
-- **Türkiye CDS** — Küresel risksiz getiri yükseldiğinde gelişmekte olan ülke risk primi de yeniden fiyatlanır.
-- **Almanya 10 yıllık tahvil** — Uzun vadeli tahvil getirileri küresel sermaye piyasasında birbirine bağlı fiyatlanır.
-- **Brent petrol** — Petrol dolar cinsinden fiyatlanır.
 
 *Bu maddeler yapısal aktarım kanallarıdır: mekanizmanın varlığını anlatır, yönünü ya da büyüklüğünü değil.*
 
 ## Daha önce ne olmuştu
 
-- 2026-10-06 — TCMB, Eylül Ayı Fiyat Gelişmeleri Raporu'nu yayımladı (BTC +%0,1, DXY -%0,3, XAU +%0,2)
-- 2026-10-05 — EKİM AYI KİRA ARTIŞ ORANI 2026: Kira zammı ne kadar, yüzde kaç oldu? TÜFE kira a (BTC %0,0, XAU -%0,2)
-- 2026-10-05 — TÜİK açıkladı: Eylül ayı enflasyon rakamları belli oldu (BTC -%0,1, XAU %0,0)
-- 2026-10-05 — 57 ay sonra ilk! Bakan Şimşek'ten enflasyon açıklaması: Eşel mobilden kademeli o (BTC -%0,3, XAU -%0,2)
+- 2026-10-06 — İran Hürmüz’de tanker saldırılarını artırdı (BTC +%0,1, XAU +%0,2)
+- 2026-10-06 — Hürmüz'de 5 katına çıkan navlun, Orta Doğu petrolünde rekabet için indirim baskı (BTC +%0,7, XAU +%0,2)
+- 2026-10-05 — Aramco CEO’su: Küresel petrol stokları Hürmüz riskleri nedeniyle ’korkutucu dere (BTC -%0,3, XAU %0,0)
+- 2026-10-05 — Hürmüz Boğazı'nda gıda krizi alarmı: Tahıl fiyatları yüzde 80 artabilir (BTC +%0,5, XAU +%0,3)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*
 
