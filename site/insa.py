@@ -6664,6 +6664,28 @@ def insa() -> int:
                     # o zaman dosya.py eski olcute duser.
                     dosya=h_dosya,
                     varliklar=h_varliklar or [],
+                    # ARSIV ETIKETLERI -- SAYFASI OLAN VARLIKLAR.
+                    #
+                    # `varliklar` SAYFAYA GITMIYORDU: sablonda
+                    # "VARLIK ETIKETLERI BASILMIYOR" diye yazili bir
+                    # karar vardi. O kararin olculen bedeli (2026-10-06):
+                    # 77 varlik sayfasinin 10'u hicbir yerden baglanti
+                    # almiyor ve ONUNUN DE haberi var (EIA 8, SPK 5, SEC
+                    # 2, Warsh 2, digerleri 1'er). Yani varlik sayfasi
+                    # haberi gosteriyor, haber varligi gostermiyordu --
+                    # TEK YONLU kenar.
+                    #
+                    # `insa.py` icinde bu durumun gerekcesi "hakkinda
+                    # guncel haber olmayan varliklar baglanti almiyor"
+                    # diye yaziliydi ve YANLISTI; duzeltilen sey once
+                    # belge, sonra davranis.
+                    #
+                    # SUZGEC SART: sayfasi uretilmeyen koda etiket
+                    # vermek 404 uretir. Kural `izleme_baglantilari`
+                    # ile AYNI ve ayni kumeden besleniyor.
+                    varlik_etiket=[
+                        v for v in (h_varliklar or [])
+                        if v["kod"] in varlik_sayfasi_olan],
                     # CIZELGEDE OLAN BURADA TEKRARLANMIYOR.
                     #
                     # Iki bolum ayni kaynaktan besleniyor ve olculdu:
@@ -6977,6 +6999,8 @@ def insa() -> int:
                     "neden": _neden,
                     "kanallar": list(_kanallar),
                     "toplam": len(_liste),
+                    "arsiv": (f"{_ky}arsiv/"
+                              if len(_liste) > KONU_LISTE_SINIRI else ""),
                     "haberler": [
                         {"tarih": _t, "baslik": _b, "yol": _y,
                          "gorunur": gun_etiketi(_t)}
@@ -6984,6 +7008,54 @@ def insa() -> int:
                     ],
                 }),
         )
+        # KONU ARSIVI -- SINIRIN OTESINE GIDEN TEK YOL.
+        #
+        # Olculdu (2026-10-06): uretilen 1984 sayfanin 86'si YETIM,
+        # yani hicbir sayfadan ic baglanti almiyor. 76'si `/haber/`
+        # ve 73'u Jeopolitik, 3'u Enerji -- liste sinirini asan IKI
+        # konu. Siniri asmayan on bir konuda yetim YOK.
+        #
+        # Haber sayfasina baglanti dort yerden gelebiliyor: baska
+        # haberin kenar seridi, varlik sayfasi, olay dosyasi, konu
+        # sayfasi. Yetimlerin 66'sinin bagli varligi hic yoktu; konu
+        # sayfasi dusunce geriye yol kalmiyordu.
+        #
+        # SINIR KALDIRILMIYOR -- gerekcesi (sayfa agirligi, LCP)
+        # gecerli ve Jeopolitik'te 572 haber var. Eksik olan sinir
+        # degil, otesine giden YOLDU.
+        #
+        # YALNIZCA SINIR ASILDIGINDA uretiliyor: asilmayan konuda
+        # arsiv, konu sayfasinin birebir kopyasi olurdu.
+        if len(_liste) > KONU_LISTE_SINIRI:
+            _ay_sira: list[str] = []
+            _aylar: dict[str, list] = {}
+            for _t, _b, _y in _liste:
+                _d = str(_t)[:7]
+                _etiket = (f"{AYLAR[int(_d[5:7]) - 1]} {_d[:4]}"
+                           if len(_d) == 7 and _d[4] == "-" else "Tarihsiz")
+                if _etiket not in _aylar:
+                    _aylar[_etiket] = []
+                    _ay_sira.append(_etiket)
+                _aylar[_etiket].append(
+                    {"tarih": _t, "baslik": _b, "yol": _y,
+                     "gorunur": gun_etiketi(_t)})
+            _ay = f"{_ky}arsiv/"
+            yaz(
+                f"{_ay}index.html",
+                ortam.get_template("konu_arsiv.html").render(
+                    # `arama_disi`: ilk 80 oge konu sayfasiyla ayni.
+                    # Robots karari `temel.html`de, harita karari
+                    # `haritaya_girer` icinde -- ikisi de sayfanin
+                    # KENDI etiketine bakiyor, yani celiski olusmaz.
+                    **ortak, yol=_ay, arama_disi=True,
+                    konu={
+                        "ad": _ad, "neden": _neden, "yol": _ky,
+                        "toplam": len(_liste),
+                        "aylar": [{"ad": _e, "haberler": _aylar[_e]}
+                                  for _e in _ay_sira],
+                    }),
+            )
+            yollar.append(_ay)
         # KONU BESLEMESI -- yalnizca bu konuyu izleyen okur icin.
         #
         # Sitede tek besleme vardi (`/rss.xml`) ve icine her sey

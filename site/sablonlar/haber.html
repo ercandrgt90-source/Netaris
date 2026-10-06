@@ -1100,11 +1100,46 @@
   </section>
   {% endif %}
 
-  {# VARLIK ETIKETLERI BASILMIYOR.
-     Indeks ic katman olarak calismaya devam ediyor -- haberi Turkiye
-     baglami acisindan siniflandiriyor ve "bununla ilgili diger
-     gelismeler" bolumunu besliyor -- ama okura "Konular" diye ayri bir
-     bolum olarak gosterilmiyor. #}
+  {# VARLIK ETIKETLERI -- ARSIVE GIRIS KAPISI.
+
+     BU BLOK ONCE YOKTU ve yerinde "VARLIK ETIKETLERI BASILMIYOR,
+     okura 'Konular' diye ayri bir bolum olarak gosterilmiyor" diyen
+     bir karar duruyordu. Karar OLCULDU ve bedeli goruldu
+     (2026-10-06, uretilen 1984 sayfanin tamami taranarak):
+
+       baglanti almayan varlik sayfasi        10
+       bunlardan HABERI OLAN                  10
+         EIA 8 haber, SPK 5, SEC 2, Warsh 2, digerleri 1'er
+
+     Yani varlik sayfasi haberi gosteriyordu, haber varligi
+     gostermiyordu -- tek yonlu kenar. BDDK, SPK, SEC, EIA gibi
+     kurum sayfalari icerik tasiyip hicbir tiklama diziliminden
+     erisilemiyordu.
+
+     `.etiket` SINIFI YENI DEGIL: `stil.css` icinde "Varlik
+     etiketleri -- arsive giris kapisi" basligiyla, tur renkleri ve
+     `:hover` kurali dahil zaten tanimliydi -- yalnizca `varlik.html`
+     icinde DUZ METIN olarak kullaniliyordu. Yani bilesen kapi olmak
+     icin yazilmis, kapi olarak hic kullanilmamisti.
+
+     SUZGEC KODDA: `insa.py` yalnizca SAYFASI URETILEN varligi
+     geciriyor. Sablonda `if v.yol` yazmak yetmezdi -- `varlik_yolu`
+     her kod icin bir adres uretiyor, sayfanin var oldugunu
+     soylemiyor. #}
+  {% if varlik_etiket %}
+  <section class="varlik-etiket" aria-label="Arşiv sayfaları">
+    <h2>Bu haberin arşiv sayfaları</h2>
+    {# Baslik "Konular" DEGIL: bu bir etiket bulutu degil, her biri
+       birikmis bir arsive giden kapi. Sayfa adi ne veriyorsa o
+       yaziliyor -- tur adi ("kurum", "piyasa") okura bir sey
+       soylemiyor, rengi zaten turu ayirt ediyor. #}
+    <div class="etiket-sira">
+      {% for v in varlik_etiket %}
+      <a class="etiket etiket-{{ v.tur }}" href="{{ v.yol }}">{{ v.ad }}</a>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
 
   {# MAKALE SONU -- okur bosluga dusmesin.
      Makale bitince kullanici gidecek yer bulamiyordu. Uc kaynak, ucu de

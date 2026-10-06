@@ -1,0 +1,87 @@
+{% import "_yapisal.html" as yv with context %}
+{% extends "temel.html" %}
+
+{# KONU ARSIVI -- liste siniri disinda kalan haberlere giden tek yol.
+
+   NEDEN VAR
+   ---------
+   Olculdu (2026-10-06), uretilen 1984 sayfanin tamami taranip her
+   sayfanin ALDIGI ic baglanti sayildi:
+
+     yetim /haber/ sayfasi            76
+       bunlarin konusu Jeopolitik     73
+       bunlarin konusu Enerji          3
+
+   Yani yetimlerin TAMAMI, konu sayfasinin 80'lik liste sinirini asan
+   iki konudan geliyordu. Siniri asmayan on bir konuda yetim YOK.
+   Tesaduf degil: bir haber sayfasina baglanti dort yerden gelebilir
+   (baska haberin kenar seridi, varlik sayfasi, olay dosyasi, konu
+   sayfasi) ve 66'sinin hic bagli varligi yoktu. Konu sayfasi dusunce
+   geriye hicbir sey kalmiyordu.
+
+   SINIR KALDIRILMADI. Gerekcesi gecerli: `/bilancolar/` 220 kartla
+   426 KB'ye cikiyor ve Jeopolitik'te 572 haber var. Sorun sinir
+   degil, sinirin OTESINE giden yolun olmamasiydi.
+
+   NEDEN BU BICIM
+   --------------
+   Kart yok, fotograf yok, ozet yok -- yalnizca tarih ve baslik.
+   Agirlik boyle 572 ogede bile kartli bir listenin onda biri
+   kaliyor ve sayfanin isi zaten gezinme, okuma degil.
+
+   NEDEN `noindex, follow`
+   -----------------------
+   Ilk 80 oge konu sayfasindakiyle AYNI; indekslenebilir iki sayfada
+   ayni liste, brief'in "ayni icerigi cogaltma" kuralina girer.
+   `follow` ise tam olarak isteneni yapiyor: tarayici sayfayi gecip
+   kuyruktaki haberlere ULASIYOR. `haritaya_girer` noindex sayfayi
+   sitemap'e almadigi icin celiskili isaret de olusmuyor.
+
+   YENI SINIF YOK: liste `olay-cizelge`, baslik `ust-etiket` --
+   ikisi de sitede zaten var ve CSS denetimi yeni sinif adlarini
+   "tanimsiz" diye bildiriyor. #}
+
+{% block baslik %}{{ konu.ad }} arşivi — tüm haberler — {{ site.ad }}{% endblock %}
+{% block aciklama %}{{ konu.ad }} konusunda yayımlanan {{ konu.toplam }} haberin tarihe göre tam listesi.{% endblock %}
+
+{% block yapisal_veri %}
+{# ItemList BASILMIYOR: 572 ogelik bir JSON-LD blogu sayfanin kendi
+   govdesi kadar yer tutardi ve sayfa zaten `noindex`. Kirinti
+   kaliyor -- o gezinmeyi anlatiyor, icerigi degil. #}
+{{ yv.kirinti([(site.ad, "/"), ("Haberler", "/gundem/"),
+               (konu.ad, konu.yol), ("Arşiv", "")], site.adres) }}
+{% endblock %}
+
+{% block icerik %}
+<nav class="konum-izi" aria-label="Konum">
+  <a href="/">{{ site.ad }}</a>
+  <span aria-hidden="true">›</span>
+  <a href="/gundem/">Haberler</a>
+  <span aria-hidden="true">›</span>
+  <a href="{{ konu.yol }}">{{ konu.ad }}</a>
+  <span aria-hidden="true">›</span>
+  <span aria-current="page">Arşiv</span>
+</nav>
+
+<div class="giris">
+  <p class="ust-etiket">Arşiv</p>
+  <h1>{{ konu.ad }} — tüm haberler</h1>
+  <p>{{ konu.neden }}</p>
+</div>
+
+<p>{{ konu.toplam }} haber, en yeniden eskiye.
+  <a href="{{ konu.yol }}">{{ konu.ad }} sayfasına dön</a>
+  · <a href="{{ konu.yol }}rss.xml">RSS</a></p>
+
+{% for ay in konu.aylar %}
+<h2>{{ ay.ad }}</h2>
+<ol class="olay-cizelge">
+  {% for h in ay.haberler %}
+  <li>
+    <time class="olay-an" datetime="{{ h.tarih }}">{{ h.gorunur }}</time>
+    <a class="olay-baslik" href="{{ h.yol }}">{{ h.baslik }}</a>
+  </li>
+  {% endfor %}
+</ol>
+{% endfor %}
+{% endblock %}

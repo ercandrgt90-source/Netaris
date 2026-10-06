@@ -342,6 +342,44 @@ def dogrula() -> list[str]:
     return sorted(k for k in KALIPLAR if k not in kodlar)
 
 
+#: Tek kelimelik, bosluksuz yazilmis bir kalibin ARDINA gelebilecek
+#: ekler. Bosluksuz yazim bu dosyada BILINCLI bir arac: "bitcoin"
+#: kalibi "bitcoin'in"i, "turkiye" kalibi "turkiye'nin"i yakalasin
+#: diye boyle yazildi.
+#:
+#: AMA DUZ ALT DIZI ARAMASI olarak uygulandiginda kalip, ILGISIZ bir
+#: kelimenin icinde de esliyor. Olculdu (2026-10-06): depodaki 37.060
+#: baslik tarandi ve her eslesmenin ICINDE OLDUGU TAM KELIME yazildi.
+#: Kaliptan farkli cikan 14 durum vardi; 12'si gercek Turkce ek
+#: ("amerikan", "amerikalilarin", "altinini", "bitcoini"), IKISI
+#: YANLISTI:
+#:
+#:   WARSH "warsh"  -> "warship" (3x), "warships" (2x)
+#:                     Kevin Warsh ile savas gemisi
+#:   XAU   "altini" -> "denizaltinin" (2x)
+#:                     altin ile denizalti -- kalip kelime BASINDA
+#:                     bile degil, ortasinda esliyordu
+#:
+#: Ikisi de okura YANLIS ARSIV gosteriyordu: Warsh sayfasi Fransiz
+#: savas gemisi haberini kendi haberi gibi listeliyordu.
+#:
+#: BU BIR ISTISNA LISTESI DEGIL, Turkce cekim eklerinin kapali kumesi.
+#: "ip" ve "ips" burada yok cunku Turkce ek degil -- kurali tutan sey
+#: bu, tek tek sayilan yanlislar degil.
+TEKIL_EK = frozenset((
+    "", "s",
+    "i", "u", "e", "a", "n", "ni", "nu", "ne", "na",
+    "in", "un", "nin", "nun",
+    "de", "da", "den", "dan", "te", "ta", "ten", "tan",
+    "ye", "ya", "le", "la", "li", "lu", "lik", "luk",
+    "ler", "lar", "leri", "lari", "lerin", "larin", "lerde", "larda",
+    "si", "su", "sinin", "sunun", "sinda", "sunda", "siyla", "suyla",
+    "nde", "nda", "nden", "ndan", "yle", "yla", "lerle", "larla",
+    "lilar", "lilarin", "lilara", "lilari", "liler", "lilerin",
+    "lilere", "lileri",
+))
+
+
 @lru_cache(maxsize=512)
 def _govde_deseni(govde: str) -> re.Pattern:
     """`~gumus` -> "gumus" + en fazla EK_UZUNLUK harf, kelime sinirinda."""
@@ -349,10 +387,37 @@ def _govde_deseni(govde: str) -> re.Pattern:
                       rf"(?![a-z0-9])")
 
 
+@lru_cache(maxsize=512)
+def _tekil_deseni(kalip: str) -> re.Pattern:
+    """Kelime BASINDA baslayan eslesme + ardindan gelen harfler.
+
+    Kelime basi sart: "denizaltinin" icinde "altini" kelime basinda
+    olmadigi icin hic denenmiyor.
+    """
+    return re.compile(rf"(?<![a-z0-9]){re.escape(kalip)}([a-z]*)(?![a-z])")
+
+
+def _tekil_esliyor(k: str, kalip: str) -> bool:
+    """Bosluksuz tek kelimelik kalip: kelime basi + TURKCE EK.
+
+    Duz alt dizi aramasinin yerini aliyor; gerekcesi `TEKIL_EK`
+    uzerinde yazili ve 37.060 baslik uzerinde olculdu.
+    """
+    for m in _tekil_deseni(kalip).finditer(k):
+        if m.group(1) in TEKIL_EK:
+            return True
+    return False
+
+
 def _esliyor(k: str, kalip: str) -> bool:
     if kalip.startswith(GOVDE):
         return _govde_deseni(kalip[1:]).search(k) is not None
-    return kalip in k
+    # Bosluklu (" fed ") ya da cok kelimeli ("federal rezerv") kalip
+    # KENDI SINIRINI TASIYOR; orada duz arama dogru. Bosluksuz tek
+    # kelime tasimiyor -- ek kurali yalnizca ona uygulaniyor.
+    if kalip.strip() != kalip or " " in kalip.strip():
+        return kalip in k
+    return _tekil_esliyor(k, kalip)
 
 
 def _turk_baglami(k: str, kurum: str) -> bool:
@@ -369,12 +434,50 @@ def _turk_baglami(k: str, kurum: str) -> bool:
     return any(i in _aranacak(kurum) for i in TURK_KURUMLARI)
 
 
+#: Yalnizca BUYUK HARF yazimiyla gecerli sayilan kodlar.
+#:
+#: SEBEP OLCULDU (2026-10-06), depodaki 37.060 baslikta " sec " kalibi
+#: 222 kez esliyor; 34'u SEC KURUMU DEGIL, Ingilizce "Secretary"
+#: kisaltmasi: "NATO Sec. Gen. Rutte", "WH Press Sec. Leavitt",
+#: "US Sec. of Defense Hegseth", "Japan's Chief Cabinet Sec. Kihara".
+#: Noktalama `_aranacak` tarafindan bosluga cevrildigi icin ikisi
+#: katlanmis metinde AYIRT EDILEMIYOR.
+#:
+#: Ayirt eden sey YAZIM: kurum her zaman "SEC", kisaltma her zaman
+#: "Sec." -- 222 ornegin tamaminda boyle. O yuzden olcut HAM METINDE
+#: aranan buyuk harfli yazim.
+#:
+#: BU KURAL GENELLESTIRILMEDI -- VE GEREKCESI DE OLCULDU. Ayni olcum
+#: butun kisa kisaltma kaliplari icin yapildi:
+#:
+#:   FED   2334 eslesmenin 2320'si "Fed" yaziliyor    (kural yikicı)
+#:   FITCH   72 eslesmenin   72'si "Fitch"            (kural yikici)
+#:   TUIK    22 eslesmenin   22'si "TÜİK" (aksanli)   (kural yikici)
+#:   SEC    222 eslesmenin  188'i "SEC", 34'u "Sec."  (kural dogru)
+#:
+#: Yani "butun kisaltmalar buyuk harfli olmali" kurali dogru gorunup
+#: 2.400'den fazla GERCEK bagi silerdi. Buraya bir kod eklemeden once
+#: ayni olcum yapilmali: lowercase yazimi baska bir kisaltmayla
+#: cakisiyor OLMALI ve dogru yazim HER ZAMAN buyuk harf olmali.
+BUYUK_HARF_SART = ("SEC",)
+
+
+def _buyuk_harf_yazimi(metin: str, kod: str) -> bool:
+    """Kod HAM metinde buyuk harfle, kelime sinirinda geciyor mu."""
+    return re.search(rf"(?<![A-Za-z]){re.escape(kod)}(?![A-Za-z])",
+                     metin) is not None
+
+
 def _kodlari_bul(metin: str, kurum: str = "") -> list[str]:
     if not metin:
         return []
     k = _aranacak(metin)
     bulunan = [kod for kod, kaliplar in KALIPLAR.items()
                if any(_esliyor(k, p) for p in kaliplar)]
+
+    # BUYUK HARF SARTI -- gerekcesi `BUYUK_HARF_SART` uzerinde yazili.
+    bulunan = [x for x in bulunan
+               if x not in BUYUK_HARF_SART or _buyuk_harf_yazimi(metin, x)]
 
     # TURKIYE'YE OZGU VARLIKLAR TURKIYE BAGLAMI ISTER.
     #

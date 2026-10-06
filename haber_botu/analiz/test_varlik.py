@@ -131,6 +131,46 @@ DURUMLAR += (
 )
 
 
+# KELIME ICINDE ESLESME -- OLCULEN YANLISLAR.
+#
+# 2026-10-06'da depodaki 37.060 baslik tarandi ve her eslesmenin
+# ICINDE OLDUGU TAM KELIME yazildi. Kaliptan farkli cikan 14 durumun
+# 12'si gercek Turkce ekti; ikisi yanlisti ve ikisi de OKURA YANLIS
+# ARSIV gosteriyordu:
+#
+#   "warship"/"warships" -> WARSH  (Kevin Warsh)      5 haber
+#   "denizaltinin"       -> XAU    (altin)            1 haber
+#   "Sec. Gen."/"Press Sec." -> SEC (ABD SEC kurumu) 34 baslik
+#
+# Son ikisi ayri duzenekle cozuldu: ilki kelime basi + Turkce ek
+# kurali (`varlik.TEKIL_EK`), ikincisi ham metinde buyuk harf sarti
+# (`varlik.BUYUK_HARF_SART`). Her iki durumda da GERCEK eslesmenin
+# korundugu asagida ayrica sinaniyor -- "kalibi sil, yanlis bitsin"
+# cozumu sinamayi da gecerdi ve arsivi bosaltirdi.
+DURUMLAR += (
+    # --- kelime icinde eslesme CIKMAMALI ---
+    ("French warship, part of the EU Red Sea mission, escorted ships",
+     (), ("WARSH",)),
+    ("South Korea's presidential office: President Lee discussed "
+     "warship building", (), ("WARSH",)),
+    ("Rus denizaltının seyri Akdeniz'de izlendi", (), ("XAU",)),
+    # --- ama GERCEGI eslesmeli ---
+    ("Kevin Warsh Fed başkanlığı için öne çıktı", ("WARSH", "FED"), ()),
+    ("Warsh: faiz indirimi için erken", ("WARSH",), ()),
+    ("Altının onsu yeni rekor kırdı", ("XAU",), ()),
+    ("Altınini satan yatırımcı", ("XAU",), ()),
+
+    # --- "Sec." kisaltmasi SEC KURUMU DEGIL ---
+    ("NATO Sec. Gen. Rutte: European allies prepared for attacks",
+     (), ("SEC",)),
+    ("WH Press Sec. Leavitt: No negotiations happening now", (), ("SEC",)),
+    ("US Sec. of Defense Hegseth finishes remarks", (), ("SEC",)),
+    # --- ama kurumun kendisi eslesmeli ---
+    ("SEC Proposes New Regulation Crypto Assets", ("SEC",), ()),
+    ("SEC'in Atkins'i: kripto yasası olsun veya olmasın", ("SEC",), ()),
+)
+
+
 def main() -> int:
     b = _bellek_depo()
     hata = 0

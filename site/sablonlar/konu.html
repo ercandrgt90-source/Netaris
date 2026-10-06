@@ -97,6 +97,15 @@
 
 <h2>Bu konudaki haberler</h2>
 <p>{{ konu.toplam }} haber{% if konu.toplam > konu.haberler|length %} · en yeni {{ konu.haberler|length }} tanesi{% endif %}
+  {# LISTE SINIRININ OTESI. Bu bag YOKKEN sinirin disinda kalan
+     haberlere hicbir sayfadan baglanti gitmiyordu: olculdu
+     (2026-10-06), 76 yetim haber sayfasinin 73'u Jeopolitik,
+     3'u Enerji -- yani tam da siniri asan iki konu. #}
+  {# BASTAKI BOSLUK GEREKLI: `trim_blocks` + `lstrip_blocks` ikilisi
+     `{% endif %}` sonrasindaki satir sonunu ve `{#` oncesindeki
+     girintiyi yiyor. Tarayicida bakilmasaydi gorulmezdi --
+     "en yeni 80 tanesi· tüm arşiv" diye bitisik çıkıyordu. #}
+  {% if konu.arsiv %} · <a href="{{ konu.arsiv }}">tüm arşiv</a>{% endif %}
   {# YALNIZCA BU KONUYU izlemek isteyen okur icin. Sitede tek
      besleme vardi ve icine her sey giriyordu; para politikasini
      izleyen okur jeopolitigi de almak zorundaydi. #}

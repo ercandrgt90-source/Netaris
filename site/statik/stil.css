@@ -3965,6 +3965,36 @@ main.kabuk {
 .etiket-oran     { border-left-color: var(--t-duzenleme)}
 .etiket-politika { border-left-color: var(--yazi-3)}
 
+/* ETIKET SIRASI -- haber sayfasinin sonundaki arsiv kapilari.
+   Olculdu (2026-10-06): 77 varlik sayfasinin 10'u hicbir yerden
+   baglanti almiyordu ve onunun de haberi vardi. Etiket bileseni
+   yukarida "arsive giris kapisi" diye yaziliydi ama hicbir yerde
+   BAGLANTI olarak kullanilmiyordu.
+
+   MEDYA SORGUSU YOK: `flex-wrap` dar ekranda satiri kendisi
+   kiriyor. Bu dosyada tekrar eden ders -- kirilma noktasini elle
+   yazmak, icerik degisince yanlis yere kayan bir sayi birakiyor. */
+.varlik-etiket { margin: var(--b-6) 0 0}
+.varlik-etiket h2 { font-size: var(--p-l); margin: 0 0 var(--b-3)}
+.etiket-sira { display: flex; flex-wrap: wrap; gap: 12px 10px}
+/* DOKUNMA HEDEFI -- VE NEDEN 44 PIKSEL DEGIL.
+   Ilk yazimda `min-height: var(--ust-oge)` (44px) kondu. TARAYICIDA
+   BAKILDI ve yanlisti: etiketin `border-radius` degeri 999px, yani
+   44 piksel yuksekligindeki "ABD" etiketi 53x44 cikiyor ve PILL
+   degil DAIRE gibi gorunuyordu. Bilesen rozet gibi okunuyordu.
+
+   WCAG 2.5.8 (AA) 24x24 istiyor ve ARALIK ISTISNASI var: her hedefin
+   merkezine cizilen 24 piksellik daire komsusuyla kesismiyorsa kucuk
+   hedef uygundur. Dikey komsu 30+12=42, yatay bosluk 10 piksel --
+   ikisi de kosulu sagliyor.
+
+   Dolgu yine de buyutuldu (6px -> 8px dikey): 30 piksel, parmakla
+   rahat ve pill bicimi korunuyor. Olcu tahmin degil, cizdirilip
+   okundu. */
+.etiket-sira .etiket {
+  display: inline-flex; align-items: center;
+  padding: 8px var(--b-3)}
+
 /* Varlik arsiv sayfasi. */
 .kirinti { font-size: var(--p-s); color: var(--yazi-3); margin: 0 0 10px}
 .varlik-ozet {
