@@ -39,7 +39,25 @@
 
    YENI SINIF YOK: liste `olay-cizelge`, baslik `ust-etiket` --
    ikisi de sitede zaten var ve CSS denetimi yeni sinif adlarini
-   "tanimsiz" diye bildiriyor. #}
+   "tanimsiz" diye bildiriyor. Ayni cozum `/makro/` ve
+   `/bilancolar/` icin de kullanilmisti (207 yetim analiz, 2026-09-18):
+   kart yerine derli toplu liste, baglanti KESILMEDEN.
+
+   AGIRLIK OLCULDU (2026-10-06, 573 oge):
+     ham 189 KB, tel uzerinde 42 KB, DOM 1.968 dugum
+   Karsilastirma: /makro/ 3.401 dugum, /bilancolar/ 2.639.
+   `test_dom_agirligi.py` esigi 3.400 ve bu sayfa altinda.
+
+   BUYUDUGUNDE NE YAPILMALI: oge basina ~3,4 dugum dusuyor, yani
+   esik 1.000 ogede asilir. O gun `test_dom_agirligi.py` KIRMIZI
+   donecek. DOGRU CEVAP ESIGI GEVSETMEK DEGIL, arsivi yila bolmek
+   (`/konu/<konu>/arsiv/2026/`) -- liste zaten aya gore grupli,
+   bolme noktasi hazir.
+
+   TARIH HER SATIRDA TAM YAZILIYOR -- ay basligi zaten "Ekim 2026"
+   diyor, yani gun+ay+yil bir tekrar. BILINCLI: ikinci bir tarih
+   bicimlendirici yazmak, bu depoda defalarca yasanan "ayni seyi iki
+   yer biciyor" kusuru olurdu. `gun_etiketi` TEK bicimlendirici. #}
 
 {% block baslik %}{{ konu.ad }} arşivi — tüm haberler — {{ site.ad }}{% endblock %}
 {% block aciklama %}{{ konu.ad }} konusunda yayımlanan {{ konu.toplam }} haberin tarihe göre tam listesi.{% endblock %}
