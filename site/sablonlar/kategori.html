@@ -109,7 +109,26 @@
    listede, gercek baglantiyla duruyor. Kart kirpip baglantiyi da
    kesmek, bu oturumda 207 analizde duzeltilen kusuru geri
    getirirdi. #}
-{% set kart_siniri = 60 %}
+{# SINIR 60'TAN 48'E INDI -- KORUMA ATESLEDI, ESIK GEVSETILMEDI.
+
+   2026-10-07'de `test_dom_agirligi.py` kirmizi dondu: `/makro/`
+   3.407 dugume cikmisti, esik 3.400. Sayfa buyumesi kendiliginden
+   oldu -- otomasyon arsive yeni makro analiz ekledikce kart sayisi
+   sabit kalsa da sayfanin geri kalani buyuyor.
+
+   OLCULDU: bir kart 31 dugum. 60 -> 48 on iki kart dusuruyor, yani
+   372 dugum; `/makro/` 3.407'den ~3.035'e iniyor. Iki kart dusurup
+   esigin bir tik altina inmek de mumkundu ama o, ayni alarmi birkac
+   gun sonraya ertelemek olurdu.
+
+   ESIGI YUKSELTMEK SECENEK DEGILDI: Lighthouse'un "asiri DOM" hata
+   esigi zaten ~3.000 ve 3.400 bu deponun kendi tavani. Bir esigi
+   "gecici olarak" gevsetmek, kurali sessizce bosaltmanin yolu --
+   bu dosyanin ustundeki notun kendisi de onu soyluyor.
+
+   BAGLANTI KAYBI YINE YOK: kirpilan on iki analiz asagidaki listede
+   gercek baglantiyla duruyor. #}
+{% set kart_siniri = 48 %}
 <ul class="izgara arastirma-liste">
   {% for a in analizler[:kart_siniri] %}
   <li{% if a.sektor %} data-tur="{{ a.sektor | slugla }}"{% endif %}>

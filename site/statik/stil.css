@@ -1700,7 +1700,60 @@ main.kabuk {
   margin: 0 0 22px;
   border: 1px solid var(--cizgi);
   border-radius: var(--r);
-  background: var(--panel)}
+  background: var(--panel);
+  /* KAYDIRMA ISARETI -- YALNIZCA GERCEKTEN KAYDIRILABILIYORKEN.
+     Olculdu (2026-10-07, 390 piksel gercek aygit taklidi): haber
+     sayfasindaki duyarlilik tablosunun icerigi 519 piksel, kutusu
+     358. Ucuncu sutun ekran disindaydi ve bunu soyleyen HICBIR
+     isaret yoktu -- ekran goruntusunde "Ara mali t" diye kelimenin
+     ortasinda kesiliyordu. Okur bunu kirik sayfa sanar.
+
+     DUZENEK: iki `local` katman kabin kendi zeminini kenarlara
+     boyuyor, iki `scroll` katman golgeyi sabit birakiyor. Kaydirma
+     uca gelince `local` katman golgenin ustune biniyor ve golge
+     KAYBOLUYOR. Yani isaret, kaydirilacak yer kaldigi surece
+     gorunur -- JS yok, kaydirma dinleyicisi yok, olcum yok.
+
+     Golge rengi `color-mix` ile zeminden turetildi: sabit bir
+     `rgba(0,0,0,...)` koyu temada gorunmez olurdu ve bu depoda
+     "iki tema ayri durumdur" diye yazili. */
+  background-image:
+    linear-gradient(to right, var(--panel) 40%, transparent),
+    linear-gradient(to left, var(--panel) 40%, transparent),
+    linear-gradient(to right, color-mix(in srgb, var(--yazi) 16%, transparent), transparent),
+    linear-gradient(to left, color-mix(in srgb, var(--yazi) 16%, transparent), transparent);
+  background-position: left center, right center, left center, right center;
+  background-size: 28px 100%, 28px 100%, 12px 100%, 12px 100%;
+  background-repeat: no-repeat;
+  background-attachment: local, local, scroll, scroll}
+
+/* KAP KAYDIRIR, TABLO DEGIL.
+   Dar ekran taban kurali (`table { display: block; overflow-x: auto }`,
+   640px blogunda) tabloyu KENDI kaydirma kabina ceviriyor. O zaman
+   ustteki golge ise yaramaz: golge kabin uzerinde, kaydirma tablonun
+   icinde kaliyor ve `local` katmanlar hic hareket etmiyor.
+
+   Olculdu (2026-10-07): `kayiyor: true` (tablo 519/358) ama
+   `kapKayiyor: false`. Yani iki duzenek ayni isi yapiyor ve isareti
+   tasiyan taraf isi yapmayan taraftı.
+
+   Secici ozgullugu taban kuralindan yuksek (0,1,1 > 0,0,1), yani
+   dosyadaki siradan bagimsiz kazaniyor. */
+.tablo-kaydir > table {
+  display: table;
+  overflow-x: visible}
+
+/* Duyarlilik tablosunun kabi -- CERCEVESIZ DENENDI, OLMADI.
+   Ilk yazimda `border: 0; background-color: transparent` kondu:
+   gerekce "arastirma blogu zaten kutulu, icine ikinci kutu acma"
+   idi. Tarayicida bakilinca yanlis oldugu goruldu -- ustteki
+   maskeleme katmanlari `var(--panel)` ile boyuyor ve kap seffaf
+   olunca o renk, altindaki zeminle ESLESMEYEN acik bir bant olarak
+   goruluyordu. Teknik, kabin kendi zeminini bilmesini sart kosuyor.
+
+   Yalnizca dis bosluk ayri kaliyor: bu tablo metnin icinde degil,
+   bir basligin govdesi. */
+.tablo-kaydir-duz { margin: 0 0 10px}
 
 .govde table {
   width: 100%;

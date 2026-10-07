@@ -27,6 +27,14 @@
   <section class="tasarim-obek">
     <h2 id="{{ obek.onek|replace('-','') }}">{{ obek.baslik }}</h2>
     <p class="tasarim-aciklama">{{ obek.aciklama }}</p>
+    {# KAYDIRMA KABI -- butun tablolarla ayni duzenek.
+       Bu sayfanin tablolari su an 358 piksellik ekrana siğiyor,
+       yani isaret gorunmuyor; ama jeton eklendikce sutun
+       genisleyebilir. Kabi simdi koymak, o gun sessizce kesilen
+       bir tablo olusmasini engelliyor -- ve `test_tablo.py`
+       kuralini ISTISNASIZ birakiyor: istisna listesi tutmak,
+       kurali yavasca bosaltmanin yolu. #}
+    <div class="tablo-kaydir tablo-kaydir-duz">
     <table class="tasarim-tablo">
       <thead><tr><th>Jeton</th><th>Değer</th><th class="sag">Kullanım</th>
         {% if obek.onek == 'p-' %}<th>Örnek</th>{% endif %}
@@ -49,6 +57,7 @@
       {% endfor %}
       </tbody>
     </table>
+    </div>
   </section>
   {% endfor %}
 

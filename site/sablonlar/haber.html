@@ -851,6 +851,23 @@
     {% endif %}
 
     <h2>Kim etkilenir?</h2>
+    {# KAYDIRMA KABI -- TABLO DAR EKRANDA SESSIZCE KESILIYORDU.
+       Olculdu (2026-10-07), 390 piksel genisliginde gercek aygit
+       taklidiyle: tablonun icerigi 519 piksel, kutusu 358. Yani ucuncu
+       sutun ("neden") ekran disinda kaliyor ve KAYDIRILABILIYOR --
+       ama bunu soyleyen hicbir isaret yoktu. Ekran goruntusunde
+       "Ara mali t" diye kelimenin ortasinda kesiliyordu; okur bunu
+       kirik bir sayfa sanar, kaydirmayi denemez.
+
+       Markdown tablolari zaten `.tablo-kaydir` icinde ve o kabin
+       cercevesi "burasi ayri bir kutu" diyor. Bu tablo kabsizdi,
+       yani ayni isi iki ayri duzenek yapiyordu ve biri eksikti.
+
+       Kenar golgesi `.tablo-kaydir` kuralinda: yalnizca GERCEKTEN
+       kaydirilabiliyorken gorunuyor, cunku `background-attachment`
+       ikilisi (local + scroll) bunu kendiliginden yapiyor -- JS yok,
+       olcum yok, kaydirma dinleyicisi yok. #}
+    <div class="tablo-kaydir tablo-kaydir-duz">
     <table class="duyarlilik">
       <tbody>
         {% for sektor, yildiz, neden in dosya.duyarlilik %}
@@ -880,6 +897,7 @@
         {% endfor %}
       </tbody>
     </table>
+    </div>
     <p class="piyasa-not">Yıldızlar etkinin <b>yönünü ya da büyüklüğünü</b>
       değil, sektörün bu değişkene <b>duyarlılık sırasını</b> gösterir.</p>
     {% endif %}
