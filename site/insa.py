@@ -1401,9 +1401,22 @@ ONE_CIKAN_YUVASI = "(max-width: 1100px) 76vw, 530px"
 #:
 #: BURADA KUSUR TERS YONDEYDI: sablon her zaman 500 piksellik `o/`
 #: esini basiyordu ve telefonda yuva 356, dpr 2 ile 712 fiziksel
-#: piksel istiyordu. Yani okur BULANIK gorsel goruyordu. Ayni duzeltme
-#: hem agirligi hem keskinligi duzeltiyor: artik telefonda 960,
-#: masaustunde 500 iniyor.
+#: piksel istiyordu. Yani okur BULANIK gorsel goruyordu. Artik
+#: telefonda 960, masaustunde 500 iniyor.
+#:
+#: BU BIR TAKAS -- VE OLCULDU (uretim, 2026-10-07):
+#:   /gundem/ telefonda  165 KB -> 519 KB   (keskinlik icin)
+#:   LCP                 596 ms ->  628 ms  (fark yok denecek kadar)
+#:   ana sayfa           763 KB -> 372 KB   (ayni turdeki oteki duzeltme)
+#:
+#: Agirlik ARTIYOR, hiz artmiyor; kazanilan sey netlik. Karar,
+#: 2026-08-23'te alinan ve kullanicinin kendi geri bildirimine dayanan
+#: "gorseller bir tik yumusak, hicbiri profesyonel gorunmuyor"
+#: karariyla ayni yonde: belirsizlikte keskinlik seciliyor.
+#:
+#: 500 ile 960 arasinda bir es URETILSEYDI (orn. 720) takas
+#: gerekmezdi; `foto.py` boy uretimi oraya bakmali. Bugun o es yok ve
+#: tarayicinin elindeki tek dogru secim 960.
 AKIS_YUVASI = "(max-width: 560px) 91vw, 170px"
 
 
