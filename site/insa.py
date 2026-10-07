@@ -4213,7 +4213,236 @@ def tekilles(haberler: list[dict]) -> list[dict]:
         if yeni_an > eski_an:
             sira[sira.index(onceki)] = h
             gorulen[anahtar] = h
-    return _yolla_tekilles(sira)
+    return _yolla_tekilles(_benzer_tekilles(sira))
+
+
+#: Iki haberin "ayni olay" sayilmasi icin gereken en az ortusme.
+#:
+#: OLCULDU (2026-10-07), yayimlanmis 1.060 haberin tamami ikili
+#: karsilastirildi. Deger, baslik + ozet uzerinden Jaccard ortusmesi
+#: (dort harften uzun kelimeler + butun sayilar).
+#:
+#:   >= 0,70  10 cift  -- HEPSI gercek tekrar
+#:   >= 0,60  17 cift  -- hepsi gercek tekrar
+#:   >= 0,50  24 cift  -- hala dogru
+#:   >= 0,48           -- ILK YANLIS: "Kuresel piyasalar ABD tarim
+#:                        disi istihdam verisine odaklandi" ile
+#:                        "Kuresel piyasalar yogun veri gundemine"
+#:   >= 0,44           -- "Borsa haftaya YUKSELISLE basladi" ile
+#:                        "Borsa gune DUSUSLE basladi": zit haber
+#:
+#: Esik 0,70 secildi, 0,60 degil. Gerekce: bir haberi YANLISLIKLA
+#: dusurmek, tekrari birakmaktan agir. En kotu yanlis 0,48'de
+#: goruldugune gore 0,70 genis bir pay birakiyor. Esigi olculen en
+#: kotu degerin hemen ustune koymak, bu depoda yazili bir tuzak --
+#: bkz. `test_kontrast.py`, esik gercekte elemeli.
+BENZER_ESIGI = 0.70
+
+#: Esigin hemen altinda kalanlar BUYUYORSA gorunur olsun diye
+#: sayiliyor; dusurulmuyor.
+BENZER_ALT = 0.55
+
+_BENZER_SAYI = re.compile(r"[0-9]+[.,]?[0-9]*")
+
+
+def _benzer_jeton(metin: str) -> set[str]:
+    """Karsilastirma jetonlari: uzun kelimeler + BUTUN SAYILAR.
+
+    SAYILAR SART. Ilk olcumde yalnizca kelimelere bakiliyordu ve
+    "ABD MBA 30 Yillik Mortgage Orani: %7,12" ile ayni basligin
+    %7,30'lu surumu 1,00 benzerlik veriyordu -- iki AYRI veri
+    aciklamasi. Sayiyi jetona katmak bu ciftlerin tamamini ayirdi.
+
+    Turkce katlama `varlik.katla` ile yapiliyor: ayni isi yapan
+    ikinci bir katlayici yazmak, bu depoda yazili diakritik
+    tuzaginin tam kendisi olurdu.
+    """
+    k = _varlik.katla(metin) if _varlik is not None else metin.lower()
+    return ({w for w in re.findall("[a-z]+", k) if len(w) > 3}
+            | set(_BENZER_SAYI.findall(k)))
+
+
+def _sayi_uyusmazligi(a: str, b: str) -> bool:
+    """Iki BASLIK sayi tasiyor ama hicbiri ortak degil mi?
+
+    Bu durumda ayni sablonun iki ayri veri aciklamasidir ve ortusme
+    ne kadar yuksek olursa olsun AYRI HABERDIR. Olculen ornekler:
+
+      "TUFE: %29,73"                 ile "Yi-UFE: %27,38"      0,62
+      "Isvicre Cekirdek TUFE %0,50"  ile "Euro Bolgesi %2,50"  0,62
+      "ABD tuketici enflasyon %4,00" ile "guven (Michigan) 51,7" 0,59
+
+    TEK TARAFLI eksiklik uyusmazlik SAYILMIYOR: "Pezeskiyan: ABD ile
+    imzalanan mutabakata bagliyiz" basliginda sayi yok, ayni haberin
+    oteki surumunde "17 Haziran" var -- ikisi ayni olay.
+    """
+    sa = set(_BENZER_SAYI.findall(_varlik.katla(a) if _varlik else a.lower()))
+    sb = set(_BENZER_SAYI.findall(_varlik.katla(b) if _varlik else b.lower()))
+    return bool(sa and sb and not (sa & sb))
+
+
+#: Yon celiskisi ciftleri -- "zit haber ayni haber degildir".
+#:
+#: OLCULDU (2026-10-07): ilk kosuda "VIOP'ta endeks kontrati gune
+#: DUSUSLE basladi" haberi, "VIOP endeks kontrati gune YUKSELISLE
+#: basladi" haberiyle 0,77 benzerlik verip ELENDI. Ikisi zit haber.
+#: Sebep: bu basliklarin ozeti sablon, yani kelimelerin neredeyse
+#: tamami ortak ve ayiran TEK SEY yon kelimesi.
+#:
+#: Esigi yukseltmek cozmezdi -- yanlis 0,77'deydi, yani olculen
+#: gercek tekrarlarin (0,72 ve 0,74) USTUNDE. Esik hangi degere
+#: cekilse ya yanlisi birakir ya dogruyu keserdi. Olcut eksikti.
+#:
+#: Liste KAPALI bir kume: yon antonimleri. Sitenin butun konusu yon
+#: oldugu icin bu, uydurma bir istisna listesi degil alanin kendi
+#: ayrimi. Eslesme `varlik._tekil_esliyor` ile, yani kelime basi +
+#: Turkce ek -- ikinci bir eslestirici YAZILMADI. Tuzak kelimeler
+#: sinandi: "karar" -> kar DEGIL, "zaman" -> zam DEGIL,
+#: "zarar" -> zarar olarak isaret URETMIYOR.
+YON_CIFTLERI = (
+    ("yukselis", "dusus"), ("yukseldi", "dustu"),
+    ("yukseliyor", "dusuyor"), ("artis", "azalis"), ("artti", "azaldi"),
+    ("alicili", "saticili"), ("pozitif", "negatif"),
+    ("onayladi", "reddetti"), ("guclendi", "zayifladi"),
+    ("indirim", "zam"),
+)
+
+
+def _yon_isaretleri(metin: str) -> set:
+    if _varlik is None:
+        return set()
+    k = _varlik._aranacak(metin)
+    isaret = set()
+    for g, (a, b) in enumerate(YON_CIFTLERI):
+        if _varlik._tekil_esliyor(k, a):
+            isaret.add((g, 0))
+        if _varlik._tekil_esliyor(k, b):
+            isaret.add((g, 1))
+    return isaret
+
+
+def _yon_celiskisi(a: str, b: str) -> bool:
+    """Iki baslik ZIT yon soyluyor mu?
+
+    Yalnizca BIR taraf isaret tasiyorsa celiski YOK: eksik bilgi,
+    celisen bilgi degil. Ayni cift icinde HEM yukselis HEM dusus
+    gecen baslik ("yukselisten dususe dondu") da celiski saymiyor --
+    o baslik iki yonu birden anlatiyor.
+    """
+    ya, yb = _yon_isaretleri(a), _yon_isaretleri(b)
+    for grup in range(len(YON_CIFTLERI)):
+        a0, a1 = (grup, 0) in ya, (grup, 1) in ya
+        b0, b1 = (grup, 0) in yb, (grup, 1) in yb
+        # IKI YONU BIRDEN ANAN BASLIK HICBIR YON IDDIA ETMIYOR.
+        # "Enflasyon yukselisten dususe dondu" hem yukselis hem dusus
+        # tasiyor; onu "yukselis" sayip oburuyle celiskili ilan etmek,
+        # cumlenin anlamini tersine okumak olurdu.
+        if (a0 and a1) or (b0 and b1):
+            continue
+        if (a0 and b1) or (a1 and b0):
+            return True
+    return False
+
+
+def _benzer_tekilles(haberler: list[dict]) -> list[dict]:
+    """AYNI OLAYIN FARKLI BASLIKLI ikinci kaydini eler.
+
+    NEDEN YETMIYORDU
+    ----------------
+    Ustteki eleme "ayni gun + BIREBIR ayni baslik" diyor. Gercek
+    tekrarlarin basligi ise farkli: ayni olayi iki kaynak iki ayri
+    cumleyle yaziyor. Olculdu (2026-10-07), yayimlanmis 1.060 haber
+    ikili karsilastirildi -- 10 cift ayni olayin iki sayfasiydi:
+
+      "Kuresel piyasalar yogun veri gundemine odaklandi"      [AA]
+      "Gelecek hafta kuresel piyasalar yogun veri gundemine"  [BloombergHT]
+
+      "Hurmuz krizinde petrol ve gaz arzi kesintisi %14'u buldu"  [AA]
+      "Hurmuz krizinde kuresel enerji arzinin %14'u kesintiye"    [Ekonomim]
+
+    Ayni iki sayfa `/haber/` altinda ayri adreslerle duruyordu: okur
+    icin ayni haberi iki kez gormek, arama motoru icin kendi
+    kendimizle rekabet.
+
+    `haber_botu/tekrar_temizle.py` BU SINIFI GORMUYOR -- olcutu
+    birebir baslik ve olcum kipinde "kaldirilacak sayfa dosyasi: 0"
+    diyor: buldugu gruplarin tamami zaten ayni dosyayi gosteriyor.
+
+    ELEME LISTEDE, DEPODA DEGIL -- ustteki `tekilles` ile ayni
+    gerekce: depo neyi gordugumuzun kaydi, hangisini yayimladigimiz
+    bir secim.
+
+    KOMSU GUN DE SAYILIYOR: ayni olay gece yarisini gecen iki
+    kaynakta ayri gune dusebiliyor. Olculen ciftlerin ucu boyleydi.
+
+    EN GUNCEL KALIR -- ustteki elemeyle ayni kural.
+    """
+    if not haberler:
+        return haberler
+    # Gune gore sirali gezinti: komsu olmayan gune ulasinca duruyoruz.
+    sirali = sorted(range(len(haberler)),
+                    key=lambda i: (haberler[i].get("tarih") or ""))
+    jeton: dict[int, set[str]] = {}
+    for i in sirali:
+        h = haberler[i]
+        jeton[i] = _benzer_jeton((h.get("baslik") or "") + " "
+                                 + (h.get("ozet") or "")[:500])
+    dusen: set[int] = set()
+    yakin = 0
+    for a in range(len(sirali)):
+        i = sirali[a]
+        if i in dusen:
+            continue
+        gi = (haberler[i].get("tarih") or "")[:10]
+        for bidx in range(a + 1, len(sirali)):
+            j = sirali[bidx]
+            gj = (haberler[j].get("tarih") or "")[:10]
+            if not gi or not gj or _gun_farki(gi, gj) > 1:
+                break
+            if j in dusen:
+                continue
+            ji, jj = jeton[i], jeton[j]
+            if len(ji) < 8 or len(jj) < 8:
+                # Olcemedigimizi elemiyoruz: cok kisa basliklarda
+                # ortusme gurultuden ibaret.
+                continue
+            ortak = len(ji & jj) / len(ji | jj)
+            if ortak < BENZER_ALT:
+                continue
+            if _sayi_uyusmazligi(haberler[i].get("baslik") or "",
+                                 haberler[j].get("baslik") or ""):
+                continue
+            # ZIT YON = AYRI HABER. Sablonlu basliklarda ortusme
+            # 0,77'ye cikiyor ve ayiran tek sey yon kelimesi.
+            if _yon_celiskisi(haberler[i].get("baslik") or "",
+                              haberler[j].get("baslik") or ""):
+                continue
+            if ortak < BENZER_ESIGI:
+                yakin += 1
+                continue
+            # EN GUNCEL KALIR.
+            ai = haberler[i].get("an") or haberler[i].get("tarih") or ""
+            aj = haberler[j].get("an") or haberler[j].get("tarih") or ""
+            dusen.add(j if aj <= ai else i)
+            if i in dusen:
+                break
+    if dusen or yakin:
+        print(f"  benzer haber: {len(dusen)} elendi "
+              f"(esik {BENZER_ESIGI}), {yakin} esige yakin birakildi")
+    return [h for k, h in enumerate(haberler) if k not in dusen]
+
+
+def _gun_farki(a: str, b: str) -> int:
+    """Iki ISO gun arasindaki fark; okunamazsa BUYUK deger doner.
+
+    Buyuk deger "komsu degil" demek, yani karsilastirma yapilmiyor --
+    olcemedigimiz yerde elemiyoruz.
+    """
+    try:
+        return abs((datetime.strptime(b[:10], "%Y-%m-%d")
+                    - datetime.strptime(a[:10], "%Y-%m-%d")).days)
+    except ValueError:
+        return 99
 
 
 def _yolla_tekilles(haberler: list[dict]) -> list[dict]:
