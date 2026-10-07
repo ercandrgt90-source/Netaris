@@ -88,7 +88,15 @@
        oluyor. Ayrica oznitelik, CSS daha inmeden tarayiciya orani
        veriyor. 400x225 = 16/9; sitedeki diger butun gorsel
        sablonlari da boyut tasiyor -- burasi tek istisnaydi. #}
+    {# KUSUR TERS YONDEYDI: her zaman 500 piksellik `o/` esi
+       basiliyordu ve telefonda yuva 356, dpr 2 ile 712 fiziksel
+       piksel istiyordu -- okur BULANIK gorsel goruyordu. Yuva
+       olculdu: 390'da 356, 768 ve 1440'ta 167 piksel. Artik
+       telefonda 960, masaustunde 500 iniyor. #}
+    {% set ak = foto_kaynagi(h.foto | orta_foto, h.foto | yazi_foto,
+                             h.foto, yuva=akis_yuvasi) %}
     <img src="{{ (h.foto | orta_foto) or h.foto }}" alt=""
+         {% if ak %}srcset="{{ ak.srcset }}" sizes="{{ ak.sizes }}"{% endif %}
          width="400" height="225" loading="lazy" decoding="async">
     {% elif gorsel %}{{ gorsel | safe }}{% endif %}
   {% if h.yol %}</a>{% else %}</div>{% endif %}

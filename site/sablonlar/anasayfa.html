@@ -255,7 +255,15 @@
     <a class="basmanset tur-{{ bas | kart_turu }}" href="{{ bas.yol }}">
       {% if bas.foto %}
       <span class="basmanset-gorsel">
+        {# GENISLIK TANIMLAYICI + OLCULEN `sizes`.
+           Burada `srcset` HIC YOKTU: her cerceve 1920 piksellik kok
+           dosyayi indiriyordu. Uretimde olculdu (2026-10-07) --
+           542 KB ve ana sayfanin en agir kaynagi. Yuva ise
+           390'da 319, 768'de 277, 1440'ta 829 piksel. #}
+        {% set bk = foto_kaynagi(bas.foto | orta_foto, bas.foto | yazi_foto,
+                                 bas.foto, yuva=basmanset_yuvasi) %}
         <img src="{{ bas.foto }}" alt="" loading="eager" decoding="async"
+             {% if bk %}srcset="{{ bk.srcset }}" sizes="{{ bk.sizes }}"{% endif %}
              width="720" height="405">
       </span>
       {% endif %}
@@ -715,7 +723,12 @@
      fotograf konuyu anlatir, grafik veriyi. #}
   <span class="one-cikan-gorsel">
     {% if one_cikan.foto %}
+    {# Yuva olculdu: 390'da 296, 768'de 586, 1440'ta 529 piksel. #}
+    {% set ok = foto_kaynagi(one_cikan.foto | orta_foto,
+                             one_cikan.foto | yazi_foto,
+                             one_cikan.foto, yuva=one_cikan_yuvasi) %}
     <img src="{{ one_cikan.foto }}" alt="" loading="lazy" decoding="async"
+         {% if ok %}srcset="{{ ok.srcset }}" sizes="{{ ok.sizes }}"{% endif %}
          width="640" height="360">
     {% else %}{{ one_cikan.gorsel_svg | safe }}{% endif %}
   </span>

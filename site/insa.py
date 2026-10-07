@@ -1386,6 +1386,26 @@ YAZI_YUVASI = "(max-width: 860px) 92vw, 800px"
 #: sablonda tekrarliyordu; buraya tasindi.
 KART_YUVASI = "(max-width: 760px) 92vw, 400px"
 
+#: Ana sayfa basmanseti. OLCULDU (2026-10-07, uretimde):
+#:   390 px cerceve -> 319 (%82) | 768 -> 277 (%36) | 1440 -> 829
+#: Kirilma noktalari uydurulmadi; `stil.css` icinde gercekten
+#: kullanilan degerler (560 ve 1100).
+BASMANSET_YUVASI = "(max-width: 560px) 82vw, (max-width: 1100px) 36vw, 830px"
+
+#: Ana sayfadaki "one cikan" blogu. OLCULDU:
+#:   390 -> 296 (%76) | 768 -> 586 (%76) | 1440 -> 529 (%37)
+ONE_CIKAN_YUVASI = "(max-width: 1100px) 76vw, 530px"
+
+#: `/gundem/` akisindaki gorsel. OLCULDU:
+#:   390 -> 356 (%91) | 768 -> 167 (%22) | 1440 -> 167 (%12)
+#:
+#: BURADA KUSUR TERS YONDEYDI: sablon her zaman 500 piksellik `o/`
+#: esini basiyordu ve telefonda yuva 356, dpr 2 ile 712 fiziksel
+#: piksel istiyordu. Yani okur BULANIK gorsel goruyordu. Ayni duzeltme
+#: hem agirligi hem keskinligi duzeltiyor: artik telefonda 960,
+#: masaustunde 500 iniyor.
+AKIS_YUVASI = "(max-width: 560px) 91vw, 170px"
+
 
 def yazi_foto(yol: str) -> str:
     """HABER SAYFASI gorseli -- 800 piksel, 1x ekranlar icin.
@@ -6009,6 +6029,9 @@ def insa() -> int:
     ortam.filters["yazi_foto"] = yazi_foto
     ortam.globals["foto_kaynagi"] = foto_kaynak_kumesi
     ortam.globals["kart_yuvasi"] = KART_YUVASI
+    ortam.globals["basmanset_yuvasi"] = BASMANSET_YUVASI
+    ortam.globals["one_cikan_yuvasi"] = ONE_CIKAN_YUVASI
+    ortam.globals["akis_yuvasi"] = AKIS_YUVASI
     ortam.filters["ld_baslik"] = ld_baslik
     # GUN SUZGECI -- ham ISO tarih sayfada gorunmesin.
     #

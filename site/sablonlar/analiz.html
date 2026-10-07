@@ -195,7 +195,11 @@
      Kosul `a.foto`ya dustu: gercek fotograf varsa o basiliyor. #}
   {% if a.foto %}
   <figure class="yazi-foto">
+    {# Bu gorsel `haber.html` ile AYNI yazi sutununda duruyor,
+       dolayisiyla yuvasi da ayni (`foto_kaynagi` varsayilani). #}
+    {% set akf = foto_kaynagi(a.foto | yazi_foto, a.foto) %}
     <img src="{{ a.foto }}" alt="" width="1200" height="675"
+         {% if akf %}srcset="{{ akf.srcset }}" sizes="{{ akf.sizes }}"{% endif %}
          decoding="async" fetchpriority="high">
     {# Atif sayfa sonunda -- gerekce `haber.html` icinde yazili. #}
   </figure>
