@@ -397,7 +397,12 @@
        ACILIR MENU CSS ILE: `:hover` ve `:focus-within` birlikte
        kullaniliyor, yani klavyeyle sekme tuslayarak da aciliyor ve
        JavaScript kapaliyken calisiyor. #}
-    <nav>
+    {# YER ISARETI ADLANDIRILDI. Ekran okuyucu kullanicisi sayfadaki
+       yer isaretlerini liste halinde geziyor; adsiz iki "navigation"
+       girdisi birbirinden AYIRT EDILEMEZ. Olculdu (2026-10-07,
+       tarayicinin erisilebilirlik agacindan): her sayfada iki adsiz
+       `<nav>` vardi. #}
+    <nav aria-label="Ana menü">
       <a href="/"{% if yol == "/" %} aria-current="page"{% endif %}>Ana sayfa</a>
       {% if gundem and gundem.haberler %}
       <a href="/gundem/"{% if yol == "/gundem/" %} aria-current="page"{% endif %}>Haberler</a>
@@ -569,7 +574,8 @@
       <strong>Yatırım tavsiyesi değildir.</strong>
       İçerikler bilgilendirme amaçlıdır; alım satım önerisi içermez.
     </p>
-    <nav>
+    {# Ust menuden AYRI bir yer isareti; adi da ayri olmali. #}
+    <nav aria-label="Alt bilgi bağlantıları">
       <a href="/hakkimizda/">Hakkımızda</a>
       <a href="/yayin-ilkeleri/">Yayın İlkeleri</a>
       <a href="/kunye/">Künye</a>

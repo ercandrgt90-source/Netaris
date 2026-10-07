@@ -71,7 +71,11 @@
 {% endblock %}
 
 {% block icerik %}
-<nav class="konum-izi" aria-label="Konum">
+{# AYNI BILESEN, AYNI AD. Olculdu (2026-10-07): 1.907 sayfa
+   "Neredesiniz", 15 sayfa "Konum" diyordu -- ayni kirinti yolu,
+   iki ad. Ekran okuyucu kullanicisi icin bu, sitenin yarisinda
+   baska bir bilesenmis gibi duyuluyor. #}
+<nav class="konum-izi" aria-label="Neredesiniz">
   <a href="/">{{ site.ad }}</a>
   <span aria-hidden="true">›</span>
   <a href="/gundem/">Haberler</a>

@@ -44,7 +44,12 @@
      gezilebilir bir konu dizini yayimlamiyor). Bagli birakmak 56
      sayfada kirik baglanti demekti. Okur bu sayfaya haber
      sayfasindaki izleme listesinden geliyor; donus yolu da orasi. #}
-  <nav class="kirinti">Veri arşivi › {{ v.ad }}</nav>
+  {# ADI OTEKI KIRINTI YOLLARIYLA AYNI. Bu sayfa ayri bir sinif
+     (`kirinti`) kullaniyor ve baglanti degil duz metin tasiyor,
+     ama okur icin ayni bilesen: "neredeyim" sorusunu cevapliyor.
+     Iki farkli ad vermek, ekran okuyucuda sitenin bir bolumunde
+     baska bir seymis gibi duyulmasina yol acardi. #}
+  <nav class="kirinti" aria-label="Neredesiniz">Veri arşivi › {{ v.ad }}</nav>
 
   <h1>{{ v.ad }}</h1>
   <p class="varlik-ozet">
