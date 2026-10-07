@@ -1,7 +1,7 @@
 ---
 slug: piyasa-tepkisi-trump-hurmuz-den-son-donemde-inanilmaz-miktarda-petrol-tasindi-2026-10-07
 baslik: Trump: Hürmüz'den son dönemde inanılmaz miktarda petrol taşındı
-ozet: Jeopolitik gelişme. Bitcoin 1 saat içinde +%0,17 yükseldi.
+ozet: Jeopolitik gelişme. Altın 1 saat içinde %0,00 yatay kaldı.
 sirket: Piyasa tepkisi: Trump: Hürmüz'den son dönemde inanılmaz miktarda petrol taşındı
 kod: OLAY
 donem: 2026-10-07
@@ -23,8 +23,8 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Ekonomim.
 
 ## Piyasada ne oldu
 
-- **Altın** 1 saat içinde geriledi: -%0,10 (son 4131,20).
-- **Bitcoin** 1 saat içinde yükseldi: +%0,17 (son 84296,30).
+- **Altın** 1 saat içinde yatay kaldı (son 4134,70).
+- **Bitcoin** 1 saat içinde yatay kaldı (son 84171,30).
 
 *Yukarıdaki rakamlar ölçülen fiyat hareketidir. Hareketin sebebinin bu gelişme olduğu iddia edilmemektedir; aynı pencerede başka etkenler de fiyatlanmış olabilir.*
 

@@ -1,7 +1,7 @@
 ---
 slug: piyasa-tepkisi-iran-hurmuz-de-saldirilari-artiriyor-2026-10-07
 baslik: İran Hürmüz'de saldırıları artırıyor
-ozet: Jeopolitik gelişme. Bitcoin 1 saat içinde +%0,17 yükseldi.
+ozet: Jeopolitik gelişme. Altın 1 saat içinde %0,00 yatay kaldı.
 sirket: Piyasa tepkisi: İran Hürmüz'de saldırıları artırıyor
 kod: OLAY
 donem: 2026-10-07
@@ -23,8 +23,8 @@ Jeopolitik bir gelişme yaşandı. Kaynak: BloombergHT.
 
 ## Piyasada ne oldu
 
-- **Altın** 1 saat içinde geriledi: -%0,10 (son 4131,20).
-- **Bitcoin** 1 saat içinde yükseldi: +%0,17 (son 84296,30).
+- **Altın** 1 saat içinde yatay kaldı (son 4134,70).
+- **Bitcoin** 1 saat içinde yatay kaldı (son 84171,30).
 
 *Yukarıdaki rakamlar ölçülen fiyat hareketidir. Hareketin sebebinin bu gelişme olduğu iddia edilmemektedir; aynı pencerede başka etkenler de fiyatlanmış olabilir.*
 
@@ -36,7 +36,7 @@ Jeopolitik bir gelişme yaşandı. Kaynak: BloombergHT.
 
 ## Daha önce ne olmuştu
 
-- 2026-10-07 — Trump: Hürmüz'den son dönemde inanılmaz miktarda petrol taşındı (BTC +%0,2, XAU -%0,1)
+- 2026-10-07 — Trump: Hürmüz'den son dönemde inanılmaz miktarda petrol taşındı (BTC %0,0, XAU %0,0)
 - 2026-10-06 — Trump: Hürmüz'den inanılmaz miktarda petrol sevkiyatı yapılıyor (BTC %0,0, XAU -%0,1)
 - 2026-10-06 — İran Hürmüz’de tanker saldırılarını artırdı (BTC +%0,1, XAU +%0,2)
 - 2026-10-06 — Hürmüz'de 5 katına çıkan navlun, Orta Doğu petrolünde rekabet için indirim baskı (BTC +%0,7, XAU +%0,2)
