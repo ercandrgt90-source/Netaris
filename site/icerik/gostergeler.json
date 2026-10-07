@@ -27,12 +27,12 @@
     {
       "kod": "ECB_EURUSD",
       "ad": "EUR/USD",
-      "deger": "1,13",
-      "fark": "+%0,58",
-      "yon": "artis",
-      "tarih": "2026-10-06",
+      "deger": "1,12",
+      "fark": "-%0,82",
+      "yon": "azalis",
+      "tarih": "2026-10-07",
       "birim": "TL",
-      "gun": 1,
+      "gun": 0,
       "bayat": false
     },
     {
@@ -45,7 +45,7 @@
       "birim": "USD/varil",
       "gun": 6,
       "bayat": true,
-      "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · bugün yenileniyor"
+      "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba)"
     },
     {
       "kod": "DCOILWTICO",
@@ -57,7 +57,7 @@
       "birim": "USD/varil",
       "gun": 6,
       "bayat": true,
-      "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · bugün yenileniyor"
+      "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba)"
     },
     {
       "kod": "DFF",
@@ -130,7 +130,7 @@
           "birim": "USD/varil",
           "gun": 6,
           "bayat": true,
-          "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · bugün yenileniyor"
+          "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba)"
         },
         {
           "kod": "DCOILWTICO",
@@ -142,7 +142,7 @@
           "birim": "USD/varil",
           "gun": 6,
           "bayat": true,
-          "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · bugün yenileniyor"
+          "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba)"
         }
       ]
     },
@@ -213,12 +213,12 @@
         {
           "kod": "ECB_EURUSD",
           "ad": "EUR/USD",
-          "deger": "1,13",
-          "fark": "+%0,58",
-          "yon": "artis",
-          "tarih": "2026-10-06",
+          "deger": "1,12",
+          "fark": "-%0,82",
+          "yon": "azalis",
+          "tarih": "2026-10-07",
           "birim": "TL",
-          "gun": 1,
+          "gun": 0,
           "bayat": false
         }
       ]
