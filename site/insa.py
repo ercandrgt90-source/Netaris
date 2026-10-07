@@ -4261,6 +4261,14 @@ _BENZER_SAYI = re.compile(r"[0-9]+[.,]?[0-9]*")
 #: Kayit `insa()` icinde harita ile birlesip `yonlendirme_satirlari`
 #: dogrulamasindan geciyor: kaynak uretilmemis, hedef uretilmis
 #: olmali. Eleme bu iki kosulu zaten sagliyor.
+#:
+#: KALICI DOSYAYA YAZILMIYOR -- VE BU BILINCLI. Harita her kosuda
+#: yeniden hesaplaniyor, yani yonlendirme tam olarak HEDEFI YASADIGI
+#: surece yasiyor. Arsiv `ARSIV_SINIRI` ile sinirli; bir haber
+#: pencereden dustugunde AYNI GUNUN oteki surumu de dusuyor, cunku
+#: ikisi komsu tarihli. Yani hedef kaybolunca yonlendirme de
+#: kaybolmali -- var olmayan bir sayfaya 301 vermek, 404'ten iyi
+#: degil. `yonlendirme_satirlari` zaten o kaydi atliyor.
 BENZER_YONLENDIRME: dict[str, str] = {}
 
 
