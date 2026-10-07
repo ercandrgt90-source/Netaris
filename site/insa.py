@@ -26,6 +26,7 @@ from __future__ import annotations
 import anasayfa_secim
 import argparse
 import hashlib
+from functools import lru_cache
 import html
 
 #: Jinja ile birlikte geliyor; `bolumle` suzgeci islenmis HTML
@@ -1303,6 +1304,87 @@ def ld_baslik(baslik: str) -> str:
     if not kes:
         kes = b[:LD_BASLIK_SINIRI - 1]
     return kes + "…"
+
+
+@lru_cache(maxsize=2048)
+def foto_genisligi(yol: str) -> int:
+    """Uretilen gorselin GERCEK piksel genisligi; okunamazsa 0.
+
+    OLCU TAHMIN EDILMIYOR. `foto.YAZI_GENISLIK` 800 yazar ama uretilen
+    dosyalar olculdu ve 960 cikti; `COMMONS_GENISLIK` 1600 yazar,
+    kok dosyalarin 276'si 1920. Yani sabitler HEDEFI soyluyor,
+    dosyanin kendisi GERCEGI. `srcset` yanlis bir `w` degeriyle
+    yazilirsa tarayici bile bile yanlis adayi secer.
+
+    OLCER KOPYALANMADI: `foto._olc` zaten JPEG SOF ve PNG IHDR
+    basliklarini okuyor (Pillow'suz, birkac bayt). Ayni isi yapan
+    ikinci bir olcer, bu depoda tekrarlayan "iki kod yolu ayni soruya
+    iki cevap veriyor" kusuru olurdu.
+    """
+    if _foto is None or not yol.startswith("/statik/"):
+        return 0
+    try:
+        return int(_foto._olc(STATIK / yol[len("/statik/"):])[0])
+    except Exception:                            # noqa: BLE001
+        return 0
+
+
+def foto_kaynak_kumesi(*adaylar: str, yuva: str = "") -> dict:
+    """`srcset` + `sizes` -- GENISLIK TANIMLAYICIYLA, GERCEK OLCUYLE.
+
+    NEDEN `x` DEGIL `w`
+    -------------------
+    Haber gorseli `srcset="{kucuk} 1x, {buyuk} 2x"` yaziyordu. `x`
+    tanimlayicisi YERLESIM GENISLIGINI BILMEZ; tarayici yalnizca ekran
+    yogunluguna bakar. Olculdu (2026-10-07, dort cerceve):
+
+      mobil       yuva 356 px, dpr 2  -> 1920 px / 606 KB   YANLIS
+      tablet      yuva 670 px, dpr 2  -> 1920 px            dogru
+      masa        yuva 798 px, dpr 1  ->  960 px            dogru
+      masa retina yuva 798 px, dpr 2  -> 1920 px            dogru
+
+    Telefonda 712 fiziksel piksel yetiyorken 1920 iniyordu. Duzeltme
+    olculdu: LCP 6.580 ms -> 3.252 ms, aktarim 874 KB -> 445 KB.
+
+    NEDEN GENISLIK SABITTEN OKUNMUYOR
+    ---------------------------------
+    Kart sablonlari `srcset="{orta} 400w, {buyuk} 800w"` yaziyordu ve
+    IKI SAYI DA YANLISTI: `o/` dosyalari 500 piksel, kok dosyalarin
+    276'si 1920. Sabitler HEDEFI soyluyor (`ORTA_GENISLIK = 400`,
+    `COMMONS_GENISLIK = 1600`), dosyalar GERCEGI. Yanlis `w` degeri
+    tarayiciyi bile bile yanlis adaya goturur.
+
+    UCUNCU ADAY KARTLARDA ONEMLI: 500 ile 1920 arasindaki bosluk
+    yuzunden 400 piksellik bir kart retina ekranda 800 fiziksel
+    piksel isteyince 1920'ye atlamak zorunda kaliyordu. 960 piksellik
+    `y/` esi zaten uretiliyor; arayi o dolduruyor.
+
+    Adaylar GENISLIGE GORE TEKILLESIYOR: ayni genislikte iki aday
+    yazmak tarayiciyi yaniltir, kucugu secerse kalite kaybi olur.
+    """
+    olculen: dict[int, str] = {}
+    for a in adaylar:
+        if not a:
+            continue
+        g = foto_genisligi(a)
+        if g and g not in olculen:
+            olculen[g] = a
+    if len(olculen) < 2:
+        return {}
+    sirali = sorted(olculen.items())
+    return {"srcset": ", ".join(f"{y} {g}w" for g, y in sirali),
+            "sizes": yuva or YAZI_YUVASI}
+
+
+#: Haber sayfasindaki gorsel yuvasinin genisligi -- OLCULDU, tahmin
+#: edilmedi: 390 piksellik cercevede 356 (%91), 768'de 670 (%87),
+#: 1440'ta 798 sabit. Kirilma noktasi `.yazi` kuralinin
+#: `max-width: 800px` degerinin hemen ustunde.
+YAZI_YUVASI = "(max-width: 860px) 92vw, 800px"
+
+#: Kart gorselinin yuvasi. Sablonlarda yaziliydi ve ayni dize iki
+#: sablonda tekrarliyordu; buraya tasindi.
+KART_YUVASI = "(max-width: 760px) 92vw, 400px"
 
 
 def yazi_foto(yol: str) -> str:
@@ -5925,6 +6007,8 @@ def insa() -> int:
     ortam.filters["kucuk_foto"] = kucuk_foto
     ortam.filters["orta_foto"] = orta_foto
     ortam.filters["yazi_foto"] = yazi_foto
+    ortam.globals["foto_kaynagi"] = foto_kaynak_kumesi
+    ortam.globals["kart_yuvasi"] = KART_YUVASI
     ortam.filters["ld_baslik"] = ld_baslik
     # GUN SUZGECI -- ham ISO tarih sayfada gorunmesin.
     #

@@ -245,9 +245,24 @@
        `yazi_foto` BOS DONEBILIR (800'lük es yalnizca Commons kaynakli
        gorsellerde uretilebiliyor). O durumda `srcset` hic yazilmiyor
        ve kok dosya basiliyor: eksik boy, gorselsiz sayfa degil. #}
+    {# GENISLIK TANIMLAYICI (`w`) + `sizes` -- `1x/2x` DEGIL.
+       `x` tanimlayicisi YERLESIM GENISLIGINI BILMEZ; tarayici
+       yalnizca ekran yogunluguna bakar. Olculdu (2026-10-07):
+
+         mobil       yuva 356 px, dpr 2  -> 1920 px / 606 KB  YANLIS
+         tablet      yuva 670 px, dpr 2  -> 1920 px           dogru
+         masa        yuva 798 px, dpr 1  ->  960 px           dogru
+         masa retina yuva 798 px, dpr 2  -> 1920 px           dogru
+
+       Telefonda 712 fiziksel piksel yetiyorken 1920 iniyordu;
+       960'lik es 166 KB, kok 606 KB. Genislikler KODDA OLCULUYOR
+       (`foto_kaynagi`), sabitten okunmuyor: `YAZI_GENISLIK` 800
+       yazar ama dosyalar 960, `COMMONS_GENISLIK` 1600 yazar ama
+       kokler 1920. Sabit hedefi, dosya gercegi soyluyor. #}
     {% set yazi_boy = h.foto | yazi_foto %}
+    {% set kaynak = foto_kaynagi(yazi_boy, h.foto) %}
     <img src="{{ yazi_boy or h.foto }}" alt="" width="800" height="450"
-         {% if yazi_boy %}srcset="{{ yazi_boy }} 1x, {{ h.foto }} 2x"{% endif %}
+         {% if kaynak %}srcset="{{ kaynak.srcset }}" sizes="{{ kaynak.sizes }}"{% endif %}
          decoding="async">
     {# ATIF ARTIK BURADA DEGIL, SAYFA SONUNDA.
        ---------------------------------------

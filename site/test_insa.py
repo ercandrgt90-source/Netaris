@@ -554,11 +554,19 @@ if _y:
 
 _HABER_SAB = (_KOK / "sablonlar" / "haber.html").read_text(encoding="utf-8")
 dogru("sablon yazi boyunu soruyor", "yazi_foto" in _HABER_SAB)
-dogru("srcset 1x/2x kuruluyor", "1x, {{ h.foto }} 2x" in _HABER_SAB)
-# BOY YOKSA srcset HIC yazilmamali: bos bir srcset, tarayiciya
-# cozulemeyen bir aday listesi verir.
-dogru("boy yoksa srcset yazilmiyor",
-      "{% if yazi_boy %}srcset=" in _HABER_SAB)
+# 1x/2x -> GENISLIK TANIMLAYICI. Burasi once "1x, {{ h.foto }} 2x"
+# ariyordu ve o bicim OLCULEREK yanlis bulundu (2026-10-07): `x`
+# tanimlayicisi yerlesim genisligini bilmiyor, telefonda 356
+# piksellik yuva icin 1920 piksellik dosya iniyordu. Ayrintisi ve
+# dort cerceveli olcum `site/test_gorsel_kaynak.py` icinde.
+dogru("srcset genislik tanimlayiciyla kuruluyor",
+      "kaynak.srcset" in _HABER_SAB and "kaynak.sizes" in _HABER_SAB)
+dogru("1x/2x bicimi sablonda kalmadi",
+      "2x\"" not in _HABER_SAB)
+# KAYNAK KUMESI YOKSA srcset HIC yazilmamali: bos bir srcset,
+# tarayiciya cozulemeyen bir aday listesi verir.
+dogru("kume yoksa srcset yazilmiyor",
+      "{% if kaynak %}srcset=" in _HABER_SAB)
 dogru("boy yoksa kok dosya basiliyor", "yazi_boy or h.foto" in _HABER_SAB)
 
 # ------------------------------------------------------------------

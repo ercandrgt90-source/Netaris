@@ -751,10 +751,21 @@
            olculdu, ana sayfanin 1,88 MB'inin 1,60 MB'i gorseldi.
            `srcset` ile tarayici ekranin yogunluguna gore seciyor.
            Orta boy yoksa tek kaynak kaliyor ve `srcset` yazilmiyor. #}
+        {# GENISLIKLER KODDA OLCULUYOR, SABITTEN OKUNMUYOR.
+           Burada `srcset="{orta} 400w, {buyuk} 800w"` yaziyordu ve
+           IKI SAYI DA YANLISTI: `o/` dosyalari 500 piksel, kok
+           dosyalarin 276'si 1920. Sonuc: 400 piksellik kart retina
+           ekranda 800 fiziksel piksel isteyince tarayici "800w" diye
+           etiketlenmis 1920 piksellik / 606 KB dosyayi indiriyordu.
+
+           UCUNCU ADAY EKLENDI: 960 piksellik `y/` esi zaten
+           uretiliyor ve 500 ile 1920 arasindaki boslugu dolduruyor.
+           Artik retina kart 960'i (166 KB) aliyor. #}
+        {% set kaynak = foto_kaynagi(a.foto | orta_foto, a.foto | yazi_foto,
+                                     a.foto, yuva=kart_yuvasi) %}
         {% set orta = a.foto | orta_foto %}
         <img src="{{ orta or a.foto }}" alt=""
-             {% if orta %}srcset="{{ orta }} 400w, {{ a.foto }} 800w"
-             sizes="(max-width: 760px) 92vw, 400px"{% endif %}
+             {% if kaynak %}srcset="{{ kaynak.srcset }}" sizes="{{ kaynak.sizes }}"{% endif %}
              loading="lazy" decoding="async" width="400" height="225">
         {% else %}{{ a.gorsel_svg | safe }}{% endif %}
       </span>
