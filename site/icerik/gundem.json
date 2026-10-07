@@ -31,7 +31,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 25,
+  "yorumlanan": 26,
   "haberler": [
     {
       "baslik": "Jeff Bezos: Blue Origin ilk kez dış yatırımcılardan 10 milyar $ aldı",
@@ -212,6 +212,32 @@
       "foto_atif": "Gazouya-japan · CC-BY-SA-4.0"
     },
     {
+      "baslik": "İran, ABD'nin müzakerelerde sunduğu önerilere yanıtını arabulucular üzerinden iletecek",
+      "baslik_kaynak": "İran, ABD'nin müzakerelerde sunduğu önerilere yanıtını arabulucular üzerinden iletecek",
+      "ozet": "İran, ABD'nin müzakerelerde sunduğu önerilere ilişkin yanıtını arabulucular aracılığıyla ileteceğini açıkladı.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.ekonomim.com/dunya/iran-abdnin-muzakerelerde-sundugu-onerilere-yanitini-arabulucular-uzerinden-iletecek-haberi-923276",
+      "kurum": "Ekonomim",
+      "kurum_tam": "Ekonomim",
+      "konu": "Jeopolitik",
+      "tarih": "2026-10-08",
+      "tarih_gorunur": "8 Ekim 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
+      "kanallar": [
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-14-4ca6b4fe.jpg",
+      "foto_atif": "Bernard Gagnon · CC0"
+    },
+    {
       "baslik": "SPK'dan 4 şirketin borçlanma aracı ihracına onay",
       "baslik_kaynak": "SPK'dan 4 şirketin borçlanma aracı ihracına onay",
       "ozet": "Sermaye Piyasası Kurulu Akbank, İş Faktoring, Koç Stellantis Finansman ve QNB Bank'ın toplam 155 milyar 223 milyon lira ile 4 milyar dolarlık borçlanma aracı ihraç başvurularına onay verdi.",
@@ -257,27 +283,6 @@
       "kanal_basligi": "Hangi piyasaları etkiler?",
       "foto": "/statik/foto/jeopolitik-18-d6206fae.jpg",
       "foto_atif": "United Nation · PDM"
-    },
-    {
-      "baslik": "Ayakkabı sektöründe rekabet kaybı, 150 bin istihdama mal oldu",
-      "baslik_kaynak": "Ayakkabı sektöründe rekabet kaybı, 150 bin istihdama mal oldu",
-      "ozet": "Türkiye Ayakkabı Sanayicileri Derneği’nin (TASD) düzenlediği 75. AYMOD Ayakkabı Moda Fuarı başladı. İçten, jeopolitik gerilimler ve üç yılı aşan dezenflasyon sürecinin sektörde kayıplara yol açtığını söyledi. 2021’de 380 milyon çift olan ihracatın geçen yıl 180 milyon çifte gerilediğini belirtti.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.ekonomim.com/ekonomi/ayakkabi-sektorunde-rekabet-kaybi-150-bin-istihdama-mal-oldu-haberi-923248",
-      "kurum": "Ekonomim",
-      "kurum_tam": "Ekonomim",
-      "konu": "İstihdam ve ücret",
-      "tarih": "2026-10-08",
-      "tarih_gorunur": "8 Ekim 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/istihdam-ve-ucret-8-418ab6fc.jpg",
-      "foto_atif": "Greg Walters · CC-BY-2.0"
     },
     {
       "baslik": "Fed tutanakları yayımlandı: Yıl sonu için faiz sinyali",
