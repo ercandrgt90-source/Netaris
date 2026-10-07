@@ -1449,6 +1449,36 @@ ORTA_GENISLIK = 400
 YAZI_KLASOR = FOTO_KLASORU / "y"
 YAZI_GENISLIK = 800
 
+#: DIKKAT -- DISKTEKI DOSYALAR 800 DEGIL 960 PIKSEL.
+#:
+#: Olculdu (2026-10-07), `y/` klasorundeki 301 dosyanin tamami:
+#: genislik 960. Sabit 800 diyor. Sebep `boy_uret` icindeki
+#: "dosya varsa atla" kurali: dosyalar sabit 960 ikenuretildi,
+#: sabit sonra 800'e cekildi ve hicbiri YENIDEN URETILMEDI.
+#:
+#: BU BIR KUSUR DEGIL AMA ISRAF. Olculen yuvalarin hicbiri 800'den
+#: fazlasini istemiyor:
+#:
+#:   haber manseti, masaustu 1x   798 px
+#:   /gundem/ akisi, telefon 2x   712 px
+#:   ana sayfa basmanseti, tel.   638 px
+#:   kart, masaustu 2x            800 px
+#:
+#: 960 piksel, en genis durumun bile %20 uzerinde; alan olarak %44
+#: fazla veri. Yeniden uretmek `/gundem/`i telefonda ~519 KB'den
+#: ~360 KB'ye indirirdi.
+#:
+#: YENIDEN URETILMEDI -- VE SEBEBI YAZILI OLMALI: 301 dosyayi silip
+#: yeniden indirmek git gecmisine KALICI olarak ~32 MB yeni nesne
+#: ekler; eski 45 MB da gecmiste kalir, silinmez. Bu depo gorsel
+#: agirligini acikca kalici maliyet sayiyor (bkz. `COMMONS_GENISLIK`
+#: notu). Takas -- %30 aktarim kazanci karsiliginda %18 depo buyumesi
+#: -- deponun sahibinin karari; kod tek basina veremez.
+#:
+#: YANLIS BILGI URETMIYOR: `srcset` genislikleri dosyadan OLCULUYOR
+#: (`insa.foto_kaynak_kumesi`), sabitten degil. Yani tarayici her
+#: zaman dogru sayiyi goruyor; israf var, yalan yok.
+
 #: Boy turevlerinin klasor adlari -- TEK KAYNAK.
 #:
 #: `/statik/foto/y/ad.jpg` ile `/statik/foto/ad.jpg` AYNI gorseldir,
