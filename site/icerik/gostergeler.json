@@ -38,26 +38,24 @@
     {
       "kod": "DCOILBRENTEU",
       "ad": "BRENT",
-      "deger": "113,96",
-      "fark": "-%5,01",
+      "deger": "125,44",
+      "fark": "-%0,06",
       "yon": "azalis",
-      "tarih": "2026-09-29",
+      "tarih": "2026-10-06",
       "birim": "USD/varil",
-      "gun": 6,
-      "bayat": true,
-      "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · bugün yenileniyor"
+      "gun": 1,
+      "bayat": false
     },
     {
       "kod": "DCOILWTICO",
       "ad": "WTI",
-      "deger": "96,16",
-      "fark": "-%3,23",
-      "yon": "azalis",
-      "tarih": "2026-09-29",
+      "deger": "96,24",
+      "fark": "+%0,11",
+      "yon": "artis",
+      "tarih": "2026-10-06",
       "birim": "USD/varil",
-      "gun": 6,
-      "bayat": true,
-      "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · bugün yenileniyor"
+      "gun": 1,
+      "bayat": false
     },
     {
       "kod": "DFF",
@@ -123,26 +121,24 @@
         {
           "kod": "DCOILBRENTEU",
           "ad": "Brent",
-          "deger": "113,96",
-          "fark": "-%5,01",
+          "deger": "125,44",
+          "fark": "-%0,06",
           "yon": "azalis",
-          "tarih": "2026-09-29",
+          "tarih": "2026-10-06",
           "birim": "USD/varil",
-          "gun": 6,
-          "bayat": true,
-          "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · bugün yenileniyor"
+          "gun": 1,
+          "bayat": false
         },
         {
           "kod": "DCOILWTICO",
           "ad": "WTI",
-          "deger": "96,16",
-          "fark": "-%3,23",
-          "yon": "azalis",
-          "tarih": "2026-09-29",
+          "deger": "96,24",
+          "fark": "+%0,11",
+          "yon": "artis",
+          "tarih": "2026-10-06",
           "birim": "USD/varil",
-          "gun": 6,
-          "bayat": true,
-          "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · bugün yenileniyor"
+          "gun": 1,
+          "bayat": false
         }
       ]
     },
