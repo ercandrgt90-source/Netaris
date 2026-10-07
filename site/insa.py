@@ -4244,6 +4244,25 @@ BENZER_ALT = 0.55
 
 _BENZER_SAYI = re.compile(r"[0-9]+[.,]?[0-9]*")
 
+#: Elenen sayfadan KALAN sayfaya yonlendirme. `_redirects` buradan da
+#: besleniyor.
+#:
+#: NEDEN GEREKLI -- CANLIDA GORULDU (2026-10-07). Eleme yayina
+#: cikarildi ve elenen sayfanin adresi denendi:
+#:
+#:   /haber/kuresel-piyasalar-yogun-veri-gundemine-odaklandi/  ->  404
+#:
+#: O sayfa daha once YAYINDAYDI: arama motoru biliyor, paylasilmis
+#: olabilir. `tekrar_temizle.py` kendi bas yorumunda tam bunu
+#: soyluyordu -- "silip birakmak, okuru bos sayfaya gondermek olurdu".
+#: Ayni hatayi yeni bir yerde tekrarlamis olduk; fark, bu kez
+#: yayindan once degil SONRA gorulmesiydi.
+#:
+#: Kayit `insa()` icinde harita ile birlesip `yonlendirme_satirlari`
+#: dogrulamasindan geciyor: kaynak uretilmemis, hedef uretilmis
+#: olmali. Eleme bu iki kosulu zaten sagliyor.
+BENZER_YONLENDIRME: dict[str, str] = {}
+
 
 def _benzer_jeton(metin: str) -> set[str]:
     """Karsilastirma jetonlari: uzun kelimeler + BUTUN SAYILAR.
@@ -4423,7 +4442,13 @@ def _benzer_tekilles(haberler: list[dict]) -> list[dict]:
             # EN GUNCEL KALIR.
             ai = haberler[i].get("an") or haberler[i].get("tarih") or ""
             aj = haberler[j].get("an") or haberler[j].get("tarih") or ""
-            dusen.add(j if aj <= ai else i)
+            _dusecek = j if aj <= ai else i
+            _kalacak = i if _dusecek == j else j
+            dusen.add(_dusecek)
+            _dy = haberler[_dusecek].get("yol")
+            _ky = haberler[_kalacak].get("yol")
+            if _dy and _ky and _dy != _ky:
+                BENZER_YONLENDIRME[_dy] = _ky
             if i in dusen:
                 break
     if dusen or yakin:
@@ -7576,7 +7601,11 @@ def insa() -> int:
     # Yonlendirme satirlari -- kural `yonlendirme_satirlari` icinde,
     # TEK YERDE ve sinanabilir. Govdede duruyorken sinanamiyordu:
     # dosyayi doldurup butun siteyi yeniden kurmak gerekiyordu.
-    _yon_sat, _yon_atlanan = yonlendirme_satirlari(_yonlendirme_oku(), yollar)
+    # ELENEN BENZER HABERLER DE HARITAYA GIRIYOR -- dosyadan gelen
+    # kayitlarin USTUNE, cunku bu kosunun karari daha yeni.
+    _yon_harita = dict(_yonlendirme_oku())
+    _yon_harita.update(BENZER_YONLENDIRME)
+    _yon_sat, _yon_atlanan = yonlendirme_satirlari(_yon_harita, yollar)
     _yon += _yon_sat
     if _yon_atlanan or _yon_sat:
         print(f"  yonlendirme: {len(_yon_sat)} yazildi, {_yon_atlanan} atlandi")

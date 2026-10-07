@@ -70,8 +70,9 @@ def esit(bulunan, beklenen, aciklama: str) -> None:
     print(f"  gecti  {aciklama}")
 
 
-def haber(baslik, gun, ozet="", an=""):
-    return {"baslik": baslik, "tarih": gun, "ozet": ozet, "an": an or gun}
+def haber(baslik, gun, ozet="", an="", yol=""):
+    return {"baslik": baslik, "tarih": gun, "ozet": ozet, "an": an or gun,
+            "yol": yol}
 
 
 print("")
@@ -110,13 +111,24 @@ esit(insa._sayi_uyusmazligi("Kesinti yuzde 14'u buldu",
 # --- ELEME ------------------------------------------------------------
 _OZET = ("kuresel piyasalarda tahvil satis baskisi etkisiyle hafta "
          "satis agirlikli gecti yatirimcilar veri gundemini izliyor")
+insa.BENZER_YONLENDIRME.clear()
 _liste = [haber("Kuresel piyasalar yogun veri gundemine odaklandi",
-                "2026-10-04", _OZET, "2026-10-04T08:00"),
+                "2026-10-04", _OZET, "2026-10-04T08:00", "/haber/eski/"),
           haber("Gelecek hafta kuresel piyasalar yogun veri gundemine odaklandi",
-                "2026-10-04", _OZET, "2026-10-04T09:00")]
+                "2026-10-04", _OZET, "2026-10-04T09:00", "/haber/kalan/")]
 _sonuc = insa._benzer_tekilles(_liste)
 esit(len(_sonuc), 1, "ayni olayin ikinci sayfasi eleniyor")
 esit(_sonuc[0]["an"], "2026-10-04T09:00", "en guncel surum kaliyor")
+
+# ELENEN SAYFA 404 VERMEMELI.
+#
+# Eleme once yonlendirmesiz yayina cikti ve CANLIDA goruldu:
+# /haber/kuresel-piyasalar-yogun-veri-gundemine-odaklandi/ -> 404.
+# O sayfa yayindaydi; arama motoru biliyor, paylasilmis olabilir.
+# `tekrar_temizle.py` kendi bas yorumunda tam bunu soyluyordu --
+# ayni hatayi yeni bir yerde tekrarlamis olduk.
+esit(insa.BENZER_YONLENDIRME.get("/haber/eski/"), "/haber/kalan/",
+     "elenen sayfa icin yonlendirme yaziliyor")
 
 _zit = [haber("VIOP endeks kontrati gune yukselisle basladi", "2026-10-04",
               "viop endeks kontrati seans basinda islem goruyor sozlesme", "a"),
