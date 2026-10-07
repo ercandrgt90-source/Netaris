@@ -687,10 +687,82 @@ _SLUG_ESLEME = str.maketrans(
 #:
 #: Slug kisaltildi. Sayfa yayimlanmis oldugu icin eski adres silinmiyor,
 #: yenisine yonlendiriliyor -- disaridan gelen bag kirilmasin.
+#: Tekrar temizliginin biraktigi "eski adres -> kalan adres" haritasi.
+#: `haber_botu/tekrar_temizle.py` yaziyor, `_redirects` okuyor.
+YONLENDIRME = KOK / "site" / "yonlendirme.json"
+
 ESKI_ADRESLER = (
     ("/analiz/piyasa-tepkisi-eylul-ayi-kira-artis-orani-hesaplama-2026-eylul-ayi-kira-artis-orani-belli-oldu-eylul-kira-zammi-ne-kadar-gozler-tuik-te-iste-tuik-aciklamasina-gore-tefe-tufe-ve-kira-artis-orani-hesaplama-2026-09-14/",
      "/analiz/piyasa-tepkisi-eylul-ayi-kira-artis-orani-hesaplama-2026-eylul-ayi-kira-32f843-2026-09-14/"),
 )
+
+
+def _yonlendirme_oku() -> dict:
+    """`yonlendirme.json` -- yoksa ya da bozuksa BOS sozluk.
+
+    Dosyayi uretim disinda bir arac yaziyor; okunamamasi siteyi
+    kurulamaz hale getirmemeli.
+    """
+    try:
+        return json.loads(YONLENDIRME.read_text(encoding="utf-8")) or {}
+    except (OSError, ValueError):
+        return {}
+
+
+def yonlendirme_satirlari(harita: dict, yollar) -> tuple[list[str], int]:
+    """Tekrar temizliginin haritasini `_redirects` satirlarina cevirir.
+
+    BU BAGLANTI YOKTU. `haber_botu/tekrar_temizle.py` kendi bas
+    yorumunda "silinen adres 404 vermiyor; her silinen adres icin
+    kalan adrese yonlendirme yaziliyor ve worker onu 301 olarak
+    sunuyor" diyor. OLCULDU (2026-10-07):
+
+      site/yonlendirme.json      duruyor -- 2 bayt, yani BOS
+      onu okuyan satir           YOK (butun depoda sifir)
+      worker.js "yonlendirme"    bos bir basliktan ibaret
+
+    Yani araci biri calistirsaydi silinen her sayfa DOGRUDAN 404
+    verecekti. Belgelenen guvence gercek degildi -- bu depodaki en
+    pahali kusur sinifi: yazilmis ama uygulanmamis kural.
+
+    DORT DOGRULAMA, dordu de ayri bir yanlisi kesiyor:
+
+      bolum koku        "/haber/" bir haber degil, liste sayfasi;
+                        okuru oraya atmak aradigini bulamayacagi
+                        yere atmaktir
+      hedef uretilmemis 301, 404'e giden bir zincir olur ve okur
+                        iki kez carpar
+      kaynak uretilmis  duran bir sayfayi yonlendirmek, yayimdaki
+                        icerigi gizlemek demek
+      zincir            A -> B ve B -> C varsa A DOGRUDAN C'ye;
+                        zincir hem okuru yorar hem arama motoru
+                        icin ayri bir adres sayilir
+
+    Dongu (A -> B -> A) derinlik siniriyla kesiliyor.
+    """
+    uretilen = set(yollar)
+    atlanan = 0
+    satir: list[str] = []
+
+    def son_hedef(h: str) -> str:
+        for _ in range(8):
+            if h not in harita or harita[h] == h:
+                break
+            h = harita[h]
+        return h
+
+    for kaynak in sorted(harita):
+        hedef = son_hedef(kaynak)
+        if (kaynak == hedef
+                or kaynak.strip("/").count("/") < 1
+                or hedef.strip("/").count("/") < 1
+                or kaynak in uretilen
+                or hedef not in uretilen):
+            atlanan += 1
+            continue
+        satir.append(f"{kaynak}  {hedef}  301")
+    return satir, atlanan
+
 
 
 def slugla(metin: str) -> str:
@@ -7272,6 +7344,13 @@ def insa() -> int:
     # birbirinin arama siralamasini yer.
     _yon = ["/haber/  /gundem/  301"]
     _yon += [f"{_e}  {_y}  301" for _e, _y in ESKI_ADRESLER]
+    # Yonlendirme satirlari -- kural `yonlendirme_satirlari` icinde,
+    # TEK YERDE ve sinanabilir. Govdede duruyorken sinanamiyordu:
+    # dosyayi doldurup butun siteyi yeniden kurmak gerekiyordu.
+    _yon_sat, _yon_atlanan = yonlendirme_satirlari(_yonlendirme_oku(), yollar)
+    _yon += _yon_sat
+    if _yon_atlanan or _yon_sat:
+        print(f"  yonlendirme: {len(_yon_sat)} yazildi, {_yon_atlanan} atlandi")
     yaz("/_redirects", "\n".join(_yon) + "\n")
 
     # Varliklar

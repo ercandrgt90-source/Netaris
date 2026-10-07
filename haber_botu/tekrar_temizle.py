@@ -51,6 +51,36 @@ SELECT TRIM(LOWER(COALESCE(baslik_tr, baslik_kaynak))) AS anahtar,
 """
 
 
+def birlestir(eski: dict, yeni: dict) -> dict:
+    """Eski ve yeni yonlendirme haritasini birlestirir, ZINCIRI COZER.
+
+    USTUNE YAZMA SORUNU: once `HARITA.write_text(json.dumps(harita))`
+    vardi, yani ikinci bir kosu birinci kosunun yazdigi butun
+    yonlendirmeleri SILIYORDU. Daha onceki silmelerin adresleri
+    sessizce 404'e donuyordu -- dosya yine "dolu" gorundugu icin
+    kimse fark etmezdi.
+
+    ZINCIR: eski haritada A -> B varken bu kosuda B -> C yazildiysa,
+    A artik dogrudan C'ye gidiyor. Zincir hem okuru iki yonlendirme
+    yurutur hem arama motoru icin ayri bir adres sayilir.
+
+    DONGU (A -> B -> A) derinlik siniriyla kesiliyor; sonunda
+    kendine isaret eden kayitlar atiliyor.
+    """
+    birlesik = dict(eski)
+    birlesik.update(yeni)
+    for _ in range(8):
+        degisti = False
+        for kaynak, hedef in list(birlesik.items()):
+            sonraki = birlesik.get(hedef)
+            if sonraki and sonraki != hedef and sonraki != kaynak:
+                birlesik[kaynak] = sonraki
+                degisti = True
+        if not degisti:
+            break
+    return {a: b for a, b in birlesik.items() if a != b}
+
+
 def gruplar(k: sqlite3.Connection) -> dict[tuple, list]:
     g: dict[tuple, list] = {}
     for anahtar, gun, adres, yol, an in k.execute(SORGU):
@@ -135,10 +165,19 @@ def main() -> int:
                   "WHERE adres = ?", (adres,))
     k.commit()
 
-    HARITA.write_text(json.dumps(harita, ensure_ascii=False, indent=1),
+    # Harita BIRLESTIRILIYOR, ustune yazilmiyor -- kural
+    # `birlestir` icinde, TEK YERDE ve sinanabilir.
+    eski_harita: dict[str, str] = {}
+    if HARITA.exists():
+        try:
+            eski_harita = json.loads(HARITA.read_text(encoding="utf-8")) or {}
+        except ValueError:
+            eski_harita = {}
+    birlesik = birlestir(eski_harita, harita)
+    HARITA.write_text(json.dumps(birlesik, ensure_ascii=False, indent=1),
                       encoding="utf-8")
     print(f"dosya silindi : {kaldirilan}")
-    print(f"yonlendirme   : {len(harita)} -> {HARITA.name}")
+    print(f"yonlendirme   : {len(birlesik)} -> {HARITA.name}")
     return 0
 
 
