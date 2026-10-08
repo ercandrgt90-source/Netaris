@@ -2060,6 +2060,32 @@ main.kabuk {
 
    `margin: -1px` DORT YANA bilerek: oge zaten 1x1 piksel ve
    akistan cikmis; kalan tek pikseli de kapatiyor, hizayi bozmuyor. */
+/* ICERIGE ATLAMA BAGI.
+   Gorunmezken `.gizli-yazi` ile AYNI teknik (yer kaplamiyor, ekran
+   okuyucuda duruyor); odaklaninca gercek bir dugme. Olculdu
+   (2026-10-08): bagsiz halde ana icerige dokuz sekme gerekiyordu.
+
+   `:focus-visible` DEGIL `:focus`: bag yalnizca klavyeyle
+   erisilebiliyor zaten (fareyle tiklanamaz, cunku gorunmez) ve
+   `:focus-visible` destegi olmayan tarayicida bag gorunmez kalirdi
+   -- yani tam da ise yaramasi gereken yerde kaybolurdu. */
+.atla {
+  position: absolute; left: -9999px; top: 0; z-index: 100;
+  padding: var(--b-3) var(--b-4);
+  background: var(--vurgu); color: var(--zit-yazi);
+  border-radius: 0 0 var(--r) 0;
+  font-size: var(--p-m); font-weight: 700;
+  text-decoration: none}
+.atla:focus {
+  left: 0;
+  outline: 2px solid var(--yazi);
+  outline-offset: -4px}
+/* Hedefin kendi odak anahati BASTIRILIYOR: `main` yalnizca
+   programla odaklaniyor (`tabindex="-1"`), okur oraya sekmeyle
+   gelmiyor. Butun sayfayi saran bir anahat, atlamanin basarili
+   oldugunu degil bir seyin bozuldugunu dusundururdu. */
+main:focus { outline: none}
+
 .gizli-yazi,
 .avatar-sec input,
 .sayfa-paylas-dar .sp-dugme > span {

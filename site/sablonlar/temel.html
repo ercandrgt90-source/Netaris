@@ -281,6 +281,23 @@
 {% block ek_bas %}{% endblock %}
 </head>
 <body>
+{# ICERIGE ATLAMA -- WCAG 2.4.1 "Blok Atlama" (A seviye).
+   -----------------------------------------------------
+   OLCULDU (2026-10-08, klavyeyle gercek sekme sayilarak): her
+   sayfada ana icerige ulasmak icin DOKUZ sekme gerekiyordu --
+   amblem, bes menu girdisi, giris, uye ol, tema dugmesi. Klavyeyle
+   gezen okur bunu HER SAYFA ACILISINDA tekrarliyordu.
+
+   Bag ILK odaklanabilir oge olmali; bu yuzden `<body>`nin ilk
+   cocugu. Gorunmezken yer kaplamiyor (`.gizli-yazi` ile ayni
+   teknik), odaklaninca gercek bir dugmeye donusuyor -- "gorunmez
+   ama odaklanabilir" bag, klavye kullanicisinin kayboldugu klasik
+   tuzak.
+
+   `main` ayrica `tabindex="-1"` tasiyor: onsuz bazi tarayicilar
+   capa adresini degistirir ama ODAGI tasimaz, yani bir sonraki
+   sekme yine menuye doner ve bag hicbir ise yaramaz. #}
+<a class="atla" href="#icerik">İçeriğe atla</a>
 
 {# VERI AKISI DURDUYSA OKUR BILSIN.
    ====================================================================
@@ -557,7 +574,7 @@
 </div>
 {% endif %}
 
-<main class="kabuk">
+<main class="kabuk" id="icerik" tabindex="-1">
 {% block icerik %}{% endblock %}
 </main>
 
