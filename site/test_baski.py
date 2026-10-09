@@ -119,8 +119,13 @@ esit(_olu, [],
 # --- 2) bilinen chrome bilesenleri listede ---
 #: Deger sabitlemesi. Biri listeden cikarilirsa kirmizi yanar ve
 #: cikaran kisi "bu kagida gitmeli mi" sorusuyla karsilasir.
+#: `.atla` 2026-10-09'da eklendi ve AYNI GUN kagitta goruldu:
+#: `left: -9999px` ile ekran disinda duruyor ama `display` hala blok,
+#: yani baski alani hesabina giriyor. Yeni bir arayuz ogesi eklerken
+#: bu listeye bakmak BIR ADIM; eklemeyi unutmak, listenin zamanla
+#: gerisinde kalmasinin tam yolu -- bu dosyanin var olma sebebi de o.
 _SART = ("ust", "serit", "sayfa-paylas", "sayac",
-         "onay-bandi", "yazi-serit", "alt-gezinme", "tel-kap")
+         "onay-bandi", "yazi-serit", "alt-gezinme", "tel-kap", "atla")
 _eksik = [s for s in _SART if s not in _siniflar]
 if _eksik:
     print(f"\n  BASKI LISTESINDEN DUSMUS: "

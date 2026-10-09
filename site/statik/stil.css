@@ -8626,12 +8626,19 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
      * `.alt-gezinme` -- mobil alt cubuk. Dar kagitta cikardi.
      * `.tel-kap` -- canli baslik seridi. Icerigi dakikalik; kagida
        basildigi anda zaten bayat.
+     * `.atla` -- icerige atlama bagi. 2026-10-09'da eklendi ve AYNI
+       GUN kagitta goruldu: `left: -9999px` ile ekran disinda duruyor
+       ama `display` hala blok, yani baski alani hesabina giriyor.
+       Kagitta tiklanacak bir "atla" bagi zaten anlamsiz. Yeni bir
+       arayuz ogesi eklerken bu listeye bakmak BIR ADIM; eklemeyi
+       unutmak, listenin zamanla gerisinde kalmasinin tam yolu.
 
      IZGARA DA SIFIRLANIYOR: serit `display: none` olunca
      `grid-template-columns: 216px ...` BOS bir ilk sutun birakir ve
      yazi sagda asili kalirdi. Gizlemek yetmiyor, duzeni de geri
      almak gerekiyor. */
-  .onay-bandi, .yazi-serit, .alt-gezinme, .tel-kap { display: none !important}
+  .onay-bandi, .yazi-serit, .alt-gezinme, .tel-kap,
+  .atla { display: none !important}
   /* `grid-template-columns` YAZILMIYOR. Ilk yazimda vardi;
      `test_stil.py` kirmizi yandi ve HAKLIYDI: `display: block` olan
      bir kapta izgara ozellikleri HICBIR SEY yapmaz. Yazili ama hic
