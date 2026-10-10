@@ -30,7 +30,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 34,
+  "yorumlanan": 35,
   "haberler": [
     {
       "baslik": "Enerji Bakanlığı, FERC'nin Oran Ödeyenleri Korumak ve Daha Güvenilir Güç Oluşturmak İçin PJM Çağrısını Destekliyor",
@@ -1801,6 +1801,32 @@
       "foto_atif": "ArticCynda · CC-BY-SA-4.0"
     },
     {
+      "baslik": "Rusya, ABD ile mutabakat sonrası dizel ihracatını başlattı",
+      "baslik_kaynak": "Rusya, ABD ile mutabakat sonrası dizel ihracatını başlattı",
+      "ozet": "Rus hükümeti, ABD ile varılan mutabakat kapsamında dizel yakıt ihracatına yönelik yasağın kısmen kaldırıldığını duyurdu.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.dunya.com/dunya/rusya-abd-ile-mutabakat-sonrasi-dizel-ihracatini-baslatti-haberi-843379",
+      "kurum": "Dünya",
+      "kurum_tam": "Dünya Gazetesi",
+      "konu": "Dış ticaret",
+      "tarih": "2026-10-10",
+      "tarih_gorunur": "10 Ekim 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Ticaret politikası kararları tarafların birbirine bağımlılığı ölçüsünde fiyatlanır; etki önce ilgili sektör hisselerinde ve para birimlerinde görülür.",
+      "kanallar": [
+        "Sektör maruziyeti: gümrük vergisi ihracatçı sektörün marjını doğrudan sıkıştırır; otomotiv, çelik ve tarım en sık hedef alınan kalemlerdir.",
+        "Para birimi: ticaret dengesinde beklenen değişim ilgili ülke kurunu yeniden fiyatlar.",
+        "Tedarik zinciri: ara mal akışı kesilirse maliyet üretici fiyatlarına yazılır ve etki üçüncü ülkelere yayılır.",
+        "Anlaşma yapısı: USMCA ya da gümrük birliği gibi çerçeveler, etkinin hangi kalemlerde ve hangi takvimde doğacağını belirler."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/dis-ticaret-11-d3b27589.jpg",
+      "foto_atif": "Niels Johannes · CC-BY-SA-4.0"
+    },
+    {
       "baslik": "Trump'tan Zelenski'ye sert çıkış: Ukrayna'nın yeni bir başkana ihtiyacı var",
       "baslik_kaynak": "Trump'tan Zelenski'ye sert çıkış: Ukrayna'nın yeni bir başkana ihtiyacı var",
       "ozet": "ABD Başkanı Donald Trump, Ukrayna Devlet Başkanı Volodimir Zelenski'yi Rusya ile savaşı sona erdirecek bir anlaşmaya yanaşmamakla suçlayarak Ukrayna'nın yeni bir başkana ihtiyaç duyduğunu savundu. Kiev'in Rus petrol rafinerilerine yönelik saldırılarını da eleştiren Trump, savaşın ağır bilançosuna dikkat çekti.",
@@ -1940,27 +1966,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/piyasa-duzenlemesi-8-b7ff5815.jpg",
       "foto_atif": "Lars Plougmann from United States · CC-BY-SA-2.0"
-    },
-    {
-      "baslik": "BAE: Basra Körfezi'nde yanan bir petrol tankerindeki 22 kişilik mürettebatı kurtardı",
-      "baslik_kaynak": "BAE: Basra Körfezi'nde yanan bir petrol tankerindeki 22 kişilik mürettebatı kurtardı",
-      "ozet": "Birleşik Arap Emirlikleri (BAE), Basra Körfezi'nde yanan petrol tankerindeki 22 kişilik mürettebatın kurtarıldığını duyurdu.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.ekonomim.com/dunya/bae-basra-korfezinde-yanan-bir-petrol-tankerindeki-22-kisilik-murettebati-kurtardi-haberi-923876",
-      "kurum": "Ekonomim",
-      "kurum_tam": "Ekonomim",
-      "konu": "Enerji",
-      "tarih": "2026-10-10",
-      "tarih_gorunur": "10 Ekim 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enerji-18-2333f432.jpg",
-      "foto_atif": "Sgroey · CC-BY-SA-4.0"
     },
     {
       "baslik": "Trump: Bence Ukrayna'nın yeni bir başkan edinme vakti geldi",
