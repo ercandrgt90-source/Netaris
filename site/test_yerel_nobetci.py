@@ -302,6 +302,54 @@ def test_pythonw_altinda_yazdirma_cokmuyor():
         sys.stdout = eski
 
 
+def test_alt_surec_pencere_acmiyor():
+    """Her `subprocess` cagrisi `creationflags` tasimali.
+
+    NEDEN: gorev `pythonw.exe` ile kosuyor, yani KONSOLU YOK.
+    Windows'ta konsolsuz bir surecten baslatilan konsol uygulamasi
+    KENDINE konsol ayirir; varsayilan terminal Windows Terminal
+    oldugu icin bu, kucuk siyah bir kutu degil TAM BOY bir pencere.
+
+    OLCULDU (2026-10-11), kullanici sikayetinden sonra: gorev tek
+    basina tetiklendi ve surekli calisan bir pencere izleyicisi
+    yakaladi --
+
+        19:01:43  gorev tetiklendi
+        19:01:44  1199x616  CASCADIA_HOSTING_WINDOW_CLASS
+                  WindowsTerminal.exe
+
+    On dakikada bir kosan gorev, tam ekran oyunda saatte alti kez
+    odagi caliyordu. Duzeltmeden sonra ayni olcum: uc tetik, SIFIR
+    pencere.
+
+    BU SINAMA KAYNAGA BAKIYOR, ciktiya degil: pencerenin acilmadigini
+    dogrulamak calisan bir izleyici gerektiriyor ve bu sinamanin isi
+    o degil -- isi, bayragin bir daha DUSMEMESI.
+    """
+    kaynak = _kod((_KOK / "yerel_nobetci.py").read_text(encoding="utf-8"))
+    import re as _re
+    cagri = [m for m in _re.finditer(r"subprocess[.](?:run|Popen|call|check_output)[(]",
+                                     kaynak)]
+    dogru("en az bir subprocess cagrisi var (tarama dolu)", len(cagri) >= 1)
+    for m in cagri:
+        # Cagrinin kapanis parantezine kadar olan metni al.
+        derinlik, son = 0, m.end()
+        for i in range(m.end() - 1, len(kaynak)):
+            if kaynak[i] == "(":
+                derinlik += 1
+            elif kaynak[i] == ")":
+                derinlik -= 1
+                if derinlik == 0:
+                    son = i
+                    break
+        govde = kaynak[m.start():son]
+        if "creationflags" not in govde:
+            kaldi.append(f"subprocess cagrisi pencere bayragi tasimiyor: "
+                         f"{govde[:60]}")
+        else:
+            dogru("subprocess cagrisi pencere acmiyor", True)
+
+
 for _ad, _f in sorted(list(globals().items())):
     if _ad.startswith("test_") and callable(_f):
         _f()

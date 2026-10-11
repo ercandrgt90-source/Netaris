@@ -248,11 +248,38 @@ def kimlik_al() -> str:
     cevre = dict(os.environ)
     cevre["GIT_TERMINAL_PROMPT"] = "0"
     cevre["GCM_INTERACTIVE"] = "never"
+    # PENCERE ACMADAN CALISTIR -- KULLANICININ EKRANINA VURUYORDU.
+    #
+    # Gorev `pythonw.exe` ile kosuyor, yani KONSOLU YOK. Windows'ta
+    # konsolsuz bir surecten baslatilan konsol uygulamasi KENDINE
+    # konsol ayirir; varsayilan terminal Windows Terminal oldugu icin
+    # bu, kucuk siyah bir kutu degil TAM BOY bir pencere demek.
+    #
+    # OLCULDU (2026-10-11). Kullanici "ara ara bir pencere acilip
+    # kapaniyor, oyun oynarken oyundan atiyor" dedi. Gorev TEK BASINA
+    # tetiklendi ve surekli calisan bir pencere izleyicisi yakaladi:
+    #
+    #   19:01:43  gorev tetiklendi
+    #   19:01:44  1199x616  CASCADIA_HOSTING_WINDOW_CLASS
+    #             WindowsTerminal.exe  'Windows Terminal'
+    #
+    # Gorev on dakikada bir kosuyor: tam ekran oyunda saatte alti kez
+    # odak calinmasi demek.
+    #
+    # ILK OLCUMUM YANLIS NEGATIF VERDI: `MainWindowHandle` ve 25 ms
+    # araliklı anlik Win32 taramasi pencereyi GORMEDI; "gorev temiz"
+    # diye yazmistim. Kisa omurlu pencere anlik ornekleme ile
+    # olculmuyor -- ancak surekli calisan bir izleyici goruyor.
+    #
+    # `CREATE_NO_WINDOW` yalnizca Windows'ta var; baska isletim
+    # sisteminde bayrak 0 kaliyor ve cagri degismiyor.
+    _pencereSiz = getattr(subprocess, "CREATE_NO_WINDOW", 0)
     try:
         p = subprocess.run([git, "credential", "fill"],
                            input="protocol=https\nhost=github.com\n\n",
                            capture_output=True, text=True,
-                           encoding="utf-8", timeout=8, env=cevre)
+                           encoding="utf-8", timeout=8, env=cevre,
+                           creationflags=_pencereSiz)
     except (OSError, subprocess.SubprocessError):
         return ""
     if p.returncode != 0:
