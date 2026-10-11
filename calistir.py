@@ -359,6 +359,42 @@ def main() -> int:
             print("  Ozellik eklendiginde ONCE metin guncellenir.")
             ok = False
 
+    # CIKTI DENETIMI DAGITIMDAN ONCE -- UCUNCU KEZ AYNI DERS.
+    #
+    # `denetim.py` yukarida (site uretiminden ONCE) kosuyor ve
+    # yalnizca VERIYI denetlemiyor: `_lisans_denetimi` ve sayfa yapisi
+    # kontrolleri `site/cikti` dizinine, yani URETILEN SAYFALARA
+    # bakiyor. Ama o noktada cikti HENUZ YENILENMEMIS -- denetlenen
+    # sey BIR ONCEKI kosunun ciktisi.
+    #
+    # Sonuc: bugun giren bir atif eksigi bugun yayina cikar, ancak
+    # YARINKI kosuda yakalanir. CC BY atfi hukuki bir yukumluluk ve
+    # `_lisans_denetimi` agirligini bilerek HATA yapmis ("eksik atif
+    # dagitimi durdurmali") -- ama durdurdugu dagitim yanlis gunun
+    # dagitimiydi.
+    #
+    # OLCULDU (2026-10-11): uretilen bir haber sayfasindan tek bir
+    # `<figcaption>` silindi; `_lisans_denetimi` [hata] agirliginda
+    # bulgu verdi. Yani kontrol CALISIYOR, yalnizca yanlis anda
+    # konusuyordu.
+    #
+    # Bu, bu dosyada UCUNCU kez duzeltilen ayni kusur: `yorum_denetimi`
+    # ve `beyan_denetimi` de once dagitimdan SONRA kosuyordu ve ikisi
+    # de ayni gerekceyle one alinmisti -- "bir denetimin isi yanlisla
+    # yayina cikmayi ONLEMEK; sonradan haber vermek yalnizca kaydini
+    # tutmak olur."
+    #
+    # Maliyet olculdu: 18 saniye. Insa ~5 dakika; kabul edilebilir.
+    if ok:
+        cd, _ = _calistir("Çıktı denetimi (dağıtımdan önce)",
+                          [str(BOT / "denetim.py"), "--sessiz"])
+        sonuclar["Çıktı denetimi"] = cd
+        if not cd:
+            print()
+            print("  URETILEN CIKTI DENETIMDEN GECMEDI -- dagitim YAPILMADI.")
+            print("  Yukaridaki hatalar YENI uretilen sayfalara ait.")
+            ok = False
+
     if args.yayinla and ok:
         y, _ = _calistir("Cloudflare dağıtımı", [str(SITE / "yayinla.py")])
         sonuclar["Dağıtım"] = y

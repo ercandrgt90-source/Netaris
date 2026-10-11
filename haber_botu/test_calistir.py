@@ -64,6 +64,7 @@ for ad, parca in (
     ("yorum kapisi", 'yorum_denetimi.py'),
     ("veri denetimi", '"Veri denetimi"'),
     ("site uretimi", '"Site üretimi"'),
+    ("cikti denetimi", '"Çıktı denetimi (dağıtımdan önce)"'),
 ):
     yer = _yer(parca)
     dogru(f"{ad} dagitimdan ONCE kosuyor", yer != -1 and yer < _dagitim)
@@ -79,6 +80,28 @@ dogru("beyan denetimi basarisizsa dagitim engelleniyor",
 # Dagitim `ok` bayragina BAKMALI.
 dogru("dagitim ok bayragina bagli",
       "if args.yayinla and ok:" in KOD)
+
+# CIKTI DENETIMI, SITE URETIMINDEN SONRA OLMALI -- SIRADA OLMAK YETMEZ.
+#
+# `denetim.py` yalnizca veriyi degil URETILEN SAYFALARI da denetliyor
+# (`_lisans_denetimi`, sayfa yapisi). Hat basindaki kosusu ciktiya
+# bakiyor ama o noktada cikti HENUZ YENILENMEMIS: denetlenen sey BIR
+# ONCEKI kosunun ciktisi. Bugun giren bir atif eksigi bugun yayina
+# cikar, yarinki kosuda yakalanirdi.
+#
+# OLCULDU (2026-10-11): uretilen bir haber sayfasindan tek bir
+# `<figcaption>` silindi, `_lisans_denetimi` [hata] verdi. Kontrol
+# calisiyor; sorun ZAMANLAMAYDI.
+#
+# CC BY atfi hukuki yukumluluk; bu yuzden ikinci kosu dagitimi
+# gatelemeli.
+_uretim = _yer('"Site üretimi"')
+_ciktiden = _yer('"Çıktı denetimi (dağıtımdan önce)"')
+dogru("cikti denetimi SITE URETIMINDEN SONRA kosuyor",
+      _uretim != -1 and _ciktiden != -1 and _uretim < _ciktiden)
+_arasi2 = KOD[_ciktiden:_dagitim] if _ciktiden != -1 and _dagitim != -1 else ""
+dogru("cikti denetimi basarisizsa dagitim engelleniyor",
+      "ok = False" in _arasi2)
 
 # KRITIK listesi: cikis kodu bu adimlara bakiyor. Beyan denetimi
 # listede degilse, engelleme calissa bile kosu YESIL doner ve hata
