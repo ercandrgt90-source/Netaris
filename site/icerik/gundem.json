@@ -1688,6 +1688,32 @@
       "foto_atif": "Ank Kumar · CC-BY-SA-4.0"
     },
     {
+      "baslik": "Suudi Arabistan duyurdu: Kral Fahd Havalimanı'na yeni saldırı düzenlendi",
+      "baslik_kaynak": "Suudi Arabistan duyurdu: Kral Fahd Havalimanı'na yeni saldırı düzenlendi",
+      "ozet": "Suudi Arabistan, ülkenin doğusundaki Dammam kentinde bulunan Kral Fahd Uluslararası Havalimanı'na yeni saldırı düzenlendiğini duyurdu.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.dunya.com/dunya/suudi-arabistan-duyurdu-kral-fahd-havalimanina-yeni-saldiri-duzenlendi-haberi-843465",
+      "kurum": "Dünya",
+      "kurum_tam": "Dünya Gazetesi",
+      "konu": "Jeopolitik",
+      "tarih": "2026-10-11",
+      "tarih_gorunur": "11 Ekim 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
+      "kanallar": [
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-15-ccd8ab8d.jpg",
+      "foto_atif": "usepagov · PDM"
+    },
+    {
       "baslik": "Türkiye ve 3 ülkeden Husilerin Suudi Arabistan’a saldırılarına kınama",
       "baslik_kaynak": "Türkiye ve 3 ülkeden Husilerin Suudi Arabistan’a saldırılarına kınama",
       "ozet": "Türkiye, Mısır, Pakistan ve Suudi Arabistan, ortak açıklamayla Husiler tarafından Suudi Arabistan'a karşı gerçekleştirilen \"düşmanca saldırıları en güçlü\" şekilde kınadı.",
@@ -1761,33 +1787,8 @@
       "foto_atif": "User:A,Ocram · PDM"
     },
     {
-      "baslik": "Şeker pancarında hasat başladı: Çiftçinin beklediği fiyat belli oldu",
-      "baslik_kaynak": "Şeker pancarında hasat başladı: Çiftçinin beklediği fiyat belli oldu",
-      "ozet": "Amasya'da 350 bin tonluk şeker pancarı hasadı için tarlalarda mesai başladı. Yaklaşık 6 ayda yetişen pancarlar fabrikaya taşınırken, üreticiler alım fiyatının açıklanmasını bekliyor. Geçen yıl ton başına 3 bin 100 lira olan taban fiyat için bu yıl çiftçilerin beklentisi 4 bin 500 liraya kadar çıkıyor.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.dunya.com/ekonomi/seker-pancarinda-hasat-basladi-ciftcinin-bekledigi-fiyat-belli-oldu-haberi-843429",
-      "kurum": "Dünya",
-      "kurum_tam": "Dünya Gazetesi",
-      "konu": "Tarım ve gıda",
-      "tarih": "2026-10-11",
-      "tarih_gorunur": "11 Ekim 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Gıda, tüketici fiyat endeksinde en yüksek ağırlıklı gruplardan biridir; rekolte ve girdi maliyeti enflasyona hızlı geçer.",
-      "kanallar": [
-        "Enflasyon: gıda fiyatları manşet enflasyonun en oynak bileşenidir; bu yüzden çekirdek enflasyon ayrıca izlenir.",
-        "Girdi maliyeti: gübre, yem ve akaryakıt fiyatı üretici maliyetini belirler; bunların çoğu ithal ve döviz cinsidir.",
-        "Dış ticaret: hububat ve yağlı tohumda ithalat bağımlılığı, rekolte sonucunu cari dengeye bağlar."
-      ],
-      "kanal_basligi": "Piyasaya nasıl yansır?",
-      "foto": "/statik/foto/tarim-ve-gida-8-40e6368c.jpg",
-      "foto_atif": "Dreamy Pixel · CC-BY-4.0"
-    },
-    {
-      "baslik": "İran: Hürmüz Boğazı’nda bir süper tanker daha mayına çarptı",
-      "baslik_kaynak": "İran: Hürmüz Boğazı’nda bir süper tanker daha mayına çarptı",
+      "baslik": "İran: Hürmüz Boğazı'nda navigasyonunu kapatan gemileri 'düşman gemi 'sayacağız",
+      "baslik_kaynak": "İran: Hürmüz Boğazı'nda navigasyonunu kapatan gemileri 'düşman gemi 'sayacağız",
       "ozet": "İran Devrim Muhafızları Ordusu, Hürmüz Boğazı’ndan geçmeye çalışan bir süper tankerin deniz mayınına çarptığını ve çarpma sonrası geminin makine dairesinde patlama meydana geldiğini duyurdu.",
       "cevrildi": false,
       "dil": "tr",
@@ -1810,6 +1811,32 @@
       "kanal_basligi": "Hangi piyasaları etkiler?",
       "foto": "/statik/foto/jeopolitik-14-4ca6b4fe.jpg",
       "foto_atif": "Bernard Gagnon · CC0"
+    },
+    {
+      "baslik": "Macron: Ukrayna'nın desteklediği gerçek enerji ateşkesinin arkasındayız",
+      "baslik_kaynak": "Macron: Ukrayna'nın desteklediği gerçek enerji ateşkesinin arkasındayız",
+      "ozet": "Fransa Cumhurbaşkanı Emmanuel Macron, Ukrayna'nın da hazır olduğu gerçek bir enerji ateşkesi çağrısını koşulsuz desteklediklerini açıkladı.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.ekonomim.com/dunya/macron-ukraynanin-destekledigi-gercek-enerji-ateskesinin-arkasindayiz-haberi-924016",
+      "kurum": "Ekonomim",
+      "kurum_tam": "Ekonomim",
+      "konu": "Enerji",
+      "tarih": "2026-10-11",
+      "tarih_gorunur": "11 Ekim 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Enerji fiyatı hem bir maliyet kalemi hem bir enflasyon girdisidir; arz tarafındaki değişim önce vadeli piyasada, sonra üretici fiyatlarında görünür.",
+      "kanallar": [
+        "Arz kapasitesi: OPEC+ kotası, stok seviyesi ve üretim kesintisi haberleri vadeli eğrinin şeklini değiştirir.",
+        "Talep beklentisi: büyüme verisi ve sanayi üretimi fiyatın talep bacağını belirler.",
+        "Bölgeler arası akış: doğal gaz ile LNG arasındaki fiyat farkı, kargoların hangi bölgeye gideceğini değiştirir.",
+        "Enflasyon aktarımı: enerji maliyeti ulaştırma ve gıda üzerinden manşet enflasyona geçer; merkez bankaları çekirdek enflasyona daha çok bakar."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/enerji-12-87d7f650.jpg",
+      "foto_atif": "AliAbuRas · CC-BY-SA-4.0"
     },
     {
       "baslik": "Türkiye dahil 4 ülkeden Husi saldırılarına ortak tepki",
@@ -1888,32 +1915,6 @@
       "kanal_basligi": "Hangi piyasaları etkiler?",
       "foto": "/statik/foto/jeopolitik-15-ccd8ab8d.jpg",
       "foto_atif": "usepagov · PDM"
-    },
-    {
-      "baslik": "Zelenskiy: Rusya ile enerji ateşkesinden haberim yok ama destekliyoruz",
-      "baslik_kaynak": "Zelenskiy: Rusya ile enerji ateşkesinden haberim yok ama destekliyoruz",
-      "ozet": "Ukrayna Devlet Başkanı Volodimir Zelenskiy, ABD Başkanı Donald Trump'ın duyurduğu, \"Rusya ile Ukrayna'nın birbirlerinin enerji altyapılarına saldırmama konusunda ateşkes sağladıkları\" yönündeki gelişmeden \"haberdar olmadığını\" ama bu fikri desteklediğini, ateşkese hazır olduklarını ifade etti.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.ekonomim.com/dunya/zelenskiy-ukrayna-ateskesi-destekliyor-rusyanin-da-desteklemesi-onemli-haberi-923999",
-      "kurum": "Ekonomim",
-      "kurum_tam": "Ekonomim",
-      "konu": "Enerji",
-      "tarih": "2026-10-11",
-      "tarih_gorunur": "11 Ekim 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Enerji fiyatı hem bir maliyet kalemi hem bir enflasyon girdisidir; arz tarafındaki değişim önce vadeli piyasada, sonra üretici fiyatlarında görünür.",
-      "kanallar": [
-        "Arz kapasitesi: OPEC+ kotası, stok seviyesi ve üretim kesintisi haberleri vadeli eğrinin şeklini değiştirir.",
-        "Talep beklentisi: büyüme verisi ve sanayi üretimi fiyatın talep bacağını belirler.",
-        "Bölgeler arası akış: doğal gaz ile LNG arasındaki fiyat farkı, kargoların hangi bölgeye gideceğini değiştirir.",
-        "Enflasyon aktarımı: enerji maliyeti ulaştırma ve gıda üzerinden manşet enflasyona geçer; merkez bankaları çekirdek enflasyona daha çok bakar."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/enerji-14-d727b7f7.jpg",
-      "foto_atif": "Quintin Soloviev · CC-BY-4.0"
     },
     {
       "baslik": "İran: ABD'nin Hürmüz teklifine yanıtı yetersiz",
