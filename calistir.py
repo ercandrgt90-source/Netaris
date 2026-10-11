@@ -395,6 +395,35 @@ def main() -> int:
             print("  Yukaridaki hatalar YENI uretilen sayfalara ait.")
             ok = False
 
+    # CIKTIYA BAKAN SINAMALAR -- CI'DA HICBIR SEY DOGRULAMIYORLARDI.
+    #
+    # Is akisinda "Testleri calistir" adimi, "Veri topla ve icerik
+    # uret" adimindan ONCE kosuyor. `site/cikti` ise `.gitignore`
+    # icinde ve depoda izlenmiyor -- taze bir kopyada o dizin YOK.
+    #
+    # OLCULDU (2026-10-11): cikti gecici olarak kaldirilip butun
+    # sinamalar kosturuldu. 43 sinama "ATLANDI cikti yok" deyip
+    # YESIL dondu. Ornek: `test_yetim_sayfa.py` -> "TUM TESTLER
+    # GECTI (0)". Sifir kontrol, cikis kodu 0, CI yesil.
+    #
+    # Atlayanlar arasinda YASAL yukumluluk tasiyanlar vardi:
+    # `test_lisans.py` (lisansi bizde olmayan seriler),
+    # `test_lisans_atfi.py` (CC BY), `test_ticari_atif.py`.
+    #
+    # Kirmizi bir sinama sorunu duyurur; korlesen sinama ORTBAS EDER.
+    # Bu yuzden ayni sinamalar cikti URETILDIKTEN SONRA bir daha
+    # kosuyor. Maliyet olculdu: 51 sinama, 44 saniye.
+    if ok:
+        cs, _ = _calistir("Çıktıya bakan sınamalar",
+                          [str(SITE / "cikti_sinamalari.py")])
+        sonuclar["Çıktı sınamaları"] = cs
+        if not cs:
+            print()
+            print("  CIKTIYA BAKAN SINAMALAR DUSTU -- dagitim YAPILMADI.")
+            print("  Bu sinamalar hat basinda cikti YOKKEN atlanmisti;")
+            print("  burada gercek ciktiya bakiyorlar.")
+            ok = False
+
     if args.yayinla and ok:
         y, _ = _calistir("Cloudflare dağıtımı", [str(SITE / "yayinla.py")])
         sonuclar["Dağıtım"] = y

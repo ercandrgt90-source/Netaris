@@ -65,6 +65,7 @@ for ad, parca in (
     ("veri denetimi", '"Veri denetimi"'),
     ("site uretimi", '"Site üretimi"'),
     ("cikti denetimi", '"Çıktı denetimi (dağıtımdan önce)"'),
+    ("ciktiya bakan sinamalar", '"Çıktıya bakan sınamalar"'),
 ):
     yer = _yer(parca)
     dogru(f"{ad} dagitimdan ONCE kosuyor", yer != -1 and yer < _dagitim)
@@ -102,6 +103,21 @@ dogru("cikti denetimi SITE URETIMINDEN SONRA kosuyor",
 _arasi2 = KOD[_ciktiden:_dagitim] if _ciktiden != -1 and _dagitim != -1 else ""
 dogru("cikti denetimi basarisizsa dagitim engelleniyor",
       "ok = False" in _arasi2)
+
+# CIKTIYA BAKAN SINAMALAR DA URETIMDEN SONRA OLMALI.
+#
+# Is akisinda "Testleri calistir" adimi icerik uretiminden ONCE
+# kosuyor ve `site/cikti` depoda izlenmiyor -- yani taze kopyada o
+# dizin yok. OLCULDU (2026-10-11): cikti kaldirilip butun sinamalar
+# kosturuldu, 43 tanesi "ATLANDI cikti yok" deyip YESIL dondu.
+# Ornek: test_yetim_sayfa.py -> "TUM TESTLER GECTI (0)".
+#
+# Kirmizi sinama sorunu duyurur; korlesen sinama ORTBAS EDER.
+_sinama = _yer('"Çıktıya bakan sınamalar"')
+dogru("ciktiya bakan sinamalar SITE URETIMINDEN SONRA kosuyor",
+      _uretim != -1 and _sinama != -1 and _uretim < _sinama)
+_arasi3 = KOD[_sinama:_dagitim] if _sinama != -1 and _dagitim != -1 else ""
+dogru("sinamalar duserse dagitim engelleniyor", "ok = False" in _arasi3)
 
 # KRITIK listesi: cikis kodu bu adimlara bakiyor. Beyan denetimi
 # listede degilse, engelleme calissa bile kosu YESIL doner ve hata
