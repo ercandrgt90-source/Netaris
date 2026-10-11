@@ -4044,10 +4044,36 @@ def ilgili_analizler(h: dict, analizler: list,
 
 
 def ai_yorum_oku() -> dict[str, str]:
-    """Depodaki AI yorumlari: adres -> metin.
+    """Depodaki AI yorumlari: adres -> metin. GUVENLIK SUZGECINDEN GECER.
 
     Tablo yoksa BOS sozluk. Yorum hatti hic calismamis olabilir ve bu
     sitenin kurulmasini engellememeli.
+
+    SUZGEC NEDEN BURADA DA CALISIYOR
+    --------------------------------
+    `haber_botu/ai/guvenlik.py` yorum URETILIRKEN calisiyor. Ama metin
+    bir kez depoya yazildiktan sonra bir daha sorgulanmiyordu: kural
+    sonradan SIKILASTIRILDIGINDA eski yorumlar yayinda kalmaya devam
+    ediyordu.
+
+    OLCULDU (2026-10-11): depodaki 2.576 yorum tarandi, yayimlanmis
+    578 yorumdan BIRI bugunku kurala takiliyordu --
+
+      "Bakir fiyatlari 2026 yili icin 12.000 dolar/ton seviyesine
+       ulasacak."
+
+    Kaynak haberin basligi tahminin BofA'ya ait oldugunu soyluyor;
+    yorum atfi dusurup kesinlik olarak yazmis. Desen o gun eklendi ama
+    METIN DEPODAYDI, yani desen tek basina hicbir sey degistirmezdi.
+
+    Artik suzgec HER INSADA calisiyor: kural sikilastiginda eski
+    icerik de kendiliginden temizleniyor.
+
+    `yayinlanabilir()` DEGIL `tara()` KULLANILIYOR: birincisi yasal
+    uyarinin METNIN ICINDE olmasini da sart kosuyor, oysa bu sitede
+    uyari SABLONDA duruyor. Burada sorulan tek sey YASAK bulgu var mi.
+
+    SESSIZ ATLAMA YOK: dusen yorum sayisi ekrana yaziliyor.
     """
     if _beyin is None:
         return {}
@@ -4056,7 +4082,40 @@ def ai_yorum_oku() -> dict[str, str]:
             r = b.execute("SELECT adres, metin FROM ai_yorum").fetchall()
     except Exception:
         return {}
-    return {x[0]: x[1] for x in r}
+    return yorum_suz({x[0]: x[1] for x in r})
+
+
+def yorum_suz(hepsi: dict) -> dict:
+    """YASAK bulgu tasiyan yorumlari ayiklar. Gerekce `ai_yorum_oku`da.
+
+    AYRI FONKSIYON, cunku `ai_yorum_oku` gercek depoyu okuyor ve ona
+    bagli bir sinama her kosuda degisen veriye baglanirdi -- bu depoda
+    bir kez yasandi ve sinama urunde kusur yokken kirmizi dondu.
+    Burasi sentetik sozlukle sinanabiliyor.
+    """
+    try:
+        sys.path.insert(0, str(KOK.parent / "haber_botu" / "ai"))
+        import guvenlik as _g                    # noqa: PLC0415
+    except Exception as e:                       # noqa: BLE001
+        # Suzgec iceri alinamazsa SESSIZ GECILMIYOR: sebep yaziliyor.
+        # Yorumlar yine basiliyor -- suzgecin kurulamamasi siteyi
+        # yorumsuz birakmamali, ama bunu bilmeden gecmek de olmaz.
+        print(f"  ai yorumu: guvenlik suzgeci yuklenemedi ({e}); "
+              f"{len(hepsi)} yorum DENETLENMEDEN basiliyor")
+        return dict(hepsi)
+    temiz, dusen = {}, []
+    for adres, metin in hepsi.items():
+        yasak = [x for x in _g.tara(metin) if x.seviye is _g.Seviye.YASAK]
+        if yasak:
+            dusen.append((adres, yasak[0].aciklama))
+        else:
+            temiz[adres] = metin
+    if dusen:
+        print(f"  ai yorumu: {len(dusen)} yorum guvenlik suzgecine takildi "
+              f"ve BASILMADI")
+        for _a, _n in dusen[:5]:
+            print(f"    {_a[:58]}  <- {_n}")
+    return temiz
 
 
 def gun_farki(tarih: str, bugun: str) -> int:

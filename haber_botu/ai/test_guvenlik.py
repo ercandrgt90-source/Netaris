@@ -33,12 +33,30 @@ YAKALANMALI = [
     "Getiri garantisi sunuluyor.",
     "Hisse yakında düşecek.",
     "Bu kağıt satılabilir.",
+
+    # FIYAT HEDEFI, FIILLE KURULMUS HALI.
+    # Olculdu (2026-10-11): depodaki 2.576 AI yorumu tarandi ve
+    # yayimlanmis 578 yorumun BIRINDE bu bicim vardi --
+    # "Bakir fiyatlari 2026 yili icin 12.000 dolar/ton seviyesine
+    # ulasacak." Kaynak haberin basligi tahminin BofA'ya ait
+    # oldugunu soyluyor; yorum atfi dusurup kesinlik yazmis.
+    # Ustteki "hedef fiyat" desenleri bu bicimi GORMUYORDU.
+    "Bakır fiyatları 2026 yılı için 12.000 dolar/ton seviyesine ulaşacak.",
+    "BofA'ya göre bakır 12.000 dolara ulaşacak.",
+    "Altın 5.000 doları geçecek.",
+    "Kur 60 liraya çıkacak.",
 ]
 
 # ASLA yakalanmamasi gereken masum metinler.
 # Cogu "al", "sat", "tut" alt dizgesini icerir; kelime siniri kontrolunun
 # calistigini burada dogruluyoruz.
 YAKALANMAMALI = [
+    # Fiyat hedefi kuralinin YANLIS yakalamamasi gerekenler.
+    # Mesru yol acik: baskasinin hedefini FIILSIZ aktarmak serbest.
+    "BofA'nın hedefi 12.000 dolar.",
+    "İhracat 5 milyar dolara ulaştı.",
+    "Fon 200 milyon dolarlık tahvil ihraç edecek.",
+    "Toplantı yarın gerçekleşecek; 500 milyon dolarlık anlaşma imzalandı.",
     "Şirketin ticari alacakları 1,2 milyar TL seviyesinde.",
     "Yapılan analiz, faaliyet kârının arttığını gösteriyor.",
     "Kalan borç tutarı önceki döneme göre azaldı.",

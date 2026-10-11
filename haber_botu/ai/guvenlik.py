@@ -114,6 +114,45 @@ _YASAK_DESENLER: list[tuple[str, str]] = [
      "kesin fiyat yonu tahmini"),
     (r"\bkesinlikle\s+(?:yuksel|dus|art|geril)", "kesin yon tahmini"),
 
+    # FIYAT HEDEFI -- BASKA KELIMELERLE SOYLENMIS HALI.
+    #
+    # Ustteki iki desen 'hedef fiyat' ve 'fiyat hedefi' kaliplarini
+    # yakaliyor. Ama ayni sey FIIL kurularak da soylenebiliyor ve o
+    # zaman hicbir desene takilmiyordu.
+    #
+    # OLCULDU (2026-10-11): depodaki 2.576 AI yorumunun tamami
+    # tarandi. Yayimlanmis 578 yorumun BIRINDE bu bicim vardi --
+    #
+    #   'Bakir fiyatlari 2026 yili icin 12.000 dolar/ton
+    #    seviyesine ulasacak.'
+    #
+    # Kaynak haberin basligi "BofA'dan 12 bin dolar hedefi" diyor:
+    # tahmin BANKANIN. Yorum atfi dusurup kesinlik olarak yazmis.
+    # Bu, bu sitenin en hassas cizgisi.
+    #
+    # OLCUT FIIL LISTESI DEGIL, BILESIM: somut bir FIYAT (sayi +
+    # para birimi) ile bir HAREKET FIILI ayni cumlede. Tek basina
+    # fiil listesi tutmak sonsuz kovalamaca olurdu -- 'artacak' ve
+    # 'gerileyecek' zaten bilerek UYARI listesinde, cunku makroda
+    # mesru. Fiyatla bilesince mesru olmaktan cikiyorlar.
+    #
+    # CUMLE SINIRI KORUNUYOR: [^.!?]{0,80} iki ogenin AYNI cumlede
+    # olmasini sart kosuyor. Olmasa besinci cumledeki bir fiyat,
+    # birinci cumledeki bir fiille eslesirdi.
+    #
+    # TURKCE EKI SART: ilk yazimda para biriminden sonra kelime
+    # siniri vardi ve '12.000 DOLARA ulasacak' KACIYORDU -- ek
+    # yuzunden sinir olusmuyor. Bu depoda tekrar eden tuzak.
+    #
+    # MESRU YOL ACIK: "BofA'nin hedefi 12.000 dolar" (fiilsiz) bu
+    # desene takilmiyor. Baskasinin hedefini AKTARMAK serbest;
+    # kendi agzindan kesinlik olarak soylemek degil.
+    #
+    # Olculen yanlis pozitif: SIFIR (2.576 yorum).
+    (r"\d[\d.,]*\s*(?:dolar|euro|avro|sterlin|lira|tl)[a-z]{0,8}[^.!?]{0,80}(?<![a-z])(?:ulasacak|cikacak|inecek|gececek|asacak|varacak)(?![a-z])"
+     r"|" r"(?<![a-z])(?:ulasacak|cikacak|inecek|gececek|asacak|varacak)(?![a-z])[^.!?]{0,80}\d[\d.,]*\s*(?:dolar|euro|avro|sterlin|lira|tl)[a-z]{0,8}",
+     "fiyat hedefi -- kesinlik olarak yazilmis ileriye donuk fiyat"),
+
     # Tavsiye dili
     (r"\b(?:oneriyoruz|oneririz|tavsiye\s+ediyoruz|tavsiye\s+ederiz)\b",
      "dogrudan tavsiye"),
