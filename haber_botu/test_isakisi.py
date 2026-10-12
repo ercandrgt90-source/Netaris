@@ -553,6 +553,16 @@ for _ad in ("otomasyon.yml", "bilanco.yml"):
     _m = (_akislar / _ad).read_text(encoding="utf-8")
     dogru(f"{_ad}: nobet defteri geri yazma listesinde",
           "haber_botu/kaynak/bilanco_nobet.json" in _m)
+    # IKI LISTE VAR -- IKISI DE GUNCELLENMELI.
+    #
+    # `YOLLAR` neyi ASAMAYA ALACAGINI, kapi ise asamada NE
+    # BULUNABILECEGINI soyluyor. 2026-10-13'te `bilanco.yml` tam
+    # burada dustu: dosya birinci listeye eklenmis, kapiya
+    # eklenmemisti ve kosu "beklenmeyen dosya asamada" diyerek
+    # DURDU. Kapi dogru calisti; eksik olan ikinci listeydi.
+    dogru(f"{_ad}: nobet defteri KAPIDAN da geciyor",
+          "bilanco_nobet" in _m.split("KACAK=")[-1][:400]
+          if "KACAK=" in _m else True)
 
 # NOBETCI CEKIMDEN ONCE KOSMALI -- sonra kossaydi bayrak bir sonraki
 # kosuya kadar islenmezdi ve "geldikce cikalim" bir tur gecikirdi.

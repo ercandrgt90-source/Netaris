@@ -599,8 +599,14 @@ jobs:
           # yontemden BAGIMSIZ olarak sonucu dogruluyor. Kaynak kodu
           # sessizce geri alan bir commit bir daha uretilmemeli; bu
           # yuzden kapi kapanirsa is KIRMIZI donuyor.
+          # `bilanco_nobet.json` BU KAPIYA DA EKLENDI.
+          #
+          # Bir dosyayi geri yazma listesine eklemek YETMIYOR: ayni karari
+          # veren IKI liste var -- `YOLLAR` (neyi asamaya al) ve bu kapi
+          # (asamada ne BULUNABILIR). 2026-10-13'te `bilanco.yml` tam
+          # burada dustu cunku yalnizca birincisi guncellenmisti.
           KACAK=$(git diff --staged --name-only | grep -vE \
-            '^(haber_botu/netaris\.db|haber_botu/kaynak/(ceviri_onbellek|foto_kayit)\.json|site/statik/foto/|site/icerik/)' \
+            '^(haber_botu/netaris\.db|haber_botu/kaynak/(ceviri_onbellek|foto_kayit|bilanco_nobet)\.json|site/statik/foto/|site/icerik/)' \
             || true)
           if [ -n "$KACAK" ]; then
             echo "HATA: veri disi dosya asamada -- geri yazma DURDURULDU:"

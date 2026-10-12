@@ -418,8 +418,15 @@ jobs:
           asamala
 
           # KAPI: yontemden bagimsiz sonuc dogrulamasi.
+          #
+          # `bilanco_nobet.json` BU LISTEYE DE EKLENDI. Dosyayi yalnizca
+          # `YOLLAR` listesine eklemek YETMEDI: 2026-10-13'te kosu tam
+          # burada dustu -- 'beklenmeyen dosya asamada'. Yani ayni karari
+          # veren IKI liste var ve biri guncellenince oteki kalıyor.
+          # Kapi dogru calisti; eksik olan benim ikinci listeyi
+          # gormemem di.
           KACAK=$(git diff --staged --name-only | grep -vE \
-            '^(site/icerik/analizler/|haber_botu/kaynak/(sektor_ozet|sirketler)\.json)' \
+            '^(site/icerik/analizler/|haber_botu/kaynak/(sektor_ozet|sirketler|bilanco_nobet)\.json)' \
             || true)
           if [ -n "$KACAK" ]; then
             echo "HATA: beklenmeyen dosya aşamada -- geri yazma DURDURULDU:"
