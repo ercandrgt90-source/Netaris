@@ -720,15 +720,85 @@ def ceyrek_etiketi(yil: int, ceyrek: int) -> str:
     return f"{yil} {ceyrek}. çeyrek"
 
 
-def son_donem(kod: str, istemci=None) -> tuple[int, int] | None:
-    """Sirketin kaynaktaki EN YENI ceyregi. Bulunamazsa None.
+#: Ceyreklerin bittigi ay. Bir ceyrek BITMEDEN tablosu yayimlanamaz.
+_CEYREK_BITIS_AYI = {1: 3, 2: 6, 3: 9, 4: 12}
+
+
+def makul_ceyrek(c, bugun=None) -> bool:
+    """Bu ceyrek GERCEKTEN bitmis mi?
+
+    NEDEN GEREKLI -- OLCULDU (2026-10-13)
+    -------------------------------------
+    Kaynak, takvim disi mali yili olan sirketlerde donemleri ILERI
+    etiketliyor. ARENA'nin gelir tablosu basliklari:
+
+        Q1 2027, Q4 2026, Q3 2026, Q2 2026, Q1 2026, ...
+
+    Ekim 2026'dayken "Q1 2027" diye bir bilanco olamaz. `son_donem`
+    ilk cozulebilen etiketi donduruyordu, yani ARENA icin (2027, 1).
+
+    IKI YERDE ZARAR VERIYOR:
+      * `uret_bilanco.sektor_donemi` sektorun etiketini ILK yanit
+        veren sirketten aliyor. ARENA o sirket olursa butun sektor
+        "2027 1. ceyrek" diye etiketlenir. Bugun sans eseri olmuyor
+        -- ARENA Bilisim sektorunun 4. sirasinda ve ondan once ALCTL
+        yanit veriyor. Ilk uc sirket cevap vermedigi gun olurdu.
+      * Bilanco nobetcisi her kosuda "yeni donem acildi" derdi:
+        defterdeki ceyrek ne olursa olsun 2027 ondan yeni.
+
+    OLCUT TAKVIM: ceyregin BITIS ayi gecmiste olmali. Q3 2026
+    30 Eylul'de bitiyor; 13 Ekim'de makul. Q4 2026 ve Q1 2027 degil.
+    """
+    if not c:
+        return False
+    import datetime as _dt                          # noqa: PLC0415
+    bugun = bugun or _dt.date.today()
+    yil, ceyrek = int(c[0]), int(c[1])
+    ay = _CEYREK_BITIS_AYI.get(ceyrek)
+    if not ay:
+        return False
+    # Ceyregin son gunu: o ayin bitisi. Gun tam dogrulugu gereksiz --
+    # bir gun once/sonra karari degistirmiyor, ay yeterli.
+    return (yil, ay) <= (bugun.year, bugun.month)
+
+
+def son_donem(kod: str, istemci=None, bugun=None) -> tuple[int, int] | None:
+    """Sirketin kaynaktaki EN YENI GERCEKLESMIS ceyregi; yoksa None.
 
     Tek istek: gelir tablosunun donem basliklari yeterli. Bilanco ve
     nakit tablolari ayni ceyrekleri kullaniyor.
+
+    HENUZ BITMEMIS CEYREKLER ATLANIYOR -- gerekcesi `makul_ceyrek`
+    uzerinde yazili (takvim disi mali yil, ARENA ornegi).
     """
     donemler, _ = cek(kod, "gelir", istemci)
-    for d in donemler:
-        c = donem_coz(d)
-        if c:
-            return c
-    return None
+    cozulen = [donem_coz(d) for d in donemler]
+    cozulen = [c for c in cozulen if c]
+    if not cozulen:
+        return None
+
+    # TAKVIM DISI MALI YIL -- ETIKETLERI KARSILASTIRILAMAZ.
+    #
+    # Bazi sirketlerin mali yili takvim yiliyla ortusmuyor ve kaynak
+    # donemleri ILERI etiketliyor. Olculdu (2026-10-13), Ekim ayinda:
+    #
+    #   ARENA : Q1 2027, Q4 2026, Q3 2026, Q2 2026, Q1 2026
+    #   BALSU : Q4 2026, Q3 2026, Q1 2026, Q4 2025   (Q2 2026 YOK)
+    #   THYAO : Q2 2026, Q1 2026, Q4 2025            (normal)
+    #
+    # ISARET: basliklarda GELECEKTE biten bir ceyrek var. Normal bir
+    # sirkette bu imkansiz -- bitmemis ceyregin tablosu yayimlanmaz.
+    #
+    # Bu sirketlerin etiketi takvim ceyregine denk DUSMUYOR; "Q3 2026"
+    # onlar icin baska bir donem. Dolayisiyla:
+    #   * sektor donem etiketi onlardan alinamaz (butun sektoru yanlis
+    #     etiketlerdi),
+    #   * "yeni ceyrek belirdi mi" sorusunda sayilamazlar (her zaman
+    #     one bakiyorlar).
+    #
+    # Olcemedigimizi tahmin etmiyoruz: None donuyor, cagiran bir
+    # sonraki sirkete geciyor.
+    if any(not makul_ceyrek(c, bugun) for c in cozulen):
+        return None
+
+    return cozulen[0]

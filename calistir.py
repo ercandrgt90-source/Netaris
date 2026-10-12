@@ -131,7 +131,23 @@ def main() -> int:
     # Kapiyi burada degil modulde tutmanin sebebi: elle calistirmak
     # (`--zorla`) ile otomatik kosu ayni kodu kullansin. Iki yerde iki
     # takvim, bir gun ayrisir.
+    # BILANCO NOBETCISI -- TAKVIM YERINE OLCUM.
+    #
+    # Ustteki takvim kapisi KONSOLIDE bildirim son tarihlerine gore
+    # kurulmus (Mart, Mayis, Agustos, Kasim). Konsolide OLMAYAN
+    # sirketler donem bitiminden otuz gun sonra bildiriyor: 9 aylik
+    # tablolar EKIM SONUNDA gelmeye basliyor, pencere ise Kasim'da
+    # aciliyor. Arada bildirimler yayimlaniyor ve biz hicbir sey
+    # cekmiyoruz.
+    #
+    # Takvimi genisletmek tahmini buyutmek olurdu. Nobetci BAKIYOR:
+    # kaynakta yeni bir ceyrek belirdi mi? Olculdu (2026-10-13) --
+    # sirket basina tek istek, 0,3 saniye; altmis sirketlik yoklama
+    # yaklasik yarim dakika. Yeni ceyrek gorurse `donem_acik`
+    # takvimden bagimsiz ACILIYOR.
     if "bilanco" not in args.atla:
+        adimlar.append(("Bilanço nöbetçisi (yeni çeyrek var mı)",
+                        [str(BOT / "bilanco_nobetci.py")]))
         adimlar.append(("Bilanço (sektör → mali tablo → medyan)",
                         [str(BOT / "uret_bilanco.py"), "--hepsi"]))
 
@@ -149,6 +165,19 @@ def main() -> int:
     if "bilanco_sayfa" not in args.atla:
         adimlar.append(("Bilanço sayfaları (tablo + AI yorumu)",
                         [str(BOT / "uret_bilanco_sayfa.py")]))
+        # BAYRAK SAYFALAR URETILDIKTEN SONRA INIYOR.
+        #
+        # Nobetcinin kaldirdigi bayrak, veri cekilip sayfalar
+        # yazilana kadar ACIK kalmali: arada kosu duserse bir
+        # sonraki kosu ayni isi tekrar denemeli. Bayragi yoklamanin
+        # hemen ardindan indirmek, "gordum ama islemedim" durumunu
+        # sessizce kaybetmek olurdu.
+        #
+        # Sonraki sirketler yine tetikliyor: olay SIRKET BAZINDA
+        # olculuyor (bkz. `bilanco_nobetci.bak`), yani bayragin
+        # inmesi yeni bildirimleri gormeyi engellemiyor.
+        adimlar.append(("Bilanço dönemi işlendi (bayrağı indir)",
+                        [str(BOT / "bilanco_nobetci.py"), "--kapat"]))
 
     # Turkiye makro verisi. Anahtar yoksa adim kendini atlar.
     if "evds" not in args.atla:

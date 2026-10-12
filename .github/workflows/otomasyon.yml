@@ -480,9 +480,18 @@ jobs:
           # `git add` hata verip isi dusururdu -- bu yuzden once
           # varligi kontrol ediliyor.
           YOLLAR=""
+          # BILANCO NOBET DEFTERI GERI YAZILIYOR -- YOKSA HIC CALISMAZ.
+          #
+          # Nobetci her sirketin EN SON hangi ceyregi bildirdigini bu
+          # dosyada tutuyor ve yeni ceyregi ancak ONCEKI degerle
+          # karsilastirarak goruyor. Dosya geri yazilmazsa her CI kosusu
+          # SOGUK baslar: her sirket 'ilk gorulme' sayilir, hicbir gecis
+          # fark edilmez, nobetci hicbir zaman tetiklemez. Yani dosya bu
+          # listede olmadan duzenegin tamami OLU olurdu.
           for y in haber_botu/netaris.db \
                    haber_botu/kaynak/ceviri_onbellek.json \
                    haber_botu/kaynak/foto_kayit.json \
+                   haber_botu/kaynak/bilanco_nobet.json \
                    site/statik/foto \
                    site/icerik; do
             [ -e "$y" ] && YOLLAR="$YOLLAR $y"

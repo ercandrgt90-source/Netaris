@@ -201,15 +201,33 @@ for p in dosyalar:
         print(f"         bulunan: {zor}")
 
 # --------------------------------------------------------------------
-# 6. BILANCO YALNIZCA BILDIRIM AYLARINDA KOSMALI.
-#    Diger aylarda yeni bilanco gelmiyor; kosmak bos yere depoya
-#    yazmak olur.
+# 6. BILANCO, BILDIRIM VE YAKLASMA AYLARINDA KOSMALI.
+#
+#    ESKI KURAL: yalnizca 3,5,8,11 -- "diger aylarda yeni bilanco
+#    gelmiyor, kosmak bos yere depoya yazmak olur". O gerekce
+#    YANLISTI: 3,5,8,11 KONSOLIDE bildirim son tarihleri. Konsolide
+#    OLMAYAN sirketler donem bitiminden otuz gun sonra bildiriyor,
+#    yani 9 aylik tablolar EKIM SONUNDA geliyor -- pencere ise
+#    Kasim'da aciliyordu.
+#
+#    OLCULDU (2026-10-13): kullanici "bilancolar gelmeye basladi"
+#    dedi; hat o gun kapaliydi, is akisi hic baslamiyordu bile.
+#
+#    Her donemin YAKLASMA ayi eklendi (2,4,7,10). O aylarda AGIR IS
+#    YAPILMIYOR: `uret_bilanco` kendi kapisindan donuyor. Yapilan tek
+#    sey nobetcinin BAKMASI -- sirket basina tek istek, 0,3 saniye.
+#    Karar artik takvimde degil OLCUMDE.
 # --------------------------------------------------------------------
+BEKLENEN_AYLAR = "2,3,4,5,7,8,10,11"
 bil = cozulen.get("bilanco.yml")
 if bil:
     aylar = [c.split()[3] for c in cronlar(bil) if len(c.split()) == 5]
-    dogru("bilanco yalnizca bildirim aylarinda (3,5,8,11)",
-          all(a == "3,5,8,11" for a in aylar) and aylar)
+    dogru(f"bilanco bildirim + yaklasma aylarinda ({BEKLENEN_AYLAR})",
+          all(a == BEKLENEN_AYLAR for a in aylar) and aylar)
+    # HER AY ACIK OLMAMALI: bildirim gelmeyen aylarda kosmak kaynagi
+    # ve kotayi bosa harcar. Dort ay (1,6,9,12) kapali kalmali.
+    dogru("bilanco her ay kosmuyor",
+          all(a != "*" for a in aylar))
 
 # --------------------------------------------------------------------
 # 7. GERI YAZMA, KOSU KESILSE BILE CALISMALI.
@@ -517,6 +535,37 @@ for p_ in dosyalar:
             if eksik:
                 print(f"         kapida gecmeyen: {eksik}")
 
+
+# DURUMU KOSULAR ARASI TASIYAN DOSYA GERI YAZILMALI.
+#
+# CI her kosuda TAZE kopya aliyor. Bir arac "gecen sefer ne
+# gormustum" diye bir dosyaya bakiyorsa, o dosya geri yazilmadiginda
+# arac HER KOSUDA SIFIRDAN baslar ve hicbir degisimi fark edemez --
+# sessizce olu olur.
+#
+# OLCULDU (2026-10-13): bilanco nobetcisi tam bu durumdaydi. Her
+# sirketin en son hangi ceyregi bildirdigini `bilanco_nobet.json`
+# icinde tutuyor ve yeni ceyregi ancak ONCEKI degerle karsilastirarak
+# goruyor. Dosya listede olmadigi surece her kosu "ilk gorulme" sayar
+# ve nobetci hicbir zaman tetiklemez.
+_akislar = (KOK / ".github" / "workflows")
+for _ad in ("otomasyon.yml", "bilanco.yml"):
+    _m = (_akislar / _ad).read_text(encoding="utf-8")
+    dogru(f"{_ad}: nobet defteri geri yazma listesinde",
+          "haber_botu/kaynak/bilanco_nobet.json" in _m)
+
+# NOBETCI CEKIMDEN ONCE KOSMALI -- sonra kossaydi bayrak bir sonraki
+# kosuya kadar islenmezdi ve "geldikce cikalim" bir tur gecikirdi.
+_b = (_akislar / "bilanco.yml").read_text(encoding="utf-8")
+_n = _b.find("bilanco_nobetci.py")
+_v = _b.find("uret_bilanco.py")
+dogru("bilanco.yml: nobetci cekimden ONCE", _n != -1 and _v != -1 and _n < _v)
+
+# TAKVIM IKI YERDE OLMAMALI. Cron, `donem_acik`in yerine gecmemeli:
+# yaklasma aylari acik olmali ki nobetci BAKABILSIN.
+for _ay in ("2", "4", "7", "10"):
+    dogru(f"bilanco.yml cron {_ay}. ayi kapsiyor",
+          f",{_ay}," in _b or f"* {_ay}," in _b)
 
 print(f"\n{_gecti} gecti, {_kaldi} kaldi")
 sys.exit(1 if _kaldi else 0)

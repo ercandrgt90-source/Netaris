@@ -230,18 +230,49 @@ def kapsam_coktu(yeni: int, onceki: int) -> bool:
     return yeni < onceki * KUCULME_ESIGI
 
 
-def donem_acik(bugun=None) -> tuple[bool, str]:
-    """Bugun bilanco cekmenin anlamli oldugu bir ayda miyiz?
+def donem_acik(bugun=None, nobetci=None) -> tuple[bool, str]:
+    """Bugun bilanco cekmenin anlamli oldugu bir anda miyiz?
 
     Doner: (acik_mi, aciklama). Kapaliyken de ACIKLAMA doner --
     "neden calismadi" sorusu loga bakinca cevaplanabilsin.
+
+    IKI KAPI: TAKVIM VE OLCUM
+    -------------------------
+    Takvim (`BILDIRIM_AYLARI`) KONSOLIDE bildirim son tarihlerine
+    gore kurulmus: Mart, Mayis, Agustos, Kasim. Ama konsolide
+    OLMAYAN sirketler donem bitiminden otuz gun sonra bildiriyor --
+    9 aylik tablolar EKIM SONUNDA gelmeye basliyor ve hattin
+    penceresi Kasim'da aciliyor. Arada kalan haftalarda bildirimler
+    yayimlaniyor, biz hicbir sey cekmiyoruz.
+
+    Takvimi genisletmek tahmini buyutmek olurdu. Onun yerine OLCUM
+    eklendi: `bilanco_nobetci` kaynakta yeni bir ceyrek belirip
+    belirmedigine BAKIYOR (sirket basina tek istek, 0,3 saniye).
+    Nobetci yeni ceyrek gormusse takvim kapaliyken de hat ACILIYOR.
+
+    Yani takvim artik UCUZ BIR ON SUZGEC, karar OLCUMDE. Nobetci
+    yoksa ya da okunamazsa davranis eskisi gibi -- yalnizca takvim.
     """
     import datetime as _dt
     bugun = bugun or _dt.date.today()
+
+    if nobetci is None:
+        try:
+            import bilanco_nobetci as nobetci       # noqa: PLC0415
+        except Exception:                            # noqa: BLE001
+            nobetci = None
+    if nobetci is not None:
+        try:
+            if nobetci.donem_acildi_mi():
+                return True, "nobetci kaynakta YENI CEYREK gordu"
+        except Exception:                            # noqa: BLE001
+            pass
+
     ceyrek = BILDIRIM_AYLARI.get(bugun.month)
     if ceyrek is None:
         return False, (f"{bugun.month}. ay bildirim ayi degil "
-                       f"(bildirim aylari: {sorted(BILDIRIM_AYLARI)})")
+                       f"(bildirim aylari: {sorted(BILDIRIM_AYLARI)}) "
+                       f"ve nobetci yeni ceyrek gormedi")
     return True, f"{ceyrek} aylik donem bildirimleri"
 
 

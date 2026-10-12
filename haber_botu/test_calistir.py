@@ -119,6 +119,24 @@ dogru("ciktiya bakan sinamalar SITE URETIMINDEN SONRA kosuyor",
 _arasi3 = KOD[_sinama:_dagitim] if _sinama != -1 and _dagitim != -1 else ""
 dogru("sinamalar duserse dagitim engelleniyor", "ok = False" in _arasi3)
 
+# BILANCO NOBETCISI SIRASI.
+#
+# Nobetci "kaynakta yeni ceyrek belirdi mi" diye BAKIYOR ve bayragi
+# kaldiriyor; `uret_bilanco.donem_acik` o bayragi okuyor. Dolayisiyla
+# nobetci cekimden ONCE kosmali -- sonra kossaydi bayrak bir sonraki
+# kosuya kadar islenmezdi ve "geldikce cikalim" bir tur gecikirdi.
+#
+# Bayrak ise sayfalar URETILDIKTEN SONRA iniyor: arada kosu duserse
+# bir sonraki kosu ayni isi tekrar denemeli.
+_nobetci = _yer('"Bilanço nöbetçisi (yeni çeyrek var mı)"')
+_bilanco = _yer('"Bilanço (sektör → mali tablo → medyan)"')
+_bsayfa = _yer('"Bilanço sayfaları (tablo + AI yorumu)"')
+_kapat = _yer('"Bilanço dönemi işlendi (bayrağı indir)"')
+dogru("nobetci bilanco cekiminden ONCE",
+      _nobetci != -1 and _bilanco != -1 and _nobetci < _bilanco)
+dogru("bayrak sayfalardan SONRA iniyor",
+      _bsayfa != -1 and _kapat != -1 and _bsayfa < _kapat)
+
 # KRITIK listesi: cikis kodu bu adimlara bakiyor. Beyan denetimi
 # listede degilse, engelleme calissa bile kosu YESIL doner ve hata
 # gorunmez olur.

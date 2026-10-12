@@ -66,9 +66,26 @@ on:
     # yayiliyor; alti sabit gune bakmak, aradaki bildirimleri bir
     # sonraki pencereye erteliyor.
     #
-    # Aylar hala sinirli (3,5,8,11): bildirim disi aylarda yeni
-    # bilanco gelmiyor, kosmak bos yere depoya yazmak olurdu.
-    - cron: "0 6 * 3,5,8,11 *"
+    # AYLAR GENISLETILDI: 2,3,4,5,7,8,10,11.
+    #
+    # Eski liste (3,5,8,11) ve yanindaki gerekce -- 'bildirim disi
+    # aylarda yeni bilanco gelmiyor' -- YANLISTI. O aylar KONSOLIDE
+    # bildirim son tarihleri. Konsolide OLMAYAN sirketler donem
+    # bitiminden otuz gun sonra bildiriyor: 9 aylik tablolar EKIM
+    # SONUNDA geliyor, pencere ise Kasim'da aciliyordu.
+    #
+    # Kullanici 13 Ekim 2026'da 'bilancolar gelmeye basladi' dedi ve
+    # hat o gun kapaliydi -- is akisi hic baslamiyordu bile.
+    #
+    # Her donemin YAKLASMA ayi eklendi (2,4,7,10). O aylarda agir is
+    # YAPILMIYOR: `uret_bilanco` kendi kapisindan donuyor. Yapilan
+    # tek sey nobetcinin BAKMASI -- sirket basina tek istek.
+    #
+    # Bu, bu dosyanin kendi uyarisinin geregi: 'kapiyi burada
+    # tekrarlamiyorum, iki yerde iki takvim bir gun ayrisir.' Cron
+    # ikinci takvimdi ve gercekten ayristi; artik karar tek yerde
+    # (`uret_bilanco.donem_acik`) ve OLCUME bagli.
+    - cron: "0 6 * 2,3,4,5,7,8,10,11 *"
   workflow_dispatch:
     inputs:
       yayinla:
@@ -190,6 +207,11 @@ jobs:
         with:
           node-version: "22"
 
+      # NOBETCI CEKIMDEN ONCE: bayragi o kaldiriyor ve
+      # `uret_bilanco.donem_acik` onu okuyor.
+      - name: Bilanço nöbetçisi (yeni çeyrek var mı)
+        run: python haber_botu/bilanco_nobetci.py
+
       - name: Bilanço verisi (sektör → mali tablo → medyan)
         run: |
           python haber_botu/uret_bilanco.py --hepsi \
@@ -268,6 +290,11 @@ jobs:
       # orada silinen sey MODEL CIKTISI ve yeniden uretmek para/kota
       # harciyor. Burada silinen sey, yerine YENISI URETILMIS olan eski
       # bir dosya -- ve arac karsiligi olmayani zaten silmiyor.
+      # BAYRAK SAYFALAR URETILDIKTEN SONRA INIYOR: arada kosu
+      # duserse bir sonraki kosu ayni isi tekrar denemeli.
+      - name: Bilanço dönemi işlendi (bayrağı indir)
+        run: python haber_botu/bilanco_nobetci.py --kapat
+
       - name: Kümülatif bilanço sayfalarını topla
         if: always()
         run: >-
@@ -297,9 +324,15 @@ jobs:
           git config user.email "actions@users.noreply.github.com"
 
           YOLLAR=""
+          # NOBET DEFTERI DE GERI YAZILIYOR.
+          #
+          # Nobetci her sirketin en son hangi ceyregi bildirdigini
+          # bu dosyada tutuyor. Geri yazilmazsa her kosu SOGUK
+          # baslar, hicbir gecisi goremez ve duzenek olu kalir.
           for y in site/icerik/analizler \
                    haber_botu/kaynak/sektor_ozet.json \
-                   haber_botu/kaynak/sirketler.json; do
+                   haber_botu/kaynak/sirketler.json \
+                   haber_botu/kaynak/bilanco_nobet.json; do
             [ -e "$y" ] && YOLLAR="$YOLLAR $y"
           done
           [ -z "$YOLLAR" ] && { echo "yazilacak veri yok"; exit 0; }
