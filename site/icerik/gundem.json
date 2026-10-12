@@ -30,7 +30,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 14,
+  "yorumlanan": 15,
   "haberler": [
     {
       "baslik": "Uisee Technologies (Pekin) Eşbaşkanı 12 Ekim 2026'da 12.000 H hissesi satın aldı",
@@ -439,6 +439,32 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/tarim-ve-gida-9-f860582e.jpg",
       "foto_atif": "Hugh Venables · CC-BY-SA-2.0"
+    },
+    {
+      "baslik": "Süpermarket dolaplarına siber saldırı",
+      "baslik_kaynak": "Süpermarket dolaplarına siber saldırı!",
+      "ozet": "Fransa'da yüzlerce süpermarket ve marketlerin yüzlerce şubesine düzenlenen siber saldırıda buzdolapları ve dondurucuları 50 dereceye kadar ısındı. Siber saldırı milyonlarca euro değerindeki taze ve dondurulmuş gıdanın bozulmasına yol açtı.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.ekonomim.com/ekonomi/supermarket-dolaplarina-siber-saldiri-haberi-924259",
+      "kurum": "Ekonomim",
+      "kurum_tam": "Ekonomim",
+      "konu": "Jeopolitik",
+      "tarih": "2026-10-13",
+      "tarih_gorunur": "13 Ekim 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
+      "kanallar": [
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-18-d6206fae.jpg",
+      "foto_atif": "United Nation · PDM"
     },
     {
       "baslik": "A101’e Benzinli Ve Lpg’li Jeneratör Geliyor. (a101 15-21 Ekim)",
@@ -1991,27 +2017,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/kripto-varliklar-7-8bf172e8.jpg",
       "foto_atif": "CryptoWallet.com Images · CC-BY-2.0"
-    },
-    {
-      "baslik": "İşte bugün kriptoda olanlar",
-      "baslik_kaynak": "Here’s what happened in crypto today",
-      "ozet": "Need to know what happened in crypto today? Here is the latest news on daily trends and events impacting Bitcoin price, blockchain, DeFi, Web3 and crypto regulation.",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://cointelegraph.com/news/what-happened-in-crypto-today?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "kurum": "Cointelegraph",
-      "kurum_tam": "Cointelegraph",
-      "konu": "Kripto varlıklar",
-      "tarih": "2026-10-12",
-      "tarih_gorunur": "12 Ekim 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/kripto-varliklar-8-8b36c240.jpg",
-      "foto_atif": "de Vries, Alex; Stoll, Christian · PDM"
     },
     {
       "baslik": "Enerji Bakanlığı, Kasırga Nedeniyle Tedarik Kesintilerini Ele Almak İçin Stratejik Petrol Rezervi Borsasına Yetki Verdi",
