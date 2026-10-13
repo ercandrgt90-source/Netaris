@@ -391,6 +391,34 @@ jobs:
           python calistir.py --atla bilanco bilanco_sayfa \
             ${{ (github.event_name != 'workflow_dispatch' || inputs.yayinla) && '--yayinla' || '' }}
 
+      # ESKI BILANCO SAYFALARINI ONAR -- BURADA, CUNKU BUTCE TAZE.
+      #
+      # Bu is akisi bilanco adimlarini ATLIYOR (`--atla bilanco
+      # bilanco_sayfa`), yani kaynak istek butcesi harcanmamis
+      # durumda. `bilanco.yml` ise onarimdan ONCE butun sektorleri
+      # cekiyor ve kaynak ~100 istekten sonra reddetmeye basliyor
+      # (olculdu 2026-09-14) -- onarim orada sifir sayfa yapabilir.
+      #
+      # ADIM KENDINI KAPATIYOR. Kuyruk YERELDE olculuyor (ag istegi
+      # yok); onarilacak sayfa kalmayinca adim hicbir istek atmadan
+      # donuyor. Yani maliyet kalici degil: 204 sayfa, kosu basina
+      # 25, yaklasik dokuz kosu sonra SIFIR.
+      #
+      # MODEL CAGRISI YOK: sakli AI yorumu aynen yeniden kullaniliyor.
+      - name: Eski bilanço sayfalarını onar (model çağrısı YOK)
+        if: always()
+        continue-on-error: true
+        run: python haber_botu/bilanco_tazele.py --onarim --sinir 25
+
+      # CIRCIR SIKISIYOR: onarilan sayfa miras listesinden cikiyor.
+      # Budanmazsa onarilmis sayfalar listede kalir ve bir daha HIC
+      # denetlenmez -- 204 sayfa kalici olarak korumasiz olurdu.
+      # Budama korumayi yalnizca SIKILASTIRIYOR.
+      - name: Onarılanları miras listesinden çıkar
+        if: always()
+        continue-on-error: true
+        run: python site/test_bilanco_sayfa_saglam.py --budar
+
       - name: Depo özeti
         if: always()
         run: python haber_botu/beyin.py

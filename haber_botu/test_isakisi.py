@@ -578,6 +578,46 @@ for _ad in ("otomasyon.yml", "bilanco.yml"):
         dogru(f"{_ad}: {_anlam} KAPIDAN da geciyor",
               _iz in _kapi if _kapi else True)
 
+# ONARIM ADIMI IKI AKISTA DA OLMALI -- VE GERI YAZMADAN ONCE.
+#
+# Yayindaki 204 bilanco sayfasi bozuk (iki ayri donem ya da kapsam
+# disi kilavuz) ve `bilanco_tazele --onarim` onlari model cagrisi
+# olmadan yeniden kuruyor. Adim dusurulurse kural sikilasir ama
+# YAYINDAKI icerik duzelmez -- bu depoda ayri bir ders olarak
+# kayitli.
+#
+# `otomasyon.yml` icin ozellikle onemli: o akis bilanco adimlarini
+# ATLIYOR (`--atla bilanco bilanco_sayfa`), yani onarim ancak AYRI
+# bir adim olarak kosuyor. `bilanco.yml` ise onarimdan once butun
+# sektorleri cekiyor ve kaynak ~100 istekten sonra reddediyor;
+# onarim orada sifir sayfa yapabilir. Iki akista da bulunmasi
+# tesadufi degil.
+for _ad in ("otomasyon.yml", "bilanco.yml"):
+    _m = (_akislar / _ad).read_text(encoding="utf-8")
+    _o = _m.find("bilanco_tazele.py --onarim")
+    dogru(f"{_ad}: onarim adimi var", _o != -1)
+    _b = _m.find("test_bilanco_sayfa_saglam.py --budar")
+    dogru(f"{_ad}: miras listesi budaniyor", _b != -1)
+    dogru(f"{_ad}: budama onarimdan SONRA", _o != -1 and _b > _o)
+    # GERI YAZMADAN ONCE: sonra olsaydi onarilan sayfalar
+    # islenmemis kalirdi ve her kosu ayni isi bastan yapardi.
+    #
+    # ADIM SATIRI araniyor, metinde "geri yaz" gecen her yer DEGIL.
+    # Ilk yazim `_m.find("geri yaz")` kullaniyordu ve dosyadaki
+    # YORUMLARA takiliyordu -- yani olcum yanlis yeri gosteriyordu.
+    _gs = [m.start() for m in
+           re.finditer(r"^      - name:.*geri yaz", _m, re.M)]
+    dogru(f"{_ad}: geri yazma adimi bulundu", bool(_gs))
+    if _gs:
+        dogru(f"{_ad}: onarim geri yazmadan ONCE", _o < min(_gs))
+
+# ONARIM KUYRUGU KENDINI KAPATIYOR MU -- arac duzeyinde.
+# Kuyruk bos donunce arac hicbir istek atmadan cikmali; yoksa adim
+# kalici bir kaynak yuku olurdu.
+_tz = (KOK / "haber_botu" / "bilanco_tazele.py").read_text(encoding="utf-8")
+dogru("bilanco_tazele: bos kuyrukta erken donuyor",
+      "onarılacak sayfa YOK" in _tz)
+
 # NOBETCI CEKIMDEN ONCE KOSMALI -- sonra kossaydi bayrak bir sonraki
 # kosuya kadar islenmezdi ve "geldikce cikalim" bir tur gecikirdi.
 _b = (_akislar / "bilanco.yml").read_text(encoding="utf-8")

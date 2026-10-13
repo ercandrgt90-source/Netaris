@@ -131,5 +131,47 @@ esit(s["yazilan"], 1, "kuru calismada da olcum yapiliyor")
 esit("sektor_tr" in json.loads(d.read_text(encoding="utf-8"))["sirketler"]["EEE"],
      False, "kuru calismada deftere YAZILMIYOR")
 
+# --- 6) BELIRLI KOD: DONEN KUYRUGU BEKLEMEDEN ------------------------
+#
+# Donen kuyruk 441 sirketi kosu basina 40'tan geciyor; belirli bir
+# sirkete sira gelmesi gunler aliyor. Okurun sordugu sirket (GSRAY)
+# kuyrugun ortasindaydi ve sayfasi URETILMIYORDU.
+#
+# Kural DEGISMIYOR: alani dolu olana dokunulmuyor, kaynak sektor
+# vermiyorsa yazilmiyor.
+d = kur({"AAA": {"kod": "AAA"},
+         "BBB": {"kod": "BBB"},
+         "CCC": {"kod": "CCC", "sektor_tr": "Sanayi"}},
+        {"AAA": {"sektor": "Communication Services",
+                 "sektor_tr": "İletişim", "alt_sektor": "Entertainment"},
+         "BBB": {"sektor": "Industrials", "sektor_tr": "Sanayi"}})
+s = st.tazele(sinir=10, kodlar=["bbb"])
+esit(s["yazilan"], 1, "yalnizca istenen sirket islendi")
+_def = json.loads(d.read_text(encoding="utf-8"))["sirketler"]
+esit(_def["BBB"].get("sektor_tr"), "Sanayi", "istenen sirket yazildi")
+esit("sektor_tr" in _def["AAA"], False,
+     "istenmeyen sirkete DOKUNULMADI (kuyrukta olsa bile)")
+esit(s["eksik"], 2, "kalan eksik sayisi yine bildiriliyor")
+
+# Alani ZATEN DOLU olan kod istenirse dokunulmuyor.
+d = kur({"CCC": {"kod": "CCC", "sektor_tr": "Sanayi"}},
+        {"CCC": {"sektor": "Health Care", "sektor_tr": "Sağlık"}})
+s = st.tazele(sinir=10, kodlar=["CCC"])
+esit(s["yazilan"], 0, "sektoru dolu olan sirket YENIDEN yazilmiyor")
+esit(json.loads(d.read_text(encoding="utf-8"))["sirketler"]["CCC"]["sektor_tr"],
+     "Sanayi", "var olan sektor DEGISMEDI")
+
+# Defterde olmayan kod sessizce gecilmiyor, ama cokmuyor da.
+d = kur({"AAA": {"kod": "AAA"}}, {})
+s = st.tazele(sinir=10, kodlar=["YOKBOYLE"])
+esit(s["yazilan"], 0, "defterde olmayan kod yazilmiyor")
+esit(s["hata"], 0, "defterde olmayan kod HATA sayilmiyor")
+
+# ISTENEN KOD ICIN DE kaynak sektor vermiyorsa YAZILMIYOR.
+d = kur({"AAA": {"kod": "AAA"}}, {"AAA": {}})
+s = st.tazele(sinir=10, kodlar=["AAA"])
+esit(s["yazilan"], 0, "kaynak sektor vermiyorsa istenen koda da yazilmiyor")
+esit(s["bos"], 1, "kaynakta yok olarak sayiliyor")
+
 print("")
 print(f"TUM TESTLER GECTI ({_gecti})")

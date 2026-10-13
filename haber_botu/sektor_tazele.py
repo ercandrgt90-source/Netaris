@@ -62,11 +62,32 @@ def eksikler(defter: dict) -> list:
                   if not v.get("sektor_tr"))
 
 
-def tazele(sinir: int = VARSAYILAN_SINIR, kuru: bool = False) -> dict:
+def tazele(sinir: int = VARSAYILAN_SINIR, kuru: bool = False,
+           kodlar: list | None = None) -> dict:
     d = json.loads(DEFTER.read_text(encoding="utf-8"))
     eksik = eksikler(d)
-    secilen = eksik[:sinir]
-    print(f"sektor tazele: {len(eksik)} eksik, bu kosuda {len(secilen)}")
+    if kodlar:
+        # BELIRLI SIRKETLER -- SIRA BEKLEMEDEN.
+        #
+        # Donen kuyruk 441 sirketi kosu basina 40'tan geciyor, yani
+        # belirli bir sirkete sira gelmesi gunler aliyor. Okurun
+        # sordugu sirket (GSRAY) kuyrugun ortasindaydi.
+        #
+        # Kural AYNI kaliyor: alani zaten dolu olan sirkete
+        # DOKUNULMUYOR ve kaynak sektor vermiyorsa yine yazilmiyor.
+        istenen = [k.upper() for k in kodlar]
+        secilen = [k for k in istenen if k in eksik]
+        atlanan = [k for k in istenen if k not in eksik]
+        print(f"sektor tazele: istenen {len(istenen)}, "
+              f"eksik olan {len(secilen)}")
+        for k in atlanan:
+            var = k in d["sirketler"]
+            print(f"  {k:<9}DOKUNULMADI -- "
+                  f"{'sektörü zaten dolu' if var else 'defterde YOK'}")
+    else:
+        secilen = eksik[:sinir]
+        print(f"sektor tazele: {len(eksik)} eksik, "
+              f"bu kosuda {len(secilen)}")
 
     yazilan, bossuz, hata = [], [], 0
     ardisik_bos = 0
@@ -137,8 +158,10 @@ def main() -> int:
     a = argparse.ArgumentParser(description=__doc__)
     a.add_argument("--sinir", type=int, default=VARSAYILAN_SINIR)
     a.add_argument("--kuru-calis", action="store_true")
+    a.add_argument("--kod", nargs="+", metavar="KOD",
+                   help="yalnizca bu sirketler (donen kuyrugu beklemeden)")
     n = a.parse_args()
-    tazele(n.sinir, n.kuru_calis)
+    tazele(n.sinir, n.kuru_calis, n.kod)
     return 0
 
 

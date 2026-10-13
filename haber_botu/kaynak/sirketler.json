@@ -3377,7 +3377,10 @@
    "kap_kimlik": "4028e4a14203278a0142095598f114ba",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "EREN BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "EREN BAĞIMSIZ DENETİM A.Ş.",
+   "sektor": "Communication Services",
+   "sektor_tr": "İletişim",
+   "alt_sektor": "Entertainment"
   },
   "GUBRF": {
    "kod": "GUBRF",
