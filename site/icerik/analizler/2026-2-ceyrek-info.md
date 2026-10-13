@@ -18,20 +18,20 @@ sayimlar:
 
 ## Özet
 
-Hasılat 9,14 milyar TL'ye gerileyip önceki 27,36 milyar TL'den düşerken, faaliyet kârı 1,02 milyar TL'ye yükselerek önceki 0,48 milyar TL'den artmış ve bu artış net kârın 0,83 milyar TL'ye (önceki 0,17 milyar TL) yükselmesine paralel bir seyir izlemiştir; özkaynak da 4,13 milyar TL'ye (önceki 2,23 milyar TL) çıkarak özkaynak kârlılığının %8,9'a (sektör medyanı %4,5) yükselmesine katkı sağlamıştır. Aktif toplamı 38,53 milyar TL'ye (önceki 15,21 milyar TL) artarken, net borç -14,70 milyar TL'ye (önceki -3,83 milyar TL) derinleşmiş ve borç/özkaynak oranı -3,55'e (sektör medyanı -0,05) yükselmiştir; bu durum, faaliyet nakit akışının 1,67 milyar TL'ye (önceki -1,77 milyar TL) pozitif dönüşüyle birlikte, yatırım harcamasının sabit kalması (0,03 milyar TL) arasında bir denge oluşturmuştur.
+Hasılat 9,14 milyar TL'ye gerileyip önceki 27,36 milyar TL'den düşerken, faaliyet kârı 1,02 milyar TL'ye yükselerek önceki 0,48 milyar TL'den artmış ve bu artış net kârın 0,83 milyar TL'ye (önceki 0,17 milyar TL) yükselmesine paralel bir seyir izlemiştir; özkaynak da 4,13 milyar TL'ye (önceki 2,23 milyar TL) çıkarak özkaynak kârlılığının %8,9'a (sektör medyanı %4,5) yükselmesine katkı sağlamıştır. Aktif toplamı 38,53 milyar TL'ye (önceki 15,21 milyar TL) artarken, net borç -14,70 milyar TL'ye (önceki -3,83 milyar TL) derinleşmiş ve borç/özkaynak oranı -3,55'e (sektör medyanı -0,05) yükselmiştir; bu durum, faaliyet nakit akışının 1,67 milyar TL'ye (önceki -1,77 milyar TL) pozitif dönüşüyle birlikte, yatırım harcamasının sabit kalması (0,03 milyar TL) arasında bir denge oluşturmuştur.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | -%66,6 |
-| Faaliyet kârı | %113,1 |
-| Net kâr | %395,5 |
+| Hasılat | -%68,1 |
+| Faaliyet kârı | %633,6 |
+| Net kâr | %115,9 |
 | Özkaynak | %85,5 |
 | Aktif toplamı | %153,3 |
 | Net borç | -%283,3 |
-| Faaliyet nakit akışı | %194,6 |
-| Yatırım harcaması | -%14,5 |
+| Faaliyet nakit akışı | %113,1 |
+| Yatırım harcaması | -%66,0 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -39,23 +39,23 @@ Hasılat 9,14 milyar TL'ye gerileyip önceki 27,36 milyar TL'den düşerken,
 
 | Kalem | Değer |
 | --- | ---: |
-| Hasılat | 9,14 milyar TL |
-| Faaliyet kârı | 1,02 milyar TL |
-| Net kâr | 0,83 milyar TL |
+| Hasılat | 3,15 milyar TL |
+| Faaliyet kârı | 0,56 milyar TL |
+| Net kâr | 0,37 milyar TL |
 | Özkaynak | 4,13 milyar TL |
 | Aktif toplamı | 38,53 milyar TL |
 | Net borç | -14,70 milyar TL |
-| Faaliyet nakit akışı | 1,67 milyar TL |
-| Yatırım harcaması | 0,03 milyar TL |
+| Faaliyet nakit akışı | 0,27 milyar TL |
+| Yatırım harcaması | 0,01 milyar TL |
 
 ## Sektör içindeki konum
 
-Karşılaştırma Finans sektöründeki 30 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 30 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
 | Net kâr marjı | %11,8 | %14,7 |
-| Özkaynak kârlılığı | %8,9 | %4,5 |
+| Özkaynak kârlılığı | %8,9 | %5,4 |
 | Borç / özkaynak | -3,55 | -0,05 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
@@ -64,12 +64,12 @@ Karşılaştırma Finans sektöründeki 30 şirketin **medyanına** göre yapıl
 
 **Şirket lehine işleyenler**
 
-- Net kâr reel olarak %395,5 arttı.
-- Özkaynak kârlılığı %8,9; sektör medyanı %4,5.
+- Net kâr reel olarak %115,9 arttı.
+- Özkaynak kârlılığı %8,9; sektör medyanı %5,4.
 
 **Dikkat gerektirenler**
 
-- Hasılat reel olarak -%66,6 geriledi.
+- Hasılat reel olarak -%68,1 geriledi.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 
