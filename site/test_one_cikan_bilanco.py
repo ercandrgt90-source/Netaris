@@ -109,13 +109,22 @@ print("3. Kart alanlari sablonun bekledigi gibi")
 _k = insa.bilanco_one_cikanlar(
     [SahteAnaliz("TTKOM", BUGUN, foto="/f.jpg", tarih_tr="13 Ekim 2026")],
     BUGUN)[0]
-esit(_k["konu"], "Bilanço", "rozet 'Bilanço'")
+# ROZET KANONIK KONU DEGERI. "Bilanço" diye yeni bir ad uydurmak
+# `KART_TURU`nu bosa dusuruyordu (olculdu: kart varsayilan "haber"
+# turune iniyordu). `KONU_KATEGORI` zaten "Şirket haberleri" ->
+# "Bilanço Analizi" esini tanimliyor.
+esit(_k["konu"], "Şirket haberleri", "rozet KANONIK konu degeri")
+esit(insa.KONU_KATEGORI.get(_k["konu"]), "Bilanço Analizi",
+     "kanonik deger gercekten bilancoya isaret ediyor")
+esit(insa.kart_turu(_k), "sirket",
+     "kart 'sirket' turunu aliyor (varsayilana DUSMUYOR)")
+esit(insa.kart_turu(_k) != insa.KART_VARSAYILAN, True,
+     "varsayilandan FARKLI -- esleme gercekten isliyor")
 esit(_k["kurum"], "TTKOM", "kurum yerine HISSE KODU")
 esit(_k["tarih_gorunur"], "13 Ekim 2026", "tarih_tr -> tarih_gorunur")
 esit("katman" in _k, False,
      "katman YOK -- 'kritik' rozetini yalnizca puanlama verebilir")
-esit(insa.kart_turu(_k), insa.KART_TURU.get("Bilanço", insa.KART_VARSAYILAN),
-     "kart_turu suzgeci cokmuyor")
+
 # `an` YAZILMIYOR: bilanco sayfasinda saat yok, sablon o durumda
 # goreli zaman yerine tarihi basiyor.
 esit("an" in _k, False, "saat damgasi UYDURULMUYOR")

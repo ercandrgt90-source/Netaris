@@ -5654,9 +5654,20 @@ def bilanco_one_cikanlar(analizler: list[dict], bugun: str,
             # Sablon `tarih_gorunur or tarih` basiyor; `Analiz`de
             # karsiligi `tarih_tr` ("13 Ekim 2026").
             "tarih_gorunur": getattr(a, "tarih_tr", "") or "",
-            # Rozet. `KART_TURU` eslemesi bu degeri taniyorsa kart
-            # kendi rengini aliyor; tanimiyorsa varsayilana dusuyor.
-            "konu": "Bilanço",
+            # ROZET KANONIK KONU DEGERI -- yeni bir ad uydurulmuyor.
+            #
+            # `konu` sabit bir sozlukten geliyor ve bilanco
+            # analizinin karsiligi `KONU_KATEGORI` icinde zaten
+            # tanimli: "Şirket haberleri" -> "Bilanço Analizi".
+            # `KATEGORI_FOTO` da ayni esi kullaniyor.
+            #
+            # Olculdu: "Bilanço" diye yazilinca `KART_TURU` onu
+            # tanimiyor ve kart varsayilan ("haber") turune
+            # dusuyordu; kanonik deger `sirket` turunu veriyor.
+            # Ayrica depo kendi uyarisini tasiyor: "ayni yapinin
+            # iki adi olmasi, sonradan birini degistirip otekini
+            # unutmaya yol acar."
+            "konu": "Şirket haberleri",
             # Kurum yerine HISSE KODU: okurun tanidigi isaret bu ve
             # sirket unvani zaten baslikta duruyor.
             "kurum": getattr(a, "kod", "") or "",
