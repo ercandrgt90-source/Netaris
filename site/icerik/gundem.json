@@ -30,7 +30,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 22,
+  "yorumlanan": 24,
   "haberler": [
     {
       "baslik": "Finansal Kuruluşların Anapara Rakamları (Eylül)",
@@ -1097,6 +1097,32 @@
       "foto_atif": "CryptoWallet.com Images · CC-BY-2.0"
     },
     {
+      "baslik": "Petrol 103 dolardan 106 dolara çıktı: Düşüş neden tutmadı?",
+      "baslik_kaynak": "Petrol 103 dolardan 106 dolara çıktı: Düşüş neden tutmadı?",
+      "ozet": "Brent petrol 12 Ekim sabahı 103 dolara kadar geriledikten sonra günü 106,65 dolardan tamamladı. Suudi Arabistan'a yönelik saldırılar ve artan taşıma maliyetleri, Rusya'dan motorin geleceği beklentisinin yarattığı rahatlamayı gölgede bıraktı.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.dunya.com/foto-galeri/ekonomi/petrol-103-dolardan-106-dolara-cikti-dusus-neden-tutmadi-galeri-843609",
+      "kurum": "Dünya",
+      "kurum_tam": "Dünya Gazetesi",
+      "konu": "Enerji",
+      "tarih": "2026-10-13",
+      "tarih_gorunur": "13 Ekim 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Enerji fiyatı hem bir maliyet kalemi hem bir enflasyon girdisidir; arz tarafındaki değişim önce vadeli piyasada, sonra üretici fiyatlarında görünür.",
+      "kanallar": [
+        "Arz kapasitesi: OPEC+ kotası, stok seviyesi ve üretim kesintisi haberleri vadeli eğrinin şeklini değiştirir.",
+        "Talep beklentisi: büyüme verisi ve sanayi üretimi fiyatın talep bacağını belirler.",
+        "Bölgeler arası akış: doğal gaz ile LNG arasındaki fiyat farkı, kargoların hangi bölgeye gideceğini değiştirir.",
+        "Enflasyon aktarımı: enerji maliyeti ulaştırma ve gıda üzerinden manşet enflasyona geçer; merkez bankaları çekirdek enflasyona daha çok bakar."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/enerji-11-0e06d6d4.jpg",
+      "foto_atif": "Djmaschek · CC-BY-SA-3.0"
+    },
+    {
       "baslik": "Altın yeniden yükselecek mi? Dev bankadan 3 kritik koşul",
       "baslik_kaynak": "Altın yeniden yükselecek mi? Dev bankadan 3 kritik koşul",
       "ozet": "Altında son yükseliş denemesi kalıcı olmadı. Bank of America, 12 Ekim'deki değerlendirmesinde toparlanmanın önündeki üç engeli sıraladı. Bankanın 2027 beklentisini korumasına rağmen yakın dönem uyarısı dikkat çekiyor. Gram altın da etkilenebilir.",
@@ -1304,6 +1330,32 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/enerji-13-96820bdd.jpg",
       "foto_atif": "AyyanD · CC-BY-SA-4.0"
+    },
+    {
+      "baslik": "Küba, petrol sektörünü yabancı yatırımlara açmak için eski yasaları yürürlükten kaldırdı",
+      "baslik_kaynak": "Küba, petrol sektörünü yabancı yatırımlara açmak için eski yasaları yürürlükten kaldırdı",
+      "ozet": "Derinleşen enerji krizi ve ABD'nin petrol kısıtlamalarıyla mücadele eden Küba yönetimi, petrol arama ve üretim sektörünü yabancı yatırımlara açmak amacıyla 1938 ve 1959 tarihli yasaları yürürlükten kaldırdı.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.bloomberght.com/kuba-petrol-sektorunu-yabanci-yatirimlara-acmak-icin-eski-yasalari-yururlukten-kaldirdi-3791143",
+      "kurum": "BloombergHT",
+      "kurum_tam": "Bloomberg HT",
+      "konu": "Enerji",
+      "tarih": "2026-10-13",
+      "tarih_gorunur": "13 Ekim 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Enerji fiyatı hem bir maliyet kalemi hem bir enflasyon girdisidir; arz tarafındaki değişim önce vadeli piyasada, sonra üretici fiyatlarında görünür.",
+      "kanallar": [
+        "Arz kapasitesi: OPEC+ kotası, stok seviyesi ve üretim kesintisi haberleri vadeli eğrinin şeklini değiştirir.",
+        "Talep beklentisi: büyüme verisi ve sanayi üretimi fiyatın talep bacağını belirler.",
+        "Bölgeler arası akış: doğal gaz ile LNG arasındaki fiyat farkı, kargoların hangi bölgeye gideceğini değiştirir.",
+        "Enflasyon aktarımı: enerji maliyeti ulaştırma ve gıda üzerinden manşet enflasyona geçer; merkez bankaları çekirdek enflasyona daha çok bakar."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/enerji-16-71b1ce54.jpg",
+      "foto_atif": "HdeK · CC-BY-SA-3.0"
     },
     {
       "baslik": "Trump'tan Suudi Arabistan'a saldıran Husilere sert tepki",
@@ -2052,48 +2104,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/borsa-12-5544ef41.jpg",
       "foto_atif": "Bernard Lee · CC0"
-    },
-    {
-      "baslik": "ÇAD rekor seviyelere ulaşırken DeFi Development, SOL hisselerini %12 artırdı",
-      "baslik_kaynak": "DeFi Development grows SOL holdings 12% as CHAD hits record highs",
-      "ozet": "DFDV added 22,070 SOL last week, lifting holdings to 2.59 million SOL, as its CHAD preferred stock hit record highs despite a selloff.",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.theblock.co/news/business/2026-10-12-defi-development-sol-holdings-2-59-million-chad-418307",
-      "kurum": "The Block",
-      "kurum_tam": "The Block",
-      "konu": "Kripto varlıklar",
-      "tarih": "2026-10-12",
-      "tarih_gorunur": "12 Ekim 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/kripto-varliklar-9-651bf869.jpg",
-      "foto_atif": "Satheesh Sankaran · CC-BY-2.0"
-    },
-    {
-      "baslik": "Tom Lee potansiyel \"şimdiye kadarki en büyük\" kripto boğa piyasasını işaretlerken Bitmine 12.532 ETH ekledi",
-      "baslik_kaynak": "Bitmine adds 12,532 ETH as Tom Lee flags potential ‘largest-ever’ crypto bull market",
-      "ozet": "Bitmine (BMNR) added 12,532 ETH last week, lifting its Ethereum treasury to 6.03 million tokens, or 4.9% of supply, with 84% staked.",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.theblock.co/news/business/2026-10-12-bitmine-eth-holdings-6-million-ether-treasury-418296",
-      "kurum": "The Block",
-      "kurum_tam": "The Block",
-      "konu": "Kripto varlıklar",
-      "tarih": "2026-10-12",
-      "tarih_gorunur": "12 Ekim 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/kripto-varliklar-8-740eb829.jpg",
-      "foto_atif": "Satheesh Sankaran · CC-BY-2.0"
     },
     {
       "baslik": "Enerji Bakanlığı, Kasırga Nedeniyle Tedarik Kesintilerini Ele Almak İçin Stratejik Petrol Rezervi Borsasına Yetki Verdi",
