@@ -346,4 +346,28 @@ finally:
     b.ARA_SN = 0.5
 
 print("")
+print("11. Donem etiketi: takvim ceyregiyse ALISILMIS ad")
+# "2026 2. çeyrek" Turkce'de nisan-haziran demek ve okur bunu
+# bekliyor; ay adlariyla degistirmek gereksiz bir yabancilasma olur.
+esit(b.donem_etiketi("2026-06-30", 1), "2026 2. çeyrek", "haziran sonu")
+esit(b.donem_etiketi("2026-03-31", 1), "2026 1. çeyrek", "mart sonu")
+esit(b.donem_etiketi("2026-09-30", 1), "2026 3. çeyrek", "eylul sonu")
+esit(b.donem_etiketi("2026-12-31", 1), "2026 4. çeyrek", "aralik sonu")
+# Takvim ceyregi DEGILSE ay adlari -- kaynagin mali ceyrek numarasi
+# okuru yanlis yere goturur ("Q1 2027").
+esit(b.donem_etiketi("2026-05-31", 1), "2026 mart–mayıs dönemi",
+     "mayis sonu: ay adlari")
+esit(b.donem_etiketi("2026-08-31", 1), "2026 haziran–ağustos dönemi",
+     "agustos sonu: ay adlari")
+esit(b.donem_etiketi("2026-02-28", 1), "2025 aralık–2026 şubat dönemi",
+     "subat sonu: yil atlayarak")
+# Ayin son gunu olmayan tarih takvim ceyregi DEGIL.
+esit(b.donem_etiketi("2026-06-29", 1), "2026 nisan–haziran dönemi",
+     "haziran 29 ceyrek sonu DEGIL")
+# Kumulatif donemde ceyrek adi kullanilmiyor: "2026 2. çeyrek"
+# nisan-haziran demek, alti aylik donem o degil.
+esit(b.donem_etiketi("2026-06-30", 2), "2026 ocak–haziran dönemi",
+     "iki ceyreklik donemde ceyrek adi KULLANILMIYOR")
+
+print("")
 print(f"TUM TESTLER GECTI ({_gecti})")

@@ -307,6 +307,18 @@ def main() -> int:
     if n.onarim:
         kuyruk = onarim_kuyrugu(defter, baglam)
         print(f"onarım kipi: {len(kuyruk)} sayfa onarım bekliyor")
+        # ONARILAMAYANLAR AYRICA SOYLENIYOR.
+        #
+        # Kuyruk sifirlandiginda miras listesinde sayfa KALIYOR ve
+        # "koruma neden hala bunlari sayiyor" sorusu soruluyor.
+        # Cevap burada, sorunun soruldugu yerde duruyor: o sayfalar
+        # kendi doneminin sektor medyani olmadigi icin yeniden
+        # kurulamiyor ve bilerek tolere ediliyor.
+        _olmaz = len(onarim_kuyrugu(defter)) - len(kuyruk)
+        if _olmaz:
+            print(f"  ({_olmaz} sayfa ONARILAMAZ -- dönemi özetin "
+                  f"döneminden farklı, o dönemin sektör medyanı yok; "
+                  f"miras listesinde kalıyorlar)")
         if not kuyruk:
             print("onarılacak sayfa YOK -- hiçbir şey yapılmadı")
             return 0

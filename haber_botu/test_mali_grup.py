@@ -243,4 +243,42 @@ esit(US.kiyas_kumesi(_yetersiz, "TEK")[0], {},
      "kiyas kumesi yetersizse medyan BOS (sayfa yazilmaz)")
 
 print("")
+print("6. ETIKET COGUNLUGA DEGIL TARIHE BAGLI")
+#
+# OLCULDU, GERCEK VERIYLE (2026-10-13). GSRAY'in sektoru doldugu
+# icin İletişim yedi sirket oldu ve DORDU futbol kulubu:
+#
+#   -> ana donem 2026-05-31: 4 sirket   (BJKAS, FENER, GSRAY, TSPOR)
+#   -> 2026 2. çeyrek: 3 sirket         (BIGTK, IHYAY, TTKOM)
+#
+# Yani kulupler COGUNLUK oldu ve ana grubu onlar olusturdu. Ilk
+# surum ana gruba SEKTORUN takvim etiketini veriyordu; FENER
+# "2026 2. çeyrek" etiketini devralirdi -- oysa donemi mart-mayis.
+#
+# Etiket artik yalnizca TARIHE bakiyor.
+_kulup_cogunluk = {
+    "donem": "2026 2. çeyrek",          # sektorun takvim etiketi
+    "medyan": {"brut_marj": -79.44}, "sirket_sayisi": 4,
+    "ana_donem": "2026-05-31",          # KULUPLER ana grup
+    "mali": {"FENER": 5, "GSRAY": 5},
+    "bitis": {"FENER": "2026-05-31", "GSRAY": "2026-05-31",
+              "TTKOM": "2026-06-30"},
+    "donem_gruplari": {"2026-06-30": {"medyan": {"brut_marj": 24.94},
+                                      "sirket_sayisi": 3}},
+}
+_f = US.kiyas_kumesi(_kulup_cogunluk, "FENER")
+esit(_f[2], "2026 mart–mayıs dönemi",
+     "kulup ANA GRUPTA olsa da kendi donemini yaziyor")
+yakin(_f[0]["brut_marj"], -79.44, 0.01, "kulup kendi medyanini aliyor")
+esit(_f[1], 4, "kulup grubu dort sirket")
+_t = US.kiyas_kumesi(_kulup_cogunluk, "TTKOM")
+esit(_t[2], "2026 2. çeyrek",
+     "takvim sirketi AZINLIKTA olsa da alisilmis etiketi aliyor")
+yakin(_t[0]["brut_marj"], 24.94, 0.01, "takvim grubu medyani")
+esit(_t[1], 3, "takvim grubu uc sirket")
+# Bitisi bilinmeyen sirket sektorun etiketine dusuyor.
+esit(US.kiyas_kumesi(_kulup_cogunluk, "BILINMEYEN")[2], "2026 2. çeyrek",
+     "bitisi bilinmeyen sektor etiketini aliyor")
+
+print("")
 print(f"TUM TESTLER GECTI ({_gecti})")

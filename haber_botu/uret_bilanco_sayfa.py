@@ -326,13 +326,24 @@ def kiyas_kumesi(v: dict, kod: str) -> tuple[dict, int, str, str]:
                     f"bu yüzden dönemi ay adlarıyla yazılıyor.")
     iso = (v.get("bitis") or {}).get(kod)
     ana = v.get("ana_donem") or ""
+    # ETIKET COGUNLUGA DEGIL TARIHE BAGLI -- OLCULDU (2026-10-13).
+    #
+    # Ilk surum ana gruba SEKTORUN takvim etiketini veriyordu.
+    # İletişim sektoru bunu curuttu: yedi sirketin DORDU futbol
+    # kulubu, yani ana donem 2026-05-31 oldu ve FENER "2026 2.
+    # çeyrek" etiketini devraldi -- oysa donemi mart-mayis.
+    #
+    # `donem_etiketi` takvim ceyregiyse alisilmis adi ("2026 2.
+    # çeyrek"), degilse ay adlarini veriyor. Hangi grubun cogunlukta
+    # oldugu artik etiketi etkilemiyor.
+    etiket = (bilanco_ag.donem_etiketi(iso, bilanco_ag.VARSAYILAN_CEYREK)
+              if iso else v["donem"])
     if not iso or iso == ana:
         return (v.get("medyan") or {}, v.get("sirket_sayisi") or 0,
-                v["donem"], mali_not)
+                etiket, mali_not)
     g = (v.get("donem_gruplari") or {}).get(iso) or {}
     return (g.get("medyan") or {}, g.get("sirket_sayisi") or 0,
-            g.get("donem") or bilanco_ag.donem_adi(
-                iso, bilanco_ag.VARSAYILAN_CEYREK), mali_not)
+            etiket, mali_not)
 
 
 def sirket_isle(kod, bilgi, sektor, donem, oran, medyan, n,

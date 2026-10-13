@@ -1058,6 +1058,40 @@ def donem_adi(bitis_iso: str, ceyrek_sayisi: int = 1) -> str:
     return (f"{bas_yil} {_AY_ADI[bas_ay]}–{yil} {_AY_ADI[ay]} dönemi")
 
 
+#: Takvim ceyreklerinin son gunu (ay, gun).
+_CEYREK_SON_GUN = {(3, 31): 1, (6, 30): 2, (9, 30): 3, (12, 31): 4}
+
+
+def donem_etiketi(bitis_iso: str, ceyrek_sayisi: int = 1) -> str:
+    """Bitis tarihine en UYGUN donem adi.
+
+    TAKVIM CEYREGIYSE ALISILMIS ADI KULLANILIYOR. "2026 2. çeyrek"
+    Turkce'de nisan-haziran demek ve okur bu ibareyi bekliyor; onu
+    ay adlariyla degistirmek bir kazanc degil, gereksiz bir
+    yabancilasma olurdu.
+
+    TAKVIM CEYREGI DEGILSE ay adlari yaziliyor: kaynagin mali
+    ceyrek numarasi okuru yanlis yere goturur ("Q1 2027").
+
+    NEDEN ETIKET COGUNLUGA BAGLANAMAZ -- OLCULDU (2026-10-13)
+    --------------------------------------------------------
+    Ilk surum sektorun "ana donemi"ni en cok sirketin bildirdigi
+    tarih sayiyor ve ana gruba SEKTORUN takvim etiketini veriyordu.
+    İletişim sektoru bunu curuttu: yedi sirketin DORDU futbol
+    kulubu, yani ana donem 2026-05-31 oldu ve FENER "2026 2. çeyrek"
+    etiketini devraldi -- oysa donemi mart-mayis.
+
+    Etiket artik yalnizca TARIHE bakiyor; hangi grubun cogunlukta
+    oldugu etiketi etkilemiyor.
+    """
+    yil, ay = int(bitis_iso[:4]), int(bitis_iso[5:7])
+    gun = int(bitis_iso[8:10])
+    c = _CEYREK_SON_GUN.get((ay, gun))
+    if c and int(ceyrek_sayisi) == 1:
+        return ceyrek_etiketi(yil, c)
+    return donem_adi(bitis_iso, ceyrek_sayisi)
+
+
 def mali_takvim(kod: str, istemci=None, bugun=None) -> dict | None:
     """Sirketin mali takvimi ve EN YENI GERCEKLESMIS donemi.
 

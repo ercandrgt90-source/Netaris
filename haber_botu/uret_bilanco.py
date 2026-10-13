@@ -427,12 +427,12 @@ def sektor_isle(sektor_tr: str, donem_etiketi: str, ceyrek: int = 2,
         uyeler = {k: v for k, v in olculen.items() if bitis.get(k) == iso}
         g_medyan = sektor_ozet.sektor_medyanlari(uyeler)
         gruplar[iso] = {
-            "donem": bilanco_ag.donem_adi(iso, ceyrek),
+            "donem": bilanco_ag.donem_etiketi(iso, ceyrek),
             "sirket_sayisi": len(uyeler),
             "medyan": g_medyan,
             "kodlar": sorted(uyeler),
         }
-        print(f"  -> {bilanco_ag.donem_adi(iso, ceyrek)}: "
+        print(f"  -> {bilanco_ag.donem_etiketi(iso, ceyrek)}: "
               f"{len(uyeler)} şirket, medyan "
               f"{'var' if g_medyan else 'YOK'}")
     return {
