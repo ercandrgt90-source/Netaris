@@ -30,7 +30,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 12,
+  "yorumlanan": 13,
   "haberler": [
     {
       "baslik": "İran ve Umman dışişleri bakanları telefon görüşmesinde Yemen'in durumunu tartıştı - Telegram postası",
@@ -57,6 +57,32 @@
       "kanal_basligi": "Hangi piyasaları etkiler?",
       "foto": "/statik/foto/jeopolitik-36-7cb6152c.jpg",
       "foto_atif": "Captain Albert E. Theberge, NOAA Corps (ret.) · PDM"
+    },
+    {
+      "baslik": "New York borsası düşüşle kapandı",
+      "baslik_kaynak": "New York borsası düşüşle kapandı",
+      "ozet": "New York borsası, çip şirketlerinin hisselerindeki satış baskısıyla günü düşüşle tamamladı. Kapanışta Dow Jones endeksi, yüzde 0,35 azalarak 51.670,10 puana indi.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.dunya.com/finans/borsa/new-york-borsasi-dususle-kapandi-haberi-843772",
+      "kurum": "Dünya",
+      "kurum_tam": "Dünya Gazetesi",
+      "konu": "Borsa",
+      "tarih": "2026-10-14",
+      "tarih_gorunur": "14 Ekim 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Endeks hareketi tek başına bir bilgi değildir; hareketi hangi sektörlerin taşıdığı ve işlem hacminin ne olduğu kalıcılığı belirler.",
+      "kanallar": [
+        "Sektör dağılımı: hareketin dar bir gruptan mı geniş tabandan mı geldiği, kalıcılığa dair ipucu verir.",
+        "Hacim: düşük hacimli hareket fiyat keşfinden çok pozisyon ayarlaması olabilir.",
+        "Volatilite: opsiyon fiyatlarındaki değişim piyasanın beklediği oynaklığı gösterir.",
+        "Korelasyon: hisse ile tahvil arasındaki ilişkinin işareti portföy riskinin nasıl dağıldığını değiştirir."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/borsa-11-39672784.jpg",
+      "foto_atif": "Syced · CC0"
     },
     {
       "baslik": "Denizüstü rüzgar enerjisine 3 milyar dolarlık yatırım",
@@ -230,27 +256,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/sirket-haberleri-16-dfb346f6.jpg",
       "foto_atif": "Stephen Craven · CC-BY-SA-2.0"
-    },
-    {
-      "baslik": "Kosgeb İstanbul İkitelli Müdürlüğü Diğer Özel Bütçeli Kuruluşlar Küçük Ve Orta Ölçekli İşletmeleri Geliştirme Ve Destekleme İdaresi Başkanlığı",
-      "baslik_kaynak": "KOSGEB İSTANBUL İKİTELLİ MÜDÜRLÜĞÜ DİĞER ÖZEL BÜTÇELİ KURULUŞLAR KÜÇÜK VE ORTA ÖLÇEKLİ İŞLETMELERİ GELİŞTİRME VE DESTEKLEME İDARESİ BAŞKANLIĞI",
-      "ozet": "KOSGEB İSTANBUL İKİTELLİ MÜDÜRLÜĞÜ DİĞER ÖZEL BÜTÇELİ KURULUŞLAR KÜÇÜK VE ORTA ÖLÇEKLİ İŞLETMELERİ GELİŞTİRME VE DESTEKLEME İDARESİ BAŞKANLIĞI 2027 Yılı Personel Taşıma(Servis) hizmet alımı 4734... Devamı için tıklayınız",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.sabah.com.tr/resmi-ilan/2026/10/13/kosgeb-istanbul-ikitelli-mudurlugu-diger-ozel-butceli-kuruluslar-kucuk-ve-orta-olcekli-isletmeleri-gelistirme-ve-destekleme-idaresi-baskanligi",
-      "kurum": "Sabah",
-      "kurum_tam": "Sabah",
-      "konu": "Vergi ve kamu maliyesi",
-      "tarih": "2026-10-14",
-      "tarih_gorunur": "14 Ekim 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/vergi-ve-kamu-maliyesi-7-c3df51bc.jpg",
-      "foto_atif": "RegionalQueenslander · CC-BY-SA-4.0"
     },
     {
       "baslik": "Ödemeler Dengesi İstatistikleri (Ağustos 2026)",
