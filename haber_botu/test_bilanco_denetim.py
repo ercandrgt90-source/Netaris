@@ -385,4 +385,180 @@ finally:
     BT.bellegi_bosalt()
 
 print("")
+print("10. TAZELEME SAYFANIN TARIHINI DEGISTIRMEZ")
+#
+# OLCULDU, YAYINDAYDI (2026-10-13): `yaz_sektorel` tarihi kosulsuz
+# `date.today()` yaziyordu. Onarim kosusu (CI 38434148277) EGEGY'nin
+# 2026-08-27 tarihli analizini 2026-10-13 yapti -- iki aylik bir
+# analiz "bugunun gelismesi" gibi gorundu. Sitemap `lastmod`,
+# beslemeler ve "guncel" listeleri de buna inaniyor.
+#
+# Tazeleme yeniden YAYIMLAMA degil: icerigin olculdugu gun
+# degismiyor.
+_ASIL_GETIR3 = BT.bilanco_ag.donem_getir
+_ASIL_YAZ3 = BT.yayin.yaz_sektorel
+try:
+    g3 = pathlib.Path(tempfile.mkdtemp())
+    yol3 = g3 / "2026-2-ceyrek-eski.md"
+    yol3.write_text(SATIR_SONU.join([
+        "---", "kod: ESKI", "kategori: Bilanço Analizi",
+        "donem: 2026 2. çeyrek", "tarih: 2026-08-27", "---", "",
+        "## Özet", "", "Saklı yorum.", "",
+        "| Hasılat | 10,00 milyar TL |",
+        "| Brüt kâr | 5,00 milyar TL |", "",
+        "## Sektör içindeki konum", "",
+        "| Brüt kâr marjı | %12,0 | %20,0 |", "",
+    ]), encoding="utf-8")
+    _d3 = oranlar.Donem(
+        etiket="2026 2. çeyrek", hasilat=12_400_000_000.0,
+        brut_kar=2_100_000_000.0, faaliyet_kari=900_000_000.0,
+        net_kar=640_000_000.0, ozkaynak=8_300_000_000.0,
+        aktif_toplami=19_700_000_000.0, donen_varliklar=7_100_000_000.0,
+        kisa_vadeli_yukumlulukler=5_400_000_000.0)
+    BT.bilanco_ag.donem_getir = (
+        lambda kod, etiket, ceyrek=1, sektor_tr="", istemci=None,
+        ciftli=False: (_d3, None, []) if ciftli else (_d3, []))
+    _cagri = {}
+    BT.yayin.yaz_sektorel = lambda **kw: _cagri.update(kw)
+    BT.bellegi_bosalt()
+    baglam3 = {"ESKI": ("Sanayi", {"brut_marj": 12.0},
+                        {"brut_marj": 20.0}, 12, "2026 2. çeyrek", "")}
+    defter3 = {"ESKI": {"unvan": "Eski A.Ş.", "sektor_tr": "Sanayi",
+                        "alt_sektor": "Conglomerates"}}
+    ok3, _ = BT.sayfa_tazele(yol3, baglam3, defter3, False)
+    esit(ok3, True, "sayfa tazelendi")
+    esit(_cagri.get("tarih_ustu"), "2026-08-27",
+         "SAYFANIN KENDI tarihi geciriliyor (bugun DEGIL)")
+
+    # Tarih alani OLMAYAN sayfada bos geciliyor -- `yaz_sektorel` o
+    # durumda bugunu yaziyor, yani yeni sayfa dogru tarih aliyor.
+    yol4 = g3 / "2026-2-ceyrek-tarihsiz.md"
+    yol4.write_text(yol3.read_text(encoding="utf-8").replace(
+        "tarih: 2026-08-27" + SATIR_SONU, ""), encoding="utf-8")
+    _cagri.clear()
+    BT.bellegi_bosalt()
+    baglam3["TARIHSIZ"] = baglam3["ESKI"]
+    defter3["TARIHSIZ"] = defter3["ESKI"]
+    yol4.write_text(yol4.read_text(encoding="utf-8").replace(
+        "kod: ESKI", "kod: TARIHSIZ"), encoding="utf-8")
+    BT.sayfa_tazele(yol4, baglam3, defter3, False)
+    esit(_cagri.get("tarih_ustu"), "",
+         "tarih alani yoksa BOS geciliyor (bugun yazilir)")
+finally:
+    BT.bilanco_ag.donem_getir = _ASIL_GETIR3
+    BT.yayin.yaz_sektorel = _ASIL_YAZ3
+    BT.bellegi_bosalt()
+
+print("")
+print("11. yaz_sektorel tarihi GERCEKTEN yaziyor")
+# Islevin parametre almasi, kullandigi anlamina gelmiyor.
+import yayin as _Y                                 # noqa: E402
+
+_g5 = pathlib.Path(tempfile.mkdtemp())
+_p5 = _Y.yaz_sektorel(govde="# Başlık" + SATIR_SONU * 2 + "Gövde metni.",
+                      sirket="X A.Ş.", kod="XXXX", donem="2026 2. çeyrek",
+                      sektor="Sanayi", tarih_ustu="2026-08-27",
+                      klasor=_g5)
+_m5 = _p5.read_text(encoding="utf-8")
+esit("tarih: 2026-08-27" in _m5, True, "verilen tarih dosyaya yazildi")
+_p6 = _Y.yaz_sektorel(govde="# Başlık" + SATIR_SONU * 2 + "Gövde metni.",
+                      sirket="Y A.Ş.", kod="YYYY", donem="2026 2. çeyrek",
+                      sektor="Sanayi", klasor=_g5)
+import datetime as _dt2                             # noqa: E402
+
+esit(f"tarih: {_dt2.date.today().isoformat()}" in
+     _p6.read_text(encoding="utf-8"), True,
+     "tarih verilmezse BUGUN yazilir (yeni sayfa)")
+
+print("")
+print("12. SAYFANIN DONEMI OZETIN DONEMIYLE AYNI DEGILSE DOKUNULMUYOR")
+#
+# OLCULDU, YAYINDAYDI (2026-10-13) -- bu oturumun en agir kusuru.
+#
+# `donem` OZETTEN geliyordu ama tazelenen dosya baska bir doneme ait
+# olabiliyor. O zaman `yaz_sektorel` kanonik yolu `kod + OZETIN
+# donemi` ile kuruyor ve BASKA BIR DOSYAYA yaziyor:
+#
+#     okunan : 2026-1-ceyrek-asuzu.md   (Q1)
+#     yazilan: 2026-2-ceyrek-asuzu.md   (Q2)  <- YENI DOSYA
+#
+# Bir CI kosusu boyle SEKIZ yeni sayfa uretti ve her birine Q1
+# sayfasinin sakli AI yorumunu AYNEN tasidi. `2026-2-ceyrek-asuzu`
+# "2026 2. çeyrek" diyor, yorumu ise "brüt kâr marjının %8,8'e
+# gerilemesi" -- Q1'in cumlesi. Sayfa bir donemi soyluyor, yorumu
+# baskasini anlatiyor. Sekiz sayfa silindi.
+_ASIL_GETIR4 = BT.bilanco_ag.donem_getir
+_ASIL_YAZ4 = BT.yayin.yaz_sektorel
+_ASIL_SITE4 = U.SITE
+try:
+    g6 = pathlib.Path(tempfile.mkdtemp())
+    U.SITE = g6
+    _yazim = []
+    BT.yayin.yaz_sektorel = lambda **kw: _yazim.append(kw)
+    _cek = {"n": 0}
+
+    def _getir4(kod, etiket, ceyrek=1, sektor_tr="", istemci=None,
+                ciftli=False):
+        _cek["n"] += 1
+        d = oranlar.Donem(
+            etiket=etiket, hasilat=12_400_000_000.0,
+            brut_kar=2_100_000_000.0, faaliyet_kari=900_000_000.0,
+            net_kar=640_000_000.0, ozkaynak=8_300_000_000.0,
+            aktif_toplami=19_700_000_000.0,
+            donen_varliklar=7_100_000_000.0,
+            kisa_vadeli_yukumlulukler=5_400_000_000.0)
+        return (d, None, []) if ciftli else (d, [])
+
+    BT.bilanco_ag.donem_getir = _getir4
+    BT.bellegi_bosalt()
+
+    def _kur(ad, donem, kod="ASUZU"):
+        y = g6 / ad
+        y.write_text(SATIR_SONU.join([
+            "---", f"kod: {kod}", "kategori: Bilanço Analizi",
+            f"donem: {donem}", "tarih: 2026-08-21", "---", "",
+            "## Özet", "", "Q1 yorumu: brüt kâr marjı %8,8.", "",
+            "| Hasılat | 10,00 milyar TL |",
+            "| Brüt kâr | 5,00 milyar TL |", "",
+            "## Sektör içindeki konum", "",
+            "| Brüt kâr marjı | %12,0 | %20,0 |", "",
+        ]), encoding="utf-8")
+        return y
+
+    _q1 = _kur("2026-1-ceyrek-asuzu.md", "2026 1. çeyrek")
+    baglam4 = {"ASUZU": ("Sanayi", {"brut_marj": 12.0},
+                         {"brut_marj": 20.0}, 12, "2026 2. çeyrek", "")}
+    defter4 = {"ASUZU": {"unvan": "Asuzu A.Ş.", "sektor_tr": "Sanayi",
+                         "alt_sektor": "Conglomerates"}}
+    ok6, not6 = BT.sayfa_tazele(_q1, baglam4, defter4, False)
+    esit(ok6, False, "donem uyusmuyorsa sayfa TAZELENMIYOR")
+    esit(not6.startswith("dönem uyuşmuyor"), True, "sebebi yaziliyor")
+    esit(_yazim, [], "HICBIR SEY YAZILMADI (yeni dosya dogmadi)")
+    esit(_cek["n"], 0, "istek de atilmadi -- denetim cekimden ONCE")
+
+    # Donem AYNI ise normal sekilde tazeleniyor.
+    _q2 = _kur("2026-2-ceyrek-asuzu.md", "2026 2. çeyrek")
+    BT.bellegi_bosalt()
+    ok7, _ = BT.sayfa_tazele(_q2, baglam4, defter4, False)
+    esit(ok7, True, "donem ayniysa tazeleniyor")
+    esit(len(_yazim), 1, "bu kez yazildi")
+
+    # KUYRUK da onarilamayani DISLIYOR: yoksa her kosuda denenip her
+    # kosuda atlanan bir kalem kalir ve adim asla tukenmez.
+    esit([y.name for y, _ in BT.onarim_kuyrugu(defter4, baglam4)],
+         ["2026-2-ceyrek-asuzu.md"],
+         "kuyrukta yalnizca ONARILABILIR sayfa")
+    # Sektor ozetinde HIC OLMAYAN sirket de kuyrukta durmuyor.
+    esit(BT.onarim_kuyrugu(defter4, {}), [],
+         "ozette olmayan sirket kuyrukta durmuyor")
+    # `baglam` verilmezse eski davranis (geriye donuk uyum).
+    esit(len(BT.onarim_kuyrugu(defter4)), 2,
+         "baglam verilmezse eleme yapilmiyor")
+finally:
+    BT.bilanco_ag.donem_getir = _ASIL_GETIR4
+    BT.yayin.yaz_sektorel = _ASIL_YAZ4
+    U.SITE = _ASIL_SITE4
+    BT.bellegi_bosalt()
+
+print("")
 print(f"TUM TESTLER GECTI ({_gecti})")

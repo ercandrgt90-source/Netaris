@@ -198,6 +198,11 @@ def yaz_sektorel(
     kaynaklar: str = "",
     sayimlar: str = "",
     klasor: pathlib.Path | None = None,
+    #: Var olan bir sayfa YENIDEN kuruluyorsa ONUN tarihi. Bos
+    #: birakilirsa bugun yazilir. Gerekcesi `yaz`in `tarih_ustu`
+    #: notunda zaten vardi; burada eksikti ve bedeli olculdu
+    #: (asagiya bakin).
+    tarih_ustu: str = "",
 ) -> pathlib.Path:
     """Skor URETILMEYEN bilanco analizini yazar.
 
@@ -226,7 +231,22 @@ def yaz_sektorel(
             f"donem: {donem}",
             "kategori: Bilanço Analizi",
             f"sektor: {sektor}",
-            f"tarih: {date.today().isoformat()}",
+            # TAZELEME YENIDEN YAYIMLAMA DEGIL.
+            #
+            # Burada kosulsuz `date.today()` yaziliydi. Sayfa bicimi
+            # degistiginde `bilanco_tazele` var olan sayfalari
+            # yeniden kuruyor ve bu satir hepsinin tarihini BUGUNE
+            # cekiyordu.
+            #
+            # Olculdu (2026-10-13): tek bir onarim kosusu (CI
+            # 38434148277) EGEGY'nin 2026-08-27 tarihli analizini
+            # 2026-10-13 yapti. Iki aylik bir analiz "bugunun
+            # gelismesi" gibi gorunuyor; sitemap `lastmod`,
+            # beslemeler ve "guncel" listeleri de buna inaniyor.
+            #
+            # Tarih artik cagirandan geliyor: yeni sayfa bugunu
+            # alir, YENIDEN KURULAN sayfa kendi tarihini KORUR.
+            f"tarih: {tarih_ustu.strip() or date.today().isoformat()}",
             f"veri_kaynagi: {kaynak}",
             "kurgusal: hayir",
             "grafik_tur: sutun",

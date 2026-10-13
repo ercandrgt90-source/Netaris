@@ -60,6 +60,10 @@ BASLIKLAR = ("Özet", "Netaris yorumu")
 
 _ON_DESEN = re.compile(r"(---\n)(.*?)(\n---\n)(.*)", re.S)
 _KOD_DESEN = re.compile(r"^kod:\s*(\S+)", re.M)
+#: Sayfanin ILK yayim tarihi. Tazeleme onu KORUMALI.
+_TARIH_DESEN = re.compile(r"^tarih:\s*(\S+)", re.M)
+#: Sayfanin KENDI donemi. Ozetin donemiyle ayni olmak ZORUNDA.
+_DONEM_DESEN = re.compile(r"^donem:\s*(.+?)\s*$", re.M)
 
 
 def yorumu_al(govde: str) -> str:
@@ -151,6 +155,34 @@ def sayfa_tazele(yol: pathlib.Path, baglam: dict, defter: dict,
         return False, "saklı yorum bulunamadı"
 
     sektor, oran, medyan, n, donem, mali_not = baglam[kod]
+
+    # SAYFANIN DONEMI OZETIN DONEMIYLE AYNI OLMALI.
+    #
+    # OLCULDU, YAYINDAYDI (2026-10-13). `donem` OZETTEN geliyor ama
+    # tazelenen dosya baska bir doneme ait olabiliyor. O zaman
+    # `yaz_sektorel` kanonik yolu `kod + OZETIN donemi` ile kuruyor
+    # ve BASKA BIR DOSYAYA yaziyor:
+    #
+    #   okunan : 2026-1-ceyrek-asuzu.md   (Q1)
+    #   yazilan: 2026-2-ceyrek-asuzu.md   (Q2)  <- YENI DOSYA
+    #
+    # Sonuc uc katli:
+    #   1. Okunan sayfa DEGISMIYOR -- onarim kuyrugundan hic
+    #      dusmuyor, her kosuda ayni isi yapan bir saat bombasi.
+    #   2. Istenmeyen YENI sayfa doguyor (bir kosuda sekiz tane).
+    #   3. En kotusu: sakli AI yorumu Q1'i anlatiyor ama sayfa
+    #      "2026 2. çeyrek" diyor. `2026-2-ceyrek-asuzu.md`
+    #      "brüt kâr marjının %8,8'e gerilemesi" cumlesini Q1
+    #      sayfasindan AYNEN tasidi. Sayfa bir donemi soyluyor,
+    #      yorumu baskasini anlatiyor.
+    #
+    # Ozet baska bir donemdeyse DOKUNULMUYOR: o donemin medyani
+    # elimizde yok ve olmayan bir kiyasla sayfa kurmak, duzeltmek
+    # degil yeni bir hata uretmek olurdu.
+    _d = _DONEM_DESEN.search(m.group(2))
+    sayfa_donemi = _d.group(1) if _d else ""
+    if sayfa_donemi and sayfa_donemi != donem:
+        return False, f"dönem uyuşmuyor (sayfa {sayfa_donemi}, özet {donem})"
     if kod in _BELLEK:
         d, once, eksik = _BELLEK[kod]
     else:
@@ -187,14 +219,22 @@ def sayfa_tazele(yol: pathlib.Path, baglam: dict, defter: dict,
         return False, "güvenlik: " + (bulgular[0].aciklama[:40]
                                       if bulgular else "?")
     if not kuru:
+        # SAYFANIN KENDI TARIHI KORUNUYOR.
+        #
+        # Tazeleme yeniden YAYIMLAMA degil; icerigin olculdugu gun
+        # degismiyor. Bu satir olmadan onarim kosusu butun eski
+        # analizleri "bugun" damgaliyordu -- olculdu, EGEGY'nin
+        # 2026-08-27 tarihli analizi 2026-10-13 oldu.
+        _t = _TARIH_DESEN.search(m.group(2))
         yayin.yaz_sektorel(
             govde=govde, sirket=unvan, kod=kod, donem=donem, sektor=sektor,
+            tarih_ustu=_t.group(1) if _t else "",
             kaynak="Çeyreklik mali tablolardan türetildi; sektör medyanı "
                    "Netaris hesabı")
     return True, "+yıllık değişim" if once is not None else "yenilendi"
 
 
-def onarim_kuyrugu(defter: dict) -> list:
+def onarim_kuyrugu(defter: dict, baglam: dict | None = None) -> list:
     """Sayfalari ONARIM IHTIYACINA gore siralar: bozuk olanlar basa.
 
     NEDEN SIRA ONEMLI -- BU DEPODA YASANDI
@@ -215,8 +255,28 @@ def onarim_kuyrugu(defter: dict) -> list:
         k = _KOD_DESEN.search(metin)
         bilgi = defter.get(k.group(1).upper()) if k else None
         sebep = bd.onarim_gereken(metin, bilgi)
-        if sebep:
-            kuyruk.append((yol, sebep))
+        if not sebep:
+            continue
+        # ONARILAMAYAN SAYFA KUYRUKTA DURMAZ.
+        #
+        # Ozet baska bir donemdeyse o sayfa yeniden kurulamiyor:
+        # kendi doneminin sektor medyani elimizde yok (gerekcesi
+        # `sayfa_tazele` icinde yazili). Kuyrukta tutmak, her kosuda
+        # denenip her kosuda atlanan bir kalem demek -- adim asla
+        # tukenmez ve "onarim bekleyen" sayisi hic sifirlanmaz.
+        #
+        # Bu sayfalar miras listesinde KALIYOR, yani koruma onlari
+        # tolere etmeye devam ediyor ve durum gorunur kaliyor.
+        if baglam is not None:
+            kayit = baglam.get(k.group(1).upper()) if k else None
+            # Sektor ozetinde HIC OLMAYAN sirket de onarilamiyor:
+            # oranlari ve medyani yok. Ayni gerekce.
+            if not kayit:
+                continue
+            _d = _DONEM_DESEN.search(metin)
+            if _d and _d.group(1) != kayit[4]:
+                continue
+        kuyruk.append((yol, sebep))
     # MIRAS LISTESINDE OLMAYAN BOZUK SAYFA ONCE.
     #
     # O sayfa korumanin tolere ETMEDIGI sayfadir, yani CI'i kirmizi
@@ -245,7 +305,7 @@ def main() -> int:
     baglam, defter = baglam_kur()
 
     if n.onarim:
-        kuyruk = onarim_kuyrugu(defter)
+        kuyruk = onarim_kuyrugu(defter, baglam)
         print(f"onarım kipi: {len(kuyruk)} sayfa onarım bekliyor")
         if not kuyruk:
             print("onarılacak sayfa YOK -- hiçbir şey yapılmadı")
@@ -274,7 +334,7 @@ def main() -> int:
     print(f"\ntazelenen {tazelenen}, atlanan {atlanan}")
     print("model çağrısı: 0 — saklı yorumlar aynen yeniden kullanıldı")
     if n.onarim and not n.kuru_calis:
-        kalan = onarim_kuyrugu(defter)
+        kalan = onarim_kuyrugu(defter, baglam)
         print(f"onarım bekleyen: {len(kalan)} sayfa "
               f"(sonraki koşuda sürer)")
     return 0

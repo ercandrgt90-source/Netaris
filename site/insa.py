@@ -5582,6 +5582,107 @@ def one_cikan_haberler(haberler: list[dict], bugun: str = "") -> list[dict]:
     return [h for _, h in _onem.sec(ciftler, anahtar=_veri_kumesi)]
 
 
+#: "Bugunun onemli gelismeleri"nde bilanco analizine ayrilan slot.
+#:
+#: NEDEN SKOR VERILMIYOR
+#: ---------------------
+#: `yayin.yaz_sektorel` bilanco analizine BILEREK onem puani
+#: yazmiyor ve gerekcesi orada duruyor: skor esikleri her sektor icin
+#: kalibre edilmedi, "kalibre edilmemis bir skoru yayimlamak,
+#: olculmemis bir seyi olculmus gibi gostermek olur."
+#:
+#: Olculdu (2026-10-13): 268 bilanco sayfasinin HICBIRINDE `onem`
+#: alani yok. `one_cikan_haberler` ise `onem >= NORMAL` suzgecinden
+#: geciyor, yani bilanco analizleri o bolume yapisal olarak hic
+#: giremiyordu.
+#:
+#: Cozum puan UYDURMAK DEGIL. Bir sirketin bilanco aciklamasi
+#: gunun gelismesidir; bunu soylemek icin ona sayi vermek gerekmiyor.
+#: Bu yuzden puanli haberlerle YARISTIRILMIYOR, kendisine ayrilmis
+#: KUYRUK slotlarina yerlestiriliyor:
+#:
+#:   * MANSET her zaman puanli bir haber kaliyor -- onun yerine
+#:     koymak, olcmedigimiz bir onemi olcmus gibi sunmak olurdu.
+#:   * Alti kartin SON ikisi bilancoya ayriliyor; onlerine
+#:     gecmiyor.
+#:
+#: Iki tane, cunku bolum yedi kalem basiyor ve bir gunde onlarca
+#: bilanco aciklanabiliyor. Ucuncusu bolumu bilancoya cevirirdi;
+#: tamami zaten `/bilancolar/` altinda duruyor.
+BILANCO_ONE_CIKAN = 2
+
+#: Bolumun render ettigi kalem sayisi (manset + alti kart).
+#: Sablondaki `one_cikanlar[0]` ve `one_cikanlar[1:7]` ile AYNI
+#: olmali; ayri yazilsa biri degisip oteki unutulurdu.
+ONE_CIKAN_PENCERESI = 7
+
+
+def bilanco_one_cikanlar(analizler: list[dict], bugun: str,
+                         en_cok: int = BILANCO_ONE_CIKAN) -> list[dict]:
+    """BUGUN yayimlanan bilanco analizlerini kart bicimine cevirir.
+
+    YALNIZCA BUGUN. Bolumun adi "BUGUNUN onemli gelismeleri" ve eski
+    bir bilanco analizini oraya koymak, bolumun kendi vaadini bozar
+    -- ayni gerekce `ONE_CIKAN_TAZE_SAAT` icin de yazili.
+
+    Kart alanlari var olan sablona gore dolduruluyor; UYDURULAN alan
+    yok. Saat damgasi (`an`) yazilmiyor cunku bilanco sayfasinda
+    yalnizca TARIH var; sablon o durumda goreli zaman yerine tarihi
+    basiyor (bkz. `zaman` makrosu).
+    """
+    if not bugun or en_cok <= 0:
+        return []
+    # `analizler` SOZLUK DEGIL, `Analiz` nesnesi. Ilk yazim `.get()`
+    # kullaniyordu ve uretimde AttributeError verirdi; sahte veriyle
+    # degil GERCEK veriyle denenince ortaya cikti.
+    taze = [a for a in analizler
+            if getattr(a, "kategori", "") == "Bilanço Analizi"
+            and getattr(a, "tarih", "") == bugun
+            and getattr(a, "yol", "")]
+    # EN YENI USTTE. Ayni gun icinde ikincil anahtar donem: ayni
+    # sirketin iki donemi varsa yeni olani kartta gorunsun.
+    taze.sort(key=lambda a: (getattr(a, "donem", "") or "",
+                             getattr(a, "kod", "") or ""), reverse=True)
+    kartlar = []
+    for a in taze[:en_cok]:
+        kartlar.append({
+            "yol": a.yol,
+            "baslik": getattr(a, "baslik", "") or "",
+            "ozet": getattr(a, "ozet", "") or "",
+            "foto": getattr(a, "foto", "") or "",
+            "tarih": getattr(a, "tarih", "") or "",
+            # Sablon `tarih_gorunur or tarih` basiyor; `Analiz`de
+            # karsiligi `tarih_tr` ("13 Ekim 2026").
+            "tarih_gorunur": getattr(a, "tarih_tr", "") or "",
+            # Rozet. `KART_TURU` eslemesi bu degeri taniyorsa kart
+            # kendi rengini aliyor; tanimiyorsa varsayilana dusuyor.
+            "konu": "Bilanço",
+            # Kurum yerine HISSE KODU: okurun tanidigi isaret bu ve
+            # sirket unvani zaten baslikta duruyor.
+            "kurum": getattr(a, "kod", "") or "",
+            # `katman` YOK: "kritik" rozetini yalnizca puanlama
+            # verebilir ve burada puanlama yok.
+        })
+    return kartlar
+
+
+def one_cikan_birlestir(secilen: list[dict], bilanco: list[dict],
+                        pencere: int = ONE_CIKAN_PENCERESI) -> list[dict]:
+    """Bilanco kartlarini bolumun KUYRUK slotlarina yerlestirir.
+
+    Puanli haberlerin sirasi KORUNUYOR; bilanco onlarin onune
+    gecmiyor. Manset de her zaman puanli kaliyor.
+
+    Bolum yedi kalemden az dolduysa bilanco bosluga ekleniyor --
+    o durumda kimsenin yerini almiyor.
+    """
+    if not bilanco:
+        return secilen
+    k = min(len(bilanco), max(0, pencere - 1))
+    kesme = max(1, pencere - k)
+    return secilen[:kesme] + bilanco[:k] + secilen[kesme:]
+
+
 def _veri_kumesi(h: dict) -> str:
     """Ayni gun, ayni konudaki VERI aciklamalari tek kume.
 
@@ -7381,9 +7482,15 @@ def insa() -> int:
             rakamlar=kunye_rakamlari(analizler),
             # Katman 2 -- SAYFASI OLAN haberler arasindan, puana gore
             # secilmis, tekrari elenmis. Arsiv de dahil (bkz. yukarida).
-            one_cikanlar=one_cikan_haberler(
-                [h for h in uretilecek if h.get("yol")],
-                datetime.now().strftime("%Y-%m-%d")),
+            # Katman 2'ye BILANCO da giriyor -- gerekcesi
+            # `BILANCO_ONE_CIKAN` uzerinde yazili. Puanli haberlerin
+            # onune GECMIYOR, kuyruk slotlarina yerlesiyor.
+            one_cikanlar=one_cikan_birlestir(
+                one_cikan_haberler(
+                    [h for h in uretilecek if h.get("yol")],
+                    datetime.now().strftime("%Y-%m-%d")),
+                bilanco_one_cikanlar(
+                    analizler, datetime.now().strftime("%Y-%m-%d"))),
             # Katman 1 -- ham akis, en yeni ustte, ELEME YOK
             akis=canli_akis(gundem.get("haberler", [])),
             # Piyasa ozetinin yerini alan AI yorum akisi
