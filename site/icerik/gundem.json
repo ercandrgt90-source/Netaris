@@ -30,7 +30,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 19,
+  "yorumlanan": 20,
   "haberler": [
     {
       "baslik": "Finansal Kuruluşların Anapara Rakamları (Eylül)",
@@ -1269,6 +1269,58 @@
       "foto_atif": "usepagov · PDM"
     },
     {
+      "baslik": "RBA tutanakları enflasyon riskleri artarken faiz artışı sinyali verdi",
+      "baslik_kaynak": "RBA tutanakları enflasyon riskleri artarken faiz artışı sinyali verdi",
+      "ozet": "",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://tr.investing.com/news/economy-news/rba-tutanaklar-enflasyon-riskleri-artarken-faiz-arts-sinyali-verdi-4100147",
+      "kurum": "Investing",
+      "kurum_tam": "Investing.com Türkiye",
+      "konu": "Enflasyon",
+      "tarih": "2026-10-13",
+      "tarih_gorunur": "13 Ekim 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Enflasyon verisi merkez bankası patikasına dair beklentiyi değiştirdiği ölçüde fiyatlanır; manşet ile çekirdek arasındaki fark bu yüzden önemlidir.",
+      "kanallar": [
+        "Çekirdek ayrımı: enerji ve gıda dışı kalemler kalıcı eğilimi gösterir.",
+        "Faiz beklentisi: beklentiden sapma getiri eğrisinin ön ucunu hareket ettirir.",
+        "Hizmet enflasyonu: ücretlere bağlı olduğu için en yapışkan bileşendir.",
+        "Baz etkisi: bir önceki yılın aynı ayındaki seviye yıllık oranı mekanik olarak değiştirir."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/enflasyon-8-9782cbcb.jpg",
+      "foto_atif": "Basile Morin · CC-BY-SA-4.0"
+    },
+    {
+      "baslik": "Cardano 10% oranında geriledi",
+      "baslik_kaynak": "Cardano 10% oranında geriledi",
+      "ozet": "",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://tr.investing.com/news/cryptocurrency-news/cardano-10-orannda-geriledi-4100145",
+      "kurum": "Investing",
+      "kurum_tam": "Investing.com Türkiye",
+      "konu": "Kripto varlıklar",
+      "tarih": "2026-10-13",
+      "tarih_gorunur": "13 Ekim 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Kripto varlıklar risk iştahının en uçtaki göstergelerinden biridir; hareketin kaynağı düzenleme, likidite ya da kaldıraç çözülmesi olabilir ve üçünün sonuçları farklıdır.",
+      "kanallar": [
+        "Likidite koşulları: küresel likidite daraldığında en riskli varlıklar önce satılır.",
+        "Düzenleme: saklama, borsa yatırım fonu ve vergi kuralları kurumsal talebin önünü açar ya da kapatır.",
+        "Kaldıraç: türev piyasadaki açık pozisyon ve fonlama oranı sert hareketlerin büyüklüğünü belirler.",
+        "Piyasa yapısı: işlem hacminin borsalar arası dağılımı fiyat farklarının ne kadar sürdüğünü etkiler."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/kripto-varliklar-7-8bf172e8.jpg",
+      "foto_atif": "CryptoWallet.com Images · CC-BY-2.0"
+    },
+    {
       "baslik": "Planet Labs yöneticisi Ita Brennan 187.478 dolar değerinde hisse sattı",
       "baslik_kaynak": "Planet Labs yöneticisi Ita Brennan 187.478 dolar değerinde hisse sattı",
       "ozet": "",
@@ -1419,53 +1471,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/enflasyon-13-981f6df7.jpg",
       "foto_atif": "Alexander Davronov · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "Cathie Wood’un ARK’ı Personalised hissesi sattı, Compass Pathways aldı",
-      "baslik_kaynak": "Cathie Wood’un ARK’ı Personalised hissesi sattı, Compass Pathways aldı",
-      "ozet": "",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://tr.investing.com/news/company-news/cathie-woodun-ark-personalised-hissesi-satt-compass-pathways-ald-93CH-4100132",
-      "kurum": "Investing",
-      "kurum_tam": "Investing.com Türkiye",
-      "konu": "Borsa",
-      "tarih": "2026-10-13",
-      "tarih_gorunur": "13 Ekim 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/borsa-10-1d3f5b6f.jpg",
-      "foto_atif": "Syced · CC0"
-    },
-    {
-      "baslik": "Japonya ÜFE eylülde güçlü yen ve düşen petrol ile geriledi",
-      "baslik_kaynak": "Japonya ÜFE eylülde güçlü yen ve düşen petrol ile geriledi",
-      "ozet": "",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://tr.investing.com/news/economic-indicators/japonya-ufe-eylulde-guclu-yen-ve-dusen-petrol-ile-geriledi-4100133",
-      "kurum": "Investing",
-      "kurum_tam": "Investing.com Türkiye",
-      "konu": "Enflasyon",
-      "tarih": "2026-10-13",
-      "tarih_gorunur": "13 Ekim 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Enflasyon verisi merkez bankası patikasına dair beklentiyi değiştirdiği ölçüde fiyatlanır; manşet ile çekirdek arasındaki fark bu yüzden önemlidir.",
-      "kanallar": [
-        "Çekirdek ayrımı: enerji ve gıda dışı kalemler kalıcı eğilimi gösterir.",
-        "Faiz beklentisi: beklentiden sapma getiri eğrisinin ön ucunu hareket ettirir.",
-        "Hizmet enflasyonu: ücretlere bağlı olduğu için en yapışkan bileşendir.",
-        "Baz etkisi: bir önceki yılın aynı ayındaki seviye yıllık oranı mekanik olarak değiştirir."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/enflasyon-14-e2f22d70.jpg",
-      "foto_atif": "William Iven firmbee · CC0"
     },
     {
       "baslik": "Vatandaşlık maaşında yeni detaylar",
