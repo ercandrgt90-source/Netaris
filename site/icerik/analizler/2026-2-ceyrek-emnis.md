@@ -24,15 +24,15 @@ Hasılatın hafif düşmesi (%6,3) gerçekleşse de brüt kâr iki katına çık
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | -%5,9 |
-| Brüt kâr | %86,2 |
-| Faaliyet kârı | %236,5 |
-| FAVÖK | %626,3 |
-| Net kâr | %201,5 |
+| Hasılat | -%9,2 |
+| Brüt kâr | %10,6 |
+| Faaliyet kârı | %58,6 |
+| FAVÖK | %33,2 |
+| Net kâr | %1917,4 |
 | Özkaynak | %42,7 |
 | Aktif toplamı | %24,9 |
 | Net borç | -%2,5 |
-| Faaliyet nakit akışı | %317,6 |
+| Faaliyet nakit akışı | %130,1 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -40,8 +40,8 @@ Hasılatın hafif düşmesi (%6,3) gerçekleşse de brüt kâr iki katına çık
 
 | Kalem | Değer |
 | --- | ---: |
-| Hasılat | 0,30 milyar TL |
-| Brüt kâr | 0,06 milyar TL |
+| Hasılat | 0,15 milyar TL |
+| Brüt kâr | 0,04 milyar TL |
 | Faaliyet kârı | 0,02 milyar TL |
 | FAVÖK | 0,03 milyar TL |
 | Net kâr | 0,03 milyar TL |
@@ -53,15 +53,15 @@ Hasılatın hafif düşmesi (%6,3) gerçekleşse de brüt kâr iki katına çık
 
 ## Sektör içindeki konum
 
-Karşılaştırma İsteğe bağlı tüketim sektöründeki 63 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildiren** 62 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %25,7 | %16,0 |
+| Brüt kâr marjı | %25,7 | %17,0 |
 | Net kâr marjı | %17,9 | %0,6 |
-| Özkaynak kârlılığı | %10,0 | %0,5 |
+| Özkaynak kârlılığı | %10,0 | %0,6 |
 | Cari oran | 2,40 | 1,29 |
-| Borç / özkaynak | 0,00 | 0,13 |
+| Borç / özkaynak | 0,00 | 0,15 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -69,13 +69,13 @@ Karşılaştırma İsteğe bağlı tüketim sektöründeki 63 şirketin **medyan
 
 **Şirket lehine işleyenler**
 
-- Net kâr reel olarak %201,5 arttı.
-- Brüt marj 10,2 puan genişledi (%10,4 → %20,5).
+- Net kâr reel olarak %1917,4 arttı.
+- Brüt marj 4,6 puan genişledi (%21,1 → %25,7).
 
 **Dikkat gerektirenler**
 
-- Hasılat reel olarak -%5,9 geriledi.
-- Faaliyet nakit akışı net kârın %12 kadarı; kâr ile nakit üretimi ayrışıyor.
+- Hasılat reel olarak -%9,2 geriledi.
+- Faaliyet nakit akışı net kârın %1 kadarı; kâr ile nakit üretimi ayrışıyor.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

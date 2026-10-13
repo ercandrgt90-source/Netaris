@@ -24,16 +24,16 @@ Hasılat iki katından fazlasına çıkarken brüt kâr negatiften pozitife dön
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | %129,1 |
-| Brüt kâr | %634,2 |
-| Faaliyet kârı | %74,9 |
-| FAVÖK | %79,0 |
-| Net kâr | %42,0 |
+| Hasılat | %234,1 |
+| Brüt kâr | %7645,1 |
+| Faaliyet kârı | %128,7 |
+| FAVÖK | %136,6 |
+| Net kâr | %20,9 |
 | Özkaynak | -%1,9 |
 | Aktif toplamı | %8,6 |
 | Net borç | -%9,2 |
-| Faaliyet nakit akışı | -%90,5 |
-| Yatırım harcaması | -%79,3 |
+| Faaliyet nakit akışı | -%138,9 |
+| Yatırım harcaması | -%50,0 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -41,26 +41,26 @@ Hasılat iki katından fazlasına çıkarken brüt kâr negatiften pozitife dön
 
 | Kalem | Değer |
 | --- | ---: |
-| Hasılat | 0,58 milyar TL |
+| Hasılat | 0,53 milyar TL |
 | Brüt kâr | 0,08 milyar TL |
-| Faaliyet kârı | -0,02 milyar TL |
-| FAVÖK | -0,02 milyar TL |
-| Net kâr | -0,11 milyar TL |
+| Faaliyet kârı | 0,01 milyar TL |
+| FAVÖK | 0,01 milyar TL |
+| Net kâr | -0,03 milyar TL |
 | Özkaynak | 2,04 milyar TL |
 | Aktif toplamı | 3,66 milyar TL |
 | Net borç | 0,87 milyar TL |
-| Faaliyet nakit akışı | 0,00 milyar TL |
+| Faaliyet nakit akışı | -0,03 milyar TL |
 | Yatırım harcaması | 0,00 milyar TL |
 
 ## Sektör içindeki konum
 
-Karşılaştırma Gayrimenkul sektöründeki 34 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 34 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %14,5 | %51,4 |
-| Net kâr marjı | -%5,4 | %14,3 |
-| Özkaynak kârlılığı | -%1,4 | %0,4 |
+| Brüt kâr marjı | %14,4 | %51,4 |
+| Net kâr marjı | -%5,4 | %15,8 |
+| Özkaynak kârlılığı | -%1,4 | %0,5 |
 | Cari oran | 1,17 | 5,25 |
 | Borç / özkaynak | 0,43 | 0,02 |
 
@@ -70,9 +70,9 @@ Karşılaştırma Gayrimenkul sektöründeki 34 şirketin **medyanına** göre y
 
 **Şirket lehine işleyenler**
 
-- Hasılat reel olarak %129,1 arttı.
-- Net kâr reel olarak %42,0 arttı.
-- Brüt marj 18,8 puan genişledi (-%5,7 → %13,2).
+- Hasılat reel olarak %234,1 arttı.
+- Net kâr reel olarak %20,9 arttı.
+- Brüt marj 15,0 puan genişledi (-%0,6 → %14,4).
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

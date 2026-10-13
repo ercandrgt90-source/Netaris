@@ -24,16 +24,16 @@ Hasılatın %21,3 oranındaki artışı brüt kârın 3,57 milyar TL'ye yükselm
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | %27,0 |
-| Brüt kâr | %53,3 |
-| Faaliyet kârı | %12,7 |
-| FAVÖK | %11,6 |
-| Net kâr | %61,9 |
+| Hasılat | %23,0 |
+| Brüt kâr | %26,2 |
+| Faaliyet kârı | %4,2 |
+| FAVÖK | %4,1 |
+| Net kâr | %377,1 |
 | Özkaynak | %46,3 |
 | Aktif toplamı | %45,0 |
 | Net borç | %282,5 |
-| Faaliyet nakit akışı | -%297,2 |
-| Yatırım harcaması | -%9,3 |
+| Faaliyet nakit akışı | -%38,4 |
+| Yatırım harcaması | -%36,9 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -41,26 +41,26 @@ Hasılatın %21,3 oranındaki artışı brüt kârın 3,57 milyar TL'ye yükselm
 
 | Kalem | Değer |
 | --- | ---: |
-| Hasılat | 14,06 milyar TL |
-| Brüt kâr | 3,57 milyar TL |
-| Faaliyet kârı | 1,97 milyar TL |
-| FAVÖK | 2,12 milyar TL |
-| Net kâr | 0,89 milyar TL |
+| Hasılat | 6,97 milyar TL |
+| Brüt kâr | 1,48 milyar TL |
+| Faaliyet kârı | 0,77 milyar TL |
+| FAVÖK | 0,78 milyar TL |
+| Net kâr | 0,49 milyar TL |
 | Özkaynak | 13,05 milyar TL |
 | Aktif toplamı | 23,58 milyar TL |
 | Net borç | 5,09 milyar TL |
-| Faaliyet nakit akışı | -0,13 milyar TL |
-| Yatırım harcaması | 0,24 milyar TL |
+| Faaliyet nakit akışı | 0,46 milyar TL |
+| Yatırım harcaması | 0,06 milyar TL |
 
 ## Sektör içindeki konum
 
-Karşılaştırma Sağlık sektöründeki 9 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Sağlık sektöründe **aynı dönemi bildiren** 9 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %21,3 | %31,8 |
-| Net kâr marjı | %7,0 | -%8,5 |
-| Özkaynak kârlılığı | %3,8 | -%1,1 |
+| Brüt kâr marjı | %21,3 | %32,4 |
+| Net kâr marjı | %7,0 | -%2,9 |
+| Özkaynak kârlılığı | %3,8 | -%0,6 |
 | Cari oran | 1,29 | 2,10 |
 | Borç / özkaynak | 0,39 | -0,02 |
 
@@ -70,14 +70,8 @@ Karşılaştırma Sağlık sektöründeki 9 şirketin **medyanına** göre yapı
 
 **Şirket lehine işleyenler**
 
-- Hasılat reel olarak %27,0 arttı.
-- Net kâr reel olarak %61,9 arttı.
-- Brüt marj 4,4 puan genişledi (%21,0 → %25,4).
-- Özkaynak kârlılığı %3,8; sektör medyanı -%1,1.
-
-**Dikkat gerektirenler**
-
-- Faaliyet nakit akışı net kârın -%15 kadarı; kâr ile nakit üretimi ayrışıyor.
+- Hasılat reel olarak %23,0 arttı.
+- Net kâr reel olarak %377,1 arttı.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

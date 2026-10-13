@@ -24,16 +24,16 @@ Hasılatın düşmesi brüt kârın da azalmasına yol açmış; brüt kârdaki 
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | -%1,1 |
-| Brüt kâr | -%13,3 |
-| Faaliyet kârı | -%52,0 |
-| FAVÖK | -%22,8 |
-| Net kâr | -%36,2 |
+| Hasılat | %1,2 |
+| Brüt kâr | -%13,6 |
+| Faaliyet kârı | -%537,2 |
+| FAVÖK | -%197,8 |
+| Net kâr | -%44,7 |
 | Özkaynak | %6,9 |
 | Aktif toplamı | %30,1 |
 | Net borç | %58,8 |
-| Faaliyet nakit akışı | -%224,7 |
-| Yatırım harcaması | %60,5 |
+| Faaliyet nakit akışı | -%118,9 |
+| Yatırım harcaması | -%1,2 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -41,20 +41,20 @@ Hasılatın düşmesi brüt kârın da azalmasına yol açmış; brüt kârdaki 
 
 | Kalem | Değer |
 | --- | ---: |
-| Hasılat | 6,96 milyar TL |
-| Brüt kâr | 1,81 milyar TL |
-| Faaliyet kârı | 0,12 milyar TL |
-| FAVÖK | 0,43 milyar TL |
-| Net kâr | -1,18 milyar TL |
+| Hasılat | 3,92 milyar TL |
+| Brüt kâr | 0,93 milyar TL |
+| Faaliyet kârı | -0,21 milyar TL |
+| FAVÖK | -0,09 milyar TL |
+| Net kâr | -0,94 milyar TL |
 | Özkaynak | 7,17 milyar TL |
 | Aktif toplamı | 15,90 milyar TL |
 | Net borç | 5,86 milyar TL |
-| Faaliyet nakit akışı | -0,62 milyar TL |
-| Yatırım harcaması | 0,51 milyar TL |
+| Faaliyet nakit akışı | -0,26 milyar TL |
+| Yatırım harcaması | 0,20 milyar TL |
 
 ## Sektör içindeki konum
 
-Karşılaştırma Temel tüketim sektöründeki 31 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Temel tüketim sektöründe **aynı dönemi bildiren** 31 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
@@ -70,8 +70,8 @@ Karşılaştırma Temel tüketim sektöründeki 31 şirketin **medyanına** gör
 
 **Dikkat gerektirenler**
 
-- Net kâr reel olarak -%36,2 geriledi.
-- Brüt marj 3,7 puan daraldı (%29,7 → %26,0).
+- Net kâr reel olarak -%44,7 geriledi.
+- Brüt marj 4,1 puan daraldı (%27,8 → %23,7).
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

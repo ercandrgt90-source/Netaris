@@ -18,22 +18,22 @@ sayimlar:
 
 ## Özet
 
-Hasılat düşerken brüt kâr artmış, bu durum brüt kâr marjının %37,5 ile sektör medyanının %31,8'ini aşmasıyla ilişkilidir; aynı zamanda yatırım harcamasının 1,19 milyar TL'ye yükselmesi brüt kâr artışına katkı sağlamış olabilir. Faaliyet ve FAVÖK kârlarının negatif kalması, net kârın -1,85 milyar TL'ye gerilemesi ve net kâr marjının -%34,0'a düşmesiyle birlikte faaliyet nakit akışının 0,06 milyar TL'ye düşmesi, artan özkaynak (68,82 milyar TL) ve aktif toplamı (84,87 milyar TL) karşısında net borcun 1,47 milyar TL'ye çıkmasıyla net borç/özkaynak oranının 0,02'ye yükselmesine bağlanabilir. Cari oran 1,47'nin sektör medyanı 2,10'un altında kalması, artan kısa vadeli yükümlülüklerin özkaynak artışıyla tam olarak dengelenemediğini gösterir.
+Hasılat düşerken brüt kâr artmış, bu durum brüt kâr marjının %37,5 ile sektör medyanının %31,8'ini aşmasıyla ilişkilidir; aynı zamanda yatırım harcamasının 1,19 milyar TL'ye yükselmesi brüt kâr artışına katkı sağlamış olabilir. Faaliyet ve FAVÖK kârlarının negatif kalması, net kârın -1,85 milyar TL'ye gerilemesi ve net kâr marjının -%34,0'a düşmesiyle birlikte faaliyet nakit akışının 0,06 milyar TL'ye düşmesi, artan özkaynak (68,82 milyar TL) ve aktif toplamı (84,87 milyar TL) karşısında net borcun 1,47 milyar TL'ye çıkmasıyla net borç/özkaynak oranının 0,02'ye yükselmesine bağlanabilir. Cari oran 1,47'nin sektör medyanı 2,10'un altında kalması, artan kısa vadeli yükümlülüklerin özkaynak artışıyla tam olarak dengelenemediğini gösterir.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | -%9,5 |
-| Brüt kâr | %19,6 |
-| Faaliyet kârı | -%14,1 |
-| FAVÖK | -%63,7 |
-| Net kâr | -%172,7 |
+| Hasılat | -%18,5 |
+| Brüt kâr | %33,9 |
+| Faaliyet kârı | %39,6 |
+| FAVÖK | %83,0 |
+| Net kâr | -%292,6 |
 | Özkaynak | %30,0 |
 | Aktif toplamı | %29,5 |
 | Net borç | %263,5 |
-| Faaliyet nakit akışı | -%82,1 |
-| Yatırım harcaması | %255,6 |
+| Faaliyet nakit akışı | -%75,5 |
+| Yatırım harcaması | %283,8 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -41,26 +41,26 @@ Hasılat düşerken brüt kâr artmış, bu durum brüt kâr marjının %37,5 il
 
 | Kalem | Değer |
 | --- | ---: |
-| Hasılat | 5,18 milyar TL |
-| Brüt kâr | 1,95 milyar TL |
-| Faaliyet kârı | -0,64 milyar TL |
-| FAVÖK | -0,20 milyar TL |
-| Net kâr | -1,85 milyar TL |
+| Hasılat | 2,24 milyar TL |
+| Brüt kâr | 0,84 milyar TL |
+| Faaliyet kârı | -0,32 milyar TL |
+| FAVÖK | -0,04 milyar TL |
+| Net kâr | -0,76 milyar TL |
 | Özkaynak | 68,82 milyar TL |
 | Aktif toplamı | 84,87 milyar TL |
 | Net borç | 1,47 milyar TL |
-| Faaliyet nakit akışı | 0,06 milyar TL |
-| Yatırım harcaması | 1,19 milyar TL |
+| Faaliyet nakit akışı | 0,10 milyar TL |
+| Yatırım harcaması | 1,08 milyar TL |
 
 ## Sektör içindeki konum
 
-Karşılaştırma Sağlık sektöründeki 9 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Sağlık sektöründe **aynı dönemi bildiren** 9 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %37,5 | %31,8 |
-| Net kâr marjı | -%34,0 | -%8,5 |
-| Özkaynak kârlılığı | -%1,1 | -%1,1 |
+| Brüt kâr marjı | %37,5 | %32,4 |
+| Net kâr marjı | -%34,0 | -%2,9 |
+| Özkaynak kârlılığı | -%1,1 | -%0,6 |
 | Cari oran | 1,47 | 2,10 |
 | Borç / özkaynak | 0,02 | -0,02 |
 
@@ -70,12 +70,12 @@ Karşılaştırma Sağlık sektöründeki 9 şirketin **medyanına** göre yapı
 
 **Şirket lehine işleyenler**
 
-- Brüt marj 9,2 puan genişledi (%28,4 → %37,6).
+- Brüt marj 14,6 puan genişledi (%22,8 → %37,5).
 
 **Dikkat gerektirenler**
 
-- Hasılat reel olarak -%9,5 geriledi.
-- Net kâr reel olarak -%172,7 geriledi.
+- Hasılat reel olarak -%18,5 geriledi.
+- Net kâr reel olarak -%292,6 geriledi.
 - Yatırım harcaması faaliyet nakit akışını aşıyor; aradaki fark dış kaynakla karşılanıyor.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*

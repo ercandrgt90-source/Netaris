@@ -24,13 +24,13 @@ Hasılatın 113,74 milyar TL'den 117,08 milyar TL'ye yükselmesi, faaliyet nakit
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | %2,9 |
-| Net kâr | %674,3 |
+| Hasılat | %7,5 |
+| Net kâr | %223,3 |
 | Özkaynak | %31,1 |
 | Aktif toplamı | %38,7 |
 | Net borç | %67,6 |
-| Faaliyet nakit akışı | %17,9 |
-| Yatırım harcaması | %64,8 |
+| Faaliyet nakit akışı | %3,0 |
+| Yatırım harcaması | %69,0 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -38,17 +38,17 @@ Hasılatın 113,74 milyar TL'den 117,08 milyar TL'ye yükselmesi, faaliyet nakit
 
 | Kalem | Değer |
 | --- | ---: |
-| Hasılat | 117,08 milyar TL |
-| Net kâr | 2,75 milyar TL |
+| Hasılat | 58,11 milyar TL |
+| Net kâr | 1,59 milyar TL |
 | Özkaynak | 108,96 milyar TL |
 | Aktif toplamı | 277,07 milyar TL |
 | Net borç | 68,01 milyar TL |
-| Faaliyet nakit akışı | 22,60 milyar TL |
-| Yatırım harcaması | 1,93 milyar TL |
+| Faaliyet nakit akışı | 13,15 milyar TL |
+| Yatırım harcaması | 0,82 milyar TL |
 
 ## Sektör içindeki konum
 
-Karşılaştırma Kamu hizmetleri sektöründeki 24 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Kamu hizmetleri sektöründe **aynı dönemi bildiren** 24 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
@@ -63,8 +63,9 @@ Karşılaştırma Kamu hizmetleri sektöründeki 24 şirketin **medyanına** gö
 
 **Şirket lehine işleyenler**
 
-- Net kâr reel olarak %674,3 arttı.
-- Faaliyet nakit akışı net kârın 8,23 katı; kâr nakde dönüyor.
+- Hasılat reel olarak %7,5 arttı.
+- Net kâr reel olarak %223,3 arttı.
+- Faaliyet nakit akışı net kârın 8,27 katı; kâr nakde dönüyor.
 - Özkaynak kârlılığı %1,5; sektör medyanı %1,0.
 
 **Dikkat gerektirenler**

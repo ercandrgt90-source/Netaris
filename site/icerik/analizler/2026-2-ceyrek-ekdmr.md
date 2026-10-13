@@ -18,42 +18,62 @@ sayimlar:
 
 ## Özet
 
-Brüt kâr marjının %6,0 olması, hasılatın %6,0'ı kadar brüt kâr (0,69 milyar TL) üretildiği ve bu düşük marjın net kâr marjını %3,0'a (0,32 milyar TL) yükseltirken faaliyet kârı ve FAVÖK'ün de sırasıyla %2,5 (0,29 milyar TL) ve %3,2 (0,40 milyar TL) seviyelerinde kalmasına yol açtığını gösterir; net borçın 1,06 milyar TL olması, aktif toplamının %4,1'i (1,06/26,04) olduğu için cari oran 1,31 ve borç/özkaynak oranı 0,06 gibi düşük finansal risk göstergeleriyle birlikte özkaynak kârlılığının %1,3'e (özkaynak 17,03 milyar TL) eşitlenmesini sağlar; faaliyet nakit akışının –1,22 milyar TL olması, yatırım harcaması 0,81 milyar TL ile karşılanamadığından özkaynakların artışına katkı sağlamaz ve net kârın nakit akışından bağımsız olarak gerçekleştiğini gösterir.
+Brüt kâr marjının %6,0 olması, hasılatın %6,0'ı kadar brüt kâr (0,69 milyar TL) üretildiği ve bu düşük marjın net kâr marjını %3,0'a (0,32 milyar TL) yükseltirken faaliyet kârı ve FAVÖK'ün de sırasıyla %2,5 (0,29 milyar TL) ve %3,2 (0,40 milyar TL) seviyelerinde kalmasına yol açtığını gösterir; net borçın 1,06 milyar TL olması, aktif toplamının %4,1'i (1,06/26,04) olduğu için cari oran 1,31 ve borç/özkaynak oranı 0,06 gibi düşük finansal risk göstergeleriyle birlikte özkaynak kârlılığının %1,3'e (özkaynak 17,03 milyar TL) eşitlenmesini sağlar; faaliyet nakit akışının –1,22 milyar TL olması, yatırım harcaması 0,81 milyar TL ile karşılanamadığından özkaynakların artışına katkı sağlamaz ve net kârın nakit akışından bağımsız olarak gerçekleştiğini gösterir.
+
+## 2026 2. çeyrek — bir yıl öncesine göre
+
+| Kalem | Reel değişim |
+| --- | ---: |
+| Hasılat | %42,0 |
+| Brüt kâr | %35,9 |
+| Faaliyet kârı | -%16,6 |
+| FAVÖK | -%13,1 |
+| Net kâr | %63,1 |
+| Faaliyet nakit akışı | %112,4 |
+| Yatırım harcaması | %1342380,0 |
+
+*Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
 ## 2026 2. çeyrek dönemi ölçümleri
 
 | Kalem | Değer |
 | --- | ---: |
-| Hasılat | 11,80 milyar TL |
-| Brüt kâr | 0,69 milyar TL |
-| Faaliyet kârı | 0,29 milyar TL |
-| FAVÖK | 0,40 milyar TL |
-| Net kâr | 0,32 milyar TL |
+| Hasılat | 7,14 milyar TL |
+| Brüt kâr | 0,42 milyar TL |
+| Faaliyet kârı | 0,18 milyar TL |
+| FAVÖK | 0,23 milyar TL |
+| Net kâr | 0,21 milyar TL |
 | Özkaynak | 17,03 milyar TL |
 | Aktif toplamı | 26,04 milyar TL |
 | Net borç | 1,06 milyar TL |
-| Faaliyet nakit akışı | -1,22 milyar TL |
-| Yatırım harcaması | 0,81 milyar TL |
+| Faaliyet nakit akışı | 0,16 milyar TL |
+| Yatırım harcaması | 0,67 milyar TL |
 
 ## Sektör içindeki konum
 
-Karşılaştırma Temel malzeme sektöründeki 42 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Temel malzeme sektöründe **aynı dönemi bildiren** 37 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
 | Brüt kâr marjı | %6,0 | %14,1 |
-| Net kâr marjı | %3,0 | %2,4 |
+| Net kâr marjı | %3,0 | %2,2 |
 | Özkaynak kârlılığı | %1,3 | %1,3 |
-| Cari oran | 1,31 | 1,36 |
-| Borç / özkaynak | 0,06 | 0,21 |
+| Cari oran | 1,31 | 1,32 |
+| Borç / özkaynak | 0,06 | 0,20 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
 ## Öne çıkan ölçümler
 
+**Şirket lehine işleyenler**
+
+- Hasılat reel olarak %42,0 arttı.
+- Net kâr reel olarak %63,1 arttı.
+
 **Dikkat gerektirenler**
 
-- Faaliyet nakit akışı net kârın -%377 kadarı; kâr ile nakit üretimi ayrışıyor.
+- Faaliyet nakit akışı net kârın %75 kadarı; kâr ile nakit üretimi ayrışıyor.
+- Yatırım harcaması faaliyet nakit akışını aşıyor; aradaki fark dış kaynakla karşılanıyor.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

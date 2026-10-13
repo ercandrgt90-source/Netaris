@@ -18,22 +18,22 @@ sayimlar:
 
 ## Özet
 
-Hasılatın düşmesiyle brüt kâr aynı seviyede kalmış, bu durum brüt kâr marjının sektör medyanıyla eşit %34,3 olarak sabit kalmasına yol açtı; aynı zamanda faaliyet ve FAVÖK kârları da hasılat düşüşüne paralel olarak azalarak sırasıyla %0,03 milyar ve %0,13 milyar seviyelerine geriledi. Net kârın iyileşmesi (-%2,9'dan -%2,9'a) ve özkaynak kârlılığının aynı oranda sabit kalması, özkaynakların %3,39 milyar'a yükselmesi ve aktif toplamının %4,02 milyar'a artmasıyla desteklenirken, negatif net borç (-%0,46 milyar) ve artan cari oran (3,76) likiditeyi güçlendirdi. Yatırım harcamasının iki katına çıkması (0,06 milyar) ise faaliyet nakit akışındaki artış (0,28 milyar) ile birlikte, nakit üretim kapasitesinin genişlediğini gösteriyor.
+Hasılatın düşmesiyle brüt kâr aynı seviyede kalmış, bu durum brüt kâr marjının sektör medyanıyla eşit %34,3 olarak sabit kalmasına yol açtı; aynı zamanda faaliyet ve FAVÖK kârları da hasılat düşüşüne paralel olarak azalarak sırasıyla %0,03 milyar ve %0,13 milyar seviyelerine geriledi. Net kârın iyileşmesi (-%2,9'dan -%2,9'a) ve özkaynak kârlılığının aynı oranda sabit kalması, özkaynakların %3,39 milyar'a yükselmesi ve aktif toplamının %4,02 milyar'a artmasıyla desteklenirken, negatif net borç (-%0,46 milyar) ve artan cari oran (3,76) likiditeyi güçlendirdi. Yatırım harcamasının iki katına çıkması (0,06 milyar) ise faaliyet nakit akışındaki artış (0,28 milyar) ile birlikte, nakit üretim kapasitesinin genişlediğini gösteriyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | -%9,3 |
-| Brüt kâr | %0,3 |
-| Faaliyet kârı | -%68,1 |
-| FAVÖK | -%30,1 |
-| Net kâr | %33,8 |
+| Hasılat | -%18,3 |
+| Brüt kâr | -%15,6 |
+| Faaliyet kârı | -%43,3 |
+| FAVÖK | -%23,3 |
+| Net kâr | %25,0 |
 | Özkaynak | %33,7 |
 | Aktif toplamı | %25,6 |
 | Net borç | -%21,2 |
-| Faaliyet nakit akışı | %113,4 |
-| Yatırım harcaması | %108,1 |
+| Faaliyet nakit akışı | -%44,2 |
+| Yatırım harcaması | %24,7 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -41,24 +41,24 @@ Hasılatın düşmesiyle brüt kâr aynı seviyede kalmış, bu durum brüt kâr
 
 | Kalem | Değer |
 | --- | ---: |
-| Hasılat | 1,36 milyar TL |
-| Brüt kâr | 0,46 milyar TL |
-| Faaliyet kârı | 0,03 milyar TL |
-| FAVÖK | 0,13 milyar TL |
-| Net kâr | -0,08 milyar TL |
+| Hasılat | 0,67 milyar TL |
+| Brüt kâr | 0,22 milyar TL |
+| Faaliyet kârı | 0,04 milyar TL |
+| FAVÖK | 0,09 milyar TL |
+| Net kâr | -0,02 milyar TL |
 | Özkaynak | 3,39 milyar TL |
 | Aktif toplamı | 4,02 milyar TL |
 | Net borç | -0,46 milyar TL |
-| Faaliyet nakit akışı | 0,28 milyar TL |
-| Yatırım harcaması | 0,06 milyar TL |
+| Faaliyet nakit akışı | 0,10 milyar TL |
+| Yatırım harcaması | 0,04 milyar TL |
 
 ## Sektör içindeki konum
 
-Karşılaştırma Sağlık sektöründeki 9 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Sağlık sektöründe **aynı dönemi bildiren** 9 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %34,3 | %34,3 |
+| Brüt kâr marjı | %32,4 | %32,4 |
 | Net kâr marjı | -%2,9 | -%2,9 |
 | Özkaynak kârlılığı | -%0,6 | -%0,6 |
 | Cari oran | 3,76 | 2,10 |
@@ -70,13 +70,12 @@ Karşılaştırma Sağlık sektöründeki 9 şirketin **medyanına** göre yapı
 
 **Şirket lehine işleyenler**
 
-- Net kâr reel olarak %33,8 arttı.
-- Brüt marj 3,2 puan genişledi (%30,5 → %33,7).
+- Net kâr reel olarak %25,0 arttı.
 - Cari oran 3,76; dönen varlıklar kısa vadeli yükümlülüklerin üzerinde.
 
 **Dikkat gerektirenler**
 
-- Hasılat reel olarak -%9,3 geriledi.
+- Hasılat reel olarak -%18,3 geriledi.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

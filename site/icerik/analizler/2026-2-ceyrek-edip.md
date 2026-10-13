@@ -24,12 +24,12 @@ Hasılat 0,44 milyar TL'ye yükselirken net kâr 0,15 milyar TL'ye gerilemiş; b
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | %9,4 |
-| Net kâr | -%71,6 |
+| Hasılat | -%2,0 |
+| Net kâr | -%88,2 |
 | Özkaynak | %37,7 |
 | Aktif toplamı | %28,6 |
 | Net borç | -%12,9 |
-| Faaliyet nakit akışı | -%60,8 |
+| Faaliyet nakit akışı | -%84,0 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -37,34 +37,30 @@ Hasılat 0,44 milyar TL'ye yükselirken net kâr 0,15 milyar TL'ye gerilemiş; b
 
 | Kalem | Değer |
 | --- | ---: |
-| Hasılat | 0,44 milyar TL |
-| Net kâr | 0,15 milyar TL |
+| Hasılat | 0,21 milyar TL |
+| Net kâr | 0,04 milyar TL |
 | Özkaynak | 8,18 milyar TL |
 | Aktif toplamı | 9,55 milyar TL |
 | Net borç | 1,07 milyar TL |
-| Faaliyet nakit akışı | 0,09 milyar TL |
+| Faaliyet nakit akışı | 0,03 milyar TL |
 
 ## Sektör içindeki konum
 
-Karşılaştırma Gayrimenkul sektöründeki 34 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 34 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Net kâr marjı | %20,4 | %14,3 |
-| Özkaynak kârlılığı | %0,5 | %0,4 |
+| Net kâr marjı | %20,4 | %15,8 |
+| Özkaynak kârlılığı | %0,5 | %0,5 |
 | Borç / özkaynak | 0,13 | 0,02 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
 ## Öne çıkan ölçümler
 
-**Şirket lehine işleyenler**
-
-- Hasılat reel olarak %9,4 arttı.
-
 **Dikkat gerektirenler**
 
-- Net kâr reel olarak -%71,6 geriledi.
+- Net kâr reel olarak -%88,2 geriledi.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

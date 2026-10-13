@@ -24,12 +24,12 @@ Hasılat 2,18 milyar TL'den 1,71 milyar TL'ye gerilerken net sonuç 0,49 milyar 
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | -%21,8 |
-| Net kâr | -%281,1 |
+| Hasılat | -%15,7 |
+| Net kâr | -%113,7 |
 | Özkaynak | %26,5 |
 | Aktif toplamı | %32,9 |
 | Net borç | -%51,0 |
-| Faaliyet nakit akışı | %194,4 |
+| Faaliyet nakit akışı | %131,2 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -37,21 +37,21 @@ Hasılat 2,18 milyar TL'den 1,71 milyar TL'ye gerilerken net sonuç 0,49 milyar 
 
 | Kalem | Değer |
 | --- | ---: |
-| Hasılat | 1,71 milyar TL |
-| Net kâr | -0,89 milyar TL |
+| Hasılat | 0,96 milyar TL |
+| Net kâr | -0,24 milyar TL |
 | Özkaynak | 58,19 milyar TL |
 | Aktif toplamı | 70,13 milyar TL |
 | Net borç | 0,66 milyar TL |
-| Faaliyet nakit akışı | 1,20 milyar TL |
+| Faaliyet nakit akışı | 0,58 milyar TL |
 
 ## Sektör içindeki konum
 
-Karşılaştırma Gayrimenkul sektöründeki 34 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 34 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Net kâr marjı | -%24,6 | %14,3 |
-| Özkaynak kârlılığı | -%0,4 | %0,4 |
+| Net kâr marjı | -%24,6 | %15,8 |
+| Özkaynak kârlılığı | -%0,4 | %0,5 |
 | Borç / özkaynak | 0,01 | 0,02 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
@@ -60,8 +60,8 @@ Karşılaştırma Gayrimenkul sektöründeki 34 şirketin **medyanına** göre y
 
 **Dikkat gerektirenler**
 
-- Hasılat reel olarak -%21,8 geriledi.
-- Net kâr reel olarak -%281,1 geriledi.
+- Hasılat reel olarak -%15,7 geriledi.
+- Net kâr reel olarak -%113,7 geriledi.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

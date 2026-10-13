@@ -18,22 +18,22 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %9,9'luk brüt kâr marjına dönüşmesi, brüt kârın önceki dönemdeki -0,52 milyar TL'den 0,06 milyar TL'ye yükselmesiyle paralel ilerlemiş; bu artış aynı zamanda FAVÖK'ün -0,08 milyar TL'den 0,49 milyar TL'ye geçişini ve net kârın -0,55 milyar TL'den 0,16 milyar TL'ye dönüşmesini desteklemiş. Net kârın pozitifleşmesi, özkaynak kârlılığının -%11,3'ten iyileşmesine yol açarken, özkaynakların 6,60 milyar TL'ye hafif düşmesi ve net borcun -0,96 milyar TL'ye (daha az negatif) daralması, cari oranın 2,94'e (sektör medyanı 1,32) yükselmesi ve borç/özkaynak oranının -0,15'e (sektör medyanı 0,16) gerilemesiyle likidite ve finansal yapıdaki iyileşmeyi yansıtmaktadır. Faaliyet nakit akışı 1,29 milyar TL'ye (önceki dönem 1,49 milyar TL) gerilemiş olsa da, yatırım harcamasının sabit kalması (0,01 milyar TL) ve artan cari oran, işletmenin operasyonel nakit ihtiyacını karşılamada daha az dış finansmana bağımlı olduğunu göstermektedir.
+Hasılatın %9,9'luk brüt kâr marjına dönüşmesi, brüt kârın önceki dönemdeki -0,52 milyar TL'den 0,06 milyar TL'ye yükselmesiyle paralel ilerlemiş; bu artış aynı zamanda FAVÖK'ün -0,08 milyar TL'den 0,49 milyar TL'ye geçişini ve net kârın -0,55 milyar TL'den 0,16 milyar TL'ye dönüşmesini desteklemiş. Net kârın pozitifleşmesi, özkaynak kârlılığının -%11,3'ten iyileşmesine yol açarken, özkaynakların 6,60 milyar TL'ye hafif düşmesi ve net borcun -0,96 milyar TL'ye (daha az negatif) daralması, cari oranın 2,94'e (sektör medyanı 1,32) yükselmesi ve borç/özkaynak oranının -0,15'e (sektör medyanı 0,16) gerilemesiyle likidite ve finansal yapıdaki iyileşmeyi yansıtmaktadır. Faaliyet nakit akışı 1,29 milyar TL'ye (önceki dönem 1,49 milyar TL) gerilemiş olsa da, yatırım harcamasının sabit kalması (0,01 milyar TL) ve artan cari oran, işletmenin operasyonel nakit ihtiyacını karşılamada daha az dış finansmana bağımlı olduğunu göstermektedir.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | %7,6 |
-| Brüt kâr | %112,1 |
-| Faaliyet kârı | %72,8 |
-| FAVÖK | %712,7 |
-| Net kâr | %129,4 |
+| Hasılat | -%2,0 |
+| Brüt kâr | %120,0 |
+| Faaliyet kârı | %97,9 |
+| FAVÖK | %209,4 |
+| Net kâr | -%43,0 |
 | Özkaynak | -%0,8 |
 | Aktif toplamı | %4,6 |
 | Net borç | %42,4 |
-| Faaliyet nakit akışı | -%13,3 |
-| Yatırım harcaması | -%44,1 |
+| Faaliyet nakit akışı | -%0,6 |
+| Yatırım harcaması | -%27,8 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -41,25 +41,25 @@ Hasılatın %9,9'luk brüt kâr marjına dönüşmesi, brüt kârın önceki dö
 
 | Kalem | Değer |
 | --- | ---: |
-| Hasılat | 2,54 milyar TL |
-| Brüt kâr | 0,06 milyar TL |
-| Faaliyet kârı | -0,21 milyar TL |
-| FAVÖK | 0,49 milyar TL |
-| Net kâr | 0,16 milyar TL |
+| Hasılat | 1,06 milyar TL |
+| Brüt kâr | 0,10 milyar TL |
+| Faaliyet kârı | -0,01 milyar TL |
+| FAVÖK | 0,33 milyar TL |
+| Net kâr | -0,75 milyar TL |
 | Özkaynak | 6,60 milyar TL |
 | Aktif toplamı | 10,75 milyar TL |
 | Net borç | -0,96 milyar TL |
-| Faaliyet nakit akışı | 1,29 milyar TL |
-| Yatırım harcaması | 0,01 milyar TL |
+| Faaliyet nakit akışı | 0,33 milyar TL |
+| Yatırım harcaması | 0,00 milyar TL |
 
 ## Sektör içindeki konum
 
-Karşılaştırma Sanayi sektöründeki 69 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 69 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
 | Brüt kâr marjı | %9,9 | %20,9 |
-| Net kâr marjı | -%70,7 | %1,3 |
+| Net kâr marjı | -%70,7 | %1,2 |
 | Özkaynak kârlılığı | -%11,3 | %0,3 |
 | Cari oran | 2,94 | 1,32 |
 | Borç / özkaynak | -0,15 | 0,16 |
@@ -70,11 +70,12 @@ Karşılaştırma Sanayi sektöründeki 69 şirketin **medyanına** göre yapıl
 
 **Şirket lehine işleyenler**
 
-- Hasılat reel olarak %7,6 arttı.
-- Net kâr reel olarak %129,4 arttı.
-- Brüt marj 24,6 puan genişledi (-%22,1 → %2,5).
-- Faaliyet nakit akışı net kârın 7,92 katı; kâr nakde dönüyor.
+- Brüt marj 58,1 puan genişledi (-%48,3 → %9,9).
 - Cari oran 2,94; dönen varlıklar kısa vadeli yükümlülüklerin üzerinde.
+
+**Dikkat gerektirenler**
+
+- Net kâr reel olarak -%43,0 geriledi.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

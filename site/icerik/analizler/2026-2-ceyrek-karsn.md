@@ -18,22 +18,22 @@ sayimlar:
 
 ## Özet
 
-Hasılatın 6,77 milyar TL'den 10,10 milyar TL'ye yükselmesi brüt kârın 1,66 milyar TL'den 2,48 milyar TL'ye artmasını ve brüt kâr marjının %19,8 seviyesinde sektör medyanının %20,9'unun altında kalmasını beraberinde getirdi; aynı dönemde net kâr –0,40 milyar TL'den –0,26 milyar TL'ye iyileşse de net kâr marjası –%6,5 ile sektörün %1,3 ortalamasının çok altında kaldı. Özkaynak 6,07 milyar TL'den 8,21 milyar TL'ye yükselirken aktif toplamı 18,97 milyar TL'den 22,42 milyar TL'ye artmış, fakat net borç da 7,37 milyar TL'den 8,95 milyar TL'ye yükselerek borç/özkaynak oranını %0,16'dan %1,09'a çıkarmış; bu durum cari oranı 1,00 seviyesinde tutmuş ancak sektör medyanı 1,32'nin altında kalmıştır. Faaliyet nakit akışı negatif –0,58 milyar TL'den pozitif 0,29 milyar TL'ye dönmüş, yatırım harcaması ise 0,26 milyar TL'den 0,12 milyar TL'ye düşmüş, bu da faaliyet kârı ve FAVÖK'ün sırasıyla 0,41 milyar TL'den 0,60 milyar TL'ye, 0,56 milyar TL'den 0,75 milyar TL'ye artmasına paralel bir likidite gelişimini yansıtmaktadır.
+Hasılatın 6,77 milyar TL'den 10,10 milyar TL'ye yükselmesi brüt kârın 1,66 milyar TL'den 2,48 milyar TL'ye artmasını ve brüt kâr marjının %19,8 seviyesinde sektör medyanının %20,9'unun altında kalmasını beraberinde getirdi; aynı dönemde net kâr –0,40 milyar TL'den –0,26 milyar TL'ye iyileşse de net kâr marjası –%6,5 ile sektörün %1,3 ortalamasının çok altında kaldı. Özkaynak 6,07 milyar TL'den 8,21 milyar TL'ye yükselirken aktif toplamı 18,97 milyar TL'den 22,42 milyar TL'ye artmış, fakat net borç da 7,37 milyar TL'den 8,95 milyar TL'ye yükselerek borç/özkaynak oranını %0,16'dan %1,09'a çıkarmış; bu durum cari oranı 1,00 seviyesinde tutmuş ancak sektör medyanı 1,32'nin altında kalmıştır. Faaliyet nakit akışı negatif –0,58 milyar TL'den pozitif 0,29 milyar TL'ye dönmüş, yatırım harcaması ise 0,26 milyar TL'den 0,12 milyar TL'ye düşmüş, bu da faaliyet kârı ve FAVÖK'ün sırasıyla 0,41 milyar TL'den 0,60 milyar TL'ye, 0,56 milyar TL'den 0,75 milyar TL'ye artmasına paralel bir likidite gelişimini yansıtmaktadır.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | %49,2 |
-| Brüt kâr | %49,0 |
-| Faaliyet kârı | %45,8 |
-| FAVÖK | %33,5 |
-| Net kâr | %35,6 |
+| Hasılat | %7,6 |
+| Brüt kâr | -%28,4 |
+| Faaliyet kârı | -%104,1 |
+| FAVÖK | -%100,8 |
+| Net kâr | -%5552,9 |
 | Özkaynak | %35,1 |
 | Aktif toplamı | %18,2 |
 | Net borç | %21,4 |
-| Faaliyet nakit akışı | %150,3 |
-| Yatırım harcaması | -%51,2 |
+| Faaliyet nakit akışı | %160,5 |
+| Yatırım harcaması | %393,3 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -41,25 +41,25 @@ Hasılatın 6,77 milyar TL'den 10,10 milyar TL'ye yükselmesi brüt kârın 
 
 | Kalem | Değer |
 | --- | ---: |
-| Hasılat | 10,10 milyar TL |
-| Brüt kâr | 2,48 milyar TL |
-| Faaliyet kârı | 0,60 milyar TL |
-| FAVÖK | 0,75 milyar TL |
-| Net kâr | -0,26 milyar TL |
+| Hasılat | 4,98 milyar TL |
+| Brüt kâr | 0,99 milyar TL |
+| Faaliyet kârı | -0,03 milyar TL |
+| FAVÖK | -0,01 milyar TL |
+| Net kâr | -0,33 milyar TL |
 | Özkaynak | 8,21 milyar TL |
 | Aktif toplamı | 22,42 milyar TL |
 | Net borç | 8,95 milyar TL |
-| Faaliyet nakit akışı | 0,29 milyar TL |
-| Yatırım harcaması | 0,12 milyar TL |
+| Faaliyet nakit akışı | 0,37 milyar TL |
+| Yatırım harcaması | 0,18 milyar TL |
 
 ## Sektör içindeki konum
 
-Karşılaştırma Sanayi sektöründeki 69 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 69 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
 | Brüt kâr marjı | %19,8 | %20,9 |
-| Net kâr marjı | -%6,5 | %1,3 |
+| Net kâr marjı | -%6,5 | %1,2 |
 | Özkaynak kârlılığı | -%4,0 | %0,3 |
 | Cari oran | 1,00 | 1,32 |
 | Borç / özkaynak | 1,09 | 0,16 |
@@ -70,8 +70,12 @@ Karşılaştırma Sanayi sektöründeki 69 şirketin **medyanına** göre yapıl
 
 **Şirket lehine işleyenler**
 
-- Hasılat reel olarak %49,2 arttı.
-- Net kâr reel olarak %35,6 arttı.
+- Hasılat reel olarak %7,6 arttı.
+
+**Dikkat gerektirenler**
+
+- Net kâr reel olarak -%5552,9 geriledi.
+- Brüt marj 10,0 puan daraldı (%29,8 → %19,8).
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 
