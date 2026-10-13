@@ -108,6 +108,31 @@ def baglam_kur() -> tuple[dict, dict]:
     return baglam, defter
 
 
+#: kod -> (donem, once, eksik). KOSU SURESINCE gecerli.
+#:
+#: AYNI SIRKETIN IKI SAYFASI AYNI VERIYI ISTIYOR.
+#:
+#: Onarim kuyrugunda bir sirketin hem 1. hem 2. ceyrek sayfasi
+#: bulunabiliyor ve `donem_getir` her ikisi icin ayri ayri UC tablo
+#: cekiyordu -- oysa donen veri birebir ayni (kaynak her zaman EN
+#: YENI donemi veriyor, etiket yalnizca gosterim icin).
+#:
+#: Olculdu (2026-10-13): 187 sayfalik kuyrukta 169 benzersiz sirket,
+#: yani 18 sayfa ikinci kez geciyordu -- 54 gereksiz istek.
+#:
+#: Bu onemli cunku DARBOGAZ KAYNAGIN IZNI. Kaynak kosu basina
+#: yaklasik 17 sayfalik veri veriyor, sonra reddetmeye basliyor
+#: (olculdu: bir CI kosusunda 25 denemenin 17'si gecti, ardindan
+#: sekiz ardisik red -> `bilanco_ag.KAPANDI`). Tasarruf edilen her
+#: istek, o pencerede onarilan sayfa sayisini artiriyor.
+_BELLEK: dict[str, tuple] = {}
+
+
+def bellegi_bosalt() -> None:
+    """Kosu belleğini siler. Sinamalar icin."""
+    _BELLEK.clear()
+
+
 def sayfa_tazele(yol: pathlib.Path, baglam: dict, defter: dict,
                  kuru: bool) -> tuple[bool, str]:
     """Tek sayfa. Doner: (tazelendi_mi, aciklama)."""
@@ -126,8 +151,15 @@ def sayfa_tazele(yol: pathlib.Path, baglam: dict, defter: dict,
         return False, "saklı yorum bulunamadı"
 
     sektor, oran, medyan, n, donem, mali_not = baglam[kod]
-    d, once, eksik = bilanco_ag.donem_getir(
-        kod, donem, sektor_tr=sektor, ciftli=True)
+    if kod in _BELLEK:
+        d, once, eksik = _BELLEK[kod]
+    else:
+        d, once, eksik = bilanco_ag.donem_getir(
+            kod, donem, sektor_tr=sektor, ciftli=True)
+        # BASARISIZLIK DA SAKLANIYOR: kaynak bu sirketi vermediyse
+        # ikinci sayfasi icin tekrar sormak, kapali kapiya ikinci
+        # kez vurmaktir.
+        _BELLEK[kod] = (d, once, eksik)
     if d is None:
         return False, "eksik: " + ", ".join(eksik[:2])
 
@@ -207,6 +239,9 @@ def main() -> int:
     if not U.OZET.exists():
         print(f"{U.OZET} yok -- önce uret_bilanco.py çalışmalı.")
         return 1
+    # BELLEK KOSUYA AIT. Uzun yasayan bir surecte ikinci cagri bayat
+    # veri gormemeli; acikca bosaltiliyor.
+    bellegi_bosalt()
     baglam, defter = baglam_kur()
 
     if n.onarim:

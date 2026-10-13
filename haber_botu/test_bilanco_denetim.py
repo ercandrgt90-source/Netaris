@@ -281,4 +281,108 @@ finally:
     BT.yayin.yaz_sektorel = _ASIL_YAZ
 
 print("")
+print("9. AYNI SIRKETIN IKI SAYFASI TEK CEKIMLE onariliyor")
+#
+# Darbogaz kaynagin izni: kosu basina yaklasik 17 sayfalik veri
+# veriyor, sonra reddediyor. Kuyrukta 187 sayfa icin 169 benzersiz
+# sirket vardi -- 18 sayfa ayni veriyi IKINCI kez istiyordu, yani 54
+# gereksiz istek. Tasarruf edilen her istek o pencerede onarilan
+# sayfa sayisini artiriyor.
+_ASIL_GETIR2 = BT.bilanco_ag.donem_getir
+_ASIL_YAZ2 = BT.yayin.yaz_sektorel
+try:
+    _sayac = {"n": 0}
+    _dd = oranlar.Donem(
+        etiket="2026 2. çeyrek", hasilat=12_400_000_000.0,
+        brut_kar=2_100_000_000.0, faaliyet_kari=900_000_000.0,
+        net_kar=640_000_000.0, ozkaynak=8_300_000_000.0,
+        aktif_toplami=19_700_000_000.0, donen_varliklar=7_100_000_000.0,
+        kisa_vadeli_yukumlulukler=5_400_000_000.0)
+
+    def _say(kod, etiket, ceyrek=1, sektor_tr="", istemci=None,
+             ciftli=False):
+        _sayac["n"] += 1
+        return (_dd, None, []) if ciftli else (_dd, [])
+
+    BT.bilanco_ag.donem_getir = _say
+    BT.yayin.yaz_sektorel = lambda **kw: None
+    BT.bellegi_bosalt()
+
+    g2 = pathlib.Path(tempfile.mkdtemp())
+    for ceyrek in ("1", "2"):
+        (g2 / f"2026-{ceyrek}-ceyrek-ornek.md").write_text(
+            SATIR_SONU.join([
+                "---", "kod: ORNEK", "kategori: Bilanço Analizi", "---", "",
+                "## Özet", "", "Saklı yorum.", "",
+                "| Hasılat | 10,00 milyar TL |",
+                "| Brüt kâr | 5,00 milyar TL |", "",
+                "## Sektör içindeki konum", "",
+                "| Brüt kâr marjı | %12,0 | %20,0 |", "",
+            ]), encoding="utf-8")
+    baglam2 = {"ORNEK": ("Sanayi", {"brut_marj": 12.0},
+                         {"brut_marj": 20.0}, 12, "2026 2. çeyrek", "")}
+    defter2 = {"ORNEK": {"unvan": "Örnek A.Ş.", "sektor_tr": "Sanayi",
+                         "alt_sektor": "Conglomerates"}}
+    for yol2 in sorted(g2.glob("*.md")):
+        BT.sayfa_tazele(yol2, baglam2, defter2, False)
+    esit(_sayac["n"], 1, "IKI sayfa icin TEK cekim yapildi")
+
+    # BASARISIZLIK DA SAKLANIYOR: kapali kapiya ikinci kez vurulmuyor.
+    BT.bellegi_bosalt()
+    _sayac["n"] = 0
+    BT.bilanco_ag.donem_getir = (
+        lambda kod, etiket, ceyrek=1, sektor_tr="", istemci=None,
+        ciftli=False: _say(kod, etiket) and None or
+        ((None, None, ["hasilat"]) if ciftli else (None, ["hasilat"])))
+    for yol2 in sorted(g2.glob("*.md")):
+        ok2, _ = BT.sayfa_tazele(yol2, baglam2, defter2, False)
+        esit(ok2, False, "veri gelmeyince sayfaya dokunulmuyor")
+    esit(_sayac["n"], 1, "basarisizlik da bellekte -- ikinci istek YOK")
+
+    # BELLEK KOSUYA AIT: bosaltilinca yeniden soruluyor.
+    BT.bilanco_ag.donem_getir = _say
+    BT.bellegi_bosalt()
+    _sayac["n"] = 0
+    BT.sayfa_tazele(sorted(g2.glob("*.md"))[0], baglam2, defter2, False)
+    esit(_sayac["n"], 1, "bellek bosaltilinca yeniden soruluyor")
+
+    # MAIN HER CAGRIDA BELLEGI BOSALTMALI -- davranissal olarak.
+    #
+    # Islevin dogru olmasi, cagrildigi anlamina gelmiyor; bu depoda
+    # ayni bosluk birkac kez yasandi. `main` iki kez cagriliyor ve
+    # IKINCI cagrinin da cekim yapmasi bekleniyor.
+    import sys as _sys                              # noqa: PLC0415
+    _ASIL_ARGV = _sys.argv
+    _ASIL_SITE2 = U.SITE
+    _ASIL_BAGLAM = BT.baglam_kur
+    try:
+        _sys.argv = ["bilanco_tazele", "--onarim", "--sinir", "1"]
+        U.SITE = g2
+        BT.baglam_kur = lambda: (baglam2, defter2)
+        _sayac["n"] = 0
+        esit(BT.main(), 0, "main calisti")
+        _ilk = _sayac["n"]
+        # ILK KOSU GERCEKTEN CEKMELI. Bu satir olmadan sinama BOSA
+        # dusuyordu: `main` bellegi bosaltmazsa ilk kosu da onceki
+        # maddeden kalan bellegi kullanir, `_ilk` sifir olur ve
+        # "0 == 0" diye gecer. Mutasyon bunu gosterdi.
+        if _ilk < 1:
+            print("  DUSTU  ilk main cagrisi HIC cekim yapmadi "
+                  "(bellek bosaltilmiyor)")
+            raise SystemExit(1)
+        _gecti += 1
+        print(f"  gecti  ilk main cagrisi cekim yapti ({_ilk})")
+        esit(BT.main(), 0, "main ikinci kez calisti")
+        esit(_sayac["n"], _ilk * 2,
+             "IKINCI kosu yeniden cekiyor (bellek kosuya ait)")
+    finally:
+        _sys.argv = _ASIL_ARGV
+        U.SITE = _ASIL_SITE2
+        BT.baglam_kur = _ASIL_BAGLAM
+finally:
+    BT.bilanco_ag.donem_getir = _ASIL_GETIR2
+    BT.yayin.yaz_sektorel = _ASIL_YAZ2
+    BT.bellegi_bosalt()
+
+print("")
 print(f"TUM TESTLER GECTI ({_gecti})")
