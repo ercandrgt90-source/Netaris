@@ -32,7 +32,7 @@
       "yon": "azalis",
       "tarih": "2026-10-12",
       "birim": "TL",
-      "gun": 0,
+      "gun": 1,
       "bayat": false
     },
     {
@@ -43,7 +43,7 @@
       "yon": "azalis",
       "tarih": "2026-10-06",
       "birim": "USD/varil",
-      "gun": 4,
+      "gun": 5,
       "bayat": true,
       "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · sonraki 15 Ekim"
     },
@@ -55,7 +55,7 @@
       "yon": "artis",
       "tarih": "2026-10-06",
       "birim": "USD/varil",
-      "gun": 4,
+      "gun": 5,
       "bayat": true,
       "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · sonraki 15 Ekim"
     },
@@ -67,8 +67,8 @@
       "yon": "yatay",
       "tarih": "2026-10-08",
       "birim": "%",
-      "gun": 2,
-      "bayat": false
+      "gun": 3,
+      "bayat": true
     },
     {
       "kod": "DGS2",
@@ -78,8 +78,8 @@
       "yon": "azalis",
       "tarih": "2026-10-08",
       "birim": "%",
-      "gun": 2,
-      "bayat": false
+      "gun": 3,
+      "bayat": true
     },
     {
       "kod": "DGS10",
@@ -89,8 +89,8 @@
       "yon": "azalis",
       "tarih": "2026-10-08",
       "birim": "%",
-      "gun": 2,
-      "bayat": false
+      "gun": 3,
+      "bayat": true
     },
     {
       "kod": "T10Y2Y",
@@ -100,7 +100,7 @@
       "yon": "azalis",
       "tarih": "2026-10-09",
       "birim": "puan",
-      "gun": 1,
+      "gun": 2,
       "bayat": false
     },
     {
@@ -111,7 +111,7 @@
       "yon": "azalis",
       "tarih": "2026-10-02",
       "birim": "endeks",
-      "gun": 6,
+      "gun": 7,
       "bayat": true,
       "ritim": "Fed bu endeksi haftalık yayımlıyor"
     }
@@ -128,7 +128,7 @@
           "yon": "azalis",
           "tarih": "2026-10-06",
           "birim": "USD/varil",
-          "gun": 4,
+          "gun": 5,
           "bayat": true,
           "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · sonraki 15 Ekim"
         },
@@ -140,7 +140,7 @@
           "yon": "artis",
           "tarih": "2026-10-06",
           "birim": "USD/varil",
-          "gun": 4,
+          "gun": 5,
           "bayat": true,
           "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · sonraki 15 Ekim"
         }
@@ -157,8 +157,8 @@
           "yon": "yatay",
           "tarih": "2026-10-08",
           "birim": "%",
-          "gun": 2,
-          "bayat": false
+          "gun": 3,
+          "bayat": true
         },
         {
           "kod": "DGS2",
@@ -168,8 +168,8 @@
           "yon": "azalis",
           "tarih": "2026-10-08",
           "birim": "%",
-          "gun": 2,
-          "bayat": false
+          "gun": 3,
+          "bayat": true
         },
         {
           "kod": "DGS10",
@@ -179,8 +179,8 @@
           "yon": "azalis",
           "tarih": "2026-10-08",
           "birim": "%",
-          "gun": 2,
-          "bayat": false
+          "gun": 3,
+          "bayat": true
         },
         {
           "kod": "T10Y2Y",
@@ -190,7 +190,7 @@
           "yon": "azalis",
           "tarih": "2026-10-09",
           "birim": "puan",
-          "gun": 1,
+          "gun": 2,
           "bayat": false
         }
       ]
@@ -206,7 +206,7 @@
           "yon": "azalis",
           "tarih": "2026-10-02",
           "birim": "endeks",
-          "gun": 6,
+          "gun": 7,
           "bayat": true,
           "ritim": "Fed bu endeksi haftalık yayımlıyor"
         },
@@ -218,7 +218,7 @@
           "yon": "azalis",
           "tarih": "2026-10-12",
           "birim": "TL",
-          "gun": 0,
+          "gun": 1,
           "bayat": false
         }
       ]
