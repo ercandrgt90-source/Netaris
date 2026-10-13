@@ -29,33 +29,8 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 13,
+  "yorumlanan": 12,
   "haberler": [
-    {
-      "baslik": "Ödemeler Dengesi İstatistikleri (Ağustos 2026)",
-      "baslik_kaynak": "Ödemeler Dengesi İstatistikleri (Ağustos 2026)",
-      "ozet": "",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": false,
-      "bolge": "TR",
-      "adres": "http://www.tcmb.gov.tr/wps/wcm/connect/tr/tcmb+tr/main+menu/istatistikler/odemeler+dengesi+ve+ilgili+istatistikler/odemeler+dengesi+istatistikleri",
-      "kurum": "TCMB",
-      "kurum_tam": "Türkiye Cumhuriyet Merkez Bankası",
-      "konu": "Bankacılık",
-      "tarih": "2026-10-13",
-      "tarih_gorunur": "13 Ekim 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Zorunlu karşılık, likidite ve teminat düzenlemeleri kredi arzının miktarını ve maliyetini doğrudan belirler.",
-      "kanallar": [
-        "Kredi arzı: zorunlu karşılık oranları, bankaların kredi olarak kullandırabileceği kaynağın büyüklüğünü değiştirir.",
-        "Fonlama kompozisyonu: TL ve döviz mevduat arasındaki maliyet farkı, bankaların bilanço yapısını etkiler.",
-        "Reel sektör: kredi kanalının daralması, işletme sermayesini kısa vadeli borçla çeviren şirketlerde önce hissedilir."
-      ],
-      "kanal_basligi": "Piyasaya nasıl yansır?",
-      "foto": "/statik/foto/bankacilik-9-93533b82.jpg",
-      "foto_atif": "Myotus · CC-BY-4.0"
-    },
     {
       "baslik": "Başarısızlıklarla İlgili Temel Rakamlar (Eylül)",
       "baslik_kaynak": "Basic Figures on Fails (Sept.)",
@@ -1798,6 +1773,27 @@
       "foto_atif": "CryptoWallet.com Images · CC-BY-2.0"
     },
     {
+      "baslik": "ENS, yükseltilmiş Ethereum adlandırma sistemini etkinleştirmek için DAO onayı istiyor",
+      "baslik_kaynak": "ENS seeks DAO approval to activate upgraded Ethereum naming system",
+      "ozet": "New .eth registrations would pause for hours during the transition, while existing domain holders could renew their names without migrating.",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://cointelegraph.com/news/ens-dao-ensv2-upgrade-eth-domain-registrations?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "kurum": "Cointelegraph",
+      "kurum_tam": "Cointelegraph",
+      "konu": "Kripto varlıklar",
+      "tarih": "2026-10-13",
+      "tarih_gorunur": "13 Ekim 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/kripto-varliklar-9-b82c3e85.jpg",
+      "foto_atif": "CryptoWallet.com Images · CC-BY-2.0"
+    },
+    {
       "baslik": "Koreli teknoloji rotası KOSPI kayıplarını derinleştirirken Bitcoin 84 bin $ direncine ulaştı",
       "baslik_kaynak": "Bitcoin hits $84K resistance as Korean tech rout deepens KOSPI losses",
       "ozet": "Bitcoin’s liquidity kept BTC price below $84,000 amid a mounting South Korean tech and semiconductor stock sell-off.",
@@ -1924,27 +1920,6 @@
       "foto_atif": "CryptoWallet.com Images · CC-BY-2.0"
     },
     {
-      "baslik": "FTX'in kripto madenciliği girişimi artık yapay zekayı ilerletmek için kullanılıyor",
-      "baslik_kaynak": "FTX’s crypto mining venture is now used to advance AI",
-      "ozet": "The defunct exchange acquired a 20% stake in Genesis Digital Assets before FTX declared bankruptcy in November 2022.",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://cointelegraph.com/news/ftx-crypto-mining-ai-data-center?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "kurum": "Cointelegraph",
-      "kurum_tam": "Cointelegraph",
-      "konu": "Kripto varlıklar",
-      "tarih": "2026-10-13",
-      "tarih_gorunur": "13 Ekim 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/kripto-varliklar-8-740eb829.jpg",
-      "foto_atif": "Satheesh Sankaran · CC-BY-2.0"
-    },
-    {
       "baslik": "Birleşik Krallık, Yüksek Mahkeme Kararından Sonra 5 Milyar $ Bitcoin Haul Tutmaya Yaklaştı",
       "baslik_kaynak": "UK Moves Closer to Keeping $5B Bitcoin Haul After High Court Ruling",
       "ozet": "A judge ruled that Chinese law should govern fraud victims' claims to the 61,000 BTC seized from Zhimin Qian, in a blow to the claimants.",
@@ -2006,6 +1981,32 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/kripto-varliklar-9-b82c3e85.jpg",
       "foto_atif": "CryptoWallet.com Images · CC-BY-2.0"
+    },
+    {
+      "baslik": "Dünya Bankasının 4 yılda Türkiye'de harekete geçirdiği özel sektör sermayesi 21 milyar doları aştı",
+      "baslik_kaynak": "Dünya Bankasının 4 yılda Türkiye'de harekete geçirdiği özel sektör sermayesi 21 milyar doları aştı",
+      "ozet": "Dünya Bankası Grubu, Türkiye'de 2022 yılından bu yana harekete geçirilen özel sektör sermayesinin toplamının 21 milyar doları aştığını bildirdi.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.aa.com.tr/tr/ekonomi/dunya-bankasinin-4-yilda-turkiyede-harekete-gecirdigi-ozel-sektor-sermayesi-21-milyar-dolari-asti/4087199",
+      "kurum": "AA",
+      "kurum_tam": "Anadolu Ajansı",
+      "konu": "Bankacılık",
+      "tarih": "2026-10-13",
+      "tarih_gorunur": "13 Ekim 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Bankacılık kararları kredi kanalının genişliğini belirler; etki önce fonlama maliyetinde, sonra kredi hacminde görünür.",
+      "kanallar": [
+        "Fonlama maliyeti: mevduat ve tahvil faizindeki değişim net faiz marjına yazılır.",
+        "Sermaye yeterliliği: rasyo üzerindeki baskı kredi büyümesini sınırlar.",
+        "Aktif kalitesi: takipteki kredi oranı, karşılık giderleri üzerinden kârlılığa geçer.",
+        "Yayılım: bankacılık sistemi ekonominin geri kalanına kredi kanalıyla bağlı olduğu için etki sektörle sınırlı kalmaz."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/bankacilik-7-8f64866b.jpg",
+      "foto_atif": "Artaxerxes · CC-BY-SA-4.0"
     },
     {
       "baslik": "İklim değişikliğiyle mücadelede daha fazla yenilenebilir elektrik üretimine ihtiyaç duyuluyor",
@@ -2125,31 +2126,6 @@
       "kanal_basligi": "Piyasaya nasıl yansır?",
       "foto": "/statik/foto/tarim-ve-gida-9-f860582e.jpg",
       "foto_atif": "Hugh Venables · CC-BY-SA-2.0"
-    },
-    {
-      "baslik": "TÜİK ağustos ayı dış ticaret endekslerini açıkladı",
-      "baslik_kaynak": "TÜİK ağustos ayı dış ticaret endekslerini açıkladı",
-      "ozet": "İhracat birim değer endeksi, ağustosta geçen yılın aynı ayına göre yüzde 8,5, ithalat birim değer endeksi yüzde 13,7 arttı.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.aa.com.tr/tr/ekonomi/tuik-agustos-ayi-dis-ticaret-endekslerini-acikladi/4086867",
-      "kurum": "AA",
-      "kurum_tam": "Anadolu Ajansı",
-      "konu": "Dış ticaret",
-      "tarih": "2026-10-13",
-      "tarih_gorunur": "13 Ekim 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Dış ticaret dengesi cari işlemler hesabının en büyük bileşenidir ve dış finansman ihtiyacını belirler.",
-      "kanallar": [
-        "Cari denge: ihracat ile ithalat arasındaki fark doğrudan cari işlemler dengesine yazılır.",
-        "Dış finansman: cari açık, dışarıdan kaynak bulma ihtiyacı demektir; bu kaynağın maliyeti küresel faiz koşullarına bağlıdır.",
-        "Sektörel etki: ihracat ağırlıklı sektörler (otomotiv, tekstil, beyaz eşya) dış talepteki değişimi önce hisseder."
-      ],
-      "kanal_basligi": "Piyasaya nasıl yansır?",
-      "foto": "/statik/foto/dis-ticaret-8-de18e08e.jpg",
-      "foto_atif": "Nathan.cima · CC-BY-SA-4.0"
     },
     {
       "baslik": "Esma, etki ve geçiş iddialarında netliği teşvik ediyor",
@@ -2612,6 +2588,27 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/bankacilik-8-d4d74101.jpg",
       "foto_atif": "Myotus · CC-BY-4.0"
+    },
+    {
+      "baslik": "9 -10 Eylül 2026 Toplantısı",
+      "baslik_kaynak": "Meeting of 9-10 September 2026",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": false,
+      "bolge": "DUNYA",
+      "adres": "https://www.ecb.europa.eu//press/accounts/2026/html/ecb.mg261008~a10153d090.en.html",
+      "kurum": "ECB",
+      "kurum_tam": "Avrupa Merkez Bankası",
+      "konu": "Para politikası",
+      "tarih": "2026-10-08",
+      "tarih_gorunur": "8 Ekim 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/para-politikasi-11-fd54475f.jpg",
+      "foto_atif": "Innotata · CC-BY-SA-3.0"
     }
   ],
   "sinir_notu": "Yukarıdaki maddeler yapısal aktarım kanallarıdır, öngörü değildir. Etkinin ne zaman ve ne ölçüde görüleceği kur seviyesi, vergi düzenlemeleri ve sözleşme yapılarına bağlı olarak değişir; bu sayfada bir büyüklük tahmini yapılmamaktadır."
