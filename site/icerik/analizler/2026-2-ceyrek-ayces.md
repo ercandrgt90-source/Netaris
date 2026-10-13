@@ -1,13 +1,13 @@
 ---
 slug: ayces-2026-2-ceyrek
 baslik: ALTIN YUNUS ÇEŞME TURİSTİK TESİSLER A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın 0,17 milyar TL'den 0,14 milyar TL'ye düşmesi, brüt kârın -%36,1'lik negatif marjla -0,05 milyar TL'ye gerilemesine ve bunun sonucunda faaliyet kârının -0,15 milyar TL'ye, net kârın ise -0,10 milyar TL'ye derinleşmesine yol açtı; aynı dönemde özkaynak 5,54 milyar TL'ye, aktif toplamı 7,20 m…
+ozet: Hasılatın düşmesiyle birlikte brüt kâr daha olumsuz bir seviyeye kaydı; bu da brüt kâr marjının %-36,1'e gerilemesine yol açtı ve net kâr marjının %-61,1'e yükselmesine (daha kötüye) neden oldu.…
 sirket: ALTIN YUNUS ÇEŞME TURİSTİK TESİSLER A.Ş.
 kod: AYCES
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: İsteğe bağlı tüketim
-tarih: 2026-08-28
+tarih: 2026-10-13
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,22 +18,22 @@ sayimlar:
 
 ## Özet
 
-Hasılatın 0,17 milyar TL'den 0,14 milyar TL'ye düşmesi, brüt kârın -%36,1'lik negatif marjla -0,05 milyar TL'ye gerilemesine ve bunun sonucunda faaliyet kârının -0,15 milyar TL'ye, net kârın ise -0,10 milyar TL'ye derinleşmesine yol açtı; aynı dönemde özkaynak 5,54 milyar TL'ye, aktif toplamı 7,20 milyar TL'ye yükselirken net borç sadece 0,11 milyar TL olarak sabit kaldı ve düşük cari oran (0,33) ile yüksek özkaynak/kredi oranı (0,02) arasında bir denge oluştu.
+Hasılatın düşmesiyle birlikte brüt kâr daha olumsuz bir seviyeye kaydı; bu da brüt kâr marjının %-36,1'e gerilemesine yol açtı ve net kâr marjının %-61,1'e yükselmesine (daha kötüye) neden oldu. Özkaynak ve aktif toplamının artması, özkaynak kârlılığının negatif kalmasına rağmen borç/özkaynak oranının %0,02 ile sektör medyanının %0,15'in çok altında kalmasını sağladı. Cari oran 0,33 ile sektör medyanının 1,30'unun çok altında olduğu halde, faaliyet nakit akışı aynı seviyede kalırken yatırım harcaması azaldı, bu da net borcun hafif artışına (0,11 milyar TL) yansıdı.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | -%17,6 |
-| Brüt kâr | -%720,5 |
-| Faaliyet kârı | -%84,4 |
-| FAVÖK | -%7550,0 |
-| Net kâr | -%133,9 |
+| Hasılat | -%31,2 |
+| Brüt kâr | -%392,7 |
+| Faaliyet kârı | -%200,1 |
+| FAVÖK | -%405,7 |
+| Net kâr | -%11443,9 |
 | Özkaynak | %28,8 |
 | Aktif toplamı | %29,0 |
 | Net borç | %23,4 |
-| Faaliyet nakit akışı | -%14,0 |
-| Yatırım harcaması | -%62,7 |
+| Faaliyet nakit akışı | -%35,0 |
+| Yatırım harcaması | -%69,9 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -41,11 +41,11 @@ Hasılatın 0,17 milyar TL'den 0,14 milyar TL'ye düşmesi, brüt kârın -%36,1
 
 | Kalem | Değer |
 | --- | ---: |
-| Hasılat | 0,14 milyar TL |
-| Brüt kâr | -0,05 milyar TL |
-| Faaliyet kârı | -0,15 milyar TL |
-| FAVÖK | -0,07 milyar TL |
-| Net kâr | -0,10 milyar TL |
+| Hasılat | 0,08 milyar TL |
+| Brüt kâr | -0,03 milyar TL |
+| Faaliyet kârı | -0,09 milyar TL |
+| FAVÖK | -0,04 milyar TL |
+| Net kâr | -0,05 milyar TL |
 | Özkaynak | 5,54 milyar TL |
 | Aktif toplamı | 7,20 milyar TL |
 | Net borç | 0,11 milyar TL |
@@ -54,15 +54,15 @@ Hasılatın 0,17 milyar TL'den 0,14 milyar TL'ye düşmesi, brüt kârın -%36,1
 
 ## Sektör içindeki konum
 
-Karşılaştırma İsteğe bağlı tüketim sektöründeki 63 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildiren** 62 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | -%36,1 | %16,0 |
+| Brüt kâr marjı | -%36,1 | %17,0 |
 | Net kâr marjı | -%61,1 | %0,6 |
-| Özkaynak kârlılığı | -%0,8 | %0,5 |
+| Özkaynak kârlılığı | -%0,8 | %0,6 |
 | Cari oran | 0,33 | 1,29 |
-| Borç / özkaynak | 0,02 | 0,13 |
+| Borç / özkaynak | 0,02 | 0,15 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -70,9 +70,9 @@ Karşılaştırma İsteğe bağlı tüketim sektöründeki 63 şirketin **medyan
 
 **Dikkat gerektirenler**
 
-- Hasılat reel olarak -%17,6 geriledi.
-- Net kâr reel olarak -%133,9 geriledi.
-- Brüt marj 33,2 puan daraldı (-%3,7 → -%36,9).
+- Hasılat reel olarak -%31,2 geriledi.
+- Net kâr reel olarak -%11443,9 geriledi.
+- Brüt marj 44,6 puan daraldı (%8,5 → -%36,1).
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

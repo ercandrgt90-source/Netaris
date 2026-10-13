@@ -2338,27 +2338,6 @@
       "foto_atif": "WClarke · CC-BY-SA-4.0"
     },
     {
-      "baslik": "Enerji Bakanlığı 2026 Ernest Orlando Lawrence Ödülü Sahiplerini Açıkladı",
-      "baslik_kaynak": "Energy Department Announces 2026 Ernest Orlando Lawrence Award Winners",
-      "ozet": "U.S. Secretary of Energy Chris Wright today announced nine recipients of the prestigious Ernest Orlando Lawrence Award for their exceptional contributions to research and development supporting the U.S. Department of Energy’s missions in science, energy, and national security.",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": false,
-      "bolge": "DUNYA",
-      "adres": "https://www.energy.gov/articles/energy-department-announces-2026-ernest-orlando-lawrence-award-winners",
-      "kurum": "DOE",
-      "kurum_tam": "ABD Enerji Bakanlığı",
-      "konu": "Enerji",
-      "tarih": "2026-10-10",
-      "tarih_gorunur": "10 Ekim 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enerji-11-a5cdd29f.jpg",
-      "foto_atif": "W.carter · CC0"
-    },
-    {
       "baslik": "İstanbul Ekonomi Forumu'na İlişkin Basın Duyurusu (2026-44)",
       "baslik_kaynak": "İstanbul Ekonomi Forumu'na İlişkin Basın Duyurusu (2026-44)",
       "ozet": "",
@@ -2630,6 +2609,27 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/para-politikasi-9-683f4724.jpg",
       "foto_atif": "Tony Webster · CC-BY-2.0"
+    },
+    {
+      "baslik": "Uluslararası Rezervler ve Döviz Likiditesi (Eylül 2026)",
+      "baslik_kaynak": "Uluslararası Rezervler ve Döviz Likiditesi (Eylül 2026)",
+      "ozet": "",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": false,
+      "bolge": "TR",
+      "adres": "http://www.tcmb.gov.tr/wps/wcm/connect/tr/tcmb+tr/main+menu/istatistikler/odemeler+dengesi+ve+ilgili+istatistikler/uluslararasi+rezervler+ve+doviz+likiditesi",
+      "kurum": "TCMB",
+      "kurum_tam": "Türkiye Cumhuriyet Merkez Bankası",
+      "konu": "Bankacılık",
+      "tarih": "2026-10-08",
+      "tarih_gorunur": "8 Ekim 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/bankacilik-8-685abb38.jpg",
+      "foto_atif": "Myotus · CC-BY-4.0"
     }
   ],
   "sinir_notu": "Yukarıdaki maddeler yapısal aktarım kanallarıdır, öngörü değildir. Etkinin ne zaman ve ne ölçüde görüleceği kur seviyesi, vergi düzenlemeleri ve sözleşme yapılarına bağlı olarak değişir; bu sayfada bir büyüklük tahmini yapılmamaktadır."

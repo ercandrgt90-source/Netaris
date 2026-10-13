@@ -1,13 +1,13 @@
 ---
 slug: aztek-2026-2-ceyrek
 baslik: AZTEK TEKNOLOJİ ÜRÜNLERİ TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat artarken brüt kâr ve brüt kâr marjı düşmüş; bu, satışların maliyet payının yükselmesiyle brüt kârın azalmasına ve dolayısıyla brüt kâr marjının sektör medyanının altında kalmasına yol açmıştır.…
+ozet: Hasılat artarken brüt kâr, faaliyet kârı ve FAVÖK düşmüş; bu, satışların maliyet ve operasyonel giderlerdeki artışa paralel olarak kâr marjlarının daralmasıyla ilişkilidir ve net kârın negatifleşmesine yol açmıştır.…
 sirket: AZTEK TEKNOLOJİ ÜRÜNLERİ TİCARET A.Ş.
 kod: AZTEK
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Bilişim
-tarih: 2026-08-31
+tarih: 2026-10-13
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,22 +18,22 @@ sayimlar:
 
 ## Özet
 
-Hasılat artarken brüt kâr ve brüt kâr marjı düşmüş; bu, satışların maliyet payının yükselmesiyle brüt kârın azalmasına ve dolayısıyla brüt kâr marjının sektör medyanının altında kalmasına yol açmıştır. Faaliyet kârı, FAVÖK ve net kâr da brüt kârdaki gerilemeden etkilenerek azalmış ve net kâr negatif olmuş; aynı zamanda faaliyet nakit akışı da iyileşerek daha az negatif seviyeye çekilmiştir. Özkaynak azalırken net borç iki katına çıkmış; bu durum borç/özkaynak oranının %1,25'e yükselmesine ve cari oranın sektör medyanının üzerinde kalmasına rağmen likidite baskısının artmasına neden olmuştur.
+Hasılat artarken brüt kâr, faaliyet kârı ve FAVÖK düşmüş; bu, satışların maliyet ve operasyonel giderlerdeki artışa paralel olarak kâr marjlarının daralmasıyla ilişkilidir ve net kârın negatifleşmesine yol açmıştır. Özkaynak azalması ve net borcun iki katına çıkması, cari oranı sektör medyanının üzerinde tutsa da borç/özkaynak oranının %1,25'e yükselmesiyle finansal kaldıraçta belirgin bir artışa işaret eder. Faaliyet nakit akışı iyileşmiş olsa da hâlâ negatif kalması, yatırım harcamasının sabit kalması ve azalan kârlılık arasında bir tutarsızlık yaratmaktadır.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | %1,4 |
-| Brüt kâr | -%23,9 |
-| Faaliyet kârı | -%48,3 |
-| FAVÖK | -%43,0 |
-| Net kâr | -%1051,5 |
+| Hasılat | -%19,7 |
+| Brüt kâr | -%28,2 |
+| Faaliyet kârı | -%53,9 |
+| FAVÖK | -%46,9 |
+| Net kâr | -%532,1 |
 | Özkaynak | -%10,3 |
 | Aktif toplamı | %18,7 |
 | Net borç | %114,9 |
-| Faaliyet nakit akışı | %36,7 |
-| Yatırım harcaması | -%12,9 |
+| Faaliyet nakit akışı | -%15,8 |
+| Yatırım harcaması | -%99,0 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -41,28 +41,28 @@ Hasılat artarken brüt kâr ve brüt kâr marjı düşmüş; bu, satışların 
 
 | Kalem | Değer |
 | --- | ---: |
-| Hasılat | 4,47 milyar TL |
-| Brüt kâr | 0,65 milyar TL |
-| Faaliyet kârı | 0,24 milyar TL |
-| FAVÖK | 0,30 milyar TL |
-| Net kâr | -0,33 milyar TL |
+| Hasılat | 2,09 milyar TL |
+| Brüt kâr | 0,31 milyar TL |
+| Faaliyet kârı | 0,11 milyar TL |
+| FAVÖK | 0,14 milyar TL |
+| Net kâr | -0,16 milyar TL |
 | Özkaynak | 1,85 milyar TL |
 | Aktif toplamı | 5,52 milyar TL |
 | Net borç | 2,32 milyar TL |
-| Faaliyet nakit akışı | -0,32 milyar TL |
-| Yatırım harcaması | 0,03 milyar TL |
+| Faaliyet nakit akışı | 0,31 milyar TL |
+| Yatırım harcaması | 0,00 milyar TL |
 
 ## Sektör içindeki konum
 
-Karşılaştırma Bilişim sektöründeki 18 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Bilişim sektöründe **aynı dönemi bildiren** 19 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %15,0 | %16,1 |
-| Net kâr marjı | -%7,9 | -%2,0 |
-| Özkaynak kârlılığı | -%9,5 | %2,1 |
-| Cari oran | 1,44 | 1,25 |
-| Borç / özkaynak | 1,25 | -0,02 |
+| Brüt kâr marjı | %15,0 | %15,0 |
+| Net kâr marjı | -%7,9 | %0,3 |
+| Özkaynak kârlılığı | -%8,9 | %1,3 |
+| Cari oran | 1,44 | 1,24 |
+| Borç / özkaynak | 1,25 | -0,04 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -70,9 +70,9 @@ Karşılaştırma Bilişim sektöründeki 18 şirketin **medyanına** göre yap�
 
 **Dikkat gerektirenler**
 
-- Net kâr reel olarak -%1051,5 geriledi.
-- Brüt marj 4,8 puan daraldı (%19,3 → %14,5).
-- Özkaynak kârlılığı -%9,5; sektör medyanı %2,1.
+- Hasılat reel olarak -%19,7 geriledi.
+- Net kâr reel olarak -%532,1 geriledi.
+- Özkaynak kârlılığı -%8,9; sektör medyanı %1,3.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 
