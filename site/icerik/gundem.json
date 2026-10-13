@@ -29,33 +29,8 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 14,
+  "yorumlanan": 12,
   "haberler": [
-    {
-      "baslik": "Ödemeler Dengesi İstatistikleri (Ağustos 2026)",
-      "baslik_kaynak": "Ödemeler Dengesi İstatistikleri (Ağustos 2026)",
-      "ozet": "",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": false,
-      "bolge": "TR",
-      "adres": "http://www.tcmb.gov.tr/wps/wcm/connect/tr/tcmb+tr/main+menu/istatistikler/odemeler+dengesi+ve+ilgili+istatistikler/odemeler+dengesi+istatistikleri",
-      "kurum": "TCMB",
-      "kurum_tam": "Türkiye Cumhuriyet Merkez Bankası",
-      "konu": "Bankacılık",
-      "tarih": "2026-10-13",
-      "tarih_gorunur": "13 Ekim 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Zorunlu karşılık, likidite ve teminat düzenlemeleri kredi arzının miktarını ve maliyetini doğrudan belirler.",
-      "kanallar": [
-        "Kredi arzı: zorunlu karşılık oranları, bankaların kredi olarak kullandırabileceği kaynağın büyüklüğünü değiştirir.",
-        "Fonlama kompozisyonu: TL ve döviz mevduat arasındaki maliyet farkı, bankaların bilanço yapısını etkiler.",
-        "Reel sektör: kredi kanalının daralması, işletme sermayesini kısa vadeli borçla çeviren şirketlerde önce hissedilir."
-      ],
-      "kanal_basligi": "Piyasaya nasıl yansır?",
-      "foto": "/statik/foto/bankacilik-9-93533b82.jpg",
-      "foto_atif": "Myotus · CC-BY-4.0"
-    },
     {
       "baslik": "Başarısızlıklarla İlgili Temel Rakamlar (Eylül)",
       "baslik_kaynak": "Basic Figures on Fails (Sept.)",
@@ -64,7 +39,7 @@
       "dil": "en",
       "ticari": false,
       "bolge": "DUNYA",
-      "adres": "https://www.boj.or.jp/en/statistics/set/bffail/sjgb2609.pdf",
+      "adres": "http://www.boj.or.jp/en/statistics/set/bffail/sjgb2609.pdf",
       "kurum": "BoJ",
       "kurum_tam": "Japonya Merkez Bankası",
       "konu": "Para politikası",
@@ -74,8 +49,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-7-d50cfe6c.jpg",
-      "foto_atif": "Infrogmation of New Orleans · CC-BY-SA-4.0"
+      "foto": "/statik/foto/para-politikasi-9-f9a4682a.jpg",
+      "foto_atif": "DXR · CC-BY-SA-4.0"
     },
     {
       "baslik": "107. Kamuoyunun Görüş ve Davranışlarına İlişkin Görüş Anketi Sonuçları",
@@ -85,7 +60,7 @@
       "dil": "en",
       "ticari": false,
       "bolge": "DUNYA",
-      "adres": "https://www.boj.or.jp/en/research/o_survey/ishiki2610.htm",
+      "adres": "http://www.boj.or.jp/en/research/o_survey/ishiki2610.htm",
       "kurum": "BoJ",
       "kurum_tam": "Japonya Merkez Bankası",
       "konu": "Para politikası",
@@ -106,7 +81,7 @@
       "dil": "en",
       "ticari": false,
       "bolge": "DUNYA",
-      "adres": "https://www.boj.or.jp/en/statistics/dl/depo/kashi/kasi2609.pdf",
+      "adres": "http://www.boj.or.jp/en/statistics/dl/depo/kashi/kasi2609.pdf",
       "kurum": "BoJ",
       "kurum_tam": "Japonya Merkez Bankası",
       "konu": "Para politikası",
@@ -116,7 +91,7 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-8-6bdac262.jpg",
+      "foto": "/statik/foto/para-politikasi-7-d50cfe6c.jpg",
       "foto_atif": "Infrogmation of New Orleans · CC-BY-SA-4.0"
     },
     {
@@ -127,7 +102,7 @@
       "dil": "en",
       "ticari": false,
       "bolge": "DUNYA",
-      "adres": "https://www.boj.or.jp/en/statistics/pi/cgpi_release/cgpi2609.pdf",
+      "adres": "http://www.boj.or.jp/en/statistics/pi/cgpi_release/cgpi2609.pdf",
       "kurum": "BoJ",
       "kurum_tam": "Japonya Merkez Bankası",
       "konu": "Enflasyon",
@@ -142,8 +117,8 @@
         "Baz etkisi: bir önceki yılın aynı ayındaki seviye yıllık oranı mekanik olarak değiştirir."
       ],
       "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/enflasyon-7-87d51a9b.jpg",
-      "foto_atif": "safaritravelplus · CC0"
+      "foto": "/statik/foto/enflasyon-8-4c01d687.jpg",
+      "foto_atif": "Myotus · CC-BY-4.0"
     },
     {
       "baslik": "Esma, 2026 Avrupa Ortak Uygulama Önceliklerini belirledi",
@@ -207,6 +182,27 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/duzenleme-9-d70a1c54.jpg",
       "foto_atif": "Harrison Keely · CC-BY-4.0"
+    },
+    {
+      "baslik": "Fed'den Goolsbee: Yapay zeka bir enflasyon sorunu - Semafor",
+      "baslik_kaynak": "Fed's Goolsbee: AI is an inflation problem - Semafor",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9803089/Feds-Goolsbee-AI-is-an-inflation-problem---Semafor.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Enflasyon",
+      "tarih": "2026-10-13",
+      "tarih_gorunur": "13 Ekim 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/enflasyon-7-87d51a9b.jpg",
+      "foto_atif": "safaritravelplus · CC0"
     },
     {
       "baslik": "$WFC Wells Fargo 3. Çeyrek Kazançları",
@@ -1483,27 +1479,6 @@
       "foto_atif": "Dietmar Rabich · CC-BY-SA-4.0"
     },
     {
-      "baslik": "Japonya Eylül ayında ödenmemiş banka kredileri yıllık %5,3 arttı: Boj",
-      "baslik_kaynak": "Japan Sept outstanding bank loans rise 5.3% year on year: BoJ",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9802317/Japan-Sept-outstanding-bank-loans-rise-53-year-on-year-BoJ.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Bankacılık",
-      "tarih": "2026-10-13",
-      "tarih_gorunur": "13 Ekim 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/bankacilik-8-685abb38.jpg",
-      "foto_atif": "Myotus · CC-BY-4.0"
-    },
-    {
       "baslik": "Binance VIP başkanı, hedge fonlarının kripto mekanlarında arbitraj fırsatlarını aktif olarak araştırdığını söyledi",
       "baslik_kaynak": "Binance VIP head says hedge funds are actively exploring arbitrage opportunities on crypto venues",
       "ozet": "The executive cited improved depth, 24/7 trading and weekend price discovery as reasons why the opportunities have become more relevant.",
@@ -1586,6 +1561,27 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/piyasa-duzenlemesi-7-24361cea.jpg",
       "foto_atif": "Ank Kumar · CC-BY-SA-4.0"
+    },
+    {
+      "baslik": "Rusya'nın en büyük bankası Sberbank kripto ticareti için onay aldı",
+      "baslik_kaynak": "Russia’s largest bank Sberbank secures approval to trade crypto",
+      "ozet": "Sberbank plans to open crypto trading to all clients Dec. 1 and is already testing BTC, ETH and USDT trades in its app.",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.coindesk.com/business/2026/10/13/russia-s-largest-bank-sberbank-secures-approval-to-trade-crypto",
+      "kurum": "CoinDesk",
+      "kurum_tam": "CoinDesk",
+      "konu": "Kripto varlıklar",
+      "tarih": "2026-10-13",
+      "tarih_gorunur": "13 Ekim 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/kripto-varliklar-9-b82c3e85.jpg",
+      "foto_atif": "CryptoWallet.com Images · CC-BY-2.0"
     },
     {
       "baslik": "Canlı güncellemeler: Bitcoin, altcoinler düşerken 81.000 ila 84.000 dolar arasında kırbaçlandı",
@@ -2131,31 +2127,6 @@
       "foto_atif": "Sw257 · CC-BY-SA-4.0"
     },
     {
-      "baslik": "Bakan Şimşek'ten cari açık değerlendirmesi: 26 yıllık faturaya dikkat çekti",
-      "baslik_kaynak": "Bakan Şimşek'ten cari açık değerlendirmesi: 26 yıllık faturaya dikkat çekti",
-      "ozet": "Hazine ve Maliye Bakanı Mehmet Şimşek, Türkiye Cumhuriyet Merkez Bankası'nın (TCMB) açıkladığı ağustos ayı ödemeler dengesi verilerini değerlendirdi. Ağustos ayında 4,1 milyar dolar cari fazla verildiğini belirten Şimşek, yıllıklandırılmış cari açığın 42,1 milyar dolar olduğunu bildirdi.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.dunya.com/ekonomik-veriler/bakan-simsekten-cari-acik-degerlendirmesi-26-yillik-faturaya-dikkat-cekti-haberi-843683",
-      "kurum": "Dünya",
-      "kurum_tam": "Dünya Gazetesi",
-      "konu": "Dış ticaret",
-      "tarih": "2026-10-13",
-      "tarih_gorunur": "13 Ekim 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Dış ticaret dengesi cari işlemler hesabının en büyük bileşenidir ve dış finansman ihtiyacını belirler.",
-      "kanallar": [
-        "Cari denge: ihracat ile ithalat arasındaki fark doğrudan cari işlemler dengesine yazılır.",
-        "Dış finansman: cari açık, dışarıdan kaynak bulma ihtiyacı demektir; bu kaynağın maliyeti küresel faiz koşullarına bağlıdır.",
-        "Sektörel etki: ihracat ağırlıklı sektörler (otomotiv, tekstil, beyaz eşya) dış talepteki değişimi önce hisseder."
-      ],
-      "kanal_basligi": "Piyasaya nasıl yansır?",
-      "foto": "/statik/foto/dis-ticaret-7-912e1aa5.jpg",
-      "foto_atif": "Olga Ernst · CC-BY-SA-4.0"
-    },
-    {
       "baslik": "Esma, etki ve geçiş iddialarında netliği teşvik ediyor",
       "baslik_kaynak": "ESMA promotes clarity in claims on impact and transition",
       "ozet": "ESMA promotes clarity in claims on impact and transition 12 October 2026 Sustainable finance The European Securities and Markets Authority (ESMA), the EU’s financial markets regulator and supervisor, has published two additional thematic notes on sustainability-related claims.",
@@ -2352,7 +2323,7 @@
       "dil": "en",
       "ticari": false,
       "bolge": "DUNYA",
-      "adres": "https://www.boj.or.jp/en/finsys/macpru/mac261009a.pdf",
+      "adres": "http://www.boj.or.jp/en/finsys/macpru/mac261009a.pdf",
       "kurum": "BoJ",
       "kurum_tam": "Japonya Merkez Bankası",
       "konu": "Para politikası",
@@ -2362,8 +2333,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-15-525666c9.jpg",
-      "foto_atif": "Norbert Nagel · CC-BY-SA-4.0"
+      "foto": "/statik/foto/para-politikasi-7-d50cfe6c.jpg",
+      "foto_atif": "Infrogmation of New Orleans · CC-BY-SA-4.0"
     },
     {
       "baslik": "\"Uygun Teminat Fiyatları\" nda Değişiklik",
@@ -2373,7 +2344,7 @@
       "dil": "en",
       "ticari": false,
       "bolge": "DUNYA",
-      "adres": "https://www.boj.or.jp/en/mopo/mpmdeci/mpr_2026/mpr261009a.pdf",
+      "adres": "http://www.boj.or.jp/en/mopo/mpmdeci/mpr_2026/mpr261009a.pdf",
       "kurum": "BoJ",
       "kurum_tam": "Japonya Merkez Bankası",
       "konu": "Para politikası",
@@ -2383,8 +2354,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-8-6bdac262.jpg",
-      "foto_atif": "Infrogmation of New Orleans · CC-BY-SA-4.0"
+      "foto": "/statik/foto/para-politikasi-10-bce0f56d.jpg",
+      "foto_atif": "Tony Webster · CC-BY-2.0"
     },
     {
       "baslik": "IMES Tartışma Makalesi Serisi (2026)",
@@ -2394,7 +2365,7 @@
       "dil": "en",
       "ticari": false,
       "bolge": "DUNYA",
-      "adres": "https://www.boj.or.jp/en/research/imes/dps/dps26.htm",
+      "adres": "http://www.boj.or.jp/en/research/imes/dps/dps26.htm",
       "kurum": "BoJ",
       "kurum_tam": "Japonya Merkez Bankası",
       "konu": "Para politikası",
@@ -2404,8 +2375,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-9-683f4724.jpg",
-      "foto_atif": "Tony Webster · CC-BY-2.0"
+      "foto": "/statik/foto/para-politikasi-8-9ac5b7c7.jpg",
+      "foto_atif": "DestinationFearFan · CC-BY-SA-4.0"
     },
     {
       "baslik": "Esma, Carlos San Basilio'yu Yönetim Kurulu'nun yeni üyesi olarak atadı",
@@ -2616,6 +2587,27 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/bankacilik-8-d4d74101.jpg",
       "foto_atif": "Myotus · CC-BY-4.0"
+    },
+    {
+      "baslik": "9 -10 Eylül 2026 Toplantısı",
+      "baslik_kaynak": "Meeting of 9-10 September 2026",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": false,
+      "bolge": "DUNYA",
+      "adres": "https://www.ecb.europa.eu//press/accounts/2026/html/ecb.mg261008~a10153d090.en.html",
+      "kurum": "ECB",
+      "kurum_tam": "Avrupa Merkez Bankası",
+      "konu": "Para politikası",
+      "tarih": "2026-10-08",
+      "tarih_gorunur": "8 Ekim 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/para-politikasi-11-fd54475f.jpg",
+      "foto_atif": "Innotata · CC-BY-SA-3.0"
     }
   ],
   "sinir_notu": "Yukarıdaki maddeler yapısal aktarım kanallarıdır, öngörü değildir. Etkinin ne zaman ve ne ölçüde görüleceği kur seviyesi, vergi düzenlemeleri ve sözleşme yapılarına bağlı olarak değişir; bu sayfada bir büyüklük tahmini yapılmamaktadır."
