@@ -72,7 +72,10 @@ HTML = """
 <tr><td>Net Income    Net Income Growth</td><td>24,647</td><td>21,582</td></tr>
 </table>
 """
-donemler, kalemler = ba._tablo(HTML)
+# Ucuncu deger donem BITIS TARIHLERI -- `_AY_NO` ile cozulen
+# "Period Ending" satiri. Bu sinama tarihlere bakmiyor;
+# ayrintisi `test_mali_takvim.py` icinde.
+donemler, kalemler, _ = ba._tablo(HTML)
 esit(donemler, ["Q2 2026", "Q1 2026"], "donem basliklari okunuyor")
 esit(sorted(kalemler), ["Net Income", "Revenue"],
      "kalem adlarindan 'Growth' ikizi kirpiliyor")

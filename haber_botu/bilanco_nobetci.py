@@ -13,11 +13,17 @@ Kasim'da aciliyor.
 Sonuc: bildirimler gelmeye basladiktan sonra haftalarca hicbir sey
 cekilmiyor ve okur rakamlari baska yerden ogreniyor.
 
-OLCULDU (2026-10-13): kaynakta `son_donem` cagrisi SIRKET BASINA
-0,3 saniye suruyor -- tek istek, yalnizca gelir tablosunun donem
-basliklari. Yani "yeni ceyrek belirdi mi" sorusu yuzlerce sirkete
+OLCULDU (2026-10-13): kaynakta tek istek SIRKET BASINA 0,3 saniye
+suruyor -- yalnizca gelir tablosunun donem basliklari ve bitis
+tarihleri. Yani "yeni donem belirdi mi" sorusu yuzlerce sirkete
 dakikalar icinde sorulabiliyor. Takvim tahmini yerine OLCUM
 kullanmanin maliyeti pratikte sifir.
+
+OLCUT DONEM BITIS TARIHI, ETIKET DEGIL. Kaynagin "Q3 2026" etiketi
+MALI ceyregi gosteriyor; mali yili 31 Mayis'ta biten spor kulubunde
+bu takvim ceyregine denk dusmuyor. Etiket olcutuyle calisan onceki
+surum bu sirketleri ELEMEK zorundaydi -- yani GSRAY'in aciklanmis
+bilancosunu hic gormuyordu. Bkz. `daha_yeni`.
 
 NE YAPIYOR
 ----------
@@ -26,9 +32,10 @@ NE YAPIYOR
 2. DONEREK orneklem secer: her kosu farkli bir dilimi yokluyor,
    boylece zamanla butun evren taranmis oluyor. Nobet defterinde
    kaldigi yeri tutuyor.
-3. Her sirkete tek istek atar, en yeni ceyregi okur.
-4. Gorulen en yeni ceyrek, defterdekinden YENIYSE "donem acildi"
-   diye isaretler.
+3. Her sirkete tek istek atar, en yeni GERCEKLESMIS donemin bitis
+   tarihini ve sirketin mali takvimini okur.
+4. Gorulen en yeni bitis tarihi defterdekinden YENIYSE "donem
+   acildi" diye isaretler.
 
 KARAR NEREDE KULLANILIYOR
 -------------------------
@@ -103,19 +110,38 @@ def ulasilabilir_kodlar() -> list:
 
 
 def daha_yeni(a, b) -> bool:
-    """a ceyregi b'den yeni mi? Ikisi de (yil, ceyrek) ya da None."""
+    """a donemi b'den yeni mi? Ikisi de ISO bitis tarihi ya da None.
+
+    NEDEN ETIKET DEGIL TARIH -- OLCULDU (2026-10-13)
+    ------------------------------------------------
+    Onceki olcut `(yil, ceyrek)` etiketiydi. Takvim disi mali yila
+    sahip sirkette kaynagin etiketi MALI ceyregi gosteriyor ve
+    takvim ceyregine denk DUSMUYOR:
+
+        GSRAY  "Q1 2027"  ->  gercek donem haziran-agustos 2026
+        THYAO  "Q3 2026"  ->  gercek donem temmuz-eylul 2026
+
+    Etiketleri karsilastirmak bu iki sirketi yanlis siraya koyuyordu,
+    bu yuzden onlar bastan ELENIYORDU (`son_donem` None donuyordu).
+    Elemek sahte olayi onluyor ama gercek bir bildirimi de
+    gormemek demek: GSRAY'in bilancosu aciklandi ve nobetci hic
+    haberdar olmadi.
+
+    Tarih her takvimde ayni seyi olcuyor, bu yuzden kiyas tek satir.
+    ISO bicimi dizgesel olarak da dogru siralaniyor.
+    """
     if not a:
         return False
     if not b:
         return True
-    return (int(a[0]), int(a[1])) > (int(b[0]), int(b[1]))
+    return str(a) > str(b)
 
 
 def bak(orneklem: int = VARSAYILAN_ORNEKLEM, kuru: bool = False) -> dict:
     """Bir tur yoklama. Nobet defterini gunceller ve sonucu doner."""
     nobet = nobet_oku()
-    bilinen = nobet.get("son_ceyrek")
-    bilinen = tuple(bilinen) if bilinen else None
+    bilinen = nobet.get("son_bitis") or None
+    bilinen = bilinen if isinstance(bilinen, str) else None
     kodlar = ulasilabilir_kodlar()
     if not kodlar:
         print("nobetci: defter okunamadi ya da bos -- yoklama YAPILMADI")
@@ -125,20 +151,38 @@ def bak(orneklem: int = VARSAYILAN_ORNEKLEM, kuru: bool = False) -> dict:
     kac = min(orneklem, len(kodlar))
     secilen = [kodlar[(bas + i) % len(kodlar)] for i in range(kac)]
 
-    gorulen = dict(nobet.get("sirket") or {})
+    # ESKI BICIM DEFTERDEN TEMIZLENIYOR.
+    #
+    # Nobet defteri eskiden `[yil, ceyrek]` tutuyordu. Liste ile
+    # tarih dizgesini karsilastirmak sessizce yanlis sonuc verirdi;
+    # bu yuzden eski kayitlar YOK sayiliyor ve o sirketler bir kez
+    # daha TOHUMLANIYOR. Bir kosuluk gorme kaybi, yanlis bir olaydan
+    # iyidir.
+    gorulen = {k: v for k, v in (nobet.get("sirket") or {}).items()
+               if isinstance(v, str)}
+    eski_bicim = len(nobet.get("sirket") or {}) - len(gorulen)
+    if eski_bicim:
+        print(f"nobetci: {eski_bicim} eski biçimli kayıt yeniden "
+              f"tohumlanacak (etiket -> dönem bitiş tarihi)")
+    takvim = dict(nobet.get("takvim") or {})
     en_yeni = bilinen
     yeni_bildiren = []
     ilk_gorulen = 0
     hata = 0
     for kod in secilen:
         try:
-            d = bilanco_ag.son_donem(kod)
+            m = bilanco_ag.mali_takvim(kod)
         except Exception:
             hata += 1
-            d = None
+            m = None
+        d = m["son_bitis"] if m else None
+        if m and m.get("yil_sonu_ayi"):
+            # MALI TAKVIM BEDAVA GELIYOR -- ayni istekten okunuyor.
+            # Yayin hatti da bu bilgiye ihtiyac duyuyor; nobetci
+            # zaten her sirkete bakiyor, ogrendigini saklasin.
+            takvim[kod] = m["yil_sonu_ayi"]
         if d:
             onceki = gorulen.get(kod)
-            onceki = tuple(onceki) if onceki else None
             # OLAY SIRKET BAZINDA -- KURESEL ESIGE GORE DEGIL.
             #
             # Ilk yazimda "yeni bildirdi" olcutu kuresel `son_ceyrek`
@@ -148,15 +192,15 @@ def bak(orneklem: int = VARSAYILAN_ORNEKLEM, kuru: bool = False) -> dict:
             #
             # Olcut artik sirketin KENDI onceki degeri: her sirketin
             # ilerlemesi ayri bir olay.
-            if onceki is None:
+            if not onceki:
                 # ILK GORULME TOHUMDUR, OLAY DEGIL. Donerek orneklem
                 # yuzunden bir sirket ilk kez besinci kosuda
                 # gorulebiliyor; onu "yeni bildirdi" saymak sahte
                 # olay uretirdi.
                 ilk_gorulen += 1
-                gorulen[kod] = list(d)
+                gorulen[kod] = d
             elif daha_yeni(d, onceki):
-                gorulen[kod] = list(d)
+                gorulen[kod] = d
                 yeni_bildiren.append(kod)
             if daha_yeni(d, en_yeni):
                 en_yeni = d
@@ -182,12 +226,14 @@ def bak(orneklem: int = VARSAYILAN_ORNEKLEM, kuru: bool = False) -> dict:
     #    sirket ilk kez besinci kosuda gorulebiliyor ve o sirket Q3
     #    bildiren ilk sirket olabilir.
     #
-    # Ikinci sinyal ancak TAKVIM DISI sirketler elendikten sonra
-    # guvenilir. Olculdu (2026-10-13): Ekim ayinda "Q3 2026" bildiren
-    # iki sirket vardi (ARENA, BALSU) ve IKISI DE takvim disi mali
-    # yila sahipti -- `bilanco_ag.son_donem` artik onlari None
-    # donduruyor. O suzgec olmadan bu sinyal her Ekim'de sahte
-    # calisirdi.
+    # Ikinci sinyal, olcut TARIH oldugu icin takvim disi sirketlerde
+    # de guvenilir. Onceki surum onlari ELIYORDU: Ekim 2026'da
+    # "Q3 2026" bildiren iki sirket vardi (ARENA, BALSU) ve ikisi de
+    # takvim disi mali yila sahipti; etiket olcutuyle her kosuda
+    # sahte "yeni donem" uretiyorlardi, bu yuzden dislanmislardi.
+    #
+    # Tarih olcutu sahte olayi kendiliginden onluyor (gelecekte biten
+    # donem zaten ayikliniyor) ve gercek bildirimi GORUYOR.
     tohumlama = bilinen is None
     mevsim_ilerledi = daha_yeni(en_yeni, bilinen) and not tohumlama
     acildi = bool(yeni_bildiren) or mevsim_ilerledi
@@ -198,19 +244,21 @@ def bak(orneklem: int = VARSAYILAN_ORNEKLEM, kuru: bool = False) -> dict:
         "bakilan": len(secilen),
         "ilk_gorulen": ilk_gorulen,
         "hata": hata,
-        "bilinen": list(bilinen) if bilinen else None,
-        "en_yeni": list(en_yeni) if en_yeni else None,
+        "bilinen": bilinen,
+        "en_yeni": en_yeni,
+        "takvim_disi": sorted(k for k, v in takvim.items() if v != 12),
         "yeni_bildiren": yeni_bildiren,
     }
     if not kuru:
         simdi = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
         NOBET.write_text(json.dumps({
-            "son_ceyrek": list(en_yeni) if en_yeni else None,
+            "son_bitis": en_yeni,
             "acik": acildi or bool(nobet.get("acik")),
             "acilis_ani": simdi if acildi else nobet.get("acilis_ani"),
             "son_bakis": simdi,
             "imlec": (bas + len(secilen)) % len(kodlar),
             "sirket": gorulen,
+            "takvim": takvim,
         }, ensure_ascii=False, indent=1), encoding="utf-8")
     return sonuc
 
@@ -249,8 +297,11 @@ def main() -> int:
     s = bak(n.orneklem, n.kuru_calis)
     print(f"nobetci: {s.get('bakilan', 0)} sirkete soruldu, "
           f"{s.get('ilk_gorulen', 0)} ilk gorulme, {s.get('hata', 0)} hata")
-    print(f"  defterdeki ceyrek : {s.get('bilinen')}")
+    print(f"  defterdeki dönem  : {s.get('bilinen')}")
     print(f"  kaynakta en yeni  : {s.get('en_yeni')}")
+    if s.get("takvim_disi"):
+        print(f"  takvim dışı mali yıl: "
+              f"{', '.join(s['takvim_disi'][:12])}")
     if s.get("durum") == "yeni donem":
         print(f"  YENI DONEM ACILDI -- {len(s['yeni_bildiren'])} sirket "
               f"bildirdi: " + ", ".join(s["yeni_bildiren"][:8]))

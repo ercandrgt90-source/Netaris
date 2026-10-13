@@ -100,6 +100,7 @@ def _degisim(simdi, once) -> float | None:
 
 
 def govde_kur(kod, unvan, sektor, donem, d, oran, medyan, n, yorum,
+              mali_not="", alt_sektor="",
               once=None) -> str:
     """Sayfanin govdesi. TABLO deterministik, YORUM modelden."""
     s = []
@@ -141,11 +142,25 @@ def govde_kur(kod, unvan, sektor, donem, d, oran, medyan, n, yorum,
             s.append(f"| {etiket} | {_mlr(v)} |")
 
     if oran:
+        # "AYNI DONEMI BILDIREN" IBARESI BILEREK -- OLCULDU, YAYINDAYDI.
+        #
+        # Medyan eskiden sektorun TAMAMINDAN kuruluyordu ve sektorde
+        # baska bir uc ayi bildiren sirket varsa sonuc bozuluyordu.
+        # İletişim sektorunun brut marj medyani -%32,03 cikiyordu;
+        # ucu futbol kulubuydu ve donemleri mart-mayisti. Yalnizca
+        # ayni donemi bildirenlerle medyan +%24,94 -- 57 puan fark.
+        #
+        # Kume degisti, cumle de degisti: okura kiyasin NEYE gore
+        # yapildigi dogru soylenmeli.
         s += ["", f"## Sektör içindeki konum", "",
-              f"Karşılaştırma {sektor} sektöründeki {n} şirketin "
-              f"**medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir "
-              f"şirketin uç değeri ortalamayı tek başına taşıyabiliyor.", "",
-              "| Oran | Şirket | Sektör medyanı |", "| --- | ---: | ---: |"]
+              f"Karşılaştırma {sektor} sektöründe **aynı dönemi bildiren** "
+              f"{n} şirketin **medyanına** göre yapılıyor. Medyan seçildi "
+              f"çünkü tek bir şirketin uç değeri ortalamayı tek başına "
+              f"taşıyabiliyor."]
+        if mali_not:
+            s += ["", mali_not]
+        s += ["", "| Oran | Şirket | Sektör medyanı |",
+              "| --- | ---: | ---: |"]
         for anahtar, ad in sektor_ozet.ORANLAR:
             v = oran.get(anahtar)
             if v is None:
@@ -189,7 +204,11 @@ def govde_kur(kod, unvan, sektor, donem, d, oran, medyan, n, yorum,
     # Sektor taninmiyorsa bolum HIC yazilmiyor. Yanlis bir okuma
     # kilavuzu kilavuzsuzluktan kotudur: okur ona guvenip yanlis
     # kalemi okur.
-    s += sektor_okuma.markdown(sektor)
+    # ALT SEKTOR DE VERILIYOR -- kilavuz yanlis sirkete yazilmasin.
+    # Olculdu: İletişim kilavuzu telekom icin yazilmis ama sektordeki
+    # alti sirketin ucu futbol kulubu, ikisi yayinci. Gerekce
+    # `sektor_okuma.ALT_KAPSAM` uzerinde yazili.
+    s += sektor_okuma.markdown(sektor, alt_sektor)
 
     # YASAL UYARI GOVDEDE OLMAK ZORUNDA.
     #
@@ -266,8 +285,58 @@ def ret_yaz(kod: str, unvan: str, donem: str, neden: str,
         print(f"    (ret kaydedilemedi: {e})")
 
 
+def kiyas_kumesi(v: dict, kod: str) -> tuple[dict, int, str, str]:
+    """Sirketin KIYASLANACAGI medyan, sirket sayisi, donem adi, aciklama.
+
+    NEDEN SEKTOR TEK BIR KUME DEGIL
+    -------------------------------
+    Olculdu (2026-10-13): sektordeki sirketler AYNI UC AYI
+    bildirmiyor. Spor kuluplerinin mali yili 31 Mayis'ta bitiyor
+    (GSRAY, FENER, BJKAS, TSPOR) ve son bildirdikleri donem
+    mart-mayis; ayni sektordeki TTKOM'un donemi nisan-haziran.
+
+    Iki ayri zaman araligini ayni medyanda toplamak, farki tek
+    basina mevsimsellikten dogurur. Olculen sonuc: İletişim
+    sektorunun brut marj medyani -%32,03 cikiyordu; yalnizca ayni
+    donemi bildirenlerle +%24,94.
+
+    OLCUT BITIS TARIHI, MALI YIL SONU DEGIL. ARENA'nin mali yili
+    martta bitiyor ama bildirdigi uc ay nisan-haziran, yani TTKOM
+    ile AYNI -- onu ayirmak gereksiz bir ayrim olurdu.
+
+    Donem adi ay adlariyla yaziliyor: kaynagin "Q1 2027" etiketi
+    Ekim 2026'da okuru yanlis yere goturur.
+
+    BITISI COZULEMEYEN SIRKET ANA KUMEDE KALIYOR: ayrim yapmanin
+    ispat yuku ayrim yapanda. Kaynaktaki gecici bir aksaklik sirketi
+    sessizce kiyassiz birakmamali.
+    """
+    # MALI TAKVIM OKURA SOYLENIYOR.
+    #
+    # Mali yili aralikta bitmeyen sirkette "2026 mart-mayis donemi"
+    # basligi dogru ama EKSIK: okur neden baska bir aralik gorduyunu
+    # bilmiyor. Olculen bilgi sayfada kullanilmazsa olculmemis
+    # sayilir.
+    ay = (v.get("mali") or {}).get(kod)
+    mali_not = ""
+    if ay:
+        mali_not = (f"Şirketin mali yılı {bilanco_ag.ay_adi(ay)} "
+                    f"sonunda bitiyor, takvim yılıyla örtüşmüyor; "
+                    f"bu yüzden dönemi ay adlarıyla yazılıyor.")
+    iso = (v.get("bitis") or {}).get(kod)
+    ana = v.get("ana_donem") or ""
+    if not iso or iso == ana:
+        return (v.get("medyan") or {}, v.get("sirket_sayisi") or 0,
+                v["donem"], mali_not)
+    g = (v.get("donem_gruplari") or {}).get(iso) or {}
+    return (g.get("medyan") or {}, g.get("sirket_sayisi") or 0,
+            g.get("donem") or bilanco_ag.donem_adi(
+                iso, bilanco_ag.VARSAYILAN_CEYREK), mali_not)
+
+
 def sirket_isle(kod, bilgi, sektor, donem, oran, medyan, n,
-                kuru=False) -> tuple[bool, str]:
+                kuru=False, mali_not="") -> tuple[bool, str]:
+    alt_sektor = bilgi.get("alt_sektor") or ""
     d, once, eksik = bilanco_ag.donem_getir(
         kod, donem, sektor_tr=sektor, ciftli=True)
     if d is None:
@@ -284,7 +353,8 @@ def sirket_isle(kod, bilgi, sektor, donem, oran, medyan, n,
         return False, f"yorum yok: {sebep}"
 
     govde = govde_kur(kod, bilgi["unvan"], sektor, donem, d, oran,
-                      medyan, n, metin, once=once)
+                      medyan, n, metin, mali_not=mali_not,
+                      alt_sektor=alt_sektor, once=once)
 
     tamam, bulgular = guvenlik.yayinlanabilir(govde)
     if not tamam:
@@ -635,14 +705,29 @@ def main() -> int:
         #
         # Artik kod VE donem birlikte, ON BILGIDEN araniyor
         # (bkz. `_yayimlanmis`).
-        if (kod.upper(), v["donem"]) in var:
+        # KIYAS KUMESI SIRKETE GORE -- bkz. `kiyas_kumesi`.
+        # Takvim disi mali yila sahip sirket kendi takvimindekilerle
+        # kiyaslaniyor ve donem adini ay adlariyla aliyor.
+        _medyan, _n, _donem, _mali_not = kiyas_kumesi(v, kod)
+        if (kod.upper(), _donem) in var:
             atlanan += 1
             sebepler["zaten yayımlanmış"] = \
                 sebepler.get("zaten yayımlanmış", 0) + 1
             continue
-        ok, not_ = sirket_isle(kod, bilgi, sektor, v["donem"], oran,
-                               v["medyan"], v["sirket_sayisi"],
-                               kuru=n.kuru_calis)
+        # KIYASSIZ SAYFA YAZILMIYOR.
+        #
+        # Takvim grubunda `sektor_ozet.EN_AZ_SIRKET` kadar sirket
+        # yoksa medyan URETILMIYOR ve sayfa "Sektör içindeki konum"
+        # bolumu olmadan cikardi. Oranlar tablosu bos bir sutunla
+        # yayimlanmaktansa sayfa beklesin: grup doldukca uretilir.
+        if not _medyan:
+            atlanan += 1
+            sebepler["kıyas kümesi yetersiz"] = \
+                sebepler.get("kıyas kümesi yetersiz", 0) + 1
+            continue
+        ok, not_ = sirket_isle(kod, bilgi, sektor, _donem, oran,
+                               _medyan, _n, kuru=n.kuru_calis,
+                               mali_not=_mali_not)
         if ok:
             yazilan += 1
             print(f"  {kod:<8}{not_}")

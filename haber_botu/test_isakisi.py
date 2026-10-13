@@ -548,21 +548,35 @@ for p_ in dosyalar:
 # icinde tutuyor ve yeni ceyregi ancak ONCEKI degerle karsilastirarak
 # goruyor. Dosya listede olmadigi surece her kosu "ilk gorulme" sayar
 # ve nobetci hicbir zaman tetiklemez.
+#: Kosular arasinda YASAMASI gereken durum dosyalari. Her biri IKI
+#: listede de bulunmali: `YOLLAR` (neyi asamaya al) ve `KACAK` kapisi
+#: (asamada ne BULUNABILIR).
+#:
+#: `bilanco_miras_bozuk.json` circirin kendisi: onarilan sayfa
+#: listeden cikariliyor ve bu budama geri yazilmazsa her kosuda
+#: kayboluyor -- yani 204 sayfa kalici olarak korumasiz kalirdi.
+_YASAMASI_GEREKEN = (
+    ("haber_botu/kaynak/bilanco_nobet.json", "bilanco_nobet",
+     "nöbet defteri"),
+    ("site/bilanco_miras_bozuk.json", "bilanco_miras_bozuk",
+     "miras listesi"),
+)
+
 _akislar = (KOK / ".github" / "workflows")
 for _ad in ("otomasyon.yml", "bilanco.yml"):
     _m = (_akislar / _ad).read_text(encoding="utf-8")
-    dogru(f"{_ad}: nobet defteri geri yazma listesinde",
-          "haber_botu/kaynak/bilanco_nobet.json" in _m)
-    # IKI LISTE VAR -- IKISI DE GUNCELLENMELI.
-    #
-    # `YOLLAR` neyi ASAMAYA ALACAGINI, kapi ise asamada NE
-    # BULUNABILECEGINI soyluyor. 2026-10-13'te `bilanco.yml` tam
-    # burada dustu: dosya birinci listeye eklenmis, kapiya
-    # eklenmemisti ve kosu "beklenmeyen dosya asamada" diyerek
-    # DURDU. Kapi dogru calisti; eksik olan ikinci listeydi.
-    dogru(f"{_ad}: nobet defteri KAPIDAN da geciyor",
-          "bilanco_nobet" in _m.split("KACAK=")[-1][:400]
-          if "KACAK=" in _m else True)
+    _kapi = _m.split("KACAK=")[-1][:600] if "KACAK=" in _m else ""
+    for _yol, _iz, _anlam in _YASAMASI_GEREKEN:
+        dogru(f"{_ad}: {_anlam} geri yazma listesinde", _yol in _m)
+        # IKI LISTE VAR -- IKISI DE GUNCELLENMELI.
+        #
+        # `YOLLAR` neyi ASAMAYA ALACAGINI, kapi ise asamada NE
+        # BULUNABILECEGINI soyluyor. 2026-10-13'te `bilanco.yml` tam
+        # burada dustu: dosya birinci listeye eklenmis, kapiya
+        # eklenmemisti ve kosu "beklenmeyen dosya asamada" diyerek
+        # DURDU. Kapi dogru calisti; eksik olan ikinci listeydi.
+        dogru(f"{_ad}: {_anlam} KAPIDAN da geciyor",
+              _iz in _kapi if _kapi else True)
 
 # NOBETCI CEKIMDEN ONCE KOSMALI -- sonra kossaydi bayrak bir sonraki
 # kosuya kadar islenmezdi ve "geldikce cikalim" bir tur gecikirdi.

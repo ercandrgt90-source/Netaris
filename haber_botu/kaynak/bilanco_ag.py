@@ -219,6 +219,33 @@ def sifirla() -> None:
 #: edilebilir sapma. Yuvarlamadan buyugu hesap hatasidir.
 SAPMA_ORANI = 0.01
 
+#: Ingilizce ay kisaltmasi -> ay numarasi. Kaynak "May 31, 2026"
+#: biciminde yaziyor; donem bitis tarihini cozmek icin gerekli.
+_AY_NO = {
+    "Jan": 1, "Feb": 2, "Mar": 3, "Apr": 4, "May": 5, "Jun": 6,
+    "Jul": 7, "Aug": 8, "Sep": 9, "Oct": 10, "Nov": 11, "Dec": 12,
+}
+
+#: KAC CEYREK TOPLANACAK -- TEK KAYNAK.
+#:
+#: OLCULDU (2026-10-13), GERCEK BIR KUSUR:
+#: Bu sayi IKI YERDE ayri ayri belirleniyordu ve UYUSMUYORLARDI.
+#:   * `uret_bilanco --ceyrek` varsayilani 1  -> oranlar ve sektor
+#:     medyani TEK ceyrekten hesaplaniyordu,
+#:   * `donem_getir`/`ara_donem` varsayilani 2 -> sayfadaki TL
+#:     seviyeleri ALTI AYLIK geliyordu.
+#: Ikisini de kimse acikca vermiyordu (ne `calistir.py` ne CI).
+#:
+#: Sonuc: ALCTL sayfasinda (2026-2-ceyrek-alctl.md) "2026 2. çeyrek
+#: dönemi ölçümleri" basligi altinda hasilat 1,87 milyar yaziyor ama
+#: hemen altindaki brut marj %4,4 -- seviye tablosundan hesaplanan
+#: %7,5 degil. Cunku biri alti ayin toplami, oteki tek ceyregin.
+#: Ayni sayfada IKI AYRI DONEM, tek etiketle.
+#:
+#: Ceyreklik dogru olan: `ceyrek_etiketi` gerekcesi orada yazili.
+#: Artik tek yerde duruyor ve ikisi de buradan okuyor.
+VARSAYILAN_CEYREK = 1
+
 #: Sayfa -> hangi tablo. Bilanco ve gelir tablosu AYRI sayfalarda.
 SAYFALAR = {
     "gelir": "?p=quarterly",
@@ -252,12 +279,19 @@ def _sayi(ham: str) -> float | None:
         return None
 
 
-def _tablo(metin: str) -> tuple[list[str], dict[str, list[float | None]]]:
-    """HTML tablosunu (donemler, kalem -> degerler) haline getirir."""
+def _tablo(metin: str) -> tuple[list[str], dict[str, list[float | None]],
+                               list[str]]:
+    """HTML tablosunu (donemler, kalem -> degerler, bitis tarihleri).
+
+    Tarihler `donemler` ile AYNI sirada ve ISO biciminde. Kaynakta
+    okunamayan bir hucre varsa o konumda bos dizge duruyor -- liste
+    kaymasin, hizalama bozulmasin diye atlanmiyor.
+    """
     g = html.unescape(
         re.sub(r"<(script|style)[^>]*>.*?</\1>", " ", metin, flags=re.S))
     donemler: list[str] = []
     kalemler: dict[str, list[float | None]] = {}
+    tarihler: list[str] = []
 
     for satir in re.findall(r"<tr[^>]*>(.*?)</tr>", g, re.S):
         hucre = [re.sub(r"<[^>]+>", "", h).strip()
@@ -270,6 +304,43 @@ def _tablo(metin: str) -> tuple[list[str], dict[str, list[float | None]]]:
             donemler = hucre[1:]
             continue
         if ad.startswith("Period Ending"):
+            # DONEM BITIS TARIHLERI -- ETIKETTEN DAHA GUVENILIR.
+            #
+            # Kaynagin "Q3 2026" etiketi MALI ceyregi gosteriyor ve
+            # takvim disi mali yili olan sirkette takvim ceyregine
+            # denk DUSMUYOR. Olculdu (2026-10-13), spor kulupleri --
+            # mali yillari 31 Mayis'ta bitiyor:
+            #
+            #   GSRAY  Q4 2026 etiketi  ->  gercek bitis 2026-05-31
+            #   THYAO  Q2 2026 etiketi  ->  gercek bitis 2026-06-30
+            #
+            # Tarih tek basina kesin: hangi donem oldugu, hangi mali
+            # takvime ait oldugu ve gercekten bitip bitmedigi
+            # tarihten okunuyor. Etiket ise yoruma acik.
+            #
+            # Hucre hem mobil hem masaustu bicimini tasiyor
+            # ("May '26 May 31, 2026"); uzun bicim ayiklaniyor.
+            #
+            # SATIR BIRDEN COK KEZ GECIYOR -- OLCULDU (2026-10-13).
+            #
+            # Ilk yazim her bulusta listeye EKLIYORDU. Gercek sayfada
+            # "Period Ending" satiri her tablo bolumunde bir kez
+            # tekrarlaniyor: GSRAY sayfasinda 20 donem icin 101 tarih
+            # toplandi ve `mali_yil_sonu` uzunluk uyusmazligi yuzunden
+            # None dondu. Yani sentetik ornegim gercegi yansitmiyordu.
+            #
+            # Artik EKLEMIYOR, ATIYOR -- `donemler` ile ayni davranis.
+            # Ustelik yalnizca basliklarla AYNI SAYIDA hucre tasiyan
+            # satir kabul ediliyor; hizalamasi bozuk bir satir sessizce
+            # kabul edilmiyor.
+            satir_tarih = []
+            for h in hucre[1:]:
+                m = re.search(r"([A-Z][a-z]{2}) (\d{1,2}), (\d{4})", h)
+                satir_tarih.append(
+                    f"{m.group(3)}-{_AY_NO[m.group(1)]:02d}-"
+                    f"{int(m.group(2)):02d}" if m else "")
+            if donemler and len(satir_tarih) == len(donemler):
+                tarihler = satir_tarih
             continue
         # KALEM ADI KENDI "Growth" IKIZINI TASIYOR.
         #
@@ -289,11 +360,12 @@ def _tablo(metin: str) -> tuple[list[str], dict[str, list[float | None]]]:
         degerler = [_sayi(h) for h in hucre[1:]]
         if ad and any(d is not None for d in degerler):
             kalemler.setdefault(ad, degerler)
-    return donemler, kalemler
+    return donemler, kalemler, tarihler
 
 
 def cek(kod: str, sayfa: str = "gelir",
-        istemci: httpx.Client | None = None) -> tuple[list[str], dict]:
+        istemci: httpx.Client | None = None,
+        tarih_de: bool = False) -> tuple:
     """Bir sirketin bir tablosunu ceker. Basarisizsa BOS doner.
 
     Bos donmesi sorun degil: cagiran taraf elle girisi kullanmaya
@@ -302,6 +374,12 @@ def cek(kod: str, sayfa: str = "gelir",
     """
     if sayfa not in SAYFALAR:
         raise ValueError(f"bilinmeyen sayfa: {sayfa}")
+    # ESKI CAGIRANLAR IKILI BEKLIYOR.
+    #
+    # Donem bitis tarihleri sonradan eklendi. Donus bicimini
+    # degistirmek, tarihe ihtiyaci olmayan her cagirani sessizce
+    # bozardi; bu yuzden ucuncu deger yalnizca ISTENDIGINDE var.
+    bos: tuple = ([], {}, []) if tarih_de else ([], {})
     u = UC.format(kod=kod.upper(), sayfa=SAYFALAR[sayfa])
     # KAPALI KAPIYA ISTEK ATILMIYOR.
     #
@@ -310,7 +388,7 @@ def cek(kod: str, sayfa: str = "gelir",
     # yine tutuluyor ki dokumde NEDEN eksik oldugu gorunsun.
     if KAPANDI:
         OKUNAMAYAN.append((f"{kod}/{sayfa}", "kaynak kapandi"))
-        return [], {}
+        return bos
     al = (istemci or httpx).get
     son_hata = "?"
     son_yavaslatan = False
@@ -350,11 +428,14 @@ def cek(kod: str, sayfa: str = "gelir",
             break
         else:
             _gecti()
-            return _tablo(r.text)
+            donemler, kalemler, tarihler = _tablo(r.text)
+            if tarih_de:
+                return donemler, kalemler, tarihler
+            return donemler, kalemler
     OKUNAMAYAN.append((f"{kod}/{sayfa}", son_hata))
     if son_yavaslatan:
         _reddedildi()
-    return [], {}
+    return bos
 
 
 def donem_toplami(degerler: list[float | None], ceyrek: int,
@@ -394,17 +475,47 @@ def donem_toplami(degerler: list[float | None], ceyrek: int,
     return sum(pencere)          # type: ignore[arg-type]
 
 
-def ara_donem(kod: str, ceyrek: int = 2,
-              istemci: httpx.Client | None = None) -> dict[str, dict]:
+def ara_donem(kod: str, ceyrek: int = VARSAYILAN_CEYREK,
+              istemci: httpx.Client | None = None,
+              bugun=None) -> dict[str, dict]:
     """Sirketin KAP ara donemine denk gelen kalemlerini doner.
 
     Donen yapi:  {"gelir": {kalem: deger}, "bilanco": {...}, ...}
     Cekilemeyen tablo ATLANIR, digerleri doner -- kismi veri hicten
     iyidir, ama hangi tablonun eksik oldugu `OKUNAMAYAN`da yaziyor.
+
+    `_mali` anahtari sirketin MALI TAKVIMINI tasiyor (gelir
+    tablosundan, EK ISTEK OLMADAN). Takvimi bilmek sart: takvim disi
+    mali yila sahip sirketin donemi takvim ceyregine denk dusmuyor ve
+    takvim ceyregiyle kurulmus sektor medyaniyla kiyaslanamaz.
     """
+    import datetime as _dt                          # noqa: PLC0415
+    sinir = (bugun or _dt.date.today()).isoformat()
     cikti: dict[str, dict] = {}
     for sayfa in SAYFALAR:
-        donemler, kalemler = cek(kod, sayfa, istemci)
+        donemler, kalemler, tarihler = cek(kod, sayfa, istemci,
+                                           tarih_de=True)
+        if sayfa == "gelir":
+            cikti["_mali"] = {
+                "yil_sonu_ayi": mali_yil_sonu(donemler, tarihler),
+                "son_bitis": tarihler[0] if tarihler else None,
+            }
+        # BITMEMIS DONEM TOPLANMAZ.
+        #
+        # Kaynak gelecekte biten kolon yazabiliyor. `donem_toplami`
+        # EN YENI ceyrekten baslayarak topluyor, yani boyle bir kolon
+        # varsa ara donem bitmemis bir ceyregi iceriyor. En ustteki
+        # kolonlar tarihleri gecmise dusene kadar KIRPILIYOR; kirpma
+        # kalem degerlerine de uygulaniyor ki hizalama bozulmasin.
+        at = 0
+        if len(tarihler) == len(donemler):
+            while at < len(tarihler) and tarihler[at] > sinir:
+                at += 1
+        if at:
+            donemler = donemler[at:]
+            tarihler = tarihler[at:]
+            kalemler = {ad: d[at:] for ad, d in kalemler.items()}
+            cikti.setdefault("_kirpilan", {})[sayfa] = at
         if not kalemler:
             continue
         akis = sayfa in AKIS_SAYFALARI
@@ -420,10 +531,20 @@ def ara_donem(kod: str, ceyrek: int = 2,
         # Bu olmadan sayfa yalnizca SEVIYE anlatabiliyor ("hasilat
         # 662 milyar"). Okurun sordugu soru ise degisim: artti mi,
         # ne kadar. Karsilastirma olmadan "artti" denemez.
-        cikti[sayfa + "_onceki"] = {
-            ad: d for ad, deg in kalemler.items()
-            if (d := donem_toplami(deg, ceyrek, akis, kaydir=4)) is not None
-        }
+        #
+        # KAYDIRMA TARIHTEN BULUNUYOR, SAYILMIYOR -- gerekcesi
+        # `onceki_yil_kaydirmasi` uzerinde yazili (seride boskuk olan
+        # sirkette sabit 4, on bes ay oncesini gosteriyordu).
+        kaydir = onceki_yil_kaydirmasi(tarihler, ceyrek)
+        if kaydir is None:
+            cikti.setdefault("_onceki_yok", {})[sayfa] = (
+                "önceki yılın aynı dönemi kaynakta yok")
+        else:
+            cikti[sayfa + "_onceki"] = {
+                ad: d for ad, deg in kalemler.items()
+                if (d := donem_toplami(deg, ceyrek, akis,
+                                       kaydir=kaydir)) is not None
+            }
         cikti.setdefault("_donem", {})[sayfa] = donemler[:ceyrek]
         if not KAPANDI:
             time.sleep(ARA_SN)
@@ -617,7 +738,8 @@ def yeterli(donem: dict, sektor_tr: str = "") -> tuple[bool, list[str]]:
     eksik = [a for a in beklenen if donem.get(a) is None]
     return (not eksik), eksik
 
-def donem_getir(kod: str, etiket: str, ceyrek: int = 2,
+def donem_getir(kod: str, etiket: str,
+                ceyrek: int = VARSAYILAN_CEYREK,
                 sektor_tr: str = "", istemci=None, ciftli: bool = False):
     """Sirketin bir ara donemini `oranlar.Donem` olarak doner.
 
@@ -760,6 +882,219 @@ def makul_ceyrek(c, bugun=None) -> bool:
     # Ceyregin son gunu: o ayin bitisi. Gun tam dogrulugu gereksiz --
     # bir gun once/sonra karari degistirmiyor, ay yeterli.
     return (yil, ay) <= (bugun.year, bugun.month)
+
+
+#: Mali yil bitis ayi -> Turkce ad. Gruplama adlarinda kullaniliyor.
+_AY_ADI = {
+    1: "ocak", 2: "şubat", 3: "mart", 4: "nisan", 5: "mayıs",
+    6: "haziran", 7: "temmuz", 8: "ağustos", 9: "eylül",
+    10: "ekim", 11: "kasım", 12: "aralık",
+}
+
+
+#: Mali takvimin guvenilir sayilmasi icin en yeniden baslayarak kac
+#: kolonun ayni cevabi vermesi gerektigi. Tek kolon her zaman
+#: kendisiyle uyusur; esigin anlami olmasi icin en az ucu gerekiyor.
+_EN_AZ_UYUSAN = 3
+
+
+def mali_yil_sonu(donemler: list[str],
+                  tarihler: list[str]) -> int | None:
+    """Sirketin mali yilinin bittigi AY; cozulemezse None.
+
+    NEDEN ETIKET YETMIYOR -- OLCULDU (2026-10-13)
+    ---------------------------------------------
+    Kaynagin "Q3 2026" etiketi MALI ceyregi gosteriyor. Takvim disi
+    mali yili olan sirkette bu takvim ceyregi DEGIL:
+
+        GSRAY  Q3 2026  ->  gercek bitis 2026-02-28
+        THYAO  Q3 2026  ->  gercek bitis 2026-09-30
+
+    Etiketle tarihi birlikte okuyunca mali takvim cikiyor: n. ceyrek
+    bittiginde yil sonuna (4-n) ceyrek, yani 3*(4-n) ay kalmistir.
+    Ay sayisi 12'yi asabilecegi icin hesap sifir tabanli yapiliyor
+    (once 1 cikar, bolumden sonra geri ekle):
+
+        GSRAY  Q3, bitis ayi 2  ->  (2-1 + 3) % 12 + 1 =  5  mayis
+        THYAO  Q3, bitis ayi 9  ->  (9-1 + 3) % 12 + 1 = 12  aralik
+
+    SIRKET MALI YILINI DEGISTIREBILIYOR -- OLCULDU (2026-10-13).
+    Ilk yazim BUTUN kolonlarin ayni cevabi vermesini sart kosuyordu
+    ve bu, mali yilini degistirmis sirketi tumden eliyordu:
+
+        ARENA  son 8 kolon mart sonu, oncesi 11 kolon aralik
+        BALSU  son 6 kolon haziran sonu, oncesi 3 kolon aralik
+
+    Gecmisteki takvim bizi ilgilendirmiyor; SON donem hangi takvime
+    aitse o. Bu yuzden EN YENIDEN baslayan, birbiriyle uyusan dizi
+    aliniyor ve o dizinin en az `_EN_AZ_UYUSAN` kolon olmasi
+    isteniyor -- tek kolonla "uyusuyor" demek, denetimi tumden
+    kaldirmak olurdu.
+    """
+    if not donemler or len(donemler) != len(tarihler):
+        # UZUNLUK ESIT DEGILSE HIZALAMA GUVENILMEZ.
+        #
+        # Iki satir ayni hucre suzgecinden geciyor; bos bir hucre
+        # birinde eksildiyse etiket-tarih eslesmesi KAYAR ve yanlis
+        # mali takvim uretir. Sessiz kaymaya izin verilmiyor.
+        return None
+    dizi: list[int] = []
+    for etiket, iso in zip(donemler, tarihler):
+        c = donem_coz(etiket)
+        if not c or not iso:
+            continue
+        try:
+            ay = int(iso[5:7])
+        except ValueError:
+            continue
+        if not 1 <= ay <= 12:
+            continue
+        dizi.append((ay - 1 + 3 * (4 - int(c[1]))) % 12 + 1)
+    if not dizi:
+        return None
+    # EN YENI KOLON BASTA. Ondan baslayarak ayni cevabi veren kolonlar
+    # sayiliyor; ilk farkli cevapta duruluyor (takvim degisimi).
+    ay = dizi[0]
+    uyusan = 0
+    for a in dizi:
+        if a != ay:
+            break
+        uyusan += 1
+    if uyusan < min(_EN_AZ_UYUSAN, len(dizi)) or uyusan < 2:
+        return None
+    return ay
+
+
+#: Onceki yilin ayni donemi icin kabul edilen sapma (ay).
+#: Ceyrek bitisleri 28-31 gun arasi degistigi icin tam 12 ay
+#: beklemek gereksiz katilik; 11-13 arasi ayni donem sayiliyor.
+ONCEKI_YIL_SAPMASI = 1
+
+
+def _ay_sayisi(iso: str) -> int:
+    """ISO tarihi mutlak ay sayisina cevirir (karsilastirma icin)."""
+    return int(iso[:4]) * 12 + int(iso[5:7])
+
+
+def onceki_yil_kaydirmasi(tarihler: list[str],
+                          ceyrek: int = 1) -> int | None:
+    """Onceki yilin ayni donemi KACINCI kolonda; yoksa None.
+
+    NEDEN SABIT 4 DEGIL -- OLCULDU (2026-10-13)
+    -------------------------------------------
+    Kod "dort kolon geri = bir yil once" varsayiyordu. Kaynagin
+    ceyreklik serisinde BOSLUK olabiliyor ve o zaman varsayim
+    sessizce yanlis donemi gosteriyor:
+
+        TTKOM  4 kolon geri -> 12 ay once   dogru
+        ARENA  4 kolon geri -> 12 ay once   dogru
+        BALSU  4 kolon geri -> 15 AY once   YANLIS (2025-12-31 kolonu yok)
+        GSRAY  4 kolon geri -> 15 AY once   YANLIS (2025-11-30 kolonu yok)
+
+    Yani GSRAY sayfasinda "bir yil oncesine gore" basligi altinda
+    on bes ay oncesiyle kiyas yayimlanirdi. Sayi dogru, ETIKET
+    yanlis -- ve okur etikete inanir.
+
+    Artik kolon TARIHTEN bulunuyor: bitisi 11-13 ay once olan kolon
+    aranıyor. Yoksa None doner ve karsilastirma HIC yapilmaz;
+    yanlis bir kiyas, eksik bir kiyastan kotudur.
+
+    Kumulatif donemde (ceyrek > 1) ayrica pencerenin KESIKSIZ olmasi
+    isteniyor: arada eksik kolon varsa toplam bir yili anlatmaz.
+    """
+    if not tarihler or not tarihler[0]:
+        return None
+    hedef = _ay_sayisi(tarihler[0]) - 12
+    for i, iso in enumerate(tarihler):
+        if not iso:
+            continue
+        if abs(_ay_sayisi(iso) - hedef) > ONCEKI_YIL_SAPMASI:
+            continue
+        pencere = tarihler[i:i + max(1, ceyrek)]
+        if len(pencere) < max(1, ceyrek) or not all(pencere):
+            return None
+        # Pencere icindeki kolonlar ardisik ceyrekler olmali.
+        for a, b in zip(pencere, pencere[1:]):
+            if not 2 <= _ay_sayisi(a) - _ay_sayisi(b) <= 4:
+                return None
+        return i
+    return None
+
+
+def ay_adi(ay: int | None) -> str:
+    """Ay numarasindan Turkce ay adi; cozulemezse bos dizge.
+
+    Sayfa metni mali yilin bittigi ayi yaziyor ve bu ad TEK YERDE
+    tutulmali: `_AY_ADI`ya modul disindan erismek, ozel bir adi
+    sozlesme gibi kullanmak olurdu.
+    """
+    return _AY_ADI.get(ay or 0, "")
+
+
+def donem_adi(bitis_iso: str, ceyrek_sayisi: int = 1) -> str:
+    """Bitis tarihinden okunabilir donem adi: "2026 haziran–ağustos dönemi".
+
+    NEDEN CEYREK NUMARASI DEGIL
+    ---------------------------
+    Takvim disi mali yila sahip sirkette kaynagin ceyrek numarasi
+    MALI numara. Spor kuluplerinin haziran-agustos donemi kaynakta
+    "Q1 2027" diye etiketli; bunu okura "2027 1. çeyrek" diye
+    yazmak Ekim 2026'da duz yanlis okunur -- henuz yasanmamis bir
+    donem gibi gorunur.
+
+    Ay adlari hem dogru hem tek anlamli: hangi uc ay oldugunu
+    soyluyor ve mali takvim bilgisi gerektirmiyor. Ayrica donem
+    ANAHTARI olarak da tekil -- sayfa tekrar uretimi buna dayaniyor.
+    """
+    yil, ay = int(bitis_iso[:4]), int(bitis_iso[5:7])
+    toplam = 3 * max(1, int(ceyrek_sayisi))
+    # Aylar mutlak sayiya cevriliyor: yil atlamasi (aralik->subat)
+    # boylece kendiliginden dogru cikiyor.
+    bas = (yil * 12 + ay - 1) - (toplam - 1)
+    bas_yil, bas_ay = divmod(bas, 12)
+    bas_ay += 1
+    if bas_yil == yil:
+        return f"{yil} {_AY_ADI[bas_ay]}–{_AY_ADI[ay]} dönemi"
+    return (f"{bas_yil} {_AY_ADI[bas_ay]}–{yil} {_AY_ADI[ay]} dönemi")
+
+
+def mali_takvim(kod: str, istemci=None, bugun=None) -> dict | None:
+    """Sirketin mali takvimi ve EN YENI GERCEKLESMIS donemi.
+
+    Doner: `yil_sonu_ayi`, `takvim_disi`, `son_bitis` (ISO),
+    `son_etiket` (yil, ceyrek) -- veya cozulemezse None.
+
+    `son_donem`den farki: etiketin takvim ceyregi olmasini SART
+    kosmuyor. Takvim disi mali yila sahip sirket burada ELENMIYOR,
+    kendi takvimiyle birlikte donuyor; kiyaslamasi ayni takvimdeki
+    sirketlerle yapiliyor.
+    """
+    import datetime as _dt                          # noqa: PLC0415
+    bugun = bugun or _dt.date.today()
+    donemler, _, tarihler = cek(kod, "gelir", istemci, tarih_de=True)
+    ay = mali_yil_sonu(donemler, tarihler)
+    if ay is None:
+        return None
+    sinir = bugun.isoformat()
+    # BITMEMIS DONEM AYIKLANIYOR -- TARIHTEN, ETIKETTEN DEGIL.
+    #
+    # Kaynak gelecekte biten kolonlari da yaziyor (ARENA "Q1 2027").
+    # Eski olcut etiketin ayini tahmin ediyordu ve takvim disi
+    # sirkette yanilmasi kacinilmazdi. ISO tarih dizgesel olarak
+    # siralanabilir, bu yuzden kiyas tek satir.
+    gecmis = [(e, t) for e, t in zip(donemler, tarihler)
+              if t and t <= sinir and donem_coz(e)]
+    if not gecmis:
+        return None
+    gecmis.sort(key=lambda p: p[1], reverse=True)
+    etiket, bitis = gecmis[0]
+    return {
+        "yil_sonu_ayi": ay,
+        "takvim_disi": ay != 12,
+        "son_bitis": bitis,
+        "son_etiket": donem_coz(etiket),
+    }
+
 
 
 def son_donem(kod: str, istemci=None, bugun=None) -> tuple[int, int] | None:

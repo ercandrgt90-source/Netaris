@@ -316,6 +316,15 @@ def sektor_isle(sektor_tr: str, donem_etiketi: str, ceyrek: int = 2,
 
     olculen: dict[str, dict] = {}
     atlanan: list[tuple[str, str]] = []
+    #: kod -> mali yilin bittigi ay. Medyan gruplari bundan kuruluyor.
+    mali: dict[str, int | None] = {}
+    #: kod -> donem bitis tarihi (ISO). Takvim disi sirkette donem
+    #: adi buradan uretiliyor; takvim ceyregi onlar icin yanlis.
+    bitis: dict[str, str] = {}
+    #: Onceki yilin ayni donemi kaynakta bulunamayan sirketler.
+    onceki_yok: list[str] = []
+    #: Bitmemis kolonu kirpilan sirketler.
+    kirpilan: list[str] = []
 
     for kod, bilgi in sirketler:
         tablolar = bilanco_ag.ara_donem(kod, ceyrek)
@@ -338,21 +347,109 @@ def sektor_isle(sektor_tr: str, donem_etiketi: str, ceyrek: int = 2,
 
         d = oranlar.Donem(etiket=donem_etiketi, **alanlar)
         olculen[kod] = _oranlari(d)
+        _m = tablolar.get("_mali") or {}
+        mali[kod] = _m.get("yil_sonu_ayi")
+        if _m.get("son_bitis"):
+            bitis[kod] = _m["son_bitis"]
+        # OLCULEN SEY DOKUME GIRIYOR.
+        #
+        # `ara_donem` iki ayrintiyi daha biliyor: bitmemis kolon
+        # kirpildi mi, onceki yilin ayni donemi bulundu mu. Ikisi de
+        # sayfanin ICERIGINI degistiriyor (degisim bolumu olmayabilir)
+        # ve sessizce gecerse "neden bu sayfada degisim yok" sorusu
+        # cevapsiz kalir.
+        if tablolar.get("_onceki_yok"):
+            onceki_yok.append(kod)
+        if tablolar.get("_kirpilan"):
+            kirpilan.append(kod)
         print(f"  {kod:<8}ölçüldü")
         time.sleep(ARA_SN)
 
-    medyanlar = sektor_ozet.sektor_medyanlari(olculen)
+    # MEDYAN AYNI DONEMI BILDIRENLERDEN KURULUYOR.
+    #
+    # OLCUT MALI YIL SONU DEGIL, DONEMIN BITIS TARIHI. Once mali yil
+    # sonuna gore gruplanmisti; olcum bunun yanlis ayrim oldugunu
+    # gosterdi (2026-10-13, kaynaktan okunan gercek tarihler):
+    #
+    #   TTKOM  yil sonu aralik  -> son donem bitisi 2026-06-30
+    #   THYAO  yil sonu aralik  -> son donem bitisi 2026-06-30
+    #   ARENA  yil sonu mart    -> son donem bitisi 2026-06-30
+    #   BALSU  yil sonu haziran -> son donem bitisi 2026-06-30
+    #   GSRAY  yil sonu mayis   -> son donem bitisi 2026-05-31
+    #
+    # ARENA'nin mali takvimi farkli ama bildirdigi UC AY aynı:
+    # nisan-haziran. Onu TTKOM'dan ayirmak gereksiz bir ayrim olurdu.
+    # Kulupler ise gercekten baska bir araligi bildiriyor
+    # (mart-mayis) ve ayrilmalari gerekiyor.
+    #
+    # Kiyaslanabilirligi belirleyen sey hangi UC AYIN olculdugu;
+    # sirketin mali yilini nerede bitirdigi degil.
+    #
+    # NEDEN ONEMLI -- OLCULDU, YAYINDAYDI:
+    # İletişim sektorunun brut marj medyani -%32,03 idi. Sektordeki
+    # alti sirketten ucu futbol kulubu ve onlarin donemi lig
+    # oynanmayan aylara denk geliyordu. Yalnizca ayni donemi
+    # bildirenlerle medyan +%24,94. Elli yedi puan fark, canli
+    # sayfalarda.
+    #
+    # ANA DONEM = sektorde EN COK sirketin bildirdigi bitis tarihi.
+    # Sektorun etiketi ve medyani ondan kuruluyor; digerleri kendi
+    # gruplarini aliyor.
+    #
+    # ISPAT YUKU AYRIM YAPANDA. Bitis tarihi COZULEMEYEN sirket (tarih
+    # satiri okunamadi, kaynak reddetti) ana grupta KALIYOR. Aksi
+    # halde kaynaktaki gecici bir aksaklik medyani sessizce
+    # bosaltirdi -- yanlis kiyas kadar kotu bir sonuc.
+    import collections                              # noqa: PLC0415
+    sayim = collections.Counter(bitis.get(k) for k in olculen
+                                if bitis.get(k))
+    # Esitlikte EN YENI donem kazaniyor: sektorun gittigi yon o.
+    ana_donem = max(sayim, key=lambda t: (sayim[t], t)) if sayim else ""
+    ana = {k: v for k, v in olculen.items()
+           if bitis.get(k) in (None, "", ana_donem)}
+    medyanlar = sektor_ozet.sektor_medyanlari(ana)
     print(f"  -> {len(olculen)} şirket ölçüldü, {len(atlanan)} atlandı")
+    if kirpilan:
+        print(f"  -> bitmemiş dönem kırpıldı: {len(kirpilan)} şirket "
+              f"({', '.join(sorted(kirpilan)[:6])})")
+    if onceki_yok:
+        print(f"  -> önceki yılın aynı dönemi YOK: {len(onceki_yok)} "
+              f"şirket ({', '.join(sorted(onceki_yok)[:6])}) "
+              f"-- değişim bölümü üretilmeyecek")
+    if ana_donem:
+        print(f"  -> ana dönem {ana_donem}: {len(ana)} şirket")
     if not medyanlar:
         print(f"  -> medyan URETILMEDI (en az {sektor_ozet.EN_AZ_SIRKET} "
               f"şirket gerekiyor)")
+
+    gruplar: dict[str, dict] = {}
+    for iso in sorted({t for t in sayim if t != ana_donem}, reverse=True):
+        uyeler = {k: v for k, v in olculen.items() if bitis.get(k) == iso}
+        g_medyan = sektor_ozet.sektor_medyanlari(uyeler)
+        gruplar[iso] = {
+            "donem": bilanco_ag.donem_adi(iso, ceyrek),
+            "sirket_sayisi": len(uyeler),
+            "medyan": g_medyan,
+            "kodlar": sorted(uyeler),
+        }
+        print(f"  -> {bilanco_ag.donem_adi(iso, ceyrek)}: "
+              f"{len(uyeler)} şirket, medyan "
+              f"{'var' if g_medyan else 'YOK'}")
     return {
         "sektor": sektor_tr,
         "donem": donem_etiketi,
-        "sirket_sayisi": len(olculen),
+        "sirket_sayisi": len(ana),
         "medyan": medyanlar,
         "sirket": olculen,
         "atlanan": atlanan,
+        "ana_donem": ana_donem,
+        "bitis": bitis,
+        "onceki_yok": sorted(onceki_yok),
+        "kirpilan": sorted(kirpilan),
+        #: Mali yil sonu AYRIM OLCUTU DEGIL -- yalnizca aciklama
+        #: icin tutuluyor (sayfada "mali yili mayista biten sirket").
+        "mali": {k: v for k, v in mali.items() if v and v != 12},
+        "donem_gruplari": gruplar,
     }
 
 
@@ -394,7 +491,8 @@ def main() -> int:
     # bir Q1, zayif bir Q2'yi ortuyor. Ceyreklik hesap ayrica yillik
     # karsilastirmayi keskinlestiriyor -- Q2'ye karsi gecen yil Q2,
     # alti aya karsi alti ay degil.
-    a.add_argument("--ceyrek", type=int, default=1)
+    a.add_argument("--ceyrek", type=int,
+                   default=bilanco_ag.VARSAYILAN_CEYREK)
     a.add_argument("--sinir", type=int, help="sektör başına en fazla şirket")
     a.add_argument("--kuru-calis", action="store_true", help="dosyaya yazma")
     a.add_argument("--butce-dk", type=float, default=SURE_BUTCESI_DK,

@@ -59,6 +59,7 @@ _gecti = 0
 #: islevi sinamak istiyordu ama elinde hala sahte olani vardi ve
 #: "None" donuyordu. Olcum araci, olctugu seyi bozmamali.
 _ASIL_SON_DONEM = bilanco_ag.son_donem
+_ASIL_MALI = bilanco_ag.mali_takvim
 _ASIL_CEK = bilanco_ag.cek
 _ASIL_KODLAR = nb.ulasilabilir_kodlar
 _ASIL_NOBET = nb.NOBET
@@ -82,7 +83,16 @@ def kur(defter_sirket, cevaplar, nobet=None):
     if nobet is not None:
         nb.NOBET.write_text(json.dumps(nobet), encoding="utf-8")
     nb.ulasilabilir_kodlar = lambda: list(defter_sirket)
-    bilanco_ag.son_donem = lambda kod, istemci=None, bugun=None: cevaplar.get(kod)
+    # OLCUT DONEM BITIS TARIHI. `cevaplar` kod -> ISO tarih ya da
+    # (ISO tarih, mali_yil_sonu_ayi) ikilisi.
+    def _sahte(kod, istemci=None, bugun=None):
+        c = cevaplar.get(kod)
+        if not c:
+            return None
+        bitis, ay = (c, 12) if isinstance(c, str) else c
+        return {"son_bitis": bitis, "yil_sonu_ayi": ay,
+                "takvim_disi": ay != 12, "son_etiket": (2026, 3)}
+    bilanco_ag.mali_takvim = _sahte
     return nb.bak(orneklem=len(defter_sirket))
 
 
@@ -90,36 +100,40 @@ print("")
 print("Bilanco nobetcisi")
 
 # --- 1) SOGUK BASLANGIC: her sey ilk gorulme, OLAY YOK ---------------
-s = kur(["AAA", "BBB"], {"AAA": (2026, 2), "BBB": (2026, 2)})
+s = kur(["AAA", "BBB"], {"AAA": "2026-06-30", "BBB": "2026-06-30"})
 esit(s["durum"], "tohumlandi", "ilk kosu tohumluyor, donem acmiyor")
 esit(s["yeni_bildiren"], [], "ilk kosuda yeni bildiren yok")
 esit(s["ilk_gorulen"], 2, "iki sirket ilk kez goruldu")
 
 # --- 2) BIR SIRKET ILERLEDI: OLAY ------------------------------------
-onceki = {"son_ceyrek": [2026, 2], "sirket": {"AAA": [2026, 2], "BBB": [2026, 2]},
+onceki = {"son_bitis": "2026-06-30",
+          "sirket": {"AAA": "2026-06-30", "BBB": "2026-06-30"},
           "imlec": 0}
-s = kur(["AAA", "BBB"], {"AAA": (2026, 3), "BBB": (2026, 2)}, onceki)
+s = kur(["AAA", "BBB"], {"AAA": "2026-09-30", "BBB": "2026-06-30"}, onceki)
 esit(s["durum"], "yeni donem", "ilerleyen sirket donem aciyor")
 esit(s["yeni_bildiren"], ["AAA"], "yalnizca ilerleyen sirket olay sayiliyor")
 
 # --- 3) IKINCI SIRKET SONRA BILDIRIR: YINE OLAY ----------------------
-# Kuresel esik kullanilsaydi burada OLAY OLMAZDI: son_ceyrek zaten
-# 2026 Q3'e cikmis olurdu ve BBB "yeni" gorunmezdi.
-onceki = {"son_ceyrek": [2026, 3], "sirket": {"AAA": [2026, 3], "BBB": [2026, 2]},
+# Kuresel esik kullanilsaydi burada OLAY OLMAZDI: son_bitis zaten
+# 2026-09-30'a cikmis olurdu ve BBB "yeni" gorunmezdi.
+onceki = {"son_bitis": "2026-09-30",
+          "sirket": {"AAA": "2026-09-30", "BBB": "2026-06-30"},
           "imlec": 0}
-s = kur(["AAA", "BBB"], {"AAA": (2026, 3), "BBB": (2026, 3)}, onceki)
+s = kur(["AAA", "BBB"], {"AAA": "2026-09-30", "BBB": "2026-09-30"}, onceki)
 esit(s["durum"], "yeni donem", "sonradan bildiren sirket de olay uretiyor")
 esit(s["yeni_bildiren"], ["BBB"], "olay sirketin KENDI gecmisine gore")
 
 # --- 4) DEGISIKLIK YOK -----------------------------------------------
-onceki = {"son_ceyrek": [2026, 3], "sirket": {"AAA": [2026, 3], "BBB": [2026, 3]},
+onceki = {"son_bitis": "2026-09-30",
+          "sirket": {"AAA": "2026-09-30", "BBB": "2026-09-30"},
           "imlec": 0}
-s = kur(["AAA", "BBB"], {"AAA": (2026, 3), "BBB": (2026, 3)}, onceki)
+s = kur(["AAA", "BBB"], {"AAA": "2026-09-30", "BBB": "2026-09-30"}, onceki)
 esit(s["durum"], "degisiklik yok", "ilerleme yoksa donem acilmiyor")
 
 # --- 5) DONEREK ORNEKLEMDE ILK GORULME, OLAY DEGIL -------------------
-onceki = {"son_ceyrek": [2026, 2], "sirket": {"AAA": [2026, 2]}, "imlec": 0}
-s = kur(["AAA", "CCC"], {"AAA": (2026, 2), "CCC": (2026, 2)}, onceki)
+onceki = {"son_bitis": "2026-06-30", "sirket": {"AAA": "2026-06-30"},
+          "imlec": 0}
+s = kur(["AAA", "CCC"], {"AAA": "2026-06-30", "CCC": "2026-06-30"}, onceki)
 esit(s["durum"], "degisiklik yok", "ilk kez gorulen sirket sahte olay uretmiyor")
 esit(s["ilk_gorulen"], 1, "ilk gorulme ayri sayiliyor")
 
@@ -142,18 +156,50 @@ esit(bilanco_ag.makul_ceyrek(None, _b), False, "bos deger makul degil")
 # Donerek orneklemde bir sirket ilk kez besinci kosuda gorulebiliyor
 # ve Q3 bildiren ILK sirket o olabilir. Yalnizca "sirket ilerlemesi"
 # sinyali olsaydi bu olay KACARDI: ilk gorulme tohumdur.
-onceki = {"son_ceyrek": [2026, 2], "sirket": {"AAA": [2026, 2]}, "imlec": 0}
-s = kur(["AAA", "YENI"], {"AAA": (2026, 2), "YENI": (2026, 3)}, onceki)
+onceki = {"son_bitis": "2026-06-30", "sirket": {"AAA": "2026-06-30"},
+          "imlec": 0}
+s = kur(["AAA", "YENI"], {"AAA": "2026-06-30", "YENI": "2026-09-30"}, onceki)
 esit(s["durum"], "yeni donem", "ilk kez gorulen sirket MEVSIMI acabiliyor")
 esit(s["mevsim_ilerledi"], True, "mevsim ilerlemesi ayri sinyal")
 esit(s["yeni_bildiren"], [], "sirket ilerlemesi yok, yalnizca mevsim")
 
-# Mevsim GERILEMEZ: eski ceyrek bildiren sirket donem acmaz.
-onceki = {"son_ceyrek": [2026, 3], "sirket": {"AAA": [2026, 3]}, "imlec": 0}
-s = kur(["AAA", "ESKI"], {"AAA": (2026, 3), "ESKI": (2026, 1)}, onceki)
+# Mevsim GERILEMEZ: eski donem bildiren sirket donem acmaz.
+onceki = {"son_bitis": "2026-09-30", "sirket": {"AAA": "2026-09-30"},
+          "imlec": 0}
+s = kur(["AAA", "ESKI"], {"AAA": "2026-09-30", "ESKI": "2026-03-31"}, onceki)
 esit(s["durum"], "degisiklik yok", "geride kalan sirket donem acmiyor")
 
+# --- 9) TAKVIM DISI SIRKET ARTIK GORULUYOR -- ASIL KAZANC ----------
+#
+# Onceki surum olcut olarak ETIKETI kullaniyordu ve takvim disi mali
+# yila sahip sirketleri ELEMEK zorundaydi (`son_donem` None). Yani
+# GSRAY'in aciklanmis bilancosu nobetciye hic ulasmiyordu.
+#
+# Tarih olcutuyle ayni sirket normal bir sirket gibi islem goruyor:
+# mali yili 31 Mayis'ta bitiyor, haziran-agustos donemini bildirdi.
+onceki = {"son_bitis": "2026-06-30",
+          "sirket": {"AAA": "2026-06-30", "GSRAY": "2026-05-31"},
+          "imlec": 0}
+s = kur(["AAA", "GSRAY"],
+        {"AAA": "2026-06-30", "GSRAY": ("2026-08-31", 5)}, onceki)
+esit(s["durum"], "yeni donem", "takvim disi sirket DONEM ACIYOR")
+esit(s["yeni_bildiren"], ["GSRAY"], "kulup yeni bildiren sayiliyor")
+esit(s["takvim_disi"], ["GSRAY"], "mali takvimi kaydediliyor")
+
+# --- 10) ESKI BICIM DEFTER SAHTE OLAY URETMIYOR --------------------
+#
+# Nobet defteri eskiden `[yil, ceyrek]` tutuyordu. Liste ile tarih
+# dizgesini karsilastirmak sessizce yanlis sonuc verirdi; eski
+# kayitlar YOK sayilip yeniden tohumlanmali.
+onceki = {"son_ceyrek": [2026, 2],
+          "sirket": {"AAA": [2026, 2], "BBB": [2026, 2]}, "imlec": 0}
+s = kur(["AAA", "BBB"], {"AAA": "2026-09-30", "BBB": "2026-09-30"}, onceki)
+esit(s["durum"], "tohumlandi", "eski bicim defter TOHUMLAMA sayiliyor")
+esit(s["yeni_bildiren"], [], "eski kayitlar sahte olay uretmiyor")
+esit(s["ilk_gorulen"], 2, "iki sirket yeniden tohumlandi")
+
 bilanco_ag.son_donem = _ASIL_SON_DONEM          # sahteyi geri al
+bilanco_ag.mali_takvim = _ASIL_MALI
 nb.ulasilabilir_kodlar = _ASIL_KODLAR
 nb.NOBET = _ASIL_NOBET
 _asil_cek = bilanco_ag.cek

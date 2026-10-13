@@ -249,19 +249,75 @@ OKUMA: dict[str, tuple[str, tuple[str, ...]]] = {
 }
 
 
-def blok(sektor_tr: str) -> tuple[str, tuple[str, ...]] | None:
-    """Sektorun okuma kilavuzu. Yoksa None.
+#: Kilavuzun GECERLI oldugu alt sektor ONEKLERI. Yalnizca OLCULMUS
+#: bir uyusmazlik varsa tanimli; tanimsiz sektorde kilavuz butun alt
+#: sektorlere yaziliyor.
+#:
+#: ONEK, TAM LISTE DEGIL. Defterde alti ayri GYO turu var (REIT -
+#: Diversified / Retail / Residential / Hotel & Motel / Specialty /
+#: Industrial). Tek tek saymak, kaynak yedinci turu dondurdugu gun
+#: onu SESSIZCE kapsam disinda birakirdi; "REIT" oneki birakmaz.
+#:
+#: NEDEN GEREKLI -- OLCULDU (2026-10-13)
+#: Kaynak her sirkete alt sektor de veriyor (defterde 354 sirkette
+#: `alt_sektor` dolu) ve kilavuz yalnizca `sektor_tr`ye bakiyordu.
+#: Sonuc, canli sayfalarda duran duz yanlis cumleler:
+#:
+#:   İletişim sektorunde ALTI sirket var:
+#:     TTKOM  Telecom Services   <- kilavuz BUNUN icin yazilmis
+#:     FENER, BJKAS, TSPOR  Entertainment  (futbol kulubu)
+#:     BIGTK, IHYAY         Publishing     (yayincilik)
+#:   Kilavuz "abonelik modeli sayesinde faaliyet nakit akisi net
+#:   kardan daha istikrarlidir" diyor. Fenerbahce icin bu cumle
+#:   yanlis.
+#:
+#:   Gayrimenkul kilavuzunun basligi "Gayrimenkul yatirim
+#:   ortakliginda kar nereden gelir" ve metni GYO'yu anlatiyor. Ama
+#:   sektordeki 36 sirketin 12'si GYO DEGIL (Real Estate -
+#:   Development / Diversified).
+#:
+#: Diger dokuz sektorun metni alt sektorlerini kapsayacak genislikte
+#: yazilmis; olcum bir uyusmazlik gostermedi, bu yuzden kisitlanmadi.
+#: Kisitlamak icin gerekce OLCUM olmali, tahmin degil.
+ALT_KAPSAM = {
+    "İletişim": ("Telecom Services",),
+    "Gayrimenkul": ("REIT",),
+}
+
+
+def kapsamda(sektor_tr: str, alt_sektor: str = "") -> bool:
+    """Kilavuz bu alt sektor icin GECERLI mi.
+
+    ALT SEKTOR BILINMIYORSA KISITLAMA YOK. Ayrim yapmanin ispat
+    yuku ayrim yapanda; kaynaktan alt sektor gelmemis olmasi,
+    kilavuzu susturmak icin yeterli bir gerekce degil.
+    """
+    onekler = ALT_KAPSAM.get((sektor_tr or "").strip())
+    if not onekler:
+        return True
+    alt = (alt_sektor or "").strip()
+    if not alt:
+        return True
+    return any(alt.startswith(o) for o in onekler)
+
+
+def blok(sektor_tr: str,
+         alt_sektor: str = "") -> tuple[str, tuple[str, ...]] | None:
+    """Sektorun okuma kilavuzu. Yoksa ya da kapsam disiysa None.
 
     None donmesi ONEMLI: cagiran taraf bolumu HIC yazmiyor. Yanlis
     bir okuma kilavuzu, kilavuzsuzluktan kotudur -- okur ona guvenip
-    yanlis kalemi okur.
+    yanlis kalemi okur. Ayni gerekce ALT SEKTOR icin de gecerli:
+    bkz. `ALT_KAPSAM`.
     """
+    if not kapsamda(sektor_tr, alt_sektor):
+        return None
     return OKUMA.get((sektor_tr or "").strip())
 
 
-def markdown(sektor_tr: str) -> list[str]:
-    """Sayfaya eklenecek satirlar. Sektor taninmiyorsa BOS liste."""
-    b = blok(sektor_tr)
+def markdown(sektor_tr: str, alt_sektor: str = "") -> list[str]:
+    """Sayfaya eklenecek satirlar. Kilavuz yoksa BOS liste."""
+    b = blok(sektor_tr, alt_sektor)
     if not b:
         return []
     baslik, paragraflar = b

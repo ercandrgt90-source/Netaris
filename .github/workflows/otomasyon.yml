@@ -492,6 +492,7 @@ jobs:
                    haber_botu/kaynak/ceviri_onbellek.json \
                    haber_botu/kaynak/foto_kayit.json \
                    haber_botu/kaynak/bilanco_nobet.json \
+                   site/bilanco_miras_bozuk.json \
                    site/statik/foto \
                    site/icerik; do
             [ -e "$y" ] && YOLLAR="$YOLLAR $y"
@@ -606,7 +607,7 @@ jobs:
           # (asamada ne BULUNABILIR). 2026-10-13'te `bilanco.yml` tam
           # burada dustu cunku yalnizca birincisi guncellenmisti.
           KACAK=$(git diff --staged --name-only | grep -vE \
-            '^(haber_botu/netaris\.db|haber_botu/kaynak/(ceviri_onbellek|foto_kayit|bilanco_nobet)\.json|site/statik/foto/|site/icerik/)' \
+            '^(haber_botu/netaris\.db|haber_botu/kaynak/(ceviri_onbellek|foto_kayit|bilanco_nobet)\.json|site/statik/foto/|site/icerik/|site/bilanco_miras_bozuk\.json)' \
             || true)
           if [ -n "$KACAK" ]; then
             echo "HATA: veri disi dosya asamada -- geri yazma DURDURULDU:"

@@ -165,6 +165,25 @@ def main() -> int:
     if "bilanco_sayfa" not in args.atla:
         adimlar.append(("Bilanço sayfaları (tablo + AI yorumu)",
                         [str(BOT / "uret_bilanco_sayfa.py")]))
+        # ESKI SAYFALARI ONAR -- KURALI SIKILASTIRMAK ESKIYI TEMIZLEMEZ.
+        #
+        # Sayfa bicimi ya da olcum kurali degistiginde zaten yayinda
+        # olan sayfalar eski haliyle kaliyor. Olculdu (2026-10-13):
+        # 258 bilanco sayfasinin 203'u seviye tablosu ile oran
+        # tablosunda IKI AYRI DONEMI anlatiyordu.
+        #
+        # MODEL CAGRISI YOK: sakli AI yorumu aynen yeniden
+        # kullaniliyor. Sira onarim ihtiyacina gore, yani kuyruk
+        # kisaliyor ve bitince adim etkisiz hale geliyor.
+        adimlar.append(("Eski bilanço sayfalarını onar",
+                        [str(BOT / "bilanco_tazele.py"),
+                         "--onarim", "--sinir", "25"]))
+        # CIRCIR SIKISIYOR: onarilan sayfa miras listesinden cikiyor.
+        # Budanmazsa onarilmis sayfalar listede kalir ve bir daha HIC
+        # denetlenmez -- koruma var ama hicbir seyi korumuyor olurdu.
+        adimlar.append(("Onarılanları miras listesinden çıkar",
+                        [str(SITE / "test_bilanco_sayfa_saglam.py"),
+                         "--budar"]))
         # BAYRAK SAYFALAR URETILDIKTEN SONRA INIYOR.
         #
         # Nobetcinin kaldirdigi bayrak, veri cekilip sayfalar

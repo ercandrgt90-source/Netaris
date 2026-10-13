@@ -307,6 +307,41 @@ jobs:
       # orada silinen sey MODEL CIKTISI ve yeniden uretmek para/kota
       # harciyor. Burada silinen sey, yerine YENISI URETILMIS olan eski
       # bir dosya -- ve arac karsiligi olmayani zaten silmiyor.
+      # ESKI SAYFALARI ONAR -- KURALI SIKILASTIRMAK ESKIYI TEMIZLEMEZ.
+      #
+      # Sayfa bicimi ya da olcum kurali degistiginde ZATEN YAYINDA
+      # olan sayfalar eski haliyle kaliyor. Olculdu (2026-10-13):
+      # 258 bilanco sayfasinin 203'u seviye tablosu ile oran
+      # tablosunda IKI AYRI DONEMI anlatiyordu (ara donemin kac
+      # ceyrekten olustugu iki yerde ayri yaziliydi), 16'si da
+      # alt sektorune uymayan bir okuma kilavuzu tasiyordu.
+      #
+      # Onarim MODEL CAGIRMIYOR: sakli AI yorumu aynen yeniden
+      # kullaniliyor, yalnizca deterministik kisimlar kuruluyor.
+      # Maliyet yalnizca kaynak istegi ve o ucretsiz.
+      #
+      # SIRA ONARIM IHTIYACINA GORE: alfabetik sira + `--sinir`
+      # kuyrugun sonuna hic ulasmazdi (ayni tuzaga sektor sirasinda
+      # dusulmustu). Kuyruk onarilan sayfa sayisinca kisaliyor ve
+      # bitince adim kendiliginden etkisiz hale geliyor.
+      #
+      # `--sinir 25` kaynagi yormamak icin: sayfa basina uc tablo,
+      # yani 75 istek. Kaynak ~100 istekten sonra reddetmeye
+      # basliyor (olculdu 2026-09-14).
+      - name: Eski bilanço sayfalarını onar (model çağrısı YOK)
+        if: always()
+        run: python haber_botu/bilanco_tazele.py --onarim --sinir 25
+
+      # CIRCIR SIKISIYOR -- onarilan sayfa miras listesinden cikiyor.
+      #
+      # Liste budanmazsa onarilmis sayfalar listede kalir ve bir daha
+      # HIC denetlenmez: 204 sayfa kalici olarak korumasiz kalirdi.
+      # Budama korumayi yalnizca SIKILASTIRIYOR, gevsetmiyor -- bu
+      # yuzden CI'in kendi korumasinin listesini guncellemesi guvenli.
+      - name: Onarılanları miras listesinden çıkar
+        if: always()
+        run: python site/test_bilanco_sayfa_saglam.py --budar
+
       # BAYRAK SAYFALAR URETILDIKTEN SONRA INIYOR: arada kosu
       # duserse bir sonraki kosu ayni isi tekrar denemeli.
       - name: Bilanço dönemi işlendi (bayrağı indir)
@@ -346,7 +381,8 @@ jobs:
           # Nobetci her sirketin en son hangi ceyregi bildirdigini
           # bu dosyada tutuyor. Geri yazilmazsa her kosu SOGUK
           # baslar, hicbir gecisi goremez ve duzenek olu kalir.
-          for y in site/icerik/analizler \
+          for y in site/bilanco_miras_bozuk.json \
+                   site/icerik/analizler \
                    haber_botu/kaynak/sektor_ozet.json \
                    haber_botu/kaynak/sirketler.json \
                    haber_botu/kaynak/bilanco_nobet.json; do
@@ -443,7 +479,7 @@ jobs:
           # Kapi dogru calisti; eksik olan benim ikinci listeyi
           # gormemem di.
           KACAK=$(git diff --staged --name-only | grep -vE \
-            '^(site/icerik/analizler/|haber_botu/kaynak/(sektor_ozet|sirketler|bilanco_nobet)\.json)' \
+            '^(site/icerik/analizler/|site/bilanco_miras_bozuk\.json|haber_botu/kaynak/(sektor_ozet|sirketler|bilanco_nobet)\.json)' \
             || true)
           if [ -n "$KACAK" ]; then
             echo "HATA: beklenmeyen dosya aşamada -- geri yazma DURDURULDU:"
