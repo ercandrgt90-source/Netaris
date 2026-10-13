@@ -29,7 +29,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 12,
+  "yorumlanan": 11,
   "haberler": [
     {
       "baslik": "Başarısızlıklarla İlgili Temel Rakamlar (Eylül)",
@@ -182,6 +182,27 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/duzenleme-9-d70a1c54.jpg",
       "foto_atif": "Harrison Keely · CC-BY-4.0"
+    },
+    {
+      "baslik": "$GS Goldman Sachs 3. Çeyrek 2026 Kazancı",
+      "baslik_kaynak": "$GS Goldman Sachs Q3 2026 Earnings",
+      "ozet": "EPS $17.01 Revenue $18.68B Global Banking & Markets Net Revenue $13.46B, est. $11.8B Equities Sales & Trading Revenue $6.44B, est. $5.09B FICC Sales & Trading Revenue $3.47B, est. $3.72B Investment Banking Revenue $3.23B, est. $2.86B Advisory Revenue $1.65B, est. $1.4B Net Interest Income $3.77B, est.",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9803116/GS-Goldman-Sachs-Q3-2026-Earnings.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Şirket haberleri",
+      "tarih": "2026-10-13",
+      "tarih_gorunur": "13 Ekim 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/sirket-haberleri-11-5c2f88fc.jpg",
+      "foto_atif": "Bill Boaden · CC-BY-SA-2.0"
     },
     {
       "baslik": "Fed'den Goolsbee: Enflasyon hala çok yüksek - Semafor",
@@ -1458,27 +1479,6 @@
       "foto_atif": "Gkbediako · CC-BY-SA-4.0"
     },
     {
-      "baslik": "Antropik: Damıtıcılar toplanan verileri yaklaşık yüzde 90 ila 99 oranında keser",
-      "baslik_kaynak": "Anthropic: distillers cut data collected by roughly 90 to 99 percent",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9802320/Anthropic-distillers-cut-data-collected-by-roughly-90-to-99-percent.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Şirket haberleri",
-      "tarih": "2026-10-13",
-      "tarih_gorunur": "13 Ekim 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-8-9a709a75.jpg",
-      "foto_atif": "Sixflashphoto · CC-BY-SA-4.0"
-    },
-    {
       "baslik": "Binance VIP başkanı, hedge fonlarının kripto mekanlarında arbitraj fırsatlarını aktif olarak araştırdığını söyledi",
       "baslik_kaynak": "Binance VIP head says hedge funds are actively exploring arbitrage opportunities on crypto venues",
       "ozet": "The executive cited improved depth, 24/7 trading and weekend price discovery as reasons why the opportunities have become more relevant.",
@@ -1561,6 +1561,27 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/piyasa-duzenlemesi-7-24361cea.jpg",
       "foto_atif": "Ank Kumar · CC-BY-SA-4.0"
+    },
+    {
+      "baslik": "Stacks'ın Bitcoin katman -2 token'ı STX, dört hafta içinde %50 arttı",
+      "baslik_kaynak": "Stacks' STX, a Bitcoin layer-2 token, has surged by 50% in four weeks",
+      "ozet": "Your day-ahead look for Oct. 13, 2026",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.coindesk.com/daybook-us/2026/10/13/stacks-stx-a-bitcoin-layer-2-token-has-surged-by-50-in-four-weeks",
+      "kurum": "CoinDesk",
+      "kurum_tam": "CoinDesk",
+      "konu": "Kripto varlıklar",
+      "tarih": "2026-10-13",
+      "tarih_gorunur": "13 Ekim 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/kripto-varliklar-8-740eb829.jpg",
+      "foto_atif": "Satheesh Sankaran · CC-BY-2.0"
     },
     {
       "baslik": "Güney Kore hisseleri yapay zeka ile ilgili endişeler üzerine kayarken Bitcoin, eter kayması ve toparlanması",
@@ -2101,31 +2122,6 @@
       "kanal_basligi": "Hangi piyasaları etkiler?",
       "foto": "/statik/foto/enerji-13-2cf47f9f.jpg",
       "foto_atif": "Quintin Soloviev · CC-BY-4.0"
-    },
-    {
-      "baslik": "Buğday fiyatları eylülde 27 ayın en hızlı düşüşünü kaydetti",
-      "baslik_kaynak": "Buğday fiyatları eylülde 27 ayın en hızlı düşüşünü kaydetti",
-      "ozet": "Rusya ile Ukrayna arasında barış sağlanabileceğine yönelik beklentiler, iyi giden iklim koşulları ve azalan talebin etkisiyle buğdayın kile başına fiyatı, eylül ayında yüzde 12,7 azalışla Haziran 2024'ten bu yana en hızlı aylık düşüşünü kaydetti.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.aa.com.tr/tr/ekonomi/bugday-fiyatlari-eylulde-27-ayin-en-hizli-dususunu-kaydetti/4086923",
-      "kurum": "AA",
-      "kurum_tam": "Anadolu Ajansı",
-      "konu": "Tarım ve gıda",
-      "tarih": "2026-10-13",
-      "tarih_gorunur": "13 Ekim 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Gıda, tüketici fiyat endeksinde en yüksek ağırlıklı gruplardan biridir; rekolte ve girdi maliyeti enflasyona hızlı geçer.",
-      "kanallar": [
-        "Enflasyon: gıda fiyatları manşet enflasyonun en oynak bileşenidir; bu yüzden çekirdek enflasyon ayrıca izlenir.",
-        "Girdi maliyeti: gübre, yem ve akaryakıt fiyatı üretici maliyetini belirler; bunların çoğu ithal ve döviz cinsidir.",
-        "Dış ticaret: hububat ve yağlı tohumda ithalat bağımlılığı, rekolte sonucunu cari dengeye bağlar."
-      ],
-      "kanal_basligi": "Piyasaya nasıl yansır?",
-      "foto": "/statik/foto/tarim-ve-gida-9-f860582e.jpg",
-      "foto_atif": "Hugh Venables · CC-BY-SA-2.0"
     },
     {
       "baslik": "Esma, etki ve geçiş iddialarında netliği teşvik ediyor",
