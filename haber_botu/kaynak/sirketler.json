@@ -450,7 +450,10 @@
    "kap_kimlik": "8acae2c49f52d9d8019f6edc29f30cc2",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "ARSEN BAĞIMSIZ DENETİM HİZMETLERİ A.Ş."
+   "denetci": "ARSEN BAĞIMSIZ DENETİM HİZMETLERİ A.Ş.",
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Building Materials"
   },
   "ALCAR": {
    "kod": "ALCAR",

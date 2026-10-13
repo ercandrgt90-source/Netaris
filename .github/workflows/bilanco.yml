@@ -209,6 +209,23 @@ jobs:
 
       # NOBETCI CEKIMDEN ONCE: bayragi o kaldiriyor ve
       # `uret_bilanco.donem_acik` onu okuyor.
+      # SEKTORU EKSIK SIRKETLERI DOLDUR -- hattin gorus alanini genislet.
+      #
+      # `uret_bilanco --hepsi` sektor listesini defterdeki `sektor_tr`
+      # alanindan kuruyor; o alani olmayan sirket hicbir sektore
+      # dusmuyor ve sayfasi HIC uretilmiyor.
+      #
+      # OLCULDU (2026-10-13): 794 sirketin 441'inde alan bos. Bu
+      # 441'den rastgele 25 ornek kaynaga soruldu: 13'unun sektoru
+      # VARDI (KONYA, OBAMS, LKMNH, GSRAY...). Yani kabaca 230 gercek
+      # sirket yalnizca bir alan bos oldugu icin yayimlanmiyordu.
+      #
+      # Kucuk parti: kaynak 429 vermesin diye. Is RESUMABLE, kalan
+      # bir sonraki kosuda; kosu basina ~25 ile bir bildirim
+      # mevsiminde liste tamamen doluyor.
+      - name: Eksik sektörleri doldur
+        run: python haber_botu/sektor_tazele.py --sinir 25
+
       - name: Bilanço nöbetçisi (yeni çeyrek var mı)
         run: python haber_botu/bilanco_nobetci.py
 
