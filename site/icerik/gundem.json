@@ -30,8 +30,55 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 17,
+  "yorumlanan": 18,
   "haberler": [
+    {
+      "baslik": "Çin Halk Kurtuluş Ordusu (ÇHKO) donanması: Yıllık plandaki rutin tatbikat, askerlerin savaşa hazırlığını artırmayı hedefliyor",
+      "baslik_kaynak": "China's PLA navy: routine drill in annual plan targets boosting troops’ combat readiness",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9804027/Chinas-PLA-navy-routine-drill-in-annual-plan-targets-boosting-troops-combat-readiness.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Jeopolitik",
+      "tarih": "2026-10-14",
+      "tarih_gorunur": "14 Ekim 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
+      "kanallar": [
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-36-7cb6152c.jpg",
+      "foto_atif": "Captain Albert E. Theberge, NOAA Corps (ret.) · PDM"
+    },
+    {
+      "baslik": "Çin Halk Kurtuluş Ordusu (ÇHKO) donanması, Batı Pasifik sularında eğitim tatbikatları için Liaoning uçak gemisi saldırı grubu kurdu: CCTV",
+      "baslik_kaynak": "China’s PLA navy forms Liaoning aircraft carrier strike group for training exercises in western Pacific waters: CCTV",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9804026/Chinas-PLA-navy-forms-Liaoning-aircraft-carrier-strike-group-for-training-exercises-in-western-Pacific-waters-CCTV.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Şirket haberleri",
+      "tarih": "2026-10-14",
+      "tarih_gorunur": "14 Ekim 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/sirket-haberleri-15-c1626940.jpg",
+      "foto_atif": "Gkbediako · CC-BY-SA-4.0"
+    },
     {
       "baslik": "Suudi liderliğindeki koalisyon: El - Karaç'ta füze ele geçirildi ve imha edildi",
       "baslik_kaynak": "Saudi-led coalition: missile intercepted and destroyed in Al-Kharj",
@@ -562,7 +609,7 @@
       "dil": "en",
       "ticari": false,
       "bolge": "DUNYA",
-      "adres": "http://www.boj.or.jp/en/statistics/set/bffail/sjgb2609.pdf",
+      "adres": "https://www.boj.or.jp/en/statistics/set/bffail/sjgb2609.pdf",
       "kurum": "BoJ",
       "kurum_tam": "Japonya Merkez Bankası",
       "konu": "Para politikası",
@@ -572,8 +619,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-9-f9a4682a.jpg",
-      "foto_atif": "DXR · CC-BY-SA-4.0"
+      "foto": "/statik/foto/para-politikasi-7-d50cfe6c.jpg",
+      "foto_atif": "Infrogmation of New Orleans · CC-BY-SA-4.0"
     },
     {
       "baslik": "107. Kamuoyunun Görüş ve Davranışlarına İlişkin Görüş Anketi Sonuçları",
@@ -583,7 +630,7 @@
       "dil": "en",
       "ticari": false,
       "bolge": "DUNYA",
-      "adres": "http://www.boj.or.jp/en/research/o_survey/ishiki2610.htm",
+      "adres": "https://www.boj.or.jp/en/research/o_survey/ishiki2610.htm",
       "kurum": "BoJ",
       "kurum_tam": "Japonya Merkez Bankası",
       "konu": "Para politikası",
@@ -604,7 +651,7 @@
       "dil": "en",
       "ticari": false,
       "bolge": "DUNYA",
-      "adres": "http://www.boj.or.jp/en/statistics/dl/depo/kashi/kasi2609.pdf",
+      "adres": "https://www.boj.or.jp/en/statistics/dl/depo/kashi/kasi2609.pdf",
       "kurum": "BoJ",
       "kurum_tam": "Japonya Merkez Bankası",
       "konu": "Para politikası",
@@ -614,7 +661,7 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-7-d50cfe6c.jpg",
+      "foto": "/statik/foto/para-politikasi-8-6bdac262.jpg",
       "foto_atif": "Infrogmation of New Orleans · CC-BY-SA-4.0"
     },
     {
@@ -625,7 +672,7 @@
       "dil": "en",
       "ticari": false,
       "bolge": "DUNYA",
-      "adres": "http://www.boj.or.jp/en/statistics/pi/cgpi_release/cgpi2609.pdf",
+      "adres": "https://www.boj.or.jp/en/statistics/pi/cgpi_release/cgpi2609.pdf",
       "kurum": "BoJ",
       "kurum_tam": "Japonya Merkez Bankası",
       "konu": "Enflasyon",
@@ -640,8 +687,8 @@
         "Baz etkisi: bir önceki yılın aynı ayındaki seviye yıllık oranı mekanik olarak değiştirir."
       ],
       "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/enflasyon-8-4c01d687.jpg",
-      "foto_atif": "Myotus · CC-BY-4.0"
+      "foto": "/statik/foto/enflasyon-7-87d51a9b.jpg",
+      "foto_atif": "safaritravelplus · CC0"
     },
     {
       "baslik": "Avrupa Denetim Otoriteleri 2027 için öncelikleri belirledi",
@@ -1839,48 +1886,6 @@
       "foto_atif": "United Nation · PDM"
     },
     {
-      "baslik": "Suudi Arabistan, Riyad'a yönelik potansiyel düşman hava tehdidi uyarısı yayınladı - Mesaj",
-      "baslik_kaynak": "Saudi Arabia issues warning of potential hostile aerial threat to Riyadh - Message.",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9803728/Saudi-Arabia-issues-warning-of-potential-hostile-aerial-threat-to-Riyadh---Message.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Şirket haberleri",
-      "tarih": "2026-10-13",
-      "tarih_gorunur": "13 Ekim 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-10-72a9566a.jpg",
-      "foto_atif": "Larry D. Moore · CC-BY-4.0"
-    },
-    {
-      "baslik": "Dhahran'da, Suudi Aramco karargahının yakınında - Altı kaynaktan gelen yüksek sesler duyuldu",
-      "baslik_kaynak": "Loud booms heard in Dhahran, in the vicinity of the Saudi Aramco headquarters - Six sources.",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9803726/Loud-booms-heard-in-Dhahran-in-the-vicinity-of-the-Saudi-Aramco-headquarters---Six-sources.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Şirket haberleri",
-      "tarih": "2026-10-13",
-      "tarih_gorunur": "13 Ekim 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-8-9a709a75.jpg",
-      "foto_atif": "Sixflashphoto · CC-BY-SA-4.0"
-    },
-    {
       "baslik": "Ripple, Stripe'ın sahibi olduğu Privy ortağı, gömülü cüzdanları XRP Ledger'a getiriyor",
       "baslik_kaynak": "Ripple, Stripe-owned Privy partner to bring embedded wallets to XRP Ledger",
       "ozet": "Developers can now build XRPL wallets into apps via Privy, with support for XRP, RLUSD, AI agent payments and x402.",
@@ -2518,7 +2523,7 @@
       "dil": "en",
       "ticari": false,
       "bolge": "DUNYA",
-      "adres": "http://www.boj.or.jp/en/finsys/macpru/mac261009a.pdf",
+      "adres": "https://www.boj.or.jp/en/finsys/macpru/mac261009a.pdf",
       "kurum": "BoJ",
       "kurum_tam": "Japonya Merkez Bankası",
       "konu": "Para politikası",
@@ -2528,8 +2533,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-7-d50cfe6c.jpg",
-      "foto_atif": "Infrogmation of New Orleans · CC-BY-SA-4.0"
+      "foto": "/statik/foto/para-politikasi-15-525666c9.jpg",
+      "foto_atif": "Norbert Nagel · CC-BY-SA-4.0"
     },
     {
       "baslik": "\"Uygun Teminat Fiyatları\" nda Değişiklik",
@@ -2539,7 +2544,7 @@
       "dil": "en",
       "ticari": false,
       "bolge": "DUNYA",
-      "adres": "http://www.boj.or.jp/en/mopo/mpmdeci/mpr_2026/mpr261009a.pdf",
+      "adres": "https://www.boj.or.jp/en/mopo/mpmdeci/mpr_2026/mpr261009a.pdf",
       "kurum": "BoJ",
       "kurum_tam": "Japonya Merkez Bankası",
       "konu": "Para politikası",
@@ -2549,8 +2554,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-10-bce0f56d.jpg",
-      "foto_atif": "Tony Webster · CC-BY-2.0"
+      "foto": "/statik/foto/para-politikasi-8-6bdac262.jpg",
+      "foto_atif": "Infrogmation of New Orleans · CC-BY-SA-4.0"
     },
     {
       "baslik": "IMES Tartışma Makalesi Serisi (2026)",
@@ -2560,7 +2565,7 @@
       "dil": "en",
       "ticari": false,
       "bolge": "DUNYA",
-      "adres": "http://www.boj.or.jp/en/research/imes/dps/dps26.htm",
+      "adres": "https://www.boj.or.jp/en/research/imes/dps/dps26.htm",
       "kurum": "BoJ",
       "kurum_tam": "Japonya Merkez Bankası",
       "konu": "Para politikası",
@@ -2570,8 +2575,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-8-9ac5b7c7.jpg",
-      "foto_atif": "DestinationFearFan · CC-BY-SA-4.0"
+      "foto": "/statik/foto/para-politikasi-9-683f4724.jpg",
+      "foto_atif": "Tony Webster · CC-BY-2.0"
     },
     {
       "baslik": "Esma, Carlos San Basilio'yu Yönetim Kurulu'nun yeni üyesi olarak atadı",
