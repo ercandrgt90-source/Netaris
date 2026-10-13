@@ -18,19 +18,19 @@ sayimlar:
 
 ## Özet
 
-Hasılat 3,42 milyar TL'ye yükselirken net kâr 1,40 milyar TL'ye artmış, bu artış faaliyet nakit akışının 0,28 milyar TL'den 1,18 milyar TL'ye yükselmesiyle paralel bir şekilde gerçekleşmiştir; aynı dönemde aktif toplamı 86,44 milyar TL'ye, özkaynak ise 69,28 milyar TL'ye çıkarak varlıkların büyük bir kısmının özkaynak artışıyla finanse edildiği görülür. Net borç 11,35 milyar TL'ye yükselmiş, ancak borç/özkaynak oranı %0,16 olarak sektörel %0,12 medyanının üzerinde kalırken cari oran 0,50 ile sektör %0,90 medyanının altında kalmıştır; bu durum likiditeye ilişkin kısa vadeli yükümlülüklerin artışını, özkaynak artışının ise borçlanmadan daha fazla olduğunu gösterir. Yatırım harcaması 0,17 milyar TL'ye düşmüş, bu düşüşün net kâr marjının %57,7 (sektör %11,4) ve özkaynak kârlılığının %1,3 (sektör %1,0) seviyelerinde yükselmesiyle birlikte şirketin kârlılığa odaklandığını yansıttığını söyleyebiliriz.
+Hasılat 3,42 milyar TL'ye yükselirken net kâr 1,40 milyar TL'ye artmış, bu artış faaliyet nakit akışının 0,28 milyar TL'den 1,18 milyar TL'ye yükselmesiyle paralel bir şekilde gerçekleşmiştir; aynı dönemde aktif toplamı 86,44 milyar TL'ye, özkaynak ise 69,28 milyar TL'ye çıkarak varlıkların büyük bir kısmının özkaynak artışıyla finanse edildiği görülür. Net borç 11,35 milyar TL'ye yükselmiş, ancak borç/özkaynak oranı %0,16 olarak sektörel %0,12 medyanının üzerinde kalırken cari oran 0,50 ile sektör %0,90 medyanının altında kalmıştır; bu durum likiditeye ilişkin kısa vadeli yükümlülüklerin artışını, özkaynak artışının ise borçlanmadan daha fazla olduğunu gösterir. Yatırım harcaması 0,17 milyar TL'ye düşmüş, bu düşüşün net kâr marjının %57,7 (sektör %11,4) ve özkaynak kârlılığının %1,3 (sektör %1,0) seviyelerinde yükselmesiyle birlikte şirketin kârlılığa odaklandığını yansıttığını söyleyebiliriz.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | %6,7 |
-| Net kâr | %39,2 |
+| Hasılat | -%21,4 |
+| Net kâr | %576,0 |
 | Özkaynak | %58,1 |
 | Aktif toplamı | %42,8 |
 | Net borç | %17,1 |
-| Faaliyet nakit akışı | %316,7 |
-| Yatırım harcaması | -%92,3 |
+| Faaliyet nakit akışı | -%50,6 |
+| Yatırım harcaması | -%98,6 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -38,17 +38,17 @@ Hasılat 3,42 milyar TL'ye yükselirken net kâr 1,40 milyar TL'ye artmış,
 
 | Kalem | Değer |
 | --- | ---: |
-| Hasılat | 3,42 milyar TL |
-| Net kâr | 1,40 milyar TL |
+| Hasılat | 1,54 milyar TL |
+| Net kâr | 0,89 milyar TL |
 | Özkaynak | 69,28 milyar TL |
 | Aktif toplamı | 86,44 milyar TL |
 | Net borç | 11,35 milyar TL |
-| Faaliyet nakit akışı | 1,18 milyar TL |
-| Yatırım harcaması | 0,17 milyar TL |
+| Faaliyet nakit akışı | 0,84 milyar TL |
+| Yatırım harcaması | 0,03 milyar TL |
 
 ## Sektör içindeki konum
 
-Karşılaştırma Kamu hizmetleri sektöründeki 24 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Kamu hizmetleri sektöründe **aynı dönemi bildiren** 24 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
@@ -63,12 +63,12 @@ Karşılaştırma Kamu hizmetleri sektöründeki 24 şirketin **medyanına** gö
 
 **Şirket lehine işleyenler**
 
-- Hasılat reel olarak %6,7 arttı.
-- Net kâr reel olarak %39,2 arttı.
+- Net kâr reel olarak %576,0 arttı.
 - Özkaynak kârlılığı %1,3; sektör medyanı %1,0.
 
 **Dikkat gerektirenler**
 
+- Hasılat reel olarak -%21,4 geriledi.
 - Cari oran 0,50; kısa vadeli yükümlülükler dönen varlıkları aşıyor.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*

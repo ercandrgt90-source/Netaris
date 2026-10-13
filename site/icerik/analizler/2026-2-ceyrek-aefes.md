@@ -24,16 +24,16 @@ Hasılatın yükselmesi brüt kârı artırarak brüt kâr marjının %39,4 sevi
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | %4,8 |
-| Brüt kâr | %11,7 |
-| Faaliyet kârı | %34,1 |
-| FAVÖK | %20,8 |
-| Net kâr | -%6,6 |
+| Hasılat | %2,8 |
+| Brüt kâr | %5,8 |
+| Faaliyet kârı | %10,2 |
+| FAVÖK | %7,3 |
+| Net kâr | -%4,6 |
 | Özkaynak | %30,2 |
 | Aktif toplamı | %25,5 |
 | Net borç | %3,7 |
-| Faaliyet nakit akışı | %27,3 |
-| Yatırım harcaması | -%22,5 |
+| Faaliyet nakit akışı | -%41,7 |
+| Yatırım harcaması | -%15,2 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -41,20 +41,20 @@ Hasılatın yükselmesi brüt kârı artırarak brüt kâr marjının %39,4 sevi
 
 | Kalem | Değer |
 | --- | ---: |
-| Hasılat | 154,29 milyar TL |
-| Brüt kâr | 58,37 milyar TL |
-| Faaliyet kârı | 17,74 milyar TL |
-| FAVÖK | 26,16 milyar TL |
-| Net kâr | 7,28 milyar TL |
+| Hasılat | 87,49 milyar TL |
+| Brüt kâr | 34,45 milyar TL |
+| Faaliyet kârı | 13,20 milyar TL |
+| FAVÖK | 17,84 milyar TL |
+| Net kâr | 5,12 milyar TL |
 | Özkaynak | 252,42 milyar TL |
 | Aktif toplamı | 495,80 milyar TL |
 | Net borç | 65,99 milyar TL |
-| Faaliyet nakit akışı | 12,14 milyar TL |
-| Yatırım harcaması | 9,24 milyar TL |
+| Faaliyet nakit akışı | 12,33 milyar TL |
+| Yatırım harcaması | 5,73 milyar TL |
 
 ## Sektör içindeki konum
 
-Karşılaştırma Temel tüketim sektöründeki 31 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Temel tüketim sektöründe **aynı dönemi bildiren** 31 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
@@ -70,12 +70,7 @@ Karşılaştırma Temel tüketim sektöründeki 31 şirketin **medyanına** gör
 
 **Şirket lehine işleyenler**
 
-- Brüt marj 2,3 puan genişledi (%35,5 → %37,8).
-- Faaliyet nakit akışı net kârın 1,67 katı; kâr nakde dönüyor.
-
-**Dikkat gerektirenler**
-
-- Net kâr reel olarak -%6,6 geriledi.
+- Faaliyet nakit akışı net kârın 2,41 katı; kâr nakde dönüyor.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

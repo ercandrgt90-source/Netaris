@@ -18,22 +18,22 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %5 katına yakın artışı brüt kârın %77,6'lık yüksek marjıyla birlikte gerçekleşti; bu artış brüt kârın yükselmesini ve dolayısıyla faaliyet kârı ile FAVÖK'ün negatiften pozitif seviyelere geçmesini sağladı. Net kârın %194,6'lık marjı, özkaynak kârlılığının %2,7'ye yükselmesiyle desteklenirken, özkaynakların 14,04 milyar TL'ye çıkması aktif toplamının 17,41 milyar TL'ye ulaşmasını ve net borcun -1,76 milyar TL'ye (daha az borç) gerilemesini beraberinde getirdi. Artan faaliyet nakit akışı (0,70 milyar TL) ve yatırım harcamasındaki yükseliş (0,12 milyar TL) cari oranı 3,24'e çıkararak borç/özkaynak oranının -0,13'ten daha olumlu bir konuma gelmesine katkı sağladı.
+Hasılatın %5 katına yakın artışı brüt kârın %77,6'lık yüksek marjıyla birlikte gerçekleşti; bu artış brüt kârın yükselmesini ve dolayısıyla faaliyet kârı ile FAVÖK'ün negatiften pozitif seviyelere geçmesini sağladı. Net kârın %194,6'lık marjı, özkaynak kârlılığının %2,7'ye yükselmesiyle desteklenirken, özkaynakların 14,04 milyar TL'ye çıkması aktif toplamının 17,41 milyar TL'ye ulaşmasını ve net borcun -1,76 milyar TL'ye (daha az borç) gerilemesini beraberinde getirdi. Artan faaliyet nakit akışı (0,70 milyar TL) ve yatırım harcamasındaki yükseliş (0,12 milyar TL) cari oranı 3,24'e çıkararak borç/özkaynak oranının -0,13'ten daha olumlu bir konuma gelmesine katkı sağladı.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | %465,3 |
-| Brüt kâr | %5492,3 |
-| Faaliyet kârı | %317,3 |
-| FAVÖK | %621,6 |
-| Net kâr | %406,4 |
+| Hasılat | %409,3 |
+| Brüt kâr | %5925,5 |
+| Faaliyet kârı | %371,1 |
+| FAVÖK | %747,5 |
+| Net kâr | %533,0 |
 | Özkaynak | %46,9 |
 | Aktif toplamı | %65,4 |
 | Net borç | %21,6 |
-| Faaliyet nakit akışı | %337,5 |
-| Yatırım harcaması | %51,7 |
+| Faaliyet nakit akışı | %36,3 |
+| Yatırım harcaması | %38,0 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -41,25 +41,25 @@ Hasılatın %5 katına yakın artışı brüt kârın %77,6'lık yüksek marjıy
 
 | Kalem | Değer |
 | --- | ---: |
-| Hasılat | 0,32 milyar TL |
-| Brüt kâr | 0,20 milyar TL |
-| Faaliyet kârı | 0,20 milyar TL |
-| FAVÖK | 0,25 milyar TL |
-| Net kâr | 0,95 milyar TL |
+| Hasılat | 0,20 milyar TL |
+| Brüt kâr | 0,15 milyar TL |
+| Faaliyet kârı | 0,12 milyar TL |
+| FAVÖK | 0,14 milyar TL |
+| Net kâr | 0,38 milyar TL |
 | Özkaynak | 14,04 milyar TL |
 | Aktif toplamı | 17,41 milyar TL |
 | Net borç | -1,76 milyar TL |
-| Faaliyet nakit akışı | 0,70 milyar TL |
-| Yatırım harcaması | 0,12 milyar TL |
+| Faaliyet nakit akışı | 0,31 milyar TL |
+| Yatırım harcaması | 0,05 milyar TL |
 
 ## Sektör içindeki konum
 
-Karşılaştırma Sanayi sektöründeki 69 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 69 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %77,6 | %20,9 |
-| Net kâr marjı | %194,6 | %1,3 |
+| Brüt kâr marjı | %76,9 | %20,9 |
+| Net kâr marjı | %194,6 | %1,2 |
 | Özkaynak kârlılığı | %2,7 | %0,3 |
 | Cari oran | 3,24 | 1,32 |
 | Borç / özkaynak | -0,13 | 0,16 |
@@ -70,14 +70,10 @@ Karşılaştırma Sanayi sektöründeki 69 şirketin **medyanına** göre yapıl
 
 **Şirket lehine işleyenler**
 
-- Hasılat reel olarak %465,3 arttı.
-- Net kâr reel olarak %406,4 arttı.
-- Brüt marj 67,7 puan genişledi (-%6,4 → %61,3).
+- Hasılat reel olarak %409,3 arttı.
+- Net kâr reel olarak %533,0 arttı.
+- Brüt marj 70,4 puan genişledi (%6,5 → %76,9).
 - Cari oran 3,24; dönen varlıklar kısa vadeli yükümlülüklerin üzerinde.
-
-**Dikkat gerektirenler**
-
-- Faaliyet nakit akışı net kârın %74 kadarı; kâr ile nakit üretimi ayrışıyor.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 
