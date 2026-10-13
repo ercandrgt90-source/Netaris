@@ -599,6 +599,24 @@ for _ad in ("otomasyon.yml", "bilanco.yml"):
     _b = _m.find("test_bilanco_sayfa_saglam.py --budar")
     dogru(f"{_ad}: miras listesi budaniyor", _b != -1)
     dogru(f"{_ad}: budama onarimdan SONRA", _o != -1 and _b > _o)
+    # HAT KENDINI IYILESTIRMELI.
+    #
+    # Koruma (`site/test_bilanco_sayfa_saglam.py`) sinama adiminda,
+    # yani onarimdan ONCE kosuyor. Bir sayfa yeni bozulursa koruma
+    # hakli olarak dusuyor ve kosu kirmiziya gidiyor.
+    #
+    # Ama onarim `always()` ile kostugu icin O KOSUDA sayfayi
+    # duzeltiyor, geri yazma da `always()` oldugu icin duzeltme
+    # depoya giriyor ve BIR SONRAKI kosu yesil donuyor. Kosul
+    # kaldirilirsa hat kendini iyilestirmeyi birakir ve kirmizi
+    # elle mudahale bekler.
+    for _ara, _etiket in (("bilanco_tazele.py --onarim", "onarim"),
+                          ("test_bilanco_sayfa_saglam.py --budar",
+                           "budama")):
+        _i = _m.find(_ara)
+        _bas = _m.rfind("- name:", 0, _i)
+        dogru(f"{_ad}: {_etiket} adimi kosu kesilse de calisiyor",
+              _i != -1 and "always()" in _m[_bas:_i])
     # GERI YAZMADAN ONCE: sonra olsaydi onarilan sayfalar
     # islenmemis kalirdi ve her kosu ayni isi bastan yapardi.
     #
