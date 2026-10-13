@@ -30,7 +30,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 17,
+  "yorumlanan": 16,
   "haberler": [
     {
       "baslik": "Ödemeler Dengesi İstatistikleri (Ağustos 2026)",
@@ -271,6 +271,27 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/duzenleme-9-d70a1c54.jpg",
       "foto_atif": "Harrison Keely · CC-BY-4.0"
+    },
+    {
+      "baslik": "Fitch Ratings: Batı Avrupa egemenlerinin mali yolları farklılaşmaya devam ediyor",
+      "baslik_kaynak": "Fitch Ratings: Western European sovereigns' fiscal paths continue to diverge.",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9803537/Fitch-Ratings-Western-European-sovereigns-fiscal-paths-continue-to-diverge.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Vergi ve kamu maliyesi",
+      "tarih": "2026-10-13",
+      "tarih_gorunur": "13 Ekim 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/vergi-ve-kamu-maliyesi-9-779592cd.jpg",
+      "foto_atif": "Myotus · CC-BY-SA-4.0"
     },
     {
       "baslik": "Alphabet CEO'su Pichai: Gemini 4 Argon çıktı. $GOOGL",
@@ -1582,32 +1603,6 @@
       "foto_atif": "Captain Albert E. Theberge, NOAA Corps (ret.) · PDM"
     },
     {
-      "baslik": "ABD ADP Haftalık İstihdam Değişikliği: 24,75 — önceki 23,75",
-      "baslik_kaynak": "US ADP Wkly Employment Change Actual 24.75k (Forecast -, Previous 23.75k)",
-      "ozet": "Açıklanan değer 24,75. Önceki dönem 23,75; yükseldi (1,00 (birimsiz)).",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9803183/US-ADP-Wkly-Employment-Change-Actual-2475k-Forecast---Previous-2375k.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "İstihdam ve ücret",
-      "tarih": "2026-10-13",
-      "tarih_gorunur": "13 Ekim 2026",
-      "yorumlanir": true,
-      "neden_onemli": "İstihdam verisi merkez bankalarının en yakından izlediği göstergedir; ücret artışı hizmet enflasyonunun ana girdisidir.",
-      "kanallar": [
-        "Faiz beklentisi: güçlü istihdam faiz indirimi beklentisini öteler, zayıf veri öne çeker.",
-        "Ücret-fiyat ilişkisi: birim işgücü maliyeti hizmet enflasyonuna doğrudan geçer.",
-        "Tüketim: hane geliri perakende talebini ve şirket gelirlerini belirler.",
-        "Katılım oranı: işgücüne katılımdaki değişim, işsizlik oranını istihdam artışından bağımsız hareket ettirebilir."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/istihdam-ve-ucret-9-46336a81.jpg",
-      "foto_atif": "namisito · CC-BY-SA-4.0"
-    },
-    {
       "baslik": "Ripple, Stripe'ın sahibi olduğu Privy ortağı, gömülü cüzdanları XRP Ledger'a getiriyor",
       "baslik_kaynak": "Ripple, Stripe-owned Privy partner to bring embedded wallets to XRP Ledger",
       "ozet": "Developers can now build XRPL wallets into apps via Privy, with support for XRP, RLUSD, AI agent payments and x402.",
@@ -2343,6 +2338,27 @@
       "foto_atif": "WClarke · CC-BY-SA-4.0"
     },
     {
+      "baslik": "Enerji Bakanlığı 2026 Ernest Orlando Lawrence Ödülü Sahiplerini Açıkladı",
+      "baslik_kaynak": "Energy Department Announces 2026 Ernest Orlando Lawrence Award Winners",
+      "ozet": "U.S. Secretary of Energy Chris Wright today announced nine recipients of the prestigious Ernest Orlando Lawrence Award for their exceptional contributions to research and development supporting the U.S. Department of Energy’s missions in science, energy, and national security.",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": false,
+      "bolge": "DUNYA",
+      "adres": "https://www.energy.gov/articles/energy-department-announces-2026-ernest-orlando-lawrence-award-winners",
+      "kurum": "DOE",
+      "kurum_tam": "ABD Enerji Bakanlığı",
+      "konu": "Enerji",
+      "tarih": "2026-10-10",
+      "tarih_gorunur": "10 Ekim 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/enerji-11-a5cdd29f.jpg",
+      "foto_atif": "W.carter · CC0"
+    },
+    {
       "baslik": "İstanbul Ekonomi Forumu'na İlişkin Basın Duyurusu (2026-44)",
       "baslik_kaynak": "İstanbul Ekonomi Forumu'na İlişkin Basın Duyurusu (2026-44)",
       "ozet": "",
@@ -2614,27 +2630,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/para-politikasi-9-683f4724.jpg",
       "foto_atif": "Tony Webster · CC-BY-2.0"
-    },
-    {
-      "baslik": "Uluslararası Rezervler ve Döviz Likiditesi (Eylül 2026)",
-      "baslik_kaynak": "Uluslararası Rezervler ve Döviz Likiditesi (Eylül 2026)",
-      "ozet": "",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": false,
-      "bolge": "TR",
-      "adres": "http://www.tcmb.gov.tr/wps/wcm/connect/tr/tcmb+tr/main+menu/istatistikler/odemeler+dengesi+ve+ilgili+istatistikler/uluslararasi+rezervler+ve+doviz+likiditesi",
-      "kurum": "TCMB",
-      "kurum_tam": "Türkiye Cumhuriyet Merkez Bankası",
-      "konu": "Bankacılık",
-      "tarih": "2026-10-08",
-      "tarih_gorunur": "8 Ekim 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/bankacilik-8-685abb38.jpg",
-      "foto_atif": "Myotus · CC-BY-4.0"
     }
   ],
   "sinir_notu": "Yukarıdaki maddeler yapısal aktarım kanallarıdır, öngörü değildir. Etkinin ne zaman ve ne ölçüde görüleceği kur seviyesi, vergi düzenlemeleri ve sözleşme yapılarına bağlı olarak değişir; bu sayfada bir büyüklük tahmini yapılmamaktadır."
