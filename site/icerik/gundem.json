@@ -30,7 +30,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 16,
+  "yorumlanan": 17,
   "haberler": [
     {
       "baslik": "Suudi liderliğindeki koalisyon: El - Karaç'ta füze ele geçirildi ve imha edildi",
@@ -399,6 +399,32 @@
       "foto_atif": "Olga Ernst · CC-BY-SA-4.0"
     },
     {
+      "baslik": "İran, İngiltere’nin Tahran Büyükelçisini Dışişleri Bakanlığı’na çağırdı",
+      "baslik_kaynak": "İran, İngiltere’nin Tahran Büyükelçisini Dışişleri Bakanlığı’na çağırdı",
+      "ozet": "İran Dışişleri Bakanlığı, İngiltere hükümetinin RAF Fairford hava üssüne yönelik şüpheli saldırı planı konusunda Tahran yönetimini suçlaması nedeniyle İngiltere’nin Tahran Büyükelçisini bakanlığa çağırdı.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.ekonomim.com/dunya/iran-ingilterenin-tahran-buyukelcisini-disisleri-bakanligina-cagirdi-haberi-924512",
+      "kurum": "Ekonomim",
+      "kurum_tam": "Ekonomim",
+      "konu": "Jeopolitik",
+      "tarih": "2026-10-14",
+      "tarih_gorunur": "14 Ekim 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
+      "kanallar": [
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-18-d6206fae.jpg",
+      "foto_atif": "United Nation · PDM"
+    },
+    {
       "baslik": "Bank of America'ya kara para aklamadan ceza",
       "baslik_kaynak": "Bank of America'ya kara para aklamadan ceza",
       "ozet": "ABD Hazine Bakanlığı, kara para aklamayı önleme ve yaptırım yasalarını ihlal ettiği gerekçesiyle ülkenin en büyük ikinci bankası olan Bank of America'ya 1,21 milyar doların üzerinde para cezası verildiğini bildirdi.",
@@ -439,6 +465,27 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/borsa-21-e2f22d70.jpg",
       "foto_atif": "William Iven firmbee · CC0"
+    },
+    {
+      "baslik": "Kyk Burs Ve Kredi Başvuru Ekranı: Kyk burs ve kredi başvurusu nereden ve nasıl yapılır?",
+      "baslik_kaynak": "KYK BURS VE KREDİ BAŞVURU EKRANI: KYK burs ve kredi başvurusu nereden ve nasıl yapılır?",
+      "ozet": "KYK burs başvuruları başladı. Öğrencilerin maddi durumu incelenecek ve burs veya kredi ödemesi sağlanacak. Ekim ayının ortalarına gelinmesiyle öğrenciler KYK burs başvuru detaylarını sorgulamaya başladı. Başvurular e-Devlet üzerinden yapılıyor.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.cnnturk.com/ekonomi/kyk-burs-ve-kredi-basvuru-ekrani-kyk-burs-ve-kredi-basvurusu-nereden-ve-nasil-yapilir-3478966",
+      "kurum": "CNN Türk",
+      "kurum_tam": "CNN Türk",
+      "konu": "Bankacılık",
+      "tarih": "2026-10-14",
+      "tarih_gorunur": "14 Ekim 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/bankacilik-8-685abb38.jpg",
+      "foto_atif": "Myotus · CC-BY-4.0"
     },
     {
       "baslik": "Ödemeler Dengesi İstatistikleri (Ağustos 2026)",
@@ -2273,48 +2320,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/kripto-varliklar-9-b82c3e85.jpg",
       "foto_atif": "CryptoWallet.com Images · CC-BY-2.0"
-    },
-    {
-      "baslik": "İşte bugün kriptoda olanlar",
-      "baslik_kaynak": "Here’s what happened in crypto today",
-      "ozet": "Need to know what happened in crypto today? Here is the latest news on daily trends and events impacting Bitcoin price, blockchain, DeFi, Web3 and crypto regulation.",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://cointelegraph.com/news/what-happened-in-crypto-today?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "kurum": "Cointelegraph",
-      "kurum_tam": "Cointelegraph",
-      "konu": "Kripto varlıklar",
-      "tarih": "2026-10-13",
-      "tarih_gorunur": "13 Ekim 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/kripto-varliklar-8-8b36c240.jpg",
-      "foto_atif": "de Vries, Alex; Stoll, Christian · PDM"
-    },
-    {
-      "baslik": "SEC'in liderlik eksikliği kripto kural koymayı nasıl kolaylaştırabilir?",
-      "baslik_kaynak": "How the SEC’s lack of leadership could facilitate crypto rulemaking",
-      "ozet": "A recent change in the SEC’s rules on quorum could make it easier for the agency to amend its approach to crypto regulation in the absence of a market structure bill.",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://cointelegraph.com/news/sec-leadership-facilitate-crypto-rulemaking?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "kurum": "Cointelegraph",
-      "kurum_tam": "Cointelegraph",
-      "konu": "Kripto varlıklar",
-      "tarih": "2026-10-13",
-      "tarih_gorunur": "13 Ekim 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/kripto-varliklar-8-740eb829.jpg",
-      "foto_atif": "Satheesh Sankaran · CC-BY-2.0"
     },
     {
       "baslik": "Esma, etki ve geçiş iddialarında netliği teşvik ediyor",
