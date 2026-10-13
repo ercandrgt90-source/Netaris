@@ -33,6 +33,31 @@
   "yorumlanan": 21,
   "haberler": [
     {
+      "baslik": "Ödemeler Dengesi İstatistikleri (Ağustos 2026)",
+      "baslik_kaynak": "Ödemeler Dengesi İstatistikleri (Ağustos 2026)",
+      "ozet": "",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": false,
+      "bolge": "TR",
+      "adres": "http://www.tcmb.gov.tr/wps/wcm/connect/tr/tcmb+tr/main+menu/istatistikler/odemeler+dengesi+ve+ilgili+istatistikler/odemeler+dengesi+istatistikleri",
+      "kurum": "TCMB",
+      "kurum_tam": "Türkiye Cumhuriyet Merkez Bankası",
+      "konu": "Bankacılık",
+      "tarih": "2026-10-13",
+      "tarih_gorunur": "13 Ekim 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Zorunlu karşılık, likidite ve teminat düzenlemeleri kredi arzının miktarını ve maliyetini doğrudan belirler.",
+      "kanallar": [
+        "Kredi arzı: zorunlu karşılık oranları, bankaların kredi olarak kullandırabileceği kaynağın büyüklüğünü değiştirir.",
+        "Fonlama kompozisyonu: TL ve döviz mevduat arasındaki maliyet farkı, bankaların bilanço yapısını etkiler.",
+        "Reel sektör: kredi kanalının daralması, işletme sermayesini kısa vadeli borçla çeviren şirketlerde önce hissedilir."
+      ],
+      "kanal_basligi": "Piyasaya nasıl yansır?",
+      "foto": "/statik/foto/bankacilik-9-93533b82.jpg",
+      "foto_atif": "Myotus · CC-BY-4.0"
+    },
+    {
       "baslik": "Başarısızlıklarla İlgili Temel Rakamlar (Eylül)",
       "baslik_kaynak": "Basic Figures on Fails (Sept.)",
       "ozet": "",
@@ -1831,6 +1856,32 @@
       "foto_atif": "CryptoWallet.com Images · CC-BY-2.0"
     },
     {
+      "baslik": "Uzmanlar, ödemeler dengesi verilerini değerlendirdi",
+      "baslik_kaynak": "Uzmanlar, ödemeler dengesi verilerini değerlendirdi",
+      "ozet": "Uzmanlar, ödemeler dengesinde turizm sezonunun etkisiyle seyahat gelirlerindeki artış ve taşımacılık gelirlerindeki toparlanmanın hizmetler dengesini desteklediğini bildirdi.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.aa.com.tr/tr/ekonomi/uzmanlar-odemeler-dengesi-verilerini-degerlendirdi/4087072",
+      "kurum": "AA",
+      "kurum_tam": "Anadolu Ajansı",
+      "konu": "Bankacılık",
+      "tarih": "2026-10-13",
+      "tarih_gorunur": "13 Ekim 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Bankacılık kararları kredi kanalının genişliğini belirler; etki önce fonlama maliyetinde, sonra kredi hacminde görünür.",
+      "kanallar": [
+        "Fonlama maliyeti: mevduat ve tahvil faizindeki değişim net faiz marjına yazılır.",
+        "Sermaye yeterliliği: rasyo üzerindeki baskı kredi büyümesini sınırlar.",
+        "Aktif kalitesi: takipteki kredi oranı, karşılık giderleri üzerinden kârlılığa geçer.",
+        "Yayılım: bankacılık sistemi ekonominin geri kalanına kredi kanalıyla bağlı olduğu için etki sektörle sınırlı kalmaz."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/bankacilik-7-8f64866b.jpg",
+      "foto_atif": "Artaxerxes · CC-BY-SA-4.0"
+    },
+    {
       "baslik": "Dolar endeksi son 18 ayın zirvesinde",
       "baslik_kaynak": "Dolar endeksi son 18 ayın zirvesinde",
       "ozet": "Dolar endeksi, Orta Doğu'da süren jeopolitik riskler, ABD Merkez Bankasının (Fed) faiz artışı yapabileceğine yönelik tahminler ve avrodaki zayıflamanın etkisiyle 102,6 seviyesine çıkarak Nisan 2025'ten bu yana en yüksek seviyeyi gördü.",
@@ -1926,32 +1977,6 @@
       "kanal_basligi": "Piyasaya nasıl yansır?",
       "foto": "/statik/foto/dis-ticaret-8-de18e08e.jpg",
       "foto_atif": "Nathan.cima · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "Ödemeler dengesi verileri açıklandı",
-      "baslik_kaynak": "Ödemeler dengesi verileri açıklandı",
-      "ozet": "Türkiye'nin cari işlemler hesabında ağustos ayında 4 milyar 53 milyon dolar fazla verilirken altın ve enerji hariç cari işlemler hesabında da 8 milyar 205 milyon dolarlık fazla oluştu.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.aa.com.tr/tr/ekonomi/odemeler-dengesi-verileri-aciklandi/4086856",
-      "kurum": "AA",
-      "kurum_tam": "Anadolu Ajansı",
-      "konu": "Bankacılık",
-      "tarih": "2026-10-13",
-      "tarih_gorunur": "13 Ekim 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Bankacılık kararları kredi kanalının genişliğini belirler; etki önce fonlama maliyetinde, sonra kredi hacminde görünür.",
-      "kanallar": [
-        "Fonlama maliyeti: mevduat ve tahvil faizindeki değişim net faiz marjına yazılır.",
-        "Sermaye yeterliliği: rasyo üzerindeki baskı kredi büyümesini sınırlar.",
-        "Aktif kalitesi: takipteki kredi oranı, karşılık giderleri üzerinden kârlılığa geçer.",
-        "Yayılım: bankacılık sistemi ekonominin geri kalanına kredi kanalıyla bağlı olduğu için etki sektörle sınırlı kalmaz."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/bankacilik-8-d4d74101.jpg",
-      "foto_atif": "Myotus · CC-BY-4.0"
     },
     {
       "baslik": "Borsa güne yükselişle başladı",
@@ -2104,30 +2129,25 @@
       "foto_atif": "WClarke · CC-BY-SA-4.0"
     },
     {
-      "baslik": "Avrupa'da hibrit savaş hazırlığı: Türkiye de gündemde",
-      "baslik_kaynak": "Avrupa'da hibrit savaş hazırlığı: Türkiye de gündemde",
-      "ozet": "Avrupa Birliği, can kayıplarına yol açabilecek büyük çaplı hibrit saldırılara karşı hazırlık yapıyor. Siber saldırı ve sabotajların daha geniş bir çatışmanın habercisi olabileceği uyarısında bulunan uzmanlar, Türkiye'nin de risklerin dışında olmadığına dikkat çekiyor. Peki, Avrupa hangi senaryoya hazırlanıyor?",
+      "baslik": "Küresel buğday piyasasında son durum: Cezayir'in dev alım ihalesi fiyatları yukarı çekti",
+      "baslik_kaynak": "Küresel buğday piyasasında son durum: Cezayir'in dev alım ihalesi fiyatları yukarı çekti",
+      "ozet": "Cezayir devlet tahıl ajansı OAIC'nin açtığı uluslararası buğday alım ihalesi, Cuma günkü sert düşüşün ardından Avrupa buğday vadeli işlemlerinin yeniden yükselmesine öncülük etti.",
       "cevrildi": false,
       "dil": "tr",
       "ticari": true,
       "bolge": "TR",
-      "adres": "https://www.dunya.com/dunya/avrupada-hibrit-savas-hazirligi-turkiye-de-gundemde-haberi-843667",
-      "kurum": "Dünya",
-      "kurum_tam": "Dünya Gazetesi",
-      "konu": "Jeopolitik",
+      "adres": "https://www.ekonomim.com/kuresel-ekonomi/kuresel-bugday-piyasasinda-son-durum-cezayirin-dev-alim-ihalesi-fiyatlari-yukari-cekti-haberi-924375",
+      "kurum": "Ekonomim",
+      "kurum_tam": "Ekonomim",
+      "konu": "Tarım ve gıda",
       "tarih": "2026-10-13",
       "tarih_gorunur": "13 Ekim 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
-      "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
-        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
-        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/jeopolitik-18-d6206fae.jpg",
-      "foto_atif": "United Nation · PDM"
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/tarim-ve-gida-8-40e6368c.jpg",
+      "foto_atif": "Dreamy Pixel · CC-BY-4.0"
     },
     {
       "baslik": "Hindistan’ın enflasyon sarmalı: Faiz hamlesi Pasifik’in devini kurtarmaya yetecek mi?",
@@ -2632,27 +2652,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/para-politikasi-11-fd54475f.jpg",
       "foto_atif": "Innotata · CC-BY-SA-3.0"
-    },
-    {
-      "baslik": "Piero Cipollone: Corriere della Sera ile röportaj",
-      "baslik_kaynak": "Piero Cipollone: Interview with Corriere della Sera",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": false,
-      "bolge": "DUNYA",
-      "adres": "https://www.ecb.europa.eu//press/inter/date/2026/html/ecb.in261008~3184e7d0d0.en.html",
-      "kurum": "ECB",
-      "kurum_tam": "Avrupa Merkez Bankası",
-      "konu": "Para politikası",
-      "tarih": "2026-10-08",
-      "tarih_gorunur": "8 Ekim 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-8-9ac5b7c7.jpg",
-      "foto_atif": "DestinationFearFan · CC-BY-SA-4.0"
     }
   ],
   "sinir_notu": "Yukarıdaki maddeler yapısal aktarım kanallarıdır, öngörü değildir. Etkinin ne zaman ve ne ölçüde görüleceği kur seviyesi, vergi düzenlemeleri ve sözleşme yapılarına bağlı olarak değişir; bu sayfada bir büyüklük tahmini yapılmamaktadır."
