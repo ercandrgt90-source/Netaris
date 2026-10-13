@@ -24,12 +24,12 @@ Hasılatın 0,12 milyar TL'den 0,03 milyar TL'ye düşmesi, net kârın -0,08 mi
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | -%78,0 |
-| Net kâr | -%332,1 |
+| Hasılat | -%86,1 |
+| Net kâr | %225,1 |
 | Özkaynak | %15,6 |
 | Aktif toplamı | %37,3 |
-| Net borç | %763,9 |
-| Faaliyet nakit akışı | %3514,1 |
+| Net borç | %1079,9 |
+| Faaliyet nakit akışı | -%415,5 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -37,31 +37,34 @@ Hasılatın 0,12 milyar TL'den 0,03 milyar TL'ye düşmesi, net kârın -0,08 mi
 
 | Kalem | Değer |
 | --- | ---: |
-| Hasılat | 0,03 milyar TL |
-| Net kâr | -0,36 milyar TL |
+| Hasılat | 0,02 milyar TL |
+| Net kâr | 0,13 milyar TL |
 | Özkaynak | 5,39 milyar TL |
 | Aktif toplamı | 8,85 milyar TL |
-| Net borç | 1,17 milyar TL |
-| Faaliyet nakit akışı | 3,55 milyar TL |
+| Net borç | 1,60 milyar TL |
+| Faaliyet nakit akışı | -0,42 milyar TL |
 
 ## Sektör içindeki konum
 
-Karşılaştırma Gayrimenkul sektöründeki 34 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 34 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Net kâr marjı | %760,5 | %14,3 |
-| Özkaynak kârlılığı | %2,3 | %0,4 |
-| Borç / özkaynak | 0,22 | 0,02 |
+| Net kâr marjı | %760,5 | %15,8 |
+| Özkaynak kârlılığı | %2,3 | %0,5 |
+| Borç / özkaynak | 0,30 | 0,02 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
 ## Öne çıkan ölçümler
 
+**Şirket lehine işleyenler**
+
+- Net kâr reel olarak %225,1 arttı.
+
 **Dikkat gerektirenler**
 
-- Hasılat reel olarak -%78,0 geriledi.
-- Net kâr reel olarak -%332,1 geriledi.
+- Hasılat reel olarak -%86,1 geriledi.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

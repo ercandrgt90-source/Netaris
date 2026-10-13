@@ -24,12 +24,12 @@ Hasılat gerilerken net kâr daha sert düştü; buna karşılık özkaynak ve a
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | -%8,5 |
-| Net kâr | -%49,6 |
+| Hasılat | %5,6 |
+| Net kâr | -%71,3 |
 | Özkaynak | %32,8 |
 | Aktif toplamı | %43,8 |
 | Net borç | %82,1 |
-| Faaliyet nakit akışı | -%41,4 |
+| Faaliyet nakit akışı | -%105,4 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -37,31 +37,34 @@ Hasılat gerilerken net kâr daha sert düştü; buna karşılık özkaynak ve a
 
 | Kalem | Değer |
 | --- | ---: |
-| Hasılat | 0,87 milyar TL |
-| Net kâr | 0,33 milyar TL |
+| Hasılat | 0,30 milyar TL |
+| Net kâr | 0,16 milyar TL |
 | Özkaynak | 28,90 milyar TL |
 | Aktif toplamı | 37,27 milyar TL |
 | Net borç | -0,30 milyar TL |
-| Faaliyet nakit akışı | 0,43 milyar TL |
+| Faaliyet nakit akışı | -0,01 milyar TL |
 
 ## Sektör içindeki konum
 
-Karşılaştırma Gayrimenkul sektöründeki 34 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 34 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Net kâr marjı | %32,9 | %14,3 |
-| Özkaynak kârlılığı | %0,5 | %0,4 |
+| Net kâr marjı | %53,2 | %15,8 |
+| Özkaynak kârlılığı | %0,5 | %0,5 |
 | Borç / özkaynak | -0,01 | 0,02 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
 ## Öne çıkan ölçümler
 
+**Şirket lehine işleyenler**
+
+- Hasılat reel olarak %5,6 arttı.
+
 **Dikkat gerektirenler**
 
-- Hasılat reel olarak -%8,5 geriledi.
-- Net kâr reel olarak -%49,6 geriledi.
+- Net kâr reel olarak -%71,3 geriledi.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

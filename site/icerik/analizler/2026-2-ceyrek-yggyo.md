@@ -24,12 +24,12 @@ Hasılat 1,62 milyar TL'den 1,70 milyar TL'ye çıkarken net kâr 1,47 milyar TL
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | %5,0 |
-| Net kâr | -%68,5 |
+| Hasılat | -%19,8 |
+| Net kâr | %318,9 |
 | Özkaynak | %69,9 |
 | Aktif toplamı | %37,3 |
 | Net borç | -%6,0 |
-| Faaliyet nakit akışı | -%51,3 |
+| Faaliyet nakit akışı | -%20,4 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -37,30 +37,34 @@ Hasılat 1,62 milyar TL'den 1,70 milyar TL'ye çıkarken net kâr 1,47 milyar TL
 
 | Kalem | Değer |
 | --- | ---: |
-| Hasılat | 1,70 milyar TL |
-| Net kâr | 0,46 milyar TL |
+| Hasılat | 0,87 milyar TL |
+| Net kâr | 0,25 milyar TL |
 | Özkaynak | 28,11 milyar TL |
 | Aktif toplamı | 30,32 milyar TL |
 | Net borç | -2,48 milyar TL |
-| Faaliyet nakit akışı | 1,68 milyar TL |
+| Faaliyet nakit akışı | 1,34 milyar TL |
 
 ## Sektör içindeki konum
 
-Karşılaştırma Gayrimenkul sektöründeki 34 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 34 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Net kâr marjı | %28,8 | %14,3 |
-| Özkaynak kârlılığı | %0,9 | %0,4 |
+| Net kâr marjı | %29,0 | %15,8 |
+| Özkaynak kârlılığı | %0,9 | %0,5 |
 | Borç / özkaynak | -0,09 | 0,02 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
 ## Öne çıkan ölçümler
 
+**Şirket lehine işleyenler**
+
+- Net kâr reel olarak %318,9 arttı.
+
 **Dikkat gerektirenler**
 
-- Net kâr reel olarak -%68,5 geriledi.
+- Hasılat reel olarak -%19,8 geriledi.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

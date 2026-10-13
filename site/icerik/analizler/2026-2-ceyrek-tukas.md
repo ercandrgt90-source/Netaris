@@ -24,16 +24,16 @@ Hasılat artarken brüt kâr %14,6'ya gerileyerek 0,99 milyar TL'ye düşmüş, 
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | %8,2 |
-| Brüt kâr | -%31,0 |
-| Faaliyet kârı | -%62,9 |
+| Hasılat | %21,4 |
+| Brüt kâr | -%45,7 |
+| Faaliyet kârı | -%73,7 |
 | FAVÖK | -%33,4 |
-| Net kâr | -%262,4 |
+| Net kâr | -%52,5 |
 | Özkaynak | %50,3 |
 | Aktif toplamı | %45,8 |
 | Net borç | %49,6 |
-| Faaliyet nakit akışı | %10964,7 |
-| Yatırım harcaması | -%73,9 |
+| Faaliyet nakit akışı | %105,1 |
+| Yatırım harcaması | -%65,1 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -41,28 +41,28 @@ Hasılat artarken brüt kâr %14,6'ya gerileyerek 0,99 milyar TL'ye düşmüş, 
 
 | Kalem | Değer |
 | --- | ---: |
-| Hasılat | 5,48 milyar TL |
-| Brüt kâr | 0,99 milyar TL |
-| Faaliyet kârı | 0,38 milyar TL |
-| FAVÖK | 1,29 milyar TL |
-| Net kâr | -0,46 milyar TL |
+| Hasılat | 2,74 milyar TL |
+| Brüt kâr | 0,40 milyar TL |
+| Faaliyet kârı | 0,15 milyar TL |
+| FAVÖK | 0,81 milyar TL |
+| Net kâr | -0,61 milyar TL |
 | Özkaynak | 20,07 milyar TL |
 | Aktif toplamı | 29,72 milyar TL |
 | Net borç | 5,81 milyar TL |
-| Faaliyet nakit akışı | 2,61 milyar TL |
-| Yatırım harcaması | 0,37 milyar TL |
+| Faaliyet nakit akışı | 2,19 milyar TL |
+| Yatırım harcaması | 0,24 milyar TL |
 
 ## Sektör içindeki konum
 
-Karşılaştırma Temel tüketim sektöründeki 31 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Temel tüketim sektöründe **aynı dönemi bildiren** 31 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
 | Brüt kâr marjı | %14,6 | %16,5 |
-| Net kâr marjı | -%22,1 | %1,2 |
+| Net kâr marjı | -%22,1 | %0,2 |
 | Özkaynak kârlılığı | -%3,0 | %0,8 |
 | Cari oran | 1,79 | 1,36 |
-| Borç / özkaynak | 0,29 | 0,25 |
+| Borç / özkaynak | 0,29 | 0,26 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -70,12 +70,12 @@ Karşılaştırma Temel tüketim sektöründeki 31 şirketin **medyanına** gör
 
 **Şirket lehine işleyenler**
 
-- Hasılat reel olarak %8,2 arttı.
+- Hasılat reel olarak %21,4 arttı.
 
 **Dikkat gerektirenler**
 
-- Net kâr reel olarak -%262,4 geriledi.
-- Brüt marj 10,3 puan daraldı (%28,3 → %18,1).
+- Net kâr reel olarak -%52,5 geriledi.
+- Brüt marj 18,0 puan daraldı (%32,6 → %14,6).
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 
