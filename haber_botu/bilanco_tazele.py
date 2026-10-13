@@ -47,6 +47,7 @@ sys.path[:0] = [str(_KOK), str(_KOK / "kaynak"), str(_KOK / "analiz"),
 import bilanco_ag              # noqa: E402
 import bilanco_denetim as bd   # noqa: E402
 import guvenlik                # noqa: E402
+import uret_bilanco as UB      # noqa: E402
 import uret_bilanco_sayfa as U  # noqa: E402
 import yayin                   # noqa: E402
 
@@ -130,6 +131,18 @@ def sayfa_tazele(yol: pathlib.Path, baglam: dict, defter: dict,
     if d is None:
         return False, "eksik: " + ", ".join(eksik[:2])
 
+    # ORAN SAYFANIN KENDI VERISINDEN -- gerekcesi
+    # `uret_bilanco_sayfa.sirket_isle` uzerinde yazili.
+    #
+    # ONARIM ICIN AYRICA SART: tazeleme oranlari ozetten okursa,
+    # ozetteki bozuk bir oran sayfaya YENIDEN yazilir ve sayfa
+    # onarim kuyrugundan HIC dusmez -- her kosuda ayni isi yapan
+    # bir saat bombasi olurdu. Olculdu: negatif ozkaynakla
+    # hesaplanmis alti ROE tam bu durumdaydi.
+    kendi = UB._oranlari(d)
+    if kendi:
+        oran = kendi
+
     unvan = (defter.get(kod) or {}).get("unvan", kod)
     govde = U.govde_kur(kod, unvan, sektor, donem, d, oran, medyan,
                         n, yorum, mali_not=mali_not,
@@ -163,6 +176,7 @@ def onarim_kuyrugu(defter: dict) -> list:
     onarilan sayfa sayisinca KISALIYOR; bitince adim kendiliginden
     etkisiz hale geliyor.
     """
+    miras = bd.miras_sayfalar()
     kuyruk = []
     for yol in sorted(U.SITE.glob("*.md")):
         metin = yol.read_text(encoding="utf-8")
@@ -171,6 +185,14 @@ def onarim_kuyrugu(defter: dict) -> list:
         sebep = bd.onarim_gereken(metin, bilgi)
         if sebep:
             kuyruk.append((yol, sebep))
+    # MIRAS LISTESINDE OLMAYAN BOZUK SAYFA ONCE.
+    #
+    # O sayfa korumanin tolere ETMEDIGI sayfadir, yani CI'i kirmizi
+    # tutan sayfadir. Miras sayfalari zaten tolere ediliyor; onlari
+    # onden gecirmek, kirmizi kosuyu bir dilim daha beklettirir.
+    #
+    # Ikincil anahtar dosya adi: ayni oncelikte duzen degismiyor.
+    kuyruk.sort(key=lambda p: (p[0].name in miras, p[0].name))
     return kuyruk
 
 

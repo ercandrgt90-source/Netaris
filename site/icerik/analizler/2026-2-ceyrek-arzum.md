@@ -60,9 +60,7 @@ Karşılaştırma Bilişim sektöründe **aynı dönemi bildiren** 19 şirketin 
 | --- | ---: | ---: |
 | Brüt kâr marjı | %32,3 | %15,0 |
 | Net kâr marjı | -%5,5 | %0,3 |
-| Özkaynak kârlılığı | %12,2 | %1,3 |
 | Cari oran | 0,59 | 1,24 |
-| Borç / özkaynak | -2,70 | -0,04 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -71,7 +69,6 @@ Karşılaştırma Bilişim sektöründe **aynı dönemi bildiren** 19 şirketin 
 **Şirket lehine işleyenler**
 
 - Net kâr reel olarak %63,6 arttı.
-- Özkaynak kârlılığı %12,2; sektör medyanı %1,3.
 
 **Dikkat gerektirenler**
 

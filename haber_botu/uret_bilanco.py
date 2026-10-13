@@ -456,22 +456,44 @@ def sektor_isle(sektor_tr: str, donem_etiketi: str, ceyrek: int = 2,
 def _oranlari(d) -> dict[str, float]:
     """`Donem`den karsilastirilacak oranlari cikarir.
 
-    Oranlar BURADA YENIDEN HESAPLANMIYOR -- `oranlar.py` ne
-    hesapliyorsa o kullaniliyor. Ikinci bir hesap, iki farkli dogru
-    demek olurdu.
+    HESAP `oranlar.py`NIN KORUMALI BOLMESIYLE YAPILIYOR
+    ---------------------------------------------------
+    Doc metni bastan beri "oranlar burada yeniden hesaplanmiyor"
+    diyordu ama KOD satir ici bolme yapiyordu. Ikisi ayni sonucu
+    vermiyordu ve fark sessizdi.
+
+    `oranlar._bol` boleni SIFIR YA DA NEGATIF ise None donuyor ve
+    gerekcesi orada yazili: "negatif ozkaynakla hesaplanan bir
+    ozkaynak karliligi matematiksel olarak uretilebilir ama
+    anlamsizdir ve yorumlandiginda yaniltir."
+
+    Buradaki satir ici hesap bu kurali TASIMIYORDU. Olculdu
+    (2026-10-13):
+
+        net kar -100, ozkaynak -500  ->  _oranlari: roe = +20,0
+                                         oranlar  : roe = None
+
+    Yani zarar eden bir sirket POZITIF ozkaynak karliligi ile
+    gosteriliyordu -- hem kendi sayfasinda hem SEKTOR MEDYANINDA.
+    Negatif ozkaynak spor kuluplerinde ve borclu sirkette olagan,
+    yani bu kurgusal bir risk degil.
+
+    Artik tek hesap var. `borc_ozkaynak` yalnizca burada tanimli
+    (sektor kiyasi icin) ama ayni korumali bolmeyi kullaniyor.
     """
     cikti: dict[str, float] = {}
-    if d.hasilat:
-        if d.brut_kar is not None:
-            cikti["brut_marj"] = d.brut_kar / d.hasilat * 100
-        if d.net_kar is not None:
-            cikti["net_marj"] = d.net_kar / d.hasilat * 100
-    if d.ozkaynak and d.net_kar is not None:
-        cikti["roe"] = d.net_kar / d.ozkaynak * 100
-    if d.kisa_vadeli_yukumlulukler and d.donen_varliklar is not None:
-        cikti["cari_oran"] = d.donen_varliklar / d.kisa_vadeli_yukumlulukler
-    if d.ozkaynak and d.net_borc is not None:
-        cikti["borc_ozkaynak"] = d.net_borc / d.ozkaynak
+    for ad, deger in (
+        ("brut_marj", oranlar._marj(d.brut_kar, d.hasilat)
+         if d.hasilat else None),
+        ("net_marj", oranlar._marj(d.net_kar, d.hasilat)
+         if d.hasilat else None),
+        ("roe", oranlar._yuz(oranlar._bol(d.net_kar, d.ozkaynak))),
+        ("cari_oran", oranlar._bol(d.donen_varliklar,
+                                   d.kisa_vadeli_yukumlulukler)),
+        ("borc_ozkaynak", oranlar._bol(d.net_borc, d.ozkaynak)),
+    ):
+        if deger is not None:
+            cikti[ad] = deger
     return cikti
 
 

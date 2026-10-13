@@ -50,6 +50,7 @@ import oranlar            # noqa: E402
 import one_cikan          # noqa: E402
 import sektor_okuma       # noqa: E402
 import sektor_ozet        # noqa: E402
+import uret_bilanco        # noqa: E402
 import yayin              # noqa: E402
 
 OZET = _KOK / "kaynak" / "sektor_ozet.json"
@@ -341,6 +342,24 @@ def sirket_isle(kod, bilgi, sektor, donem, oran, medyan, n,
         kod, donem, sektor_tr=sektor, ciftli=True)
     if d is None:
         return False, "eksik: " + ", ".join(eksik[:3])
+
+    # SIRKETIN KENDI ORANI, SAYFANIN KENDI VERISINDEN.
+    #
+    # Oran eskiden `sektor_ozet.json`dan geliyordu; seviye tablosu
+    # ise burada TAZE cekilen `d`den. Ikisi ayri kaynak oldugu icin
+    # ayni sayfada IKI AYRI DONEM anlatilabiliyordu ve olculdu
+    # (2026-10-13): 258 bilanco sayfasinin 203'u boyleydi.
+    #
+    # Ara donemin kac ceyrekten olustugunu tek kaynaga baglamak o
+    # kusuru kapatti ama KURAL duzeyinde kapatti. Burada YAPISAL
+    # olarak kapaniyor: oran, sayfanin gosterdigi tablonun ta
+    # kendisinden turetiliyor, yani ayrilmasi imkansiz.
+    #
+    # MEDYAN YINE OZETTEN: o kesitsel bir istatistik, tek sirketin
+    # verisinden uretilemez.
+    kendi = uret_bilanco._oranlari(d)
+    if kendi:
+        oran = kendi
 
     girdi = bilanco_yorum.girdi_kur(
         kod, bilgi["unvan"], sektor, donem, simdi=d, once=once,

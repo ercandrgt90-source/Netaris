@@ -60,9 +60,7 @@ Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildire
 | --- | ---: | ---: |
 | Brüt kâr marjı | %15,6 | %17,0 |
 | Net kâr marjı | -%2,9 | %0,6 |
-| Özkaynak kârlılığı | %128,5 | %0,6 |
 | Cari oran | 0,56 | 1,29 |
-| Borç / özkaynak | -6,08 | 0,15 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

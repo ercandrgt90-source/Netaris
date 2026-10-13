@@ -33,6 +33,11 @@ sys.path[:0] = [str(_KOK), str(_KOK / "kaynak"), str(_KOK / "analiz")]
 
 import bilanco_denetim as bd                       # noqa: E402
 
+#: Satir sonu ELDE kuruluyor. Bu dosya bir here-doc ile
+#: yazildiginda kacisli satir sonu sessizce GERCEK satir sonuna
+#: donusuyor ve dizge kapanmamis kaliyor; tuzak depoda kayitli.
+SATIR_SONU = chr(10)
+
 _gecti = 0
 
 
@@ -117,6 +122,33 @@ esit(bd.kilavuz_uyusmazligi(_T, "İletişim", "Entertainment"), "",
      "kılavuz sayfada yoksa uyuşmazlık YOK")
 
 print("")
+print("4b. Negatif ozkaynakla ROE gosterilmesi YAKALANIYOR")
+# Projenin kendi kurali: `oranlar._bol` negatif bolende None doner,
+# cunku negatif ozkaynakla hesaplanan ROE anlamsizdir ve yaniltir.
+# Olculdu (2026-10-13): yayindaki alti sayfa bunu yapiyordu --
+# `bizim` ozkaynagi -0,22 milyar iken ROE +%128,5 yaziyordu.
+_NEG = _sayfa("10,00", "5,00", "-1,00", "-0,22", "%50,0", "%128,5")
+esit(bd.ozkaynak_celiskisi(_NEG),
+     "özkaynak -0.22 milyar iken ROE %128,5 yazılı",
+     "negatif özkaynakta ROE yakalanıyor")
+# Negatif ROE de anlamsiz: isaret degil BOLEN sorunlu.
+_NEG2 = _sayfa("10,00", "5,00", "1,00", "-0,50", "%50,0", "-%8,0")
+esit(bool(bd.ozkaynak_celiskisi(_NEG2)), True,
+     "negatif ROE de yakalanıyor (sorun bölen)")
+# SIFIR ozkaynak da bolen olarak gecersiz.
+_SIFIR = _sayfa("10,00", "5,00", "1,00", "0,00", "%50,0", "%5,0")
+esit(bool(bd.ozkaynak_celiskisi(_SIFIR)), True, "sıfır özkaynak da geçersiz")
+# POZITIF ozkaynakta sorun YOK.
+esit(bd.ozkaynak_celiskisi(_T), "", "pozitif özkaynakta sorun yok")
+# ROE sayfada YAZILI DEGILSE celiski de yok -- zaten uretilmemis.
+_YOK = _sayfa("10,00", "5,00", "-1,00", "-0,22", "%50,0", "%0,0").replace(
+    "| Özkaynak kârlılığı | %0,0 | %5,0 |", "")
+esit(bd.ozkaynak_celiskisi(_YOK), "",
+     "ROE yazılmamışsa çelişki de yok (doğru davranış)")
+esit("anlamsız ROE (özkaynak -0.22 milyar iken ROE %128,5 yazılı)"
+     in bd.onarim_gereken(_NEG), True, "onarım sebebi olarak yazılıyor")
+
+print("")
 print("5. Iki sebep birlikte yaziliyor")
 _IKI = _sayfa("10,00", "5,00", "1,00", "10,00", "%12,0", "%10,0",
               kilavuz=_TELEKOM, kod="FENER")
@@ -176,6 +208,77 @@ try:
          "DEFTERDEN okunan alt sektörle kılavuz uyuşmazlığı yakalanıyor")
 finally:
     U.SITE = _ASIL_SITE
+
+print("")
+print("8. sayfa_tazele UCTAN UCA: onarilan sayfa denetimden geciyor")
+#
+# BU MADDE NEDEN VAR: `sayfa_tazele` hic sinanmiyordu ve icine
+# yanlis modulden cagri yazildi (`U._oranlari`, oysa `_oranlari`
+# `uret_bilanco` icinde). Hata ancak GERCEK kosuda AttributeError
+# olarak ortaya cikti. Yanlis modul adi gibi bir kusur, yalnizca
+# kodu CALISTIRAN bir sinamayla yakalanir.
+#
+# SINAMA GERCEK ICERIK DIZININE YAZMAZ. `yayin.yaz_sektorel`
+# kanonik yola yaziyor; ilk yazim bu yuzden `site/icerik/analizler`
+# icine gercek bir dosya birakti. Depodaki kural net: hicbir sinama
+# urunun ciktisini kirletmez. Yazma cagrisi artik YAKALANIYOR.
+import oranlar                                     # noqa: E402
+
+_ASIL_GETIR = BT.bilanco_ag.donem_getir
+_ASIL_YAZ = BT.yayin.yaz_sektorel
+try:
+    g = pathlib.Path(tempfile.mkdtemp())
+    yol = g / "2026-2-ceyrek-ornek.md"
+    yol.write_text(SATIR_SONU.join([
+        "---", "kod: ORNEK", "kategori: Bilanço Analizi",
+        "donem: 2026 2. çeyrek", "---", "",
+        "## Özet", "",
+        "Saklı yorum cümlesi burada duruyor.", "",
+        "## 2026 2. çeyrek dönemi ölçümleri", "",
+        "| Kalem | Değer |", "| --- | ---: |",
+        "| Hasılat | 10,00 milyar TL |",
+        "| Brüt kâr | 5,00 milyar TL |", "",
+        "## Sektör içindeki konum", "",
+        "| Oran | Şirket | Sektör medyanı |", "| --- | ---: | ---: |",
+        "| Brüt kâr marjı | %12,0 | %20,0 |", "",
+    ]), encoding="utf-8")
+    esit(bool(bd.onarim_gereken(yol.read_text(encoding="utf-8"))), True,
+         "baslangicta sayfa BOZUK (seviyeden %50, yazili %12)")
+
+    _d = oranlar.Donem(
+        etiket="2026 2. çeyrek", hasilat=12_400_000_000.0,
+        brut_kar=2_100_000_000.0, faaliyet_kari=900_000_000.0,
+        net_kar=640_000_000.0, ozkaynak=8_300_000_000.0,
+        aktif_toplami=19_700_000_000.0, donen_varliklar=7_100_000_000.0,
+        kisa_vadeli_yukumlulukler=5_400_000_000.0)
+    BT.bilanco_ag.donem_getir = (
+        lambda kod, etiket, ceyrek=1, sektor_tr="", istemci=None,
+        ciftli=False: (_d, None, []) if ciftli else (_d, []))
+    _yazilan = {}
+    BT.yayin.yaz_sektorel = lambda **kw: _yazilan.update(kw)
+
+    # Baglam OZETTEN gelen BOZUK orani tasiyor; tazeleme onu
+    # KULLANMAMALI, sayfanin kendi verisinden turetmeli.
+    baglam = {"ORNEK": ("Sanayi", {"brut_marj": 12.0, "net_marj": 3.0},
+                        {"brut_marj": 20.0, "net_marj": 5.0}, 12,
+                        "2026 2. çeyrek", "")}
+    defter = {"ORNEK": {"unvan": "Örnek A.Ş.", "sektor_tr": "Sanayi",
+                        "alt_sektor": "Conglomerates"}}
+    ok, not_ = BT.sayfa_tazele(yol, baglam, defter, False)
+    esit(ok, True, f"sayfa tazelendi ({not_})")
+    esit(bool(_yazilan), True, "yazma cagrisi YAKALANDI (diske yazilmadi)")
+    _g = _yazilan["govde"]
+    _m = _g if isinstance(_g, str) else SATIR_SONU.join(_g)
+    esit(bd.onarim_gereken(_m, defter["ORNEK"]), [],
+         "ONARILAN govde denetimden SORUNSUZ geciyor")
+    esit("Saklı yorum cümlesi" in _m, True,
+         "saklı yorum korundu (model çağrısı yok)")
+    esit("%16,9" in _m, True,
+         "oran sayfanın KENDİ verisinden (2,10/12,40 = %16,9)")
+    esit("%12,0" in _m, False, "özetteki BOZUK oran kullanılmadı")
+finally:
+    BT.bilanco_ag.donem_getir = _ASIL_GETIR
+    BT.yayin.yaz_sektorel = _ASIL_YAZ
 
 print("")
 print(f"TUM TESTLER GECTI ({_gecti})")

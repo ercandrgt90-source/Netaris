@@ -125,6 +125,57 @@ def kilavuz_uyusmazligi(metin: str, sektor_tr: str,
     return b[0] if f"## {b[0]}" in metin else ""
 
 
+#: Duzeltmeden ONCE uretilmis, bozuklugu BILINEN sayfalar. Koruma
+#: (`site/test_bilanco_sayfa_saglam.py`) bunlari tolere ediyor.
+MIRAS = _KOK.parent / "site" / "bilanco_miras_bozuk.json"
+
+
+def miras_sayfalar() -> set[str]:
+    """Bozuklugu bilinen sayfa adlari; dosya yoksa bos kume."""
+    if not MIRAS.is_file():
+        return set()
+    try:
+        import json                                # noqa: PLC0415
+        return set(json.loads(MIRAS.read_text(encoding="utf-8"))
+                   .get("sayfalar") or [])
+    except (ValueError, OSError):
+        return set()
+
+
+def ozkaynak_celiskisi(metin: str) -> str:
+    """Ozkaynak SIFIR YA DA NEGATIFKEN ROE gosteriliyorsa aciklama.
+
+    NEDEN KUSUR -- PROJENIN KENDI KURALI
+    ------------------------------------
+    `analiz/oranlar._bol` boleni sifir ya da negatif ise None
+    donuyor ve gerekcesi orada yazili: "negatif ozkaynakla
+    hesaplanan bir ozkaynak karliligi matematiksel olarak
+    uretilebilir ama anlamsizdir ve yorumlandiginda yaniltir."
+
+    `uret_bilanco._oranlari` bu korumayi tasimiyordu. Olculdu
+    (2026-10-13), yayindaki alti sayfa:
+
+        bizim  ozkaynak -0,22 milyar  ->  ROE  +%128,5
+        vking  ozkaynak -0,16 milyar  ->  ROE   +%76,9
+        arzum  ozkaynak -0,52 milyar  ->  ROE   +%12,2
+
+    Yani ozkaynagi ERIMIS sirketler yuksek karlilikla gosteriliyor.
+    Isaret sayfanin KENDI seviye tablosunda duruyor, bu yuzden
+    disaridan veri gerekmiyor.
+    """
+    oz = None
+    for satir in metin.splitlines():
+        if satir.startswith("| Özkaynak |"):
+            oz = _milyar(satir)
+    if oz is None or oz > 0:
+        return ""
+    m = re.search(r"\|\s*Özkaynak kârlılığı\s*\|\s*(-?%[\d.,]+)\s*\|",
+                  metin)
+    if not m:
+        return ""
+    return f"özkaynak {oz} milyar iken ROE {m.group(1)} yazılı"
+
+
 def onarim_gereken(metin: str, bilgi: dict | None = None) -> list[str]:
     """Sayfanin ONARIM gerektiren yanlari; saglamsa BOS liste.
 
@@ -140,4 +191,7 @@ def onarim_gereken(metin: str, bilgi: dict | None = None) -> list[str]:
                                   b.get("alt_sektor") or "")
     if kilavuz:
         sebep.append(f"kapsam dışı kılavuz ({kilavuz})")
+    celiski = ozkaynak_celiskisi(metin)
+    if celiski:
+        sebep.append(f"anlamsız ROE ({celiski})")
     return sebep
