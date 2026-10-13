@@ -18,36 +18,66 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %19,8'i brüt kâr olarak gerçekleşmiş; brüt kârın bir kısmı faaliyet giderleri ve amortisman gibi kalemlere gittiği için faaliyet kârı 0,61 milyar TL'ye, ardından vergi ve finansman giderleri net kârın –0,39 milyar TL olmasına yol açmıştır. Özkaynak kârlılığı –%3,1 olması, özkaynakların %1,13 lik cari oranla desteklenmesine rağmen net borç 5,13 milyar TL olduğundan borç/özkaynak oranının %0,37 (sektör medyanının %0,17 üstünde) olmasıyla ilişkilidir. Faaliyet nakit akışı 1,65 milyar TL iken yatırım harcaması 0,79 milyar TL olduğundan, nakit akışı yatırım harcamasını karşılamış ve aktif toplamının %27,5'i özkaynak (13,84 milyar TL) olarak kalmıştır.
+Hasılatın %19,8'i brüt kâr olarak gerçekleşmiş; brüt kârın bir kısmı faaliyet giderleri ve amortisman gibi kalemlere gittiği için faaliyet kârı 0,61 milyar TL'ye, ardından vergi ve finansman giderleri net kârın –0,39 milyar TL olmasına yol açmıştır. Özkaynak kârlılığı –%3,1 olması, özkaynakların %1,13 lik cari oranla desteklenmesine rağmen net borç 5,13 milyar TL olduğundan borç/özkaynak oranının %0,37 (sektör medyanının %0,17 üstünde) olmasıyla ilişkilidir. Faaliyet nakit akışı 1,65 milyar TL iken yatırım harcaması 0,79 milyar TL olduğundan, nakit akışı yatırım harcamasını karşılamış ve aktif toplamının %27,5'i özkaynak (13,84 milyar TL) olarak kalmıştır.
+
+## 2026 2. çeyrek — bir yıl öncesine göre
+
+| Kalem | Reel değişim |
+| --- | ---: |
+| Hasılat | %3,7 |
+| Brüt kâr | -%7,6 |
+| Faaliyet kârı | %54,0 |
+| FAVÖK | %27,6 |
+| Net kâr | %45,4 |
+| Özkaynak | %24,9 |
+| Aktif toplamı | %32,4 |
+| Net borç | %80,3 |
+| Faaliyet nakit akışı | -%601,9 |
+| Yatırım harcaması | -%92,0 |
+
+*Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
 ## 2026 2. çeyrek dönemi ölçümleri
 
 | Kalem | Değer |
 | --- | ---: |
-| Hasılat | 7,08 milyar TL |
-| Brüt kâr | 1,12 milyar TL |
-| Faaliyet kârı | 0,61 milyar TL |
-| FAVÖK | 1,11 milyar TL |
-| Net kâr | -0,39 milyar TL |
-| Özkaynak | 13,84 milyar TL |
-| Aktif toplamı | 27,48 milyar TL |
-| Net borç | 5,13 milyar TL |
-| Faaliyet nakit akışı | 1,65 milyar TL |
-| Yatırım harcaması | 0,79 milyar TL |
+| Hasılat | 3,32 milyar TL |
+| Brüt kâr | 0,73 milyar TL |
+| Faaliyet kârı | 0,48 milyar TL |
+| FAVÖK | 0,78 milyar TL |
+| Net kâr | -0,46 milyar TL |
+| Özkaynak | 14,34 milyar TL |
+| Aktif toplamı | 28,70 milyar TL |
+| Net borç | 7,21 milyar TL |
+| Faaliyet nakit akışı | -1,73 milyar TL |
+| Yatırım harcaması | 0,11 milyar TL |
 
 ## Sektör içindeki konum
 
-Karşılaştırma Sanayi sektöründeki 68 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 69 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %19,8 | %20,4 |
-| Net kâr marjı | -%13,9 | %0,8 |
-| Özkaynak kârlılığı | -%3,1 | %0,2 |
-| Cari oran | 1,13 | 1,34 |
-| Borç / özkaynak | 0,37 | 0,17 |
+| Brüt kâr marjı | %22,0 | %20,9 |
+| Net kâr marjı | -%13,9 | %1,2 |
+| Özkaynak kârlılığı | -%3,2 | %0,3 |
+| Cari oran | 1,13 | 1,32 |
+| Borç / özkaynak | 0,50 | 0,16 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
+
+## Öne çıkan ölçümler
+
+**Şirket lehine işleyenler**
+
+- Net kâr reel olarak %45,4 arttı.
+
+**Dikkat gerektirenler**
+
+- Brüt marj 2,7 puan daraldı (%24,7 → %22,0).
+
+*Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
+
 
 ## Sanayi şirketinde hangi kâr ölçüsü neyi gösterir
 

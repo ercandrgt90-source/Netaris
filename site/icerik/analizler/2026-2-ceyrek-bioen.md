@@ -24,13 +24,13 @@ Hasılatın 1,48 milyar TL'ye düşmesi net kârın -0,57 milyar TL'den 0,06 mil
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | -%8,3 |
-| Net kâr | %110,1 |
+| Hasılat | -%9,0 |
+| Net kâr | %80,6 |
 | Özkaynak | -%21,1 |
 | Aktif toplamı | %18,0 |
 | Net borç | %29,9 |
-| Faaliyet nakit akışı | -%162,5 |
-| Yatırım harcaması | -%53,8 |
+| Faaliyet nakit akışı | %214,1 |
+| Yatırım harcaması | %4596,1 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -38,17 +38,17 @@ Hasılatın 1,48 milyar TL'ye düşmesi net kârın -0,57 milyar TL'den 0,06 mil
 
 | Kalem | Değer |
 | --- | ---: |
-| Hasılat | 1,48 milyar TL |
-| Net kâr | 0,06 milyar TL |
+| Hasılat | 0,81 milyar TL |
+| Net kâr | -0,07 milyar TL |
 | Özkaynak | 3,27 milyar TL |
 | Aktif toplamı | 11,58 milyar TL |
 | Net borç | 6,13 milyar TL |
-| Faaliyet nakit akışı | -0,11 milyar TL |
-| Yatırım harcaması | 0,12 milyar TL |
+| Faaliyet nakit akışı | 0,07 milyar TL |
+| Yatırım harcaması | 0,06 milyar TL |
 
 ## Sektör içindeki konum
 
-Karşılaştırma Kamu hizmetleri sektöründeki 24 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Kamu hizmetleri sektöründe **aynı dönemi bildiren** 24 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
@@ -63,12 +63,11 @@ Karşılaştırma Kamu hizmetleri sektöründeki 24 şirketin **medyanına** gö
 
 **Şirket lehine işleyenler**
 
-- Net kâr reel olarak %110,1 arttı.
+- Net kâr reel olarak %80,6 arttı.
 
 **Dikkat gerektirenler**
 
-- Hasılat reel olarak -%8,3 geriledi.
-- Faaliyet nakit akışı net kârın -%194 kadarı; kâr ile nakit üretimi ayrışıyor.
+- Hasılat reel olarak -%9,0 geriledi.
 - Cari oran 0,32; kısa vadeli yükümlülükler dönen varlıkları aşıyor.
 - Özkaynak kârlılığı -%2,0; sektör medyanı %1,0.
 

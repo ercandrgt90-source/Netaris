@@ -24,12 +24,13 @@ Hasılatın 3,46 milyar TL'ye düşmesi, net kârın -0,84 milyar TL'den 0,25 mi
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | -%7,0 |
-| Net kâr | %130,0 |
-| Özkaynak | %22,7 |
-| Aktif toplamı | %13,3 |
-| Net borç | -%428,3 |
-| Faaliyet nakit akışı | -%53,9 |
+| Hasılat | -%10,6 |
+| Net kâr | %13,3 |
+| Özkaynak | %22,1 |
+| Aktif toplamı | %11,8 |
+| Net borç | -%499,4 |
+| Faaliyet nakit akışı | %179,4 |
+| Yatırım harcaması | -%68,3 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -37,23 +38,24 @@ Hasılatın 3,46 milyar TL'ye düşmesi, net kârın -0,84 milyar TL'den 0,25 mi
 
 | Kalem | Değer |
 | --- | ---: |
-| Hasılat | 3,46 milyar TL |
-| Net kâr | 0,25 milyar TL |
-| Özkaynak | 32,22 milyar TL |
-| Aktif toplamı | 34,39 milyar TL |
-| Net borç | -1,47 milyar TL |
-| Faaliyet nakit akışı | -3,09 milyar TL |
+| Hasılat | 1,79 milyar TL |
+| Net kâr | -1,79 milyar TL |
+| Özkaynak | 32,06 milyar TL |
+| Aktif toplamı | 34,44 milyar TL |
+| Net borç | -2,09 milyar TL |
+| Faaliyet nakit akışı | 2,29 milyar TL |
+| Yatırım harcaması | 0,79 milyar TL |
 
 ## Sektör içindeki konum
 
-Karşılaştırma Kamu hizmetleri sektöründeki 24 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Kamu hizmetleri sektöründe **aynı dönemi bildiren** 24 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Net kâr marjı | -%55,6 | %11,4 |
-| Özkaynak kârlılığı | -%3,2 | %1,0 |
-| Cari oran | 3,01 | 0,90 |
-| Borç / özkaynak | -0,05 | 0,12 |
+| Net kâr marjı | -%100,0 | %11,4 |
+| Özkaynak kârlılığı | -%5,6 | %1,0 |
+| Cari oran | 2,91 | 0,90 |
+| Borç / özkaynak | -0,07 | 0,12 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -61,14 +63,13 @@ Karşılaştırma Kamu hizmetleri sektöründeki 24 şirketin **medyanına** gö
 
 **Şirket lehine işleyenler**
 
-- Net kâr reel olarak %130,0 arttı.
-- Cari oran 3,01; dönen varlıklar kısa vadeli yükümlülüklerin üzerinde.
+- Net kâr reel olarak %13,3 arttı.
+- Cari oran 2,91; dönen varlıklar kısa vadeli yükümlülüklerin üzerinde.
 
 **Dikkat gerektirenler**
 
-- Hasılat reel olarak -%7,0 geriledi.
-- Faaliyet nakit akışı net kârın -%1232 kadarı; kâr ile nakit üretimi ayrışıyor.
-- Özkaynak kârlılığı -%3,2; sektör medyanı %1,0.
+- Hasılat reel olarak -%10,6 geriledi.
+- Özkaynak kârlılığı -%5,6; sektör medyanı %1,0.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 
