@@ -30,7 +30,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 11,
+  "yorumlanan": 10,
   "haberler": [
     {
       "baslik": "Ödemeler Dengesi İstatistikleri (Ağustos 2026)",
@@ -250,6 +250,27 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/duzenleme-9-d70a1c54.jpg",
       "foto_atif": "Harrison Keely · CC-BY-4.0"
+    },
+    {
+      "baslik": "Yemen, daha önce ilan edilen hedefler için tahliye uyarısı yayınladı - IRIB",
+      "baslik_kaynak": "Yemen issues evacuation warning for previously announced targets - IRIB.",
+      "ozet": "Yemen's houthis warn employees and civilians to evacuate areas near Aramco oil facilities, say they are legitimate targets - Houthi Military.",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9803379/Yemen-issues-evacuation-warning-for-previously-announced-targets---IRIB.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Şirket haberleri",
+      "tarih": "2026-10-13",
+      "tarih_gorunur": "13 Ekim 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/sirket-haberleri-8-ed7b45c9.jpg",
+      "foto_atif": "Myotus · CC-BY-SA-4.0"
     },
     {
       "baslik": "İran Donanması: İhlal eden bir petrol tankeri, Hürmüz Boğazı - IRNA'nın doğusunda alev aldı",
@@ -1529,32 +1550,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/sirket-haberleri-18-3ea88e13.jpg",
       "foto_atif": "Basile Morin · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "Alman hükümet yetkilisi Pekin'deki AB-Çin ticaret anlaşmasında: Doğru yönde bir adım, ancak büyük ticaret açığı sorununu çözmüyor",
-      "baslik_kaynak": "German government official, on EU-China trade agreement in Beijing: A step in the right direction, but it does not solve the problem of the large trade deficit",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9802975/German-government-official-on-EU-China-trade-agreement-in-Beijing-A-step-in-the-right-direction-but-it-does-not-solve-the-problem-of-the-large-trade-deficit.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Dış ticaret",
-      "tarih": "2026-10-13",
-      "tarih_gorunur": "13 Ekim 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Ticaret politikası kararları tarafların birbirine bağımlılığı ölçüsünde fiyatlanır; etki önce ilgili sektör hisselerinde ve para birimlerinde görülür.",
-      "kanallar": [
-        "Sektör maruziyeti: gümrük vergisi ihracatçı sektörün marjını doğrudan sıkıştırır; otomotiv, çelik ve tarım en sık hedef alınan kalemlerdir.",
-        "Para birimi: ticaret dengesinde beklenen değişim ilgili ülke kurunu yeniden fiyatlar.",
-        "Tedarik zinciri: ara mal akışı kesilirse maliyet üretici fiyatlarına yazılır ve etki üçüncü ülkelere yayılır.",
-        "Anlaşma yapısı: USMCA ya da gümrük birliği gibi çerçeveler, etkinin hangi kalemlerde ve hangi takvimde doğacağını belirler."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/dis-ticaret-9-9686a70e.jpg",
-      "foto_atif": "Huhu Uet · CC-BY-SA-4.0"
     },
     {
       "baslik": "STRIVE, Ocak ayından bu yana en büyük satın alım için 280 milyon $ karşılığında 3.311 bitcoin satın aldı",
