@@ -249,6 +249,58 @@ OKUMA: dict[str, tuple[str, tuple[str, ...]]] = {
 }
 
 
+#: ALT SEKTORE OZEL kilavuzlar. `OKUMA`dan ONCE bakiliyor.
+#:
+#: NEDEN AYRI BIR KATMAN
+#: ---------------------
+#: `ALT_KAPSAM` kapsam disi kalan sirketi kilavuzSUZ birakiyor ve bu
+#: yanlis kilavuzdan iyi. Ama bazi alt sektorlerin kendi okuma
+#: kurallari var ve onlari yazmak, bos birakmaktan iyi.
+#:
+#: Spor kulubu bu durumun en nettigi. Olculdu (2026-10-13):
+#: İletişim sektorunun `Entertainment` alt sektoru TAM OLARAK dort
+#: futbol kulubu (BJKAS, FENER, GSRAY, TSPOR) ve tablolari
+#: telekomla hic benzesmiyor -- mali yili 31 Mayis'ta bitiyor,
+#: haziran-agustos ceyreginde lig oynanmiyor ve brut marji eksi
+#: cikiyor (olculdu: -%76 ile -%101 arasi).
+ALT_OKUMA = {
+    ("İletişim", "Entertainment"): (
+        "Futbol kulübü bilançosunda hangi kalem neyi gösterir",
+        (
+            "Kulüplerin **mali yılı 31 Mayıs'ta** biter, yani tablo "
+            "takvim yılını değil **futbol sezonunu** anlatır. Bu "
+            "yüzden çeyrekler takvim çeyreklerine denk gelmez ve "
+            "aşağıdaki dönem ay adlarıyla yazılır; takvim çeyreğiyle "
+            "kıyaslanmamalıdır.",
+
+            "Sezon takvimi geliri ve gideri farklı çeyreklere "
+            "dağıtır: **sezon arası** haziran–ağustos çeyreğine "
+            "denk gelir, maç günü geliri durur ama futbolcu "
+            "ücretleri ve amortisman sürer. Bu yapı yüzünden "
+            "**brüt kârın negatif** çıkması olağandır ve tek başına "
+            "bir bozulma işareti sayılmamalıdır. Kıyas, aynı dönemi "
+            "bildiren diğer kulüplerle yapılmalı; aynı sektörde yer "
+            "alan bir telekom şirketiyle değil.",
+
+            "**Transfer harcaması** peşin ödenip sözleşme süresine "
+            "yayılarak amortize edilir. Bu yüzden kadroya yapılan "
+            "yatırım gelir tablosunda yıllara dağılmış görünür, "
+            "satıştan doğan kazanç ise tek seferde yazılır: iyi bir "
+            "transfer döneminin kârı ile sahadaki kadro gücü aynı "
+            "tabloda okunmaz.",
+
+            "Zarar eden bir kulüpte **özkaynak kârlılığı** negatif "
+            "çıkar ve zarar sürdükçe özkaynak erir. Özkaynağın sıfıra "
+            "inmesi ya da negatife geçmesi halinde bu oran "
+            "**hesaplanmaz**: negatif bir bölenle üretilen kârlılık "
+            "matematiksel olarak mümkün ama anlamsızdır ve ters "
+            "işaretiyle yanıltır. O durumda borçluluğu okumak için "
+            "net borcun kendisine ve faaliyet nakit akışına bakmak "
+            "gerekir.",
+        )),
+}
+
+
 #: Kilavuzun GECERLI oldugu alt sektor ONEKLERI. Yalnizca OLCULMUS
 #: bir uyusmazlik varsa tanimli; tanimsiz sektorde kilavuz butun alt
 #: sektorlere yaziliyor.
@@ -310,9 +362,16 @@ def blok(sektor_tr: str,
     yanlis kalemi okur. Ayni gerekce ALT SEKTOR icin de gecerli:
     bkz. `ALT_KAPSAM`.
     """
-    if not kapsamda(sektor_tr, alt_sektor):
+    s = (sektor_tr or "").strip()
+    alt = (alt_sektor or "").strip()
+    # ALT SEKTORE OZEL KILAVUZ ONCE. Sektor genelinden daha
+    # keskin oldugu icin; bkz. `ALT_OKUMA`.
+    ozel = ALT_OKUMA.get((s, alt))
+    if ozel:
+        return ozel
+    if not kapsamda(s, alt):
         return None
-    return OKUMA.get((sektor_tr or "").strip())
+    return OKUMA.get(s)
 
 
 def markdown(sektor_tr: str, alt_sektor: str = "") -> list[str]:

@@ -66,12 +66,16 @@ def esit(bulunan, beklenen, aciklama: str) -> None:
 print("1. Kapsam disi alt sektore kilavuz YAZILMIYOR")
 esit(bool(so.blok("İletişim", "Telecom Services")), True,
      "telekoma telekom kilavuzu")
-esit(so.blok("İletişim", "Entertainment"), None,
+# KULUP TELEKOM KILAVUZU ALMAZ. (Kendi kilavuzunu aliyor; ayrintisi
+# 7. maddede. Burada olculen sey, telekom metninin ona
+# YAZILMADIGI.)
+_tk = so.OKUMA["İletişim"][0]
+esit(so.blok("İletişim", "Entertainment")[0] != _tk, True,
      "futbol kulubune telekom kilavuzu YAZILMIYOR")
 esit(so.blok("İletişim", "Publishing"), None,
      "yayinciya telekom kilavuzu YAZILMIYOR")
-esit(so.markdown("İletişim", "Entertainment"), [],
-     "markdown da bos doniyor")
+esit(so.markdown("İletişim", "Publishing"), [],
+     "kilavuzu olmayan alt sektorde markdown bos")
 esit(bool(so.markdown("İletişim", "Telecom Services")), True,
      "kapsam icindeyken markdown uretiliyor")
 
@@ -134,6 +138,60 @@ if _DEFTER.is_file():
          "futbol kulupleri gercekten kapsam disinda")
 else:
     print("  ATLANDI  defter yok (sirketler.json)")
+
+print("")
+print("7. ALT SEKTORE OZEL KILAVUZ: spor kulubu")
+_SPOR = "Futbol kulübü bilançosunda hangi kalem neyi gösterir"
+_b = so.blok("İletişim", "Entertainment")
+esit(bool(_b) and _b[0], _SPOR, "kulube KENDI kilavuzu yaziliyor")
+esit(so.blok("İletişim", "Telecom Services")[0].startswith("Telekom"),
+     True, "telekom kendi kilavuzunu KORUYOR")
+esit(so.blok("İletişim", "Publishing"), None,
+     "yayincilik kilavuzsuz kaliyor (temeli olmayan metin yazilmadi)")
+esit(so.blok("İletişim", "")[0].startswith("Telekom"), True,
+     "alt sektor bilinmiyorsa sektor geneli")
+# OZEL KILAVUZ KAPSAM DENETIMINDEN ONCE: `ALT_KAPSAM` Entertainment'i
+# disliyor ama ozel kilavuz oldugu icin sayfa kilavuzsuz kalmiyor.
+esit(so.kapsamda("İletişim", "Entertainment"), False,
+     "Entertainment sektor kilavuzu icin kapsam DISI")
+esit(bool(so.blok("İletişim", "Entertainment")), True,
+     "ama ozel kilavuz oldugu icin yine de kilavuz VAR")
+
+print("")
+print("8. ALT_OKUMA anahtarlari GERCEK sektorlere ait")
+for _s, _a in so.ALT_OKUMA:
+    if _s not in so.OKUMA:
+        print(f"  DUSTU  ALT_OKUMA'da tanimsiz sektor: {_s!r}")
+        raise SystemExit(1)
+_gecti += 1
+print(f"  gecti  {len(so.ALT_OKUMA)} ozel kilavuz da tanimli sektorde")
+
+print("")
+print("9. KILAVUZ GERCEKTEN O SIRKETLERE MI UYUYOR")
+# Spor kulubu kilavuzu "mali yili 31 Mayis'ta biter", "sezon arasi",
+# "transfer harcamasi" diyor. Bu cumleler yalnizca FUTBOL KULUBU icin
+# dogru. Alt sektore baska bir sirket turu girerse (sinema, muzik)
+# kilavuz sessizce yanlis sirkete yazilir.
+#
+# Olculdu (2026-10-13): İletişim/Entertainment TAM OLARAK dort
+# futbol kulubu. Bu sinama o varsayimi KORUYOR.
+_KULUPLER = {"BJKAS", "FENER", "GSRAY", "TSPOR"}
+if _DEFTER.is_file():
+    d = json.loads(io.open(_DEFTER, encoding="utf-8").read())["sirketler"]
+    _ent = {k for k, v in d.items()
+            if (v.get("sektor_tr"), v.get("alt_sektor"))
+            == ("İletişim", "Entertainment")}
+    _yabanci = _ent - _KULUPLER
+    if _yabanci:
+        print(f"  DUSTU  İletişim/Entertainment'a kulup OLMAYAN şirket "
+              f"girdi: {sorted(_yabanci)}")
+        print("    Spor kulübü kılavuzu onlara da yazılır ve 'mali yılı")
+        print("    31 Mayıs'ta biter' gibi cümleler yanlış olur.")
+        print("    Ya kılavuz daraltılmalı ya şirket ayrı tutulmalı.")
+        raise SystemExit(1)
+    esit(_ent, _KULUPLER, "alt sektor TAM OLARAK bilinen dort kulup")
+else:
+    print("  ATLANDI  defter yok")
 
 print("")
 print(f"TUM TESTLER GECTI ({_gecti})")
