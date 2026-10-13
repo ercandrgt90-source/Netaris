@@ -24,13 +24,13 @@ Hasılatın önceki dönemdeki sıfır seviyesinden 0,38 milyar TL'ye çıkması
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | %187725,0 |
-| Faaliyet kârı | %92,8 |
-| Net kâr | %506,2 |
-| Özkaynak | %866,0 |
-| Aktif toplamı | %994,8 |
-| Net borç | -%67,3 |
-| Faaliyet nakit akışı | %128,1 |
+| Hasılat | %312908,3 |
+| Faaliyet kârı | %11953,8 |
+| Net kâr | %179,3 |
+| Özkaynak | %723,5 |
+| Aktif toplamı | %626,2 |
+| Net borç | %19,3 |
+| Faaliyet nakit akışı | %2874,6 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -39,21 +39,21 @@ Hasılatın önceki dönemdeki sıfır seviyesinden 0,38 milyar TL'ye çıkması
 | Kalem | Değer |
 | --- | ---: |
 | Hasılat | 0,38 milyar TL |
-| Faaliyet kârı | 0,36 milyar TL |
-| Net kâr | 0,14 milyar TL |
+| Faaliyet kârı | 0,37 milyar TL |
+| Net kâr | 0,24 milyar TL |
 | Özkaynak | 5,52 milyar TL |
 | Aktif toplamı | 6,30 milyar TL |
-| Net borç | -0,01 milyar TL |
-| Faaliyet nakit akışı | 0,05 milyar TL |
+| Net borç | 0,00 milyar TL |
+| Faaliyet nakit akışı | 0,04 milyar TL |
 
 ## Sektör içindeki konum
 
-Karşılaştırma Finans sektöründeki 30 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 30 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
 | Net kâr marjı | %63,5 | %14,7 |
-| Özkaynak kârlılığı | %4,3 | %4,5 |
+| Özkaynak kârlılığı | %4,3 | %5,4 |
 | Borç / özkaynak | 0,00 | -0,05 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
@@ -62,8 +62,12 @@ Karşılaştırma Finans sektöründeki 30 şirketin **medyanına** göre yapıl
 
 **Şirket lehine işleyenler**
 
-- Hasılat reel olarak %187725,0 arttı.
-- Net kâr reel olarak %506,2 arttı.
+- Hasılat reel olarak %312908,3 arttı.
+- Net kâr reel olarak %179,3 arttı.
+
+**Dikkat gerektirenler**
+
+- Özkaynak kârlılığı %4,3; sektör medyanı %5,4.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 
