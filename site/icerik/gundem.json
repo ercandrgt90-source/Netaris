@@ -29,33 +29,8 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 19,
+  "yorumlanan": 15,
   "haberler": [
-    {
-      "baslik": "Ödemeler Dengesi İstatistikleri (Ağustos 2026)",
-      "baslik_kaynak": "Ödemeler Dengesi İstatistikleri (Ağustos 2026)",
-      "ozet": "",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": false,
-      "bolge": "TR",
-      "adres": "http://www.tcmb.gov.tr/wps/wcm/connect/tr/tcmb+tr/main+menu/istatistikler/odemeler+dengesi+ve+ilgili+istatistikler/odemeler+dengesi+istatistikleri",
-      "kurum": "TCMB",
-      "kurum_tam": "Türkiye Cumhuriyet Merkez Bankası",
-      "konu": "Bankacılık",
-      "tarih": "2026-10-13",
-      "tarih_gorunur": "13 Ekim 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Zorunlu karşılık, likidite ve teminat düzenlemeleri kredi arzının miktarını ve maliyetini doğrudan belirler.",
-      "kanallar": [
-        "Kredi arzı: zorunlu karşılık oranları, bankaların kredi olarak kullandırabileceği kaynağın büyüklüğünü değiştirir.",
-        "Fonlama kompozisyonu: TL ve döviz mevduat arasındaki maliyet farkı, bankaların bilanço yapısını etkiler.",
-        "Reel sektör: kredi kanalının daralması, işletme sermayesini kısa vadeli borçla çeviren şirketlerde önce hissedilir."
-      ],
-      "kanal_basligi": "Piyasaya nasıl yansır?",
-      "foto": "/statik/foto/bankacilik-9-93533b82.jpg",
-      "foto_atif": "Myotus · CC-BY-4.0"
-    },
     {
       "baslik": "Başarısızlıklarla İlgili Temel Rakamlar (Eylül)",
       "baslik_kaynak": "Basic Figures on Fails (Sept.)",
@@ -207,6 +182,27 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/duzenleme-9-d70a1c54.jpg",
       "foto_atif": "Harrison Keely · CC-BY-4.0"
+    },
+    {
+      "baslik": "$WFC Wells Fargo 3. Çeyrek Kazançları",
+      "baslik_kaynak": "$WFC Wells Fargo Q3 Earnings",
+      "ozet": "EPS $1.87 Rev. $21.87B, est. $22.31B Corporate and Investment Banking rev. $5.01B Commercial Banking rev. $3.24B Investment banking fees $894M, est. $901.2M Net interest income $12.52B, est. $12.59B Net interest margin 2.43%, est. 2.41% Provision for credit losses $1.03B, est.",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9803041/WFC-Wells-Fargo-Q3-Earnings.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Şirket haberleri",
+      "tarih": "2026-10-13",
+      "tarih_gorunur": "13 Ekim 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/sirket-haberleri-17-a6dd0c61.jpg",
+      "foto_atif": "Stephen Craven · CC-BY-SA-2.0"
     },
     {
       "baslik": "$JPM JPMorgan Chase 3. Çeyrek Kazançları",
@@ -1483,32 +1479,6 @@
       "foto_atif": "Myotus · CC-BY-4.0"
     },
     {
-      "baslik": "Japon ÜFE (aylık): −%0,30 — beklenti %0,50, önceki −%0,20",
-      "baslik_kaynak": "Japanese PPI MoM Actual -0.3% (Forecast 0.5%, Previous -0.2%)",
-      "ozet": "Açıklanan değer −%0,30. Beklenti %0,50; beklentinin altında (0,80 puan). Önceki dönem −%0,20; geriledi (0,10 puan).",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9802312/Japanese-PPI-MoM-Actual--03-Forecast-05-Previous--02.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Enflasyon",
-      "tarih": "2026-10-13",
-      "tarih_gorunur": "13 Ekim 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Enflasyon verisi merkez bankası patikasına dair beklentiyi değiştirdiği ölçüde fiyatlanır; manşet ile çekirdek arasındaki fark bu yüzden önemlidir.",
-      "kanallar": [
-        "Çekirdek ayrımı: enerji ve gıda dışı kalemler kalıcı eğilimi gösterir.",
-        "Faiz beklentisi: beklentiden sapma getiri eğrisinin ön ucunu hareket ettirir.",
-        "Hizmet enflasyonu: ücretlere bağlı olduğu için en yapışkan bileşendir.",
-        "Baz etkisi: bir önceki yılın aynı ayındaki seviye yıllık oranı mekanik olarak değiştirir."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/enflasyon-16-c7021499.png",
-      "foto_atif": "Authors of the study: Melissa J. Barber, PhD; Dzintars Gotham, MBBS; Helen Bygrave, MBBS; Christa Cepuch, MPH · CC-BY-4.0"
-    },
-    {
       "baslik": "Binance VIP başkanı, hedge fonlarının kripto mekanlarında arbitraj fırsatlarını aktif olarak araştırdığını söyledi",
       "baslik_kaynak": "Binance VIP head says hedge funds are actively exploring arbitrage opportunities on crypto venues",
       "ozet": "The executive cited improved depth, 24/7 trading and weekend price discovery as reasons why the opportunities have become more relevant.",
@@ -1591,6 +1561,27 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/piyasa-duzenlemesi-7-24361cea.jpg",
       "foto_atif": "Ank Kumar · CC-BY-SA-4.0"
+    },
+    {
+      "baslik": "Yapay zeka endişeleri Kospi hisselerinin satışını derinleştirirken Bitcoin, Güney Kore hisse senetlerinden uzaklaşıyor",
+      "baslik_kaynak": "Bitcoin diverges from South Korean stocks as AI concerns deepen the Kospi selloff",
+      "ozet": "South Korea’s chipmakers lead another sharp selloff as concerns over AI spending and Chinese competition grow, while bitcoin holds well above its summer lows.",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.coindesk.com/markets/2026/10/13/bitcoin-diverges-from-south-korean-stocks-as-ai-concerns-deepen-the-kospi-selloff",
+      "kurum": "CoinDesk",
+      "kurum_tam": "CoinDesk",
+      "konu": "Kripto varlıklar",
+      "tarih": "2026-10-13",
+      "tarih_gorunur": "13 Ekim 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/kripto-varliklar-9-651bf869.jpg",
+      "foto_atif": "Satheesh Sankaran · CC-BY-2.0"
     },
     {
       "baslik": "Ledger, CryptoBilis Ledger cihazlarının içindeki \"casus\" çipin cüzdan anahtarlarını mobil ağ üzerinden ilettiğini söylüyor",
@@ -2052,6 +2043,27 @@
       "foto_atif": "Nathan.cima · CC-BY-SA-4.0"
     },
     {
+      "baslik": "Petrol ve dizelde kritik hesap: 50 milyon varillik hamle fiyatları değiştirebilir",
+      "baslik_kaynak": "Petrol ve dizelde kritik hesap: 50 milyon varillik hamle fiyatları değiştirebilir",
+      "ozet": "Orta Doğu'daki gerilim ve Hürmüz Boğazı'ndaki belirsizlik petrol fiyatlarını baskı altında tutuyor. Piyasalar ABD ile İran arasındaki görüşmelere odaklanırken Goldman Sachs, küresel enerji krizinin en kırılgan halkası olan dizel için dikkat çeken bir hesaplama yaptı.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.dunya.com/ekonomi/petrol-ve-dizelde-kritik-hesap-50-milyon-varillik-hamle-fiyatlari-degistirebilir-haberi-843688",
+      "kurum": "Dünya",
+      "kurum_tam": "Dünya Gazetesi",
+      "konu": "Enerji",
+      "tarih": "2026-10-13",
+      "tarih_gorunur": "13 Ekim 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/enerji-15-f47dcf5c.jpg",
+      "foto_atif": "Sw257 · CC-BY-SA-4.0"
+    },
+    {
       "baslik": "Bakan Şimşek'ten cari açık değerlendirmesi: 26 yıllık faturaya dikkat çekti",
       "baslik_kaynak": "Bakan Şimşek'ten cari açık değerlendirmesi: 26 yıllık faturaya dikkat çekti",
       "ozet": "Hazine ve Maliye Bakanı Mehmet Şimşek, Türkiye Cumhuriyet Merkez Bankası'nın (TCMB) açıkladığı ağustos ayı ödemeler dengesi verilerini değerlendirdi. Ağustos ayında 4,1 milyar dolar cari fazla verildiğini belirten Şimşek, yıllıklandırılmış cari açığın 42,1 milyar dolar olduğunu bildirdi.",
@@ -2103,66 +2115,14 @@
       "foto_atif": "Myotus · CC-BY-4.0"
     },
     {
-      "baslik": "Merkez Bankası faiz kararı bu hafta mı, ne zaman? TCMB faiz kararı tarihi ve saati",
-      "baslik_kaynak": "Merkez Bankası faiz kararı bu hafta mı, ne zaman? TCMB faiz kararı tarihi ve saati...",
-      "ozet": "Türkiye Cumhuriyet Merkez Bankası bu ay bir kez daha toplanıyor. Beklentiler faizlerin bu ay ineceği yönünde ve araştırmalar da devam ediyor. Vatandaşlar \"Merkez Bankası faiz kararı ne zaman\" sorusuna yanıt arıyor.",
+      "baslik": "IKBY Başkanı Barzani’den Türkiye’deki barış sürecine destek",
+      "baslik_kaynak": "IKBY Başkanı Barzani’den Türkiye’deki barış sürecine destek",
+      "ozet": "Irak Kürt Bölgesel Yönetimi (IKBY) Başkanı Neçirvan Barzani, Türkiye’deki barış sürecine desteğini yineledi.",
       "cevrildi": false,
       "dil": "tr",
       "ticari": true,
       "bolge": "TR",
-      "adres": "https://www.dunya.com/ekonomi/merkez-bankasi-faiz-karari-bu-hafta-mi-ne-zaman-tcmb-faiz-karari-tarihi-ve-saati-haberi-843671",
-      "kurum": "Dünya",
-      "kurum_tam": "Dünya Gazetesi",
-      "konu": "Para politikası",
-      "tarih": "2026-10-13",
-      "tarih_gorunur": "13 Ekim 2026",
-      "yorumlanir": true,
-      "neden_onemli": "TCMB politika faizi, yurt içi fonlama maliyetinin çıpasıdır. Ticari kredi faizi, mevduat getirisi ve tahvil getiri eğrisi bu oranın etrafında yeniden fiyatlanır.",
-      "kanallar": [
-        "Kredi maliyeti: bankaların Merkez Bankası'ndan fonlanma maliyeti değiştiğinde ticari ve bireysel kredi faizleri buradan fiyatlanır.",
-        "Şirket finansman gideri: değişken faizle borçlanan ve net borç pozisyonu yüksek şirketlerde finansman gideri kalemi doğrudan etkilenir; bu kalem kâr marjına gelir tablosu üzerinden yansır.",
-        "Mevduat ve tahvil getirisi: TL mevduat ile devlet iç borçlanma senedi getirileri politika faizine göre yeniden konumlanır. Reel getiri, enflasyon beklentisiyle birlikte değerlendirilir.",
-        "Faiz farkı: yurt içi ve yurt dışı faiz arasındaki fark, TL cinsi varlıklara yönelen sermaye akımının belirleyicilerinden biridir."
-      ],
-      "kanal_basligi": "Piyasaya nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-9-683f4724.jpg",
-      "foto_atif": "Tony Webster · CC-BY-2.0"
-    },
-    {
-      "baslik": "Almanya'da enflasyon yüzde 3'ü aştı: Son 3 yılın en yüksek seviyesinde",
-      "baslik_kaynak": "Almanya'da enflasyon yüzde 3'ü aştı: Son 3 yılın en yüksek seviyesinde",
-      "ozet": "Almanya'da enflasyon, eylül ayında yüzde 3'ü aşarak son üç yılın en yüksek seviyesine ulaştı. Artışın nedeni ise yine hızla yükselen enerji fiyatları oldu.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.ekonomim.com/kuresel-ekonomi/almanyada-enflasyon-yuzde-3u-asti-son-3-yilin-en-yuksek-seviyesinde-haberi-924389",
-      "kurum": "Ekonomim",
-      "kurum_tam": "Ekonomim",
-      "konu": "Enflasyon",
-      "tarih": "2026-10-13",
-      "tarih_gorunur": "13 Ekim 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Enflasyon verisi merkez bankası patikasına dair beklentiyi değiştirdiği ölçüde fiyatlanır; manşet ile çekirdek arasındaki fark bu yüzden önemlidir.",
-      "kanallar": [
-        "Çekirdek ayrımı: enerji ve gıda dışı kalemler kalıcı eğilimi gösterir.",
-        "Faiz beklentisi: beklentiden sapma getiri eğrisinin ön ucunu hareket ettirir.",
-        "Hizmet enflasyonu: ücretlere bağlı olduğu için en yapışkan bileşendir.",
-        "Baz etkisi: bir önceki yılın aynı ayındaki seviye yıllık oranı mekanik olarak değiştirir."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/enflasyon-13-981f6df7.jpg",
-      "foto_atif": "Alexander Davronov · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "Peskov’dan Avrupa’ya Ukrayna tepkisi: “Savaşın bitmesini engelliyorlar”",
-      "baslik_kaynak": "Peskov’dan Avrupa’ya Ukrayna tepkisi: “Savaşın bitmesini engelliyorlar”",
-      "ozet": "Kremlin Sözcüsü Dmitriy Peskov, Avrupa ülkelerinin Ukrayna krizinde barış arayışından uzaklaştığını belirterek, Avrupalıların çözümü engellemek için ellerinden gelen her şeyi yapan bir \"savaş partisi\" gibi hareket ettiğini söyledi.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.ekonomim.com/dunya/peskovdan-avrupaya-ukrayna-tepkisi-savasin-bitmesini-engelliyorlar-haberi-924390",
+      "adres": "https://www.ekonomim.com/gundem/ikby-baskani-barzaniden-turkiyedeki-baris-surecine-destek-haberi-924393",
       "kurum": "Ekonomim",
       "kurum_tam": "Ekonomim",
       "konu": "Jeopolitik",
@@ -2177,8 +2137,8 @@
         "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
       ],
       "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/jeopolitik-14-4ca6b4fe.jpg",
-      "foto_atif": "Bernard Gagnon · CC0"
+      "foto": "/statik/foto/jeopolitik-18-d6206fae.jpg",
+      "foto_atif": "United Nation · PDM"
     },
     {
       "baslik": "Esma, etki ve geçiş iddialarında netliği teşvik ediyor",
@@ -2641,6 +2601,27 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/bankacilik-8-d4d74101.jpg",
       "foto_atif": "Myotus · CC-BY-4.0"
+    },
+    {
+      "baslik": "9 -10 Eylül 2026 Toplantısı",
+      "baslik_kaynak": "Meeting of 9-10 September 2026",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": false,
+      "bolge": "DUNYA",
+      "adres": "https://www.ecb.europa.eu//press/accounts/2026/html/ecb.mg261008~a10153d090.en.html",
+      "kurum": "ECB",
+      "kurum_tam": "Avrupa Merkez Bankası",
+      "konu": "Para politikası",
+      "tarih": "2026-10-08",
+      "tarih_gorunur": "8 Ekim 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/para-politikasi-11-fd54475f.jpg",
+      "foto_atif": "Innotata · CC-BY-SA-3.0"
     }
   ],
   "sinir_notu": "Yukarıdaki maddeler yapısal aktarım kanallarıdır, öngörü değildir. Etkinin ne zaman ve ne ölçüde görüleceği kur seviyesi, vergi düzenlemeleri ve sözleşme yapılarına bağlı olarak değişir; bu sayfada bir büyüklük tahmini yapılmamaktadır."
