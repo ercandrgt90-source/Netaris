@@ -24,13 +24,13 @@ Hasılatın 23,97 milyar TL'den 19,99 milyar TL'ye düşmesi net kârın 1,55 mi
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | -%16,6 |
-| Net kâr | -%24,4 |
+| Hasılat | -%28,3 |
+| Net kâr | -%53,7 |
 | Özkaynak | %39,7 |
 | Aktif toplamı | %40,5 |
 | Net borç | %62,6 |
-| Faaliyet nakit akışı | -%19,1 |
-| Yatırım harcaması | %12,4 |
+| Faaliyet nakit akışı | -%17,0 |
+| Yatırım harcaması | -%15,7 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -38,17 +38,17 @@ Hasılatın 23,97 milyar TL'den 19,99 milyar TL'ye düşmesi net kârın 1,55 mi
 
 | Kalem | Değer |
 | --- | ---: |
-| Hasılat | 19,99 milyar TL |
-| Net kâr | 1,17 milyar TL |
+| Hasılat | 9,34 milyar TL |
+| Net kâr | 0,57 milyar TL |
 | Özkaynak | 74,81 milyar TL |
 | Aktif toplamı | 151,71 milyar TL |
 | Net borç | 59,48 milyar TL |
-| Faaliyet nakit akışı | 5,99 milyar TL |
-| Yatırım harcaması | 9,55 milyar TL |
+| Faaliyet nakit akışı | 2,44 milyar TL |
+| Yatırım harcaması | 4,74 milyar TL |
 
 ## Sektör içindeki konum
 
-Karşılaştırma Kamu hizmetleri sektöründeki 24 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Kamu hizmetleri sektöründe **aynı dönemi bildiren** 24 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
@@ -63,12 +63,12 @@ Karşılaştırma Kamu hizmetleri sektöründeki 24 şirketin **medyanına** gö
 
 **Şirket lehine işleyenler**
 
-- Faaliyet nakit akışı net kârın 5,10 katı; kâr nakde dönüyor.
+- Faaliyet nakit akışı net kârın 4,29 katı; kâr nakde dönüyor.
 
 **Dikkat gerektirenler**
 
-- Hasılat reel olarak -%16,6 geriledi.
-- Net kâr reel olarak -%24,4 geriledi.
+- Hasılat reel olarak -%28,3 geriledi.
+- Net kâr reel olarak -%53,7 geriledi.
 - Cari oran 0,61; kısa vadeli yükümlülükler dönen varlıkları aşıyor.
 - Özkaynak kârlılığı %0,8; sektör medyanı %1,0.
 - Yatırım harcaması faaliyet nakit akışını aşıyor; aradaki fark dış kaynakla karşılanıyor.

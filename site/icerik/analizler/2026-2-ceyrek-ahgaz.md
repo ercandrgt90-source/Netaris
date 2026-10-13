@@ -24,13 +24,13 @@ Hasılat ile net kâr birlikte arttı; kârdaki artışın hasılattakini aşmas
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | %27,4 |
-| Net kâr | %109,8 |
+| Hasılat | %31,8 |
+| Net kâr | %1048,0 |
 | Özkaynak | %44,6 |
 | Aktif toplamı | %68,0 |
 | Net borç | -%179,3 |
-| Faaliyet nakit akışı | %53,9 |
-| Yatırım harcaması | -%33,0 |
+| Faaliyet nakit akışı | -%302,3 |
+| Yatırım harcaması | -%26,9 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -38,17 +38,17 @@ Hasılat ile net kâr birlikte arttı; kârdaki artışın hasılattakini aşmas
 
 | Kalem | Değer |
 | --- | ---: |
-| Hasılat | 43,67 milyar TL |
-| Net kâr | 4,32 milyar TL |
+| Hasılat | 16,45 milyar TL |
+| Net kâr | 1,73 milyar TL |
 | Özkaynak | 93,24 milyar TL |
 | Aktif toplamı | 252,62 milyar TL |
 | Net borç | -28,28 milyar TL |
-| Faaliyet nakit akışı | 11,94 milyar TL |
-| Yatırım harcaması | 2,79 milyar TL |
+| Faaliyet nakit akışı | -7,33 milyar TL |
+| Yatırım harcaması | 2,16 milyar TL |
 
 ## Sektör içindeki konum
 
-Karşılaştırma Kamu hizmetleri sektöründeki 24 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Kamu hizmetleri sektöründe **aynı dönemi bildiren** 24 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
@@ -63,10 +63,13 @@ Karşılaştırma Kamu hizmetleri sektöründeki 24 şirketin **medyanına** gö
 
 **Şirket lehine işleyenler**
 
-- Hasılat reel olarak %27,4 arttı.
-- Net kâr reel olarak %109,8 arttı.
-- Faaliyet nakit akışı net kârın 2,76 katı; kâr nakde dönüyor.
+- Hasılat reel olarak %31,8 arttı.
+- Net kâr reel olarak %1048,0 arttı.
 - Özkaynak kârlılığı %1,9; sektör medyanı %1,0.
+
+**Dikkat gerektirenler**
+
+- Faaliyet nakit akışı net kârın -%423 kadarı; kâr ile nakit üretimi ayrışıyor.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

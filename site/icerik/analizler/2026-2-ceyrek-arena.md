@@ -24,16 +24,16 @@ Hasılattaki gerilemeye brüt kârın daha sert düşüşü eşlik etti; brüt k
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | -%37,3 |
-| Brüt kâr | -%68,7 |
-| Faaliyet kârı | -%60,4 |
-| FAVÖK | -%93,7 |
-| Net kâr | -%129,6 |
+| Hasılat | -%39,5 |
+| Brüt kâr | -%60,2 |
+| Faaliyet kârı | %20,7 |
+| FAVÖK | %28,8 |
+| Net kâr | %16,8 |
 | Özkaynak | -%34,1 |
 | Aktif toplamı | -%17,4 |
 | Net borç | -%6,4 |
-| Faaliyet nakit akışı | %76,6 |
-| Yatırım harcaması | %10,8 |
+| Faaliyet nakit akışı | %168,1 |
+| Yatırım harcaması | %63,6 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -41,39 +41,41 @@ Hasılattaki gerilemeye brüt kârın daha sert düşüşü eşlik etti; brüt k
 
 | Kalem | Değer |
 | --- | ---: |
-| Hasılat | 11,25 milyar TL |
-| Brüt kâr | 0,30 milyar TL |
-| Faaliyet kârı | -0,21 milyar TL |
-| FAVÖK | -0,16 milyar TL |
-| Net kâr | -0,52 milyar TL |
+| Hasılat | 5,59 milyar TL |
+| Brüt kâr | 0,20 milyar TL |
+| Faaliyet kârı | -0,12 milyar TL |
+| FAVÖK | -0,08 milyar TL |
+| Net kâr | -0,30 milyar TL |
 | Özkaynak | 1,87 milyar TL |
 | Aktif toplamı | 12,00 milyar TL |
 | Net borç | 4,33 milyar TL |
-| Faaliyet nakit akışı | -0,89 milyar TL |
-| Yatırım harcaması | 0,03 milyar TL |
+| Faaliyet nakit akışı | 0,12 milyar TL |
+| Yatırım harcaması | 0,04 milyar TL |
 
 ## Sektör içindeki konum
 
-Karşılaştırma Bilişim sektöründeki 18 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Bilişim sektöründe **aynı dönemi bildiren** 19 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %3,6 | %16,1 |
-| Net kâr marjı | -%5,5 | -%2,0 |
-| Özkaynak kârlılığı | -%16,3 | %2,1 |
-| Cari oran | 1,09 | 1,25 |
-| Borç / özkaynak | 2,32 | -0,02 |
+| Brüt kâr marjı | %3,6 | %15,0 |
+| Net kâr marjı | -%5,5 | %0,3 |
+| Özkaynak kârlılığı | -%16,3 | %1,3 |
+| Cari oran | 1,09 | 1,24 |
+| Borç / özkaynak | 2,32 | -0,04 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
 ## Öne çıkan ölçümler
 
+**Şirket lehine işleyenler**
+
+- Net kâr reel olarak %16,8 arttı.
+
 **Dikkat gerektirenler**
 
-- Hasılat reel olarak -%37,3 geriledi.
-- Net kâr reel olarak -%129,6 geriledi.
-- Brüt marj 2,7 puan daraldı (%5,3 → %2,7).
-- Özkaynak kârlılığı -%16,3; sektör medyanı %2,1.
+- Hasılat reel olarak -%39,5 geriledi.
+- Özkaynak kârlılığı -%16,3; sektör medyanı %1,3.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 
