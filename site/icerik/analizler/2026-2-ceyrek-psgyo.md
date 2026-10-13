@@ -18,27 +18,27 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %28,6 oranındaki yüksek net kâr marjı, net kârın 2,00 milyar TL'ye ulaşmasını sağlarken, özkaynak kârlılığı sadece %0,6 olduğu için özkaynak başına getirinin sınırlı kaldığını gösterir; bu durum, büyük özkaynak (42,59 milyar TL) ve aktif toplamı (89,56 milyar TL) ile yüksek varlık seviyesine rağmen kârın özkaynak üzerinden düşük oranda dağıtıldığını yansıtır. Net borç (16,76 milyar TL) ve borç/özkaynak oranı (0,39) sektör medyanı 0,02'nin çok üzerindedir, bu da şirketin finansal kaldıraç kullanımının sektöre göre daha yüksek olduğunu ve faaliyet nakit akışının negatif (-4,25 milyar TL) olmasının borç servisi üzerindeki baskıyı artırdığını gösterir. Dolayısıyla, yüksek kâr marjı ve büyük varlık tabanı, artan borç ve negatif nakit akışıyla birlikte özkaynak verimliliğinin sınırlı kalmasına yol açmıştır.
+Hasılatın %28,6 oranındaki yüksek net kâr marjı, net kârın 2,00 milyar TL'ye ulaşmasını sağlarken, özkaynak kârlılığı sadece %0,6 olduğu için özkaynak başına getirinin sınırlı kaldığını gösterir; bu durum, büyük özkaynak (42,59 milyar TL) ve aktif toplamı (89,56 milyar TL) ile yüksek varlık seviyesine rağmen kârın özkaynak üzerinden düşük oranda dağıtıldığını yansıtır. Net borç (16,76 milyar TL) ve borç/özkaynak oranı (0,39) sektör medyanı 0,02'nin çok üzerindedir, bu da şirketin finansal kaldıraç kullanımının sektöre göre daha yüksek olduğunu ve faaliyet nakit akışının negatif (-4,25 milyar TL) olmasının borç servisi üzerindeki baskıyı artırdığını gösterir. Dolayısıyla, yüksek kâr marjı ve büyük varlık tabanı, artan borç ve negatif nakit akışıyla birlikte özkaynak verimliliğinin sınırlı kalmasına yol açmıştır.
 
 ## 2026 2. çeyrek dönemi ölçümleri
 
 | Kalem | Değer |
 | --- | ---: |
-| Hasılat | 1,04 milyar TL |
-| Net kâr | 2,00 milyar TL |
+| Hasılat | 0,87 milyar TL |
+| Net kâr | 0,25 milyar TL |
 | Özkaynak | 42,59 milyar TL |
 | Aktif toplamı | 89,56 milyar TL |
 | Net borç | 16,76 milyar TL |
-| Faaliyet nakit akışı | -4,25 milyar TL |
+| Faaliyet nakit akışı | -2,55 milyar TL |
 
 ## Sektör içindeki konum
 
-Karşılaştırma Gayrimenkul sektöründeki 34 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 34 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Net kâr marjı | %28,6 | %14,3 |
-| Özkaynak kârlılığı | %0,6 | %0,4 |
+| Net kâr marjı | %28,6 | %15,8 |
+| Özkaynak kârlılığı | %0,6 | %0,5 |
 | Borç / özkaynak | 0,39 | 0,02 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*

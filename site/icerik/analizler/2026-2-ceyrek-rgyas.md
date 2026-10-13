@@ -24,12 +24,12 @@ Hasılat ve net kâr birlikte artarken net kâr, hasılatın büyük bölümüne
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | %56,1 |
-| Net kâr | %69,9 |
+| Hasılat | %84,2 |
+| Net kâr | %18,0 |
 | Özkaynak | %52,1 |
 | Aktif toplamı | %60,1 |
 | Net borç | %25,6 |
-| Faaliyet nakit akışı | %38,0 |
+| Faaliyet nakit akışı | %11,1 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -37,21 +37,21 @@ Hasılat ve net kâr birlikte artarken net kâr, hasılatın büyük bölümüne
 
 | Kalem | Değer |
 | --- | ---: |
-| Hasılat | 9,12 milyar TL |
-| Net kâr | 7,32 milyar TL |
+| Hasılat | 4,68 milyar TL |
+| Net kâr | 4,33 milyar TL |
 | Özkaynak | 163,93 milyar TL |
 | Aktif toplamı | 238,98 milyar TL |
 | Net borç | 25,67 milyar TL |
-| Faaliyet nakit akışı | 3,60 milyar TL |
+| Faaliyet nakit akışı | 1,59 milyar TL |
 
 ## Sektör içindeki konum
 
-Karşılaştırma Gayrimenkul sektöründeki 34 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 34 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Net kâr marjı | %92,5 | %14,3 |
-| Özkaynak kârlılığı | %2,6 | %0,4 |
+| Net kâr marjı | %92,5 | %15,8 |
+| Özkaynak kârlılığı | %2,6 | %0,5 |
 | Borç / özkaynak | 0,16 | 0,02 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
@@ -60,19 +60,10 @@ Karşılaştırma Gayrimenkul sektöründeki 34 şirketin **medyanına** göre y
 
 **Şirket lehine işleyenler**
 
-- Hasılat reel olarak %56,1 arttı.
-- Net kâr reel olarak %69,9 arttı.
+- Hasılat reel olarak %84,2 arttı.
+- Net kâr reel olarak %18,0 arttı.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
-
-
-## Gayrimenkul yatırım ortaklığında kâr nereden gelir
-
-GYO'ların kârı iki ayrı kaynaktan gelir ve ikisi aynı şey değildir: **kira geliri** (nakit yaratan, tekrarlayan) ve **yeniden değerleme kârı** (portföydeki gayrimenkulün değerinin yükselmesi). İkincisi nakit üretmez.
-
-Bu yüzden GYO'da net kâr ile **faaliyet nakit akışı** arasındaki fark, diğer sektörlerdekinden çok daha büyük olabilir. Değerleme kârı yüksek bir dönemde net kâr artarken nakit akışı yerinde sayabilir; bu bir tutarsızlık değil, iki kalemin farklı şeyleri ölçmesidir.
-
-Türkiye'de enflasyon muhasebesi (TMS 29) uygulandığı için yeniden değerleme etkisi ayrıca büyür. Aşağıdaki değişimler reeldir; yine de kâr artışının ne kadarının kiradan, ne kadarının değerlemeden geldiği tabloda ayrışmaz.
 
 
 ---
