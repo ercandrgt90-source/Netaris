@@ -29,8 +29,33 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 15,
+  "yorumlanan": 14,
   "haberler": [
+    {
+      "baslik": "Ödemeler Dengesi İstatistikleri (Ağustos 2026)",
+      "baslik_kaynak": "Ödemeler Dengesi İstatistikleri (Ağustos 2026)",
+      "ozet": "",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": false,
+      "bolge": "TR",
+      "adres": "http://www.tcmb.gov.tr/wps/wcm/connect/tr/tcmb+tr/main+menu/istatistikler/odemeler+dengesi+ve+ilgili+istatistikler/odemeler+dengesi+istatistikleri",
+      "kurum": "TCMB",
+      "kurum_tam": "Türkiye Cumhuriyet Merkez Bankası",
+      "konu": "Bankacılık",
+      "tarih": "2026-10-13",
+      "tarih_gorunur": "13 Ekim 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Zorunlu karşılık, likidite ve teminat düzenlemeleri kredi arzının miktarını ve maliyetini doğrudan belirler.",
+      "kanallar": [
+        "Kredi arzı: zorunlu karşılık oranları, bankaların kredi olarak kullandırabileceği kaynağın büyüklüğünü değiştirir.",
+        "Fonlama kompozisyonu: TL ve döviz mevduat arasındaki maliyet farkı, bankaların bilanço yapısını etkiler.",
+        "Reel sektör: kredi kanalının daralması, işletme sermayesini kısa vadeli borçla çeviren şirketlerde önce hissedilir."
+      ],
+      "kanal_basligi": "Piyasaya nasıl yansır?",
+      "foto": "/statik/foto/bankacilik-9-93533b82.jpg",
+      "foto_atif": "Myotus · CC-BY-4.0"
+    },
     {
       "baslik": "Başarısızlıklarla İlgili Temel Rakamlar (Eylül)",
       "baslik_kaynak": "Basic Figures on Fails (Sept.)",
@@ -39,7 +64,7 @@
       "dil": "en",
       "ticari": false,
       "bolge": "DUNYA",
-      "adres": "http://www.boj.or.jp/en/statistics/set/bffail/sjgb2609.pdf",
+      "adres": "https://www.boj.or.jp/en/statistics/set/bffail/sjgb2609.pdf",
       "kurum": "BoJ",
       "kurum_tam": "Japonya Merkez Bankası",
       "konu": "Para politikası",
@@ -49,8 +74,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-9-f9a4682a.jpg",
-      "foto_atif": "DXR · CC-BY-SA-4.0"
+      "foto": "/statik/foto/para-politikasi-7-d50cfe6c.jpg",
+      "foto_atif": "Infrogmation of New Orleans · CC-BY-SA-4.0"
     },
     {
       "baslik": "107. Kamuoyunun Görüş ve Davranışlarına İlişkin Görüş Anketi Sonuçları",
@@ -60,7 +85,7 @@
       "dil": "en",
       "ticari": false,
       "bolge": "DUNYA",
-      "adres": "http://www.boj.or.jp/en/research/o_survey/ishiki2610.htm",
+      "adres": "https://www.boj.or.jp/en/research/o_survey/ishiki2610.htm",
       "kurum": "BoJ",
       "kurum_tam": "Japonya Merkez Bankası",
       "konu": "Para politikası",
@@ -81,7 +106,7 @@
       "dil": "en",
       "ticari": false,
       "bolge": "DUNYA",
-      "adres": "http://www.boj.or.jp/en/statistics/dl/depo/kashi/kasi2609.pdf",
+      "adres": "https://www.boj.or.jp/en/statistics/dl/depo/kashi/kasi2609.pdf",
       "kurum": "BoJ",
       "kurum_tam": "Japonya Merkez Bankası",
       "konu": "Para politikası",
@@ -91,7 +116,7 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-7-d50cfe6c.jpg",
+      "foto": "/statik/foto/para-politikasi-8-6bdac262.jpg",
       "foto_atif": "Infrogmation of New Orleans · CC-BY-SA-4.0"
     },
     {
@@ -102,7 +127,7 @@
       "dil": "en",
       "ticari": false,
       "bolge": "DUNYA",
-      "adres": "http://www.boj.or.jp/en/statistics/pi/cgpi_release/cgpi2609.pdf",
+      "adres": "https://www.boj.or.jp/en/statistics/pi/cgpi_release/cgpi2609.pdf",
       "kurum": "BoJ",
       "kurum_tam": "Japonya Merkez Bankası",
       "konu": "Enflasyon",
@@ -117,8 +142,8 @@
         "Baz etkisi: bir önceki yılın aynı ayındaki seviye yıllık oranı mekanik olarak değiştirir."
       ],
       "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/enflasyon-8-4c01d687.jpg",
-      "foto_atif": "Myotus · CC-BY-4.0"
+      "foto": "/statik/foto/enflasyon-7-87d51a9b.jpg",
+      "foto_atif": "safaritravelplus · CC0"
     },
     {
       "baslik": "Esma, 2026 Avrupa Ortak Uygulama Önceliklerini belirledi",
@@ -1563,6 +1588,27 @@
       "foto_atif": "Ank Kumar · CC-BY-SA-4.0"
     },
     {
+      "baslik": "Canlı güncellemeler: Bitcoin, altcoinler düşerken 81.000 ila 84.000 dolar arasında kırbaçlandı",
+      "baslik_kaynak": "Live updates: Bitcoin whipsaws between $81,000 and $84,000 as altcoins slide",
+      "ozet": "Bitcoin bounced back from an early dip as ZEC, HYPE and SOL led altcoin losses. JPMorgan fell after kicking off U.S. earnings season.",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.coindesk.com/markets/2026/10/13/live-updates-bitcoin-whipsaws-between-usd81-000-and-usd84-000-as-altcoins-slide",
+      "kurum": "CoinDesk",
+      "kurum_tam": "CoinDesk",
+      "konu": "Kripto varlıklar",
+      "tarih": "2026-10-13",
+      "tarih_gorunur": "13 Ekim 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/kripto-varliklar-7-8bf172e8.jpg",
+      "foto_atif": "CryptoWallet.com Images · CC-BY-2.0"
+    },
+    {
       "baslik": "Yapay zeka endişeleri Kospi hisselerinin satışını derinleştirirken Bitcoin, Güney Kore hisse senetlerinden uzaklaşıyor",
       "baslik_kaynak": "Bitcoin diverges from South Korean stocks as AI concerns deepen the Kospi selloff",
       "ozet": "South Korea’s chipmakers lead another sharp selloff as concerns over AI spending and Chinese competition grow, while bitcoin holds well above its summer lows.",
@@ -1857,6 +1903,27 @@
       "foto_atif": "Satheesh Sankaran · CC-BY-2.0"
     },
     {
+      "baslik": "Birleşik Krallık, Yüksek Mahkeme Kararından Sonra 5 Milyar $ Bitcoin Haul Tutmaya Yaklaştı",
+      "baslik_kaynak": "UK Moves Closer to Keeping $5B Bitcoin Haul After High Court Ruling",
+      "ozet": "A judge ruled that Chinese law should govern fraud victims' claims to the 61,000 BTC seized from Zhimin Qian, in a blow to the claimants.",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://decrypt.co/380818/uk-moves-closer-to-keeping-5b-bitcoin-haul-after-high-court-ruling",
+      "kurum": "Decrypt",
+      "kurum_tam": "Decrypt",
+      "konu": "Kripto varlıklar",
+      "tarih": "2026-10-13",
+      "tarih_gorunur": "13 Ekim 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/kripto-varliklar-7-62d77ad7.jpg",
+      "foto_atif": "Karlalhdz · CC-BY-SA-4.0"
+    },
+    {
       "baslik": "\"Ayrıl \": Fransa'nın 112 bin $ Üzerindeki Cüzdanları Bildirme Önerisi Üzerine Kripto Tepkisi",
       "baslik_kaynak": "‘Leave’: Crypto Backlash Over French Proposal to Report Wallets Over $112K",
       "ozet": "The proposal would require crypto owners to report holdings over €100,000, sparking concerns following a wave of \"wrench attacks\" in France.",
@@ -2089,58 +2156,6 @@
       "foto_atif": "Olga Ernst · CC-BY-SA-4.0"
     },
     {
-      "baslik": "ABD enflasyon rakamları ne zaman, hangi gün açıklanacak?",
-      "baslik_kaynak": "ABD enflasyon rakamları ne zaman, hangi gün açıklanacak?",
-      "ozet": "ABD enflasyon rakamları yakın zamanda açıklanacak. Dünya bu oranlara odaklanırken tarih ve saat de merak ediliyor. Her geçen saat \"ABD enflasyon rakamları ne zaman, hangi gün açıklanacak\" sorusu hızlanıyor.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.dunya.com/ekonomi/abd-enflasyon-rakamlari-ne-zaman-hangi-gun-aciklanacak-haberi-843679",
-      "kurum": "Dünya",
-      "kurum_tam": "Dünya Gazetesi",
-      "konu": "Enflasyon",
-      "tarih": "2026-10-13",
-      "tarih_gorunur": "13 Ekim 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Enflasyon verisi merkez bankası patikasına dair beklentiyi değiştirdiği ölçüde fiyatlanır; manşet ile çekirdek arasındaki fark bu yüzden önemlidir.",
-      "kanallar": [
-        "Çekirdek ayrımı: enerji ve gıda dışı kalemler kalıcı eğilimi gösterir.",
-        "Faiz beklentisi: beklentiden sapma getiri eğrisinin ön ucunu hareket ettirir.",
-        "Hizmet enflasyonu: ücretlere bağlı olduğu için en yapışkan bileşendir.",
-        "Baz etkisi: bir önceki yılın aynı ayındaki seviye yıllık oranı mekanik olarak değiştirir."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/enflasyon-9-a96a4da4.jpg",
-      "foto_atif": "Myotus · CC-BY-4.0"
-    },
-    {
-      "baslik": "IKBY Başkanı Barzani’den Türkiye’deki barış sürecine destek",
-      "baslik_kaynak": "IKBY Başkanı Barzani’den Türkiye’deki barış sürecine destek",
-      "ozet": "Irak Kürt Bölgesel Yönetimi (IKBY) Başkanı Neçirvan Barzani, Türkiye’deki barış sürecine desteğini yineledi.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.ekonomim.com/gundem/ikby-baskani-barzaniden-turkiyedeki-baris-surecine-destek-haberi-924393",
-      "kurum": "Ekonomim",
-      "kurum_tam": "Ekonomim",
-      "konu": "Jeopolitik",
-      "tarih": "2026-10-13",
-      "tarih_gorunur": "13 Ekim 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
-      "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
-        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
-        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/jeopolitik-18-d6206fae.jpg",
-      "foto_atif": "United Nation · PDM"
-    },
-    {
       "baslik": "Esma, etki ve geçiş iddialarında netliği teşvik ediyor",
       "baslik_kaynak": "ESMA promotes clarity in claims on impact and transition",
       "ozet": "ESMA promotes clarity in claims on impact and transition 12 October 2026 Sustainable finance The European Securities and Markets Authority (ESMA), the EU’s financial markets regulator and supervisor, has published two additional thematic notes on sustainability-related claims.",
@@ -2337,7 +2352,7 @@
       "dil": "en",
       "ticari": false,
       "bolge": "DUNYA",
-      "adres": "http://www.boj.or.jp/en/finsys/macpru/mac261009a.pdf",
+      "adres": "https://www.boj.or.jp/en/finsys/macpru/mac261009a.pdf",
       "kurum": "BoJ",
       "kurum_tam": "Japonya Merkez Bankası",
       "konu": "Para politikası",
@@ -2347,8 +2362,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-7-d50cfe6c.jpg",
-      "foto_atif": "Infrogmation of New Orleans · CC-BY-SA-4.0"
+      "foto": "/statik/foto/para-politikasi-15-525666c9.jpg",
+      "foto_atif": "Norbert Nagel · CC-BY-SA-4.0"
     },
     {
       "baslik": "\"Uygun Teminat Fiyatları\" nda Değişiklik",
@@ -2358,7 +2373,7 @@
       "dil": "en",
       "ticari": false,
       "bolge": "DUNYA",
-      "adres": "http://www.boj.or.jp/en/mopo/mpmdeci/mpr_2026/mpr261009a.pdf",
+      "adres": "https://www.boj.or.jp/en/mopo/mpmdeci/mpr_2026/mpr261009a.pdf",
       "kurum": "BoJ",
       "kurum_tam": "Japonya Merkez Bankası",
       "konu": "Para politikası",
@@ -2368,8 +2383,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-10-bce0f56d.jpg",
-      "foto_atif": "Tony Webster · CC-BY-2.0"
+      "foto": "/statik/foto/para-politikasi-8-6bdac262.jpg",
+      "foto_atif": "Infrogmation of New Orleans · CC-BY-SA-4.0"
     },
     {
       "baslik": "IMES Tartışma Makalesi Serisi (2026)",
@@ -2379,7 +2394,7 @@
       "dil": "en",
       "ticari": false,
       "bolge": "DUNYA",
-      "adres": "http://www.boj.or.jp/en/research/imes/dps/dps26.htm",
+      "adres": "https://www.boj.or.jp/en/research/imes/dps/dps26.htm",
       "kurum": "BoJ",
       "kurum_tam": "Japonya Merkez Bankası",
       "konu": "Para politikası",
@@ -2389,8 +2404,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-8-9ac5b7c7.jpg",
-      "foto_atif": "DestinationFearFan · CC-BY-SA-4.0"
+      "foto": "/statik/foto/para-politikasi-9-683f4724.jpg",
+      "foto_atif": "Tony Webster · CC-BY-2.0"
     },
     {
       "baslik": "Esma, Carlos San Basilio'yu Yönetim Kurulu'nun yeni üyesi olarak atadı",
@@ -2601,27 +2616,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/bankacilik-8-d4d74101.jpg",
       "foto_atif": "Myotus · CC-BY-4.0"
-    },
-    {
-      "baslik": "9 -10 Eylül 2026 Toplantısı",
-      "baslik_kaynak": "Meeting of 9-10 September 2026",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": false,
-      "bolge": "DUNYA",
-      "adres": "https://www.ecb.europa.eu//press/accounts/2026/html/ecb.mg261008~a10153d090.en.html",
-      "kurum": "ECB",
-      "kurum_tam": "Avrupa Merkez Bankası",
-      "konu": "Para politikası",
-      "tarih": "2026-10-08",
-      "tarih_gorunur": "8 Ekim 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-11-fd54475f.jpg",
-      "foto_atif": "Innotata · CC-BY-SA-3.0"
     }
   ],
   "sinir_notu": "Yukarıdaki maddeler yapısal aktarım kanallarıdır, öngörü değildir. Etkinin ne zaman ve ne ölçüde görüleceği kur seviyesi, vergi düzenlemeleri ve sözleşme yapılarına bağlı olarak değişir; bu sayfada bir büyüklük tahmini yapılmamaktadır."
