@@ -85,7 +85,21 @@ on:
     # tekrarlamiyorum, iki yerde iki takvim bir gun ayrisir.' Cron
     # ikinci takvimdi ve gercekten ayristi; artik karar tek yerde
     # (`uret_bilanco.donem_acik`) ve OLCUME bagli.
-    - cron: "0 6 * 2,3,4,5,7,8,10,11 *"
+    # DAKIKA 0 DEGIL 23 -- GITHUB'IN EN SIKISIK PENCERESI.
+    #
+    # GitHub zamanlanmis kosulari yuk altinda geciktiriyor ve saat
+    # basi (dakika 0) en kalabalik pencere. Gunde bir kosan bir is
+    # akisinda bu gecikme dogrudan goruniyor.
+    #
+    # OLCULDU (2026-10-14, Actions API): en son ZAMANLANMIS bilanco
+    # kosusu 06:00 icin planlanmisti ve 13:13'te kostu -- YEDI SAAT
+    # gecikme. Otomasyon akisinda fark edilmiyor cunku yarim saatte
+    # bir kosuyor; gunde bir kosanda bir gun kaybi demek.
+    #
+    # Dakika 23 secildi: ne saat basi ne de yarim saat. Sikligi ve
+    # ay listesini DEGISTIRMIYOR -- asagidaki butun gerekceler
+    # oldugu gibi gecerli.
+    - cron: "23 6 * 2,3,4,5,7,8,10,11 *"
   workflow_dispatch:
     inputs:
       yayinla:
