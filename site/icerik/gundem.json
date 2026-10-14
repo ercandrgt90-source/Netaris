@@ -1,5 +1,5 @@
 {
-  "guncelleme": "2026-10-13",
+  "guncelleme": "2026-10-14",
   "kaynaklar": [
     "AA",
     "BloombergHT",
@@ -30,7 +30,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 18,
+  "yorumlanan": 17,
   "haberler": [
     {
       "baslik": "Para Stoku (Eylül)",
@@ -52,6 +52,27 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/borsa-21-e2f22d70.jpg",
       "foto_atif": "William Iven firmbee · CC0"
+    },
+    {
+      "baslik": "Microsoft sözcüsü: Azure liderliği ekiplere maliyet azaltma stratejileri oluşturma talimatı vermedi",
+      "baslik_kaynak": "Microsoft spokesperson: Azure leadership hasn’t instructed teams to create cost-reduction strategies",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9804055/Microsoft-spokesperson-Azure-leadership-hasnt-instructed-teams-to-create-cost-reduction-strategies.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Şirket haberleri",
+      "tarih": "2026-10-14",
+      "tarih_gorunur": "14 Ekim 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/sirket-haberleri-10-72a9566a.jpg",
+      "foto_atif": "Larry D. Moore · CC-BY-4.0"
     },
     {
       "baslik": "Çin Halk Kurtuluş Ordusu (ÇHKO) donanması: Yıllık plandaki rutin tatbikat, askerlerin savaşa hazırlığını artırmayı hedefliyor",
@@ -1900,32 +1921,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/enerji-13-96820bdd.jpg",
       "foto_atif": "AyyanD · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "Suudi liderliğindeki Koalisyon: Zahran'a doğru füze durduruldu",
-      "baslik_kaynak": "Saudi-led Coalition: Intercepted missile toward Dhahran.",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9803729/Saudi-led-Coalition-Intercepted-missile-toward-Dhahran.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Jeopolitik",
-      "tarih": "2026-10-13",
-      "tarih_gorunur": "13 Ekim 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
-      "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
-        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
-        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/jeopolitik-18-d6206fae.jpg",
-      "foto_atif": "United Nation · PDM"
     },
     {
       "baslik": "Ripple, Stripe'ın sahibi olduğu Privy ortağı, gömülü cüzdanları XRP Ledger'a getiriyor",
