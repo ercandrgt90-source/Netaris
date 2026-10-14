@@ -1,7 +1,7 @@
 ---
 slug: piyasa-tepkisi-bitcoin-price-dips-below-82k-as-high-oil-prices-spike-us-f65913-2026-10-14
 baslik: Bitcoin price dips below $82K as high oil prices spike US CPI inflation
-ozet: Enflasyon verisi. Bitcoin 1 saat içinde -%0,56 geriledi.
+ozet: Enflasyon verisi. Bitcoin 1 saat içinde -%0,25 geriledi.
 sirket: Piyasa tepkisi: Bitcoin price dips below $82K as high oil prices spike US CPI inflation
 kod: OLAY
 donem: 2026-10-14
@@ -23,8 +23,8 @@ Enflasyon verisi yayımlandı. Kaynak: Cointelegraph.
 
 ## Piyasada ne oldu
 
-- **Altın** 1 saat içinde yükseldi: +%0,31 (son 4103,40).
-- **Bitcoin** 1 saat içinde geriledi: -%0,56 (son 81800,10).
+- **Altın** 1 saat içinde yatay kaldı (son 4094,70).
+- **Bitcoin** 1 saat içinde geriledi: -%0,25 (son 81820,10).
 
 *Yukarıdaki rakamlar ölçülen fiyat hareketidir. Hareketin sebebinin bu gelişme olduğu iddia edilmemektedir; aynı pencerede başka etkenler de fiyatlanmış olabilir.*
 
