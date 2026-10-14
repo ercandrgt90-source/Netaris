@@ -29,7 +29,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 14,
+  "yorumlanan": 15,
   "haberler": [
     {
       "baslik": "Başkan Fatih Karahan’ın “Türkiye’de Makroekonomik Görünüm ve Para Politikası” Başlıklı Sunumu (İngilizce) (Bangkok)",
@@ -240,6 +240,32 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/enerji-14-d727b7f7.jpg",
       "foto_atif": "Quintin Soloviev · CC-BY-4.0"
+    },
+    {
+      "baslik": "ABD API Cushing Stok Değişimi: 1,82 — önceki 0,87",
+      "baslik_kaynak": "US API Cushing Stock Change Actual 1.823M (Forecast -, Previous 0.866M)",
+      "ozet": "Açıklanan değer 1,82. Önceki dönem 0,87; yükseldi (0,96 (birimsiz)).",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9805828/US-API-Cushing-Stock-Change-Actual-1823M-Forecast---Previous-0866M.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Borsa",
+      "tarih": "2026-10-14",
+      "tarih_gorunur": "14 Ekim 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Endeks hareketi tek başına bir bilgi değildir; hareketi hangi sektörlerin taşıdığı ve işlem hacminin ne olduğu kalıcılığı belirler.",
+      "kanallar": [
+        "Sektör dağılımı: hareketin dar bir gruptan mı geniş tabandan mı geldiği, kalıcılığa dair ipucu verir.",
+        "Hacim: düşük hacimli hareket fiyat keşfinden çok pozisyon ayarlaması olabilir.",
+        "Volatilite: opsiyon fiyatlarındaki değişim piyasanın beklediği oynaklığı gösterir.",
+        "Korelasyon: hisse ile tahvil arasındaki ilişkinin işareti portföy riskinin nasıl dağıldığını değiştirir."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/borsa-9-78cc676a.jpg",
+      "foto_atif": "Syced · CC0"
     },
     {
       "baslik": "Romen Deniz Otoritesi: Mürettebat, Romanya karasularında alev alan ticari bir gemiden tahliye edildi. Geminin insansız hava araçları tarafından vurulup vurulmadığı belli değil; soruşturma devam ediyor",
@@ -1539,27 +1565,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/enerji-18-2333f432.jpg",
       "foto_atif": "Sgroey · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "ABD Hazine Bakanı Bessent: Dünya Bankası yukarı akışlı gaz ve petrolün finansmanına izin vermeli",
-      "baslik_kaynak": "US Treasury Secretary Bessent: World Bank should allow financing of upstream gas and oil.",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9805501/US-Treasury-Secretary-Bessent-World-Bank-should-allow-financing-of-upstream-gas-and-oil.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Enerji",
-      "tarih": "2026-10-14",
-      "tarih_gorunur": "14 Ekim 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enerji-16-71b1ce54.jpg",
-      "foto_atif": "HdeK · CC-BY-SA-3.0"
     },
     {
       "baslik": "Clarity Act oyalanırken Patrick Witt, Beyaz Saray'daki kripto rolünden ayrıldı",
