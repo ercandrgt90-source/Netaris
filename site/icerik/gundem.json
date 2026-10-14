@@ -29,7 +29,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 13,
+  "yorumlanan": 14,
   "haberler": [
     {
       "baslik": "Başkan Fatih Karahan’ın “Türkiye’de Makroekonomik Görünüm ve Para Politikası” Başlıklı Sunumu (İngilizce) (Bangkok)",
@@ -240,6 +240,32 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/enerji-14-d727b7f7.jpg",
       "foto_atif": "Quintin Soloviev · CC-BY-4.0"
+    },
+    {
+      "baslik": "Romen Deniz Otoritesi: Mürettebat, Romanya karasularında alev alan ticari bir gemiden tahliye edildi. Geminin insansız hava araçları tarafından vurulup vurulmadığı belli değil; soruşturma devam ediyor",
+      "baslik_kaynak": "Romanian Naval Authority: Crew evacuated from a commercial ship that caught fire in Romanian territorial waters. It is unclear whether the ship was hit by drones; an investigation is pending.",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9805789/Romanian-Naval-Authority-Crew-evacuated-from-a-commercial-ship-that-caught-fire-in-Romanian-territorial-waters-It-is-unclear-whether-the-ship-was-hit-by-drones-an-investigation-is-pending.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Jeopolitik",
+      "tarih": "2026-10-14",
+      "tarih_gorunur": "14 Ekim 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
+      "kanallar": [
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-40-59a567ac.jpg",
+      "foto_atif": "Peter Griffin · CC0"
     },
     {
       "baslik": "Apple, Apple Intelligence'ı iOS 27.3'te Çin'de piyasaya sürmeyi planlıyor. $AAPL",
@@ -1534,27 +1560,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/enerji-16-71b1ce54.jpg",
       "foto_atif": "HdeK · CC-BY-SA-3.0"
-    },
-    {
-      "baslik": "Odoxa Poll: Le Pen, Fransa'daki ikinci turda Melenchon'u %68-%32 yenecek",
-      "baslik_kaynak": "Le Pen would beat Melenchon 68%-32% in French runoff - Odoxa Poll",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9805482/Le-Pen-would-beat-Melenchon-68-32-in-French-runoff---Odoxa-Poll.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Şirket haberleri",
-      "tarih": "2026-10-14",
-      "tarih_gorunur": "14 Ekim 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-9-c71a9b17.jpg",
-      "foto_atif": "Dietmar Rabich · CC-BY-SA-4.0"
     },
     {
       "baslik": "Hazine bir ayda %70 küçüldükten sonra büyük hissedar SkyAI'ye Solana satışları konusunda baskı yapıyor",
