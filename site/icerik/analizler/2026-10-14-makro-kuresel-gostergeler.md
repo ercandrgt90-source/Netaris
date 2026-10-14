@@ -21,7 +21,7 @@ sayimlar: 4|yorumlanan gösterge;56|gözlem noktası;14|işlem günü penceresi;
 
 ## Özet
 
-Brent petrol 6 Ekim 2026 itibarıyla 125,44 USD/varil seviyesinde. İzlenen 14 işlem gününde 29 Eylül 2026 tarihli 113,96 dolarlık dibi ile 2 Ekim 2026 tarihli 135,51 dolarlık zirvesi arasında hareket etti. ABD 10 yıllık tahvil getirisi %5,21 (13 Ekim 2026), aynı dönemde 10 baz puan yükseldi. 10 yıllık ile 2 yıllık arasındaki fark 41 baz puan; getiri eğrisi pozitif eğimli.
+Brent petrol 6 Ekim 2026 itibarıyla 125,44 USD/varil seviyesinde. İzlenen 14 işlem gününde 29 Eylül 2026 tarihli 113,96 dolarlık dibi ile 2 Ekim 2026 tarihli 135,51 dolarlık zirvesi arasında hareket etti. ABD 10 yıllık tahvil getirisi %5,21 (13 Ekim 2026), aynı dönemde 10 baz puan yükseldi. 10 yıllık ile 2 yıllık arasındaki fark 42 baz puan; getiri eğrisi pozitif eğimli.
 
 ## Göstergeler
 
@@ -29,7 +29,7 @@ Brent petrol 6 Ekim 2026 itibarıyla 125,44 USD/varil seviyesinde. İzlenen 14 i
 |---|---|---|---|
 | Brent petrol | 125,44 USD/varil | 6 Ekim 2026 | %3,5 yükseldi |
 | ABD efektif fed fonu oranı | %3,88 | 13 Ekim 2026 | yatay kaldı |
-| ABD 2 yıllık tahvil getirisi | %4,80 | 9 Ekim 2026 | 9 baz puan yükseldi |
+| ABD 2 yıllık tahvil getirisi | %4,79 | 13 Ekim 2026 | 6 baz puan geriledi |
 | ABD 10 yıllık tahvil getirisi | %5,21 | 13 Ekim 2026 | 10 baz puan yükseldi |
 
 Her göstergenin son gözlem tarihi farklı olabilir; tabloda her satır kendi tarihini taşır. Dönem değişimi, yukarıdaki pencerenin ilk gözlemine göre hesaplanmıştır.
@@ -40,7 +40,7 @@ Her göstergenin son gözlem tarihi farklı olabilir; tabloda her satır kendi t
 
 ## ABD faiz tarafı
 
-Efektif fed fonu faizi %3,88 (13 Ekim 2026); izlenen dönemde sabit kaldı. Piyasa tarafında 2 yıllık getiri %4,80, 10 yıllık %5,21. Dönem içinde 2 yıllık 9 baz puan yükseldi, 10 yıllık 10 baz puan yükseldi. Aradaki 41 baz puanlık pozitif fark, uzun vadeli borçlanma faizinin kısa vadeliden yüksek olduğu normal eğim anlamına gelir.
+Efektif fed fonu faizi %3,88 (13 Ekim 2026); izlenen dönemde sabit kaldı. Piyasa tarafında 2 yıllık getiri %4,79, 10 yıllık %5,21. Dönem içinde 2 yıllık 6 baz puan geriledi, 10 yıllık 10 baz puan yükseldi. Aradaki 42 baz puanlık pozitif fark, uzun vadeli borçlanma faizinin kısa vadeliden yüksek olduğu normal eğim anlamına gelir.
 
 ## Türkiye'ye hangi kanallardan geliyor
 
