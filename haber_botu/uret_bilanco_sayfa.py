@@ -142,7 +142,41 @@ def govde_kur(kod, unvan, sektor, donem, d, oran, medyan, n, yorum,
         if v is not None:
             s.append(f"| {etiket} | {_mlr(v)} |")
 
-    if oran:
+    if oran and not medyan:
+        # KIYAS KUMESI YOKSA BOLUM HIC YAZILMIYOR -- BOS SUTUNLA DEGIL.
+        #
+        # Olculdu (2026-10-14): spor kulupleri mali yillari ayni olsa
+        # da AYNI UC AYI bildirmiyor. GSRAY ve BJKAS haziran-agustos
+        # bilancosunu acikladi, FENER ve TSPOR hala mart-mayista. Her
+        # grup IKI sirket, yani `sektor_ozet.EN_AZ_SIRKET` esigi
+        # altinda ve medyan URETILMIYOR.
+        #
+        # Onceki kural sayfayi tumden ATLIYORDU. Ama sayfanin geri
+        # kalani gercek: olcum tablosu, bir yil oncesine gore degisim
+        # ve AI yorumu kiyasa bagli degil. GSRAY'in aciklanmis
+        # bilancosunu haftalarca yayimlamamak, okura hicbir sey
+        # vermemek demekti.
+        #
+        # Bos bir medyan sutunu da yazilmiyor: her satirda tire
+        # gormek, kiyas yapilmis izlenimi verirdi.
+        #
+        # SEBEP SOYLENIYOR. "Karsilastirma yok" demek yetmez; okur
+        # neden olmadigini bilmeli.
+        s += ["", "## Sektör karşılaştırması bu dönem yapılmadı", "",
+              f"{sektor} sektöründe **aynı dönemi bildiren** en az "
+              f"{sektor_ozet.EN_AZ_SIRKET} şirket yok, bu yüzden sektör "
+              f"medyanı üretilmedi ve karşılaştırma tablosu yazılmadı. "
+              f"İki şirketin ortasını \"sektör medyanı\" diye sunmak, "
+              f"ölçülmemiş bir şeyi ölçülmüş gibi göstermek olurdu."]
+        if mali_not:
+            s += ["", mali_not]
+        # YON DOGRU YAZILIYOR. Ilk yazim "Aşağıdaki" diyordu ama o
+        # bolumler sayfada YUKARIDA: sira "bir yil oncesine gore" ->
+        # "donem olcumleri" -> bu bolum.
+        s += ["", "Yukarıdaki **bir yıl öncesine göre** değişim ve ölçüm "
+              "tablosu şirketin kendi geçmişine dayanıyor; onlar için "
+              "kıyas kümesi gerekmiyor."]
+    elif oran:
         # "AYNI DONEMI BILDIREN" IBARESI BILEREK -- OLCULDU, YAYINDAYDI.
         #
         # Medyan eskiden sektorun TAMAMINDAN kuruluyordu ve sektorde
@@ -744,17 +778,17 @@ def main() -> int:
             sebepler["zaten yayımlanmış"] = \
                 sebepler.get("zaten yayımlanmış", 0) + 1
             continue
-        # KIYASSIZ SAYFA YAZILMIYOR.
+        # KIYASSIZ SAYFA ARTIK YAZILIYOR -- bolum olmadan.
         #
-        # Takvim grubunda `sektor_ozet.EN_AZ_SIRKET` kadar sirket
-        # yoksa medyan URETILMIYOR ve sayfa "Sektör içindeki konum"
-        # bolumu olmadan cikardi. Oranlar tablosu bos bir sutunla
-        # yayimlanmaktansa sayfa beklesin: grup doldukca uretilir.
-        if not _medyan:
-            atlanan += 1
-            sebepler["kıyas kümesi yetersiz"] = \
-                sebepler.get("kıyas kümesi yetersiz", 0) + 1
-            continue
+        # Onceki kural sayfayi tumden atliyordu. Olculdu
+        # (2026-10-14): spor kuluplerinin her donem grubu IKI sirket,
+        # yani esik altinda ve medyan hic uretilmiyor. GSRAY'in
+        # aciklanmis bilancosu bu yuzden haftalarca yayimlanmadan
+        # kalirdi.
+        #
+        # Sayfanin geri kalani kiyasa bagli DEGIL: olcum tablosu, bir
+        # yil oncesine gore degisim ve AI yorumu. Bolum yazilmiyor ve
+        # NEDENI soyleniyor; bkz. `govde_kur`.
         ok, not_ = sirket_isle(kod, bilgi, sektor, _donem, oran,
                                _medyan, _n, kuru=n.kuru_calis,
                                mali_not=_mali_not)

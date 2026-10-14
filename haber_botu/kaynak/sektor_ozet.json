@@ -1943,13 +1943,13 @@
  "İletişim": {
   "sektor": "İletişim",
   "donem": "2026 2. çeyrek",
-  "sirket_sayisi": 6,
+  "sirket_sayisi": 3,
   "medyan": {
-   "brut_marj": -32.03488335808602,
-   "net_marj": -55.4171070200572,
-   "roe": -7.497810818637653,
-   "cari_oran": 0.6983221241647948,
-   "borc_ozkaynak": 0.2627886581795141
+   "brut_marj": 24.944686769075165,
+   "net_marj": -11.77120213076948,
+   "roe": -2.6817957572767637,
+   "cari_oran": 1.030264236993179,
+   "borc_ozkaynak": 0.075421805624075
   },
   "sirket": {
    "BIGTK": {
@@ -1960,11 +1960,11 @@
     "borc_ozkaynak": 0.01200531208499336
    },
    "BJKAS": {
-    "brut_marj": -79.44070429829104,
-    "net_marj": -61.41895390989125,
-    "roe": -32.69018743109151,
-    "cari_oran": 0.5772781065088758,
-    "borc_ozkaynak": 0.8638368246968027
+    "brut_marj": -10.020131898646303,
+    "net_marj": -35.6473446719889,
+    "roe": -24.699374699374697,
+    "cari_oran": 0.6525145009866651,
+    "borc_ozkaynak": 0.803992303992304
    },
    "FENER": {
     "brut_marj": -100.86251960271824,
@@ -1972,6 +1972,13 @@
     "roe": -42.681532304173814,
     "cari_oran": 0.567409144196952,
     "borc_ozkaynak": 0.8080331618067467
+   },
+   "GSRAY": {
+    "brut_marj": 1.8147291305186042,
+    "net_marj": 2.2388663967611335,
+    "roe": 0.6466395679046718,
+    "cari_oran": 0.3550067204301075,
+    "borc_ozkaynak": 0.28203129350186534
    },
    "IHYAY": {
     "brut_marj": 11.502690529552517,
@@ -1996,7 +2003,45 @@
    }
   },
   "atlanan": [],
-  "tazelendi": "2026-09-15T14:28:26+00:00"
+  "ana_donem": "2026-06-30",
+  "bitis": {
+   "BIGTK": "2026-06-30",
+   "BJKAS": "2026-08-31",
+   "FENER": "2026-05-31",
+   "GSRAY": "2026-08-31",
+   "IHYAY": "2026-06-30",
+   "TSPOR": "2026-05-31",
+   "TTKOM": "2026-06-30"
+  },
+  "onceki_yok": [],
+  "kirpilan": [],
+  "mali": {
+   "BJKAS": 5,
+   "FENER": 5,
+   "GSRAY": 5,
+   "TSPOR": 5
+  },
+  "donem_gruplari": {
+   "2026-08-31": {
+    "donem": "2026 haziran–ağustos",
+    "sirket_sayisi": 2,
+    "medyan": {},
+    "kodlar": [
+     "BJKAS",
+     "GSRAY"
+    ]
+   },
+   "2026-05-31": {
+    "donem": "2026 mart–mayıs",
+    "sirket_sayisi": 2,
+    "medyan": {},
+    "kodlar": [
+     "FENER",
+     "TSPOR"
+    ]
+   }
+  },
+  "tazelendi": "2026-10-14T06:38:38+00:00"
  },
  "İsteğe bağlı tüketim": {
   "sektor": "İsteğe bağlı tüketim",

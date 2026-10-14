@@ -103,10 +103,9 @@ def baglam_kur() -> tuple[dict, dict]:
     for sektor, v in ozet.items():
         for kod, oran in v["sirket"].items():
             medyan, n, donem, mali_not = U.kiyas_kumesi(v, kod)
-            if not medyan:
-                # Kiyassiz sayfa tazelenmiyor -- bos bir medyan
-                # sutunu yayimlamaktansa sayfa oldugu gibi kalsin.
-                continue
+            # KIYASSIZ SAYFA DA TAZELENIYOR. Medyan yoksa `govde_kur`
+            # bolumu yazmiyor ve sebebini soyluyor; sayfayi hic
+            # tazelememek o aciklamayi eski sayfalara ulastirmazdi.
             baglam[kod.upper()] = (sektor, oran, medyan, n, donem,
                                    mali_not)
     return baglam, defter

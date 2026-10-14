@@ -41,6 +41,11 @@ import oranlar                                     # noqa: E402
 import uret_bilanco as U                           # noqa: E402
 import uret_bilanco_sayfa as US                    # noqa: E402
 
+#: Satir sonu ELDE kuruluyor -- bu dosya here-doc ile
+#: yazildiginda kacisli satir sonu gercek satir sonuna donusup
+#: dizgeyi kapanmamis birakiyor; tuzak depoda kayitli.
+SATIR_SONU = chr(10)
+
 _gecti = 0
 
 
@@ -156,6 +161,60 @@ esit("mali yılı mayıs sonunda bitiyor" in _km, True,
      "mali takvim açıklaması sayfada")
 esit("aynı dönemi bildiren" in _km, True,
      "kıyas cümlesi doğru ifadeyi taşıyor")
+
+print("")
+print("5. KIYAS KUMESI YOKSA SAYFA YINE CIKAR -- bolum YAZILMAZ")
+#
+# OLCULDU (2026-10-14): spor kuluplerinin mali yillari ayni ama AYNI
+# UC AYI bildirmiyorlar. GSRAY ve BJKAS haziran-agustos bilancosunu
+# acikladi, FENER ve TSPOR hala mart-mayista:
+#
+#   2026-08-31 -> GSRAY, BJKAS   (2 sirket)
+#   2026-05-31 -> FENER, TSPOR   (2 sirket)
+#
+# Her grup `sektor_ozet.EN_AZ_SIRKET` esigi altinda, yani medyan
+# URETILMIYOR. Onceki kural sayfayi tumden atliyordu ve GSRAY'in
+# aciklanmis bilancosu haftalarca yayimlanmadan kalirdi.
+#
+# Kullanici karari (2026-10-14): sektor karsilastirmasi olmadan
+# yayimla. Sayfanin geri kalani kiyasa bagli degil.
+_kd = oranlar.Donem(
+    etiket="2026 haziran–ağustos", hasilat=820_000_000.0,
+    brut_kar=-640_000_000.0, faaliyet_kari=-710_000_000.0,
+    net_kar=-480_000_000.0, ozkaynak=380_000_000.0,
+    aktif_toplami=6_100_000_000.0, donen_varliklar=520_000_000.0,
+    kisa_vadeli_yukumlulukler=2_900_000_000.0)
+_kg = US.govde_kur("GSRAY", "Örnek Kulüp A.Ş.", "İletişim",
+                   "2026 haziran–ağustos", _kd, U._oranlari(_kd),
+                   {}, 0, "Örnek yorum.", alt_sektor="Entertainment",
+                   mali_not="Şirketin mali yılı mayıs sonunda bitiyor.")
+_km = _kg if isinstance(_kg, str) else SATIR_SONU.join(_kg)
+esit("## Sektör içindeki konum" in _km, False,
+     "kıyas tablosu bölümü YAZILMIYOR")
+esit("## Sektör karşılaştırması bu dönem yapılmadı" in _km, True,
+     "yerine SEBEBİ yazılıyor")
+esit("| —" in _km, False,
+     "boş medyan sütunu YOK (kıyas yapılmış izlenimi vermiyor)")
+esit("Yukarıdaki" in _km, True, "yön doğru (o bölümler yukarıda)")
+esit("Aşağıdaki **bir yıl" in _km, False, "yanlış yön kullanılmıyor")
+# SAYFANIN GERI KALANI DURUYOR: olcum tablosu ve kulup kilavuzu.
+esit("dönemi ölçümleri" in _km, True, "ölçüm tablosu duruyor")
+esit("Futbol kulübü" in _km, True, "kulüp kılavuzu duruyor")
+esit("Örnek yorum." in _km, True, "AI yorumu duruyor")
+# VE KENDI DENETIMIMIZDEN GECIYOR.
+esit(bd.onarim_gereken(_km, {"sektor_tr": "İletişim",
+                             "alt_sektor": "Entertainment"}), [],
+     "kıyassız sayfa da denetimden SORUNSUZ geçiyor")
+
+# MEDYAN VARSA eski davranis: kiyas tablosu yaziliyor.
+_vg = US.govde_kur("TTKOM", "Örnek A.Ş.", "İletişim", "2026 2. çeyrek",
+                   _kd, U._oranlari(_kd), MEDYAN, 3, "Yorum.",
+                   alt_sektor="Telecom Services")
+_vm = _vg if isinstance(_vg, str) else SATIR_SONU.join(_vg)
+esit("## Sektör içindeki konum" in _vm, True,
+     "medyan varsa kıyas tablosu YAZILIYOR")
+esit("## Sektör karşılaştırması bu dönem yapılmadı" in _vm, False,
+     "o durumda açıklama bölümü yok")
 
 print("")
 print(f"TUM TESTLER GECTI ({_gecti})")
