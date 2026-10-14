@@ -1032,7 +1032,13 @@ def ay_adi(ay: int | None) -> str:
 
 
 def donem_adi(bitis_iso: str, ceyrek_sayisi: int = 1) -> str:
-    """Bitis tarihinden okunabilir donem adi: "2026 haziran–ağustos dönemi".
+    """Bitis tarihinden okunabilir donem adi: "2026 haziran–ağustos".
+
+    "DONEMI" EKLENMIYOR -- OLCULDU (2026-10-14). Ilk yazim
+    "...dönemi" ile bitiyordu ve sayfa basligi `f"## {donem} dönemi
+    ölçümleri"` oldugu icin cikti "2026 mart–mayıs dönemi dönemi
+    ölçümleri" diye basiliyordu. Etiket bir donem ADI olmali;
+    "2026 2. çeyrek" de "dönemi" tasimiyor.
 
     NEDEN CEYREK NUMARASI DEGIL
     ---------------------------
@@ -1054,8 +1060,8 @@ def donem_adi(bitis_iso: str, ceyrek_sayisi: int = 1) -> str:
     bas_yil, bas_ay = divmod(bas, 12)
     bas_ay += 1
     if bas_yil == yil:
-        return f"{yil} {_AY_ADI[bas_ay]}–{_AY_ADI[ay]} dönemi"
-    return (f"{bas_yil} {_AY_ADI[bas_ay]}–{yil} {_AY_ADI[ay]} dönemi")
+        return f"{yil} {_AY_ADI[bas_ay]}–{_AY_ADI[ay]}"
+    return f"{bas_yil} {_AY_ADI[bas_ay]}–{yil} {_AY_ADI[ay]}"
 
 
 #: Takvim ceyreklerinin son gunu (ay, gun).

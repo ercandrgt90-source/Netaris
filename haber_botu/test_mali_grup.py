@@ -146,7 +146,7 @@ try:
          "tek bir ayri donem grubu kuruldu")
     _g = _r["donem_gruplari"]["2026-05-31"]
     esit(_g["sirket_sayisi"], 3, "grup uc sirket")
-    esit(_g["donem"], "2026 mart–mayıs dönemi", "grup ay adlariyla")
+    esit(_g["donem"], "2026 mart–mayıs", "grup ay adlariyla")
     esit(sorted(_g["kodlar"]), ["BJKAS", "FENER", "TSPOR"],
          "gruptaki sirketler")
     yakin(_g["medyan"]["brut_marj"], -79.44, 0.01,
@@ -211,13 +211,13 @@ _v = {
     "bitis": {"TTKOM": "2026-06-30", "FENER": "2026-05-31"},
     "donem_gruplari": {"2026-05-31": {"medyan": {"brut_marj": -79.44},
                                       "sirket_sayisi": 3,
-                                      "donem": "2026 mart–mayıs dönemi"}},
+                                      "donem": "2026 mart–mayıs"}},
 }
 esit(US.kiyas_kumesi(_v, "TTKOM"),
      ({"brut_marj": 24.94}, 3, "2026 2. çeyrek", ""),
      "ana donemdeki sirket ANA kumeyi aliyor")
 _f = US.kiyas_kumesi(_v, "FENER")
-esit(_f[:3], ({"brut_marj": -79.44}, 3, "2026 mart–mayıs dönemi"),
+esit(_f[:3], ({"brut_marj": -79.44}, 3, "2026 mart–mayıs"),
      "kulup KENDI kumesini ve ay adli donemi aliyor")
 esit(_f[3], "Şirketin mali yılı mayıs sonunda bitiyor, takvim yılıyla "
             "örtüşmüyor; bu yüzden dönemi ay adlarıyla yazılıyor.",
@@ -267,7 +267,7 @@ _kulup_cogunluk = {
                                       "sirket_sayisi": 3}},
 }
 _f = US.kiyas_kumesi(_kulup_cogunluk, "FENER")
-esit(_f[2], "2026 mart–mayıs dönemi",
+esit(_f[2], "2026 mart–mayıs",
      "kulup ANA GRUPTA olsa da kendi donemini yaziyor")
 yakin(_f[0]["brut_marj"], -79.44, 0.01, "kulup kendi medyanini aliyor")
 esit(_f[1], 4, "kulup grubu dort sirket")

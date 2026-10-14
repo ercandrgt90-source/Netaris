@@ -60,6 +60,23 @@ ARANAN = (KOK / "haber_botu", KOK / "site")
 #: Cikti dizinine YOL olarak deginme izleri. Bkz. `ciktiya_bakan`.
 YOL_IZI = ('"cikti"', 'CIKTI')
 
+#: URETIM SIRASINDA YAZILAN IKINCI DIZIN: `site/icerik`.
+#:
+#: `site/cikti` HTML'i tutuyor, ama hattin urettigi MARKDOWN
+#: `site/icerik` icine yaziliyor (bilanco analizleri, makro yazilar).
+#: O dizine bakan sinamalar da uretimden SONRA kosmali; CI'in sinama
+#: adimi uretimden ONCE kosuyor ve orada depodaki ESKI icerigi
+#: denetliyorlar.
+#:
+#: Olculdu (2026-10-14): yalnizca icerige bakan dort sinama var
+#: (`test_kumulatif_temizle`, `test_baski`,
+#: `test_bilanco_sayfa_saglam`, `test_yinelenen_kelime`). Dordu de
+#: o kosuda URETILEN icerigi degil oncekini goruyordu, yani yeni
+#: bozuk bir sayfa ancak BIR SONRAKI kosuda yakalaniyordu.
+#:
+#: Ayni korluk bu depoda uc kez yasandi; bkz. dosya basligi.
+ICERIK_IZI = ('"icerik"', "'icerik'")
+
 
 def ciktiya_bakan() -> list:
     """Kaynaginda cikti dizini YOLUNA deginen sinamalar.
@@ -88,7 +105,7 @@ def ciktiya_bakan() -> list:
                 k = p.read_text(encoding="utf-8", errors="replace")
             except OSError:
                 continue
-            if any(x in k for x in YOL_IZI):
+            if any(x in k for x in YOL_IZI + ICERIK_IZI):
                 bulunan.append(p)
     return bulunan
 
@@ -103,14 +120,15 @@ def main() -> int:
 
     sinamalar = ciktiya_bakan()
     print(f"Ciktiya bakan sinama: {len(sinamalar)}")
-    # TABAN 35: olculen gercek bagimli sinama sayisi 43, secilen 51.
+    # TABAN 35: olculen gercek bagimli sinama sayisi 43, secilen 51
+    # (2026-10-14'te icerik izi eklenince 55).
     # Esik bu degerlerin ALTINA, ama anlamli bir dususu yakalayacak
     # kadar yakina kondu -- tarama bozulursa (yol degisir, dizin
     # tasinir) sayi bir anda duser ve bu kirmizi yanar. Esigi 10'da
     # birakmak, 40 sinamanin kaybolmasini sessizce gecirirdi.
     if len(sinamalar) < 35:
         print(f"HATA: yalnizca {len(sinamalar)} sinama bulundu -- "
-              f"tarama bozuk olmali (beklenen ~51).")
+              f"tarama bozuk olmali (beklenen ~55).")
         return 1
 
     bas = time.time()

@@ -355,19 +355,44 @@ esit(b.donem_etiketi("2026-09-30", 1), "2026 3. çeyrek", "eylul sonu")
 esit(b.donem_etiketi("2026-12-31", 1), "2026 4. çeyrek", "aralik sonu")
 # Takvim ceyregi DEGILSE ay adlari -- kaynagin mali ceyrek numarasi
 # okuru yanlis yere goturur ("Q1 2027").
-esit(b.donem_etiketi("2026-05-31", 1), "2026 mart–mayıs dönemi",
+esit(b.donem_etiketi("2026-05-31", 1), "2026 mart–mayıs",
      "mayis sonu: ay adlari")
-esit(b.donem_etiketi("2026-08-31", 1), "2026 haziran–ağustos dönemi",
+esit(b.donem_etiketi("2026-08-31", 1), "2026 haziran–ağustos",
      "agustos sonu: ay adlari")
-esit(b.donem_etiketi("2026-02-28", 1), "2025 aralık–2026 şubat dönemi",
+esit(b.donem_etiketi("2026-02-28", 1), "2025 aralık–2026 şubat",
      "subat sonu: yil atlayarak")
 # Ayin son gunu olmayan tarih takvim ceyregi DEGIL.
-esit(b.donem_etiketi("2026-06-29", 1), "2026 nisan–haziran dönemi",
+esit(b.donem_etiketi("2026-06-29", 1), "2026 nisan–haziran",
      "haziran 29 ceyrek sonu DEGIL")
 # Kumulatif donemde ceyrek adi kullanilmiyor: "2026 2. çeyrek"
 # nisan-haziran demek, alti aylik donem o degil.
-esit(b.donem_etiketi("2026-06-30", 2), "2026 ocak–haziran dönemi",
+esit(b.donem_etiketi("2026-06-30", 2), "2026 ocak–haziran",
      "iki ceyreklik donemde ceyrek adi KULLANILMIYOR")
+
+print("")
+print("12. ETIKET 'DONEM' KELIMESINI TASIMAZ")
+#
+# Sayfa basligi `f"## {donem} dönemi ölçümleri"` diye kuruluyor.
+# Etiket de "dönemi" ile biterse cikti "2026 mart–mayıs dönemi
+# dönemi ölçümleri" olur -- yakalandi (2026-10-14), yayina cikmadi.
+#
+# Kural etiketin KENDISINE konuyor: sablonun ekledigi kelimeyi deger
+# tasimamali. Ayni ilkeyi cikti duzeyinde `site/test_yinelenen_
+# kelime.py` butun uretilen metin icin koruyor.
+for _t in ("2026-05-31", "2026-08-31", "2026-02-28", "2026-06-30",
+           "2026-03-31", "2026-09-30", "2026-12-31", "2026-06-29"):
+    for _c in (1, 2, 4):
+        _e = b.donem_etiketi(_t, _c)
+        if "dönem" in _e.lower():
+            print(f"  DUSTU  etiket 'dönem' tasiyor: {_t} x{_c} -> {_e!r}")
+            print("    Sayfa basligi 'dönemi ölçümleri' ekliyor;")
+            print("    kelime iki kez basilir.")
+            raise SystemExit(1)
+_gecti += 1
+print("  gecti  hicbir etiket 'dönem' kelimesi tasimiyor")
+# Baslik gercekten dogru kuruluyor mu -- tek bir ornekle.
+esit(f"{b.donem_etiketi('2026-05-31', 1)} dönemi ölçümleri",
+     "2026 mart–mayıs dönemi ölçümleri", "baslik dogru kuruluyor")
 
 print("")
 print(f"TUM TESTLER GECTI ({_gecti})")
