@@ -1,7 +1,7 @@
 ---
 slug: piyasa-tepkisi-abd-tahvil-faizleri-enflasyon-verisi-oncesi-dususte-2026-10-14
 baslik: ABD tahvil faizleri enflasyon verisi öncesi düşüşte
-ozet: Enflasyon verisi. Bitcoin 1 saat içinde -%0,22 geriledi.
+ozet: Enflasyon verisi. Bitcoin 1 saat içinde -%0,26 geriledi.
 sirket: Piyasa tepkisi: ABD tahvil faizleri enflasyon verisi öncesi düşüşte
 kod: OLAY
 donem: 2026-10-14
@@ -23,8 +23,8 @@ Enflasyon verisi yayımlandı. Kaynak: Ekonomim.
 
 ## Piyasada ne oldu
 
-- **Altın** 1 saat içinde yatay kaldı (son 4144,30).
-- **Bitcoin** 1 saat içinde geriledi: -%0,22 (son 83170,00).
+- **Altın** 1 saat içinde yatay kaldı (son 4144,40).
+- **Bitcoin** 1 saat içinde geriledi: -%0,26 (son 83174,70).
 
 *Yukarıdaki rakamlar ölçülen fiyat hareketidir. Hareketin sebebinin bu gelişme olduğu iddia edilmemektedir; aynı pencerede başka etkenler de fiyatlanmış olabilir.*
 
