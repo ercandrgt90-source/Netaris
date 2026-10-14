@@ -151,7 +151,19 @@ def main() -> int:
         adimlar.append(("Bilanço (sektör → mali tablo → medyan)",
                         [str(BOT / "uret_bilanco.py"), "--hepsi"]))
 
-    # BILANCO SAYFALARI -- veri cekildikten SONRA.
+    # BILANCO SAYFALARI -- BURADA veri cekildikten sonra.
+    #
+    # SIRA `bilanco.yml` ILE AYNI DEGIL, BILEREK. Uretim yolu olan
+    # `bilanco.yml` sayfalari VERIDEN ONCE kosturuyor: iki adim ayni
+    # kaynaga gidiyor, veri adimi 324 sirketi deneyerek izni tek
+    # basina tuketiyor ve sayfa adimi ac kaliyor (olculdu 2026-10-14:
+    # bir ayda toplam iki sayfa yazilabildi). Gerekce orada yazili.
+    #
+    # Burada sira degistirilmedi cunku iki adim AYRI atlama
+    # bayraklarinda (`bilanco` ve `bilanco_sayfa`) ve `otomasyon.yml`
+    # IKISINI DE atliyor -- yani bu sira yalnizca yerel TAM kosuda
+    # etkili. Bayraklari korumak icin araya girmek, kodu okunmaz
+    # kilardi; fark bilerek burada yazili.
     #
     # Sinir kucuk (varsayilan 5): 324 sirketi tek kosuda yayimlamak
     # geri alinmasi zor bir islem ve 324 model cagrisi demek. Her

@@ -243,11 +243,30 @@ jobs:
       - name: Bilanço nöbetçisi (yeni çeyrek var mı)
         run: python haber_botu/bilanco_nobetci.py
 
-      - name: Bilanço verisi (sektör → mali tablo → medyan)
-        run: |
-          python haber_botu/uret_bilanco.py --hepsi \
-            ${{ inputs.zorla && '--zorla' || '' }}
-
+      # SAYFALAR VERIDEN ONCE -- KAYNAGIN IZNI SINIRLI.
+      #
+      # OLCULDU (2026-10-14). Iki adim ayni kaynaga gidiyor ve kaynak
+      # kosu basina ancak belirli sayida istege cevap veriyor; sonra
+      # sekiz ardisik redle `bilanco_ag.KAPANDI` devreye giriyor.
+      #
+      # Veri adimi 324 sirketi x uc tablo denemek istiyor, yani izni
+      # TEK BASINA tuketiyor. Sayfa adimi ardindan ac kaliyor:
+      #
+      #   12:19 kosusu  -> veri once -> 1 sayfa yazildi
+      #   17:16 kosusu  -> veri once -> 0 sayfa yazildi
+      #
+      # Sonuc: 15 Eylul'den 14 Ekim'e kadar sayfa adimi TOPLAM iki
+      # sayfa yazdi. Ozetteki 324 sirketten 109'unun HIC sayfasi yok
+      # ve dort futbol kulubu de onlarin arasinda.
+      #
+      # Ayni kosu yerelde veri adimi OLMADAN denendi: İletişim'in
+      # yedi sirketinin HEPSI sorunsuz cekildi (21 istek). Yani sorun
+      # kaynagin tumden reddetmesi degil, SIRA.
+      #
+      # Sayfa adimi okurun gordugu seyi uretiyor; veri adimi
+      # medyanlari TAZELIYOR ve bir kosu gecikmesi zarar vermiyor
+      # (sayfa, sirketin kendi rakamlarini zaten taze cekiyor).
+      # Oncelik okura verildi.
       - name: Bilanço sayfaları (tablo + AI yorumu)
         env:
           # AI yorumu. Tanimliysa Anthropic, degilse CLOUDFLARE_* ile
@@ -321,6 +340,11 @@ jobs:
       # orada silinen sey MODEL CIKTISI ve yeniden uretmek para/kota
       # harciyor. Burada silinen sey, yerine YENISI URETILMIS olan eski
       # bir dosya -- ve arac karsiligi olmayani zaten silmiyor.
+      - name: Bilanço verisi (sektör → mali tablo → medyan)
+        run: |
+          python haber_botu/uret_bilanco.py --hepsi \
+            ${{ inputs.zorla && '--zorla' || '' }}
+
       # ESKI SAYFALARI ONAR -- KURALI SIKILASTIRMAK ESKIYI TEMIZLEMEZ.
       #
       # Sayfa bicimi ya da olcum kurali degistiginde ZATEN YAYINDA

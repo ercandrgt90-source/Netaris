@@ -643,6 +643,25 @@ _n = _b.find("bilanco_nobetci.py")
 _v = _b.find("uret_bilanco.py")
 dogru("bilanco.yml: nobetci cekimden ONCE", _n != -1 and _v != -1 and _n < _v)
 
+# SAYFALAR VERIDEN ONCE KOSMALI -- KAYNAGIN IZNI SINIRLI.
+#
+# Iki adim ayni kaynaga gidiyor ve kaynak kosu basina ancak belirli
+# sayida istege cevap veriyor. Veri adimi 324 sirketi x uc tablo
+# denemek istedigi icin izni TEK BASINA tuketiyor; sayfa adimi
+# ardindan ac kaliyor.
+#
+# OLCULDU (2026-10-14): 15 Eylul'den 14 Ekim'e kadar sayfa adimi
+# TOPLAM iki sayfa yazdi. Ozetteki 324 sirketten 109'unun HIC sayfasi
+# yoktu -- dort futbol kulubu dahil. Ayni kosu yerelde veri adimi
+# OLMADAN denendi: İletişim'in yedi sirketi de sorunsuz cekildi.
+#
+# Sira tersine donerse okur yeni sayfa gormemeye baslar ve bu
+# SESSIZ bir gerileme: kosu yesil kalir.
+_sy = _b.find("uret_bilanco_sayfa.py")
+_vr = _b.find("uret_bilanco.py --hepsi")
+dogru("bilanco.yml: sayfa adimi veri adimindan ONCE",
+      _sy != -1 and _vr != -1 and _sy < _vr)
+
 # TAKVIM IKI YERDE OLMAMALI. Cron, `donem_acik`in yerine gecmemeli:
 # yaklasma aylari acik olmali ki nobetci BAKABILSIN.
 for _ay in ("2", "4", "7", "10"):

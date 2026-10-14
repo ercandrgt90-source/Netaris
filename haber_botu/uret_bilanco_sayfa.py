@@ -441,7 +441,8 @@ def sirket_isle(kod, bilgi, sektor, donem, oran, medyan, n,
     return True, str(yol.name)
 
 
-def kuyruk_kur(ozet: dict, bekleyen: set, sektor_suzgeci: str = "") -> list:
+def kuyruk_kur(ozet: dict, bekleyen: set, sektor_suzgeci: str = "",
+               sayfasi_olan: set | None = None) -> list:
     """Uretim kuyrugu -- BEKLEYENLER basta.
 
     Doner: (oncelik, ilk_gorulme, sektor, sektor_verisi, kod, oran)
@@ -468,13 +469,34 @@ def kuyruk_kur(ozet: dict, bekleyen: set, sektor_suzgeci: str = "") -> list:
     GERI KALANIN SIRASI DEGISMIYOR: ikincil anahtar ilk gorulme
     sirasi, yani ayni oncelikte alfabetik duzen korunuyor.
     """
+    # HIC SAYFASI OLMAYAN SIRKET EN ONDE.
+    #
+    # Siralama "once kumulatif gocu bitir" diye kurulmustu ve o zaman
+    # dogruydu. Ama olculdu (2026-10-14): ozetteki 324 sirketten
+    # 109'unun HIC sayfasi yok -- dort futbol kulubu dahil. Okur o
+    # sirketler icin HICBIR SEY goruyor; bicimi eski bir sayfa ise
+    # yine okunabiliyor.
+    #
+    # Yani sira tersine kurulmus: once hic olmayani yaz, sonra
+    # bicimini tazele.
+    #
+    # Kaynak kosu basina ancak birkac sirketi veriyor (olculdu: 324
+    # sirkette 151 "eksik", cogu HTTP 429), yani sira dogrudan
+    # "okurun ne zaman gorecegini" belirliyor.
+    sayfasi_olan = sayfasi_olan or set()
     kuyruk: list = []
     for sektor, v in sorted(ozet.items()):
         if sektor_suzgeci and sektor != sektor_suzgeci:
             continue
         for kod, oran in sorted(v["sirket"].items()):
-            kuyruk.append((0 if kod.upper() in bekleyen else 1,
-                           len(kuyruk), sektor, v, kod, oran))
+            k = kod.upper()
+            if sayfasi_olan and k not in sayfasi_olan:
+                oncelik = 0          # hic sayfasi yok
+            elif k in bekleyen:
+                oncelik = 1          # bicim gocu bekliyor
+            else:
+                oncelik = 2
+            kuyruk.append((oncelik, len(kuyruk), sektor, v, kod, oran))
     kuyruk.sort(key=lambda x: (x[0], x[1]))
     return kuyruk
 
@@ -745,10 +767,18 @@ def main() -> int:
     except Exception:                                  # pragma: no cover
         _bekleyen = set()
     if _bekleyen:
-        print(f"{len(_bekleyen)} şirket kümülatif karşılığını bekliyor "
-              f"-- kuyruğun başına alındı")
+        print(f"{len(_bekleyen)} şirket kümülatif karşılığını bekliyor")
 
-    kuyruk = kuyruk_kur(ozet, _bekleyen, n.sektor)
+    # HIC SAYFASI OLMAYAN SIRKETLER -- kuyrugun EN BASINA.
+    # Gerekcesi `kuyruk_kur` uzerinde yazili.
+    _sayfasi_olan = {k for (k, _d) in var}
+    _hic = sum(1 for s, v in ozet.items() if isinstance(v, dict)
+               for k in (v.get("sirket") or {})
+               if k.upper() not in _sayfasi_olan)
+    if _hic:
+        print(f"{_hic} şirketin HİÇ sayfası yok -- kuyruğun başına alındı")
+
+    kuyruk = kuyruk_kur(ozet, _bekleyen, n.sektor, _sayfasi_olan)
 
     for _oncelik, _sira, sektor, v, kod, oran in kuyruk:
         if yazilan >= n.sinir:
