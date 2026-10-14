@@ -24,16 +24,16 @@ Hasılattaki artışa kıyasla brüt kârın daha hızlı büyümesi, marj geni�
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | %42,8 |
-| Brüt kâr | %100,4 |
-| Faaliyet kârı | %150,0 |
-| FAVÖK | %113,2 |
-| Net kâr | %319,9 |
+| Hasılat | %59,7 |
+| Brüt kâr | %159,2 |
+| Faaliyet kârı | %212,7 |
+| FAVÖK | %166,8 |
+| Net kâr | %290,9 |
 | Özkaynak | %48,7 |
 | Aktif toplamı | %57,6 |
 | Net borç | -%169,1 |
-| Faaliyet nakit akışı | %781,7 |
-| Yatırım harcaması | %8,4 |
+| Faaliyet nakit akışı | %204,0 |
+| Yatırım harcaması | %8,7 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -41,39 +41,31 @@ Hasılattaki artışa kıyasla brüt kârın daha hızlı büyümesi, marj geni�
 
 | Kalem | Değer |
 | --- | ---: |
-| Hasılat | 662,79 milyar TL |
-| Brüt kâr | 84,13 milyar TL |
-| Faaliyet kârı | 67,41 milyar TL |
-| FAVÖK | 76,17 milyar TL |
-| Net kâr | 49,85 milyar TL |
+| Hasılat | 386,42 milyar TL |
+| Brüt kâr | 61,04 milyar TL |
+| Faaliyet kârı | 53,12 milyar TL |
+| FAVÖK | 57,79 milyar TL |
+| Net kâr | 45,88 milyar TL |
 | Özkaynak | 463,31 milyar TL |
 | Aktif toplamı | 859,99 milyar TL |
 | Net borç | -130,36 milyar TL |
-| Faaliyet nakit akışı | 132,37 milyar TL |
-| Yatırım harcaması | 11,86 milyar TL |
+| Faaliyet nakit akışı | 126,08 milyar TL |
+| Yatırım harcaması | 7,71 milyar TL |
 
-## Sektör içindeki konum
+## Sektör karşılaştırması bu dönem yapılmadı
 
-Karşılaştırma Enerji sektöründeki 2 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Enerji sektöründe **aynı dönemi bildiren** en az 3 şirket yok, bu yüzden sektör medyanı üretilmedi ve karşılaştırma tablosu yazılmadı. İki şirketin ortasını "sektör medyanı" diye sunmak, ölçülmemiş bir şeyi ölçülmüş gibi göstermek olurdu.
 
-| Oran | Şirket | Sektör medyanı |
-| --- | ---: | ---: |
-| Brüt kâr marjı | %15,8 | — |
-| Net kâr marjı | %11,9 | — |
-| Özkaynak kârlılığı | %9,9 | — |
-| Cari oran | 1,35 | — |
-| Borç / özkaynak | -0,28 | — |
-
-*Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
+Yukarıdaki **bir yıl öncesine göre** değişim ve ölçüm tablosu şirketin kendi geçmişine dayanıyor; onlar için kıyas kümesi gerekmiyor.
 
 ## Öne çıkan ölçümler
 
 **Şirket lehine işleyenler**
 
-- Hasılat reel olarak %42,8 arttı.
-- Net kâr reel olarak %319,9 arttı.
-- Brüt marj 3,6 puan genişledi (%9,0 → %12,7).
-- Faaliyet nakit akışı net kârın 2,66 katı; kâr nakde dönüyor.
+- Hasılat reel olarak %59,7 arttı.
+- Net kâr reel olarak %290,9 arttı.
+- Brüt marj 6,1 puan genişledi (%9,7 → %15,8).
+- Faaliyet nakit akışı net kârın 2,75 katı; kâr nakde dönüyor.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

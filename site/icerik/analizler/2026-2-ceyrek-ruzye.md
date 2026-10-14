@@ -24,15 +24,16 @@ Hasılat gerilerken brüt kâr sıfır seviyesinden negatife geçti; maliyetleri
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | -%14,2 |
-| Brüt kâr | -%1205,6 |
-| Faaliyet kârı | -%130,6 |
-| FAVÖK | -%205,9 |
-| Net kâr | -%1058,2 |
+| Hasılat | -%65,0 |
+| Brüt kâr | -%123,8 |
+| Faaliyet kârı | -%453,7 |
+| FAVÖK | -%103,5 |
+| Net kâr | -%115,3 |
 | Özkaynak | %22,8 |
 | Aktif toplamı | %47,2 |
 | Net borç | %17,6 |
-| Faaliyet nakit akışı | %157,6 |
+| Faaliyet nakit akışı | %178,1 |
+| Yatırım harcaması | %10700,0 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -40,30 +41,22 @@ Hasılat gerilerken brüt kâr sıfır seviyesinden negatife geçti; maliyetleri
 
 | Kalem | Değer |
 | --- | ---: |
-| Hasılat | 0,11 milyar TL |
-| Brüt kâr | -0,04 milyar TL |
-| Faaliyet kârı | -0,08 milyar TL |
-| FAVÖK | -0,02 milyar TL |
-| Net kâr | -0,10 milyar TL |
+| Hasılat | 0,04 milyar TL |
+| Brüt kâr | -0,01 milyar TL |
+| Faaliyet kârı | -0,03 milyar TL |
+| FAVÖK | 0,00 milyar TL |
+| Net kâr | -0,01 milyar TL |
 | Özkaynak | 1,67 milyar TL |
 | Aktif toplamı | 2,16 milyar TL |
 | Net borç | -0,48 milyar TL |
 | Faaliyet nakit akışı | 0,04 milyar TL |
-| Yatırım harcaması | 0,06 milyar TL |
+| Yatırım harcaması | 0,00 milyar TL |
 
-## Sektör içindeki konum
+## Sektör karşılaştırması bu dönem yapılmadı
 
-Karşılaştırma Enerji sektöründeki 2 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Enerji sektöründe **aynı dönemi bildiren** en az 3 şirket yok, bu yüzden sektör medyanı üretilmedi ve karşılaştırma tablosu yazılmadı. İki şirketin ortasını "sektör medyanı" diye sunmak, ölçülmemiş bir şeyi ölçülmüş gibi göstermek olurdu.
 
-| Oran | Şirket | Sektör medyanı |
-| --- | ---: | ---: |
-| Brüt kâr marjı | -%18,0 | — |
-| Net kâr marjı | -%31,5 | — |
-| Özkaynak kârlılığı | -%0,7 | — |
-| Cari oran | 2,49 | — |
-| Borç / özkaynak | -0,29 | — |
-
-*Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
+Yukarıdaki **bir yıl öncesine göre** değişim ve ölçüm tablosu şirketin kendi geçmişine dayanıyor; onlar için kıyas kümesi gerekmiyor.
 
 ## Öne çıkan ölçümler
 
@@ -73,10 +66,9 @@ Karşılaştırma Enerji sektöründeki 2 şirketin **medyanına** göre yapıl�
 
 **Dikkat gerektirenler**
 
-- Hasılat reel olarak -%14,2 geriledi.
-- Net kâr reel olarak -%1058,2 geriledi.
-- Brüt marj 29,8 puan daraldı (-%2,1 → -%31,8).
-- Yatırım harcaması faaliyet nakit akışını aşıyor; aradaki fark dış kaynakla karşılanıyor.
+- Hasılat reel olarak -%65,0 geriledi.
+- Net kâr reel olarak -%115,3 geriledi.
+- Brüt marj 44,3 puan daraldı (%26,3 → -%18,0).
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 
