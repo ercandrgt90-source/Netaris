@@ -30,7 +30,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 16,
+  "yorumlanan": 17,
   "haberler": [
     {
       "baslik": "Grynspan: Daimi güvenlik konseyi üyelerinin muhalefeti daha önce de aşılmıştı",
@@ -358,6 +358,32 @@
       "foto_atif": "Gazouya-japan · CC-BY-SA-4.0"
     },
     {
+      "baslik": "MSCI'dan Türkiye kararı: Endeks değişikliklerini dondurdu",
+      "baslik_kaynak": "MSCI'dan Türkiye kararı: Endeks değişikliklerini dondurdu",
+      "ozet": "Uluslararası endeks sağlayıcısı MSCI, Türk hisse senetlerine ilişkin bazı endeks değişikliklerini ikinci bir duyuruya kadar durdurdu.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.ekonomim.com/ekonomi/msci-turkiye-endekslerinde-degisiklikleri-dondurdu-haberi-925037",
+      "kurum": "Ekonomim",
+      "kurum_tam": "Ekonomim",
+      "konu": "Borsa",
+      "tarih": "2026-10-16",
+      "tarih_gorunur": "16 Ekim 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Endeks hareketi tek başına bir bilgi değildir; hareketi hangi sektörlerin taşıdığı ve işlem hacminin ne olduğu kalıcılığı belirler.",
+      "kanallar": [
+        "Sektör dağılımı: hareketin dar bir gruptan mı geniş tabandan mı geldiği, kalıcılığa dair ipucu verir.",
+        "Hacim: düşük hacimli hareket fiyat keşfinden çok pozisyon ayarlaması olabilir.",
+        "Volatilite: opsiyon fiyatlarındaki değişim piyasanın beklediği oynaklığı gösterir.",
+        "Korelasyon: hisse ile tahvil arasındaki ilişkinin işareti portföy riskinin nasıl dağıldığını değiştirir."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/borsa-9-78cc676a.jpg",
+      "foto_atif": "Syced · CC0"
+    },
+    {
       "baslik": "New York borsası günü yükselişle kapattı",
       "baslik_kaynak": "New York borsası günü yükselişle kapattı",
       "ozet": "New York borsası haftanın dördüncü işlem gününü yükselişle tamamladı.",
@@ -454,27 +480,6 @@
       "kanal_basligi": "Piyasaya nasıl yansır?",
       "foto": "/statik/foto/tarim-ve-gida-9-f860582e.jpg",
       "foto_atif": "Hugh Venables · CC-BY-SA-2.0"
-    },
-    {
-      "baslik": "Elektrik Enerjisi Satın Alınacaktır",
-      "baslik_kaynak": "ELEKTRİK ENERJİSİ SATIN ALINACAKTIR",
-      "ozet": "",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.ekonomim.com/resmi-ilanlar/elektrik-enerjisi-satin-alinacaktir-ilan-924415",
-      "kurum": "Ekonomim",
-      "kurum_tam": "Ekonomim",
-      "konu": "Enerji",
-      "tarih": "2026-10-16",
-      "tarih_gorunur": "16 Ekim 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enerji-18-2333f432.jpg",
-      "foto_atif": "Sgroey · CC-BY-SA-4.0"
     },
     {
       "baslik": "Haftalık Akım Faiz ve Kâr Payı İstatistikleri",
