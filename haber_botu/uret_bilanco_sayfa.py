@@ -441,8 +441,59 @@ def sirket_isle(kod, bilgi, sektor, donem, oran, medyan, n,
     return True, str(yol.name)
 
 
+def bitis_haritasi(ozet: dict) -> dict:
+    """kod -> donem bitis tarihi (ISO). Iki kaynaktan birlestiriliyor.
+
+    SEKTOR OZETI AUTORITE ama KAPSAMI DAR: `bitis` alani yalnizca
+    yeni kodla tazelenmis sektorlerde var (olculdu 2026-10-16:
+    324 sirketin 31'i).
+
+    NOBET DEFTERI daha genis: nobetci her kosuda 60 sirkete bakiyor
+    ve her birinin son donem bitisini yaziyor -- 234 kayit, ozetteki
+    sirketlerin 214'u. Ek istek YOK, zaten toplanmis veri.
+
+    Ozet once geliyor: o, sayfanin kuracagi veriyle AYNI kosuda
+    olculdu; nobetci kaydi daha eski olabilir.
+    """
+    harita: dict[str, str] = {}
+    try:
+        import json                                  # noqa: PLC0415
+        nobet = json.loads(
+            (DEFTER.parent / "bilanco_nobet.json").read_text(
+                encoding="utf-8"))
+        for kod, iso in (nobet.get("sirket") or {}).items():
+            if isinstance(iso, str) and iso:
+                harita[kod.upper()] = iso
+    except (OSError, ValueError):
+        pass
+    for v in ozet.values():
+        if isinstance(v, dict):
+            for kod, iso in (v.get("bitis") or {}).items():
+                if iso:
+                    harita[kod.upper()] = iso
+    return harita
+
+
+def _tazelik(iso: str) -> int:
+    """Siralama anahtari: KUCUK = daha taze. Bilinmiyorsa en sona.
+
+    BILINMEYEN NEDEN SONA: o sirketin ne zaman bildirdigini
+    BILMIYORUZ ve bilmedigimizi one cikarmak, olculmemis bir
+    tazeligi olculmus gibi sunmak olurdu. Nobetci her kosuda 60
+    sirkete bakiyor, yani bilinmeyenlerin sayisi kendiliginden
+    azaliyor.
+    """
+    if not iso:
+        return 0
+    try:
+        return -int(iso.replace("-", ""))
+    except ValueError:
+        return 0
+
+
 def kuyruk_kur(ozet: dict, bekleyen: set, sektor_suzgeci: str = "",
-               sayfasi_olan: set | None = None) -> list:
+               sayfasi_olan: set | None = None,
+               bitisler: dict | None = None) -> list:
     """Uretim kuyrugu -- BEKLEYENLER basta.
 
     Doner: (oncelik, ilk_gorulme, sektor, sektor_verisi, kod, oran)
@@ -483,22 +534,51 @@ def kuyruk_kur(ozet: dict, bekleyen: set, sektor_suzgeci: str = "",
     # Kaynak kosu basina ancak birkac sirketi veriyor (olculdu: 324
     # sirkette 151 "eksik", cogu HTTP 429), yani sira dogrudan
     # "okurun ne zaman gorecegini" belirliyor.
-    sayfasi_olan = sayfasi_olan or set()
+    # EN TAZE BILDIRIM ONCE.
+    #
+    # Sayfasi olmayan sirketler arasinda sira ALFABETIKTI (sektor,
+    # sonra kod) ve bu bir haber sitesinde yanlis olcut: iki ay once
+    # bildiren sirketle BUGUN bildiren sirket ayni siraya giriyor.
+    #
+    # Olculdu (2026-10-16): 324 sirketin 227'si 2026-06-30 donemini
+    # bildiriyor, DORT futbol kulubu ise 2026-08-31 -- yani tek
+    # basina en yeni donem onlarda. Alfabetik sirada 69. siradaydilar
+    # ve gunde ~3 sayfa yazilabildigi icin haftalar beklerlerdi.
+    #
+    # Ucretsiz AI kotasi gunde birkac sayfaya izin veriyor (bkz.
+    # `bilanco-yayin-hizi`), yani SIRA dogrudan "okur neyi ne zaman
+    # gorecek" demek. En taze bildirim once.
+    # BOS KUME ILE "VERILMEDI" AYNI SEY DEGIL.
+    #
+    # Ilk yazim `sayfasi_olan or set()` yapiyordu ve `if
+    # sayfasi_olan and ...` ile kullaniyordu; bos kume yanlis
+    # ("hicbir sirketin sayfasi yok") degil "olcut uygulanmasin"
+    # diye okunuyordu. Sinama bunu yakaladi: hicbir sayfa
+    # yayimlanmamisken HICBIR sirket "sayfasi yok" sayilmiyordu ve
+    # tazelik siralamasi hic calismiyordu.
+    bitisler = bitisler or {}
     kuyruk: list = []
     for sektor, v in sorted(ozet.items()):
         if sektor_suzgeci and sektor != sektor_suzgeci:
             continue
         for kod, oran in sorted(v["sirket"].items()):
             k = kod.upper()
-            if sayfasi_olan and k not in sayfasi_olan:
+            if sayfasi_olan is not None and k not in sayfasi_olan:
                 oncelik = 0          # hic sayfasi yok
             elif k in bekleyen:
                 oncelik = 1          # bicim gocu bekliyor
             else:
                 oncelik = 2
-            kuyruk.append((oncelik, len(kuyruk), sektor, v, kod, oran))
-    kuyruk.sort(key=lambda x: (x[0], x[1]))
-    return kuyruk
+            # Tazelik YALNIZCA sayfasi olmayanlarda sirayi
+            # belirliyor. Bicim gocunde sira zaten tamamlanmis bir
+            # listeyi bitirmek uzerine; orada tazelik anlamsiz.
+            taze = _tazelik(bitisler.get(k, "")) if oncelik == 0 else 0
+            kuyruk.append((oncelik, taze, len(kuyruk),
+                           sektor, v, kod, oran))
+    kuyruk.sort(key=lambda x: (x[0], x[1], x[2]))
+    # Cagiranlar besli bekliyor: tazelik anahtari siralamadan sonra
+    # dusuruluyor.
+    return [(a, c, s, v, k, o) for a, _b, c, s, v, k, o in kuyruk]
 
 
 def _bilanco_sayfasi(kategori: str) -> bool:
@@ -778,7 +858,9 @@ def main() -> int:
     if _hic:
         print(f"{_hic} şirketin HİÇ sayfası yok -- kuyruğun başına alındı")
 
-    kuyruk = kuyruk_kur(ozet, _bekleyen, n.sektor, _sayfasi_olan)
+    _bitisler = bitis_haritasi(ozet)
+    kuyruk = kuyruk_kur(ozet, _bekleyen, n.sektor, _sayfasi_olan,
+                        _bitisler)
 
     for _oncelik, _sira, sektor, v, kod, oran in kuyruk:
         if yazilan >= n.sinir:
