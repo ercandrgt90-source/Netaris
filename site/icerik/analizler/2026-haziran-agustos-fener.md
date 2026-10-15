@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %38,6'lık brüt kâr marjı ile birlikte artması, brüt kârın 1,75 milyar TL'ye yükselmesine ve bu artışın ardından faaliyet kârı, FAVÖK ve net kârın sırasıyla %0,91 milyar, %1,48 milyar ve %1,43 milyar TL'ye çıkmasına yol açtı; bu kâr artışları özkaynakların -0,04 milyar TL'den 8,79 milyar TL'ye yükselmesini ve özkaynak kârlılığının %16,2'ye (sektör medyanı %3,5) çıkmasını sağladı. Aynı dönemde aktif toplamı 39,88 milyar TL'ye (önceki 18,82 milyar TL) ve net borç 3,28 milyar TL'ye (önceki 1,96 milyar TL) artarken, cari oran 0,74 (sektör medyanı 0,67) ve borç/özkaynak oranı 0,37 (sektör medyanı 0,33) hafif yükseldi; bu durum likidite ve finansal kaldıraçta sınırlı bir artışa işaret eder. Faaliyet nakit akışı 7,41 milyar TL'ye (önceki 1,06 milyar TL) yükselirken yatırım harcaması 0,03 milyar TL'ye (önceki 0,06 milyar TL) geriledi, böylece nakit üretimi artarken sermaye harcaması azalmıştır.
+Hasılatın %38,6'lık brüt kâr marjı ile birlikte artması, brüt kârın 1,75 milyar TL'ye yükselmesine ve bu artışın ardından faaliyet kârı, FAVÖK ve net kârın sırasıyla %0,91 milyar, %1,48 milyar ve %1,43 milyar TL'ye çıkmasına yol açtı; bu kâr artışları özkaynakların -0,04 milyar TL'den 8,79 milyar TL'ye yükselmesini ve özkaynak kârlılığının %16,2'ye (sektör medyanı %3,5) çıkmasını sağladı. Aynı dönemde aktif toplamı 39,88 milyar TL'ye (önceki 18,82 milyar TL) ve net borç 3,28 milyar TL'ye (önceki 1,96 milyar TL) artarken, cari oran 0,74 (sektör medyanı 0,67) ve borç/özkaynak oranı 0,37 (sektör medyanı 0,33) hafif yükseldi; bu durum likidite ve finansal kaldıraçta sınırlı bir artışa işaret eder. Faaliyet nakit akışı 7,41 milyar TL'ye (önceki 1,06 milyar TL) yükselirken yatırım harcaması 0,03 milyar TL'ye (önceki 0,06 milyar TL) geriledi, böylece nakit üretimi artarken sermaye harcaması azalmıştır.
 
 ## 2026 haziran–ağustos — bir yıl öncesine göre
 
@@ -29,7 +29,6 @@ Hasılatın %38,6'lık brüt kâr marjı ile birlikte artması, brüt kârın 1,
 | Faaliyet kârı | %366,0 |
 | FAVÖK | %93,3 |
 | Net kâr | %808,2 |
-| Özkaynak | %21391,8 |
 | Aktif toplamı | %111,9 |
 | Net borç | %67,5 |
 | Faaliyet nakit akışı | %597,2 |
@@ -89,7 +88,7 @@ Karşılaştırma İletişim sektöründe **aynı dönemi bildiren** 4 şirketin
 
 Kulüplerin **mali yılı 31 Mayıs'ta** biter, yani tablo takvim yılını değil **futbol sezonunu** anlatır. Bu yüzden çeyrekler takvim çeyreklerine denk gelmez ve aşağıdaki dönem ay adlarıyla yazılır; takvim çeyreğiyle kıyaslanmamalıdır.
 
-Sezon takvimi geliri ve gideri farklı çeyreklere dağıtır: **sezon arası** haziran–ağustos çeyreğine denk gelir, maç günü geliri durur ama futbolcu ücretleri ve amortisman sürer. Bu yapı yüzünden **brüt kârın negatif** çıkması olağandır ve tek başına bir bozulma işareti sayılmamalıdır. Kıyas, aynı dönemi bildiren diğer kulüplerle yapılmalı; aynı sektörde yer alan bir telekom şirketiyle değil.
+Sezon takvimi geliri ve gideri farklı çeyreklere dağıtır: **sezon arası** haziran–ağustos çeyreğine denk gelir, maç günü geliri durur ama futbolcu ücretleri ve amortisman sürer. Transfer satışı da aynı pencereye düştüğü için bu çeyrekte **brüt marj kulüpten kulübe çok geniş bir bantta** oynar; tek bir çeyrek tek başına az şey söyler. Kıyas, aynı dönemi bildiren diğer kulüplerle yapılmalı; aynı sektörde yer alan bir telekom şirketiyle değil.
 
 **Transfer harcaması** peşin ödenip sözleşme süresine yayılarak amortize edilir. Bu yüzden kadroya yapılan yatırım gelir tablosunda yıllara dağılmış görünür, satıştan doğan kazanç ise tek seferde yazılır: iyi bir transfer döneminin kârı ile sahadaki kadro gücü aynı tabloda okunmaz.
 

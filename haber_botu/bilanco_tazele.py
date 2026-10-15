@@ -293,6 +293,9 @@ def main() -> int:
     a.add_argument("--kuru-calis", action="store_true")
     a.add_argument("--onarim", action="store_true",
                    help="yalnizca BOZUK sayfalari yeniden kurar")
+    a.add_argument("--kod", nargs="+", metavar="KOD",
+                   help="yalnizca bu sirketlerin sayfasi (kuyrugu "
+                        "beklemeden)")
     n = a.parse_args()
 
     if not U.OZET.exists():
@@ -303,7 +306,29 @@ def main() -> int:
     bellegi_bosalt()
     baglam, defter = baglam_kur()
 
-    if n.onarim:
+    if n.kod:
+        # BELIRLI SAYFA -- KUYRUGU BEKLEMEDEN.
+        #
+        # Bazi kusurlar sayfadan OKUNARAK tespit edilemiyor. Ornek
+        # (2026-10-15): yuzde degisim negatif tabandan hesaplanmisti
+        # (FENER ozkaynagi -0,04 -> 8,79, sayfada %21391,8). Sayfa
+        # onceki degeri yazmadigi icin negatif taban ile cok kucuk
+        # pozitif taban ayirt edilemiyor; esik uydurmak da
+        # dagilimlar cakisirken yalnizca hangi hatayi yapacagini
+        # secmek olurdu.
+        #
+        # Boyle durumlarda hedefi ELLE vermek dogrusu. Kural AYNEN
+        # duruyor: sakli yorum yoksa dokunulmuyor, donem uyusmuyorsa
+        # dokunulmuyor.
+        istenen = {k.upper() for k in n.kod}
+        yollar = []
+        for yol in sorted(U.SITE.glob("*.md")):
+            k = _KOD_DESEN.search(yol.read_text(encoding="utf-8"))
+            if k and k.group(1).upper() in istenen:
+                yollar.append(yol)
+        print(f"hedefli tazeleme: {len(yollar)} sayfa "
+              f"({', '.join(sorted(istenen))})")
+    elif n.onarim:
         kuyruk = onarim_kuyrugu(defter, baglam)
         print(f"onarım kipi: {len(kuyruk)} sayfa onarım bekliyor")
         # ONARILAMAYANLAR AYRICA SOYLENIYOR.

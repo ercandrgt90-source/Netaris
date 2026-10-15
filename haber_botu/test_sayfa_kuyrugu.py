@@ -146,30 +146,42 @@ finally:
     US.DEFTER = _ASIL
 
 print("")
-print("7. GERCEK VERI: kulupler kuyrugun basinda")
-# Olculdu 2026-10-16: dort kulup de 2026-08-31 bildiriyor ve bu
-# tek basina en yeni donem. Alfabetik sirada 65-69. sirada
-# olurlardi.
-_gercek = pathlib.Path(_KOK / "kaynak" / "sektor_ozet.json")
+print("7. GERCEK VERI: en taze bildirim kuyrugun basinda")
+#
+# OZELLIK sinaniyor, ANLIK LISTE degil. Ilk yazim "ilk dortte su
+# dort kulup olmali" diyordu ve FENER'in sayfasi YAYIMLANINCA
+# dustu -- sistem dogru calismisti, sinama anlik duruma cakiliydi.
+#
+# Dogru olcut: sayfasi olmayanlar arasinda EN YENI bitis tarihine
+# sahip olanlar basta olmali.
+_gercek = _KOK / "kaynak" / "sektor_ozet.json"
 if _gercek.is_file():
     o = json.loads(_gercek.read_text(encoding="utf-8"))
     bit = US.bitis_haritasi(o)
-    if bit.get("GSRAY") == "2026-08-31":
-        olan = {k for (k, _d) in US._yayimlanmis()}
-        kod = [x[4] for x in US.kuyruk_kur(o, set(), "", olan, bit)]
-        ilk4 = set(kod[:4])
-        esit(ilk4, {"BJKAS", "FENER", "GSRAY", "TSPOR"},
-             "dört kulüp kuyruğun ilk dördünde")
-        kod_alf = [x[4] for x in US.kuyruk_kur(o, set(), "", olan)]
-        if kod_alf.index("GSRAY") <= 10:
-            print("  DUSTU  alfabetik sirada da basta -- olcum "
-                  "tazeligin etkisini GOSTERMIYOR")
-            raise SystemExit(1)
-        _gecti += 1
-        print(f"  gecti  alfabetik sirada {kod_alf.index('GSRAY') + 1}., "
-              f"tazelikle {kod.index('GSRAY') + 1}.")
+    olan = {k for (k, _d) in US._yayimlanmis()}
+    kod = [x[4] for x in US.kuyruk_kur(o, set(), "", olan, bit)]
+    sayfasiz = [k for k in kod if k not in olan]
+    bilinen = [(k, bit[k]) for k in sayfasiz if bit.get(k)]
+    if len(bilinen) >= 3:
+        enyeni = max(t for _k, t in bilinen)
+        bastakiler = [k for k in sayfasiz[:len(
+            [1 for _k, t in bilinen if t == enyeni])]]
+        hepsi_taze = all(bit.get(k) == enyeni for k in bastakiler)
+        esit(hepsi_taze, True,
+             f"kuyruğun başındakilerin hepsi en yeni dönemde ({enyeni})")
+        # Siralama MONOTON olmali: tarih bilinenlerde geriye gitmemeli.
+        seri = [bit[k] for k in sayfasiz if bit.get(k)]
+        esit(seri == sorted(seri, reverse=True), True,
+             "bitiş tarihleri kuyrukta yeniden eskiye sıralı")
+        # Bilinmeyenler SONDA.
+        ilk_mechul = next((i for i, k in enumerate(sayfasiz)
+                           if not bit.get(k)), len(sayfasiz))
+        son_bilinen = max((i for i, k in enumerate(sayfasiz)
+                           if bit.get(k)), default=-1)
+        esit(ilk_mechul > son_bilinen, True,
+             "bitişi bilinmeyenler bilinenlerden SONRA")
     else:
-        print("  ATLANDI  veri degismis (GSRAY bitisi farkli)")
+        print("  ATLANDI  bitisi bilinen sayfasiz sirket az")
 else:
     print("  ATLANDI  sektor ozeti yok")
 

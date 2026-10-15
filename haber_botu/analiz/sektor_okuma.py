@@ -276,11 +276,12 @@ ALT_OKUMA = {
             "Sezon takvimi geliri ve gideri farklı çeyreklere "
             "dağıtır: **sezon arası** haziran–ağustos çeyreğine "
             "denk gelir, maç günü geliri durur ama futbolcu "
-            "ücretleri ve amortisman sürer. Bu yapı yüzünden "
-            "**brüt kârın negatif** çıkması olağandır ve tek başına "
-            "bir bozulma işareti sayılmamalıdır. Kıyas, aynı dönemi "
-            "bildiren diğer kulüplerle yapılmalı; aynı sektörde yer "
-            "alan bir telekom şirketiyle değil.",
+            "ücretleri ve amortisman sürer. Transfer satışı da aynı "
+            "pencereye düştüğü için bu çeyrekte **brüt marj kulüpten "
+            "kulübe çok geniş bir bantta** oynar; tek bir çeyrek tek "
+            "başına az şey söyler. Kıyas, aynı dönemi bildiren diğer "
+            "kulüplerle yapılmalı; aynı sektörde yer alan bir "
+            "telekom şirketiyle değil.",
 
             "**Transfer harcaması** peşin ödenip sözleşme süresine "
             "yayılarak amortize edilir. Bu yüzden kadroya yapılan "

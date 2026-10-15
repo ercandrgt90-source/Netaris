@@ -93,11 +93,31 @@ def _degisim(simdi, once) -> float | None:
     de RAPOR TARIHI alim gucuyle ifade ediliyor. Uzerine TUFE
     uygulamak ayni duzeltmeyi ikinci kez yapmak -- cift sayim olur.
 
-    Payda sifira yakinsa oran anlamsiz buyur; None doner.
+    HESAP `oranlar.py`NIN KORUMALI ISLEVIYLE YAPILIYOR
+    --------------------------------------------------
+    Burada satir ici bolme vardi ve paydada `abs(once)` kullaniyordu:
+    yani ONCEKI DEGER NEGATIFKEN de bir yuzde uretiyordu.
+    `oranlar._yuzde_degisim` bunu reddediyor ve gerekcesi orada
+    yazili: "Eski deger sifir ya da negatifse anlamsizdir. Zarardan
+    kara gecis gibi durumlarda yuzde degisim yaniltici oldugu icin
+    hesaplanmaz."
+
+    OLCULDU, YAYINDAYDI (2026-10-15): FENER'in ozkaynagi -0,04
+    milyardan 8,79 milyara cikmisti ve sayfada **%21391,8** yaziyordu.
+    Negatiften pozitife gecis onemli bir haber ama YUZDE olarak
+    anlamsiz; o gecis ayri bir sinyal olarak anlatilmali.
+
+    Bu, ayni sinifin UCUNCU ornegi: kural `oranlar.py` icinde yazili,
+    ikinci bir yer onu tasimadan yeniden hesapliyor (oncekiler
+    `_oranlari` ve ara donem ceyrek sayisi).
     """
-    if simdi is None or once is None or abs(once) < 1e-6:
+    # SIFIRA COK YAKIN TABAN AYRICA ELENIYOR. `_yuzde_degisim`
+    # yalnizca `eski <= 0` bakiyor; 1e-9 gibi kucuk ama POZITIF bir
+    # taban oradan gecer ve milyonluk bir yuzde uretir. Eski
+    # koddaki bu koruma korunuyor.
+    if once is not None and 0 < once < 1e-6:
         return None
-    return (simdi - once) / abs(once) * 100
+    return oranlar._yuzde_degisim(simdi, once)
 
 
 def govde_kur(kod, unvan, sektor, donem, d, oran, medyan, n, yorum,

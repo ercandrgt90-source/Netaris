@@ -166,4 +166,37 @@ esit(round(_m["roe"], 4), 25.0,
      "ROE medyani yalnizca saglam ucten (20, 30, 25 -> 25)")
 
 print("")
+print("5. YUZDE DEGISIM de ayni korumali islevden geliyor")
+#
+# OLCULDU, YAYINDAYDI (2026-10-15). Sayfadaki "bir yil oncesine
+# gore" tablosu `uret_bilanco_sayfa._degisim` ile kuruluyordu ve
+# paydada `abs(once)` vardi: ONCEKI DEGER NEGATIFKEN de bir yuzde
+# uretiyordu.
+#
+# FENER'in ozkaynagi -0,04 milyardan 8,79 milyara cikmisti ve
+# sayfada **%21391,8** yaziyordu. Negatiften pozitife gecis onemli
+# bir haber ama YUZDE olarak anlamsiz.
+#
+# `oranlar._yuzde_degisim` bunu zaten reddediyor: "Eski deger sifir
+# ya da negatifse anlamsizdir." Ayni sinifin UCUNCU ornegi.
+import uret_bilanco_sayfa as US                     # noqa: E402
+
+esit(US._degisim(8.79, -0.04), None,
+     "NEGATIF tabandan yüzde üretilmiyor")
+esit(US._degisim(100.0, 0.0), None, "sıfır tabandan üretilmiyor")
+esit(US._degisim(1.0, 1e-9), None,
+     "sıfıra çok yakın pozitif taban da eleniyor")
+esit(US._degisim(None, 50.0), None, "eksik değer")
+esit(US._degisim(50.0, None), None, "eksik taban")
+esit(US._degisim(100.0, 50.0), 100.0, "normal artış")
+esit(US._degisim(25.0, 50.0), -50.0, "normal düşüş")
+esit(US._degisim(50.0, 50.0), 0.0, "değişim yok TAM SIFIR olarak üretiliyor")
+
+# IKI TARAF AYNI SONUCU VERMELI -- beklenti OTEKI TARAFTAN.
+for _y, _e in ((8.79, -0.04), (100.0, 50.0), (25.0, 50.0),
+               (50.0, 50.0), (100.0, 0.0), (1.0, -1.0)):
+    esit(US._degisim(_y, _e), oranlar._yuzde_degisim(_y, _e),
+         f"_degisim == _yuzde_degisim ({_y}, {_e})")
+
+print("")
 print(f"TUM TESTLER GECTI ({_gecti})")
