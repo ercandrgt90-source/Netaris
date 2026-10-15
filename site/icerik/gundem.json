@@ -30,7 +30,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 15,
+  "yorumlanan": 16,
   "haberler": [
     {
       "baslik": "Grynspan: Daimi güvenlik konseyi üyelerinin muhalefeti daha önce de aşılmıştı",
@@ -356,6 +356,32 @@
       "kanal_basligi": "Hangi piyasaları etkiler?",
       "foto": "/statik/foto/dis-ticaret-8-5224a85c.jpg",
       "foto_atif": "Gazouya-japan · CC-BY-SA-4.0"
+    },
+    {
+      "baslik": "New York borsası günü yükselişle kapattı",
+      "baslik_kaynak": "New York borsası günü yükselişle kapattı",
+      "ozet": "New York borsası haftanın dördüncü işlem gününü yükselişle tamamladı.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.ekonomim.com/finans/haberler/borsa/new-york-borsasi-gunu-yukselisle-kapatti-haberi-925035",
+      "kurum": "Ekonomim",
+      "kurum_tam": "Ekonomim",
+      "konu": "Borsa",
+      "tarih": "2026-10-16",
+      "tarih_gorunur": "16 Ekim 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Endeks hareketi tek başına bir bilgi değildir; hareketi hangi sektörlerin taşıdığı ve işlem hacminin ne olduğu kalıcılığı belirler.",
+      "kanallar": [
+        "Sektör dağılımı: hareketin dar bir gruptan mı geniş tabandan mı geldiği, kalıcılığa dair ipucu verir.",
+        "Hacim: düşük hacimli hareket fiyat keşfinden çok pozisyon ayarlaması olabilir.",
+        "Volatilite: opsiyon fiyatlarındaki değişim piyasanın beklediği oynaklığı gösterir.",
+        "Korelasyon: hisse ile tahvil arasındaki ilişkinin işareti portföy riskinin nasıl dağıldığını değiştirir."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/borsa-21-e2f22d70.jpg",
+      "foto_atif": "William Iven firmbee · CC0"
     },
     {
       "baslik": "ABD'den İran'a yönelik yeni yaptırım dalgası",
@@ -2194,27 +2220,6 @@
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/kripto-varliklar-8-740eb829.jpg",
-      "foto_atif": "Satheesh Sankaran · CC-BY-2.0"
-    },
-    {
-      "baslik": "Rusya, Temmuz 2027'den itibaren doğrudan eşler arası kripto ticaretini yasaklayacak",
-      "baslik_kaynak": "Russia to ban direct peer-to-peer crypto trades starting July 2027",
-      "ozet": "Russia plans to ban direct P2P crypto trades from July 1, 2027, while separate rules already prohibit transfers from digital accounts to self-custody wallets.",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://cointelegraph.com/news/russia-ban-p2p-crypto-trades-july-2027?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "kurum": "Cointelegraph",
-      "kurum_tam": "Cointelegraph",
-      "konu": "Kripto varlıklar",
-      "tarih": "2026-10-15",
-      "tarih_gorunur": "15 Ekim 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/kripto-varliklar-9-651bf869.jpg",
       "foto_atif": "Satheesh Sankaran · CC-BY-2.0"
     },
     {
