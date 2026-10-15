@@ -1,14 +1,14 @@
 {
-  "guncelleme": "2026-10-15",
+  "guncelleme": "2026-10-16",
   "kaynak": "FRED (St. Louis Fed)",
   "kalemler": [
     {
       "kod": "TP.DK.USD.S.YTL",
       "ad": "USD/TRY",
-      "deger": "49,39",
-      "fark": "+%0,05",
+      "deger": "49,42",
+      "fark": "+%0,06",
       "yon": "artis",
-      "tarih": "2026-10-15",
+      "tarih": "2026-10-16",
       "birim": "TL",
       "gun": 0,
       "bayat": false
@@ -16,10 +16,10 @@
     {
       "kod": "TP.DK.EUR.S.YTL",
       "ad": "EUR/TRY",
-      "deger": "55,30",
-      "fark": "+%0,16",
+      "deger": "55,41",
+      "fark": "+%0,20",
       "yon": "artis",
-      "tarih": "2026-10-15",
+      "tarih": "2026-10-16",
       "birim": "TL",
       "gun": 0,
       "bayat": false
@@ -28,11 +28,11 @@
       "kod": "ECB_EURUSD",
       "ad": "EUR/USD",
       "deger": "1,12",
-      "fark": "+%0,06",
+      "fark": "+%0,12",
       "yon": "artis",
-      "tarih": "2026-10-14",
+      "tarih": "2026-10-15",
       "birim": "TL",
-      "gun": 1,
+      "gun": 0,
       "bayat": false
     },
     {
@@ -45,7 +45,7 @@
       "birim": "USD/varil",
       "gun": 7,
       "bayat": true,
-      "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · bugün yenileniyor"
+      "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · sonraki 21 Ekim"
     },
     {
       "kod": "DCOILWTICO",
@@ -57,7 +57,7 @@
       "birim": "USD/varil",
       "gun": 7,
       "bayat": true,
-      "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · bugün yenileniyor"
+      "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · sonraki 21 Ekim"
     },
     {
       "kod": "DFF",
@@ -130,7 +130,7 @@
           "birim": "USD/varil",
           "gun": 7,
           "bayat": true,
-          "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · bugün yenileniyor"
+          "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · sonraki 21 Ekim"
         },
         {
           "kod": "DCOILWTICO",
@@ -142,7 +142,7 @@
           "birim": "USD/varil",
           "gun": 7,
           "bayat": true,
-          "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · bugün yenileniyor"
+          "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · sonraki 21 Ekim"
         }
       ]
     },
@@ -214,11 +214,11 @@
           "kod": "ECB_EURUSD",
           "ad": "EUR/USD",
           "deger": "1,12",
-          "fark": "+%0,06",
+          "fark": "+%0,12",
           "yon": "artis",
-          "tarih": "2026-10-14",
+          "tarih": "2026-10-15",
           "birim": "TL",
-          "gun": 1,
+          "gun": 0,
           "bayat": false
         }
       ]
