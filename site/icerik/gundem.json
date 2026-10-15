@@ -16,6 +16,7 @@
     "EIA",
     "ESMA",
     "Ekonomim",
+    "Ekonomist",
     "FCA",
     "Fed",
     "FinancialJuice",
@@ -29,7 +30,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 14,
+  "yorumlanan": 13,
   "haberler": [
     {
       "baslik": "Haftalık Akım Faiz ve Kâr Payı İstatistikleri",
@@ -261,6 +262,27 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/duzenleme-8-5e8a2716.jpg",
       "foto_atif": "Mrs Puff · CC-BY-SA-2.0"
+    },
+    {
+      "baslik": "14 Ekim'de sona eren hafta için toplam para piyasası fonları 40,46 milyar dolar düşerek 7,92tona geriledi - ICI",
+      "baslik_kaynak": "Total money market funds fell $40.46b to $7.92t for the week ended October 14th - ICI",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9807599/Total-money-market-funds-fell-4046b-to-792t-for-the-week-ended-October-14th---ICI.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Şirket haberleri",
+      "tarih": "2026-10-15",
+      "tarih_gorunur": "15 Ekim 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/sirket-haberleri-7-8b52fc2e.jpg",
+      "foto_atif": "DXR · CC-BY-SA-4.0"
     },
     {
       "baslik": "Cuma FX Opsiyonu Sona Eriyor",
@@ -1557,32 +1579,6 @@
       "foto_atif": "AliAbuRas · CC-BY-SA-4.0"
     },
     {
-      "baslik": "Perakendecilik (yıllık): %6,29",
-      "baslik_kaynak": "US Retail Sales YoY Actual 6.29% (Forecast -, Previous 6.01% ,Revision 5.36%)",
-      "ozet": "Açıklanan değer %6,29.",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9807072/US-Retail-Sales-YoY-Actual-629-Forecast---Previous-601-Revision-536.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Borsa",
-      "tarih": "2026-10-15",
-      "tarih_gorunur": "15 Ekim 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Endeks hareketi tek başına bir bilgi değildir; hareketi hangi sektörlerin taşıdığı ve işlem hacminin ne olduğu kalıcılığı belirler.",
-      "kanallar": [
-        "Sektör dağılımı: hareketin dar bir gruptan mı geniş tabandan mı geldiği, kalıcılığa dair ipucu verir.",
-        "Hacim: düşük hacimli hareket fiyat keşfinden çok pozisyon ayarlaması olabilir.",
-        "Volatilite: opsiyon fiyatlarındaki değişim piyasanın beklediği oynaklığı gösterir.",
-        "Korelasyon: hisse ile tahvil arasındaki ilişkinin işareti portföy riskinin nasıl dağıldığını değiştirir."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/borsa-10-1d3f5b6f.jpg",
-      "foto_atif": "Syced · CC0"
-    },
-    {
       "baslik": "CleanSpark ve BitFuFu, Canaan sabit kalırken Bitcoin üretiminin eylülde düşüşe geçtiğini gördü",
       "baslik_kaynak": "CleanSpark and BitFuFu see bitcoin production slip in September as Canaan remains flat",
       "ozet": "CleanSpark is ending monthly mining reports, while BitFuFu faces uncertainty over its Ethiopia deal.",
@@ -1898,6 +1894,27 @@
       "foto_atif": "Karlalhdz · CC-BY-SA-4.0"
     },
     {
+      "baslik": "İşte bugün kriptoda olanlar",
+      "baslik_kaynak": "Here’s what happened in crypto today",
+      "ozet": "Need to know what happened in crypto today? Here is the latest news on daily trends and events impacting Bitcoin price, blockchain, DeFi, Web3 and crypto regulation.",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://cointelegraph.com/news/what-happened-in-crypto-today?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "kurum": "Cointelegraph",
+      "kurum_tam": "Cointelegraph",
+      "konu": "Kripto varlıklar",
+      "tarih": "2026-10-15",
+      "tarih_gorunur": "15 Ekim 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/kripto-varliklar-8-8b36c240.jpg",
+      "foto_atif": "de Vries, Alex; Stoll, Christian · PDM"
+    },
+    {
       "baslik": "Eski Trump kripto danışmanı stablecoin faturasının geçmesine yardım ettikten sonra kâr etti: WSJ",
       "baslik_kaynak": "Ex-Trump crypto adviser profited after helping pass stablecoin bill: WSJ",
       "ozet": "The Wall Street Journal reported that a company co-founded by Bo Hines benefited from the passage of the GENIUS stablecoin bill.",
@@ -2043,27 +2060,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/kripto-varliklar-9-651bf869.jpg",
       "foto_atif": "Satheesh Sankaran · CC-BY-2.0"
-    },
-    {
-      "baslik": "İşte bugün kriptoda olanlar",
-      "baslik_kaynak": "Here’s what happened in crypto today",
-      "ozet": "Need to know what happened in crypto today? Here is the latest news on daily trends and events impacting Bitcoin price, blockchain, DeFi, Web3 and crypto regulation.",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://cointelegraph.com/news/what-happened-in-crypto-today?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "kurum": "Cointelegraph",
-      "kurum_tam": "Cointelegraph",
-      "konu": "Kripto varlıklar",
-      "tarih": "2026-10-15",
-      "tarih_gorunur": "15 Ekim 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/kripto-varliklar-8-8b36c240.jpg",
-      "foto_atif": "de Vries, Alex; Stoll, Christian · PDM"
     },
     {
       "baslik": "Ledger'ın cüzdanı kurcalamaya yanıtı 849 $ ve gelecek yıl gönderilecek",
