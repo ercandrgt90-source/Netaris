@@ -1,5 +1,5 @@
 {
-  "guncelleme": "2026-10-15",
+  "guncelleme": "2026-10-16",
   "kaynaklar": [
     "AA",
     "BloombergHT",
@@ -30,8 +30,34 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 15,
+  "yorumlanan": 16,
   "haberler": [
+    {
+      "baslik": "Japon Yabancı Hisse Senedi Yatır: −760,60 — önceki 1.324,60",
+      "baslik_kaynak": "Japanese Foreign Stock Investment Actual -760.6B (Forecast -, Previous 1,324.6B)",
+      "ozet": "Açıklanan değer −760,60. Önceki dönem 1.324,60; geriledi (2.085,20 (birimsiz)).",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9807866/Japanese-Foreign-Stock-Investment-Actual--7606B-Forecast---Previous-13246B.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Borsa",
+      "tarih": "2026-10-16",
+      "tarih_gorunur": "16 Ekim 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Endeks hareketi tek başına bir bilgi değildir; hareketi hangi sektörlerin taşıdığı ve işlem hacminin ne olduğu kalıcılığı belirler.",
+      "kanallar": [
+        "Sektör dağılımı: hareketin dar bir gruptan mı geniş tabandan mı geldiği, kalıcılığa dair ipucu verir.",
+        "Hacim: düşük hacimli hareket fiyat keşfinden çok pozisyon ayarlaması olabilir.",
+        "Volatilite: opsiyon fiyatlarındaki değişim piyasanın beklediği oynaklığı gösterir.",
+        "Korelasyon: hisse ile tahvil arasındaki ilişkinin işareti portföy riskinin nasıl dağıldığını değiştirir."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/borsa-10-1d3f5b6f.jpg",
+      "foto_atif": "Syced · CC0"
+    },
     {
       "baslik": "Japonya Maliye Bakanı Katayama: Gerekirse ek bütçe acil politika önceliklerine odaklanacak",
       "baslik_kaynak": "Japan finance minister katayama: additional budget, if needed, will focus on urgent policy priorities",
@@ -1775,27 +1801,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/istihdam-ve-ucret-8-418ab6fc.jpg",
       "foto_atif": "Greg Walters · CC-BY-2.0"
-    },
-    {
-      "baslik": "Tasnim News AFP'ye atıfta bulundu: Yemen, Suudi Arabistan'ın Umman'daki görüşme talebini reddetti",
-      "baslik_kaynak": "Tasnim News citing AFP: Yemen rejected Saudi Arabia's request for talks in Oman.",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9807273/Tasnim-News-citing-AFP-Yemen-rejected-Saudi-Arabias-request-for-talks-in-Oman.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Şirket haberleri",
-      "tarih": "2026-10-15",
-      "tarih_gorunur": "15 Ekim 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-9-0b526049.jpg",
-      "foto_atif": "Moheen Reeyad · CC-BY-SA-4.0"
     },
     {
       "baslik": "CleanSpark ve BitFuFu, Canaan sabit kalırken Bitcoin üretiminin eylülde düşüşe geçtiğini gördü",
