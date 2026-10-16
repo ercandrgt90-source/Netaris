@@ -123,7 +123,40 @@ esit(r3.bul(ak.OranAdi.ROE) is not None, True, "net kar tam sifirken ROE var")
 yakin(r3.bul(ak.OranAdi.ROE).deger, 0.0, "ROE %0 olarak raporlandi")
 
 print("\n" + "=" * 62)
+print("")
+print("YARDIMCILAR `oranlar.py` ILE AYNI DAVRANMALI")
+#
+# `araci_kurum` kendi `_bol`, `_degisim` ve `_yuz` kopyalarini
+# tasiyor. Su an kurallari AYNI -- bolen/taban sifir ya da negatifse
+# None, tam sifir deger ise uretiliyor. Ama iki ayri kopya, biri
+# degisip otekinin unutulmasi demek.
+#
+# Bu depoda tam o sinif kusur UC KEZ yayina cikti:
+#   * `uret_bilanco._oranlari` negatif ozkaynakta ROE uretiyordu
+#     (`bizim` sayfasinda +%128,5),
+#   * `uret_bilanco_sayfa._degisim` negatif tabandan yuzde degisim
+#     uretiyordu (FENER ozkaynagi, %21391,8),
+#   * ara donem ceyrek sayisi iki yerde ayri varsayilandaydi.
+#
+# Bu yuzden ayrilma IMKANSIZ kilinmiyor ama SESSIZ olmasi
+# engelleniyor: iki taraf ayni girdilerle kosturulup
+# karsilastiriliyor.
+import oranlar as o  # noqa: E402
+
+_GIRDI = (
+    (100.0, 50.0), (50.0, 100.0), (50.0, 50.0), (0.0, 50.0),
+    (100.0, 0.0), (8.79, -0.04), (1.0, -1.0), (None, 50.0),
+    (50.0, None), (None, None), (-10.0, 20.0),
+)
+for _a, _b in _GIRDI:
+    esit(ak._bol(_a, _b), o._bol(_a, _b), f"_bol({_a}, {_b})")
+    esit(ak._degisim(_a, _b), o._yuzde_degisim(_a, _b),
+         f"_degisim({_a}, {_b})")
+for _x in (None, 0.0, 0.5, -0.5, 12.3):
+    esit(ak._yuz(_x), o._yuz(_x), f"_yuz({_x})")
+
 if _kaldi:
     print(f"{_kaldi} TEST KALDI, {_gecti} gecti")
     sys.exit(1)
+print("")
 print(f"TUM TESTLER GECTI ({_gecti})")
