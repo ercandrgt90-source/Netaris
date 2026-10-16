@@ -30,8 +30,29 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 19,
+  "yorumlanan": 20,
   "haberler": [
+    {
+      "baslik": "Suudi sivil savunması: Hamis Mushait ve Abha'da tehlike geçti",
+      "baslik_kaynak": "Saudi civil defense: danger has passed in Khamis Mushait and Abha",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9809546/Saudi-civil-defense-danger-has-passed-in-Khamis-Mushait-and-Abha.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Şirket haberleri",
+      "tarih": "2026-10-17",
+      "tarih_gorunur": "17 Ekim 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/sirket-haberleri-9-c71a9b17.jpg",
+      "foto_atif": "Dietmar Rabich · CC-BY-SA-4.0"
+    },
     {
       "baslik": "USDOT, Meksikalı havayollarının Mexico City ve Santa Lucia havalimanları arasındaki yeni uçuşlarını yasaklayan 2025 siparişini geri çektiğini doğruladı",
       "baslik_kaynak": "USDOT confirms it withdrew 2025 order barring new flights by Mexican airlines between Mexico City and Santa Lucia airports",
@@ -314,6 +335,31 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/konut-ve-kira-7-63b59cb3.jpg",
       "foto_atif": "Joseph23gt · CC-BY-SA-4.0"
+    },
+    {
+      "baslik": "Reel sektöre 2027 yılı bütçesinden 658 milyar liralık destek verilecek",
+      "baslik_kaynak": "Reel sektöre 2027 yılı bütçesinden 658 milyar liralık destek verilecek",
+      "ozet": "Cumhurbaşkanı Yardımcısı Cevdet Yılmaz, 2027 yılı bütçe giderlerinin 19.6 trilyon, gelirlerinin ise 17 trilyon olacağını açıkladı, tarım hariç reel sektöre 658 milyar destek öngörüldüğünü bildirdi.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.ekonomim.com/ekonomi/reel-sektore-2027-yili-butcesinden-658-milyar-liralik-destek-verilecek-haberi-925246",
+      "kurum": "Ekonomim",
+      "kurum_tam": "Ekonomim",
+      "konu": "Vergi ve kamu maliyesi",
+      "tarih": "2026-10-17",
+      "tarih_gorunur": "17 Ekim 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Vergi düzenlemeleri ve bütçe dengesi hem şirket kârlılığını hem devletin borçlanma ihtiyacını belirler.",
+      "kanallar": [
+        "Şirket kârlılığı: vergi oranı ve istisna değişiklikleri net kâra doğrudan yansır.",
+        "Borçlanma ihtiyacı: bütçe açığı iç borçlanmayı artırır; bu da tahvil getirilerini ve banka bilançolarını etkiler.",
+        "Tüketici fiyatı: dolaylı vergiler (ÖTV, KDV) nihai fiyata doğrudan geçer."
+      ],
+      "kanal_basligi": "Piyasaya nasıl yansır?",
+      "foto": "/statik/foto/vergi-ve-kamu-maliyesi-9-96673ab0.jpg",
+      "foto_atif": "RegionalQueenslander · CC-BY-SA-4.0"
     },
     {
       "baslik": "SPK duyurdu: Hedef Portföy fonları olağan tasfiye sürecine girdi",
@@ -1892,27 +1938,6 @@
       "foto_atif": "Captain Albert E. Theberge, NOAA Corps (ret.) · PDM"
     },
     {
-      "baslik": "Barclays: Fed Aralık ve Ocak aylarında faiz artıracak",
-      "baslik_kaynak": "Barclays: Fed to raise rates in December and January.",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9809038/Barclays-Fed-to-raise-rates-in-December-and-January.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Para politikası",
-      "tarih": "2026-10-16",
-      "tarih_gorunur": "16 Ekim 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-7-b3f7138e.jpg",
-      "foto_atif": "Daniel Schwen · CC-BY-SA-4.0"
-    },
-    {
       "baslik": "Strive'ın Bitcoin satın alma çılgınlığı, TD Cowen'dan %27 fiyat hedefi artışı kazandı",
       "baslik_kaynak": "Strive’s bitcoin buying spree earns 27% price target hike from TD Cowen",
       "ozet": "Strive plans fresh funding for bitcoin purchases as TD Cowen sees warrant-related stock pressure easing.",
@@ -2289,27 +2314,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/kripto-varliklar-8-740eb829.jpg",
       "foto_atif": "Satheesh Sankaran · CC-BY-2.0"
-    },
-    {
-      "baslik": "İşte bugün kriptoda olanlar",
-      "baslik_kaynak": "Here’s what happened in crypto today",
-      "ozet": "Need to know what happened in crypto today? Here is the latest news on daily trends and events impacting Bitcoin price, blockchain, DeFi, Web3 and crypto regulation.",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://cointelegraph.com/news/what-happened-in-crypto-today?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "kurum": "Cointelegraph",
-      "kurum_tam": "Cointelegraph",
-      "konu": "Kripto varlıklar",
-      "tarih": "2026-10-16",
-      "tarih_gorunur": "16 Ekim 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/kripto-varliklar-8-8b36c240.jpg",
-      "foto_atif": "de Vries, Alex; Stoll, Christian · PDM"
     },
     {
       "baslik": "Haftalık Akım Faiz ve Kâr Payı İstatistikleri",
