@@ -30,7 +30,10 @@
    "kap_kimlik": "8acae2c49c81f743019d2dfb40633db8",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "REFORM BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "REFORM BAĞIMSIZ DENETİM A.Ş.",
+   "sektor": "Real Estate",
+   "sektor_tr": "Gayrimenkul",
+   "alt_sektor": "Real Estate Services"
   },
   "ACP": {
    "kod": "ACP",
