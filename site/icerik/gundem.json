@@ -30,7 +30,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 25,
+  "yorumlanan": 24,
   "haberler": [
     {
       "baslik": "Dünyada kriz hattı genişliyor: Jeopolitik gerilim zirveye çıktı, savaş 3 kıtaya yayıldı",
@@ -80,6 +80,27 @@
       "foto_atif": "Gazouya-japan · CC-BY-SA-4.0"
     },
     {
+      "baslik": "EPDK, elektrik piyasasına ilişkin beş yönetmeliği değiştirdi. Yeni kurallar Resmi Gazete'de",
+      "baslik_kaynak": "EPDK, elektrik piyasasına ilişkin beş yönetmeliği değiştirdi! Yeni kurallar Resmi Gazete'de",
+      "ozet": "Enerji Piyasası Düzenleme Kurumu (EPDK), elektrik piyasasını ilgilendiren beş yönetmelikte değişikliğe gitti. 19 Ekim 2026 tarihli Resmî Gazete’de yayımlanan düzenlemelerle fazla teminatların iadesi için 10 iş günü süre belirlenirken, belirli kullanıcıların teminat hesaplamalarına üst sınır getirildi.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.ekonomim.com/ekonomi/epdk-elektrik-piyasasina-iliskin-bes-yonetmeligi-degistirdi-yeni-kurallar-resmi-gazetede-haberi-925515",
+      "kurum": "Ekonomim",
+      "kurum_tam": "Ekonomim",
+      "konu": "Enerji",
+      "tarih": "2026-10-19",
+      "tarih_gorunur": "19 Ekim 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/enerji-13-96820bdd.jpg",
+      "foto_atif": "AyyanD · CC-BY-SA-4.0"
+    },
+    {
       "baslik": "Türk ihracatçısı için Baltıklar'da 'iş var'",
       "baslik_kaynak": "Türk ihracatçısı için Baltıklar'da 'iş var'",
       "ozet": "Avrupa Birliği’nin sıkılaşan korumacılık politikaları, Sınırda Karbon Düzenleme Mekanizması (SKDM) ve kara yolu kotaları Türk ihracatçısını yeni pazar arayışlarına yönlendirirken, Baltık coğrafyası taşıdığı kritik potansiyelle öne çıkıyor.",
@@ -99,32 +120,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/dis-ticaret-12-aa95bbee.jpg",
       "foto_atif": "Paul Harrison · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "Ovakoop Lojistik, savaşların etkisiyle Asya hattında kara taşımacılığına yöneldi",
-      "baslik_kaynak": "Ovakoop Lojistik, savaşların etkisiyle Asya hattında kara taşımacılığına yöneldi",
-      "ozet": "Ovakoop Lojistik Yönetim Kurulu Başkanı Botan Çakan, Karadeniz'deki deniz taşımacılığında yaşanan sorunların ardından bölgede doğan ihtiyaçlara yanıt vermek üzere karayolu lojistiğine yatırım gerçekleştirdiklerini söyledi.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.ekonomim.com/ekonomi/ovakoop-lojistik-savaslarin-etkisiyle-asya-hattinda-kara-tasimaciligina-yoneldi-haberi-925495",
-      "kurum": "Ekonomim",
-      "kurum_tam": "Ekonomim",
-      "konu": "Jeopolitik",
-      "tarih": "2026-10-19",
-      "tarih_gorunur": "19 Ekim 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
-      "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
-        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
-        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/jeopolitik-18-d6206fae.jpg",
-      "foto_atif": "United Nation · PDM"
     },
     {
       "baslik": "İran Devrim Muhafızları donanması: İran medyası Hürmüz Boğazı'ndaki mayını vurduktan sonra petrol tankeri tutuştu ve patladı",
