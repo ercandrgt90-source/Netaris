@@ -30,17 +30,17 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 25,
+  "yorumlanan": 24,
   "haberler": [
     {
-      "baslik": "Zelenskiy: Trump Ukrayna'yı Rusya'ya teslim olmaya çağırıyor",
-      "baslik_kaynak": "Zelenskyy: Trump is urging Ukraine to surrender to Russia",
+      "baslik": "Ukraynalı Zelenskiy: Trump Ukrayna'yı Rusya'ya teslim olmaya çağırıyor",
+      "baslik_kaynak": "Ukraine’s Zelenskiy: Trump is urging Ukraine to surrender to Russia",
       "ozet": "",
       "cevrildi": true,
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9810406/Zelenskyy-Trump-is-urging-Ukraine-to-surrender-to-Russia.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9810410/Ukraines-Zelenskiy-Trump-is-urging-Ukraine-to-surrender-to-Russia.aspx?xy=rss",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Jeopolitik",
@@ -55,8 +55,8 @@
         "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
       ],
       "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/jeopolitik-36-7cb6152c.jpg",
-      "foto_atif": "Captain Albert E. Theberge, NOAA Corps (ret.) · PDM"
+      "foto": "/statik/foto/jeopolitik-40-59a567ac.jpg",
+      "foto_atif": "Peter Griffin · CC0"
     },
     {
       "baslik": "Anthropic, büyük hediyeleri ve doğrudan dağıtımları kolaylaştırmak için kamu yararı fonunu duyurdu",
@@ -1137,6 +1137,27 @@
       "foto_atif": "Bernard Gagnon · CC0"
     },
     {
+      "baslik": "Crypto.com, Novig spor etkinliği sözleşmeleri nedeniyle Missouri'ye dava açtı; Kalshi, Polymarket, Robinhood erteledi",
+      "baslik_kaynak": "Crypto.com, Novig sue Missouri over sports event contracts; Kalshi, Polymarket, Robinhood hold off",
+      "ozet": "Kalshi, Polymarket, Robinhood and Underdog, which also received cease-and-desist orders, have not filed suits in Missouri, according to court records.",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.theblock.co/news/regulation/2026-10-18-crypto-com-novig-sue-missouri-over-sports-event-contracts-kalshi-polymarket-robinhood-hold-off-418866",
+      "kurum": "The Block",
+      "kurum_tam": "The Block",
+      "konu": "Kripto varlıklar",
+      "tarih": "2026-10-18",
+      "tarih_gorunur": "18 Ekim 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/kripto-varliklar-9-651bf869.jpg",
+      "foto_atif": "Satheesh Sankaran · CC-BY-2.0"
+    },
+    {
       "baslik": "Saldırganın token basması ve Ethereum'a 727.000 $ aktarmasının ardından Cysic köprüyü askıya aldı",
       "baslik_kaynak": "Cysic suspends bridge after attacker mints tokens and moves $727,000 to Ethereum",
       "ozet": "The attacker, after minting 10 million CYS, managed to bridge about $727,000 in proceeds to Ethereum through Mayan, deBridge and SWFT's Bridgers.",
@@ -1642,32 +1663,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/enerji-17-1a57ece0.jpg",
       "foto_atif": "Colin Stepney · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "Trump duyurdu: Seçimlerde Netanyahu'ya açık destek",
-      "baslik_kaynak": "Trump duyurdu: Seçimlerde Netanyahu'ya açık destek",
-      "ozet": "ABD Başkanı Donald Trump, İsrail’de 27 Ekim’de yapılacak seçimler için İsrail Başbakanı Binyamin Netanyahu'ya destek verdiğini belirtti.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.dunya.com/dunya/trump-duyurdu-secimlerde-netanyahuya-acik-destek-haberi-844334",
-      "kurum": "Dünya",
-      "kurum_tam": "Dünya Gazetesi",
-      "konu": "Jeopolitik",
-      "tarih": "2026-10-18",
-      "tarih_gorunur": "18 Ekim 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
-      "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
-        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
-        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/jeopolitik-40-59a567ac.jpg",
-      "foto_atif": "Peter Griffin · CC0"
     },
     {
       "baslik": "Savaşta Starlink krizi: Ukrayna zora girdi, Rusya kendi uydu ağını hazırlıyor",
