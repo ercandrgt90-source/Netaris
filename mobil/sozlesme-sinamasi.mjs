@@ -469,7 +469,62 @@ if (skur) {
   } else gecti += 1;
 }
 
-console.log("9. tema.json");
+console.log("9. arama.json");
+const arama = oku("arama.json");
+dogrula("arama", arama, {
+  surum: "number",
+  uretildi: "string",
+  katlama: "object",
+  toplam: "number",
+  kayitlar: "array",
+});
+if (arama?.kayitlar?.length) {
+  dogrula("arama kaydi", arama.kayitlar[0], {
+    t: "string",
+    b: "string",
+    s: "string",
+    d: "string",
+    k: "string",
+  });
+
+  // KATLAMA TABLOSU BOS OLMAMALI: bos olursa uygulama yedek
+  // tabloya duser ve site ile uygulama FARKLI sonuc verebilir.
+  if (Object.keys(arama.katlama).length < 10) {
+    dusen.push(
+      `arama: katlama tablosu eksik (${Object.keys(arama.katlama).length})` +
+        " -- uygulama yedege duser, site ile ayrisir",
+    );
+  } else gecti += 1;
+
+  // TURKCE HARFLERIN HEPSI TABLODA OLMALI.
+  const gerekli = ["ı", "ş", "ğ", "ü", "ö", "ç"];
+  const eksik = gerekli.filter((h) => !arama.katlama[h]);
+  if (eksik.length) {
+    dusen.push(`arama: katlama tablosunda eksik harf: ${eksik.join(", ")}`);
+  } else gecti += 1;
+
+  // ARANAMAZ KAYIT OLMAMALI.
+  const aranamaz = arama.kayitlar.filter((k) => !k.b || !k.s);
+  if (aranamaz.length) {
+    dusen.push(`arama: ${aranamaz.length} kayitta baslik ya da slug yok`);
+  } else gecti += 1;
+
+  // UC TUR DE BULUNMALI: biri dusesse arama sessizce eksilirdi.
+  const turler = new Set(arama.kayitlar.map((k) => k.t));
+  for (const tur of ["haber", "analiz", "varlik"]) {
+    if (!turler.has(tur)) {
+      dusen.push(`arama: "${tur}" turunden HIC kayit yok`);
+    } else gecti += 1;
+  }
+
+  // DIZIN OZET TASIMAMALI -- boyutu iki katina cikarirdi.
+  const sismis = arama.kayitlar.filter((k) => k.o || k.ozet);
+  if (sismis.length) {
+    dusen.push(`arama: ${sismis.length} kayitta ozet var (dizin sismis)`);
+  } else gecti += 1;
+}
+
+console.log("10. tema.json");
 const tema = oku("tema.json");
 dogrula("tema", tema, {
   surum: "number",

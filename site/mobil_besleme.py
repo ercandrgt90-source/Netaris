@@ -679,6 +679,75 @@ def senaryo_kurallari(uyelik_html: str) -> dict:
     }
 
 
+def arama_dizini(haberler: list, analizler: list, varliklar: list | None,
+                 katlama: dict | None = None, uretildi: str = "") -> dict:
+    """Uygulama ici arama dizini -- KOMPAKT.
+
+    NEDEN AYRI BIR DIZIN
+    --------------------
+    Sitenin `/arama.json` dosyasi 563 KB ve mobil icin uygun degil:
+    telefon sebekesinde ilk arama yarim megabayt indirmekle
+    basliyor. Ustelik alan adlari kisaltilmis (`b`, `o`, `y`) ve
+    tarih GORUNTU biciminde ("14 Ekim 2026") -- istemci onu
+    siralayamaz.
+
+    Buradaki dizin yalnizca SONUC SATIRI icin gerekeni tasiyor:
+    tur, baslik, slug, ISO tarih, kategori. Ozet YOK -- okur
+    sonuca dokununca detay dosyasi zaten geliyor.
+
+    KAYNAK AYNI KAYITLAR: `uret` icinde zaten kurulmus ozet
+    listeleri kullaniliyor, yani dizin ile listeler ayrisamaz.
+
+    KATLAMA TABLOSU DA TASINIYOR
+    ----------------------------
+    Turkce diakritik katlamasi ("turkiye" -> "Türkiye") sitede IKI
+    yerde duruyor: `insa._SLUG_ESLEME` ve `ara.js` icindeki
+    `KATLAMA`. Bir sinama ikisinin AYNI oldugunu dogruluyor, cunku
+    ayrisirlarsa "hurmuz" yazan okur "Hürmüz"u bulamaz ve hicbir
+    hata gorunmez.
+
+    Uygulamaya UCUNCU bir kopya yazmak o riski bir kat daha
+    buyutmek olurdu. Tablo beslemeyle tasiniyor ve uygulama onu
+    kullaniyor.
+    """
+    kayitlar = []
+    for h in (haberler or []):
+        kayitlar.append({
+            "t": "haber",
+            "b": h.get("baslik", ""),
+            "s": h.get("slug", ""),
+            "d": h.get("tarih", ""),
+            "k": h.get("konu", ""),
+        })
+    for a in (analizler or []):
+        kayitlar.append({
+            "t": "analiz",
+            "b": a.get("baslik", ""),
+            "s": a.get("slug", ""),
+            "d": a.get("tarih", ""),
+            "k": a.get("kategori", ""),
+            # Sirket kodu aranabilir olmali: okur "THYAO" yazar.
+            "c": a.get("kod", ""),
+        })
+    for v in (varliklar or []):
+        kayitlar.append({
+            "t": "varlik",
+            "b": v.get("ad", ""),
+            "s": v.get("kod", ""),
+            "d": "",
+            "k": v.get("tur", ""),
+        })
+    # Baslik ya da slug'i olmayan kayit ARANAMAZ, dizine girmiyor.
+    kayitlar = [k for k in kayitlar if k["b"] and k["s"]]
+    return {
+        "surum": SURUM,
+        "uretildi": _dizge(uretildi),
+        "katlama": dict(katlama or {}),
+        "toplam": len(kayitlar),
+        "kayitlar": kayitlar,
+    }
+
+
 def sayfala(kayitlar: list, boyu: int = SAYFA_BOYU) -> list[list]:
     """Listeyi sabit boylu sayfalara boler. Bos liste -> bir bos sayfa.
 
@@ -729,7 +798,8 @@ def uret(analizler: list, haberler: list, gostergeler: dict | None,
          one_cikan: list | None = None,
          takvim_kutulari: list | None = None,
          varliklar: list | None = None,
-         uyelik_html: str = "") -> dict:
+         uyelik_html: str = "",
+         katlama: dict | None = None) -> dict:
     """Butun besleme dosyalarini kurar: {goreli yol: JSON nesnesi}.
 
     DOSYA YAZMIYOR. Saf islev olmasi bilincli: sinama diske hic
@@ -765,6 +835,11 @@ def uret(analizler: list, haberler: list, gostergeler: dict | None,
     if uyelik_html:
         cikti[f"{ONEK}/senaryo-kurallari.json"] = senaryo_kurallari(
             uyelik_html)
+
+    # ARAMA DIZINI -- AYNI ozet kayitlarindan kuruluyor, yani
+    # listelerle ayrisamaz.
+    cikti[f"{ONEK}/arama.json"] = arama_dizini(
+        h_ozet, a_ozet, varliklar, katlama, uretildi)
 
     # ANA SAYFA BESLEMESI. Secim BURADA YAPILMIYOR: `one_cikan`
     # verilirse sitenin kendi one cikan karari tasiniyor, yoksa en
@@ -810,6 +885,10 @@ def uret(analizler: list, haberler: list, gostergeler: dict | None,
             "varlik": {
                 "dizin": f"{ONEK}/varlik.json",
                 "kayit": cikti[f"{ONEK}/varlik.json"]["toplam"],
+            },
+            "arama": {
+                "dosya": f"{ONEK}/arama.json",
+                "kayit": cikti[f"{ONEK}/arama.json"]["toplam"],
             },
             "senaryo": {
                 "liste": "/api/senaryo/hepsi",

@@ -214,6 +214,39 @@ export const varlikDizini = () =>
 export const varlik = (kod: string) =>
   getir<Varlik>(`${ONEK}/varlik/${encodeURIComponent(kod.toLowerCase())}.json`);
 
+export type AramaKaydi = {
+  /** "haber" | "analiz" | "varlik" */
+  t: string;
+  /** başlık */
+  b: string;
+  /** slug (varlıkta kod) */
+  s: string;
+  /** ISO tarih; varlıkta boş */
+  d: string;
+  /** konu / kategori / tür */
+  k: string;
+  /** yalnızca analizde: şirket kodu */
+  c?: string;
+};
+
+export type AramaDizini = {
+  surum: number;
+  uretildi: string;
+  /**
+   * Türkçe diakritik katlama tablosu -- SİTENİN KENDİ TABLOSU.
+   *
+   * Uygulamaya kopyalanmıyor: aynı tablo sitede iki yerde duruyor
+   * ve bir sınama ikisinin aynı olduğunu doğruluyor. Üçüncü bir
+   * kopya, "hurmuz" yazan okurun "Hürmüz"ü bulamaması riskini bir
+   * kat daha büyütürdü -- ve o kusur hiçbir hata üretmiyor.
+   */
+  katlama: Record<string, string>;
+  toplam: number;
+  kayitlar: AramaKaydi[];
+};
+
+export const aramaDizini = () => getir<AramaDizini>(`${ONEK}/arama.json`);
+
 export type Sayfa<T> = {
   surum: number;
   sayfa: number;

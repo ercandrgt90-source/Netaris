@@ -7589,6 +7589,11 @@ def insa() -> int:
         # Uygulamaya ucuncu bir kopya koymak yerine ayni sablon
         # okunuyor -- gerekce `mobil_besleme.senaryo_olcutleri`
         # yaninda yazili.
+        # TURKCE KATLAMA TABLOSU: sitedeki tablonun KENDISI
+        # tasiniyor. Uygulamaya ucuncu bir kopya yazmak, "hurmuz"
+        # yazan okurun "Hürmüz"u bulamamasi riskini bir kat daha
+        # buyutmek olurdu -- ve o kusur hicbir hata uretmiyor.
+        katlama={chr(a): d for a, d in _SLUG_ESLEME.items()},
         uyelik_html=(SABLON / "uyelik.html").read_text(
             encoding="utf-8") if (SABLON / "uyelik.html").is_file()
         else "",

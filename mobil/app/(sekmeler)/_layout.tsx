@@ -11,9 +11,9 @@
 // kullanmak Turkce bir finans uygulamasinda tahmine dayali gezinme
 // uretir. Etiketler acik yazili.
 
-import { Tabs } from "expo-router";
+import { Tabs, useRouter } from "expo-router";
 import React from "react";
-import { ColorValue, Text } from "react-native";
+import { ColorValue, Pressable, Text } from "react-native";
 
 import { useTema } from "../../src/tema";
 
@@ -42,9 +42,25 @@ function Simge({
 
 export default function SekmeYerlesimi() {
   const t = useTema();
+  const router = useRouter();
   return (
     <Tabs
       screenOptions={{
+        // ARAMA HER SEKMEDE ULASILABILIR: sartname "uygulama
+        // genelinde arama" istiyor ve alt seritte yer yok (en
+        // fazla bes bolum). Baslik dugmesi her ekranda duruyor.
+        headerRight: () => (
+          <Pressable
+            onPress={() => router.push("/ara")}
+            accessibilityRole="button"
+            accessibilityLabel="Ara"
+            hitSlop={10}
+            style={{ paddingHorizontal: 16, minHeight: 44,
+                     justifyContent: "center" }}
+          >
+            <Text style={{ color: t.renk.ustYazi, fontSize: 17 }}>⌕</Text>
+          </Pressable>
+        ),
         headerStyle: { backgroundColor: t.renk.ustZemin },
         headerTintColor: t.renk.ustYazi,
         headerTitleStyle: { fontWeight: "700" },

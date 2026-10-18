@@ -53,6 +53,10 @@ function Yiginlar() {
           name="senaryo-yaz"
           options={{ title: "Senaryo yaz", headerBackTitle: "Geri" }}
         />
+        <Stack.Screen
+          name="ara"
+          options={{ title: "Ara", headerBackTitle: "Geri" }}
+        />
       </Stack>
     </>
   );

@@ -424,6 +424,49 @@ esit(M.varlik_dosyalari(None, "")["/v1/varlik.json"]["toplam"], 0,
      "varlık yoksa boş dizin (çökmüyor)")
 
 print("")
+print("8d. ARAMA DIZINI")
+
+_KATLAMA = {"ı": "i", "İ": "i", "ş": "s", "ğ": "g", "ü": "u",
+            "ö": "o", "ç": "c", "â": "a", "î": "i", "û": "u"}
+_ad = M.arama_dizini(
+    [{"baslik": "Fed kararı", "slug": "fed-karari", "tarih": "2026-10-18",
+      "konu": "Para politikası"}],
+    [{"baslik": "THY bilançosu", "slug": "thyao-2026-2", "tarih": "2026-10-17",
+      "kategori": "Bilanço", "kod": "THYAO"}],
+    [{"ad": "Brent petrol", "kod": "BRENT", "tur": "emtia"}],
+    _KATLAMA, "2026-10-19T00:00:00Z")
+esit(_ad["toplam"], 3, "üç tür de dizine giriyor")
+esit([k["t"] for k in _ad["kayitlar"]], ["haber", "analiz", "varlik"],
+     "tür alanı doğru")
+esit(_ad["kayitlar"][1]["c"], "THYAO",
+     "şirket KODU aranabilir (okur 'THYAO' yazar)")
+esit(_ad["kayitlar"][0]["d"], "2026-10-18", "ISO tarih taşınıyor")
+
+# --- KATLAMA TABLOSU TASINIYOR ---
+# Turkce diakritik katlamasi sitede IKI yerde duruyor ve bir sinama
+# ikisinin ayni oldugunu dogruluyor. Uygulamaya UCUNCU bir kopya
+# yazmak o riski bir kat daha buyutmek olurdu -- ve ayrisma hicbir
+# hata uretmez, yalnizca "hurmuz" yazan okur "Hürmüz"u bulamaz.
+esit(_ad["katlama"], _KATLAMA, "katlama tablosu AYNEN taşınıyor")
+esit(M.arama_dizini([], [], [], None, "")["katlama"], {},
+     "tablo verilmezse boş (uygulama yedeğine düşer)")
+
+# --- DIZIN OZET TASIMIYOR ---
+# Ozet YOK: okur sonuca dokununca detay dosyasi zaten geliyor.
+# Ozeti tasimak dizini iki katina cikarirdi.
+esit("o" in _ad["kayitlar"][0], False, "özet dizine GİRMİYOR")
+esit("ozet" in _ad["kayitlar"][0], False, "uzun ad da yok")
+
+# --- ARANAMAZ KAYIT GIRMIYOR ---
+_bos = M.arama_dizini(
+    [{"baslik": "", "slug": "x", "tarih": "2026-01-01"},
+     {"baslik": "var", "slug": "", "tarih": "2026-01-01"},
+     {"baslik": "iyi", "slug": "iyi", "tarih": "2026-01-01"}],
+    [], [], _KATLAMA, "")
+esit(_bos["toplam"], 1, "başlıksız ve slug'sız kayıt ELENİYOR")
+esit(_bos["kayitlar"][0]["b"], "iyi", "geçen kayıt doğru")
+
+print("")
 print("9. SAYFALAMA")
 _kayit = [{"slug": f"k{i}", "tarih": "2026-10-18"} for i in range(50)]
 _s = M.sayfala(_kayit, 24)
