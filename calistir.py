@@ -492,6 +492,18 @@ def main() -> int:
             sonuclar["Doğrulama"] = d
     elif args.yayinla:
         print("\n  Site uretimi basarisiz -- dagitim YAPILMADI")
+        # ISTENEN AMA YAPILMAYAN DAGITIM BIR BASARISIZLIKTIR.
+        #
+        # OLCULDU (2026-10-18, CI gunlugunden): `cikti_sinamalari`
+        # dustu, bu dal kostu, is YESIL dondu ve site UC SAAT
+        # yayimlanmadi. Sebep: `sonuclar` icine Dagitim anahtari
+        # yalnizca dagitim GERCEKTEN kostugunda yaziliyordu.
+        # Anahtar hic olmayinca `.get(...) is False` -> False,
+        # yani kritik hata SAYILMIYORDU.
+        #
+        # "Dagitim istendi ve olmadi" ile "dagitim istenmedi"
+        # ayri seylerdir; ikincisi normal, birincisi arizadir.
+        sonuclar["Dağıtım"] = False
 
     # TAZELIK KONTROLU KOSULSUZ -- dagitim atlansa da kosar.
     #
@@ -535,8 +547,16 @@ def main() -> int:
     # HATALAR GIZLENMIYOR: asagida ayri ayri yaziliyor ve `_ozet`
     # tablosunda da gorunuyorlar. Sessizce yutmakla, isi kirmiziya
     # cevirmek arasinda ucuncu bir yol var: SOYLE ama DURDURMA.
+    # CIKTI KAPILARI DA KRITIK.
+    #
+    # Ikisi de DAGITIMI DURDURUYOR, yani okuru dogrudan
+    # etkiliyorlar -- "kritik olan: dagitim yapildi mi"
+    # olcutunun tam icine giriyorlar. Listede olmadiklari icin
+    # 2026-10-18'de `cikti_sinamalari` dustu, dagitim atlandi
+    # ve is YESIL dondu.
     KRITIK = ("Veri denetimi", "Site üretimi", "Yorum denetimi",
-              "Beyan denetimi", "Dağıtım")
+              "Beyan denetimi", "Çıktı denetimi",
+              "Çıktı sınamaları", "Dağıtım")
     kritik_hata = [k for k in KRITIK if sonuclar.get(k) is False]
 
     if veri_hatasi:

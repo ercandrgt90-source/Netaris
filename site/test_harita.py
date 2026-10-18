@@ -157,9 +157,49 @@ else:
               if not re.match(r"^\d{4}-\d{2}-\d{2}$", d)]
     esit(_bozuk[:5], [], "her lastmod tam tarih bicimde")
 
+    # GELECEK TARIH OLCUTU BIR GUN PAY BIRAKIYOR -- SAAT DILIMI.
+    #
+    # OLCULDU (2026-10-18 22:28 UTC, CI gunlugunden): bu sinama
+    # dustu ve DAGITIMI DURDURDU. Dusuren bes adresten ucu haberdi:
+    #
+    #   /haber/yeni-zelanda-ticaret-dengesi-...   lastmod 2026-10-19
+    #   /haber/dunyada-kriz-hatti-genisliyor-...  lastmod 2026-10-19
+    #
+    # Tarihler YANLIS DEGILDI. Yeni Zelanda UTC+13, Turkiye UTC+3:
+    # oralarda gun donmusken UTC hala onceki gunde. Bir Turk
+    # kaynagin 01:00'de yayimladigi haber dogru olarak 19 Ekim
+    # tarihli ve o sirada UTC 18 Ekim 22:00.
+    #
+    # Yanlis olan OLCUTTU: "bugunden buyuk tarih hatadir" varsayimi
+    # UTC'yi evrensel saniyor.
+    #
+    # ETKISI SESSIZ VE GUNLUKTU: her gun ~21:00 UTC ile 00:00 UTC
+    # arasinda (Turkiye'de gece yarisi ile 03:00) ilk 'yarinki'
+    # haber girdiginde bu sinama kirmiziya donuyor, `calistir.py`
+    # "CIKTIYA BAKAN SINAMALAR DUSTU -- dagitim YAPILMADI" deyip
+    # geciyor ve KOSU YESIL kaliyor. Site uc saat boyunca
+    # yayimlanmiyordu ve bunu hicbir sey duyurmuyordu.
+    #
+    # PAY NEDEN TAM BIR GUN: dunyadaki en ileri saat dilimi UTC+14
+    # (Kiritimati), yani bir takvim gununden fazla ileri bir tarih
+    # hicbir saat dilimiyle aciklanamaz ve GERCEK bir hatadir.
+    # Pay, korumayi devre disi birakmiyor; yalnizca dogru olani
+    # hata saymasini engelliyor.
     _bugun = _dt.date.today().isoformat()
-    _gelecek = [d for d in _degerler if d > _bugun]
-    esit(_gelecek[:5], [], "GELECEK tarihli lastmod yok")
+    _sinir = (_dt.date.today() + _dt.timedelta(days=1)).isoformat()
+    _gelecek = [d for d in _degerler if d > _sinir]
+    esit(_gelecek[:5], [], "BIR GUNDEN fazla gelecek lastmod yok")
+
+    # Bir gun ilerideki tarihler SAYILIYOR ve raporlaniyor: saat
+    # dilimiyle aciklanabilir olmalari, cok sayida olmalarini
+    # aciklamaz. Yuzde biri asarsa kaynak tarihi degil kurulum
+    # saati yaziliyordur.
+    _yarin = [d for d in _degerler if d == _sinir]
+    if _yarin:
+        print(f"         ({len(_yarin)} adres yarinki tarihli -- "
+              f"UTC+3/UTC+13 kaynaklar; esik %1)")
+    esit(len(_yarin) * 100 <= len(_degerler), True,
+         "yarinki tarihli adres orani %1'in altinda")
 
     # ASIL KORUMA: hepsi bugun olamaz. Olculdu: 1626 tarihten 137'si
     # bugun. Oran %50'yi asiyorsa deger icerikten degil kurulumdan
