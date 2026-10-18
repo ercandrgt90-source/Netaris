@@ -30,8 +30,34 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 24,
+  "yorumlanan": 25,
   "haberler": [
+    {
+      "baslik": "Yeni Zelanda Ticaret Dengesi: −1.971,00 — önceki −1.349,00",
+      "baslik_kaynak": "New Zealand Trade Balance Actual -1,971.0M (Forecast -, Previous -1,349.0M)",
+      "ozet": "Açıklanan değer −1.971,00. Önceki dönem −1.349,00; geriledi (622,00 (birimsiz)).",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9810450/New-Zealand-Trade-Balance-Actual--19710M-Forecast---Previous--13490M.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Dış ticaret",
+      "tarih": "2026-10-19",
+      "tarih_gorunur": "19 Ekim 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Ticaret politikası kararları tarafların birbirine bağımlılığı ölçüsünde fiyatlanır; etki önce ilgili sektör hisselerinde ve para birimlerinde görülür.",
+      "kanallar": [
+        "Sektör maruziyeti: gümrük vergisi ihracatçı sektörün marjını doğrudan sıkıştırır; otomotiv, çelik ve tarım en sık hedef alınan kalemlerdir.",
+        "Para birimi: ticaret dengesinde beklenen değişim ilgili ülke kurunu yeniden fiyatlar.",
+        "Tedarik zinciri: ara mal akışı kesilirse maliyet üretici fiyatlarına yazılır ve etki üçüncü ülkelere yayılır.",
+        "Anlaşma yapısı: USMCA ya da gümrük birliği gibi çerçeveler, etkinin hangi kalemlerde ve hangi takvimde doğacağını belirler."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/dis-ticaret-12-aa95bbee.jpg",
+      "foto_atif": "Paul Harrison · CC-BY-SA-4.0"
+    },
     {
       "baslik": "Dünyada kriz hattı genişliyor: Jeopolitik gerilim zirveye çıktı, savaş 3 kıtaya yayıldı",
       "baslik_kaynak": "Dünyada kriz hattı genişliyor: Jeopolitik gerilim zirveye çıktı, savaş 3 kıtaya yayıldı",
@@ -2040,27 +2066,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/enerji-20-09c93149.jpg",
       "foto_atif": "MBH · CC-BY-4.0"
-    },
-    {
-      "baslik": "Ukmto, Yemen'in Mukalla kentinin 140nm güneydoğusunda olay bildiriyor",
-      "baslik_kaynak": "Ukmto reports incident 140nm southeast of Al Mukalla, Yemen",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9809930/Ukmto-reports-incident-140nm-southeast-of-Al-Mukalla-Yemen.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Şirket haberleri",
-      "tarih": "2026-10-17",
-      "tarih_gorunur": "17 Ekim 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-7-8b52fc2e.jpg",
-      "foto_atif": "DXR · CC-BY-SA-4.0"
     },
     {
       "baslik": "Piyasa Katılımcıları Anketi (Ekim 2026)",
