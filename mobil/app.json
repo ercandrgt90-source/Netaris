@@ -10,7 +10,19 @@
     "newArchEnabled": true,
     "plugins": [
       "expo-router",
-      "expo-secure-store"
+      "expo-secure-store",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/splash-icon.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#0b1018",
+          "dark": {
+            "backgroundColor": "#0b1018"
+          }
+        }
+      ]
     ],
     "ios": {
       "supportsTablet": true,
@@ -19,7 +31,7 @@
     "android": {
       "package": "net.netaris.app",
       "adaptiveIcon": {
-        "backgroundColor": "#15130d",
+        "backgroundColor": "#0b1018",
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
@@ -29,6 +41,7 @@
     "web": {
       "favicon": "./assets/favicon.png",
       "bundler": "metro"
-    }
+    },
+    "primaryColor": "#09726d"
   }
 }
