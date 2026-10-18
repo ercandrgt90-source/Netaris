@@ -16,6 +16,7 @@
 // acilinca gonder dugmesi klavyenin altinda kalirsa form
 // kullanilamaz hale geliyor.
 
+import { useRouter } from "expo-router";
 import React, { useState } from "react";
 import {
   ActivityIndicator,
@@ -171,6 +172,7 @@ function GirisFormu() {
 
 function UyePaneli() {
   const t = useTema();
+  const router = useRouter();
   const { uye, jeton, cikisYap } = useOturum();
   const b = useVeri(
     () => (jeton ? api.begenilerim(jeton) : Promise.resolve(null)),
@@ -218,6 +220,20 @@ function UyePaneli() {
           style={[d.dugmeCerceve, { borderColor: t.renk.cizgiParlak }]}
         >
           <Text style={{ color: t.renk.yazi }}>Çıkış yap</Text>
+        </Pressable>
+
+        {/* HESABI SIL -- Play, uygulama icinden erisilebilen bir
+            silme yolu istiyor. Cikis dugmesinin yaninda ama ayri
+            bir renkte: ikisi kazara karistirilmamali. */}
+        <Pressable
+          onPress={() => router.push("/hesap-sil")}
+          accessibilityRole="button"
+          style={{ paddingVertical: 12, minHeight: 44,
+                   justifyContent: "center" }}
+        >
+          <Text style={{ color: t.renk.azalis, fontSize: 14 }}>
+            Hesabımı sil
+          </Text>
         </Pressable>
       </View>
 

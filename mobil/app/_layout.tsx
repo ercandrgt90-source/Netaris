@@ -57,6 +57,10 @@ function Yiginlar() {
           name="ara"
           options={{ title: "Ara", headerBackTitle: "Geri" }}
         />
+        <Stack.Screen
+          name="hesap-sil"
+          options={{ title: "Hesabı sil", headerBackTitle: "Geri" }}
+        />
       </Stack>
     </>
   );

@@ -497,6 +497,26 @@ export const cikis = (jeton: string) =>
  * yalnizca yol saklansaydi panelde adresler gorunurdu. Okur
  * begenirken baslik zaten ekranda.
  */
+/**
+ * HESAP SILME -- geri alinamaz.
+ *
+ * Play, hesap olusturulabilen her uygulamada uygulama icinden
+ * erisilebilen bir silme yolu istiyor.
+ *
+ * Parolali hesapta `parola`, Google ile acilmis hesapta `onay`
+ * ("HESABIMI SIL") gerekiyor: calinmis bir oturumla hesap
+ * silinememeli.
+ */
+export const hesapSil = (
+  jeton: string,
+  kimlik: { parola?: string; onay?: string },
+) =>
+  gonder<{ tamam: boolean; silindi: boolean }>(
+    "/api/hesap-sil",
+    kimlik as Record<string, unknown>,
+    jeton,
+  );
+
 export const begeniDegistir = (jeton: string, yol: string, baslik: string) =>
   gonder<{ tamam: boolean; begeni: number; benim: boolean }>(
     "/api/begeni",

@@ -1,0 +1,39 @@
+{
+  "cli": {
+    "version": ">= 5.0.0",
+    "appVersionSource": "remote"
+  },
+  "build": {
+    "gelistirme": {
+      "developmentClient": true,
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk"
+      }
+    },
+    "deneme": {
+      "distribution": "internal",
+      "channel": "deneme",
+      "android": {
+        "buildType": "apk"
+      },
+      "ios": {
+        "simulator": true
+      }
+    },
+    "yayin": {
+      "autoIncrement": true,
+      "channel": "yayin",
+      "android": {
+        "buildType": "app-bundle"
+      }
+    }
+  },
+  "submit": {
+    "yayin": {
+      "android": {
+        "track": "internal"
+      }
+    }
+  }
+}

@@ -962,6 +962,86 @@ async function avatarKaydet(istek, env, u) {
  * giris yolu eklemis olurdu. Sebep sessizce gizlenmiyor, adiyla
  * yaziliyor.
  */
+/* HESAP SILME -- KULLANICININ KENDI ELIYLE.
+   ----------------------------------------
+   NEDEN VAR: Google Play, hesap olusturulabilen her uygulamada
+   UYGULAMA ICINDEN erisilebilen bir hesap silme yolu istiyor.
+   E-posta ile silme talebi o sartı karsilamiyor.
+
+   NE SILINIYOR -- gizlilik beyaniyla birebir:
+
+     "Hesabinizin silinmesini talep ettiginizde hesap kaydiniz ve
+      ona bagli oturum bilgisi silinir. Yayimlanmis katkilariniz
+      (senaryo, yazi) talebiniz uzerine kunyeden ayrilir veya
+      KALDIRILIR."
+     "hesabinizi silerseniz begenileriniz de silinir."
+
+   Bu uc "kaldirilir" dalini uyguluyor ve ekranda ACIKCA yaziyor.
+
+   CASCADE'E GUVENILMIYOR.
+   Semada alti tabloda `ON DELETE CASCADE` yazili ama hicbir yerde
+   `PRAGMA foreign_keys = ON` cagrilmiyor. SQLite'ta yabanci anahtar
+   varsayilan olarak KAPALI; D1'in davranisina guvenmek, silinmedigini
+   fark etmeyecegimiz yetim satirlar birakabilirdi. Her tablo ACIKCA
+   siliniyor ve sira onemli: once cocuklar, sonra uye.
+
+   YENIDEN KIMLIK DOGRULAMA ZORUNLU.
+   Calinmis bir oturumla hesap silinememeli. Parolali hesapta parola,
+   Google hesabinda acik onay metni isteniyor (orada parola YOK; onay
+   metni en azindan kazara dokunmayi engelliyor).
+
+   HIZ SINIRI: calinan oturumla parola deneme yuzeyi acilmasin. */
+const SILME_ONAYI = "HESABIMI SIL";
+
+async function hesapSil(istek, env, u) {
+  const db = env.DB;
+  const g = await istek.json().catch(() => ({}));
+
+  if (await denemeArtir(db, `silme:${u.id}`, 900, 5)) {
+    return hata("Çok fazla deneme. 15 dakika sonra tekrar deneyin.", 429);
+  }
+
+  const k = await db.prepare(
+    "SELECT parola_ozet FROM uye WHERE id = ?").bind(u.id).first();
+  if (!k) return hata("Hesap bulunamadı.", 404);
+
+  if (k.parola_ozet) {
+    const parola = typeof g.parola === "string" ? g.parola : "";
+    if (!(await parolaDogrula(parola, k.parola_ozet))) {
+      return hata("Parola yanlış.", 400);
+    }
+  } else {
+    /* Google ile acilmis hesap: parola yok. Onay metni isteniyor. */
+    const onay = typeof g.onay === "string" ? g.onay.trim() : "";
+    if (onay.toLocaleUpperCase("tr") !== SILME_ONAYI) {
+      return hata(`Onaylamak için "${SILME_ONAYI}" yazın.`, 400);
+    }
+  }
+
+  /* SIRA: once uyeye bagli cocuk satirlar, sonra uye.
+     `senaryo_oy` IKI yoldan bagli -- hem oy veren uye, hem oyu
+     alinan senaryo. Ikisi de temizleniyor. */
+  await db.batch([
+    db.prepare("DELETE FROM senaryo_oy WHERE uye_id = ?").bind(u.id),
+    db.prepare(
+      "DELETE FROM senaryo_oy WHERE senaryo_id IN"
+      + " (SELECT id FROM senaryo WHERE uye_id = ?)").bind(u.id),
+    db.prepare("DELETE FROM senaryo WHERE uye_id = ?").bind(u.id),
+    db.prepare("DELETE FROM yazi WHERE uye_id = ?").bind(u.id),
+    db.prepare("DELETE FROM begeni WHERE uye_id = ?").bind(u.id),
+    db.prepare("DELETE FROM oturum WHERE uye_id = ?").bind(u.id),
+    db.prepare("DELETE FROM uye WHERE id = ?").bind(u.id),
+  ]);
+
+  /* Hiz sinirlama kaydi da temizleniyor: silinen hesabin kimligine
+     bagli bir sayac birakmak gereksiz veri olurdu. */
+  await denemeSifirla(db, `silme:${u.id}`);
+
+  return yanit({ tamam: true, silindi: true }, 200,
+    { "set-cookie": cerezSil() });
+}
+
+
 async function parolaDegistir(istek, env, u) {
   const db = env.DB;
   const g = await istek.json().catch(() => ({}));
@@ -3182,6 +3262,8 @@ export default {
 
       if (y === "profil" && m === "POST")
         return await profilKaydet(istek, env, uye);
+      if (y === "hesap-sil" && m === "POST")
+        return await hesapSil(istek, env, uye);
       if (y === "parola" && m === "POST")
         return await parolaDegistir(istek, env, uye);
       if (y === "avatar" && m === "POST")
