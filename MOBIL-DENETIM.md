@@ -520,6 +520,75 @@ betikle doğrulayan herkes bir `User-Agent` başlığı göndermeli.
 
 ---
 
+## Faz 3-4 — 2026-10-19 durumu
+
+### Uygulamada çalışan ekranlar
+
+| Ekran | Durum |
+|---|---|
+| Ana Sayfa | piyasa şeridi, günün gelişmeleri, canlı akış, yaklaşan veriler, öne çıkan araştırmalar |
+| Haberler | iki sekme: yayımlananlar (konu süzgeçli, sayfalamalı) + canlı ajans akışı |
+| Piyasalar | gruplu tablo, gecikmeli uyarısı, lisans notu |
+| Araştırma | tür süzgeci (bilanço/makro/teknik/imzalı), sayfalama |
+| Senaryolar | yayımlanmış senaryolar, "tahmin değildir" uyarısı |
+| Profil | giriş, favoriler, sayımlar, hesap silme |
+| Ekonomik takvim | koşullu dallar, saat dilimi, beklenti/önceki ayrımı |
+| Varlıklar | 75 varlık dizini + detay (tanım, değer, yapısal ilişkiler, haber arşivi) |
+| Arama | tür süzgeçli, Türkçe diakritik katlamalı |
+| Senaryo yazma | çapa haber/varlıktan, ölçülebilir tetikleyiciyle |
+| Haber / analiz detayı | atıf, kaynak bağlantısı, bilanço tabloları |
+
+### Besleme (canlı, doğrulandı 2026-10-18 22:48 UTC)
+
+```
+haber   1075 kayıt / 45 sayfa     takvim    8 kayıt
+analiz   233 kayıt / 10 sayfa     varlık   75 kayıt
+arama   1383 kayıt (264 KB)       senaryo  kurallar + uç
+tema     76 jeton × 2 tema        piyasa   10 kalem
+```
+
+Canlı veride kural denetimi (75 varlık detayı + 72 haber tarandı):
+lisanssız seri 0 · atıfsız fotoğraf 0 · atıfsız ticari kayıt 0 ·
+ISO olmayan tarih 0 · konsensüs yokken sürpriz 0.
+
+### Uygulama gerçek tarayıcıda çalıştırıldı
+
+Expo web çıkışı + Chrome, 390×844 telefon ölçüsü, besleme dosyaları
+enjekte edilerek **gerçek veriyle**. Çalışma zamanı hatası yok,
+yatay taşma yok, kırpılan öge yok. Açık ve koyu tema ayrı ayrı
+doğrulandı.
+
+İki kusur buldu, ikisi de kaynağa bakarak görülemezdi: alt sekme
+etiketleri beş sekmenin beşinde kırpılıyordu, ve besleme metninde
+ham Markdown işareti vardı.
+
+### Bu turda bulunan yayın kusurları
+
+1. **Dağıtım üç saattir sessizce durmuştu.** `test_harita.py`
+   "bugünden büyük lastmod hatadır" diyor ve UTC'yi evrensel
+   sayıyordu; Yeni Zelanda (UTC+13) ve Türkiye (UTC+3) kaynaklı
+   haberler doğru olarak "yarınki" tarihi taşıyordu. Her gece
+   21:00–00:00 UTC arasında tetikleniyordu. Koşu **yeşil**
+   dönüyordu çünkü dağıtımı durduran kapılar `KRITIK` listesinde
+   değildi ve atlanan dağıtım hiç işaretlenmiyordu. İkisi de
+   düzeltildi, `site/test_dagitim_kapisi.py` sınıfı kapattı.
+
+2. **Senaryoda ölçülemeyen tetikleyici.** Bitcoin ve altın
+   ölçütleri sunuluyordu ama çözücü yalnızca `gosterge` tablosuna
+   bakıyordu; o veriler `fiyat` tablosunda. Kullanıcı ölçülebilir
+   tetikleyici kurduğunu sanıyor, aylar sonra senaryo "belirsiz"
+   kapanıyordu. 15 ölçütün 15'i artık çözülebiliyor.
+
+### Henüz yapılmayanlar
+
+* Bildirimler — D1 `cihaz` tablosu + FCM kimlik bilgisi gerekiyor
+* AI araştırma deneyimi — sağlayıcı kararı bekliyor
+* Çevrimdışı okuma — kaydedilen içeriğin yerel saklanması
+* Okuma geçmişi — arka uç gerekiyor
+* Google ile giriş uygulama içinde — şimdilik sitede
+
+---
+
 ## Kalan sorular ve engeller
 
 1. **TradingView uygulama içi şartları doğrulanmadı.** Doğrulanmadan
