@@ -10,6 +10,7 @@ import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
+import { OturumSaglayici } from "../src/oturum";
 import { TemaSaglayici, useTema } from "../src/tema";
 
 function Yiginlar() {
@@ -45,7 +46,11 @@ export default function KokYerlesim() {
   return (
     <SafeAreaProvider>
       <TemaSaglayici>
-        <Yiginlar />
+        {/* Oturum TEMANIN ICINDE: oturum ekranlari da paleti
+            kullaniyor ve tema once kurulmali. */}
+        <OturumSaglayici>
+          <Yiginlar />
+        </OturumSaglayici>
       </TemaSaglayici>
     </SafeAreaProvider>
   );

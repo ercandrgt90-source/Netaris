@@ -362,6 +362,26 @@ async function denemeSifirla(db, anahtar) {
 
 /* ------------------------------------------------------------------- oturum */
 
+/* ISTEMCI UYGULAMA MI.
+   -------------------
+   Jeton YANIT GOVDESINDE yalnizca uygulama istediginde doner.
+
+   NEDEN KOSULLU: tarayicida jeton HttpOnly cerezde duruyor, yani
+   sayfadaki JavaScript onu OKUYAMIYOR. Bu, XSS durumunda oturumun
+   calinmasini engelleyen asil koruma. Jetonu her girise govdede
+   koymak o korumayi kaldirirdi -- bir XSS aciginda saldirgan jetonu
+   dogrudan okuyabilirdi.
+
+   Uygulamada boyle bir risk yok: govde yerel kodda ayristiriliyor,
+   sayfaya enjekte edilmis bir betik yok ve jeton cihazin guvenli
+   deposunda (expo-secure-store) tutuluyor.
+
+   Yani: web akisi HIC DEGISMEDI, uygulama acikca istiyor. */
+function uygulamaMi(govde, istek) {
+  if (govde && govde.istemci === "uygulama") return true;
+  return (istek.headers.get("x-netaris-istemci") || "") === "uygulama";
+}
+
 async function oturumAc(db, uyeId) {
   const jeton = rastgele(32);
   await db.prepare(
@@ -370,8 +390,34 @@ async function oturumAc(db, uyeId) {
   return jeton;
 }
 
+/* OTURUM JETONU IKI YOLDAN GELEBILIR.
+   ----------------------------------
+   TARAYICI: HttpOnly cerez. Bu yol HIC DEGISMEDI ve oncelikli.
+
+   MOBIL UYGULAMA: `Authorization: Bearer <jeton>`. Yerel uygulamada
+   HttpOnly cerez yonetimi platforma bagli ve kirilgan -- iOS ve
+   Android cerez depolari farkli davraniyor, uygulama
+   guncellemelerinde temizlenebiliyor.
+
+   GUVENLIK: Bearer eklemek CSRF yuzeyini BUYUTMUYOR. Cerez
+   `SameSite=Lax` ve oyle kaliyor; bir Bearer basligi ise tarayici
+   tarafindan KENDILIGINDEN gonderilmiyor -- istemcinin acikca
+   koymasi gerekiyor. Yani baska bir sitenin sayfasi bu jetonla istek
+   atamaz.
+
+   Jeton veritabaninda yine yalnizca SHA-256 ozeti olarak duruyor;
+   dogrulama yolu ortak. */
+function jetonOku(istek) {
+  const c = cerezOku(istek, OTURUM_CEREZ);
+  if (c) return c;
+  const b = istek.headers.get("authorization") || "";
+  /* Yalnizca "Bearer " oneki; bosluk ve buyuk/kucuk harf toleransli. */
+  const e = b.match(/^\s*Bearer\s+(\S+)\s*$/i);
+  return e ? e[1] : null;
+}
+
 async function uyeBul(istek, db) {
-  const jeton = cerezOku(istek, OTURUM_CEREZ);
+  const jeton = jetonOku(istek);
   if (!jeton) return null;
   const s = await db.prepare(
     "SELECT u.id, u.eposta, u.ad, u.soyad, u.unvan, u.hakkinda, " +
@@ -553,11 +599,19 @@ async function googleGiris(istek, env) {
   await db.prepare("UPDATE uye SET son_giris = ? WHERE id = ?")
     .bind(simdi(), u.id).run();
 
-  return yanit(
-    { tamam: true, uye: { ad: u.ad, eposta: u.eposta, rol: u.rol } },
-    200,
-    { "set-cookie": cerezYaz(jeton, OTURUM_GUN) },
-  );
+  /* Cerez HER DURUMDA yaziliyor -- web akisi degismedi. Jeton
+     yalnizca uygulama acikca istediginde EK OLARAK doner; gerekce
+     `uygulamaMi` yaninda yazili. */
+  const cikisGovdesi = {
+    tamam: true,
+    uye: { ad: u.ad, eposta: u.eposta, rol: u.rol },
+  };
+  if (uygulamaMi(g, istek)) {
+    cikisGovdesi.jeton = jeton;
+    cikisGovdesi.biter_gun = OTURUM_GUN;
+  }
+  return yanit(cikisGovdesi, 200,
+    { "set-cookie": cerezYaz(jeton, OTURUM_GUN) });
 }
 
 /* --------------------------------------------------------------- dogrulama */
@@ -800,15 +854,26 @@ async function giris(istek, env) {
   await db.prepare("UPDATE uye SET son_giris = ? WHERE id = ?")
     .bind(simdi(), u.id).run();
 
-  return yanit(
-    { tamam: true, uye: { ad: u.ad, eposta: u.eposta, rol: u.rol } },
-    200,
-    { "set-cookie": cerezYaz(jeton, OTURUM_GUN) },
-  );
+  /* Cerez HER DURUMDA yaziliyor -- web akisi degismedi. Jeton
+     yalnizca uygulama acikca istediginde EK OLARAK doner; gerekce
+     `uygulamaMi` yaninda yazili. */
+  const cikisGovdesi = {
+    tamam: true,
+    uye: { ad: u.ad, eposta: u.eposta, rol: u.rol },
+  };
+  if (uygulamaMi(g, istek)) {
+    cikisGovdesi.jeton = jeton;
+    cikisGovdesi.biter_gun = OTURUM_GUN;
+  }
+  return yanit(cikisGovdesi, 200,
+    { "set-cookie": cerezYaz(jeton, OTURUM_GUN) });
 }
 
 async function cikis(istek, env) {
-  const jeton = cerezOku(istek, OTURUM_CEREZ);
+  /* `jetonOku`: uygulamadan gelen cikis da oturumu GERCEKTEN
+     kapatmali. `cerezOku` kalsaydi uygulama "cikis yaptim" der,
+     jeton ise sunucuda gecerli kalirdi. */
+  const jeton = jetonOku(istek);
   if (jeton) {
     await env.DB.prepare("DELETE FROM oturum WHERE jeton_ozeti = ?")
       .bind(await sha256(jeton)).run();

@@ -238,7 +238,84 @@ export type Senaryo = {
 export const senaryolar = () =>
   getir<{ senaryolar: Senaryo[] }>("/api/senaryo/hepsi");
 
-export type Uye = { ad?: string; eposta?: string } | null;
+export type Uye = { ad?: string; eposta?: string; rol?: string } | null;
+
+/** POST istegi. `istemci: "uygulama"` worker'a jetonu istedigimizi
+ *  soyluyor; gerekce `worker.js` icindeki `uygulamaMi` yaninda. */
+async function gonder<T>(
+  yol: string,
+  govde: Record<string, unknown>,
+  jeton?: string,
+): Promise<T> {
+  const kontrol = new AbortController();
+  const sayac = setTimeout(() => kontrol.abort(), ZAMAN_ASIMI);
+  try {
+    const basliklar: Record<string, string> = {
+      "content-type": "application/json",
+      accept: "application/json",
+      "x-netaris-istemci": "uygulama",
+    };
+    if (jeton) basliklar.authorization = `Bearer ${jeton}`;
+    const cevap = await fetch(TABAN + yol, {
+      method: "POST",
+      headers: basliklar,
+      body: JSON.stringify({ ...govde, istemci: "uygulama" }),
+      signal: kontrol.signal,
+    });
+    const d = await cevap.json().catch(() => ({}));
+    if (!cevap.ok) {
+      // SUNUCUNUN KENDI MESAJI KORUNUYOR: "E-posta veya parola
+      // hatalı" ile "Hesabınız henüz doğrulanmadı" kullanici icin
+      // tamamen farkli iki durum ve ikisinde yapacagi sey ayri.
+      throw new AgHatasi(
+        (d && typeof d.hata === "string" && d.hata) ||
+          `Sunucu ${cevap.status} döndü.`,
+        cevap.status,
+        yol,
+      );
+    }
+    return d as T;
+  } catch (h) {
+    if (h instanceof AgHatasi) throw h;
+    if (h instanceof Error && h.name === "AbortError") {
+      throw new AgHatasi("Bağlantı zaman aşımına uğradı.", undefined, yol);
+    }
+    throw new AgHatasi("Bağlantı kurulamadı.", undefined, yol);
+  } finally {
+    clearTimeout(sayac);
+  }
+}
+
+export const giris = (eposta: string, parola: string) =>
+  gonder<{ tamam: boolean; uye: Uye; jeton?: string; biter_gun?: number }>(
+    "/api/giris",
+    { eposta, parola },
+  );
+
+export const cikis = (jeton: string) =>
+  gonder<{ tamam: boolean }>("/api/cikis", {}, jeton);
+
+/**
+ * Begeni ac/kapa. Yanit: toplam begeni ve OKURUN KENDI durumu.
+ *
+ * `baslik` begeni aninda gonderiliyor cunku worker onu kaydediyor:
+ * yalnizca yol saklansaydi panelde adresler gorunurdu. Okur
+ * begenirken baslik zaten ekranda.
+ */
+export const begeniDegistir = (jeton: string, yol: string, baslik: string) =>
+  gonder<{ tamam: boolean; begeni: number; benim: boolean }>(
+    "/api/begeni",
+    { yol, baslik },
+    jeton,
+  );
+
+export type Begeni = { yol: string; baslik: string | null; an: string };
+
+export const begenilerim = (jeton: string) =>
+  getir<{
+    begeniler: Begeni[];
+    sayim: { yazi: number; senaryo: number; begeni: number; oy: number };
+  }>("/api/begenilerim", jeton);
 
 /**
  * OTURUM DURUMU. 401 BIR HATA DEGIL, BIR CEVAPTIR.
