@@ -476,12 +476,47 @@ dizge gibi göründü. Alan sağlam — JSON'da gerçek `true`/`false`.
 * Marka ikon seti (şu an Expo şablon ikonları duruyor)
 * Uygulama mağaza görselleri ve metinleri
 
-### Dağıtım notu
+### Dağıtım — doğrulandı (2026-10-18 16:09 UTC)
 
-`/v1/` beslemesi henüz **canlıda değil** (`HTTP 404`); mevcut
-dağıtım akışına commit edildiğinde yayına girecek. Uygulama o ana
-kadar beslemeye ulaşamaz ve hata ekranı gösterir — sahte veri
-göstermiyor.
+`/v1/` beslemesi **canlıda**. Üretim üzerinde, yerel çıktıda değil:
+
+```
+/v1/surum.json          HTTP 200    382 B   üretildi 16:09:48Z
+/v1/tema.json           HTTP 200  3.979 B
+/v1/piyasa.json         HTTP 200  1.497 B
+/v1/haber/sayfa-1.json  HTTP 200 19.343 B
+/v1/analiz/sayfa-1.json HTTP 200 18.895 B
+
+haber 1.077 kayıt / 45 sayfa · analiz 233 kayıt
+```
+
+Canlı veri üzerinde kural denetimi (3 haber sayfası, 72 kayıt):
+
+```
+lisanssız seri                 0
+atıfsız fotoğraf               0
+atıfsız ticari kayıt           0
+ISO olmayan tarih              0
+slug'ı boş analiz              0
+her piyasa kalemi veri tarihli EVET
+canli_degil bayrağı            True
+tel akışı statik               False
+tema: zorunlu jetonlar iki temada da  TAM
+```
+
+Worker tarafı da doğrulandı: oturumsuz `/api/ben` yine `401` +
+`{"uye":null}` (değişmedi), geçersiz Bearer jetonu reddediliyor,
+bozuk başlık biçimi reddediliyor, canlı tel akışı ve senaryo uçları
+çalışıyor.
+
+Site bozulmadı: ana sayfa, araştırmalar, bilançolar, makro, arama,
+giriş ve panel `HTTP 200`. Besleme **site haritasına girmiyor**
+(makine için, okur için değil) — doğrulandı, `sitemap.xml` içinde
+`/v1/` geçmiyor.
+
+**Not:** Cloudflare, Python `urllib`'in varsayılan kullanıcı aracını
+`403` ile reddediyor; aynı adres `curl` ile `200` dönüyor. Beslemeyi
+betikle doğrulayan herkes bir `User-Agent` başlığı göndermeli.
 
 ---
 
