@@ -1,0 +1,266 @@
+// NETARIS BESLEME ISTEMCISI
+//
+// Icerik `/v1/*.json` statik beslemesinden, uye islemleri `/api/*`
+// worker ucundan geliyor. Ikisi ayri cunku biri insa aninda
+// uretiliyor, oteki calisma aninda -- ve bu ayrim onbellek
+// politikasini da belirliyor.
+//
+// SAHTE VERI URETILMIYOR. Hicbir islev "veri gelmedi" durumunda
+// ornek deger dondurmuyor; cagiran katman yukleniyor / bos / hata
+// durumlarini ayri ayri gostermek zorunda. Bir finans uygulamasinda
+// uydurma fiyat gostermek, hic gostermemekten kat kat kotudur.
+
+export const TABAN = "https://netaris.net";
+
+/** Besleme oneki. `/v1/surum.json` icinde de bildiriliyor. */
+export const ONEK = "/v1";
+
+/** Ag istegi zaman asimi (ms). Telefon sebekesi yavas olabilir. */
+const ZAMAN_ASIMI = 15000;
+
+export type Haber = {
+  tur: "haber";
+  slug: string;
+  yol: string;
+  baslik: string;
+  ozet: string;
+  konu: string;
+  bolge: string;
+  kurum: string;
+  kurum_tam: string;
+  ticari: boolean;
+  kaynak_adres: string;
+  tarih: string;
+  foto: string;
+  foto_atif: string;
+  // Yalnizca detay dosyasinda
+  baslik_kaynak?: string;
+  kaynak_ozeti?: string;
+  neden_onemli?: string;
+  kanal_basligi?: string;
+  kanallar?: string[];
+  cevrildi?: boolean;
+  dil?: string;
+  tarih_gorunur?: string;
+};
+
+export type Analiz = {
+  tur: "analiz";
+  slug: string;
+  yol: string;
+  baslik: string;
+  ozet: string;
+  sirket: string;
+  kod: string;
+  sektor: string;
+  donem: string;
+  kategori: string;
+  tarih: string;
+  skor: string | null;
+  okuma_dk: number;
+  yazar: string;
+  unvan: string;
+  imzali: boolean;
+  kurgusal: boolean;
+  amblem: string;
+  foto: string;
+  foto_atif: string;
+  // Yalnizca detay dosyasinda
+  govde_html?: string;
+  kapsam?: string;
+  veri_kaynagi?: string;
+  kaynaklar?: string[];
+  kriterler?: { ad: string; puan: string; tam: string }[];
+  bolumler?: { baslik: string; capa: string }[];
+  sayimlar?: [string, string][];
+  kelime?: number;
+};
+
+export type PiyasaKalemi = {
+  kod: string;
+  ad: string;
+  deger: string;
+  fark: string;
+  yon: string;
+  tarih: string;
+  bayat: boolean;
+  gun: number;
+  ritim: string;
+};
+
+export type Piyasa = {
+  veri_tarihi: string;
+  canli_degil: boolean;
+  aciklama: string;
+  kalemler: PiyasaKalemi[];
+};
+
+export type Sayfa<T> = {
+  surum: number;
+  sayfa: number;
+  sayfa_sayisi: number;
+  toplam_kayit: number;
+  sonraki: string | null;
+  ogeler: T[];
+};
+
+export type OneCikan = {
+  surum: number;
+  uretildi: string;
+  kaynak: "site" | "en-yeni";
+  haberler: Haber[];
+  analizler: Analiz[];
+};
+
+export type TelOgesi = {
+  baslik: string;
+  baslik_kaynak: string;
+  cevrildi: boolean;
+  kurum: string;
+  kurum_tam: string;
+  adres: string;
+  konu: string;
+  ticari: boolean;
+  tarih: string;
+};
+
+/** Ag katmaninin tek hata turu -- cagiran tek seyi yakalasin. */
+export class AgHatasi extends Error {
+  constructor(
+    message: string,
+    readonly durum?: number,
+    readonly yol?: string,
+  ) {
+    super(message);
+    this.name = "AgHatasi";
+  }
+}
+
+/**
+ * Tek JSON istegi.
+ *
+ * ZAMAN ASIMI VAR: `fetch` kendi basina sonsuza kadar bekleyebiliyor
+ * ve kullanici sonsuz donen bir carki goruyor. Asim, "baglanti yok"
+ * durumunu GORUNUR bir hataya ceviriyor.
+ */
+async function getir<T>(yol: string, jeton?: string): Promise<T> {
+  const kontrol = new AbortController();
+  const sayac = setTimeout(() => kontrol.abort(), ZAMAN_ASIMI);
+  try {
+    const basliklar: Record<string, string> = { accept: "application/json" };
+    if (jeton) basliklar.authorization = `Bearer ${jeton}`;
+    const cevap = await fetch(TABAN + yol, {
+      headers: basliklar,
+      signal: kontrol.signal,
+    });
+    if (!cevap.ok) {
+      throw new AgHatasi(
+        `Sunucu ${cevap.status} döndü.`,
+        cevap.status,
+        yol,
+      );
+    }
+    return (await cevap.json()) as T;
+  } catch (h) {
+    if (h instanceof AgHatasi) throw h;
+    if (h instanceof Error && h.name === "AbortError") {
+      throw new AgHatasi("Bağlantı zaman aşımına uğradı.", undefined, yol);
+    }
+    throw new AgHatasi("Bağlantı kurulamadı.", undefined, yol);
+  } finally {
+    clearTimeout(sayac);
+  }
+}
+
+export const surum = () =>
+  getir<{
+    surum: number;
+    uretildi: string;
+    onek: string;
+    sayfa_boyu: number;
+    beslemeler: Record<string, Record<string, unknown>>;
+  }>(`${ONEK}/surum.json`);
+
+export const oneCikan = () => getir<OneCikan>(`${ONEK}/one-cikan.json`);
+
+export const piyasa = () => getir<Piyasa>(`${ONEK}/piyasa.json`);
+
+export const haberSayfasi = (no = 1) =>
+  getir<Sayfa<Haber>>(`${ONEK}/haber/sayfa-${no}.json`);
+
+export const analizSayfasi = (no = 1) =>
+  getir<Sayfa<Analiz>>(`${ONEK}/analiz/sayfa-${no}.json`);
+
+export const haber = (slug: string) =>
+  getir<Haber>(`${ONEK}/haber/${encodeURIComponent(slug)}.json`);
+
+export const analiz = (slug: string) =>
+  getir<Analiz>(`${ONEK}/analiz/${encodeURIComponent(slug)}.json`);
+
+export const tema = () =>
+  getir<{
+    surum: number;
+    kaynak: string;
+    zorunlu: string[];
+    acik: Record<string, string>;
+    koyu: Record<string, string>;
+  }>(`${ONEK}/tema.json`);
+
+/**
+ * CANLI TEL AKISI -- statik beslemede DEGIL, worker ucunda.
+ *
+ * Besleme bu akisi kopyalamiyor: kopyalamak insa aninda donmus bir
+ * "canli" akis uretirdi. Uc on dakikada bir tazeleniyor.
+ */
+export const tel = (limit = 30) =>
+  getir<{ ogeler: TelOgesi[] }>(`/api/tel?limit=${limit}`);
+
+export const telDurum = () =>
+  getir<{
+    oge_sayisi: number;
+    en_yeni: string;
+    en_eski: string;
+    besleme_sayisi: number;
+  }>("/api/tel/durum");
+
+export type Senaryo = {
+  id: number;
+  kosul: string;
+  sonuc: string;
+  capa: string;
+  capa_baslik: string;
+  ufuk: string;
+  yayin: string;
+  yazar: string;
+  oy: number;
+};
+
+export const senaryolar = () =>
+  getir<{ senaryolar: Senaryo[] }>("/api/senaryo/hepsi");
+
+export type Uye = { ad?: string; eposta?: string } | null;
+
+/**
+ * OTURUM DURUMU. 401 BIR HATA DEGIL, BIR CEVAPTIR.
+ *
+ * `/api/ben` oturum yokken `{"uye":null}` ile birlikte HTTP 401
+ * donuyor. Bunu ag hatasi saymak, misafir kullaniciya "veri
+ * alinamadi" ekrani gostermek olurdu -- oysa cevap basariyla geldi
+ * ve icerigi "giris yapilmamis".
+ */
+export async function ben(jeton?: string): Promise<Uye> {
+  try {
+    const d = await getir<{ uye: Uye }>("/api/ben", jeton);
+    return d.uye ?? null;
+  } catch (h) {
+    if (h instanceof AgHatasi && h.durum === 401) return null;
+    throw h;
+  }
+}
+
+/** Gorsel ve amblem yollari beslemede GORELI geliyor. */
+export const varlikAdresi = (yol: string) =>
+  yol ? (yol.startsWith("http") ? yol : TABAN + yol) : "";
+
+/** Paylasim ve "sitede ac" baglantisi. */
+export const webAdresi = (yol: string) => TABAN + yol;

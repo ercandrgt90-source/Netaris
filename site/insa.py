@@ -47,6 +47,8 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 
 import grafik
 import amblem as _amblem
+import mobil_besleme
+import tema_belirtec
 
 
 #: Gercek sirket logolari -- kamu mali, Commons'tan.
@@ -7472,6 +7474,20 @@ def insa() -> int:
     # kabi bos basilir -- sayfada "Haberler" basligi gorunur ama alti
     # bostur. Bir kez oyle oldu; hata mesaji vermedigi icin ancak canli
     # sayfa incelenince fark edildi.
+    # ONE CIKAN SECIMI BIR KEZ YAPILIYOR.
+    #
+    # Hem ana sayfa hem MOBIL BESLEMESI bu listeyi kullaniyor. Secim
+    # iki yerde ayri yapilsaydi uygulama siteden FARKLI bir "gunun
+    # onemli gelismesi" gosterebilirdi -- bu depoda "ayni seye iki
+    # yerin karar vermesi" tam olarak boyle kusur uretti (ceyrek
+    # sayisi iki yerde belirlenmisti ve 258 sayfanin 203'u iki ayri
+    # donemi anlatiyordu).
+    _bugun_iso = datetime.now().strftime("%Y-%m-%d")
+    _one_cikanlar = one_cikan_birlestir(
+        one_cikan_haberler([h for h in uretilecek if h.get("yol")],
+                           _bugun_iso),
+        bilanco_one_cikanlar(analizler, _bugun_iso))
+
     yaz(
         "/index.html",
         ortam.get_template("anasayfa.html").render(
@@ -7496,12 +7512,7 @@ def insa() -> int:
             # Katman 2'ye BILANCO da giriyor -- gerekcesi
             # `BILANCO_ONE_CIKAN` uzerinde yazili. Puanli haberlerin
             # onune GECMIYOR, kuyruk slotlarina yerlesiyor.
-            one_cikanlar=one_cikan_birlestir(
-                one_cikan_haberler(
-                    [h for h in uretilecek if h.get("yol")],
-                    datetime.now().strftime("%Y-%m-%d")),
-                bilanco_one_cikanlar(
-                    analizler, datetime.now().strftime("%Y-%m-%d"))),
+            one_cikanlar=_one_cikanlar,
             # Katman 1 -- ham akis, en yeni ustte, ELEME YOK
             akis=canli_akis(gundem.get("haberler", [])),
             # Piyasa ozetinin yerini alan AI yorum akisi
@@ -7523,6 +7534,43 @@ def insa() -> int:
     # Arama: dizin + sayfa
     yaz("/arama.json",
         arama_dizini(listelenen, uretilecek, _duz_sayfalar, hakkimizda))
+
+    # MOBIL BESLEMESI -- ayni icerigin JSON temsili.
+    #
+    # YENI DOSYA YAZIYOR, HICBIR SEYI DEGISTIRMIYOR: tek bir HTML, tek
+    # bir URL, tek bir mevcut dosya etkilenmiyor. Gerekce ve kurallar
+    # `mobil_besleme.py` basinda; kurallarin her biri
+    # `test_mobil_besleme.py` icinde mutasyonla sinaniyor.
+    #
+    # Besleme SITE HARITASINA GIRMEZ: makine icin, okur icin degil.
+    # `yollar` listesine eklenmemesi bilincli.
+    _besleme = mobil_besleme.uret(
+        analizler=listelenen,
+        haberler=uretilecek,
+        gostergeler=gostergeler,
+        # LISANSSIZ SERI KUMESI BURADAN GECIYOR, beslemede yeniden
+        # yazilmiyor -- tek kaynak `makro_uret_ucretsiz`.
+        lisanssiz=LISANSSIZ_SERI,
+        uretildi=datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        one_cikan=_one_cikanlar,
+    )
+    # TEMA BELIRTECLERI. Uygulama rengi `stil.css`ten okuyor, kendi
+    # icine GOMMUYOR: palet iki yerde dururken biri duzelir, oteki
+    # unutulur ve ayrilma hicbir hata uretmez -- yalnizca uygulama
+    # ile site farkli gorunur. Gerekce `tema_belirtec.py` basinda.
+    try:
+        _besleme[f"{mobil_besleme.ONEK}/tema.json"] = tema_belirtec.besleme(
+            STATIK / "stil.css")
+    except OSError as _h:
+        # Tema dosyasi okunamazsa besleme YINE yaziliyor; uygulama
+        # kendi yedek paletiyle acilir. Sessiz gecmiyor.
+        print(f"  UYARI mobil tema belirtecleri okunamadi: {_h}")
+
+    for _yol, _nesne in _besleme.items():
+        yaz(_yol, json.dumps(_nesne, ensure_ascii=False,
+                             separators=(",", ":")))
+    print(f"mobil beslemesi: {len(_besleme)} dosya "
+          f"({mobil_besleme.ONEK}/)")
     yaz(
         "/ara/index.html",
         # `arama_disi`: robots karari `temel.html`de veriliyor. Bu
