@@ -266,6 +266,15 @@ esit(_o["yerel"], "2026-10-19 14:00:00+03:00", "yerel gösterim de var")
 _t = M.takvim([_kutu()], "2026-10-18T16:00:00Z")
 esit(_t["saat_dilimi"], "Europe/Istanbul", "saat dilimi BESLEMEDE de yazılı")
 esit(bool(_t["aciklama"]), True, "okura dönük açıklama var")
+# BESLEME METNINDE BICIMLENDIRME ISARETI OLMAZ.
+#
+# Ilk yazimda aciklama "`kesin` yanlissa..." diyordu ve uygulamada
+# TERS TIRNAKLAR AYNEN gorundu -- istemci duz metin basiyor.
+# Gercek tarayicida goruldu, kaynaga bakarak gorulemezdi.
+for _alan, _metin in (("takvim aciklamasi", _t["aciklama"]),):
+    for _isaret in ("`", "**", "<", ">"):
+        esit(_isaret in _metin, False,
+             f"{_alan}: '{_isaret}' işareti YOK (düz metin)")
 
 # --- SAAT KESIN MI ---
 # Bazi yayinlarin saati kurum tarafindan onaylanmamis. Bunu

@@ -452,9 +452,16 @@ def takvim(kutular: list | None, uretildi: str = "") -> dict:
         "surum": SURUM,
         "uretildi": _dizge(uretildi),
         "saat_dilimi": "Europe/Istanbul",
-        "aciklama": "Saatler Türkiye saatiyle (UTC+3). "
-                    "`kesin` yanlışsa saat kurum tarafından "
-                    "doğrulanmamıştır.",
+        # METIN DUZ YAZI -- MARKDOWN ISARETI YOK.
+        #
+        # Ilk yazimda "`kesin` yanlissa..." diye yazilmisti ve
+        # uygulamada TERS TIRNAKLAR AYNEN gorundu: istemci duz metin
+        # basiyor, Markdown islemiyor. Gercek tarayicida goruldu.
+        #
+        # Besleme metinleri okura dogrudan gidiyor; bicimlendirme
+        # isareti tasimamali.
+        "aciklama": "Saatler Türkiye saatiyle (UTC+3). Saati "
+                    "kesinleşmemiş açıklamalar ayrıca işaretlidir.",
         "ogeler": ogeler,
     }
 

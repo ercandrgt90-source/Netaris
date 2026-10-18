@@ -14,6 +14,7 @@
 import { Tabs, useRouter } from "expo-router";
 import React from "react";
 import { ColorValue, Pressable, Text } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { useTema } from "../../src/tema";
 
@@ -34,7 +35,8 @@ function Simge({
   renk: ColorValue;
 }) {
   return (
-    <Text style={{ color: renk, fontSize: 17, fontWeight: "700" }}>
+    <Text style={{ color: renk, fontSize: 15, lineHeight: 20,
+                   fontWeight: "700" }}>
       {metin}
     </Text>
   );
@@ -43,6 +45,7 @@ function Simge({
 export default function SekmeYerlesimi() {
   const t = useTema();
   const router = useRouter();
+  const alt = useSafeAreaInsets().bottom;
   return (
     <Tabs
       screenOptions={{
@@ -66,11 +69,40 @@ export default function SekmeYerlesimi() {
         headerTitleStyle: { fontWeight: "700" },
         tabBarActiveTintColor: t.renk.vurgu,
         tabBarInactiveTintColor: t.renk.notr,
+        // SERIT YUKSEKLIGI ACIKCA VERILIYOR -- OLCULDU.
+        //
+        // Gercek tarayicida (390x844, 2x) olculdu: varsayilan
+        // serit 48 piksel ve icinde 17 piksellik simge + 15
+        // piksellik etiket sigmiyordu. Etiket kutusuna 10, sonra
+        // 2 piksel kaliyordu; bes sekmenin BESINDE de yazi
+        // alttan kesiliyordu.
+        //
+        // GUVENLI ALAN EKLENIYOR: ev gostergesi olan cihazlarda
+        // serit onun altinda kalirdi. Yukseklik SABIT verilince
+        // React Navigation kendi payini eklemiyor, bu yuzden
+        // insed elle toplanıyor. Web'de `alt` sifir.
         tabBarStyle: {
           backgroundColor: t.renk.panel,
           borderTopColor: t.renk.cizgi,
+          height: 58 + alt,
+          paddingBottom: alt + 6,
+          paddingTop: 6,
         },
-        tabBarLabelStyle: { fontSize: 11, fontWeight: "600" },
+        // Simge ile etiket arasini daraltiyor; ikisi 46 piksellik
+        // ic alana birlikte sigmali.
+        tabBarIconStyle: { height: 20, marginBottom: 1 },
+        // `lineHeight` ZORUNLU -- olculdu, yoksa ETIKET KIRPILIYOR.
+        //
+        // Gercek tarayicida olculdu (390x844, 2x): etiket kutusu 10
+        // piksel, metnin gerektirdigi 15 piksel. Bes sekmenin
+        // BESINDE de "Ana Sayfa", "Piyasalar", "Araştırma",
+        // "Senaryolar", "Profil" yazilari alttan kesiliyordu.
+        //
+        // `fontSize` verilip `lineHeight` verilmeyince satir kutusu
+        // yazi tipinin varsayilanina kaliyor ve Turkce'deki
+        // alt uzantilar (ş, ç) ile buyuk harfler sigmiyor.
+        tabBarLabelStyle: { fontSize: 11, lineHeight: 15,
+                            fontWeight: "600" },
         sceneStyle: { backgroundColor: t.renk.zemin },
       }}
     >
