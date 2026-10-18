@@ -255,7 +255,82 @@ if (aliste?.ogeler?.length) {
   } else gecti += 1;
 }
 
-console.log("6. tema.json");
+console.log("6. takvim.json");
+const takvim = oku("takvim.json");
+dogrula("takvim", takvim, {
+  surum: "number",
+  uretildi: "string",
+  saat_dilimi: "string",
+  aciklama: "string",
+  ogeler: "array",
+});
+if (takvim) {
+  // SAAT DILIMI BESLEMEDE YAZILI OLMALI: bir veri aciklamasinin
+  // saati, hangi dilimde oldugu yazilmadan anlamsiz.
+  if (!takvim.saat_dilimi) {
+    dusen.push("takvim: saat_dilimi BOS -- saatler yorumlanamaz");
+  } else gecti += 1;
+
+  if (takvim.ogeler.length === 0) {
+    // Bos takvim bir kusur DEGIL (o hafta buyuk yayin olmayabilir),
+    // ama sessizce gecilmemeli.
+    console.log("    (takvim bos -- alan denetimi atlandi)");
+  } else {
+    const o = takvim.ogeler[0];
+    dogrula("takvim ogesi", o, {
+      ad: "string",
+      ulke: "string",
+      seri: "string",
+      onem: "number",
+      an: "string",
+      yerel: "string",
+      gun: "string",
+      saat: "string",
+      saat_dilimi: "string",
+      kesin: "boolean",
+      kaynak: "string",
+      aciklandi: "boolean",
+      dallar: "array",
+    });
+
+    // HER OGE KENDI SAAT DILIMINI TASIMALI.
+    const dilimsiz = takvim.ogeler.filter((x) => !x.saat_dilimi);
+    if (dilimsiz.length) {
+      dusen.push(`takvim: ${dilimsiz.length} ogede saat_dilimi yok`);
+    } else gecti += 1;
+
+    // SURPRIZ YALNIZCA GERCEK KONSENSUS VARKEN OLMALI.
+    //
+    // Esik onceki degerse "beklentinin ustunde geldi" demek yanlis:
+    // ortada bir beklenti YOK, yalnizca bir onceki rakam var.
+    const yanlisSurpriz = takvim.ogeler.filter(
+      (x) => x.surpriz && x.esik_kaynak !== "beklenti",
+    );
+    if (yanlisSurpriz.length) {
+      dusen.push(
+        `takvim: ${yanlisSurpriz.length} ogede KONSENSUS YOKKEN surpriz`,
+      );
+    } else gecti += 1;
+
+    // ACIKLANMAMIS VERIDE `gerceklesen` OLMAMALI.
+    const sahteAciklama = takvim.ogeler.filter(
+      (x) => !x.aciklandi && x.gerceklesen,
+    );
+    if (sahteAciklama.length) {
+      dusen.push(
+        `takvim: ${sahteAciklama.length} ogede aciklanmadan gerceklesen var`,
+      );
+    } else gecti += 1;
+
+    // SIRALAMA: en yakin once.
+    const anlar = takvim.ogeler.map((x) => x.an);
+    if (anlar.join("|") !== [...anlar].sort().join("|")) {
+      dusen.push("takvim: ogeler zamana gore SIRALI DEGIL");
+    } else gecti += 1;
+  }
+}
+
+console.log("7. tema.json");
 const tema = oku("tema.json");
 dogrula("tema", tema, {
   surum: "number",

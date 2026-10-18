@@ -211,6 +211,125 @@ for _k in _p["kalemler"]:
     esit(bool(_k["tarih"]), True, f"{_k['kod']} KENDI veri tarihini taşıyor")
 
 print("")
+print("8b. EKONOMIK TAKVIM")
+
+
+class _Beklenti:
+    """Hat `beklenti`yi NESNE olarak koyuyor, sozluk olarak degil.
+
+    Bu depoda `.get()` cagirmak tam burada AttributeError uretti ve
+    kusur COKME degil EKSIKLIK olarak gorundu: surpriz alani sessizce
+    hic uretilmedi. Bu yuzden sinama NESNE kullaniyor.
+    """
+
+    def __init__(self, **a):
+        v = {"kod": "CPI", "ad": "TÜFE", "son_deger": "%23,70",
+             "son_tarih": "2026-09-01", "esik_deger": "%23,70",
+             "esik_kaynak": "onceki", "dallar": ()}
+        v.update(a)
+        for k, d in v.items():
+            setattr(self, k, d)
+
+
+class _Dal:
+    def __init__(self, yon, baslik, mekanizma, olcum=""):
+        self.yon, self.baslik = yon, baslik
+        self.mekanizma, self.olcum = mekanizma, olcum
+
+
+def _kutu(**ek):
+    t = {
+        "ad": "TCMB Piyasa Katılımcıları Anketi", "ulke": "TR",
+        "onem": 2, "kesin": False,
+        "an": "2026-10-19T11:00:00+00:00",
+        "yerel": "2026-10-19 14:00:00+03:00",
+        "gun": "19.10", "saat": "14:00", "kaynak": "",
+        "seri": "TP.ENFBEK.PKA12ENF",
+        "beklenti": _Beklenti(dallar=(
+            _Dal("ustunde", "%23,70 üzerinde gelirse",
+                 "Faiz indirimi beklentisi zayıflar.", "Geçmişte…"),
+            _Dal("altinda", "%23,70 altında gelirse",
+                 "Faiz indirimi için alan genişler.", "Geçmişte…"),
+        )),
+    }
+    t.update(ek)
+    return t
+
+
+# --- SAAT DILIMI ---
+# Bir veri aciklamasinin saati, hangi dilimde oldugu yazilmadan
+# anlamsiz: okur 14:00'i kendi saatinde sanip aciklamayi kacirir.
+_o = M.takvim_ogesi(_kutu())
+esit(_o["saat_dilimi"], "Europe/Istanbul", "saat dilimi ÖĞEDE yazılı")
+esit(_o["an"], "2026-10-19T11:00:00+00:00", "UTC anı korunuyor")
+esit(_o["yerel"], "2026-10-19 14:00:00+03:00", "yerel gösterim de var")
+_t = M.takvim([_kutu()], "2026-10-18T16:00:00Z")
+esit(_t["saat_dilimi"], "Europe/Istanbul", "saat dilimi BESLEMEDE de yazılı")
+esit(bool(_t["aciklama"]), True, "okura dönük açıklama var")
+
+# --- SAAT KESIN MI ---
+# Bazi yayinlarin saati kurum tarafindan onaylanmamis. Bunu
+# dusurmek, tahmini bir saati kesinmis gibi gostermek demek.
+esit(_o["kesin"], False, "kesin=False TAŞINIYOR")
+esit(M.takvim_ogesi(_kutu(kesin=True))["kesin"], True, "kesin=True taşınıyor")
+
+# --- BEKLENTI ILE ONCEKI DEGER AYRI ---
+# Esik bazen gercek piyasa konsensusu, bazen yalnizca ONCEKI deger.
+# Ikisini "beklenti" diye tek alana koymak, olmayan bir konsensus
+# uydurmak olurdu.
+esit(_o["esik_kaynak"], "onceki", "eşik kaynağı AYNEN taşınıyor")
+esit(_o["onceki_deger"], "%23,70", "önceki değer ayrı alan")
+_k = M.takvim_ogesi(_kutu(
+    beklenti=_Beklenti(esik_kaynak="beklenti", esik_deger="%24,10")))
+esit(_k["esik_kaynak"], "beklenti", "gerçek konsensus işaretli")
+esit(_k["esik_deger"], "%24,10", "eşik değeri")
+
+# --- SURPRIZ YALNIZCA GERCEK KONSENSUS VARKEN ---
+# Esik onceki degerse "beklentinin ustunde geldi" demek yanlis olur:
+# ortada bir beklenti YOK, yalnizca bir onceki rakam var.
+_s = {"fark": 0.4, "yon": "ustunde", "metin": "0,4"}
+_g = {"deger": 24.5, "donem": "2026-10", "birim": "%"}
+_y = M.takvim_ogesi(_kutu(gerceklesen=_g, surpriz=_s))
+esit("surpriz" in _y, False,
+     "eşik ÖNCEKİ değerse sürpriz ÜRETİLMİYOR")
+esit(_y["aciklandi"], True, "açıklandı bayrağı yine doğru")
+esit(_y["gerceklesen"]["deger"], 24.5, "gerçekleşen değer taşınıyor")
+_y2 = M.takvim_ogesi(_kutu(
+    beklenti=_Beklenti(esik_kaynak="beklenti", esik_deger="%24,10"),
+    gerceklesen=_g, surpriz=_s))
+esit(_y2["surpriz"]["fark"], 0.4, "gerçek konsensus varsa sürpriz ÜRETİLİYOR")
+
+# --- ACIKLANMAMIS VERI ---
+# `gerceklesen` yoksa bu bir EKSIKLIK degil, takvimin normal durumu.
+esit(_o["aciklandi"], False, "henüz açıklanmadı")
+esit("gerceklesen" in _o, False, "açıklanmayan veride alan YOK")
+
+# --- KOSULLU DALLAR ---
+esit(len(_o["dallar"]), 2, "iki dal da taşınıyor")
+esit(_o["dallar"][0]["yon"], "ustunde", "dal yönü")
+esit(bool(_o["dallar"][0]["mekanizma"]), True, "mekanizma metni var")
+# MEKANIZMA ILE OLCUM AYRI ALAN: biri akil yurutme, oteki gozlem.
+# Birlestirilirse olcum bir tahmin gibi okunur.
+esit(bool(_o["dallar"][0]["olcum"]), True, "ölçüm ayrı alanda")
+esit(M.takvim_ogesi(_kutu(beklenti=None))["dallar"], [],
+     "beklenti yoksa dal listesi BOŞ (çökmüyor)")
+
+# --- EKSIK KAYIT ELENIYOR ---
+esit(M.takvim_ogesi(_kutu(ad="")), None, "adı olmayan kalem elenıyor")
+esit(M.takvim_ogesi(_kutu(an="")), None, "anı olmayan kalem eleniyor")
+
+# --- SIRALAMA: EN YAKIN ONCE ---
+_sira = M.takvim([
+    _kutu(ad="geç", an="2026-10-25T08:00:00+00:00"),
+    _kutu(ad="erken", an="2026-10-19T08:00:00+00:00"),
+    _kutu(ad="orta", an="2026-10-21T08:00:00+00:00"),
+], "")
+esit([o["ad"] for o in _sira["ogeler"]], ["erken", "orta", "geç"],
+     "en yakın açıklama ÜSTTE")
+# Bos liste cokmemeli.
+esit(M.takvim(None, "")["ogeler"], [], "takvim yoksa boş liste")
+
+print("")
 print("9. SAYFALAMA")
 _kayit = [{"slug": f"k{i}", "tarih": "2026-10-18"} for i in range(50)]
 _s = M.sayfala(_kayit, 24)

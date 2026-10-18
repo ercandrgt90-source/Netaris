@@ -325,6 +325,140 @@ def piyasa(gostergeler: dict | None, lisanssiz) -> dict:
     }
 
 
+def _alan(kayit, ad: str, varsayilan=""):
+    """`beklenti` hem NESNE hem SOZLUK olarak gelebiliyor.
+
+    Hat onu bir dataclass olarak koyuyor (`beklenti.Kutu`), bazi
+    yollarda sozluk oluyor. Bu depoda `.get()` cagirmak tam burada
+    AttributeError uretti ve kusur COKME olarak degil EKSIKLIK olarak
+    gorundu -- surpriz alani sessizce hic uretilmedi.
+    """
+    if kayit is None:
+        return varsayilan
+    if isinstance(kayit, dict):
+        d = kayit.get(ad, varsayilan)
+    else:
+        d = getattr(kayit, ad, varsayilan)
+    return varsayilan if d is None else d
+
+
+def _dal(d) -> dict:
+    """Kosullu senaryo dali: esik asilirsa / altinda kalirsa.
+
+    FIYAT YONU IDDIA EDILMIYOR -- `mekanizma` neyin neden degistigini
+    anlatiyor, `olcum` ise gecmis gozlemleri. Ikisi ayri alan cunku
+    biri akil yurutme, oteki olcum; karistirilirsa olcum bir tahmin
+    gibi okunur.
+    """
+    return {
+        "yon": _dizge(_alan(d, "yon")),
+        "baslik": _dizge(_alan(d, "baslik")),
+        "mekanizma": _dizge(_alan(d, "mekanizma")),
+        "olcum": _dizge(_alan(d, "olcum")),
+    }
+
+
+def takvim_ogesi(k: dict) -> dict | None:
+    """Ekonomik takvim kalemi.
+
+    UC KURAL BURADA YASIYOR:
+
+    1. **SAAT DILIMI ACIK.** Hem UTC ani hem yerel metin tasiniyor ve
+       `saat_dilimi` alani hangi dilimde gosterildigini soyluyor. Bir
+       veri aciklamasinin saati, hangi dilimde oldugu yazilmadan
+       anlamsiz: okur 14:00'i kendi saatinde sanar ve ucak kacirir
+       gibi aciklamayi kacirir.
+
+    2. **"KESIN DEGIL" BILGISI TASINIYOR.** Bazi yayinlarin saati
+       kurum tarafindan onaylanmamis oluyor (`kesin=False`). Bunu
+       dusurmek, tahmini bir saati kesinmis gibi gostermek demek.
+
+    3. **BEKLENTI ILE ONCEKI DEGER AYRI.** Esik bazen gercek bir
+       piyasa konsensusu, bazen yalnizca ONCEKI deger
+       (`esik_kaynak`). Ikisini "beklenti" diye tek alana koymak,
+       olmayan bir konsensus uydurmak olurdu -- ve surpriz hesabi da
+       o zaman anlamsizlasir. Bu yuzden `esik_kaynak` aynen
+       tasiniyor ve `surpriz` YALNIZCA gercek konsensus varken
+       uretiliyor (hattaki kuralin aynisi).
+    """
+    ad = _dizge(k.get("ad")).strip()
+    an = _dizge(k.get("an")).strip()
+    if not ad or not an:
+        return None
+
+    b = k.get("beklenti")
+    dallar = _alan(b, "dallar", ()) or ()
+    g = k.get("gerceklesen")
+    s = k.get("surpriz")
+
+    kayit = {
+        "ad": ad,
+        "ulke": _dizge(k.get("ulke")),
+        "seri": _dizge(k.get("seri")),
+        "onem": int(k.get("onem") or 0),
+        # SAAT DILIMI: `an` UTC kaymasiyla birlikte ISO; `yerel`
+        # Turkiye saatiyle gosterim. Ikisi birlikte olmazsa istemci
+        # ya yanlis donusturur ya da hic donusturmez.
+        "an": an,
+        "yerel": _dizge(k.get("yerel")),
+        "gun": _dizge(k.get("gun")),
+        "saat": _dizge(k.get("saat")),
+        "saat_dilimi": "Europe/Istanbul",
+        # SAATI KESIN MI: dusurulurse tahmini saat kesinmis gorunur.
+        "kesin": bool(k.get("kesin", False)),
+        # Konsensusun KAYNAGI: okur sayinin nereden geldigini bilmeli.
+        "kaynak": _dizge(k.get("kaynak")),
+        "aciklandi": g is not None,
+    }
+
+    if b is not None:
+        kayit["onceki_deger"] = _dizge(_alan(b, "son_deger"))
+        kayit["onceki_tarih"] = _dizge(_alan(b, "son_tarih"))
+        kayit["esik_deger"] = _dizge(_alan(b, "esik_deger"))
+        # "beklenti" | "onceki" -- istemci bunu OKUMAK ZORUNDA.
+        kayit["esik_kaynak"] = _dizge(_alan(b, "esik_kaynak"))
+        kayit["dallar"] = [_dal(d) for d in dallar]
+    else:
+        kayit["dallar"] = []
+
+    if g is not None:
+        kayit["gerceklesen"] = {
+            "deger": _alan(g, "deger", None),
+            "donem": _dizge(_alan(g, "donem")),
+            "birim": _dizge(_alan(g, "birim")),
+        }
+
+    # SURPRIZ YALNIZCA GERCEK KONSENSUS VARKEN.
+    #
+    # Esik onceki degerse, "beklentinin ustunde geldi" demek yanlis
+    # olur: ortada bir beklenti YOK, yalnizca bir onceki rakam var.
+    if s is not None and kayit.get("esik_kaynak") == "beklenti":
+        kayit["surpriz"] = {
+            "fark": _alan(s, "fark", None),
+            "yon": _dizge(_alan(s, "yon")),
+            "metin": _dizge(_alan(s, "metin")),
+        }
+    return kayit
+
+
+def takvim(kutular: list | None, uretildi: str = "") -> dict:
+    """Ekonomik takvim beslemesi."""
+    ogeler = [k for k in (takvim_ogesi(x) for x in (kutular or []))
+              if k is not None]
+    # EN YAKIN ONCE: takvim ileriye bakiyor, en yakin aciklama en
+    # ustte olmali.
+    ogeler.sort(key=lambda k: (k["an"], -k["onem"]))
+    return {
+        "surum": SURUM,
+        "uretildi": _dizge(uretildi),
+        "saat_dilimi": "Europe/Istanbul",
+        "aciklama": "Saatler Türkiye saatiyle (UTC+3). "
+                    "`kesin` yanlışsa saat kurum tarafından "
+                    "doğrulanmamıştır.",
+        "ogeler": ogeler,
+    }
+
+
 def sayfala(kayitlar: list, boyu: int = SAYFA_BOYU) -> list[list]:
     """Listeyi sabit boylu sayfalara boler. Bos liste -> bir bos sayfa.
 
@@ -372,7 +506,8 @@ def _tarihe_gore(kayitlar: list) -> list:
 
 def uret(analizler: list, haberler: list, gostergeler: dict | None,
          lisanssiz=(), uretildi: str = "",
-         one_cikan: list | None = None) -> dict:
+         one_cikan: list | None = None,
+         takvim_kutulari: list | None = None) -> dict:
     """Butun besleme dosyalarini kurar: {goreli yol: JSON nesnesi}.
 
     DOSYA YAZMIYOR. Saf islev olmasi bilincli: sinama diske hic
@@ -403,6 +538,7 @@ def uret(analizler: list, haberler: list, gostergeler: dict | None,
             cikti[f"{ONEK}/analiz/{tam['slug']}.json"] = tam
 
     cikti[f"{ONEK}/piyasa.json"] = piyasa(gostergeler, lisanssiz)
+    cikti[f"{ONEK}/takvim.json"] = takvim(takvim_kutulari, uretildi)
 
     # ANA SAYFA BESLEMESI. Secim BURADA YAPILMIYOR: `one_cikan`
     # verilirse sitenin kendi one cikan karari tasiniyor, yoksa en
@@ -441,6 +577,10 @@ def uret(analizler: list, haberler: list, gostergeler: dict | None,
                 "kayit": len(a_ozet),
             },
             "piyasa": {"dosya": f"{ONEK}/piyasa.json"},
+            "takvim": {
+                "dosya": f"{ONEK}/takvim.json",
+                "kayit": len(cikti[f"{ONEK}/takvim.json"]["ogeler"]),
+            },
             "one_cikan": {"dosya": f"{ONEK}/one-cikan.json"},
             # Canli tel akisi STATIK DEGIL: worker ucundan geliyor ve
             # on dakikada bir tazeleniyor. Besleme onu kopyalamiyor,

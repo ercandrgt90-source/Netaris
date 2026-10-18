@@ -95,6 +95,58 @@ export type Piyasa = {
   kalemler: PiyasaKalemi[];
 };
 
+/** Koşullu senaryo dalı: eşik aşılırsa / altında kalırsa. */
+export type TakvimDali = {
+  yon: string;
+  baslik: string;
+  /** Neyin neden değiştiği -- akıl yürütme. */
+  mekanizma: string;
+  /** Geçmiş gözlemler -- ölçüm. Mekanizmadan AYRI tutuluyor. */
+  olcum: string;
+};
+
+export type TakvimOgesi = {
+  ad: string;
+  ulke: string;
+  seri: string;
+  onem: number;
+  /** UTC kayması dahil ISO an. */
+  an: string;
+  /** Türkiye saatiyle gösterim. */
+  yerel: string;
+  gun: string;
+  saat: string;
+  saat_dilimi: string;
+  /** false ise saat kurum tarafından DOĞRULANMAMIŞ. */
+  kesin: boolean;
+  kaynak: string;
+  aciklandi: boolean;
+  dallar: TakvimDali[];
+  onceki_deger?: string;
+  onceki_tarih?: string;
+  esik_deger?: string;
+  /**
+   * "beklenti" | "onceki".
+   *
+   * BU ALAN OKUNMAK ZORUNDA: eşik bazen gerçek piyasa konsensüsü,
+   * bazen yalnızca önceki değer. İkisini "beklenti" diye göstermek,
+   * olmayan bir konsensüs uydurmak olur.
+   */
+  esik_kaynak?: string;
+  gerceklesen?: { deger: number | null; donem: string; birim: string };
+  surpriz?: { fark: number | null; yon: string; metin: string };
+};
+
+export type Takvim = {
+  surum: number;
+  uretildi: string;
+  saat_dilimi: string;
+  aciklama: string;
+  ogeler: TakvimOgesi[];
+};
+
+export const takvim = () => getir<Takvim>(`${ONEK}/takvim.json`);
+
 export type Sayfa<T> = {
   surum: number;
   sayfa: number;

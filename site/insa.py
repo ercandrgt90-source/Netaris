@@ -7553,6 +7553,9 @@ def insa() -> int:
         lisanssiz=LISANSSIZ_SERI,
         uretildi=datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         one_cikan=_one_cikanlar,
+        # EKONOMIK TAKVIM. Ayni onbellek ana sayfada da kullaniliyor
+        # -- kalemler iki yerde AYRI hesaplanmiyor.
+        takvim_kutulari=takvim_ondbellek,
     )
     # TEMA BELIRTECLERI. Uygulama rengi `stil.css`ten okuyor, kendi
     # icine GOMMUYOR: palet iki yerde dururken biri duzelir, oteki

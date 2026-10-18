@@ -37,6 +37,10 @@ function Yiginlar() {
           name="analiz/[slug]"
           options={{ title: "Araştırma", headerBackTitle: "Geri" }}
         />
+        <Stack.Screen
+          name="takvim"
+          options={{ title: "Ekonomik takvim", headerBackTitle: "Geri" }}
+        />
       </Stack>
     </>
   );

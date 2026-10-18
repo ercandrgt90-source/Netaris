@@ -42,6 +42,7 @@ export default function AnaSayfa() {
   const p = useVeri(api.piyasa);
   const o = useVeri(api.oneCikan);
   const tl = useVeri(() => api.tel(12));
+  const tk = useVeri(api.takvim);
 
   const haberAc = (slug: string) => router.push(`/haber/${slug}`);
   const analizAc = (slug: string) => router.push(`/analiz/${slug}`);
@@ -172,6 +173,82 @@ export default function AnaSayfa() {
           bosMetin="Araştırma bulunamadı."
         />
       )}
+
+      {/* YAKLASAN VERILER -- takvim ekranina kapi.
+          Ana sayfada tam listeyi basmak yerine en yakin ucu
+          gosterip "tumunu gor" demek: sartnamenin "hepsini ayni
+          anda uzun listeler halinde gosterme" kurali. */}
+      <Baslik
+        metin="Yaklaşan veriler"
+        alt={
+          tk.veri?.ogeler.length
+            ? `${tk.veri.ogeler.length} açıklama · Türkiye saatiyle`
+            : undefined
+        }
+      />
+      <Durum
+        yukleniyor={tk.yukleniyor}
+        hata={tk.hata}
+        bos={!!tk.veri && tk.veri.ogeler.length === 0}
+        bosMetin="Yaklaşan veri açıklaması yok."
+        yenile={tk.yenile}
+      />
+      {tk.veri && tk.veri.ogeler.length > 0 ? (
+        <View
+          style={[
+            s.akis,
+            {
+              backgroundColor: t.renk.panel,
+              borderColor: t.renk.cizgi,
+              borderRadius: t.r.orta,
+            },
+          ]}
+        >
+          {tk.veri.ogeler.slice(0, 3).map((o, i) => (
+            <Pressable
+              key={`${o.seri}-${o.an}`}
+              onPress={() => router.push("/takvim")}
+              accessibilityRole="button"
+              style={[
+                s.akisOge,
+                i > 0
+                  ? {
+                      borderTopWidth: StyleSheet.hairlineWidth,
+                      borderTopColor: t.renk.cizgi,
+                    }
+                  : null,
+              ]}
+            >
+              <Text style={[s.akisSaat, { color: t.renk.vurgu }]}>
+                {o.gun}
+              </Text>
+              <View style={{ flex: 1, gap: 3 }}>
+                <Text style={[s.akisBaslik, { color: t.renk.yazi }]}>
+                  {o.ad}
+                </Text>
+                <Text style={[s.akisKurum, { color: t.renk.notr }]}>
+                  {o.saat}
+                  {/* SAATI KESIN OLMAYAN KALEM BURADA DA ISARETLI:
+                      ana sayfada kesinmis gibi gorunup detayda
+                      "kesinlesmedi" demek celiski olurdu. */}
+                  {o.kesin ? "" : " · saat kesinleşmedi"}
+                  {o.ulke ? ` · ${o.ulke}` : ""}
+                </Text>
+              </View>
+            </Pressable>
+          ))}
+        </View>
+      ) : null}
+
+      <Pressable
+        onPress={() => router.push("/takvim")}
+        accessibilityRole="button"
+        style={[s.tumu, { borderColor: t.renk.cizgiParlak }]}
+      >
+        <Text style={{ color: t.renk.vurgu, fontWeight: "600" }}>
+          Ekonomik takvimin tamamı
+        </Text>
+      </Pressable>
 
       <Pressable
         onPress={() => router.push("/arastirma")}

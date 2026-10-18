@@ -12,8 +12,9 @@
 // YOK ve sebebi yazili. Besleme onlari zaten eliyor
 // (`mobil_besleme.piyasa`), bu ekran da eksikligi gizlemiyor.
 
+import { useRouter } from "expo-router";
 import React from "react";
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import * as api from "../../src/api";
@@ -63,6 +64,7 @@ function grupla(kalemler: api.PiyasaKalemi[]) {
 export default function Piyasalar() {
   const t = useTema();
   const alt = useSafeAreaInsets().bottom;
+  const router = useRouter();
   const p = useVeri(api.piyasa);
 
   return (
@@ -154,6 +156,19 @@ export default function Piyasalar() {
             </View>
           ))}
 
+          {/* TAKVIME KAPI: piyasa hareketi cogu zaman bir veri
+              aciklamasina bagli; ikisi ayri ekranlarda ama bir
+              dokunus uzakta. */}
+          <Pressable
+            onPress={() => router.push("/takvim")}
+            accessibilityRole="button"
+            style={[s.takvim, { borderColor: t.renk.cizgiParlak }]}
+          >
+            <Text style={{ color: t.renk.vurgu, fontWeight: "600" }}>
+              Ekonomik takvim · yaklaşan veri açıklamaları
+            </Text>
+          </Pressable>
+
           <Text style={[s.lisans, { color: t.renk.notr }]}>
             Hisse senedi endeksleri yayımlanmıyor. BIST 100 (Borsa
             İstanbul), S&amp;P 500 ve Dow Jones (S&amp;P Dow Jones
@@ -196,6 +211,16 @@ const s = StyleSheet.create({
   // `tabular-nums` karsiligi: sayilar hizali olsun.
   deger: { fontSize: 16, fontWeight: "700", fontVariant: ["tabular-nums"] },
   fark: { fontSize: 12, fontVariant: ["tabular-nums"] },
+  takvim: {
+    marginHorizontal: 16,
+    marginTop: 18,
+    paddingVertical: 14,
+    borderWidth: 1,
+    borderRadius: 10,
+    alignItems: "center",
+    minHeight: 48,
+    justifyContent: "center",
+  },
   lisans: {
     fontSize: 11,
     lineHeight: 16,
