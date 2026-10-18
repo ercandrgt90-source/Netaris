@@ -421,7 +421,55 @@ if (vdizin?.ogeler?.length) {
   }
 }
 
-console.log("8. tema.json");
+console.log("8. senaryo-kurallari.json");
+const skur = oku("senaryo-kurallari.json");
+dogrula("senaryo kurallari", skur, {
+  surum: "number",
+  olcutler: "array",
+  yonler: "array",
+  ufuklar: "array",
+  sinirlar: "object",
+  notlar: "object",
+});
+if (skur) {
+  // HER OLCUTUN OKUNABILIR ADI OLMALI: ciplak "TP.FE25.OKTG04"
+  // kullaniciya hicbir sey anlatmiyor.
+  const adsiz = skur.olcutler.filter((o) => !o.kod || !o.ad);
+  if (adsiz.length) {
+    dusen.push(`senaryo: ${adsiz.length} olcutte kod ya da ad eksik`);
+  } else gecti += 1;
+
+  if (skur.olcutler.length < 5) {
+    dusen.push(
+      `senaryo: yalnizca ${skur.olcutler.length} olcut --` +
+        " web formu ayristirilamamis olabilir",
+    );
+  } else gecti += 1;
+
+  // UZUNLUK SINIRLARI UYGULAMAYA ULASMALI: kullanicinin sunucudan
+  // hata almasi, girdide uyarilmasindan kotu.
+  for (const alan of ["kosul", "sonuc", "gerekce", "curutme"]) {
+    const s = skur.sinirlar[alan];
+    if (!s || typeof s.en_cok !== "number" || s.en_cok <= 0) {
+      dusen.push(`senaryo: "${alan}" uzunluk siniri yok`);
+    } else gecti += 1;
+  }
+
+  // YON KODLARI worker'in kabul ettikleri olmali.
+  const yonKod = skur.yonler.map((y) => y.kod).sort().join(",");
+  if (yonKod !== "altinda,ustunde") {
+    dusen.push(`senaryo: yon kodlari beklenmedik: ${yonKod}`);
+  } else gecti += 1;
+
+  // CURUTME NOTU TASINMALI: bir senaryoyu bir gorusten ayiran tek
+  // sey, yazarin kendi kendini yanlislayabilecek gelismeyi
+  // onceden yazmasi. Not dusmezse o alan anlamsiz gorunur.
+  if (!skur.notlar.curutme || !skur.notlar.olcut) {
+    dusen.push("senaryo: aciklama notlari eksik");
+  } else gecti += 1;
+}
+
+console.log("9. tema.json");
 const tema = oku("tema.json");
 dogrula("tema", tema, {
   surum: "number",

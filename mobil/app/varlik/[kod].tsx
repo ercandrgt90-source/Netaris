@@ -270,6 +270,25 @@ export default function VarlikDetayi() {
             ) : null}
 
             <Pressable
+              onPress={() =>
+                router.push({
+                  pathname: "/senaryo-yaz",
+                  params: {
+                    capa: v.veri!.yol,
+                    capa_baslik: v.veri!.ad,
+                    capa_tur: "varlik",
+                  },
+                })
+              }
+              accessibilityRole="button"
+              style={[d.dugme, { borderColor: t.renk.vurgu }]}
+            >
+              <Text style={{ color: t.renk.vurgu, fontWeight: "600" }}>
+                Bu varlık için senaryo yaz
+              </Text>
+            </Pressable>
+
+            <Pressable
               onPress={() => Linking.openURL(api.webAdresi(v.veri!.yol))}
               accessibilityRole="link"
               style={[d.dugme, { borderColor: t.renk.cizgiParlak }]}

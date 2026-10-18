@@ -7585,6 +7585,13 @@ def insa() -> int:
         # -- kalemler iki yerde AYRI hesaplanmiyor.
         takvim_kutulari=takvim_ondbellek,
         varliklar=_varlik_beslemesi,
+        # SENARYO OLCUT LISTESI KAYNAGI: web formunun KENDISI.
+        # Uygulamaya ucuncu bir kopya koymak yerine ayni sablon
+        # okunuyor -- gerekce `mobil_besleme.senaryo_olcutleri`
+        # yaninda yazili.
+        uyelik_html=(SABLON / "uyelik.html").read_text(
+            encoding="utf-8") if (SABLON / "uyelik.html").is_file()
+        else "",
     )
     # TEMA BELIRTECLERI. Uygulama rengi `stil.css`ten okuyor, kendi
     # icine GOMMUYOR: palet iki yerde dururken biri duzelir, oteki

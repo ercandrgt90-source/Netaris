@@ -191,6 +191,29 @@ export default function HaberDetayi() {
             </Pressable>
           </View>
 
+          {/* SENARYO YAZ -- CAPA BURADAN GELIYOR.
+              Senaryo neye dayandigini soylemeli; bos bir "senaryo
+              yaz" dugmesi neye bagli oldugu belirsiz metinler
+              uretirdi. Bu yuzden ekran haberden aciliyor. */}
+          <Pressable
+            onPress={() =>
+              router.push({
+                pathname: "/senaryo-yaz",
+                params: {
+                  capa: h.veri!.yol,
+                  capa_baslik: h.veri!.baslik,
+                  capa_tur: "haber",
+                },
+              })
+            }
+            accessibilityRole="button"
+            style={[d.dugme, { borderColor: t.renk.vurgu }]}
+          >
+            <Text style={{ color: t.renk.vurgu, fontWeight: "600" }}>
+              Bu gelişme için senaryo yaz
+            </Text>
+          </Pressable>
+
           <Pressable
             onPress={() => router.back()}
             accessibilityRole="button"

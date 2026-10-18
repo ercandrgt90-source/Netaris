@@ -102,6 +102,35 @@ def esik_gecildi(b: sqlite3.Connection, kod: str, yon: str, esik: float,
         "SELECT deger FROM gosterge WHERE kod = ?"
         "   AND tarih >= ? AND tarih <= ?",
         (kod, baslangic[:10], bitis[:10])).fetchall()
+
+    # SERI `gosterge`DE YOKSA `fiyat` TABLOSUNA BAKILIYOR.
+    #
+    # OLCULEN KUSUR (2026-10-19): `OLCUT_KODLARI` on bes kod
+    # sunuyor ama bu islev yalnizca `gosterge` tablosunu okuyordu.
+    # PAXGUSD (altin) ve XBTUSD (Bitcoin) ise `fiyat` tablosunda --
+    # 337'ser gozlemle, yani VERI VARDI.
+    #
+    # Sonuc sessiz ve gecikmeli: kullanici "Bitcoin 120 binin
+    # uzerine cikarsa" diye OLCULEBILIR bir tetikleyici ayarliyor,
+    # uygulama kabul ediyor, aylar sonra ufku dolunca senaryo
+    # "belirsiz -- XBTUSD serisinde bu donem icin veri bulunamadi"
+    # diye kapaniyordu. Veri oradaydi, yanlis tabloya bakiliyordu.
+    #
+    # `worker.js` zaten su uyariyi tasiyor: "Yarim bir tetikleyici
+    # hic tetikleyici olmamasindan KOTUDUR: kullanici 'ayarladim'
+    # saniyor ama senaryo ufku dolunca yine 'belirsiz' cikiyor."
+    # Kod o uyariyi iki kod icin ihlal ediyordu.
+    #
+    # NEDEN `kapanis`: oteki butun seriler gun basina TEK deger
+    # tasiyor. `yuksek`/`dusuk` kullanmak kriptoyu digerlerinden
+    # farkli bir olcute tabi tutardi -- gun ici bir sicrama
+    # digerlerinde sayilmazken burada sayilirdi. Gun kapanisi
+    # tutarli ve savunulabilir olan.
+    if not r:
+        r = b.execute(
+            "SELECT kapanis FROM fiyat WHERE sembol = ?"
+            "   AND tarih >= ? AND tarih <= ?",
+            (kod, baslangic[:10], bitis[:10])).fetchall()
     if not r:
         return None
     degerler = [x[0] for x in r if x[0] is not None]

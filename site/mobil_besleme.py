@@ -602,6 +602,83 @@ def varlik_dosyalari(kayitlar: list | None, uretildi: str = "") -> dict:
     return cikti
 
 
+_SECENEK = re.compile(
+    r'<option\s+value="([^"]+)"\s*>\s*(.*?)\s*</option>', re.S | re.I)
+
+
+def senaryo_olcutleri(uyelik_html: str) -> list[dict]:
+    """Senaryo formundaki "olculebilir tetikleyici" listesi.
+
+    KAYNAK WEB FORMUNUN KENDISI -- liste burada YENIDEN YAZILMIYOR.
+
+    Ayni liste bugun iki yerde duruyor: `worker.js` (kodlar,
+    dogrulama icin) ve `uyelik.html` (kodlar + okunabilir adlar).
+    Uygulamaya UCUNCU bir kopya koymak, bu depoda defalarca
+    yasanan "iki yer ayrisir" kusurunu bir kat daha buyutmek
+    olurdu -- ustelik renk ya da metin gibi gorunur bir seyde
+    degil, bir senaryonun SONUCLANIP sonuclanmayacaginda.
+
+    `test_senaryo_olcutu.py` uc tarafi birlikte sinıyor: listedeki
+    her kod `worker.js`te de olmali ve depoda COZULEBILMELI.
+    """
+    m = re.search(
+        r'<select\s+name="olcut_kod"\s*>(.*?)</select>',
+        uyelik_html, re.S | re.I)
+    if not m:
+        return []
+    cikti = []
+    for kod, etiket in _SECENEK.findall(m.group(1)):
+        kod = kod.strip()
+        if not kod:
+            continue              # "— seçmeyin —" secenegi
+        # Etiket icindeki olasi ic etiketler temizleniyor.
+        ad = re.sub(r"<[^>]+>", "", etiket).strip()
+        cikti.append({"kod": kod, "ad": ad})
+    return cikti
+
+
+#: Senaryo ufuklari -- `worker.js` icindeki `UFUKLAR` ile AYNI olmali.
+#: Sinama ikisini karsilastiriyor.
+UFUKLAR = ("1 hafta", "1 ay", "3 ay", "6 ay", "1 yıl")
+
+#: Alan uzunluk sinirlari -- `worker.js` ile AYNI olmali.
+#:
+#: Uygulamanin bunlari BILMESI gerekiyor: kullanici 200 karakter
+#: yazip "kaydet"e bastiginda sunucudan hata almasi, 180'de
+#: uyarilmasindan kotu. Sinama sunucudaki degerlerle karsilastiriyor.
+SENARYO_SINIRLARI = {
+    "kosul": {"en_az": 12, "en_cok": 180},
+    "sonuc": {"en_az": 12, "en_cok": 180},
+    "gerekce": {"en_az": 0, "en_cok": 1200},
+    "curutme": {"en_az": 0, "en_cok": 220},
+    "kaynaklar": {"en_az": 0, "en_cok": 500},
+    "capa_baslik": {"en_az": 0, "en_cok": 140},
+}
+
+
+def senaryo_kurallari(uyelik_html: str) -> dict:
+    """Uygulamanin senaryo formunu kurmak icin ihtiyaci olan her sey."""
+    return {
+        "surum": SURUM,
+        "olcutler": senaryo_olcutleri(uyelik_html),
+        "yonler": [
+            {"kod": "ustunde", "ad": "eşiğin üstüne çıkarsa"},
+            {"kod": "altinda", "ad": "eşiğin altına inerse"},
+        ],
+        "ufuklar": list(UFUKLAR),
+        "sinirlar": SENARYO_SINIRLARI,
+        # CURUTME KOSULU neden onemli -- uygulamada da yazili olsun.
+        "notlar": {
+            "curutme": "Bir senaryoyu bir görüşten ayıran tek şey, "
+                       "yazarın kendi kendini yanlışlayabilecek "
+                       "gelişmeyi önceden yazmasıdır. Zorunlu değil.",
+            "olcut": "Koşulunuzu bir göstergeye bağlarsanız ufkunuz "
+                     "dolduğunda senaryo otomatik sonuçlandırılır. "
+                     "Bağlamazsanız 'belirsiz' olarak işaretlenir.",
+        },
+    }
+
+
 def sayfala(kayitlar: list, boyu: int = SAYFA_BOYU) -> list[list]:
     """Listeyi sabit boylu sayfalara boler. Bos liste -> bir bos sayfa.
 
@@ -651,7 +728,8 @@ def uret(analizler: list, haberler: list, gostergeler: dict | None,
          lisanssiz=(), uretildi: str = "",
          one_cikan: list | None = None,
          takvim_kutulari: list | None = None,
-         varliklar: list | None = None) -> dict:
+         varliklar: list | None = None,
+         uyelik_html: str = "") -> dict:
     """Butun besleme dosyalarini kurar: {goreli yol: JSON nesnesi}.
 
     DOSYA YAZMIYOR. Saf islev olmasi bilincli: sinama diske hic
@@ -684,6 +762,9 @@ def uret(analizler: list, haberler: list, gostergeler: dict | None,
     cikti[f"{ONEK}/piyasa.json"] = piyasa(gostergeler, lisanssiz)
     cikti[f"{ONEK}/takvim.json"] = takvim(takvim_kutulari, uretildi)
     cikti.update(varlik_dosyalari(varliklar, uretildi))
+    if uyelik_html:
+        cikti[f"{ONEK}/senaryo-kurallari.json"] = senaryo_kurallari(
+            uyelik_html)
 
     # ANA SAYFA BESLEMESI. Secim BURADA YAPILMIYOR: `one_cikan`
     # verilirse sitenin kendi one cikan karari tasiniyor, yoksa en
@@ -729,6 +810,13 @@ def uret(analizler: list, haberler: list, gostergeler: dict | None,
             "varlik": {
                 "dizin": f"{ONEK}/varlik.json",
                 "kayit": cikti[f"{ONEK}/varlik.json"]["toplam"],
+            },
+            "senaryo": {
+                "liste": "/api/senaryo/hepsi",
+                "kurallar": (f"{ONEK}/senaryo-kurallari.json"
+                             if uyelik_html else None),
+                "yazma_ucu": "/api/senaryo",
+                "statik": False,
             },
             "one_cikan": {"dosya": f"{ONEK}/one-cikan.json"},
             # Canli tel akisi STATIK DEGIL: worker ucundan geliyor ve

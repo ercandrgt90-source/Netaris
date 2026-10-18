@@ -122,9 +122,9 @@ export default function Senaryolar() {
       ListFooterComponent={
         s.veri && s.veri.senaryolar.length > 0 ? (
           <Text style={[d.not, { color: t.renk.notr }]}>
-            Senaryo oluşturmak ve oy vermek için oturum gerekiyor.
-            Uygulama içi giriş bir sonraki sürümde açılıyor; şimdilik
-            sitede yapılabiliyor.
+            Senaryo yazmak için bir haber ya da varlık sayfasını açıp
+            "senaryo yaz" deyin: her senaryo dayandığı gelişmeye
+            bağlıdır. Oy vermek için oturum gerekiyor.
           </Text>
         ) : undefined
       }

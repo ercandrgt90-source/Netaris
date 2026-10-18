@@ -49,6 +49,10 @@ function Yiginlar() {
           name="varlik/[kod]"
           options={{ title: "Varlık", headerBackTitle: "Geri" }}
         />
+        <Stack.Screen
+          name="senaryo-yaz"
+          options={{ title: "Senaryo yaz", headerBackTitle: "Geri" }}
+        />
       </Stack>
     </>
   );

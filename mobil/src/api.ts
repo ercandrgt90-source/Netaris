@@ -357,6 +357,49 @@ export type Senaryo = {
 export const senaryolar = () =>
   getir<{ senaryolar: Senaryo[] }>("/api/senaryo/hepsi");
 
+export type SenaryoKurallari = {
+  surum: number;
+  olcutler: { kod: string; ad: string }[];
+  yonler: { kod: string; ad: string }[];
+  ufuklar: string[];
+  sinirlar: Record<string, { en_az: number; en_cok: number }>;
+  notlar: { curutme: string; olcut: string };
+};
+
+/**
+ * Form kuralları BESLEMEDEN geliyor, uygulamaya gömülü değil.
+ *
+ * Aynı liste worker'da (doğrulama) ve web formunda (etiketler)
+ * duruyor. Üçüncü bir kopya koymak, bir senaryonun sonuçlanıp
+ * sonuçlanmayacağında sessiz ayrışma demekti.
+ */
+export const senaryoKurallari = () =>
+  getir<SenaryoKurallari>(`${ONEK}/senaryo-kurallari.json`);
+
+export type SenaryoGirdisi = {
+  kosul: string;
+  sonuc: string;
+  gerekce?: string;
+  curutme?: string;
+  kaynaklar?: string;
+  capa: string;
+  capa_baslik?: string;
+  capa_tur?: "haber" | "varlik" | "konu";
+  ufuk?: string;
+  olcut_kod?: string;
+  olcut_yon?: string;
+  olcut_esik?: string;
+  /** true -> incelemeye gönder, false -> taslak olarak sakla. */
+  gonder: boolean;
+};
+
+export const senaryoKaydet = (jeton: string, s: SenaryoGirdisi) =>
+  gonder<{ tamam: boolean; id?: number; durum?: string }>(
+    "/api/senaryo",
+    s as unknown as Record<string, unknown>,
+    jeton,
+  );
+
 export type Uye = { ad?: string; eposta?: string; rol?: string } | null;
 
 /** POST istegi. `istemci: "uygulama"` worker'a jetonu istedigimizi
