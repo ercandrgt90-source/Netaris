@@ -41,6 +41,14 @@ function Yiginlar() {
           name="takvim"
           options={{ title: "Ekonomik takvim", headerBackTitle: "Geri" }}
         />
+        <Stack.Screen
+          name="varliklar"
+          options={{ title: "Varlıklar", headerBackTitle: "Geri" }}
+        />
+        <Stack.Screen
+          name="varlik/[kod]"
+          options={{ title: "Varlık", headerBackTitle: "Geri" }}
+        />
       </Stack>
     </>
   );

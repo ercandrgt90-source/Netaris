@@ -459,6 +459,149 @@ def takvim(kutular: list | None, uretildi: str = "") -> dict:
     }
 
 
+#: Varlik detayinda kac gozlem tasiniyor (kivilcim grafigi icin).
+#:
+#: Sayfadaki kivilcim zaten bu seriden ciziliyor; uygulamada da ayni
+#: grafigi cizebilmek icin ham noktalar gerekiyor. 30 nokta bir aylik
+#: hareketi gosteriyor ve dosyayi kucuk tutuyor.
+VARLIK_GOZLEM = 30
+
+#: Varlik detayinda kac haber.
+VARLIK_HABER = 12
+
+
+def varlik_ogesi(v: dict, kunye: dict | None, veri: dict | None,
+                 baglar: list | None, haberler: list | None,
+                 lisanssiz=()) -> dict | None:
+    """Varlik detay kaydi.
+
+    LISANS KURALI BURADA DA GECERLI -- VE IKI KEZ UYGULANIYOR.
+    -------------------------------------------------------
+    `insa.py` degeri zaten suzuyor: `veri = None if seri_kodu in
+    LISANSSIZ_SERI else seri_ozet(...)`. Yani cagiran dogru davraniyor.
+
+    Buna ragmen burada IKINCI bir kapi var ve bu bilincli: bu modul
+    cagiranin dogru davranmasina GUVENMEMELI. Bu depoda tam bu sinif
+    yasandi -- bir kural bir yerde yaziliydi, baska bir yerde ihlal
+    ediliyordu ve hicbir sey patlamiyordu.
+
+    SAYFA KALIYOR, DEGER GITMIYOR: yapisal iliskiler ("S&P 500 ->
+    NASDAQ etkiler") BIZIM ve degerli. Kisitlama VERIYE, isim anmaya
+    degil -- ayni ayrim `test_lisans.py` icinde de yazili.
+    """
+    kod = _dizge(v.get("kod")).strip()
+    yol = _dizge(v.get("yol")).strip()
+    if not kod or not yol:
+        return None
+
+    k = kunye or {}
+    seri_kodu = _dizge(k.get("seri_kodu"))
+    # IKINCI KAPI: cagiran suzmeyi unutursa burada eleniyor.
+    if seri_kodu and seri_kodu in frozenset(lisanssiz or ()):
+        veri = None
+
+    kayit = {
+        "kod": kod,
+        "yol": yol,
+        "ad": _dizge(v.get("ad")) or _dizge(k.get("ad")),
+        "ad_en": _dizge(k.get("ad_en")),
+        "tur": _dizge(v.get("tur")) or _dizge(k.get("tur")),
+        "aciklama": _dizge(k.get("aciklama")),
+        "haber_sayisi": int(v.get("sayi") or 0),
+        # Seri kodu her zaman yaziliyor; DEGER yazilmayabilir.
+        # Ikisi ayri sey: "hangi seri" bir tanim, "kac" bir veri.
+        "seri_kodu": seri_kodu,
+        "veri_var": veri is not None,
+    }
+
+    if veri is not None:
+        gozlem = list(veri.get("seri") or [])[-VARLIK_GOZLEM:]
+        kayit["veri"] = {
+            "deger": _dizge(veri.get("deger")),
+            "birim": _dizge(veri.get("birim")),
+            "degisim": _dizge(veri.get("degisim")),
+            "yon": _dizge(veri.get("yon")),
+            # VERI TARIHI ZORUNLU: sayi tek basina "canli fiyat"
+            # izlenimi veriyor.
+            "tarih": _iso(veri.get("tarih")),
+            "gozlem_sayisi": int(veri.get("gozlem") or 0),
+            "seri": [
+                {"tarih": _iso(_al(g, "tarih")),
+                 "deger": _al(g, "deger", None)}
+                for g in gozlem
+            ],
+        }
+
+    # YAPISAL BAGLAR -- sitenin haber toplamaktan ayrildigi katman.
+    #
+    # `dayanak` tasiniyor: "yapisal" (tanim geregi dogru) ile "veri"
+    # (gozlemden cikarilmis, degisebilir) ayni sey degil ve okur
+    # ayrimi gormeli. Sayfada da boyle basiliyor.
+    kayit["baglar"] = [
+        {
+            "hedef": _dizge(_al(b, "hedef")),
+            "hedef_ad": _dizge(_al(b, "hedef_ad")),
+            "kaynak": _dizge(_al(b, "kaynak")),
+            "kaynak_ad": _dizge(_al(b, "kaynak_ad")),
+            "tur": _dizge(_al(b, "tur")),
+            "aciklama": _dizge(_al(b, "aciklama")),
+            "dayanak": _dizge(_al(b, "dayanak")),
+            "guc": int(_al(b, "guc", 0) or 0),
+            "yon": _dizge(_al(b, "yon")),
+        }
+        for b in (baglar or [])
+    ]
+
+    kayit["haberler"] = [
+        {
+            "baslik": _dizge(_al(h, "baslik")),
+            "yol": _dizge(_al(h, "yol")),
+            "tarih": _iso(_al(h, "tarih")),
+            "kurum": _dizge(_al(h, "kurum")),
+        }
+        for h in (haberler or [])[:VARLIK_HABER]
+        if _dizge(_al(h, "yol"))
+    ]
+    return kayit
+
+
+def varlik_dosyalari(kayitlar: list | None, uretildi: str = "") -> dict:
+    """Varlik dizini + her varlik icin detay dosyasi."""
+    ogeler = [k for k in (kayitlar or []) if k]
+    cikti: dict = {}
+    for k in ogeler:
+        cikti[f"{ONEK}/varlik/{k['kod'].lower()}.json"] = k
+
+    # DIZIN: detayin TAMAMINI tasimiyor -- liste ekrani icin yeterli
+    # alanlar. Tam detayi dizine koymak, 75 varligin butun
+    # baglarini ve haberlerini ilk acilista indirmek olurdu.
+    dizin = sorted(
+        (
+            {
+                "kod": k["kod"],
+                "yol": k["yol"],
+                "ad": k["ad"],
+                "tur": k["tur"],
+                "haber_sayisi": k["haber_sayisi"],
+                "veri_var": k["veri_var"],
+                "deger": (k.get("veri") or {}).get("deger", ""),
+                "yon": (k.get("veri") or {}).get("yon", ""),
+                "tarih": (k.get("veri") or {}).get("tarih", ""),
+                "dosya": f"{ONEK}/varlik/{k['kod'].lower()}.json",
+            }
+            for k in ogeler
+        ),
+        key=lambda x: (-x["haber_sayisi"], x["ad"]),
+    )
+    cikti[f"{ONEK}/varlik.json"] = {
+        "surum": SURUM,
+        "uretildi": _dizge(uretildi),
+        "toplam": len(dizin),
+        "ogeler": dizin,
+    }
+    return cikti
+
+
 def sayfala(kayitlar: list, boyu: int = SAYFA_BOYU) -> list[list]:
     """Listeyi sabit boylu sayfalara boler. Bos liste -> bir bos sayfa.
 
@@ -507,7 +650,8 @@ def _tarihe_gore(kayitlar: list) -> list:
 def uret(analizler: list, haberler: list, gostergeler: dict | None,
          lisanssiz=(), uretildi: str = "",
          one_cikan: list | None = None,
-         takvim_kutulari: list | None = None) -> dict:
+         takvim_kutulari: list | None = None,
+         varliklar: list | None = None) -> dict:
     """Butun besleme dosyalarini kurar: {goreli yol: JSON nesnesi}.
 
     DOSYA YAZMIYOR. Saf islev olmasi bilincli: sinama diske hic
@@ -539,6 +683,7 @@ def uret(analizler: list, haberler: list, gostergeler: dict | None,
 
     cikti[f"{ONEK}/piyasa.json"] = piyasa(gostergeler, lisanssiz)
     cikti[f"{ONEK}/takvim.json"] = takvim(takvim_kutulari, uretildi)
+    cikti.update(varlik_dosyalari(varliklar, uretildi))
 
     # ANA SAYFA BESLEMESI. Secim BURADA YAPILMIYOR: `one_cikan`
     # verilirse sitenin kendi one cikan karari tasiniyor, yoksa en
@@ -580,6 +725,10 @@ def uret(analizler: list, haberler: list, gostergeler: dict | None,
             "takvim": {
                 "dosya": f"{ONEK}/takvim.json",
                 "kayit": len(cikti[f"{ONEK}/takvim.json"]["ogeler"]),
+            },
+            "varlik": {
+                "dizin": f"{ONEK}/varlik.json",
+                "kayit": cikti[f"{ONEK}/varlik.json"]["toplam"],
             },
             "one_cikan": {"dosya": f"{ONEK}/one-cikan.json"},
             # Canli tel akisi STATIK DEGIL: worker ucundan geliyor ve

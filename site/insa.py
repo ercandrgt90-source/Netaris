@@ -6082,7 +6082,8 @@ def varlik_yolu(kod: str) -> str:
 
 def varlik_sayfalari(ortam, yaz, ortak: dict,
                      dizin_yaz: bool = True,
-                     tarihler: dict | None = None) -> list[str]:
+                     tarihler: dict | None = None,
+                     besleme: list | None = None) -> list[str]:
     """Varlik sayfalarini uretir: /varlik/<kod>/.
 
     Bu sayfalar sitenin arama motorundaki tasiyicisi: "Fed faiz karari"
@@ -6138,6 +6139,9 @@ def varlik_sayfalari(ortam, yaz, ortak: dict,
                 # de yazili.
                 # TEK SORGU: asagida hem sablona hem `lastmod`a gidiyor.
                 _gecmis = _varlik.varlik_gecmisi(b, kod, 30)
+                # TEK SORGU: hem sablona hem beslemeye ayni liste
+                # gidiyor. Iki kez sormak, iki farkli an demek.
+                _baglar = _varlik.baglar(b, kod)
                 seri_kodu = (k or {}).get("seri_kodu")
                 veri = (None if seri_kodu in LISANSSIZ_SERI
                         else _varlik.seri_ozet(b, seri_kodu))
@@ -6146,12 +6150,25 @@ def varlik_sayfalari(ortam, yaz, ortak: dict,
                         **ortak, yol=v["yol"], v=v, kunye=k, veri=veri,
                         kivilcim=(kivilcim.cizgi(veri["seri"])
                                   if veri else ""),
-                        baglar=_varlik.baglar(b, kod),
+                        baglar=_baglar,
                         haberler=_gecmis))
                 # Varlik sayfasi, o varliga yeni haber baglandikca
                 # degisiyor. `varlik_gecmisi` yeniden eskiye sirali.
                 if tarihler is not None and _gecmis:
                     lastmod_kur(tarihler, v["yol"], _gecmis[0].get("tarih"))
+                # MOBIL BESLEMESI AYNI DONGUDE TOPLANIYOR.
+                #
+                # Ikinci bir dongu yazmak, ayni sorgulari ikinci kez
+                # kosturmak demekti; dahasi iki dongu zamanla
+                # ayrisirdi (birine eklenen suzgec otekine
+                # eklenmeyi unutulur). `veri` zaten LISANS SUZGECINDEN
+                # GECMIS halde -- besleme onu oldugu gibi aliyor.
+                if besleme is not None:
+                    _kayit = mobil_besleme.varlik_ogesi(
+                        v, k, veri, _baglar, _gecmis,
+                        lisanssiz=LISANSSIZ_SERI)
+                    if _kayit:
+                        besleme.append(_kayit)
                 yollar.append(v["yol"])
                 if n >= DIZIN_ESIGI:
                     dizin.append(v)
@@ -7099,6 +7116,16 @@ def insa() -> int:
     yollar.append("/tasarim/")
 
     # Gundem -- resmi kurum duyurulari
+    # MOBIL BESLEMESI ICIN VARLIK KAYITLARI.
+    #
+    # TANIM BLOGUN DISINDA: varlik sayfalari
+    # `if gundem.get("haberler")` icinde uretiliyor ama besleme
+    # cagrisi o blogun DISINDA. Tanim iceride kalsaydi, haber
+    # olmayan bir kosuda `NameError` ile INSANIN TAMAMI coKERDI --
+    # ve bu yalnizca gundem bos oldugunda, yani en kotu anda
+    # ortaya cikardi.
+    _varlik_beslemesi: list = []
+
     if gundem.get("haberler"):
         # Adres atamasi, arsiv ve varlik indeksi YUKARIDA yapildi --
         # `ortak` sozlugu (son dakika seridi) onlara bagli ve o sozluk
@@ -7120,7 +7147,8 @@ def insa() -> int:
         # Sonuc: sayfalar var, kapisi yok. Okur onlara yalnizca izleme
         # listesinden ulasiyor.
         for v_yol in varlik_sayfalari(ortam, yaz, ortak, dizin_yaz=False,
-                                      tarihler=_lastmod):
+                                      tarihler=_lastmod,
+                                      besleme=_varlik_beslemesi):
             yollar.append(v_yol)
         varlik_sayfasi_olan = {
             y.strip("/").split("/")[-1].upper().replace("-", "_")
@@ -7556,6 +7584,7 @@ def insa() -> int:
         # EKONOMIK TAKVIM. Ayni onbellek ana sayfada da kullaniliyor
         # -- kalemler iki yerde AYRI hesaplanmiyor.
         takvim_kutulari=takvim_ondbellek,
+        varliklar=_varlik_beslemesi,
     )
     # TEMA BELIRTECLERI. Uygulama rengi `stil.css`ten okuyor, kendi
     # icine GOMMUYOR: palet iki yerde dururken biri duzelir, oteki

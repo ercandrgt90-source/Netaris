@@ -330,7 +330,98 @@ if (takvim) {
   }
 }
 
-console.log("7. tema.json");
+console.log("7. varlik.json ve varlik detayi");
+const vdizin = oku("varlik.json");
+dogrula("varlik dizini", vdizin, {
+  surum: "number",
+  uretildi: "string",
+  toplam: "number",
+  ogeler: "array",
+});
+if (vdizin?.ogeler?.length) {
+  dogrula("varlik dizin ogesi", vdizin.ogeler[0], {
+    kod: "string",
+    yol: "string",
+    ad: "string",
+    tur: "string",
+    haber_sayisi: "number",
+    veri_var: "boolean",
+    deger: "string",
+    yon: "string",
+    tarih: "string",
+    dosya: "string",
+  });
+
+  // DIZIN DETAYIN TAMAMINI TASIMAMALI: 75 varligin butun baglarini
+  // ve haberlerini ilk acilista indirmek olurdu.
+  const sismis = vdizin.ogeler.filter((x) => x.baglar || x.haberler);
+  if (sismis.length) {
+    dusen.push(`varlik dizini: ${sismis.length} ogede detay alanlari var`);
+  } else gecti += 1;
+
+  // DIZIN HABER SAYISINA GORE SIRALI.
+  const say = vdizin.ogeler.map((x) => x.haber_sayisi);
+  const sirali = [...say].sort((a, b) => b - a);
+  if (say.join("|") !== sirali.join("|")) {
+    dusen.push("varlik dizini: haber sayisina gore SIRALI DEGIL");
+  } else gecti += 1;
+
+  // DEGERI OLMAYAN OGEDE `deger` BOS OLMALI -- tersi, yayimlanmamasi
+  // gereken bir degeri dizinde sizdirmak demek.
+  const celiski = vdizin.ogeler.filter((x) => !x.veri_var && x.deger);
+  if (celiski.length) {
+    dusen.push(
+      `varlik dizini: ${celiski.length} ogede veri_var=false AMA deger dolu`,
+    );
+  } else gecti += 1;
+
+  // DETAY DOSYALARI: ilk ucu acilabilmeli.
+  for (const o of vdizin.ogeler.slice(0, 3)) {
+    const yol = o.dosya.replace(/^\/v1\//, "");
+    const det = oku(yol);
+    if (!det) {
+      dusen.push(`varlik detayi YOK: ${yol}`);
+      continue;
+    }
+    dogrula(`varlik detayi ${o.kod}`, det, {
+      kod: "string",
+      yol: "string",
+      ad: "string",
+      tur: "string",
+      aciklama: "string",
+      haber_sayisi: "number",
+      seri_kodu: "string",
+      veri_var: "boolean",
+      baglar: "array",
+      haberler: "array",
+    });
+  }
+
+  // LISANS: LISANSSIZ SERIYE BAGLI VARLIGIN DEGERI OLMAMALI.
+  //
+  // Olculdu (yayinda, duzeltildi): /varlik/nasdaq/, /varlik/sp500/
+  // ve /varlik/vix/ sayfalari "26.180 endeks +%0,4" yaziyordu --
+  // seriyi yeniden yayimliyorduk ve lisans bizde degil.
+  const LISANSSIZ = ["SP500", "DJIA", "NASDAQCOM", "VIXCLS"];
+  const kacak = [];
+  let bakilan = 0;
+  for (const o of vdizin.ogeler) {
+    const det = oku(o.dosya.replace(/^\/v1\//, ""));
+    if (!det) continue;
+    bakilan += 1;
+    if (LISANSSIZ.includes(det.seri_kodu) && det.veri) {
+      kacak.push(det.kod);
+    }
+  }
+  if (kacak.length) {
+    dusen.push(`varlik: LISANSSIZ serinin DEGERI yayimlanmis: ${kacak}`);
+  } else {
+    gecti += 1;
+    console.log(`    ${bakilan} varlik detayi lisans acisindan tarandi`);
+  }
+}
+
+console.log("8. tema.json");
 const tema = oku("tema.json");
 dogrula("tema", tema, {
   surum: "number",

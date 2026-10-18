@@ -147,6 +147,73 @@ export type Takvim = {
 
 export const takvim = () => getir<Takvim>(`${ONEK}/takvim.json`);
 
+/** Yapısal bağ: "X, Y'yi etkiler". Sitenin haber toplamaktan
+ *  ayrıldığı katman. */
+export type VarlikBagi = {
+  hedef: string;
+  hedef_ad: string;
+  kaynak: string;
+  kaynak_ad: string;
+  tur: string;
+  aciklama: string;
+  /** "yapisal" (tanım gereği doğru) | "veri" (gözlemden çıkarılmış,
+   *  değişebilir) | "kaynak". İkisi aynı şey DEĞİL. */
+  dayanak: string;
+  guc: number;
+  yon: string;
+};
+
+export type VarlikVerisi = {
+  deger: string;
+  birim: string;
+  degisim: string;
+  yon: string;
+  tarih: string;
+  gozlem_sayisi: number;
+  seri: { tarih: string; deger: number | null }[];
+};
+
+export type Varlik = {
+  kod: string;
+  yol: string;
+  ad: string;
+  ad_en: string;
+  tur: string;
+  aciklama: string;
+  haber_sayisi: number;
+  seri_kodu: string;
+  /**
+   * false ise DEĞER YAYIMLANMIYOR.
+   *
+   * Sebebi lisans olabilir (BIST, S&P, Nasdaq, VIX) ya da seri hiç
+   * olmayabilir (ülke, kurum). İkisi de "değer gösterme" demek.
+   */
+  veri_var: boolean;
+  veri?: VarlikVerisi;
+  baglar: VarlikBagi[];
+  haberler: { baslik: string; yol: string; tarih: string; kurum: string }[];
+};
+
+export type VarlikDizinOgesi = {
+  kod: string;
+  yol: string;
+  ad: string;
+  tur: string;
+  haber_sayisi: number;
+  veri_var: boolean;
+  deger: string;
+  yon: string;
+  tarih: string;
+  dosya: string;
+};
+
+export const varlikDizini = () =>
+  getir<{ surum: number; uretildi: string; toplam: number;
+          ogeler: VarlikDizinOgesi[] }>(`${ONEK}/varlik.json`);
+
+export const varlik = (kod: string) =>
+  getir<Varlik>(`${ONEK}/varlik/${encodeURIComponent(kod.toLowerCase())}.json`);
+
 export type Sayfa<T> = {
   surum: number;
   sayfa: number;

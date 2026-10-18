@@ -330,6 +330,100 @@ esit([o["ad"] for o in _sira["ogeler"]], ["erken", "orta", "geç"],
 esit(M.takvim(None, "")["ogeler"], [], "takvim yoksa boş liste")
 
 print("")
+print("8c. VARLIK BESLEMESI")
+
+_V = {"kod": "FED_FAIZ", "yol": "/varlik/fed-faiz/", "ad": "Fed politika faizi",
+      "tur": "gosterge", "sayi": 42}
+_KUNYE = {"kod": "FED_FAIZ", "ad": "Fed politika faizi",
+          "ad_en": "Fed Funds Rate", "tur": "gosterge",
+          "aciklama": "ABD gecelik politika faizi.", "seri_kodu": "DFF",
+          "onem": 100}
+_VERI = {"deger": "%3,88", "birim": "", "degisim": "değişmedi",
+         "yon": "yatay", "tarih": "2026-10-15", "gozlem": 60,
+         "seri": [{"tarih": f"2026-09-{g:02d}", "deger": 3.8 + g / 100}
+                  for g in range(1, 29)]}
+_BAGLAR = [{"kaynak": "FED_FAIZ", "hedef": "DXY", "tur": "etkiler",
+            "aciklama": "Faiz farkı sermaye akımını belirler.",
+            "dayanak": "yapisal", "guc": 3,
+            "kaynak_ad": "Fed politika faizi", "hedef_ad": "Dolar endeksi",
+            "yon": "cift"}]
+_HABERLER = [{"baslik": "Fed kararı", "yol": "/haber/fed-karari/",
+              "tarih": "2026-10-17", "kurum": "Dünya"}]
+
+_o = M.varlik_ogesi(_V, _KUNYE, _VERI, _BAGLAR, _HABERLER, lisanssiz=())
+esit(_o["kod"], "FED_FAIZ", "kod taşınıyor")
+esit(_o["veri_var"], True, "veri var işareti")
+esit(_o["veri"]["deger"], "%3,88", "değer taşınıyor")
+esit(_o["veri"]["tarih"], "2026-10-15", "VERİ TARİHİ taşınıyor")
+esit(len(_o["veri"]["seri"]), 28, "gözlem serisi taşınıyor")
+esit(_o["veri"]["gozlem_sayisi"], 60, "toplam gözlem sayısı ayrı")
+
+# --- LISANS: DEGER GITMIYOR, SAYFA KALIYOR ---
+#
+# Olculdu (yayinda): /varlik/nasdaq/, /varlik/sp500/ ve /varlik/vix/
+# sayfalari "26.180 endeks +%0,4" yaziyordu -- yani seriyi yeniden
+# yayimliyorduk. Lisans bizde degil.
+#
+# Kisitlama VERIYE, isim anmaya degil: yapisal iliskiler BIZIM.
+_lis = M.varlik_ogesi(_V, _KUNYE, _VERI, _BAGLAR, _HABERLER,
+                      lisanssiz={"DFF"})
+esit(_lis["veri_var"], False, "LİSANSSIZ seride veri_var FALSE")
+esit("veri" in _lis, False, "LİSANSSIZ serinin DEĞERİ hiç yazılmıyor")
+esit(_lis["seri_kodu"], "DFF",
+     "seri KODU yine yazılı (tanım, veri değil)")
+esit(len(_lis["baglar"]), 1, "yapısal bağlar KALIYOR -- onlar bizim")
+esit(len(_lis["haberler"]), 1, "haber arşivi de kalıyor")
+esit(_lis["aciklama"], "ABD gecelik politika faizi.", "tanım kalıyor")
+
+# --- BAGLARDA DAYANAK AYRIMI ---
+# "yapisal" (tanim geregi dogru) ile "veri" (gozlemden cikarilmis,
+# degisebilir) ayni sey degil; okur ayrimi gormeli.
+esit(_o["baglar"][0]["dayanak"], "yapisal", "bağın dayanağı taşınıyor")
+esit(_o["baglar"][0]["guc"], 3, "bağ gücü taşınıyor")
+
+# --- EKSIK KAYIT ELENIYOR ---
+esit(M.varlik_ogesi({"kod": "", "yol": "/x/"}, None, None, None, None),
+     None, "kodu olmayan varlık eleniyor")
+esit(M.varlik_ogesi({"kod": "X", "yol": ""}, None, None, None, None),
+     None, "yolu olmayan varlık eleniyor")
+# Kunyesiz varlik COKMEMELI: depoda kunyesi olmayan kod olabilir.
+_bos = M.varlik_ogesi({"kod": "X", "yol": "/varlik/x/", "ad": "X",
+                       "tur": "gosterge", "sayi": 0},
+                      None, None, None, None)
+esit(_bos is not None, True, "künyesiz varlık çökmüyor")
+esit(_bos["veri_var"], False, "künyesiz varlıkta veri yok")
+esit(_bos["baglar"], [], "bağ yoksa boş liste")
+
+# --- SAYFASI OLMAYAN HABER GIRMIYOR ---
+_h = M.varlik_ogesi(_V, _KUNYE, None, None,
+                    [{"baslik": "yolsuz", "yol": "", "tarih": "2026-01-01"},
+                     {"baslik": "yollu", "yol": "/haber/a/",
+                      "tarih": "2026-01-02"}])
+esit([x["baslik"] for x in _h["haberler"]], ["yollu"],
+     "yolu olmayan haber beslemeye girmiyor")
+
+# --- DIZIN: DETAYIN TAMAMINI TASIMIYOR ---
+# 75 varligin butun baglarini ve haberlerini ilk acilista indirmek
+# olurdu.
+_d = M.varlik_dosyalari([_o, _bos], "2026-10-19T00:00:00Z")
+esit("/v1/varlik.json" in _d, True, "dizin dosyası")
+esit("/v1/varlik/fed_faiz.json" in _d, True, "detay dosyası (küçük harf)")
+_dz = _d["/v1/varlik.json"]
+esit(_dz["toplam"], 2, "dizin toplamı")
+esit("baglar" in _dz["ogeler"][0], False, "DİZİNDE bağlar YOK")
+esit("haberler" in _dz["ogeler"][0], False, "DİZİNDE haberler YOK")
+esit(_dz["ogeler"][0]["kod"], "FED_FAIZ",
+     "dizin haber sayısına göre sıralı (42 > 0)")
+esit(_dz["ogeler"][0]["dosya"], "/v1/varlik/fed_faiz.json",
+     "dizin detay dosyasını gösteriyor")
+# LISANSSIZ VARLIK DIZINDE DE DEGERSIZ.
+_dl = M.varlik_dosyalari([_lis], "")["/v1/varlik.json"]
+esit(_dl["ogeler"][0]["deger"], "", "lisanssız varlık DİZİNDE de değersiz")
+esit(_dl["ogeler"][0]["veri_var"], False, "dizinde de işaretli")
+esit(M.varlik_dosyalari(None, "")["/v1/varlik.json"]["toplam"], 0,
+     "varlık yoksa boş dizin (çökmüyor)")
+
+print("")
 print("9. SAYFALAMA")
 _kayit = [{"slug": f"k{i}", "tarih": "2026-10-18"} for i in range(50)]
 _s = M.sayfala(_kayit, 24)

@@ -156,6 +156,18 @@ export default function Piyasalar() {
             </View>
           ))}
 
+          {/* VARLIK DIZININE KAPI: serit yalnizca 10 kalem
+              gosteriyor; 75 varligin tamami burada. */}
+          <Pressable
+            onPress={() => router.push("/varliklar")}
+            accessibilityRole="button"
+            style={[s.takvim, { borderColor: t.renk.cizgiParlak }]}
+          >
+            <Text style={{ color: t.renk.vurgu, fontWeight: "600" }}>
+              Tüm varlıklar · ülkeler, kurumlar, göstergeler
+            </Text>
+          </Pressable>
+
           {/* TAKVIME KAPI: piyasa hareketi cogu zaman bir veri
               aciklamasina bagli; ikisi ayri ekranlarda ama bir
               dokunus uzakta. */}
