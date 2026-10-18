@@ -159,6 +159,19 @@ export default function AnaSayfa() {
         </View>
       ) : null}
 
+      {/* TUM HABERLER -- ana sayfada sekiz one cikan var, beslemede
+          1.000'den fazla haber. Gezilebilir bir ekran olmadan
+          gerisi okura ulasmiyordu. */}
+      <Pressable
+        onPress={() => router.push("/haberler")}
+        accessibilityRole="button"
+        style={[s.tumu, { borderColor: t.renk.cizgiParlak }]}
+      >
+        <Text style={{ color: t.renk.vurgu, fontWeight: "600" }}>
+          Tüm haberler ve canlı akış
+        </Text>
+      </Pressable>
+
       {/* ---- ONE CIKAN ARASTIRMALAR ---- */}
       <Baslik metin="Öne çıkan araştırmalar" />
       {o.veri?.analizler.length ? (
