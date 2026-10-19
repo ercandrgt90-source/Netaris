@@ -117,6 +117,27 @@
       "foto_atif": "Myotus · CC-BY-4.0"
     },
     {
+      "baslik": "Enerji Bakanlığı, Savunma Üretim Yasası Finansmanında 42 Milyon $ ile Anayasa Boru Hattı Projesini İlerletiyor",
+      "baslik_kaynak": "Energy Department Advances Constitution Pipeline Project with $42 Million in Defense Production Act Funding",
+      "ozet": "The U.S. Department of Energy announced today that it will use up to $42 million in Defense Production Act Title III funding to advance the development of a proposed 125-mile natural gas pipeline from Pennsylvania to New York.",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": false,
+      "bolge": "DUNYA",
+      "adres": "https://www.energy.gov/articles/energy-department-advances-constitution-pipeline-project-42-million-defense-production-act",
+      "kurum": "DOE",
+      "kurum_tam": "ABD Enerji Bakanlığı",
+      "konu": "Enerji",
+      "tarih": "2026-10-19",
+      "tarih_gorunur": "19 Ekim 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/enerji-20-09c93149.jpg",
+      "foto_atif": "MBH · CC-BY-4.0"
+    },
+    {
       "baslik": "Google: 21 Ekim 2026'dan itibaren, BAE'deki kripto borsası, cüzdan, CFD ve forex reklamverenleri Google sertifikalıysa reklam yayınlayabilir. $GOOGL",
       "baslik_kaynak": "Google: From Oct 21st 2026, crypto exchange, wallet, CFD and forex advertisers in UAE may run ads if Google-certified. $GOOGL",
       "ozet": "",
@@ -2599,27 +2620,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/jeopolitik-15-ccd8ab8d.jpg",
       "foto_atif": "usepagov · PDM"
-    },
-    {
-      "baslik": "ePayments Systems Limited özel idareye girdi",
-      "baslik_kaynak": "ePayments Systems Limited enters special administration",
-      "ozet": "On 15 October 2026, ePayments Systems Limited (EPS) entered special administration. Mark Boast and Allister Manson of Opus Restructuring LLP (Opus) have been appointed as joint special administrators.",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": false,
-      "bolge": "DUNYA",
-      "adres": "https://www.fca.org.uk/news/news-stories/epayments-systems-limited-enters-special-administration",
-      "kurum": "FCA",
-      "kurum_tam": "Birleşik Krallık Finansal Davranış Otoritesi",
-      "konu": "Düzenleme",
-      "tarih": "2026-10-15",
-      "tarih_gorunur": "15 Ekim 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/duzenleme-7-7da0b0d6.jpg",
-      "foto_atif": "Myotus · CC-BY-4.0"
     }
   ],
   "sinir_notu": "Yukarıdaki maddeler yapısal aktarım kanallarıdır, öngörü değildir. Etkinin ne zaman ve ne ölçüde görüleceği kur seviyesi, vergi düzenlemeleri ve sözleşme yapılarına bağlı olarak değişir; bu sayfada bir büyüklük tahmini yapılmamaktadır."
