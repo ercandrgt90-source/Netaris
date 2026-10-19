@@ -33,6 +33,34 @@ metnin iki kez cikmasi, vaadin tutulmamasi demek -- ve sessiz olur:
 sayfa calisir, kutular dolu gorunur, okur yalnizca "bunu okumustum"
 hissi tasir. Korunan yer burasi.
 
+"KUTU YOK" ILE "MEKANIZMA BOZUK" AYRI SEYLER
+--------------------------------------------
+Bu dosya 2026-10-20'de dagitimi DORT SAATTEN FAZLA durdurdu. CI
+kosusunda `_ozel_toplam > 0` dustu -- ama kusur yoktu:
+
+    0 yorum uretildi, 5 reddedildi, 23 aday atlandi
+    ai: 3 yorum sayfada karsiligi olmayan sayi tasidigi icin BASILMADI
+
+Yani kutu basilmadi cunku BASILACAK YORUM YOKTU. Ucretsiz saglayici
+o kosuda hicbir sey uretmedi, uretilen 3 tanesi de kalite denetiminden
+gecemedi. Deponun KURALI CALISTI ve sonucu "sinama kirmizi" oldu.
+
+Ozgun kaygi dogruydu: kutu hic bulunmazsa tekrar denetimi atil kalir.
+Yanlis olan OLCUTtu -- "bu kosuda kutu var mi" sorusu, "mekanizma
+duruyor mu" sorusunun cevabi degil. Ilki ucretsiz AI kotasina bagli ve
+her gun degisiyor; ikincisi kodda duruyor.
+
+Mekanizma artik ICERIKTEN BAGIMSIZ olculuyor:
+
+  1. Uretilen sayfada HERHANGI bir yorum kutusu var mi (`_tum_kutu`).
+     Yoksa ya sablondaki biçimlendirme ya buradaki desen cürümüs --
+     gercek kusur, kirmizi.
+  2. Sablon `Netaris yorumu` dalini hala basiyor mu. Ozellik silinirse
+     kirmizi; "yorum yok" diye sessizce gecmiyor.
+
+Ikisi de yesilken `_ozel_toplam == 0` ise: korunacak kutu yok, sebebi
+EKRANA YAZILIYOR, kosu yesil kaliyor.
+
 NE SINANMIYOR
 -------------
 Metnin KALITESI degil, AYNI SAYFADA BENZERSIZ olmasi. Kalite ayri
@@ -78,8 +106,36 @@ def _sade(parca: str) -> str:
     return re.sub(r"\s+", " ", re.sub(r"<[^>]+>", "", parca)).strip()
 
 
+def _sablon_dali_var() -> bool:
+    """Sablon `ai_yorum_kart` dalinda `_OZEL_ETIKET` basiyor mu.
+
+    "Yorum yok" ile "ozellik kaldirilmis" ayri seyler. Birincisi
+    normal, ikincisi kusur -- ve yalnizca uretilen HTML'e bakarak
+    ikisi ayirt edilemiyor: yorum uretilmeyen bir kosuda ikisi de
+    sifir kutu verir. Ayrim KAYNAKTAN okunuyor.
+    """
+    _s = _SITE / "sablonlar" / "gundem.html"
+    if not _s.exists():
+        return False
+    _ham = _s.read_text(encoding="utf-8", errors="replace")
+    # `{% if h.ai_yorum_kart %}` ile bir sonraki dal arasini al:
+    # etiket BU dalin icinde olmali. Baska bir dala tasinmis olsa
+    # (ornegin kaynak ozetine) vaat tutulmamis olurdu.
+    _dal = re.search(r"\{%-?\s*if\s+h\.ai_yorum_kart\s*-?%\}(.*?)"
+                     r"\{%-?\s*(?:elif|else|endif)(?![a-z])", _ham, re.S)
+    if not _dal:
+        return False
+    return _OZEL_ETIKET in _sade(_dal.group(1)).lower()
+
+
+_SABLON_DALI = _sablon_dali_var()
+
 _bakilan = 0
 _ozel_toplam = 0
+#: Etiketi NE OLURSA OLSUN bulunan kutu sayisi. Mekanizmanin
+#: canliligi bununla olculuyor -- "Bu neden kritik?" ve kaynak ozeti
+#: dallari AI kotasina bagli degil, her kosuda basiliyor.
+_tum_kutu = 0
 _tekrar: list[str] = []
 for _ad in _SAYFALAR:
     _p = _C / _ad
@@ -89,21 +145,29 @@ for _ad in _SAYFALAR:
     _metinler: collections.Counter = collections.Counter()
     for _m in _KUTU.finditer(_p.read_text(encoding="utf-8",
                                           errors="replace")):
+        _metin = _sade(_m.group(2))
+        if not _metin:
+            continue
+        _tum_kutu += 1
         if _sade(_m.group(1)).lower() != _OZEL_ETIKET:
             continue
-        _metin = _sade(_m.group(2))
-        if _metin:
-            _metinler[_metin] += 1
+        _metinler[_metin] += 1
     _ozel_toplam += sum(_metinler.values())
     for _metin, _kac in _metinler.items():
         if _kac > 1:
             _tekrar.append(f"{_ad}: {_kac}x  {_metin[:70]}")
 
 esit(_bakilan > 0, True, f"liste sayfalari bulundu ({_bakilan})")
-# Kutu HIC bulunmazsa sinama sessizce yesil doner ve hicbir sey
-# korumaz. Varligin kendisi ayrica dogrulaniyor.
-esit(_ozel_toplam > 0, True,
-     f"habere ozel yorum kutusu bulundu ({_ozel_toplam})")
+
+# MEKANIZMA CANLI MI -- gerekce dosya basindaki bolumde.
+esit(_tum_kutu > 0, True, f"kart yorum kutusu uretiliyor ({_tum_kutu})")
+esit(_SABLON_DALI, True, "sablon 'Netaris yorumu' dalini hala basiyor")
+
+if _ozel_toplam == 0:
+    # SESSIZ GECIS YOK: tekrar denetiminin neden bos dondugu yaziliyor.
+    print("  not    bu kosuda habere ozel yorum kutusu yok -- yorum"
+          " uretilmemis ya da denetimden gecmemis; tekrar denetimi"
+          " bos donuyor")
 if _tekrar:
     print("\n  AYNI YORUM BIRDEN COK KARTTA:")
     for _t in _tekrar[:8]:
