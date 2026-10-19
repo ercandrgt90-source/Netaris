@@ -1030,6 +1030,13 @@ async function hesapSil(istek, env, u) {
     db.prepare("DELETE FROM yazi WHERE uye_id = ?").bind(u.id),
     db.prepare("DELETE FROM begeni WHERE uye_id = ?").bind(u.id),
     db.prepare("DELETE FROM oturum WHERE uye_id = ?").bind(u.id),
+    /* CIHAZ KAYDI DA SILINIYOR.
+       Sema `ON DELETE SET NULL` diyor -- yani cihaz misafir olarak
+       kalabilirdi. Ama "hesabimi sil" diyen kisi KENDISINE BAGLI
+       her seyin gitmesini bekler; bildirim kaydini "sahipsiz" diye
+       birakmak gereksiz kisisel veri tutmak olurdu.
+       Misafir cihazlar (uye_id NULL) etkilenmiyor. */
+    db.prepare("DELETE FROM cihaz WHERE uye_id = ?").bind(u.id),
     db.prepare("DELETE FROM uye WHERE id = ?").bind(u.id),
   ]);
 
@@ -2568,6 +2575,106 @@ const TEL_SEMA = [
   "CREATE INDEX IF NOT EXISTS tel_iz_an ON tel_iz(an)",
 ];
 
+/* BILDIRIM CIHAZLARI -- sema yine WORKER'IN KENDISINDE.
+ * ====================================================
+ * Gerekce `TEL_SEMA` yaninda yazili ve aynen gecerli: "adim yesil"
+ * ile "goc calisti" ayni sey degil. Worker D1'e baglanti uzerinden
+ * eristigi icin kendi tablosunu kurabiliyor.
+ *
+ * TEK KAYNAK `d1/gecis_cihaz.sql`; `site/test_cihaz_sema.js` iki
+ * tanimin ayrismamasini zorluyor. */
+const CIHAZ_SEMA = [
+  "CREATE TABLE IF NOT EXISTS cihaz ("
+  + "jeton TEXT PRIMARY KEY, "
+  + "uye_id INTEGER REFERENCES uye(id) ON DELETE SET NULL, "
+  + "platform TEXT NOT NULL DEFAULT '', "
+  + "tercihler TEXT NOT NULL DEFAULT '{}', "
+  + "dil TEXT NOT NULL DEFAULT 'tr', "
+  + "olusma TEXT NOT NULL, son_gorulme TEXT NOT NULL)",
+  "CREATE INDEX IF NOT EXISTS cihaz_uye ON cihaz(uye_id)",
+  "CREATE INDEX IF NOT EXISTS cihaz_gorulme ON cihaz(son_gorulme)",
+  "CREATE TABLE IF NOT EXISTS bildirim_izi ("
+  + "anahtar TEXT PRIMARY KEY, tur TEXT NOT NULL, "
+  + "baslik TEXT NOT NULL DEFAULT '', gonderim TEXT NOT NULL, "
+  + "cihaz INTEGER NOT NULL DEFAULT 0)",
+  "CREATE INDEX IF NOT EXISTS bildirim_izi_an "
+  + "ON bildirim_izi(gonderim DESC)",
+];
+
+let _cihazSemaKuruldu = false;
+
+async function cihazSemaKur(env) {
+  if (_cihazSemaKuruldu || !env || !env.DB) return;
+  try {
+    await env.DB.batch(CIHAZ_SEMA.map((s) => env.DB.prepare(s)));
+    _cihazSemaKuruldu = true;
+  } catch (e) {
+    console.error("cihaz: sema kurulamadi", e);
+  }
+}
+
+/* TANINAN BILDIRIM TURLERI.
+ *
+ * Istemciden gelen tercih sozlugu BU KUMEYE gore suzuluyor:
+ * tanimadigi bir anahtar yazilmiyor. Serbest birakmak, istemcinin
+ * veritabanina istedigi seyi yazabilmesi demekti. */
+const BILDIRIM_TURLERI = ["onemli", "bilanco", "takvim", "senaryo"];
+
+/* Cihaz kaydi -- OTURUM GEREKTIRMIYOR.
+ *
+ * NEDEN: icerigin tamami uyeliksiz okunabiliyor; "onemli gelisme"
+ * bildirimi icin uyelik istemek tutarsiz olurdu. Oturum VARSA
+ * cihaz uyeye baglaniyor ve kisisel bildirimler (takip edilen
+ * sirketin bilancosu) mumkun hale geliyor. */
+async function cihazKaydet(istek, env) {
+  await cihazSemaKur(env);
+  const g = await istek.json().catch(() => ({}));
+  const jeton = metinKirp(g.jeton, 200);
+  /* Expo push jetonu bicimi; baska saglayici eklenirse burasi
+     genisler. Bicim denetlenmezse tablo cop doluyor. */
+  if (!/^ExponentPushToken\[[^\]]+\]$/.test(jeton)) {
+    return hata("Geçersiz cihaz jetonu.", 400);
+  }
+  const platform = ["ios", "android", "web"].includes(g.platform)
+    ? g.platform : "";
+  const dil = metinKirp(g.dil, 8) || "tr";
+
+  /* TERCIHLER SUZULUYOR: tanimadigimiz anahtar yazilmiyor. */
+  const istenen = (g && typeof g.tercihler === "object" && g.tercihler)
+    ? g.tercihler : {};
+  const tercihler = {};
+  for (const t of BILDIRIM_TURLERI) tercihler[t] = istenen[t] === true;
+
+  const uye = await uyeBul(istek, env.DB);
+  const t = simdi();
+  await env.DB.prepare(
+    "INSERT INTO cihaz (jeton, uye_id, platform, tercihler, dil, "
+    + "olusma, son_gorulme) VALUES (?, ?, ?, ?, ?, ?, ?) "
+    + "ON CONFLICT(jeton) DO UPDATE SET uye_id = excluded.uye_id, "
+    + "platform = excluded.platform, tercihler = excluded.tercihler, "
+    + "dil = excluded.dil, son_gorulme = excluded.son_gorulme",
+  ).bind(jeton, uye ? uye.id : null, platform,
+         JSON.stringify(tercihler), dil, t, t).run();
+
+  return yanit({ tamam: true, tercihler, oturum: !!uye });
+}
+
+/* Cihaz kaydini siler -- bildirimleri tamamen kapatmak.
+ *
+ * Tercihleri hepsini `false` yapmak da calisirdi ama kayit kalirdi.
+ * Kullanici "bildirim istemiyorum" dediginde kaydin KALMAMASI,
+ * gereksiz kisisel veri tutmamak demek. */
+async function cihazSil(istek, env) {
+  await cihazSemaKur(env);
+  const g = await istek.json().catch(() => ({}));
+  const jeton = metinKirp(g.jeton, 200);
+  if (!jeton) return hata("Cihaz jetonu gerekli.", 400);
+  await env.DB.prepare("DELETE FROM cihaz WHERE jeton = ?")
+    .bind(jeton).run();
+  return yanit({ tamam: true, silindi: true });
+}
+
+
 let _telSemaKuruldu = false;
 
 async function telSemaKur(env) {
@@ -3255,6 +3362,13 @@ export default {
         return await sayaclariGetir(istek, env);
       if (y === "senaryo/one-cikan" && m === "GET")
         return await senaryoOneCikan(env);
+
+      /* CIHAZ KAYDI OTURUM ISTEMEZ -- gerekce `cihazKaydet`
+         yaninda. Oturum varsa islev onu KENDI okuyor. */
+      if (y === "cihaz" && m === "POST")
+        return await cihazKaydet(istek, env);
+      if (y === "cihaz" && m === "DELETE")
+        return await cihazSil(istek, env);
 
       /* Buradan sonrasi oturum istiyor */
       const uye = await uyeBul(istek, env.DB);

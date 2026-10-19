@@ -198,6 +198,28 @@ talep ettiğinizde hesap kaydınız ve ona bağlı oturum bilgisi silinir.
 Yayımlanmış katkılarınız (senaryo, yazı) talebiniz üzerine künyeden ayrılır
 veya kaldırılır.
 
+### Hesabınızı kendiniz silebilirsiniz
+
+Netaris mobil uygulamasında **Profil → Hesabımı sil** yolundan hesabınızı
+kendiniz, aracısız silebilirsiniz. İşlem geri alınamaz ve şunları kalıcı
+olarak kaldırır:
+
+- Hesap kaydınız: e-posta, ad, soyad, unvan, kısa özgeçmiş, profil fotoğrafı
+- Açık oturumlarınız
+- Beğenileriniz
+- Yazdığınız senaryolar — **yayımlanmış olanlar dahil**
+- Senaryolara verdiğiniz oylar
+- Gönderdiğiniz yazılar
+- Hesabınıza bağlı bildirim cihaz kaydı
+
+Silme işlemi kimlik doğrulaması ister: parolayla açılmış hesaplarda parola,
+Google ile açılmış hesaplarda açık bir onay metni. Böylece çalınmış bir
+oturumla hesabınız silinemez.
+
+Silmeden önce verilerinizin bir kopyasını panelden dışa aktarabilirsiniz.
+Silme sonrası içeriğin tamamına erişiminiz sürer; okumak için üyelik
+gerekmiyor.
+
 ## KVKK kapsamındaki haklarınız
 
 6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamında; kişisel

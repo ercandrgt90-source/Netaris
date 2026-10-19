@@ -494,6 +494,25 @@ jobs:
             echo "CLOUDFLARE_API_TOKEN yok -- sonuçlandırma atlandı."
           fi
 
+      # BILDIRIM -- SITE URETILDIKTEN SONRA.
+      #
+      # `bildirim_gonder.py` bir bilancoyu duyurmadan once SAYFASININ
+      # GERCEKTEN VAR OLDUGUNU dogruluyor; o yuzden `site/cikti`
+      # hazir olmali, yani bu adim uretimden SONRA.
+      #
+      # KAPALIYKEN D1'E HIC DOKUNMUYOR: `BILDIRIM_ETKIN` tanimli
+      # degilse betik ilk satirda cikiyor. Uygulama bildirim izni
+      # istemeye basladiginda burayi "1" yapin.
+      - name: Bildirim gönder
+        if: always()
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          # Acmak icin "1" yapin. Degistirilene kadar betik
+          # D1'e hic sorgu atmiyor.
+          BILDIRIM_ETKIN: ""
+        run: python haber_botu/bildirim_gonder.py --uygula
+
       - name: Biriken veriyi geri yaz
         # Beynin gecmisi, ceviri onbellegi, indirilen fotograflar ve
         # uretilen icerik depoya geri yazilir. Boylece bir sonraki
@@ -620,7 +639,26 @@ jobs:
           #
           # Gercek silmeler (foto ayiklama gibi) elle islenmeli;
           # otomatik silme yetkisi, otomatik veri kaybi demek.
-          git add --ignore-removal $YOLLAR
+          # ELLE YAZILAN SAYFALAR GERI YAZILMAZ.
+          #
+          # OLCULDU (2026-10-18): bot commiti a73dc292,
+          # `site/icerik/sayfalar/gizlilik.md`den 21 SATIR SILDI --
+          # uygulama ici hesap silmeyi anlatan bolumu. Kimse silmedi;
+          # kosu kendi ESKI calisma agacini geri yazdi.
+          #
+          # Mekanizma: kosu checkout'u aldiktan SONRA o dosya depoda
+          # degisti. `reset --mixed` indeksi uzak uca esitliyor ama
+          # CALISMA AGACI eski kaldigi icin `git add` eski icerigi
+          # asamaya aliyor ve degisikligi geri aliyor.
+          #
+          # `UST_SILINEN` dongusu bu sinifin SILME yonunu koruyordu;
+          # DEGISTIRME yonu acikti.
+          #
+          # `site/icerik/sayfalar/` tamamen elle yazilan bes sayfa.
+          # `insa.py` oraya yalnizca OKUYOR -- hicbir hat yazmiyor,
+          # yani geri yazmanin faydasi yok, tek etkisi elle yapilan
+          # duzenlemeyi yok etmek.
+          git add --ignore-removal $YOLLAR ':!site/icerik/sayfalar'
 
           # KAPI: veri disinda bir sey asamaya girmis mi?
           #
@@ -634,6 +672,20 @@ jobs:
           # veren IKI liste var -- `YOLLAR` (neyi asamaya al) ve bu kapi
           # (asamada ne BULUNABILIR). 2026-10-13'te `bilanco.yml` tam
           # burada dustu cunku yalnizca birincisi guncellenmisti.
+          # ELLE YAZILAN SAYFA ASAMADA MI -- AYRI KAPI.
+          #
+          # Yukaridaki pathspec zaten disliyor, ama bu kontrol
+          # YONTEMDEN BAGIMSIZ olarak sonucu dogruluyor. Ayni ders bu
+          # dosyada bir kez daha yazili: bir karari tek yerde almak,
+          # o yer degisince korumayi da kaybetmek demek.
+          ELLE=$(git diff --staged --name-only \
+            | grep -E '^site/icerik/sayfalar/' || true)
+          if [ -n "$ELLE" ]; then
+            echo "HATA: elle yazilan sayfa asamada -- geri yazma DURDURULDU:"
+            echo "$ELLE"
+            exit 1
+          fi
+
           KACAK=$(git diff --staged --name-only | grep -vE \
             '^(haber_botu/netaris\.db|haber_botu/kaynak/(ceviri_onbellek|foto_kayit|bilanco_nobet)\.json|site/statik/foto/|site/icerik/|site/bilanco_miras_bozuk\.json)' \
             || true)
@@ -665,7 +717,26 @@ jobs:
               echo "push reddedildi, uzak uc yeniden aliniyor ($deneme)"
               git fetch origin "${GITHUB_REF_NAME}"
               git reset "origin/${GITHUB_REF_NAME}"
-              git add --ignore-removal $YOLLAR
+              # ELLE YAZILAN SAYFALAR GERI YAZILMAZ.
+              #
+              # OLCULDU (2026-10-18): bot commiti a73dc292,
+              # `site/icerik/sayfalar/gizlilik.md`den 21 SATIR SILDI --
+              # uygulama ici hesap silmeyi anlatan bolumu. Kimse silmedi;
+              # kosu kendi ESKI calisma agacini geri yazdi.
+              #
+              # Mekanizma: kosu checkout'u aldiktan SONRA o dosya depoda
+              # degisti. `reset --mixed` indeksi uzak uca esitliyor ama
+              # CALISMA AGACI eski kaldigi icin `git add` eski icerigi
+              # asamaya aliyor ve degisikligi geri aliyor.
+              #
+              # `UST_SILINEN` dongusu bu sinifin SILME yonunu koruyordu;
+              # DEGISTIRME yonu acikti.
+              #
+              # `site/icerik/sayfalar/` tamamen elle yazilan bes sayfa.
+              # `insa.py` oraya yalnizca OKUYOR -- hicbir hat yazmiyor,
+              # yani geri yazmanin faydasi yok, tek etkisi elle yapilan
+              # duzenlemeyi yok etmek.
+              git add --ignore-removal $YOLLAR ':!site/icerik/sayfalar'
               git diff --staged --quiet && { echo "eklenecek yeni sey yok"; break; }
               git commit -m "otomatik: veri güncellemesi $(date -u +'%Y-%m-%d %H:%M UTC')"
               sleep 3

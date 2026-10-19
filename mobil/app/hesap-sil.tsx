@@ -45,6 +45,7 @@ const SILINECEKLER = [
   "Yazdığınız senaryolar — yayımlanmış olanlar dahil",
   "Senaryolara verdiğiniz oylar",
   "Gönderdiğiniz yazılar",
+  "Hesabınıza bağlı bildirim cihaz kaydı",
 ];
 
 export default function HesapSil() {
