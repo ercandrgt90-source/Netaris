@@ -128,7 +128,34 @@
 
    BAGLANTI KAYBI YINE YOK: kirpilan on iki analiz asagidaki listede
    gercek baglantiyla duruyor. #}
-{% set kart_siniri = 48 %}
+{# KART SAYISI 48'DEN 40'A INDI -- OLCULDU (2026-10-19).
+   ====================================================
+   `/makro/` sayfasi 3.417 DOM ogesine cikti ve `test_dom_agirligi`
+   kirmiziya dondu; `cikti_sinamalari` o sinamayi da kosturdugu icin
+   DAGITIM DORT SAAT DURDU. Yani bu bir estetik ayar degil, yayini
+   acan degisiklik.
+
+   ESIGI YUKSELTMEK YANLIS OLURDU: bu depoda yazili kural, esigi
+   oynatmanin yalnizca "hangi hatayi yapacagini secmek" oldugunu
+   soyluyor. Ustelik Lighthouse'un kendi "hata" esigi ~3.000 ve
+   sayfa onu da asmisti.
+
+   ILK DENEME YANLISTI: ARSIV listesi kirpildi (432 -> 288) ve
+   `test_yetim_sayfa` 47 OKSUZ SAYFA bildirdi -- kesilen satirlarin
+   bir kismina baska hicbir yerden baglanti kalmamisti. Bir sorunu
+   daha kotusuyle degistirmek oldu, geri alindi.
+
+   DOGRU KOL BU: kart, satira gore ~27 kat agir (kart ~27 oge, arsiv
+   satiri 4). Karttan satira INEN oge LISTEDE KALIYOR, yani
+   baglantisini kaybetmiyor -- oksuz sayfa uretmiyor.
+
+   Olculdu:
+       kart_siniri 48 -> 3.417   esik asili
+       kart_siniri 44 -> 3.309   pay yalnizca 91
+       kart_siniri 40 -> 3.201   pay 199 (~50 yeni arsiv satiri)
+
+   40 secildi: 44'un payi bir sonraki buyumede yine tukenirdi. #}
+{% set kart_siniri = 40 %}
 <ul class="izgara arastirma-liste">
   {% for a in analizler[:kart_siniri] %}
   <li{% if a.sektor %} data-tur="{{ a.sektor | slugla }}"{% endif %}>
