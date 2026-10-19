@@ -31,7 +31,7 @@ import {
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import * as api from "../src/api";
-import { Durum, Etiket, tarihTR } from "../src/bilesen";
+import { CipSeridi, Durum, Etiket, tarihTR } from "../src/bilesen";
 import { useTema } from "../src/tema";
 import { useVeri } from "../src/veri";
 
@@ -78,27 +78,41 @@ export default function Ara() {
     [dz.veri],
   );
 
-  const sonuclar = useMemo(() => {
+  // TUM ESLESMELER -- tur suzgeci UYGULANMADAN.
+  //
+  // Sayaclar BURADAN kuruluyor, kesilmis listeden DEGIL. Ilk yazim
+  // sayaclari `sonuclar`dan sayiyordu ve sonuc yanilticiydi:
+  // "enflasyon" aramasinda ilk 60 kaydin tamami haber oldugu icin
+  // "Araştırmalar" sayacsiz gorunuyor, okur o turde sonuc YOK
+  // saniyordu. Oysa suzgece basinca sonuclar geliyordu.
+  //
+  // Gercek tarayicida goruldu; sayilara bakarak fark edilmezdi.
+  const eslesenler = useMemo(() => {
     const q = katla(sorgu.trim());
     if (q.length < 2 || !dz.veri) return [];
-    const bulunan = dz.veri.kayitlar.filter((k) => {
-      if (tur && k.t !== tur) return false;
-      return (
+    const bulunan = dz.veri.kayitlar.filter(
+      (k) =>
         katla(k.b).includes(q) ||
         katla(k.k || "").includes(q) ||
-        katla(k.c || "").includes(q)
-      );
-    });
+        katla(k.c || "").includes(q),
+    );
     // EN YENI USTTE; tarihsiz (varlik) kayitlar sona.
     bulunan.sort((a, b) => (b.d || "").localeCompare(a.d || ""));
-    return bulunan.slice(0, EN_COK);
-  }, [sorgu, tur, dz.veri, katla]);
+    return bulunan;
+  }, [sorgu, dz.veri, katla]);
 
   const sayim = useMemo(() => {
     const s: Record<string, number> = {};
-    for (const k of sonuclar) s[k.t] = (s[k.t] || 0) + 1;
+    for (const k of eslesenler) s[k.t] = (s[k.t] || 0) + 1;
     return s;
-  }, [sonuclar]);
+  }, [eslesenler]);
+
+  const sonuclar = useMemo(
+    () =>
+      (tur ? eslesenler.filter((k) => k.t === tur) : eslesenler)
+        .slice(0, EN_COK),
+    [eslesenler, tur],
+  );
 
   const ac = (k: api.AramaKaydi) => {
     if (k.t === "haber") router.push(`/haber/${k.s}`);
@@ -134,46 +148,24 @@ export default function Ara() {
             accessibilityLabel="Arama"
           />
 
-          {/* ICERIK TURUNE GORE AYIRMA -- sartnamenin istedigi. */}
-          <ScrollView
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            contentContainerStyle={{ gap: 8 }}
-          >
-            {[{ kod: "", ad: "Tümü" }].concat(
-              TUR_SIRA.map((x) => ({ kod: x, ad: TUR_ADI[x] })),
-            ).map((x) => {
-              const aktif = x.kod === tur;
-              const n = x.kod ? sayim[x.kod] : sonuclar.length;
-              return (
-                <Pressable
-                  key={x.kod || "hepsi"}
-                  onPress={() => setTur(x.kod)}
-                  accessibilityRole="button"
-                  accessibilityState={{ selected: aktif }}
-                  style={[
-                    d.cip,
-                    {
-                      backgroundColor: aktif ? t.renk.vurgu : t.renk.panel,
-                      borderColor: aktif ? t.renk.vurgu : t.renk.cizgi,
-                      borderRadius: t.r.kucuk,
-                    },
-                  ]}
-                >
-                  <Text
-                    style={{
-                      color: aktif ? t.renk.ustYazi : t.renk.yazi2,
-                      fontSize: 13,
-                      fontWeight: "600",
-                    }}
-                  >
-                    {x.ad}
-                    {sorgu.trim() && n ? ` (${n})` : ""}
-                  </Text>
-                </Pressable>
-              );
-            })}
-          </ScrollView>
+          {/* ICERIK TURUNE GORE AYIRMA -- sartnamenin istedigi.
+              Ortak serit bileseni; ayri ScrollView yuksekligini
+              kaybediyordu. */}
+          <CipSeridi
+            secenekler={[
+              {
+                kod: "",
+                ad: `Tümü${eslesenler.length ? ` (${eslesenler.length})` : ""}`,
+              },
+            ].concat(
+              TUR_SIRA.map((x) => ({
+                kod: x,
+                ad: `${TUR_ADI[x]}${sayim[x] ? ` (${sayim[x]})` : ""}`,
+              })),
+            )}
+            secili={tur}
+            sec={setTur}
+          />
         </View>
 
         <FlatList
@@ -235,7 +227,8 @@ export default function Ara() {
           ListFooterComponent={
             sonuclar.length >= EN_COK ? (
               <Text style={[d.not, { color: t.renk.notr }]}>
-                İlk {EN_COK} sonuç gösteriliyor. Aramayı daraltın.
+                {tur ? (sayim[tur] ?? 0) : eslesenler.length} sonuçtan ilk{" "}
+                {EN_COK} tanesi gösteriliyor. Aramayı daraltın.
               </Text>
             ) : undefined
           }

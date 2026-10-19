@@ -15,18 +15,11 @@
 
 import { useRouter } from "expo-router";
 import React, { useCallback, useMemo, useState } from "react";
-import {
-  FlatList,
-  Pressable,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { FlatList, StyleSheet, Text, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import * as api from "../../src/api";
-import { AnalizKarti, Durum } from "../../src/bilesen";
+import { AnalizKarti, CipSeridi, Durum } from "../../src/bilesen";
 import { useTema } from "../../src/tema";
 
 /** Suzgec tanimi. `sina` kaydin bu ture girip girmedigini soyler. */
@@ -86,42 +79,15 @@ export default function Arastirma() {
 
   return (
     <View style={{ flex: 1, backgroundColor: t.renk.zemin }}>
-      {/* SUZGEC SERIDI */}
-      <ScrollView
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        contentContainerStyle={s.suzgec}
-      >
-        {TURLER.map((x, i) => {
-          const secili = i === tur;
-          return (
-            <Pressable
-              key={x.ad}
-              onPress={() => setTur(i)}
-              accessibilityRole="button"
-              accessibilityState={{ selected: secili }}
-              style={[
-                s.cip,
-                {
-                  backgroundColor: secili ? t.renk.vurgu : t.renk.panel,
-                  borderColor: secili ? t.renk.vurgu : t.renk.cizgi,
-                  borderRadius: t.r.kucuk,
-                },
-              ]}
-            >
-              <Text
-                style={{
-                  color: secili ? t.renk.ustYazi : t.renk.yazi2,
-                  fontSize: 13,
-                  fontWeight: "600",
-                }}
-              >
-                {x.ad}
-              </Text>
-            </Pressable>
-          );
-        })}
-      </ScrollView>
+      {/* SUZGEC SERIDI -- ortak bilesen.
+          Daha once burada ayri bir ScrollView vardi ve yuksekligini
+          kaybedip 7 piksele cokuyordu; cipler kirpiliyordu.
+          Gerekce `bilesen.CipSeridi` yaninda. */}
+      <CipSeridi
+        secenekler={TURLER.map((x, i) => ({ kod: String(i), ad: x.ad }))}
+        secili={String(tur)}
+        sec={(k) => setTur(Number(k) || 0)}
+      />
 
       <FlatList
         data={gorunen}

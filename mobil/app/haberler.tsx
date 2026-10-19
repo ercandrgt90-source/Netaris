@@ -28,7 +28,7 @@ import {
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import * as api from "../src/api";
-import { Durum, HaberKarti } from "../src/bilesen";
+import { CipSeridi, Durum, HaberKarti } from "../src/bilesen";
 import { useTema } from "../src/tema";
 import { useVeri } from "../src/veri";
 
@@ -147,43 +147,14 @@ function Yayimlananlar() {
 
   return (
     <View style={{ flex: 1, backgroundColor: t.renk.zemin }}>
-      {konular.length > 1 ? (
-        <ScrollView
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={d.cipler}
-        >
-          {[{ ad: "", n: kayitlar.length }].concat(konular).map((x) => {
-            const aktif = x.ad === konu;
-            return (
-              <Pressable
-                key={x.ad || "hepsi"}
-                onPress={() => setKonu(x.ad)}
-                accessibilityRole="button"
-                accessibilityState={{ selected: aktif }}
-                style={[
-                  d.cip,
-                  {
-                    backgroundColor: aktif ? t.renk.vurgu : t.renk.panel,
-                    borderColor: aktif ? t.renk.vurgu : t.renk.cizgi,
-                    borderRadius: t.r.kucuk,
-                  },
-                ]}
-              >
-                <Text
-                  style={{
-                    color: aktif ? t.renk.ustYazi : t.renk.yazi2,
-                    fontSize: 13,
-                    fontWeight: "600",
-                  }}
-                >
-                  {x.ad || "Tümü"} ({x.n})
-                </Text>
-              </Pressable>
-            );
-          })}
-        </ScrollView>
-      ) : null}
+      {/* KONU SUZGECI -- ortak bilesen (yukseklik cokmesi icin). */}
+      <CipSeridi
+        secenekler={[{ kod: "", ad: `Tümü (${kayitlar.length})` }].concat(
+          konular.map((x) => ({ kod: x.ad, ad: `${x.ad} (${x.n})` })),
+        )}
+        secili={konu}
+        sec={setKonu}
+      />
 
       <FlatList
         data={gorunen}

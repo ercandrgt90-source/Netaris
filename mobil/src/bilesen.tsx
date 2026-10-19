@@ -18,6 +18,7 @@
 import React from "react";
 import {
   ActivityIndicator,
+  ScrollView,
   Image,
   Linking,
   Pressable,
@@ -84,6 +85,95 @@ export function Durum({
     );
   }
   return null;
+}
+
+/** Çip şeridinin yüksekliği: çip 40 + dikey dolgu 12×2. */
+const CIP_SERIT_YUKSEKLIGI = 64;
+
+export type Cip = { kod: string; ad: string };
+
+/**
+ * YATAY SUZGEC SERIDI -- TEK YERDE.
+ *
+ * NEDEN BILESEN: ayni serit uc ekranda ayri ayri yazilmisti
+ * (arastirma, haberler, arama) ve UCUNDE DE AYNI KUSUR vardi.
+ *
+ * KUSUR OLCULDU (2026-10-19, gercek tarayici): `ScrollView horizontal`
+ * bir `flex: 1` sutun icinde YUKSEKLIGINI KAYBEDIYOR. Olculen
+ * kapsayici zinciri:
+ *
+ *     cip (Pressable)   ust  76   yukseklik  40
+ *     contentContainer  ust  64   yukseklik  24
+ *     ScrollView        ust  64   yukseklik   7   <- COKTU
+ *
+ * `overflow: auto hidden` oldugu icin 40 piksellik cipler 7
+ * piksellik kutuda kirpiliyordu. Cipler DOM'da vardi, `visibility`
+ * gorunurdu, `getBoundingClientRect` dogru degerleri veriyordu --
+ * yani kaynaga ya da olcume bakarak "var" diye gecilebilirdi.
+ * Yalnizca EKRAN GORUNTUSUNDE yoktular.
+ *
+ * Cozum: seride ACIK yukseklik veriliyor ve `flexGrow: 0` ile
+ * sutun akisindan cikariliyor.
+ */
+export function CipSeridi({
+  secenekler,
+  secili,
+  sec,
+}: {
+  secenekler: Cip[];
+  secili: string;
+  /** Aynı çipe tekrar basmak seçimi kaldırır. */
+  sec: (kod: string) => void;
+}) {
+  const t = useTema();
+  if (secenekler.length < 2) return null;
+  // SARMALAYICI `View` -- `ScrollView`in kendi `style`i YETMEDI.
+  //
+  // Olculdu: `style={{height: 64}}` verildiginde bile RN Web'in
+  // kaydirma kabi 7,3 piksel kaliyordu (satir ici stil bos, atomik
+  // sinifa cevriliyor ve sutun akisinda ezilyor). Sabit yuksekligi
+  // ONUN DISINDAKI bir View'a vermek tek belirsizlik birakmayan yol:
+  // View'in yuksekligi her platformda aynidir.
+  return (
+    <View style={d.seritKap}>
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        style={d.serit}
+        contentContainerStyle={d.seritIc}
+      >
+        {secenekler.map((x) => {
+          const aktif = x.kod === secili;
+          return (
+            <Pressable
+              key={x.kod || "hepsi"}
+              onPress={() => sec(aktif && x.kod ? "" : x.kod)}
+              accessibilityRole="button"
+              accessibilityState={{ selected: aktif }}
+              style={[
+                d.cip,
+                {
+                  backgroundColor: aktif ? t.renk.vurgu : t.renk.panel,
+                  borderColor: aktif ? t.renk.vurgu : t.renk.cizgi,
+                  borderRadius: t.r.kucuk,
+                },
+              ]}
+            >
+              <Text
+                style={{
+                  color: aktif ? t.renk.ustYazi : t.renk.yazi2,
+                  fontSize: 13,
+                  fontWeight: "600",
+                }}
+              >
+                {x.ad}
+              </Text>
+            </Pressable>
+          );
+        })}
+      </ScrollView>
+    </View>
+  );
 }
 
 export function Baslik({ metin, alt }: { metin: string; alt?: string }) {
@@ -350,6 +440,23 @@ export function KaynakBagi({ adres, kurum }: { adres: string; kurum: string }) {
 export { tarihTR };
 
 const d = StyleSheet.create({
+  // SERIT YUKSEKLIGI ACIK: `flexGrow: 0` olmadan yatay ScrollView
+  // sutun akisinda yukseklik kaybedip 7 piksele cokuyor (olculdu).
+  seritKap: { height: CIP_SERIT_YUKSEKLIGI },
+  serit: { flexGrow: 0 },
+  seritIc: {
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    gap: 8,
+    alignItems: "center",
+  },
+  cip: {
+    paddingHorizontal: 13,
+    paddingVertical: 9,
+    borderWidth: StyleSheet.hairlineWidth,
+    minHeight: 40,
+    justifyContent: "center",
+  },
   orta: { padding: 28, alignItems: "center", gap: 10 },
   ipucu: { fontSize: 14, textAlign: "center", lineHeight: 20 },
   hataBaslik: { fontSize: 17, fontWeight: "700" },
