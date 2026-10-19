@@ -18,7 +18,7 @@ import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import * as api from "../../src/api";
-import { Baslik, Durum, tarihTR } from "../../src/bilesen";
+import { BayatUyarisi, Baslik, Durum, tarihTR } from "../../src/bilesen";
 import { useTema, yonRengi } from "../../src/tema";
 import { useVeri } from "../../src/veri";
 
@@ -65,16 +65,19 @@ export default function Piyasalar() {
   const t = useTema();
   const alt = useSafeAreaInsets().bottom;
   const router = useRouter();
-  const p = useVeri(api.piyasa);
+  const p = useVeri(api.piyasa, [], "/v1/piyasa.json");
 
   return (
     <ScrollView
       style={{ backgroundColor: t.renk.zemin }}
       contentContainerStyle={{ paddingBottom: alt + 28 }}
     >
+      <BayatUyarisi bayat={p.bayat} an={p.bayatAn}
+                    hata={p.hata} />
+
       <Durum
         yukleniyor={p.yukleniyor}
-        hata={p.hata}
+        hata={p.engelleyenHata}
         bos={!!p.veri && p.veri.kalemler.length === 0}
         bosMetin="Gösterge verisi bulunamadı."
         yenile={p.yenile}

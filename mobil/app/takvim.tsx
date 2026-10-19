@@ -29,7 +29,7 @@ import { ScrollView, StyleSheet, Text, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import * as api from "../src/api";
-import { Durum, Etiket, tarihTR } from "../src/bilesen";
+import { BayatUyarisi, Durum, Etiket, tarihTR } from "../src/bilesen";
 import { useTema } from "../src/tema";
 import { useVeri } from "../src/veri";
 
@@ -43,7 +43,7 @@ function onemEtiketi(n: number): string {
 export default function TakvimEkrani() {
   const t = useTema();
   const alt = useSafeAreaInsets().bottom;
-  const v = useVeri(api.takvim);
+  const v = useVeri(api.takvim, [], "/v1/takvim.json");
 
   return (
     <>
@@ -52,9 +52,12 @@ export default function TakvimEkrani() {
         style={{ backgroundColor: t.renk.zemin }}
         contentContainerStyle={{ paddingBottom: alt + 28 }}
       >
-        <Durum
+        <BayatUyarisi bayat={v.bayat} an={v.bayatAn}
+                    hata={v.hata} />
+
+      <Durum
           yukleniyor={v.yukleniyor}
-          hata={v.hata}
+          hata={v.engelleyenHata}
           bos={!!v.veri && v.veri.ogeler.length === 0}
           bosMetin="Yaklaşan veri açıklaması bulunamadı."
           yenile={v.yenile}

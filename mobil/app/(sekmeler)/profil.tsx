@@ -34,23 +34,32 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import * as api from "../../src/api";
 import { Baslik, Durum } from "../../src/bilesen";
+import * as onbellek from "../../src/onbellek";
 import { useOturum } from "../../src/oturum";
 import { useTema, useTemaTaze } from "../../src/tema";
 import { useVeri } from "../../src/veri";
 
 /** Henuz baglanmamis bolumler -- her biri neye bagli. */
+/** Henüz bağlanmamış bölümler -- her biri neye bağlı.
+ *
+ *  BU LISTE GUNCEL TUTULMAK ZORUNDA. Yapilmis bir isi "henuz yok"
+ *  diye gostermek, okura yanlis bilgi vermek demek. Olculdu
+ *  (2026-10-19): listede "Senaryo yazma · ekran bir sonraki
+ *  surumde" yaziyordu, oysa ekran ayni gun eklenmisti. */
 const BEKLEYEN: { ad: string; aciklama: string }[] = [
   {
     ad: "Okuma geçmişi",
     aciklama: "Arka uç gerekiyor: okuma kaydı tutulmuyor",
   },
   {
-    ad: "Bildirim tercihleri",
-    aciklama: "Arka uç gerekiyor: cihaz tablosu ve gönderim işi henüz yok",
+    ad: "Bildirimler",
+    aciklama:
+      "Arka uç hazır (cihaz kaydı ve gönderim hattı); uygulama içi " +
+      "izin akışı mağaza derlemesiyle açılıyor",
   },
   {
-    ad: "Senaryo yazma",
-    aciklama: "Uç hazır (/api/senaryo) · ekran bir sonraki sürümde",
+    ad: "Google ile giriş (uygulama içi)",
+    aciklama: "Şimdilik sitede yapılabiliyor",
   },
 ];
 
@@ -162,10 +171,7 @@ function GirisFormu() {
           Hesabın yok mu? Sitede üye ol
         </Text>
       </Pressable>
-      <Text style={[d.ufak, { color: t.renk.notr }]}>
-        Google ile giriş şimdilik sitede yapılabiliyor; uygulama içi
-        Google akışı henüz kurulmadı.
-      </Text>
+
     </View>
   );
 }
@@ -240,7 +246,7 @@ function UyePaneli() {
       <Baslik metin="Favorilerim" />
       <Durum
         yukleniyor={b.yukleniyor}
-        hata={b.hata}
+        hata={b.engelleyenHata}
         bos={!!b.veri && b.veri.begeniler.length === 0}
         bosMetin="Henüz favori eklemedin."
         yenile={b.yenile}
@@ -295,6 +301,25 @@ export default function Profil() {
   const taze = useTemaTaze();
   const alt = useSafeAreaInsets().bottom;
   const { uye, hazirlaniyor } = useOturum();
+  const [onbellekDurum, setOnbellekDurum] =
+    useState<{ girdi: number; bayt: number } | null>(null);
+
+  // Onbellek boyutu ACILISTA olculuyor: kullanici "ne kadar yer
+  // kapliyor" sorusunun cevabini gormeden silmeye karar veremez.
+  React.useEffect(() => {
+    let birakildi = false;
+    void onbellek.durum().then((d) => {
+      if (!birakildi) setOnbellekDurum(d);
+    });
+    return () => {
+      birakildi = true;
+    };
+  }, []);
+
+  const onbellegiBosalt = async () => {
+    await onbellek.temizle();
+    setOnbellekDurum(await onbellek.durum());
+  };
 
   return (
     <KeyboardAvoidingView
@@ -352,6 +377,42 @@ export default function Profil() {
               </Text>
             </View>
           ))}
+        </View>
+
+        <Baslik
+          metin="Çevrimdışı okuma"
+          alt="Son görülen içerik cihazda saklanıyor"
+        />
+        <View
+          style={[
+            d.kart,
+            {
+              backgroundColor: t.renk.panel,
+              borderColor: t.renk.cizgi,
+              borderRadius: t.r.orta,
+            },
+          ]}
+        >
+          <Text style={[d.ufak, { color: t.renk.yazi2 }]}>
+            Bağlantı yokken en son görülen içerik gösteriliyor ve
+            ekranda “çevrimdışı” olarak işaretleniyor. Canlı akış,
+            oturum ve üye verisi saklanmıyor.
+          </Text>
+          <Text style={[d.ufak, { color: t.renk.notr }]}>
+            {onbellekDurum
+              ? `${onbellekDurum.girdi} kayıt · ` +
+                `${Math.round(onbellekDurum.bayt / 1024)} KB`
+              : "ölçülüyor…"}
+          </Text>
+          <Pressable
+            onPress={() => void onbellegiBosalt()}
+            accessibilityRole="button"
+            style={[d.dugmeCerceve, { borderColor: t.renk.cizgiParlak }]}
+          >
+            <Text style={{ color: t.renk.yazi }}>
+              Kayıtlı içeriği sil
+            </Text>
+          </Pressable>
         </View>
 
         <Baslik metin="Gizlilik ve veri" />

@@ -80,7 +80,7 @@ function Akis() {
       ListEmptyComponent={
         <Durum
           yukleniyor={tl.yukleniyor}
-          hata={tl.hata}
+          hata={tl.engelleyenHata}
           bos={!tl.yukleniyor && !tl.hata}
           bosMetin="Akışta şu an öge yok."
           yenile={tl.yenile}

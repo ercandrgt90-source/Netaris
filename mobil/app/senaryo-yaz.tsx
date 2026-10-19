@@ -165,7 +165,7 @@ export default function SenaryoYaz() {
   const router = useRouter();
   const alt = useSafeAreaInsets().bottom;
   const { jeton, uye } = useOturum();
-  const k = useVeri(api.senaryoKurallari);
+  const k = useVeri(api.senaryoKurallari, [], "/v1/senaryo-kurallari.json");
 
   const [kosul, setKosul] = useState("");
   const [sonuc, setSonuc] = useState("");
@@ -302,7 +302,7 @@ export default function SenaryoYaz() {
           }}
           keyboardShouldPersistTaps="handled"
         >
-          <Durum yukleniyor={k.yukleniyor} hata={k.hata} yenile={k.yenile} />
+          <Durum yukleniyor={k.yukleniyor} hata={k.engelleyenHata} yenile={k.yenile} />
 
           {k.veri ? (
             <>

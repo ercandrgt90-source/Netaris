@@ -26,7 +26,7 @@ import {
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import * as api from "../src/api";
-import { Durum, Etiket } from "../src/bilesen";
+import { BayatUyarisi, Durum, Etiket } from "../src/bilesen";
 import { useTema, yonRengi } from "../src/tema";
 import { useVeri } from "../src/veri";
 
@@ -66,7 +66,7 @@ export default function Varliklar() {
   const t = useTema();
   const router = useRouter();
   const alt = useSafeAreaInsets().bottom;
-  const v = useVeri(api.varlikDizini);
+  const v = useVeri(api.varlikDizini, [], "/v1/varlik.json");
   const [arama, setArama] = useState("");
 
   const gorunen = useMemo(() => {
@@ -103,7 +103,10 @@ export default function Varliklar() {
           />
         </View>
 
-        <FlatList
+        <BayatUyarisi bayat={v.bayat} an={v.bayatAn}
+                    hata={v.hata} />
+
+      <FlatList
           data={gorunen}
           keyExtractor={(x) => x.kod}
           contentContainerStyle={{ paddingBottom: alt + 28 }}
@@ -159,7 +162,7 @@ export default function Varliklar() {
           ListEmptyComponent={
             <Durum
               yukleniyor={v.yukleniyor}
-              hata={v.hata}
+              hata={v.engelleyenHata}
               bos={!v.yukleniyor && !v.hata}
               bosMetin={
                 arama ? "Eşleşen varlık yok." : "Varlık bulunamadı."

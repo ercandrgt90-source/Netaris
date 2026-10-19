@@ -37,7 +37,8 @@ export default function HaberDetayi() {
   const t = useTema();
   const router = useRouter();
   const alt = useSafeAreaInsets().bottom;
-  const h = useVeri(() => api.haber(String(slug)), [slug]);
+  const h = useVeri(() => api.haber(String(slug)), [slug],
+    `/v1/haber/${String(slug)}.json`);
 
   const paylas = async () => {
     if (!h.veri) return;
@@ -58,7 +59,7 @@ export default function HaberDetayi() {
     >
       <Durum
         yukleniyor={h.yukleniyor}
-        hata={h.hata}
+        hata={h.engelleyenHata}
         yenile={h.yenile}
       />
 

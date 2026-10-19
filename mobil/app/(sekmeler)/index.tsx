@@ -25,6 +25,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 import * as api from "../../src/api";
 import {
   AnalizKarti,
+  BayatUyarisi,
   Baslik,
   Durum,
   HaberKarti,
@@ -39,10 +40,10 @@ export default function AnaSayfa() {
   const router = useRouter();
   const alt = useSafeAreaInsets().bottom;
 
-  const p = useVeri(api.piyasa);
-  const o = useVeri(api.oneCikan);
+  const p = useVeri(api.piyasa, [], "/v1/piyasa.json");
+  const o = useVeri(api.oneCikan, [], "/v1/one-cikan.json");
   const tl = useVeri(() => api.tel(12));
-  const tk = useVeri(api.takvim);
+  const tk = useVeri(api.takvim, [], "/v1/takvim.json");
 
   const haberAc = (slug: string) => router.push(`/haber/${slug}`);
   const analizAc = (slug: string) => router.push(`/analiz/${slug}`);
@@ -52,6 +53,9 @@ export default function AnaSayfa() {
       style={{ backgroundColor: t.renk.zemin }}
       contentContainerStyle={{ paddingBottom: alt + 28 }}
     >
+      <BayatUyarisi bayat={o.bayat} an={o.bayatAn}
+                    hata={o.hata} />
+
       {/* ---- PIYASA OZETI ---- */}
       <Baslik
         metin="Piyasa özeti"
@@ -63,7 +67,7 @@ export default function AnaSayfa() {
       />
       <Durum
         yukleniyor={p.yukleniyor}
-        hata={p.hata}
+        hata={p.engelleyenHata}
         bos={!!p.veri && p.veri.kalemler.length === 0}
         bosMetin="Gösterge verisi bulunamadı."
         yenile={p.yenile}
@@ -101,7 +105,7 @@ export default function AnaSayfa() {
       />
       <Durum
         yukleniyor={o.yukleniyor}
-        hata={o.hata}
+        hata={o.engelleyenHata}
         bos={!!o.veri && o.veri.haberler.length === 0}
         yenile={o.yenile}
       />
@@ -116,7 +120,7 @@ export default function AnaSayfa() {
       />
       <Durum
         yukleniyor={tl.yukleniyor}
-        hata={tl.hata}
+        hata={tl.engelleyenHata}
         bos={!!tl.veri && tl.veri.ogeler.length === 0}
         bosMetin="Akışta şu an öge yok."
         yenile={tl.yenile}
@@ -181,7 +185,7 @@ export default function AnaSayfa() {
       ) : (
         <Durum
           yukleniyor={o.yukleniyor}
-          hata={o.hata}
+          hata={o.engelleyenHata}
           bos={!o.yukleniyor && !o.hata}
           bosMetin="Araştırma bulunamadı."
         />
@@ -201,7 +205,7 @@ export default function AnaSayfa() {
       />
       <Durum
         yukleniyor={tk.yukleniyor}
-        hata={tk.hata}
+        hata={tk.engelleyenHata}
         bos={!!tk.veri && tk.veri.ogeler.length === 0}
         bosMetin="Yaklaşan veri açıklaması yok."
         yenile={tk.yenile}

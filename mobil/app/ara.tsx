@@ -69,7 +69,7 @@ export default function Ara() {
   const t = useTema();
   const router = useRouter();
   const alt = useSafeAreaInsets().bottom;
-  const dz = useVeri(api.aramaDizini);
+  const dz = useVeri(api.aramaDizini, [], "/v1/arama.json");
   const [sorgu, setSorgu] = useState("");
   const [tur, setTur] = useState("");
 
@@ -209,7 +209,7 @@ export default function Ara() {
             dz.yukleniyor || dz.hata ? (
               <Durum
                 yukleniyor={dz.yukleniyor}
-                hata={dz.hata}
+                hata={dz.engelleyenHata}
                 yenile={dz.yenile}
               />
             ) : (

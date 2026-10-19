@@ -15,7 +15,7 @@
 //   izlenimi veriyor; sitede tam bu yasandi (tarih yalnizca fare
 //   ustunde gorunuyordu, telefonda kimse goremiyordu).
 
-import React from "react";
+import React, { useState } from "react";
 import {
   ActivityIndicator,
   ScrollView,
@@ -176,6 +176,55 @@ export function CipSeridi({
   );
 }
 
+/**
+ * BAYAT VERI UYARISI -- ONBELLEKTEN GELEN ICERIK ISARETLENIR.
+ *
+ * Cevrimdisiyken eski haberi gostermek faydali; onu TAZE gibi
+ * gostermek degil. Bu, projenin kendi kuralinin devami: piyasa
+ * degeri tarihiyle birlikte basiliyor cunku "sayi tek basina canli
+ * fiyat izlenimi veriyor". Bayat bir listeyi damgasiz basmak ayni
+ * hatanin baska bicimi olurdu.
+ *
+ * `hata` da varsa birlikte yaziliyor: okur hem neyi gordugunu hem
+ * neden tazelenemedigini bilmeli.
+ */
+export function BayatUyarisi({
+  bayat,
+  an,
+  hata,
+}: {
+  bayat: boolean;
+  an?: string | null;
+  hata?: string | null;
+}) {
+  const t = useTema();
+  if (!bayat) return null;
+  const ne = an ? tarihTR(an.slice(0, 10)) : "";
+  const saat = an && an.length >= 16 ? an.slice(11, 16) : "";
+  return (
+    <View
+      style={[
+        d.bayat,
+        {
+          backgroundColor: t.renk.panel2,
+          borderColor: t.renk.uyari,
+          borderRadius: t.r.mini,
+        },
+      ]}
+    >
+      <Text style={[d.bayatYazi, { color: t.renk.uyari }]}>
+        Çevrimdışı · kayıtlı içerik
+        {ne ? ` (${ne}${saat ? ` ${saat}` : ""})` : ""}
+      </Text>
+      {hata ? (
+        <Text style={[d.bayatAlt, { color: t.renk.yazi3 }]}>
+          Tazelenemedi: {hata}
+        </Text>
+      ) : null}
+    </View>
+  );
+}
+
 export function Baslik({ metin, alt }: { metin: string; alt?: string }) {
   const t = useTema();
   return (
@@ -227,10 +276,17 @@ export function Gorsel({
   yuksek?: number;
 }) {
   const t = useTema();
+  // YUKLENEMEYEN GORSEL ATIFIYLA BIRLIKTE GIZLENIR.
+  //
+  // Cevrimdisi sinamasinda goruldu: gorsel inemiyor, yerinde gri
+  // bir kutu kaliyor ama ALTINDAKI ATIF SATIRI duruyordu --
+  // gorunmeyen bir fotografa atif. Yanlis bir sey iddia etmiyor
+  // ama anlamsiz; ikisi birlikte dusuyor.
+  const [dustu, setDustu] = useState(false);
   // CC BY atfi zorunlu. Besleme atifsiz fotografi zaten dusuruyor;
   // burada ikinci bir kapi var cunku bu bilesen baska bir kaynaktan
   // da beslenebilir.
-  if (!yol || !atif) return null;
+  if (!yol || !atif || dustu) return null;
   return (
     <View>
       <Image
@@ -244,6 +300,7 @@ export function Gorsel({
         resizeMode="cover"
         accessible
         accessibilityLabel="Haber görseli"
+        onError={() => setDustu(true)}
       />
       <Text style={[d.atif, { color: t.renk.yazi3 }]}>{atif}</Text>
     </View>
@@ -470,6 +527,15 @@ const d = StyleSheet.create({
     minHeight: 44,
     justifyContent: "center",
   },
+  bayat: {
+    marginHorizontal: 16,
+    marginTop: 12,
+    padding: 10,
+    borderWidth: 1,
+    gap: 3,
+  },
+  bayatYazi: { fontSize: 12, fontWeight: "700" },
+  bayatAlt: { fontSize: 11, lineHeight: 16 },
   bolumBasi: { paddingHorizontal: 16, paddingTop: 20, paddingBottom: 8 },
   bolumBaslik: { fontSize: 19, fontWeight: "700", letterSpacing: -0.3 },
   bolumAlt: { fontSize: 13, marginTop: 3, lineHeight: 18 },

@@ -40,7 +40,8 @@ export default function AnalizDetayi() {
   const t = useTema();
   const router = useRouter();
   const alt = useSafeAreaInsets().bottom;
-  const a = useVeri(() => api.analiz(String(slug)), [slug]);
+  const a = useVeri(() => api.analiz(String(slug)), [slug],
+    `/v1/analiz/${String(slug)}.json`);
 
   const paylas = async () => {
     if (!a.veri) return;
@@ -56,7 +57,7 @@ export default function AnalizDetayi() {
       style={{ backgroundColor: t.renk.zemin }}
       contentContainerStyle={{ padding: 16, paddingBottom: alt + 32, gap: 12 }}
     >
-      <Durum yukleniyor={a.yukleniyor} hata={a.hata} yenile={a.yenile} />
+      <Durum yukleniyor={a.yukleniyor} hata={a.engelleyenHata} yenile={a.yenile} />
 
       {a.veri ? (
         <>

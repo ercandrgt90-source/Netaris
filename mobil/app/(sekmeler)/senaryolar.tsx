@@ -113,7 +113,7 @@ export default function Senaryolar() {
       ListEmptyComponent={
         <Durum
           yukleniyor={s.yukleniyor}
-          hata={s.hata}
+          hata={s.engelleyenHata}
           bos={!s.yukleniyor && !s.hata}
           bosMetin="Yayımlanmış senaryo yok."
           yenile={s.yenile}

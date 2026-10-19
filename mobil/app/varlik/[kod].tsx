@@ -79,7 +79,8 @@ export default function VarlikDetayi() {
   const t = useTema();
   const router = useRouter();
   const alt = useSafeAreaInsets().bottom;
-  const v = useVeri(() => api.varlik(String(kod)), [kod]);
+  const v = useVeri(() => api.varlik(String(kod)), [kod],
+    `/v1/varlik/${String(kod).toLowerCase()}.json`);
 
   return (
     <>
@@ -88,7 +89,7 @@ export default function VarlikDetayi() {
         style={{ backgroundColor: t.renk.zemin }}
         contentContainerStyle={{ padding: 16, paddingBottom: alt + 32, gap: 14 }}
       >
-        <Durum yukleniyor={v.yukleniyor} hata={v.hata} yenile={v.yenile} />
+        <Durum yukleniyor={v.yukleniyor} hata={v.engelleyenHata} yenile={v.yenile} />
 
         {v.veri ? (
           <>
