@@ -30,7 +30,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 8,
+  "yorumlanan": 9,
   "haberler": [
     {
       "baslik": "Kısa Vadeli Dış Borç İstatistikleri (Ağustos 2026)",
@@ -73,6 +73,27 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/para-politikasi-12-2ca29aaf.jpg",
       "foto_atif": "Kidfly182 · CC-BY-4.0"
+    },
+    {
+      "baslik": "SEC, Süper Zeka Çağında Makine Tarafından Anlaşılabilir Veriler Üzerine Yuvarlak Masa Toplantısını Duyurdu",
+      "baslik_kaynak": "SEC Announces Roundtable on Machine-Understandable Data in the Age of Super Intelligence",
+      "ozet": "The Securities and Exchange Commission announced today that it will host a roundtable on November 9, 2026, to discuss the use of machine-understandable data and Super Intelligence (SI) and related risks and costs.“In the age of SI, high-quality…",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": false,
+      "bolge": "DUNYA",
+      "adres": "https://www.sec.gov/newsroom/press-releases/2026-106-sec-announces-roundtable-machine-understandable-data-age-super-intelligence",
+      "kurum": "SEC",
+      "kurum_tam": "ABD Menkul Kıymetler ve Borsa Komisyonu",
+      "konu": "Düzenleme",
+      "tarih": "2026-10-19",
+      "tarih_gorunur": "19 Ekim 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/duzenleme-8-9230ff1d.jpg",
+      "foto_atif": "Myotus · CC-BY-4.0"
     },
     {
       "baslik": "Hibrit satışlar artarken, akü elektrik satışları vergi kredisinin sona ermesinden sonra düşük kalmaya devam ediyor",
@@ -136,6 +157,32 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/enerji-20-09c93149.jpg",
       "foto_atif": "MBH · CC-BY-4.0"
+    },
+    {
+      "baslik": "İran Donanması: Amerikan kuvvetleri bu sabah Konark deniz üssüne saldırdı ve 35 mm'lik bir topa iki el ateş etti",
+      "baslik_kaynak": "Iranian Navy: American forces attacked the Konark naval base this morning and fired two shots at a 35 mm cannon - Sepah News",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9811803/Iranian-Navy-American-forces-attacked-the-Konark-naval-base-this-morning-and-fired-two-shots-at-a-35-mm-cannon---Sepah-News.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Jeopolitik",
+      "tarih": "2026-10-19",
+      "tarih_gorunur": "19 Ekim 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
+      "kanallar": [
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-40-59a567ac.jpg",
+      "foto_atif": "Peter Griffin · CC0"
     },
     {
       "baslik": "Devlet Başkanı Pezeshkian: İran'ın bölge ülkeleriyle hiçbir temel farkı yok ve mevcut sorunları diyalog yoluyla çözmeye hazır",
@@ -1417,27 +1464,6 @@
       "foto_atif": "Stephen Craven · CC-BY-SA-2.0"
     },
     {
-      "baslik": "Arap kaynakları Suudi Arabistan'ın başkenti Riyad'da alarm sirenlerinin devreye girdiğini ve patlama sesi duyulduğunu bildirdi",
-      "baslik_kaynak": "Arab sources report that the alarm sirens were activated and the sound of an explosion was heard in Riyadh, the capital of Saudi Arabia - Fars News",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9811503/Arab-sources-report-that-the-alarm-sirens-were-activated-and-the-sound-of-an-explosion-was-heard-in-Riyadh-the-capital-of-Saudi-Arabia---Fars-News.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Şirket haberleri",
-      "tarih": "2026-10-19",
-      "tarih_gorunur": "19 Ekim 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-8-ed7b45c9.jpg",
-      "foto_atif": "Myotus · CC-BY-SA-4.0"
-    },
-    {
       "baslik": "Mesh, kullanıcıların ayrı bir kart olmadan kripto harcamalarına izin vermek için Visa'ya dokunuyor",
       "baslik_kaynak": "Mesh taps Visa to let users spend crypto without a separate card",
       "ozet": "Mesh and Visa will let users spend crypto and stablecoin balances from wallet apps, with no need to sell or transfer assets first.",
@@ -2570,27 +2596,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/duzenleme-8-9230ff1d.jpg",
       "foto_atif": "Myotus · CC-BY-4.0"
-    },
-    {
-      "baslik": "Esma'nın üçüncü Yaptırımlar Raporu, uygulamada daha fazla yakınsama ihtiyacının altını çiziyor",
-      "baslik_kaynak": "ESMA's third Sanctions Report highlights the need for greater convergence in enforcement",
-      "ozet": "ESMA's third Sanctions Report highlights the need for greater convergence in enforcement 15 October 2026 Market Abuse Supervisory convergence Transparency The European Securities and Markets Authority (ESMA), the EU's financial markets regulator and supervisor, published today its consolidated report on sanctions and…",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": false,
-      "bolge": "DUNYA",
-      "adres": "https://www.esma.europa.eu/press-news/esma-news/esmas-third-sanctions-report-highlights-need-greater-convergence-enforcement",
-      "kurum": "ESMA",
-      "kurum_tam": "Avrupa Menkul Kıymetler ve Piyasalar Otoritesi",
-      "konu": "Jeopolitik",
-      "tarih": "2026-10-15",
-      "tarih_gorunur": "15 Ekim 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/jeopolitik-15-ccd8ab8d.jpg",
-      "foto_atif": "usepagov · PDM"
     }
   ],
   "sinir_notu": "Yukarıdaki maddeler yapısal aktarım kanallarıdır, öngörü değildir. Etkinin ne zaman ve ne ölçüde görüleceği kur seviyesi, vergi düzenlemeleri ve sözleşme yapılarına bağlı olarak değişir; bu sayfada bir büyüklük tahmini yapılmamaktadır."
