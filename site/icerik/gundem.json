@@ -29,7 +29,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 24,
+  "yorumlanan": 23,
   "haberler": [
     {
       "baslik": "Kısa Vadeli Dış Borç İstatistikleri (Ağustos 2026)",
@@ -177,6 +177,27 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/enerji-20-09c93149.jpg",
       "foto_atif": "MBH · CC-BY-4.0"
+    },
+    {
+      "baslik": "ABD ve Avusturya, Ukrayna ve Orta Doğu'da barışı ilerletmek için çalışacak",
+      "baslik_kaynak": "The US and Austria to work on advancing peace in Ukraine and the Middle East",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9811963/The-US-and-Austria-to-work-on-advancing-peace-in-Ukraine-and-the-Middle-East.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Şirket haberleri",
+      "tarih": "2026-10-19",
+      "tarih_gorunur": "19 Ekim 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/sirket-haberleri-7-8b52fc2e.jpg",
+      "foto_atif": "DXR · CC-BY-SA-4.0"
     },
     {
       "baslik": "Ukrayna Devlet Başkanı Zelenskiy'in de görüşmelere katılması bekleniyor: Konuya aşina iki kaynak",
@@ -1533,32 +1554,6 @@
       "foto_atif": "Bernard Gagnon · CC0"
     },
     {
-      "baslik": "İran: Hürmüz üzerinde kontrol sağlamaktan başka ’seçeneğimiz’ yok",
-      "baslik_kaynak": "Iran: We have 'no choice’ but to assert control over Hormuz.",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9811644/Iran-We-have-no-choice-but-to-assert-control-over-Hormuz.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Jeopolitik",
-      "tarih": "2026-10-19",
-      "tarih_gorunur": "19 Ekim 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
-      "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
-        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
-        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/jeopolitik-40-59a567ac.jpg",
-      "foto_atif": "Peter Griffin · CC0"
-    },
-    {
       "baslik": "Mesh, kullanıcıların ayrı bir kart olmadan kripto harcamalarına izin vermek için Visa'ya dokunuyor",
       "baslik_kaynak": "Mesh taps Visa to let users spend crypto without a separate card",
       "ozet": "Mesh and Visa will let users spend crypto and stablecoin balances from wallet apps, with no need to sell or transfer assets first.",
@@ -2343,7 +2338,7 @@
       "dil": "en",
       "ticari": false,
       "bolge": "DUNYA",
-      "adres": "https://www.boj.or.jp/en/statistics/boj/other/cabs/cabs.xlsx",
+      "adres": "http://www.boj.or.jp/en/statistics/boj/other/cabs/cabs.xlsx",
       "kurum": "BoJ",
       "kurum_tam": "Japonya Merkez Bankası",
       "konu": "Para politikası",
@@ -2353,8 +2348,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-10-bce0f56d.jpg",
-      "foto_atif": "Tony Webster · CC-BY-2.0"
+      "foto": "/statik/foto/para-politikasi-7-d50cfe6c.jpg",
+      "foto_atif": "Infrogmation of New Orleans · CC-BY-SA-4.0"
     },
     {
       "baslik": "Yeni Soru-Cevaplar mevcut",
@@ -2637,7 +2632,7 @@
       "dil": "en",
       "ticari": false,
       "bolge": "DUNYA",
-      "adres": "https://www.boj.or.jp/en/about/press/koen_2026/ko261015a.htm",
+      "adres": "http://www.boj.or.jp/en/about/press/koen_2026/ko261015a.htm",
       "kurum": "BoJ",
       "kurum_tam": "Japonya Merkez Bankası",
       "konu": "Para politikası",
@@ -2647,8 +2642,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-8-6bdac262.jpg",
-      "foto_atif": "Infrogmation of New Orleans · CC-BY-SA-4.0"
+      "foto": "/statik/foto/para-politikasi-8-9ac5b7c7.jpg",
+      "foto_atif": "DestinationFearFan · CC-BY-SA-4.0"
     },
     {
       "baslik": "\"Piyasa Faaliyetleri Toplantısı\" Özeti (Ekim 2026)",
@@ -2658,7 +2653,7 @@
       "dil": "en",
       "ticari": false,
       "bolge": "DUNYA",
-      "adres": "https://www.boj.or.jp/en/paym/market/mkt261015a.pdf",
+      "adres": "http://www.boj.or.jp/en/paym/market/mkt261015a.pdf",
       "kurum": "BoJ",
       "kurum_tam": "Japonya Merkez Bankası",
       "konu": "Para politikası",
@@ -2668,8 +2663,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-12-2ca29aaf.jpg",
-      "foto_atif": "Kidfly182 · CC-BY-4.0"
+      "foto": "/statik/foto/para-politikasi-9-f9a4682a.jpg",
+      "foto_atif": "DXR · CC-BY-SA-4.0"
     }
   ],
   "sinir_notu": "Yukarıdaki maddeler yapısal aktarım kanallarıdır, öngörü değildir. Etkinin ne zaman ve ne ölçüde görüleceği kur seviyesi, vergi düzenlemeleri ve sözleşme yapılarına bağlı olarak değişir; bu sayfada bir büyüklük tahmini yapılmamaktadır."
