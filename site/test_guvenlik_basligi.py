@@ -111,6 +111,26 @@ else:
                 _dusurulen.append(f"{_yol}: {_ad}")
     esit(_dusurulen, [], "hicbir alt kural guvenlik basligini DUSURMUYOR")
 
+    # BESLEME OKUNABILIR, GERISI DEGIL.
+    #
+    # `/v1/*` mobil uygulamanin veri kaynagi ve tamamen kamuya acik:
+    # cerez tasimiyor, uye verisi icermiyor. Yerli fetch tarayicinin
+    # kaynak kisitina tabi olmadigi icin eksikligi TELEFONDA
+    # gorunmuyordu; web cikisi uretimden veri cekemiyordu.
+    #
+    # ASIL KORUNAN SEY, kuralin GENISLEMEMESI. `*` degeri kimlikli
+    # bir uca verilirse baska bir sey olur: baska bir sitedeki betik
+    # okurun oturumuyla yanit okuyabilir. O yuzden iki yonlu
+    # sinaniyor -- besleme ACIK, kimlikli yollar KAPALI.
+    _ACIK = "Access-Control-Allow-Origin"
+    esit(any(x.startswith(_ACIK + ":") for x in _kapsam.get("/v1/*", [])),
+         True, "/v1/* besleme CORS ile okunabilir")
+    _gereginden_genis = [
+        _yol for _yol, _kurallar in _kapsam.items()
+        if _yol != "/v1/*" and any(x.startswith(_ACIK) for x in _kurallar)]
+    esit(_gereginden_genis, [],
+         "CORS yalnizca beslemede -- /*, /api/*, /panel/* KAPSAM DISI")
+
 print("\nKisitlamanin bedeli yok -- kapatilan yetenek kullanilmiyor")
 _kaynaklar = list((_SITE / "statik").glob("*.js"))
 _kaynaklar += list((_SITE / "sablonlar").glob("*.html"))

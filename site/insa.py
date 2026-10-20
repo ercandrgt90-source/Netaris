@@ -7997,6 +7997,25 @@ def insa() -> int:
         "  ! Cache-Control",
         "  Cache-Control: public, max-age=300",
         "",
+        # BESLEME GERCEKTEN OKUNABILIR OLMALI.
+        #
+        # `/v1/*` mobil uygulamanin veri kaynagi. Yerli iOS/Android
+        # fetch'i tarayicinin kaynak kisitina TABI DEGIL, yani telefonda
+        # bu basliksiz da calisiyor -- ve tam bu yuzden eksikligi
+        # gorunmuyordu. Olculdu (2026-10-20): uygulamanin web cikisi
+        # uretimden veri CEKEMIYOR, cunku yanitta
+        # `access-control-allow-origin` yok.
+        #
+        # Bedeli yok: bu dosyalar zaten herkese acik, cerez tasimiyor,
+        # uye verisi icermiyor. Kimlikli bir uca `*` vermek baska bir
+        # sey olurdu -- o yuzden kural `/v1/*` ile SINIRLI.
+        #
+        # KURAL GEREGINDEN GENIS DEGIL: `/api/*` (oturum, uye) ve
+        # `/panel/*` BILEREK disarida. `test_basliklar.py` ikisini de
+        # tutuyor; genisletme girisimi kirmizi yanar.
+        "/v1/*",
+        "  Access-Control-Allow-Origin: *",
+        "",
     )))
 
     # BOLUM KOKU 404 VERMESIN.
