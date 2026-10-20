@@ -141,8 +141,18 @@ export default function Varliklar() {
                   kurum sayfalarinda deger ZATEN beklenmiyor. */}
               {item.veri_var && item.deger ? (
                 <View style={{ alignItems: "flex-end", gap: 2 }}>
+                  {/* BIRIM SAYIYLA BIRLIKTE. "29,00" tek basina ne
+                      oldugunu soylemiyor; "29,00 bin kişi" soyluyor.
+                      Sitenin varlik sayfasi da boyle basiyor. Oran
+                      serilerinde birim bos geliyor (deger zaten "%"
+                      tasiyor), o yuzden kosullu. */}
                   <Text style={[d.deger, { color: t.renk.yazi }]}>
                     {item.deger}
+                    {item.birim ? (
+                      <Text style={[d.birim, { color: t.renk.notr }]}>
+                        {" "}{item.birim}
+                      </Text>
+                    ) : null}
                   </Text>
                   {item.yon ? (
                     <Text
@@ -206,6 +216,7 @@ const d = StyleSheet.create({
   ufakSatir: { flexDirection: "row", alignItems: "center", gap: 7 },
   ufak: { fontSize: 12 },
   deger: { fontSize: 16, fontWeight: "700", fontVariant: ["tabular-nums"] },
+  birim: { fontSize: 11, fontWeight: "500" },
   not: {
     fontSize: 11,
     lineHeight: 16,

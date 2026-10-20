@@ -751,6 +751,20 @@ def seri_ozet(b: sqlite3.Connection, seri_kodu: str | None,
             satirlar = b.execute(
                 "SELECT tarih, kapanis, '' FROM fiyat WHERE sembol=?"
                 " ORDER BY tarih DESC LIMIT ?", (seri_kodu, gun)).fetchall()
+            # BIRIM SEMBOLUN KENDISINDE YAZILI.
+            #
+            # `fiyat` tablosunda birim sutunu yok ve bu bolum uzun
+            # sure bos dizge donduruyordu. Sonuc: altin sayfasinda
+            # "4.132", Bitcoin'de "118.420" -- neyin cinsinden
+            # oldugunu soylemeyen sayilar. Oysa sembol zaten
+            # soyluyor: PAXGUSD, XBTUSD, ETHUSD.
+            #
+            # UYDURULMUYOR, OKUNUYOR: yalnizca sembolun son uc harfi
+            # "USD" ise "USD" yaziliyor. "USD/ons" demek olurdu --
+            # ons bilgisi sembolde GECMIYOR, eklemek veriyi
+            # oldugundan kesin gostermek olurdu.
+            if satirlar and seri_kodu.upper().endswith("USD"):
+                birim = "USD"
     except sqlite3.Error:
         return None
     if len(satirlar) < 2:

@@ -592,6 +592,22 @@ def varlik_dosyalari(kayitlar: list | None, uretildi: str = "") -> dict:
                 "haber_sayisi": k["haber_sayisi"],
                 "veri_var": k["veri_var"],
                 "deger": (k.get("veri") or {}).get("deger", ""),
+                # BIRIM LISTEDE DE OLMALI -- SAYI TEK BASINA ANLAMSIZ.
+                #
+                # Olculdu (2026-10-21): listede "Tarım Dışı İstihdam
+                # 29,00" goruluyordu. Birim ("bin kişi") yalnizca
+                # DETAY dosyasindaydi; sitenin kendi varlik sayfasi
+                # onu basiyor ("126,55 USD/varil", "4.053 mn $").
+                # Yani ayni sayi iki yuzeyde iki anlam tasiyordu.
+                #
+                # BURADA YENI BIR KURAL YOK. Deger ne ise birim de
+                # odur: `varlik.seri_ozet` oran serilerinde ("%")
+                # birimi zaten bosaltiyor, geri kalanda oldugu gibi
+                # birakiyor -- sitenin varlik sayfasi da tam olarak
+                # bunu basiyor ("49,58 TL"). Ikinci bir sadelestirme
+                # kurali yazmak, ayni karari iki yerde vermek olurdu
+                # ve iki yer zamanla ayrisir.
+                "birim": (k.get("veri") or {}).get("birim", ""),
                 "yon": (k.get("veri") or {}).get("yon", ""),
                 "tarih": (k.get("veri") or {}).get("tarih", ""),
                 "dosya": f"{ONEK}/varlik/{k['kod'].lower()}.json",

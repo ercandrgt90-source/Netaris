@@ -128,8 +128,23 @@ VARLIKLAR: tuple[tuple, ...] = (
      "yenilemelerinin ve TMS 29 enflasyon muhasebesinin ortak girdisi."),
     ("UFE_TR", "gosterge", "ÜFE", "Türkiye PPI", "TP.TUFE1YI.T1", 80,
      "Üretici fiyat endeksi. Maliyet tarafındaki baskıyı gösterir."),
-    ("CPI_US", "gosterge", "ABD TÜFE", "US CPI", None, 90, ""),
-    ("NFP", "gosterge", "Tarım Dışı İstihdam", "Nonfarm Payrolls", None, 85,
+    # SERI BAGI BOS BIRAKILMISTI -- VERI VARDI, SAYFA BOSTU.
+    #
+    # Olculdu (2026-10-21): bu varligin sayfasi yayinda ve `onem` 90,
+    # ama `seri_kodu` yoktu; besleme `veri_var: false` donduruyordu,
+    # yani okur "ABD TÜFE" sayfasini aciyor ve HICBIR SAYI gormuyordu.
+    # Oysa depoda `CPIAUCNS` 2026-09-01'e kadar taze duruyor.
+    #
+    # ARINDIRILMAMIS (NS) SERI, arindirilmis (SL) DEGIL -- gerekce
+    # `kaynak/takvim.py` icinde yazili: BLS'in acikladigi manset
+    # YILLIK oran arindirilmamis seriden hesaplaniyor. Takvim bir
+    # donem once SL'den NS'ye gecmis ama bu bag cevrilmemisti; ayni
+    # kusur EURUSD'de de yasanmisti (asagida).
+    ("CPI_US", "gosterge", "ABD TÜFE", "US CPI", "CPIAUCNS", 90,
+     "ABD tüketici fiyat endeksi. Fed'in faiz patikasına dair "
+     "beklentiyi değiştirdiği ölçüde piyasalarda fiyatlanır."),
+    ("NFP", "gosterge", "Tarım Dışı İstihdam", "Nonfarm Payrolls",
+     "PAYEMS", 85,
      "ABD istihdam verisi. Fed'in çift yönlü görevinin istihdam ayağı."),
     ("US10Y", "gosterge", "ABD 10 yıllık tahvil", "US 10Y Treasury",
      "DGS10", 90, "Küresel risksiz getirinin referansı."),
@@ -271,7 +286,13 @@ VARLIKLAR: tuple[tuple, ...] = (
     ("TARIFE", "politika", "Gümrük vergisi ve ticaret önlemleri",
      "Tariffs and trade measures", None, 90,
      "Ülkeler arası ticarete uygulanan vergi ve kısıtlamalar."),
-    ("US_BUYUME", "gosterge", "ABD büyümesi", "US GDP growth", None, 90, ""),
+    # CEYREKLIK SERI: `GDPC1` reel GSYH, zincirlenmis 2017 dolari.
+    # Tarih etiketi CEYREGIN BASI ("2026-04-01" = 2026/2. ceyrek);
+    # `tazelik.donem_etiketi` bunu okunur yaziyor, gun gibi degil.
+    ("US_BUYUME", "gosterge", "ABD büyümesi", "US GDP growth",
+     "GDPC1", 90,
+     "ABD reel gayrisafi yurt içi hasıla. Büyüme ivmesi, Fed'in "
+     "faiz patikasının arka planıdır."),
 )
 
 

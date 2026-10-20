@@ -355,6 +355,10 @@ if (vdizin?.ogeler?.length) {
     haber_sayisi: "number",
     veri_var: "boolean",
     deger: "string",
+    // Birim LISTEDE de olmali: "29,00" tek basina ne oldugunu
+    // soylemiyor. Bos olabilir (oran serilerinde deger zaten "%"
+    // tasiyor) ama ALAN bulunmali -- dususu sessiz kalmasin.
+    birim: "string",
     yon: "string",
     tarih: "string",
     dosya: "string",

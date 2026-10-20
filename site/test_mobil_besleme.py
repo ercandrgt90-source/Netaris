@@ -432,6 +432,34 @@ esit(_dl["ogeler"][0]["veri_var"], False, "dizinde de işaretli")
 esit(M.varlik_dosyalari(None, "")["/v1/varlik.json"]["toplam"], 0,
      "varlık yoksa boş dizin (çökmüyor)")
 
+# --- BIRIM DIZINDE DE OLMALI -- SAYI TEK BASINA ANLAMSIZ ---
+#
+# Olculdu (2026-10-21): dizinde "Tarım Dışı İstihdam 29,00" goruluyordu
+# ve birim ("bin kişi") yalnizca DETAY dosyasindaydi. Sitenin kendi
+# varlik sayfasi onu basiyor ("126,55 USD/varil", "4.053 mn $") -- yani
+# ayni sayi iki yuzeyde iki anlam tasiyordu.
+#
+# Bos birim DOGRU bir deger: oran serilerinde deger zaten "%3,88"
+# biciminde geliyor. Sinanan sey alanin VARLIGI ve birim doluyken
+# TASINMASI.
+_bo = M.varlik_ogesi(
+    {"kod": "NFP", "yol": "/varlik/nfp/", "ad": "Tarım Dışı İstihdam",
+     "tur": "gosterge", "sayi": 3},
+    _KUNYE,
+    {"deger": "29,00", "birim": "bin kişi", "degisim": "+1,00",
+     "yon": "artis", "tarih": "2026-09-01", "gozlem": 27,
+     "seri": [{"tarih": "2026-09-01", "deger": 29.0}]},
+    None, None, lisanssiz=())
+_bd = M.varlik_dosyalari([_bo], "")["/v1/varlik.json"]["ogeler"][0]
+# `.get` KULLANILIYOR: alan tamamen silinirse `_bd["birim"]` ciplak
+# bir KeyError firlatir ve neyin eksik oldugu yigin izinde kalir.
+# `.get` ile dusus OKUNUR oluyor -- beklenen "bin kişi", gelen None.
+esit(_bd.get("birim"), "bin kişi", "DİZİNDE birim taşınıyor")
+esit(_bd["deger"], "29,00", "değer birimden ayrı duruyor")
+# Oran serisinde birim BOS ama alan DURUYOR: istemci "alan yok" ile
+# "birim yok" arasinda ayrim yapmak zorunda kalmasin.
+esit(_dz["ogeler"][0].get("birim"), "", "oran serisinde birim boş ama ALAN var")
+
 print("")
 print("8d. ARAMA DIZINI")
 

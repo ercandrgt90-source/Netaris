@@ -202,6 +202,12 @@ export type VarlikDizinOgesi = {
   haber_sayisi: number;
   veri_var: boolean;
   deger: string;
+  /**
+   * Ölçü birimi. BOŞ OLABİLİR ve bu doğrudur: oran serilerinde değer
+   * zaten "%3,74" biçiminde geliyor, kur çiftinde ad birimi taşıyor.
+   * Boşken hiçbir şey basılmamalı -- "49,58 " gibi bir boşluk değil.
+   */
+  birim: string;
   yon: string;
   tarih: string;
   dosya: string;
