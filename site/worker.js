@@ -309,6 +309,36 @@ function yanit(veri, durum = 200, ekBaslik = {}) {
 
 const hata = (mesaj, durum = 400) => yanit({ hata: mesaj }, durum);
 
+/* OTURUM ISTEMEYEN GENEL OKUMA UCLARI BASKA KOKENDEN DE OKUNABILIR.
+ *
+ * Olculdu (2026-10-20): uygulamanin WEB cikisi canli tel akisini ve
+ * senaryo listesini CEKEMIYOR --
+ *
+ *   Access to fetch at 'https://netaris.net/api/tel?limit=12' from
+ *   origin '...' has been blocked by CORS policy
+ *
+ * Yerli iOS/Android fetch'i tarayicinin kaynak kisitina TABI DEGIL,
+ * yani telefonda calisiyor ve eksiklik tam bu yuzden gorunmuyordu.
+ *
+ * KURAL GEREGINDEN GENIS DEGIL. Yalnizca kimlik ISTEMEYEN okuma
+ * uclari listede; uretimde dogrulandi (oturumsuz 200 donuyorlar).
+ * `ben`, `begeni`, `begenilerim`, `giris`, `cikis`, `hesap-sil`,
+ * `disari-aktar` ve butun POST uclari DISARIDA: kimlikli bir uca
+ * `*` vermek, baska bir sitedeki betigin okurun OTURUMUYLA yanit
+ * okumasi demekti. (`/api/ben` oturumsuz 401 donuyor.)
+ *
+ * `site/test_worker_cors.py` iki yonlu tutuyor: bu listedekiler acik,
+ * baska hicbir uc degil.
+ */
+const GENEL_OKUMA = new Set(["tel", "tel/durum", "senaryo/hepsi"]);
+
+/** Yaniti baska kokenden okunabilir kilar. Yalnizca GENEL_OKUMA icin. */
+function acikYanit(cevap) {
+  const y = new Response(cevap.body, cevap);
+  y.headers.set("access-control-allow-origin", "*");
+  return y;
+}
+
 function cerezOku(istek, ad) {
   const ham = istek.headers.get("cookie") || "";
   for (const parca of ham.split(";")) {
@@ -3343,15 +3373,18 @@ export default {
       /* Haber sayfasindaki senaryo bolumu -- oturum ISTEMEZ, yalnizca
          yayimlanmis senaryolari doner. */
       if (y === "senaryo/acik" && m === "GET") return await senaryoAcik(istek, env);
-      if (y === "senaryo/hepsi" && m === "GET") return await senaryoHepsi(env);
+      if (y === "senaryo/hepsi" && m === "GET")
+        return acikYanit(await senaryoHepsi(env));
       /* Nobetci tanilamasi: sir icermiyor, kimlik gerektirmiyor.
          Amaci "sessiz mi, bozuk mu" sorusunu disaridan
          cevaplanabilir kilmak. */
       if (y === "nobetci" && m === "GET") return await nobetciDurum(env);
       /* Tel: sitenin OKUMA tarafi, oturum istemez. */
-      if (y === "tel" && m === "GET") return await telListe(istek, env);
+      if (y === "tel" && m === "GET")
+        return acikYanit(await telListe(istek, env));
       /* Tanilama: sir icermiyor, kimlik gerektirmiyor. */
-      if (y === "tel/durum" && m === "GET") return await telDurum(env);
+      if (y === "tel/durum" && m === "GET")
+        return acikYanit(await telDurum(env));
       /* SAYACLAR OTURUM ISTEMEZ.
          Okurun cogu uye degil; goruntulenme uyelige bagli olsaydi
          olcum sitenin kucuk bir dilimini gosterirdi. Begeni ise
