@@ -251,7 +251,7 @@ iOS yayını ayrı karar (99 USD/yıl).
 |---|---|
 | **1024 px vektör ikon** | Depodaki en büyük marka rendisi 512 raster; büyütüldü, kabul edilebilir ama asıl dosya istenmeli |
 | **Uygulama içi hesap silme** | ÇÖZÜLDÜ — Profil → Hesabımı sil |
-| **TradingView uygulama içi şartları** | **Doğrulanmadı.** Uygulamada şu an TradingView gömülüsü YOK; eklenmeden önce şartlar okunmalı |
+| **TradingView uygulama içi şartları** | **Okundu (2026-10-20) — eklenmeyecek.** Madde 3 ayrı anlaşma olmadan ticari kullanımı ve "TradingView içeriğine dayalı ürün"ü yasaklıyor; mağazada dağıtılan ticari bir uygulama bu tanıma giriyor. Uygulamada gömülü YOK ve olmayacak; sitedekiler atfıyla kalıyor |
 | **Bildirimler** | Arka uç yok; uygulamada bildirim izni İSTENMİYOR, dolayısıyla formda da beyan yok. Faz 4d |
 | **12 test kullanıcısı** | Bireysel hesapta zorunlu, 14 gün |
 

@@ -21,7 +21,15 @@ import fs from "node:fs";
 import path from "node:path";
 import process from "node:process";
 
-const KOK = path.resolve(import.meta.dirname, "..", "site", "cikti", "v1");
+// VARSAYILAN: yerel uretilmis cikti. `--kok <dizin>` ile BASKA bir
+// besleme kopyasi da sinanabilir -- ornegin uretimden indirilmis
+// olani. Yerelde gecip CANLIDA bozuk olan bir besleme mumkun:
+// dagitim eksik dosya yukleyebilir, eski surum kalabilir. "Yerelde
+// calisiyor" bu depoda yeterli bir cumle degil.
+const _i = process.argv.indexOf("--kok");
+const KOK = _i > 0 && process.argv[_i + 1]
+  ? path.resolve(process.argv[_i + 1])
+  : path.resolve(import.meta.dirname, "..", "site", "cikti", "v1");
 let gecti = 0;
 const dusen = [];
 

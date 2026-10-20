@@ -161,11 +161,39 @@ Yani ana sayfa göstergeleri **lisansı bizde olan** kümeyle kurulacak;
 endeksler için ya hiç fiyat gösterilmeyecek ya da TradingView
 gömülüsü kullanılacak.
 
-**TradingView gömülüsünün uygulama içi kullanım şartları doğrulanmadı.**
-Web gömülüsü için atıf zorunluluğu biliniyor ve korunuyor
-(`site/sablonlar/_tradingview.html` + 3 şablonda 8 gömülü). Uygulama
-içinde `WebView` ile kullanmak ayrı bir izin sorusu ve **yayından önce
-doğrulanmalı.** Doğrulanmadan uygulamaya endeks grafiği konmayacak.
+**TradingView şartları okundu (2026-10-20) — KARAR: uygulamada
+TradingView gömülüsü YOK.**
+
+`tradingview.com/policies/` iki maddesi belirleyici:
+
+> **Madde 3:** "Except as otherwise expressly permitted by separate
+> agreement, we do not permit commercial usage of any of our services
+> or APIs." Aynı madde "creating products or services based on
+> TradingView content" ifadesini de yasaklıyor.
+>
+> **Madde 4:** "The use of any TradingView products outside the
+> TradingView website, without a proper attribution of TradingView,
+> is not allowed... This extends to any tools (such as widgets)."
+> Atıf "as was originally designed and intended" kalmalı; uymayan
+> hesaplar **kalıcı olarak kapatılabiliyor.**
+
+Metin yerli uygulamalardan hiç söz etmiyor — yani açıkça izin de
+vermiyor, açıkça yasaklamıyor da. Belirleyici olan belirsizliğin
+kendisi: Netaris üyelik taşıyan **ticari** bir yayın ve mağazada
+dağıtılan bir uygulama, "ayrı anlaşma olmadan ticari kullanım" ile
+"TradingView içeriğine dayalı ürün" tanımlarının ikisine de girmeye
+aday. Ayrı anlaşma yok.
+
+Bu, deponun fotoğraf lisanslarında verdiği kararın aynısı: ND
+lisansları "kırpma türev sayılır mı" tartışmalı olduğu için hiç
+alınmadı. *Tartışmalı olanı hiç almamak basit.*
+
+**Sonuç:** Uygulamaya endeks grafiği KONMUYOR. Endeks fiyatı zaten
+Borsa İstanbul dağıtım lisansı istiyor (bkz. 1.3) ve o lisans bizde
+yok; iki yol da kapalı olduğu için uygulamada endeks fiyatı
+gösterilmiyor. **Sitedeki gömülüler olduğu gibi kalıyor** — atıf
+yerinde, `test_lisans_atfi.py` bunu zorluyor; madde 4'ü karşılayan
+şey o atıf.
 
 ### 1.10 Diğer teknik riskler
 
@@ -591,8 +619,10 @@ ham Markdown işareti vardı.
 
 ## Kalan sorular ve engeller
 
-1. **TradingView uygulama içi şartları doğrulanmadı.** Doğrulanmadan
-   uygulamaya endeks grafiği konmayacak.
+1. ~~TradingView uygulama içi şartları doğrulanmadı.~~ **Kapandı
+   (2026-10-20):** şartlar okundu, ayrı anlaşma olmadan ticari
+   kullanım yasak. Uygulamaya endeks grafiği konmuyor; sitedeki
+   gömülüler atfıyla birlikte duruyor. Gerekçe 1.9'da.
 2. **AI sohbeti sağlayıcı kararı bekliyor.** Ücretsiz model sayı
    uyduruyor; ölçüldü.
 3. **Bildirimler için FCM kimlik bilgisi gerekecek.** Sırası geldiğinde
