@@ -206,11 +206,54 @@ def seri_durumu(b: sqlite3.Connection, kod: str,
     }
 
 
+#: ARTIK CEKILMEYEN SERILER -- donmus olmalari ARIZA DEGIL, KARAR.
+#:
+#: Her birinin sebebi ayri ve hepsi baska bir dosyada yazili. Buraya
+#: KOD + tek satirlik sebep yaziliyor; ayrintili gerekce kaynagindadir.
+#:
+#: Olculdu (2026-10-21): `bayat_seriler` YEDI seri bildiriyordu ve
+#: yedisi de buradaydi -- yani rapor %100 yanlis alarmdi. Bu dosyanin
+#: kendi acilis notu tam bunu soyluyor: "Ham yasa bakan bir uyari,
+#: dogru calisan serileri sikayet eder ve kisa surede gormezden
+#: gelinir." Rapor o hale gelmisti.
+#:
+#: Lisans gerekcesiyle cikarilanlar BURAYA KOPYALANMIYOR,
+#: `makro_uret_ucretsiz.LISANSSIZ_SERILER`den okunuyor: iki yerde
+#: tutulan liste zamanla ayrisir ve ayrisma hata vermez.
+EMEKLI_SEBEP = {
+    "DEXUSEU": "panel ECB_EURUSD'ye tasindi -- FRED alti is gunu geride",
+    "CPIAUCSL": "takvim CPIAUCNS'ye gecti -- manset yillik oran NS'den",
+    "CPILFESL": "takvim CPILFENS'ye gecti -- ayni gerekce",
+}
+
+
+def emekli_seriler() -> set:
+    """Tazelik raporunun DISINDA tutulacak seriler."""
+    kodlar = set(EMEKLI_SEBEP)
+    try:  # pragma: no cover - ice aktarma ortama bagli
+        import makro_uret_ucretsiz as _mak      # noqa: PLC0415
+        kodlar |= set(_mak.LISANSSIZ_SERILER)
+    except Exception:                           # pragma: no cover
+        pass
+    return kodlar
+
+
 def bayat_seriler(b: sqlite3.Connection,
-                  bugun: _dt.date | None = None) -> list[dict]:
-    """Ritminin gerisinde kalan seriler, en cok gecikenden baslayarak."""
+                  bugun: _dt.date | None = None,
+                  emekli_dahil: bool = False) -> list[dict]:
+    """Ritminin gerisinde kalan seriler, en cok gecikenden baslayarak.
+
+    EMEKLI SERILER SAYILMIYOR. Artik cekilmeyen bir serinin donmus
+    olmasi bir ariza degil; onu her kosuda bildirmek, raporu okunmaz
+    hale getirir ve GERCEK bir gecikme ciktiginda artik kimse bakmaz.
+    `emekli_dahil=True` ile ham liste alinabilir -- emeklilerin
+    gercekten emekli oldugunu DOGRULAMAK icin.
+    """
+    disarida = set() if emekli_dahil else emekli_seriler()
     cikti = []
     for (kod,) in b.execute("SELECT DISTINCT kod FROM gosterge"):
+        if kod in disarida:
+            continue
         d = seri_durumu(b, kod, bugun)
         if d and d["bayat"]:
             cikti.append(d)

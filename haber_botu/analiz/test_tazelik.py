@@ -116,5 +116,55 @@ if tazelik.DEPO.exists():
     # Asagidaki sinamalar KALDI cunku hicbiri canli veriye bagli
     # degil: frekans cikarimi ve donem etiketi saf islevler.
 
+print("")
+print("EMEKLI SERI AYRIMI -- SUSTURMA ARACINA DONUSMEMELI")
+# Olculdu (2026-10-21): tazelik raporu YEDI seri bildiriyordu ve
+# yedisi de artik CEKILMEYEN serilerdi -- rapor %100 yanlis alarmdi.
+# Emekliler haric tutuldu.
+#
+# AMA bir haric tutma listesi, kirmizi bir seriyi susturmanin en
+# kolay yoludur. Asagidakiler onu tutuyor -- ve TAZELIK KARARINI
+# OKUMADAN tutuyor: bu depoda sinama dosyalari o karari kapi
+# yapamaz (gerekce `test_isakisi.py` icinde). Olculen sey listenin
+# KENDISI: neyi icerdigi ve neyi iceremeyecegi.
+esit(all(str(v).strip() for v in tazelik.EMEKLI_SEBEP.values()), True,
+     "her emekli serinin yazili bir sebebi var")
+esit(len(tazelik.EMEKLI_SEBEP) > 0, True,
+     f"emekli listesi dolu ({len(tazelik.EMEKLI_SEBEP)})")
+
+# HALA CEKILEN BIR SERI EMEKLI SAYILAMAZ.
+#
+# Asil tehlike bu: hat bir seriyi cekmeye devam ederken o seri
+# listeye konursa, gercek bir gecikme kalici olarak susturulmus
+# olur. Cekilen kume KAYNAKTAN okunuyor, buraya yazilmiyor.
+try:
+    import makro_uret_ucretsiz as _mak
+    _cekilen = set(_mak.SERILER) | set(_mak.PANEL_SERILERI)
+    _celisen = sorted(set(tazelik.EMEKLI_SEBEP) & _cekilen)
+    if _celisen:
+        print(f"\n  HALA CEKILIYOR AMA EMEKLI SAYILMIS: {_celisen}")
+    esit(_celisen, [], "emekli seriler artik cekilmiyor")
+    esit(len(_cekilen) > 3, True,
+         f"cekilen kume gercekten okundu ({len(_cekilen)})")
+except ImportError:
+    print("  ATLANDI  makro modulu okunamadi")
+
+# EMEKLI SERI BIR SAYFAYI BESLEMIYOR OLMALI.
+#
+# `EMEKLI_SEBEP` listesindekiler YERINE BASKASI GECTIGI icin emekli.
+# Biri hala bir varligin `seri_kodu` ise, o sayfa donmus veri
+# gosteriyor demektir -- EURUSD vakasinin ta kendisi.
+try:
+    import graf_tohum as _tohum_mod
+    _bagli = {s for *_a, s, _o, _ac in
+              ((k, t, a, ae, s, o, ac)
+               for k, t, a, ae, s, o, ac in _tohum_mod.VARLIKLAR) if s}
+    _hala = sorted(set(tazelik.EMEKLI_SEBEP) & _bagli)
+    if _hala:
+        print(f"\n  EMEKLI AMA HALA SAYFA BESLIYOR: {_hala}")
+    esit(_hala, [], "emekli seri hicbir varligi beslemiyor")
+except ImportError:
+    print("  ATLANDI  tohum okunamadi")
+
 print(f"\n{_gecti} gecti, {_kaldi} kaldi")
 sys.exit(1 if _kaldi else 0)
