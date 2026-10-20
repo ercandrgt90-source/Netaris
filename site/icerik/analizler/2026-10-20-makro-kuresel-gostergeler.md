@@ -1,7 +1,7 @@
 ---
 slug: kuresel-gostergeler-2026-10-20
 baslik: Brent %18,9 yükselip geri çekildi: Türkiye'ye hangi kanallardan geliyor
-ozet: Brent petrol 14 Ekim 2026 itibarıyla 126,55 USD/varil seviyesinde. İzlenen 14 işlem gününde 29 Eylül 2026 tarihli 113,96 dolarlık dibi ile 2 Ekim 2026 tarihli 135,51 dolarlık zirvesi arasında hareket etti. ABD 10 yıllık tahvil getirisi %5,09 (16 Ekim 2026), aynı dönemde 15 baz puan geriledi.…
+ozet: Brent petrol 14 Ekim 2026 itibarıyla 126,55 USD/varil seviyesinde. İzlenen 14 işlem gününde 29 Eylül 2026 tarihli 113,96 dolarlık dibi ile 2 Ekim 2026 tarihli 135,51 dolarlık zirvesi arasında hareket etti. ABD 10 yıllık tahvil getirisi %5,15 (19 Ekim 2026), aynı dönemde 11 baz puan geriledi.…
 sirket: Küresel göstergeler
 kod: MAKRO
 donem: 2026-10-20
@@ -21,16 +21,16 @@ sayimlar: 4|yorumlanan gösterge;56|gözlem noktası;14|işlem günü penceresi;
 
 ## Özet
 
-Brent petrol 14 Ekim 2026 itibarıyla 126,55 USD/varil seviyesinde. İzlenen 14 işlem gününde 29 Eylül 2026 tarihli 113,96 dolarlık dibi ile 2 Ekim 2026 tarihli 135,51 dolarlık zirvesi arasında hareket etti. ABD 10 yıllık tahvil getirisi %5,09 (16 Ekim 2026), aynı dönemde 15 baz puan geriledi. 10 yıllık ile 2 yıllık arasındaki fark 35 baz puan; getiri eğrisi pozitif eğimli.
+Brent petrol 14 Ekim 2026 itibarıyla 126,55 USD/varil seviyesinde. İzlenen 14 işlem gününde 29 Eylül 2026 tarihli 113,96 dolarlık dibi ile 2 Ekim 2026 tarihli 135,51 dolarlık zirvesi arasında hareket etti. ABD 10 yıllık tahvil getirisi %5,15 (19 Ekim 2026), aynı dönemde 11 baz puan geriledi. 10 yıllık ile 2 yıllık arasındaki fark 38 baz puan; getiri eğrisi pozitif eğimli.
 
 ## Göstergeler
 
 | Gösterge | Son değer | Tarih | Dönem değişimi |
 |---|---|---|---|
 | Brent petrol | 126,55 USD/varil | 14 Ekim 2026 | %9,1 yükseldi |
-| ABD efektif fed fonu oranı | %3,88 | 16 Ekim 2026 | yatay kaldı |
-| ABD 2 yıllık tahvil getirisi | %4,74 | 16 Ekim 2026 | 18 baz puan geriledi |
-| ABD 10 yıllık tahvil getirisi | %5,09 | 16 Ekim 2026 | 15 baz puan geriledi |
+| ABD efektif fed fonu oranı | %3,88 | 19 Ekim 2026 | yatay kaldı |
+| ABD 2 yıllık tahvil getirisi | %4,77 | 19 Ekim 2026 | 12 baz puan geriledi |
+| ABD 10 yıllık tahvil getirisi | %5,15 | 19 Ekim 2026 | 11 baz puan geriledi |
 
 Her göstergenin son gözlem tarihi farklı olabilir; tabloda her satır kendi tarihini taşır. Dönem değişimi, yukarıdaki pencerenin ilk gözlemine göre hesaplanmıştır.
 
@@ -40,7 +40,7 @@ Her göstergenin son gözlem tarihi farklı olabilir; tabloda her satır kendi t
 
 ## ABD faiz tarafı
 
-Efektif fed fonu faizi %3,88 (16 Ekim 2026); izlenen dönemde sabit kaldı. Piyasa tarafında 2 yıllık getiri %4,74, 10 yıllık %5,09. Dönem içinde 2 yıllık 18 baz puan geriledi, 10 yıllık 15 baz puan geriledi. Aradaki 35 baz puanlık pozitif fark, uzun vadeli borçlanma faizinin kısa vadeliden yüksek olduğu normal eğim anlamına gelir.
+Efektif fed fonu faizi %3,88 (19 Ekim 2026); izlenen dönemde sabit kaldı. Piyasa tarafında 2 yıllık getiri %4,77, 10 yıllık %5,15. Dönem içinde 2 yıllık 12 baz puan geriledi, 10 yıllık 11 baz puan geriledi. Aradaki 38 baz puanlık pozitif fark, uzun vadeli borçlanma faizinin kısa vadeliden yüksek olduğu normal eğim anlamına gelir.
 
 ## Türkiye'ye hangi kanallardan geliyor
 
