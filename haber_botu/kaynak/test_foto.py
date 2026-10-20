@@ -241,7 +241,7 @@ dogru("ayni baslik, kategorisiz -> gecer (kanit yok)",
 #     ant ⊂ significANT, quANTitative
 #
 # Duz dizge aramasi bu sitede felaket olurdu; desen sinir isaretli
-# (``) yazildi. Bu blok, birinin ileride sinirlari kaldirmasini
+# (`\b`) yazildi. Bu blok, birinin ileride sinirlari kaldirmasini
 # engelliyor.
 #
 # BOGA ve AYI bilerek listede YOK: piyasa terimi ve Wall Street

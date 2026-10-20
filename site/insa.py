@@ -156,7 +156,23 @@ def _yuz_kapsam_denetimi() -> None:
 
     # Etiketler, betikler ve stil bloklari HARIC: oralardaki metin
     # okura cizilmiyor. Ayrica kacis dizileri (&nbsp; gibi) coz.
-    etiket = re.compile(r"<(script|style).*?</>|<[^>]+>", re.S | re.I)
+    # DESEN BIR KEZ BOZULDU, SESSIZCE.
+    #
+    # Kaynakta uzun sure su yaziyordu (gorunmez hali):
+    #
+    #     r"<(script|style)\x08.*?</\x01>|<[^>]+>"
+    #
+    # Yazilmak istenen `\b` (kelime siniri) ve `\1`
+    # (geri basvuru) idi; ikisi de yazim sirasinda GERCEK denetim
+    # karakterine (0x08 ve 0x01) donmustu. Sonuc: ilk secenek HICBIR
+    # zaman eslesmedi, yani betik ve stil bloklarinin ICERIGI
+    # metne karisti ve okura cizilmeyen karakterler "kapsam disi"
+    # diye raporlandi. Kod dogru GORUNUYORDU.
+    #
+    # Ayni tuzak bu depoda birkac kez isledi; bkz. `test_kacis.py`,
+    # artik butun kaynak dosyalari denetim karakterine karsi
+    # taraniyor ve boylesi bir desen bir daha sessizce giremiyor.
+    etiket = re.compile(r"<(script|style)\b.*?</\1>|<[^>]+>", re.S | re.I)
     disarida: dict[str, int] = {}
     ornek: dict[str, str] = {}
     for sayfa in CIKTI.rglob("*.html"):
