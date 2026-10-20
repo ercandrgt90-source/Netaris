@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="Netaris">
+  <title>Netaris</title>
+  <rect x="0" y="0" width="512" height="512" rx="101.5" ry="101.5" fill="#0B1018"/>
+  <path d="M 80 431 L 80 96 L 304 367 L 304 96" fill="none" stroke="#E8EEF7" stroke-width="50" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="352" y="304" width="54" height="128" rx="18" fill="#2DD4BF"/>
+  <rect x="426" y="208" width="54" height="224" rx="18" fill="#2DD4BF"/>
+</svg>

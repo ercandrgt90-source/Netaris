@@ -249,7 +249,7 @@ iOS yayını ayrı karar (99 USD/yıl).
 
 | Konu | Durum |
 |---|---|
-| **1024 px vektör ikon** | Depodaki en büyük marka rendisi 512 raster; büyütüldü, kabul edilebilir ama asıl dosya istenmeli |
+| **1024 px vektör ikon** | **Tamam (2026-10-20).** `mobil/magaza/netaris-marka.svg` vektör asıl dosyadır; geometrisi 512'lik rasterden ölçülerek çıkarıldı, çubuk köşe yarıçapı sekiz aday arasından piksel karşılaştırmasıyla seçildi (fark %0,5). İkonlar artık vektörden çiziliyor |
 | **Uygulama içi hesap silme** | ÇÖZÜLDÜ — Profil → Hesabımı sil |
 | **TradingView uygulama içi şartları** | **Okundu (2026-10-20) — eklenmeyecek.** Madde 3 ayrı anlaşma olmadan ticari kullanımı ve "TradingView içeriğine dayalı ürün"ü yasaklıyor; mağazada dağıtılan ticari bir uygulama bu tanıma giriyor. Uygulamada gömülü YOK ve olmayacak; sitedekiler atfıyla kalıyor |
 | **Bildirimler** | Arka uç yok; uygulamada bildirim izni İSTENMİYOR, dolayısıyla formda da beyan yok. Faz 4d |

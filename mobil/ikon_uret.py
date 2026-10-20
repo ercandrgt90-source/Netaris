@@ -13,14 +13,31 @@ Marka varligi depoda zaten var (`site/statik/marka/netaris-512.png`)
 Elle yapilsa: logo degistiginde uygulama ikonu ESKI kalirdi ve
 hicbir sey bunu haber vermezdi. Betikle tek komut.
 
-KAYNAGIN SINIRI ACIKCA YAZILIYOR
---------------------------------
-Depodaki en buyuk marka rendisi 512x512 raster; vektor kaynak YOK
-(arandi, bulunamadi). 1024'e buyutme LANCZOS ile yapiliyor ve
-sekiller basit oldugu icin sonuc kabul edilebilir. Yine de MAGAZA
-TESLIMINDEN ONCE vektorden uretilmis 1024'luk bir asil dosya
-istenmeli -- bu betik o dosya geldiginde KAYNAK yolunu degistirmek
-disinda degismez.
+KAYNAK ARTIK VEKTORDEN GELIYOR (2026-10-20)
+-------------------------------------------
+Onceden depodaki en buyuk rendi 512x512 rasterdi ve 1024'e LANCZOS
+ile buyutuluyordu. Vektor asil dosya ARANDI, bulunamadi -- ve bu,
+magaza teslimindeki son eksikti.
+
+Cozum: 512'lik rasterin geometrisi OLCULEREK geri cikarildi. Raster
+zaten vektorden uretilmisti (kenar yumusatma piksellerinin orani
+yalnizca %0,5), yani sekiller tam olarak kurtarilabilirdi:
+
+    kalem kalinligi  50     (sol kol dilimi x=55..104)
+    N cokgen cizgisi M 80 431 L 80 96 L 304 367 L 304 96
+    cubuk A          x=352 y=304 54x128
+    cubuk B          x=426 y=208 54x224
+    ikon kose yaricapi 101,5  (y=0 satirinda opak x=101..410)
+
+Cubuk kose yaricapi TAHMIN EDILMEDI, olculdu: sekiz aday (12..27)
+cizildi ve ozgun rasterle piksel piksel kiyaslandi; en kucuk fark
+r=18'de (ortalama 1,34/255 = %0,5, belirgin sapma %0,98). Kalan fark
+kenar yumusatmasi.
+
+Asil dosya: `magaza/netaris-marka.svg`. PNG'ye cevirmek icin
+`node magaza/svg_ciz.mjs magaza/netaris-marka.svg cikti.png 1024`
+(Chrome ile cizdiriyor; betigin kendisi bagimlilik eklemiyor cunku
+URETILMIS PNG depoda duruyor).
 
 URETILENLER
 -----------
@@ -51,7 +68,10 @@ except ImportError:                       # pragma: no cover
     raise SystemExit(1)
 
 KOK = pathlib.Path(__file__).resolve().parent.parent
-KAYNAK = KOK / "site" / "statik" / "marka" / "netaris-512.png"
+#: Vektor asil dosyadan (`magaza/netaris-marka.svg`) 1024px olarak
+#: cizilmis PNG. Site varliklarina DOKUNULMUYOR: `netaris-512.png`
+#: favicon ve apple-touch-icon olarak yayinda ve oldugu gibi kaliyor.
+KAYNAK = KOK / "mobil" / "magaza" / "netaris-1024.png"
 HEDEF = KOK / "mobil" / "assets"
 
 #: Marka zemini -- kaynaktaki en sik renk. `app.json` icindeki

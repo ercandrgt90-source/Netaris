@@ -69,9 +69,44 @@ kalmasını sağlıyor.
 
 ---
 
-## Eksik olan tek şey
+## Vektör asıl dosya — artık var (2026-10-20)
 
-**1024 px vektör ikon.** Depodaki en büyük marka rendisi 512×512
-raster; `ikon_uret.py` onu büyütüyor ve sonuç kabul edilebilir, ama
-mağaza teslimi için vektörden üretilmiş bir asıl dosya istenmeli.
-Dosya geldiğinde betikte yalnızca `KAYNAK` yolu değişir.
+`netaris-marka.svg` deponun vektör marka aslıdır; `netaris-1024.png`
+ondan çizilmiştir ve `ikon_uret.py` artık onu kaynak alır.
+
+Vektör dosya **aranmış, bulunamamıştı.** Çözüm, 512'lik rasterin
+geometrisini ölçerek geri çıkarmak oldu — raster zaten vektörden
+üretilmişti (kenar yumuşatma pikselleri toplamın yalnızca %0,5'i),
+yani şekiller tam olarak kurtarılabilirdi:
+
+| Ölçülen | Değer | Nereden |
+|---|---|---|
+| Kalem kalınlığı | 50 | Sol kolun yatay dilimi `x=55..104` |
+| N çokgen çizgisi | `M 80 431 L 80 96 L 304 367 L 304 96` | Kol merkezleri ve yuvarlak uç payı (25) |
+| Çubuk A | `x=352 y=304 54×128` | Teal sütun grupları |
+| Çubuk B | `x=426 y=208 54×224` | Teal sütun grupları |
+| İkon köşe yarıçapı | 101,5 | `y=0` satırında opak aralık `x=101..410` |
+| Çubuk köşe yarıçapı | 18 | **Ölçüldü, tahmin edilmedi** (aşağıda) |
+
+Çubuk yarıçapı için sekiz aday (12–27) Chrome ile çizilip özgün
+rasterle piksel piksel karşılaştırıldı. En küçük fark `r=18`:
+
+    r12  ortalama fark 1.49    r18  ortalama fark 1.34  <-- en iyi
+    r14  ortalama fark 1.45    r20  ortalama fark 1.35
+    r16  ortalama fark 1.39    r22  ortalama fark 1.42
+                               r27  ortalama fark 1.64
+
+1,34/255 = **%0,5**; kalan fark kenar yumuşatmasıdır.
+
+### Yeniden çizmek gerektiğinde
+
+    node magaza/svg_ciz.mjs magaza/netaris-marka.svg cikti.png 1024
+
+Chrome ile çizdiriyor. Betik bir **bağımlılık eklemiyor**: üretilmiş
+PNG depoda duruyor, kurulum sırasında hiçbir şey çizilmiyor.
+
+### Site varlıklarına dokunulmadı
+
+`site/statik/marka/netaris-512.png` favicon ve apple-touch-icon
+olarak yayında; olduğu gibi kaldı. Bu dizindekiler yalnızca
+uygulamayı besliyor.
