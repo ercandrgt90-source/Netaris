@@ -167,6 +167,12 @@ jobs:
       # Kirmizi kosuyu bir kayit olarak acmak/kapatmak icin. Yeni bir
       # gizli anahtar GEREKMIYOR -- kosunun kendi jetonu yetiyor.
       issues: write
+      # Alarm, DUSEN ADIMIN ADINI kosunun kendi is listesinden okuyor.
+      # Acik bir `permissions` blogu varken verilmeyen her yetki
+      # KAPALIDIR: bu satir olmadan `gh api .../jobs` 403 doner ve
+      # alarm sessizce "adim listesi alinamadi" yedegine duser --
+      # yani ozellik calisir GORUNUR ama hicbir zaman calismaz.
+      actions: read
 
     steps:
       - name: Depoyu al
@@ -774,12 +780,33 @@ jobs:
           BASLIK: "Otomasyon kirmizi -- kosu basarisiz"
         run: |
           kosu="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          # "BIR SEY BOZUK" ILE "NE BOZUK" ARASINDAKI FARK.
+          #
+          # Olculdu (2026-10-20): dagitim yedi buçuk saat durdu. Bu
+          # alarm CALISTI, kayit 12:59'da acildi -- ama govdesinde
+          # yalnizca "kosu ozetine bakin" yaziyordu. Hangi adimin,
+          # hangi sinamanin dustugu yalnizca GUNLUKTEYDI ve gunluk
+          # indirmek yetki istiyor. Alarmi okuyup ne yapacagini
+          # bilememek, alarmin yarisini bosa harcamak.
+          adimlar=$(gh api "repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/jobs" --jq '.jobs[].steps[]? | select(.conclusion=="failure") | "- " + .name' 2>/dev/null | head -8)
+          [ -z "$adimlar" ] && adimlar="- (adım listesi alınamadı -- koşu özetine bakın)"
+          # Ciktiya bakan koscu dusen dosya adlarini buraya yaziyor.
+          sinamalar=""
+          dosya="${RUNNER_TEMP}/dusen-sinamalar.txt"
+          if [ -s "$dosya" ]; then
+            sinamalar="
+
+          Düşen sınamalar:
+          $(sed 's|^|- |' "$dosya" | head -12)"
+          fi
           govde="Koşu: $kosu
           Tetikleyici: ${{ github.event_name }}
           Commit: ${{ github.sha }}
           Zaman (UTC): $(date -u +'%Y-%m-%d %H:%M')
 
-          Düşen adımı görmek için koşu özetine bakın.
+          Düşen adımlar:
+          $adimlar$sinamalar
+
           Bu kayıt, koşu yeşile döndüğünde KENDİLİĞİNDEN kapanır."
           mevcut=$(gh issue list --state open --label otomasyon                    --json number --jq '.[0].number // empty' 2>/dev/null || true)
           if [ -z "$mevcut" ]; then

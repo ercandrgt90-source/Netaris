@@ -668,5 +668,62 @@ for _ay in ("2", "4", "7", "10"):
     dogru(f"bilanco.yml cron {_ay}. ayi kapsiyor",
           f",{_ay}," in _b or f"* {_ay}," in _b)
 
+# ============================================================
+# ALARM NE OLDUGUNU SOYLEMELI -- "BIR SEY BOZUK" YETMIYOR.
+#
+# Olculdu (2026-10-20): dagitim yedi buçuk saat durdu. Alarm CALISTI,
+# kayit 12:59'da acildi. Ama govdesinde yalnizca "dusen adimi gormek
+# icin kosu ozetine bakin" yaziyordu; hangi sinamanin dustugu
+# YALNIZCA kosu gunlugundeydi ve gunluk indirmek yetki istiyor.
+#
+# Alarmin degeri "calmasi" degil, OKUNUNCA NE YAPILACAGINI
+# soylemesi. Asagidaki iddialar o bilgi yolunun her halkasini
+# tutuyor; biri kopsa alarm yine calar ama yine hicbir sey anlatmaz
+# -- ve bu, sessiz kalmasindan daha sinsi olur.
+# ============================================================
+print("")
+_oto = (AKIS / "otomasyon.yml").read_text(encoding="utf-8")
+
+# 1. YETKI. Acik bir `permissions` blogu varken VERILMEYEN yetki
+#    kapalidir. `actions: read` olmadan `gh api .../jobs` 403 doner
+#    ve alarm sessizce "adim listesi alinamadi" yedegine duser:
+#    ozellik calisir GORUNUR, hicbir zaman calismaz.
+dogru("otomasyon.yml: alarm icin `actions: read` yetkisi var",
+      "actions: read" in _oto)
+
+# 2. SORGU. Dusen adimin adi kosunun kendi is listesinden okunuyor.
+dogru("otomasyon.yml: alarm dusen ADIM adini sorguluyor",
+      "/jobs" in _oto and 'conclusion=="failure"' in _oto)
+# Ad listesi GOVDENIN ICINDE olmali. Dosyada bir yerde gecmesi
+# yetmez: `adimlar=$(...)` atamasi ve `[ -z "$adimlar" ]` yedegi de
+# ayni dizgiyi tasiyor, yani "dosyada var mi" iddiasi govdeden
+# silinse bile YESIL kalirdi -- olculdu, mutasyon kacti.
+_gv = re.search('govde="Koşu: [$]kosu(.*?)"', _oto, re.S)
+dogru("otomasyon.yml: alarm govdesi bulundu", _gv is not None)
+dogru("otomasyon.yml: adim adlari kayit GOVDESINE giriyor",
+      _gv is not None and "$adimlar" in _gv.group(1))
+dogru("otomasyon.yml: dusen sinamalar kayit GOVDESINE giriyor",
+      _gv is not None and "$sinamalar" in _gv.group(1))
+
+# 3. SOZLESME: koscu ile is akisi AYNI dosya adinda anlasmali.
+#
+# Iki yerde ayri ayri yazilmis bir dosya adi, bu depodaki tanidik
+# kusur sinifi: biri degisir, oteki eski adi okumaya devam eder ve
+# hicbir sey kirmizi yanmaz -- alarm yalnizca eksik bilgiyle calar.
+# Ad KAYNAKTAN okunuyor, buraya elle yazilmiyor.
+_ks = (KOK / "site" / "cikti_sinamalari.py").read_text(encoding="utf-8")
+_md = re.search(r'_DUYURU = "([^"]+)"', _ks)
+dogru("cikti_sinamalari.py: duyuru dosyasinin adi tanimli", _md is not None)
+if _md:
+    dogru("otomasyon.yml alarmi ayni dosyayi okuyor (" + _md.group(1) + ")",
+          _md.group(1) in _oto)
+# CAGRI ARANIYOR, TANIM DEGIL. "_duyur(" dizgisi `def _duyur(`
+# satirinda da gecer, yorum satirina alinmis bir cagrida da --
+# ikisinde de iddia yesil kalirdi. Olculdu, mutasyon kacti.
+dogru("cikti_sinamalari.py: dusen adlari gercekten yaziliyor",
+      re.search(r"(?m)^ {4}_duyur[(]", _ks) is not None
+      and "GITHUB_STEP_SUMMARY" in _ks)
+
+
 print(f"\n{_gecti} gecti, {_kaldi} kaldi")
 sys.exit(1 if _kaldi else 0)

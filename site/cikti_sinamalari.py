@@ -47,6 +47,7 @@ denetimi, simdi de ciktiya bakan sinamalar).
 
 from __future__ import annotations
 
+import os
 import pathlib
 import concurrent.futures as cf
 import subprocess
@@ -180,7 +181,51 @@ def main() -> int:
         print("  CIKTI VARKEN ATLAYAN (yanlis yere bakiyor):")
         for p in korlesen:
             print(f"      {p.relative_to(KOK)}")
+
+    _duyur([p for p, _ in dusen] + korlesen)
     return 1 if (dusen or korlesen) else 0
+
+
+#: Dusen sinamanin ADI ALARMA TASINIYOR.
+#:
+#: Olculdu (2026-10-20): dagitim yedi buçuk saat durdu. Alarm CALISTI
+#: -- kayit #5 12:59'da acildi -- ama govdesinde yalnizca "dusen adimi
+#: gormek icin kosu ozetine bakin" yaziyordu. Hangi sinamanin dustugu
+#: YALNIZCA kosu gunlugundeydi ve gunluk indirmek icin yetki gerekiyor.
+#:
+#: Yani alarm "bir sey bozuk" diyordu, "ne bozuk" demiyordu; aradaki
+#: fark her arizada bir tur tanilama turu demek. Dusen dosya adlari
+#: artik is akisinin OKUYABILECEGI bir yere yaziliyor ve kayit
+#: govdesine giriyor.
+_DUYURU = "dusen-sinamalar.txt"
+
+
+def _duyur(dusenler: list) -> None:
+    """Dusen sinama adlarini kosu ozetine ve alarm dosyasina yazar.
+
+    CI DISINDA HICBIR SEY YAPMIYOR: yerelde dosya birakmak, bir
+    sonraki kosuda bayat bir listeyi alarma tasima riski olurdu.
+    """
+    if not os.environ.get("GITHUB_ACTIONS"):
+        return
+    adlar = [str(p.relative_to(KOK)).replace(chr(92), "/") for p in dusenler]
+    try:
+        yol = pathlib.Path(os.environ.get("RUNNER_TEMP") or ".") / _DUYURU
+        # BOS DOSYA DA YAZILIYOR: yesil kosudan sonra kirmizi kosunun
+        # bayat listeyi devralmasi, yanlis sinamayi suclamak olurdu.
+        yol.write_text(chr(10).join(adlar), encoding="utf-8")
+    except OSError:
+        pass
+    ozet = os.environ.get("GITHUB_STEP_SUMMARY")
+    if ozet and adlar:
+        try:
+            with open(ozet, "a", encoding="utf-8") as f:
+                f.write(chr(10) + "**Ciktiya bakan sinamalar DUSTU**"
+                        + chr(10) * 2)
+                for a in adlar:
+                    f.write(f"- `{a}`" + chr(10))
+        except OSError:
+            pass
 
 
 if __name__ == "__main__":
