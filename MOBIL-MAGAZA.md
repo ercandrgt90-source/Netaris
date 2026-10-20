@@ -277,3 +277,23 @@ araçlarında kalmalı.
 
 FCM anahtarları sırası geldiğinde GitHub Secrets ya da
 `wrangler secret put` ile konacak — depoya ya da sohbete değil.
+
+## Erişilebilirlik — ölçüldü (2026-10-20)
+
+Gerçek tarayıcıda, telefon ölçüsünde (390×844, 2×). Betik depoda:
+`mobil/erisim_olcumu.mjs`.
+
+| Ekran | Dokunulabilir öge | Adsız | 44 px altı hedef |
+|---|---|---|---|
+| Ana Sayfa | 29 | **0** | **0** |
+| Profil | 16 | **0** | **0** |
+| Okuma geçmişi (boş) | 0 | **0** | **0** |
+
+Bir bulgu çıktı ve düzeltildi: başlıktaki arama düğmesi **42×44**
+geliyordu (simge ~10 px, yatay dolgu 32). `hitSlop={10}` yerli tarafta
+dokunma alanını büyütüyor ama **DOM kutusunu büyütmüyor**, yani web
+çıkışında hedef gerçekten 42 kalıyordu. `minWidth: 44` eklendi;
+yeniden ölçüldü, 44 px altı hedef kalmadı.
+
+Kaynağa bakarak görülemezdi: `minHeight: 44` zaten yazıyordu ve
+yanlış görünen hiçbir şey yoktu.

@@ -58,8 +58,15 @@ export default function SekmeYerlesimi() {
             accessibilityRole="button"
             accessibilityLabel="Ara"
             hitSlop={10}
-            style={{ paddingHorizontal: 16, minHeight: 44,
-                     justifyContent: "center" }}
+            /* OLCU 44'TEN KUCUK OLMAMALI.
+               Olculdu (2026-10-20, gercek tarayici): kutu 42x44
+               cikiyordu -- simge ~10 piksel, yatay dolgu 32. Yerli
+               tarafta `hitSlop` zaten 10'ar piksel ekliyor, ama
+               `hitSlop` DOM kutusunu buyutmuyor; web cikisinda
+               dokunma hedefi gercekten 42 kaliyordu. `minWidth`
+               ikisinde de olcuyu tutuyor. */
+            style={{ paddingHorizontal: 16, minHeight: 44, minWidth: 44,
+                     alignItems: "center", justifyContent: "center" }}
           >
             <Text style={{ color: t.renk.ustYazi, fontSize: 17 }}>⌕</Text>
           </Pressable>
