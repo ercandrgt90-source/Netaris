@@ -339,18 +339,33 @@ Sayfa'daki "Yaklaşan veriler" kartından ve Piyasalar'dan.
 | Üye yazıları | `/api/yazi` | **VAR** |
 | Veri dışa aktarma (KVKK) | `GET /api/disari-aktar` | **VAR** |
 | Görüntülenme sayacı | `POST /api/goruntulenme` | **VAR** |
-| Bildirimler | — | **ENGELLİ**, aşağıya bakın |
+| Cihaz kaydı (bildirim) | `POST /api/cihaz` · `DELETE /api/cihaz` | **VAR** |
+| Bildirim gönderimi | `haber_botu/bildirim_gonder.py` | **VAR**, anahtar bekliyor |
 | AI araştırma sohbeti | — | **ENGELLİ**, aşağıya bakın |
 
 ### Engellenen iki özellik
 
-**Bildirimler.** Hiçbir arka uç parçası yok: cihaz jetonu tablosu yok,
-gönderim işi yok, tercih alanı yok. Gerekenler: D1'de `cihaz` tablosu,
-`POST /api/cihaz` kaydı, FCM/APNs kimlik bilgileri (GitHub Secrets ya
-da `wrangler secret put` ile — **asla depoya ya da sohbete
-yazılmayacak**) ve bilanço/haber hattına bağlı bir tetikleyici.
-Şartnamenin kuralı korunacak: *"Gerçek bir olay veya doğrulanmış
-tetikleyici olmadan bildirim gönderme."* Faz 4.
+**Bildirimler — arka uç artık VAR (2026-10-19), tek eksik anahtar.**
+
+Bu paragraf daha önce "hiçbir arka uç parçası yok" diyordu; artık
+doğru değil. Yapılanlar:
+
+| Parça | Nerede |
+|---|---|
+| D1 `cihaz` tablosu | `site/worker.js` → `CIHAZ_SEMA` (worker kendi şemasını kuruyor; "adım yeşil" ile "göç koştu" aynı şey değil) |
+| Cihaz kaydı / silme | `cihazKaydet`, `cihazSil` — **oturum kapısından ÖNCE** yönlendiriliyor |
+| Gönderim hattı | `haber_botu/bildirim_gonder.py` (Expo Push) |
+| Tetikleyici | Bilanço ve senaryo hattına bağlı; `sayfasi_var()` sayfası olmayan olayı **göndermiyor** |
+
+Şartnamenin kuralı korunuyor: *"Gerçek bir olay veya doğrulanmış
+tetikleyici olmadan bildirim gönderme."* Ölçüldü: 20 olayın 8'i
+sayfası olmayan içeriğe işaret ediyordu ve o 8'i elendi.
+
+**Kalan tek şey bir anahtar ve bir bayrak:** iş akışında
+`BILDIRIM_ETKIN: "1"` tanımlanması (kapalıyken hat D1'e hiç
+dokunmuyor). FCM/APNs kimlik bilgileri GitHub Secrets ya da
+`wrangler secret put` ile konacak — **asla depoya ya da sohbete
+yazılmayacak.** Uygulama içi izin akışı mağaza derlemesiyle açılıyor.
 
 **AI araştırma deneyimi.** Mevcut AI yalnızca üretim hattında, yorum
 yazmak için kullanılıyor; etkileşimli bir uç yok. Dahası bugünkü
@@ -494,15 +509,25 @@ Bir de yanlış teşhis kayda geçiyor: `ticari` alanını dizge sanıp
 "gerçek bir kusur" dedim. `repr()` ile okuduğum için `True` bool'u
 dizge gibi göründü. Alan sağlam — JSON'da gerçek `true`/`false`.
 
-### Henüz yapılmayanlar
+### O gün (2026-10-18) henüz yapılmayanlar
 
-* Bearer oturum desteği (`worker.js`) — Faz 3c
-* Uygulama içi giriş, favoriler, senaryo yazma — oturum sonrası
-* Ekonomik takvim beslemesi ve ekranı — Faz 4c
-* Bildirimler — Faz 4d, arka uç gerekiyor
-* Varlık detay beslemesi (`/v1/varlik/*`)
-* Marka ikon seti (şu an Expo şablon ikonları duruyor)
-* Uygulama mağaza görselleri ve metinleri
+> **Tarihsel kayıt — güncel liste değil.** Bugünkü durum belgenin
+> sonundaki *Henüz yapılmayanlar* bölümünde. Bu satırlar olduğu gibi
+> duruyor çünkü günlüğü geriye dönük düzeltmek, işin nasıl ilerlediğini
+> silmek olurdu. Aşağıdaki yedi maddenin **yedisi de** o tarihten sonra
+> yapıldı.
+
+* ~~Bearer oturum desteği (`worker.js`)~~ — yapıldı
+* ~~Uygulama içi giriş, favoriler, senaryo yazma~~ — yapıldı
+* ~~Ekonomik takvim beslemesi ve ekranı~~ — yapıldı (`app/takvim.tsx`)
+* ~~Bildirimler — arka uç gerekiyor~~ — arka uç yapıldı; anahtar ve
+  bayrak bekliyor
+* ~~Varlık detay beslemesi (`/v1/varlik/*`)~~ — yapıldı; üretimde 75
+  varlık detayı 200 dönüyor (2026-10-20 ölçümü)
+* ~~Marka ikon seti (şu an Expo şablon ikonları duruyor)~~ — yapıldı;
+  ikonlar artık vektör marka aslından çiziliyor
+* ~~Uygulama mağaza görselleri ve metinleri~~ — yapıldı (8 ekran
+  görüntüsü + öne çıkan görsel + mağaza metinleri)
 
 ### Dağıtım — doğrulandı (2026-10-18 16:09 UTC)
 
@@ -609,7 +634,8 @@ ham Markdown işareti vardı.
 
 ### Henüz yapılmayanlar
 
-* Bildirimler — D1 `cihaz` tablosu + FCM kimlik bilgisi gerekiyor
+* Bildirimler — arka uç hazır; `BILDIRIM_ETKIN: "1"` bayrağı ve FCM
+  kimlik bilgisi bekliyor (ikisi de depo sahibinde)
 * AI araştırma deneyimi — sağlayıcı kararı bekliyor
 * Google ile giriş uygulama içinde — şimdilik sitede
 

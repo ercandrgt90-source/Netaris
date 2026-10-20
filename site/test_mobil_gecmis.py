@@ -129,4 +129,53 @@ _mevcut = [e for e in EKRANI_OLAN.values() if (_KOK / "mobil" / e).exists()]
 esit(len(_mevcut) >= 3, True,
      f"tablo gercek ekranlara deginiyor ({len(_mevcut)}/{len(EKRANI_OLAN)})")
 
+print("\nBelge ile uygulama ayni seyi soyluyor")
+# IKI YER AYNI SEYI KARARA BAGLIYOR: uygulamadaki `BEKLEYEN` listesi ve
+# `MOBIL-DENETIM.md` icindeki "Henuz yapilmayanlar" bolumu. Biri
+# guncellenip oteki unutuldugunda hicbir sey bozulmaz -- yalnizca
+# ikisinden biri YALAN soyler. Bu depoda tanidik kusur sinifi.
+#
+# Olcut "birebir ayni" DEGIL: belge daha fazlasini izleyebilir
+# (ornegin uygulamada hic gorunmeyen bir ozellik). Tutulan sey tek
+# yonlu -- UYGULAMANIN bekliyor dedigi her sey BELGEDE de bekliyor
+# olmali. Tersi, okura "yapilmadi" deyip belgede "yapildi" yazmakti.
+_belge = (_KOK / "MOBIL-DENETIM.md").read_text(encoding="utf-8")
+_bolum = re.search(r"###[ ]*Hen[uuü]z yap[iiı]lmayanlar(.*?)"
+                   r"(?:\n##|$)", _belge, re.S)
+# TEK BIR GUNCEL BOLUM OLMALI.
+#
+# Olculdu (2026-10-20): belgede IKI tane "Henuz yapilmayanlar" basligi
+# vardi. Ilki 18 Ekim gunlugunun icindeydi ve yedi madde sayiyordu --
+# yedisi de o tarihten sonra yapilmisti. Baslik tarihsiz oldugu icin
+# BUGUNKU durum gibi okunuyordu. Gunluk geriye donuk silinmedi,
+# TARIHLENDIRILDI; bu iddia da ayni seyin tekrarini engelliyor.
+_tumu = re.findall(r"###[ ]*Hen[uuü]z yap[iiı]lmayanlar",
+                   _belge)
+esit(len(_tumu), 1,
+     f"belgede TEK bir guncel bekleyenler bolumu var ({len(_tumu)})")
+esit(_bolum is not None, True, "belgedeki bekleyenler bolumu bulundu")
+_madde = _bolum.group(1)
+
+#: Uygulamadaki ad -> belgede aranacak anahtar. Adlar birebir ayni
+#: yazilmiyor, o yuzden esleme ELLE. Eslemesi olmayan bir ad da
+#: KIRMIZI yaniyor: sessizce atlanan madde, hic kontrol edilmeyen
+#: madde demek.
+BELGE_ANAHTARI = {
+    "Bildirimler": "Bildirimler",
+    "Google ile giriş (uygulama içi)": "Google ile giriş",
+}
+_eksik = []
+for _ad in _adlar:
+    _anahtar = BELGE_ANAHTARI.get(_ad)
+    if _anahtar is None:
+        _eksik.append(f"{_ad} -> esleme tablosunda YOK")
+    elif _anahtar not in _madde:
+        _eksik.append(f"{_ad} -> belgede bekleyen olarak gecmiyor")
+if _eksik:
+    print("\n  UYGULAMA ILE BELGE AYRISMIS:")
+    for _e in _eksik:
+        print(f"    {_e}")
+esit(_eksik, [],
+     f"uygulamanin bekleyenleri belgede de bekliyor ({len(_adlar)} madde)")
+
 print(f"\nTUM TESTLER GECTI ({_gecti})")
