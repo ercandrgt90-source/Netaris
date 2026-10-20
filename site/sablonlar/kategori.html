@@ -57,6 +57,10 @@
   <p class="ust-etiket">{{ site.ad }}</p>
   <h1>{{ kategori_baslik }}</h1>
   <p>{{ kategori_aciklama }}</p>
+  {# KAPSAM NOTU -- yalnizca tanimli oldugu kategoride.
+     Aciklamadan AYRI tutuluyor cunku aciklama meta description olarak
+     da kullaniliyor; oraya uzun metin koymak arama ozetini kirptirir. #}
+  {% if kategori_notu %}<p class="kapsam-notu">{{ kategori_notu }}</p>{% endif %}
 </div>
 
 {# SEKTOR SEKMELERI -- yalnizca anlamli oldugu sayfada.

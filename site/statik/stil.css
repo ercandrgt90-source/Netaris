@@ -849,6 +849,17 @@ main.kabuk {
 
 .giris strong { color: var(--yazi)}
 
+/* KAPSAM NOTU -- aciklamadan sonra, ondan DAHA SESSIZ.
+   Listenin neyi kapsamadigini soyleyen cumle. Giris paragrafiyla ayni
+   punto olsaydi iki esit agirlikta iddia gibi okunurdu; burada ikincil
+   oldugu GORUNUYOR ama kaybolmuyor. */
+.giris .kapsam-notu {
+  margin: var(--b-3) 0 0;
+  max-width: 72ch;
+  color: var(--yazi-3);
+  font-size: var(--p-s);
+  line-height: var(--satir-genis)}
+
 /* --------------------------------------------------------------------- hero */
 
 .hero h1 { max-width: 20ch}

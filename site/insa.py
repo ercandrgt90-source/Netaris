@@ -643,6 +643,43 @@ AYLAR = [
     "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık",
 ]
 
+#: Kategori sayfasinda, acikamanin ALTINA basilan not.
+#:
+#: NICIN ACIKLAMANIN ICINDE DEGIL: `kategori_aciklama` ayni zamanda
+#: `<meta name="description">` ve JSON-LD aciklamasi. Oraya uzun bir
+#: metin koymak arama sonucundaki ozeti kirptirir.
+#:
+#: NICIN SAYI YOK: "227 / 794" bugun dogru, bir ay sonra degil. Eskiyen
+#: bir sayi, hic yazmamaktan kotudur -- okur onu guncel sanir.
+KATEGORI_NOTU = {
+    # KAPSAM SINIRI YAZILMALI.
+    #
+    # Olculdu (2026-10-21): sayfa "BIST sirketlerinin finansal
+    # tablolari" diyor ve ustte "Tümü 227" yaziyor. BIST'te 794 sirket
+    # var; okur bu sayfayi TAMAM sanabilir.
+    #
+    # Sebep bir eksiklik degil, bir KARAR: sektor siniflandirmasi
+    # (stockanalysis.com) her BIST kodunu tasimiyor -- olculdu, AKCVR
+    # kaynakta 404 donuyor. Sektoru bilinmeyen sirket "Diger" kovasina
+    # ATILMIYOR, cunku yanlis sektore koymak sektor medyanini da
+    # bozardi (bkz. `kaynak/sektor.py`).
+    #
+    # IKINCI SINIR: sektoru BILINEN her sirketin de sayfasi yok.
+    # Olculdu (2026-10-21): nobetci 346 sirkette bildirim gormus, 227'si
+    # yayimlanmis -- 122'si kuyrukta. Yalnizca ilk siniri yazmak,
+    # okura "sektoru olan her sirket burada" dedirtirdi.
+    #
+    # Site bu ayrimi baska yerlerde zaten yaziyor ("Eksik bir grup,
+    # lisanssiz bir gruptan iyidir"); burada da yazmali.
+    "bilancolar":
+        "Liste BIST'in tamamını kapsamaz; iki sınır var. Sektör "
+        "sınıflandırması bulunmayan şirket hiçbir sektöre atanmıyor "
+        "ve analiz edilmiyor — yanlış sektöre koymak sektör "
+        "medyanını da bozardı. Bilançosunu yeni açıklamış şirketler "
+        "ise sırayla işleniyor. Eksik bir liste, yanlış "
+        "yerleştirilmiş bir şirketten iyidir.",
+}
+
 #: (slug, menu basligi, frontmatter kategorisi, sayfa aciklamasi)
 #: Bos kategori sayfasi URETILMEZ -- tiklayinca bos sayfa cikan bir menu
 #: sekmesi, o sekmenin hic olmamasindan kotudur.
@@ -6993,6 +7030,7 @@ def insa() -> int:
             ortam.get_template("kategori.html").render(
                 **ortak, yol=yol_k, analizler=secilen,
                 kategori_baslik=baslik, kategori_aciklama=aciklama,
+                kategori_notu=KATEGORI_NOTU.get(slug, ""),
                 # SEKTOR SEKMELERI -- yalnizca ANLAMLI oldugu yerde.
                 #
                 # `/bilancolar/` 182 kart ve on sektor tasiyor; orada
