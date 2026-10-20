@@ -280,8 +280,26 @@ FCM anahtarları sırası geldiğinde GitHub Secrets ya da
 
 ## Erişilebilirlik — ölçüldü (2026-10-20)
 
-Gerçek tarayıcıda, telefon ölçüsünde (390×844, 2×). Betik depoda:
-`mobil/erisim_olcumu.mjs`.
+Gerçek tarayıcıda, telefon ölçüsünde (390×844, 2×). **Yordamın
+tamamı depoda ve koşturuldu:**
+
+```
+npx expo export --platform web --output-dir <dizin>
+npm i --no-save puppeteer-core          # uygulamanın bağımlılığı DEĞİL
+node mobil/spa_sunucu.mjs <dizin> 8802 &
+TABAN=http://127.0.0.1:8802 node mobil/erisim_olcumu.mjs / /profil /gecmis
+```
+
+`puppeteer-core` bilerek `--no-save`: ölçüm aracı sevk edilen pakete
+girmemeli. Kurulu değilse betik yığın izi değil **ne yapılacağını**
+yazıyor ve 2 ile çıkıyor (sınandı). Masaüstü Chrome da gerekiyor;
+yolu `CHROME_YOLU` ile verilebilir.
+
+`spa_sunucu.mjs` depoda duruyor çünkü `expo export` statik dosya
+bırakıyor ama expo-router tek sayfa uygulaması: `/gecmis` adresinde
+dosya yok, istek `index.html`e düşmeli. Belgede "şu betiği çalıştır"
+yazıp betiği depoya koymamak, bu depoda tanıdık bir kusur —
+**sunulan seçenek çalışmalı.**
 
 | Ekran | Dokunulabilir öge | Adsız | 44 px altı hedef |
 |---|---|---|---|

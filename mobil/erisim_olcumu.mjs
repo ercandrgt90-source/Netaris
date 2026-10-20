@@ -17,11 +17,27 @@
 //
 // KOSTURMA (once web cikisi + spa sunucusu gerekiyor):
 //   npx expo export --platform web --output-dir <dizin>
-//   node <spa sunucusu> &
+//   node mobil/spa_sunucu.mjs <dizin> &
 //   node mobil/erisim_olcumu.mjs / /profil /gecmis
-import puppeteer from "puppeteer-core";
-const CHROME = "C:/Program Files/Google/Chrome/Application/chrome.exe";
-const TABAN = "http://127.0.0.1:8799";
+// `puppeteer-core` UYGULAMANIN BAGIMLILIGI DEGIL ve olmamali: olcum
+// araci, sevk edilen pakete girmemeli. Yoksa yigin izi yerine NE
+// YAPILACAGINI yaziyor -- kosturulamayan bir yordam, yazili olmayan
+// yordamdan iyi degil.
+let puppeteer;
+try {
+  puppeteer = (await import("puppeteer-core")).default;
+} catch {
+  console.error("puppeteer-core yok. Kurulum (uygulamaya DEGIL, gecici):");
+  console.error("  npm i --no-save puppeteer-core");
+  console.error("Ayrica masaustu Chrome gerekiyor; yolu CHROME_YOLU ile");
+  console.error("verilebilir.");
+  process.exit(2);
+}
+const CHROME = process.env.CHROME_YOLU ||
+  "C:/Program Files/Google/Chrome/Application/chrome.exe";
+// Kapi degistirilebilsin: `spa_sunucu.mjs` ucuncu argumanla baska bir
+// kapiya baglanabiliyor ve olcum onu izleyebilmeli.
+const TABAN = process.env.TABAN || "http://127.0.0.1:8799";
 const yollar = process.argv.slice(2);
 const t = await puppeteer.launch({ executablePath: CHROME, headless: "new",
   args: ["--no-sandbox"] });
