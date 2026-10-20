@@ -611,9 +611,21 @@ ham Markdown işareti vardı.
 
 * Bildirimler — D1 `cihaz` tablosu + FCM kimlik bilgisi gerekiyor
 * AI araştırma deneyimi — sağlayıcı kararı bekliyor
-* Çevrimdışı okuma — kaydedilen içeriğin yerel saklanması
-* Okuma geçmişi — arka uç gerekiyor
 * Google ile giriş uygulama içinde — şimdilik sitede
+
+**Bu listeden çıkanlar:**
+
+* ~~Çevrimdışı okuma~~ — yapıldı (2026-10-19). AsyncStorage ile; gerçek
+  tarayıcıda, ağ kesik olarak doğrulandı. `expo-file-system` web'de
+  bozuk olduğu için seçilmedi: doğrulanamayan paket sevk edilmez.
+* ~~Okuma geçmişi — arka uç gerekiyor~~ — yapıldı (2026-10-20) ve
+  **arka uç gerekmiyordu.** Geçmiş okurun kendi cihazında işine
+  yarayan bir liste; sunucuda tutmak hem bir tablo hem de "ne
+  okuduğunun bizde durması" demekti. İkincisi gizlilik metnindeki
+  "profilleme yapılmıyor" cümlesini aşındırırdı. Yani eksik olan bir
+  arka uç değil, bir **karardı**. `mobil/src/gecmis.ts` + `app/gecmis.tsx`;
+  `site/test_mobil_gecmis.py` modülde ağ çağrısı olmadığını ve
+  "yapılmış işi henüz yok diye gösterme" kuralını tutuyor.
 
 ---
 

@@ -15,7 +15,7 @@
 // sozu oldugunu bilmeli.
 
 import { useLocalSearchParams, useRouter } from "expo-router";
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Linking,
   Pressable,
@@ -29,6 +29,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import * as api from "../../src/api";
 import { Durum, Etiket, Gorsel, KaynakBagi, tarihTR } from "../../src/bilesen";
+import * as gecmis from "../../src/gecmis";
 import { useTema } from "../../src/tema";
 import { useVeri } from "../../src/veri";
 
@@ -39,6 +40,23 @@ export default function HaberDetayi() {
   const alt = useSafeAreaInsets().bottom;
   const h = useVeri(() => api.haber(String(slug)), [slug],
     `/v1/haber/${String(slug)}.json`);
+
+  // OKUMA GECMISI -- yalnizca GERCEK veri geldiginde yaziliyor.
+  //
+  // Hata halinde ya da onbellekten bos donen bir acilista kayit
+  // DUSMUYOR: okunmamis bir seyi "okundu" diye listelemek, okura
+  // yanlis bilgi vermek olurdu. Liste cihazda kaliyor, hicbir yere
+  // gonderilmiyor (bkz. `src/gecmis.ts`).
+  useEffect(() => {
+    if (!h.veri?.baslik) return;
+    void gecmis.kaydet({
+      tur: "haber",
+      slug: String(slug),
+      baslik: h.veri.baslik,
+      yol: h.veri.yol || "",
+      an: new Date().toISOString(),
+    });
+  }, [h.veri, slug]);
 
   const paylas = async () => {
     if (!h.veri) return;

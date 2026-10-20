@@ -185,6 +185,23 @@ politikası geçerlidir.
 Bu içeriği hiç yüklememek isterseniz tarayıcınızın betik engelleme
 özelliğini kullanabilirsiniz; sitenin geri kalanı etkilenmez.
 
+## Mobil uygulamanın cihazınızda sakladıkları
+
+Netaris mobil uygulaması iki şeyi **yalnızca telefonunuzda** saklar. İkisi de
+bize gönderilmez, hesabınıza bağlanmaz ve sunucularımızda karşılığı yoktur.
+
+| Ne | Niçin | Nasıl silinir |
+|---|---|---|
+| Son görülen içerik (önbellek) | Bağlantı yokken okuyabilmek ve uygulamanın boş ekranla açılmaması için | Profil → Çevrimdışı okuma → *Kayıtlı içeriği sil* |
+| Okuma geçmişi | Açtığınız haber ve analizleri kendiniz tekrar bulabilesiniz diye | Profil → Okuma geçmişi → *Geçmişi sil* |
+
+Okuma geçmişi **sunucuda tutulmaz.** Bu bir eksiklik değil, bilinçli bir
+karardır: ne okuduğunuzun bizde birikmesi, bu sayfanın "profilleme amaçlı
+izleme bulunmamaktadır" cümlesiyle bağdaşmazdı.
+
+Canlı başlık akışı, oturum bilgisi ve üye verisi **önbelleğe alınmaz.**
+Uygulamayı silmeniz hâlinde her ikisi de cihazla birlikte gider.
+
 ## Reklam ve profilleme
 
 Sitede reklam ağı, davranışsal reklam kodu veya profilleme amaçlı izleme

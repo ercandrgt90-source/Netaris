@@ -48,10 +48,6 @@ import { useVeri } from "../../src/veri";
  *  surumde" yaziyordu, oysa ekran ayni gun eklenmisti. */
 const BEKLEYEN: { ad: string; aciklama: string }[] = [
   {
-    ad: "Okuma geçmişi",
-    aciklama: "Arka uç gerekiyor: okuma kaydı tutulmuyor",
-  },
-  {
     ad: "Bildirimler",
     aciklama:
       "Arka uç hazır (cihaz kaydı ve gönderim hattı); uygulama içi " +
@@ -301,6 +297,7 @@ export default function Profil() {
   const taze = useTemaTaze();
   const alt = useSafeAreaInsets().bottom;
   const { uye, hazirlaniyor } = useOturum();
+  const router = useRouter();
   const [onbellekDurum, setOnbellekDurum] =
     useState<{ girdi: number; bayt: number } | null>(null);
 
@@ -377,6 +374,38 @@ export default function Profil() {
               </Text>
             </View>
           ))}
+        </View>
+
+        <Baslik
+          metin="Okuma geçmişi"
+          alt="Yalnızca bu cihazda"
+        />
+        <View style={{ paddingHorizontal: 16 }}>
+          <Pressable
+            onPress={() => router.push("/gecmis")}
+            accessibilityRole="button"
+            style={({ pressed }) => [
+              d.kart,
+              {
+                backgroundColor: t.renk.panel,
+                borderColor: t.renk.cizgi,
+                borderRadius: t.r.orta,
+                opacity: pressed ? 0.75 : 1,
+              },
+            ]}
+          >
+            <Text style={{ color: t.renk.yazi, fontWeight: "600" }}>
+              Okuduklarım
+            </Text>
+            {/* SUNUCUDA TUTULMUYOR VE BU BIR TERCIH.
+                Okurun ne okudugunu bizde biriktirmek, gizlilik
+                metnindeki "profilleme yapilmiyor" cumlesini
+                asindirirdi. Liste cihazda duruyor. */}
+            <Text style={[d.ufak, { color: t.renk.yazi2 }]}>
+              Açtığın haber ve analizler bu cihazda birikiyor; hiçbir
+              yere gönderilmiyor ve hesabına bağlanmıyor.
+            </Text>
+          </Pressable>
         </View>
 
         <Baslik

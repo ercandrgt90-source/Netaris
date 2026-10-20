@@ -17,7 +17,7 @@
 //   * skor -> metodoloji baglantisiyla birlikte
 
 import { useLocalSearchParams, useRouter } from "expo-router";
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Linking,
   Pressable,
@@ -31,6 +31,7 @@ import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import * as api from "../../src/api";
 import { Durum, Etiket, tarihTR } from "../../src/bilesen";
+import * as gecmis from "../../src/gecmis";
 import { Govde } from "../../src/govde";
 import { useTema } from "../../src/tema";
 import { useVeri } from "../../src/veri";
@@ -42,6 +43,19 @@ export default function AnalizDetayi() {
   const alt = useSafeAreaInsets().bottom;
   const a = useVeri(() => api.analiz(String(slug)), [slug],
     `/v1/analiz/${String(slug)}.json`);
+
+  // Gerekce `app/haber/[slug].tsx` icinde: yalnizca gercek veri
+  // geldiginde kayit dusuyor, liste cihazdan cikmiyor.
+  useEffect(() => {
+    if (!a.veri?.baslik) return;
+    void gecmis.kaydet({
+      tur: "analiz",
+      slug: String(slug),
+      baslik: a.veri.baslik,
+      yol: a.veri.yol || "",
+      an: new Date().toISOString(),
+    });
+  }, [a.veri, slug]);
 
   const paylas = async () => {
     if (!a.veri) return;
