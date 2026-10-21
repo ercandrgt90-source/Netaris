@@ -51,8 +51,22 @@ on:
     # gun bir kosu, her biri ~50 dakika. Ayda ~1550 dakika -- tek
     # basina 2000 dakikalik kotanin dortte ucu.
     #
-    # Gun listesi acikca yaziliyor: hat kosu basina ~60 sayfa
-    # uretiyor ve ~330 sirket icin alti kosu yetiyor. Haftanin gunu
+    # "KOSU BASINA ~60 SAYFA" ARTIK DOGRU DEGIL -- OLCULDU.
+    #
+    # 60, `--sinir 60` ile konan DENEME sinirı; gercek cikti ona degil
+    # UCRETSIZ AI KOTASINA bagli. Olculdu (2026-10-21):
+    #
+    #   13-20 Ekim: 12 kosu, 16 yeni analiz  (~1,3 / kosu)
+    #   20 Ekim kosusu: denenen 324, YAZILAN 0
+    #       180  zaten yayimlanmis
+    #       141  yorum yok: ucretsiz saglayici kotasi doldu
+    #
+    # Yani "alti kosuda tamamlanir" hesabi 40 kat iyimser. Bu bir
+    # ariza degil, bilinen darbogaz (bkz. `uret_bilanco_sayfa` modul
+    # basi: yorumsuz sayfa yayimlanmiyor) -- ama yanlis bir kapasite
+    # modeli, "neden bitmiyor" sorusunu yanlis yerde aratir.
+    #
+    # Gun listesi acikca yaziliyor. Haftanin gunu
     # `*` birakildi -- cron'da gun-of-month ve gun-of-week birlikte
     # verilince VEYA gibi davraniyor ve beklenmedik gunlerde kosuyor.
     # DEPO HERKESE ACIK -- 2026-08-27. Actions dakikasi SINIRSIZ.

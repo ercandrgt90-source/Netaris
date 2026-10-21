@@ -21,10 +21,27 @@ tamamen atilir).
 
 SINIR VAR -- TOPLU URETIMDE DE
 ------------------------------
-Kosu basina 60 sayfa. 324 sirket ~6 CI kosusunda tamamlaniyor.
-Sinirsiz yapilmadi ve sebebi teknik: 324 model cagrisi tek bir CI
-kosusuna sigmaz, is zaman asimina ugrar ve o kosuda uretilenlerin
-HICBIRI yazilmaz. Sinirli kosu yarim kalsa bile yazdigini koruyor.
+Kosu basina `--sinir 60`. Sinirsiz yapilmadi ve sebebi teknik: 324
+model cagrisi tek bir CI kosusuna sigmaz, is zaman asimina ugrar ve o
+kosuda uretilenlerin HICBIRI yazilmaz. Sinirli kosu yarim kalsa bile
+yazdigini koruyor.
+
+AMA 60 BIR DENEME SINIRI, KAPASITE DEGIL. Bu docstring uzun sure
+"324 sirket ~6 CI kosusunda tamamlaniyor" diyordu; olculdu
+(2026-10-21) ve gercek bunun yaklasik kirkta biri:
+
+    13-20 Ekim   12 kosu, 16 yeni analiz   (~1,3 / kosu)
+    20 Ekim      denenen 324, YAZILAN 0
+                 180 zaten yayimlanmis
+                 141 yorum yok: ucretsiz saglayici kotasi doldu
+
+Gercek darbogaz UCRETSIZ AI KOTASI. Kosu yesil doner, dokum dogruyu
+yazar, yalnizca sayfa cikmaz. Olcum: 2026-06-30 donemini bildiren
+337 sirketin 221'inin sayfasi var, 116'sinin YOK.
+
+Bu bir ariza degil -- yukaridaki "yorumsuz sayfa yayimlanmiyor"
+kararinin ucretsiz kotayla carpimi. Ama yanlis bir kapasite modeli,
+"neden bitmiyor" sorusunu yanlis yerde aratir.
 
 TEKRAR URETMIYOR: sayfasi zaten olan sirket atlaniyor. Hat yeniden
 kosturuldugunda ayni sayfayi yeniden yazmak, ayni model cagrisini
