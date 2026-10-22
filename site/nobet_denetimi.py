@@ -108,9 +108,37 @@ def degerlendir(veri: dict | None) -> tuple[str, str]:
         403: "jetonun yetkisi yetmiyor ya da kota bitmis",
         404: "depo adresi yanlis ya da jeton o depoyu gormuyor",
     }.get(baskin, "beklenmeyen yanit")
+    # TETIK OLU ILE SITE BAYAT AYNI SEY DEGIL.
+    #
+    # Olculdu (2026-10-22): tetiklerin 9'u da 401 donuyordu -- jeton
+    # gercekten olu. Ama ayni anda icerik yasi 0,22 saatti (esik 0,6)
+    # ve otomasyon gunde ~30 kez kosuyordu: bu makinedeki YEREL
+    # nobetci acigi kapatiyordu.
+    #
+    # Alarmin eski metni "site seyrek kuruluyor" diyordu ve o cumle
+    # artik YANLISTI. Yanlis bir sonuc cumlesi, dogru olan sebep
+    # cumlesini de inandiriciliktan dusuruyor -- bu depoda ayni ders
+    # tazelik raporunda da yasandi.
+    #
+    # Sebep hala bildiriliyor (jeton olu, duzeltilmeli) ama SONUC
+    # olculerek yaziliyor. Ikisi ayri bilgi:
+    #   tetik olu + site bayat -> gercek kesinti
+    #   tetik olu + site taze  -> tempo TEK bir kaynaga bagli
+    yas = veri.get("icerik_yasi_saat")
+    esik = veri.get("esik_saat")
+    if isinstance(yas, (int, float)) and isinstance(esik, (int, float)):
+        if yas <= esik:
+            sonuc = (f"; site SU AN TAZE ({yas:.2f} sa <= {esik} sa esik) "
+                     "-- bosluk baska bir tetikleyiciyle kapaniyor, yani "
+                     "tempo TEK BIR KAYNAGA bagli")
+        else:
+            sonuc = (f"; site BAYAT ({yas:.2f} sa > {esik} sa esik) "
+                     "-- kesinti SURUYOR")
+    else:
+        sonuc = "; icerik yasi okunamadi"
     return (DURUM_BOZUK,
             f"{len(tetikler)} tetigin hicbiri basarili degil; "
-            f"baskin yanit {baskin} -- {ipucu}")
+            f"baskin yanit {baskin} -- {ipucu}{sonuc}")
 
 
 #: KENDI KIMLIGIMIZI SOYLUYORUZ -- VARSAYILAN UA ENGELLENIYOR.

@@ -890,7 +890,16 @@ jobs:
         continue-on-error: true
         env:
           GH_TOKEN: ${{ github.token }}
-          BASLIK: "Nöbetçi tetikleyemiyor -- site seyrek kuruluyor"
+          # BASLIK SONUC IDDIA ETMIYOR -- SONUC DEGISEBILIYOR.
+          #
+          # Eskiden "site seyrek kuruluyor" yaziyordu ve o cumle
+          # 2026-10-22'de YANLISTI: tetikler hala 401 donuyordu ama
+          # yerel nobetci acigi kapatiyor, otomasyon gunde ~30 kez
+          # kosuyordu. Sebep dogru, sonuc yanlis bir baslik, dogru
+          # olan kismi da inandiriciliktan dusuruyor.
+          #
+          # Sonuc artik OLCULEREK govdeye yaziliyor (ACIKLAMA).
+          BASLIK: "Nöbetçi tetiği çalışmıyor -- GitHub jetonu reddediyor"
         run: |
           cikti=$(python site/nobet_denetimi.py 2>&1 || true)
           printf '%s\n' "$cikti"
@@ -920,8 +929,10 @@ jobs:
 
           $aciklama
 
-          Sonuç: zamanlanmış koşular GitHub tarafında düzensiz çalışıyor ve
-          nöbetçi devreye giremediği için site seyrek kuruluyor.
+          Sonuç ÖLÇÜLÜYOR, varsayılmıyor: güncel durum yukarıdaki satırda.
+          Site taze görünüyorsa boşluğu başka bir tetikleyici kapatıyordur
+          (yerel nöbetçi) -- o zaman sorun "site bayat" değil, "tempo tek
+          bir makineye bağlı" demektir ve o makine kapandığında site durur.
 
           Çözüm — yeni bir fine-grained PAT üretip Cloudflare'a yazın:
 

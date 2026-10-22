@@ -148,4 +148,47 @@ _hepsi = {nd.degerlendir(veri([kayit("tetiklendi", 401)] * 5))[0],
           nd.degerlendir(None)[0]}
 esit(len(_hepsi), 3, "degerlendirici UC durumu da ayirt ediyor")
 
+print("\nTETIK OLU ILE SITE BAYAT AYRI BILGI")
+# Olculdu (2026-10-22): tetiklerin 9'u da 401 donuyordu -- jeton
+# gercekten olu. Ama ayni anda icerik yasi 0,22 saatti (esik 0,6):
+# yerel nobetci acigi kapatiyordu ve otomasyon gunde ~30 kez
+# kosuyordu. Alarmin "site seyrek kuruluyor" cumlesi YANLISTI.
+#
+# Yanlis bir SONUC cumlesi, dogru olan SEBEP cumlesini de
+# inandiriciliktan dusuruyor. Sebep hala bildiriliyor; sonuc artik
+# olculuyor. Asagidakiler o ayrimi tutuyor.
+_taze = veri([kayit("tetiklendi", 401)] * 9)
+_taze["icerik_yasi_saat"] = 0.22
+_d_t, _a_t = nd.degerlendir(_taze)
+esit(_d_t, nd.DURUM_BOZUK, "tetik olu -> hala BOZUK (sebep bildiriliyor)")
+esit("TAZE" in _a_t, True, "site tazeyse aciklama bunu SOYLUYOR")
+esit("TEK BIR KAYNAGA" in _a_t, True,
+     "taze halde asil risk yaziliyor: tempo tek kaynaga bagli")
+esit("seyrek" in _a_t, False, "yanlis sonuc cumlesi geri gelmemis")
+
+_bayat = veri([kayit("tetiklendi", 401)] * 9)
+_bayat["icerik_yasi_saat"] = 4.0
+_d_b, _a_b = nd.degerlendir(_bayat)
+esit(_d_b, nd.DURUM_BOZUK, "tetik olu + bayat -> BOZUK")
+esit("BAYAT" in _a_b, True, "site bayatsa aciklama bunu SOYLUYOR")
+esit("SURUYOR" in _a_b, True, "bayat halde kesintinin surdugu yaziliyor")
+
+# IKI HAL BIRBIRININ ETIKETINI TASIMAMALI.
+#
+# Once `_a_t == _a_b` karsilastirilyordu ve o iddia HICBIR SEY
+# korumuyordu: metne gomulu yas sayisi (0.22 / 4.00) zaten farkli,
+# yani dal mantigi tamamen bozulsa bile iki dizge esit cikmazdi.
+# Olculen sey SINIFLANDIRMA olmali, dizgenin kendisi degil.
+esit("BAYAT" in _a_t, False, "taze hal BAYAT demiyor")
+esit("TAZE" in _a_b, False, "bayat hal TAZE demiyor")
+
+# ICERIK YASI OKUNAMAZSA UYDURULMUYOR.
+_yok = veri([kayit("tetiklendi", 401)] * 9)
+_yok["icerik_yasi_saat"] = None
+_d_y, _a_y = nd.degerlendir(_yok)
+esit(_d_y, nd.DURUM_BOZUK, "yas okunamasa da sebep bildiriliyor")
+esit("okunamadi" in _a_y, True, "yas yoksa aciklama bunu soyluyor")
+esit("TAZE" in _a_y or "BAYAT" in _a_y, False,
+     "yas yokken taze/bayat IDDIA EDILMIYOR")
+
 print(f"\nTUM TESTLER GECTI ({_gecti})")
