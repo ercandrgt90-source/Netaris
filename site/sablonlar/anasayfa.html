@@ -262,7 +262,15 @@
            390'da 319, 768'de 277, 1440'ta 829 piksel. #}
         {% set bk = foto_kaynagi(bas.foto | orta_foto, bas.foto | yazi_foto,
                                  bas.foto, yuva=basmanset_yuvasi) %}
+        {# `fetchpriority="high"` -- BU GORSEL LCP OGESI.
+           Olculdu (2026-10-23, gercek Chrome, 390x844, yavas 4G +
+           4x CPU): ana sayfanin LCP'si 4324 ms ve LCP ogesi TAM
+           OLARAK bu fotograf; indirmesi 2808 ms surdu.
+           Ayni anda yarisanlar: gtag.js 1532 ms, yazi tipi 1348 ms.
+           `loading="eager"` tarayiciya "erteleme" diyor ama
+           "ONCELIKLI" demiyor -- bu oznitelik onu soyluyor. #}
         <img src="{{ bas.foto }}" alt="" loading="eager" decoding="async"
+             fetchpriority="high"
              {% if bk %}srcset="{{ bk.srcset }}" sizes="{{ bk.sizes }}"{% endif %}
              width="720" height="405">
       </span>

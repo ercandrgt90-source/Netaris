@@ -667,3 +667,58 @@ ham Markdown işareti vardı.
    GitHub Secrets / `wrangler secret put` ile konacak, sohbete
    yazılmayacak.
 4. **iOS yayını ayrı karar** (99 USD/yıl).
+
+---
+
+## Çekirdek Web Ölçütleri — ölçüldü (2026-10-23)
+
+Gerçek Chrome, telefon ölçüsü (390×844, 2×), **yavaş 4G + 4× CPU
+yavaşlatma**. Betik depoda: `site/cwv_olcumu.mjs`.
+
+| Sayfa | LCP | CLS | Aktarılan | LCP öğesi |
+|---|---|---|---|---|
+| `/makro/` | 2928 ms | 0,003 | 152 KB | metin |
+| `/` | **4112 ms** | 0,003 | 435 KB | kapak fotoğrafı |
+| haber sayfası | **4252 ms** | 0,004 | 384 KB | fotoğraf |
+| `/gundem/` | **6108 ms** | 0,003 | 756 KB | kart fotoğrafı |
+
+Google eşiği: ≤2500 ms iyi, ≤4000 ms geliştirilmeli, **>4000 ms
+zayıf.** CLS her yerde çok iyi.
+
+**Dördünde de LCP öğesi bir fotoğraf.** Boyut seçimi doğru çalışıyor:
+ölçüldü, `/gundem/` dört görselinin hiçbiri gereğinden büyük değil
+(`srcset` + `sizes` doğru adayı seçiyor). Ana sayfadaki "israf" 45
+KB'lık 120 px küçük resimler — dokunmaya değmez.
+
+Yani sorun boyutta değil, **bayt sayısında**.
+
+### Yapıldı
+`fetchpriority="high"` ana sayfa kapak görseline eklendi. Ölçüm
+LCP'nin rakiplerini gösteriyordu: gtag.js 1532 ms, yazı tipi 1348 ms.
+`loading="eager"` tarayıcıya "erteleme" der ama "öncelikli" demez.
+
+### Ölçülen ama YAPILMAYAN: WebP
+40 dosyalık örnekte ölçüldü:
+
+| Biçim | Boyut | Kazanç |
+|---|---|---|
+| Özgün JPEG | 11,22 MB | — |
+| JPEG q82 | 9,61 MB | %14,4 |
+| **WebP q80** | **6,41 MB** | **%42,9** |
+| WebP q72 | 5,01 MB | %55,3 |
+
+JPEG'i yeniden sıkıştırmak işe yaramıyor (%14) — Commons'ın kodlayıcısı
+zaten makul. WebP ise `/gundem/` sayfasını 756 KB'den ~460 KB'ye
+indirirdi.
+
+**Yapılmadı, çünkü karar sizin:** bu bir biçim göçü. Yol desenleri,
+atıf sınamaları ve lisans denetimleri `.jpg` varsayıyor — ve bu depoda
+tam bu sınıftan bir kusur yaşandı (48 fotoğraf atıfsız kaldı, bkz.
+`yol-deseni-varsayimi`). Atıf eksikliği `hata` ağırlığında.
+
+Riski düşüren yol var: `<picture>` + `<source type="image/webp">`
+**eklemeli** olur, hiçbir `.jpg` yolu değişmez, WebP yoksa JPEG
+servis edilir; üretim inşa zamanında `site/cikti` içine yapılır, yani
+git ağırlığı artmaz. Yine de 5 şablonu ve `foto_kaynak_kumesi`'ni
+değiştirmek gerekiyor.
+
