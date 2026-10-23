@@ -247,7 +247,58 @@ def girdi_kur(h: dict, d) -> str:
     return "\n".join(p)[:2400]
 
 
-def secilenler(haberler: list[dict], var: set[str], dosyalar: dict) -> list[dict]:
+#: Bu kadar ICERIK reddinden sonra haber bir daha denenmiyor.
+#:
+#: OLCULDU (2026-10-23). Son yedi gunde 887 ret vardi ama yalnizca 47
+#: FARKLI haberde: cagrilarin %95'i ayni haberlerin tekrariydi. Bir
+#: haber 186 kez denenmisti.
+#:
+#: Sebep bir dongude degil, aday sorgusundaydi: "yorumu olmayan haber"
+#: olcutu basarisizligi HIC saymiyordu, yani surekli dusen bir haber
+#: havuzda sonsuza kadar kaliyor ve her kosuda kotayi yakiyordu.
+#: Depodaki ayni cirçir, onarilmis bilanco sayfalarinin miras
+#: listesinde de yasanmisti.
+#:
+#: ESIK TAHMIN DEGIL, OLCUM. Ret sayisina gore "sonunda kabul edildi"
+#: orani:
+#:
+#:      1-2 ret   %65        21-40 ret   %33
+#:      3-5 ret   %70        41-80 ret   %21
+#:      6-10 ret  %66        81+  ret    %25
+#:      11-20 ret %61
+#:
+#: Yani tekrar denemek 20'ye kadar ISE YARIYOR; sonra coküyor. Sinir
+#: 20'de: 2822 cagri tasarruf, 11 yorum kaybi -- kaybedilen yorum
+#: basina 256 cagri. O cagrilar bilanco sayfasi uretebilecek kotadan
+#: cikiyor (bkz. `uret_bilanco_sayfa` modul basi).
+EN_COK_RET = 20
+
+#: ALTYAPI hatalari SAYILMIYOR -- yoksa saglayici coktugu gun butun
+#: haberler kalici kara listeye girerdi. Bunlar modelin urettigi bir
+#: seyin yargilanmasi degil, hic uretilememesi.
+ALTYAPI_RET = ("anthropic", "saglayici yok", "kapandi", "HTTP")
+
+
+def icerik_reddi(neden: str) -> bool:
+    """Red MODELIN CIKTISI yuzunden mi (altyapi degil)."""
+    n = neden or ""
+    return not any(a in n for a in ALTYAPI_RET)
+
+
+def tukenmisler(b, en_cok: int = EN_COK_RET) -> set:
+    """`en_cok` kez ICERIK reddi almis haberlerin adresleri."""
+    sayac: dict = {}
+    try:
+        for adres, neden in b.execute("SELECT adres, neden FROM ai_ret"):
+            if icerik_reddi(neden):
+                sayac[adres] = sayac.get(adres, 0) + 1
+    except Exception:                                  # pragma: no cover
+        return set()
+    return {a for a, k in sayac.items() if k >= en_cok}
+
+
+def secilenler(haberler: list[dict], var: set[str], dosyalar: dict,
+               tukenmis: set | None = None) -> list[dict]:
     """Yorumlanacak haberler.
 
     OLCUT "OLAY ESIGI" DEGIL, "ELIMIZDE VERI VAR MI".
@@ -266,6 +317,9 @@ def secilenler(haberler: list[dict], var: set[str], dosyalar: dict) -> list[dict
     for h in haberler:
         adres = h.get("adres", "")
         if not h.get("yorumlanir") or adres in var:
+            continue
+        # TUKENMIS HABER TEKRAR DENENMIYOR -- gerekce `EN_COK_RET`.
+        if tukenmis and adres in tukenmis:
             continue
         d = dosyalar.get(adres)
         # OLCUT "VERI VAR MI" DEGIL, "SAYFADA BASILACAK VERI VAR MI".
@@ -406,8 +460,12 @@ def main() -> int:
                 baslik=h.get("baslik_kaynak") or h.get("baslik", ""),
                 ozetsiz=not (h.get("ozet") or "").strip())
 
-    aday = secilenler(havuz, var, dosyalar)
-    print(f"{len(aday)} aday, sinir {args.sinir}")
+    with beyin.baglan() as _tb:
+        _tb.executescript(SEMA)
+        _tukenmis = tukenmisler(_tb)
+    aday = secilenler(havuz, var, dosyalar, _tukenmis)
+    print(f"{len(aday)} aday, sinir {args.sinir}"
+          f" ({len(_tukenmis)} haber {EN_COK_RET}+ ret ile elendi)")
     if not aday:
         return 0
 

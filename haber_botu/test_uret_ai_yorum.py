@@ -335,6 +335,61 @@ try:
 finally:
     _sh.rmtree(_d, ignore_errors=True)
 
+print("")
+print("TEKRAR SINIRI -- KOTAYI YAKAN CIRCIR")
+# Olculdu (2026-10-23): son yedi gunde 887 ret vardi ama yalnizca 47
+# FARKLI haberde -- cagrilarin %95'i tekrardi, bir haber 186 kez
+# denenmisti. Aday olcutu "yorumu olmayan haber" idi ve basarisizligi
+# HIC saymiyordu. Her bos cagri, bilanco sayfasi uretebilecek
+# kotadan cikiyor.
+import sqlite3 as _sq
+
+# 1. ALTYAPI HATASI SAYILMIYOR.
+#    Saymasaydik saglayici coktugu gun butun haberler kalici kara
+#    listeye girerdi -- ariza gecici, dislama kalici olurdu.
+dogru("icerik reddi sayiliyor", U.icerik_reddi("baglam-uyusmazligi"))
+dogru("yasak kalip sayiliyor", U.icerik_reddi("yasak kalip: ..."))
+dogru("anthropic hatasi SAYILMIYOR",
+      not U.icerik_reddi("anthropic HTTP 400 -- credit balance"))
+dogru("saglayici yoklugu SAYILMIYOR", not U.icerik_reddi("saglayici yok"))
+dogru("kapanma SAYILMIYOR",
+      not U.icerik_reddi("anthropic kapandi, cloudflare da basarisiz"))
+
+# 2. ESIK GEVSETILMEMIS.
+#    Olcum 20 diyor; buyutmek circiri geri getirir, kucultmek 3-20
+#    bandinda %61-70 oranla BASARILI olan tekrarlari atar.
+dogru("esik olculen degerde", U.EN_COK_RET == 20)
+
+# 3. SAYIM VE ELEME GERCEKTEN CALISIYOR.
+_b = _sq.connect(":memory:")
+_b.executescript(U.SEMA)
+def _ret(adres, neden, kac):
+    for _ in range(kac):
+        _b.execute("INSERT INTO ai_ret (adres, baslik, neden, model, ham,"
+                   " kayit_ani) VALUES (?,?,?,?,?,?)",
+                   (adres, "b", neden, "m", "h", "2026-10-23"))
+_ret("/tukenmis", "baglam-uyusmazligi", U.EN_COK_RET)
+_ret("/sinirda", "baglam-uyusmazligi", U.EN_COK_RET - 1)
+_ret("/altyapi", "anthropic kapandi", U.EN_COK_RET * 3)
+_b.commit()
+_t = U.tukenmisler(_b)
+dogru("esige ulasan eleniyor", "/tukenmis" in _t)
+dogru("esigin altindaki KALIYOR", "/sinirda" not in _t)
+dogru("altyapi hatasi elemiyor", "/altyapi" not in _t)
+
+# 4. SECIM TUKENMISI ATLIYOR.
+_h = [{"adres": "/tukenmis", "yorumlanir": True, "ozet": "dolu ozet",
+       "baslik": "x", "kurum": "k"},
+      {"adres": "/saglam", "yorumlanir": True, "ozet": "dolu ozet",
+       "baslik": "y", "kurum": "k"}]
+_sec = [x["adres"] for x in U.secilenler(_h, set(), {}, _t)]
+dogru("tukenmis aday olmuyor", "/tukenmis" not in _sec)
+dogru("saglam haber aday oluyor", "/saglam" in _sec)
+# Kume VERILMEZSE eski davranis -- cagiran taraf unutursa sessizce
+# herkesi elemek de, herkesi gecirmek kadar yanlis olurdu.
+_sec2 = [x["adres"] for x in U.secilenler(_h, set(), {})]
+dogru("kume verilmezse kimse elenmiyor", len(_sec2) == 2)
+
 print()
 for k in kaldi:
     print("  KALDI", k)
