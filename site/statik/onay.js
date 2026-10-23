@@ -81,10 +81,49 @@
      onay modundan bagimsiz, cerezsiz olarak da gidiyor. */
   gtag("config", OLCUM);
 
-  var betik = document.createElement("script");
-  betik.async = true;
-  betik.src = "https://www.googletagmanager.com/gtag/js?id=" + OLCUM;
-  document.head.appendChild(betik);
+  /* GTAG BETIGI LCP PENCERESINDE YUKLENMIYOR.
+     ------------------------------------------------------------------
+     OLCULDU (2026-10-23, gercek Chrome, 390x844, yavas 4G + 4x CPU,
+     dorder ornek, ayri sureclerde):
+
+         temel          LCP 3524 / 4384 / 4424 / 4484   medyan 4424
+         analitiksiz    LCP 3576 / 3780 / 3824 / 3840   medyan 3824
+
+     Yani gtag ~600 ms LCP'ye mal oluyor ve dagilimi da genisletiyor
+     (960 ms yayilim -> 264 ms). Sebep bayt degil -- gtag capraz
+     kokenli ve boyutu olcumde gorunmuyor -- SIRA: betik, kapak
+     fotografiyla ayni anda bant genisligi istiyor.
+
+     `consent` cagrilari YUKARIDA ve DEGISMEDI: kuyruga ilk olcum
+     isteginden once giriyorlar. Burada geciken yalnizca betigin
+     INDIRILMESI; sayfa gorunumu yine cerezsiz olarak gidiyor.
+
+     TETIKLEYICI `load`, `requestIdleCallback` DEGIL.
+     Ilk yazimda rIC kullandim ve YANLISTI: yavas baglantida ana is
+     parcacigi AG BEKLERKEN bosta kalir, yani rIC tam da kapak
+     fotografi inerken tetiklenebilir -- onlemeye calistigim seyin
+     ta kendisi. `load` ise butun gorseller bittikten sonra atesleniyor,
+     yani LCP'nin gectigi GARANTI.
+
+     BEDELI ACIKCA YAZILIYOR: sayfayi `load` olayindan once terk eden
+     ziyaretci sayilmaz (yavas baglantida ~5 sn). Bu bir olcum kaybi
+     ama kucuk; karsiliginda okura her sayfada ~600 ms. Geri almak
+     icin bu blogu eski haline cevirmek yeterli. */
+  function gtagYukle() {
+    if (window.__gtagYuklendi) return;
+    window.__gtagYuklendi = true;
+    var betik = document.createElement("script");
+    betik.async = true;
+    betik.src = "https://www.googletagmanager.com/gtag/js?id=" + OLCUM;
+    document.head.appendChild(betik);
+  }
+  if (document.readyState === "complete") {
+    setTimeout(gtagYukle, 200);
+  } else {
+    window.addEventListener("load", function () {
+      setTimeout(gtagYukle, 200);
+    });
+  }
 
   /* --- onay bandi ----------------------------------------------------
      Yalnizca secim YAPILMAMISSA gosteriliyor. Icerigi ORTMUYOR:

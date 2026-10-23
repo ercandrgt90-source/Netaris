@@ -692,10 +692,38 @@ KB'lık 120 px küçük resimler — dokunmaya değmez.
 
 Yani sorun boyutta değil, **bayt sayısında**.
 
-### Yapıldı
-`fetchpriority="high"` ana sayfa kapak görseline eklendi. Ölçüm
-LCP'nin rakiplerini gösteriyordu: gtag.js 1532 ms, yazı tipi 1348 ms.
+### Yapıldı — ve biri işe yaramadı
+
+**1. `fetchpriority="high"` kapak görseline.** Ölçüm LCP'nin
+rakiplerini gösteriyordu: gtag.js 1532 ms, yazı tipi 1348 ms.
 `loading="eager"` tarayıcıya "erteleme" der ama "öncelikli" demez.
+
+**Dağıtımdan sonra ölçüldü: fark yok.** Ana sayfa medyanı 4168 ms
+(öncesi 4112), üç ölçümün dağılımı 3060–4428. Etki varsa gürültünün
+altında. Şaşırtıcı değil — görsel zaten erken keşfediliyor; öncelik
+sıralamayı değiştirir, bant genişliği eklemez. Öznitelik yine de
+yerinde kaldı: doğru uygulama ve zararsız. Ama **"yaptım, iyileşti"
+demek yanlış olurdu.**
+
+**2. Analitik LCP penceresinden çıkarıldı.** Deney (dörder örnek,
+ayrı süreçlerde):
+
+| | LCP örnekleri | Medyan | Yayılım |
+|---|---|---|---|
+| Temel | 3524 · 4384 · 4424 · 4484 | 4424 ms | 960 ms |
+| Analitiksiz | 3576 · 3780 · 3824 · 3840 | **3824 ms** | 264 ms |
+
+gtag ~**600 ms** LCP'ye mal oluyor ve dağılımı da genişletiyor. Sebep
+bayt değil (çapraz köken, boyutu ölçümde görünmüyor) — **sıra**:
+betik, kapak fotoğrafıyla aynı anda bant genişliği istiyor.
+
+`onay.js` artık gtag'i **`load` olayından sonra** yüklüyor — bütün görseller bittikten sonra, yani LCP'nin geçtiği garanti. (İlk yazımda `requestIdleCallback` kullandım ve yanlıştı: yavaş bağlantıda ana iş parçacığı ağ beklerken boşta kalır, yani tam da görsel inerken tetiklenebilirdi.)
+`consent` çağrıları değişmedi, çerez davranışı aynı, sayfa görünümü
+yine çerezsiz gidiyor.
+
+**Bedeli açık:** sayfayı `load` olayından önce terk eden ziyaretçi
+sayılmaz (yavaş bağlantıda ~5 sn). Küçük bir ölçüm kaybı karşılığında okura her sayfada
+~600 ms. Geri almak tek bir bloğu eski hâline çevirmek.
 
 ### Ölçülen ama YAPILMAYAN: WebP
 40 dosyalık örnekte ölçüldü:
