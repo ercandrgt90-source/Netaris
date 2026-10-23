@@ -286,15 +286,42 @@ def icerik_reddi(neden: str) -> bool:
 
 
 def tukenmisler(b, en_cok: int = EN_COK_RET) -> set:
-    """`en_cok` kez ICERIK reddi almis haberlerin adresleri."""
-    sayac: dict = {}
+    """`en_cok` kez ICERIK reddi almis haberlerin adresleri.
+
+    SAYIM O HABERIN EN SON MODELINE BAGLI -- KALICI DISLAMA OLMASIN.
+    ---------------------------------------------------------------
+    Ilk yazimda butun redler toplaniyordu ve bir yan etkisi vardi:
+    saglayici yukseltilirse (depoda `@cf/openai/gpt-oss-120b` 4396,
+    `claude-opus-5` 302 red kaydi var) elenen haberler ESKI modelin
+    basarisizligi yuzunden sonsuza kadar disarida kalirdi. Daha iyi
+    bir model onlari yazabilecekken bir daha hic denenmezlerdi --
+    sessiz ve kalici bir kayip.
+
+    Sayim yalnizca o haber icin EN SON kullanilan modeli sayiyor.
+    Saglayici degisince o model degisir, sayac dogal olarak sifirlanir
+    ve haber yeniden sansa girer. Ayni saglayicida ise davranis
+    degismiyor: surekli dusen haber yine 20'de eleniyor.
+    """
+    son_model: dict = {}
+    kayit: dict = {}
     try:
-        for adres, neden in b.execute("SELECT adres, neden FROM ai_ret"):
-            if icerik_reddi(neden):
-                sayac[adres] = sayac.get(adres, 0) + 1
+        # `rowid` sirasi = ekleme sirasi; `kayit_ani` ayni saniyede
+        # cakisabiliyor, rowid cakismaz.
+        for adres, neden, model in b.execute(
+                "SELECT adres, neden, model FROM ai_ret ORDER BY rowid"):
+            if not icerik_reddi(neden):
+                continue
+            m = model or ""
+            son_model[adres] = m
+            kayit.setdefault(adres, []).append(m)
     except Exception:                                  # pragma: no cover
         return set()
-    return {a for a, k in sayac.items() if k >= en_cok}
+    cikti = set()
+    for adres, modeller in kayit.items():
+        guncel = son_model.get(adres, "")
+        if sum(1 for m in modeller if m == guncel) >= en_cok:
+            cikti.add(adres)
+    return cikti
 
 
 def secilenler(haberler: list[dict], var: set[str], dosyalar: dict,

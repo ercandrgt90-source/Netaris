@@ -377,6 +377,27 @@ dogru("esige ulasan eleniyor", "/tukenmis" in _t)
 dogru("esigin altindaki KALIYOR", "/sinirda" not in _t)
 dogru("altyapi hatasi elemiyor", "/altyapi" not in _t)
 
+# 3b. SAGLAYICI DEGISINCE SAYAC SIFIRLANIYOR.
+#     Yoksa daha iyi bir model gelse bile elenen haberler ESKI modelin
+#     basarisizligi yuzunden sonsuza kadar disarida kalirdi -- sessiz
+#     ve kalici bir kayip.
+_b2 = _sq.connect(":memory:")
+_b2.executescript(U.SEMA)
+def _ret2(adres, model, kac):
+    for _ in range(kac):
+        _b2.execute("INSERT INTO ai_ret (adres, baslik, neden, model, ham,"
+                    " kayit_ani) VALUES (?,?,?,?,?,?)",
+                    (adres, "b", "baglam-uyusmazligi", model, "h", "2026-10-23"))
+# Eski modelde tukenmis, ama SON red yeni modelden -> yeniden sansa girer.
+_ret2("/yukseltildi", "eski-model", U.EN_COK_RET * 2)
+_ret2("/yukseltildi", "yeni-model", 1)
+# Ayni modelde tukenmis -> elenmeye devam.
+_ret2("/ayni-model", "eski-model", U.EN_COK_RET)
+_b2.commit()
+_t2 = U.tukenmisler(_b2)
+dogru("saglayici degisince sayac sifirlaniyor", "/yukseltildi" not in _t2)
+dogru("ayni saglayicida eleme SURUYOR", "/ayni-model" in _t2)
+
 # 4. SECIM TUKENMISI ATLIYOR.
 _h = [{"adres": "/tukenmis", "yorumlanir": True, "ozet": "dolu ozet",
        "baslik": "x", "kurum": "k"},
