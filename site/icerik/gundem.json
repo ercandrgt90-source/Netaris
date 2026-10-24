@@ -27,7 +27,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 32,
+  "yorumlanan": 31,
   "haberler": [
     {
       "baslik": "Piero Cipollone: Milano Finanza Röportajı",
@@ -580,6 +580,27 @@
       "foto_atif": "Larry D. Moore · CC-BY-4.0"
     },
     {
+      "baslik": "Strateji, Bitcoin alımı ve imtiyazlı hisse senedi temettüleri arasında yüz dengeleme eylemi yapmaya çalışın",
+      "baslik_kaynak": "Strategy, Strive face balancing act between bitcoin buying and preferred stock dividends",
+      "ozet": "The securities have financed purchases of nearly 136,000 bitcoin, opening a funding channel that analysts expect to complement the larger ETF market.",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.coindesk.com/business/2026/10/24/strategy-strive-face-balancing-act-between-bitcoin-buying-and-preferred-stock-dividends",
+      "kurum": "CoinDesk",
+      "kurum_tam": "CoinDesk",
+      "konu": "Kripto varlıklar",
+      "tarih": "2026-10-24",
+      "tarih_gorunur": "24 Ekim 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/kripto-varliklar-9-b82c3e85.jpg",
+      "foto_atif": "CryptoWallet.com Images · CC-BY-2.0"
+    },
+    {
       "baslik": "Kripto para hafta sonu baskısı altında, Bitcoin ABD'nin Orta Doğu'daki tahliyelerinde 80 bin $ seviyesinin altına düştü",
       "baslik_kaynak": "Crypto under weekend pressure, bitcoin slides below $80,000 on U.S. Middle East evacuations",
       "ozet": "Bitcoin has sunk to its weakest level in more than one month.",
@@ -842,6 +863,32 @@
       "foto_atif": "Vyacheslav Argenberg · CC-BY-4.0"
     },
     {
+      "baslik": "Rusya'da Ozon'un Lojistik merkezine İHA saldırısı: Yangın çıktı",
+      "baslik_kaynak": "Rusya'da Ozon'un Lojistik merkezine İHA saldırısı: Yangın çıktı",
+      "ozet": "Rusya'nın önde gelen e-ticaret şirketlerinden Ozon, Omsk şehrindeki lojistik merkezine insansız hava aracı (İHA) ile saldırı düzenlendiğini ve tesiste yangın çıktığını bildirdi.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.dunya.com/dunya/rusyada-ozonun-lojistik-merkezine-iha-saldirisi-yangin-cikti-haberi-845131",
+      "kurum": "Dünya",
+      "kurum_tam": "Dünya Gazetesi",
+      "konu": "Jeopolitik",
+      "tarih": "2026-10-24",
+      "tarih_gorunur": "24 Ekim 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
+      "kanallar": [
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-14-4ca6b4fe.jpg",
+      "foto_atif": "Bernard Gagnon · CC0"
+    },
+    {
       "baslik": "Altın fiyatlarındaki düşüş kalıcı mı? Ünlü analist kritik seviyeyi açıklayarak yanıtladı",
       "baslik_kaynak": "Altın fiyatlarındaki düşüş kalıcı mı? Ünlü analist kritik seviyeyi açıklayarak yanıtladı",
       "ozet": "Altın fiyatları kritik destek seviyesinin altına gerilerken piyasalarda satış baskısı hız kazandı. Dünyaca ünlü analistler, düşüşün kalıcı olup olmayacağını değerlendirirken olası toparlanma için olması gereken seviyeyi işaret etti.",
@@ -960,32 +1007,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/tarim-ve-gida-7-023d5242.jpg",
       "foto_atif": "Vyacheslav Argenberg · CC-BY-4.0"
-    },
-    {
-      "baslik": "Netanyahu yaptırımları aşmak için kripto paralara yöneleceğini açıkladı",
-      "baslik_kaynak": "Netanyahu yaptırımları aşmak için kripto paralara yöneleceğini açıkladı",
-      "ozet": "İsrail Başbakanı Benjamin Netanyahu, ülkesine yönelik olası uluslararası bankacılık yaptırımlarını baypas etmek amacıyla alternatif ekonomik sistemler ve kripto para kullanımını aktif olarak araştırdıklarını açıkladı.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.ekonomim.com/dunya/netanyahu-yaptirimlari-asmak-icin-kripto-paralara-yonelecegini-acikladi-haberi-926830",
-      "kurum": "Ekonomim",
-      "kurum_tam": "Ekonomim",
-      "konu": "Kripto varlıklar",
-      "tarih": "2026-10-24",
-      "tarih_gorunur": "24 Ekim 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Kripto varlıklar risk iştahının en uçtaki göstergelerinden biridir; hareketin kaynağı düzenleme, likidite ya da kaldıraç çözülmesi olabilir ve üçünün sonuçları farklıdır.",
-      "kanallar": [
-        "Likidite koşulları: küresel likidite daraldığında en riskli varlıklar önce satılır.",
-        "Düzenleme: saklama, borsa yatırım fonu ve vergi kuralları kurumsal talebin önünü açar ya da kapatır.",
-        "Kaldıraç: türev piyasadaki açık pozisyon ve fonlama oranı sert hareketlerin büyüklüğünü belirler.",
-        "Piyasa yapısı: işlem hacminin borsalar arası dağılımı fiyat farklarının ne kadar sürdüğünü etkiler."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/kripto-varliklar-8-8b36c240.jpg",
-      "foto_atif": "de Vries, Alex; Stoll, Christian · PDM"
     },
     {
       "baslik": "Gelecek hafta piyasalar, merkez bankalarının faiz kararlarına odaklandı",
@@ -1205,6 +1226,32 @@
       "foto_atif": "William Iven firmbee · CC0"
     },
     {
+      "baslik": "Netanyahu olası yaptırımları aşmak için kripto paraya yöneliyor",
+      "baslik_kaynak": "Netanyahu olası yaptırımları aşmak için kripto paraya yöneliyor",
+      "ozet": "",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://tr.investing.com/news/economy-news/netanyahu-olas-yaptrmlar-asmak-icin-kripto-paraya-yoneliyor-4118453",
+      "kurum": "Investing",
+      "kurum_tam": "Investing.com Türkiye",
+      "konu": "Kripto varlıklar",
+      "tarih": "2026-10-24",
+      "tarih_gorunur": "24 Ekim 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Kripto varlıklar risk iştahının en uçtaki göstergelerinden biridir; hareketin kaynağı düzenleme, likidite ya da kaldıraç çözülmesi olabilir ve üçünün sonuçları farklıdır.",
+      "kanallar": [
+        "Likidite koşulları: küresel likidite daraldığında en riskli varlıklar önce satılır.",
+        "Düzenleme: saklama, borsa yatırım fonu ve vergi kuralları kurumsal talebin önünü açar ya da kapatır.",
+        "Kaldıraç: türev piyasadaki açık pozisyon ve fonlama oranı sert hareketlerin büyüklüğünü belirler.",
+        "Piyasa yapısı: işlem hacminin borsalar arası dağılımı fiyat farklarının ne kadar sürdüğünü etkiler."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/kripto-varliklar-9-b82c3e85.jpg",
+      "foto_atif": "CryptoWallet.com Images · CC-BY-2.0"
+    },
+    {
       "baslik": "Ukrayna askeri Starlink hizmeti 10 günlük kesintiden sonra normale döndü",
       "baslik_kaynak": "Ukrayna askeri Starlink hizmeti 10 günlük kesintiden sonra normale döndü",
       "ozet": "",
@@ -1229,58 +1276,6 @@
       "kanal_basligi": "Hangi piyasaları etkiler?",
       "foto": "/statik/foto/jeopolitik-15-ccd8ab8d.jpg",
       "foto_atif": "usepagov · PDM"
-    },
-    {
-      "baslik": "Bütçede devlet destekli kuruluşlara 20,4 milyar sterlin enjekte edilecek",
-      "baslik_kaynak": "Bütçede devlet destekli kuruluşlara 20,4 milyar sterlin enjekte edilecek",
-      "ozet": "",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://tr.investing.com/news/economy-news/ingiltere-butcede-devlet-destekli-bankalara-204-milyar-sterlin-aktaracak-4118415",
-      "kurum": "Investing",
-      "kurum_tam": "Investing.com Türkiye",
-      "konu": "Döviz",
-      "tarih": "2026-10-24",
-      "tarih_gorunur": "24 Ekim 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Kur, ithalat maliyetinin ve döviz cinsi borç servisinin ortak değişkenidir. Üretimin ara malı ithalatına bağımlılığı yüksek olduğu için kur hareketi maliyet tarafına hızlı geçer.",
-      "kanallar": [
-        "İthalat maliyeti: ara malı ve enerji ithalatı döviz cinsinden fiyatlanır; kur hareketi üretici maliyetine doğrudan yansır.",
-        "Enflasyon geçişi: maliyet artışının tüketici fiyatına yansıma hızı, sektörün fiyatlama gücüne ve stok devir süresine bağlıdır.",
-        "Şirket bilançosu: döviz açık pozisyonu taşıyan şirkette kur farkı gideri kâr tablosuna yazılır; ihracatçıda ters yönde çalışır. Yön, şirketin net döviz pozisyonuna bağlıdır.",
-        "Dış borç servisi: döviz cinsi yükümlülüğün TL karşılığı değişir."
-      ],
-      "kanal_basligi": "Piyasaya nasıl yansır?",
-      "foto": "/statik/foto/doviz-10-00c79ade.jpg",
-      "foto_atif": "Artyom Svetlov · CC-BY-4.0"
-    },
-    {
-      "baslik": "İngiltere bütçesi tahvil piyasalarını önceleyecek, İşçi Partisi’nde gerilim artıyor",
-      "baslik_kaynak": "İngiltere bütçesi tahvil piyasalarını önceleyecek, İşçi Partisi’nde gerilim artıyor",
-      "ozet": "",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://tr.investing.com/news/economy-news/ingiltere-butcesi-tahvil-piyasalarn-onceleyecek-isci-partisinde-gerilim-artyor-4118409",
-      "kurum": "Investing",
-      "kurum_tam": "Investing.com Türkiye",
-      "konu": "Borsa",
-      "tarih": "2026-10-24",
-      "tarih_gorunur": "24 Ekim 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Endeks hareketi tek başına bir bilgi değildir; hareketi hangi sektörlerin taşıdığı ve işlem hacminin ne olduğu kalıcılığı belirler.",
-      "kanallar": [
-        "Sektör dağılımı: hareketin dar bir gruptan mı geniş tabandan mı geldiği, kalıcılığa dair ipucu verir.",
-        "Hacim: düşük hacimli hareket fiyat keşfinden çok pozisyon ayarlaması olabilir.",
-        "Volatilite: opsiyon fiyatlarındaki değişim piyasanın beklediği oynaklığı gösterir.",
-        "Korelasyon: hisse ile tahvil arasındaki ilişkinin işareti portföy riskinin nasıl dağıldığını değiştirir."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/borsa-12-5544ef41.jpg",
-      "foto_atif": "Bernard Lee · CC0"
     },
     {
       "baslik": "Sektörel Enflasyon Beklentileri (Ekim 2026)",
