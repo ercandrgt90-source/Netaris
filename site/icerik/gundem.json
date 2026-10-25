@@ -1,5 +1,5 @@
 {
-  "guncelleme": "2026-10-24",
+  "guncelleme": "2026-10-25",
   "kaynaklar": [
     "AA",
     "BloombergHT",
@@ -28,7 +28,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 31,
+  "yorumlanan": 30,
   "haberler": [
     {
       "baslik": "Suudi liderliğindeki koalisyon Riyad bölgesinde insansız hava aracını durdurdu ve yok etti",
@@ -170,6 +170,27 @@
       "kanal_basligi": "Hangi piyasaları etkiler?",
       "foto": "/statik/foto/jeopolitik-14-4ca6b4fe.jpg",
       "foto_atif": "Bernard Gagnon · CC0"
+    },
+    {
+      "baslik": "Bu hafta yatırımcılarına temettü dağıtacak 5 şirket",
+      "baslik_kaynak": "Bu hafta yatırımcılarına temettü dağıtacak 5 şirket",
+      "ozet": "Borsada işlem gören halka açık şirketlerin kâr payı ödemeleri 26-30 Ekim haftasında da sürecek. Borsa İstanbul’da 5 şirket bu hafta yatırımcılarına temettü dağıtacak.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.ekonomim.com/finans/haberler/borsa/bu-hafta-yatirimcilarina-temettu-dagitacak-5-sirket-haberi-926866",
+      "kurum": "Ekonomim",
+      "kurum_tam": "Ekonomim",
+      "konu": "Şirket haberleri",
+      "tarih": "2026-10-25",
+      "tarih_gorunur": "25 Ekim 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/sirket-haberleri-7-0e2a9249.jpg",
+      "foto_atif": "Myotus · CC-BY-SA-4.0"
     },
     {
       "baslik": "TES-İŞ Sendikası Genel Başkanlığına yeniden İrfan Kabaloğlu seçildi",
@@ -1457,32 +1478,6 @@
       "kanal_basligi": "Hangi piyasaları etkiler?",
       "foto": "/statik/foto/jeopolitik-14-4ca6b4fe.jpg",
       "foto_atif": "Bernard Gagnon · CC0"
-    },
-    {
-      "baslik": "ABD'den Kanada'ya uygulanan yüzde 50'lik tarifelerde değişiklik",
-      "baslik_kaynak": "ABD'den Kanada'ya uygulanan yüzde 50'lik tarifelerde değişiklik",
-      "ozet": "ABD yönetimi, Kanada'dan ithal edilen bazı ürünlere uygulanan yüzde 50 oranındaki ek gümrük vergilerinin kapsamını 30 Ekim itibarıyla değiştireceğini açıkladı.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.bloomberght.com/abd-den-kanada-ya-uygulanan-yuzde-50-lik-tarifelerde-degisiklik-3792454",
-      "kurum": "BloombergHT",
-      "kurum_tam": "Bloomberg HT",
-      "konu": "Dış ticaret",
-      "tarih": "2026-10-24",
-      "tarih_gorunur": "24 Ekim 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Ticaret politikası kararları tarafların birbirine bağımlılığı ölçüsünde fiyatlanır; etki önce ilgili sektör hisselerinde ve para birimlerinde görülür.",
-      "kanallar": [
-        "Sektör maruziyeti: gümrük vergisi ihracatçı sektörün marjını doğrudan sıkıştırır; otomotiv, çelik ve tarım en sık hedef alınan kalemlerdir.",
-        "Para birimi: ticaret dengesinde beklenen değişim ilgili ülke kurunu yeniden fiyatlar.",
-        "Tedarik zinciri: ara mal akışı kesilirse maliyet üretici fiyatlarına yazılır ve etki üçüncü ülkelere yayılır.",
-        "Anlaşma yapısı: USMCA ya da gümrük birliği gibi çerçeveler, etkinin hangi kalemlerde ve hangi takvimde doğacağını belirler."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/dis-ticaret-10-e6df7852.jpg",
-      "foto_atif": "ImagePerson · CC-BY-4.0"
     },
     {
       "baslik": "Sektörel Enflasyon Beklentileri (Ekim 2026)",
