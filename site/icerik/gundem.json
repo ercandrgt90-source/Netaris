@@ -29,8 +29,34 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 35,
+  "yorumlanan": 36,
   "haberler": [
+    {
+      "baslik": "Cezayir parlamentosu Nijer'e asker gönderme kararını onayladı: açıklama",
+      "baslik_kaynak": "Algerian parliament approves resolution to deploy troops to Niger: statement",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9820402/Algerian-parliament-approves-resolution-to-deploy-troops-to-Niger-statement.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Jeopolitik",
+      "tarih": "2026-10-25",
+      "tarih_gorunur": "25 Ekim 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
+      "kanallar": [
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-15-ccd8ab8d.jpg",
+      "foto_atif": "usepagov · PDM"
+    },
     {
       "baslik": "Trump: Bugün İran'a saldırmayacağız",
       "baslik_kaynak": "Trump: We will not attack Iran today.",
@@ -654,6 +680,32 @@
       "foto_atif": "Stevebidmead · CC0"
     },
     {
+      "baslik": "CENTCOM Komutanı Cooper, Hürmüz Boğazı üzerinde uçuş gerçekleştirdi",
+      "baslik_kaynak": "CENTCOM Komutanı Cooper, Hürmüz Boğazı üzerinde uçuş gerçekleştirdi",
+      "ozet": "ABD Merkez Kuvvetler (CENTCOM) Komutanı Brad Cooper, İran'a yönelik deniz ablukasını uygulayan birlikleri ziyaret ederek Hürmüz Boğazı üzerinde uçuş yaptı. CENTCOM, son 6 ayda 3 binden fazla ticari geminin boğazdan güvenli şekilde geçtiğini ve ana geçiş güzergahlarının İran'a ait deniz mayınlarından temizlendiğini…",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.dunya.com/dunya/centcom-komutani-cooper-hurmuz-bogazi-uzerinde-ucus-gerceklestirdi-haberi-845236",
+      "kurum": "Dünya",
+      "kurum_tam": "Dünya Gazetesi",
+      "konu": "Jeopolitik",
+      "tarih": "2026-10-25",
+      "tarih_gorunur": "25 Ekim 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
+      "kanallar": [
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-15-ccd8ab8d.jpg",
+      "foto_atif": "usepagov · PDM"
+    },
+    {
       "baslik": "Trump'tan İran açıklaması: Bugün saldırı olmayacak",
       "baslik_kaynak": "Trump'tan İran açıklaması: Bugün saldırı olmayacak",
       "ozet": "ABD Başkanı Donald Trump, İran'a yönelik olası saldırıların ne zaman sona ereceği konusunda net bir yanıt vermekten kaçınırken, bugün saldırı düzenlenmeyeceğini söyledi. Trump, dün yaptığı açıklamada ise İran'ı yeniden bombalama ihtimalinin bulunduğunu belirtmişti.",
@@ -725,6 +777,32 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/enerji-18-2333f432.jpg",
       "foto_atif": "Sgroey · CC-BY-SA-4.0"
+    },
+    {
+      "baslik": "ABD-İran çatışmalarında yeni gelişme: Katarlı arabulucuların Tahran'a gitti",
+      "baslik_kaynak": "ABD-İran çatışmalarında yeni gelişme: Katarlı arabulucuların Tahran'a gitti",
+      "ozet": "Katarlı arabulucuların, ABD ile İran arasındaki arabuluculuk görüşmeleri kapsamında İran'ın başkenti Tahran'a gittiği öne sürüldü.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.ekonomim.com/dunya/abd-iran-catismalarinda-yeni-gelisme-katarli-arabulucularin-tahrana-gitti-haberi-926966",
+      "kurum": "Ekonomim",
+      "kurum_tam": "Ekonomim",
+      "konu": "Jeopolitik",
+      "tarih": "2026-10-25",
+      "tarih_gorunur": "25 Ekim 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
+      "kanallar": [
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-15-ccd8ab8d.jpg",
+      "foto_atif": "usepagov · PDM"
     },
     {
       "baslik": "Fed'in Ekim kararı beklenirken, 100 ekonomist Aralık kararında artırımda birleşti",
@@ -1049,53 +1127,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/enerji-15-f47dcf5c.jpg",
       "foto_atif": "Sw257 · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "Obama enflasyon konusunda Trump’ı eleştirdi",
-      "baslik_kaynak": "Obama enflasyon konusunda Trump’ı eleştirdi",
-      "ozet": "",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://tr.investing.com/news/economy-news/obama-enflasyon-konusunda-trump-elestirdi-4118498",
-      "kurum": "Investing",
-      "kurum_tam": "Investing.com Türkiye",
-      "konu": "Enflasyon",
-      "tarih": "2026-10-25",
-      "tarih_gorunur": "25 Ekim 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enflasyon-7-87d51a9b.jpg",
-      "foto_atif": "safaritravelplus · CC0"
-    },
-    {
-      "baslik": "Trump tarifelerini savunurken Georgia’daki 4 milyar dolarlık Audi fabrikasını duyurdu",
-      "baslik_kaynak": "Trump tarifelerini savunurken Georgia’daki 4 milyar dolarlık Audi fabrikasını duyurdu",
-      "ozet": "",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://tr.investing.com/news/economy-news/trump-tarifelerini-savunurken-georgiadaki-4-milyar-dolarlk-audi-fabrikasn-duyurdu-4118497",
-      "kurum": "Investing",
-      "kurum_tam": "Investing.com Türkiye",
-      "konu": "Dış ticaret",
-      "tarih": "2026-10-25",
-      "tarih_gorunur": "25 Ekim 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Ticaret politikası kararları tarafların birbirine bağımlılığı ölçüsünde fiyatlanır; etki önce ilgili sektör hisselerinde ve para birimlerinde görülür.",
-      "kanallar": [
-        "Sektör maruziyeti: gümrük vergisi ihracatçı sektörün marjını doğrudan sıkıştırır; otomotiv, çelik ve tarım en sık hedef alınan kalemlerdir.",
-        "Para birimi: ticaret dengesinde beklenen değişim ilgili ülke kurunu yeniden fiyatlar.",
-        "Tedarik zinciri: ara mal akışı kesilirse maliyet üretici fiyatlarına yazılır ve etki üçüncü ülkelere yayılır.",
-        "Anlaşma yapısı: USMCA ya da gümrük birliği gibi çerçeveler, etkinin hangi kalemlerde ve hangi takvimde doğacağını belirler."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/dis-ticaret-8-5224a85c.jpg",
-      "foto_atif": "Gazouya-japan · CC-BY-SA-4.0"
     },
     {
       "baslik": "Piero Cipollone: Milano Finanza Röportajı",
@@ -2358,32 +2389,6 @@
       "kanal_basligi": "Hangi piyasaları etkiler?",
       "foto": "/statik/foto/jeopolitik-40-59a567ac.jpg",
       "foto_atif": "Peter Griffin · CC0"
-    },
-    {
-      "baslik": "Trump, FT'de bir miting düzenledi. Myers, Fl - Canlı İzleyin",
-      "baslik_kaynak": "Trump Holds a Rally in Ft. Myers, FL - WATCH LIVE",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9819379/Trump-Holds-a-Rally-in-Ft-Myers-FL---WATCH-LIVE.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Jeopolitik",
-      "tarih": "2026-10-23",
-      "tarih_gorunur": "23 Ekim 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
-      "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
-        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
-        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/jeopolitik-15-ccd8ab8d.jpg",
-      "foto_atif": "usepagov · PDM"
     },
     {
       "baslik": "Faiz Oranlarına İlişkin Basın Duyurusu (2026-45)",
