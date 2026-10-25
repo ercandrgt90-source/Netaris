@@ -29,8 +29,34 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 34,
+  "yorumlanan": 35,
   "haberler": [
+    {
+      "baslik": "Suudi Arabistan'a ait Herkül askeri nakliye uçağı dakikalar önce Tahran'daki Mehrabad Havalimanı'na indi: İran'dan Sepah News",
+      "baslik_kaynak": "Saudi Hercules military transport plane landed at Mehrabad Airport in Tehran minutes ago - Iran's Sepah News",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9820423/Saudi-Hercules-military-transport-plane-landed-at-Mehrabad-Airport-in-Tehran-minutes-ago---Irans-Sepah-News.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Jeopolitik",
+      "tarih": "2026-10-25",
+      "tarih_gorunur": "25 Ekim 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
+      "kanallar": [
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-36-7cb6152c.jpg",
+      "foto_atif": "Captain Albert E. Theberge, NOAA Corps (ret.) · PDM"
+    },
     {
       "baslik": "Zelenskiy görüşmelerde: toprak sorunu sadece devlet başkanları için, teknik görüşmeler diğer konuları kapsıyor",
       "baslik_kaynak": "Zelenskiy on talks: territory issue only for heads of state, technical talks cover other matters",
@@ -1035,32 +1061,6 @@
       "foto_atif": "TheBest123XD · CC-BY-SA-4.0"
     },
     {
-      "baslik": "Putin yaptırımlara 'aptalca' dedi: LNG'mizin Avrupa payı yüzde 20",
-      "baslik_kaynak": "Putin yaptırımlara 'aptalca' dedi: LNG'mizin Avrupa payı yüzde 20",
-      "ozet": "Rusya Devlet Başkanı Vladimir Putin, Rus sıvılaştırılmış doğal gazının (LNG) Avrupa pazarındaki payının yüzde 20 olduğunu belirterek Avrupa Birliği'nin enerji yaptırımlarının aptalca oluğunu söyledi. .",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.ekonomim.com/dunya/putin-yaptirimlara-aptalca-dedi-lngmizin-avrupa-payi-yuzde-20-haberi-926960",
-      "kurum": "Ekonomim",
-      "kurum_tam": "Ekonomim",
-      "konu": "Enerji",
-      "tarih": "2026-10-25",
-      "tarih_gorunur": "25 Ekim 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Enerji fiyatı hem bir maliyet kalemi hem bir enflasyon girdisidir; arz tarafındaki değişim önce vadeli piyasada, sonra üretici fiyatlarında görünür.",
-      "kanallar": [
-        "Arz kapasitesi: OPEC+ kotası, stok seviyesi ve üretim kesintisi haberleri vadeli eğrinin şeklini değiştirir.",
-        "Talep beklentisi: büyüme verisi ve sanayi üretimi fiyatın talep bacağını belirler.",
-        "Bölgeler arası akış: doğal gaz ile LNG arasındaki fiyat farkı, kargoların hangi bölgeye gideceğini değiştirir.",
-        "Enflasyon aktarımı: enerji maliyeti ulaştırma ve gıda üzerinden manşet enflasyona geçer; merkez bankaları çekirdek enflasyona daha çok bakar."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/enerji-14-d727b7f7.jpg",
-      "foto_atif": "Quintin Soloviev · CC-BY-4.0"
-    },
-    {
       "baslik": "Fed Başkanı Warsh verilere odaklanılmasını istiyor",
       "baslik_kaynak": "Fed Başkanı Warsh verilere odaklanılmasını istiyor",
       "ozet": "ABD Merkez Bankası (Fed) Başkanı Kevin Warsh'ın para politikası kararlarında verilere odaklanılması ve ileriye dönük yönlendirmeye bağımlılığın azaltılması gerektiği yönündeki mesajlarına rağmen yatırımcılar, faiz beklentilerini şekillendirirken Fed yetkililerinin açıklamalarını izlemeyi sürdürüyor.",
@@ -1284,6 +1284,32 @@
       "kanal_basligi": "Hangi piyasaları etkiler?",
       "foto": "/statik/foto/jeopolitik-15-ccd8ab8d.jpg",
       "foto_atif": "usepagov · PDM"
+    },
+    {
+      "baslik": "İngiltere’de göçmen kısıtlaması 15 milyar sterlinlik bakım sektörünü tehdit ediyor",
+      "baslik_kaynak": "İngiltere’de göçmen kısıtlaması 15 milyar sterlinlik bakım sektörünü tehdit ediyor",
+      "ozet": "",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://tr.investing.com/news/economy-news/ingilterede-gocmen-kstlamas-15-milyar-sterlinlik-bakm-sektorunu-tehdit-ediyor-4118511",
+      "kurum": "Investing",
+      "kurum_tam": "Investing.com Türkiye",
+      "konu": "Döviz",
+      "tarih": "2026-10-25",
+      "tarih_gorunur": "25 Ekim 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Kur, ithalat maliyetinin ve döviz cinsi borç servisinin ortak değişkenidir. Üretimin ara malı ithalatına bağımlılığı yüksek olduğu için kur hareketi maliyet tarafına hızlı geçer.",
+      "kanallar": [
+        "İthalat maliyeti: ara malı ve enerji ithalatı döviz cinsinden fiyatlanır; kur hareketi üretici maliyetine doğrudan yansır.",
+        "Enflasyon geçişi: maliyet artışının tüketici fiyatına yansıma hızı, sektörün fiyatlama gücüne ve stok devir süresine bağlıdır.",
+        "Şirket bilançosu: döviz açık pozisyonu taşıyan şirkette kur farkı gideri kâr tablosuna yazılır; ihracatçıda ters yönde çalışır. Yön, şirketin net döviz pozisyonuna bağlıdır.",
+        "Dış borç servisi: döviz cinsi yükümlülüğün TL karşılığı değişir."
+      ],
+      "kanal_basligi": "Piyasaya nasıl yansır?",
+      "foto": "/statik/foto/doviz-10-fecd7a02.jpg",
+      "foto_atif": "Oldgayracist · CC0"
     },
     {
       "baslik": "Piero Cipollone: Milano Finanza Röportajı",
@@ -2358,27 +2384,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/enerji-11-a5cdd29f.jpg",
       "foto_atif": "W.carter · CC0"
-    },
-    {
-      "baslik": "20 Ekim USD CFTC Pozisyonları Haftası - FJElite",
-      "baslik_kaynak": "USD CFTC Positions Week of October 20th - FJElite",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9819417/USD-CFTC-Positions-Week-of-October-20th---FJElite.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Şirket haberleri",
-      "tarih": "2026-10-23",
-      "tarih_gorunur": "23 Ekim 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-11-5c2f88fc.jpg",
-      "foto_atif": "Bill Boaden · CC-BY-SA-2.0"
     },
     {
       "baslik": "Faiz Oranlarına İlişkin Basın Duyurusu (2026-45)",
