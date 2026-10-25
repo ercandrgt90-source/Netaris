@@ -29,7 +29,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 34,
+  "yorumlanan": 35,
   "haberler": [
     {
       "baslik": "Trump: Bugün İran'a saldırmayacağız",
@@ -727,6 +727,32 @@
       "foto_atif": "Sgroey · CC-BY-SA-4.0"
     },
     {
+      "baslik": "Fed'in Ekim kararı beklenirken, 100 ekonomist Aralık kararında artırımda birleşti",
+      "baslik_kaynak": "Fed'in Ekim kararı beklenirken, 100 ekonomist Aralık kararında artırımda birleşti",
+      "ozet": "Fed'in Ekim ayında faizin sabit tutacağı görüşü öne çıkarken Reuters'ın 100 ekonomistle gerçekleştirdiği ankette, katılımcıların tamamı Fed'in aralık toplantısında faiz artırmasını öngördü. Böylesi bir yüksek oranda ekonomistlerin birleşmesinin ise nedenleri sıralandı.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.ekonomim.com/foto-galeri/ekonomi/fedin-ekim-karari-beklenirken-100-ekonomist-aralik-kararinda-artirimda-birlesti-galeri-926964",
+      "kurum": "Ekonomim",
+      "kurum_tam": "Ekonomim",
+      "konu": "Para politikası",
+      "tarih": "2026-10-25",
+      "tarih_gorunur": "25 Ekim 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Politika faizi kararları küresel sermayenin fiyatını belirler; asıl fiyatlanan şey kararın kendisi değil, karar sonrası patikaya dair beklentidir.",
+      "kanallar": [
+        "Tahvil getirisi: kısa vadeli faiz beklentisi getiri eğrisinin ön ucunu, enflasyon beklentisi uzun ucunu hareket ettirir.",
+        "Parite: iki merkez bankası arasındaki faiz farkı beklentisi kuru yeniden fiyatlar.",
+        "Değerleme: iskonto oranı değişimi en çok uzun vadeli nakit akışı olan teknoloji ve büyüme hisselerinde hissedilir.",
+        "Sermaye akımı: gelişmiş ülke faizi yükseldiğinde gelişmekte olan piyasalardan çıkış görülebilir."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/para-politikasi-11-fd54475f.jpg",
+      "foto_atif": "Innotata · CC-BY-SA-3.0"
+    },
+    {
       "baslik": "Altında temmuzdan bu yana bir ilk: Gümüşte de sert kayıp",
       "baslik_kaynak": "Altında temmuzdan bu yana bir ilk: Gümüşte de sert kayıp",
       "ozet": "Emtia piyasalarında Fed'in faiz politikası ve jeopolitik gelişmelerin etkisiyle altın haftalık bazda yüzde 4, gümüş ise yüzde 5,3 değer kaybederken her iki değerli metalin fiyatı da son ayların en düşük seviyelerine geriledi.",
@@ -1070,27 +1096,6 @@
       "kanal_basligi": "Hangi piyasaları etkiler?",
       "foto": "/statik/foto/dis-ticaret-8-5224a85c.jpg",
       "foto_atif": "Gazouya-japan · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "Jefferies, Dr. Reddy’s hissesi için not yükseltmesi yaptı",
-      "baslik_kaynak": "Jefferies, Dr. Reddy’s hissesi için not yükseltmesi yaptı",
-      "ozet": "",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://tr.investing.com/news/analyst-ratings/jefferies-dr-reddys-hissesi-icin-not-yukseltmesi-yapt-93CH-4118604",
-      "kurum": "Investing",
-      "kurum_tam": "Investing.com Türkiye",
-      "konu": "Borsa",
-      "tarih": "2026-10-25",
-      "tarih_gorunur": "25 Ekim 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/borsa-9-78cc676a.jpg",
-      "foto_atif": "Syced · CC0"
     },
     {
       "baslik": "Piero Cipollone: Milano Finanza Röportajı",
