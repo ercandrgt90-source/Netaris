@@ -29,7 +29,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 11,
+  "yorumlanan": 10,
   "haberler": [
     {
       "baslik": "EVDS-MCP'nin Devreye Alınmasına İlişkin Basın Duyurusu (2026-46)",
@@ -135,6 +135,27 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/duzenleme-7-7da0b0d6.jpg",
       "foto_atif": "Myotus · CC-BY-4.0"
+    },
+    {
+      "baslik": "Salı FX Opsiyonu Sona Eriyor",
+      "baslik_kaynak": "Tuesday FX Option Expiries",
+      "ozet": "EUR/USD: 1.1250 (EU951.9m), 1.1175 (EU924.4m), 1.1415 (EU728.8m) USD/JPY: 157.85 ($1.66b), 158.00 ($1.27b), 157.00 ($885m) AUD/USD: 0.6975 (AUD1.83b), 0.7030 (AUD1.32b), 0.7015 (AUD721.7m) USD/CAD: 1.3650 ($420m), 1.3830 ($339.7m) GBP/USD: 1.3260 (GBP512.1m), 1.3200 (GBP493.8m), 1.3300 (GBP456.4m) USD/MXN: 17.61…",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9821776/Tuesday-FX-Option-Expiries.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Şirket haberleri",
+      "tarih": "2026-10-26",
+      "tarih_gorunur": "26 Ekim 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/sirket-haberleri-8-9a709a75.jpg",
+      "foto_atif": "Sixflashphoto · CC-BY-SA-4.0"
     },
     {
       "baslik": "ABD'nin yüksek dereceli tahvil satışları 1,76 trilyon $ ile rekor kırmaya hazırlanıyor",
@@ -1401,27 +1422,6 @@
       "foto_atif": "Gkbediako · CC-BY-SA-4.0"
     },
     {
-      "baslik": "Antropik: Nasdaq Global Select Market'teki A sınıfı adi hisse senetlerimizi $ANT sembolü altında listelemek için başvurduk",
-      "baslik_kaynak": "Anthropic: We have applied to list our class A common stock on the Nasdaq Global Select Market under the symbol $ANT",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9821307/Anthropic-We-have-applied-to-list-our-class-A-common-stock-on-the-Nasdaq-Global-Select-Market-under-the-symbol-ANT.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Borsa",
-      "tarih": "2026-10-26",
-      "tarih_gorunur": "26 Ekim 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/borsa-24-b47c4be0.jpg",
-      "foto_atif": "User:A,Ocram · PDM"
-    },
-    {
       "baslik": "Y Combinator destekli Mochatrade, Hintli yatırımcılara ABD hisse senedi kalıcıları sunmak için 5,5 milyon $ topladı",
       "baslik_kaynak": "Y Combinator-backed Mochatrade raises $5.5 million to offer US stock perpetuals to Indian traders",
       "ozet": "The platform is in beta and plans to open to the public in the coming weeks, co-founder Chetan Manda told The Block.",
@@ -1968,6 +1968,27 @@
       "foto_atif": "Satheesh Sankaran · CC-BY-2.0"
     },
     {
+      "baslik": "SPK, Tera Portföy ve Pusula Portföy'ün sermaye piyasası faaliyetlerini geçici olarak durdurdu",
+      "baslik_kaynak": "SPK, Tera Portföy ve Pusula Portföy'ün sermaye piyasası faaliyetlerini geçici olarak durdurdu",
+      "ozet": "SPK'nin Tera Portföy Yönetimi AŞ ve Pusula Portföy Yönetimi AŞ hakkında aldığı kararlar kurulun internet sitesinde yayımlandı.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.aa.com.tr/tr/ekonomi/spk-tera-portfoy-ve-pusula-portfoyun-sermaye-piyasasi-faaliyetlerini-gecici-olarak-durdurdu/4101717",
+      "kurum": "AA",
+      "kurum_tam": "Anadolu Ajansı",
+      "konu": "Piyasa düzenlemesi",
+      "tarih": "2026-10-26",
+      "tarih_gorunur": "26 Ekim 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/piyasa-duzenlemesi-9-29b01285.jpg",
+      "foto_atif": "Syced · CC0"
+    },
+    {
       "baslik": "Hazine ve Maliye Bakanlığından Merrill Lynch Bankasına yönelik iddialara ilişkin açıklama",
       "baslik_kaynak": "Hazine ve Maliye Bakanlığından Merrill Lynch Bankasına yönelik iddialara ilişkin açıklama",
       "ozet": "Hazine ve Maliye Bakanlığınca, \"Sayın Bakanımızın, yıllar önce çalışıp ayrıldığı bir kurum üzerinden asılsız iddialarla töhmet altında bırakılma gayretleri kabul edilemez.\" ifadesi kullanıldı.",
@@ -2043,32 +2064,6 @@
       "kanal_basligi": "Hangi piyasaları etkiler?",
       "foto": "/statik/foto/enerji-19-7f38d155.jpg",
       "foto_atif": "Calistemon · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "Gaz İhraç Eden Ülkeler Forumu: LNG'nin payı 2055'te yüzde 64'e ulaşacak",
-      "baslik_kaynak": "Gaz İhraç Eden Ülkeler Forumu: LNG'nin payı 2055'te yüzde 64'e ulaşacak",
-      "ozet": "Gaz İhraç Eden Ülkeler Forumu (GECF) Genel Sekreteri Philip Mshelbila, sıvılaştırılmış doğal gazın (LNG) küresel doğal gaz ticaretindeki payının 2055'e kadar yüzde 64'e ulaşmasının beklendiğini bildirdi.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.aa.com.tr/tr/ekonomi/gaz-ihrac-eden-ulkeler-forumu-lngnin-payi-2055te-yuzde-64e-ulasacak/4101122",
-      "kurum": "AA",
-      "kurum_tam": "Anadolu Ajansı",
-      "konu": "Enerji",
-      "tarih": "2026-10-26",
-      "tarih_gorunur": "26 Ekim 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Enerji fiyatı hem bir maliyet kalemi hem bir enflasyon girdisidir; arz tarafındaki değişim önce vadeli piyasada, sonra üretici fiyatlarında görünür.",
-      "kanallar": [
-        "Arz kapasitesi: OPEC+ kotası, stok seviyesi ve üretim kesintisi haberleri vadeli eğrinin şeklini değiştirir.",
-        "Talep beklentisi: büyüme verisi ve sanayi üretimi fiyatın talep bacağını belirler.",
-        "Bölgeler arası akış: doğal gaz ile LNG arasındaki fiyat farkı, kargoların hangi bölgeye gideceğini değiştirir.",
-        "Enflasyon aktarımı: enerji maliyeti ulaştırma ve gıda üzerinden manşet enflasyona geçer; merkez bankaları çekirdek enflasyona daha çok bakar."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/enerji-16-71b1ce54.jpg",
-      "foto_atif": "HdeK · CC-BY-SA-3.0"
     },
     {
       "baslik": "Piero Cipollone: Milano Finanza Röportajı",
