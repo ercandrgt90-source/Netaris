@@ -29,7 +29,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 10,
+  "yorumlanan": 11,
   "haberler": [
     {
       "baslik": "EVDS-MCP'nin Devreye Alınmasına İlişkin Basın Duyurusu (2026-46)",
@@ -135,6 +135,27 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/duzenleme-7-7da0b0d6.jpg",
       "foto_atif": "Myotus · CC-BY-4.0"
+    },
+    {
+      "baslik": "ABD ve Kanada, Kanada çelik ve otomobil ithalatına yönelik ABD tarifelerini hafifletmek için bir anlaşma üzerinde çalışıyor - Kaynaklar",
+      "baslik_kaynak": "The US and Canada are working on a deal to ease US tariffs on Canadian steel and auto imports - Sources.",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9821777/The-US-and-Canada-are-working-on-a-deal-to-ease-US-tariffs-on-Canadian-steel-and-auto-imports---Sources.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Dış ticaret",
+      "tarih": "2026-10-26",
+      "tarih_gorunur": "26 Ekim 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/dis-ticaret-8-5224a85c.jpg",
+      "foto_atif": "Gazouya-japan · CC-BY-SA-4.0"
     },
     {
       "baslik": "Salı FX Opsiyonu Sona Eriyor",
@@ -1401,27 +1422,6 @@
       "foto_atif": "Sixflashphoto · CC-BY-SA-4.0"
     },
     {
-      "baslik": "Antropik 1H gelir 16,3 milyar $ vs. 1,2 milyar $ yoy",
-      "baslik_kaynak": "Anthropic 1H revenue $16.3 billion vs. $1.2 billion yoy.",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9821308/Anthropic-1H-revenue-163-billion-vs-12-billion-yoy.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Şirket haberleri",
-      "tarih": "2026-10-26",
-      "tarih_gorunur": "26 Ekim 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-15-c1626940.jpg",
-      "foto_atif": "Gkbediako · CC-BY-SA-4.0"
-    },
-    {
       "baslik": "Y Combinator destekli Mochatrade, Hintli yatırımcılara ABD hisse senedi kalıcıları sunmak için 5,5 milyon $ topladı",
       "baslik_kaynak": "Y Combinator-backed Mochatrade raises $5.5 million to offer US stock perpetuals to Indian traders",
       "ozet": "The platform is in beta and plans to open to the public in the coming weeks, co-founder Chetan Manda told The Block.",
@@ -1947,27 +1947,6 @@
       "foto_atif": "Karlalhdz · CC-BY-SA-4.0"
     },
     {
-      "baslik": "Sabah Dakikası: İran Korkusu Hafta Sonunu Vururken Bitcoin 80.000 $'ın Altına Düştü",
-      "baslik_kaynak": "Morning Minute: Bitcoin Breaks Below $80,000 as Iran Fears Hit the Weekend",
-      "ozet": "Some relief is appearing this morning as oil and rates fall, with a big macro week ahead featuring major earnings, FOMC and key data drops.",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://decrypt.co/381797/morning-minute-bitcoin-breaks-below-80000-as-iran-fears-hit-the-weekend",
-      "kurum": "Decrypt",
-      "kurum_tam": "Decrypt",
-      "konu": "Kripto varlıklar",
-      "tarih": "2026-10-26",
-      "tarih_gorunur": "26 Ekim 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/kripto-varliklar-9-651bf869.jpg",
-      "foto_atif": "Satheesh Sankaran · CC-BY-2.0"
-    },
-    {
       "baslik": "SPK, Tera Portföy ve Pusula Portföy'ün sermaye piyasası faaliyetlerini geçici olarak durdurdu",
       "baslik_kaynak": "SPK, Tera Portföy ve Pusula Portföy'ün sermaye piyasası faaliyetlerini geçici olarak durdurdu",
       "ozet": "SPK'nin Tera Portföy Yönetimi AŞ ve Pusula Portföy Yönetimi AŞ hakkında aldığı kararlar kurulun internet sitesinde yayımlandı.",
@@ -2064,6 +2043,32 @@
       "kanal_basligi": "Hangi piyasaları etkiler?",
       "foto": "/statik/foto/enerji-19-7f38d155.jpg",
       "foto_atif": "Calistemon · CC-BY-SA-4.0"
+    },
+    {
+      "baslik": "Gaz İhraç Eden Ülkeler Forumu: LNG'nin payı 2055'te yüzde 64'e ulaşacak",
+      "baslik_kaynak": "Gaz İhraç Eden Ülkeler Forumu: LNG'nin payı 2055'te yüzde 64'e ulaşacak",
+      "ozet": "Gaz İhraç Eden Ülkeler Forumu (GECF) Genel Sekreteri Philip Mshelbila, sıvılaştırılmış doğal gazın (LNG) küresel doğal gaz ticaretindeki payının 2055'e kadar yüzde 64'e ulaşmasının beklendiğini bildirdi.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.aa.com.tr/tr/ekonomi/gaz-ihrac-eden-ulkeler-forumu-lngnin-payi-2055te-yuzde-64e-ulasacak/4101122",
+      "kurum": "AA",
+      "kurum_tam": "Anadolu Ajansı",
+      "konu": "Enerji",
+      "tarih": "2026-10-26",
+      "tarih_gorunur": "26 Ekim 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Enerji fiyatı hem bir maliyet kalemi hem bir enflasyon girdisidir; arz tarafındaki değişim önce vadeli piyasada, sonra üretici fiyatlarında görünür.",
+      "kanallar": [
+        "Arz kapasitesi: OPEC+ kotası, stok seviyesi ve üretim kesintisi haberleri vadeli eğrinin şeklini değiştirir.",
+        "Talep beklentisi: büyüme verisi ve sanayi üretimi fiyatın talep bacağını belirler.",
+        "Bölgeler arası akış: doğal gaz ile LNG arasındaki fiyat farkı, kargoların hangi bölgeye gideceğini değiştirir.",
+        "Enflasyon aktarımı: enerji maliyeti ulaştırma ve gıda üzerinden manşet enflasyona geçer; merkez bankaları çekirdek enflasyona daha çok bakar."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/enerji-16-71b1ce54.jpg",
+      "foto_atif": "HdeK · CC-BY-SA-3.0"
     },
     {
       "baslik": "Piero Cipollone: Milano Finanza Röportajı",
