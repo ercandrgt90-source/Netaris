@@ -117,13 +117,23 @@
     return s;
   }
 
-  function oge(etiket, sinif, baslik, ikonAdi, sayiNiteligi, gizliYazi) {
+  /* SAYI NITELIGI DUZ METINLE KURULUYOR -- DEGISKENLE DEGIL.
+   *
+   * Ilk yazimda nitelik adi `oge()`ye parametre olarak geciyordu
+   * (`b.setAttribute(sayiNiteligi, "")`) ve `test_secici.js` hakli
+   * olarak KIRMIZI yandi: o sinama "aranan her secicinin bir
+   * URETICISI var" diye bakiyor ve ureticiyi `Attribute("data-...")`
+   * DUZ METNINDEN tariyor. Degiskenle kurulan nitelik, taramaya
+   * gorunmez bir uretici demek -- yani kural dogru, yazim yanlisti.
+   *
+   * Sinamayi gevsetmek yerine uretici gorunur hale getirildi.
+   */
+  function oge(etiket, sinif, baslik, ikonAdi, gizliYazi) {
     var e = document.createElement(etiket);
     e.className = sinif;
     if (baslik) e.title = baslik;
     e.appendChild(ikon(ikonAdi));
     var b = document.createElement("b");
-    b.setAttribute(sayiNiteligi, "");
     b.textContent = "0";
     e.appendChild(b);
     var g = document.createElement("span");
@@ -136,12 +146,15 @@
   function icKur(k) {
     /* BIR KEZ: `yaz` ayni kutu icin tekrar cagrilabilir. */
     if (k.firstElementChild) return;
-    k.appendChild(oge("span", "sayac-oge", "Görüntülenme", "ik-goz",
-                      "data-sayac-goruntulenme", "görüntülenme"));
+    var g = oge("span", "sayac-oge", "Görüntülenme", "ik-goz",
+                "görüntülenme");
+    g.querySelector("b").setAttribute("data-sayac-goruntulenme", "");
+    k.appendChild(g);
     if (k.hasAttribute("data-sayac-begenisiz")) return;
     /* BEGENI DUGMESI UYELIK ISTIYOR -- gerekce `_sayac.html` icinde. */
     var d = oge("button", "sayac-oge sayac-begeni", "Beğen", "ik-kalp",
-                "data-sayac-begeni", "beğeni");
+                "beğeni");
+    d.querySelector("b").setAttribute("data-sayac-begeni", "");
     d.type = "button";
     d.setAttribute("data-begeni-dugme", "");
     d.setAttribute("aria-pressed", "false");
