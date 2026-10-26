@@ -725,6 +725,22 @@ yine çerezsiz gidiyor.
 sayılmaz (yavaş bağlantıda ~5 sn). Küçük bir ölçüm kaybı karşılığında okura her sayfada
 ~600 ms. Geri almak tek bir bloğu eski hâline çevirmek.
 
+#### Dağıtımdan sonra doğrulandı (2026-10-26)
+
+| | LCP örnekleri | Medyan |
+|---|---|---|
+| Üretim (ertelenmiş) | 2896 · 3116 · 3156 · 3216 | 3156 ms |
+| Analitik tamamen engelli | 2272 · 3096 · 3108 · 3192 | 3108 ms |
+
+Fark **48 ms** — analitik artık LCP'ye neredeyse hiç mal olmuyor.
+Değişiklikten önce aynı karşılaştırma **600 ms** veriyordu.
+
+**Ölçüt bilinçli olarak "boşluk", mutlak sayı değil.** Mutlak LCP
+günler arası ağ koşullarıyla da değişti (engelli hâl bile 3824'ten
+3108'e indi); "4424 → 3156" demek değişikliğe hak etmediği payı
+vermek olurdu. Aynı oturumda ölçülen *açık ile engelli arasındaki
+fark* gün değişiminden etkilenmiyor — kazancı o gösteriyor.
+
 ### Ölçülen ama YAPILMAYAN: WebP
 40 dosyalık örnekte ölçüldü:
 
