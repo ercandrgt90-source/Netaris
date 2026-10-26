@@ -179,32 +179,6 @@
       "foto_atif": "Syced · CC0"
     },
     {
-      "baslik": "New York borsası yükselişle kapandı",
-      "baslik_kaynak": "New York borsası yükselişle kapandı",
-      "ozet": "New York borsası, Anthropic'in halka arz başvurusunun yapay zeka hisselerine yönelik ilgiyi artırmasıyla günü yükselişle tamamladı.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.dunya.com/finans/haberler/new-york-borsasi-yukselisle-kapandi-haberi-845378",
-      "kurum": "Dünya",
-      "kurum_tam": "Dünya Gazetesi",
-      "konu": "Borsa",
-      "tarih": "2026-10-27",
-      "tarih_gorunur": "27 Ekim 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Endeks hareketi tek başına bir bilgi değildir; hareketi hangi sektörlerin taşıdığı ve işlem hacminin ne olduğu kalıcılığı belirler.",
-      "kanallar": [
-        "Sektör dağılımı: hareketin dar bir gruptan mı geniş tabandan mı geldiği, kalıcılığa dair ipucu verir.",
-        "Hacim: düşük hacimli hareket fiyat keşfinden çok pozisyon ayarlaması olabilir.",
-        "Volatilite: opsiyon fiyatlarındaki değişim piyasanın beklediği oynaklığı gösterir.",
-        "Korelasyon: hisse ile tahvil arasındaki ilişkinin işareti portföy riskinin nasıl dağıldığını değiştirir."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/borsa-21-e2f22d70.jpg",
-      "foto_atif": "William Iven firmbee · CC0"
-    },
-    {
       "baslik": "Mersin Agropark, tarımdaki geleceği Ar-Ge ile inşa ediyor",
       "baslik_kaynak": "Mersin Agropark, tarımdaki geleceği Ar-Ge ile inşa ediyor",
       "ozet": "Türkiye’nin tarım ve gıda alanındaki ilk ve tek ihtisas Teknoloji Geliştirme Bölgesi olan Mersin Agropark, yürüttüğü Ar-Ge projeleri, güçlü üniversite-sanayi iş birlikleri ve genişleme yatırımlarıyla sektörde yenilikçi çözümler üretmeye devam ederek, bölge tarımının geleceğini Ar-Ge temelleri üzerine inşa ediyor.",
@@ -2055,6 +2029,31 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/piyasa-duzenlemesi-9-29b01285.jpg",
       "foto_atif": "Syced · CC0"
+    },
+    {
+      "baslik": "Hazine ve Maliye Bakanlığından Merrill Lynch Bankasına yönelik iddialara ilişkin açıklama",
+      "baslik_kaynak": "Hazine ve Maliye Bakanlığından Merrill Lynch Bankasına yönelik iddialara ilişkin açıklama",
+      "ozet": "Hazine ve Maliye Bakanlığınca, \"Sayın Bakanımızın, yıllar önce çalışıp ayrıldığı bir kurum üzerinden asılsız iddialarla töhmet altında bırakılma gayretleri kabul edilemez.\" ifadesi kullanıldı.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.aa.com.tr/tr/ekonomi/hazine-ve-maliye-bakanligindan-merrill-lynch-bankasina-yonelik-iddialara-iliskin-aciklama/4101509",
+      "kurum": "AA",
+      "kurum_tam": "Anadolu Ajansı",
+      "konu": "Bankacılık",
+      "tarih": "2026-10-26",
+      "tarih_gorunur": "26 Ekim 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Zorunlu karşılık, likidite ve teminat düzenlemeleri kredi arzının miktarını ve maliyetini doğrudan belirler.",
+      "kanallar": [
+        "Kredi arzı: zorunlu karşılık oranları, bankaların kredi olarak kullandırabileceği kaynağın büyüklüğünü değiştirir.",
+        "Fonlama kompozisyonu: TL ve döviz mevduat arasındaki maliyet farkı, bankaların bilanço yapısını etkiler.",
+        "Reel sektör: kredi kanalının daralması, işletme sermayesini kısa vadeli borçla çeviren şirketlerde önce hissedilir."
+      ],
+      "kanal_basligi": "Piyasaya nasıl yansır?",
+      "foto": "/statik/foto/bankacilik-7-62bd3092.jpg",
+      "foto_atif": "Dietmar Rabich · CC-BY-SA-4.0"
     },
     {
       "baslik": "Piero Cipollone: Milano Finanza Röportajı",
