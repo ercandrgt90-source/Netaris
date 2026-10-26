@@ -931,8 +931,9 @@ jobs:
 
           Sonuç ÖLÇÜLÜYOR, varsayılmıyor: güncel durum yukarıdaki satırda.
           Site taze görünüyorsa boşluğu başka bir tetikleyici kapatıyordur
-          (yerel nöbetçi) -- o zaman sorun "site bayat" değil, "tempo tek
-          bir makineye bağlı" demektir ve o makine kapandığında site durur.
+          (yerel nöbetçi) -- o zaman sorun sitenin bayat olması değil,
+          temponun tek bir makineye bağlı olmasıdır; o makine kapandığında
+          site durur.
 
           Çözüm — yeni bir fine-grained PAT üretip Cloudflare'a yazın:
 

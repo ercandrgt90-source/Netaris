@@ -725,5 +725,85 @@ dogru("cikti_sinamalari.py: dusen adlari gercekten yaziliyor",
       and "GITHUB_STEP_SUMMARY" in _ks)
 
 
+# ============================================================
+# KABUK DIZGISININ ICINDE CIFT TIRNAK OLMAZ.
+#
+# Olculdu (2026-10-26): alarm govdesine Turkce bir aciklama
+# yazarken icine cift tirnak koydum --
+#
+#     govde="... sorun "site bayat" degil, "tempo ..." demektir"
+#
+# Kabuk dizgiyi ilk IC tirnakta KAPATIYOR, sonrakini komut saniyor:
+#
+#     line 31: bayat degil, tempo: command not found
+#     Process completed with exit code 127
+#
+# Adim `continue-on-error` oldugu icin isi dusurmedi ama ALARM
+# CALMADI -- kesinti suresince kayit acilmadi. Calmayan bir alarm,
+# alarmsizliktan kotudur; ayni cumle `otomasyon.yml` icinde zaten
+# yaziliyor.
+#
+# YAML cozumleyicisi bunu YAKALAMAZ: metin olarak gecerli, bozuk
+# olan KABUK. O yuzden kontrol burada.
+# ============================================================
+print("")
+TIRNAK = chr(34)
+
+
+def _ikamesiz(metin: str) -> str:
+    """`$(...)` icini ATAR -- orada tirnak KENDI baglaminda gecerli.
+
+    `sed 's|^|- |' "$dosya"` gibi bir ikame, cift tirnakli dizginin
+    icinde olsa bile kabuk tarafindan ayri cozumleniyor. Onu ihlal
+    saymak, dogru yazilmis kodu sikayet etmek olurdu -- ve bu depoda
+    yanlis alarm, gercek olani da inandiriciliktan dusuruyor.
+    """
+    cikti, derinlik, i = [], 0, 0
+    while i < len(metin):
+        if metin.startswith("$(", i):
+            derinlik += 1
+            i += 2
+            continue
+        if derinlik and metin[i] == ")":
+            derinlik -= 1
+            i += 1
+            continue
+        if not derinlik:
+            cikti.append(metin[i])
+        i += 1
+    return "".join(cikti)
+
+
+_kabuk_hata = []
+for _yol in sorted(AKIS.glob("*.yml")):
+    _satir = _yol.read_text(encoding="utf-8").splitlines()
+    _acik = None
+    for _i, _s in enumerate(_satir):
+        _sade = _s.strip()
+        if _acik is None:
+            _esit = _sade.find("=" + TIRNAK)
+            # `ad="` ile baslayan atama; oncesi degisken adi olmali.
+            if _esit > 0 and _sade[:_esit].replace("_", "").isalnum():
+                _kalan = _sade[_esit + 2:]
+                if _kalan.endswith(TIRNAK):
+                    _ic = _kalan[:-1]
+                else:
+                    _acik = (_yol.name, _sade[:_esit], _i)
+                    _ic = _kalan
+                if TIRNAK in _ikamesiz(_ic):
+                    _kabuk_hata.append(f"{_yol.name}:{_i + 1} "
+                                       f"{_sade[:_esit]}=...")
+        else:
+            _ic = _sade[:-1] if _sade.endswith(TIRNAK) else _sade
+            if TIRNAK in _ikamesiz(_ic):
+                _kabuk_hata.append(f"{_acik[0]}:{_i + 1} {_acik[1]}=...")
+            if _sade.endswith(TIRNAK):
+                _acik = None
+if _kabuk_hata:
+    print("  KABUK DIZGISI ICINDE CIFT TIRNAK:")
+    for _h in _kabuk_hata[:6]:
+        print(f"    {_h}")
+dogru("kabuk dizgilerinde ic cift tirnak yok", not _kabuk_hata)
+
 print(f"\n{_gecti} gecti, {_kaldi} kaldi")
 sys.exit(1 if _kaldi else 0)
