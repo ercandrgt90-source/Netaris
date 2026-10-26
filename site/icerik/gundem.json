@@ -28,7 +28,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 11,
+  "yorumlanan": 12,
   "haberler": [
     {
       "baslik": "EVDS-MCP'nin Devreye Alınmasına İlişkin Basın Duyurusu (2026-46)",
@@ -1862,27 +1862,6 @@
       "foto_atif": "Syced · CC0"
     },
     {
-      "baslik": "Bitcoin ETF'leri, 301 milyon $ geri dönüşle 2 haftalık çıkış serisini kırdı",
-      "baslik_kaynak": "Bitcoin ETFs break 2-week outflow streak with $301M comeback",
-      "ozet": "US spot Bitcoin ETFs finished the week with $301 million in net inflows after a strong three-day start gave way to heavy withdrawals.",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://cointelegraph.com/markets/bitcoin-etfs-rebound-weekly-inflow-301-million?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "kurum": "Cointelegraph",
-      "kurum_tam": "Cointelegraph",
-      "konu": "Kripto varlıklar",
-      "tarih": "2026-10-26",
-      "tarih_gorunur": "26 Ekim 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/kripto-varliklar-9-b82c3e85.jpg",
-      "foto_atif": "CryptoWallet.com Images · CC-BY-2.0"
-    },
-    {
       "baslik": "Bitcoin Cüzdanı, Fonları Saldırganlara Yönlendiren Kritik Hatayı Giderdi",
       "baslik_kaynak": "Bitcoin Wallet Fixes Critical Flaw That Redirected Funds to Attackers",
       "ozet": "A confirmed exploit let rogue servers replace Electrum’s pending transactions, tricking users into redirecting Bitcoin to attacker addresses.",
@@ -2068,6 +2047,32 @@
       "kanal_basligi": "Hangi piyasaları etkiler?",
       "foto": "/statik/foto/enerji-16-71b1ce54.jpg",
       "foto_atif": "HdeK · CC-BY-SA-3.0"
+    },
+    {
+      "baslik": "Libya'dan Türkiye mesajı: Deniz mutabakatı egemen kararımız",
+      "baslik_kaynak": "Libya'dan Türkiye mesajı: Deniz mutabakatı egemen kararımız",
+      "ozet": "Libya Temsilciler Meclisi Başkanı Salihin Abdunnebi, Türkiye ile deniz yetki alanlarının sınırlandırılmasına ilişkin mutabakatın uluslararası hukuka uygun ve ülkesinin çıkarlarını koruyan egemen bir karar olduğunu belirtti.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.dunya.com/dunya/libyadan-turkiye-mesaji-deniz-mutabakati-egemen-kararimiz-haberi-845369",
+      "kurum": "Dünya",
+      "kurum_tam": "Dünya Gazetesi",
+      "konu": "Jeopolitik",
+      "tarih": "2026-10-26",
+      "tarih_gorunur": "26 Ekim 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
+      "kanallar": [
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-14-4ca6b4fe.jpg",
+      "foto_atif": "Bernard Gagnon · CC0"
     },
     {
       "baslik": "Piero Cipollone: Milano Finanza Röportajı",
