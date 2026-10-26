@@ -126,9 +126,82 @@ KARAR_BILINMIYOR = "bilinmiyor"
 KARAR_TAZE = "taze"
 KARAR_KOSUYOR = "kosuyor"
 KARAR_TETIKLE = "tetikle"
+#: TETIKLEDIM AMA HICBIR SEY OLMADI.
+#:
+#: 2026-10-26 17:53 -- 22:13 arasi: nobetci 27 KEZ tetikledi, 27
+#: kez 204 aldi ve icerik yasi 0.67 saatten 5.01 saate MONOTON
+#: cikti. Her tur "tetikle: ... yanit=204" yaziyordu, yani gunluk
+#: basarili gorunuyordu. Gercekte tetiklenen kosular `test_harita`
+#: kirmizi yandigi icin dagitim adimina hic gelmiyordu.
+#:
+#: Kusur tetiklemede DEGIL olcutte: 204, "GitHub istegi kabul etti"
+#: demek; "site tazelendi" demek DEGIL. Nobetci her turu bagimsiz
+#: gordugu icin ayni sonucsuz isi 27 kez tekrarladi ve kesinti 4.3
+#: saat boyunca hicbir yere duyurulmadi.
+KARAR_BOZUK = "bozuk"
+
+#: Kac ardisik sonucsuz tetiklemeden sonra hat BOZUK sayilir.
+#:
+#: OLCULDU (gunlukteki 400 satir, 2026-10-20 -> 10-26, 68 ardisik
+#: tetikleme dizisi):
+#:
+#:     dizi uzunlugu   normal isleyiste   arizada
+#:     1               cok                 --
+#:     2               1 kez               --
+#:     3+              HIC                 27
+#:
+#: Yani dagilimlar CAKISMIYOR: saglikli hat ucuncu ardisik
+#: tetiklemeye hic ulasmiyor, cunku bir tetikleme sonuc verdiginde
+#: sonraki tur "taze" yaziyor ve dizi kiriliyor. Esik bu yuzden
+#: GERCEKTEN eliyor -- bu depoda esiklerin cogu elemedigi icin
+#: kaldirilmisti, bu olcum onu ayirmak icin yapildi.
+BOSA_TETIK_SINIRI = 3
 
 
-def karar_ver(veri: dict | None, kosu_var: bool) -> tuple[str, str]:
+def _satir_coz(satir: str) -> tuple[str, float | None] | None:
+    """Gunluk satirindan (karar, icerik_yasi) cikarir.
+
+    Bicim: `2026-10-26T22:13:10Z tetikle: icerik 5.01 saat, ...`
+
+    DUZENLI IFADE KULLANILMIYOR. Bu depoda desenlere gomulu ters
+    boluler birkac kez sessizce baska bir seye dondu (`chr(8)`,
+    gercek satir sonu) ve desen hic eslesmedigi halde kimse
+    farketmedi. Bolme ile ayristirmanin boyle bir sessiz modu yok.
+    """
+    parca = satir.split(" ", 2)
+    if len(parca) < 3 or not parca[1].endswith(":"):
+        return None
+    yas: float | None = None
+    if "icerik " in parca[2]:
+        kuyruk = parca[2].split("icerik ", 1)[1]
+        try:
+            yas = float(kuyruk.split(" ", 1)[0])
+        except ValueError:
+            yas = None
+    return parca[1][:-1], yas
+
+
+def son_tetik_dizisi(satirlar) -> list[float]:
+    """Gunlugun SONUNDAKI kesintisiz tetikleme dizisinin yaslari.
+
+    Sondan geriye gidiyor ve tetikleme OLMAYAN ilk satirda duruyor:
+    araya giren "taze" bir tur, bir onceki tetiklemenin SONUC
+    VERDIGI anlamina gelir -- dizi orada bitmis sayilmali. Cozulemeyen
+    bir satir (coku izi, bozuk bicim) da diziyi kirar; muhafazakar
+    olan bu, cunku o satirin ne oldugu BILINMIYOR.
+    """
+    dizi: list[float] = []
+    for satir in reversed(list(satirlar)):
+        c = _satir_coz(satir)
+        if c is None or c[0] != KARAR_TETIKLE or c[1] is None:
+            break
+        dizi.append(c[1])
+    dizi.reverse()
+    return dizi
+
+
+def karar_ver(veri: dict | None, kosu_var: bool,
+              dizi: list[float] | tuple = ()) -> tuple[str, str]:
     """SAF KARAR -- ag yok, yan etki yok, sinanabilir.
 
     Esik VERIDEN geliyor, burada yazili DEGIL: Worker'daki deger
@@ -161,6 +234,21 @@ def karar_ver(veri: dict | None, kosu_var: bool) -> tuple[str, str]:
     # yani sira eklemek hem bos hem belirsiz.
     if kosu_var:
         return KARAR_KOSUYOR, f"icerik {yas:.2f} saat ama kosu suruyor"
+    # TETIKLEMEK YETMEZ -- SONUC VERDI MI?
+    #
+    # `dizi` bu nobetcinin KENDI gunlugunden okunan, kesintisiz
+    # tetikleme turlerinin yas dizisi. Yas dizinin basindan beri
+    # DUSMEMISSE tetikleme sonuc uretmiyor demektir: hat asagi bir
+    # yerde kopuk (kirmizi sinama, dagitim jetonu, Cloudflare) ve
+    # daha fazla tetiklemek onu duzeltmez.
+    #
+    # Karar yine tetiklemeyi SURDURUR (main'e bakin): hat duzeldigi
+    # anda ilk tur yayina alsin. Degisen sey yalnizca bu: artik
+    # DUYURULUYOR.
+    if len(dizi) >= BOSA_TETIK_SINIRI and yas > dizi[0]:
+        return KARAR_BOZUK, (
+            f"{len(dizi)} ardisik tetikleme SONUC VERMEDI -- yas"
+            f" {dizi[0]:.2f} -> {yas:.2f} saat; hat kopuk")
     return KARAR_TETIKLE, f"icerik {yas:.2f} saat, esik {esik:.2f}"
 
 
@@ -323,6 +411,100 @@ def tetikle(jeton: str) -> int | None:
     return kod
 
 
+#: Duyuru konusunun basligi. AYNI metin hem acarken hem ararken
+#: kullaniliyor: iki yerde ayri yazilsaydi arama hic eslesmez ve
+#: nobetci her on dakikada YENI bir konu acardi.
+DUYURU_BASLIGI = "Yerel nobetci tetikliyor ama site TAZELENMIYOR"
+
+#: Satir sonu ACIK bir sabit olarak tutuluyor.
+#:
+#: Ters bolu kacislari bu depoda defalarca SESSIZCE baska bir seye
+#: dondu: yazilan desen chr(8) oldu, yazilan iki karakterlik kacis
+#: gercek satir sonu oldu ve kaynak dogru GORUNDUGU icin kimse
+#: farketmedi. Bir dosya ters bolu HIC icermiyorsa o kusur sinifi
+#: orada imkansizdir -- bedeli bir sabit.
+NL = chr(10)
+
+
+def son_kosu(jeton: str) -> str:
+    """En son otomasyon kosusunun numarasi ve sonucu -- teshis icin.
+
+    Hat kopuksa asil soru "hangi adim dusuyor" ve cevap kosunun
+    kendisinde. Duyuru o kosuya DOGRUDAN baglanmali, yoksa okuyan
+    kisi Actions sekmesinde aramak zorunda kalir.
+    """
+    kod, govde = _istek(
+        f"https://api.github.com/repos/{DEPO}/actions/workflows"
+        f"/{IS_AKISI}/runs?per_page=1", jeton=jeton)
+    if kod != 200:
+        return f"son kosu okunamadi (HTTP {kod})"
+    try:
+        kosular = json.loads(govde).get("workflow_runs") or []
+    except ValueError:
+        return "son kosu cozulemedi"
+    if not kosular:
+        return "hic kosu yok"
+    r = kosular[0]
+    return (f"son kosu #{r.get('run_number')} -> "
+            f"{r.get('status')}/{r.get('conclusion')}" + NL
+            + str(r.get("html_url")))
+
+
+def duyur(jeton: str, sebep: str) -> str:
+    """Hat kopuklugunu GitHub konusu olarak duyurur.
+
+    NEDEN GUNLUK YETMIYOR: `yerel_nobet.log` gitignore'da ve yalnizca
+    bu makinede duruyor. 2026-10-26'da kesinti 4.3 saat surdu;
+    gunluk her turu DOGRU yazdi ve kimse okumadi. Okunmayan bir
+    uyari, uyari degildir.
+
+    TEK KONU ACILIR: ayni baslikla acik bir konu varsa yenisi
+    acilmaz. Gorev on dakikada bir kosuyor -- aksi halde bir gecede
+    144 konu birikir ve duyurunun kendisi gurultuye donusurdu.
+    """
+    kod, govde = _istek(
+        f"https://api.github.com/repos/{DEPO}/issues?state=open&per_page=50",
+        jeton=jeton)
+    if kod != 200:
+        return f"duyuru ATLANDI: acik konular okunamadi (HTTP {kod})"
+    try:
+        acik = json.loads(govde)
+    except ValueError:
+        return "duyuru ATLANDI: konu listesi cozulemedi"
+    for konu in acik if isinstance(acik, list) else []:
+        if DUYURU_BASLIGI in (konu.get("title") or ""):
+            return f"duyuru zaten acik (#{konu.get('number')})"
+
+    govde_metni = NL.join((
+        "Yerel nobetci GitHub kosusunu tetikliyor ve GitHub istegi"
+        " KABUL ediyor (HTTP 204), ama sitedeki icerik tazelenmiyor.",
+        "",
+        f"Olcum: {sebep}",
+        "",
+        son_kosu(jeton),
+        "",
+        "Yani sorun tetiklemede DEGIL: tetiklenen kosu dagitim"
+        " adimina ulasmiyor. En sik sebep bir sinamanin kirmizi"
+        " yanmasi -- `calistir.py` ok=False dondurdugunde dagitim"
+        " ATLANIR ve kosu yine yesil gorunebilir.",
+        "",
+        "Bakilacak yer: yukaridaki kosunun gunlugu, dusen adim.",
+        "",
+        "Bu konu nobetci tarafindan otomatik acildi ve hat"
+        " duzeldiginde kendiliginden KAPANMAZ -- duzeldigini"
+        " gordugunuzde elle kapatin.",
+    ))
+    kod, _ = _istek(
+        f"https://api.github.com/repos/{DEPO}/issues",
+        {"title": DUYURU_BASLIGI, "body": govde_metni},
+        jeton=jeton, yontem="POST")
+    if kod == 201:
+        return "duyuru ACILDI"
+    # SESSIZ KALMIYOR: duyurunun kendisi de basarisiz olabilir ve o
+    # da tam olarak ogrenilmesi gereken sey.
+    return f"duyuru BASARISIZ (HTTP {kod})"
+
+
 def _yaz(metin: str, akis=None) -> None:
     """Yazdirir -- AMA `pythonw.exe` altinda cokmez.
 
@@ -358,6 +540,20 @@ def gunluge_yaz(satir: str) -> None:
         _yaz(f"gunluk yazilamadi: {e}", sys.stderr)
 
 
+def gunluk_oku() -> list[str]:
+    """Gunlugu satirlara ayirir. Okunamazsa BOS doner.
+
+    Bos liste, `son_tetik_dizisi` icin "gecmis bilinmiyor" demek ve
+    o da BOZUK karari uretmez. Gunlugu okuyamamak bir ariza kaniti
+    DEGIL: bu depoda olcum aracinin kendi arizasini ariza sanmak
+    birkac kez yanlis alarma yol acti.
+    """
+    try:
+        return GUNLUK.read_text(encoding="utf-8").splitlines()
+    except OSError:
+        return []
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--kuru", action="store_true",
@@ -390,7 +586,15 @@ def main() -> int:
 
     jeton = kimlik_al()
     kosu = bool(jeton) and kosu_suruyor(jeton)
-    karar, sebep = karar_ver(veri, kosu)
+    # KENDI GECMISINE BAKIYOR.
+    #
+    # Tek bir tur "tetikledim, 204 aldim" der ve bu dogrudur; ayni
+    # turu 27 kez tekrarlamanin SONUCSUZ oldugunu yalnizca gecmis
+    # gosterir. Olculdu (2026-10-26): 4.3 saatlik kesinti boyunca
+    # her tur dogru satiri yazdi, hicbiri aniz degildi -- eksik olan
+    # turlerin BIRLIKTE ne soyledigiydi.
+    dizi = son_tetik_dizisi(gunluk_oku())
+    karar, sebep = karar_ver(veri, kosu, dizi)
     if a.zorla:
         # KOSU SURUYORSA ZORLAMA DA SIRAYA SOKMUYOR.
         #
@@ -408,12 +612,19 @@ def main() -> int:
             karar, sebep = KARAR_TETIKLE, f"ELLE zorlandi ({sebep})"
 
     yanit = ""
-    if karar == KARAR_TETIKLE and not a.kuru:
+    # BOZUK DA TETIKLER.
+    #
+    # Hat kopukken tetiklemeyi KESMEK, duzelme anini da kacirmak
+    # olurdu: kaynak duzeltildigi an ilk tur yayina almali. Bozuk
+    # kararinin degistirdigi tek sey, durumun DUYURULMASI.
+    if karar in (KARAR_TETIKLE, KARAR_BOZUK) and not a.kuru:
         if not jeton:
             karar, sebep = KARAR_BILINMIYOR, "makinede git kimligi yok"
         else:
             k = tetikle(jeton)
             yanit = f" yanit={k}"
+            if karar == KARAR_BOZUK:
+                yanit += " " + duyur(jeton, sebep)
             if k not in (204,):
                 # SESSIZ KALMIYOR: 401 ise kimlik dolmus demektir ve
                 # bu, tam olarak ogrenilmesi gereken sey.

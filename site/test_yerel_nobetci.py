@@ -350,6 +350,260 @@ def test_alt_surec_pencere_acmiyor():
             dogru("subprocess cagrisi pencere acmiyor", True)
 
 
+# ------------------------------------------------------------------
+# TETIKLEMEK YETMEZ: SONUC VERDI MI?
+#
+# OLCULDU (2026-10-26 17:53 -> 22:13): nobetci 27 kez tetikledi, 27
+# kez 204 aldi, icerik yasi 0.67 -> 5.01 saate MONOTON cikti. Her tur
+# "tetikle: ... yanit=204" yaziyordu; gunluk BASARILI gorunuyordu.
+# Tetiklenen kosular `test_harita` kirmizi yandigi icin dagitim
+# adimina hic gelmiyordu.
+#
+# Kusur tetiklemede degil OLCUTTE: 204, "GitHub istegi kabul etti"
+# demek -- "site tazelendi" demek DEGIL.
+
+def _gunluk(*yaslar, arasina_taze=False):
+    """Yas dizisinden gunluk satirlari uretir."""
+    satir = []
+    for i, y in enumerate(yaslar):
+        if arasina_taze and i == len(yaslar) - 1:
+            satir.append(f"2026-10-26T1{i}:00:00Z taze: icerik 0.10 saat")
+        satir.append(f"2026-10-26T1{i}:10:00Z tetikle: icerik {y:.2f} saat,"
+                     f" esik 0.60 yanit=204 (4.0s)")
+    return satir
+
+
+def test_gunluk_satiri_cozuluyor():
+    es("tetikle satiri", yn._satir_coz(
+        "2026-10-26T22:13:10Z tetikle: icerik 5.01 saat, esik 0.60"
+        " yanit=204 (4.1s)"), ("tetikle", 5.01))
+    es("taze satiri", yn._satir_coz(
+        "2026-10-25T21:13:11Z taze: icerik 0.10 saat, esik 0.60 (1.9s)"),
+        ("taze", 0.1))
+    # Yassiz satirlar: karar okunur, yas None kalir.
+    es("bilinmiyor satiri", yn._satir_coz(
+        "2026-10-01T10:00:00Z bilinmiyor: durum ucu okunamadi (2.0s)"),
+        ("bilinmiyor", None))
+    for bozuk in ("", "tek", "2026 iki", "COKTU kayit yok"):
+        es(f"{bozuk!r} cozulemez", yn._satir_coz(bozuk), None)
+
+
+def test_dizi_araya_giren_taze_turda_kiriliyor():
+    """Araya giren bir `taze` tur, onceki tetiklemenin SONUC VERDIGI
+    anlamina gelir -- dizi orada bitmeli.
+
+    Bu kirilma olmasaydi dizi gunler boyunca birikir ve saglikli bir
+    hat da bir sure sonra BOZUK sayilirdi.
+    """
+    es("taze turdan sonrasi sayiliyor",
+       yn.son_tetik_dizisi(_gunluk(1.0, 2.0, 3.0, 4.0, arasina_taze=True)),
+       [4.0])
+    es("kesintisiz dizi tam sayiliyor",
+       yn.son_tetik_dizisi(_gunluk(1.0, 2.0, 3.0)), [1.0, 2.0, 3.0])
+    es("bos gunluk -> bos dizi", yn.son_tetik_dizisi([]), [])
+
+
+def test_sonucsuz_dizi_bozuk_diyor():
+    v = {"icerik_yasi_saat": 5.01, "esik_saat": 0.6}
+    k, s = yn.karar_ver(v, kosu_var=False, dizi=[0.67, 1.0, 2.0, 3.0])
+    es("sonucsuz dizi -> bozuk", k, yn.KARAR_BOZUK)
+    dogru("sebep dizi uzunlugunu yaziyor", "4 ardisik" in s)
+    dogru("sebep iki ucu da yaziyor", "0.67" in s and "5.01" in s)
+
+
+def test_esik_altindaki_dizi_bozuk_DEMIYOR():
+    """ESIK GERCEKTEN ELIYOR -- bu depoda cogu esik elemedigi icin
+    kaldirilmisti, o yuzden olculdu.
+
+    Gunlukteki 400 satirda (2026-10-20 -> 10-26) 68 ardisik tetikleme
+    dizisi vardi:
+
+        dizi uzunlugu   saglikli hat   arizada
+        1               cok             --
+        2               1 kez           --
+        3+              HIC             27
+
+    Dagilimlar CAKISMIYOR: saglikli hat ucuncu ardisik tetiklemeye
+    hic ulasmiyor, cunku bir tetikleme sonuc verdiginde sonraki tur
+    `taze` yaziyor ve dizi kiriliyor.
+    """
+    v = {"icerik_yasi_saat": 2.5, "esik_saat": 0.6}
+    for dizi in ([], [1.0], [1.0, 2.0]):
+        k, _ = yn.karar_ver(v, kosu_var=False, dizi=dizi)
+        es(f"{len(dizi)} ardisik -> tetikle (bozuk DEGIL)",
+           k, yn.KARAR_TETIKLE)
+
+
+def test_yas_dusuyorsa_bozuk_degil():
+    """Uzun dizi tek basina ariza DEGIL: hat yavas ama CALISIYOR
+    olabilir. Olcut dizinin uzunlugu degil, yasin DUSMEMESI.
+    """
+    v = {"icerik_yasi_saat": 0.9, "esik_saat": 0.6}
+    k, _ = yn.karar_ver(v, kosu_var=False, dizi=[3.0, 2.0, 1.5, 1.0])
+    es("yas dustu -> tetikle", k, yn.KARAR_TETIKLE)
+
+
+def test_bozuk_taze_ve_kosan_durumu_EZMIYOR():
+    """Karar sirasi: once bilinmezlik, sonra tazelik, sonra kosu.
+
+    Bozuk kontrolu en sona konmali. Basa konsaydi taze bir site
+    "bozuk" diye duyurulur ve duyuru inandiriciligini yitirirdi.
+    """
+    uzun = [1.0, 2.0, 3.0, 4.0]
+    es("taze + uzun dizi -> taze", yn.karar_ver(
+        {"icerik_yasi_saat": 0.1, "esik_saat": 0.6}, False, uzun)[0],
+       yn.KARAR_TAZE)
+    es("kosuyor + uzun dizi -> kosuyor", yn.karar_ver(
+        {"icerik_yasi_saat": 5.0, "esik_saat": 0.6}, True, uzun)[0],
+       yn.KARAR_KOSUYOR)
+    es("bilinmiyor + uzun dizi -> bilinmiyor",
+       yn.karar_ver(None, False, uzun)[0], yn.KARAR_BILINMIYOR)
+
+
+def test_bozuk_karari_tetiklemeyi_KESMIYOR():
+    """Hat kopukken tetiklemeyi kesmek, duzelme anini kacirmak olurdu:
+    kaynak duzeltildigi an ilk tur yayina almali.
+    """
+    kaynak = _kod((_KOK / "yerel_nobetci.py").read_text(encoding="utf-8"))
+    dogru("tetikleme kosulu BOZUK'u da kapsiyor",
+          "karar in (KARAR_TETIKLE, KARAR_BOZUK)" in kaynak)
+    # CAGRI ARANIYOR, TANIM DEGIL.
+    #
+    # Ilk yazimda iddia `"duyur(jeton" in kaynak` idi ve mutasyon
+    # KACTI: cagri satiri silindiginde bile dizge dosyada kaliyordu,
+    # cunku fonksiyonun KENDI TANIMI (`def duyur(jeton: str, ...)`)
+    # ayni dizgeyi tasiyor. Bir dizgenin dosyada gecmesi, DOGRU
+    # YERDE gectigini kanitlamaz -- bu depoda `sayac.js` ayni
+    # bicimde yakalanmisti.
+    govde = kaynak.split("def main()")[1]
+    dogru("main icinde BOZUK dali var", "if karar == KARAR_BOZUK:" in govde)
+    dal = govde.split("if karar == KARAR_BOZUK:")[1].lstrip(chr(10))
+    # Dalin govdesi: girintisi SURDUGU surece.
+    girinti = len(dal) - len(dal.lstrip(" "))
+    satirlar = []
+    for satir in dal.splitlines():
+        if satir.strip() and len(satir) - len(satir.lstrip(" ")) < girinti:
+            break
+        satirlar.append(satir)
+    dogru(f"BOZUK dali duyuru cagiriyor ({len(satirlar)} satir)",
+          "duyur(" in chr(10).join(satirlar))
+
+
+def test_duyuru_basligi_TEK_YERDE():
+    """Baslik hem ararken hem acarken kullaniliyor. Iki yerde ayri
+    yazilsaydi arama hic eslesmez ve nobetci her on dakikada YENI bir
+    konu acardi -- duyuru kendisi gurultuye donusurdu.
+    """
+    kaynak = _kod((_KOK / "yerel_nobetci.py").read_text(encoding="utf-8"))
+    govde = kaynak.split("def duyur(")[1].split(chr(10) + "def ")[0]
+    dogru("sabit kullaniliyor", govde.count("DUYURU_BASLIGI") >= 2)
+    dogru("baslik duyur icinde SABIT YAZILI degil",
+          yn.DUYURU_BASLIGI not in govde)
+
+
+def test_duyuru_acik_konu_varken_YENISINI_ACMIYOR():
+    """Ag yok: `_istek` gecici olarak degistiriliyor."""
+    import json as _json
+
+    cagrilar = []
+
+    def _sahte(adres, govde=None, jeton="", yontem="GET"):
+        cagrilar.append((yontem, adres))
+        if "issues?state=open" in adres:
+            return 200, _json.dumps(
+                [{"number": 7, "title": "x " + yn.DUYURU_BASLIGI + " y"}])
+        return 201, "{}"
+
+    gercek = yn._istek
+    try:
+        yn._istek = _sahte
+        sonuc = yn.duyur("jeton-yok", "sebep")
+    finally:
+        yn._istek = gercek
+    dogru("zaten acik diyor", "zaten acik" in sonuc)
+    dogru("konu numarasini yaziyor", "#7" in sonuc)
+    es("HICBIR POST yapilmadi",
+       [y for y, _a in cagrilar if y == "POST"], [])
+
+
+def test_duyuru_basarisizligi_SESSIZ_KALMIYOR():
+    """Duyurunun kendisi de basarisiz olabilir (yetki, ag) ve o da
+    tam olarak ogrenilmesi gereken sey.
+    """
+    def _sahte(adres, govde=None, jeton="", yontem="GET"):
+        if "issues?state=open" in adres:
+            return 200, "[]"
+        return 403, "{}"
+
+    gercek = yn._istek
+    try:
+        yn._istek = _sahte
+        sonuc = yn.duyur("jeton-yok", "sebep")
+    finally:
+        yn._istek = gercek
+    dogru("basarisizlik raporlaniyor", "BASARISIZ" in sonuc)
+    dogru("durum kodu yaziliyor", "403" in sonuc)
+
+
+def test_gunluk_okunamazsa_bozuk_DEMIYOR():
+    """Olcum aracinin kendi arizasi, olculen seyin arizasi DEGIL.
+
+    Gunluk okunamadiginda gecmis BILINMIYOR; bilinmeyen bir gecmis
+    "27 ardisik tetikleme" kadar bilgi tasimaz.
+    """
+    gercek = yn.GUNLUK
+    try:
+        yn.GUNLUK = _KOK / "olmayan-dizin-xyz" / "yok.log"
+        es("okunamayan gunluk -> bos", yn.gunluk_oku(), [])
+    finally:
+        yn.GUNLUK = gercek
+
+
+def test_duyuru_govdesi_OKUNABILIR():
+    """Duyuru govdesi satirlara bolunmus olmali.
+
+    NEDEN IDDIA: govde `NL` ile birlestiriliyor. Bir gun biri onu
+    bosluk ile birlestirse konu metni TEK PARAGRAF olur -- icerik
+    aynidir, hata vermez, sinama kirmizi yanmaz; yalnizca okunmasi
+    gereken an okunmaz hale gelir.
+
+    Ilk yazimda buranin yerinde "kaynakta hic ters bolu olmasin"
+    iddiasi vardi ve YANLISTI: dosyadaki 17 ters bolunun hepsi
+    mesru (Windows yollari, git credential protokolu, gunluk
+    birlestirme). Yani gecerli kodu kusur sayiyordu. Kontrol
+    karakteri taramasi ZATEN `test_kacis.py` dosyasinda yapiliyor.
+    """
+    import json as _json
+
+    yakalanan = {}
+
+    def _sahte(adres, govde=None, jeton="", yontem="GET"):
+        if "issues?state=open" in adres:
+            return 200, "[]"
+        if yontem == "POST" and govde:
+            yakalanan.update(govde)
+            return 201, "{}"
+        return 200, _json.dumps({"workflow_runs": []})
+
+    gercek = yn._istek
+    try:
+        yn._istek = _sahte
+        yn.duyur("jeton-yok", "4 ardisik tetikleme SONUC VERMEDI")
+    finally:
+        yn._istek = gercek
+
+    govde = yakalanan.get("body", "")
+    dogru("govde uretildi", bool(govde))
+    satirlar = govde.splitlines()
+    dogru(f"govde satirlara bolunmus ({len(satirlar)})", len(satirlar) >= 5)
+    # Iki karakterlik kacis dizgesi METINDE kalmamali: kalmissa
+    # birlestirme yapilmamis, kacis okura HAM gorunur.
+    dogru("ham kacis dizgesi yok", (chr(92) + "n") not in govde)
+    dogru("olcum govdede geciyor", "4 ardisik" in govde)
+    dogru("bakilacak yeri soyluyor", "dusen adim" in govde)
+    es("NL gercek satir sonu", yn.NL, chr(10))
+
+
 for _ad, _f in sorted(list(globals().items())):
     if _ad.startswith("test_") and callable(_f):
         _f()
