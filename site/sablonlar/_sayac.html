@@ -17,25 +17,25 @@
    kartlarda bu isaret YOK: kart gormek, haberi okumak degildir.
 #}
 {% macro sayac(yol, birincil=false, begeni=true, baslik="") %}
+{# ICERIK `sayac.js` TARAFINDAN KURULUYOR -- SAYFADA DEGIL.
+   ------------------------------------------------------------------
+   Burada eskiden 13 oge basiliyordu (iki `svg`+`use`, iki `b`, iki
+   `gizli-yazi`, saran `span`lar) ve hepsi `hidden` idi -- yani JS
+   gelene kadar HICBIRI gorunmuyordu. Liste sayfasinda 40 kart, yani
+   ~520 oge, yalnizca beklemek icin.
+
+   Olculdu (2026-10-26): `/makro/` 3401 DOM ogesine cikip esigi (3400)
+   bir ogeyle asti ve dagitim DORT SAAT durdu. Kart sayisini kismak
+   bu sayfayi uc kez kurtardi (48 -> 44 -> 40 -> 36) ama her seferinde
+   icerik buyuyup esigi yeniden yakaladi; kaynak kart SAYISI degil,
+   kart basina DUGUMDU.
+
+   Kabuk kaliyor cunku JS'in ihtiyaci olan her sey burada: hangi yol,
+   hangi baslik, birincil mi. Davranis DEGISMIYOR -- sayi gelmezse
+   kutu yine hic gorunmuyor, geldiginde ayni isaretleme kuruluyor.
+#}
 <span class="sayac" data-sayac-yol="{{ yol }}"
       {% if baslik %}data-sayac-baslik="{{ baslik }}"{% endif %}
-      {% if birincil %}data-sayac-birincil{% endif %} hidden>
-  <span class="sayac-oge" title="Görüntülenme">
-    <svg class="ikon" aria-hidden="true" width="14" height="14"><use href="#ik-goz"/></svg>
-    <b data-sayac-goruntulenme>0</b>
-    <span class="gizli-yazi">görüntülenme</span>
-  </span>
-  {% if begeni %}
-  {# BEGENI DUGMESI UYELIK ISTIYOR.
-     Oturum yoksa `sayac.js` okuru giris sayfasina NIYETIYLE goturuyor
-     ve girisden sonra buraya geri getiriyor. Anonim begeni sayilabilir
-     bir sey degil: ayni kisi yuz kez basar. #}
-  <button class="sayac-oge sayac-begeni" type="button" data-begeni-dugme
-          aria-pressed="false" title="Beğen">
-    <svg class="ikon" aria-hidden="true" width="14" height="14"><use href="#ik-kalp"/></svg>
-    <b data-sayac-begeni>0</b>
-    <span class="gizli-yazi">beğeni</span>
-  </button>
-  {% endif %}
-</span>
+      {% if birincil %}data-sayac-birincil{% endif %}
+      {% if not begeni %}data-sayac-begenisiz{% endif %} hidden></span>
 {% endmacro %}

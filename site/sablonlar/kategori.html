@@ -159,6 +159,21 @@
        kart_siniri 40 -> 3.201   pay 199 (~50 yeni arsiv satiri)
 
    40 secildi: 44'un payi bir sonraki buyumede yine tukenirdi. #}
+{# 2026-10-26: 40'IN PAYI DA TUKENDI -- yukaridaki not bunu ongormustu.
+   `/makro/` 3401 ogeye cikti (esik 3400, BIR oge asma) ve dagitim dort
+   saat durdu.
+
+   AMA SINIR YINE DUSURULMEDI. Uc kez dusurulmustu (48 -> 44 -> 40) ve
+   her seferinde icerik buyuyup esigi yeniden yakaladi; yani kaynak
+   kart SAYISI degil, kart basina DUGUMDU.
+
+   Gizli sayac blogu kart basina 13 oge basiyordu ve JS gelene kadar
+   HICBIRI gorunmuyordu -- 40 kartta ~520 oge, yalnizca beklemek icin.
+   O blok kabuga indirildi (`_sayac.html` + `sayac.js`), kart 31
+   ogeden 20'ye dustu ve sayfa ~440 oge hafifledi.
+
+   40 KORUNUYOR: okur daha az kart gormuyor, sayfa yine de genis bir
+   payla esigin altinda. #}
 {% set kart_siniri = 40 %}
 <ul class="izgara arastirma-liste">
   {% for a in analizler[:kart_siniri] %}

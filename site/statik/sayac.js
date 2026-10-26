@@ -90,11 +90,70 @@
     return yollar;
   }
 
+  /* KUTUNUN ICINI BURADA KURUYORUZ -- SAYFADA BASILMIYOR.
+   *
+   * Eskiden makro 13 ogeyi `hidden` olarak basiyordu ve JS gelene
+   * kadar hicbiri gorunmuyordu. Liste sayfasinda 40 kart = ~520 bekleyen
+   * oge. Olculdu (2026-10-26): `/makro/` 3401 DOM ogesiyle esigi
+   * (3400) asti ve dagitim dort saat durdu.
+   *
+   * Isaretleme AYNI: ayni siniflar, ayni `data-` kancalari, ayni
+   * ekran okuyucu metinleri. Degisen tek sey NE ZAMAN var olduklari.
+   *
+   * SVG `use` ile kuruluyor cunku simgeler sayfadaki gizli
+   * `<symbol>` setinden geliyor; `innerHTML` ile yazmak ad alani
+   * sorunu cikarmiyor ama `createElementNS` ile kurmak daha guvenli.
+   */
+  function ikon(ad) {
+    var AD_ALANI = "http://www.w3.org/2000/svg";
+    var s = document.createElementNS(AD_ALANI, "svg");
+    s.setAttribute("class", "ikon");
+    s.setAttribute("aria-hidden", "true");
+    s.setAttribute("width", "14");
+    s.setAttribute("height", "14");
+    var u = document.createElementNS(AD_ALANI, "use");
+    u.setAttribute("href", "#" + ad);
+    s.appendChild(u);
+    return s;
+  }
+
+  function oge(etiket, sinif, baslik, ikonAdi, sayiNiteligi, gizliYazi) {
+    var e = document.createElement(etiket);
+    e.className = sinif;
+    if (baslik) e.title = baslik;
+    e.appendChild(ikon(ikonAdi));
+    var b = document.createElement("b");
+    b.setAttribute(sayiNiteligi, "");
+    b.textContent = "0";
+    e.appendChild(b);
+    var g = document.createElement("span");
+    g.className = "gizli-yazi";
+    g.textContent = gizliYazi;
+    e.appendChild(g);
+    return e;
+  }
+
+  function icKur(k) {
+    /* BIR KEZ: `yaz` ayni kutu icin tekrar cagrilabilir. */
+    if (k.firstElementChild) return;
+    k.appendChild(oge("span", "sayac-oge", "Görüntülenme", "ik-goz",
+                      "data-sayac-goruntulenme", "görüntülenme"));
+    if (k.hasAttribute("data-sayac-begenisiz")) return;
+    /* BEGENI DUGMESI UYELIK ISTIYOR -- gerekce `_sayac.html` icinde. */
+    var d = oge("button", "sayac-oge sayac-begeni", "Beğen", "ik-kalp",
+                "data-sayac-begeni", "beğeni");
+    d.type = "button";
+    d.setAttribute("data-begeni-dugme", "");
+    d.setAttribute("aria-pressed", "false");
+    k.appendChild(d);
+  }
+
   function yaz(yol, sayilar, benimMi) {
     var kutular = document.querySelectorAll(
       '[data-sayac-yol="' + yol.replace(/"/g, '\\"') + '"]');
     for (var i = 0; i < kutular.length; i++) {
       var k = kutular[i];
+      icKur(k);
       var g = k.querySelector("[data-sayac-goruntulenme]");
       var b = k.querySelector("[data-sayac-begeni]");
       if (g) g.textContent = bicim(sayilar.g);

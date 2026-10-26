@@ -1505,6 +1505,18 @@ URETILEBILIR = {
     "tur-sirket", "tur-duzenleme", "tur-sektor", "tur-haber",
     # TAKVIM_ONEM_ESIGI=2 suzuyor; esik bir ayar
     "onem-1", "onem-2", "onem-3",
+    # SAYAC KUTUSUNUN ICI ARTIK JS TARAFINDAN KURULUYOR.
+    #
+    # `_sayac.html` yalnizca kabugu basiyor; `sayac.js` sayilar
+    # gelince ayni isaretlemeyi olusturuyor. Yani bu siniflar CSS'te
+    # tanimli ve GERCEKTEN kullaniliyor -- sayfa kaynagini tarayan
+    # denetim onlari goremiyor, cunku tarayici kurmadan once
+    # yoklar.
+    #
+    # Neden JS'e tasindi: blok kart basina 13 oge basiyordu ve JS
+    # gelene kadar `hidden` bekliyordu; `/makro/` 3401 DOM ogesiyle
+    # esigi asip dagitimi dort saat durdurdu.
+    "sayac-oge", "sayac-begeni", "begenildi",
     # `class="... akis-{{ h.katman | default('akis') }}"` (anasayfa.html)
     #
     # Gecerli kume `onem.py`de: kritik / onemli / normal, artı sablonun
