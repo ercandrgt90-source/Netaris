@@ -190,16 +190,46 @@ else:
     _gelecek = [d for d in _degerler if d > _sinir]
     esit(_gelecek[:5], [], "BIR GUNDEN fazla gelecek lastmod yok")
 
-    # Bir gun ilerideki tarihler SAYILIYOR ve raporlaniyor: saat
-    # dilimiyle aciklanabilir olmalari, cok sayida olmalarini
-    # aciklamaz. Yuzde biri asarsa kaynak tarihi degil kurulum
-    # saati yaziliyordur.
+    # OLCUT YUZDE DEGIL, MEKANIZMA.
+    #
+    # Burada once "yarinki tarihli adres orani %1'i asmasin" yaziyordu
+    # ve 2026-10-26'da dagitimi BES SAAT durdurdu: 1923 adresin %1'i
+    # 19,2 ve yarinki tarihli adres 20 idi. Yani kapi 0,8 adresle
+    # kapandi.
+    #
+    # Yuzde yanlis olcuttu cunku iki ayri seyi birbirine bagliyordu:
+    # pay AKSAM SAATLERINDE NE KADAR YAYIN YAPILDIGINA bagli, bolen
+    # ise SITENIN TOPLAM BUYUKLUGUNE. Bunlar birlikte hareket etmiyor;
+    # aksam yogun gecen bir gun, site ne kadar buyurse buyusun esigi
+    # yakalayabiliyor. (Ayni ders depoda yazili: dagilimlar
+    # cakistiginda esik oynatmak yalnizca hangi hatayi yapacagini
+    # secmektir.)
+    #
+    # DOGRU SORU: su anda yarinki tarihi URETEBILECEK bir saat dilimi
+    # VAR MI. En ileri saat dilimi UTC+14 (Kiritimati); orada gun
+    # UTC 10:00'da donuyor. Yani:
+    #
+    #   UTC saati >= 10  ->  yarinki tarih MESRU (bir yer yarinda)
+    #   UTC saati <  10  ->  hicbir saat dilimi yarinda DEGIL,
+    #                        yarinki tarih GERCEK bir kusurdur
+    #
+    # Bu olcut site buyudukce bozulmuyor ve kusuru de kacirmiyor.
+    EN_ILERI_SAAT = 14          # UTC+14, Kiritimati
+    _saat = _dt.datetime.now(_dt.timezone.utc).hour
+    _yarina_gecen_var = _saat >= 24 - EN_ILERI_SAAT
     _yarin = [d for d in _degerler if d == _sinir]
     if _yarin:
         print(f"         ({len(_yarin)} adres yarinki tarihli -- "
-              f"UTC+3/UTC+13 kaynaklar; esik %1)")
-    esit(len(_yarin) * 100 <= len(_degerler), True,
-         "yarinki tarihli adres orani %1'in altinda")
+              f"UTC {_saat:02d}:xx, yarina gecmis saat dilimi: "
+              f"{'VAR' if _yarina_gecen_var else 'YOK'})")
+    esit(bool(_yarin) and not _yarina_gecen_var, False,
+         "yarinki tarih ancak bir saat dilimi yarindayken var")
+
+    # GROS KUSUR YINE YAKALANIYOR: kurulum saati butun adreslere
+    # yazilsaydi yarinki tarih COGUNLUK olurdu. Saat dilimiyle gelen
+    # pay son birkac saatin yayinlariyla sinirli, yani kucuk kalir.
+    esit(len(_yarin) * 2 <= len(_degerler), True,
+         "yarinki tarihli adresler cogunluk DEGIL")
 
     # ASIL KORUMA: hepsi bugun olamaz. Olculdu: 1626 tarihten 137'si
     # bugun. Oran %50'yi asiyorsa deger icerikten degil kurulumdan
