@@ -766,3 +766,62 @@ servis edilir; üretim inşa zamanında `site/cikti` içine yapılır, yani
 git ağırlığı artmaz. Yine de 5 şablonu ve `foto_kaynak_kumesi`'ni
 değiştirmek gerekiyor.
 
+### 2026-10-27 eki: ARA BOY, WebP'den daha kârlı — ama Commons vermiyor
+
+Canlı ölçüm (telefon 390px, DPR 2, 1,6 Mbps, 150 ms gecikme, CPU 4× yavaş):
+
+| sayfa | LCP | aktarılan | DOM |
+|---|---|---|---|
+| **`/gundem/`** | **5.052 ms** | **693 KB** | 1.783 |
+| `/` | 3.412 ms | 332 KB | 1.346 |
+| `/makro/` | 2.352 ms | 154 KB | 2.618 |
+| `/makro/arsiv/` | 2.044 ms | 153 KB | 1.825 |
+
+Google'ın "kötü" eşiği 4.000 ms; `/gundem/` onun üstünde.
+
+**Sebep ölçüldü:** kart görseli telefonda 356 CSS piksel çiziliyor,
+DPR 2 ile **712 piksel** gerekiyor. Elimizdeki boylar 500 (`o/`) ve
+960 (`y/`). 500 yetmediği için tarayıcı **doğru olarak** 960'ı
+seçiyor — yani gereğinden %35 fazla piksel, ~%80 fazla bayt.
+
+**Ara boy (720) kazancı — ölçüldü, 30 örnek:** 151 KB → 72 KB, yani
+**%52**. `/gundem/` 693 KB → ~380 KB. Bu, WebP'nin kazancından
+*fazla*.
+
+**Ama Commons o boyu vermiyor.** `iiurlwidth` istenen sayıyı
+bildiriyor, kovaya yuvarlanmış dosyayı veriyor (iki dosyada
+ölçüldü, orijinalleri 3060×4080 ve 3110×4491 — yani küçültebilirdi):
+
+| istenen | API beyanı | GERÇEK gelen |
+|---|---|---|
+| 500 | 500 | 500 ✓ |
+| 640 | 640 | **960** |
+| 720 | 720 | **960** |
+| 800 | 800 | **960** |
+| 960 | 960 | 960 ✓ |
+| 1024 | 1024 | **1280** |
+
+Dönen `thumburl`un kendisi `960px-...` oluyor. `thumbwidth` alanına
+güvenip `srcset`e "720w" yazılsaydı tarayıcı 720'lik bir aday sanıp
+onu seçer, 960'lık dosya iner ve **hiçbir kazanç olmazdı** — üstelik
+hiçbir yerde hata görünmezdi. Bu depoda aynı sınıf bir kez yayına
+çıktı (`srcset` genişlikleri sabitten yazılıyordu, ikisi de yanlıştı).
+
+**Geriye kalan tek yol yerel küçültme** (Pillow ya da sharp) ve bu
+yeni bir bağımlılık. `requirements.txt` bunun *bilinçli olarak küçük
+tutulduğunu* yazıyor, o yüzden tek taraflı eklenmedi.
+
+İki seçeneğin ölçülmüş hâli:
+
+| seçenek | kazanç | bağımlılık | not |
+|---|---|---|---|
+| ara boy 720 (yerel) | **%52** (30 örnek) | Pillow/sharp | en kârlı |
+| WebP q80 | %42,9 (yukarıdaki 40 örnek) / %35,3 (ayrı 40 örnek, q82) | Pillow/sharp | biçim göçü riski de var |
+| ikisi birlikte | ~%69 | Pillow/sharp | |
+
+İki WebP ölçümü farklı örneklemlerden; aradaki fark örneklem farkı,
+biri ötekini geçersiz kılmıyor.
+
+**Karar sizin.** Bağımlılık eklenirse en kârlı adım ara boy; WebP
+ondan sonra gelir.
+

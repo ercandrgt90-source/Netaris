@@ -97,6 +97,52 @@ COMMONS_UC = "https://commons.wikimedia.org/w/api.php"
 # genisligi maliyeti kaynak dosyanin buyuklugune bagli DEGIL.
 COMMONS_GENISLIK = 1600
 
+#: ARA BOY COMMONS'TAN ALINAMIYOR -- OLCULDU (2026-10-27).
+#:
+#: Canli olcum (telefon, 390px, DPR 2, 1,6 Mbps, CPU 4x yavas):
+#:
+#:     /gundem/   LCP 5.052 ms   693 KB   <- Google "kotu" esigi 4.000
+#:     /          LCP 3.412 ms   332 KB
+#:     /makro/    LCP 2.352 ms   154 KB
+#:
+#: Sebep: kart gorseli telefonda 356 CSS piksel genisliginde
+#: cizilyor, DPR 2 ile 712 piksel gerekiyor. Elimizdeki boylar 500
+#: ve 960; 500 YETMEDIGI icin tarayici dogru olarak 960'i seciyor ve
+#: gereginden %35 fazla piksel (~%80 fazla bayt) iniyor.
+#:
+#: Ara boy (720) eklemenin kazanci OLCULDU: 960 -> 720 kucultmede
+#: ortalama 151 KB -> 72 KB, yani %52. `/gundem/` 693 KB -> ~380 KB.
+#:
+#: AMA COMMONS O BOYU VERMIYOR. Olculdu, iki dosyada, orijinalleri
+#: 3060x4080 ve 3110x4491 (yani kucultebilirdi):
+#:
+#:     istenen   API beyani   GERCEK gelen
+#:     500       500          500          dogru
+#:     640       640          960          BEYAN YANLIS
+#:     720       720          960          BEYAN YANLIS
+#:     800       800          960          BEYAN YANLIS
+#:     960       960          960          dogru
+#:     1024      1024         1280         BEYAN YANLIS
+#:
+#: Donen URL'in kendisi `960px-...` oluyor. Yani `iiurlwidth` belirli
+#: kovalara yuvarliyor ve API yine ISTENEN sayiyi bildiriyor.
+#:
+#: TEHLIKE TAM BURADA: `thumbwidth` alanina guvenip `srcset`e
+#: "720w" yazilsaydi, tarayici 720 piksellik bir aday sanip onu
+#: secer, 960 piksellik dosya iner ve HICBIR KAZANC OLMAZDI --
+#: ustelik hicbir yerde hata gorunmezdi. Bu depoda ayni sinif bir
+#: kez yayina cikti: `srcset` genislikleri sabitten yaziliyordu ve
+#: ikisi de yanlisti (`o/` 500 sanilan dosyalar, kok 1920).
+#:
+#: GERIYE KALAN YOL: yerel kucultme (Pillow ya da sharp). Ikisi de
+#: YENI BAGIMLILIK ve `requirements.txt` bunun bilincli olarak
+#: kucuk tutuldugunu yaziyor. Karar olculmus haliyle burada
+#: duruyor; alinmadi.
+#:
+#: Olculen diger secenek, WebP: ayni gorsellerde %35,3 kazanc (40
+#: ornek). Ara boydan (%52) DAHA AZ ve yine Pillow istiyor.
+
+
 #: Commons lisans kodlarini kabul listemize cevirir. `extmetadata`
 #: icindeki makine okunur `License` alani kullaniliyor; gorunur ad
 #: ("CC BY-SA 4.0") surumden surume degisebiliyor.
