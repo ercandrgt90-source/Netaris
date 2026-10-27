@@ -1,7 +1,7 @@
 ---
 slug: piyasa-tepkisi-japonya-merkez-bankasi-nin-faiz-karari-oncesi-beklenti-belli-oldu-2026-10-27
 baslik: Japonya Merkez Bankası'nın faiz kararı öncesi beklenti belli oldu
-ozet: Faiz kararı. Bitcoin 1 saat içinde +%0,22 yükseldi.
+ozet: Faiz kararı. Bitcoin 1 saat içinde +%0,30 yükseldi.
 sirket: Piyasa tepkisi: Japonya Merkez Bankası'nın faiz kararı öncesi beklenti belli oldu
 kod: OLAY
 donem: 2026-10-27
@@ -23,8 +23,8 @@ Para politikası kararı açıklandı. Kaynak: Ekonomim.
 
 ## Piyasada ne oldu
 
-- **Altın** 1 saat içinde geriledi: -%0,13 (son 4009,20).
-- **Bitcoin** 1 saat içinde yükseldi: +%0,22 (son 79694,30).
+- **Altın** 1 saat içinde yatay kaldı (son 4009,60).
+- **Bitcoin** 1 saat içinde yükseldi: +%0,30 (son 79855,90).
 - **Dolar endeksi** günlük bazda yatay kaldı — 2026-10-23 tarihli gözlem.
 
 *Yukarıdaki rakamlar ölçülen fiyat hareketidir. Hareketin sebebinin bu gelişme olduğu iddia edilmemektedir; aynı pencerede başka etkenler de fiyatlanmış olabilir.*
