@@ -63,6 +63,78 @@ DOM_SINIRI = 3400
 #: baglantiyi KESMEMELI.
 HUB_EN_AZ_BAGLANTI = {"bilancolar": 200, "arastirmalar": 200, "makro": 200}
 
+#: Esige KALAN PAY bu degerin altina inerse UYARI duyurulur.
+#:
+#: BU SABIT NEDEN VAR
+#: ------------------
+#: `DOM_SINIRI` asildiginda sinama kirmizi yanar ve DAGITIM DURUR.
+#: Bu uc kez yasandi (2026-09-18, 10-19, 10-26) ve her seferinde
+#: kesinti SAATLER surdu -- cunku esigin asildigi, ancak asildiktan
+#: SONRA ogrenildi.
+#:
+#: Oysa asilma hep YAVAS geldi: 2026-10-26 olcumunde sayfa gunde
+#: 7,4 analiz x 3-4 oge buyuyordu, yani son 400 oge yaklasik iki
+#: HAFTA once gorulebilirdi.
+#:
+#: Uyari sinamayi DUSURMEZ. Dusurmek dagitimi durdurur ve bu, tam
+#: olarak onlenmek istenen sey; uyarinin isi durmadan ONCE haber
+#: vermek.
+#:
+#: 500 NASIL SECILDI: oge basina ~3 dugum ve 7,4 analiz/gun ile
+#: 500 oge ~22 GUNLUK haber verme suresi demek. Daha kucuk bir pay
+#: (200) bir haftadan az kalirdi; daha buyugu (1.000) saglikli
+#: sayfalari da uyari listesine sokar ve uyari gurultuye donusur.
+UYARI_PAYI = 500
+
+#: Uyari dosyasi -- is akisi bunu okuyup kayit aciyor.
+#: `dusen-sinamalar.txt` ile ayni desen (bkz. `cikti_sinamalari.py`).
+UYARI_DOSYASI = "yaklasan-esik.txt"
+
+
+def uyari_gerek(dom: int, sinir: int = DOM_SINIRI,
+                pay: int = UYARI_PAYI) -> bool:
+    """Sayfa esigi ASMIYOR ama paya girdi mi?
+
+    SAF: ag yok, dosya yok, sinanabilir. Esigi ASAN sayfa icin
+    False doner -- o zaten KIRMIZI yaniyor ve iki kez duyurmak
+    alarmi degersizlestirir.
+    """
+    return sinir - pay <= dom <= sinir
+
+
+def _uyar(yaklasanlar: list) -> None:
+    """Paya giren sayfalari kosu ozetine ve uyari dosyasina yazar.
+
+    CI DISINDA HICBIR SEY YAZMIYOR: yerelde dosya birakmak, bir
+    sonraki kosuda bayat bir listeyi duyuruya tasima riski olurdu.
+    Ayni gerekce `cikti_sinamalari.py` icinde de yazili.
+    """
+    import os                                    # noqa: PLC0415
+
+    if not os.environ.get("GITHUB_ACTIONS"):
+        return
+    satirlar = [f"{_y} {_d} oge (pay {DOM_SINIRI - _d})"
+                for _y, _d in yaklasanlar]
+    try:
+        yol = (pathlib.Path(os.environ.get("RUNNER_TEMP") or ".")
+               / UYARI_DOSYASI)
+        # BOS DOSYA DA YAZILIYOR: temiz bir kosudan sonra sonraki
+        # kosunun bayat listeyi devralmasi, var olmayan bir sayfayi
+        # suclamak olurdu.
+        yol.write_text(chr(10).join(satirlar), encoding="utf-8")
+    except OSError:
+        pass
+    ozet = os.environ.get("GITHUB_STEP_SUMMARY")
+    if ozet and satirlar:
+        try:
+            with open(ozet, "a", encoding="utf-8") as f:
+                f.write(chr(10) + "**DOM esigine YAKLASAN sayfalar**"
+                        + chr(10) * 2)
+                for s in satirlar:
+                    f.write(f"- `{s}`" + chr(10))
+        except OSError:
+            pass
+
 
 def dom_sayisi(html: str) -> int:
     """Kaba DOM oge sayisi -- betik ve stil disarida."""
@@ -77,6 +149,7 @@ if not _CIKTI.exists():
     raise SystemExit(0)
 
 _agir = []
+_yaklasan = []
 _n = 0
 _en_agir = (0, "")
 for _p in _CIKTI.rglob("index.html"):
@@ -87,6 +160,8 @@ for _p in _CIKTI.rglob("index.html"):
         _en_agir = (_d, _y)
     if _d > DOM_SINIRI:
         _agir.append((_y, _d))
+    elif uyari_gerek(_d):
+        _yaklasan.append((_y, _d))
 
 esit(_n > 500, True, f"tarama dolu ({_n} sayfa)")
 if _agir:
@@ -96,6 +171,30 @@ if _agir:
 esit(_agir[:5], [],
      f"hicbir sayfa {DOM_SINIRI} DOM ogesini asmiyor "
      f"(en agir: {_en_agir[1]} {_en_agir[0]})")
+
+# ESIGE YAKLASMAK KIRMIZI DEGIL, AMA SESSIZ DE DEGIL.
+#
+# Bu blok sinamayi DUSURMUYOR. Amaci, esigin asildigi gun degil
+# haftalar ONCESINDE haber vermek: uc kesintinin ucu de "asildiktan
+# sonra ogrenildi" diye uzadi.
+if _yaklasan:
+    print(f"\n  UYARI -- esige {UYARI_PAYI} ogeden az pay kaldi:")
+    for _y, _d in sorted(_yaklasan, key=lambda x: -x[1]):
+        print(f"    {_d:6d}  pay {DOM_SINIRI - _d:5d}  {_y}")
+_uyar(_yaklasan)
+
+# UYARI DUZENEGI ATIL OLMAMALI.
+#
+# Su an hicbir sayfa paya girmiyor olabilir -- bu IYI HABER, ama o
+# zaman duzenegin calistigi hic gorulmez ve bozuldugunda da
+# gorulmez. Bu yuzden karar fonksiyonu DOGRUDAN sinaniyor: iddia
+# icerige degil MEKANIZMAYA bakiyor.
+esit(uyari_gerek(DOM_SINIRI - 1), True, "esigin bir altinda uyarir")
+esit(uyari_gerek(DOM_SINIRI - UYARI_PAYI), True, "payin tam sinirinda uyarir")
+esit(uyari_gerek(DOM_SINIRI - UYARI_PAYI - 1), False,
+     "payin disinda uyarmaz")
+esit(uyari_gerek(DOM_SINIRI + 1), False,
+     "esigi ASAN sayfa icin uyarmaz -- o zaten kirmizi")
 
 print("\nHub baglantilari KORUNDU")
 for _ad, _en_az in HUB_EN_AZ_BAGLANTI.items():

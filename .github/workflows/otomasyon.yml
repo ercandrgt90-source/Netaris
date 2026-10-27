@@ -859,6 +859,82 @@ jobs:
             gh issue close "$mevcut" --comment               "Koşu yeşile döndü ($(date -u +'%Y-%m-%d %H:%M') UTC). Alarm kapatıldı."               || true
           fi
 
+      # ESIGE YAKLASMAK, ASILMADAN ONCE DUYURULUYOR.
+      #
+      # `/makro/` sayfasi DOM esigini UC KEZ asti (2026-09-18,
+      # 10-19, 10-26) ve her seferinde dagitim saatlerce durdu.
+      # Ucunde de asilma ancak ASILDIKTAN SONRA ogrenildi -- oysa
+      # buyume hep yavas geldi: gunde 7,4 analiz x 3-4 oge, yani
+      # son 500 oge yaklasik UC HAFTA onceden gorulebilirdi.
+      #
+      # `test_dom_agirligi.py` paya giren sayfalari
+      # `yaklasan-esik.txt` dosyasina yaziyor ve bu adim onu kayda
+      # cevirir.
+      #
+      # NEDEN KOSUYU KIRMIZIYA CEVIRMIYOR: yaklasmak bir ariza
+      # DEGIL, bir ongoru. Kirmizi dondurmek hem dagitimi hem de
+      # "kirmizi kosu" alarmini tetikler -- yani onlemek istedigi
+      # kesintiyi kendisi uretir. Adim yine SESSIZ DEGIL: kendi
+      # arizasini `::error::` ek aciklamasiyla bildiriyor.
+      - name: Yaklaşan eşiği duyur
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          BASLIK: "DOM esigine yaklasan sayfalar var"
+        run: |
+          dosya="${RUNNER_TEMP}/yaklasan-esik.txt"
+          mevcut=$(gh issue list --state open --label yaklasan-esik                    --json number --jq '.[0].number // empty' 2>/dev/null || true)
+          # DOSYA YOKSA SESSIZ KALINMIYOR: sinama kosmamis ya da
+          # dosya adi ayrismis olabilir. Ikisi de "yaklasma yok" ile
+          # KARISTIRILMAMALI -- karistirmak, calmayan bir alarmi
+          # saglik sanmak olurdu.
+          if [ ! -f "$dosya" ]; then
+            echo "::error::UYARI DOSYASI YOK -- test_dom_agirligi yazmadi mi, ad mi ayristi?"
+            exit 0
+          fi
+          if [ ! -s "$dosya" ]; then
+            if [ -n "$mevcut" ]; then
+              gh issue close "$mevcut" --comment                 "Sayfalar paydan çıktı ($(date -u +'%Y-%m-%d %H:%M') UTC)."                 || true
+            fi
+            echo "esige yaklasan sayfa yok"
+            exit 0
+          fi
+          liste=$(sed 's|^|- |' "$dosya" | head -12)
+          govde="Bir ya da daha fazla sayfa DOM eşiğine az pay bırakti.
+
+          $liste
+
+          Eşik aşılırsa test_dom_agirligi KIRMIZI yanar ve DAĞITIM
+          DURUR. Bu depoda aynı şey üç kez oldu (2026-09-18, 10-19,
+          10-26) ve her seferinde kesinti saatler sürdü.
+
+          Doğru cevap eşiği yükseltmek DEĞİL, sayfanın boyunu
+          içerikten bağımsız kılmak. Desen hazır:
+          KATEGORI_LISTE_SINIRI ve /<kategori>/arsiv/ sayfası --
+          gerekçesi site/sablonlar/kategori_arsiv.html içinde yazılı.
+
+          Bu kayıt otomatik açıldı ve sayfalar paydan çıkınca
+          KENDİLİĞİNDEN kapanır."
+          if [ -z "$mevcut" ]; then
+            gh label create yaklasan-esik --color FBCA04               --description "DOM esigine yaklasan sayfa" 2>/dev/null || true
+            if ! gh issue create --title "$BASLIK" --label yaklasan-esik --body "$govde"; then
+              echo "::error::YAKLASAN ESIK KAYDI ACILAMADI (yetki? Issues kapali?)"
+            fi
+            exit 0
+          fi
+          # ALTI SAATTE BIR yorum: zaman cizelgesi olussun ama
+          # gurultu olmasin. Ayni kural kirmizi kosu alarminda da
+          # gecerli.
+          guncel=$(gh issue view "$mevcut" --json updatedAt --jq .updatedAt 2>/dev/null || echo "")
+          if [ -n "$guncel" ]; then
+            gecen=$(( $(date -u +%s) - $(date -u -d "$guncel" +%s) ))
+            if [ "$gecen" -lt 21600 ]; then
+              echo "kayit #$mevcut acik ve $((gecen/60)) dk once guncellendi"
+              exit 0
+            fi
+          fi
+          gh issue comment "$mevcut" --body "$govde" || true
+
       # NOBETCI TETIKLEYEMIYORSA HICBIR ALARM CALMAZ.
       #
       # Olculdu (2026-09-29): kurulma tempsu 38 kosu/gunden 4'e dustu.
