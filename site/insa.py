@@ -3193,6 +3193,49 @@ KONU_ESIGI = 10
 #: sorunu uretirdi. Toplam sayi yine yaziliyor, gizlenmiyor.
 KONU_LISTE_SINIRI = 80
 
+#: Kategori sayfasinda duracak EN FAZLA analiz (kart + arsiv satiri).
+#: Asanlar `/<kategori>/arsiv/` sayfasina gidiyor.
+#:
+#: BU SABIT NEDEN VAR
+#: ------------------
+#: `/makro/` sayfasi UC KEZ DOM esigini asti ve her seferinde dagitim
+#: durdu: 2026-09-18 (5.753 oge), 10-19 (3.417), 10-26 (3.401). Her
+#: seferinde kart sayisi dusuruldu (48 -> 44 -> 40) ya da kart
+#: hafifletildi, ve her seferinde icerik buyuyup esigi yeniden
+#: yakaladi.
+#:
+#: Sebep olculdu: sayfa TUM kategoriyi listeliyordu. Kartlar 40'ta
+#: sabit ama arsiv satirlari sinirsiz birikiyordu -- 474 analizin
+#: 434'u satir olarak sayfadaydi, satir basina 4 oge.
+#:
+#: 2026-10-26 olcumu: 7,4 yeni oge/gun, satir basina 4 oge, kalan
+#: pay 387 oge. Yani esik DOKUZ GUN sonra yine asilacakti. Kart
+#: sayisini bir kez daha dusurmek bunu ERTELERDI; sayfanin
+#: BUYUKLUGUNU ICERIKTEN BAGIMSIZ kilmak cozuyor.
+#:
+#: 240 NASIL SECILDI (olculdu, 2026-10-26)
+#: ---------------------------------------
+#:     sayfa           analiz   dugum
+#:     /makro/            474    3013
+#:     /arastirmalar/     240    1877
+#:     /bilancolar/       234    1808
+#:     /teknik/             3     297
+#:     /yorum/              1     264
+#:
+#: Sabit yuk ~477 oge, kart ~20, arsiv satiri 4. 240'ta sayfa
+#: 40*20 + 200*4 + 477 = 2.077 oge, yani 3.400 esiginin %39 altinda
+#: VE artik buyumuyor.
+#:
+#: Daha kucuk bir sinir (200) secilmedi: `test_dom_agirligi.py`
+#: hub iddiasi sayfanin en az 200 analiz baglantisi tasimasini
+#: istiyor ve 200, o iddiayi TAM SINIRDA birakirdi. 240, iddiaya 40
+#: baglanti pay veriyor.
+#:
+#: BAGLANTI KAYBI YOK: asan her analiz arsiv sayfasinda GERCEK
+#: baglantiyla duruyor. Bu depoda arsivi kirpma bir kez denendi ve
+#: `test_yetim_sayfa` 47 oksuz sayfa bildirdi -- o yol kapali.
+KATEGORI_LISTE_SINIRI = 240
+
 
 def konu_yolu(ad: str) -> str:
     """Konu adindan adres. Slug uretimi TEK YERDE (`slugla`)."""
@@ -7028,7 +7071,18 @@ def insa() -> int:
         yaz(
             f"{yol_k}index.html",
             ortam.get_template("kategori.html").render(
-                **ortak, yol=yol_k, analizler=secilen,
+                # LISTE KIRPILIYOR, TOPLAM AYRI GECIYOR.
+                #
+                # Sablon "474 arastirmadan 40 tanesi yukarida" diye
+                # yaziyor ve o sayiyi listenin UZUNLUGUNDAN okuyordu.
+                # Liste kirpildigi an o cumle sessizce yanlis olurdu:
+                # okur 240 goruyor, sayfa "240 arastirmadan" diyor ve
+                # geri kalan 234 analiz hic anilmiyor.
+                **ortak, yol=yol_k,
+                analizler=secilen[:KATEGORI_LISTE_SINIRI],
+                analiz_toplam=len(secilen),
+                arsiv_yolu=(f"{yol_k}arsiv/"
+                            if len(secilen) > KATEGORI_LISTE_SINIRI else ""),
                 kategori_baslik=baslik, kategori_aciklama=aciklama,
                 kategori_notu=KATEGORI_NOTU.get(slug, ""),
                 # SEKTOR SEKMELERI -- yalnizca ANLAMLI oldugu yerde.
@@ -7054,6 +7108,51 @@ def insa() -> int:
             ),
         )
         yollar.append(yol_k)
+        # KATEGORI ARSIVI -- SINIRIN OTESINE GIDEN TEK YOL.
+        #
+        # Ayni duzenek `/konu/<konu>/arsiv/` icin 2026-10-06'da
+        # kurulmustu ve gerekcesi orada yazili. Buraya YENI bir fikir
+        # getirilmiyor; calisan desen eksik kaldigi yere tasiniyor.
+        #
+        # ARSIV KIRPMA DEGIL. Bu depoda kategori arsivini KIRPMAK bir
+        # kez denendi (432 -> 288 satir) ve `test_yetim_sayfa` 47
+        # OKSUZ SAYFA bildirdi: kesilen satirlarin bir kismina baska
+        # hicbir yerden baglanti kalmamisti. Burada hicbir analiz
+        # listeden DUSMUYOR, yalnizca YER DEGISTIRIYOR.
+        #
+        # YALNIZCA SINIR ASILDIGINDA uretiliyor: asilmayan kategoride
+        # arsiv, kategori sayfasinin birebir kopyasi olurdu.
+        if len(secilen) > KATEGORI_LISTE_SINIRI:
+            _k_sira: list[str] = []
+            _k_aylar: dict[str, list] = {}
+            for _a in secilen:
+                _d = str(_a.tarih or "")[:7]
+                _et = (f"{AYLAR[int(_d[5:7]) - 1]} {_d[:4]}"
+                       if len(_d) == 7 and _d[4] == "-" else "Tarihsiz")
+                if _et not in _k_aylar:
+                    _k_aylar[_et] = []
+                    _k_sira.append(_et)
+                _k_aylar[_et].append(
+                    {"tarih": _a.tarih, "baslik": _a.baslik, "yol": _a.yol,
+                     "gorunur": _a.tarih_tr})
+            _ka = f"{yol_k}arsiv/"
+            yaz(
+                f"{_ka}index.html",
+                ortam.get_template("kategori_arsiv.html").render(
+                    # `arama_disi`: ilk 240 oge kategori sayfasiyla
+                    # ayni. Robots karari `temel.html`de, harita
+                    # karari `haritaya_girer` icinde -- ikisi de
+                    # sayfanin KENDI etiketine bakiyor, yani celiski
+                    # olusmaz.
+                    **ortak, yol=_ka, arama_disi=True,
+                    kategori_baslik=baslik,
+                    kategori_aciklama=aciklama,
+                    kategori_yolu=yol_k,
+                    analiz_toplam=len(secilen),
+                    aylar=[{"ad": _e, "analizler": _k_aylar[_e]}
+                           for _e in _k_sira]),
+            )
+            yollar.append(_ka)
 
     # Arastirmalar merkezi -- dort kategoriye tek kapi.
     if merkez:

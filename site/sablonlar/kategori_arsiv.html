@@ -1,0 +1,112 @@
+{% import "_yapisal.html" as yv with context %}
+{% extends "temel.html" %}
+
+{# KATEGORI ARSIVI -- liste siniri disinda kalan analizlere giden tek yol.
+
+   NEDEN VAR
+   ---------
+   `/makro/` sayfasi UC KEZ DOM esigini asti ve her seferinde dagitim
+   durdu: 2026-09-18 (5.753 oge), 10-19 (3.417), 10-26 (3.401). Her
+   seferinde kart sayisi dusuruldu (48 -> 44 -> 40) ya da kart
+   hafifletildi -- ve her seferinde icerik buyuyup esigi yeniden
+   yakaladi.
+
+   Sebep kart sayisi DEGILDI: sayfa tum kategoriyi listeliyordu.
+   Kartlar 40'ta sabitti ama ARSIV SATIRLARI sinirsiz birikiyordu --
+   474 analizin 434'u satir olarak sayfadaydi, satir basina 4 oge.
+   2026-10-26 olcumu: 7,4 yeni oge/gun, kalan pay 387 oge, yani esik
+   DOKUZ GUN sonra yine asilacakti.
+
+   Kart sayisini bir kez daha dusurmek bunu ERTELERDI. Bu sayfa
+   sayfanin BUYUKLUGUNU ICERIKTEN BAGIMSIZ kiliyor: kategori sayfasi
+   en fazla `KATEGORI_LISTE_SINIRI` analiz tutuyor, asanlar buraya
+   geliyor.
+
+   ARSIV KIRPMA DEGIL -- O YOL KAPALI
+   ----------------------------------
+   Kategori arsivini KIRPMAK bir kez denendi (432 -> 288 satir) ve
+   `test_yetim_sayfa` 47 OKSUZ SAYFA bildirdi: kesilen satirlarin bir
+   kismina baska hicbir yerden baglanti kalmamisti. Burada hicbir
+   analiz listeden dusmuyor, yalnizca YER DEGISTIRIYOR.
+
+   NEDEN BU BICIM
+   --------------
+   Kart yok, fotograf yok, ozet yok -- yalnizca tarih ve baslik.
+   Sayfanin isi gezinme, okuma degil. Olculdu: kart ~20 oge, arsiv
+   satiri 4.
+
+   NEDEN `noindex, follow`
+   -----------------------
+   Ilk 240 oge kategori sayfasindakiyle AYNI; indekslenebilir iki
+   sayfada ayni liste, "ayni icerigi cogaltma" kuralina girer.
+   `follow` ise tam isteneni yapiyor: tarayici sayfayi gecip
+   kuyruktaki analizlere ULASIYOR. `haritaya_girer` noindex sayfayi
+   sitemap'e almadigi icin celiskili isaret de olusmuyor.
+
+   YENI SINIF YOK: liste `olay-cizelge`, baslik `ust-etiket`, gezinme
+   `konum-izi` -- hepsi sitede zaten var. CSS denetimi tanimsiz sinif
+   adlarini bildiriyor.
+
+   BU SAYFA BUYUDUGUNDE NE YAPILMALI
+   ---------------------------------
+   OLCULDU (2026-10-26, insa sonrasi): bu sayfa `/makro/` icin 475
+   analizle 1.678 oge basiyor, yani sabit yuk ~250 ve oge basina 3,0
+   dugum. 3.400 esigine kalan pay 1.722 oge = 574 analiz; 7,4
+   analiz/gun ile ~78 GUN.
+
+   NOT -- ARSIV TAM LISTEDIR: kategori sayfasindaki 240 analiz de
+   burada tekrar duruyor. Bilincli: bir analizin hangi tarafta
+   kaldigini okurun bilmesi gerekmez ve `test_kategori_arsivi.py`
+   bunu iddia olarak tutuyor.
+   DOGRU CEVAP ESIGI GEVSETMEK DEGIL, arsivi YILA bolmek
+   (`/<kategori>/arsiv/2026/`) -- liste zaten aya gore grupli, bolme
+   noktasi hazir. Bugun bolunmedi cunku tum icerik tek yilda
+   (2026) ve bolme bugun hicbir sey kazandirmaz. #}
+
+{% block baslik %}{{ kategori_baslik }} arşivi — tüm analizler — {{ site.ad }}{% endblock %}
+{% block aciklama %}{{ kategori_baslik }} kategorisinde yayımlanan {{ analiz_toplam }} analizin tarihe göre tam listesi.{% endblock %}
+
+{% block yapisal_veri %}
+{# ItemList BASILMIYOR: yuzlerce ogelik bir JSON-LD blogu sayfanin
+   kendi govdesi kadar yer tutardi ve sayfa zaten `noindex`. Kirinti
+   kaliyor -- o gezinmeyi anlatiyor, icerigi degil. #}
+{{ yv.kirinti([(site.ad, "/"), ("Araştırmalar", "/arastirmalar/"),
+               (kategori_baslik, kategori_yolu), ("Arşiv", "")], site.adres) }}
+{% endblock %}
+
+{% block icerik %}
+{# AYNI BILESEN, AYNI AD. Olculdu (2026-10-07): 1.907 sayfa
+   "Neredesiniz", 15 sayfa "Konum" diyordu -- ayni kirinti yolu, iki
+   ad. Ekran okuyucu kullanicisi icin bu, sitenin yarisinda baska bir
+   bilesenmis gibi duyuluyor. #}
+<nav class="konum-izi" aria-label="Neredesiniz">
+  <a href="/">{{ site.ad }}</a>
+  <span aria-hidden="true">›</span>
+  <a href="/arastirmalar/">Araştırmalar</a>
+  <span aria-hidden="true">›</span>
+  <a href="{{ kategori_yolu }}">{{ kategori_baslik }}</a>
+  <span aria-hidden="true">›</span>
+  <span aria-current="page">Arşiv</span>
+</nav>
+
+<div class="giris">
+  <p class="ust-etiket">Arşiv</p>
+  <h1>{{ kategori_baslik }} — tüm analizler</h1>
+  <p>{{ kategori_aciklama }}</p>
+</div>
+
+<p>{{ analiz_toplam }} analiz, en yeniden eskiye.
+  <a href="{{ kategori_yolu }}">{{ kategori_baslik }} sayfasına dön</a></p>
+
+{% for ay in aylar %}
+<h2>{{ ay.ad }}</h2>
+<ol class="olay-cizelge">
+  {% for a in ay.analizler %}
+  <li>
+    <time class="olay-an" datetime="{{ a.tarih }}">{{ a.gorunur }}</time>
+    <a class="olay-baslik" href="{{ a.yol }}">{{ a.baslik }}</a>
+  </li>
+  {% endfor %}
+</ol>
+{% endfor %}
+{% endblock %}

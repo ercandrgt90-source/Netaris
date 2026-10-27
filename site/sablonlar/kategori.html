@@ -263,8 +263,15 @@
    `olay-cizelge` zaten sitede kullanilan bilesen; yeni bir kart
    turu uretilmedi (brief: "mevcut component'leri yeniden kullan"). #}
 <h2>Arşiv</h2>
-<p>{{ analizler | length }} analizden {{ kart_siniri }} tanesi yukarıda;
-   kalan {{ analizler | length - kart_siniri }} tanesi burada.</p>
+{# SAYI `analiz_toplam`DAN OKUNUYOR, LISTE UZUNLUGUNDAN DEGIL.
+   Liste artik `KATEGORI_LISTE_SINIRI` kadar kirpilmis geliyor; bu
+   cumle uzunluga bakmaya devam etseydi okur "240 analizden" okur ve
+   geri kalan 234 analiz HIC anilmazdi -- hata vermeyen, sessiz bir
+   yanlis. #}
+<p>{{ analiz_toplam }} analizden {{ kart_siniri }} tanesi yukarıda;
+   sonraki {{ analizler | length - kart_siniri }} tanesi burada{% if arsiv_yolu %},
+   kalan {{ analiz_toplam - (analizler | length) }} tanesi
+   <a href="{{ arsiv_yolu }}">arşivde</a>{% endif %}.</p>
 <ol class="olay-cizelge">
   {% for a in analizler[kart_siniri:] %}
   <li>
@@ -274,6 +281,14 @@
   </li>
   {% endfor %}
 </ol>
+{% endif %}
+
+{# ARSIVE GIDEN TEK IC BAGLANTI. Silinirse arsiv sayfasi yetim kalir
+   ve onun listeledigi analizlere giden yol da kopar;
+   `test_yetim_sayfa` tam bu zinciri olcuyor. #}
+{% if arsiv_yolu %}
+<p><a href="{{ arsiv_yolu }}">{{ kategori_baslik }} arşivinin tamamı
+   — {{ analiz_toplam }} analiz →</a></p>
 {% endif %}
 
 <p class="kaynak-not" data-akis-bos hidden>Bu sektörde analiz yok.</p>
