@@ -1,14 +1,14 @@
 {
-  "guncelleme": "2026-10-27",
+  "guncelleme": "2026-10-28",
   "kaynak": "FRED (St. Louis Fed)",
   "kalemler": [
     {
       "kod": "TP.DK.USD.S.YTL",
       "ad": "USD/TRY",
-      "deger": "49,76",
-      "fark": "+%0,22",
+      "deger": "49,79",
+      "fark": "+%0,05",
       "yon": "artis",
-      "tarih": "2026-10-27",
+      "tarih": "2026-10-28",
       "birim": "TL",
       "gun": 0,
       "bayat": false
@@ -16,10 +16,10 @@
     {
       "kod": "TP.DK.EUR.S.YTL",
       "ad": "EUR/TRY",
-      "deger": "55,75",
-      "fark": "+%0,28",
-      "yon": "artis",
-      "tarih": "2026-10-27",
+      "deger": "55,52",
+      "fark": "-%0,41",
+      "yon": "azalis",
+      "tarih": "2026-10-28",
       "birim": "TL",
       "gun": 0,
       "bayat": false
