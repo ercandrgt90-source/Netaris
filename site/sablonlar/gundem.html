@@ -13,7 +13,7 @@
 <script src="/statik/tel.js?v={{ js_surum }}" defer></script>
 {% endblock %}
 
-{% macro oge(h, gorsel) %}
+{% macro oge(h, gorsel, ilk=False) %}
 <article class="haber {% if h.yorumlanir %}haber-yorumlu{% endif %}"
          data-tur="{{ h | kart_turu }}">
   {# GORSEL KUTUSU YALNIZCA ICINDE BIR SEY VARSA.
@@ -95,9 +95,29 @@
        telefonda 960, masaustunde 500 iniyor. #}
     {% set ak = foto_kaynagi(h.foto | orta_foto, h.foto | yazi_foto,
                              h.foto, yuva=akis_yuvasi) %}
+    {# ILK KART TEMBEL YUKLENMEZ -- O GORSEL LCP'NIN KENDISI.
+       `loading="lazy"` "ekranda gorunene kadar bekle" demez ama
+       tarayici o gorseli DUSUK ONCELIKLI sayar ve kesfini erteler.
+       Ilk ekranda gorunen bir gorselde bu, dogrudan LCP gecikmesi.
+       Google'in kendi tavsiyesi de bu: LCP adayina lazy verilmez.
+
+       OLCULDU (2026-10-28): `/gundem/` ilk kart gorseli lazy'ydi ve
+       LCP 4.188-4.572 ms (canli, telefon, 1,6 Mbps) -- Google'in
+       "kotu" esigi 4.000 ms. LCP ogesi tam o gorseldi.
+
+       ANA SAYFADA BU DUZELTME ZATEN VARDI (`loading="eager"` +
+       `fetchpriority="high"`) ve LCP 3.412 ms. Yani desen
+       kanitlanmisti, yalnizca buraya TASINMAMISTI. Olculdu: 2.276
+       sayfanin yalnizca BIRINDE ilk gorsel eager, 164'unde lazy.
+
+       `ilk` yalnizca dongunun ilk ogesinde dogru (`loop.first`);
+       gerisi tembel kaliyor -- sayfa 36 ekran uzunlugunda ve hepsini
+       erken indirmek LCP'yi iyilestirmez, bant genisligini boler. #}
     <img src="{{ (h.foto | orta_foto) or h.foto }}" alt=""
          {% if ak %}srcset="{{ ak.srcset }}" sizes="{{ ak.sizes }}"{% endif %}
-         width="400" height="225" loading="lazy" decoding="async">
+         width="400" height="225"
+         loading="{{ "eager" if ilk else "lazy" }}"
+         {% if ilk %}fetchpriority="high"{% endif %} decoding="async">
     {% elif gorsel %}{{ gorsel | safe }}{% endif %}
   {% if h.yol %}</a>{% else %}</div>{% endif %}
     {% if h.foto_atif %}<p class="foto-atif">Fotoğraf: {{ h.foto_atif }}</p>{% endif %}
@@ -275,7 +295,7 @@
   <h2>Piyasa etkisi olanlar <span data-akis-say>({{ yorumlu | length }})</span></h2>
 </div>
 <div class="haber-izgara" data-akis-kap="yorumlu">
-  {% for h in yorumlu %}{{ oge(h, gundem_gorseller.get(h.adres)) }}{% endfor %}
+  {% for h in yorumlu %}{{ oge(h, gundem_gorseller.get(h.adres), loop.first) }}{% endfor %}
 </div>
 <p class="kaynak-not">{{ gundem.sinir_notu }}</p>
 {% endif %}

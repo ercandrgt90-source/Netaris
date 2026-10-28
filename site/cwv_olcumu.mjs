@@ -22,6 +22,26 @@
 //   node site/cwv_olcumu.mjs / /gundem/ /makro/
 //
 // Chrome yolu CHROME_YOLU ile verilebilir.
+//
+// TABAN -- DAGITMADAN ONCE OLCMEK ICIN.
+//
+// Adres bu dosyada SABIT yaziliydi (`"https://netaris.net" + yol`).
+// Olculdu (2026-10-28): yerel bir sunucu kuruldu ve `TABAN` verildi
+// sanilarak olculdu; arac onu HIC OKUMUYORDU ve canli siteyi
+// olcmeye devam etti. Yerel HTML'de hic bulunmayan bir gorsel LCP
+// ogesi olarak raporlandi -- kusur ancak o tutarsizlik farkedilince
+// goruldu.
+//
+// Sonuc: bir degisikligin LCP'ye etkisi, DAGITILMADAN once
+// olculemiyordu. Artik olculebilir:
+//
+//   python -m http.server 8765 --directory site/cikti --bind 127.0.0.1
+//   TABAN=http://127.0.0.1:8765 node site/cwv_olcumu.mjs /gundem/
+//
+// UYARI -- YEREL OLCUM CANLIYLA AYNI DEGIL: Cloudflare onbellegi,
+// HTTP/2 coklamasi ve gercek gecikme yok. Yerel olcum IKI SURUMU
+// birbiriyle kiyaslamak icin gecerli; mutlak LCP degeri icin canli
+// olcum sart.
 let puppeteer;
 try {
   puppeteer = (await import("puppeteer-core")).default;
@@ -30,6 +50,8 @@ try {
   console.error("Ayrica masaustu Chrome gerekiyor (CHROME_YOLU).");
   process.exit(2);
 }
+const TABAN = (process.env.TABAN || "https://netaris.net")
+  .replace(/\/$/, "");
 const CHROME = process.env.CHROME_YOLU ||
   "C:/Program Files/Google/Chrome/Application/chrome.exe";
 const yollar = process.argv.slice(2);
@@ -42,7 +64,7 @@ try {
   // tarayici baslangicindaydi.
   try {
     const i = await t.newPage();
-    await i.goto("https://netaris.net/makro/", { waitUntil: "load",
+    await i.goto(TABAN + "/makro/", { waitUntil: "load",
                                                  timeout: 60000 });
     await i.close();
   } catch { /* isinma basarisizsa olcum yine de yapilir */ }
@@ -89,7 +111,7 @@ try {
       }).observe({ type: "layout-shift", buffered: true });
     });
     const bas = Date.now();
-    await s.goto("https://netaris.net" + yol, { waitUntil: "load", timeout: 60000 });
+    await s.goto(TABAN + yol, { waitUntil: "load", timeout: 60000 });
     await new Promise((r) => setTimeout(r, 4000));
     const o = await s.evaluate(() => {
       const n = performance.getEntriesByType("navigation")[0] || {};
