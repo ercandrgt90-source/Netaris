@@ -42,6 +42,18 @@ LCP ogesi METIN (sirasiyla 2.352 ms ve 2.044 ms), ilk gorsel ise
 ekranin asagisinda duran kucuk bir kart gorseli. Orada eager yapmak
 hicbir sey kazandirmaz, bant genisligini boler.
 
+Olculen butun liste sayfalari (2026-10-28, ayni kosullar):
+
+    /bilancolar/     2.448 ms   metin
+    /arastirmalar/   2.504 ms   metin
+    /teknik/         2.316 ms   metin
+    /yorum/          2.324 ms   metin
+    /makro/          2.352 ms   metin
+    /makro/arsiv/    2.044 ms   metin
+
+Altisinda da LCP ogesi METIN ve altisi da 2.500 ms civarinda, yani
+"iyi" bolgede. Orada eager yapmak hicbir sey kazandirmaz.
+
 Liste, LCP ogesi GORSEL OLDUGU OLCULEN sayfalardan olusuyor. Yeni
 bir sayfa eklenirse buraya elle girer -- ve girmedigi surece bu
 iddia onun hakkinda hicbir sey soylemez. Kaynaktan turetmek

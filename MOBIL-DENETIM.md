@@ -822,6 +822,33 @@ tutulduğunu* yazıyor, o yüzden tek taraflı eklenmedi.
 İki WebP ölçümü farklı örneklemlerden; aradaki fark örneklem farkı,
 biri ötekini geçersiz kılmıyor.
 
+### 2026-10-28: bağımlılıksız kazanç — LCP görseli tembel yüklenmiyor
+
+Ara boy/WebP kararı beklerken **bağımlılık gerektirmeyen** bir kusur
+bulundu ve düzeltildi: LCP adayı görsellere 
+veriliyordu. Tarayıcı tembel görseli düşük öncelikli sayar ve
+keşfini erteler — ilk ekrandaki bir görselde bu doğrudan LCP
+gecikmesi.
+
+Kapsam ölçüldü: üretilen 2.276 sayfanın yalnızca **birinde** (ana
+sayfa) ilk görsel eager, **164'ünde** lazy.
+
+| sayfa | taban (lazy) | düzeltme (eager+high) | bayt |
+|---|---|---|---|
+| haber (üretilen görselli, 160 sayfa) | 4.284 ms | **3.328 ms** | 346 KB → 346 KB |
+| `/gundem/` | 4.548 ms | **4.040 ms** | 586 → 668 KB |
+
+Haber sayfasındaki ölçüm temiz: **bayt değişmedi**, aynı sayfa, tek
+değişken öncelik. ~956 ms (%22) kazanç ve sayfa Google'ın "kötü"
+bölgesinden (4.000 ms) çıktı. `/gundem/` ölçümünde sayfa bu arada
+ağırlaştı (içerik değişti), yani oradaki %11 kazanç alt sınır.
+
+Kalan 6 liste sayfasında LCP öğesi **metin** (2.044–2.504 ms, "iyi"
+bölge) — ölçüldü, düzeltme gereksiz.
+
+**Ara boy / WebP kararı hâlâ geçerli:** `/gundem/` 4.040 ms ile eşiğin
+sınırında ve oradaki darboğaz artık öncelik değil **görsel baytı**.
+
 **Karar sizin.** Bağımlılık eklenirse en kârlı adım ara boy; WebP
 ondan sonra gelir.
 

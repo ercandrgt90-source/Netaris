@@ -320,7 +320,16 @@
        dali `loading` HIC tasimiyor (yani eager). Yani ayni
        konumdaki ana gorsel, KAYNAGINA gore tembel ya da erken
        yukleniyordu. Olculdu: 1.102 haber sayfasinin 942'si eager,
-       160'i (uretilen gorselli olanlar) lazy. #}
+       160'i (uretilen gorselli olanlar) lazy.
+
+       DUZELTME SONRASI, AYNI SAYFA, AYNI KOSULLAR:
+
+           taban (lazy)       LCP ortanca 4.284 ms   346 KB
+           duzeltme (eager)   LCP ortanca 3.328 ms   346 KB
+
+       ~956 ms (%22) kazanc ve BAYT AYNI -- yani tek degisken
+       oncelikti, icerik degil. Sayfa Google in kotu bolgesinden
+       (4.000 ms) cikti. Kazanci 160 sayfa aldi. #}
     <img src="{{ h.uretilen }}" alt="" width="1024" height="1024"
          decoding="async" loading="eager" fetchpriority="high">
     <figcaption>{{ h.uretilen_etiket }}</figcaption>
