@@ -1,7 +1,7 @@
 ---
 slug: kuresel-gostergeler-2026-10-28
-baslik: Brent %18,0 yükselip geri çekildi: Türkiye'ye hangi kanallardan geliyor
-ozet: Brent petrol 20 Ekim 2026 itibarıyla 115,22 USD/varil seviyesinde. İzlenen 14 işlem gününde 1 Ekim 2026 tarihli 114,82 dolarlık dibi ile 2 Ekim 2026 tarihli 135,51 dolarlık zirvesi arasında hareket etti. ABD 10 yıllık tahvil getirisi %5,00 (26 Ekim 2026), aynı dönemde 27 baz puan geriledi.…
+baslik: Küresel göstergeler: 27 Ekim 2026 tablosu
+ozet: Brent petrol 27 Ekim 2026 itibarıyla 123,10 USD/varil seviyesinde. İzlenen 14 işlem gününde 20 Ekim 2026 tarihli 115,22 dolarlık dibi ile 8 Ekim 2026 tarihli 130,18 dolarlık zirvesi arasında hareket etti. ABD 10 yıllık tahvil getirisi %5,00 (26 Ekim 2026), aynı dönemde 27 baz puan geriledi.…
 sirket: Küresel göstergeler
 kod: MAKRO
 donem: 2026-10-28
@@ -12,7 +12,7 @@ yazar:
 unvan: 
 kurgusal: hayir
 grafik_tur: cizgi
-grafik: 114,82;135,51;125,51;125,44;126,00;130,18;130,03;129,95;125,78;126,55;126,35;119,33;118,82;115,22
+grafik: 130,18;130,03;129,95;125,78;126,55;126,35;119,33;118,82;115,22;117,37;125,39;128,30;128,12;123,10
 grafik_kod: Brent petrol
 grafik_birim: USD/varil
 kaynaklar: FRED
@@ -21,13 +21,13 @@ sayimlar: 4|yorumlanan gösterge;56|gözlem noktası;14|işlem günü penceresi;
 
 ## Özet
 
-Brent petrol 20 Ekim 2026 itibarıyla 115,22 USD/varil seviyesinde. İzlenen 14 işlem gününde 1 Ekim 2026 tarihli 114,82 dolarlık dibi ile 2 Ekim 2026 tarihli 135,51 dolarlık zirvesi arasında hareket etti. ABD 10 yıllık tahvil getirisi %5,00 (26 Ekim 2026), aynı dönemde 27 baz puan geriledi. 10 yıllık ile 2 yıllık arasındaki fark 32 baz puan; getiri eğrisi pozitif eğimli.
+Brent petrol 27 Ekim 2026 itibarıyla 123,10 USD/varil seviyesinde. İzlenen 14 işlem gününde 20 Ekim 2026 tarihli 115,22 dolarlık dibi ile 8 Ekim 2026 tarihli 130,18 dolarlık zirvesi arasında hareket etti. ABD 10 yıllık tahvil getirisi %5,00 (26 Ekim 2026), aynı dönemde 27 baz puan geriledi. 10 yıllık ile 2 yıllık arasındaki fark 32 baz puan; getiri eğrisi pozitif eğimli.
 
 ## Göstergeler
 
 | Gösterge | Son değer | Tarih | Dönem değişimi |
 |---|---|---|---|
-| Brent petrol | 115,22 USD/varil | 20 Ekim 2026 | %0,3 yükseldi |
+| Brent petrol | 123,10 USD/varil | 27 Ekim 2026 | %5,4 geriledi |
 | ABD efektif fed fonu oranı | %3,88 | 26 Ekim 2026 | yatay kaldı |
 | ABD 2 yıllık tahvil getirisi | %4,68 | 26 Ekim 2026 | 11 baz puan geriledi |
 | ABD 10 yıllık tahvil getirisi | %5,00 | 26 Ekim 2026 | 27 baz puan geriledi |
@@ -36,7 +36,7 @@ Her göstergenin son gözlem tarihi farklı olabilir; tabloda her satır kendi t
 
 ## Enerji tarafı
 
-1 Ekim 2026 tarihindeki 114,82 dolardan 2 Ekim 2026 tarihindeki 135,51 dolara kadar %18,0 yükseldi. Zirveden bugüne %15,0 geri çekilme var; son değer 115,22 dolar. Son iki gözlem arasında (19 Ekim 2026 → 20 Ekim 2026) 3,60 dolarlık bir düşüş kaydedildi. **Bu hareketin nedeni bu yazının konusu değildir.** Fiyat serisi fiyatın ne yaptığını gösterir, neden öyle yaptığını göstermez; nedene ilişkin bir açıklama ancak birincil haber kaynaklarına dayanarak yapılabilir.
+Zirveden bugüne %5,4 geri çekilme var; son değer 123,10 dolar. Son iki gözlem arasında (26 Ekim 2026 → 27 Ekim 2026) 5,02 dolarlık bir düşüş kaydedildi. **Bu hareketin nedeni bu yazının konusu değildir.** Fiyat serisi fiyatın ne yaptığını gösterir, neden öyle yaptığını göstermez; nedene ilişkin bir açıklama ancak birincil haber kaynaklarına dayanarak yapılabilir.
 
 ## ABD faiz tarafı
 
