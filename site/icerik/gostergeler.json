@@ -1,14 +1,14 @@
 {
-  "guncelleme": "2026-10-28",
+  "guncelleme": "2026-10-30",
   "kaynak": "FRED (St. Louis Fed)",
   "kalemler": [
     {
       "kod": "TP.DK.USD.S.YTL",
       "ad": "USD/TRY",
       "deger": "49,79",
-      "fark": "+%0,05",
-      "yon": "artis",
-      "tarih": "2026-10-28",
+      "fark": "+%0,00",
+      "yon": "yatay",
+      "tarih": "2026-10-30",
       "birim": "TL",
       "gun": 0,
       "bayat": false
@@ -17,9 +17,9 @@
       "kod": "TP.DK.EUR.S.YTL",
       "ad": "EUR/TRY",
       "deger": "55,52",
-      "fark": "-%0,41",
-      "yon": "azalis",
-      "tarih": "2026-10-28",
+      "fark": "+%0,00",
+      "yon": "yatay",
+      "tarih": "2026-10-30",
       "birim": "TL",
       "gun": 0,
       "bayat": false
@@ -57,7 +57,7 @@
       "birim": "USD/varil",
       "gun": 6,
       "bayat": true,
-      "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · bugün yenileniyor"
+      "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba)"
     },
     {
       "kod": "DFF",
@@ -142,7 +142,7 @@
           "birim": "USD/varil",
           "gun": 6,
           "bayat": true,
-          "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · bugün yenileniyor"
+          "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba)"
         }
       ]
     },
