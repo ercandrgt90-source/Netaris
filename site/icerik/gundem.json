@@ -14,7 +14,6 @@
     "Dünya",
     "ECB",
     "EIA",
-    "ESMA",
     "Ekonomim",
     "Ekonomist",
     "FCA",
@@ -30,7 +29,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 12,
+  "yorumlanan": 13,
   "haberler": [
     {
       "baslik": "Microsoft CFO'su: Azure büyümesi sabit para biriminde %49 ila %50 arasında bekleniyor, aralığın %49 ila %50 olduğunu açıklıyor",
@@ -519,6 +518,32 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/dis-ticaret-8-5224a85c.jpg",
       "foto_atif": "Gazouya-japan · CC-BY-SA-4.0"
+    },
+    {
+      "baslik": "Fed kararı sonrası Bitcoin'de yön yukarı döndü",
+      "baslik_kaynak": "Fed kararı sonrası Bitcoin'de yön yukarı döndü",
+      "ozet": "ABD Merkez Bankasının (Fed) politika faizini yüzde 3,75-4 aralığında sabit tutmasının ardından Bitcoin 81 bin dolar seviyesini aştı.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.ekonomim.com/finans/kripto-para/fed-karari-sonrasi-bitcoinde-hareketlilik-81-bin-dolari-asti-haberi-927719",
+      "kurum": "Ekonomim",
+      "kurum_tam": "Ekonomim",
+      "konu": "Kripto varlıklar",
+      "tarih": "2026-10-29",
+      "tarih_gorunur": "29 Ekim 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Kripto varlıklar risk iştahının en uçtaki göstergelerinden biridir; hareketin kaynağı düzenleme, likidite ya da kaldıraç çözülmesi olabilir ve üçünün sonuçları farklıdır.",
+      "kanallar": [
+        "Likidite koşulları: küresel likidite daraldığında en riskli varlıklar önce satılır.",
+        "Düzenleme: saklama, borsa yatırım fonu ve vergi kuralları kurumsal talebin önünü açar ya da kapatır.",
+        "Kaldıraç: türev piyasadaki açık pozisyon ve fonlama oranı sert hareketlerin büyüklüğünü belirler.",
+        "Piyasa yapısı: işlem hacminin borsalar arası dağılımı fiyat farklarının ne kadar sürdüğünü etkiler."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/kripto-varliklar-9-b82c3e85.jpg",
+      "foto_atif": "CryptoWallet.com Images · CC-BY-2.0"
     },
     {
       "baslik": "Bir fabrikanın borcu narenciyeyle ödendi: Türkiye'nin sanayi haritası 103 yılda böyle değişti",
@@ -2049,27 +2074,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/kripto-varliklar-7-62d77ad7.jpg",
       "foto_atif": "Karlalhdz · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "Strateji hissedarları, dört imtiyazlı hisse senedi için günlük temettüleri onaylar",
-      "baslik_kaynak": "Strategy shareholders approve daily dividends for four preferred stocks",
-      "ozet": "The largest Bitcoin treasury company will begin daily dividend payments on STRC in November, with three other preferred securities following in January 2027.",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://cointelegraph.com/news/strategy-shareholders-approve-daily-dividends-for-four-preferred-stocks?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "kurum": "Cointelegraph",
-      "kurum_tam": "Cointelegraph",
-      "konu": "Borsa",
-      "tarih": "2026-10-28",
-      "tarih_gorunur": "28 Ekim 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/borsa-11-39672784.jpg",
-      "foto_atif": "Syced · CC0"
     },
     {
       "baslik": "BIS-Yerel ve Konsolide Bankacılık İstatistikleri (2026 II. Çeyrek)",
