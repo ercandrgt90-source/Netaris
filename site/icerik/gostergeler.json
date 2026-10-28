@@ -57,7 +57,7 @@
       "birim": "USD/varil",
       "gun": 6,
       "bayat": true,
-      "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba)"
+      "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · bugün yenileniyor"
     },
     {
       "kod": "DFF",
@@ -142,7 +142,7 @@
           "birim": "USD/varil",
           "gun": 6,
           "bayat": true,
-          "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba)"
+          "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · bugün yenileniyor"
         }
       ]
     },
