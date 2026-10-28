@@ -107,4 +107,58 @@ for _yol in LCP_GORSELI:
 esit(_bakilan, len(LCP_GORSELI),
      f"olculmus sayfalarin hepsi tarandi ({_bakilan})")
 
+print("")
+print("Haber sayfalarinin ANA gorseli")
+# NEDEN AYRI BOLUM: yukaridaki liste ELLE yazili cunku her sayfanin
+# LCP ogesi gorsel degil. Haber sayfasinda ise ana gorsel YAPISAL
+# olarak basliktan ONCE ve ilk ekranda duruyor -- yani orada iddia
+# sayfa sayfa secime gerek kalmadan kurulabiliyor.
+#
+# OLCUT TIP BAGIMSIZ: `yazi-gorsel` figurunun ICINDEKI ilk gorsel.
+# Boylece hem Commons fotografi hem uretilen kavram cizimi hem de
+# ileride eklenecek baska bir kaynak ayni kurala giriyor.
+#
+# TUTARSIZLIK TAM BU YUZDEN OLUSMUSTU: iki dal ayri ayri yazilmisti,
+# biri `loading` HIC tasimiyordu (yani eager), oteki `lazy` diyordu.
+# Olculdu (2026-10-28): 1.102 haber sayfasinin 942'si eager, 160'i
+# lazy -- ve lazy olanlarin LCP ogesi tam o gorseldi (3.812-4.324 ms,
+# "kotu" esigi 4.000).
+_FIGUR = re.compile(
+    r'<figure[^>]*class="[^"]*yazi-gorsel[^"]*"[^>]*>(.*?)</figure>',
+    re.S)
+_haber = _CIKTI / "haber"
+_tembel: list[str] = []
+_anali = 0
+if _haber.exists():
+    for _p in _haber.rglob("index.html"):
+        _h = _p.read_text(encoding="utf-8", errors="replace")
+        _m = _FIGUR.search(_h)
+        if not _m:
+            continue
+        _im = _IMG.search(_m.group(1))
+        if not _im:
+            # Figur SVG tasiyor olabilir (en son care deseni) -- o
+            # zaman tembellik sorusu hic dogmuyor.
+            continue
+        _anali += 1
+        if 'loading="lazy"' in _im.group(0):
+            _tembel.append("/haber/" + _p.parent.name + "/")
+
+# ATILLIK: ana gorselli hic sayfa bulunmazsa "hicbiri tembel degil"
+# DOGRUDUR ve hicbir sey soylemez. Bu depoda mesru sifiri kusur sayan
+# kontroller dagitimi durdurdu, o yuzden olcut MEKANIZMA: taramanin
+# ana gorsel BULMUS olmasi.
+esit(_anali > 50, True,
+     f"ana gorselli haber sayfasi bulundu ({_anali})")
+if _tembel:
+    print("")
+    print(f"  ANA GORSELI TEMBEL ({len(_tembel)}):")
+    for _y in _tembel[:6]:
+        print(f"    {_y}")
+# SAYIYA BAKIYOR, LISTEYE DEGIL: 160 adres basmak CI gunlugunu
+# sisiriyordu ve okunabilirligi dusuruyordu. Ornekler yukarida
+# ilk alti satirda duruyor -- teshis icin yeterli.
+esit(len(_tembel), 0,
+     f"hicbir haber sayfasinin ana gorseli tembel degil ({_anali} sayfa)")
+
 print(f"\nTUM TESTLER GECTI ({_gecti})")

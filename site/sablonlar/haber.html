@@ -303,8 +303,26 @@
      Yan etkisi iyi: fotograftan gorunur bicimde farkli duruyor ve
      okur onu bir olayin fotografi sanmiyor. #}
   <figure class="yazi-gorsel yazi-foto yazi-uretilen">
+    {# TEMBEL DEGIL -- BU SAYFANIN LCP OGESI TAM BU GORSEL.
+       Olculdu (2026-10-28, canli, telefon 390px/DPR2, 1,6 Mbps,
+       CPU 4x), `/haber/abd-api-cushing-stok-degisimi-...`:
+
+           LCP 3.812 / 4.284 / 4.324 ms   346 KB
+           LCP ogesi: /statik/foto/uretilen/kavram-bbc...
+
+       Google'in "kotu" esigi 4.000 ms ve olcumun ikisi onun
+       ustunde. `loading="lazy"` "ekranda gorunene kadar bekle"
+       demez; tarayici gorseli DUSUK ONCELIKLI sayar ve kesfini
+       erteler -- oysa bu gorsel basliktan ONCE, ilk ekranda
+       duruyor.
+
+       TUTARSIZLIK DA BURADAYDI: hemen ustteki Commons fotografi
+       dali `loading` HIC tasimiyor (yani eager). Yani ayni
+       konumdaki ana gorsel, KAYNAGINA gore tembel ya da erken
+       yukleniyordu. Olculdu: 1.102 haber sayfasinin 942'si eager,
+       160'i (uretilen gorselli olanlar) lazy. #}
     <img src="{{ h.uretilen }}" alt="" width="1024" height="1024"
-         decoding="async" loading="lazy">
+         decoding="async" loading="eager" fetchpriority="high">
     <figcaption>{{ h.uretilen_etiket }}</figcaption>
   </figure>
   {% elif desen_svg %}
