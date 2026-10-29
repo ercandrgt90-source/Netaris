@@ -530,7 +530,8 @@ def _tazelik(iso: str) -> int:
 
 def kuyruk_kur(ozet: dict, bekleyen: set, sektor_suzgeci: str = "",
                sayfasi_olan: set | None = None,
-               bitisler: dict | None = None) -> list:
+               bitisler: dict | None = None,
+               yayimlanmis: set | None = None) -> list:
     """Uretim kuyrugu -- BEKLEYENLER basta.
 
     Doner: (oncelik, ilk_gorulme, sektor, sektor_verisi, kod, oran)
@@ -600,22 +601,59 @@ def kuyruk_kur(ozet: dict, bekleyen: set, sektor_suzgeci: str = "",
             continue
         for kod, oran in sorted(v["sirket"].items()):
             k = kod.upper()
+            # SAYFASI VAR AMA DONEMI ESKI -> EN ONE.
+            #
+            # Olculdu (2026-10-30, bilanco sezonunun ilk gunleri):
+            # sayfasi olan bir sirket YENI CEYREK bildirdiginde
+            # oncelik 2'ye, yani 324 kisilik kuyrugun DIBINE
+            # dusuyordu. `--sinir 60` ilk 60'i aliyor ve o 60'in
+            # tamami oncelik 0 (94 sirket sayfasiz). Sonuc:
+            #
+            #     42 bayat sirketin kuyruk sirasi 94, 95, 96...
+            #     ilk 60 icinde olan: 0
+            #
+            # Yani sayfasi bir kez yazilmis sirket, bir daha ASLA
+            # yeni doneme gecmiyordu. Agustosta calismis gorunmesi
+            # tesaduftu: o gun sirketlerin cogunun HIC sayfasi yoktu,
+            # yani ayni sirketler zaten oncelik 0'daydi. Sayfalar
+            # dolduk ca kilit kendiliginden kapandi.
+            #
+            # Sessiz kusur: hicbir sey hata vermiyor, kosu yesil
+            # donuyor, gunluk "zaten yayimlanmis" bile demiyor --
+            # sirkete SIRA GELMIYOR.
+            #
+            # OLCUT IKINCI KEZ TANIMLANMIYOR: donem etiketi, uretim
+            # dongusunun atlama kararinda kullandigi `kiyas_kumesi`
+            # ile AYNI cagridan geliyor. Etiket kurali degisirse
+            # ikisi birlikte degisir. `kiyas_kumesi` saf: yalnizca
+            # `ozet` sozlugunu okuyor, ag istegi yok.
+            _bayat = (yayimlanmis is not None
+                      and sayfasi_olan is not None
+                      and k in sayfasi_olan
+                      and (k, kiyas_kumesi(v, kod)[2]) not in yayimlanmis)
             if sayfasi_olan is not None and k not in sayfasi_olan:
-                oncelik = 0          # hic sayfasi yok
+                oncelik, ikincil = 0, 0   # hic sayfasi yok
+            elif _bayat:
+                oncelik, ikincil = 0, 1   # sayfa var, donemi eski
             elif k in bekleyen:
-                oncelik = 1          # bicim gocu bekliyor
+                oncelik, ikincil = 1, 0   # bicim gocu bekliyor
             else:
-                oncelik = 2
+                oncelik, ikincil = 2, 0
             # Tazelik YALNIZCA sayfasi olmayanlarda sirayi
             # belirliyor. Bicim gocunde sira zaten tamamlanmis bir
             # listeyi bitirmek uzerine; orada tazelik anlamsiz.
             taze = _tazelik(bitisler.get(k, "")) if oncelik == 0 else 0
-            kuyruk.append((oncelik, taze, len(kuyruk),
+            # ESIT TAZELIKTE SAYFASIZ ONCE.
+            #
+            # Ikisi de bugun bildirdiyse okur acisindan fark var:
+            # sayfasiz sirkette HICBIR SEY goruyor, bayat sayfada
+            # bir onceki ceyregi goruyor. Once hicligi doldur.
+            kuyruk.append((oncelik, taze, ikincil, len(kuyruk),
                            sektor, v, kod, oran))
-    kuyruk.sort(key=lambda x: (x[0], x[1], x[2]))
-    # Cagiranlar besli bekliyor: tazelik anahtari siralamadan sonra
-    # dusuruluyor.
-    return [(a, c, s, v, k, o) for a, _b, c, s, v, k, o in kuyruk]
+    kuyruk.sort(key=lambda x: (x[0], x[1], x[2], x[3]))
+    # Cagiranlar besli bekliyor: tazelik ve ikincil anahtarlar
+    # siralamadan sonra dusuruluyor.
+    return [(a, c, s, v, k, o) for a, _b, _i, c, s, v, k, o in kuyruk]
 
 
 def _bilanco_sayfasi(kategori: str) -> bool:
@@ -897,7 +935,7 @@ def main() -> int:
 
     _bitisler = bitis_haritasi(ozet)
     kuyruk = kuyruk_kur(ozet, _bekleyen, n.sektor, _sayfasi_olan,
-                        _bitisler)
+                        _bitisler, var)
 
     for _oncelik, _sira, sektor, v, kod, oran in kuyruk:
         if yazilan >= n.sinir:

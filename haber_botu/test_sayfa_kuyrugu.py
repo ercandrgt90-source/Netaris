@@ -62,11 +62,11 @@ def _ozet(**sirketler):
 
 
 def _sira(ozet, olan=frozenset(), bekleyen=frozenset(), bitisler=None,
-          olan_verilsin=True):
+          olan_verilsin=True, yayimlanmis=None):
     """`olan_verilsin=False` -> cagiran kumeyi HIC vermiyor."""
     return [x[4] for x in US.kuyruk_kur(
         ozet, set(bekleyen), "",
-        set(olan) if olan_verilsin else None, bitisler)]
+        set(olan) if olan_verilsin else None, bitisler, yayimlanmis)]
 
 
 print("")
@@ -184,6 +184,76 @@ if _gercek.is_file():
         print("  ATLANDI  bitisi bilinen sayfasiz sirket az")
 else:
     print("  ATLANDI  sektor ozeti yok")
+
+print("")
+print("5. SAYFASI VAR AMA DONEMI ESKI -- kuyrugun basina")
+# Sayfasi bir kez yazilan sirket YENI CEYREK bildirdiginde oncelik
+# 2'ye, yani kuyrugun dibine dusuyordu. Olculdu (2026-10-30, Q3
+# sezonunun ilk gunleri): 42 bayat sirketin kuyruk sirasi 94, 95,
+# 96... ve `--sinir 60` ile ilk 60 icinde SIFIR tanesi vardi.
+#
+# Agustosta calismis GORUNMESI tesaduftu: o gun sirketlerin cogunun
+# hic sayfasi yoktu, yani zaten oncelik 0'daydilar. Sayfalar
+# doldukca kilit kendiliginden kapandi.
+#
+# BEKLENTI ELLE YAZILI. Etiketi `donem_etiketi`den uretmek,
+# beklentiyi KORUDUGU koddan okumak olurdu ve mutasyonu sessizce
+# yesil birakirdi. Olculen degerler (2026-10-30):
+#     2026-06-30 -> "2026 2. ceyrek"
+#     2026-09-30 -> "2026 3. ceyrek"
+_o5 = _ozet(ESKI="2026-06-30", YENI="2026-09-30", GUNCEL="2026-09-30")
+_bit5 = {"ESKI": "2026-06-30", "YENI": "2026-09-30",
+         "GUNCEL": "2026-09-30"}
+# UCUNUN DE sayfasi var. GUNCEL'in 3. ceyregi yayimlanmis; YENI 3.
+# ceyregi BILDIRDI ama sayfasi hala 2. ceyrekte; ESKI zaten 2.
+# ceyrekte ve o yayimlanmis.
+_yay5 = {("ESKI", "2026 2. çeyrek"), ("YENI", "2026 2. çeyrek"),
+         ("GUNCEL", "2026 3. çeyrek")}
+esit(_sira(_o5, olan={"ESKI", "YENI", "GUNCEL"}, bitisler=_bit5,
+           yayimlanmis=_yay5),
+     ["YENI", "ESKI", "GUNCEL"],
+     "donemi gecmis sayfa EN ONDE")
+
+# ESIT TAZELIKTE SAYFASIZ ONCE: ikisi de bugun bildirdiyse okur
+# acisindan fark var -- sayfasizda HICBIR SEY, bayatta bir onceki
+# ceyrek goruluyor.
+_o6 = _ozet(SAYFASIZ="2026-09-30", BAYAT="2026-09-30")
+esit(_sira(_o6, olan={"BAYAT"},
+           bitisler={"SAYFASIZ": "2026-09-30", "BAYAT": "2026-09-30"},
+           yayimlanmis={("BAYAT", "2026 2. çeyrek")}),
+     ["SAYFASIZ", "BAYAT"],
+     "esit tazelikte sayfasiz once")
+
+# GERIYE DONUK: kume HIC verilmezse eski davranis korunuyor.
+esit(_sira(_o5, olan={"ESKI", "YENI", "GUNCEL"}, bitisler=_bit5),
+     ["ESKI", "GUNCEL", "YENI"],
+     "yayimlanmis kumesi verilmezse eski siralama")
+
+# ATILLIK -- POZITIF KONTROL.
+#
+# "Bayat sayma" olcutu gercekten KUMEYI okuyor mu? Bos kume
+# verildiginde UCU DE bayat sayilmali ve tazelige gore
+# siralanmali. Olcut atil olsaydi (hep False dondurseydi) sira
+# alfabetik kalirdi.
+esit(_sira(_o5, olan={"ESKI", "YENI", "GUNCEL"}, bitisler=_bit5,
+           yayimlanmis=set())[:2],
+     ["GUNCEL", "YENI"],
+     "bos kumede hepsi bayat, tazelige gore siralaniyor")
+
+print("")
+print("6. URETIM DONGUSU KUMEYI GERCEKTEN GECIRIYOR")
+# Kuyruk dogru siralasa da `main` kumeyi vermezse olcut OLU kalir:
+# `yayimlanmis=None` eski davranisa donuyor. Olcut AST -- metin
+# aramak bicimlendirme degisince sessizce eslesmeyi birakiyor.
+import ast                                          # noqa: E402
+_ag = ast.parse(pathlib.Path(US.__file__).read_text(encoding="utf-8"))
+_cagri = [d for d in ast.walk(_ag)
+          if isinstance(d, ast.Call)
+          and isinstance(d.func, ast.Name)
+          and d.func.id == "kuyruk_kur"]
+esit(len(_cagri), 1, "uretimde tek kuyruk_kur cagrisi")
+_arg = len(_cagri[0].args) + len(_cagri[0].keywords)
+esit(_arg >= 6, True, f"cagri yayimlanmis kumesini de geciriyor ({_arg} arguman)")
 
 print("")
 print(f"TUM TESTLER GECTI ({_gecti})")
