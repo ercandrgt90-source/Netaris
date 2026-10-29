@@ -131,6 +131,19 @@ BILANCO_AKISI = "bilanco.yml"
 #: Yerel nobetci ise her 10 dakikada bir guvenilir calisiyor.
 BILANCO_SAATI = "00:10"
 
+#: Tetigin SON saati (UTC). Pencere disinda ATILMIYOR.
+#:
+#: UST SINIR SART: alt sinir tek basina "bugun henuz atilmadi" diyen
+#: her turu tetikliyordu -- yani kod ogleden sonra devreye girse
+#: kotanin bittigi bir saatte bosuna kosu acardi. Bu degisikligin
+#: TEK gerekcesi kotanin TAZE olmasi; taze olmadigi saatte tetik
+#: gerekcesini kaybediyor.
+#:
+#: PENCERE GENIS TUTULDU (uc saat): makine gece yarisinda kapaliysa
+#: gun tamamen kacmasin. Pencere de kacarsa `bilanco.yml`in kendi
+#: cron'u yedek olarak duruyor.
+BILANCO_SON_SAAT = "03:00"
+
 #: Gunluge yazilan damga. AYNI metin hem yazarken hem ararken
 #: kullaniliyor -- iki yerde ayri yazilsaydi arama hic eslesmez ve
 #: nobetci her turda YENIDEN tetiklerdi.
@@ -445,7 +458,8 @@ def bilanco_gerekli(simdi, gunluk: list[str]) -> bool:
     gunde bir fazladan tetik olur, bu da zararsiz (hat zaten kendi
     kendini atlar).
     """
-    if simdi.strftime("%H:%M") < BILANCO_SAATI:
+    ss = simdi.strftime("%H:%M")
+    if not BILANCO_SAATI <= ss <= BILANCO_SON_SAAT:
         return False
     bugun = simdi.strftime("%Y-%m-%d")
     for satir in reversed(gunluk):

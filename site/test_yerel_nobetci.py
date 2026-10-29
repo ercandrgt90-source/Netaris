@@ -621,17 +621,35 @@ def _an(gun, saat):
     return _dt.datetime.fromisoformat(f"{gun}T{saat}:00+00:00")
 
 
-def test_bilanco_tetigi_SAATTEN_ONCE_atilmiyor():
-    dogru("00:05'te atilmiyor (esik 00:10)",
+def test_bilanco_tetigi_PENCERE_DISINDA_atilmiyor():
+    """Pencere KAPALI bir aralik -- iki ucu da sinaniyor.
+
+    UST SINIR OLMADAN kod ogleden sonra devreye girse kotanin
+    bittigi bir saatte bosuna kosu acardi. Degisikligin TEK
+    gerekcesi kotanin taze olmasi; taze olmadigi saatte tetik
+    gerekcesini kaybediyor.
+    """
+    dogru("00:05'te atilmiyor (alt sinir 00:10)",
           yn.bilanco_gerekli(_an("2026-10-30", "00:05"), []) is False)
-    dogru("00:15'te atiliyor",
-          yn.bilanco_gerekli(_an("2026-10-30", "00:15"), []) is True)
+    dogru("00:10'da atiliyor (alt sinir DAHIL)",
+          yn.bilanco_gerekli(_an("2026-10-30", "00:10"), []) is True)
+    dogru("01:30'da atiliyor (pencere ICI)",
+          yn.bilanco_gerekli(_an("2026-10-30", "01:30"), []) is True)
+    dogru("03:00'te atiliyor (ust sinir DAHIL)",
+          yn.bilanco_gerekli(_an("2026-10-30", "03:00"), []) is True)
+    dogru("03:01'de atilmiyor (pencere kapandi)",
+          yn.bilanco_gerekli(_an("2026-10-30", "03:01"), []) is False)
+    # OLCULEN SAAT: bilanco kosusu 13:22'de kotayi bitmis buluyordu.
+    dogru("13:22'de atilmiyor -- kota o saatte bitmis oluyor",
+          yn.bilanco_gerekli(_an("2026-10-30", "13:22"), []) is False)
+    dogru("22:43'te atilmiyor",
+          yn.bilanco_gerekli(_an("2026-10-30", "22:43"), []) is False)
 
 
 def test_bilanco_tetigi_GUNDE_BIR():
     g = [f"2026-10-30T00:12:00Z {yn.BILANCO_DAMGASI}: yanit=204"]
     dogru("ayni gun IKINCI kez atilmiyor",
-          yn.bilanco_gerekli(_an("2026-10-30", "06:00"), g) is False)
+          yn.bilanco_gerekli(_an("2026-10-30", "01:00"), g) is False)
     dogru("ERTESI gun yine atiliyor",
           yn.bilanco_gerekli(_an("2026-10-31", "00:15"), g) is True)
 
