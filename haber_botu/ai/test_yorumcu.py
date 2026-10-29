@@ -393,6 +393,26 @@ class _SahteYanit:
         return self._g
 
 
+class _HamYanit:
+    """Govdesi AYNEN verilen yanit -- sarmalama YOK.
+
+    `_SahteYanit` mesaji sozluge sarip `str()` aliyor; satir sonu
+    orada kacis dizisine donuyor ve cok satirli govde SINANAMIYOR.
+    """
+
+    def __init__(self, kod, metin):
+        self.status_code = kod
+        self.text = metin
+
+    def json(self):
+        return {}
+
+
+def _ham_hata(kod, metin):
+    return _httpx.HTTPStatusError("hata", request=None,
+                                  response=_HamYanit(kod, metin))
+
+
 def _hata(kod, mesaj):
     y = _SahteYanit(kod, {"error": {"message": mesaj}})
     return _httpx.HTTPStatusError("hata", request=None, response=y)
@@ -622,6 +642,39 @@ try:
         # ayrisiyor; basarili ikinci modelde zaten erken donuluyor.
         sina("ikinci model BOS yanit verince mandal INMIYOR",
              _mandal_bos_yanitta_inmiyor())
+        # 429'UN GERCEKTE NE DEDIGI KAYDEDILIYOR.
+        #
+        # Gunluk yalnizca "HTTP 429" yaziyordu ve bu iki cok farkli
+        # durumu ayni gosteriyor: "gunluk kotan bitti" / "su an cok
+        # hizlisin". Olculen veri tek basina teshise yetmiyordu --
+        # 13:22'de bilanco 429 aldi ama 19:13'te haber kosusu sifir
+        # 429 ile 5 yorum uretti. Yanit GOVDESI bu soruyu
+        # cevapliyor; tahmin etmek yerine kaydediyoruz.
+        sina("tani yanit govdesini okuyor",
+             "neurons" in yorumcu.kota_tanisi(
+                 _hata(429, '{"errors":[{"message":"out of neurons"}]}')))
+        # HAM GOVDE KULLANILIYOR, `_hata` DEGIL.
+        #
+        # `_hata` mesaji bir sozluge sariyor ve `str(sozluk)` satir
+        # sonunu KACIS DIZISINE ceviriyor -- yani gercek bir satir
+        # sonu hic olusmuyordu ve iddia ATILDI: mutasyon (birlestirmeyi
+        # kaldirmak) KACTI. Olcut, gercekten cok satirli bir govde.
+        sina("tani TEK SATIRA indiriyor",
+             chr(10) not in yorumcu.kota_tanisi(
+                 _ham_hata(429, "ilk satir" + chr(10) + "ikinci satir")))
+        sina("iki satir da KORUNUYOR (kirpilmiyor, birlestiriliyor)",
+             yorumcu.kota_tanisi(
+                 _ham_hata(429, "ilk" + chr(10) + "ikinci"))
+             == "ilk ikinci")
+        # Govdesiz hata COKMEMELI: tani yoklugu kosuyu etkilemez.
+        sina("govdesiz hatada bos donuyor",
+             yorumcu.kota_tanisi(RuntimeError("x")) == "")
+        # KIRPMA: CI gunlugune 20 KB'lik bir JSON dokmek, asil
+        # satiri okunmaz hale getirir. Olcut UZUNLUK -- kirpmanin
+        # kaldirildigi mutasyon bir kez KACTI.
+        _uzun = yorumcu.kota_tanisi(_ham_hata(429, "x" * 5000))
+        sina("tani KIRPILIYOR", len(_uzun) <= 256)
+        sina("kirpilmis tani yine de DOLU", len(_uzun) > 50)
         _once = len(_istek)
         yorumcu._cf_cagir("girdi", "sistem")
         sina("kota kapaliyken HIC istek atilmiyor", len(_istek) == _once)

@@ -693,6 +693,35 @@ def cf_kotasini_sifirla() -> None:
     _CF_KOTA_DOLDU = False
 
 
+def kota_tanisi(e: Exception) -> str:
+    """429'un GERCEKTE ne dedigi -- gunluge yazilmak icin.
+
+    NEDEN VAR: gunluk yalnizca "HTTP 429" yaziyordu ve bu, iki cok
+    farkli durumu ayni gosteriyor -- "gunluk kotan bitti" ile "su an
+    cok hizlisin". Teshis tahmine kaliyordu ve olculen veri onu
+    DESTEKLEMIYORDU:
+
+        13:22  bilanco -> 429
+        19:13  haber   -> 5 yorum, SIFIR 429   <- celiski
+        21:53  bilanco -> 429
+
+    Gunluk kota bitmis olsaydi 19:13'teki haber kosusu da
+    dusmeliydi. Yanit GOVDESI bu soruyu cevapliyor; tahmin etmek
+    yerine KAYDEDIYORUZ.
+
+    Govde okunamazsa bos donuyor: tani yoklugu, kosuyu etkileyecek
+    bir ariza degil.
+    """
+    try:
+        govde = (e.response.text or "").strip()        # type: ignore[attr-defined]
+    except Exception:                                  # pragma: no cover
+        return ""
+    # TEK SATIRA INDIRILIYOR: CI gunlugunde cok satirli JSON, asil
+    # satiri goze carpmaz hale getiriyor.
+    govde = " ".join(govde.split())
+    return govde[:220]
+
+
 def _kota_hatasi(e: Exception) -> bool:
     """Hata "kota doldu" anlamina mi geliyor."""
     if not isinstance(e, httpx.HTTPStatusError):
@@ -770,6 +799,13 @@ def _cf_cagir(girdi: str, sistem: str = "") -> tuple[str, str]:
                 # dener; kota gercekten doluysa mandal kapanir ve
                 # kalan adaylar ANINDA atlanir.
                 if deneme + 1 < _CF_KOTA_DENEME:
+                    # TANI ILK REDDE YAZILIYOR: sonraki denemeler
+                    # basarili olursa yanit govdesi kaybolurdu ve
+                    # "neden yavasladik" sorusu cevapsiz kalirdi.
+                    if deneme == 0:
+                        _t = kota_tanisi(e)
+                        if _t:
+                            print(f"    kaynagin dedigi: {_t}")
                     _cf_kota_bekle(e, deneme)
                     continue       # AYNI modeli yeniden dene
                 # BU MODEL KAPANDI -- MANDAL HENUZ DEGIL.
@@ -788,6 +824,9 @@ def _cf_cagir(girdi: str, sistem: str = "") -> tuple[str, str]:
                 # yorumla yayimlanabiliyor.
                 kapanan.add(model)
                 son_kod = e.response.status_code
+                _t = kota_tanisi(e)
+                print(f"    {model} kapandi (HTTP {son_kod})"
+                      + (f" -- {_t}" if _t else ""))
                 break
         if _CF_KOTA_DOLDU:
             break
