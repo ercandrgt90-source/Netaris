@@ -281,6 +281,38 @@ def main() -> int:
     # Kalipsiz varlik yanlis baglanmaz, HIC baglanir -- bu yuzden
     # hicbir hata firlamiyor. Istisna `KALIPSIZ_SERBEST` icinde
     # gerekcesiyle yazilir.
+    # DENETIM ATIL OLABILIR -- VE SESSIZCE.
+    #
+    # `kalipsiz_varliklar()` grafi `try: from graf_tohum import ...`
+    # ile okuyor ve `ImportError` durumunda BOS LISTE donduruyor
+    # (`dogrula()` ile ayni kalip). Yani ithalat bir gun koparsa
+    # denetim "kalipsiz varlik yok" der ve YESIL doner -- tam
+    # korumasi gereken durumda.
+    #
+    # ILK DENEMEM YETERSIZDI VE MUTASYON BUNU GOSTERDI: graftaki
+    # varlik sayisini SINAMADA okuyup "50'den fazla mi" diye
+    # bakmistim. O, grafin okunabildigini kanitliyor ama FONKSIYONUN
+    # onu okudugunu kanitlamiyor -- `return []` mutasyonu KACTI.
+    #
+    # DOGRU OLCUT POZITIF KONTROL: grafa kalipsiz bir varlik
+    # EKLENIYOR ve fonksiyonun onu BULMASI sart. Bulamiyorsa
+    # fonksiyon ya grafi okumuyor ya da sonucu suzmuyor; iki durumda
+    # da denetim atildir.
+    _asil_graf = graf_tohum.VARLIKLAR
+    _sahte = ("SINAMA_KALIPSIZ_VARLIK", "oran", "sinama", "probe",
+              None, 0, "")
+    try:
+        graf_tohum.VARLIKLAR = _asil_graf + (_sahte,)
+        _gorulen = varlik.kalipsiz_varliklar()
+    finally:
+        graf_tohum.VARLIKLAR = _asil_graf
+    if _sahte[0] not in _gorulen:
+        print("HATA kalipsiz denetimi ATIL -- grafa eklenen kalipsiz "
+              "varligi gormedi")
+        print("  fonksiyon grafi okumuyor ya da sonucu suzmuyor")
+        hata += 1
+
+    # ...ve gercek graf uzerinde kalipsiz varlik OLMAMALI.
     kalipsiz = varlik.kalipsiz_varliklar()
     if kalipsiz:
         print(f"HATA grafta duran kalipsiz varlik: {', '.join(kalipsiz)}")
