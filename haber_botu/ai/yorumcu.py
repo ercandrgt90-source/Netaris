@@ -725,6 +725,10 @@ def _cf_cagir(girdi: str, sistem: str = "") -> tuple[str, str]:
     if _CF_KOTA_DOLDU:
         return "", ""
     son_hata: Exception | None = None
+    #: Kota/oran sebebiyle kapanan MODELLER. Mandal ancak listedeki
+    #: modellerin HEPSI kapandiginda iniyor.
+    kapanan: set = set()
+    son_kod = 429
     for model in cf_modelleri():
         for deneme in range(_CF_KOTA_DENEME):
             try:
@@ -768,11 +772,29 @@ def _cf_cagir(girdi: str, sistem: str = "") -> tuple[str, str]:
                 if deneme + 1 < _CF_KOTA_DENEME:
                     _cf_kota_bekle(e, deneme)
                     continue       # AYNI modeli yeniden dene
-                # Kota BUTUN modelleri kapsar; ikinciyi denemek bosuna.
-                _cf_kota_kapat(f"HTTP {e.response.status_code}")
+                # BU MODEL KAPANDI -- MANDAL HENUZ DEGIL.
+                #
+                # Eski yorum "Kota BUTUN modelleri kapsar; ikinciyi
+                # denemek bosuna" diyordu. Bu bir VARSAYIMDI, olcum
+                # degil: Cloudflare'de sinirlar MODEL BASINA ve
+                # listedeki iki model cok farkli buyuklukte
+                # (gpt-oss-120b ve llama-3.1-8b). Buyugu tukenirken
+                # kucugu acik olabilir.
+                #
+                # Varsayim hattin tamamini susturuyordu: ilk model
+                # 429 verince yedek model HIC denenmiyordu. Daha
+                # zayif bir modelden gelen, sayi denetiminden GECMIS
+                # bir yorum, hic yoruma gore iyidir -- sayfa ancak
+                # yorumla yayimlanabiliyor.
+                kapanan.add(model)
+                son_kod = e.response.status_code
                 break
         if _CF_KOTA_DOLDU:
             break
+    # MANDAL ANCAK HEPSI KAPANINCA. Bir model bile acikken kapatmak,
+    # kalan adaylari bosuna atlamak olurdu.
+    if kapanan and len(kapanan) >= len(cf_modelleri()):
+        _cf_kota_kapat(f"HTTP {son_kod}")
     if isinstance(son_hata, httpx.HTTPError):
         raise son_hata
     return "", ""

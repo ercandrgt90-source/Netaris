@@ -397,6 +397,105 @@ def _hata(kod, mesaj):
     y = _SahteYanit(kod, {"error": {"message": mesaj}})
     return _httpx.HTTPStatusError("hata", request=None, response=y)
 
+def _mandal_bos_yanitta_inmiyor() -> bool:
+    """Ilk model 429, ikincisi BOS yanit -> mandal inmemeli.
+
+    Bos yanit bir KOTA sorunu degil; model konusmadi. Mandali
+    indirmek, kalan butun adaylari kota yokken atlamak olurdu.
+    """
+    import json as _json                                  # noqa: PLC0415
+    _onceki = yorumcu.cf_kota_doldu()
+    yorumcu.cf_kotasini_sifirla()
+    modeller = yorumcu.cf_modelleri()
+
+    class _Bos:
+        status_code = 200
+        headers: dict = {}
+
+        @staticmethod
+        def raise_for_status():
+            return None
+
+        @staticmethod
+        def json():
+            return _json.loads('{"result": {"response": ""}}')
+
+    def _post(u, **k):
+        if modeller[0] in u:
+            raise _hata(429, "Too Many Requests")
+        return _Bos()
+
+    _eski = _httpx.post
+    _eski_bekle = yorumcu._cf_kota_bekle
+    _httpx.post = _post
+    yorumcu._cf_kota_bekle = lambda e, d: None
+    try:
+        try:
+            yorumcu._cf_cagir("girdi", "sistem")
+        except Exception:                                  # noqa: BLE001
+            pass
+        sonuc = not yorumcu.cf_kota_doldu()
+    finally:
+        _httpx.post = _eski
+        yorumcu._cf_kota_bekle = _eski_bekle
+    if _onceki:
+        yorumcu._CF_KOTA_DOLDU = True
+    return sonuc
+
+
+def _mandal_tek_modelde_inmiyor() -> bool:
+    """Ilk model 429, ikincisi CALISIYOR -> mandal inmemeli.
+
+    Bu, degisikligin asil iddiasi: bir model kapandi diye hattin
+    tamami susmamali. Taklit, ikinci modelde gecerli bir yanit
+    donduruyor.
+    """
+    import json as _json                                  # noqa: PLC0415
+    # MANDAL DURUMU GERI KONUYOR.
+    #
+    # Yardimci mandali sifirliyor; geri koymazsa SONRAKI sinama
+    # bloklari onun birakti durumu miras alir ve olcmek istedikleri
+    # seyi olcmezler. Burada tam o oldu: sonraki blok mandal ACIK
+    # kaldigi icin gercekten istek atti ve sinama COKTU.
+    _onceki_mandal = yorumcu.cf_kota_doldu()
+    yorumcu.cf_kotasini_sifirla()
+    modeller = yorumcu.cf_modelleri()
+
+    class _Y:
+        status_code = 200
+        headers: dict = {}
+
+        @staticmethod
+        def raise_for_status():
+            return None
+
+        @staticmethod
+        def json():
+            return _json.loads('{"result": {"response": "Metin."}}')
+
+    def _post(u, **k):
+        if modeller[0] in u:
+            raise _hata(429, "Too Many Requests")
+        return _Y()
+
+    _eski = _httpx.post
+    _eski_bekle = yorumcu._cf_kota_bekle
+    _httpx.post = _post
+    yorumcu._cf_kota_bekle = lambda e, d: None
+    try:
+        metin, kullanilan = yorumcu._cf_cagir("girdi", "sistem")
+    finally:
+        _httpx.post = _eski
+        yorumcu._cf_kota_bekle = _eski_bekle
+    # Ikinci model yaniti VERMIS olmali ve mandal ACIK kalmali.
+    sonuc = (bool(metin) and kullanilan == modeller[1]
+             and not yorumcu.cf_kota_doldu())
+    if _onceki_mandal:
+        yorumcu._CF_KOTA_DOLDU = True
+    return sonuc
+
+
+
 
 def _ortam_kur(anthropic=True, cloudflare=True):
     for ad, var in (("ANTHROPIC_API_KEY", anthropic),
@@ -485,9 +584,11 @@ try:
             yorumcu._cf_cagir("girdi", "sistem")
         except Exception:
             pass
-        sina("429 kotayi KAPATIYOR", yorumcu.cf_kota_doldu())
+        sina("butun modeller kapaninca mandal INIYOR",
+             yorumcu.cf_kota_doldu())
         # ANLIK RED ILE DOLU KOTA AYRILIYOR: ayni model yeniden
-        # deneniyor, denemeler bitince mandal kapaniyor.
+        # deneniyor, denemeler bitince SONRAKI MODELE geciliyor,
+        # modeller de bitince mandal kapaniyor.
         #
         # TABAN ELLE YAZILI. Ilk yazim yalnizca
         # `len(_istek) == _CF_KOTA_DENEME` diyordu ve MUTASYON KACTI:
@@ -495,14 +596,32 @@ try:
         # TA KENDISI (hic yeniden denememek) geri geldi. Bir sinama
         # beklentisini korudugu sabitten okursa o sabiti korumuyor.
         sina("en az BIR yeniden deneme var", yorumcu._CF_KOTA_DENEME >= 2)
-        sina("429'da ayni model YENIDEN deneniyor",
-             len(_istek) == yorumcu._CF_KOTA_DENEME)
+        sina("en az IKI model var", len(yorumcu.cf_modelleri()) >= 2)
+        _bekl = yorumcu._CF_KOTA_DENEME * len(yorumcu.cf_modelleri())
+        sina("her model ayri ayri DENENIYOR", len(_istek) == _bekl)
         sina("denemeler arasinda BEKLENIYOR",
-             len(_bekleme) == yorumcu._CF_KOTA_DENEME - 1)
-        # Iki model var; kota HEPSINI kapsar, ikincisi denenmemeli.
-        # Olcut: toplam istek deneme sayisini ASMIYOR.
-        sina("kota hatasinda ikinci model DENENMIYOR",
-             len(_istek) <= yorumcu._CF_KOTA_DENEME)
+             len(_bekleme) == (yorumcu._CF_KOTA_DENEME - 1)
+             * len(yorumcu.cf_modelleri()))
+        # ESKI IDDIA KALDIRILDI -- VARSAYIMDI, OLCUM DEGILDI.
+        #
+        # Burada "kota hatasinda ikinci model DENENMIYOR" yaziyordu;
+        # gerekcesi koddaki "kota BUTUN modelleri kapsar" yorumuydu.
+        # Cloudflare'de sinirlar MODEL BASINA ve listedeki iki model
+        # cok farkli buyuklukte (gpt-oss-120b / llama-3.1-8b).
+        # Buyugu tukenirken kucugu acik olabiliyor; varsayim yuzunden
+        # yedek model HIC denenmiyor ve hat tamamen susuyordu.
+        #
+        # Yerine konan iddia: mandal ancak HEPSI kapaninca iniyor.
+        sina("tek model kapaninca mandal INMIYOR",
+             _mandal_tek_modelde_inmiyor())
+        # BOS YANIT KOTA DEGILDIR.
+        #
+        # Ilk model 429, ikincisi BOS yanit: `kapanan` tek elemanli
+        # kaliyor ve mandal INMEMELI. Mutasyon bunu bir kez KACIRDI --
+        # "len(kapanan) >= 1" ile "hepsi kapandi" ancak bu yolda
+        # ayrisiyor; basarili ikinci modelde zaten erken donuluyor.
+        sina("ikinci model BOS yanit verince mandal INMIYOR",
+             _mandal_bos_yanitta_inmiyor())
         _once = len(_istek)
         yorumcu._cf_cagir("girdi", "sistem")
         sina("kota kapaliyken HIC istek atilmiyor", len(_istek) == _once)
