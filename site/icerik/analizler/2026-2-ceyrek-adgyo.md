@@ -31,7 +31,6 @@ Hasılat gerilerken brüt kâr yükseldi; bu ayrışma brüt kâr marjını sekt
 | Net kâr | -%210,5 |
 | Özkaynak | %102,9 |
 | Aktif toplamı | %125,2 |
-| Net borç | %50,8 |
 | Faaliyet nakit akışı | -%167,3 |
 | Yatırım harcaması | %92112,5 |
 
@@ -51,6 +50,23 @@ Hasılat gerilerken brüt kâr yükseldi; bu ayrışma brüt kâr marjını sekt
 | Net borç | -0,39 milyar TL |
 | Faaliyet nakit akışı | -0,11 milyar TL |
 | Yatırım harcaması | 0,15 milyar TL |
+
+## Son dört dönem
+
+| Kalem (milyar TL) | 2026 2. çeyrek | 2026 1. çeyrek | 2025 4. çeyrek | 2025 3. çeyrek |
+| --- | ---: | ---: | ---: | ---: |
+| Hasılat | 0,23 | 0,22 | 0,19 | 0,21 |
+| Brüt kâr | 0,17 | 0,16 | 0,10 | 0,14 |
+| Faaliyet kârı | 0,08 | 0,18 | 0,07 | 0,12 |
+| FAVÖK | 0,08 | 0,19 | 0,07 | 0,12 |
+| Net kâr | -0,13 | -0,12 | -0,80 | 0,04 |
+| Özkaynak | 16,92 | 15,93 | 14,58 | 9,01 |
+| Aktif toplamı | 20,35 | 19,10 | 17,39 | 9,78 |
+| Net borç | -0,39 | -0,70 | -0,46 | -0,88 |
+| Faaliyet nakit akışı | -0,11 | 0,26 | 1,01 | 0,09 |
+| Yatırım harcaması | 0,15 | 0,00 | 0,06 | 0,00 |
+
+*Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
 
 ## Sektör içindeki konum
 

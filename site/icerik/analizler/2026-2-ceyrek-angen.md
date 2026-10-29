@@ -49,6 +49,23 @@ Hasılat ve brüt kâr birlikte yükselirken brüt kâr marjı %65,5 seviyesinde
 | Faaliyet nakit akışı | 0,01 milyar TL |
 | Yatırım harcaması | 0,14 milyar TL |
 
+## Son dört dönem
+
+| Kalem (milyar TL) | 2026 2. çeyrek | 2026 1. çeyrek | 2025 4. çeyrek | 2025 3. çeyrek |
+| --- | ---: | ---: | ---: | ---: |
+| Hasılat | 0,22 | 0,19 | 0,23 | 0,18 |
+| Brüt kâr | 0,14 | 0,09 | 0,14 | 0,13 |
+| Faaliyet kârı | 0,00 | -0,06 | -0,04 | 0,00 |
+| FAVÖK | 0,04 | -0,02 | 0,00 | 0,05 |
+| Net kâr | -0,06 | -0,16 | -0,02 | -0,08 |
+| Özkaynak | 1,81 | 1,75 | 1,74 | 1,68 |
+| Aktif toplamı | 2,72 | 2,60 | 2,36 | 2,15 |
+| Net borç | 0,48 | 0,36 | 0,19 | 0,04 |
+| Faaliyet nakit akışı | 0,01 | 0,06 | 0,25 | 0,00 |
+| Yatırım harcaması | 0,14 | 0,03 | 0,28 | 0,00 |
+
+*Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
+
 ## Sektör içindeki konum
 
 Karşılaştırma Sağlık sektöründe **aynı dönemi bildiren** 9 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.

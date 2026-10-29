@@ -29,7 +29,6 @@ Hasılat ile net kâr birlikte arttı; kârdaki artışın hasılattakini aşmas
 | Özkaynak | %44,6 |
 | Aktif toplamı | %68,0 |
 | Net borç | -%179,3 |
-| Faaliyet nakit akışı | -%302,3 |
 | Yatırım harcaması | -%26,9 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
@@ -45,6 +44,20 @@ Hasılat ile net kâr birlikte arttı; kârdaki artışın hasılattakini aşmas
 | Net borç | -28,28 milyar TL |
 | Faaliyet nakit akışı | -7,33 milyar TL |
 | Yatırım harcaması | 2,16 milyar TL |
+
+## Son dört dönem
+
+| Kalem (milyar TL) | 2026 2. çeyrek | 2026 1. çeyrek | 2025 4. çeyrek | 2025 3. çeyrek |
+| --- | ---: | ---: | ---: | ---: |
+| Hasılat | 16,45 | 27,22 | 18,22 | 7,80 |
+| Net kâr | 1,73 | 2,59 | 0,32 | 0,89 |
+| Özkaynak | 93,24 | 85,21 | 75,11 | 69,74 |
+| Aktif toplamı | 252,62 | 249,07 | 214,36 | 171,77 |
+| Net borç | -28,28 | -31,83 | -17,10 | 39,07 |
+| Faaliyet nakit akışı | -7,33 | 19,27 | 4,30 | 5,82 |
+| Yatırım harcaması | 2,16 | 0,63 | 0,47 | 1,75 |
+
+*Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
 
 ## Sektör içindeki konum
 

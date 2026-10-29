@@ -52,6 +52,23 @@ Hasılatın yükselmesi brüt kârı artırarak brüt kâr marjının %39,4 sevi
 | Faaliyet nakit akışı | 12,33 milyar TL |
 | Yatırım harcaması | 5,73 milyar TL |
 
+## Son dört dönem
+
+| Kalem (milyar TL) | 2026 2. çeyrek | 2026 1. çeyrek | 2025 4. çeyrek | 2025 3. çeyrek |
+| --- | ---: | ---: | ---: | ---: |
+| Hasılat | 87,49 | 66,80 | 55,23 | 68,86 |
+| Brüt kâr | 34,45 | 23,91 | 20,41 | 27,80 |
+| Faaliyet kârı | 13,20 | 4,54 | 3,10 | 11,96 |
+| FAVÖK | 17,84 | 9,18 | 7,75 | 16,60 |
+| Net kâr | 5,12 | 2,15 | -2,63 | 5,25 |
+| Özkaynak | 252,42 | 235,85 | 219,00 | 212,65 |
+| Aktif toplamı | 495,80 | 445,64 | 413,58 | 412,44 |
+| Net borç | 65,99 | 64,49 | 55,81 | 54,69 |
+| Faaliyet nakit akışı | 12,33 | -0,18 | 8,44 | 18,49 |
+| Yatırım harcaması | 5,73 | 3,51 | 4,34 | 4,12 |
+
+*Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
+
 ## Sektör içindeki konum
 
 Karşılaştırma Temel tüketim sektöründe **aynı dönemi bildiren** 31 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.

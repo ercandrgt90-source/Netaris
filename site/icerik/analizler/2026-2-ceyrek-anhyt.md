@@ -24,15 +24,14 @@ Hasılattaki artışa faaliyet kârı ve FAVÖK daha hızlı eşlik etti; net k�
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | %29,2 |
-| Faaliyet kârı | %36,9 |
-| FAVÖK | %40,1 |
-| Net kâr | %42,3 |
-| Özkaynak | %37,6 |
-| Aktif toplamı | %49,1 |
-| Net borç | -%42,6 |
-| Faaliyet nakit akışı | -%29,4 |
-| Yatırım harcaması | %335,3 |
+| Hasılat | %33,3 |
+| Faaliyet kârı | %74,5 |
+| FAVÖK | %82,9 |
+| Net kâr | %48,9 |
+| Özkaynak | %33,2 |
+| Aktif toplamı | %35,2 |
+| Faaliyet nakit akışı | -%50,9 |
+| Yatırım harcaması | %1108,6 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -40,15 +39,31 @@ Hasılattaki artışa faaliyet kârı ve FAVÖK daha hızlı eşlik etti; net k�
 
 | Kalem | Değer |
 | --- | ---: |
-| Hasılat | 11,92 milyar TL |
-| Faaliyet kârı | 2,54 milyar TL |
-| FAVÖK | 2,39 milyar TL |
-| Net kâr | 2,02 milyar TL |
-| Özkaynak | 13,91 milyar TL |
-| Aktif toplamı | 482,81 milyar TL |
-| Net borç | -6,39 milyar TL |
-| Faaliyet nakit akışı | 3,27 milyar TL |
-| Yatırım harcaması | 0,06 milyar TL |
+| Hasılat | 12,99 milyar TL |
+| Faaliyet kârı | 3,24 milyar TL |
+| FAVÖK | 3,05 milyar TL |
+| Net kâr | 2,31 milyar TL |
+| Özkaynak | 15,60 milyar TL |
+| Aktif toplamı | 509,00 milyar TL |
+| Net borç | -8,27 milyar TL |
+| Faaliyet nakit akışı | 1,44 milyar TL |
+| Yatırım harcaması | 0,11 milyar TL |
+
+## Son dört dönem
+
+| Kalem (milyar TL) | 2026 3. çeyrek | 2026 2. çeyrek | 2026 1. çeyrek | 2025 4. çeyrek |
+| --- | ---: | ---: | ---: | ---: |
+| Hasılat | 12,99 | 11,96 | 10,84 | 10,71 |
+| Faaliyet kârı | 3,24 | 2,58 | 2,33 | 2,77 |
+| FAVÖK | 3,05 | 2,39 | 2,15 | 2,58 |
+| Net kâr | 2,31 | 2,02 | 1,61 | 1,92 |
+| Özkaynak | 15,60 | 13,91 | 11,34 | 13,66 |
+| Aktif toplamı | 509,00 | 482,81 | 467,84 | 443,67 |
+| Net borç | -8,27 | -6,39 | -5,20 | -6,52 |
+| Faaliyet nakit akışı | 1,44 | 3,27 | 1,07 | -0,91 |
+| Yatırım harcaması | 0,11 | 0,06 | 0,03 | 0,15 |
+
+*Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
 
 ## Sektör içindeki konum
 
@@ -56,9 +71,9 @@ Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 30 şirketin **
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Net kâr marjı | %16,9 | %14,7 |
-| Özkaynak kârlılığı | %14,5 | %5,4 |
-| Borç / özkaynak | -0,46 | -0,05 |
+| Net kâr marjı | %17,8 | %14,7 |
+| Özkaynak kârlılığı | %14,8 | %5,4 |
+| Borç / özkaynak | -0,53 | -0,05 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -66,9 +81,9 @@ Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 30 şirketin **
 
 **Şirket lehine işleyenler**
 
-- Hasılat reel olarak %29,2 arttı.
-- Net kâr reel olarak %42,3 arttı.
-- Özkaynak kârlılığı %14,5; sektör medyanı %5,4.
+- Hasılat reel olarak %33,3 arttı.
+- Net kâr reel olarak %48,9 arttı.
+- Özkaynak kârlılığı %14,8; sektör medyanı %5,4.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

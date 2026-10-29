@@ -28,11 +28,9 @@ Hasılatın 4,37 milyar TL'den 3,79 milyar TL'ye düşmesi brüt kârın 0,87 mi
 | Brüt kâr | -%25,3 |
 | Faaliyet kârı | -%183,0 |
 | FAVÖK | -%72,5 |
-| Net kâr | -%82,7 |
 | Özkaynak | %0,7 |
 | Aktif toplamı | %9,9 |
 | Net borç | -%19,0 |
-| Faaliyet nakit akışı | %108,3 |
 | Yatırım harcaması | %100,7 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
@@ -52,17 +50,34 @@ Hasılatın 4,37 milyar TL'den 3,79 milyar TL'ye düşmesi brüt kârın 0,87 mi
 | Faaliyet nakit akışı | 0,14 milyar TL |
 | Yatırım harcaması | 0,02 milyar TL |
 
+## Son dört dönem
+
+| Kalem (milyar TL) | 2026 2. çeyrek | 2026 1. çeyrek | 2025 4. çeyrek | 2025 3. çeyrek |
+| --- | ---: | ---: | ---: | ---: |
+| Hasılat | 2,00 | 1,79 | 2,00 | 1,95 |
+| Brüt kâr | 0,45 | 0,28 | 0,14 | 0,40 |
+| Faaliyet kârı | -0,05 | -0,17 | -0,43 | 0,06 |
+| FAVÖK | 0,04 | -0,09 | -0,34 | 0,15 |
+| Net kâr | -0,14 | -0,07 | -0,31 | -0,07 |
+| Özkaynak | 2,03 | 2,03 | 1,90 | 2,11 |
+| Aktif toplamı | 6,11 | 5,86 | 5,95 | 5,65 |
+| Net borç | 1,37 | 1,41 | 1,31 | 1,94 |
+| Faaliyet nakit akışı | 0,14 | 0,02 | -0,45 | 0,75 |
+| Yatırım harcaması | 0,02 | 0,01 | 0,00 | 0,01 |
+
+*Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
+
 ## Sektör içindeki konum
 
-Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 69 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 67 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %22,5 | %20,9 |
-| Net kâr marjı | -%6,9 | %1,2 |
-| Özkaynak kârlılığı | -%6,8 | %0,3 |
-| Cari oran | 1,38 | 1,32 |
-| Borç / özkaynak | 0,67 | 0,16 |
+| Brüt kâr marjı | %22,5 | %20,7 |
+| Net kâr marjı | -%6,9 | %1,3 |
+| Özkaynak kârlılığı | -%6,8 | %0,4 |
+| Cari oran | 1,38 | 1,31 |
+| Borç / özkaynak | 0,67 | 0,17 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

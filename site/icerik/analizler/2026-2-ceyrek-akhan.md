@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın 1,64 milyar TL'den 3,81 milyar TL'ye yükselmesi brüt kârın 0,29 milyar TL'den 0,45 milyar TL'ye, faaliyet kârının 0,18 milyar TL'den 0,32 milyar TL'ye ve FAVÖK'ün 0,23 milyar TL'den 0,37 milyar TL'ye artmasına paralel olarak gerçekleşti; bu artış net kârın %1,4'lük marjla 0,05 milyar TL'ye çıkmasını sağladı. Faaliyet nakit akışı önceki dönemde –0,22 milyar TL iken 1,60 milyar TL pozitif oldu ve aynı dönemde yatırım harcaması 0,14 milyar TL'den 0,74 milyar TL'ye yükselerek nakit çıkışını artırdı. Cari oran 1,59 ile sektör medyanı 1,36'nın üzerindeyken borç/özkaynak oranı 0,51, medyan 0,26'nın üzerinde seyrediyor; özkaynak kârlılığı %0,9 ise medyan %0,8'dir.
+Hasılatın 1,64 milyar TL'den 3,81 milyar TL'ye yükselmesi brüt kârın 0,29 milyar TL'den 0,45 milyar TL'ye, faaliyet kârının 0,18 milyar TL'den 0,32 milyar TL'ye ve FAVÖK'ün 0,23 milyar TL'den 0,37 milyar TL'ye artmasına paralel olarak gerçekleşti; bu artış net kârın %1,4'lük marjla 0,05 milyar TL'ye çıkmasını sağladı. Faaliyet nakit akışı önceki dönemde –0,22 milyar TL iken 1,60 milyar TL pozitif oldu ve aynı dönemde yatırım harcaması 0,14 milyar TL'den 0,74 milyar TL'ye yükselerek nakit çıkışını artırdı. Cari oran 1,59 ile sektör medyanı 1,36'nın üzerindeyken borç/özkaynak oranı 0,51, medyan 0,26'nın üzerinde seyrediyor; özkaynak kârlılığı %0,9 ise medyan %0,8'dir.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
@@ -47,6 +47,23 @@ Hasılatın 1,64 milyar TL'den 3,81 milyar TL'ye yükselmesi brüt kârın 0
 | Net borç | 2,95 milyar TL |
 | Faaliyet nakit akışı | 1,60 milyar TL |
 | Yatırım harcaması | 0,74 milyar TL |
+
+## Son dört dönem
+
+| Kalem (milyar TL) | 2026 2. çeyrek | 2026 1. çeyrek | 2025 4. çeyrek | 2025 2. çeyrek |
+| --- | ---: | ---: | ---: | ---: |
+| Hasılat | 3,81 | 2,75 | 2,69 | 1,64 |
+| Brüt kâr | 0,45 | 0,37 | 0,15 | 0,29 |
+| Faaliyet kârı | 0,32 | 0,21 | 0,00 | 0,18 |
+| FAVÖK | 0,37 | 0,27 | 0,06 | 0,23 |
+| Net kâr | 0,05 | 0,00 | 0,11 | 0,03 |
+| Özkaynak | 5,81 | 5,30 | 3,83 | — |
+| Aktif toplamı | 12,72 | 10,69 | 9,18 | — |
+| Net borç | 2,95 | 2,77 | 2,91 | — |
+| Faaliyet nakit akışı | 1,60 | -1,21 | -1,96 | -0,22 |
+| Yatırım harcaması | 0,74 | — | 1,16 | 0,14 |
+
+*Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
 
 ## Sektör içindeki konum
 

@@ -44,6 +44,19 @@ Hasılat 0,12 milyar TL'ye yükselirken net kâr -2,33 milyar TL'ye düşmüş, 
 | Net borç | 4,46 milyar TL |
 | Faaliyet nakit akışı | 0,95 milyar TL |
 
+## Son dört dönem
+
+| Kalem (milyar TL) | 2026 1. çeyrek | 2025 4. çeyrek | 2025 3. çeyrek | 2025 2. çeyrek |
+| --- | ---: | ---: | ---: | ---: |
+| Hasılat | 0,07 | 0,04 | 0,34 | 0,10 |
+| Net kâr | 0,06 | -2,39 | 0,31 | 0,00 |
+| Özkaynak | 17,58 | 15,56 | 17,26 | 15,81 |
+| Aktif toplamı | 28,87 | 24,24 | 24,62 | 22,16 |
+| Net borç | 4,46 | 4,05 | 2,62 | 2,22 |
+| Faaliyet nakit akışı | 0,95 | -0,74 | 0,68 | 1,05 |
+
+*Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
+
 ## Sektör içindeki konum
 
 Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 34 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
