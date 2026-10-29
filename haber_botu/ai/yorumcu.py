@@ -46,6 +46,7 @@ import os
 import pathlib
 import re
 import sys
+import time
 
 import httpx
 
@@ -625,9 +626,57 @@ _CF_KOTA_IZ = ("quota", "neuron", "rate limit", "capacity",
                "too many requests", "usage limit")
 
 
+#: Kota kodu alindiginda AYNI modele yapilacak toplam deneme sayisi.
+#:
+#: UC SECILDI: iki bekleme (varsayilan 5 + 15 sn) bir dakikalik
+#: pencerenin icine siginiyor. Daha uzunu, kota GERCEKTEN doluyken
+#: kosu basina odenen bos bekleme demek.
+_CF_KOTA_DENEME = 3
+
+#: Denemeler arasi taban bekleme (saniye). Kaynak `Retry-After`
+#: bildirirse O kullaniliyor; bildirmezse bu dizi.
+_CF_KOTA_BEKLEME = (5, 15)
+
+#: `Retry-After` ne kadar uzun olursa olsun bu kadar bekleniyor.
+#: Kaynak bazen saatlik degerler bildiriyor; kosu onu bekleyemez,
+#: mandal kapanip kalan adaylar atlanmali.
+_CF_BEKLEME_TAVANI = 30
+
+
 def cf_kota_doldu() -> bool:
     """Ucretsiz saglayici bu kosuda kapandi mi."""
     return _CF_KOTA_DOLDU
+
+
+def _cf_bekleme_suresi(e: Exception, deneme: int) -> float:
+    """Bu denemeden once beklenecek saniye.
+
+    KAYNAGIN KENDI SOYLEDIGI ONCE GELIR: `Retry-After` varsa tahmin
+    etmeye gerek yok. Tavan yine de uygulaniyor -- kaynak saatlik bir
+    deger bildirirse kosu onu bekleyemez.
+    """
+    taban = _CF_KOTA_BEKLEME[min(deneme, len(_CF_KOTA_BEKLEME) - 1)]
+    try:
+        ham = e.response.headers.get("Retry-After")       # type: ignore[attr-defined]
+    except Exception:                                     # pragma: no cover
+        ham = None
+    if ham:
+        try:
+            return min(float(ham), _CF_BEKLEME_TAVANI)
+        except (TypeError, ValueError):
+            # Tarih bicimli `Retry-After` da olabiliyor; cozmek yerine
+            # tabana donuluyor. Yanlis cozulmus bir tarih, saatlerce
+            # bekleme ya da hic beklememe demek olurdu.
+            pass
+    return float(min(taban, _CF_BEKLEME_TAVANI))
+
+
+def _cf_kota_bekle(e: Exception, deneme: int) -> None:
+    """Kota kodundan sonra bekler. Sinamalar bunu yamaliyor."""
+    sure = _cf_bekleme_suresi(e, deneme)
+    print(f"    saglayici yavaslatti -- {sure:.0f} sn bekleniyor "
+          f"(deneme {deneme + 2}/{_CF_KOTA_DENEME})")
+    time.sleep(sure)
 
 
 def _cf_kota_kapat(sebep: str) -> None:
@@ -677,27 +726,53 @@ def _cf_cagir(girdi: str, sistem: str = "") -> tuple[str, str]:
         return "", ""
     son_hata: Exception | None = None
     for model in cf_modelleri():
-        try:
-            y = httpx.post(
-                (f"https://api.cloudflare.com/client/v4/accounts/{hesap}"
-                 f"/ai/run/{model}"),
-                headers={"Authorization": f"Bearer {jeton}"},
-                json=_istek_govdesi(model, girdi, sistem),
-                timeout=ZAMAN_ASIMI,
-            )
-            y.raise_for_status()
-            metin = _yaniti_coz(y.json())
-            if metin:
-                return metin, model
-            # Bos yanit hata degil ama kullanilamaz: sonraki modele gec.
-            son_hata = son_hata or RuntimeError(f"{model}: bos yanit")
-        except httpx.HTTPError as e:
-            son_hata = e
-            if _kota_hatasi(e):
+        for deneme in range(_CF_KOTA_DENEME):
+            try:
+                y = httpx.post(
+                    (f"https://api.cloudflare.com/client/v4/accounts/{hesap}"
+                     f"/ai/run/{model}"),
+                    headers={"Authorization": f"Bearer {jeton}"},
+                    json=_istek_govdesi(model, girdi, sistem),
+                    timeout=ZAMAN_ASIMI,
+                )
+                y.raise_for_status()
+                metin = _yaniti_coz(y.json())
+                if metin:
+                    return metin, model
+                # Bos yanit hata degil ama kullanilamaz: sonraki modele gec.
+                son_hata = son_hata or RuntimeError(f"{model}: bos yanit")
+                break
+            except httpx.HTTPError as e:
+                son_hata = e
+                if not _kota_hatasi(e):
+                    break          # baska hata: sonraki modeli dene
+                # 429 IKI AYRI SEY ANLATIYOR: "gunluk kotan bitti" ve
+                # "su an cok hizlisin". Durum kodu ayni, dogru tepki
+                # farkli -- birincisinde beklemek bosuna, ikincisinde
+                # beklemek YETIYOR.
+                #
+                # OLCULDU (2026-10-29): bilanco kosusu 13:22'de ILK
+                # sirkette (AFYON) 429 aldi, mandal kapandi ve 24
+                # sirket "yorum yok" ile atlandi. Ama ayni gun
+                # 19:13'teki haber kosusu 5 yorum uretti, tek bir 429
+                # almadan. Gunluk kota DOLMAMISTI; tek bir anlik red
+                # butun bilanco hattini susturdu.
+                #
+                # Mandal duruyor ve hala gerekli -- kota gercekten
+                # bittiyse 112 sirket icin istek atmak anlamsiz.
+                # Degisen tek sey: mandal artik KANITA dayaniyor.
+                #
+                # BEDEL KOSU BASINA BIR KEZ: ilk aday bekleyip tekrar
+                # dener; kota gercekten doluysa mandal kapanir ve
+                # kalan adaylar ANINDA atlanir.
+                if deneme + 1 < _CF_KOTA_DENEME:
+                    _cf_kota_bekle(e, deneme)
+                    continue       # AYNI modeli yeniden dene
                 # Kota BUTUN modelleri kapsar; ikinciyi denemek bosuna.
                 _cf_kota_kapat(f"HTTP {e.response.status_code}")
                 break
-            continue
+        if _CF_KOTA_DOLDU:
+            break
     if isinstance(son_hata, httpx.HTTPError):
         raise son_hata
     return "", ""

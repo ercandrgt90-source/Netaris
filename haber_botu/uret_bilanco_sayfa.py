@@ -139,7 +139,7 @@ def _degisim(simdi, once) -> float | None:
 
 def govde_kur(kod, unvan, sektor, donem, d, oran, medyan, n, yorum,
               mali_not="", alt_sektor="",
-              once=None) -> str:
+              once=None, seri=None) -> str:
     """Sayfanin govdesi. TABLO deterministik, YORUM modelden."""
     s = []
 
@@ -178,6 +178,44 @@ def govde_kur(kod, unvan, sektor, donem, d, oran, medyan, n, yorum,
         v = getattr(d, ad, None)
         if v is not None:
             s.append(f"| {etiket} | {_mlr(v)} |")
+
+    # SON DORT DONEM -- EGILIM, TEK NOKTA DEGIL.
+    #
+    # Yukaridaki iki bolum "su an ne kadar" ve "gecen yila gore ne
+    # kadar degisti" sorularini cevapliyor. Ikisi de IKI NOKTA, yani
+    # egilim gostermiyor: tek seferlik bir sicrama ile surekli bir
+    # yukselis ayni gorunuyor.
+    #
+    # Dort donem bir TAM yillik dongu: mevsimsel bir isletmede inis
+    # mevsimden mi egilimden mi, ancak boyle ayirt ediliyor.
+    #
+    # EK ISTEK YOK: seri `donem_getir(seri=True)` ile AYNI cekimden
+    # geliyor (olculdu: CIMSA icin 3 HTTP istegi, seri oncesiyle
+    # ayni). Ayri bir cekim 325 sirkette ~975 fazladan istek olurdu.
+    #
+    # IKIDEN AZ DONEMDE BOLUM YAZILMIYOR: tek sutunluk bir "egilim"
+    # tablosu, yukaridaki olcum tablosunu tekrar etmekten baska bir
+    # sey yapmaz ve egilim oldugu izlenimi verir.
+    if seri and len(seri) >= 2:
+        basliklar = [ad for ad, _iso, _dd in seri]
+        s += ["", "## Son dört dönem", "",
+              "| Kalem (milyar TL) | " + " | ".join(basliklar) + " |",
+              "| --- |" + " ---: |" * len(basliklar)]
+        for ad, etiket in KALEMLER:
+            hucre = [getattr(dd, ad, None) for _a, _i, dd in seri]
+            # SATIRIN TAMAMI BOSSA YAZILMIYOR -- tire dizisi, veri
+            # oldugu izlenimi verir.
+            if all(v is None for v in hucre):
+                continue
+            yazi = [bicim.sayi(v / 1e9, 2) if v is not None else "—"
+                    for v in hucre]
+            s.append(f"| {etiket} | " + " | ".join(yazi) + " |")
+        s += ["", "*Dönemler **ardışık** çeyreklerdir ve her biri "
+              "TMS 29 enflasyon muhasebesine göre düzenlenmiş "
+              "tablolardan alınmıştır; aralarındaki fark **reeldir**. "
+              "Yukarıdaki \"bir yıl öncesine göre\" bölümü ise aynı "
+              "dönemi bir yıl öncesiyle kıyaslar — mevsimselliği "
+              "dışarıda bırakmak için.*"]
 
     if oran and not medyan:
         # KIYAS KUMESI YOKSA BOLUM HIC YAZILMIYOR -- BOS SUTUNLA DEGIL.
@@ -420,8 +458,8 @@ def kiyas_kumesi(v: dict, kod: str) -> tuple[dict, int, str, str]:
 def sirket_isle(kod, bilgi, sektor, donem, oran, medyan, n,
                 kuru=False, mali_not="") -> tuple[bool, str]:
     alt_sektor = bilgi.get("alt_sektor") or ""
-    d, once, eksik = bilanco_ag.donem_getir(
-        kod, donem, sektor_tr=sektor, ciftli=True)
+    d, once, eksik, seri = bilanco_ag.donem_getir(
+        kod, donem, sektor_tr=sektor, ciftli=True, seri=True)
     if d is None:
         return False, "eksik: " + ", ".join(eksik[:3])
 
@@ -455,7 +493,7 @@ def sirket_isle(kod, bilgi, sektor, donem, oran, medyan, n,
 
     govde = govde_kur(kod, bilgi["unvan"], sektor, donem, d, oran,
                       medyan, n, metin, mali_not=mali_not,
-                      alt_sektor=alt_sektor, once=once)
+                      alt_sektor=alt_sektor, once=once, seri=seri)
 
     tamam, bulgular = guvenlik.yayinlanabilir(govde)
     if not tamam:

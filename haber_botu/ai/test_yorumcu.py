@@ -470,14 +470,39 @@ try:
 
     _asil_post = _httpx.post
     _httpx.post = _sahte_post
+    # BEKLEME YAMALANIYOR -- SURE DE OLCULUYOR.
+    #
+    # 429 artik ANINDA mandal kapatmiyor: ayni model `_CF_KOTA_DENEME`
+    # kez deneniyor (olculdu 2026-10-29, tek bir ANLIK 429 butun
+    # bilanco kosusunu susturmustu; ayni gun aksam kota acikti).
+    # Gercek `time.sleep` burada 20 saniye bekletirdi; yerine cagrilar
+    # KAYDEDILIYOR, boylece "beklendi mi" de sinanabiliyor.
+    _bekleme = []
+    _asil_bekle = yorumcu._cf_kota_bekle
+    yorumcu._cf_kota_bekle = lambda e, d: _bekleme.append(d)
     try:
         try:
             yorumcu._cf_cagir("girdi", "sistem")
         except Exception:
             pass
         sina("429 kotayi KAPATIYOR", yorumcu.cf_kota_doldu())
+        # ANLIK RED ILE DOLU KOTA AYRILIYOR: ayni model yeniden
+        # deneniyor, denemeler bitince mandal kapaniyor.
+        #
+        # TABAN ELLE YAZILI. Ilk yazim yalnizca
+        # `len(_istek) == _CF_KOTA_DENEME` diyordu ve MUTASYON KACTI:
+        # sabit 1'e cekilince iddia kendiliginden gecti ve kusurun
+        # TA KENDISI (hic yeniden denememek) geri geldi. Bir sinama
+        # beklentisini korudugu sabitten okursa o sabiti korumuyor.
+        sina("en az BIR yeniden deneme var", yorumcu._CF_KOTA_DENEME >= 2)
+        sina("429'da ayni model YENIDEN deneniyor",
+             len(_istek) == yorumcu._CF_KOTA_DENEME)
+        sina("denemeler arasinda BEKLENIYOR",
+             len(_bekleme) == yorumcu._CF_KOTA_DENEME - 1)
         # Iki model var; kota HEPSINI kapsar, ikincisi denenmemeli.
-        sina("kota hatasinda ikinci model DENENMIYOR", len(_istek) == 1)
+        # Olcut: toplam istek deneme sayisini ASMIYOR.
+        sina("kota hatasinda ikinci model DENENMIYOR",
+             len(_istek) <= yorumcu._CF_KOTA_DENEME)
         _once = len(_istek)
         yorumcu._cf_cagir("girdi", "sistem")
         sina("kota kapaliyken HIC istek atilmiyor", len(_istek) == _once)
@@ -489,6 +514,44 @@ try:
              "kota" in _sebep.lower())
     finally:
         _httpx.post = _asil_post
+        yorumcu._cf_kota_bekle = _asil_bekle
+
+    # BEKLEME SURESI -- KAYNAGIN SOYLEDIGI ONCE GELIR.
+    #
+    # `Retry-After` varsa tahmin etmeye gerek yok. Ama TAVAN sart:
+    # kaynak bazen saatlik degerler bildiriyor ve kosu onu
+    # bekleyemez -- mandal kapanip kalan adaylar atlanmali.
+    class _Y:
+        def __init__(self, bas):
+            self.headers = bas
+            self.status_code = 429
+
+    class _E(Exception):
+        def __init__(self, bas):
+            self.response = _Y(bas)
+
+    sina("Retry-After okunuyor",
+         yorumcu._cf_bekleme_suresi(_E({"Retry-After": "7"}), 0) == 7.0)
+    sina("Retry-After TAVANA kirpiliyor",
+         yorumcu._cf_bekleme_suresi(_E({"Retry-After": "3600"}), 0)
+         == yorumcu._CF_BEKLEME_TAVANI)
+    sina("basligi olmayan yanitta taban dizi",
+         yorumcu._cf_bekleme_suresi(_E({}), 0)
+         == float(yorumcu._CF_KOTA_BEKLEME[0]))
+    sina("ikinci denemede dizi ilerliyor",
+         yorumcu._cf_bekleme_suresi(_E({}), 1)
+         == float(yorumcu._CF_KOTA_BEKLEME[1]))
+    # Dizinin sonunu ASAN deneme son degeri kullanmali -- cozme
+    # hatasi vermemeli. `_CF_KOTA_DENEME` buyutulurse bu yol acilir.
+    sina("dizi sonunu asan deneme son degeri aliyor",
+         yorumcu._cf_bekleme_suresi(_E({}), 99)
+         == float(yorumcu._CF_KOTA_BEKLEME[-1]))
+    # TARIH BICIMLI Retry-After cozulmuyor, tabana donuluyor: yanlis
+    # cozulmus bir tarih ya saatlerce bekleme ya hic beklememe demek.
+    sina("tarih bicimli Retry-After tabana donuyor",
+         yorumcu._cf_bekleme_suresi(
+             _E({"Retry-After": "Wed, 21 Oct 2026 07:28:00 GMT"}), 0)
+         == float(yorumcu._CF_KOTA_BEKLEME[0]))
 
     # GECICI HATA KOTA DEGILDIR: 500'de kesici ateslenmemeli, yoksa
     # tek bir gecici ariza butun kosuyu susturur.

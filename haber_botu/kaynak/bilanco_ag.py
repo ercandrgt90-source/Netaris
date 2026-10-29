@@ -246,6 +246,17 @@ _AY_NO = {
 #: Artik tek yerde duruyor ve ikisi de buradan okuyor.
 VARSAYILAN_CEYREK = 1
 
+#: Sayfada gosterilen ardisik donem sayisi (su an dahil).
+#:
+#: DORT SECILDI: bir yillik dongu. Mevsimsel bir isletmede dort
+#: ceyrek bir TAM tur demek, yani egilim mevsimsellikten ayirt
+#: edilebiliyor. Uc ceyrek yarim tur gosterir ve mevsimsel inisi
+#: egilim sanmaya davet eder.
+#:
+#: Kaynak 20 ceyrek donduruyor, yani sinir veri degil OKUNABILIRLIK:
+#: telefon genisliginde yan yana dort sutun sigiyor.
+GERIYE_DONEM = 4
+
 #: Sayfa -> hangi tablo. Bilanco ve gelir tablosu AYRI sayfalarda.
 SAYFALAR = {
     "gelir": "?p=quarterly",
@@ -546,6 +557,39 @@ def ara_donem(kod: str, ceyrek: int = VARSAYILAN_CEYREK,
                                        kaydir=kaydir)) is not None
             }
         cikti.setdefault("_donem", {})[sayfa] = donemler[:ceyrek]
+        # SON DORT DONEM -- AYNI CEKIMDEN, EK ISTEK YOK.
+        #
+        # Sayfa tek donem + bir yil oncesini anlatiyordu. Okurun
+        # sordugu soru ise EGILIM: "son ceyreklerde ne oldu".
+        # Iki nokta egilim gostermez; donus mu, surekli mi, tek
+        # seferlik mi ayirt edilemez.
+        #
+        # Seri zaten TAMAMIYLA elimizde (olculdu: kaynak 20 ceyrek
+        # donduruyor) ve `donem_toplami` kaydirmayi destekliyor.
+        # Ayri bir cekim 325 sirkette ~975 fazladan istek olurdu --
+        # kaynak bizi zaten kisitliyor, bu kabul edilemez.
+        #
+        # ONCEKI YILDAN AYRI: o, mevsimselligi disarida birakmak
+        # icin ayni donemi bir yil oncesiyle kiyasliyor ve kaydirmayi
+        # TARIHTEN buluyor. Bu seri ise ARDISIK donemler; ikisi ayri
+        # soru ve ikisi de sayfada duruyor.
+        for _adim in range(1, GERIYE_DONEM):
+            _k = _adim * ceyrek
+            _g = {ad: d for ad, deg in kalemler.items()
+                  if (d := donem_toplami(deg, ceyrek, akis,
+                                         kaydir=_k)) is not None}
+            if _g:
+                cikti[f"{sayfa}_g{_adim}"] = _g
+        if sayfa == "gelir" and len(tarihler) == len(donemler):
+            # Bitis tarihleri GELIR tablosundan: donem adini kuran
+            # tablo o. Eksikse seri yine uretiliyor, yalnizca
+            # basliklari kaynagin etiketinden aliniyor.
+            cikti["_seri_bitis"] = [
+                tarihler[i * ceyrek] for i in range(GERIYE_DONEM)
+                if i * ceyrek < len(tarihler)]
+            cikti["_seri_etiket"] = [
+                donemler[i * ceyrek] for i in range(GERIYE_DONEM)
+                if i * ceyrek < len(donemler)]
         if not KAPANDI:
             time.sleep(ARA_SN)
     return cikti
@@ -590,15 +634,21 @@ NET_NAKIT_ETIKETI = "Net Cash (Debt)"
 AMORTISMAN_ETIKETI = "Depreciation & Amortization"
 
 
-def donemi_kur(tablolar: dict, onceki: bool = False) -> dict:
+def donemi_kur(tablolar: dict, onceki: bool = False,
+               ek: str = "") -> dict:
     """Cekilen tablolari hattin bekledigi alan adlarina cevirir.
 
     `onceki=True` ise ONCEKI YILIN ayni donemi okunuyor. Ayni
     esleme tablosu kullaniliyor; tek fark hangi anahtardan okundugu.
     Iki ayri cevirici yazmak, birini duzeltip digerini unutmanin
     kestirme yolu olurdu.
+
+    `ek` dogrudan bir anahtar soneki verir ("_g1", "_g2", ...) ve
+    ardisik donem serisi bunun icin var. AYNI gerekce: ucuncu bir
+    cevirici yazmak yerine sonek disaridan geliyor; isaret cevirme,
+    net borc turetme ve amortisman kurallari TEK yerde kaliyor.
     """
-    _ek = "_onceki" if onceki else ""
+    _ek = ek or ("_onceki" if onceki else "")
     cikti: dict[str, float] = {}
     for alan, sayfa, etiket in ESLESME:
         d = (tablolar.get(sayfa + _ek) or {}).get(etiket)
@@ -740,7 +790,8 @@ def yeterli(donem: dict, sektor_tr: str = "") -> tuple[bool, list[str]]:
 
 def donem_getir(kod: str, etiket: str,
                 ceyrek: int = VARSAYILAN_CEYREK,
-                sektor_tr: str = "", istemci=None, ciftli: bool = False):
+                sektor_tr: str = "", istemci=None, ciftli: bool = False,
+                seri: bool = False):
     """Sirketin bir ara donemini `oranlar.Donem` olarak doner.
 
     Yetersiz veride `None` DONER, yarim nesne degil. Cagiran taraf
@@ -760,6 +811,12 @@ def donem_getir(kod: str, etiket: str,
     alanlar = donemi_kur(tablolar)
     tamam, eksik = yeterli(alanlar, sektor_tr)
     if not tamam:
+        # YETERSIZ VERIDE DE BICIM KORUNUYOR: cagiran `seri=True`
+        # istediyse demetin uzunlugu her yolda ayni olmali, yoksa
+        # "eksik" dalinda cozme hatasi verir -- veri eksikligi
+        # cokmeye donusurdu.
+        if seri:
+            return (None, None, eksik, []) if ciftli else (None, eksik, [])
         return (None, None, eksik) if ciftli else (None, eksik)
     simdi = oranlar.Donem(etiket=etiket, **alanlar)
 
@@ -777,6 +834,36 @@ def donem_getir(kod: str, etiket: str,
     # ve yazilmamali: olculmus bir donem, uretildikten sonra
     # degismemeli. Onceki yil bu yuzden AYRI donuyor.
     #
+    # ARDISIK DONEM SERISI -- AYNI CEKIMDEN.
+    #
+    # `seri=True` istenmedikce HESAPLANMIYOR ve DONDURULMUYOR: donus
+    # bicimini degistirmek, seriye ihtiyaci olmayan her cagirani
+    # sessizce bozardi (ayni gerekce `tarih_de` ve `ciftli` icin de
+    # yazili).
+    #
+    # Her ogesi (etiket, bitis_iso, Donem). Eksik kalan adim ATLANIR:
+    # yeni halka acilan sirkette gecmis olmamasi kusur degil, gercek.
+    if seri:
+        dizi: list = []
+        bitisler = tablolar.get("_seri_bitis") or []
+        etiketler = tablolar.get("_seri_etiket") or []
+        for adim in range(GERIYE_DONEM):
+            alan = (alanlar if adim == 0
+                    else donemi_kur(tablolar, ek=f"_g{adim}"))
+            if not alan.get("hasilat") and not alan.get("aktif_toplami"):
+                continue
+            ad = (etiketler[adim] if adim < len(etiketler)
+                  else f"-{adim} dönem")
+            iso = bitisler[adim] if adim < len(bitisler) else ""
+            # ETIKET OKURA GORE YAZILIYOR, KAYNAGIN DILIYLE DEGIL:
+            # "Q1 2027" Ekim 2026'da okuru yanlis yere goturur.
+            # Bitis tarihi varsa ondan turetiliyor.
+            if iso:
+                ad = donem_etiketi(iso, ceyrek)
+            dizi.append((ad, iso, oranlar.Donem(etiket=ad, **alan)))
+        if ciftli:
+            return simdi, once, [], dizi
+        return simdi, [], dizi
     # Cagiranlar bozulmasin diye ucuncu deger yalnizca `ciftli=True`
     # istendiginde veriliyor.
     if ciftli:
