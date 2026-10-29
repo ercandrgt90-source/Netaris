@@ -6241,12 +6241,49 @@ def varlik_sayfalari(ortam, yaz, ortak: dict,
                 seri_kodu = (k or {}).get("seri_kodu")
                 veri = (None if seri_kodu in LISANSSIZ_SERI
                         else _varlik.seri_ozet(b, seri_kodu))
+                # ICERIGI OLMAYAN SAYFA DIZINE GIRMEZ.
+                #
+                # OLCULDU (2026-10-29, canli site): 75 varlik
+                # sayfasinin 20'sinde ne veri serisi ne yayimlanmis
+                # haber vardi. Sayfa yine de `index, follow` basiyor
+                # ve `sitemap.xml`de duruyordu. En zayifi
+                # `/varlik/powell/`: 558 gorunur karakter, tek
+                # yapisal iliski, "Bu konuda henuz yayimlanmis haber
+                # yok".
+                #
+                # Sayfanin KENDI vaadi "Veri arsivi" ve "Gelismeler".
+                # Ikisi de bossa sayfa vaat ettigi seyi veremiyor --
+                # okur icin de, arama sonucu icin de.
+                #
+                # OLCUT KARAKTER SAYISI DEGIL, DUZENEK: seri YOK ve
+                # yayimlanan haber YOK. Karakter esigi secmek,
+                # dagilimlar cakistigi icin yalnizca hangi hatayi
+                # yapacagimizi secmek olurdu (kisa ama dolu bir
+                # sayfayi atmak ya da uzun ama bos birini tutmak).
+                # Bu olcut ikisini de kacirmaz.
+                #
+                # SAYFA SILINMIYOR ve adres kirilmiyor: yapisal
+                # iliskiler BIZIM icerigimiz ve baska sayfalardan
+                # buraya baglanti var -- hedefi olmayan bag 404
+                # verirdi (ayni hata yukarida bir kez yasandi).
+                # `noindex, follow`: taraniyor, baglantilari
+                # izleniyor, yalnizca dizine alinmiyor.
+                #
+                # SITE HARITASI KENDILIGINDEN DUZELIYOR: `haritaya
+                # girer` karari sayfanin kendi `noindex` etiketine
+                # bakiyor, ayri bir listeye degil.
+                #
+                # `veri` ZATEN LISANS SUZGECINDEN GECMIS: lisansi
+                # bizde olmayan seri None geliyor, yani /varlik/vix/
+                # gibi sayfalar dogru tarafta -- seriyi
+                # yayimlamadigimiz icin okura gosterecek verimiz yok.
+                _bos = (n == 0 and not veri)
                 yaz(f"{v['yol']}index.html",
                     ortam.get_template("varlik.html").render(
                         **ortak, yol=v["yol"], v=v, kunye=k, veri=veri,
                         kivilcim=(kivilcim.cizgi(veri["seri"])
                                   if veri else ""),
-                        baglar=_baglar,
+                        baglar=_baglar, arama_disi=_bos,
                         haberler=_gecmis))
                 # Varlik sayfasi, o varliga yeni haber baglandikca
                 # degisiyor. `varlik_gecmisi` yeniden eskiye sirali.

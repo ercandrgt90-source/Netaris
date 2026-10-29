@@ -170,6 +170,85 @@ DURUMLAR += (
     ("SEC'in Atkins'i: kripto yasası olsun veya olmasın", ("SEC",), ()),
 )
 
+DURUMLAR += (
+    # === KURESEL VARLIKLAR ===========================================
+    #
+    # Bu 13 varlik grafta duruyordu ama KALIPSIZDI: hicbiri hicbir
+    # habere baglanmiyordu ve sayfalari "Arsivde 0 haber" diyordu.
+    # Kaliplar 28.044 gercek baslikta olculerek secildi; asagidaki
+    # NEGATIF durumlar o olcumde ELENEN adaylarin ta kendisi.
+
+    # --- NIKKEI: gazete mi, endeks mi ---
+    # "nikkei" kalibi 50 baslik yakaliyordu ve cogu Nikkei GAZETESI.
+    ("Nikkei: Sony Group, TSMC yeni nesil sensörleri üretecek",
+     (), ("NIKKEI",)),
+    ("Nikkei, Sony'nin Kumamoto tesisine yatırımını yazdı",
+     (), ("NIKKEI",)),
+    ("Nikkei 225 endeksi günü yükselişle kapattı", ("NIKKEI",), ()),
+
+    # --- EA_TUFE: euro bolgesi mi, uye ulke mi ---
+    # " hicp " 12 baslik yakaliyordu, HEPSI uye ulke verisiydi.
+    ("İspanyolca HICP Finali (aylık): %0,00", (), ("EA_TUFE",)),
+    ("Fransız HICP Finali (aylık): %0,60", (), ("EA_TUFE",)),
+    ("İtalyan HICP Ön Hazırlık (yıllık): %3,20", (), ("EA_TUFE",)),
+    ("Euro Bölgesi TÜFE Finali (yıllık): %2,90", ("EA_TUFE", "EA"), ()),
+
+    # --- USDJPY / GBPUSD: VIRGUL BOSLUGA CEVRILIYOR ---
+    # "usd jpy" ve "gbp usd" kaliplari para birimi LISTESINI
+    # karsiliyordu. USDJPY bu yuzden `KALIPSIZ_SERBEST` icinde.
+    ("Döviz Gücü Grafiği: En Güçlü: AUD, NZD, EUR, USD, JPY, CHF, GBP",
+     (), ("USDJPY", "GBPUSD")),
+    ("Döviz Gücü Grafiği: En Güçlü: GBP, USD, AUD, CAD, NZD, JPY",
+     (), ("USDJPY", "GBPUSD")),
+    # --- ama sterlin haberi GBPUSD'ye baglanmali ---
+    ("Sterlin dolara karşı toparlanma arayışında", ("GBPUSD",), ()),
+
+    # --- CN_BUYUME: "iCIN BUYUMEyi" alt dize tuzagi ---
+    # Bastaki bosluk olmadan " iran "/"haziranin" hatasinin aynisi:
+    # kalip 8 baslik yakaliyordu, HEPSI yanlis.
+    ("Esnek politika kararları için büyümeyi ve enflasyonu izliyor",
+     (), ("CN_BUYUME",)),
+    ("Avrupa İmar Bankası Türkiye için büyüme tahminini değiştirdi",
+     (), ("CN_BUYUME",)),
+    # --- ama gercek Cin buyume haberi eslesmeli ---
+    ("Çin büyümede beklentiyi aştı: Konutta düşüş sürüyor",
+     ("CN_BUYUME", "CN"), ()),
+
+    # --- BOE_FAIZ / BOJ_FAIZ: LIKIDITE OPERASYONU FAIZ DEGIL ---
+    # " boe " (303) ve " boj " (357) kaliplari elendi: repo ve ILTR
+    # operasyonu haberlerini bir FAIZ dugumune baglamak,
+    # politika_faizi.py'nin belgeledigi yanlis-buyukluk hatasi.
+    ("Bankalar, BoE kısa vadeli repo operasyonunda 126,1 milyar £ borç "
+     "alıyor", (), ("BOE_FAIZ",)),
+    ("BoE: Altı aylık ILTR operasyonunda tahsis edilen 2,80 milyar £",
+     (), ("BOE_FAIZ",)),
+    # --- ama faiz haberi eslesmeli ---
+    ("Yatırımcılar BoE faiz artırımı bahislerini artırıyor",
+     ("BOE_FAIZ",), ()),
+    ("İngiltere Merkez Bankası faizi sabit tuttu", ("BOE_FAIZ",), ()),
+    ("BOJ faizleri 31 yılın en yüksek seviyesine çıkarttı",
+     ("BOJ_FAIZ",), ()),
+
+    # --- ECB ile ECB_FAIZ AYRI (FED/FED_FAIZ ayriminin aynisi) ---
+    # Kurum dugumu genis kalip tasir, faiz dugumu dar. "ECB
+    # toplantisi" haberi faiz arsivine DUSMEMELI.
+    ("ECB'den Kazaks: ECB faizler konusunda rahat bir durumda",
+     ("ECB", "ECB_FAIZ"), ()),
+    ("ECB yıllık raporunu yayımladı", ("ECB",), ("ECB_FAIZ",)),
+
+    # --- DE10Y ve JGB ---
+    ("Alman 10 Yıl Bund Verimi: %3,26", ("DE10Y",), ()),
+    ("Alman tahvil faizleri en yüksek seviyede", ("DE10Y",), ()),
+    ("BoJ's Himino: JGB piyasalarında bozulma görmüyorum",
+     ("JGB",), ()),
+
+    # --- FTSE 100 ile FTSE Russell AYRI SEY ---
+    # " ftse " kalibi endeks SAGLAYICISINI da yakaliyordu.
+    ("FTSE Russell 24 Türk şirketini endekslerinden çıkardı",
+     (), ("FTSE",)),
+    ("HSBC, 2026 yıl sonu FTSE 100 hedefini yükseltti", ("FTSE",), ()),
+)
+
 
 def main() -> int:
     b = _bellek_depo()
@@ -189,6 +268,45 @@ def main() -> int:
     olu = varlik.olu_kaliplar()
     if olu:
         print(f"HATA normallestirmeden gecmeyen kalip: {', '.join(olu)}")
+        hata += 1
+
+    # KALIPSIZ VARLIK = SESSIZ BOSLUK.
+    #
+    # `dogrula()` ters yonu tutuyordu (kalip var, varlik yok). BU YON
+    # TUTULMUYORDU ve olculen sonuc su (2026-10-29): grafa 13 kuresel
+    # varlik eklenmis, yapisal iliskileri yazilmis, kalip
+    # yazilmamisti. ECB_FAIZ'i 495 baslik aniyordu, bagli haber
+    # sayisi SIFIRDI. 13 varlik sayfasi "Arsivde 0 haber" diyordu.
+    #
+    # Kalipsiz varlik yanlis baglanmaz, HIC baglanir -- bu yuzden
+    # hicbir hata firlamiyor. Istisna `KALIPSIZ_SERBEST` icinde
+    # gerekcesiyle yazilir.
+    kalipsiz = varlik.kalipsiz_varliklar()
+    if kalipsiz:
+        print(f"HATA grafta duran kalipsiz varlik: {', '.join(kalipsiz)}")
+        print("  kalip yaz ya da KALIPSIZ_SERBEST'e gerekcesiyle ekle")
+        hata += 1
+
+    # ISTISNA KUMESI BURADA ELLE YAZILI -- VE SEBEBI OLCULDU.
+    #
+    # Yukaridaki denetim tek basina KACIS KAPISI tasiyor: bir varligi
+    # `KALIPSIZ_SERBEST`e eklemek denetimi SUSTURUYOR. Mutasyonla
+    # olculdu (2026-10-29): DAX'a uydurma bir gerekce yazildiginda
+    # butun sinamalar YESIL dondu.
+    #
+    # Kume MODULDEN OKUNMUYOR, elle yazili. Okumak hareketli hedef
+    # olurdu: korudugu koddan beklentisini alan sinama, kendi
+    # mutasyonunu gecer. Elle yazim, istisna eklemeyi bilincli bir
+    # harekete ceviriyor -- sinama da guncellenmek zorunda kaliyor.
+    BEKLENEN_KALIPSIZ = {"USDJPY"}
+    serbest = set(varlik.KALIPSIZ_SERBEST)
+    if serbest != BEKLENEN_KALIPSIZ:
+        yeni = ", ".join(sorted(serbest - BEKLENEN_KALIPSIZ)) or "-"
+        giden = ", ".join(sorted(BEKLENEN_KALIPSIZ - serbest)) or "-"
+        print("HATA KALIPSIZ_SERBEST degismis "
+              f"(eklenen: {yeni}; cikan: {giden})")
+        print("  her istisna OLCULMUS bir gerekce ister; "
+              "sinamadaki kume de guncellenmeli")
         hata += 1
 
     for durum in DURUMLAR:

@@ -82,6 +82,49 @@ PANEL_SERILERI = (
     "DTWEXBGS",
 )
 
+#: YALNIZCA DEPOYA yazilan seriler -- panele ve seride GIRMEZ.
+#:
+#: NEDEN AYRI LISTE
+#: ----------------
+#: Bu seriler `/varlik/` sayfalarindaki grafigi besliyor, piyasa
+#: ozetini DEGIL. Panele koymak iki ayri sorun uretirdi:
+#:
+#:   1. Panel GUNLUK degisim hesapliyor (`_bicimle`). Aylik bir
+#:      seriyi oraya koymak, bir ayi "gunluk degisim" diye yazdirir --
+#:      sayi dogru, etiketi yanlis.
+#:   2. Panel secilmis 13 kalemlik bir ozet; genisletmek okunurlugunu
+#:      dusurur ve ana sayfadaki DOM yukunu artirir.
+#:
+#: OLCULDU (2026-10-29): grafta 13 kuresel varlik `seri_kodu` TASIMIYOR
+#: ve sayfalarinda ne grafik ne haber vardi. Bu ikisi dogrulandi:
+#:
+#:     ECB_FAIZ  ECBDFR               gunluk   son 2026-10-28
+#:     EA_TUFE   CP0000EZ19M086NEST   aylik    son 2026-09-01
+#:
+#: DIGERLERI BILINCLI OLARAK YOK -- hepsi olculdu:
+#:
+#:   BOJ_FAIZ, BOE_FAIZ  FRED'in IRSTCI01* serileri "politika faizi"
+#:                       DEGIL, gecelik bankalar arasi faiz. Adini
+#:                       politika faizi yazmak `politika_faizi.py`de
+#:                       belgelenen hatanin aynisi olurdu.
+#:   CN_BUYUME           CHNGDPNQDSMEI'nin son gozlemi 2023-07-01;
+#:                       uc yil bayat seri yayimlanmaz.
+#:   DE10Y               FRED yalnizca OECD kaynakli AYLIK seri
+#:                       veriyor. Bundesbank'in kendi ucu GUNLUK ve
+#:                       calisiyor (olculdu: 10.681 gozlem, son
+#:                       2026-10-28) -- birincil kaynak oldugu icin
+#:                       dogru yol o, ama kendi modulunu istiyor.
+#:   JGB                 Japonya MoF'un CSV ucu 404 donuyor; baska
+#:                       dogrulanmis ucretsiz kaynak bulunamadi.
+#:   DAX, NIKKEI,        Hisse endeksi verisi LISANSLI. SP500 ve
+#:   FTSE, STOXX         VIXCLS ayni sebeple cikarildi; ayni kurali
+#:                       delmek icin sebep yok.
+#:   USDJPY, GBPUSD      ECB capraz kurundan hesaplanabilir
+#:                       (olculdu 2026-10-28: USD/JPY 157,96,
+#:                       GBP/USD 1,3288) ama `ecb_kur` tek para
+#:                       birimi yaziyor; capraz kur kendi isi.
+DEPO_SERILERI = ("ECBDFR", "CP0000EZ19M086NEST")
+
 #: LISANSI BIZDE OLMAYAN SERILER -- yayindan cikarildi.
 #:
 #: Liste kod icinde duruyor ki "neden yok" sorusunun cevabi kaybolmasin
@@ -481,8 +524,25 @@ def main() -> int:
     # Depoya butun gozlemleri yaz -- panel yalnizca SON degeri gosterir,
     # depo GECMISI biriktirir. Zamanla kendi zaman serimiz olusur ve
     # FRED'e gitmeden "gecen ay Brent kacti" sorulabilir.
+    # DEPOYA OZEL SERILER -- panele girmedikleri icin `derin_seriler`
+    # yerine ayri bir sozlukte tutuluyor. `panel_gorunum` yukarida
+    # zaten hesaplandi; buraya karismiyorlar.
+    print("")
+    print("varlik sayfasi serileri (panele girmez)")
+    depo_seriler: dict = {}
+    for kod in DEPO_SERILERI:
+        try:
+            depo_seriler[kod] = makro.fred(kod, son_n=DEPO_PENCERE)
+            s = depo_seriler[kod]
+            print(f"  {kod:<22} {len(s.gozlemler):>3} gozlem,"
+                  f" son {s.son.tarih}")
+        except Exception as e:
+            depo_seriler[kod] = None
+            print(f"  {kod:<22} CEKILEMEDI: {type(e).__name__}")
+
     gozlemler = []
-    for kod, seri in derin_seriler.items():
+    for kod, seri in list(derin_seriler.items()) + list(
+            depo_seriler.items()):
         if seri is None:
             continue
         for g in seri.gozlemler:

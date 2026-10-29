@@ -41,6 +41,28 @@ def main() -> int:
         print("HATA: normallestirmeden gecmeyen kaliplar:", ", ".join(olu))
         return 1
 
+    # UCUNCU YON: GRAFTA DURAN AMA KALIBI OLMAYAN VARLIK.
+    #
+    # Yukaridaki iki denetim kalip tarafina bakiyor. Varlik tarafi
+    # denetlenmiyordu ve olculen sonuc su (2026-10-29): grafa 13
+    # kuresel varlik eklenmis, yapisal iliskileri yazilmis, KALIP
+    # YAZILMAMISTI. On ucu de hicbir habere baglanmadi ve sayfalari
+    # "Arsivde 0 haber" dedi.
+    #
+    # Kalipsiz varlik yanlis baglanmaz, HIC baglanir -- hicbir hata
+    # firlamaz. Kusur ancak canli sayfa elle incelenince goruldu.
+    # Bu kapi o incelemeyi kalici hale getiriyor: indeks eksik
+    # yazilmadan once duruyoruz.
+    #
+    # Istisnalar `varlik.KALIPSIZ_SERBEST` icinde gerekcesiyle
+    # yazili; `test_varlik.py` o kumeyi ayrica elle tutuyor, yani
+    # istisna eklemek sinamayi da guncellemeyi gerektiriyor.
+    kalipsiz = varlik.kalipsiz_varliklar()
+    if kalipsiz:
+        print("HATA: grafta duran kalipsiz varlik:", ", ".join(kalipsiz))
+        print("  kalip yaz ya da KALIPSIZ_SERBEST'e gerekcesiyle ekle")
+        return 1
+
     with beyin.baglan() as b:
         # Graf ONCE tohumlaniyor: yeni bir varlik eklendiginde kalibi de
         # ayni turda ekleniyor, ama depoya yazilmamis bir koda bag

@@ -251,6 +251,80 @@ KALIPLAR: dict[str, tuple[str, ...]] = {
     # " iran " bosluklu OLMAK ZORUNDA: "haziranin" icinde eslesiyordu ve
     # her haziran tarihli Turkce haber Iran'a baglaniyordu.
     "IR": (" iran ", " tahran "),
+
+    # === KURESEL VARLIKLAR ===========================================
+    #
+    # NEDEN SONRADAN EKLENDI
+    # ----------------------
+    # Bu 13 varlik grafa "KURESEL PIYASALAR" blogunda dugum olarak
+    # eklendi (bkz. graf_tohum.py), yapisal iliskileri de yazildi --
+    # ama KALIP YAZILMADI. On ucunun BAGLI HABER SAYISI SIFIRDI ve
+    # sayfalari "Arsivde 0 haber" diyordu. Hicbir hata firlamiyordu:
+    # kalipsiz bir varlik yanlis baglanmaz -- HIC baglanmaz.
+    #
+    # NIHAI KALIPLARIN DERLEMDEKI ERISIMI (28.044 baslik, 2026-10-29):
+    #
+    #     JGB        21     FTSE        3
+    #     DE10Y      19     STOXX       2
+    #     BOJ_FAIZ   13     GBPUSD      2
+    #     EA_TUFE    13     DAX         0
+    #     BOE_FAIZ    9     NIKKEI      0
+    #     CN_BUYUME   6
+    #     ECB_FAIZ    5
+    #
+    # BU SAYILAR SAYFAYI DOLDURMUYOR -- ve olculdu: yayimlanan 1.133
+    # haberde yalnizca 3 yeni bag olusuyor. Sitenin yayimladigi oran
+    # %4 ve yayimlanan secki Turkiye/ABD agirlikli; eslesen basliklarin
+    # neredeyse tamami yayimlanmayan 27 bin haberin icinde.
+    #
+    # YANI BU YAMA SESSIZ BOSLUGU KAPATIR, SAYFAYI DOLDURMAZ. Ikisi
+    # ayri is: sayfanin bugun tasidigi icerik VERI SERISINDEN geliyor
+    # (bkz. graf_tohum `seri_kodu`), haber arsivi zamanla birikiyor.
+    #
+    # Olcum tuzagi, kayda gecsin: ilk sayimda ECB_FAIZ icin "495
+    # metinde gecen" yazilmisti. O sayi " ecb " kalibina, yani KURUM
+    # dugumune aitti; faiz dugumunun erisimi 5. Bir varligin
+    # ANAHTAR KELIMESINI saymak, o varlikla eslesmeyi saymak DEGIL.
+    #
+    # KALIPLAR OLCULEREK SECILDI
+    # --------------------------
+    # Her aday 28.044 gercek baslikta denendi ve ucu ELENDI:
+    #
+    #   "nikkei"    50 eslesme, cogu NIKKEI GAZETESI ("Nikkei: Sony
+    #               Group, TSMC...") -- endeks degil. "nikkei 225".
+    #   " hicp "    12 eslesme, hepsi ISPANYA/FRANSA/ITALYA HICP'si --
+    #               euro bolgesi toplami degil.
+    #   "usd jpy"    4 eslesme, hepsi "Doviz Gucu Grafigi: USD, JPY,
+    #   "gbp usd"    9 CHF..." -- VIRGUL BOSLUGA cevrildigi icin
+    #               para birimi LISTESI kalibi karsiliyor.
+    #   "cin buyume" 8 eslesme, hepsi "iCIN BUYUMEyi" icinde --
+    #               " iran "/"haziranin" tuzaginin aynisi. Bastaki
+    #               bosluk cozuyor.
+    #
+    # " boe " (303) ve " boj " (357) de ELENDI: cogu likidite
+    # operasyonu haberi ("BoE kisa vadeli repo operasyonunda 126,1
+    # milyar sterlin"). Bunlari bir FAIZ dugumune baglamak,
+    # politika_faizi.py'nin belgeledigi yanlis-buyukluk hatasi olurdu
+    # -- sayi dogru gorunur, anlami yanlistir. Kaliplar faize OZGU
+    # tutuldu.
+    #
+    # ECB_FAIZ ve ECB AYRI: FED/FED_FAIZ ayriminin aynisi. Kurum
+    # dugumu genis kalip tasir, faiz dugumu dar.
+    "ECB_FAIZ": ("ecb faiz", "ecb nin faiz", "mevduat kolayligi"),
+    "BOE_FAIZ": ("boe faiz", "ingiltere merkez bankasi faiz"),
+    "BOJ_FAIZ": ("boj faiz", "japonya merkez bankasi faiz"),
+    "DE10Y": ("alman tahvil", " bund ", "alman 10 yillik"),
+    "JGB": (" jgb ", "japon tahvil", "japonya devlet tahvil"),
+    "EA_TUFE": ("euro bolgesi tufe", "euro bolgesi enflasyon"),
+    # DAX ve NIKKEI simdilik SIFIR eslesme veriyor. Kalip yine de
+    # yaziliyor: dogru kalibin sifir eslesmesi DURUSTTUR, kalibin hic
+    # olmamasi ise sessiz bir bosluk. Haber geldigi gun baglanir.
+    "DAX": (" dax ",),
+    "NIKKEI": ("nikkei 225",),
+    "FTSE": ("ftse 100",),
+    "STOXX": ("stoxx",),
+    "GBPUSD": ("sterlin dolar", "ingiliz sterlini"),
+    "CN_BUYUME": (" cin buyume", " cin ekonomisi"),
 }
 
 #: Duyuruyu YAYIMLAYAN kurum da bir varliktir.
@@ -340,6 +414,56 @@ def dogrula() -> list[str]:
         return []
     kodlar = {v[0] for v in _G}
     return sorted(k for k in KALIPLAR if k not in kodlar)
+
+
+#: KALIPSIZ KALMASI BILINCLI OLAN VARLIKLAR -- ve NEDENI.
+#:
+#: Liste kod icinde duruyor ki "neden kalip yok" sorusunun cevabi
+#: kaybolmasin; `LISANSSIZ_SERILER` ile ayni yaklasim.
+KALIPSIZ_SERBEST = {
+    # Olculdu (2026-10-29, 28.044 baslik): guvenilir kalip YOK.
+    # Denenen ve elenen adaylar:
+    #
+    #   "usd jpy"            4 eslesme, hepsi "Doviz Gucu Grafigi:
+    #                        USD, JPY, CHF..." -- virgul bosluga
+    #                        cevrildigi icin para birimi LISTESI
+    #                        eslesiyor, parite haberi degil.
+    #   "dolar yen"          1 eslesme, "Dolar YENIden yukseliste"
+    #                        icinde -- alt dize tuzagi.
+    #   "dolar yen paritesi" 0
+    #   " yen karsisinda"    0
+    #   "yen paritesi"       0
+    #
+    # Yanlis baglanan bir arsiv, bos bir arsivden KOTUDUR: okur
+    # tikliyor ve ilgisiz haber buluyor. Dogru kalip bulunana kadar
+    # bu dugum yalnizca yapisal iliskilerle duruyor.
+    "USDJPY": "guvenilir kalip olculemedi -- virgul listesi ve "
+              "'dolar YENIden' alt dize tuzagi",
+}
+
+
+def kalipsiz_varliklar() -> list[str]:
+    """Grafta DURAN ama hicbir kalibi OLMAYAN varliklar.
+
+    `dogrula()` ters yonu tutuyor (kalip var, varlik yok). BU YON
+    TUTULMUYORDU ve olculen sonuc su oldu (2026-10-29): grafa 13
+    kuresel varlik eklenmis, iliskileri yazilmis, ama kalip
+    yazilmamis. Hicbiri hicbir habere baglanmadi; 13 varlik sayfasi
+    "Arsivde 0 haber" diyordu.
+
+    Kalipsiz varlik HATA FIRLATMAZ -- yanlis baglanmaz, HIC baglanir.
+    Bu yuzden sessiz kaliyor ve ancak canli sayfa elle incelendiginde
+    goruluyor. Denetim o incelemeyi kalici hale getiriyor.
+
+    `KALIPSIZ_SERBEST` icindekiler dusurulur: bilincli ve gerekcesi
+    yazili istisnalar.
+    """
+    try:
+        from graf_tohum import VARLIKLAR as _G
+    except ImportError:
+        return []
+    return sorted(v[0] for v in _G
+                  if v[0] not in KALIPLAR and v[0] not in KALIPSIZ_SERBEST)
 
 
 def olu_kaliplar() -> list[str]:

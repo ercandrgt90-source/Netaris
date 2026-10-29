@@ -123,6 +123,17 @@ FRED_SERILER = {
     "DCOILWTICO": ("WTI petrol", "USD/varil"),
     # Enflasyon
     "CPIAUCSL": ("ABD TÜFE (endeks)", "endeks"),
+    # --- Euro Bolgesi: VARLIK SAYFALARI ICIN, PANELE GIRMEZ ---
+    #
+    # Ikisi de `makro_uret_ucretsiz.DEPO_SERILERI` uzerinden yalnizca
+    # DEPOYA yaziliyor; gerekcesi orada yazili.
+    #
+    # LISANS: ECBDFR'nin kaynagi ECB'nin KENDISI, CP0000EZ19M086NEST'in
+    # kaynagi Eurostat. Ikisi de kamu kurumu verisi ve yeniden
+    # yayimlanmasinda kisitlama yok -- SP500/VIXCLS'ten ayrildiklari
+    # nokta tam bu (bkz. `LISANSSIZ_SERILER`).
+    "ECBDFR": ("ECB mevduat faizi", "%"),
+    "CP0000EZ19M086NEST": ("Euro Bölgesi TÜFE (endeks)", "endeks"),
 }
 
 #: Ana sayfadaki piyasa ozeti panelinde gruplama.

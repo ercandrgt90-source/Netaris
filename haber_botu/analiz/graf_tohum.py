@@ -239,7 +239,7 @@ VARLIKLAR: tuple[tuple, ...] = (
     # dar bir mercekten anlatmak demekti.
     #
     # --- Euro Bolgesi ---
-    ("ECB_FAIZ", "oran", "ECB mevduat faizi", "ECB deposit rate", None, 95,
+    ("ECB_FAIZ", "oran", "ECB mevduat faizi", "ECB deposit rate", "ECBDFR", 95,
      "Euro Bölgesi para politikasının çıpası."),
     ("DAX", "endeks", "DAX", "DAX", None, 85,
      "Almanya'nın en büyük 40 şirketini içeren endeks; Avrupa sanayi "
@@ -251,7 +251,11 @@ VARLIKLAR: tuple[tuple, ...] = (
     # EURUSD BURADA TANIMLI DEGIL: yukarida "piyasa" turuyle zaten
     # var. Ikinci kez eklemek `varlik.kod` benzersizlik kisitini
     # dusuruyordu ve `test_varlik.py` bunu yakaladi.
-    ("EA_TUFE", "gosterge", "Euro Bölgesi TÜFE", "Euro area HICP", None, 90, ""),
+    # SERI BAGLANDI: Eurostat HICP endeksi, aylik. Panele
+    # girmiyor, yalnizca depoya yaziliyor --
+    # `makro_uret_ucretsiz.DEPO_SERILERI` gerekcesi tasiyor.
+    ("EA_TUFE", "gosterge", "Euro Bölgesi TÜFE", "Euro area HICP",
+     "CP0000EZ19M086NEST", 90, ""),
 
     # --- Japonya ---
     ("BOJ_FAIZ", "oran", "BoJ politika faizi", "BoJ policy rate", None, 85, ""),
