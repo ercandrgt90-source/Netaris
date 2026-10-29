@@ -78,6 +78,34 @@ YOL_IZI = ('"cikti"', 'CIKTI')
 #: Ayni korluk bu depoda uc kez yasandi; bkz. dosya basligi.
 ICERIK_IZI = ('"icerik"', "'icerik'")
 
+#: URETIM SIRASINDA YAZILAN UCUNCU ESER: `haber_botu/netaris.db`.
+#:
+#: `site/cikti` HTML'i, `site/icerik` markdown'i, DEPO ise gostergeleri
+#: ve varlik baglarini tutuyor -- ve ucu de AYNI KOSUDA uretiliyor.
+#: Depoya bakan bir sinama uretimden ONCE kostugunda o kosunun
+#: yazdigi veriyi degil DEPODAKI ESKI HALI denetliyor.
+#:
+#: OLCULDU (2026-10-29): `test_varlik_seri_bagi.py` tam bu yuzden
+#: kosuyu KIRDI. Grafa uc yeni `seri_kodu` baglandi (ECBDFR,
+#: CP0000EZ19M086NEST, BBK_DE10Y); serileri hat cekiyor ama sinama
+#: hattan ONCE kosup "depoda karsiligi yok" diyerek dagitimi
+#: durdurdu. Yani kilit: seriyi uretecek adim, kendisini denetleyen
+#: kapinin ARKASINDA kaliyordu.
+#:
+#: Ayni ders bu depoda UCUNCU kez uygulaniyor (cikti, icerik, depo).
+DEPO_IZI = ("netaris.db",)
+
+#: URETIM SONRASI KOSUYORUZ -- cocuk sinamalara boyle bildiriliyor.
+#:
+#: Bazi iddialar yalnizca uretimden SONRA anlamli: "graftaki her
+#: seri_kodu depoda karsilik buluyor" gibi. Ayni iddia uretimden once
+#: kosarsa yeni eklenmis bir seriyi kusur sayar.
+#:
+#: Bayrak BURADA kuruluyor cunku asamayi BILEN tek yer bu dosya.
+#: Sinamanin kendisi "uretim oldu mu" diye tahmin etmeye calisirsa
+#: (dosya tarihine bakmak gibi) kirilgan olur.
+ASAMA_DEGISKENI = "NETARIS_URETIM_SONRASI"
+
 
 def ciktiya_bakan() -> list:
     """Kaynaginda cikti dizini YOLUNA deginen sinamalar.
@@ -106,7 +134,7 @@ def ciktiya_bakan() -> list:
                 k = p.read_text(encoding="utf-8", errors="replace")
             except OSError:
                 continue
-            if any(x in k for x in YOL_IZI + ICERIK_IZI):
+            if any(x in k for x in YOL_IZI + ICERIK_IZI + DEPO_IZI):
                 bulunan.append(p)
     return bulunan
 
@@ -122,7 +150,8 @@ def main() -> int:
     sinamalar = ciktiya_bakan()
     print(f"Ciktiya bakan sinama: {len(sinamalar)}")
     # TABAN 35: olculen gercek bagimli sinama sayisi 43, secilen 51
-    # (2026-10-14'te icerik izi eklenince 55).
+    # (2026-10-14'te icerik izi eklenince 55; 2026-10-29'da depo
+    # izi eklenince 67).
     # Esik bu degerlerin ALTINA, ama anlamli bir dususu yakalayacak
     # kadar yakina kondu -- tarama bozulursa (yol degisir, dizin
     # tasinir) sayi bir anda duser ve bu kirmizi yanar. Esigi 10'da
@@ -135,9 +164,11 @@ def main() -> int:
     bas = time.time()
 
     def kostur(p):
-        s = subprocess.run([sys.executable, "-B", str(p)],
-                           capture_output=True, text=True,
-                           encoding="utf-8", errors="replace", cwd=str(KOK))
+        s = subprocess.run(
+            [sys.executable, "-B", str(p)],
+            capture_output=True, text=True,
+            encoding="utf-8", errors="replace", cwd=str(KOK),
+            env={**os.environ, ASAMA_DEGISKENI: "1"})
         return p, s.returncode, (s.stdout or "") + (s.stderr or "")
 
     # PARALEL -- OLCUT GENIS TUTULABILSIN DIYE.

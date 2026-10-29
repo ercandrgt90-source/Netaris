@@ -40,12 +40,19 @@ NE SINANIYOR
 
 from __future__ import annotations
 
+import os
 import pathlib
 import sqlite3
 import sys
 
 _KOK = pathlib.Path(__file__).resolve().parent.parent
-sys.path[:0] = [str(_KOK / "haber_botu"), str(_KOK / "haber_botu" / "analiz")]
+# `kaynak` DA LISTEDE: seri kodlarini CEKEN moduller orada
+# (makro, ecb_kur, bundesbank, evds, politika_faizi).
+# Eksikligi olculdu: `_cekilebilir()` SIFIR kod okudu ve
+# atillik kapisi bunu yakaladi.
+sys.path[:0] = [str(_KOK / "haber_botu"),
+                str(_KOK / "haber_botu" / "analiz"),
+                str(_KOK / "haber_botu" / "kaynak")]
 
 import graf_tohum  # noqa: E402
 
@@ -77,7 +84,14 @@ BAGLI_OLMALI = {
 #:
 #: Bunlar icin depoda hicbir seri yok. Uydurma bir bag kurmak, sayfada
 #: ILGISIZ bir sayi gostermek olurdu; bos birakmak dogru olan.
-SERISIZ = {"EA_TUFE", "CN_BUYUME", "DIS_TICARET_TR", "CDS_TR"}
+# EA_TUFE CIKARILDI (2026-10-29): Eurostat HICP endeksine
+# baglandi (CP0000EZ19M086NEST). ECB_FAIZ ve DE10Y de artik
+# bagli -- ikisi de bu listede hic yoktu.
+#
+# CN_BUYUME BAGLI DEGIL ve bu OLCULDU: FRED karsiligi
+# (CHNGDPNQDSMEI) son gozlemini 2023-07-01 tarihinde
+# vermis -- uc yil bayat bir seri yayimlanmaz.
+SERISIZ = {"CN_BUYUME", "DIS_TICARET_TR", "CDS_TR"}
 
 print("Tohumdaki baglar")
 _tohum = {k: s for k, _t, _a, _ae, s, _o, _ac in graf_tohum.VARLIKLAR}
@@ -109,16 +123,118 @@ except sqlite3.Error:
     pass
 esit(len(_seriler) > 10, True, f"depoda seri var ({len(_seriler)})")
 
-# KARSILIGI OLMAYAN BAG = SESSIZ BOS SAYFA. Seri emekliye ayrilip
-# yenisi geldiginde (CPIAUCSL -> CPIAUCNS) tam burasi kirmizi yanar.
+# KARSILIGI OLMAYAN BAG -- IKI AYRI IDDIA.
+#
+# ILK SURUM TEK IDDIAYDI ("her seri_kodu depoda var") ve KOSUYU KIRDI
+# (2026-10-29, kosu #2350). Sebebi su kilit: depo URETILEN bir eser.
+# Grafa uc yeni seri baglandiginda (ECBDFR, CP0000EZ19M086NEST,
+# BBK_DE10Y) onlari CEKEN adim, bu kapinin ARKASINDA kaliyordu --
+# yani seriyi uretecek adima hic sira gelmiyordu.
+#
+# Olcutu GEVSETMEK cozum DEGILDI: "kayitli bir kaynakta geciyorsa
+# yeter" denirse dosya basindaki 2. vaka (CPIAUCSL -> CPIAUCNS)
+# KACARDI -- CPIAUCSL `FRED_SERILER` icinde KAYITLI, depoda olan ise
+# CPIAUCNS. Yani kayit, bagin dogru oldugunu soylemiyor.
+#
+# AYRIM ASAMA: depo uretilmeden once "henuz cekilmedi" ile "yanlis
+# kod" ayirt EDILEMEZ; uretimden sonra ayirt EDILIR.
+#
+#   HER ZAMAN  : seri_kodu ya depoda var YA DA bir kaynakta KAYITLI.
+#                Hicbirinde yoksa bu bir tipo -- hicbir adim onu
+#                cekmeyecek. (Yeni seri bu kapiyi gecer.)
+#   URETIM SONRASI: seri_kodu depoda GERCEKTEN var. Kayitli ama
+#                cekilmemis bir kod burada kirmizi yanar; CPIAUCNS
+#                vakasi tam burada yakalanir.
+#
+# Bayrak `cikti_sinamalari.py` tarafindan kuruluyor -- asamayi bilen
+# tek yer orasi. Sinama kendi basina tahmin etmeye calismiyor.
+_URETIM_SONRASI = os.environ.get("NETARIS_URETIM_SONRASI") == "1"
+
+#: Bir seri kodunu CEKEN kaynaklar. Elle liste DEGIL -- kaynak
+#: modullerinin kendi kayitlarindan okunuyor, yoksa yeni bir kaynak
+#: eklendigi gun bu liste sessizce eskir.
+def _cekilebilir() -> set:
+    kodlar: set = set()
+    try:
+        import makro
+        kodlar |= set(makro.FRED_SERILER)
+    except Exception:                                   # noqa: BLE001
+        pass
+    for _mod, _al in (("ecb_kur", "KOD"), ("bundesbank", "KOD"),
+                      ("politika_faizi", "KOD")):
+        try:
+            kodlar.add(getattr(__import__(_mod), _al))
+        except Exception:                               # noqa: BLE001
+            pass
+    try:
+        import evds
+        kodlar |= {s[0] for s in evds.SERILER}
+    except Exception:                                   # noqa: BLE001
+        pass
+    return kodlar
+
+
+# ASAMA AYRIMI ATIL OLABILIR -- IKI YONDEN.
+#
+# 1. `_URETIM_SONRASI` sabit False yazilirsa katı iddia HIC kosmaz
+#    ve sinama iki asamada da yesil doner. Bayrak gercekten
+#    okunuyor mu diye bakiliyor.
+# 2. `cikti_sinamalari.py` bayragi cocuk ortamina GECIRMEZSE ayni
+#    sonuc olusur -- sinama kusursuz, kapi sessiz. Olcut o dosyanin
+#    kaynaginda bayragin HEM tanimli HEM `env=` icinde gecmesi.
+if os.environ.get("NETARIS_URETIM_SONRASI") == "1":
+    esit(_URETIM_SONRASI, True, "asama bayragi gercekten okunuyor")
+
+_KAPI = _KOK / "site" / "cikti_sinamalari.py"
+_kapi_k = _KAPI.read_text(encoding="utf-8", errors="replace")
+esit("NETARIS_URETIM_SONRASI" in _kapi_k, True,
+     "uretim sonrasi kapisi bayragi taniyor")
+esit("ASAMA_DEGISKENI: \"1\"" in _kapi_k, True,
+     "kapi bayragi cocuk ortamina geciriyor")
+# TANIMA DEGIL KULLANIMA BAK: `"DEPO_IZI" in kaynak` iddiasi
+# mutasyonla KACTI -- kullanim kaldirildiginda TANIM
+# (`DEPO_IZI = (...)`) yerinde kaldigi icin dize hala
+# eslesiyordu. Ayni tuzak bu depoda bir kez daha yasandi
+# (`"duyur(" in kaynak` fonksiyon TANIMIYLA eslesiyordu).
+# Olcut artik kesif OLCUTUNUN kendisi.
+esit("YOL_IZI + ICERIK_IZI + DEPO_IZI" in _kapi_k, True,
+     "kapi depo izini KESIF OLCUTUNDE kullaniyor")
+
+_KAYITLI = _cekilebilir()
+# ATILLIK: kayit kumesi bos ya da cok kucukse "kayitli" kapisi her
+# seyi gecirirdi ve iddia anlamsizlasirdi.
+esit(len(_KAYITLI) > 15, True,
+     f"cekilebilir seri kaydi okundu ({len(_KAYITLI)})")
+
+_tanimsiz = sorted(
+    f"{k} -> {s}" for k, s in _tohum.items()
+    if s and s not in _seriler and s not in _fiyatlar
+    and s not in _KAYITLI)
+if _tanimsiz:
+    print("\n  HICBIR KAYNAKTA OLMAYAN BAG (tipo):")
+    for _k in _tanimsiz:
+        print(f"    {_k}")
+esit(_tanimsiz, [],
+     f"her bag ya depoda ya bir kaynakta kayitli ({len(_tohum)} varlik)")
+
 _kopuk = sorted(
     f"{k} -> {s}" for k, s in _tohum.items()
     if s and s not in _seriler and s not in _fiyatlar)
-if _kopuk:
-    print("\n  DEPODA KARSILIGI OLMAYAN BAG:")
+if _URETIM_SONRASI:
+    if _kopuk:
+        print("\n  DEPODA KARSILIGI OLMAYAN BAG:")
+        for _k in _kopuk:
+            print(f"    {_k}")
+    esit(_kopuk, [],
+         f"her bag depoda karsilik buluyor ({len(_tohum)} varlik)")
+elif _kopuk:
+    # SESSIZ GECMIYOR: uretimden once bu bir UYARI, cunku yeni
+    # eklenmis bir seri de boyle gorunur. Uretim sonrasi kosuda ayni
+    # liste KIRMIZI yanacak.
+    print(f"\n  HENUZ CEKILMEMIS ({len(_kopuk)}) -- uretim sonrasi "
+          f"kosuda denetlenecek:")
     for _k in _kopuk:
         print(f"    {_k}")
-esit(_kopuk, [], f"her bag depoda karsilik buluyor ({len(_tohum)} varlik)")
 
 print("\nSayi beklenen gostergelerde GERCEKTEN deger var")
 _bos = []
