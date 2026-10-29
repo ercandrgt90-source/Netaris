@@ -119,6 +119,93 @@ esit(_t.get("_seri_bitis"), ["2026-09-30", "2026-06-30",
      "bitis tarihleri sirayla")
 
 print("")
+print("1b. GELIR TABLOSU EKSIK GECMIS DONEM SERIDEN DUSUYOR")
+# URETIMDE COKTU (kosu #55, 2026-10-29):
+#
+#     TypeError: Donem.__init__() missing 1 required positional
+#                argument: 'hasilat'
+#
+# Suzgec "hasilat YA DA aktif_toplami" diyordu; `Donem` ise
+# `hasilat`i ZORUNLU istiyor. Gecmis bir ceyrekte bilanco tablosu
+# gelip gelir tablosu gelmezse kosul geciyor, nesne kurulamiyor.
+#
+# Ilk sinamam iki alani da DOLU verdigi icin bu yolu HIC yurumedi.
+# Burada gelir tablosu BILEREK kisa: en yeni iki ceyrek var, daha
+# eskisi yok -- bilanco tablosunda ise dordu de var.
+# `yeterli()` cekirdek + SEKTOR EKI ariyor; "Bilisim" secildi cunku
+# stok beklemiyor (bkz. `SEKTOR_EK`). Eksiklik SADECE gecmis
+# donemlerin GELIR tablosunda olsun istiyoruz.
+_GELIR_KISA = {"Revenue": [100.0, 90.0, None, None, None],
+               "Net Income": [10.0, 9.0, None, None, None],
+               "Gross Profit": [40.0, 36.0, None, None, None],
+               "Operating Income": [20.0, 18.0, None, None, None]}
+_BILANCO_TAM = dict(_BILANCO)
+_BILANCO_TAM["Total Current Assets"] = [300.0, 290.0, 280.0, 270.0, 260.0]
+_BILANCO_TAM["Total Current Liabilities"] = [150.0, 145.0, 140.0, 135.0,
+                                             130.0]
+
+
+def _kisa_cek(kod, sayfa="gelir", istemci=None, tarih_de=False):
+    kalem = _GELIR_KISA if sayfa == "gelir" else _BILANCO_TAM
+    if tarih_de:
+        return list(_DONEMLER), dict(kalem), list(_TARIHLER)
+    return list(_DONEMLER), dict(kalem)
+
+
+_asil2 = bilanco_ag.cek
+bilanco_ag.cek = _kisa_cek
+try:
+    _s, _o, _e, _dz = bilanco_ag.donem_getir(
+        "KISA", "2026 3. çeyrek", sektor_tr="Bilişim",
+        ciftli=True, seri=True)
+except TypeError as _hata:
+    bilanco_ag.cek = _asil2
+    print(f"  DUSTU  gelir tablosu eksik donemde COKUYOR: {_hata}")
+    raise SystemExit(1)
+finally:
+    bilanco_ag.cek = _asil2
+
+# ATILLIK: veri gercekten uretilmis olmali, yoksa "cokmedi" iddiasi
+# bos bir yoldan geciyor demektir.
+esit(_s is not None, True, "su anki donem kuruldu")
+esit(len(_dz) >= 1, True, f"seri bos degil ({len(_dz)} donem)")
+# Hasilati OLMAYAN donemler seriye GIRMEMELI.
+esit(all(d.hasilat is not None for _a, _i, d in _dz), True,
+     "seride hasilatsiz donem YOK")
+esit(len(_dz), 2, f"yalnizca hasilati olan iki donem ({len(_dz)})")
+
+# SIFIR HASILAT MESRU BIR OLCUM -- ELENMEMELI.
+#
+# "Hasilat yok" ile "hasilat sifir" ayri seyler. Olcut `is None`
+# yerine dogruluk denetimi olsaydi (`if not alan.get("hasilat")`),
+# satis yapmayan bir ceyrek seriden sessizce DUSER ve okur o
+# ceyregi hic gormezdi. Mutasyon bunu bir kez KACIRDI.
+_GELIR_SIFIR = {"Revenue": [100.0, 0.0, 80.0, 70.0, 60.0],
+                "Net Income": [10.0, -5.0, 8.0, 7.0, 6.0],
+                "Gross Profit": [40.0, 0.0, 32.0, 28.0, 24.0],
+                "Operating Income": [20.0, -6.0, 16.0, 14.0, 12.0]}
+
+
+def _sifir_cek(kod, sayfa="gelir", istemci=None, tarih_de=False):
+    kalem = _GELIR_SIFIR if sayfa == "gelir" else _BILANCO_TAM
+    if tarih_de:
+        return list(_DONEMLER), dict(kalem), list(_TARIHLER)
+    return list(_DONEMLER), dict(kalem)
+
+
+bilanco_ag.cek = _sifir_cek
+try:
+    _s2, _o2, _e2, _dz2 = bilanco_ag.donem_getir(
+        "SIFIR", "2026 3. çeyrek", sektor_tr="Bilişim",
+        ciftli=True, seri=True)
+finally:
+    bilanco_ag.cek = _asil2
+
+esit(len(_dz2), 4, f"dort donemin dordu de seride ({len(_dz2)})")
+esit([d.hasilat for _a, _i, d in _dz2], [100.0, 0.0, 80.0, 70.0],
+     "hasilati SIFIR olan donem seride DURUYOR")
+
+print("")
 print("2. EK ISTEK YOK")
 # Seri eklenmeden once sayfa basina BIR istek yapiliyordu. Bu sayi
 # DEGISMEMELI: seri ayni cekimden turetiliyor.

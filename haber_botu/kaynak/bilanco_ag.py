@@ -850,7 +850,23 @@ def donem_getir(kod: str, etiket: str,
         for adim in range(GERIYE_DONEM):
             alan = (alanlar if adim == 0
                     else donemi_kur(tablolar, ek=f"_g{adim}"))
-            if not alan.get("hasilat") and not alan.get("aktif_toplami"):
+            # OLCUT TAM OLARAK `hasilat` -- `Donem`IN ZORUNLU ALANI.
+            #
+            # Ilk yazim "hasilat YA DA aktif_toplami varsa" diyordu ve
+            # URETIMDE COKTU (kosu #55, 2026-10-29):
+            #
+            #     TypeError: Donem.__init__() missing 1 required
+            #                positional argument: 'hasilat'
+            #
+            # Gecmis bir ceyrekte bilanco tablosu gelip gelir tablosu
+            # gelmeyebiliyor; o zaman kosul geciyor ama `Donem`
+            # kurulamiyor. Sinamam iki alani da DOLU verdigi icin bu
+            # yolu hic yurumemisti.
+            #
+            # Eksik olani sifirla doldurmak uydurma olurdu: "hasilat
+            # yok" ile "hasilat sifir" ayri seyler. O donem seriden
+            # DUSUYOR; seri ikiden kisa kalirsa bolum hic yazilmiyor.
+            if alan.get("hasilat") is None:
                 continue
             ad = (etiketler[adim] if adim < len(etiketler)
                   else f"-{adim} dönem")
