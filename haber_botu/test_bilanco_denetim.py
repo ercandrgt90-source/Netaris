@@ -253,7 +253,8 @@ try:
         kisa_vadeli_yukumlulukler=5_400_000_000.0)
     BT.bilanco_ag.donem_getir = (
         lambda kod, etiket, ceyrek=1, sektor_tr="", istemci=None,
-        ciftli=False: (_d, None, []) if ciftli else (_d, []))
+        ciftli=False, seri=False: (_d, None, [], []) if ciftli
+        else (_d, [], []))
     _yazilan = {}
     BT.yayin.yaz_sektorel = lambda **kw: _yazilan.update(kw)
 
@@ -300,9 +301,9 @@ try:
         kisa_vadeli_yukumlulukler=5_400_000_000.0)
 
     def _say(kod, etiket, ceyrek=1, sektor_tr="", istemci=None,
-             ciftli=False):
+             ciftli=False, seri=False):
         _sayac["n"] += 1
-        return (_dd, None, []) if ciftli else (_dd, [])
+        return (_dd, None, [], []) if ciftli else (_dd, [], [])
 
     BT.bilanco_ag.donem_getir = _say
     BT.yayin.yaz_sektorel = lambda **kw: None
@@ -332,8 +333,9 @@ try:
     _sayac["n"] = 0
     BT.bilanco_ag.donem_getir = (
         lambda kod, etiket, ceyrek=1, sektor_tr="", istemci=None,
-        ciftli=False: _say(kod, etiket) and None or
-        ((None, None, ["hasilat"]) if ciftli else (None, ["hasilat"])))
+        ciftli=False, seri=False: _say(kod, etiket) and None or
+        ((None, None, ["hasilat"], []) if ciftli
+         else (None, ["hasilat"], [])))
     for yol2 in sorted(g2.glob("*.md")):
         ok2, _ = BT.sayfa_tazele(yol2, baglam2, defter2, False)
         esit(ok2, False, "veri gelmeyince sayfaya dokunulmuyor")
@@ -417,7 +419,8 @@ try:
         kisa_vadeli_yukumlulukler=5_400_000_000.0)
     BT.bilanco_ag.donem_getir = (
         lambda kod, etiket, ceyrek=1, sektor_tr="", istemci=None,
-        ciftli=False: (_d3, None, []) if ciftli else (_d3, []))
+        ciftli=False, seri=False: (_d3, None, [], []) if ciftli
+        else (_d3, [], []))
     _cagri = {}
     BT.yayin.yaz_sektorel = lambda **kw: _cagri.update(kw)
     BT.bellegi_bosalt()
@@ -498,7 +501,7 @@ try:
     _cek = {"n": 0}
 
     def _getir4(kod, etiket, ceyrek=1, sektor_tr="", istemci=None,
-                ciftli=False):
+                ciftli=False, seri=False):
         _cek["n"] += 1
         d = oranlar.Donem(
             etiket=etiket, hasilat=12_400_000_000.0,
@@ -507,7 +510,7 @@ try:
             aktif_toplami=19_700_000_000.0,
             donen_varliklar=7_100_000_000.0,
             kisa_vadeli_yukumlulukler=5_400_000_000.0)
-        return (d, None, []) if ciftli else (d, [])
+        return (d, None, [], []) if ciftli else (d, [], [])
 
     BT.bilanco_ag.donem_getir = _getir4
     BT.bellegi_bosalt()

@@ -182,15 +182,24 @@ def sayfa_tazele(yol: pathlib.Path, baglam: dict, defter: dict,
     sayfa_donemi = _d.group(1) if _d else ""
     if sayfa_donemi and sayfa_donemi != donem:
         return False, f"dönem uyuşmuyor (sayfa {sayfa_donemi}, özet {donem})"
+    # SERI BURADA DA ISTENIYOR -- YOKSA TAZELEME BOLUMU SILER.
+    #
+    # Tazeleme govdeyi SIFIRDAN kuruyor. `seri` istenmezse
+    # `govde_kur` "Son dört dönem" bolumunu hic yazmaz ve tazelenen
+    # her sayfa bolumu KAYBEDER. CI her kosuda `--onarim` calistirdigi
+    # icin bu, yeni uretilen sayfalari da zamanla silerdi.
+    #
+    # Bedeli yok: seri zaten AYNI cekimden geliyor (olculdu, sirket
+    # basina 3 istek -- seri oncesiyle ayni).
     if kod in _BELLEK:
-        d, once, eksik = _BELLEK[kod]
+        d, once, eksik, seri = _BELLEK[kod]
     else:
-        d, once, eksik = bilanco_ag.donem_getir(
-            kod, donem, sektor_tr=sektor, ciftli=True)
+        d, once, eksik, seri = bilanco_ag.donem_getir(
+            kod, donem, sektor_tr=sektor, ciftli=True, seri=True)
         # BASARISIZLIK DA SAKLANIYOR: kaynak bu sirketi vermediyse
         # ikinci sayfasi icin tekrar sormak, kapali kapiya ikinci
         # kez vurmaktir.
-        _BELLEK[kod] = (d, once, eksik)
+        _BELLEK[kod] = (d, once, eksik, seri)
     if d is None:
         return False, "eksik: " + ", ".join(eksik[:2])
 
@@ -211,7 +220,7 @@ def sayfa_tazele(yol: pathlib.Path, baglam: dict, defter: dict,
                         n, yorum, mali_not=mali_not,
                         alt_sektor=(defter.get(kod) or {}).get(
                             "alt_sektor") or "",
-                        once=once)
+                        once=once, seri=seri)
 
     tamam, bulgular = guvenlik.yayinlanabilir(govde)
     if not tamam:
@@ -287,12 +296,58 @@ def onarim_kuyrugu(defter: dict, baglam: dict | None = None) -> list:
     return kuyruk
 
 
+def goc_kuyrugu(defter: dict, baglam: dict | None = None) -> list:
+    """"Son dort donem" bolumunu TASIMAYAN sayfalar.
+
+    NEDEN ONARIM KUYRUGUNDAN AYRI
+    -----------------------------
+    `bilanco_denetim.onarim_gereken` iki isi birden yapiyor: onarim
+    kuyrugunu besliyor VE `site/test_bilanco_sayfa_saglam.py`
+    korumasini besliyor. Yeni bolumu oraya bir "eksiklik" olarak
+    eklemek, var olan 275 sayfayi BIR ANDA bozuk ilan eder ve CI
+    kirmiziya doner -- yani site dagitilmaz.
+
+    Bolumun yoklugu bir KUSUR degil, bir GOC. Ayni ayrim kumulatif
+    -> ceyreklik gocunde de yapilmisti (`kumulatif_temizle`).
+
+    Kuyruk tazelendikce KISALIYOR; bitince adim kendiliginden
+    etkisiz hale geliyor ve hicbir sey yapmadan doner.
+
+    ONARILAMAYANLAR AYNI OLCUTLE ELENIYOR: sakli yorumu olmayan ya
+    da donemi ozetin doneminden farkli olan sayfa yeniden
+    kurulamiyor. Kuyrukta tutmak, her kosuda denenip her kosuda
+    atlanan bir kalem demek -- kuyruk asla tukenmez.
+    """
+    kuyruk = []
+    for yol in sorted(U.SITE.glob("*.md")):
+        metin = yol.read_text(encoding="utf-8")
+        if not bd.bilanco_sayfasi(metin):
+            continue
+        if U.SERI_BASLIGI in metin:
+            continue
+        k = _KOD_DESEN.search(metin)
+        if not k:
+            continue
+        if baglam is not None:
+            kayit = baglam.get(k.group(1).upper())
+            if not kayit:
+                continue
+            _d = _DONEM_DESEN.search(metin)
+            if _d and _d.group(1) != kayit[4]:
+                continue
+        kuyruk.append((yol, ["son dört dönem bölümü yok"]))
+    return kuyruk
+
+
 def main() -> int:
     a = argparse.ArgumentParser(description=__doc__)
     a.add_argument("--sinir", type=int, default=60)
     a.add_argument("--kuru-calis", action="store_true")
     a.add_argument("--onarim", action="store_true",
                    help="yalnizca BOZUK sayfalari yeniden kurar")
+    a.add_argument("--bolum-gocu", action="store_true",
+                   help="yalnizca 'son dort donem' bolumu OLMAYAN "
+                        "sayfalari yeniden kurar (sifir model cagrisi)")
     a.add_argument("--kod", nargs="+", metavar="KOD",
                    help="yalnizca bu sirketlerin sayfasi (kuyrugu "
                         "beklemeden)")
@@ -328,6 +383,16 @@ def main() -> int:
                 yollar.append(yol)
         print(f"hedefli tazeleme: {len(yollar)} sayfa "
               f"({', '.join(sorted(istenen))})")
+    elif n.bolum_gocu:
+        kuyruk = goc_kuyrugu(defter, baglam)
+        print(f"bölüm göçü: {len(kuyruk)} sayfa 'son dört dönem' "
+              f"bölümünü taşımıyor")
+        if not kuyruk:
+            print("göç TAMAMLANDI -- hiçbir şey yapılmadı")
+            return 0
+        for yol, sebep in kuyruk[:8]:
+            print(f"  {yol.stem:<24}{', '.join(sebep)}")
+        yollar = [y for y, _s in kuyruk]
     elif n.onarim:
         kuyruk = onarim_kuyrugu(defter, baglam)
         print(f"onarım kipi: {len(kuyruk)} sayfa onarım bekliyor")

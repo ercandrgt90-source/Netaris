@@ -44,6 +44,10 @@ sys.path[:0] = [str(_KOK), str(_KOK / "kaynak"), str(_KOK / "analiz")]
 import bilanco_ag                                        # noqa: E402
 import uret_bilanco_sayfa as US                          # noqa: E402
 
+#: Ters bolu kacisi bu depoda defalarca SESSIZCE baska bir
+#: seye dondu; sabit olarak tutuluyor.
+NL = chr(10)
+
 _gecti = 0
 
 
@@ -220,6 +224,81 @@ _govde = [c for c in ast.walk(_ag) if isinstance(c, ast.Call)
           and isinstance(c.func, ast.Name) and c.func.id == "govde_kur"]
 esit(any(any(k.arg == "seri" for k in c.keywords) for c in _govde), True,
      "govde_kur seriyi aliyor")
+
+print("")
+print("7. BOLUM GOCU KUYRUGU -- KORUMAYI BESLEMIYOR")
+# Var olan 275 sayfa bolumu tasimiyor. Bunu
+# `bilanco_denetim.onarim_gereken`e bir "eksiklik" olarak eklemek
+# CAZIPTI ve YANLIS olurdu: o islev ayni anda
+# `site/test_bilanco_sayfa_saglam.py` korumasini besliyor, yani 275
+# sayfa BIR ANDA bozuk ilan edilir ve CI kirmiziya donerdi -- site
+# dagitilmazdi. Bolumun yoklugu bir KUSUR degil, bir GOC.
+import tempfile                                          # noqa: E402
+
+import bilanco_denetim as _bd                            # noqa: E402
+import bilanco_tazele as BT                              # noqa: E402
+
+_ON = """---
+slug: x
+baslik: X A.S. 2026 2. ceyrek bilanco analizi
+kod: {kod}
+donem: 2026 2. çeyrek
+kategori: Bilanço Analizi
+tarih: 2026-08-26
+---
+
+## Özet
+
+Bir cümle.
+
+{kiyas}
+
+| Oran | Şirket | Sektör medyanı |
+| --- | ---: | ---: |
+| Net kâr marjı | %1,0 | %2,0 |
+{ek}
+"""
+
+with tempfile.TemporaryDirectory() as _t:
+    _d = pathlib.Path(_t)
+    (_d / "eksik.md").write_text(_ON.format(kod="AAA", ek="", kiyas=_bd.KIYAS_BASLIGI),
+                                 encoding="utf-8")
+    _seri_ek = (NL + US.SERI_BASLIGI + NL + NL + "| a | b |" + NL)
+    (_d / "var.md").write_text(
+        _ON.format(kod="BBB", ek=_seri_ek, kiyas=_bd.KIYAS_BASLIGI), encoding="utf-8")
+    _haber = ("---" + NL + "kategori: Haber" + NL + "kod: CCC"
+              + NL + "---" + NL + NL + "Metin." + NL)
+    (_d / "haber.md").write_text(_haber, encoding="utf-8")
+    _asil_site = US.SITE
+    US.SITE = _d
+    try:
+        _k = BT.goc_kuyrugu({}, None)
+    finally:
+        US.SITE = _asil_site
+    _adlar = sorted(y.name for y, _s in _k)
+    # ATILLIK: tarama gercekten dosya gormus olmali. Bos bir dizinde
+    # "bolumu olan sayfa kuyruga girmiyor" DOGRUDUR ve hicbir sey
+    # soylemez -- bu depoda mesru sifiri kusur sayan kontroller
+    # dagitimi durdurdu.
+    esit(len(_adlar) > 0, True, f"kuyruk bos degil ({_adlar})")
+    esit(_adlar, ["eksik.md"], "yalnizca bolumu OLMAYAN bilanco sayfasi")
+
+# OLCUT URETILEN BASLIKLA AYNI OLMALI.
+#
+# Kuyruk `US.SERI_BASLIGI` ariyor, govde o sabiti yaziyor. Ikisi
+# ayrisirsa kuyruk BUTUN sayfalari eksik sayar ve her kosuda hepsini
+# yeniden kurar -- sessiz, sonsuz bir is. Bu iddia ikisini baglar.
+esit(US.SERI_BASLIGI in _g, True,
+     f"uretilen govde kuyrugun aradigi basligi tasiyor ({US.SERI_BASLIGI})")
+esit(_g.count(US.SERI_BASLIGI), 1, "baslik govdede TEK kez")
+
+# KORUMA ETKILENMEMELI: bolumu olmayan bir sayfa "onarim gereken"
+# sayilmamali, yoksa CI kirmiziya doner.
+_eksik_sayfa = _ON.format(kod="AAA", ek="", kiyas=_bd.KIYAS_BASLIGI)
+esit(_bd.bilanco_sayfasi(_eksik_sayfa), True, "ornek bir bilanco sayfasi")
+esit([s for s in _bd.onarim_gereken(_eksik_sayfa)
+      if "dört dönem" in s or "dort donem" in s], [],
+     "bolum eksikligi ONARIM SEBEBI sayilmiyor")
 
 print("")
 print(f"TUM TESTLER GECTI ({_gecti})")

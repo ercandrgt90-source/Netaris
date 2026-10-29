@@ -384,6 +384,28 @@ jobs:
         if: always()
         run: python haber_botu/bilanco_tazele.py --onarim --sinir 25
 
+      # "SON DORT DONEM" BOLUMUNU ESKI SAYFALARA TASI -- MODEL YOK.
+      #
+      # Bolum 2026-10-30'da eklendi; o tarihten onceki sayfalar onu
+      # tasimiyor (olculdu: 186 sayfa gocebilir durumda, kalani
+      # donemi ozetin doneminden farkli oldugu icin zaten yeniden
+      # kurulamiyor).
+      #
+      # NEDEN ONARIM ADIMIYLA AYNI DEGIL: "bolum yok" bir KUSUR
+      # degil, bir GOC. `bilanco_denetim.onarim_gereken` ayni anda
+      # `site/test_bilanco_sayfa_saglam.py` korumasini besliyor;
+      # oraya eklemek 275 sayfayi BIR ANDA bozuk ilan eder, CI
+      # kirmiziya doner ve site DAGITILMAZDI.
+      #
+      # Kuyruk her kosuda kisaliyor; bitince adim "göç TAMAMLANDI"
+      # deyip hicbir sey yapmadan donuyor. Sinir 25: onarim adimiyla
+      # ayni buyuklukte ve kosu suresini olcule bilir tutuyor.
+      #
+      # Saklanan AI yorumu AYNEN geri konuyor -- model cagrisi SIFIR.
+      - name: Son dört dönem bölümünü eski sayfalara taşı
+        if: always()
+        run: python haber_botu/bilanco_tazele.py --bolum-gocu --sinir 25
+
       # CIRCIR SIKISIYOR -- onarilan sayfa miras listesinden cikiyor.
       #
       # Liste budanmazsa onarilmis sayfalar listede kalir ve bir daha

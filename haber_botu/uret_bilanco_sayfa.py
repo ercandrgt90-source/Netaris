@@ -99,6 +99,16 @@ KALEMLER = (
 )
 
 
+#: "Son dort donem" bolumunun basligi -- TEK YERDE.
+#:
+#: `bilanco_tazele` bu bolumu TASIMAYAN sayfalari bulmak icin ayni
+#: sabiti okuyor. Iki yerde ayri yazilsaydi, baslik degistigi gun
+#: goc kuyrugu sessizce BUTUN sayfalari eksik sayar ve her kosuda
+#: hepsini yeniden kurardi -- bu depo o sinif kusuru kumulatif
+#: gocunde bir kez yasadi.
+SERI_BASLIGI = "## Son dört dönem"
+
+
 def _mlr(d):
     return f"{bicim.sayi(d / 1e9, 2)} milyar TL" if d is not None else "—"
 
@@ -198,7 +208,7 @@ def govde_kur(kod, unvan, sektor, donem, d, oran, medyan, n, yorum,
     # sey yapmaz ve egilim oldugu izlenimi verir.
     if seri and len(seri) >= 2:
         basliklar = [ad for ad, _iso, _dd in seri]
-        s += ["", "## Son dört dönem", "",
+        s += ["", SERI_BASLIGI, "",
               "| Kalem (milyar TL) | " + " | ".join(basliklar) + " |",
               "| --- |" + " ---: |" * len(basliklar)]
         for ad, etiket in KALEMLER:
