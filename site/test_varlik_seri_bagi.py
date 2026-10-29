@@ -126,38 +126,71 @@ esit(len(_seriler) > 10, True, f"depoda seri var ({len(_seriler)})")
 # KARSILIGI OLMAYAN BAG -- IKI AYRI IDDIA.
 #
 # ILK SURUM TEK IDDIAYDI ("her seri_kodu depoda var") ve KOSUYU KIRDI
-# (2026-10-29, kosu #2350). Sebebi su kilit: depo URETILEN bir eser.
-# Grafa uc yeni seri baglandiginda (ECBDFR, CP0000EZ19M086NEST,
-# BBK_DE10Y) onlari CEKEN adim, bu kapinin ARKASINDA kaliyordu --
-# yani seriyi uretecek adima hic sira gelmiyordu.
-#
-# Olcutu GEVSETMEK cozum DEGILDI: "kayitli bir kaynakta geciyorsa
-# yeter" denirse dosya basindaki 2. vaka (CPIAUCSL -> CPIAUCNS)
-# KACARDI -- CPIAUCSL `FRED_SERILER` icinde KAYITLI, depoda olan ise
-# CPIAUCNS. Yani kayit, bagin dogru oldugunu soylemiyor.
+# (2026-10-29, kosu #2350-2352). Sebebi su kilit: depo URETILEN bir
+# eser. Grafa uc yeni seri baglandiginda (ECBDFR,
+# CP0000EZ19M086NEST, BBK_DE10Y) onlari CEKEN adim bu kapinin
+# ARKASINDA kaliyordu -- yani seriyi uretecek adima hic sira
+# gelmiyordu.
 #
 # AYRIM ASAMA: depo uretilmeden once "henuz cekilmedi" ile "yanlis
 # kod" ayirt EDILEMEZ; uretimden sonra ayirt EDILIR.
 #
-#   HER ZAMAN  : seri_kodu ya depoda var YA DA bir kaynakta KAYITLI.
-#                Hicbirinde yoksa bu bir tipo -- hicbir adim onu
-#                cekmeyecek. (Yeni seri bu kapiyi gecer.)
-#   URETIM SONRASI: seri_kodu depoda GERCEKTEN var. Kayitli ama
-#                cekilmemis bir kod burada kirmizi yanar; CPIAUCNS
-#                vakasi tam burada yakalanir.
+#   HER ZAMAN      : seri_kodu ya depoda var YA DA hattin CEKTIGI bir
+#                    listede. Ikisinde de yoksa hicbir adim onu
+#                    uretmeyecek. (Yeni seri bu kapiyi gecer.)
+#   URETIM SONRASI : seri_kodu depoda GERCEKTEN var. Cekme listesinde
+#                    duran ama kaynaktan hic gelmeyen bir kod burada
+#                    kirmizi yanar.
 #
-# Bayrak `cikti_sinamalari.py` tarafindan kuruluyor -- asamayi bilen
-# tek yer orasi. Sinama kendi basina tahmin etmeye calismiyor.
+# BU DOSYA EMEKLI KOD VAKASINI YAKALAMIYOR -- VE BU OLCULDU.
+#
+# Ilk yazimda gerekce olarak "CPIAUCSL -> CPIAUCNS gocu burada
+# yakalanir" yazmistim. YANLIS: CPIAUCSL depoda HALA duruyor
+# (olculdu 2026-10-29: 15 gozlem, son 2026-07-01), yani kod ona
+# geri gocse bile "depoda karsilik buluyor" iddiasi GECER. Mutasyonla
+# dogrulandi: DXY -> CPIAUCSL degisikligi bu dosyada KACTI.
+#
+# O vakanin korumasi BASKA YERDE ve CALISIYOR: `tazelik.py` emekli
+# serileri listeliyor (`EMEKLI_SEBEP`: DEXUSEU, CPIAUCSL, CPILFESL)
+# ve `test_tazelik.py` "emekli seri hicbir varligi beslemiyor" diyor.
+# Ayni mutasyon ORADA yakalandi. Yani korumayi burada kopyalamak
+# gereksiz; eksik olan bir sey yok, yalnizca gerekce yanlis yazilmisti.
+#
+# CEKME LISTESI OLCUTU YINE DE "KAYITLI MI" OLCUTUNDEN IYI: bir kodun
+# ad sozlugunde bulunmasi, hicbir adimin onu cektigi anlamina gelmiyor.
 _URETIM_SONRASI = os.environ.get("NETARIS_URETIM_SONRASI") == "1"
 
-#: Bir seri kodunu CEKEN kaynaklar. Elle liste DEGIL -- kaynak
-#: modullerinin kendi kayitlarindan okunuyor, yoksa yeni bir kaynak
-#: eklendigi gun bu liste sessizce eskir.
+#: Hattin GERCEKTEN CEKTIGI seri kodlari.
+#:
+#: OLCUT "KAYITLI MI" DEGIL, "CEKILIYOR MU" -- ve aradaki fark
+#: dosyanin kendi 2. vakasinin TA KENDISI.
+#:
+#: Ilk yazimda `makro.FRED_SERILER` okunuyordu. O bir AD/BIRIM
+#: SOZLUGU, cekme listesi DEGIL. Olculdu (2026-10-29):
+#:
+#:     FRED_SERILER             17 kod   <- yalnizca ad ve birim
+#:     PANEL_SERILERI            7 kod   <- CEKILEN
+#:     DEPO_SERILERI             2 kod   <- CEKILEN
+#:     SERILER                   4 kod   <- CEKILEN
+#:
+#:     CPIAUCSL FRED_SERILER icinde : EVET
+#:     CPIAUCSL cekiliyor           : HAYIR
+#:
+#: Yani sozluge bakan olcut, HIC CEKILMEYEN bir kodu "kayitli"
+#: sayip gecirirdi. Cekme listesine bakan olcut gecirmiyor.
+#:
+#: NOT: CPIAUCSL ornegi bu dosyanin YAKALADIGI bir vaka DEGIL --
+#: o kod depoda hala duruyor ve emekli-seri korumasi
+#: `test_tazelik.py` icinde. Ayrinti asagida, iddia blogunda.
+#:
+#: Listeler elle KOPYALANMIYOR, modullerin kendisinden okunuyor --
+#: kopya, yeni bir seri eklendigi gun sessizce eskirdi.
 def _cekilebilir() -> set:
     kodlar: set = set()
     try:
-        import makro
-        kodlar |= set(makro.FRED_SERILER)
+        import makro_uret_ucretsiz as _m
+        for _ad in ("PANEL_SERILERI", "DEPO_SERILERI", "SERILER"):
+            kodlar |= set(getattr(_m, _ad, ()))
     except Exception:                                   # noqa: BLE001
         pass
     for _mod, _al in (("ecb_kur", "KOD"), ("bundesbank", "KOD"),
@@ -192,30 +225,29 @@ esit("NETARIS_URETIM_SONRASI" in _kapi_k, True,
 esit("ASAMA_DEGISKENI: \"1\"" in _kapi_k, True,
      "kapi bayragi cocuk ortamina geciriyor")
 # TANIMA DEGIL KULLANIMA BAK: `"DEPO_IZI" in kaynak` iddiasi
-# mutasyonla KACTI -- kullanim kaldirildiginda TANIM
-# (`DEPO_IZI = (...)`) yerinde kaldigi icin dize hala
-# eslesiyordu. Ayni tuzak bu depoda bir kez daha yasandi
-# (`"duyur(" in kaynak` fonksiyon TANIMIYLA eslesiyordu).
-# Olcut artik kesif OLCUTUNUN kendisi.
+# mutasyonla KACTI -- kullanim kaldirildiginda TANIM yerinde
+# kaldigi icin dize hala esliyordu. Ayni tuzak bu depoda bir
+# kez daha yasandi (`"duyur(" in kaynak` fonksiyon TANIMIYLA
+# esliyordu). Olcut artik kesif OLCUTUNUN kendisi.
 esit("YOL_IZI + ICERIK_IZI + DEPO_IZI" in _kapi_k, True,
      "kapi depo izini KESIF OLCUTUNDE kullaniyor")
 
-_KAYITLI = _cekilebilir()
+_CEKILEN = _cekilebilir()
 # ATILLIK: kayit kumesi bos ya da cok kucukse "kayitli" kapisi her
 # seyi gecirirdi ve iddia anlamsizlasirdi.
-esit(len(_KAYITLI) > 15, True,
-     f"cekilebilir seri kaydi okundu ({len(_KAYITLI)})")
+esit(len(_CEKILEN) > 15, True,
+     f"cekilen seri listeleri okundu ({len(_CEKILEN)})")
 
 _tanimsiz = sorted(
     f"{k} -> {s}" for k, s in _tohum.items()
     if s and s not in _seriler and s not in _fiyatlar
-    and s not in _KAYITLI)
+    and s not in _CEKILEN)
 if _tanimsiz:
-    print("\n  HICBIR KAYNAKTA OLMAYAN BAG (tipo):")
+    print("\n  HICBIR ADIMIN CEKMEDIGI BAG (tipo ya da gocmemis kod):")
     for _k in _tanimsiz:
         print(f"    {_k}")
 esit(_tanimsiz, [],
-     f"her bag ya depoda ya bir kaynakta kayitli ({len(_tohum)} varlik)")
+     f"her bag ya depoda ya CEKME listesinde ({len(_tohum)} varlik)")
 
 _kopuk = sorted(
     f"{k} -> {s}" for k, s in _tohum.items()
@@ -225,6 +257,21 @@ if _URETIM_SONRASI:
         print("\n  DEPODA KARSILIGI OLMAYAN BAG:")
         for _k in _kopuk:
             print(f"    {_k}")
+        # NE YAPILACAGI YAZILI OLMALI. Bu kapi uretimden SONRA
+        # kosuyor, yani bir kod burada gorunuyorsa iki sey olabilir:
+        #   1. Veri adimi hic kosmadi (yerelde elle `insa.py`
+        #      kosturuldu, `calistir.py` degil) -- o zaman
+        #      `makro_uret_ucretsiz.py` ve `uret_evds.py` kosmali.
+        #   2. Adim kostu ama kaynak veri VERMEDI (gecici kesinti ya
+        #      da ustte emekliye ayrilmis seri). Gecici kesintide
+        #      kosuyu yeniden baslatmak yeterli; kalici ise
+        #      `seri_kodu` yanlis kodu gosteriyor.
+        print("")
+        print("  NE YAPMALI: bu kodlar CEKME listesinde ama depoda")
+        print("  yok. Once veri adimlari kosmali:")
+        print("    python haber_botu/makro_uret_ucretsiz.py")
+        print("    python haber_botu/uret_evds.py")
+        print("  Kostuktan sonra da bosalarsa kaynak veri vermiyor.")
     esit(_kopuk, [],
          f"her bag depoda karsilik buluyor ({len(_tohum)} varlik)")
 elif _kopuk:
