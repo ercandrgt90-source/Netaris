@@ -104,6 +104,37 @@ from datetime import datetime, timezone
 
 DEPO = "ercandrgt90-source/Netaris"
 IS_AKISI = "otomasyon.yml"
+
+#: Bilanco hatti -- KOTA TAZEYKEN tetiklenmesi gereken ayri is akisi.
+BILANCO_AKISI = "bilanco.yml"
+
+#: Bilanco tetiginin EN ERKEN saati (UTC, "SS:DD").
+#:
+#: NEDEN GECE YARISINDAN HEMEN SONRA -- OLCULDU (2026-10-29):
+#: Cloudflare Workers AI gunluk ucretsiz kotasi 00:00 UTC'de
+#: sifirlaniyor ve haber hatti onu gun icinde tuketiyor (gunde ~32
+#: kosu x ~5 cagri = ~160 cagri). Ayni gunun gunluklerinden:
+#:
+#:     00:23  haber kosusu   -> 0 x 429        (kota acik)
+#:     19:13  haber kosusu   -> 5 yorum, 0x429 (kota acik)
+#:     21:48  haber kosusu   -> calisiyor      (kota acik)
+#:     21:53  bilanco #55    -> ILK sirkette 429
+#:     22:11  bilanco #56    -> ILK sirkette 429
+#:
+#: Bilanco sayfasi ancak dogrulanmis bir yorumla yayimlanabiliyor,
+#: yani kota bittiginde SIFIR sayfa uretiliyor. Siraya girmek degil,
+#: SIRANIN BASINA gecmek gerekiyor.
+#:
+#: NEDEN CRON DEGIL: `bilanco.yml` zaten "23 6" icin planli ama bu
+#: depoda GitHub'in zamanlanmis kosulari saatlerce gecikiyor
+#: (olculdu: 06:23 planli -> 11:48-13:40 arasi gercek, 5-7 saat).
+#: Yerel nobetci ise her 10 dakikada bir guvenilir calisiyor.
+BILANCO_SAATI = "00:10"
+
+#: Gunluge yazilan damga. AYNI metin hem yazarken hem ararken
+#: kullaniliyor -- iki yerde ayri yazilsaydi arama hic eslesmez ve
+#: nobetci her turda YENIDEN tetiklerdi.
+BILANCO_DAMGASI = "bilanco gunluk tetik"
 DURUM_UCU = "https://netaris.net/api/nobetci"
 
 #: Cloudflare varsayilan `Python-urllib` kimligini 403 ile reddediyor
@@ -402,6 +433,41 @@ def kosu_suruyor(jeton: str) -> bool:
         return False
 
 
+def bilanco_gerekli(simdi, gunluk: list[str]) -> bool:
+    """Bugun bilanco tetigi atildi mi -- GUNLUKTEN okunuyor.
+
+    Ayri bir durum dosyasi YOK: gunluk zaten bu makinede duruyor,
+    budaniyor ve her turda okunuyor. Ikinci bir dosya, ikisinin
+    ayrisabilecegi ikinci bir yer demekti.
+
+    `gunluk` BOS ise "bugun tetiklenmedi" sayiliyor ve tetik atiliyor.
+    Gunlugu okuyamamak bir ariza KANITI degil; en kotu ihtimalle
+    gunde bir fazladan tetik olur, bu da zararsiz (hat zaten kendi
+    kendini atlar).
+    """
+    if simdi.strftime("%H:%M") < BILANCO_SAATI:
+        return False
+    bugun = simdi.strftime("%Y-%m-%d")
+    for satir in reversed(gunluk):
+        if BILANCO_DAMGASI in satir and satir.startswith(bugun):
+            return False
+    return True
+
+
+def bilanco_tetikle(jeton: str) -> int | None:
+    """Bilanco is akisini elle tetikler.
+
+    `zorla` VERILMIYOR: bildirim ayi olup olmadigina hattin kendisi
+    karar veriyor ve o karar burada kopyalanmamali.
+    """
+    kod, _ = _istek(
+        f"https://api.github.com/repos/{DEPO}/actions/workflows"
+        f"/{BILANCO_AKISI}/dispatches",
+        {"ref": "main", "inputs": {"yayinla": "true"}},
+        jeton=jeton, yontem="POST")
+    return kod
+
+
 def tetikle(jeton: str) -> int | None:
     kod, _ = _istek(
         f"https://api.github.com/repos/{DEPO}/actions/workflows"
@@ -629,6 +695,33 @@ def main() -> int:
                 # SESSIZ KALMIYOR: 401 ise kimlik dolmus demektir ve
                 # bu, tam olarak ogrenilmesi gereken sey.
                 sebep += f" -- TETIK BASARISIZ ({k})"
+
+    # BILANCO TETIGI -- ICERIK TAZELIGINDEN BAGIMSIZ.
+    #
+    # Yukaridaki karar "site bayat mi" sorusunu cevapliyor; bu ise
+    # "bilanco hatti bugun kota tazeyken kostu mu". Ikisi ayri soru:
+    # site tertemiz tazeyken de bilanco hatti hic kosmamis olabilir.
+    #
+    # Gerekce `BILANCO_SAATI` uzerinde yazili: ucretsiz AI kotasi
+    # 00:00 UTC'de sifirlaniyor, haber hatti gun icinde tuketiyor ve
+    # bilanco kosusu kotayi BITMIS buluyordu -- sifir sayfa.
+    #
+    # KURU KIPTE ATILMIYOR ve KIMLIK YOKSA ATILMIYOR; ikisi de
+    # yukaridaki tetikle ayni kural.
+    if not a.kuru and jeton:
+        _simdi = datetime.now(timezone.utc)
+        if bilanco_gerekli(_simdi, gunluk_oku()):
+            _bk = bilanco_tetikle(jeton)
+            _bsatir = (f"{an} {BILANCO_DAMGASI}: yanit={_bk}"
+                       if _bk == 204 else
+                       f"{an} {BILANCO_DAMGASI}: BASARISIZ yanit={_bk}")
+            # DAMGA BASARISIZLIKTA DA YAZILIYOR.
+            #
+            # Yazilmazsa her on dakikada bir yeniden denenir ve
+            # kimlik gecersizse gun boyu 144 bosa istek olur. Gunde
+            # BIR deneme, teshis icin yeterli ve zararsiz.
+            _yaz(_bsatir)
+            gunluge_yaz(_bsatir)
 
     # SURE DE YAZILIYOR.
     #

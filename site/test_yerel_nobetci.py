@@ -604,6 +604,100 @@ def test_duyuru_govdesi_OKUNABILIR():
     es("NL gercek satir sonu", yn.NL, chr(10))
 
 
+# ---------------------------------------------------------------------
+# BILANCO GUNLUK TETIGI
+# ---------------------------------------------------------------------
+#
+# NEDEN VAR: ucretsiz AI kotasi 00:00 UTC'de sifirlaniyor ve haber
+# hatti gun icinde tuketiyor (~32 kosu x ~5 cagri). Bilanco kosusu
+# kotayi BITMIS buluyordu ve sifir sayfa uretiyordu -- olculdu,
+# kosu #55 ve #56'da ILK sirkette 429.
+#
+# Cron ile cozulemiyor: bu depoda GitHub'in zamanlanmis kosulari
+# 5-7 saat gecikiyor (06:23 planli -> 11:48-13:40 gercek).
+
+def _an(gun, saat):
+    import datetime as _dt
+    return _dt.datetime.fromisoformat(f"{gun}T{saat}:00+00:00")
+
+
+def test_bilanco_tetigi_SAATTEN_ONCE_atilmiyor():
+    dogru("00:05'te atilmiyor (esik 00:10)",
+          yn.bilanco_gerekli(_an("2026-10-30", "00:05"), []) is False)
+    dogru("00:15'te atiliyor",
+          yn.bilanco_gerekli(_an("2026-10-30", "00:15"), []) is True)
+
+
+def test_bilanco_tetigi_GUNDE_BIR():
+    g = [f"2026-10-30T00:12:00Z {yn.BILANCO_DAMGASI}: yanit=204"]
+    dogru("ayni gun IKINCI kez atilmiyor",
+          yn.bilanco_gerekli(_an("2026-10-30", "06:00"), g) is False)
+    dogru("ERTESI gun yine atiliyor",
+          yn.bilanco_gerekli(_an("2026-10-31", "00:15"), g) is True)
+
+
+def test_bilanco_damgasi_TEK_YERDE():
+    """Yazarken ve ararken AYNI sabit.
+
+    Iki yerde ayri yazilsaydi arama hic eslesmez ve nobetci her on
+    dakikada YENIDEN tetiklerdi -- gunde 144 kosu. Ayni ders
+    `DUYURU_BASLIGI` icin de yazili.
+    """
+    kaynak = (pathlib.Path(__file__).resolve().parent
+              / "yerel_nobetci.py").read_text(encoding="utf-8")
+    dogru("damga govdede SABIT YAZILI degil",
+          kaynak.count('"' + yn.BILANCO_DAMGASI + '"') == 1)
+
+
+def test_bilanco_tetigi_DOGRU_IS_AKISINI_cagiriyor():
+    """Ag yok: `_istek` gecici olarak degistiriliyor.
+
+    ATILLIK: cagri gercekten yapilmis olmali. Hicbir cagri olmasaydi
+    "dogru adres" iddiasi bos bir listeden gecerdi.
+    """
+    cagrilar = []
+
+    def _sahte(adres, govde=None, jeton="", yontem="GET"):
+        cagrilar.append((yontem, adres, govde))
+        return 204, ""
+
+    gercek = yn._istek
+    try:
+        yn._istek = _sahte
+        kod = yn.bilanco_tetikle("jeton")
+    finally:
+        yn._istek = gercek
+    dogru("cagri YAPILDI", len(cagrilar) == 1)
+    dogru("yanit kodu donuyor", kod == 204)
+    _yontem, _adres, _govde = cagrilar[0]
+    dogru("POST ile", _yontem == "POST")
+    dogru("BILANCO is akisi cagriliyor", yn.BILANCO_AKISI in _adres)
+    # YANLIS AKISI CAGIRMAK SESSIZ BIR KUSUR OLURDU: tetik 204
+    # doner, gunluge "tamam" yazilir ve bilanco hic kosmaz.
+    dogru("haber akisi DEGIL", yn.IS_AKISI not in _adres)
+    dogru("main dalinda", (_govde or {}).get("ref") == "main")
+
+
+def test_bilanco_tetigi_ANA_AKISTA_cagriliyor():
+    """Islev dogru calissa da `main` onu sormazsa kapi OLU kalir.
+
+    Olcut AST: metin aramak bicimlendirme degisince sessizce
+    eslesmeyi birakiyor -- bu depoda iki kez oldu.
+    """
+    import ast
+
+    kaynak = (pathlib.Path(__file__).resolve().parent
+              / "yerel_nobetci.py").read_text(encoding="utf-8")
+    agac = ast.parse(kaynak)
+    ana = next(f for f in ast.walk(agac)
+               if isinstance(f, ast.FunctionDef) and f.name == "main")
+    adlar = {c.func.id for c in ast.walk(ana)
+             if isinstance(c, ast.Call) and isinstance(c.func, ast.Name)}
+    dogru("main bilanco_gerekli SORUYOR", "bilanco_gerekli" in adlar)
+    dogru("main bilanco_tetikle CAGIRIYOR", "bilanco_tetikle" in adlar)
+
+
+
 for _ad, _f in sorted(list(globals().items())):
     if _ad.startswith("test_") and callable(_f):
         _f()
