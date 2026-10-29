@@ -245,7 +245,11 @@ VARLIKLAR: tuple[tuple, ...] = (
      "Almanya'nın en büyük 40 şirketini içeren endeks; Avrupa sanayi "
      "görünümünün en çok izlenen göstergelerinden."),
     ("STOXX", "endeks", "Euro Stoxx 50", "Euro Stoxx 50", None, 85, ""),
-    ("DE10Y", "oran", "Almanya 10 yıllık tahvil", "German 10Y Bund", None, 90,
+    # SERI BAGLANDI: Bundesbank, GUNLUK, birincil kaynak.
+    # FRED karsiligi (IRLTLT01DEM156N) AYLIK ve kaynagi OECD;
+    # gerekcesi `kaynak/bundesbank.py` basinda yazili.
+    ("DE10Y", "oran", "Almanya 10 yıllık tahvil", "German 10Y Bund",
+     "BBK_DE10Y", 90,
      "Euro Bölgesinin risksiz getiri çıpası; diğer üye ülke tahvilleri "
      "buna göre fiyatlanır."),
     # EURUSD BURADA TANIMLI DEGIL: yukarida "piyasa" turuyle zaten

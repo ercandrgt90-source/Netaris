@@ -26,10 +26,59 @@ sys.path.insert(0, str(_KOK))
 
 import beyin
 import politika_faizi  # noqa: E402
+import bundesbank  # noqa: E402
 import ecb_kur  # noqa: E402
 import evds  # noqa: E402
 
 KAYNAK = "TCMB EVDS"
+
+
+def _anahtarsiz_yaz() -> None:
+    """ANAHTAR ISTEMEYEN kaynaklari depoya yazar.
+
+    EVDS anahtarindan BAGIMSIZ: gerekcesi `main()` icinde cagrildigi
+    yerde yazili. Hicbir hata yukari firlamiyor -- tek bir kaynagin
+    cekilememesi butun adimi dusurmemeli -- ama SESSIZ de degil:
+    satir rapora duser ve tazelik denetimi bayat seriyi yakalar.
+    """
+    print("anahtarsiz kaynaklar")
+    with beyin.baglan() as b:
+        with beyin.calisma_kaydi(b, "anahtarsiz") as ozet:
+            try:
+                kur = ecb_kur.cek()
+                n = ecb_kur.depoya_yaz(b, kur)
+                if kur:
+                    print(f"  OK  {'EUR/USD (ECB)':<24} "
+                          f"{kur[0][1]:>12,.4f}       {kur[0][0]}"
+                          f"  ({n} yeni)")
+                ozet["ecb_kur"] = n
+            except Exception as e:                        # noqa: BLE001
+                print(f"  --  {'EUR/USD (ECB)':<24} CEKILEMEDI: "
+                      f"{type(e).__name__}")
+
+            # ALMANYA 10 YILLIK -- BUNDESBANK'IN KENDISINDEN.
+            #
+            # `/varlik/de10y/` sayfasi bos duruyordu (olculdu
+            # 2026-10-29, canli site: ne seri ne haber). FRED'in
+            # karsiligi AYLIK ve kaynagi OECD; Bundesbank GUNLUK ve
+            # tahvili ihrac eden ulkenin merkez bankasi, yani
+            # birincil kaynak. Gerekcenin tamami
+            # `kaynak/bundesbank.py` basinda.
+            #
+            # BURAYA KONULDU cunku anahtar istemiyor -- ve bu
+            # fonksiyonun varlik sebebi tam o: anahtarsiz kaynak
+            # anahtara bagli olmasin.
+            try:
+                tahvil = bundesbank.cek()
+                n = bundesbank.depoya_yaz(b, tahvil)
+                if tahvil:
+                    print(f"  OK  {'Almanya 10Y (BBk)':<24} "
+                          f"{tahvil[-1][1]:>12,.2f} %     "
+                          f"{tahvil[-1][0]}  ({n} yeni)")
+                ozet["de10y"] = n
+            except Exception as e:                        # noqa: BLE001
+                print(f"  --  {'Almanya 10Y (BBk)':<24} CEKILEMEDI: "
+                      f"{type(e).__name__}")
 
 
 def main() -> int:
@@ -41,6 +90,27 @@ def main() -> int:
     print("=" * 70)
     print("TCMB EVDS")
     print("=" * 70)
+
+    # ANAHTARSIZ KAYNAKLAR ONCE -- VE ANAHTAR DENETIMINDEN ONCE.
+    #
+    # KUSUR BUYDU: ECB referans kuru bu betigin EVDS bolgesinin
+    # ICINDE yaziliyordu ve yanindaki yorum "EVDS ANAHTARINA BAGLI
+    # DEGIL" diyordu. Akis bunu UYGULAMIYORDU: `evds.anahtar()`
+    # bossa fonksiyon 49. satirda `return 0` ile donuyor, ECB cagrisi
+    # ise 126. satirdaydi. Yani anahtar dusse EUR/USD sessizce
+    # bayatlayacakti -- ve o kur `temel.html` seridinde, yani
+    # SITEDEKI HER SAYFADA gorunuyor.
+    #
+    # Ikinci cikis da ayni sonucu veriyordu: `evds.hepsi()` hic seri
+    # dondurmezse `return 1` ve ECB yine yazilmiyor.
+    #
+    # NIYET BELGELENMIS, UYGULANMAMISTI. Bu depoda ayni sinif daha
+    # once de yasandi (`/giris/` ve `/panel/` "arama motoruna kapali"
+    # diye yaziliydi ama `index, follow` basiyordu).
+    #
+    # Artik kendi islemine, kendi `calisma_kaydi` ile yaziyor: EVDS
+    # ne yaparsa yapsin bu adim kosuyor.
+    _anahtarsiz_yaz()
 
     if not evds.anahtar():
         print("EVDS_ANAHTARI tanimli degil -- adim ATLANDI.")
@@ -111,28 +181,6 @@ def main() -> int:
                 # denetim tazelik kontrolu bunu yakalar.
                 print("  UYARI: politika faizi PPK duyurusundan "
                       "okunamadi; onceki deger korunuyor")
-
-            # ECB REFERANS KURU -- ayni adimda, ANAHTARSIZ.
-            #
-            # Buraya konuldu cunku EVDS hatti zaten gunluk kurlari
-            # tasiyor ve ikisi ayni tabloya yaziyor. Ayri bir hat
-            # kurmak, calistirma listesinde unutulabilecek bir adim
-            # daha demekti.
-            #
-            # EVDS ANAHTARINA BAGLI DEGIL: ECB anahtar istemiyor. Ust
-            # taraftaki "anahtar yoksa atla" kurali bu cagriyi da
-            # atlardi, o yuzden hata durumu ayrica yakalanıyor.
-            try:
-                kur = ecb_kur.cek()
-                n_ecb = ecb_kur.depoya_yaz(b, kur)
-                if kur:
-                    print(f"  OK  {'EUR/USD (ECB)':<24} "
-                          f"{kur[0][1]:>12,.4f}       {kur[0][0]}"
-                          f"  ({n_ecb} yeni)")
-                ozet["ecb_kur"] = n_ecb
-            except Exception as e:                        # noqa: BLE001
-                print(f"  --  {'EUR/USD (ECB)':<24} CEKILEMEDI: "
-                      f"{type(e).__name__}")
 
             ozet.update({"yeni_gozlem": n, "seri": len(seriler)})
     print(f"\ndepo: {n} yeni gozlem ({len(gozlemler)} okundu), "
