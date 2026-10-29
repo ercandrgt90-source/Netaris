@@ -694,6 +694,18 @@ def test_bilanco_tetigi_DOGRU_IS_AKISINI_cagiriyor():
     # doner, gunluge "tamam" yazilir ve bilanco hic kosmaz.
     dogru("haber akisi DEGIL", yn.IS_AKISI not in _adres)
     dogru("main dalinda", (_govde or {}).get("ref") == "main")
+    # PAY VERILIYOR -- SINIRSIZ DEGIL.
+    #
+    # Kota ortak ve sabit bir pasta; 429'un KENDI metni soyluyor:
+    # "you have used up your daily free allocation". Bilanco hattini
+    # gunun ilk isi yapmak dogru ama sinirsiz birakmak HABER tarafini
+    # gun boyu ac birakir -- kendi elimizle yeni bir kusur.
+    _girdi = (_govde or {}).get("inputs") or {}
+    dogru("sinir GECIRILIYOR", "sinir" in _girdi)
+    dogru("sinir is akisi varsayilanindan KUCUK",
+          int(_girdi.get("sinir", "0")) < 60)
+    dogru("sinir sifir DEGIL (hat yine de kosmali)",
+          int(_girdi.get("sinir", "0")) > 0)
 
 
 def test_bilanco_tetigi_ANA_AKISTA_cagriliyor():

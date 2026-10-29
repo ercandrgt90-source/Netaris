@@ -144,6 +144,27 @@ BILANCO_SAATI = "00:10"
 #: cron'u yedek olarak duruyor.
 BILANCO_SON_SAAT = "03:00"
 
+#: Bu tetikte en fazla kac bilanco sayfasi yazilsin.
+#:
+#: KOTA ORTAK VE SABIT BIR PASTA -- OLCULDU (2026-10-29, kosu #2371
+#: gunlugunden, 429'un KENDI metni):
+#:
+#:     AiError: you have used up your daily free allocation
+#:
+#: Yani gunluk tahsisat; haber hatti ve bilanco hatti AYNI havuzdan
+#: iciyor. Bilanco hattini gunun ILK isi yapmak dogru, ama sinirsiz
+#: birakmak haber tarafini gun boyu ac birakir -- kendi elimizle
+#: yeni bir kusur yaratmak olurdu.
+#:
+#: 25 SECILDI, KEYFI DEGIL: ayni sayi "bolum gocu" adiminda da
+#: kullaniliyor ve orada OLCULDU (kosu #57: 24 sayfa tazelendi,
+#: kaynak kapanmadi). Q3 sezonunda ~300 sirket bildirecek; gunde 25
+#: sayfa ~12 gunde kapatir.
+#:
+#: Is akisinin KENDI varsayilani 60 ve o DEGISMIYOR: elle
+#: tetikleyen biri tam gazi hala secebilmeli.
+BILANCO_PAYI = "25"
+
 #: Gunluge yazilan damga. AYNI metin hem yazarken hem ararken
 #: kullaniliyor -- iki yerde ayri yazilsaydi arama hic eslesmez ve
 #: nobetci her turda YENIDEN tetiklerdi.
@@ -473,11 +494,16 @@ def bilanco_tetikle(jeton: str) -> int | None:
 
     `zorla` VERILMIYOR: bildirim ayi olup olmadigina hattin kendisi
     karar veriyor ve o karar burada kopyalanmamali.
+
+    `sinir` VERILIYOR cunku bu tetigin baglami farkli: gunun ILK isi
+    olarak kosuyor ve gunluk AI tahsisatinin TAMAMINI tuketebilir.
+    `BILANCO_PAYI` haber hattina pay birakiyor.
     """
     kod, _ = _istek(
         f"https://api.github.com/repos/{DEPO}/actions/workflows"
         f"/{BILANCO_AKISI}/dispatches",
-        {"ref": "main", "inputs": {"yayinla": "true"}},
+        {"ref": "main",
+         "inputs": {"yayinla": "true", "sinir": BILANCO_PAYI}},
         jeton=jeton, yontem="POST")
     return kod
 
