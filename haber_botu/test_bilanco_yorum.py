@@ -89,6 +89,130 @@ g2 = by.girdi_kur("X", "X A.Ş.", "Sanayi", "2026/6", simdi=D(), once=E())
 esit("önceki dönem 10,00 milyar TL" in g2, True,
      "onceki donem girdide -- model hesap yapmasin")
 
+
+# DEGISIM YUZDESI GIRDIDE OLMALI -- KOSU #55'IN ASIL ENGELI BUYDU.
+#
+# Girdi yillardir yalnizca ONCEKI SEVIYEYI veriyordu; yanindaki yorum
+# ise "degisim de veriliyor" diyordu. Model degisimi anlatmasi
+# istendigi icin yuzdeyi KENDI hesapliyor, `sayi_denetimi` de onu
+# hakli olarak reddediyordu.
+#
+# OLCULDU (kosu #55, 2026-10-29): 78 atlamanin ~45'i "girdide olmayan
+# sayi" idi -- kotadan BUYUK bir engel. Reddedilen degerler
+# deterministik degisimlerin ta kendisiydi (EREGL 32.7 -> FAVOK
+# %32,7; AKCNS 28.1 -> ozkaynak %28,2).
+g3 = by.girdi_kur("X", "X A.Ş.", "Sanayi", "2026/6", simdi=D(), once=E(),
+                  degisimler={"hasilat": 34.6})
+esit("reel değişim %34,6" in g3, True, "artis yuzdesi girdide")
+# EKSI ISARET AYRI BIR IDDIA: site kurali isareti YUZDE ISARETINDEN
+# ONCE koyuyor ("-%12,5"). Modelin girdide bozuk bicim gormesi,
+# ciktida da bozuk bicim uretmesi demek.
+#
+# `E`de YALNIZCA hasilat dolu -- bos bir kalemin satiri hic
+# yazilmadigi icin iddia onun uzerinden kurulamaz.
+g3b = by.girdi_kur("X", "X A.Ş.", "Sanayi", "2026/6", simdi=D(), once=E(),
+                   degisimler={"hasilat": -12.5})
+esit("reel değişim -%12,5" in g3b, True,
+     "azalis yuzdesi girdide -- isaret YUZDE ISARETINDEN ONCE")
+
+# GERIYE DONUK: degisim verilmezse eski bicim korunuyor. `None`
+# degerler de yazilmamali -- "reel değişim None" girdiyi bozardi.
+esit("reel değişim" in g2, False, "degisim verilmezse yazilmiyor")
+g4 = by.girdi_kur("X", "X A.Ş.", "Sanayi", "2026/6", simdi=D(), once=E(),
+                  degisimler={"hasilat": None})
+esit("reel değişim" in g4, False, "None degisim yazilmiyor")
+
+# YONERGE HESAP YAPMAYI ACIKCA YASAKLIYOR.
+#
+# "Yeni sayi ekleme" yetmedi: model kendi hesabini "yeni sayi"
+# saymiyordu. Yasak, kusurun ADIYLA yazili olmali.
+esit("HESAP YAPMA" in by.SISTEM, True, "yonerge hesap yapmayi yasakliyor")
+esit("reel değişim" in by.SISTEM, True,
+     "yonerge hazir verilen alanin ADINI soyluyor")
+
+# URETIM ZINCIRI GECIRIYOR MU -- OLCUT AST.
+#
+# Girdi dogru kurulsa da `sirket_isle` degisimleri vermezse alan OLU
+# kalir. Metin aramak bicimlendirme degisince sessizce eslesmeyi
+# birakiyor; bu depoda iki kez oldu.
+import ast                                                # noqa: E402
+
+_k = (pathlib.Path(__file__).resolve().parent
+      / "uret_bilanco_sayfa.py").read_text(encoding="utf-8")
+_ag = ast.parse(_k)
+_cag = [c for c in ast.walk(_ag) if isinstance(c, ast.Call)
+        and isinstance(c.func, ast.Attribute) and c.func.attr == "girdi_kur"]
+esit(len(_cag), 1, "tek girdi_kur cagrisi")
+esit(any(kw.arg == "degisimler" for kw in _cag[0].keywords), True,
+     "uretim degisimleri geciriyor")
+
+
+# DEGISIM HARITASI GERCEKTEN DOLU OLMALI.
+#
+# Harita satir ici bir sozluk kurulumuydu ve MUTASYON KACTI: `{}`
+# yazmak AST sinamasini geciyordu ("degisimler= anahtari var") ama
+# alan OLU kaliyordu. Anahtarin TASINDIGINI gormek yetmiyor; icinde
+# deger OLDUGU da sinanmali.
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent / "analiz"))
+import uret_bilanco_sayfa as _U                           # noqa: E402
+
+_h = _U.degisim_haritasi(D(), E())
+esit(_h.get("hasilat") is not None, True,
+     f"harita gercekten deger uretiyor (hasilat={_h.get('hasilat')})")
+# `E`de yalnizca hasilat dolu; otekiler hesaplanamaz ve None olmali.
+esit(_h.get("net_kar"), None, "hesaplanamayan alan None")
+# `once` hic yoksa harita yine kurulmali -- cokmemeli.
+esit(_U.degisim_haritasi(D(), None).get("hasilat"), None,
+     "onceki donem yokken cokmuyor")
+
+# SAGLAYICI KAPANINCA MALI TABLO CEKILMIYOR.
+#
+# OLCULDU (kosu #56): kota ILK sirkette kapandi, hat 324 sirketi
+# cekmeye devam etti (~970 istek) ve kaynak 8 ardisik redden sonra
+# kapandi. Bedelini bir sonraki adim odedi: "bölüm göçü" 186
+# sayfanin SIFIRINI tasiyabildi.
+import yorumcu as _y                                      # noqa: E402
+
+esit(_U._saglayici_kapandi(), False, "baslangicta kapali DEGIL")
+_y._CF_KOTA_DOLDU = True
+try:
+    esit(_U._saglayici_kapandi(), True, "mandal kapaninca KAPALI")
+finally:
+    _y.cf_kotasini_sifirla()
+esit(_U._saglayici_kapandi(), False, "sifirlaninca yine acik")
+
+# ERKEN CIKIS URETIM DONGUSUNDE GERCEKTEN KULLANILIYOR MU.
+#
+# Yardimcinin dogru cevap vermesi YETMEZ: dongu onu sormazsa kapi
+# OLU kalir ve kota kapaliyken 324 sirket yine cekilir. Olcut AST --
+# metin aramak bicimlendirme degisince sessizce eslesmeyi birakiyor.
+import ast                                                # noqa: E402
+
+_kaynak = (pathlib.Path(__file__).resolve().parent
+           / "uret_bilanco_sayfa.py").read_text(encoding="utf-8")
+_agac = ast.parse(_kaynak)
+_main = next(f for f in ast.walk(_agac)
+             if isinstance(f, ast.FunctionDef) and f.name == "main")
+# Kuyruk uzerinde donen `for`u bul ve ICINDE cagri var mi diye bak.
+_dongu = [d for d in ast.walk(_main)
+          if isinstance(d, ast.For)
+          and isinstance(d.iter, ast.Name) and d.iter.id == "kuyruk"]
+esit(len(_dongu), 1, "uretim dongusu bulundu")
+_sor = [c for c in ast.walk(_dongu[0]) if isinstance(c, ast.Call)
+        and isinstance(c.func, ast.Name)
+        and c.func.id == "_saglayici_kapandi"]
+esit(len(_sor), 1, "dongu saglayicinin kapandigini SORUYOR")
+# Cagri bir `if`in KOSULUNDA olmali -- cagirip sonucu atmak,
+# hicbir sey yapmamakla ayni sey.
+_kosul = [d for d in ast.walk(_dongu[0]) if isinstance(d, ast.If)
+          and any(isinstance(c, ast.Call) and isinstance(c.func, ast.Name)
+                  and c.func.id == "_saglayici_kapandi"
+                  for c in ast.walk(d.test))]
+esit(len(_kosul), 1, "cagri bir kosulun ICINDE")
+esit(any(isinstance(x, (ast.Return, ast.Break))
+         for x in ast.walk(_kosul[0])), True,
+     "kosul gerceklesince dongu BITIYOR")
+
 print()
 if _kaldi:
     print(f"{_kaldi} TEST KALDI, {_gecti} gecti")

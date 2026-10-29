@@ -47,6 +47,9 @@ hareket ediyor, biri artarken diğeri neden düşüyor.
 KURALLAR — hepsi zorunlu:
 - YALNIZCA sana verilen sayıları kullan. Yeni sayı, oran ya da tarih
   EKLEME.
+- HESAP YAPMA. Değişim yüzdeleri sana HAZIR veriliyor ("reel değişim
+  %34,6" gibi). Kendin bölme, çıkarma ya da yuvarlama yapma: senin
+  hesabın bizimkinden 0,1 puan şaşarsa metnin TAMAMEN atılır.
 - Sayıyı VERİLDİĞİ ANLAMDA kullan. Marj yüzdedir, oran katsayıdır;
   karıştırma.
 - DEĞERLENDİRME YAPMA. "İyi", "güçlü", "zayıf", "cazip", "riskli",
@@ -80,7 +83,8 @@ def _yuzde(d, basamak=1) -> str:
 
 def girdi_kur(kod: str, unvan: str, sektor_tr: str, donem_etiketi: str,
               simdi, once=None, oranlar_kendi=None,
-              medyanlar=None, sirket_sayisi=0) -> str:
+              medyanlar=None, sirket_sayisi=0,
+              degisimler=None) -> str:
     """Modele gidecek metin -- SAYFADA NE VARSA O.
 
     Girdi sayfanin kendisinden turetiliyor. Ikisi ayri kaynaktan
@@ -103,11 +107,37 @@ def girdi_kur(kod: str, unvan: str, sektor_tr: str, donem_etiketi: str,
         if d is None:
             continue
         satir = f"{etiket}: {_sayi(d / 1e9)} milyar TL"
-        # ONCEKI DONEM VARSA DEGISIM DE VERILIYOR -- model kendisi
-        # hesaplamasin diye. Hesap bizim, cumle onun.
+        # DEGISIM YUZDESI DE VERILIYOR -- model kendisi HESAPLAMASIN.
+        #
+        # Buradaki yorum yillardir "degisim de veriliyor" diyordu ama
+        # AKIS yalnizca ONCEKI SEVIYEYI veriyordu. Model, degisimi
+        # anlatmasi istendigi icin yuzdeyi KENDI hesapliyordu ve
+        # `sayi_denetimi` onu hakli olarak reddediyordu: girdide
+        # olmayan bir sayi.
+        #
+        # OLCULDU (kosu #55, 2026-10-29): 78 atlamanin ~45'i
+        # "girdide olmayan sayi" idi -- kotadan DAHA buyuk bir engel.
+        # Reddedilen sayilar deterministik degisimlerin ta kendisiydi:
+        #
+        #     EREGL  reddedilen 32.7  -> FAVOK degisimi  %32,7
+        #            reddedilen  240  -> net kar          %239,4
+        #     AKCNS  reddedilen 28.1  -> ozkaynak         %28,2
+        #            reddedilen 52.1  -> net borc         %52,4
+        #
+        # Model yalnizca kendi yuvarlamasiyla yeniden hesapliyordu.
+        #
+        # HESAP BURADA YAPILMIYOR, DISARIDAN GELIYOR. `_degisim`
+        # `oranlar._yuzde_degisim`e EK olarak sifira cok yakin tabani
+        # da eliyor; ayni hesabi burada tekrar yazmak o korumayi
+        # kaybetmek olurdu. Sayfadaki tablo ile bu girdi boylece AYNI
+        # hesaptan besleniyor -- ayrismalari yapisal olarak imkansiz.
         eski = getattr(once, ad, None) if once else None
         if eski:
-            satir += f" (önceki dönem {_sayi(eski / 1e9)} milyar TL)"
+            satir += f" (önceki dönem {_sayi(eski / 1e9)} milyar TL"
+            y = (degisimler or {}).get(ad)
+            if y is not None:
+                satir += f", reel değişim {_yuzde(y)}"
+            satir += ")"
         p.append(satir)
 
     for anahtar, ad in sektor_ozet.ORANLAR:

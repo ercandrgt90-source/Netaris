@@ -147,6 +147,45 @@ def _degisim(simdi, once) -> float | None:
     return oranlar._yuzde_degisim(simdi, once)
 
 
+def _saglayici_kapandi() -> bool:
+    """Ucretsiz saglayici BU KOSUDA kapandi mi.
+
+    AYRI ISLEV, ICE AKTARMA ICERIDE: `yorumcu` modulu ag ve ortam
+    degiskeni okuyor; modul basinda ice aktarmak sinamalari ona
+    bagimli kilardi. Ice aktarilamazsa KAPALI DEGIL sayiliyor --
+    bilinmezlik yuzunden uretimi durdurmak, calisan bir kosuyu
+    bosuna kesmek olurdu.
+
+    Anthropic yolunda mandal yok; o zaman da False donuyor ve hat
+    eskisi gibi isliyor.
+    """
+    try:
+        import yorumcu                                # noqa: PLC0415
+    except ImportError:                                # pragma: no cover
+        return False
+    return bool(getattr(yorumcu, "cf_kota_doldu", lambda: False)())
+
+
+def degisim_haritasi(simdi, once) -> dict:
+    """{alan: reel yuzde degisim} -- modele verilecek hazir hesaplar.
+
+    NEDEN AYRI ISLEV
+    ----------------
+    Satir ici bir sozluk kurulumuydu ve MUTASYON KACTI: `{}` yazmak
+    sinamayi gecip alani OLU birakiyordu. Cagrinin `degisimler=`
+    anahtarini TASIDIGINI gormek yetmiyor; icinde gercekten deger
+    OLDUGU da sinanmali. Adi olan bir islev dogrudan sinanabiliyor.
+
+    HESAP BURADA YAPILMIYOR: `_degisim`e devrediliyor, cunku o
+    `oranlar._yuzde_degisim`e EK olarak sifira cok yakin tabani da
+    eliyor. Sayfadaki tablo da ayni cagriyi kullaniyor -- modele
+    giden yuzde ile okura basilan yuzde AYNI hesabin sonucu.
+    """
+    return {ad: _degisim(getattr(simdi, ad, None),
+                         getattr(once, ad, None) if once else None)
+            for ad, _etiket in KALEMLER}
+
+
 def govde_kur(kod, unvan, sektor, donem, d, oran, medyan, n, yorum,
               mali_not="", alt_sektor="",
               once=None, seri=None) -> str:
@@ -491,9 +530,17 @@ def sirket_isle(kod, bilgi, sektor, donem, oran, medyan, n,
     if kendi:
         oran = kendi
 
+    # DEGISIMLER SAYFAYI KURAN HESAPTAN GELIYOR.
+    #
+    # `govde_kur` ayni `_degisim`i kullaniyor, yani modele verilen
+    # yuzde ile sayfada basilan yuzde AYNI cagrinin sonucu. Ikisini
+    # ayri hesaplamak, bu depoda uc kez yasanan kusur sinifi: kural
+    # `oranlar.py`de yaziliyken ikinci bir yer onu tasimadan yeniden
+    # hesapliyor.
     girdi = bilanco_yorum.girdi_kur(
         kod, bilgi["unvan"], sektor, donem, simdi=d, once=once,
-        oranlar_kendi=oran, medyanlar=medyan, sirket_sayisi=n)
+        oranlar_kendi=oran, medyanlar=medyan, sirket_sayisi=n,
+        degisimler=degisim_haritasi(d, once))
 
     metin, model, sebep, ham = bilanco_yorum.yorum_uret(girdi)
     if not metin:
@@ -988,6 +1035,26 @@ def main() -> int:
     for _oncelik, _sira, sektor, v, kod, oran in kuyruk:
         if yazilan >= n.sinir:
             print(f"\nsınıra ulaşıldı ({n.sinir})")
+            print(f"yazılan {yazilan}, atlanan {atlanan}")
+            _dokum(sebepler, yazilan, atlanan)
+            return 0
+        # SAGLAYICI KAPANDIYSA MALI TABLO DA CEKILMIYOR.
+        #
+        # `sirket_isle` ONCE tabloyu cekiyor, SONRA yorum istiyor.
+        # Yorum kapisi kapandiginda kalan sirketlerin hepsi yine de
+        # cekiliyordu -- yazilamayacagi KESIN olan sayfalar icin.
+        #
+        # OLCULDU (kosu #56, 2026-10-29): kota ilk sirkette kapandi,
+        # hat 324 sirketi cekmeye DEVAM etti (~970 istek) ve
+        # stockanalysis 8 ardisik redden sonra kapandi. Bedelini bir
+        # sonraki adim odedi: "bölüm göçü" 186 sayfanin SIFIRINI
+        # tasiyabildi, hepsi "eksik: hasilat, net_kar" dedi.
+        #
+        # BASKASININ SUNUCUSU: yazilamayacak bir sayfa icin istek
+        # atmak, kendi isimize yaramadigi gibi kaynaga da yuk.
+        if _saglayici_kapandi():
+            print(f"\nsağlayıcı kapandı -- kalan {len(kuyruk) - yazilan - atlanan}"
+                  f" şirket için mali tablo ÇEKİLMİYOR")
             print(f"yazılan {yazilan}, atlanan {atlanan}")
             _dokum(sebepler, yazilan, atlanan)
             return 0
