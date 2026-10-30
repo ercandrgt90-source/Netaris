@@ -201,7 +201,11 @@ esit(len(_dongu), 1, "uretim dongusu bulundu")
 _sor = [c for c in ast.walk(_dongu[0]) if isinstance(c, ast.Call)
         and isinstance(c.func, ast.Name)
         and c.func.id == "_saglayici_kapandi"]
-esit(len(_sor), 1, "dongu saglayicinin kapandigini SORUYOR")
+# IKI CAGRI BEKLENIYOR: biri BEKLEME kosulunda, biri CIKIS
+# kosulunda. Ilk yazim "tam bir tane" diyordu ve bekleme eklenince
+# dustu -- iddia davranisi degil, o anki SATIR SAYISINI tutuyordu.
+esit(len(_sor) >= 1, True,
+     f"dongu saglayicinin kapandigini SORUYOR ({len(_sor)} cagri)")
 # Cagri bir `if`in KOSULUNDA olmali -- cagirip sonucu atmak,
 # hicbir sey yapmamakla ayni sey.
 _kosul = [d for d in ast.walk(_dongu[0]) if isinstance(d, ast.If)
@@ -213,6 +217,73 @@ esit(any(isinstance(x, (ast.Return, ast.Break))
          for x in ast.walk(_kosul[0])), True,
      "kosul gerceklesince dongu BITIYOR")
 
+
+# --- KOTA TUKENINCE BEKLE -------------------------------------------
+#
+# OLCULDU (2026-10-30, ardisik kosu gunlukleri):
+#
+#     06:13  haber   18 yorum      kota ACIK
+#     06:41  haber    0 yorum 429  kota DOLU
+#     06:45  bilanco        429    kota DOLU
+#     07:33  haber   24 yorum      kota ACIK yine
+#
+# "daily free allocation" mesaji YANILTICI: butce ~50 dakikada
+# kendini yeniliyor. Dogru tepki "dogru saati secmek" degil,
+# TUKENDIGINDE BEKLEMEK. Modeldeki 5/15 SANIYELIK bekleme bu olcek
+# icin cok kisa.
+_uyku = []
+_asil_uyu = _U._uyu
+_U._uyu = lambda s: _uyku.append(s)
+try:
+    _U.kota_bekleme_sifirla()
+    _y._CF_KOTA_DOLDU = True
+    # DONGU SINIRLI: "hak tukenmesine bakilmiyor" mutasyonu
+    # `_kota_bekle`yi hep True yapiyor ve sinirsiz bir sinama SONSUZ
+    # DONERDI -- dusmek yerine ASILIRDI. Asilan bir sinama, kirmizi
+    # donen bir sinama degildir: CI'de zaman asimina kadar kaynak
+    # yakar ve sebebi gorunmez.
+    _n = 0
+    while _U._saglayici_kapandi() and _U._kota_bekle():
+        _n += 1
+        _y._CF_KOTA_DOLDU = True          # hala dolu varsay
+        if _n > _U.KOTA_BEKLEME_HAKKI + 3:
+            break
+    esit(_n, _U.KOTA_BEKLEME_HAKKI, "hak kadar BEKLENIYOR")
+    esit(_n <= _U.KOTA_BEKLEME_HAKKI, True,
+         "bekleme SINIRLI -- sonsuz donmuyor")
+    esit(_U._kota_bekle(), False, "hak bitince beklemiyor")
+    # SURE DAKIKA OLCEGINDE: saniyelik bir bekleme olculen ~50
+    # dakikalik araligi hic kapsamaz.
+    esit(all(s >= 600 for s in _uyku), True,
+         f"bekleme DAKIKA olceginde ({[round(s/60) for s in _uyku]} dk)")
+    esit(_U.KOTA_BEKLEME_DK * _U.KOTA_BEKLEME_HAKKI >= 40, True,
+         "toplam bekleme olculen araligi KAPSIYOR")
+
+    # MANDAL GERCEKTEN SIFIRLANIYOR. Sifirlanmazsa bekleme hicbir sey
+    # degistirmez: kosu boyunca kapali kalir.
+    _U.kota_bekleme_sifirla()
+    _y._CF_KOTA_DOLDU = True
+    esit(_U._kota_bekle(), True, "bekleme yapildi")
+    esit(_U._saglayici_kapandi(), False, "bekleyisten sonra mandal ACIK")
+finally:
+    _U._uyu = _asil_uyu
+    _U.kota_bekleme_sifirla()
+    _y.cf_kotasini_sifirla()
+
+# URETIM DONGUSU BEKLIYOR MU -- OLCUT AST.
+_ag_b = ast.parse((pathlib.Path(__file__).resolve().parent
+                   / "uret_bilanco_sayfa.py").read_text(encoding="utf-8"))
+_m_b = next(f for f in ast.walk(_ag_b)
+            if isinstance(f, ast.FunctionDef) and f.name == "main")
+_w = [w for w in ast.walk(_m_b) if isinstance(w, ast.While)
+      and any(isinstance(c, ast.Call) and isinstance(c.func, ast.Name)
+              and c.func.id == "_kota_bekle" for c in ast.walk(w.test))]
+esit(len(_w), 1, "uretim dongusu kota icin BEKLIYOR")
+# Bekleme, CIKIS kontrolunden ONCE olmali: once cikilirsa bekleme
+# hic calismaz.
+_govde = [n for n in _m_b.body]
+esit(any(isinstance(n, ast.For) for n in ast.walk(_m_b)), True,
+     "uretim dongusu duruyor")
 print()
 if _kaldi:
     print(f"{_kaldi} TEST KALDI, {_gecti} gecti")

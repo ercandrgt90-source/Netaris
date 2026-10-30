@@ -147,6 +147,52 @@ def _degisim(simdi, once) -> float | None:
     return oranlar._yuzde_degisim(simdi, once)
 
 
+#: Kota tukendiginde kac kez, kac dakika beklensin.
+#:
+#: OLCULEN ARALIK ~50 DAKIKA (gerekce uretim dongusunde, tabloyla).
+#: Iki bekleme x 20 dakika olculen araligin uzerini kapsiyor.
+#: Actions dakikasi bu depoda SINIRSIZ (`bilanco.yml` basinda
+#: yazili), yani UZUN kosu maliyet degil -- BOS kosu maliyet.
+KOTA_BEKLEME_DK = 20
+KOTA_BEKLEME_HAKKI = 2
+
+_kota_bekleme_kalan = KOTA_BEKLEME_HAKKI
+
+
+def kota_bekleme_sifirla() -> None:
+    """Bekleme hakkini basa alir (sinamalar icin)."""
+    global _kota_bekleme_kalan
+    _kota_bekleme_kalan = KOTA_BEKLEME_HAKKI
+
+
+def _uyu(saniye: float) -> None:
+    """Bekleme TEK YERDEN -- sinamalar bunu yamaliyor."""
+    import time                                        # noqa: PLC0415
+    time.sleep(saniye)
+
+
+def _kota_bekle() -> bool:
+    """Kota icin bekler ve mandali sifirlar. Hak kalmadiysa False.
+
+    MANDAL SIFIRLANMADAN beklemek anlamsiz olurdu: `cf_kota_doldu`
+    kosu boyunca acik kalir ve bekleyisin ardindan yine kapali
+    gorunurdu -- yani bekleme hicbir sey degistirmezdi.
+    """
+    global _kota_bekleme_kalan
+    if _kota_bekleme_kalan <= 0:
+        return False
+    _kota_bekleme_kalan -= 1
+    print(f"  kota tukendi -- {KOTA_BEKLEME_DK} dk bekleniyor "
+          f"(kalan hak {_kota_bekleme_kalan})")
+    _uyu(KOTA_BEKLEME_DK * 60)
+    try:
+        import yorumcu                                 # noqa: PLC0415
+        yorumcu.cf_kotasini_sifirla()
+    except ImportError:                                # pragma: no cover
+        return False
+    return True
+
+
 def _saglayici_kapandi() -> bool:
     """Ucretsiz saglayici BU KOSUDA kapandi mi.
 
@@ -1118,6 +1164,24 @@ def main() -> int:
         #
         # BASKASININ SUNUCUSU: yazilamayacak bir sayfa icin istek
         # atmak, kendi isimize yaramadigi gibi kaynaga da yuk.
+        # KOTA TUKENDIYSE BEKLE -- CIKMADAN ONCE.
+        #
+        # OLCULDU (2026-10-30, ardisik kosu gunlukleri):
+        #
+        #     06:13  haber   18 yorum      kota ACIK
+        #     06:41  haber    0 yorum 429  kota DOLU
+        #     06:45  bilanco        429    kota DOLU
+        #     07:33  haber   24 yorum      kota ACIK yine
+        #
+        # Yani 'daily free allocation' mesaji YANILTICI: butce
+        # ~50 dakikada kendini yeniliyor. Dogru tepki 'dogru saati
+        # secmek' degil, TUKENDIGINDE BEKLEMEK.
+        #
+        # Model icindeki 5/15 SANIYELIK bekleme bu olcek icin cok
+        # kisa; burasi DAKIKA olceginde bekliyor, mandali
+        # sifirliyor ve AYNI sirketten devam ediyor.
+        while _saglayici_kapandi() and _kota_bekle():
+            pass
         if _saglayici_kapandi():
             print(f"\nsağlayıcı kapandı -- kalan {len(kuyruk) - yazilan - atlanan}"
                   f" şirket için mali tablo ÇEKİLMİYOR")
