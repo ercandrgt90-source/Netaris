@@ -846,6 +846,82 @@ sina("girdideki yildan sizan deger KABUL EDILMIYOR",
          "Politika faizi %2026 seviyesinde.", _G_PF) != "")
 
 
+
+# --- YABANCI MERKEZ BANKASI POLITIKA FAIZI ---------------------------
+#
+# Kapi ciktidaki "politika faizi %X" degerini GIRDIDEKI politika
+# faiziyle kiyasliyor -- ve o deger TCMB'nin. Yabanci bir bankanin
+# orani DOGRU yazildiginda bile reddediliyordu.
+#
+# OLCULDU (2026-10-30, son on gunun `ai_ret` kayitlari): bu kaliptan
+# gelen 135 reddin TAMAMI yabanci banka haberlerindendi --
+# 51 Japonya MB, 18 Fed, 5 BoC -- ve metinler DOGRUYDU:
+# "PBoC'nin politika faiz orani %3,50 olarak aciklandi".
+#
+# Ayni sinifin IKINCI ornegi: bu kapinin kendi gerekcesi, 2026-09-14'te
+# kuralin "tam da tesvik etmesi gereken analizleri elediğini" anlatiyor.
+#
+# SAYI YINE KORUNUYOR: `sayi_denetimi` bu kapidan ONCE kosuyor.
+for _ad, _metin, _girdi in (
+        ("PBoC", "PBoC'nin politika faiz oranı %3,50 olarak açıklandı.",
+         "Veri: PBoC %3,50"),
+        ("Fed", "Fed politika faizini %4,00 seviyesinde tuttu.",
+         "Veri: Fed %4,00"),
+        ("BoJ", "BoJ politika faizini %0,50 yaptı.", "Veri: BoJ %0,50"),
+        ("Japonya MB",
+         "Japonya Merkez Bankası politika faizini %0,50 yaptı.",
+         "Veri: %0,50")):
+    sina(f"{_ad} orani TCMB'yle KIYASLANMIYOR",
+         yorumcu._politika_faizi_kusuru(_metin, _girdi) == "")
+
+sina("TCMB'ye yanlis deger HALA reddediliyor",
+     yorumcu._politika_faizi_kusuru(
+         "TCMB politika faizi %10,00 seviyesinde.", _G_PF) != "")
+sina("TCMB'ye dogru deger geciyor",
+     yorumcu._politika_faizi_kusuru(
+         "TCMB politika faizi %37,00 seviyesinde.", _G_PF) == "")
+# IKISI AYNI CUMLEDE ISE KIYAS YAPILIYOR: ispat yuku kapiyi
+# atlatanda. "Fed" gecti diye TCMB iddiasini serbest birakmak,
+# denetimi olmayan bir alan acardi.
+sina("Fed ve TCMB ayni cumlede ise kiyas YAPILIYOR",
+     yorumcu._politika_faizi_kusuru(
+         "Fed kararı sonrası TCMB politika faizi %10,00 oldu.",
+         _G_PF) != "")
+# PENCERE CUMLE ILE SINIRLI: baska bir cumledeki "Fed" iddiayi
+# kurtarmamali.
+sina("onceki cumledeki yabanci banka iddiayi KURTARMIYOR",
+     yorumcu._politika_faizi_kusuru(
+         "Fed bu hafta toplandı. TCMB politika faizi %10,00 seviyesinde.",
+         _G_PF) != "")
+# PENCERE GERCEKTEN CUMLE MI -- MUTASYON BURADAN KACTI.
+#
+# Ustteki ornek hem "Fed" hem "TCMB" tasiyor, yani pencere metnin
+# tamamina genislese DE sonuc degismiyordu: iddia o mutasyonu
+# gezdirmiyordu. Burada ikinci cumlede TURKIYE isareti YOK --
+# pencere genislerse "Fed" onu kurtarir ve yanlis deger GECER.
+sina("yabanci banka BASKA cumlede, kurumsuz iddia yine denetleniyor",
+     yorumcu._politika_faizi_kusuru(
+         "Fed bu hafta toplandı. Politika faizi %10,00 seviyesinde.",
+         _G_PF) != "")
+
+# --- DESEN SESSIZCE BOZULMASIN ---------------------------------------
+#
+# Ilk yazimda desen bir kabuk here-doc'undan gecti ve her sinir
+# kacisi BACKSPACE karakterine (chr(8)) dondu. Desen HICBIR SEYLE
+# eslesmedi, yani kapi eskisi gibi calisti ve duzeltme yapildi
+# SANILDI. Bu depoda ayni tuzaga defalarca dusuldu; kural MEKANIK.
+for _ad, _desen in (("yabanci", yorumcu._YABANCI_MB),
+                    ("turkiye", yorumcu._TURKIYE_MB)):
+    sina(f"{_ad} deseninde BACKSPACE yok", chr(8) not in _desen.pattern)
+# POZITIF KONTROL: "backspace yok" BOS bir desende de dogrudur ve
+# hicbir sey soylemez.
+sina("yabanci desen gercekten esliyor",
+     bool(yorumcu._YABANCI_MB.search("PBoC")))
+sina("turkiye deseni gercekten esliyor",
+     bool(yorumcu._TURKIYE_MB.search("TCMB")))
+sina("kisa kisaltma kelime ICINDE eslesmiyor",
+     not yorumcu._YABANCI_MB.search("federasyon"))
+
 print("=" * 60)
 if kaldi:
     print(f"{kaldi} TEST BASARISIZ")

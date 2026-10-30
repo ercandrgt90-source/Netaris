@@ -394,6 +394,56 @@ def tekrar_orani(cikti: str, girdi: str) -> float:
 #: "politika faizi ... %N" -- kavram adi ile ona ILISTIRILEN deger.
 _PF_CIKTI = re.compile(r"politika faiz\w*[^.]{0,20}?%\s*([\d.,]+)", re.I)
 
+#: YABANCI merkez bankasi isaretleri.
+#:
+#: `_politika_faizi_kusuru` ciktidaki "politika faizi %X" ifadesini
+#: GIRDIDEKI politika faiziyle kiyasliyor -- ve girdideki deger
+#: TCMB'nin. Yabanci bir merkez bankasinin orani dogru yazildiginda
+#: bile TCMB'ninkine uymadigi icin REDDEDILIYORDU.
+#:
+#: OLCULDU (2026-10-30, son on gunun `ai_ret` kayitlari): bu kaliptan
+#: gelen 135 reddin tamami yabanci banka haberlerindendi --
+#:
+#:     51  Japonya Merkez Bankasi'ndan faiz artisi beklentisi
+#:     18  Fed faiz karari belli oldu
+#:      5  BoC Oran Karari: %2,50
+#:
+#: ve reddedilen metinler DOGRUYDU:
+#:
+#:     "PBoC'nin politika faiz orani %3,50 olarak aciklandi"
+#:
+#: Ayni sinifin IKINCI ornegi: bu kapinin docstring'i, 2026-09-14'te
+#: kuralin "tam da tesvik etmesi gereken analizleri elemeye devam
+#: ettigini" zaten anlatiyor.
+#:
+#: SAYI YINE KORUNUYOR: `sayi_denetimi` BU KAPIDAN ONCE kosuyor
+#: (satir sirasi), yani yabanci oran da girdide gecmek zorunda.
+#: Kaldirilan sey yanlis kiyas, denetim degil.
+#: SINIR KARAKTERI SABITTEN GELIYOR.
+#:
+#: Ilk yazimda desen bir kabuk here-doc'undan gecti ve \b
+#: BACKSPACE karakterine (chr(8)) dondu. Desen HICBIR SEYLE
+#: eslesmedi, yani kapi sessizce eskisi gibi calisti -- duzeltme
+#: yapildi SANILDI. Bu depoda ayni tuzaga defalarca dusuldu;
+#: sinir karakteri artik acik bir sabitten uretiliyor.
+_SINIR = chr(92) + 'b'
+
+#: Kisa kisaltmalar SINIRLA, uzun adlar sinirsiz: 'boc' sinirsiz
+#: olsaydi 'PBoC' icindeki 'BoC'a da takilirdi -- zararsiz ama
+#: olcutu bulaniklastirirdi.
+_YABANCI_MB = re.compile(
+    '(' + _SINIR + '(?:fed|fomc|ecb|boj|boe|boc|snb|rba|rbnz)'
+    + _SINIR + '|pboc|riksbank|norges'
+    + '|avrupa merkez|japonya merkez|ingiltere merkez'
+    + '|İngiltere merkez|çin merkez|cin merkez'
+    + '|kanada merkez|isviçre merkez|İsviçre merkez)', re.I)
+
+#: TURKIYE isaretleri. Ikisi AYNI cumlede geciyorsa kiyas YAPILIYOR:
+#: ispat yuku kapiyi atlatanda.
+_TURKIYE_MB = re.compile(
+    '(' + _SINIR + '(?:tcmb|ppk)' + _SINIR
+    + '|türkiye cumhuriyet merkez)', re.I)
+
 
 #: Gelecege donuk yon iddiasi.
 _GELECEK_KIP = re.compile(
@@ -496,6 +546,16 @@ def _politika_faizi_kusuru(cikti: str, girdi: str) -> str:
     """
     m = _PF_CIKTI.search(cikti)
     if not m:
+        return ""
+    # YABANCI MERKEZ BANKASI BU KAPININ KONUSU DEGIL.
+    #
+    # Girdideki politika faizi TCMB'nin; Fed'in ya da BoJ'un orani
+    # dogru yazildiginda bile ona uymaz. Pencere, eslesmeyi iceren
+    # CUMLE: paragrafin tamamina bakmak, baska bir cumlede gecen
+    # "Fed" yuzunden TCMB iddiasini da serbest birakirdi.
+    _bas = max(cikti.rfind(".", 0, m.start()), -1) + 1
+    _cumle = cikti[_bas:m.end()]
+    if _YABANCI_MB.search(_cumle) and not _TURKIYE_MB.search(_cumle):
         return ""
     yazilan = _sayilar("%" + m.group(1))
     if not yazilan:
