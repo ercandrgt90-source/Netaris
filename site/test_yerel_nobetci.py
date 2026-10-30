@@ -629,16 +629,27 @@ def test_bilanco_tetigi_PENCERE_DISINDA_atilmiyor():
     gerekcesi kotanin taze olmasi; taze olmadigi saatte tetik
     gerekcesini kaybediyor.
     """
-    dogru("00:05'te atilmiyor (alt sinir 00:10)",
-          yn.bilanco_gerekli(_an("2026-10-30", "00:05"), []) is False)
-    dogru("00:10'da atiliyor (alt sinir DAHIL)",
-          yn.bilanco_gerekli(_an("2026-10-30", "00:10"), []) is True)
-    dogru("01:30'da atiliyor (pencere ICI)",
-          yn.bilanco_gerekli(_an("2026-10-30", "01:30"), []) is True)
-    dogru("03:00'te atiliyor (ust sinir DAHIL)",
-          yn.bilanco_gerekli(_an("2026-10-30", "03:00"), []) is True)
-    dogru("03:01'de atilmiyor (pencere kapandi)",
-          yn.bilanco_gerekli(_an("2026-10-30", "03:01"), []) is False)
+    # OLCULEN SIFIRLAMA ANI (2026-10-30, haber kosularindan):
+    #     00:31:57 -> 0 yorum   (kota dolu)
+    #     01:13:13 -> 21 yorum  (KOTA ACIK)
+    # Pencere bu araligin GUVENLI tarafinda basliyor.
+    dogru("00:13'te atilmiyor -- kota o saatte HALA dolu (olculdu)",
+          yn.bilanco_gerekli(_an("2026-10-30", "00:13"), []) is False)
+    dogru("01:00'da atilmiyor -- sifirlama henuz kesin degil",
+          yn.bilanco_gerekli(_an("2026-10-30", "01:00"), []) is False)
+    dogru("01:15'te atiliyor (alt sinir DAHIL)",
+          yn.bilanco_gerekli(_an("2026-10-30", "01:15"), []) is True)
+    dogru("02:30'da atiliyor (pencere ICI)",
+          yn.bilanco_gerekli(_an("2026-10-30", "02:30"), []) is True)
+    dogru("04:00'te atiliyor (ust sinir DAHIL)",
+          yn.bilanco_gerekli(_an("2026-10-30", "04:00"), []) is True)
+    dogru("04:01'de atilmiyor (pencere kapandi)",
+          yn.bilanco_gerekli(_an("2026-10-30", "04:01"), []) is False)
+    # SINIR OLCULEN ANDAN SONRA OLMALI: alt sinir 01:13'ten once
+    # konursa tetik kota DOLUYKEN ates eder -- tam da 2026-10-30'da
+    # olan buydu.
+    dogru("alt sinir olculen sifirlama aninin SONRASINDA",
+          yn.BILANCO_SAATI > "01:13")
     # OLCULEN SAAT: bilanco kosusu 13:22'de kotayi bitmis buluyordu.
     dogru("13:22'de atilmiyor -- kota o saatte bitmis oluyor",
           yn.bilanco_gerekli(_an("2026-10-30", "13:22"), []) is False)
@@ -647,11 +658,11 @@ def test_bilanco_tetigi_PENCERE_DISINDA_atilmiyor():
 
 
 def test_bilanco_tetigi_GUNDE_BIR():
-    g = [f"2026-10-30T00:12:00Z {yn.BILANCO_DAMGASI}: yanit=204"]
+    g = [f"2026-10-30T01:17:00Z {yn.BILANCO_DAMGASI}: yanit=204"]
     dogru("ayni gun IKINCI kez atilmiyor",
-          yn.bilanco_gerekli(_an("2026-10-30", "01:00"), g) is False)
+          yn.bilanco_gerekli(_an("2026-10-30", "02:00"), g) is False)
     dogru("ERTESI gun yine atiliyor",
-          yn.bilanco_gerekli(_an("2026-10-31", "00:15"), g) is True)
+          yn.bilanco_gerekli(_an("2026-10-31", "01:20"), g) is True)
 
 
 def test_bilanco_damgasi_TEK_YERDE():

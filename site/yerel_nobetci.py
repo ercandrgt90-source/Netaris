@@ -110,10 +110,22 @@ BILANCO_AKISI = "bilanco.yml"
 
 #: Bilanco tetiginin EN ERKEN saati (UTC, "SS:DD").
 #:
-#: NEDEN GECE YARISINDAN HEMEN SONRA -- OLCULDU (2026-10-29):
-#: Cloudflare Workers AI gunluk ucretsiz kotasi 00:00 UTC'de
-#: sifirlaniyor ve haber hatti onu gun icinde tuketiyor (gunde ~32
-#: kosu x ~5 cagri = ~160 cagri). Ayni gunun gunluklerinden:
+#: SIFIRLAMA ANI OLCULDU, TAHMIN EDILMEDI (2026-10-30).
+#:
+#: ILK DEGER 00:10 IDI VE YANLISTI: "gunluk kota gece yarisinda
+#: sifirlanir" bir varsayimdi. Tetik tam istendigi gibi ates etti
+#: (00:13:10 -> kosu #58) ama kota HALA doluydu.
+#:
+#: Sonra haber kosulari tarandi ve sifirlama ani ARANDI:
+#:
+#:     00:31:57  haber -> 0 yorum      (kota dolu)
+#:     01:13:13  haber -> 21 yorum     (KOTA ACIK)
+#:
+#: Yani sifirlama 00:32 ile 01:13 arasinda. Pencere 01:15'te
+#: basliyor -- olculen araligin GUVENLI tarafinda.
+#:
+#: Haber hatti kotayi gun icinde tuketiyor (gunde ~32 kosu, kosu
+#: basina 40 aday). Ayni gunun gunluklerinden:
 #:
 #:     00:23  haber kosusu   -> 0 x 429        (kota acik)
 #:     19:13  haber kosusu   -> 5 yorum, 0x429 (kota acik)
@@ -129,7 +141,7 @@ BILANCO_AKISI = "bilanco.yml"
 #: depoda GitHub'in zamanlanmis kosulari saatlerce gecikiyor
 #: (olculdu: 06:23 planli -> 11:48-13:40 arasi gercek, 5-7 saat).
 #: Yerel nobetci ise her 10 dakikada bir guvenilir calisiyor.
-BILANCO_SAATI = "00:10"
+BILANCO_SAATI = "01:15"
 
 #: Tetigin SON saati (UTC). Pencere disinda ATILMIYOR.
 #:
@@ -142,7 +154,7 @@ BILANCO_SAATI = "00:10"
 #: PENCERE GENIS TUTULDU (uc saat): makine gece yarisinda kapaliysa
 #: gun tamamen kacmasin. Pencere de kacarsa `bilanco.yml`in kendi
 #: cron'u yedek olarak duruyor.
-BILANCO_SON_SAAT = "03:00"
+BILANCO_SON_SAAT = "04:00"
 
 #: Bu tetikte en fazla kac bilanco sayfasi yazilsin.
 #:
