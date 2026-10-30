@@ -914,6 +914,71 @@ def _dokum(sebepler: dict[str, int], yazilan: int = -1,
         print(f"(kosu ozetine yazilamadi: {e})")
 
 
+def gecikme_olc(ozet: dict, yayimlanmis: set, sayfasi_olan: set,
+                bitisler: dict, bugun=None) -> tuple:
+    """(sirket_sayisi, en_eski_gun, ornekler) -- BILDIRDI AMA YAYIMLANMADI.
+
+    NEDEN OLCULUYOR
+    ---------------
+    `bilanco_nobetci` yeni donemi dogru goruyor ve bayragi aciyor;
+    bayrak kosu sonunda KAPANIYOR -- sayfa yazilsa da yazilmasa da.
+    Yani "uc sirket bildirdi, hicbirine sayfa yazilamadi" durumu
+    HICBIR YERDE gorunmuyordu. Olculdu (2026-10-29/30, kosu
+    #55-#59): bes kosu ust uste sifir sayfa yazdi ve kosular YESIL
+    dondu.
+
+    KIRMIZI KAPI DEGIL, OLCUM. Gecikmenin sebebi kodda degil
+    ucretsiz AI tahsisatinda; mesru bir sifiri kusur sayan bir
+    kontrol dagitimi durdururdu. Burada yalnizca GORUNUR kiliniyor.
+
+    "Kac gundur" olcusu donemin BITIS tarihinden: sirket o donemi
+    bildirdi, biz hala yayimlamadik.
+    """
+    import datetime as _dt                             # noqa: PLC0415
+    bugun = bugun or _dt.date.today()
+    bekleyen = []
+    for _sektor, v in sorted(ozet.items()):
+        if not isinstance(v, dict):
+            continue
+        for kod in (v.get("sirket") or {}):
+            k = kod.upper()
+            if k not in sayfasi_olan:
+                continue            # hic sayfasi yok -- AYRI olculuyor
+            if (k, kiyas_kumesi(v, kod)[2]) in yayimlanmis:
+                continue            # guncel
+            iso = bitisler.get(k, "")
+            try:
+                gun = (bugun - _dt.date.fromisoformat(iso)).days
+            except ValueError:
+                gun = 0             # bitis bilinmiyor: yas iddia etmiyoruz
+            bekleyen.append((gun, k))
+    bekleyen.sort(reverse=True)
+    en_eski = bekleyen[0][0] if bekleyen else 0
+    return len(bekleyen), en_eski, [k for _g, k in bekleyen[:5]]
+
+
+def _gecikme_bildir(ozet, yayimlanmis, sayfasi_olan, bitisler) -> None:
+    """Gecikmeyi gunluge ve kosu ozetine yazar."""
+    sayi, en_eski, ornek = gecikme_olc(ozet, yayimlanmis,
+                                       sayfasi_olan, bitisler)
+    if not sayi:
+        return
+    print(f"{sayi} şirket yeni dönemi bildirdi ama sayfası ESKİ "
+          f"(en eskisi {en_eski} gündür): {', '.join(ornek)}")
+    import os                                          # noqa: PLC0415
+    yol = os.environ.get("GITHUB_STEP_SUMMARY", "").strip()
+    if not yol:
+        return
+    try:
+        with open(yol, "a", encoding="utf-8") as f:
+            f.write(f"### Bilanço gecikmesi{chr(10)}{chr(10)}"
+                    f"**{sayi} şirket** yeni dönemi bildirdi, sayfası hâlâ "
+                    f"eski. En eskisi **{en_eski} gün**: "
+                    f"{', '.join(ornek)}{chr(10)}{chr(10)}")
+    except OSError as e:                               # pragma: no cover
+        print(f"(koşu özetine yazılamadı: {e})")
+
+
 def main() -> int:
     a = argparse.ArgumentParser(description=__doc__)
     a.add_argument("--sinir", type=int, default=VARSAYILAN_SINIR)
@@ -1031,6 +1096,7 @@ def main() -> int:
     _bitisler = bitis_haritasi(ozet)
     kuyruk = kuyruk_kur(ozet, _bekleyen, n.sektor, _sayfasi_olan,
                         _bitisler, var)
+    _gecikme_bildir(ozet, var, _sayfasi_olan, _bitisler)
 
     for _oncelik, _sira, sektor, v, kod, oran in kuyruk:
         if yazilan >= n.sinir:

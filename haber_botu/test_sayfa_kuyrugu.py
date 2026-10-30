@@ -256,4 +256,71 @@ _arg = len(_cagri[0].args) + len(_cagri[0].keywords)
 esit(_arg >= 6, True, f"cagri yayimlanmis kumesini de geciriyor ({_arg} arguman)")
 
 print("")
+print("8. GECIKME OLCUMU -- BILDIRDI AMA YAYIMLANMADI")
+# `bilanco_nobetci` yeni donemi dogru goruyor ve bayragi aciyor;
+# bayrak kosu sonunda KAPANIYOR -- sayfa yazilsa da yazilmasa da.
+# Yani "uc sirket bildirdi, hicbirine sayfa yazilamadi" HICBIR
+# YERDE gorunmuyordu. Olculdu: bes kosu ust uste sifir sayfa yazdi
+# ve kosular YESIL dondu.
+#
+# KIRMIZI KAPI DEGIL: gecikmenin sebebi kodda degil ucretsiz AI
+# tahsisatinda. Mesru bir sifiri kusur sayan kontrol dagitimi
+# durdururdu; burada yalnizca GORUNUR kiliniyor.
+import datetime as _dt                                 # noqa: E402
+
+_BUGUN = _dt.date(2026, 10, 30)
+_o8 = _ozet(GUNCEL="2026-09-30", BAYAT="2026-06-30", SAYFASIZ="2026-09-30",
+            MECHUL=None)
+_bit8 = {"GUNCEL": "2026-09-30", "BAYAT": "2026-06-30",
+         "SAYFASIZ": "2026-09-30"}
+# BEKLENTI ELLE YAZILI: etiketi `donem_etiketi`den uretmek,
+# beklentiyi korudugu koddan okumak olurdu.
+_yay8 = {("GUNCEL", "2026 3. çeyrek"), ("BAYAT", "2026 1. çeyrek"),
+         ("MECHUL", "2026 2. çeyrek")}
+_olan8 = {"GUNCEL", "BAYAT", "MECHUL"}
+
+_sayi, _eski, _ornek = US.gecikme_olc(_o8, _yay8, _olan8, _bit8,
+                                      bugun=_BUGUN)
+esit(_sayi, 1, f"yalnizca BAYAT bekliyor ({_ornek})")
+esit(_ornek, ["BAYAT"], "ornekte dogru sirket")
+# 2026-06-30 -> 2026-10-30 arasi 122 gun.
+esit(_eski, 122, "bekleme suresi donem BITISINDEN olculuyor")
+
+# SAYFASI HIC OLMAYAN BURADA SAYILMIYOR -- ayri olculuyor ve ayri
+# raporlaniyor ("N sirketin HIC sayfasi yok").
+esit("SAYFASIZ" in _ornek, False, "sayfasiz sirket bu olcumde YOK")
+
+# BITISI BILINMEYEN: sayiliyor ama YAS IDDIA EDILMIYOR. Uydurma bir
+# gun sayisi, olculmemis bir seyi olculmus gibi gosterirdi.
+_s2, _e2, _o2 = US.gecikme_olc(
+    _ozet(MECHUL=None), {("MECHUL", "zzz")}, {"MECHUL"}, {},
+    bugun=_BUGUN)
+esit(_s2, 1, "bitisi bilinmeyen de bekleyenlerde")
+esit(_e2, 0, "bitisi bilinmeyende yas SIFIR -- uydurulmuyor")
+
+# HICBIRI BAYAT DEGILSE SIFIR. Mesru sifir, kusur degil.
+_s3, _e3, _o3 = US.gecikme_olc(
+    _ozet(GUNCEL="2026-09-30"), {("GUNCEL", "2026 3. çeyrek")},
+    {"GUNCEL"}, {"GUNCEL": "2026-09-30"}, bugun=_BUGUN)
+esit((_s3, _e3), (0, 0), "hepsi guncelse gecikme YOK")
+
+print("")
+print("9. URETIM GECIKMEYI GERCEKTEN BILDIRIYOR")
+# Olcum dogru calissa da `main` onu cagirmazsa rapor OLU kalir.
+_ag9 = ast.parse(pathlib.Path(US.__file__).read_text(encoding="utf-8"))
+_m9 = next(f for f in ast.walk(_ag9)
+           if isinstance(f, ast.FunctionDef) and f.name == "main")
+_c9 = [c for c in ast.walk(_m9) if isinstance(c, ast.Call)
+       and isinstance(c.func, ast.Name) and c.func.id == "_gecikme_bildir"]
+esit(len(_c9), 1, "main gecikmeyi bildiriyor")
+# Rapor KIRMIZI DONDURMEMELI: cagri bir kosulun icinde olmamali ve
+# ardindan `return 1` gelmemeli.
+_d9 = ast.parse(pathlib.Path(US.__file__).read_text(encoding="utf-8"))
+_fn = next(f for f in ast.walk(_d9)
+           if isinstance(f, ast.FunctionDef) and f.name == "_gecikme_bildir")
+esit([r for r in ast.walk(_fn)
+      if isinstance(r, ast.Return) and r.value is not None], [],
+     "bildirim deger DONDURMUYOR -- kapi degil, olcum")
+
+print("")
 print(f"TUM TESTLER GECTI ({_gecti})")
