@@ -25,10 +25,8 @@ Hasılat dört katına çıkarken net zarar da derinleşti; bu ikili hareket, ne
 | Kalem | Reel değişim |
 | --- | ---: |
 | Hasılat | -%17,9 |
-| Net kâr | %3701,8 |
 | Özkaynak | %26,0 |
 | Aktif toplamı | %54,4 |
-| Net borç | -%0,6 |
 | Faaliyet nakit akışı | %108,1 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
@@ -44,15 +42,28 @@ Hasılat dört katına çıkarken net zarar da derinleşti; bu ikili hareket, ne
 | Net borç | -0,13 milyar TL |
 | Faaliyet nakit akışı | 0,09 milyar TL |
 
+## Son dört dönem
+
+| Kalem (milyar TL) | 2026 2. çeyrek | 2026 1. çeyrek | 2025 4. çeyrek | 2025 3. çeyrek |
+| --- | ---: | ---: | ---: | ---: |
+| Hasılat | 0,02 | 0,03 | 0,03 | 0,02 |
+| Net kâr | 0,30 | -0,10 | 0,03 | -0,02 |
+| Özkaynak | 2,29 | 2,30 | 2,08 | 1,93 |
+| Aktif toplamı | 2,94 | 2,76 | 2,54 | 2,05 |
+| Net borç | -0,13 | -0,10 | -0,12 | -0,16 |
+| Faaliyet nakit akışı | 0,09 | -0,13 | 0,04 | 0,03 |
+
+*Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
+
 ## Sektör içindeki konum
 
-Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 34 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 32 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Net kâr marjı | %1458,8 | %15,8 |
-| Özkaynak kârlılığı | %13,0 | %0,5 |
-| Borç / özkaynak | -0,06 | 0,02 |
+| Net kâr marjı | %1458,8 | %18,3 |
+| Özkaynak kârlılığı | %13,0 | %0,6 |
+| Borç / özkaynak | -0,06 | 0,00 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

@@ -27,13 +27,9 @@ Hasılat 2,24 milyar TL'ye gerilediği için brüt kâr 0,70 milyar TL'ye düşm
 | Hasılat | -%44,2 |
 | Brüt kâr | -%43,7 |
 | Faaliyet kârı | -%81,5 |
-| FAVÖK | -%65,7 |
-| Net kâr | %63,6 |
 | Özkaynak | -%604,1 |
 | Aktif toplamı | -%25,6 |
 | Net borç | -%22,9 |
-| Faaliyet nakit akışı | -%51,5 |
-| Yatırım harcaması | -%96,0 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -44,13 +40,24 @@ Hasılat 2,24 milyar TL'ye gerilediği için brüt kâr 0,70 milyar TL'ye düşm
 | Hasılat | 1,15 milyar TL |
 | Brüt kâr | 0,37 milyar TL |
 | Faaliyet kârı | 0,03 milyar TL |
-| FAVÖK | 0,08 milyar TL |
 | Net kâr | -0,06 milyar TL |
 | Özkaynak | -0,52 milyar TL |
 | Aktif toplamı | 3,15 milyar TL |
 | Net borç | 1,40 milyar TL |
-| Faaliyet nakit akışı | 0,08 milyar TL |
-| Yatırım harcaması | 0,00 milyar TL |
+
+## Son dört dönem
+
+| Kalem (milyar TL) | 2026 2. çeyrek | 2026 1. çeyrek | 2025 4. çeyrek | 2025 3. çeyrek |
+| --- | ---: | ---: | ---: | ---: |
+| Hasılat | 1,15 | 1,09 | 0,95 | 0,95 |
+| Brüt kâr | 0,37 | 0,33 | 0,01 | 0,23 |
+| Faaliyet kârı | 0,03 | -0,07 | -0,40 | -0,18 |
+| Net kâr | -0,06 | -0,09 | -0,45 | -0,25 |
+| Özkaynak | -0,52 | -0,42 | -0,27 | 0,16 |
+| Aktif toplamı | 3,15 | 2,87 | 2,68 | 3,24 |
+| Net borç | 1,40 | 1,33 | 1,16 | 1,20 |
+
+*Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
 
 ## Sektör içindeki konum
 

@@ -31,7 +31,6 @@ Hasılatın %89,7 brüt kâr marjı ile birlikte yükselmesi brüt kârı %3,20 
 | Net kâr | -%30,6 |
 | Özkaynak | %122,0 |
 | Aktif toplamı | %109,1 |
-| Net borç | -%3,4 |
 | Faaliyet nakit akışı | -%88,5 |
 | Yatırım harcaması | %1,5 |
 
@@ -52,6 +51,23 @@ Hasılatın %89,7 brüt kâr marjı ile birlikte yükselmesi brüt kârı %3,20 
 | Faaliyet nakit akışı | 0,32 milyar TL |
 | Yatırım harcaması | 0,26 milyar TL |
 
+## Son dört dönem
+
+| Kalem (milyar TL) | 2026 2. çeyrek | 2026 1. çeyrek | 2025 4. çeyrek | 2025 3. çeyrek |
+| --- | ---: | ---: | ---: | ---: |
+| Hasılat | 2,30 | 1,36 | 1,33 | 1,27 |
+| Brüt kâr | 2,06 | 1,14 | 1,09 | 1,05 |
+| Faaliyet kârı | 1,72 | 0,85 | 0,82 | 0,80 |
+| FAVÖK | 1,76 | 0,89 | 0,86 | 0,84 |
+| Net kâr | 0,89 | 0,45 | 0,41 | 0,48 |
+| Özkaynak | 10,29 | 8,10 | 6,68 | 5,81 |
+| Aktif toplamı | 11,05 | 8,83 | 7,31 | 6,45 |
+| Net borç | -0,39 | -0,45 | -0,45 | -0,37 |
+| Faaliyet nakit akışı | 0,32 | 0,24 | 0,27 | -1,69 |
+| Yatırım harcaması | 0,26 | 0,22 | 0,27 | 0,24 |
+
+*Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
+
 ## Sektör içindeki konum
 
 Karşılaştırma Bilişim sektöründe **aynı dönemi bildiren** 19 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
@@ -62,7 +78,7 @@ Karşılaştırma Bilişim sektöründe **aynı dönemi bildiren** 19 şirketin 
 | Net kâr marjı | %38,7 | %0,3 |
 | Özkaynak kârlılığı | %8,7 | %1,3 |
 | Cari oran | 2,13 | 1,24 |
-| Borç / özkaynak | -0,04 | -0,04 |
+| Borç / özkaynak | -0,04 | 0,00 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

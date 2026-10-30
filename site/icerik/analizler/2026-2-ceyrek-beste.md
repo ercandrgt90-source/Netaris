@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Net kârın %285,4'e çıkan marjı, aynı dönemde hasılatın sabit kalması ve faaliyet nakit akışının %0,02 milyar azalmasıyla birlikte, özkaynak kârlılığının %6,6'ya yükselmesine ve net borcun negatif (nakit fazlası) –%0,28'e gerilemesine paralel olarak gerçekleşti; bu durum özkaynakların %5,02 milyar üzerinden daha yüksek getiri sağlamasını ve cari oranın 2,90'a (sektör medyanı 0,90) çıkmasını destekledi. Borç/özkaynak oranının –%0,06 (sektör medyanı %0,12) olması, negatif net borçla birlikte likiditeyi artırarak cari oranı yükseltirken, aynı zamanda özkaynak kârlılığının artmasına zemin hazırladı. Yatırım harcamasının aynı seviyede (0,01 milyar TL) kalması, net kâr ve özkaynak kârlılığındaki artışın büyük ölçüde operasyonel verimlilik ve nakit fazlasından kaynaklandığını gösteriyor.
+Net kârın %285,4'e çıkan marjı, aynı dönemde hasılatın sabit kalması ve faaliyet nakit akışının %0,02 milyar azalmasıyla birlikte, özkaynak kârlılığının %6,6'ya yükselmesine ve net borcun negatif (nakit fazlası) –%0,28'e gerilemesine paralel olarak gerçekleşti; bu durum özkaynakların %5,02 milyar üzerinden daha yüksek getiri sağlamasını ve cari oranın 2,90'a (sektör medyanı 0,90) çıkmasını destekledi. Borç/özkaynak oranının –%0,06 (sektör medyanı %0,12) olması, negatif net borçla birlikte likiditeyi artırarak cari oranı yükseltirken, aynı zamanda özkaynak kârlılığının artmasına zemin hazırladı. Yatırım harcamasının aynı seviyede (0,01 milyar TL) kalması, net kâr ve özkaynak kârlılığındaki artışın büyük ölçüde operasyonel verimlilik ve nakit fazlasından kaynaklandığını gösteriyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
@@ -42,6 +42,20 @@ Net kârın %285,4'e çıkan marjı, aynı dönemde hasılatın sabit kalması v
 | Net borç | -0,28 milyar TL |
 | Faaliyet nakit akışı | 0,03 milyar TL |
 | Yatırım harcaması | 0,01 milyar TL |
+
+## Son dört dönem
+
+| Kalem (milyar TL) | 2026 2. çeyrek | 2026 1. çeyrek | 2025 4. çeyrek | 2025 2. çeyrek |
+| --- | ---: | ---: | ---: | ---: |
+| Hasılat | 0,12 | 0,05 | 0,10 | 0,12 |
+| Net kâr | 0,33 | -0,04 | 0,01 | 0,11 |
+| Özkaynak | 5,02 | 4,34 | 3,64 | — |
+| Aktif toplamı | 5,68 | 5,43 | 4,80 | — |
+| Net borç | -0,28 | -0,29 | 0,27 | — |
+| Faaliyet nakit akışı | 0,03 | 0,01 | 0,08 | 0,05 |
+| Yatırım harcaması | 0,01 | 0,00 | 0,01 | 0,01 |
+
+*Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
 
 ## Sektör içindeki konum
 

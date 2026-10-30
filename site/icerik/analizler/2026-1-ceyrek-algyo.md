@@ -24,12 +24,12 @@ Hasılat 0,12 milyar TL'ye yükselirken net kâr -2,33 milyar TL'ye düşmüş, 
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | %41,9 |
-| Net kâr | -%606,7 |
+| Hasılat | %28,2 |
+| Net kâr | -%36,8 |
 | Özkaynak | %18,2 |
 | Aktif toplamı | %44,2 |
 | Net borç | %202,1 |
-| Faaliyet nakit akışı | -%74,3 |
+| Faaliyet nakit akışı | -%3,3 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -37,34 +37,41 @@ Hasılat 0,12 milyar TL'ye yükselirken net kâr -2,33 milyar TL'ye düşmüş, 
 
 | Kalem | Değer |
 | --- | ---: |
-| Hasılat | 0,12 milyar TL |
-| Net kâr | -2,33 milyar TL |
+| Hasılat | 0,07 milyar TL |
+| Net kâr | 0,06 milyar TL |
 | Özkaynak | 17,58 milyar TL |
 | Aktif toplamı | 28,87 milyar TL |
 | Net borç | 4,46 milyar TL |
-| Faaliyet nakit akışı | 0,21 milyar TL |
+| Faaliyet nakit akışı | 0,95 milyar TL |
 
-## Sektör içindeki konum
+## Son dört dönem
 
-Karşılaştırma Gayrimenkul sektöründeki 34 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+| Kalem (milyar TL) | 2026 1. çeyrek | 2025 4. çeyrek | 2025 3. çeyrek | 2025 2. çeyrek |
+| --- | ---: | ---: | ---: | ---: |
+| Hasılat | 0,07 | 0,04 | 0,34 | 0,10 |
+| Net kâr | 0,06 | -2,39 | 0,31 | 0,00 |
+| Özkaynak | 17,58 | 15,56 | 17,26 | 15,81 |
+| Aktif toplamı | 28,87 | 24,24 | 24,62 | 22,16 |
+| Net borç | 4,46 | 4,05 | 2,62 | 2,22 |
+| Faaliyet nakit akışı | 0,95 | -0,74 | 0,68 | 1,05 |
 
-| Oran | Şirket | Sektör medyanı |
-| --- | ---: | ---: |
-| Net kâr marjı | %77,5 | %14,3 |
-| Özkaynak kârlılığı | %0,3 | %0,4 |
-| Borç / özkaynak | 0,25 | 0,02 |
+*Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
 
-*Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
+## Sektör karşılaştırması bu dönem yapılmadı
+
+Gayrimenkul sektöründe **aynı dönemi bildiren** en az 3 şirket yok, bu yüzden sektör medyanı üretilmedi ve karşılaştırma tablosu yazılmadı. İki şirketin ortasını "sektör medyanı" diye sunmak, ölçülmemiş bir şeyi ölçülmüş gibi göstermek olurdu.
+
+Yukarıdaki **bir yıl öncesine göre** değişim ve ölçüm tablosu şirketin kendi geçmişine dayanıyor; onlar için kıyas kümesi gerekmiyor.
 
 ## Öne çıkan ölçümler
 
 **Şirket lehine işleyenler**
 
-- Hasılat reel olarak %41,9 arttı.
+- Hasılat reel olarak %28,2 arttı.
 
 **Dikkat gerektirenler**
 
-- Net kâr reel olarak -%606,7 geriledi.
+- Net kâr reel olarak -%36,8 geriledi.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

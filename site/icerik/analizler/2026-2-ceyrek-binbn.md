@@ -26,13 +26,9 @@ Hasılat gerilerken brüt kâr artmış, bu ayrışma brüt kâr marjını sekt�
 | --- | ---: |
 | Hasılat | -%17,6 |
 | Brüt kâr | %229,7 |
-| Faaliyet kârı | -%187,7 |
 | FAVÖK | -%78,9 |
-| Net kâr | -%275,8 |
 | Özkaynak | -%4,5 |
 | Aktif toplamı | -%1,7 |
-| Net borç | %73,9 |
-| Faaliyet nakit akışı | %45,1 |
 | Yatırım harcaması | %17608,0 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
@@ -52,6 +48,23 @@ Hasılat gerilerken brüt kâr artmış, bu ayrışma brüt kâr marjını sekt�
 | Faaliyet nakit akışı | -0,19 milyar TL |
 | Yatırım harcaması | 0,09 milyar TL |
 
+## Son dört dönem
+
+| Kalem (milyar TL) | 2026 2. çeyrek | 2026 1. çeyrek | 2025 4. çeyrek | 2025 3. çeyrek |
+| --- | ---: | ---: | ---: | ---: |
+| Hasılat | 0,17 | 0,09 | 0,10 | 0,16 |
+| Brüt kâr | 0,06 | -0,01 | -0,06 | 0,03 |
+| Faaliyet kârı | -0,08 | -0,12 | -0,18 | -0,10 |
+| FAVÖK | 0,01 | -0,04 | -0,09 | -0,01 |
+| Net kâr | -0,04 | -0,32 | -0,22 | -0,13 |
+| Özkaynak | 1,89 | 1,78 | 1,88 | 2,00 |
+| Aktif toplamı | 2,21 | 2,11 | 2,16 | 2,33 |
+| Net borç | -0,20 | -0,20 | -0,30 | -0,61 |
+| Faaliyet nakit akışı | -0,19 | 0,36 | -0,51 | 0,28 |
+| Yatırım harcaması | 0,09 | 0,26 | 0,04 | 0,03 |
+
+*Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
+
 ## Sektör içindeki konum
 
 Karşılaştırma Bilişim sektöründe **aynı dönemi bildiren** 19 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
@@ -62,7 +75,7 @@ Karşılaştırma Bilişim sektöründe **aynı dönemi bildiren** 19 şirketin 
 | Net kâr marjı | -%24,7 | %0,3 |
 | Özkaynak kârlılığı | -%2,2 | %1,3 |
 | Cari oran | 7,81 | 1,24 |
-| Borç / özkaynak | -0,11 | -0,04 |
+| Borç / özkaynak | -0,11 | 0,00 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

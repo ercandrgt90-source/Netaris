@@ -26,12 +26,9 @@ Hasılatın düşmesi brüt kârı %6,3'e gerilemesine yol açarken, brüt kâr�
 | --- | ---: |
 | Hasılat | -%10,5 |
 | Brüt kâr | -%45,0 |
-| Faaliyet kârı | %13,0 |
-| FAVÖK | %72,6 |
 | Net kâr | -%2133,9 |
 | Özkaynak | %31,0 |
 | Aktif toplamı | %27,8 |
-| Net borç | -%52,0 |
 | Faaliyet nakit akışı | -%93,1 |
 | Yatırım harcaması | -%17,3 |
 
@@ -52,6 +49,23 @@ Hasılatın düşmesi brüt kârı %6,3'e gerilemesine yol açarken, brüt kâr�
 | Faaliyet nakit akışı | 0,01 milyar TL |
 | Yatırım harcaması | 0,04 milyar TL |
 
+## Son dört dönem
+
+| Kalem (milyar TL) | 2026 2. çeyrek | 2026 1. çeyrek | 2025 4. çeyrek | 2025 3. çeyrek |
+| --- | ---: | ---: | ---: | ---: |
+| Hasılat | 1,14 | 1,01 | 1,00 | 0,91 |
+| Brüt kâr | 0,07 | 0,09 | 0,10 | 0,09 |
+| Faaliyet kârı | -0,09 | 0,01 | 0,12 | 0,09 |
+| FAVÖK | -0,01 | 0,10 | 0,21 | 0,18 |
+| Net kâr | -0,25 | -0,11 | -0,12 | 0,02 |
+| Özkaynak | 6,98 | 6,81 | 6,27 | 5,76 |
+| Aktif toplamı | 7,64 | 7,61 | 7,22 | 6,71 |
+| Net borç | -0,37 | -0,37 | -0,37 | -0,42 |
+| Faaliyet nakit akışı | 0,01 | -0,01 | 0,02 | 0,25 |
+| Yatırım harcaması | 0,04 | 0,07 | 0,11 | 0,08 |
+
+*Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
+
 ## Sektör içindeki konum
 
 Karşılaştırma Temel tüketim sektöründe **aynı dönemi bildiren** 31 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
@@ -60,9 +74,9 @@ Karşılaştırma Temel tüketim sektöründe **aynı dönemi bildiren** 31 şir
 | --- | ---: | ---: |
 | Brüt kâr marjı | %6,3 | %16,5 |
 | Net kâr marjı | -%22,4 | %0,2 |
-| Özkaynak kârlılığı | -%3,6 | %0,8 |
+| Özkaynak kârlılığı | -%3,6 | %0,2 |
 | Cari oran | 6,21 | 1,36 |
-| Borç / özkaynak | -0,05 | 0,26 |
+| Borç / özkaynak | -0,05 | 0,28 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

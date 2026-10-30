@@ -28,8 +28,6 @@ Hasılat aynı kalırken net kâr -%28,2 lik negatif marjla -0,02 milyar TL'ye g
 | Net kâr | -%165,7 |
 | Özkaynak | %27,5 |
 | Aktif toplamı | %39,1 |
-| Net borç | %27,1 |
-| Faaliyet nakit akışı | %108,6 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -44,15 +42,28 @@ Hasılat aynı kalırken net kâr -%28,2 lik negatif marjla -0,02 milyar TL'ye g
 | Net borç | -0,03 milyar TL |
 | Faaliyet nakit akışı | 0,01 milyar TL |
 
+## Son dört dönem
+
+| Kalem (milyar TL) | 2026 2. çeyrek | 2026 1. çeyrek | 2025 4. çeyrek | 2025 3. çeyrek |
+| --- | ---: | ---: | ---: | ---: |
+| Hasılat | 0,01 | 0,01 | 0,01 | 0,01 |
+| Net kâr | 0,00 | -0,01 | -0,01 | 0,00 |
+| Özkaynak | 0,84 | 0,79 | 0,73 | 0,71 |
+| Aktif toplamı | 1,05 | 0,97 | 0,88 | 0,81 |
+| Net borç | -0,03 | -0,04 | -0,05 | -0,04 |
+| Faaliyet nakit akışı | 0,01 | 0,00 | 0,00 | 0,01 |
+
+*Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
+
 ## Sektör içindeki konum
 
-Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 34 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 32 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Net kâr marjı | -%28,2 | %15,8 |
-| Özkaynak kârlılığı | -%0,5 | %0,5 |
-| Borç / özkaynak | -0,03 | 0,02 |
+| Net kâr marjı | -%28,2 | %18,3 |
+| Özkaynak kârlılığı | -%0,5 | %0,6 |
+| Borç / özkaynak | -0,03 | 0,00 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

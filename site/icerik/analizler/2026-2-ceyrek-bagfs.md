@@ -28,7 +28,6 @@ Brüt kâr artışı (%27,9) net kâr marjının (%14,2) yükselmesine paralel o
 | Brüt kâr | %145,1 |
 | Faaliyet kârı | %417,1 |
 | FAVÖK | %99,5 |
-| Net kâr | %232,7 |
 | Özkaynak | %35,2 |
 | Aktif toplamı | %33,1 |
 | Net borç | %43,2 |
@@ -52,17 +51,34 @@ Brüt kâr artışı (%27,9) net kâr marjının (%14,2) yükselmesine paralel o
 | Faaliyet nakit akışı | 0,62 milyar TL |
 | Yatırım harcaması | 0,05 milyar TL |
 
+## Son dört dönem
+
+| Kalem (milyar TL) | 2026 2. çeyrek | 2026 1. çeyrek | 2025 4. çeyrek | 2025 3. çeyrek |
+| --- | ---: | ---: | ---: | ---: |
+| Hasılat | 2,34 | 1,04 | 0,91 | 0,92 |
+| Brüt kâr | 0,65 | 0,02 | -0,06 | 0,13 |
+| Faaliyet kârı | 0,46 | -0,37 | -0,33 | -0,02 |
+| FAVÖK | 0,75 | -0,08 | -0,04 | 0,27 |
+| Net kâr | 0,33 | 0,00 | 0,10 | -0,21 |
+| Özkaynak | 8,94 | 8,04 | 7,31 | 6,91 |
+| Aktif toplamı | 16,47 | 15,22 | 13,67 | 12,74 |
+| Net borç | 6,34 | 6,06 | 5,62 | 4,92 |
+| Faaliyet nakit akışı | 0,62 | 0,65 | -0,26 | 0,17 |
+| Yatırım harcaması | 0,05 | 0,06 | 0,04 | 0,03 |
+
+*Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
+
 ## Sektör içindeki konum
 
-Karşılaştırma Temel malzeme sektöründe **aynı dönemi bildiren** 37 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Temel malzeme sektöründe **aynı dönemi bildiren** 38 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
 | Brüt kâr marjı | %27,9 | %14,1 |
-| Net kâr marjı | %14,2 | %2,2 |
-| Özkaynak kârlılığı | %3,7 | %1,3 |
-| Cari oran | 0,51 | 1,32 |
-| Borç / özkaynak | 0,71 | 0,20 |
+| Net kâr marjı | %14,2 | %2,4 |
+| Özkaynak kârlılığı | %3,7 | %1,1 |
+| Cari oran | 0,51 | 1,36 |
+| Borç / özkaynak | 0,71 | 0,19 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -74,7 +90,7 @@ Karşılaştırma Temel malzeme sektöründe **aynı dönemi bildiren** 37 şirk
 - Net kâr reel olarak %232,7 arttı.
 - Brüt marj 14,4 puan genişledi (%13,4 → %27,9).
 - Faaliyet nakit akışı net kârın 1,85 katı; kâr nakde dönüyor.
-- Özkaynak kârlılığı %3,7; sektör medyanı %1,3.
+- Özkaynak kârlılığı %3,7; sektör medyanı %1,1.
 
 **Dikkat gerektirenler**
 
