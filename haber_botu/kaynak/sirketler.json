@@ -1351,7 +1351,8 @@
    "kap_kimlik": "4028e4a14a5df521014b02a116c7424a",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "GÜNEY BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "GÜNEY BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor_bulunamadi": "2026-10-31"
   },
   "BLS": {
    "kod": "BLS",
@@ -1359,7 +1360,8 @@
    "kap_kimlik": "4028e4a2415f4f8401415ffac5a034a9",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "ANY PARTNERS BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "ANY PARTNERS BAĞIMSIZ DENETİM A.Ş.",
+   "sektor_bulunamadi": "2026-10-31"
   },
   "BLSMD": {
    "kod": "BLSMD",
@@ -1367,7 +1369,8 @@
    "kap_kimlik": "4028e4a2415f4f8401415ffac5a034a9",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "ANY PARTNERS BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "ANY PARTNERS BAĞIMSIZ DENETİM A.Ş.",
+   "sektor_bulunamadi": "2026-10-31"
   },
   "BLUME": {
    "kod": "BLUME",
@@ -1405,7 +1408,8 @@
    "kap_kimlik": "8acae2c486d22a3b018848b0fe6233c7",
    "sehir": "",
    "uye_turu": "IGS",
-   "denetci": ""
+   "denetci": "",
+   "sektor_bulunamadi": "2026-10-31"
   },
   "BNTAS": {
    "kod": "BNTAS",
@@ -1468,7 +1472,8 @@
    "kap_kimlik": "4028e4a140ee35c70140ee3e44840009",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "KPMG BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "KPMG BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor_bulunamadi": "2026-10-31"
   },
   "BRGFK": {
    "kod": "BRGFK",
@@ -1476,7 +1481,8 @@
    "kap_kimlik": "4028e4a241462fd8014155181e226ec8",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "KPMG BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "KPMG BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor_bulunamadi": "2026-10-31"
   },
   "BRISA": {
    "kod": "BRISA",
@@ -1517,7 +1523,8 @@
    "kap_kimlik": "8acae2c4508ff7260151497fffa30e9e",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş"
+   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş",
+   "sektor_bulunamadi": "2026-10-31"
   },
   "BRKVY": {
    "kod": "BRKVY",
@@ -1624,7 +1631,8 @@
    "kap_kimlik": "4028e4a140ee35c70140ee3e44840009",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "KPMG BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "KPMG BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor_bulunamadi": "2026-10-31"
   },
   "BURCE": {
    "kod": "BURCE",
@@ -1676,7 +1684,8 @@
    "kap_kimlik": "4028e4a1486ec80a0148b0f695d4648d",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "DRT BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "DRT BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor_bulunamadi": "2026-10-31"
   },
   "CANTE": {
    "kod": "CANTE",
@@ -1816,7 +1825,8 @@
    "kap_kimlik": "4028e4a1415f4d9b01416002f6573cff",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş"
+   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş",
+   "sektor_bulunamadi": "2026-10-31"
   },
   "CMBTN": {
    "kod": "CMBTN",
@@ -1846,7 +1856,8 @@
    "kap_kimlik": "8acae2c4998f24d8019ad909b0f14c09",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "EREN BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "EREN BAĞIMSIZ DENETİM A.Ş.",
+   "sektor_bulunamadi": "2026-10-31"
   },
   "CONSE": {
    "kod": "CONSE",
@@ -1975,7 +1986,8 @@
    "kap_kimlik": "4028e4a140f2ed71014117912e3102bf",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "GÜNEY BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "GÜNEY BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor_bulunamadi": "2026-10-31"
   },
   "DENGE": {
    "kod": "DENGE",
@@ -1994,7 +2006,8 @@
    "kap_kimlik": "8acae2c56d759b01016df39c37ac2af9",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "KPMG BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "KPMG BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor_bulunamadi": "2026-10-31"
   },
   "DERHL": {
    "kod": "DERHL",
@@ -2057,7 +2070,8 @@
    "kap_kimlik": "4028e4a141462dfe01414b0e029d286f",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "DRT BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "DRT BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor_bulunamadi": "2026-10-31"
   },
   "DGATE": {
    "kod": "DGATE",
@@ -2098,7 +2112,8 @@
    "kap_kimlik": "8acae2c575a1b5b60176707955d239ff",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş"
+   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş",
+   "sektor_bulunamadi": "2026-10-31"
   },
   "DIMES": {
    "kod": "DIMES",
@@ -2106,7 +2121,8 @@
    "kap_kimlik": "01575ca846a34134b5c6bb879b7d0bc4",
    "sehir": "TOKAT",
    "uye_turu": "IGS",
-   "denetci": "GÜNEY BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "GÜNEY BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor_bulunamadi": "2026-10-31"
   },
   "DIRIT": {
    "kod": "DIRIT",
@@ -2136,7 +2152,8 @@
    "kap_kimlik": "8acae2c5991b90af01992916f11d02c7",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş"
+   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş",
+   "sektor_bulunamadi": "2026-10-31"
   },
   "DMD": {
    "kod": "DMD",
@@ -2144,7 +2161,8 @@
    "kap_kimlik": "fb4e3f58d05d4f01a5f15679e90748e9",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "GÜRELİ YEMİNLİ MALİ MÜŞAVİRLİK VE BAĞIMSIZ DENETİM HİZMETLERİ A.Ş."
+   "denetci": "GÜRELİ YEMİNLİ MALİ MÜŞAVİRLİK VE BAĞIMSIZ DENETİM HİZMETLERİ A.Ş.",
+   "sektor_bulunamadi": "2026-10-31"
   },
   "DMLKT": {
    "kod": "DMLKT",
@@ -2152,7 +2170,8 @@
    "kap_kimlik": "8acae2c494bafc93019837471b7c2e6f",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": ""
+   "denetci": "",
+   "sektor_bulunamadi": "2026-10-31"
   },
   "DMRGD": {
    "kod": "DMRGD",
@@ -2182,7 +2201,8 @@
    "kap_kimlik": "4028e4a140f2ed7101411793bae502d5",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "GÜNEY BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "GÜNEY BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor_bulunamadi": "2026-10-31"
   },
   "DNISI": {
    "kod": "DNISI",
@@ -2201,7 +2221,8 @@
    "kap_kimlik": "8acae2c569cee403016b991858035a54",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "EREN BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "EREN BAĞIMSIZ DENETİM A.Ş.",
+   "sektor_bulunamadi": "2026-10-31"
   },
   "DNZEN": {
    "kod": "DNZEN",
@@ -2209,7 +2230,8 @@
    "kap_kimlik": "8acae2c4998f24d8019abf7bb7eb4396",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "ULUSLARARASI BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "ULUSLARARASI BAĞIMSIZ DENETİM A.Ş.",
+   "sektor_bulunamadi": "2026-10-31"
   },
   "DOAS": {
    "kod": "DOAS",
@@ -2272,7 +2294,8 @@
    "kap_kimlik": "8acae2c469cee2a4016a2aff6ed42fb3",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "HSY DANIŞMANLIK VE BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "HSY DANIŞMANLIK VE BAĞIMSIZ DENETİM A.Ş.",
+   "sektor_bulunamadi": "2026-10-31"
   },
   "DOHOL": {
    "kod": "DOHOL",
