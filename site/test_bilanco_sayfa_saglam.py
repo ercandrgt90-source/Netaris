@@ -77,6 +77,32 @@ def _kod(metin: str) -> str:
     return ""
 
 
+def cikarilabilir(metin: str) -> bool:
+    """Bu sayfa MIRAS listesinden cikarilabilir mi.
+
+    SAGLAM GORUNMEK YETMEZ, OLCULMUS OLMAK GEREKIR
+    ----------------------------------------------
+    Miras listesinin birincil sebebi "sayfa iki ayri donemi
+    anlatiyor" (bkz. listenin `aciklama` alani) ve bu kusur yalnizca
+    `bilanco_denetim.olc` ile goruluyor: seviye tablosundan
+    hesaplanan oran, yazili oranla karsilastiriliyor.
+
+    `olc()` KALEM DONDURMUYORSA sayfa saglam DEGIL, OLCULEMEZ.
+    Kiyas bolumu olmayan sayfada oran tablosu hic yok, yani
+    `onarim_gereken` zorunlu olarak bos liste donuyor -- ve bos
+    liste "saglam" ile ayni okunuyor.
+
+    OLCULDU (2026-10-31): `bilanco_sayfasi` olcutu kategoriye
+    gecirilince 10 kiyassiz sayfa denetime girdi ve ucu (ALGYO,
+    RUZYE, TUPRS) miras listesindeydi. Hicbirinde olculebilen kalem
+    yok. Onlari "onarildi" sayip listeden cikarmak, kusuru
+    duzeltmek degil GOZDEN KACIRMAK olurdu: sayfa yarin kiyas
+    bolumunu geri kazandiginda ayni bozuklukla, ama artik tolere
+    EDILMEYEN bir sayfa olarak geri gelirdi.
+    """
+    return bool(bd.olc(metin))
+
+
 def budar(duzelen: list[str]) -> None:
     """Onarilmis sayfalari MIRAS listesinden cikarir.
 
@@ -125,6 +151,7 @@ def main() -> int:
     bakilan = saglam = miras_bozuk = 0
     yeni_bozuk: list[tuple[str, list[str]]] = []
     duzelen: list[str] = []
+    olculemeyen: list[str] = []
     for p in sorted(ICERIK.glob("*.md")):
         metin = io.open(p, encoding="utf-8").read()
         if not bd.bilanco_sayfasi(metin):
@@ -134,7 +161,10 @@ def main() -> int:
         if not sebep:
             saglam += 1
             if p.name in miras:
-                duzelen.append(p.name)
+                # LISTEDEN CIKMAK OLCULMUS OLMAYI GEREKTIRIYOR --
+                # gerekcesi `cikarilabilir` uzerinde yazili.
+                (duzelen if cikarilabilir(metin)
+                 else olculemeyen).append(p.name)
             continue
         if p.name in miras:
             miras_bozuk += 1
@@ -149,6 +179,10 @@ def main() -> int:
         print(f"    (ilk üç: {', '.join(duzelen[:3])})")
         if n.budar:
             budar(duzelen)
+    if olculemeyen:
+        print(f"  miras, ÖLÇÜLEMİYOR (listede kalıyor): "
+              f"{len(olculemeyen)} sayfa")
+        print(f"    (ilk üç: {', '.join(olculemeyen[:3])})")
     if yeni_bozuk:
         print(f"\nDUSTU  {len(yeni_bozuk)} sayfa bozuk ve miras listesinde "
               f"DEĞİL")

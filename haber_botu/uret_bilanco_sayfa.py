@@ -108,6 +108,14 @@ KALEMLER = (
 #: gocunde bir kez yasadi.
 SERI_BASLIGI = "## Son dört dönem"
 
+#: Sektor kiyas bolumunun basligi.
+#:
+#: BU BASLIK SAYFANIN BILANCO ANALIZI OLUP OLMADIGINI SOYLEMEZ.
+#: Medyani olmayan sirketin sayfasi kiyas bolumu OLMADAN
+#: yaziliyor (bkz. "KIYASSIZ SAYFA ARTIK YAZILIYOR"). Ayrim
+#: `_bilanco_sayfasi` ile KATEGORIDEN yapiliyor.
+KIYAS_BASLIGI = "## Sektör içindeki konum"
+
 
 def _mlr(d):
     return f"{bicim.sayi(d / 1e9, 2)} milyar TL" if d is not None else "—"
@@ -357,7 +365,7 @@ def govde_kur(kod, unvan, sektor, donem, d, oran, medyan, n, yorum,
         #
         # Kume degisti, cumle de degisti: okura kiyasin NEYE gore
         # yapildigi dogru soylenmeli.
-        s += ["", f"## Sektör içindeki konum", "",
+        s += ["", KIYAS_BASLIGI, "",
               f"Karşılaştırma {sektor} sektöründe **aynı dönemi bildiren** "
               f"{n} şirketin **medyanına** göre yapılıyor. Medyan seçildi "
               f"çünkü tek bir şirketin uç değeri ortalamayı tek başına "

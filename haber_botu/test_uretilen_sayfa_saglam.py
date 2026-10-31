@@ -46,6 +46,27 @@ import uret_bilanco_sayfa as US                    # noqa: E402
 #: dizgeyi kapanmamis birakiyor; tuzak depoda kayitli.
 SATIR_SONU = chr(10)
 
+
+def sayfa(govde, donem: str = "2026 2. çeyrek") -> str:
+    """Govdeyi GERCEK SAYFA haline getirir: on bilgi + govde.
+
+    NEDEN GEREKLI. `govde_kur` yalnizca GOVDEYI uretiyor; on bilgiyi
+    `yayin.yaz_sektorel` ekliyor. Denetim ise diskteki DOSYAYI
+    okuyor, yani her zaman on bilgili metni goruyor
+    (`bilanco_tazele.onarim_kuyrugu`: `metin = yol.read_text(...)`).
+
+    Ciplak govdeyi denetlemek, uretimde HIC olusmayan bir girdiyle
+    olcmek demekti: `bilanco_denetim.bilanco_sayfasi` sayfayi
+    ON BILGIDEKI `kategori` alanindan taniyor ve ciplak govdede o
+    alan yok. Kategori burada LITERAL yaziliyor; kanonik sabitle
+    ayni oldugu `test_bilanco_sayfa_olcutu.py` icinde tutuluyor.
+    """
+    metin = govde if isinstance(govde, str) else SATIR_SONU.join(govde)
+    on = ["---", "slug: x", "kod: KOD", f"donem: {donem}",
+          "kategori: Bilanço Analizi", "tarih: 2026-10-31", "---", ""]
+    return SATIR_SONU.join(on) + metin
+
+
 _gecti = 0
 
 
@@ -111,7 +132,7 @@ for ad, sektor, alt, alanlar in DURUMLAR:
     govde = US.govde_kur("KOD", "Örnek Şirket A.Ş.", sektor,
                          "2026 2. çeyrek", d, oran, MEDYAN, 12,
                          "Örnek yorum cümlesi.", alt_sektor=alt)
-    metin = govde if isinstance(govde, str) else "\n".join(govde)
+    metin = sayfa(govde)
     esit(bd.bilanco_sayfasi(metin), True, f"{ad}: bilanço sayfası üretildi")
     esit(bd.onarim_gereken(metin, {"sektor_tr": sektor,
                                    "alt_sektor": alt}), [],
@@ -128,7 +149,7 @@ _baska["brut_marj"] = _baska["brut_marj"] * 2.3      # baska bir donem
 _g = US.govde_kur("KOD", "Örnek Şirket A.Ş.", "Sanayi", "2026 2. çeyrek",
                   _d, _baska, MEDYAN, 12, "Örnek yorum.",
                   alt_sektor="Conglomerates")
-_m = _g if isinstance(_g, str) else "\n".join(_g)
+_m = sayfa(_g)
 _sebep = bd.onarim_gereken(_m, {"sektor_tr": "Sanayi",
                                 "alt_sektor": "Conglomerates"})
 esit(bool(_sebep), True, "başka dönemden gelen oran YAKALANIYOR")
@@ -202,8 +223,17 @@ esit("dönemi ölçümleri" in _km, True, "ölçüm tablosu duruyor")
 esit("Futbol kulübü" in _km, True, "kulüp kılavuzu duruyor")
 esit("Örnek yorum." in _km, True, "AI yorumu duruyor")
 # VE KENDI DENETIMIMIZDEN GECIYOR.
-esit(bd.onarim_gereken(_km, {"sektor_tr": "İletişim",
-                             "alt_sektor": "Entertainment"}), [],
+#
+# BU IDDIA ESKIDEN BOSTA DONUYORDU: kiyas bolumu olmadigi icin
+# `onarim_gereken` ilk satirda cikip BOS liste veriyordu, yani
+# "sorunsuz geciyor" sonucu denetimden DEGIL, denetime hic
+# girilmemesinden geliyordu. On bilgi eklenince kontrol gercekten
+# kosuyor (bkz. `test_bilanco_sayfa_olcutu.py`).
+_kms = sayfa(_kg, donem="2026 haziran–ağustos")
+esit(bd.bilanco_sayfasi(_kms), True,
+     "kıyassız sayfa DENETIME GIRIYOR")
+esit(bd.onarim_gereken(_kms, {"sektor_tr": "İletişim",
+                              "alt_sektor": "Entertainment"}), [],
      "kıyassız sayfa da denetimden SORUNSUZ geçiyor")
 
 # MEDYAN VARSA eski davranis: kiyas tablosu yaziliyor.

@@ -356,11 +356,11 @@ Bir cümle.
 
 with tempfile.TemporaryDirectory() as _t:
     _d = pathlib.Path(_t)
-    (_d / "eksik.md").write_text(_ON.format(kod="AAA", ek="", kiyas=_bd.KIYAS_BASLIGI),
+    (_d / "eksik.md").write_text(_ON.format(kod="AAA", ek="", kiyas=US.KIYAS_BASLIGI),
                                  encoding="utf-8")
     _seri_ek = (NL + US.SERI_BASLIGI + NL + NL + "| a | b |" + NL)
     (_d / "var.md").write_text(
-        _ON.format(kod="BBB", ek=_seri_ek, kiyas=_bd.KIYAS_BASLIGI), encoding="utf-8")
+        _ON.format(kod="BBB", ek=_seri_ek, kiyas=US.KIYAS_BASLIGI), encoding="utf-8")
     _haber = ("---" + NL + "kategori: Haber" + NL + "kod: CCC"
               + NL + "---" + NL + NL + "Metin." + NL)
     (_d / "haber.md").write_text(_haber, encoding="utf-8")
@@ -389,7 +389,7 @@ esit(_g.count(US.SERI_BASLIGI), 1, "baslik govdede TEK kez")
 
 # KORUMA ETKILENMEMELI: bolumu olmayan bir sayfa "onarim gereken"
 # sayilmamali, yoksa CI kirmiziya doner.
-_eksik_sayfa = _ON.format(kod="AAA", ek="", kiyas=_bd.KIYAS_BASLIGI)
+_eksik_sayfa = _ON.format(kod="AAA", ek="", kiyas=US.KIYAS_BASLIGI)
 esit(_bd.bilanco_sayfasi(_eksik_sayfa), True, "ornek bir bilanco sayfasi")
 esit([s for s in _bd.onarim_gereken(_eksik_sayfa)
       if "dört dönem" in s or "dort donem" in s], [],

@@ -49,8 +49,6 @@ import sektor_okuma                                # noqa: E402
 #: marji ekleniyor; bundan BUYUK fark yuvarlanmayla aciklanamaz.
 EMNIYET_PUAN = 0.5
 
-#: Kiyas bolumu olmayan sayfa bilanco analizi sayilmiyor.
-KIYAS_BASLIGI = "## Sektör içindeki konum"
 
 #: (oran adi, pay kalemi, bolen kalemi, oran tablosundaki ad)
 OLCUMLER = (
@@ -73,9 +71,59 @@ def _milyar(satir: str) -> float | None:
     return _sayi(m.group(1)) if m else None
 
 
+def _on_bilgi_kategorisi(metin: str) -> str:
+    """On bilgi blogundaki `kategori` alani; yoksa bos dizge.
+
+    YALNIZCA ON BILGIDEN okunuyor: govdede "kategori:" ile baslayan
+    bir satir sayfayi yanlislikla bilanco analizi yapmasin.
+    """
+    satirlar = metin.splitlines()
+    if not satirlar or satirlar[0].strip() != "---":
+        return ""
+    for satir in satirlar[1:]:
+        if satir.strip() == "---":
+            break
+        if satir.startswith("kategori:"):
+            return satir[len("kategori:"):].strip()
+    return ""
+
+
 def bilanco_sayfasi(metin: str) -> bool:
-    """Bu metin kiyas bolumu tasiyan bir bilanco analizi mi."""
-    return KIYAS_BASLIGI in metin
+    """Bu metin bir bilanco analizi mi -- ON BILGIDEKI KATEGORIDEN.
+
+    OLCUT BOLUM VARLIGI DEGIL, KATEGORI
+    -----------------------------------
+    Onceki olcut "## Sektor icindeki konum" bolumunun varligiydi.
+    Ama medyani olmayan sirketin sayfasi o bolum OLMADAN yaziliyor
+    (`uret_bilanco_sayfa`: "KIYASSIZ SAYFA ARTIK YAZILIYOR"). Yani
+    hattin kendi urettigi bir sayfa bicimi, bu islevin gozune
+    bilanco sayfasi olarak hic gorunmuyordu.
+
+    OLCULDU (2026-10-31): 312 bilanco analizinin 10'u kiyassizdi ve
+    bu 10 sayfa UC korumanin birden disindaydi --
+    `bilanco_tazele.goc_kuyrugu` (dort ceyreklik tabloyu hic
+    alamazlardi), `bilanco_tazele.onarim_kuyrugu` ve
+    `site/test_bilanco_sayfa_saglam.py`. Dordu 3. ceyrek sayfasiydi.
+    Hicbir yerde kirmizi gorunmuyordu: `olc()` ve `onarim_gereken()`
+    ilk satirda bu isleve bakip BOS donuyor, bos liste de "sayfa
+    saglam" ile ayni okunuyor.
+
+    Genisletmenin bedeli olculdu: 10 sayfanin HICBIRI bozuk ilan
+    edilmiyor (0/10), yani kapsam bedelsiz buyuyor.
+
+    KATEGORI URETICININ OLCUTU: `uret_bilanco_sayfa._bilanco_sayfasi`
+    ayni sabiti okuyor. Ureten ile denetleyen artik AYNI seyi
+    "bilanco sayfasi" sayiyor; istege bagli bir bolumun varligi bu
+    karari veremez.
+
+    Kapsam DARALMIYOR: olculdu, kiyas basligi tasiyan 302 sayfanin
+    302'sinde `kategori: Bilanço Analizi` yaziyor (302 ⊂ 312).
+    """
+    try:
+        from kumulatif_temizle import KATEGORI       # noqa: PLC0415
+    except ImportError:                              # pragma: no cover
+        KATEGORI = "Bilanço Analizi"
+    return _on_bilgi_kategorisi(metin) == KATEGORI
 
 
 def olc(metin: str) -> list[tuple[str, float, float, float]]:
