@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat 0,49 milyar TL'ye yükselmesi brüt kârın 0,08 milyar TL'ye, FAVÖK'ün 0,11 milyar TL'ye ve faaliyet kârının 0,06 milyar TL'ye artmasına yol açtı; aynı zamanda aktif toplamı ve özkaynak da sırasıyla 2,74 milyar TL ve 2,16 milyar TL'ye çıkarak bilanço büyüklüğünü artırdı. Net kâr –0,10 milyar TL olarak negatif kalırken, net borç –0,21 milyar TL ve cari oran 1,85 gibi negatif borç ve likidite göstergeleri, faaliyet nakit akışının 0,04 milyar TL'ye (önceki –0,12 milyar TL) yükselmesiyle birlikte nakit akışı iyileşmesinin bir yansımasıdır. Brüt kâr marjı %16,4 (sektör medyanı %32,4) ve özkaynak kârlılığı –%4,7 (sektör medyanı –%0,6) gibi kârlılık oranları, gelir artışının kârlılıkta tam yansımadığını, ancak likidite ve borç yapısının (borç/özkaynak –0,10, sektör medyanı –0,02) iyileştiğini gösterir.
+Hasılat 0,49 milyar TL'ye yükselmesi brüt kârın 0,08 milyar TL'ye, FAVÖK'ün 0,11 milyar TL'ye ve faaliyet kârının 0,06 milyar TL'ye artmasına yol açtı; aynı zamanda aktif toplamı ve özkaynak da sırasıyla 2,74 milyar TL ve 2,16 milyar TL'ye çıkarak bilanço büyüklüğünü artırdı. Net kâr –0,10 milyar TL olarak negatif kalırken, net borç –0,21 milyar TL ve cari oran 1,85 gibi negatif borç ve likidite göstergeleri, faaliyet nakit akışının 0,04 milyar TL'ye (önceki –0,12 milyar TL) yükselmesiyle birlikte nakit akışı iyileşmesinin bir yansımasıdır. Brüt kâr marjı %16,4 (sektör medyanı %32,4) ve özkaynak kârlılığı –%4,7 (sektör medyanı –%0,6) gibi kârlılık oranları, gelir artışının kârlılıkta tam yansımadığını, ancak likidite ve borç yapısının (borç/özkaynak –0,10, sektör medyanı –0,02) iyileştiğini gösterir.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
@@ -48,17 +48,34 @@ Hasılat 0,49 milyar TL'ye yükselmesi brüt kârın 0,08 milyar TL'ye, FAV�
 | Faaliyet nakit akışı | 0,04 milyar TL |
 | Yatırım harcaması | 0,02 milyar TL |
 
+## Son dört dönem
+
+| Kalem (milyar TL) | 2026 2. çeyrek | 2026 1. çeyrek | 2025 4. çeyrek | 2025 3. çeyrek |
+| --- | ---: | ---: | ---: | ---: |
+| Hasılat | 0,49 | 0,47 | 0,38 | 0,32 |
+| Brüt kâr | 0,08 | 0,07 | 0,06 | 0,04 |
+| Faaliyet kârı | 0,06 | -0,01 | 0,07 | 0,02 |
+| FAVÖK | 0,11 | 0,03 | 0,12 | 0,06 |
+| Net kâr | -0,10 | 0,04 | 0,01 | -0,01 |
+| Özkaynak | 2,16 | 2,10 | 1,91 | 1,73 |
+| Aktif toplamı | 2,74 | 2,54 | 2,31 | 2,09 |
+| Net borç | -0,21 | -0,15 | -0,12 | -0,08 |
+| Faaliyet nakit akışı | 0,04 | 0,09 | 0,10 | 0,07 |
+| Yatırım harcaması | 0,02 | 0,02 | 0,06 | 0,06 |
+
+*Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
+
 ## Sektör içindeki konum
 
-Karşılaştırma Sağlık sektöründe **aynı dönemi bildiren** 9 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Sağlık sektöründe **aynı dönemi bildiren** 8 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %16,4 | %32,4 |
-| Net kâr marjı | -%20,6 | -%2,9 |
-| Özkaynak kârlılığı | -%4,7 | -%0,6 |
-| Cari oran | 1,85 | 2,10 |
-| Borç / özkaynak | -0,10 | -0,02 |
+| Brüt kâr marjı | %16,4 | %34,9 |
+| Net kâr marjı | -%20,6 | -%11,8 |
+| Özkaynak kârlılığı | -%4,7 | -%0,8 |
+| Cari oran | 1,85 | 2,28 |
+| Borç / özkaynak | -0,10 | -0,03 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

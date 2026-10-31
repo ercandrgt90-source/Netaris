@@ -44,15 +44,28 @@ Hasılat 0,44 milyar TL'ye yükselirken net kâr 0,15 milyar TL'ye gerilemiş; b
 | Net borç | 1,07 milyar TL |
 | Faaliyet nakit akışı | 0,03 milyar TL |
 
+## Son dört dönem
+
+| Kalem (milyar TL) | 2026 2. çeyrek | 2026 1. çeyrek | 2025 4. çeyrek | 2025 3. çeyrek |
+| --- | ---: | ---: | ---: | ---: |
+| Hasılat | 0,21 | 0,23 | 0,22 | 0,18 |
+| Net kâr | 0,04 | 0,11 | 0,21 | -0,04 |
+| Özkaynak | 8,18 | 7,60 | 6,82 | 6,35 |
+| Aktif toplamı | 9,55 | 8,98 | 8,11 | 7,72 |
+| Net borç | 1,07 | 1,09 | 1,12 | 1,18 |
+| Faaliyet nakit akışı | 0,03 | 0,06 | 0,29 | -0,03 |
+
+*Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
+
 ## Sektör içindeki konum
 
-Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 34 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 32 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Net kâr marjı | %20,4 | %15,8 |
-| Özkaynak kârlılığı | %0,5 | %0,5 |
-| Borç / özkaynak | 0,13 | 0,02 |
+| Net kâr marjı | %20,4 | %18,3 |
+| Özkaynak kârlılığı | %0,5 | %0,6 |
+| Borç / özkaynak | 0,13 | 0,00 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

@@ -31,7 +31,6 @@ Hasılatın yükselmesiyle birlikte brüt kâr da azaldı; bu, brüt kâr marjı
 | Net kâr | %8,8 |
 | Özkaynak | %7,1 |
 | Aktif toplamı | %7,3 |
-| Net borç | -%16,8 |
 | Faaliyet nakit akışı | %12,9 |
 | Yatırım harcaması | -%39,9 |
 
@@ -52,17 +51,34 @@ Hasılatın yükselmesiyle birlikte brüt kâr da azaldı; bu, brüt kâr marjı
 | Faaliyet nakit akışı | 0,23 milyar TL |
 | Yatırım harcaması | 0,05 milyar TL |
 
+## Son dört dönem
+
+| Kalem (milyar TL) | 2026 2. çeyrek | 2026 1. çeyrek | 2025 4. çeyrek | 2025 3. çeyrek |
+| --- | ---: | ---: | ---: | ---: |
+| Hasılat | 1,08 | 0,82 | 1,11 | 1,07 |
+| Brüt kâr | 0,19 | 0,21 | 0,25 | 0,21 |
+| Faaliyet kârı | 0,13 | 0,15 | 0,18 | 0,17 |
+| FAVÖK | 0,16 | 0,19 | 0,22 | 0,21 |
+| Net kâr | 0,34 | 0,08 | 0,23 | 0,26 |
+| Özkaynak | 8,95 | 8,80 | 8,83 | 8,65 |
+| Aktif toplamı | 11,65 | 11,40 | 11,48 | 11,25 |
+| Net borç | -3,70 | -4,13 | -4,96 | -3,54 |
+| Faaliyet nakit akışı | 0,23 | 0,18 | — | — |
+| Yatırım harcaması | 0,05 | 0,07 | — | — |
+
+*Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
+
 ## Sektör içindeki konum
 
-Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 69 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 68 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %17,5 | %20,9 |
-| Net kâr marjı | %31,1 | %1,2 |
+| Brüt kâr marjı | %17,5 | %20,8 |
+| Net kâr marjı | %31,1 | %1,3 |
 | Özkaynak kârlılığı | %3,8 | %0,3 |
 | Cari oran | 2,93 | 1,32 |
-| Borç / özkaynak | -0,41 | 0,16 |
+| Borç / özkaynak | -0,41 | 0,17 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

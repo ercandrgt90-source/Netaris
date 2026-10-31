@@ -63,7 +63,8 @@
    "kap_kimlik": "4028e4a140f2ed72014116e79df405db",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": ""
+   "denetci": "",
+   "sektor_bulunamadi": "2026-10-31"
   },
   "ADBNK": {
    "kod": "ADBNK",
@@ -71,7 +72,8 @@
    "kap_kimlik": "4028e4a140f2ed72014116e79df405db",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": ""
+   "denetci": "",
+   "sektor_bulunamadi": "2026-10-31"
   },
   "ADEL": {
    "kod": "ADEL",
@@ -112,7 +114,8 @@
    "kap_kimlik": "8acae2c4998f24d80199e1a75ec6473e",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "IŞIK YEMİNLİ MALİ MÜŞAVİRLİK VE BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "IŞIK YEMİNLİ MALİ MÜŞAVİRLİK VE BAĞIMSIZ DENETİM A.Ş.",
+   "sektor_bulunamadi": "2026-10-31"
   },
   "AEFES": {
    "kod": "AEFES",
@@ -131,7 +134,8 @@
    "kap_kimlik": "1DE05DAA8212073AE0530A4A622A2EBD",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "DRT BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "DRT BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor_bulunamadi": "2026-10-31"
   },
   "AFYON": {
    "kod": "AFYON",
@@ -238,7 +242,8 @@
    "kap_kimlik": "8acae2c4991b8c31019928545a1100fe",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "KAİZEN BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "KAİZEN BAĞIMSIZ DENETİM A.Ş.",
+   "sektor_bulunamadi": "2026-10-31"
   },
   "AKDFA": {
    "kod": "AKDFA",
@@ -246,7 +251,8 @@
    "kap_kimlik": "4028e4a1415f4d990141601150cc3212",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "ARTI DEĞER ULUSLARARASI BAĞIMSIZ DENETİM VE YMM A.Ş."
+   "denetci": "ARTI DEĞER ULUSLARARASI BAĞIMSIZ DENETİM VE YMM A.Ş.",
+   "sektor_bulunamadi": "2026-10-31"
   },
   "AKENR": {
    "kod": "AKENR",
@@ -276,7 +282,10 @@
    "kap_kimlik": "8acae2c59145e00a0192aedf5db86688",
    "sehir": "ANKARA",
    "uye_turu": "IGS",
-   "denetci": "DRT BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "DRT BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor": "Real Estate",
+   "sektor_tr": "Gayrimenkul",
+   "alt_sektor": "Real Estate - Development"
   },
   "AKFK": {
    "kod": "AKFK",
@@ -284,7 +293,8 @@
    "kap_kimlik": "4028e4a240e8d16e0140e8f31069003f",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "DRT BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "DRT BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor_bulunamadi": "2026-10-31"
   },
   "AKFYE": {
    "kod": "AKFYE",
@@ -325,7 +335,8 @@
    "kap_kimlik": "4028e4a240e8d16e0140e8f3d0fe0047",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "DRT BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "DRT BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor_bulunamadi": "2026-10-31"
   },
   "AKMEN": {
    "kod": "AKMEN",
@@ -333,7 +344,8 @@
    "kap_kimlik": "4028e4a240e8d16e0140e8f3d0fe0047",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "DRT BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "DRT BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor_bulunamadi": "2026-10-31"
   },
   "AKMGY": {
    "kod": "AKMGY",
@@ -374,7 +386,8 @@
    "kap_kimlik": "4028e4a240e8d16e0140e8f24bd3003b",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "ARTI DEĞER ULUSLARARASI BAĞIMSIZ DENETİM VE YMM A.Ş."
+   "denetci": "ARTI DEĞER ULUSLARARASI BAĞIMSIZ DENETİM VE YMM A.Ş.",
+   "sektor_bulunamadi": "2026-10-31"
   },
   "AKSGY": {
    "kod": "AKSGY",
@@ -404,7 +417,8 @@
    "kap_kimlik": "1DE05DAA8212073AE0530A4A622A2EBD",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "DRT BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "DRT BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor_bulunamadi": "2026-10-31"
   },
   "AKTVK": {
    "kod": "AKTVK",
@@ -412,7 +426,8 @@
    "kap_kimlik": "4028e4a14371e097014371f9653d00c2",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "DENEYİM BAĞIMSIZ DENETİM VE DANIŞMANLIK A.Ş."
+   "denetci": "DENEYİM BAĞIMSIZ DENETİM VE DANIŞMANLIK A.Ş.",
+   "sektor_bulunamadi": "2026-10-31"
   },
   "AKYHO": {
    "kod": "AKYHO",
@@ -508,7 +523,8 @@
    "kap_kimlik": "4028e4a2422d9a6e01427b2bed8d5347",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "DRT BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "DRT BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor_bulunamadi": "2026-10-31"
   },
   "ALK": {
    "kod": "ALK",
@@ -560,7 +576,8 @@
    "kap_kimlik": "4028e4a141da49e50141e085b2112b8a",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "ANY PARTNERS BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "ANY PARTNERS BAĞIMSIZ DENETİM A.Ş.",
+   "sektor_bulunamadi": "2026-10-31"
   },
   "ALTNY": {
    "kod": "ALTNY",
@@ -590,7 +607,8 @@
    "kap_kimlik": "4028e4a141da49e50141e085b2112b8a",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "ANY PARTNERS BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "ANY PARTNERS BAĞIMSIZ DENETİM A.Ş.",
+   "sektor_bulunamadi": "2026-10-31"
   },
   "ANELE": {
    "kod": "ANELE",
@@ -686,7 +704,10 @@
    "kap_kimlik": "8acae2c4998f24d8019b3576c66b77ad",
    "sehir": "ANKARA",
    "uye_turu": "IGS",
-   "denetci": "TİTANYUM BAĞIMSIZ DENETİM HİZMETLERİ A.Ş."
+   "denetci": "TİTANYUM BAĞIMSIZ DENETİM HİZMETLERİ A.Ş.",
+   "sektor": "Utilities",
+   "sektor_tr": "Kamu hizmetleri",
+   "alt_sektor": "Utilities - Renewable"
   },
   "ARMGD": {
    "kod": "ARMGD",
@@ -694,7 +715,10 @@
    "kap_kimlik": "8acae2c59145e00e0193f29ce775161c",
    "sehir": "MERSİN",
    "uye_turu": "IGS",
-   "denetci": "EREN BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "EREN BAĞIMSIZ DENETİM A.Ş.",
+   "sektor": "Consumer Staples",
+   "sektor_tr": "Temel tüketim",
+   "alt_sektor": "Packaged Foods"
   },
   "ARSAN": {
    "kod": "ARSAN",
@@ -713,7 +737,8 @@
    "kap_kimlik": "8acae2c569cee403016a8d2b85e8733f",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "HSY DANIŞMANLIK VE BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "HSY DANIŞMANLIK VE BAĞIMSIZ DENETİM A.Ş.",
+   "sektor_bulunamadi": "2026-10-31"
   },
   "ARTMS": {
    "kod": "ARTMS",
@@ -787,7 +812,8 @@
    "kap_kimlik": "4028e4a140e95bea0140ede507ca0145",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "GÜRELİ YEMİNLİ MALİ MÜŞAVİRLİK VE BAĞIMSIZ DENETİM HİZMETLERİ A.Ş."
+   "denetci": "GÜRELİ YEMİNLİ MALİ MÜŞAVİRLİK VE BAĞIMSIZ DENETİM HİZMETLERİ A.Ş.",
+   "sektor_bulunamadi": "2026-10-31"
   },
   "ATAGY": {
    "kod": "ATAGY",
@@ -836,7 +862,8 @@
    "kap_kimlik": "8acae2c494bafc93019634bf00163e28",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "GÜRELİ YEMİNLİ MALİ MÜŞAVİRLİK VE BAĞIMSIZ DENETİM HİZMETLERİ A.Ş."
+   "denetci": "GÜRELİ YEMİNLİ MALİ MÜŞAVİRLİK VE BAĞIMSIZ DENETİM HİZMETLERİ A.Ş.",
+   "sektor_bulunamadi": "2026-10-31"
   },
   "ATAYM": {
    "kod": "ATAYM",
@@ -844,7 +871,8 @@
    "kap_kimlik": "4028e4a140e95bea0140ede507ca0145",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "GÜRELİ YEMİNLİ MALİ MÜŞAVİRLİK VE BAĞIMSIZ DENETİM HİZMETLERİ A.Ş."
+   "denetci": "GÜRELİ YEMİNLİ MALİ MÜŞAVİRLİK VE BAĞIMSIZ DENETİM HİZMETLERİ A.Ş.",
+   "sektor_bulunamadi": "2026-10-31"
   },
   "ATEKS": {
    "kod": "ATEKS",
@@ -874,7 +902,8 @@
    "kap_kimlik": "4028e4a140f2ed7101413af757590466",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "HLB SAYGIN BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "HLB SAYGIN BAĞIMSIZ DENETİM A.Ş.",
+   "sektor_bulunamadi": "2026-10-31"
   },
   "ATSYH": {
    "kod": "ATSYH",
@@ -1168,7 +1197,10 @@
    "kap_kimlik": "8acae2c5794d3d6a01797a0d1ebd088c",
    "sehir": "ADANA",
    "uye_turu": "IGS",
-   "denetci": "EREN BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "EREN BAĞIMSIZ DENETİM A.Ş.",
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Electrical Equipment & Parts"
   },
   "BEYAZ": {
    "kod": "BEYAZ",

@@ -25,14 +25,8 @@ Hasılat 0,02 milyar TL'ye gerilediği halde net kâr –0,00 milyar TL olduğu 
 | Kalem | Reel değişim |
 | --- | ---: |
 | Hasılat | -%62,2 |
-| Brüt kâr | -%44,5 |
-| Faaliyet kârı | %84,3 |
-| FAVÖK | %265,3 |
-| Net kâr | %116,6 |
 | Özkaynak | %23,2 |
 | Aktif toplamı | %53,2 |
-| Net borç | -%19,8 |
-| Faaliyet nakit akışı | %94,0 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -50,6 +44,23 @@ Hasılat 0,02 milyar TL'ye gerilediği halde net kâr –0,00 milyar TL olduğu 
 | Net borç | -0,12 milyar TL |
 | Faaliyet nakit akışı | 0,00 milyar TL |
 
+## Son dört dönem
+
+| Kalem (milyar TL) | 2026 2. çeyrek | 2026 1. çeyrek | 2025 4. çeyrek | 2025 3. çeyrek |
+| --- | ---: | ---: | ---: | ---: |
+| Hasılat | 0,02 | 0,01 | 0,02 | 0,07 |
+| Brüt kâr | -0,01 | 0,00 | 0,00 | 0,00 |
+| Faaliyet kârı | 0,00 | 0,00 | 0,00 | -0,01 |
+| FAVÖK | 0,01 | 0,01 | 0,01 | 0,01 |
+| Net kâr | 0,01 | -0,02 | -0,01 | -0,02 |
+| Özkaynak | 0,50 | 0,45 | 0,43 | 0,41 |
+| Aktif toplamı | 0,76 | 0,76 | 0,53 | 0,51 |
+| Net borç | -0,12 | -0,14 | -0,08 | 0,00 |
+| Faaliyet nakit akışı | 0,00 | -0,10 | 0,01 | 0,00 |
+| Yatırım harcaması | — | 0,01 | 0,00 | 0,00 |
+
+*Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
+
 ## Sektör içindeki konum
 
 Karşılaştırma Temel tüketim sektöründe **aynı dönemi bildiren** 31 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
@@ -58,9 +69,9 @@ Karşılaştırma Temel tüketim sektöründe **aynı dönemi bildiren** 31 şir
 | --- | ---: | ---: |
 | Brüt kâr marjı | -%44,3 | %16,5 |
 | Net kâr marjı | %79,7 | %0,2 |
-| Özkaynak kârlılığı | %2,7 | %0,8 |
+| Özkaynak kârlılığı | %2,7 | %0,2 |
 | Cari oran | 5,69 | 1,36 |
-| Borç / özkaynak | -0,24 | 0,26 |
+| Borç / özkaynak | -0,24 | 0,28 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

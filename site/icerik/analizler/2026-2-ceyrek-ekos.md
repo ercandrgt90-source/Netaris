@@ -51,17 +51,34 @@ Hasılatın %15,2'ye yükselen brüt kâr marjıyla birlikte brüt kâr da 0,13 
 | Faaliyet nakit akışı | -0,10 milyar TL |
 | Yatırım harcaması | 0,10 milyar TL |
 
+## Son dört dönem
+
+| Kalem (milyar TL) | 2026 2. çeyrek | 2026 1. çeyrek | 2025 4. çeyrek | 2025 3. çeyrek |
+| --- | ---: | ---: | ---: | ---: |
+| Hasılat | 1,18 | 0,44 | 0,79 | 0,50 |
+| Brüt kâr | 0,18 | 0,01 | 0,04 | 0,07 |
+| Faaliyet kârı | 0,07 | -0,08 | -0,14 | -0,02 |
+| FAVÖK | 0,09 | -0,06 | -0,12 | 0,00 |
+| Net kâr | 0,01 | -0,15 | -0,33 | -0,06 |
+| Özkaynak | 3,56 | 3,32 | 3,14 | 3,33 |
+| Aktif toplamı | 6,09 | 5,51 | 5,01 | 5,30 |
+| Net borç | 0,59 | 0,33 | 0,12 | 0,19 |
+| Faaliyet nakit akışı | -0,10 | -0,10 | -0,03 | -0,01 |
+| Yatırım harcaması | 0,10 | 0,12 | 0,21 | 0,13 |
+
+*Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
+
 ## Sektör içindeki konum
 
-Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 69 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 68 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %15,2 | %20,9 |
-| Net kâr marjı | %1,2 | %1,2 |
+| Brüt kâr marjı | %15,2 | %20,8 |
+| Net kâr marjı | %1,2 | %1,3 |
 | Özkaynak kârlılığı | %0,4 | %0,3 |
 | Cari oran | 2,00 | 1,32 |
-| Borç / özkaynak | 0,16 | 0,16 |
+| Borç / özkaynak | 0,16 | 0,17 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

@@ -29,7 +29,6 @@ Hasılattaki gerilemeye kârdaki çok daha sert düşüş eşlik etti; net kâr 
 | Özkaynak | %27,7 |
 | Aktif toplamı | %83,3 |
 | Net borç | %383,4 |
-| Faaliyet nakit akışı | -%3,4 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -44,15 +43,28 @@ Hasılattaki gerilemeye kârdaki çok daha sert düşüş eşlik etti; net kâr 
 | Net borç | 63,41 milyar TL |
 | Faaliyet nakit akışı | -5,74 milyar TL |
 
+## Son dört dönem
+
+| Kalem (milyar TL) | 2026 2. çeyrek | 2026 1. çeyrek | 2025 4. çeyrek | 2025 3. çeyrek |
+| --- | ---: | ---: | ---: | ---: |
+| Hasılat | 30,71 | 22,59 | 34,13 | 14,21 |
+| Net kâr | 1,01 | 1,35 | -4,33 | 0,19 |
+| Özkaynak | 152,84 | 144,00 | 129,71 | 128,85 |
+| Aktif toplamı | 440,01 | 363,79 | 335,19 | 297,76 |
+| Net borç | 63,41 | 50,91 | 39,82 | 27,13 |
+| Faaliyet nakit akışı | -5,74 | -8,21 | 7,12 | -34,74 |
+
+*Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
+
 ## Sektör içindeki konum
 
-Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 34 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 32 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Net kâr marjı | %3,3 | %15,8 |
-| Özkaynak kârlılığı | %0,7 | %0,5 |
-| Borç / özkaynak | 0,41 | 0,02 |
+| Net kâr marjı | %3,3 | %18,3 |
+| Özkaynak kârlılığı | %0,7 | %0,6 |
+| Borç / özkaynak | 0,41 | 0,00 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

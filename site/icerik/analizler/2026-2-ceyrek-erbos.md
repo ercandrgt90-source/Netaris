@@ -32,7 +32,6 @@ Hasılatın %9,2 azalması brüt kârın aynı seviyede kalmasıyla brüt kâr m
 | Özkaynak | %37,3 |
 | Aktif toplamı | %39,3 |
 | Net borç | %26,0 |
-| Faaliyet nakit akışı | -%84,3 |
 | Yatırım harcaması | -%38,0 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
@@ -52,17 +51,34 @@ Hasılatın %9,2 azalması brüt kârın aynı seviyede kalmasıyla brüt kâr m
 | Faaliyet nakit akışı | -0,49 milyar TL |
 | Yatırım harcaması | 0,01 milyar TL |
 
+## Son dört dönem
+
+| Kalem (milyar TL) | 2026 2. çeyrek | 2026 1. çeyrek | 2025 4. çeyrek | 2025 3. çeyrek |
+| --- | ---: | ---: | ---: | ---: |
+| Hasılat | 1,44 | 1,42 | 1,59 | 1,45 |
+| Brüt kâr | 0,16 | 0,17 | 0,27 | 0,19 |
+| Faaliyet kârı | 0,05 | 0,04 | 0,15 | 0,10 |
+| FAVÖK | 0,08 | 0,07 | 0,18 | 0,13 |
+| Net kâr | -0,02 | -0,14 | 0,04 | 0,03 |
+| Özkaynak | 3,94 | 3,75 | 3,51 | 3,12 |
+| Aktif toplamı | 5,88 | 5,12 | 4,97 | 4,56 |
+| Net borç | 0,89 | 0,28 | 0,36 | 0,72 |
+| Faaliyet nakit akışı | -0,49 | 0,04 | 0,60 | 0,08 |
+| Yatırım harcaması | 0,01 | 0,01 | 0,04 | 0,01 |
+
+*Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
+
 ## Sektör içindeki konum
 
-Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 69 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 68 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %11,5 | %20,9 |
-| Net kâr marjı | -%1,3 | %1,2 |
+| Brüt kâr marjı | %11,5 | %20,8 |
+| Net kâr marjı | -%1,3 | %1,3 |
 | Özkaynak kârlılığı | -%0,5 | %0,3 |
 | Cari oran | 2,41 | 1,32 |
-| Borç / özkaynak | 0,22 | 0,16 |
+| Borç / özkaynak | 0,22 | 0,17 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

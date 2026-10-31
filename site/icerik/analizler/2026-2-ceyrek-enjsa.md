@@ -46,6 +46,20 @@ Hasılatın 113,74 milyar TL'den 117,08 milyar TL'ye yükselmesi, faaliyet nakit
 | Faaliyet nakit akışı | 13,15 milyar TL |
 | Yatırım harcaması | 0,82 milyar TL |
 
+## Son dört dönem
+
+| Kalem (milyar TL) | 2026 2. çeyrek | 2026 1. çeyrek | 2025 4. çeyrek | 2025 3. çeyrek |
+| --- | ---: | ---: | ---: | ---: |
+| Hasılat | 58,11 | 58,97 | 69,89 | 60,77 |
+| Net kâr | 1,59 | 1,16 | 2,73 | 0,74 |
+| Özkaynak | 108,96 | 100,73 | 95,77 | 89,63 |
+| Aktif toplamı | 277,07 | 264,86 | 238,60 | 224,09 |
+| Net borç | 68,01 | 56,86 | 53,37 | 41,16 |
+| Faaliyet nakit akışı | 13,15 | 9,45 | 8,24 | 14,61 |
+| Yatırım harcaması | 0,82 | 1,11 | 1,15 | 0,77 |
+
+*Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
+
 ## Sektör içindeki konum
 
 Karşılaştırma Kamu hizmetleri sektöründe **aynı dönemi bildiren** 24 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.

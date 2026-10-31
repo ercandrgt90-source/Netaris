@@ -31,7 +31,6 @@ Hasılatın %39,7 brüt kâr marjı ile birlikte yükselmesi brüt kârda da art
 | Net kâr | -%78,5 |
 | Özkaynak | %44,7 |
 | Aktif toplamı | %54,4 |
-| Net borç | %125,8 |
 | Faaliyet nakit akışı | -%111,8 |
 | Yatırım harcaması | %51,2 |
 
@@ -52,6 +51,23 @@ Hasılatın %39,7 brüt kâr marjı ile birlikte yükselmesi brüt kârda da art
 | Faaliyet nakit akışı | -0,04 milyar TL |
 | Yatırım harcaması | 0,03 milyar TL |
 
+## Son dört dönem
+
+| Kalem (milyar TL) | 2026 2. çeyrek | 2026 1. çeyrek | 2025 4. çeyrek | 2025 3. çeyrek |
+| --- | ---: | ---: | ---: | ---: |
+| Hasılat | 0,74 | 0,74 | 0,60 | 0,58 |
+| Brüt kâr | 0,29 | 0,26 | 0,19 | 0,29 |
+| Faaliyet kârı | 0,12 | 0,10 | 0,10 | 0,11 |
+| FAVÖK | 0,14 | 0,12 | 0,13 | 0,14 |
+| Net kâr | 0,03 | 0,02 | 0,02 | 0,03 |
+| Özkaynak | 2,70 | 2,50 | 2,25 | 2,10 |
+| Aktif toplamı | 3,55 | 3,15 | 2,66 | 2,62 |
+| Net borç | 0,02 | -0,06 | -0,04 | -0,09 |
+| Faaliyet nakit akışı | -0,04 | 0,04 | -0,02 | 0,00 |
+| Yatırım harcaması | 0,03 | 0,01 | 0,06 | 0,01 |
+
+*Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
+
 ## Sektör içindeki konum
 
 Karşılaştırma Temel tüketim sektöründe **aynı dönemi bildiren** 31 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
@@ -60,9 +76,9 @@ Karşılaştırma Temel tüketim sektöründe **aynı dönemi bildiren** 31 şir
 | --- | ---: | ---: |
 | Brüt kâr marjı | %39,7 | %16,5 |
 | Net kâr marjı | %4,0 | %0,2 |
-| Özkaynak kârlılığı | %1,1 | %0,8 |
+| Özkaynak kârlılığı | %1,1 | %0,2 |
 | Cari oran | 2,94 | 1,36 |
-| Borç / özkaynak | 0,01 | 0,26 |
+| Borç / özkaynak | 0,01 | 0,28 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

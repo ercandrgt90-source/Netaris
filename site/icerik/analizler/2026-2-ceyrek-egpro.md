@@ -31,7 +31,6 @@ Hasılatın %31,2 oranındaki artışı brüt kârın 2,86 milyar TL'ye yükselm
 | Net kâr | %100,1 |
 | Özkaynak | %43,1 |
 | Aktif toplamı | %40,4 |
-| Net borç | -%0,6 |
 | Faaliyet nakit akışı | -%71,1 |
 | Yatırım harcaması | -%87,3 |
 
@@ -52,17 +51,34 @@ Hasılatın %31,2 oranındaki artışı brüt kârın 2,86 milyar TL'ye yükselm
 | Faaliyet nakit akışı | 0,11 milyar TL |
 | Yatırım harcaması | 0,01 milyar TL |
 
+## Son dört dönem
+
+| Kalem (milyar TL) | 2026 2. çeyrek | 2026 1. çeyrek | 2025 4. çeyrek | 2025 3. çeyrek |
+| --- | ---: | ---: | ---: | ---: |
+| Hasılat | 3,90 | 3,77 | 3,66 | 3,08 |
+| Brüt kâr | 1,22 | 1,64 | 1,46 | 1,04 |
+| Faaliyet kârı | 0,55 | 0,92 | -0,26 | 0,50 |
+| FAVÖK | 0,71 | 1,08 | -0,10 | 0,66 |
+| Net kâr | 0,50 | 0,32 | 0,37 | 0,37 |
+| Özkaynak | 10,56 | 10,06 | 8,88 | 8,30 |
+| Aktif toplamı | 18,56 | 18,65 | 15,43 | 14,37 |
+| Net borç | -0,43 | -0,55 | -0,39 | -0,17 |
+| Faaliyet nakit akışı | 0,11 | 0,41 | 0,56 | -0,08 |
+| Yatırım harcaması | 0,01 | 0,07 | 0,17 | 0,10 |
+
+*Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
+
 ## Sektör içindeki konum
 
-Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 69 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 68 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %31,2 | %20,9 |
-| Net kâr marjı | %12,8 | %1,2 |
+| Brüt kâr marjı | %31,2 | %20,8 |
+| Net kâr marjı | %12,8 | %1,3 |
 | Özkaynak kârlılığı | %4,7 | %0,3 |
 | Cari oran | 1,38 | 1,32 |
-| Borç / özkaynak | -0,04 | 0,16 |
+| Borç / özkaynak | -0,04 | 0,17 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
