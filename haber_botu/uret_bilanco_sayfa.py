@@ -137,6 +137,17 @@ KALEMLER = (
     # Nakit akis tablosu
     ("faaliyet_nakit_akisi", "Faaliyet nakit akışı"),
     ("yatirim_harcamasi", "Yatırım harcaması"),
+    # SERBEST NAKIT AKISI TURETILMIS: faaliyet nakit akisi eksi
+    # yatirim harcamasi. `oranlar.Donem`in OZELLIGI oldugu icin
+    # `getattr` onu dogrudan veriyor -- ek alan, ek istek, ikinci bir
+    # hesap YOK. Iki girdisinden biri eksikse `None` donuyor, yani
+    # satir kendiliginde yazilmiyor.
+    #
+    # OLCULDU: 331 sayfada 0 kez geciyordu, oysa `skor.py` ve
+    # `yazar.py` yillardir ayni ozelligi okuyor. Okur icin tasidigi
+    # soru sayfanin geri kalaninda cevapsiz: sirket faaliyetinden
+    # kazandigi nakdi yatirima verdikten SONRA elinde ne kaliyor.
+    ("serbest_nakit_akisi", "Serbest nakit akışı"),
     ("finansman_gideri", "Finansman gideri"),
 )
 

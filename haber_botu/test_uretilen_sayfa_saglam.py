@@ -289,7 +289,9 @@ def _bolum(baslik: str) -> list[str]:
 
 for _et, _deg, _sev in (("Ticari alacaklar", "%50,0", "18,00"),
                         ("Stoklar", "%57,1", "22,00"),
-                        ("Finansman gideri", "%33,3", "4,00")):
+                        ("Finansman gideri", "%33,3", "4,00"),
+                        # TURETILMIS: 15 - 5 = 10 ; onceki 12 - 4 = 8
+                        ("Serbest nakit akışı", "%25,0", "10,00")):
     esit(f"| {_et} | {_deg} |" in _bolum("## 2026 3. çeyrek — bir yıl"),
          True, f"{_et}: yıllık değişim tablosunda")
     esit(f"| {_et} | {_sev} milyar TL |" in _bolum("## 2026 3. çeyrek dönemi"),
@@ -307,11 +309,23 @@ _bg = US.govde_kur("BANK", "Örnek Banka A.Ş.", "Finans",
                    "2026 3. çeyrek", _bd, U._oranlari(_bd), MEDYAN, 12,
                    "Yorum.", alt_sektor="Banks")
 _bm = _bg if isinstance(_bg, str) else SATIR_SONU.join(_bg)
-for _et in ("Stoklar", "Ticari alacaklar", "Finansman gideri"):
+for _et in ("Stoklar", "Ticari alacaklar", "Finansman gideri",
+            "Serbest nakit akışı"):
     esit(any(s.startswith(f"| {_et} |") for s in _bm.splitlines()), False,
          f"{_et}: bildirilmeyince satır YAZILMIYOR")
 esit(any(s.startswith("| Net kâr |") for s in _bm.splitlines()), True,
      "KONTROL: bildirilen kalem yazılıyor")
+
+# TURETILMIS KALEM, GIRDISI EKSIKSE YAZILMIYOR -- "—" ile de olsa.
+#
+# Bankada capex yok, yani serbest nakit akisi hesaplanamiyor. Ama
+# FAALIYET nakit akisi VAR: yani satirin yoklugu "veri hic yok"tan
+# degil, TURETILEMEMESINDEN geliyor ve ikisi ayri.
+esit(any(s.startswith("| Faaliyet nakit akışı |")
+         for s in _bm.splitlines()), True,
+     "KONTROL: girdilerden biri VAR (yokluk veri eksikliği değil)")
+esit(_bd.serbest_nakit_akisi, None,
+     "tek girdiyle serbest nakit akışı hesaplanmıyor")
 
 # KORUMA BOZULMADI: yeni satirlar `olc()`un anahtarlariyla
 # cakismiyor ve sayfa denetimden geciyor.
