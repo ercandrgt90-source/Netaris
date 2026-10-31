@@ -110,6 +110,11 @@ d = ba.donemi_kur(TABLO)
 esit(d["hasilat"], 100.0, "hasilat <- Revenue")
 esit(d["ozkaynak"], 300.0, "ozkaynak <- Shareholders' Equity")
 esit(d["stoklar"], 60.0, "stoklar <- Inventory")
+# TICARI ALACAKLAR DA TUTULUYOR. Eslesmeden dusmesi mutasyonla
+# olculdu ve HICBIR SINAMA DUSMEDI: alan sessizce cekilmez olur,
+# sayfadaki satir da kaybolurdu (uc tabloda birden).
+esit(d["ticari_alacaklar"], 30.0,
+     "ticari alacaklar <- Accounts Receivable")
 
 # EN KRITIK: net borcun ISARETI TERS.
 #

@@ -89,13 +89,55 @@ SITE = _KOK.parent / "site" / "icerik" / "analizler"
 #: dolduruyor; kosu sayisi arttikca kalan is azaliyor.
 VARSAYILAN_SINIR = 60
 
+#: Sayfadaki UC tabloyu birden besliyor: yillik degisim, donem
+#: olcumleri ve son dort donem. Bir kalemi buraya eklemek ucunde
+#: birden gostermek demek.
+#:
+#: ISLETME SERMAYESI KALEMLERI EKLENDI -- EK ISTEK YOK.
+#:
+#: `bilanco_ag.ESLESME` ticari alacaklari, stoklari ve finansman
+#: giderini HER SIRKET ICIN cekiyor; ucu de paylasilan kaynak
+#: butcesinden odeniyor. Ama sayfaya hic baglanmamislardi.
+#:
+#: OLCULDU (2026-10-31), 331 yayimlanmis bilanco sayfasinda:
+#:
+#:     Hasilat / Net kar / Ozkaynak / Aktif   329-331  (%99-100)
+#:     Yatirim harcamasi                          272  (%82)
+#:     Ticari alacaklar                             0
+#:     Stoklar                                      0
+#:     Finansman gideri                             0
+#:
+#: Uretici icin bedeli SIFIR, okur icin karsiligi gercek: stok
+#: hasilat artmadan birikiyorsa uyari, alacaklar hasilattan hizli
+#: buyuyorsa tahsilat sorunu, finansman gideri FAVOK'u yiyorsa
+#: borclulugun faturasi. Veri zaten elimizdeydi.
+#:
+#: BANKA VE GYO'DA SATIR CIKMIYOR: deger None ise satir yazilmiyor,
+#: yani kalem yalnizca onu GERCEKTEN bildiren sirkette goruluyor.
+#:
+#: FINANSMAN GIDERI ISARETI KAYNAKTAN DOGRULANDI, tahmin edilmedi.
+#: Capex negatif geliyor ve `donemi_kur` onu `abs()` ile cevriyor;
+#: faiz icin boyle bir cevrim YOK, yani soru "kaynak faizi negatif
+#: mi veriyor" idi. Olculdu (EREGL, 2026-10-31):
+#:
+#:     Cash Interest Paid    +4,281 mlr   (POZITIF)
+#:     Capital Expenditures  -5,191 mlr   (negatif)
+#:
+#: Yani `oranlar.Donem`in "pozitif sayi" sozlesmesi zaten tutuyor ve
+#: cevrim eklemek isareti TERSINE dondururdu.
 KALEMLER = (
+    # Gelir tablosu
     ("hasilat", "Hasılat"), ("brut_kar", "Brüt kâr"),
     ("faaliyet_kari", "Faaliyet kârı"), ("favok", "FAVÖK"),
-    ("net_kar", "Net kâr"), ("ozkaynak", "Özkaynak"),
-    ("aktif_toplami", "Aktif toplamı"), ("net_borc", "Net borç"),
+    ("net_kar", "Net kâr"),
+    # Bilanco
+    ("ozkaynak", "Özkaynak"), ("aktif_toplami", "Aktif toplamı"),
+    ("ticari_alacaklar", "Ticari alacaklar"), ("stoklar", "Stoklar"),
+    ("net_borc", "Net borç"),
+    # Nakit akis tablosu
     ("faaliyet_nakit_akisi", "Faaliyet nakit akışı"),
     ("yatirim_harcamasi", "Yatırım harcaması"),
+    ("finansman_gideri", "Finansman gideri"),
 )
 
 

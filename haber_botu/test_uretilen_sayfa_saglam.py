@@ -247,4 +247,80 @@ esit("## Sektör karşılaştırması bu dönem yapılmadı" in _vm, False,
      "o durumda açıklama bölümü yok")
 
 print("")
+print("6. ISLETME SERMAYESI KALEMLERI UC TABLODA DA VAR")
+# Bu kalemler HER SIRKET ICIN cekiliyordu ama sayfaya hic
+# baglanmamisti (olculdu: 331 sayfada 0 kez). `KALEMLER` uc tabloyu
+# birden besliyor, o yuzden olcut UCUNDE DE gorunmesi.
+_wd = oranlar.Donem(
+    etiket="2026 3. çeyrek", hasilat=100e9, brut_kar=30e9,
+    faaliyet_kari=20e9, favok=25e9, net_kar=12e9, ozkaynak=80e9,
+    aktif_toplami=200e9, donen_varliklar=90e9,
+    kisa_vadeli_yukumlulukler=50e9, ticari_alacaklar=18e9, stoklar=22e9,
+    net_borc=40e9, faaliyet_nakit_akisi=15e9, yatirim_harcamasi=5e9,
+    finansman_gideri=4e9)
+_wo = oranlar.Donem(
+    etiket="2025 3. çeyrek", hasilat=80e9, brut_kar=24e9,
+    faaliyet_kari=16e9, favok=20e9, net_kar=9e9, ozkaynak=70e9,
+    aktif_toplami=170e9, ticari_alacaklar=12e9, stoklar=14e9,
+    net_borc=35e9, faaliyet_nakit_akisi=12e9, yatirim_harcamasi=4e9,
+    finansman_gideri=3e9)
+_wg = US.govde_kur("TEST", "Örnek A.Ş.", "Sanayi", "2026 3. çeyrek",
+                   _wd, U._oranlari(_wd), MEDYAN, 12, "Yorum.",
+                   once=_wo, alt_sektor="Conglomerates",
+                   seri=[("2026 3. çeyrek", "2026-09-30", _wd),
+                         ("2026 2. çeyrek", "2026-06-30", _wo)])
+_wm = _wg if isinstance(_wg, str) else SATIR_SONU.join(_wg)
+_sat = _wm.splitlines()
+
+
+def _bolum(baslik: str) -> list[str]:
+    """Baslik ile SONRAKI `## ` arasindaki satirlar."""
+    try:
+        bas = next(i for i, s in enumerate(_sat) if s.startswith(baslik))
+    except StopIteration:
+        return []
+    cikti = []
+    for s in _sat[bas + 1:]:
+        if s.startswith("## "):
+            break
+        cikti.append(s)
+    return cikti
+
+
+for _et, _deg, _sev in (("Ticari alacaklar", "%50,0", "18,00"),
+                        ("Stoklar", "%57,1", "22,00"),
+                        ("Finansman gideri", "%33,3", "4,00")):
+    esit(f"| {_et} | {_deg} |" in _bolum("## 2026 3. çeyrek — bir yıl"),
+         True, f"{_et}: yıllık değişim tablosunda")
+    esit(f"| {_et} | {_sev} milyar TL |" in _bolum("## 2026 3. çeyrek dönemi"),
+         True, f"{_et}: ölçüm tablosunda")
+    esit(any(s.startswith(f"| {_et} | {_sev} |")
+             for s in _bolum("## Son dört dönem")), True,
+         f"{_et}: son dört dönem tablosunda")
+
+# BANKADA SATIR CIKMIYOR: stok bildirmeyen sirkette kalem
+# yazilmamali, "—" ile de olsa yazilmamali (veri varmis izlenimi).
+_bd = oranlar.Donem(
+    etiket="2026 3. çeyrek", hasilat=50e9, net_kar=10e9, ozkaynak=60e9,
+    aktif_toplami=900e9, faaliyet_nakit_akisi=8e9)
+_bg = US.govde_kur("BANK", "Örnek Banka A.Ş.", "Finans",
+                   "2026 3. çeyrek", _bd, U._oranlari(_bd), MEDYAN, 12,
+                   "Yorum.", alt_sektor="Banks")
+_bm = _bg if isinstance(_bg, str) else SATIR_SONU.join(_bg)
+for _et in ("Stoklar", "Ticari alacaklar", "Finansman gideri"):
+    esit(any(s.startswith(f"| {_et} |") for s in _bm.splitlines()), False,
+         f"{_et}: bildirilmeyince satır YAZILMIYOR")
+esit(any(s.startswith("| Net kâr |") for s in _bm.splitlines()), True,
+     "KONTROL: bildirilen kalem yazılıyor")
+
+# KORUMA BOZULMADI: yeni satirlar `olc()`un anahtarlariyla
+# cakismiyor ve sayfa denetimden geciyor.
+esit(len(bd.olc(sayfa(_wg, donem="2026 3. çeyrek"))), 2,
+     "iki oran hâlâ ölçülebiliyor")
+esit(bd.onarim_gereken(sayfa(_wg, donem="2026 3. çeyrek"),
+                       {"sektor_tr": "Sanayi",
+                        "alt_sektor": "Conglomerates"}), [],
+     "yeni kalemlerle sayfa denetimden SORUNSUZ geçiyor")
+
+print("")
 print(f"TUM TESTLER GECTI ({_gecti})")
