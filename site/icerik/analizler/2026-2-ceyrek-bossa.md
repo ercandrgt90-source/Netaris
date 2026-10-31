@@ -52,17 +52,34 @@ Hasılatın 4,36 milyar TL'den 3,28 milyar TL'ye düşmesi brüt kârın 0,85 mi
 | Faaliyet nakit akışı | 0,30 milyar TL |
 | Yatırım harcaması | 0,07 milyar TL |
 
+## Son dört dönem
+
+| Kalem (milyar TL) | 2026 2. çeyrek | 2026 1. çeyrek | 2025 4. çeyrek | 2025 3. çeyrek |
+| --- | ---: | ---: | ---: | ---: |
+| Hasılat | 1,68 | 1,60 | 1,84 | 1,52 |
+| Brüt kâr | 0,14 | 0,23 | 0,41 | 0,25 |
+| Faaliyet kârı | -0,11 | 0,12 | 0,23 | 0,10 |
+| FAVÖK | 0,00 | 0,24 | 0,34 | 0,21 |
+| Net kâr | -0,07 | 0,01 | 0,08 | 0,01 |
+| Özkaynak | 12,49 | 11,76 | 10,70 | 9,88 |
+| Aktif toplamı | 16,75 | 15,95 | 14,93 | 13,96 |
+| Net borç | 1,82 | 1,80 | 1,99 | 1,99 |
+| Faaliyet nakit akışı | 0,30 | 0,42 | 0,22 | 0,78 |
+| Yatırım harcaması | 0,07 | 0,04 | 0,07 | 0,09 |
+
+*Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
+
 ## Sektör içindeki konum
 
-Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildiren** 62 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildiren** 56 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %8,4 | %17,0 |
-| Net kâr marjı | -%4,2 | %0,6 |
-| Özkaynak kârlılığı | -%0,6 | %0,6 |
-| Cari oran | 2,21 | 1,29 |
-| Borç / özkaynak | 0,15 | 0,15 |
+| Brüt kâr marjı | %8,4 | %15,5 |
+| Net kâr marjı | -%4,2 | -%0,6 |
+| Özkaynak kârlılığı | -%0,6 | -%0,0 |
+| Cari oran | 2,21 | 1,28 |
+| Borç / özkaynak | 0,15 | 0,21 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

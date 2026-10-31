@@ -26,9 +26,7 @@ Hasılatın 2,30 milyar TL'ye gerilemesi brüt kârın 0,43 milyar TL'ye düşme
 | --- | ---: |
 | Hasılat | -%41,1 |
 | Brüt kâr | %179,6 |
-| Faaliyet kârı | %316,6 |
 | FAVÖK | %141,9 |
-| Net kâr | %89,3 |
 | Özkaynak | -%185,6 |
 | Aktif toplamı | %4,5 |
 | Net borç | %18,4 |
@@ -52,14 +50,31 @@ Hasılatın 2,30 milyar TL'ye gerilemesi brüt kârın 0,43 milyar TL'ye düşme
 | Faaliyet nakit akışı | 1,14 milyar TL |
 | Yatırım harcaması | 0,00 milyar TL |
 
+## Son dört dönem
+
+| Kalem (milyar TL) | 2026 2. çeyrek | 2026 1. çeyrek | 2025 4. çeyrek | 2025 3. çeyrek |
+| --- | ---: | ---: | ---: | ---: |
+| Hasılat | 0,94 | 1,36 | 1,99 | 2,15 |
+| Brüt kâr | 0,11 | 0,38 | -0,03 | 0,29 |
+| Faaliyet kârı | 0,19 | 0,10 | -0,84 | 0,05 |
+| FAVÖK | 0,48 | 0,38 | -0,55 | 0,33 |
+| Net kâr | -0,09 | 0,00 | -2,31 | -0,44 |
+| Özkaynak | -1,27 | -1,08 | -0,99 | 1,13 |
+| Aktif toplamı | 13,12 | 13,15 | 13,13 | 14,99 |
+| Net borç | 10,28 | 10,07 | 10,32 | 10,56 |
+| Faaliyet nakit akışı | 1,14 | -0,31 | 1,80 | 0,24 |
+| Yatırım harcaması | 0,00 | 0,00 | 5,85 | 0,01 |
+
+*Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
+
 ## Sektör içindeki konum
 
-Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 69 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 68 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %11,9 | %20,9 |
-| Net kâr marjı | -%9,9 | %1,2 |
+| Brüt kâr marjı | %11,9 | %20,8 |
+| Net kâr marjı | -%9,9 | %1,3 |
 | Cari oran | 0,42 | 1,32 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*

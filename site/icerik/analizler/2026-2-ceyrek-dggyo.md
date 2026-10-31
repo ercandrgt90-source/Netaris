@@ -25,7 +25,6 @@ Hasılatın 0,70 milyar TL'ye yükselmesi net kârın 0,12 milyar TL'ye geçmesi
 | Kalem | Reel değişim |
 | --- | ---: |
 | Hasılat | %3,8 |
-| Net kâr | %143,4 |
 | Özkaynak | %32,3 |
 | Aktif toplamı | %34,2 |
 | Net borç | %3,6 |
@@ -44,15 +43,28 @@ Hasılatın 0,70 milyar TL'ye yükselmesi net kârın 0,12 milyar TL'ye geçmesi
 | Net borç | 3,93 milyar TL |
 | Faaliyet nakit akışı | 0,09 milyar TL |
 
+## Son dört dönem
+
+| Kalem (milyar TL) | 2026 2. çeyrek | 2026 1. çeyrek | 2025 4. çeyrek | 2025 3. çeyrek |
+| --- | ---: | ---: | ---: | ---: |
+| Hasılat | 0,36 | 0,34 | 0,34 | 0,28 |
+| Net kâr | 0,03 | 0,09 | -0,27 | 0,18 |
+| Özkaynak | 16,35 | 15,25 | 13,78 | 13,47 |
+| Aktif toplamı | 23,37 | 21,71 | 19,60 | 18,76 |
+| Net borç | 3,93 | 3,85 | 3,86 | 3,87 |
+| Faaliyet nakit akışı | 0,09 | 0,07 | 0,27 | 0,23 |
+
+*Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
+
 ## Sektör içindeki konum
 
-Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 34 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 32 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Net kâr marjı | %7,3 | %15,8 |
-| Özkaynak kârlılığı | %0,2 | %0,5 |
-| Borç / özkaynak | 0,24 | 0,02 |
+| Net kâr marjı | %7,3 | %18,3 |
+| Özkaynak kârlılığı | %0,2 | %0,6 |
+| Borç / özkaynak | 0,24 | 0,00 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

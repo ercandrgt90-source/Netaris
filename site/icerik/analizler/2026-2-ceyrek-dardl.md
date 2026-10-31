@@ -26,9 +26,7 @@ Hasılatın düşmesi brüt kârın da azalmasına yol açmış; brüt kârdaki 
 | --- | ---: |
 | Hasılat | %1,2 |
 | Brüt kâr | -%13,6 |
-| Faaliyet kârı | -%537,2 |
 | FAVÖK | -%197,8 |
-| Net kâr | -%44,7 |
 | Özkaynak | %6,9 |
 | Aktif toplamı | %30,1 |
 | Net borç | %58,8 |
@@ -52,6 +50,23 @@ Hasılatın düşmesi brüt kârın da azalmasına yol açmış; brüt kârdaki 
 | Faaliyet nakit akışı | -0,26 milyar TL |
 | Yatırım harcaması | 0,20 milyar TL |
 
+## Son dört dönem
+
+| Kalem (milyar TL) | 2026 2. çeyrek | 2026 1. çeyrek | 2025 4. çeyrek | 2025 3. çeyrek |
+| --- | ---: | ---: | ---: | ---: |
+| Hasılat | 3,92 | 3,04 | 3,95 | 3,70 |
+| Brüt kâr | 0,93 | 0,88 | 1,70 | 0,98 |
+| Faaliyet kârı | -0,21 | 0,16 | 0,25 | -0,06 |
+| FAVÖK | -0,09 | 0,28 | 0,38 | 0,06 |
+| Net kâr | -0,94 | -0,24 | -0,09 | -0,31 |
+| Özkaynak | 7,17 | 7,61 | 7,13 | 6,83 |
+| Aktif toplamı | 15,90 | 15,78 | 13,67 | 12,49 |
+| Net borç | 5,86 | 4,99 | 4,26 | 4,08 |
+| Faaliyet nakit akışı | -0,26 | -0,36 | -1,34 | 0,51 |
+| Yatırım harcaması | 0,20 | 0,30 | 0,14 | 0,15 |
+
+*Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
+
 ## Sektör içindeki konum
 
 Karşılaştırma Temel tüketim sektöründe **aynı dönemi bildiren** 31 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
@@ -60,9 +75,9 @@ Karşılaştırma Temel tüketim sektöründe **aynı dönemi bildiren** 31 şir
 | --- | ---: | ---: |
 | Brüt kâr marjı | %23,7 | %16,5 |
 | Net kâr marjı | -%24,0 | %0,2 |
-| Özkaynak kârlılığı | -%13,1 | %0,8 |
+| Özkaynak kârlılığı | -%13,1 | %0,2 |
 | Cari oran | 0,79 | 1,36 |
-| Borç / özkaynak | 0,82 | 0,26 |
+| Borç / özkaynak | 0,82 | 0,28 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

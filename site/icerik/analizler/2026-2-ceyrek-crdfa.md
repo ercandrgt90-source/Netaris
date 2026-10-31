@@ -32,7 +32,6 @@ Hasılatın yükselmesi brüt kârı ve faaliyet kârını artırdı; brüt kâr
 | Özkaynak | %278,5 |
 | Aktif toplamı | %131,1 |
 | Net borç | %62,3 |
-| Faaliyet nakit akışı | -%239,5 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -51,15 +50,32 @@ Hasılatın yükselmesi brüt kârı ve faaliyet kârını artırdı; brüt kâr
 | Faaliyet nakit akışı | -0,23 milyar TL |
 | Yatırım harcaması | 0,00 milyar TL |
 
+## Son dört dönem
+
+| Kalem (milyar TL) | 2026 2. çeyrek | 2026 1. çeyrek | 2025 4. çeyrek | 2025 3. çeyrek |
+| --- | ---: | ---: | ---: | ---: |
+| Hasılat | 0,36 | 0,31 | 0,27 | 0,27 |
+| Brüt kâr | 0,34 | 0,29 | 0,26 | 0,26 |
+| Faaliyet kârı | 0,28 | 0,23 | 0,22 | 0,21 |
+| FAVÖK | 0,28 | 0,23 | 0,22 | 0,22 |
+| Net kâr | 0,80 | 0,38 | 0,60 | 0,15 |
+| Özkaynak | 2,64 | 1,84 | 1,46 | 0,83 |
+| Aktif toplamı | 4,91 | 3,95 | 3,22 | 2,23 |
+| Net borç | 2,08 | 0,83 | 1,57 | 1,24 |
+| Faaliyet nakit akışı | -0,23 | -0,26 | -0,78 | 0,06 |
+| Yatırım harcaması | 0,00 | 0,00 | 0,01 | 0,00 |
+
+*Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
+
 ## Sektör içindeki konum
 
-Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 30 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 24 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
 | Brüt kâr marjı | %95,3 | %45,1 |
-| Net kâr marjı | %220,4 | %14,7 |
-| Özkaynak kârlılığı | %30,1 | %5,4 |
+| Net kâr marjı | %220,4 | %11,6 |
+| Özkaynak kârlılığı | %30,1 | %3,9 |
 | Cari oran | 1,24 | 12,09 |
 | Borç / özkaynak | 0,79 | -0,05 |
 
@@ -71,7 +87,7 @@ Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 30 şirketin **
 
 - Hasılat reel olarak %37,6 arttı.
 - Net kâr reel olarak %748,4 arttı.
-- Özkaynak kârlılığı %30,1; sektör medyanı %5,4.
+- Özkaynak kârlılığı %30,1; sektör medyanı %3,9.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 
