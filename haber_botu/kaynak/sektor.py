@@ -98,7 +98,18 @@ def cek(kod: str, istemci: httpx.Client | None = None) -> dict[str, str]:
                timeout=ZAMAN_ASIMI, follow_redirects=True)
         r.raise_for_status()
     except (httpx.HTTPError, ValueError) as e:
-        OKUNAMAYAN.append((kod, type(e).__name__))
+        # SEBEP DURUM KODUYLA KAYDEDILIYOR.
+        #
+        # Onceki hali yalnizca `type(e).__name__` yaziyordu ve her
+        # HTTP hatasi "HTTPStatusError" goruluyordu. 403 ile 429
+        # AYRI sorunlar: biri "bu yola girme", oteki "yavasla".
+        # OLCULDU (2026-10-31, kosu #61): bu adim 5/5 hata verip
+        # kapandi, gunlukte yalnizca "hata: 5" yaziyordu; ayni uc
+        # YERELDE 4/4 calisiyordu. Hangi kod geldigini bilmeden
+        # "CI'in IP'si mi engelli" sorusu cevaplanamiyor.
+        _durum = getattr(getattr(e, "response", None), "status_code", None)
+        OKUNAMAYAN.append((kod, f"HTTP {_durum}" if _durum
+                           else type(e).__name__))
         return {}
 
     d = _coz(r.text)

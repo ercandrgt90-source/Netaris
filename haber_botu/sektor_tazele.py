@@ -142,6 +142,18 @@ def tazele(sinir: int = VARSAYILAN_SINIR, kuru: bool = False,
     print(f"  kaynakta yok    : {len(bossuz)}")
     if hata:
         print(f"  hata            : {hata}")
+        # SEBEP SOYLENIYOR, SAYI YETMIYOR.
+        #
+        # Sebep `sektor.OKUNAMAYAN`da zaten yaziliydi ve HIC
+        # yazdirilmiyordu. OLCULDU (2026-10-31, kosu #61): adim 5/5
+        # hata verip kapandi, gunlukte tek satir "hata: 5"; ayni uc
+        # YERELDE 4/4 calisiyordu. Bu adim 438 sirketin sektorunu
+        # dolduruyor ve sektoru olmayan sirket bilanco hattina HIC
+        # girmiyor -- yani sessiz kalan sey kapsamin ta kendisi.
+        from collections import Counter                  # noqa: PLC0415
+        _say = Counter(sebep for _k, sebep in sektor.OKUNAMAYAN)
+        for _sebep, _n in _say.most_common(5):
+            print(f"    {_n:>3} x {_sebep}")
     for kod, s in yazilan[:12]:
         print(f"    + {kod:8s} {s}")
     if not kuru and yazilan:

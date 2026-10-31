@@ -108,7 +108,7 @@ print("")
 print("2. sektor_isle DONEME gore ayiriyor")
 _ASIL_SEKTORDEKI = U.sektordeki
 _ASIL_ARA = U.bilanco_ag.ara_donem
-_ASIL_ARA_SN = U.ARA_SN
+_ASIL_ARA_SN = U.bilanco_ag.ARA_SN
 
 
 def _tablo_kur(brut_marj, ay, bitis):
@@ -129,7 +129,9 @@ def _tablo_kur(brut_marj, ay, bitis):
 
 
 try:
-    U.ARA_SN = 0
+    # Bekleme artik `bilanco_ag.ara_ver()`den geliyor;
+    # eskiden `uret_bilanco.ARA_SN` ayri bir sabitti.
+    U.bilanco_ag.ARA_SN = 0
     U.sektordeki = lambda s: [(k, {"unvan": k}) for k in sorted(_ILETISIM)]
     U.bilanco_ag.ara_donem = (
         lambda kod, ceyrek=1, istemci=None, bugun=None:
@@ -199,7 +201,7 @@ try:
 finally:
     U.sektordeki = _ASIL_SEKTORDEKI
     U.bilanco_ag.ara_donem = _ASIL_ARA
-    U.ARA_SN = _ASIL_ARA_SN
+    U.bilanco_ag.ARA_SN = _ASIL_ARA_SN
 
 print("")
 print("5. Sayfa DOGRU kiyas kumesini aliyor")

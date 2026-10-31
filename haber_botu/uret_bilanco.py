@@ -60,6 +60,63 @@ import sektor_ozet     # noqa: E402
 #: Ayin tamamı acik birakildi: sirketler ayni gun bildirmiyor.
 BILDIRIM_AYLARI = {3: 12, 5: 3, 8: 6, 11: 9}
 
+#: OLCULEN DONEMIN BILDIRIM PENCERESI -- gun.
+#:
+#: NEDEN UCUNCU BIR KAPI VAR
+#: -------------------------
+#: `BILDIRIM_AYLARI` TAHMIN, nobetci bayragi OLAY. Ikisi de "bu
+#: donemde yapilacak IS KALDI MI" sorusunu cevaplamiyor:
+#:
+#:   - Takvim yalnizca Mart/Mayis/Agustos/Kasim'i aciyor. 9 aylik
+#:     tablolar EKIM SONUNDA gelmeye basliyor; ekimin tamami kapali.
+#:   - Bayrak "YENI ceyrek GORDUM" olayini tasiyor ve kosu sonunda
+#:     INIYOR. Bir kez acilip bir kosu calisiyor, sonra kapaniyor.
+#:
+#: OLCULDU (2026-10-30/31, kosu #60-#61):
+#:   #60  13:12  bayrak KALKTI -> veri adimi kostu, ozet 20 sirkette
+#:               2026-09-30'u gordu, kosu sonunda bayrak INDI
+#:   #61  01:23  "10. ay bildirim ayi degil ... ve nobetci yeni
+#:               ceyrek gormedi" -> veri adimi ATLANDI
+#:               sayfa adimi tam o 20 sirkete Q3 sayfasi yazdi
+#:
+#: Yani ozet 14:00'teki fotoğrafta DONDU. Sonraki kosular sifir yeni
+#: Q3 sayfasi yazacakti: sayfa adimi ancak OZETTE `2026-09-30` yazan
+#: sirkete Q3 sayfasi yaziyor ve ozeti tazeleyen adim kapali.
+#:
+#: UCUNCU KAPI OLCUME DAYANIYOR: nobetci kaynakta gordugu EN YENI
+#: donem bitisini (`son_bitis`) zaten saklıyor -- ek istek yok.
+#: O tarihten bu yana pencere kadar gun gectiyse hat ACIK.
+#:
+#: 60 GUN SECILDI. SPK ara donem sinirlari: konsolide olmayan 30
+#: gun, konsolide 40 gun. 2026-09-30 icin 30 Ekim ve 9 Kasim. 60
+#: gun ikisini de, geciken bildirimleri de kapsiyor ve 29 Kasim'da
+#: KAPANIYOR -- bir sonraki donem 31 Aralik'ta bittigi icin
+#: pencereler CAKISMIYOR. Kapanmayan kapi da bir kusurdur: her
+#: kosuda 333 sirketi bosuna cekmek olurdu.
+BILDIRIM_PENCERESI_GUN = 60
+
+
+def pencere_acik(son_bitis, bugun) -> tuple[bool, int]:
+    """(acik_mi, gecen_gun) -- olculen donemin bildirim penceresi.
+
+    `son_bitis` nobetcinin kaynakta gordugu EN YENI donem bitisi
+    (ISO). Yok ya da cozulemezse pencere KAPALI sayiliyor: "bilmiyorum"
+    ile "acik" ayni sey degil.
+
+    GELECEKTE BITEN DONEM ACMIYOR. Kaynak gelecek kolonlari da
+    yaziyor; negatif gun sayisi pencereyi acsaydi hat yil boyu acik
+    kalirdi.
+    """
+    import datetime as _dt                            # noqa: PLC0415
+    if not isinstance(son_bitis, str):
+        return False, 0
+    try:
+        bitis = _dt.date.fromisoformat(son_bitis)
+    except ValueError:
+        return False, 0
+    gun = (bugun - bitis).days
+    return 0 <= gun <= BILDIRIM_PENCERESI_GUN, gun
+
 #: Yeni kapsam, oncekinin bu oraninin altina duserse dosya YAZILMAZ.
 #:
 #: Olculdu (2026-09-14): kosu yesil bitti ve kapsam 327 sirketten
@@ -139,6 +196,11 @@ def sektor_donemi(sektor_tr: str, son_donem, ceyrek_etiketi) -> str:
             son = son_donem(kod)
         except Exception:                             # noqa: BLE001
             continue
+        finally:
+            # KAYNAGA NAZIK DAVRANMA -- bkz. `bilanco_ag.ara_ver`.
+            # Bu yoklama her sektorde kosuyor; beklemesiz hali veri
+            # adiminin basina onlarca ardisik istek ekliyordu.
+            bilanco_ag.ara_ver()
         if not son:
             continue
         etiket = ceyrek_etiketi(*son)
@@ -236,8 +298,8 @@ def donem_acik(bugun=None, nobetci=None) -> tuple[bool, str]:
     Doner: (acik_mi, aciklama). Kapaliyken de ACIKLAMA doner --
     "neden calismadi" sorusu loga bakinca cevaplanabilsin.
 
-    IKI KAPI: TAKVIM VE OLCUM
-    -------------------------
+    UC KAPI: TAKVIM, OLAY VE PENCERE
+    --------------------------------
     Takvim (`BILDIRIM_AYLARI`) KONSOLIDE bildirim son tarihlerine
     gore kurulmus: Mart, Mayis, Agustos, Kasim. Ama konsolide
     OLMAYAN sirketler donem bitiminden otuz gun sonra bildiriyor --
@@ -252,6 +314,18 @@ def donem_acik(bugun=None, nobetci=None) -> tuple[bool, str]:
 
     Yani takvim artik UCUZ BIR ON SUZGEC, karar OLCUMDE. Nobetci
     yoksa ya da okunamazsa davranis eskisi gibi -- yalnizca takvim.
+
+    AMA BAYRAK BIR OLAYDIR, BIR DURUM DEGIL. Kosu sonunda
+    `bilanco_nobetci --kapat` onu INDIRIYOR; bu dogru, cunku olay
+    ISLENDI. Yanlis olan, hattin "is kaldi mi" sorusunu ayni bayraga
+    sormasi: bayrak inince ekim boyunca kapi kapaniyor ve ozet tek
+    bir kosunun fotografinda DONUYOR (olcum `BILDIRIM_PENCERESI_GUN`
+    yaninda).
+
+    UCUNCU KAPI o yuzden PENCERE: nobetcinin kaynakta gordugu en yeni
+    donem bitisinden bu yana kac gun gectigi. Olay bir kez olur,
+    pencere SURER. Ek istek yok -- `son_bitis` nobet defterinde
+    zaten yazili.
     """
     import datetime as _dt
     bugun = bugun or _dt.date.today()
@@ -261,26 +335,49 @@ def donem_acik(bugun=None, nobetci=None) -> tuple[bool, str]:
             import bilanco_nobetci as nobetci       # noqa: PLC0415
         except Exception:                            # noqa: BLE001
             nobetci = None
+    son_bitis = None
     if nobetci is not None:
         try:
             if nobetci.donem_acildi_mi():
                 return True, "nobetci kaynakta YENI CEYREK gordu"
         except Exception:                            # noqa: BLE001
             pass
+        try:
+            son_bitis = nobetci.nobet_oku().get("son_bitis")
+        except Exception:                            # noqa: BLE001
+            son_bitis = None
+
+    acik, gun = pencere_acik(son_bitis, bugun)
+    if acik:
+        return True, (f"{son_bitis} donemi bildirim penceresinde "
+                      f"({gun}. gun / {BILDIRIM_PENCERESI_GUN})")
 
     ceyrek = BILDIRIM_AYLARI.get(bugun.month)
     if ceyrek is None:
         return False, (f"{bugun.month}. ay bildirim ayi degil "
-                       f"(bildirim aylari: {sorted(BILDIRIM_AYLARI)}) "
-                       f"ve nobetci yeni ceyrek gormedi")
+                       f"(bildirim aylari: {sorted(BILDIRIM_AYLARI)}), "
+                       f"nobetci yeni ceyrek gormedi ve "
+                       f"{son_bitis or 'bilinmeyen'} donemi bildirim "
+                       f"penceresi DISINDA ({gun}. gun / "
+                       f"{BILDIRIM_PENCERESI_GUN})")
     return True, f"{ceyrek} aylik donem bildirimleri"
 
 
 DEFTER = _KOK / "kaynak" / "sirketler.json"
 HEDEF = _KOK / "kaynak" / "sektor_ozet.json"
 
-#: Sirketler arasi bekleme. Kaynak bizim degil.
-ARA_SN = 0.5
+#: SIRKETLER ARASI BEKLEME ARTIK BURADA DEGIL.
+#:
+#: Bu dosyada `ARA_SN = 0.5` duruyordu ve `bilanco_ag.ARA_SN` ile
+#: AYNI ADI tasiyan AYRI bir sabitti. Kaynak "yavasla" dediginde
+#: `bilanco_ag._yavasla()` yalnizca KENDI degerini buyutuyor; bu
+#: kopya 0,5'te KALIYORDU. Yani bu adim uyarlamayi hic gormuyordu:
+#: gunluk "istek araligi 8.0 sn" yazarken burada hala yarim saniye
+#: bekleniyordu.
+#:
+#: Ayni adi tasiyan iki sabitten birinin sessizce donmasi, bu
+#: depoda tekrar eden bir kusur. Bekleme artik TEK YERDEN:
+#: `bilanco_ag.ara_ver()`.
 
 
 def _defter() -> dict:
@@ -328,6 +425,19 @@ def sektor_isle(sektor_tr: str, donem_etiketi: str, ceyrek: int = 2,
 
     for kod, bilgi in sirketler:
         tablolar = bilanco_ag.ara_donem(kod, ceyrek)
+        # BEKLEME CEKIMIN HEMEN ARDINDA, KOSULSUZ.
+        #
+        # Onceki sekil beklemeyi UC cikis yolunda tekrarliyordu
+        # (eksik, ozdeslik, basari). Bir MUTASYON bundan faydalandi:
+        # yalnizca BASARI yolundaki bekleme silindiginde oteki ikisi
+        # kurali yesil tuttu -- oysa silinen, sirketlerin COGUNUN
+        # gectigi yoldu.
+        #
+        # Aralik zaten ISTEKLER ARASI bir bekleme; cekimden hemen
+        # sonra beklemek ayni seyi TEK ve KOSULSUZ bir yerde
+        # garanti ediyor. Yola gore tekrarlanan bir tedbir, bir
+        # sonraki yol eklendiginde yine unutulur.
+        bilanco_ag.ara_ver()
         # OZDESLIK ONCE. Bozuk bilanco sektor medyanini da bozar.
         tekil = {ad: d[0] for ad, d in
                  (tablolar.get("_ham_bilanco") or {}).items()} \
@@ -336,13 +446,11 @@ def sektor_isle(sektor_tr: str, donem_etiketi: str, ceyrek: int = 2,
         tamam, eksik = bilanco_ag.yeterli(alanlar, sektor_tr)
         if not tamam:
             atlanan.append((kod, "eksik: " + ", ".join(eksik[:3])))
-            time.sleep(ARA_SN)
             continue
         if tekil:
             bozuk = bilanco_ag.ozdeslik_denetimi(tekil)
             if bozuk:
                 atlanan.append((kod, "özdeşlik: " + bozuk[0][:40]))
-                time.sleep(ARA_SN)
                 continue
 
         d = oranlar.Donem(etiket=donem_etiketi, **alanlar)
@@ -363,7 +471,6 @@ def sektor_isle(sektor_tr: str, donem_etiketi: str, ceyrek: int = 2,
         if tablolar.get("_kirpilan"):
             kirpilan.append(kod)
         print(f"  {kod:<8}ölçüldü")
-        time.sleep(ARA_SN)
 
     # MEDYAN AYNI DONEMI BILDIRENLERDEN KURULUYOR.
     #

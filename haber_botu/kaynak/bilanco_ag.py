@@ -83,6 +83,50 @@ ZAMAN_ASIMI = 40.0
 #: kaynak toparlayinca `_gecti()` geri indiriyor.
 ARA_SN = 0.5
 
+def _uyu(saniye: float) -> None:
+    """Bekleme TEK YERDEN -- sinamalar bunu yamaliyor."""
+    time.sleep(saniye)
+
+
+def ara_ver() -> float:
+    """Istekler arasi bekleme. BEKLENEN SUREYI doner (olculebilsin).
+
+    KAYNAGA NAZIK DAVRANMA KURALI BURADA, `ARA_SN`IN YANINDA
+    ---------------------------------------------------------
+    OLCULDU (2026-10-31, kosu #61): sayfa adimi 20 sayfa yazdiktan
+    sonra kaynak 429 vermeye basladi, gunluge `istek araligi 2.0 ->
+    4.0 -> 8.0 sn` dustu ve "KAYNAK KAPANDI -- 8 ardisik red" geldi.
+    Kalan 131 sirket "eksik: hasilat, net_kar, aktif_toplami" diye
+    atlandi; bolum gocu de ayni kosuda 128 sayfanin HICBIRINI
+    tasiyamadi. AYNI KOSUDA veri adimi 333 sirketi sonuna kadar
+    cekti.
+
+    Fark tek bir seydi: veri adimi istekler arasinda bekliyordu, o
+    iki adim HIC BEKLEMIYORDU. `_yavasla()` `ARA_SN`i buyutuyordu ve
+    bekleyen kimse olmadigi icin UYARLAMA ETKISIZDI -- gunluk
+    tedbirin alindigini soyluyor, alinan tedbir yok. Olculen bir
+    degerin kullanilmamasi, hic olculmemesinden daha sinsidir.
+
+    KURAL BU DOSYADA DURUYOR, cagiranlarda degil. Beklemeyi her
+    donguye elle yazmak, bir sonraki dongude yine unutulmasi
+    demekti; `test_bilanco_penceresi` kaynaga giden HER dongunun bu
+    cagriyi tasidigini mekanik olarak denetliyor.
+
+    ARALIK HER CAGRIDA YENIDEN OKUNUYOR, basta bir kez degil: deger
+    kosu sirasinda degisiyor ve bir kez yakalamak uyarlamayi yine
+    etkisiz kilardi.
+
+    KAYNAK KAPANDIYSA BEKLEMEK YOK. `cek` o durumda istek atmadan
+    donuyor, yani beklenecek bir sey yok. Kalan ~130 sirket icin 8
+    saniye beklemek 17 dakikayi hicbir seye harcamak olurdu.
+    """
+    if KAPANDI:
+        return 0.0
+    sure = ARA_SN
+    _uyu(sure)
+    return sure
+
+
 #: Yavaslama olmadigindaki normal aralik. `ARA_SN` degisken oldugu
 #: icin baslangic degeri AYRI bir sabitte duruyor -- iki yerde 0,5
 #: yazmak, birini degistirip otekini unutmak demekti.
@@ -506,6 +550,17 @@ def ara_donem(kod: str, ceyrek: int = VARSAYILAN_CEYREK,
     for sayfa in SAYFALAR:
         donemler, kalemler, tarihler = cek(kod, sayfa, istemci,
                                            tarih_de=True)
+        # SIRKET BASINA UC ISTEK -- ARALARINDA DA BEKLENIYOR.
+        #
+        # Bu dongu gelir, bilanco ve nakit tablolarini ARKA ARKAYA
+        # cekiyordu: cagiran taraf sirketler arasinda bekliyor olsa
+        # bile kaynak UCLU PATLAMALAR goruyordu. Kaynagin bizi
+        # kisitlamasinda payi olan sey tam bu sekil.
+        #
+        # Bekleme cekimin hemen ardinda ve KOSULSUZ: asagidaki
+        # dallardan birine konulsa, yeni bir dal eklendiginde yine
+        # atlanirdi.
+        ara_ver()
         if sayfa == "gelir":
             cikti["_mali"] = {
                 "yil_sonu_ayi": mali_yil_sonu(donemler, tarihler),

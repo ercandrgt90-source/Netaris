@@ -91,6 +91,14 @@ def _sahte_cek(kod, sayfa="gelir", istemci=None, tarih_de=False):
 
 print("")
 print("1. ARDISIK DONEM ANAHTARLARI URETILIYOR")
+# ISTEK ARALIGI SIFIRLANIYOR -- SINAMA BEKLEMEYI OLCMUYOR.
+#
+# `ara_donem` artik tablolar arasinda da `ara_ver()` cagiriyor
+# (kaynak sirket basina UCLU PATLAMA goruyordu). Gercek bekleme bu
+# dosyayi 12 saniyeye cikardi ve olculen seyi -- istek SAYISINI --
+# hic etkilemiyor.
+bilanco_ag.ARA_SN = 0
+
 _asil = bilanco_ag.cek
 bilanco_ag.cek = _sahte_cek
 try:

@@ -425,6 +425,15 @@ def main() -> int:
             print(f"\nsınıra ulaşıldı ({n.sinir})")
             break
         ok, not_ = sayfa_tazele(yol, baglam, defter, n.kuru_calis)
+        # KAYNAGA NAZIK DAVRANMA -- bkz. `bilanco_ag.ara_ver`.
+        #
+        # OLCULDU (2026-10-31, kosu #61): bolum gocu 128 sayfanin
+        # HICBIRINI tasiyamadi. Gunluk once "istek araligi 2.0 ->
+        # 4.0 -> 8.0 sn", sonra "KAYNAK KAPANDI -- 8 ardisik red"
+        # yazdi; kalan her sayfa "ATLANDI -- eksik: hasilat,
+        # net_kar" dondu. Bu dongu de istekler arasinda hic
+        # beklemiyordu.
+        bilanco_ag.ara_ver()
         if ok:
             tazelenen += 1
             print(f"  {yol.stem:<20}{not_}")

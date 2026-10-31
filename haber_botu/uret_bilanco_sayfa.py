@@ -1224,6 +1224,34 @@ def main() -> int:
         ok, not_ = sirket_isle(kod, bilgi, sektor, _donem, oran,
                                _medyan, _n, kuru=n.kuru_calis,
                                mali_not=_mali_not)
+        # KAYNAGA NAZIK DAVRANMAK BU ADIMDA DA GECERLI.
+        #
+        # OLCULDU (2026-10-31, kosu #61): bu adim 20 sayfa yazdiktan
+        # sonra kaynak 429 vermeye basladi, `istek araligi 2.0 -> 4.0
+        # -> 8.0 sn` satirlari dustu ve "KAYNAK KAPANDI -- 8 ardisik
+        # red" geldi. Kalan 131 sirket "eksik: hasilat, net_kar,
+        # aktif_toplami" diye atlandi -- yani kaynak degil BIZ
+        # kapatmisiz. AYNI KOSUDA veri adimi 333 sirketi sonuna
+        # kadar cekti.
+        #
+        # Fark tek bir seydi: bu adim istekler arasinda HIC
+        # BEKLEMIYORDU. `bilanco_ag.ARA_SN` tam bu is icin var ve
+        # kaynak "yavasla" dediginde `_yavasla()` onu buyutuyor --
+        # ama bekleyen kimse olmadigi icin UYARLAMA ETKISIZDI:
+        # gunluge "istek araligi 8.0 sn" yaziliyor ve hicbir sey
+        # beklemiyordu. Olculen bir degerin kullanilmamasi, hic
+        # olculmemesinden daha sinsi: gunluk tedbirin alindigini
+        # soyluyor.
+        #
+        # ARALIK HER TURDA YENIDEN OKUNUYOR, basta bir kez degil:
+        # deger kosu sirasinda degisiyor ve bir kez yakalamak
+        # uyarlamayi yine etkisiz kilardi.
+        #
+        # KAYNAK KAPANDIYSA BEKLEMEK YOK: `cek` o durumda istek
+        # atmadan donuyor, yani beklenecek bir sey yok. Kalan ~130
+        # sirket icin 8 saniye beklemek 17 dakikayi hicbir seye
+        # harcamak olurdu.
+        bilanco_ag.ara_ver()      # bkz. bilanco_ag.ara_ver
         if ok:
             yazilan += 1
             print(f"  {kod:<8}{not_}")
