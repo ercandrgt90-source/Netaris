@@ -53,15 +53,45 @@ def esit(bulunan, beklenen, aciklama: str) -> None:
 
 
 def _sayfa(hasilat, brut, net, ozkaynak, brut_marj, roe,
-           kilavuz="", kod="ZZZZ"):
-    s = [
-        "---", f"kod: {kod}", "kategori: Bilanço Analizi", "---", "",
+           kilavuz="", kod="ZZZZ", degisim=False, seri=False):
+    """Bilanco sayfasi. `degisim`/`seri` GERCEK sayfanin diger
+    tablolarini ekliyor.
+
+    UC TABLO AYNI ANAHTARLA BASLIYOR -- bu bir tuzak:
+
+        | Hasılat | %34,6 |                  <- yillik degisim
+        | Hasılat | 71,29 milyar TL |        <- OLCUM
+        | Hasılat | 71,29 | 64,88 | ... |    <- son dort donem
+
+    Varsayilan olarak yalnizca olcum tablosu uretiliyor; o halde
+    `olc()` sira ne olursa olsun dogru satiri bulur ve "son
+    eslesme kazaniyor" kusuru GORUNMEZ kalir. Kusurun ta kendisi
+    buydu, o yuzden digerleri ISTEGE BAGLI eklenebiliyor.
+    """
+    s = ["---", f"kod: {kod}", "kategori: Bilanço Analizi", "---", ""]
+    if degisim:
+        s += ["## Bir yıl öncesine göre", "",
+              "| Kalem | Değişim |", "| --- | ---: |",
+              "| Hasılat | %34,6 |", "| Brüt kâr | %68,7 |",
+              "| Net kâr | %239,4 |", "| Özkaynak | %20,4 |", ""]
+    s += [
         "## 2026 2. çeyrek dönemi ölçümleri", "",
         "| Kalem | Değer |", "| --- | ---: |",
         f"| Hasılat | {hasilat} milyar TL |",
         f"| Brüt kâr | {brut} milyar TL |",
         f"| Net kâr | {net} milyar TL |",
-        f"| Özkaynak | {ozkaynak} milyar TL |", "",
+        f"| Özkaynak | {ozkaynak} milyar TL |", ""]
+    if seri:
+        # SERI OLCUM TABLOSUNDAN SONRA -- gercek sirada oyle.
+        # Ilk sutun olcum tablosundaki degerin AYNISI.
+        s += ["## Son dört dönem", "",
+              "| Kalem | 2026/9 | 2026/6 | 2026/3 | 2025/12 |",
+              "| --- | ---: | ---: | ---: | ---: |",
+              f"| Hasılat | {hasilat} | 64,88 | 59,69 | 60,99 |",
+              f"| Brüt kâr | {brut} | 5,88 | 4,81 | 6,73 |",
+              f"| Net kâr | {net} | 8,55 | 0,38 | -1,87 |",
+              f"| Özkaynak | {ozkaynak} | 328,78 | 304,85 | 297,28 |", ""]
+    s += [
         "## Sektör içindeki konum", "",
         "| Oran | Şirket | Sektör medyanı |", "| --- | ---: | ---: |",
         f"| Brüt kâr marjı | {brut_marj} | %20,0 |",
@@ -562,6 +592,111 @@ finally:
     BT.yayin.yaz_sektorel = _ASIL_YAZ4
     U.SITE = _ASIL_SITE4
     BT.bellegi_bosalt()
+
+print("")
+print("SEVIYE DOGRU TABLODAN OKUNUYOR -- AYNI ANAHTAR UC KEZ GECIYOR")
+# =====================================================================
+#
+# OLCULDU (2026-10-31): "Son dört dönem" bolumu eklendikten sonra
+# 302 bilanco sayfasinin 112'sinde `olc()` SIFIR kalem donuyordu.
+# 302 - 112 = 190 ve o gun bulunan sayi tam olarak 190 -- yani yeni
+# bolum, kendi sayfalarinda bu korumayi TUMDEN kor etmisti. Goc
+# tamamlandikca oran %100'e cikacakti.
+#
+# Sebep: seviye atamasi KOSULSUZDU ve son eslesme kazaniyordu. Seri
+# satirinda "milyar" yazmadigi icin `_milyar` None donuyor ve olcum
+# tablosundan gelen DOGRU degeri EZIYORDU.
+#
+# Bu, bu depoda kayitli bir sinif: yeni bir cikti bicimi mevcut
+# korumalari atlatiyor ve hicbir yerde kirmizi gorunmuyor.
+
+# 5,00 / 10,00 = %50,0 ;  1,00 / 10,00 = %10,0
+_ARGS = ("10,00", "5,00", "1,00", "10,00", "%50,0", "%10,0")
+
+for _degisim, _seri, _ad in ((False, False, "yalniz olcum tablosu"),
+                             (True, False, "degisim + olcum"),
+                             (False, True, "olcum + seri"),
+                             (True, True, "degisim + olcum + seri")):
+    _s = _sayfa(*_ARGS, degisim=_degisim, seri=_seri)
+    esit(len(bd.olc(_s)), 2, f"iki oran da olculuyor ({_ad})")
+    esit(bd.onarim_gereken(_s), [], f"tutarli sayfa saglam ({_ad})")
+
+# KONTROL: TABLOLAR GERCEKTEN SAYFADA MI.
+#
+# Yoksa yukaridaki dort durum ayni metni olcer ve iddia hicbir sey
+# soylemez. Bu depoda "hicbir sey olcmeyen test" tuzagina defalarca
+# dusuldu.
+_tam = _sayfa(*_ARGS, degisim=True, seri=True)
+esit(_tam.count("| Hasılat |"), 3,
+     "KONTROL: ayni anahtar UC tabloda geciyor")
+esit("Son dört dönem" in _tam, True, "KONTROL: seri bolumu sayfada")
+esit("%34,6" in _tam, True, "KONTROL: degisim tablosu sayfada")
+
+# KUSUR GERI GELSE YAKALANIR MI -- bozuk sayfa hala BOZUK sayilmali.
+#
+# Kor bir olcum "sorun yok" der. Bozuk bir sayfanin, seri tablosu
+# VARKEN de yakalandigini tutmak, korlugu dogrudan eliyor.
+_bozuk = _sayfa("10,00", "5,00", "1,00", "10,00", "%12,0", "%10,0",
+                degisim=True, seri=True)
+esit(len(bd.olc(_bozuk)), 2, "bozuk sayfada da iki oran olculuyor")
+esit(bool(bd.onarim_gereken(_bozuk)), True,
+     "seri tablosu VARKEN de uyusmazlik YAKALANIYOR")
+
+# SERI SATIRI SEVIYE OLARAK ALINMIYOR.
+#
+# Seri ilk sutunu olcum degeriyle AYNI oldugu icin yukaridaki
+# iddialar, seri satiri okunsa bile gecebilirdi. Burada seri ilk
+# sutunu BILEREK farkli yaziliyor: okunan satir seri olsa oranlar
+# uyusmaz ve sayfa bozuk sayilirdi.
+_tuzak = _sayfa(*_ARGS, degisim=True, seri=True).replace(
+    "| Hasılat | 10,00 | 64,88", "| Hasılat | 99,99 | 64,88")
+# Olcut SATIR: alt dizge aramak yetmez, cunku seri satiri
+# `| Hasılat | 99,99 | 64,88 | ...` zaten o dizgeyi iceriyor.
+_satirlar = [l for l in _tuzak.splitlines() if l.startswith("| Hasılat |")]
+esit(len(_satirlar), 3, "KONTROL: uc Hasılat satiri var")
+esit([l for l in _satirlar if "milyar" in l],
+     ["| Hasılat | 10,00 milyar TL |"],
+     "KONTROL: OLCUM satiri degismedi")
+esit([l for l in _satirlar if l.count("|") > 3][0].split("|")[2].strip(),
+     "99,99", "KONTROL: tuzak SERI satirinda")
+esit(bd.onarim_gereken(_tuzak), [],
+     "seri ilk sutunu DEGISSE bile seviye olcum tablosundan")
+
+# ANAHTAR BASINA TEK "milyar" SATIRI -- ILK/SON AYRIMINI ANLAMSIZ
+# KILAN DEGISMEZ.
+#
+# "Ilk eslesme kazanir" mutasyonu KACTI ve kacmasi dogruydu: gercek
+# sayfada anahtar basina yalnizca BIR satirda "milyar" yaziyor, yani
+# ilk ile son ayni satir. Ayrimi sinamak yerine onu anlamsiz kilan
+# DEGISMEZ tutuluyor; ikinci bir "milyar" satiri eklenirse bu iddia
+# duser ve belirsizlik GORUNUR olur.
+for _ad, _anahtar in (("Hasılat", "| Hasılat |"),
+                      ("Brüt kâr", "| Brüt kâr |"),
+                      ("Net kâr", "| Net kâr |"),
+                      ("Özkaynak", "| Özkaynak |")):
+    _m = [l for l in _tam.splitlines()
+          if l.startswith(_anahtar) and "milyar" in l]
+    esit(len(_m), 1, f"{_ad}: tek 'milyar' satiri (ilk=son)")
+
+# AYNI DEGISMEZ URETIMDEKI SAYFALARDA DA GECERLI MI.
+#
+# Sahte sayfada tutmasi yetmez: kural uretilen bicim hakkinda.
+import pathlib as _pl                                    # noqa: E402
+
+_DIZIN = _pl.Path(__file__).resolve().parent.parent / "site" / "icerik" / "analizler"
+_ihlal = []
+if _DIZIN.is_dir():
+    for _p in sorted(_DIZIN.glob("*.md")):
+        _t = _p.read_text(encoding="utf-8", errors="replace")
+        if not bd.bilanco_sayfasi(_t):
+            continue
+        for _, _pay, _bolen, _ in bd.OLCUMLER:
+            for _k in (_pay, _bolen):
+                _n = sum(1 for l in _t.splitlines()
+                         if l.startswith(_k) and "milyar" in l)
+                if _n > 1:
+                    _ihlal.append((_p.name, _k, _n))
+esit(_ihlal[:5], [], "uretilen sayfalarda da anahtar basina tek 'milyar'")
 
 print("")
 print(f"TUM TESTLER GECTI ({_gecti})")

@@ -86,8 +86,34 @@ def olc(metin: str) -> list[tuple[str, float, float, float]]:
     for satir in metin.splitlines():
         for _, pay_k, bolen_k, _ad in OLCUMLER:
             for k in (pay_k, bolen_k):
-                if satir.startswith(k):
-                    seviye[k] = _milyar(satir)
+                if not satir.startswith(k):
+                    continue
+                # SEVIYE YALNIZCA "milyar" YAZAN SATIRDAN.
+                #
+                # Sayfada ayni anahtarla baslayan UC tablo var ve
+                # hepsi `| Hasılat |` ile basliyor:
+                #
+                #   | Hasılat | %34,6 |                  <- yillik degisim
+                #   | Hasılat | 71,29 milyar TL |        <- OLCUM
+                #   | Hasılat | 71,29 | 64,88 | ... |    <- son dort donem
+                #
+                # Atama KOSULSUZDU ve son eslesme kazaniyordu. "Son
+                # dort donem" bolumu eklendikten sonra o satir SERI
+                # satiri oldu; `_milyar` orada None donuyor ve dogru
+                # degeri EZIYORDU.
+                #
+                # OLCULDU (2026-10-31): 302 bilanco sayfasinin
+                # 112'sinde seri tablosu var ve o 112'de `olc()`
+                # SIFIR kalem donuyordu -- 302 - 112 = 190, bulunan
+                # sayiyla tam olarak ayni. Yani yeni bolum, kendi
+                # sayfalarinda bu korumayi tumden kor etmisti ve
+                # goc tamamlandikca oran %100'e cikacakti.
+                #
+                # Olcut SATIRIN KENDISI, sirasi degil: "milyar"
+                # yazmayan satir seviye tasimaz.
+                d = _milyar(satir)
+                if d is not None:
+                    seviye[k] = d
     cikti = []
     for ad, pay_k, bolen_k, tablo_adi in OLCUMLER:
         pay_d, bolen = seviye.get(pay_k), seviye.get(bolen_k)
