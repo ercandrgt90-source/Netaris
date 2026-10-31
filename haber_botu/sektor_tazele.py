@@ -57,9 +57,54 @@ DEFTER = _KOK / "kaynak" / "sirketler.json"
 VARSAYILAN_SINIR = 40
 
 
+#: Kaynakta bulunamayan sirket kac gun sonra YENIDEN deneniyor.
+#:
+#: Yeni kodlar listeye giriyor, yani "yok" kalici bir cevap degil.
+#: Ama her kosuda tekrar sormak kuyrugu TIKIYOR (asagida).
+YENIDEN_DENEME_GUN = 90
+
+
 def eksikler(defter: dict) -> list:
+    """Sektoru olmayan BUTUN sirketler -- sayim ve hedefli kip icin."""
     return sorted(k for k, v in defter["sirketler"].items()
                   if not v.get("sektor_tr"))
+
+
+def kuyruk(defter: dict, bugun=None) -> list:
+    """Bu kosuda SORULABILECEK sirketler.
+
+    NEDEN `eksikler`DEN AYRI -- OLCULDU (2026-10-31, kosu #62)
+    ---------------------------------------------------------
+    Kuyruk `eksik[:sinir]` idi: alfabetik ve her kosuda AYNI ilk 25
+    sirket. O ilk 25'in basindaki besi kaynakta YOK (gunluk:
+    "5 x HTTP 404") ve adim onlari kisitlama sanip kendini
+    kapatiyordu. Yani 438 sirket KALICI olarak kilitliydi -- adim
+    aylardir hicbir sey yazmadi ve her kosuda YESIL dondu.
+
+    Durum kodu ayrimi tek basina yetmez: 404 alan sirket kuyrugun
+    basinda KALIR ve sira asla ilerlemez. Bu yuzden yokluk
+    TARIHIYLE isaretleniyor ve `YENIDEN_DENEME_GUN` boyunca
+    kuyruktan cikiyor. Isaret kalici degil: yeni kodlar listeye
+    giriyor.
+
+    SEKTOR ALANINA DOKUNULMUYOR. Isaret ayri bir alan; yanlis bir
+    sektor yazmak sektor medyanini bozar ve sayfa gercek olmayan bir
+    "sektore gore konum" iddiasi tasir.
+    """
+    import datetime as _dt                            # noqa: PLC0415
+    bugun = bugun or _dt.date.today()
+    cikti = []
+    for kod in eksikler(defter):
+        iso = (defter["sirketler"][kod] or {}).get("sektor_bulunamadi")
+        if isinstance(iso, str):
+            try:
+                gecen = (bugun - _dt.date.fromisoformat(iso)).days
+                if gecen < YENIDEN_DENEME_GUN:
+                    continue
+            except ValueError:
+                pass            # bozuk tarih: kuyrukta KALSIN
+        cikti.append(kod)
+    return cikti
 
 
 def tazele(sinir: int = VARSAYILAN_SINIR, kuru: bool = False,
@@ -85,16 +130,46 @@ def tazele(sinir: int = VARSAYILAN_SINIR, kuru: bool = False,
             print(f"  {k:<9}DOKUNULMADI -- "
                   f"{'sektörü zaten dolu' if var else 'defterde YOK'}")
     else:
-        secilen = eksik[:sinir]
+        _kuyruk = kuyruk(d)
+        secilen = _kuyruk[:sinir]
         print(f"sektor tazele: {len(eksik)} eksik, "
-              f"bu kosuda {len(secilen)}")
+              f"{len(_kuyruk)} sorulabilir, bu kosuda {len(secilen)}")
+        if len(eksik) != len(_kuyruk):
+            print(f"  ({len(eksik) - len(_kuyruk)} sirket kaynakta "
+                  f"BULUNAMADI -- {YENIDEN_DENEME_GUN} gun sonra "
+                  f"yeniden sorulacak)")
 
     yazilan, bossuz, hata = [], [], 0
     ardisik_bos = 0
+    import datetime as _dt                              # noqa: PLC0415
+    bulunamayan = []
     for kod in secilen:
         onceki_hata = len(sektor.OKUNAMAYAN)
         try:
             r = sektor.cek(kod)
+        except sektor.Bulunamadi:
+            # KAYNAKTA YOK -- KISITLAMA DEGIL.
+            #
+            # Ardisik red sayaci ISLETILMIYOR: `bilanco_ag` bu
+            # ayrimi yillardir yapiyor, buraya yayilmamisti ve
+            # bedeli olculdu (kosu #62: "5 x HTTP 404" ->
+            # "KAYNAK KAPANDI -- 5 ardisik red").
+            #
+            # Yokluk TARIHLE isaretleniyor ki kuyruk ILERLESIN;
+            # yoksa ayni bes sirket her kosuda yine basta olurdu.
+            bulunamayan.append(kod)
+            d["sirketler"][kod]["sektor_bulunamadi"] = (
+                _dt.date.today().isoformat())
+            ardisik_bos = 0
+            # BEKLEME BU MODULUN ARALIGIYLA.
+            #
+            # `bilanco_ag.ara_ver()` yazilmisti; ayni sunucu olsa da
+            # o AYRI bir aralik ve AYRI bir "kapandi" mandali
+            # tutuyor. Tek dongude iki aralik sistemi, `ARA_SN`in
+            # basina geleni geri getirirdi: hangi degerin
+            # uyarlandigi belirsizlesir.
+            time.sleep(sektor.ARA_SN)
+            continue
         except Exception:
             hata += 1
             continue
@@ -140,6 +215,9 @@ def tazele(sinir: int = VARSAYILAN_SINIR, kuru: bool = False,
 
     print(f"  sektoru bulunan : {len(yazilan)}")
     print(f"  kaynakta yok    : {len(bossuz)}")
+    if bulunamayan:
+        print(f"  sayfasi yok     : {len(bulunamayan)} "
+              f"({', '.join(bulunamayan[:8])})")
     if hata:
         print(f"  hata            : {hata}")
         # SEBEP SOYLENIYOR, SAYI YETMIYOR.
@@ -156,14 +234,22 @@ def tazele(sinir: int = VARSAYILAN_SINIR, kuru: bool = False,
             print(f"    {_n:>3} x {_sebep}")
     for kod, s in yazilan[:12]:
         print(f"    + {kod:8s} {s}")
-    if not kuru and yazilan:
+    # ISARET DE YAZILMALI -- YOKSA KUYRUK HIC ILERLEMEZ.
+    #
+    # Kosul `not kuru and yazilan` idi: hicbir sektor bulunamadiginda
+    # defter YAZILMIYORDU. Arizali senaryonun tam olarak boyle
+    # oldugu olculdu (kosu #62: "sektoru bulunan : 0"), yani
+    # "kaynakta yok" isaretleri bellekte kalip KAYBOLACAKTI ve
+    # duzeltme calismis GORUNUP hicbir sey degistirmeyecekti.
+    if not kuru and (yazilan or bulunamayan):
         DEFTER.write_text(json.dumps(d, ensure_ascii=False, indent=1),
                           encoding="utf-8")
         print(f"  deftere yazildi: {DEFTER.name}")
     elif kuru:
         print("  (kuru calisma -- yazilmadi)")
     return {"eksik": len(eksik), "yazilan": len(yazilan),
-            "bos": len(bossuz), "hata": hata}
+            "bos": len(bossuz), "hata": hata,
+            "bulunamayan": len(bulunamayan)}
 
 
 def main() -> int:

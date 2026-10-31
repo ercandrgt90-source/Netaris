@@ -57,6 +57,13 @@ sys.path.insert(0, str(_KOK / "kaynak"))
 import sektor                                      # noqa: E402
 import sektor_tazele as st                         # noqa: E402
 
+#: GERCEK `sektor.cek` -- ILK ISTE yakalaniyor.
+#:
+#: `kur()` onu yamaliyor. Ilk yazim gercek islevi 6a bolumunde
+#: aliyordu ve o noktada ZATEN yamanmisti: iddia sahte islevi
+#: olcuyordu ve iki mutasyon buradan kacti.
+_GERCEK_CEK = sektor.cek
+
 _gecti = 0
 
 
@@ -71,7 +78,7 @@ def esit(bulunan, beklenen, aciklama: str) -> None:
     print(f"  gecti  {aciklama}")
 
 
-def kur(sirketler, cevaplar, reddedilenler=()):
+def kur(sirketler, cevaplar, reddedilenler=(), bulunamayanlar=()):
     """Gecici defter + sahte kaynak."""
     gecici = pathlib.Path(tempfile.mkdtemp()) / "sirketler.json"
     gecici.write_text(json.dumps({"sirketler": sirketler}, ensure_ascii=False),
@@ -80,8 +87,13 @@ def kur(sirketler, cevaplar, reddedilenler=()):
     sektor.OKUNAMAYAN.clear()
 
     def sahte(kod, istemci=None):
+        if kod in bulunamayanlar:
+            # KAYNAKTA YOK -- `sektor.cek` bunu AYRI tur olarak
+            # firlatiyor; 404 bir kisitlama degil.
+            sektor.OKUNAMAYAN.append((kod, "HTTP 404"))
+            raise sektor.Bulunamadi("HTTP 404")
         if kod in reddedilenler:
-            sektor.OKUNAMAYAN.append((kod, "HTTPStatusError"))
+            sektor.OKUNAMAYAN.append((kod, "HTTP 429"))
             return {}
         return cevaplar.get(kod, {})
     sektor.cek = sahte
@@ -172,6 +184,154 @@ d = kur({"AAA": {"kod": "AAA"}}, {"AAA": {}})
 s = st.tazele(sinir=10, kodlar=["AAA"])
 esit(s["yazilan"], 0, "kaynak sektor vermiyorsa istenen koda da yazilmiyor")
 esit(s["bos"], 1, "kaynakta yok olarak sayiliyor")
+
+# --- 6) KAYNAKTA OLMAYAN SIRKET KUYRUGU TIKAMIYOR --------------------
+#
+# OLCULDU (2026-10-31, kosu #62): adim "5 x HTTP 404" alip
+# "KAYNAK KAPANDI -- 5 ardisik red" diyerek kendini kapatti ve
+# "sektoru bulunan : 0" yazdi. Kuyruk alfabetik ve her kosuda AYNI
+# ilk 25 sirketi deniyordu, yani 438 sirket KALICI olarak kilitliydi
+# -- ve kosu her seferinde YESIL dondu.
+#
+# `bilanco_ag` bu ayrimi yillardir yapiyor ("404 sayaci ISLETMIYOR");
+# buraya hic yayilmamisti.
+#
+# GUN SAYILARI MUTLAK YAZILIYOR.
+#
+# Ilk yazim `st.YENIDEN_DENEME_GUN + 1` diyordu ve bir MUTASYON
+# kacti: sabit 100000'e cekilince sinama beklentisini de onunla
+# birlikte kaydirdi. Beklentisini korudugu seyden okuyan sinama,
+# mutasyonu sessizce yesil birakiyor.
+print("")
+print("Kaynakta olmayan sirket")
+
+# --- 6a) GERCEK `sektor.cek`: 404 ile 429 AYRI ----------------------
+#
+# Asagidaki bolumler `sektor.cek`i yamaliyor, yani gercek ayrimi
+# OLCMUYOR. Iki mutasyon tam buradan kacti (404 firlatmasi
+# kaldirildi; 429 da "bulunamadi" sayildi). Ayrim BURADA, agsiz bir
+# sahte istemciyle tutuluyor.
+import httpx as _httpx                              # noqa: E402
+
+class _SahteIstemci:
+    def __init__(self, durum):
+        self.durum = durum
+
+    def get(self, u, **k):
+        _httpx.Response(self.durum,
+                        request=_httpx.Request("GET", u)).raise_for_status()
+
+
+sektor.OKUNAMAYAN.clear()
+_firladi = False
+try:
+    _GERCEK_CEK("X404", istemci=_SahteIstemci(404))
+except sektor.Bulunamadi:
+    _firladi = True
+esit(_firladi, True, "gercek cek(): 404 Bulunamadi FIRLATIYOR")
+
+_firladi = False
+try:
+    _bos = _GERCEK_CEK("X429", istemci=_SahteIstemci(429))
+except sektor.Bulunamadi:
+    _firladi = True
+esit(_firladi, False, "gercek cek(): 429 Bulunamadi FIRLATMIYOR")
+esit(_bos, {}, "gercek cek(): 429 bos sonuc donuyor")
+esit([s for _k, s in sektor.OKUNAMAYAN], ["HTTP 404", "HTTP 429"],
+     "iki durum da durum KODUYLA kaydedildi")
+
+# --- 6b) ADIM KENDINI KAPATMIYOR -------------------------------------
+_yok = ["A01", "A02", "A03", "A04", "A05"]
+_sirketler = {k: {"kod": k} for k in _yok}
+_sirketler["Z99"] = {"kod": "Z99"}
+d = kur(_sirketler, {"Z99": {"sektor": "Industrials", "sektor_tr": "Sanayi"}},
+        bulunamayanlar=_yok)
+s = st.tazele(sinir=10)
+
+esit(s["yazilan"], 1, "bes 404'tan SONRAKI sirkete ulasiliyor")
+esit(s["bulunamayan"], 5, "bes sirket kaynakta YOK diye sayiliyor")
+esit(s["hata"], 0, "404 HATA sayilmiyor")
+_def = json.loads(d.read_text(encoding="utf-8"))["sirketler"]
+esit(_def["Z99"]["sektor_tr"], "Sanayi", "son sirketin sektoru yazildi")
+esit(all("sektor_bulunamadi" in _def[k] for k in _yok), True,
+     "kaynakta yok isareti DEFTERE yazildi")
+esit(any("sektor_tr" in _def[k] for k in _yok), False,
+     "sektor alanina DOKUNULMADI -- uydurma yok")
+
+# --- 6c) HICBIR SEY BULUNMASA DA ISARET YAZILIYOR --------------------
+#
+# Yazma kosulu `not kuru and yazilan` idi ve arizali senaryoda
+# `yazilan` SIFIR: isaretler bellekte kalip kaybolacakti, yani
+# duzeltme calismis GORUNUP hicbir sey degistirmeyecekti. Bir
+# mutasyon eski kosulu geri koyunca 6b bunu goremedi -- cunku orada
+# Z99 yaziliyor.
+d = kur({k: {"kod": k} for k in _yok}, {}, bulunamayanlar=_yok)
+s = st.tazele(sinir=10)
+esit(s["yazilan"], 0, "KONTROL: bu senaryoda hic sektor yazilmiyor")
+esit(s["bulunamayan"], 5, "bes sirket kaynakta YOK")
+_def0 = json.loads(d.read_text(encoding="utf-8"))["sirketler"]
+esit(all("sektor_bulunamadi" in _def0[k] for k in _yok), True,
+     "yazilan SIFIR olsa da isaret DEFTERE yazildi")
+
+# --- 6d) KUYRUK GERCEKTEN ILERLIYOR ---------------------------------
+#
+# Fark ancak IKINCI kosuda gorunuyor: ilk kosuda isaret henuz yok ve
+# `eksik` ile `kuyruk` ayni. Bir mutasyon (`secilen = eksik[:sinir]`)
+# tam bu yuzden kacti.
+_d2 = json.loads(d.read_text(encoding="utf-8"))
+esit(st.eksikler(_d2), sorted(_yok), "hepsi hala EKSIK olarak sayiliyor")
+esit(st.kuyruk(_d2), [], "ama hicbiri artik SORULABILIR kuyrukta degil")
+
+# IKINCI KOSU: isaretli besi ATLAYIP yeni sirkete ulasmali.
+_ikinci = dict(_d2["sirketler"])
+_ikinci["Z98"] = {"kod": "Z98"}
+d = kur(_ikinci, {"Z98": {"sektor": "Industrials", "sektor_tr": "Sanayi"}},
+        bulunamayanlar=_yok)
+s = st.tazele(sinir=1)          # TEK sirket: sira dogruysa Z98 secilir
+esit(s["yazilan"], 1, "ikinci kosu isaretlileri ATLAYIP yeniye geciyor")
+esit(json.loads(d.read_text(encoding="utf-8"))["sirketler"]["Z98"]["sektor_tr"],
+     "Sanayi", "ikinci kosuda yeni sirketin sektoru yazildi")
+
+# --- 6e) ISARET KALICI DEGIL ----------------------------------------
+#
+# Gun sayilari MUTLAK; sabitten turetilmiyor (yukaridaki not).
+import datetime as _dt                              # noqa: E402
+
+esit(st.kuyruk(_d2, _dt.date.today() + _dt.timedelta(days=200)),
+     sorted(_yok), "200 gun sonra yeniden sorulabilir")
+esit(st.kuyruk(_d2, _dt.date.today() + _dt.timedelta(days=30)), [],
+     "30 gun sonra henuz sorulmuyor")
+# Sure MAKUL ARALIKTA: sifir isareti etkisiz kilar, cok buyuk olan
+# sirketi sonsuza kadar gormezden gelir.
+dogru_aralik = 7 <= st.YENIDEN_DENEME_GUN <= 365
+esit(dogru_aralik, True,
+     f"yeniden deneme suresi makul ({st.YENIDEN_DENEME_GUN} gun)")
+
+# BOZUK ISARET KUYRUKTAN DUSURMEZ.
+#
+# "Bilmiyorum" ile "sonsuza kadar atla" ayni sey degil. Bir mutasyon
+# bozuk tarihi `continue` ile atlatiyordu ve kimse gormuyordu: tek
+# bir bozuk alan, sirketi kalici olarak gorus alanindan cikarirdi.
+for _bozuk in ("abc", "", "2026-13-99", 20261031, None, []):
+    _dd = {"sirketler": {"Q01": {"kod": "Q01",
+                                 "sektor_bulunamadi": _bozuk}}}
+    esit(st.kuyruk(_dd), ["Q01"],
+         f"bozuk isaret ({_bozuk!r}) kuyrukta BIRAKIYOR")
+
+# --- 6f) KONTROL: 429 ESKISI GIBI KAPATIYOR -------------------------
+#
+# 404 ayrimi, kisitlama korumasini GEVSETMEMELI.
+_red = ["B01", "B02", "B03", "B04", "B05", "B06"]
+_s2 = {k: {"kod": k} for k in _red}
+_s2["Y99"] = {"kod": "Y99"}
+d = kur(_s2, {"Y99": {"sektor": "Industrials", "sektor_tr": "Sanayi"}},
+        reddedilenler=_red)
+s = st.tazele(sinir=10)
+esit(s["yazilan"], 0, "KONTROL: ardisik 429'da kosu DURUYOR")
+esit(s["bulunamayan"], 0, "KONTROL: 429 'kaynakta yok' sayilmiyor")
+_defr = json.loads(d.read_text(encoding="utf-8"))["sirketler"]
+esit(any("sektor_bulunamadi" in v for v in _defr.values()), False,
+     "KONTROL: 429 alan sirket ISARETLENMIYOR")
 
 print("")
 print(f"TUM TESTLER GECTI ({_gecti})")

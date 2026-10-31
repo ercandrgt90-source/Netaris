@@ -77,12 +77,32 @@ SEKTOR_TR = {
 #: Cekilemeyen kodlar burada birikiyor -- sessiz basarisizlik yok.
 OKUNAMAYAN: list[tuple[str, str]] = []
 
+#: Kaynakta OLMAYAN sirket -- bu bir kisitlama degil, bir YOKLUK.
+#:
+#: `bilanco_ag` ayni ayrimi ters yonden yapiyor: orada "yavaslatan"
+#: kodlar (429/503) listelenip 404 DISLANIYOR. Burada yoklugun
+#: kendisi listeleniyor, cunku cagiran tarafin ayri tepki verdigi
+#: durum bu: kisitlamada duruyor, yoklukta siradakine geciyor.
+#:
+#: Yalnizca BU liste tutuluyor. "Yavaslatan" kodlarin bir kopyasini
+#: da yazmak, hicbir yerde kullanilmayan ve kural oldugunu iddia
+#: eden olu bir sabit olurdu.
+BULUNAMAYAN = frozenset({404, 410})
+
 
 def _coz(metin: str) -> dict[str, str]:
     m = _INFO.search(metin)
     if not m:
         return {}
     return {t: v for t, v in _CIFT.findall(m.group(1))}
+
+
+class Bulunamadi(Exception):
+    """Sirket KAYNAKTA YOK (404/410) -- kisitlama DEGIL.
+
+    Ayri bir tur, cunku cagiran taraf ikisine ayri tepki veriyor:
+    kisitlamada durup bekliyor, yoklukta siradakine geciyor.
+    """
 
 
 def cek(kod: str, istemci: httpx.Client | None = None) -> dict[str, str]:
@@ -110,6 +130,17 @@ def cek(kod: str, istemci: httpx.Client | None = None) -> dict[str, str]:
         _durum = getattr(getattr(e, "response", None), "status_code", None)
         OKUNAMAYAN.append((kod, f"HTTP {_durum}" if _durum
                            else type(e).__name__))
+        # 404 KISITLAMA DEGIL -- cagiran taraf ikisini ayirabilsin.
+        #
+        # `bilanco_ag` bu ayrimi yillardir yapiyor ("404 sayaci
+        # ISLETMIYOR: 'o sayfa yok' demek, 'cok hizli gidiyorsun'
+        # demek degil"). Buraya HIC YAYILMAMISTI ve bedeli olculdu
+        # (2026-10-31, kosu #62): adim "5 x HTTP 404" alip
+        # "KAYNAK KAPANDI -- 5 ardisik red" diyerek kendini
+        # kapatti. Kuyruk alfabetik ve her kosuda AYNI ilk 25
+        # sirketi deniyor, yani 438 sirket KALICI olarak kilitliydi.
+        if _durum in BULUNAMAYAN:
+            raise Bulunamadi(f"HTTP {_durum}") from e
         return {}
 
     d = _coz(r.text)

@@ -64,6 +64,7 @@ import sys
 _KOK = pathlib.Path(__file__).resolve().parent
 sys.path[:0] = [str(_KOK), str(_KOK / "kaynak"), str(_KOK / "analiz")]
 
+import bilanco_ag                                        # noqa: E402
 import uret_bilanco as U                                 # noqa: E402
 
 _gecti = 0
@@ -258,7 +259,7 @@ dogru("100. gun KAPALI", not _pencere_gunu(100))
 # Pencere bir sonraki donemin penceresine TASMIYOR: bir sonraki
 # ceyrek 31 Aralik'ta bitiyor, yani 92. gunde.
 dogru("pencere bir sonraki donem bitisine TASMIYOR",
-      U.BILDIRIM_PENCERESI_GUN < 92)
+      bilanco_ag.BILDIRIM_PENCERESI_GUN < 92)
 
 # =====================================================================
 print("")
@@ -268,21 +269,21 @@ print("8. ETKISIZLIK KONTROLU -- IDDIALAR GERCEKTEN ELIYOR")
 # Yukaridaki iddialarin hepsi `pencere_acik` HER ZAMAN False donerse
 # de, HER ZAMAN True donerse de gecmemeli. Ikisi burada dogrudan
 # olculuyor: gecen bir sinama, sinananin dogru oldugunu gostermez.
-_asil = U.pencere_acik
+_asil = bilanco_ag.pencere_acik
 try:
-    U.pencere_acik = lambda sb, bugun: (False, 0)
+    bilanco_ag.pencere_acik = lambda sb, bugun: (False, 0)
     dogru("KONTROL: pencere hep KAPALI olsa 2. bolum duserdi",
           not U.donem_acik(bugun=dt.date(2026, 10, 31),
                            nobetci=Nobetci(False, "2026-09-30"))[0])
-    U.pencere_acik = lambda sb, bugun: (True, 0)
+    bilanco_ag.pencere_acik = lambda sb, bugun: (True, 0)
     dogru("KONTROL: pencere hep ACIK olsa 3. bolum duserdi",
           U.donem_acik(bugun=dt.date(2027, 1, 8),
                        nobetci=Nobetci(False, "2026-09-30"))[0])
 finally:
-    U.pencere_acik = _asil
+    bilanco_ag.pencere_acik = _asil
 
 dogru("KONTROL: asil pencere geri konuldu",
-      U.pencere_acik is _asil)
+      bilanco_ag.pencere_acik is _asil)
 
 # =====================================================================
 print("")
@@ -303,8 +304,6 @@ print("9. KAYNAGA NAZIK DAVRANMA -- OLCULEN DEGER KULLANILIYOR MU")
 #
 # BU BOLUM METNE DEGIL DAVRANISA BAKIYOR. "Yorum iddia eder, akis
 # uygulamaz" bu depoda olculdu.
-import bilanco_ag                                       # noqa: E402
-
 _uyku = []
 _asil_uyu = bilanco_ag._uyu
 _asil_ara = bilanco_ag.ARA_SN
@@ -669,6 +668,128 @@ _dal.write_text(
     "            continue\n", encoding="utf-8")
 dogru("KONTROL: dal icine saklanmis bekleme bulgu URETIYOR",
       _beklemesiz_donguler([_dal]) == [_dongu_satiri(_dal)])
+
+# =====================================================================
+print("11. PENCERE ACIKKEN NOBETCI BUTCEYI YEMIYOR")
+# =====================================================================
+#
+# OLCULDU (2026-10-31, kosu #62): kaynak bir kosuda ~82 mali tablo
+# istegi veriyor, sonra 429 verip kapaniyor. Dagitim soyleydi:
+#
+#     nobetci  60 istek, 0 hata  -> 1 olay (GENIL, sayfasi #61'de
+#                                   zaten yazilmisti)
+#     sayfa    ~22 istek         -> 20 sayfa, sonra KAYNAK KAPANDI
+#     veri      0                -> 11 sektorun 11'i atlandi
+#                                   ("KAYNAK REDDEDIYOR, atlandi")
+#
+# Yani butcenin %73'u, cevabini zaten bildigimiz bir soruya gitti.
+# Ustelik o istekler `cek(kod, "gelir")` ile yapiliyor: sayfa
+# adiminin ihtiyac duydugu ceyreklik serinin ta kendisini cekip
+# ATIYOR.
+#
+# Nobetcinin isi sezonun ACILISINI fark etmek. Pencere zaten acikken
+# karar verecegi bir sey yok.
+import bilanco_nobetci as NB                             # noqa: E402
+
+_asil_oku = NB.nobet_oku
+try:
+    NB.nobet_oku = lambda: {"son_bitis": "2026-09-30"}
+    _acik = dt.date(2026, 10, 31)
+    _kapali = dt.date(2026, 12, 20)
+
+    dogru("pencere ACIKKEN orneklem KUCULUYOR",
+          NB.orneklem_boyu(bugun=_acik) < NB.VARSAYILAN_ORNEKLEM)
+    esit(NB.orneklem_boyu(bugun=_kapali), NB.VARSAYILAN_ORNEKLEM,
+         "pencere KAPALIYKEN tam orneklem")
+    # KUCULME ANLAMLI OLMALI: bir iki istek kurtarmak isi cozmezdi.
+    dogru("kucuk orneklem butcenin kucuk bir dilimi",
+          NB.orneklem_boyu(bugun=_acik) <= NB.VARSAYILAN_ORNEKLEM / 4)
+    dogru("kucuk orneklem SIFIR DEGIL -- yoklama surmeli",
+          NB.orneklem_boyu(bugun=_acik) > 0)
+
+    # ELLE VERILEN DEGER KAZANIR: kuculme bir varsayilan, tavan degil.
+    esit(NB.orneklem_boyu(40, _acik), 40, "elle verilen orneklem kuculmuyor")
+    esit(NB.orneklem_boyu(5, _kapali), 5, "elle verilen orneklem buyumuyor")
+
+    # KARAR PENCEREYE BAGLI, TAKVIME DEGIL.
+    #
+    # `son_bitis` bilinmiyorsa pencere kapali sayiliyor ve tam
+    # orneklemle donuluyor -- "bilmiyorum" ile "acik" ayni sey degil.
+    NB.nobet_oku = lambda: {}
+    esit(NB.orneklem_boyu(bugun=_acik), NB.VARSAYILAN_ORNEKLEM,
+         "son_bitis bilinmiyorsa TAM orneklem")
+    NB.nobet_oku = lambda: {"son_bitis": "2026-09-30"}
+
+    # ETKISIZLIK KONTROLU: karar gercekten pencereyi OKUYOR mu?
+    _asil_pencere = bilanco_ag.pencere_acik
+    try:
+        bilanco_ag.pencere_acik = lambda sb, bugun: (False, 0)
+        esit(NB.orneklem_boyu(bugun=_acik), NB.VARSAYILAN_ORNEKLEM,
+             "KONTROL: pencere kapali donerse tam orneklem")
+        bilanco_ag.pencere_acik = lambda sb, bugun: (True, 0)
+        dogru("KONTROL: pencere acik donerse kucuk orneklem",
+              NB.orneklem_boyu(bugun=_kapali) < NB.VARSAYILAN_ORNEKLEM)
+    finally:
+        bilanco_ag.pencere_acik = _asil_pencere
+    dogru("KONTROL: asil pencere geri konuldu",
+          bilanco_ag.pencere_acik is _asil_pencere)
+
+    # `bak()` KARARI GERCEKTEN KULLANIYOR MU -- OLCUT ISTEK SAYISI.
+    #
+    # Bir MUTASYON buradan kacti: `orneklem_boyu` dogru calisiyordu
+    # ama `bak()` onu atlayip `VARSAYILAN_ORNEKLEM`e dusurulunca
+    # sinama yesil kaldi. Karari sinamak, karari KULLANAN akisi
+    # sinamak degil -- bu depoda "dugum eklendi, kural yazilmadi"
+    # diye kayitli.
+    #
+    # Olcut KAC SIRKETE SORULDUGU: `mali_takvim` yamalanip sayiliyor,
+    # yani ag yok.
+    _sorulan = []
+    _asil_takvim = bilanco_ag.mali_takvim
+    _asil_pen = bilanco_ag.pencere_acik
+    try:
+        bilanco_ag.mali_takvim = lambda kod, *a, **k: (
+            _sorulan.append(kod) or {"son_bitis": "2026-09-30",
+                                     "yil_sonu_ayi": 12})
+        # PENCERE SABITLENIYOR -- BU IDDIA TAKVIME BAGLI OLMAMALI.
+        #
+        # `bak()` tarihi KENDI okuyor (`date.today()`), yani iddia
+        # dosyanin kosturuldugu GUNE baglanirdi: 2026-11-29'dan
+        # sonra pencere kapanir ve bu bolum DUSERDI. Tam olarak
+        # `test_zaman_bombasi`nin aradigi sey. Sabitleyince iddia
+        # "pencere acikken az soruyor" olarak kaliyor -- olculmek
+        # istenen de bu.
+        bilanco_ag.pencere_acik = lambda sb, bugun: (True, 1)
+        NB.bak(kuru=True)
+        dogru("bak() pencere acikken AZ sirkete soruyor",
+              0 < len(_sorulan) <= NB.PENCERE_ORNEKLEMI)
+        dogru("bak() tam orneklem KADAR sormuyor",
+              len(_sorulan) < NB.VARSAYILAN_ORNEKLEM)
+        # KONTROL: ayni akis elle verilen degeri de uyguluyor mu?
+        _sorulan.clear()
+        NB.bak(orneklem=3, kuru=True)
+        esit(len(_sorulan), 3, "KONTROL: bak() elle verilen orneklemi uyguluyor")
+    finally:
+        bilanco_ag.mali_takvim = _asil_takvim
+        bilanco_ag.pencere_acik = _asil_pen
+    dogru("KONTROL: asil pencere geri konuldu (bak bolumu)",
+          bilanco_ag.pencere_acik is _asil_pen)
+
+    # KURAL TEK YERDEN: nobetci kendi kopyasini TASIMIYOR.
+    #
+    # Ayni kurali iki yere yazmak `ARA_SN`in basina geleni
+    # tekrarlamak olurdu. Olcut AST: nobetci dosyasinda gun
+    # hesaplayan ikinci bir pencere tanimi OLMAMALI.
+    _nb = ast.parse((_KOK / "bilanco_nobetci.py").read_text(encoding="utf-8"))
+    esit([f.name for f in ast.walk(_nb)
+          if isinstance(f, ast.FunctionDef) and f.name == "pencere_acik"],
+         [], "nobetci kuralin KOPYASINI tasimiyor")
+    dogru("nobetci kurali bilanco_ag'den OKUYOR",
+          "pencere_acik" in _cagri_adlari(
+              next(f for f in ast.walk(_nb) if isinstance(f, ast.FunctionDef)
+                   and f.name == "pencere_acik_mi")))
+finally:
+    NB.nobet_oku = _asil_oku
 
 print("")
 print(f"TUM TESTLER GECTI ({_gecti})")

@@ -60,62 +60,16 @@ import sektor_ozet     # noqa: E402
 #: Ayin tamamı acik birakildi: sirketler ayni gun bildirmiyor.
 BILDIRIM_AYLARI = {3: 12, 5: 3, 8: 6, 11: 9}
 
-#: OLCULEN DONEMIN BILDIRIM PENCERESI -- gun.
+#: PENCERE KURALI ARTIK `bilanco_ag`DE.
 #:
-#: NEDEN UCUNCU BIR KAPI VAR
-#: -------------------------
-#: `BILDIRIM_AYLARI` TAHMIN, nobetci bayragi OLAY. Ikisi de "bu
-#: donemde yapilacak IS KALDI MI" sorusunu cevaplamiyor:
+#: Kurali hem bu dosya hem `bilanco_nobetci` kullaniyor. Iki yere
+#: yazmak, `ARA_SN`in basina geleni tekrarlamak olurdu: ayni adi
+#: tasiyan iki sabitten biri sessizce donmustu ve uyarlamayi hic
+#: gormuyordu.
 #:
-#:   - Takvim yalnizca Mart/Mayis/Agustos/Kasim'i aciyor. 9 aylik
-#:     tablolar EKIM SONUNDA gelmeye basliyor; ekimin tamami kapali.
-#:   - Bayrak "YENI ceyrek GORDUM" olayini tasiyor ve kosu sonunda
-#:     INIYOR. Bir kez acilip bir kosu calisiyor, sonra kapaniyor.
-#:
-#: OLCULDU (2026-10-30/31, kosu #60-#61):
-#:   #60  13:12  bayrak KALKTI -> veri adimi kostu, ozet 20 sirkette
-#:               2026-09-30'u gordu, kosu sonunda bayrak INDI
-#:   #61  01:23  "10. ay bildirim ayi degil ... ve nobetci yeni
-#:               ceyrek gormedi" -> veri adimi ATLANDI
-#:               sayfa adimi tam o 20 sirkete Q3 sayfasi yazdi
-#:
-#: Yani ozet 14:00'teki fotoğrafta DONDU. Sonraki kosular sifir yeni
-#: Q3 sayfasi yazacakti: sayfa adimi ancak OZETTE `2026-09-30` yazan
-#: sirkete Q3 sayfasi yaziyor ve ozeti tazeleyen adim kapali.
-#:
-#: UCUNCU KAPI OLCUME DAYANIYOR: nobetci kaynakta gordugu EN YENI
-#: donem bitisini (`son_bitis`) zaten saklıyor -- ek istek yok.
-#: O tarihten bu yana pencere kadar gun gectiyse hat ACIK.
-#:
-#: 60 GUN SECILDI. SPK ara donem sinirlari: konsolide olmayan 30
-#: gun, konsolide 40 gun. 2026-09-30 icin 30 Ekim ve 9 Kasim. 60
-#: gun ikisini de, geciken bildirimleri de kapsiyor ve 29 Kasim'da
-#: KAPANIYOR -- bir sonraki donem 31 Aralik'ta bittigi icin
-#: pencereler CAKISMIYOR. Kapanmayan kapi da bir kusurdur: her
-#: kosuda 333 sirketi bosuna cekmek olurdu.
-BILDIRIM_PENCERESI_GUN = 60
-
-
-def pencere_acik(son_bitis, bugun) -> tuple[bool, int]:
-    """(acik_mi, gecen_gun) -- olculen donemin bildirim penceresi.
-
-    `son_bitis` nobetcinin kaynakta gordugu EN YENI donem bitisi
-    (ISO). Yok ya da cozulemezse pencere KAPALI sayiliyor: "bilmiyorum"
-    ile "acik" ayni sey degil.
-
-    GELECEKTE BITEN DONEM ACMIYOR. Kaynak gelecek kolonlari da
-    yaziyor; negatif gun sayisi pencereyi acsaydi hat yil boyu acik
-    kalirdi.
-    """
-    import datetime as _dt                            # noqa: PLC0415
-    if not isinstance(son_bitis, str):
-        return False, 0
-    try:
-        bitis = _dt.date.fromisoformat(son_bitis)
-    except ValueError:
-        return False, 0
-    gun = (bugun - bitis).days
-    return 0 <= gun <= BILDIRIM_PENCERESI_GUN, gun
+#: Sabit `bilanco_ag.BILDIRIM_PENCERESI_GUN` olarak OKUNUYOR, ice
+#: ALINMIYOR -- `from ... import SABIT` bir FOTOGRAF cekiyor ve tam
+#: o tuzagi geri getirirdi.
 
 #: Yeni kapsam, oncekinin bu oraninin altina duserse dosya YAZILMAZ.
 #:
@@ -319,7 +273,7 @@ def donem_acik(bugun=None, nobetci=None) -> tuple[bool, str]:
     `bilanco_nobetci --kapat` onu INDIRIYOR; bu dogru, cunku olay
     ISLENDI. Yanlis olan, hattin "is kaldi mi" sorusunu ayni bayraga
     sormasi: bayrak inince ekim boyunca kapi kapaniyor ve ozet tek
-    bir kosunun fotografinda DONUYOR (olcum `BILDIRIM_PENCERESI_GUN`
+    bir kosunun fotografinda DONUYOR (olcum `bilanco_ag.BILDIRIM_PENCERESI_GUN`
     yaninda).
 
     UCUNCU KAPI o yuzden PENCERE: nobetcinin kaynakta gordugu en yeni
@@ -347,10 +301,10 @@ def donem_acik(bugun=None, nobetci=None) -> tuple[bool, str]:
         except Exception:                            # noqa: BLE001
             son_bitis = None
 
-    acik, gun = pencere_acik(son_bitis, bugun)
+    acik, gun = bilanco_ag.pencere_acik(son_bitis, bugun)
     if acik:
         return True, (f"{son_bitis} donemi bildirim penceresinde "
-                      f"({gun}. gun / {BILDIRIM_PENCERESI_GUN})")
+                      f"({gun}. gun / {bilanco_ag.BILDIRIM_PENCERESI_GUN})")
 
     ceyrek = BILDIRIM_AYLARI.get(bugun.month)
     if ceyrek is None:
@@ -359,7 +313,7 @@ def donem_acik(bugun=None, nobetci=None) -> tuple[bool, str]:
                        f"nobetci yeni ceyrek gormedi ve "
                        f"{son_bitis or 'bilinmeyen'} donemi bildirim "
                        f"penceresi DISINDA ({gun}. gun / "
-                       f"{BILDIRIM_PENCERESI_GUN})")
+                       f"{bilanco_ag.BILDIRIM_PENCERESI_GUN})")
     return True, f"{ceyrek} aylik donem bildirimleri"
 
 

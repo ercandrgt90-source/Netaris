@@ -84,6 +84,62 @@ NOBET = _KOK / "kaynak" / "bilanco_nobet.json"
 #: yeni bildirimleri gunlerce kacirmamanin bedeli olarak ucuz.
 VARSAYILAN_ORNEKLEM = 60
 
+#: PENCERE ACIKKEN kac sirkete sorulacak.
+#:
+#: NEDEN KUCULUYOR -- OLCULDU (2026-10-31, kosu #61 ve #62)
+#: --------------------------------------------------------
+#: Kaynak bir kosuda yaklasik 82 mali tablo istegi veriyor, sonra
+#: 429 verip kapaniyor. Nobetci bunun 60'ini aliyordu:
+#:
+#:     #62  nobetci  60 istek, 0 hata  -> 1 olay (GENIL)
+#:          sayfa    ~22 istek         -> 20 sayfa, sonra KAPANDI
+#:          veri     0                 -> 11 sektorun 11'i atlandi
+#:                                        ("KAYNAK REDDEDIYOR")
+#:
+#: Ustelik o 60 istek `cek(kod, "gelir")` ile YAPILIYOR -- sayfa
+#: adiminin ihtiyac duydugu ceyreklik serinin ta kendisini cekip
+#: ATIYOR.
+#:
+#: NOBETCININ ISI SEZONUN ACILISINI FARK ETMEK. Pencere zaten
+#: acikken karar verecegi bir sey yok: `son_bitis` en yeni donemi
+#: gosteriyor ve hat her kosuda aciliyor. O yuzden pencere acikken
+#: orneklem kuculuyor ve butce ASIL ISE kaliyor.
+#:
+#: PENCERE KAPANINCA KENDILIGINDEN BUYUYOR. Bir sonraki donem 31
+#: Aralik'ta bitiyor, pencere 29 Kasim'da kapaniyor: arada tam
+#: orneklemle donuluyor ve yeni sezon birkac gunde fark ediliyor.
+#: Kucuk orneklemi SUREKLI kilmak, sezonu haftalarca kacirmak
+#: olurdu.
+PENCERE_ORNEKLEMI = 8
+
+
+def pencere_acik_mi(bugun=None) -> bool:
+    """Olculen donemin bildirim penceresi acik mi?
+
+    Kural `bilanco_ag.pencere_acik`te -- hat da ayni kurali
+    okuyor. Iki yere yazmak `ARA_SN`in basina geleni tekrarlamak
+    olurdu: ayni adi tasiyan iki sabitten biri sessizce donmustu.
+
+    EK ISTEK YOK: `son_bitis` nobet defterinde zaten yazili.
+    """
+    import datetime as _dt                            # noqa: PLC0415
+    acik, _gun = bilanco_ag.pencere_acik(
+        nobet_oku().get("son_bitis"), bugun or _dt.date.today())
+    return acik
+
+
+def orneklem_boyu(istenen=None, bugun=None) -> int:
+    """Bu kosuda kac sirkete sorulacak.
+
+    ISTENEN DEGER HER ZAMAN KAZANIR: `--orneklem` ile elle verilen
+    sayi kuculmuyor. Kuculme bir VARSAYILAN, bir tavan degil.
+    """
+    if istenen is not None:
+        return istenen
+    if pencere_acik_mi(bugun):
+        return PENCERE_ORNEKLEMI
+    return VARSAYILAN_ORNEKLEM
+
 
 def _oku(p, varsayilan):
     try:
@@ -137,7 +193,7 @@ def daha_yeni(a, b) -> bool:
     return str(a) > str(b)
 
 
-def bak(orneklem: int = VARSAYILAN_ORNEKLEM, kuru: bool = False) -> dict:
+def bak(orneklem: int | None = None, kuru: bool = False) -> dict:
     """Bir tur yoklama. Nobet defterini gunceller ve sonucu doner."""
     nobet = nobet_oku()
     bilinen = nobet.get("son_bitis") or None
@@ -148,7 +204,7 @@ def bak(orneklem: int = VARSAYILAN_ORNEKLEM, kuru: bool = False) -> dict:
         return {"durum": "defter yok", "bakilan": 0, "hata": 0}
 
     bas = int(nobet.get("imlec") or 0) % len(kodlar)
-    kac = min(orneklem, len(kodlar))
+    kac = min(orneklem_boyu(orneklem), len(kodlar))
     secilen = [kodlar[(bas + i) % len(kodlar)] for i in range(kac)]
 
     # ESKI BICIM DEFTERDEN TEMIZLENIYOR.
@@ -285,7 +341,10 @@ def kapat() -> None:
 
 def main() -> int:
     a = argparse.ArgumentParser(description="Bilanco nobetcisi")
-    a.add_argument("--orneklem", type=int, default=VARSAYILAN_ORNEKLEM)
+    # VARSAYILAN None: "elle verildi mi" ayirt edilebilsin.
+    # Sayiyi burada sabitlemek, pencere kuculmesini OLU kod
+    # yapardi -- her kosuda deger verilmis gorunurdu.
+    a.add_argument("--orneklem", type=int, default=None)
     a.add_argument("--kuru-calis", action="store_true")
     a.add_argument("--kapat", action="store_true",
                    help="donem islendi, bayragi indir")
@@ -294,7 +353,11 @@ def main() -> int:
         kapat()
         print("nobetci: donem bayragi indirildi")
         return 0
-    s = bak(n.orneklem, n.kuru_calis)
+    _kac = orneklem_boyu(n.orneklem)
+    if _kac != VARSAYILAN_ORNEKLEM and n.orneklem is None:
+        print(f"nobetci: bildirim penceresi ACIK -- orneklem {_kac} "
+              f"(kaynak butcesi sayfa ve veri adimlarina birakiliyor)")
+    s = bak(_kac, n.kuru_calis)
     print(f"nobetci: {s.get('bakilan', 0)} sirkete soruldu, "
           f"{s.get('ilk_gorulen', 0)} ilk gorulme, {s.get('hata', 0)} hata")
     print(f"  defterdeki dönem  : {s.get('bilinen')}")
