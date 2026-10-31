@@ -64,6 +64,59 @@ VARSAYILAN_SINIR = 40
 YENIDEN_DENEME_GUN = 90
 
 
+#: BILDIRIM PENCERESI ACIKKEN bu adima ayrilan pay.
+#:
+#: KAYNAK BUTCESI PAYLASILMIS VE OLCULDU. Kaynak kosu basina
+#: yaklasik 82 mali tablo/profil istegi veriyor, sonra 429 verip
+#: kapaniyor; bu adim sirayla ILK kosuyor, yani payini kendisi
+#: aliyor ve sayfa adimi kalanla idare ediyor.
+#:
+#: Yedi kosuda olculen verim (#58-#64):
+#:
+#:     istek  : 25 x 7 = 175
+#:     bulunan: 4        (#63'te; otekilerin hepsi 0)
+#:
+#: Yani %2,3. Sebebi defterde gorunuyor: sektoru olmayan 434 kodun
+#: cogu BIST hisse kodu DEGIL (ADB, ADBNK, AFB, AKDFA, AKFK, AKTIF,
+#: ALJF, ATLFA...) -- borclanma araci ihraccilari ve halka acik
+#: olmayan finans kuruluslari. Bir HISSE veri sitesinde onlarin
+#: sayfasi hic yok, o yuzden cevap kalici 404.
+#:
+#: Ayni pencerede sayfa adimi kaynagi tuketip KAPATIYOR ve geride
+#: 63 sayfasi hic olmayan sirket, 40 da eskimis sayfa (en eskisi
+#: 123 gun) kaliyor. Butce orada okura dogrudan sayfa oluyor.
+#:
+#: SIFIR DEGIL, cunku kuyruk ILERLEMEK zorunda: bulunamayan sirket
+#: ancak sorulup isaretlenince kuyruktan dusuyor ve hic sormamak
+#: o sirayi kalici olarak kilitlerdi (bu depoda bir kez yasandi).
+#:
+#: KENDILIGINDEN GERI DONUYOR: pencere kapandiginda sinir yine
+#: `--sinir` ne derse o. Bu donem 29 Kasim'da kapaniyor, sonraki
+#: donem 31 Aralik'ta bitiyor; arada tam hizla donuluyor ve 414
+#: kisilik kuyruk birkac gunde tukeniyor.
+PENCERE_SINIRI = 3
+
+
+def kosu_siniri(istenen: int, bugun=None) -> int:
+    """Bu kosuda kac sirkete sorulacak -- PENCERE BUTCEYI BELIRLIYOR.
+
+    `--sinir` ACIKCA VERILSE BILE baglıyor: pencere kurali bir
+    tercih degil, paylasilan kaynak butcesinin korunmasi. Is akisi
+    `--sinir 25` gonderiyor, yani "istenmediyse" bicimindeki bir
+    kural hic devreye girmezdi -- nobetci duzeltmesinde tam bu
+    tuzaga dusulmustu (`--orneklem` varsayilani None yapilmak
+    zorunda kalmisti).
+
+    Pencere kurali TEK YERDE: `bilanco_ag.pencere_acik`. Buradan
+    nobetci uzerinden okunuyor cunku `son_bitis` nobet defterinde
+    zaten yazili ve EK ISTEK gerektirmiyor.
+    """
+    import bilanco_nobetci                                # noqa: PLC0415
+    if not bilanco_nobetci.pencere_acik_mi(bugun):
+        return istenen
+    return min(istenen, PENCERE_SINIRI)
+
+
 def eksikler(defter: dict) -> list:
     """Sektoru olmayan BUTUN sirketler -- sayim ve hedefli kip icin."""
     return sorted(k for k, v in defter["sirketler"].items()
@@ -131,9 +184,14 @@ def tazele(sinir: int = VARSAYILAN_SINIR, kuru: bool = False,
                   f"{'sektörü zaten dolu' if var else 'defterde YOK'}")
     else:
         _kuyruk = kuyruk(d)
-        secilen = _kuyruk[:sinir]
+        # PENCERE ACIKSA BUTCE SAYFALARA AIT -- bkz. `kosu_siniri`.
+        _sinir = kosu_siniri(sinir)
+        secilen = _kuyruk[:_sinir]
         print(f"sektor tazele: {len(eksik)} eksik, "
               f"{len(_kuyruk)} sorulabilir, bu kosuda {len(secilen)}")
+        if _sinir != sinir:
+            print(f"  (bildirim penceresi ACIK -- sinir {sinir} yerine "
+                  f"{_sinir}; kaynak butcesi sayfa adimina birakiliyor)")
         if len(eksik) != len(_kuyruk):
             print(f"  ({len(eksik) - len(_kuyruk)} sirket kaynakta "
                   f"BULUNAMADI -- {YENIDEN_DENEME_GUN} gun sonra "

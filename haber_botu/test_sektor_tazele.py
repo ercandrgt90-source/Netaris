@@ -64,6 +64,16 @@ import sektor_tazele as st                         # noqa: E402
 #: olcuyordu ve iki mutasyon buradan kacti.
 _GERCEK_CEK = sektor.cek
 
+#: GERCEK `bilanco_nobetci.pencere_acik_mi` -- AYNI SEBEPLE ilk iste.
+#:
+#: `kur()` onu da yamaliyor (pencereyi sabitlemek icin). Ilk yazim
+#: gercek islevi pencere bolumunde aliyordu ve o noktada son
+#: `kur()` cagrisinin LAMBDA'si duruyordu: `finally` gercegi degil
+#: lambda'yi geri koyuyor, pencere kurali hic kosmuyordu.
+import bilanco_nobetci as _nb                         # noqa: E402
+
+_GERCEK_PENCERE = _nb.pencere_acik_mi
+
 _gecti = 0
 
 
@@ -78,8 +88,19 @@ def esit(bulunan, beklenen, aciklama: str) -> None:
     print(f"  gecti  {aciklama}")
 
 
-def kur(sirketler, cevaplar, reddedilenler=(), bulunamayanlar=()):
-    """Gecici defter + sahte kaynak."""
+def kur(sirketler, cevaplar, reddedilenler=(), bulunamayanlar=(),
+        pencere: bool = False):
+    """Gecici defter + sahte kaynak.
+
+    PENCERE SABITLENIYOR (varsayilan KAPALI). Yoksa `--sinir`
+    uzerine kurulu her iddia BUGUNUN TARIHINE baglanir: bildirim
+    penceresi acikken `kosu_siniri` siniri `PENCERE_SINIRI`ye
+    cekiyor ve "bes ardisik redde duruyor" gibi iddialar sessizce
+    baska bir sey olcmeye baslar. Pencere davranisi kendi
+    bolumunde, ACIK tarihlerle sinaniyor.
+    """
+    import bilanco_nobetci as _nb                     # noqa: PLC0415
+    _nb.pencere_acik_mi = lambda bugun=None: pencere
     gecici = pathlib.Path(tempfile.mkdtemp()) / "sirketler.json"
     gecici.write_text(json.dumps({"sirketler": sirketler}, ensure_ascii=False),
                       encoding="utf-8")
@@ -332,6 +353,79 @@ esit(s["bulunamayan"], 0, "KONTROL: 429 'kaynakta yok' sayilmiyor")
 _defr = json.loads(d.read_text(encoding="utf-8"))["sirketler"]
 esit(any("sektor_bulunamadi" in v for v in _defr.values()), False,
      "KONTROL: 429 alan sirket ISARETLENMIYOR")
+
+print("")
+print("Bildirim penceresi acikken KAYNAK BUTCESI sayfalara ait")
+# OLCULDU (#58-#64): bu adim 175 istek harcayip 4 sektor buldu
+# (%2,3), ayni pencerede sayfa adimi kaynagi tuketip kapaniyordu.
+# Gerekce `sektor_tazele.PENCERE_SINIRI` uzerinde yazili.
+#
+# TARIHLER MUTLAK, SABITTEN TURETILMIYOR: beklenti
+# `PENCERE_SINIRI`den hesaplanirsa sabit degistigi gun beklenti de
+# kayar ve sinama hicbir seyi tutmaz.
+try:
+    _nb.pencere_acik_mi = lambda bugun=None: True
+    esit(st.kosu_siniri(25), 3, "pencere ACIK: 25 istendi, 3 veriliyor")
+    esit(st.kosu_siniri(60), 3, "pencere ACIK: 60 istendi, 3 veriliyor")
+    esit(st.kosu_siniri(2), 2,
+         "pencere ACIK: 2 istendi, SISIRILMIYOR (alt sinir degil, ust)")
+    esit(st.kosu_siniri(3), 3, "pencere ACIK: tam sinir gecer")
+
+    _nb.pencere_acik_mi = lambda bugun=None: False
+    esit(st.kosu_siniri(25), 25, "pencere KAPALI: istenen aynen geciyor")
+    esit(st.kosu_siniri(60), 60, "pencere KAPALI: buyuk sinir da geciyor")
+    esit(st.kosu_siniri(2), 2, "pencere KAPALI: kucuk sinir da aynen")
+finally:
+    # GERCEK islev geri konuyor -- `_GERCEK_PENCERE` ILK ISTE
+    # yakalandi, yoksa buraya son `kur()` lambda'si donerdi.
+    _nb.pencere_acik_mi = _GERCEK_PENCERE
+
+# GERCEK KURAL `bilanco_ag.pencere_acik`TAN OKUNUYOR -- pencere
+# islevi yamanmadan, MUTLAK tarihlerle.
+_asil_oku = _nb.nobet_oku
+try:
+    _nb.nobet_oku = lambda: {"son_bitis": "2026-09-30"}
+    esit(st.kosu_siniri(25, _dt.date(2026, 10, 31)), 3,
+         "30 Eylül dönemi, 31 Ekim: pencere açık -> 3")
+    esit(st.kosu_siniri(25, _dt.date(2026, 11, 29)), 3,
+         "60. gün: hâlâ açık -> 3")
+    esit(st.kosu_siniri(25, _dt.date(2026, 11, 30)), 25,
+         "61. gün: pencere KAPALI -> kendiliğinden 25")
+    esit(st.kosu_siniri(25, _dt.date(2027, 3, 1)), 25,
+         "aylar sonra da kapalı -> 25")
+finally:
+    _nb.nobet_oku = _asil_oku
+
+# DAVRANIS: kosu GERCEKTEN uc sirkete soruyor ve KUYRUK ILERLIYOR.
+#
+# Sinir dogru hesaplanip `tazele` onu KULLANMAZSA yukaridaki
+# iddialarin hepsi gecer ve hicbir sey degismez -- olcut KAC
+# SIRKETE SORULDUGU olmali.
+_cok = {f"K{n:03d}": {} for n in range(20)}
+_sorulan: list = []
+
+
+def _sayan(kod, istemci=None):
+    _sorulan.append(kod)
+    sektor.OKUNAMAYAN.append((kod, "HTTP 404"))
+    raise sektor.Bulunamadi("HTTP 404")
+
+
+d = kur(_cok, {}, pencere=True)
+sektor.cek = _sayan
+_s = st.tazele(sinir=25)
+esit(len(_sorulan), 3, "pencere ACIKKEN tam olarak 3 şirkete soruldu")
+esit(_s["bulunamayan"], 3, "üçü de işaretlendi -- KUYRUK İLERLİYOR")
+_dfp = json.loads(d.read_text(encoding="utf-8"))["sirketler"]
+esit(sum(1 for v in _dfp.values() if "sektor_bulunamadi" in v), 3,
+     "işaretler deftere YAZILDI (kuyruk sonraki koşuda ilerler)")
+
+_sorulan.clear()
+d = kur(_cok, {}, pencere=False)
+sektor.cek = _sayan
+st.tazele(sinir=25)
+esit(len(_sorulan), 20,
+     "pencere KAPALIYKEN kuyruğun tamamına soruldu (kontrol)")
 
 print("")
 print(f"TUM TESTLER GECTI ({_gecti})")
