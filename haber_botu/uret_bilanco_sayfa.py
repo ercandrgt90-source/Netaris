@@ -496,6 +496,76 @@ def ret_yaz(kod: str, unvan: str, donem: str, neden: str,
                  beyin.simdi()))
     except Exception as e:                             # pragma: no cover
         print(f"    (ret kaydedilemedi: {e})")
+    _ret_defterine_yaz(kod, unvan, donem, neden, model, ham)
+
+
+#: Reddedilen yorumlarin GERI YAZILAN defteri.
+RET_DEFTERI = _KOK / "kaynak" / "bilanco_ai_ret.json"
+
+#: Defterde tutulan en fazla kayit. Sinirsiz liste bu depoda uc kez
+#: isirdi (bkz. sayfa boyu kusuru): dosya buyudukce her kosu onu
+#: yeniden yaziyor ve diff anlamsizlasiyor.
+RET_DEFTERI_SINIRI = 80
+
+#: Saklanan ham metnin tavani. Teshis icin ilk paragraf yetiyor.
+RET_HAM_SINIRI = 700
+
+
+def _ret_defterine_yaz(kod: str, unvan: str, donem: str, neden: str,
+                       model: str, ham: str) -> None:
+    """Reddi `bilanco_ai_ret.json`a ekler -- SQLite'in YANINA.
+
+    NEDEN SQLITE YETMIYOR
+    ---------------------
+    `ret_yaz` kayitlari `haber_botu/netaris.db`ye yaziyor ve
+    gerekcesi ustte yazili: "hangi sayilarin uydurulduğu ...
+    OLCULEMIYOR". Ama BILANCO IS AKISI o dosyayi GERI YAZMIYOR --
+    `bilanco.yml` yalnizca bes yolu asamaya aliyor ve veritabani
+    onlardan biri degil. Yani kayitlar kosucu sonunce yok oluyor ve
+    islevin varlik sebebi hic gerceklesmiyor.
+
+    OLCULDU (2026-10-31): depodaki `ai_ret` tablosunda bilanco
+    adresli 99 satir var ve HEPSI "saglayici yok" -- yani yalnizca
+    yerel kosulardan. CI'nin urettigi "girdide olmayan sayi"
+    redlerinden depoda TEK SATIR yok. Koşu #64'te dort sayfa bu
+    sebeple yazilmadi (GARFA, ARCLK, AAGYO, AYES) ve ARCLK aylardir
+    ayni sebeple sayfasiz.
+
+    VERITABANI GERI YAZMA LISTESINE EKLENEMEZ. Haber hatti onu her
+    ~50 dakikada bir yaziyor; 47 MB'lik ikili bir dosyayi iki akisin
+    yazmasi, birinin otekinin satirlarini SESSIZCE ezmesi demek. Bu
+    depoda geri yazma yarisi zaten uc kez yasandi. Bu defteri
+    YALNIZCA bilanco hatti yaziyor, yani yarisacak kimse yok.
+
+    YAZAMAMAK ISI DUSURMEZ: uretim raporlamadan onemli.
+    """
+    try:
+        import datetime as _dt                          # noqa: PLC0415
+        kayitlar = []
+        if RET_DEFTERI.is_file():
+            _d = json.loads(RET_DEFTERI.read_text(encoding="utf-8"))
+            kayitlar = _d.get("kayitlar") or []
+        kayitlar.append({
+            "kod": kod,
+            "unvan": (unvan or kod)[:200],
+            "donem": donem,
+            "neden": neden or "",
+            "model": model or "",
+            "ham": (ham or "")[:RET_HAM_SINIRI],
+            "an": _dt.datetime.now(_dt.timezone.utc).isoformat(
+                timespec="seconds"),
+        })
+        # EN YENILER KALIYOR: teshis son kosulara bakiyor.
+        kayitlar = kayitlar[-RET_DEFTERI_SINIRI:]
+        RET_DEFTERI.write_text(
+            json.dumps({"aciklama": "Reddedilen bilanco AI yorumlari; "
+                                    "en yeni kayitlar sonda.",
+                        "sinir": RET_DEFTERI_SINIRI,
+                        "kayitlar": kayitlar},
+                       ensure_ascii=False, indent=1),
+            encoding="utf-8")
+    except Exception as e:                             # noqa: BLE001
+        print(f"    (ret defterine yazilamadi: {e})")
 
 
 def kiyas_kumesi(v: dict, kod: str) -> tuple[dict, int, str, str]:

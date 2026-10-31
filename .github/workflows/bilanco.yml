@@ -455,10 +455,22 @@ jobs:
           # Nobetci her sirketin en son hangi ceyregi bildirdigini
           # bu dosyada tutuyor. Geri yazilmazsa her kosu SOGUK
           # baslar, hicbir gecisi goremez ve duzenek olu kalir.
+          # AI RET DEFTERI DE GERI YAZILIYOR.
+          #
+          # Redler `ret_yaz` ile `haber_botu/netaris.db`ye de
+          # yaziliyor ama O DOSYA BU LISTEDE YOK: haber hatti onu
+          # her ~50 dakikada yaziyor ve 47 MB'lik ikili bir dosyayi
+          # iki akisin yazmasi, birinin otekinin satirlarini sessizce
+          # ezmesi demek. Olculdu (2026-10-31): depodaki `ai_ret`
+          # tablosunda bilanco adresli 99 satirin HEPSI "saglayici
+          # yok" -- CI'nin urettigi "girdide olmayan sayi"
+          # redlerinden tek satir yok, cunku hicbiri geri yazilmadi.
+          # Bu defteri yalnizca BU akis yaziyor, yarisacak kimse yok.
           for y in site/bilanco_miras_bozuk.json \
                    site/icerik/analizler \
                    haber_botu/kaynak/sektor_ozet.json \
                    haber_botu/kaynak/sirketler.json \
+                   haber_botu/kaynak/bilanco_ai_ret.json \
                    haber_botu/kaynak/bilanco_nobet.json; do
             [ -e "$y" ] && YOLLAR="$YOLLAR $y"
           done

@@ -170,12 +170,18 @@ def test_ret_depoya_yaziliyor():
                       " NOT NULL DEFAULT '', neden TEXT NOT NULL, model"
                       " TEXT NOT NULL DEFAULT '', ham TEXT NOT NULL"
                       " DEFAULT '', kayit_ani TEXT NOT NULL)")
+        # RET DEFTERI DE GECICI DIZINE. `ret_yaz` SQLite'in yanina
+        # `kaynak/bilanco_ai_ret.json`a da yaziyor; yamanmazsa sinama
+        # URETIM dosyasini kirletir ve CI onu commit'ler (olculdu:
+        # 10 sahte kayit -- "ADEL", "X" -- gercek defterde duruyordu).
         eski, u.VT = u.VT, vt
+        eski_d, u.RET_DEFTERI = u.RET_DEFTERI, pathlib.Path(t) / "ret.json"
         try:
             u.ret_yaz("ADEL", "ADEL KALEMCİLİK A.Ş.", "2026 2. çeyrek",
                       "girdide olmayan sayi: 357.1", "@cf/x", "ham metin")
         finally:
             u.VT = eski
+            u.RET_DEFTERI = eski_d
         with contextlib.closing(sqlite3.connect(vt)) as b:
             satir = b.execute("SELECT adres, baslik, neden, model, ham"
                               " FROM ai_ret").fetchall()
@@ -196,10 +202,13 @@ def test_ret_depoya_yaziliyor():
 def test_ret_yazamamak_isi_dusurmuyor():
     """Depo yoksa uretim devam etmeli -- rapor uretimden onemsizdir."""
     eski, u.VT = u.VT, pathlib.Path("Z:/olmayan/dizin/yok.db")
+    eski_d, u.RET_DEFTERI = u.RET_DEFTERI, pathlib.Path(
+        "Z:/olmayan/dizin/yok.json")
     try:
         u.ret_yaz("X", "X A.Ş.", "2026 2. çeyrek", "sebep", "m", "h")
     finally:
         u.VT = eski
+        u.RET_DEFTERI = eski_d
 
 
 def _ozetle(sebepler, yazilan, atlanan):
