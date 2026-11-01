@@ -20,6 +20,7 @@
     "FCA",
     "Fed",
     "FinancialJuice",
+    "Habertürk",
     "Investing",
     "SEC",
     "TCMB",
@@ -28,7 +29,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 47,
+  "yorumlanan": 49,
   "haberler": [
     {
       "baslik": "Rus müfettişler, Nijniy Novgorod bölgesindeki sanayi bölgesine düzenlenen saldırı üzerine terörizmle ilgili ceza davası açtı: TASS soruşturma komitesine atıfta bulundu",
@@ -186,6 +187,32 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/kripto-varliklar-7-62d77ad7.jpg",
       "foto_atif": "Karlalhdz · CC-BY-SA-4.0"
+    },
+    {
+      "baslik": "Emtia piyasalarında faiz beklentileri değerli metalleri baskıladı",
+      "baslik_kaynak": "Emtia piyasalarında faiz beklentileri değerli metalleri baskıladı",
+      "ozet": "Emtia piyasalarında, Fed'in faiz artırımına devam edebileceğine yönelik beklentiler ve teknoloji hisselerinden yayılan satış baskısı değerli metalleri aşağı çekerken arz gelişmeleri ve jeopolitik riskler de diğer emtialar üzerinde etkili oldu.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.aa.com.tr/tr/ekonomi/emtia-piyasalarinda-faiz-beklentileri-degerli-metalleri-baskiladi/4107786",
+      "kurum": "AA",
+      "kurum_tam": "Anadolu Ajansı",
+      "konu": "Para politikası",
+      "tarih": "2026-11-01",
+      "tarih_gorunur": "1 Kasım 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Politika faizi kararları küresel sermayenin fiyatını belirler; asıl fiyatlanan şey kararın kendisi değil, karar sonrası patikaya dair beklentidir.",
+      "kanallar": [
+        "Tahvil getirisi: kısa vadeli faiz beklentisi getiri eğrisinin ön ucunu, enflasyon beklentisi uzun ucunu hareket ettirir.",
+        "Parite: iki merkez bankası arasındaki faiz farkı beklentisi kuru yeniden fiyatlar.",
+        "Değerleme: iskonto oranı değişimi en çok uzun vadeli nakit akışı olan teknoloji ve büyüme hisselerinde hissedilir.",
+        "Sermaye akımı: gelişmiş ülke faizi yükseldiğinde gelişmekte olan piyasalardan çıkış görülebilir."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/para-politikasi-7-d50cfe6c.jpg",
+      "foto_atif": "Infrogmation of New Orleans · CC-BY-SA-4.0"
     },
     {
       "baslik": "Türkiye'nin \"kritik teknoloji\" ihracatı 9 ayda 86,4 milyar doları buldu",
@@ -813,25 +840,30 @@
       "foto_atif": "CryptoWallet.com Images · CC-BY-2.0"
     },
     {
-      "baslik": "Meclis'te 2027 bütçe mesaisi başlıyor. İşte kasım ayında ekonomi gündemi",
-      "baslik_kaynak": "Meclis'te 2027 bütçe mesaisi başlıyor! İşte kasım ayında ekonomi gündemi",
-      "ozet": "Türkiye'nin ekonomi gündemindeki hareketlilik kasım ayında da sürecek. Türkiye Büyük Millet Meclisi'ndeki 2027 yılı bütçe görüşmeleri, enflasyon verileri ve Merkez Bankasının yayımlayacağı raporlar yakından takip edilecek.",
+      "baslik": "FBI'dan 6,3 milyar dolarlık kripto vurgununa ilişkin kritik mesaj",
+      "baslik_kaynak": "FBI'dan 6,3 milyar dolarlık kripto vurgununa ilişkin kritik mesaj",
+      "ozet": "ABD Federal Soruşturma Bürosu (FBI), Kuzey Kore'yi, kripto para borsası Binance'den 6,3 milyar dolar değerinde dijital varlık çalmakla suçladı",
       "cevrildi": false,
       "dil": "tr",
       "ticari": true,
       "bolge": "TR",
-      "adres": "https://www.cnnturk.com/ekonomi/mecliste-2027-butce-mesaisi-basliyor-iste-kasim-ayinda-ekonomi-gundemi-3487332",
-      "kurum": "CNN Türk",
-      "kurum_tam": "CNN Türk",
-      "konu": "Vergi ve kamu maliyesi",
+      "adres": "https://www.haberturk.com/ekonomi/fbi-dan-6-3-milyar-dolarlik-kripto-vurgununa-iliskin-kritik-mesaj-3924072",
+      "kurum": "Habertürk",
+      "kurum_tam": "Habertürk",
+      "konu": "Kripto varlıklar",
       "tarih": "2026-11-01",
       "tarih_gorunur": "1 Kasım 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/vergi-ve-kamu-maliyesi-8-eb2911ed.jpg",
-      "foto_atif": "RegionalQueenslander · CC-BY-SA-4.0"
+      "yorumlanir": true,
+      "neden_onemli": "Kripto varlıklar risk iştahının en uçtaki göstergelerinden biridir; hareketin kaynağı düzenleme, likidite ya da kaldıraç çözülmesi olabilir ve üçünün sonuçları farklıdır.",
+      "kanallar": [
+        "Likidite koşulları: küresel likidite daraldığında en riskli varlıklar önce satılır.",
+        "Düzenleme: saklama, borsa yatırım fonu ve vergi kuralları kurumsal talebin önünü açar ya da kapatır.",
+        "Kaldıraç: türev piyasadaki açık pozisyon ve fonlama oranı sert hareketlerin büyüklüğünü belirler.",
+        "Piyasa yapısı: işlem hacminin borsalar arası dağılımı fiyat farklarının ne kadar sürdüğünü etkiler."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/kripto-varliklar-8-8b36c240.jpg",
+      "foto_atif": "de Vries, Alex; Stoll, Christian · PDM"
     },
     {
       "baslik": "İran güvenlik şefi Rezaei: Hürmüz Boğazı, Tahran'ın şartları yerine getirilene kadar kapalı kalacak",
@@ -2106,27 +2138,6 @@
       "kanal_basligi": "Hangi piyasaları etkiler?",
       "foto": "/statik/foto/jeopolitik-14-4ca6b4fe.jpg",
       "foto_atif": "Bernard Gagnon · CC0"
-    },
-    {
-      "baslik": "Bilgisayar korsanları, tümü Name.com'a kayıtlı bir düzine DeFi web sitesini ele geçirdi ve yaklaşık 138.000 $ çaldı",
-      "baslik_kaynak": "Hackers hijack a dozen DeFi websites, all registered with Name.com, and steal about $138,000",
-      "ozet": "All 12 hijacked domains are registered through Name.com, according to registry records accessed by The Block, suggesting a compromise.",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.theblock.co/news/defi/2026-10-31-hackers-hijack-a-dozen-defi-websites-all-registered-with-name-com-and-steal-about-138000-432251",
-      "kurum": "The Block",
-      "kurum_tam": "The Block",
-      "konu": "Kripto varlıklar",
-      "tarih": "2026-10-31",
-      "tarih_gorunur": "31 Ekim 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/kripto-varliklar-7-62d77ad7.jpg",
-      "foto_atif": "Karlalhdz · CC-BY-SA-4.0"
     },
     {
       "baslik": "Para Politikası Kurulu Toplantı Özeti (2026-47)",
