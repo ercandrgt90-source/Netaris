@@ -153,6 +153,17 @@ function belge(govde: string, t: Tema): string {
     var y = document.getElementById('k');
     var h = Math.max(y.scrollHeight, document.body.scrollHeight);
     gonder(String(h));
+    // BOLUM KONUMLARI DA AYNI OLCUMLE GIDIYOR.
+    // Icerik buyudukce konumlar kayiyor; yuksekligi bildiren her
+    // olcumde birlikte gonderilmezse icerik oturduktan sonra
+    // baslige dokunan okur YANLIS yere gider.
+    var kon = {};
+    var bas = document.querySelectorAll('h2[id]');
+    for (var i = 0; i < bas.length; i += 1) {
+      kon[bas[i].id] = Math.round(
+        bas[i].getBoundingClientRect().top + (window.scrollY || 0));
+    }
+    gonder('capa:' + JSON.stringify(kon));
   }
   bildir();
   window.addEventListener('load', bildir);
@@ -167,13 +178,38 @@ export function Govde({
   html,
   tema,
   disBaglanti,
+  onCapalar,
 }: {
   html: string;
   tema: Tema;
   /** Govde icindeki baglantiya dokununca cagrilir. */
   disBaglanti?: (adres: string) => void;
+  /** Bolum capalarinin govde ICINDEKI dikey konumlari (piksel).
+   *  Govde her yeniden olcumde yeniden bildiriyor. */
+  onCapalar?: (konum: Record<string, number>) => void;
 }) {
   const [yuksek, setYuksek] = useState(ILK_YUKSEKLIK);
+
+  // MESAJ COZUMU TEK YERDE. Iki kabuk (WebView / iframe) ayni
+  // kurali kullanmali; ayrilirlarsa webde olctugum davranis
+  // yerlide gecerli olmaz.
+  const mesaj = React.useCallback((v: string) => {
+    if (v.startsWith("bag:")) {
+      if (disBaglanti) disBaglanti(v.slice(4));
+      return;
+    }
+    if (v.startsWith("capa:")) {
+      try {
+        const k = JSON.parse(v.slice(5));
+        if (k && typeof k === "object" && onCapalar) onCapalar(k);
+      } catch {
+        /* bozuk olcum yok sayiliyor */
+      }
+      return;
+    }
+    const h = parseInt(v, 10);
+    if (Number.isFinite(h) && h > 40 && h < 60000) setYuksek(h);
+  }, [disBaglanti, onCapalar]);
   const kaynak = useMemo(() => belge(html, tema), [html, tema]);
   const web = Platform.OS === "web";
 
@@ -181,17 +217,11 @@ export function Govde({
   useEffect(() => {
     if (!web || !html) return;
     const dinle = (o: MessageEvent) => {
-      const v = typeof o.data === "string" ? o.data : "";
-      if (v.startsWith("bag:")) {
-        if (disBaglanti) disBaglanti(v.slice(4));
-        return;
-      }
-      const h = parseInt(v, 10);
-      if (Number.isFinite(h) && h > 40 && h < 60000) setYuksek(h);
+      mesaj(typeof o.data === "string" ? o.data : "");
     };
     window.addEventListener("message", dinle);
     return () => window.removeEventListener("message", dinle);
-  }, [web, html, disBaglanti]);
+  }, [web, html, mesaj]);
 
   if (!html) return null;
 
@@ -229,10 +259,10 @@ export function Govde({
         nestedScrollEnabled={false}
         showsVerticalScrollIndicator={false}
         onMessage={(o) => {
-          const h = parseInt(o.nativeEvent.data, 10);
           // Olcum makul araliktaysa kabul ediliyor: bozuk bir olcum
           // ekrani tamamen bos ya da kilometrelerce uzun yapardi.
-          if (Number.isFinite(h) && h > 40 && h < 60000) setYuksek(h);
+          // Kural `mesaj` icinde, webdekiyle AYNI.
+          mesaj(String(o.nativeEvent.data || ""));
         }}
         // DIS BAGLANTI UYGULAMA ICINDE ACILMIYOR: govde WebView'i bir
         // tarayici degil, bir metin bileseni. Baglantiya dokunan

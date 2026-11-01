@@ -17,7 +17,7 @@
 //   * skor -> metodoloji baglantisiyla birlikte
 
 import { useLocalSearchParams, useRouter } from "expo-router";
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import {
   Linking,
   Pressable,
@@ -57,6 +57,29 @@ export default function AnalizDetayi() {
     });
   }, [a.veri, slug]);
 
+  // BOLUM LISTESI -- uzun bir bilancoda nerede ne var.
+  //
+  // Besleme `bolumler`i bastan beri tasiyordu ve uygulama onu HIC
+  // kullanmiyordu; ustelik basliklarin TAMAMI bostu (uretici `ad`
+  // yaziyor, besleme `baslik` okuyordu). Ikisi duzeldikten sonra
+  // liste anlamli: Q3 bilancosu 7 bolum ve 390 piksel genislikte
+  // 3700 piksel uzunlugunda.
+  //
+  // KONUMLAR GOVDEDEN OLCULEREK geliyor, tahminle degil: govde bir
+  // WebView/iframe icinde isleniyor ve yuksekligi yazi tipi
+  // yuklendikce degisiyor.
+  const kaydirici = useRef<React.ComponentRef<typeof ScrollView> | null>(null);
+  const govdeY = useRef(0);
+  const [capalar, setCapalar] = useState<Record<string, number>>({});
+
+  const bolumeGit = useCallback((capa: string) => {
+    const ic = capalar[capa];
+    if (ic === undefined || !kaydirici.current) return;
+    // 8 piksel pay: baslik serit altinda yapisik durmasin.
+    kaydirici.current.scrollTo({ y: Math.max(0, govdeY.current + ic - 8),
+      animated: true });
+  }, [capalar]);
+
   const paylas = async () => {
     if (!a.veri) return;
     await Share.share({
@@ -68,6 +91,7 @@ export default function AnalizDetayi() {
 
   return (
     <ScrollView
+      ref={kaydirici}
       style={{ backgroundColor: t.renk.zemin }}
       contentContainerStyle={{ padding: 16, paddingBottom: alt + 32, gap: 12 }}
     >
@@ -192,14 +216,44 @@ export default function AnalizDetayi() {
             </View>
           ) : null}
 
+          {/* BOLUMLER -- yalnizca OLCUM geldiyse ve birden cok
+              bolum varsa. Tek bolumluk bir sayfada liste gurultu. */}
+          {(a.veri.bolumler || []).filter(
+            (b) => b.baslik && capalar[b.capa] !== undefined).length > 1 ? (
+            <View style={d.bolumKap}>
+              {(a.veri.bolumler || [])
+                .filter((b) => b.baslik && capalar[b.capa] !== undefined)
+                .map((b) => (
+                  <Pressable
+                    key={b.capa}
+                    onPress={() => bolumeGit(b.capa)}
+                    accessibilityRole="link"
+                    accessibilityLabel={`${b.baslik} bölümüne git`}
+                    style={[d.bolum, {
+                      backgroundColor: t.renk.panel2,
+                      borderColor: t.renk.cizgi,
+                      borderRadius: t.r.kucuk,
+                    }]}
+                  >
+                    <Text style={[d.bolumYazi, { color: t.renk.yazi2 }]}>
+                      {b.baslik}
+                    </Text>
+                  </Pressable>
+                ))}
+            </View>
+          ) : null}
+
           {/* GOVDE -- tablolar dahil, oldugu gibi. */}
-          <Govde
-            html={a.veri.govde_html || ""}
-            tema={t}
-            disBaglanti={(adres) => {
-              void Linking.openURL(adres);
-            }}
-          />
+          <View onLayout={(o) => { govdeY.current = o.nativeEvent.layout.y; }}>
+            <Govde
+              html={a.veri.govde_html || ""}
+              tema={t}
+              disBaglanti={(adres) => {
+                void Linking.openURL(adres);
+              }}
+              onCapalar={setCapalar}
+            />
+          </View>
 
           {/* KAYNAKLAR. Bir bilanco analizinin hangi veriden
               uretildigi gorunmezse dogrulanamaz. */}
@@ -268,6 +322,14 @@ export default function AnalizDetayi() {
 
 const d = StyleSheet.create({
   satir: { flexDirection: "row", alignItems: "center", gap: 8, flexWrap: "wrap" },
+  bolumKap: { flexDirection: "row", flexWrap: "wrap", gap: 7 },
+  // 44 piksel: dokunma hedefi alt siniri. Etiket kirpilmasin diye
+  // yukseklik SABIT degil, dolguyla veriliyor -- alt sekmelerde
+  // tam bu kusur olculmustu (etiket 10 piksellik kutuda 15 piksel).
+  bolum: { paddingVertical: 11, paddingHorizontal: 12,
+    borderWidth: StyleSheet.hairlineWidth, minHeight: 44,
+    justifyContent: "center" },
+  bolumYazi: { fontSize: 13, lineHeight: 18 },
   baslik: { fontSize: 23, fontWeight: "700", lineHeight: 30, letterSpacing: -0.4 },
   altSatir: { fontSize: 14, lineHeight: 20 },
   kutu: { padding: 14, borderWidth: StyleSheet.hairlineWidth, gap: 7 },

@@ -84,6 +84,59 @@ dogru("Platform ayrimi var (web dali gercekten ayri)",
   /Platform\.OS === "web"/.test(govde));
 
 console.log("");
+console.log("Bolum listesi: olcumden geliyor, tahminden degil");
+
+const ekran = fs.readFileSync(
+  path.join(KOK, "app", "analiz", "[slug].tsx"), "utf8");
+
+// CAPA KONUMLARI OLCULEREK geliyor. Govde bir WebView/iframe
+// icinde isleniyor ve yuksekligi yazi tipi yuklendikce degisiyor;
+// konumu disaridan TAHMIN etmek, baslige dokunan okuru yanlis
+// yere goturur.
+dogru("govde capa konumlarini bildiriyor",
+  /gonder\(.capa:. \+ JSON\.stringify\(kon\)\)/.test(govde));
+// Olcut: `capa:` gonderimi `bildir()` govdesinin ICINDE olmali.
+// Pencere genisligi tahminle degil, govdenin gercek uzunluguyla
+// belirleniyor -- ilk yazimda 600 karakter yetmedi ve kural
+// kodu degil KENDINI dusurdu.
+const _bildir = govde.slice(govde.indexOf("function bildir()"));
+const _bildirSonu = _bildir.indexOf(String.fromCharCode(10) + "  }");
+dogru("capalar YUKSEKLIKLE AYNI olcumde gonderiliyor",
+  _bildirSonu > 0 && _bildir.slice(0, _bildirSonu).includes("capa:"));
+dogru("ekran capalari aliyor (onCapalar)", /onCapalar=\{/.test(ekran));
+dogru("kaydirma OLCULEN konuma gidiyor",
+  /govdeY\.current \+ ic/.test(ekran));
+
+// LISTE YALNIZCA OLCUM GELDIYSE cizilmeli: konumu bilinmeyen bir
+// bolum dokunulamaz bir dugme olurdu.
+// IKI YERDE suzuluyor: listenin CIZILIP cizilmeyecegine karar
+// veren kosulda ve ogeleri ureten `map` zincirinde. Yalnizca
+// birini sormak yetmiyor -- otekini silen mutasyon kacti.
+const _suzgec = (ekran.match(/capalar\[b\.capa\] !== undefined/g)
+  || []).length;
+dogru(`olcumu olmayan bolum IKI yerde de eleniyor (${_suzgec})`,
+  _suzgec >= 2);
+dogru("tek bolumde liste cizilmiyor", /\.length > 1 \?/.test(ekran));
+
+// DOKUNMA HEDEFI 44 PIKSEL. Alt sekmelerde tam bu kusur olculmustu
+// (etiket 10 piksellik kutuda 15 piksel) -- yukseklik SABIT degil,
+// dolguyla veriliyor ki etiket kirpilmasin.
+// OLCUT `bolum:` STILININ ICI. Dosyada baska bir `minHeight: 44`
+// daha var (metodoloji baglantisi) ve serbest arama onu
+// yakalayip mutasyonu kacirdi.
+const _bolumStil = (ekran.match(/\n  bolum: \{[\s\S]*?\},/) || [""])[0];
+dogru("bolum dugmesi minHeight 44",
+  /minHeight:\s*44/.test(_bolumStil));
+
+// MESAJ COZUMU TEK YERDE: iki kabuk ayrilirsa webde olctugum
+// davranis yerlide gecerli olmaz.
+// Olcut sayi degil, IKI CAGRI YERI: web dinleyicisi ve yerli
+// `onMessage`. Sayi esigi (">= 3") kodu degil kendini dusurdu.
+dogru("web dinleyicisi ortak cozucuyu cagiriyor",
+  /dinle = \(o: MessageEvent\)[\s\S]{0,200}?mesaj\(/.test(govde));
+dogru("yerli onMessage ortak cozucuyu cagiriyor",
+  /onMessage=\{\(o\)[\s\S]{0,400}?mesaj\(/.test(govde));
+console.log("");
 if (dusen.length) {
   console.error(`DUSTU (${dusen.length}):`);
   for (const d of dusen) console.error(`  - ${d}`);
