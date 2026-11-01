@@ -614,6 +614,27 @@
       "foto_atif": "de Vries, Alex; Stoll, Christian · PDM"
     },
     {
+      "baslik": "Kripto okuyucusunun 2026 ara seçim rehberi: Kripto Devleti",
+      "baslik_kaynak": "The crypto reader's guide to the 2026 midterm election: State of Crypto",
+      "ozet": "America is going to the polls, and the results will shape crypto legislation and regulation over the next two years. Here's what to know.",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.coindesk.com/policy/2026/11/01/the-crypto-reader-s-guide-to-the-2026-midterm-election-state-of-crypto",
+      "kurum": "CoinDesk",
+      "kurum_tam": "CoinDesk",
+      "konu": "Kripto varlıklar",
+      "tarih": "2026-11-01",
+      "tarih_gorunur": "1 Kasım 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/kripto-varliklar-8-8b36c240.jpg",
+      "foto_atif": "de Vries, Alex; Stoll, Christian · PDM"
+    },
+    {
       "baslik": "Araştırmacılar yeni bir testte, yapay zeka ajanlarının insan onayı olmadan kripto harcama sınırlarını aştığını buldu",
       "baslik_kaynak": "AI agents bypassed crypto spending limits without human approval, researchers find in a new test",
       "ozet": "The researchers say any approval an agent can reach is unreliable, and they built Countersign, an app tying approval to a physical action the agent can’t fake.",
@@ -918,6 +939,32 @@
       "foto_atif": "Syced · CC0"
     },
     {
+      "baslik": "Kremlin'den dikkat çeken açıklama: Putin, Zelenskiy ile görüşmeye hazır",
+      "baslik_kaynak": "Kremlin'den dikkat çeken açıklama: Putin, Zelenskiy ile görüşmeye hazır",
+      "ozet": "Rusya ile Ukrayna arasında olası barış görüşmeleri gündemdeki yerini korurken Kremlin'den dikkat çeken bir açıklama geldi. Moskova yönetimi, Zelenskiy'nin Putin ile doğrudan temas kurması halinde görüşmenin gerçekleşebileceğinin sinyalini verdi.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.dunya.com/dunya/kremlinden-dikkat-ceken-aciklama-putin-zelenskiy-ile-gorusmeye-hazir-haberi-846040",
+      "kurum": "Dünya",
+      "kurum_tam": "Dünya Gazetesi",
+      "konu": "Jeopolitik",
+      "tarih": "2026-11-01",
+      "tarih_gorunur": "1 Kasım 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
+      "kanallar": [
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-36-7cb6152c.jpg",
+      "foto_atif": "Captain Albert E. Theberge, NOAA Corps (ret.) · PDM"
+    },
+    {
       "baslik": "ABD-Kanada ticaret geriliminde yeni adım: Trump ve Carney görüştü",
       "baslik_kaynak": "ABD-Kanada ticaret geriliminde yeni adım: Trump ve Carney görüştü",
       "ozet": "ABD ile Kanada arasında gümrük tarifeleri nedeniyle yaşanan ticaret geriliminde yeni bir gelişme yaşandı. Trump ile telefonda görüşen Kanada Başbakanı Carney, ticaret anlaşmasına yönelik temasların sürdürüleceğini açıkladı.",
@@ -989,27 +1036,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/enerji-11-a5cdd29f.jpg",
       "foto_atif": "W.carter · CC0"
-    },
-    {
-      "baslik": "Basra Körfezi'nde LNG tankerine belirsiz cisimler isabet etti",
-      "baslik_kaynak": "Basra Körfezi'nde LNG tankerine belirsiz cisimler isabet etti",
-      "ozet": "Basra Körfezi'nde seyreden Katar merkezli Nakilat'a ait Al Mayeda adlı LNG tankerine kimliği belirsiz cisimler isabet etti. Şirket, 30 Ekim akşamı yaşanan olayda geminin hasar aldığını, mürettebattan yaralanan olmadığını ve çevre kirliliği oluşmadığını açıkladı.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.dunya.com/dunya/basra-korfezinde-lng-tankerine-belirsiz-cisimler-isabet-etti-haberi-846010",
-      "kurum": "Dünya",
-      "kurum_tam": "Dünya Gazetesi",
-      "konu": "Enerji",
-      "tarih": "2026-11-01",
-      "tarih_gorunur": "1 Kasım 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enerji-13-2cf47f9f.jpg",
-      "foto_atif": "Quintin Soloviev · CC-BY-4.0"
     },
     {
       "baslik": "Sabah başlıyor, 8 saat boyunca sürecek. İstanbul'da 29 ilçede elektrik kesintileri tek tek açıklandı",
@@ -1109,32 +1135,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/altin-ve-emtia-8-882b68ff.jpg",
       "foto_atif": "Stevebidmead · CC0"
-    },
-    {
-      "baslik": "Suriye'de petrol rafinerisine saldırı girişimi engellendi",
-      "baslik_kaynak": "Suriye'de petrol rafinerisine saldırı girişimi engellendi",
-      "ozet": "Suriye'de ülkenin ham petrol işleme kapasitesi açısından kritik öneme sahip iki ana rafinerisinden birine yönelik terör saldırısı girişiminin güvenlik güçlerince engellendi.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.ekonomim.com/dunya/suriyede-petrol-rafinerisine-saldiri-girisimi-engellendi-haberi-928403",
-      "kurum": "Ekonomim",
-      "kurum_tam": "Ekonomim",
-      "konu": "Enerji",
-      "tarih": "2026-11-01",
-      "tarih_gorunur": "1 Kasım 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Enerji fiyatı hem bir maliyet kalemi hem bir enflasyon girdisidir; arz tarafındaki değişim önce vadeli piyasada, sonra üretici fiyatlarında görünür.",
-      "kanallar": [
-        "Arz kapasitesi: OPEC+ kotası, stok seviyesi ve üretim kesintisi haberleri vadeli eğrinin şeklini değiştirir.",
-        "Talep beklentisi: büyüme verisi ve sanayi üretimi fiyatın talep bacağını belirler.",
-        "Bölgeler arası akış: doğal gaz ile LNG arasındaki fiyat farkı, kargoların hangi bölgeye gideceğini değiştirir.",
-        "Enflasyon aktarımı: enerji maliyeti ulaştırma ve gıda üzerinden manşet enflasyona geçer; merkez bankaları çekirdek enflasyona daha çok bakar."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/enerji-13-96820bdd.jpg",
-      "foto_atif": "AyyanD · CC-BY-SA-4.0"
     },
     {
       "baslik": "İstanbul'da aylık enflasyon Ekim'de hızlandı",
