@@ -17,9 +17,22 @@
 // YUKSEKLIK ICERIDEN BILDIRILIYOR: WebView kendi icerigine gore
 // buyumuyor, sabit yukseklik aliyor. Icerikten gelen olcum olmadan
 // ya metin kirpilir ya altinda bos alan kalir.
-
-import React, { useMemo, useState } from "react";
-import { StyleSheet, View } from "react-native";
+//
+// WEB'DE IFRAME -- AYNI BELGE, BASKA KABUK
+// `react-native-webview` webde islenmiyor; yerine ekrana
+// "React Native WebView does not support this platform." YAZIYORDU.
+// Olculdu (2026-11-01, Chrome 390x844, `/analiz/tabgd-2026-3-ceyrek`):
+// 0 tablo, 0 bolum basligi, govdenin tamami yerine o Ingilizce satir.
+// Web bu projede bildirilmis bir hedef (`app.json` -> `web.bundler`,
+// `platforms` bos = hepsi), yani bu gorunur bir kusurdu.
+//
+// Ayrica OLCULEBILIRLIK: uygulamayi dogrulama yolum web cikisini
+// gercek Chrome'da kosmak. Govde webde islenmedigi surece
+// bilanconun -- urunun en dolu icerigi -- gorundugu hic
+// olculemiyordu. Iki tarafta da AYNI `belge()` cikti kullaniliyor,
+// yalnizca kap farkli; boylece olculen sey sevk edilenle ayni belge.
+import React, { useEffect, useMemo, useState } from "react";
+import { Platform, StyleSheet, View } from "react-native";
 import { WebView } from "react-native-webview";
 
 import { Tema } from "./tema";
@@ -111,12 +124,35 @@ function belge(govde: string, t: Tema): string {
     kap.appendChild(tb);
   });
 
+  // MESAJ KANALI IKI KABUKTA DA CALISIYOR.
+  // Yerlide window.ReactNativeWebView, webde iframe -> ebeveyn.
+  function gonder(m) {
+    if (window.ReactNativeWebView) {
+      window.ReactNativeWebView.postMessage(m);
+    } else if (window.parent && window.parent !== window) {
+      window.parent.postMessage(m, '*');
+    }
+  }
+
+  // BAGLANTI YAKALAMA YALNIZCA WEBDE.
+  // Yerlide bu isi onShouldStartLoadWithRequest yapiyor; burada da
+  // yapsaydik preventDefault onu hic tetiklemez ve yerlide
+  // baglantilar OLURDU. Tek kosullu dal bu yuzden var.
+  if (!window.ReactNativeWebView) {
+    document.addEventListener('click', function (o) {
+      var a = o.target && o.target.closest ? o.target.closest('a[href]') : null;
+      if (!a) return;
+      o.preventDefault();
+      gonder('bag:' + a.href);
+    });
+  }
+
   // YUKSEKLIGI BILDIR. Tek seferlik olcum yetmiyor: yazi tipi
   // yuklendikce ve resimler geldikce yukseklik degisiyor.
   function bildir() {
     var y = document.getElementById('k');
     var h = Math.max(y.scrollHeight, document.body.scrollHeight);
-    window.ReactNativeWebView.postMessage(String(h));
+    gonder(String(h));
   }
   bildir();
   window.addEventListener('load', bildir);
@@ -139,8 +175,47 @@ export function Govde({
 }) {
   const [yuksek, setYuksek] = useState(ILK_YUKSEKLIK);
   const kaynak = useMemo(() => belge(html, tema), [html, tema]);
+  const web = Platform.OS === "web";
+
+  // Webde olcum `message` olayiyla geliyor (iframe -> ebeveyn).
+  useEffect(() => {
+    if (!web || !html) return;
+    const dinle = (o: MessageEvent) => {
+      const v = typeof o.data === "string" ? o.data : "";
+      if (v.startsWith("bag:")) {
+        if (disBaglanti) disBaglanti(v.slice(4));
+        return;
+      }
+      const h = parseInt(v, 10);
+      if (Number.isFinite(h) && h > 40 && h < 60000) setYuksek(h);
+    };
+    window.addEventListener("message", dinle);
+    return () => window.removeEventListener("message", dinle);
+  }, [web, html, disBaglanti]);
 
   if (!html) return null;
+
+  if (web) {
+    // `allow-scripts` ama `allow-same-origin` YOK: belge kendi
+    // betigini kosuyor, ebeveyn DOM'una erisemiyor. `postMessage`
+    // opak kokende de calisiyor.
+    return (
+      <View style={[s.kap, { height: yuksek }]}>
+        {React.createElement("iframe", {
+          srcDoc: kaynak,
+          title: "Analiz gövdesi",
+          sandbox: "allow-scripts",
+          style: {
+            width: "100%",
+            height: "100%",
+            border: "0",
+            background: "transparent",
+            display: "block",
+          },
+        })}
+      </View>
+    );
+  }
 
   return (
     <View style={[s.kap, { height: yuksek }]}>

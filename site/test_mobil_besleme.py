@@ -618,5 +618,204 @@ if _gundem.is_file():
 else:
     print("  ATLANDI  gundem.json yok")
 
+# ----------------------------------------------------------------------
+# BOLUM BASLIKLARI -- uretici ile besleme AYNI ANAHTARI kullanmali
+# ----------------------------------------------------------------------
+# Olculdu (2026-11-01): `analiz_tam` basligi `baslik` anahtarindan
+# okuyordu, uretici (`insa.md_html_bolumlerle`) ise `ad` yaziyor.
+# Eksik anahtar bos dizgeye dondugu icin HATA VERMEDI: 241 analiz
+# kaydinin 241'inde, 1438 bolumun 1438'inde baslik BOS gitti.
+# Sitenin HTML sablonlari `ad`i okudugu icin webde dogru gorunuyordu
+# -- yalnizca mobil besleme sessizce bostu.
+print("")
+print("Bolum basliklari")
+
+_a = _Analiz(bolumler=({"capa": "ozet", "ad": "Özet"},
+                       {"capa": "son-dort-donem", "ad": "Son dört dönem"}))
+_t = M.analiz_tam(_a)
+esit([b["baslik"] for b in _t["bolumler"]], ["Özet", "Son dört dönem"],
+     "uretici anahtari (`ad`) besleme basligina geciyor")
+esit([b["capa"] for b in _t["bolumler"]], ["ozet", "son-dort-donem"],
+     "capa da geciyor")
+
+# `baslik` adiyla gelen cagiran da calismali.
+_t2 = M.analiz_tam(_Analiz(bolumler=({"capa": "x", "baslik": "Eski ad"},)))
+esit(_t2["bolumler"][0]["baslik"], "Eski ad",
+     "`baslik` anahtari YEDEK olarak kabul ediliyor")
+
+# Duz dizge listesi de bos baslik uretmemeli.
+_t3 = M.analiz_tam(_Analiz(bolumler=("Duz dizge",)))
+esit(_t3["bolumler"][0]["baslik"], "Duz dizge",
+     "duz dizge bolum de baslik tasiyor")
+
+# URETICI ILE GERCEK BAGLANTI: `insa.md_html_bolumlerle`in dondurdugu
+# kayit, besleme tarafindan BOS OKUNMAMALI. Anahtar adi degisirse bu
+# sinama kalir.
+try:
+    import insa as _I                               # noqa: E402
+    _md = chr(10).join(["## Özet", "", "metin", "",
+                        "## Son dört dönem", "", "metin", ""])
+    _h, _b = _I.md_html_bolumlerle(_md)
+    esit([x["baslik"] for x in M.analiz_tam(_Analiz(bolumler=tuple(_b)))["bolumler"]],
+         ["Özet", "Son dört dönem"],
+         "URETICININ kendi ciktisi beslemede bos DEGIL")
+except ImportError as _e:
+    print(f"  ATLANDI  insa okunamadi: {_e}")
+
+# URETILEN CIKTIDA SAY -- olcut yayimlanan dosya.
+_K = pathlib.Path(__file__).resolve().parent / "cikti" / "v1" / "analiz"
+if _K.is_dir():
+    _bos = _tum = _bolum = 0
+    for _p in _K.glob("*.json"):
+        if _p.name.startswith("sayfa-"):
+            continue
+        _d = json.loads(_p.read_text(encoding="utf-8"))
+        _bl = _d.get("bolumler") or []
+        if not _bl:
+            continue
+        _tum += 1
+        _bolum += len(_bl)
+        _bos += sum(1 for _x in _bl
+                    if not (_x.get("baslik") or "").strip())
+    print(f"  bilgi  {_tum} analiz kaydi, {_bolum} bolum, "
+          f"{_bos} bos baslik")
+    # Yeniden kurulum gerektigi icin KARARA baglanmiyor: eski cikti
+    # hala bos olabilir. Mekanizma yukarida olculdu.
+else:
+    print("  ATLANDI  cikti/v1/analiz yok")
+
+# ----------------------------------------------------------------------
+# SOZLESME SINAMASI GERCEKTEN ELIYOR MU
+# ----------------------------------------------------------------------
+# `mobil/sozlesme-sinamasi.mjs` yayina giden besleme ile uygulamayi
+# baglayan tek kapi. GECEN bir sinama, sinananin dogru oldugunu
+# GOSTERMEZ: kurallari tek tek sokup denemeden, kapinin gercekten
+# eledigini bilmiyoruz. Olculdu -- kurallari zayiflatan uc mutasyon
+# sessizce yesil dondu, cunku sinamayi SINAYAN bir sey yoktu.
+#
+# Dogru olcut sinamanin metnini degil VERIYI bozmak: besleme kopyasi
+# alinip tek alan bozuluyor ve sinamanin KIRMIZI donmesi bekleniyor.
+# Sinama bunun icin zaten `--kok` aliyor.
+import shutil      # noqa: E402
+import subprocess  # noqa: E402
+import tempfile    # noqa: E402
+
+_KOKDIZIN = pathlib.Path(__file__).resolve().parent
+_BESLEME = _KOKDIZIN / 'cikti' / 'v1'
+_SOZLESME = _KOKDIZIN.parent / 'mobil' / 'sozlesme-sinamasi.mjs'
+
+
+def _sozlesme_kos(kok) -> int:
+    s = subprocess.run(['node', str(_SOZLESME), '--kok', str(kok)],
+                       capture_output=True, text=True, timeout=600)
+    return s.returncode
+
+
+if _BESLEME.is_dir() and _SOZLESME.is_file() and shutil.which('node'):
+    print('')
+    print('Sozlesme sinamasi gercekten eliyor mu')
+    with tempfile.TemporaryDirectory() as _gec:
+        _kopya = pathlib.Path(_gec) / 'v1'
+        shutil.copytree(_BESLEME, _kopya)
+        esit(_sozlesme_kos(_kopya), 0, 'bozulmamis besleme GECIYOR')
+
+        # 1. Bolum basligini bosalt -- bugunku kusurun ta kendisi.
+        _ad = None
+        for _p in sorted((_kopya / 'analiz').glob('*.json')):
+            if _p.name.startswith('sayfa-'):
+                continue
+            _d = json.loads(_p.read_text(encoding='utf-8'))
+            if _d.get('bolumler'):
+                for _b in _d['bolumler']:
+                    _b['baslik'] = ''
+                _p.write_text(json.dumps(_d, ensure_ascii=False),
+                              encoding='utf-8')
+                _ad = _p
+                break
+        if _ad is None:
+            print('  ATLANDI  bolumlu kayit yok')
+        else:
+            dogru_mu = _sozlesme_kos(_kopya) != 0
+            esit(dogru_mu, True,
+                 'BOS bolum basligi sozlesmeyi KIRMIZI donduruyor')
+            # 2. Bolum listesini tumden sil: govdede <h2> var ama
+            #    bolum yok -- ikinci kural.
+            _d = json.loads(_ad.read_text(encoding='utf-8'))
+            _d['bolumler'] = []
+            _ad.write_text(json.dumps(_d, ensure_ascii=False),
+                           encoding='utf-8')
+            esit(_sozlesme_kos(_kopya) != 0, True,
+                 'govdede <h2> varken bolumsuz kayit da KIRMIZI')
+
+    # ATILLIK KONTROLLERI de olculmeli.
+    #
+    # Bu iki kural saglam veride HIC otmez, yani onlari sokmak
+    # yukaridaki senaryolarda fark yaratmiyordu -- iki mutasyon tam
+    # buradan kacti. Kanit icin otecekleri durumu KURMAK gerekiyor.
+    with tempfile.TemporaryDirectory() as _gec2:
+        _k2 = pathlib.Path(_gec2) / 'v1'
+        shutil.copytree(_BESLEME, _k2)
+        # (a) Hicbir kayitta bolum YOK ve govdede <h2> de yok:
+        #     geriye yalnizca atillik kurali kaliyor.
+        for _p in (_k2 / 'analiz').glob('*.json'):
+            if _p.name.startswith('sayfa-'):
+                continue
+            _d = json.loads(_p.read_text(encoding='utf-8'))
+            _d['bolumler'] = []
+            _g = _d.get('govde_html') or ''
+            _d['govde_html'] = _g.replace('<h2', '<div').replace(
+                '</h2>', '</div>')
+            _p.write_text(json.dumps(_d, ensure_ascii=False),
+                          encoding='utf-8')
+        esit(_sozlesme_kos(_k2) != 0, True,
+             'HICBIR kayitta bolum yoksa atillik kurali KIRMIZI')
+
+    with tempfile.TemporaryDirectory() as _gec3:
+        _k3 = pathlib.Path(_gec3) / 'v1'
+        shutil.copytree(_BESLEME, _k3)
+        # (b) Liste sayfasinda duran bir kaydin DETAYI eksik:
+        #     kapsam kurali otmeli. Ilk oge birakiliyor, cunku
+        #     sozlesme onu ayrica alan alan dogruluyor.
+        _liste = json.loads(
+            (_k3 / 'analiz' / 'sayfa-1.json').read_text(encoding='utf-8'))
+        _silinen = 0
+        for _o in _liste['ogeler'][1:]:
+            _dp = _k3 / 'analiz' / (str(_o.get('slug')) + '.json')
+            if _dp.is_file():
+                _dp.unlink()
+                _silinen += 1
+            if _silinen >= 2:
+                break
+        # Yalnizca EKSIK DETAY kurali otsun: silinen kayit kadar
+        # LISTELENMEMIS dosya ekleniyor, boylece 'buldugum her
+        # dosyaya baktim mi' kurali sessiz kaliyor. Iki kural ayri
+        # seyi olcuyor; ayri senaryolarla kanitlanmalari gerekiyor.
+        for _i in range(_silinen):
+            (_k3 / 'analiz' / f'listelenmemis-{_i}.json').write_text(
+                json.dumps({'tur': 'analiz', 'slug': f'listelenmemis-{_i}',
+                            'govde_html': '<p>x</p>',
+                            'bolumler': [{'baslik': 'X', 'capa': 'x'}]},
+                           ensure_ascii=False), encoding='utf-8')
+        if _silinen:
+            esit(_sozlesme_kos(_k3) != 0, True,
+                 f'{_silinen} detay eksikken kapsam kurali KIRMIZI')
+        else:
+            print('  ATLANDI  silinecek detay bulunamadi')
+
+    with tempfile.TemporaryDirectory() as _gec4:
+        _k4 = pathlib.Path(_gec4) / 'v1'
+        shutil.copytree(_BESLEME, _k4)
+        # TARAMA KAPSAMI kuralinin kendi senaryosu: LISTELENMEMIS bir
+        # detay dosyasi 'null' iceriyor. Tarayici onu atliyor ama
+        # dosya diskte duruyor -- 'buldugum her dosyaya baktim mi'
+        # kurali disinda hicbir sey bunu gormuyor. Bos/kirpilmis bir
+        # detay dosyasi gercek bir kusur sinifi.
+        (_k4 / 'analiz' / 'bos-detay.json').write_text(
+            'null', encoding='utf-8')
+        esit(_sozlesme_kos(_k4) != 0, True,
+             'okunamayan detay dosyasi tarama kapsami kuralini KIRMIZI yapiyor')
+else:
+    print('  ATLANDI  besleme ya da node yok')
+
 print("")
 print(f"TUM TESTLER GECTI ({_gecti})")

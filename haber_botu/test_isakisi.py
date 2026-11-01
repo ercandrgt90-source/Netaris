@@ -820,5 +820,50 @@ if _kabuk_hata:
         print(f"    {_h}")
 dogru("kabuk dizgilerinde ic cift tirnak yok", not _kabuk_hata)
 
+
+# ----------------------------------------------------------------------
+# HER DENETIM CI'DAN ERISILEBILIR OLMALI
+# ----------------------------------------------------------------------
+# Sinama bulucu yalnizca `haber_botu` ve `site` altina bakiyor
+# (`test_*.py` / `test_*.js`). `mobil/` klasorunun TAMAMI bu agin
+# disindaydi: `sozlesme-sinamasi.mjs` 223 alani dogruluyor ve bir kez
+# bile kosmamisti. Olculen bedel, besleme 241 analiz kaydinin
+# 241'inde bolum basligini BOS gonderirken hicbir korumanin
+# otmemesiydi.
+#
+# Bulucuyu genisletmek yanlis cozum olurdu: `mobil/node_modules`
+# icinde binlerce `test_*.js` var ve besleme sinamasi URETIMDEN
+# SONRA kosmali, sinama adiminda degil. Dogru kural: boyle her
+# denetim bir akista ADIYLA cagrilmali.
+_DENETIMLER = sorted(
+    str(p.relative_to(KOK)).replace(chr(92), chr(47))
+    for p in (KOK / 'mobil').glob('*.mjs')
+    if 'sinama' in p.name or 'olcum' in p.name
+)
+_akis_metni = ''.join(
+    (_akislar / a).read_text(encoding='utf-8')
+    for a in ('otomasyon.yml', 'bilanco.yml'))
+dogru(f'mobil denetimi bulundu ({len(_DENETIMLER)})', bool(_DENETIMLER))
+for _d in _DENETIMLER:
+    # `erisim_olcumu.mjs` tarayici gerektiriyor; CI'da kosmuyor ve bu
+    # BILINCLI. Muafiyet GEREKCELI, sessiz degil.
+    if _d.endswith('erisim_olcumu.mjs'):
+        dogru(f'{_d}: tarayici gerektirdigi icin muaf (gerekceli)', True)
+        continue
+    # YORUMDA GECMEK CAGRILMAK DEGIL: adim silindiginde dosya adi
+    # ustundeki gerekce yorumunda kaliyor ve kural yesil donuyordu
+    # (olculdu, mutasyon kacti). Olcut `run:` satiri.
+    dogru(f'{_d} bir akista KOSULUYOR',
+          any(f'run: node {_d}' in x or f'node {_d}' in x
+              for x in _akis_metni.splitlines()
+              if x.strip().startswith('run:')))
+
+# Besleme sozlesmesi URETIMDEN SONRA kosmali: olcut URETILEN besleme
+# ve o, sinama adiminda henuz yok.
+_om = (_akislar / 'otomasyon.yml').read_text(encoding='utf-8')
+if 'sozlesme-sinamasi.mjs' in _om:
+    dogru('besleme sozlesmesi URETIMDEN SONRA kosuyor',
+          _om.index('sozlesme-sinamasi.mjs') > _om.index('Veri topla ve'))
+
 print(f"\n{_gecti} gecti, {_kaldi} kaldi")
 sys.exit(1 if _kaldi else 0)

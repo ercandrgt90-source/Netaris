@@ -261,6 +261,95 @@ if (aliste?.ogeler?.length) {
   if (slugsuz.length) {
     dusen.push(`analiz: ${slugsuz.length} kayitta slug bos`);
   } else gecti += 1;
+
+  // BOLUM BASLIGI BOS OLAMAZ.
+  //
+  // "Alan var" ile "alan dolu" ayri seyler. Tip denetimi `bolumler`i
+  // dizi diye gordu ve gecti; icindeki her baslik BOSTU. Olculdu
+  // (2026-11-01): 241 analiz kaydinin 241'inde, 1438 bolumun
+  // 1438'inde. Sebep anahtar uyusmazligiydi -- uretici `ad` yaziyor,
+  // besleme `baslik` okuyordu -- ve eksik anahtar bos dizgeye
+  // dondugu icin hicbir yerde hata vermedi.
+  //
+  // Govdede baslik VARSA bolum listesi de dolu olmali: ikisi ayni
+  // kaynaktan uretiliyor.
+  // ORNEK DEGIL TUM URETILEN ESER TARANIYOR.
+  //
+  // Once yalnizca `sayfa-1.json` icindeki 24 kayda bakiyordu.
+  // Olculdu: beslemede 285 analiz detayi var, yani kapi %92'sini
+  // hic gormuyordu -- bozuk bir kaydi bilerek yerlestirip sinadim,
+  // sinama YESIL dondu. Bir kapinin ornekleme bakmasi, bakmamasina
+  // yakin bir guvence veriyor.
+  let bosBaslik = 0;
+  let bolumlu = 0;
+  let govdeliAmaBolumsuz = 0;
+  let taranan = 0;
+  const _ad = path.join(KOK, "analiz");
+  const _dosyalar = fs.existsSync(_ad)
+    ? fs.readdirSync(_ad).filter(
+        (f) => f.endsWith(".json") && !f.startsWith("sayfa-"))
+    : [];
+  for (const f of _dosyalar) {
+    const d = oku(`analiz/${f}`);
+    if (!d) continue;
+    taranan += 1;
+    const h2 = ((d.govde_html || "").match(/<h2[\s>]/g) || []).length;
+    const b = Array.isArray(d.bolumler) ? d.bolumler : [];
+    if (b.length) {
+      bolumlu += 1;
+      bosBaslik += b.filter((x) => !((x && x.baslik) || "").trim()).length;
+    } else if (h2 > 0) {
+      govdeliAmaBolumsuz += 1;
+    }
+  }
+  if (bosBaslik) {
+    dusen.push(`analiz: ${bosBaslik} bolum basligi BOS `
+      + `(${bolumlu} kayitta bolum listesi var)`);
+  } else gecti += 1;
+  if (govdeliAmaBolumsuz) {
+    dusen.push(`analiz: ${govdeliAmaBolumsuz} kayitta govdede <h2> var `
+      + `ama bolum listesi bos`);
+  } else gecti += 1;
+  // ATILLIK: hic bolum gormediysek yukaridaki iki kontrol bos gecer.
+  if (bolumlu === 0) {
+    dusen.push("analiz: hicbir kayitta bolum listesi yok -- "
+      + "kontrol bos donuyor");
+  } else gecti += 1;
+  // KAPSAM: LISTELENEN her kaydin detayi VAR MI.
+  //
+  // Once "taranan < sayfa-1'deki kayit sayisi" diye soruluyordu ve
+  // bu YANLIS soruydu: butun dosyalarin sayisini TEK sayfanin
+  // kaydiyla kiyasliyor. Olculdu -- iki detay dosyasi silindi,
+  // kural otmedi (283 >= 24). Dogru soru, listedeki her slug'in
+  // dosyasinin durup durmadigi; eksik detay, karta dokunan okur
+  // icin dogrudan bos ekran demek.
+  const _sayfaSayisi = Number(aliste.sayfa_sayisi) || 1;
+  const _listelenen = new Set();
+  for (let _s = 1; _s <= _sayfaSayisi; _s += 1) {
+    const _sf = _s === 1 ? aliste : oku(`analiz/sayfa-${_s}.json`);
+    for (const _o of (_sf && _sf.ogeler) || []) {
+      if (_o && _o.slug) _listelenen.add(String(_o.slug));
+    }
+  }
+  const _eksik = [..._listelenen].filter(
+    (sl) => !fs.existsSync(path.join(_ad, sl + ".json")));
+  if (_eksik.length) {
+    dusen.push(`analiz: listelenen ${_eksik.length} kaydin detayi YOK: `
+      + _eksik.slice(0, 5).join(", "));
+  } else gecti += 1;
+  // TARAMA, BULDUGU HER DOSYAYI KAPSAMALI.
+  //
+  // Bu, yukaridaki kuralla ayni sey DEGIL ve ikisi bilerek ayri:
+  // "listelenen her kaydin dosyasi var mi" veriye, "buldugum her
+  // dosyaya baktim mi" TARAYICININ KENDISINE bakiyor. Once ikisi
+  // tek kosulda birlesikti ve ayni senaryoda ikisi de otuyordu --
+  // yani birini sokmek hicbir sinamayi dusurmuyordu (olculdu, iki
+  // mutasyon kacti).
+  if (taranan !== _dosyalar.length) {
+    dusen.push(`analiz: ${_dosyalar.length} detay dosyasi bulundu ama `
+      + `${taranan} tanesi tarandi`);
+  } else gecti += 1;
+  console.log(`    ${taranan} analiz detayi bolum acisindan tarandi`);
 }
 
 console.log("6. takvim.json");

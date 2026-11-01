@@ -90,6 +90,14 @@ def _dizge(x) -> str:
     return "" if x is None else str(x)
 
 
+def _bolum_basligi(b) -> str:
+    """Bolum basligi. Uretici (`insa.md_html_bolumlerle`) onu `ad`
+    adiyla veriyor; `baslik` ve duz dizge de kabul ediliyor."""
+    if isinstance(b, dict):
+        return _dizge(b.get("ad") or b.get("baslik") or "")
+    return _dizge(b)
+
+
 def _iso(deger) -> str:
     """YALNIZCA ISO tarih gecer; baska her sey bos doner.
 
@@ -264,8 +272,19 @@ def analiz_tam(a) -> dict | None:
             }
             for k in kriterler
         ],
+        # BASLIK URETICIDE `ad` ADIYLA DURUYOR.
+        #
+        # Burada `baslik` okunuyordu ve o anahtar hicbir zaman yok:
+        # olculdu (2026-11-01), 241 analiz kaydinin 241'inde,
+        # 1438 bolumun 1438'inde baslik BOS gidiyordu. Hata vermedi
+        # cunku eksik anahtar bos dizgeye donuyor -- sitenin HTML
+        # sablonlari `ad`i okudugu icin webde dogru gorunuyordu,
+        # yalnizca mobil besleme sessizce bos kaliyordu.
+        #
+        # `baslik` yedek olarak duruyor: bir cagiran o adla
+        # verirse de calissin.
         "bolumler": [
-            {"baslik": _dizge(b.get("baslik") if isinstance(b, dict) else b),
+            {"baslik": _bolum_basligi(b),
              "capa": _dizge(b.get("capa") if isinstance(b, dict) else "")}
             for b in bolumler
         ],
