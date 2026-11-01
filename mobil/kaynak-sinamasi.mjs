@@ -137,6 +137,26 @@ dogru("web dinleyicisi ortak cozucuyu cagiriyor",
 dogru("yerli onMessage ortak cozucuyu cagiriyor",
   /onMessage=\{\(o\)[\s\S]{0,400}?mesaj\(/.test(govde));
 console.log("");
+console.log("Etiket veriyle celismemeli");
+
+const piyasaEkran = fs.readFileSync(
+  path.join(KOK, "app", "(sekmeler)", "piyasalar.tsx"), "utf8");
+
+// `veri_tarihi` "EN YENI" DEGIL.
+//
+// Olculdu (2026-11-01): deger 2026-10-30 iken seritte 2026-11-02
+// tarihli USD/TRY duruyordu. Uretici ileri tarihli kalemi bilerek
+// disliyor (TCMB sonraki is gununun kurunu onceden yayimliyor),
+// yani deger seridin EN YENISI degil. Uygulama onu "seritteki en
+// yeni veri" diye sunuyordu ve bu cumle YANLISTI.
+//
+// Beslemenin anlami `sozlesme-sinamasi.mjs`de sabitlendi; burada
+// o anlama aykiri CUMLE tutuluyor.
+dogru("piyasa etiketi `en yeni` iddiasinda bulunmuyor",
+  !/en yeni veri/i.test(piyasaEkran));
+dogru("piyasa etiketi ileri tarihli kalemi ACIKCA soyluyor",
+  /ileri tarihli kalemler kendi tarihini/.test(piyasaEkran));
+console.log("");
 if (dusen.length) {
   console.error(`DUSTU (${dusen.length}):`);
   for (const d of dusen) console.error(`  - ${d}`);

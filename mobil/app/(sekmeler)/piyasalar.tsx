@@ -101,8 +101,18 @@ export default function Piyasalar() {
             </Text>
             <Text style={[s.uyariYazi, { color: t.renk.yazi2 }]}>
               {p.veri.aciklama}
+              {/* "EN YENI" DEMIYORUZ -- cunku degilmis.
+                  Olculdu (2026-11-01): `veri_tarihi` 30 Ekim iken
+                  seritte 2 Kasim tarihli USD/TRY duruyordu. TCMB bir
+                  sonraki is gununun kurunu ONCEDEN yayimliyor ve
+                  uretici, ileri tarihli bir kalemin butun seridi
+                  etiketlemesini bilerek engelliyor (gerekce
+                  `insa.serit_veri_tarihi`). Yani deger "en yeni" degil,
+                  "serit bu tarihe gore kuruldu" demek; cumle de onu
+                  soylemeli. Her kalemin kendi tarihi zaten yaninda. */}
               {p.veri.veri_tarihi
-                ? ` Şeritteki en yeni veri ${tarihTR(p.veri.veri_tarihi)}.`
+                ? ` Şerit ${tarihTR(p.veri.veri_tarihi)} tarihine göre `
+                  + "düzenlendi; ileri tarihli kalemler kendi tarihini taşır."
                 : ""}
             </Text>
           </View>

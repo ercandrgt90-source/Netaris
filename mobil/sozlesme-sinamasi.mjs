@@ -111,6 +111,38 @@ if (piyasa) {
 
   // LISANSSIZ SERI KACMAMALI. Kume Python tarafindan eleniyor; bu
   // sinama ciktida IKINCI bir kapi.
+  // `veri_tarihi` NE DEMEK -- anlami burada sabitleniyor.
+  //
+  // Olculdu (2026-11-01): `veri_tarihi` 2026-10-30 iken seritte
+  // 2026-11-02 tarihli USD/TRY duruyordu. Uretici bilincli
+  // davraniyor -- TCMB bir sonraki is gununun kurunu ONCEDEN
+  // yayimliyor ve ILERI tarihli bir kalem butun seridi
+  // etiketlememeli (gerekce `insa.serit_veri_tarihi` icinde).
+  //
+  // Ama uygulama bu degeri "seritteki EN YENI veri" diye
+  // sunuyordu; ileri tarihli kalem varken bu cumle YANLIS. Once
+  // anlami sabitliyoruz, sonra etiket ona gore yazilabilir:
+  //
+  //   veri_tarihi = GELECEK OLMAYAN kalemlerin en yenisi
+  //   veri_tarihi'nden YENI her kalem ILERI tarihli olmali
+  const _bugun = new Date().toISOString().slice(0, 10);
+  const _tarihler = piyasa.kalemler
+    .map((k) => String(k.tarih || "")).filter(Boolean);
+  const _gecmis = _tarihler.filter((t) => t <= _bugun);
+  if (_gecmis.length) {
+    const _enYeni = _gecmis.reduce((a, b) => (a > b ? a : b));
+    if (piyasa.veri_tarihi !== _enYeni) {
+      dusen.push(`piyasa: veri_tarihi ${piyasa.veri_tarihi}, gelecek `
+        + `olmayan kalemlerin en yenisi ${_enYeni}`);
+    } else gecti += 1;
+  }
+  const _sonrakiler = _tarihler.filter((t) => t > String(piyasa.veri_tarihi));
+  const _gecmiste = _sonrakiler.filter((t) => t <= _bugun);
+  if (_gecmiste.length) {
+    dusen.push(`piyasa: veri_tarihi'nden YENI ama ileri tarihli DEGIL `
+      + `${_gecmiste.length} kalem -- etiket gercekten yanlis`);
+  } else gecti += 1;
+
   const YASAK = ["SP500", "DJIA", "NASDAQCOM", "VIXCLS"];
   const kacak = piyasa.kalemler.filter((k) => YASAK.includes(k.kod));
   if (kacak.length) {
