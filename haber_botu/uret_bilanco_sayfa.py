@@ -170,6 +170,84 @@ SERI_BASLIGI = "## Son dört dönem"
 KIYAS_BASLIGI = "## Sektör içindeki konum"
 
 
+def turetilmis_kalemler() -> dict[str, tuple[str, ...]]:
+    """TURETILMIS kalem -> girdileri. AST'DEN, elle yazilmadan.
+
+    `KALEMLER` icinde `oranlar.Donem` uzerinde ALAN degil OZELLIK
+    (property) olan her kalem turetilmistir; girdileri o ozelligin
+    govdesinde gectigi `self.<ad>` adlarindan okunuyor.
+
+    NEDEN ELLE LISTE DEGIL
+    ----------------------
+    Bu depodaki en sik tekrarlayan kusur sinifi "varlik eklendi,
+    kurali yazilmadi". Turetilmis kalemlerin listesini elle tutmak,
+    besinci turetme eklendigi gun goc olcutunun onu sessizce
+    atlamasi demekti -- ve belirtisi olmazdi: sayfa uretilir, dogru
+    gorunur, yalnizca bir satiri eksik olur.
+
+    Bugun tek turetme var (`serbest_nakit_akisi` = faaliyet nakit
+    akisi eksi yatirim harcamasi) ama olcut SAYIYA degil YAPIYA
+    bagli.
+    """
+    import ast                                        # noqa: PLC0415
+    import inspect                                    # noqa: PLC0415
+
+    adlar = {ad for ad, _e in KALEMLER}
+    cikti: dict[str, tuple[str, ...]] = {}
+    for ad, _etiket in KALEMLER:
+        ozellik = getattr(oranlar.Donem, ad, None)
+        if not isinstance(ozellik, property) or ozellik.fget is None:
+            continue
+        try:
+            kaynak = inspect.getsource(ozellik.fget)
+        except (OSError, TypeError):                  # pragma: no cover
+            continue
+        agac = ast.parse(inspect.cleandoc(kaynak))
+        girdi = tuple(sorted(
+            {d.attr for d in ast.walk(agac)
+             if isinstance(d, ast.Attribute) and d.attr in adlar
+             and isinstance(d.value, ast.Name) and d.value.id == "self"}))
+        if girdi:
+            cikti[ad] = girdi
+    return cikti
+
+
+def eksik_turetilmis(metin: str) -> list[str]:
+    """Sayfanin GIRDILERINI gosterip KENDISINI yazmadigi kalemler.
+
+    AG ISTEGI YOK: karar sayfanin kendi satirlarindan veriliyor.
+
+    NEDEN GEREKLI -- OLCULDU (2026-11-01)
+    -------------------------------------
+    `serbest_nakit_akisi` `KALEMLER`e eklendi ve o gunden sonra
+    URETILEN sayfalarda goruluyor. Ama YAYINDAKI sayfalar eski
+    haliyle duruyor ve hicbir kuyruga girmiyorlar:
+
+        bilanco sayfasi                                326
+        seri bolumu YOK  -> `goc_kuyrugu` zaten aliyor  169
+        seri bolumu VAR  -> hicbir kuyrukta             157
+          bunlardan girdileri tam, satiri eksik olan    141
+
+    Yani olculup cozulmus bir eksiklik, 141 sayfada OLDUGU GIBI
+    kalacakti. Ayni kusur sinifi bu depoda daha once de goruldu:
+    bir yerde kanitlanan desen benzer yerlere yayilmadi.
+
+    OLCUT GIRDILERIN VARLIGI. Satirin yoklugu tek basina kusur
+    DEGIL -- bankada yatirim harcamasi yok, `serbest_nakit_akisi`
+    None doner ve satir hakli olarak yazilmaz. Kuyruga yalnizca
+    turetmenin MUMKUN oldugu sayfalar giriyor; yoksa adim asla
+    tukenmez.
+    """
+    etiket = dict(KALEMLER)
+    eksik = []
+    for ad, girdiler in sorted(turetilmis_kalemler().items()):
+        if f"| {etiket[ad]} |" in metin:
+            continue
+        if all(f"| {etiket[g]} |" in metin for g in girdiler):
+            eksik.append(etiket[ad])
+    return eksik
+
+
 def _mlr(d):
     return f"{bicim.sayi(d / 1e9, 2)} milyar TL" if d is not None else "—"
 
@@ -621,7 +699,8 @@ def _ret_defterine_yaz(kod: str, unvan: str, donem: str, neden: str,
         print(f"    (ret defterine yazilamadi: {e})")
 
 
-def kiyas_kumesi(v: dict, kod: str) -> tuple[dict, int, str, str]:
+def kiyas_kumesi(v: dict, kod: str,
+                 bitisler: dict | None = None) -> tuple[dict, int, str, str]:
     """Sirketin KIYASLANACAGI medyan, sirket sayisi, donem adi, aciklama.
 
     NEDEN SEKTOR TEK BIR KUME DEGIL
@@ -659,7 +738,45 @@ def kiyas_kumesi(v: dict, kod: str) -> tuple[dict, int, str, str]:
         mali_not = (f"Şirketin mali yılı {bilanco_ag.ay_adi(ay)} "
                     f"sonunda bitiyor, takvim yılıyla örtüşmüyor; "
                     f"bu yüzden dönemi ay adlarıyla yazılıyor.")
+    # DONEM BITISI EN TAZE BILINEN KAYNAKTAN.
+    #
+    # NEDEN SEKTOR OZETI TEK BASINA YETMIYOR -- OLCULDU (2026-11-01)
+    # -------------------------------------------------------------
+    # Ozetteki `bitis[kod]` yalnizca o sektorun TAMAMI cekildiginde
+    # guncelleniyor ve bu, kaynagin kosu basina verdigi ~82 istekle
+    # buyuk sektorlerde MUMKUN DEGIL (Sanayi 70 sirket; yarim cekim
+    # kapsam korumasina takilip atiliyor). Olculdu: veri adimi
+    # #58-#64 arasinda 11 sektorun 11'ini "KAYNAK REDDEDIYOR" ile
+    # atladi, yani ozet DONDU.
+    #
+    # Ozet donunca sirket yeni ceyrege GECEMIYOR: etiket buradan
+    # geliyor ve `kuyruk_kur` bayatlik kararini da bu etiketle
+    # veriyor. Kullanicinin gordugu "biz 3. ceyrek donemindeyiz ama
+    # sayfalar 2. ceyrek" durumunun mekanizmasi tam olarak budur.
+    #
+    # NOBET DEFTERI AYNI BILGIYI SIRKET BASINA TEK ISTEKLE veriyor
+    # ve o istek ZATEN yapiliyor (`bilanco_nobetci` her kosuda bir
+    # dilim sirkete `mali_takvim` soruyor). Yani ek maliyet YOK --
+    # olculmus ama kullanilmayan bir veri vardi.
+    #
+    # MEDYAN UYDURULMUYOR. Etiket ilerlerse ve o donemin kiyas
+    # grubu henuz yoksa `donem_gruplari` bos doner, medyan bos
+    # kalir ve sayfa KIYASSIZ yazilir -- hattin zaten var olan ve
+    # gerekcesi yazili davranisi. Dort ay once bitmis bir donemi
+    # anlatan sayfa, kiyas bolumu olmayan guncel bir sayfadan daha
+    # kotudur; kiyas bolumu sektor tazelendiginde geliyor.
+    #
+    # DAHA ESKISI KAZANMIYOR: iki kaynaktan YENI olan aliniyor.
+    # Defter bayatsa (sirkete sira gelmediyse) ozet aynen gecerli.
+    # "YENI MI" KARARI TEK YERDEN: `bilanco_nobetci.daha_yeni`.
+    # Ayni kiyasi burada yeniden yazmak, takvim disi mali yil
+    # ayrimini (etiket yerine TARIH) ikinci kez tanimlamak olurdu.
     iso = (v.get("bitis") or {}).get(kod)
+    _defter_iso = (bitisler or {}).get(kod.upper())
+    if _defter_iso:
+        import bilanco_nobetci as _nb                 # noqa: PLC0415
+        if _nb.daha_yeni(_defter_iso, iso):
+            iso = _defter_iso
     ana = v.get("ana_donem") or ""
     # ETIKET COGUNLUGA DEGIL TARIHE BAGLI -- OLCULDU (2026-10-13).
     #
@@ -681,6 +798,63 @@ def kiyas_kumesi(v: dict, kod: str) -> tuple[dict, int, str, str]:
             etiket, mali_not)
 
 
+def donem_celiskisi(donem: str, seri: list) -> str:
+    """Yayimlanacak ETIKET, cekilen verinin KENDI donemiyle celisiyor mu.
+
+    Celiski varsa aciklama, yoksa bos dizge.
+
+    NEDEN GEREKLI -- OLCULDU, YAYINDAYDI (2026-11-01)
+    -------------------------------------------------
+    ETIKET ile VERI iki ayri kaynaktan geliyor:
+
+        etiket : `kiyas_kumesi` -> `sektor_ozet.json`daki `bitis[kod]`
+        veri   : `donem_getir`  -> kaynak, HER ZAMAN en yeni donem
+
+    Ikisi karsilastirilmiyordu. Ozet bir kosu geride kalinca sayfa
+    bir donemi SOYLUYOR, baska bir donemi GOSTERIYOR:
+
+        2026-2-ceyrek-akbnk.md
+          baslik     AKBANK T.A.Ş. 2026 2. çeyrek bilanço analizi
+          seri basi  2026 3. çeyrek          <- kendi tablosu
+          ozet       Q2 yorumu               <- sakli AI metni
+
+    Olculdu: 331 bilanco sayfasinin BESI boyleydi ve besinin de
+    dogru etiketli bir IKIZI vardi (AGESA, AKBNK, ANHYT Q3 verisini
+    Q2 basligiyla; ALGYO Q1 verisini Q2 basligiyla; MAVI
+    mayis-temmuz verisini Q2 basligiyla).
+
+    ALGYO YONU TERSINE CEVIRIYOR ve tani bu yuzden kesin: orada
+    ozet veriden ILERIDEYDI. Yani kusur "kaynak ozetten yeni" degil,
+    "ikisi hic karsilastirilmiyor".
+
+    Ayni kusur sinifi bu depoda bir kez daha yayina cikti
+    (`bilanco_tazele.sayfa_tazele` icindeki ASUZU olcumu) ve o zaman
+    eklenen koruma SAYFA ile OZETI karsilastiriyor. O karsilastirma
+    bunu yapisal olarak YAKALAYAMAZ: her ikisi de Q2 derken yanlis
+    olan ucuncusu, yani verinin kendisidir.
+
+    OLCUT CEKILEN SERININ ILK ADIMI. `donem_getir` onu kaynagin
+    kendi bitis tarihinden turetiyor (`_seri_bitis`), yani etiketle
+    AYNI islevden (`bilanco_ag.donem_etiketi`) geciyor --
+    karsilastirma elma ile elma.
+
+    BILINMIYORSA CELISKI YOK SAYILIYOR. Kaynak bitis tarihlerini
+    vermediyse seri etiketi "-1 dönem" gibi bir yer tutucu olur;
+    onu celiski saymak, olcemedigimiz bir seyi kusur ilan etmek
+    olurdu. Yokluk bir kisitlama degil.
+    """
+    if not seri:
+        return ""
+    cekilen = (seri[0][0] or "").strip()
+    iso = (seri[0][1] or "").strip()
+    # ISO YOKSA ETIKET KAYNAGIN YER TUTUCUSU -- karsilastirilamaz.
+    if not iso or not cekilen or not donem:
+        return ""
+    if cekilen == donem.strip():
+        return ""
+    return f"etiket {donem.strip()!r}, çekilen veri {cekilen!r} ({iso})"
+
+
 def sirket_isle(kod, bilgi, sektor, donem, oran, medyan, n,
                 kuru=False, mali_not="") -> tuple[bool, str]:
     alt_sektor = bilgi.get("alt_sektor") or ""
@@ -688,6 +862,21 @@ def sirket_isle(kod, bilgi, sektor, donem, oran, medyan, n,
         kod, donem, sektor_tr=sektor, ciftli=True, seri=True)
     if d is None:
         return False, "eksik: " + ", ".join(eksik[:3])
+
+    # ETIKETI VERISIYLE CELISEN SAYFA URETILMIYOR -- bkz.
+    # `donem_celiskisi`.
+    #
+    # YENIDEN ETIKETLEMEK COZUM DEGIL: sayfanin AI yorumu ve sektor
+    # medyani eski doneme ait. Yeni etiketi yazmak, Q2 yorumunu Q3
+    # basligi altinda yayimlamak olurdu -- ayni kusurun ters yonu.
+    #
+    # ATLAMAK KUYRUGU TIKAMIYOR, TAM TERSI: sirket bu kosuda
+    # yazilmiyor ama `kuyruk_kur` onu "sayfasi var, donemi eski"
+    # sayarak oncelik 0'a aliyor. Ozet bir sonraki veri adiminda
+    # ilerledigi an dogru etiketle, kendi yorumuyla uretilecek.
+    celiski = donem_celiskisi(donem, seri)
+    if celiski:
+        return False, f"dönem çelişkisi: {celiski}"
 
     # SIRKETIN KENDI ORANI, SAYFANIN KENDI VERISINDEN.
     #
@@ -902,7 +1091,7 @@ def kuyruk_kur(ozet: dict, bekleyen: set, sektor_suzgeci: str = "",
             _bayat = (yayimlanmis is not None
                       and sayfasi_olan is not None
                       and k in sayfasi_olan
-                      and (k, kiyas_kumesi(v, kod)[2]) not in yayimlanmis)
+                      and (k, kiyas_kumesi(v, kod, bitisler)[2]) not in yayimlanmis)
             if sayfasi_olan is not None and k not in sayfasi_olan:
                 oncelik, ikincil = 0, 0   # hic sayfasi yok
             elif _bayat:
@@ -1121,7 +1310,7 @@ def gecikme_olc(ozet: dict, yayimlanmis: set, sayfasi_olan: set,
             k = kod.upper()
             if k not in sayfasi_olan:
                 continue            # hic sayfasi yok -- AYRI olculuyor
-            if (k, kiyas_kumesi(v, kod)[2]) in yayimlanmis:
+            if (k, kiyas_kumesi(v, kod, bitisler)[2]) in yayimlanmis:
                 continue            # guncel
             iso = bitisler.get(k, "")
             try:
@@ -1335,7 +1524,8 @@ def main() -> int:
         # KIYAS KUMESI SIRKETE GORE -- bkz. `kiyas_kumesi`.
         # Takvim disi mali yila sahip sirket kendi takvimindekilerle
         # kiyaslaniyor ve donem adini ay adlariyla aliyor.
-        _medyan, _n, _donem, _mali_not = kiyas_kumesi(v, kod)
+        _medyan, _n, _donem, _mali_not = kiyas_kumesi(
+            v, kod, _bitisler)
         if (kod.upper(), _donem) in var:
             atlanan += 1
             sebepler["zaten yayımlanmış"] = \

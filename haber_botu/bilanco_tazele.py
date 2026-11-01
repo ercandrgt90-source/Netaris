@@ -99,10 +99,20 @@ def baglam_kur() -> tuple[dict, dict]:
     """
     ozet = json.loads(U.OZET.read_text(encoding="utf-8"))
     defter = json.loads(U.DEFTER.read_text(encoding="utf-8"))["sirketler"]
+    # DONEM BITISLERI URETIMLE AYNI HARITADAN.
+    #
+    # `kiyas_kumesi` etiketi ozet ile nobet defterinden YENI olana
+    # gore veriyor. Burada haritayi vermemek, tazelemenin ozete gore
+    # Q2 derken uretimin defterden Q3 demesi olurdu -- ve
+    # `sayfa_tazele` sayfa donemini bu etiketle karsilastirdigi icin
+    # uretimin yeni yazdigi her sayfayi "donem uyusmuyor" diye
+    # REDDEDERDI. Ayni karari iki yerde ayri vermek, bu depoda en sik
+    # tekrarlayan kusur sinifi.
+    _bitisler = U.bitis_haritasi(ozet)
     baglam: dict[str, tuple] = {}
     for sektor, v in ozet.items():
         for kod, oran in v["sirket"].items():
-            medyan, n, donem, mali_not = U.kiyas_kumesi(v, kod)
+            medyan, n, donem, mali_not = U.kiyas_kumesi(v, kod, _bitisler)
             # KIYASSIZ SAYFA DA TAZELENIYOR. Medyan yoksa `govde_kur`
             # bolumu yazmiyor ve sebebini soyluyor; sayfayi hic
             # tazelememek o aciklamayi eski sayfalara ulastirmazdi.
@@ -203,6 +213,25 @@ def sayfa_tazele(yol: pathlib.Path, baglam: dict, defter: dict,
     if d is None:
         return False, "eksik: " + ", ".join(eksik[:2])
 
+    # ETIKETI VERISIYLE CELISEN SAYFA TAZELENMIYOR.
+    #
+    # BU SATIRIN YOKLUGU BES SAYFAYI YAYINA CIKARDI (olculdu
+    # 2026-11-01; gerekce ve olcum `U.donem_celiskisi` uzerinde).
+    #
+    # Yukaridaki SAYFA-OZET karsilastirmasi bunu yakalamiyor ve
+    # yakalayamaz: AKBNK'de sayfa Q2, ozet Q2, yani o kapi aciliyor.
+    # Celisen ucuncu taraf CEKILEN VERI -- kaynak her zaman en yeni
+    # donemi veriyor. Sonuc: Q3 tablosu Q2 basligi altinda, ustune
+    # Q2 yorumu aynen geri konarak.
+    #
+    # ORADAKI KARAR BURADA DA GECERLI: dokunulmuyor. Sayfa eski
+    # haliyle kaliyor, yani kendi doneminin verisini gostermeye
+    # devam ediyor; ozet ilerledigi an sirket "bayat" sayilip
+    # dogru etiketle, YENI yorumla uretiliyor.
+    celiski = U.donem_celiskisi(donem, seri)
+    if celiski:
+        return False, f"dönem çelişkisi: {celiski}"
+
     # ORAN SAYFANIN KENDI VERISINDEN -- gerekcesi
     # `uret_bilanco_sayfa.sirket_isle` uzerinde yazili.
     #
@@ -265,6 +294,19 @@ def onarim_kuyrugu(defter: dict, baglam: dict | None = None) -> list:
         sebep = bd.onarim_gereken(metin, bilgi)
         if not sebep:
             continue
+        # BASLIGI KENDI TABLOSUYLA CELISEN SAYFA ONARILAMAZ.
+        #
+        # `sayfa_tazele` ayni celiskiyi gorup DOKUNMUYOR (gerekcesi
+        # orada yazili), yani bu sayfa kuyrukta kalsa her kosuda
+        # denenip her kosuda atlanirdi -- adim asla tukenmez ve
+        # "onarim bekleyen" sayisi hic sifirlanmaz. Ayni gerekceyle
+        # donemi ozetten farkli sayfalar da asagida dusuyor.
+        #
+        # Koruma (`site/test_bilanco_sayfa_saglam.py`) onlari
+        # SAYMAYA devam ediyor: cozum tazeleme degil, dogru etiketli
+        # ikizi varsa sayfanin silinmesi.
+        if bd.donem_etiketi_celiskisi(metin):
+            continue
         # ONARILAMAYAN SAYFA KUYRUKTA DURMAZ.
         #
         # Ozet baska bir donemdeyse o sayfa yeniden kurulamiyor:
@@ -297,7 +339,11 @@ def onarim_kuyrugu(defter: dict, baglam: dict | None = None) -> list:
 
 
 def goc_kuyrugu(defter: dict, baglam: dict | None = None) -> list:
-    """"Son dort donem" bolumunu TASIMAYAN sayfalar.
+    """GUNCEL BICIMDE OLMAYAN sayfalar -- iki sebep, tek kuyruk.
+
+    Sebepler: "son dort donem" bolumunun yoklugu ve girdileri
+    sayfada duran bir TURETILMIS kalemin satirinin yoklugu. Olcum
+    ve gerekce `sayfa` dongusunun icinde yazili.
 
     NEDEN ONARIM KUYRUGUNDAN AYRI
     -----------------------------
@@ -323,8 +369,26 @@ def goc_kuyrugu(defter: dict, baglam: dict | None = None) -> list:
         metin = yol.read_text(encoding="utf-8")
         if not bd.bilanco_sayfasi(metin):
             continue
-        if U.SERI_BASLIGI in metin:
-            continue
+        # IKI GOC SEBEBI, TEK KUYRUK.
+        #
+        # Baslangicta olcut yalnizca "son dort donem bolumu yok"tu.
+        # OLCULDU (2026-11-01): o olcut 326 sayfanin 169'unu goruyor;
+        # bolumu OLAN 157 sayfa hicbir kuyruga girmiyor ve bunlarin
+        # 141'i, girdileri sayfada DURAN bir turetilmis kalemi
+        # (serbest nakit akisi) gostermiyor.
+        #
+        # Yani bolum gocu tamamlandiginda adim kendini kapatacak ve
+        # 141 sayfa eksik satirla kalacakti. Kuyruk bu yuzden
+        # "GUNCEL BICIMDE OLMAYAN sayfa" olcutune genisliyor.
+        #
+        # OLCUT URETICIDEN: hangi kalemin turetilmis oldugu
+        # `U.turetilmis_kalemler` ile `oranlar.Donem`in kendi
+        # yapisindan okunuyor. Besinci bir turetme eklendigi gun bu
+        # kuyruk onu kendiliginden kapsiyor.
+        _eksik = []
+        if U.SERI_BASLIGI not in metin:
+            _eksik.append("son dört dönem bölümü yok")
+        _eksik += [f"{a} satırı yok" for a in U.eksik_turetilmis(metin)]
         k = _KOD_DESEN.search(metin)
         if not k:
             continue
@@ -335,7 +399,36 @@ def goc_kuyrugu(defter: dict, baglam: dict | None = None) -> list:
             _d = _DONEM_DESEN.search(metin)
             if _d and _d.group(1) != kayit[4]:
                 continue
-        kuyruk.append((yol, ["son dört dönem bölümü yok"]))
+            # KIYASSIZ YAZILMIS SAYFA, MEDYAN GELDIGINDE TAMAMLANIR.
+            #
+            # `kiyas_kumesi` donem etiketini nobet defterinden de
+            # alabiliyor; o donemin kiyas grubu henuz yoksa sayfa
+            # BILEREK kiyas bolumu olmadan yaziliyor (gerekcesi
+            # `uret_bilanco_sayfa` icinde). Ama sektor tazelenip
+            # medyan OLUSTUGUNDA o sayfaya bir daha dokunan hicbir
+            # sey yoktu: `yayimlanmis` kontrolu onu "guncel"
+            # sayiyor, onarim kuyrugu kiyas yoklugunu kusur
+            # saymiyor (hakli olarak -- kiyassiz sayfa mesru).
+            #
+            # Yani sayfa kalici olarak kiyassiz kalirdi. Bu, bugun
+            # iki kez duzeltilen kusurun aynisi: mekanizma eklendi,
+            # onu besleyen kural yazilmadi.
+            #
+            # OLCUT MEDYANIN VARLIGI: yoksa eklenecek bir sey yok ve
+            # sayfa kuyruga GIRMIYOR -- yoksa her kosuda denenip her
+            # kosuda ayni sonucu veren bir kalem olurdu.
+            if U.KIYAS_BASLIGI not in metin and kayit[2]:
+                _eksik.append("sektör karşılaştırması eklenebilir")
+        if not _eksik:
+            continue
+        # SEBEP OLCULEN SEBEP -- sabit metin DEGIL.
+        #
+        # Onceki hali her kalem icin "son dort donem bolumu yok"
+        # yaziyordu. Olcut genisledikten sonra bu YANLIS bir teshis
+        # olurdu: bolumu olan ama satiri eksik sayfa icin gunluk
+        # var olan bir bolumu yok gosterirdi. Yanlis teshis, dogru
+        # teshisten daha pahali.
+        kuyruk.append((yol, _eksik))
     return kuyruk
 
 
@@ -385,8 +478,15 @@ def main() -> int:
               f"({', '.join(sorted(istenen))})")
     elif n.bolum_gocu:
         kuyruk = goc_kuyrugu(defter, baglam)
-        print(f"bölüm göçü: {len(kuyruk)} sayfa 'son dört dönem' "
-              f"bölümünü taşımıyor")
+        # DOKUM SEBEBE GORE: iki ayri goc sebebi var ve hangisinin
+        # kac sayfa oldugunu gunluge bakan biri gorebilmeli.
+        _say: dict[str, int] = {}
+        for _y, _s in kuyruk:
+            for _n in _s:
+                _say[_n] = _say.get(_n, 0) + 1
+        print(f"göç kuyruğu: {len(kuyruk)} sayfa güncel biçimde değil")
+        for _n, _c in sorted(_say.items(), key=lambda x: -x[1]):
+            print(f"  {_c:>4}  {_n}")
         if not kuyruk:
             print("göç TAMAMLANDI -- hiçbir şey yapılmadı")
             return 0

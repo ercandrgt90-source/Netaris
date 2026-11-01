@@ -282,5 +282,152 @@ esit(_t[1], 3, "takvim grubu uc sirket")
 esit(US.kiyas_kumesi(_kulup_cogunluk, "BILINMEYEN")[2], "2026 2. çeyrek",
      "bitisi bilinmeyen sektor etiketini aliyor")
 
+# ---------------------------------------------------------------
+print("")
+print("DONEM BITISI EN TAZE BILINEN KAYNAKTAN")
+print("")
+
+# KUSUR (olculdu 2026-11-01): ozetteki `bitis[kod]` yalnizca sektorun
+# TAMAMI cekildiginde guncelleniyor ve bu, kaynagin kosu basina
+# verdigi ~82 istekle buyuk sektorlerde mumkun degil. Olculdu: veri
+# adimi #58-#64 arasinda 11 sektorun 11'ini "KAYNAK REDDEDIYOR" ile
+# atladi -- ozet DONDU ve hicbir sirket yeni ceyrege gecemedi.
+#
+# Nobet defteri ayni bilgiyi sirket basina TEK istekle veriyor ve o
+# istek zaten yapiliyor. Olculmus ama kullanilmayan veri vardi.
+
+_DEFTER_Q3 = {"TTKOM": "2026-09-30"}
+
+_y = US.kiyas_kumesi(_kulup_cogunluk, "TTKOM", _DEFTER_Q3)
+esit(_y[2], "2026 3. çeyrek",
+     "defter ozetten YENI ise etiket ilerliyor")
+# MEDYAN UYDURULMUYOR: Q3 kiyas grubu YOK, sayfa kiyassiz yazilir.
+esit(_y[0], {}, "o donemin grubu yoksa medyan BOS (kiyassiz sayfa)")
+esit(_y[1], 0, "kiyassiz sayfada sirket sayisi sifir")
+# ATILLIK: ayni cagri defter OLMADAN eski etiketi veriyor mu? Vermezse
+# yukaridaki iddia etiketin ilerledigini DEGIL, hep Q3 oldugunu
+# gosterirdi.
+esit(US.kiyas_kumesi(_kulup_cogunluk, "TTKOM")[2], "2026 2. çeyrek",
+     "atillik kontrolu: defter olmadan etiket ESKI kaliyor")
+yakin(US.kiyas_kumesi(_kulup_cogunluk, "TTKOM")[0]["brut_marj"], 24.94,
+      0.01, "atillik kontrolu: defter olmadan medyan DOLU")
+
+# DAHA ESKISI KAZANMIYOR. Defter bayatsa (sirkete sira gelmediyse)
+# ozet aynen gecerli -- yoksa tazelenmis bir sektor, eski bir defter
+# kaydiyla geriye cekilirdi.
+_g = US.kiyas_kumesi(_kulup_cogunluk, "TTKOM", {"TTKOM": "2026-03-31"})
+esit(_g[2], "2026 2. çeyrek", "defter ESKI ise ozet kazaniyor")
+yakin(_g[0]["brut_marj"], 24.94, 0.01, "eski defter medyani bozmuyor")
+
+# AYNI TARIH: hicbir sey degismiyor.
+esit(US.kiyas_kumesi(_kulup_cogunluk, "TTKOM",
+                     {"TTKOM": "2026-06-30"})[2], "2026 2. çeyrek",
+     "ayni tarih etiketi degistirmiyor")
+
+# TAKVIM DISI DONEM AY ADLARIYLA. Defterden gelen tarih de ayni
+# isleve giriyor; "3. ceyrek" demek kulubu yanlis yere gotururdu.
+esit(US.kiyas_kumesi(_kulup_cogunluk, "FENER",
+                     {"FENER": "2026-08-31"})[2], "2026 haziran–ağustos",
+     "defterden gelen takvim disi tarih AY ADLARIYLA yaziliyor")
+
+# OZETTE HIC BITISI OLMAYAN SIRKET de defterden ilerliyor.
+esit(US.kiyas_kumesi(_kulup_cogunluk, "BILINMEYEN",
+                     {"BILINMEYEN": "2026-09-30"})[2], "2026 3. çeyrek",
+     "ozette bitisi olmayan sirket defterden etiket aliyor")
+
+# MEKANIK: "yeni mi" karari IKINCI KEZ TANIMLANMIYOR.
+#
+# Olcut `bilanco_nobetci.daha_yeni` -- takvim disi mali yilda
+# etiket yerine TARIH kiyaslama kurali orada yazili. Burada yeniden
+# yazilsaydi, o ayrim degistigi gun biri guncellenip oteki
+# unutulurdu.
+import ast                                                # noqa: E402
+import inspect                                            # noqa: E402
+
+_agac = ast.parse(inspect.getsource(US.kiyas_kumesi))
+_ice = [(d.module, [a.name for a in d.names])
+        for d in ast.walk(_agac) if isinstance(d, ast.ImportFrom)]
+_modul = [d.names[0].name for d in ast.walk(_agac)
+          if isinstance(d, ast.Import)]
+esit("bilanco_nobetci" in _modul, True,
+     f"karar bilanco_nobetci'den okunuyor ({_modul})")
+# Ciplak bir tarih kiyasi KALMAMALI: `iso > ...` gibi bir satir,
+# kurali burada ikinci kez tanimlamak olurdu.
+_kiyas = [d for d in ast.walk(_agac) if isinstance(d, ast.Compare)
+          and any(isinstance(o, (ast.Gt, ast.Lt, ast.GtE, ast.LtE))
+                  for o in d.ops)]
+esit(_kiyas, [], "islev icinde ciplak tarih kiyasi YOK")
+
+# ---------------------------------------------------------------
+print("")
+print("HER CAGRI YERI AYNI HARITAYI VERMELI")
+print("")
+
+# OLCULDU: mutasyon sinamasinda uc mutant KACTI -- `kiyas_kumesi`
+# yardimcisi sinaniyordu ama CAGRI YERLERININ haritayi gectigi
+# hicbir yerde sinanmiyordu. Haritayi gecmeyen tek bir cagri,
+# etiketi iki ayri yerde iki ayri sekilde belirler:
+#
+#   uretim  defterden -> "2026 3. çeyrek"
+#   tazeleme ozetten  -> "2026 2. çeyrek"
+#
+# Ve `sayfa_tazele` sayfa donemini bu etiketle karsilastirdigi icin
+# uretimin yeni yazdigi her sayfayi "donem uyusmuyor" diye
+# REDDEDERDI. Yani kusur sessiz: hicbir sey hata vermez, yalnizca
+# hat kendi urettigini tanimaz.
+
+_KOK_D = pathlib.Path(__file__).resolve().parent
+_cagri_yerleri = []
+for _dosya in (_KOK_D / "uret_bilanco_sayfa.py",
+               _KOK_D / "bilanco_tazele.py"):
+    _a = ast.parse(_dosya.read_text(encoding="utf-8"))
+    for _d in ast.walk(_a):
+        if not isinstance(_d, ast.Call):
+            continue
+        _f = _d.func
+        _ad = (_f.attr if isinstance(_f, ast.Attribute)
+               else _f.id if isinstance(_f, ast.Name) else "")
+        if _ad != "kiyas_kumesi":
+            continue
+        _arg = len(_d.args) + len(_d.keywords)
+        _cagri_yerleri.append((_dosya.name, _d.lineno, _arg))
+
+# ATILLIK: tarama gercekten cagri buluyor mu? Bulamayan bir tarama
+# "hepsi ucluyle cagriliyor" iddiasini her zaman gecirir.
+esit(len(_cagri_yerleri) >= 4, True,
+     f"atillik kontrolu: {len(_cagri_yerleri)} cagri yeri bulundu "
+     f"({_cagri_yerleri})")
+_eksik_cagri = [(d, s) for d, s, n in _cagri_yerleri if n < 3]
+esit(_eksik_cagri, [],
+     f"her cagri donem bitis haritasini veriyor ({_cagri_yerleri})")
+
+# DAVRANIS: kuyruk bayatligi defterden gorebiliyor mu?
+#
+# Mekanik kural cagriyi garanti ediyor, bu iddia SONUCU olcuyor:
+# sayfasi olan ama defterde yeni donem bildiren sirket kuyrugun
+# BASINA (oncelik 0) gelmeli. Gelmezse sirkete hic sira gelmez --
+# sessiz kilit, bu depoda bir kez yayina cikti.
+_oz = {"Finans": {
+    "donem": "2026 2. çeyrek",
+    "medyan": {"brut_marj": 10.0}, "sirket_sayisi": 5,
+    "ana_donem": "2026-06-30",
+    "bitis": {"TTKOM": "2026-06-30"},
+    "sirket": {"TTKOM": {"brut_marj": 11.0}},
+}}
+_yayim = {("TTKOM", "2026 2. çeyrek")}
+_sayfali = {"TTKOM"}
+
+_k_eski = US.kuyruk_kur(_oz, set(), sayfasi_olan=_sayfali,
+                        bitisler={"TTKOM": "2026-06-30"},
+                        yayimlanmis=_yayim)
+esit([x[0] for x in _k_eski], [2],
+     "atillik kontrolu: defter de Q2 derken sirket bayat DEGIL")
+
+_k_yeni = US.kuyruk_kur(_oz, set(), sayfasi_olan=_sayfali,
+                        bitisler={"TTKOM": "2026-09-30"},
+                        yayimlanmis=_yayim)
+esit([x[0] for x in _k_yeni], [0],
+     "defter yeni donem derken sirket ONCELIK 0 (bayat)")
+
 print("")
 print(f"TUM TESTLER GECTI ({_gecti})")

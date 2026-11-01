@@ -395,5 +395,139 @@ esit([s for s in _bd.onarim_gereken(_eksik_sayfa)
       if "dört dönem" in s or "dort donem" in s], [],
      "bolum eksikligi ONARIM SEBEBI sayilmiyor")
 
+# ---------------------------------------------------------------
+print("")
+print("GOC OLCUTU -- TURETILMIS KALEM DE GOCU TETIKLIYOR")
+print("")
+
+# KUSUR (olculdu 2026-11-01): olcut yalnizca "son dort donem bolumu
+# yok"tu ve bolumu OLAN 157 sayfa hicbir kuyruga girmiyordu. Bunlarin
+# 141'i, girdileri sayfada DURAN bir turetilmis kalemi (serbest nakit
+# akisi) gostermiyordu -- yani bolum gocu bitince adim kendini
+# kapatacak ve o satir 141 sayfada hic olusmayacakti.
+
+import oranlar as _oranlar                               # noqa: E402
+
+_T = US.turetilmis_kalemler()
+esit(_T, {"serbest_nakit_akisi": ("faaliyet_nakit_akisi",
+                                  "yatirim_harcamasi")},
+     f"turetilmis kalem ve girdileri YAPIDAN okunuyor ({_T})")
+
+# MEKANIK: liste ELLE yazilmis olmamali. `oranlar.Donem` uzerinde
+# ozellik olan her `KALEMLER` uyesi kapsanmali -- besinci bir
+# turetme eklendigi gun kural onu kendiliginden almali.
+_ozellikler = {ad for ad, _e in US.KALEMLER
+               if isinstance(getattr(_oranlar.Donem, ad, None), property)}
+esit(sorted(_T), sorted(_ozellikler),
+     f"KALEMLER icindeki TUM ozellikler kapsaniyor ({sorted(_ozellikler)})")
+# ATILLIK: tarama gercekten ozellik buluyor mu? Bos kume ile bos kume
+# her zaman esittir ve hicbir sey soylemez.
+esit(len(_ozellikler) > 0, True,
+     f"atillik kontrolu: KALEMLER icinde {len(_ozellikler)} ozellik var")
+
+_NAKIT = (NL + "| Faaliyet nakit akışı | 10,00 milyar TL |"
+          + NL + "| Yatırım harcaması | 4,00 milyar TL |" + NL)
+_SNA = NL + "| Serbest nakit akışı | 6,00 milyar TL |" + NL
+
+esit(US.eksik_turetilmis(_NAKIT), ["Serbest nakit akışı"],
+     "girdiler var, satir yok -> eksik")
+esit(US.eksik_turetilmis(_NAKIT + _SNA), [],
+     "satir yazilmissa eksik DEGIL")
+# BANKADA YATIRIM HARCAMASI YOK: satirin yoklugu orada KUSUR DEGIL,
+# turetme mumkun olmadigi icin. Kuyruga girmemeli, yoksa her kosuda
+# denenip her kosuda ayni sonucu veren bir kalem olurdu.
+esit(US.eksik_turetilmis(
+    NL + "| Faaliyet nakit akışı | 10,00 milyar TL |" + NL), [],
+    "girdilerden biri eksikse eksik SAYILMIYOR")
+
+with tempfile.TemporaryDirectory() as _t:
+    _d = pathlib.Path(_t)
+    _seri_ek = (NL + US.SERI_BASLIGI + NL + NL + "| a | b |" + NL)
+    # Bolumu VAR, turetilmis satiri YOK -> kuyruga girmeli.
+    (_d / "satir-eksik.md").write_text(
+        _ON.format(kod="DDD", ek=_seri_ek + _NAKIT,
+                   kiyas=US.KIYAS_BASLIGI), encoding="utf-8")
+    # Bolumu VAR, satiri VAR -> girmemeli.
+    (_d / "guncel.md").write_text(
+        _ON.format(kod="EEE", ek=_seri_ek + _NAKIT + _SNA,
+                   kiyas=US.KIYAS_BASLIGI), encoding="utf-8")
+    _asil_site = US.SITE
+    US.SITE = _d
+    try:
+        _k2 = BT.goc_kuyrugu({}, None)
+    finally:
+        US.SITE = _asil_site
+    _h = {y.name: s for y, s in _k2}
+    esit(sorted(_h), ["satir-eksik.md"],
+         f"yalnizca guncel bicimde OLMAYAN sayfa kuyrukta ({sorted(_h)})")
+    # SEBEP OLCULEN SEBEP: sabit metin olsaydi gunluk var olan bir
+    # bolumu "yok" gosterirdi -- yanlis teshis.
+    esit(_h["satir-eksik.md"], ["Serbest nakit akışı satırı yok"],
+         f"sebep dogru adiyla yaziliyor ({_h['satir-eksik.md']})")
+
+# KIYASSIZ SAYFA, MEDYAN GELDIGINDE KUYRUGA GIRIYOR.
+#
+# `kiyas_kumesi` donem etiketini nobet defterinden de alabiliyor; o
+# donemin grubu henuz yoksa sayfa BILEREK kiyas bolumu olmadan
+# yaziliyor. Sektor tazelenip medyan olustugunda o sayfaya dokunan
+# hicbir sey YOKTU -- `yayimlanmis` onu guncel sayiyor, onarim
+# kuyrugu kiyas yoklugunu (hakli olarak) kusur saymiyor. Sayfa
+# kalici olarak kiyassiz kalirdi.
+with tempfile.TemporaryDirectory() as _t:
+    _d = pathlib.Path(_t)
+    _tam = _seri_ek + _NAKIT + _SNA
+    # Kiyas bolumu YOK, medyan VAR -> kuyruga girmeli.
+    (_d / "kiyassiz.md").write_text(
+        _ON.format(kod="FFF", ek=_tam, kiyas=""), encoding="utf-8")
+    # Kiyas bolumu YOK, medyan da YOK -> girmemeli (eklenecek sey yok).
+    (_d / "medyansiz.md").write_text(
+        _ON.format(kod="GGG", ek=_tam, kiyas=""), encoding="utf-8")
+    _bg = {
+        "FFF": ("Finans", {}, {"net_kar_marji": 18.0}, 24,
+                "2026 2. çeyrek", ""),
+        "GGG": ("Finans", {}, {}, 0, "2026 2. çeyrek", ""),
+    }
+    _asil_site = US.SITE
+    US.SITE = _d
+    try:
+        _k3 = BT.goc_kuyrugu({}, _bg)
+    finally:
+        US.SITE = _asil_site
+    _h3 = {y.name: s for y, s in _k3}
+    esit(sorted(_h3), ["kiyassiz.md"],
+         f"medyani olan kiyassiz sayfa kuyrukta ({sorted(_h3)})")
+    esit(_h3["kiyassiz.md"], ["sektör karşılaştırması eklenebilir"],
+         f"sebep dogru adiyla yaziliyor ({_h3['kiyassiz.md']})")
+    # ATILLIK: ayni sayfa kiyas bolumuyle yazilsa kuyruga GIRMEMELI --
+    # yoksa iddia "her sayfa kuyruga giriyor"dan ayirt edilemez.
+    (_d / "kiyassiz.md").write_text(
+        _ON.format(kod="FFF", ek=_tam, kiyas=US.KIYAS_BASLIGI),
+        encoding="utf-8")
+    US.SITE = _d
+    try:
+        _k4 = BT.goc_kuyrugu({}, _bg)
+    finally:
+        US.SITE = _asil_site
+    esit([y.name for y, _s in _k4], [],
+         "atillik kontrolu: kiyas bolumu varsa kuyruga girmiyor")
+
+# GERCEK KULLIYAT: kuyruktaki her sayfanin en az bir sebebi var ve
+# turetilmis satiri OLAN hicbir sayfa kuyrukta degil.
+_ICERIK2 = _KOK.parent / "site" / "icerik" / "analizler"
+if _ICERIK2.is_dir():
+    _sebepsiz, _yanlis, _bakilan2 = [], [], 0
+    for _y in sorted(_ICERIK2.glob("*.md")):
+        _m = _y.read_text(encoding="utf-8")
+        if not _bd.bilanco_sayfasi(_m):
+            continue
+        _bakilan2 += 1
+        _e = US.eksik_turetilmis(_m)
+        if "| Serbest nakit akışı |" in _m and _e:
+            _yanlis.append(_y.name)
+    esit(_yanlis, [], f"{_bakilan2} sayfada: satiri olan sayfa eksik "
+                      f"sayilmiyor")
+    esit(_bakilan2 > 0, True,
+         f"atillik kontrolu: {_bakilan2} gercek sayfa olculdu")
+
 print("")
 print(f"TUM TESTLER GECTI ({_gecti})")

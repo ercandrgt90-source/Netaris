@@ -71,21 +71,27 @@ def _milyar(satir: str) -> float | None:
     return _sayi(m.group(1)) if m else None
 
 
-def _on_bilgi_kategorisi(metin: str) -> str:
-    """On bilgi blogundaki `kategori` alani; yoksa bos dizge.
+def _on_bilgi(metin: str, alan: str) -> str:
+    """On bilgi blogundaki bir alan; yoksa bos dizge.
 
-    YALNIZCA ON BILGIDEN okunuyor: govdede "kategori:" ile baslayan
-    bir satir sayfayi yanlislikla bilanco analizi yapmasin.
+    YALNIZCA ON BILGIDEN okunuyor: govdede ayni onekle baslayan bir
+    satir sayfayi yanlis siniflandirmasin.
     """
     satirlar = metin.splitlines()
     if not satirlar or satirlar[0].strip() != "---":
         return ""
+    onek = alan + ":"
     for satir in satirlar[1:]:
         if satir.strip() == "---":
             break
-        if satir.startswith("kategori:"):
-            return satir[len("kategori:"):].strip()
+        if satir.startswith(onek):
+            return satir[len(onek):].strip()
     return ""
+
+
+def _on_bilgi_kategorisi(metin: str) -> str:
+    """On bilgi blogundaki `kategori` alani; yoksa bos dizge."""
+    return _on_bilgi(metin, "kategori")
 
 
 def bilanco_sayfasi(metin: str) -> bool:
@@ -199,6 +205,79 @@ def kilavuz_uyusmazligi(metin: str, sektor_tr: str,
     return b[0] if f"## {b[0]}" in metin else ""
 
 
+def _seri_basligi() -> str:
+    """"Son dort donem" bolumunun basligi -- URETICIDEN okunuyor.
+
+    Ayni basligi burada ikinci kez yazmak, bu depodaki en sik
+    tekrarlayan kusur sinifi olurdu: baslik degistigi gun koruma
+    sessizce hicbir sey aramaz hale gelir. Ice alma GECIKMELI
+    yapiliyor; uretici modul AI yiginini de yukluyor ve denetim
+    onsuz da calisabilmeli.
+    """
+    try:
+        from uret_bilanco_sayfa import SERI_BASLIGI   # noqa: PLC0415
+        return SERI_BASLIGI
+    except ImportError:                               # pragma: no cover
+        return "## Son dört dönem"
+
+
+def donem_etiketi_celiskisi(metin: str) -> str:
+    """Sayfanin BASLIGI kendi tablosuyla celisiyor mu; aciklama doner.
+
+    NE OLCULUYOR
+    ------------
+    On bilgideki `donem` ile "Son dort donem" tablosunun ILK
+    kolonu. O kolon kaynagin KENDI bitis tarihinden uretiliyor
+    (`bilanco_ag.donem_getir` -> `_seri_bitis` -> `donem_etiketi`),
+    yani sayfanin gosterdigi verinin donemini bagimsiz olarak
+    soyluyor.
+
+    NEDEN GEREKLI -- OLCULDU, YAYINDAYDI (2026-11-01)
+    -------------------------------------------------
+    Etiket `sektor_ozet.json`dan, veri kaynaktan geliyor ve ikisi
+    hicbir yerde karsilastirilmiyordu. 331 bilanco sayfasinin BESI
+    bir donemi soyleyip baskasini gosteriyordu:
+
+        AGESA, AKBNK, ANHYT   Q3 verisi,  "2026 2. çeyrek" basligi
+        ALGYO                 Q1 verisi,  "2026 2. çeyrek" basligi
+        MAVI                  mayıs–temmuz verisi, aynı başlık
+
+    ALGYO yonu TERSINE cevirdigi icin tani kesin: kusur "kaynak
+    ozetten yeni" degil, "ikisi hic karsilastirilmiyor".
+
+    URETIMDE DE KAPATILDI (`uret_bilanco_sayfa.donem_celiskisi`).
+    Bu kural ONDAN BAGIMSIZ durmali: orayi hangi yol atlarsa
+    atlasin, YAYIMLANAN sayfa burada olculuyor. Denetleyen,
+    uretenin karar yolunu degil URUNU okuyor.
+
+    SERI BOLUMU YOKSA OLCUM YOK. 331 sayfanin 169'unda bolum henuz
+    yok (goc suruyor) ve onlarda sayfanin kendi donemini soyleyen
+    bagimsiz bir tanik bulunmuyor. Olcemedigimizi kusur saymak,
+    yoklugu kisitlamaya cevirmek olurdu.
+    """
+    if not bilanco_sayfasi(metin):
+        return ""
+    donem = _on_bilgi(metin, "donem")
+    if not donem:
+        return ""
+    bas = metin.find(_seri_basligi())
+    if bas < 0:
+        return ""
+    # ILK KOLON, SERI BOLUMUNUN ICINDEN.
+    #
+    # Sayfada ayni onekle baslayan UC tablo var ve ucu de
+    # `| Kalem` ile basliyor (ayni tuzak `olc()` uzerinde de
+    # yazili). Arama bolumun BASLADIGI yerden ileri yapiliyor.
+    m = re.search(r"^\|\s*Kalem[^|]*\|\s*([^|]+?)\s*\|",
+                  metin[bas:], re.M)
+    if not m:
+        return ""
+    seri_ilk = m.group(1).strip()
+    if seri_ilk == donem:
+        return ""
+    return f"başlık {donem!r}, kendi tablosu {seri_ilk!r}"
+
+
 #: Duzeltmeden ONCE uretilmis, bozuklugu BILINEN sayfalar. Koruma
 #: (`site/test_bilanco_sayfa_saglam.py`) bunlari tolere ediyor.
 MIRAS = _KOK.parent / "site" / "bilanco_miras_bozuk.json"
@@ -268,4 +347,17 @@ def onarim_gereken(metin: str, bilgi: dict | None = None) -> list[str]:
     celiski = ozkaynak_celiskisi(metin)
     if celiski:
         sebep.append(f"anlamsız ROE ({celiski})")
+    # BASLIK KENDI TABLOSUYLA CELISIYORSA SAYFA BOZUK.
+    #
+    # Bu, TAZELEMEYLE ONARILAMAYAN bir bozukluk: `sayfa_tazele`
+    # artik ayni celiskiyi gorup dokunmuyor. O yuzden
+    # `bilanco_tazele.onarim_kuyrugu` bu sayfalari kuyrukta
+    # TUTMUYOR -- yoksa her kosuda denenip her kosuda atlanan bir
+    # kalem olurlardi ve kuyruk hic tukenmezdi.
+    #
+    # Yine de burada SAYILIYOR: koruma onlari gorunur tutuyor ve
+    # cozum sayfanin SILINMESI (dogru etiketli ikizi varsa).
+    etiket = donem_etiketi_celiskisi(metin)
+    if etiket:
+        sebep.append(f"dönem etiketi çelişkili ({etiket})")
     return sebep
