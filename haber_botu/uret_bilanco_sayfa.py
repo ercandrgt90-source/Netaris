@@ -582,7 +582,7 @@ VT = _KOK / "netaris.db"
 
 
 def ret_yaz(kod: str, unvan: str, donem: str, neden: str,
-            model: str, ham: str) -> None:
+            model: str, ham: str, girdi: str = "") -> None:
     """Reddedilen bilanco yorumunu `ai_ret`e yazar.
 
     NEDEN VAR
@@ -627,7 +627,7 @@ def ret_yaz(kod: str, unvan: str, donem: str, neden: str,
                  beyin.simdi()))
     except Exception as e:                             # pragma: no cover
         print(f"    (ret kaydedilemedi: {e})")
-    _ret_defterine_yaz(kod, unvan, donem, neden, model, ham)
+    _ret_defterine_yaz(kod, unvan, donem, neden, model, ham, girdi)
 
 
 #: Reddedilen yorumlarin GERI YAZILAN defteri.
@@ -642,8 +642,48 @@ RET_DEFTERI_SINIRI = 80
 RET_HAM_SINIRI = 700
 
 
+def yakin_girdiler(neden: str, girdi: str, en_cok: int = 3) -> dict:
+    """Reddedilen her sayi icin GIRDIDEKI en yakin degerleri dondurur.
+
+    NEDEN GEREKLI
+    -------------
+    Defter "girdide olmayan sayi: 54" diyordu ve girdinin kendisini
+    saklamiyordu. Yani defterin var olma sebebi olan soru --
+    "model uydurdu mu, yoksa gercek bir girdiyi yuvarladi mi?" --
+    deftere bakarak CEVAPLANAMIYORDU. Olculdu (2026-11-01, kosu
+    #66): 78 denemenin 18'i atlandi, 12'si bu sebeple; hicbirinin
+    girdisi kayitli degildi.
+
+    Tum girdi saklanmiyor (kilobaytlarca metin, her kosuda diff'i
+    anlamsizlastirir); karari veren SAYILAR saklaniyor. "54 ->
+    [53.7, 51.2]" bir yuvarlama, "4600 -> [46.0, 12.3]" bir uydurma
+    oldugunu tek bakista gosteriyor.
+    """
+    try:
+        import sys as _sys                             # noqa: PLC0415
+        if str(_KOK / "ai") not in _sys.path:
+            _sys.path.insert(0, str(_KOK / "ai"))
+        import yorumcu as _y                           # noqa: PLC0415
+        degerler = sorted(_y._sayilar(girdi or ""))
+    except Exception:                                  # noqa: BLE001
+        return {}
+    if not degerler:
+        return {}
+    cikti: dict[str, list[float]] = {}
+    ham = (neden or "").split(":", 1)[-1]
+    for parca in ham.split(","):
+        p = parca.strip()
+        try:
+            s = float(p)
+        except ValueError:
+            continue
+        yakin = sorted(degerler, key=lambda x: abs(x - s))[:en_cok]
+        cikti[p] = [round(x, 4) for x in yakin]
+    return cikti
+
+
 def _ret_defterine_yaz(kod: str, unvan: str, donem: str, neden: str,
-                       model: str, ham: str) -> None:
+                       model: str, ham: str, girdi: str = "") -> None:
     """Reddi `bilanco_ai_ret.json`a ekler -- SQLite'in YANINA.
 
     NEDEN SQLITE YETMIYOR
@@ -685,6 +725,9 @@ def _ret_defterine_yaz(kod: str, unvan: str, donem: str, neden: str,
             "ham": (ham or "")[:RET_HAM_SINIRI],
             "an": _dt.datetime.now(_dt.timezone.utc).isoformat(
                 timespec="seconds"),
+            # KARARI VEREN KANIT: reddedilen sayiya en yakin
+            # girdi degerleri. Gerekcesi `yakin_girdiler` icinde.
+            "yakin": yakin_girdiler(neden, girdi),
         })
         # EN YENILER KALIYOR: teshis son kosulara bakiyor.
         kayitlar = kayitlar[-RET_DEFTERI_SINIRI:]
@@ -911,7 +954,8 @@ def sirket_isle(kod, bilgi, sektor, donem, oran, medyan, n,
     metin, model, sebep, ham = bilanco_yorum.yorum_uret(girdi)
     if not metin:
         # YORUMSUZ SAYFA YAYIMLANMIYOR -- bkz. modul basi.
-        ret_yaz(kod, bilgi.get("unvan", ""), donem, sebep, model, ham)
+        ret_yaz(kod, bilgi.get("unvan", ""), donem, sebep, model, ham,
+                girdi)
         return False, f"yorum yok: {sebep}"
 
     govde = govde_kur(kod, bilgi["unvan"], sektor, donem, d, oran,

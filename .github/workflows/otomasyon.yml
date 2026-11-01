@@ -489,6 +489,17 @@ jobs:
         if: always()
         run: node mobil/sozlesme-sinamasi.mjs
 
+      # OLCULEMEYEN DALLARIN KURALLARI.
+      #
+      # Uygulamayi dogrulama yolum web cikisini gercek Chrome'da
+      # kosmak; YERLI dal (WebView, `onShouldStartLoadWithRequest`)
+      # orada hic calismiyor, yani oradaki bir gerileme OLCULEMEZ.
+      # Bu sinama o yuzeyin kurallarini metin duzeyinde tutuyor.
+      # Besleme gerektirmiyor, ama komsusu olsun diye burada.
+      - name: Uygulama kaynağı kurallara uyuyor mu
+        if: always()
+        run: node mobil/kaynak-sinamasi.mjs
+
       # UFKU DOLAN SENARYOLARI SONUCLANDIR.
       #
       # `sonuclanma` alani semada en bastan beri vardi ve senaryo

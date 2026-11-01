@@ -507,6 +507,70 @@ def test_sebep_turu_iki_noktasiz_notu_BOZMUYOR():
     assert u.sebep_turu("zaten yayımlanmış") == "zaten yayımlanmış"
 
 
+def test_ret_defteri_karari_veren_kaniti_saklamali():
+    """Defter "girdide olmayan sayi: 54" diyordu ve GIRDIYI
+    saklamiyordu -- yani var olma sebebi olan soru ("uydurma mi,
+    yuvarlama mi?") deftere bakarak cevaplanamiyordu.
+
+    Olculdu (2026-11-01, kosu #66): 78 denemenin 18'i atlandi,
+    12'si bu sebeple; hicbirinin girdisi kayitli degildi.
+    """
+    import json
+    import tempfile
+
+    # Yuvarlama: reddedilen 54, girdide 53,7 var.
+    y = u.yakin_girdiler("girdide olmayan sayi: 54",
+                         "hasilat %51,2 artti, faaliyet kari %53,7")
+    assert y == {"54": [53.7, 51.2]}, y
+
+    # Uydurma: reddedilen 4600, girdinin en yakini 46,0 -- yani
+    # yuvarlama DEGIL. Ikisi defterde ayirt edilebilmeli.
+    u2 = u.yakin_girdiler("girdide olmayan sayi: 4600",
+                          "hasilat %12,3 artti, marj %46,0")
+    assert u2 == {"4600": [46.0, 12.3]}, u2
+
+    # Birden cok sayi ve girdisiz cagri.
+    c = u.yakin_girdiler("girdide olmayan sayi: 65, 44", "%64,8 ve %43,9")
+    assert set(c) == {"65", "44"}, c
+    assert u.yakin_girdiler("girdide olmayan sayi: 54", "") == {}
+
+    # DEFTERE GERCEKTEN GIRIYOR MU -- alanin varligi yetmiyor.
+    with tempfile.TemporaryDirectory() as t:
+        eski_vt, u.VT = u.VT, pathlib.Path(t) / "yok.db"
+        eski_d, u.RET_DEFTERI = u.RET_DEFTERI, pathlib.Path(t) / "r.json"
+        try:
+            u.ret_yaz("ZZZ", "Z A.Ş.", "2026 3. çeyrek",
+                      "girdide olmayan sayi: 54", "@cf/x", "ham",
+                      "faaliyet kari %53,7 arttı")
+            d = json.loads(u.RET_DEFTERI.read_text(encoding="utf-8"))
+        finally:
+            u.VT = eski_vt
+            u.RET_DEFTERI = eski_d
+    k = d["kayitlar"][-1]
+    assert k["kod"] == "ZZZ", k
+    assert k.get("yakin") == {"54": [53.7]}, k.get("yakin")
+
+
+def test_ret_cagrisi_girdiyi_GECIRIYOR():
+    """Alanin var olmasi yetmiyor: cagiran onu VERMEZSE defter yine
+    bos kalir. Olcut AST -- `sirket_isle` icindeki `ret_yaz`
+    cagrisinda `girdi` adi gecmeli."""
+    import ast
+    import inspect
+    import textwrap
+    agac = ast.parse(textwrap.dedent(inspect.getsource(u.sirket_isle)))
+    cagrilar = [c for c in ast.walk(agac)
+                if isinstance(c, ast.Call)
+                and isinstance(c.func, ast.Name)
+                and c.func.id == "ret_yaz"]
+    assert cagrilar, "ret_yaz cagrisi bulunamadi"
+    # YORUM REDDI dalinda girdi GECMELI. Guvenlik reddi dalinda
+    # girdi anlamli degil (sorun sablonda, modelde degil).
+    gecen = [c for c in cagrilar
+             if any(isinstance(a, ast.Name) and a.id == "girdi"
+                    for a in c.args)]
+    assert gecen, "hicbir ret_yaz cagrisi `girdi` gecirmiyor"
+
 if __name__ == "__main__":
     n = 0
     for ad, f in sorted(globals().items()):
