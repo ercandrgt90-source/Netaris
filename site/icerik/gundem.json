@@ -30,7 +30,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 43,
+  "yorumlanan": 42,
   "haberler": [
     {
       "baslik": "OPEC+, Pazar günkü toplantıda petrol üretim kotalarını Aralık ayına kadar değiştirmedi: açıklama",
@@ -917,6 +917,27 @@
       "foto_atif": "Bernard Lee · CC0"
     },
     {
+      "baslik": "Emlak vergisinde ikinci taksit dönemi başladı",
+      "baslik_kaynak": "Emlak vergisinde ikinci taksit dönemi başladı",
+      "ozet": "Milyonlarca mülk sahibini ilgilendiren emlak vergisinde ikinci taksit dönemi başladı. Konut, arsa, arazi ve iş yeri sahipleri kasım ayı boyunca ödemelerini yapabilecek. Peki, ödemeler nasıl yapılacak, kimler vergiden muaf tutulacak?",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.trthaber.com/haber/ekonomi/emlak-vergisinde-ikinci-taksit-donemi-basladi-961883.html",
+      "kurum": "TRT Haber",
+      "kurum_tam": "TRT Haber",
+      "konu": "Konut ve kira",
+      "tarih": "2026-11-01",
+      "tarih_gorunur": "1 Kasım 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/konut-ve-kira-8-a8a0f60c.jpg",
+      "foto_atif": "Ximonic (Simo Räsänen) · CC-BY-4.0"
+    },
+    {
       "baslik": "KOBİ'lere 50 milyar liralık yeni Nefes Kredisi imkanı",
       "baslik_kaynak": "KOBİ'lere 50 milyar liralık yeni Nefes Kredisi imkanı",
       "ozet": "Türkiye Odalar ve Borsalar Birliği (TOBB), Kredi Garanti Fonu (KGF) ve bankaların iş birliğiyle yürütülen Nefes Kredisi'nde yeni dönem başvuruları 3 Kasım'da başlayacak. Yeni dilim kapsamında KOBİ'lere 50 milyar lira finansman sağlanırken, firma başına kredi limiti 5 milyon liraya yükseltildi.",
@@ -962,32 +983,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/piyasa-duzenlemesi-9-90157a0b.jpg",
       "foto_atif": "Tobias Deml · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "FBI'dan 6,3 milyar dolarlık kripto vurgununa ilişkin kritik mesaj",
-      "baslik_kaynak": "FBI'dan 6,3 milyar dolarlık kripto vurgununa ilişkin kritik mesaj",
-      "ozet": "ABD Federal Soruşturma Bürosu (FBI), Kuzey Kore'yi, kripto para borsası Binance'den 6,3 milyar dolar değerinde dijital varlık çalmakla suçladı",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.haberturk.com/ekonomi/fbi-dan-6-3-milyar-dolarlik-kripto-vurgununa-iliskin-kritik-mesaj-3924072",
-      "kurum": "Habertürk",
-      "kurum_tam": "Habertürk",
-      "konu": "Kripto varlıklar",
-      "tarih": "2026-11-01",
-      "tarih_gorunur": "1 Kasım 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Kripto varlıklar risk iştahının en uçtaki göstergelerinden biridir; hareketin kaynağı düzenleme, likidite ya da kaldıraç çözülmesi olabilir ve üçünün sonuçları farklıdır.",
-      "kanallar": [
-        "Likidite koşulları: küresel likidite daraldığında en riskli varlıklar önce satılır.",
-        "Düzenleme: saklama, borsa yatırım fonu ve vergi kuralları kurumsal talebin önünü açar ya da kapatır.",
-        "Kaldıraç: türev piyasadaki açık pozisyon ve fonlama oranı sert hareketlerin büyüklüğünü belirler.",
-        "Piyasa yapısı: işlem hacminin borsalar arası dağılımı fiyat farklarının ne kadar sürdüğünü etkiler."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/kripto-varliklar-8-8b36c240.jpg",
-      "foto_atif": "de Vries, Alex; Stoll, Christian · PDM"
     },
     {
       "baslik": "İran güvenlik şefi Rezaei: Hürmüz Boğazı, Tahran'ın şartları yerine getirilene kadar kapalı kalacak",
