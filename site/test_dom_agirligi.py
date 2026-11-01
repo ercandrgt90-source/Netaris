@@ -86,6 +86,46 @@ HUB_EN_AZ_BAGLANTI = {"bilancolar": 200, "arastirmalar": 200, "makro": 200}
 #: sayfalari da uyari listesine sokar ve uyari gurultuye donusur.
 UYARI_PAYI = 500
 
+#: BETIKLERIN EKLEDIGI OGE PAYI -- OLCULDU (2026-11-01, CANLI SITE).
+#:
+#: NEDEN GEREKLI: KORUMA YANLIS BUYUKLUGU OLCUYORDU
+#: ------------------------------------------------
+#: `dom_sayisi` SUNULAN HTML'i sayiyor. Okurun aygitinda betikler oge
+#: EKLIYOR ve Lighthouse'un olctugu sey ISLENMIS DOM. Yani korumanin
+#: saydigi sayi, bedelini okurun odedigi sayi DEGIL.
+#:
+#: Olculdu -- gercek Chrome, AYNI sayfa betik kapali/acik:
+#:
+#:     /arastirmalar/     2.077 -> 2.818   +741
+#:     /gundem/           1.481 -> 2.062   +581
+#:     /bilancolar/       1.850 -> 2.391   +541
+#:     /makro/            2.074 -> 2.615   +541
+#:     /makro/arsiv/      1.796 -> 1.937   +141
+#:     makale sayfalari    ~600 ->  ~750   +151
+#:
+#: Fark KART SAYISIYLA olcekleniyor: her kart bir simge (`svg`+`use`)
+#: ve gizli metin aliyor; taban ~141 (baslik/altlik simgeleri).
+#: `/makro/arsiv/` dusuk cunku arsiv satirlari kart degil.
+#:
+#: BEDELI DOGRUDAN ALARMDA. `UYARI_PAYI` 500, en agir sayfanin
+#: betik payi 741. Yani uyari SUNULAN 2.900'de calardi; o da
+#: ISLENMIS ~3.640 demek, yani sinir zaten 240 oge asilmis olurdu.
+#: Uc kesintinin ucu de "asildiktan SONRA ogrenildi" diye uzadi --
+#: alarmin yanlis buyuklugu olcmesi tam o kusuru geri getirir.
+#:
+#: AYRICA EN AGIR SAYFA DEGISTI. Herkes `/makro/`yi izliyordu;
+#: islenmis DOM'da en agir sayfa `/arastirmalar/` (2.818) ve sinira
+#: kalan gercek pay 582.
+#:
+#: EN KOTU HAL SECILDI, ORTALAMA DEGIL. Hafif sayfalar icin fazla
+#: saymak alarmi yalnizca ERKEN caldirir; hafife almak ise hic
+#: caldirmaz. Hatanin YONU onemli.
+#:
+#: TARAYICIYI CI'A SOKMAK yerine olculmus bir pay eklendi: Chrome'u
+#: her kosuda calistirmak bu adimi dakikalara cikarirdi ve kazanc
+#: ayni -- sayinin dogru buyuklugu olcmesi.
+BETIK_PAYI = 750
+
 #: Uyari dosyasi -- is akisi bunu okuyup kayit aciyor.
 #: `dusen-sinamalar.txt` ile ayni desen (bkz. `cikti_sinamalari.py`).
 UYARI_DOSYASI = "yaklasan-esik.txt"
@@ -142,6 +182,17 @@ def dom_sayisi(html: str) -> int:
     return len(re.findall(r"<([a-zA-Z][a-zA-Z0-9]*)\b", g))
 
 
+def islenmis_dom(html: str, pay: int = BETIK_PAYI) -> int:
+    """Okurun aygitinda kurulacak TAHMINI oge sayisi.
+
+    Sunulan HTML'in sayisi + olculmus betik payi. Gerekce ve olcum
+    `BETIK_PAYI` uzerinde yazili. Esik karsilastirmasi BU sayiyla
+    yapilmali: Lighthouse islenmis DOM'u olcuyor ve bedelini okur
+    orada odiyor.
+    """
+    return dom_sayisi(html) + pay
+
+
 print("\nDOM agirligi")
 if not _CIKTI.exists():
     print("  ATLANDI  cikti yok (once `python site/insa.py`)")
@@ -154,7 +205,9 @@ _n = 0
 _en_agir = (0, "")
 for _p in _CIKTI.rglob("index.html"):
     _n += 1
-    _d = dom_sayisi(_p.read_text(encoding="utf-8", errors="replace"))
+    # OLCUT ISLENMIS DOM -- bkz. `BETIK_PAYI`. Sunulan sayiyla
+    # karsilastirmak, okurun odemedigi bir buyuklugu korumak olurdu.
+    _d = islenmis_dom(_p.read_text(encoding="utf-8", errors="replace"))
     _y = "/" + _p.relative_to(_CIKTI).as_posix().removesuffix("index.html")
     if _d > _en_agir[0]:
         _en_agir = (_d, _y)
@@ -169,8 +222,9 @@ if _agir:
     for _y, _d in sorted(_agir, key=lambda x: -x[1])[:8]:
         print(f"    {_d:6d}  {_y}")
 esit(_agir[:5], [],
-     f"hicbir sayfa {DOM_SINIRI} DOM ogesini asmiyor "
-     f"(en agir: {_en_agir[1]} {_en_agir[0]})")
+     f"hicbir sayfa {DOM_SINIRI} ISLENMIS DOM ogesini asmiyor "
+     f"(en agir: {_en_agir[1]} {_en_agir[0]}; "
+     f"sunulan {_en_agir[0] - BETIK_PAYI} + betik payi {BETIK_PAYI})")
 
 # ESIGE YAKLASMAK KIRMIZI DEGIL, AMA SESSIZ DE DEGIL.
 #
@@ -195,6 +249,54 @@ esit(uyari_gerek(DOM_SINIRI - UYARI_PAYI - 1), False,
      "payin disinda uyarmaz")
 esit(uyari_gerek(DOM_SINIRI + 1), False,
      "esigi ASAN sayfa icin uyarmaz -- o zaten kirmizi")
+
+# BETIK PAYI GERCEKTEN UYGULANIYOR MU.
+#
+# Sabit tanimlanip KULLANILMAMASI bu depoda gorulmus bir kusur
+# sinifi: olculen deger kullanilmazsa olculmemis sayilir. Iddia
+# davranisa bakiyor, sabitin varligina degil.
+_ORNEK = "<html><body><div><p>x</p></div></body></html>"
+esit(islenmis_dom(_ORNEK) - dom_sayisi(_ORNEK), BETIK_PAYI,
+     f"islenmis sayi sunulan sayidan {BETIK_PAYI} fazla")
+esit(BETIK_PAYI > 0, True,
+     f"betik payi sifir degil ({BETIK_PAYI}) -- sifir, duzeltmeden "
+     f"onceki davranisa doner")
+# OLCUT ISLENMIS SAYI: TARAMA DONGUSU `islenmis_dom` KULLANMALI.
+#
+# ILK YAZIM YANLIS SORUYORDU ve mutasyon onu KACIRDI: "dosyada bir
+# yerde `islenmis_dom` cagriliyor mu" diye soruyordu ve tarama
+# `dom_sayisi`ye cevrildiginde bu iddia YESIL kaldi -- cunku asagidaki
+# kendi sinamam da `islenmis_dom` cagiriyor. Soru "cagriliyor mu"
+# degil, "TARAMANIN ICINDE cagriliyor mu" olmali.
+import ast                                            # noqa: E402
+
+_kaynak = pathlib.Path(__file__).read_text(encoding="utf-8")
+_agac = ast.parse(_kaynak)
+_dongu = [d for d in ast.walk(_agac)
+          if isinstance(d, ast.For) and isinstance(d.iter, ast.Call)
+          and isinstance(d.iter.func, ast.Attribute)
+          and d.iter.func.attr == "rglob"]
+esit(len(_dongu), 1, f"cikti taramasi tek dongu ({len(_dongu)})")
+_ic = {d.func.id for d in ast.walk(_dongu[0])
+       if isinstance(d, ast.Call) and isinstance(d.func, ast.Name)}
+esit("islenmis_dom" in _ic,
+     True, f"tarama DONGUSU islenmis_dom cagiriyor ({sorted(_ic)})")
+esit("dom_sayisi" in _ic, False,
+     f"tarama dongusu SUNULAN sayiyi dogrudan kullanmiyor "
+     f"({sorted(_ic)})")
+# ATILLIK: tarama gercekten cagri buluyor mu? Bos kume ile "icinde
+# yok" her zaman dogrudur ve hicbir sey soylemez.
+esit(len(_ic) > 0, True,
+     f"atillik kontrolu: dongu icinde {len(_ic)} cagri bulundu")
+
+# EN AGIR SAYFA, ISLENMIS OLCUYLE, UYARI PAYININ ICINDE OLABILIR.
+#
+# Bu bir iddia DEGIL, bir DUYURU: pay 2026-11-01 olcumunde 582'ye
+# dusmustu (/arastirmalar/ 2.818). Sayiyi burada basmak, bir sonraki
+# kosuda bakan kisinin durumu gormesini sagliyor.
+if _en_agir[0]:
+    print(f"\n  en agir sayfa: {_en_agir[1]} -- islenmis {_en_agir[0]}, "
+          f"sinira pay {DOM_SINIRI - _en_agir[0]}")
 
 print("\nHub baglantilari KORUNDU")
 for _ad, _en_az in HUB_EN_AZ_BAGLANTI.items():

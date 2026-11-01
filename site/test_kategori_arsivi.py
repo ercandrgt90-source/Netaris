@@ -105,22 +105,98 @@ print(f"  sinir: {SINIR} analiz")
 # sinanan bir kural birakirdi (bu depodaki en pahali kusur sinifi).
 # Ustune ARALIK konuyor.
 #
-# UST SINIR 400 NASIL SECILDI:
-#     40 kart x 20 oge         =   800
-#     360 arsiv satiri x 4     = 1.440
-#     sabit yuk                =   477
-#                                ------
-#                                2.717 oge
-# `DOM_SINIRI` 3.400, yani pay 683. `UYARI_PAYI` 500 oldugu icin
-# 400'den buyuk bir sinir sayfayi DOGUSTAN uyari bolgesine sokar;
-# yani sinir kendi amacini yemis olur.
+# UST SINIR 258 NASIL SECILDI:
+#     40 kart x 20 oge              =   800
+#     (SINIR - 40) arsiv satiri x 4
+#     sabit yuk                     =   477
+#     BETIK PAYI                    =   750
+#
+# Yani sunulan sayi 1.277 + 4 x (SINIR - 40), islenmis sayi onun
+# 750 fazlasi. Uyari bolgesinin disinda kalmak icin
+# (`DOM_SINIRI - UYARI_PAYI` = 2.900):
+#
+#     1.277 + 4 x (SINIR - 40) + 750 <= 2.900   ->   SINIR <= 258
+#
+# UST SINIR 400'DEN 258'E INDI VE SEBEBI OLCUM (2026-11-01):
+# `test_dom_agirligi.dom_sayisi` SUNULAN HTML'i sayiyor, oysa
+# Lighthouse ISLENMIS DOM'u olcuyor. Fark gercek Chrome'da olculdu
+# ve en agir sayfada 741 oge cikti (gerekce `BETIK_PAYI` uzerinde).
+# Eski hesapla 400 "guvenli" gorunuyordu; islenmis olcuyle
+# 400 -> 3.467 oge, yani `DOM_SINIRI`nin (3.400) USTUNDE.
+#
+# Duzeltilmis olcum, ona DAYANAN siniri da duzeltmeli: iki yerde
+# ayri kalsaydi, biri digerinin varsayimini sessizce curutur.
+# Yururlukteki deger 240 ve yeni sinirin ALTINDA, yani bu
+# daraltma hicbir seyi kirmiyor.
 #
 # ALT SINIR 50: `test_dom_agirligi.py` hub iddiasi sayfanin en az
 # 200 analiz baglantisi tasimasini istiyor, yani 200'un altindaki
 # bir sinir O iddiayi zaten dusurur. 50, bu iddianin isini "ucu
 # acik olmasin" ile sinirli tutuyor; asil koruma orada.
-esit(50 <= SINIR <= 400, True,
-     f"sinir makul aralikta ({SINIR}; 50-400)")
+# UST SINIR HESAPLANIYOR, YAZILMIYOR.
+#
+# Ilk yazimda sayi (400, sonra 258) ELLE yaziliydi ve mutasyon onu
+# KACIRDI: siniri gevsetmek yururlukteki degeri (240) etkilemiyor,
+# yani iddia yesil kaliyordu. Daha kotusu, elle yazilan sayi
+# dayandigi olcumden sessizce AYRILIR -- `BETIK_PAYI` eklendigi gun
+# 400 artik guvenli degildi ama sayi oldugu yerde duruyordu.
+#
+# Simdi ucu de kaynagindan okunuyor ve sinir yukaridaki aritmetikten
+# TURETILIYOR.
+_dom_kaynak = (_SITE / "test_dom_agirligi.py").read_text(encoding="utf-8")
+
+
+def _sabit(ad: str) -> int:
+    m = re.search(r"^" + ad + r" = (\d+)", _dom_kaynak, re.M)
+    esit(m is not None, True, f"{ad} `test_dom_agirligi.py`de bulundu")
+    return int(m.group(1))
+
+
+_ESIK = _sabit("DOM_SINIRI")
+_UYARI = _sabit("UYARI_PAYI")
+_PAY = _sabit("BETIK_PAYI")
+esit(_PAY > 0, True, f"betik payi sifir degil ({_PAY})")
+
+#: Sayfanin sabit yuku ve oge basina maliyeti -- olculdu (2026-10-26).
+_SABIT_YUK, _KART, _KART_OGE, _SATIR_OGE = 477, 40, 20, 4
+_UST = _KART + max(0, (_ESIK - _UYARI - _PAY - _SABIT_YUK
+                       - _KART * _KART_OGE)) // _SATIR_OGE
+print(f"  ust sinir {_UST} (esik {_ESIK} - uyari {_UYARI} "
+      f"- betik {_PAY} - sabit yuk {_SABIT_YUK} - kart yuku "
+      f"{_KART * _KART_OGE}, satir basina {_SATIR_OGE})")
+esit(50 <= SINIR <= _UST, True,
+     f"sinir makul aralikta ({SINIR}; 50-{_UST})")
+# ATILLIK: ust sinir gercekten bir seyi kisitliyor mu? Cok buyuk
+# cikarsa iddia hicbir sey soylemez.
+esit(_UST < 1000, True, f"ust sinir anlamli bir kisit ({_UST})")
+
+# MODEL GERCEK SAYFAYLA DOGRULANIYOR.
+#
+# Yukaridaki sabitler sayfanin bir MODELI ve model yanlissa turetilen
+# sinir da yanlis olur. Mutasyon bunu gosterdi: satir maliyeti 4 ->
+# 1 yapildiginda ust sinir 258'den 1.032'ye cikti ve hicbir iddia
+# kirmizi donmedi -- sinir "turetildi" ama dayanagi olculmemisti.
+#
+# Olcut HUB SAYFASININ KENDISI: model o sayfanin sunulan oge
+# sayisini tahmin ediyor; tahmin ile olcum ayrisirsa sabitler artik
+# sayfayi anlatmiyor.
+_hub = _CIKTI / "makro" / "index.html"
+if _hub.exists():
+    _etiket_on = re.compile(r"<([a-zA-Z][a-zA-Z0-9-]*)")
+    _olculen = len(_etiket_on.findall(
+        _hub.read_text(encoding="utf-8", errors="replace")))
+    _tahmin = (_SABIT_YUK + _KART * _KART_OGE
+               + max(0, SINIR - _KART) * _SATIR_OGE)
+    _sapma = abs(_tahmin - _olculen)
+    print(f"  model: /makro/ tahmin {_tahmin}, olculen {_olculen}, "
+          f"sapma {_sapma}")
+    # TOLERANS %12: model kaba ve olmali -- amac tam sayi degil,
+    # sabitlerin sayfadan KOPMADIGINI gormek.
+    esit(_sapma <= max(60, _olculen * 12 // 100), True,
+         f"maliyet modeli gercek sayfayla uyusuyor "
+         f"(tahmin {_tahmin}, olculen {_olculen})")
+else:                                                  # pragma: no cover
+    print("  (makro hub sayfasi yok -- model dogrulamasi atlandi)")
 
 # BLOK PARANTEZ DENGELENEREK CIKARILIYOR.
 #
@@ -232,25 +308,36 @@ for _slug in _sluglar:
          f"/{_slug}/ yazdigi toplam ({_t.group(1)}) arsivdeki sayiyla ayni")
 
 print("\n4) Arsiv sayfasi DOM esiginin altinda")
-# ESIK KOPYALANMIYOR: `test_dom_agirligi.py`den okunuyor.
-_dom = (_SITE / "test_dom_agirligi.py").read_text(encoding="utf-8")
-# ADI DOGRUDAN ARANIYOR. Ilk yazimda desen ESIK|TAVAN ariyordu,
-# sabitin adi ise `DOM_SINIRI` -- eslesmedi ve yedek desen
-# ("dosyadaki ilk dort haneli sayi") devreye girdi. Dogru degeri
-# buldu ama RASTGELE: dosyaya baska bir dort haneli sayi eklendigi
-# gun sessizce yanlis esigi okurdu.
-_me = re.search(r"^DOM_SINIRI = (\d+)", _dom, re.M)
-esit(_me is not None, True, "DOM esigi okundu")
-_ESIK = int(_me.group(1))
+# ESIK VE BETIK PAYI KOPYALANMIYOR: ikisi de yukarida
+# `test_dom_agirligi.py`den OKUNDU (`_sabit`). Burada ikinci kez
+# okumak, ayni degeri iki desenle aramak demekti -- desenlerden biri
+# degistigi gun ikisi sessizce ayrisirdi.
+#
+# ADI DOGRUDAN ARANIYOR (bkz. `_sabit`). Ilk yazimda desen
+# ESIK|TAVAN ariyordu, sabitin adi ise `DOM_SINIRI` -- eslesmedi ve
+# yedek desen ("dosyadaki ilk dort haneli sayi") devreye girdi.
+# Dogru degeri buldu ama RASTGELE.
+#
+# OLCUT ISLENMIS DOM: sunulan sayiyla karsilastirmak, okurun
+# odemedigi bir buyuklugu korumak olurdu.
 _etiket = re.compile(r"<([a-zA-Z][a-zA-Z0-9-]*)")
 for _slug in _sluglar:
     _ap = _CIKTI / _slug / "arsiv" / "index.html"
     if not _ap.exists():
         continue
-    _n = len(_etiket.findall(_ap.read_text(encoding="utf-8",
-                                           errors="replace")))
+    _ham = len(_etiket.findall(_ap.read_text(encoding="utf-8",
+                                             errors="replace")))
+    _n = _ham + _PAY
     _pay = _ESIK - _n
-    print(f"  /{_slug}/arsiv/ {_n} oge, pay {_pay} (esik {_ESIK})")
+    print(f"  /{_slug}/arsiv/ islenmis {_n} oge "
+          f"(sunulan {_ham} + betik {_PAY}), pay {_pay} (esik {_ESIK})")
+    # KARSILASTIRILAN SAYI GERCEKTEN ISLENMIS SAYI MI.
+    #
+    # Mutasyon bunu KACIRDI: pay eklenmese de `_n < _ESIK` dogru
+    # kaliyordu, yani iddia payin uygulandigini HIC olcmuyordu.
+    # Olculen deger kullanilmazsa olculmemis sayilir.
+    esit(_n - _ham, _PAY, f"/{_slug}/arsiv/ karsilastirilan sayi "
+                          f"betik payini ICERIYOR")
     esit(_n < _ESIK, True, f"/{_slug}/arsiv/ esigin altinda")
 
 print(f"\nTUM TESTLER GECTI ({_gecti})")
