@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %24,2 artması, FAVÖK'ün %76,5 yükselmesine paralel olarak faaliyet kârının negatiften pozitif seviyeye geçmesini sağladı; aynı zamanda net kârın da önceki dönemdeki negatiften %13,8'lik net kâr marjıyla pozitif 0,09 milyar TL'ye çıkması, brüt kâr marjının %6,4 seviyesinde sabit kalmasıyla birlikte kârlılık oranlarının sektör medyanlarının üzerindeki konumunu pekiştirdi. Net borçtaki 0,46 milyar TL tutarı, özkaynak 2,53 milyar TL ve borç/özkaynak oranının %0,18 olması, sektör medyanı %0,19 ile karşılaştırıldığında likiditeyi destekleyen düşük finansal risk profilini gösterirken, cari oranının 1,53 olması da sektör medyanı 1,36'nın üzerinde kısa vadeli yükümlülükleri karşılama kapasitesini yansıtıyor. Faaliyet nakit akışının önceki dönemde –0,17 milyar TL'den 0,09 milyar TL'ye dönüşü, yatırım harcamasının %17,3 azalarak 0,05 milyar TL'ye gerilemesiyle birlikte, artan operasyonel kârlılık ve daha düşük sermaye çıkışı arasındaki dengeyi ortaya koyuyor.
+Hasılatın %24,2 artması, FAVÖK'ün %76,5 yükselmesine paralel olarak faaliyet kârının negatiften pozitif seviyeye geçmesini sağladı; aynı zamanda net kârın da önceki dönemdeki negatiften %13,8'lik net kâr marjıyla pozitif 0,09 milyar TL'ye çıkması, brüt kâr marjının %6,4 seviyesinde sabit kalmasıyla birlikte kârlılık oranlarının sektör medyanlarının üzerindeki konumunu pekiştirdi. Net borçtaki 0,46 milyar TL tutarı, özkaynak 2,53 milyar TL ve borç/özkaynak oranının %0,18 olması, sektör medyanı %0,19 ile karşılaştırıldığında likiditeyi destekleyen düşük finansal risk profilini gösterirken, cari oranının 1,53 olması da sektör medyanı 1,36'nın üzerinde kısa vadeli yükümlülükleri karşılama kapasitesini yansıtıyor. Faaliyet nakit akışının önceki dönemde –0,17 milyar TL'den 0,09 milyar TL'ye dönüşü, yatırım harcamasının %17,3 azalarak 0,05 milyar TL'ye gerilemesiyle birlikte, artan operasyonel kârlılık ve daha düşük sermaye çıkışı arasındaki dengeyi ortaya koyuyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
@@ -28,6 +28,7 @@ Hasılatın %24,2 artması, FAVÖK'ün %76,5 yükselmesine paralel olarak faaliy
 | Brüt kâr | -%2,1 |
 | FAVÖK | %76,5 |
 | Yatırım harcaması | -%17,3 |
+| Finansman gideri | -%35,6 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -42,9 +43,13 @@ Hasılatın %24,2 artması, FAVÖK'ün %76,5 yükselmesine paralel olarak faaliy
 | Net kâr | 0,09 milyar TL |
 | Özkaynak | 2,53 milyar TL |
 | Aktif toplamı | 4,22 milyar TL |
+| Ticari alacaklar | 0,64 milyar TL |
+| Stoklar | 1,11 milyar TL |
 | Net borç | 0,46 milyar TL |
 | Faaliyet nakit akışı | 0,09 milyar TL |
 | Yatırım harcaması | 0,05 milyar TL |
+| Serbest nakit akışı | 0,04 milyar TL |
+| Finansman gideri | 0,05 milyar TL |
 
 ## Son dört dönem
 
@@ -57,9 +62,13 @@ Hasılatın %24,2 artması, FAVÖK'ün %76,5 yükselmesine paralel olarak faaliy
 | Net kâr | 0,09 | 0,00 | -0,01 | 0,01 |
 | Özkaynak | 2,53 | 2,28 | — | 2,21 |
 | Aktif toplamı | 4,22 | 3,98 | — | — |
+| Ticari alacaklar | 0,64 | 0,62 | — | — |
+| Stoklar | 1,11 | 1,01 | — | — |
 | Net borç | 0,46 | 0,46 | — | 0,29 |
 | Faaliyet nakit akışı | 0,09 | 0,02 | -0,17 | 0,01 |
 | Yatırım harcaması | 0,05 | 0,13 | 0,06 | 0,05 |
+| Serbest nakit akışı | 0,04 | -0,10 | -0,23 | -0,04 |
+| Finansman gideri | 0,05 | 0,03 | 0,08 | 0,03 |
 
 *Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
 

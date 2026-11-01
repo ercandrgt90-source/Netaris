@@ -31,8 +31,12 @@ Hasılat gerilerken brüt kâr yükseldi; bu ayrışma brüt kâr marjını sekt
 | Net kâr | -%210,5 |
 | Özkaynak | %102,9 |
 | Aktif toplamı | %125,2 |
+| Ticari alacaklar | %1146,7 |
+| Stoklar | %226,0 |
 | Faaliyet nakit akışı | -%167,3 |
 | Yatırım harcaması | %92112,5 |
+| Serbest nakit akışı | -%254,4 |
+| Finansman gideri | %36650,0 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -47,9 +51,13 @@ Hasılat gerilerken brüt kâr yükseldi; bu ayrışma brüt kâr marjını sekt
 | Net kâr | -0,13 milyar TL |
 | Özkaynak | 16,92 milyar TL |
 | Aktif toplamı | 20,35 milyar TL |
+| Ticari alacaklar | 0,29 milyar TL |
+| Stoklar | 6,75 milyar TL |
 | Net borç | -0,39 milyar TL |
 | Faaliyet nakit akışı | -0,11 milyar TL |
 | Yatırım harcaması | 0,15 milyar TL |
+| Serbest nakit akışı | -0,26 milyar TL |
+| Finansman gideri | 0,01 milyar TL |
 
 ## Son dört dönem
 
@@ -62,23 +70,27 @@ Hasılat gerilerken brüt kâr yükseldi; bu ayrışma brüt kâr marjını sekt
 | Net kâr | -0,13 | -0,12 | -0,80 | 0,04 |
 | Özkaynak | 16,92 | 15,93 | 14,58 | 9,01 |
 | Aktif toplamı | 20,35 | 19,10 | 17,39 | 9,78 |
+| Ticari alacaklar | 0,29 | 0,31 | 0,30 | 0,00 |
+| Stoklar | 6,75 | 6,31 | 5,77 | 2,17 |
 | Net borç | -0,39 | -0,70 | -0,46 | -0,88 |
 | Faaliyet nakit akışı | -0,11 | 0,26 | 1,01 | 0,09 |
 | Yatırım harcaması | 0,15 | 0,00 | 0,06 | 0,00 |
+| Serbest nakit akışı | -0,26 | 0,26 | 0,95 | 0,09 |
+| Finansman gideri | 0,01 | 0,02 | 0,00 | 0,00 |
 
 *Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
 
 ## Sektör içindeki konum
 
-Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 34 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 31 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %73,7 | %51,4 |
-| Net kâr marjı | -%56,6 | %15,8 |
+| Brüt kâr marjı | %73,7 | %62,2 |
+| Net kâr marjı | -%56,6 | %15,4 |
 | Özkaynak kârlılığı | -%0,8 | %0,5 |
-| Cari oran | 22,46 | 5,25 |
-| Borç / özkaynak | -0,02 | 0,02 |
+| Cari oran | 22,46 | 7,31 |
+| Borç / özkaynak | -0,02 | 0,00 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

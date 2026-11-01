@@ -28,7 +28,10 @@ Hasılatın %66,6 düşmesi, brüt kârın aynı seviyede kalması ve %16,7 artm
 | Brüt kâr | %16,7 |
 | Özkaynak | %17,7 |
 | Aktif toplamı | %17,7 |
+| Ticari alacaklar | -%40,4 |
+| Stoklar | %138,9 |
 | Yatırım harcaması | %23,4 |
+| Finansman gideri | %31,6 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -43,9 +46,13 @@ Hasılatın %66,6 düşmesi, brüt kârın aynı seviyede kalması ve %16,7 artm
 | Net kâr | 0,05 milyar TL |
 | Özkaynak | 8,59 milyar TL |
 | Aktif toplamı | 11,58 milyar TL |
+| Ticari alacaklar | 0,95 milyar TL |
+| Stoklar | 0,41 milyar TL |
 | Net borç | 0,10 milyar TL |
 | Faaliyet nakit akışı | 0,14 milyar TL |
 | Yatırım harcaması | 0,13 milyar TL |
+| Serbest nakit akışı | 0,01 milyar TL |
+| Finansman gideri | 0,01 milyar TL |
 
 ## Son dört dönem
 
@@ -58,22 +65,26 @@ Hasılatın %66,6 düşmesi, brüt kârın aynı seviyede kalması ve %16,7 artm
 | Net kâr | 0,05 | -0,16 | -0,26 | -0,16 |
 | Özkaynak | 8,59 | 7,94 | 7,37 | 7,65 |
 | Aktif toplamı | 11,58 | 10,44 | 9,60 | 10,72 |
+| Ticari alacaklar | 0,95 | 0,71 | 0,56 | 2,02 |
+| Stoklar | 0,41 | 0,22 | 0,11 | 0,20 |
 | Net borç | 0,10 | 0,04 | -0,23 | -0,43 |
 | Faaliyet nakit akışı | 0,14 | -0,15 | -0,64 | -0,14 |
 | Yatırım harcaması | 0,13 | 0,07 | 0,14 | 0,06 |
+| Serbest nakit akışı | 0,01 | -0,22 | -0,78 | -0,20 |
+| Finansman gideri | 0,01 | 0,01 | 0,00 | 0,00 |
 
 *Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
 
 ## Sektör içindeki konum
 
-Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 68 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 67 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %9,5 | %20,8 |
-| Net kâr marjı | %15,1 | %1,3 |
+| Brüt kâr marjı | %9,5 | %21,6 |
+| Net kâr marjı | %15,1 | %1,2 |
 | Özkaynak kârlılığı | %0,6 | %0,3 |
-| Cari oran | 2,63 | 1,32 |
+| Cari oran | 2,63 | 1,38 |
 | Borç / özkaynak | 0,01 | 0,17 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*

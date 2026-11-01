@@ -25,11 +25,10 @@ Hasılatın 0,06 milyar TL'den 0,10 milyar TL'ye yükselmesi, net kârın -0,97 
 | Kalem | Reel değişim |
 | --- | ---: |
 | Hasılat | %98,4 |
-| Net kâr | %86,4 |
 | Özkaynak | %74,7 |
 | Aktif toplamı | %42,5 |
-| Net borç | %19,7 |
-| Faaliyet nakit akışı | %53,0 |
+| Ticari alacaklar | %139,3 |
+| Finansman gideri | %350,0 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -41,18 +40,35 @@ Hasılatın 0,06 milyar TL'den 0,10 milyar TL'ye yükselmesi, net kârın -0,97 
 | Net kâr | -0,03 milyar TL |
 | Özkaynak | 28,80 milyar TL |
 | Aktif toplamı | 31,37 milyar TL |
+| Ticari alacaklar | 0,41 milyar TL |
 | Net borç | -0,94 milyar TL |
 | Faaliyet nakit akışı | -0,30 milyar TL |
+| Finansman gideri | 0,00 milyar TL |
+
+## Son dört dönem
+
+| Kalem (milyar TL) | 2026 2. çeyrek | 2026 1. çeyrek | 2025 4. çeyrek | 2025 3. çeyrek |
+| --- | ---: | ---: | ---: | ---: |
+| Hasılat | 0,06 | 0,04 | 0,07 | 0,10 |
+| Net kâr | -0,03 | 4,73 | 2,04 | -0,55 |
+| Özkaynak | 28,80 | 26,34 | 20,01 | 17,16 |
+| Aktif toplamı | 31,37 | 28,65 | 26,09 | 22,93 |
+| Ticari alacaklar | 0,41 | 0,39 | 0,39 | 0,40 |
+| Net borç | -0,94 | -1,05 | -1,15 | -1,10 |
+| Faaliyet nakit akışı | -0,30 | -0,31 | -0,25 | -0,48 |
+| Finansman gideri | 0,00 | 0,00 | — | — |
+
+*Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
 
 ## Sektör içindeki konum
 
-Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 34 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 31 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Net kâr marjı | -%51,7 | %15,8 |
+| Net kâr marjı | -%51,7 | %15,4 |
 | Özkaynak kârlılığı | -%0,1 | %0,5 |
-| Borç / özkaynak | -0,03 | 0,02 |
+| Borç / özkaynak | -0,03 | 0,00 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

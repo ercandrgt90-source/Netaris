@@ -1,0 +1,141 @@
+{
+ "aciklama": "Reddedilen bilanco AI yorumlari; en yeni kayitlar sonda.",
+ "sinir": 80,
+ "kayitlar": [
+  {
+   "kod": "GARFA",
+   "unvan": "GARANTİ FAKTORİNG A.Ş.",
+   "donem": "2026 3. çeyrek",
+   "neden": "girdide olmayan sayi: 54",
+   "model": "@cf/openai/gpt-oss-120b",
+   "ham": "Hasılat, faaliyet kârı, FAVÖK ve net kâr aynı dönemde %51-%54 arasında artış gösterirken özkaynak da %62,3 artarak aktif toplamının %110,4 yükselişiyle paralel bir büyüme izledi; bu artışların birlikte gerçekleşmesi, net kâr marjının %63,6 ile sektör medyanının %26,0 seviyesinin çok üzerinde olmasını sağladı. Net borçta %118,4 artış, aktif toplamındaki %110,4 artışa yakın bir oranda gerçekleşti ve borç/özkaynak oranının %6,44'a yükselmesi, özkaynak artışının gerisinde kaldı. Faaliyet nakit akışı %85,7 artarak kârlılık göstergeleriyle uyumlu bir yükseliş sergiledi, ancak artan borç seviyesi bu nakit akışının özkaynak artışına kıyasla daha sınırlı kalmasına işaret ediyor.",
+   "an": "2026-11-01T13:38:51+00:00"
+  },
+  {
+   "kod": "RNPOL",
+   "unvan": "RAİNBOW POLİKARBONAT SANAYİ TİCARET A.Ş.",
+   "donem": "2026 2. çeyrek",
+   "neden": "girdide olmayan sayi: 12",
+   "model": "@cf/openai/gpt-oss-120b",
+   "ham": "Hasılatın %25,0 artması, aktif toplamının %61,8 yükselmesiyle birlikte özkaynakta %25,6 artışa yol açarken, brüt kârın %25,9 düşmesi brüt kâr marjının %15,3 seviyesinde kalmasını sağladı; bu durum, net kârın %3611,1 artarak %23,7'ye yükselmesi ve özkaynak kârlılığının %11,3 olmasıyla, sektör medyanlarının çok üzerinde bir kârlılık profili oluşturdu. Net borçtaki %48,9 artış, borç/özkaynak oranının %0,72'ye (sektör medyanı %0,19) yükselmesine neden olurken, cari oran %1,44 (sektör medyanı 1,36) ile likidite seviyesini korudu. Faaliyet nakit akışının -%12,0 milyar TL'ye (önceki -%0,05 milyar TL) gerilemesi, yatırım harcamasının %74,9 düşmesiyle birlikte sermaye harcamalarının sınırlı kalmasına",
+   "an": "2026-11-01T13:39:17+00:00"
+  },
+  {
+   "kod": "AVOD",
+   "unvan": "A.V.O.D. KURUTULMUŞ GIDA VE TARIM ÜRÜNLERİ SANAYİ TİCARET A.Ş.",
+   "donem": "2026 2. çeyrek",
+   "neden": "girdide olmayan sayi: 30",
+   "model": "@cf/openai/gpt-oss-120b",
+   "ham": "Hasılatın %31,2 düşmesi brüt kârın %90,7 gerilemesine ve sonuçta faaliyet kârının -%159,3 azalmasına yol açtı; bu kâr erozyonu FAVÖK'ün -%123,6 düşmesi ve net kârın -%30,0 daha da kötüleşmesiyle birleşti. Özkaynak ve aktif toplamının sırasıyla %20,4 ve %22,8 artması bilanço büyüklüğünü yükseltirken, net borçtaki %4,9 artış borç/özkaynak oranını sektör medyanının %0,28 üzerindeki 0,53 seviyesine taşıdı. Faaliyet nakit akışının %1212,2 artması özkaynak kârlılığı ve net kâr marjının sektör medyanının çok altında kalmasına rağmen likiditeyi destekleyerek cari oranı 1,11 seviyesine yükseltti.",
+   "an": "2026-11-01T13:39:47+00:00"
+  },
+  {
+   "kod": "BALSU",
+   "unvan": "BALSU GIDA SANAYİ VE TİCARET A.Ş.",
+   "donem": "2026 2. çeyrek",
+   "neden": "cop cikti: model dusunme kanali sizmis: 'analysis'",
+   "model": "@cf/openai/gpt-oss-120b",
+   "ham": "analysis: need produce 3 sentences linking movements. Use given numbers only. Avoid prohibited words. Provide relationship between items.<|end|><|start|>assistantfinal: **...**<|end|><|start|>assistantanalysis: need to establish relationships between items: e's increase/decrease etc. 3 sentences max. Avoid prohibited words like strong etc strong? \" strong\" prohibited? \" strong\" is prohibited? list includes \" strong\" yes prohibited. also \" good etc. Avoid adjectives. just factual relationships. 3 sentences. Let's craft: When revenue decreased by %18,8, br profit decreased by %31, net profit decreased by %56. asset increase %62 while debt increased %38 etc. Also margins higher than sector medi",
+   "an": "2026-11-01T13:39:53+00:00"
+  },
+  {
+   "kod": "SANFM",
+   "unvan": "SANİFOAM ENDÜSTRİ VE TÜKETİM ÜRÜNLERİ SANAYİ TİCARET A.Ş.",
+   "donem": "2026 2. çeyrek",
+   "neden": "girdide olmayan sayi: 65, 44",
+   "model": "@cf/openai/gpt-oss-120b",
+   "ham": "Hasılatın %3,7 artması, özkaynakların %34,8 yükselmesiyle birlikte aktif toplamının %25,4 artmasına yol açarken, brüt kâr, faaliyet kârı, FAVÖK ve net kârda %65-%44 arasında düşüşler görülmüş; bu düşüşler, brüt kâr marjının %15,9 seviyesinde sektör medyanının (%16,5) altında kalmasına ve net kâr marjının %6,2 ile sektör ortalamasının (%0,2) çok üzerinde olmasına rağmen kârlılık oranlarının (%3,1 özkaynak kârlılığı) düşük kalmasına yansımıştır. Net borçtaki %58,8 artış, borç/özkaynak oranının %0,74'ye (sektör medyanı %0,28) yükselmesine sebep olurken, cari oran %1,63 (sektör medyanı 1,36) ile likiditeyi bir ölçüde korumuştur. Faaliyet nakit akışının negatiften pozitif (+0,11 milyar TL) dönmes",
+   "an": "2026-11-01T13:41:21+00:00"
+  },
+  {
+   "kod": "IHYAY",
+   "unvan": "İHLAS YAYIN HOLDİNG A.Ş.",
+   "donem": "2026 2. çeyrek",
+   "neden": "girdide olmayan sayi: 14",
+   "model": "@cf/openai/gpt-oss-120b",
+   "ham": "Hasılatın %3,8 düşmesi, brüt kârın %60,4 artmasıyla birlikte brüt kâr marjının %11,5 seviyesinde kalmasına yol açtı; bu artış, faaliyet kârının -%14,0'den -%14,0'ye (düşüş miktarı azaldı) ve FAVÖK'ün -%8,0'den -%8,0'ye (zarar daraldı) yansıdı. Özkaynakların %25,0 artması ve aktif toplamının %20,4 yükselmesi, net borcun önceki dönemde negatif iken +%0,31'e çıkmasıyla birlikte cari oranı 2,00'ye (sektör medyanının 1,03'ünden yüksek) ve borç/özkaynak oranını %0,08'e (sektör medyanıyla eşit) sabitledi. Faaliyet nakit akışı -%0,61'e (önceki -%0,05) ve yatırım harcamasının %81,2 artması (0,04 milyar TL) arasında bir artış ilişkisi bulunuyor.",
+   "an": "2026-11-01T13:41:36+00:00"
+  },
+  {
+   "kod": "ATEKS",
+   "unvan": "AKIN TEKSTİL A.Ş.",
+   "donem": "2026 2. çeyrek",
+   "neden": "girdide olmayan sayi: 66.7, 71.4, 55.6",
+   "model": "@cf/openai/gpt-oss-120b",
+   "ham": "Hasılatın %64,3 düşmesi brüt kârın hâlâ %43,6 gibi sektör ortalamasının çok üzerinde bir marjda kalmasına yol açtı; bu yüksek marj, faaliyet ve FAVÖK kayıplarının (sırasıyla -%55,6 ve -%66,7) hâlâ negatif seyretmesine rağmen kârın daha da azalmasını engelledi. Özkaynak ve aktif toplamının %143,1 ve %109,2 artması, özkaynak/kârlılık oranının -%1,5 seviyesinde kalmasına rağmen cari oranı 3,33'e yükselterek likiditeyi güçlendirdi; aynı zamanda borç/özkaynak oranının %0,05 (sektör medyanı %0,19) altında kalması bilanço yapısını destekledi. Faaliyet nakit akışının -%71,4 iyileşmesi (-0,04 milyar TL) yatırım harcamasının sıfır olmasıyla birleşince, negatif net kâr (-%144,7) ve özkaynak kârlılığı ü",
+   "an": "2026-11-01T13:42:05+00:00"
+  },
+  {
+   "kod": "BRKO",
+   "unvan": "BİRKO BİRLEŞİK KOYUNLULULAR MENSUCAT TİCARET VE SANAYİ A.Ş.",
+   "donem": "2026 2. çeyrek",
+   "neden": "girdide olmayan sayi: 4600, 300, 50, 190",
+   "model": "@cf/openai/gpt-oss-120b",
+   "ham": "Hasılat, brüt kâr ve FAVÖK tümü %300'un üzerindeki reel artışlarla birlikte yükselirken, net kâr hâlâ negatif kalmış; bu, faaliyet kârının önceki dönemdeki negatif değerinden pozitif 0,02 milyar TL'ye çıkmasıyla açıklanabilir. Özkaynak ve aktif toplamı %50-%190 arasında artarken net borç %4600'in üzerindeki artışı, cari oranı %0,55 seviyesine düşürmüş ve likiditeyi zorlamıştır; borç/özkaynak oranı ise sektörel medyanın iki katı %0,34'e yükselmiştir. Brüt kâr marjı %42,4 ile sektör medyanının çok üzerinde kalırken, net kâr marjı –%0,9 ve özkaynak kârlılığı –%0,0 negatif kalmış, bu da yüksek kârlılık oranlarının kârlı sonuçlara tam olarak yansımadığını gösterir.",
+   "an": "2026-11-01T13:42:29+00:00"
+  },
+  {
+   "kod": "ISSEN",
+   "unvan": "İŞBİR SENTETİK DOKUMA SANAYİ A.Ş.",
+   "donem": "2026 2. çeyrek",
+   "neden": "cop cikti: model dusunme kanali sizmis: 'analysis'",
+   "model": "@cf/openai/gpt-oss-120b",
+   "ham": "analysis: need produce final answer with up... 3 sentences max, Turkish, describing relationships between items using given numbers only. Avoid prohibited words. Must use percentages etc as given. Provide analysis of relationships: e.g net profit margin vs sector median etc. Provide three sentences max.<|end|><|start|>assistantfinal: ** analysis: need to obey rules: no adjectives like good etc. Must use only given numbers. no predictions etc. Provide up to  ISSEN relationships between items: e.g net profit margin %13,4 compared to sector median %0, Borç/ özkay kaynak 0,52 vs median 0, Aktı... etc. Provide three sentences max. Ensure no prohibited words like \" strong etc. Use \" higher than\" a",
+   "an": "2026-11-01T13:43:53+00:00"
+  },
+  {
+   "kod": "MARTI",
+   "unvan": "MARTI OTEL İŞLETMELERİ A.Ş.",
+   "donem": "2026 2. çeyrek",
+   "neden": "girdide olmayan sayi: 300",
+   "model": "@cf/openai/gpt-oss-120b",
+   "ham": "Hasılatın %3,0 düşmesi brüt kârın %63,9 azalmasına eşlik eder; brüt kârdaki bu keskin düşüş faaliyet kârının -%300'den fazla artarak -0,20 milyar TL'ye (önceki -0,05 milyar TL) yükselmesine ve sonuçta net kârın -%213,8 gerilemesiyle -0,10 milyar TL'ye (önceki 0,09 milyar TL) dönüşmesine yol açtı. Özkaynak ve aktif toplamının sırasıyla %35,4 ve %33,2 artması özkaynak/karlılık oranlarını negatif tutarken, net borçta %0,4 azalma ve cari oranın 0,12'ye (sektör medyanı 1,28) gerilemesi likiditeyi daha da zorlaştırdı. Borç/özkaynak oranının %0,28'e (sektör medyanı 0,19) yükselmesi, artan özkaynak ve aktif büyüklüğüne rağmen finansal kaldıraçta sektöre göre daha yüksek bir seviyeyi gösteriyor.",
+   "an": "2026-11-01T13:44:14+00:00"
+  },
+  {
+   "kod": "PATEK",
+   "unvan": "PASİFİK TEKNOLOJİ A.Ş.",
+   "donem": "2026 2. çeyrek",
+   "neden": "girdide olmayan sayi: 69.2, 44.4, 83.9",
+   "model": "@cf/openai/gpt-oss-120b",
+   "ham": "Hasılatın %20,5 düşmesi brüt kârın sıfıra çıkmasına ve faaliyet kârının -%44,4 azalmasına yol açarken, aynı dönemde özkaynakların %241,3 artması aktif toplamındaki %40,7 yükselişi desteklemiş; bu büyüme net borcun negatif değerinin -%69,2 artmasıyla birlikte şirketin likiditesini artırarak cari oranı %83,9 yükseltmiş. Net kârın -%200,5 değişimi ve negatif FAVÖK, faaliyet nakit akışının -%204,4 gerilemesiyle paralel seyretmiş, bu da net kâr marjının -%77,1 ve özkaynak kârlılığının -%7,8 seviyelerine düşmesine neden olmuş. Yatırım harcamasındaki %114,1 artış, aktif büyümesinin bir parçası olarak özkaynak artışıyla birlikte gerçekleşmiş, ancak borç/özkaynak oranının negatif kalması sektörel med",
+   "an": "2026-11-01T13:44:20+00:00"
+  },
+  {
+   "kod": "BASGZ",
+   "unvan": "BAŞKENT DOĞALGAZ DAĞITIM GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.",
+   "donem": "2026 2. çeyrek",
+   "neden": "girdide olmayan sayi: 140.9",
+   "model": "@cf/openai/gpt-oss-120b",
+   "ham": "Hasılatın %10,9 artması net kârın %63,1 yükselmesine ve özkaynakların %42,5 artmasına paralel olarak, aktif toplamındaki %36,5 artışla birlikte şirketin büyüklüğü genişledi; bu büyüme net borcun -%140,9 (-2,24 bn TL) seviyesine derinleşmesiyle finansal kaldıraçta negatif bir hareketi yansıttı. Net kâr marjı %10,0 seviyesinde sektör medyanının %11,4 altında kalırken, özkaynak kârlılığı %3,3 ile medyanın %1,0 üzerindedir; bu durum kâr artışının özkaynak verimliliğini artırdığını, fakat satış gelirine oranla kârın daha düşük kalmasını gösterir. Cari oran 0,28 ve borç/özkaynak -0,06 değerleri, sektör medyanı 0,90 ve 0,12 iken, likidite ve borç yapısının şirketin negatif net borçlu konumundan kay",
+   "an": "2026-11-01T13:45:17+00:00"
+  },
+  {
+   "kod": "ESEN",
+   "unvan": "ESENBOĞA ELEKTRİK ÜRETİM A.Ş.",
+   "donem": "2026 2. çeyrek",
+   "neden": "cop cikti: model dusunme kanali sizmis: 'analysis'",
+   "model": "@cf/openai/gpt-oss-120b",
+   "ham": "analysis: need to produce final answer with up. 3 sentences max, Turkish, describing relationships between items based liquidity/liability/li profitability profitability ratios etc. Use given numbers only. no new numbers. no evaluation words. Must avoid prohibited words like \" iyi etc. Also no predictions etc. Provide relationship: revenue down while assets up etc. 3 sentences max. Let's craft.<|end|><|start|>assistantfinal: ESEN's revenue decreased %13,0 while total assets grew %58, net debt ratio ( Bor Bor / özkay kaynak) rose from 012 to  current 0,23, indicating higher leverage despite asset expansion; simultaneously net profit margin worsened to -%147, equity return remained negative (-",
+   "an": "2026-11-01T13:48:40+00:00"
+  },
+  {
+   "kod": "ANELE",
+   "unvan": "ANEL ELEKTRİK PROJE TAAHHÜT VE TİCARET A.Ş.",
+   "donem": "2026 2. çeyrek",
+   "neden": "girdide olmayan sayi: 162.5",
+   "model": "@cf/openai/gpt-oss-120b",
+   "ham": "Hasılatın %86,3 düşmesi brüt kârın %42,4 gibi yüksek bir marjda kalmasına rağmen brüt kâr tutarının %162,5 artmasına (-0,08 bn'dan 0,13 bn'a) yol açtı; bu artış aynı zamanda faaliyet ve FAVÖK kayıplarının (-0,13 bn'dan -0,40 bn ve -0,39 bn'a) büyümesine, net kârın ise -0,09 bn'dan -1,84 bn'a sıçramasına neden oldu. Özkaynakların %71,7 azalması (2,73 bn'dan 0,77 bn'a) ve aktif toplamının %20,1 düşmesi (12,65 bn'dan 10,11 bn'a) net borcun %98,7 azalması (2,00 bn'dan 0,03 bn'a) ile birlikte cari oranı 1,06'ya, borç/özkaynak oranını ise 0,03'e çekti; bu da likiditeyi sınırlı tutarken borç yükünün sektörel medyanın çok altında kalmasını sağladı. Faaliyet nakit akışının %141,3 düşmesi (0,11 bn'dan",
+   "an": "2026-11-01T13:53:36+00:00"
+  },
+  {
+   "kod": "VSNMD",
+   "unvan": "VİŞNE MADENCİLİK ÜRETİM SANAYİ VE TİCARET A.Ş.",
+   "donem": "2026 2. çeyrek",
+   "neden": "girdide olmayan sayi: 133.3, 44.7",
+   "model": "@cf/openai/gpt-oss-120b",
+   "ham": "Hasılatın %4,5 düşmesi brüt kârın %13,7 azalmasına eşlik ederken, brüt kâr marjının %9,0 seviyesinde kalması sektör medyanı %14,1'in altında kalmasına yol açtı; bu durum net kâr marjının -%13,1 ve özkaynak kârlılığının -%1,2 olarak negatif seyretmesine neden oldu. Özkaynak ve aktif toplamının sırasıyla %29,5 ve %30,2 artması bilanço büyüklüğünü yükseltirken, net borcun -%44,7 (negatif borç) ve cari oranın 3,63'e (sektör medyanı 1,36) yükselmesi likiditeyi güçlendirdi. Faaliyet kârının -%133,3 artması ve FAVÖK'ün %83,9 düşmesi, faaliyet nakit akışının -%810,2 gerilemesiyle birlikte yatırım harcamasının %34,8 artmasına rağmen nakit çıkışının artmasına işaret etti.",
+   "an": "2026-11-01T13:57:21+00:00"
+  }
+ ]
+}

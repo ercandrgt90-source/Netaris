@@ -30,6 +30,8 @@ Hasılatın 4,37 milyar TL'den 3,79 milyar TL'ye düşmesi brüt kârın 0,87 mi
 | FAVÖK | -%72,5 |
 | Özkaynak | %0,7 |
 | Aktif toplamı | %9,9 |
+| Ticari alacaklar | -%18,6 |
+| Stoklar | %9,5 |
 | Net borç | -%19,0 |
 | Yatırım harcaması | %100,7 |
 
@@ -46,9 +48,12 @@ Hasılatın 4,37 milyar TL'den 3,79 milyar TL'ye düşmesi brüt kârın 0,87 mi
 | Net kâr | -0,14 milyar TL |
 | Özkaynak | 2,03 milyar TL |
 | Aktif toplamı | 6,11 milyar TL |
+| Ticari alacaklar | 1,72 milyar TL |
+| Stoklar | 1,54 milyar TL |
 | Net borç | 1,37 milyar TL |
 | Faaliyet nakit akışı | 0,14 milyar TL |
 | Yatırım harcaması | 0,02 milyar TL |
+| Serbest nakit akışı | 0,13 milyar TL |
 
 ## Son dört dönem
 
@@ -61,9 +66,13 @@ Hasılatın 4,37 milyar TL'den 3,79 milyar TL'ye düşmesi brüt kârın 0,87 mi
 | Net kâr | -0,14 | -0,07 | -0,31 | -0,07 |
 | Özkaynak | 2,03 | 2,03 | 1,90 | 2,11 |
 | Aktif toplamı | 6,11 | 5,86 | 5,95 | 5,65 |
+| Ticari alacaklar | 1,72 | 1,88 | 1,93 | 2,19 |
+| Stoklar | 1,54 | 1,22 | 1,16 | 1,50 |
 | Net borç | 1,37 | 1,41 | 1,31 | 1,94 |
 | Faaliyet nakit akışı | 0,14 | 0,02 | -0,45 | 0,75 |
 | Yatırım harcaması | 0,02 | 0,01 | 0,00 | 0,01 |
+| Serbest nakit akışı | 0,13 | 0,01 | -0,46 | 0,74 |
+| Finansman gideri | — | 0,06 | — | 0,09 |
 
 *Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
 
@@ -73,10 +82,10 @@ Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 67 şirketin **
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %22,5 | %20,7 |
-| Net kâr marjı | -%6,9 | %1,3 |
-| Özkaynak kârlılığı | -%6,8 | %0,4 |
-| Cari oran | 1,38 | 1,31 |
+| Brüt kâr marjı | %22,5 | %21,6 |
+| Net kâr marjı | -%6,9 | %1,2 |
+| Özkaynak kârlılığı | -%6,8 | %0,3 |
+| Cari oran | 1,38 | 1,38 |
 | Borç / özkaynak | 0,67 | 0,17 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*

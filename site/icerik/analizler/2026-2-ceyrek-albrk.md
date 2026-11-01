@@ -44,6 +44,7 @@ Hasılat düştükten sonra net kârda keskin bir azalma (%9,67'den %3,96'ya) ge
 | Net borç | 53,31 milyar TL |
 | Faaliyet nakit akışı | -32,50 milyar TL |
 | Yatırım harcaması | 0,30 milyar TL |
+| Serbest nakit akışı | -32,80 milyar TL |
 
 ## Son dört dönem
 
@@ -56,18 +57,19 @@ Hasılat düştükten sonra net kârda keskin bir azalma (%9,67'den %3,96'ya) ge
 | Net borç | 53,31 | 49,36 | 45,16 | 40,06 |
 | Faaliyet nakit akışı | -32,50 | -11,13 | -18,88 | -20,64 |
 | Yatırım harcaması | 0,30 | 1,26 | 1,11 | 0,42 |
+| Serbest nakit akışı | -32,80 | -12,39 | -19,99 | -21,05 |
 
 *Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
 
 ## Sektör içindeki konum
 
-Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 30 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 21 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Net kâr marjı | %34,7 | %14,7 |
-| Özkaynak kârlılığı | %8,2 | %5,4 |
-| Borç / özkaynak | 1,66 | -0,05 |
+| Net kâr marjı | %34,7 | %11,8 |
+| Özkaynak kârlılığı | %8,2 | %4,1 |
+| Borç / özkaynak | 1,66 | -0,03 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -77,7 +79,7 @@ Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 30 şirketin **
 
 - Hasılat reel olarak %63,6 arttı.
 - Net kâr reel olarak %68,8 arttı.
-- Özkaynak kârlılığı %8,2; sektör medyanı %5,4.
+- Özkaynak kârlılığı %8,2; sektör medyanı %4,1.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

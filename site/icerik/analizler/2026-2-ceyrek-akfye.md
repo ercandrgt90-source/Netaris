@@ -27,9 +27,12 @@ Hasılat 3,42 milyar TL'ye yükselirken net kâr 1,40 milyar TL'ye artmış, bu 
 | Hasılat | -%21,4 |
 | Özkaynak | %58,1 |
 | Aktif toplamı | %42,8 |
+| Ticari alacaklar | -%23,3 |
+| Stoklar | %20,1 |
 | Net borç | %17,1 |
 | Faaliyet nakit akışı | -%50,6 |
 | Yatırım harcaması | -%98,6 |
+| Finansman gideri | -%58,1 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -41,9 +44,13 @@ Hasılat 3,42 milyar TL'ye yükselirken net kâr 1,40 milyar TL'ye artmış, bu 
 | Net kâr | 0,89 milyar TL |
 | Özkaynak | 69,28 milyar TL |
 | Aktif toplamı | 86,44 milyar TL |
+| Ticari alacaklar | 0,64 milyar TL |
+| Stoklar | 0,00 milyar TL |
 | Net borç | 11,35 milyar TL |
 | Faaliyet nakit akışı | 0,84 milyar TL |
 | Yatırım harcaması | 0,03 milyar TL |
+| Serbest nakit akışı | 0,81 milyar TL |
+| Finansman gideri | 0,21 milyar TL |
 
 ## Son dört dönem
 
@@ -53,22 +60,26 @@ Hasılat 3,42 milyar TL'ye yükselirken net kâr 1,40 milyar TL'ye artmış, bu 
 | Net kâr | 0,89 | 0,52 | 0,99 | 0,16 |
 | Özkaynak | 69,28 | 62,46 | 55,84 | 47,54 |
 | Aktif toplamı | 86,44 | 81,71 | 75,56 | 65,99 |
+| Ticari alacaklar | 0,64 | 0,60 | 0,45 | 0,61 |
+| Stoklar | 0,00 | 0,00 | 0,00 | 0,01 |
 | Net borç | 11,35 | 11,37 | 10,62 | 9,63 |
 | Faaliyet nakit akışı | 0,84 | 0,34 | 2,17 | 1,31 |
 | Yatırım harcaması | 0,03 | 0,14 | 1,70 | 1,64 |
+| Serbest nakit akışı | 0,81 | 0,20 | 0,47 | -0,33 |
+| Finansman gideri | 0,21 | 0,24 | — | 0,07 |
 
 *Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
 
 ## Sektör içindeki konum
 
-Karşılaştırma Kamu hizmetleri sektöründe **aynı dönemi bildiren** 24 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Kamu hizmetleri sektöründe **aynı dönemi bildiren** 25 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Net kâr marjı | %57,7 | %11,4 |
-| Özkaynak kârlılığı | %1,3 | %1,0 |
-| Cari oran | 0,50 | 0,90 |
-| Borç / özkaynak | 0,16 | 0,12 |
+| Net kâr marjı | %57,7 | %11,3 |
+| Özkaynak kârlılığı | %1,3 | %0,8 |
+| Cari oran | 0,50 | 0,92 |
+| Borç / özkaynak | 0,16 | 0,07 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -77,7 +88,6 @@ Karşılaştırma Kamu hizmetleri sektöründe **aynı dönemi bildiren** 24 şi
 **Şirket lehine işleyenler**
 
 - Net kâr reel olarak %576,0 arttı.
-- Özkaynak kârlılığı %1,3; sektör medyanı %1,0.
 
 **Dikkat gerektirenler**
 
