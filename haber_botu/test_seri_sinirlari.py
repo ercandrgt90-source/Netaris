@@ -414,9 +414,20 @@ dogru(_goreli in _akis,
 # ----------------------------------------------------------------------
 # 8. ATILLIK DENETIMI -- gercek depo
 # ----------------------------------------------------------------------
-# Yukaridaki sinamalarin hepsi sahte veriyle kosuyor. Kural gercek
-# depoda da gecerli mi? Bugun 0 olmali: aksi halde site yine yerde.
-print("\n8. Gercek depo")
+# Yukaridaki sinamalarin hepsi sahte veriyle kosuyor; bu bolum kuralin
+# GERCEK depoda da isledigini gosteriyor.
+#
+# ONEMLI: "bugun hicbir gozlem sinir disi degil" diye SORMUYOR. Oyle
+# sormustum ve kosu 2455'te tam o yuzden kirmizi dondu: depo zehirliyse
+# sinama adimi dusuyor, sinama adimi URETIMDEN ONCE kostugu icin de hat
+# karantinaya alip kendini onaracak adima HIC gelemiyor. Yani korumanin
+# kendisi, kapatmasi gereken kusuru tekrar uretiyordu -- bu depoda
+# kapiyi ureticinin onune koymak tekrarlayan bir hata.
+#
+# Veri durumunu `denetim.py` zaten raporluyor ve YAYINI durduruyor;
+# dogru yer orasi. Burada sorulan soru icerikten bagimsiz: denetimin
+# verdigi karar, olcutun verdigi kararla AYNI MI?
+print(chr(10) + "8. Gercek depo")
 
 try:
     import takvim  # noqa: E402
@@ -424,11 +435,24 @@ try:
         _bulgular = denetim.aralik_denetimi(_db)
         _say = _db.execute("SELECT COUNT(DISTINCT kod) FROM gosterge"
                            ).fetchone()[0]
-    esit([f"{x.kod}: {x.mesaj}" for x in _bulgular], [],
-         "gercek depoda sinir disi gozlem YOK")
+        _seriler = {s[0] for s in takvim.SERILER + takvim.YERLI_SERILER}
+        _beklenen = {}
+        for _k in sorted(_seriler):
+            _r = _db.execute(
+                "SELECT deger, birim FROM gosterge WHERE kod=?"
+                " ORDER BY tarih DESC LIMIT 1", (_k,)).fetchone()
+            if not _r:
+                continue
+            _s = S.sinir_disi(_k, _r[0], _r[1] or "")
+            if _s:
+                _beklenen[_k] = _s
+    esit({x.kod: x.mesaj for x in _bulgular}, _beklenen,
+         "denetimin karari OLCUTUN karariyla birebir ayni (gercek depo)")
     dogru(_say > 20, f"denetim bos donmedi: depoda {_say} seri var")
-    _seri_say = len(set(s[0] for s in takvim.SERILER + takvim.YERLI_SERILER))
-    dogru(_seri_say > 10, f"takvimde {_seri_say} seri tanimli")
+    dogru(len(_seriler) > 10, f"takvimde {len(_seriler)} seri tanimli")
+    # Durumu bildir, ama karara BAGLAMA.
+    print(f"  bilgi  gercek depoda {len(_beklenen)} seri sinir disi"
+          + (f": {sorted(_beklenen)}" if _beklenen else ""))
 except sqlite3.Error as _e:
     print(f"  ATLANDI  gercek depo okunamadi: {_e}")
 
