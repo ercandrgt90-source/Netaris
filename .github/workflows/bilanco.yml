@@ -577,12 +577,32 @@ jobs:
 
           # KAPI: yontemden bagimsiz sonuc dogrulamasi.
           #
-          # `bilanco_nobet.json` BU LISTEYE DE EKLENDI. Dosyayi yalnizca
-          # `YOLLAR` listesine eklemek YETMEDI: 2026-10-13'te kosu tam
-          # burada dustu -- 'beklenmeyen dosya asamada'. Yani ayni karari
-          # veren IKI liste var ve biri guncellenince oteki kalıyor.
-          # Kapi dogru calisti; eksik olan benim ikinci listeyi
-          # gormemem di.
+          # OLCUT ARTIK `YOLLAR`DAN TURETILIYOR -- IKINCI LISTE YOK.
+          #
+          # Burada bir ELLE YAZILMIS beyaz liste duruyordu ve ayni
+          # karari iki yerde veriyordu. Bedeli IKI KEZ odendi:
+          #
+          #   2026-10-13  `bilanco_nobet.json` YOLLAR'a eklendi,
+          #               buraya eklenmedi -> kosu dustu
+          #   2026-11-01  `bilanco_ai_ret.json` YOLLAR'a eklendi,
+          #               buraya eklenmedi -> kosu #65 dustu ve O
+          #               KOSUDA URETILEN SAYFALARIN HEPSI KAYBOLDU
+          #               (geri yazma tumden durduruldu)
+          #
+          # Ikincisi, yukaridaki yorum tam bu tuzagi ANLATIRKEN oldu.
+          # Yani uyari yetmiyor: listeler ayri durdukca ayrisiyorlar.
+          # Kapinin isi duruyor -- yalnizca olcutunu artik ayni
+          # listeden aliyor, yani ayrisma YAPISAL OLARAK imkansiz.
+          #
+          # Kapi GEVSEMIYOR: `YOLLAR` zaten asamalanan yollarin ta
+          # kendisi, dolayisiyla bu kapi "asamada bu listenin
+          # DISINDA bir sey var mi" sorusunu sormaya devam ediyor.
+          # Yakaladigi sey, pathspec'in kacirdigi her yol.
+          DESEN=""
+          for y in $YOLLAR; do
+            e=$(printf '%s' "$y" | sed 's/[.[\*^$()+?{}|]/\\&/g')
+            DESEN="${DESEN}${DESEN:+|}^${e}(/|\$)"
+          done
           # ELLE YAZILAN SAYFA ASAMADA MI -- AYRI KAPI.
           #
           # Yukaridaki pathspec zaten disliyor, ama bu kontrol
@@ -597,9 +617,8 @@ jobs:
             exit 1
           fi
 
-          KACAK=$(git diff --staged --name-only | grep -vE \
-            '^(site/icerik/analizler/|site/bilanco_miras_bozuk\.json|haber_botu/kaynak/(sektor_ozet|sirketler|bilanco_nobet)\.json)' \
-            || true)
+          KACAK=$(git diff --staged --name-only \
+            | grep -vE "$DESEN" || true)
           if [ -n "$KACAK" ]; then
             echo "HATA: beklenmeyen dosya aşamada -- geri yazma DURDURULDU:"
             echo "$KACAK"

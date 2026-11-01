@@ -248,7 +248,7 @@ with tempfile.TemporaryDirectory() as _t:
 
 # ---------------------------------------------------------------
 print("")
-print("6. SINAMALAR uretim defterine DOKUNMUYOR")
+print("6. SINAMALAR uretim DURUMUNA dokunmuyor")
 
 # OLCULDU: `test_bilanco_atlama.py` `u.VT`yi gecici dizine
 # ceviriyordu ama `RET_DEFTERI`yi yamalamiyordu. Sonuc: sinama
@@ -261,6 +261,20 @@ print("6. SINAMALAR uretim defterine DOKUNMUYOR")
 # oldugu gibi birakiyor, o da bir atama. Soru "yama var mi" degil,
 # "uretim dosyasina DOKUNULDU MU" olmali -- ve bu ancak gercekten
 # kosturup bakmakla olculur.
+# IKINCI KEZ OLCULDU (2026-11-01) VE BASKA BIR DOSYAYA:
+# `test_donem_celiskisi.py` `sayfa_tazele`yi gecici bir dosya
+# uzerinde cagiriyordu, ama tazeleme okudugu yere degil
+# `yayin.SITE_ICERIK` altindaki KANONIK yola yaziyor. Mutasyon
+# sinamasinda kapi kaldirilinca sinama GERCEK icerik dizinine
+# `2026-2-ceyrek-akbnk.md` yazdi.
+#
+# Kural bu yuzden TEK DOSYAYI degil URETIM DURUMUNU izliyor:
+# red defteri VE yayin dizininin icerigi. Yazma yolu her
+# eklendiginde kurali genisletmek gerekirse, kural eksik
+# yazilmis demektir.
+URETIM_YAZANLAR = ("ret_yaz", "yaz_sektorel", "sayfa_tazele",
+                   "sirket_isle")
+
 _KENDI = pathlib.Path(__file__).name
 _cagiran = []
 for _p in sorted(_KOK.glob("test_*.py")):
@@ -268,33 +282,235 @@ for _p in sorted(_KOK.glob("test_*.py")):
         continue
     _agac = ast.parse(_p.read_text(encoding="utf-8"))
     if any(isinstance(_d, ast.Call) and isinstance(_d.func, ast.Attribute)
-           and _d.func.attr == "ret_yaz" for _d in ast.walk(_agac)):
+           and _d.func.attr in URETIM_YAZANLAR
+           for _d in ast.walk(_agac)):
         _cagiran.append(_p)
 
 # ATILLIK KONTROLU: tarama GERCEKTEN cagiran dosya buluyor mu?
 esit(len(_cagiran) > 0, True,
-     f"atıllık kontrolü: ret_yaz çağıran {len(_cagiran)} sınama bulundu")
+     f"atıllık kontrolü: üretime yazan {len(_cagiran)} sınama bulundu")
 
+import hashlib                                          # noqa: E402
 import subprocess                                       # noqa: E402
 
-_ONCE = (U.RET_DEFTERI.read_bytes() if U.RET_DEFTERI.is_file() else None)
+import yayin                                            # noqa: E402
+
+
+def _durum() -> tuple:
+    """Izlenen URETIM DURUMU: red defteri + yayin dizini.
+
+    Dizin ADLARLA DEGIL ICERIKLE ozetleniyor: var olan bir sayfanin
+    uzerine yazmak da kirliliktir ve ad listesi onu gormez.
+    """
+    defter = (U.RET_DEFTERI.read_bytes()
+              if U.RET_DEFTERI.is_file() else None)
+    dizin = {}
+    if yayin.SITE_ICERIK.is_dir():
+        for _y in sorted(yayin.SITE_ICERIK.glob("*.md")):
+            dizin[_y.name] = hashlib.sha256(_y.read_bytes()).hexdigest()
+    return defter, dizin
+
+
+_ONCE_DEFTER, _ONCE_DIZIN = _durum()
+esit(len(_ONCE_DIZIN) > 0, True,
+     f"atıllık kontrolü: yayın dizininde {len(_ONCE_DIZIN)} sayfa var, "
+     f"kirlilik ölçülebilir")
+
 _kirleten = []
 for _p in _cagiran:
     subprocess.run([sys.executable, "-X", "utf8", "-B", _p.name],
                    cwd=_p.parent, capture_output=True, timeout=600)
-    _sonra = (U.RET_DEFTERI.read_bytes()
-              if U.RET_DEFTERI.is_file() else None)
-    if _sonra != _ONCE:
-        _kirleten.append(_p.name)
+    _sd, _sz = _durum()
+    _neden = []
+    if _sd != _ONCE_DEFTER:
+        _neden.append("red defteri")
         # SONRAKI OLCUM BOZULMASIN: durum geri aliniyor.
-        if _ONCE is None:
+        if _ONCE_DEFTER is None:
             U.RET_DEFTERI.unlink(missing_ok=True)
         else:
-            U.RET_DEFTERI.write_bytes(_ONCE)
+            U.RET_DEFTERI.write_bytes(_ONCE_DEFTER)
+    if _sz != _ONCE_DIZIN:
+        _yeni = sorted(set(_sz) - set(_ONCE_DIZIN))
+        _degisen = sorted(a for a in set(_sz) & set(_ONCE_DIZIN)
+                          if _sz[a] != _ONCE_DIZIN[a])
+        _silinen = sorted(set(_ONCE_DIZIN) - set(_sz))
+        _neden.append(f"yayın dizini (yeni {_yeni}, değişen {_degisen}, "
+                      f"silinen {_silinen})")
+        # YALNIZCA SINAMANIN DOGURDUGU DOSYA SILINIYOR; var olan bir
+        # sayfayi bu sinamadan geri yazmak, kaybi gizlemek olurdu.
+        for _a in _yeni:
+            (yayin.SITE_ICERIK / _a).unlink(missing_ok=True)
+    if _neden:
+        _kirleten.append((_p.name, "; ".join(_neden)))
 
-for _n in _kirleten:
-    print(f"    URETIM DEFTERINE YAZDI: {_n}")
-esit(_kirleten, [], "hiçbir sınama üretim defterini değiştirmiyor")
+for _n, _s in _kirleten:
+    print(f"    URETIME YAZDI: {_n} -- {_s}")
+esit([n for n, _s in _kirleten], [],
+     "hiçbir sınama üretim durumunu değiştirmiyor")
+
+# ---------------------------------------------------------------
+print("")
+print("7. ASAMA KAPISI AYNI LISTEDEN TURETILIYOR")
+
+# KUSUR IKI KEZ YAYINA CIKTI.
+#
+# Geri yazmada ayni karari veren IKI liste vardi: asamalanan yollar
+# (`YOLLAR`) ve asamadakini denetleyen BEYAZ LISTE. Biri guncellenip
+# oteki unutuldugunda kosu duser ve geri yazma TUMDEN durur:
+#
+#   2026-10-13  `bilanco_nobet.json`   -> kosu dustu
+#   2026-11-01  `bilanco_ai_ret.json`  -> kosu #65 dustu ve O KOSUDA
+#               URETILEN SAYFALARIN HEPSI KAYBOLDU
+#
+# Ikincisi, is akisindaki yorum tam bu tuzagi ANLATIRKEN oldu --
+# yani uyari yazmak yetmiyor. Kapinin olcutu artik `YOLLAR`dan
+# turetiliyor ve bu sinama turetmenin DURDUGUNU tutuyor.
+# KURAL HER GERI YAZAN AKISA UYGULANIYOR.
+#
+# `bilanco.yml` duzeltildikten sonra `otomasyon.yml`de AYNI desen
+# duruyordu (iki liste, ayni karar). Orada henuz ayrismamislardi --
+# ama kanitlanmis bir duzeltmeyi benzer yere tasimamak, bu depoda
+# tekrarlayan bir kusur. Olcut DOSYA ADI DEGIL YAPIDIR: "asama
+# kapisi olan her akis".
+import shutil                                           # noqa: E402
+import textwrap                                         # noqa: E402
+
+_AKISLAR = sorted(p for p in (_KOK.parent / ".github" / "workflows")
+                  .glob("*.yml")
+                  if "KACAK=" in p.read_text(encoding="utf-8"))
+esit(len(_AKISLAR) >= 2, True,
+     f"atillik kontrolu: asama kapisi olan {len(_AKISLAR)} akis "
+     f"bulundu ({[p.name for p in _AKISLAR]})")
+
+_bash = shutil.which("bash")
+
+
+def _bash_kos(betik: str) -> subprocess.CompletedProcess:
+    """Betigi DOSYAYA yazip kosturur.
+
+    `bash -c "..."` KULLANILMIYOR: Windows'ta argüman aktarimi ters
+    bolulari yiyor ve olculdu -- `sed 's/.../\\\\&/g'` kabukta
+    `\\&`ye dusup `.` yerine `&` ureten bir desen verdi. Yani
+    SINAMANIN KENDI ARACI, sinanan kodu bozuyordu. Dosyadan
+    kosturmak CI'daki hale de daha yakin.
+    """
+    import tempfile                                     # noqa: PLC0415
+    with tempfile.TemporaryDirectory() as _t:
+        _y = pathlib.Path(_t) / "dene.sh"
+        _y.write_text(betik, encoding="utf-8", newline=chr(10))
+        return subprocess.run([_bash, str(_y)], capture_output=True,
+                              text=True, encoding="utf-8",
+                              errors="replace", timeout=60)
+
+
+#: Kapidan GECMEMESI gereken ornekler -- her biri AYRI bir kusuru
+#: yakaliyor. Genel yollar, akis fark etmeksizin gecerli.
+# ELLE YAZILAN SAYFA BURADA DEGIL: `otomasyon.yml` `site/icerik`
+# dizininin TAMAMINI yaziyor, yani `site/icerik/sayfalar/...` o
+# akista bu kapinin DISINDA eleniyor (ayri `ELLE` kapisi ve
+# pathspec). Onu buraya koymak, akisa gore degisen bir beklentiyi
+# genel bir kural gibi sunmak olurdu -- ve olculdu, yanlis alarm
+# verdi. Her akista ELLE kapisinin VARLIGI asagida ayrica iddia
+# ediliyor.
+IZINSIZ = [
+    "site/insa.py",                          # kaynak kod
+    ".github/workflows/bilanco.yml",         # is akisinin kendisi
+]
+
+
+def _kil_payi(yol: str) -> list[str]:
+    """Bir izinli yoldan turetilen KIL PAYI ornekleri.
+
+    Hepsi kapidan GECMEMELI. Uretilmelerinin sebebi, deseni kuran
+    her adimin ayri bir kusur uretebilmesi.
+    """
+    return [
+        yol + "X",                 # onek eslesmesi (son baglayici yok)
+        yol + "X/a.md",            # dizin adinin oneki
+        yol.replace(".", "X", 1) if "." in yol else yol + "Xjson",
+        "eski/" + yol,             # bas baglayici yok -> ortada eslesir
+    ]
+
+
+if _bash:
+    for _akis in _AKISLAR:
+        _m = _akis.read_text(encoding="utf-8")
+        _yol_listesi = sorted(geri_yazilan_yollar(_m))
+        esit(len(_yol_listesi) >= 3, True,
+             f"[{_akis.name}] atillik kontrolu: {len(_yol_listesi)} "
+             f"geri yazma yolu bulundu")
+
+        _kapi = re.search(r"KACAK=\$\(git diff --staged --name-only"
+                          r"(.*?)\|\| true\)", _m, re.S)
+        esit(_kapi is not None, True, f"[{_akis.name}] asama kapisi bulundu")
+        esit('"$DESEN"' in _kapi.group(1), True,
+             f"[{_akis.name}] kapi turetilmis deseni kullaniyor")
+        # ELLE YAZILMIS YOL KALMAMALI: kalirsa ikinci liste geri
+        # gelmis demektir.
+        _elle = [y for y in _yol_listesi if y in _kapi.group(1)]
+        esit(_elle, [], f"[{_akis.name}] kapida elle yazilmis yol YOK "
+                        f"({_elle})")
+
+        # ELLE YAZILAN SAYFA KAPISI HER AKISTA DURMALI.
+        #
+        # Turetilmis desen `site/icerik`i tumden kabul edebiliyor
+        # (otomasyon akisi oyle), yani elle yazilan sayfalari o kapi
+        # ELEMEZ. Onlari eleyen AYRI kapi var ve kaybolmamali --
+        # kaybolursa okurun elle yazdigi sayfalar otomasyonla
+        # ezilir.
+        esit("site/icerik/sayfalar/" in _m, True,
+             f"[{_akis.name}] elle yazilan sayfa kapisi duruyor")
+
+        # DAVRANIS: AKISIN KENDI TURETMESI KOSTURULUYOR.
+        #
+        # Metin denetimi "desen kullaniliyor" der ama desenin DOGRU
+        # kuruldugunu soylemez -- kacis karakteri yanlis olsa da
+        # iddia gecerdi.
+        _blok = re.search(chr(10) + r"\s*DESEN=" + '""' + chr(10)
+                          + r"(.*?" + chr(10) + r"\s*done" + chr(10) + ")",
+                          _m, re.S)
+        esit(_blok is not None, True,
+             f"[{_akis.name}] DESEN turetme blogu bulundu")
+        _kod = 'DESEN=""' + chr(10) + textwrap.dedent(_blok.group(1))
+        _betik = ("set -u" + chr(10) + 'YOLLAR="' + " ".join(_yol_listesi)
+                  + '"' + chr(10) + _kod + "printf '%s' \"$DESEN\"" + chr(10))
+        _c = _bash_kos(_betik)
+        esit(_c.returncode, 0,
+             f"[{_akis.name}] turetme hatasiz kostu ({_c.stderr[:120]})")
+        _desen = _c.stdout.strip()
+        esit(bool(_desen), True, f"[{_akis.name}] desen uretildi")
+
+        _ornek = [y + "/x.md" if "." not in y.rsplit("/", 1)[-1] else y
+                  for y in _yol_listesi]
+        _izinsiz = list(IZINSIZ)
+        for _y in _yol_listesi:
+            _izinsiz += _kil_payi(_y)
+        # Kil payi uretimi bir IZINLI yolla cakisirsa o ornek elenir:
+        # yanlis bir beklenti kurmaktansa olcmemek dogru.
+        _izinsiz = [y for y in dict.fromkeys(_izinsiz) if y not in _ornek]
+
+        _kontrol = ("set -u" + chr(10) + "DESEN='" + _desen + "'" + chr(10)
+                    + "for y in " + " ".join(_ornek + _izinsiz) + "; do"
+                    + chr(10)
+                    + "  if printf '%s" + chr(92) + "n' \"$y\" "
+                    + "| grep -qE \"$DESEN\"; then" + chr(10)
+                    + '    echo "GECTI $y"' + chr(10) + "  else" + chr(10)
+                    + '    echo "KACAK $y"' + chr(10) + "  fi" + chr(10)
+                    + "done" + chr(10))
+        _c2 = _bash_kos(_kontrol)
+        _sonuc = dict(s.split(" ", 1)[::-1]
+                      for s in _c2.stdout.split(chr(10)) if " " in s)
+        _yanlis_kacak = [y for y in _ornek if _sonuc.get(y) != "GECTI"]
+        esit(_yanlis_kacak, [],
+             f"[{_akis.name}] izinli yollar kapidan GECIYOR "
+             f"({_yanlis_kacak})")
+        _yanlis_gecen = [y for y in _izinsiz if _sonuc.get(y) != "KACAK"]
+        esit(_yanlis_gecen, [],
+             f"[{_akis.name}] izinsiz yollar kapiya TAKILIYOR "
+             f"({_yanlis_gecen})")
+else:                                                   # pragma: no cover
+    print("    (bash yok -- turetmenin DAVRANIS denetimi atlandi; "
+          "metin denetimleri kostu)")
 
 # ---------------------------------------------------------------
 print("")

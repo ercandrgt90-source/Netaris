@@ -692,9 +692,28 @@ jobs:
             exit 1
           fi
 
-          KACAK=$(git diff --staged --name-only | grep -vE \
-            '^(haber_botu/netaris\.db|haber_botu/kaynak/(ceviri_onbellek|foto_kayit|bilanco_nobet)\.json|site/statik/foto/|site/icerik/|site/bilanco_miras_bozuk\.json)' \
-            || true)
+          # OLCUT `YOLLAR`DAN TURETILIYOR -- IKINCI LISTE YOK.
+          #
+          # Burada elle yazilmis bir beyaz liste duruyordu ve ayni
+          # karari iki yerde veriyordu. Bu desen BILANCO AKISINDA
+          # IKI KEZ kosu dusurdu (`bilanco_nobet.json` 2026-10-13,
+          # `bilanco_ai_ret.json` 2026-11-01) ve ikincisinde geri
+          # yazma tumden durdugu icin O KOSUDA URETILEN HER SEY
+          # kayboldu -- 25 sayfa, 7 sektor, 25 goc.
+          #
+          # BU DOSYADA IKI LISTE HENUZ AYRISMAMISTI (olculdu
+          # 2026-11-01: yedi yolun yedisi de iki listede). Yani bu
+          # degisiklik bir ariza duzeltmiyor, ayni arizanin BURADA
+          # da olmasini imkansiz kiliyor. Kanitlanmis bir deseni
+          # benzer yere tasimamak, bu depoda tekrarlayan bir kusur.
+          DESEN=""
+          for y in $YOLLAR; do
+            e=$(printf '%s' "$y" | sed 's/[.[\*^$()+?{}|]/\\&/g')
+            DESEN="${DESEN}${DESEN:+|}^${e}(/|\$)"
+          done
+
+          KACAK=$(git diff --staged --name-only \
+            | grep -vE "$DESEN" || true)
           if [ -n "$KACAK" ]; then
             echo "HATA: veri disi dosya asamada -- geri yazma DURDURULDU:"
             echo "$KACAK"
