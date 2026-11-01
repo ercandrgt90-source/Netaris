@@ -568,15 +568,30 @@ for _ad in ("otomasyon.yml", "bilanco.yml"):
     _kapi = _m.split("KACAK=")[-1][:600] if "KACAK=" in _m else ""
     for _yol, _iz, _anlam in _YASAMASI_GEREKEN:
         dogru(f"{_ad}: {_anlam} geri yazma listesinde", _yol in _m)
-        # IKI LISTE VAR -- IKISI DE GUNCELLENMELI.
-        #
-        # `YOLLAR` neyi ASAMAYA ALACAGINI, kapi ise asamada NE
-        # BULUNABILECEGINI soyluyor. 2026-10-13'te `bilanco.yml` tam
-        # burada dustu: dosya birinci listeye eklenmis, kapiya
-        # eklenmemisti ve kosu "beklenmeyen dosya asamada" diyerek
-        # DURDU. Kapi dogru calisti; eksik olan ikinci listeydi.
-        dogru(f"{_ad}: {_anlam} KAPIDAN da geciyor",
-              _iz in _kapi if _kapi else True)
+
+    # IKINCI LISTE OLMAMALI.
+    #
+    # Eskiden iki liste vardi: `YOLLAR` neyi ASAMAYA ALACAGINI, kapi
+    # ise asamada NE BULUNABILECEGINI soyluyordu. Ikisi iki kez
+    # ayristi (`bilanco_nobet.json` 2026-10-13, `bilanco_ai_ret.json`
+    # 2026-11-01) ve ikincisinde geri yazma tumden durdu: o kosuda
+    # URETILEN HER SEY kayboldu.
+    #
+    # Cozum listeyi senkron tutmak degil, IKINCIYI KALDIRMAKTI --
+    # kapi deseni artik `$YOLLAR`dan turetiliyor. Bu yuzden sorulan
+    # soru da degisti: "yol kapida da yaziyor mu" diye sormak artik
+    # YANLIS soru; dogrusu "kapi elle yazilmis bir liste tutuyor mu".
+    # (Desenin gercekten dogru yollari gecirdigini davranis olarak
+    # `test_geri_yazma_kapsami.py` 7. bolum olcuyor.)
+    # Pencere degil TUM ONEK: turetim ile kapi arasindaki mesafe iki
+    # akista farkli (bilanco.yml'de arada ikinci bir kapi var) ve
+    # sabit bir pencere o farki sessizce kaciriyordu.
+    _turetim = _m.split("KACAK=")[0] if "KACAK=" in _m else ""
+    dogru(f"{_ad}: kapi deseni $YOLLAR'dan TURETILIYOR",
+          "for y in $YOLLAR" in _turetim)
+    for _yol, _iz, _anlam in _YASAMASI_GEREKEN:
+        dogru(f"{_ad}: {_anlam} kapida ELLE yazili degil",
+              _iz not in _kapi if _kapi else True)
 
 # ONARIM ADIMI IKI AKISTA DA OLMALI -- VE GERI YAZMADAN ONCE.
 #

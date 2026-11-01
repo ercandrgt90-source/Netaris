@@ -87,12 +87,12 @@ def depoya_yaz(b, kayitlar: list[tuple[str, float]]) -> int:
     """Gosterge tablosuna yazar. `INSERT OR IGNORE` -- tekrar zararsiz."""
     if not kayitlar:
         return 0
-    n = 0
-    for tarih, deger in kayitlar:
-        imlec = b.execute(
-            "INSERT OR IGNORE INTO gosterge"
-            " (kod, tarih, deger, birim, ad, kaynak, kayit_ani)"
-            " VALUES (?, ?, ?, '', ?, 'ECB', datetime('now'))",
-            (KOD, tarih, deger, AD))
-        n += imlec.rowcount or 0
-    return n
+    # TEK YAZMA YOLU -- gerekcesi `bundesbank.depoya_yaz` icinde yazili.
+    # Bu seri BIRIMSIZ yaziliyor, yani birim siniri de uygulanamaz;
+    # `seri_sinirlari.SERI_ARALIK` icinde kendi siniri var.
+    import beyin
+    return beyin.gosterge_yaz(b, [
+        {"kod": KOD, "tarih": tarih, "deger_ham": deger,
+         "birim": "", "ad": AD, "kaynak": "ECB"}
+        for tarih, deger in kayitlar
+    ])

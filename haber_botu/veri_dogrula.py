@@ -50,6 +50,7 @@ sys.path[:0] = [str(_KOK), str(_KOK / "kaynak"), str(_KOK / "analiz")]
 import beyin          # noqa: E402
 import evds           # noqa: E402
 import makro          # noqa: E402
+import seri_sinirlari  # noqa: E402
 import takvim         # noqa: E402
 import uret_takvim    # noqa: E402
 
@@ -93,6 +94,72 @@ ESIK = 0.02
 
 #: Oransal esik. 0,005 = binde bes.
 ORAN_ESIK = 0.005
+
+
+#: Karantina kaydinin yeri ve yazicisi `seri_sinirlari`da:
+#: `gosterge_yaz` da ayni kaydi OKUYOR, yani yol tek yerde
+#: durmali.
+KARANTINA = seri_sinirlari.KARANTINA
+karantina_yaz = seri_sinirlari.karantina_yaz
+
+
+def gerilemeyi_ayikla(sapan: list, zorla: bool = False) -> tuple[list, list]:
+    """(uygulanacak, reddedilen_aciklamalari) doner.
+
+    Iki olcut, ikisi de icerikten bagimsiz:
+
+    1. AKLA YATKINLIK -- kaynaktan gelen deger `denetim.py`nin
+       reddedecegi bir degerse bu bir duzeltme degildir. Denetimin
+       reddettigini depoya yazmak, yayini durdurmaktan baska bir sey
+       yapmiyor.
+
+    2. TOPLU YENIDEN YAZMA -- tek serinin `GERILEME_ESIGI`den fazla
+       gozlemi degisiyorsa bu revizyon degil, serinin ANLAMININ
+       degismesidir. Mesru revizyon son birkac gozleme dokunur.
+
+    `zorla` ikisini de atlar; gercek bir birim gocu elle boyle
+    yapilir, otomasyon KENDILIGINDEN yapamaz.
+    """
+    if zorla:
+        return list(sapan), []
+
+    kalan, red = [], []
+    sayac: dict[str, int] = {}
+    for s in sapan:
+        sayac[s[0]] = sayac.get(s[0], 0) + 1
+
+    toplu = {k for k, n in sayac.items() if seri_sinirlari.gerileme_mi(n)}
+    for k in sorted(toplu):
+        red.append((k, f"{k}: {sayac[k]} gozlem birden yeniden "
+                       f"yazilacakti (esik "
+                       f"{seri_sinirlari.GERILEME_ESIGI}) -- revizyon "
+                       f"degil, serinin anlami degismis"))
+
+    yatkin_red: dict[str, str] = {}
+    for s in sapan:
+        kod, tarih, bizdeki, dogru = s[0], s[1], s[2], s[3]
+        if kod in toplu:
+            continue
+        sebep = seri_sinirlari.sinir_disi(kod, dogru, _birim(kod))
+        if sebep:
+            yatkin_red.setdefault(
+                kod, (kod, f"{kod}: kaynaktaki deger {sebep} "
+                           f"({tarih}, depoda {bizdeki})"))
+            continue
+        kalan.append(s)
+    red.extend(yatkin_red.values())
+    return kalan, red
+
+
+def _birim(kod: str) -> str:
+    """Serinin birimi -- yoksa "" (sinir_disi o zaman yalnizca
+    seriye ozgu araliga bakar)."""
+    for s in list(takvim.SERILER) + list(takvim.YERLI_SERILER)             + list(evds.SERILER):
+        if s and s[0] == kod:
+            return s[2] if len(s) > 2 else ""
+    return ""
+
+
 
 
 def _beklenen(kod: str, sunum: str, gozlemler) -> dict[str, float]:
@@ -182,7 +249,8 @@ def metinleri_hizala() -> int:
     return n
 
 
-def calistir(duzelt: bool = False, sessiz: bool = False) -> int:
+def calistir(duzelt: bool = False, sessiz: bool = False,
+             gerilemeyi_yok_say: bool = False) -> int:
     seriler = {s[0]: s for s in takvim.SERILER}
 
     with beyin.baglan() as b:
@@ -308,6 +376,22 @@ def calistir(duzelt: bool = False, sessiz: bool = False) -> int:
             print(f"... ve {len(sapan) - 40} tane daha")
 
     if duzelt and sapan:
+        sapan, gerileme = gerilemeyi_ayikla(sapan, zorla=gerilemeyi_yok_say)
+        if gerileme:
+            print()
+            print("!" * 68)
+            print("  KAYNAK GERILEMESI -- bu duzeltmeler UYGULANMADI")
+            print("!" * 68)
+            for _kod, _sebep in gerileme:
+                print(f"  {_sebep}")
+            print("  Depodaki deger KORUNDU. Kaynak duzelince kendiliginden")
+            print("  uyusacak. Gercekten gerekiyorsa:")
+            print("      python veri_dogrula.py --duzelt "
+                  "--gerilemeyi-yok-say")
+            karantina_yaz(gerileme)
+        else:
+            karantina_yaz([])
+    if duzelt and sapan:
         with beyin.baglan() as b:
             for kod, tarih, _b, dogru, _f, _s in sapan:
                 b.execute("UPDATE gosterge SET deger=? WHERE kod=? AND tarih=?",
@@ -322,6 +406,14 @@ def calistir(duzelt: bool = False, sessiz: bool = False) -> int:
                   f"(eskiyen AI yorumlari silindi).")
         return 0
 
+    if duzelt:
+        # Butun sapmalar gerileme diye reddedildiyse depo DOKUNULMADI;
+        # "uyusuyor" demek yalan olurdu. Adim yine de dusmemeli:
+        # tek bozuk kaynak butun yayini durdurmasin.
+        print()
+        print("  Uygulanacak duzeltme kalmadi (hepsi gerileme sayildi).")
+        return 0
+
     if not sessiz and not sapan:
         print()
         print("  Butun degerler kaynagiyla uyusuyor.")
@@ -333,8 +425,13 @@ def main() -> int:
     a.add_argument("--duzelt", action="store_true",
                    help="sapan degerleri depoda duzelt")
     a.add_argument("--sessiz", action="store_true")
+    a.add_argument("--gerilemeyi-yok-say", action="store_true",
+                   dest="gerilemeyi_yok_say",
+                   help="kaynak gerilemesi suzgecini atla -- ELLE "
+                        "yapilan birim gocu icin")
     n = a.parse_args()
-    return calistir(duzelt=n.duzelt, sessiz=n.sessiz)
+    return calistir(duzelt=n.duzelt, sessiz=n.sessiz,
+                    gerilemeyi_yok_say=n.gerilemeyi_yok_say)
 
 
 if __name__ == "__main__":

@@ -545,6 +545,7 @@ jobs:
                    haber_botu/kaynak/ceviri_onbellek.json \
                    haber_botu/kaynak/foto_kayit.json \
                    haber_botu/kaynak/bilanco_nobet.json \
+                   haber_botu/kaynak/seri_karantina.json \
                    site/bilanco_miras_bozuk.json \
                    site/statik/foto \
                    site/icerik; do

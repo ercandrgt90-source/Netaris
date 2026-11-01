@@ -35,6 +35,8 @@ import sqlite3
 from contextlib import contextmanager
 from datetime import datetime, timezone
 
+import seri_sinirlari
+
 VERITABANI = pathlib.Path(__file__).parent / "netaris.db"
 
 SEMA = """
@@ -297,17 +299,39 @@ def baglan(yol: pathlib.Path | None = None):
 # Yazma
 # ---------------------------------------------------------------------------
 
-def gosterge_yaz(b, kalemler: list[dict]) -> int:
+def gosterge_yaz(b, kalemler: list[dict], reddedilen=None) -> int:
     """Gosterge gozlemlerini ekler.
 
     `INSERT OR IGNORE` kullaniliyor: ayni kod+tarih ikinci kez gelirse
     sessizce atlanir. Boylece hat gunde bes kez calissa bile gecmis
     bozulmaz. Guncelleme DEGIL ekleme -- yayimlanmis bir gozlem sonradan
     degismez.
+
+    AKLA YATKINLIK SINAVI: `seri_sinirlari.sinir_disi` -- yani
+    `denetim.py`nin kullandigi OLCUTUN AYNISI -- gecilmeden deger
+    yazilmaz. Boyle bir deger zaten yayimlanamiyor; depoya girmesinin
+    tek sonucu, denetimin butun siteyi durdurmasi oluyor. Reddedilenler
+    `reddedilen` listesine (kod, tarih, deger, sebep) olarak eklenir;
+    cagiran raporlayabilir.
     """
     n = 0
     for k in kalemler:
         if k.get("deger_ham") is None or not k.get("tarih"):
+            continue
+        _kod = k.get("kod") or ""
+        sebep = seri_sinirlari.sinir_disi(
+            _kod, k["deger_ham"], k.get("birim") or "")
+        # KARANTINA: kaynagi bozuk oldugu OLCULEN seriden YENI gozlem
+        # de alinmiyor. `veri_dogrula` yalnizca depoda zaten olan
+        # tarihleri karsilastirabiliyor; yeni tarihte karsilastiracak
+        # sey yok, yani siniri gecen ama yanlis bir deger hicbir
+        # kontrole takilmadan yayimlanirdi.
+        if not sebep and _kod in seri_sinirlari.karantinadakiler():
+            sebep = "seri karantinada -- kaynak baska bir buyukluk donduruyor"
+        if sebep:
+            if reddedilen is not None:
+                reddedilen.append(
+                    (k.get("kod"), k.get("tarih"), k["deger_ham"], sebep))
             continue
         imlec = b.execute(
             "INSERT OR IGNORE INTO gosterge"

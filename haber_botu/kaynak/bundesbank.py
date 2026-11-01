@@ -133,12 +133,18 @@ def depoya_yaz(b, kayitlar: list[tuple[str, float]],
     """
     if not kayitlar:
         return 0
-    n = 0
-    for tarih, deger in kayitlar[-son_n:]:
-        imlec = b.execute(
-            "INSERT OR IGNORE INTO gosterge"
-            " (kod, tarih, deger, birim, ad, kaynak, kayit_ani)"
-            " VALUES (?, ?, ?, ?, ?, ?, datetime('now'))",
-            (KOD, tarih, deger, BIRIM, AD, KAYNAK))
-        n += imlec.rowcount or 0
-    return n
+    # TEK YAZMA YOLU.
+    #
+    # Burada kendi `INSERT`i vardi ve bu, akla yatkinlik suzgecini
+    # ATLIYORDU: suzgec `beyin.gosterge_yaz` icinde. 2026-11-01'de
+    # bozuk bir kaynak (TCMB EVDS) depoyu ezip siteyi bes saat yere
+    # indirdi; duzeltme `gosterge_yaz`a yazildi ama BU dosya ve
+    # `ecb_kur.py` disinda kaldi. Kanitlanmis bir korumayi benzer
+    # yere tasimamak, bu depoda tekrarlayan bir kusur -- o yuzden
+    # ikisi de ayni yoldan geciyor.
+    import beyin
+    return beyin.gosterge_yaz(b, [
+        {"kod": KOD, "tarih": tarih, "deger_ham": deger,
+         "birim": BIRIM, "ad": AD, "kaynak": KAYNAK}
+        for tarih, deger in kayitlar[-son_n:]
+    ])

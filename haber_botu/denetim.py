@@ -45,6 +45,7 @@ from __future__ import annotations
 
 import argparse
 import html
+import json
 import pathlib
 import re
 import sys
@@ -76,6 +77,7 @@ import takvim   # noqa: E402
 import dosya    # noqa: E402
 import evds     # noqa: E402
 import politika_faizi  # noqa: E402
+import seri_sinirlari  # noqa: E402
 
 
 @dataclass(frozen=True)
@@ -194,45 +196,40 @@ def etiket_denetimi() -> list[Bulgu]:
 # Sinirlar GENIS tutuldu: dar sinir her olagandisi gelismede yanlis
 # alarm verir ve alarmi degersizlestirir. Amac uc degerleri degil,
 # BIRIM/ANLAM hatalarini yakalamak -- "%332" gibi.
-ARALIK: dict[str, tuple[float, float, str]] = {
-    "%": (-100.0, 200.0, "yüzde"),
-    "bin kişi": (-20000.0, 500000.0, "bin kişi"),
-    "kişi": (-5_000_000.0, 400_000_000.0, "kişi"),
-    "mn $": (-100_000.0, 100_000.0, "milyon dolar"),
-    "$": (0.0, 100_000.0, "dolar"),
-    "TL": (0.0, 10_000.0, "lira"),
-    "bin adet": (0.0, 10_000.0, "bin adet"),
-    "endeks": (0.0, 100_000.0, "endeks"),
-}
+#: Sinirlar `seri_sinirlari.py`da. AYRI DOSYADA olmasinin sebebi
+#: oradaki aciklamada: denetim onlari okuyordu ama YAZICILAR
+#: okumuyordu; bozuk bir kaynak depoyu ezdi ve siteyi bes saat
+#: yere indirdi. Ayni tablo artik yazma yolunda da gecerli.
+ARALIK = seri_sinirlari.ARALIK
+SERI_ARALIK = seri_sinirlari.SERI_ARALIK
 
-#: Seriye ozgu daha dar sinir. Genel birim sinirinin kacirdiklari icin.
-SERI_ARALIK: dict[str, tuple[float, float]] = {
-    "UNRATE": (0.0, 40.0),
-    "ICSA": (0.0, 10_000_000.0),
-    # NSA seriler manset icin kullaniliyor (bkz. takvim.SERILER);
-    # SA olanlar gecmis kayitlarda duruyor, ikisinin de siniri ayni.
-    "CPIAUCNS": (-30.0, 150.0),
-    "CPILFENS": (-30.0, 150.0),
-    "CPIAUCSL": (-30.0, 150.0),
-    "CPILFESL": (-30.0, 150.0),
-    "PCEPILFE": (-30.0, 150.0),
-    "PPIFIS": (-40.0, 200.0),
-    "CES0500000003": (-50.0, 100.0),
-    "MICH": (0.0, 30.0),
-    "GDPC1": (-30.0, 30.0),
-    "RSAFS": (-50.0, 100.0),
-    "INDPRO": (-40.0, 60.0),
-    # --- Turkiye ---
-    "TP.YISGUCU2.G8": (0.0, 60.0),
-    "TP.APIFON4": (0.0, 100.0),
-    "TCMB_POLITIKA": (0.0, 100.0),
-    "TP.TUKFIY2025.GENEL": (-30.0, 300.0),
-    "TP.FE25.OKTG04": (-30.0, 300.0),
-    "TP.TUFE1YI.T1": (-30.0, 400.0),
-    "TP.ENFBEK.PKA12ENF": (0.0, 200.0),
-    "TP.ENFBEK.HBA12ENF": (0.0, 200.0),
-    "TP.ENFBEK.IYA12ENF": (0.0, 200.0),
-}
+
+def karantina_denetimi() -> list[Bulgu]:
+    """`veri_dogrula` reddettigi kaynak gerilemelerini bir dosyaya
+    yaziyor; burada RAPORLANIYOR.
+
+    Agirlik "uyari", "hata" DEGIL ve bu bilincli bir karar:
+    depodaki deger saglam, yalnizca bir seri donmus. Tek bir ucuncu
+    taraf serisinin butun siteyi (haber, piyasa, bilanco) yere
+    indirmesi 2026-11-01'de olculdu -- bes saat. Donmus seri
+    `tazelik_denetimi` tarafindan ayrica yaslaniyor.
+    """
+    # Yol `seri_sinirlari`da: yazan, okuyan ve raporlayan ayni
+    # sabiti kullanmali.
+    yol = seri_sinirlari.KARANTINA
+    if not yol.is_file():
+        return []
+    try:
+        d = json.loads(yol.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return [Bulgu("uyari", "karantina", "-",
+                      "seri_karantina.json okunamadi")]
+    sebepler = d.get("sebepler") or []
+    if not sebepler:
+        return []
+    return [Bulgu("uyari", "karantina", "-",
+                  f"{len(sebepler)} seri karantinada (kaynak gerilemesi, "
+                  f"{d.get('an', '?')}): " + "; ".join(sebepler[:3]))]
 
 
 def aralik_denetimi(b) -> list[Bulgu]:
@@ -244,19 +241,12 @@ def aralik_denetimi(b) -> list[Bulgu]:
         if not r:
             continue
         deger, birim, tarih = r[0], r[1] or "", r[2]
-        ozel = SERI_ARALIK.get(kod)
-        if ozel and not (ozel[0] <= deger <= ozel[1]):
-            bulgu.append(Bulgu(
-                "hata", "aralik", kod,
-                f"{deger} seri sinirinin disinda ({ozel[0]}..{ozel[1]}) "
-                f"-- birim/sunum hatasi olabilir"))
-            continue
-        sinir = ARALIK.get(birim)
-        if sinir and not (sinir[0] <= deger <= sinir[1]):
-            bulgu.append(Bulgu(
-                "hata", "aralik", kod,
-                f"{deger} {birim} makul araligin disinda "
-                f"({sinir[0]}..{sinir[1]} {sinir[2]})"))
+        # Olcut `seri_sinirlari.sinir_disi`. Yazicilar da AYNI
+        # fonksiyonu cagiriyor; denetimin reddettigi bir deger
+        # depoya hic giremesin diye.
+        sebep = seri_sinirlari.sinir_disi(kod, deger, birim)
+        if sebep:
+            bulgu.append(Bulgu("hata", "aralik", kod, sebep))
     return bulgu
 
 
@@ -1821,6 +1811,7 @@ def calistir(sessiz: bool = False) -> int:
     bulgular: list[Bulgu] = []
     bulgular += etiket_denetimi()
     bulgular += birim_denetimi()
+    bulgular += karantina_denetimi()
     with beyin.baglan() as b:
         bulgular += aralik_denetimi(b)
         bulgular += tazelik_denetimi(b)
