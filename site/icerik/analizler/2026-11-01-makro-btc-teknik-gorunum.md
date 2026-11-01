@@ -1,7 +1,7 @@
 ---
 slug: btc-teknik-gorunum-2026-11-01
-baslik: Bitcoin: 200 günlük ortalamanın %6,7 üzerinde
-ozet: Bitcoin 78072 $ seviyesinde. Değişim: günlük +%0,8, haftalık -%2,5, aylık -%7,6. RSI(14) 38,8 ile nötr bandın alt yarısında. Fiyat 200 günlük ortalamanın üzerinde, 20 günlük, 50 günlük ortalamanın altında.
+baslik: Bitcoin: 200 günlük ortalamanın %6,8 üzerinde
+ozet: Bitcoin 78091 $ seviyesinde. Değişim: günlük +%0,8, haftalık -%2,4, aylık -%7,6. RSI(14) 38,9 ile nötr bandın alt yarısında. Fiyat 200 günlük ortalamanın üzerinde, 20 günlük, 50 günlük ortalamanın altında.
 sirket: BTC teknik görünüm
 kod: BTC
 donem: 2026-11-01
@@ -12,7 +12,7 @@ yazar:
 unvan: 
 kurgusal: hayir
 grafik_tur: cizgi
-grafik: 64053,70;64599,20;64259,20;64886,10;64901,10;64860,00;63922,10;63541,10;63412,00;63423,30;62979,40;63024,30;62819,10;64471,70;64677,20;69285,00;73001,10;78327,20;77082,60;77737,50;78966,10;78509,40;79008,60;80265,90;77841,80;78227,80;77681,60;78566,10;77398,10;77305,10;81276,10;79676,40;79828,40;80334,30;79090,30;78449,60;78288,60;76542,00;77210,90;77264,90;76800,20;78193,10;75585,10;76146,10;76354,80;80878,10;81226,50;81164,00;86593,80;86196,70;84384,60;84380,00;84090,50;84426,70;84444,20;83462,70;83633,40;83564,70;84849,10;84503,70;84740,00;86510,40;85751,50;85542,10;83276,10;81683,80;82559,40;82912,70;83675,60;81737,10;83101,20;81576,40;82133,70;81500,80;81382,00;82001,70;81843,70;82936,10;84022,50;81315,90;81086,20;80771,90;80048,50;80001,90;80800,90;81287,10;77800,00;77204,30;77437,00;78071,70
+grafik: 64053,70;64599,20;64259,20;64886,10;64901,10;64860,00;63922,10;63541,10;63412,00;63423,30;62979,40;63024,30;62819,10;64471,70;64677,20;69285,00;73001,10;78327,20;77082,60;77737,50;78966,10;78509,40;79008,60;80265,90;77841,80;78227,80;77681,60;78566,10;77398,10;77305,10;81276,10;79676,40;79828,40;80334,30;79090,30;78449,60;78288,60;76542,00;77210,90;77264,90;76800,20;78193,10;75585,10;76146,10;76354,80;80878,10;81226,50;81164,00;86593,80;86196,70;84384,60;84380,00;84090,50;84426,70;84444,20;83462,70;83633,40;83564,70;84849,10;84503,70;84740,00;86510,40;85751,50;85542,10;83276,10;81683,80;82559,40;82912,70;83675,60;81737,10;83101,20;81576,40;82133,70;81500,80;81382,00;82001,70;81843,70;82936,10;84022,50;81315,90;81086,20;80771,90;80048,50;80001,90;80800,90;81287,10;77800,00;77204,30;77437,00;78091,20
 grafik_kod: Bitcoin
 grafik_birim: USD
 kaynaklar: Kraken
@@ -21,20 +21,20 @@ sayimlar: 260|günlük mum;5|fiyat seviyesi;7|hesaplanan gösterge;90|günlük p
 
 ## Özet
 
-Bitcoin 78072 $ seviyesinde. Değişim: günlük +%0,8, haftalık -%2,5, aylık -%7,6. RSI(14) 38,8 ile nötr bandın alt yarısında. Fiyat 200 günlük ortalamanın üzerinde, 20 günlük, 50 günlük ortalamanın altında.
+Bitcoin 78091 $ seviyesinde. Değişim: günlük +%0,8, haftalık -%2,4, aylık -%7,6. RSI(14) 38,9 ile nötr bandın alt yarısında. Fiyat 200 günlük ortalamanın üzerinde, 20 günlük, 50 günlük ortalamanın altında.
 
 ## Göstergeler
 
 | Gösterge | Değer |
 |---|---|
-| Fiyat | 78072 $ |
-| 20 günlük ortalama | 80816 $ |
+| Fiyat | 78091 $ |
+| 20 günlük ortalama | 80817 $ |
 | 50 günlük ortalama | 81912 $ |
 | 200 günlük ortalama | 73148 $ |
-| RSI (14) | 38,8 |
-| MACD histogram | -463,12 |
+| RSI (14) | 38,9 |
+| MACD histogram | -461,87 |
 | Günlük oynaklık (ATR/fiyat) | %2,5 |
-| Bollinger bant genişliği | %9,2 |
+| Bollinger bant genişliği | %9,1 |
 | 90 günlük zirve | 87447 $ |
 | 90 günlük dip | 62490 $ |
 
@@ -44,11 +44,11 @@ Fiyat 200 günlük ortalamanın üzerinde. Fiyat 20 günlük, 50 günlük ortala
 
 ## Momentum
 
-RSI(14) 38,8 ile nötr bandın alt yarısında. RSI, son 14 dönemdeki yükseliş ve düşüşlerin göreli büyüklüğünü ölçer; 0-100 aralığında hareket eder. MACD çizgisi -1130,74, işaret çizgisi -667,62; histogram -463,12. Çizgi işaretin altında. MACD iki üstel ortalamanın farkını izler; histogram bu farkın kendi ortalamasından ne kadar ayrıştığını gösterir.
+RSI(14) 38,9 ile nötr bandın alt yarısında. RSI, son 14 dönemdeki yükseliş ve düşüşlerin göreli büyüklüğünü ölçer; 0-100 aralığında hareket eder. MACD çizgisi -1129,19, işaret çizgisi -667,31; histogram -461,87. Çizgi işaretin altında. MACD iki üstel ortalamanın farkını izler; histogram bu farkın kendi ortalamasından ne kadar ayrıştığını gösterir.
 
 ## Oynaklık
 
-Ortalama günlük hareket aralığı (ATR-14) 1923 $, fiyatın %2,5'ine denk geliyor. Bollinger bantları 77116 $ — 84516 $ aralığında; fiyat bantların içinde. Bant genişliği %9,2. Fiyat, 90 günlük zirveye göre -%10,7 konumda.
+Ortalama günlük hareket aralığı (ATR-14) 1923 $, fiyatın %2,5'ine denk geliyor. Bollinger bantları 77120 $ — 84514 $ aralığında; fiyat bantların içinde. Bant genişliği %9,1. Fiyat, 90 günlük zirveye göre -%10,7 konumda.
 
 ## Fiyat seviyeleri
 

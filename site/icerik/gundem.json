@@ -29,7 +29,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 47,
+  "yorumlanan": 48,
   "haberler": [
     {
       "baslik": "Rus müfettişler, Nijniy Novgorod bölgesindeki sanayi bölgesine düzenlenen saldırı üzerine terörizmle ilgili ceza davası açtı: TASS soruşturma komitesine atıfta bulundu",
@@ -428,6 +428,32 @@
       "foto_atif": "Dietmar Rabich · CC-BY-SA-4.0"
     },
     {
+      "baslik": "3 milyon TL’nin 32 günlük faiz getirisi güncellendi: İşte bankaların güncel mevduat faiz oranları",
+      "baslik_kaynak": "3 milyon TL’nin 32 günlük faiz getirisi güncellendi: İşte bankaların güncel mevduat faiz oranları",
+      "ozet": "Birikimlerini değerlendirmek isteyen vatandaşlar, Merkez Bankası’nın faiz kararının ardından bankaların güncellediği mevduat ve katılım hesabı oranlarını yakından takip ediyor. Peki, 3 milyon TL’sini 32 gün vadeli hesapta değerlendirenlerin net kazancı hangi bankada ne kadar oluyor?",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.ekonomim.com/foto-galeri/ekonomi/3-milyon-tlnin-32-gunluk-faiz-getirisi-guncellendi-iste-bankalarin-guncel-mevduat-faiz-oranlari-galeri-928353",
+      "kurum": "Ekonomim",
+      "kurum_tam": "Ekonomim",
+      "konu": "Para politikası",
+      "tarih": "2026-11-01",
+      "tarih_gorunur": "1 Kasım 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Politika faizi kararları küresel sermayenin fiyatını belirler; asıl fiyatlanan şey kararın kendisi değil, karar sonrası patikaya dair beklentidir.",
+      "kanallar": [
+        "Tahvil getirisi: kısa vadeli faiz beklentisi getiri eğrisinin ön ucunu, enflasyon beklentisi uzun ucunu hareket ettirir.",
+        "Parite: iki merkez bankası arasındaki faiz farkı beklentisi kuru yeniden fiyatlar.",
+        "Değerleme: iskonto oranı değişimi en çok uzun vadeli nakit akışı olan teknoloji ve büyüme hisselerinde hissedilir.",
+        "Sermaye akımı: gelişmiş ülke faizi yükseldiğinde gelişmekte olan piyasalardan çıkış görülebilir."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/para-politikasi-9-683f4724.jpg",
+      "foto_atif": "Tony Webster · CC-BY-2.0"
+    },
+    {
       "baslik": "Asgari ücrette zam senaryoları: 2027 için hangi oranlar konuşuluyor?",
       "baslik_kaynak": "Asgari ücrette zam senaryoları: 2027 için hangi oranlar konuşuluyor?",
       "ozet": "2027 yılı asgari ücret zammı için gözler aralık ayında başlayacak Asgari Ücret Tespit Komisyonu görüşmelerine çevrildi. Yeni ücret için yüzde 20 ile yüzde 40 arasında farklı zam senaryoları hesaplanırken, yüzde 30, 33,7 ve 35'lik artış ihtimalleri öne çıktı.",
@@ -498,27 +524,6 @@
       "kanal_basligi": "Piyasaya nasıl yansır?",
       "foto": "/statik/foto/vergi-ve-kamu-maliyesi-7-c3df51bc.jpg",
       "foto_atif": "RegionalQueenslander · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "Dip seviyesine en yakın 111 hisse; Yatırım fırsatı mı kriz mi?",
-      "baslik_kaynak": "Dip seviyesine en yakın 111 hisse; Yatırım fırsatı mı kriz mi?",
-      "ozet": "Borsada işlem gören ve son 1 yılın dip seviyesinde olan 111 şirketin hissesi dikkati çekti. Bazı yatırımcılar durumu kriz olarak değerlendirirken fırsat olarak görenler de var.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.ekonomim.com/finans/haberler/borsa/dip-seviyesine-en-yakin-111-hisse-yatirim-firsati-mi-kriz-mi-haberi-928340",
-      "kurum": "Ekonomim",
-      "kurum_tam": "Ekonomim",
-      "konu": "Borsa",
-      "tarih": "2026-11-01",
-      "tarih_gorunur": "1 Kasım 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/borsa-24-b47c4be0.jpg",
-      "foto_atif": "User:A,Ocram · PDM"
     },
     {
       "baslik": "FBI, kripto hırsızlığından Kuzey Kore'yi sorumlu tuttu",
