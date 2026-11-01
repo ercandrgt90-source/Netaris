@@ -45,6 +45,19 @@ SITE = KOK / "site"
 sys.path.insert(0, str(BOT))
 import beyin  # noqa: E402
 
+#: GECEN adimdan basilan satir sayisi. Ozet yeter; gunluk okunabilir
+#: kalmali.
+SATIR_BASARI = 6
+
+#: DUSEN adimdan basilan satir sayisi. Gerekcesi `_calistir` icinde
+#: olculmus haliyle yazili: alti satir, `denetim.py`nin bulgularini
+#: kesip yalnizca "yayinlanamaz" kararini birakiyordu.
+#:
+#: 80 SECILDI: `denetim.py`nin en kalabalik kosusunda bulgu bolumu
+#: 40 satirin altinda; 80 onu ozet kutusuyla birlikte rahatca
+#: tasiyor ve yine de bir adimi sayfalarca dokmuyor.
+SATIR_HATA = 80
+
 
 def _calistir(baslik: str, komut: list[str]) -> tuple[bool, str]:
     """Alt sureci calistirir, ciktinin son satirlarini doner."""
@@ -64,7 +77,36 @@ def _calistir(baslik: str, komut: list[str]) -> tuple[bool, str]:
 
     cikti = (s.stdout or "") + (s.stderr or "")
     satirlar = [x for x in cikti.splitlines() if x.strip()]
-    for x in satirlar[-6:]:
+    # DUSEN ADIM DAHA FAZLASINI YAZDIRIR.
+    #
+    # NEDEN -- OLCULDU (2026-11-01, 12 SAATLIK KESINTI)
+    # -------------------------------------------------
+    # Kuyruk her adimin yalnizca SON ALTI satirini basiyordu. Bu,
+    # gecen adimlar icin dogru: ozet yeter. DUSEN adimda ise son
+    # alti satir `denetim.py`nin OZET KUTUSU -- bulgular hemen
+    # ustunde ve KESILIYOR:
+    #
+    #     BULGU:        1 hata, 1 uyari, 2 bilgi
+    #     YAYIN KARARI: YAYINA UYGUN DEGIL
+    #
+    # Yani "yayinlanamaz" yaziyor ama NEDEN yayinlanamadigi hicbir
+    # yerde yok. Haber hatti 2026-11-01'de bu yuzden 12 saat boyunca
+    # her 10 dakikada bir ayni hatayla dustu ve gunluge bakan kisi
+    # sebebi OKUYAMADI; son otomatik yayin 2026-10-31 23:08'de
+    # kalmisti.
+    #
+    # "Ne oldu" ile "neden oldu" ayri sorular. Bu depoda ayni ders
+    # defalarca yazildi; kuyrugun kendisi onu uygulamiyordu.
+    #
+    # SESSIZ ADIM DA SOYLENIYOR: cikti hic yoksa "(cikti yok)"
+    # yaziliyor, yoksa dusen adim HICBIR SEY basmadan geciyor ve
+    # arizanin bos cikti oldugu bile anlasilmiyor.
+    _pay = SATIR_HATA if s.returncode != 0 else SATIR_BASARI
+    if not satirlar:
+        print("  (cikti yok)")
+    if len(satirlar) > _pay:
+        print(f"  ... (ilk {len(satirlar) - _pay} satir atlandi)")
+    for x in satirlar[-_pay:]:
         print(f"  {x}")
     sure = time.time() - basla
     ok = s.returncode == 0
