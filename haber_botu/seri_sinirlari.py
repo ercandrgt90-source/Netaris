@@ -159,17 +159,29 @@ def karantina_yaz(kayitlar) -> None:
 
     Bos kayitta zaman damgasi YOK: boylece her kosuda ayni icerik
     uretilir ve temiz gunler commit gurultusu yapmaz.
+
+    DEGISMEDIYSE DOKUNULMUYOR. Ilk surumde `an` her kosuda
+    yenileniyordu; olculdu: haber hatti on dakikada bir kostugu icin
+    dosya gunde 144 kez, YALNIZCA zaman damgasi yuzunden commit'e
+    giriyordu. Daha onemlisi `an`in anlami yanlisti -- "ne zaman
+    oldu" gibi okunuyor ama "en son ne zaman goruldu" demek
+    oluyordu. Artik sebepler kumesi ayniysa dosya oldugu gibi
+    kaliyor, yani `an` karantinanin BASLADIGI an.
     """
     kayitlar = list(kayitlar)
     try:
         KARANTINA.parent.mkdir(parents=True, exist_ok=True)
         if kayitlar:
             from datetime import datetime, timezone
+            yeni_sebep = [s for _k, s in kayitlar]
+            onceki = _karantina_oku()
+            if (onceki.get("sebepler") or []) == yeni_sebep:
+                return
             yuk = {
                 "an": datetime.now(timezone.utc)
                       .strftime("%Y-%m-%dT%H:%M:%SZ"),
                 "seriler": sorted({k for k, _s in kayitlar}),
-                "sebepler": [s for _k, s in kayitlar],
+                "sebepler": yeni_sebep,
             }
         else:
             yuk = {"seriler": [], "sebepler": []}

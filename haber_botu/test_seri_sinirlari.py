@@ -335,6 +335,27 @@ with tempfile.TemporaryDirectory() as _gecici:
     esit(S.karantinadakiler(), frozenset({"TP.X"}),
          "karantinadaki seri okunabiliyor")
 
+    # AYNI SEBEP -> DOSYAYA DOKUNULMUYOR.
+    #
+    # Ilk surumde `an` her kosuda yenileniyordu: haber hatti on
+    # dakikada bir kostugu icin dosya gunde 144 kez, YALNIZCA zaman
+    # damgasi yuzunden commit'e giriyordu. Daha onemlisi `an`in
+    # anlami yanlisti -- "ne zaman oldu" gibi okunuyor, "en son ne
+    # zaman goruldu" demek oluyordu.
+    _ISARET = "1970-01-01T00:00:00Z"
+    _d2 = json.loads(S.KARANTINA.read_text(encoding="utf-8"))
+    _d2["an"] = _ISARET
+    S.KARANTINA.write_text(json.dumps(_d2), encoding="utf-8")
+    S.karantina_yaz([("TP.X", "TP.X: sebep")])
+    esit(json.loads(S.KARANTINA.read_text(encoding="utf-8")).get("an"),
+         _ISARET,
+         "ayni sebep kumesi dosyaya DOKUNMUYOR -- `an` baslangic ani")
+    S.karantina_yaz([("TP.X", "TP.X: BASKA sebep")])
+    dogru(json.loads(S.KARANTINA.read_text(encoding="utf-8")).get("an")
+          != _ISARET,
+          "sebep degisince damga yenileniyor")
+    S.karantina_yaz([("TP.X", "TP.X: sebep")])
+
     # KARANTINADAKI SERIDEN YENI GOZLEM DE ALINMIYOR.
     #
     # `veri_dogrula` yalnizca depoda ZATEN olan tarihleri kaynakla
