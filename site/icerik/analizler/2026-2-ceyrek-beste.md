@@ -28,6 +28,8 @@ Net kârın %285,4'e çıkan marjı, aynı dönemde hasılatın sabit kalması v
 | Net kâr | %196,2 |
 | Faaliyet nakit akışı | -%34,2 |
 | Yatırım harcaması | -%36,1 |
+| Serbest nakit akışı | -%33,5 |
+| Finansman gideri | %800,0 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -39,9 +41,12 @@ Net kârın %285,4'e çıkan marjı, aynı dönemde hasılatın sabit kalması v
 | Net kâr | 0,33 milyar TL |
 | Özkaynak | 5,02 milyar TL |
 | Aktif toplamı | 5,68 milyar TL |
+| Ticari alacaklar | 0,07 milyar TL |
 | Net borç | -0,28 milyar TL |
 | Faaliyet nakit akışı | 0,03 milyar TL |
 | Yatırım harcaması | 0,01 milyar TL |
+| Serbest nakit akışı | 0,03 milyar TL |
+| Finansman gideri | 0,01 milyar TL |
 
 ## Son dört dönem
 
@@ -51,22 +56,25 @@ Net kârın %285,4'e çıkan marjı, aynı dönemde hasılatın sabit kalması v
 | Net kâr | 0,33 | -0,04 | 0,01 | 0,11 |
 | Özkaynak | 5,02 | 4,34 | 3,64 | — |
 | Aktif toplamı | 5,68 | 5,43 | 4,80 | — |
+| Ticari alacaklar | 0,07 | 0,04 | 0,05 | — |
 | Net borç | -0,28 | -0,29 | 0,27 | — |
 | Faaliyet nakit akışı | 0,03 | 0,01 | 0,08 | 0,05 |
 | Yatırım harcaması | 0,01 | 0,00 | 0,01 | 0,01 |
+| Serbest nakit akışı | 0,03 | 0,01 | 0,08 | 0,04 |
+| Finansman gideri | 0,01 | 0,02 | 0,05 | 0,00 |
 
 *Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
 
 ## Sektör içindeki konum
 
-Karşılaştırma Kamu hizmetleri sektöründe **aynı dönemi bildiren** 24 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Kamu hizmetleri sektöründe **aynı dönemi bildiren** 25 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Net kâr marjı | %285,4 | %11,4 |
-| Özkaynak kârlılığı | %6,6 | %1,0 |
-| Cari oran | 2,90 | 0,90 |
-| Borç / özkaynak | -0,06 | 0,12 |
+| Net kâr marjı | %285,4 | %11,3 |
+| Özkaynak kârlılığı | %6,6 | %0,8 |
+| Cari oran | 2,90 | 0,92 |
+| Borç / özkaynak | -0,06 | 0,07 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -76,7 +84,6 @@ Karşılaştırma Kamu hizmetleri sektöründe **aynı dönemi bildiren** 24 şi
 
 - Net kâr reel olarak %196,2 arttı.
 - Cari oran 2,90; dönen varlıklar kısa vadeli yükümlülüklerin üzerinde.
-- Özkaynak kârlılığı %6,6; sektör medyanı %1,0.
 
 **Dikkat gerektirenler**
 

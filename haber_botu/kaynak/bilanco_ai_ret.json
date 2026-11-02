@@ -136,6 +136,132 @@
    "model": "@cf/openai/gpt-oss-120b",
    "ham": "Hasılatın %4,5 düşmesi brüt kârın %13,7 azalmasına eşlik ederken, brüt kâr marjının %9,0 seviyesinde kalması sektör medyanı %14,1'in altında kalmasına yol açtı; bu durum net kâr marjının -%13,1 ve özkaynak kârlılığının -%1,2 olarak negatif seyretmesine neden oldu. Özkaynak ve aktif toplamının sırasıyla %29,5 ve %30,2 artması bilanço büyüklüğünü yükseltirken, net borcun -%44,7 (negatif borç) ve cari oranın 3,63'e (sektör medyanı 1,36) yükselmesi likiditeyi güçlendirdi. Faaliyet kârının -%133,3 artması ve FAVÖK'ün %83,9 düşmesi, faaliyet nakit akışının -%810,2 gerilemesiyle birlikte yatırım harcamasının %34,8 artmasına rağmen nakit çıkışının artmasına işaret etti.",
    "an": "2026-11-01T13:57:21+00:00"
+  },
+  {
+   "kod": "SANFM",
+   "unvan": "SANİFOAM ENDÜSTRİ VE TÜKETİM ÜRÜNLERİ SANAYİ TİCARET A.Ş.",
+   "donem": "2026 2. çeyrek",
+   "neden": "girdide olmayan sayi: 65, 44",
+   "model": "@cf/openai/gpt-oss-120b",
+   "ham": "Hasılatın %3,7 artması, özkaynakların %34,8 yükselmesiyle birlikte aktif toplamının %25,4 artmasına yol açarken, brüt kâr, faaliyet kârı, FAVÖK ve net kârda %65-%44 arasında düşüşler görülmüş; bu düşüşler, brüt kâr marjının %15,9 seviyesinde sektör medyanının (%16,5) altında kalmasına ve net kâr marjının %6,2 ile sektördeki ortalamanın (%0,2) çok üzerindeki farkına rağmen kârlılık oranlarının (%3,1 özkaynak kârlılığı) düşük seyretmesine yansımıştır. Net borcun %58,8 artması, borç/özkaynak oranının %0,74'ye (sektör medyanı %0,28) yükselmesine neden olurken, cari oran 1,63 (sektör medyanı 1,36) ile likiditeyi bir ölçüde korumuştur. Faaliyet nakit akışının önceki dönemde negatiften (+0,11 milya",
+   "an": "2026-11-02T16:22:59+00:00",
+   "yakin": {
+    "65": [
+     65.1,
+     64.7,
+     58.8
+    ],
+    "44": [
+     43.6,
+     34.8,
+     31.0
+    ]
+   }
+  },
+  {
+   "kod": "BRKO",
+   "unvan": "BİRKO BİRLEŞİK KOYUNLULULAR MENSUCAT TİCARET VE SANAYİ A.Ş.",
+   "donem": "2026 2. çeyrek",
+   "neden": "girdide olmayan sayi: 300",
+   "model": "@cf/openai/gpt-oss-120b",
+   "ham": "Hasılat, brüt kâr ve FAVÖK oranındaki %300-den fazla artışlar, brüt kâr marjının %42,4 ile sektör medyanının %16,3'ünün çok üzerinde kalmasına yol açtı; aynı zamanda faaliyet kârı negatiften pozitife geçerek özkaynak kârlılığının %0,0'dan negatif olmasına rağmen özkaynakların %54,3 artmasıyla desteklendi. Net borç, önceki dönemde %4609 artarak 0,90 milyar TL'ye yükselmiş, bu durum cari oranı %0,55 seviyesine düşürürken borç/özkaynak oranının %0,34'a çıkmasıyla likidite baskısını artırdı. Faaliyet nakit akışı ve yatırım harcamasındaki büyük negatif ve pozitif değişimler, artan faaliyet kârı ve FAVÖK ile birlikte şirketin büyüme harcamalarına yöneldiğini gösteriyor.",
+   "an": "2026-11-02T16:23:25+00:00",
+   "yakin": {
+    "300": [
+     331.0,
+     334.9,
+     189.4
+    ]
+   }
+  },
+  {
+   "kod": "MARTI",
+   "unvan": "MARTI OTEL İŞLETMELERİ A.Ş.",
+   "donem": "2026 2. çeyrek",
+   "neden": "girdide olmayan sayi: 137, 300",
+   "model": "@cf/openai/gpt-oss-120b",
+   "ham": "Hasılatın %3,0 düşmesi brüt kârın %63,9 gerilemesine eşlik eder; brüt kâr marjının %8,9 seviyesinde kalması, gelir azalımının kâr üzerindeki etkisini artırarak faaliyet ve net kârların sırasıyla -%300 ve -%213,8 oranında bozulmasına yol açtı. Özkaynakların %35,4 artması aktif toplamının %33,2 yükselmesiyle paralel seyretse de, net borçta sadece %0,4 azalma ve cari oranın 0,12'ye gerilemesi likiditeyi sınırlı tutarak borç/özkaynak oranının %0,28 (sektör medyanı %0,19) üzerine çıkmasına neden oldu. Faaliyet nakit akışının negatiften pozitif (+%137) dönüşü, yatırım harcamasının sabit kalmasıyla birlikte özkaynak kârlılığının -%0,6 (sektör medyanı %0,5) seviyesinde kalmasına rağmen, kârlılık ve ",
+   "an": "2026-11-02T16:23:44+00:00",
+   "yakin": {
+    "137": [
+     63.9,
+     213.8,
+     42.0
+    ],
+    "300": [
+     213.8,
+     63.9,
+     42.0
+    ]
+   }
+  },
+  {
+   "kod": "PATEK",
+   "unvan": "PASİFİK TEKNOLOJİ A.Ş.",
+   "donem": "2026 2. çeyrek",
+   "neden": "cop cikti: model dusunme kanali sizmis: 'analysis'",
+   "model": "@cf/openai/gpt-oss-120b",
+   "ham": "analysis: we need to produce 3 sentences max, Turkish, describing relationships between items based sentences about movement: which item moves together etc. Use given numbers only, no new numbers. no judgement words. Provide analysis channel then final.<|end|><|start|>assistantfinal:\n\n- Hasıltı decline %20,5 while net profit loss (-%200, F F FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF...??? )??? Sorry.<|end|><|start|>assistantanalysis: we need to obey rules:  max 3 sentences, no judgement words like good etc. Must use given numbers only, no new numbers or percentages beyond given. Must describe relationships between items: which item moves together, one rises while other falls etc. So we can say: Hasıla",
+   "an": "2026-11-02T16:23:56+00:00",
+   "yakin": {}
+  },
+  {
+   "kod": "BASGZ",
+   "unvan": "BAŞKENT DOĞALGAZ DAĞITIM GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.",
+   "donem": "2026 2. çeyrek",
+   "neden": "girdide olmayan sayi: 140.9",
+   "model": "@cf/openai/gpt-oss-120b",
+   "ham": "Hasılatın %10,9 artması net kârın %63,1 yükselmesine paralel olarak özkaynak ve aktif toplamının da sırasıyla %42,5 ve %36,5 artmasına yol açtı; bu büyüme net borcun -%140,9 (-2,24 bn TL) seviyesine gerilemesiyle birlikte özkaynak-özkaynak oranının negatifleşmesine (-0,06) neden oldu. Net kâr marjı %10,0 seviyesinde sektör medyanının (%11,3) altında kalırken, özkaynak kârlılığı %3,3 ile medyanın (%0,8) çok üzerindedir; bu durum kâr artışının özkaynak verimliliğini artırdığını gösterir. Faaliyet nakit akışının -1,32 bn TL'ye düşmesi ve cari oranın 0,28 (medyan 0,92) olması, artan kâr ve varlıkların likiditeye dönüşümünün sınırlı kaldığını ve kısa vadeli likidite baskısının sürdüğünü ortaya ko",
+   "an": "2026-11-02T16:24:07+00:00",
+   "yakin": {
+    "140.9": [
+     66.28,
+     63.1,
+     58.0
+    ]
+   }
+  },
+  {
+   "kod": "ANELE",
+   "unvan": "ANEL ELEKTRİK PROJE TAAHHÜT VE TİCARET A.Ş.",
+   "donem": "2026 2. çeyrek",
+   "neden": "girdide olmayan sayi: 200, 307.5, 1944",
+   "model": "@cf/openai/gpt-oss-120b",
+   "ham": "Hasılatın %86,3 düşmesi brüt kârın da %42,4 seviyesinde kalmasına rağmen negatif bir değere kaymasına yol açtı; bu düşüşle birlikte faaliyet ve FAVÖK kârları da artan zararlarla (faaliyet kârı -%307,5, FAVÖK -%200) genişledi. Net kârın -%1944 artışı özkaynakların %71,7 azalmasıyla paralel seyrederek özkaynak kârlılığının -%238,7'ye gerilemesine neden oldu; aynı zamanda aktif toplamındaki %20,1 azalma net borcun %98,7 düşmesiyle birlikte cari oranı 1,06'ya, borç/özkaynak oranını ise sektör medyanının altında %0,03 seviyesine çekti. Faaliyet nakit akışının -%141,3 gerilemesi ise zararların artması ve likidite sıkışıklığının artmasıyla birlikte, yatırım harcamasının sabit kalmasına rağmen şirke",
+   "an": "2026-11-02T16:24:30+00:00",
+   "yakin": {
+    "200": [
+     238.7,
+     141.3,
+     98.7
+    ],
+    "307.5": [
+     238.7,
+     141.3,
+     98.7
+    ],
+    "1944": [
+     2026.0,
+     606.5,
+     238.7
+    ]
+   }
+  },
+  {
+   "kod": "BURCE",
+   "unvan": "BURÇELİK BURSA ÇELİK DÖKÜM SANAYİİ A.Ş.",
+   "donem": "2026 1. çeyrek",
+   "neden": "girdide olmayan sayi: 100",
+   "model": "@cf/openai/gpt-oss-120b",
+   "ham": "Hasılatın %23,0 artması brüt kârın %2781,7 yükselmesine yol açtı; brüt kâr marjının %8,9 seviyesinde kalması ise faaliyet ve net kârların negatif kalmasını engelleyemedi, bu yüzden faaliyet kârı ve net kâr her ikisi de önceki döneme göre iyileşse de hâlâ zarar gösterdi. Özkaynakların %17,2 artması aktif toplamının %41,6 yükselmesiyle paralel seyredirken, net borcun %13 807,3 artması özkaynak/borç oranının %0,17'ye düşmesine rağmen cari oranın 0,99'a gerilemesine neden oldu. Faaliyet nakit akışının -%100 artması (-0,08 milyar TL) yatırım harcamasındaki -%62,5 değişimle (0,00 milyar TL) birlikte, şirketin likidite pozisyonunun daraldığını gösteriyor.",
+   "an": "2026-11-02T16:25:19+00:00",
+   "yakin": {
+    "100": [
+     62.5,
+     41.6,
+     23.0
+    ]
+   }
   }
  ]
 }

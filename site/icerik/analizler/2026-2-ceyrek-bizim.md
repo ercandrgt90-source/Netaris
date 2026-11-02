@@ -29,9 +29,13 @@ Hasılatın %8,0 düşmesi brüt kârın da %8,5 azalmasına yol açarken, brüt
 | FAVÖK | -%2,5 |
 | Özkaynak | -%169,3 |
 | Aktif toplamı | %15,9 |
+| Ticari alacaklar | %17,5 |
+| Stoklar | %15,3 |
 | Net borç | %5,2 |
 | Faaliyet nakit akışı | %2,4 |
 | Yatırım harcaması | -%13,0 |
+| Serbest nakit akışı | %3,6 |
+| Finansman gideri | -%32,5 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -46,9 +50,13 @@ Hasılatın %8,0 düşmesi brüt kârın da %8,5 azalmasına yol açarken, brüt
 | Net kâr | -0,28 milyar TL |
 | Özkaynak | -0,22 milyar TL |
 | Aktif toplamı | 14,03 milyar TL |
+| Ticari alacaklar | 1,83 milyar TL |
+| Stoklar | 4,00 milyar TL |
 | Net borç | 1,34 milyar TL |
 | Faaliyet nakit akışı | 0,56 milyar TL |
 | Yatırım harcaması | 0,03 milyar TL |
+| Serbest nakit akışı | 0,53 milyar TL |
+| Finansman gideri | 0,26 milyar TL |
 
 ## Son dört dönem
 
@@ -61,20 +69,24 @@ Hasılatın %8,0 düşmesi brüt kârın da %8,5 azalmasına yol açarken, brüt
 | Net kâr | -0,28 | -0,21 | 0,03 | -0,04 |
 | Özkaynak | -0,22 | 0,07 | 0,29 | 0,26 |
 | Aktif toplamı | 14,03 | 13,41 | 12,06 | 12,67 |
+| Ticari alacaklar | 1,83 | 1,75 | 1,46 | 1,41 |
+| Stoklar | 4,00 | 3,99 | 3,55 | 3,88 |
 | Net borç | 1,34 | 1,34 | 1,72 | 1,32 |
 | Faaliyet nakit akışı | 0,56 | 0,98 | 0,34 | 0,43 |
 | Yatırım harcaması | 0,03 | 0,01 | 0,09 | 0,08 |
+| Serbest nakit akışı | 0,53 | 0,97 | 0,25 | 0,35 |
+| Finansman gideri | 0,26 | 0,26 | 0,28 | 0,31 |
 
 *Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
 
 ## Sektör içindeki konum
 
-Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildiren** 56 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildiren** 53 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %15,6 | %15,5 |
-| Net kâr marjı | -%2,9 | -%0,6 |
+| Brüt kâr marjı | %15,6 | %15,6 |
+| Net kâr marjı | -%2,9 | -%0,3 |
 | Cari oran | 0,56 | 1,28 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*

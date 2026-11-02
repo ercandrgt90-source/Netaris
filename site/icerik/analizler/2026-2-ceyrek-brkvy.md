@@ -33,6 +33,7 @@ Hasılat ile brüt ve faaliyet kârı birlikte yükselirken net kâr yatay kald�
 | Aktif toplamı | %44,9 |
 | Net borç | %98,0 |
 | Yatırım harcaması | -%94,9 |
+| Finansman gideri | %79,7 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -50,6 +51,8 @@ Hasılat ile brüt ve faaliyet kârı birlikte yükselirken net kâr yatay kald�
 | Net borç | 1,14 milyar TL |
 | Faaliyet nakit akışı | -0,52 milyar TL |
 | Yatırım harcaması | 0,00 milyar TL |
+| Serbest nakit akışı | -0,52 milyar TL |
+| Finansman gideri | 0,11 milyar TL |
 
 ## Son dört dönem
 
@@ -65,20 +68,22 @@ Hasılat ile brüt ve faaliyet kârı birlikte yükselirken net kâr yatay kald�
 | Net borç | 1,14 | 0,93 | 0,83 | 0,68 |
 | Faaliyet nakit akışı | -0,52 | 0,24 | -0,12 | -0,10 |
 | Yatırım harcaması | 0,00 | — | — | 0,06 |
+| Serbest nakit akışı | -0,52 | — | — | -0,15 |
+| Finansman gideri | 0,11 | 0,09 | 0,08 | 0,08 |
 
 *Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
 
 ## Sektör içindeki konum
 
-Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 24 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 22 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %65,2 | %45,1 |
+| Brüt kâr marjı | %65,2 | %47,1 |
 | Net kâr marjı | %11,5 | %11,6 |
 | Özkaynak kârlılığı | %3,5 | %3,9 |
-| Cari oran | 2,19 | 12,09 |
-| Borç / özkaynak | 0,78 | -0,05 |
+| Cari oran | 2,19 | 5,73 |
+| Borç / özkaynak | 0,78 | -0,02 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

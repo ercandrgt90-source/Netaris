@@ -30,8 +30,11 @@ Brüt kârın %62,2'ye yükselmesi, hasılatın aynı seviyede kalmasına rağme
 | FAVÖK | -%0,6 |
 | Özkaynak | %21,1 |
 | Aktif toplamı | %25,2 |
+| Ticari alacaklar | -%14,4 |
+| Stoklar | -%39,1 |
 | Faaliyet nakit akışı | -%79,8 |
 | Yatırım harcaması | -%40,7 |
+| Serbest nakit akışı | -%81,4 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -46,9 +49,12 @@ Brüt kârın %62,2'ye yükselmesi, hasılatın aynı seviyede kalmasına rağme
 | Net kâr | 0,03 milyar TL |
 | Özkaynak | 5,78 milyar TL |
 | Aktif toplamı | 5,99 milyar TL |
+| Ticari alacaklar | 0,02 milyar TL |
+| Stoklar | 0,45 milyar TL |
 | Net borç | -0,02 milyar TL |
 | Faaliyet nakit akışı | 0,00 milyar TL |
 | Yatırım harcaması | 0,00 milyar TL |
+| Serbest nakit akışı | 0,00 milyar TL |
 
 ## Son dört dönem
 
@@ -61,9 +67,13 @@ Brüt kârın %62,2'ye yükselmesi, hasılatın aynı seviyede kalmasına rağme
 | Net kâr | 0,03 | -0,38 | -0,06 | -0,02 |
 | Özkaynak | 5,78 | 5,50 | 5,20 | 5,04 |
 | Aktif toplamı | 5,99 | 5,60 | 5,25 | 5,12 |
+| Ticari alacaklar | 0,02 | 0,02 | 0,02 | 0,02 |
+| Stoklar | 0,45 | 0,42 | 0,38 | 0,74 |
 | Net borç | -0,02 | -0,02 | -0,02 | -0,03 |
 | Faaliyet nakit akışı | 0,00 | 0,00 | 0,03 | 0,00 |
 | Yatırım harcaması | 0,00 | 0,00 | 0,00 | — |
+| Serbest nakit akışı | 0,00 | 0,00 | 0,03 | — |
+| Finansman gideri | — | 0,00 | 0,00 | 0,00 |
 
 *Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
 
@@ -73,10 +83,10 @@ Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 32 şirket
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %62,2 | %62,2 |
-| Net kâr marjı | %117,2 | %18,3 |
-| Özkaynak kârlılığı | %0,6 | %0,6 |
-| Cari oran | 76,64 | 7,31 |
+| Brüt kâr marjı | %62,2 | %51,3 |
+| Net kâr marjı | %117,2 | %15,8 |
+| Özkaynak kârlılığı | %0,6 | %0,5 |
+| Cari oran | 76,64 | 5,25 |
 | Borç / özkaynak | 0,00 | 0,00 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
