@@ -1806,6 +1806,30 @@ def _rapor_yaz(bulgular: list, hata: list, uyari: list) -> None:
     print(f"  YAYIN KARARI: {simge} {karar}")
     print("-" * 70)
 
+    # HATA VE UYARILAR EN SONA DA YAZILIYOR -- TEKRAR GIBI DURUYOR,
+    # DEGIL.
+    #
+    # `calistir.py` BASARILI bir adimin yalnizca son 6 satirini
+    # basiyor (dusen adimda 80). Denetim yesil kostugunda bulgular o
+    # kuyruga SIGMIYOR: olculdu (kosu #2478 gunlugu), ciktinin basinda
+    # "... (ilk 14 satir atlandi)" yaziyor ve iki uyarinin ikisi de
+    # gorunmuyordu. Yani her kosu "0 hata, 2 uyari" diyor ve NE
+    # OLDUGUNU kimse goremiyor.
+    #
+    # Surekli gorunmeyen bir uyari, yanindaki gercek uyariyi da
+    # goturur -- bu depoda `Bulgu` siniflarinin kendi gerekcesinde
+    # yazili ders. Tek satirlik ozet kuyruga siğiyor.
+    #
+    # BILGI GIRMIYOR: yayin kararina girmedigi gibi buraya da. Amac
+    # kuyrugu doldurmak degil, KARARA GIREN bulguyu gorunur kilmak.
+    _onemli = hata + uyari
+    if _onemli:
+        print("  " + " | ".join(
+            f"{b.agirlik.upper()} {b.alan}"
+            + (f"/{b.kod}" if b.kod and b.kod != "-" else "")
+            for b in _onemli[:6])
+            + (f" | +{len(_onemli) - 6}" if len(_onemli) > 6 else ""))
+
 
 def calistir(sessiz: bool = False) -> int:
     bulgular: list[Bulgu] = []

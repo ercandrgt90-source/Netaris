@@ -375,22 +375,39 @@ def calistir(duzelt: bool = False, sessiz: bool = False,
         if len(sapan) > 40:
             print(f"... ve {len(sapan) - 40} tane daha")
 
-    if duzelt and sapan:
+    # KARANTINA, SAPMA OLMASA DA DEGERLENDIRILIYOR.
+    #
+    # Ilk yazimda temizleme `if duzelt and sapan:` blogunun ICINDEydi
+    # ve bu, EN IYI DURUMU disarida birakiyordu: kaynak tamamen
+    # duzelince sapma SIFIR olur, blok hic calismaz ve karantina
+    # SONSUZA KADAR acik kalir. Dahasi karantinadaki seriden yeni
+    # gozlem de alinmiyor, yani seri kalici olarak donuyor.
+    #
+    # Olculdu (2026-11-03): TCMB seriyi yeniden tabanlandirdi, EVDS
+    # yine temiz endeks donduruyor ve `veri_dogrula` 3091 gozlemin
+    # tamaminda "sapan 0" diyor -- yani depo kaynakla birebir
+    # uyusuyor. Buna ragmen karantina kaydi 2 Kasim'dan beri ayni
+    # duruyordu ve 2026-10 cekirdek enflasyonu (%28,28) depoya
+    # GIREMIYORDU.
+    #
+    # Bu, bu depoda adi konmus bir sinif: olay bayragi, DURUM
+    # sorusuna cevap vermiyor. Kayit bir olayi yaziyor ama kalkmasi,
+    # iyilesme halinin GIRMEDIGI bir koda bagliydi.
+    gerileme: list = []
+    if duzelt:
         sapan, gerileme = gerilemeyi_ayikla(sapan, zorla=gerilemeyi_yok_say)
-        if gerileme:
-            print()
-            print("!" * 68)
-            print("  KAYNAK GERILEMESI -- bu duzeltmeler UYGULANMADI")
-            print("!" * 68)
-            for _kod, _sebep in gerileme:
-                print(f"  {_sebep}")
-            print("  Depodaki deger KORUNDU. Kaynak duzelince kendiliginden")
-            print("  uyusacak. Gercekten gerekiyorsa:")
-            print("      python veri_dogrula.py --duzelt "
-                  "--gerilemeyi-yok-say")
-            karantina_yaz(gerileme)
-        else:
-            karantina_yaz([])
+        karantina_yaz(gerileme)
+    if duzelt and gerileme:
+        print()
+        print("!" * 68)
+        print("  KAYNAK GERILEMESI -- bu duzeltmeler UYGULANMADI")
+        print("!" * 68)
+        for _kod, _sebep in gerileme:
+            print(f"  {_sebep}")
+        print("  Depodaki deger KORUNDU. Kaynak duzelince kendiliginden")
+        print("  uyusacak. Gercekten gerekiyorsa:")
+        print("      python veri_dogrula.py --duzelt "
+              "--gerilemeyi-yok-say")
     if duzelt and sapan:
         with beyin.baglan() as b:
             for kod, tarih, _b, dogru, _f, _s in sapan:

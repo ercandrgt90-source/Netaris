@@ -479,6 +479,64 @@ except sqlite3.Error as _e:
 
 
 # ----------------------------------------------------------------------
+# 8b. IYILESME KARANTINAYI KALDIRMALI
+# ----------------------------------------------------------------------
+# Temizleme ilk yazimda `if duzelt and sapan:` blogunun ICINDEydi ve
+# bu EN IYI DURUMU disarida birakiyordu: kaynak tamamen duzelince
+# sapma SIFIR olur, blok hic calismaz, karantina SONSUZA KADAR acik
+# kalir -- ve karantinadaki seriden yeni gozlem de alinmadigi icin
+# seri kalici olarak donar.
+#
+# Olculdu (2026-11-03): TCMB seriyi yeniden tabanlandirdi,
+# `veri_dogrula` 3091 gozlemde 'sapan 0' dedi, ama karantina kaydi
+# 2 Kasim'dan beri ayni duruyordu ve 2026-10 cekirdek enflasyonu
+# depoya giremiyordu. Olay bayragi, DURUM sorusuna cevap vermiyordu.
+print(chr(10) + '8b. Iyilesme karantinayi kaldiriyor mu')
+
+_ck = ast.parse((_KOK / 'veri_dogrula.py').read_text(encoding='utf-8'))
+_cf = [d for d in _ck.body
+       if isinstance(d, ast.FunctionDef) and d.name == 'calistir'][0]
+
+
+def _kosullar(dugum):
+    """`karantina_yaz` cagrisini saran `if` kosullarinin metni."""
+    yol = []
+
+    def gez(d, zincir):
+        if isinstance(d, ast.Call) and getattr(d.func, 'id', '') == 'karantina_yaz':
+            yol.append(list(zincir))
+        for alt in ast.iter_child_nodes(d):
+            if isinstance(d, ast.If) and alt in d.body:
+                gez(alt, zincir + [ast.unparse(d.test)])
+            else:
+                gez(alt, zincir)
+    gez(dugum, [])
+    return yol
+
+
+_yollar = _kosullar(_cf)
+dogru(_yollar, 'calistir icinde karantina_yaz cagrisi var')
+# HICBIR CAGRI `sapan` KOSULUNA BAGLI OLMAMALI: sapma yokken de
+# karar verilmeli.
+_sapana_bagli = [y for y in _yollar if any('sapan' in k for k in y)]
+esit(_sapana_bagli, [],
+     'karantina karari `sapan` kosuluna BAGLI DEGIL')
+
+# DAVRANIS: sapma yokken karantina BOSALIYOR.
+_uk = S.KARANTINA
+with tempfile.TemporaryDirectory() as _g5:
+    S.KARANTINA = pathlib.Path(_g5) / 'k.json'
+    S.karantina_yaz([('TP.X', 'TP.X: sebep')])
+    esit(S.karantinadakiler(), frozenset({'TP.X'}), 'once karantinada')
+    # `gerilemeyi_ayikla([])` bos liste doner -> `karantina_yaz([])`
+    _kalan, _ger = V.gerilemeyi_ayikla([])
+    esit((_kalan, _ger), ([], []), 'sapma yokken gerileme de yok')
+    S.karantina_yaz(_ger)
+    esit(S.karantinadakiler(), frozenset(),
+         'sapma yokken karantina BOSALIYOR')
+S.KARANTINA = _uk
+S.karantinadakiler.cache_clear()
+# ----------------------------------------------------------------------
 # 9. TEK YAZMA YOLU -- ucuncu bir atlama imkansiz olmali
 # ----------------------------------------------------------------------
 # Suzgec `beyin.gosterge_yaz` icinde. Ilk yazildiginda IKI modul

@@ -427,6 +427,59 @@ _k = _re.search(r"for yol, n in (\w+)\.items\(\):", _kod)
 es("kirik gorsel denetimi HAM yolu kullaniyor",
    bool(_k) and _k.group(1) == "kullanim", True)
 
+# ------------------------------------------------------------------
+# BULGULAR BASARILI KOSUDA DA GORUNMELI
+# ------------------------------------------------------------------
+# `calistir.py` BASARILI bir adimin yalnizca son `SATIR_BASARI`
+# satirini basiyor. Denetim yesil kostugunda bulgular o kuyruga
+# sigmiyordu: olculdu (kosu #2478 gunlugu), ciktinin basinda
+# '... (ilk 14 satir atlandi)' yaziyor ve iki uyarinin ikisi de
+# gorunmuyordu. Her kosu '0 hata, 2 uyari' diyor, NE OLDUGUNU kimse
+# goremiyor -- surekli gorunmeyen uyari, yanindaki gercek uyariyi da
+# goturur.
+#
+# OLCUT SABIT 6 DEGIL, `calistir.py`NIN KENDI SABITI: kuyruk uzunlugu
+# orada degisirse bu sinama onunla birlikte kaymali, yoksa koruma
+# sessizce anlamsizlasir.
+import io          # noqa: E402
+import contextlib  # noqa: E402
+import importlib.util as _iu  # noqa: E402
+
+_cal = _KOK.parent / 'calistir.py'
+_sp = _iu.spec_from_file_location('_cal', _cal)
+_cm = _iu.module_from_spec(_sp)
+_sp.loader.exec_module(_cm)
+_KUYRUK = _cm.SATIR_BASARI
+
+_h = [denetim.Bulgu('hata', 'aralik', 'TP.X', 'mesaj')]
+_u = [denetim.Bulgu('uyari', 'karantina', '-', 'mesaj'),
+      denetim.Bulgu('uyari', 'stil', 'sinif', 'mesaj')]
+_bg = [denetim.Bulgu('bilgi', 'bilanco', '-', 'mesaj')]
+_tampon = io.StringIO()
+with contextlib.redirect_stdout(_tampon):
+    denetim._rapor_yaz(_h + _u + _bg, _h, _u)
+_satirlar = [x for x in _tampon.getvalue().splitlines() if x.strip()]
+_ozet = [i for i, x in enumerate(_satirlar)
+         if 'HATA aralik' in x or 'UYARI karantina' in x]
+es('bulgu ozeti basiliyor', bool(_ozet), True)
+if _ozet:
+    _sondan = len(_satirlar) - _ozet[0]
+    es(f'ozet son {_KUYRUK} satirin icinde (sondan {_sondan})',
+       _sondan <= _KUYRUK, True)
+_son = _satirlar[-1] if _satirlar else ''
+es('ozet hem hatayi hem uyariyi iceriyor',
+   ('HATA' in _son and 'UYARI' in _son), True)
+# BILGI GIRMIYOR: yayin kararina girmedigi gibi ozete de girmemeli.
+es('bilgi ozete girmiyor', 'BILGI' in _son.upper().replace('BILGI', 'BILGI')
+   and 'bilanco' in _son, False)
+
+# BULGU YOKSA FAZLADAN SATIR BASILMIYOR.
+_t2 = io.StringIO()
+with contextlib.redirect_stdout(_t2):
+    denetim._rapor_yaz([], [], [])
+es('temiz kosuda ozet satiri YOK',
+   any('HATA' in x or 'UYARI' in x
+       for x in _t2.getvalue().splitlines()), False)
 print()
 for k in kaldi:
     print("  KALDI", k)
