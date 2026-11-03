@@ -653,3 +653,50 @@ jobs:
               sleep 3
             done
           fi
+
+      # ============================================================
+      # KIRMIZI KOSUYU DUYUR -- BU AKISTA HIC YOKTU.
+      #
+      # Olculdu (2026-11-03): bu dosyada "duyur" gecen TEK BIR adim
+      # yoktu. Gunde BIR kosan bir hat sessizce dusuyor, yani bir
+      # gunluk bilanco uretimi kaybolup kimse duymuyor.
+      #
+      # Tam bu yasandi: kosu #65 (2026-11-01) geri yazma kapisindan
+      # dustu ve O KOSUDA URETILEN HER SEY kayboldu -- 25 sayfa,
+      # 7 sektor, 25 goc. Hicbir sey otmedi; Actions listesine
+      # bakarak buldum.
+      #
+      # MANTIK KOPYALANMIYOR: `.github/alarm.sh` iki akista da ayni.
+      # Ayni karari iki yerde almak bu depoda uc kez kosu dusurdu.
+      #
+      # AYRI ETIKET: `bilanco`. Ortak etiket, haber akisi yesile
+      # donunce bilanco alarmini da kapatirdi -- iki hattin sagligi
+      # ayri sorular.
+      #
+      # `cancelled()` DE KAPSANIYOR: GitHub'da iptal `failure()`
+      # sayilmiyor ve iptal edilen bir kosu hicbir sey duyurmuyordu.
+      # ============================================================
+      - name: Kırmızı koşuyu duyur
+        if: failure() || cancelled()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          KIP: duyur
+          DEPO: ${{ github.repository }}
+          KOSU_ID: ${{ github.run_id }}
+          SUNUCU: ${{ github.server_url }}
+          OLAY: ${{ github.event_name }}
+          SHA: ${{ github.sha }}
+          BASLIK: "Bilanço akışı kirmizi -- kosu basarisiz"
+          ETIKET: bilanco
+        run: bash .github/alarm.sh
+
+      # SAGLIGA DONUNCE KENDILIGINDEN SUSUYOR -- gerekcesi
+      # `.github/alarm.sh` icinde.
+      - name: Sağlığa dönünce alarmı kapat
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          KIP: kapat
+          DEPO: ${{ github.repository }}
+          ETIKET: bilanco
+        run: bash .github/alarm.sh

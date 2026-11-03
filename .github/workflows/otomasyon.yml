@@ -794,70 +794,36 @@ jobs:
       # surmekte olan bir arizanin zaman cizelgesi olusuyor ama gurultu
       # olmuyor.
       # ============================================================
+      # IPTAL DE DUYURULUYOR -- `failure()` ONU KAPSAMIYOR.
+      #
+      # Olculdu (2026-11-03, son 40 kosu): iki kosu "cancelled" ile
+      # bitti ve ikisi de alarmin DISINDA kaldi, cunku GitHub'da
+      # iptal `failure()` sayilmiyor.
+      #
+      # Biri zararsizdi (butun adimlar tamamlanmisti), oteki DEGIL:
+      # kosu #2468'de "Veri topla ve icerik uret" adimi URETIM
+      # ORTASINDA iptal edildi. O cevrimde site guncellenmedi ve
+      # hicbir sey otmedi -- Actions listesinde gri bir satir, kirmizi
+      # degil. Bu depoda adi konmus sinif: dagitimi durduran sey
+      # KRITIK gorunmuyorsa kosu sessiz kaliyor.
+      #
+      # `cancelled()` AYRI BIR KOSUL: GitHub iptal sirasinda yalnizca
+      # `always()` ya da `cancelled()` tasiyan adimlari kosturuyor.
       - name: Kırmızı koşuyu duyur
-        if: failure()
+        if: failure() || cancelled()
         env:
           GH_TOKEN: ${{ github.token }}
+          KIP: duyur
+          DEPO: ${{ github.repository }}
+          KOSU_ID: ${{ github.run_id }}
+          SUNUCU: ${{ github.server_url }}
+          OLAY: ${{ github.event_name }}
+          SHA: ${{ github.sha }}
           BASLIK: "Otomasyon kirmizi -- kosu basarisiz"
+          ETIKET: otomasyon
         run: |
-          kosu="${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-          # "BIR SEY BOZUK" ILE "NE BOZUK" ARASINDAKI FARK.
-          #
-          # Olculdu (2026-10-20): dagitim yedi buçuk saat durdu. Bu
-          # alarm CALISTI, kayit 12:59'da acildi -- ama govdesinde
-          # yalnizca "kosu ozetine bakin" yaziyordu. Hangi adimin,
-          # hangi sinamanin dustugu yalnizca GUNLUKTEYDI ve gunluk
-          # indirmek yetki istiyor. Alarmi okuyup ne yapacagini
-          # bilememek, alarmin yarisini bosa harcamak.
-          adimlar=$(gh api "repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/jobs" --jq '.jobs[].steps[]? | select(.conclusion=="failure") | "- " + .name' 2>/dev/null | head -8)
-          [ -z "$adimlar" ] && adimlar="- (adım listesi alınamadı -- koşu özetine bakın)"
-          # Ciktiya bakan koscu dusen dosya adlarini buraya yaziyor.
-          sinamalar=""
-          dosya="${RUNNER_TEMP}/dusen-sinamalar.txt"
-          if [ -s "$dosya" ]; then
-            sinamalar="
-
-          Düşen sınamalar:
-          $(sed 's|^|- |' "$dosya" | head -12)"
-          fi
-          govde="Koşu: $kosu
-          Tetikleyici: ${{ github.event_name }}
-          Commit: ${{ github.sha }}
-          Zaman (UTC): $(date -u +'%Y-%m-%d %H:%M')
-
-          Düşen adımlar:
-          $adimlar$sinamalar
-
-          Bu kayıt, koşu yeşile döndüğünde KENDİLİĞİNDEN kapanır."
-          mevcut=$(gh issue list --state open --label otomasyon                    --json number --jq '.[0].number // empty' 2>/dev/null || true)
-          if [ -z "$mevcut" ]; then
-            gh label create otomasyon --color B60205               --description "Otomasyon kosusu basarisiz" 2>/dev/null || true
-            # ALARMIN KENDI ARIZASI SESSIZ KALMAMALI.
-            #
-            # Kayit acilamazsa (yetki, kota, Issues kapali) alarm hic
-            # CALMAZ ve "acik kayit yok" YANLISLIKLA "saglikli" diye
-            # okunur -- calmayan alarm, alarmsizliktan kotudur.
-            #
-            # O yuzden hata YUTULMUYOR: adim kirmizi yaniyor. Kosu
-            # zaten kirmizi (bu dal `failure()`), yani durumu
-            # kotulestirmiyor; yalnizca ADIM LISTESINDE "alarm da
-            # bozuk" diye gorunur oluyor.
-            if ! gh issue create --title "$BASLIK" --label otomasyon --body "$govde"; then
-              echo "::error::ALARM CALISMADI -- kayit acilamadi (yetki? Issues kapali?)"
-              exit 1
-            fi
-            exit 0
-          fi
-          # ALTI SAATTE BIR: zaman cizelgesi olussun ama gurultu olmasin.
-          guncel=$(gh issue view "$mevcut" --json updatedAt --jq .updatedAt 2>/dev/null || echo "")
-          if [ -n "$guncel" ]; then
-            gecen=$(( $(date -u +%s) - $(date -u -d "$guncel" +%s) ))
-            if [ "$gecen" -lt 21600 ]; then
-              echo "kayit #$mevcut acik ve $((gecen/60)) dk once guncellendi -- yorum eklenmiyor"
-              exit 0
-            fi
-          fi
-          gh issue comment "$mevcut" --body "$govde" || true
+          export SINAMA_DOSYASI="${RUNNER_TEMP}/dusen-sinamalar.txt"
+          bash .github/alarm.sh
 
       # SAGLIGA DONUNCE ALARM KENDILIGINDEN SUSUYOR.
       #
@@ -874,29 +840,11 @@ jobs:
         if: success()
         env:
           GH_TOKEN: ${{ github.token }}
-        run: |
-          mevcut=$(gh issue list --state open --label otomasyon                    --json number --jq '.[0].number // empty' 2>/dev/null || true)
-          if [ -n "$mevcut" ]; then
-            gh issue close "$mevcut" --comment               "Koşu yeşile döndü ($(date -u +'%Y-%m-%d %H:%M') UTC). Alarm kapatıldı."               || true
-          fi
+          KIP: kapat
+          DEPO: ${{ github.repository }}
+          ETIKET: otomasyon
+        run: bash .github/alarm.sh
 
-      # ESIGE YAKLASMAK, ASILMADAN ONCE DUYURULUYOR.
-      #
-      # `/makro/` sayfasi DOM esigini UC KEZ asti (2026-09-18,
-      # 10-19, 10-26) ve her seferinde dagitim saatlerce durdu.
-      # Ucunde de asilma ancak ASILDIKTAN SONRA ogrenildi -- oysa
-      # buyume hep yavas geldi: gunde 7,4 analiz x 3-4 oge, yani
-      # son 500 oge yaklasik UC HAFTA onceden gorulebilirdi.
-      #
-      # `test_dom_agirligi.py` paya giren sayfalari
-      # `yaklasan-esik.txt` dosyasina yaziyor ve bu adim onu kayda
-      # cevirir.
-      #
-      # NEDEN KOSUYU KIRMIZIYA CEVIRMIYOR: yaklasmak bir ariza
-      # DEGIL, bir ongoru. Kirmizi dondurmek hem dagitimi hem de
-      # "kirmizi kosu" alarmini tetikler -- yani onlemek istedigi
-      # kesintiyi kendisi uretir. Adim yine SESSIZ DEGIL: kendi
-      # arizasini `::error::` ek aciklamasiyla bildiriyor.
       - name: Yaklaşan eşiği duyur
         if: always()
         env:

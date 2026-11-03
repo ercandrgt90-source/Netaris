@@ -38,6 +38,8 @@ from __future__ import annotations
 
 import pathlib
 import re
+import os as _os
+import shutil as _shutil
 import sys
 
 _gecti = 0
@@ -707,17 +709,29 @@ dogru("otomasyon.yml: alarm icin `actions: read` yetkisi var",
       "actions: read" in _oto)
 
 # 2. SORGU. Dusen adimin adi kosunun kendi is listesinden okunuyor.
-dogru("otomasyon.yml: alarm dusen ADIM adini sorguluyor",
-      "/jobs" in _oto and 'conclusion=="failure"' in _oto)
+#
+# OLCUT ARTIK BETIK, AKIS DEGIL. Mantik `.github/alarm.sh`e tasindi
+# (iki akis da onu cagiriyor) ve bu dort iddia bir sure akis
+# dosyasina bakmaya devam etti -- yani sorusu ESKIDI ve dordu de
+# kirmizi dondu. Ayni sinif bu turda iki kez yasandi: bir kural,
+# korudugu sey yer degistirince sessizce yanlis yere bakiyor.
+_alarm_metni = (KOK / ".github" / "alarm.sh").read_text(encoding="utf-8")
+dogru("alarm.sh: dusen ADIM adini sorguluyor",
+      "/jobs" in _alarm_metni
+      and 'conclusion=="failure"' in _alarm_metni)
+# IPTAL DE SORGULANMALI: `failure()` iptali kapsamiyor ve iptal
+# edilen bir kosuda "dusen adim" listesi BOS doner.
+dogru("alarm.sh: kesilen adimi da sorguluyor",
+      'conclusion=="cancelled"' in _alarm_metni)
 # Ad listesi GOVDENIN ICINDE olmali. Dosyada bir yerde gecmesi
 # yetmez: `adimlar=$(...)` atamasi ve `[ -z "$adimlar" ]` yedegi de
 # ayni dizgiyi tasiyor, yani "dosyada var mi" iddiasi govdeden
 # silinse bile YESIL kalirdi -- olculdu, mutasyon kacti.
-_gv = re.search('govde="Koşu: [$]kosu(.*?)"', _oto, re.S)
-dogru("otomasyon.yml: alarm govdesi bulundu", _gv is not None)
-dogru("otomasyon.yml: adim adlari kayit GOVDESINE giriyor",
+_gv = re.search('govde="Koşu: [$]kosu(.*?)"', _alarm_metni, re.S)
+dogru("alarm.sh: alarm govdesi bulundu", _gv is not None)
+dogru("alarm.sh: adim adlari kayit GOVDESINE giriyor",
       _gv is not None and "$adimlar" in _gv.group(1))
-dogru("otomasyon.yml: dusen sinamalar kayit GOVDESINE giriyor",
+dogru("alarm.sh: dusen sinamalar kayit GOVDESINE giriyor",
       _gv is not None and "$sinamalar" in _gv.group(1))
 
 # 3. SOZLESME: koscu ile is akisi AYNI dosya adinda anlasmali.
@@ -730,8 +744,13 @@ _ks = (KOK / "site" / "cikti_sinamalari.py").read_text(encoding="utf-8")
 _md = re.search(r'_DUYURU = "([^"]+)"', _ks)
 dogru("cikti_sinamalari.py: duyuru dosyasinin adi tanimli", _md is not None)
 if _md:
+    # Dosya adi akista `SINAMA_DOSYASI` olarak veriliyor, betik onu
+    # okuyor. Iki halka da tutuluyor.
     dogru("otomasyon.yml alarmi ayni dosyayi okuyor (" + _md.group(1) + ")",
           _md.group(1) in _oto)
+    dogru("alarm.sh dusen-sinama dosyasini ENV'den aliyor",
+          "SINAMA_DOSYASI" in _alarm_metni
+          and "SINAMA_DOSYASI" in _oto)
 # CAGRI ARANIYOR, TANIM DEGIL. "_duyur(" dizgisi `def _duyur(`
 # satirinda da gecer, yorum satirina alinmis bir cagrida da --
 # ikisinde de iddia yesil kalirdi. Olculdu, mutasyon kacti.
@@ -906,5 +925,76 @@ if _cs_yol.is_file():
     dogru('kaynak sarmalayicisi uretim sonrasi kumesinde DEGIL',
           'test_mobil_kaynak.py' not in _sonra)
 
+# ----------------------------------------------------------------------
+# ALARM: IKI AKISTA DA VAR MI, IPTALI DE KAPSIYOR MU
+# ----------------------------------------------------------------------
+# Olculdu (2026-11-03):
+#   * `bilanco.yml`de 'duyur' gecen TEK BIR adim yoktu. Gunde bir
+#     kosan hat sessizce dusuyordu -- kosu #65 tam boyle kayboldu
+#     (25 sayfa, 7 sektor, 25 goc).
+#   * Son 40 kosunun ikisi 'cancelled' bitti ve ikisi de alarmin
+#     disinda kaldi: GitHub'da iptal `failure()` SAYILMIYOR. Biri
+#     zararsizdi, oteki degil -- #2468'de uretim adimi ortasinda
+#     kesildi ve o cevrimde site guncellenmedi.
+import subprocess as _sp                                  # noqa: E402
+
+_ALARM = KOK / '.github' / 'alarm.sh'
+dogru('alarm betigi var', _ALARM.is_file())
+
+for _ad in ('otomasyon.yml', 'bilanco.yml'):
+    _t = (_akislar / _ad).read_text(encoding='utf-8')
+    _satir = _t.splitlines()
+    # DUYURU ADIMI VAR MI
+    dogru(f'{_ad}: kirmizi kosu duyuruluyor',
+          'Kırmızı koşuyu duyur' in _t)
+    # IPTAL DE KAPSANIYOR MU -- olcut `if:` satiri.
+    dogru(f'{_ad}: iptal de duyuruluyor (failure() || cancelled())',
+          any('failure() || cancelled()' in x for x in _satir
+              if x.strip().startswith('if:')))
+    # MANTIK KOPYALANMAMIS OLMALI: akista satir ici kayit acma yok.
+    _bolum = _t.split('Kırmızı koşuyu duyur')[-1][:1200]
+    dogru(f'{_ad}: duyuru mantigi KOPYALANMAMIS (betik cagriliyor)',
+          'alarm.sh' in _bolum and 'gh issue create' not in _bolum)
+    # SAGLIGA DONUNCE KAPANIYOR MU
+    dogru(f'{_ad}: saglikta alarm kapaniyor',
+          'Sağlığa dönünce alarmı kapat' in _t)
+
+# IKI AKIS AYRI ETIKET KULLANMALI: ortak etiket, bir hat yesile
+# donunce otekinin alarmini da kapatirdi.
+_eti = {}
+for _ad in ('otomasyon.yml', 'bilanco.yml'):
+    _t = (_akislar / _ad).read_text(encoding='utf-8')
+    # OLCUT ENV SATIRI: ilk yazimda yorum icindeki 'ETIKET:' de
+    # kumeye giriyordu ve karsilastirmayi kirletiyordu.
+    _eti[_ad] = {x.split('ETIKET:')[1].strip()
+                 for x in _t.splitlines()
+                 if x.strip().startswith('ETIKET:')}
+dogru(f'akislar AYRI etiket kullaniyor ({_eti})',
+      bool(_eti['otomasyon.yml']) and bool(_eti['bilanco.yml'])
+      and not (_eti['otomasyon.yml'] & _eti['bilanco.yml']))
+
+# BETIK GERCEKTEN CALISIYOR MU -- KURU CALISTIRMA.
+#
+# Alarm, her sey bozuldugunda haber veren sey; gercekten tetikleyip
+# denemek her denemede bir kayit acmak demekti. `KURU=1` hicbir `gh`
+# cagrisi yapmadan govdeyi basiyor.
+if _ALARM.is_file() and _shutil.which('bash'):
+    _ortam = dict(_os.environ)
+    _ortam.update({'KIP': 'duyur', 'DEPO': 'sahip/depo',
+                   'KOSU_ID': '999', 'SUNUCU': 'https://github.com',
+                   'OLAY': 'schedule', 'SHA': 'deadbeef',
+                   'BASLIK': 'sinama basligi', 'ETIKET': 'sinama',
+                   'KURU': '1'})
+    _k = _sp.run([_shutil.which('bash'), str(_ALARM)], env=_ortam,
+                 capture_output=True, text=True, encoding='utf-8',
+                 errors='replace', timeout=120, cwd=str(KOK))
+    dogru('alarm betigi kuru kipte cikis 0', _k.returncode == 0)
+    _c = _k.stdout or ''
+    for _beklenen in ('actions/runs/999', 'schedule', 'deadbeef',
+                      'Düşen adımlar', 'sinama basligi'):
+        dogru(f'kuru govde {_beklenen!r} iceriyor', _beklenen in _c)
+    # HICBIR GERCEK CAGRI YAPILMAMALI.
+    dogru('kuru kipte gercek `gh issue` cagrisi YOK',
+          'gh issue create' not in _c.replace('KURU: gh issue', ''))
 print(f"\n{_gecti} gecti, {_kaldi} kaldi")
 sys.exit(1 if _kaldi else 0)
