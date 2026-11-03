@@ -1087,7 +1087,8 @@ def saglayici() -> str:
     return ""
 
 
-def yorumla(girdi: str, sistem_ozel: str = "") -> tuple[str, str, str, str]:
+def yorumla(girdi: str, sistem_ozel: str = "",
+            _ikinci: bool = False) -> tuple[str, str, str, str]:
     """Girdiden yorum uretir.
 
     `(metin, kullanilan_model, ret_nedeni, ham_cikti)` doner.
@@ -1242,6 +1243,41 @@ def yorumla(girdi: str, sistem_ozel: str = "") -> tuple[str, str, str, str]:
 
     # --- 1. sayi denetimi ---
     kacak = sayi_denetimi(metin, girdi)
+    if kacak and not _ikinci:
+        # IKINCI DENEME -- HANGI SAYININ KACAK OLDUGUNU SOYLEYEREK.
+        #
+        # Model yonergeyi zaten okuyor ("yalnizca sana verilen
+        # sayilari kullan") ve yine de uyduruyordu; eksik olan sey
+        # yonergenin kendisi degil, GERI BILDIRIMDI. Reddedilen cikti
+        # sessizce atiliyor ve ayni sirket bir sonraki kosuda ayni
+        # soruyla yeniden deneniyordu.
+        #
+        # Olculdu (2026-11-01..03 ret defteri, kanit alaniyla):
+        # 18 reddedilen sayinin 15'i GERCEK uydurma, 3'u yuvarlama.
+        # Yani esigi gevsetmek yanlis olurdu -- uydurma sayilari
+        # yayina sokardi. Ayni sirketler tekrarliyor (SANFM 3, PATEK
+        # 3, BRKO/MARTI/BASGZ/ANELE 2'ser) ve alti sirketin SITEDE
+        # HIC SAYFASI YOK.
+        #
+        # Gozlenen uc kalip ayrica adiyla yasaklaniyor; ucu de
+        # defterdeki ham metinden okundu:
+        #   "%51-%54 arasinda"   -> ARALIK, uc degeri girdide yok
+        #   "%300-den fazla"     -> YUVARLAK SINIR (gercegi 331,0)
+        #   "-%2 700"            -> BOSLUKLU BINLIK, ikiye bolunuyor
+        _nl = chr(10)
+        duzeltme = _nl + _nl + "".join([
+            "ÖNCEKİ DENEMEN REDDEDİLDİ. Şu sayılar girdide YOK: ",
+            ", ".join(kacak[:6]), ".", _nl,
+            "Yalnızca girdide AYNEN geçen sayıları yaz. Özellikle:", _nl,
+            "- ARALIK yazma (\"%51-%54 arasında\" gibi): aralık ucu",
+            " girdide yoksa uydurmadır.", _nl,
+            "- YUVARLAK SINIR yazma (\"%300'den fazla\" gibi):",
+            " gerçek değeri AYNEN yaz.", _nl,
+            "- Binlik ayracı için BOŞLUK kullanma (\"2 700\" değil",
+            " \"2.700\").", _nl,
+            "- Sayıyı yuvarlama, kısaltma ya da birleştirme.",
+        ])
+        return yorumla(girdi, sistem_ozel=sistem + duzeltme, _ikinci=True)
     if kacak:
         return "", model, f"girdide olmayan sayi: {', '.join(kacak[:4])}", metin
 

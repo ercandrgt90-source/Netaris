@@ -922,6 +922,70 @@ sina("turkiye deseni gercekten esliyor",
 sina("kisa kisaltma kelime ICINDE eslesmiyor",
      not yorumcu._YABANCI_MB.search("federasyon"))
 
+# --- UYDURULAN SAYIDA IKINCI DENEME ------------------------------
+#
+# Model yonergeyi zaten okuyor ("yalnizca sana verilen sayilari
+# kullan") ve yine de uyduruyordu; eksik olan GERI BILDIRIMDI.
+# Reddedilen cikti sessizce atiliyor, ayni sirket bir sonraki
+# kosuda AYNI soruyla yeniden deneniyordu.
+#
+# Olculdu (2026-11-01..03 ret defteri, kanit alaniyla): 18
+# reddedilen sayinin 15'i GERCEK uydurma, 3'u yuvarlama -- yani
+# esigi gevsetmek uydurma sayilari yayina sokardi. Ayni sirketler
+# tekrarliyor ve alti sirketin sitede HIC SAYFASI YOK.
+print("")
+print("Uydurulan sayida ikinci deneme")
+
+_ortam_kur(anthropic=False, cloudflare=True)
+_cagrilar = []
+
+
+def _taklit(girdi, sistem):
+    _cagrilar.append(sistem)
+    # Ilk cagri uydurur, ikincisi girdideki sayiyi kullanir.
+    if len(_cagrilar) == 1:
+        return "Enflasyon %4812,6 arttı.", "@cf/sahte"
+    return "TÜFE %31,75 seviyesinde.", "@cf/sahte"
+
+
+yorumcu._cf_cagir = _taklit
+_m, _model, _sebep, _ham = yorumcu.yorumla(_UZUN)
+sina("uydurma sonrasi IKINCI deneme yapiliyor", len(_cagrilar) == 2)
+sina("ikinci deneme basariliysa metin doner", bool(_m))
+sina("ret sebebi kalmiyor", _sebep == "")
+# GERI BILDIRIM GERCEKTEN GONDERILIYOR MU -- ikinci sistem
+# yonergesi KACAK SAYIYI adiyla soylemeli.
+# OLCUT, YONERGENIN KENDI ORNEGINDE GECMEYEN bir sayi:
+# "300" ornek metinde duruyor ve kural kendi metnini
+# yakalayip mutasyonu kaciriyordu.
+sina("ikinci yonerge kacak sayiyi soyluyor",
+     len(_cagrilar) == 2 and "4812" in _cagrilar[1])
+sina("ikinci yonerge ARALIK yasagini iceriyor",
+     len(_cagrilar) == 2 and "ARALIK yazma" in _cagrilar[1])
+sina("ilk yonergede duzeltme YOK",
+     "REDDEDİLDİ" not in _cagrilar[0])
+
+# SONSUZ DONGU OLMAMALI: ikinci deneme de uydurursa RED.
+_cagrilar.clear()
+
+
+
+def _hep_uydur(girdi, sistem):
+    # SAYMAYAN bir taklit, "kac cagri yapildi" sorusunu
+    # cevaplayamaz: ilk yazimda bu sinama kendi kusurundan dustu.
+    _cagrilar.append(sistem)
+    return "Enflasyon %4812,6 arttı.", "@cf/sahte"
+
+
+yorumcu._cf_cagir = _hep_uydur
+_m2, _model2, _sebep2, _ham2 = yorumcu.yorumla(_UZUN)
+sina("ikinci deneme de uydurursa EN FAZLA iki cagri",
+     len(_cagrilar) == 2)
+sina("ikinci deneme de uydurursa reddediliyor", _m2 == "")
+sina("sebep sayiyi bildiriyor", "4812" in _sebep2)
+
+yorumcu._cf_cagir = _asil_cf
+yorumcu._anthropic_cagir = _asil_an
 print("=" * 60)
 if kaldi:
     print(f"{kaldi} TEST BASARISIZ")
