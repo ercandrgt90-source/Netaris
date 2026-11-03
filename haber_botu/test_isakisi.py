@@ -881,5 +881,30 @@ dogru(f'muaf denetim TEK ve adiyla ({_muaf})', len(_muaf) == 1)
 dogru(f'gercekten denetlenen en az iki dosya ({len(_denetlenen)})',
       len(_denetlenen) >= 2)
 
+# HANGI SARMALAYICI NE ZAMAN KOSMALI.
+#
+# `cikti_sinamalari.py` uretim SONRASI kosturacagi sinamalari
+# KAYNAKTAKI yol izine gore seciyor. Iki sarmalayicinin yeri
+# BILEREK farkli:
+#
+#   test_mobil_sozlesme.py -> URETILEN beslemeye bakiyor -> SONRA
+#   test_mobil_kaynak.py   -> yalnizca kaynaga bakiyor   -> ONCE
+#
+# Ikincisi ilk yazimda yanlislikla uretim-sonrasi kumesine de
+# giriyordu (aciklama yorumunda o yol izi geciyordu) ve dosyadaki
+# yorum "girmiyor" diye IDDIA EDIYORDU. Zararsiz bir cift kosuydu
+# ama yorum yanlisti; burada iddia kuralla tutuluyor.
+import importlib.util as _iu                           # noqa: E402
+_cs_yol = KOK / 'site' / 'cikti_sinamalari.py'
+if _cs_yol.is_file():
+    _sp = _iu.spec_from_file_location('_cs', _cs_yol)
+    _cs = _iu.module_from_spec(_sp)
+    _sp.loader.exec_module(_cs)
+    _sonra = {p.name for p in _cs.ciktiya_bakan()}
+    dogru('sozlesme sarmalayicisi URETIM SONRASI kumesinde',
+          'test_mobil_sozlesme.py' in _sonra)
+    dogru('kaynak sarmalayicisi uretim sonrasi kumesinde DEGIL',
+          'test_mobil_kaynak.py' not in _sonra)
+
 print(f"\n{_gecti} gecti, {_kaldi} kaldi")
 sys.exit(1 if _kaldi else 0)

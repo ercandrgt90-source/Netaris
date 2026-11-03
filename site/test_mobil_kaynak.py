@@ -24,13 +24,20 @@ adim eklenmisti. Yanlisti: ayni karari iki yerde almak bu depoda
 UC KEZ kosu dusurdu (iki liste ayrisinca). Sarmalayici deseni zaten
 vardi; ikinci bir yol acmak yerine ona uyuluyor.
 
-CIKTIYA BAKMIYOR
-----------------
-Sozlesme sinamasinin aksine bu sinama `site/cikti` okumuyor, yalnizca
-uygulama kaynagina bakiyor. Dolayisiyla `cikti_sinamalari.py`nin
-secicisine (`CIKTI` yol izi) girmiyor ve girmemeli: uretimden ONCE,
-normal sinama adiminda kosmasi DOGRU -- kaynak kusuru icerik
-uretilmeden once bilinmeli.
+URETILEN DOSYALARA BAKMIYOR
+--------------------------
+Sozlesme sinamasinin aksine bu sinama uretilen dosyalari okumuyor,
+yalnizca uygulama kaynagina bakiyor. Uretimden ONCE, normal sinama
+adiminda kosmasi DOGRU: kaynak kusuru icerik uretilmeden once
+bilinmeli.
+
+BU DOSYADA BUYUK HARFLI "C-I-K-T-I" GECMIYOR -- bilerek.
+`cikti_sinamalari.py` uretim sonrasi kosturacagi sinamalari
+KAYNAKTAKI yol izine gore seciyor ve o izlerden biri tam o kelime.
+Ilk yazimda aciklama yorumunda gectigi icin dosya o kumeye DE
+giriyordu; yani yorum "girmiyor" derken dosya giriyordu. Zararsiz
+bir cift kosuydu (secicinin kendi belgesi de boyle diyor) ama
+yorumun iddiasi yanlisti -- bu depoda ayri bir kusur sinifi.
 
 NODE YOKSA ATLANMIYOR, DUSUYOR
 ------------------------------
