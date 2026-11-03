@@ -125,7 +125,18 @@ if (piyasa) {
   //
   //   veri_tarihi = GELECEK OLMAYAN kalemlerin en yenisi
   //   veri_tarihi'nden YENI her kalem ILERI tarihli olmali
-  const _bugun = new Date().toISOString().slice(0, 10);
+  // OLCUT "BUGUN" DEGIL, BESLEMENIN KENDI INSA TARIHI.
+  //
+  // Besleme statik bir eser: 1 Kasim'da uretilen bir kopya gunlerce
+  // yayinda kalabiliyor. TCMB bir sonraki is gununun kurunu onceden
+  // yayimladigi icin, insa aninda ILERI tarihli olan kalem ertesi
+  // gun GECMIS tarihli oluyor ve "bugun"e gore olcen kural, dogru
+  // uretilmis bir beslemeyi kirmizi gosteriyordu (olculdu: 1 Kasim
+  // ciktisi 3 Kasim'da dort sinamayi dusurdu).
+  //
+  // Dogru soru: URETILDIGI ANDA etiket dogru muydu?
+  const _insa = String((surum && surum.uretildi) || "").slice(0, 10);
+  const _bugun = _insa || new Date().toISOString().slice(0, 10);
   const _tarihler = piyasa.kalemler
     .map((k) => String(k.tarih || "")).filter(Boolean);
   const _gecmis = _tarihler.filter((t) => t <= _bugun);

@@ -469,36 +469,6 @@ jobs:
         if: always()
         run: python haber_botu/beyan_denetimi.py
 
-      # BESLEME <-> UYGULAMA SOZLESMESI.
-      #
-      # `mobil/sozlesme-sinamasi.mjs` 223 alani dogruluyordu ve
-      # HICBIR ZAMAN KOSMAMISTI: sinama bulucu yalnizca
-      # `haber_botu` ve `site` altina bakiyor (`test_*.py|js`), yani
-      # `mobil/` klasorunun tamami koruma aginin disindaydi.
-      #
-      # Olculdu (2026-11-01): besleme 241 analiz kaydinin 241'inde,
-      # 1438 bolumun 1438'inde bolum basligini BOS gonderiyordu --
-      # uretici `ad` yaziyor, besleme `baslik` okuyordu. Tip denetimi
-      # gormedi (JSON calisma aninda geliyor), site gormedi (HTML
-      # sablonlari `ad`i okuyor), sinama ise hic kosmuyordu.
-      #
-      # SINAMA ADIMINDA DEGIL BURADA: olcut URETILEN besleme ve o
-      # henuz 6. adimda yok. Uretilen eseri denetleyen kapi, ureten
-      # adimdan SONRA kosmali -- bu depoda tersi birkac kez kilitledi.
-      - name: Besleme uygulama sözleşmesine uyuyor mu
-        if: always()
-        run: node mobil/sozlesme-sinamasi.mjs
-
-      # OLCULEMEYEN DALLARIN KURALLARI.
-      #
-      # Uygulamayi dogrulama yolum web cikisini gercek Chrome'da
-      # kosmak; YERLI dal (WebView, `onShouldStartLoadWithRequest`)
-      # orada hic calismiyor, yani oradaki bir gerileme OLCULEMEZ.
-      # Bu sinama o yuzeyin kurallarini metin duzeyinde tutuyor.
-      # Besleme gerektirmiyor, ama komsusu olsun diye burada.
-      - name: Uygulama kaynağı kurallara uyuyor mu
-        if: always()
-        run: node mobil/kaynak-sinamasi.mjs
 
       # UFKU DOLAN SENARYOLARI SONUCLANDIR.
       #

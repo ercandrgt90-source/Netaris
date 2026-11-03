@@ -825,16 +825,20 @@ dogru("kabuk dizgilerinde ic cift tirnak yok", not _kabuk_hata)
 # HER DENETIM CI'DAN ERISILEBILIR OLMALI
 # ----------------------------------------------------------------------
 # Sinama bulucu yalnizca `haber_botu` ve `site` altina bakiyor
-# (`test_*.py` / `test_*.js`). `mobil/` klasorunun TAMAMI bu agin
-# disindaydi: `sozlesme-sinamasi.mjs` 223 alani dogruluyor ve bir kez
-# bile kosmamisti. Olculen bedel, besleme 241 analiz kaydinin
-# 241'inde bolum basligini BOS gonderirken hicbir korumanin
-# otmemesiydi.
+# (`test_*.py` / `test_*.js`). `mobil/` altindaki bir `.mjs` dosyasi
+# IKISINE DE girmiyor, yani kendi basina ATIL olur.
 #
-# Bulucuyu genisletmek yanlis cozum olurdu: `mobil/node_modules`
-# icinde binlerce `test_*.js` var ve besleme sinamasi URETIMDEN
-# SONRA kosmali, sinama adiminda degil. Dogru kural: boyle her
-# denetim bir akista ADIYLA cagrilmali.
+# DUZELTME (2026-11-03): bu kural once 'bir AKISTA cagrilmali' diye
+# soruyordu ve bu YANLIS olcuttu. Depoda zaten calisan bir desen
+# vardi: `site/test_mobil_sozlesme.py` (2026-10-18) sarmalayicisi
+# sozlesme sinamasini CI'in buldugu desenden kosturuyor. O deseni
+# gormedigim icin akisa IKINCI bir adim ekledim -- ayni karari iki
+# yerde almak, bu depoda uc kez kosu dusuren kaliptir. Adim
+# kaldirildi, olcut genisletildi.
+#
+# Dogru soru: bu denetim CI'dan ERISILEBILIR mi -- ister akista
+# adiyla cagrilsin, ister bulunabilir bir Python sarmalayici onu
+# kostursun.
 _DENETIMLER = sorted(
     str(p.relative_to(KOK)).replace(chr(92), chr(47))
     for p in (KOK / 'mobil').glob('*.mjs')
@@ -843,27 +847,39 @@ _DENETIMLER = sorted(
 _akis_metni = ''.join(
     (_akislar / a).read_text(encoding='utf-8')
     for a in ('otomasyon.yml', 'bilanco.yml'))
+# CI'in BULDUGU sarmalayicilar -- kesif deseninin aynisi.
+_SARMAL = ''.join(
+    p.read_text(encoding='utf-8')
+    for k in ('haber_botu', 'site')
+    for p in (KOK / k).glob('test_*.py'))
 dogru(f'mobil denetimi bulundu ({len(_DENETIMLER)})', bool(_DENETIMLER))
+_muaf = []
+_denetlenen = []
 for _d in _DENETIMLER:
+    _ad = _d.rsplit('/', 1)[-1]
     # `erisim_olcumu.mjs` tarayici gerektiriyor; CI'da kosmuyor ve bu
     # BILINCLI. Muafiyet GEREKCELI, sessiz degil.
-    if _d.endswith('erisim_olcumu.mjs'):
+    if _ad == 'erisim_olcumu.mjs':
+        _muaf.append(_d)
         dogru(f'{_d}: tarayici gerektirdigi icin muaf (gerekceli)', True)
         continue
-    # YORUMDA GECMEK CAGRILMAK DEGIL: adim silindiginde dosya adi
-    # ustundeki gerekce yorumunda kaliyor ve kural yesil donuyordu
-    # (olculdu, mutasyon kacti). Olcut `run:` satiri.
-    dogru(f'{_d} bir akista KOSULUYOR',
-          any(f'run: node {_d}' in x or f'node {_d}' in x
-              for x in _akis_metni.splitlines()
-              if x.strip().startswith('run:')))
+    _denetlenen.append(_d)
+    # YORUMDA GECMEK CAGRILMAK DEGIL: dosya adi gerekce yorumlarinda
+    # da duruyor (olculdu, mutasyon kacti). Olcut ya `run:` satiri,
+    # ya da sarmalayicinin SINAMA yoluna degmesi.
+    _akista = any(f'node {_d}' in x
+                  for x in _akis_metni.splitlines()
+                  if x.strip().startswith('run:'))
+    _sarmalda = f'"{_ad}"' in _SARMAL or f"'{_ad}'" in _SARMAL
+    dogru(f'{_d} CI-dan ERISILEBILIR', _akista or _sarmalda)
 
-# Besleme sozlesmesi URETIMDEN SONRA kosmali: olcut URETILEN besleme
-# ve o, sinama adiminda henuz yok.
-_om = (_akislar / 'otomasyon.yml').read_text(encoding='utf-8')
-if 'sozlesme-sinamasi.mjs' in _om:
-    dogru('besleme sozlesmesi URETIMDEN SONRA kosuyor',
-          _om.index('sozlesme-sinamasi.mjs') > _om.index('Veri topla ve'))
+# MUAFIYETIN KAPSAMI DA OLCULUYOR.
+# `if _ad == ...` kosulu `if True` yapilirsa her denetim muaf olur ve
+# yukaridaki dogrulamalarin HICBIRI kosmaz -- kural sessizce yesil
+# kalirdi (olculdu, mutasyon tam buradan kacti).
+dogru(f'muaf denetim TEK ve adiyla ({_muaf})', len(_muaf) == 1)
+dogru(f'gercekten denetlenen en az iki dosya ({len(_denetlenen)})',
+      len(_denetlenen) >= 2)
 
 print(f"\n{_gecti} gecti, {_kaldi} kaldi")
 sys.exit(1 if _kaldi else 0)
