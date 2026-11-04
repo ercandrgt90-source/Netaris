@@ -33,6 +33,7 @@ Hasılat, brüt kâr, faaliyet kârı ve FAVÖK tümü önceki döneme göre bü
 | Aktif toplamı | %40,7 |
 | Faaliyet nakit akışı | -%364,0 |
 | Yatırım harcaması | %1205,3 |
+| Serbest nakit akışı | -%365,2 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -50,6 +51,7 @@ Hasılat, brüt kâr, faaliyet kârı ve FAVÖK tümü önceki döneme göre bü
 | Net borç | -0,98 milyar TL |
 | Faaliyet nakit akışı | -0,66 milyar TL |
 | Yatırım harcaması | 0,00 milyar TL |
+| Serbest nakit akışı | -0,66 milyar TL |
 
 ## Son dört dönem
 
@@ -65,20 +67,21 @@ Hasılat, brüt kâr, faaliyet kârı ve FAVÖK tümü önceki döneme göre bü
 | Net borç | -0,98 | -1,09 | -1,14 | -0,89 |
 | Faaliyet nakit akışı | -0,66 | 0,05 | 0,32 | 0,25 |
 | Yatırım harcaması | 0,00 | 0,00 | 0,00 | 0,00 |
+| Serbest nakit akışı | -0,66 | 0,04 | 0,32 | 0,25 |
 
 *Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
 
 ## Sektör içindeki konum
 
-Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 24 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 22 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %97,3 | %45,1 |
+| Brüt kâr marjı | %97,3 | %47,1 |
 | Net kâr marjı | -%3532,1 | %11,6 |
 | Özkaynak kârlılığı | -%13,1 | %3,9 |
-| Cari oran | 27,59 | 12,09 |
-| Borç / özkaynak | -0,13 | -0,05 |
+| Cari oran | 27,59 | 5,73 |
+| Borç / özkaynak | -0,13 | -0,02 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

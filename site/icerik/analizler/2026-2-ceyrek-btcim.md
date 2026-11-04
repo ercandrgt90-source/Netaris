@@ -29,9 +29,12 @@ Hasılatın %16,4 düşmesi, brüt kârın %198,6 artmasıyla birlikte brüt kâ
 | FAVÖK | %437,1 |
 | Özkaynak | %22,6 |
 | Aktif toplamı | %26,3 |
+| Ticari alacaklar | %12,2 |
+| Stoklar | %15,8 |
 | Net borç | %4,0 |
 | Faaliyet nakit akışı | -%60,8 |
 | Yatırım harcaması | %415,3 |
+| Serbest nakit akışı | -%76,6 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -46,9 +49,12 @@ Hasılatın %16,4 düşmesi, brüt kârın %198,6 artmasıyla birlikte brüt kâ
 | Net kâr | -0,06 milyar TL |
 | Özkaynak | 27,34 milyar TL |
 | Aktif toplamı | 40,46 milyar TL |
+| Ticari alacaklar | 2,90 milyar TL |
+| Stoklar | 1,83 milyar TL |
 | Net borç | 5,27 milyar TL |
 | Faaliyet nakit akışı | 0,44 milyar TL |
 | Yatırım harcaması | 0,18 milyar TL |
+| Serbest nakit akışı | 0,25 milyar TL |
 
 ## Son dört dönem
 
@@ -61,22 +67,26 @@ Hasılatın %16,4 düşmesi, brüt kârın %198,6 artmasıyla birlikte brüt kâ
 | Net kâr | -0,06 | -0,35 | -0,20 | 0,09 |
 | Özkaynak | 27,34 | 26,77 | 24,77 | 23,98 |
 | Aktif toplamı | 40,46 | 38,46 | 35,57 | 34,43 |
+| Ticari alacaklar | 2,90 | 3,09 | 2,74 | 2,54 |
+| Stoklar | 1,83 | 1,63 | 1,69 | 1,61 |
 | Net borç | 5,27 | 5,61 | 5,51 | 5,55 |
 | Faaliyet nakit akışı | 0,44 | 0,74 | 0,97 | 0,57 |
 | Yatırım harcaması | 0,18 | 0,27 | 0,26 | 0,40 |
+| Serbest nakit akışı | 0,25 | 0,47 | 0,72 | 0,17 |
+| Finansman gideri | — | — | 0,83 | 0,07 |
 
 *Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
 
 ## Sektör içindeki konum
 
-Karşılaştırma Temel malzeme sektöründe **aynı dönemi bildiren** 38 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Temel malzeme sektöründe **aynı dönemi bildiren** 27 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %25,1 | %14,1 |
-| Net kâr marjı | -%1,6 | %2,4 |
-| Özkaynak kârlılığı | -%0,2 | %1,1 |
-| Cari oran | 0,94 | 1,36 |
+| Brüt kâr marjı | %25,1 | %15,3 |
+| Net kâr marjı | -%1,6 | %3,3 |
+| Özkaynak kârlılığı | -%0,2 | %1,3 |
+| Cari oran | 0,94 | 1,32 |
 | Borç / özkaynak | 0,19 | 0,19 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
@@ -92,7 +102,7 @@ Karşılaştırma Temel malzeme sektöründe **aynı dönemi bildiren** 38 şirk
 
 - Hasılat reel olarak -%16,4 geriledi.
 - Cari oran 0,94; kısa vadeli yükümlülükler dönen varlıkları aşıyor.
-- Özkaynak kârlılığı -%0,2; sektör medyanı %1,1.
+- Özkaynak kârlılığı -%0,2; sektör medyanı %1,3.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

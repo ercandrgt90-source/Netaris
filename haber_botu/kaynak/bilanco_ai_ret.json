@@ -368,6 +368,16 @@
      77.1
     ]
    }
+  },
+  {
+   "kod": "PATEK",
+   "unvan": "PASİFİK TEKNOLOJİ A.Ş.",
+   "donem": "2026 2. çeyrek",
+   "neden": "cop cikti: model dusunme kanali sizmis: 'analysis'",
+   "model": "@cf/openai/gpt-oss-120b",
+   "ham": "analysis:We need to produce up to  analysis then final. Must obey rules: max 3 sentences, no judgement words like good etc. Must describe relationships between items: which move together etc. Use given numbers only. no new numbers. no calculations beyond given percentages. Provide explanation of movements: e our answer must be Turkish, single paragraph, up to  Akt. Use percentages as given. Avoid prohibited words. Provide relationship between items: e.g Hasıltı decrease while net loss increase etc. Let's craft 3 sentences max. Use % signs before numbers. Provide relationships: Hasılat down %20,5 while net loss up %200, Öz kaynak up %241 etc. Also FAVÖk down etc. Provide correlation: when rev",
+   "an": "2026-11-04T01:24:39+00:00",
+   "yakin": {}
   }
  ]
 }

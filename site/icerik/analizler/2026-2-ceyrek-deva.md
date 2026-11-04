@@ -30,9 +30,13 @@ Hasılatın %8,4 artması brüt kârın %81,4 yükselmesine paralel olarak, brü
 | Net kâr | -%6,9 |
 | Özkaynak | %27,3 |
 | Aktif toplamı | %32,9 |
+| Ticari alacaklar | %37,5 |
+| Stoklar | %35,3 |
 | Net borç | -%12,4 |
 | Faaliyet nakit akışı | -%56,0 |
 | Yatırım harcaması | %45,5 |
+| Serbest nakit akışı | -%60,8 |
+| Finansman gideri | -%46,2 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -47,9 +51,13 @@ Hasılatın %8,4 artması brüt kârın %81,4 yükselmesine paralel olarak, brü
 | Net kâr | 0,61 milyar TL |
 | Özkaynak | 31,53 milyar TL |
 | Aktif toplamı | 43,88 milyar TL |
+| Ticari alacaklar | 7,73 milyar TL |
+| Stoklar | 7,55 milyar TL |
 | Net borç | 2,70 milyar TL |
 | Faaliyet nakit akışı | 1,21 milyar TL |
 | Yatırım harcaması | 0,18 milyar TL |
+| Serbest nakit akışı | 1,03 milyar TL |
+| Finansman gideri | 0,71 milyar TL |
 
 ## Son dört dönem
 
@@ -62,23 +70,27 @@ Hasılatın %8,4 artması brüt kârın %81,4 yükselmesine paralel olarak, brü
 | Net kâr | 0,61 | -0,10 | -1,34 | -0,02 |
 | Özkaynak | 31,53 | 28,84 | 26,32 | 26,48 |
 | Aktif toplamı | 43,88 | 41,25 | 37,63 | 35,50 |
+| Ticari alacaklar | 7,73 | 7,20 | 7,08 | 5,92 |
+| Stoklar | 7,55 | 6,24 | 5,78 | 5,74 |
 | Net borç | 2,70 | 2,24 | 2,39 | 2,66 |
 | Faaliyet nakit akışı | 1,21 | 1,47 | 1,49 | 1,53 |
 | Yatırım harcaması | 0,18 | 0,15 | 0,05 | 0,32 |
+| Serbest nakit akışı | 1,03 | 1,32 | 1,44 | 1,21 |
+| Finansman gideri | 0,71 | 0,37 | 0,47 | 0,72 |
 
 *Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
 
 ## Sektör içindeki konum
 
-Karşılaştırma Sağlık sektöründe **aynı dönemi bildiren** 8 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Sağlık sektöründe **aynı dönemi bildiren** 7 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %53,0 | %34,9 |
-| Net kâr marjı | %10,2 | -%11,8 |
-| Özkaynak kârlılığı | %1,9 | -%0,8 |
-| Cari oran | 2,10 | 2,28 |
-| Borç / özkaynak | 0,09 | -0,03 |
+| Brüt kâr marjı | %53,0 | %32,4 |
+| Net kâr marjı | %10,2 | -%2,9 |
+| Özkaynak kârlılığı | %1,9 | -%0,6 |
+| Cari oran | 2,10 | 2,47 |
+| Borç / özkaynak | 0,09 | -0,04 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

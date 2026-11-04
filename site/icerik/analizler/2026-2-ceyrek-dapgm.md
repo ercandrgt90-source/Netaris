@@ -31,6 +31,8 @@ Hasılatın %85,7 brüt kâr marjı ile birlikte yükselmesi brüt kârın da 3,
 | Net kâr | -%55,3 |
 | Özkaynak | %38,6 |
 | Aktif toplamı | %35,6 |
+| Ticari alacaklar | -%6,1 |
+| Stoklar | %38,8 |
 | Net borç | -%20,0 |
 | Yatırım harcaması | %1250,0 |
 
@@ -47,9 +49,12 @@ Hasılatın %85,7 brüt kâr marjı ile birlikte yükselmesi brüt kârın da 3,
 | Net kâr | 0,35 milyar TL |
 | Özkaynak | 17,69 milyar TL |
 | Aktif toplamı | 36,66 milyar TL |
+| Ticari alacaklar | 4,77 milyar TL |
+| Stoklar | 2,08 milyar TL |
 | Net borç | 1,29 milyar TL |
 | Faaliyet nakit akışı | -0,01 milyar TL |
 | Yatırım harcaması | 0,00 milyar TL |
+| Serbest nakit akışı | -0,02 milyar TL |
 
 ## Son dört dönem
 
@@ -62,9 +67,12 @@ Hasılatın %85,7 brüt kâr marjı ile birlikte yükselmesi brüt kârın da 3,
 | Net kâr | 0,35 | 0,05 | 0,03 | 0,36 |
 | Özkaynak | 17,69 | 16,20 | 14,68 | 14,07 |
 | Aktif toplamı | 36,66 | 33,72 | 31,46 | 30,41 |
+| Ticari alacaklar | 4,77 | 4,86 | 4,80 | 5,08 |
+| Stoklar | 2,08 | 1,70 | 1,47 | 1,70 |
 | Net borç | 1,29 | 1,27 | 1,52 | 1,08 |
 | Faaliyet nakit akışı | -0,01 | 0,25 | -0,44 | 0,53 |
 | Yatırım harcaması | 0,00 | 0,00 | 0,00 | 0,00 |
+| Serbest nakit akışı | -0,02 | 0,25 | -0,44 | 0,53 |
 
 *Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
 
@@ -74,10 +82,10 @@ Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 32 şirket
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %85,7 | %62,2 |
-| Net kâr marjı | %15,4 | %18,3 |
-| Özkaynak kârlılığı | %2,0 | %0,6 |
-| Cari oran | 2,37 | 7,31 |
+| Brüt kâr marjı | %85,7 | %51,3 |
+| Net kâr marjı | %15,4 | %15,8 |
+| Özkaynak kârlılığı | %2,0 | %0,5 |
+| Cari oran | 2,37 | 5,25 |
 | Borç / özkaynak | 0,07 | 0,00 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*

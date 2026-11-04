@@ -30,8 +30,12 @@ Hasılatın 7,34 milyar TL'den 9,99 milyar TL'ye yükselmesi brüt kârı 0,51 m
 | FAVÖK | %17,0 |
 | Özkaynak | %45,7 |
 | Aktif toplamı | %104,4 |
+| Ticari alacaklar | %85,3 |
+| Stoklar | %168,5 |
 | Faaliyet nakit akışı | -%45,9 |
 | Yatırım harcaması | %38,7 |
+| Serbest nakit akışı | -%46,0 |
+| Finansman gideri | -%18,5 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -46,9 +50,13 @@ Hasılatın 7,34 milyar TL'den 9,99 milyar TL'ye yükselmesi brüt kârı 0,51 m
 | Net kâr | 0,02 milyar TL |
 | Özkaynak | 0,65 milyar TL |
 | Aktif toplamı | 7,02 milyar TL |
+| Ticari alacaklar | 4,52 milyar TL |
+| Stoklar | 1,46 milyar TL |
 | Net borç | -0,12 milyar TL |
 | Faaliyet nakit akışı | 0,23 milyar TL |
 | Yatırım harcaması | 0,00 milyar TL |
+| Serbest nakit akışı | 0,23 milyar TL |
+| Finansman gideri | 0,21 milyar TL |
 
 ## Son dört dönem
 
@@ -61,23 +69,27 @@ Hasılatın 7,34 milyar TL'den 9,99 milyar TL'ye yükselmesi brüt kârı 0,51 m
 | Net kâr | 0,02 | 0,03 | 0,06 | 0,00 |
 | Özkaynak | 0,65 | 0,60 | 0,53 | 0,48 |
 | Aktif toplamı | 7,02 | 5,60 | 5,72 | 5,76 |
+| Ticari alacaklar | 4,52 | 3,78 | 3,92 | 3,89 |
+| Stoklar | 1,46 | 0,87 | 0,84 | 0,69 |
 | Net borç | -0,12 | -0,11 | 1,16 | -0,79 |
 | Faaliyet nakit akışı | 0,23 | 1,46 | -1,53 | 0,83 |
 | Yatırım harcaması | 0,00 | 0,00 | 0,00 | 0,00 |
+| Serbest nakit akışı | 0,23 | 1,46 | -1,53 | 0,82 |
+| Finansman gideri | 0,21 | 0,15 | 0,08 | 0,20 |
 
 *Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
 
 ## Sektör içindeki konum
 
-Karşılaştırma Bilişim sektöründe **aynı dönemi bildiren** 19 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Bilişim sektöründe **aynı dönemi bildiren** 15 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
 | Brüt kâr marjı | %9,7 | %15,0 |
-| Net kâr marjı | %0,5 | %0,3 |
-| Özkaynak kârlılığı | %3,7 | %1,3 |
+| Net kâr marjı | %0,5 | %0,5 |
+| Özkaynak kârlılığı | %3,7 | %2,1 |
 | Cari oran | 1,05 | 1,24 |
-| Borç / özkaynak | -0,19 | 0,00 |
+| Borç / özkaynak | -0,19 | 0,38 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -88,7 +100,7 @@ Karşılaştırma Bilişim sektöründe **aynı dönemi bildiren** 19 şirketin 
 - Hasılat reel olarak %25,8 arttı.
 - Net kâr reel olarak %191,0 arttı.
 - Faaliyet nakit akışı net kârın 9,61 katı; kâr nakde dönüyor.
-- Özkaynak kârlılığı %3,7; sektör medyanı %1,3.
+- Özkaynak kârlılığı %3,7; sektör medyanı %2,1.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

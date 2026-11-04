@@ -28,6 +28,9 @@ Hasılatın %273,8 artması, aktif toplamının %110,1 yükselmesiyle paralel bi
 | Brüt kâr | %79,6 |
 | Özkaynak | -%1,8 |
 | Aktif toplamı | %110,1 |
+| Ticari alacaklar | %689,8 |
+| Stoklar | %97,0 |
+| Finansman gideri | %194,7 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -42,8 +45,11 @@ Hasılatın %273,8 artması, aktif toplamının %110,1 yükselmesiyle paralel bi
 | Net kâr | 0,00 milyar TL |
 | Özkaynak | 0,09 milyar TL |
 | Aktif toplamı | 0,25 milyar TL |
+| Ticari alacaklar | 0,07 milyar TL |
+| Stoklar | 0,09 milyar TL |
 | Net borç | 0,03 milyar TL |
 | Faaliyet nakit akışı | -0,02 milyar TL |
+| Finansman gideri | 0,00 milyar TL |
 
 ## Son dört dönem
 
@@ -56,20 +62,24 @@ Hasılatın %273,8 artması, aktif toplamının %110,1 yükselmesiyle paralel bi
 | Net kâr | 0,00 | 0,00 | -0,01 | -0,02 |
 | Özkaynak | 0,09 | 0,09 | 0,08 | 0,09 |
 | Aktif toplamı | 0,25 | 0,22 | 0,18 | 0,13 |
+| Ticari alacaklar | 0,07 | 0,02 | 0,02 | 0,00 |
+| Stoklar | 0,09 | 0,08 | 0,06 | 0,06 |
 | Net borç | 0,03 | 0,00 | -0,01 | -0,01 |
 | Faaliyet nakit akışı | -0,02 | -0,02 | 0,00 | 0,00 |
 | Yatırım harcaması | — | — | 0,00 | 0,00 |
+| Serbest nakit akışı | — | — | 0,00 | 0,00 |
+| Finansman gideri | 0,00 | 0,00 | 0,00 | 0,00 |
 
 *Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
 
 ## Sektör içindeki konum
 
-Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 68 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 65 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %5,8 | %20,8 |
-| Net kâr marjı | -%2,2 | %1,3 |
+| Brüt kâr marjı | %5,8 | %20,9 |
+| Net kâr marjı | -%2,2 | %1,2 |
 | Özkaynak kârlılığı | -%2,0 | %0,3 |
 | Cari oran | 1,31 | 1,32 |
 | Borç / özkaynak | 0,30 | 0,17 |
