@@ -984,6 +984,54 @@ sina("ikinci deneme de uydurursa EN FAZLA iki cagri",
 sina("ikinci deneme de uydurursa reddediliyor", _m2 == "")
 sina("sebep sayiyi bildiriyor", "4812" in _sebep2)
 
+# --- KANAL SIZINTISINDA IKINCI DENEME ---------------------------
+#
+# Sayi uydurmada ikinci deneme olculdu ve ise yaradi: redler 6'dan
+# 0'a dustu (kosu #69). Ayni kosuda PATEK bu kez BASKA bicimde
+# dustu -- model `analysis:` kanalini sizdirdi ve hic nihai metin
+# uretmedi. Mekanizma elimizdeydi; eksik olan bu arizanin da ayni
+# kapidan gecmesiydi. PATEK bu yuzden hala kumulatif sayfada.
+print('')
+print('Kanal sizintisinda ikinci deneme')
+
+_cop_cagri = []
+
+
+def _taklit_cop(girdi, sistem):
+    _cop_cagri.append(sistem)
+    if len(_cop_cagri) == 1:
+        return ('analysis:We need to produce up to analysis then final. '
+                'Must obey rules: max 3 sentences.'), '@cf/sahte'
+    return 'TÜFE %31,75 seviyesinde.', '@cf/sahte'
+
+
+yorumcu._cf_cagir = _taklit_cop
+_m3, _md3, _s3, _h3 = yorumcu.yorumla(_UZUN)
+sina('kanal sizintisi sonrasi IKINCI deneme yapiliyor',
+     len(_cop_cagri) == 2)
+sina('ikinci deneme basariliysa metin doner', bool(_m3))
+sina('ret sebebi kalmiyor', _s3 == '')
+# GERI BILDIRIM GERCEKTEN GONDERILIYOR MU.
+sina('ikinci yonerge kanal adlarini yasakliyor',
+     len(_cop_cagri) == 2 and 'kanal adları' in _cop_cagri[1])
+sina('ilk yonergede duzeltme YOK',
+     'sızdırdın' not in _cop_cagri[0])
+
+# SONSUZ DONGU OLMAMALI.
+_cop_cagri.clear()
+
+
+def _hep_cop(girdi, sistem):
+    _cop_cagri.append(sistem)
+    return 'analysis:yine ic monolog', '@cf/sahte'
+
+
+yorumcu._cf_cagir = _hep_cop
+_m4, _md4, _s4, _h4 = yorumcu.yorumla(_UZUN)
+sina('ikinci deneme de sizdirirsa EN FAZLA iki cagri',
+     len(_cop_cagri) == 2)
+sina('ikinci deneme de sizdirirsa reddediliyor', _m4 == '')
+sina('sebep cop cikti diyor', 'cop cikti' in _s4)
 yorumcu._cf_cagir = _asil_cf
 yorumcu._anthropic_cagir = _asil_an
 print("=" * 60)

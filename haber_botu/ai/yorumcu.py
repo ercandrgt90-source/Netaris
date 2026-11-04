@@ -1238,6 +1238,35 @@ def yorumla(girdi: str, sistem_ozel: str = "",
     # neredeyse yok, dolayisiyla `_cumle_sayisi` 1293 karakterlik
     # yigini TEK CUMLE sayip uzunluk sinirindan geciriyordu.
     m = COP_CIKTI(metin)
+    if m and not _ikinci:
+        # IKINCI DENEME -- KANAL SIZINTISI ICIN DE.
+        #
+        # Sayi uydurmada ikinci deneme olculdu ve ise yaradi: redler
+        # 6'dan 0'a dustu (kosu #69). Ama ayni kosuda PATEK bu kez
+        # BASKA bir bicimde dustu -- model `analysis:` kanalini
+        # sizdirdi ve hic nihai metin uretmedi:
+        #
+        #   "analysis:We need to produce up to analysis then final.
+        #    Must obey rules: max 3 sentences..."
+        #
+        # Yani model yonergeyi OKUDUGUNU yaziyor, yoruma hic
+        # gecmiyor. Mekanizma zaten elimizde; eksik olan bu arizanin
+        # da ayni kapidan gecmesiydi.
+        #
+        # PATEK bu yuzden hala kumulatif sayfada (TERA disinda kalan
+        # tek sirket) ve dort kez ust uste reddedildi.
+        _nl = chr(10)
+        duzeltme = _nl + _nl + "".join([
+            "ÖNCEKİ DENEMEN REDDEDİLDİ: iç muhakemeni çıktıya ",
+            "sızdırdın.", _nl,
+            "YALNIZCA son metni yaz. Şunları ASLA yazma:", _nl,
+            "- 'analysis', 'final', 'assistantfinal' gibi kanal adları",
+            _nl,
+            "- kuralları tekrar etmen, ne yapacağını anlatman", _nl,
+            "- İngilizce hiçbir şey.", _nl,
+            "Doğrudan Türkçe yorumla başla.",
+        ])
+        return yorumla(girdi, sistem_ozel=sistem + duzeltme, _ikinci=True)
     if m:
         return "", model, f"cop cikti: {m}", metin
 
