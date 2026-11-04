@@ -1087,6 +1087,75 @@ def saglayici() -> str:
     return ""
 
 
+#: IKINCI DENEMEDE modele verilecek duzeltme yonergeleri.
+#:
+#: NEDEN TEK YERDE
+#: ---------------
+#: Ilk iki deneme (uydurulan sayi, kanal sizintisi) satir ici
+#: yazilmisti. Ucuncusu gelince (cumle sayisi) ayni deseni ucuncu
+#: kez kopyalamak gerekecekti -- ayni karari birden cok yerde
+#: almak bu depoda defalarca kosu dusurdu. Mekanizma burada,
+#: cagiranlar iki satir.
+#:
+#: HANGI RET YENIDEN DENENEBILIR
+#: -----------------------------
+#: Olculdu (2026-10-01 sonrasi `ai_ret`, iki hat birlikte):
+#:
+#:     935  baglam-uyusmazligi      <- ICERIK sorunu, denenmiyor
+#:     383  girdide olmayan sayi    <- kural ihlali, DENENIYOR
+#:     308  yasak kalip             <- kural ihlali, DENENIYOR
+#:     172  politika faizine yanlis <- ICERIK sorunu, denenmiyor
+#:     156  saglayici arizasi       <- modelin sucu degil
+#:     115  cop cikti               <- kural ihlali, DENENIYOR
+#:      15  cevapsiz cikti          <- soru yanlis, yonerge ayri
+#:      14  gelecek zaman kipi      <- kural ihlali, DENENIYOR
+#:
+#: OLCUT: model KURALI cigniyorsa soylenince duzeltebilir; icerik
+#: yanlissa ikinci deneme yalnizca ikinci bir yanlis uretir.
+_DUZELTME = {
+    "sayi": (
+        "ÖNCEKİ DENEMEN REDDEDİLDİ. Şu sayılar girdide YOK: "
+        "{ayrinti}.\n"
+        "Yalnızca girdide AYNEN geçen sayıları yaz. Özellikle:\n"
+        "- ARALIK yazma (\"%51-%54 arasında\" gibi): aralık ucu"
+        " girdide yoksa uydurmadır.\n"
+        "- YUVARLAK SINIR yazma (\"%300'den fazla\" gibi):"
+        " gerçek değeri AYNEN yaz.\n"
+        "- Binlik ayracı için BOŞLUK kullanma (\"2 700\" değil"
+        " \"2.700\").\n"
+        "- Sayıyı yuvarlama, kısaltma ya da birleştirme."),
+    "cop": (
+        "ÖNCEKİ DENEMEN REDDEDİLDİ: iç muhakemeni çıktıya "
+        "sızdırdın.\n"
+        "YALNIZCA son metni yaz. Şunları ASLA yazma:\n"
+        "- 'analysis', 'final', 'assistantfinal' gibi kanal adları"
+        "\n"
+        "- kuralları tekrar etmen, ne yapacağını anlatman\n"
+        "- İngilizce hiçbir şey.\n"
+        "Doğrudan Türkçe yorumla başla."),
+    "cumle": (
+        "ÖNCEKİ DENEMEN REDDEDİLDİ: {ayrinti} cümle yazdın.\n"
+        "Sınır AŞILAMAZ. Daha az şey anlat, cümleyi bölme."),
+    "yasak": (
+        "ÖNCEKİ DENEMEN REDDEDİLDİ: yasak ifade kullandın "
+        "({ayrinti}).\n"
+        "Değerlendirme, tavsiye, hedef fiyat ve olasılık YASAK."
+        " Yalnızca ÖLÇÜLEN ilişkiyi anlat."),
+    "gelecek": (
+        "ÖNCEKİ DENEMEN REDDEDİLDİ: gelecek zaman kullandın "
+        "({ayrinti}).\n"
+        "Elinde yalnızca OLMUŞ veri var. \"artacak\" değil"
+        " \"arttı\" yaz; öngörü kurma."),
+}
+
+
+def _duzeltme(tur: str, ayrinti: str = "") -> str:
+    """Ikinci denemeye eklenecek yonerge. Bilinmeyen tur -> bos."""
+    kalip = _DUZELTME.get(tur)
+    if not kalip:
+        return ""
+    return chr(10) + chr(10) + kalip.format(ayrinti=ayrinti)
+
 def yorumla(girdi: str, sistem_ozel: str = "",
             _ikinci: bool = False) -> tuple[str, str, str, str]:
     """Girdiden yorum uretir.
@@ -1237,76 +1306,21 @@ def yorumla(girdi: str, sistem_ozel: str = "",
     # HICBIR MEVCUT DENETIM YAKALAMADI. Sebebi olculdu: metinde nokta
     # neredeyse yok, dolayisiyla `_cumle_sayisi` 1293 karakterlik
     # yigini TEK CUMLE sayip uzunluk sinirindan geciriyordu.
+    # RET -> IKINCI DENEME -> yine ret. Mekanizma `_duzeltme`de;
+    # hangi turun neden denendigi orada yazili.
     m = COP_CIKTI(metin)
     if m and not _ikinci:
-        # IKINCI DENEME -- KANAL SIZINTISI ICIN DE.
-        #
-        # Sayi uydurmada ikinci deneme olculdu ve ise yaradi: redler
-        # 6'dan 0'a dustu (kosu #69). Ama ayni kosuda PATEK bu kez
-        # BASKA bir bicimde dustu -- model `analysis:` kanalini
-        # sizdirdi ve hic nihai metin uretmedi:
-        #
-        #   "analysis:We need to produce up to analysis then final.
-        #    Must obey rules: max 3 sentences..."
-        #
-        # Yani model yonergeyi OKUDUGUNU yaziyor, yoruma hic
-        # gecmiyor. Mekanizma zaten elimizde; eksik olan bu arizanin
-        # da ayni kapidan gecmesiydi.
-        #
-        # PATEK bu yuzden hala kumulatif sayfada (TERA disinda kalan
-        # tek sirket) ve dort kez ust uste reddedildi.
-        _nl = chr(10)
-        duzeltme = _nl + _nl + "".join([
-            "ÖNCEKİ DENEMEN REDDEDİLDİ: iç muhakemeni çıktıya ",
-            "sızdırdın.", _nl,
-            "YALNIZCA son metni yaz. Şunları ASLA yazma:", _nl,
-            "- 'analysis', 'final', 'assistantfinal' gibi kanal adları",
-            _nl,
-            "- kuralları tekrar etmen, ne yapacağını anlatman", _nl,
-            "- İngilizce hiçbir şey.", _nl,
-            "Doğrudan Türkçe yorumla başla.",
-        ])
-        return yorumla(girdi, sistem_ozel=sistem + duzeltme, _ikinci=True)
+        return yorumla(girdi, sistem_ozel=sistem + _duzeltme("cop"),
+                       _ikinci=True)
     if m:
         return "", model, f"cop cikti: {m}", metin
 
     # --- 1. sayi denetimi ---
     kacak = sayi_denetimi(metin, girdi)
     if kacak and not _ikinci:
-        # IKINCI DENEME -- HANGI SAYININ KACAK OLDUGUNU SOYLEYEREK.
-        #
-        # Model yonergeyi zaten okuyor ("yalnizca sana verilen
-        # sayilari kullan") ve yine de uyduruyordu; eksik olan sey
-        # yonergenin kendisi degil, GERI BILDIRIMDI. Reddedilen cikti
-        # sessizce atiliyor ve ayni sirket bir sonraki kosuda ayni
-        # soruyla yeniden deneniyordu.
-        #
-        # Olculdu (2026-11-01..03 ret defteri, kanit alaniyla):
-        # 18 reddedilen sayinin 15'i GERCEK uydurma, 3'u yuvarlama.
-        # Yani esigi gevsetmek yanlis olurdu -- uydurma sayilari
-        # yayina sokardi. Ayni sirketler tekrarliyor (SANFM 3, PATEK
-        # 3, BRKO/MARTI/BASGZ/ANELE 2'ser) ve alti sirketin SITEDE
-        # HIC SAYFASI YOK.
-        #
-        # Gozlenen uc kalip ayrica adiyla yasaklaniyor; ucu de
-        # defterdeki ham metinden okundu:
-        #   "%51-%54 arasinda"   -> ARALIK, uc degeri girdide yok
-        #   "%300-den fazla"     -> YUVARLAK SINIR (gercegi 331,0)
-        #   "-%2 700"            -> BOSLUKLU BINLIK, ikiye bolunuyor
-        _nl = chr(10)
-        duzeltme = _nl + _nl + "".join([
-            "ÖNCEKİ DENEMEN REDDEDİLDİ. Şu sayılar girdide YOK: ",
-            ", ".join(kacak[:6]), ".", _nl,
-            "Yalnızca girdide AYNEN geçen sayıları yaz. Özellikle:", _nl,
-            "- ARALIK yazma (\"%51-%54 arasında\" gibi): aralık ucu",
-            " girdide yoksa uydurmadır.", _nl,
-            "- YUVARLAK SINIR yazma (\"%300'den fazla\" gibi):",
-            " gerçek değeri AYNEN yaz.", _nl,
-            "- Binlik ayracı için BOŞLUK kullanma (\"2 700\" değil",
-            " \"2.700\").", _nl,
-            "- Sayıyı yuvarlama, kısaltma ya da birleştirme.",
-        ])
-        return yorumla(girdi, sistem_ozel=sistem + duzeltme, _ikinci=True)
+        return yorumla(girdi, _ikinci=True,
+                       sistem_ozel=sistem + _duzeltme(
+                           "sayi", ", ".join(kacak[:6])))
     if kacak:
         return "", model, f"girdide olmayan sayi: {', '.join(kacak[:4])}", metin
 
@@ -1336,6 +1350,10 @@ def yorumla(girdi: str, sistem_ozel: str = "",
     for d in YASAK:
         m = d.search(metin)
         if m:
+            if not _ikinci:
+                return yorumla(girdi, _ikinci=True,
+                               sistem_ozel=sistem + _duzeltme(
+                                   "yasak", repr(m.group(0))))
             return "", model, f"yasak kalip: {m.group(0)!r}", metin
 
     # --- 2b. politika faizine ILISTIRILEN deger dogru mu ---
@@ -1352,6 +1370,10 @@ def yorumla(girdi: str, sistem_ozel: str = "",
     # `_gelecek_kipi_kusuru`nun basinda.
     _gk = _gelecek_kipi_kusuru(metin, girdi)
     if _gk:
+        if not _ikinci:
+            return yorumla(girdi, _ikinci=True,
+                           sistem_ozel=sistem + _duzeltme("gelecek",
+                                                          str(_gk)))
         return "", model, f"gelecek zaman kipi: {_gk}", metin
 
     m = SUREN_EGILIM.search(metin)
@@ -1364,6 +1386,9 @@ def yorumla(girdi: str, sistem_ozel: str = "",
     # asiyor ve girdiyi oldugu gibi tekrarlayan paragraflar uretiyor.
     # Kirpmak cumleyi ortasindan kesecegi icin metin TAMAMEN atiliyor.
     n = _cumle_sayisi(metin)
+    if n > EN_COK_CUMLE and not _ikinci:
+        return yorumla(girdi, _ikinci=True,
+                       sistem_ozel=sistem + _duzeltme("cumle", str(n)))
     if n > EN_COK_CUMLE:
         return "", model, f"{n} cumle (en fazla {EN_COK_CUMLE})", metin
 

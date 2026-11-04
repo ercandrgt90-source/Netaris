@@ -1032,6 +1032,118 @@ sina('ikinci deneme de sizdirirsa EN FAZLA iki cagri',
      len(_cop_cagri) == 2)
 sina('ikinci deneme de sizdirirsa reddediliyor', _m4 == '')
 sina('sebep cop cikti diyor', 'cop cikti' in _s4)
+# --- ORTAK IKINCI DENEME: UC RET TURU DAHA -----------------------
+#
+# Olculdu (2026-10-01 sonrasi `ai_ret`, iki hat birlikte): yasak
+# kalip 308, gelecek zaman kipi 14, cumle sayisi (bilanco defteri)
+# 1. Ucu de KURAL IHLALI -- model soylenince duzeltebilir. Icerik
+# sorunlari (baglam-uyusmazligi 935, politika faizi 172) BILEREK
+# disarida: ikinci deneme yalnizca ikinci bir yanlis uretirdi.
+print('')
+print('Ortak ikinci deneme: yasak kalip / gelecek zaman / cumle')
+
+
+def _iki_asamali(ilk_cikti):
+    """Ilk cagri `ilk_cikti` doner, ikinci cagri temiz metin."""
+    cagri = []
+
+    def taklit(girdi, sistem):
+        cagri.append(sistem)
+        if len(cagri) == 1:
+            return ilk_cikti, '@cf/sahte'
+        return 'TÜFE %31,75 seviyesinde.', '@cf/sahte'
+
+    yorumcu._cf_cagir = taklit
+    return cagri, yorumcu.yorumla(_UZUN)
+
+
+# 1. YASAK KALIP
+_c, (_m5, _, _s5, _) = _iki_asamali('Hedef fiyat %31,75 seviyesinde.')
+sina('yasak kalipta IKINCI deneme yapiliyor', len(_c) == 2)
+sina('yasak kalipta ikinci deneme kurtariyor', bool(_m5) and _s5 == '')
+sina('ikinci yonerge yasak ifadeyi ADIYLA soyluyor',
+     len(_c) == 2 and 'yasak ifade' in _c[1])
+
+# 2. GELECEK ZAMAN
+_c, (_m6, _, _s6, _) = _iki_asamali(
+    'TÜFE %31,75 seviyesinden daha da artacak.')
+sina('gelecek zamanda IKINCI deneme yapiliyor', len(_c) == 2)
+sina('gelecek zamanda ikinci deneme kurtariyor',
+     bool(_m6) and _s6 == '')
+sina('ikinci yonerge gelecek zamani ADIYLA soyluyor',
+     len(_c) == 2 and 'gelecek zaman' in _c[1])
+
+# 3. CUMLE SAYISI
+_uzun_cikti = ' '.join(f'TÜFE %31,75 seviyesinde.' for _ in range(9))
+_c, (_m7, _, _s7, _) = _iki_asamali(_uzun_cikti)
+sina('cumle sinirinda IKINCI deneme yapiliyor', len(_c) == 2)
+sina('cumle sinirinda ikinci deneme kurtariyor',
+     bool(_m7) and _s7 == '')
+sina('ikinci yonerge cumle sayisini soyluyor',
+     len(_c) == 2 and 'cümle yazdın' in _c[1])
+
+# SONSUZ DONGU OLMAMALI -- UC TURDE DE.
+#
+# `_iki_asamali` ikinci cagriyi hep basarili donduruyor, yani
+# 'sinirsiz deneme' mutasyonunu YAKALAMIYOR: ikinci cagri zaten
+# basariliysa ucuncu hic olmuyor. Olculdu -- mutasyon tam buradan
+# kacti. Dogru senaryo, modelin HEP ayni kusuru tekrarlamasi.
+
+
+def _hep_ayni(cikti):
+    cagri = []
+
+    def taklit(girdi, sistem):
+        cagri.append(sistem)
+        return cikti, '@cf/sahte'
+
+    yorumcu._cf_cagir = taklit
+    return cagri, yorumcu.yorumla(_UZUN)
+
+
+for _ad, _cikti, _iz in (
+        ('yasak kalip', 'Hedef fiyat %31,75 seviyesinde.',
+         'yasak kalip'),
+        ('gelecek zaman', 'TÜFE %31,75 seviyesinden artacak.',
+         'gelecek zaman'),
+        ('cumle sayisi',
+         ' '.join('TÜFE %31,75 seviyesinde.' for _ in range(9)),
+         'cumle')):
+    _c2, (_mx, _, _sx, _) = _hep_ayni(_cikti)
+    sina(f'{_ad}: ikinci deneme de duserse EN FAZLA iki cagri',
+         len(_c2) == 2)
+    sina(f'{_ad}: ikinci deneme de duserse REDDEDILIYOR', _mx == '')
+    sina(f'{_ad}: sebep korunuyor', _iz in _sx)
+# ICERIK SORUNLARI DENENMEMELI.
+#
+# `_duzeltme` bilinmeyen turde BOS doner; yani yanlis yazilmis bir
+# anahtar, ikinci denemeyi AYNI soruyu tekrar sormaya cevirir --
+# bir model cagrisi harcanir, hicbir sey degismez. Sessiz olurdu.
+sina('bilinmeyen tur BOS duzeltme veriyor',
+     yorumcu._duzeltme('zirva') == '')
+sina('bos duzeltme ile yeniden denenmiyor (tablo eksiksiz)',
+     all(yorumcu._duzeltme(t) for t in yorumcu._DUZELTME))
+
+# TABLO ILE CAGRI YERLERI AYNI ANAHTARLARI KULLANMALI.
+#
+# Yanlis yazilmis bir anahtar hicbir yerde HATA VERMEZ: `_duzeltme`
+# bos doner ve ikinci deneme sessizce ayni soruyu sorar. Olcut AST.
+import ast as _ast          # noqa: E402
+import inspect as _inspect  # noqa: E402
+_kaynak = _inspect.getsource(yorumcu)
+_agac = _ast.parse(_kaynak)
+_kullanilan = set()
+for _d in _ast.walk(_agac):
+    if (isinstance(_d, _ast.Call)
+            and isinstance(_d.func, _ast.Name)
+            and _d.func.id == '_duzeltme'
+            and _d.args
+            and isinstance(_d.args[0], _ast.Constant)):
+        _kullanilan.add(_d.args[0].value)
+sina(f'her cagri tabloda tanimli ({sorted(_kullanilan)})',
+     _kullanilan and _kullanilan <= set(yorumcu._DUZELTME))
+sina('tabloda kullanilmayan anahtar yok',
+     set(yorumcu._DUZELTME) <= _kullanilan)
 yorumcu._cf_cagir = _asil_cf
 yorumcu._anthropic_cagir = _asil_an
 print("=" * 60)
