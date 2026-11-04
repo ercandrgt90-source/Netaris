@@ -378,6 +378,16 @@
    "ham": "analysis:We need to produce up to  analysis then final. Must obey rules: max 3 sentences, no judgement words like good etc. Must describe relationships between items: which move together etc. Use given numbers only. no new numbers. no calculations beyond given percentages. Provide explanation of movements: e our answer must be Turkish, single paragraph, up to  Akt. Use percentages as given. Avoid prohibited words. Provide relationship between items: e.g Hasıltı decrease while net loss increase etc. Let's craft 3 sentences max. Use % signs before numbers. Provide relationships: Hasılat down %20,5 while net loss up %200, Öz kaynak up %241 etc. Also FAVÖk down etc. Provide correlation: when rev",
    "an": "2026-11-04T01:24:39+00:00",
    "yakin": {}
+  },
+  {
+   "kod": "ACSEL",
+   "unvan": "ACISELSAN ACIPAYAM SELÜLOZ SANAYİ VE TİCARET A.Ş.",
+   "donem": "2026 3. çeyrek",
+   "neden": "5 cumle (en fazla 4)",
+   "model": "@cf/openai/gpt-oss-120b",
+   "ham": "Hasılatın %20,5 artması brüt kârın %1190,4 yükselmesine ve FAVÖK'ün %1287,7 artmasına yol açarak faaliyet kârının negatiften pozitif %? (veri eksik) seviyeye geçmesini sağladı; bu kâr artışları özkaynakların %35,8 artması ve aktif toplamının %27,8 büyümesiyle desteklendi. Net borcun %52,7 düşmesi net kârın negatiften %? (veri eksik) pozitif olmasına katkıda bulunurken, cari oran %1,24 seviyesinde sektör medyanının altında kalmaya devam etti. Brüt kâr marjı %19,2 ve net kâr marjı %8,6 sektör medyanlarıyla eşit ya da üzeri olduğu için kârlılık göstergeleri özkaynak kârlılığı %3,1 ile birlikte sektörel ortalamanın üzerinde seyrediyor.",
+   "an": "2026-11-04T14:43:52+00:00",
+   "yakin": {}
   }
  ]
 }

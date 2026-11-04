@@ -27,8 +27,11 @@ Hasılatın yarıya düşmesiyle brüt kâr negatiften hafifçe artarak –0,00 
 | Hasılat | -%62,4 |
 | Özkaynak | -%19,4 |
 | Aktif toplamı | %32,3 |
+| Ticari alacaklar | -%70,3 |
+| Stoklar | %63,9 |
 | Faaliyet nakit akışı | -%178,0 |
 | Yatırım harcaması | %700,0 |
+| Serbest nakit akışı | -%180,1 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -43,9 +46,12 @@ Hasılatın yarıya düşmesiyle brüt kâr negatiften hafifçe artarak –0,00 
 | Net kâr | 0,00 milyar TL |
 | Özkaynak | 0,06 milyar TL |
 | Aktif toplamı | 0,21 milyar TL |
+| Ticari alacaklar | 0,00 milyar TL |
+| Stoklar | 0,05 milyar TL |
 | Net borç | -0,01 milyar TL |
 | Faaliyet nakit akışı | 0,00 milyar TL |
 | Yatırım harcaması | 0,00 milyar TL |
+| Serbest nakit akışı | 0,00 milyar TL |
 
 ## Son dört dönem
 
@@ -58,20 +64,23 @@ Hasılatın yarıya düşmesiyle brüt kâr negatiften hafifçe artarak –0,00 
 | Net kâr | 0,00 | -0,01 | -0,01 | -0,01 |
 | Özkaynak | 0,06 | 0,06 | 0,06 | 0,07 |
 | Aktif toplamı | 0,21 | 0,19 | 0,17 | 0,18 |
+| Ticari alacaklar | 0,00 | 0,01 | 0,00 | 0,02 |
+| Stoklar | 0,05 | 0,03 | 0,03 | 0,03 |
 | Net borç | -0,01 | -0,01 | -0,02 | -0,01 |
 | Faaliyet nakit akışı | 0,00 | 0,00 | 0,00 | 0,01 |
 | Yatırım harcaması | 0,00 | — | 0,00 | 0,00 |
+| Serbest nakit akışı | 0,00 | — | 0,00 | 0,01 |
 
 *Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
 
 ## Sektör içindeki konum
 
-Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 68 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 65 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %29,2 | %20,8 |
-| Net kâr marjı | -%20,3 | %1,3 |
+| Brüt kâr marjı | %29,2 | %20,9 |
+| Net kâr marjı | -%20,3 | %1,2 |
 | Özkaynak kârlılığı | -%2,4 | %0,3 |
 | Cari oran | 0,53 | 1,32 |
 | Borç / özkaynak | -0,18 | 0,17 |
