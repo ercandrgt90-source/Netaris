@@ -28,8 +28,8 @@ Hasılat 2,81 milyar TL'ye yükselirken net kâr –0,25 milyar TL'ye gerilemiş
 | Net kâr | -%288,2 |
 | Özkaynak | %1,8 |
 | Aktif toplamı | %0,3 |
+| Ticari alacaklar | %340,6 |
 | Net borç | %71,9 |
-| Faaliyet nakit akışı | %370,5 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -41,18 +41,33 @@ Hasılat 2,81 milyar TL'ye yükselirken net kâr –0,25 milyar TL'ye gerilemiş
 | Net kâr | -0,22 milyar TL |
 | Özkaynak | 4,28 milyar TL |
 | Aktif toplamı | 11,90 milyar TL |
+| Ticari alacaklar | 0,38 milyar TL |
 | Net borç | 1,18 milyar TL |
 | Faaliyet nakit akışı | 0,42 milyar TL |
 
+## Son dört dönem
+
+| Kalem (milyar TL) | 2026 2. çeyrek | 2026 1. çeyrek | 2025 4. çeyrek | 2025 3. çeyrek |
+| --- | ---: | ---: | ---: | ---: |
+| Hasılat | 1,12 | 1,69 | 1,21 | 0,02 |
+| Net kâr | -0,22 | -0,03 | -0,66 | 0,05 |
+| Özkaynak | 4,28 | 4,48 | 4,09 | 4,57 |
+| Aktif toplamı | 11,90 | 14,81 | 14,81 | 13,47 |
+| Ticari alacaklar | 0,38 | 0,53 | 0,21 | 0,01 |
+| Net borç | 1,18 | 1,51 | 1,15 | 1,18 |
+| Faaliyet nakit akışı | 0,42 | -0,17 | -0,37 | -0,21 |
+
+*Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
+
 ## Sektör içindeki konum
 
-Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 34 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 32 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
 | Net kâr marjı | -%19,9 | %15,8 |
 | Özkaynak kârlılığı | -%5,2 | %0,5 |
-| Borç / özkaynak | 0,28 | 0,02 |
+| Borç / özkaynak | 0,28 | 0,00 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

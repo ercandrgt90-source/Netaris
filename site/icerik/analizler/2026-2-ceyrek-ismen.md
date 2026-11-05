@@ -29,9 +29,11 @@ Hasılat hafif artarken faaliyet kârı ve net kârda belirgin düşüş görül
 | Net kâr | -%30,0 |
 | Özkaynak | %40,7 |
 | Aktif toplamı | %72,3 |
-| Net borç | %347,4 |
+| Ticari alacaklar | %32,8 |
 | Faaliyet nakit akışı | -%1377,5 |
 | Yatırım harcaması | -%15,7 |
+| Serbest nakit akışı | -%1388,5 |
+| Finansman gideri | %33,3 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -44,19 +46,40 @@ Hasılat hafif artarken faaliyet kârı ve net kârda belirgin düşüş görül
 | Net kâr | 1,71 milyar TL |
 | Özkaynak | 41,78 milyar TL |
 | Aktif toplamı | 173,91 milyar TL |
+| Ticari alacaklar | 88,81 milyar TL |
 | Net borç | 22,98 milyar TL |
 | Faaliyet nakit akışı | -58,99 milyar TL |
 | Yatırım harcaması | 0,03 milyar TL |
+| Serbest nakit akışı | -59,03 milyar TL |
+| Finansman gideri | 3,00 milyar TL |
+
+## Son dört dönem
+
+| Kalem (milyar TL) | 2026 2. çeyrek | 2026 1. çeyrek | 2025 4. çeyrek | 2025 3. çeyrek |
+| --- | ---: | ---: | ---: | ---: |
+| Hasılat | 587,94 | 510,27 | 364,99 | 391,90 |
+| Faaliyet kârı | 4,34 | 4,22 | 5,93 | 4,47 |
+| Net kâr | 1,71 | 0,91 | 2,65 | 1,51 |
+| Özkaynak | 41,78 | 36,73 | 37,49 | 33,41 |
+| Aktif toplamı | 173,91 | 165,68 | 117,72 | 100,31 |
+| Ticari alacaklar | 88,81 | 70,29 | 67,24 | 65,65 |
+| Net borç | 22,98 | -32,95 | -5,42 | -8,38 |
+| Faaliyet nakit akışı | -58,99 | 17,06 | -11,30 | 1,57 |
+| Yatırım harcaması | 0,03 | 0,05 | 0,04 | 0,09 |
+| Serbest nakit akışı | -59,03 | 17,01 | -11,34 | 1,49 |
+| Finansman gideri | 3,00 | 1,89 | — | 2,87 |
+
+*Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
 
 ## Sektör içindeki konum
 
-Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 30 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 22 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Net kâr marjı | %0,3 | %14,7 |
-| Özkaynak kârlılığı | %4,1 | %5,4 |
-| Borç / özkaynak | 0,55 | -0,05 |
+| Net kâr marjı | %0,3 | %11,6 |
+| Özkaynak kârlılığı | %4,1 | %3,9 |
+| Borç / özkaynak | 0,55 | -0,02 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -66,7 +89,6 @@ Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 30 şirketin **
 
 - Hasılat reel olarak -%8,2 geriledi.
 - Net kâr reel olarak -%30,0 geriledi.
-- Özkaynak kârlılığı %4,1; sektör medyanı %5,4.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

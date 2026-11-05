@@ -28,12 +28,14 @@ Hasılatın düşmesine rağmen brüt kâr ve brüt kâr marjı artmış; bu, sa
 | Brüt kâr | %5,1 |
 | Faaliyet kârı | %0,3 |
 | FAVÖK | %0,2 |
-| Net kâr | %141,4 |
 | Özkaynak | %36,1 |
 | Aktif toplamı | %33,3 |
+| Ticari alacaklar | %28,2 |
+| Stoklar | %162,0 |
 | Net borç | -%4,5 |
 | Faaliyet nakit akışı | %7096,7 |
 | Yatırım harcaması | -%81,7 |
+| Finansman gideri | %11,4 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -48,20 +50,45 @@ Hasılatın düşmesine rağmen brüt kâr ve brüt kâr marjı artmış; bu, sa
 | Net kâr | 0,00 milyar TL |
 | Özkaynak | 2,18 milyar TL |
 | Aktif toplamı | 2,72 milyar TL |
+| Ticari alacaklar | 0,21 milyar TL |
+| Stoklar | 0,17 milyar TL |
 | Net borç | 0,08 milyar TL |
 | Faaliyet nakit akışı | 0,09 milyar TL |
 | Yatırım harcaması | 0,00 milyar TL |
+| Serbest nakit akışı | 0,09 milyar TL |
+| Finansman gideri | 0,01 milyar TL |
+
+## Son dört dönem
+
+| Kalem (milyar TL) | 2026 2. çeyrek | 2026 1. çeyrek | 2025 4. çeyrek | 2025 3. çeyrek |
+| --- | ---: | ---: | ---: | ---: |
+| Hasılat | 0,31 | 0,24 | 0,26 | 0,29 |
+| Brüt kâr | 0,06 | 0,03 | 0,03 | 0,07 |
+| Faaliyet kârı | 0,04 | 0,02 | 0,02 | 0,07 |
+| FAVÖK | 0,05 | 0,03 | 0,03 | 0,08 |
+| Net kâr | 0,00 | 0,04 | 0,01 | 0,00 |
+| Özkaynak | 2,18 | 2,03 | 1,81 | 1,72 |
+| Aktif toplamı | 2,72 | 2,62 | 2,44 | 2,36 |
+| Ticari alacaklar | 0,21 | 0,17 | 0,16 | 0,17 |
+| Stoklar | 0,17 | 0,27 | 0,29 | 0,23 |
+| Net borç | 0,08 | 0,15 | 0,15 | 0,10 |
+| Faaliyet nakit akışı | 0,09 | 0,04 | -0,04 | -0,01 |
+| Yatırım harcaması | 0,00 | 0,01 | 0,01 | 0,02 |
+| Serbest nakit akışı | 0,09 | 0,03 | -0,05 | -0,02 |
+| Finansman gideri | 0,01 | 0,00 | 0,01 | 0,01 |
+
+*Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
 
 ## Sektör içindeki konum
 
-Karşılaştırma Temel tüketim sektöründe **aynı dönemi bildiren** 31 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Temel tüketim sektöründe **aynı dönemi bildiren** 24 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %19,2 | %16,5 |
-| Net kâr marjı | %1,2 | %0,2 |
+| Brüt kâr marjı | %19,2 | %19,0 |
+| Net kâr marjı | %1,2 | %1,3 |
 | Özkaynak kârlılığı | %0,2 | %0,8 |
-| Cari oran | 2,12 | 1,36 |
+| Cari oran | 2,12 | 1,56 |
 | Borç / özkaynak | 0,04 | 0,26 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*

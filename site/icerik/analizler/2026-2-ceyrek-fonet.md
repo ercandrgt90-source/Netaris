@@ -31,9 +31,12 @@ Hasılatın %41,4 brüt kâr marjı ile yükselmesi brüt kârı %0,08 milyar TL
 | Net kâr | %89,8 |
 | Özkaynak | %55,4 |
 | Aktif toplamı | %33,5 |
+| Ticari alacaklar | %124,1 |
 | Net borç | -%502,3 |
 | Faaliyet nakit akışı | %446,2 |
 | Yatırım harcaması | %2014,8 |
+| Serbest nakit akışı | %423,3 |
+| Finansman gideri | -%43,8 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -48,21 +51,45 @@ Hasılatın %41,4 brüt kâr marjı ile yükselmesi brüt kârı %0,08 milyar TL
 | Net kâr | 0,08 milyar TL |
 | Özkaynak | 2,09 milyar TL |
 | Aktif toplamı | 2,32 milyar TL |
+| Ticari alacaklar | 0,18 milyar TL |
 | Net borç | -0,09 milyar TL |
 | Faaliyet nakit akışı | 0,10 milyar TL |
 | Yatırım harcaması | 0,01 milyar TL |
+| Serbest nakit akışı | 0,10 milyar TL |
+| Finansman gideri | 0,00 milyar TL |
+
+## Son dört dönem
+
+| Kalem (milyar TL) | 2026 2. çeyrek | 2026 1. çeyrek | 2025 4. çeyrek | 2025 3. çeyrek |
+| --- | ---: | ---: | ---: | ---: |
+| Hasılat | 0,28 | 0,25 | 0,33 | 0,21 |
+| Brüt kâr | 0,12 | 0,09 | 0,16 | 0,07 |
+| Faaliyet kârı | 0,09 | 0,06 | 0,14 | 0,06 |
+| FAVÖK | 0,10 | 0,08 | 0,16 | 0,08 |
+| Net kâr | 0,08 | 0,05 | 0,12 | 0,07 |
+| Özkaynak | 2,09 | 1,69 | 1,69 | 1,51 |
+| Aktif toplamı | 2,32 | — | 1,84 | 1,95 |
+| Ticari alacaklar | 0,18 | — | 0,13 | 0,08 |
+| Stoklar | — | — | — | 0,04 |
+| Net borç | -0,09 | -0,09 | -0,09 | -0,01 |
+| Faaliyet nakit akışı | 0,10 | 0,10 | 0,17 | 0,15 |
+| Yatırım harcaması | 0,01 | 0,01 | 0,03 | 0,00 |
+| Serbest nakit akışı | 0,10 | 0,10 | 0,13 | 0,15 |
+| Finansman gideri | 0,00 | 0,00 | 0,01 | 0,01 |
+
+*Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
 
 ## Sektör içindeki konum
 
-Karşılaştırma Sağlık sektöründe **aynı dönemi bildiren** 9 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Sağlık sektöründe **aynı dönemi bildiren** 7 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
 | Brüt kâr marjı | %41,4 | %32,4 |
 | Net kâr marjı | %28,2 | -%2,9 |
 | Özkaynak kârlılığı | %3,8 | -%0,6 |
-| Cari oran | 3,02 | 2,10 |
-| Borç / özkaynak | -0,04 | -0,02 |
+| Cari oran | 3,02 | 2,47 |
+| Borç / özkaynak | -0,04 | -0,04 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

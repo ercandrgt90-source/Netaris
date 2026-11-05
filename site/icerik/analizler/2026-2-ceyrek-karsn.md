@@ -31,9 +31,11 @@ Hasılatın 6,77 milyar TL'den 10,10 milyar TL'ye yükselmesi brüt kârın 1,66
 | Net kâr | -%5552,9 |
 | Özkaynak | %35,1 |
 | Aktif toplamı | %18,2 |
+| Ticari alacaklar | %25,5 |
+| Stoklar | %1,7 |
 | Net borç | %21,4 |
-| Faaliyet nakit akışı | %160,5 |
 | Yatırım harcaması | %393,3 |
+| Finansman gideri | %284,7 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -48,13 +50,38 @@ Hasılatın 6,77 milyar TL'den 10,10 milyar TL'ye yükselmesi brüt kârın 1,66
 | Net kâr | -0,33 milyar TL |
 | Özkaynak | 8,21 milyar TL |
 | Aktif toplamı | 22,42 milyar TL |
+| Ticari alacaklar | 6,64 milyar TL |
+| Stoklar | 3,04 milyar TL |
 | Net borç | 8,95 milyar TL |
 | Faaliyet nakit akışı | 0,37 milyar TL |
 | Yatırım harcaması | 0,18 milyar TL |
+| Serbest nakit akışı | 0,19 milyar TL |
+| Finansman gideri | 0,69 milyar TL |
+
+## Son dört dönem
+
+| Kalem (milyar TL) | 2026 2. çeyrek | 2026 1. çeyrek | 2025 4. çeyrek | 2025 3. çeyrek |
+| --- | ---: | ---: | ---: | ---: |
+| Hasılat | 4,98 | 5,12 | 8,55 | 2,54 |
+| Brüt kâr | 0,99 | 1,49 | 2,76 | 0,49 |
+| Faaliyet kârı | -0,03 | 0,63 | 1,65 | -0,05 |
+| FAVÖK | -0,01 | 0,65 | 1,67 | -0,03 |
+| Net kâr | -0,33 | 0,07 | 0,86 | -0,35 |
+| Özkaynak | 8,21 | 8,00 | 7,23 | 6,11 |
+| Aktif toplamı | 22,42 | 23,37 | 20,79 | 20,09 |
+| Ticari alacaklar | 6,64 | 6,37 | 5,41 | 3,81 |
+| Stoklar | 3,04 | 3,88 | 3,67 | 3,99 |
+| Net borç | 8,95 | 8,31 | 7,24 | 8,73 |
+| Faaliyet nakit akışı | 0,37 | -0,08 | 2,26 | -0,14 |
+| Yatırım harcaması | 0,18 | 0,31 | 0,10 | 0,15 |
+| Serbest nakit akışı | 0,19 | -0,39 | 2,16 | -0,29 |
+| Finansman gideri | 0,69 | 0,46 | 1,46 | 0,38 |
+
+*Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
 
 ## Sektör içindeki konum
 
-Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 69 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 65 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
@@ -62,7 +89,7 @@ Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 69 şirketin **
 | Net kâr marjı | -%6,5 | %1,2 |
 | Özkaynak kârlılığı | -%4,0 | %0,3 |
 | Cari oran | 1,00 | 1,32 |
-| Borç / özkaynak | 1,09 | 0,16 |
+| Borç / özkaynak | 1,09 | 0,17 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
