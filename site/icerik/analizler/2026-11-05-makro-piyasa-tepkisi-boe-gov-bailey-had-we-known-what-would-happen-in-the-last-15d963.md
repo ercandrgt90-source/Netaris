@@ -1,7 +1,7 @@
 ---
 slug: piyasa-tepkisi-boe-gov-bailey-had-we-known-what-would-happen-in-the-last-15d963-2026-11-05
 baslik: BoE Gov. Bailey: Had we known what would happen in the last 48 hours, the rate decision would still have been the same
-ozet: Faiz kararı. Bitcoin 1 saat içinde -%0,93 geriledi.
+ozet: Faiz kararı. Bitcoin 1 saat içinde -%0,52 geriledi.
 sirket: Piyasa tepkisi: BoE Gov. Bailey: Had we known what would happen in the last 48 hours, the rate decision would still have been the same
 kod: OLAY
 donem: 2026-11-05
@@ -23,8 +23,8 @@ Para politikası kararı açıklandı. Kaynak: FinancialJuice.
 
 ## Piyasada ne oldu
 
-- **Altın** 1 saat içinde geriledi: -%0,34 (son 4123,10).
-- **Bitcoin** 1 saat içinde geriledi: -%0,93 (son 79550,10).
+- **Altın** 1 saat içinde geriledi: -%0,18 (son 4118,90).
+- **Bitcoin** 1 saat içinde geriledi: -%0,52 (son 79576,90).
 
 *Yukarıdaki rakamlar ölçülen fiyat hareketidir. Hareketin sebebinin bu gelişme olduğu iddia edilmemektedir; aynı pencerede başka etkenler de fiyatlanmış olabilir.*
 
