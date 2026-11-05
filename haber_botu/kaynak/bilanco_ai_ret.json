@@ -408,6 +408,22 @@
    "ham": "",
    "an": "2026-11-05T01:45:12+00:00",
    "yakin": {}
+  },
+  {
+   "kod": "BNTAS",
+   "unvan": "BANTAŞ BANDIRMA AMBALAJ SANAYİ VE TİCARET A.Ş.",
+   "donem": "2026 3. çeyrek",
+   "neden": "girdide olmayan sayi: 44",
+   "model": "@cf/openai/gpt-oss-120b",
+   "ham": "Hasılatın %27,6 artması brüt kârı %86,1 yükselterek brüt kâr marjının %20,9'a (sektör medyanı %18,6) çıkmasını sağladı; bu artış aynı zamanda faaliyet kârı ve FAVÖK'ün sırasıyla %290,8 ve %151,3 artmasına, özkaynak kârlılığının %1,8 (sektör medyanı %1,2) seviyesine yükselmesine yol açtı. Net kâr ise hasılat artışına rağmen %3,4 düşerek 0,03 milyar TL'de kaldı, bu durum faaliyet nakit akışının -0,10 milyar TL'ye (önceki dönem +0,01 milyar TL) gerilemesiyle paralel bir seyir izledi. Özkaynakların %36,5 artması ve aktif toplamının %39,4 yükselmesi net borcun -0,86 milyar TL'ye (negatif borç) düşmesine, cari oranın 5,14 (sektör medyanı 1,48) ve borç/özkaynak oranının -%44 (sektör medyanı %5) gib",
+   "an": "2026-11-05T14:50:11+00:00",
+   "yakin": {
+    "44": [
+     39.4,
+     36.5,
+     28.1
+    ]
+   }
   }
  ]
 }
