@@ -32,7 +32,7 @@
       "yon": "azalis",
       "tarih": "2026-11-05",
       "birim": "TL",
-      "gun": 0,
+      "gun": 1,
       "bayat": false
     },
     {
@@ -43,8 +43,9 @@
       "yon": "azalis",
       "tarih": "2026-11-03",
       "birim": "USD/varil",
-      "gun": 2,
-      "bayat": false
+      "gun": 3,
+      "bayat": true,
+      "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · sonraki 12 Kasım"
     },
     {
       "kod": "DCOILWTICO",
@@ -54,8 +55,9 @@
       "yon": "azalis",
       "tarih": "2026-11-03",
       "birim": "USD/varil",
-      "gun": 2,
-      "bayat": false
+      "gun": 3,
+      "bayat": true,
+      "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · sonraki 12 Kasım"
     },
     {
       "kod": "DFF",
@@ -63,7 +65,7 @@
       "deger": "%3,88",
       "fark": "0 bp",
       "yon": "yatay",
-      "tarih": "2026-11-03",
+      "tarih": "2026-11-04",
       "birim": "%",
       "gun": 2,
       "bayat": false
@@ -71,10 +73,10 @@
     {
       "kod": "DGS2",
       "ad": "ABD 2Y",
-      "deger": "%4,61",
-      "fark": "+2 bp",
-      "yon": "artis",
-      "tarih": "2026-11-03",
+      "deger": "%4,58",
+      "fark": "-3 bp",
+      "yon": "azalis",
+      "tarih": "2026-11-04",
       "birim": "%",
       "gun": 2,
       "bayat": false
@@ -82,10 +84,10 @@
     {
       "kod": "DGS10",
       "ad": "ABD 10Y",
-      "deger": "%4,95",
-      "fark": "+4 bp",
-      "yon": "artis",
-      "tarih": "2026-11-03",
+      "deger": "%4,90",
+      "fark": "-5 bp",
+      "yon": "azalis",
+      "tarih": "2026-11-04",
       "birim": "%",
       "gun": 2,
       "bayat": false
@@ -93,10 +95,10 @@
     {
       "kod": "T10Y2Y",
       "ad": "10Y-2Y",
-      "deger": "0,32",
-      "fark": "-2 bp",
-      "yon": "azalis",
-      "tarih": "2026-11-04",
+      "deger": "0,38",
+      "fark": "+6 bp",
+      "yon": "artis",
+      "tarih": "2026-11-05",
       "birim": "puan",
       "gun": 1,
       "bayat": false
@@ -109,7 +111,7 @@
       "yon": "azalis",
       "tarih": "2026-10-30",
       "birim": "endeks",
-      "gun": 4,
+      "gun": 5,
       "bayat": true,
       "ritim": "Fed bu endeksi haftalık yayımlıyor"
     }
@@ -126,8 +128,9 @@
           "yon": "azalis",
           "tarih": "2026-11-03",
           "birim": "USD/varil",
-          "gun": 2,
-          "bayat": false
+          "gun": 3,
+          "bayat": true,
+          "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · sonraki 12 Kasım"
         },
         {
           "kod": "DCOILWTICO",
@@ -137,8 +140,9 @@
           "yon": "azalis",
           "tarih": "2026-11-03",
           "birim": "USD/varil",
-          "gun": 2,
-          "bayat": false
+          "gun": 3,
+          "bayat": true,
+          "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · sonraki 12 Kasım"
         }
       ]
     },
@@ -151,7 +155,7 @@
           "deger": "%3,88",
           "fark": "0 bp",
           "yon": "yatay",
-          "tarih": "2026-11-03",
+          "tarih": "2026-11-04",
           "birim": "%",
           "gun": 2,
           "bayat": false
@@ -159,10 +163,10 @@
         {
           "kod": "DGS2",
           "ad": "ABD 2 yıllık",
-          "deger": "%4,61",
-          "fark": "+2 bp",
-          "yon": "artis",
-          "tarih": "2026-11-03",
+          "deger": "%4,58",
+          "fark": "-3 bp",
+          "yon": "azalis",
+          "tarih": "2026-11-04",
           "birim": "%",
           "gun": 2,
           "bayat": false
@@ -170,10 +174,10 @@
         {
           "kod": "DGS10",
           "ad": "ABD 10 yıllık",
-          "deger": "%4,95",
-          "fark": "+4 bp",
-          "yon": "artis",
-          "tarih": "2026-11-03",
+          "deger": "%4,90",
+          "fark": "-5 bp",
+          "yon": "azalis",
+          "tarih": "2026-11-04",
           "birim": "%",
           "gun": 2,
           "bayat": false
@@ -181,10 +185,10 @@
         {
           "kod": "T10Y2Y",
           "ad": "10Y − 2Y farkı",
-          "deger": "0,32",
-          "fark": "-2 bp",
-          "yon": "azalis",
-          "tarih": "2026-11-04",
+          "deger": "0,38",
+          "fark": "+6 bp",
+          "yon": "artis",
+          "tarih": "2026-11-05",
           "birim": "puan",
           "gun": 1,
           "bayat": false
@@ -202,7 +206,7 @@
           "yon": "azalis",
           "tarih": "2026-10-30",
           "birim": "endeks",
-          "gun": 4,
+          "gun": 5,
           "bayat": true,
           "ritim": "Fed bu endeksi haftalık yayımlıyor"
         },
@@ -214,7 +218,7 @@
           "yon": "azalis",
           "tarih": "2026-11-05",
           "birim": "TL",
-          "gun": 0,
+          "gun": 1,
           "bayat": false
         }
       ]
