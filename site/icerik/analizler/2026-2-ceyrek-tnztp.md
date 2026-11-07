@@ -31,9 +31,12 @@ Hasılatın %31,8 artması brüt kârın aynı yüzdeyle sabit kalmasına yol a�
 | Net kâr | -%92,9 |
 | Özkaynak | %41,0 |
 | Aktif toplamı | %39,8 |
-| Net borç | -%514,2 |
+| Ticari alacaklar | %19,5 |
+| Stoklar | %48,3 |
 | Faaliyet nakit akışı | -%87,2 |
 | Yatırım harcaması | -%98,9 |
+| Serbest nakit akışı | -%61,8 |
+| Finansman gideri | %251,6 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -48,21 +51,46 @@ Hasılatın %31,8 artması brüt kârın aynı yüzdeyle sabit kalmasına yol a�
 | Net kâr | 0,02 milyar TL |
 | Özkaynak | 9,53 milyar TL |
 | Aktif toplamı | 11,79 milyar TL |
+| Ticari alacaklar | 0,45 milyar TL |
+| Stoklar | 0,18 milyar TL |
 | Net borç | -0,79 milyar TL |
 | Faaliyet nakit akışı | 0,06 milyar TL |
 | Yatırım harcaması | 0,00 milyar TL |
+| Serbest nakit akışı | 0,05 milyar TL |
+| Finansman gideri | 0,13 milyar TL |
+
+## Son dört dönem
+
+| Kalem (milyar TL) | 2026 2. çeyrek | 2026 1. çeyrek | 2025 4. çeyrek | 2025 3. çeyrek |
+| --- | ---: | ---: | ---: | ---: |
+| Hasılat | 0,97 | 1,04 | 0,98 | 0,85 |
+| Brüt kâr | 0,31 | 0,35 | 0,38 | 0,36 |
+| Faaliyet kârı | 0,23 | 0,29 | 0,30 | 0,29 |
+| FAVÖK | 0,29 | 0,36 | 0,37 | 0,36 |
+| Net kâr | 0,02 | 0,08 | 0,28 | 0,08 |
+| Özkaynak | 9,53 | 8,89 | 8,01 | 7,42 |
+| Aktif toplamı | 11,79 | 11,15 | 9,57 | 9,16 |
+| Ticari alacaklar | 0,45 | 0,46 | 0,36 | 0,38 |
+| Stoklar | 0,18 | 0,18 | 0,13 | 0,10 |
+| Net borç | -0,79 | -0,54 | -0,33 | -0,32 |
+| Faaliyet nakit akışı | 0,06 | 0,11 | 0,15 | 0,04 |
+| Yatırım harcaması | 0,00 | 0,02 | 0,06 | 0,02 |
+| Serbest nakit akışı | 0,05 | 0,10 | 0,09 | 0,02 |
+| Finansman gideri | 0,13 | 0,03 | 0,22 | 0,05 |
+
+*Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
 
 ## Sektör içindeki konum
 
-Karşılaştırma Sağlık sektöründe **aynı dönemi bildiren** 9 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Sağlık sektöründe **aynı dönemi bildiren** 4 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %31,8 | %32,4 |
-| Net kâr marjı | %2,4 | -%2,9 |
-| Özkaynak kârlılığı | %0,2 | -%0,6 |
-| Cari oran | 2,47 | 2,10 |
-| Borç / özkaynak | -0,08 | -0,02 |
+| Brüt kâr marjı | %31,8 | %36,9 |
+| Net kâr marjı | %2,4 | %6,3 |
+| Özkaynak kârlılığı | %0,2 | %1,1 |
+| Cari oran | 2,47 | 2,74 |
+| Borç / özkaynak | -0,08 | -0,06 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -77,6 +105,7 @@ Karşılaştırma Sağlık sektöründe **aynı dönemi bildiren** 9 şirketin *
 
 - Net kâr reel olarak -%92,9 geriledi.
 - Brüt marj 14,5 puan daraldı (%46,2 → %31,8).
+- Özkaynak kârlılığı %0,2; sektör medyanı %1,1.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

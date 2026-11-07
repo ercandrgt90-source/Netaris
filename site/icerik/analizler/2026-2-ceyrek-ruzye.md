@@ -31,8 +31,8 @@ Hasılat gerilerken brüt kâr sıfır seviyesinden negatife geçti; maliyetleri
 | Net kâr | -%115,3 |
 | Özkaynak | %22,8 |
 | Aktif toplamı | %47,2 |
-| Net borç | %17,6 |
-| Faaliyet nakit akışı | %178,1 |
+| Ticari alacaklar | -%46,9 |
+| Stoklar | %4,8 |
 | Yatırım harcaması | %10700,0 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
@@ -48,9 +48,34 @@ Hasılat gerilerken brüt kâr sıfır seviyesinden negatife geçti; maliyetleri
 | Net kâr | -0,01 milyar TL |
 | Özkaynak | 1,67 milyar TL |
 | Aktif toplamı | 2,16 milyar TL |
+| Ticari alacaklar | 0,05 milyar TL |
+| Stoklar | 0,00 milyar TL |
 | Net borç | -0,48 milyar TL |
 | Faaliyet nakit akışı | 0,04 milyar TL |
 | Yatırım harcaması | 0,00 milyar TL |
+| Serbest nakit akışı | 0,03 milyar TL |
+| Finansman gideri | 0,00 milyar TL |
+
+## Son dört dönem
+
+| Kalem (milyar TL) | 2026 2. çeyrek | 2026 1. çeyrek | 2025 4. çeyrek | 2025 3. çeyrek |
+| --- | ---: | ---: | ---: | ---: |
+| Hasılat | 0,04 | 0,07 | 0,07 | 0,08 |
+| Brüt kâr | -0,01 | -0,03 | -0,01 | 0,02 |
+| Faaliyet kârı | -0,03 | -0,05 | -0,03 | 0,01 |
+| FAVÖK | 0,00 | -0,02 | 0,00 | 0,04 |
+| Net kâr | -0,01 | -0,09 | -0,04 | 0,01 |
+| Özkaynak | 1,67 | 1,57 | 1,50 | 1,47 |
+| Aktif toplamı | 2,16 | 1,77 | 1,65 | 1,63 |
+| Ticari alacaklar | 0,05 | 0,06 | 0,08 | 0,07 |
+| Stoklar | 0,00 | 0,00 | 0,00 | 0,00 |
+| Net borç | -0,48 | -0,43 | -0,40 | -0,66 |
+| Faaliyet nakit akışı | 0,04 | 0,00 | -0,02 | 0,02 |
+| Yatırım harcaması | 0,00 | 0,06 | 0,00 | 0,00 |
+| Serbest nakit akışı | 0,03 | -0,06 | -0,02 | 0,02 |
+| Finansman gideri | 0,00 | 0,00 | 0,00 | 0,00 |
+
+*Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
 
 ## Sektör karşılaştırması bu dönem yapılmadı
 

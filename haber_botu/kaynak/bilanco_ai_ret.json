@@ -424,6 +424,64 @@
      28.1
     ]
    }
+  },
+  {
+   "kod": "AHSGY",
+   "unvan": "AHES GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.",
+   "donem": "2026 3. çeyrek",
+   "neden": "girdide olmayan sayi: 55, 91",
+   "model": "@cf/openai/gpt-oss-120b",
+   "ham": "Hasılat, brüt kâr, faaliyet kârı, FAVÖK ve net kâr tümü %55-%91 arasında düşüş gösterirken, özkaynak ve aktif toplamı %64,1 ve %74,7 artışla ters yönde hareket etti; bu artışlar net borcun hafifçe –1,06 milyar TL'ye yükselmesiyle birlikte şirketin likidite pozisyonunun güçlendiğini gösterir. Brüt kâr marjı %82,3 ve net kâr marjı %70,6 gibi yüksek oranların sektörel medyanların (%64,3 ve %32,8) üzerinde olması, kâr kalemlerinin gelirdeki düşüşe rağmen kârlılığı koruduğunu yansıtır. Cari oran 47,27 ve borç/özkaynak –0,09 gibi değerlerin sektör medyanlarının (11,08 ve 0,02) çok üzerinde olması, özkaynak artışı ve düşük borç seviyesinin bilanço likiditesini desteklediğini ortaya koyar.",
+   "an": "2026-11-07T13:20:30+00:00",
+   "yakin": {
+    "55": [
+     55.5,
+     56.6,
+     58.8
+    ],
+    "91": [
+     90.6,
+     82.3,
+     76.2
+    ]
+   }
+  },
+  {
+   "kod": "DAPGM",
+   "unvan": "DAP GAYRİMENKUL GELİŞTİRME A.Ş.",
+   "donem": "2026 3. çeyrek",
+   "neden": "girdide olmayan sayi: 55, 60",
+   "model": "@cf/openai/gpt-oss-120b",
+   "ham": "Hasılat, brüt kâr, faaliyet kârı ve FAVÖK tümü önceki döneme göre %55-%60 arasında azalarak birlikte düşmüş; bu düşüş net kârın -%185,3 ile negatifleşmesine yol açmış. Özkaynak ve aktif toplamı ise %30,5 ve %25,0 artış göstermiş, bu artış net borcun %84,0 yükselmesiyle birlikte cari oranı 2,54 seviyesine, borç/özkaynak oranını ise 0,11'e yükseltmiştir. Brüt kâr marjı %84,6 ile sektör medyanının %64,3'ünden yüksek kalırken, net kâr marjı -%37,6 ve özkaynak kârlılığı -%1,7 sektör medyanlarının altında seyretmiştir.",
+   "an": "2026-11-07T13:21:27+00:00",
+   "yakin": {
+    "55": [
+     55.3,
+     57.3,
+     59.6
+    ],
+    "60": [
+     60.3,
+     59.6,
+     57.3
+    ]
+   }
+  },
+  {
+   "kod": "PRZMA",
+   "unvan": "PRİZMA PRES MATBAACILIK YAYINCILIK SANAYİ VE TİCARET A.Ş.",
+   "donem": "2026 3. çeyrek",
+   "neden": "girdide olmayan sayi: 159",
+   "model": "@cf/openai/gpt-oss-120b",
+   "ham": "Hasılatın %89,9 düşmesiyle birlikte brüt kâr -%276,1 gerilemiş, bu da brüt kâr marjının -%128,3'e inmesine yol açmış; aynı dönemde net kâr %159,0 artarak -0,05 milyar TL'ye yükselmiş ve net kâr marjı -%1059,5'e çıkmıştır. Aktif toplamının %16,0 azalması özkaynakta sadece %0,7 düşüşe (0,48 milyar TL) neden olurken, net borcun -%1046,4 değişimi (-0,32 milyar TL) borç/özkaynak oranını -0,66'ya, cari oranı ise 44,15 seviyesine çekmiştir. Faaliyet nakit akışının iyileşmesi (-0,04 milyar TL, önceki dönem -0,08 milyar TL) yatırım harcamasındaki %97,0 düşüşle birlikte gerçekleşmiştir.",
+   "an": "2026-11-07T13:24:15+00:00",
+   "yakin": {
+    "159": [
+     128.3,
+     97.0,
+     89.9
+    ]
+   }
   }
  ]
 }
