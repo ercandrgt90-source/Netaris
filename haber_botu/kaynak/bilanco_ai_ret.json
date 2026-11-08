@@ -482,6 +482,48 @@
      89.9
     ]
    }
+  },
+  {
+   "kod": "AHSGY",
+   "unvan": "AHES GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.",
+   "donem": "2026 3. çeyrek",
+   "neden": "girdide olmayan sayi: 55, 91",
+   "model": "@cf/openai/gpt-oss-120b",
+   "ham": "Hasılat, brüt kâr, faaliyet kârı, FAVÖK ve net kâr tümü önceki döneme göre %55-%91 arasında düşmüş; bu düşüş brüt kâr marjının %82,3 ile sektör medyanı %64,3'ün üzerinde kalmasına rağmen kâr kalemlerinin azaldığını gösteriyor. Özkaynak ve aktif toplamı ise sırasıyla %64,1 ve %74,7 artmış; özkaynak artışı özkaynak kârlılığının %0,9 seviyesinde kalmasına, aktif toplamının yükselmesinin ise cari oranın 47,27'ye (sektör medyanı 11,08) ve borç/özkaynak oranının -0,09'a (sektör medyanı 0,02) yükselmesine yol açtı. Faaliyet nakit akışı %76,2 azalarak 0,07 milyar TL'ye gerilemiş, bu da net borcun -1,06 milyar TL (önceki -1,12 milyar TL) seviyesinde hafif iyileşmesine rağmen nakit üretiminin kâr düşü",
+   "an": "2026-11-08T13:40:59+00:00",
+   "yakin": {
+    "55": [
+     55.5,
+     56.6,
+     58.8
+    ],
+    "91": [
+     90.6,
+     82.3,
+     76.2
+    ]
+   }
+  },
+  {
+   "kod": "DAPGM",
+   "unvan": "DAP GAYRİMENKUL GELİŞTİRME A.Ş.",
+   "donem": "2026 3. çeyrek",
+   "neden": "girdide olmayan sayi: 55, 60",
+   "model": "@cf/openai/gpt-oss-120b",
+   "ham": "Hasılat, brüt kâr, faaliyet kârı ve FAVÖK tümü %55-%60 arasında geriledi; bu düşüş brüt kâr marjının %84,6 seviyesinde kalmasına rağmen net kârın -%37,6'ya ve özkaynak kârlılığının -%1,7'ye sürüklenmesinde etkili oldu. Özkaynak ve aktif toplamı %30,5 ve %25,0 artarken net borç %84,0 yükselmiş, bu da cari oranın 2,54'e ve borç/özkaynak oranının 0,11'e yükselmesine yol açtı. Faaliyet nakit akışı -%248,0 düşerek negatifleşti, bu da yatırım harcamasının 0,00 milyar TL olarak sabit kalmasıyla birlikte likidite baskısını artırdı.",
+   "an": "2026-11-08T13:41:12+00:00",
+   "yakin": {
+    "55": [
+     55.3,
+     57.3,
+     59.6
+    ],
+    "60": [
+     60.3,
+     59.6,
+     57.3
+    ]
+   }
   }
  ]
 }
