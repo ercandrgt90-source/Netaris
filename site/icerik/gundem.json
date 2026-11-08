@@ -30,8 +30,34 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 39,
+  "yorumlanan": 41,
   "haberler": [
+    {
+      "baslik": "CNN: Trump'tan İran'a: Müzakereler devam ederse ABD savaşa geri dönecek",
+      "baslik_kaynak": "Trump on Iran: ‘highly improbable’ US will return to war if negotiations proceed – CNN",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9842459/Trump-on-Iran-highly-improbable-US-will-return-to-war-if-negotiations-proceed--CNN.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Jeopolitik",
+      "tarih": "2026-11-08",
+      "tarih_gorunur": "8 Kasım 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
+      "kanallar": [
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-40-59a567ac.jpg",
+      "foto_atif": "Peter Griffin · CC0"
+    },
     {
       "baslik": "İran donanması: Hürmüz Boğazı'nın doğusundaki deniz mayınına çarpan petrol tankeri alev aldı",
       "baslik_kaynak": "Iran navy: oil tanker ignites after hitting naval mine east of Strait of Hormuz - Iranian media",
@@ -907,6 +933,32 @@
       "foto_atif": "Paul Harrison · CC-BY-SA-4.0"
     },
     {
+      "baslik": "Emekli zammı ve asgari ücret ne kadar olacak? Son açıklama Bakan Işıkhan'dan geldi",
+      "baslik_kaynak": "Emekli zammı ve asgari ücret ne kadar olacak? Son açıklama Bakan Işıkhan'dan geldi",
+      "ozet": "Emekli ve asgari ücretli vatandaşların beklediği maaş artışı hakkında son açıklama Çalışma ve Sosyal Güvenlik Bakanı Vedat Işıkhan'dan geldi. Emekli maaşlarına ilişkin çalıştıklarını belirten Işıkhan emeklileri memnun edecek adımlar atılacağını, gerekli bütçenin ayrıldığını söyledi.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.ekonomim.com/ekonomi/emekli-zammi-ve-asgari-ucret-ne-kadar-olacak-son-aciklama-bakan-isikhandan-geldi-haberi-929956",
+      "kurum": "Ekonomim",
+      "kurum_tam": "Ekonomim",
+      "konu": "İstihdam ve ücret",
+      "tarih": "2026-11-08",
+      "tarih_gorunur": "8 Kasım 2026",
+      "yorumlanir": true,
+      "neden_onemli": "İstihdam verisi merkez bankalarının en yakından izlediği göstergedir; ücret artışı hizmet enflasyonunun ana girdisidir.",
+      "kanallar": [
+        "Faiz beklentisi: güçlü istihdam faiz indirimi beklentisini öteler, zayıf veri öne çeker.",
+        "Ücret-fiyat ilişkisi: birim işgücü maliyeti hizmet enflasyonuna doğrudan geçer.",
+        "Tüketim: hane geliri perakende talebini ve şirket gelirlerini belirler.",
+        "Katılım oranı: işgücüne katılımdaki değişim, işsizlik oranını istihdam artışından bağımsız hareket ettirebilir."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/istihdam-ve-ucret-8-418ab6fc.jpg",
+      "foto_atif": "Greg Walters · CC-BY-2.0"
+    },
+    {
       "baslik": "Ekonomist Murat Özsoy: Altın 2027 sonunda bu kadarı görebilir",
       "baslik_kaynak": "Ekonomist Murat Özsoy: Altın 2027 sonunda bu kadarı görebilir",
       "ozet": "Altın fiyatlarında dalgalı seyir sürerken Biz Finansal Danışmanlık Kurucusu Murat Özsoy, kısa vadede kalıcı yükseliş için aşılması gereken seviyeyi açıklayarak 2027 sonuna ilişkin fiyat beklentisini paylaştı.",
@@ -952,6 +1004,31 @@
       "kanal_basligi": "Hangi piyasaları etkiler?",
       "foto": "/statik/foto/enerji-18-2333f432.jpg",
       "foto_atif": "Sgroey · CC-BY-SA-4.0"
+    },
+    {
+      "baslik": "ABD'de Demokratların zaferi 1,5 trilyon dolarlık savunma bütçesini riske soktu",
+      "baslik_kaynak": "ABD'de Demokratların zaferi 1,5 trilyon dolarlık savunma bütçesini riske soktu",
+      "ozet": "Cumhuriyetçilerin ara seçim yenilgisi, Orta Doğu'da kamuoyu desteğini kaybeden savaşın gölgesinde Başkan Donald Trump'ın 1,5 trilyon dolarlık rekor savunma bütçesi talebinin Kongre'den geçme umutlarını tamamen söndürdü.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.bloomberght.com/abd-de-demokratlarin-zaferi-1-5-trilyon-dolarlik-savunma-butcesini-riske-soktu-3793889",
+      "kurum": "BloombergHT",
+      "kurum_tam": "Bloomberg HT",
+      "konu": "Vergi ve kamu maliyesi",
+      "tarih": "2026-11-08",
+      "tarih_gorunur": "8 Kasım 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Vergi düzenlemeleri ve bütçe dengesi hem şirket kârlılığını hem devletin borçlanma ihtiyacını belirler.",
+      "kanallar": [
+        "Şirket kârlılığı: vergi oranı ve istisna değişiklikleri net kâra doğrudan yansır.",
+        "Borçlanma ihtiyacı: bütçe açığı iç borçlanmayı artırır; bu da tahvil getirilerini ve banka bilançolarını etkiler.",
+        "Tüketici fiyatı: dolaylı vergiler (ÖTV, KDV) nihai fiyata doğrudan geçer."
+      ],
+      "kanal_basligi": "Piyasaya nasıl yansır?",
+      "foto": "/statik/foto/vergi-ve-kamu-maliyesi-8-4cdf06e3.jpg",
+      "foto_atif": "RegionalQueenslander · CC-BY-SA-4.0"
     },
     {
       "baslik": "Suudiler, kritik petrol hattını genişletmeyi planlıyor",
@@ -1259,48 +1336,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/borsa-24-b47c4be0.jpg",
       "foto_atif": "User:A,Ocram · PDM"
-    },
-    {
-      "baslik": "Yapay zeka ticareti yorulurken BCA, Avrupa hisselerini öne çıkarıyor",
-      "baslik_kaynak": "Yapay zeka ticareti yorulurken BCA, Avrupa hisselerini öne çıkarıyor",
-      "ozet": "",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://tr.investing.com/news/stock-market-news/yapay-zeka-ticareti-yorulurken-bca-avrupa-hisselerini-one-ckaryor-4146970",
-      "kurum": "Investing",
-      "kurum_tam": "Investing.com Türkiye",
-      "konu": "Borsa",
-      "tarih": "2026-11-08",
-      "tarih_gorunur": "8 Kasım 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/borsa-12-5544ef41.jpg",
-      "foto_atif": "Bernard Lee · CC0"
-    },
-    {
-      "baslik": "Northrop Grumman yöneticisi Mark Welsh III, 54.453 dolar değerinde hisse sattı",
-      "baslik_kaynak": "Northrop Grumman yöneticisi Mark Welsh III, 54.453 dolar değerinde hisse sattı",
-      "ozet": "",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://tr.investing.com/news/insider-trading-news/northrop-grumman-yoneticisi-mark-welsh-iii-54453-dolar-degerinde-hisse-satt-93CH-4146959",
-      "kurum": "Investing",
-      "kurum_tam": "Investing.com Türkiye",
-      "konu": "Borsa",
-      "tarih": "2026-11-08",
-      "tarih_gorunur": "8 Kasım 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/borsa-21-e2f22d70.jpg",
-      "foto_atif": "William Iven firmbee · CC0"
     },
     {
       "baslik": "Christine Lagarde: Yomiuri Shimbun ile röportaj",
@@ -2111,32 +2146,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/sirket-haberleri-18-3ea88e13.jpg",
       "foto_atif": "Basile Morin · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "Suudi liderliğindeki koalisyon: Riyad'ı hedef alan Husi seyir füzesi ele geçirildi ve imha edildi",
-      "baslik_kaynak": "Saudi-led coalition: intercepted and destroyed Houthi cruise missile targeted at Riyadh",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9841793/Saudi-led-coalition-intercepted-and-destroyed-Houthi-cruise-missile-targeted-at-Riyadh.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Jeopolitik",
-      "tarih": "2026-11-07",
-      "tarih_gorunur": "7 Kasım 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
-      "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
-        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
-        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/jeopolitik-18-d6206fae.jpg",
-      "foto_atif": "United Nation · PDM"
     },
     {
       "baslik": "12 Kasım 2026 Tarihli Enflasyon Raporu 2026-IV Bilgilendirme Toplantısına İlişkin Basın Duyurusu (2026-48)",
