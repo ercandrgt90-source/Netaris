@@ -30,7 +30,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 41,
+  "yorumlanan": 42,
   "haberler": [
     {
       "baslik": "CNN: Trump'tan İran'a: Müzakereler devam ederse ABD savaşa geri dönecek",
@@ -912,25 +912,51 @@
       "foto_atif": "Vyacheslav Argenberg · CC-BY-4.0"
     },
     {
-      "baslik": "Yalova gemi ve yat ihracatında ikinci sırada: 10 ayda 778 milyon dolar",
-      "baslik_kaynak": "Yalova gemi ve yat ihracatında ikinci sırada: 10 ayda 778 milyon dolar",
-      "ozet": "Yalova'nın gemi, yat ve hizmetleri sektöründeki ihracatı, 2026'nın ilk 10 ayında yüzde 71,6 artarak 778 milyon dolara ulaştı. Türkiye'nin sektör ihracatından yüzde 34,9 pay alan kent, İstanbul'un ardından ikinci sıraya yerleşti.",
+      "baslik": "Erakçi: Seçim yapma zamanı Beyaz Saray'da",
+      "baslik_kaynak": "Erakçi: Seçim yapma zamanı Beyaz Saray'da",
+      "ozet": "İran Dışişleri Bakanı Abbas Erakçi, ABD yönetimine, Tahran'ın \"2 günlük teklifini\" kabul etme çağrısında bulunarak, aksi halde İran'ın savaş seçeneğine karşılık vereceği mesajını gönderdi.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.dunya.com/dunya/erakci-secim-yapma-zamani-beyaz-sarayda-haberi-846902",
+      "kurum": "Dünya",
+      "kurum_tam": "Dünya Gazetesi",
+      "konu": "Jeopolitik",
+      "tarih": "2026-11-08",
+      "tarih_gorunur": "8 Kasım 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
+      "kanallar": [
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-36-7cb6152c.jpg",
+      "foto_atif": "Captain Albert E. Theberge, NOAA Corps (ret.) · PDM"
+    },
+    {
+      "baslik": "Hürmüz Boğazı'nda petrol tankeri mayına çarparak alev aldı",
+      "baslik_kaynak": "Hürmüz Boğazı'nda petrol tankeri mayına çarparak alev aldı",
+      "ozet": "İran Ordusu Deniz Kuvvetleri, Hürmüz Boğazı'nın doğusunda, seyir sistemlerini kapatarak izin verilmeyen bölgede hareket ettiği belirtilen bir petrol tankerinin deniz mayınına çarpması sonucu alev aldığını duyurdu.",
       "cevrildi": false,
       "dil": "tr",
       "ticari": true,
       "bolge": "TR",
-      "adres": "https://www.dunya.com/ekonomi/yalova-gemi-ve-yat-ihracatinda-ikinci-sirada-10-ayda-778-milyon-dolar-haberi-846874",
+      "adres": "https://www.dunya.com/dunya/hurmuz-bogazinda-petrol-tankeri-mayina-carparak-alev-aldi-haberi-846901",
       "kurum": "Dünya",
       "kurum_tam": "Dünya Gazetesi",
-      "konu": "Dış ticaret",
+      "konu": "Enerji",
       "tarih": "2026-11-08",
       "tarih_gorunur": "8 Kasım 2026",
       "yorumlanir": false,
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/dis-ticaret-12-aa95bbee.jpg",
-      "foto_atif": "Paul Harrison · CC-BY-SA-4.0"
+      "foto": "/statik/foto/enerji-13-96820bdd.jpg",
+      "foto_atif": "AyyanD · CC-BY-SA-4.0"
     },
     {
       "baslik": "Emekli zammı ve asgari ücret ne kadar olacak? Son açıklama Bakan Işıkhan'dan geldi",
@@ -1315,27 +1341,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/borsa-9-78cc676a.jpg",
       "foto_atif": "Syced · CC0"
-    },
-    {
-      "baslik": "P&G’nin sağlık hizmetleri CEO’su Paul Gama 477.510 dolar hisse sattı",
-      "baslik_kaynak": "P&G’nin sağlık hizmetleri CEO’su Paul Gama 477.510 dolar hisse sattı",
-      "ozet": "",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://tr.investing.com/news/insider-trading-news/pgnin-saglk-hizmetleri-ceosu-paul-gama-477510-dolar-hisse-satt-93CH-4146968",
-      "kurum": "Investing",
-      "kurum_tam": "Investing.com Türkiye",
-      "konu": "Borsa",
-      "tarih": "2026-11-08",
-      "tarih_gorunur": "8 Kasım 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/borsa-24-b47c4be0.jpg",
-      "foto_atif": "User:A,Ocram · PDM"
     },
     {
       "baslik": "Christine Lagarde: Yomiuri Shimbun ile röportaj",
