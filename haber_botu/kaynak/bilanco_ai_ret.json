@@ -524,6 +524,48 @@
      57.3
     ]
    }
+  },
+  {
+   "kod": "AHSGY",
+   "unvan": "AHES GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.",
+   "donem": "2026 3. çeyrek",
+   "neden": "girdide olmayan sayi: 55, 59",
+   "model": "@cf/openai/gpt-oss-120b",
+   "ham": "Hasılat, brüt kâr, faaliyet kârı ve FAVÖK hepsi %55-%59 arasında düşmüş; bu düşüş net kârda %90,6'luk bir çöküşe yol açarken, aynı zamanda faaliyet nakit akışının da %76,2 azalmasına eşlik etti. Özkaynak ve aktif toplamı ise sırasıyla %64,1 ve %74,7 artarak, negatif net borç seviyesinin hafifçe iyileşmesiyle birlikte cari oranı 47,27'ye yükseltti; bu artışlar brüt kâr marjının %82,3 (sektör medyanı %64,3) ve net kâr marjının %70,6 (sektör medyanı %32,8) gibi sektör ortalamalarının çok üzerinde kalmasına destek oldu. Borç/özkaynak oranı –%0,09 (sektör medyanı 0,02) negatif seyredebilir, çünkü özkaynak artışı borç seviyesindeki hafif düşüşle birleşiyor.",
+   "an": "2026-11-09T16:40:49+00:00",
+   "yakin": {
+    "55": [
+     55.5,
+     56.6,
+     58.8
+    ],
+    "59": [
+     58.8,
+     56.6,
+     55.5
+    ]
+   }
+  },
+  {
+   "kod": "DAPGM",
+   "unvan": "DAP GAYRİMENKUL GELİŞTİRME A.Ş.",
+   "donem": "2026 3. çeyrek",
+   "neden": "girdide olmayan sayi: 55, 60",
+   "model": "@cf/openai/gpt-oss-120b",
+   "ham": "Hasılat, brüt kâr, faaliyet kârı ve FAVÖK tümü önceki döneme göre %55-%60 arasında azalarak düşmüş; bu düşüş net kârın -%185,3 ile zarar etmesine ve özkaynak kârlılığının -%1,7'ye gerilemesine yol açtı. Aktif toplamı %25,0 artarken özkaynak %30,5 yükselmiş, ancak net borç %84,0 artarak borç/özkaynak oranını 0,02'den 0,11'e yükseltmiş; bu durum cari oranı 11,08'den 2,54'e düşürmüş. Brüt kâr marjı %84,6 ile sektör medyanının %64,3'ünün üzerinde kalırken, net kâr marjı -%37,6 ve özkaynak kârlılığı -%1,7 sektör ortalamalarının altında seyrediyor.",
+   "an": "2026-11-09T16:41:04+00:00",
+   "yakin": {
+    "55": [
+     55.3,
+     57.3,
+     59.6
+    ],
+    "60": [
+     60.3,
+     59.6,
+     57.3
+    ]
+   }
   }
  ]
 }
