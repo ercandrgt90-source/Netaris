@@ -996,5 +996,25 @@ if _ALARM.is_file() and _shutil.which('bash'):
     # HICBIR GERCEK CAGRI YAPILMAMALI.
     dogru('kuru kipte gercek `gh issue` cagrisi YOK',
           'gh issue create' not in _c.replace('KURU: gh issue', ''))
+# ----------------------------------------------------------------------
+# BILANCO CRON: AYLAR TEK LISTE OLMALI
+# ----------------------------------------------------------------------
+# Bildirim aylarinda gunde uc kez kosuluyor (gerekcesi dosyanin
+# kendisinde: kota gerekcesi oldu, baglayici kisit artik KAYNAK).
+# Saat eklemek kolay, ay listesini birlikte guncellemeyi unutmak
+# da kolay -- o zaman gunun biri bildirim ayinda kosar, oteki
+# kosmaz ve fark yalnizca aylar sonra gorunur.
+_bil = (_akislar / 'bilanco.yml').read_text(encoding='utf-8')
+_cronlar = [x.split('cron:')[1].strip().strip(chr(34)).strip(chr(39))
+            for x in _bil.splitlines() if x.strip().startswith('- cron:')]
+dogru(f'bilanco.yml birden cok cron tasiyor ({len(_cronlar)})',
+      len(_cronlar) >= 2)
+_aylar = {c.split()[3] for c in _cronlar if len(c.split()) >= 5}
+dogru(f'butun cron girdileri AYNI ay listesini kullaniyor ({_aylar})',
+      len(_aylar) == 1)
+# Saatler FARKLI olmali: ayni saate iki giris, tek kosu demek.
+_saatler = [c.split()[1] for c in _cronlar if len(c.split()) >= 5]
+dogru(f'cron saatleri birbirinden farkli ({_saatler})',
+      len(_saatler) == len(set(_saatler)))
 print(f"\n{_gecti} gecti, {_kaldi} kaldi")
 sys.exit(1 if _kaldi else 0)

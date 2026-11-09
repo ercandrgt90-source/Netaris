@@ -113,7 +113,44 @@ on:
     # Dakika 23 secildi: ne saat basi ne de yarim saat. Sikligi ve
     # ay listesini DEGISTIRMIYOR -- asagidaki butun gerekceler
     # oldugu gibi gecerli.
+    # GUNDE BIR -> GUNDE UC. GEREKCESI OLEN BIR VARSAYIM KALDIRILDI.
+    #
+    # "Gunde iki kez -> gunde bir kez" karari 2026-08-23'te KOTA
+    # icin verilmisti: ozel depoda Actions ayda 2.000 dakika veriyor
+    # ve bilanco hatti tek basina buyuk kismini yiyordu. O gerekce
+    # ARTIK YOK -- yukarida kendi notu duruyor: "DEPO HERKESE ACIK
+    # -- 2026-08-27. Actions dakikasi SINIRSIZ." Sebep oldu, kural
+    # kaldi.
+    #
+    # BAGLAYICI KISIT ARTIK KAYNAK, AI KOTASI DEGIL. Olculdu
+    # (kosu #76, 2026-11-09):
+    #
+    #     KAYNAK KAPANDI -- 8 ardisik red
+    #     okunamayan istek: 132   (124'u "kaynak kapandi")
+    #     yazilan 7, atlanan 314  (312'si zaten yayimlanmis)
+    #     AI kotasi hic dolmadi   (yalnizca 2 ret, ikisi de icerik)
+    #
+    # Yani kosu sayfa yazamadigi icin degil, VERI CEKEMEDIGI icin
+    # duruyor; `--sinir 25` tavanina bile ulasmiyor. Kaynagin hiz
+    # siniri ZAMANLA toparliyor, dolayisiyla ayni gun icinde ikinci
+    # ve ucuncu kosu TAZE butceyle basliyor.
+    #
+    # OLCULEN BOSLUK: nobet defterine gore 42 sirket Q3 bildirdi,
+    # 37'sinin sayfasi var. Bes sirket bekliyor ve sezon suruyor.
+    #
+    # SEKIZ SAAT ARALIK: kaynagin penceresi toparlasin diye. Daha
+    # sik kosmak ayni kapali kapiyi dovmek olurdu -- kesicinin
+    # kendi gerekcesi bunu soyluyor ("ne ise yarar ne de nazik").
+    #
+    # HABER AKISINI GECIKTIRMEZ: ayri eszamanlilik grubu
+    # (`netaris-bilanco` / `netaris-depo-yazma`), yani kuyruga
+    # girmiyorlar. Geri yazma zaten cakismada yeniden deniyor.
+    #
+    # SURE: son alti kosu 9-77 dakika. Ucu de en kotu halinde ~4
+    # saat/gun ve dakika sinirsiz.
     - cron: "23 6 * 2,3,4,5,7,8,10,11 *"
+    - cron: "23 14 * 2,3,4,5,7,8,10,11 *"
+    - cron: "23 22 * 2,3,4,5,7,8,10,11 *"
   workflow_dispatch:
     inputs:
       yayinla:
