@@ -394,5 +394,86 @@ print("  gecti  hicbir etiket 'dönem' kelimesi tasimiyor")
 esit(f"{b.donem_etiketi('2026-05-31', 1)} dönemi ölçümleri",
      "2026 mart–mayıs dönemi ölçümleri", "baslik dogru kuruluyor")
 
+# ----------------------------------------------------------------
+# BOS KART: VAAT ILE METIN AYRI YERDE KARAR VERILIYORDU
+# ----------------------------------------------------------------
+# Olculdu (2026-11-08): 13 kosu ust uste dustu ve DAGITIM 22 SAAT
+# DURDU. Sebep tek bir metinsiz kartti.
+#
+# Zincir: `uret_takvim` her takvim ogesine kosulsuz
+# `yorumlanir: True` veriyordu; `neden_onemli` ise serinin
+# `NEDEN`/`YERLI_NEDEN` karsiligindan geliyor ve o karsilik
+# OLMAYABILIYOR. Sablon her `yorumlanir` ogeyi 'Piyasa etkisi
+# olanlar' bolumune koyuyor; AI yorumu ve kaynak ozeti de yoksa
+# kart HICBIR metin tasimiyor ve `site/test_kart_metni.py`
+# kirmizi yaniyor.
+#
+# Kok sebep: manset serisi NSA'ya gecirilmisti (`CPIAUCNS`,
+# `CPILFENS`) ama aciklama tablosu TASINMAMISTI -- ikisi de
+# hicbir eslemede yoktu.
+print('')
+print('Bos kart: vaat ile metin tek kosula bagli mi')
+
+import takvim  # noqa: E402
+
+# 1. HER MANSET SERISININ ACIKLAMASI OLMALI.
+_kodlar = {s[0] for s in takvim.SERILER + takvim.YERLI_SERILER}
+_eksik = sorted(
+    k for k in _kodlar
+    if not (takvim.YERLI_NEDEN.get(k)
+            or takvim.NEDEN.get(k, '')).strip())
+esit(_eksik, [], 'aciklamasi olmayan takvim serisi yok')
+dogru_mu = len(_kodlar) > 10
+esit(dogru_mu, True, f'atil degil: {len(_kodlar)} seri tarandi')
+
+# 2. VAAT ILE METIN AYNI DEGERE BAKMALI -- olcut AST.
+#
+# Aciklama eklemek BUGUNU duzeltir, sinifi kapatmaz: yarin yeni
+# bir seri eklenince ayni bosluk acilir. Kural, `yorumlanir`in
+# metinden TURETILMESINI zorunlu kiliyor.
+import ast as _ast           # noqa: E402
+import pathlib as _pl        # noqa: E402
+_ut = _ast.parse((_pl.Path(__file__).resolve().parent
+                  / 'uret_takvim.py').read_text(encoding='utf-8'))
+_sabit_true = []
+_turetilmis = []
+_cift = []          # (yorumlanir ifadesi, neden_onemli ifadesi)
+for _d in _ast.walk(_ut):
+    if not isinstance(_d, _ast.Dict):
+        continue
+    _alan = {}
+    for _k, _v in zip(_d.keys, _d.values):
+        if isinstance(_k, _ast.Constant):
+            _alan[_k.value] = _v
+    if 'yorumlanir' not in _alan:
+        continue
+    _v = _alan['yorumlanir']
+    if isinstance(_v, _ast.Constant) and _v.value is True:
+        _sabit_true.append(_ast.unparse(_v))
+    else:
+        _turetilmis.append(_ast.unparse(_v))
+    if 'neden_onemli' in _alan:
+        _cift.append((_ast.unparse(_v),
+                      _ast.unparse(_alan['neden_onemli'])))
+esit(_sabit_true, [],
+     'uret_takvim: `yorumlanir` KOSULSUZ True degil')
+dogru_mu2 = any('neden' in x for x in _turetilmis)
+esit(dogru_mu2, True,
+     "uret_takvim: `yorumlanir` NEDEN metninden turetiliyor")
+
+# IKISI AYNI DEGERE BAKMALI.
+#
+# "yorumlanir metinden turetiliyor" TEK BASINA yetmiyor: `neden_onemli`
+# baska bir seye ayarlanirsa vaat yine metinsiz kalir. Olculdu --
+# `neden_onemli` bos dizgeye cevrildiginde kural YESIL kaldi, mutasyon
+# tam buradan kacti. Olcut: `yorumlanir` ifadesinde gecen ADIN,
+# `neden_onemli` ifadesinin KENDISI olmasi.
+_ayrisik = [(a, b) for a, b in _cift
+            if b.strip() not in a or not b.strip().startswith('_')]
+esit(_ayrisik, [],
+     'uret_takvim: `yorumlanir` ile `neden_onemli` AYNI degere bakiyor')
+dogru_mu3 = len(_cift) >= 1
+esit(dogru_mu3, True, f'atil degil: {len(_cift)} kayit cifti bulundu')
+
 print("")
 print(f"TUM TESTLER GECTI ({_gecti})")

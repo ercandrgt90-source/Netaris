@@ -206,6 +206,10 @@ def main() -> int:
     for a in sorted(yeni, key=lambda x: -x.onem):
         bas = takvim.baslik(a)
         f = kayit.sec(a.konu, a.adres)
+        # Karta yazilacak metin BURADA olculuyor; asagida hem
+        # `yorumlanir` hem `neden_onemli` ayni degere bakiyor.
+        _neden = (takvim.YERLI_NEDEN.get(a.kod)
+                  or takvim.NEDEN.get(a.kod, "")).strip()
         kayitlar.append({
             "baslik": bas,
             "baslik_kaynak": bas,
@@ -239,13 +243,35 @@ def main() -> int:
             # onceki deger ve degisim elimizde. Besleme suzgecinden
             # gecirmeye gerek yok -- o suzgec basliktan olay CIKARMAK
             # icin, burada olayin kendisi zaten var.
-            "yorumlanir": True,
+            # YORUMLANIR OLMAK, SOYLEYECEK SOZ OLMASINA BAGLI.
+            #
+            # Burada kosulsuz `True` yaziyordu ve gerekcesi su:
+            # "veri aciklamasi TANIMI GEREGI yorumlanabilir". Dogru
+            # ama EKSIK -- rakam elimizde olsa da KARTA yazilacak
+            # metin, serinin `NEDEN` tablosundaki karsiligindan
+            # geliyor ve o karsilik OLMAYABILIYOR.
+            #
+            # Olculdu (2026-11-08): `SERILER` manset icin NSA
+            # serilerini kullanmaya gecmisti (`CPIAUCNS`,
+            # `CPILFENS`) ama tablo tasinmamisti; ikisi de hicbir
+            # eslemede yoktu. Sonuc: `neden_onemli` bos, oge yine de
+            # `yorumlanir`, kart "Piyasa etkisi olanlar" bolumune
+            # metinsiz giriyor. `test_kart_metni.py` kirmizi yandi,
+            # 13 kosu ust uste dustu ve DAGITIM 22 SAAT DURDU.
+            #
+            # Iki kosul, tek vaat: bolume girmeyi `yorumlanir`,
+            # metni `neden_onemli` belirliyordu ve ikisi ayri yerde
+            # karar veriliyordu. Artik tek kosul.
+            #
+            # Eslemesi olmayan seri KAYBOLMUYOR: rutin listede
+            # gorunuyor, yalnizca "piyasa etkisi" vaadini tasiyan
+            # bolume girmiyor.
+            "yorumlanir": bool(_neden),
             # Seriye ozgu YAPISAL gerekce. Konu tablosundan gelen genel
             # metin yerine serinin kendi tanimi yaziliyor: "Cekirdek PCE
             # Fed'in resmen tercih ettigi olcudur" cumlesi yalnizca o
             # seri icin dogru.
-            "neden_onemli": (takvim.YERLI_NEDEN.get(a.kod)
-                             or takvim.NEDEN.get(a.kod, "")),
+            "neden_onemli": _neden,
             "kanallar": [],
             "kanal_basligi": "",
             "foto": f.dosya if f else "",

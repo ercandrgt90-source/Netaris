@@ -177,6 +177,28 @@ NEDEN = {
     "CPILFESL":
         "Çekirdek TÜFE gıda ve enerjiyi dışlar; fiyat artışının geçici "
         "mi yoksa yaygın mı olduğunu ayırmak için kullanılır.",
+    # MANSETTE KULLANILAN SERI NSA, ACIKLAMA SA'DA KALMISTI.
+    #
+    # `SERILER` manset icin `CPIAUCNS` / `CPILFENS` (mevsimsellikten
+    # arindirilmamis) kullaniyor -- gerekcesi `evds.py` icinde yazili.
+    # Seri degistirildi ama bu tablo TASINMADI ve iki kod burada da
+    # `YERLI_NEDEN`de de YOKTU.
+    #
+    # Olculen bedeli: `uret_takvim` bu durumda `neden_onemli`yi BOS
+    # birakiyor ama ogeyi yine de `yorumlanir` isaretliyordu. Kart
+    # "Piyasa etkisi olanlar" bolumune giriyor, hicbir metni olmuyor
+    # ve `test_kart_metni.py` kirmizi yaniyor -- 2026-11-08'de 13 kosu
+    # ust uste dustu, dagitim 22 saat durdu.
+    #
+    # Aciklama SA ikiziyle AYNI: mevsimsel arindirma yontem farki,
+    # serinin ne olctugunu degistirmiyor.
+    "CPIAUCNS":
+        "ABD tüketici enflasyonu, küresel faiz beklentisinin ana "
+        "girdisidir. ABD faiz patikası değiştiğinde gelişmekte olan ülke "
+        "borçlanma maliyeti ve sermaye akımları yeniden fiyatlanır.",
+    "CPILFENS":
+        "Çekirdek TÜFE gıda ve enerjiyi dışlar; fiyat artışının geçici "
+        "mi yoksa yaygın mı olduğunu ayırmak için kullanılır.",
     "PCEPILFE":
         "Çekirdek PCE, Fed'in resmen tercih ettiği enflasyon ölçüsüdür. "
         "TÜFE'den farklı ağırlıklandırma kullandığı için iki seri "
