@@ -123,52 +123,10 @@ def eksikler(defter: dict) -> list:
                   if not v.get("sektor_tr"))
 
 
-#: Sitedeki analiz sayfalarinin bulundugu klasor. `uret_bilanco_sayfa`
-#: ile AYNI yer ama AYRI SORU: orada "(kod, donem) yayimlandi mi",
-#: burada "bu kodun HERHANGI bir sayfasi var mi". Agir AI modullerini
-#: ice almamak icin okuma burada, dosya adina DEGIL on bilgiye bakarak
-#: yapiliyor (dosya adlandirmasi ters sirali -- `2026-6-tera.md`).
-SAYFALAR = DEFTER.parent.parent.parent / "site" / "icerik" / "analizler"
-
-
-def sayfasi_olan_kodlar(klasor=None) -> set[str]:
-    """Sitede analiz sayfasi olan sirket kodlari. YEREL -- istek YOK.
-
-    NEDEN BU KANIT
-    --------------
-    Kuyrukta bekleyen 389 sirketin cogu BIST hisse kodu DEGIL
-    (borclanma araci ihraccilari, halka acik olmayan finans
-    kuruluslari) ve kaynak onlara KALICI 404 veriyor. Hangisinin
-    gercek oldugunu bilmenin ucretsiz bir yolu var: hakkinda ZATEN
-    sayfa yayimladigimiz sirket, islem goren bir sirkettir.
-
-    Olculdu (2026-11-10): 389 kisilik kuyrugun yalnizca IKISI bu
-    kaniti tasiyor -- BLUME ve TERA. Yani one almak neredeyse bedava
-    ve karsiliginda TERA'nin sektoru cozuluyor: o sirket sitedeki
-    SON kumulatif bilanco sayfasiydi ve ceyreklige gecmesi sektor
-    bilgisine bagliydi.
-    """
-    # OLMAYAN KLASOR ICIN AYRI KORUMA YOK -- OLCULDU.
-    #
-    # Ilk surumde `if not yer.exists(): return set()` duruyordu ve bir
-    # MUTASYON kacti: `Path.glob` olmayan yolda da, bir DOSYAYA isaret
-    # eden yolda da bos uretiyor, hic yukselmiyor. Yani koruma olu
-    # koddu ve onu sinayan iddia her iki halde de geciyordu -- gecen
-    # ama hicbir seyi elemeyen bir iddia, olmayandan kotudur.
-    yer = klasor if klasor is not None else SAYFALAR
-    cikti: set[str] = set()
-    for p in yer.glob("*.md"):
-        try:
-            satirlar = p.read_text(encoding="utf-8").splitlines()[:25]
-        except OSError:
-            continue
-        for satir in satirlar:
-            if satir.startswith("kod:"):
-                kod = satir[4:].strip().upper()
-                if kod:
-                    cikti.add(kod)
-                break
-    return cikti
+#: KANIT KAYNAGI TEK YERDE: `sayfa_kodlari`. Ayni soruyu
+#: `uret_bilanco` da soruyor; iki kopya "ayni karari veren iki
+#: liste" kusuru olurdu.
+from sayfa_kodlari import SAYFALAR, sayfasi_olan_kodlar  # noqa: E402,F401
 
 
 def kuyruk(defter: dict, bugun=None, sayfasi_olan=None) -> list:

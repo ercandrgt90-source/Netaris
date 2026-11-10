@@ -367,5 +367,75 @@ dogru("TSKB" in _hepsi, "TSKB artik olculecek sirketler arasinda")
 dogru("TSK" not in _hepsi, "kisa kod TSK artik istenmiyor")
 
 print("")
+print("9. SESSIZ DUSUS OLCULUYOR (kapi DEGIL)")
+# OLCULDU (2026-11-10): sektor ici birlestirme yokken, bir kosuda
+# olculemeyen sirket ozetten SILINIYORDU. Silinen sirket IKI
+# kuyruktan birden dusuyor:
+#
+#   * sayfa adimi adaylarini OZETTEN okuyor      -> yeni sayfa YOK
+#   * goc kuyrugu ozette kaydi olmayani atliyor  -> bolum gocu YOK
+#
+# Yani sirket sessizce donuyor ve hicbir kosu bunu soylemiyor.
+# Canli veriyle olculdu: **41 sirketin** bilanco sayfasi var ama
+# ozette kaydi yok -- GARAN, PETKM, SAHOL, KORDS, ASTOR dahil.
+# Ilk tespitim "yedi sirket" demisti; o olcum yalnizca "en yeni
+# sayfasinda dort ceyrek yok" yolundan bakiyordu ve gercegin alti
+# katini kaciriyordu.
+import io as _io9                                   # noqa: E402
+import contextlib as _c9                            # noqa: E402
+
+_OZET9 = {"Sanayi": {"sirket": {"AAAA": {}, "BBBB": {}}}}
+_y9 = _io9.StringIO()
+with _c9.redirect_stdout(_y9):
+    _d9 = U.dusenleri_bildir(_OZET9, kodlar={"AAAA", "BBBB", "CCCC"})
+esit(_d9, ["CCCC"], "sayfasi olup ozette olmayan sirket BULUNUYOR")
+dogru("CCCC" in _y9.getvalue(), "kod gunluge YAZILIYOR")
+
+_y9b = _io9.StringIO()
+with _c9.redirect_stdout(_y9b):
+    _d9b = U.dusenleri_bildir(_OZET9, kodlar={"AAAA", "BBBB"})
+esit(_d9b, [], "hepsi ozette ise liste BOS")
+dogru("YOK" in _y9b.getvalue(),
+      "bos durum da gunluge yaziliyor -- sessizlik 'olculmedi' demek")
+
+# OLCUM, KAPI DEGIL. Mesru sifir (borsadan cikan sirket, kod
+# degisikligi) dagitimi durdurmamali. Olcut: `main` icinde cagri
+# CIPLAK bir ifade -- degere baglanmiyor, kosula girmiyor.
+_cagrilar9 = [n for n in ast.walk(_main)
+              if isinstance(n, ast.Call)
+              and isinstance(n.func, ast.Name)
+              and n.func.id == "dusenleri_bildir"]
+esit(len(_cagrilar9), 1, "main icinde tek cagri var")
+_ciplak = [n for n in ast.walk(_main)
+           if isinstance(n, ast.Expr) and isinstance(n.value, ast.Call)
+           and isinstance(n.value.func, ast.Name)
+           and n.value.func.id == "dusenleri_bildir"]
+esit(len(_ciplak), 1,
+     "cagri CIPLAK ifade -- donusu cikis kodunu etkilemiyor")
+
+print("")
+print("9b. OLCUT URETICIDEN -- SIRKET OLMAYAN SAYILMIYOR")
+# Suzgec olmadan BTC ve ETH de listeye giriyordu: ikisinin "Teknik
+# Gorunum" sayfasi var ama ikisi de SIRKET degil. Olcum 47 diyordu,
+# dogrusu 41. Olcum araci kendi yanlisini uretiyordu.
+import sayfa_kodlari as _SK9                        # noqa: E402
+
+with __import__("tempfile").TemporaryDirectory() as _g9:
+    _k9 = pathlib.Path(_g9)
+    (_k9 / "2026-3-ceyrek-aaaa.md").write_text(
+        "---\nkod: AAAA\nkategori: Bilanço Analizi\n---\n\ngövde\n",
+        encoding="utf-8")
+    (_k9 / "btc-teknik.md").write_text(
+        "---\nkod: BTC\nkategori: Teknik Görünüm\n---\n\ngövde\n",
+        encoding="utf-8")
+    esit(_SK9.sayfasi_olan_kodlar(_k9), {"AAAA", "BTC"},
+         "suzgecsiz cagri HER sayfayi sayiyor (sektor kuyrugu boyle istiyor)")
+    esit(_SK9.sayfasi_olan_kodlar(_k9, kategori=_SK9.BILANCO_KATEGORI),
+         {"AAAA"}, "bilanco suzgeci sirket olmayani ELIYOR")
+    # Kategori dizgisi URETICIDEN: sayfayi yazan taraf ne yaziyorsa o.
+    esit(_SK9.BILANCO_KATEGORI, "Bilanço Analizi",
+         "kategori dizgisi uretilen on bilgiyle AYNI")
+
+print("")
 print("=" * 30)
 print(f"GECTI={_gecti}  KALDI=0")

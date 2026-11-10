@@ -1024,7 +1024,61 @@ def main() -> int:
     HEDEF.write_text(json.dumps(cikti, ensure_ascii=False, indent=1),
                      encoding="utf-8")
     print(f"\n{HEDEF} yazıldı ({_yeni} şirket)")
+    dusenleri_bildir(cikti)
     return 0
+
+
+def dusenleri_bildir(ozet: dict, kodlar=None) -> list[str]:
+    """SAYFASI OLUP OZETTE OLMAYAN sirketleri bildirir ve dondurur.
+
+    OLCUM, KAPI DEGIL
+    -----------------
+    Bu bir CI kapisi DEGIL ve olmamali: "sayfasi var ama ozette yok"
+    mesru da olabilir (sirket borsadan cikti, kodu degisti). Mesru
+    sifiri kusur sayan kontrol dagitimi durdurur. Burada yapilan is
+    yalnizca GORUNUR KILMAK.
+
+    NEDEN GEREKLI -- OLCULDU (2026-11-10)
+    -------------------------------------
+    Sektor ici birlestirme yokken, bir kosuda olculemeyen sirket
+    ozetten SILINIYORDU. Silinen sirket iki kuyruktan da birden
+    dusuyor:
+
+        * sayfa adimi adaylari OZETTEN okuyor -> yeni sayfa YOK
+        * goc kuyrugu ozette kaydi olmayani atliyor -> bolum gocu YOK
+
+    Yani sirket sessizce donuyor. Olculdu: YEDI sirket (BLUME,
+    KAPLM, SAHOL, SUMAS, SURGY, YGGYO, ZRGYO) tam bu durumdaydi ve
+    en yeni sayfalari "Son dort donem" bolumunu hic almamisti.
+    Hicbir kosu bunu soylemedi, hepsi YESIL dondu.
+
+    Birlestirme artik dusmeyi onluyor; bu olcum ise BASKA bir
+    sebepten dusen sirketi ilk kosuda soyler.
+    """
+    try:
+        import sayfa_kodlari                            # noqa: PLC0415
+        # OLCUT URETICIDEN: yalnizca BILANCO sayfalari sayiliyor.
+        # Suzgec olmadan BTC ve ETH de listeye giriyordu ("Teknik
+        # Gorunum" sayfalari var ama ikisi de sirket degil) -- olcum
+        # 47 diyordu, dogrusu 45.
+        sayfali = (kodlar if kodlar is not None
+                   else sayfa_kodlari.sayfasi_olan_kodlar(
+                       kategori=sayfa_kodlari.BILANCO_KATEGORI))
+    except (ImportError, OSError):            # pragma: no cover
+        return []
+    ozette = {str(k).upper()
+              for v in ozet.values() if isinstance(v, dict)
+              for k in (v.get("sirket") or {})}
+    dusen = sorted(sayfali - ozette)
+    if dusen:
+        print(f"\nSAYFASI OLUP OZETTE OLMAYAN: {len(dusen)} şirket")
+        print(f"  {', '.join(dusen[:12])}"
+              + (" ..." if len(dusen) > 12 else ""))
+        print("  Bu şirketler sayfa kuyruğuna da göç kuyruğuna da "
+              "GİRMİYOR; sektörleri tazelenince geri dönerler.")
+    else:
+        print("\nsayfası olup özette olmayan şirket YOK")
+    return dusen
 
 
 if __name__ == "__main__":
