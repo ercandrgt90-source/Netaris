@@ -70,6 +70,118 @@ def test_bilanco_olmayan_sayfaya_dokunmuyor(tmp=None):
         assert not_ == "", not_        # sessizce atlanir, hata degil
 
 
+def _kurgu_sayfa(klasor):
+    """Tazelemenin CEKIME kadar ilerledigi en kucuk sayfa."""
+    p = pathlib.Path(klasor) / "2026-2-ceyrek-ornek.md"
+    p.write_text(
+        "---\nkod: ORNEK\nkategori: Bilanço Analizi\n"
+        "donem: 2026 2. çeyrek\n---\n\n## Özet\n\n"
+        "Saklı yorum cümlesi burada duruyor.\n",
+        encoding="utf-8")
+    baglam = {"ORNEK": ("Sanayi", {"brut_marj": 12.0},
+                        {"brut_marj": 20.0}, 12, "2026 2. çeyrek", "")}
+    defter = {"ORNEK": {"unvan": "Örnek A.Ş.", "sektor_tr": "Sanayi"}}
+    return p, baglam, defter
+
+
+def _cekim_kur(okunamayan_ekle):
+    """`donem_getir`i VERI VERMEYEN bir cekimle degistirir.
+
+    `okunamayan_ekle` verilirse cekim `bilanco_ag.OKUNAMAYAN`a kayit
+    birakiyor -- kaynagin istegi reddettigi hal. Verilmezse kaynak
+    cevap vermis ama alanlar gercekten eksiktir.
+    """
+    def _getir(kod, etiket, ceyrek=1, sektor_tr="", istemci=None,
+               ciftli=False, seri=False):
+        if okunamayan_ekle:
+            T.bilanco_ag.OKUNAMAYAN.append((kod, okunamayan_ekle))
+        return (None, None, ["hasilat", "net_kar"], []) if ciftli \
+            else (None, ["hasilat", "net_kar"], [])
+    return _getir
+
+
+def test_kaynak_reddi_veri_eksikligi_gibi_YAZILMIYOR():
+    """OLCULDU (2026-11-10, kosu #78): goc kuyrugundaki 28 sayfanin
+    28'i `ATLANDI -- eksik: hasilat, net_kar` dondu. Gercek sebep
+    ustteki uc satirdaydi (`KAYNAK KAPANDI`), sayfa basina yazilan
+    satir onu tasimiyordu. Gunluge bakan biri 28 sirketin verisinin
+    bozuk oldugu sonucuna varirdi.
+
+    Ayni kusur `uret_bilanco.main` icinde bir kez duzeltilmisti
+    ("KAYNAK REDDEDIYOR (veri eksikligi degil)"); buraya
+    tasinmamisti.
+    """
+    import tempfile
+    with tempfile.TemporaryDirectory() as d:
+        p, baglam, defter = _kurgu_sayfa(d)
+        _asil = T.bilanco_ag.donem_getir
+        _n = len(T.bilanco_ag.OKUNAMAYAN)
+        try:
+            T.bellegi_bosalt()
+            T.bilanco_ag.donem_getir = _cekim_kur("kaynak kapandi")
+            ok, not_ = T.sayfa_tazele(p, baglam, defter, kuru=True)
+        finally:
+            T.bilanco_ag.donem_getir = _asil
+            del T.bilanco_ag.OKUNAMAYAN[_n:]
+            T.bellegi_bosalt()
+        assert ok is False, not_
+        # DIAKRITIK TUZAGINA DIKKAT: kodda etiket ASCII ("VERMEDI"),
+        # aranan desen de ASCII. `upper()` ve "İ" ile yazilmis bir
+        # desen burada sessizce eslesmezdi.
+        assert "KAYNAK VERMEDI" in not_, not_
+        assert "kaynak kapandi" in not_, not_
+        # ASIL IDDIA: yanlis etiket ARTIK YOK.
+        assert not not_.startswith("eksik"), not_
+
+
+def test_gercek_veri_eksikligi_HALA_eksik_diyor():
+    """Kapi karsi yone de calismali: kaynak cevap verdigi halde
+    alanlar yoksa sebep "eksik" olmali. Yoksa her sey "kaynak
+    vermedi" olur ve etiket yine bilgi tasimaz."""
+    import tempfile
+    with tempfile.TemporaryDirectory() as d:
+        p, baglam, defter = _kurgu_sayfa(d)
+        _asil = T.bilanco_ag.donem_getir
+        try:
+            T.bellegi_bosalt()
+            T.bilanco_ag.donem_getir = _cekim_kur(None)
+            ok, not_ = T.sayfa_tazele(p, baglam, defter, kuru=True)
+        finally:
+            T.bilanco_ag.donem_getir = _asil
+            T.bellegi_bosalt()
+        assert ok is False, not_
+        assert not_ == "eksik: hasilat, net_kar", not_
+
+
+def test_bellek_sebebi_de_tasiyor():
+    """Ayni sirketin IKINCI sayfasi yeniden SORMUYOR ama sebebi
+    DOGRU soylemeye devam ediyor. Bellek yalnizca veriyi saklarsa,
+    ikinci sayfa yanlis etikete geri doner."""
+    import tempfile
+    with tempfile.TemporaryDirectory() as d:
+        p, baglam, defter = _kurgu_sayfa(d)
+        p2 = pathlib.Path(d) / "2026-2-ceyrek-ornek-iki.md"
+        p2.write_text(p.read_text(encoding="utf-8"), encoding="utf-8")
+        _asil = T.bilanco_ag.donem_getir
+        _n = len(T.bilanco_ag.OKUNAMAYAN)
+        _cagri = []
+
+        def _say(*a, **k):
+            _cagri.append(1)
+            return _cekim_kur("HTTP 429")(*a, **k)
+        try:
+            T.bellegi_bosalt()
+            T.bilanco_ag.donem_getir = _say
+            _, n1 = T.sayfa_tazele(p, baglam, defter, kuru=True)
+            _, n2 = T.sayfa_tazele(p2, baglam, defter, kuru=True)
+        finally:
+            T.bilanco_ag.donem_getir = _asil
+            del T.bilanco_ag.OKUNAMAYAN[_n:]
+            T.bellegi_bosalt()
+        assert len(_cagri) == 1, f"ikinci sayfa yeniden sordu: {_cagri}"
+        assert "HTTP 429" in n1 and "HTTP 429" in n2, (n1, n2)
+
+
 if __name__ == "__main__":
     n = 0
     for ad, f in sorted(globals().items()):

@@ -202,15 +202,48 @@ def sayfa_tazele(yol: pathlib.Path, baglam: dict, defter: dict,
     # Bedeli yok: seri zaten AYNI cekimden geliyor (olculdu, sirket
     # basina 3 istek -- seri oncesiyle ayni).
     if kod in _BELLEK:
-        d, once, eksik, seri = _BELLEK[kod]
+        d, once, eksik, seri, okunamayan = _BELLEK[kod]
     else:
+        # BU CEKIMDE KAYNAK NE DEDI -- AYRICA SAKLANIYOR.
+        #
+        # `bilanco_ag.OKUNAMAYAN` kosu boyunca birikiyor; bu sirkete
+        # ait olanlari ayirmanin yolu cekimden ONCE ve SONRA boyuna
+        # bakmak. Sayfa basina tek karar, tek yer.
+        _n = len(bilanco_ag.OKUNAMAYAN)
         d, once, eksik, seri = bilanco_ag.donem_getir(
             kod, donem, sektor_tr=sektor, ciftli=True, seri=True)
+        okunamayan = list(bilanco_ag.OKUNAMAYAN[_n:])
         # BASARISIZLIK DA SAKLANIYOR: kaynak bu sirketi vermediyse
         # ikinci sayfasi icin tekrar sormak, kapali kapiya ikinci
         # kez vurmaktir.
-        _BELLEK[kod] = (d, once, eksik, seri)
+        _BELLEK[kod] = (d, once, eksik, seri, okunamayan)
     if d is None:
+        # SEBEP DOGRU ADIYLA. "eksik: hasilat, net_kar" VERIDE bir
+        # eksiklik varmis gibi okunuyor; oysa alanlar bos cunku
+        # kaynak istegi REDDETTI.
+        #
+        # OLCULDU (2026-11-10, kosu #78): goc kuyrugundaki 28
+        # sayfanin 28'i "ATLANDI -- eksik: hasilat, net_kar" dondu.
+        # Ustteki uc satir gercek sebebi soyluyordu ("istek araligi
+        # 2.0 -> 4.0 -> 8.0 sn", "KAYNAK KAPANDI") ama sayfa basina
+        # yazilan satir bunu tasimiyordu. Gunluge bakan biri 28
+        # sirketin verisinin bozuk oldugu sonucuna varirdi.
+        #
+        # AYNI KUSUR BIR KEZ DUZELTILMISTI: `uret_bilanco.main`
+        # icinde "donem belirlenemedi" yerine "KAYNAK REDDEDIYOR
+        # (veri eksikligi degil)" yaziliyor ve gerekcesi orada
+        # "Yanlis teshis, dogru teshisten daha pahali" diye duruyor.
+        # Buraya tasinmamisti. Bu dosyanin KENDI yorumu (asagida,
+        # `ara_ver` yaninda) yanlis etiketi 2026-10-31'de ALINTILIYOR
+        # ama duzeltmemis -- semptomu kaydedip sebebi birakmak.
+        #
+        # OLCUT CEKIMIN KENDISI: `bilanco_ag.KAPANDI`ya bakmak
+        # yetmezdi, cunku kapiyi KAPATAN ilk sekiz istek daha kapi
+        # acikken basarisiz oluyor ve onlar da yanlis etiketlenirdi.
+        if okunamayan:
+            _sebep = sorted({s for _k, s in okunamayan})
+            return False, ("KAYNAK VERMEDI (veri eksikliği DEĞİL): "
+                           + ", ".join(_sebep[:2]))
         return False, "eksik: " + ", ".join(eksik[:2])
 
     # ETIKETI VERISIYLE CELISEN SAYFA TAZELENMIYOR.
@@ -520,6 +553,12 @@ def main() -> int:
         yollar = sorted(U.SITE.glob("*.md"))
 
     tazelenen = atlanan = 0
+    #: Atlama sebeplerinin dokumu. SON SATIR NE DIYORSA O OKUNUYOR:
+    #: sayfa basina satirlar yuzlerce satirlik gunlugun icinde
+    #: kayboluyor ve "tazelenen 0, atlanan 28" tek basina SEBEP
+    #: soylemiyor -- kaynak mi vermedi, veri mi eksik, donem mi
+    #: uyusmuyor? Ucu tamamen farkli isler gerektiriyor.
+    _dokum: dict[str, int] = {}
     for yol in yollar:
         if tazelenen >= n.sinir:
             print(f"\nsınıra ulaşıldı ({n.sinir})")
@@ -540,8 +579,16 @@ def main() -> int:
         elif not_:
             atlanan += 1
             print(f"  {yol.stem:<20}ATLANDI -- {not_}")
+            # Ayrinti degil TUR sayiliyor: "eksik: hasilat, net_kar"
+            # ile "eksik: ozkaynak" ayni ise isaret ediyor.
+            _dokum[not_.split(":")[0].strip()] = (
+                _dokum.get(not_.split(":")[0].strip(), 0) + 1)
 
     print(f"\ntazelenen {tazelenen}, atlanan {atlanan}")
+    if _dokum:
+        print("atlama sebebi dökümü:")
+        for _s, _c in sorted(_dokum.items(), key=lambda x: -x[1]):
+            print(f"  {_c:>4}  {_s}")
     print("model çağrısı: 0 — saklı yorumlar aynen yeniden kullanıldı")
     if n.onarim and not n.kuru_calis:
         kalan = onarim_kuyrugu(defter, baglam)
