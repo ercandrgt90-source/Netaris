@@ -6571,7 +6571,10 @@
    "kap_kimlik": "4028e4a141733b56014178115f7e51e7",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "GÜRELİ YEMİNLİ MALİ MÜŞAVİRLİK VE BAĞIMSIZ DENETİM HİZMETLERİ A.Ş."
+   "denetci": "GÜRELİ YEMİNLİ MALİ MÜŞAVİRLİK VE BAĞIMSIZ DENETİM HİZMETLERİ A.Ş.",
+   "sektor": "Financials",
+   "sektor_tr": "Finans",
+   "alt_sektor": "Capital Markets"
   },
   "TEVKS": {
    "kod": "TEVKS",
