@@ -428,4 +428,57 @@ esit(len(_sorulan), 20,
      "pencere KAPALIYKEN kuyruğun tamamına soruldu (kontrol)")
 
 print("")
+print("KUYRUK SIRASI -- KANITI OLAN ONCE")
+# OLCULDU (2026-11-10): kuyruk 389 sirket, bildirim penceresinde kosu
+# basina 3 istek. TERA'nin sirasi 317 -- yuz kosudan fazla. TERA
+# sitedeki SON kumulatif bilanco sayfasiydi ve ceyreklige gecmesi
+# sektor bilgisine bagliydi; kayitlarda "kaynakta yok, elle
+# atanmali" diye duruyordu. Kaynak SORULUNCA cevap verdi
+# (Financials / Capital Markets): eksik olan bilgi degil SIRAYDI.
+#
+# Alfabetik sira burada ozellikle pahali, cunku kuyrugun cogu kalici
+# 404 veren ihracci kodu -- butce bilinen bir cevaba harcaniyor.
+_sirali = {"AAAA": {}, "BBBB": {}, "ZZZZ": {}}
+_dk = kur(_sirali, {})
+_df = json.loads(_dk.read_text(encoding="utf-8"))
+esit(st.kuyruk(_df, sayfasi_olan={"ZZZZ"}), ["ZZZZ", "AAAA", "BBBB"],
+     "sayfasi olan kod, alfabetik SONDA olsa da basa geciyor")
+esit(st.kuyruk(_df, sayfasi_olan=set()), ["AAAA", "BBBB", "ZZZZ"],
+     "kaniti olmayanlar arasinda sira ALFABETIK -- kararli")
+esit(st.kuyruk(_df, sayfasi_olan={"BBBB", "ZZZZ"}),
+     ["BBBB", "ZZZZ", "AAAA"],
+     "iki kanitli arasinda da sira alfabetik")
+
+print("")
+print("KANIT KAYNAGI -- ON BILGIDEN, DOSYA ADINDAN DEGIL")
+# `yayin.yaz_sektorel` dosyayi TERS sirada adlandiriyor
+# (`2026-6-tera.md`). Dosya adindan kod okumak, kodu BULAMAMAK
+# demek -- ayni tuzak `uret_bilanco_sayfa._yayimlanmis` icinde de
+# yaziliyor ve orada atlama HIC calismamisti.
+import tempfile as _tf                                # noqa: E402
+
+with _tf.TemporaryDirectory() as _g:
+    _kl = pathlib.Path(_g)
+    (_kl / "2026-6-tera.md").write_text(
+        "---\nslug: tera-2026-6\nkod: TERA\ndonem: 2026/6\n"
+        "kategori: Bilanço Analizi\n---\n\ngövde\n", encoding="utf-8")
+    (_kl / "makro-ozet.md").write_text(
+        "---\nslug: makro\nbaslik: Makro\n---\n\ngövde\n",
+        encoding="utf-8")
+    _k = st.sayfasi_olan_kodlar(_kl)
+    esit(_k, {"TERA"}, "ters adlandirilmis dosyadan kod OKUNUYOR")
+    # "Klasor yoksa bos kume" iddiasi BURADA DEGIL: `Path.glob`
+    # olmayan yolda da bos uretiyor, yani o iddia her iki halde de
+    # gecer ve hicbir seyi elemez. Mutasyon bunu gosterdi; iddia da
+    # korudugu olu kod da kaldirildi. Yolun DOGRU olmasi ise ayri
+    # bir iddia ve asagida duruyor.
+
+# YOL DENETIMI: kanit kaynagi gercekten var olan bir klasore
+# bakmali. Yola gomulu bir varsayim, cikti duzeni degisince
+# sessizce eslesmeyi birakir ve kural ATIL hale gelir -- bu depoda
+# bir kez 48 fotografi atifsiz biraktı.
+esit(st.SAYFALAR.is_dir(), True,
+     f"kanit klasoru var: {st.SAYFALAR.name}")
+
+print("")
 print(f"TUM TESTLER GECTI ({_gecti})")
