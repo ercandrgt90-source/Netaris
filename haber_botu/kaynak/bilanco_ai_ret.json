@@ -566,6 +566,37 @@
      57.3
     ]
    }
+  },
+  {
+   "kod": "AHSGY",
+   "unvan": "AHES GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.",
+   "donem": "2026 3. çeyrek",
+   "neden": "girdide olmayan sayi: 55, 59",
+   "model": "@cf/openai/gpt-oss-120b",
+   "ham": "Hasılat, brüt kâr, faaliyet kârı ve FAVÖK hepsi önceki döneme göre %55-%59 arasında azalarak birlikte düşmüş, bu düşüş net kârda %90,6'luk büyük bir gerilemeye yol açmış; aynı zamanda faaliyet nakit akışı da %76,2 azalarak gerilemiş. Özkaynak ve aktif toplamı ise %64,1 ve %74,7 artış göstermiş, bu artış net borcun hafifçe (-%5,4) iyileşmesiyle birlikte şirketin likiditesini artırarak cari oranı 47,27'ye (sektör medyanı 11,08) ve borç/özkaynak oranını –0,09'a (sektör medyanı 0,02) yükseltmiştir. Brüt kâr marjı %82,3 ve net kâr marjı %70,6, her ikisi de sektör medyanlarının çok üzerindedir; özkaynak kârlılığı ise %0,9 ile medyan %1,0'a yakın seyretmiştir.",
+   "an": "2026-11-10T01:23:50+00:00",
+   "yakin": {
+    "55": [
+     55.5,
+     56.6,
+     58.8
+    ],
+    "59": [
+     58.8,
+     56.6,
+     55.5
+    ]
+   }
+  },
+  {
+   "kod": "DAPGM",
+   "unvan": "DAP GAYRİMENKUL GELİŞTİRME A.Ş.",
+   "donem": "2026 3. çeyrek",
+   "neden": "cop cikti: model dusunme kanali sizmis: 'analysis'",
+   "model": "@cf/openai/gpt-oss-120b",
+   "ham": "analysis\n\n##analysis\n\n### 1. **Understanding the problem statement:**\n  \nThe problem statement is quite complex and seems to involve multiple layers of financial calculations and comparisons between sectors ( sectors being sectors of economy or sectors of finance). \n\n###  sector: 0% sector: 0% sector: 0% sector: 0% sector: 0% sector: 0% sector: 0% sector: 0% sector: 0% sector: 0% sector: 0% sector: 0% sector:  sector: sector: sector: sector: sector: sector: sector: sector: sector: sector: sector: sector: sector: sector: sector: sector: sector: sector: sector: sector: sector: sector: sector: sector: sector: sector: sector: sector: sector: sector: sector: sector: sector: sector: sector: sector",
+   "an": "2026-11-10T01:24:05+00:00",
+   "yakin": {}
   }
  ]
 }
