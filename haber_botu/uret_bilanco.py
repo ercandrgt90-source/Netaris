@@ -338,32 +338,130 @@ def _defter() -> dict:
     return json.loads(DEFTER.read_text(encoding="utf-8"))["sirketler"]
 
 
+def kod_tercihi(kod: str) -> tuple[int, str]:
+    """Ayni sirketin iki kodundan hangisi SECILIR -- siralama anahtari.
+
+    BIST pay kodu DORT YA DA BES HARF. Defterde 794 kaydin 750'si
+    boyle; kalan 44'u uc harfli ve bunlar KAP'in kisa/eski kodlari.
+
+    ESKI KURAL ALFABETIKTI VE BIR SIRKETTE YANLIS KODU SECIYORDU.
+    Olculdu (2026-11-10): defterde ayni `kap_kimlik`i tasiyan alti
+    cift var ve besinde alfabetik sira dogru kodu tutuyordu --
+    tesadufen, cunku pay kodu kisa kodundan sonra geliyordu:
+
+        A1CAP / ACP    ALBRK / ALK    GARAN / TGB
+        INFO  / IYF    ISMEN / IYM    TSK   / TSKB   <- TERSI
+
+    Son ciftte alfabetik sira TSK'yi seciyordu. Turkiye Sinai
+    Kalkinma Bankasi'nin pay kodu TSKB; kaynak TSK'yi tanimiyor ve o
+    sirket HIC olculemedi (`sektor_ozet.json`da kaydi yok, sitede
+    hicbir donemde sayfasi yok). Bir sirketi tumden kaybettiren bir
+    ayrintiydi.
+
+    OLCUT UZUNLUK, ALFABE DEGIL: pay kodu once geliyor, esitlikte
+    alfabetik sira KARARLILIK icin tutuluyor. Altı ciftin ALTISINDA
+    da dogru kodu veriyor.
+    """
+    return (0 if len(kod) >= 4 else 1, kod)
+
+
 def sektordeki(sektor_tr: str) -> list[tuple[str, dict]]:
     """Sektordeki BENZERSIZ sirketler. Hisse siniflari tekillestirilir.
 
     Is Bankasi'nin bes kodu var; besini de cekmek ayni sirketi bes kez
     saymak ve sektor medyanini o sirkete dogru cekmek olurdu.
+
+    Hangi kodun kaldigina `kod_tercihi` karar veriyor.
     """
-    gorulen: set[str] = set()
-    cikti: list[tuple[str, dict]] = []
+    aday: dict[str, list[tuple[str, dict]]] = {}
     for kod, v in sorted(_defter().items()):
         if v.get("sektor_tr") != sektor_tr:
             continue
-        kimlik = v.get("kap_kimlik") or kod
-        if kimlik in gorulen:
-            continue
-        gorulen.add(kimlik)
-        cikti.append((kod, v))
-    return cikti
+        aday.setdefault(v.get("kap_kimlik") or kod, []).append((kod, v))
+    secilen = [min(ks, key=lambda kv: kod_tercihi(kv[0]))
+               for ks in aday.values()]
+    return sorted(secilen, key=lambda kv: kv[0])
+
+
+#: Nobet defteri -- `bilanco_nobetci` her kosuda bir dilim sirkete
+#: bakip son donem bitisini buraya yaziyor. UCUZ KAYNAK: bu dosyayi
+#: okumak EK ISTEK YAPMIYOR, veri zaten toplanmis.
+NOBET = _KOK / "kaynak" / "bilanco_nobet.json"
+
+
+def nobet_bitisleri() -> dict[str, str]:
+    """kod -> nobetcinin gordugu son donem bitisi. Okunamazsa BOS."""
+    try:
+        d = json.loads(NOBET.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
+    kayit = d.get("sirket") if isinstance(d, dict) else None
+    if not isinstance(kayit, dict):
+        return {}
+    return {str(k).upper(): v for k, v in kayit.items()
+            if isinstance(v, str) and v}
+
+
+def _iso_sayi(iso: str) -> int:
+    try:
+        return int(str(iso).replace("-", ""))
+    except ValueError:
+        return 0
+
+
+def sira_kur(sirketler: list, bitisler=None, nobet=None) -> list:
+    """Sektor icindeki sira: YENI VERISI OLDUGU BILINEN SIRKET ONCE.
+
+    AYNI KUSUR, BIR DUZEY ASAGIDA
+    -----------------------------
+    Sektor sirasi 2026-09-14'te bayatliga baglandi, cunku alfabetik
+    sira sabit olunca kaynak her kosuda AYNI yerde kapaniyor ve
+    sonraki sektorler HIC sirasini alamiyordu. Sektor icindeki sira
+    alfabetik KALDI ve ayni sey sirket duzeyinde oluyordu.
+    OLCULDU (2026-11-10, kosu #78): Gayrimenkul'de 38 sirketten 27'si
+    olculdu, kaynak PSGYO'da kapandi; atlanan 11 sirket alfabetik
+    KUYRUKTU ve her kosuda ayni kuyruktu. Ucu -- TDGYO, TURGG --
+    nobet defterine gore Q3 bildirmisti ve sayfasi YOKTU.
+
+    OLCUT KANIT, TAHMIN DEGIL
+    -------------------------
+    "Bayat" burada "uzun zamandir olculmedi" demiyor; defterde
+    YAZILI olan sey "nobetci yeni bir donem gordu, biz hala eskisini
+    olcmusuz". Yalnizca o sirketlerin yeni verisi OLDUGU BILINIYOR.
+    Nobetcinin hic bakmadigi sirket one alinmiyor: bilmedigimiz bir
+    tazeligi olculmus gibi sunmak olurdu (ayni gerekce
+    `uret_bilanco_sayfa._tazelik` icinde de yaziyor).
+
+    One alinanlar arasinda EN YENI BILDIREN basta: okurun bekledigi
+    sira o ve `uret_bilanco_sayfa.kuyruk_kur` da ayni olcutu
+    kullaniyor.
+    """
+    bitisler = {str(k).upper(): v for k, v in (bitisler or {}).items()}
+    nobet = {str(k).upper(): v for k, v in (nobet or {}).items()}
+
+    def anahtar(ikili):
+        kod = str(ikili[0]).upper()
+        gorulen = nobet.get(kod) or ""
+        olculen = bitisler.get(kod) or ""
+        if gorulen and gorulen > olculen:
+            return (0, -_iso_sayi(gorulen), kod)
+        return (1, 0, kod)
+
+    return sorted(sirketler, key=anahtar)
 
 
 def sektor_isle(sektor_tr: str, donem_etiketi: str, ceyrek: int = 2,
-                sinir: int | None = None) -> dict:
+                sinir: int | None = None, onceki=None) -> dict:
     """Bir sektorun tamamini ceker, olcer ve medyanini kurar."""
     sirketler = sektordeki(sektor_tr)
+    _onceki = onceki if isinstance(onceki, dict) else {}
+    sirketler = sira_kur(sirketler,
+                         (_onceki.get("bitis") or {}),
+                         nobet_bitisleri())
     if sinir:
         sirketler = sirketler[:sinir]
     print(f"\n=== {sektor_tr}  ({len(sirketler)} şirket)")
+    _kodlar = {str(k).upper() for k, _ in sirketler}
 
     olculen: dict[str, dict] = {}
     atlanan: list[tuple[str, str]] = []
@@ -373,9 +471,47 @@ def sektor_isle(sektor_tr: str, donem_etiketi: str, ceyrek: int = 2,
     #: adi buradan uretiliyor; takvim ceyregi onlar icin yanlis.
     bitis: dict[str, str] = {}
     #: Onceki yilin ayni donemi kaynakta bulunamayan sirketler.
-    onceki_yok: list[str] = []
+    onceki_yok: set[str] = set()
     #: Bitmemis kolonu kirpilan sirketler.
-    kirpilan: list[str] = []
+    kirpilan: set[str] = set()
+
+    # BIRLESTIRME SIRKET DUZEYINDE DE ISLIYOR.
+    #
+    # Sektor duzeyinde birlestirme 2026-09-14'te geldi: cekilemeyen
+    # sektor onceki haliyle kaliyor. SEKTOR ICI ayni korumadan
+    # yoksundu -- `cikti[s] = yeni_sektor` sektoru TUMDEN degistiriyor
+    # ve o kosuda olculemeyen sirketler dosyadan SILINIYORDU.
+    #
+    # OLCULDU (2026-11-10): 04:21 veri gonderisi Gayrimenkul'u 36
+    # sirketten 27'ye dusurdu; RGYAS, RYGYO, SEGYO, SURGY, SVGYO,
+    # VKGYO, VRGYO, YGGYO dosyadan cikti. Kapsam 308'den 299'a indi.
+    # `kapsam_coktu` bunu gormuyor: 27, 36'nin %75'i ve esigin
+    # ustunde. Hat eklemekle kalmiyor, ELINDEKINI de kaybediyordu --
+    # 2026-11-02'de 336 sirket vardi.
+    #
+    # Birlestirme olmadan SIRA DEGISIKLIGI de tehlikeli olurdu: one
+    # alinanlar olculurken alfabetik bastakiler silinirdi. Iki
+    # degisiklik birlikte anlamli.
+    for kod, v in (_onceki.get("sirket") or {}).items():
+        if str(kod).upper() in _kodlar and isinstance(v, dict):
+            olculen[str(kod).upper()] = v
+    for kod, iso in (_onceki.get("bitis") or {}).items():
+        if str(kod).upper() in _kodlar and iso:
+            bitis[str(kod).upper()] = iso
+    for kod, ay in (_onceki.get("mali") or {}).items():
+        if str(kod).upper() in _kodlar:
+            mali[str(kod).upper()] = ay
+    for kod in (_onceki.get("onceki_yok") or []):
+        if str(kod).upper() in _kodlar:
+            onceki_yok.add(str(kod).upper())
+    for kod in (_onceki.get("kirpilan") or []):
+        if str(kod).upper() in _kodlar:
+            kirpilan.add(str(kod).upper())
+    _devralinan = set(olculen)
+    #: BU KOSUDA gercekten olculen kodlar. Sayim bundan yapiliyor;
+    #: `olculen` artik devralinani da tasidigi icin onun boyu
+    #: "olculdu" demiyor.
+    _bu_kosuda: set[str] = set()
 
     for kod, bilgi in sirketler:
         tablolar = bilanco_ag.ara_donem(kod, ceyrek)
@@ -409,10 +545,22 @@ def sektor_isle(sektor_tr: str, donem_etiketi: str, ceyrek: int = 2,
 
         d = oranlar.Donem(etiket=donem_etiketi, **alanlar)
         olculen[kod] = _oranlari(d)
+        _bu_kosuda.add(kod)
         _m = tablolar.get("_mali") or {}
         mali[kod] = _m.get("yil_sonu_ayi")
+        # ETIKET ILE VERI AYNI OLCUMDEN GELIYOR.
+        #
+        # Devralinan `bitis` burada TEMIZLENMEK ZORUNDA: taze olcum
+        # donem tarihini veremediyse, eski tarih yeni rakamlarin
+        # yanina yazilirdi. Sayfa bir donemi soyleyip baskasini
+        # gosterir -- sessiz ve yayinda gorunmez bir yanlis.
         if _m.get("son_bitis"):
             bitis[kod] = _m["son_bitis"]
+        else:
+            bitis.pop(kod, None)
+        # Devralinan bayraklar da bu olcume gore yenileniyor.
+        onceki_yok.discard(kod)
+        kirpilan.discard(kod)
         # OLCULEN SEY DOKUME GIRIYOR.
         #
         # `ara_donem` iki ayrintiyi daha biliyor: bitmemis kolon
@@ -421,9 +569,9 @@ def sektor_isle(sektor_tr: str, donem_etiketi: str, ceyrek: int = 2,
         # ve sessizce gecerse "neden bu sayfada degisim yok" sorusu
         # cevapsiz kalir.
         if tablolar.get("_onceki_yok"):
-            onceki_yok.append(kod)
+            onceki_yok.add(kod)
         if tablolar.get("_kirpilan"):
-            kirpilan.append(kod)
+            kirpilan.add(kod)
         print(f"  {kod:<8}ölçüldü")
 
     # MEDYAN AYNI DONEMI BILDIRENLERDEN KURULUYOR.
@@ -469,7 +617,13 @@ def sektor_isle(sektor_tr: str, donem_etiketi: str, ceyrek: int = 2,
     ana = {k: v for k, v in olculen.items()
            if bitis.get(k) in (None, "", ana_donem)}
     medyanlar = sektor_ozet.sektor_medyanlari(ana)
-    print(f"  -> {len(olculen)} şirket ölçüldü, {len(atlanan)} atlandı")
+    # SAYIM DOGRU ADIYLA. Birlestirmeden sonra `olculen` DEVRALINAN
+    # kayitlari da tasiyor; hepsini "olculdu" diye yazmak bu kosuda
+    # yapilmayan olcumu yapilmis gibi gostermek olurdu.
+    _taze = len(_bu_kosuda)
+    _kalan = len(set(olculen) - _bu_kosuda)
+    print(f"  -> {_taze} şirket ölçüldü, {len(atlanan)} atlandı"
+          + (f", {_kalan} şirket önceki ölçümüyle korundu" if _kalan else ""))
     if kirpilan:
         print(f"  -> bitmemiş dönem kırpıldı: {len(kirpilan)} şirket "
               f"({', '.join(sorted(kirpilan)[:6])})")
@@ -507,6 +661,19 @@ def sektor_isle(sektor_tr: str, donem_etiketi: str, ceyrek: int = 2,
         "bitis": bitis,
         "onceki_yok": sorted(onceki_yok),
         "kirpilan": sorted(kirpilan),
+        #: BU KOSUDA gercekten olculen kodlar.
+        #:
+        #: BIRLESTIRMENIN GETIRDIGI TUZAK BURADA KAPATILIYOR. Artik
+        #: hicbir sirket cekilemese bile `sirket` sozlugu devralinan
+        #: kayitlarla DOLU donuyor; `kapsam_coktu` da bu yuzden
+        #: tetiklenmiyor. Sektorun `tazelendi` damgasi kosulsuz
+        #: guncellenirse, HIC CEKILEMEYEN sektor "en taze" gorunur ve
+        #: sektor sirasinin sonuna gider -- 2026-09-14'te bayatliga
+        #: baglanan sira tam tersine calismaya baslardi.
+        #:
+        #: Damgayi kim atacagina `main` bu listeye bakarak karar
+        #: veriyor. Sayinin kendisi de loga giriyor.
+        "taze_olculen": sorted(_bu_kosuda),
         #: Mali yil sonu AYRIM OLCUTU DEGIL -- yalnizca aciklama
         #: icin tutuluyor (sayfada "mali yili mayista biten sirket").
         "mali": {k: v for k, v in mali.items() if v and v != 12},
@@ -705,7 +872,10 @@ def main() -> int:
                     print(f"  {s}: donem belirlenemedi "
                           f"({DONEM_DENEME} sirket denendi), atlandi")
                 continue
-        yeni_sektor = sektor_isle(s, etiket, n.ceyrek, n.sinir)
+        # ONCEKI SEKTOR VERISI ICERIYE GIRIYOR -- sira ve birlestirme
+        # ikisi de ona bakiyor (bkz. `sira_kur`, `sektor_isle`).
+        yeni_sektor = sektor_isle(s, etiket, n.ceyrek, n.sinir,
+                                  onceki=onceki_ozet.get(s))
 
         # AYNI KURAL, DOGRU AYRINTI DUZEYINDE.
         #
@@ -716,6 +886,18 @@ def main() -> int:
         _yeni_n = sirket_sayisi(yeni_sektor)
         if not n.zorla_yaz and kapsam_coktu(_yeni_n, _eski_n):
             print(f"  {s}: kapsam coktu ({_eski_n} -> {_yeni_n}), "
+                  f"ONCEKI VERI KORUNDU")
+            korunan.append(s)
+            continue
+        # HIC OLCULEMEYEN SEKTOR TAZELENMIS SAYILMIYOR.
+        #
+        # Birlestirme sirket duzeyine inince `kapsam_coktu` bu durumu
+        # goremez oldu: tek bir sirket bile cekilemese `sirket`
+        # sozlugu devralinan kayitlarla ayni boyda doner. Damga
+        # kosulsuz atilsa, cekilemeyen sektor "en taze" gorunup sektor
+        # sirasinin SONUNA giderdi -- sira bayatliga TERS calisirdi.
+        if not yeni_sektor.get("taze_olculen"):
+            print(f"  {s}: bu kosuda hiçbir şirket ölçülemedi, "
                   f"ONCEKI VERI KORUNDU")
             korunan.append(s)
             continue

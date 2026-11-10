@@ -60,10 +60,24 @@ def esit(a, b, ad):
     print(f"  gecti  {ad}")
 
 
-def _sektor(n: int) -> dict:
-    """n sirketlik sahte sektor kaydi."""
+def _sektor(n: int, taze: int | None = None) -> dict:
+    """n sirketlik sahte sektor kaydi.
+
+    `taze_olculen` KURGUDA DA VAR, cunku uretimde de var: sirket
+    duzeyinde birlestirme geldikten sonra `sirket` sozlugu
+    DEVRALINAN kayitlarla da dolabiliyor ve "bu kosuda gercekten ne
+    olculdu" sorusunu yalnizca bu alan cevapliyor. Kurgu onu
+    tasimazsa, kurgu gercegi temsil etmez ve `main` icindeki kapi
+    sinanmaz halde kalirdi.
+
+    `taze` verilirse o kadar sirket bu kosuda olculmus sayilir;
+    `taze=0` kaynagin sektoru tumden reddettigi durumdur.
+    """
+    kodlar = [f"K{i:03d}" for i in range(n)]
+    _t = kodlar if taze is None else kodlar[:taze]
     return {"donem": "2026/6",
-            "sirket": {f"K{i:03d}": {"roe": 1.0} for i in range(n)}}
+            "sirket": {k: {"roe": 1.0} for k in kodlar},
+            "taze_olculen": _t}
 
 
 def _defter_sektorleri() -> list[str]:
@@ -233,5 +247,33 @@ esit(all((_dosya.get(k) or {}).get("tazelendi") for k in _hepsi), True,
 # 11 sektor, kosu basina 3 -> dort kosu yeter.
 esit(_kosu_sayisi <= 4, True,
      f"dort kosuda yakinsadi ({_kosu_sayisi} kosu)")
+
+print("")
+print("HIC OLCULEMEYEN SEKTOR TAZELENMIS SAYILMAZ")
+# SIRKET DUZEYINDE BIRLESTIRMENIN GETIRDIGI TUZAK.
+#
+# Birlestirme sirket duzeyine indikten sonra (2026-11-10) tek bir
+# sirket bile cekilemese `sirket` sozlugu DEVRALINAN kayitlarla ayni
+# boyda doner. `kapsam_coktu` bu yuzden artik tetiklenmiyor: 36 ->
+# 36. Damga kosulsuz atilsa, cekilemeyen sektor "en taze" gorunur ve
+# sektor sirasinin SONUNA giderdi -- yani yukaridaki "EN BAYAT
+# SEKTOR ONCE" kurali TERSINE calismaya baslardi. En cok veri
+# bekleyen sektor, en az sirasi gelen olurdu.
+_eski_damga = "2026-09-01T00:00:00+00:00"
+_bas = {"Sanayi": dict(_sektor(36), tazelendi=_eski_damga)}
+_son, _kod = _kosu(_bas, {"Sanayi": _sektor(36, taze=0)},
+                   ["--sektor", "Sanayi", "--zorla"])
+esit(_son["Sanayi"]["tazelendi"], _eski_damga,
+     "hic olculemeyen sektorun damgasi DEGISMEDI")
+esit(len(_son["Sanayi"]["sirket"]), 36, "devralinan veri yerinde duruyor")
+esit(_kod, 0, "kosu yesil -- bu bir kusur degil, kaynak durumu")
+
+# Tek sirket olculduyse damga ATILIYOR: kapi, olcumu olani
+# cezalandirmamali.
+_bas = {"Sanayi": dict(_sektor(36), tazelendi=_eski_damga)}
+_son, _kod = _kosu(_bas, {"Sanayi": _sektor(36, taze=1)},
+                   ["--sektor", "Sanayi", "--zorla"])
+esit(_son["Sanayi"]["tazelendi"] != _eski_damga, True,
+     "tek sirket bile olculduyse damga tazelendi")
 
 print(f"\nTUM TESTLER GECTI ({_gecen})")
