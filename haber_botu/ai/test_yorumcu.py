@@ -58,6 +58,15 @@ sina("nokta/virgul bicimi ayni sayi sayilir",
 sina("tek haneli sayi gormezden gelinir",
      yorumcu.sayi_denetimi("Üç kanal öne çıkıyor.", GIRDI) == [])
 
+# YUKARIDAKI IDDIA ATILDI -- "Üç" RAKAM DEGIL, yani tek haneli
+# atlamasi o satirda HIC CALISMIYOR. Mutasyon bunu gosterdi: atlama
+# tumden silindiginde sinama YESIL kaldi. Rakamla yazilmis bir tek
+# hane gerekiyor; `GIRDI`de 7 degeri yok ve en yakin sayi 1,0 uzakta,
+# yani atlama olmadan REDDEDILIRDI.
+sina("tek haneli RAKAM gormezden gelinir (atillik kontrolu)",
+     yorumcu.sayi_denetimi("7 kanal öne çıkıyor.", GIRDI) == []
+     and 7.0 not in yorumcu._sayilar(GIRDI))
+
 # --- ilk gercek calistirmada olculen YANLIS REDLER ------------------
 #
 # Ikisi de modelin dogru davrandigi haldi; denetim metin olarak
@@ -79,6 +88,50 @@ sina("yuvarlama serbest (31,75 -> 31,8)",
 
 sina("gercekten uydurulan sayi HALA yakalanir",
      yorumcu.sayi_denetimi("TÜFE %28,40'a inecek.", GIRDI) != [])
+
+# --- TAM SAYIYA YUVARLAMA: olculmus tikaniklik ----------------------
+#
+# Onceki kural yalnizca BIR BASAMAGA yuvarlamayi kabul ediyordu;
+# modelin TAM SAYI yazdigi hal disarida kaliyordu. Olculdu
+# (2026-11-10, `bilanco_ai_ret.json` kanit alani): 35 sayi reddinin
+# 15'i bu bicimdeydi. DAPGM bes kosu ust uste AYNI iki sayiyla
+# reddedildi ve sayfasi hic yazilmadi:
+#
+#     cikti "%55-%60 arasinda azalarak"   girdi 55,3 / 59,6 / 60,3
+#
+# Kalan 22 reddin en yakin girdiye uzakligi EN AZ 4,2 -- iki kume
+# arasinda bos aralik var, yani esik secmek gerekmiyor, OLCUT
+# gerekiyordu.
+
+sina("DAPGM: tam sayiya yuvarlanmis aralik gecer",
+     yorumcu.sayi_denetimi(
+         "Hasılat ve FAVÖK %55-%60 arasında azaldı.",
+         "Değişim: hasılat -55,3; brüt kâr -59,6; FAVÖK -60,3") == [])
+
+sina("AHSGY: tam sayi yuvarlamasi gecer",
+     yorumcu.sayi_denetimi(
+         "Özkaynak %91 arttı.", "Değişim: özkaynak +90,6") == [])
+
+# ASIL AYRIM: yuvarlamaya izin var, YANLIS yuvarlamaya YOK.
+sina("SANFM: 64,7 icin '64' yazmak REDDEDILIR (65 olmaliydi)",
+     yorumcu.sayi_denetimi(
+         "Hasılat %64 arttı.", "Değişim: hasılat +64,7") == ["64"])
+
+sina("bir basamak yazildiginda pay DARALIYOR",
+     yorumcu.sayi_denetimi(
+         "Oran %15,5 oldu.", "Veri: oran 16,0") == ["15.5"])
+
+sina("bir basamakli dogru yuvarlama gecer (31,75 -> 31,8)",
+     yorumcu.sayi_denetimi("Oran %31,8 oldu.", "Veri: oran 31,75") == [])
+
+sina("buyuk tam sayida pay yarim birim -- uydurma gecmez",
+     yorumcu.sayi_denetimi(
+         "Net borç %300 arttı.", "Değişim: net borç +269,0") == ["300"])
+
+# Basamak ayristirmasi, binlik ayracini basamak SANMAMALI.
+sina("binlik ayraci basamak sayilmiyor",
+     ((1500.0, 0) in yorumcu._sayilar_basamakli("1.500 lira")
+      and (1500.0, 2) in yorumcu._sayilar_basamakli("1.500,00 lira")))
 
 # --- bosluklu binlik ayraci ------------------------------------------
 #

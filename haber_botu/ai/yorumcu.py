@@ -347,6 +347,26 @@ def _sayilar(metin: str) -> set[float]:
     return cikti
 
 
+def _sayilar_basamakli(metin: str) -> set[tuple[float, int]]:
+    """`_sayilar` ile AYNI ayrıstirma, ayrica YAZILAN basamak sayisi.
+
+    NEDEN GEREKLI: "yuvarlama mi uydurma mi" sorusu ancak modelin
+    KAC BASAMAK yazdigi biliniyorsa cevaplanabilir. `_sayilar`
+    float donduruyor ve "55" ile "55,0" arasindaki fark orada
+    kayboluyor -- oysa denetimin ihtiyaci tam o fark.
+    """
+    cikti: set[tuple[float, int]] = set()
+    for s in re.findall(r"-?\d[\d.,]*", metin):
+        t = re.sub(r"[.,](?=\d{3}\b)", "", s)      # binlik ayraci
+        t = t.replace(",", ".").rstrip(".")
+        try:
+            d = abs(float(t))
+        except ValueError:
+            continue
+        cikti.add((d, len(t.split(".")[1]) if "." in t else 0))
+    return cikti
+
+
 #: Karsilastirma toleransi. Model "%31,75"i "%31,8" diye yuvarlayabilir;
 #: bu uydurma degil, yuvarlamadir. Binde bir goreli fark serbest.
 _TOLERANS = 0.001
@@ -647,13 +667,42 @@ def sayi_denetimi(cikti: str, girdi: str) -> list[str]:
     # Gerekcesi `_binligi_birlestir` basinda.
     cikti = _binligi_birlestir(cikti, g)
     kacak = []
-    for s in _sayilar(cikti):
+    for s, basamak in sorted(_sayilar_basamakli(cikti)):
         if s < 10:            # tek haneli: "3 cumle", "1 puan"
             continue
         if any(abs(s - x) <= max(abs(x), 1.0) * _TOLERANS for x in g):
             continue
-        # Yuvarlanmis hali de kabul: 31,8 ~ 31,75
-        if any(abs(round(s, 1) - round(x, 1)) < 1e-9 for x in g):
+        # YUVARLAMA SERBEST, YANLIS YUVARLAMA DEGIL.
+        #
+        # Onceki kural "iki sayi da BIR BASAMAGA yuvarlandiginda esit
+        # mi" diye soruyordu ve yalnizca bir basamak yazilan hali
+        # kabul ediyordu. Modelin TAM SAYI yazdigi hal disarida
+        # kaliyordu ve asil tikaniklik oradaydi:
+        #
+        #   DAPGM  "%55-%60 arasinda azalarak"   girdi 55,3 ... 60,3
+        #   AHSGY  "%55" ve "%91"                girdi 55,5 / 90,6
+        #   SANFM  "%65" ve "%44"                girdi 65,1 / 43,6
+        #
+        # Olculdu (2026-11-10, `bilanco_ai_ret.json` kanit alani): 35
+        # sayi reddinin 15'i bu bicimdeydi ve DAPGM bes kosu ust uste
+        # ayni sayilarla reddedildi -- sayfasi hic yazilmadi. Kalan
+        # 22'de en yakin girdiye uzaklik EN AZ 4,2; yani iki kume
+        # arasinda bos bir aralik var, esik secmek gerekmiyor.
+        #
+        # OLCUT TOLERANS DEGIL DOGRULUK: yazilan sayi, girdideki bir
+        # degerin KENDI BASAMAGINDA dogru yuvarlanmisi olmali. Yani
+        # son hanenin yarisi kadar sapma serbest:
+        #
+        #   "55"   (0 basamak) -> +-0,5    55,3 GECER
+        #   "64"   (0 basamak) -> +-0,5    64,7 GECMEZ (65 olmaliydi)
+        #   "31,8" (1 basamak) -> +-0,05   31,75 GECER
+        #   "66,7" (1 basamak) -> +-0,05   62,3 GECMEZ
+        #
+        # SANFM'nin "64"u bu yuzden hala reddediliyor ve bu DOGRU:
+        # 64,7'nin tam sayiya yuvarlanmisi 65. Kural yuvarlamaya izin
+        # veriyor, YANLIS yuvarlamaya izin vermiyor.
+        pay = 0.5 * (10.0 ** -basamak) + 1e-9
+        if any(abs(s - x) <= pay for x in g):
             continue
         kacak.append(f"{s:g}")
     return kacak
