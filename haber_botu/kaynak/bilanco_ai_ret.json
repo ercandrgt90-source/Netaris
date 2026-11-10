@@ -597,6 +597,53 @@
    "ham": "analysis\n\n##analysis\n\n### 1. **Understanding the problem statement:**\n  \nThe problem statement is quite complex and seems to involve multiple layers of financial calculations and comparisons between sectors ( sectors being sectors of economy or sectors of finance). \n\n###  sector: 0% sector: 0% sector: 0% sector: 0% sector: 0% sector: 0% sector: 0% sector: 0% sector: 0% sector: 0% sector: 0% sector: 0% sector:  sector: sector: sector: sector: sector: sector: sector: sector: sector: sector: sector: sector: sector: sector: sector: sector: sector: sector: sector: sector: sector: sector: sector: sector: sector: sector: sector: sector: sector: sector: sector: sector: sector: sector: sector: sector",
    "an": "2026-11-10T01:24:05+00:00",
    "yakin": {}
+  },
+  {
+   "kod": "ALBRK",
+   "unvan": "ALBARAKA TÜRK KATILIM BANKASI A.Ş.",
+   "donem": "2026 3. çeyrek",
+   "neden": "girdide olmayan sayi: 140.5",
+   "model": "@cf/openai/gpt-oss-120b",
+   "ham": "Hasılat %71,0 artarken net kâr %20,8 yükselmiş, bu da net kâr marjının %28,3'e çıkarak sektör medyanının %14,0'ının çok üzerinde kalmasını sağlamış; aynı dönemde özkaynak %41,7 artarak özkaynak kârlılığının %5,4'e (sektör medyanı %3,2) yükselmesine katkıda bulunmuş, fakat aktif toplamındaki %39,8 artışa paralel olarak net borç -%199,0 değişerek borç/özkaynak oranı -1,17'ye (sektör medyanı -0,50) gerilemiş ve faaliyet nakit akışı ile yatırım harcamasındaki büyük dalgalanmalar (faaliyet nakit akışı -%140,5, yatırım harcaması +%744,8) bilanço yapısını etkilemiştir.",
+   "an": "2026-11-10T04:11:53+00:00",
+   "yakin": {
+    "140.5": [
+     199.0,
+     71.0,
+     49.72
+    ]
+   }
+  },
+  {
+   "kod": "DAPGM",
+   "unvan": "DAP GAYRİMENKUL GELİŞTİRME A.Ş.",
+   "donem": "2026 3. çeyrek",
+   "neden": "girdide olmayan sayi: 55, 60",
+   "model": "@cf/openai/gpt-oss-120b",
+   "ham": "Hasılat, brüt kâr, faaliyet kârı ve FAVÖK hepsi önceki döneme göre %55-%60 arasında azalarak birlikte geriledi; bu düşüş net kârın -%185,3 ile negatifleşmesine ve net kâr marjının -%37,6'ya inmesine yol açtı. Özkaynak ve aktif toplamı ise %30,5 ve %25,0 artarak büyürken, net borç %84,0 yükseldi ve borç/özkaynak oranı %0,11'e çıktı; bu durum cari oranın 2,54 seviyesinde kalmasına rağmen sektör medyanı 11,08'in çok altında kalmasına yansıdı. Brüt kâr marjı %84,6 ile sektör medyanı %64,3'ün üzerindeyken, özkaynak kârlılığı -%1,7 ve net kâr marjı negatif olduğu için kârlılık göstergeleri sektör ortalamasının gerisinde kaldı.",
+   "an": "2026-11-10T04:12:21+00:00",
+   "yakin": {
+    "55": [
+     55.3,
+     57.3,
+     59.6
+    ],
+    "60": [
+     60.3,
+     59.6,
+     57.3
+    ]
+   }
+  },
+  {
+   "kod": "FROTO",
+   "unvan": "FORD OTOMOTİV SANAYİ A.Ş.",
+   "donem": "2026 3. çeyrek",
+   "neden": "kesik cevap (cumle bitmiyor)",
+   "model": "@cf/openai/gpt-oss-120b",
+   "ham": "Hasılat %23,3 artarken brüt kâr sadece %1,0 yükselmiş, bu durum brüt kâr marjının %6,8 seviyesinde sektör medyanının %14,4'ünün altında kalmasına yol açmıştır; aynı zamanda faaliyet kârı, FAVÖK ve net kârın sırasıyla %3,8, %2,2 ve %0,6 düşmesi, artan net borç (%57,1) ve yükselen özkaynak (%23,4) ile birlikte özkaynak kârlılığının %4,3'e çıkmasına rağmen borç/özkaynak oranının %0,80 ile sektör medyanı %0,12'nın çok üzerine çıkmasına neden olmuştur. Faaliyet nakit akışı %56,5 artmış, ancak yatırım harcaması %19,5 azaldığı için likidite artışı cari oran 1,22'ye (sektör medyanı 1,32) yansımış, bu da artan borç yükünün bir kısmını dengelemektedir.\u0000",
+   "an": "2026-11-10T04:13:19+00:00",
+   "yakin": {}
   }
  ]
 }
