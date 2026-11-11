@@ -30,9 +30,13 @@ Hasılatın %51,3 artması aktif toplamının %46,5 yükselmesiyle paralel seyre
 | FAVÖK | -%12,7 |
 | Özkaynak | -%1,3 |
 | Aktif toplamı | %46,5 |
+| Ticari alacaklar | %86,2 |
+| Stoklar | %50,3 |
 | Net borç | %50,8 |
 | Faaliyet nakit akışı | -%367,9 |
 | Yatırım harcaması | -%100,0 |
+| Serbest nakit akışı | -%374,8 |
+| Finansman gideri | -%25,0 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -47,9 +51,13 @@ Hasılatın %51,3 artması aktif toplamının %46,5 yükselmesiyle paralel seyre
 | Net kâr | -0,22 milyar TL |
 | Özkaynak | 1,57 milyar TL |
 | Aktif toplamı | 7,50 milyar TL |
+| Ticari alacaklar | 4,42 milyar TL |
+| Stoklar | 0,63 milyar TL |
 | Net borç | 0,80 milyar TL |
 | Faaliyet nakit akışı | -0,16 milyar TL |
 | Yatırım harcaması | 0,00 milyar TL |
+| Serbest nakit akışı | -0,16 milyar TL |
+| Finansman gideri | 0,11 milyar TL |
 
 ## Son dört dönem
 
@@ -62,23 +70,27 @@ Hasılatın %51,3 artması aktif toplamının %46,5 yükselmesiyle paralel seyre
 | Net kâr | -0,22 | -0,09 | -0,18 | 0,00 |
 | Özkaynak | 1,57 | 1,61 | 1,60 | 1,71 |
 | Aktif toplamı | 7,50 | 6,47 | 5,35 | 5,46 |
+| Ticari alacaklar | 4,42 | 3,47 | 2,62 | 2,70 |
+| Stoklar | 0,63 | 0,48 | 0,42 | 0,46 |
 | Net borç | 0,80 | 0,55 | 0,63 | 0,97 |
 | Faaliyet nakit akışı | -0,16 | 0,42 | 0,04 | -0,31 |
 | Yatırım harcaması | 0,00 | 0,00 | 0,03 | 0,02 |
+| Serbest nakit akışı | -0,16 | 0,41 | 0,01 | -0,33 |
+| Finansman gideri | 0,11 | 0,13 | 0,17 | 0,14 |
 
 *Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
 
 ## Sektör içindeki konum
 
-Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 68 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 47 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %14,9 | %20,8 |
-| Net kâr marjı | -%12,7 | %1,3 |
+| Brüt kâr marjı | %14,9 | %22,0 |
+| Net kâr marjı | -%12,7 | %1,1 |
 | Özkaynak kârlılığı | -%13,7 | %0,3 |
 | Cari oran | 1,15 | 1,32 |
-| Borç / özkaynak | 0,51 | 0,17 |
+| Borç / özkaynak | 0,51 | 0,18 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

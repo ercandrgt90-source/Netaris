@@ -18,17 +18,20 @@ sayimlar:
 
 ## Özet
 
-Hasılat ve net kârın %17,4 ve %20,9 artışları, özkaynak ve aktif toplamının sırasıyla %34,5 ve %40,3 yükselmesiyle paralel seyredirken, net borç da %72,4 artarak özkaynak artışının altında kalmıştır; bu durum net borç/öz kaynak oranının %0,12 seviyesinde sabit kalmasını sağlamıştır. Faaliyet nakit akışı 0,34 milyar TL olarak gerçekleşmiş ve yüksek net kâr marjı %66,6'ya karşılık özkaynak kârlılığı sadece %0,9 olmuştur, bu da kârın büyük bir kısmının özkaynak üzerinden getiriden ziyade faaliyet verimliliğinden kaynaklandığını gösterir.
+Hasılat ve net kârın %17,4 ve %20,9 artışları, özkaynak ve aktif toplamının sırasıyla %34,5 ve %40,3 yükselmesiyle paralel seyredirken, net borç da %72,4 artarak özkaynak artışının altında kalmıştır; bu durum net borç/öz kaynak oranının %0,12 seviyesinde sabit kalmasını sağlamıştır. Faaliyet nakit akışı 0,34 milyar TL olarak gerçekleşmiş ve yüksek net kâr marjı %66,6'ya karşılık özkaynak kârlılığı sadece %0,9 olmuştur, bu da kârın büyük bir kısmının özkaynak üzerinden getiriden ziyade faaliyet verimliliğinden kaynaklandığını gösterir.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | %17,4 |
-| Net kâr | %20,9 |
+| Hasılat | -%9,5 |
+| Net kâr | -%6,8 |
 | Özkaynak | %34,5 |
 | Aktif toplamı | %40,3 |
+| Ticari alacaklar | -%7,1 |
 | Net borç | %72,4 |
+| Faaliyet nakit akışı | %10,2 |
+| Finansman gideri | -%0,7 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -40,8 +43,10 @@ Hasılat ve net kârın %17,4 ve %20,9 artışları, özkaynak ve aktif toplamı
 | Net kâr | 0,37 milyar TL |
 | Özkaynak | 40,65 milyar TL |
 | Aktif toplamı | 55,08 milyar TL |
+| Ticari alacaklar | 0,65 milyar TL |
 | Net borç | 5,02 milyar TL |
 | Faaliyet nakit akışı | 0,34 milyar TL |
+| Finansman gideri | 0,12 milyar TL |
 
 ## Son dört dönem
 
@@ -51,23 +56,31 @@ Hasılat ve net kârın %17,4 ve %20,9 artışları, özkaynak ve aktif toplamı
 | Net kâr | 0,37 | 0,05 | 0,09 | 1,21 |
 | Özkaynak | 40,65 | 38,58 | 35,83 | 32,92 |
 | Aktif toplamı | 55,08 | 52,66 | 49,12 | 44,74 |
+| Ticari alacaklar | 0,65 | 0,55 | 0,30 | 0,47 |
 | Net borç | 5,02 | 4,92 | 4,62 | 4,27 |
 | Faaliyet nakit akışı | 0,34 | 0,06 | 0,41 | 0,88 |
+| Finansman gideri | 0,12 | 0,11 | 0,11 | 0,11 |
 
 *Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
 
-## Sektör karşılaştırması bu dönem yapılmadı
+## Sektör içindeki konum
 
-Gayrimenkul sektöründe **aynı dönemi bildiren** en az 3 şirket yok, bu yüzden sektör medyanı üretilmedi ve karşılaştırma tablosu yazılmadı. İki şirketin ortasını "sektör medyanı" diye sunmak, ölçülmemiş bir şeyi ölçülmüş gibi göstermek olurdu.
+Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 24 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
-Yukarıdaki **bir yıl öncesine göre** değişim ve ölçüm tablosu şirketin kendi geçmişine dayanıyor; onlar için kıyas kümesi gerekmiyor.
+| Oran | Şirket | Sektör medyanı |
+| --- | ---: | ---: |
+| Net kâr marjı | %66,6 | %22,4 |
+| Özkaynak kârlılığı | %0,9 | %0,9 |
+| Borç / özkaynak | 0,12 | 0,00 |
+
+*Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
 ## Öne çıkan ölçümler
 
-**Şirket lehine işleyenler**
+**Dikkat gerektirenler**
 
-- Hasılat reel olarak %17,4 arttı.
-- Net kâr reel olarak %20,9 arttı.
+- Hasılat reel olarak -%9,5 geriledi.
+- Net kâr reel olarak -%6,8 geriledi.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

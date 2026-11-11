@@ -31,9 +31,11 @@ Hasılat ve brüt kâr birlikte yükselirken, brüt kâr marjı %15,0 seviyesind
 | Net kâr | -%279,9 |
 | Özkaynak | %18,3 |
 | Aktif toplamı | %15,4 |
-| Net borç | -%14,4 |
+| Ticari alacaklar | %379,5 |
+| Stoklar | -%13,0 |
 | Faaliyet nakit akışı | -%88,9 |
 | Yatırım harcaması | %105,6 |
+| Serbest nakit akışı | -%143,0 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -48,21 +50,44 @@ Hasılat ve brüt kâr birlikte yükselirken, brüt kâr marjı %15,0 seviyesind
 | Net kâr | -0,05 milyar TL |
 | Özkaynak | 0,52 milyar TL |
 | Aktif toplamı | 0,67 milyar TL |
+| Ticari alacaklar | 0,00 milyar TL |
+| Stoklar | 0,15 milyar TL |
 | Net borç | -0,16 milyar TL |
 | Faaliyet nakit akışı | 0,00 milyar TL |
 | Yatırım harcaması | 0,02 milyar TL |
+| Serbest nakit akışı | -0,01 milyar TL |
+
+## Son dört dönem
+
+| Kalem (milyar TL) | 2026 2. çeyrek | 2026 1. çeyrek | 2025 4. çeyrek | 2025 3. çeyrek |
+| --- | ---: | ---: | ---: | ---: |
+| Hasılat | 0,29 | 0,15 | 0,17 | 0,17 |
+| Brüt kâr | 0,04 | 0,02 | 0,04 | 0,04 |
+| Faaliyet kârı | -0,02 | 0,01 | 0,04 | 0,04 |
+| FAVÖK | -0,01 | 0,02 | 0,05 | 0,05 |
+| Net kâr | -0,05 | -0,02 | 0,01 | 0,01 |
+| Özkaynak | 0,52 | 0,47 | 0,47 | 0,47 |
+| Aktif toplamı | 0,67 | — | 0,62 | 0,62 |
+| Ticari alacaklar | 0,00 | — | 0,00 | 0,00 |
+| Stoklar | 0,15 | — | 0,17 | 0,17 |
+| Net borç | -0,16 | -0,13 | -0,13 | -0,13 |
+| Faaliyet nakit akışı | 0,00 | 0,00 | 0,02 | 0,02 |
+| Yatırım harcaması | 0,02 | 0,02 | 0,01 | 0,01 |
+| Serbest nakit akışı | -0,01 | -0,01 | 0,01 | 0,01 |
+
+*Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
 
 ## Sektör içindeki konum
 
-Karşılaştırma Temel malzeme sektöründe **aynı dönemi bildiren** 37 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Temel malzeme sektöründe **aynı dönemi bildiren** 21 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %15,0 | %14,1 |
-| Net kâr marjı | -%18,1 | %2,2 |
+| Brüt kâr marjı | %15,0 | %15,3 |
+| Net kâr marjı | -%18,1 | %2,5 |
 | Özkaynak kârlılığı | -%10,3 | %1,3 |
-| Cari oran | 2,98 | 1,32 |
-| Borç / özkaynak | -0,31 | 0,20 |
+| Cari oran | 2,98 | 1,40 |
+| Borç / özkaynak | -0,31 | 0,22 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

@@ -61,11 +61,19 @@ Hasılat, brüt kâr, faaliyet kârı ve FAVÖK aynı tutarda (%100 brüt kâr m
 
 *Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
 
-## Sektör karşılaştırması bu dönem yapılmadı
+## Sektör içindeki konum
 
-Bilişim sektöründe **aynı dönemi bildiren** en az 3 şirket yok, bu yüzden sektör medyanı üretilmedi ve karşılaştırma tablosu yazılmadı. İki şirketin ortasını "sektör medyanı" diye sunmak, ölçülmemiş bir şeyi ölçülmüş gibi göstermek olurdu.
+Karşılaştırma Bilişim sektöründe **aynı dönemi bildiren** 8 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
-Yukarıdaki **bir yıl öncesine göre** değişim ve ölçüm tablosu şirketin kendi geçmişine dayanıyor; onlar için kıyas kümesi gerekmiyor.
+| Oran | Şirket | Sektör medyanı |
+| --- | ---: | ---: |
+| Brüt kâr marjı | %100,0 | %11,2 |
+| Net kâr marjı | %33,2 | %1,5 |
+| Özkaynak kârlılığı | %2,0 | %1,6 |
+| Cari oran | 0,48 | 1,42 |
+| Borç / özkaynak | 0,00 | 0,00 |
+
+*Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
 ## Öne çıkan ölçümler
 
@@ -73,6 +81,7 @@ Yukarıdaki **bir yıl öncesine göre** değişim ve ölçüm tablosu şirketin
 
 - Hasılat reel olarak %64176,7 arttı.
 - Net kâr reel olarak %45935,0 arttı.
+- Özkaynak kârlılığı %2,0; sektör medyanı %1,6.
 
 **Dikkat gerektirenler**
 

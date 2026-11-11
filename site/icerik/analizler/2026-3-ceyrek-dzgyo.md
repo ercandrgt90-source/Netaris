@@ -24,14 +24,17 @@ Hasılatın %204,9 artması brüt kârın %52,6 yükselmesine yol açarken, brü
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | %204,9 |
-| Brüt kâr | %52,6 |
-| Faaliyet kârı | -%87,0 |
-| FAVÖK | -%83,2 |
-| Net kâr | -%186,5 |
+| Hasılat | %135,0 |
+| Brüt kâr | %20,8 |
+| Faaliyet kârı | %35,5 |
+| FAVÖK | %34,3 |
+| Net kâr | -%166,7 |
 | Özkaynak | %35,5 |
 | Aktif toplamı | %42,7 |
-| Faaliyet nakit akışı | %122,3 |
+| Ticari alacaklar | -%42,5 |
+| Stoklar | %20,2 |
+| Faaliyet nakit akışı | %71,8 |
+| Finansman gideri | %715,2 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -41,13 +44,16 @@ Hasılatın %204,9 artması brüt kârın %52,6 yükselmesine yol açarken, brü
 | --- | ---: |
 | Hasılat | 0,18 milyar TL |
 | Brüt kâr | 0,08 milyar TL |
-| Faaliyet kârı | 0,00 milyar TL |
-| FAVÖK | 0,01 milyar TL |
+| Faaliyet kârı | 0,06 milyar TL |
+| FAVÖK | 0,06 milyar TL |
 | Net kâr | -0,05 milyar TL |
 | Özkaynak | 7,08 milyar TL |
 | Aktif toplamı | 9,27 milyar TL |
-| Net borç | -0,26 milyar TL |
+| Ticari alacaklar | 0,02 milyar TL |
+| Stoklar | 0,80 milyar TL |
+| Net borç | -0,27 milyar TL |
 | Faaliyet nakit akışı | 0,79 milyar TL |
+| Finansman gideri | 0,02 milyar TL |
 
 ## Son dört dönem
 
@@ -55,33 +61,44 @@ Hasılatın %204,9 artması brüt kârın %52,6 yükselmesine yol açarken, brü
 | --- | ---: | ---: | ---: | ---: |
 | Hasılat | 0,18 | 0,04 | 0,03 | 0,01 |
 | Brüt kâr | 0,08 | 0,02 | 0,01 | -0,02 |
-| Faaliyet kârı | 0,00 | -0,09 | -0,04 | -0,06 |
-| FAVÖK | 0,01 | -0,09 | -0,04 | -0,06 |
+| Faaliyet kârı | 0,06 | -0,02 | -0,04 | -0,06 |
+| FAVÖK | 0,06 | -0,02 | -0,04 | -0,06 |
 | Net kâr | -0,05 | 0,07 | 0,01 | 0,23 |
 | Özkaynak | 7,08 | 6,65 | 6,25 | 5,67 |
 | Aktif toplamı | 9,27 | 8,53 | 7,66 | 6,99 |
-| Net borç | -0,26 | 0,17 | -2,20 | -2,06 |
+| Ticari alacaklar | 0,02 | 0,02 | 0,02 | 0,01 |
+| Stoklar | 0,80 | 0,85 | 0,79 | 0,72 |
+| Net borç | -0,27 | 0,17 | -2,20 | -2,06 |
 | Faaliyet nakit akışı | 0,79 | -0,06 | -0,07 | -0,03 |
+| Finansman gideri | 0,02 | 0,01 | 0,00 | 0,00 |
 
 *Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
 
-## Sektör karşılaştırması bu dönem yapılmadı
+## Sektör içindeki konum
 
-Gayrimenkul sektöründe **aynı dönemi bildiren** en az 3 şirket yok, bu yüzden sektör medyanı üretilmedi ve karşılaştırma tablosu yazılmadı. İki şirketin ortasını "sektör medyanı" diye sunmak, ölçülmemiş bir şeyi ölçülmüş gibi göstermek olurdu.
+Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 24 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
-Yukarıdaki **bir yıl öncesine göre** değişim ve ölçüm tablosu şirketin kendi geçmişine dayanıyor; onlar için kıyas kümesi gerekmiyor.
+| Oran | Şirket | Sektör medyanı |
+| --- | ---: | ---: |
+| Brüt kâr marjı | %43,8 | %66,0 |
+| Net kâr marjı | -%27,4 | %22,4 |
+| Özkaynak kârlılığı | -%0,7 | %0,9 |
+| Cari oran | 11,08 | 11,08 |
+| Borç / özkaynak | -0,04 | 0,00 |
+
+*Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
 ## Öne çıkan ölçümler
 
 **Şirket lehine işleyenler**
 
-- Hasılat reel olarak %204,9 arttı.
+- Hasılat reel olarak %135,0 arttı.
 - Cari oran 11,08; dönen varlıklar kısa vadeli yükümlülüklerin üzerinde.
 
 **Dikkat gerektirenler**
 
-- Net kâr reel olarak -%186,5 geriledi.
-- Brüt marj 43,8 puan daraldı (%87,6 → %43,8).
+- Net kâr reel olarak -%166,7 geriledi.
+- Brüt marj 41,4 puan daraldı (%85,3 → %43,8).
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 
