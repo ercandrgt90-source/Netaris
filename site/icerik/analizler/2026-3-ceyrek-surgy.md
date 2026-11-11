@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %213,2 oranında net kâra dönüşmesi, net kâr marjının sektör medyanının %32,8'ini aşmasıyla birlikte, özkaynak kârlılığının %1,2 seviyesinde hafif bir artış göstermesi, şirketin yüksek kârlılık oranını özkaynak büyüklüğüne bağlamaktadır; aktif toplamının 16,43 milyar TL olması ve net borçsuz bir yapı (borç/özkaynak = 0,00) sayesinde, faaliyet nakit akışı 0,36 milyar TL olarak gerçekleşmiş ve bu da özkaynakların kârlılıkla paralel bir şekilde desteklendiğini göstermektedir.
+Hasılatın %213,2 oranında net kâra dönüşmesi, net kâr marjının sektör medyanının %32,8'ini aşmasıyla birlikte, özkaynak kârlılığının %1,2 seviyesinde hafif bir artış göstermesi, şirketin yüksek kârlılık oranını özkaynak büyüklüğüne bağlamaktadır; aktif toplamının 16,43 milyar TL olması ve net borçsuz bir yapı (borç/özkaynak = 0,00) sayesinde, faaliyet nakit akışı 0,36 milyar TL olarak gerçekleşmiş ve bu da özkaynakların kârlılıkla paralel bir şekilde desteklendiğini göstermektedir.
 
 ## 2026 3. çeyrek dönemi ölçümleri
 
@@ -33,13 +33,13 @@ Hasılatın %213,2 oranında net kâra dönüşmesi, net kâr marjının sektör
 
 ## Sektör içindeki konum
 
-Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 18 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 25 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Net kâr marjı | %213,2 | %32,8 |
-| Özkaynak kârlılığı | %1,2 | %1,0 |
-| Borç / özkaynak | 0,00 | 0,02 |
+| Net kâr marjı | %213,2 | %22,4 |
+| Özkaynak kârlılığı | %1,2 | %0,9 |
+| Borç / özkaynak | 0,00 | 0,00 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

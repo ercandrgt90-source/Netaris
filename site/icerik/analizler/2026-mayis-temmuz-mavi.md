@@ -31,8 +31,12 @@ Hasılatın hafif düşmesi (%-0,4) ardından brüt kârın %4,5 artması, brüt
 | Net kâr | -%13,6 |
 | Özkaynak | %27,6 |
 | Aktif toplamı | %41,6 |
+| Ticari alacaklar | %21,5 |
+| Stoklar | %22,1 |
 | Faaliyet nakit akışı | %25,1 |
 | Yatırım harcaması | -%45,8 |
+| Serbest nakit akışı | %124,2 |
+| Finansman gideri | -%63,9 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -47,9 +51,13 @@ Hasılatın hafif düşmesi (%-0,4) ardından brüt kârın %4,5 artması, brüt
 | Net kâr | 0,26 milyar TL |
 | Özkaynak | 15,14 milyar TL |
 | Aktif toplamı | 32,40 milyar TL |
+| Ticari alacaklar | 2,78 milyar TL |
+| Stoklar | 8,07 milyar TL |
 | Net borç | -3,19 milyar TL |
 | Faaliyet nakit akışı | 2,13 milyar TL |
 | Yatırım harcaması | 0,54 milyar TL |
+| Serbest nakit akışı | 1,59 milyar TL |
+| Finansman gideri | 0,05 milyar TL |
 
 ## Son dört dönem
 
@@ -62,9 +70,13 @@ Hasılatın hafif düşmesi (%-0,4) ardından brüt kârın %4,5 artması, brüt
 | Net kâr | 0,26 | 0,49 | 0,09 | 1,01 |
 | Özkaynak | 15,14 | 13,93 | 13,93 | 13,33 |
 | Aktif toplamı | 32,40 | — | 26,98 | 25,50 |
+| Ticari alacaklar | 2,78 | — | 2,85 | 3,51 |
+| Stoklar | 8,07 | — | 5,85 | 7,33 |
 | Net borç | -3,19 | -4,06 | -4,06 | -2,07 |
 | Faaliyet nakit akışı | 2,13 | 2,13 | 4,40 | 1,83 |
 | Yatırım harcaması | 0,54 | 0,54 | 0,66 | 0,51 |
+| Serbest nakit akışı | 1,59 | 1,59 | 3,73 | 1,33 |
+| Finansman gideri | 0,05 | 0,05 | 0,02 | 0,11 |
 
 *Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
 
