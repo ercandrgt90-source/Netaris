@@ -45,7 +45,7 @@
       "birim": "USD/varil",
       "gun": 7,
       "bayat": true,
-      "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · bugün yenileniyor"
+      "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · sonraki 18 Kasım"
     },
     {
       "kod": "DCOILWTICO",
@@ -57,7 +57,7 @@
       "birim": "USD/varil",
       "gun": 7,
       "bayat": true,
-      "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · bugün yenileniyor"
+      "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · sonraki 18 Kasım"
     },
     {
       "kod": "DFF",
@@ -65,32 +65,32 @@
       "deger": "%3,88",
       "fark": "0 bp",
       "yon": "yatay",
-      "tarih": "2026-11-09",
+      "tarih": "2026-11-11",
       "birim": "%",
-      "gun": 3,
-      "bayat": true
+      "gun": 1,
+      "bayat": false
     },
     {
       "kod": "DGS2",
       "ad": "ABD 2Y",
-      "deger": "%4,56",
-      "fark": "+5 bp",
+      "deger": "%4,73",
+      "fark": "+17 bp",
       "yon": "artis",
-      "tarih": "2026-11-09",
+      "tarih": "2026-11-10",
       "birim": "%",
-      "gun": 3,
-      "bayat": true
+      "gun": 2,
+      "bayat": false
     },
     {
       "kod": "DGS10",
       "ad": "ABD 10Y",
-      "deger": "%4,88",
-      "fark": "+2 bp",
+      "deger": "%4,98",
+      "fark": "+10 bp",
       "yon": "artis",
-      "tarih": "2026-11-09",
+      "tarih": "2026-11-10",
       "birim": "%",
-      "gun": 3,
-      "bayat": true
+      "gun": 2,
+      "bayat": false
     },
     {
       "kod": "T10Y2Y",
@@ -130,7 +130,7 @@
           "birim": "USD/varil",
           "gun": 7,
           "bayat": true,
-          "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · bugün yenileniyor"
+          "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · sonraki 18 Kasım"
         },
         {
           "kod": "DCOILWTICO",
@@ -142,7 +142,7 @@
           "birim": "USD/varil",
           "gun": 7,
           "bayat": true,
-          "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · bugün yenileniyor"
+          "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · sonraki 18 Kasım"
         }
       ]
     },
@@ -155,32 +155,32 @@
           "deger": "%3,88",
           "fark": "0 bp",
           "yon": "yatay",
-          "tarih": "2026-11-09",
+          "tarih": "2026-11-11",
           "birim": "%",
-          "gun": 3,
-          "bayat": true
+          "gun": 1,
+          "bayat": false
         },
         {
           "kod": "DGS2",
           "ad": "ABD 2 yıllık",
-          "deger": "%4,56",
-          "fark": "+5 bp",
+          "deger": "%4,73",
+          "fark": "+17 bp",
           "yon": "artis",
-          "tarih": "2026-11-09",
+          "tarih": "2026-11-10",
           "birim": "%",
-          "gun": 3,
-          "bayat": true
+          "gun": 2,
+          "bayat": false
         },
         {
           "kod": "DGS10",
           "ad": "ABD 10 yıllık",
-          "deger": "%4,88",
-          "fark": "+2 bp",
+          "deger": "%4,98",
+          "fark": "+10 bp",
           "yon": "artis",
-          "tarih": "2026-11-09",
+          "tarih": "2026-11-10",
           "birim": "%",
-          "gun": 3,
-          "bayat": true
+          "gun": 2,
+          "bayat": false
         },
         {
           "kod": "T10Y2Y",
