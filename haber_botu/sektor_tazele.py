@@ -230,6 +230,8 @@ def tazele(sinir: int = VARSAYILAN_SINIR, kuru: bool = False,
                   f"yeniden sorulacak)")
 
     yazilan, bossuz, hata = [], [], 0
+    #: Sayfasi olan ama SEKTOR SATIRI olmayan sirketler.
+    alansiz: list[str] = []
     ardisik_bos = 0
     import datetime as _dt                              # noqa: PLC0415
     bulunamayan = []
@@ -273,7 +275,49 @@ def tazele(sinir: int = VARSAYILAN_SINIR, kuru: bool = False,
         #
         # Olcut `sektor.OKUNAMAYAN` listesinin BUYUMESI: cek()
         # basarisiz oldugunda oraya yaziyor.
-        okunamadi = len(sektor.OKUNAMAYAN) > onceki_hata
+        _yeni_sebep = [s for _k, s in sektor.OKUNAMAYAN[onceki_hata:]]
+        # SAYFA VAR AMA SEKTOR SATIRI YOK -- UCUNCU DURUM.
+        #
+        # Bu ne kisitlama ne "sayfasi yok". Kod onu GECICI HATA
+        # sayiyordu: isaretlenmiyor, ustune ARDISIK RED sayacini
+        # isletiyordu -- yani kalici bir alan yoklugunu hiz siniri
+        # saniyordu. Ayni yanlis teshis 404 icin yukarida cozulmus,
+        # bu duruma yayilmamisti.
+        #
+        # BEDELI OLCULDU (2026-11-12, kosu #85):
+        #
+        #     sektoru bulunan : 0
+        #     kaynakta yok    : 0
+        #     hata            : 3
+        #         3 x sektor alani yok
+        #
+        # Isaretlenmeyen sirket kuyrugun BASINDA kaliyor ve her kosu
+        # AYNI ucune soruyor. Uc gun, dokuz kosu boyunca sektorsuz
+        # sirket sayisi 434'ten 433'e indi -- tek ilerleme, siranin
+        # ikincisi olan TERA'ydi. Kuyruk 388 kisiydi ve KILITLIYDI.
+        #
+        # Kaynak dogrulandi: BLUME icin HTTP 200 ve `infoTable`
+        # icinde `Industry: "Hotels and Motels"` var, Sector satiri
+        # YOK. Yokluk gercek, dolayisiyla isaretlenebilir.
+        #
+        # UYDURMA YAPILMIYOR: alt sektorden sektor TURETILEBILIR
+        # gorunuyor (defterdeki 86 alt sektorun hicbiri iki ayri
+        # sektore dagilmiyor) ama "Hotels and Motels" defterde HIC
+        # YOK -- yani BLUME icin turetme de kanit uretmiyor, yalnizca
+        # tahmin olurdu.
+        if _yeni_sebep and all(s == sektor.ALAN_YOK for s in _yeni_sebep):
+            alansiz.append(kod)
+            d["sirketler"][kod]["sektor_bulunamadi"] = (
+                _dt.date.today().isoformat())
+            # SEBEP DOGRU ADIYLA SAKLANIYOR. Yalnizca tarih yazmak,
+            # sonraki okuyucuya "kaynak bu sirketi tanimiyor" derdi
+            # -- oysa sayfa VAR. Yanlis teshis, dogru teshisten
+            # pahali.
+            d["sirketler"][kod]["sektor_sebep"] = sektor.ALAN_YOK
+            ardisik_bos = 0
+            time.sleep(sektor.ARA_SN)
+            continue
+        okunamadi = bool(_yeni_sebep)
         if okunamadi:
             hata += 1
             ardisik_bos += 1
@@ -305,6 +349,10 @@ def tazele(sinir: int = VARSAYILAN_SINIR, kuru: bool = False,
 
     print(f"  sektoru bulunan : {len(yazilan)}")
     print(f"  kaynakta yok    : {len(bossuz)}")
+    if alansiz:
+        print(f"  sektor satiri yok: {len(alansiz)} "
+              f"({', '.join(alansiz[:8])}) -- sayfa VAR, alan yok; "
+              f"{YENIDEN_DENEME_GUN} gun sonra yeniden sorulacak")
     if bulunamayan:
         print(f"  sayfasi yok     : {len(bulunamayan)} "
               f"({', '.join(bulunamayan[:8])})")
@@ -331,7 +379,17 @@ def tazele(sinir: int = VARSAYILAN_SINIR, kuru: bool = False,
     # oldugu olculdu (kosu #62: "sektoru bulunan : 0"), yani
     # "kaynakta yok" isaretleri bellekte kalip KAYBOLACAKTI ve
     # duzeltme calismis GORUNUP hicbir sey degistirmeyecekti.
-    if not kuru and (yazilan or bulunamayan):
+    #
+    # AYNI TUZAK IKINCI KEZ (2026-11-12): "sektor satiri yok"
+    # isareti eklendi ve bu kosula EKLENMEDI. Sayac 2 diyordu,
+    # deftere 0 yaziliyordu -- yani kilidi cozen duzeltme hicbir sey
+    # cozmuyordu. Sinama bunu yakaladi, uretim degil.
+    #
+    # KURAL: defteri DEGISTIREN her yeni durum bu kosula girmeli.
+    # Kosul "degisiklik var mi" diye sormuyor, tek tek listeliyor --
+    # yani her yeni tur bir daha unutulmaya acik. Sinama bu yuzden
+    # her turu AYRI tutuyor.
+    if not kuru and (yazilan or bulunamayan or alansiz):
         DEFTER.write_text(json.dumps(d, ensure_ascii=False, indent=1),
                           encoding="utf-8")
         print(f"  deftere yazildi: {DEFTER.name}")
@@ -339,7 +397,11 @@ def tazele(sinir: int = VARSAYILAN_SINIR, kuru: bool = False,
         print("  (kuru calisma -- yazilmadi)")
     return {"eksik": len(eksik), "yazilan": len(yazilan),
             "bos": len(bossuz), "hata": hata,
-            "bulunamayan": len(bulunamayan)}
+            "bulunamayan": len(bulunamayan),
+            #: Sayfasi olup SEKTOR SATIRI olmayanlar. Ayri sayiliyor
+            #: cunku `hata`dan farkli bir is gerektiriyor: hata
+            #: yeniden denenir, bu isaretlenir.
+            "alansiz": len(alansiz)}
 
 
 def main() -> int:

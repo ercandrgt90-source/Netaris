@@ -105,6 +105,20 @@ class Bulunamadi(Exception):
     """
 
 
+#: SAYFA VAR AMA SEKTOR SATIRI YOK. Ucuncu bir durum ve ne
+#: "kisitlama" ne "sayfasi yok" -- cagiran tarafin ayirmasi
+#: gereken bir yokluk.
+#:
+#: OLCULDU (2026-11-12): BLUME icin kaynak HTTP 200 donuyor,
+#: `infoTable` icinde `Industry: "Hotels and Motels"` var ama
+#: **Sector satiri hic yok**. Yani yokluk gercek ve KALICI.
+#:
+#: Sebep dizgisi SABIT: cagiran taraf (`sektor_tazele`) bunu
+#: metin karsilastirarak taniyor ve iki yerde ayri yazilmis bir
+#: dizge sessizce ayrisirdi.
+ALAN_YOK = "sektor alani yok"
+
+
 def cek(kod: str, istemci: httpx.Client | None = None) -> dict[str, str]:
     """Bir sirketin sektor bilgisi. Bulunamazsa BOS sozluk.
 
@@ -146,7 +160,7 @@ def cek(kod: str, istemci: httpx.Client | None = None) -> dict[str, str]:
     d = _coz(r.text)
     sektor = d.get("Sector", "").strip()
     if not sektor:
-        OKUNAMAYAN.append((kod, "sektor alani yok"))
+        OKUNAMAYAN.append((kod, ALAN_YOK))
         return {}
     return {
         "sektor": sektor,

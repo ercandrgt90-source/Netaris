@@ -428,6 +428,83 @@ esit(len(_sorulan), 20,
      "pencere KAPALIYKEN kuyruğun tamamına soruldu (kontrol)")
 
 print("")
+print("SAYFA VAR AMA SEKTOR SATIRI YOK -- KUYRUK ILERLEMELI")
+# OLCULDU (2026-11-12, kosu #85):
+#
+#     sektoru bulunan : 0
+#     kaynakta yok    : 0
+#     hata            : 3
+#         3 x sektor alani yok
+#
+# Bu ucuncu durum isaretlenmiyordu, ustune ARDISIK RED sayacini
+# isletiyordu -- kalici bir alan yoklugu hiz siniri sanildi. Kuyruk
+# 388 kisiydi ve BASINDAN KILITLIYDI: uc gun, dokuz kosu boyunca
+# sektorsuz sirket 434'ten 433'e indi.
+#
+# Kaynak dogrulandi: BLUME icin HTTP 200, `Industry` var, Sector
+# satiri YOK. Yokluk gercek, dolayisiyla isaretlenebilir.
+_ASIL_CEK_A = sektor.cek
+
+
+def _alansiz_cek(kod, istemci=None):
+    """Sayfa VAR, sektor satiri YOK -- gercek davranisin taklidi."""
+    sektor.OKUNAMAYAN.append((kod, sektor.ALAN_YOK))
+    return {}
+
+
+_d_a = kur({"AAAA": {}, "BBBB": {}}, {})
+sektor.cek = _alansiz_cek
+try:
+    _s_a = st.tazele(sinir=25)
+finally:
+    sektor.cek = _ASIL_CEK_A
+_df_a = json.loads(_d_a.read_text(encoding="utf-8"))["sirketler"]
+
+esit(_s_a["yazilan"], 0, "sektor yazilmadi -- UYDURMA YOK")
+esit(_s_a["alansiz"], 2, "iki sirket ALANSIZ diye sayildi")
+esit(_s_a["hata"], 0,
+     "alan yoklugu HATA sayilmiyor -- ayri is gerektiriyor")
+esit(sum(1 for v in _df_a.values() if v.get("sektor_bulunamadi")), 2,
+     "ikisi de TARIHLE isaretlendi -- KUYRUK ILERLIYOR")
+# ASIL IDDIA: isaretlenen sirket artik SORULABILIR kuyrukta degil.
+esit(st.kuyruk({"sirketler": _df_a}, sayfasi_olan=set()), [],
+     "isaretlenenler kuyruktan DUSTU (kilit cozuldu)")
+# SEBEP DOGRU ADIYLA: yalnizca tarih yazmak "kaynak tanimiyor"
+# der, oysa sayfa VAR.
+esit({v.get("sektor_sebep") for v in _df_a.values()},
+     {sektor.ALAN_YOK},
+     "sebep defterde yaziyor -- 'sayfasi yok' ile karistirilamaz")
+# Dizge TEK KAYNAKTAN: iki yerde ayri yazilmis bir metin sessizce
+# ayrisirdi.
+esit(sektor.ALAN_YOK, "sektor alani yok",
+     "sebep dizgisi `sektor` modulunden geliyor")
+
+print("")
+print("GERCEK KISITLAMA HALA KISITLAMA SAYILIYOR (karsi yon)")
+# Kapi ters yone de calismali: HTTP 429 isaretlenMEMELI, cunku
+# yarin cevap verebilir. Isaretlemek, 90 gun boyunca sormamak
+# demek olurdu.
+_ASIL_CEK_B = sektor.cek
+
+
+def _kisitli_cek(kod, istemci=None):
+    sektor.OKUNAMAYAN.append((kod, "HTTP 429"))
+    return {}
+
+
+_d_b = kur({"CCCC": {}, "DDDD": {}}, {})
+sektor.cek = _kisitli_cek
+try:
+    st.tazele(sinir=25)
+finally:
+    sektor.cek = _ASIL_CEK_B
+_df_b = json.loads(_d_b.read_text(encoding="utf-8"))["sirketler"]
+esit(sum(1 for v in _df_b.values() if v.get("sektor_bulunamadi")), 0,
+     "HTTP 429 ISARETLENMIYOR -- yarin cevap verebilir")
+esit(len(st.kuyruk({"sirketler": _df_b}, sayfasi_olan=set())), 2,
+     "kisitlanan sirketler kuyrukta KALIYOR")
+
+print("")
 print("KUYRUK SIRASI -- KANITI OLAN ONCE")
 # OLCULDU (2026-11-10): kuyruk 389 sirket, bildirim penceresinde kosu
 # basina 3 istek. TERA'nin sirasi 317 -- yuz kosudan fazla. TERA
