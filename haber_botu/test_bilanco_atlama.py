@@ -133,12 +133,42 @@ def test_ceyreklik_sayfa_da_yayimlanmis_sayiliyor():
 
 
 def test_gercek_depoda_ceyreklikler_taniniyor():
-    """Asil depo: ceyreklik sayfalar yayimlanmis sayilmali."""
+    """Asil depo: yayimlanmis bilanco sayfalarinin HICBIRI kacmamali.
+
+    ONCE TEK BIR SAYFAYA CAKILIYDI:
+
+        assert ("TERA", "2026/6") in v
+
+    TERA depodaki SON kumulatif bilanco sayfasiydi ve hattin ACIK
+    HEDEFI onu ceyreklige gecirmekti. 2026-11-12'de gecti, kumulatif
+    dosya silindi ve bu iddia dustu: sinama, sistemin BASARMASI
+    gereken seyi kusur sayiyordu. Bedeli olculdu -- haber otomasyonu
+    ALTI kosu ust uste kirmizi dondu ve akis 11 saat durdu.
+
+    Kumulatif bicimin tanindigi zaten bir ust sinamada KURGUYLA
+    olculuyor (ADEL, "2026/6"); burada tekrar etmek yalnizca gercek
+    icerige baglanmak demekti.
+
+    OLCUT ARTIK BAGIMSIZ SAYIM: diskteki bilanco sayfalari ayri
+    ayristirilip kume ile karsilastiriliyor. Bu, eski iddiadan
+    GUCLU -- tek bir ornegi degil, hepsini tutuyor -- ve icerik
+    degistiginde kirilmiyor.
+    """
+    import re
     v = u._yayimlanmis()
-    assert ("TERA", "2026/6") in v, sorted(v)[:5]
-    ceyreklik = [d for _k, d in v if "çeyrek" in d]
-    # Depoda 230 ceyreklik bilanco sayfasi var; hicbiri kacmamali.
-    assert len(ceyreklik) > 100, len(ceyreklik)
+    beklenen = set()
+    for p in u.SITE.glob("*.md"):
+        metin = p.read_text(encoding="utf-8")
+        kod = re.search(r"^kod: *(\S+)", metin, re.M)
+        don = re.search(r"^donem: *(.+)$", metin, re.M)
+        kat = re.search(r"^kategori: *(.+)$", metin, re.M)
+        if kod and don and kat and u._bilanco_sayfasi(kat.group(1).strip()):
+            beklenen.add((kod.group(1).strip().upper(), don.group(1).strip()))
+    # ATILLIK KONTROLU: depoda hic bilanco sayfasi yoksa asagidaki
+    # karsilastirma BOS kumeleri esitler ve hicbir sey olcmez.
+    assert len(beklenen) > 100, f"olcum araci bozuk: {len(beklenen)}"
+    kacan = sorted(beklenen - v)
+    assert not kacan, kacan[:5]
     # Makro ve teknik analizler sizmadi mi? Onlarin donemi TARIH.
     import re
     tarih = [d for _k, d in v if re.fullmatch(r"\d{4}-\d{2}-\d{2}", d)]
