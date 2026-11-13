@@ -644,6 +644,27 @@
    "ham": "Hasılat %23,3 artarken brüt kâr sadece %1,0 yükselmiş, bu durum brüt kâr marjının %6,8 seviyesinde sektör medyanının %14,4'ünün altında kalmasına yol açmıştır; aynı zamanda faaliyet kârı, FAVÖK ve net kârın sırasıyla %3,8, %2,2 ve %0,6 düşmesi, artan net borç (%57,1) ve yükselen özkaynak (%23,4) ile birlikte özkaynak kârlılığının %4,3'e çıkmasına rağmen borç/özkaynak oranının %0,80 ile sektör medyanı %0,12'nın çok üzerine çıkmasına neden olmuştur. Faaliyet nakit akışı %56,5 artmış, ancak yatırım harcaması %19,5 azaldığı için likidite artışı cari oran 1,22'ye (sektör medyanı 1,32) yansımış, bu da artan borç yükünün bir kısmını dengelemektedir.\u0000",
    "an": "2026-11-10T04:13:19+00:00",
    "yakin": {}
+  },
+  {
+   "kod": "IHYAY",
+   "unvan": "İHLAS YAYIN HOLDİNG A.Ş.",
+   "donem": "2026 3. çeyrek",
+   "neden": "girdide olmayan sayi: 18, 96.6",
+   "model": "@cf/openai/gpt-oss-120b",
+   "ham": "Hasılatın %16,3 artması özkaynak ve aktif toplamının %22,4 ve %16,1 yükselmesiyle birlikte sermaye tabanının genişlemesine paralel ilerlerken, brüt kârın %17,2 düşmesi brüt kâr marjının sektör medyanıyla aynı kalmasına rağmen faaliyet ve FAVÖK kârlarının daha da derinleşen negatif seyirini (faaliyet kârı -%18,0, FAVÖK -%695) tetiklemiştir; bu durum net kârın hafif iyileşmesi (%6,7) ve özkaynak kârlılığının sabit kalmasıyla sınırlı kalmıştır. Net borcun pozitif 0,32 milyar TL'ye çıkması, cari oranın %96,6 artarak 1,71'e yükselmesi ve borç/özkaynak oranının sektör medyanıyla eşit kalması, likidite pozisyonunun güçlenmesine işaret ederken, faaliyet nakit akışı (%53,3) ve yatırım harcamasının (%",
+   "an": "2026-11-13T14:45:03+00:00",
+   "yakin": {
+    "18": [
+     17.2,
+     16.3,
+     16.1
+    ],
+    "96.6": [
+     110.1,
+     53.3,
+     22.4
+    ]
+   }
   }
  ]
 }

@@ -24,19 +24,20 @@ Hasılatın %45,1 artması brüt kârı %25,8 yükselterek brüt kâr marjının
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | %45,1 |
-| Brüt kâr | %25,8 |
-| Faaliyet kârı | %13,2 |
-| FAVÖK | %5,9 |
-| Net kâr | -%25,0 |
+| Hasılat | %11,9 |
+| Brüt kâr | -%3,0 |
+| Faaliyet kârı | -%7,0 |
+| FAVÖK | -%3,5 |
+| Net kâr | -%42,2 |
 | Özkaynak | %41,6 |
 | Aktif toplamı | %100,7 |
 | Ticari alacaklar | %48,0 |
 | Stoklar | %32,3 |
 | Net borç | %116,0 |
-| Faaliyet nakit akışı | %41,9 |
-| Yatırım harcaması | %313,1 |
-| Serbest nakit akışı | -%93,0 |
+| Faaliyet nakit akışı | %12,0 |
+| Yatırım harcaması | %226,4 |
+| Serbest nakit akışı | -%94,5 |
+| Finansman gideri | -%47,0 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -46,8 +47,8 @@ Hasılatın %45,1 artması brüt kârı %25,8 yükselterek brüt kâr marjının
 | --- | ---: |
 | Hasılat | 86,38 milyar TL |
 | Brüt kâr | 33,55 milyar TL |
-| Faaliyet kârı | 18,02 milyar TL |
-| FAVÖK | 37,89 milyar TL |
+| Faaliyet kârı | 19,22 milyar TL |
+| FAVÖK | 39,09 milyar TL |
 | Net kâr | 7,68 milyar TL |
 | Özkaynak | 287,01 milyar TL |
 | Aktif toplamı | 695,72 milyar TL |
@@ -57,6 +58,7 @@ Hasılatın %45,1 artması brüt kârı %25,8 yükselterek brüt kâr marjının
 | Faaliyet nakit akışı | 40,01 milyar TL |
 | Yatırım harcaması | 38,70 milyar TL |
 | Serbest nakit akışı | 1,31 milyar TL |
+| Finansman gideri | 0,95 milyar TL |
 
 ## Son dört dönem
 
@@ -64,8 +66,8 @@ Hasılatın %45,1 artması brüt kârı %25,8 yükselterek brüt kâr marjının
 | --- | ---: | ---: | ---: | ---: |
 | Hasılat | 86,38 | 80,72 | 69,41 | 76,53 |
 | Brüt kâr | 33,55 | 31,83 | 28,82 | 30,64 |
-| Faaliyet kârı | 18,02 | 12,29 | 13,84 | 13,69 |
-| FAVÖK | 37,89 | 32,17 | 33,72 | 33,56 |
+| Faaliyet kârı | 19,22 | 13,58 | 13,84 | 13,69 |
+| FAVÖK | 39,09 | 33,45 | 33,72 | 33,56 |
 | Net kâr | 7,68 | 6,92 | 11,19 | 1,65 |
 | Özkaynak | 287,01 | 265,25 | 243,60 | 212,44 |
 | Aktif toplamı | 695,72 | 641,16 | 601,47 | 426,66 |
@@ -75,26 +77,35 @@ Hasılatın %45,1 artması brüt kârı %25,8 yükselterek brüt kâr marjının
 | Faaliyet nakit akışı | 40,01 | 25,02 | -11,70 | 33,62 |
 | Yatırım harcaması | 38,70 | 13,08 | 11,44 | 11,07 |
 | Serbest nakit akışı | 1,31 | 11,94 | -23,14 | 22,55 |
-| Finansman gideri | — | 4,19 | 0,76 | 2,23 |
+| Finansman gideri | 0,95 | 4,19 | 0,76 | 2,23 |
 
 *Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
 
-## Sektör karşılaştırması bu dönem yapılmadı
+## Sektör içindeki konum
 
-İletişim sektöründe **aynı dönemi bildiren** en az 3 şirket yok, bu yüzden sektör medyanı üretilmedi ve karşılaştırma tablosu yazılmadı. İki şirketin ortasını "sektör medyanı" diye sunmak, ölçülmemiş bir şeyi ölçülmüş gibi göstermek olurdu.
+Karşılaştırma İletişim sektöründe **aynı dönemi bildiren** 3 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
-Yukarıdaki **bir yıl öncesine göre** değişim ve ölçüm tablosu şirketin kendi geçmişine dayanıyor; onlar için kıyas kümesi gerekmiyor.
+| Oran | Şirket | Sektör medyanı |
+| --- | ---: | ---: |
+| Brüt kâr marjı | %38,8 | %12,5 |
+| Net kâr marjı | %8,9 | -%14,7 |
+| Özkaynak kârlılığı | %2,7 | -%3,4 |
+| Cari oran | 0,77 | 0,87 |
+| Borç / özkaynak | 0,43 | 0,08 |
+
+*Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
 ## Öne çıkan ölçümler
 
 **Şirket lehine işleyenler**
 
-- Hasılat reel olarak %45,1 arttı.
+- Hasılat reel olarak %11,9 arttı.
 - Faaliyet nakit akışı net kârın 5,21 katı; kâr nakde dönüyor.
+- Özkaynak kârlılığı %2,7; sektör medyanı -%3,4.
 
 **Dikkat gerektirenler**
 
-- Net kâr reel olarak -%25,0 geriledi.
+- Net kâr reel olarak -%42,2 geriledi.
 - Brüt marj 6,0 puan daraldı (%44,8 → %38,8).
 - Cari oran 0,77; kısa vadeli yükümlülükler dönen varlıkları aşıyor.
 

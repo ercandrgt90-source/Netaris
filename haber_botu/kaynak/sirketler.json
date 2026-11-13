@@ -2463,7 +2463,8 @@
    "kap_kimlik": "4028e4a2462cc71d014694521292040f",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "DRT BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "DRT BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor_bulunamadi": "2026-11-13"
   },
   "ECZYT": {
    "kod": "ECZYT",
@@ -2592,7 +2593,8 @@
    "kap_kimlik": "1af4bb0512df41c599b6ff93a4468ac5",
    "sehir": "BURSA",
    "uye_turu": "IGS",
-   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş"
+   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş",
+   "sektor_bulunamadi": "2026-11-13"
   },
   "EKGYO": {
    "kod": "EKGYO",
@@ -2611,7 +2613,10 @@
    "kap_kimlik": "4028e4a141da49e50141dad016780396",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "REANDA AREN BAĞIMSIZ DENETİM VE SMMM A.Ş."
+   "denetci": "REANDA AREN BAĞIMSIZ DENETİM VE SMMM A.Ş.",
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Staffing & Employment Services"
   },
   "EKIZ": {
    "kod": "EKIZ",
