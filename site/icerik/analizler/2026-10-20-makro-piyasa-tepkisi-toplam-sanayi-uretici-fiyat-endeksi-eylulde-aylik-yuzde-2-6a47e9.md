@@ -43,7 +43,7 @@ Enflasyon verisi yayımlandı. Kaynak: AA.
 ## Daha önce ne olmuştu
 
 - 2026-10-15 — ABD Hazine tahvil faizleri TÜFE sonrası sert düştü (BTC +%1,0, XAU +%0,2)
-- 2026-10-15 — BOJ's Koeda: sustained price rises across various CPI items, change in price dis (BTC -%0,4, XAU +%0,1)
+- 2026-10-15 — BOJ's Koeda: sustained price rises across various CPI items, change in price… (BTC -%0,4, XAU +%0,1)
 - 2026-10-15 — Fed's Daly: CPI indicates gas prices boosting headline inflation, core inflation (BTC %0,0, XAU %0,0)
 - 2026-10-14 — Küresel piyasalarda altın ve gümüş fiyatları ABD enflasyon verisi sonrası gerili (BTC -%0,2, XAU +%0,2)
 

@@ -38,7 +38,7 @@ Para politikası kararı açıklandı. Kaynak: TRT Haber.
 
 ## Daha önce ne olmuştu
 
-- 2026-10-21 — Fed faiz kararı bu hafta mı açıklanacak? Amerikan Merkez Bankası faiz kararı ne  (BTC -%0,1, XAU -%0,1)
+- 2026-10-21 — Fed faiz kararı bu hafta mı açıklanacak? Amerikan Merkez Bankası faiz kararı ne… (BTC -%0,1, XAU -%0,1)
 - 2026-10-21 — TCMB faiz kararı öncesi piyasaların rotası: Dr. Nuri Sevgen’den kritik değerlend (BTC +%0,2, XAU %0,0)
 - 2026-10-21 — Bitcoin yeniden yükselişe geçti: Gözler Fed'in faiz kararında (BTC %0,0, XAU +%0,2)
 - 2026-10-21 — TCMB'nin faiz kararı belli oluyor! Ekonomistlerin beklentisi açıklandı (BTC +%0,1, XAU -%0,1)

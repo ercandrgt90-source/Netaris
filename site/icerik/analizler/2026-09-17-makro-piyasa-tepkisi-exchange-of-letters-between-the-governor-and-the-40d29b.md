@@ -40,7 +40,7 @@ Enflasyon verisi yayımlandı. Kaynak: BoE.
 
 - 2026-09-16 — Italian CPI YoY Final Actual 3.3% (Forecast 3.3%, Previous 3.3%) (BTC +%0,4, XAU +%0,1)
 - 2026-09-16 — UK Core CPI MoM Actual 0.3% (Forecast -, Previous 0.2%) (BTC %0,0, XAU %0,0)
-- 2026-09-14 — EYLÜL AYI KİRA ARTIŞ ORANI HESAPLAMA : 2026 Eylül Ayı Kira Artış Oranı Belli Old (BTC +%0,3, XAU -%0,2)
+- 2026-09-14 — EYLÜL AYI KİRA ARTIŞ ORANI HESAPLAMA : 2026 Eylül Ayı Kira Artış Oranı Belli… (BTC +%0,3, XAU -%0,2)
 - 2026-09-01 — Ağustos ayı enflasyon rakamları için gözler TÜİK verilerinde (BTC -%0,6, DXY +%0,3, XAU -%0,4)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*

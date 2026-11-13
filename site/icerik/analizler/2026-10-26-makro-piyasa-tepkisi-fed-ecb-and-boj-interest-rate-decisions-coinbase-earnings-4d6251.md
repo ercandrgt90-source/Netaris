@@ -38,7 +38,7 @@ Para politikası kararı açıklandı. Kaynak: CoinDesk.
 
 - 2026-10-26 — Küresel piyasalar yeni haftaya karışık başladı: Gözler Fed'in faiz kararında (BTC %0,0, XAU +%0,2)
 - 2026-10-26 — Üç büyük merkez bankası enflasyon riskleri altında faiz kararı alacak (BTC %0,0, XAU +%0,2)
-- 2026-10-26 — ABD'de enflasyon endişeleri artarken dikkatler Fed'in bu haftaki faiz kararına ç (BTC %0,0, XAU +%0,2)
+- 2026-10-26 — ABD'de enflasyon endişeleri artarken dikkatler Fed'in bu haftaki faiz kararına… (BTC %0,0, XAU +%0,2)
 - 2026-10-23 — Rusya Merkez Bankası politika faizini sabit bıraktı (BTC %0,0, XAU +%0,2)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*

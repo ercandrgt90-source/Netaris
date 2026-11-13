@@ -163,7 +163,7 @@ for g in gercekler:
 
 
 # ---------------------------------------------------------------- 5
-print("5. YAYIMLANMIS sayfalarda yarim kelime kalmadi")
+print("5. YAYIMLANMIS sayfalarda kalinti OLCUMU (kapi degil)")
 
 _KOK = _BURASI.parent.parent
 SAYFALAR = _KOK / "site" / "icerik" / "analizler"
@@ -219,7 +219,34 @@ if tum and SAYFALAR.exists():
     # iddia bos kumeleri esitler.
     dogru(satirlar > 1000, f"atillik: emsal satiri sayisi {satirlar}")
     dogru(len(tum) > 1000, f"atillik: baslik sayisi {len(tum)}")
-    esit(yarim[:5], [], f"yarim kelimeyle biten emsal satiri: {len(yarim)}")
+
+    # BURASI OLCUM, KAPI DEGIL -- OLCULDU, AYNI GUN KILITLEDI.
+    #
+    # Ilk yazimda burada `esit(yarim, [])` vardi ve DAGITIMI
+    # KILITLEDI (kosu #2665). Sebep tam olarak bu dosyanin konusu
+    # olan tuzagin kendisi:
+    #
+    #   1. Sinamalar `calistir.py`den ONCE kosuyor.
+    #   2. Bu sayfalari URETEN adim `calistir.py`nin icinde.
+    #   3. Olay sayfalari her kosuda SIFIRDAN yeniden uretiliyor
+    #      (olculdu: tek otomatik gonderi 231 analiz sayfasina
+    #      dokundu ve elle yaptigim 303 satirlik onarimi geri aldi).
+    #
+    # Yani depodaki eski icerik, kendisini duzeltecek adimi
+    # arkasinda birakip kilitliyordu. Iddia DOGRUYDU, yeri yanlisti.
+    #
+    # Garanti URETICININ kendisinde: 1-4. bolumler `_emsal_basligi`
+    # ve `kelime_kirp` davranisini icerikten BAGIMSIZ sinar ve
+    # mutasyonla olculdu. Uretici dogruysa yeniden uretilen her
+    # sayfa dogru cikar; burada sayilan kalinti, o uretimin heniz
+    # kosmadigi sayfalardir.
+    #
+    # Sayinin gorunur olmasi onemli: sifirdan uzaklasirsa uretici
+    # bozulmus ya da yeniden uretilmeyen bir yol kalmis demektir.
+    print(f"   olcum: yarim kelimeyle biten emsal satiri = {len(yarim)}"
+          f" / {satirlar}")
+    if yarim:
+        print(f"          ornek: {yarim[0][0][:60]} {yarim[0][1]!r}")
 else:
     print("   (depo verisi yok -- atlandi)")
 

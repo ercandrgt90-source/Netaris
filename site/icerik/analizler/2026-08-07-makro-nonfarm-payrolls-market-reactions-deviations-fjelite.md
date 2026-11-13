@@ -39,7 +39,7 @@ sayimlar:
 
 - 2026-08-07 — ABD'de tarım dışı istihdam temmuzda beklentilerin aksine geriledi (BTC +%0,2, XAU +%0,4)
 - 2026-08-07 — Bitcoin ABD tarım dışı istihdam verisi öncesi geriledi: Gözler Fed ve Hürmüz Boğ (BTC +%0,2, XAU +%0,2)
-- 2026-08-07 — ABD Tarım Dışı İstihdam Verisi Ne Zaman, Saat Kaçta Açıklanacak? Piyasalarda Göz (BTC +%0,2, XAU +%0,2)
+- 2026-08-07 — ABD Tarım Dışı İstihdam Verisi Ne Zaman, Saat Kaçta Açıklanacak? (BTC +%0,2, XAU +%0,2)
 - 2026-08-07 — Küresel piyasalarda gözler ABD'de açıklanacak tarım dışı istihdam verisinde 
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*

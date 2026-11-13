@@ -38,7 +38,7 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Ekonomim.
 
 - 2026-10-19 — İran ABD’yi Hürmüz’ü yeniden açma teklifini kabul etmeye çağırdı (BTC -%0,1, XAU -%0,1)
 - 2026-10-19 — Hürmüz Boğazı’nda petrol tankeri mayına çarptı (BRENT +%0,6, BTC +%0,8, XAU +%0,7)
-- 2026-10-18 — Körfez İşbirliği Konseyinden, ABD-İran krizi ve Hürmüz Boğazı'nda seyrüsefer özg (BRENT +%0,6, BTC -%0,1, XAU %0,0)
+- 2026-10-18 — Körfez İşbirliği Konseyinden, ABD-İran krizi ve Hürmüz Boğazı'nda seyrüsefer… (BRENT +%0,6, BTC -%0,1, XAU %0,0)
 - 2026-10-18 — İran savaşı: Suudi helikopter kazası, Hürmüz Boğazı’nı tehdit ediyor (BRENT +%0,6, BTC %0,0, XAU %0,0)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*

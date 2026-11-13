@@ -39,7 +39,7 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Ekonomim.
 - 2026-10-12 — İran’dan ABD’ye Hürmüz Boğazı tepkisi: Güvenlik yeniden sağlanamayacak (BTC -%0,6, XAU -%0,1)
 - 2026-10-11 — İran’dan Hürmüz Boğazı’nda gemilere uyarı: Düşman sayılacaklar (BTC %0,0)
 - 2026-10-11 — İran: Hürmüz Boğazı'nda navigasyonunu kapatan gemileri 'düşman gemi 'sayacağız (BTC %0,0, XAU %0,0)
-- 2026-10-11 — İran, Hürmüz Boğazı’ndaki tutumunu reddederken Trump askeri seçenekleri değerlen (BTC -%0,2, XAU -%0,1)
+- 2026-10-11 — İran, Hürmüz Boğazı’ndaki tutumunu reddederken Trump askeri seçenekleri… (BTC -%0,2, XAU -%0,1)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*
 

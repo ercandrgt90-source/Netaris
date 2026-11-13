@@ -39,7 +39,7 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Investing.
 - 2026-10-04 — Hürmüz Boğazı’nda petrol tankerinde patlama (BRENT -%5,0, BTC %0,0, XAU %0,0)
 - 2026-10-04 — Irak, Hürmüz Boğazı’ndan 2 milyon varil petrol taşıdı (BRENT -%5,0, BTC -%0,1, XAU %0,0)
 - 2026-10-03 — Irak’ın devlet tanker şirketi Hürmüz Boğazı’ndan ham petrol taşıdı (BRENT -%5,0, BTC -%0,2, XAU %0,0)
-- 2026-10-02 — İran: Hürmüz Boğazı'nda son günlerde hedef alınan 3 petrol tankeri BAE bağlantıl (BRENT -%5,0, BTC -%0,1, XAU +%0,1)
+- 2026-10-02 — İran: Hürmüz Boğazı'nda son günlerde hedef alınan 3 petrol tankeri BAE… (BRENT -%5,0, BTC -%0,1, XAU +%0,1)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*
 

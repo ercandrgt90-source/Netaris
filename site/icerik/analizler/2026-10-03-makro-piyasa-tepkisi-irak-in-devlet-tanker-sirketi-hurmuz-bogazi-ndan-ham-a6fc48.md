@@ -42,7 +42,7 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Investing.
 
 ## Daha önce ne olmuştu
 
-- 2026-10-02 — İran: Hürmüz Boğazı'nda son günlerde hedef alınan 3 petrol tankeri BAE bağlantıl (BRENT -%5,0, BTC -%0,1, XAU +%0,1)
+- 2026-10-02 — İran: Hürmüz Boğazı'nda son günlerde hedef alınan 3 petrol tankeri BAE… (BRENT -%5,0, BTC -%0,1, XAU +%0,1)
 - 2026-10-01 — İran: Hürmüz'de hedef alınan 3 tanker BAE bağlantılı (BRENT -%5,0, BTC -%0,1, XAU +%0,1)
 - 2026-09-29 — Hürmüz Boğazı krizi, Körfez ülkelerini petrol ve gaz ihracatında alternatif rota (BTC -%0,3, XAU +%0,1)
 - 2026-09-28 — Piyasada "Ateşkes" endişesi: İran-ABD gerilimi ve Hürmüz Boğazı tartışması petro (BTC -%0,3, XAU %0,0)

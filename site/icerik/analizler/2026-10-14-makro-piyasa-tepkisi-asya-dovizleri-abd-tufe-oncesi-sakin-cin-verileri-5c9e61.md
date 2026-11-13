@@ -37,8 +37,8 @@ Enflasyon verisi yayımlandı. Kaynak: Investing.
 ## Daha önce ne olmuştu
 
 - 2026-10-14 — Altında kritik gün! ABD enflasyon verisi fiyatların yönünü belirleyecek (BTC -%0,1, XAU -%0,2)
-- 2026-10-14 — Çin’de TÜFE enflasyonu Eylül’de beklentinin altında kaldı; ÜFE 4 yılın zirvesind (BTC %0,0, XAU -%0,1)
-- 2026-10-13 — US CPI Prep: Attention on Core Numbers for Evidence of Broader Inflation Pressur (BTC +%0,1, XAU %0,0)
+- 2026-10-14 — Çin’de TÜFE enflasyonu Eylül’de beklentinin altında kaldı; ÜFE 4 yılın… (BTC %0,0, XAU -%0,1)
+- 2026-10-13 — US CPI Prep: Attention on Core Numbers for Evidence of Broader Inflation… (BTC +%0,1, XAU %0,0)
 - 2026-10-13 — ABD enflasyon rakamları ne zaman, hangi gün açıklanacak? (BTC %0,0, XAU %0,0)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*

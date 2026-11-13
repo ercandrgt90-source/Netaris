@@ -45,7 +45,7 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Dünya.
 - 2026-09-26 — Hürmüz krizinde petrol ve gaz arzı kesintisi yüzde 14'ü buldu (BRENT -%1,1, BTC +%0,1, XAU %0,0)
 - 2026-09-25 — Hürmüz'de petrol trafiği hızlandı: Milyonlarca varil boğazdan geçti (BRENT -%1,1, BTC -%0,1, XAU -%0,1)
 - 2026-09-25 — İran: Şartlar kabul edilirse Hürmüz Boğazı 7 gün sonra açılacak (BRENT -%1,1, BTC -%0,3, XAU +%0,1)
-- 2026-09-25 — İran Hürmüz için süre verdi: Petrol 106 dolarda, Washington'ın önünde 4-5 gün va (BRENT -%1,1, BTC -%0,2, XAU -%0,2)
+- 2026-09-25 — İran Hürmüz için süre verdi: Petrol 106 dolarda, Washington'ın önünde 4-5 gün… (BRENT -%1,1, BTC -%0,2, XAU -%0,2)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*
 

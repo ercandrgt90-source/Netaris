@@ -40,7 +40,7 @@ Enflasyon verisi yayımlandı. Kaynak: Ekonomist.
 
 - 2026-11-01 — ENFLASYON AÇIKLANDI MI, NE ZAMAN AÇIKLANACAK? 2026 Ekim Ayı Enflasyon Oranları S (BTC +%0,1, XAU %0,0)
 - 2026-10-30 — Enflasyon rakamları ne zaman açıklanıyor? Enflasyon beklentisi nedir? (BTC %0,0, XAU -%0,2)
-- 2026-10-30 — BOJ faiz oranlarını beklentilere uygun şekilde sabit tuttu; TÜFE enflasyonunun h (BTC +%0,3, XAU -%0,1)
+- 2026-10-30 — BOJ faiz oranlarını beklentilere uygun şekilde sabit tuttu; TÜFE enflasyonunun… (BTC +%0,3, XAU -%0,1)
 - 2026-10-30 — BoJ's Governor Ueda: Underlying CPI inflation at level generally consistent with (BTC -%0,2, XAU +%0,1)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*

@@ -40,7 +40,7 @@ Para politikası kararı açıklandı. Kaynak: Investing.
 
 - 2026-10-07 — FOMC tutanakları bekleniyor; Constellation Brands sonuçları açıkladı (BTC -%0,1, XAU -%0,2)
 - 2026-10-07 — FOMC tutanakları ve Constellation Brands bilançosu gündemde (BTC -%0,3, XAU %0,0)
-- 2026-10-06 — ECB’s Lane: Main driver of the interest rate decision has been the inflation imp (BTC +%0,7, DXY -%0,3, XAU +%0,2)
+- 2026-10-06 — ECB’s Lane: Main driver of the interest rate decision has been the inflation… (BTC +%0,7, DXY -%0,3, XAU +%0,2)
 - 2026-10-06 — ECB’s Lane: We have identified broader financial conditions, including long-term (BTC +%0,7, DXY -%0,3, XAU +%0,2)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*

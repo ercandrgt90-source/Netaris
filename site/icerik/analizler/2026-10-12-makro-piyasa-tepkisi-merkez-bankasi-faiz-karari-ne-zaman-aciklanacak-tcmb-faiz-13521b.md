@@ -39,8 +39,8 @@ Para politikası kararı açıklandı. Kaynak: CNN Türk.
 ## Daha önce ne olmuştu
 
 - 2026-10-08 — Fed faiz kararı ne zaman, saat kaçta? Ekim 2026 toplantısında faizler yeniden ar (BTC %0,0, XAU -%0,2)
-- 2026-10-08 — Goldman Sachs: September FOMC Minutes Reinforce Hawkish Bias, but December Hike  (BTC %0,0, XAU -%0,2)
-- 2026-10-08 — Fon tasfiyesinden faiz kararına, altından borsaya: Tonguç Erbaş'tan piyasa anali (BTC -%0,3, XAU -%0,3)
+- 2026-10-08 — Goldman Sachs: September FOMC Minutes Reinforce Hawkish Bias, but December Hike… (BTC %0,0, XAU -%0,2)
+- 2026-10-08 — Fon tasfiyesinden faiz kararına, altından borsaya: Tonguç Erbaş'tan piyasa… (BTC -%0,3, XAU -%0,3)
 - 2026-10-07 — Fed tutanakları çoğu politika yapıcının yıl sonuna kadar bir faiz artırımı daha  (BTC %0,0, XAU +%0,2)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*

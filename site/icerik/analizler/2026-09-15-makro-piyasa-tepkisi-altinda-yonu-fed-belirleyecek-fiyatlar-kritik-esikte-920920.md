@@ -45,7 +45,7 @@ Para politikası kararı açıklandı. Kaynak: Ekonomim.
 - 2026-09-14 — Fed'in faiz kararı öncesi piyasada sert hareketlilik: Altın ve gümüşte düşüş hız (BTC +%0,3, XAU -%0,2)
 - 2026-09-14 — Goldman Sachs on BoE Rate Decision - FJElite (BTC +%0,5, XAU +%0,3)
 - 2026-09-14 — JPMorgan's FOMC SEP Expectations - FJElite (BTC +%0,5, XAU +%0,3)
-- 2026-09-13 — FED FAİZ KARARI NE ZAMAN? Faiz İndirimi Olacak mı? Eylül 2026 FED Toplantısı Tar (BTC +%0,5, XAU +%0,3)
+- 2026-09-13 — FED FAİZ KARARI NE ZAMAN? Faiz İndirimi Olacak mı? Eylül 2026 FED Toplantısı… (BTC +%0,5, XAU +%0,3)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*
 

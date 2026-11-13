@@ -42,8 +42,8 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Ekonomim.
 
 ## Daha önce ne olmuştu
 
-- 2026-09-24 — Hürmüz krizi, enerji güvenliği ile temiz dönüşüm arasındaki dengeyi gündeme taşı (BRENT -%1,1, BTC -%1,3, XAU -%0,3)
-- 2026-09-24 — ABD-İran temaslarına rağmen Hürmüz Boğazı belirsizliği petrolü yükseltti: Son du (BRENT -%1,1, BTC +%0,6, XAU -%0,1)
+- 2026-09-24 — Hürmüz krizi, enerji güvenliği ile temiz dönüşüm arasındaki dengeyi gündeme… (BRENT -%1,1, BTC -%1,3, XAU -%0,3)
+- 2026-09-24 — ABD-İran temaslarına rağmen Hürmüz Boğazı belirsizliği petrolü yükseltti: Son… (BRENT -%1,1, BTC +%0,6, XAU -%0,1)
 - 2026-09-23 — İran: Hürmüz Boğazı açılmadan önce ilettiğimiz 7 şart uygulanmalı (BTC -%1,7, XAU -%0,2)
 - 2026-09-23 — Hürmüz'de gemi vuruldu: Petrol yeniden yükseldi (BTC +%0,4, XAU -%0,4)
 

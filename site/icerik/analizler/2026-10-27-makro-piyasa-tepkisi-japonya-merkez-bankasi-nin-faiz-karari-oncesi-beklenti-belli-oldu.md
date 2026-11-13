@@ -42,7 +42,7 @@ Para politikası kararı açıklandı. Kaynak: Ekonomim.
 
 ## Daha önce ne olmuştu
 
-- 2026-10-26 — BTC price risks $80K loss into FOMC, earnings: Three things to know in Bitcoin t (BTC +%0,1, XAU +%0,1)
+- 2026-10-26 — BTC price risks $80K loss into FOMC, earnings: Three things to know in Bitcoin… (BTC +%0,1, XAU +%0,1)
 - 2026-10-26 — Past FOMC Market Reactions & Sentiment - FJElite (BTC +%0,2, XAU +%0,1)
 - 2026-10-26 — Fed, ECB and BOJ interest-rate decisions, Coinbase earnings: Crypto Week Ahead (BTC -%0,1)
 - 2026-10-26 — Küresel piyasalar yeni haftaya karışık başladı: Gözler Fed'in faiz kararında (BTC %0,0, XAU +%0,2)

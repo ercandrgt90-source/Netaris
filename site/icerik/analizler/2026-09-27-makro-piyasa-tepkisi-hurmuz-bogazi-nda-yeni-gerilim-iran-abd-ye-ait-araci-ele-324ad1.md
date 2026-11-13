@@ -38,7 +38,7 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Dünya.
 
 - 2026-09-27 — İran'dan Hürmüz resti: Biz yapamazsak kimse yapamaz (BTC -%0,2, XAU %0,0)
 - 2026-09-27 — İran Trump’ın teklifini reddetmesinin ardından Hürmüz taleplerini yumuşatmayacak (BTC %0,0, XAU %0,0)
-- 2026-09-27 — İran: Hürmüz'ün açılması için sunduğumuz şartlara arabuluculardan henüz kesin ya (BTC +%0,2, XAU %0,0)
+- 2026-09-27 — İran: Hürmüz'ün açılması için sunduğumuz şartlara arabuluculardan henüz kesin… (BTC +%0,2, XAU %0,0)
 - 2026-09-26 — Trump Hürmüz barış planını reddetti, İran diplomaside ısrar ediyor (BTC %0,0, XAU %0,0)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*

@@ -39,7 +39,7 @@ Enflasyon verisi yayımlandı. Kaynak: Ekonomim.
 ## Daha önce ne olmuştu
 
 - 2026-08-13 — Yılın 3. enflasyon raporu bugün açıklanacak (BTC -%0,5, XAU -%0,3)
-- 2026-08-13 — RBA's Kent: Need history on trimmed mean inflation to focus on monthly CPI repor (BTC -%0,1, XAU +%0,3)
+- 2026-08-13 — RBA's Kent: Need history on trimmed mean inflation to focus on monthly CPI… (BTC -%0,1, XAU +%0,3)
 - 2026-08-12 — Piyasalar merakla bekliyordu: ABD enflasyon rakamları açıklandı (BTC -%0,1, XAU %0,0)
 - 2026-08-12 — US CPI Prep: Inflation in Focus (BTC -%0,3, XAU %0,0)
 

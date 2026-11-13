@@ -39,7 +39,7 @@ Para politikası kararı açıklandı. Kaynak: Dünya.
 ## Daha önce ne olmuştu
 
 - 2026-10-17 — Piyasaların gözü bu tarihte! Merkez Bankası faiz kararını açıklayacak (BTC -%0,1, XAU +%0,1)
-- 2026-10-16 — MB faiz kararı tarihi... Türkiye Cumhuriyet Merkez Bankası toplantısı ne zaman,  (BTC +%0,1, XAU %0,0)
+- 2026-10-16 — MB faiz kararı tarihi... Türkiye Cumhuriyet Merkez Bankası toplantısı ne zaman… (BTC +%0,1, XAU %0,0)
 - 2026-10-16 — Fed Başkanı Warsh, bu ayki faiz kararı için sinyal vermedi (BTC %0,0, XAU +%0,2)
 - 2026-10-16 — Merkez Bankası faiz kararını 22 Ekim'de açıklayacak (BTC -%0,1, XAU +%0,1)
 

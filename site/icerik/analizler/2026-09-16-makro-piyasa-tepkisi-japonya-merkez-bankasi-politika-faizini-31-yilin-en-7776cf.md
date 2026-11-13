@@ -38,7 +38,7 @@ Para politikası kararı açıklandı. Kaynak: AA.
 
 ## Daha önce ne olmuştu
 
-- 2026-09-16 — Fed faiz kararı ne zaman, saat kaçta? Fed faizleri artıracak mı yoksa sabit mi b (BTC %0,0, XAU %0,0)
+- 2026-09-16 — Fed faiz kararı ne zaman, saat kaçta? Fed faizleri artıracak mı yoksa sabit mi… (BTC %0,0, XAU %0,0)
 - 2026-09-16 — Küresel piyasalarda gözler, Fed'in faiz kararına çevrildi (BTC %0,0, XAU %0,0)
 - 2026-09-16 — Japonya Merkez Bankası faiz kararına hazırlanıyor: Gözler yeni adımda (BTC +%0,3, XAU +%0,1)
 - 2026-09-16 — Altın fiyatlarında Fed sessizliği: Gözler faiz kararında! Piyasalar ne bekliyor? (BTC +%0,1, XAU %0,0)

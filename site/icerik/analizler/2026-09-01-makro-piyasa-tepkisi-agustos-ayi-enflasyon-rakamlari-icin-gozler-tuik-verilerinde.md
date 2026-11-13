@@ -44,7 +44,7 @@ Enflasyon verisi yayımlandı. Kaynak: CNN Türk.
 
 - 2026-09-01 — ABD enflasyon rakamları ne zaman açıklanacak? (BTC %0,0, DXY +%0,3, XAU -%0,1)
 - 2026-09-01 — Gözler enflasyon rakamlarında (BTC -%0,1, DXY +%0,3, XAU -%0,2)
-- 2026-08-31 — EYLÜL AYI KİRA ARTIŞ ORANI 2026 | Eylül kira zam oranı ne zaman açıklanacak? Eyl (BTC -%0,4, XAU %0,0)
+- 2026-08-31 — EYLÜL AYI KİRA ARTIŞ ORANI 2026 | Eylül kira zam oranı ne zaman açıklanacak? (BTC -%0,4, XAU %0,0)
 - 2026-08-31 — Ağustos ayı enflasyon rakamları ne zaman açıklanacak? (BTC -%0,4, XAU %0,0)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*

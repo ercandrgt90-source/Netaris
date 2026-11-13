@@ -39,9 +39,9 @@ Para politikası kararı açıklandı. Kaynak: FinancialJuice.
 ## Daha önce ne olmuştu
 
 - 2026-09-14 — JPMorgan's FOMC SEP Expectations - FJElite (BTC +%0,5, XAU +%0,3)
-- 2026-09-13 — FED FAİZ KARARI NE ZAMAN? Faiz İndirimi Olacak mı? Eylül 2026 FED Toplantısı Tar (BTC +%0,5, XAU +%0,3)
-- 2026-09-02 — FED FAİZ KARARI NE ZAMAN AÇIKLANACAK? Eylül ayı ABD Merkez Bankası (FED) toplant (BTC +%0,1, DXY +%0,3, XAU -%0,2)
-- 2026-09-01 — FED FAİZ KARARI TARİHİ... Amerikan Merkez Bankası faiz kararını ne zaman açıklay (BTC -%0,1, DXY +%0,3, XAU -%0,1)
+- 2026-09-13 — FED FAİZ KARARI NE ZAMAN? Faiz İndirimi Olacak mı? Eylül 2026 FED Toplantısı… (BTC +%0,5, XAU +%0,3)
+- 2026-09-02 — FED FAİZ KARARI NE ZAMAN AÇIKLANACAK? Eylül ayı ABD Merkez Bankası (FED)… (BTC +%0,1, DXY +%0,3, XAU -%0,2)
+- 2026-09-01 — FED FAİZ KARARI TARİHİ... Amerikan Merkez Bankası faiz kararını ne zaman… (BTC -%0,1, DXY +%0,3, XAU -%0,1)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*
 

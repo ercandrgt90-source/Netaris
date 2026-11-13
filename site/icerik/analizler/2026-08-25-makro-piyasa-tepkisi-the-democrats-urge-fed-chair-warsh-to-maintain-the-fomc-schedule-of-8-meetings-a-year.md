@@ -43,9 +43,9 @@ Para politikası kararı açıklandı. Kaynak: FinancialJuice.
 ## Daha önce ne olmuştu
 
 - 2026-08-24 — MERKEZ BANKASI FAİZ KARARI NE OLACAK? 2026 Merkez Bankası faiz kararı ne zaman a (BTC -%0,2, XAU +%0,3)
-- 2026-08-23 — Bu ay Merkez Bankası toplantısı var mı? TCMB faiz kararı ne zaman, hangi gün açı (BTC +%0,5, XAU -%0,1)
-- 2026-08-20 — Fed's Musalem: I recommended raising rates in July, but I won't offer a firm vie (BTC +%0,3)
-- 2026-08-20 — Fed faiz kararı ne zaman, saat kaçta açıklanacak? Fed faiz artıracak mı, sabit m (BTC -%0,2, XAU +%0,3)
+- 2026-08-23 — Bu ay Merkez Bankası toplantısı var mı? TCMB faiz kararı ne zaman, hangi gün… (BTC +%0,5, XAU -%0,1)
+- 2026-08-20 — Fed's Musalem: I recommended raising rates in July, but I won't offer a firm… (BTC +%0,3)
+- 2026-08-20 — Fed faiz kararı ne zaman, saat kaçta açıklanacak? Fed faiz artıracak mı, sabit… (BTC -%0,2, XAU +%0,3)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*
 

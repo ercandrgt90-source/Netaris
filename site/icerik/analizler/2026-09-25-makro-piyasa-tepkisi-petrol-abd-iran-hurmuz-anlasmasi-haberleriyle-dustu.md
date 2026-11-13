@@ -43,8 +43,8 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Investing.
 ## Daha önce ne olmuştu
 
 - 2026-09-24 — Hürmüz Boğazı’nda LNG hareketliliği: Katar’ın sevkiyatları yeniden artışa geçti (BRENT -%1,1, BTC +%0,1, XAU %0,0)
-- 2026-09-24 — Hürmüz krizi, enerji güvenliği ile temiz dönüşüm arasındaki dengeyi gündeme taşı (BRENT -%1,1, BTC -%1,3, XAU -%0,3)
-- 2026-09-24 — ABD-İran temaslarına rağmen Hürmüz Boğazı belirsizliği petrolü yükseltti: Son du (BRENT -%1,1, BTC +%0,6, XAU -%0,1)
+- 2026-09-24 — Hürmüz krizi, enerji güvenliği ile temiz dönüşüm arasındaki dengeyi gündeme… (BRENT -%1,1, BTC -%1,3, XAU -%0,3)
+- 2026-09-24 — ABD-İran temaslarına rağmen Hürmüz Boğazı belirsizliği petrolü yükseltti: Son… (BRENT -%1,1, BTC +%0,6, XAU -%0,1)
 - 2026-09-23 — İran: Hürmüz Boğazı açılmadan önce ilettiğimiz 7 şart uygulanmalı (BTC -%1,7, XAU -%0,2)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*
