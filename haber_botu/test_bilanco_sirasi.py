@@ -437,5 +437,72 @@ with __import__("tempfile").TemporaryDirectory() as _g9:
          "kategori dizgisi uretilen on bilgiyle AYNI")
 
 print("")
+print("10. OLCULEMEYEN ILE TAZELENEMEYEN AYRI")
+# OLCULDU (2026-11-13): `atlanan` sebepleri ozete YAZILIYOR ama
+# hicbir yerde raporlanmiyordu. Gunluk yalnizca "-> 36 sirket
+# olculdu, 2 atlandi" diyor; KIM ve NEDEN gorunmuyor.
+#
+# Somut: TDGYO ve TURGG her Gayrimenkul tazelemesinde ILK deneniyor
+# (kanitli grup) ve her seferinde "eksik: hasilat" ile atlaniyor.
+# Kaynak ikisine de veri VERIYOR -- cekim hatasi yok -- ama gelir
+# tablosunda HASILAT SATIRI YOK. Yani kusur degil, veri gercegi.
+# "Bekleyen 6" sayisi bu yuzden asla sifira inemiyordu.
+#
+# AYRIM SART: `atlanan` O KOSUYA ait. Sirket ici birlestirme
+# sayesinde daha once olculmus bir sirket atlansa bile verisi
+# DURUYOR. Ilk yazimda ayrim yoktu ve rapor 29 sirket icin "bu
+# sayfa uretilemez" diyordu -- aralarinda AKBNK ve PGSUS vardi ve
+# ikisinin de sayfasi VAR. Dogru olcut: atlandi VE ozette kaydi yok.
+_OZET10 = {
+    "Sanayi": {
+        "sirket": {"VARDIR": {}},
+        "atlanan": [["VARDIR", "eksik: stoklar"],
+                    ["YOKTUR", "eksik: hasilat"]],
+    },
+    "Gayrimenkul": {
+        "sirket": {},
+        "atlanan": [["TDGYO", "eksik: hasilat"]],
+    },
+}
+_y10 = _io9.StringIO()
+with _c9.redirect_stdout(_y10):
+    _d10 = U.atlananlari_bildir(_OZET10)
+_log10 = _y10.getvalue()
+
+esit(_d10, {"eksik: hasilat": ["YOKTUR", "TDGYO"]},
+     "yalnizca ozette KAYDI OLMAYANLAR 'hic olculemeyen' sayiliyor")
+dogru("VARDIR" not in _log10,
+     "onceki olcumu duran sirket 'uretilemez' diye YAZILMIYOR")
+dogru("1 şirket bu koşuda atlandı" in _log10,
+      "tazeleme eksigi AYRI ve dogru adiyla raporlaniyor")
+dogru("TDGYO" in _log10 and "YOKTUR" in _log10,
+      "engelli sirketler adiyla yaziliyor")
+
+# Sebep TURU korunuyor: farkli eksik alanlar ayni kovaya girmemeli,
+# cunku farkli is gerektiriyorlar.
+_y10b = _io9.StringIO()
+with _c9.redirect_stdout(_y10b):
+    _d10b = U.atlananlari_bildir(
+        {"X": {"sirket": {}, "atlanan": [["A", "eksik: stoklar"],
+                                         ["B", "eksik: hasilat"]]}})
+esit(sorted(_d10b), ["eksik: hasilat", "eksik: stoklar"],
+     "farkli eksik alanlar AYRI sebep olarak sayiliyor")
+
+# BOS DURUM DA SOYLENIYOR: sessizlik "olculmedi" demek.
+_y10c = _io9.StringIO()
+with _c9.redirect_stdout(_y10c):
+    U.atlananlari_bildir({"X": {"sirket": {"A": {}}, "atlanan": []}})
+dogru("YOK" in _y10c.getvalue(),
+      "atlanan yoksa da gunluge yaziliyor")
+
+# OLCUM, KAPI DEGIL: `main` icinde cagri CIPLAK ifade.
+_ciplak10 = [n for n in ast.walk(_main)
+             if isinstance(n, ast.Expr) and isinstance(n.value, ast.Call)
+             and isinstance(n.value.func, ast.Name)
+             and n.value.func.id == "atlananlari_bildir"]
+esit(len(_ciplak10), 1,
+     "cagri CIPLAK ifade -- donusu cikis kodunu etkilemiyor")
+
+print("")
 print("=" * 30)
 print(f"GECTI={_gecti}  KALDI=0")

@@ -1025,7 +1025,83 @@ def main() -> int:
                      encoding="utf-8")
     print(f"\n{HEDEF} yazıldı ({_yeni} şirket)")
     dusenleri_bildir(cikti)
+    atlananlari_bildir(cikti)
     return 0
+
+
+def atlananlari_bildir(ozet: dict) -> dict:
+    """Olculemeyen sirketleri SEBEBIYLE bildirir ve dondurur.
+
+    OLCUM, KAPI DEGIL -- `dusenleri_bildir` ile ayni gerekce.
+
+    NEDEN GEREKLI -- OLCULDU (2026-11-13)
+    -------------------------------------
+    Sebep ZATEN `sektor_ozet.json`a yaziliyordu (`atlanan` alani) ama
+    hicbir yerde RAPORLANMIYORDU. Gunluk yalnizca sunu diyor:
+
+        -> 36 sirket olculdu, 2 atlandi
+
+    Iki sirketin KIM oldugu ve NEDEN atlandigi gorunmuyor. Sonuc:
+    kaynagin yapisal olarak destekleyemedigi sirket ile SIRASINI
+    BEKLEYEN sirket ayirt edilemiyor.
+
+    Somut: TDGYO ve TURGG her Gayrimenkul tazelemesinde ILK deneniyor
+    (nobet defteri Q3 diyor, olcumumuz yok -> kanitli grup) ve her
+    seferinde "eksik: hasilat" ile atlaniyor. Kaynak ikisine de veri
+    VERIYOR -- cekim hatasi yok -- ama gelir tablosunda HASILAT
+    SATIRI YOK (TDGYO'da net kar, nakit akisi ve EPS var). Yani bu
+    bir kusur degil, veri gercegi: o sayfa bu sayfa tasarimiyla
+    uretilemez.
+
+    Bedeli olcumun kendisindeydi: "bekleyen 6" sayisi asla sifira
+    inemiyor ve "geride miyiz" sorusuna cevap vermez hale geliyor.
+    Artik sayi iki parcaya ayriliyor.
+    """
+    # ATLANDI ILE VERISI HIC YOK AYRI SEYLER.
+    #
+    # `atlanan` O KOSUYA ait. Sirket ici birlestirme sayesinde daha
+    # once olculmus bir sirket atlansa bile verisi DURUYOR ve
+    # sayfasi guncel olabilir. Olculdu: ilk yazimda ayrim yoktu ve
+    # rapor 29 sirket icin "bu sayfa uretilemez" diyordu -- oysa
+    # aralarinda AKBNK ve PGSUS vardi ve ikisinin de sayfasi VAR.
+    # Dogru olcut: atlandi VE ozette hic kaydi yok.
+    kayitli = {str(k).upper()
+               for v in ozet.values() if isinstance(v, dict)
+               for k in (v.get("sirket") or {})}
+    dokum: dict[str, list[str]] = {}
+    tazelenemeyen = 0
+    for v in ozet.values():
+        if not isinstance(v, dict):
+            continue
+        for kayit in (v.get("atlanan") or []):
+            if not isinstance(kayit, (list, tuple)) or len(kayit) < 2:
+                continue
+            kod, sebep = str(kayit[0]).upper(), str(kayit[1])
+            if kod in kayitli:
+                # Onceki olcumu duruyor: bu bir TAZELEME eksigi,
+                # kapsam eksigi degil.
+                tazelenemeyen += 1
+                continue
+            # Ayrinti degil TUR sayiliyor: "eksik: hasilat" ile
+            # "eksik: stoklar" ayni is turunu gerektirmiyor, o yuzden
+            # ilk alan degil TAM sebep anahtar.
+            dokum.setdefault(sebep, []).append(kod)
+    if dokum:
+        toplam = sum(len(k) for k in dokum.values())
+        print(f"\nHIC OLCULEMEYEN SIRKET: {toplam}")
+        for sebep, kodlar in sorted(dokum.items(),
+                                    key=lambda x: -len(x[1])):
+            print(f"  {len(kodlar):>3}  {sebep}  "
+                  f"({', '.join(sorted(kodlar)[:6])}"
+                  f"{' ...' if len(kodlar) > 6 else ''})")
+        print("  Kaynak veri VERIYOR ama gerekli alan yok; bu sayfa "
+              "mevcut tasarımla üretilemez. Sıra beklemiyorlar.")
+    else:
+        print("\nhiç ölçülemeyen şirket YOK")
+    if tazelenemeyen:
+        print(f"  (ayrıca {tazelenemeyen} şirket bu koşuda atlandı ama "
+              f"önceki ölçümü duruyor -- tazeleme eksiği)")
+    return dokum
 
 
 def dusenleri_bildir(ozet: dict, kodlar=None) -> list[str]:
