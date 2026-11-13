@@ -36,10 +36,21 @@ import re
 _KOK = pathlib.Path(__file__).resolve().parent
 ICERIK = _KOK / "icerik"
 
-#: Ardisik ayni kelime. En az iki harf: "bir bir" gercek bir tekrar,
-#: tek harfli yineleme (madde isareti, tablo cizgisi) degil.
-DESEN = re.compile(
-    r"\b([0-9A-Za-zÇĞİÖŞÜçğıöşü]{2,})\s+\1\b")
+#: DESEN URETIM KODUNDAN OKUNUYOR -- IKINCI KOPYA YOK.
+#:
+#: Ayni kural artik URETIM ANINDA da kosuyor
+#: (`yorumcu.YINELENEN_KELIME`): model ardisik tekrar yazarsa metin
+#: depoya HIC girmiyor. Iki yerde ayri yazilmis bir desen sessizce
+#: ayrisir ve iki kapi FARKLI seyi elerdi.
+#:
+#: BU KORUMA YINE DE GEREKLI: uretim kapisi yalnizca AI metnini
+#: goruyor; burasi SABLON + VERI birlesiminden dogan tekrari da
+#: yakaliyor -- kurulus sebebi tam oydu ("... dönemi dönemi
+#: ölçümleri") ve ozet KIRPMASINDAN dogan tekrari da o yakaladi.
+import sys                                          # noqa: E402
+
+sys.path.insert(0, str(_KOK.parent / "haber_botu" / "ai"))
+from yorumcu import YINELENEN_KELIME as DESEN       # noqa: E402
 
 #: Kod blogu ve on bilgi: metin degil, veri.
 _KOD = re.compile(r"```.*?```", re.S)

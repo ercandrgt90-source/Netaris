@@ -1182,6 +1182,72 @@ sina('bos duzeltme ile yeniden denenmiyor (tablo eksiksiz)',
 # Yanlis yazilmis bir anahtar hicbir yerde HATA VERMEZ: `_duzeltme`
 # bos doner ve ikinci deneme sessizce ayni soruyu sorar. Olcut AST.
 import ast as _ast          # noqa: E402
+print("")
+print("ARDISIK YINELENEN KELIME -- URETIM ANINDA ELENIYOR")
+# OLCULDU (2026-11-12/13): tek bir sayfada "maliyet ve ve" olustu.
+# `site/test_yinelenen_kelime.py` bunu dogru yakaladi ama o koruma
+# URETIMDEN ONCE kosuyor: bozuk sayfa depoya girdiginde hat kendini
+# onaramiyor ve dagitim KILITLENIYOR. 33 kosu kirmizi dondu.
+#
+# O ornegin sebebi ozet kirpmasiydi ve orada duzeltildi
+# (`yayin._kisalt`). Ama ayni kusur modelin KENDI metninden de
+# gelebilir; o zaman kirpma duzeltmesi hicbir sey yapmaz. Bu kapi
+# tam o yolu kapatiyor: elenen metin depoya HIC girmiyor.
+_ortam_kur(anthropic=False, cloudflare=True)
+_yin_cagri = []
+
+
+def _yin_taklit(girdi, sistem):
+    _yin_cagri.append(sistem)
+    if len(_yin_cagri) == 1:
+        return "TÜFE %31,75 seviyesinde ve ve çekirdek sabit.", "@cf/sahte"
+    return "TÜFE %31,75 seviyesinde, çekirdek sabit.", "@cf/sahte"
+
+
+yorumcu._cf_cagir = _yin_taklit
+_my, _mdl, _sby, _ham = yorumcu.yorumla(_UZUN)
+sina("yineleme sonrasi IKINCI deneme yapiliyor", len(_yin_cagri) == 2)
+sina("ikinci deneme temizse metin doner", bool(_my))
+sina("ret sebebi kalmiyor", _sby == "")
+sina("ikinci yonerge YINELENEN kelimeyi adiyla soyluyor",
+     len(_yin_cagri) == 2 and '"ve"' in _yin_cagri[1])
+sina("ilk yonergede duzeltme YOK",
+     "REDDEDİLDİ" not in _yin_cagri[0])
+
+# SONSUZ DONGU OLMAMALI: ikinci deneme de yinelerse RED.
+_yin_cagri.clear()
+
+
+def _hep_yineler(girdi, sistem):
+    _yin_cagri.append(sistem)
+    return "TÜFE %31,75 seviyesinde ve ve sabit.", "@cf/sahte"
+
+
+yorumcu._cf_cagir = _hep_yineler
+_my2, _m2d, _sby2, _h2 = yorumcu.yorumla(_UZUN)
+sina("ikinci deneme de yinelerse EN FAZLA iki cagri",
+     len(_yin_cagri) == 2)
+sina("ikinci deneme de yinelerse reddediliyor", _my2 == "")
+sina("ret sebebi kelimeyi adiyla soyluyor",
+     _sby2.startswith("yinelenen kelime:") and "ve" in _sby2)
+
+# TEK KAYNAK: yayin korumasi AYNI deseni kullanmali. Iki yerde
+# ayri yazilmis bir desen sessizce ayrisir ve iki kapi FARKLI seyi
+# elerdi.
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parents[2] / "site"))
+import test_yinelenen_kelime as _yk                 # noqa: E402
+
+sina("yayin korumasi URETIM desenini kullaniyor",
+     _yk.DESEN is yorumcu.YINELENEN_KELIME)
+
+# ATILLIK KONTROLU: desen gercekten eliyor mu.
+sina("desen ardisik tekrari buluyor",
+     bool(yorumcu.YINELENEN_KELIME.search("maliyet ve ve vergi")))
+sina("desen tek harfi tekrar saymiyor",
+     not yorumcu.YINELENEN_KELIME.search("a a b"))
+sina("desen mesru metni elemiyor",
+     not yorumcu.YINELENEN_KELIME.search("maliyet ve vergi kalemleri"))
+
 import inspect as _inspect  # noqa: E402
 _kaynak = _inspect.getsource(yorumcu)
 _agac = _ast.parse(_kaynak)

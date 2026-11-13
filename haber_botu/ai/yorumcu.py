@@ -1161,6 +1161,17 @@ def saglayici() -> str:
 #:
 #: OLCUT: model KURALI cigniyorsa soylenince duzeltebilir; icerik
 #: yanlissa ikinci deneme yalnizca ikinci bir yanlis uretir.
+#: ARDISIK AYNI KELIME. En az iki harf: "bir bir" gercek bir tekrar,
+#: tek harfli yineleme (madde isareti, tablo cizgisi) degil.
+#:
+#: TEK KAYNAK: `site/test_yinelenen_kelime.py` ayni deseni BURADAN
+#: okuyor. Iki yerde ayri yazilmis bir desen sessizce ayrisirdi ve
+#: uretim kapisi ile yayin korumasi FARKLI seyi elerdi -- bu depoda
+#: tam o kusur bir kez olculup kayda gecti ("ayni karari veren iki
+#: liste").
+YINELENEN_KELIME = re.compile(
+    r"\b([0-9A-Za-zÇĞİÖŞÜçğıöşü]{2,})\s+\1\b")
+
 _DUZELTME = {
     "sayi": (
         "ÖNCEKİ DENEMEN REDDEDİLDİ. Şu sayılar girdide YOK: "
@@ -1185,6 +1196,11 @@ _DUZELTME = {
     "cumle": (
         "ÖNCEKİ DENEMEN REDDEDİLDİ: {ayrinti} cümle yazdın.\n"
         "Sınır AŞILAMAZ. Daha az şey anlat, cümleyi bölme."),
+    "yinelenen": (
+        "ÖNCEKİ DENEMEN REDDEDİLDİ: \"{ayrinti}\" kelimesini arka "
+        "arkaya iki kez yazdın.\n"
+        "Cümleyi yeniden kur; hiçbir kelime kendinden hemen sonra "
+        "tekrar etmesin."),
     "yasak": (
         "ÖNCEKİ DENEMEN REDDEDİLDİ: yasak ifade kullandın "
         "({ayrinti}).\n"
@@ -1363,6 +1379,30 @@ def yorumla(girdi: str, sistem_ozel: str = "",
                        _ikinci=True)
     if m:
         return "", model, f"cop cikti: {m}", metin
+
+    # --- 0b. ARDISIK YINELENEN KELIME ---
+    #
+    # NEDEN URETIM ANINDA: ayni kusuru yayindaki metinde arayan bir
+    # koruma var (`site/test_yinelenen_kelime.py`) ama o URETIMDEN
+    # ONCE kosuyor. Bozuk cumle depoya bir kez girdiginde hat kendini
+    # onaramiyor: koruma, duzeltecek adimi arkasinda birakip
+    # KILITLIYOR.
+    #
+    # OLCULDU (2026-11-12/13): tek bir sayfada "maliyet ve ve"
+    # olustu ve dagitim 33 kosu boyunca durdu. O ornegin sebebi ozet
+    # KIRPMASIYDI ve orada duzeltildi (`yayin._kisalt`), ama ayni
+    # kusur modelin KENDI metninden de gelebilir -- o zaman kirpma
+    # duzeltmesi hicbir sey yapmaz ve kilit tekrarlanir.
+    #
+    # Burada elenen metin depoya HIC girmiyor; kapi da digerleriyle
+    # ayni tek-atislik yeniden deneme yolunu kullaniyor.
+    _yin = YINELENEN_KELIME.search(metin)
+    if _yin and not _ikinci:
+        return yorumla(girdi, _ikinci=True,
+                       sistem_ozel=sistem + _duzeltme(
+                           "yinelenen", _yin.group(1)))
+    if _yin:
+        return "", model, f"yinelenen kelime: {_yin.group(1)}", metin
 
     # --- 1. sayi denetimi ---
     kacak = sayi_denetimi(metin, girdi)
