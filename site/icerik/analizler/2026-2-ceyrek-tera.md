@@ -1,7 +1,7 @@
 ---
 slug: tera-2026-2-ceyrek
 baslik: TERA YATIRIM MENKUL DEĞERLER A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %57,4 artması, faaliyet kârının %1003,6 yükselmesine ve net kârın %102,7 artmasına paralel olarak özkaynak ve aktif toplamının da sırasıyla %379,8 ve %346,8 artmasını tetiklemiştir; bu büyüme net borcun -146,86 milyar TL'ye (önceki -10,56 milyar TL) gerilemesiyle özkaynak-özkaynak oranının…
+ozet: Hasılatın %57,4 artması, faaliyet kârının %1003,6 yükselmesine ve net kârın %102,7 artmasına paralel olarak özkaynak ve aktif toplamının da sırasıyla %379,8 ve %346,8 artmasını tetiklemiştir; bu büyüme net borcun -146,86 milyar TL'ye (önceki -10,56 milyar TL) gerilemesiyle özkaynak-özkaynak…
 sirket: TERA YATIRIM MENKUL DEĞERLER A.Ş.
 kod: TERA
 donem: 2026 2. çeyrek

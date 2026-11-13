@@ -1,7 +1,7 @@
 ---
 slug: derhl-2026-2-ceyrek
 baslik: DERLÜKS YATIRIM HOLDİNG A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %9,9 düşmesi, brüt kârın %2,9 artmasıyla birlikte brüt kâr marjının %28,1 seviyesinde kalması, maliyetlerin daha düşük bir oranda artmasına işaret eder; bu durum, faaliyet kârının %3,1 gerilemesi ve FAVÖK'ün %2,4 azalmasıyla birlikte, net kârın hâlâ düşük bir seviyede (%0,6) kalmasına rağm…
+ozet: Hasılatın %9,9 düşmesi, brüt kârın %2,9 artmasıyla birlikte brüt kâr marjının %28,1 seviyesinde kalması, maliyetlerin daha düşük bir oranda artmasına işaret eder; bu durum, faaliyet kârının %3,1 gerilemesi ve FAVÖK'ün %2,4 azalmasıyla birlikte, net kârın hâlâ düşük bir seviyede (%0,6) kalmasına…
 sirket: DERLÜKS YATIRIM HOLDİNG A.Ş.
 kod: DERHL
 donem: 2026 2. çeyrek

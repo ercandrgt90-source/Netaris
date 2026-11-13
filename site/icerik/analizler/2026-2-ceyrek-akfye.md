@@ -1,7 +1,7 @@
 ---
 slug: akfye-2026-2-ceyrek
 baslik: AKFEN YENİLENEBİLİR ENERJİ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat 3,42 milyar TL'ye yükselirken net kâr 1,40 milyar TL'ye artmış, bu artış faaliyet nakit akışının 0,28 milyar TL'den 1,18 milyar TL'ye yükselmesiyle paralel bir şekilde gerçekleşmiştir; aynı dönemde aktif toplamı 86,44 milyar TL'ye, özkaynak ise 69,28 milyar TL'ye çıkarak varlıkların büyük bi…
+ozet: Hasılat 3,42 milyar TL'ye yükselirken net kâr 1,40 milyar TL'ye artmış, bu artış faaliyet nakit akışının 0,28 milyar TL'den 1,18 milyar TL'ye yükselmesiyle paralel bir şekilde gerçekleşmiştir; aynı dönemde aktif toplamı 86,44 milyar TL'ye, özkaynak ise 69,28 milyar TL'ye çıkarak varlıkların büyük…
 sirket: AKFEN YENİLENEBİLİR ENERJİ A.Ş.
 kod: AKFYE
 donem: 2026 2. çeyrek

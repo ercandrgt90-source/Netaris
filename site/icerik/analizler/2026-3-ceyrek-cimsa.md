@@ -1,7 +1,7 @@
 ---
 slug: cimsa-2026-3-ceyrek
 baslik: ÇİMSA ÇİMENTO SANAYİ VE TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %32,7 artması brüt kârın %28,9 yükselmesine paralel olarak, brüt kâr marjının %20,9 seviyesinde sektör medyanının (%21,3) altında kalması, satış hacmindeki artışın kâr oranını tam olarak yansıtamadığını gösteriyor; net kârın %39,7 artması ise faaliyet kârındaki %40,5 artışla tutarlı bir şe…
+ozet: Hasılatın %32,7 artması brüt kârın %28,9 yükselmesine paralel olarak, brüt kâr marjının %20,9 seviyesinde sektör medyanının (%21,3) altında kalması, satış hacmindeki artışın kâr oranını tam olarak yansıtamadığını gösteriyor; net kârın %39,7 artması ise faaliyet kârındaki %40,5 artışla tutarlı bir…
 sirket: ÇİMSA ÇİMENTO SANAYİ VE TİCARET A.Ş.
 kod: CIMSA
 donem: 2026 3. çeyrek

@@ -1,7 +1,7 @@
 ---
 slug: ayen-2026-2-ceyrek
 baslik: AYEN ENERJİ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat ve net kâr birlikte düşmüş; gelirde %53,3 azalma, net kârda %44,3 azalma, bu da net kâr marjının %11,3 seviyesinde sabit kalmasına yol açmış. Özkaynak ve aktif toplamı artarken net borç neredeyse aynı kalmış; özkaynak %28,2, aktif toplam %17,1 artış, net borç %0,5 azalış, bu durum borç/özkay…
+ozet: Hasılat ve net kâr birlikte düşmüş; gelirde %53,3 azalma, net kârda %44,3 azalma, bu da net kâr marjının %11,3 seviyesinde sabit kalmasına yol açmış. Özkaynak ve aktif toplamı artarken net borç neredeyse aynı kalmış; özkaynak %28,2, aktif toplam %17,1 artış, net borç %0,5 azalış, bu durum…
 sirket: AYEN ENERJİ A.Ş.
 kod: AYEN
 donem: 2026 2. çeyrek

@@ -1,7 +1,7 @@
 ---
 slug: afyon-2026-3-ceyrek
 baslik: AFYON ÇİMENTO SANAYİ T.A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %34,8 artması brüt kârın %53,1 yükselmesine yol açarak brüt kâr marjının %28,4 seviyesine, sektör medyanının %21,3'ünün üzerinde çıkmasını sağladı; brüt kârdaki artış ise faaliyet kârını %34,7 artırıp FAVÖK'ün %20,3 yükselmesine, net kârın %116,5 artarak %11,9 net kâr marjına ulaşmasına ze…
+ozet: Hasılatın %34,8 artması brüt kârın %53,1 yükselmesine yol açarak brüt kâr marjının %28,4 seviyesine, sektör medyanının %21,3'ünün üzerinde çıkmasını sağladı; brüt kârdaki artış ise faaliyet kârını %34,7 artırıp FAVÖK'ün %20,3 yükselmesine, net kârın %116,5 artarak %11,9 net kâr marjına ulaşmasına…
 sirket: AFYON ÇİMENTO SANAYİ T.A.Ş.
 kod: AFYON
 donem: 2026 3. çeyrek

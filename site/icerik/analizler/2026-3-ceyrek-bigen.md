@@ -1,7 +1,7 @@
 ---
 slug: bigen-2026-3-ceyrek
 baslik: BİRLEŞİM GRUP ENERJİ YATIRIMLARI A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %24,0 düşmesi net kârın %176,3 artmasıyla birlikte, faaliyet nakit akışının %168,0 yükselmesi net kâr marjının %19,0'a (sektör medyanı %9,0) ve özkaynak kârlılığının %1,8'e (sektör medyanı %0,7) yükselmesine paralel gerçekleşti; aynı zamanda aktif toplamındaki %7,6 artış özkaynakta %12,0 a…
+ozet: Hasılatın %24,0 düşmesi net kârın %176,3 artmasıyla birlikte, faaliyet nakit akışının %168,0 yükselmesi net kâr marjının %19,0'a (sektör medyanı %9,0) ve özkaynak kârlılığının %1,8'e (sektör medyanı %0,7) yükselmesine paralel gerçekleşti; aynı zamanda aktif toplamındaki %7,6 artış özkaynakta %12,0…
 sirket: BİRLEŞİM GRUP ENERJİ YATIRIMLARI A.Ş.
 kod: BIGEN
 donem: 2026 3. çeyrek

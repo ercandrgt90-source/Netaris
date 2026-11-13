@@ -1,7 +1,7 @@
 ---
 slug: beste-2026-2-ceyrek
 baslik: BEST BRANDS GRUP ENERJİ YATIRIM A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Net kârın %285,4'e çıkan marjı, aynı dönemde hasılatın sabit kalması ve faaliyet nakit akışının %0,02 milyar azalmasıyla birlikte, özkaynak kârlılığının %6,6'ya yükselmesine ve net borcun negatif (nakit fazlası) –%0,28'e gerilemesine paralel olarak gerçekleşti; bu durum özkaynakların %5,02 milyar üz…
+ozet: Net kârın %285,4'e çıkan marjı, aynı dönemde hasılatın sabit kalması ve faaliyet nakit akışının %0,02 milyar azalmasıyla birlikte, özkaynak kârlılığının %6,6'ya yükselmesine ve net borcun negatif (nakit fazlası) –%0,28'e gerilemesine paralel olarak gerçekleşti; bu durum özkaynakların %5,02 milyar…
 sirket: BEST BRANDS GRUP ENERJİ YATIRIM A.Ş.
 kod: BESTE
 donem: 2026 2. çeyrek

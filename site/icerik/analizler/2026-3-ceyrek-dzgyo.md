@@ -1,7 +1,7 @@
 ---
 slug: dzgyo-2026-3-ceyrek
 baslik: DENİZ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %204,9 artması brüt kârın %52,6 yükselmesine yol açarken, brüt kâr marjı %43,8 seviyesinde sabit kalarak kârın satışlara oranının yüksek kaldığını gösteriyor; ancak faaliyet kârı ve FAVÖK'teki %87,0 ve %83,2 düşüşler, net kârın %186,5 gerilemesiyle birlikte kâr marjının –%27,4'e sürüklenme…
+ozet: Hasılatın %204,9 artması brüt kârın %52,6 yükselmesine yol açarken, brüt kâr marjı %43,8 seviyesinde sabit kalarak kârın satışlara oranının yüksek kaldığını gösteriyor; ancak faaliyet kârı ve FAVÖK'teki %87,0 ve %83,2 düşüşler, net kârın %186,5 gerilemesiyle birlikte kâr marjının –%27,4'e…
 sirket: DENİZ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: DZGYO
 donem: 2026 3. çeyrek

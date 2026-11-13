@@ -1,7 +1,7 @@
 ---
 slug: ismen-2026-3-ceyrek
 baslik: İŞ YATIRIM MENKUL DEĞERLER A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %55,5 artması, faaliyet kârının %17,2 yükselmesine paralel olarak net kârın %35,4 artmasına yol açmış; bu kâr artışı özkaynakların %46,4 büyümesiyle desteklenirken, aktif toplamındaki %75,5 artışın büyük bir kısmı net borcun negatiften pozitif 1,45 milyar TL'ye geçmesiyle finanse edilmişti…
+ozet: Hasılatın %55,5 artması, faaliyet kârının %17,2 yükselmesine paralel olarak net kârın %35,4 artmasına yol açmış; bu kâr artışı özkaynakların %46,4 büyümesiyle desteklenirken, aktif toplamındaki %75,5 artışın büyük bir kısmı net borcun negatiften pozitif 1,45 milyar TL'ye geçmesiyle finanse…
 sirket: İŞ YATIRIM MENKUL DEĞERLER A.Ş.
 kod: ISMEN
 donem: 2026 3. çeyrek

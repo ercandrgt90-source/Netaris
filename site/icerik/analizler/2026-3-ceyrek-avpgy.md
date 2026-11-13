@@ -1,7 +1,7 @@
 ---
 slug: avpgy-2026-3-ceyrek
 baslik: AVRUPAKENT GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %48,5 düşmesi, brüt kârın %15,8 artmasıyla birlikte brüt kâr marjının %64,3 seviyesinde sabit kalması, satış hacmindeki azalma karşısında kârlı projelerin payının yükseldiğini gösteriyor; bu durum faaliyet ve net kârların da sırasıyla %6,6 ve %29,6 düşmesine rağmen net kâr marjının %48,9 i…
+ozet: Hasılatın %48,5 düşmesi, brüt kârın %15,8 artmasıyla birlikte brüt kâr marjının %64,3 seviyesinde sabit kalması, satış hacmindeki azalma karşısında kârlı projelerin payının yükseldiğini gösteriyor; bu durum faaliyet ve net kârların da sırasıyla %6,6 ve %29,6 düşmesine rağmen net kâr marjının %48,9…
 sirket: AVRUPAKENT GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: AVPGY
 donem: 2026 3. çeyrek

@@ -1,7 +1,7 @@
 ---
 slug: dokta-2026-2-ceyrek
 baslik: DÖKTAŞ DÖKÜMCÜLÜK TİCARET VE SANAYİ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %32,5 artması brüt kârı %80,8 yükselterek brüt kâr marjının %10,9 seviyesine ulaşmasını sağladı; brüt kârdaki bu artış, FAVÖK'ün %93,8 yükselmesine ve negatiften pozitif 0,04 milyar TL'ye dönüşen faaliyet kârına yansıyıp net kârın da -0,51 milyar TL'den 0,10 milyar TL'ye geçmesini tetikled…
+ozet: Hasılatın %32,5 artması brüt kârı %80,8 yükselterek brüt kâr marjının %10,9 seviyesine ulaşmasını sağladı; brüt kârdaki bu artış, FAVÖK'ün %93,8 yükselmesine ve negatiften pozitif 0,04 milyar TL'ye dönüşen faaliyet kârına yansıyıp net kârın da -0,51 milyar TL'den 0,10 milyar TL'ye geçmesini…
 sirket: DÖKTAŞ DÖKÜMCÜLÜK TİCARET VE SANAYİ A.Ş.
 kod: DOKTA
 donem: 2026 2. çeyrek

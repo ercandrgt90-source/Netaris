@@ -1,7 +1,7 @@
 ---
 slug: vrgyo-2026-3-ceyrek
 baslik: VERA KONSEPT GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %111,0 artması, aktif toplamının %14,3 yükselmesiyle paralel bir büyüme sağlarken, aynı dönemde net kârın %234,9 düşmesi net borcun %828,4 artmasıyla birlikte özkaynak kârlılığının -%2,3'e gerilemesine yol açtı; bu da özkaynakların sadece %8,8 artmasına rağmen borç/özkaynak oranının sektör…
+ozet: Hasılatın %111,0 artması, aktif toplamının %14,3 yükselmesiyle paralel bir büyüme sağlarken, aynı dönemde net kârın %234,9 düşmesi net borcun %828,4 artmasıyla birlikte özkaynak kârlılığının -%2,3'e gerilemesine yol açtı; bu da özkaynakların sadece %8,8 artmasına rağmen borç/özkaynak oranının…
 sirket: VERA KONSEPT GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: VRGYO
 donem: 2026 3. çeyrek

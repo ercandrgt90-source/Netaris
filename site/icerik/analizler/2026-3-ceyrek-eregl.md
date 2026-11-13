@@ -1,7 +1,7 @@
 ---
 slug: eregl-2026-3-ceyrek
 baslik: EREĞLİ DEMİR VE ÇELİK FABRİKALARI T.A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %34,6 artması, brüt kârın %68,7 yükselmesine yol açarak brüt kâr marjının %9,9 seviyesinde kalmasına rağmen sektör medyanı %21,3'ün altında kalmasına neden oldu; bu artış aynı zamanda faaliyet kârının %115,6 ve net kârın %239,4 artmasını sağlayarak özkaynak kârlılığını %0,6'dan %2,5 sektör…
+ozet: Hasılatın %34,6 artması, brüt kârın %68,7 yükselmesine yol açarak brüt kâr marjının %9,9 seviyesinde kalmasına rağmen sektör medyanı %21,3'ün altında kalmasına neden oldu; bu artış aynı zamanda faaliyet kârının %115,6 ve net kârın %239,4 artmasını sağlayarak özkaynak kârlılığını %0,6'dan %2,5…
 sirket: EREĞLİ DEMİR VE ÇELİK FABRİKALARI T.A.Ş.
 kod: EREGL
 donem: 2026 3. çeyrek

@@ -1,7 +1,7 @@
 ---
 slug: clebi-2026-2-ceyrek
 baslik: ÇELEBİ HAVA SERVİSİ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %32,3 oranındaki brüt kâr marjı artışı, brüt kârın %1,89 milyar TL'ye yükselmesine ve bunun sonucunda FAVÖK ile faaliyet kârının sırasıyla %1,62 milyar TL ve %1,32 milyar TL'ye çıkmasına paralel olarak yansımıştır; net kâr da %0,63 milyar TL'ye çıkarak net kâr marjını %10,8'e yükseltmiştir…
+ozet: Hasılatın %32,3 oranındaki brüt kâr marjı artışı, brüt kârın %1,89 milyar TL'ye yükselmesine ve bunun sonucunda FAVÖK ile faaliyet kârının sırasıyla %1,62 milyar TL ve %1,32 milyar TL'ye çıkmasına paralel olarak yansımıştır; net kâr da %0,63 milyar TL'ye çıkarak net kâr marjını %10,8'e…
 sirket: ÇELEBİ HAVA SERVİSİ A.Ş.
 kod: CLEBI
 donem: 2026 2. çeyrek

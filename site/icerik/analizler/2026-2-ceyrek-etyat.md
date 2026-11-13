@@ -1,7 +1,7 @@
 ---
 slug: etyat-2026-2-ceyrek
 baslik: EURO TREND YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat ve brüt kâr aynı seviyede kalırken, brüt kâr marjının %43,1 olması sektör medyanının %45,1 altında, brüt kârın satışa oranının hafif gerilediğini gösterir; net kârın negatiften sıfıra çıkması net kâr marjının %19,9'a yükselmesine ve net kâr marjının sektör medyanı %14,7'nin üzerindeki seviye…
+ozet: Hasılat ve brüt kâr aynı seviyede kalırken, brüt kâr marjının %43,1 olması sektör medyanının %45,1 altında, brüt kârın satışa oranının hafif gerilediğini gösterir; net kârın negatiften sıfıra çıkması net kâr marjının %19,9'a yükselmesine ve net kâr marjının sektör medyanı %14,7'nin üzerindeki…
 sirket: EURO TREND YATIRIM ORTAKLIĞI A.Ş.
 kod: ETYAT
 donem: 2026 2. çeyrek

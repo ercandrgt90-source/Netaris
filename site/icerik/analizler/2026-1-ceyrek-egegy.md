@@ -1,7 +1,7 @@
 ---
 slug: egegy-2026-1-ceyrek
 baslik: EGEYAPI AVRUPA GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılatın %40,4 oranındaki brüt kâr marjı sektör medyanının (%51,4) altında kalmasına rağmen, brüt kârın %1,12 milyar TL'ye yükselmesi net kâr marjının %16,1'e (sektör medyanı %14,3) çıkmasını ve özkaynak kârlılığının %5,6'ya (sektör medyanı %0,4) yükselmesini destekledi; bu artışlar özkaynakların 2…
+ozet: Hasılatın %40,4 oranındaki brüt kâr marjı sektör medyanının (%51,4) altında kalmasına rağmen, brüt kârın %1,12 milyar TL'ye yükselmesi net kâr marjının %16,1'e (sektör medyanı %14,3) çıkmasını ve özkaynak kârlılığının %5,6'ya (sektör medyanı %0,4) yükselmesini destekledi; bu artışlar özkaynakların…
 sirket: EGEYAPI AVRUPA GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: EGEGY
 donem: 2026 1. çeyrek

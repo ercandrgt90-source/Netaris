@@ -1,7 +1,7 @@
 ---
 slug: sumas-2026-2-ceyrek
 baslik: SUMAŞ SUNİ TAHTA VE MOBİLYA SANAYİİ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat ve brüt kâr birlikte yükselirken, brüt kâr marjı %15,0 seviyesinde sektör medyanının (%14,1) üzerindedir; bu artışın ardından faaliyet kârı negatif (-%1,0) ve net kâr da -%18,1'e gerileyerek kârlılık göstergeleri (net kâr marjı, özkaynak kârlılığı) sektör ortalamalarının çok altında kalmıştı…
+ozet: Hasılat ve brüt kâr birlikte yükselirken, brüt kâr marjı %15,0 seviyesinde sektör medyanının (%14,1) üzerindedir; bu artışın ardından faaliyet kârı negatif (-%1,0) ve net kâr da -%18,1'e gerileyerek kârlılık göstergeleri (net kâr marjı, özkaynak kârlılığı) sektör ortalamalarının çok altında…
 sirket: SUMAŞ SUNİ TAHTA VE MOBİLYA SANAYİİ A.Ş.
 kod: SUMAS
 donem: 2026 2. çeyrek

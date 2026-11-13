@@ -1,7 +1,7 @@
 ---
 slug: elite-2026-2-ceyrek
 baslik: ELİTE NATUREL ORGANİK GIDA SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %39,7 brüt kâr marjı ile birlikte yükselmesi brüt kârda da artışa yol açarken, net kâr marjının %4,0 seviyesine gerilemesi net kârın önceki dönemdeki %0,21 milyar'dan %0,05 milyar'a düşmesine neden oldu; bu durum faaliyet kârı ve FAVÖK'ün ise hasılat artışına paralel olarak hafif artış gös…
+ozet: Hasılatın %39,7 brüt kâr marjı ile birlikte yükselmesi brüt kârda da artışa yol açarken, net kâr marjının %4,0 seviyesine gerilemesi net kârın önceki dönemdeki %0,21 milyar'dan %0,05 milyar'a düşmesine neden oldu; bu durum faaliyet kârı ve FAVÖK'ün ise hasılat artışına paralel olarak hafif artış…
 sirket: ELİTE NATUREL ORGANİK GIDA SANAYİ VE TİCARET A.Ş.
 kod: ELITE
 donem: 2026 2. çeyrek

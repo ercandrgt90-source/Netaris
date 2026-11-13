@@ -1,7 +1,7 @@
 ---
 slug: begyo-2026-2-ceyrek
 baslik: BATI EGE GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Brüt kârın %62,2'ye yükselmesi, hasılatın aynı seviyede kalmasına rağmen brüt kâr marjının sektör medyanının (%51,4) üzerinde olmasını sağladı; bu artış, faaliyet kârı ve FAVÖK'ün aynı tutarlarda kalmasına rağmen net kârın -0,34 milyar TL'ye (önceki -0,02 milyar TL) derinleşmesinde, muhtemelen yükse…
+ozet: Brüt kârın %62,2'ye yükselmesi, hasılatın aynı seviyede kalmasına rağmen brüt kâr marjının sektör medyanının (%51,4) üzerinde olmasını sağladı; bu artış, faaliyet kârı ve FAVÖK'ün aynı tutarlarda kalmasına rağmen net kârın -0,34 milyar TL'ye (önceki -0,02 milyar TL) derinleşmesinde, muhtemelen…
 sirket: BATI EGE GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: BEGYO
 donem: 2026 2. çeyrek

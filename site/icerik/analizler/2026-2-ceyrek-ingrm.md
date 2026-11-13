@@ -1,7 +1,7 @@
 ---
 slug: ingrm-2026-2-ceyrek
 baslik: INGRAM MİCRO BİLİŞİM SİSTEMLERİ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılattaki büyümeye brüt kâr ve faaliyet kârı aynı yönde eşlik etti, ancak brüt kâr marjı sektör medyanının altında kaldı; bu, kârın marj genişlemesinden değil hacimden geldiği bir yapıya işaret eder ve net kâr marjını medyanın üzerine taşıyan tutar, önceki dönemin zararından pozitife dönüşle oluşt…
+ozet: Hasılattaki büyümeye brüt kâr ve faaliyet kârı aynı yönde eşlik etti, ancak brüt kâr marjı sektör medyanının altında kaldı; bu, kârın marj genişlemesinden değil hacimden geldiği bir yapıya işaret eder ve net kâr marjını medyanın üzerine taşıyan tutar, önceki dönemin zararından pozitife dönüşle…
 sirket: INGRAM MİCRO BİLİŞİM SİSTEMLERİ A.Ş.
 kod: INGRM
 donem: 2026 2. çeyrek

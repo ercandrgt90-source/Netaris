@@ -1,7 +1,7 @@
 ---
 slug: escom-2026-2-ceyrek
 baslik: ESCORT TEKNOLOJİ YATIRIM A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %100 brüt kâr marjı ile eşleşmesi, brüt kârın aynı tutarda artması ve bunun sonucunda faaliyet kârı ile FAVÖK'ün de önceki dönemdeki negatif değerlerden pozitif 0,94 milyar TL'ye yükselmesine yol açtığını gösterir; bu kâr artışı net kârı %46,9'luk marjla 0,35 milyar TL'ye çıkarırken özkayn…
+ozet: Hasılatın %100 brüt kâr marjı ile eşleşmesi, brüt kârın aynı tutarda artması ve bunun sonucunda faaliyet kârı ile FAVÖK'ün de önceki dönemdeki negatif değerlerden pozitif 0,94 milyar TL'ye yükselmesine yol açtığını gösterir; bu kâr artışı net kârı %46,9'luk marjla 0,35 milyar TL'ye çıkarırken…
 sirket: ESCORT TEKNOLOJİ YATIRIM A.Ş.
 kod: ESCOM
 donem: 2026 2. çeyrek

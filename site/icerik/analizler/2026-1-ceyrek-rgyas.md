@@ -1,7 +1,7 @@
 ---
 slug: rgyas-2026-1-ceyrek
 baslik: RÖNESANS GAYRİMENKUL YATIRIM A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılat 9,01 milyar TL'ye yükselirken net kâr 7,32 milyar TL'ye artmış; bu kâr artışı özkaynakların 163,93 milyar TL'ye, aktif toplamının 238,98 milyar TL'ye ve net borcun 24,08 milyar TL'ye (önceki 20,44 milyar TL) yükselmesine eşlik etmiştir; faaliyet nakit akışı ise –0,08 milyar TL'den 3,60 milya…
+ozet: Hasılat 9,01 milyar TL'ye yükselirken net kâr 7,32 milyar TL'ye artmış; bu kâr artışı özkaynakların 163,93 milyar TL'ye, aktif toplamının 238,98 milyar TL'ye ve net borcun 24,08 milyar TL'ye (önceki 20,44 milyar TL) yükselmesine eşlik etmiştir; faaliyet nakit akışı ise –0,08 milyar TL'den 3,60…
 sirket: RÖNESANS GAYRİMENKUL YATIRIM A.Ş.
 kod: RGYAS
 donem: 2026 1. çeyrek

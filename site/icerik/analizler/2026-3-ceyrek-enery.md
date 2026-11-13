@@ -1,7 +1,7 @@
 ---
 slug: enery-2026-3-ceyrek
 baslik: ENERYA ENERJİ A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %68,2 artması net kârın %62,9 yükselmesine paralel olarak özkaynakların %43,4 artması ve aktif toplamının %35,0 genişlemesiyle birlikte şirketin büyüklüğü arttı; bu büyüme net kâr marjının %26,8 (sektör medyanı %8,8) ve özkaynak kârlılığının %1,7 (sektör medyanı %1,0) gibi kârlılık gösterg…
+ozet: Hasılatın %68,2 artması net kârın %62,9 yükselmesine paralel olarak özkaynakların %43,4 artması ve aktif toplamının %35,0 genişlemesiyle birlikte şirketin büyüklüğü arttı; bu büyüme net kâr marjının %26,8 (sektör medyanı %8,8) ve özkaynak kârlılığının %1,7 (sektör medyanı %1,0) gibi kârlılık…
 sirket: ENERYA ENERJİ A.Ş.
 kod: ENERY
 donem: 2026 3. çeyrek

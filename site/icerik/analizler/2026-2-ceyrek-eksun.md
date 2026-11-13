@@ -1,7 +1,7 @@
 ---
 slug: eksun-2026-2-ceyrek
 baslik: EKSUN GIDA TARIM SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %4,6 artması brüt kârın %16,9 yükselmesine paralel olarak, brüt kâr marjının %12,2 seviyesinde kalması brüt kârın hasılat artışından daha hızlı büyüdüğünü gösteriyor; bu durum faaliyet kârının %1365,5 artması ve FAVÖK'ün %102,9 yükselmesiyle birlikte, kâr kalemlerinin hasılat artışına göre…
+ozet: Hasılatın %4,6 artması brüt kârın %16,9 yükselmesine paralel olarak, brüt kâr marjının %12,2 seviyesinde kalması brüt kârın hasılat artışından daha hızlı büyüdüğünü gösteriyor; bu durum faaliyet kârının %1365,5 artması ve FAVÖK'ün %102,9 yükselmesiyle birlikte, kâr kalemlerinin hasılat artışına…
 sirket: EKSUN GIDA TARIM SANAYİ VE TİCARET A.Ş.
 kod: EKSUN
 donem: 2026 2. çeyrek

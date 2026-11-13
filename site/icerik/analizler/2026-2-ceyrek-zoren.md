@@ -1,7 +1,7 @@
 ---
 slug: zoren-2026-2-ceyrek
 baslik: ZORLU ENERJİ ELEKTRİK ÜRETİM A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %23,8 düşmesiyle birlikte net kârın zarar seviyesi -2,75 milyar TL'ye yükselmesi, faaliyet nakit akışının %42,8 azalması ve yatırım harcamasının %71,4 düşmesiyle paralel bir azalmaya işaret ediyor; bu gelir kaybı özkaynakların %0,9 artmasına rağmen net borcun %13,9 yükselerek cari oranı 0,…
+ozet: Hasılatın %23,8 düşmesiyle birlikte net kârın zarar seviyesi -2,75 milyar TL'ye yükselmesi, faaliyet nakit akışının %42,8 azalması ve yatırım harcamasının %71,4 düşmesiyle paralel bir azalmaya işaret ediyor; bu gelir kaybı özkaynakların %0,9 artmasına rağmen net borcun %13,9 yükselerek cari oranı…
 sirket: ZORLU ENERJİ ELEKTRİK ÜRETİM A.Ş.
 kod: ZOREN
 donem: 2026 2. çeyrek

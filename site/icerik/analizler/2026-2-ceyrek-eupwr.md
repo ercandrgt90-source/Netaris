@@ -1,7 +1,7 @@
 ---
 slug: eupwr-2026-2-ceyrek
 baslik: EUROPOWER ENERJİ VE OTOMASYON TEKNOLOJİLERİ SANAYİ TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %25,8 brüt kâr marjıyla birlikte %2,6 milyar artması, brüt kârın yükselmesiyle faaliyet kârının %1,86 milyara, ardından FAVÖK'ün %2,12 milyara ve net kârın %0,59 milyara çıkmasını tetiklemiştir; bu kâr artışları özkaynakların %14,23 milyara yükselmesi ve aktif toplamının %26,25 milyara çık…
+ozet: Hasılatın %25,8 brüt kâr marjıyla birlikte %2,6 milyar artması, brüt kârın yükselmesiyle faaliyet kârının %1,86 milyara, ardından FAVÖK'ün %2,12 milyara ve net kârın %0,59 milyara çıkmasını tetiklemiştir; bu kâr artışları özkaynakların %14,23 milyara yükselmesi ve aktif toplamının %26,25 milyara…
 sirket: EUROPOWER ENERJİ VE OTOMASYON TEKNOLOJİLERİ SANAYİ TİCARET A.Ş.
 kod: EUPWR
 donem: 2026 2. çeyrek

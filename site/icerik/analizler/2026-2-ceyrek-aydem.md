@@ -1,7 +1,7 @@
 ---
 slug: aydem-2026-2-ceyrek
 baslik: AYDEM YENİLENEBİLİR ENERJİ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %23,7 artması, net kârın negatiften 4,56 milyar TL'ye yükselmesiyle birlikte özkaynakların %50,6 artarak 49,22 milyar TL'ye ulaşması, aktif toplamındaki %27,8 artışa paralel bir büyüme gösterdi; bu artış net borcun sadece %1,2 artmasıyla birlikte özkaynak-aktif oranının yükselmesine yol aç…
+ozet: Hasılatın %23,7 artması, net kârın negatiften 4,56 milyar TL'ye yükselmesiyle birlikte özkaynakların %50,6 artarak 49,22 milyar TL'ye ulaşması, aktif toplamındaki %27,8 artışa paralel bir büyüme gösterdi; bu artış net borcun sadece %1,2 artmasıyla birlikte özkaynak-aktif oranının yükselmesine yol…
 sirket: AYDEM YENİLENEBİLİR ENERJİ A.Ş.
 kod: AYDEM
 donem: 2026 2. çeyrek

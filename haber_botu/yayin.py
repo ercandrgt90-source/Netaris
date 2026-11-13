@@ -133,12 +133,43 @@ def _ozet_ayikla(govde: str) -> str:
 
 
 def _kisalt(metin: str, sinir: int = 300) -> str:
-    """Meta aciklama icin kirp -- cumle ortasinda kesmemeye calisir."""
+    """Meta aciklama icin kirp -- CUMLE, olmazsa KELIME sinirinda.
+
+    YEDEK YOL KELIMEYI BOLUYORDU -- OLCULDU, YAYINDAYDI (2026-11-12).
+
+    Cumle sonu bulunamayinca `kirpik.rstrip()` donuyordu, yani kesme
+    kelimenin ORTASINA denk gelebiliyordu. ALARKO sayfasinda tam bu
+    oldu:
+
+        govde  : "...rağmen maliyet ve vergi kalemlerindeki artışa..."
+        ozet   : "...rağmen maliyet ve ve…"
+
+    "vergi" kelimesi "ve"ye kirpildi ve onceki kelimeyle AYNI oldu.
+    `site/test_yinelenen_kelime.py` bunu dogru yakaladi ama o koruma
+    URETIMDEN ONCE kosuyor: sayfa depodaydi, hat kendini onaramiyordu
+    ve dagitim 33 kosu boyunca kilitli kaldi.
+
+    Yorum "cumle ortasinda kesmemeye calisir" diyordu; AKIS bunu
+    yalnizca cumle sonu BULUNDUGUNDA yapiyordu. Iddia ile davranis
+    ayrismisti.
+
+    Artik kesme her zaman bir SINIRDA: once cumle, yoksa kelime.
+    Kelime siniri da bulunamazsa (tek uzun kelime) ham kirpma kaliyor
+    -- orada bolunecek bir sinir zaten yok.
+    """
     if len(metin) <= sinir:
         return metin
     kirpik = metin[:sinir]
     son = max(kirpik.rfind(". "), kirpik.rfind("? "), kirpik.rfind("! "))
-    return (kirpik[: son + 1] if son > sinir * 0.5 else kirpik.rstrip()) + "…"
+    if son > sinir * 0.5:
+        return kirpik[: son + 1] + "…"
+    # KELIME SINIRI: yarim kelime birakmak hem anlamsiz hem de
+    # onceki kelimenin kopyasini uretebiliyor.
+    bosluk = kirpik.rfind(" ")
+    if bosluk > sinir * 0.5:
+        kirpik = kirpik[:bosluk]
+    # Kirpilan ucta kalan baglac/noktalama okuru yarim birakiyor.
+    return kirpik.rstrip().rstrip(",;:") + "…"
 
 
 def _frontmatter(

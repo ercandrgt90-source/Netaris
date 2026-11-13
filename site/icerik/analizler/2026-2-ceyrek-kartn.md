@@ -1,7 +1,7 @@
 ---
 slug: kartn-2026-2-ceyrek
 baslik: KARTONSAN KARTON SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %18,8 düşmesiyle brüt kâr negatiften azalan -0,20 milyar TL'ye, faaliyet kârı -0,30 milyar TL'ye ve FAVÖK -0,20 milyar TL'ye gerilemesi, satış hacmindeki azalışın karlılık kalemlerini aynı yönde etkilediğini gösteriyor; aynı zamanda net kârın -0,32 milyar TL'den 0,22 milyar TL'ye geçmesi,…
+ozet: Hasılatın %18,8 düşmesiyle brüt kâr negatiften azalan -0,20 milyar TL'ye, faaliyet kârı -0,30 milyar TL'ye ve FAVÖK -0,20 milyar TL'ye gerilemesi, satış hacmindeki azalışın karlılık kalemlerini aynı yönde etkilediğini gösteriyor; aynı zamanda net kârın -0,32 milyar TL'den 0,22 milyar TL'ye geçmesi…
 sirket: KARTONSAN KARTON SANAYİ VE TİCARET A.Ş.
 kod: KARTN
 donem: 2026 2. çeyrek

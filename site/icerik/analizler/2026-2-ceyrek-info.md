@@ -1,7 +1,7 @@
 ---
 slug: info-2026-2-ceyrek
 baslik: İNFO YATIRIM MENKUL DEĞERLER A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat 9,14 milyar TL'ye gerileyip önceki 27,36 milyar TL'den düşerken, faaliyet kârı 1,02 milyar TL'ye yükselerek önceki 0,48 milyar TL'den artmış ve bu artış net kârın 0,83 milyar TL'ye (önceki 0,17 milyar TL) yükselmesine paralel bir seyir izlemiştir; özkaynak da 4,13 milyar TL'ye (önceki 2,23 m…
+ozet: Hasılat 9,14 milyar TL'ye gerileyip önceki 27,36 milyar TL'den düşerken, faaliyet kârı 1,02 milyar TL'ye yükselerek önceki 0,48 milyar TL'den artmış ve bu artış net kârın 0,83 milyar TL'ye (önceki 0,17 milyar TL) yükselmesine paralel bir seyir izlemiştir; özkaynak da 4,13 milyar TL'ye (önceki 2,23…
 sirket: İNFO YATIRIM MENKUL DEĞERLER A.Ş.
 kod: INFO
 donem: 2026 2. çeyrek

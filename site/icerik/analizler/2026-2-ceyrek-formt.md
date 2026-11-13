@@ -1,7 +1,7 @@
 ---
 slug: formt-2026-2-ceyrek
 baslik: FORMET METAL VE CAM SANAYİ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat aynı kalırken brüt kâr iki katına yükselmiş, bu durum brüt kâr marjının %21,8'e (sektör medyanı %20,9) çıkmasıyla birlikte kârlılık artışının satış hacminden ziyade maliyet yapısındaki iyileşmeden kaynaklandığını gösteriyor; aynı zamanda faaliyet kârı ve FAVÖK negatiften pozitif seviyelere g…
+ozet: Hasılat aynı kalırken brüt kâr iki katına yükselmiş, bu durum brüt kâr marjının %21,8'e (sektör medyanı %20,9) çıkmasıyla birlikte kârlılık artışının satış hacminden ziyade maliyet yapısındaki iyileşmeden kaynaklandığını gösteriyor; aynı zamanda faaliyet kârı ve FAVÖK negatiften pozitif seviyelere…
 sirket: FORMET METAL VE CAM SANAYİ A.Ş.
 kod: FORMT
 donem: 2026 2. çeyrek

@@ -1,7 +1,7 @@
 ---
 slug: alka-2026-2-ceyrek
 baslik: ALKİM KAĞIT SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın 1,70 milyar TL'den 1,61 milyar TL'ye düşmesi brüt kârın 0,17 milyar TL'den 0,12 milyar TL'ye gerilemesine ve brüt kâr marjının %14,1 sektör medyanının altında %10,1'e inmesine yol açtı; bu düşüş faaliyet kârının negatif 0,03 milyar TL'ye kayması ve FAVÖK'ün 0,05 milyar TL'den 0,00 milyar T…
+ozet: Hasılatın 1,70 milyar TL'den 1,61 milyar TL'ye düşmesi brüt kârın 0,17 milyar TL'den 0,12 milyar TL'ye gerilemesine ve brüt kâr marjının %14,1 sektör medyanının altında %10,1'e inmesine yol açtı; bu düşüş faaliyet kârının negatif 0,03 milyar TL'ye kayması ve FAVÖK'ün 0,05 milyar TL'den 0,00 milyar…
 sirket: ALKİM KAĞIT SANAYİ VE TİCARET A.Ş.
 kod: ALKA
 donem: 2026 2. çeyrek

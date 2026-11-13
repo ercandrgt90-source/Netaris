@@ -1,7 +1,7 @@
 ---
 slug: bayrk-2026-2-ceyrek
 baslik: BAYRAK EBT TABAN SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın düşmesi %6,3 (0,16 → 0,15 milyar TL) ardından brüt kârın artması (%39,2 brüt kâr marjı sektöre göre yüksek) özkaynak artışı (0,07 → 0,24 milyar TL) ve net borçtaki hafif artış (0,22 → 0,24 milyar TL) ile birlikte borç/özkaynak oranının %1,00'a yükselmesi, likiditeyi gösteren cari oranın (0…
+ozet: Hasılatın düşmesi %6,3 (0,16 → 0,15 milyar TL) ardından brüt kârın artması (%39,2 brüt kâr marjı sektöre göre yüksek) özkaynak artışı (0,07 → 0,24 milyar TL) ve net borçtaki hafif artış (0,22 → 0,24 milyar TL) ile birlikte borç/özkaynak oranının %1,00'a yükselmesi, likiditeyi gösteren cari oranın…
 sirket: BAYRAK EBT TABAN SANAYİ VE TİCARET A.Ş.
 kod: BAYRK
 donem: 2026 2. çeyrek

@@ -1,7 +1,7 @@
 ---
 slug: arase-2026-2-ceyrek
 baslik: DOĞU ARAS ENERJİ YATIRIMLARI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %6,4 düşmesi net kârın %3,8 artmasıyla birlikte özkaynakların %42,0 yükselmesi, özkaynak artışının özkaynak kârlılığını %4,6 seviyesine taşıyarak sektör medyanının çok üzerinde tutmasıyla ilişkilidir; aynı zamanda aktif toplamındaki %24,3 artış ve net borcun %24,1 azalması, cari oranı 2,03…
+ozet: Hasılatın %6,4 düşmesi net kârın %3,8 artmasıyla birlikte özkaynakların %42,0 yükselmesi, özkaynak artışının özkaynak kârlılığını %4,6 seviyesine taşıyarak sektör medyanının çok üzerinde tutmasıyla ilişkilidir; aynı zamanda aktif toplamındaki %24,3 artış ve net borcun %24,1 azalması, cari oranı…
 sirket: DOĞU ARAS ENERJİ YATIRIMLARI A.Ş.
 kod: ARASE
 donem: 2026 2. çeyrek

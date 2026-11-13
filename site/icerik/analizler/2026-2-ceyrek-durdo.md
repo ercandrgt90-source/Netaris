@@ -1,7 +1,7 @@
 ---
 slug: durdo-2026-2-ceyrek
 baslik: DURAN DOĞAN BASIM VE AMBALAJ SANAYİ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %6,2 düşmesi, faaliyet kârının %49,7 gerilemesine yol açarken, brüt kârın %19,0 artması brüt kâr marjının %24,2'ye yükselmesine ve net kâr marjının %2,5 (sektör medyanı %0,6) seviyesine ulaşmasına neden oldu; aynı zamanda özkaynakların %21,0 artması özkaynak kârlılığını %1,0 (sektör medyan…
+ozet: Hasılatın %6,2 düşmesi, faaliyet kârının %49,7 gerilemesine yol açarken, brüt kârın %19,0 artması brüt kâr marjının %24,2'ye yükselmesine ve net kâr marjının %2,5 (sektör medyanı %0,6) seviyesine ulaşmasına neden oldu; aynı zamanda özkaynakların %21,0 artması özkaynak kârlılığını %1,0 (sektör…
 sirket: DURAN DOĞAN BASIM VE AMBALAJ SANAYİ A.Ş.
 kod: DURDO
 donem: 2026 2. çeyrek

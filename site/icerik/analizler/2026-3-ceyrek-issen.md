@@ -1,7 +1,7 @@
 ---
 slug: issen-2026-3-ceyrek
 baslik: İŞBİR SENTETİK DOKUMA SANAYİ A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılat %23,8 artarken brüt kâr %40,6 düşmüş; bu durum brüt kâr marjının %14,0 seviyesinde kalmasına ve net kâr marjının -%7,9'a gerilemesine yol açtı. Özkaynak %41,1 yükselmiş ve aktif toplamı %27,9 artmış, ancak net borç %55,6 artarak borç/özkaynak oranını %0,54'e (sektör medyanı %0,17) çıkarmış;…
+ozet: Hasılat %23,8 artarken brüt kâr %40,6 düşmüş; bu durum brüt kâr marjının %14,0 seviyesinde kalmasına ve net kâr marjının -%7,9'a gerilemesine yol açtı. Özkaynak %41,1 yükselmiş ve aktif toplamı %27,9 artmış, ancak net borç %55,6 artarak borç/özkaynak oranını %0,54'e (sektör medyanı %0,17) çıkarmış…
 sirket: İŞBİR SENTETİK DOKUMA SANAYİ A.Ş.
 kod: ISSEN
 donem: 2026 3. çeyrek

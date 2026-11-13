@@ -1,7 +1,7 @@
 ---
 slug: a1cap-2026-3-ceyrek
 baslik: A1 CAPİTAL YATIRIM MENKUL DEĞERLER A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %59,4 düşmesi, faaliyet kârının %143,9 gerilemesi ve net kârın %272,1 azalmasıyla birlikte kâr marjı ve özkaynak kârlılığı negatif seviyelere kaydı; aynı dönemde özkaynak %36,1 artarak 8,82 milyar TL'ye, aktif toplamı %115,1 yükselerek 33,89 milyar TL'ye ulaştı ve bu büyüme net borcun -18,…
+ozet: Hasılatın %59,4 düşmesi, faaliyet kârının %143,9 gerilemesi ve net kârın %272,1 azalmasıyla birlikte kâr marjı ve özkaynak kârlılığı negatif seviyelere kaydı; aynı dönemde özkaynak %36,1 artarak 8,82 milyar TL'ye, aktif toplamı %115,1 yükselerek 33,89 milyar TL'ye ulaştı ve bu büyüme net borcun…
 sirket: A1 CAPİTAL YATIRIM MENKUL DEĞERLER A.Ş.
 kod: A1CAP
 donem: 2026 3. çeyrek

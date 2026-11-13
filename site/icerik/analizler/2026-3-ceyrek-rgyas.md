@@ -1,7 +1,7 @@
 ---
 slug: rgyas-2026-3-ceyrek
 baslik: RÖNESANS GAYRİMENKUL YATIRIM A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %44,7 artması, faaliyet nakit akışının %55,1 yükselmesiyle paralel seyredirken, net kârın %40,8 düşmesi net kâr marjının %110,4'e çıkmasına ve özkaynak kârlılığının %3,0 seviyesine yükselmesine yol açtı; bu durum, özkaynakların %42,9 artmasıyla birlikte aktif toplamının da %42,2 artmasına,…
+ozet: Hasılatın %44,7 artması, faaliyet nakit akışının %55,1 yükselmesiyle paralel seyredirken, net kârın %40,8 düşmesi net kâr marjının %110,4'e çıkmasına ve özkaynak kârlılığının %3,0 seviyesine yükselmesine yol açtı; bu durum, özkaynakların %42,9 artmasıyla birlikte aktif toplamının da %42,2…
 sirket: RÖNESANS GAYRİMENKUL YATIRIM A.Ş.
 kod: RGYAS
 donem: 2026 3. çeyrek

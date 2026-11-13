@@ -1,7 +1,7 @@
 ---
 slug: aagyo-2026-3-ceyrek
 baslik: AĞAOĞLU AVRASYA GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %25,2 düşmesi net kârın önceki dönemdeki negatiften pozitif 0,22 milyar TL'ye geçmesine eşlik ederken, faaliyet nakit akışının %222,5 artması bu kâr dönüşümünün likiditeye yansıdığını gösterir; aynı zamanda net borcun –2,58 milyar TL olması özkaynakla (17,73 milyar TL) karşılaştırıldığında…
+ozet: Hasılatın %25,2 düşmesi net kârın önceki dönemdeki negatiften pozitif 0,22 milyar TL'ye geçmesine eşlik ederken, faaliyet nakit akışının %222,5 artması bu kâr dönüşümünün likiditeye yansıdığını gösterir; aynı zamanda net borcun –2,58 milyar TL olması özkaynakla (17,73 milyar TL)…
 sirket: AĞAOĞLU AVRASYA GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: AAGYO
 donem: 2026 3. çeyrek

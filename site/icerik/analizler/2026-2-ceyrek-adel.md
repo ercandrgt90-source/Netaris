@@ -1,7 +1,7 @@
 ---
 slug: adel-2026-2-ceyrek
 baslik: ADEL KALEMCİLİK TİCARET VE SANAYİ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %11,7 artması, brüt kârın %3,8 düşmesine rağmen brüt kâr marjının %38,9 seviyesinde kalması, satış hacmindeki büyümenin maliyet yapısında bir iyileşme sağlamadığını gösteriyor; bu durum, faaliyet kârının %12,3 artması ve FAVÖK'ün %8,7 yükselmesiyle birlikte, sabit giderlerin daha düşük ora…
+ozet: Hasılatın %11,7 artması, brüt kârın %3,8 düşmesine rağmen brüt kâr marjının %38,9 seviyesinde kalması, satış hacmindeki büyümenin maliyet yapısında bir iyileşme sağlamadığını gösteriyor; bu durum, faaliyet kârının %12,3 artması ve FAVÖK'ün %8,7 yükselmesiyle birlikte, sabit giderlerin daha düşük…
 sirket: ADEL KALEMCİLİK TİCARET VE SANAYİ A.Ş.
 kod: ADEL
 donem: 2026 2. çeyrek

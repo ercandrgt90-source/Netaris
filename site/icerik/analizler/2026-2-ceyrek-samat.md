@@ -1,7 +1,7 @@
 ---
 slug: samat-2026-2-ceyrek
 baslik: SARAY MATBAACILIK KAĞITÇILIK KIRTASİYECİLİK TİCARET VE SANAYİ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın sabit kalmasına rağmen brüt kâr, faaliyet kârı, FAVÖK ve net kâr tümü pozitif değerler alarak artmış; bu artış brüt kâr marjının %75,1'e yükselmesiyle birlikte özkaynak kârlılığının %13,6'ya çıkmasına ve özkaynakların 0,50 milyar TL'den 0,74 milyar TL'ye yükselmesine paralel bir şekilde ge…
+ozet: Hasılatın sabit kalmasına rağmen brüt kâr, faaliyet kârı, FAVÖK ve net kâr tümü pozitif değerler alarak artmış; bu artış brüt kâr marjının %75,1'e yükselmesiyle birlikte özkaynak kârlılığının %13,6'ya çıkmasına ve özkaynakların 0,50 milyar TL'den 0,74 milyar TL'ye yükselmesine paralel bir şekilde…
 sirket: SARAY MATBAACILIK KAĞITÇILIK KIRTASİYECİLİK TİCARET VE SANAYİ A.Ş.
 kod: SAMAT
 donem: 2026 2. çeyrek

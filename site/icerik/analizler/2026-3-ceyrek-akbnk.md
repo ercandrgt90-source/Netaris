@@ -1,7 +1,7 @@
 ---
 slug: akbnk-2026-3-ceyrek
 baslik: AKBANK T.A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %19,5 artması özkaynakların %19,1 yükselmesiyle paralel seyredirken, net kârın %17,5 düşmesi net kâr marjının %20,5 seviyesine gerilemesine yol açtı; bu kâr düşüşü, faaliyet nakit akışının -58,40 milyar TL'ye iyileşmesi ve yatırım harcamasının %21,8 artmasıyla birlikte likiditeye yöneltile…
+ozet: Hasılatın %19,5 artması özkaynakların %19,1 yükselmesiyle paralel seyredirken, net kârın %17,5 düşmesi net kâr marjının %20,5 seviyesine gerilemesine yol açtı; bu kâr düşüşü, faaliyet nakit akışının -58,40 milyar TL'ye iyileşmesi ve yatırım harcamasının %21,8 artmasıyla birlikte likiditeye…
 sirket: AKBANK T.A.Ş.
 kod: AKBNK
 donem: 2026 3. çeyrek

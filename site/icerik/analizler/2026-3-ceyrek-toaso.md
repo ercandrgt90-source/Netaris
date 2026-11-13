@@ -1,7 +1,7 @@
 ---
 slug: toaso-2026-3-ceyrek
 baslik: TOFAŞ TÜRK OTOMOBİL FABRİKASI A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %4,2 düşmesi ardından brüt kârın %83,4 artması, brüt kâr marjının %8,9 seviyesinde kalması ve net kâr marjının %5,0'a yükselmesi, kâr kalemlerinin (faaliyet kârı, FAVÖK, net kâr) artışının brüt kâr artışından kaynaklandığını gösteriyor; aynı zamanda özkaynakların %37,9 artması, aktif topla…
+ozet: Hasılatın %4,2 düşmesi ardından brüt kârın %83,4 artması, brüt kâr marjının %8,9 seviyesinde kalması ve net kâr marjının %5,0'a yükselmesi, kâr kalemlerinin (faaliyet kârı, FAVÖK, net kâr) artışının brüt kâr artışından kaynaklandığını gösteriyor; aynı zamanda özkaynakların %37,9 artması, aktif…
 sirket: TOFAŞ TÜRK OTOMOBİL FABRİKASI A.Ş.
 kod: TOASO
 donem: 2026 3. çeyrek

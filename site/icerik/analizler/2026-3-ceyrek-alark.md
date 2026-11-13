@@ -1,7 +1,7 @@
 ---
 slug: alark-2026-3-ceyrek
 baslik: ALARKO HOLDİNG A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %980,4 artması brüt kârın %944,7 ve FAVÖK'ün %1063,9 yükselmesiyle paralel seyrederek faaliyet kârı ve faaliyet nakit akışının da sırasıyla 7,93 milyar TL'ye ve 4,38 milyar TL'ye çıkmasını desteklemiştir; ancak net kârın %15,3 gerilemesi, artan gelir ve kâr kalemlerine rağmen maliyet ve ve…
+ozet: Hasılatın %980,4 artması brüt kârın %944,7 ve FAVÖK'ün %1063,9 yükselmesiyle paralel seyrederek faaliyet kârı ve faaliyet nakit akışının da sırasıyla 7,93 milyar TL'ye ve 4,38 milyar TL'ye çıkmasını desteklemiştir; ancak net kârın %15,3 gerilemesi, artan gelir ve kâr kalemlerine rağmen maliyet ve…
 sirket: ALARKO HOLDİNG A.Ş.
 kod: ALARK
 donem: 2026 3. çeyrek

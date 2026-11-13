@@ -1,7 +1,7 @@
 ---
 slug: bmsch-2026-2-ceyrek
 baslik: BMS ÇELİK HASIR SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %13,2 düşmesi brüt kârın %40,0 gerilemesine ve faaliyet kârının %497,7 azalmasına yol açarak FAVÖK'ün %106,4 düşmesine neden olurken, aynı dönemde özkaynak ve aktif toplamının sırasıyla %26,1 ve %23,0 artması net borcun %62,0 yükselmesiyle birlikte cari oranı %0,74 seviyesine, sektör medya…
+ozet: Hasılatın %13,2 düşmesi brüt kârın %40,0 gerilemesine ve faaliyet kârının %497,7 azalmasına yol açarak FAVÖK'ün %106,4 düşmesine neden olurken, aynı dönemde özkaynak ve aktif toplamının sırasıyla %26,1 ve %23,0 artması net borcun %62,0 yükselmesiyle birlikte cari oranı %0,74 seviyesine, sektör…
 sirket: BMS ÇELİK HASIR SANAYİ VE TİCARET A.Ş.
 kod: BMSCH
 donem: 2026 2. çeyrek

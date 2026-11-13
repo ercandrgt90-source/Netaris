@@ -1,7 +1,7 @@
 ---
 slug: sktas-2026-3-ceyrek
 baslik: SÖKTAŞ TEKSTİL SANAYİ VE TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %33,7 artmasıyla aktif toplamı %37,0 yükselirken brüt kâr %35,3 düşmüş, bu da brüt kâr marjının %15,9'dan sektör medyanı %16,2'ye yakın seviyede kalmasına yol açmıştır; aynı dönemde faaliyet kârı ve FAVÖK büyük ölçüde gerileyerek net kârın -%2,1'lik negatif marja sürüklenmesi, özkaynak kâr…
+ozet: Hasılatın %33,7 artmasıyla aktif toplamı %37,0 yükselirken brüt kâr %35,3 düşmüş, bu da brüt kâr marjının %15,9'dan sektör medyanı %16,2'ye yakın seviyede kalmasına yol açmıştır; aynı dönemde faaliyet kârı ve FAVÖK büyük ölçüde gerileyerek net kârın -%2,1'lik negatif marja sürüklenmesi, özkaynak…
 sirket: SÖKTAŞ TEKSTİL SANAYİ VE TİCARET A.Ş.
 kod: SKTAS
 donem: 2026 3. çeyrek

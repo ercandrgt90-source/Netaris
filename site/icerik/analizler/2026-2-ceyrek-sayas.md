@@ -1,7 +1,7 @@
 ---
 slug: sayas-2026-2-ceyrek
 baslik: SAY YENİLENEBİLİR ENERJİ EKİPMANLARI SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %31,1 brüt kâr marjıyla birlikte yükselmesi brüt kârın %0,26 milyar TL'den %0,43 milyar TL'ye artmasına, dolayısıyla FAVÖK ve faaliyet kârının da sırasıyla %0,28 milyar TL'den %0,37 milyar TL'ye ve %0,25 milyar TL'den %0,34 milyar TL'ye artmasına yol açtı; bu kâr artışları net kâr marjının…
+ozet: Hasılatın %31,1 brüt kâr marjıyla birlikte yükselmesi brüt kârın %0,26 milyar TL'den %0,43 milyar TL'ye artmasına, dolayısıyla FAVÖK ve faaliyet kârının da sırasıyla %0,28 milyar TL'den %0,37 milyar TL'ye ve %0,25 milyar TL'den %0,34 milyar TL'ye artmasına yol açtı; bu kâr artışları net kâr…
 sirket: SAY YENİLENEBİLİR ENERJİ EKİPMANLARI SANAYİ VE TİCARET A.Ş.
 kod: SAYAS
 donem: 2026 2. çeyrek

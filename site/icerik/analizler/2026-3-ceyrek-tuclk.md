@@ -1,7 +1,7 @@
 ---
 slug: tuclk-2026-3-ceyrek
 baslik: TUĞÇELİK ALÜMİNYUM VE METAL MAMÜLLERİ SANAYİ VE TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın hafif düşüşü (%1,8) brüt kârın büyük bir gerilemesine (%143,2) ve ardından faaliyet, FAVÖK ve net kârın da sırasıyla %224,4, %174,3 ve %549,5 azalarak negatifleşmesine yol açtı; bu kâr kayıpları özkaynak artışının (%23,0) ve aktif toplamının (%18,7) büyümesiyle birlikte şirketin sermaye ya…
+ozet: Hasılatın hafif düşüşü (%1,8) brüt kârın büyük bir gerilemesine (%143,2) ve ardından faaliyet, FAVÖK ve net kârın da sırasıyla %224,4, %174,3 ve %549,5 azalarak negatifleşmesine yol açtı; bu kâr kayıpları özkaynak artışının (%23,0) ve aktif toplamının (%18,7) büyümesiyle birlikte şirketin sermaye…
 sirket: TUĞÇELİK ALÜMİNYUM VE METAL MAMÜLLERİ SANAYİ VE TİCARET A.Ş.
 kod: TUCLK
 donem: 2026 3. çeyrek
