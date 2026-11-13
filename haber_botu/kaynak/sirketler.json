@@ -854,7 +854,9 @@
    "kap_kimlik": "8acae2c59b85fa06019c31d76d8707fb",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "VİZYON GRUP BAĞIMSIZ DENETİM.A.Ş."
+   "denetci": "VİZYON GRUP BAĞIMSIZ DENETİM.A.Ş.",
+   "sektor_bulunamadi": "2026-11-13",
+   "sektor_sebep": "sektor alani yok"
   },
   "ATAVK": {
    "kod": "ATAVK",
@@ -1378,7 +1380,9 @@
    "kap_kimlik": "4028e4a240f2ef4c0140f2f8fdcd0002",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "VENTERA BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "VENTERA BAĞIMSIZ DENETİM A.Ş.",
+   "sektor_bulunamadi": "2026-11-13",
+   "sektor_sebep": "sektor alani yok"
   },
   "BMSCH": {
    "kod": "BMSCH",
@@ -2354,7 +2358,9 @@
    "kap_kimlik": "4028e4a141733b51014173e7419c13f1",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "MİTRA BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "MİTRA BAĞIMSIZ DENETİM A.Ş.",
+   "sektor_bulunamadi": "2026-11-13",
+   "sektor_sebep": "sektor alani yok"
   },
   "DURDO": {
    "kod": "DURDO",
