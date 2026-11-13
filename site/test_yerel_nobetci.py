@@ -739,6 +739,173 @@ def test_bilanco_tetigi_ANA_AKISTA_cagriliyor():
 
 
 
+
+# ---------------------------------------------------------------- #
+# DUYURUNUN KAPANMASI
+#
+# OLCULDU (2026-11-13): `duyur` iki kurali birden tasiyordu -- "tek
+# konu acilir" ve "kendiliginden kapanmaz". Ikisi birlikte duyuruyu
+# KALICI olarak susturdu: #12 on bes gun acik kaldi, gercek bir
+# kesintide nobetci bozuklugu dogru teshis etti ve her turda
+# "duyuru zaten acik (#12)" yazdi. Uyari uretildi, hicbir yere
+# gitmedi.
+# ---------------------------------------------------------------- #
+
+
+def _kapatma_sahtesi(konular, patch_kodu=200):
+    """Ag yok: (cagrilar, sahte_istek) doner."""
+    import json as _json
+    cagrilar = []
+
+    def _sahte(adres, govde=None, jeton="", yontem="GET"):
+        cagrilar.append((yontem, adres, govde))
+        if "issues?state=open" in adres:
+            return 200, _json.dumps(konular)
+        if yontem == "PATCH":
+            return patch_kodu, "{}"
+        return 201, "{}"
+
+    return cagrilar, _sahte
+
+
+def test_duyuru_kapatma_ACIK_KONUYU_KAPATIYOR():
+    cagrilar, sahte = _kapatma_sahtesi(
+        [{"number": 7, "title": "x " + yn.DUYURU_BASLIGI + " y"}])
+    gercek = yn._istek
+    try:
+        yn._istek = sahte
+        sonuc = yn.duyuru_kapat("jeton-yok", "icerik 0.04 saat")
+    finally:
+        yn._istek = gercek
+    dogru("kapandi diyor", "KAPANDI" in sonuc)
+    dogru("konu numarasini yaziyor", "#7" in sonuc)
+    patchler = [(a, g) for y, a, g in cagrilar if y == "PATCH"]
+    es("TEK patch yapildi", len(patchler), 1)
+    dogru("dogru konuya patch", patchler[0][0].endswith("/issues/7"))
+    es("durum closed olarak yazildi",
+       (patchler[0][1] or {}).get("state"), "closed")
+
+
+def test_duyuru_kapatma_YORUM_DA_YAZIYOR():
+    """Kapanma gerekcesiyle birlikte kayda geciyor -- yoksa konuya
+    donen biri neden kapandigini bilemez."""
+    cagrilar, sahte = _kapatma_sahtesi(
+        [{"number": 9, "title": yn.DUYURU_BASLIGI}])
+    gercek = yn._istek
+    try:
+        yn._istek = sahte
+        yn.duyuru_kapat("jeton-yok", "icerik 0.04 saat")
+    finally:
+        yn._istek = gercek
+    yorumlar = [g for y, a, g in cagrilar
+                if y == "POST" and a.endswith("/comments")]
+    es("TEK yorum yazildi", len(yorumlar), 1)
+    dogru("olcum yorumda geciyor",
+          "0.04 saat" in ((yorumlar[0] or {}).get("body") or ""))
+
+
+def test_duyuru_kapatma_BASKA_BASLIGA_DOKUNMUYOR():
+    """Nobetci yalnizca KENDI actigi konuyu kapatir. Aksi halde
+    elle acilmis bir kaydi da kapatirdi."""
+    cagrilar, sahte = _kapatma_sahtesi(
+        [{"number": 3, "title": "DOM esigine yaklasan sayfalar var"},
+         {"number": 4, "title": "Baska bir konu"}])
+    gercek = yn._istek
+    try:
+        yn._istek = sahte
+        sonuc = yn.duyuru_kapat("jeton-yok", "sebep")
+    finally:
+        yn._istek = gercek
+    es("kapatilacak sey yoksa SESSIZ", sonuc, "")
+    es("HICBIR PATCH yapilmadi",
+       [y for y, _a, _g in cagrilar if y == "PATCH"], [])
+    es("HICBIR POST yapilmadi",
+       [y for y, _a, _g in cagrilar if y == "POST"], [])
+
+
+def test_duyuru_kapatma_BASARISIZLIK_SESSIZ_KALMIYOR():
+    """Kapatma da basarisiz olabilir (yetki, ag). Sessiz gecmek,
+    alarmin hala acik oldugunu gizlemek olurdu."""
+    cagrilar, sahte = _kapatma_sahtesi(
+        [{"number": 5, "title": yn.DUYURU_BASLIGI}], patch_kodu=403)
+    gercek = yn._istek
+    try:
+        yn._istek = sahte
+        sonuc = yn.duyuru_kapat("jeton-yok", "sebep")
+    finally:
+        yn._istek = gercek
+    dogru("basarisizlik raporlaniyor", "BASARISIZ" in sonuc)
+    dogru("durum kodu yaziliyor", "403" in sonuc)
+    dogru("konu numarasi yaziliyor", "#5" in sonuc)
+
+
+def test_duyuru_kapatma_KONU_LISTESI_OKUNAMAZSA_ATLIYOR():
+    """Olcum aracinin arizasi, olculen seyin arizasi degil."""
+    def _sahte(adres, govde=None, jeton="", yontem="GET"):
+        return 500, "{}"
+
+    gercek = yn._istek
+    try:
+        yn._istek = _sahte
+        sonuc = yn.duyuru_kapat("jeton-yok", "sebep")
+    finally:
+        yn._istek = gercek
+    dogru("atlandigini soyluyor", "ATLANDI" in sonuc)
+    dogru("durum kodu yaziliyor", "500" in sonuc)
+
+
+def test_main_kapatmayi_YALNIZCA_TAZE_KARARINDA_CAGIRIYOR():
+    """OLCUT CAGRI YERI, VARLIGI DEGIL.
+
+    "main icinde duyuru_kapat geciyor" iddiasi mutasyonla KACAR:
+    cagri BOZUK dalina tasinirsa -- yani kesintinin ORTASINDA
+    alarmi susturursa -- iddia hala gecerdi. Bu yuzden cagrinin
+    hangi kosulun ICINDE oldugu araniyor.
+    """
+    import ast
+    kaynak = (_KOK / "yerel_nobetci.py").read_text(encoding="utf-8")
+    agac = ast.parse(kaynak)
+    ana = next(n for n in agac.body
+               if isinstance(n, ast.FunctionDef) and n.name == "main")
+
+    sarmalayan = []          # her cagri icin, onu saran if kosullari
+    for dugum in ast.walk(ana):
+        if not isinstance(dugum, ast.If):
+            continue
+        kosul = ast.dump(dugum.test)
+        for ic in ast.walk(dugum):
+            if (isinstance(ic, ast.Call)
+                    and isinstance(ic.func, ast.Name)
+                    and ic.func.id == "duyuru_kapat"):
+                sarmalayan.append(kosul)
+
+    dogru("en az bir kosul KARAR_TAZE'ye bakiyor",
+          any("KARAR_TAZE" in k for k in sarmalayan))
+    dogru("hicbir kosul KARAR_BOZUK'a bakmiyor",
+          not any("KARAR_BOZUK" in k for k in sarmalayan))
+    dogru("kuru kipte atlaniyor", any("kuru" in k for k in sarmalayan))
+    dogru("kimlik yoksa atlaniyor", any("jeton" in k for k in sarmalayan))
+
+    # ATILLIK: cagri hic yoksa yukaridaki uc iddia da bos kumede
+    # dogru olurdu ("hicbir kosul BOZUK'a bakmiyor" bedava gecer).
+    dogru("main duyuru_kapat'i GERCEKTEN cagiriyor", len(sarmalayan) > 0)
+
+
+def test_duyuru_ile_kapatma_AYNI_OLCUTU_KULLANIYOR():
+    """Acan baslikla ariyor, kapatan da baslikla aramali.
+
+    Iki ayri olcut (ornegin biri baslik, biri etiket) kullanmak,
+    acilan ile kapatilanin sessizce ayrismasi demek olurdu: alarm
+    acilir ama hicbir zaman kapanmaz.
+    """
+    kaynak = (_KOK / "yerel_nobetci.py").read_text(encoding="utf-8")
+    kapatan = _kod(kaynak.split("def duyuru_kapat(")[1]
+                   .split(chr(10) + "def ")[0])
+    dogru("kapatan DUYURU_BASLIGI ile ariyor",
+          "DUYURU_BASLIGI" in kapatan)
+    dogru("kapatan sabit baslik YAZMIYOR",
+          yn.DUYURU_BASLIGI not in kapatan)
+
 for _ad, _f in sorted(list(globals().items())):
     if _ad.startswith("test_") and callable(_f):
         _f()

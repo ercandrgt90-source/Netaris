@@ -623,6 +623,82 @@ def duyur(jeton: str, sebep: str) -> str:
     return f"duyuru BASARISIZ (HTTP {kod})"
 
 
+def duyuru_kapat(jeton: str, sebep: str = "") -> str:
+    """Hat DUZELDIGINDE nobetcinin kendi duyurusunu kapatir.
+
+    NEDEN VAR -- OLCULDU, DUYURUYU YUTTU (2026-11-13).
+    --------------------------------------------------
+    `duyur` iki kurali birden tasiyordu:
+
+        1. TEK KONU ACILIR (ayni baslikla acik konu varsa yenisi
+           acilmaz) -- gecerli bir kural, yoksa bir gecede 144 konu
+           birikir.
+        2. "hat duzeldiginde kendiliginden KAPANMAZ -- elle kapatin"
+
+    Ikisi birlikte duyuruyu KALICI olarak susturuyordu. #12
+    2026-10-29'da acildi ve ON BES GUN acik kaldi; 2026-11-13'te
+    gercek bir kesinti olustu, nobetci bozuklugu DOGRU teshis etti
+    ve her turda su satiri yazdi:
+
+        bozuk: 3 ardisik tetikleme SONUC VERMEDI -- hat kopuk
+               ... duyuru zaten acik (#12)
+
+    Yani uyari uretildi ve hicbir yere gitmedi. Kesinti 2.4 saat
+    surdu; fark edilmesi CI'in KENDI alarmina (#20) kaldi -- o
+    yesile donunce kendiliginden KAPANIYOR.
+
+    Bu, [[olay-bayragi-durum-sorusuna-cevap-vermez]] sinifi: bir kez
+    kalkip bir daha inmeyen bayrak, "SIMDI sorun var mi" sorusuna
+    cevap vermeyi birakir.
+
+    DESEN DEPODA ZATEN VARDI: `.github/alarm.sh` `KIP=kapat` ile
+    tam bunu yapiyor ve is akisinda `if: success()` adimina bagli.
+    Nobetciye tasinmamisti.
+
+    NE ZAMAN KAPANIR: yalnizca karar TAZE oldugunda, yani icerik
+    gercekten esigin altinda. "Tetikle" durumu saglik DEGIL (icerik
+    bayat, henuz ucuncu bos tura varilmamis) ve orada kapatmak
+    kesintinin ortasinda alarmi susturmak olurdu.
+
+    BASLIK ESLESMESI ZORUNLU: yalnizca nobetcinin KENDI actigi konu
+    kapatilir. Etiketle degil baslikla, cunku `duyur` da baslikla
+    ariyor -- iki ayri olcut kullanmak, acilan ile kapatilanin
+    ayrismasi demek olurdu.
+    """
+    kod, govde = _istek(
+        f"https://api.github.com/repos/{DEPO}/issues?state=open&per_page=50",
+        jeton=jeton)
+    if kod != 200:
+        return f"kapatma ATLANDI: acik konular okunamadi (HTTP {kod})"
+    try:
+        acik = json.loads(govde)
+    except ValueError:
+        return "kapatma ATLANDI: konu listesi cozulemedi"
+    numara = None
+    for konu in acik if isinstance(acik, list) else []:
+        if DUYURU_BASLIGI in (konu.get("title") or ""):
+            numara = konu.get("number")
+            break
+    if numara is None:
+        return ""                  # kapatilacak bir sey yok -- sessiz
+    # YORUM ONCE, KAPATMA SONRA.
+    #
+    # Yorum basarisiz olsa bile konu kapanmali: amac alarmi
+    # dogru duruma getirmek, kayit tutmak ikincil. Ters sirada
+    # kapanmis bir konuya yorum yazmak da calisir ama "kapatildi"
+    # satirini yazmadan once olcumun kayda gecmesi yeglendi.
+    _istek(f"https://api.github.com/repos/{DEPO}/issues/{numara}/comments",
+           {"body": "Hat duzeldi: " + (sebep or "icerik esigin altinda")
+                    + ". Nobetci alarmi kendiliginden kapatti."},
+           jeton=jeton, yontem="POST")
+    kod, _ = _istek(
+        f"https://api.github.com/repos/{DEPO}/issues/{numara}",
+        {"state": "closed"}, jeton=jeton, yontem="PATCH")
+    if kod == 200:
+        return f"duyuru KAPANDI (#{numara})"
+    return f"kapatma BASARISIZ (#{numara}, HTTP {kod})"
+
+
 def _yaz(metin: str, akis=None) -> None:
     """Yazdirir -- AMA `pythonw.exe` altinda cokmez.
 
@@ -747,6 +823,16 @@ def main() -> int:
                 # SESSIZ KALMIYOR: 401 ise kimlik dolmus demektir ve
                 # bu, tam olarak ogrenilmesi gereken sey.
                 sebep += f" -- TETIK BASARISIZ ({k})"
+
+    # HAT DUZELDIYSE ALARM KAPATILIR -- gerekcesi `duyuru_kapat`ta.
+    #
+    # Yalnizca TAZE kararinda: "tetikle" saglik degil, icerik hala
+    # bayat. Kuru kipte ve kimlik yokken atlanir -- yukaridaki
+    # tetikle ayni kural.
+    if karar == KARAR_TAZE and not a.kuru and jeton:
+        _kapanis = duyuru_kapat(jeton, sebep)
+        if _kapanis:
+            yanit += " " + _kapanis
 
     # BILANCO TETIGI -- ICERIK TAZELIGINDEN BAGIMSIZ.
     #
