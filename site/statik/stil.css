@@ -8672,8 +8672,18 @@ h1, h2, h3, h4, h5, h6 { text-wrap: balance}
     color: #444;
     word-break: break-all}
 
-  /* Tablo ve sekil sayfa arasinda BOLUNMESIN. */
-  table, figure, .yazi-gorsel, .skor-kutu { break-inside: avoid}
+  /* Tablo ve sekil sayfa arasinda BOLUNMESIN.
+     `.skor-kutu` KALDIRILDI (2026-11-13): denetim her kosuda
+     "CSS'te tanimli, hicbir sayfada yok" diye uyariyordu ve uyari
+     hakliydi -- hicbir sablon bu sinifi basmiyor. Skor motoru
+     (`uret.py`, `uret_ucretsiz.py`) hatta BAGLI DEGIL: `calistir.py`
+     yalnizca `makro_uret_ucretsiz.py` cagiriyor, ve yayimlanmis
+     567 sayfanin HICBIRINDE `skor:` on bilgisi yok. Yani sinif
+     "bugun uretilmedi" degil, URETILEMEZ durumda; bu yuzden
+     `denetim.URETILEBILIR` beyaz listesine degil buraya bakildi.
+     Motor hatta baglandiginda kural geri eklenir -- kaybolan tek
+     sey bir baski ipucu. */
+  table, figure, .yazi-gorsel { break-inside: avoid}
   h1, h2, h3 { break-after: avoid}
   img, svg { max-width: 100% !important; height: auto}
 
