@@ -3236,6 +3236,37 @@ KONU_LISTE_SINIRI = 80
 #: `test_yetim_sayfa` 47 oksuz sayfa bildirdi -- o yol kapali.
 KATEGORI_LISTE_SINIRI = 240
 
+#: `/arastirmalar/` hub'inda GORUNEN kart ve arsiv satiri sayisi.
+#:
+#: NEDEN SINIR GEREKIYOR -- OLCULDU (2026-11-13, CANLI SITE).
+#:
+#: Sablon kart sayisini 60'ta tutuyordu ama kalan her analizi AYNI
+#: SAYFAYA satir olarak basiyordu (`analizler[kart_siniri:]`), yani
+#: liste SINIRSIZDI. Canli olcum:
+#:
+#:     sayfa toplam        2289 etiket (+750 betik payi = 3039)
+#:     arsiv listesi        288 satir, 1152 etiket
+#:     satir basina        4,00 etiket  (kart basina 14,1)
+#:     DOM_SINIRI          3400  ->  pay yalnizca 361
+#:
+#: Pay `UYARI_PAYI` (500) altinda oldugu icin kayit #14 ON IKI GUN
+#: boyunca her kosuda uyardi (36 yorum). Esik asilirsa
+#: `test_dom_agirligi` KIRMIZI yanar ve DAGITIM DURUR -- bu depoda
+#: uc kez oldu (2026-09-18, 10-19, 10-26).
+#:
+#: SAYI OLCUMDEN SECILDI, tahminden degil:
+#:
+#:     arsiv  80 satir -> DOM 2207   pay 1193
+#:     arsiv 120 satir -> DOM 2367   pay 1033
+#:     arsiv 150 satir -> DOM 2487   pay  913   <- secilen
+#:     arsiv 180 satir -> DOM 2607   pay  793
+#:
+#: SINIR PYTHON'DA, SABLONDA DEGIL: kart siniri sablonun icinde
+#: `{% set %}` ile duruyordu ve oradan ne sinanabiliyor ne de
+#: dilimleme Python tarafinda yapilabiliyordu.
+ARASTIRMA_KART_SINIRI = 60
+ARASTIRMA_SATIR_SINIRI = 150
+
 
 def konu_yolu(ad: str) -> str:
     """Konu adindan adres. Slug uretimi TEK YERDE (`slugla`)."""
@@ -7193,6 +7224,34 @@ def insa() -> int:
 
     # Arastirmalar merkezi -- dort kategoriye tek kapi.
     if merkez:
+        # LISTE BURADA KIRPILIYOR, SABLONDA DEGIL.
+        #
+        # Gerekcesi ve olcum tablosu `ARASTIRMA_SATIR_SINIRI`
+        # uzerinde yazili. Kirpmanin Python'da olmasinin iki sebebi
+        # var: sinanabiliyor, ve sayfada GORUNEN kume tek bir
+        # degisken -- yapisal veri (JSON-LD), kartlar, arsiv
+        # satirlari ve sekme sayaclari hepsi ayni kumeden besleniyor.
+        # Sablon icinde dilimlenseydi JSON-LD butun listeyi sayip
+        # sayfanin GOSTERMEDIGI kalemleri bildirecekti -- sablonun
+        # kendi yorumu ("liste sayfada goruneni anlatiyor") yanlisa
+        # donerdi.
+        _hub_hepsi = [
+            a for a in listelenen
+            if any(a.kategori == k for _s, _b, k, _a in KATEGORILER)
+        ]
+        _hub_gorunur = _hub_hepsi[
+            : ARASTIRMA_KART_SINIRI + ARASTIRMA_SATIR_SINIRI]
+        _hub_kodu = {k: s for s, _b, k, _a in KATEGORILER}
+        # SEKME SAYACI SAYFADAKINI SAYIYOR.
+        #
+        # Badge'ler `merkez[*]["adet"]`den geliyordu: kategorinin
+        # GERCEK toplami. Liste kirpildiktan sonra o sayi sayfada
+        # olmayan kalemleri de sayardi -- suzgece basan okur
+        # badge'de 240 gorup 38 kart bulurdu.
+        _hub_say: dict[str, int] = {}
+        for _a in _hub_gorunur:
+            _k = _hub_kodu.get(_a.kategori, "")
+            _hub_say[_k] = _hub_say.get(_k, 0) + 1
         yaz(
             "/arastirmalar/index.html",
             ortam.get_template("arastirmalar.html").render(
@@ -7207,11 +7266,11 @@ def insa() -> int:
                 # basiliyor ve secim CSS ile daraltiliyor. Betik
                 # calismazsa liste TAM haliyle duruyor -- eksik ozellik,
                 # bozuk sayfa degil.
-                analizler=[
-                    a for a in listelenen
-                    if any(a.kategori == k for _s, _b, k, _a in KATEGORILER)
-                ],
-                kategori_kodu={k: s for s, _b, k, _a in KATEGORILER},
+                analizler=_hub_gorunur,
+                kategori_kodu=_hub_kodu,
+                kart_siniri=ARASTIRMA_KART_SINIRI,
+                arastirma_toplam=len(_hub_hepsi),
+                gorunur_say=_hub_say,
             ),
         )
         lastmod_kur(_lastmod, "/arastirmalar/",

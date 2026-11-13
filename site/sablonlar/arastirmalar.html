@@ -76,18 +76,31 @@
   <div class="akis-suzgec" data-akis-suzgec hidden>
     <button type="button" class="suzgec-dugme" data-tur="" aria-pressed="true">
       Tümü <span class="suzgec-say">{{ analizler | length }}</span></button>
+    {# SAYAC SAYFADAKINI SAYIYOR, KATEGORININ TOPLAMINI DEGIL.
+       Once `k.adet` yaziliyordu -- kategorinin gercek toplami. Liste
+       `ARASTIRMA_SATIR_SINIRI` ile kirpildiktan sonra o sayi sayfada
+       OLMAYAN kalemleri de sayardi: suzgece basan okur badge'de 240
+       gorup 38 kart bulurdu. Toplam kayboluyor degil -- asagidaki
+       arsiv notunda ve kategori kartlarinda duruyor. #}
     {% for k in kategoriler %}
+    {% if gorunur_say.get(k.kod) %}
     <button type="button" class="suzgec-dugme" data-tur="{{ k.kod }}"
             aria-pressed="false">
-      {{ k.baslik }} <span class="suzgec-say">{{ k.adet }}</span></button>
+      {{ k.baslik }} <span class="suzgec-say">{{ gorunur_say.get(k.kod) }}</span></button>
+    {% endif %}
     {% endfor %}
   </div>
 
   {# KART SAYISI SINIRLI -- DOM AGIRLIGI. Gerekce `kategori.html`de
      yazili; olculdu (2026-09-18): bu sayfa 5.753 DOM ogesi
-     tasiyordu. Kalanlar asagida GERCEK BAGLANTIYLA duruyor, yani
-     hicbir analiz erisilemez hale gelmiyor. #}
-  {% set kart_siniri = 60 %}
+     tasiyordu.
+
+     SINIR ARTIK PYTHON'DAN GELIYOR (`ARASTIRMA_KART_SINIRI`).
+     Burada `{% set %}` ile duruyordu ve iki sorun cikariyordu:
+     sinanamiyordu, ve asil kusur olan ARSIV LISTESININ SINIRSIZ
+     olmasi (`analizler[kart_siniri:]` -- kalan HER analiz) ayni
+     yerde gorunmuyordu. Olcum ve secilen sayi
+     `ARASTIRMA_SATIR_SINIRI` uzerinde yazili. #}
   <ul class="izgara arastirma-liste">
     {% for a in analizler[:kart_siniri] %}
     <li data-tur="{{ kategori_kodu.get(a.kategori, '') }}">
@@ -118,8 +131,17 @@
   {# Kalanlar: kart degil satir. `olay-cizelge` zaten sitede
      kullanilan bilesen -- yeni kart turu uretilmedi. #}
   <h2>Arşiv</h2>
-  <p>{{ analizler | length }} araştırmadan {{ kart_siniri }} tanesi yukarıda;
-     kalan {{ analizler | length - kart_siniri }} tanesi burada.</p>
+  {# TOPLAM SAYFADAKINDEN AYRI SOYLENIYOR.
+     `analizler` artik KIRPILMIS kume; toplami onunla anlatmak,
+     var olan arastirmalari yok saymak olurdu. Kalanlar kategori
+     sayfalarinda ve onlarin arsivlerinde GERCEK baglantiyla
+     duruyor -- asagidaki "Kategoriler" izgarasi oraya aciliyor. #}
+  <p>{{ arastirma_toplam }} araştırmadan {{ analizler | length }} tanesi bu
+     sayfada: {{ kart_siniri }} kart ve
+     {{ analizler | length - kart_siniri }} arşiv satırı.
+     {% if arastirma_toplam > analizler | length %}Kalan
+     {{ arastirma_toplam - (analizler | length) }} araştırma kategori
+     sayfalarında ve arşivlerinde.{% endif %}</p>
   <ol class="olay-cizelge">
     {% for a in analizler[kart_siniri:] %}
     <li>
