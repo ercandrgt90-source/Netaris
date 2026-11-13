@@ -1,7 +1,7 @@
 ---
 slug: avtur-2026-3-ceyrek
 baslik: AVRASYA PETROL VE TURİSTİK TESİSLER YATIRIMLAR A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %51,1 artması, brüt kârın %889,7 yükselmesiyle birlikte FAVÖK ve faaliyet kârının da önceki dönemde sıfırdan %2330,3 ve %? (veri yok) artış göstermesi, kârların artışının gelir artışına paralel olduğunu gösteriyor; net kâr marjının %99,8 seviyesine çıkması ise bu yüksek kârlılığın…
+ozet: Hasılatın %51,1 artması, brüt kârın %889,7 yükselmesiyle birlikte FAVÖK ve faaliyet kârının da önceki dönemde sıfırdan %2330,3 ve %? (veri yok) artış göstermesi, kârların artışının gelir artışına paralel olduğunu gösteriyor; net kâr marjının %99,8 seviyesine çıkması ise bu yüksek kârlılığın doğrudan…
 sirket: AVRASYA PETROL VE TURİSTİK TESİSLER YATIRIMLAR A.Ş.
 kod: AVTUR
 donem: 2026 3. çeyrek

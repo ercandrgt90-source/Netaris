@@ -1,7 +1,7 @@
 ---
 slug: asuzu-2026-2-ceyrek
 baslik: ANADOLU ISUZU OTOMOTİV SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %18,5 artması, brüt kârın %28,5 düşmesiyle birlikte brüt kâr marjının %8,8 seviyesine gerilemesi, satışların artışının maliyetlerdeki yükselişten daha fazla etkilenmiş olduğunu gösteriyor; bu durum faaliyet kârının %264,5 düşerek negatif –0,32 milyar TL'ye, ardından FAVÖK ve net kârın da…
+ozet: Hasılatın %18,5 artması, brüt kârın %28,5 düşmesiyle birlikte brüt kâr marjının %8,8 seviyesine gerilemesi, satışların artışının maliyetlerdeki yükselişten daha fazla etkilenmiş olduğunu gösteriyor; bu durum faaliyet kârının %264,5 düşerek negatif –0,32 milyar TL'ye, ardından FAVÖK ve net kârın da s…
 sirket: ANADOLU ISUZU OTOMOTİV SANAYİ VE TİCARET A.Ş.
 kod: ASUZU
 donem: 2026 2. çeyrek

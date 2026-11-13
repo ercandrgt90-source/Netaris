@@ -1,7 +1,7 @@
 ---
 slug: pkent-2026-2-ceyrek
 baslik: PETROKENT TURİZM A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat aynı kalırken brüt kâr, faaliyet kârı, FAVÖK ve net kâr tümü negatiften daha negatif bir seviyeye kaymış; bu düşüş özkaynak artışı (1,54 milyar TL) ve aktif toplamındaki (2,35 milyar TL) büyüme ile birlikte gerçekleşmiş, çünkü zararların birikmesi özkaynakları artırırken aynı zamanda…
+ozet: Hasılat aynı kalırken brüt kâr, faaliyet kârı, FAVÖK ve net kâr tümü negatiften daha negatif bir seviyeye kaymış; bu düşüş özkaynak artışı (1,54 milyar TL) ve aktif toplamındaki (2,35 milyar TL) büyüme ile birlikte gerçekleşmiş, çünkü zararların birikmesi özkaynakları artırırken aynı zamanda varlıkl…
 sirket: PETROKENT TURİZM A.Ş.
 kod: PKENT
 donem: 2026 2. çeyrek

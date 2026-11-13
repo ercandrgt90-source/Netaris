@@ -1,7 +1,7 @@
 ---
 slug: brko-2026-3-ceyrek
 baslik: BİRKO BİRLEŞİK KOYUNLULULAR MENSUCAT TİCARET VE SANAYİ A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %111,9 artması brüt kârın %236,3 yükselmesiyle paralel bir şekilde gerçekleşirken, brüt kâr marjının %80,6 olması faaliyet kârı ve FAVÖK'teki %1816,8 ve %773,9 artışların temelini oluşturdu; aynı zamanda net kârın -%114,1 değişmesi özkaynak kârlılığının -%0,4'e gerilemesine ve net kâr…
+ozet: Hasılatın %111,9 artması brüt kârın %236,3 yükselmesiyle paralel bir şekilde gerçekleşirken, brüt kâr marjının %80,6 olması faaliyet kârı ve FAVÖK'teki %1816,8 ve %773,9 artışların temelini oluşturdu; aynı zamanda net kârın -%114,1 değişmesi özkaynak kârlılığının -%0,4'e gerilemesine ve net kâr marj…
 sirket: BİRKO BİRLEŞİK KOYUNLULULAR MENSUCAT TİCARET VE SANAYİ A.Ş.
 kod: BRKO
 donem: 2026 3. çeyrek

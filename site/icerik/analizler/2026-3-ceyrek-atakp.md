@@ -1,7 +1,7 @@
 ---
 slug: atakp-2026-3-ceyrek
 baslik: ATAKEY PATATES GIDA SANAYİ VE TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %8,3 artması, brüt kârın %4,3 düşmesiyle birlikte brüt kâr marjının %9,4 seviyesinde kalması, satış hacmindeki artışın maliyet yapısında bir iyileşme sağlamadığını gösteriyor; bu durum faaliyet kârının %43,7 ve FAVÖK'ün %24,0 düşmesine, ancak net kârın %66,3 artarak %3,9 net kâr marjına…
+ozet: Hasılatın %8,3 artması, brüt kârın %4,3 düşmesiyle birlikte brüt kâr marjının %9,4 seviyesinde kalması, satış hacmindeki artışın maliyet yapısında bir iyileşme sağlamadığını gösteriyor; bu durum faaliyet kârının %43,7 ve FAVÖK'ün %24,0 düşmesine, ancak net kârın %66,3 artarak %3,9 net kâr marjına ul…
 sirket: ATAKEY PATATES GIDA SANAYİ VE TİCARET A.Ş.
 kod: ATAKP
 donem: 2026 3. çeyrek

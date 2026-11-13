@@ -1,7 +1,7 @@
 ---
 slug: egpro-2026-2-ceyrek
 baslik: EGE PROFİL TİCARET VE SANAYİ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %31,2 oranındaki artışı brüt kârın 2,86 milyar TL'ye yükselmesine, dolayısıyla brüt kâr marjının sektör medyanının %21,2'sinin üzerinde kalmasına yol açtı; brüt kârdaki bu yükseliş, faaliyet kârının 1,44 milyar TL'ye ve net kârın %12,8'lik marjla 0,82 milyar TL'ye çıkmasını, özkaynak…
+ozet: Hasılatın %31,2 oranındaki artışı brüt kârın 2,86 milyar TL'ye yükselmesine, dolayısıyla brüt kâr marjının sektör medyanının %21,2'sinin üzerinde kalmasına yol açtı; brüt kârdaki bu yükseliş, faaliyet kârının 1,44 milyar TL'ye ve net kârın %12,8'lik marjla 0,82 milyar TL'ye çıkmasını, özkaynak kârlı…
 sirket: EGE PROFİL TİCARET VE SANAYİ A.Ş.
 kod: EGPRO
 donem: 2026 2. çeyrek

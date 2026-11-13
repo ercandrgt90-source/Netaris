@@ -1,7 +1,7 @@
 ---
 slug: kartn-2026-1-ceyrek
 baslik: KARTONSAN KARTON SANAYİ VE TİCARET A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılatın 2,58 milyar TL'den 2,09 milyar TL'ye düşmesi, brüt kârın –0,70 milyar TL'den –0,33 milyar TL'ye iyileşmesi ve faaliyet kârının –0,97 milyar TL'den –0,56 milyar TL'ye azalması, satışların azalmasına rağmen maliyet ve giderlerdeki azalışın kâr kalemlerini pozitif yönde etkilediğini…
+ozet: Hasılatın 2,58 milyar TL'den 2,09 milyar TL'ye düşmesi, brüt kârın –0,70 milyar TL'den –0,33 milyar TL'ye iyileşmesi ve faaliyet kârının –0,97 milyar TL'den –0,56 milyar TL'ye azalması, satışların azalmasına rağmen maliyet ve giderlerdeki azalışın kâr kalemlerini pozitif yönde etkilediğini gösteriyo…
 sirket: KARTONSAN KARTON SANAYİ VE TİCARET A.Ş.
 kod: KARTN
 donem: 2026 1. çeyrek

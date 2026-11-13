@@ -1,7 +1,7 @@
 ---
 slug: gedza-2026-3-ceyrek
 baslik: GEDİZ AMBALAJ SANAYİ VE TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %32,6 artması brüt kârı %11,1 yükseltirken, brüt kâr marjının %24,0 seviyesinde kalması faaliyet kârının %39,1 artmasına ve FAVÖK'ün %33,5 yükselmesine zemin hazırladı; net kâr marjının %7,2'ye (sektör medyanı %2,6) çıkması ise özkaynak kârlılığının %1,6'ya (sektör medyanı %0,8)…
+ozet: Hasılatın %32,6 artması brüt kârı %11,1 yükseltirken, brüt kâr marjının %24,0 seviyesinde kalması faaliyet kârının %39,1 artmasına ve FAVÖK'ün %33,5 yükselmesine zemin hazırladı; net kâr marjının %7,2'ye (sektör medyanı %2,6) çıkması ise özkaynak kârlılığının %1,6'ya (sektör medyanı %0,8) yükselmesi…
 sirket: GEDİZ AMBALAJ SANAYİ VE TİCARET A.Ş.
 kod: GEDZA
 donem: 2026 3. çeyrek

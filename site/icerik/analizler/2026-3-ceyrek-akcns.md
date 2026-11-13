@@ -1,7 +1,7 @@
 ---
 slug: akcns-2026-3-ceyrek
 baslik: AKÇANSA ÇİMENTO SANAYİ VE TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %4,3 artması brüt kârın %20,8 yükselmesine paralel olarak, brüt kâr marjının %18,7 seviyesinde sabit kalması, satış hacmindeki artışın maliyet yapısını orantılı tutabildiğini gösteriyor; bu durum faaliyet kârı ve FAVÖK'ün sırasıyla %33,3 ve %19,2 artarak kârlılık kalemlerini de yukarı…
+ozet: Hasılatın %4,3 artması brüt kârın %20,8 yükselmesine paralel olarak, brüt kâr marjının %18,7 seviyesinde sabit kalması, satış hacmindeki artışın maliyet yapısını orantılı tutabildiğini gösteriyor; bu durum faaliyet kârı ve FAVÖK'ün sırasıyla %33,3 ve %19,2 artarak kârlılık kalemlerini de yukarı çekt…
 sirket: AKÇANSA ÇİMENTO SANAYİ VE TİCARET A.Ş.
 kod: AKCNS
 donem: 2026 3. çeyrek

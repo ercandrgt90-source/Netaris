@@ -1,7 +1,7 @@
 ---
 slug: zrgyo-2026-2-ceyrek
 baslik: ZİRAAT GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat 2,15 milyar TL'ye yükselirken net kâr 0,94 milyar TL'den 2,79 milyar TL'ye gerilemiş, bu durum faaliyet nakit akışının 0,96 milyar TL'den 1,30 milyar TL'ye düşmesiyle paralel bir azalmayı yansıtıyor; aynı zamanda aktif toplamı 115,33 milyar TL'ye çıkarken özkaynak 93,73 milyar TL'ye artmış…
+ozet: Hasılat 2,15 milyar TL'ye yükselirken net kâr 0,94 milyar TL'den 2,79 milyar TL'ye gerilemiş, bu durum faaliyet nakit akışının 0,96 milyar TL'den 1,30 milyar TL'ye düşmesiyle paralel bir azalmayı yansıtıyor; aynı zamanda aktif toplamı 115,33 milyar TL'ye çıkarken özkaynak 93,73 milyar TL'ye artmış,…
 sirket: ZİRAAT GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: ZRGYO
 donem: 2026 2. çeyrek

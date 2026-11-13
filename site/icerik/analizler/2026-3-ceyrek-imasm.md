@@ -1,7 +1,7 @@
 ---
 slug: imasm-2026-3-ceyrek
 baslik: İMAŞ MAKİNA SANAYİ A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %30,5 artması brüt kârın %51,0 yükselmesine paralel olarak brüt kâr marjının %57,4 seviyesine çıkmasını sağlarken, faaliyet kârı ve FAVÖK'teki %28,1 ve %22,4 düşüşler net kârın -%156,3 gerilemesine ve özkaynak kârlılığının -%1,9'a inmesine yol açtı; aynı dönemde aktif toplamının %22,8…
+ozet: Hasılatın %30,5 artması brüt kârın %51,0 yükselmesine paralel olarak brüt kâr marjının %57,4 seviyesine çıkmasını sağlarken, faaliyet kârı ve FAVÖK'teki %28,1 ve %22,4 düşüşler net kârın -%156,3 gerilemesine ve özkaynak kârlılığının -%1,9'a inmesine yol açtı; aynı dönemde aktif toplamının %22,8 artm…
 sirket: İMAŞ MAKİNA SANAYİ A.Ş.
 kod: IMASM
 donem: 2026 3. çeyrek

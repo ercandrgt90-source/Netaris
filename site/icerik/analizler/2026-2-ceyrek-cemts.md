@@ -1,7 +1,7 @@
 ---
 slug: cemts-2026-2-ceyrek
 baslik: ÇEMTAŞ ÇELİK MAKİNA SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın düşmesi brüt kârı ve FAVÖK'ü de azaltırken, brüt kâr marjının sektör medyanıyla aynı kalması bu düşüşün maliyet yapısındaki oranlı değişimle sınırlı olduğunu gösteriyor; net kârın negatifleşmesi ise faaliyet kârındaki büyük gerileme ve artan yatırım harcamasının (0,54 milyar TL) nakit…
+ozet: Hasılatın düşmesi brüt kârı ve FAVÖK'ü de azaltırken, brüt kâr marjının sektör medyanıyla aynı kalması bu düşüşün maliyet yapısındaki oranlı değişimle sınırlı olduğunu gösteriyor; net kârın negatifleşmesi ise faaliyet kârındaki büyük gerileme ve artan yatırım harcamasının (0,54 milyar TL) nakit akış…
 sirket: ÇEMTAŞ ÇELİK MAKİNA SANAYİ VE TİCARET A.Ş.
 kod: CEMTS
 donem: 2026 2. çeyrek

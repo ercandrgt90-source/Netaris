@@ -1,7 +1,7 @@
 ---
 slug: przma-2026-3-ceyrek
 baslik: PRİZMA PRES MATBAACILIK YAYINCILIK SANAYİ VE TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %89,9 düşmesi brüt kârın %276,1 gerilemesine ve net kârın -%1059,5 seviyesine sürüklenmesi, aynı dönemde özkaynakların %0,7 azalarak sabit kalmasıyla birlikte aktif toplamının %16,0 düşmesi ve net borcun -%1046,4 değişerek negatif (nakit fazlası) hâle gelmesi arasında bir ilişki…
+ozet: Hasılatın %89,9 düşmesi brüt kârın %276,1 gerilemesine ve net kârın -%1059,5 seviyesine sürüklenmesi, aynı dönemde özkaynakların %0,7 azalarak sabit kalmasıyla birlikte aktif toplamının %16,0 düşmesi ve net borcun -%1046,4 değişerek negatif (nakit fazlası) hâle gelmesi arasında bir ilişki gösteriyor…
 sirket: PRİZMA PRES MATBAACILIK YAYINCILIK SANAYİ VE TİCARET A.Ş.
 kod: PRZMA
 donem: 2026 3. çeyrek

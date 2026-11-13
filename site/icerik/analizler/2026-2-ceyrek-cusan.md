@@ -1,7 +1,7 @@
 ---
 slug: cusan-2026-2-ceyrek
 baslik: ÇUHADAROĞLU METAL SANAYİ VE PAZARLAMA A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %43,4 düşmesi brüt kârın %108,1 gerilemesine yol açarak brüt kâr marjının –%1,6'dan negatif bir seviyeye kaymasına neden oldu; aynı anda faaliyet nakit akışının %261,4 artması, azalan net borç (%2,1 düşüş) ve sabit kalan FAVÖK ile net kârın (-%1,6) iyileşmesi, likiditeyi desteklerken…
+ozet: Hasılatın %43,4 düşmesi brüt kârın %108,1 gerilemesine yol açarak brüt kâr marjının –%1,6'dan negatif bir seviyeye kaymasına neden oldu; aynı anda faaliyet nakit akışının %261,4 artması, azalan net borç (%2,1 düşüş) ve sabit kalan FAVÖK ile net kârın (-%1,6) iyileşmesi, likiditeyi desteklerken özkay…
 sirket: ÇUHADAROĞLU METAL SANAYİ VE PAZARLAMA A.Ş.
 kod: CUSAN
 donem: 2026 2. çeyrek

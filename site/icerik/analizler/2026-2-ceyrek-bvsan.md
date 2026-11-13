@@ -1,7 +1,7 @@
 ---
 slug: bvsan-2026-2-ceyrek
 baslik: BÜLBÜLOĞLU VİNÇ SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %37,9 düşmesi brüt kârın %69,9 gerilemesine ve faaliyet kârının %137,1 negatifleşmesine yol açarken, net kâr hâlâ %10,5'lik bir marjla sektör ortalamasının çok üzerinde kalmıştır; bu durum, özkaynak kârlılığının %2,0'ye yükselmesine ve özkaynakların %14,9 artışla 2,72 milyar TL'ye…
+ozet: Hasılatın %37,9 düşmesi brüt kârın %69,9 gerilemesine ve faaliyet kârının %137,1 negatifleşmesine yol açarken, net kâr hâlâ %10,5'lik bir marjla sektör ortalamasının çok üzerinde kalmıştır; bu durum, özkaynak kârlılığının %2,0'ye yükselmesine ve özkaynakların %14,9 artışla 2,72 milyar TL'ye ulaşması…
 sirket: BÜLBÜLOĞLU VİNÇ SANAYİ VE TİCARET A.Ş.
 kod: BVSAN
 donem: 2026 2. çeyrek

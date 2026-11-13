@@ -1,7 +1,7 @@
 ---
 slug: dagi-2026-1-ceyrek
 baslik: DAGİ GİYİM SANAYİ VE TİCARET A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılatın %55,6'lık brüt kâr marjı ile birlikte yükselmesi brüt kârda da artışa (1,05 milyar TL) yol açarken, faaliyet kârı ve FAVÖK'teki iyileşme (0,08 milyar TL ve 0,40 milyar TL) net kârın daralmasına (-0,12 milyar TL) rağmen özkaynakların (1,81 milyar TL) ve aktif toplamının (4,97 milyar TL)…
+ozet: Hasılatın %55,6'lık brüt kâr marjı ile birlikte yükselmesi brüt kârda da artışa (1,05 milyar TL) yol açarken, faaliyet kârı ve FAVÖK'teki iyileşme (0,08 milyar TL ve 0,40 milyar TL) net kârın daralmasına (-0,12 milyar TL) rağmen özkaynakların (1,81 milyar TL) ve aktif toplamının (4,97 milyar TL) büy…
 sirket: DAGİ GİYİM SANAYİ VE TİCARET A.Ş.
 kod: DAGI
 donem: 2026 1. çeyrek

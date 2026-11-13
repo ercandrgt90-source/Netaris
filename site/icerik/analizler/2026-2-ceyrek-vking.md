@@ -1,7 +1,7 @@
 ---
 slug: vking-2026-2-ceyrek
 baslik: VİKİNG KAĞIT VE SELÜLOZ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın 0,30 milyar TL'ye düşmesi, brüt kârın –%18,5'e gerilemesi ve faaliyet kârının –0,20 milyar TL'ye inmesi, gelir azalmasının kâr marjlarını negatif yönde kaydırdığını gösterirken, aktif toplamının 4,90 milyar TL'ye yükselmesi net borcun 4,06 milyar TL'ye artmasıyla birlikte özkaynakların…
+ozet: Hasılatın 0,30 milyar TL'ye düşmesi, brüt kârın –%18,5'e gerilemesi ve faaliyet kârının –0,20 milyar TL'ye inmesi, gelir azalmasının kâr marjlarını negatif yönde kaydırdığını gösterirken, aktif toplamının 4,90 milyar TL'ye yükselmesi net borcun 4,06 milyar TL'ye artmasıyla birlikte özkaynakların –0,…
 sirket: VİKİNG KAĞIT VE SELÜLOZ A.Ş.
 kod: VKING
 donem: 2026 2. çeyrek

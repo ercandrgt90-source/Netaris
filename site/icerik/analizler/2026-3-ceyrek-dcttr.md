@@ -1,7 +1,7 @@
 ---
 slug: dcttr-2026-3-ceyrek
 baslik: DCT TRADİNG DIŞ TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %54,8 artması brüt kârın %610 yükselmesine yol açarak brüt kâr marjının %48,1'e (sektör medyanı %42,2) çıkmasını sağladı; bu kâr artışı faaliyet kârı ve FAVÖK'ün negatiften pozitif seviyelere geçmesine, net kârın ise hâlâ negatif kalmasına rağmen özkaynak kârlılığının %-0,3'e (sektör…
+ozet: Hasılatın %54,8 artması brüt kârın %610 yükselmesine yol açarak brüt kâr marjının %48,1'e (sektör medyanı %42,2) çıkmasını sağladı; bu kâr artışı faaliyet kârı ve FAVÖK'ün negatiften pozitif seviyelere geçmesine, net kârın ise hâlâ negatif kalmasına rağmen özkaynak kârlılığının %-0,3'e (sektör medya…
 sirket: DCT TRADİNG DIŞ TİCARET A.Ş.
 kod: DCTTR
 donem: 2026 3. çeyrek

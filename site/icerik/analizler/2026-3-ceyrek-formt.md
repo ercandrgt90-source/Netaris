@@ -1,7 +1,7 @@
 ---
 slug: formt-2026-3-ceyrek
 baslik: FORMET METAL VE CAM SANAYİ A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %42,2 artması, brüt kârın negatiften pozitif 0,07 milyar TL'ye yükselmesine paralel olarak brüt kâr marjının sektör medyanıyla aynı %22,7 seviyesinde kalmasını sağladı; aynı gelir artışı, faaliyet ve FAVÖK kârlarının da negatiften sıfıra ve 0,03 milyar TL'ye geçmesine yol açarken net kâr…
+ozet: Hasılatın %42,2 artması, brüt kârın negatiften pozitif 0,07 milyar TL'ye yükselmesine paralel olarak brüt kâr marjının sektör medyanıyla aynı %22,7 seviyesinde kalmasını sağladı; aynı gelir artışı, faaliyet ve FAVÖK kârlarının da negatiften sıfıra ve 0,03 milyar TL'ye geçmesine yol açarken net kâr h…
 sirket: FORMET METAL VE CAM SANAYİ A.Ş.
 kod: FORMT
 donem: 2026 3. çeyrek

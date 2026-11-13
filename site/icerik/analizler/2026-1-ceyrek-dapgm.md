@@ -1,7 +1,7 @@
 ---
 slug: dapgm-2026-1-ceyrek
 baslik: DAP GAYRİMENKUL GELİŞTİRME A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılatın %85,7 brüt kâr marjı ile birlikte yükselmesi brüt kârın da 3,84 milyar TL'ye, ardından faaliyet kârı ve FAVÖK'ün sırasıyla 3,59 milyar TL ve 3,61 milyar TL'ye artmasına yol açtı; net kâr ise 0,40 milyar TL'ye gerileyerek net kâr marjını %15,4 seviyesinde tutarken özkaynak 17,69 milyar…
+ozet: Hasılatın %85,7 brüt kâr marjı ile birlikte yükselmesi brüt kârın da 3,84 milyar TL'ye, ardından faaliyet kârı ve FAVÖK'ün sırasıyla 3,59 milyar TL ve 3,61 milyar TL'ye artmasına yol açtı; net kâr ise 0,40 milyar TL'ye gerileyerek net kâr marjını %15,4 seviyesinde tutarken özkaynak 17,69 milyar TL'y…
 sirket: DAP GAYRİMENKUL GELİŞTİRME A.Ş.
 kod: DAPGM
 donem: 2026 1. çeyrek

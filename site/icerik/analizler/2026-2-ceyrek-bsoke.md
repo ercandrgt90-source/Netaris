@@ -1,7 +1,7 @@
 ---
 slug: bsoke-2026-2-ceyrek
 baslik: BATIÇİM ÇİMENTO SANAYİ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %9,0 artması brüt kârın %7,7 düşmesine paralel olarak, brüt kâr marjının %15,9'dan %14,1 sektör medyanının üzerine çıkması, satış hacmindeki büyümenin kârlılıkta tam yansımadığını gösteriyor; aynı dönemde faaliyet kârı ve net kârın negatif değerleri, artan faaliyet nakit akışı (0,72…
+ozet: Hasılatın %9,0 artması brüt kârın %7,7 düşmesine paralel olarak, brüt kâr marjının %15,9'dan %14,1 sektör medyanının üzerine çıkması, satış hacmindeki büyümenin kârlılıkta tam yansımadığını gösteriyor; aynı dönemde faaliyet kârı ve net kârın negatif değerleri, artan faaliyet nakit akışı (0,72 milyar…
 sirket: BATIÇİM ÇİMENTO SANAYİ A.Ş.
 kod: BSOKE
 donem: 2026 2. çeyrek

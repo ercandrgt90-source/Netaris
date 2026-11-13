@@ -1,7 +1,7 @@
 ---
 slug: bakab-2026-3-ceyrek
 baslik: BAK AMBALAJ SANAYİ VE TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %38,9 artması brüt kârı %187,0 yükselterek brüt kâr marjının %17,1'e (sektör medyanı %16,2) çıkmasını sağladı; brüt kârdaki bu artış, faaliyet kârının negatiften pozitif 0,18 milyar TL'ye (önceki dönem -0,04 milyar TL) dönüşmesinde ve FAVÖK'ün %298,3 artarak 0,29 milyar TL'ye (sektör…
+ozet: Hasılatın %38,9 artması brüt kârı %187,0 yükselterek brüt kâr marjının %17,1'e (sektör medyanı %16,2) çıkmasını sağladı; brüt kârdaki bu artış, faaliyet kârının negatiften pozitif 0,18 milyar TL'ye (önceki dönem -0,04 milyar TL) dönüşmesinde ve FAVÖK'ün %298,3 artarak 0,29 milyar TL'ye (sektör medya…
 sirket: BAK AMBALAJ SANAYİ VE TİCARET A.Ş.
 kod: BAKAB
 donem: 2026 3. çeyrek

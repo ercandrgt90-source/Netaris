@@ -1,7 +1,7 @@
 ---
 slug: surgy-2026-3-ceyrek
 baslik: SUR TATİL EVLERİ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %213,2 oranında net kâra dönüşmesi, net kâr marjının sektör medyanının %32,8'ini aşmasıyla birlikte, özkaynak kârlılığının %1,2 seviyesinde hafif bir artış göstermesi, şirketin yüksek kârlılık oranını özkaynak büyüklüğüne bağlamaktadır; aktif toplamının 16,43 milyar TL olması ve net…
+ozet: Hasılatın %213,2 oranında net kâra dönüşmesi, net kâr marjının sektör medyanının %32,8'ini aşmasıyla birlikte, özkaynak kârlılığının %1,2 seviyesinde hafif bir artış göstermesi, şirketin yüksek kârlılık oranını özkaynak büyüklüğüne bağlamaktadır; aktif toplamının 16,43 milyar TL olması ve net borçsu…
 sirket: SUR TATİL EVLERİ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: SURGY
 donem: 2026 3. çeyrek

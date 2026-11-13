@@ -1,7 +1,7 @@
 ---
 slug: bayrk-2026-3-ceyrek
 baslik: BAYRAK EBT TABAN SANAYİ VE TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %76,1 artması brüt kârın negatiften sıfıra çıkmasına yol açarken, aynı dönemde faaliyet ve FAVÖK kayıplarının artması net kârın %333,6 düşmesine ve özkaynakların %37,7 azalmasına neden oldu; bu kâr kayıpları özkaynak kârlılığının %25,0 negatif olmasını ve borç/özkaynak oranının %2,08'e…
+ozet: Hasılatın %76,1 artması brüt kârın negatiften sıfıra çıkmasına yol açarken, aynı dönemde faaliyet ve FAVÖK kayıplarının artması net kârın %333,6 düşmesine ve özkaynakların %37,7 azalmasına neden oldu; bu kâr kayıpları özkaynak kârlılığının %25,0 negatif olmasını ve borç/özkaynak oranının %2,08'e yük…
 sirket: BAYRAK EBT TABAN SANAYİ VE TİCARET A.Ş.
 kod: BAYRK
 donem: 2026 3. çeyrek

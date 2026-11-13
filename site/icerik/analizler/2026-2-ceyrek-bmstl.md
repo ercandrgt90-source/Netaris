@@ -1,7 +1,7 @@
 ---
 slug: bmstl-2026-2-ceyrek
 baslik: BMS BİRLEŞİK METAL SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat ve brüt kâr artışları (%41,1 ve %44,3) brüt kâr marjının %22,7 seviyesinde sektör medyanının (%14,1) üzerinde kalmasını sağlarken, faaliyet kârı ve FAVÖK'teki düşüşler (%-24,6 ve %-15,7) net kâr marjının sadece %2,5 (sektör medyanı %2,4) olmasına yol açtı; bu da özkaynak kârlılığının %1,3…
+ozet: Hasılat ve brüt kâr artışları (%41,1 ve %44,3) brüt kâr marjının %22,7 seviyesinde sektör medyanının (%14,1) üzerinde kalmasını sağlarken, faaliyet kârı ve FAVÖK'teki düşüşler (%-24,6 ve %-15,7) net kâr marjının sadece %2,5 (sektör medyanı %2,4) olmasına yol açtı; bu da özkaynak kârlılığının %1,3 (s…
 sirket: BMS BİRLEŞİK METAL SANAYİ VE TİCARET A.Ş.
 kod: BMSTL
 donem: 2026 2. çeyrek

@@ -1,7 +1,7 @@
 ---
 slug: ihlgm-2026-3-ceyrek
 baslik: İHLAS GAYRİMENKUL PROJE GELİŞTİRME VE TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılat ve brüt kâr her ikisi de %23,3 ve %22,3 artarak yükselmiş, bu da brüt kâr marjının %24,6 seviyesinde sabit kalmasına yol açmıştır; faaliyet kârı, FAVÖK ve net kâr ise önceki dönemde negatifken sıfırın üzerine çıkmış, bu da özkaynakların %130,7 artmasıyla birlikte özkaynak kârlılığının…
+ozet: Hasılat ve brüt kâr her ikisi de %23,3 ve %22,3 artarak yükselmiş, bu da brüt kâr marjının %24,6 seviyesinde sabit kalmasına yol açmıştır; faaliyet kârı, FAVÖK ve net kâr ise önceki dönemde negatifken sıfırın üzerine çıkmış, bu da özkaynakların %130,7 artmasıyla birlikte özkaynak kârlılığının %5,6'y…
 sirket: İHLAS GAYRİMENKUL PROJE GELİŞTİRME VE TİCARET A.Ş.
 kod: IHLGM
 donem: 2026 3. çeyrek

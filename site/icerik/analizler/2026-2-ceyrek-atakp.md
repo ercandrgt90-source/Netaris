@@ -1,7 +1,7 @@
 ---
 slug: atakp-2026-2-ceyrek
 baslik: ATAKEY PATATES GIDA SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın düşmesi brüt kârı %6,3'e gerilemesine yol açarken, brüt kârın azalması kâr marjının sektör medyanının çok altında kalmasına ve net kârın -%22,4'e sürüklenmesine neden oldu; aynı zamanda faaliyet kârının daha da negatifleşmesi FAVÖK'ün hafif düşmesine rağmen net zararın artmasına…
+ozet: Hasılatın düşmesi brüt kârı %6,3'e gerilemesine yol açarken, brüt kârın azalması kâr marjının sektör medyanının çok altında kalmasına ve net kârın -%22,4'e sürüklenmesine neden oldu; aynı zamanda faaliyet kârının daha da negatifleşmesi FAVÖK'ün hafif düşmesine rağmen net zararın artmasına bağlanabil…
 sirket: ATAKEY PATATES GIDA SANAYİ VE TİCARET A.Ş.
 kod: ATAKP
 donem: 2026 2. çeyrek

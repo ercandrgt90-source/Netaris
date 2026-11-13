@@ -1,7 +1,7 @@
 ---
 slug: suwen-2026-3-ceyrek
 baslik: SUWEN TEKSTİL SANAYİ PAZARLAMA A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %18,7 artması brüt kârın %13,8 yükselmesine paralel olarak gerçekleşmiş, bu da brüt kâr marjının %47,3 seviyesinde kalmasını sağlamış; net kâr ise %48,1 artarak %2,7'ye yükselmiş, ancak faaliyet nakit akışı %16,3 azalarak özkaynak kârlılığının %3,6 (sektör medyanı %0,3) seviyesinde…
+ozet: Hasılatın %18,7 artması brüt kârın %13,8 yükselmesine paralel olarak gerçekleşmiş, bu da brüt kâr marjının %47,3 seviyesinde kalmasını sağlamış; net kâr ise %48,1 artarak %2,7'ye yükselmiş, ancak faaliyet nakit akışı %16,3 azalarak özkaynak kârlılığının %3,6 (sektör medyanı %0,3) seviyesinde kalması…
 sirket: SUWEN TEKSTİL SANAYİ PAZARLAMA A.Ş.
 kod: SUWEN
 donem: 2026 3. çeyrek

@@ -1,7 +1,7 @@
 ---
 slug: enjsa-2026-2-ceyrek
 baslik: ENERJİSA ENERJİ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın 113,74 milyar TL'den 117,08 milyar TL'ye yükselmesi, faaliyet nakit akışının 19,16 milyar TL'den 22,60 milyar TL'ye artmasıyla paralel seyrederek net kârın -0,48 milyar TL'den 2,75 milyar TL'ye geçmesine zemin hazırlamış; aynı dönemde aktif toplamının 199,82 milyar TL'den 277,07 milyar…
+ozet: Hasılatın 113,74 milyar TL'den 117,08 milyar TL'ye yükselmesi, faaliyet nakit akışının 19,16 milyar TL'den 22,60 milyar TL'ye artmasıyla paralel seyrederek net kârın -0,48 milyar TL'den 2,75 milyar TL'ye geçmesine zemin hazırlamış; aynı dönemde aktif toplamının 199,82 milyar TL'den 277,07 milyar TL'…
 sirket: ENERJİSA ENERJİ A.Ş.
 kod: ENJSA
 donem: 2026 2. çeyrek

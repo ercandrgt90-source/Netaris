@@ -1,7 +1,7 @@
 ---
 slug: flap-2026-2-ceyrek
 baslik: FLAP KONGRE TOPLANTI HİZMETLERİ OTOMOTİV VE TURİZM A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat ve brüt kâr aynı seviyede kalırken brüt kâr marjı %8,5 olarak sabit kaldı; bu durum brüt kârın hasılatla paralel hareket ettiğini gösterir. Faaliyet kârı ve net kâr negatif değerlere derinleşmiş, net kâr –%25,7'ye geriledi; bu düşüş, faaliyet kârının daha da azalması ve net kârın önceki…
+ozet: Hasılat ve brüt kâr aynı seviyede kalırken brüt kâr marjı %8,5 olarak sabit kaldı; bu durum brüt kârın hasılatla paralel hareket ettiğini gösterir. Faaliyet kârı ve net kâr negatif değerlere derinleşmiş, net kâr –%25,7'ye geriledi; bu düşüş, faaliyet kârının daha da azalması ve net kârın önceki döne…
 sirket: FLAP KONGRE TOPLANTI HİZMETLERİ OTOMOTİV VE TURİZM A.Ş.
 kod: FLAP
 donem: 2026 2. çeyrek

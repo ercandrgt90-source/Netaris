@@ -1,7 +1,7 @@
 ---
 slug: brmen-2026-2-ceyrek
 baslik: BİRLİK MENSUCAT TİCARET VE SANAYİ İŞLETMESİ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat ve brüt kâr artışları (%18,5 ve %23,2) aktif toplamındaki %97,1'lik büyümeyi desteklerken, brüt kâr marjının %49,3 seviyesinde sektör medyanının çok üzerinde kalması, maliyet yapısının satışa oranla daha az arttığını gösterir; ancak faaliyet ve FAVÖK kârlarının negatif olması, artan aktif…
+ozet: Hasılat ve brüt kâr artışları (%18,5 ve %23,2) aktif toplamındaki %97,1'lik büyümeyi desteklerken, brüt kâr marjının %49,3 seviyesinde sektör medyanının çok üzerinde kalması, maliyet yapısının satışa oranla daha az arttığını gösterir; ancak faaliyet ve FAVÖK kârlarının negatif olması, artan aktif ve…
 sirket: BİRLİK MENSUCAT TİCARET VE SANAYİ İŞLETMESİ A.Ş.
 kod: BRMEN
 donem: 2026 2. çeyrek

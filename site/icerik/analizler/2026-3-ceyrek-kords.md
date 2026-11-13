@@ -1,7 +1,7 @@
 ---
 slug: kords-2026-3-ceyrek
 baslik: KORDSA TEKNİK TEKSTİL A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %22,7 artması brüt kârın %57,2 yükselmesine yol açmış; brüt kârdaki bu güçlü artış, brüt kâr marjının sektör medyanına çok yakın kalmasına rağmen net kâr marjının %1,8 seviyesinde düşük seyretmesinin temel nedeni, faaliyet ve net kârların önceki dönemde negatif iken sadece sınırlı ölçüde…
+ozet: Hasılatın %22,7 artması brüt kârın %57,2 yükselmesine yol açmış; brüt kârdaki bu güçlü artış, brüt kâr marjının sektör medyanına çok yakın kalmasına rağmen net kâr marjının %1,8 seviyesinde düşük seyretmesinin temel nedeni, faaliyet ve net kârların önceki dönemde negatif iken sadece sınırlı ölçüde p…
 sirket: KORDSA TEKNİK TEKSTİL A.Ş.
 kod: KORDS
 donem: 2026 3. çeyrek

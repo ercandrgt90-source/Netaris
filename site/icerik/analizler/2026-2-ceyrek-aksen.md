@@ -1,7 +1,7 @@
 ---
 slug: aksen-2026-2-ceyrek
 baslik: AKSA ENERJİ ÜRETİM A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın 23,97 milyar TL'den 19,99 milyar TL'ye düşmesi net kârın 1,55 milyar TL'den 1,17 milyar TL'ye gerilemesine paralel olarak gerçekleşti; aynı dönemde özkaynak 53,56 milyar TL'den 74,81 milyar TL'ye, aktif toplamı 108,01 milyar TL'den 151,71 milyar TL'ye yükselirken net borç 36,57 milyar…
+ozet: Hasılatın 23,97 milyar TL'den 19,99 milyar TL'ye düşmesi net kârın 1,55 milyar TL'den 1,17 milyar TL'ye gerilemesine paralel olarak gerçekleşti; aynı dönemde özkaynak 53,56 milyar TL'den 74,81 milyar TL'ye, aktif toplamı 108,01 milyar TL'den 151,71 milyar TL'ye yükselirken net borç 36,57 milyar TL'd…
 sirket: AKSA ENERJİ ÜRETİM A.Ş.
 kod: AKSEN
 donem: 2026 2. çeyrek

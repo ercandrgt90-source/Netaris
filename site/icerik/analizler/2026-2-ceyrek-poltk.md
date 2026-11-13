@@ -1,7 +1,7 @@
 ---
 slug: poltk-2026-2-ceyrek
 baslik: POLİTEKNİK METAL SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın 0,64 milyar TL'ye yükselmesi brüt kârın 0,14 milyar TL'ye ve FAVÖK'ün 0,04 milyar TL'ye artmasına, dolayısıyla brüt kâr marjının %19,9 ile sektör medyanı %14,1'in üzerinde kalmasına yol açtı; ancak net kâr –0,04 milyar TL'ye derinleştiği için net kâr marjı –%11,2 ve özkaynak kârlılığı…
+ozet: Hasılatın 0,64 milyar TL'ye yükselmesi brüt kârın 0,14 milyar TL'ye ve FAVÖK'ün 0,04 milyar TL'ye artmasına, dolayısıyla brüt kâr marjının %19,9 ile sektör medyanı %14,1'in üzerinde kalmasına yol açtı; ancak net kâr –0,04 milyar TL'ye derinleştiği için net kâr marjı –%11,2 ve özkaynak kârlılığı –%9,…
 sirket: POLİTEKNİK METAL SANAYİ VE TİCARET A.Ş.
 kod: POLTK
 donem: 2026 2. çeyrek

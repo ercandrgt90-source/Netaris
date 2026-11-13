@@ -1,7 +1,7 @@
 ---
 slug: alark-2026-2-ceyrek
 baslik: ALARKO HOLDİNG A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat 3,77 milyar TL'ye yükselirken brüt kâr –0,39 milyar TL'ye iyileşmiş, bu da brüt kâr marjının %0,1'den %0,1'e (sektör medyanının %21,2'si altında) hafif artışını gösteriyor; aynı dönemde faaliyet kârı –1,17 milyar TL'ye, FAVÖK ise –0,41 milyar TL'ye gerileyerek net kâr –0,74 milyar TL'ye…
+ozet: Hasılat 3,77 milyar TL'ye yükselirken brüt kâr –0,39 milyar TL'ye iyileşmiş, bu da brüt kâr marjının %0,1'den %0,1'e (sektör medyanının %21,2'si altında) hafif artışını gösteriyor; aynı dönemde faaliyet kârı –1,17 milyar TL'ye, FAVÖK ise –0,41 milyar TL'ye gerileyerek net kâr –0,74 milyar TL'ye yüks…
 sirket: ALARKO HOLDİNG A.Ş.
 kod: ALARK
 donem: 2026 2. çeyrek

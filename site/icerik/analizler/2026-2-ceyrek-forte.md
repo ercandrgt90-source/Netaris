@@ -1,7 +1,7 @@
 ---
 slug: forte-2026-2-ceyrek
 baslik: FORTE BİLGİ İLETİŞİM TEKNOLOJİLERİ VE SAVUNMA SANAYİ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılattaki üç katın üzerindeki büyümeye brüt kâr aynı yönde eşlik ederken, faaliyet kârı ve FAVÖK daha keskin biçimde yükseldi; sabit gider tabanının ciroya oranla seyrelmesi, önceki dönemin net zararının net kâra dönmesiyle birlikte okunuyor ve net kâr marjı sektör medyanının negatif seviyesinin…
+ozet: Hasılattaki üç katın üzerindeki büyümeye brüt kâr aynı yönde eşlik ederken, faaliyet kârı ve FAVÖK daha keskin biçimde yükseldi; sabit gider tabanının ciroya oranla seyrelmesi, önceki dönemin net zararının net kâra dönmesiyle birlikte okunuyor ve net kâr marjı sektör medyanının negatif seviyesinin ü…
 sirket: FORTE BİLGİ İLETİŞİM TEKNOLOJİLERİ VE SAVUNMA SANAYİ A.Ş.
 kod: FORTE
 donem: 2026 2. çeyrek

@@ -1,7 +1,7 @@
 ---
 slug: dofrb-2026-2-ceyrek
 baslik: DOF ROBOTİK SANAYİ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %57,1 brüt kâr marjı ile %25,7 net kâr marjına dönüşmesi, brüt kârın %57,1 oranında kalırken faaliyet ve FAVÖK kârları düşüş gösterdiği için net kârın artışına yol açtı; aynı zamanda özkaynakların %2,8 kârlılığı, artan net kâr ve düşük %0,09 borç/özkaynak oranı sayesinde cari oranının…
+ozet: Hasılatın %57,1 brüt kâr marjı ile %25,7 net kâr marjına dönüşmesi, brüt kârın %57,1 oranında kalırken faaliyet ve FAVÖK kârları düşüş gösterdiği için net kârın artışına yol açtı; aynı zamanda özkaynakların %2,8 kârlılığı, artan net kâr ve düşük %0,09 borç/özkaynak oranı sayesinde cari oranının %2,1…
 sirket: DOF ROBOTİK SANAYİ A.Ş.
 kod: DOFRB
 donem: 2026 2. çeyrek

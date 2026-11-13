@@ -1,7 +1,7 @@
 ---
 slug: cates-2026-2-ceyrek
 baslik: ÇATES ELEKTRİK ÜRETİM A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %35,6 net kâr marjına dönüşmesi, faaliyet nakit akışının -0,23 milyar TL'ye iyileşmesiyle birlikte net kârın -0,26 milyar TL'ye (önceki -0,31 milyar TL) yükselmesi, artan aktif toplamı (16,76 milyar TL) ve özkaynak (14,78 milyar TL) sayesinde özkaynak kârlılığının %3,9'a (sektör medyanı…
+ozet: Hasılatın %35,6 net kâr marjına dönüşmesi, faaliyet nakit akışının -0,23 milyar TL'ye iyileşmesiyle birlikte net kârın -0,26 milyar TL'ye (önceki -0,31 milyar TL) yükselmesi, artan aktif toplamı (16,76 milyar TL) ve özkaynak (14,78 milyar TL) sayesinde özkaynak kârlılığının %3,9'a (sektör medyanı %1…
 sirket: ÇATES ELEKTRİK ÜRETİM A.Ş.
 kod: CATES
 donem: 2026 2. çeyrek

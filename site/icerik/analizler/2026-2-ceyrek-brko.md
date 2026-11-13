@@ -1,7 +1,7 @@
 ---
 slug: brko-2026-2-ceyrek
 baslik: BİRKO BİRLEŞİK KOYUNLULULAR MENSUCAT TİCARET VE SANAYİ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat ve brüt kâr artışları %334,9 ve %454,8 ile birlikte, brüt kâr marjının %42,4 seviyesine yükselmesi, satışların maliyet yapısına göre daha hızlı büyüdüğünü gösteriyor; bu durum aynı zamanda FAVÖK'ün %331,0 artması ve faaliyet kârının negatiften pozitif 0,02 milyar TL'ye geçmesiyle de…
+ozet: Hasılat ve brüt kâr artışları %334,9 ve %454,8 ile birlikte, brüt kâr marjının %42,4 seviyesine yükselmesi, satışların maliyet yapısına göre daha hızlı büyüdüğünü gösteriyor; bu durum aynı zamanda FAVÖK'ün %331,0 artması ve faaliyet kârının negatiften pozitif 0,02 milyar TL'ye geçmesiyle de tutarlı.…
 sirket: BİRKO BİRLEŞİK KOYUNLULULAR MENSUCAT TİCARET VE SANAYİ A.Ş.
 kod: BRKO
 donem: 2026 2. çeyrek

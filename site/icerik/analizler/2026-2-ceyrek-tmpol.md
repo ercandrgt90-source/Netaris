@@ -1,7 +1,7 @@
 ---
 slug: tmpol-2026-2-ceyrek
 baslik: TEMAPOL POLİMER PLASTİK VE İNŞAAT SANAYİ TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %55,4 artması, brüt kârın %3,6 düşmesi ve net kâr marjının negatif %0,4'e gerilemesi, satışların artışının maliyet ve gider artışlarıyla birlikte kâr üzerindeki baskıyı artırdığını gösteriyor; bu durum, faaliyet kârı ve FAVÖK'te sırasıyla %41,5 ve %34,7 düşüşe yol açarken, faaliyet nakit…
+ozet: Hasılatın %55,4 artması, brüt kârın %3,6 düşmesi ve net kâr marjının negatif %0,4'e gerilemesi, satışların artışının maliyet ve gider artışlarıyla birlikte kâr üzerindeki baskıyı artırdığını gösteriyor; bu durum, faaliyet kârı ve FAVÖK'te sırasıyla %41,5 ve %34,7 düşüşe yol açarken, faaliyet nakit a…
 sirket: TEMAPOL POLİMER PLASTİK VE İNŞAAT SANAYİ TİCARET A.Ş.
 kod: TMPOL
 donem: 2026 2. çeyrek

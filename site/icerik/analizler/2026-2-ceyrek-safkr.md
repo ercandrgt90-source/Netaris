@@ -1,7 +1,7 @@
 ---
 slug: safkr-2026-2-ceyrek
 baslik: SAFKAR EGE SOĞUTMACILIK KLİMA SOĞUK HAVA TESİSLERİ İHRACAT İTHALAT SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %109,7 artması, brüt kârın sadece %4,4 yükselmesiyle birlikte brüt kâr marjının %15,4 seviyesinde sektör medyanına çok yakın kalması, satışların artışının maliyet artışlarıyla dengelendiğini gösteriyor; bu durum faaliyet kârı, FAVÖK ve net kârın da sırasıyla %1,2, %1,1 ve %8,3 artmasına…
+ozet: Hasılatın %109,7 artması, brüt kârın sadece %4,4 yükselmesiyle birlikte brüt kâr marjının %15,4 seviyesinde sektör medyanına çok yakın kalması, satışların artışının maliyet artışlarıyla dengelendiğini gösteriyor; bu durum faaliyet kârı, FAVÖK ve net kârın da sırasıyla %1,2, %1,1 ve %8,3 artmasına ya…
 sirket: SAFKAR EGE SOĞUTMACILIK KLİMA SOĞUK HAVA TESİSLERİ İHRACAT İTHALAT SANAYİ VE TİCARET A.Ş.
 kod: SAFKR
 donem: 2026 2. çeyrek

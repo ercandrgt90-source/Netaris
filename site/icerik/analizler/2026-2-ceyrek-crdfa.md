@@ -1,7 +1,7 @@
 ---
 slug: crdfa-2026-2-ceyrek
 baslik: CREDITWEST FAKTORİNG A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın yükselmesi brüt kârı ve faaliyet kârını artırdı; brüt kâr marjının %95,3 seviyesinde kalması brüt kârın hasılatla paralel artmasını sağladı. Net kârın %220,4'e çıkması özkaynak kârlılığını %30,1'e taşıdı; bu artış özkaynakların %2,64'e yükselmesi ve net borcun %0,23'e düşmesiyle…
+ozet: Hasılatın yükselmesi brüt kârı ve faaliyet kârını artırdı; brüt kâr marjının %95,3 seviyesinde kalması brüt kârın hasılatla paralel artmasını sağladı. Net kârın %220,4'e çıkması özkaynak kârlılığını %30,1'e taşıdı; bu artış özkaynakların %2,64'e yükselmesi ve net borcun %0,23'e düşmesiyle desteklend…
 sirket: CREDITWEST FAKTORİNG A.Ş.
 kod: CRDFA
 donem: 2026 2. çeyrek

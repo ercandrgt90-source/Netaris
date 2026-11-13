@@ -1,7 +1,7 @@
 ---
 slug: psgyo-2026-1-ceyrek
 baslik: PASİFİK GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılatın %28,6 oranındaki yüksek net kâr marjı, net kârın hasılatın iki katına çıkmasına yol açarken, bu yüksek kârın özkaynak kârlılığına %0,6 olarak yansıtılması, özkaynakların büyük bir kısmının aktif toplamı (89,56 milyar TL) içinde pasif olarak kalmasından kaynaklanıyor; dolayısıyla özkaynak…
+ozet: Hasılatın %28,6 oranındaki yüksek net kâr marjı, net kârın hasılatın iki katına çıkmasına yol açarken, bu yüksek kârın özkaynak kârlılığına %0,6 olarak yansıtılması, özkaynakların büyük bir kısmının aktif toplamı (89,56 milyar TL) içinde pasif olarak kalmasından kaynaklanıyor; dolayısıyla özkaynak k…
 sirket: PASİFİK GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: PSGYO
 donem: 2026 1. çeyrek

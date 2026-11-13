@@ -1,7 +1,7 @@
 ---
 slug: bioen-2026-2-ceyrek
 baslik: BİOTREND ÇEVRE VE ENERJİ YATIRIMLARI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın 1,48 milyar TL'ye düşmesi net kârın -0,57 milyar TL'den 0,06 milyar TL'ye geçmesiyle birlikte net kâr marjının -%8,1'e (sektör medyanı %11,4) gerilemesine yol açtı; aynı dönemde aktif toplamı 11,58 milyar TL'ye (önceki 9,82 milyar TL) yükselirken özkaynak 3,27 milyar TL'ye (önceki 4,14…
+ozet: Hasılatın 1,48 milyar TL'ye düşmesi net kârın -0,57 milyar TL'den 0,06 milyar TL'ye geçmesiyle birlikte net kâr marjının -%8,1'e (sektör medyanı %11,4) gerilemesine yol açtı; aynı dönemde aktif toplamı 11,58 milyar TL'ye (önceki 9,82 milyar TL) yükselirken özkaynak 3,27 milyar TL'ye (önceki 4,14 mil…
 sirket: BİOTREND ÇEVRE VE ENERJİ YATIRIMLARI A.Ş.
 kod: BIOEN
 donem: 2026 2. çeyrek

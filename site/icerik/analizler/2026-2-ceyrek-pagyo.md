@@ -1,7 +1,7 @@
 ---
 slug: pagyo-2026-2-ceyrek
 baslik: PANORA GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat ile net kâr aynı yönde arttı ve net kâr marjının sektör medyanının üzerinde konumlanması, kârın büyük bölümünün faaliyet dışı değerleme kaynaklı olabileceğine işaret eden bir yapıyla birlikte okunuyor; buna karşın özkaynak, net kârdan çok daha büyük bir tutarda büyüdüğü için özkaynak…
+ozet: Hasılat ile net kâr aynı yönde arttı ve net kâr marjının sektör medyanının üzerinde konumlanması, kârın büyük bölümünün faaliyet dışı değerleme kaynaklı olabileceğine işaret eden bir yapıyla birlikte okunuyor; buna karşın özkaynak, net kârdan çok daha büyük bir tutarda büyüdüğü için özkaynak kârlılı…
 sirket: PANORA GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: PAGYO
 donem: 2026 2. çeyrek

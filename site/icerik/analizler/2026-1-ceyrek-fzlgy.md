@@ -1,7 +1,7 @@
 ---
 slug: fzlgy-2026-1-ceyrek
 baslik: FUZUL GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılat 2,81 milyar TL'ye yükselirken net kâr –0,25 milyar TL'ye gerilemiş, bu durum net kâr marjının –%19,9'a düşmesine ve özkaynak kârlılığının –%5,2'ye inmesine yol açmıştır; artan hasılatın kâra dönüşmemesi, net borcun 0,69 milyar TL'den 1,18 milyar TL'ye yükselmesiyle birlikte borç/özkaynak…
+ozet: Hasılat 2,81 milyar TL'ye yükselirken net kâr –0,25 milyar TL'ye gerilemiş, bu durum net kâr marjının –%19,9'a düşmesine ve özkaynak kârlılığının –%5,2'ye inmesine yol açmıştır; artan hasılatın kâra dönüşmemesi, net borcun 0,69 milyar TL'den 1,18 milyar TL'ye yükselmesiyle birlikte borç/özkaynak ora…
 sirket: FUZUL GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: FZLGY
 donem: 2026 1. çeyrek

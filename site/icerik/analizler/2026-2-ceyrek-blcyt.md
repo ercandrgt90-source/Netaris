@@ -1,7 +1,7 @@
 ---
 slug: blcyt-2026-2-ceyrek
 baslik: BİLİCİ YATIRIM SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %25,2 artması, brüt kârın negatiften pozitif 0,01 milyar TL'ye yükselmesiyle birlikte brüt kâr marjının %9,0 seviyesine gelmesi, satış hacmindeki yükselişin kârlılığı artırdığını gösteriyor; ancak net kârın -0,01 milyar TL'ye düşmesi ve net kâr marjının -%7,5 olması, faaliyet kârı ve…
+ozet: Hasılatın %25,2 artması, brüt kârın negatiften pozitif 0,01 milyar TL'ye yükselmesiyle birlikte brüt kâr marjının %9,0 seviyesine gelmesi, satış hacmindeki yükselişin kârlılığı artırdığını gösteriyor; ancak net kârın -0,01 milyar TL'ye düşmesi ve net kâr marjının -%7,5 olması, faaliyet kârı ve FAVÖK…
 sirket: BİLİCİ YATIRIM SANAYİ VE TİCARET A.Ş.
 kod: BLCYT
 donem: 2026 2. çeyrek

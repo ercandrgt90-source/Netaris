@@ -1,7 +1,7 @@
 ---
 slug: eukyo-2026-2-ceyrek
 baslik: EURO KAPİTAL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Brüt kâr artarken (0,02 milyar TL, %47,1) brüt kâr marjı da sektör medyanının üzerinde yükselmiş, bu durum hasılatın aynı kalmasına rağmen maliyetlerin azaldığını gösteriyor; aynı süreçte net kârın (-0,01 milyar TL) ve net kâr marjının (-%37,1) iyileşmesi, zararların azaldığını ancak hâlâ negatif…
+ozet: Brüt kâr artarken (0,02 milyar TL, %47,1) brüt kâr marjı da sektör medyanının üzerinde yükselmiş, bu durum hasılatın aynı kalmasına rağmen maliyetlerin azaldığını gösteriyor; aynı süreçte net kârın (-0,01 milyar TL) ve net kâr marjının (-%37,1) iyileşmesi, zararların azaldığını ancak hâlâ negatif ka…
 sirket: EURO KAPİTAL YATIRIM ORTAKLIĞI A.Ş.
 kod: EUKYO
 donem: 2026 2. çeyrek

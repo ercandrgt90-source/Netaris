@@ -1,7 +1,7 @@
 ---
 slug: asgyo-2026-1-ceyrek
 baslik: ASCE GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılatın 0,06 milyar TL'den 0,10 milyar TL'ye yükselmesi, net kârın -0,97 milyar TL'den 4,70 milyar TL'ye geçişiyle paralel olarak gerçekleşmiş; gelir artışı kârda büyük bir sıçrama yaratırken özkaynak da 16,49 milyar TL'den 28,80 milyar TL'ye artmış ve bu da aktif toplamının 22,01 milyar TL'den…
+ozet: Hasılatın 0,06 milyar TL'den 0,10 milyar TL'ye yükselmesi, net kârın -0,97 milyar TL'den 4,70 milyar TL'ye geçişiyle paralel olarak gerçekleşmiş; gelir artışı kârda büyük bir sıçrama yaratırken özkaynak da 16,49 milyar TL'den 28,80 milyar TL'ye artmış ve bu da aktif toplamının 22,01 milyar TL'den 31…
 sirket: ASCE GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: ASGYO
 donem: 2026 1. çeyrek

@@ -1,7 +1,7 @@
 ---
 slug: aygaz-2026-2-ceyrek
 baslik: AYGAZ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın hafif düşmesi (%1,9) ardından brüt kârın artması, brüt kâr marjının %10,7 seviyesinde kalması ve net kârın %14,7'ye yükselmesi, kârlılık göstergelerinin (net kâr marjı, özkaynak kârlılığı) sektör medyanlarının üzerinde hareket ettiğini gösteriyor; bu artış özkaynakların %84,08 milyar…
+ozet: Hasılatın hafif düşmesi (%1,9) ardından brüt kârın artması, brüt kâr marjının %10,7 seviyesinde kalması ve net kârın %14,7'ye yükselmesi, kârlılık göstergelerinin (net kâr marjı, özkaynak kârlılığı) sektör medyanlarının üzerinde hareket ettiğini gösteriyor; bu artış özkaynakların %84,08 milyar TL'ye…
 sirket: AYGAZ A.Ş.
 kod: AYGAZ
 donem: 2026 2. çeyrek

@@ -1,7 +1,7 @@
 ---
 slug: agyo-2026-3-ceyrek
 baslik: ATAKULE GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılat %19,6 artarken net kâr hâlâ negatif kalmış; bu durum, artan gelirlerin maliyet ve gider artışlarıyla dengelenmediğini gösteriyor. Özkaynak ve aktif toplamı sırasıyla %25,6 ve %32,3 yükselmiş, bu da sermaye artırımı ve varlık alımlarıyla bilanço büyüklüğünün genişlediğini, ancak aynı anda…
+ozet: Hasılat %19,6 artarken net kâr hâlâ negatif kalmış; bu durum, artan gelirlerin maliyet ve gider artışlarıyla dengelenmediğini gösteriyor. Özkaynak ve aktif toplamı sırasıyla %25,6 ve %32,3 yükselmiş, bu da sermaye artırımı ve varlık alımlarıyla bilanço büyüklüğünün genişlediğini, ancak aynı anda faa…
 sirket: ATAKULE GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: AGYO
 donem: 2026 3. çeyrek

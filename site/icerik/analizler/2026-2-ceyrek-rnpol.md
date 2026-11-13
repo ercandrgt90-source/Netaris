@@ -1,7 +1,7 @@
 ---
 slug: rnpol-2026-2-ceyrek
 baslik: RAİNBOW POLİKARBONAT SANAYİ TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %25,0 artması, aktif toplamının %61,8 yükselmesiyle birlikte özkaynakta %25,6 artışa yol açarken, brüt kârın %25,9 düşmesi brüt kâr marjının %15,3 seviyesinde sektör medyanının biraz üzerindeki konumunu korumasını sağladı; net kârın %3611,1 artışı ise net kâr marjını %23,7'ye çıkararak…
+ozet: Hasılatın %25,0 artması, aktif toplamının %61,8 yükselmesiyle birlikte özkaynakta %25,6 artışa yol açarken, brüt kârın %25,9 düşmesi brüt kâr marjının %15,3 seviyesinde sektör medyanının biraz üzerindeki konumunu korumasını sağladı; net kârın %3611,1 artışı ise net kâr marjını %23,7'ye çıkararak sek…
 sirket: RAİNBOW POLİKARBONAT SANAYİ TİCARET A.Ş.
 kod: RNPOL
 donem: 2026 2. çeyrek

@@ -1,7 +1,7 @@
 ---
 slug: kaplm-2026-3-ceyrek
 baslik: KAPLAMİN AMBALAJ SANAYİ VE TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %10,9 düşmesi brüt kârın %59,0 artmasıyla birlikte, brüt kâr marjının %17,1'e yükselmesi, satışların azalmasına rağmen maliyetlerin daha hızlı gerilemesiyle ilişkilidir; bu durum FAVÖK'ün %400,2 artmasına ve faaliyet nakit akışının negatiften pozitif 0,20 milyar TL'ye geçmesine zemin…
+ozet: Hasılatın %10,9 düşmesi brüt kârın %59,0 artmasıyla birlikte, brüt kâr marjının %17,1'e yükselmesi, satışların azalmasına rağmen maliyetlerin daha hızlı gerilemesiyle ilişkilidir; bu durum FAVÖK'ün %400,2 artmasına ve faaliyet nakit akışının negatiften pozitif 0,20 milyar TL'ye geçmesine zemin hazır…
 sirket: KAPLAMİN AMBALAJ SANAYİ VE TİCARET A.Ş.
 kod: KAPLM
 donem: 2026 3. çeyrek

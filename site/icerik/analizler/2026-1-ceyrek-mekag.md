@@ -1,7 +1,7 @@
 ---
 slug: mekag-2026-1-ceyrek
 baslik: MEKA GLOBAL MAKİNE İMALAT SANAYİ VE TİCARET A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılatın 1,58 milyar TL'den 1,66 milyar TL'ye yükselmesi brüt kârın 0,32 milyar TL'den 0,38 milyar TL'ye artmasına, dolayısıyla brüt kâr marjının %14,5 sektör medyanının çok üzerindeki %23,5'e çıkmasına yol açtı; ancak faaliyet kârının 0,00 milyar TL'ye (önceki dönemde -0,04 milyar TL) ve net…
+ozet: Hasılatın 1,58 milyar TL'den 1,66 milyar TL'ye yükselmesi brüt kârın 0,32 milyar TL'den 0,38 milyar TL'ye artmasına, dolayısıyla brüt kâr marjının %14,5 sektör medyanının çok üzerindeki %23,5'e çıkmasına yol açtı; ancak faaliyet kârının 0,00 milyar TL'ye (önceki dönemde -0,04 milyar TL) ve net kârın…
 sirket: MEKA GLOBAL MAKİNE İMALAT SANAYİ VE TİCARET A.Ş.
 kod: MEKAG
 donem: 2026 1. çeyrek

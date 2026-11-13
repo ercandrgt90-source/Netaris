@@ -1,7 +1,7 @@
 ---
 slug: alkim-2026-2-ceyrek
 baslik: ALKİM ALKALİ KİMYA A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %2,0 düşmesi, brüt kârın %20,2 artmasıyla birlikte brüt kâr marjı %11,3 seviyesinde sabit kalırken, faaliyet kârı ve net kârda sırasıyla %183,8 ve %38,8 artışlar görülmüş; bu kâr artışları özkaynak kârlılığının %1,3'e yükselmesine ve özkaynakların %19,4 artarak 5,18 milyar TL'ye…
+ozet: Hasılatın %2,0 düşmesi, brüt kârın %20,2 artmasıyla birlikte brüt kâr marjı %11,3 seviyesinde sabit kalırken, faaliyet kârı ve net kârda sırasıyla %183,8 ve %38,8 artışlar görülmüş; bu kâr artışları özkaynak kârlılığının %1,3'e yükselmesine ve özkaynakların %19,4 artarak 5,18 milyar TL'ye ulaşmasına…
 sirket: ALKİM ALKALİ KİMYA A.Ş.
 kod: ALKIM
 donem: 2026 2. çeyrek

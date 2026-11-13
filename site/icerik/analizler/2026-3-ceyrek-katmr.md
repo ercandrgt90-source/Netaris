@@ -1,7 +1,7 @@
 ---
 slug: katmr-2026-3-ceyrek
 baslik: KATMERCİLER ARAÇ ÜSTÜ EKİPMAN SANAYİ VE TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %58,0 düşmesi brüt kârın %21,8 azalmasına rağmen brüt kâr marjının %67,2'ye yükselmesi, sabit maliyetlerin daha hızlı azaldığını gösteriyor; bu durum faaliyet kârının %164,7 artıp FAVÖK'ün %99,1 yükselmesine yol açarken net kârın %224,9 gerilemesi, vergi ve finansman giderlerinin…
+ozet: Hasılatın %58,0 düşmesi brüt kârın %21,8 azalmasına rağmen brüt kâr marjının %67,2'ye yükselmesi, sabit maliyetlerin daha hızlı azaldığını gösteriyor; bu durum faaliyet kârının %164,7 artıp FAVÖK'ün %99,1 yükselmesine yol açarken net kârın %224,9 gerilemesi, vergi ve finansman giderlerinin artışında…
 sirket: KATMERCİLER ARAÇ ÜSTÜ EKİPMAN SANAYİ VE TİCARET A.Ş.
 kod: KATMR
 donem: 2026 3. çeyrek

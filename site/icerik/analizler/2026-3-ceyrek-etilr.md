@@ -1,7 +1,7 @@
 ---
 slug: etilr-2026-3-ceyrek
 baslik: ETİLER GIDA VE TİCARİ YATIRIMLAR SANAYİ VE TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %42,8 düşmesi brüt kârın %83,7 gerilemesine ve FAVÖK'ün %98,7 azalmasına yol açarak faaliyet kârının negatif %112,4 değişimle –0,01 milyar TL'ye kaymasını, bunun sonucunda net kârın –0,02 milyar TL'ye gerilemesini tetikledi; aynı zamanda aktif toplamındaki %42,4 artış net borcun %57,6…
+ozet: Hasılatın %42,8 düşmesi brüt kârın %83,7 gerilemesine ve FAVÖK'ün %98,7 azalmasına yol açarak faaliyet kârının negatif %112,4 değişimle –0,01 milyar TL'ye kaymasını, bunun sonucunda net kârın –0,02 milyar TL'ye gerilemesini tetikledi; aynı zamanda aktif toplamındaki %42,4 artış net borcun %57,6 yüks…
 sirket: ETİLER GIDA VE TİCARİ YATIRIMLAR SANAYİ VE TİCARET A.Ş.
 kod: ETILR
 donem: 2026 3. çeyrek

@@ -1,7 +1,7 @@
 ---
 slug: denge-2026-2-ceyrek
 baslik: DENGE YATIRIM HOLDİNG A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %18,9'luk brüt kâr marjı ile birlikte %12,0'lık negatif net kâr marjına dönüşmesi, brüt kâr artışına rağmen faaliyet ve vergi öncesi maliyetlerin (faaliyet kârı –%0,04, FAVÖK –%0,02) daha fazla yükselmesinden kaynaklanmıştır; bu durum net kârın –%0,06'dan –%0,82'ye gerilemesine paralel…
+ozet: Hasılatın %18,9'luk brüt kâr marjı ile birlikte %12,0'lık negatif net kâr marjına dönüşmesi, brüt kâr artışına rağmen faaliyet ve vergi öncesi maliyetlerin (faaliyet kârı –%0,04, FAVÖK –%0,02) daha fazla yükselmesinden kaynaklanmıştır; bu durum net kârın –%0,06'dan –%0,82'ye gerilemesine paralel bir…
 sirket: DENGE YATIRIM HOLDİNG A.Ş.
 kod: DENGE
 donem: 2026 2. çeyrek

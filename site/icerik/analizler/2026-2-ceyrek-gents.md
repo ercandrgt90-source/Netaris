@@ -1,7 +1,7 @@
 ---
 slug: gents-2026-2-ceyrek
 baslik: GENTAŞ DEKORATİF YÜZEYLER SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın düşmesi brüt kârın da azalmasına yol açarken, brüt kâr marjının sektör medyanının (%16,3) üzerindeki %23,6 seviyesinde kalması, maliyet yapısının hasılat düşüşüne rağmen daha az etkilenmiş olduğunu gösterir; net kârın önceki döneme göre artması ise özkaynakların (%4,30) ve aktif…
+ozet: Hasılatın düşmesi brüt kârın da azalmasına yol açarken, brüt kâr marjının sektör medyanının (%16,3) üzerindeki %23,6 seviyesinde kalması, maliyet yapısının hasılat düşüşüne rağmen daha az etkilenmiş olduğunu gösterir; net kârın önceki döneme göre artması ise özkaynakların (%4,30) ve aktif toplamının…
 sirket: GENTAŞ DEKORATİF YÜZEYLER SANAYİ VE TİCARET A.Ş.
 kod: GENTS
 donem: 2026 2. çeyrek

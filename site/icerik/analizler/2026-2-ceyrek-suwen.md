@@ -1,7 +1,7 @@
 ---
 slug: suwen-2026-2-ceyrek
 baslik: SUWEN TEKSTİL SANAYİ PAZARLAMA A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın düşmesi brüt kârın da azalmasına yol açarken, brüt kâr marjının %55,3 seviyesinde sektör medyanının çok üzerindeki yüksekliği, satış azalmasına rağmen kârın nispeten korunmasını gösteriyor; bu durum faaliyet kârı ve FAVÖK'teki düşüşlerin, sabit maliyetlerin ve amortismanların daha büyük…
+ozet: Hasılatın düşmesi brüt kârın da azalmasına yol açarken, brüt kâr marjının %55,3 seviyesinde sektör medyanının çok üzerindeki yüksekliği, satış azalmasına rağmen kârın nispeten korunmasını gösteriyor; bu durum faaliyet kârı ve FAVÖK'teki düşüşlerin, sabit maliyetlerin ve amortismanların daha büyük or…
 sirket: SUWEN TEKSTİL SANAYİ PAZARLAMA A.Ş.
 kod: SUWEN
 donem: 2026 2. çeyrek

@@ -1,7 +1,7 @@
 ---
 slug: marbl-2026-1-ceyrek
 baslik: TUREKS TURUNÇ MADENCİLİK İÇ VE DIŞ TİCARET A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılatın %37,4 brüt kâr marjı ile yükselmesi brüt kârın 0,49 milyar TL'den 0,64 milyar TL'ye artmasına, ancak faaliyet kârının 0,05 milyar TL'den 0,03 milyar TL'ye düşmesine yol açtı; bu düşüş net kârın -0,11 milyar TL'ye kaymasına ve özkaynak kârlılığının -%0,6'dan -%0,6'ya gerilemesine neden…
+ozet: Hasılatın %37,4 brüt kâr marjı ile yükselmesi brüt kârın 0,49 milyar TL'den 0,64 milyar TL'ye artmasına, ancak faaliyet kârının 0,05 milyar TL'den 0,03 milyar TL'ye düşmesine yol açtı; bu düşüş net kârın -0,11 milyar TL'ye kaymasına ve özkaynak kârlılığının -%0,6'dan -%0,6'ya gerilemesine neden oldu…
 sirket: TUREKS TURUNÇ MADENCİLİK İÇ VE DIŞ TİCARET A.Ş.
 kod: MARBL
 donem: 2026 1. çeyrek

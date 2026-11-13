@@ -1,7 +1,7 @@
 ---
 slug: intek-2026-2-ceyrek
 baslik: İNNOSA TEKNOLOJİ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %69,6 brüt kâr marjıyla birlikte %0,31 milyar artması, brüt kârın yüksek oranlı büyümesinin faaliyet kârı ve FAVÖK'te de sırasıyla %0,10 milyar ve %0,12 milyar artışa yol açmasını, ancak aynı dönemde net borçta %0,38 milyar artışın özkaynak kârlılığını %-38,5'e ve net kâr marjını…
+ozet: Hasılatın %69,6 brüt kâr marjıyla birlikte %0,31 milyar artması, brüt kârın yüksek oranlı büyümesinin faaliyet kârı ve FAVÖK'te de sırasıyla %0,10 milyar ve %0,12 milyar artışa yol açmasını, ancak aynı dönemde net borçta %0,38 milyar artışın özkaynak kârlılığını %-38,5'e ve net kâr marjını %-68,2'ye…
 sirket: İNNOSA TEKNOLOJİ A.Ş.
 kod: INTEK
 donem: 2026 2. çeyrek

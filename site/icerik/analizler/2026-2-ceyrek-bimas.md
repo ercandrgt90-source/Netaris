@@ -1,7 +1,7 @@
 ---
 slug: bimas-2026-2-ceyrek
 baslik: BİM BİRLEŞİK MAĞAZALAR A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %9,6 artması brüt kârı %2,4 yükselterek brüt kâr marjının %18,8 seviyesinde sektör medyanının (%16,5) üzerinde kalmasını sağladı; brüt kârın artışı, faaliyet kârının %27,3 ve FAVÖK'ün %10,5 yükselmesine, dolayısıyla net kârın %125,4 artarak %3,6 net kâr marjını (sektör medyanı %0,2)…
+ozet: Hasılatın %9,6 artması brüt kârı %2,4 yükselterek brüt kâr marjının %18,8 seviyesinde sektör medyanının (%16,5) üzerinde kalmasını sağladı; brüt kârın artışı, faaliyet kârının %27,3 ve FAVÖK'ün %10,5 yükselmesine, dolayısıyla net kârın %125,4 artarak %3,6 net kâr marjını (sektör medyanı %0,2) aşması…
 sirket: BİM BİRLEŞİK MAĞAZALAR A.Ş.
 kod: BIMAS
 donem: 2026 2. çeyrek

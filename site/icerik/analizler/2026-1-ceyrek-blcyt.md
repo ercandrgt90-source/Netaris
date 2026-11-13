@@ -1,7 +1,7 @@
 ---
 slug: blcyt-2026-1-ceyrek
 baslik: BİLİCİ YATIRIM SANAYİ VE TİCARET A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılatın 0,27 milyar TL'ye düşmesi brüt kârın 0,01 milyar TL'ye gerilemesine eşlik ederken, faaliyet ve FAVÖK kârları da sırasıyla 0,02 ve 0,08 milyar TL'ye inmiş; buna rağmen net zarar -0,13 milyar TL'ye daralmıştır, ki bu durum faaliyet nakit akışının -0,07 milyar TL'ye iyileşmesi ve yatırım…
+ozet: Hasılatın 0,27 milyar TL'ye düşmesi brüt kârın 0,01 milyar TL'ye gerilemesine eşlik ederken, faaliyet ve FAVÖK kârları da sırasıyla 0,02 ve 0,08 milyar TL'ye inmiş; buna rağmen net zarar -0,13 milyar TL'ye daralmıştır, ki bu durum faaliyet nakit akışının -0,07 milyar TL'ye iyileşmesi ve yatırım harc…
 sirket: BİLİCİ YATIRIM SANAYİ VE TİCARET A.Ş.
 kod: BLCYT
 donem: 2026 1. çeyrek

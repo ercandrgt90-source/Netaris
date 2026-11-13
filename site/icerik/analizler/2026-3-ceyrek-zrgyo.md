@@ -1,7 +1,7 @@
 ---
 slug: zrgyo-2026-3-ceyrek
 baslik: ZİRAAT GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %97,4 artması, faaliyet nakit akışının %632,5 yükselmesiyle paralel seyrederek aktif toplamının %51,1 artmasına ve özkaynakların %39,2 büyümesine katkı sağladı; aynı zamanda net kârın %11,7 artışı, net borcun %84,6 yükselmesiyle birlikte özkaynak/kârlılık oranının sektörel medyanın…
+ozet: Hasılatın %97,4 artması, faaliyet nakit akışının %632,5 yükselmesiyle paralel seyrederek aktif toplamının %51,1 artmasına ve özkaynakların %39,2 büyümesine katkı sağladı; aynı zamanda net kârın %11,7 artışı, net borcun %84,6 yükselmesiyle birlikte özkaynak/kârlılık oranının sektörel medyanın altında…
 sirket: ZİRAAT GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: ZRGYO
 donem: 2026 3. çeyrek

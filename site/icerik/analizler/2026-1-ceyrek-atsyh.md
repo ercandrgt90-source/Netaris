@@ -1,7 +1,7 @@
 ---
 slug: atsyh-2026-1-ceyrek
 baslik: ATLANTİS YATIRIM HOLDİNG A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılat iki katına çıkarken brüt kâr aynı seviyede kalmış, bu durum brüt kâr marjının %13,5 ile sektör medyanının %16,6'sının altında kalmasına yol açmıştır; aynı zamanda faaliyet ve FAVÖK kârları da önceki dönemde sıfır iken artarak %0,01 milyar TL'ye yükselmiş, ancak net kâr hâlâ negatif…
+ozet: Hasılat iki katına çıkarken brüt kâr aynı seviyede kalmış, bu durum brüt kâr marjının %13,5 ile sektör medyanının %16,6'sının altında kalmasına yol açmıştır; aynı zamanda faaliyet ve FAVÖK kârları da önceki dönemde sıfır iken artarak %0,01 milyar TL'ye yükselmiş, ancak net kâr hâlâ negatif kalmıştır…
 sirket: ATLANTİS YATIRIM HOLDİNG A.Ş.
 kod: ATSYH
 donem: 2026 1. çeyrek

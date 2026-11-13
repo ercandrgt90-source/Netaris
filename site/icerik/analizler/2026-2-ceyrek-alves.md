@@ -1,7 +1,7 @@
 ---
 slug: alves-2026-2-ceyrek
 baslik: ALVES KABLO SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat %44,4 artarken brüt kâr sadece %2,5 yükselmiş, bu durum brüt kâr marjının %16,3 seviyesinde sektör medyanının (%20,8) altında kalmasına yol açmıştır; aynı zamanda faaliyet kârı ve FAVÖK'teki %7,7-%7,2 düşüşler, artan net borç (%79,8) ve aktif toplamındaki %90,0 büyüme net kârı %61,1…
+ozet: Hasılat %44,4 artarken brüt kâr sadece %2,5 yükselmiş, bu durum brüt kâr marjının %16,3 seviyesinde sektör medyanının (%20,8) altında kalmasına yol açmıştır; aynı zamanda faaliyet kârı ve FAVÖK'teki %7,7-%7,2 düşüşler, artan net borç (%79,8) ve aktif toplamındaki %90,0 büyüme net kârı %61,1 azaltara…
 sirket: ALVES KABLO SANAYİ VE TİCARET A.Ş.
 kod: ALVES
 donem: 2026 2. çeyrek

@@ -1,7 +1,7 @@
 ---
 slug: efor-2026-3-ceyrek
 baslik: EFOR YATIRIM SANAYİ TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %123,5 artması, aktif toplamının %49,9 yükselmesi ve özkaynakların %44,2 artmasıyla paralel bir büyüme gösterirken, net borç %11,6 azalarak finansal kaldıraçta hafif bir iyileşme sağladı; brüt kâr ve FAVÖKteki %133,3 ve %552,6 artışlar, brüt kâr marjının %10,5 seviyesinde kalması ve net…
+ozet: Hasılatın %123,5 artması, aktif toplamının %49,9 yükselmesi ve özkaynakların %44,2 artmasıyla paralel bir büyüme gösterirken, net borç %11,6 azalarak finansal kaldıraçta hafif bir iyileşme sağladı; brüt kâr ve FAVÖKteki %133,3 ve %552,6 artışlar, brüt kâr marjının %10,5 seviyesinde kalması ve net kâ…
 sirket: EFOR YATIRIM SANAYİ TİCARET A.Ş.
 kod: EFOR
 donem: 2026 3. çeyrek

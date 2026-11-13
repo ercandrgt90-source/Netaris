@@ -1,7 +1,7 @@
 ---
 slug: alklc-2026-2-ceyrek
 baslik: ALTINKILIÇ GIDA VE SÜT SANAYİ TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %14,0 artması, brüt kârın %29,0 düşmesiyle birlikte brüt kâr marjının %23,1 seviyesinde kalması, satış hacmindeki büyümenin maliyet artışlarıyla dengelendiğini gösteriyor; bu durum faaliyet kârı, FAVÖK ve net kârda sırasıyla %65,1, %57,1 ve %209,4 düşüşe yol açarak karlılık…
+ozet: Hasılatın %14,0 artması, brüt kârın %29,0 düşmesiyle birlikte brüt kâr marjının %23,1 seviyesinde kalması, satış hacmindeki büyümenin maliyet artışlarıyla dengelendiğini gösteriyor; bu durum faaliyet kârı, FAVÖK ve net kârda sırasıyla %65,1, %57,1 ve %209,4 düşüşe yol açarak karlılık göstergelerinin…
 sirket: ALTINKILIÇ GIDA VE SÜT SANAYİ TİCARET A.Ş.
 kod: ALKLC
 donem: 2026 2. çeyrek

@@ -1,7 +1,7 @@
 ---
 slug: svgyo-2026-1-ceyrek
 baslik: SAVUR GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Brüt kârın %100,0 olması, hasılatla aynı seviyede gerçekleştiği için brüt kâr marjının sektör medyanının %51,4'ünden çok daha yüksek olduğu görülür; aynı zamanda net kârın -%63,2 olması, faaliyet kârı ve FAVÖK'ün pozitif olmasına rağmen nakit akışının -0,21 milyar TL olmasıyla birlikte kârın büyük…
+ozet: Brüt kârın %100,0 olması, hasılatla aynı seviyede gerçekleştiği için brüt kâr marjının sektör medyanının %51,4'ünden çok daha yüksek olduğu görülür; aynı zamanda net kârın -%63,2 olması, faaliyet kârı ve FAVÖK'ün pozitif olmasına rağmen nakit akışının -0,21 milyar TL olmasıyla birlikte kârın büyük b…
 sirket: SAVUR GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: SVGYO
 donem: 2026 1. çeyrek

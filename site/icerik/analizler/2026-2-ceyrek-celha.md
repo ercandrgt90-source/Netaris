@@ -1,7 +1,7 @@
 ---
 slug: celha-2026-2-ceyrek
 baslik: ÇELİK HALAT VE TEL SANAYİİ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %1'i artmasıyla brüt kârın negatif değeri %7,0'den %5,5'e (-0,08 bn'dan -0,05 bn'a) iyileşmiş, bu da faaliyet kârının -0,25 bn'dan -0,23 bn'ya ve FAVÖK'ün -0,11 bn'dan -0,10 bn'ya hafif düşüşünü takip etmiştir; net kâr da -0,55 bn'dan -0,52 bn'ya daralırken özkaynaklar 3,09 bn'dan 4,53…
+ozet: Hasılatın %1'i artmasıyla brüt kârın negatif değeri %7,0'den %5,5'e (-0,08 bn'dan -0,05 bn'a) iyileşmiş, bu da faaliyet kârının -0,25 bn'dan -0,23 bn'ya ve FAVÖK'ün -0,11 bn'dan -0,10 bn'ya hafif düşüşünü takip etmiştir; net kâr da -0,55 bn'dan -0,52 bn'ya daralırken özkaynaklar 3,09 bn'dan 4,53 bn'…
 sirket: ÇELİK HALAT VE TEL SANAYİİ A.Ş.
 kod: CELHA
 donem: 2026 2. çeyrek

@@ -1,7 +1,7 @@
 ---
 slug: endae-2026-2-ceyrek
 baslik: ENDA ENERJİ HOLDİNG A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın hafif artışı (%1,3) net kârın pozitifleşmesine ve net kâr marjının %14,0'a yükselmesine yol açtı; aynı dönemde özkaynakların 17,22 milyar TL'ye çıkması aktif toplamının 19,20 milyar TL'ye yükselmesiyle birlikte özkaynak kârlılığının %0,3'e gerilemesine, çünkü kâr artışı özkaynak…
+ozet: Hasılatın hafif artışı (%1,3) net kârın pozitifleşmesine ve net kâr marjının %14,0'a yükselmesine yol açtı; aynı dönemde özkaynakların 17,22 milyar TL'ye çıkması aktif toplamının 19,20 milyar TL'ye yükselmesiyle birlikte özkaynak kârlılığının %0,3'e gerilemesine, çünkü kâr artışı özkaynak büyümesine…
 sirket: ENDA ENERJİ HOLDİNG A.Ş.
 kod: ENDAE
 donem: 2026 2. çeyrek

@@ -1,7 +1,7 @@
 ---
 slug: mavi-2026-mayis-temmuz
 baslik: MAVİ GİYİM SANAYİ VE TİCARET A.Ş. 2026 mayıs–temmuz bilanço analizi
-ozet: Hasılatın hafif düşmesi (%-0,4) ardından brüt kârın %4,5 artması, brüt kâr marjının %52,8 seviyesinde sabit kalmasıyla birlikte faaliyet ve FAVÖK kârlarının sırasıyla %13,1 ve %5,7 yükselmesine yol açtı; bu kâr artışları net kârda %13,6 düşüşe neden olurken, özkaynakların %27,6 artması ve aktif…
+ozet: Hasılatın hafif düşmesi (%-0,4) ardından brüt kârın %4,5 artması, brüt kâr marjının %52,8 seviyesinde sabit kalmasıyla birlikte faaliyet ve FAVÖK kârlarının sırasıyla %13,1 ve %5,7 yükselmesine yol açtı; bu kâr artışları net kârda %13,6 düşüşe neden olurken, özkaynakların %27,6 artması ve aktif topl…
 sirket: MAVİ GİYİM SANAYİ VE TİCARET A.Ş.
 kod: MAVI
 donem: 2026 mayıs–temmuz

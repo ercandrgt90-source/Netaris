@@ -1,7 +1,7 @@
 ---
 slug: intem-2026-3-ceyrek
 baslik: İNTEMA İNŞAAT VE TESİSAT MALZEMELERİ YATIRIM VE PAZARLAMA A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %57,7 artması brüt kârın %86,4 yükselmesine yol açarak brüt kâr marjının %60,0 seviyesine, sektör medyanının %18,6'sının çok üzerine çıkmasını sağladı; bu artış faaliyet kârını %111,8 artırıp FAVÖK'ü %72,4 yükselterek net kârın %551,8 artmasına ve net kâr marjının %13,5'e (sektör medyanı…
+ozet: Hasılatın %57,7 artması brüt kârın %86,4 yükselmesine yol açarak brüt kâr marjının %60,0 seviyesine, sektör medyanının %18,6'sının çok üzerine çıkmasını sağladı; bu artış faaliyet kârını %111,8 artırıp FAVÖK'ü %72,4 yükselterek net kârın %551,8 artmasına ve net kâr marjının %13,5'e (sektör medyanı %…
 sirket: İNTEMA İNŞAAT VE TESİSAT MALZEMELERİ YATIRIM VE PAZARLAMA A.Ş.
 kod: INTEM
 donem: 2026 3. çeyrek

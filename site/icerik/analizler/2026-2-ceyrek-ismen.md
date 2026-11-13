@@ -1,7 +1,7 @@
 ---
 slug: ismen-2026-2-ceyrek
 baslik: İŞ YATIRIM MENKUL DEĞERLER A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat hafif artarken faaliyet kârı ve net kârda belirgin düşüş görülmüş; bu düşüş özkaynak artışı (41,78 milyar TL, önceki 29,68 milyar TL) ve aktif toplamındaki büyük yükseliş (173,91 milyar TL, önceki 100,96 milyar TL) ile birlikte net borcun (22,98 milyar TL, önceki –9,29 milyar TL)…
+ozet: Hasılat hafif artarken faaliyet kârı ve net kârda belirgin düşüş görülmüş; bu düşüş özkaynak artışı (41,78 milyar TL, önceki 29,68 milyar TL) ve aktif toplamındaki büyük yükseliş (173,91 milyar TL, önceki 100,96 milyar TL) ile birlikte net borcun (22,98 milyar TL, önceki –9,29 milyar TL) pozitifleşm…
 sirket: İŞ YATIRIM MENKUL DEĞERLER A.Ş.
 kod: ISMEN
 donem: 2026 2. çeyrek

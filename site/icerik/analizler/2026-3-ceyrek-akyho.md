@@ -1,7 +1,7 @@
 ---
 slug: akyho-2026-3-ceyrek
 baslik: AKDENİZ YATIRIM HOLDİNG A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %35,5 düşmesi, brüt kârın %159,7 artmasıyla birlikte brüt kâr marjının %59,4'e yükselmesi, satış hacmindeki azalma yerine maliyetlerin daha çok azalmasıyla gerçekleşti; bu durum net kâr marjının %28,1 (sektör ortalamasının çok üzerinde) olmasını sağlarken, net kâr %45,3 azılsa da kârın…
+ozet: Hasılatın %35,5 düşmesi, brüt kârın %159,7 artmasıyla birlikte brüt kâr marjının %59,4'e yükselmesi, satış hacmindeki azalma yerine maliyetlerin daha çok azalmasıyla gerçekleşti; bu durum net kâr marjının %28,1 (sektör ortalamasının çok üzerinde) olmasını sağlarken, net kâr %45,3 azılsa da kârın sat…
 sirket: AKDENİZ YATIRIM HOLDİNG A.Ş.
 kod: AKYHO
 donem: 2026 3. çeyrek

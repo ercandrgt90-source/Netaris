@@ -1,7 +1,7 @@
 ---
 slug: altny-2026-2-ceyrek
 baslik: ALTINAY SAVUNMA TEKNOLOJİLERİ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın düşmesi brüt kârı ve FAVÖK'ü de azaltırken, brüt kâr marjının sektör medyanının üzerindeki %25,0 seviyesinde kalması brüt kârın toplam gelire oranının hâlâ güçlü olduğunu gösteriyor; net kârın negatifleşmesi ise faaliyet kârı ve FAVÖK'teki düşüşle birlikte maliyet ve vergi etkilerinin…
+ozet: Hasılatın düşmesi brüt kârı ve FAVÖK'ü de azaltırken, brüt kâr marjının sektör medyanının üzerindeki %25,0 seviyesinde kalması brüt kârın toplam gelire oranının hâlâ güçlü olduğunu gösteriyor; net kârın negatifleşmesi ise faaliyet kârı ve FAVÖK'teki düşüşle birlikte maliyet ve vergi etkilerinin artm…
 sirket: ALTINAY SAVUNMA TEKNOLOJİLERİ A.Ş.
 kod: ALTNY
 donem: 2026 2. çeyrek

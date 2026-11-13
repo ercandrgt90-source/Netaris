@@ -1,7 +1,7 @@
 ---
 slug: bizim-2026-3-ceyrek
 baslik: BİZİM TOPTAN SATIŞ MAĞAZALARI A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %8,6 artması brüt kârın %14,8 yükselmesine yol açarken, brüt kâr marjı %17,9 seviyesinde sektör medyanının %14,4'ünden daha yüksek kalmıştır; ancak faaliyet kârının -%404,2 düşmesi ve FAVÖK'ün %80,9 gerilemesi, net kâr marjının -%1,6'ya ve özkaynakların -%268,6'ya sürüklenmesine neden…
+ozet: Hasılatın %8,6 artması brüt kârın %14,8 yükselmesine yol açarken, brüt kâr marjı %17,9 seviyesinde sektör medyanının %14,4'ünden daha yüksek kalmıştır; ancak faaliyet kârının -%404,2 düşmesi ve FAVÖK'ün %80,9 gerilemesi, net kâr marjının -%1,6'ya ve özkaynakların -%268,6'ya sürüklenmesine neden olmu…
 sirket: BİZİM TOPTAN SATIŞ MAĞAZALARI A.Ş.
 kod: BIZIM
 donem: 2026 3. çeyrek

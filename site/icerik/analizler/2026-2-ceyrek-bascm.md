@@ -1,7 +1,7 @@
 ---
 slug: bascm-2026-2-ceyrek
 baslik: BAŞTAŞ BAŞKENT ÇİMENTO SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %31,9 artması brüt kârı sadece %3,4 yükseltirken, faaliyet kârı ve FAVÖK'ün sırasıyla %23,5 ve %14,1 artması, satışların maliyet dışı kalemlerde daha fazla verimlilik sağlandığını gösteriyor; bu verimlilik net kârda %1486,5 artışa ve özkaynak kârlılığının %1,7'ye (sektör medyanı %1,1)…
+ozet: Hasılatın %31,9 artması brüt kârı sadece %3,4 yükseltirken, faaliyet kârı ve FAVÖK'ün sırasıyla %23,5 ve %14,1 artması, satışların maliyet dışı kalemlerde daha fazla verimlilik sağlandığını gösteriyor; bu verimlilik net kârda %1486,5 artışa ve özkaynak kârlılığının %1,7'ye (sektör medyanı %1,1) yüks…
 sirket: BAŞTAŞ BAŞKENT ÇİMENTO SANAYİ VE TİCARET A.Ş.
 kod: BASCM
 donem: 2026 2. çeyrek

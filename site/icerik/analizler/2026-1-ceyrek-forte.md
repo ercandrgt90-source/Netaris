@@ -1,7 +1,7 @@
 ---
 slug: forte-2026-1-ceyrek
 baslik: FORTE BİLGİ İLETİŞİM TEKNOLOJİLERİ VE SAVUNMA SANAYİ A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılatın üç katına yakın artışı, brüt kârın da %30,5'lik marjla birlikte %0,33 milyar artmasına, ardından faaliyet kârı ve FAVÖK'ün sırasıyla %0,29 ve %0,28 milyar yükselmesine yol açtı; bu kâr artışları net kârın negatiften %0,21 milyar pozitife geçmesini ve özkaynakların %2,29 milyar artarak…
+ozet: Hasılatın üç katına yakın artışı, brüt kârın da %30,5'lik marjla birlikte %0,33 milyar artmasına, ardından faaliyet kârı ve FAVÖK'ün sırasıyla %0,29 ve %0,28 milyar yükselmesine yol açtı; bu kâr artışları net kârın negatiften %0,21 milyar pozitife geçmesini ve özkaynakların %2,29 milyar artarak %3,1…
 sirket: FORTE BİLGİ İLETİŞİM TEKNOLOJİLERİ VE SAVUNMA SANAYİ A.Ş.
 kod: FORTE
 donem: 2026 1. çeyrek
