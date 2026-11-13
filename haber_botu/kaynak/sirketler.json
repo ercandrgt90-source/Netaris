@@ -2390,7 +2390,8 @@
    "kap_kimlik": "8acae2c49145e00b01928aa470dd5fda",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "DRT BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "DRT BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor_bulunamadi": "2026-11-13"
   },
   "DYBNK": {
    "kod": "DYBNK",
@@ -2398,7 +2399,8 @@
    "kap_kimlik": "8acae2c4757dba8c01759d4015520c73",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "DRT BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "DRT BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor_bulunamadi": "2026-11-13"
   },
   "DYOBY": {
    "kod": "DYOBY",
@@ -2450,7 +2452,10 @@
    "kap_kimlik": "8acae2c5991b90af019975bc2a6c244d",
    "sehir": "DENİZLİ",
    "uye_turu": "IGS",
-   "denetci": "AS BAĞIMSIZ DENETİM VE YEMİNLİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "AS BAĞIMSIZ DENETİM VE YEMİNLİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor": "Utilities",
+   "sektor_tr": "Kamu hizmetleri",
+   "alt_sektor": "Utilities - Renewable"
   },
   "ECZIP": {
    "kod": "ECZIP",

@@ -907,12 +907,12 @@
  "Kamu hizmetleri": {
   "sektor": "Kamu hizmetleri",
   "donem": "2026 2. çeyrek",
-  "sirket_sayisi": 17,
+  "sirket_sayisi": 19,
   "medyan": {
    "net_marj": 8.809373354397051,
-   "roe": 0.9708291667929254,
-   "cari_oran": 0.8725194534420492,
-   "borc_ozkaynak": 0.10046742979658024
+   "roe": 1.0146615743687672,
+   "cari_oran": 0.8406424683730509,
+   "borc_ozkaynak": 0.19816099528454423
   },
   "sirket": {
    "A1YEN": {
@@ -1012,10 +1012,10 @@
     "cari_oran": 3.743401055831067
    },
    "CONSE": {
-    "net_marj": -0.8741080530071355,
-    "roe": -0.12245626561942163,
-    "cari_oran": 0.6839857651245551,
-    "borc_ozkaynak": 2.017493752231346
+    "net_marj": 1.7428042763157896,
+    "roe": 2.94647201946472,
+    "cari_oran": 0.5056557627636808,
+    "borc_ozkaynak": 2.321515467500869
    },
    "ENDAE": {
     "net_marj": 13.984541912781198,
@@ -1064,6 +1064,13 @@
     "roe": -8.136313856857566,
     "cari_oran": 0.13200224971878516,
     "borc_ozkaynak": 1.7416092250209367
+   },
+   "ECOGR": {
+    "brut_marj": 13.989727032579982,
+    "net_marj": 21.053125917229234,
+    "roe": 3.358209654010019,
+    "cari_oran": 0.7918607837763771,
+    "borc_ozkaynak": 0.4639262137740531
    }
   },
   "atlanan": [],
@@ -1085,7 +1092,7 @@
    "BIOEN": "2026-06-30",
    "CANTE": "2026-06-30",
    "CATES": "2026-09-30",
-   "CONSE": "2026-06-30",
+   "CONSE": "2026-09-30",
    "ENDAE": "2026-06-30",
    "ENERY": "2026-09-30",
    "ENJSA": "2026-09-30",
@@ -1093,7 +1100,8 @@
    "ESEN": "2026-06-30",
    "PAMEL": "2026-06-30",
    "ZOREN": "2026-09-30",
-   "AKENR": "2026-09-30"
+   "AKENR": "2026-09-30",
+   "ECOGR": "2026-09-30"
   },
   "onceki_yok": [],
   "kirpilan": [],
@@ -1116,6 +1124,7 @@
    "CANTE",
    "CATES",
    "CONSE",
+   "ECOGR",
    "ENDAE",
    "ENERY",
    "ENJSA",
@@ -1128,26 +1137,25 @@
   "donem_gruplari": {
    "2026-06-30": {
     "donem": "2026 2. çeyrek",
-    "sirket_sayisi": 8,
+    "sirket_sayisi": 7,
     "medyan": {
-     "net_marj": -4.507367298566025,
-     "roe": -1.0682574726630116,
-     "cari_oran": 1.0528649561760028,
-     "borc_ozkaynak": 0.15337212931127855
+     "net_marj": -8.140626544124913,
+     "roe": -2.0140586797066016,
+     "cari_oran": 1.1839560257893866,
+     "borc_ozkaynak": 0.07402637485970819
     },
     "kodlar": [
      "A1YEN",
      "AYEN",
      "BIOEN",
      "CANTE",
-     "CONSE",
      "ENDAE",
      "ESEN",
      "PAMEL"
     ]
    }
   },
-  "tazelendi": "2026-11-12T21:54:20+00:00"
+  "tazelendi": "2026-11-13T02:45:05+00:00"
  },
  "Sanayi": {
   "sektor": "Sanayi",
@@ -2851,11 +2859,11 @@
     "borc_ozkaynak": 0.2821983406648477
    },
    "IHYAY": {
-    "brut_marj": 11.502690529552517,
-    "net_marj": -11.77120213076948,
-    "roe": -2.6817957572767637,
-    "cari_oran": 1.99815989997405,
-    "borc_ozkaynak": 0.075421805624075
+    "brut_marj": 12.507235590837675,
+    "net_marj": -14.739932192177294,
+    "roe": -3.4411196911196913,
+    "cari_oran": 1.714222405753019,
+    "borc_ozkaynak": 0.07621862934362934
    },
    "TSPOR": {
     "brut_marj": -68.97196261682244,
@@ -2879,7 +2887,7 @@
    "BJKAS": "2026-08-31",
    "FENER": "2026-08-31",
    "GSRAY": "2026-08-31",
-   "IHYAY": "2026-06-30",
+   "IHYAY": "2026-09-30",
    "TSPOR": "2026-08-31",
    "TTKOM": "2026-09-30"
   },
@@ -2903,23 +2911,22 @@
   "donem_gruplari": {
    "2026-09-30": {
     "donem": "2026 3. çeyrek",
-    "sirket_sayisi": 2,
-    "medyan": {},
+    "sirket_sayisi": 3,
+    "medyan": {
+     "brut_marj": 12.507235590837675,
+     "net_marj": -14.739932192177294,
+     "roe": -3.4411196911196913,
+     "cari_oran": 0.8708994134260265,
+     "borc_ozkaynak": 0.07621862934362934
+    },
     "kodlar": [
      "BIGTK",
+     "IHYAY",
      "TTKOM"
-    ]
-   },
-   "2026-06-30": {
-    "donem": "2026 2. çeyrek",
-    "sirket_sayisi": 1,
-    "medyan": {},
-    "kodlar": [
-     "IHYAY"
     ]
    }
   },
-  "tazelendi": "2026-11-12T21:54:51+00:00"
+  "tazelendi": "2026-11-13T02:45:35+00:00"
  },
  "İsteğe bağlı tüketim": {
   "sektor": "İsteğe bağlı tüketim",
