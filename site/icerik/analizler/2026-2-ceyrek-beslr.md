@@ -1,7 +1,7 @@
 ---
 slug: beslr-2026-2-ceyrek
 baslik: BESLER GIDA VE KİMYA SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat %12,0 artarken brüt kâr %0,3 düşmüş, bu da brüt kâr marjının %19,7'den %16,5 sektör medyanının üzerinde kalmasına rağmen kârın sabit kalmasına yol açtı; aynı dönemde faaliyet kârı 0,35 milyar TL'ye yükselmiş ve bu artış FAVÖK'ün %180,3 artmasıyla paralel bir şekilde nakit akışının %1977,3 ar…
+ozet: Hasılat %12,0 artarken brüt kâr %0,3 düşmüş, bu da brüt kâr marjının %19,7'den %16,5 sektör medyanının üzerinde kalmasına rağmen kârın sabit kalmasına yol açtı; aynı dönemde faaliyet kârı 0,35 milyar TL'ye yükselmiş ve bu artış FAVÖK'ün %180,3 artmasıyla paralel bir şekilde nakit akışının %1977,3…
 sirket: BESLER GIDA VE KİMYA SANAYİ VE TİCARET A.Ş.
 kod: BESLR
 donem: 2026 2. çeyrek

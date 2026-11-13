@@ -1,7 +1,7 @@
 ---
 slug: fener-2026-haziran-agustos
 baslik: FENERBAHÇE FUTBOL A.Ş. 2026 haziran–ağustos bilanço analizi
-ozet: Hasılatın %38,6'lık brüt kâr marjı ile birlikte artması, brüt kârın 1,75 milyar TL'ye yükselmesine ve bu artışın ardından faaliyet kârı, FAVÖK ve net kârın sırasıyla %0,91 milyar, %1,48 milyar ve %1,43 milyar TL'ye çıkmasına yol açtı; bu kâr artışları özkaynakların -0,04 milyar TL'den 8,79 milyar TL…
+ozet: Hasılatın %38,6'lık brüt kâr marjı ile birlikte artması, brüt kârın 1,75 milyar TL'ye yükselmesine ve bu artışın ardından faaliyet kârı, FAVÖK ve net kârın sırasıyla %0,91 milyar, %1,48 milyar ve %1,43 milyar TL'ye çıkmasına yol açtı; bu kâr artışları özkaynakların -0,04 milyar TL'den 8,79 milyar…
 sirket: FENERBAHÇE FUTBOL A.Ş.
 kod: FENER
 donem: 2026 haziran–ağustos

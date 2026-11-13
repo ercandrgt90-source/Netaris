@@ -1,7 +1,7 @@
 ---
 slug: esen-2026-2-ceyrek
 baslik: ESENBOĞA ELEKTRİK ÜRETİM A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %13,0 düşmesi net kârın -0,66 milyar TL'ye derinleşmesine eşlik ederken, özkaynak ve aktif toplamı sırasıyla %47,3 ve %58,8 artarak bilanço büyüklüğünün yükselmesine yol açtı; bu büyüme net borçtaki %10,0 artışla birlikte, finansal kaldıraç oranının sektörel medyanın çok üzerindeki %0,23 s…
+ozet: Hasılatın %13,0 düşmesi net kârın -0,66 milyar TL'ye derinleşmesine eşlik ederken, özkaynak ve aktif toplamı sırasıyla %47,3 ve %58,8 artarak bilanço büyüklüğünün yükselmesine yol açtı; bu büyüme net borçtaki %10,0 artışla birlikte, finansal kaldıraç oranının sektörel medyanın çok üzerindeki %0,23…
 sirket: ESENBOĞA ELEKTRİK ÜRETİM A.Ş.
 kod: ESEN
 donem: 2026 2. çeyrek

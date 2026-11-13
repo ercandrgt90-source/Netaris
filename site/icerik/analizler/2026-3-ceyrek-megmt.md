@@ -1,7 +1,7 @@
 ---
 slug: megmt-2026-3-ceyrek
 baslik: MEGA METAL SANAYİ VE TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %71,4 artması, brüt kârın %52,4 yükselmesiyle birlikte brüt kâr marjının %7,2 seviyesinde kalması, satış hacmindeki artışın kâr marjını artırmadığını gösteriyor; bu durum, faaliyet kârının %125,1 artarak %0,39 milyara ulaşması ve FAVÖK'ün %55,6 artmasıyla, maliyet ve gider kalemlerinin dah…
+ozet: Hasılatın %71,4 artması, brüt kârın %52,4 yükselmesiyle birlikte brüt kâr marjının %7,2 seviyesinde kalması, satış hacmindeki artışın kâr marjını artırmadığını gösteriyor; bu durum, faaliyet kârının %125,1 artarak %0,39 milyara ulaşması ve FAVÖK'ün %55,6 artmasıyla, maliyet ve gider kalemlerinin…
 sirket: MEGA METAL SANAYİ VE TİCARET A.Ş.
 kod: MEGMT
 donem: 2026 3. çeyrek

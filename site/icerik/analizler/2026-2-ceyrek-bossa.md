@@ -1,7 +1,7 @@
 ---
 slug: bossa-2026-2-ceyrek
 baslik: BOSSA TİCARET VE SANAYİ İŞLETMELERİ T.A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın 4,36 milyar TL'den 3,28 milyar TL'ye düşmesi brüt kârın 0,85 milyar TL'den 0,37 milyar TL'ye gerilemesine, bunun sonucunda brüt kâr marjının %16,0'dan %8,4'e inmesine yol açtı; brüt kârdaki azalma faaliyet kârını da 0,46 milyar TL'den 0,01 milyar TL'ye, ardından net kârı 0,24 milyar TL'den…
+ozet: Hasılatın 4,36 milyar TL'den 3,28 milyar TL'ye düşmesi brüt kârın 0,85 milyar TL'den 0,37 milyar TL'ye gerilemesine, bunun sonucunda brüt kâr marjının %16,0'dan %8,4'e inmesine yol açtı; brüt kârdaki azalma faaliyet kârını da 0,46 milyar TL'den 0,01 milyar TL'ye, ardından net kârı 0,24 milyar…
 sirket: BOSSA TİCARET VE SANAYİ İŞLETMELERİ T.A.Ş.
 kod: BOSSA
 donem: 2026 2. çeyrek

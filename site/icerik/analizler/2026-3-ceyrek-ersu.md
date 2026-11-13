@@ -1,7 +1,7 @@
 ---
 slug: ersu-2026-3-ceyrek
 baslik: ERSU MEYVE VE GIDA SANAYİ A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %89,9 düşmesi brüt kârın negatif %176,4'e kaymasına yol açarken, aynı dönemde özkaynakların %27,7 artması ve aktif toplamının %62,0 yükselmesi cari oranı 2,61'e, sektörel medyanın 1,32'sinin çok üzerine çıkardı; bu artış net borcun –0,19 milyar TL'ye gerilemesiyle birlikte borç/özkaynak or…
+ozet: Hasılatın %89,9 düşmesi brüt kârın negatif %176,4'e kaymasına yol açarken, aynı dönemde özkaynakların %27,7 artması ve aktif toplamının %62,0 yükselmesi cari oranı 2,61'e, sektörel medyanın 1,32'sinin çok üzerine çıkardı; bu artış net borcun –0,19 milyar TL'ye gerilemesiyle birlikte borç/özkaynak…
 sirket: ERSU MEYVE VE GIDA SANAYİ A.Ş.
 kod: ERSU
 donem: 2026 3. çeyrek

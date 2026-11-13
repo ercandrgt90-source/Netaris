@@ -1,7 +1,7 @@
 ---
 slug: vestl-2026-3-ceyrek
 baslik: VESTEL ELEKTRONİK SANAYİ VE TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %27,9 düşmesi brüt kârın da %13,4 azalmasına yol açarken, brüt kâr marjının %21,8 seviyesinde kalması sektörel medyanın %14,4'ünden daha yüksek bir kârlılık oranı sağladı; ancak satışların gerilemesi net kâr marjını –%26,3'e sürükleyerek sektör ortalamasının %1,6'sının çok altında bir zara…
+ozet: Hasılatın %27,9 düşmesi brüt kârın da %13,4 azalmasına yol açarken, brüt kâr marjının %21,8 seviyesinde kalması sektörel medyanın %14,4'ünden daha yüksek bir kârlılık oranı sağladı; ancak satışların gerilemesi net kâr marjını –%26,3'e sürükleyerek sektör ortalamasının %1,6'sının çok altında bir…
 sirket: VESTEL ELEKTRONİK SANAYİ VE TİCARET A.Ş.
 kod: VESTL
 donem: 2026 3. çeyrek

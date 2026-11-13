@@ -1,7 +1,7 @@
 ---
 slug: alcar-2026-3-ceyrek
 baslik: ALARKO CARRIER SANAYİ VE TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın neredeyse sabit kalması ve brüt kârın %30,0 düşmesi, brüt kâr marjının sektör medyanıyla aynı seviyede kalmasına rağmen faaliyet kârı, FAVÖK ve net kârın büyük ölçüde gerilemesiyle birlikte özkaynak kârlılığının %16,4 negatif olmasına yol açtı; bu kârlılık düşüşü, özkaynakların %11,6 azalm…
+ozet: Hasılatın neredeyse sabit kalması ve brüt kârın %30,0 düşmesi, brüt kâr marjının sektör medyanıyla aynı seviyede kalmasına rağmen faaliyet kârı, FAVÖK ve net kârın büyük ölçüde gerilemesiyle birlikte özkaynak kârlılığının %16,4 negatif olmasına yol açtı; bu kârlılık düşüşü, özkaynakların %11,6…
 sirket: ALARKO CARRIER SANAYİ VE TİCARET A.Ş.
 kod: ALCAR
 donem: 2026 3. çeyrek

@@ -1,7 +1,7 @@
 ---
 slug: sanel-2026-2-ceyrek
 baslik: SAN-EL MÜHENDİSLİK ELEKTRİK TAAHHÜT SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın 0,19 milyar TL'den 0,22 milyar TL'ye yükselmesi brüt kârın 0,05 milyar TL'den 0,10 milyar TL'ye, faaliyet kârının 0,03 milyar TL'den 0,10 milyar TL'ye ve FAVÖK'ün 0,05 milyar TL'den 0,12 milyar TL'ye artışıyla paralel seyretmiştir; bu artışlar net kârın 0,01 milyar TL'den 0,11 milyar TL'ye…
+ozet: Hasılatın 0,19 milyar TL'den 0,22 milyar TL'ye yükselmesi brüt kârın 0,05 milyar TL'den 0,10 milyar TL'ye, faaliyet kârının 0,03 milyar TL'den 0,10 milyar TL'ye ve FAVÖK'ün 0,05 milyar TL'den 0,12 milyar TL'ye artışıyla paralel seyretmiştir; bu artışlar net kârın 0,01 milyar TL'den 0,11 milyar…
 sirket: SAN-EL MÜHENDİSLİK ELEKTRİK TAAHHÜT SANAYİ VE TİCARET A.Ş.
 kod: SANEL
 donem: 2026 2. çeyrek

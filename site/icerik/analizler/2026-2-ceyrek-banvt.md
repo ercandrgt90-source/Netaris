@@ -1,7 +1,7 @@
 ---
 slug: banvt-2026-2-ceyrek
 baslik: BANVİT BANDIRMA VİTAMİNLİ YEM SANAYİ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %10,0 düşmesi, brüt kârın %1918,5 artması ve FAVÖK'ün %4588,5 yükselmesi, faaliyet kârının negatif değerinden %0,67'ye (-0,12 milyar TL) iyileşmesine paralel olarak özkaynakların %10,5 artmasıyla (12,59 milyar TL) ve aktif toplamının %14,3 artmasıyla (25,05 milyar TL) birlikte gerçekleşti;…
+ozet: Hasılatın %10,0 düşmesi, brüt kârın %1918,5 artması ve FAVÖK'ün %4588,5 yükselmesi, faaliyet kârının negatif değerinden %0,67'ye (-0,12 milyar TL) iyileşmesine paralel olarak özkaynakların %10,5 artmasıyla (12,59 milyar TL) ve aktif toplamının %14,3 artmasıyla (25,05 milyar TL) birlikte…
 sirket: BANVİT BANDIRMA VİTAMİNLİ YEM SANAYİ A.Ş.
 kod: BANVT
 donem: 2026 2. çeyrek

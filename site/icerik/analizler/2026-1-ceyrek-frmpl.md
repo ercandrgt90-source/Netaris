@@ -1,7 +1,7 @@
 ---
 slug: frmpl-2026-1-ceyrek
 baslik: FORMÜL PLASTİK VE METAL SANAYİ A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılatın düşmesine rağmen brüt kâr, faaliyet kârı, FAVÖK ve net kârın artması, satış başına kâr marjlarının (%32,4 brüt, %12,0 net) sektör medyanlarının çok üzerinde olmasıyla birlikte maliyet ve giderlerin daha düşük oranda artmasını gösteriyor; bu durum özkaynakların (%3,96) önceki döneme göre ön…
+ozet: Hasılatın düşmesine rağmen brüt kâr, faaliyet kârı, FAVÖK ve net kârın artması, satış başına kâr marjlarının (%32,4 brüt, %12,0 net) sektör medyanlarının çok üzerinde olmasıyla birlikte maliyet ve giderlerin daha düşük oranda artmasını gösteriyor; bu durum özkaynakların (%3,96) önceki döneme göre…
 sirket: FORMÜL PLASTİK VE METAL SANAYİ A.Ş.
 kod: FRMPL
 donem: 2026 1. çeyrek

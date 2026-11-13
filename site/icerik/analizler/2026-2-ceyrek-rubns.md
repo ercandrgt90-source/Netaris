@@ -1,7 +1,7 @@
 ---
 slug: rubns-2026-2-ceyrek
 baslik: RUBENİS TEKSTİL SANAYİ TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %20,4 artması brüt kârın %263,0 yükselmesine paralel olarak gerçekleşirken, brüt kâr marjının %52,6 seviyesinde kalması özkaynakların %52,2 artışı ve aktif toplamının %44,8 büyümesiyle desteklenmiş; bu büyüme net kârın -%5,2'ye gerilemesi ve faaliyet kârının -%666,9 düşmesiyle birlikte, fa…
+ozet: Hasılatın %20,4 artması brüt kârın %263,0 yükselmesine paralel olarak gerçekleşirken, brüt kâr marjının %52,6 seviyesinde kalması özkaynakların %52,2 artışı ve aktif toplamının %44,8 büyümesiyle desteklenmiş; bu büyüme net kârın -%5,2'ye gerilemesi ve faaliyet kârının -%666,9 düşmesiyle birlikte…
 sirket: RUBENİS TEKSTİL SANAYİ TİCARET A.Ş.
 kod: RUBNS
 donem: 2026 2. çeyrek

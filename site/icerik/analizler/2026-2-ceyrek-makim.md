@@ -1,7 +1,7 @@
 ---
 slug: makim-2026-2-ceyrek
 baslik: MAKİM MAKİNA TEKNOLOJİLERİ SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın 0,64 milyar TL'den 0,77 milyar TL'ye yükselmesi, brüt kârın 0,11 milyar TL'den 0,23 milyar TL'ye ve brüt kâr marjının %21,2'den %36,9'a çıkmasına paralel olarak gerçekleşti; bu artış, faaliyet kârının negatif –0,03 milyar TL'den pozitif 0,06 milyar TL'ye ve net kârın –0,07 milyar TL'den 0,…
+ozet: Hasılatın 0,64 milyar TL'den 0,77 milyar TL'ye yükselmesi, brüt kârın 0,11 milyar TL'den 0,23 milyar TL'ye ve brüt kâr marjının %21,2'den %36,9'a çıkmasına paralel olarak gerçekleşti; bu artış, faaliyet kârının negatif –0,03 milyar TL'den pozitif 0,06 milyar TL'ye ve net kârın –0,07 milyar TL'den…
 sirket: MAKİM MAKİNA TEKNOLOJİLERİ SANAYİ VE TİCARET A.Ş.
 kod: MAKIM
 donem: 2026 2. çeyrek

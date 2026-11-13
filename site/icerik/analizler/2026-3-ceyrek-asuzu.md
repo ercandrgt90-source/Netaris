@@ -1,7 +1,7 @@
 ---
 slug: asuzu-2026-3-ceyrek
 baslik: ANADOLU ISUZU OTOMOTİV SANAYİ VE TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %31,0 artması, aktif toplamının %69,9 yükselmesiyle paralel bir büyüme sağlarken, brüt kârın %33,5 düşmesi brüt kâr marjının %6,2 seviyesinde sektör medyanının %14,4'ünün altında kalmasına yol açtı; bu kâr düşüşü, faaliyet kârının -%2586,8 gerilemesi ve net kârın -%5100,0 azalmasıyla birli…
+ozet: Hasılatın %31,0 artması, aktif toplamının %69,9 yükselmesiyle paralel bir büyüme sağlarken, brüt kârın %33,5 düşmesi brüt kâr marjının %6,2 seviyesinde sektör medyanının %14,4'ünün altında kalmasına yol açtı; bu kâr düşüşü, faaliyet kârının -%2586,8 gerilemesi ve net kârın -%5100,0 azalmasıyla…
 sirket: ANADOLU ISUZU OTOMOTİV SANAYİ VE TİCARET A.Ş.
 kod: ASUZU
 donem: 2026 3. çeyrek

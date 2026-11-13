@@ -1,7 +1,7 @@
 ---
 slug: sayas-2026-3-ceyrek
 baslik: SAY YENİLENEBİLİR ENERJİ EKİPMANLARI SANAYİ VE TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %74,5 artması brüt kârın %113,3 yükselmesiyle birlikte brüt kâr marjının %32,4'e (sektör medyanı %22,7) çıkmasını sağladı; bu yüksek marj net kârın %101,5 artarak %15,0 (sektör medyanı -%0,3) net kâr marjına ulaşmasına ve özkaynak kârlılığının %6,5 (sektör medyanı -%0,1) olmasına yol açtı.…
+ozet: Hasılatın %74,5 artması brüt kârın %113,3 yükselmesiyle birlikte brüt kâr marjının %32,4'e (sektör medyanı %22,7) çıkmasını sağladı; bu yüksek marj net kârın %101,5 artarak %15,0 (sektör medyanı -%0,3) net kâr marjına ulaşmasına ve özkaynak kârlılığının %6,5 (sektör medyanı -%0,1) olmasına yol…
 sirket: SAY YENİLENEBİLİR ENERJİ EKİPMANLARI SANAYİ VE TİCARET A.Ş.
 kod: SAYAS
 donem: 2026 3. çeyrek

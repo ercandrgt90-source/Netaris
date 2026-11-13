@@ -1,7 +1,7 @@
 ---
 slug: dofrb-2026-3-ceyrek
 baslik: DOF ROBOTİK SANAYİ A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %0,8 düşmesi yanında brüt kâr %13,8 artarak brüt kâr marjının %70,5 seviyesinde kalması, faaliyet kârının -%107,9 değişmesi ve FAVÖK'ün %62,5 gerilemesiyle kârlılık göstergelerinin aynı dönemde farklı yönlerde hareket ettiğini gösteriyor; özkaynak %36,7 artarak özkaynak kârlılığı %0,5 sevi…
+ozet: Hasılatın %0,8 düşmesi yanında brüt kâr %13,8 artarak brüt kâr marjının %70,5 seviyesinde kalması, faaliyet kârının -%107,9 değişmesi ve FAVÖK'ün %62,5 gerilemesiyle kârlılık göstergelerinin aynı dönemde farklı yönlerde hareket ettiğini gösteriyor; özkaynak %36,7 artarak özkaynak kârlılığı %0,5…
 sirket: DOF ROBOTİK SANAYİ A.Ş.
 kod: DOFRB
 donem: 2026 3. çeyrek

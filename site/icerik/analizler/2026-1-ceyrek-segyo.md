@@ -1,7 +1,7 @@
 ---
 slug: segyo-2026-1-ceyrek
 baslik: ŞEKER GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılatın 0,16 milyar TL'ye düşmesi, net kârın -0,63 milyar TL'ye gerilemesiyle birlikte şirketin zararının büyüdüğünü gösterirken, özkaynakların 7,03 milyar TL'ye yükselmesi aktif toplamının 7,92 milyar TL'ye artması ve net borcun 0,28 milyar TL'ye hafifçe yükselmesi bilanço büyüklüğünün genişlediğ…
+ozet: Hasılatın 0,16 milyar TL'ye düşmesi, net kârın -0,63 milyar TL'ye gerilemesiyle birlikte şirketin zararının büyüdüğünü gösterirken, özkaynakların 7,03 milyar TL'ye yükselmesi aktif toplamının 7,92 milyar TL'ye artması ve net borcun 0,28 milyar TL'ye hafifçe yükselmesi bilanço büyüklüğünün…
 sirket: ŞEKER GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: SEGYO
 donem: 2026 1. çeyrek

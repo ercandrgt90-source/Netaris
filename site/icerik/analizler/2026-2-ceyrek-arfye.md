@@ -1,7 +1,7 @@
 ---
 slug: arfye-2026-2-ceyrek
 baslik: ARF BİO YENİLENEBİLİR ENERJİ ÜRETİM A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %8,1 düşmesi net kârın -0,06 milyar TL'ye gerilemesine ve negatif %66,3 net kâr marjının oluşmasına yol açtı; aynı zamanda faaliyet nakit akışının önceki dönemdeki -0,02 milyar TL'den 0,43 milyar TL'ye yükselmesi, nakit girişlerinin artmasıyla özkaynak kârlılığının %2,9'dan negatif seviyey…
+ozet: Hasılatın %8,1 düşmesi net kârın -0,06 milyar TL'ye gerilemesine ve negatif %66,3 net kâr marjının oluşmasına yol açtı; aynı zamanda faaliyet nakit akışının önceki dönemdeki -0,02 milyar TL'den 0,43 milyar TL'ye yükselmesi, nakit girişlerinin artmasıyla özkaynak kârlılığının %2,9'dan negatif…
 sirket: ARF BİO YENİLENEBİLİR ENERJİ ÜRETİM A.Ş.
 kod: ARFYE
 donem: 2026 2. çeyrek

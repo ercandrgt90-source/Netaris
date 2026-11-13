@@ -1,7 +1,7 @@
 ---
 slug: froto-2026-3-ceyrek
 baslik: FORD OTOMOTİV SANAYİ A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %23,3 artması özkaynak ve aktif toplamının da sırasıyla %23,4 ve %32,1 yükselmesine paralel olarak, şirketin büyüklüğünün genişlediğini gösterirken, brüt kâr marjının %6,8 seviyesinde sabit kalması brüt kârın sadece %1,0 artmasına yol açtı; bu da satış artışının kârlılığı yeterince artırma…
+ozet: Hasılatın %23,3 artması özkaynak ve aktif toplamının da sırasıyla %23,4 ve %32,1 yükselmesine paralel olarak, şirketin büyüklüğünün genişlediğini gösterirken, brüt kâr marjının %6,8 seviyesinde sabit kalması brüt kârın sadece %1,0 artmasına yol açtı; bu da satış artışının kârlılığı yeterince…
 sirket: FORD OTOMOTİV SANAYİ A.Ş.
 kod: FROTO
 donem: 2026 3. çeyrek

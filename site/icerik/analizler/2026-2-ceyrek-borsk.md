@@ -1,7 +1,7 @@
 ---
 slug: borsk-2026-2-ceyrek
 baslik: BOR ŞEKER A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %7,3 artması, brüt kârın %49,9 düşmesiyle birlikte brüt kâr marjının %5,3 seviyesinde kalması, satışların artışının maliyetlerdeki artışa ya da fiyat indirimlerine bağlı olarak kârı erittiğini gösteriyor; bu durum faaliyet kârının %132,7 düşerek negatifleşmesi ve FAVÖK'ün %54,4 azalmasıyla…
+ozet: Hasılatın %7,3 artması, brüt kârın %49,9 düşmesiyle birlikte brüt kâr marjının %5,3 seviyesinde kalması, satışların artışının maliyetlerdeki artışa ya da fiyat indirimlerine bağlı olarak kârı erittiğini gösteriyor; bu durum faaliyet kârının %132,7 düşerek negatifleşmesi ve FAVÖK'ün %54,4…
 sirket: BOR ŞEKER A.Ş.
 kod: BORSK
 donem: 2026 2. çeyrek

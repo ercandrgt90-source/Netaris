@@ -1,7 +1,7 @@
 ---
 slug: rygyo-2026-1-ceyrek
 baslik: REYSAŞ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılat 2,05 milyar TL'ye yükselirken net kâr 1,99 milyar TL'ye artmış, bu artış özkaynakların 103,25 milyar TL'ye (önceki 62,27 milyar TL) ve aktif toplamının 128,14 milyar TL'ye (önceki 72,77 milyar TL) yükselmesiyle paralel bir büyüme göstermiş; aynı zamanda net borç 11,22 milyar TL'ye (önceki 3,…
+ozet: Hasılat 2,05 milyar TL'ye yükselirken net kâr 1,99 milyar TL'ye artmış, bu artış özkaynakların 103,25 milyar TL'ye (önceki 62,27 milyar TL) ve aktif toplamının 128,14 milyar TL'ye (önceki 72,77 milyar TL) yükselmesiyle paralel bir büyüme göstermiş; aynı zamanda net borç 11,22 milyar TL'ye (önceki…
 sirket: REYSAŞ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: RYGYO
 donem: 2026 1. çeyrek

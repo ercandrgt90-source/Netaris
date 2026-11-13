@@ -1,7 +1,7 @@
 ---
 slug: euren-2026-2-ceyrek
 baslik: EUROPEN ENDÜSTRİ İNŞAAT SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat artarken brüt kâr, faaliyet kârı, FAVÖK ve net kâr tümü azalarak brüt kâr marjının %9,5 seviyesine düşmesi, satışların maliyet artışıyla birlikte kârlılığı erittiğini gösteriyor; aynı zamanda faaliyet nakit akışının pozitif (+%0,19 milyar) olması, önceki dönemdeki negatif akıştan dönüşü ve y…
+ozet: Hasılat artarken brüt kâr, faaliyet kârı, FAVÖK ve net kâr tümü azalarak brüt kâr marjının %9,5 seviyesine düşmesi, satışların maliyet artışıyla birlikte kârlılığı erittiğini gösteriyor; aynı zamanda faaliyet nakit akışının pozitif (+%0,19 milyar) olması, önceki dönemdeki negatif akıştan dönüşü ve…
 sirket: EUROPEN ENDÜSTRİ İNŞAAT SANAYİ VE TİCARET A.Ş.
 kod: EUREN
 donem: 2026 2. çeyrek

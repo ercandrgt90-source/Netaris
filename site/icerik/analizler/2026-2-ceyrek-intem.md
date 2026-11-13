@@ -1,7 +1,7 @@
 ---
 slug: intem-2026-2-ceyrek
 baslik: İNTEMA İNŞAAT VE TESİSAT MALZEMELERİ YATIRIM VE PAZARLAMA A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat hafif gerilemişken brüt kâr artmış; bu durum brüt kâr marjının %57,3'e yükselmesiyle, satışların maliyet oranının düşmesinden kaynaklanıyor. Brüt kârdaki yükseliş, faaliyet kârı ve FAVÖK'deki artışları tetikleyerek net kârı %14,2'ye çıkarırken özkaynak kârlılığı %7,7'ye yükselmiş, bu da özka…
+ozet: Hasılat hafif gerilemişken brüt kâr artmış; bu durum brüt kâr marjının %57,3'e yükselmesiyle, satışların maliyet oranının düşmesinden kaynaklanıyor. Brüt kârdaki yükseliş, faaliyet kârı ve FAVÖK'deki artışları tetikleyerek net kârı %14,2'ye çıkarırken özkaynak kârlılığı %7,7'ye yükselmiş, bu da…
 sirket: İNTEMA İNŞAAT VE TESİSAT MALZEMELERİ YATIRIM VE PAZARLAMA A.Ş.
 kod: INTEM
 donem: 2026 2. çeyrek

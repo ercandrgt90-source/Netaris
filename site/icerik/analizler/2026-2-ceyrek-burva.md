@@ -1,7 +1,7 @@
 ---
 slug: burva-2026-2-ceyrek
 baslik: BURÇELİK VANA SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %273,8 artması, aktif toplamının %110,1 yükselmesiyle paralel bir büyüme sağlarken, brüt kâr marjının %5,8 seviyesinde kalması ve net kâr marjının –%2,2'ye düşmesi, artan satışların kârlılıkta yeterli dönüşüm sağlamadığını gösteriyor; bu durum, faaliyet kârı ve FAVÖK'teki –0,01 milyar TL'y…
+ozet: Hasılatın %273,8 artması, aktif toplamının %110,1 yükselmesiyle paralel bir büyüme sağlarken, brüt kâr marjının %5,8 seviyesinde kalması ve net kâr marjının –%2,2'ye düşmesi, artan satışların kârlılıkta yeterli dönüşüm sağlamadığını gösteriyor; bu durum, faaliyet kârı ve FAVÖK'teki –0,01 milyar…
 sirket: BURÇELİK VANA SANAYİ VE TİCARET A.Ş.
 kod: BURVA
 donem: 2026 2. çeyrek

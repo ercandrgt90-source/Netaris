@@ -1,7 +1,7 @@
 ---
 slug: doas-2026-3-ceyrek
 baslik: DOĞUŞ OTOMOTİV SERVİS VE TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %15,5 düşmesi brüt kârın %39,2 gerilemesine eşlik ederken, brüt kâr marjının %9,5 seviyesinde kalması sektör medyanının %14,4'ünden daha düşük bir kârlılık yapısını yansıtır; bu durum faaliyet kârının -%115,1 değişerek negatifleşmesi ve FAVÖK'ün -%87,6 gerilemesiyle tutarlı bir tablo oluşt…
+ozet: Hasılatın %15,5 düşmesi brüt kârın %39,2 gerilemesine eşlik ederken, brüt kâr marjının %9,5 seviyesinde kalması sektör medyanının %14,4'ünden daha düşük bir kârlılık yapısını yansıtır; bu durum faaliyet kârının -%115,1 değişerek negatifleşmesi ve FAVÖK'ün -%87,6 gerilemesiyle tutarlı bir tablo…
 sirket: DOĞUŞ OTOMOTİV SERVİS VE TİCARET A.Ş.
 kod: DOAS
 donem: 2026 3. çeyrek

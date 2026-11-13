@@ -1,7 +1,7 @@
 ---
 slug: euyo-2026-3-ceyrek
 baslik: EURO MENKUL KIYMET YATIRIM ORTAKLIĞI A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %74,9 düşmesi brüt kârın %78,2 azalmasına ve FAVÖK'ün %160,0 gerilemesine eşlik ederken, faaliyet kârının %228,7 düşmesi net kârın negatif %156,0 marjla sonuçlanmasını tetiklemiştir; özkaynakların %2,0 azalışı ise aktif toplamının %13,6 artışıyla birlikte özkaynak kârlılığının -%12,6'ya ge…
+ozet: Hasılatın %74,9 düşmesi brüt kârın %78,2 azalmasına ve FAVÖK'ün %160,0 gerilemesine eşlik ederken, faaliyet kârının %228,7 düşmesi net kârın negatif %156,0 marjla sonuçlanmasını tetiklemiştir; özkaynakların %2,0 azalışı ise aktif toplamının %13,6 artışıyla birlikte özkaynak kârlılığının -%12,6'ya…
 sirket: EURO MENKUL KIYMET YATIRIM ORTAKLIĞI A.Ş.
 kod: EUYO
 donem: 2026 3. çeyrek

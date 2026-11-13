@@ -1,7 +1,7 @@
 ---
 slug: akenr-2026-2-ceyrek
 baslik: AKENERJİ ELEKTRİK ÜRETİM A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %60,7 düşmesi net kârın önceki dönemdeki zararından %0,25 milyar pozitif kâra geçmesine eşlik ederken, özkaynakların %3,4 artışı aktif toplamındaki %18,7 büyümeyle birlikte şirketin varlık bazını genişlettiğini gösterir; aynı zamanda net borcun %27,7 yükselmesi borç/özkaynak oranını %1,59'…
+ozet: Hasılatın %60,7 düşmesi net kârın önceki dönemdeki zararından %0,25 milyar pozitif kâra geçmesine eşlik ederken, özkaynakların %3,4 artışı aktif toplamındaki %18,7 büyümeyle birlikte şirketin varlık bazını genişlettiğini gösterir; aynı zamanda net borcun %27,7 yükselmesi borç/özkaynak oranını…
 sirket: AKENERJİ ELEKTRİK ÜRETİM A.Ş.
 kod: AKENR
 donem: 2026 2. çeyrek

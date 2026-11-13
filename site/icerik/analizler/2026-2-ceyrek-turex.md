@@ -1,7 +1,7 @@
 ---
 slug: turex-2026-2-ceyrek
 baslik: TUREKS TURİZM TAŞIMACILIK A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın 4,36 milyar TL'ye yükselmesi brüt kârın 0,91 milyar TL'ye, brüt kâr marjının %25,4'e ve faaliyet kârının 0,55 milyar TL'ye artmasına paralel olarak gerçekleşti; bu artışlar özkaynakların 8,97 milyar TL'ye ve aktif toplamının 13,64 milyar TL'ye yükselmesiyle desteklenirken, net kâr 0,28 mil…
+ozet: Hasılatın 4,36 milyar TL'ye yükselmesi brüt kârın 0,91 milyar TL'ye, brüt kâr marjının %25,4'e ve faaliyet kârının 0,55 milyar TL'ye artmasına paralel olarak gerçekleşti; bu artışlar özkaynakların 8,97 milyar TL'ye ve aktif toplamının 13,64 milyar TL'ye yükselmesiyle desteklenirken, net kâr 0,28…
 sirket: TUREKS TURİZM TAŞIMACILIK A.Ş.
 kod: TUREX
 donem: 2026 2. çeyrek

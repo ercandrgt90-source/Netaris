@@ -1,7 +1,7 @@
 ---
 slug: akhan-2026-2-ceyrek
 baslik: AKHAN UN FABRİKASI VE TARIM ÜRÜNLERİ GIDA SANAYİ TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın 1,64 milyar TL'den 3,81 milyar TL'ye yükselmesi brüt kârın 0,29 milyar TL'den 0,45 milyar TL'ye, faaliyet kârının 0,18 milyar TL'den 0,32 milyar TL'ye ve FAVÖK'ün 0,23 milyar TL'den 0,37 milyar TL'ye artmasına paralel olarak gerçekleşti; bu artış net kârın %1,4'lük marjla 0,05 milyar TL'ye…
+ozet: Hasılatın 1,64 milyar TL'den 3,81 milyar TL'ye yükselmesi brüt kârın 0,29 milyar TL'den 0,45 milyar TL'ye, faaliyet kârının 0,18 milyar TL'den 0,32 milyar TL'ye ve FAVÖK'ün 0,23 milyar TL'den 0,37 milyar TL'ye artmasına paralel olarak gerçekleşti; bu artış net kârın %1,4'lük marjla 0,05 milyar…
 sirket: AKHAN UN FABRİKASI VE TARIM ÜRÜNLERİ GIDA SANAYİ TİCARET A.Ş.
 kod: AKHAN
 donem: 2026 2. çeyrek

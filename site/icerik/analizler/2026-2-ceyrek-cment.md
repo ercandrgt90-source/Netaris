@@ -1,7 +1,7 @@
 ---
 slug: cment-2026-2-ceyrek
 baslik: ÇİMENTAŞ İZMİR ÇİMENTO FABRİKASI T.A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %15,7 düşmesi brüt kârın %10,6 azalmasına yol açarken, brüt kâr marjının %16,1 seviyesinde kalması sektör medyanının %14,1'inden daha yüksek olduğu için kârın satış hacmine oranı sabit kaldı; bu durum net kârın %39,5 artarak %11,9'luk marjda sektör ortalamasının %2,4'ünden çok üstünde seyr…
+ozet: Hasılatın %15,7 düşmesi brüt kârın %10,6 azalmasına yol açarken, brüt kâr marjının %16,1 seviyesinde kalması sektör medyanının %14,1'inden daha yüksek olduğu için kârın satış hacmine oranı sabit kaldı; bu durum net kârın %39,5 artarak %11,9'luk marjda sektör ortalamasının %2,4'ünden çok üstünde…
 sirket: ÇİMENTAŞ İZMİR ÇİMENTO FABRİKASI T.A.Ş.
 kod: CMENT
 donem: 2026 2. çeyrek

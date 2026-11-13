@@ -1,7 +1,7 @@
 ---
 slug: yigit-2026-2-ceyrek
 baslik: YİĞİT AKÜ MALZEMELERİ NAKLİYAT TURİZM İNŞAAT SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %15,0 oranındaki brüt kâr marjı ile birlikte brüt kâr %0,15 (0,87 milyar TL) artarken, brüt kârın yükselmesi faaliyet kârını da %0,07 (0,30 milyar TL) artırdı ve bu artış FAVÖK'ü %0,07 (0,43 milyar TL) yükseltti; ancak net kâr, artan faaliyet kârına rağmen önceki dönemdeki pozitif %0,01'de…
+ozet: Hasılatın %15,0 oranındaki brüt kâr marjı ile birlikte brüt kâr %0,15 (0,87 milyar TL) artarken, brüt kârın yükselmesi faaliyet kârını da %0,07 (0,30 milyar TL) artırdı ve bu artış FAVÖK'ü %0,07 (0,43 milyar TL) yükseltti; ancak net kâr, artan faaliyet kârına rağmen önceki dönemdeki pozitif…
 sirket: YİĞİT AKÜ MALZEMELERİ NAKLİYAT TURİZM İNŞAAT SANAYİ VE TİCARET A.Ş.
 kod: YIGIT
 donem: 2026 2. çeyrek

@@ -1,7 +1,7 @@
 ---
 slug: vrgyo-2026-1-ceyrek
 baslik: VERA KONSEPT GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılatın 0,12 milyar TL'den 0,03 milyar TL'ye gerilemesi net kârın -0,08 milyar TL'den -0,36 milyar TL'ye düşmesine paralel olarak gerçekleşirken, aynı dönemde faaliyet nakit akışı 0,10 milyar TL'den 3,55 milyar TL'ye yükselmiş ve bu artış özkaynakların 4,67 milyar TL'den 5,39 milyar TL'ye, aktif t…
+ozet: Hasılatın 0,12 milyar TL'den 0,03 milyar TL'ye gerilemesi net kârın -0,08 milyar TL'den -0,36 milyar TL'ye düşmesine paralel olarak gerçekleşirken, aynı dönemde faaliyet nakit akışı 0,10 milyar TL'den 3,55 milyar TL'ye yükselmiş ve bu artış özkaynakların 4,67 milyar TL'den 5,39 milyar TL'ye, aktif…
 sirket: VERA KONSEPT GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: VRGYO
 donem: 2026 1. çeyrek

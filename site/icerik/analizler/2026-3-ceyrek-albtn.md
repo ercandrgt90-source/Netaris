@@ -1,7 +1,7 @@
 ---
 slug: albtn-2026-3-ceyrek
 baslik: ALBAYRAK HAZIR BETON SANAYİ VE TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %2,8 artması, brüt kârın %66,2 düşmesiyle birlikte brüt kâr marjının %6,4 seviyesine gerilemesi, satış hacmindeki artışın maliyet yapısında olumsuz bir etki yarattığını gösteriyor; bu durum faaliyet kârının %98,6 ve FAVÖK'ün %50,6 düşmesine, dolayısıyla net kâr marjının %1,0 seviyesinde ka…
+ozet: Hasılatın %2,8 artması, brüt kârın %66,2 düşmesiyle birlikte brüt kâr marjının %6,4 seviyesine gerilemesi, satış hacmindeki artışın maliyet yapısında olumsuz bir etki yarattığını gösteriyor; bu durum faaliyet kârının %98,6 ve FAVÖK'ün %50,6 düşmesine, dolayısıyla net kâr marjının %1,0 seviyesinde…
 sirket: ALBAYRAK HAZIR BETON SANAYİ VE TİCARET A.Ş.
 kod: ALBTN
 donem: 2026 3. çeyrek

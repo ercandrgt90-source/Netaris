@@ -1,7 +1,7 @@
 ---
 slug: rnpol-2026-3-ceyrek
 baslik: RAİNBOW POLİKARBONAT SANAYİ TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %3,0 düşmesi ardından brüt kâr, faaliyet kârı, FAVÖK ve net kârda sırasıyla %213,4, %2137,0, %624,1 artışlar görülmüş; bu yükselişler brüt kâr marjının %21,7'ye (sektör medyanı %16,6) çıkmasıyla birlikte kârlılık göstergelerinin iyileştiğini, ancak net kârın negatif kalması nedeniyle net k…
+ozet: Hasılatın %3,0 düşmesi ardından brüt kâr, faaliyet kârı, FAVÖK ve net kârda sırasıyla %213,4, %2137,0, %624,1 artışlar görülmüş; bu yükselişler brüt kâr marjının %21,7'ye (sektör medyanı %16,6) çıkmasıyla birlikte kârlılık göstergelerinin iyileştiğini, ancak net kârın negatif kalması nedeniyle net…
 sirket: RAİNBOW POLİKARBONAT SANAYİ TİCARET A.Ş.
 kod: RNPOL
 donem: 2026 3. çeyrek

@@ -1,7 +1,7 @@
 ---
 slug: erbos-2026-3-ceyrek
 baslik: ERBOSAN ERCİYAS BORU SANAYİ VE TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %12,4 artması, aktif toplamının %35,6 yükselmesiyle birlikte özkaynakların %34,0 artmasına yol açarken, brüt kârın %33,2 düşmesi brüt kâr marjının %7,7 seviyesinde kalmasına neden oldu; bu durum, faaliyet kârının %99,2 artması ve FAVÖK'ün %198,9 yükselmesiyle, net kâr marjının %1,2'ye (sek…
+ozet: Hasılatın %12,4 artması, aktif toplamının %35,6 yükselmesiyle birlikte özkaynakların %34,0 artmasına yol açarken, brüt kârın %33,2 düşmesi brüt kâr marjının %7,7 seviyesinde kalmasına neden oldu; bu durum, faaliyet kârının %99,2 artması ve FAVÖK'ün %198,9 yükselmesiyle, net kâr marjının %1,2'ye…
 sirket: ERBOSAN ERCİYAS BORU SANAYİ VE TİCARET A.Ş.
 kod: ERBOS
 donem: 2026 3. çeyrek

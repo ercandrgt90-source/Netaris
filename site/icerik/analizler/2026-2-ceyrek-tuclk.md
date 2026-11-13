@@ -1,7 +1,7 @@
 ---
 slug: tuclk-2026-2-ceyrek
 baslik: TUĞÇELİK ALÜMİNYUM VE METAL MAMÜLLERİ SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %17,4 düşmesi, brüt kârın %775,3 artması ve FAVÖK ile net kârda sırasıyla %590,2 ve %3158,7 artışların gerçekleşmesi, satışların azalmasına rağmen maliyet ve giderlerdeki daha keskin iyileşmelerin kâr kalemlerini yukarı çektiğini gösteriyor; bu durum özkaynakların %36,4 artması ve aktif to…
+ozet: Hasılatın %17,4 düşmesi, brüt kârın %775,3 artması ve FAVÖK ile net kârda sırasıyla %590,2 ve %3158,7 artışların gerçekleşmesi, satışların azalmasına rağmen maliyet ve giderlerdeki daha keskin iyileşmelerin kâr kalemlerini yukarı çektiğini gösteriyor; bu durum özkaynakların %36,4 artması ve aktif…
 sirket: TUĞÇELİK ALÜMİNYUM VE METAL MAMÜLLERİ SANAYİ VE TİCARET A.Ş.
 kod: TUCLK
 donem: 2026 2. çeyrek

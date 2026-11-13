@@ -1,7 +1,7 @@
 ---
 slug: petkm-2026-2-ceyrek
 baslik: PETKİM PETROKİMYA HOLDİNG A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %38,5 artması brüt kârın negatiften 3,12 milyar TL'ye yükselmesine, ardından faaliyet kârı ve net kârın sırasıyla 1,21 milyar TL ve 4,08 milyar TL'ye geçmesine paralel olarak özkaynak ve aktif toplamının da %16,2 ve %28,7 artması, bilanço büyüklüğünün genişlediğini gösteriyor; aynı zamanda…
+ozet: Hasılatın %38,5 artması brüt kârın negatiften 3,12 milyar TL'ye yükselmesine, ardından faaliyet kârı ve net kârın sırasıyla 1,21 milyar TL ve 4,08 milyar TL'ye geçmesine paralel olarak özkaynak ve aktif toplamının da %16,2 ve %28,7 artması, bilanço büyüklüğünün genişlediğini gösteriyor; aynı…
 sirket: PETKİM PETROKİMYA HOLDİNG A.Ş.
 kod: PETKM
 donem: 2026 2. çeyrek

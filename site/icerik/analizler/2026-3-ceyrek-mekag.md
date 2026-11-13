@@ -1,7 +1,7 @@
 ---
 slug: mekag-2026-3-ceyrek
 baslik: MEKA GLOBAL MAKİNE İMALAT SANAYİ VE TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %26,1 artması brüt kârın %25,3 yükselmesine paralel olarak gerçekleşirken, brüt kâr marjı %21,0 seviyesinde sektör medyanının (%18,6) üzerinde kalmıştır; aynı dönemde faaliyet kârı ve net kâr negatif kalmış, bu da FAVÖK'ün %33,1 düşerek 0,01 milyar TL'ye gerilemesiyle birlikte kâr dağılımı…
+ozet: Hasılatın %26,1 artması brüt kârın %25,3 yükselmesine paralel olarak gerçekleşirken, brüt kâr marjı %21,0 seviyesinde sektör medyanının (%18,6) üzerinde kalmıştır; aynı dönemde faaliyet kârı ve net kâr negatif kalmış, bu da FAVÖK'ün %33,1 düşerek 0,01 milyar TL'ye gerilemesiyle birlikte kâr…
 sirket: MEKA GLOBAL MAKİNE İMALAT SANAYİ VE TİCARET A.Ş.
 kod: MEKAG
 donem: 2026 3. çeyrek

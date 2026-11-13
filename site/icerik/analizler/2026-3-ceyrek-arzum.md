@@ -1,7 +1,7 @@
 ---
 slug: arzum-2026-3-ceyrek
 baslik: ARZUM ELEKTRİKLİ EV ALETLERİ SANAYİ VE TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %3,2 düşmesi, brüt kârın %39,6 artmasıyla birlikte brüt kâr marjının %34,6'ya yükselmesi, satışların azalmasına rağmen maliyet yapısının iyileştiğini gösteriyor; bu iyileşme, faaliyet kârının önceki dönemdeki –%0,18 milyar zarardan 0,02 milyar pozitif değere ve net kârın –%0,25 milyardan –…
+ozet: Hasılatın %3,2 düşmesi, brüt kârın %39,6 artmasıyla birlikte brüt kâr marjının %34,6'ya yükselmesi, satışların azalmasına rağmen maliyet yapısının iyileştiğini gösteriyor; bu iyileşme, faaliyet kârının önceki dönemdeki –%0,18 milyar zarardan 0,02 milyar pozitif değere ve net kârın –%0,25 milyardan…
 sirket: ARZUM ELEKTRİKLİ EV ALETLERİ SANAYİ VE TİCARET A.Ş.
 kod: ARZUM
 donem: 2026 3. çeyrek

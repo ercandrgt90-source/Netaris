@@ -1,7 +1,7 @@
 ---
 slug: cvkmd-2026-3-ceyrek
 baslik: CVK MADEN İŞLETMELERİ SANAYİ VE TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %273,3 artması brüt kârı %589,3 yükselterek brüt kâr marjının %47,8'e (sektör medyanı %21,3) çıkmasını sağladı; bu yüksek marj ise faaliyet kârının %765,5 artmasına ve net kârın önceki dönemde negatiften %39,8 net kâr marjı (sektör medyanı %11,9) ile pozitif 1,11 milyar TL'ye dönmesine yol…
+ozet: Hasılatın %273,3 artması brüt kârı %589,3 yükselterek brüt kâr marjının %47,8'e (sektör medyanı %21,3) çıkmasını sağladı; bu yüksek marj ise faaliyet kârının %765,5 artmasına ve net kârın önceki dönemde negatiften %39,8 net kâr marjı (sektör medyanı %11,9) ile pozitif 1,11 milyar TL'ye dönmesine…
 sirket: CVK MADEN İŞLETMELERİ SANAYİ VE TİCARET A.Ş.
 kod: CVKMD
 donem: 2026 3. çeyrek

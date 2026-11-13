@@ -1,7 +1,7 @@
 ---
 slug: fonet-2026-2-ceyrek
 baslik: FONET BİLGİ TEKNOLOJİLERİ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %41,4 brüt kâr marjı ile yükselmesi brüt kârı %0,08 milyar TL artırırken, bu artışın ardından brüt kârın daha yüksek oranla net kâra dönüşmesi net kâr marjının %28,2'ye çıkmasını ve net kârın %0,08 milyar TL artmasını sağladı; aynı zamanda faaliyet kârı ve FAVÖK de brüt kârdan gelen kâr ak…
+ozet: Hasılatın %41,4 brüt kâr marjı ile yükselmesi brüt kârı %0,08 milyar TL artırırken, bu artışın ardından brüt kârın daha yüksek oranla net kâra dönüşmesi net kâr marjının %28,2'ye çıkmasını ve net kârın %0,08 milyar TL artmasını sağladı; aynı zamanda faaliyet kârı ve FAVÖK de brüt kârdan gelen kâr…
 sirket: FONET BİLGİ TEKNOLOJİLERİ A.Ş.
 kod: FONET
 donem: 2026 2. çeyrek

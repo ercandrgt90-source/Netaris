@@ -1,7 +1,7 @@
 ---
 slug: arclk-2026-2-ceyrek
 baslik: ARÇELİK A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat ve brüt kâr birlikte yükselirken, brüt kâr marjı %29,0 seviyesinde kalmış; bu artış, faaliyet kârının -0,68 milyar TL'ye düşmesi ve FAVÖK'ün 5,68 milyar TL'ye gerilemesiyle birlikte karlılık göstergelerinin (net kâr marjı -%4,5, özkaynak kârlılığı -%8,2) sektöre göre daha düşük seviyelere ka…
+ozet: Hasılat ve brüt kâr birlikte yükselirken, brüt kâr marjı %29,0 seviyesinde kalmış; bu artış, faaliyet kârının -0,68 milyar TL'ye düşmesi ve FAVÖK'ün 5,68 milyar TL'ye gerilemesiyle birlikte karlılık göstergelerinin (net kâr marjı -%4,5, özkaynak kârlılığı -%8,2) sektöre göre daha düşük seviyelere…
 sirket: ARÇELİK A.Ş.
 kod: ARCLK
 donem: 2026 2. çeyrek

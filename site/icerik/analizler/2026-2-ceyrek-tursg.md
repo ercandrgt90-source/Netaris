@@ -1,7 +1,7 @@
 ---
 slug: tursg-2026-2-ceyrek
 baslik: TÜRKİYE SİGORTA A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılattaki büyümeye faaliyet kârı, FAVÖK ve net kâr aynı yönde eşlik etti; net kâr marjı sektör medyanının üzerinde bir sıralamaya karşılık geldi. Özkaynak ile aktif toplamı birlikte genişledi, ancak özkaynaktaki artışın net kâr artışından hızlı olması özkaynak kârlılığını medyanın üzerinde bir kon…
+ozet: Hasılattaki büyümeye faaliyet kârı, FAVÖK ve net kâr aynı yönde eşlik etti; net kâr marjı sektör medyanının üzerinde bir sıralamaya karşılık geldi. Özkaynak ile aktif toplamı birlikte genişledi, ancak özkaynaktaki artışın net kâr artışından hızlı olması özkaynak kârlılığını medyanın üzerinde bir…
 sirket: TÜRKİYE SİGORTA A.Ş.
 kod: TURSG
 donem: 2026 2. çeyrek

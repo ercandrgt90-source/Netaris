@@ -1,7 +1,7 @@
 ---
 slug: ktskr-2026-3-ceyrek
 baslik: KÜTAHYA ŞEKER FABRİKASI A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %1990,9 artması, brüt kârın negatiften pozitif 0,06 milyar TL'ye yükselmesine ve bunun sonucunda faaliyet kârı, FAVÖK ve net kârın da sırasıyla -0,04 milyar TL'den 0,03 milyar TL ve 0,00 milyar TL'ye geçişine paralel olarak eşlik etti; bu gelir artışı özkaynakların %19,4 artmasıyla destekl…
+ozet: Hasılatın %1990,9 artması, brüt kârın negatiften pozitif 0,06 milyar TL'ye yükselmesine ve bunun sonucunda faaliyet kârı, FAVÖK ve net kârın da sırasıyla -0,04 milyar TL'den 0,03 milyar TL ve 0,00 milyar TL'ye geçişine paralel olarak eşlik etti; bu gelir artışı özkaynakların %19,4 artmasıyla…
 sirket: KÜTAHYA ŞEKER FABRİKASI A.Ş.
 kod: KTSKR
 donem: 2026 3. çeyrek

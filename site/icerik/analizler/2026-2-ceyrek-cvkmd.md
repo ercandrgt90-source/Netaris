@@ -1,7 +1,7 @@
 ---
 slug: cvkmd-2026-2-ceyrek
 baslik: CVK MADEN İŞLETMELERİ SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %39,6'lık brüt kâr marjıyla birlikte artması, brüt kârın 1,01 milyar TL'ye yükselmesine ve bu artışın ardından faaliyet kârı, FAVÖK ve net kârda da sırasıyla 0,56 milyar TL, 0,83 milyar TL ve 0,74 milyar TL'ye yükselmesi görülüyor; bu kâr artışları özkaynakların 13,00 milyar TL'ye çıkmasıy…
+ozet: Hasılatın %39,6'lık brüt kâr marjıyla birlikte artması, brüt kârın 1,01 milyar TL'ye yükselmesine ve bu artışın ardından faaliyet kârı, FAVÖK ve net kârda da sırasıyla 0,56 milyar TL, 0,83 milyar TL ve 0,74 milyar TL'ye yükselmesi görülüyor; bu kâr artışları özkaynakların 13,00 milyar TL'ye…
 sirket: CVK MADEN İŞLETMELERİ SANAYİ VE TİCARET A.Ş.
 kod: CVKMD
 donem: 2026 2. çeyrek

@@ -1,7 +1,7 @@
 ---
 slug: algyo-2026-3-ceyrek
 baslik: ALARKO GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %23,4 artması, aktif toplamının %44,3 yükselmesiyle paralel bir büyüme gösterirken, net kârın %41,9 düşmesi faaliyet nakit akışındaki %3,3 gerileme ve net borcun %209,1 artışıyla birlikte özkaynak kârlılığının %0,9'a gerilemesine yol açtı; bu durum net kâr marjının %43,2 seviyesinde sektör…
+ozet: Hasılatın %23,4 artması, aktif toplamının %44,3 yükselmesiyle paralel bir büyüme gösterirken, net kârın %41,9 düşmesi faaliyet nakit akışındaki %3,3 gerileme ve net borcun %209,1 artışıyla birlikte özkaynak kârlılığının %0,9'a gerilemesine yol açtı; bu durum net kâr marjının %43,2 seviyesinde…
 sirket: ALARKO GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: ALGYO
 donem: 2026 3. çeyrek

@@ -1,7 +1,7 @@
 ---
 slug: bahkm-2026-2-ceyrek
 baslik: BAHADIR KİMYA SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %29,9'luk brüt kâr marjı sayesinde brüt kâr 0,10 milyar TL'ye yükselirken, aynı dönemde net satışların düşmesi (0,39 milyar TL) brüt kârın satışa oranını artırdı; fakat net kârın -%5,3'ten -%5,3'e gerilemesi, faaliyet ve FAVÖK artışının (0,07 ve 0,08 milyar TL) nakit akışındaki iyileşme (0…
+ozet: Hasılatın %29,9'luk brüt kâr marjı sayesinde brüt kâr 0,10 milyar TL'ye yükselirken, aynı dönemde net satışların düşmesi (0,39 milyar TL) brüt kârın satışa oranını artırdı; fakat net kârın -%5,3'ten -%5,3'e gerilemesi, faaliyet ve FAVÖK artışının (0,07 ve 0,08 milyar TL) nakit akışındaki iyileşme…
 sirket: BAHADIR KİMYA SANAYİ VE TİCARET A.Ş.
 kod: BAHKM
 donem: 2026 2. çeyrek

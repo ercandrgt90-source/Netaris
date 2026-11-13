@@ -1,7 +1,7 @@
 ---
 slug: tnztp-2026-2-ceyrek
 baslik: TAPDİ OKSİJEN ÖZEL SAĞLIK VE EĞİTİM HİZMETLERİ SANAYİ TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %31,8 artması brüt kârın aynı yüzdeyle sabit kalmasına yol açarken, brüt kâr marjının sektör medyanıyla eşit kalması brüt kârın mutlak değerinin düşmesine (0,72 milyar TL'dan 0,66 milyar TL'ye) neden oldu; bu düşüşe rağmen faaliyet kârı, brüt kârdaki azalmaya rağmen FAVÖK artışı ve net bor…
+ozet: Hasılatın %31,8 artması brüt kârın aynı yüzdeyle sabit kalmasına yol açarken, brüt kâr marjının sektör medyanıyla eşit kalması brüt kârın mutlak değerinin düşmesine (0,72 milyar TL'dan 0,66 milyar TL'ye) neden oldu; bu düşüşe rağmen faaliyet kârı, brüt kârdaki azalmaya rağmen FAVÖK artışı ve net…
 sirket: TAPDİ OKSİJEN ÖZEL SAĞLIK VE EĞİTİM HİZMETLERİ SANAYİ TİCARET A.Ş.
 kod: TNZTP
 donem: 2026 2. çeyrek

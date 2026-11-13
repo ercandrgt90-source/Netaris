@@ -1,7 +1,7 @@
 ---
 slug: bulgs-2026-3-ceyrek
 baslik: BULLS GİRİŞİM SERMAYESİ YATIRIM ORTAKLIĞI A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılat ve brüt kâr birlikte %78,4 ve %69,4 azalarak düşmüş, bu da brüt kâr marjının %53,8 seviyesinde sektör medyanının (%48,0) üzerinde kalmasını sağlamış; ancak faaliyet kârı, FAVÖK ve net kârın hepsinin milyarlarca negatif değere kayması, net kâr marjının -%2156,8 ve özkaynak kârlılığının -%111,…
+ozet: Hasılat ve brüt kâr birlikte %78,4 ve %69,4 azalarak düşmüş, bu da brüt kâr marjının %53,8 seviyesinde sektör medyanının (%48,0) üzerinde kalmasını sağlamış; ancak faaliyet kârı, FAVÖK ve net kârın hepsinin milyarlarca negatif değere kayması, net kâr marjının -%2156,8 ve özkaynak kârlılığının…
 sirket: BULLS GİRİŞİM SERMAYESİ YATIRIM ORTAKLIĞI A.Ş.
 kod: BULGS
 donem: 2026 3. çeyrek

@@ -1,7 +1,7 @@
 ---
 slug: crfsa-2026-3-ceyrek
 baslik: CARREFOURSA CARREFOUR SABANCI TİCARET MERKEZİ A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %11,8 artması, brüt kârın %1,4 düşmesiyle birlikte brüt kâr marjının %20,4 seviyesinde kalması, satış hacmindeki artışın maliyet yapısında bir baskı oluşturduğunu gösteriyor; faaliyet kârının negatiften -2,33 milyar TL'ye derinleşmesi ve FAVÖK'ün -%171,1 değişimle -0,91 milyar TL'ye gerile…
+ozet: Hasılatın %11,8 artması, brüt kârın %1,4 düşmesiyle birlikte brüt kâr marjının %20,4 seviyesinde kalması, satış hacmindeki artışın maliyet yapısında bir baskı oluşturduğunu gösteriyor; faaliyet kârının negatiften -2,33 milyar TL'ye derinleşmesi ve FAVÖK'ün -%171,1 değişimle -0,91 milyar TL'ye…
 sirket: CARREFOURSA CARREFOUR SABANCI TİCARET MERKEZİ A.Ş.
 kod: CRFSA
 donem: 2026 3. çeyrek

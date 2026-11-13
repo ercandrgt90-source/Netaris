@@ -1,7 +1,7 @@
 ---
 slug: egser-2026-2-ceyrek
 baslik: EGE SERAMİK SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %20,7 artması brüt kârın %156,5 yükselmesine paralel olarak gerçekleşmiş; brüt kâr marjının %27,0 seviyesinde sektör medyanının %14,1'ini aşması, satış hacmindeki artışın kârlılığı artırdığını gösterirken, net kârın -%4,7 olması ve özkaynak kârlılığının -%3,8'e gerilemesi, faaliyet ve FAVÖ…
+ozet: Hasılatın %20,7 artması brüt kârın %156,5 yükselmesine paralel olarak gerçekleşmiş; brüt kâr marjının %27,0 seviyesinde sektör medyanının %14,1'ini aşması, satış hacmindeki artışın kârlılığı artırdığını gösterirken, net kârın -%4,7 olması ve özkaynak kârlılığının -%3,8'e gerilemesi, faaliyet ve…
 sirket: EGE SERAMİK SANAYİ VE TİCARET A.Ş.
 kod: EGSER
 donem: 2026 2. çeyrek

@@ -1,7 +1,7 @@
 ---
 slug: ateks-2026-3-ceyrek
 baslik: AKIN TEKSTİL A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %35,5 düşmesi brüt kârın %160,5 gerilemesine ve FAVÖK'ün %2441,4 azalmasına yol açarken, aynı dönemde özkaynakların %132,2 artması aktif toplamının %113,9 yükselmesiyle paralel bir büyüme gösterdi; bu artış net borcun %95,8 artmasıyla birlikte borç/özkaynak oranının sektör medyanının altın…
+ozet: Hasılatın %35,5 düşmesi brüt kârın %160,5 gerilemesine ve FAVÖK'ün %2441,4 azalmasına yol açarken, aynı dönemde özkaynakların %132,2 artması aktif toplamının %113,9 yükselmesiyle paralel bir büyüme gösterdi; bu artış net borcun %95,8 artmasıyla birlikte borç/özkaynak oranının sektör medyanının…
 sirket: AKIN TEKSTİL A.Ş.
 kod: ATEKS
 donem: 2026 3. çeyrek

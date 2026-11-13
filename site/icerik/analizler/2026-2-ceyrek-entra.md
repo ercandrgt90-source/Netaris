@@ -1,7 +1,7 @@
 ---
 slug: entra-2026-2-ceyrek
 baslik: IC ENTERRA YENİLENEBİLİR ENERJİ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın 1,92 milyar TL'ye düşmesi net kârın -0,98 milyar TL'den 0,16 milyar TL'ye geçmesiyle birlikte faaliyet nakit akışının 1,79 milyar TL'ye yükselmesi, gelir azalmasına rağmen nakit üretimindeki iyileşmenin net kâr artışını desteklediğini gösterir; aynı dönemde özkaynakların 44,15 milyar TL'ye…
+ozet: Hasılatın 1,92 milyar TL'ye düşmesi net kârın -0,98 milyar TL'den 0,16 milyar TL'ye geçmesiyle birlikte faaliyet nakit akışının 1,79 milyar TL'ye yükselmesi, gelir azalmasına rağmen nakit üretimindeki iyileşmenin net kâr artışını desteklediğini gösterir; aynı dönemde özkaynakların 44,15 milyar…
 sirket: IC ENTERRA YENİLENEBİLİR ENERJİ A.Ş.
 kod: ENTRA
 donem: 2026 2. çeyrek

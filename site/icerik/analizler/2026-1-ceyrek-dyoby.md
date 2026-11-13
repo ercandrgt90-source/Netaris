@@ -1,7 +1,7 @@
 ---
 slug: dyoby-2026-1-ceyrek
 baslik: DYO BOYA FABRİKALARI SANAYİ VE TİCARET A.Ş. 2026 1. çeyrek bilanço analizi
-ozet: Hasılatın %6,0 düşmesi brüt kârda %3,0 azalmaya yol açarken, brüt kâr marjının %31,2 seviyesinde kalması sektör medyanının %14,1'ini aşması, maliyet yapısının daha az etkilenmiş olduğunu gösteriyor; bu durum faaliyet kârının önceki dönemde negatiften %0,19 milyar pozitife ve FAVÖK'ün %0,28 milyardan…
+ozet: Hasılatın %6,0 düşmesi brüt kârda %3,0 azalmaya yol açarken, brüt kâr marjının %31,2 seviyesinde kalması sektör medyanının %14,1'ini aşması, maliyet yapısının daha az etkilenmiş olduğunu gösteriyor; bu durum faaliyet kârının önceki dönemde negatiften %0,19 milyar pozitife ve FAVÖK'ün %0,28…
 sirket: DYO BOYA FABRİKALARI SANAYİ VE TİCARET A.Ş.
 kod: DYOBY
 donem: 2026 1. çeyrek

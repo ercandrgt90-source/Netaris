@@ -1,7 +1,7 @@
 ---
 slug: brsan-2026-3-ceyrek
 baslik: BORUSAN BİRLEŞİK BORU FABRİKALARI SANAYİ VE TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %38,0 artması brüt kârın %79,7 yükselmesine yol açarak brüt kâr marjının %12,8 seviyesinde kalmasını sağladı; bu artış, faaliyet kârı ve FAVÖK'ün sırasıyla %94,5 ve %63,0 artmasına, dolayısıyla net kârın %126,3 yükselerek %7,0 net kâr marjını sektör ortalamasının üzerisine çıkarmasına yans…
+ozet: Hasılatın %38,0 artması brüt kârın %79,7 yükselmesine yol açarak brüt kâr marjının %12,8 seviyesinde kalmasını sağladı; bu artış, faaliyet kârı ve FAVÖK'ün sırasıyla %94,5 ve %63,0 artmasına, dolayısıyla net kârın %126,3 yükselerek %7,0 net kâr marjını sektör ortalamasının üzerisine çıkarmasına…
 sirket: BORUSAN BİRLEŞİK BORU FABRİKALARI SANAYİ VE TİCARET A.Ş.
 kod: BRSAN
 donem: 2026 3. çeyrek

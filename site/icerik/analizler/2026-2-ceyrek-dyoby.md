@@ -1,7 +1,7 @@
 ---
 slug: dyoby-2026-2-ceyrek
 baslik: DYO BOYA FABRİKALARI SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %19,3 artması brüt kârın %34,5 yükselmesine yol açarak brüt kâr marjının %31,1 seviyesine, sektör medyanının %14,1'inin çok üzerine çıkmasını sağladı; aynı artış özkaynakların %36,7 büyümesiyle birlikte özkaynak kârlılığının hâlâ negatif kalmasına ve özkaynak/kârlılık oranının sektör ortal…
+ozet: Hasılatın %19,3 artması brüt kârın %34,5 yükselmesine yol açarak brüt kâr marjının %31,1 seviyesine, sektör medyanının %14,1'inin çok üzerine çıkmasını sağladı; aynı artış özkaynakların %36,7 büyümesiyle birlikte özkaynak kârlılığının hâlâ negatif kalmasına ve özkaynak/kârlılık oranının sektör…
 sirket: DYO BOYA FABRİKALARI SANAYİ VE TİCARET A.Ş.
 kod: DYOBY
 donem: 2026 2. çeyrek

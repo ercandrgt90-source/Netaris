@@ -1,7 +1,7 @@
 ---
 slug: dgnmo-2026-2-ceyrek
 baslik: DOĞANLAR MOBİLYA GRUBU İMALAT SANAYİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %26,9 düşmesi brüt kârın %19,1 azalmasına yol açarken, brüt kâr marjının sektör medyanının üzerindeki %21,4 seviyesinde kalması net kârın %0,7'ye yükselmesini ve özkaynak kârlılığının %1,4'e çıkmasını destekledi; aynı zamanda aktif toplamının %27,8 artması özkaynakların %35,7 azalmasıyla b…
+ozet: Hasılatın %26,9 düşmesi brüt kârın %19,1 azalmasına yol açarken, brüt kâr marjının sektör medyanının üzerindeki %21,4 seviyesinde kalması net kârın %0,7'ye yükselmesini ve özkaynak kârlılığının %1,4'e çıkmasını destekledi; aynı zamanda aktif toplamının %27,8 artması özkaynakların %35,7 azalmasıyla…
 sirket: DOĞANLAR MOBİLYA GRUBU İMALAT SANAYİ VE TİCARET A.Ş.
 kod: DGNMO
 donem: 2026 2. çeyrek

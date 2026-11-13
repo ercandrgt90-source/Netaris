@@ -1,7 +1,7 @@
 ---
 slug: enkai-2026-3-ceyrek
 baslik: ENKA İNŞAAT VE SANAYİ A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %11,3 düşmesi brüt kârın %8,5 azalmasına, ardından faaliyet kârının %28,2 ve FAVÖK'ün %22,8 gerilemesine yol açarken, net kâr %74,7 düşerek kârlılık marjlarını olumsuz etkilemiştir; buna karşın özkaynak ve aktif toplamı sırasıyla %3,7 ve %2,7 artarak bilanço büyüklüğünü desteklemiş, net bo…
+ozet: Hasılatın %11,3 düşmesi brüt kârın %8,5 azalmasına, ardından faaliyet kârının %28,2 ve FAVÖK'ün %22,8 gerilemesine yol açarken, net kâr %74,7 düşerek kârlılık marjlarını olumsuz etkilemiştir; buna karşın özkaynak ve aktif toplamı sırasıyla %3,7 ve %2,7 artarak bilanço büyüklüğünü desteklemiş, net…
 sirket: ENKA İNŞAAT VE SANAYİ A.Ş.
 kod: ENKAI
 donem: 2026 3. çeyrek

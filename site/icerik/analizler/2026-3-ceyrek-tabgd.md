@@ -1,7 +1,7 @@
 ---
 slug: tabgd-2026-3-ceyrek
 baslik: TAB GIDA SANAYİ VE TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %4,9 artması brüt kârda %2,0 yükselişi tetiklerken, brüt kâr marjının %16,5 seviyesinde sektör medyanının %29,0 altında kalması faaliyet kârının %5,1 düşmesine ve net kârın %48,6 gerilemesine zemin hazırlamış; aynı anda özkaynak ve aktif toplamının %34,9-%34,5 artışı bilanço büyüklüğünü ar…
+ozet: Hasılatın %4,9 artması brüt kârda %2,0 yükselişi tetiklerken, brüt kâr marjının %16,5 seviyesinde sektör medyanının %29,0 altında kalması faaliyet kârının %5,1 düşmesine ve net kârın %48,6 gerilemesine zemin hazırlamış; aynı anda özkaynak ve aktif toplamının %34,9-%34,5 artışı bilanço büyüklüğünü…
 sirket: TAB GIDA SANAYİ VE TİCARET A.Ş.
 kod: TABGD
 donem: 2026 3. çeyrek

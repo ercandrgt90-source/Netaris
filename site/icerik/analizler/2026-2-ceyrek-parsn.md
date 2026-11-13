@@ -1,7 +1,7 @@
 ---
 slug: parsn-2026-2-ceyrek
 baslik: PARSAN MAKİNA PARÇALARI SANAYİİ A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %13,5 artması, aktif toplamının %31,6 yükselmesiyle birlikte özkaynakta %30,7 artış sağlanmış; bu büyüme, faaliyet nakit akışının %564,2 artmasıyla desteklenirken, brüt kâr marjının %5,8 seviyesinde kalması ve FAVÖK'te %48,1 düşüş yaşanması, kârlılık kalemlerinin (brüt kâr, FAVÖK, net kâr)…
+ozet: Hasılatın %13,5 artması, aktif toplamının %31,6 yükselmesiyle birlikte özkaynakta %30,7 artış sağlanmış; bu büyüme, faaliyet nakit akışının %564,2 artmasıyla desteklenirken, brüt kâr marjının %5,8 seviyesinde kalması ve FAVÖK'te %48,1 düşüş yaşanması, kârlılık kalemlerinin (brüt kâr, FAVÖK, net…
 sirket: PARSAN MAKİNA PARÇALARI SANAYİİ A.Ş.
 kod: PARSN
 donem: 2026 2. çeyrek

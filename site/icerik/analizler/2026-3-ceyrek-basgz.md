@@ -1,7 +1,7 @@
 ---
 slug: basgz-2026-3-ceyrek
 baslik: BAŞKENT DOĞALGAZ DAĞITIM GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %34,2 artması, faaliyet nakit akışının %30,9 yükselmesine paralel olarak aktif toplamının %37,0 artmasını ve özkaynakların %36,8 artmasını desteklemiş, ancak aynı dönemde net kârın -%404,0 düşmesi net borcun -%194,6 değişmesiyle birlikte net kâr marjının -%8,0'a ve özkaynak kârlılığının -%…
+ozet: Hasılatın %34,2 artması, faaliyet nakit akışının %30,9 yükselmesine paralel olarak aktif toplamının %37,0 artmasını ve özkaynakların %36,8 artmasını desteklemiş, ancak aynı dönemde net kârın -%404,0 düşmesi net borcun -%194,6 değişmesiyle birlikte net kâr marjının -%8,0'a ve özkaynak kârlılığının…
 sirket: BAŞKENT DOĞALGAZ DAĞITIM GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: BASGZ
 donem: 2026 3. çeyrek

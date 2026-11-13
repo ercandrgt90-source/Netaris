@@ -1,7 +1,7 @@
 ---
 slug: dggyo-2026-2-ceyrek
 baslik: DOĞUŞ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın 0,70 milyar TL'ye yükselmesi net kârın 0,12 milyar TL'ye geçmesine eşlik ederken, özkaynak da 16,35 milyar TL'ye artmış ve bu büyüme aktif toplamının 23,37 milyar TL'ye çıkmasıyla paralel bir genişleme göstermiştir; net borç ise 3,93 milyar TL'ye hafifçe yükselmiş, bu da borç/özkaynak oran…
+ozet: Hasılatın 0,70 milyar TL'ye yükselmesi net kârın 0,12 milyar TL'ye geçmesine eşlik ederken, özkaynak da 16,35 milyar TL'ye artmış ve bu büyüme aktif toplamının 23,37 milyar TL'ye çıkmasıyla paralel bir genişleme göstermiştir; net borç ise 3,93 milyar TL'ye hafifçe yükselmiş, bu da borç/özkaynak…
 sirket: DOĞUŞ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: DGGYO
 donem: 2026 2. çeyrek

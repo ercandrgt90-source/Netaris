@@ -1,7 +1,7 @@
 ---
 slug: akenr-2026-3-ceyrek
 baslik: AKENERJİ ELEKTRİK ÜRETİM A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %47,8 düşmesi net kârın -%46,8'lik marjla -1,26 milyar TL'ye gerilemesine ve faaliyet nakit akışının %78,8 azalmasına yol açtı; aynı zamanda aktif toplamındaki %16,6 artış, net borcun %32,7 yükselmesiyle birlikte özkaynakların %4,3 azalması ve borç/özkaynak oranının %1,74'ye (sektör medyan…
+ozet: Hasılatın %47,8 düşmesi net kârın -%46,8'lik marjla -1,26 milyar TL'ye gerilemesine ve faaliyet nakit akışının %78,8 azalmasına yol açtı; aynı zamanda aktif toplamındaki %16,6 artış, net borcun %32,7 yükselmesiyle birlikte özkaynakların %4,3 azalması ve borç/özkaynak oranının %1,74'ye (sektör…
 sirket: AKENERJİ ELEKTRİK ÜRETİM A.Ş.
 kod: AKENR
 donem: 2026 3. çeyrek

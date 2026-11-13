@@ -1,7 +1,7 @@
 ---
 slug: pnlsn-2026-3-ceyrek
 baslik: PANELSAN ÇATI CEPHE SİSTEMLERİ SANAYİ VE TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %69,3 artması brüt kârın %55,4 yükselmesine paralel olarak, brüt kâr marjının %15,7 seviyesinde sektör medyanının %13,5'ini aşmasını sağladı; bu artış faaliyet kârı ve FAVÖK'ün sırasıyla %100,2 ve %78,8 artarak net kârın %80,3 yükselmesine ve net kâr marjının %9,8 ile sektörün negatif %2,3…
+ozet: Hasılatın %69,3 artması brüt kârın %55,4 yükselmesine paralel olarak, brüt kâr marjının %15,7 seviyesinde sektör medyanının %13,5'ini aşmasını sağladı; bu artış faaliyet kârı ve FAVÖK'ün sırasıyla %100,2 ve %78,8 artarak net kârın %80,3 yükselmesine ve net kâr marjının %9,8 ile sektörün negatif…
 sirket: PANELSAN ÇATI CEPHE SİSTEMLERİ SANAYİ VE TİCARET A.Ş.
 kod: PNLSN
 donem: 2026 3. çeyrek
