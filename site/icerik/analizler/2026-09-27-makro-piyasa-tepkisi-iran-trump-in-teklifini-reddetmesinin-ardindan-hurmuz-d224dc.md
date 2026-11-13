@@ -36,7 +36,7 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Investing.
 
 ## Daha önce ne olmuştu
 
-- 2026-09-27 — İran: Hürmüz'ün açılması için sunduğumuz şartlara arabuluculardan henüz kesin… (BTC +%0,2, XAU %0,0)
+- 2026-09-27 — İran: Hürmüz'ün açılması için sunduğumuz şartlara arabuluculardan henüz kesin ya (BTC +%0,2, XAU %0,0)
 - 2026-09-26 — Trump Hürmüz barış planını reddetti, İran diplomaside ısrar ediyor (BTC %0,0, XAU %0,0)
 - 2026-09-26 — Trump, Hürmüz için İran teklifini reddetti; Husiler Suudi Arabistan’ı vurmaya de (BRENT -%1,1, BTC %0,0, XAU %0,0)
 - 2026-09-26 — Hürmüz krizinde arz kesintisi yüzde 14'ü buldu (BRENT -%1,1, BTC -%0,1, XAU %0,0)

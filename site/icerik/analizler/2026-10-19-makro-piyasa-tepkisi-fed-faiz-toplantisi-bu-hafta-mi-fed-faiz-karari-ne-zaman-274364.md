@@ -40,7 +40,7 @@ Para politikası kararı açıklandı. Kaynak: Dünya.
 
 - 2026-10-19 — Merkez Bankası faiz kararı bu hafta mı, ne zaman? MB faiz kararı tarihi... (BTC -%0,1, XAU -%0,3)
 - 2026-10-17 — Faiz kararı için geri sayım başladı! Gözler Merkez Bankası'nda... (BTC +%0,1, XAU %0,0)
-- 2026-10-17 — Fed (Amerikan Merkez Bankası) faiz kararı ne zaman açıklanacak? (BTC +%0,1, XAU %0,0)
+- 2026-10-17 — Fed (Amerikan Merkez Bankası) faiz kararı ne zaman açıklanacak? Fed faizleri art (BTC +%0,1, XAU %0,0)
 - 2026-10-17 — Piyasaların gözü bu tarihte! Merkez Bankası faiz kararını açıklayacak (BTC -%0,1, XAU +%0,1)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*

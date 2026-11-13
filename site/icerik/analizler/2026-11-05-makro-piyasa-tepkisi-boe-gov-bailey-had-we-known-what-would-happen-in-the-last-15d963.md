@@ -38,7 +38,7 @@ Para politikası kararı açıklandı. Kaynak: FinancialJuice.
 
 ## Daha önce ne olmuştu
 
-- 2026-11-05 — İngiltere Merkez Bankası politika faizini 25 baz puan artırarak yüzde 4'e… (BTC -%0,2, XAU %0,0)
+- 2026-11-05 — İngiltere Merkez Bankası politika faizini 25 baz puan artırarak yüzde 4'e çıkard (BTC -%0,2, XAU %0,0)
 - 2026-10-29 — Monetary policy decisions (BTC +%0,3, XAU -%0,1)
 - 2026-10-29 — Mizuho on FOMC Rate Decision - FJElite (BTC +%0,3, XAU -%0,1)
 - 2026-10-29 — SON DAKİKA | Piyasaların gözü bu haberdeydi: Fed faiz kararı belli oldu (BTC +%0,7, XAU +%0,4)

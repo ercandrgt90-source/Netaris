@@ -37,8 +37,8 @@ Enflasyon verisi yayımlandı. Kaynak: FinancialJuice.
 
 ## Daha önce ne olmuştu
 
-- 2026-08-12 — ABD TÜFE verisi kritik öneme sahip; CoreWeave’in yapay zeka kaynaklı gelir… (BTC +%0,0, XAU +%0,0)
-- 2026-08-12 — ABD enflasyon rakamları ne zaman, saat kaçta açıklanacak? (BTC +%0,0)
+- 2026-08-12 — ABD TÜFE verisi kritik öneme sahip; CoreWeave’in yapay zeka kaynaklı gelir artış (BTC +%0,0, XAU +%0,0)
+- 2026-08-12 — ABD enflasyon rakamları ne zaman, saat kaçta açıklanacak? Temmuz ayı ABD enflasy (BTC +%0,0)
 - 2026-08-11 — US CPI Prep: Inflation in Focus - FJElite (BTC +%0,1, DXY -%0,4, XAU -%0,1)
 - 2026-08-11 — Çarşamba günkü enflasyon verisi yeni yumuşama katalizörü olabilir (BTC +%0,1, DXY -%0,4, XAU +%0,2)
 

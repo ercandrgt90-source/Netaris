@@ -39,8 +39,8 @@ Para politikası kararı açıklandı. Kaynak: Ekonomim.
 ## Daha önce ne olmuştu
 
 - 2026-09-22 — Fon Krizi Merkez Bankasının Faiz Kararını Nasıl Etkiler? | Ekonomi Masası | 22 E (BTC +%0,7, DXY +%0,1, XAU +%0,4)
-- 2026-09-21 — BoC's Gov. Macklem: When it comes to rate decisions, we need to look beyond the… (BTC -%0,4, XAU %0,0)
-- 2026-09-21 — Fed's Goolsbee: I do not think estimates of the neutral rate are helpful in… (BTC +%0,4, XAU -%0,1)
+- 2026-09-21 — BoC's Gov. Macklem: When it comes to rate decisions, we need to look beyond the  (BTC -%0,4, XAU %0,0)
+- 2026-09-21 — Fed's Goolsbee: I do not think estimates of the neutral rate are helpful in shor (BTC +%0,4, XAU -%0,1)
 - 2026-09-20 — Fed'in faiz artırdığı haftada emtia fiyatları ayrıştı (BTC -%0,1, XAU %0,0)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*

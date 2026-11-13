@@ -36,7 +36,7 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Ekonomim.
 
 ## Daha önce ne olmuştu
 
-- 2026-11-02 — Hürmüz krizi Türkiye'nin önemini artırdı: Ceyhan'dan petrol ihracatı 500 bin… (BTC -%0,1, XAU %0,0)
+- 2026-11-02 — Hürmüz krizi Türkiye'nin önemini artırdı: Ceyhan'dan petrol ihracatı 500 bin var (BTC -%0,1, XAU %0,0)
 - 2026-11-01 — İran Hürmüz’ü 48 saatte açma planı sundu, Trump ilerleme sinyali verdi (BTC -%0,1, XAU %0,0)
 - 2026-10-31 — Petrol Hürmüz saldırıları nedeniyle altı ayın zirvesinde (BTC +%0,1, XAU %0,0)
 - 2026-10-30 — Hürmüz Boğazı’nda gemiye patlayıcı düzenekli saldırı (BRENT -%3,9, BTC -%0,5, XAU %0,0)

@@ -39,7 +39,7 @@ Para politikası kararı açıklandı. Kaynak: FinancialJuice.
 - 2026-10-14 — Fed faiz kararı ne zaman açıklanacak? Fed faiz indirecek mi, artıracak mı? (BTC -%1,3, XAU -%1,3)
 - 2026-10-14 — TCMB Ekim 2026 faiz kararı: 100 baz puan indirim beklentisi (BTC -%0,2, XAU -%0,1)
 - 2026-10-14 — FED faiz kararı sonrası altında yön ne olur? (BTC -%0,4, XAU +%0,1)
-- 2026-10-13 — Merkez Bankası faiz kararı bu hafta mı, ne zaman? TCMB faiz kararı tarihi ve… (BTC -%0,3, XAU -%0,1)
+- 2026-10-13 — Merkez Bankası faiz kararı bu hafta mı, ne zaman? TCMB faiz kararı tarihi ve saa (BTC -%0,3, XAU -%0,1)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*
 

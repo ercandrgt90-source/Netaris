@@ -39,8 +39,8 @@ Enflasyon verisi yayımlandı. Kaynak: Dünya.
 ## Daha önce ne olmuştu
 
 - 2026-11-13 — Son dakika: ABD'de kritik enflasyon verisi açıklandı! (BTC +%1,0, XAU +%0,3)
-- 2026-11-13 — TCMB'nin kasım ayı Piyasa Katılımcıları Anketi'ne göre TÜFE yıl sonu artış… (BTC -%0,1, XAU +%0,1)
-- 2026-11-12 — Başkan Fatih Karahan'ın "Enflasyon Raporu 2026-IV"ün Tanıtımına İlişkin… (BTC +%0,1, XAU -%0,2)
+- 2026-11-13 — TCMB'nin kasım ayı Piyasa Katılımcıları Anketi'ne göre TÜFE yıl sonu artış bekle (BTC -%0,1, XAU +%0,1)
+- 2026-11-12 — Başkan Fatih Karahan'ın "Enflasyon Raporu 2026-IV"ün Tanıtımına İlişkin Bilgilen (BTC +%0,1, XAU -%0,2)
 - 2026-11-11 — Yılın son enflasyon raporu yarın açıklanacak (BTC +%0,4, XAU +%0,1)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*

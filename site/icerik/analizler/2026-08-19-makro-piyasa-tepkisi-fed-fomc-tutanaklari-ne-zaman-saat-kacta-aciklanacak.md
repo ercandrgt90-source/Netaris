@@ -40,7 +40,7 @@ Para politikası kararı açıklandı. Kaynak: Dünya.
 - 2026-08-18 — MERKEZ BANKASI FAİZ KARARI NE ZAMAN AÇIKLANACAK? Eylül 2026 TCMB Merkez Bankası  (BTC +%0,1, DXY -%0,2, XAU -%0,2)
 - 2026-08-17 — Fed faiz kararı ne zaman, hangi tarihte açıklanacak? Fed faiz artıracak mı? (BTC +%0,3, XAU +%0,2)
 - 2026-08-17 — Merkez Bankası faiz kararı ne zaman? Merkez Bankası faiz beklentisi ne yönde? (BTC +%0,1, XAU +%0,0)
-- 2026-08-15 — Türkiye Cumhuriyet Merkez Bankası faiz kararı ne zaman açıklanacak? (BTC +%0,1, XAU +%0,0)
+- 2026-08-15 — Türkiye Cumhuriyet Merkez Bankası faiz kararı ne zaman açıklanacak? Faizler düşe (BTC +%0,1, XAU +%0,0)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*
 

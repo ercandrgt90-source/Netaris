@@ -38,8 +38,8 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Dünya.
 
 - 2026-10-20 — Hürmüz krizinden rekor kazanç: Petrol devleri savaş nakdini nasıl kullanacak? (BTC %0,0, XAU -%0,2)
 - 2026-10-20 — Hürmüz krizi petrol taşımacılığını vurdu: Türkiye’nin ithalat maliyeti artabilir (BTC -%0,2, XAU -%0,3)
-- 2026-10-20 — Hürmüz saldırıları arz toparlanmasını tehdit ederken petrol beş aylık zirvesini… (BTC %0,0, XAU -%0,1)
-- 2026-10-19 — 5 soruda Hürmüz Boğazı'nda tırmanan gerilim: İran, ABD seçimleri öncesi ne… (BTC -%0,2, XAU +%0,2)
+- 2026-10-20 — Hürmüz saldırıları arz toparlanmasını tehdit ederken petrol beş aylık zirvesini  (BTC %0,0, XAU -%0,1)
+- 2026-10-19 — 5 soruda Hürmüz Boğazı'nda tırmanan gerilim: İran, ABD seçimleri öncesi ne planl (BTC -%0,2, XAU +%0,2)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*
 

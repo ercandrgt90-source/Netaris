@@ -42,7 +42,7 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Dünya.
 
 ## Daha önce ne olmuştu
 
-- 2026-11-12 — Katar: Hürmüz Boğazı’ndaki krizin küresel kalkınmaya etkileri giderek… (BTC %0,0, XAU -%0,3)
+- 2026-11-12 — Katar: Hürmüz Boğazı’ndaki krizin küresel kalkınmaya etkileri giderek ağırlaşıyo (BTC %0,0, XAU -%0,3)
 - 2026-11-10 — Hürmüz'den 31 LNG tankeri çıktı: Savaş öncesi seviyeye dönüş hâlâ uzak (BTC +%0,2, XAU -%0,1)
 - 2026-11-10 — Petrol 92 doların altına indi: Hürmüz'deki saldırılar düşüşü durduramadı (BTC +%0,2, XAU +%0,1)
 - 2026-11-09 — Çin, ABD'ye misilleme olarak getirdiği yüzde 24 ek tarifeyi 2 ay daha erteleyece (BTC +%0,4, XAU +%0,6)

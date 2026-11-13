@@ -40,7 +40,7 @@ Enflasyon verisi yayımlandı. Kaynak: CNN Türk.
 
 - 2026-09-30 — Hizmet Üretici Fiyat Endeksi ağustosta arttı (BTC +%0,4)
 - 2026-09-30 — “Yarısı Bizden” kampanyasında TÜFE detayı (BTC -%0,3, XAU +%0,2)
-- 2026-09-30 — EYLÜL 2026 ENFLASYON BEKLENTİSİ: TÜİK eylül ayı enflasyon beklentisi ne yönde? (BTC -%0,2)
+- 2026-09-30 — EYLÜL 2026 ENFLASYON BEKLENTİSİ: TÜİK eylül ayı enflasyon beklentisi ne yönde? E (BTC -%0,2)
 - 2026-09-28 — Van'da bir öğrenci okula pompalı tüfekle geldi: Soruşturma başlatıldı (BTC -%0,3, XAU %0,0)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*

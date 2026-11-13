@@ -43,7 +43,7 @@ Enflasyon verisi yayımlandı. Kaynak: Investing.
 - 2026-11-10 — ABD'den piyasaların beklediği enflasyon verisi geldi (BTC -%0,7, DXY +%0,3)
 - 2026-11-10 — ABD enflasyon verisi ve Huang skandalının piyasalara etkisi (BTC +%0,2, DXY +%0,3, XAU -%0,3)
 - 2026-11-10 — ABD enflasyon verisi ve Huang skandalı piyasaları etkiliyor (BTC -%0,4, DXY +%0,3, XAU -%0,6)
-- 2026-11-10 — ABD enflasyon rakamları bugün saat kaçta açıklanacak? (BTC -%0,2, DXY +%0,3, XAU -%0,1)
+- 2026-11-10 — ABD enflasyon rakamları bugün saat kaçta açıklanacak? ABD enflasyon beklentisi n (BTC -%0,2, DXY +%0,3, XAU -%0,1)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*
 

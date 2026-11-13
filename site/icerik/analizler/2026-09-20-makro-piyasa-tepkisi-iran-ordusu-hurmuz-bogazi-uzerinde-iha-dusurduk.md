@@ -37,7 +37,7 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Dünya.
 ## Daha önce ne olmuştu
 
 - 2026-09-20 — İran'dan Hürmüz resti: Şartını açıkladı (BTC %0,0, XAU %0,0)
-- 2026-09-19 — Hürmüz’deki petrol akışları 6 ayın zirvesinde: ABD mayın temizleme operasyonu… (BTC %0,0, XAU %0,0)
+- 2026-09-19 — Hürmüz’deki petrol akışları 6 ayın zirvesinde: ABD mayın temizleme operasyonu so (BTC %0,0, XAU %0,0)
 - 2026-09-17 — Hürmüz’ü baypas etti alternatif güzergah açtı (BRENT +%7,9, BTC -%0,1, XAU %0,0)
 - 2026-09-16 — Lavrov'dan Avrupa'ya Ukrayna uyarısı: Savaş ilanı olur (BTC -%0,2, XAU -%0,1)
 

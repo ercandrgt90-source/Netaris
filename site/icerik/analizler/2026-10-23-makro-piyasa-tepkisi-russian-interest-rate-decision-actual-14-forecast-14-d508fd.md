@@ -39,7 +39,7 @@ Para politikası kararı açıklandı. Kaynak: FinancialJuice.
 ## Daha önce ne olmuştu
 
 - 2026-10-23 — Merkez Bankası'nın faiz kararının ardından 16 kurumdan yeni tahmin (BTC -%0,1, XAU -%0,1)
-- 2026-10-23 — Prof. Dr. Evren Bolgün’den TCMB faiz kararı değerlendirmesi: 100 baz puanlık… (BTC +%0,3, XAU +%0,2)
+- 2026-10-23 — Prof. Dr. Evren Bolgün’den TCMB faiz kararı değerlendirmesi: 100 baz puanlık ind (BTC +%0,3, XAU +%0,2)
 - 2026-10-22 — TCMB politika faizini 100 baz puan indirerek %36’ya çekti (BTC +%0,3, XAU +%0,3)
 - 2026-10-22 — TCMB FAİZ KARARI 2026! Ekim Ayı Faiz Kararı Ne Oldu, Faiz Düştü Mü? Yılın 7.Faiz (BTC -%0,3, XAU -%0,1)
 

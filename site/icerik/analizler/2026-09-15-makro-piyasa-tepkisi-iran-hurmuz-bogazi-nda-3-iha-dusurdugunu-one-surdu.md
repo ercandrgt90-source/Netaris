@@ -37,7 +37,7 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Dünya.
 ## Daha önce ne olmuştu
 
 - 2026-09-15 — İran: Hürmüz Boğazı’nda 2 MQ-1 tipi insansız hava aracı düşürüldü (BTC +%0,1, XAU -%0,1)
-- 2026-09-15 — Hürmüz'e alternatif Doğu-Batı hattının kapatılması Suudi petrolünün çıkış… (BTC -%0,7, XAU -%0,4)
+- 2026-09-15 — Hürmüz'e alternatif Doğu-Batı hattının kapatılması Suudi petrolünün çıkış rotala (BTC -%0,7, XAU -%0,4)
 - 2026-09-15 — Hürmüz krizi ticaret rotasını Türkiye'ye çeviriyor: Avrupa için yeni hat arayışı (BTC +%0,3, XAU -%0,3)
 - 2026-09-15 — İran: Hürmüz Boğazı'nın batısında MQ-1 tipi İHA düşürüldü (BTC -%0,3, XAU -%0,1)
 

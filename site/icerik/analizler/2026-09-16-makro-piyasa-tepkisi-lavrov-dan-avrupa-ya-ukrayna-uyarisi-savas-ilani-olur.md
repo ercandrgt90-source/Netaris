@@ -38,7 +38,7 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Dünya.
 
 - 2026-09-16 — Rusya'dan Avrupa’ya Ukrayna uyarısı: Asker konuşlandırılması savaş ilanı olur (BTC -%0,1, XAU -%0,2)
 - 2026-09-16 — Hürmüz Boğazı'ndaki kriz AB'nin fosil yakıt faturasını 90 milyar euro artırdı (BTC -%0,3, XAU -%0,2)
-- 2026-09-16 — AB Komisyonu Başkanı Von der Leyen açıkladı: Hürmüz krizinin Avrupa'ya faturası… (BTC +%0,5, XAU +%0,2)
+- 2026-09-16 — AB Komisyonu Başkanı Von der Leyen açıkladı: Hürmüz krizinin Avrupa'ya faturası  (BTC +%0,5, XAU +%0,2)
 - 2026-09-16 — Hürmüz Boğazı'ndaki kriz AB'nin fosil yakıt faturasını 90 milyar avro artırdı (BTC +%0,5, XAU +%0,2)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*

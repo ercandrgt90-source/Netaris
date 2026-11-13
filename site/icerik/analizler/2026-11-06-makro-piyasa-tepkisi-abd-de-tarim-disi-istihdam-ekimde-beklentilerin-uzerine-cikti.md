@@ -38,8 +38,8 @@ sayimlar:
 
 ## Daha önce ne olmuştu
 
-- 2026-11-02 — Crédit Agricole: October Jobs Report Seen Rebounding as Labour Market Remains… (BTC -%0,4, XAU -%0,3)
-- 2026-10-05 — CACIB: Less urgency to hike after September jobs report, though underlying… (BTC -%0,3, XAU +%0,1)
+- 2026-11-02 — Crédit Agricole: October Jobs Report Seen Rebounding as Labour Market Remains Ba (BTC -%0,4, XAU -%0,3)
+- 2026-10-05 — CACIB: Less urgency to hike after September jobs report, though underlying detai (BTC -%0,3, XAU +%0,1)
 - 2026-10-02 — ABD'de tarım dışı istihdamda aşağı yönlü sürpriz (BTC -%0,1, XAU +%0,1)
 - 2026-10-02 — Bitcoin tops $86,000 ahead of U.S. jobs report (BTC %0,0, XAU -%0,1)
 

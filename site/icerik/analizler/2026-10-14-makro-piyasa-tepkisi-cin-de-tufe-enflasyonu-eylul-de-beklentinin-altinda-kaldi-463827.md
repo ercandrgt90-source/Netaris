@@ -36,10 +36,10 @@ Enflasyon verisi yayımlandı. Kaynak: Investing.
 
 ## Daha önce ne olmuştu
 
-- 2026-10-13 — US CPI Prep: Attention on Core Numbers for Evidence of Broader Inflation… (BTC +%0,1, XAU %0,0)
+- 2026-10-13 — US CPI Prep: Attention on Core Numbers for Evidence of Broader Inflation Pressur (BTC +%0,1, XAU %0,0)
 - 2026-10-13 — ABD enflasyon rakamları ne zaman, hangi gün açıklanacak? (BTC %0,0, XAU %0,0)
 - 2026-10-13 — Asya dövizleri sakin, dolar 18 ayın zirvesinde, ABD TÜFE bekleniyor (BTC +%0,5, XAU +%0,3)
-- 2026-10-13 — Citigroup yüzde 13 yükseldi: Banka bilançoları ve kritik enflasyon verisi… (BTC +%0,2, XAU +%0,3)
+- 2026-10-13 — Citigroup yüzde 13 yükseldi: Banka bilançoları ve kritik enflasyon verisi beklen (BTC +%0,2, XAU +%0,3)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*
 

@@ -36,7 +36,7 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Ekonomim.
 
 ## Daha önce ne olmuştu
 
-- 2026-10-14 — Irak'ın petrol ihracatı Hürmüz Boğazı'ndaki krize rağmen günlük 2,7 milyon… (BTC -%0,3, XAU %0,0)
+- 2026-10-14 — Irak'ın petrol ihracatı Hürmüz Boğazı'ndaki krize rağmen günlük 2,7 milyon varil (BTC -%0,3, XAU %0,0)
 - 2026-10-14 — Kuveyt'ten Hürmüz'e bağımlılığı azaltacak milyarlarca dolarlık plan (BTC %0,0, XAU -%0,2)
 - 2026-10-13 — İran ve Umman, Hürmüz konusunda mutabakata vardı (BTC %0,0, XAU -%0,1)
 - 2026-10-13 — Hürmüz Boğazı’nda 4 ticari gemiye saldırı düzenlendi (BTC +%0,2, XAU %0,0)

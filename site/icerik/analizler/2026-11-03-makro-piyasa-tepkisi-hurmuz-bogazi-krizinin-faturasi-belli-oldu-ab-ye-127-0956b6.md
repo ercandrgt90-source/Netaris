@@ -39,7 +39,7 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Ekonomist.
 - 2026-11-03 — İran'dan dört ülkeye Hürmüz'den geçiş muafiyeti (BTC +%0,2, XAU -%0,2)
 - 2026-11-03 — Hürmüz Boğazı'nın kapanması AB'nin yakıt faturasını 127 milyar avro artırdı (BTC +%0,5, XAU +%0,2)
 - 2026-11-03 — Ukrayna'da insani yardım merkezine hava saldırısı düzenlendi, 26 can kaybı var (BTC +%0,2, XAU %0,0)
-- 2026-11-02 — Hürmüz krizi Türkiye'nin önemini artırdı: Ceyhan'dan petrol ihracatı 500 bin… (BTC -%0,1, XAU %0,0)
+- 2026-11-02 — Hürmüz krizi Türkiye'nin önemini artırdı: Ceyhan'dan petrol ihracatı 500 bin var (BTC -%0,1, XAU %0,0)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*
 

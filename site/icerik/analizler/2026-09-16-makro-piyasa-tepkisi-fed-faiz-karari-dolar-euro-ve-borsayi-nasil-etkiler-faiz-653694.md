@@ -40,8 +40,8 @@ Para politikası kararı açıklandı. Kaynak: CNN Türk.
 
 - 2026-09-16 — Avro bölgesi getirileri Fed faiz kararı öncesinde çok yıllık zirvelerde seyrediy (BTC -%0,4, XAU -%0,2)
 - 2026-09-16 — Küresel piyasalarda gözler Fed'in bugün açıklanacak faiz kararına odaklandı (BTC -%0,4, XAU -%0,2)
-- 2026-09-16 — Japonya Merkez Bankası politika faizini 31 yılın en yüksek seviyesine çıkarmaya… (BTC -%0,4, XAU -%0,2)
-- 2026-09-16 — Fed faiz kararı ne zaman, saat kaçta? Fed faizleri artıracak mı yoksa sabit mi… (BTC %0,0, XAU %0,0)
+- 2026-09-16 — Japonya Merkez Bankası politika faizini 31 yılın en yüksek seviyesine çıkarmaya  (BTC -%0,4, XAU -%0,2)
+- 2026-09-16 — Fed faiz kararı ne zaman, saat kaçta? Fed faizleri artıracak mı yoksa sabit mi b (BTC %0,0, XAU %0,0)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*
 

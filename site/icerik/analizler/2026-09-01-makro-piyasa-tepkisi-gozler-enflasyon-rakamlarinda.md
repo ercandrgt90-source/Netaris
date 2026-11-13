@@ -42,7 +42,7 @@ Enflasyon verisi yayımlandı. Kaynak: Habertürk.
 
 ## Daha önce ne olmuştu
 
-- 2026-08-31 — EYLÜL AYI KİRA ARTIŞ ORANI 2026 | Eylül kira zam oranı ne zaman açıklanacak? (BTC -%0,4, XAU %0,0)
+- 2026-08-31 — EYLÜL AYI KİRA ARTIŞ ORANI 2026 | Eylül kira zam oranı ne zaman açıklanacak? Eyl (BTC -%0,4, XAU %0,0)
 - 2026-08-31 — Ağustos ayı enflasyon rakamları ne zaman açıklanacak? (BTC -%0,4, XAU %0,0)
 - 2026-08-31 — Saxony CPI YoY Actual 2.9% (Forecast -, Previous 2.8%) (BTC -%0,2, XAU -%0,1)
 - 2026-08-28 — ENFLASYON RAKAMLARI BEKLENTİSİ AĞUSTOS 2026: Ağustos ayı enflasyon oranları ne z (BTC -%0,3, XAU -%0,2)

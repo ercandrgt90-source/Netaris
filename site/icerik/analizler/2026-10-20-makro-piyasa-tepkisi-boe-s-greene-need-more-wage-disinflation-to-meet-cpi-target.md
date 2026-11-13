@@ -44,7 +44,7 @@ Enflasyon verisi yayımlandı. Kaynak: FinancialJuice.
 
 - 2026-10-20 — Toplam sanayi üretici fiyat endeksi eylülde aylık yüzde 2,31, yıllık yüzde 29,32 (BTC -%0,1, DXY -%0,1, XAU -%0,2)
 - 2026-10-15 — ABD Hazine tahvil faizleri TÜFE sonrası sert düştü (BTC +%1,0, XAU +%0,2)
-- 2026-10-15 — BOJ's Koeda: sustained price rises across various CPI items, change in price… (BTC -%0,4, XAU +%0,1)
+- 2026-10-15 — BOJ's Koeda: sustained price rises across various CPI items, change in price dis (BTC -%0,4, XAU +%0,1)
 - 2026-10-15 — Fed's Daly: CPI indicates gas prices boosting headline inflation, core inflation (BTC %0,0, XAU %0,0)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*

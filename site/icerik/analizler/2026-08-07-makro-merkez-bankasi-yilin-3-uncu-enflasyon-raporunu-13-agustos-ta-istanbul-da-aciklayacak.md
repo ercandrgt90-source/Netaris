@@ -35,7 +35,7 @@ Bu gelişme için karşılaştırılabilir fiyat verisi alınamadı. Ölçüleme
 ## Daha önce ne olmuştu
 
 - 2026-08-04 — Aylık Fiyat Gelişmeleri (Temmuz 2026) (BTC -%0,0, DXY +%0,0, XAU -%0,3)
-- 2026-08-04 — Mevsim etkilerinden arındırılmış özel kapsamlı TÜFE temmuzda aylık yüzde 1,93… (BTC +%0,0, DXY +%0,0, XAU -%0,1)
+- 2026-08-04 — Mevsim etkilerinden arındırılmış özel kapsamlı TÜFE temmuzda aylık yüzde 1,93 ar (BTC +%0,0, DXY +%0,0, XAU -%0,1)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*
 

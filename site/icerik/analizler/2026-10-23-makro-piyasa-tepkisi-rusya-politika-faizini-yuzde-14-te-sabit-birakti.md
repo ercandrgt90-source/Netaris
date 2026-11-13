@@ -40,7 +40,7 @@ Para politikası kararı açıklandı. Kaynak: BloombergHT.
 
 - 2026-10-23 — Russian Interest Rate Decision Actual 14% (Forecast 14%, Previous 14.00%) (BTC +%0,1, XAU %0,0)
 - 2026-10-23 — Merkez Bankası'nın faiz kararının ardından 16 kurumdan yeni tahmin (BTC -%0,1, XAU -%0,1)
-- 2026-10-23 — Prof. Dr. Evren Bolgün’den TCMB faiz kararı değerlendirmesi: 100 baz puanlık… (BTC +%0,3, XAU +%0,2)
+- 2026-10-23 — Prof. Dr. Evren Bolgün’den TCMB faiz kararı değerlendirmesi: 100 baz puanlık ind (BTC +%0,3, XAU +%0,2)
 - 2026-10-22 — TCMB politika faizini 100 baz puan indirerek %36’ya çekti (BTC +%0,3, XAU +%0,3)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*

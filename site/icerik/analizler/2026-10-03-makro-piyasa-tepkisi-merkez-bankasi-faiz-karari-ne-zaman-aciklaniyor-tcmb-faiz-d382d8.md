@@ -40,7 +40,7 @@ Para politikası kararı açıklandı. Kaynak: Dünya.
 
 - 2026-10-01 — Citi on FOMC - FJElite (BTC +%0,7, XAU +%0,2)
 - 2026-10-01 — Fed's Kashkari: FOMC atmosphere has been remarkably consistent under Warsh (BTC +%0,1, XAU +%0,3)
-- 2026-09-30 — Amerikan Merkez Bankası (Fed) faiz kararı ne zaman duyurulacak? (BTC +%0,5, XAU +%0,6)
+- 2026-09-30 — Amerikan Merkez Bankası (Fed) faiz kararı ne zaman duyurulacak? Fed faiz artırac (BTC +%0,5, XAU +%0,6)
 - 2026-09-30 — Merkez Bankası faiz kararı ne zaman açıklanıyor? MB faiz düşürecek mi? (BTC -%0,1, XAU -%0,2)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*

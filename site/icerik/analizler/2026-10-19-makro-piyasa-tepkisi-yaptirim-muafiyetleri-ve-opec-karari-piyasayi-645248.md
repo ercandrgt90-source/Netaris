@@ -39,7 +39,7 @@ Bu gelişme için karşılaştırılabilir fiyat verisi alınamadı. Ölçüleme
 ## Daha önce ne olmuştu
 
 - 2026-10-08 — Petrol fiyatları ABD Körfez kıyısında arz kesintisi beklentisiyle yükseldi (BRENT -%0,1, WTI +%0,1, XAU +%0,4)
-- 2026-08-24 — Avrupa'da doğal gaz fiyatı düşük stok ve arz kesintileri endişesiyle yüzde 4,7… (XAU %0,0)
+- 2026-08-24 — Avrupa'da doğal gaz fiyatı düşük stok ve arz kesintileri endişesiyle yüzde 4,7 a (XAU %0,0)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*
 

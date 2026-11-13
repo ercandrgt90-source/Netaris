@@ -38,10 +38,10 @@ Enflasyon verisi yayımlandı. Kaynak: Investing.
 
 ## Daha önce ne olmuştu
 
-- 2026-09-17 — Exchange of letters between the Governor and the Chancellor regarding CPI… (BTC %0,0, XAU +%0,4)
+- 2026-09-17 — Exchange of letters between the Governor and the Chancellor regarding CPI Inflat (BTC %0,0, XAU +%0,4)
 - 2026-09-16 — Italian CPI YoY Final Actual 3.3% (Forecast 3.3%, Previous 3.3%) (BTC +%0,4, XAU +%0,1)
 - 2026-09-16 — UK Core CPI MoM Actual 0.3% (Forecast -, Previous 0.2%) (BTC %0,0, XAU %0,0)
-- 2026-09-14 — EYLÜL AYI KİRA ARTIŞ ORANI HESAPLAMA : 2026 Eylül Ayı Kira Artış Oranı Belli… (BTC +%0,3, XAU -%0,2)
+- 2026-09-14 — EYLÜL AYI KİRA ARTIŞ ORANI HESAPLAMA : 2026 Eylül Ayı Kira Artış Oranı Belli Old (BTC +%0,3, XAU -%0,2)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*
 

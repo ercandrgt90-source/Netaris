@@ -37,7 +37,7 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Investing.
 ## Daha önce ne olmuştu
 
 - 2026-08-30 — İran Hürmüz Boğazı’nın kapalı kalacağında ısrarlı (BTC %0,0, XAU %0,0)
-- 2026-08-29 — Hürmüz Boğazı'nda kriz büyüyor: 400 gemi ve 6 bin denizci mahsur kaldı...… (BRENT -%4,8, BTC %0,0, XAU %0,0)
+- 2026-08-29 — Hürmüz Boğazı'nda kriz büyüyor: 400 gemi ve 6 bin denizci mahsur kaldı... 'Küres (BRENT -%4,8, BTC %0,0, XAU %0,0)
 - 2026-08-29 — Hürmüz Boğazı yeniden açılacak mı? İran'dan ABD'ye şartlı açılma mesajı (BRENT -%4,8, BTC +%0,1, XAU %0,0)
 - 2026-08-28 — İran Cumhurbaşkanı Pezeşkiyan Hürmüz'ün açılma şartını açıkladı (BRENT -%4,8, BTC %0,0, XAU %0,0)
 

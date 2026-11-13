@@ -36,7 +36,7 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Ekonomim.
 
 ## Daha önce ne olmuştu
 
-- 2026-10-11 — İran, Hürmüz Boğazı’ndaki tutumunu reddederken Trump askeri seçenekleri… (BTC -%0,2, XAU -%0,1)
+- 2026-10-11 — İran, Hürmüz Boğazı’ndaki tutumunu reddederken Trump askeri seçenekleri değerlen (BTC -%0,2, XAU -%0,1)
 - 2026-10-11 — İran: Hürmüz Boğazı’nda bir süper tanker daha mayına çarptı (BTC -%0,2, XAU -%0,1)
 - 2026-10-11 — İran: ABD'nin Hürmüz teklifine yanıtı yetersiz (BTC +%0,2, XAU +%0,1)
 - 2026-10-11 — Trump’tan Hürmüz Boğazı çıkışı: Adını “Trump Boğazı” yapmayı düşünüyoruz (BTC %0,0, XAU %0,0)

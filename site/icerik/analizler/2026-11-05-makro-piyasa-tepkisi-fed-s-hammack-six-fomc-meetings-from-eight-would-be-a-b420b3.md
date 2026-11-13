@@ -39,8 +39,8 @@ Para politikası kararı açıklandı. Kaynak: FinancialJuice.
 ## Daha önce ne olmuştu
 
 - 2026-11-05 — İngiltere Merkez Bankası, politika faizini yüzde 4'e yükseltti (BTC -%0,5, XAU -%0,2)
-- 2026-11-05 — BoE Gov. Bailey: Had we known what would happen in the last 48 hours, the rate… (BTC -%0,5, XAU -%0,2)
-- 2026-11-05 — İngiltere Merkez Bankası politika faizini 25 baz puan artırarak yüzde 4'e… (BTC -%0,2, XAU %0,0)
+- 2026-11-05 — BoE Gov. Bailey: Had we known what would happen in the last 48 hours, the rate d (BTC -%0,5, XAU -%0,2)
+- 2026-11-05 — İngiltere Merkez Bankası politika faizini 25 baz puan artırarak yüzde 4'e çıkard (BTC -%0,2, XAU %0,0)
 - 2026-10-29 — Monetary policy decisions (BTC +%0,3, XAU -%0,1)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*

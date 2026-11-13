@@ -38,7 +38,7 @@ Para politikası kararı açıklandı. Kaynak: FinancialJuice.
 
 ## Daha önce ne olmuştu
 
-- 2026-09-21 — Fed's Goolsbee: I do not think estimates of the neutral rate are helpful in… (BTC +%0,4, XAU -%0,1)
+- 2026-09-21 — Fed's Goolsbee: I do not think estimates of the neutral rate are helpful in shor (BTC +%0,4, XAU -%0,1)
 - 2026-09-20 — Fed'in faiz artırdığı haftada emtia fiyatları ayrıştı (BTC -%0,1, XAU %0,0)
 - 2026-09-20 — Çin’den faiz kararı: 16’ncı ayda da değişmedi (BTC +%0,3)
 - 2026-09-17 — Merkez Bankası Para Politikası Kurulu Toplantı Özeti yayımlandı (BTC +%0,5, XAU +%0,5)

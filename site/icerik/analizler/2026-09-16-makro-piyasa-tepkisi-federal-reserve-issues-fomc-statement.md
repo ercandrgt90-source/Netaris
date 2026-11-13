@@ -38,7 +38,7 @@ Para politikası kararı açıklandı. Kaynak: Fed.
 
 ## Daha önce ne olmuştu
 
-- 2026-09-16 — Bitcoin awaits Fed rate decision below $76K as analysis discounts ‘dovish… (BTC -%0,2, XAU -%0,1)
+- 2026-09-16 — Bitcoin awaits Fed rate decision below $76K as analysis discounts ‘dovish surpri (BTC -%0,2, XAU -%0,1)
 - 2026-09-16 — Deutsche Bank's View on FOMC - FJElite (BTC -%0,5, XAU +%0,1)
 - 2026-09-16 — Fed faiz kararını açıklayacak: Piyasalar nefesini tuttu, gözler Warsh’ın mesajla (BTC %0,0, XAU +%0,2)
 - 2026-09-16 — Live updates: Zcash climbs 6% as majors slide ahead of Fed rate decision (BTC %0,0, XAU +%0,2)

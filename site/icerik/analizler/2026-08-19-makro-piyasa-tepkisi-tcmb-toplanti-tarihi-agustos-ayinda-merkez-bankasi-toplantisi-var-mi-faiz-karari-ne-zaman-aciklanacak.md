@@ -37,7 +37,7 @@ Para politikası kararı açıklandı. Kaynak: Dünya.
 
 ## Daha önce ne olmuştu
 
-- 2026-08-19 — Merkez Bankası faiz kararı ne zaman açıklanacak? Eylül ayı PPK toplantı tarihi… (BTC +%0,0, XAU +%0,1)
+- 2026-08-19 — Merkez Bankası faiz kararı ne zaman açıklanacak? Eylül ayı PPK toplantı tarihi b (BTC +%0,0, XAU +%0,1)
 - 2026-08-19 — Fed (FOMC) tutanakları ne zaman, saat kaçta açıklanacak? (BTC +%0,0, XAU +%0,1)
 - 2026-08-18 — MERKEZ BANKASI FAİZ KARARI NE ZAMAN AÇIKLANACAK? Eylül 2026 TCMB Merkez Bankası  (BTC +%0,1, DXY -%0,2, XAU -%0,2)
 - 2026-08-17 — Fed faiz kararı ne zaman, hangi tarihte açıklanacak? Fed faiz artıracak mı? (BTC +%0,3, XAU +%0,2)

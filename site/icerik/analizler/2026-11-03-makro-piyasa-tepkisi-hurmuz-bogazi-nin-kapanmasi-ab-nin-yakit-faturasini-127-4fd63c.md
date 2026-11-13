@@ -37,7 +37,7 @@ Jeopolitik bir gelişme yaşandı. Kaynak: AA.
 ## Daha önce ne olmuştu
 
 - 2026-11-03 — Ukrayna'da insani yardım merkezine hava saldırısı düzenlendi, 26 can kaybı var (BTC +%0,2, XAU %0,0)
-- 2026-11-02 — Hürmüz krizi Türkiye'nin önemini artırdı: Ceyhan'dan petrol ihracatı 500 bin… (BTC -%0,1, XAU %0,0)
+- 2026-11-02 — Hürmüz krizi Türkiye'nin önemini artırdı: Ceyhan'dan petrol ihracatı 500 bin var (BTC -%0,1, XAU %0,0)
 - 2026-11-01 — İran Hürmüz’ü 48 saatte açma planı sundu, Trump ilerleme sinyali verdi (BTC -%0,1, XAU %0,0)
 - 2026-10-31 — Petrol Hürmüz saldırıları nedeniyle altı ayın zirvesinde (BTC +%0,1, XAU %0,0)
 

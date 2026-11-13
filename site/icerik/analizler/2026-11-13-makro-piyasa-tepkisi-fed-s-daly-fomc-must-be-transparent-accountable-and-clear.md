@@ -38,7 +38,7 @@ Para politikası kararı açıklandı. Kaynak: FinancialJuice.
 
 ## Daha önce ne olmuştu
 
-- 2026-11-13 — Fed's Logan: Prudent for FOMC to strengthen tools for supporting market… (BTC -%1,3, XAU -%0,5)
+- 2026-11-13 — Fed's Logan: Prudent for FOMC to strengthen tools for supporting market function (BTC -%1,3, XAU -%0,5)
 - 2026-11-13 — Fed faiz kararı bu ay mı, toplantı ne zaman? (BTC +%0,3, XAU +%0,2)
 - 2026-11-12 — Fed'den 2027 için dikkat çeken değişiklik: Ekim toplantısında faiz kararı açıkla (BTC +%0,1, XAU -%0,2)
 - 2026-11-12 — The Fed updates the 2027 FOMC calendar, drops the October rate meeting (BTC +%0,1, XAU -%0,2)

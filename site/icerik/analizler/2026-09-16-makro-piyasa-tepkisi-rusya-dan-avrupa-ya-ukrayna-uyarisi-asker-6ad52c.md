@@ -37,7 +37,7 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Ekonomim.
 ## Daha önce ne olmuştu
 
 - 2026-09-16 — Hürmüz Boğazı'ndaki kriz AB'nin fosil yakıt faturasını 90 milyar euro artırdı (BTC -%0,3, XAU -%0,2)
-- 2026-09-16 — AB Komisyonu Başkanı Von der Leyen açıkladı: Hürmüz krizinin Avrupa'ya faturası… (BTC +%0,5, XAU +%0,2)
+- 2026-09-16 — AB Komisyonu Başkanı Von der Leyen açıkladı: Hürmüz krizinin Avrupa'ya faturası  (BTC +%0,5, XAU +%0,2)
 - 2026-09-16 — Hürmüz Boğazı'ndaki kriz AB'nin fosil yakıt faturasını 90 milyar avro artırdı (BTC +%0,5, XAU +%0,2)
 - 2026-09-16 — Suudi Arabistan’dan Yemen’e son 24 saatte 52 hava saldırısı (BTC +%0,6, XAU -%0,2)
 

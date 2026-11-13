@@ -40,7 +40,7 @@ Para politikası kararı açıklandı. Kaynak: AA.
 
 - 2026-10-22 — Bok: Thursday's rate decision was unanimous (BTC -%0,6, XAU %0,0)
 - 2026-10-22 — Yurt içi piyasalarında gözler faiz kararında (BTC +%0,3, XAU +%0,1)
-- 2026-10-21 — Fed faiz kararı bu hafta mı açıklanacak? Amerikan Merkez Bankası faiz kararı ne… (BTC -%0,1, XAU -%0,1)
+- 2026-10-21 — Fed faiz kararı bu hafta mı açıklanacak? Amerikan Merkez Bankası faiz kararı ne  (BTC -%0,1, XAU -%0,1)
 - 2026-10-21 — TCMB faiz kararı öncesi piyasaların rotası: Dr. Nuri Sevgen’den kritik değerlend (BTC +%0,2, XAU %0,0)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*

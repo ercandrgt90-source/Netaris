@@ -36,10 +36,10 @@ Para politikası kararı açıklandı. Kaynak: CNN Türk.
 
 ## Daha önce ne olmuştu
 
-- 2026-10-13 — Merkez Bankası faiz kararı bu hafta mı, ne zaman? TCMB faiz kararı tarihi ve… (BTC -%0,3, XAU -%0,1)
+- 2026-10-13 — Merkez Bankası faiz kararı bu hafta mı, ne zaman? TCMB faiz kararı tarihi ve saa (BTC -%0,3, XAU -%0,1)
 - 2026-10-13 — Merkez Bankasının ekim ayı faiz kararı için beklentiler belli oldu (BTC -%0,2, XAU %0,0)
 - 2026-10-12 — Fed's Hammack: I have one of the higher FOMC projections for neutral (BTC -%0,1, XAU +%0,1)
-- 2026-10-12 — MERKEZ BANKASI FAİZ KARARI NE ZAMAN AÇIKLANACAK? TCMB faiz kararı saat kaçta… (BTC %0,0, XAU %0,0)
+- 2026-10-12 — MERKEZ BANKASI FAİZ KARARI NE ZAMAN AÇIKLANACAK? TCMB faiz kararı saat kaçta bel (BTC %0,0, XAU %0,0)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*
 

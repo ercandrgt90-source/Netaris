@@ -38,7 +38,7 @@ Enflasyon verisi yayımlandı. Kaynak: FinancialJuice.
 
 ## Daha önce ne olmuştu
 
-- 2026-09-14 — EYLÜL AYI KİRA ARTIŞ ORANI HESAPLAMA : 2026 Eylül Ayı Kira Artış Oranı Belli… (BTC +%0,3, XAU -%0,2)
+- 2026-09-14 — EYLÜL AYI KİRA ARTIŞ ORANI HESAPLAMA : 2026 Eylül Ayı Kira Artış Oranı Belli Old (BTC +%0,3, XAU -%0,2)
 - 2026-09-01 — Ağustos ayı enflasyon rakamları için gözler TÜİK verilerinde (BTC -%0,6, DXY +%0,3, XAU -%0,4)
 - 2026-09-01 — ABD enflasyon rakamları ne zaman açıklanacak? (BTC %0,0, DXY +%0,3, XAU -%0,1)
 - 2026-09-01 — Gözler enflasyon rakamlarında (BTC -%0,1, DXY +%0,3, XAU -%0,2)

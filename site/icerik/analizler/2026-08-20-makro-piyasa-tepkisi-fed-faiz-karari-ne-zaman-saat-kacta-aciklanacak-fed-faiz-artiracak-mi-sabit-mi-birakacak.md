@@ -40,7 +40,7 @@ Para politikası kararı açıklandı. Kaynak: Ekonomist.
 - 2026-08-20 — Fed faiz kararı ne zaman, hangi tarihte açıklanıyor? Fed faiz indirecek mi? (BTC -%0,2, XAU -%0,2)
 - 2026-08-20 — Riksbank faiz artırımını pas geçti: Politika faizi %1,75 seviyesinde sabit kaldı (BTC -%0,2, XAU -%0,2)
 - 2026-08-19 — FOMC tutanakları bekleniyor; Target ve Analog Devices sonuçlarını açıklıyor (BTC +%0,6, XAU +%0,3)
-- 2026-08-19 — TCMB TOPLANTI TARİHİ: Ağustos ayında Merkez Bankası toplantısı var mı, faiz… (BTC +%0,1, XAU -%0,0)
+- 2026-08-19 — TCMB TOPLANTI TARİHİ: Ağustos ayında Merkez Bankası toplantısı var mı, faiz kara (BTC +%0,1, XAU -%0,0)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*
 

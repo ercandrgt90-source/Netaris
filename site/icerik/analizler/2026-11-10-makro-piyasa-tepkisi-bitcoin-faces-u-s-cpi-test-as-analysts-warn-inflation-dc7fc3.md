@@ -45,7 +45,7 @@ Enflasyon verisi yayımlandı. Kaynak: CoinDesk.
 - 2026-11-09 — BLS Ekim raporunda 12 aylık TÜFE verilerini yayınlamayacak (BTC +%0,3, DXY +%0,3, XAU -%0,2)
 - 2026-11-09 — Çin’de TÜFE beklentilerin altında kaldı; fabrika fiyatları hızlandı (BTC -%0,2, XAU +%0,1)
 - 2026-11-09 — Çin’de TÜFE enflasyonu Ekim’de beklentileri karşılamadı (BTC +%0,7, XAU +%0,5)
-- 2026-11-06 — ABD enflasyon rakamları ne zaman, hangi tarihte açıklanacak? (BTC +%0,1, XAU %0,0)
+- 2026-11-06 — ABD enflasyon rakamları ne zaman, hangi tarihte açıklanacak? ABD enflasyon tarih (BTC +%0,1, XAU %0,0)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*
 

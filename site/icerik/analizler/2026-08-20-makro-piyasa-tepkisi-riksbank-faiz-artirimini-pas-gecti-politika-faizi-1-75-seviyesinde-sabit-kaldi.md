@@ -38,8 +38,8 @@ Para politikası kararı açıklandı. Kaynak: Ekonomim.
 ## Daha önce ne olmuştu
 
 - 2026-08-19 — FOMC tutanakları bekleniyor; Target ve Analog Devices sonuçlarını açıklıyor (BTC +%0,6, XAU +%0,3)
-- 2026-08-19 — TCMB TOPLANTI TARİHİ: Ağustos ayında Merkez Bankası toplantısı var mı, faiz… (BTC +%0,1, XAU -%0,0)
-- 2026-08-19 — Merkez Bankası faiz kararı ne zaman açıklanacak? Eylül ayı PPK toplantı tarihi… (BTC +%0,0, XAU +%0,1)
+- 2026-08-19 — TCMB TOPLANTI TARİHİ: Ağustos ayında Merkez Bankası toplantısı var mı, faiz kara (BTC +%0,1, XAU -%0,0)
+- 2026-08-19 — Merkez Bankası faiz kararı ne zaman açıklanacak? Eylül ayı PPK toplantı tarihi b (BTC +%0,0, XAU +%0,1)
 - 2026-08-19 — Fed (FOMC) tutanakları ne zaman, saat kaçta açıklanacak? (BTC +%0,0, XAU +%0,1)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*

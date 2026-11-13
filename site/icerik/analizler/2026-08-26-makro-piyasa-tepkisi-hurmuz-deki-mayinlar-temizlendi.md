@@ -37,7 +37,7 @@ Jeopolitik bir gelişme yaşandı. Kaynak: BloombergHT.
 ## Daha önce ne olmuştu
 
 - 2026-08-26 — Hürmüz'de Koridor Daraldı: İran ve Umman'dan Geçici 7 Mil Anlaşması (BTC +%0,1, XAU %0,0)
-- 2026-08-25 — Kanada, yaklaşık 20 milyar dolarlık ABD ürününe yüzde 15-50 misilleme tarifesi… (BTC -%0,8, XAU -%0,2)
+- 2026-08-25 — Kanada, yaklaşık 20 milyar dolarlık ABD ürününe yüzde 15-50 misilleme tarifesi u (BTC -%0,8, XAU -%0,2)
 - 2026-08-25 — Trump: Hürmüz Boğazı'ndaki tüm mayınlar temizlendi (BTC -%0,2, XAU -%0,2)
 - 2026-08-25 — İran basını: Tahran, Hürmüz Boğazı'na ilişkin şartlarını ABD'ye iletti (BTC +%0,6, XAU +%0,2)
 

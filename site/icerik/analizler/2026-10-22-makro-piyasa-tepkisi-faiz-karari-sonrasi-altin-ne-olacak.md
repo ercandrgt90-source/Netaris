@@ -41,7 +41,7 @@ Para politikası kararı açıklandı. Kaynak: CNN Türk.
 - 2026-10-22 — TCMB'nin faiz kararını ekonomistler değerlendirdi: 'İndirimlere devam' mesajı mı (BTC +%0,2, XAU +%0,1)
 - 2026-10-22 — Merkez Bankası, politika faizini yüzde 36'ya indirdi (BTC +%0,2)
 - 2026-10-22 — Faiz Oranlarına İlişkin Basın Duyurusu (2026-45) (BTC +%0,2)
-- 2026-10-22 — Merkez Bankasının faiz kararı bugün açıklanacak: Enflasyon ve maaş zamlarına… (BTC -%0,1, XAU -%0,3)
+- 2026-10-22 — Merkez Bankasının faiz kararı bugün açıklanacak: Enflasyon ve maaş zamlarına dol (BTC -%0,1, XAU -%0,3)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*
 

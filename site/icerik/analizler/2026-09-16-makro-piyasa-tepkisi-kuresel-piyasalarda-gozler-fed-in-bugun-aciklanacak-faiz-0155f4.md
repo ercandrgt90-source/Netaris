@@ -38,8 +38,8 @@ Para politikası kararı açıklandı. Kaynak: Ekonomist.
 
 ## Daha önce ne olmuştu
 
-- 2026-09-16 — Japonya Merkez Bankası politika faizini 31 yılın en yüksek seviyesine çıkarmaya… (BTC -%0,4, XAU -%0,2)
-- 2026-09-16 — Fed faiz kararı ne zaman, saat kaçta? Fed faizleri artıracak mı yoksa sabit mi… (BTC %0,0, XAU %0,0)
+- 2026-09-16 — Japonya Merkez Bankası politika faizini 31 yılın en yüksek seviyesine çıkarmaya  (BTC -%0,4, XAU -%0,2)
+- 2026-09-16 — Fed faiz kararı ne zaman, saat kaçta? Fed faizleri artıracak mı yoksa sabit mi b (BTC %0,0, XAU %0,0)
 - 2026-09-16 — Küresel piyasalarda gözler, Fed'in faiz kararına çevrildi (BTC %0,0, XAU %0,0)
 - 2026-09-16 — Japonya Merkez Bankası faiz kararına hazırlanıyor: Gözler yeni adımda (BTC +%0,3, XAU +%0,1)
 

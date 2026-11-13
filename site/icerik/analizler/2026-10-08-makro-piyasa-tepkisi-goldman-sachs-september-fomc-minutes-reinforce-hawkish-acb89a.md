@@ -38,7 +38,7 @@ Para politikası kararı açıklandı. Kaynak: FinancialJuice.
 
 ## Daha önce ne olmuştu
 
-- 2026-10-08 — Fon tasfiyesinden faiz kararına, altından borsaya: Tonguç Erbaş'tan piyasa… (BTC -%0,3, XAU -%0,3)
+- 2026-10-08 — Fon tasfiyesinden faiz kararına, altından borsaya: Tonguç Erbaş'tan piyasa anali (BTC -%0,3, XAU -%0,3)
 - 2026-10-07 — Fed tutanakları çoğu politika yapıcının yıl sonuna kadar bir faiz artırımı daha  (BTC %0,0, XAU +%0,2)
 - 2026-10-07 — FOMC tutanakları bekleniyor; Constellation Brands sonuçları açıkladı (BTC -%0,1, XAU -%0,2)
 - 2026-10-07 — FOMC tutanakları ve Constellation Brands bilançosu gündemde (BTC -%0,3, XAU %0,0)

@@ -41,7 +41,7 @@ Para politikası kararı açıklandı. Kaynak: FinancialJuice.
 - 2026-10-26 — Fed, ECB and BOJ interest-rate decisions, Coinbase earnings: Crypto Week Ahead (BTC -%0,1)
 - 2026-10-26 — Küresel piyasalar yeni haftaya karışık başladı: Gözler Fed'in faiz kararında (BTC %0,0, XAU +%0,2)
 - 2026-10-26 — Üç büyük merkez bankası enflasyon riskleri altında faiz kararı alacak (BTC %0,0, XAU +%0,2)
-- 2026-10-26 — ABD'de enflasyon endişeleri artarken dikkatler Fed'in bu haftaki faiz kararına… (BTC %0,0, XAU +%0,2)
+- 2026-10-26 — ABD'de enflasyon endişeleri artarken dikkatler Fed'in bu haftaki faiz kararına ç (BTC %0,0, XAU +%0,2)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*
 

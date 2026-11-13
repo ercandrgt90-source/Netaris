@@ -36,8 +36,8 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Ekonomim.
 
 ## Daha önce ne olmuştu
 
-- 2026-10-20 — Hürmüz saldırıları arz toparlanmasını tehdit ederken petrol beş aylık zirvesini… (BTC %0,0, XAU -%0,1)
-- 2026-10-19 — 5 soruda Hürmüz Boğazı'nda tırmanan gerilim: İran, ABD seçimleri öncesi ne… (BTC -%0,2, XAU +%0,2)
+- 2026-10-20 — Hürmüz saldırıları arz toparlanmasını tehdit ederken petrol beş aylık zirvesini  (BTC %0,0, XAU -%0,1)
+- 2026-10-19 — 5 soruda Hürmüz Boğazı'nda tırmanan gerilim: İran, ABD seçimleri öncesi ne planl (BTC -%0,2, XAU +%0,2)
 - 2026-10-19 — İran ABD’yi Hürmüz’ü yeniden açma teklifini kabul etmeye çağırdı (BTC -%0,1, XAU -%0,1)
 - 2026-10-19 — Hürmüz Boğazı’nda petrol tankeri mayına çarptı (BRENT +%0,6, BTC +%0,8, XAU +%0,7)
 

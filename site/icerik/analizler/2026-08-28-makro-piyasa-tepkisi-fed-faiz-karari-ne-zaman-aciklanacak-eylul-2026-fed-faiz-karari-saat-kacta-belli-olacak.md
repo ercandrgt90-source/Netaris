@@ -39,8 +39,8 @@ Para politikası kararı açıklandı. Kaynak: CNN Türk.
 ## Daha önce ne olmuştu
 
 - 2026-08-27 — Esnaf kredilerinde yeni dönem: Faiz indirimleri değişti (BTC +%0,2, XAU +%0,4)
-- 2026-08-27 — Bok Shin: Dissenter on Thursday’s rate decision has tactical differences in… (BTC -%0,3, XAU +%0,2)
-- 2026-08-27 — Bok Shin: government bond yields dropping signals market's positive reaction to… (BTC -%0,3, XAU +%0,2)
+- 2026-08-27 — Bok Shin: Dissenter on Thursday’s rate decision has tactical differences in econ (BTC -%0,3, XAU +%0,2)
+- 2026-08-27 — Bok Shin: government bond yields dropping signals market's positive reaction to  (BTC -%0,3, XAU +%0,2)
 - 2026-08-26 — Goldman Sachs on BoJ Upcoming Rate Decision - FJElite (BTC -%0,1, XAU -%0,3)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*
