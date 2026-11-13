@@ -1,7 +1,7 @@
 ---
 slug: eth-teknik-gorunum-2026-11-13
 baslik: Ethereum: RSI aşırı satım bölgesinde
-ozet: Ethereum 1961 $ seviyesinde. Değişim: günlük -%2,8, haftalık -%12,3, aylık -%18,9. RSI(14) 25,8 ile geleneksel yorumda **aşırı satım** bölgesi sayılan 30 seviyesinin altında. Fiyat 20, 50 ve 200 günlük ortalamaların tamamının altında.
+ozet: Ethereum 1915 $ seviyesinde. Değişim: günlük -%5,1, haftalık -%14,3, aylık -%20,8. RSI(14) 24,0 ile geleneksel yorumda **aşırı satım** bölgesi sayılan 30 seviyesinin altında. Fiyat 20, 50 ve 200 günlük ortalamaların tamamının altında.
 sirket: ETH teknik görünüm
 kod: ETH
 donem: 2026-11-13
@@ -12,7 +12,7 @@ yazar:
 unvan: 
 kurgusal: hayir
 grafik_tur: cizgi
-grafik: 1873,89;1912,46;1916,04;2251,90;2326,33;2515,72;2422,94;2462,40;2482,69;2442,55;2507,08;2511,32;2442,73;2457,38;2416,95;2467,12;2417,26;2390,98;2507,42;2456,27;2480,62;2514,35;2489,67;2484,92;2468,02;2437,29;2515,99;2525,44;2475,94;2515,81;2396,41;2416,61;2445,34;2611,32;2631,55;2645,06;2775,84;2753,25;2683,99;2687,24;2691,35;2695,35;2688,02;2687,45;2676,70;2684,11;2705,61;2668,10;2687,02;2726,49;2709,39;2697,24;2572,75;2472,90;2485,34;2504,09;2534,19;2444,10;2495,97;2418,61;2439,39;2420,22;2399,70;2407,51;2405,43;2446,73;2471,70;2386,08;2384,52;2355,56;2326,50;2320,45;2347,34;2357,22;2249,01;2241,37;2252,50;2272,35;2249,46;2271,45;2423,16;2235,01;2235,43;2236,88;2124,05;2132,65;2051,00;2053,48;2017,15;1960,77
+grafik: 1873,89;1912,46;1916,04;2251,90;2326,33;2515,72;2422,94;2462,40;2482,69;2442,55;2507,08;2511,32;2442,73;2457,38;2416,95;2467,12;2417,26;2390,98;2507,42;2456,27;2480,62;2514,35;2489,67;2484,92;2468,02;2437,29;2515,99;2525,44;2475,94;2515,81;2396,41;2416,61;2445,34;2611,32;2631,55;2645,06;2775,84;2753,25;2683,99;2687,24;2691,35;2695,35;2688,02;2687,45;2676,70;2684,11;2705,61;2668,10;2687,02;2726,49;2709,39;2697,24;2572,75;2472,90;2485,34;2504,09;2534,19;2444,10;2495,97;2418,61;2439,39;2420,22;2399,70;2407,51;2405,43;2446,73;2471,70;2386,08;2384,52;2355,56;2326,50;2320,45;2347,34;2357,22;2249,01;2241,37;2252,50;2272,35;2249,46;2271,45;2423,16;2235,01;2235,43;2236,88;2124,05;2132,65;2051,00;2053,48;2017,15;1915,23
 grafik_kod: Ethereum
 grafik_birim: USD
 kaynaklar: Kraken
@@ -21,34 +21,34 @@ sayimlar: 260|günlük mum;3|fiyat seviyesi;7|hesaplanan gösterge;90|günlük p
 
 ## Özet
 
-Ethereum 1961 $ seviyesinde. Değişim: günlük -%2,8, haftalık -%12,3, aylık -%18,9. RSI(14) 25,8 ile geleneksel yorumda **aşırı satım** bölgesi sayılan 30 seviyesinin altında. Fiyat 20, 50 ve 200 günlük ortalamaların tamamının altında.
+Ethereum 1915 $ seviyesinde. Değişim: günlük -%5,1, haftalık -%14,3, aylık -%20,8. RSI(14) 24,0 ile geleneksel yorumda **aşırı satım** bölgesi sayılan 30 seviyesinin altında. Fiyat 20, 50 ve 200 günlük ortalamaların tamamının altında.
 
 ## Göstergeler
 
 | Gösterge | Değer |
 |---|---|
-| Fiyat | 1961 $ |
-| 20 günlük ortalama | 2218 $ |
-| 50 günlük ortalama | 2414 $ |
+| Fiyat | 1915 $ |
+| 20 günlük ortalama | 2216 $ |
+| 50 günlük ortalama | 2413 $ |
 | 200 günlük ortalama | 2147 $ |
-| RSI (14) | 25,8 |
-| MACD histogram | -22,81 |
-| Günlük oynaklık (ATR/fiyat) | %5,1 |
-| Bollinger bant genişliği | %21,7 |
+| RSI (14) | 24,0 |
+| MACD histogram | -25,71 |
+| Günlük oynaklık (ATR/fiyat) | %5,2 |
+| Bollinger bant genişliği | %22,6 |
 | 90 günlük zirve | 2807 $ |
 | 90 günlük dip | 1868 $ |
 
 ## Hareketli ortalamalar
 
-Fiyat 20, 50 ve 200 günlük hareketli ortalamaların üçünün de altında. Teknik yorumda bu dizilim, kısa ve uzun vadeli ortalamaların aşağı yönlü sıralandığı bir yapı olarak tanımlanır. 50 günlük ortalama, 200 günlüğün %12,4 üzerinde (2414 $ / 2147 $).
+Fiyat 20, 50 ve 200 günlük hareketli ortalamaların üçünün de altında. Teknik yorumda bu dizilim, kısa ve uzun vadeli ortalamaların aşağı yönlü sıralandığı bir yapı olarak tanımlanır. 50 günlük ortalama, 200 günlüğün %12,4 üzerinde (2413 $ / 2147 $).
 
 ## Momentum
 
-RSI(14) 25,8 ile geleneksel yorumda **aşırı satım** bölgesi sayılan 30 seviyesinin altında. RSI, son 14 dönemdeki yükseliş ve düşüşlerin göreli büyüklüğünü ölçer; 0-100 aralığında hareket eder. MACD çizgisi -106,01, işaret çizgisi -83,21; histogram -22,81. Çizgi işaretin altında. MACD iki üstel ortalamanın farkını izler; histogram bu farkın kendi ortalamasından ne kadar ayrıştığını gösterir.
+RSI(14) 24,0 ile geleneksel yorumda **aşırı satım** bölgesi sayılan 30 seviyesinin altında. RSI, son 14 dönemdeki yükseliş ve düşüşlerin göreli büyüklüğünü ölçer; 0-100 aralığında hareket eder. MACD çizgisi -109,65, işaret çizgisi -83,93; histogram -25,71. Çizgi işaretin altında. MACD iki üstel ortalamanın farkını izler; histogram bu farkın kendi ortalamasından ne kadar ayrıştığını gösterir.
 
 ## Oynaklık
 
-Ortalama günlük hareket aralığı (ATR-14) 100,38 $, fiyatın %5,1'ine denk geliyor. Bollinger bantları 1978 $ — 2458 $ aralığında; fiyat alt bandın altında. Bant genişliği %21,7. Fiyat, 90 günlük zirveye göre -%30,1 konumda.
+Ortalama günlük hareket aralığı (ATR-14) 100,38 $, fiyatın %5,2'ine denk geliyor. Bollinger bantları 1965 $ — 2466 $ aralığında; fiyat alt bandın altında. Bant genişliği %22,6. Fiyat, 90 günlük zirveye göre -%31,8 konumda.
 
 ## Fiyat seviyeleri
 
