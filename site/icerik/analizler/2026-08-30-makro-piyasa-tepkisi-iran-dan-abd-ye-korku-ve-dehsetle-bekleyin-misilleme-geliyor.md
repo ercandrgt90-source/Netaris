@@ -39,7 +39,7 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Dünya.
 - 2026-08-30 — UKMTO duyurdu: Hürmüz Boğazı'ndan geçen bir tanker vuruldu (BTC %0,0, XAU %0,0)
 - 2026-08-30 — Hamenei, Körfez liderlerini birliğe çağırırken Tahran Hürmüz’ü kapalı tutuyor (BTC %0,0, XAU %0,0)
 - 2026-08-30 — İran Hürmüz Boğazı’nın kapalı kalacağında ısrarlı (BTC %0,0, XAU %0,0)
-- 2026-08-29 — Hürmüz Boğazı'nda kriz büyüyor: 400 gemi ve 6 bin denizci mahsur kaldı... 'Küres (BRENT -%4,8, BTC %0,0, XAU %0,0)
+- 2026-08-29 — Hürmüz Boğazı'nda kriz büyüyor: 400 gemi ve 6 bin denizci mahsur kaldı...… (BRENT -%4,8, BTC %0,0, XAU %0,0)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*
 

@@ -38,8 +38,8 @@ Para politikası kararı açıklandı. Kaynak: Dünya.
 ## Daha önce ne olmuştu
 
 - 2026-08-17 — Merkez Bankası faiz kararı ne zaman? Merkez Bankası faiz beklentisi ne yönde? (BTC +%0,1, XAU +%0,0)
-- 2026-08-15 — Türkiye Cumhuriyet Merkez Bankası faiz kararı ne zaman açıklanacak? Faizler düşe (BTC +%0,1, XAU +%0,0)
-- 2026-08-14 — Merkez Bankası faiz kararı ne zaman açıklanacak? Ağustos ayında PPK toplantısı v (BTC -%0,1, XAU -%0,0)
+- 2026-08-15 — Türkiye Cumhuriyet Merkez Bankası faiz kararı ne zaman açıklanacak? (BTC +%0,1, XAU +%0,0)
+- 2026-08-14 — Merkez Bankası faiz kararı ne zaman açıklanacak? Ağustos ayında PPK toplantısı… (BTC -%0,1, XAU -%0,0)
 - 2026-08-14 — Bu ay Fed toplantısı olacak mı? Fed faiz kararı ne zaman açıklanıyor? (BTC +%0,1, XAU -%0,1)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*

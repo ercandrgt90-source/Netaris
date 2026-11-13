@@ -42,10 +42,10 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Ekonomim.
 
 ## Daha önce ne olmuştu
 
-- 2026-09-25 — İran Hürmüz için süre verdi: Petrol 106 dolarda, Washington'ın önünde 4-5 gün va (BRENT -%1,1, BTC -%0,2, XAU -%0,2)
+- 2026-09-25 — İran Hürmüz için süre verdi: Petrol 106 dolarda, Washington'ın önünde 4-5 gün… (BRENT -%1,1, BTC -%0,2, XAU -%0,2)
 - 2026-09-25 — Petrol ABD-İran Hürmüz anlaşması haberleriyle düştü (BRENT -%1,1, BTC +%0,1, XAU +%0,5)
 - 2026-09-24 — Hürmüz Boğazı’nda LNG hareketliliği: Katar’ın sevkiyatları yeniden artışa geçti (BRENT -%1,1, BTC +%0,1, XAU %0,0)
-- 2026-09-24 — Hürmüz krizi, enerji güvenliği ile temiz dönüşüm arasındaki dengeyi gündeme taşı (BRENT -%1,1, BTC -%1,3, XAU -%0,3)
+- 2026-09-24 — Hürmüz krizi, enerji güvenliği ile temiz dönüşüm arasındaki dengeyi gündeme… (BRENT -%1,1, BTC -%1,3, XAU -%0,3)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*
 

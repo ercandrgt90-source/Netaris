@@ -39,7 +39,7 @@ Jeopolitik bir gelişme yaşandı. Kaynak: CNN Türk.
 - 2026-10-14 — Hürmüz'de iki gemi daha vuruldu (BTC -%0,1, XAU -%0,1)
 - 2026-10-14 — İran ABD ara seçimleri öncesi Hürmüz’de yeni taktikler uyguluyor (BTC %0,0, XAU -%0,1)
 - 2026-10-14 — Hürmüz Boğazı’nda konteyner gemisi mayına çarparak battı (BTC -%0,3, XAU %0,0)
-- 2026-10-14 — Irak'ın petrol ihracatı Hürmüz Boğazı'ndaki krize rağmen günlük 2,7 milyon varil (BTC -%0,3, XAU %0,0)
+- 2026-10-14 — Irak'ın petrol ihracatı Hürmüz Boğazı'ndaki krize rağmen günlük 2,7 milyon… (BTC -%0,3, XAU %0,0)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*
 

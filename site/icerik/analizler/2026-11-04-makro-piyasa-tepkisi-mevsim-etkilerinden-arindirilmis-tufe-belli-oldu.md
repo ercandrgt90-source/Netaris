@@ -40,7 +40,7 @@ Enflasyon verisi yayımlandı. Kaynak: Sabah.
 
 - 2026-11-04 — Reel efektif döviz kuru yükseldi! TÜFE bazlı endeks 107,76'ya çıktı (BTC -%0,2, XAU %0,0)
 - 2026-11-03 — Enflasyon açıklandı, SSK ve Bağ-Kur emeklisi zammı ne oldu? (BTC +%0,3, DXY -%0,1, XAU %0,0)
-- 2026-11-03 — BoC's Gov. Macklem: CPI inflation expected to rise to 3.5% by year-end, remain a (BTC +%0,2, DXY -%0,1, XAU -%0,2)
+- 2026-11-03 — BoC's Gov. Macklem: CPI inflation expected to rise to 3.5% by year-end, remain… (BTC +%0,2, DXY -%0,1, XAU -%0,2)
 - 2026-11-03 — KASIM AYI KİRA ARTIŞ ORANI 2026 | Kasım Kira Artış Zammı Ne Kadar, Kaç TL Oldu?  (BTC +%0,5, DXY -%0,1, XAU +%0,2)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*

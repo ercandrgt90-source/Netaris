@@ -39,7 +39,7 @@ Para politikası kararı açıklandı. Kaynak: Dünya.
 ## Daha önce ne olmuştu
 
 - 2026-10-03 — Fed’in Hammack’ı faiz kararı için zaman olduğunu söyledi (BTC %0,0, XAU %0,0)
-- 2026-10-03 — Merkez Bankası faiz kararı ne zaman açıklanıyor? TCMB faiz kararı tarihi ve saat (BTC %0,0, XAU %0,0)
+- 2026-10-03 — Merkez Bankası faiz kararı ne zaman açıklanıyor? TCMB faiz kararı tarihi ve… (BTC %0,0, XAU %0,0)
 - 2026-10-01 — Citi on FOMC - FJElite (BTC +%0,7, XAU +%0,2)
 - 2026-10-01 — Fed's Kashkari: FOMC atmosphere has been remarkably consistent under Warsh (BTC +%0,1, XAU +%0,3)
 

@@ -38,8 +38,8 @@ Enflasyon verisi yayımlandı. Kaynak: Dünya.
 
 ## Daha önce ne olmuştu
 
-- 2026-11-06 — 12 Kasım 2026 Tarihli Enflasyon Raporu 2026-IV Bilgilendirme Toplantısına İlişki (BTC +%0,1, XAU +%0,4)
-- 2026-11-05 — BOJ minutes: several members highlighted rising chances of CPI inflation increas (BTC +%0,2, XAU +%0,3)
+- 2026-11-06 — 12 Kasım 2026 Tarihli Enflasyon Raporu 2026-IV Bilgilendirme Toplantısına… (BTC +%0,1, XAU +%0,4)
+- 2026-11-05 — BOJ minutes: several members highlighted rising chances of CPI inflation… (BTC +%0,2, XAU +%0,3)
 - 2026-11-05 — BOJ minutes: several members noted underlying CPI inflation has been close to 2% (BTC +%0,2, XAU +%0,3)
 - 2026-11-04 — TCMB, Ekim Ayı Fiyat Gelişmeleri Raporu'nu yayımladı (BTC +%0,5, XAU +%0,2)
 

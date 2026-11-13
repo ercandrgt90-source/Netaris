@@ -38,10 +38,10 @@ Enflasyon verisi yayımlandı. Kaynak: Dünya.
 
 ## Daha önce ne olmuştu
 
-- 2026-09-30 — EYLÜL 2026 ENFLASYON BEKLENTİSİ: TÜİK eylül ayı enflasyon beklentisi ne yönde? E (BTC -%0,2)
+- 2026-09-30 — EYLÜL 2026 ENFLASYON BEKLENTİSİ: TÜİK eylül ayı enflasyon beklentisi ne yönde? (BTC -%0,2)
 - 2026-09-28 — Van'da bir öğrenci okula pompalı tüfekle geldi: Soruşturma başlatıldı (BTC -%0,3, XAU %0,0)
 - 2026-09-23 — Okul önünde korku dolu anlar: Aracın altında pompalı tüfek bulundu (BTC -%0,4, XAU -%0,3)
-- 2026-09-23 — Toplam sanayi üretici fiyat endeksi ağustosta aylık yüzde 2,9, yıllık yüzde 29,3 (BTC +%0,4, XAU -%0,4)
+- 2026-09-23 — Toplam sanayi üretici fiyat endeksi ağustosta aylık yüzde 2,9, yıllık yüzde… (BTC +%0,4, XAU -%0,4)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*
 

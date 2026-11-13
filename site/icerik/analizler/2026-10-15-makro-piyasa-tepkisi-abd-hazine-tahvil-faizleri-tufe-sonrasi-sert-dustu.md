@@ -38,7 +38,7 @@ Enflasyon verisi yayımlandı. Kaynak: Investing.
 
 ## Daha önce ne olmuştu
 
-- 2026-10-15 — BOJ's Koeda: sustained price rises across various CPI items, change in price dis (BTC -%0,4, XAU +%0,1)
+- 2026-10-15 — BOJ's Koeda: sustained price rises across various CPI items, change in price… (BTC -%0,4, XAU +%0,1)
 - 2026-10-15 — Fed's Daly: CPI indicates gas prices boosting headline inflation, core inflation (BTC %0,0, XAU %0,0)
 - 2026-10-14 — Küresel piyasalarda altın ve gümüş fiyatları ABD enflasyon verisi sonrası gerili (BTC -%0,2, XAU +%0,2)
 - 2026-10-14 — Bitcoin price dips below $82K as high oil prices spike US CPI inflation (BTC -%0,3, XAU %0,0)

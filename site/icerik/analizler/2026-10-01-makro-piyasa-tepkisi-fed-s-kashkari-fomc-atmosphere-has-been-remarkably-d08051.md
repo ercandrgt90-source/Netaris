@@ -38,10 +38,10 @@ Para politikası kararı açıklandı. Kaynak: FinancialJuice.
 
 ## Daha önce ne olmuştu
 
-- 2026-09-30 — Amerikan Merkez Bankası (Fed) faiz kararı ne zaman duyurulacak? Fed faiz artırac (BTC +%0,5, XAU +%0,6)
+- 2026-09-30 — Amerikan Merkez Bankası (Fed) faiz kararı ne zaman duyurulacak? (BTC +%0,5, XAU +%0,6)
 - 2026-09-30 — Merkez Bankası faiz kararı ne zaman açıklanıyor? MB faiz düşürecek mi? (BTC -%0,1, XAU -%0,2)
 - 2026-09-29 — Türkiye'nin ekonomi ajandası yoğun: Ekim ayında kritik veriler ve faiz kararı ta (BTC -%0,3, DXY -%0,2, XAU +%0,1)
-- 2026-09-29 — Fed faiz kararı ne zaman, saat kaçta? ABD Merkez Bankası, ekim ayı faiz beklenti (BTC -%0,3, DXY -%0,2, XAU +%0,1)
+- 2026-09-29 — Fed faiz kararı ne zaman, saat kaçta? ABD Merkez Bankası, ekim ayı faiz… (BTC -%0,3, DXY -%0,2, XAU +%0,1)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*
 

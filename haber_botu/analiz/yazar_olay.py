@@ -71,6 +71,21 @@ def _tepki_satiri(t: dict) -> str:
     return parca + "."
 
 
+def _emsal_basligi(baslik, sinir: int) -> str:
+    """Emsal satirinda gorunecek baslik -- ASLA kelime ortasindan kesik.
+
+    HAM DILIMLEME KUSURLUYDU -- OLCULDU, YAYINDAYDI (2026-11-13).
+    Burasi `baslik[:80]` diyordu. Olculen bedel ve kilitlenen dagitim
+    `bicim.kelime_kirp` govdesinde yaziyor.
+
+    Once ANLAMI koruyan kisaltma (`manset_kisalt`), yalnizca o
+    yetmezse kelime sinirinda kirpma. Sira onemli: karakter saymak
+    son care.
+    """
+    metin = (baslik or "").strip()
+    return bicim.kelime_kirp(bicim.manset_kisalt(metin, sinir), sinir)
+
+
 def _emsal_satiri(satir, tur_adi: str) -> str:
     """Gecmis olayi ve o zamanki tepkiyi aktarir."""
     try:
@@ -80,12 +95,12 @@ def _emsal_satiri(satir, tur_adi: str) -> str:
     olculen = [t for t in tepkiler if t.get("degisim") is not None]
     tarih = (satir["an"] or "")[:10]
     if not olculen:
-        return f"- {tarih} — {satir['baslik'][:90]}"
+        return f"- {tarih} — {_emsal_basligi(satir['baslik'], 90)}"
     ozet = ", ".join(
         f"{t['varlik']} {bicim.yuzde(t['degisim'], isaretli=True, basamak=1)}"
         for t in olculen[:4]
     )
-    return f"- {tarih} — {satir['baslik'][:80]} ({ozet})"
+    return f"- {tarih} — {_emsal_basligi(satir['baslik'], 80)} ({ozet})"
 
 
 def yaz(olay, tepkiler: list[dict], kanallar: list[dict],

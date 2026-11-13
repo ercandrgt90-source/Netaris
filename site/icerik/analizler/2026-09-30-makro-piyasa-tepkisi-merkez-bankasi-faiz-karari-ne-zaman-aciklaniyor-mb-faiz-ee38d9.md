@@ -39,7 +39,7 @@ Para politikası kararı açıklandı. Kaynak: Dünya.
 ## Daha önce ne olmuştu
 
 - 2026-09-29 — Türkiye'nin ekonomi ajandası yoğun: Ekim ayında kritik veriler ve faiz kararı ta (BTC -%0,3, DXY -%0,2, XAU +%0,1)
-- 2026-09-29 — Fed faiz kararı ne zaman, saat kaçta? ABD Merkez Bankası, ekim ayı faiz beklenti (BTC -%0,3, DXY -%0,2, XAU +%0,1)
+- 2026-09-29 — Fed faiz kararı ne zaman, saat kaçta? ABD Merkez Bankası, ekim ayı faiz… (BTC -%0,3, DXY -%0,2, XAU +%0,1)
 - 2026-09-27 — Fed faiz kararı ne zaman? Amerikan Merkez Bankası faizleri artıracak mı? (BTC +%0,1, XAU %0,0)
 - 2026-09-24 — BoE Breeden: We have to take a meeting-by-meeting approach to the rate decisions (BTC +%0,5, XAU -%0,3)
 

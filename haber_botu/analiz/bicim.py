@@ -388,3 +388,49 @@ def manset_kisalt(baslik: str, sinir: int = MANSET_SINIRI) -> str:
         if len(ilk) < len(metin):
             return ilk
     return metin
+
+
+def kelime_kirp(metin: str, sinir: int) -> str:
+    """Metni KELIME SINIRINDA kirpar ve kirpildigini belli eder.
+
+    NEDEN AYRI BIR ISLEV -- OLCULDU, YAYINDAYDI (2026-11-13).
+
+    `yazar_olay._emsal_satiri` gecmis olaylari listelerken basligi
+    `baslik[:80]` ile kesiyordu: ham karakter dilimlemesi, uc nokta
+    bile yok. Yayimlanmis 2036 emsal satirinin 308'i kelimenin
+    ORTASINDAN kesikti -- okur "...aylik yuzde 1,93 ar" satirini
+    basligin kendisi saniyordu.
+
+    Biri dagitimi da durdurdu. Gercek baslik soyleydi:
+
+        "...strengthen tools for supporting market functioning
+         without providing unnecessary economic stimulus"
+
+    80. karakterde kesilince "market functioning" -> "market
+    function" oldu; hemen ardina fiyat tepkisi parantezi geldi:
+
+        "...supporting market function (BTC -%1,3, XAU -%0,5)"
+
+    `denetim._COP_IZI` bunu JavaScript govdesi (`function (`) sayip
+    cikti denetimini kirmizi dondurdu. Koruma HAKLIYDI -- sayfada
+    kodun isi yok -- ama metin kod degildi: kirpma uretmisti. Uc kosu
+    kilitlendi.
+
+    AYNI KUSUR, IKINCI YER. Bir gun once `yayin._kisalt` ozetleri
+    kelime ortasindan kesiyordu ("vergi" -> "ve") ve dagitim 33 kosu
+    kilitli kaldi. O yol duzeltildi, ama KANITLANMIS DESEN BU YOLA
+    YAYILMADI. Bu yuzden kural artik burada, tek yerde.
+
+    SIRA: once `manset_kisalt` denenir -- o ANLAMI koruyarak kisaltir
+    (kaynak atfini atar, ilk tam cumleyi alir) ve hicbir zaman
+    karakter sayarak kesmez. Yalnizca o yetmezse bu islev devreye
+    girer, cunku her kirpma bilgi kaybidir.
+    """
+    if sinir <= 0 or len(metin) <= sinir:
+        return metin
+    kirpik = metin[:sinir]
+    bosluk = kirpik.rfind(" ")
+    if bosluk > 0:
+        kirpik = kirpik[:bosluk]
+    # Kirpilan ucta kalan baglac/noktalama okuru yarim birakiyor.
+    return kirpik.rstrip().rstrip(",;:-–—") + "…"

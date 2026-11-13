@@ -37,7 +37,7 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Dünya.
 ## Daha önce ne olmuştu
 
 - 2026-10-06 — İran Hürmüz’de tanker saldırılarını artırdı (BTC +%0,1, XAU +%0,2)
-- 2026-10-06 — Hürmüz'de 5 katına çıkan navlun, Orta Doğu petrolünde rekabet için indirim baskı (BTC +%0,7, XAU +%0,2)
+- 2026-10-06 — Hürmüz'de 5 katına çıkan navlun, Orta Doğu petrolünde rekabet için indirim… (BTC +%0,7, XAU +%0,2)
 - 2026-10-05 — Aramco CEO’su: Küresel petrol stokları Hürmüz riskleri nedeniyle ’korkutucu dere (BTC -%0,3, XAU %0,0)
 - 2026-10-05 — Hürmüz Boğazı'nda gıda krizi alarmı: Tahıl fiyatları yüzde 80 artabilir (BTC +%0,5, XAU +%0,3)
 

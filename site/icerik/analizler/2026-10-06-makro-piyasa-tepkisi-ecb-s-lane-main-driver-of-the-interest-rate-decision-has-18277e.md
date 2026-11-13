@@ -43,7 +43,7 @@ Para politikası kararı açıklandı. Kaynak: FinancialJuice.
 ## Daha önce ne olmuştu
 
 - 2026-10-06 — ECB’s Lane: We have identified broader financial conditions, including long-term (BTC +%0,7, DXY -%0,3, XAU +%0,2)
-- 2026-10-06 — MERKEZ BANKASI PPK TOPLANTI TARİHİ: Ekim 2026 Merkez Bankası faiz kararı ne zama (BTC %0,0, DXY -%0,3, XAU -%0,1)
+- 2026-10-06 — MERKEZ BANKASI PPK TOPLANTI TARİHİ: Ekim 2026 Merkez Bankası faiz kararı ne… (BTC %0,0, DXY -%0,3, XAU -%0,1)
 - 2026-10-05 — Yıllık enflasyonda 5 yılın en düşük seviyesi geldi: Şimdi gözler 22 Ekim'deki fa (BTC +%0,2, XAU -%0,1)
 - 2026-10-05 — Fed faiz kararı ne zaman, hangi tarihte açıklanacak? Fed faiz yükseltecek mi? (BTC +%0,3, XAU -%0,2)
 

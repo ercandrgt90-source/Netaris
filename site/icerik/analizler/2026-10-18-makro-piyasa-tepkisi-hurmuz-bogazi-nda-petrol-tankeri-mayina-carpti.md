@@ -42,7 +42,7 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Ekonomim.
 
 ## Daha önce ne olmuştu
 
-- 2026-10-18 — Körfez İşbirliği Konseyinden, ABD-İran krizi ve Hürmüz Boğazı'nda seyrüsefer özg (BRENT +%0,6, BTC -%0,1, XAU %0,0)
+- 2026-10-18 — Körfez İşbirliği Konseyinden, ABD-İran krizi ve Hürmüz Boğazı'nda seyrüsefer… (BRENT +%0,6, BTC -%0,1, XAU %0,0)
 - 2026-10-18 — İran savaşı: Suudi helikopter kazası, Hürmüz Boğazı’nı tehdit ediyor (BRENT +%0,6, BTC %0,0, XAU %0,0)
 - 2026-10-17 — Hürmüz'de bir tanker daha mayına çarptı (BRENT +%0,6, BTC +%0,1, XAU %0,0)
 - 2026-10-16 — Çin'den Hürmüz'e karşı gaz hamlesi: Depolamayı 6 milyar metreküp artırdı (BRENT +%0,6, BTC +%0,1, XAU %0,0)

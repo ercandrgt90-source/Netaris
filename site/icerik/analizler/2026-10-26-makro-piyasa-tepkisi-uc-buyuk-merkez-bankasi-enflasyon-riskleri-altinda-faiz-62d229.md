@@ -38,7 +38,7 @@ Para politikası kararı açıklandı. Kaynak: AA.
 
 ## Daha önce ne olmuştu
 
-- 2026-10-26 — ABD'de enflasyon endişeleri artarken dikkatler Fed'in bu haftaki faiz kararına ç (BTC %0,0, XAU +%0,2)
+- 2026-10-26 — ABD'de enflasyon endişeleri artarken dikkatler Fed'in bu haftaki faiz kararına… (BTC %0,0, XAU +%0,2)
 - 2026-10-23 — Rusya Merkez Bankası politika faizini sabit bıraktı (BTC %0,0, XAU +%0,2)
 - 2026-10-23 — Rusya politika faizini yüzde 14'te sabit bıraktı (BTC -%0,1, XAU +%0,1)
 - 2026-10-23 — Russian Interest Rate Decision Actual 14% (Forecast 14%, Previous 14.00%) (BTC +%0,1, XAU %0,0)

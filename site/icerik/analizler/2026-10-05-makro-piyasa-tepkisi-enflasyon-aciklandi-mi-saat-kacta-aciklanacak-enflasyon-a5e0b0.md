@@ -41,7 +41,7 @@ Enflasyon verisi yayımlandı. Kaynak: Dünya.
 - 2026-10-02 — EYLÜL AYI ENFLASYON RAKAMLARI 2026: Eylül Ayı Enflasyon Oranı Ne Oldu? TÜİK Enfl (BTC %0,0, XAU %0,0)
 - 2026-09-30 — Hizmet Üretici Fiyat Endeksi ağustosta arttı (BTC +%0,4)
 - 2026-09-30 — “Yarısı Bizden” kampanyasında TÜFE detayı (BTC -%0,3, XAU +%0,2)
-- 2026-09-30 — EYLÜL 2026 ENFLASYON BEKLENTİSİ: TÜİK eylül ayı enflasyon beklentisi ne yönde? E (BTC -%0,2)
+- 2026-09-30 — EYLÜL 2026 ENFLASYON BEKLENTİSİ: TÜİK eylül ayı enflasyon beklentisi ne yönde? (BTC -%0,2)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*
 

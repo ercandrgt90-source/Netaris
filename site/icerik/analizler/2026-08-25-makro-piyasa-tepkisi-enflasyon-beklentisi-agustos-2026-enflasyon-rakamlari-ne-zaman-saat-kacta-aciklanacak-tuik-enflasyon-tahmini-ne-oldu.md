@@ -44,7 +44,7 @@ Enflasyon verisi yayımlandı. Kaynak: CNN Türk.
 
 - 2026-08-24 — Burdur Valiliği'nden Türk bayrağına tüfekle zarar verilmesine ilişkin inceleme (BTC -%0,4, XAU -%0,1)
 - 2026-08-13 — Yılın 3. enflasyon raporu bugün açıklanacak (BTC -%0,5, XAU -%0,3)
-- 2026-08-13 — RBA's Kent: Need history on trimmed mean inflation to focus on monthly CPI repor (BTC -%0,1, XAU +%0,3)
+- 2026-08-13 — RBA's Kent: Need history on trimmed mean inflation to focus on monthly CPI… (BTC -%0,1, XAU +%0,3)
 - 2026-08-12 — Piyasalar merakla bekliyordu: ABD enflasyon rakamları açıklandı (BTC -%0,1, XAU %0,0)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*

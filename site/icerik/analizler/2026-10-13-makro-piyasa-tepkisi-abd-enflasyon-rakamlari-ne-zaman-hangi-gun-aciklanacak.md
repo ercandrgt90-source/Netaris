@@ -37,7 +37,7 @@ Enflasyon verisi yayımlandı. Kaynak: Dünya.
 ## Daha önce ne olmuştu
 
 - 2026-10-13 — Asya dövizleri sakin, dolar 18 ayın zirvesinde, ABD TÜFE bekleniyor (BTC +%0,5, XAU +%0,3)
-- 2026-10-13 — Citigroup yüzde 13 yükseldi: Banka bilançoları ve kritik enflasyon verisi beklen (BTC +%0,2, XAU +%0,3)
+- 2026-10-13 — Citigroup yüzde 13 yükseldi: Banka bilançoları ve kritik enflasyon verisi… (BTC +%0,2, XAU +%0,3)
 - 2026-10-13 — Citigroup büyük banka kazançları ve kritik TÜFE öncesi %13 yükseldi (BTC +%0,5, XAU +%0,2)
 - 2026-10-12 — Petrol düşüyor, TÜFE ve banka bilançoları odak noktasında (BTC -%0,1, XAU -%0,2)
 

@@ -38,9 +38,9 @@ Enflasyon verisi yayımlandı. Kaynak: Investing.
 
 ## Daha önce ne olmuştu
 
-- 2026-11-06 — ABD enflasyon rakamları ne zaman, hangi tarihte açıklanacak? ABD enflasyon tarih (BTC +%0,1, XAU %0,0)
-- 2026-11-06 — 12 Kasım 2026 Tarihli Enflasyon Raporu 2026-IV Bilgilendirme Toplantısına İlişki (BTC +%0,1, XAU +%0,4)
-- 2026-11-05 — BOJ minutes: several members highlighted rising chances of CPI inflation increas (BTC +%0,2, XAU +%0,3)
+- 2026-11-06 — ABD enflasyon rakamları ne zaman, hangi tarihte açıklanacak? (BTC +%0,1, XAU %0,0)
+- 2026-11-06 — 12 Kasım 2026 Tarihli Enflasyon Raporu 2026-IV Bilgilendirme Toplantısına… (BTC +%0,1, XAU +%0,4)
+- 2026-11-05 — BOJ minutes: several members highlighted rising chances of CPI inflation… (BTC +%0,2, XAU +%0,3)
 - 2026-11-05 — BOJ minutes: several members noted underlying CPI inflation has been close to 2% (BTC +%0,2, XAU +%0,3)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*

@@ -40,8 +40,8 @@ Para politikası kararı açıklandı. Kaynak: Dünya.
 
 - 2026-09-23 — Fed politika faizini %4'ün üzerine taşır mı? HSBC’den yeni faiz patikası analizi (BTC -%0,2, XAU -%0,1)
 - 2026-09-22 — Fon Krizi Merkez Bankasının Faiz Kararını Nasıl Etkiler? | Ekonomi Masası | 22 E (BTC +%0,7, DXY +%0,1, XAU +%0,4)
-- 2026-09-21 — BoC's Gov. Macklem: When it comes to rate decisions, we need to look beyond the  (BTC -%0,4, XAU %0,0)
-- 2026-09-21 — Fed's Goolsbee: I do not think estimates of the neutral rate are helpful in shor (BTC +%0,4, XAU -%0,1)
+- 2026-09-21 — BoC's Gov. Macklem: When it comes to rate decisions, we need to look beyond the… (BTC -%0,4, XAU %0,0)
+- 2026-09-21 — Fed's Goolsbee: I do not think estimates of the neutral rate are helpful in… (BTC +%0,4, XAU -%0,1)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*
 

@@ -44,7 +44,7 @@ Para politikası kararı açıklandı. Kaynak: Dünya.
 
 - 2026-10-27 — ECB, enflasyon ve zayıf büyüme ikilemiyle faiz kararını verecek (BTC %0,0, DXY %0,0, XAU -%0,1)
 - 2026-10-27 — Japonya Merkez Bankası'nın faiz kararı öncesi beklenti belli oldu (BTC +%0,3, DXY %0,0, XAU %0,0)
-- 2026-10-26 — BTC price risks $80K loss into FOMC, earnings: Three things to know in Bitcoin t (BTC +%0,1, XAU +%0,1)
+- 2026-10-26 — BTC price risks $80K loss into FOMC, earnings: Three things to know in Bitcoin… (BTC +%0,1, XAU +%0,1)
 - 2026-10-26 — Past FOMC Market Reactions & Sentiment - FJElite (BTC +%0,2, XAU +%0,1)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*

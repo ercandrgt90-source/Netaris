@@ -39,7 +39,7 @@ Jeopolitik bir gelişme yaşandı. Kaynak: BloombergHT.
 - 2026-10-07 — Trump: Hürmüz'den son dönemde inanılmaz miktarda petrol taşındı (BTC %0,0, XAU %0,0)
 - 2026-10-06 — Trump: Hürmüz'den inanılmaz miktarda petrol sevkiyatı yapılıyor (BTC %0,0, XAU -%0,1)
 - 2026-10-06 — İran Hürmüz’de tanker saldırılarını artırdı (BTC +%0,1, XAU +%0,2)
-- 2026-10-06 — Hürmüz'de 5 katına çıkan navlun, Orta Doğu petrolünde rekabet için indirim baskı (BTC +%0,7, XAU +%0,2)
+- 2026-10-06 — Hürmüz'de 5 katına çıkan navlun, Orta Doğu petrolünde rekabet için indirim… (BTC +%0,7, XAU +%0,2)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*
 

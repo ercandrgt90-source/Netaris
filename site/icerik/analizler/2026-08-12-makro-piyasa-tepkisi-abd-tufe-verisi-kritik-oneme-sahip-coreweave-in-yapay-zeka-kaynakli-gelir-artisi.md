@@ -37,7 +37,7 @@ Enflasyon verisi yayımlandı. Kaynak: Investing.
 
 ## Daha önce ne olmuştu
 
-- 2026-08-12 — ABD enflasyon rakamları ne zaman, saat kaçta açıklanacak? Temmuz ayı ABD enflasy (BTC +%0,0)
+- 2026-08-12 — ABD enflasyon rakamları ne zaman, saat kaçta açıklanacak? (BTC +%0,0)
 - 2026-08-11 — US CPI Prep: Inflation in Focus - FJElite (BTC +%0,1, DXY -%0,4, XAU -%0,1)
 - 2026-08-11 — Çarşamba günkü enflasyon verisi yeni yumuşama katalizörü olabilir (BTC +%0,1, DXY -%0,4, XAU +%0,2)
 - 2026-08-11 — RBA forecasts CPI inflation at 3.6% in Q4 2027, 2.6% in Q4 2028, 2.4% in Q4 2029 (BTC -%0,0, DXY -%0,4, XAU +%0,4)
