@@ -17,6 +17,7 @@ Bu dosya iki yonu birden sinar:
 from __future__ import annotations
 
 import json
+import os
 import pathlib
 import re
 import sys
@@ -163,7 +164,7 @@ for g in gercekler:
 
 
 # ---------------------------------------------------------------- 5
-print("5. YAYIMLANMIS sayfalarda kalinti OLCUMU (kapi degil)")
+print("5. YAYIMLANMIS sayfalar -- uretim ONCESI olcum, SONRASI kapi")
 
 _KOK = _BURASI.parent.parent
 SAYFALAR = _KOK / "site" / "icerik" / "analizler"
@@ -187,6 +188,42 @@ def _basliklar() -> set[str]:
         return cikti
     finally:
         c.close()
+
+
+#: Hangi ASAMADA kosuyoruz. Bayragi `site/cikti_sinamalari.py`
+#: kuruyor -- asamayi BILEN tek yer orasi. Sinamanin kendisi tahmin
+#: etmeye calisirsa (dosya tarihine bakmak gibi) kirilgan olur.
+_URETIM_SONRASI = os.environ.get("NETARIS_URETIM_SONRASI") == "1"
+
+# ASAMA AYRIMI ATIL OLABILIR -- IKI YONDEN, ikisi de sinaniyor.
+#
+# 1. `_URETIM_SONRASI` sabit False'a donerse kati iddia HIC kosmaz
+#    ve sinama iki asamada da yesil doner.
+# 2. Kapi bayragi cocuk ortamina GECIRMEZSE ayni sonuc olusur --
+#    sinama kusursuz, kapi sessiz. Olcut: bayrak o dosyada hem
+#    TANIMLI hem `env=` icinde KULLANILMIS olmali. (Yalnizca tanima
+#    bakan iddia bu depoda mutasyonla KACTI.)
+if os.environ.get("NETARIS_URETIM_SONRASI") == "1":
+    esit(_URETIM_SONRASI, True, "asama bayragi gercekten okunuyor")
+
+_KAPI = _BURASI.parent.parent / "site" / "cikti_sinamalari.py"
+_kapi_k = _KAPI.read_text(encoding="utf-8", errors="replace")
+esit("NETARIS_URETIM_SONRASI" in _kapi_k, True,
+     "uretim sonrasi kapisi bayragi taniyor")
+esit('ASAMA_DEGISKENI: "1"' in _kapi_k, True,
+     "kapi bayragi cocuk ortamina geciriyor")
+# BU DOSYA KAPININ SECIMINE GERCEKTEN GIRIYOR MU.
+#
+# Kapi sinamalari KAYNAKTAKI yol izine gore seciyor. Bu dosya
+# "icerik" dizinine bakiyor; iz kaybolursa (yol bir sabite tasinirsa
+# ornegin) dosya uretim sonrasi kosudan SESSIZCE duser ve kati iddia
+# hic calismaz. Olcut, kapinin kendi listesini URETMESI.
+sys.path.insert(0, str(_BURASI.parent.parent / "site"))
+import cikti_sinamalari as _ks                             # noqa: E402
+
+esit(pathlib.Path(__file__).resolve() in
+     {p.resolve() for p in _ks.ciktiya_bakan()}, True,
+     "bu dosya uretim sonrasi listede")
 
 
 tum = _basliklar()
@@ -220,7 +257,7 @@ if tum and SAYFALAR.exists():
     dogru(satirlar > 1000, f"atillik: emsal satiri sayisi {satirlar}")
     dogru(len(tum) > 1000, f"atillik: baslik sayisi {len(tum)}")
 
-    # BURASI OLCUM, KAPI DEGIL -- OLCULDU, AYNI GUN KILITLEDI.
+    # IDDIA ASAMAYA BAGLI -- ATILMADI, DOGRU YERE TASINDI.
     #
     # Ilk yazimda burada `esit(yarim, [])` vardi ve DAGITIMI
     # KILITLEDI (kosu #2665). Sebep tam olarak bu dosyanin konusu
@@ -241,12 +278,25 @@ if tum and SAYFALAR.exists():
     # sayfa dogru cikar; burada sayilan kalinti, o uretimin heniz
     # kosmadigi sayfalardir.
     #
-    # Sayinin gorunur olmasi onemli: sifirdan uzaklasirsa uretici
-    # bozulmus ya da yeniden uretilmeyen bir yol kalmis demektir.
-    print(f"   olcum: yarim kelimeyle biten emsal satiri = {len(yarim)}"
-          f" / {satirlar}")
-    if yarim:
-        print(f"          ornek: {yarim[0][0][:60]} {yarim[0][1]!r}")
+    # URETIMDEN SONRA iddia KATI: o asamada sayfalar bu kosuda
+    # yeniden uretilmis durumda, yani kalan her yarim kelime gercek
+    # bir uretici kusurudur ve yayini durdurmasi DOGRUDUR.
+    # `site/cikti_sinamalari.py` bu dosyayi zaten seciyor (kaynakta
+    # hem "icerik" hem "netaris.db" gecıyor) ve bayragi cocuk
+    # ortamina geciriyor.
+    #
+    # URETIMDEN ONCE yalnizca OLCUM: sayi basilir, cikis kodunu
+    # etkilemez. Sifirdan uzaklasirsa ya uretici bozulmus ya da
+    # yeniden uretilmeyen bir yol kalmis demektir.
+    if _URETIM_SONRASI:
+        esit(yarim[:5], [],
+             f"URETIM SONRASI yarim kelimeyle biten emsal satiri:"
+             f" {len(yarim)}")
+    else:
+        print(f"   olcum: yarim kelimeyle biten emsal satiri = {len(yarim)}"
+              f" / {satirlar}")
+        if yarim:
+            print(f"          ornek: {yarim[0][0][:60]} {yarim[0][1]!r}")
 else:
     print("   (depo verisi yok -- atlandi)")
 
