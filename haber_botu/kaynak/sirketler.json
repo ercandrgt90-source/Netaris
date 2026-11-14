@@ -3065,7 +3065,8 @@
    "kap_kimlik": "4028e4a240e95dc90140ee076f400178",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "GÜNEY BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "GÜNEY BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor_bulunamadi": "2026-11-14"
   },
   "FKPET": {
    "kod": "FKPET",
@@ -3073,7 +3074,8 @@
    "kap_kimlik": "8acae2c59b85fa03019c74a8114c4f4c",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "ANY PARTNERS BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "ANY PARTNERS BAĞIMSIZ DENETİM A.Ş.",
+   "sektor_bulunamadi": "2026-11-14"
   },
   "FLAP": {
    "kod": "FLAP",
@@ -3202,7 +3204,8 @@
    "kap_kimlik": "4028e4a240f2ef4c01413a53aa850684",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "GÜNEY BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "GÜNEY BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor_bulunamadi": "2026-11-14"
   },
   "GATEG": {
    "kod": "GATEG",

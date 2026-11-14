@@ -2219,18 +2219,18 @@
     ]
    }
   },
-  "tazelendi": "2026-11-13T20:57:12+00:00"
+  "tazelendi": "2026-11-14T19:16:53+00:00"
  },
  "Temel malzeme": {
   "sektor": "Temel malzeme",
   "donem": "2026 3. çeyrek",
-  "sirket_sayisi": 32,
+  "sirket_sayisi": 33,
   "medyan": {
-   "brut_marj": 18.588627983332742,
-   "net_marj": 1.8814028136048608,
-   "roe": 0.5932314360994667,
-   "cari_oran": 1.602243119367236,
-   "borc_ozkaynak": 0.10446132576346576
+   "brut_marj": 18.44165025501187,
+   "net_marj": 1.487230953194397,
+   "roe": 0.5509123013537375,
+   "cari_oran": 1.6100667070952093,
+   "borc_ozkaynak": 0.11402079235740377
   },
   "sirket": {
    "ACSEL": {
@@ -2437,11 +2437,11 @@
     "borc_ozkaynak": 0.11402079235740377
    },
    "ERCB": {
-    "brut_marj": 21.184473481936973,
-    "net_marj": -31.13989239046887,
-    "roe": -7.616657266403459,
-    "cari_oran": 1.7814138492135239,
-    "borc_ozkaynak": 1.5194585448392555
+    "brut_marj": -5.021718602455146,
+    "net_marj": -25.143531633616618,
+    "roe": -5.006957502820609,
+    "cari_oran": 1.8644843962008142,
+    "borc_ozkaynak": 1.7489657766077473
    },
    "EREGL": {
     "brut_marj": 9.870811182337182,
@@ -2476,7 +2476,7 @@
     "net_marj": -0.5471305382099316,
     "roe": -0.534712737206126,
     "cari_oran": 2.3981146753306177,
-    "borc_ozkaynak": -0.19569323762750282
+    "borc_ozkaynak": 0.05306442707273837
    },
    "MARBL": {
     "brut_marj": 47.78518518518519,
@@ -2559,12 +2559,12 @@
     "eksik: brut_kar, faaliyet_kari"
    ],
    [
-    "EKDMR",
+    "FRMPL",
     "eksik: aktif_toplami, ozkaynak, stoklar"
    ],
    [
-    "ERCB",
-    "eksik: hasilat, net_kar, brut_kar"
+    "GEDZA",
+    "eksik: hasilat, net_kar, aktif_toplami"
    ]
   ],
   "ana_donem": "2026-09-30",
@@ -2598,7 +2598,7 @@
    "DYOBY": "2026-09-30",
    "EGSER": "2026-09-30",
    "EKDMR": "2026-09-30",
-   "ERCB": "2026-06-30",
+   "ERCB": "2026-09-30",
    "EREGL": "2026-09-30",
    "FRMPL": "2026-09-30",
    "GEDZA": "2026-09-30",
@@ -2646,9 +2646,9 @@
    "DOKTA",
    "DYOBY",
    "EGSER",
+   "EKDMR",
+   "ERCB",
    "EREGL",
-   "FRMPL",
-   "GEDZA",
    "KOPOL",
    "MARBL",
    "MEGAP",
@@ -2666,13 +2666,13 @@
   "donem_gruplari": {
    "2026-06-30": {
     "donem": "2026 2. çeyrek",
-    "sirket_sayisi": 12,
+    "sirket_sayisi": 11,
     "medyan": {
-     "brut_marj": 18.234875169138938,
-     "net_marj": 2.3546934118844254,
-     "roe": 0.9549871468586213,
-     "cari_oran": 1.2564621993690366,
-     "borc_ozkaynak": 0.23979938577088433
+     "brut_marj": 15.285276856340904,
+     "net_marj": 2.5387553358795776,
+     "roe": 1.3360298693217174,
+     "cari_oran": 1.1933924254633361,
+     "borc_ozkaynak": 0.22445622372509597
     },
     "kodlar": [
      "AYES",
@@ -2684,7 +2684,6 @@
      "BTCIM",
      "BUCIM",
      "DOKTA",
-     "ERCB",
      "SUMAS",
      "TMPOL"
     ]
@@ -2698,7 +2697,7 @@
     ]
    }
   },
-  "tazelendi": "2026-11-13T21:10:06+00:00"
+  "tazelendi": "2026-11-14T19:29:04+00:00"
  },
  "Temel tüketim": {
   "sektor": "Temel tüketim",
@@ -3032,7 +3031,7 @@
     ]
    }
   },
-  "tazelendi": "2026-11-13T21:13:33+00:00"
+  "tazelendi": "2026-11-14T19:33:02+00:00"
  },
  "İletişim": {
   "sektor": "İletişim",
@@ -3601,26 +3600,6 @@
     "eksik: stoklar"
    ],
    [
-    "ASUZU",
-    "eksik: aktif_toplami, ozkaynak, stoklar"
-   ],
-   [
-    "ATEKS",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "ATSYH",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "AYCES",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "BAKAB",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
     "BARMA",
     "eksik: hasilat, net_kar, aktif_toplami"
    ],
@@ -3907,7 +3886,12 @@
   "taze_olculen": [
    "AKSA",
    "ARCLK",
-   "ARTMS"
+   "ARTMS",
+   "ASUZU",
+   "ATEKS",
+   "ATSYH",
+   "AYCES",
+   "BAKAB"
   ],
   "mali": {
    "MAVI": 1,
@@ -3947,6 +3931,6 @@
     ]
    }
   },
-  "tazelendi": "2026-11-13T21:15:59+00:00"
+  "tazelendi": "2026-11-14T19:36:39+00:00"
  }
 }
