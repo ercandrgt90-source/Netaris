@@ -1,7 +1,7 @@
 ---
 slug: piyasa-tepkisi-fed-s-jefferson-fomc-to-hear-from-fed-task-forces-within-467175-2026-11-14
 baslik: Fed's Jefferson: FOMC to hear from Fed task forces within months or earlier
-ozet: Faiz kararı. Bitcoin 1 saat içinde -%0,06 geriledi.
+ozet: Faiz kararı. Altın 1 saat içinde -%0,08 geriledi.
 sirket: Piyasa tepkisi: Fed's Jefferson: FOMC to hear from Fed task forces within months or earlier
 kod: OLAY
 donem: 2026-11-14
@@ -23,8 +23,8 @@ Para politikası kararı açıklandı. Kaynak: FinancialJuice.
 
 ## Piyasada ne oldu
 
-- **Altın** 1 saat içinde yatay kaldı (son 3887,60).
-- **Bitcoin** 1 saat içinde geriledi: -%0,06 (son 68214,70).
+- **Altın** 1 saat içinde geriledi: -%0,08 (son 3887,60).
+- **Bitcoin** 1 saat içinde geriledi: -%0,06 (son 68215,50).
 
 *Yukarıdaki rakamlar ölçülen fiyat hareketidir. Hareketin sebebinin bu gelişme olduğu iddia edilmemektedir; aynı pencerede başka etkenler de fiyatlanmış olabilir.*
 

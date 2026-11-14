@@ -1,7 +1,7 @@
 ---
 slug: piyasa-tepkisi-fed-s-jefferson-i-have-not-seen-political-factors-ab92cf-2026-11-14
 baslik: Fed's Jefferson: I have not seen political factors influence discussions at FOMC meetings
-ozet: Faiz kararı. Bitcoin 1 saat içinde -%0,06 geriledi.
+ozet: Faiz kararı. Altın 1 saat içinde -%0,08 geriledi.
 sirket: Piyasa tepkisi: Fed's Jefferson: I have not seen political factors influence discussions at FOMC meetings
 kod: OLAY
 donem: 2026-11-14
@@ -23,8 +23,8 @@ Para politikası kararı açıklandı. Kaynak: FinancialJuice.
 
 ## Piyasada ne oldu
 
-- **Altın** 1 saat içinde yatay kaldı (son 3887,60).
-- **Bitcoin** 1 saat içinde geriledi: -%0,06 (son 68214,70).
+- **Altın** 1 saat içinde geriledi: -%0,08 (son 3887,60).
+- **Bitcoin** 1 saat içinde geriledi: -%0,06 (son 68215,50).
 
 *Yukarıdaki rakamlar ölçülen fiyat hareketidir. Hareketin sebebinin bu gelişme olduğu iddia edilmemektedir; aynı pencerede başka etkenler de fiyatlanmış olabilir.*
 
@@ -38,7 +38,7 @@ Para politikası kararı açıklandı. Kaynak: FinancialJuice.
 
 ## Daha önce ne olmuştu
 
-- 2026-11-14 — Fed's Jefferson: FOMC to hear from Fed task forces within months or earlier (BTC -%0,1, XAU %0,0)
+- 2026-11-14 — Fed's Jefferson: FOMC to hear from Fed task forces within months or earlier (BTC -%0,1, XAU -%0,1)
 - 2026-11-13 — Fed's Daly: FOMC must be transparent, accountable and clear (BTC +%0,2, XAU %0,0)
 - 2026-11-13 — Fed's Logan: Prudent for FOMC to strengthen tools for supporting market… (BTC -%1,3, XAU -%0,5)
 - 2026-11-13 — Fed faiz kararı bu ay mı, toplantı ne zaman? (BTC +%0,3, XAU +%0,2)
