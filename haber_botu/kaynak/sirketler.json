@@ -3027,7 +3027,8 @@
    "kap_kimlik": "1DE05DAA820D073AE0530A4A622A2EBD",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "DRT BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "DRT BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor_bulunamadi": "2026-11-14"
   },
   "FBBNK": {
    "kod": "FBBNK",
@@ -3035,7 +3036,8 @@
    "kap_kimlik": "1DE05DAA820D073AE0530A4A622A2EBD",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "DRT BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "DRT BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor_bulunamadi": "2026-11-14"
   },
   "FENER": {
    "kod": "FENER",
@@ -3054,7 +3056,8 @@
    "kap_kimlik": "4028e4a141733b51014174353d302167",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "EREN BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "EREN BAĞIMSIZ DENETİM A.Ş.",
+   "sektor_bulunamadi": "2026-11-14"
   },
   "FIN": {
    "kod": "FIN",
