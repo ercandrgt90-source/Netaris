@@ -30,7 +30,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 23,
+  "yorumlanan": 24,
   "haberler": [
     {
       "baslik": "Kurumlar, önerilen üçüncü taraf risk yönetimi kılavuzu için yorum süresini uzatıyor",
@@ -75,14 +75,14 @@
       "foto_atif": "Niels Johannes · CC-BY-SA-4.0"
     },
     {
-      "baslik": "Rusya Savunma Bakanlığı: Ukrayna'nın askeri güçler tarafından kullanılan enerji ve ulaşım altyapısı, ayrıca insansız hava aracı üretim ve depolama tesisleri vuruldu",
-      "baslik_kaynak": "Russian defence ministry: struck Ukrainian energy and transport infrastructure used by military, drone production and storage facilities",
+      "baslik": "İran donanması: Petrol tankeri Hürmüz Boğazı'nın doğusunda deniz mayınına çarptıktan sonra alev aldı",
+      "baslik_kaynak": "Iran navy: oil tanker catches fire after striking naval mine in eastern Strait of Hormuz",
       "ozet": "",
       "cevrildi": true,
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9852152/Russian-defence-ministry-struck-Ukrainian-energy-and-transport-infrastructure-used-by-military-drone-production-and-storage-facilities.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9852173/Iran-navy-oil-tanker-catches-fire-after-striking-naval-mine-in-eastern-Strait-of-Hormuz.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Enerji",
@@ -92,8 +92,55 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enerji-12-87d7f650.jpg",
-      "foto_atif": "AliAbuRas · CC-BY-SA-4.0"
+      "foto": "/statik/foto/enerji-19-7f38d155.jpg",
+      "foto_atif": "Calistemon · CC-BY-SA-4.0"
+    },
+    {
+      "baslik": "UAEA: Askerî harekâtın neden olduğu elektrik şebekesi istikrarsızlığı bu hafta Ukrayna'daki bazı nükleer santrallerde elektrik kesintilerine yol açtı",
+      "baslik_kaynak": "IAEA: electrical grid instability from military action caused power cuts at some nuclear units in Ukraine this week",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9852167/IAEA-electrical-grid-instability-from-military-action-caused-power-cuts-at-some-nuclear-units-in-Ukraine-this-week.aspx?xy=feed",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Jeopolitik",
+      "tarih": "2026-11-14",
+      "tarih_gorunur": "14 Kasım 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
+      "kanallar": [
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-14-4ca6b4fe.jpg",
+      "foto_atif": "Bernard Gagnon · CC0"
+    },
+    {
+      "baslik": "Rusya Savunma Bakanlığı: Ukrayna'nın askeri güçler tarafından kullanılan enerji ve ulaşım altyapısı, ayrıca insansız hava aracı üretim ve depolama tesisleri vuruldu",
+      "baslik_kaynak": "Russian defence ministry: struck Ukrainian energy and transport infrastructure used by military, drone production and storage facilities",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9852152/Russian-defence-ministry-struck-Ukrainian-energy-and-transport-infrastructure-used-by-military-drone-production-and-storage-facilities.aspx?xy=feed",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Enerji",
+      "tarih": "2026-11-14",
+      "tarih_gorunur": "14 Kasım 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/enerji-11-a5cdd29f.jpg",
+      "foto_atif": "W.carter · CC0"
     },
     {
       "baslik": "Rusya Savunma Bakanlığı: Rus kuvvetleri Ukrayna'nın Zaporijya bölgesindeki Tersyanka yerleşim yerini ele geçirdi",
@@ -103,7 +150,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9852151/Russian-defence-ministry-its-forces-seize-settlement-of-Tersianka-in-Ukraines-Zaporizhzhia-region.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9852151/Russian-defence-ministry-its-forces-seize-settlement-of-Tersianka-in-Ukraines-Zaporizhzhia-region.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Jeopolitik",
@@ -129,7 +176,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9852150/Zelenskiy-says-he-believes-NATO-ties-for-Ukraine-are-back-on-agenda.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9852150/Zelenskiy-says-he-believes-NATO-ties-for-Ukraine-are-back-on-agenda.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Jeopolitik",
@@ -139,8 +186,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/jeopolitik-14-4ca6b4fe.jpg",
-      "foto_atif": "Bernard Gagnon · CC0"
+      "foto": "/statik/foto/jeopolitik-18-d6206fae.jpg",
+      "foto_atif": "United Nation · PDM"
     },
     {
       "baslik": "Zelenski: ABD'li müzakereciler, Ukrayna'nın NATO üyeliği için Donbas'tan vazgeçmeye hazır olup olmadığını sordu",
@@ -150,7 +197,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9852149/Zelenskiy-US-negotiators-asked-if-Ukraine-was-prepared-to-cede-Donbas-for-NATO-accession.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9852149/Zelenskiy-US-negotiators-asked-if-Ukraine-was-prepared-to-cede-Donbas-for-NATO-accession.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Jeopolitik",
@@ -176,7 +223,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9852148/Zelenskiy-US-envoys-said-Putin-agreed-to-include-Europe-at-next-negotiation-round.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9852148/Zelenskiy-US-envoys-said-Putin-agreed-to-include-Europe-at-next-negotiation-round.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -186,8 +233,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-8-9a709a75.jpg",
-      "foto_atif": "Sixflashphoto · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-14-ebd53a63.jpg",
+      "foto_atif": "Rodhullandemu · CC-BY-SA-4.0"
     },
     {
       "baslik": "Zelenski: Rusya enerji konusunda ateşkesi kabul etmeye istekli değil, Abu Dabi'de görüşmek için yetkisi yoktu",
@@ -197,7 +244,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9852147/Zelenskiy-Russia-unwilling-to-agree-to-energy-ceasefire-lacked-mandate-to-discuss-in-Abu-Dhabi.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9852147/Zelenskiy-Russia-unwilling-to-agree-to-energy-ceasefire-lacked-mandate-to-discuss-in-Abu-Dhabi.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Enerji",
@@ -212,8 +259,8 @@
         "Enflasyon aktarımı: enerji maliyeti ulaştırma ve gıda üzerinden manşet enflasyona geçer; merkez bankaları çekirdek enflasyona daha çok bakar."
       ],
       "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/enerji-16-71b1ce54.jpg",
-      "foto_atif": "HdeK · CC-BY-SA-3.0"
+      "foto": "/statik/foto/enerji-17-1a57ece0.jpg",
+      "foto_atif": "Colin Stepney · CC-BY-SA-4.0"
     },
     {
       "baslik": "Zelenski: Avrupalı müttefiklerden barış görüşmelerinde Avrupa'yı kimin temsil edeceğine Kasım ayı sonuna kadar karar vermelerini istedi",
@@ -223,7 +270,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9852146/Zelenskiy-asked-European-allies-to-decide-by-end-of-November-who-will-represent-Europe-in-peace-talks.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9852146/Zelenskiy-asked-European-allies-to-decide-by-end-of-November-who-will-represent-Europe-in-peace-talks.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Jeopolitik",
@@ -238,8 +285,8 @@
         "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
       ],
       "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/jeopolitik-18-d6206fae.jpg",
-      "foto_atif": "United Nation · PDM"
+      "foto": "/statik/foto/jeopolitik-15-ccd8ab8d.jpg",
+      "foto_atif": "usepagov · PDM"
     },
     {
       "baslik": "Zelenski: Ukrayna ve Danimarka, altı aylık talebi karşılamak üzere F-16'lara 800.000 mermi tedarik edilmesini görüşüyor",
@@ -249,7 +296,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9852141/Zelenskiy-Ukraine-and-Denmark-discuss-supplying-800000-rounds-for-F-16-to-cover-six-months-demand.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9852141/Zelenskiy-Ukraine-and-Denmark-discuss-supplying-800000-rounds-for-F-16-to-cover-six-months-demand.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -259,8 +306,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-11-5c2f88fc.jpg",
-      "foto_atif": "Bill Boaden · CC-BY-SA-2.0"
+      "foto": "/statik/foto/sirket-haberleri-8-9a709a75.jpg",
+      "foto_atif": "Sixflashphoto · CC-BY-SA-4.0"
     },
     {
       "baslik": "Zelenski: Ukrayna'nın silah satın almak için Purl programına daha fazla fona ihtiyacı var",
@@ -270,7 +317,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9852140/Zelenskiy-Ukraine-requires-more-funding-for-purl-program-to-purchase-weapons.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9852140/Zelenskiy-Ukraine-requires-more-funding-for-purl-program-to-purchase-weapons.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -280,8 +327,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-18-3ea88e13.jpg",
-      "foto_atif": "Basile Morin · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-14-ebd53a63.jpg",
+      "foto_atif": "Rodhullandemu · CC-BY-SA-4.0"
     },
     {
       "baslik": "Birleşik Krallık Sivil Havacılık Otoritesi: FAA uçuş yasağını kaldırdıktan sonra ABD uçuşları yeniden başladı ancak havayollarının yolculara yeni rezervasyon yapması nedeniyle aksaklıkların devam etmesi bekleniyor",
@@ -291,7 +338,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9852128/UK-Civil-Aviation-Authority-US-flights-resume-after-FAA-lifts-ground-stop-but-follow-on-disruption-expected-as-airlines-rebook-passengers.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9852128/UK-Civil-Aviation-Authority-US-flights-resume-after-FAA-lifts-ground-stop-but-follow-on-disruption-expected-as-airlines-rebook-passengers.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -301,8 +348,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-9-c71a9b17.jpg",
-      "foto_atif": "Dietmar Rabich · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-7-8b52fc2e.jpg",
+      "foto_atif": "DXR · CC-BY-SA-4.0"
     },
     {
       "baslik": "Microsoft'tan kesinti açıklaması: Temel sorunu çözme çalışmaları tamamlandı, etkilenen müşteriler ve bölgeler için hizmetler eski hâline getirildi",
@@ -312,7 +359,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9852078/Microsoft-on-outage-completed-work-to-resolve-root-issue-restored-service-to-affected-customers-and-regions.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9852078/Microsoft-on-outage-completed-work-to-resolve-root-issue-restored-service-to-affected-customers-and-regions.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -322,8 +369,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-15-c1626940.jpg",
-      "foto_atif": "Gkbediako · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-7-0e2a9249.jpg",
+      "foto_atif": "Myotus · CC-BY-SA-4.0"
     },
     {
       "baslik": "İngiltere Merkez Bankası'ndan Pill, piyasa beklentilerinin 2027'de faiz oranlarının %5'e yaklaşacağını ima etmesinin \"şaşırtıcı olmadığını\" söylüyor - FT",
@@ -333,7 +380,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9852068/BoEs-Pill-says-market-expectations-implying-rates-near-5-in-2027-are-not-outrageous---FT.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9852068/BoEs-Pill-says-market-expectations-implying-rates-near-5-in-2027-are-not-outrageous---FT.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Para politikası",
@@ -354,7 +401,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9852052/BoEs-Pill-signals-no-third-term-as-bank-chief-economist-when-current-stint-ends-in-September-2027---FT.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9852052/BoEs-Pill-signals-no-third-term-as-bank-chief-economist-when-current-stint-ends-in-September-2027---FT.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Bankacılık",
@@ -364,8 +411,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/bankacilik-8-685abb38.jpg",
-      "foto_atif": "Myotus · CC-BY-4.0"
+      "foto": "/statik/foto/bankacilik-7-62bd3092.jpg",
+      "foto_atif": "Dietmar Rabich · CC-BY-SA-4.0"
     },
     {
       "baslik": "İngiltere Merkez Bankası'ndan Pill: Borçlanma maliyetlerini artırmadaki gecikmeler, faiz artırımlarında ılımlı olma kabiliyetini azaltıyor - FT röportajı",
@@ -375,7 +422,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9852051/BoEs-Pill-delays-in-raising-borrowing-costs-reduce-ability-to-be-modest-in-rate-increases---FT-interview.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9852051/BoEs-Pill-delays-in-raising-borrowing-costs-reduce-ability-to-be-modest-in-rate-increases---FT-interview.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Para politikası",
@@ -385,8 +432,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-9-683f4724.jpg",
-      "foto_atif": "Tony Webster · CC-BY-2.0"
+      "foto": "/statik/foto/para-politikasi-7-b3f7138e.jpg",
+      "foto_atif": "Daniel Schwen · CC-BY-SA-4.0"
     },
     {
       "baslik": "BoE'den Pill, BoE'nin faiz oranlarını bu aydan önce artırmış olması gerektiğini söylüyor - FT",
@@ -396,7 +443,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9852050/BoEs-Pill-says-BoE-should-have-hiked-interest-rates-before-this-month---FT.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9852050/BoEs-Pill-says-BoE-should-have-hiked-interest-rates-before-this-month---FT.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Para politikası",
@@ -406,8 +453,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-7-d50cfe6c.jpg",
-      "foto_atif": "Infrogmation of New Orleans · CC-BY-SA-4.0"
+      "foto": "/statik/foto/para-politikasi-10-bce0f56d.jpg",
+      "foto_atif": "Tony Webster · CC-BY-2.0"
     },
     {
       "baslik": "İngiltere Merkez Bankası'ndan Pill: İkinci tur etkilerinin artırdığı enflasyonist etkiyle ilgili endişeler - FT röportajı",
@@ -417,7 +464,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9852048/BoEs-Pill-concern-over-inflationary-impact-amplified-by-second-round-effects--FT-interview.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9852048/BoEs-Pill-concern-over-inflationary-impact-amplified-by-second-round-effects--FT-interview.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Enflasyon",
@@ -427,8 +474,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enflasyon-8-9782cbcb.jpg",
-      "foto_atif": "Basile Morin · CC-BY-SA-4.0"
+      "foto": "/statik/foto/enflasyon-11-93446832.jpg",
+      "foto_atif": "Wikimedia Commons · CC-BY-SA-2.5"
     },
     {
       "baslik": "İngiltere Merkez Bankası'ndan Pill: Zaman içinde enflasyonu yeniden %2'ye düşürmek için gerekli adımları atacağız - FT röportajı",
@@ -438,7 +485,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9852047/BoEs-Pill-will-take-necessary-steps-to-bring-inflation-back-to-2-over-time---FT-interview.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9852047/BoEs-Pill-will-take-necessary-steps-to-bring-inflation-back-to-2-over-time---FT-interview.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Enflasyon",
@@ -448,8 +495,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enflasyon-15-0af2c135.jpg",
-      "foto_atif": "Marek Ślusarczyk ( Tupungato ) Photo portfolio · CC-BY-3.0"
+      "foto": "/statik/foto/enflasyon-11-93446832.jpg",
+      "foto_atif": "Wikimedia Commons · CC-BY-SA-2.5"
     },
     {
       "baslik": "İngiltere Merkez Bankası'ndan Pill: Benim görüşüm, faiz oranlarında ek artışları gerektiren kanıtlar göreceğimiz yönünde - FT röportajı",
@@ -459,49 +506,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9852046/BoEs-Pill-my-view-is-we-will-see-proof-that-prompts-additional-rate-hikes---FT-interview.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Para politikası",
-      "tarih": "2026-11-14",
-      "tarih_gorunur": "14 Kasım 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-8-9ac5b7c7.jpg",
-      "foto_atif": "DestinationFearFan · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "BoE'den Pill, 17 Aralık'taki artışın ötesinde 2027'de muhtemelen daha fazla artışa ihtiyaç duyulacağına işaret ediyor - FT",
-      "baslik_kaynak": "BoE’s Pill signals further hikes likely needed in 2027 beyond December 17 increase - FT",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9852045/BoEs-Pill-signals-further-hikes-likely-needed-in-2027-beyond-December-17-increase---FT.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Para politikası",
-      "tarih": "2026-11-14",
-      "tarih_gorunur": "14 Kasım 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-15-525666c9.jpg",
-      "foto_atif": "Norbert Nagel · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "İngiltere Merkez Bankası baş ekonomisti: Enflasyonla mücadele için daha fazla faiz artırımı gerekiyor - FT",
-      "baslik_kaynak": "BoE chief economist: more rate hikes required to tackle inflation - FT",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9852044/BoE-chief-economist-more-rate-hikes-required-to-tackle-inflation---FT.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9852046/BoEs-Pill-my-view-is-we-will-see-proof-that-prompts-additional-rate-hikes---FT-interview.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Para politikası",
@@ -515,6 +520,48 @@
       "foto_atif": "Infrogmation of New Orleans · CC-BY-SA-4.0"
     },
     {
+      "baslik": "BoE'den Pill, 17 Aralık'taki artışın ötesinde 2027'de muhtemelen daha fazla artışa ihtiyaç duyulacağına işaret ediyor - FT",
+      "baslik_kaynak": "BoE’s Pill signals further hikes likely needed in 2027 beyond December 17 increase - FT",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9852045/BoEs-Pill-signals-further-hikes-likely-needed-in-2027-beyond-December-17-increase---FT.aspx?xy=feed",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Para politikası",
+      "tarih": "2026-11-14",
+      "tarih_gorunur": "14 Kasım 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/para-politikasi-7-b3f7138e.jpg",
+      "foto_atif": "Daniel Schwen · CC-BY-SA-4.0"
+    },
+    {
+      "baslik": "İngiltere Merkez Bankası baş ekonomisti: Enflasyonla mücadele için daha fazla faiz artırımı gerekiyor - FT",
+      "baslik_kaynak": "BoE chief economist: more rate hikes required to tackle inflation - FT",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9852044/BoE-chief-economist-more-rate-hikes-required-to-tackle-inflation---FT.aspx?xy=feed",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Para politikası",
+      "tarih": "2026-11-14",
+      "tarih_gorunur": "14 Kasım 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/para-politikasi-7-b3f7138e.jpg",
+      "foto_atif": "Daniel Schwen · CC-BY-SA-4.0"
+    },
+    {
       "baslik": "Microsoft'tan kesinti açıklaması: Daha önce etkilenen ortamlardaki hizmetler eski haline getirildi",
       "baslik_kaynak": "Microsoft on outage: services across previously impacted environments have been restored",
       "ozet": "",
@@ -522,7 +569,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9851998/Microsoft-on-outage-services-across-previously-impacted-environments-have-been-restored.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9851998/Microsoft-on-outage-services-across-previously-impacted-environments-have-been-restored.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -532,8 +579,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-12-22856bbd.jpg",
-      "foto_atif": "Diliff · CC-BY-SA-3.0"
+      "foto": "/statik/foto/sirket-haberleri-10-72a9566a.jpg",
+      "foto_atif": "Larry D. Moore · CC-BY-4.0"
     },
     {
       "baslik": "ABD Ulaştırma Bakanı Duffy: Trump tamamen dahil oldu",
@@ -543,7 +590,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9851904/US-transportation-secretary-Duffy-Trump-fully-involved.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9851904/US-transportation-secretary-Duffy-Trump-fully-involved.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Jeopolitik",
@@ -569,7 +616,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9851864/US-transportation-secretary-Duffy-Expect-it-will-take-some-time-to-return-to-full-capacity.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9851864/US-transportation-secretary-Duffy-Expect-it-will-take-some-time-to-return-to-full-capacity.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -579,8 +626,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-11-5c2f88fc.jpg",
-      "foto_atif": "Bill Boaden · CC-BY-SA-2.0"
+      "foto": "/statik/foto/sirket-haberleri-18-3ea88e13.jpg",
+      "foto_atif": "Basile Morin · CC-BY-SA-4.0"
     },
     {
       "baslik": "ABD Ulaştırma Bakanı Duffy: Ağ sorunu eski sistemin çökmesine neden oldu",
@@ -590,7 +637,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9851863/US-transportation-secretary-Duffy-network-issue-caused-legacy-system-to-fail.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9851863/US-transportation-secretary-Duffy-network-issue-caused-legacy-system-to-fail.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -600,8 +647,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-13-4ee7beec.jpg",
-      "foto_atif": "Humphrey Bolton · CC-BY-SA-2.0"
+      "foto": "/statik/foto/sirket-haberleri-18-3ea88e13.jpg",
+      "foto_atif": "Basile Morin · CC-BY-SA-4.0"
     },
     {
       "baslik": "ABD İç Güvenlik Bakanı (DHS) Mullin: Olayın siber saldırı veya yapay zekâ içerdiğine dair hiçbir kanıt yok",
@@ -611,7 +658,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9851851/US-DHS-Secretary-Mullin-no-evidence-incident-involved-cyberattack-or-artificial-intelligence.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9851851/US-DHS-Secretary-Mullin-no-evidence-incident-involved-cyberattack-or-artificial-intelligence.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -621,8 +668,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-9-0b526049.jpg",
-      "foto_atif": "Moheen Reeyad · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-18-3ea88e13.jpg",
+      "foto_atif": "Basile Morin · CC-BY-SA-4.0"
     },
     {
       "baslik": "ABD İç Güvenlik Bakanı (DHS) Mayorkas: Siber saldırı olasılığını hâlâ değerlendiriyoruz, bu ihtimali göz ardı etmiyoruz",
@@ -632,7 +679,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9851850/US-DHS-Secretary-Mullin-still-considering-possibility-of-cyberattack-not-dismissing-it.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9851850/US-DHS-Secretary-Mullin-still-considering-possibility-of-cyberattack-not-dismissing-it.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -642,8 +689,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-15-c1626940.jpg",
-      "foto_atif": "Gkbediako · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-18-3ea88e13.jpg",
+      "foto_atif": "Basile Morin · CC-BY-SA-4.0"
     },
     {
       "baslik": "ABD Ulaştırma Bakanı Duffy: Kongre'yi acil durum fonu sağlamaya çağırıyor",
@@ -653,7 +700,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9851849/US-transportation-secretary-Duffy-urging-Congress-to-provide-emergency-funding.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9851849/US-transportation-secretary-Duffy-urging-Congress-to-provide-emergency-funding.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -674,7 +721,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9851848/US-transportation-secretary-Duffy-tens-of-thousands-of-travelers-stranded-many-could-be-forced-to-sleep-in-airports.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9851848/US-transportation-secretary-Duffy-tens-of-thousands-of-travelers-stranded-many-could-be-forced-to-sleep-in-airports.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -684,8 +731,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-8-ed7b45c9.jpg",
-      "foto_atif": "Myotus · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-18-3ea88e13.jpg",
+      "foto_atif": "Basile Morin · CC-BY-SA-4.0"
     },
     {
       "baslik": "ABD Ulaştırma Bakanı Duffy: Hava trafik kontrolünde iyileştirmeler için 50 milyar dolar istiyor",
@@ -695,7 +742,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9851846/US-transportation-secretary-Duffy-seeks-50-billion-for-air-traffic-control-improvements.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9851846/US-transportation-secretary-Duffy-seeks-50-billion-for-air-traffic-control-improvements.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -716,7 +763,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9851845/US-transportation-secretary-Duffy-switches-routers-truly-overwhelmed-with-data-leading-to-failure.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9851845/US-transportation-secretary-Duffy-switches-routers-truly-overwhelmed-with-data-leading-to-failure.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -726,8 +773,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-8-ed7b45c9.jpg",
-      "foto_atif": "Myotus · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-9-c71a9b17.jpg",
+      "foto_atif": "Dietmar Rabich · CC-BY-SA-4.0"
     },
     {
       "baslik": "ABD Ulaştırma Bakanı Duffy: Uçuşların durdurulduğu sırada telekomünikasyon ve radar sistemlerinde kısmi kesinti yaşandı",
@@ -737,7 +784,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9851844/US-transportation-secretary-Duffy-partial-loss-of-telecom-and-radar-during-ground-stop.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9851844/US-transportation-secretary-Duffy-partial-loss-of-telecom-and-radar-during-ground-stop.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -747,8 +794,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-7-0e2a9249.jpg",
-      "foto_atif": "Myotus · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-9-0b526049.jpg",
+      "foto_atif": "Moheen Reeyad · CC-BY-SA-4.0"
     },
     {
       "baslik": "ABD İç Güvenlik Bakanı Mullin: Sorunu çözmek için çalışıyoruz",
@@ -758,28 +805,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9851843/US-DHS-Secretary-Mullin-working-to-fix-the-problem.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Şirket haberleri",
-      "tarih": "2026-11-14",
-      "tarih_gorunur": "14 Kasım 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-7-8b52fc2e.jpg",
-      "foto_atif": "DXR · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "ABD İç Güvenlik Bakanı Mullin: Halk hiçbir zaman tehdit altında olmadı",
-      "baslik_kaynak": "US DHS secretary Mullin: public was never threatened",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9851842/US-DHS-secretary-Mullin-public-was-never-threatened.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9851843/US-DHS-Secretary-Mullin-working-to-fix-the-problem.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -793,14 +819,14 @@
       "foto_atif": "Gkbediako · CC-BY-SA-4.0"
     },
     {
-      "baslik": "ABD İç Güvenlik Bakanı Mullin: İşler doğru yönde ilerliyor gibi görünüyor",
-      "baslik_kaynak": "US DHS Secretary Mullin: things seem to be moving in the right direction",
+      "baslik": "ABD İç Güvenlik Bakanı Mullin: Halk hiçbir zaman tehdit altında olmadı",
+      "baslik_kaynak": "US DHS secretary Mullin: public was never threatened",
       "ozet": "",
       "cevrildi": true,
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9851841/US-DHS-Secretary-Mullin-things-seem-to-be-moving-in-the-right-direction.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9851842/US-DHS-secretary-Mullin-public-was-never-threatened.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -810,8 +836,29 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-16-dfb346f6.jpg",
-      "foto_atif": "Stephen Craven · CC-BY-SA-2.0"
+      "foto": "/statik/foto/sirket-haberleri-8-9a709a75.jpg",
+      "foto_atif": "Sixflashphoto · CC-BY-SA-4.0"
+    },
+    {
+      "baslik": "ABD İç Güvenlik Bakanı Mullin: İşler doğru yönde ilerliyor gibi görünüyor",
+      "baslik_kaynak": "US DHS Secretary Mullin: things seem to be moving in the right direction",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9851841/US-DHS-Secretary-Mullin-things-seem-to-be-moving-in-the-right-direction.aspx?xy=feed",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Şirket haberleri",
+      "tarih": "2026-11-14",
+      "tarih_gorunur": "14 Kasım 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/sirket-haberleri-7-8b52fc2e.jpg",
+      "foto_atif": "DXR · CC-BY-SA-4.0"
     },
     {
       "baslik": "ABD İç Güvenlik Bakanı Mullin: Bu olayla Microsoft arasında bir bağlantı yok",
@@ -821,7 +868,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9851830/US-DHS-secretary-Mullin-no-link-between-this-event-and-Microsoft.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9851830/US-DHS-secretary-Mullin-no-link-between-this-event-and-Microsoft.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -831,8 +878,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-16-dfb346f6.jpg",
-      "foto_atif": "Stephen Craven · CC-BY-SA-2.0"
+      "foto": "/statik/foto/sirket-haberleri-10-72a9566a.jpg",
+      "foto_atif": "Larry D. Moore · CC-BY-4.0"
     },
     {
       "baslik": "ABD genelinde uçuş yasağı TSİ 03.15'ten itibaren kaldırıldı: Air Current",
@@ -842,7 +889,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9851827/US-nationwide-ground-stop-lifted-as-of-815-pm-ET-Air-Current.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9851827/US-nationwide-ground-stop-lifted-as-of-815-pm-ET-Air-Current.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -852,8 +899,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-11-5c2f88fc.jpg",
-      "foto_atif": "Bill Boaden · CC-BY-SA-2.0"
+      "foto": "/statik/foto/sirket-haberleri-9-c71a9b17.jpg",
+      "foto_atif": "Dietmar Rabich · CC-BY-SA-4.0"
     },
     {
       "baslik": "ABD'li yetkili: Uçuş yasağının sona ermesi bekleniyor",
@@ -863,7 +910,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9851825/US-official-ground-stop-set-to-end.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9851825/US-official-ground-stop-set-to-end.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -873,8 +920,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-12-22856bbd.jpg",
-      "foto_atif": "Diliff · CC-BY-SA-3.0"
+      "foto": "/statik/foto/sirket-haberleri-17-a6dd0c61.jpg",
+      "foto_atif": "Stephen Craven · CC-BY-SA-2.0"
     },
     {
       "baslik": "Fed'den Jefferson: Yapay zekânın gelişimi, enflasyon baskısının kaynağı olan toplam talep konusunda beni tedirgin ediyor",
@@ -884,7 +931,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9851817/Feds-Jefferson-AI-buildout-makes-me-wary-of-aggregate-demand-the-origin-of-inflation-pressure.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9851817/Feds-Jefferson-AI-buildout-makes-me-wary-of-aggregate-demand-the-origin-of-inflation-pressure.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Enflasyon",
@@ -905,7 +952,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9851810/Feds-Jefferson-FOMC-to-hear-from-Fed-task-forces-within-months-or-earlier.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9851810/Feds-Jefferson-FOMC-to-hear-from-Fed-task-forces-within-months-or-earlier.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Para politikası",
@@ -915,8 +962,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-11-fd54475f.jpg",
-      "foto_atif": "Innotata · CC-BY-SA-3.0"
+      "foto": "/statik/foto/para-politikasi-8-6bdac262.jpg",
+      "foto_atif": "Infrogmation of New Orleans · CC-BY-SA-4.0"
     },
     {
       "baslik": "Fed'den Jefferson: FOMC toplantılarındaki tartışmaları etkileyen siyasi faktörler görmedim",
@@ -926,7 +973,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9851804/Feds-Jefferson-I-have-not-seen-political-factors-influence-discussions-at-FOMC-meetings.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9851804/Feds-Jefferson-I-have-not-seen-political-factors-influence-discussions-at-FOMC-meetings.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Para politikası",
@@ -936,8 +983,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-7-b3f7138e.jpg",
-      "foto_atif": "Daniel Schwen · CC-BY-SA-4.0"
+      "foto": "/statik/foto/para-politikasi-10-bce0f56d.jpg",
+      "foto_atif": "Tony Webster · CC-BY-2.0"
     },
     {
       "baslik": "Fed Başkan Yardımcısı Jefferson: Borç veya açıkla ilgili endişeler Fed'deki politika tartışmalarını hiçbir zaman etkilemedi",
@@ -947,7 +994,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9851803/Fed-vice-chair-Jefferson-debt-or-deficit-concerns-never-influenced-policy-discussions-at-Fed.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9851803/Fed-vice-chair-Jefferson-debt-or-deficit-concerns-never-influenced-policy-discussions-at-Fed.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Kripto varlıklar",
@@ -957,8 +1004,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/kripto-varliklar-9-b82c3e85.jpg",
-      "foto_atif": "CryptoWallet.com Images · CC-BY-2.0"
+      "foto": "/statik/foto/kripto-varliklar-8-8b36c240.jpg",
+      "foto_atif": "de Vries, Alex; Stoll, Christian · PDM"
     },
     {
       "baslik": "Pan Amerikan Sağlık Örgütü, ABD'nin kızamık hastalığını ortadan kaldırma statüsünü iptal etti: WSJ",
@@ -968,7 +1015,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9851790/Pan-American-Health-Organization-revokes-US-measles-elimination-status-WSJ.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9851790/Pan-American-Health-Organization-revokes-US-measles-elimination-status-WSJ.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -978,8 +1025,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-12-22856bbd.jpg",
-      "foto_atif": "Diliff · CC-BY-SA-3.0"
+      "foto": "/statik/foto/sirket-haberleri-13-4ee7beec.jpg",
+      "foto_atif": "Humphrey Bolton · CC-BY-SA-2.0"
     },
     {
       "baslik": "OpenAI: Microsoft 365 bağlayıcısını etkileyen sorunlar çözüldü",
@@ -989,7 +1036,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9851788/OpenAI-issues-impacting-Microsoft-365-connector-resolved.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9851788/OpenAI-issues-impacting-Microsoft-365-connector-resolved.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -999,8 +1046,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-15-c1626940.jpg",
-      "foto_atif": "Gkbediako · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-18-3ea88e13.jpg",
+      "foto_atif": "Basile Morin · CC-BY-SA-4.0"
     },
     {
       "baslik": "Chicago'daki O'Hare Havalimanı, uçakları park etmek için 22R pistini kapatıyor: Air Current",
@@ -1010,7 +1057,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9851787/Chicagos-OHare-Airport-closing-runway-22R-to-park-aircraft-Air-Current.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9851787/Chicagos-OHare-Airport-closing-runway-22R-to-park-aircraft-Air-Current.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -1020,8 +1067,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-11-5c2f88fc.jpg",
-      "foto_atif": "Bill Boaden · CC-BY-SA-2.0"
+      "foto": "/statik/foto/sirket-haberleri-7-0e2a9249.jpg",
+      "foto_atif": "Myotus · CC-BY-SA-4.0"
     },
     {
       "baslik": "Dâhili mesajlar, Jensen Huang'ın Nvidia avukatına, müşterilerle yapılan diğer görüşmelerin de standart uygulamaları yansıttığını söylediğini gösteriyor",
@@ -1031,7 +1078,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9851786/Internal-messages-show-Jensen-Huang-told-Nvidia-lawyer-others-dealings-with-customers-mirrored-standard-practice.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9851786/Internal-messages-show-Jensen-Huang-told-Nvidia-lawyer-others-dealings-with-customers-mirrored-standard-practice.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -1041,8 +1088,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-15-c1626940.jpg",
-      "foto_atif": "Gkbediako · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-17-a6dd0c61.jpg",
+      "foto_atif": "Stephen Craven · CC-BY-SA-2.0"
     },
     {
       "baslik": "Eski Nvidia CEO'su Huang, hukuk müşaviri de dâhil olmak üzere şirket yöneticilerini Alice Huang olayıyla ilgili olarak yanıltmış: kaynaklar",
@@ -1052,7 +1099,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9851785/Ex-Nvidia-CEO-Huang-misled-company-leaders-including-general-counsel-about-nature-of-Alice-Huang-affair-sources.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9851785/Ex-Nvidia-CEO-Huang-misled-company-leaders-including-general-counsel-about-nature-of-Alice-Huang-affair-sources.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -1062,8 +1109,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-12-22856bbd.jpg",
-      "foto_atif": "Diliff · CC-BY-SA-3.0"
+      "foto": "/statik/foto/sirket-haberleri-14-ebd53a63.jpg",
+      "foto_atif": "Rodhullandemu · CC-BY-SA-4.0"
     },
     {
       "baslik": "Enflasyon %2'lik hedefin önemli ölçüde üzerinde seyrediyor",
@@ -1073,7 +1120,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9851784/Inflation-stays-significantly-above-2-target.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9851784/Inflation-stays-significantly-above-2-target.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Enflasyon",
@@ -1083,8 +1130,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enflasyon-12-cbdc7136.jpg",
-      "foto_atif": "Gary Hoover · CC-BY-4.0"
+      "foto": "/statik/foto/enflasyon-10-f56d310e.jpg",
+      "foto_atif": "KOMUnews · CC-BY-2.0"
     },
     {
       "baslik": "Enflasyon rakamları fiyat baskılarının devam ettiğini gösteriyor",
@@ -1094,7 +1141,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9851783/Inflation-readings-indicate-persistent-price-pressures.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9851783/Inflation-readings-indicate-persistent-price-pressures.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Enflasyon",
@@ -1104,8 +1151,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enflasyon-16-c7021499.png",
-      "foto_atif": "Authors of the study: Melissa J. Barber, PhD; Dzintars Gotham, MBBS; Helen Bygrave, MBBS; Christa Cepuch, MPH · CC-BY-4.0"
+      "foto": "/statik/foto/enflasyon-11-93446832.jpg",
+      "foto_atif": "Wikimedia Commons · CC-BY-SA-2.5"
     },
     {
       "baslik": "Trump, Fox News'e uçuş sorunlarının siber saldırı veya yapay zekâdan kaynaklanmasının pek olası olmadığını söyledi",
@@ -1115,7 +1162,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9851782/Trump-tells-Fox-News-flight-problem-unlikely-caused-by-cyberattack-or-al.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9851782/Trump-tells-Fox-News-flight-problem-unlikely-caused-by-cyberattack-or-al.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Jeopolitik",
@@ -1130,8 +1177,8 @@
         "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
       ],
       "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/jeopolitik-15-ccd8ab8d.jpg",
-      "foto_atif": "usepagov · PDM"
+      "foto": "/statik/foto/jeopolitik-14-4ca6b4fe.jpg",
+      "foto_atif": "Bernard Gagnon · CC0"
     },
     {
       "baslik": "Trump: Nvidia'yı büyütme niyetim yok, Çin ziyaretiyle ilgili casusluk endişeleri var - CNBC, ABD'li yetkililere atıfla",
@@ -1141,7 +1188,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9851780/Trump-no-intention-to-increase-Nvidia-spy-concerns-on-China-visit---CNBC-citing-US-officials.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9851780/Trump-no-intention-to-increase-Nvidia-spy-concerns-on-China-visit---CNBC-citing-US-officials.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Jeopolitik",
@@ -1167,7 +1214,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9851779/Nav-Canada-traffic-control-measures-at-major-airports-lifted-after-6-pm-ET-systems-functioning-normally.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9851779/Nav-Canada-traffic-control-measures-at-major-airports-lifted-after-6-pm-ET-systems-functioning-normally.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -1177,8 +1224,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-10-72a9566a.jpg",
-      "foto_atif": "Larry D. Moore · CC-BY-4.0"
+      "foto": "/statik/foto/sirket-haberleri-11-5c2f88fc.jpg",
+      "foto_atif": "Bill Boaden · CC-BY-SA-2.0"
     },
     {
       "baslik": "Jefferson: Son yıllardaki hisse senedi fiyat artışlarının önemli bir kısmı yapay zekâ coşkusundan kaynaklanıyor",
@@ -1188,7 +1235,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9851767/Jefferson-significant-part-of-recent-years-stock-price-gains-driven-by-AI-enthusiasm.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9851767/Jefferson-significant-part-of-recent-years-stock-price-gains-driven-by-AI-enthusiasm.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Borsa",
@@ -1198,8 +1245,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/borsa-21-e2f22d70.jpg",
-      "foto_atif": "William Iven firmbee · CC0"
+      "foto": "/statik/foto/borsa-10-1d3f5b6f.jpg",
+      "foto_atif": "Syced · CC0"
     },
     {
       "baslik": "Jefferson: Alabama'nın harcamaları enflasyon üzerindeki yukarı yönlü baskıyı artırıyor",
@@ -1209,7 +1256,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9851765/Jefferson-Alabama-spending-fuels-upward-pressure-on-inflation.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9851765/Jefferson-Alabama-spending-fuels-upward-pressure-on-inflation.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Enflasyon",
@@ -1219,8 +1266,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enflasyon-7-87d51a9b.jpg",
-      "foto_atif": "safaritravelplus · CC0"
+      "foto": "/statik/foto/enflasyon-13-981f6df7.jpg",
+      "foto_atif": "Alexander Davronov · CC-BY-SA-4.0"
     },
     {
       "baslik": "Jefferson: Alabama üretimini ve genel olarak gelirini artırmalıdır",
@@ -1230,7 +1277,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9851764/Jefferson-Alabama-should-increase-production-income-overall.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9851764/Jefferson-Alabama-should-increase-production-income-overall.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -1251,7 +1298,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9851763/Jefferson-longer-term-inflation-outlook-aligned-with-2-target.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9851763/Jefferson-longer-term-inflation-outlook-aligned-with-2-target.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Enflasyon",
@@ -1261,8 +1308,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enflasyon-15-0af2c135.jpg",
-      "foto_atif": "Marek Ślusarczyk ( Tupungato ) Photo portfolio · CC-BY-3.0"
+      "foto": "/statik/foto/enflasyon-14-e2f22d70.jpg",
+      "foto_atif": "William Iven firmbee · CC0"
     },
     {
       "baslik": "Jefferson: Alabama'da benimseme, verimliliği önemli ölçüde ve kademeli olarak artıracak",
@@ -1272,7 +1319,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9851762/Jefferson-Alabama-adoption-to-boost-productivity-significantly-gradually.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9851762/Jefferson-Alabama-adoption-to-boost-productivity-significantly-gradually.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -1282,8 +1329,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-9-c71a9b17.jpg",
-      "foto_atif": "Dietmar Rabich · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-11-5c2f88fc.jpg",
+      "foto_atif": "Bill Boaden · CC-BY-SA-2.0"
     },
     {
       "baslik": "Jefferson: Para politikasında yapılacak daha fazla değişiklik, kapsamlı verilere, görünüme ve risk analizine dayandırılmalıdır",
@@ -1293,7 +1340,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9851760/Jefferson-further-policy-tweaks-to-be-guided-by-thorough-data-outlook-and-risk-analysis.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9851760/Jefferson-further-policy-tweaks-to-be-guided-by-thorough-data-outlook-and-risk-analysis.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Şirket haberleri",
@@ -1303,8 +1350,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-18-3ea88e13.jpg",
-      "foto_atif": "Basile Morin · CC-BY-SA-4.0"
+      "foto": "/statik/foto/sirket-haberleri-16-dfb346f6.jpg",
+      "foto_atif": "Stephen Craven · CC-BY-SA-2.0"
     },
     {
       "baslik": "Jefferson: Alabama'da işsizlik oranının para politikasının etkili olamayacağı seviyelere çıkması söz konusu olabilir",
@@ -1314,7 +1361,7 @@
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9851759/Jefferson-Alabama-could-face-unemployment-increase-beyond-reach-of-monetary-policy.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9851759/Jefferson-Alabama-could-face-unemployment-increase-beyond-reach-of-monetary-policy.aspx?xy=feed",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Para politikası",
@@ -1324,50 +1371,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-8-6bdac262.jpg",
-      "foto_atif": "Infrogmation of New Orleans · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "Jefferson: Yapay zekâ odaklı üretkenlik artışı, nötr faiz oranını yükseltebilir",
-      "baslik_kaynak": "Jefferson: AI-driven productivity boost may increase neutral rate level",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9851758/Jefferson-AI-driven-productivity-boost-may-increase-neutral-rate-level.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Şirket haberleri",
-      "tarih": "2026-11-14",
-      "tarih_gorunur": "14 Kasım 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-13-4ee7beec.jpg",
-      "foto_atif": "Humphrey Bolton · CC-BY-SA-2.0"
-    },
-    {
-      "baslik": "FED'den Jefferson: ABD ekonomisi ivme kazanıyor, işgücü piyasası güçlü kalmaya devam ediyor",
-      "baslik_kaynak": "Fed's Jefferson: US economy gains momentum, labor market remains strong",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9851757/Feds-Jefferson-US-economy-gains-momentum-labor-market-remains-strong.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "İstihdam ve ücret",
-      "tarih": "2026-11-14",
-      "tarih_gorunur": "14 Kasım 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/istihdam-ve-ucret-8-418ab6fc.jpg",
-      "foto_atif": "Greg Walters · CC-BY-2.0"
+      "foto": "/statik/foto/para-politikasi-8-9ac5b7c7.jpg",
+      "foto_atif": "DestinationFearFan · CC-BY-SA-4.0"
     },
     {
       "baslik": "Meta, tahmin piyasası uygulamasını test ediyor, Adalet Bakanlığı Binance hack'inden elde edilen 1,2 milyar doları ele geçirmek için harekete geçiyor ve daha fazlası",
@@ -1563,32 +1568,6 @@
       "foto_atif": "Quintin Soloviev · CC-BY-4.0"
     },
     {
-      "baslik": "Küresel piyasalar gelecek hafta yoğun veri gündemine odaklandı",
-      "baslik_kaynak": "Küresel piyasalar gelecek hafta yoğun veri gündemine odaklandı",
-      "ozet": "Küresel piyasalar, Nvidia CEO’su Jensen Huang’ın istifasına ilişkin endişelerin sınırlı kalabileceği beklentisi ve petrol fiyatlarındaki düşüşün etkisiyle haftayı alış ağırlıklı tamamlarken, gözler gelecek haftanın yoğun veri gündemine çevrildi.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.aa.com.tr/tr/ekonomi/kuresel-piyasalar-gelecek-hafta-yogun-veri-gundemine-odaklandi/4124938",
-      "kurum": "AA",
-      "kurum_tam": "Anadolu Ajansı",
-      "konu": "Borsa",
-      "tarih": "2026-11-14",
-      "tarih_gorunur": "14 Kasım 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Endeks hareketi tek başına bir bilgi değildir; hareketi hangi sektörlerin taşıdığı ve işlem hacminin ne olduğu kalıcılığı belirler.",
-      "kanallar": [
-        "Sektör dağılımı: hareketin dar bir gruptan mı geniş tabandan mı geldiği, kalıcılığa dair ipucu verir.",
-        "Hacim: düşük hacimli hareket fiyat keşfinden çok pozisyon ayarlaması olabilir.",
-        "Volatilite: opsiyon fiyatlarındaki değişim piyasanın beklediği oynaklığı gösterir.",
-        "Korelasyon: hisse ile tahvil arasındaki ilişkinin işareti portföy riskinin nasıl dağıldığını değiştirir."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/borsa-21-e2f22d70.jpg",
-      "foto_atif": "William Iven firmbee · CC0"
-    },
-    {
       "baslik": "Lodos işyerini savaş alanına çevirdi",
       "baslik_kaynak": "Lodos işyerini savaş alanına çevirdi",
       "ozet": "Bursa Orhangazi’de etkili olan lodos gece saatlerinde bir tekel bayinde büyük hasara sebep oldu. Lodosta sundurma ve tabela içecek dolaplarının, dolaplar da yere devrildi. Olayda işyerinde büyük hasar meydana geldi.",
@@ -1682,6 +1661,27 @@
       "foto_atif": "User:A,Ocram · PDM"
     },
     {
+      "baslik": "Pluxee yemek kartı Petrol Ofisi marketlerinde kullanıma açıldı",
+      "baslik_kaynak": "Pluxee yemek kartı Petrol Ofisi marketlerinde kullanıma açıldı",
+      "ozet": "Çalışan deneyimi ve yan haklar dünyasının lideri Pluxee, Türkiye akaryakıt pazarının geleneksel lideri Petrol Ofisi Grubu ile yeni bir iş birliğine imza attı. İş birliği kapsamında Pluxee yemek kartı kullanıcıları, Petrol Ofisi’nin belirli istasyonlarındaki marketlerde beslenme ihtiyacını karşılamak için…",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.ekonomim.com/sirketler/pluxee-yemek-karti-petrol-ofisi-marketlerinde-kullanima-acildi-haberi-931238",
+      "kurum": "Ekonomim",
+      "kurum_tam": "Ekonomim",
+      "konu": "Enerji",
+      "tarih": "2026-11-14",
+      "tarih_gorunur": "14 Kasım 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/enerji-18-2333f432.jpg",
+      "foto_atif": "Sgroey · CC-BY-SA-4.0"
+    },
+    {
       "baslik": "Element savaşları: Teknoloji Çin'in minerallerine bağımlı mı?",
       "baslik_kaynak": "Element savaşları: Teknoloji Çin'in minerallerine bağımlı mı?",
       "ozet": "Akıllı telefondan yapay zeka sunucusuna, elektrikli araç bataryasından güdümlü füzeye kadar yeni nesil teknolojilerin arkasında nadir toprak elementleri yer alırken, bu stratejik pazarın %70'inden fazlası Çin'in kontrolünde bulunuyor.",
@@ -1708,6 +1708,32 @@
       "foto_atif": "United Nation · PDM"
     },
     {
+      "baslik": "BofA'nın Borsa İstanbul'daki dev hamlesi: Tek hissede 5 milyar TL'lik alım",
+      "baslik_kaynak": "BofA'nın Borsa İstanbul'daki dev hamlesi: Tek hissede 5 milyar TL'lik alım",
+      "ozet": "Bank of America'nın (BofA) Borsa İstanbul'da geçen hafta en fazla net alım ve net satış yaptığı hisseler belli oldu. Kurumun alımlarında Türk Hava Yolları, satışlarında ise Garanti BBVA ilk sırada yer aldı. İşte BofA'nın en çok alım ve satım yaptığı hisseler...",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.ekonomim.com/foto-galeri/ekonomi/bofanin-borsa-istanbuldaki-dev-hamlesi-tek-hissede-5-milyar-tllik-alim-galeri-931237",
+      "kurum": "Ekonomim",
+      "kurum_tam": "Ekonomim",
+      "konu": "Borsa",
+      "tarih": "2026-11-14",
+      "tarih_gorunur": "14 Kasım 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Endeks hareketi tek başına bir bilgi değildir; hareketi hangi sektörlerin taşıdığı ve işlem hacminin ne olduğu kalıcılığı belirler.",
+      "kanallar": [
+        "Sektör dağılımı: hareketin dar bir gruptan mı geniş tabandan mı geldiği, kalıcılığa dair ipucu verir.",
+        "Hacim: düşük hacimli hareket fiyat keşfinden çok pozisyon ayarlaması olabilir.",
+        "Volatilite: opsiyon fiyatlarındaki değişim piyasanın beklediği oynaklığı gösterir.",
+        "Korelasyon: hisse ile tahvil arasındaki ilişkinin işareti portföy riskinin nasıl dağıldığını değiştirir."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/borsa-9-78cc676a.jpg",
+      "foto_atif": "Syced · CC0"
+    },
+    {
       "baslik": "Savaş bölgelerinden kaçırılan 591 ton altın BAE'ye girdi",
       "baslik_kaynak": "Savaş bölgelerinden kaçırılan 591 ton altın BAE'ye girdi",
       "ozet": "İsviçre merkezli SWISSAID tarafından hazırlanan rapor, savaş bölgelerinden ve yaptırım uygulanan ülkelerden çıkarılan altının Birleşik Arap Emirlikleri'ne akmaya devam ettiğini ortaya koydu. Yeni düzenlemelere rağmen 2024 yılında ülkeye en az 591 ton kaçak veya çatışmayla bağlantılı altın girdi.",
@@ -1732,32 +1758,6 @@
       "kanal_basligi": "Hangi piyasaları etkiler?",
       "foto": "/statik/foto/jeopolitik-14-4ca6b4fe.jpg",
       "foto_atif": "Bernard Gagnon · CC0"
-    },
-    {
-      "baslik": "Malezya Donanması vurucu gücünü yerli gemisavar füzesi ATMACA ile tahkim ediyor",
-      "baslik_kaynak": "Malezya Donanması vurucu gücünü yerli gemisavar füzesi ATMACA ile tahkim ediyor",
-      "ozet": "Malezya Savunma Bakanlığı, Kıyı Muharebe Gemisi (LCS) sınıfı su üstü platformlarında görev yapmak üzere ROKETSAN üretimi ATMACA gemisavar füzelerini tedarik edeceğini duyurdu. Başlangıçta planlanan NSM füzelerinin yerini alacak yerli sistemin, 2029 yılı sonuna kadar envantere kazandırılması hedefleniyor.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.ekonomim.com/sektorler/savunma-sanayi/malezya-donanmasi-vurucu-gucunu-yerli-gemisavar-fuzesi-atmaca-ile-tahkim-ediyor-s1-haberi-931228",
-      "kurum": "Ekonomim",
-      "kurum_tam": "Ekonomim",
-      "konu": "Jeopolitik",
-      "tarih": "2026-11-14",
-      "tarih_gorunur": "14 Kasım 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
-      "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
-        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
-        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/jeopolitik-36-7cb6152c.jpg",
-      "foto_atif": "Captain Albert E. Theberge, NOAA Corps (ret.) · PDM"
     },
     {
       "baslik": "Trump'ın Nvidia iddialarını Çin'de gündeme getirmeyeceği öne sürüldü",
@@ -1974,6 +1974,74 @@
       "foto_atif": "usepagov · PDM"
     },
     {
+      "baslik": "Binance 6,3 milyar dolarlık saldırı sonrası çekimleri açıyor",
+      "baslik_kaynak": "Binance 6,3 milyar dolarlık saldırı sonrası çekimleri açıyor",
+      "ozet": "",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://tr.investing.com/news/company-news/binance-63-milyar-dolarlk-saldr-sonras-cekimleri-acyor-4157916",
+      "kurum": "Investing",
+      "kurum_tam": "Investing.com Türkiye",
+      "konu": "Kripto varlıklar",
+      "tarih": "2026-11-14",
+      "tarih_gorunur": "14 Kasım 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Kripto varlıklar risk iştahının en uçtaki göstergelerinden biridir; hareketin kaynağı düzenleme, likidite ya da kaldıraç çözülmesi olabilir ve üçünün sonuçları farklıdır.",
+      "kanallar": [
+        "Likidite koşulları: küresel likidite daraldığında en riskli varlıklar önce satılır.",
+        "Düzenleme: saklama, borsa yatırım fonu ve vergi kuralları kurumsal talebin önünü açar ya da kapatır.",
+        "Kaldıraç: türev piyasadaki açık pozisyon ve fonlama oranı sert hareketlerin büyüklüğünü belirler.",
+        "Piyasa yapısı: işlem hacminin borsalar arası dağılımı fiyat farklarının ne kadar sürdüğünü etkiler."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/kripto-varliklar-7-8bf172e8.jpg",
+      "foto_atif": "CryptoWallet.com Images · CC-BY-2.0"
+    },
+    {
+      "baslik": "Cloudastructure kurucusu Bentley 2.370 dolarlık hisse sattı",
+      "baslik_kaynak": "Cloudastructure kurucusu Bentley 2.370 dolarlık hisse sattı",
+      "ozet": "",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://tr.investing.com/news/insider-trading-news/cloudastructure-kurucusu-bentley-2370-dolarlk-hisse-satt-93CH-4157915",
+      "kurum": "Investing",
+      "kurum_tam": "Investing.com Türkiye",
+      "konu": "Borsa",
+      "tarih": "2026-11-14",
+      "tarih_gorunur": "14 Kasım 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/borsa-12-5544ef41.jpg",
+      "foto_atif": "Bernard Lee · CC0"
+    },
+    {
+      "baslik": "Valley National Bancorp yöneticisi Sani 300.188 dolarlık hisse sattı",
+      "baslik_kaynak": "Valley National Bancorp yöneticisi Sani 300.188 dolarlık hisse sattı",
+      "ozet": "",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://tr.investing.com/news/insider-trading-news/valley-national-bancorp-yoneticisi-sani-300188-dolarlk-hisse-satt-93CH-4157914",
+      "kurum": "Investing",
+      "kurum_tam": "Investing.com Türkiye",
+      "konu": "Borsa",
+      "tarih": "2026-11-14",
+      "tarih_gorunur": "14 Kasım 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/borsa-11-39672784.jpg",
+      "foto_atif": "Syced · CC0"
+    },
+    {
       "baslik": "Gator Capital Management, GROW hissesine 82.690 dolar yatırdı",
       "baslik_kaynak": "Gator Capital Management, GROW hissesine 82.690 dolar yatırdı",
       "ozet": "",
@@ -1993,69 +2061,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/borsa-10-1d3f5b6f.jpg",
       "foto_atif": "Syced · CC0"
-    },
-    {
-      "baslik": "Weyerhaeuser yöneticisi Richard Beckwitt 306.600 dolar değerinde hisse aldı",
-      "baslik_kaynak": "Weyerhaeuser yöneticisi Richard Beckwitt 306.600 dolar değerinde hisse aldı",
-      "ozet": "",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://tr.investing.com/news/insider-trading-news/weyerhaeuser-yoneticisi-richard-beckwitt-306600-dolar-degerinde-hisse-ald-93CH-4157910",
-      "kurum": "Investing",
-      "kurum_tam": "Investing.com Türkiye",
-      "konu": "Borsa",
-      "tarih": "2026-11-14",
-      "tarih_gorunur": "14 Kasım 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/borsa-9-78cc676a.jpg",
-      "foto_atif": "Syced · CC0"
-    },
-    {
-      "baslik": "Coca-Cola’nın başkan yardımcısı 1,47 milyon dolarlık hisse sattı",
-      "baslik_kaynak": "Coca-Cola’nın başkan yardımcısı 1,47 milyon dolarlık hisse sattı",
-      "ozet": "",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://tr.investing.com/news/insider-trading-news/cocacolann-baskan-yardmcs-147-milyon-dolarlk-hisse-satt-93CH-4157909",
-      "kurum": "Investing",
-      "kurum_tam": "Investing.com Türkiye",
-      "konu": "Borsa",
-      "tarih": "2026-11-14",
-      "tarih_gorunur": "14 Kasım 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/borsa-10-1d3f5b6f.jpg",
-      "foto_atif": "Syced · CC0"
-    },
-    {
-      "baslik": "Lipocine CEO’su Mahesh Patel 79.487 dolar değerinde hisse aldı",
-      "baslik_kaynak": "Lipocine CEO’su Mahesh Patel 79.487 dolar değerinde hisse aldı",
-      "ozet": "",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://tr.investing.com/news/insider-trading-news/lipocine-ceosu-mahesh-patel-79487-dolar-degerinde-hisse-ald-93CH-4157908",
-      "kurum": "Investing",
-      "kurum_tam": "Investing.com Türkiye",
-      "konu": "Borsa",
-      "tarih": "2026-11-14",
-      "tarih_gorunur": "14 Kasım 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/borsa-21-e2f22d70.jpg",
-      "foto_atif": "William Iven firmbee · CC0"
     },
     {
       "baslik": "Ödemeler Dengesi İstatistikleri (Eylül 2026)",
