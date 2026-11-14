@@ -2857,7 +2857,8 @@
    "kap_kimlik": "4028e4a24337209001434898a6893468",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "TENET BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "TENET BAĞIMSIZ DENETİM A.Ş.",
+   "sektor_bulunamadi": "2026-11-14"
   },
   "ERSU": {
    "kod": "ERSU",
@@ -2986,7 +2987,8 @@
    "kap_kimlik": "1DE05DAA8430073AE0530A4A622A2EBD",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "GÜNEY BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "GÜNEY BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor_bulunamadi": "2026-11-14"
   },
   "EYGYO": {
    "kod": "EYGYO",
@@ -3016,7 +3018,8 @@
    "kap_kimlik": "8acae2c5991b90af019961c939bd1e63",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "IŞIK YEMİNLİ MALİ MÜŞAVİRLİK VE BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "IŞIK YEMİNLİ MALİ MÜŞAVİRLİK VE BAĞIMSIZ DENETİM A.Ş.",
+   "sektor_bulunamadi": "2026-11-14"
   },
   "FBB": {
    "kod": "FBB",
