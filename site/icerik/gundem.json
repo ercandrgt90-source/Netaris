@@ -30,8 +30,34 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 24,
+  "yorumlanan": 25,
   "haberler": [
+    {
+      "baslik": "İsrail ordusu: Hamas'ın askeri kanadının üst düzey komutanını vurduk",
+      "baslik_kaynak": "Israeli military: struck senior commander in Hamas military wing",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9852424/Israeli-military-struck-senior-commander-in-Hamas-military-wing.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Jeopolitik",
+      "tarih": "2026-11-15",
+      "tarih_gorunur": "15 Kasım 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
+      "kanallar": [
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-15-ccd8ab8d.jpg",
+      "foto_atif": "usepagov · PDM"
+    },
     {
       "baslik": "İran Devrim Muhafızları Ordusu Deniz Kuvvetleri: Hürmüz Boğazı'nda deniz mayınlarına çarpan iki tanker alev aldı - devlet medyası",
       "baslik_kaynak": "Iran's IRGC navy: two tankers ignite after hitting naval mines in Strait of Hormuz - state media",
@@ -1473,27 +1499,6 @@
       "foto_atif": "Moheen Reeyad · CC-BY-SA-4.0"
     },
     {
-      "baslik": "ABD İç Güvenlik Bakanı (DHS) Mayorkas: Siber saldırı olasılığını hâlâ değerlendiriyoruz, bu ihtimali göz ardı etmiyoruz",
-      "baslik_kaynak": "US DHS Secretary Mullin: still considering possibility of cyberattack, not dismissing it",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9851850/US-DHS-Secretary-Mullin-still-considering-possibility-of-cyberattack-not-dismissing-it.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Şirket haberleri",
-      "tarih": "2026-11-14",
-      "tarih_gorunur": "14 Kasım 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-15-c1626940.jpg",
-      "foto_atif": "Gkbediako · CC-BY-SA-4.0"
-    },
-    {
       "baslik": "Bitcoin ETF'leri, bir tanesi hariç tüm kripto fonları değer kaybetmeye devam ederken, üst üste ikinci hafta 1 milyar dolar kaybetti",
       "baslik_kaynak": "Bitcoin ETFs lose $1 billion for the second week in a row as crypto funds, except one, continue bleeding",
       "ozet": "U.S. spot crypto ETFs lost about $1.55 billion combined, and Avalanche funds' $227,000 was the only weekly inflow among the 15 categories SoSoValue tracks.",
@@ -1536,8 +1541,8 @@
       "foto_atif": "de Vries, Alex; Stoll, Christian · PDM"
     },
     {
-      "baslik": "Analist dördüncü teslimiyet dalgasını işaret ederken Bitcoin 65.000 $'a gerileyerek 3 ayın en düşük seviyesine indi",
-      "baslik_kaynak": "Bitcoin slides to 3-month low of $65,000 as analyst flags fourth capitulation wave",
+      "baslik": "Analist dördüncü teslimiyet dalgasını işaret ederken Bitcoin 64.000 $'ın altına düşerek 3 ayın en düşük seviyesine geriledi",
+      "baslik_kaynak": "Bitcoin slides to 3-month low below $64,000 as analyst flags fourth capitulation wave",
       "ozet": "\"They are now selling at the very price they wish they had taken advantage of three months ago,\" wrote James Check.",
       "cevrildi": true,
       "dil": "en",
