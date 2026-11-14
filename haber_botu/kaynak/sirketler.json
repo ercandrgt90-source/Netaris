@@ -2717,7 +2717,10 @@
    "kap_kimlik": "8acae2c562329bd101626c30f98c1590",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "VARLIK GLOBAL BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "VARLIK GLOBAL BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor": "Technology",
+   "sektor_tr": "Bilişim",
+   "alt_sektor": "Electronics & Computer Distribution"
   },
   "EMVAR": {
    "kod": "EMVAR",
@@ -2725,7 +2728,8 @@
    "kap_kimlik": "8acae2c56cc265e9016d204e39f71dbc",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş"
+   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş",
+   "sektor_bulunamadi": "2026-11-14"
   },
   "ENDAE": {
    "kod": "ENDAE",
@@ -2777,7 +2781,9 @@
    "kap_kimlik": "8acae2c49145e00d01929fc2fbc85d02",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "GÜNEY BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "GÜNEY BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor_bulunamadi": "2026-11-14",
+   "sektor_sebep": "sektor alani yok"
   },
   "ENSRI": {
    "kod": "ENSRI",
