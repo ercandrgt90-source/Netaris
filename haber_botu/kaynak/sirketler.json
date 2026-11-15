@@ -3340,7 +3340,10 @@
    "kap_kimlik": "8acae2c465a51c3801683c2840c516cb",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "DRT BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "DRT BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor": "Financials",
+   "sektor_tr": "Finans",
+   "alt_sektor": "Asset Management"
   },
   "GLRMK": {
    "kod": "GLRMK",
@@ -3348,7 +3351,10 @@
    "kap_kimlik": "4028e4a1416e696301416f392897603f",
    "sehir": "ANKARA",
    "uye_turu": "IGS",
-   "denetci": "EREN BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "EREN BAĞIMSIZ DENETİM A.Ş.",
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Engineering & Construction"
   },
   "GLRYH": {
    "kod": "GLRYH",
@@ -3356,7 +3362,10 @@
    "kap_kimlik": "4028e4a240f2ef4c01410cf733f303d9",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "PKF ADAY BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "PKF ADAY BAĞIMSIZ DENETİM A.Ş.",
+   "sektor": "Financials",
+   "sektor_tr": "Finans",
+   "alt_sektor": "Asset Management"
   },
   "GLYHO": {
    "kod": "GLYHO",

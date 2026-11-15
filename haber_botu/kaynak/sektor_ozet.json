@@ -2495,28 +2495,28 @@
  "Temel tüketim": {
   "sektor": "Temel tüketim",
   "donem": "2026 3. çeyrek",
-  "sirket_sayisi": 25,
+  "sirket_sayisi": 27,
   "medyan": {
-   "brut_marj": 19.47008171370902,
+   "brut_marj": 20.080167597765364,
    "net_marj": -1.613290769917276,
    "roe": -0.12424645946485735,
    "cari_oran": 1.5747084548104957,
-   "borc_ozkaynak": 0.17196452077676416
+   "borc_ozkaynak": 0.17249876627153285
   },
   "sirket": {
    "AEFES": {
-    "brut_marj": 38.0013519603425,
+    "brut_marj": 38.011491662911226,
     "net_marj": 4.9278954484001805,
     "roe": 1.5683152980659598,
     "cari_oran": 1.0816046707063558,
-    "borc_ozkaynak": 0.17803282920637653
+    "borc_ozkaynak": 0.1791013201959139
    },
    "ALKLC": {
-    "brut_marj": 23.083094555873927,
-    "net_marj": -5.669340974212035,
-    "roe": -3.3298552675866713,
-    "cari_oran": 0.987603305785124,
-    "borc_ozkaynak": 1.0922248401211714
+    "brut_marj": 25.375693160813306,
+    "net_marj": -12.98706099815157,
+    "roe": -9.823138762670396,
+    "cari_oran": 0.8964110929853181,
+    "borc_ozkaynak": 1.186298497029011
    },
    "ARMGD": {
     "brut_marj": 20.080167597765364,
@@ -2603,11 +2603,11 @@
     "borc_ozkaynak": 0.8162810147755785
    },
    "DMRGD": {
-    "brut_marj": 59.117093013732294,
-    "net_marj": 0.24843703076797072,
-    "roe": 0.04304635761589404,
-    "cari_oran": 2.093785195044538,
-    "borc_ozkaynak": -0.13589403973509934
+    "brut_marj": 57.969759212056715,
+    "net_marj": 5.110247717092727,
+    "roe": 0.9165557035064359,
+    "cari_oran": 2.040559840045701,
+    "borc_ozkaynak": -0.0004527296937416778
    },
    "DURKN": {
     "brut_marj": 37.17395383749296,
@@ -2621,7 +2621,7 @@
     "net_marj": -7.518425135764158,
     "roe": -6.853783592644978,
     "cari_oran": 1.1287409962463224,
-    "borc_ozkaynak": 0.2607850070721358
+    "borc_ozkaynak": 0.4771923620933522
    },
    "EKSUN": {
     "brut_marj": 12.586811086333228,
@@ -2733,7 +2733,7 @@
   "ana_donem": "2026-09-30",
   "bitis": {
    "AEFES": "2026-09-30",
-   "ALKLC": "2026-06-30",
+   "ALKLC": "2026-09-30",
    "ARMGD": "2026-09-30",
    "ATAKP": "2026-09-30",
    "AVOD": "2026-09-30",
@@ -2746,7 +2746,7 @@
    "CEMZY": "2026-09-30",
    "CRFSA": "2026-09-30",
    "DARDL": "2026-06-30",
-   "DMRGD": "2026-06-30",
+   "DMRGD": "2026-09-30",
    "DURKN": "2026-09-30",
    "EFOR": "2026-09-30",
    "EKSUN": "2026-09-30",
@@ -2806,25 +2806,23 @@
   "donem_gruplari": {
    "2026-06-30": {
     "donem": "2026 2. çeyrek",
-    "sirket_sayisi": 6,
+    "sirket_sayisi": 4,
     "medyan": {
-     "brut_marj": 21.63822483784982,
-     "net_marj": -2.710451971722032,
-     "roe": -1.6434044549853886,
+     "brut_marj": 19.953176983815652,
+     "net_marj": -7.488867426092618,
+     "roe": -0.8213913642320136,
      "cari_oran": 1.202446879007978,
      "borc_ozkaynak": 0.6166150027831225
     },
     "kodlar": [
-     "ALKLC",
      "BALSU",
      "BESLR",
      "BORSK",
-     "DARDL",
-     "DMRGD"
+     "DARDL"
     ]
    }
   },
-  "tazelendi": "2026-11-14T19:33:02+00:00"
+  "tazelendi": "2026-11-15T19:54:41+00:00"
  },
  "İletişim": {
   "sektor": "İletişim",
@@ -3381,16 +3379,36 @@
   },
   "atlanan": [
    [
-    "BALAT",
+    "CASA",
     "eksik: hasilat, brut_kar, stoklar"
    ],
    [
-    "CASA",
+    "BALAT",
     "eksik: hasilat, brut_kar, stoklar"
    ],
    [
     "DIRIT",
     "eksik: stoklar"
+   ],
+   [
+    "ASUZU",
+    "eksik: aktif_toplami, ozkaynak, stoklar"
+   ],
+   [
+    "ATEKS",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "ATSYH",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "AYCES",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "BAKAB",
+    "eksik: hasilat, net_kar, aktif_toplami"
    ],
    [
     "BARMA",
@@ -3510,6 +3528,10 @@
    ],
    [
     "GENTS",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "GIPTA",
     "eksik: hasilat, net_kar, aktif_toplami"
    ],
    [
@@ -3679,12 +3701,7 @@
   "taze_olculen": [
    "AKSA",
    "ARCLK",
-   "ARTMS",
-   "ASUZU",
-   "ATEKS",
-   "ATSYH",
-   "AYCES",
-   "BAKAB"
+   "ARTMS"
   ],
   "mali": {
    "MAVI": 1,
@@ -3724,6 +3741,6 @@
     ]
    }
   },
-  "tazelendi": "2026-11-14T19:36:39+00:00"
+  "tazelendi": "2026-11-15T19:57:05+00:00"
  }
 }
