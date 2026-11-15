@@ -3309,7 +3309,10 @@
    "kap_kimlik": "8acae2c486d22a3a018a5106156c5c3d",
    "sehir": "ANKARA",
    "uye_turu": "IGS",
-   "denetci": "VEZİN BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "VEZİN BAĞIMSIZ DENETİM A.Ş.",
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Specialty Retail"
   },
   "GLB": {
    "kod": "GLB",
@@ -3317,7 +3320,8 @@
    "kap_kimlik": "4028e4a140e95bea0140ee21b10d0188",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "PKF ADAY BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "PKF ADAY BAĞIMSIZ DENETİM A.Ş.",
+   "sektor_bulunamadi": "2026-11-15"
   },
   "GLBMD": {
    "kod": "GLBMD",
@@ -3325,7 +3329,10 @@
    "kap_kimlik": "4028e4a140e95bea0140ee21b10d0188",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "PKF ADAY BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "PKF ADAY BAĞIMSIZ DENETİM A.Ş.",
+   "sektor": "Financials",
+   "sektor_tr": "Finans",
+   "alt_sektor": "Capital Markets"
   },
   "GLCVY": {
    "kod": "GLCVY",

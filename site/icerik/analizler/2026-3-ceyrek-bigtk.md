@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %18,5 düşmesi brüt kârın %165,9 gerilemesine yol açarak brüt kâr marjının -%10,9'a kaymasına neden olur; aynı zamanda net kârın -%83,5'lik negatif marjda kalmasına ve özkaynak kârlılığının -%5,1'e gerilemesine yansımıştır. Aktif toplamının %528 artışı, faaliyet nakit akışının %10 745,9 ve yatırım harcamasının %941 artışıyla paralel seyretmiş, bu da net borcun %52,5 azalmasına rağmen cari oranın 0,87 ve borç/özkaynak oranının 0,00 seviyelerinde sabit kalmasını sağlamıştır. Faaliyet kârının -%6,0'dan -%5,0'ye hafif artması, FAVÖK'ün %29,8 düşmesiyle birlikte, artan varlık ve nakit akışı içinde kâr üretimindeki zayıflığın sürdüğünü göstermektedir.
+Hasılatın %18,5 düşmesi brüt kârın %165,9 gerilemesine yol açarak brüt kâr marjının -%10,9'a kaymasına neden olur; aynı zamanda net kârın -%83,5'lik negatif marjda kalmasına ve özkaynak kârlılığının -%5,1'e gerilemesine yansımıştır. Aktif toplamının %528 artışı, faaliyet nakit akışının %10 745,9 ve yatırım harcamasının %941 artışıyla paralel seyretmiş, bu da net borcun %52,5 azalmasına rağmen cari oranın 0,87 ve borç/özkaynak oranının 0,00 seviyelerinde sabit kalmasını sağlamıştır. Faaliyet kârının -%6,0'dan -%5,0'ye hafif artması, FAVÖK'ün %29,8 düşmesiyle birlikte, artan varlık ve nakit akışı içinde kâr üretimindeki zayıflığın sürdüğünü göstermektedir.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
@@ -75,11 +75,19 @@ Hasılatın %18,5 düşmesi brüt kârın %165,9 gerilemesine yol açarak brüt 
 
 *Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
 
-## Sektör karşılaştırması bu dönem yapılmadı
+## Sektör içindeki konum
 
-İletişim sektöründe **aynı dönemi bildiren** en az 3 şirket yok, bu yüzden sektör medyanı üretilmedi ve karşılaştırma tablosu yazılmadı. İki şirketin ortasını "sektör medyanı" diye sunmak, ölçülmemiş bir şeyi ölçülmüş gibi göstermek olurdu.
+Karşılaştırma İletişim sektöründe **aynı dönemi bildiren** 3 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
-Yukarıdaki **bir yıl öncesine göre** değişim ve ölçüm tablosu şirketin kendi geçmişine dayanıyor; onlar için kıyas kümesi gerekmiyor.
+| Oran | Şirket | Sektör medyanı |
+| --- | ---: | ---: |
+| Brüt kâr marjı | -%10,9 | %12,5 |
+| Net kâr marjı | -%83,5 | -%14,7 |
+| Özkaynak kârlılığı | -%5,1 | -%3,4 |
+| Cari oran | 0,87 | 0,87 |
+| Borç / özkaynak | 0,00 | 0,08 |
+
+*Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
 ## Öne çıkan ölçümler
 
@@ -89,6 +97,7 @@ Yukarıdaki **bir yıl öncesine göre** değişim ve ölçüm tablosu şirketin
 - Net kâr reel olarak -%81,9 geriledi.
 - Brüt marj 24,3 puan daraldı (%13,4 → -%10,9).
 - Cari oran 0,87; kısa vadeli yükümlülükler dönen varlıkları aşıyor.
+- Özkaynak kârlılığı -%5,1; sektör medyanı -%3,4.
 - Yatırım harcaması faaliyet nakit akışını aşıyor; aradaki fark dış kaynakla karşılanıyor.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
