@@ -224,7 +224,7 @@
     ]
    }
   },
-  "tazelendi": "2026-11-14T01:25:33+00:00"
+  "tazelendi": "2026-11-15T02:01:12+00:00"
  },
  "Enerji": {
   "sektor": "Enerji",
@@ -471,26 +471,6 @@
     "eksik: hasilat"
    ],
    [
-    "EUKYO",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "EUYO",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "GARAN",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "GARFA",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "GEDIK",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
     "INFO",
     "eksik: hasilat, net_kar, aktif_toplami"
    ],
@@ -582,7 +562,12 @@
    "DCTTR",
    "DSTKF",
    "ETYAT",
-   "EUHOL"
+   "EUHOL",
+   "EUKYO",
+   "EUYO",
+   "GARAN",
+   "GARFA",
+   "GEDIK"
   ],
   "mali": {},
   "donem_gruplari": {
@@ -604,7 +589,7 @@
     ]
    }
   },
-  "tazelendi": "2026-11-14T01:28:49+00:00"
+  "tazelendi": "2026-11-15T02:04:55+00:00"
  },
  "Gayrimenkul": {
   "sektor": "Gayrimenkul",

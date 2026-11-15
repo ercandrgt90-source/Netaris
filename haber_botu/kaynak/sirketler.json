@@ -3213,7 +3213,9 @@
    "kap_kimlik": "402821824bf524dd014c27907cd65b79",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "BİLGİN GLOBAL BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "BİLGİN GLOBAL BAĞIMSIZ DENETİM A.Ş.",
+   "sektor_bulunamadi": "2026-11-15",
+   "sektor_sebep": "sektor alani yok"
   },
   "GEDIK": {
    "kod": "GEDIK",
@@ -3254,7 +3256,10 @@
    "kap_kimlik": "8acae2c49c81f746019c9a20ca2419a9",
    "sehir": "KOCAELİ",
    "uye_turu": "IGS",
-   "denetci": "DENEYİM BAĞIMSIZ DENETİM VE DANIŞMANLIK A.Ş."
+   "denetci": "DENEYİM BAĞIMSIZ DENETİM VE DANIŞMANLIK A.Ş.",
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Specialty Chemicals"
   },
   "GENTS": {
    "kod": "GENTS",
@@ -3295,7 +3300,8 @@
    "kap_kimlik": "8acae2c5830502c2018451afb35c132d",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "GÜRELİ YEMİNLİ MALİ MÜŞAVİRLİK VE BAĞIMSIZ DENETİM HİZMETLERİ A.Ş."
+   "denetci": "GÜRELİ YEMİNLİ MALİ MÜŞAVİRLİK VE BAĞIMSIZ DENETİM HİZMETLERİ A.Ş.",
+   "sektor_bulunamadi": "2026-11-15"
   },
   "GIPTA": {
    "kod": "GIPTA",
