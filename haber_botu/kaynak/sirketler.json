@@ -3373,7 +3373,10 @@
    "kap_kimlik": "4028e4a140e95bea0140ee24416e0197",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "PKF ADAY BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "PKF ADAY BAĞIMSIZ DENETİM A.Ş.",
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Conglomerates"
   },
   "GMTAS": {
    "kod": "GMTAS",
@@ -3381,7 +3384,10 @@
    "kap_kimlik": "a3ff494df37b408aa9088106fe98f59e",
    "sehir": "ANKARA",
    "uye_turu": "IGS",
-   "denetci": "KARAR BAĞIMSIZ DENETİM VE DANIŞMANLIK A.Ş."
+   "denetci": "KARAR BAĞIMSIZ DENETİM VE DANIŞMANLIK A.Ş.",
+   "sektor": "Consumer Non-Cyclicals",
+   "sektor_tr": "Consumer Non-Cyclicals",
+   "alt_sektor": "Food & Drug Retailing"
   },
   "GOKNR": {
    "kod": "GOKNR",
@@ -3389,7 +3395,10 @@
    "kap_kimlik": "4028e4a1462cc5dd0146673d70055928",
    "sehir": "ANKARA",
    "uye_turu": "IGS",
-   "denetci": "EREN BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "EREN BAĞIMSIZ DENETİM A.Ş.",
+   "sektor": "Consumer Staples",
+   "sektor_tr": "Temel tüketim",
+   "alt_sektor": "Packaged Foods"
   },
   "GOLDA": {
    "kod": "GOLDA",
