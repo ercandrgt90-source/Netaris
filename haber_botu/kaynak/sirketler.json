@@ -3406,7 +3406,10 @@
    "kap_kimlik": "4028e4a244a081800145b2cb692413b4",
    "sehir": "KONYA",
    "uye_turu": "IGS",
-   "denetci": "EREN BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "EREN BAĞIMSIZ DENETİM A.Ş.",
+   "sektor": "Consumer Staples",
+   "sektor_tr": "Temel tüketim",
+   "alt_sektor": "Packaged Foods"
   },
   "GOLTS": {
    "kod": "GOLTS",
@@ -3414,7 +3417,10 @@
    "kap_kimlik": "4028e4a140e95be70140ee27ccd40129",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "DENGE ANKARA BAĞIMSIZ DENETİM VE YEMİNLİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "DENGE ANKARA BAĞIMSIZ DENETİM VE YEMİNLİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Building Materials"
   },
   "GOODY": {
    "kod": "GOODY",
@@ -3422,7 +3428,10 @@
    "kap_kimlik": "4028e4a140f2ed7101412bfc6f340359",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "RSM TURKEY ULUSLARARASI BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "RSM TURKEY ULUSLARARASI BAĞIMSIZ DENETİM A.Ş.",
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Auto Parts"
   },
   "GOZDE": {
    "kod": "GOZDE",
