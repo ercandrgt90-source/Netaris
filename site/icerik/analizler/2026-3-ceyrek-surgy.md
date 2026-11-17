@@ -33,13 +33,13 @@ Hasılatın %213,2 oranında net kâra dönüşmesi, net kâr marjının sektör
 
 ## Sektör içindeki konum
 
-Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 31 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 33 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Net kâr marjı | %213,2 | %24,3 |
+| Net kâr marjı | %213,2 | %22,4 |
 | Özkaynak kârlılığı | %1,2 | %0,9 |
-| Borç / özkaynak | 0,00 | 0,00 |
+| Borç / özkaynak | 0,00 | 0,02 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

@@ -3439,7 +3439,10 @@
    "kap_kimlik": "4028e4a24158e42201415b0210ba60ef",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "DRT BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "DRT BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor": "Financials",
+   "sektor_tr": "Finans",
+   "alt_sektor": "Asset Management"
   },
   "GRM": {
    "kod": "GRM",
@@ -3447,7 +3450,8 @@
    "kap_kimlik": "4028e4a141da49e50141e08580772b86",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": ""
+   "denetci": "",
+   "sektor_bulunamadi": "2026-11-16"
   },
   "GRNYO": {
    "kod": "GRNYO",
@@ -3455,7 +3459,10 @@
    "kap_kimlik": "4028e4a240f2ef470141271e9d5104d3",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "GÜNEY BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "GÜNEY BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor": "Financials",
+   "sektor_tr": "Finans",
+   "alt_sektor": "Asset Management"
   },
   "GRSEL": {
    "kod": "GRSEL",
