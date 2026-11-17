@@ -3543,7 +3543,10 @@
    "kap_kimlik": "4028e4a241733d4a01417989f3760a4d",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "DENEYİM BAĞIMSIZ DENETİM VE DANIŞMANLIK A.Ş."
+   "denetci": "DENEYİM BAĞIMSIZ DENETİM VE DANIŞMANLIK A.Ş.",
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Agricultural Inputs"
   },
   "GUNDG": {
    "kod": "GUNDG",
@@ -3551,7 +3554,10 @@
    "kap_kimlik": "8acae2c59145e00a019146a7cde301bc",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "KARAR BAĞIMSIZ DENETİM VE DANIŞMANLIK A.Ş."
+   "denetci": "KARAR BAĞIMSIZ DENETİM VE DANIŞMANLIK A.Ş.",
+   "sektor": "Consumer Staples",
+   "sektor_tr": "Temel tüketim",
+   "alt_sektor": "Packaged Foods"
   },
   "GWIND": {
    "kod": "GWIND",
@@ -3559,7 +3565,10 @@
    "kap_kimlik": "8acae2c46d7599a6016dee0b5aec36b2",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "DRT BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "DRT BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor": "Utilities",
+   "sektor_tr": "Kamu hizmetleri",
+   "alt_sektor": "Utilities - Renewable"
   },
   "GYVAR": {
    "kod": "GYVAR",
