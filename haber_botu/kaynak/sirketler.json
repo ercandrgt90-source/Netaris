@@ -3501,7 +3501,10 @@
    "kap_kimlik": "4028e4a140e95be70140ee2a7f39013b",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş"
+   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş",
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Marine Shipping"
   },
   "GSDHO": {
    "kod": "GSDHO",
@@ -3509,7 +3512,10 @@
    "kap_kimlik": "4028e4a140e95be70140ee2be54b014a",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş"
+   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş",
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Marine Shipping"
   },
   "GSIPD": {
    "kod": "GSIPD",
@@ -3517,7 +3523,8 @@
    "kap_kimlik": "8acae2c57afb2d71017d143527b66d28",
    "sehir": "",
    "uye_turu": "IGS",
-   "denetci": ""
+   "denetci": "",
+   "sektor_bulunamadi": "2026-11-17"
   },
   "GSRAY": {
    "kod": "GSRAY",
