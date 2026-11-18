@@ -264,7 +264,7 @@
   ],
   "mali": {},
   "donem_gruplari": {},
-  "tazelendi": "2026-11-18T15:51:11+00:00"
+  "tazelendi": "2026-11-18T22:10:29+00:00"
  },
  "Finans": {
   "sektor": "Finans",
@@ -836,6 +836,14 @@
    [
     "TURGG",
     "eksik: hasilat"
+   ],
+   [
+    "YGGYO",
+    "eksik: aktif_toplami, ozkaynak"
+   ],
+   [
+    "ZRGYO",
+    "eksik: hasilat, net_kar, aktif_toplami"
    ]
   ],
   "ana_donem": "2026-09-30",
@@ -913,9 +921,7 @@
    "SURGY",
    "SVGYO",
    "VKGYO",
-   "VRGYO",
-   "YGGYO",
-   "ZRGYO"
+   "VRGYO"
   ],
   "mali": {},
   "donem_gruplari": {
@@ -929,7 +935,7 @@
     ]
    }
   },
-  "tazelendi": "2026-11-18T15:54:24+00:00"
+  "tazelendi": "2026-11-18T22:14:29+00:00"
  },
  "Kamu hizmetleri": {
   "sektor": "Kamu hizmetleri",

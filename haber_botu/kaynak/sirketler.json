@@ -3636,7 +3636,10 @@
    "kap_kimlik": "8acae2c586d22c51018a739bad647f5a",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "AKC BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "AKC BAĞIMSIZ DENETİM A.Ş.",
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Aerospace & Defense"
   },
   "HAYVK": {
    "kod": "HAYVK",
@@ -3644,7 +3647,8 @@
    "kap_kimlik": "8acae2c59145e00e0197bff60dc62a30",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş"
+   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş",
+   "sektor_bulunamadi": "2026-11-18"
   },
   "HDFFL": {
    "kod": "HDFFL",
@@ -3652,7 +3656,8 @@
    "kap_kimlik": "4028e4a246b4c5ad0147c4b464893865",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "GÜNEY BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "GÜNEY BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor_bulunamadi": "2026-11-18"
   },
   "HDFGS": {
    "kod": "HDFGS",
