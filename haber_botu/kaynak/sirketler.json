@@ -3607,7 +3607,8 @@
    "kap_kimlik": "4028e4a240f2ef470140f39a7f7600b1",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "KPMG BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "KPMG BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor_bulunamadi": "2026-11-18"
   },
   "HALKI": {
    "kod": "HALKI",
@@ -3615,7 +3616,8 @@
    "kap_kimlik": "4028e4a240f2ef4c01411654e5fc0479",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "KPMG BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "KPMG BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor_bulunamadi": "2026-11-18"
   },
   "HATEK": {
    "kod": "HATEK",
@@ -3623,7 +3625,10 @@
    "kap_kimlik": "4028e4a141e536460141e5859f40059b",
    "sehir": "HATAY",
    "uye_turu": "IGS",
-   "denetci": "KARAR BAĞIMSIZ DENETİM VE DANIŞMANLIK A.Ş."
+   "denetci": "KARAR BAĞIMSIZ DENETİM VE DANIŞMANLIK A.Ş.",
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Textile Manufacturing"
   },
   "HATSN": {
    "kod": "HATSN",

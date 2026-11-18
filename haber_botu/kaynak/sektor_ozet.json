@@ -52,7 +52,7 @@
     "borc_ozkaynak": 0.8665183537263627
    },
    "BINBN": {
-    "brut_marj": 5.125746415028549,
+    "brut_marj": 4.82064246175304,
     "net_marj": -59.734995423440694,
     "roe": -7.388140161725068,
     "cari_oran": 3.7460350748420583,
@@ -222,7 +222,7 @@
     ]
    }
   },
-  "tazelendi": "2026-11-18T03:46:31+00:00"
+  "tazelendi": "2026-11-18T16:30:51+00:00"
  },
  "Enerji": {
   "sektor": "Enerji",
@@ -264,18 +264,18 @@
   ],
   "mali": {},
   "donem_gruplari": {},
-  "tazelendi": "2026-11-17T16:42:55+00:00"
+  "tazelendi": "2026-11-18T15:51:11+00:00"
  },
  "Finans": {
   "sektor": "Finans",
   "donem": "2026 3. çeyrek",
-  "sirket_sayisi": 31,
+  "sirket_sayisi": 33,
   "medyan": {
    "brut_marj": 42.23194748358862,
    "net_marj": 0.33641246465617825,
    "roe": -0.3406754772393539,
    "cari_oran": 13.376114081996436,
-   "borc_ozkaynak": -0.016707944880402562
+   "borc_ozkaynak": -0.01876360808709176
   },
   "sirket": {
    "A1CAP": {
@@ -428,9 +428,9 @@
     "borc_ozkaynak": -0.14904343329886247
    },
    "GEDIK": {
-    "net_marj": 0.5044638168259636,
-    "roe": 9.837173579109063,
-    "borc_ozkaynak": 1.3533026113671276
+    "net_marj": -0.18342262315513008,
+    "roe": -7.667482517482517,
+    "borc_ozkaynak": 1.4124125874125875
    },
    "INFO": {
     "net_marj": -12.579649542015133,
@@ -489,96 +489,22 @@
     "borc_ozkaynak": 0.05151977894124491
    },
    "GRNYO": {
-    "brut_marj": 59.16002896451846,
-    "net_marj": -93.33816075307749,
-    "roe": -16.615106986336684,
-    "cari_oran": 15.459662288930582
+    "brut_marj": 96.5034965034965,
+    "net_marj": -166.43356643356643,
+    "roe": -15.33900489816963,
+    "cari_oran": 15.459662288930582,
+    "borc_ozkaynak": -1.0051559680329982
+   },
+   "HALKB": {
+    "net_marj": 14.221883550968101,
+    "roe": 3.1671101855065755,
+    "borc_ozkaynak": -2.0152531914073046
    }
   },
   "atlanan": [
    [
     "MARKA",
     "eksik: hasilat"
-   ],
-   [
-    "EUKYO",
-    "eksik: aktif_toplami, ozkaynak"
-   ],
-   [
-    "EUYO",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "GARAN",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "GARFA",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "GEDIK",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "GLBMD",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "GLCVY",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "GLRYH",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "GOZDE",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "GRNYO",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "HALKB",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "INFO",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "ISFIN",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "ISMEN",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "PRDGS",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "SAHOL",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "TERA",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "TSKB",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "TURSG",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "VKFYO",
-    "eksik: hasilat, net_kar, aktif_toplami"
    ]
   ],
   "ana_donem": "2026-09-30",
@@ -608,7 +534,7 @@
    "VKFYO": "2026-09-30",
    "EUKYO": "2026-09-30",
    "EUYO": "2026-09-30",
-   "GEDIK": "2026-06-30",
+   "GEDIK": "2026-09-30",
    "INFO": "2026-09-30",
    "ISMEN": "2026-09-30",
    "PRDGS": "2026-09-30",
@@ -619,7 +545,8 @@
    "GLCVY": "2026-09-30",
    "GLRYH": "2026-09-30",
    "GOZDE": "2026-06-30",
-   "GRNYO": "2026-09-30"
+   "GRNYO": "2026-09-30",
+   "HALKB": "2026-09-30"
   },
   "onceki_yok": [],
   "kirpilan": [],
@@ -641,42 +568,61 @@
    "DCTTR",
    "DSTKF",
    "ETYAT",
-   "EUHOL"
+   "EUHOL",
+   "EUKYO",
+   "EUYO",
+   "GARAN",
+   "GARFA",
+   "GEDIK",
+   "GLBMD",
+   "GLCVY",
+   "GLRYH",
+   "GOZDE",
+   "GRNYO",
+   "HALKB",
+   "INFO",
+   "ISFIN",
+   "ISMEN",
+   "PRDGS",
+   "SAHOL",
+   "TERA",
+   "TSKB",
+   "TURSG",
+   "VKFYO"
   ],
   "mali": {},
   "donem_gruplari": {
    "2026-06-30": {
     "donem": "2026 2. çeyrek",
-    "sirket_sayisi": 6,
+    "sirket_sayisi": 5,
     "medyan": {
      "brut_marj": 94.06641262928687,
-     "net_marj": 22.042487642370702,
-     "roe": 9.79811705883981,
+     "net_marj": 24.227832427598543,
+     "roe": 9.75906053857056,
      "cari_oran": 1.4660766961651917,
-     "borc_ozkaynak": 0.07328698974162516
+     "borc_ozkaynak": 0.05151977894124491
     },
     "kodlar": [
      "DSTKF",
      "ETYAT",
-     "GEDIK",
      "GOZDE",
      "TERA",
      "TURSG"
     ]
    }
   },
-  "tazelendi": "2026-11-18T03:49:46+00:00"
+  "tazelendi": "2026-11-18T16:38:11+00:00"
  },
  "Gayrimenkul": {
   "sektor": "Gayrimenkul",
   "donem": "2026 3. çeyrek",
-  "sirket_sayisi": 33,
+  "sirket_sayisi": 34,
   "medyan": {
    "brut_marj": 64.26660988074957,
-   "net_marj": 22.39414468908783,
-   "roe": 0.8831681431453381,
+   "net_marj": 22.312208398965684,
+   "roe": 0.7029097199876546,
    "cari_oran": 6.4737160120845925,
-   "borc_ozkaynak": 0.015425154601673336
+   "borc_ozkaynak": 0.007555196535294772
   },
   "sirket": {
    "AAGYO": {
@@ -746,9 +692,9 @@
     "borc_ozkaynak": -0.015292084498715237
    },
    "AVGYO": {
-    "net_marj": 1458.80905511811,
-    "roe": 12.950196592398427,
-    "borc_ozkaynak": -0.05519003931847968
+    "net_marj": -262.5,
+    "roe": -2.1026842778014485,
+    "borc_ozkaynak": -0.002449936088623775
    },
    "AVPGY": {
     "brut_marj": 64.26660988074957,
@@ -906,7 +852,7 @@
    "ALGYO": "2026-09-30",
    "ASGYO": "2026-09-30",
    "ATAGY": "2026-09-30",
-   "AVGYO": "2026-06-30",
+   "AVGYO": "2026-09-30",
    "AVPGY": "2026-09-30",
    "BEGYO": "2026-09-30",
    "DAPGM": "2026-09-30",
@@ -975,30 +921,25 @@
   "donem_gruplari": {
    "2026-06-30": {
     "donem": "2026 2. çeyrek",
-    "sirket_sayisi": 3,
-    "medyan": {
-     "net_marj": 28.632087348639185,
-     "roe": 0.5873638241923366,
-     "borc_ozkaynak": 0.13030191908079697
-    },
+    "sirket_sayisi": 2,
+    "medyan": {},
     "kodlar": [
-     "AVGYO",
      "EDIP",
      "PSGYO"
     ]
    }
   },
-  "tazelendi": "2026-11-17T16:45:39+00:00"
+  "tazelendi": "2026-11-18T15:54:24+00:00"
  },
  "Kamu hizmetleri": {
   "sektor": "Kamu hizmetleri",
   "donem": "2026 3. çeyrek",
-  "sirket_sayisi": 24,
+  "sirket_sayisi": 25,
   "medyan": {
-   "net_marj": 6.7927627029568765,
-   "roe": 0.9289162151875934,
-   "cari_oran": 0.8565809609075501,
-   "borc_ozkaynak": 0.053753543753543756
+   "net_marj": 7.178117998506347,
+   "roe": 0.9708291667929254,
+   "cari_oran": 0.8610354223433242,
+   "borc_ozkaynak": 0.0942088952887501
   },
   "sirket": {
    "A1YEN": {
@@ -1157,14 +1098,15 @@
     "roe": 3.358209654010019,
     "cari_oran": 0.7918607837763771,
     "borc_ozkaynak": 0.4639262137740531
+   },
+   "GWIND": {
+    "net_marj": 35.98360561369576,
+    "roe": 1.6206896551724137,
+    "cari_oran": 0.8610354223433242,
+    "borc_ozkaynak": 0.13466424682395645
    }
   },
-  "atlanan": [
-   [
-    "BIGEN",
-    "eksik: aktif_toplami, ozkaynak, donen_varliklar"
-   ]
-  ],
+  "atlanan": [],
   "ana_donem": "2026-09-30",
   "bitis": {
    "A1YEN": "2026-09-30",
@@ -1192,7 +1134,8 @@
    "PAMEL": "2026-06-30",
    "ZOREN": "2026-09-30",
    "AKENR": "2026-09-30",
-   "ECOGR": "2026-09-30"
+   "ECOGR": "2026-09-30",
+   "GWIND": "2026-09-30"
   },
   "onceki_yok": [],
   "kirpilan": [],
@@ -1210,6 +1153,7 @@
    "AYGAZ",
    "BASGZ",
    "BESTE",
+   "BIGEN",
    "BIOEN",
    "CANTE",
    "CATES",
@@ -1220,6 +1164,7 @@
    "ENJSA",
    "ENTRA",
    "ESEN",
+   "GWIND",
    "PAMEL",
    "ZOREN"
   ],
@@ -1235,7 +1180,7 @@
     ]
    }
   },
-  "tazelendi": "2026-11-17T16:57:28+00:00"
+  "tazelendi": "2026-11-18T15:56:27+00:00"
  },
  "Sanayi": {
   "sektor": "Sanayi",
@@ -1798,12 +1743,20 @@
     "eksik: hasilat, brut_kar, stoklar"
    ],
    [
+    "ANELE",
+    "eksik: aktif_toplami, ozkaynak, stoklar"
+   ],
+   [
     "ARSAN",
     "eksik: stoklar"
    ],
    [
     "DOCO",
     "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "DOGUB",
+    "eksik: stoklar"
    ],
    [
     "EKIM",
@@ -1900,7 +1853,6 @@
    "ALCAR",
    "ALTNY",
    "ALVES",
-   "ANELE",
    "ASELS",
    "ASTOR",
    "BERA",
@@ -1918,7 +1870,6 @@
    "CLEBI",
    "CUSAN",
    "DMSAS",
-   "DOGUB",
    "DOHOL",
    "EGGUB",
    "EGPRO",
@@ -1993,7 +1944,7 @@
     ]
    }
   },
-  "tazelendi": "2026-11-17T17:07:00+00:00"
+  "tazelendi": "2026-11-18T16:15:16+00:00"
  },
  "Sağlık": {
   "sektor": "Sağlık",
@@ -2004,7 +1955,7 @@
    "net_marj": 2.116213847502191,
    "roe": 0.483526268922529,
    "cari_oran": 2.3576793576793578,
-   "borc_ozkaynak": -0.01960485268630849
+   "borc_ozkaynak": 0.003270239648495892
   },
   "sirket": {
    "ANGEN": {
@@ -2036,11 +1987,10 @@
     "borc_ozkaynak": -0.0760923623445826
    },
    "FONET": {
-    "brut_marj": 53.8270545320786,
-    "net_marj": 30.3804064616988,
-    "roe": 4.297918473547268,
-    "cari_oran": 3.3348491112029763,
-    "borc_ozkaynak": -0.06136600173460538
+    "brut_marj": 52.52325351276469,
+    "net_marj": 29.651409346639902,
+    "roe": 4.548135299219427,
+    "cari_oran": 3.3348491112029763
    },
    "GENIL": {
     "brut_marj": 32.84837861524978,
@@ -2099,18 +2049,18 @@
   ],
   "mali": {},
   "donem_gruplari": {},
-  "tazelendi": "2026-11-17T22:31:02+00:00"
+  "tazelendi": "2026-11-18T16:15:58+00:00"
  },
  "Temel malzeme": {
   "sektor": "Temel malzeme",
   "donem": "2026 3. çeyrek",
-  "sirket_sayisi": 39,
+  "sirket_sayisi": 42,
   "medyan": {
-   "brut_marj": 14.75609756097561,
-   "net_marj": 1.0107179034735156,
-   "roe": 0.16052986079928153,
-   "cari_oran": 1.5786945169712794,
-   "borc_ozkaynak": 0.1296439871759948
+   "brut_marj": 16.507572169719932,
+   "net_marj": 1.0163652410449338,
+   "roe": 0.35180489141328597,
+   "cari_oran": 1.4709477343869213,
+   "borc_ozkaynak": 0.13748900534999664
   },
   "sirket": {
    "ACSEL": {
@@ -2163,11 +2113,11 @@
     "borc_ozkaynak": 0.17092579336673824
    },
    "BAGFS": {
-    "brut_marj": 27.851535836177476,
-    "net_marj": 14.244880546075086,
-    "roe": 3.734481601610558,
-    "cari_oran": 0.5114388922335942,
-    "borc_ozkaynak": 0.7089810983111509
+    "brut_marj": 1.994162288382954,
+    "net_marj": -33.01109165207239,
+    "roe": -6.3737601442741205,
+    "cari_oran": 0.4576480263157895,
+    "borc_ozkaynak": 0.7335437330928765
    },
    "BAHKM": {
     "brut_marj": 19.67990515708358,
@@ -2349,7 +2299,7 @@
     "net_marj": 9.603488920320604,
     "roe": 3.4250882798049433,
     "cari_oran": 1.6608093716719914,
-    "borc_ozkaynak": 0.42777871195560785
+    "borc_ozkaynak": 0.4430805448125105
    },
    "POLTK": {
     "brut_marj": 24.454356229556943,
@@ -2436,11 +2386,18 @@
     "borc_ozkaynak": -0.07176575342465753
    },
    "GOLTS": {
-    "brut_marj": 19.947526881720428,
-    "net_marj": 10.461075268817204,
-    "roe": 2.0159138002486534,
-    "cari_oran": 1.005338904363974,
-    "borc_ozkaynak": 0.20207210940737672
+    "brut_marj": 26.30433186490455,
+    "net_marj": 4.598017621145375,
+    "roe": 0.9993616851512008,
+    "cari_oran": 1.0500483558994198,
+    "borc_ozkaynak": 0.18383467645416102
+   },
+   "GUBRF": {
+    "brut_marj": 18.259046778464256,
+    "net_marj": 13.481906443071493,
+    "roe": 5.0386558086795175,
+    "cari_oran": 1.516181183059557,
+    "borc_ozkaynak": -0.11289557777548706
    }
   },
   "atlanan": [
@@ -2451,34 +2408,6 @@
    [
     "VERUS",
     "eksik: brut_kar, faaliyet_kari"
-   ],
-   [
-    "FRMPL",
-    "eksik: aktif_toplami, ozkaynak, stoklar"
-   ],
-   [
-    "GEDZA",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "GENKM",
-    "eksik: hasilat, net_kar, brut_kar"
-   ],
-   [
-    "GUBRF",
-    "eksik: aktif_toplami, ozkaynak, stoklar"
-   ],
-   [
-    "KOPOL",
-    "eksik: aktif_toplami, ozkaynak, stoklar"
-   ],
-   [
-    "MARBL",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "MEGAP",
-    "eksik: aktif_toplami, ozkaynak, stoklar"
    ]
   ],
   "ana_donem": "2026-09-30",
@@ -2490,7 +2419,7 @@
    "ALKA": "2026-09-30",
    "ALKIM": "2026-09-30",
    "AYES": "2026-06-30",
-   "BAGFS": "2026-06-30",
+   "BAGFS": "2026-09-30",
    "BAHKM": "2026-09-30",
    "BASCM": "2026-06-30",
    "BMSCH": "2026-09-30",
@@ -2529,7 +2458,8 @@
    "VSNMD": "2026-09-30",
    "MEGAP": "2026-03-31",
    "GENKM": "2026-09-30",
-   "GOLTS": "2026-06-30"
+   "GOLTS": "2026-09-30",
+   "GUBRF": "2026-09-30"
   },
   "onceki_yok": [],
   "kirpilan": [],
@@ -2565,7 +2495,14 @@
    "EKDMR",
    "ERCB",
    "EREGL",
+   "FRMPL",
+   "GEDZA",
+   "GENKM",
    "GOLTS",
+   "GUBRF",
+   "KOPOL",
+   "MARBL",
+   "MEGAP",
    "MEKAG",
    "PETKM",
    "POLHO",
@@ -2580,21 +2517,19 @@
   "donem_gruplari": {
    "2026-06-30": {
     "donem": "2026 2. çeyrek",
-    "sirket_sayisi": 7,
+    "sirket_sayisi": 5,
     "medyan": {
-     "brut_marj": 19.947526881720428,
-     "net_marj": 8.895843765648474,
-     "roe": 1.717920353982301,
-     "cari_oran": 1.39694254085398,
-     "borc_ozkaynak": 0.1927367150641846
+     "brut_marj": 15.285276856340904,
+     "net_marj": 3.5664710385302376,
+     "roe": 1.6235605922134893,
+     "cari_oran": 1.5230957479351483,
+     "borc_ozkaynak": 0.17092579336673824
     },
     "kodlar": [
      "AYES",
-     "BAGFS",
      "BASCM",
      "BTCIM",
      "BUCIM",
-     "GOLTS",
      "SUMAS"
     ]
    },
@@ -2607,7 +2542,7 @@
     ]
    }
   },
-  "tazelendi": "2026-11-17T22:47:39+00:00"
+  "tazelendi": "2026-11-18T16:19:44+00:00"
  },
  "Temel tüketim": {
   "sektor": "Temel tüketim",
@@ -2973,7 +2908,7 @@
     ]
    }
   },
-  "tazelendi": "2026-11-17T22:53:05+00:00"
+  "tazelendi": "2026-11-18T16:22:32+00:00"
  },
  "İletişim": {
   "sektor": "İletişim",
@@ -3083,18 +3018,18 @@
     ]
    }
   },
-  "tazelendi": "2026-11-17T17:00:02+00:00"
+  "tazelendi": "2026-11-18T15:56:57+00:00"
  },
  "İsteğe bağlı tüketim": {
   "sektor": "İsteğe bağlı tüketim",
   "donem": "2026 3. çeyrek",
-  "sirket_sayisi": 57,
+  "sirket_sayisi": 59,
   "medyan": {
    "brut_marj": 16.911461766644695,
    "net_marj": -0.8812090209690843,
    "roe": -0.14225336447558667,
-   "cari_oran": 1.382462686567164,
-   "borc_ozkaynak": 0.1754892407632968
+   "cari_oran": 1.3164404223227752,
+   "borc_ozkaynak": 0.1971569634514066
   },
   "sirket": {
    "AKSA": {
@@ -3423,7 +3358,7 @@
     "borc_ozkaynak": 0.03202979515828678
    },
    "RUBNS": {
-    "brut_marj": 9.982439551533162,
+    "brut_marj": 9.813589085505876,
     "net_marj": 1.5500472781304877,
     "roe": 0.2283960855863327,
     "cari_oran": 7.657562168772931,
@@ -3437,9 +3372,9 @@
     "borc_ozkaynak": -0.16747164776517678
    },
    "SANKO": {
-    "brut_marj": 2.513317817429532,
-    "net_marj": -4.236358934574605,
-    "roe": -6.080920564216778,
+    "brut_marj": 2.3029612756264237,
+    "net_marj": -2.1958997722095672,
+    "roe": -1.0734966592427617,
     "cari_oran": 1.5374149659863945,
     "borc_ozkaynak": -0.03639198218262806
    },
@@ -3448,7 +3383,7 @@
     "net_marj": -7.550003952881651,
     "roe": -0.8879797298867943,
     "cari_oran": 0.6249256518431426,
-    "borc_ozkaynak": 0.6149515330435389
+    "borc_ozkaynak": 0.6552593040284526
    },
    "SKTAS": {
     "brut_marj": 15.925869612960991,
@@ -3479,7 +3414,7 @@
     "borc_ozkaynak": 0.0895719142440852
    },
    "TOASO": {
-    "brut_marj": 8.949312704827857,
+    "brut_marj": 8.93657429388672,
     "net_marj": 5.016617836091393,
     "roe": 5.952102883994449,
     "cari_oran": 1.46327416918429,
@@ -3540,6 +3475,20 @@
     "roe": -45.73661852166525,
     "cari_oran": 0.721865614510335,
     "borc_ozkaynak": 0.3864061172472387
+   },
+   "GZNMI": {
+    "brut_marj": 17.893792434529583,
+    "net_marj": -0.08098933074684772,
+    "roe": -0.11937097927090778,
+    "cari_oran": 1.0257080610021787,
+    "borc_ozkaynak": 0.4935096497498213
+   },
+   "HATEK": {
+    "brut_marj": -1.0243344425956737,
+    "net_marj": -15.843386023294508,
+    "roe": -1.7332195676905575,
+    "cari_oran": 0.9858156028368794,
+    "borc_ozkaynak": 0.9744027303754266
    }
   },
   "atlanan": [
@@ -3554,238 +3503,6 @@
    [
     "BALAT",
     "eksik: hasilat, brut_kar, stoklar"
-   ],
-   [
-    "AYCES",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "BAKAB",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "BARMA",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "BAYRK",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "BFREN",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "BIGCH",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "BIZIM",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "BLCYT",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "BNTAS",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "BOSSA",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "BRISA",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "BRKO",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "BRMEN",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "BYDNR",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "DAGI",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "DERHL",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "DERIM",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "DESA",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "DGNMO",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "DITAS",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "DOAS",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "DOFRB",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "DURDO",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "EBEBK",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "EGEEN",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "EMNIS",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "ENSRI",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "ETILR",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "FLAP",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "FMIZP",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "FROTO",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "GENTS",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "GIPTA",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "GOODY",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "INTEM",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "ISSEN",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "JANTS",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "KAPLM",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "KARTN",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "KORDS",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "MARTI",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "MAVI",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "MNDTR",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "PARSN",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "PKENT",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "RODRG",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "RUBNS",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "SAFKR",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "SANKO",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "SASA",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "SKTAS",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "SUNTK",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "SUWEN",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "TABGD",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "TOASO",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "VESBE",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "VESTL",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "YATAS",
-    "eksik: hasilat, net_kar, aktif_toplami"
    ]
   ],
   "ana_donem": "2026-09-30",
@@ -3853,7 +3570,9 @@
    "KORDS": "2026-09-30",
    "MARTI": "2026-06-30",
    "GIPTA": "2026-09-30",
-   "GOODY": "2026-09-30"
+   "GOODY": "2026-09-30",
+   "GZNMI": "2026-09-30",
+   "HATEK": "2026-09-30"
   },
   "onceki_yok": [],
   "kirpilan": [],
@@ -3863,7 +3582,67 @@
    "ARTMS",
    "ASUZU",
    "ATEKS",
-   "ATSYH"
+   "ATSYH",
+   "AYCES",
+   "BAKAB",
+   "BARMA",
+   "BAYRK",
+   "BFREN",
+   "BIGCH",
+   "BIZIM",
+   "BLCYT",
+   "BNTAS",
+   "BOSSA",
+   "BRISA",
+   "BRKO",
+   "BRMEN",
+   "BYDNR",
+   "DAGI",
+   "DERHL",
+   "DERIM",
+   "DESA",
+   "DGNMO",
+   "DITAS",
+   "DOAS",
+   "DOFRB",
+   "DURDO",
+   "EBEBK",
+   "EGEEN",
+   "EMNIS",
+   "ENSRI",
+   "ETILR",
+   "FLAP",
+   "FMIZP",
+   "FROTO",
+   "GENTS",
+   "GIPTA",
+   "GOODY",
+   "GZNMI",
+   "HATEK",
+   "INTEM",
+   "ISSEN",
+   "JANTS",
+   "KAPLM",
+   "KARTN",
+   "KORDS",
+   "MARTI",
+   "MAVI",
+   "MNDTR",
+   "PARSN",
+   "PKENT",
+   "RODRG",
+   "RUBNS",
+   "SAFKR",
+   "SANKO",
+   "SASA",
+   "SKTAS",
+   "SUNTK",
+   "SUWEN",
+   "TABGD",
+   "TOASO",
+   "VESBE",
+   "VESTL",
+   "YATAS"
   ],
   "mali": {
    "MAVI": 1,
@@ -3898,7 +3677,7 @@
     ]
    }
   },
-  "tazelendi": "2026-11-17T22:55:41+00:00"
+  "tazelendi": "2026-11-18T16:28:56+00:00"
  },
  "Consumer Non-Cyclicals": {
   "sektor": "Consumer Non-Cyclicals",
@@ -3926,6 +3705,6 @@
   ],
   "mali": {},
   "donem_gruplari": {},
-  "tazelendi": "2026-11-18T03:45:06+00:00"
+  "tazelendi": "2026-11-18T16:29:05+00:00"
  }
 }
