@@ -3576,7 +3576,8 @@
    "kap_kimlik": "8acae2c49c81f746019d5211d7a44714",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": ""
+   "denetci": "",
+   "sektor_bulunamadi": "2026-11-18"
   },
   "GZNMI": {
    "kod": "GZNMI",
@@ -3584,7 +3585,10 @@
    "kap_kimlik": "8acae2c47d3bee50017e3445b465578f",
    "sehir": "ANTALYA",
    "uye_turu": "IGS",
-   "denetci": "NEVADOS BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "NEVADOS BAĞIMSIZ DENETİM A.Ş.",
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Travel Services"
   },
   "HALKB": {
    "kod": "HALKB",
@@ -3592,7 +3596,10 @@
    "kap_kimlik": "1DE05DAA82C3073AE0530A4A622A2EBD",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "KPMG BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "KPMG BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor": "Financials",
+   "sektor_tr": "Finans",
+   "alt_sektor": "Banks - Regional"
   },
   "HALKF": {
    "kod": "HALKF",
