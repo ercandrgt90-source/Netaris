@@ -14,7 +14,20 @@ import fs from "node:fs";
 import path from "node:path";
 import process from "node:process";
 
-const KOK = path.resolve(import.meta.dirname);
+// `--kok <dizin>` ILE BASKA BIR AGACA BAKABILIYOR.
+//
+// NEDEN: bu dosyadaki kurallar BIRER KAPI ve kapilarin kendisi de
+// sinanmali. Olculdu (2026-11-19, mutasyon M12): bir kurali "her
+// zaman gecer" hale getiren mutasyon KACTI -- hicbir sey onu
+// tutmuyordu. `sozlesme-sinamasi.mjs` ayni ihtiyac icin `--kok`
+// aliyor ve `test_mobil_besleme.py` beslemeyi BOZUP kirmizi donmesini
+// bekliyor; ayni desen buraya tasindi (`test_mobil_kaynak.py`).
+//
+// Varsayilan DEGISMIYOR: argumansiz cagri kendi dizinine bakiyor.
+const _kokArg = process.argv.indexOf("--kok");
+const KOK = _kokArg >= 0 && process.argv[_kokArg + 1]
+  ? path.resolve(process.argv[_kokArg + 1])
+  : path.resolve(import.meta.dirname);
 let gecti = 0;
 const dusen = [];
 
@@ -156,6 +169,109 @@ dogru("piyasa etiketi `en yeni` iddiasinda bulunmuyor",
   !/en yeni veri/i.test(piyasaEkran));
 dogru("piyasa etiketi ileri tarihli kalemi ACIKCA soyluyor",
   /ileri tarihli kalemler kendi tarihini/.test(piyasaEkran));
+console.log("");
+console.log("Amblem: SVG YOLU DEGIL, VERI");
+
+// NEDEN BURADA -- OLCULEMEYEN DAL.
+//
+// Besleme `amblem` alaninda bir SVG yolu tasiyor. O yolu
+// `<Image source={{uri}}>` ile basmak WEB CIKISINDA CALISIR -- yani
+// benim dogrulama yuzeyimde dogru gorunur -- ama React Native'in
+// yerlesik `Image`i SVG basmiyor ve bu projede `react-native-svg`
+// ya da `expo-image` YOK. Yani iOS/Android'de kart SESSIZCE bos
+// kalirdi ve bunu olcemezdim. Tam olarak bu dosyanin konusu.
+//
+// YORUMLAR AYIKLANIYOR. Bu depoda IKI KEZ ayni tuzaga dusuldu:
+// bir kural dosya adini YORUMDA bulup "cagriliyor" sandi, bir
+// digeri `allow-same-origin`i kendi aciklamasinda yakaladi. Olcut
+// daima KOD olmali.
+const _yorumsuz = (m) =>
+  m.replace(/\/\*[\s\S]*?\*\//g, " ")
+    .replace(/\{\s*\/\*[\s\S]*?\*\/\s*\}/g, " ")
+    .replace(/^\s*\/\/.*$/gm, " ");
+
+const bilesen = fs.readFileSync(path.join(KOK, "src", "bilesen.tsx"), "utf8");
+const bilesenKod = _yorumsuz(bilesen);
+
+// `Amblem` govdesi: tanimdan sonraki ilk `export function`a kadar.
+const _amBas = bilesenKod.indexOf("export function Amblem(");
+const _amSon = bilesenKod.indexOf("export function", _amBas + 10);
+const amblemGovde = _amBas >= 0
+  ? bilesenKod.slice(_amBas, _amSon > _amBas ? _amSon : undefined)
+  : "";
+
+dogru("Amblem bileseni VAR", amblemGovde.length > 0);
+dogru("Amblem View+Text ile ciziliyor",
+  /<View/.test(amblemGovde) && /<Text/.test(amblemGovde));
+// ASIL KURAL: govdede Image/SVG/varlik adresi GECMIYOR.
+dogru("Amblem `Image` KULLANMIYOR (yerlide SVG basmaz)",
+  !/\bImage\b/.test(amblemGovde));
+dogru("Amblem `varlikAdresi` CAGIRMIYOR (dosya degil veri)",
+  !/varlikAdresi/.test(amblemGovde));
+dogru("Amblem govdesinde `.svg` GECMIYOR",
+  !/\.svg/.test(amblemGovde));
+// EKSIK VERIDE KARO BASILMIYOR.
+//
+// Besleme kapisi (sozlesme) bos renk/etiket tasiyan kaydi zaten
+// eliyor; ama bilesen BUNA GUVENMEMELI -- ikinci bir besleme yolu
+// ya da onbellekten gelen eski bir kayit, icinde yazi olmayan
+// renkli bir kutu ya da saydam bir bosluk basardi.
+//
+// Mutasyon (M6) tam buradan kacmisti: gercek veride iki alan hep
+// dolu oldugu icin korumayi sokmek hicbir sinamayi dusurmuyordu.
+dogru("Amblem eksik veride `null` donuyor",
+  /if\s*\(\s*!\s*kod\s*\|\|\s*!\s*renk\s*\)\s*return null/
+    .test(amblemGovde));
+
+// AMBLEM ALANI HICBIR YERDE GORSEL KAYNAGI OLMUYOR.
+//
+// Yukaridaki kural yalnizca bilesenin KENDISINE bakiyor; alan baska
+// bir ekranda dogrudan `Image`a verilebilirdi. Olcut `varlikAdresi`
+// cagrilarinin ARGUMANI -- dosyanin tamami degil.
+const _ekranlar = [];
+const _gez = (dizin) => {
+  for (const ad of fs.readdirSync(dizin)) {
+    const tam = path.join(dizin, ad);
+    if (fs.statSync(tam).isDirectory()) {
+      if (ad !== "node_modules") _gez(tam);
+    } else if (/\.tsx?$/.test(ad)) _ekranlar.push(tam);
+  }
+};
+for (const d of ["src", "app"]) {
+  const tam = path.join(KOK, d);
+  if (fs.existsSync(tam)) _gez(tam);
+}
+let amblemGorsel = 0;
+for (const f of _ekranlar) {
+  const k = _yorumsuz(fs.readFileSync(f, "utf8"));
+  for (const m of k.matchAll(/varlikAdresi\(([^)]*)\)/g)) {
+    if (/amblem(?!_)/.test(m[1])) amblemGorsel += 1;
+  }
+}
+dogru("`amblem` alani hicbir yerde gorsel kaynagi DEGIL",
+  amblemGorsel === 0);
+// ATILLIK: tarayici gercekten dosya buldu mu ve `varlikAdresi`
+// cagrisi gercekten var mi? Yoksa ustteki iddia bos gecer.
+dogru(`tarayici ${_ekranlar.length} kaynak dosyasi gordu`,
+  _ekranlar.length >= 5);
+let _vaCagri = 0;
+for (const f of _ekranlar) {
+  _vaCagri += (_yorumsuz(fs.readFileSync(f, "utf8"))
+    .match(/varlikAdresi\(/g) || []).length;
+}
+dogru(`varlikAdresi gercekten cagriliyor (${_vaCagri})`, _vaCagri >= 1);
+
+// SVG CIZEN PAKET YOKSA KURAL GECERLI KALIR.
+//
+// Birisi `react-native-svg` eklerse bu kuralin gerekcesi degisir ve
+// o zaman BILINCLI olarak gozden gecirilmeli. Bu yuzden varsayim
+// sinaniyor, sessizce dogru kabul edilmiyor.
+const _pkg = JSON.parse(
+  fs.readFileSync(path.join(KOK, "package.json"), "utf8"));
+const _bag = Object.keys(_pkg.dependencies || {});
+dogru("SVG cizen paket yok -- kuralin dayanagi duruyor",
+  !_bag.includes("react-native-svg") && !_bag.includes("expo-image"));
+
 console.log("");
 if (dusen.length) {
   console.error(`DUSTU (${dusen.length}):`);

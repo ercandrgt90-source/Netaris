@@ -63,6 +63,11 @@ export type Analiz = {
   imzali: boolean;
   kurgusal: boolean;
   amblem: string;
+  /** Amblemin VERISI -- dosya degil. Gerekcesi `bilesen.Amblem`de:
+   *  SVG yolunu `Image`a vermek web'de calisir, yerlide SESSIZCE
+   *  bos kalirdi ve bu projede SVG cizen bir paket YOK. */
+  amblem_renk: string;
+  amblem_kod: string;
   foto: string;
   foto_atif: string;
   // Yalnizca detay dosyasinda

@@ -817,5 +817,107 @@ if _BESLEME.is_dir() and _SOZLESME.is_file() and shutil.which('node'):
 else:
     print('  ATLANDI  besleme ya da node yok')
 
+if _BESLEME.is_dir() and _SOZLESME.is_file() and shutil.which('node'):
+    print('')
+    print('Amblem kurali gercekten eliyor mu')
+    # SINAMAYI SINAYAN SINAMA. Sozlesmedeki amblem kurallarini
+    # silen bir mutasyon, saglam veride HICBIR senaryoda otmezdi --
+    # bu depoda tam o yoldan iki mutasyon kacti. Kanit icin
+    # otecekleri durumu KURMAK gerekiyor.
+    with tempfile.TemporaryDirectory() as _gec3:
+        _k3 = pathlib.Path(_gec3) / 'v1'
+        shutil.copytree(_BESLEME, _k3)
+        esit(_sozlesme_kos(_k3), 0, 'bozulmamis besleme GECIYOR (amblem)')
+
+        def _sayfalari_degistir(islev):
+            for _p in sorted((_k3 / 'analiz').glob('sayfa-*.json')):
+                _d = json.loads(_p.read_text(encoding='utf-8'))
+                for _o in _d.get('ogeler') or []:
+                    islev(_o)
+                _p.write_text(json.dumps(_d, ensure_ascii=False),
+                              encoding='utf-8')
+
+        # 1. RENGI BOSALT: uygulamada kart sessizce gorselsiz kalir.
+        _sayfalari_degistir(lambda o: o.update({'amblem_renk': ''})
+                            if o.get('amblem') else None)
+        esit(_sozlesme_kos(_k3) != 0, True,
+             'BOS amblem_renk sozlesmeyi KIRMIZI donduruyor')
+
+        # 2. GECERSIZ RENK: "#fff" ya da "mavi" -- alan dolu ama
+        #    kullanilamaz. "Alan var" ile "alan GECERLI" ayri seyler.
+        _sayfalari_degistir(lambda o: o.update({'amblem_renk': 'mavi'})
+                            if o.get('amblem') else None)
+        esit(_sozlesme_kos(_k3) != 0, True,
+             'GECERSIZ amblem_renk de KIRMIZI')
+
+        # 3. ETIKETI BOSALT: icinde yazi olmayan renkli kutu.
+        _sayfalari_degistir(lambda o: o.update(
+            {'amblem_renk': '#45602c', 'amblem_kod': ''})
+            if o.get('amblem') else None)
+        esit(_sozlesme_kos(_k3) != 0, True,
+             'BOS amblem_kod da KIRMIZI')
+
+    # ATILLIK KURALI: hic amblemli kayit yoksa ustteki uc kontrol
+    # bos gecer ve onlari sokmak fark yaratmaz. Otecegi durumu
+    # kuruyoruz: butun amblemleri SILIYORUZ.
+    with tempfile.TemporaryDirectory() as _gec4:
+        _k4 = pathlib.Path(_gec4) / 'v1'
+        shutil.copytree(_BESLEME, _k4)
+        for _p in sorted((_k4 / 'analiz').glob('sayfa-*.json')):
+            _d = json.loads(_p.read_text(encoding='utf-8'))
+            for _o in _d.get('ogeler') or []:
+                _o['amblem'] = ''
+            _p.write_text(json.dumps(_d, ensure_ascii=False),
+                          encoding='utf-8')
+        esit(_sozlesme_kos(_k4) != 0, True,
+             'HICBIR kayitta amblem yoksa atillik kurali KIRMIZI')
+else:
+    print('  ATLANDI  besleme ya da node yok (amblem)')
+
+print("")
+print("AMBLEM VERISI -- OLCUT URETICIDEN, KOPYA DEGIL")
+# OLCULDU (2026-11-19): beslemedeki 373 analizin 373'unde `foto` BOS,
+# 360'inda amblem var -- ve uygulama `amblem` alanini HIC okumuyordu.
+# Yani her analiz karti gorselsizdi.
+#
+# SVG YOLUNU UYGULAMAYA VERMEK COZUM DEGILDI: React Native'in
+# `Image`i SVG basmiyor ve projede SVG cizen paket yok, yani web
+# ciktisinda dogru gorunup yerlide SESSIZCE bos kalirdi.
+# Bunun yerine amblemin VERISI tasiniyor.
+#
+# OLCUT URETICIDEN OKUNUYOR: renk ve etiket `site/amblem.py`nin
+# kendi islevlerinden. TS tarafinda ya da burada ikinci bir kopya,
+# sessizce ayrisirdi -- bu depoda tekrarlayan sinif.
+import amblem as _amb  # noqa: E402
+
+_ornek = {
+    'slug': 'hatek-2026-3-ceyrek', 'yol': '/analiz/hatek-2026-3-ceyrek/',
+    'baslik': 'HATEKS 2026 3. ceyrek', 'kod': 'HATEK',
+    'sirket': 'HATEKS HATAY TEKSTIL ISLETMELERI A.S.',
+    'sektor': 'İsteğe bağlı tüketim', 'amblem_yol': '/statik/amblem/a.svg',
+    'tarih': '2026-11-19',
+}
+_k = M.analiz_ozeti(_ornek)
+esit(_k['amblem_renk'], _amb.renk('İsteğe bağlı tüketim'),
+     'amblem_renk `amblem.renk` ile BIREBIR')
+esit(_k['amblem_kod'], _amb.kod_metni('HATEK', _ornek['sirket']),
+     'amblem_kod `amblem.kod_metni` ile BIREBIR')
+# ATILLIK: ikisi de bos dizge olsa ustteki iddialar BEDAVA gecerdi
+# (iki bos dizge esittir). Deger gercekten dolu mu?
+esit(bool(_k['amblem_renk'].startswith('#')), True,
+     'renk gercekten bir #rrggbb degeri')
+esit(len(_k['amblem_renk']), 7, 'renk tam uzunlukta')
+esit(_k['amblem_kod'], 'HATEK', 'etiket gercekten dolu')
+# SEKTORU BILINMEYEN SIRKET: renk UYDURULMUYOR, notr kaliyor.
+# Yanlis renk, okura yanlis bir gruplama cikarimi yaptirir.
+_k2 = M.analiz_ozeti({**_ornek, 'sektor': 'Olmayan Sektor'})
+esit(_k2['amblem_renk'], _amb.NOTR, 'bilinmeyen sektorde NOTR renk')
+# DETAY KAYDI DA TASIYOR: kart listeden, detay ekrani ayri dosyadan
+# besleniyor; birinde olup otekinde olmamasi ekranlar arasi ayrisma
+# demek.
+_t = M.analiz_tam(_ornek)
+esit(_t['amblem_renk'], _k['amblem_renk'], 'detay kaydinda da renk var')
+esit(_t['amblem_kod'], _k['amblem_kod'], 'detay kaydinda da etiket var')
+
 print("")
 print(f"TUM TESTLER GECTI ({_gecti})")

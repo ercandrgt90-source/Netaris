@@ -284,6 +284,8 @@ if (aliste?.ogeler?.length) {
     imzali: "boolean",
     kurgusal: "boolean",
     amblem: "string",
+    amblem_renk: "string",
+    amblem_kod: "string",
     foto: "string",
     foto_atif: "string",
   });
@@ -392,7 +394,72 @@ if (aliste?.ogeler?.length) {
     dusen.push(`analiz: ${_dosyalar.length} detay dosyasi bulundu ama `
       + `${taranan} tanesi tarandi`);
   } else gecti += 1;
+  // AMBLEM VERISI EKSIKSE KART SESSIZCE GORSELSIZ KALIR.
+  //
+  // Beslemedeki 373 analizin 373'unde `foto` BOS; kartin tek gorseli
+  // amblem. Uygulama onu SVG'den degil VERIDEN ciziyor
+  // (`bilesen.Amblem`) cunku React Native'in `Image`i SVG basmiyor
+  // ve bu projede SVG cizen paket yok.
+  //
+  // Bilesen iki alandan biri eksikse `null` donuyor -- yani eksik
+  // alan HATA VERMEZ, kart yalnizca gorselsiz kalir. Tam olarak bu
+  // yuzden kapi burada: "alan var" ile "alan DOLU" ayri seyler ve bu
+  // depoda bolum basliklari tam boyle sessizce bos gitti (1438 adet).
+  //
+  // ORNEK DEGIL TUM SAYFALAR taraniyor.
+  let amblemli = 0;
+  let renksiz = 0;
+  let kodsuz = 0;
+  let bozukRenk = 0;
+  let kayitTaranan = 0;
+  const _sayfaN = Number(aliste.sayfa_sayisi) || 1;
+  for (let _s = 1; _s <= _sayfaN; _s += 1) {
+    const _sf = _s === 1 ? aliste : oku(`analiz/sayfa-${_s}.json`);
+    for (const o of (_sf && _sf.ogeler) || []) {
+      if (!o) continue;
+      kayitTaranan += 1;
+      if (!String(o.amblem || "").trim()) continue;
+      amblemli += 1;
+      const r = String(o.amblem_renk || "").trim();
+      const k = String(o.amblem_kod || "").trim();
+      // IKI KURAL AYRI, `else if` DEGIL -- OLCULDU (mutasyon M7).
+      //
+      // Once "bos mu" ile "gecerli mi" tek zincirdeydi ve bos deger
+      // ZATEN duzenli ifadeyi de dusuruyordu. Yani "bos" kuralini
+      // sokmek hicbir senaryoyu kirmiziya dondurmuyordu: mutasyon
+      // KACTI. Bu depoda ayni tuzaktan daha once iki mutasyon
+      // kacmisti (kapsam kurallari).
+      //
+      // Ayrildiklarinda her birinin KENDI senaryosu oluyor: bos
+      // deger yalnizca `renksiz`i, dolu-ama-gecersiz deger yalnizca
+      // `bozukRenk`i otturuyor.
+      if (!r) renksiz += 1;
+      if (r && !/^#[0-9a-fA-F]{6}$/.test(r)) bozukRenk += 1;
+      if (!k) kodsuz += 1;
+    }
+  }
+  if (renksiz) {
+    dusen.push(`analiz: amblemi olan ${renksiz} kayitta amblem_renk BOS `
+      + "-- uygulamada kart gorselsiz kalir");
+  } else gecti += 1;
+  if (bozukRenk) {
+    dusen.push(`analiz: ${bozukRenk} kayitta amblem_renk gecerli bir `
+      + "#rrggbb degil");
+  } else gecti += 1;
+  if (kodsuz) {
+    dusen.push(`analiz: amblemi olan ${kodsuz} kayitta amblem_kod BOS `
+      + "-- icinde yazi olmayan renkli kutu basilmaz");
+  } else gecti += 1;
+  // ATILLIK: hic amblemli kayit gormediysek ustteki uc kontrol bos
+  // gecer. Olcut sifirdan BUYUK olmasi -- `foto`su olmayan analiz
+  // beslemede cogunluk, yani sifir gormek olcumun bozuldugunu
+  // gosterir.
+  if (amblemli === 0) {
+    dusen.push(`analiz: ${kayitTaranan} kayitta hic amblem yok -- `
+      + "amblem kontrolleri bos donuyor");
+  } else gecti += 1;
   console.log(`    ${taranan} analiz detayi bolum acisindan tarandi`);
+  console.log(`    ${amblemli}/${kayitTaranan} kayitta amblem verisi tarandi`);
 }
 
 console.log("6. takvim.json");

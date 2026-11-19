@@ -64,6 +64,8 @@ from __future__ import annotations
 
 import re
 
+import amblem as _amblem
+
 #: Besleme surumu. Istemci `/v1/surum.json` okuyup uyumu kontrol eder.
 #: Kiran bir degisiklik olursa onek `/v2/` olur ve `/v1/` bir sure
 #: daha yayinda kalir -- magazadaki eski uygulama bir anda bozulmasin.
@@ -245,6 +247,32 @@ def analiz_ozeti(a) -> dict | None:
         # kurgusal icerik gercek gibi gorunur.
         "kurgusal": bool(_al(a, "kurgusal", False)),
         "amblem": _dizge(_al(a, "amblem_yol")),
+        # AMBLEM VERISI, AMBLEM DOSYASI DEGIL -- OLCULDU (2026-11-19).
+        #
+        # `amblem` alani bir SVG yolu ve besleme onu bastan beri
+        # tasiyordu; UYGULAMA HIC OKUMUYORDU. Olcum: beslemedeki 373
+        # analizin 373'unde `foto` BOS, 360'inda amblem var -- yani
+        # uygulamadaki her analiz karti GORSELSIZ, site ise amblemi
+        # basiyor ([[veri-var-bag-yok]]).
+        #
+        # SVG YOLUNU UYGULAMAYA VERMEK COZUM DEGIL. React Native'in
+        # yerlesik `Image`i SVG basmiyor ve bu depoda `react-native-svg`
+        # ya da `expo-image` YOK. Yol verilse web ciktisinda (benim
+        # dogrulama yuzeyim) gorunur, iOS/Android'de SESSIZCE bos
+        # kalirdi -- yani olcemedigim bir kusur sevk etmis olurdum.
+        #
+        # Bunun yerine amblemin VERISI tasiniyor: renk + kisa etiket.
+        # Uygulama onu View+Text ile ciziyor; iki kabukta ayni kod,
+        # yeni bagimlilik yok, web'de olculebiliyor.
+        #
+        # IKISI DE URETICIDEN OKUNUYOR, UYGULAMADA TURETILMIYOR:
+        #   renk      sektore gore ve WCAG AA dogrulanmis bir harita
+        #   etiket    "Türk Hava Yolları A.O." -> "THY" mantigi; tek
+        #             harfli parcalarin dusmesi kayitli bir duzeltme
+        # Kuralin TS'de ikinci bir kopyasi sessizce ayrisirdi.
+        "amblem_renk": _amblem.renk(_dizge(_al(a, "sektor"))),
+        "amblem_kod": _amblem.kod_metni(_dizge(_al(a, "kod")),
+                                        _dizge(_al(a, "sirket"))),
         "foto": foto,
         "foto_atif": atif,
     }

@@ -373,6 +373,85 @@ export function HaberKarti({
   );
 }
 
+/** Sirket amblemi -- SVG DOSYASI DEGIL, VERIDEN CIZILIYOR.
+ *
+ * NEDEN DOSYA DEGIL -- OLCULDU (2026-11-19).
+ *
+ * Besleme bastan beri `amblem` alaninda bir SVG yolu tasiyordu ve
+ * uygulama onu HIC okumuyordu: beslemedeki 373 analizin 373'unde
+ * `foto` bos, 360'inda amblem var -- yani her analiz karti
+ * GORSELSIZDI, site ise amblemi basiyordu.
+ *
+ * O yolu `Image`a vermek COZUM DEGIL: React Native'in yerlesik
+ * `Image`i SVG basmiyor ve bu projede `react-native-svg` ya da
+ * `expo-image` YOK. Yol verilse web ciktisinda -- benim dogrulama
+ * yuzeyim -- gorunur, iOS/Android'de SESSIZCE bos kalirdi. Yani
+ * olcemedigim bir kusur sevk etmis olurdum.
+ *
+ * Bunun yerine amblemin VERISI geliyor (`amblem_renk`,
+ * `amblem_kod`) ve burada View+Text ile ciziliyor: iki kabukta ayni
+ * kod yolu, yeni bagimlilik yok.
+ *
+ * BEYAZ YAZI SABIT ve tema rengi DEGIL: zemin renkleri
+ * `site/amblem.py` icinde beyaz yaziyla en az 4.5:1 karsitlik
+ * verecek sekilde secilmis (WCAG AA) ve uretilen SVG de
+ * `fill="#ffffff"` kullaniyor. Temadan okumak, uretici ile
+ * goruntuyu ayristirirdi.
+ */
+export function Amblem({
+  kod,
+  renk,
+  boy = 34,
+}: {
+  kod: string;
+  renk: string;
+  boy?: number;
+}) {
+  const t = useTema();
+  // IKISI DE GEREKLI: icinde bir sey yazmayan renkli bir kutu,
+  // hicbir seyden kotudur -- `amblem.kod_metni` de ayni gerekceyle
+  // bos donuyor ve o zaman uretici amblem BASMIYOR.
+  if (!kod || !renk) return null;
+  return (
+    <View
+      style={{
+        // GENISLIK SABIT DEGIL -- OLCULDU, EKRAN GORUNTUSUNDE GORULDU.
+        //
+        // Ilk yazimda `width: boy` (34) idi ve BIST kodlarinin cogu
+        // bes harfli: "HATEK" kutuya sigmadi, `numberOfLines={1}`
+        // onu "HAT…" diye kirpti. Dort karttan dordunde de kirpikti.
+        //
+        // OLCUM BUNU KACIRDI: DOM'da `textContent` hala "HATEK"
+        // donuyordu, yani "yazi dolu" kontrolu YESIL geciyordu.
+        // Kirpilmayi yalnizca ekran goruntusu gosterdi -- ve olcum
+        // sonradan `scrollWidth > clientWidth` ile guclendirildi.
+        minWidth: boy,
+        height: boy,
+        paddingHorizontal: 6,
+        borderRadius: t.r.kucuk,
+        backgroundColor: renk,
+        alignItems: "center",
+        justifyContent: "center",
+      }}
+      accessible
+      accessibilityRole="image"
+      accessibilityLabel={`${kod} amblemi`}
+    >
+      <Text
+        style={{
+          color: "#ffffff",
+          fontWeight: "800",
+          fontSize: kod.length > 4 ? 10 : 12,
+          letterSpacing: 0.3,
+        }}
+        numberOfLines={1}
+      >
+        {kod}
+      </Text>
+    </View>
+  );
+}
+
 export function AnalizKarti({
   a,
   bas,
@@ -397,6 +476,11 @@ export function AnalizKarti({
     >
       <View style={d.kartIc}>
         <View style={d.satir}>
+          {/* AMBLEM ILK OGE: sektor rengi kartlari gozle taramayi
+              kolaylastiriyor. Boy KUCUK tutuluyor -- amblem sayfanin
+              en dikkat ceken ogesi olmamali, baslik ve rakamlar
+              ondan once okunmali (gerekce `site/amblem.py`de). */}
+          <Amblem kod={a.amblem_kod} renk={a.amblem_renk} />
           {a.kategori ? (
             <Etiket metin={a.kategori} renk={t.renk.vurgu} />
           ) : null}

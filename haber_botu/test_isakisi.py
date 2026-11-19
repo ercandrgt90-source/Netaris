@@ -872,13 +872,22 @@ _SARMAL = ''.join(
     for k in ('haber_botu', 'site')
     for p in (KOK / k).glob('test_*.py'))
 dogru(f'mobil denetimi bulundu ({len(_DENETIMLER)})', bool(_DENETIMLER))
+#: Tarayici isteyen olcumler -- CI'da kosamaz, bkz. asagisi.
+_TARAYICI_ISTEYEN = ('erisim_olcumu.mjs', 'amblem_olcumu.mjs')
 _muaf = []
 _denetlenen = []
 for _d in _DENETIMLER:
     _ad = _d.rsplit('/', 1)[-1]
-    # `erisim_olcumu.mjs` tarayici gerektiriyor; CI'da kosmuyor ve bu
-    # BILINCLI. Muafiyet GEREKCELI, sessiz degil.
-    if _ad == 'erisim_olcumu.mjs':
+    # TARAYICI GEREKTIREN OLCUMLER MUAF -- GEREKCELI, sessiz degil.
+    #
+    #   erisim_olcumu.mjs   dokunma hedefi ve erisilebilir ad
+    #   amblem_olcumu.mjs   amblem karosu ciziliyor ve KIRPILMIYOR mu
+    #
+    # Ikisi de masaustu Chrome + `expo export` web cikisi + URETILMIS
+    # besleme istiyor; ucu de CI'in sinama adiminda yok. Liste ADIYLA
+    # yaziliyor ve SAYISI asagida bagli -- yoksa `if True` yapan bir
+    # mutasyon butun denetimleri sessizce muaf ederdi.
+    if _ad in _TARAYICI_ISTEYEN:
         _muaf.append(_d)
         dogru(f'{_d}: tarayici gerektirdigi icin muaf (gerekceli)', True)
         continue
@@ -892,11 +901,52 @@ for _d in _DENETIMLER:
     _sarmalda = f'"{_ad}"' in _SARMAL or f"'{_ad}'" in _SARMAL
     dogru(f'{_d} CI-dan ERISILEBILIR', _akista or _sarmalda)
 
+# HICBIR DENETIM KURALI DEVRE DISI GONDERILMEMELI.
+#
+# OLCULDU (2026-11-19): bir mutasyon kosusu yarim kalip
+# `sozlesme-sinamasi.mjs` icinde `if (false) {` biraktı -- atillik
+# kuralini devre disi birakan tam o satir. Sinamalar YESIL donuyordu
+# cunku devre disi bir kural hicbir sey otturmez; kalinti yalnizca
+# gonderim oncesi elle yaptigim desen taramasiyla goruldu.
+#
+# Bu, bu deponun en sessiz hata turu: koruma DURUYOR gibi gorunuyor,
+# ama hicbir sey olcmuyor. Elle tarama bir yordam degil, bir
+# hatirlamadir -- kurala baglaniyor.
+#
+# OLCUT KOD, YORUM DEGIL: bu dosyanin kendi aciklamasi da `if (false)`
+# yaziyor ve ayiklanmasa kural KENDINI yakalardi (bu depoda ayni
+# tuzaga iki kez dusuldu).
+_KAPALI_KOSUL = ('if (false)', 'if (0)', 'if False:', 'if 0:')
+_KAPALI_BULUNAN = []
+for _yol in _DENETIMLER:
+    _tam = KOK / _yol
+    if not _tam.is_file():
+        continue
+    _m = _tam.read_text(encoding='utf-8', errors='replace')
+    _kod = chr(10).join(
+        x for x in _m.splitlines()
+        if not x.lstrip().startswith(('//', '#', '*', '/*')))
+    for _k in _KAPALI_KOSUL:
+        if _k in _kod:
+            _KAPALI_BULUNAN.append(f'{_yol}: {_k}')
+dogru(f'denetimlerde devre disi kosul YOK ({_KAPALI_BULUNAN})',
+      not _KAPALI_BULUNAN)
+# ATILLIK: tarama gercekten dosya okudu mu? Liste bosalirsa ustteki
+# iddia bedava gecerdi.
+dogru(f'kapali-kosul taramasi {len(_DENETIMLER)} dosya gordu',
+      len(_DENETIMLER) >= 3)
+
 # MUAFIYETIN KAPSAMI DA OLCULUYOR.
 # `if _ad == ...` kosulu `if True` yapilirsa her denetim muaf olur ve
 # yukaridaki dogrulamalarin HICBIRI kosmaz -- kural sessizce yesil
 # kalirdi (olculdu, mutasyon tam buradan kacti).
-dogru(f'muaf denetim TEK ve adiyla ({_muaf})', len(_muaf) == 1)
+dogru(f'muaf denetim SAYISI bagli ({_muaf})',
+      len(_muaf) == len(_TARAYICI_ISTEYEN))
+# SAYI TEK BASINA YETMEZ: liste uzatilarak her sey muaf edilebilir.
+# Ust sinir da bagli -- muafiyet kuralin istisnasi, kuralin kendisi
+# degil.
+dogru(f'muafiyet listesi KISA kaliyor ({len(_TARAYICI_ISTEYEN)})',
+      len(_TARAYICI_ISTEYEN) <= 2)
 dogru(f'gercekten denetlenen en az iki dosya ({len(_denetlenen)})',
       len(_denetlenen) >= 2)
 
