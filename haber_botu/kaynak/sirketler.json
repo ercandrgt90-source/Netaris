@@ -3665,7 +3665,10 @@
    "kap_kimlik": "4028e4a242140a9601422820b6da43f8",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "ARTI DEĞER ULUSLARARASI BAĞIMSIZ DENETİM VE YMM A.Ş."
+   "denetci": "ARTI DEĞER ULUSLARARASI BAĞIMSIZ DENETİM VE YMM A.Ş.",
+   "sektor": "Financials",
+   "sektor_tr": "Finans",
+   "alt_sektor": "Asset Management"
   },
   "HDFVK": {
    "kod": "HDFVK",
@@ -3673,7 +3676,8 @@
    "kap_kimlik": "8acae2c58b2fa64e018e0edc8c8619eb",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "PKF ADAY BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "PKF ADAY BAĞIMSIZ DENETİM A.Ş.",
+   "sektor_bulunamadi": "2026-11-19"
   },
   "HDFYB": {
    "kod": "HDFYB",
@@ -3681,7 +3685,8 @@
    "kap_kimlik": "8acae2c48c3efabf018d10fc19010119",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "KPMG BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "KPMG BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor_bulunamadi": "2026-11-19"
   },
   "HEDEF": {
    "kod": "HEDEF",

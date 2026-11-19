@@ -1186,7 +1186,7 @@
     ]
    }
   },
-  "tazelendi": "2026-11-18T15:56:27+00:00"
+  "tazelendi": "2026-11-19T03:42:50+00:00"
  },
  "Sanayi": {
   "sektor": "Sanayi",
@@ -1749,12 +1749,56 @@
     "eksik: hasilat, brut_kar, stoklar"
    ],
    [
-    "ANELE",
+    "ARSAN",
+    "eksik: stoklar"
+   ],
+   [
+    "BIENY",
     "eksik: aktif_toplami, ozkaynak, stoklar"
    ],
    [
-    "ARSAN",
-    "eksik: stoklar"
+    "BORLS",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "BRKSN",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "BRLSM",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "BURCE",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "BURVA",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "BVSAN",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "CELHA",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "CEMAS",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "CLEBI",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "CUSAN",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "DMSAS",
+    "eksik: hasilat, net_kar, aktif_toplami"
    ],
    [
     "DOCO",
@@ -1762,10 +1806,202 @@
    ],
    [
     "DOGUB",
-    "eksik: stoklar"
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "DOHOL",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "EGGUB",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "EGPRO",
+    "eksik: hasilat, net_kar, aktif_toplami"
    ],
    [
     "EKIM",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "EKOS",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "EMKEL",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "ENKAI",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "EPLAS",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "ERBOS",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "ESCAR",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "EUPWR",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "EUREN",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "FORMT",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "GEREL",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "GESAN",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "GLRMK",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "GLYHO",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "GRSEL",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "GSDDE",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "GSDHO",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "HATSN",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "IMASM",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "ISKPL",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "KARSN",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "KATMR",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "MAKIM",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "MAKTK",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "MANAS",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "MEGMT",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "NIBAS",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "OZYSR",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "PAPIL",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "PASEU",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "PGSUS",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "PKART",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "PLTUR",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "PNLSN",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "PRZMA",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "PSDTC",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "RYSAS",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "SAMAT",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "SANEL",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "SAYAS",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "SDTTR",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "TMSN",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "TTRAK",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "TUCLK",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "TUREX",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "YIGIT",
     "eksik: hasilat, net_kar, aktif_toplami"
    ]
   ],
@@ -1859,70 +2095,12 @@
    "ALCAR",
    "ALTNY",
    "ALVES",
+   "ANELE",
    "ASELS",
    "ASTOR",
    "BERA",
    "BETAE",
-   "BEYAZ",
-   "BIENY",
-   "BORLS",
-   "BRKSN",
-   "BRLSM",
-   "BURCE",
-   "BURVA",
-   "BVSAN",
-   "CELHA",
-   "CEMAS",
-   "CLEBI",
-   "CUSAN",
-   "DMSAS",
-   "DOHOL",
-   "EGGUB",
-   "EGPRO",
-   "EKOS",
-   "EMKEL",
-   "ENKAI",
-   "EPLAS",
-   "ERBOS",
-   "ESCAR",
-   "EUPWR",
-   "EUREN",
-   "FORMT",
-   "GEREL",
-   "GESAN",
-   "GLRMK",
-   "GLYHO",
-   "GRSEL",
-   "GSDDE",
-   "GSDHO",
-   "IMASM",
-   "ISKPL",
-   "KARSN",
-   "KATMR",
-   "MAKIM",
-   "MAKTK",
-   "MANAS",
-   "MEGMT",
-   "NIBAS",
-   "OZYSR",
-   "PAPIL",
-   "PASEU",
-   "PGSUS",
-   "PKART",
-   "PLTUR",
-   "PNLSN",
-   "PRZMA",
-   "PSDTC",
-   "RYSAS",
-   "SAMAT",
-   "SANEL",
-   "SAYAS",
-   "SDTTR",
-   "TMSN",
-   "TTRAK",
-   "TUCLK",
-   "TUREX",
-   "YIGIT"
+   "BEYAZ"
   ],
   "mali": {},
   "donem_gruplari": {
@@ -1950,7 +2128,7 @@
     ]
    }
   },
-  "tazelendi": "2026-11-18T16:15:16+00:00"
+  "tazelendi": "2026-11-19T03:46:38+00:00"
  },
  "Sağlık": {
   "sektor": "Sağlık",
@@ -3024,7 +3202,7 @@
     ]
    }
   },
-  "tazelendi": "2026-11-18T15:56:57+00:00"
+  "tazelendi": "2026-11-19T03:43:19+00:00"
  },
  "İsteğe bağlı tüketim": {
   "sektor": "İsteğe bağlı tüketim",
