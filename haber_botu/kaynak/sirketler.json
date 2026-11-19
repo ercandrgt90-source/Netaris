@@ -3694,7 +3694,10 @@
    "kap_kimlik": "8acae2c4794d3648017a8bd7bc0103df",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "HSY DANIŞMANLIK VE BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "HSY DANIŞMANLIK VE BAĞIMSIZ DENETİM A.Ş.",
+   "sektor": "Financials",
+   "sektor_tr": "Finans",
+   "alt_sektor": "Asset Management"
   },
   "HEKTS": {
    "kod": "HEKTS",
@@ -3702,7 +3705,10 @@
    "kap_kimlik": "4028e4a140ee35c00140ee5d194a0055",
    "sehir": "KOCAELİ",
    "uye_turu": "IGS",
-   "denetci": "GÜNEY BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "GÜNEY BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Agricultural Inputs"
   },
   "HKTM": {
    "kod": "HKTM",
@@ -3710,7 +3716,10 @@
    "kap_kimlik": "8acae2c5812b84a401816252165513b1",
    "sehir": "KOCAELİ",
    "uye_turu": "IGS",
-   "denetci": "NOTE OFFİCE ULUSLARARASI BAĞIMSIZ DENETİM DANIŞMANLIK A.Ş."
+   "denetci": "NOTE OFFİCE ULUSLARARASI BAĞIMSIZ DENETİM DANIŞMANLIK A.Ş.",
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Specialty Industrial Machinery"
   },
   "HLGYO": {
    "kod": "HLGYO",
