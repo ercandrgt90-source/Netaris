@@ -58,14 +58,42 @@ _INFO = re.compile(r"infoTable:\[(.*?)\]", re.S)
 _CIFT = re.compile(r'\{t:"([^"]+)",v:"([^"]*)"')
 
 #: Ingilizce sektor -> Turkce ad. BIZIM cevirimiz.
+#:
+#: KAYNAK IKI AYRI TAKSONOMI SERVIS EDIYOR -- OLCULDU (2026-11-19).
+#:
+#: Cogunlukla GICS adlari geliyor ("Consumer Staples", "Materials"),
+#: ama bazi sirketlerde TRBC adlari ciktı: GMTAS icin sektor
+#: "Consumer Non-Cyclicals", alt sektor "Food & Drug Retailing".
+#: Ayni kavram, baska ad. Haritada olmadigi icin ham Ingilizce deger
+#: akti ve dort gun dagitimi kilitledi (asagida `CEVIRI_YOK`).
+#:
+#: Bu yuzden TRBC karsiliklari da yaziliyor -- tahmin degil, ayni
+#: kavramin ikinci adi:
+#:
+#:     TRBC                        GICS karsiligi
+#:     Consumer Non-Cyclicals      Consumer Staples
+#:     Consumer Cyclicals          Consumer Discretionary
+#:     Basic Materials             Materials
+#:     Telecommunications Services Communication Services
+#:
+#: EKLENMEYENLER de bilincli: TRBC'nin "Academic & Educational
+#: Services" ve "Institutions, Associations & Organizations" ust
+#: sektorlerinin bu defterde karsiligi YOK. Uydurmak yerine
+#: `CEVIRI_YOK` ile isaretleniyorlar -- yanlis bir sektor, sektor
+#: medyanini bozar ve sayfa gercek olmayan bir "sektore gore konum"
+#: iddiasi tasir.
 SEKTOR_TR = {
     "Financials": "Finans",
     "Materials": "Temel malzeme",
+    "Basic Materials": "Temel malzeme",
     "Industrials": "Sanayi",
     "Energy": "Enerji",
     "Consumer Discretionary": "İsteğe bağlı tüketim",
+    "Consumer Cyclicals": "İsteğe bağlı tüketim",
     "Consumer Staples": "Temel tüketim",
+    "Consumer Non-Cyclicals": "Temel tüketim",
     "Communication Services": "İletişim",
+    "Telecommunications Services": "İletişim",
     "Health Care": "Sağlık",
     "Healthcare": "Sağlık",
     "Information Technology": "Bilişim",
@@ -73,6 +101,51 @@ SEKTOR_TR = {
     "Utilities": "Kamu hizmetleri",
     "Real Estate": "Gayrimenkul",
 }
+
+#: SEKTOR GELDI AMA CEVIRISI YOK -- DORDUNCU DURUM.
+#:
+#: Ucu zaten vardi: kisitlama (429/503), yokluk (404/410) ve
+#: `ALAN_YOK` (sayfa var, sektor satiri yok). Bu dorduncusu ve
+#: digerlerinden farki, EKSIGIN BIZDE olmasi: kaynak dogru cevap
+#: verdi, haritamizda karsiligi yok.
+#:
+#: NEDEN HAM DEGER DONMUYOR -- OLCULDU, DORT GUN KILITLEDI.
+#:
+#: Satir soyleydi:
+#:
+#:     "sektor_tr": SEKTOR_TR.get(sektor, sektor)
+#:
+#: Yani eslesmeyen her ad TURKCEYMIS GIBI akiyordu. Bedeli uc
+#: yerden birden odendi (2026-11-15 -> 11-19):
+#:
+#:   1. OKUR. Sayfa Turk okura "sektor: Consumer Non-Cyclicals"
+#:      yaziyordu.
+#:   2. VERI. `sektor_ozet.json` on bir Turkce anahtarin yaninda bir
+#:      Ingilizce anahtar tasiyordu; GMTAS kendi sektorunun
+#:      medyanindan (35 sirket) ayri, TEK BASINA bir "sektor"
+#:      olmustu -- yani medyan karsilastirmasi anlamsizdi.
+#:   3. DAGITIM. `test_sektor_okuma` "uretilen her sektorun kilavuzu
+#:      olmali" diyor ve hakliydi; o sinama URETIMDEN ONCE kosuyor,
+#:      yani hat kendini onaramadi. Otomasyon 15 Kasim 20:43'ten
+#:      19 Kasim'a kadar KIRMIZI dondu.
+#:
+#: Artik ham deger DONMUYOR: eksiklik sebebiyle birlikte
+#: `OKUNAMAYAN`a yaziliyor ve sirket sektorsuz kaliyor. Sektorsuz
+#: sayfa mesru (okuma kilavuzu bolumu hic yazilmiyor); yanlis
+#: sektorlu sayfa degil.
+CEVIRI_YOK = "sektor cevirisi yok"
+
+
+def ceviri_yok_mu(sebep: str) -> bool:
+    """`OKUNAMAYAN` sebebi "cevirisi yok" mu?
+
+    OLCUT BURADA, CAGIRANDA DEGIL. Sebep dizgesi ADI da tasiyor
+    ("sektor cevirisi yok: Consumer Non-Cyclicals") cunku hangi adi
+    haritaya ekleyecegimizi yalnizca o soyluyor. Dolayisiyla
+    cagiran taraf duz esitlikle karsilastiramaz; karsilastirmayi
+    URETEN taraf yapiyor ki iki kopya sessizce ayrismasin.
+    """
+    return str(sebep or "").startswith(CEVIRI_YOK)
 
 #: Cekilemeyen kodlar burada birikiyor -- sessiz basarisizlik yok.
 OKUNAMAYAN: list[tuple[str, str]] = []
@@ -162,9 +235,17 @@ def cek(kod: str, istemci: httpx.Client | None = None) -> dict[str, str]:
     if not sektor:
         OKUNAMAYAN.append((kod, ALAN_YOK))
         return {}
+    tr = SEKTOR_TR.get(sektor)
+    if not tr:
+        # HAM INGILIZCE DEGER DONMUYOR -- gerekcesi `CEVIRI_YOK`
+        # uzerinde yazili (okur, veri ve dagitim, uc ayri bedel).
+        # ADI SEBEBE YAZIYORUZ: haritaya hangi satirin eklenecegini
+        # yalnizca bu soyluyor.
+        OKUNAMAYAN.append((kod, f"{CEVIRI_YOK}: {sektor}"))
+        return {}
     return {
         "sektor": sektor,
-        "sektor_tr": SEKTOR_TR.get(sektor, sektor),
+        "sektor_tr": tr,
         "alt_sektor": d.get("Industry", "").strip(),
     }
 

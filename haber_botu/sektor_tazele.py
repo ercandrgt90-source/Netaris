@@ -232,6 +232,7 @@ def tazele(sinir: int = VARSAYILAN_SINIR, kuru: bool = False,
     yazilan, bossuz, hata = [], [], 0
     #: Sayfasi olan ama SEKTOR SATIRI olmayan sirketler.
     alansiz: list[str] = []
+    cevrilmeyen: list[tuple[str, str]] = []
     ardisik_bos = 0
     import datetime as _dt                              # noqa: PLC0415
     bulunamayan = []
@@ -317,6 +318,30 @@ def tazele(sinir: int = VARSAYILAN_SINIR, kuru: bool = False,
             ardisik_bos = 0
             time.sleep(sektor.ARA_SN)
             continue
+        # SEKTOR GELDI AMA CEVIRISI YOK -- DORDUNCU DURUM.
+        #
+        # ALAN_YOK'TAN AYRI BILDIRILIYOR cunku CARESI AYRI:
+        #
+        #   ALAN_YOK     kaynagin eksigi -- yapacak bir sey yok
+        #   CEVIRI_YOK   BIZIM eksigimiz -- `SEKTOR_TR`e bir satir
+        #
+        # Ikisini ayni torbaya atmak, duzeltilebilir bir eksigi
+        # "kaynak boyle" diye kapatmak olurdu. Bedeli olculdu
+        # (2026-11-19): `Consumer Non-Cyclicals` haritada yoktu,
+        # ham deger akti ve dagitim DORT GUN kilitli kaldi.
+        #
+        # OLCUT URETICIDEN: `sektor.ceviri_yok_mu`. Sebep dizgesi
+        # ADI da tasiyor, yani duz esitlik calismaz; karsilastirmayi
+        # ureten modul yapiyor ki iki kopya ayrismasin.
+        if _yeni_sebep and all(sektor.ceviri_yok_mu(s)
+                               for s in _yeni_sebep):
+            cevrilmeyen.append((kod, _yeni_sebep[0]))
+            d["sirketler"][kod]["sektor_bulunamadi"] = (
+                _dt.date.today().isoformat())
+            d["sirketler"][kod]["sektor_sebep"] = _yeni_sebep[0]
+            ardisik_bos = 0
+            time.sleep(sektor.ARA_SN)
+            continue
         okunamadi = bool(_yeni_sebep)
         if okunamadi:
             hata += 1
@@ -349,6 +374,13 @@ def tazele(sinir: int = VARSAYILAN_SINIR, kuru: bool = False,
 
     print(f"  sektoru bulunan : {len(yazilan)}")
     print(f"  kaynakta yok    : {len(bossuz)}")
+    if cevrilmeyen:
+        # EN GORUNUR YERDE: bu, duzeltilebilir TEK eksiklik turu ve
+        # duzeltmesi bir satir. Gorunmezse ham deger yine akar.
+        print(f"  CEVIRI EKSIK: {len(cevrilmeyen)} sirket -- "
+              f"`sektor.SEKTOR_TR`e eklenecek ad(lar):")
+        for _k, _s in cevrilmeyen[:8]:
+            print(f"      {_k:8s} {_s}")
     if alansiz:
         print(f"  sektor satiri yok: {len(alansiz)} "
               f"({', '.join(alansiz[:8])}) -- sayfa VAR, alan yok; "
@@ -389,7 +421,12 @@ def tazele(sinir: int = VARSAYILAN_SINIR, kuru: bool = False,
     # Kosul "degisiklik var mi" diye sormuyor, tek tek listeliyor --
     # yani her yeni tur bir daha unutulmaya acik. Sinama bu yuzden
     # her turu AYRI tutuyor.
-    if not kuru and (yazilan or bulunamayan or alansiz):
+    # KURAL: defteri DEGISTIREN her yeni durum bu kosula
+    # girmeli. `cevrilmeyen` de isaret yaziyor; unutulsa
+    # sayac 1 der, deftere 0 yazilirdi -- bu depoda tam
+    # olarak bu kusur bir kez yasandi.
+    if not kuru and (yazilan or bulunamayan or alansiz
+                     or cevrilmeyen):
         DEFTER.write_text(json.dumps(d, ensure_ascii=False, indent=1),
                           encoding="utf-8")
         print(f"  deftere yazildi: {DEFTER.name}")
@@ -401,7 +438,8 @@ def tazele(sinir: int = VARSAYILAN_SINIR, kuru: bool = False,
             #: Sayfasi olup SEKTOR SATIRI olmayanlar. Ayri sayiliyor
             #: cunku `hata`dan farkli bir is gerektiriyor: hata
             #: yeniden denenir, bu isaretlenir.
-            "alansiz": len(alansiz)}
+            "alansiz": len(alansiz),
+            "cevrilmeyen": len(cevrilmeyen)}
 
 
 def main() -> int:

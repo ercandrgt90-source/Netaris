@@ -480,6 +480,61 @@ esit(sektor.ALAN_YOK, "sektor alani yok",
      "sebep dizgisi `sektor` modulunden geliyor")
 
 print("")
+print("SEKTOR GELDI AMA CEVIRISI YOK -- DORDUNCU DURUM")
+# OLCULDU (2026-11-19): kaynak GMTAS icin `Consumer Non-Cyclicals`
+# dondurdu (TRBC adlandirmasi; bizim harita GICS adlarini tasiyordu).
+# `SEKTOR_TR.get(sektor, sektor)` eslesmeyen adi HAM haliyle
+# donduruyordu ve bedeli uc yerden odendi: okur sayfada Ingilizce
+# sektor gordu, `sektor_ozet.json` tek sirketlik bir "sektor"
+# kazandi, ve `test_sektor_okuma` URETIMDEN ONCE kosup dagitimi
+# DORT GUN kilitledi.
+#
+# Bu durum ALAN_YOK'tan AYRI sayiliyor cunku CARESI ayri: orada
+# kaynagin eksigi var, burada BIZIM haritamizin. Ayni torbaya
+# atmak, duzeltilebilir bir eksigi "kaynak boyle" diye kapatmak
+# olurdu.
+_ASIL_CEK_C = sektor.cek
+_CEVRILMEYEN_AD = "Bilinmeyen Ust Sektor"
+
+
+def _cevrilmeyen_cek(kod, istemci=None):
+    """Kaynak dogru cevap verdi, haritada karsiligi yok."""
+    sektor.OKUNAMAYAN.append(
+        (kod, f"{sektor.CEVIRI_YOK}: {_CEVRILMEYEN_AD}"))
+    return {}
+
+
+_d_c = kur({"CCCC": {}, "DDDD": {}}, {})
+sektor.cek = _cevrilmeyen_cek
+try:
+    _s_c = st.tazele(sinir=25)
+finally:
+    sektor.cek = _ASIL_CEK_C
+_df_c = json.loads(_d_c.read_text(encoding="utf-8"))["sirketler"]
+
+esit(_s_c["yazilan"], 0, "sektor yazilmadi -- UYDURMA YOK")
+esit(_s_c["cevrilmeyen"], 2, "iki sirket CEVRILMEYEN diye sayildi")
+esit(_s_c["hata"], 0,
+     "ceviri eksigi HATA sayilmiyor -- ayri is gerektiriyor")
+# ASIL IDDIA: sayac degil DEFTER. Sayac 2 derken deftere 0 yazilsa
+# kuyruk hic ilerlemezdi; bu depoda tam o kusur bir kez yasandi.
+esit(sum(1 for v in _df_c.values() if v.get("sektor_bulunamadi")), 2,
+     "ikisi de TARIHLE isaretlendi -- KUYRUK ILERLIYOR")
+esit(st.kuyruk({"sirketler": _df_c}, sayfasi_olan=set()), [],
+     "isaretlenenler kuyruktan DUSTU")
+# SEBEP ADI TASIYOR: haritaya hangi satirin eklenecegini yalnizca o
+# soyluyor. Yalnizca "cevirisi yok" yazmak, teshisi yarim birakir.
+_sebepler = {v.get("sektor_sebep") for v in _df_c.values()}
+esit(len(_sebepler), 1, "iki sirkette ayni sebep")
+esit(_CEVRILMEYEN_AD in (_sebepler.pop() or ""), True,
+     "sebep CEVRILMEYEN ADI tasiyor")
+# OLCUT URETICIDEN: cagiran duz esitlikle karsilastirmiyor.
+esit(sektor.ceviri_yok_mu(f"{sektor.CEVIRI_YOK}: X"), True,
+     "ceviri_yok_mu olcutu ureticide")
+esit(sektor.ceviri_yok_mu(sektor.ALAN_YOK), False,
+     "ALAN_YOK ile KARISTIRILMIYOR")
+
+print("")
 print("GERCEK KISITLAMA HALA KISITLAMA SAYILIYOR (karsi yon)")
 # Kapi ters yone de calismali: HTTP 429 isaretlenMEMELI, cunku
 # yarin cevap verebilir. Isaretlemek, 90 gun boyunca sormamak

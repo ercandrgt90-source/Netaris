@@ -8,6 +8,7 @@ iyidir" demez.
 from __future__ import annotations
 
 import json
+import os
 import pathlib
 import re
 import sys
@@ -16,6 +17,10 @@ _KOK = pathlib.Path(__file__).resolve().parent
 sys.path.insert(0, str(_KOK))
 
 import sektor_okuma as S    # noqa: E402
+
+#: Hangi ASAMADA kosuyoruz. Bayragi `site/cikti_sinamalari.py`
+#: kuruyor -- asamayi BILEN tek yer orasi.
+_URETIM_SONRASI = os.environ.get("NETARIS_URETIM_SONRASI") == "1"
 
 #: Degerlendirme sozcukleri -- kilavuzda BULUNMAMALI.
 #:
@@ -99,7 +104,88 @@ def test_defterdeki_sektorlerin_hepsi_kapsandi():
         return
     d = json.loads(yol.read_text(encoding="utf-8"))
     eksik = [s for s in d if S.blok(s) is None]
-    assert not eksik, f"kılavuzu olmayan sektör: {eksik}"
+    if _URETIM_SONRASI:
+        assert not eksik, f"kılavuzu olmayan sektör: {eksik}"
+    else:
+        # OLCUM, KAPI DEGIL -- OLCULDU, DORT GUN KILITLEDI.
+        #
+        # Bu iddia 2026-11-15 ile 11-19 arasinda otomasyonu kirmizi
+        # tuttu: kaynak `Consumer Non-Cyclicals` dondurdu, ceviri
+        # haritasinda yoktu, ham deger `sektor_ozet.json`a anahtar
+        # olarak akti ve kilavuzu yoktu. Iddia DOGRUYDU; yeri
+        # yanlisti.
+        #
+        # Sinamalar `calistir.py`den ONCE kosuyor; o dosyayi URETEN
+        # adim (`uret_bilanco`) kapinin arkasinda. Yani depodaki eski
+        # veri, kendisini duzeltecek adimi arkasinda birakip
+        # kilitliyordu.
+        #
+        # Garanti asagidaki iki iddiada: ikisi de URETICIYE bakiyor
+        # ve icerikten BAGIMSIZ, dolayisiyla veri surprizi dagitimi
+        # durduramiyor. Uretim SONRASI ayni iddia KATI kosuyor
+        # (`site/cikti_sinamalari.py` bu dosyayi secmiyor olabilir
+        # diye degil; bkz. test_uretici_*).
+        if eksik:
+            print(f"   olcum: kılavuzu olmayan sektör = {eksik}")
+
+
+def test_uretici_CEVIRMEDIGI_ADI_ASLA_DONDURMUYOR():
+    """Haritada olmayan sektor adi HAM haliyle akmamali.
+
+    ICERIKTEN BAGIMSIZ: kaynagin ne dondurdugune degil, `cek`in ne
+    YAPTIGINA bakiyor. Bu yuzden yeni bir kaynak adi dagitimi
+    durdurmuyor -- yalnizca o sirket sektorsuz kaliyor ve sebep
+    raporlaniyor.
+    """
+    sys.path.insert(0, str(_KOK.parent / "kaynak"))
+    import sektor as SK                                   # noqa: PLC0415
+
+    sayfa = ('x infoTable:[{t:"Industry",v:"Food & Drug Retailing"},'
+             '{t:"Sector",v:"Bilinmeyen Ust Sektor"}] y')
+
+    class _Y:
+        status_code = 200
+        text = sayfa
+
+        def raise_for_status(self):
+            return None
+
+    class _I:
+        def get(self, *a, **k):
+            return _Y()
+
+    onceki = len(SK.OKUNAMAYAN)
+    sonuc = SK.cek("XTEST", _I())
+    yeni = [s for _k, s in SK.OKUNAMAYAN[onceki:]]
+
+    assert sonuc == {}, f"cevrilmeyen ad icin kayit dondu: {sonuc}"
+    assert yeni and all(SK.ceviri_yok_mu(s) for s in yeni), yeni
+    assert "Bilinmeyen Ust Sektor" in yeni[0], \
+        f"sebep ADI tasimali (haritaya ne eklenecegini o soyluyor): {yeni[0]}"
+
+    # ATILLIK: ayni akis CEVRILEN bir ad icin kayit DONDURMELI.
+    # Yoksa `cek` her zaman {} donuyor olabilirdi ve ustteki iddia
+    # hicbir sey olcmezdi.
+    _Y.text = ('x infoTable:[{t:"Industry",v:"Steel"},'
+               '{t:"Sector",v:"Materials"}] y')
+    iyi = SK.cek("XTEST2", _I())
+    assert iyi.get("sektor_tr") == "Temel malzeme", iyi
+
+
+def test_uretici_HER_CEVIRININ_KILAVUZU_VAR():
+    """`SEKTOR_TR`in her Turkce degeri bir kilavuza baglanmali.
+
+    ASIL KURAL BU. Veriye bakan iddia sonucu olcuyor; bu, kaynagi:
+    haritaya yeni bir Turkce kova eklenip kilavuzu yazilmazsa
+    burada goruluyor -- ve hicbir veri surprizi gerekmiyor.
+    """
+    sys.path.insert(0, str(_KOK.parent / "kaynak"))
+    import sektor as SK                                   # noqa: PLC0415
+
+    adlar = sorted(set(SK.SEKTOR_TR.values()))
+    assert len(adlar) >= 10, f"atillik: yalnizca {len(adlar)} ad"
+    eksik = [a for a in adlar if S.blok(a) is None]
+    assert not eksik, f"ceviri var, kılavuz yok: {eksik}"
 
 
 if __name__ == "__main__":

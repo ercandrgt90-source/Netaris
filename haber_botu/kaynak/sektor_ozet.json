@@ -3890,33 +3890,5 @@
    }
   },
   "tazelendi": "2026-11-19T16:33:18+00:00"
- },
- "Consumer Non-Cyclicals": {
-  "sektor": "Consumer Non-Cyclicals",
-  "donem": "2026 3. çeyrek",
-  "sirket_sayisi": 1,
-  "medyan": {},
-  "sirket": {
-   "GMTAS": {
-    "brut_marj": 19.35545905707196,
-    "net_marj": -1.1705955334987594,
-    "roe": -0.38987603305785123,
-    "cari_oran": 2.559422245149002,
-    "borc_ozkaynak": -0.012258264462809917
-   }
-  },
-  "atlanan": [],
-  "ana_donem": "2026-09-30",
-  "bitis": {
-   "GMTAS": "2026-09-30"
-  },
-  "onceki_yok": [],
-  "kirpilan": [],
-  "taze_olculen": [
-   "GMTAS"
-  ],
-  "mali": {},
-  "donem_gruplari": {},
-  "tazelendi": "2026-11-19T16:33:35+00:00"
  }
 }

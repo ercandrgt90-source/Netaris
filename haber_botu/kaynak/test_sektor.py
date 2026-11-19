@@ -91,6 +91,33 @@ if YOL.exists():
          "ayni sirketin hisse siniflari AYNI sektorde -- catisma yok")
 
 print()
+print("KAYNAK IKI TAKSONOMI SERVIS EDIYOR -- IKISI DE HARITADA")
+# OLCULDU (2026-11-19): kaynak cogunlukla GICS adlari veriyor
+# ("Consumer Staples") ama GMTAS icin TRBC adi dondurdu
+# ("Consumer Non-Cyclicals", alt sektor "Food & Drug Retailing").
+# Harita yalnizca GICS tasiyordu, ham deger akti ve dagitim DORT
+# GUN kilitli kaldi.
+#
+# OLCUT CIFTIN AYNI KOVAYA DUSMESI, adlarin varligi degil: ayni
+# kavramin iki adi ayri Turkce kovaya duserse sektor medyani ikiye
+# bolunur ve iki sayfa birbirine kiyaslanamaz.
+_IKIZLER = (
+    ("Consumer Staples", "Consumer Non-Cyclicals"),
+    ("Consumer Discretionary", "Consumer Cyclicals"),
+    ("Materials", "Basic Materials"),
+    ("Communication Services", "Telecommunications Services"),
+)
+for _gics, _trbc in _IKIZLER:
+    esit(_gics in sektor.SEKTOR_TR, True, f"GICS adi haritada: {_gics}")
+    esit(_trbc in sektor.SEKTOR_TR, True, f"TRBC adi haritada: {_trbc}")
+    esit(sektor.SEKTOR_TR.get(_gics), sektor.SEKTOR_TR.get(_trbc),
+         f"ikisi AYNI Turkce kovada: {_gics} / {_trbc}")
+
+# HICBIR TURKCE AD INGILIZCE KALMASIN: degerler ceviri, kopya degil.
+_ingilizce = [v for k, v in sektor.SEKTOR_TR.items() if v == k]
+esit(_ingilizce, [], "ceviri degerleri kaynagin adiyla AYNI degil")
+
+print()
 if _kaldi:
     print(f"{_kaldi} TEST KALDI, {_gecti} gecti")
     sys.exit(1)
