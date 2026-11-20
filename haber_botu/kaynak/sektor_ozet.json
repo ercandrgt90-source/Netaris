@@ -3558,12 +3558,96 @@
     "eksik: hasilat, brut_kar, stoklar"
    ],
    [
-    "ASUZU",
+    "ISSEN",
     "eksik: hasilat, net_kar, aktif_toplami"
    ],
    [
-    "ATEKS",
-    "eksik: aktif_toplami, ozkaynak, stoklar"
+    "JANTS",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "KAPLM",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "KARTN",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "KORDS",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "MARTI",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "MAVI",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "MNDTR",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "PARSN",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "PKENT",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "RODRG",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "RUBNS",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "SAFKR",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "SANKO",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "SASA",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "SKTAS",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "SUNTK",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "SUWEN",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "TABGD",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "TOASO",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "VESBE",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "VESTL",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "YATAS",
+    "eksik: hasilat, net_kar, aktif_toplami"
    ]
   ],
   "ana_donem": "2026-09-30",
@@ -3641,6 +3725,8 @@
    "AKSA",
    "ARCLK",
    "ARTMS",
+   "ASUZU",
+   "ATEKS",
    "ATSYH",
    "AYCES",
    "BAKAB",
@@ -3678,30 +3764,7 @@
    "GOODY",
    "GZNMI",
    "HATEK",
-   "INTEM",
-   "ISSEN",
-   "JANTS",
-   "KAPLM",
-   "KARTN",
-   "KORDS",
-   "MARTI",
-   "MAVI",
-   "MNDTR",
-   "PARSN",
-   "PKENT",
-   "RODRG",
-   "RUBNS",
-   "SAFKR",
-   "SANKO",
-   "SASA",
-   "SKTAS",
-   "SUNTK",
-   "SUWEN",
-   "TABGD",
-   "TOASO",
-   "VESBE",
-   "VESTL",
-   "YATAS"
+   "INTEM"
   ],
   "mali": {
    "MAVI": 1,
@@ -3734,6 +3797,6 @@
     ]
    }
   },
-  "tazelendi": "2026-11-19T16:33:18+00:00"
+  "tazelendi": "2026-11-20T03:36:44+00:00"
  }
 }

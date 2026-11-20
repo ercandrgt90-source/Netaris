@@ -3789,7 +3789,10 @@
    "kap_kimlik": "4028e4a240f2ef4c01413b59d12c0749",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "ANALİZ BAĞIMSIZ DENETİM VE DANIŞMANLIK A.Ş."
+   "denetci": "ANALİZ BAĞIMSIZ DENETİM VE DANIŞMANLIK A.Ş.",
+   "sektor": "Financials",
+   "sektor_tr": "Finans",
+   "alt_sektor": "Asset Management"
   },
   "HUNER": {
    "kod": "HUNER",
@@ -3797,7 +3800,10 @@
    "kap_kimlik": "8acae2c47d3bee4e017e347a3f5a5b1a",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "BM BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "BM BAĞIMSIZ DENETİM A.Ş.",
+   "sektor": "Utilities",
+   "sektor_tr": "Kamu hizmetleri",
+   "alt_sektor": "Utilities - Renewable"
   },
   "HURGZ": {
    "kod": "HURGZ",
@@ -3805,7 +3811,10 @@
    "kap_kimlik": "4028e4a140ee35c70140ee6408650041",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "KAİZEN BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "KAİZEN BAĞIMSIZ DENETİM A.Ş.",
+   "sektor": "Communication Services",
+   "sektor_tr": "İletişim",
+   "alt_sektor": "Publishing"
   },
   "HUZFA": {
    "kod": "HUZFA",
