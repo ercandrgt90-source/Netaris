@@ -3756,7 +3756,10 @@
    "kap_kimlik": "8acae2c58b2fa64e018fabc0441664a1",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "GÜRELİ YEMİNLİ MALİ MÜŞAVİRLİK VE BAĞIMSIZ DENETİM HİZMETLERİ A.Ş."
+   "denetci": "GÜRELİ YEMİNLİ MALİ MÜŞAVİRLİK VE BAĞIMSIZ DENETİM HİZMETLERİ A.Ş.",
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Integrated Freight & Logistics"
   },
   "HRKET": {
    "kod": "HRKET",
@@ -3764,7 +3767,10 @@
    "kap_kimlik": "8acae2c48c3efabf018f632d8d082913",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "EREN BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "EREN BAĞIMSIZ DENETİM A.Ş.",
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Engineering & Construction"
   },
   "HTTBT": {
    "kod": "HTTBT",
@@ -3772,7 +3778,10 @@
    "kap_kimlik": "8acae2c57d3bf002017e016f30e442c6",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş"
+   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş",
+   "sektor": "Technology",
+   "sektor_tr": "Bilişim",
+   "alt_sektor": "Software - Application"
   },
   "HUBVC": {
    "kod": "HUBVC",
