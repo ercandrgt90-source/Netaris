@@ -595,7 +595,22 @@ const d = StyleSheet.create({
     paddingHorizontal: 13,
     paddingVertical: 9,
     borderWidth: StyleSheet.hairlineWidth,
-    minHeight: 40,
+    // 44 PIKSEL DOKUNMA HEDEFI (WCAG 2.5.8) -- OLCULDU, 40'TI.
+    //
+    // `erisim_olcumu.mjs` gercek tarayicida `/arastirma` ekranindaki
+    // bes suzgec dugmesini de esigin ALTINDA bildirdi:
+    //
+    //     61x40 Tümü · 71x40 Bilanço · 66x40 Makro
+    //     65x40 Teknik · 63x40 İmzalı
+    //
+    // Ayni esik bu dosyanin asagisinda (`dugme`) ve sitede 44 olarak
+    // KORUNUYORDU; yalnizca cip seridine yayilmamisti -- bu depoda
+    // tekrarlayan sinif.
+    //
+    // DOLGU TEK BASINA YETMIYOR: 9+9 dolgu + ~22 satir yuksekligi 40
+    // ediyor. Esigi dolguyla kovalamak yerine `minHeight` yaziliyor,
+    // cunku yazi boyu temadan gelir ve dolgu hesabi sessizce eskir.
+    minHeight: 44,
     justifyContent: "center",
   },
   orta: { padding: 28, alignItems: "center", gap: 10 },

@@ -131,12 +131,17 @@ export default function Arastirma() {
 
 const s = StyleSheet.create({
   suzgec: { paddingHorizontal: 16, paddingVertical: 12, gap: 8 },
-  cip: {
-    paddingHorizontal: 14,
-    paddingVertical: 9,
-    borderWidth: StyleSheet.hairlineWidth,
-    minHeight: 40,
-    justifyContent: "center",
-  },
+  // `cip` BICIMI KALDIRILDI -- OLU KOPYAYDI VE YANLIS YERE
+  // DUZELTME YAPTIRDI (2026-11-20).
+  //
+  // Suzgec seridi ortak `bilesen.CipSeridi` ile basiliyor; buradaki
+  // kopya hicbir yerde KULLANILMIYORDU (olculdu: `s.cip` gecmiyor).
+  // `erisim_olcumu.mjs` bes dugmeyi de 40 piksel bildirince once
+  // BURAYI duzelttim, yeniden derledim ve olcum AYNI sonucu verdi --
+  // cunku dokundugum biçim hic uygulanmıyordu.
+  //
+  // Olu kopya yalnizca atil degil, YANILTICI: duzeltmeyi yutuyor ve
+  // "duzelttim" sanilmasina yol aciyor. Gercek esik tek yerde,
+  // `bilesen.tsx` icinde.
   son: { fontSize: 12, textAlign: "center", paddingVertical: 18 },
 });
