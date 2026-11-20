@@ -214,6 +214,20 @@ def _seri(metin: str) -> tuple[list, dict]:
     return sira, cikti
 
 
+def _donem_anahtari(etiket: str) -> tuple:
+    """"2026 1. çeyrek" -> (2026, 1). Siralanabilir anahtar.
+
+    BILINMEYEN BICIM EN BASA DUSUYOR: mali yili takvim disi olan
+    sirketlerde etiket "2026 mayıs–temmuz" gibi olabiliyor ve onu
+    ceyrege zorlamak uydurma olurdu. Siralama disinda kalmasi,
+    "aralik icinde mi" sorusunun o sayfa icin ASLA evet
+    dondurmemesi demek -- yanlis tarafa dusmek gerekiyorsa,
+    silmemek tarafina dusmeli.
+    """
+    m = re.search(r"(\d{4}).*?([1-4])", etiket or "")
+    return (int(m.group(1)), int(m.group(2))) if m else (0, 0)
+
+
 def celiskili_sayfalar() -> list:
     """Verisi KENDI etiketiyle celisen bilanco sayfalari.
 
@@ -270,6 +284,31 @@ def celiskili_sayfalar() -> list:
             if r["seri"]:
                 continue              # kendi tanigi var, oteki kural bakar
             d = r["donem"]
+            # SIRKET O DONEMI HIC BILDIRMIYORSA SAYFA UYDURMA DEMEKTIR.
+            #
+            # OLCULDU (2026-11-21): INTEK YARIYILLIK bildiriyor.
+            # Kaynakta `2026-03-31` sutunu HIC YOK; tanik serisi
+            # alti aylik adimlarla iliyor:
+            #
+            #     2026 2. çeyrek | 2025 4. çeyrek | 2025 2. çeyrek
+            #
+            # Buna ragmen "2026 1. çeyrek" basligiyla bir sayfa
+            # yayimlanmisti ve hasilati 0,45 yaziyordu -- kaynagin
+            # verdigi en guncel yariyil 0,23. Yani hem OLMAYAN bir
+            # donem, hem iki kati rakam.
+            #
+            # OLCUT AGDAN BAGIMSIZ: sayfanin donemi, tanik serisinin
+            # KAPSADIGI ARALIGIN ICINDE ama sutunlarinda YOK. Araligin
+            # DISINDA olmasi kusur degil -- seri yalnizca dort donem
+            # tasiyor ve daha eski bir sayfa dogal olarak disarida
+            # kalir.
+            kapsam = list((tanik.get("Hasılat") or {}).keys())
+            if kapsam and d not in kapsam:
+                sirali = sorted(kapsam, key=_donem_anahtari)
+                if _donem_anahtari(sirali[0]) < _donem_anahtari(d) \
+                        < _donem_anahtari(sirali[-1]):
+                    cikti.append((r["yol"], _kod, d, "donem yok"))
+                continue
             akis_s = _sayi((tanik.get("Hasılat") or {}).get(d))
             stok_s = _sayi((tanik.get("Aktif toplamı") or {}).get(d))
             akis_p = _tablo_degeri(r["metin"], "Hasılat")
@@ -292,7 +331,12 @@ def _celiski_kipi(n) -> int:
         print("celiski YOK")
         return 0
     for yol, kod, donem, oran in celiskili[:12]:
-        print(f"  {kod:8s} {donem:18s} akis/stok {oran:>5}  {yol.name}")
+        # SEBEP IKI TURLU: sayi (akis/stok orani) ya da dizge
+        # ("donem yok"). Ikisini ayni bicimle basmak, metni sayi
+        # sanip hizalamayi bozardi.
+        etiket = (f"akis/stok {oran}" if isinstance(oran, (int, float))
+                  else str(oran))
+        print(f"  {kod:8s} {donem:18s} {etiket:<16s} {yol.name}")
     if len(celiskili) > 12:
         print(f"  ... ve {len(celiskili) - 12} tane daha")
     print(f"  OLCUT: akis orani / stok orani >= {CELISKI_SINIRI} "

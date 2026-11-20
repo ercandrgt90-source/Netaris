@@ -372,6 +372,36 @@ with tempfile.TemporaryDirectory() as _g:
     dogru("silinen listesi yazildi", _liste.exists()
           and "x-q1.md" in _liste.read_text(encoding="utf-8"))
 
+    # SIRKET O DONEMI HIC BILDIRMIYORSA -- ikinci olcut.
+    #
+    # OLCULDU (2026-11-21): INTEK YARIYILLIK bildiriyor, kaynakta
+    # 2026-03-31 sutunu HIC YOK; tanik serisi alti aylik adimlarla
+    # iliyor. Yine de "2026 1. çeyrek" sayfasi yayimlanmisti ve
+    # hasilati kaynagin verdigi yariyilin IKI KATIYDI.
+    #
+    # Olcut agdan bagimsiz: sayfanin donemi tanik serisinin KAPSADIGI
+    # ARALIGIN ICINDE ama sutunlarinda YOK.
+    _yariyil = SERILI.format(slug="z-h1", ad="Z A.Ş.", kod="ZZZ",
+                             donem="2026 2. çeyrek", hasilat="0,23",
+                             aktif="1,00", d1="2026 2. çeyrek",
+                             d2="2025 4. çeyrek", s1="0,23", s2="0,26",
+                             a1="1,00", a2="0,98")
+    _olmayan = SERISIZ.format(slug="z-q1", ad="Z A.Ş.", kod="ZZZ",
+                              donem="2026 1. çeyrek", hasilat="0,45",
+                              aktif="1,07")
+    # ARALIK DISINDA kalan sayfa KUSUR DEGIL: seri yalnizca dort
+    # donem tasiyor, daha eskisi dogal olarak disarida.
+    _eski = SERISIZ.format(slug="z-2024", ad="Z A.Ş.", kod="ZZZ",
+                           donem="2024 1. çeyrek", hasilat="0,10",
+                           aktif="0,50")
+    _a2 = _kur_celiski(_k, [("z-h1.md", _yariyil), ("z-q1.md", _olmayan),
+                            ("z-2024.md", _eski)])
+    _c2 = {y.name for y, _k3, _d2, _o2 in kt.celiskili_sayfalar()}
+    dogru("sirketin BILDIRMEDIGI donem yakalaniyor", "z-q1.md" in _c2)
+    dogru("seri araliginin DISINDAKI eski sayfa yakalanMIYOR",
+          "z-2024.md" not in _c2)
+    dogru("tanik sayfanin kendisi yakalanMIYOR", "z-h1.md" not in _c2)
+
     # KURU KOSU SILMEZ: varsayilan davranis olcmek.
     _kur_celiski(_k, [("x-q2.md", _yeni), ("x-q1.md", _kum)])
     calistir(["--celiski"])
