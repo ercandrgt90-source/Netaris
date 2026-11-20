@@ -2108,18 +2108,18 @@
   ],
   "mali": {},
   "donem_gruplari": {},
-  "tazelendi": "2026-11-19T23:01:53+00:00"
+  "tazelendi": "2026-11-20T21:54:42+00:00"
  },
  "Temel malzeme": {
   "sektor": "Temel malzeme",
   "donem": "2026 3. çeyrek",
-  "sirket_sayisi": 43,
+  "sirket_sayisi": 44,
   "medyan": {
-   "brut_marj": 14.75609756097561,
-   "net_marj": 1.0107179034735156,
-   "roe": 0.16052986079928153,
-   "cari_oran": 1.4257142857142857,
-   "borc_ozkaynak": 0.14533402352399852
+   "brut_marj": 16.113474789456415,
+   "net_marj": 1.0163652410449338,
+   "roe": 0.35180489141328597,
+   "cari_oran": 1.4709477343869213,
+   "borc_ozkaynak": 0.14561849111651234
   },
   "sirket": {
    "ACSEL": {
@@ -2235,11 +2235,11 @@
     "borc_ozkaynak": 0.1927367150641846
    },
    "BUCIM": {
-    "brut_marj": 22.715573360040057,
-    "net_marj": 8.895843765648474,
-    "roe": 1.6235605922134893,
-    "cari_oran": 1.808476286579213,
-    "borc_ozkaynak": 0.22445622372509597
+    "brut_marj": 17.47085201793722,
+    "net_marj": 13.213663940912687,
+    "roe": 2.124385072094996,
+    "cari_oran": 1.5369812583668006,
+    "borc_ozkaynak": 0.25716709075487704
    },
    "CEMTS": {
     "brut_marj": 18.835227272727273,
@@ -2476,7 +2476,51 @@
     "eksik: brut_kar, faaliyet_kari"
    ],
    [
-    "DOFER",
+    "KOPOL",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "MARBL",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "MEGAP",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "MEKAG",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "PETKM",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "POLHO",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "POLTK",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "RNPOL",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "SARKY",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "SUMAS",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "TMPOL",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "VSNMD",
     "eksik: hasilat, net_kar, aktif_toplami"
    ]
   ],
@@ -2498,7 +2542,7 @@
    "BRSAN": "2026-09-30",
    "BSOKE": "2026-09-30",
    "BTCIM": "2026-06-30",
-   "BUCIM": "2026-06-30",
+   "BUCIM": "2026-09-30",
    "CEMTS": "2026-09-30",
    "CGCAM": "2026-09-30",
    "CIMSA": "2026-09-30",
@@ -2559,6 +2603,7 @@
    "CMENT",
    "CVKMD",
    "DNISI",
+   "DOFER",
    "DOKTA",
    "DYOBY",
    "EGSER",
@@ -2570,37 +2615,24 @@
    "GENKM",
    "GOLTS",
    "GUBRF",
-   "HEKTS",
-   "KOPOL",
-   "MARBL",
-   "MEGAP",
-   "MEKAG",
-   "PETKM",
-   "POLHO",
-   "POLTK",
-   "RNPOL",
-   "SARKY",
-   "SUMAS",
-   "TMPOL",
-   "VSNMD"
+   "HEKTS"
   ],
   "mali": {},
   "donem_gruplari": {
    "2026-06-30": {
     "donem": "2026 2. çeyrek",
-    "sirket_sayisi": 5,
+    "sirket_sayisi": 4,
     "medyan": {
-     "brut_marj": 15.285276856340904,
-     "net_marj": 3.5664710385302376,
-     "roe": 1.6235605922134893,
-     "cari_oran": 1.5230957479351483,
-     "borc_ozkaynak": 0.17092579336673824
+     "brut_marj": 15.123395869761623,
+     "net_marj": 0.9968578102867905,
+     "roe": 0.7567768028186017,
+     "cari_oran": 1.4600191443945643,
+     "borc_ozkaynak": 0.11400640700785289
     },
     "kodlar": [
      "AYES",
      "BASCM",
      "BTCIM",
-     "BUCIM",
      "SUMAS"
     ]
    },
@@ -2613,7 +2645,7 @@
     ]
    }
   },
-  "tazelendi": "2026-11-19T23:16:16+00:00"
+  "tazelendi": "2026-11-20T21:59:33+00:00"
  },
  "Temel tüketim": {
   "sektor": "Temel tüketim",

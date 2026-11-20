@@ -3849,7 +3849,8 @@
    "kap_kimlik": "4028e4a24158e42401415a700e104f3f",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "GÜNEY BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "GÜNEY BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor_bulunamadi": "2026-11-20"
   },
   "ICBCT": {
    "kod": "ICBCT",
@@ -3857,7 +3858,10 @@
    "kap_kimlik": "4028e4a24158e42401415a700e104f3f",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "GÜNEY BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "GÜNEY BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor": "Financials",
+   "sektor_tr": "Finans",
+   "alt_sektor": "Banks - Regional"
   },
   "ICUGS": {
    "kod": "ICUGS",
@@ -3865,7 +3869,9 @@
    "kap_kimlik": "4028e4a141e536460141e53ba7790052",
    "sehir": "İZMİR",
    "uye_turu": "IGS",
-   "denetci": "VİZYON GRUP BAĞIMSIZ DENETİM.A.Ş."
+   "denetci": "VİZYON GRUP BAĞIMSIZ DENETİM.A.Ş.",
+   "sektor_bulunamadi": "2026-11-20",
+   "sektor_sebep": "sektor alani yok"
   },
   "IDGYO": {
    "kod": "IDGYO",
