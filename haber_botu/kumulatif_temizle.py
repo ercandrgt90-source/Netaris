@@ -136,6 +136,185 @@ def tara() -> tuple[dict[str, list], dict[str, list]]:
     return kum, cey
 
 
+#: "Son dort donem" tablosunun basligi -- BAGIMSIZ TANIK.
+SERI_BASLIK = "## Son dört dönem"
+
+#: Akis/stok orani bu degerin USTUNDEYSE sayfa tek ceyreklik DEGIL.
+#:
+#: NEDEN ORAN DEGIL ORANIN ORANI -- OLCULDU (2026-11-20).
+#:
+#: Sayfanin hasilatini baska bir sayfanin serisiyle duz
+#: karsilastirmak ISE YARAMIYOR: TMS 29 enflasyon duzeltmesi eski
+#: sayfayi bugune gore ~%10 dusuk gosteriyor, kumulatiflik ise ~2 kat
+#: yuksek -- ve ikisi arasindaki bant dolu. Esik oynatmak yalnizca
+#: hangi hatayi yapacagini secmek olurdu.
+#:
+#: ENFLASYON STOK VE AKISI AYNI ORANDA ETKILER, kumulatiflik YALNIZCA
+#: AKISI carpar. Bu yuzden olcut akis oraninin stok oranina BOLUMU:
+#: enflasyon sadelesiyor, geriye "kac ceyrek toplanmis" kaliyor.
+#:
+#: Olculen dagilim (86 sayfa, canli icerik):
+#:
+#:     1.01  1.10  |  1.41  1.52  1.60 ...  2.0+  (en buyuk 10.5)
+#:            ^-- dogru sayfalar        ^-- kumulatif sayfalar
+#:
+#: 1,10 ile 1,41 arasinda GERCEK BIR BOSLUK var; sinir oraya konuyor.
+#: 1,41 kumulatif olmasina ragmen 2'ye varmiyor cunku oran
+#: `1 + Q2/Q1` ve o sirkette Q2 kucuk.
+#:
+#: CAPRAZ DOGRULANDI: secilen 57 sayfanin 52'si 21-25 Agustos'ta
+#: uretilmis (kumulatif donem), temiz kalan 29'un cogu 26 Agustos ve
+#: sonrasi. Iki bagimsiz sinyal %95 ortusuyor.
+CELISKI_SINIRI = 1.25
+
+
+def _tablo_degeri(metin: str, kalem: str):
+    """Sayfanin SEVIYE tablosundan bir kalem (milyar TL)."""
+    m = re.search(rf"\| {re.escape(kalem)} \| ([-0-9,.]+) milyar", metin)
+    return _sayi(m.group(1)) if m else None
+
+
+def _sayi(x):
+    if x is None or x == "—":
+        return None
+    try:
+        return float(x.replace(".", "").replace(",", "."))
+    except ValueError:
+        return None
+
+
+def _seri(metin: str) -> tuple[list, dict]:
+    """Sayfanin "Son dort donem" tablosu: (donem sirasi, kalem->donem->deger)."""
+    # DESEN PARCA PARCA KURULUYOR -- here-doc tuzagi.
+    #
+    # Bu dosya bir kez here-doc ile yazildi ve `\s`, `\n`, `\|`
+    # dizileri dosyaya BASKA bir sey olarak dustu; desen sessizce
+    # bozuldu. Kacislari tek tek `chr()` ile kurmak o yolu kapatiyor.
+    bs = chr(92)
+    nl = bs + "n"
+    desen = (re.escape(SERI_BASLIK)
+             + bs + r"s*" + nl + bs + r"s*" + nl
+             + bs + r"| Kalem " + bs + r"(milyar TL" + bs + r") "
+             + bs + r"| (.+?) " + bs + "|" + nl
+             + bs + "|[^" + nl + "]*" + nl
+             + "(.*?)(?:" + nl + nl + "|" + bs + "Z)")
+    m = re.search(desen, metin, re.S)
+    if not m:
+        return [], {}
+    sira = [x.strip() for x in m.group(1).split("|")]
+    cikti: dict = {}
+    for satir in m.group(2).splitlines():
+        if satir.count("|") < 3:
+            continue
+        ad = satir.split("|")[1].strip()
+        if not ad:
+            continue
+        deg = [x.strip() for x in satir.split("|")[2:-1]]
+        cikti[ad] = dict(zip(sira, deg))
+    return sira, cikti
+
+
+def celiskili_sayfalar() -> list:
+    """Verisi KENDI etiketiyle celisen bilanco sayfalari.
+
+    NEDEN BU ARAC -- OLCULDU, 57 SAYFA YAYINDAYDI (2026-11-20)
+    ----------------------------------------------------------
+    Bu dosyanin ust kismi KUMULATIF ETIKETLI sayfalari topluyor
+    ("2026/6"). Ama goc sirasinda bir grup sayfa CEYREKLIK ETIKET
+    alip KUMULATIF VERI tasidi: baslik "2026 1. çeyrek", tablo alti
+    aylik. Etikete bakan olcut onlari goremiyor.
+
+    Somut (AKMGY, 2026 1. çeyrek sayfasi vs kendi Q3 sayfamizin
+    serisi):
+
+        Hasilat         0,63  ->  dogrusu 0,32   (akis, 2 kat)
+        Net kar         0,31  ->  dogrusu 0,03   (akis, 10 kat)
+        Aktif toplami  13,74  ->  dogrusu 13,11  (stok, degismiyor)
+        Ozkaynak       11,13  ->  dogrusu 10,58  (stok, degismiyor)
+
+    AKIS iki kat, STOK ayni: kumulatif raporun imzasi tam budur.
+    Sayfa ustelik `veri_kaynagi: Çeyreklik mali tablolardan
+    türetildi` diyor -- yani YANLIS BIR KOKEN iddiasi tasiyor ve AI
+    ozeti bu sayilari duz metinde tekrarliyor.
+
+    BAGIMSIZ TANIK: ayni sirketin DAHA YENI sayfasindaki "Son dort
+    donem" tablosu. `bilanco_denetim.donem_etiketi_celiskisi` ayni
+    isi tek sayfa icinde yapiyor ama "seri bolumu yoksa olcum yok"
+    diyor ve bu 57 sayfada o bolum YOK. Tanik baska sayfada duruyordu.
+
+    SILINMELERI GUVENLI: her birinin ayni sirket icin daha yeni bir
+    sayfasi var (tanik oradan geliyor) ve o sayfanin serisi ayni
+    donemin DOGRU rakamini zaten yayimliyor.
+    """
+    import collections                                   # noqa: PLC0415
+
+    sayfalar: dict = collections.defaultdict(list)
+    for p in sorted(ANALIZ.rglob("*.md")):
+        t = p.read_text(encoding="utf-8", errors="replace")
+        if _alan(t, "kategori") != KATEGORI:
+            continue
+        kod, donem = _alan(t, "kod"), _alan(t, "donem")
+        if not kod or not donem:
+            continue
+        sira, seri = _seri(t)
+        sayfalar[kod].append({"yol": p, "donem": donem,
+                              "metin": t, "seri": seri})
+
+    cikti = []
+    for _kod, kayitlar in sayfalar.items():
+        tanik: dict = {}
+        for r in kayitlar:
+            for kalem, m in (r["seri"] or {}).items():
+                tanik.setdefault(kalem, {}).update(m)
+        for r in kayitlar:
+            if r["seri"]:
+                continue              # kendi tanigi var, oteki kural bakar
+            d = r["donem"]
+            akis_s = _sayi((tanik.get("Hasılat") or {}).get(d))
+            stok_s = _sayi((tanik.get("Aktif toplamı") or {}).get(d))
+            akis_p = _tablo_degeri(r["metin"], "Hasılat")
+            stok_p = _tablo_degeri(r["metin"], "Aktif toplamı")
+            if None in (akis_s, stok_s, akis_p, stok_p):
+                continue
+            if min(akis_s, stok_s, akis_p, stok_p) <= 0:
+                continue
+            oran = (akis_p / akis_s) / (stok_p / stok_s)
+            if oran >= CELISKI_SINIRI:
+                cikti.append((r["yol"], _kod, d, round(oran, 2)))
+    return sorted(cikti, key=lambda x: x[0].name)
+
+
+def _celiski_kipi(n) -> int:
+    """`--celiski`: verisi etiketiyle celisen sayfalari bildirir/siler."""
+    celiskili = celiskili_sayfalar()
+    print(f"verisi etiketiyle CELISEN sayfa: {len(celiskili)}")
+    if not celiskili:
+        print("celiski YOK")
+        return 0
+    for yol, kod, donem, oran in celiskili[:12]:
+        print(f"  {kod:8s} {donem:18s} akis/stok {oran:>5}  {yol.name}")
+    if len(celiskili) > 12:
+        print(f"  ... ve {len(celiskili) - 12} tane daha")
+    print(f"  OLCUT: akis orani / stok orani >= {CELISKI_SINIRI} "
+          f"(enflasyon sadelesiyor, geriye kumulatiflik kaliyor)")
+    if not n.uygula:
+        print("KURU KOSU -- silmek icin --uygula")
+        return 0
+    silinen = []
+    for yol, _kod, _donem, _oran in celiskili:
+        try:
+            yol.unlink()
+            silinen.append(str(yol.relative_to(KOK)).replace(chr(92), "/"))
+        except OSError as e:                             # noqa: BLE001
+            print(f"  SILINEMEDI {yol.name}: {e}")
+    print(f"silindi: {len(silinen)}")
+    if n.liste and silinen:
+        pathlib.Path(n.liste).write_text(
+            chr(10).join(silinen) + chr(10), encoding="utf-8")
+        print(f"liste yazildi: {n.liste}")
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--uygula", action="store_true",
@@ -161,7 +340,19 @@ def main() -> int:
     # BU ARACIN sildigi yollari acikca bildirmesi.
     ap.add_argument("--liste", metavar="DOSYA",
                     help="silinen yollari bu dosyaya yaz (geri yazma icin)")
+    # ETIKET DEGIL VERI OLCUTU -- AYRI BAYRAK.
+    #
+    # Ustteki tarama sayfanin ETIKETINE bakiyor ("2026/6"). Bu ise
+    # VERIYE bakiyor: ceyreklik etiket tasiyip kumulatif rakam
+    # yayimlayan sayfalari buluyor (gerekce `celiskili_sayfalar`).
+    # Ayri bayrak, cunku calisan davranisi degistirmemeli.
+    ap.add_argument("--celiski", action="store_true",
+                    help="etiketi ceyreklik ama verisi kumulatif olan "
+                         "sayfalari bul (veri olcutu)")
     n = ap.parse_args()
+
+    if n.celiski:
+        return _celiski_kipi(n)
 
     kum, cey = tara()
     silinecek = [(k, v) for k, v in kum.items() if k in cey]

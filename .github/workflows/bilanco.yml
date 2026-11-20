@@ -464,6 +464,26 @@ jobs:
           python haber_botu/kumulatif_temizle.py --uygula
           --liste "${RUNNER_TEMP}/silinen-kumulatif.txt"
 
+      # VERİSİ ETİKETİYLE ÇELİŞEN SAYFA VAR MI -- YALNIZCA BİLDİRİR.
+      #
+      # Ölçüldü (2026-11-20): göç sırasında 57 sayfa çeyreklik ETİKET
+      # alıp kümülatif VERİ taşıdı. Başlık "2026 1. çeyrek", tablo
+      # altı aylık; net kâr bir örnekte on kat yüksekti. Üstteki
+      # ölçüt etikete baktığı için onları göremedi.
+      #
+      # `--uygula` BİLEREK YOK: ölçüt (akış oranı / stok oranı) canlı
+      # veride 1,10 ile 1,41 arasında gerçek bir boşluk gösteriyor ama
+      # sınırda duran sayfalar var. Yanlış ateşleyen bir kural, DOĞRU
+      # bir sayfayı sessizce silerdi -- geri alınamayan tarafa düşmek
+      # yerine bildirip insana bırakıyor.
+      #
+      # KAPI DA DEĞİL: meşru sıfır da, meşru bir çelişki de dağıtımı
+      # durdurmamalı. Çıkış kodu etkilenmiyor; sayı koşu günlüğünde.
+      - name: Verisi etiketiyle çelişen sayfa var mı (ölçüm)
+        if: always()
+        continue-on-error: true
+        run: python haber_botu/kumulatif_temizle.py --celiski
+
       - name: Siteyi kur ve denetle
         run: |
           python site/insa.py

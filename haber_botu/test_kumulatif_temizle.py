@@ -258,5 +258,125 @@ with tempfile.TemporaryDirectory() as t:
     dogru("o haber yuzunden gercek kumulatif sayfa SILINMEDI",
           (analiz / "2026-6-aaa.md").exists())
 
+# --------------------------------------------------------------------
+# 5. VERI OLCUTU: etiketi ceyreklik, verisi kumulatif sayfalar.
+#
+#    OLCULDU (2026-11-20): 57 sayfa yayindaydi. Baslik "2026 1.
+#    çeyrek", tablo ALTI AYLIK. Etikete bakan ustteki olcut onlari
+#    goremiyor cunku etiketleri KUSURSUZ.
+#
+#    AKMGY ornegi (kendi Q3 sayfamizin serisine gore):
+#        Hasilat 0,63 -> 0,32   Net kar 0,31 -> 0,03   (AKIS, 2x/10x)
+#        Aktif  13,74 -> 13,11  Ozkaynak 11,13 -> 10,58 (STOK, ayni)
+#
+#    Enflasyon STOK ve AKISI ayni oranda etkiler; kumulatiflik
+#    YALNIZCA akisi carpar. Olcut bu yuzden oranin orani.
+# --------------------------------------------------------------------
+SERILI = """---
+slug: {slug}
+baslik: {ad} {donem} bilanço analizi
+kod: {kod}
+donem: {donem}
+kategori: Bilanço Analizi
+---
+
+## {donem} dönemi ölçümleri
+
+| Kalem | Değer |
+| --- | ---: |
+| Hasılat | {hasilat} milyar TL |
+| Aktif toplamı | {aktif} milyar TL |
+
+## Son dört dönem
+
+| Kalem (milyar TL) | {d1} | {d2} |
+| --- | ---: | ---: |
+| Hasılat | {s1} | {s2} |
+| Aktif toplamı | {a1} | {a2} |
+
+Gövde.
+"""
+
+SERISIZ = """---
+slug: {slug}
+baslik: {ad} {donem} bilanço analizi
+kod: {kod}
+donem: {donem}
+kategori: Bilanço Analizi
+---
+
+## {donem} dönemi ölçümleri
+
+| Kalem | Değer |
+| --- | ---: |
+| Hasılat | {hasilat} milyar TL |
+| Aktif toplamı | {aktif} milyar TL |
+
+Gövde.
+"""
+
+
+def _kur_celiski(kok, kayitlar):
+    analiz = kok / "site" / "icerik" / "analizler"
+    analiz.mkdir(parents=True, exist_ok=True)
+    for ad, icerik in kayitlar:
+        (analiz / ad).write_text(icerik, encoding="utf-8")
+    kt.KOK = kok
+    kt.ANALIZ = analiz
+    return analiz
+
+
+with tempfile.TemporaryDirectory() as _g:
+    _k = pathlib.Path(_g)
+    # Tanik sayfa: Q2 serisi -- Q1 hasilati 0,32 / aktif 13,11.
+    _yeni = SERILI.format(slug="x-q2", ad="X A.Ş.", kod="XXX",
+                          donem="2026 2. çeyrek", hasilat="0,31",
+                          aktif="13,50", d1="2026 2. çeyrek",
+                          d2="2026 1. çeyrek", s1="0,31", s2="0,32",
+                          a1="13,50", a2="13,11")
+    # KUMULATIF sayfa: Q1 etiketi, AKIS iki kat (0,63), STOK ayni.
+    _kum = SERISIZ.format(slug="x-q1", ad="X A.Ş.", kod="XXX",
+                          donem="2026 1. çeyrek", hasilat="0,63",
+                          aktif="13,74")
+    # DOGRU sayfa: ayni donem, akis tek ceyrek; yalnizca enflasyon
+    # farki (~%5) -- SECILMEMELI.
+    _dog = SERISIZ.format(slug="y-q1", ad="Y A.Ş.", kod="YYY",
+                          donem="2026 1. çeyrek", hasilat="0,34",
+                          aktif="13,74")
+    _yeniY = SERILI.format(slug="y-q2", ad="Y A.Ş.", kod="YYY",
+                           donem="2026 2. çeyrek", hasilat="0,31",
+                           aktif="13,50", d1="2026 2. çeyrek",
+                           d2="2026 1. çeyrek", s1="0,31", s2="0,32",
+                           a1="13,50", a2="13,11")
+    _kur_celiski(_k, [("x-q2.md", _yeni), ("x-q1.md", _kum),
+                      ("y-q2.md", _yeniY), ("y-q1.md", _dog)])
+    _c = kt.celiskili_sayfalar()
+    _adlar = {y.name for y, _k2, _d, _o in _c}
+    dogru("kumulatif veri tasiyan sayfa YAKALANIYOR", "x-q1.md" in _adlar)
+    dogru("DOGRU sayfa yakalanMIYOR (yalnizca enflasyon farki)",
+          "y-q1.md" not in _adlar)
+    dogru("kendi serisi olan sayfa hic bakilmiyor",
+          "x-q2.md" not in _adlar and "y-q2.md" not in _adlar)
+    # ATILLIK: tarama hic sayfa gormediyse ustteki iki iddia da bos
+    # gecerdi -- biri bulunmali.
+    dogru("tarama gercekten bir sayfa buldu (atillik)", len(_c) == 1)
+
+    # SILME GERCEKTEN OLUYOR ve YALNIZCA secileni siliyor.
+    _liste = _k / "silinen.txt"
+    calistir(["--celiski", "--uygula", "--liste", str(_liste)])
+    _a = _k / "site" / "icerik" / "analizler"
+    dogru("celiskili sayfa SILINDI", not (_a / "x-q1.md").exists())
+    dogru("dogru sayfa DURUYOR", (_a / "y-q1.md").exists())
+    dogru("tanik sayfalar DURUYOR",
+          (_a / "x-q2.md").exists() and (_a / "y-q2.md").exists())
+    dogru("silinen listesi yazildi", _liste.exists()
+          and "x-q1.md" in _liste.read_text(encoding="utf-8"))
+
+    # KURU KOSU SILMEZ: varsayilan davranis olcmek.
+    _kur_celiski(_k, [("x-q2.md", _yeni), ("x-q1.md", _kum)])
+    calistir(["--celiski"])
+    dogru("kuru kosu SILMIYOR", (_a / "x-q1.md").exists())
+
+
 print(f"{chr(10)}{_gecti} gecti, {_kaldi} kaldi")
 sys.exit(1 if _kaldi else 0)

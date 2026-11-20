@@ -338,7 +338,24 @@ _bas = [a for is_ in (_bil.get("jobs") or {}).values()
         for a in (is_.get("steps") or [])]
 _temizlik = [a for a in _bas
              if "kumulatif_temizle.py" in _kod(a.get("run") or "")]
-dogru("bilanco.yml kumulatif temizleyiciyi cagiriyor", len(_temizlik) == 1)
+# IKI CAGRI, IKI AYRI IS -- SAYI DEGIL BAYRAK AYIRIYOR.
+#
+# Once "tam olarak bir cagri" deniyordu. 2026-11-20'de ikinci bir
+# cagri eklendi (`--celiski`, verisi etiketiyle celisen sayfalari
+# YALNIZCA BILDIRIR) ve kural dustu. Sayiyi gevsetmek (`>= 1`)
+# kuralin disini bosaltirdi: silen cagri kaldirilsa bile gecerdi.
+#
+# Olcut artik ROL: biri SILIYOR ve `--liste` tasimak ZORUNDA
+# (gerekcesi yukarida), oteki yalnizca OLCUYOR ve `--uygula`
+# tasimaMAMALI -- otomatik silen bir ikinci yol, yanlis ateslediginde
+# dogru bir sayfayi sessizce yok ederdi.
+_silen = [a for a in _temizlik if "--uygula" in _kod(a.get("run") or "")]
+_olcen = [a for a in _temizlik if "--celiski" in _kod(a.get("run") or "")]
+dogru(f"bilanco.yml kumulatif temizleyiciyi cagiriyor ({len(_temizlik)})",
+      len(_temizlik) == 2)
+dogru("SILEN cagri tek ve --uygula tasiyor", len(_silen) == 1)
+dogru("OLCEN cagri tek ve SILMIYOR",
+      len(_olcen) == 1 and "--uygula" not in _kod(_olcen[0].get("run") or ""))
 if _temizlik:
     _t = _kod(_temizlik[0].get("run") or "")
     dogru("bilanco.yml temizleyiciye --liste veriyor", "--liste" in _t)
