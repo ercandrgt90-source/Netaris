@@ -6,7 +6,7 @@ sirket: GİMAT MAĞAZACILIK SANAYİ VE TİCARET A.Ş.
 kod: GMTAS
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
-sektor: Consumer Non-Cyclicals
+sektor: Temel tüketim
 tarih: 2026-11-16
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
@@ -77,11 +77,19 @@ Hasılatın %7,2 düşmesi, brüt kârın %7,7 artmasıyla birlikte brüt kâr m
 
 *Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
 
-## Sektör karşılaştırması bu dönem yapılmadı
+## Sektör içindeki konum
 
-Consumer Non-Cyclicals sektöründe **aynı dönemi bildiren** en az 3 şirket yok, bu yüzden sektör medyanı üretilmedi ve karşılaştırma tablosu yazılmadı. İki şirketin ortasını "sektör medyanı" diye sunmak, ölçülmemiş bir şeyi ölçülmüş gibi göstermek olurdu.
+Karşılaştırma Temel tüketim sektöründe **aynı dönemi bildiren** 32 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
-Yukarıdaki **bir yıl öncesine göre** değişim ve ölçüm tablosu şirketin kendi geçmişine dayanıyor; onlar için kıyas kümesi gerekmiyor.
+| Oran | Şirket | Sektör medyanı |
+| --- | ---: | ---: |
+| Brüt kâr marjı | %19,4 | %19,4 |
+| Net kâr marjı | -%1,2 | -%1,4 |
+| Özkaynak kârlılığı | -%0,4 | -%0,2 |
+| Cari oran | 2,56 | 1,62 |
+| Borç / özkaynak | -0,01 | 0,14 |
+
+*Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
 ## Öne çıkan ölçümler
 
@@ -89,13 +97,21 @@ Yukarıdaki **bir yıl öncesine göre** değişim ve ölçüm tablosu şirketin
 
 - Net kâr reel olarak %83,4 arttı.
 - Brüt marj 2,7 puan genişledi (%16,7 → %19,4).
-- Cari oran 2,56; dönen varlıklar kısa vadeli yükümlülüklerin üzerinde.
 
 **Dikkat gerektirenler**
 
 - Hasılat reel olarak -%7,2 geriledi.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
+
+
+## Gıda ve perakendede marj neden düşük okunur
+
+Temel tüketimde **brüt marj** yapısal olarak düşüktür; iş modeli marjdan değil **devir hızından** kâr eder. Düşük marj burada bir zayıflık göstergesi değildir.
+
+Perakendede mağaza açılışları hasılatı büyütürken kârlılığı geçici olarak baskılayabilir: yeni mağazanın gideri hemen, olgun cirosu sonra gelir.
+
+**Cari oran** bu sektörde genelde 1'in altındadır ve bu olağandır: perakendeci müşteriden peşin tahsil eder, tedarikçiye vadeli öder. Negatif işletme sermayesi bu iş modelinin bir özelliğidir.
 
 
 ---

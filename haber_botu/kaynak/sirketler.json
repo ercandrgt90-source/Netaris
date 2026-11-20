@@ -3822,7 +3822,8 @@
    "kap_kimlik": "4028e4a241558bd9014155ce6dec03e8",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "HSY DANIŞMANLIK VE BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "HSY DANIŞMANLIK VE BAĞIMSIZ DENETİM A.Ş.",
+   "sektor_bulunamadi": "2026-11-20"
   },
   "HYB": {
    "kod": "HYB",
@@ -3830,7 +3831,8 @@
    "kap_kimlik": "8acae2c48c3efabf018d10fc19010119",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "KPMG BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "KPMG BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor_bulunamadi": "2026-11-20"
   },
   "IAZ": {
    "kod": "IAZ",
@@ -3838,7 +3840,8 @@
    "kap_kimlik": "4028e4a14184e9cf0141934f00662c2e",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "ULUSAL BAĞIMSIZ DENETİM VE YEMİNLİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "ULUSAL BAĞIMSIZ DENETİM VE YEMİNLİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor_bulunamadi": "2026-11-20"
   },
   "ICB": {
    "kod": "ICB",
