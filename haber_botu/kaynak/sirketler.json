@@ -4064,7 +4064,8 @@
    "kap_kimlik": "4028e4a140f2ed7201411682b0cb05c6",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş"
+   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş",
+   "sektor_bulunamadi": "2026-11-21"
   },
   "ISBIR": {
    "kod": "ISBIR",
@@ -4072,7 +4073,10 @@
    "kap_kimlik": "4028e4a240f2ef4c0141017954a000b4",
    "sehir": "ANKARA",
    "uye_turu": "IGS",
-   "denetci": "EREN BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "EREN BAĞIMSIZ DENETİM A.Ş.",
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Furnishings, Fixtures & Appliances"
   },
   "ISBTR": {
    "kod": "ISBTR",
@@ -4080,7 +4084,10 @@
    "kap_kimlik": "4028e4a140f2ed7201411682b0cb05c6",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş"
+   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş",
+   "sektor": "Financials",
+   "sektor_tr": "Finans",
+   "alt_sektor": "Banks - Regional"
   },
   "ISCTR": {
    "kod": "ISCTR",
