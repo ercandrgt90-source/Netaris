@@ -371,6 +371,41 @@ def onarim_kuyrugu(defter: dict, baglam: dict | None = None) -> list:
     return kuyruk
 
 
+#: %100'u asan AZALIS deseni. ARTIS tarafi BU KURALIN KONUSU DEGIL:
+#: %500 ARTIS pekala olabilir (dusuk tabandan kata cikis), ama %500
+#: AZALIS olamaz -- azalisin alt siniri %100'dur.
+_ANLAMSIZ_YUZDE = re.compile(
+    r'%([0-9][0-9.,]*)\s*(azal|geril|düş|daral)',
+    re.IGNORECASE)
+
+
+def _anlamsiz_yuzde(metin: str) -> bool:
+    """Sayfa, %100'u asan bir AZALIS yuzdesi tasiyor mu?
+
+    BINLIK AYRACI NOKTA OLABILIYOR ("%1.897,5"), bu yuzden desen
+    sayiyi BUTUN OLARAK yakaliyor ve esik Python'da uygulaniyor.
+
+    ILK YAZIM BUNU IDDIA EDIP YAPMIYORDU. Desen, yuzde
+    isaretinden hemen sonra UC HANE bekliyordu, yani
+    "%1.897,5" dizgisinde `1` tek haneli oldugu icin HIC
+    ESLESMIYORDU -- docstring'in ornek olarak verdigi degerin ta
+    kendisi. Birim sinamasi yakaladi; aksi halde kural "calisiyor"
+    gorunup en buyuk degerleri kaciracakti. Ayni ders bu depoda
+    yazili: yorum iddia eder, akis uygulamaz.
+
+    ARTIS TARAFI KONUMUZ DEGIL: %500 ARTIS olabilir (dusuk tabandan
+    kata cikis), ama %500 AZALIS olamaz -- azalisin alt siniri
+    %100'dur. Tam %100 de MESRU: deger sifira inmistir.
+    """
+    for ham, _fiil in _ANLAMSIZ_YUZDE.findall(metin):
+        try:
+            if float(ham.replace(".", "").replace(",", ".")) > 100:
+                return True
+        except ValueError:
+            continue
+    return False
+
+
 def goc_kuyrugu(defter: dict, baglam: dict | None = None) -> list:
     """GUNCEL BICIMDE OLMAYAN sayfalar -- iki sebep, tek kuyruk.
 
@@ -422,6 +457,31 @@ def goc_kuyrugu(defter: dict, baglam: dict | None = None) -> list:
         if U.SERI_BASLIGI not in metin:
             _eksik.append("son dört dönem bölümü yok")
         _eksik += [f"{a} satırı yok" for a in U.eksik_turetilmis(metin)]
+        # UCUNCU GOC SEBEBI: ANLAMSIZ YUZDE.
+        #
+        # OLCULDU (2026-11-21): 220 yayimlanmis sayfada 597 kez
+        # %100'u asan bir AZALIS yaziyordu -- "faaliyet karinin
+        # %1.897,5 gerilemesine" gibi. %100'u asan azalis, degerin
+        # SIFIRI GECTIGI demektir; "yuzde kac azaldi" sorusunun
+        # cevabi yoktur. Sayi AI ozetine de besleniyordu.
+        #
+        # Kaynak duzeltildi (`oranlar._yuzde_degisim` artik isaret
+        # degisince yuzde uretmiyor; durum kendi sinyaliyle
+        # anlatiliyor). Ama KURALI SIKILASTIRMAK DEPODAKI ESKI
+        # ICERIGI TEMIZLEMEZ -- bu depoda ayni ders birkac kez
+        # ogrenildi. Eski sayfalar ancak yeniden yazilinca duzelir.
+        #
+        # NEDEN `onarim_gereken` DEGIL DE BURASI: o islev ayni
+        # zamanda `site/test_bilanco_sayfa_saglam.py` korumasini
+        # besliyor. Oraya eklemek 220 sayfayi BIR ANDA bozuk ilan
+        # eder, CI kirmiziya doner ve SITE DAGITILMAZ. Bu, bu
+        # islevin kendi docstring'inde belgelenen tuzagin aynisi;
+        # bolum gocu de ayni gerekceyle BURAYA konmustu.
+        #
+        # Kuyruk tazelendikce kisaliyor; bitince adim kendiliginden
+        # etkisiz hale geliyor.
+        if _anlamsiz_yuzde(metin):
+            _eksik.append("işaret değişiminde anlamsız yüzde")
         k = _KOD_DESEN.search(metin)
         if not k:
             continue

@@ -182,6 +182,64 @@ def test_bellek_sebebi_de_tasiyor():
         assert "HTTP 429" in n1 and "HTTP 429" in n2, (n1, n2)
 
 
+# ----------------------------------------------------------------
+# ANLAMSIZ YUZDE -- UCUNCU GOC SEBEBI
+#
+# OLCULDU (2026-11-21): 220 yayimlanmis sayfada 597 kez %100'u
+# asan bir AZALIS yaziyordu ("faaliyet karinin %1.897,5
+# gerilemesine"). %100'u asan azalis, degerin SIFIRI GECTIGI
+# demektir -- "yuzde kac azaldi" sorusunun cevabi yoktur.
+#
+# Kaynak duzeltildi (`oranlar._yuzde_degisim`) ama KURALI
+# SIKILASTIRMAK ESKI ICERIGI TEMIZLEMEZ. Sayfalar goc kuyruguna
+# alindi; kuyruk tazelendikce kisaliyor.
+# ----------------------------------------------------------------
+
+
+def test_anlamsiz_yuzde_yakalaniyor():
+    assert T._anlamsiz_yuzde("brüt kârın %574,5 düşmesi")
+    assert T._anlamsiz_yuzde("net kârın %476,5 azalmasına")
+    assert T._anlamsiz_yuzde("%101 geriledi")
+    # BINLIK AYRACLI BICIM. Ilk yazim bunu KACIRIYORDU: desen yuzde
+    # isaretinden sonra UC HANE bekliyordu ve "1.897,5" dizgisinde
+    # ilk hane tekti -- docstring bu ornegi verdigi halde
+    # eslesmiyordu. Birim sinamasi yakaladi.
+    assert T._anlamsiz_yuzde("faaliyet kârının %1.897,5 gerilemesine")
+    assert T._anlamsiz_yuzde("faaliyet kârının %1897,5 gerilemesine")
+
+
+def test_mesru_yuzde_yakalanmiyor():
+    # Kurali genis yazmak calisani bozar; sinir iki yandan tutuluyor.
+    assert not T._anlamsiz_yuzde("hasılatın %48,2 düşmesi")
+    # TAM %100 MESRU: deger sifira inmistir.
+    assert not T._anlamsiz_yuzde("kârın %100,0 azalması")
+    assert not T._anlamsiz_yuzde("%99,9 geriledi")
+    # ARTIS TARAFI KONUMUZ DEGIL: %500 artis olabilir (dusuk
+    # tabandan kata cikis), %500 AZALIS olamaz. Bu ayrim olmadan
+    # kural her yuksek yuzdeyi yakalar ve kuyruk hic tukenmezdi.
+    assert not T._anlamsiz_yuzde("FAVÖK'ün %787,1 artmasıyla")
+    assert not T._anlamsiz_yuzde("%1.234 arttı")
+    assert not T._anlamsiz_yuzde("hiç yüzde yok")
+
+
+def test_goc_kuyrugu_anlamsiz_yuzdeyi_gercekten_cagiriyor():
+    """Desenin dogru olmasi YETMEZ -- kuyruga baglandigi da tutulmali.
+
+    Bu depoda "islev eklendi ama hicbir yerden cagrilmadi" sinifi
+    birkac kez yasandi: hata vermez, yalnizca HIC KOSMAZ. Olcut
+    AST, metin degil: `goc_kuyrugu` govdesinde ad gecen bir yorum
+    da metin aramasini gecerdi.
+    """
+    import ast
+    import inspect
+    agac = ast.parse(inspect.getsource(T.goc_kuyrugu))
+    cagrilar = {n.func.id for n in ast.walk(agac)
+                if isinstance(n, ast.Call)
+                and isinstance(n.func, ast.Name)}
+    assert "_anlamsiz_yuzde" in cagrilar, (
+        "goc_kuyrugu `_anlamsiz_yuzde` cagirmiyor -- kural hic kosmaz")
+
+
 if __name__ == "__main__":
     n = 0
     for ad, f in sorted(globals().items()):
