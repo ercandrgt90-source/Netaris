@@ -1199,6 +1199,31 @@
       "foto_atif": "Huhu Uet · CC-BY-SA-4.0"
     },
     {
+      "baslik": "İBB'nin 2027 bütçesi kabul edildi: İSKİ ve İETT dahil 821 milyar lira",
+      "baslik_kaynak": "İBB'nin 2027 bütçesi kabul edildi: İSKİ ve İETT dahil 821 milyar lira",
+      "ozet": "İstanbul Büyükşehir Belediyesi (İBB) Meclisi, 2027 yılı bütçesini 133 kabul ve 102 ret oyuyla onayladı. İBB Başkanvekili Nuri Aslan, belediyenin bütçesinin 565 milyar lira, İSKİ ve İETT dahil konsolide bütçenin ise 821 milyar lira olduğunu açıkladı.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.dunya.com/ekonomi/ibbnin-2027-butcesi-kabul-edildi-iski-ve-iett-dahil-821-milyar-lira-haberi-848400",
+      "kurum": "Dünya",
+      "kurum_tam": "Dünya Gazetesi",
+      "konu": "Vergi ve kamu maliyesi",
+      "tarih": "2026-11-21",
+      "tarih_gorunur": "21 Kasım 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Vergi düzenlemeleri ve bütçe dengesi hem şirket kârlılığını hem devletin borçlanma ihtiyacını belirler.",
+      "kanallar": [
+        "Şirket kârlılığı: vergi oranı ve istisna değişiklikleri net kâra doğrudan yansır.",
+        "Borçlanma ihtiyacı: bütçe açığı iç borçlanmayı artırır; bu da tahvil getirilerini ve banka bilançolarını etkiler.",
+        "Tüketici fiyatı: dolaylı vergiler (ÖTV, KDV) nihai fiyata doğrudan geçer."
+      ],
+      "kanal_basligi": "Piyasaya nasıl yansır?",
+      "foto": "/statik/foto/vergi-ve-kamu-maliyesi-9-96673ab0.jpg",
+      "foto_atif": "RegionalQueenslander · CC-BY-SA-4.0"
+    },
+    {
       "baslik": "Esnafa 25 milyar liralık kredi müjdesi: Bakan Bolat duyurdu",
       "baslik_kaynak": "Esnafa 25 milyar liralık kredi müjdesi: Bakan Bolat duyurdu",
       "ozet": "Ticaret Bakanı Ömer Bolat, Halkbank'ın esnaf ve sanatkarların bekleyen 20-25 milyar liralık kredi dosyaları için finansman sağlayacağını açıkladı. Kredi kullandırımlarında alınan bazı masrafların kaldırılacağını belirten Bolat, kasım ayında yeni bir ihracat rekoru beklediklerini söyledi.",
@@ -1364,32 +1389,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/vergi-ve-kamu-maliyesi-9-96673ab0.jpg",
       "foto_atif": "RegionalQueenslander · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "Zelenski, Trump'ın dostum dediği Putin'e sert yanıt verdi",
-      "baslik_kaynak": "Zelenski, Trump'ın dostum dediği Putin'e sert yanıt verdi",
-      "ozet": "Ukrayna Devlet Başkanı Volodimir Zelenski, ABD Başkanı Donald Trump'ın Rusya Devlet Başkanı Vladimir Putin hakkında kullandığı dost ifadesine karşılık Putin'i düşman ve katil olarak nitelendirdi. BBC'nin CNN'e dayandırdığı bu açıklamalar, Kiev'e yönelik yoğun füze ve insansız hava aracı saldırısının ardından geldi.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.ekonomim.com/dunya/zelenski-trumpin-dostum-dedigi-putine-sert-yanit-verdi-haberi-932572",
-      "kurum": "Ekonomim",
-      "kurum_tam": "Ekonomim",
-      "konu": "Jeopolitik",
-      "tarih": "2026-11-21",
-      "tarih_gorunur": "21 Kasım 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
-      "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
-        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
-        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/jeopolitik-40-59a567ac.jpg",
-      "foto_atif": "Peter Griffin · CC0"
     },
     {
       "baslik": "Gelişen piyasa hisseleri ayı piyasasına girdi",
