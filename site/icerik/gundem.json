@@ -30,7 +30,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 35,
+  "yorumlanan": 34,
   "haberler": [
     {
       "baslik": "Fed, College Fed Challenge kazananlarını açıkladı",
@@ -75,14 +75,35 @@
       "foto_atif": "Djmaschek · CC-BY-SA-3.0"
     },
     {
-      "baslik": "İran Dışişleri Bakan Yardımcısı Gharibabadi: Katar heyeti dün gece iki saatlik görüşmeler için Tahran'ı ziyaret etti - Tasnim Haber Ajansı",
-      "baslik_kaynak": "Iranian deputy foreign minister Gharibabadi: Gatari team visited Tehran last night for two-hour talks - Tasnim news agency",
+      "baslik": "ABD Merkez Kuvvetler Komutanlığı: İran dün bir ABD F-16 savaş uçağını vurmadı",
+      "baslik_kaynak": "US Centcom: Iran did not strike a U.S. F-16 fighter jet yesterday",
       "ozet": "",
       "cevrildi": true,
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9863020/Iranian-deputy-foreign-minister-Gharibabadi-Gatari-team-visited-Tehran-last-night-for-two-hour-talks---Tasnim-news-agency.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9863032/US-Centcom-Iran-did-not-strike-a-US-F-16-fighter-jet-yesterday.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Şirket haberleri",
+      "tarih": "2026-11-21",
+      "tarih_gorunur": "21 Kasım 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/sirket-haberleri-15-c1626940.jpg",
+      "foto_atif": "Gkbediako · CC-BY-SA-4.0"
+    },
+    {
+      "baslik": "Mehr, İran Dışişleri Bakan Yardımcısı Garibabadi'den alıntı yapıyor: ABD'nin uyguladığı ekonomik abluka bir savaş eylemidir, İran bunu kırmak için gerekli adımları atacaktır",
+      "baslik_kaynak": "Mehr citing Iranian deputy foreign minister Gharibabadi: US-imposed economic blockade an act of war, Iran will take necessary action to break it",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9863025/Mehr-citing-Iranian-deputy-foreign-minister-Gharibabadi-US-imposed-economic-blockade-an-act-of-war-Iran-will-take-necessary-action-to-break-it.aspx?xy=rss",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Jeopolitik",
@@ -97,8 +118,34 @@
         "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
       ],
       "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/jeopolitik-15-ccd8ab8d.jpg",
-      "foto_atif": "usepagov · PDM"
+      "foto": "/statik/foto/jeopolitik-36-7cb6152c.jpg",
+      "foto_atif": "Captain Albert E. Theberge, NOAA Corps (ret.) · PDM"
+    },
+    {
+      "baslik": "İran Dışişleri Bakan Yardımcısı Gharibabadi: Katarlı heyet dün gece iki saatlik görüşmeler için Tahran'ı ziyaret etti - Tasnim Haber Ajansı",
+      "baslik_kaynak": "Iranian deputy foreign minister Gharibabadi: Qatari team visited Tehran last night for two-hour talks - Tasnim news agency",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9863020/Iranian-deputy-foreign-minister-Gharibabadi-Qatari-team-visited-Tehran-last-night-for-two-hour-talks---Tasnim-news-agency.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Jeopolitik",
+      "tarih": "2026-11-21",
+      "tarih_gorunur": "21 Kasım 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
+      "kanallar": [
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-40-59a567ac.jpg",
+      "foto_atif": "Peter Griffin · CC0"
     },
     {
       "baslik": "Finlandiya sınır muhafızları: Sparta II'nin yükü hakkında teyit edilmiş bir bilgi yok ancak askeri teçhizat ihtimali göz ardı edilemez",
@@ -1235,7 +1282,7 @@
       "foto_atif": "Satheesh Sankaran · CC-BY-2.0"
     },
     {
-      "baslik": "Yapay Zekâ Balonu Sonunda Patlıyor mu? Wall Street Uzmanları Tehlike Çanlarını Çalarken Nvidia %48 Düşüyor",
+      "baslik": "Yapay Zekâ Balonu Nihayet Patlıyor mu? Wall Street Uzmanları Tehlike Çanlarını Çalarken Nvidia %48 Çöktü",
       "baslik_kaynak": "Is the AI Bubble Finally Popping? Nvidia Crashes 48% as Wall Street Experts Sound the Alarm",
       "ozet": "Tech stocks are buckling after Anthropic’s historic IPO and Nvidia’s leadership crisis, while Bitcoin has slipped below $60,000. Experts disagree on whether AI faces a correction or a dot-com-style bust.",
       "cevrildi": true,
@@ -1439,29 +1486,56 @@
       "foto_atif": "CryptoWallet.com Images · CC-BY-2.0"
     },
     {
-      "baslik": "İBB'nin 2027 bütçesi kabul edildi: İSKİ ve İETT dahil 821 milyar lira",
-      "baslik_kaynak": "İBB'nin 2027 bütçesi kabul edildi: İSKİ ve İETT dahil 821 milyar lira",
-      "ozet": "İstanbul Büyükşehir Belediyesi (İBB) Meclisi, 2027 yılı bütçesini 133 kabul ve 102 ret oyuyla onayladı. İBB Başkanvekili Nuri Aslan, belediyenin bütçesinin 565 milyar lira, İSKİ ve İETT dahil konsolide bütçenin ise 821 milyar lira olduğunu açıkladı.",
+      "baslik": "Elon Musk 111 milyar dolarlık eğlence ve medya devine hissedar oldu",
+      "baslik_kaynak": "Elon Musk 111 milyar dolarlık eğlence ve medya devine hissedar oldu",
+      "ozet": "Skydance Üst Yöneticisi (CEO) David Ellison, Elon Musk'ın şirkette hissedar konumuna geldiğini teyit etti ancak yatırım tutarını açıklamadı. Paramount birleşmesi ve Warner Bros.",
       "cevrildi": false,
       "dil": "tr",
       "ticari": true,
       "bolge": "TR",
-      "adres": "https://www.dunya.com/ekonomi/ibbnin-2027-butcesi-kabul-edildi-iski-ve-iett-dahil-821-milyar-lira-haberi-848400",
-      "kurum": "Dünya",
-      "kurum_tam": "Dünya Gazetesi",
-      "konu": "Vergi ve kamu maliyesi",
+      "adres": "https://www.ekonomim.com/dunya/elon-musk-111-milyar-dolarlik-eglence-ve-medya-devine-hissedar-oldu-haberi-932618",
+      "kurum": "Ekonomim",
+      "kurum_tam": "Ekonomim",
+      "konu": "Borsa",
       "tarih": "2026-11-21",
       "tarih_gorunur": "21 Kasım 2026",
       "yorumlanir": true,
-      "neden_onemli": "Vergi düzenlemeleri ve bütçe dengesi hem şirket kârlılığını hem devletin borçlanma ihtiyacını belirler.",
+      "neden_onemli": "Endeks hareketi tek başına bir bilgi değildir; hareketi hangi sektörlerin taşıdığı ve işlem hacminin ne olduğu kalıcılığı belirler.",
       "kanallar": [
-        "Şirket kârlılığı: vergi oranı ve istisna değişiklikleri net kâra doğrudan yansır.",
-        "Borçlanma ihtiyacı: bütçe açığı iç borçlanmayı artırır; bu da tahvil getirilerini ve banka bilançolarını etkiler.",
-        "Tüketici fiyatı: dolaylı vergiler (ÖTV, KDV) nihai fiyata doğrudan geçer."
+        "Sektör dağılımı: hareketin dar bir gruptan mı geniş tabandan mı geldiği, kalıcılığa dair ipucu verir.",
+        "Hacim: düşük hacimli hareket fiyat keşfinden çok pozisyon ayarlaması olabilir.",
+        "Volatilite: opsiyon fiyatlarındaki değişim piyasanın beklediği oynaklığı gösterir.",
+        "Korelasyon: hisse ile tahvil arasındaki ilişkinin işareti portföy riskinin nasıl dağıldığını değiştirir."
       ],
-      "kanal_basligi": "Piyasaya nasıl yansır?",
-      "foto": "/statik/foto/vergi-ve-kamu-maliyesi-9-96673ab0.jpg",
-      "foto_atif": "RegionalQueenslander · CC-BY-SA-4.0"
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/borsa-11-39672784.jpg",
+      "foto_atif": "Syced · CC0"
+    },
+    {
+      "baslik": "Lutnick'in yüzde 51'lik hisse talebi pil girişimiyle anlaşmazlığa yol açtı",
+      "baslik_kaynak": "Lutnick'in yüzde 51'lik hisse talebi pil girişimiyle anlaşmazlığa yol açtı",
+      "ozet": "ABD Ticaret Bakanı Howard Lutnick'in, yeni bir üretim tesisi kurulması şartıyla Pure Lithium şirketinde yüzde 51 kontrol payı talep ettiği, şirketin ise bu isteği geri çevirdiği bildirildi.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.ekonomim.com/dunya/lutnickin-yuzde-51lik-hisse-talebi-pil-girisimiyle-anlasmazliga-yol-acti-haberi-932616",
+      "kurum": "Ekonomim",
+      "kurum_tam": "Ekonomim",
+      "konu": "Borsa",
+      "tarih": "2026-11-21",
+      "tarih_gorunur": "21 Kasım 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Endeks hareketi tek başına bir bilgi değildir; hareketi hangi sektörlerin taşıdığı ve işlem hacminin ne olduğu kalıcılığı belirler.",
+      "kanallar": [
+        "Sektör dağılımı: hareketin dar bir gruptan mı geniş tabandan mı geldiği, kalıcılığa dair ipucu verir.",
+        "Hacim: düşük hacimli hareket fiyat keşfinden çok pozisyon ayarlaması olabilir.",
+        "Volatilite: opsiyon fiyatlarındaki değişim piyasanın beklediği oynaklığı gösterir.",
+        "Korelasyon: hisse ile tahvil arasındaki ilişkinin işareti portföy riskinin nasıl dağıldığını değiştirir."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/borsa-9-78cc676a.jpg",
+      "foto_atif": "Syced · CC0"
     },
     {
       "baslik": "Altın, gümüş ve platinde sert düşüş: 34 haftanın en büyük kaybı",
@@ -1722,31 +1796,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/dis-ticaret-9-9686a70e.jpg",
       "foto_atif": "Huhu Uet · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "AB bütçe başkanı 40 milyar avro kesinti ve dijital vergi planı önerdi",
-      "baslik_kaynak": "AB bütçe başkanı 40 milyar avro kesinti ve dijital vergi planı önerdi",
-      "ozet": "",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://tr.investing.com/news/economy-news/ab-butce-baskan-40-milyar-avro-kesinti-ve-dijital-vergi-plan-onerdi-4168378",
-      "kurum": "Investing",
-      "kurum_tam": "Investing.com Türkiye",
-      "konu": "Vergi ve kamu maliyesi",
-      "tarih": "2026-11-21",
-      "tarih_gorunur": "21 Kasım 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Vergi düzenlemeleri ve bütçe dengesi hem şirket kârlılığını hem devletin borçlanma ihtiyacını belirler.",
-      "kanallar": [
-        "Şirket kârlılığı: vergi oranı ve istisna değişiklikleri net kâra doğrudan yansır.",
-        "Borçlanma ihtiyacı: bütçe açığı iç borçlanmayı artırır; bu da tahvil getirilerini ve banka bilançolarını etkiler.",
-        "Tüketici fiyatı: dolaylı vergiler (ÖTV, KDV) nihai fiyata doğrudan geçer."
-      ],
-      "kanal_basligi": "Piyasaya nasıl yansır?",
-      "foto": "/statik/foto/vergi-ve-kamu-maliyesi-7-9252c67a.jpg",
-      "foto_atif": "23artashes · CC-BY-SA-4.0"
     },
     {
       "baslik": "İmalat Sanayi Kapasite Kullanım Oranı (Kasım 2026)",
@@ -2069,32 +2118,6 @@
       "foto_atif": "Moheen Reeyad · CC-BY-SA-4.0"
     },
     {
-      "baslik": "Trump, Beyaz Saray'da bir resepsiyona ev sahipliği yapıyor - Canlı İzleyin",
-      "baslik_kaynak": "Trump hosts a reception at the White House - WATCH LIVE",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9862420/Trump-hosts-a-reception-at-the-White-House---WATCH-LIVE.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Jeopolitik",
-      "tarih": "2026-11-20",
-      "tarih_gorunur": "20 Kasım 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
-      "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
-        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
-        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/jeopolitik-36-7cb6152c.jpg",
-      "foto_atif": "Captain Albert E. Theberge, NOAA Corps (ret.) · PDM"
-    },
-    {
       "baslik": "Nvidia sunucu tedarikçileri Güneydoğu Asya'ya sevkiyatı durdurdu - Nikkei. $NVDA",
       "baslik_kaynak": "Nvidia server suppliers halt southeast Asia shipments - Nikkei. $NVDA",
       "ozet": "",
@@ -2360,32 +2383,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/sirket-haberleri-17-a6dd0c61.jpg",
       "foto_atif": "Stephen Craven · CC-BY-SA-2.0"
-    },
-    {
-      "baslik": "Trump: Rusya ve Çin artık Venezuela ile ilişkili değil",
-      "baslik_kaynak": "Trump: Russia and China are no longer involved with Venezuela",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9862291/Trump-Russia-and-China-are-no-longer-involved-with-Venezuela.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Jeopolitik",
-      "tarih": "2026-11-20",
-      "tarih_gorunur": "20 Kasım 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
-      "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
-        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
-        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/jeopolitik-40-59a567ac.jpg",
-      "foto_atif": "Peter Griffin · CC0"
     },
     {
       "baslik": "Haftalık Akım Faiz ve Kâr Payı İstatistikleri",
