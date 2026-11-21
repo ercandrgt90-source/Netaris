@@ -30,7 +30,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 35,
+  "yorumlanan": 36,
   "haberler": [
     {
       "baslik": "Fed, College Fed Challenge kazananlarını açıkladı",
@@ -73,6 +73,32 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/enerji-11-0e06d6d4.jpg",
       "foto_atif": "Djmaschek · CC-BY-SA-3.0"
+    },
+    {
+      "baslik": "İran devlet televizyonu, çift fırlatıcılı yeni bir yeraltı füze merkezinin görüntülerini yayımladı",
+      "baslik_kaynak": "Iran releases footage of new underground missile hub with double-launcher: state television",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9862936/Iran-releases-footage-of-new-underground-missile-hub-with-double-launcher-state-television.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Jeopolitik",
+      "tarih": "2026-11-21",
+      "tarih_gorunur": "21 Kasım 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
+      "kanallar": [
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-14-4ca6b4fe.jpg",
+      "foto_atif": "Bernard Gagnon · CC0"
     },
     {
       "baslik": "İran donanması: Petrol tankeri Hürmüz Boğazı'nın doğusunda deniz mayınına çarptıktan sonra alev aldı - devlet televizyonu",
@@ -1110,6 +1136,53 @@
       "foto_atif": "Huhu Uet · CC-BY-SA-4.0"
     },
     {
+      "baslik": "Fed'in radarında yapay zekâ finansmanı: Bilanço dışında 3 trilyon dolar",
+      "baslik_kaynak": "Fed'in radarında yapay zekâ finansmanı: Bilanço dışında 3 trilyon dolar",
+      "ozet": "Fed Yönetim Kurulu Üyesi Lisa Cook, yapay zekâ yatırımlarının giderek karmaşıklaşan finansmanını izlediklerini açıkladı. Fed’in son değerlendirmesinde, sektörün bilanço dışı yükümlülüklerinin azami nominal tutarı 3 trilyon doları aştı.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.dunya.com/finans/haberler/fedin-radarinda-yapay-zeka-finansmani-bilanco-disinda-3-trilyon-dolar-haberi-848396",
+      "kurum": "Dünya",
+      "kurum_tam": "Dünya Gazetesi",
+      "konu": "Şirket haberleri",
+      "tarih": "2026-11-21",
+      "tarih_gorunur": "21 Kasım 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/sirket-haberleri-9-c71a9b17.jpg",
+      "foto_atif": "Dietmar Rabich · CC-BY-SA-4.0"
+    },
+    {
+      "baslik": "Altın fiyatları neden düşüyor? Uzmanlardan kritik değerlendirme",
+      "baslik_kaynak": "Altın fiyatları neden düşüyor? Uzmanlardan kritik değerlendirme",
+      "ozet": "Fed'in faiz artırımlarını hızlandırabileceği endişesi ve küresel borsalardaki satışların yarattığı nakit ihtiyacı, değerli metallere sert kayıplar yaşattı. Altın haftalık yüzde 8,9, gümüş yüzde 15,4 ve platin yüzde 12,8 gerilerken Saxo Capital Emtia Strateji Başkanı Ole Hansen, altının güvenli liman özelliğinin kısa…",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.dunya.com/ekonomi/altin-fiyatlari-neden-dusuyor-uzmanlardan-kritik-degerlendirme-haberi-848397",
+      "kurum": "Dünya",
+      "kurum_tam": "Dünya Gazetesi",
+      "konu": "Altın ve emtia",
+      "tarih": "2026-11-21",
+      "tarih_gorunur": "21 Kasım 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Emtia fiyatı reel faiz, dolar endeksi ve fiziki arz-talep dengesinin bileşkesidir; bir habere verilen tepki bu üçünden hangisini değiştirdiğine bağlıdır.",
+      "kanallar": [
+        "Reel faiz: getirisi olmayan varlıkların alternatif maliyeti reel faizle belirlenir.",
+        "Dolar endeksi: emtia dolarla fiyatlandığı için doların kendi değeri fiyata doğrudan yazılır.",
+        "Fiziki denge: stok, üretim kesintisi ve sanayi talebi kısa vadeli fiyatın ana sürücüsüdür.",
+        "Resmi rezerv talebi: merkez bankası alımları uzun vadeli talep tabanını değiştirir."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/altin-ve-emtia-7-5b638b57.jpg",
+      "foto_atif": "Joyofmuseums · CC-BY-SA-4.0"
+    },
+    {
       "baslik": "Irak'ta santral yangını: 400 megavatlık üretim durdu",
       "baslik_kaynak": "Irak'ta santral yangını: 400 megavatlık üretim durdu",
       "ozet": "Irak'ın Basra kentindeki Hartha termik santralinde çıkan yangında 4 kişi hayatını kaybetti, 35 kişi yaralandı. Alevler çevredeki evlere sıçradı. Kurulu gücü 800 megavat olan tesiste yaklaşık 400 megavatlık elektrik üretimi durduruldu.",
@@ -1207,27 +1280,6 @@
       "kanal_basligi": "Hangi piyasaları etkiler?",
       "foto": "/statik/foto/jeopolitik-40-59a567ac.jpg",
       "foto_atif": "Peter Griffin · CC0"
-    },
-    {
-      "baslik": "Düz memur olmak isteyenler için tüm şartlar ve maaşlar bu listede. Zabıta, şoför, VHKİ, itfaiye",
-      "baslik_kaynak": "Düz memur olmak isteyenler için tüm şartlar ve maaşlar bu listede! Zabıta, şoför, VHKİ, itfaiye...",
-      "ozet": "Zabıta, itfaiye eri, şoför ve VHKİ gibi kadrolarda memur olmak isteyenleri ilgilendiren tüm detaylar belli oldu. İşte kadrolara göre başvuru şartları ve maaşlar….",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.ekonomim.com/foto-galeri/aktuel/duz-memur-olmak-isteyenler-icin-tum-sartlar-ve-maaslar-bu-listede-zabita-sofor-vhki-itfaiye-galeri-932566",
-      "kurum": "Ekonomim",
-      "kurum_tam": "Ekonomim",
-      "konu": "İstihdam ve ücret",
-      "tarih": "2026-11-21",
-      "tarih_gorunur": "21 Kasım 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/istihdam-ve-ucret-7-786507f1.jpg",
-      "foto_atif": "Tim Brunauer on behalf of Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ) · CC-BY-SA-4.0"
     },
     {
       "baslik": "Gelişen piyasa hisseleri ayı piyasasına girdi",
@@ -1488,27 +1540,6 @@
       "kanal_basligi": "Hangi piyasaları etkiler?",
       "foto": "/statik/foto/jeopolitik-14-4ca6b4fe.jpg",
       "foto_atif": "Bernard Gagnon · CC0"
-    },
-    {
-      "baslik": "Legend Biotech CEO’su Ingrid Zhang 163.200 dolar değerinde hisse aldı",
-      "baslik_kaynak": "Legend Biotech CEO’su Ingrid Zhang 163.200 dolar değerinde hisse aldı",
-      "ozet": "",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://tr.investing.com/news/insider-trading-news/legend-biotech-ceosu-ingrid-zhang-163200-dolar-degerinde-hisse-ald-93CH-4168351",
-      "kurum": "Investing",
-      "kurum_tam": "Investing.com Türkiye",
-      "konu": "Borsa",
-      "tarih": "2026-11-21",
-      "tarih_gorunur": "21 Kasım 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/borsa-11-39672784.jpg",
-      "foto_atif": "Syced · CC0"
     },
     {
       "baslik": "İmalat Sanayi Kapasite Kullanım Oranı (Kasım 2026)",
@@ -2362,32 +2393,6 @@
       "kanal_basligi": "Hangi piyasaları etkiler?",
       "foto": "/statik/foto/jeopolitik-18-d6206fae.jpg",
       "foto_atif": "United Nation · PDM"
-    },
-    {
-      "baslik": "Trump, Nvidia hakkında: Akıllı olsalardı Huang'ı geri alırlardı $NVDA",
-      "baslik_kaynak": "Trump on Nvidia: If they were smart, they would take Huang back $NVDA",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9862259/Trump-on-Nvidia-If-they-were-smart-they-would-take-Huang-back-NVDA.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Jeopolitik",
-      "tarih": "2026-11-20",
-      "tarih_gorunur": "20 Kasım 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
-      "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
-        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
-        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/jeopolitik-14-4ca6b4fe.jpg",
-      "foto_atif": "Bernard Gagnon · CC0"
     },
     {
       "baslik": "Haftalık Akım Faiz ve Kâr Payı İstatistikleri",
