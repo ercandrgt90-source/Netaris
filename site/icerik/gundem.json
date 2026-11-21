@@ -30,7 +30,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 35,
+  "yorumlanan": 34,
   "haberler": [
     {
       "baslik": "Fed, College Fed Challenge kazananlarını açıkladı",
@@ -1491,6 +1491,27 @@
       "foto_atif": "Satheesh Sankaran · CC-BY-2.0"
     },
     {
+      "baslik": "SEC, Dolandırıcıların 37 Milyon Dolarlık Hırsızlık İçin Sahte Kripto Borsalarını Kullandığını İddia Ediyor",
+      "baslik_kaynak": "Fraudsters Used Fake Crypto Exchanges to Steal $37 Million, SEC Alleges",
+      "ozet": "The agency says eight Colorado-registered entities, likely run from overseas, posed as legitimate advisers and crypto platforms—even faking SEC certificates and filings—to defraud U.S. investors of more than $37 million.",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://decrypt.co/383752/fraudsters-fake-crypto-exchanges-steal-37-million-sec",
+      "kurum": "Decrypt",
+      "kurum_tam": "Decrypt",
+      "konu": "Kripto varlıklar",
+      "tarih": "2026-11-21",
+      "tarih_gorunur": "21 Kasım 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/kripto-varliklar-8-8b36c240.jpg",
+      "foto_atif": "de Vries, Alex; Stoll, Christian · PDM"
+    },
+    {
       "baslik": "Yapay Zekâ Balonu Nihayet Patlıyor mu? Wall Street Uzmanları Tehlike Çanlarını Çalarken Nvidia %48 Çöktü",
       "baslik_kaynak": "Is the AI Bubble Finally Popping? Nvidia Crashes 48% as Wall Street Experts Sound the Alarm",
       "ozet": "Tech stocks are buckling after Anthropic’s historic IPO and Nvidia’s leadership crisis, while Bitcoin has slipped below $60,000. Experts disagree on whether AI faces a correction or a dot-com-style bust.",
@@ -1714,6 +1735,27 @@
       "kanal_basligi": "Hangi piyasaları etkiler?",
       "foto": "/statik/foto/dis-ticaret-8-de18e08e.jpg",
       "foto_atif": "Nathan.cima · CC-BY-SA-4.0"
+    },
+    {
+      "baslik": "Araç kiralamada usulsüzlük davası: Tanju Özcan'a adli kontrolle tahliye",
+      "baslik_kaynak": "Araç kiralamada usulsüzlük davası: Tanju Özcan'a adli kontrolle tahliye",
+      "ozet": "Bolu Belediyesi'ne yönelik, bazı çöp toplama araçlarının çalışmadığı günlerde çalışmış gibi gösterilerek yüklenici firmaya fazla ödeme yapıldığı iddiasıyla başlatılan soruşturma kapsamında açılan, 4'ü tutuklu, 21 sanığın yargılandığı davada Tanju Özcan, Belediye Başkan Yardımcısı Gülden Özaydın, Biolu Belediyesi…",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.ekonomim.com/gundem/arac-kiralamada-usulsuzluk-davasi-tanju-ozcana-adli-kontrolle-tahliye-haberi-932627",
+      "kurum": "Ekonomim",
+      "kurum_tam": "Ekonomim",
+      "konu": "Konut ve kira",
+      "tarih": "2026-11-21",
+      "tarih_gorunur": "21 Kasım 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/konut-ve-kira-7-34f1cc1a.jpg",
+      "foto_atif": "Matti Blume · CC-BY-SA-4.0"
     },
     {
       "baslik": "TZOB Genel Başkanı Bayraktar: Tarım sektörü milli güvenlik meselesidir",
@@ -1953,53 +1995,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/dis-ticaret-9-fae0ad65.jpg",
       "foto_atif": "H. Zell · CC-BY-SA-3.0"
-    },
-    {
-      "baslik": "İhracatçının gözü ABD-Çin geriliminde",
-      "baslik_kaynak": "İhracatçının gözü ABD-Çin geriliminde",
-      "ozet": "ABD ile Çin arasındaki ticaret savaşları küresel ticaretin dengelerini değiştirirken, Çin’in alternatif pazarlara yönelmesi Türk sanayisi için yeni bir rekabet baskısı yaratıyor.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.ekonomist.com.tr/makale/ihracatcinin-gozu-abd-cin-geriliminde-80229",
-      "kurum": "Ekonomist",
-      "kurum_tam": "Ekonomist",
-      "konu": "Dış ticaret",
-      "tarih": "2026-11-21",
-      "tarih_gorunur": "21 Kasım 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Ticaret politikası kararları tarafların birbirine bağımlılığı ölçüsünde fiyatlanır; etki önce ilgili sektör hisselerinde ve para birimlerinde görülür.",
-      "kanallar": [
-        "Sektör maruziyeti: gümrük vergisi ihracatçı sektörün marjını doğrudan sıkıştırır; otomotiv, çelik ve tarım en sık hedef alınan kalemlerdir.",
-        "Para birimi: ticaret dengesinde beklenen değişim ilgili ülke kurunu yeniden fiyatlar.",
-        "Tedarik zinciri: ara mal akışı kesilirse maliyet üretici fiyatlarına yazılır ve etki üçüncü ülkelere yayılır.",
-        "Anlaşma yapısı: USMCA ya da gümrük birliği gibi çerçeveler, etkinin hangi kalemlerde ve hangi takvimde doğacağını belirler."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/dis-ticaret-10-e6df7852.jpg",
-      "foto_atif": "ImagePerson · CC-BY-4.0"
-    },
-    {
-      "baslik": "Küresel piyasalarda gelecek hafta takip edilecek 4 gelişme hangileri olacak?",
-      "baslik_kaynak": "Küresel piyasalarda gelecek hafta takip edilecek 4 gelişme hangileri olacak?",
-      "ozet": "Küresel piyasalarda enflasyon ve para politikalarına ilişkin belirsizlikler sürerken, yapay zeka yatırımlarının geri dönüşüne yönelik endişeler bu hafta pay piyasalarında satış baskısını artırdı. Gözler gelecek hafta ABD'de açıklanacak makroekonomik verilere çevrildi.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.ekonomist.com.tr/piyasalar/kuresel-piyasalarda-gelecek-hafta-takip-edilecek-4-gelisme-hangileri-olacak--81164",
-      "kurum": "Ekonomist",
-      "kurum_tam": "Ekonomist",
-      "konu": "Borsa",
-      "tarih": "2026-11-21",
-      "tarih_gorunur": "21 Kasım 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/borsa-9-78cc676a.jpg",
-      "foto_atif": "Syced · CC0"
     },
     {
       "baslik": "İmalat Sanayi Kapasite Kullanım Oranı (Kasım 2026)",
