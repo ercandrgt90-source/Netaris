@@ -6599,6 +6599,34 @@ def insa() -> int:
         print(f"arsiv: {len(arsiv)} eski haber sayfasi yeniden uretiliyor")
     uretilecek = tekilles(gundem["haberler"] + arsiv)
 
+    # ELEME YARIM UYGULANIYORDU -- OLCULDU, DAGITIM 4,5 SAAT KILITLENDI.
+    #
+    # `tekilles` uc ayri eleme yapiyor: ayni gun+baslik, BENZER haber
+    # (esik 0.7) ve adres cakismasi. Ama elemenin sonucu yalnizca
+    # `uretilecek`e yansiyordu; gundem sablonu `gundem["haberler"]`i
+    # -- yani ELENMEMIS listeyi -- geziyor.
+    #
+    # Iki sonucu vardi:
+    #
+    #   1. KIRIK BAGLANTI. `yol` yukarida, elemeden ONCE atandigi
+    #      icin elenen haberin karti baglantisini koruyordu; sayfasi
+    #      ise hic uretilmiyordu. Olculdu (2026-11-21): 120 gundem
+    #      haberinin 2'si eleniyor, biri kartli -- tam olarak bir
+    #      kirik baglanti. `test_kirik_baglanti` dogru yakaladi ve
+    #      uretim adimi yedi kosu boyunca kirmizi dondu.
+    #
+    #   2. ELEMENIN AMACI BOSA CIKIYORDU. `tekilles`in gerekcesi
+    #      "okur ayni haberi listede uc kez gormesin" -- oysa gundem
+    #      sayfasi onlari gostermeye devam ediyordu.
+    #
+    # AYNI NESNELER: `tekilles` girdideki sozlukleri AYNEN donduruyor,
+    # kopyalamiyor. Bu yuzden kimlik karsilastirmasi guvenli ve
+    # `adres`e gore eslemekten DOGRU: elemelerden biri zaten ADRES
+    # CAKISMASI, yani adres tekil bir anahtar degil.
+    _kalan = {id(h) for h in uretilecek}
+    gundem["haberler"] = [h for h in gundem["haberler"]
+                          if id(h) in _kalan]
+
     # OLAY HARITASI, HABER SAYFALARINDAN ONCE.
     #
     # Sayfaya "bu olayin 9 haberinden biri" baglantisi koymak icin

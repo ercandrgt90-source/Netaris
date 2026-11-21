@@ -155,4 +155,81 @@ esit(insa.BENZER_ESIGI >= 0.60, True,
      "esik, olculen en kotu ortusme yanlisinin (0,48) uzerinde")
 
 print("")
+# --------------------------------------------------------------------
+# ELEME YARIM UYGULANMAMALI -- gundem listesi de suzulmeli.
+#
+# OLCULDU (2026-11-21): `tekilles` elemesi yalnizca `uretilecek`e
+# yansiyordu; gundem sablonu `gundem["haberler"]`i, yani ELENMEMIS
+# listeyi geziyordu. Iki sonucu vardi:
+#
+#   1. Elenen haberin `yol`u elemeden ONCE atandigi icin karti
+#      baglantisini koruyor, sayfasi hic uretilmiyordu --
+#      `test_kirik_baglanti` kirmizi dondu ve DAGITIM 4,5 SAAT
+#      kilitlendi (120 gundem haberinin 2'si eleniyordu, biri
+#      kartli: tam olarak bir kirik baglanti).
+#   2. Elemenin AMACI bosa cikiyordu: gerekce "okur ayni haberi
+#      listede uc kez gormesin" ama liste onlari gosteriyordu.
+#
+# NEDEN AYLARCA SESSIZ KALDI: tam kopya elendiginde hayatta kalan
+# ikizin basligi AYNI, yani slug de ayni -- baglanti cozuluyor.
+# BENZERLIK elemesinde (esik 0.70) basliklar FARKLI, slug farkli ve
+# baglanti bosa dusuyor. Yani kusuru ancak bu dosyanin konusu olan
+# eleme turu tetikliyor.
+#
+# OLCUT AST -- metin degil: bu dosyanin ve `insa.py`nin kendi
+# aciklamalari `tekilles`, `uretilecek`, `gundem` adlarini
+# tasiyor. Metin aramasi kendi yorumunu yakalardi; bu depoda ayni
+# tuzaga iki kez dusuldu.
+import ast                                              # noqa: E402
+
+_kaynak = (_SITE / "insa.py").read_text(encoding="utf-8")
+_agac = ast.parse(_kaynak)
+
+
+def _tekilles_atamasi(agac):
+    """`X = tekilles(...)` atamalarini ve kapsayan govdeyi dondurur."""
+    for dugum in ast.walk(agac):
+        govde = getattr(dugum, "body", None)
+        if not isinstance(govde, list):
+            continue
+        for i, st in enumerate(govde):
+            if not isinstance(st, ast.Assign):
+                continue
+            d = st.value
+            if (isinstance(d, ast.Call) and isinstance(d.func, ast.Name)
+                    and d.func.id == "tekilles"):
+                yield govde, i, st
+
+
+_bulunan = list(_tekilles_atamasi(_agac))
+# ATILLIK: tarama hicbir atama bulmazsa asagidaki iddia BEDAVA gecer.
+esit(len(_bulunan) >= 1, True,
+     f"insa.py icinde tekilles atamasi var ({len(_bulunan)})")
+
+for _govde, _i, _st in _bulunan:
+    _ad = _st.targets[0].id if isinstance(_st.targets[0], ast.Name) else ""
+    # Ayni govdede, ATAMADAN SONRA `gundem["haberler"]` yeniden
+    # atanmali ve atanan deger elenmis kumeye BAGLI olmali.
+    _suzuldu = False
+    for _sonraki in _govde[_i + 1:]:
+        if not isinstance(_sonraki, ast.Assign):
+            continue
+        _h = _sonraki.targets[0]
+        if not (isinstance(_h, ast.Subscript)
+                and isinstance(_h.value, ast.Name)
+                and _h.value.id == "gundem"
+                and isinstance(_h.slice, ast.Constant)
+                and _h.slice.value == "haberler"):
+            continue
+        _adlar = {n.id for n in ast.walk(_sonraki) if isinstance(n, ast.Name)}
+        # Dogrudan `uretilecek`e ya da ondan turetilen bir kumeye
+        # bakmali. Ikisini de kabul etmek bicime degil BAGLILIGA
+        # bakmak demek.
+        if _ad in _adlar or "_kalan" in _adlar:
+            _suzuldu = True
+            break
+    esit(_suzuldu, True,
+         f"`{_ad}` elemesinden sonra gundem listesi de suzuluyor")
+
+
 print(f"TUM TESTLER GECTI ({_gecti})")
