@@ -1391,30 +1391,30 @@
       "foto_atif": "RegionalQueenslander · CC-BY-SA-4.0"
     },
     {
-      "baslik": "Esnafa 25 milyar liralık kredi müjdesi: Bakan Bolat duyurdu",
-      "baslik_kaynak": "Esnafa 25 milyar liralık kredi müjdesi: Bakan Bolat duyurdu",
-      "ozet": "Ticaret Bakanı Ömer Bolat, Halkbank'ın esnaf ve sanatkarların bekleyen 20-25 milyar liralık kredi dosyaları için finansman sağlayacağını açıkladı. Kredi kullandırımlarında alınan bazı masrafların kaldırılacağını belirten Bolat, kasım ayında yeni bir ihracat rekoru beklediklerini söyledi.",
+      "baslik": "Altın, gümüş ve platinde sert düşüş: 34 haftanın en büyük kaybı",
+      "baslik_kaynak": "Altın, gümüş ve platinde sert düşüş: 34 haftanın en büyük kaybı",
+      "ozet": "ABD Merkez Bankasının (Fed) faiz artırımlarını hızlandırabileceğine yönelik endişeler ve doların güçlenmesi, değerli metallerde satış baskısını artırdı. Altın haftalık yüzde 8,9, gümüş yüzde 15,4 ve platin yüzde 12,8 değer kaybetti. Altın ve gümüş, son 34 haftanın en sert haftalık düşüşünü yaşadı.",
       "cevrildi": false,
       "dil": "tr",
       "ticari": true,
       "bolge": "TR",
-      "adres": "https://www.dunya.com/ekonomi/esnafa-25-milyar-liralik-kredi-mujdesi-bakan-bolat-duyurdu-haberi-848399",
-      "kurum": "Dünya",
-      "kurum_tam": "Dünya Gazetesi",
-      "konu": "Bankacılık",
+      "adres": "https://www.ekonomim.com/ekonomi/altin-gumus-ve-platinde-sert-dusus-34-haftanin-en-buyuk-kaybi-haberi-932609",
+      "kurum": "Ekonomim",
+      "kurum_tam": "Ekonomim",
+      "konu": "Altın ve emtia",
       "tarih": "2026-11-21",
       "tarih_gorunur": "21 Kasım 2026",
       "yorumlanir": true,
-      "neden_onemli": "Bankacılık kararları kredi kanalının genişliğini belirler; etki önce fonlama maliyetinde, sonra kredi hacminde görünür.",
+      "neden_onemli": "Emtia fiyatı reel faiz, dolar endeksi ve fiziki arz-talep dengesinin bileşkesidir; bir habere verilen tepki bu üçünden hangisini değiştirdiğine bağlıdır.",
       "kanallar": [
-        "Fonlama maliyeti: mevduat ve tahvil faizindeki değişim net faiz marjına yazılır.",
-        "Sermaye yeterliliği: rasyo üzerindeki baskı kredi büyümesini sınırlar.",
-        "Aktif kalitesi: takipteki kredi oranı, karşılık giderleri üzerinden kârlılığa geçer.",
-        "Yayılım: bankacılık sistemi ekonominin geri kalanına kredi kanalıyla bağlı olduğu için etki sektörle sınırlı kalmaz."
+        "Reel faiz: getirisi olmayan varlıkların alternatif maliyeti reel faizle belirlenir.",
+        "Dolar endeksi: emtia dolarla fiyatlandığı için doların kendi değeri fiyata doğrudan yazılır.",
+        "Fiziki denge: stok, üretim kesintisi ve sanayi talebi kısa vadeli fiyatın ana sürücüsüdür.",
+        "Resmi rezerv talebi: merkez bankası alımları uzun vadeli talep tabanını değiştirir."
       ],
       "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/bankacilik-9-93533b82.jpg",
-      "foto_atif": "Myotus · CC-BY-4.0"
+      "foto": "/statik/foto/altin-ve-emtia-8-882b68ff.jpg",
+      "foto_atif": "Stevebidmead · CC0"
     },
     {
       "baslik": "Tokken bile aklınızın sürekli yemekte olmasının nedeni ‘gıda gürültüsü’ olabilir",
