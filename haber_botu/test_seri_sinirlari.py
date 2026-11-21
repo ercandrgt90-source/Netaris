@@ -36,6 +36,7 @@ import ast
 import inspect
 import json
 import pathlib
+import datetime
 import sqlite3
 import sys
 import tempfile
@@ -178,6 +179,101 @@ _b2 = sqlite3.connect(":memory:")
 _b2.executescript(beyin.SEMA)
 esit(beyin.gosterge_yaz(_b2, [_kalem("UNRATE", "2026-10-01", 999.0, "")]), 0,
      "`reddedilen` verilmese de suzgec calisiyor")
+
+# ----------------------------------------------------------------------
+# 3b. GELECEK TARIHLI GOZLEM YAZILMAZ -- davranis
+#
+# OLCULDU (2026-11-21, Cumartesi): depoda TAM IKI satir gelecek
+# tarihliydi (TP.DK.USD.S.YTL ve TP.DK.EUR.S.YTL, 2026-11-23) ve
+# ikisi de 2026-11-20'de yazilmisti -- yani iddia ettigi gunden UC
+# GUN once. Sonuc 2.973 yayimlanmis sayfada gorundu: piyasa seridi
+# her sayfada ve "23 Kasim 2026" yaziyordu, sayfanin kendi basligi
+# ise "20 Kasim 2026 verileri".
+#
+# Kural MEKANIZMAYA dayaniyor, esige degil: olmamis bir gunun
+# gozlemi olamaz.
+# ----------------------------------------------------------------------
+print("\n3b. Gelecek tarihli gozlem")
+
+_bugun = beyin._bugun_iso()
+_yarin = (datetime.date.fromisoformat(_bugun)
+          + datetime.timedelta(days=1)).isoformat()
+_dun = (datetime.date.fromisoformat(_bugun)
+        - datetime.timedelta(days=1)).isoformat()
+
+_b3 = sqlite3.connect(":memory:")
+_b3.executescript(beyin.SEMA)
+_red3: list = []
+_n3 = beyin.gosterge_yaz(_b3, [
+    _kalem("TP.DK.USD.S.YTL", _dun, 50.4694, "TL"),
+    _kalem("TP.DK.USD.S.YTL", _bugun, 50.4936, "TL"),
+    _kalem("TP.DK.USD.S.YTL", _yarin, 50.5200, "TL"),
+], _red3)
+esit(_n3, 2, "dun ve BUGUN yazildi -- bugun gelecek DEGIL")
+esit(len(_red3), 1, "yalnizca YARIN reddedildi")
+esit(_red3[0][1], _yarin, "reddedilen kayit TARIHINI bildiriyor")
+dogru("gelecek" in (_red3[0][3] or ""),
+      "red sebebi gelecek tarihi ACIKCA soyluyor")
+esit(_b3.execute("SELECT COUNT(*) FROM gosterge WHERE tarih > ?",
+                 (_bugun,)).fetchone()[0], 0,
+     "gelecek tarihli satir depoya HIC girmedi")
+
+# SINIR: tam bugun KABUL EDILMELI. ">" yerine ">=" yazilsa gununun
+# verisi hic yazilmazdi ve site her gun bir gun geride kalirdi --
+# kusuru duzeltirken calisani bozmanin klasik bicimi.
+esit(_b3.execute("SELECT COUNT(*) FROM gosterge WHERE tarih = ?",
+                 (_bugun,)).fetchone()[0], 1,
+     "BUGUNUN verisi reddedilmiyor (sinir dahil)")
+
+# Kural, akla yatkinlik olcutunu GOLGELEMEMELI: gecmis tarihli ama
+# bozuk deger yine reddedilmeli.
+_b4 = sqlite3.connect(":memory:")
+_b4.executescript(beyin.SEMA)
+_red4: list = []
+beyin.gosterge_yaz(_b4, [_kalem("UNRATE", _dun, 999.0, "")], _red4)
+esit(len(_red4), 1, "gecmis tarihli bozuk deger HALA reddediliyor")
+dogru("gelecek" not in (_red4[0][3] or ""),
+      "o reddin sebebi gelecek tarihi DEGIL")
+
+
+# ----------------------------------------------------------------------
+# 3c. KURALDAN ONCE GIRMIS GELECEK TARIHLI SATIR DA TEMIZLENIR
+#
+# Kurali sikilastirmak DEPODA ZATEN OLANI temizlemez. Olculdu: kural
+# yazildiginda iki satir duruyordu ve 2.973 sayfada gorunuyordu.
+# Bu depoda ayni ders daha once de ogrenildi.
+# ----------------------------------------------------------------------
+print("\n3c. Eski gelecek tarihli satirin temizligi")
+
+_b5 = sqlite3.connect(":memory:")
+_b5.executescript(beyin.SEMA)
+# Kurali ATLAYARAK, dogrudan SQL ile koyuyoruz: amac "kuraldan once
+# girmis satir" durumunu birebir kurmak.
+_b5.execute(
+    "INSERT INTO gosterge (kod, tarih, deger, birim, ad, kaynak, kayit_ani)"
+    " VALUES (?,?,?,?,?,?,?)",
+    ("TP.DK.USD.S.YTL", _yarin, 50.52, "TL", "USD/TRY", "EVDS", "x"))
+_b5.execute(
+    "INSERT INTO gosterge (kod, tarih, deger, birim, ad, kaynak, kayit_ani)"
+    " VALUES (?,?,?,?,?,?,?)",
+    ("UNRATE", _yarin, 4.2, "", "UNRATE", "FRED", "x"))
+esit(_b5.execute("SELECT COUNT(*) FROM gosterge WHERE tarih > ?",
+                 (_bugun,)).fetchone()[0], 2, "baslangicta IKI eski satir var")
+
+beyin.gosterge_yaz(_b5, [_kalem("TP.DK.USD.S.YTL", _dun, 50.4694, "TL")])
+
+esit(_b5.execute("SELECT COUNT(*) FROM gosterge WHERE kod='TP.DK.USD.S.YTL'"
+                 " AND tarih > ?", (_bugun,)).fetchone()[0], 0,
+     "yazilan kodun eski gelecek tarihli satiri SILINDI")
+# DOKUNULMAYAN KOD KORUNUYOR: tum tabloyu silmek, ilgisiz bir seride
+# beklenmedik kayip olurdu.
+esit(_b5.execute("SELECT COUNT(*) FROM gosterge WHERE kod='UNRATE'"
+                 " AND tarih > ?", (_bugun,)).fetchone()[0], 1,
+     "cagrida gecmeyen kodun satirina DOKUNULMUYOR")
+esit(_b5.execute("SELECT COUNT(*) FROM gosterge WHERE kod='TP.DK.USD.S.YTL'"
+                 " AND tarih = ?", (_dun,)).fetchone()[0], 1,
+     "mesru gecmis gozlem yazilmaya devam ediyor")
+
 
 # ----------------------------------------------------------------------
 # 4. MEKANIK KURAL -- cagri DONGUNUN ICINDE

@@ -299,6 +299,20 @@ def baglan(yol: pathlib.Path | None = None):
 # Yazma
 # ---------------------------------------------------------------------------
 
+def _bugun_iso() -> str:
+    """Bugunun ISO tarihi (UTC).
+
+    AYRI ISLEV cunku sinama bunu sabitleyebilmeli: "gelecek tarih"
+    kuralini olcmek icin takvimi beklemek gerekmesin.
+
+    UTC secildi: hat GitHub Actions icinde UTC ile kosuyor, yerel
+    nobetci ise Turkiye saatiyle. Yerel saat kullanilsaydi ayni
+    gozlem, hangi makinenin yazdigina gore kabul/red alirdi --
+    yani kural MAKINEYE bagli olurdu.
+    """
+    return datetime.now(timezone.utc).date().isoformat()
+
+
 def gosterge_yaz(b, kalemler: list[dict], reddedilen=None) -> int:
     """Gosterge gozlemlerini ekler.
 
@@ -319,8 +333,47 @@ def gosterge_yaz(b, kalemler: list[dict], reddedilen=None) -> int:
         if k.get("deger_ham") is None or not k.get("tarih"):
             continue
         _kod = k.get("kod") or ""
-        sebep = seri_sinirlari.sinir_disi(
-            _kod, k["deger_ham"], k.get("birim") or "")
+        # GELECEK TARIHLI GOZLEM YAZILMAZ.
+        #
+        # Bir gozlem, HENUZ GELMEMIS bir gun icin var olamaz. Bu kural
+        # icerige degil MEKANIZMAYA dayaniyor: esik yok, sayi yok,
+        # yorum yok -- takvim.
+        #
+        # OLCULDU (2026-11-21, Cumartesi): depoda TAM IKI satir
+        # gelecek tarihliydi ve ikisi de TCMB kuruydu:
+        #
+        #     TP.DK.USD.S.YTL  2026-11-23  (kayit ani 2026-11-20)
+        #     TP.DK.EUR.S.YTL  2026-11-23  (kayit ani 2026-11-20)
+        #
+        # Yani satir, iddia ettigi tarihten UC GUN ONCE yazilmisti.
+        # Sonuc 2.973 YAYIMLANMIS SAYFADA gorundu: piyasa seridi her
+        # sayfada ve "23 Kasim 2026" yaziyordu. Ustelik ayni sayfanin
+        # kendi basligi "20 Kasim 2026 verileri" diyordu -- sayfa
+        # kendisiyle celisiyordu.
+        #
+        # SEBEP USTTE, BIZDE DEGIL: EVDS'nin `TP.DK.*.S.YTL` tarihi
+        # gozlem gunu DEGIL, kurun GECERLI OLDUGU gun. Cuma aksami
+        # aciklanan bulten Pazartesi icin gecerli oluyor. Dogrulandi
+        # (TCMB'nin kendi ucretsiz bulteni, 5 ardisik gun birebir):
+        #
+        #     bulten 20.11.2026 USD satis 50,4936  ->  depoda 23.11
+        #     bulten 19.11.2026 USD satis 50,4694  ->  depoda 20.11
+        #
+        # ECB serisi (`ECB_EURUSD`) ayni kusuru TASIMIYOR: kayit ani
+        # her zaman gozlem gunu ya da sonrasi. Yani sorun tek bir
+        # kaynagin etiketleme bicimi.
+        #
+        # BU KURAL SEBEBI COZMUYOR, YALNIZCA IMKANSIZ OLANI ENGELLIYOR.
+        # Dogru etiket icin bultenin kendi tarihi gerekiyor; o ayri
+        # is. Burada durdurulan sey, OKURA OLMAMIS BIR GUNUN
+        # RAKAMINI SUNMAK.
+        sebep = ""
+        _t = str(k.get("tarih") or "")
+        if _t > _bugun_iso():
+            sebep = f"gelecek tarihli gozlem (bugun {_bugun_iso()})"
+        if not sebep:
+            sebep = seri_sinirlari.sinir_disi(
+                _kod, k["deger_ham"], k.get("birim") or "")
         # KARANTINA: kaynagi bozuk oldugu OLCULEN seriden YENI gozlem
         # de alinmiyor. `veri_dogrula` yalnizca depoda zaten olan
         # tarihleri karsilastirabiliyor; yeni tarihte karsilastiracak
@@ -341,6 +394,33 @@ def gosterge_yaz(b, kalemler: list[dict], reddedilen=None) -> int:
              k.get("ad"), k.get("kaynak", "FRED"), simdi()),
         )
         n += imlec.rowcount
+
+    # KURALDAN ONCE GIRMIS OLANLARI DA TEMIZLE.
+    #
+    # Yukaridaki suzgec YENI yazmayi engelliyor ama DEPODA ZATEN
+    # OLANI kaldirmiyor. Olculdu: kural yazildiginda depoda iki
+    # gelecek tarihli satir duruyordu ve 2.973 yayimlanmis sayfada
+    # gorunuyordu. Kurali sikilastirmak eski icerigi TEMIZLEMEZ --
+    # bu depoda daha once de boyle olmustu.
+    #
+    # Islevin sozlesmesi artik sudur: BU CAGRIDAN SONRA, YAZILAN
+    # KODLAR ICIN gelecek tarihli satir YOKTUR.
+    #
+    # Yalnizca bu cagrinin dokundugu kodlar siliniyor; tum tabloyu
+    # taramak, ilgisiz bir seride beklenmedik bir silme yapardi.
+    _kodlar = sorted({(k.get("kod") or "") for k in kalemler
+                      if k.get("kod")})
+    if _kodlar:
+        _im = b.execute(
+            "DELETE FROM gosterge WHERE tarih > ? AND kod IN ("
+            + ",".join("?" * len(_kodlar)) + ")",
+            [_bugun_iso(), *_kodlar])
+        if _im.rowcount > 0:
+            # SESSIZ DEGIL: silme gorunur olmali. Ama KAPI DEGIL --
+            # mesru durum "hic silinmedi" ve sifir silme kusur
+            # degil. Bu yuzden yalnizca bildiriyor.
+            print(f"  gelecek tarihli {_im.rowcount} gozlem silindi "
+                  f"(bugun {_bugun_iso()})")
     return n
 
 
