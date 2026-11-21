@@ -30,7 +30,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 34,
+  "yorumlanan": 35,
   "haberler": [
     {
       "baslik": "Fed, College Fed Challenge kazananlarını açıkladı",
@@ -73,6 +73,32 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/enerji-11-0e06d6d4.jpg",
       "foto_atif": "Djmaschek · CC-BY-SA-3.0"
+    },
+    {
+      "baslik": "Beyaz Saray, çalışanların özel sektörde kalmasına olanak tanıyan özel statüyü daraltıyor - WSJ",
+      "baslik_kaynak": "White House reduces special status allowing staffers to remain in private sector - WSJ",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9862973/White-House-reduces-special-status-allowing-staffers-to-remain-in-private-sector---WSJ.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Jeopolitik",
+      "tarih": "2026-11-21",
+      "tarih_gorunur": "21 Kasım 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
+      "kanallar": [
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-18-d6206fae.jpg",
+      "foto_atif": "United Nation · PDM"
     },
     {
       "baslik": "Zelenski: Çin zirvesi Rusya için hiç de başarılı geçmedi",
@@ -1391,6 +1417,53 @@
       "foto_atif": "Djmaschek · CC-BY-SA-3.0"
     },
     {
+      "baslik": "Küresel piyasalarda sert satışların ardından gözler gelecek haftaya çevrildi",
+      "baslik_kaynak": "Küresel piyasalarda sert satışların ardından gözler gelecek haftaya çevrildi",
+      "ozet": "Enflasyon ve para politikalarına ilişkin belirsizlikler sürerken, yapay zeka yatırımlarının geri dönüşüne yönelik endişeler bu hafta pay piyasalarında satış baskısını artırdı. Gözler gelecek hafta ABD'de açıklanacak makroekonomik verilere çevrildi.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.ekonomim.com/kuresel-ekonomi/kuresel-piyasalarda-sert-satislarin-ardindan-gozler-gelecek-haftaya-cevrildi-haberi-932596",
+      "kurum": "Ekonomim",
+      "kurum_tam": "Ekonomim",
+      "konu": "Borsa",
+      "tarih": "2026-11-21",
+      "tarih_gorunur": "21 Kasım 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/borsa-10-1d3f5b6f.jpg",
+      "foto_atif": "Syced · CC0"
+    },
+    {
+      "baslik": "Elektrik ve doğal gaz fiyatları açıklandı, spot piyasada yeni rakamlar belli oldu",
+      "baslik_kaynak": "Elektrik ve doğal gaz fiyatları açıklandı, spot piyasada yeni rakamlar belli oldu",
+      "ozet": "Enerji Piyasaları İşletme AŞ (EPİAŞ) verilerine göre spot elektrik piyasasında 22 Kasım için megavatsaat başına ortalama fiyat 2 bin 883 lira 10 kuruş olarak belirlendi. Elektrikte en yüksek fiyat 4 bin 499 lirayı aşarken en düşük fiyat 1.400 lira seviyesinde gerçekleşti.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.ekonomim.com/ekonomi/elektrik-ve-dogal-gaz-fiyatlari-aciklandi-spot-piyasada-yeni-rakamlar-belli-oldu-haberi-932594",
+      "kurum": "Ekonomim",
+      "kurum_tam": "Ekonomim",
+      "konu": "Enerji",
+      "tarih": "2026-11-21",
+      "tarih_gorunur": "21 Kasım 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Enerji fiyatı hem bir maliyet kalemi hem bir enflasyon girdisidir; arz tarafındaki değişim önce vadeli piyasada, sonra üretici fiyatlarında görünür.",
+      "kanallar": [
+        "Arz kapasitesi: OPEC+ kotası, stok seviyesi ve üretim kesintisi haberleri vadeli eğrinin şeklini değiştirir.",
+        "Talep beklentisi: büyüme verisi ve sanayi üretimi fiyatın talep bacağını belirler.",
+        "Bölgeler arası akış: doğal gaz ile LNG arasındaki fiyat farkı, kargoların hangi bölgeye gideceğini değiştirir.",
+        "Enflasyon aktarımı: enerji maliyeti ulaştırma ve gıda üzerinden manşet enflasyona geçer; merkez bankaları çekirdek enflasyona daha çok bakar."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/enerji-16-71b1ce54.jpg",
+      "foto_atif": "HdeK · CC-BY-SA-3.0"
+    },
+    {
       "baslik": "Yaptırım listesindeydi. Rusya'nın en zengin kadını görevinden ayrıldı",
       "baslik_kaynak": "Yaptırım listesindeydi! Rusya'nın en zengin kadını görevinden ayrıldı",
       "ozet": "Rusya'nın en büyük e-ticaret platformlarından Wildberries'in kurucusu Tatyana Kim, şirketin genel müdürlüğünden ayrıldı.",
@@ -1415,27 +1488,6 @@
       "kanal_basligi": "Hangi piyasaları etkiler?",
       "foto": "/statik/foto/jeopolitik-15-ccd8ab8d.jpg",
       "foto_atif": "usepagov · PDM"
-    },
-    {
-      "baslik": "Sigorta primi teşviklerinde en büyük destek hangi alana verildi?",
-      "baslik_kaynak": "Sigorta primi teşviklerinde en büyük destek hangi alana verildi?",
-      "ozet": "Çalışma ve Sosyal Güvenlik Bakanı Vedat Işıkhan, 2026 yılının ocak-ağustos döneminde 15 farklı sigorta primi teşviki, destek ve indirimi kapsamında toplam 301 milyar 325 milyon liralık kaynak sağlandığını açıkladı.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.ekonomim.com/ekonomi/sigorta-primi-tesviklerinde-en-buyuk-destek-hangi-alana-verildi-haberi-932581",
-      "kurum": "Ekonomim",
-      "kurum_tam": "Ekonomim",
-      "konu": "Vergi ve kamu maliyesi",
-      "tarih": "2026-11-21",
-      "tarih_gorunur": "21 Kasım 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/vergi-ve-kamu-maliyesi-9-96673ab0.jpg",
-      "foto_atif": "RegionalQueenslander · CC-BY-SA-4.0"
     },
     {
       "baslik": "Gelişen piyasa hisseleri ayı piyasasına girdi",
@@ -1602,32 +1654,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/dis-ticaret-9-fae0ad65.jpg",
       "foto_atif": "H. Zell · CC-BY-SA-3.0"
-    },
-    {
-      "baslik": "İhracatçının gözü ABD-Çin geriliminde",
-      "baslik_kaynak": "İhracatçının gözü ABD-Çin geriliminde",
-      "ozet": "ABD ile Çin arasındaki ticaret savaşları küresel ticaretin dengelerini değiştirirken, Çin’in alternatif pazarlara yönelmesi Türk sanayisi için yeni bir rekabet baskısı yaratıyor.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.ekonomist.com.tr/makale/ihracatcinin-gozu-abd-cin-geriliminde-80229",
-      "kurum": "Ekonomist",
-      "kurum_tam": "Ekonomist",
-      "konu": "Dış ticaret",
-      "tarih": "2026-11-21",
-      "tarih_gorunur": "21 Kasım 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Ticaret politikası kararları tarafların birbirine bağımlılığı ölçüsünde fiyatlanır; etki önce ilgili sektör hisselerinde ve para birimlerinde görülür.",
-      "kanallar": [
-        "Sektör maruziyeti: gümrük vergisi ihracatçı sektörün marjını doğrudan sıkıştırır; otomotiv, çelik ve tarım en sık hedef alınan kalemlerdir.",
-        "Para birimi: ticaret dengesinde beklenen değişim ilgili ülke kurunu yeniden fiyatlar.",
-        "Tedarik zinciri: ara mal akışı kesilirse maliyet üretici fiyatlarına yazılır ve etki üçüncü ülkelere yayılır.",
-        "Anlaşma yapısı: USMCA ya da gümrük birliği gibi çerçeveler, etkinin hangi kalemlerde ve hangi takvimde doğacağını belirler."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/dis-ticaret-10-e6df7852.jpg",
-      "foto_atif": "ImagePerson · CC-BY-4.0"
     },
     {
       "baslik": "İmalat Sanayi Kapasite Kullanım Oranı (Kasım 2026)",
@@ -2361,27 +2387,6 @@
       "kanal_basligi": "Hangi piyasaları etkiler?",
       "foto": "/statik/foto/jeopolitik-18-d6206fae.jpg",
       "foto_atif": "United Nation · PDM"
-    },
-    {
-      "baslik": "Fed'den Paulson: Faizin bilinçli bir şekilde artırılmasından yana",
-      "baslik_kaynak": "Fed's Paulson: She favors raising rates in a deliberate way",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9862281/Feds-Paulson-She-favors-raising-rates-in-a-deliberate-way.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Para politikası",
-      "tarih": "2026-11-20",
-      "tarih_gorunur": "20 Kasım 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-9-f9a4682a.jpg",
-      "foto_atif": "DXR · CC-BY-SA-4.0"
     },
     {
       "baslik": "Haftalık Akım Faiz ve Kâr Payı İstatistikleri",
