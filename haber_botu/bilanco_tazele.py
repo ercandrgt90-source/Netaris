@@ -382,6 +382,25 @@ _ANLAMSIZ_YUZDE = re.compile(
 def _anlamsiz_yuzde(metin: str) -> bool:
     """Sayfa, %100'u asan bir AZALIS yuzdesi tasiyor mu?
 
+    GOC KUYRUGUNA BAGLI DEGIL -- OLCULDU VE CALISMIYOR.
+
+    Bir sure `goc_kuyrugu`na uclncu sebep olarak bagliydi. Uretimde
+    olculdu (kosu #117): kuyruk 145 sayfa buldu, TAZELENEN 0.
+    Sebep, tazelemenin "sifir MODEL cagrisi" yapmasi ama AGDAN VERI
+    CEKMESI: kaynak uretim adiminda zaten tukenmisti (HTTP 429) ve
+    kesici sekiz redden sonra acildi.
+
+    Son bes bilanco kosusunda goc adiminin tazeledigi TOPLAM sayfa:
+    1 (#115). Yani ~0,2 sayfa/kosu. 145 sayfa bu hizla ~725 kosu,
+    yani YILLAR. Kuyruk tukenmez; ustelik her kosuda sekiz istegi
+    kapali kaynaga harcar ve kaynak butcesi PAYLASIMLI -- 109
+    sirketin hic sayfasi yokken onlarin onune gecemez.
+
+    Bu yuzden islev bir KUYRUK OLCUTU degil, bir OLCUM araci:
+    `--anlamsiz-yuzde` sayiyi bildiriyor. Eski sayfalar yeni ceyrek
+    yayimlandikca kendiliginden yeniliyor; sayinin dusmesi oradan
+    gelecek.
+
     BINLIK AYRACI NOKTA OLABILIYOR ("%1.897,5"), bu yuzden desen
     sayiyi BUTUN OLARAK yakaliyor ve esik Python'da uygulaniyor.
 
@@ -502,31 +521,6 @@ def goc_kuyrugu(defter: dict, baglam: dict | None = None) -> list:
         if U.SERI_BASLIGI not in metin:
             _eksik.append("son dört dönem bölümü yok")
         _eksik += [f"{a} satırı yok" for a in U.eksik_turetilmis(metin)]
-        # UCUNCU GOC SEBEBI: ANLAMSIZ YUZDE.
-        #
-        # OLCULDU (2026-11-21): 220 yayimlanmis sayfada 597 kez
-        # %100'u asan bir AZALIS yaziyordu -- "faaliyet karinin
-        # %1.897,5 gerilemesine" gibi. %100'u asan azalis, degerin
-        # SIFIRI GECTIGI demektir; "yuzde kac azaldi" sorusunun
-        # cevabi yoktur. Sayi AI ozetine de besleniyordu.
-        #
-        # Kaynak duzeltildi (`oranlar._yuzde_degisim` artik isaret
-        # degisince yuzde uretmiyor; durum kendi sinyaliyle
-        # anlatiliyor). Ama KURALI SIKILASTIRMAK DEPODAKI ESKI
-        # ICERIGI TEMIZLEMEZ -- bu depoda ayni ders birkac kez
-        # ogrenildi. Eski sayfalar ancak yeniden yazilinca duzelir.
-        #
-        # NEDEN `onarim_gereken` DEGIL DE BURASI: o islev ayni
-        # zamanda `site/test_bilanco_sayfa_saglam.py` korumasini
-        # besliyor. Oraya eklemek 220 sayfayi BIR ANDA bozuk ilan
-        # eder, CI kirmiziya doner ve SITE DAGITILMAZ. Bu, bu
-        # islevin kendi docstring'inde belgelenen tuzagin aynisi;
-        # bolum gocu de ayni gerekceyle BURAYA konmustu.
-        #
-        # Kuyruk tazelendikce kisaliyor; bitince adim kendiliginden
-        # etkisiz hale geliyor.
-        if _anlamsiz_yuzde(metin):
-            _eksik.append("işaret değişiminde anlamsız yüzde")
         k = _KOD_DESEN.search(metin)
         if not k:
             continue
@@ -576,6 +570,9 @@ def main() -> int:
     a.add_argument("--kuru-calis", action="store_true")
     a.add_argument("--onarim", action="store_true",
                    help="yalnizca BOZUK sayfalari yeniden kurar")
+    a.add_argument("--anlamsiz-yuzde", action="store_true",
+                   help="isaret degisiminde uretilmis %100 ustu "
+                        "AZALIS tasiyan sayfalari SAYAR (yazmaz)")
     a.add_argument("--bolum-gocu", action="store_true",
                    help="yalnizca 'son dort donem' bolumu OLMAYAN "
                         "sayfalari yeniden kurar (sifir model cagrisi)")
@@ -583,6 +580,20 @@ def main() -> int:
                    help="yalnizca bu sirketlerin sayfasi (kuyrugu "
                         "beklemeden)")
     n = a.parse_args()
+
+    if n.anlamsiz_yuzde:
+        # YALNIZCA OLCUM -- hicbir sey yazmiyor, aga cikmiyor.
+        #
+        # Kuyruga baglanmadi; gerekce `_anlamsiz_yuzde` icinde.
+        # Sayi, eski sayfalar yeni ceyrekle yenilendikce dusecek.
+        bulunan = [p for p in sorted(U.SITE.glob("*.md"))
+                   if _anlamsiz_yuzde(p.read_text(encoding="utf-8"))]
+        print(f"işaret değişiminde anlamsız yüzde: {len(bulunan)} sayfa")
+        for p in bulunan[:10]:
+            print(f"  {p.stem}")
+        if len(bulunan) > 10:
+            print(f"  ... ve {len(bulunan) - 10} sayfa daha")
+        return 0
 
     if not U.OZET.exists():
         print(f"{U.OZET} yok -- önce uret_bilanco.py çalışmalı.")

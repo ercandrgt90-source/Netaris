@@ -440,16 +440,18 @@ jobs:
       #
       # Saklanan AI yorumu AYNEN geri konuyor -- model cagrisi SIFIR.
       #
-      # ADIM TEK SEBEP TASIMIYOR. Basta yalnizca "son dort donem"
-      # bolumunun gocuydu; sonra turetilmis kalem satiri, sonra
-      # (2026-11-21) isaret degisiminde uretilmis ANLAMSIZ YUZDE
-      # eklendi. Adim adi tek sebebi soylerse, gunluge bakan kisi
-      # 25 sayfanin neden tazelendigini YANLIS okur -- bu depoda
-      # "ne oldu" ile "neden oldu" ayri sorular.
+      # ADIM TEK SEBEP TASIMIYOR: "son dort donem" bolumunun
+      # yoklugu VE girdileri sayfada duran turetilmis kalemin
+      # satirinin yoklugu. Kuyruk sebebe gore dokuluyor.
       #
-      # Kuyruk sebebe gore dokuluyor: hangi sebebin kac sayfa
-      # oldugu gunlukte yaziyor.
-      - name: Eski sayfaları güncel biçime taşı (üç göç sebebi)
+      # UCUNCU BIR SEBEP DENENDI VE GERI ALINDI (2026-11-21):
+      # "isaret degisiminde anlamsiz yuzde" 145 sayfa getirdi
+      # ama kosu #117'de TAZELENEN 0 oldu -- tazeleme agdan
+      # veri cekiyor ve kaynak uretim adiminda tukenmisti.
+      # Son bes kosuda bu adimin tazeledigi toplam sayfa: 1.
+      # Olcum artik `--anlamsiz-yuzde` bayraginda, kuyrukta
+      # degil.
+      - name: Eski sayfaları güncel biçime taşı
         if: always()
         run: python haber_botu/bilanco_tazele.py --bolum-gocu --sinir 25
 

@@ -299,13 +299,21 @@ def test_on_bilgideki_kopya_da_kuyruga_SOKULMUYOR():
     assert T._anlamsiz_yuzde(onsuz)
 
 
-def test_goc_kuyrugu_anlamsiz_yuzdeyi_gercekten_cagiriyor():
-    """Desenin dogru olmasi YETMEZ -- kuyruga baglandigi da tutulmali.
+def test_anlamsiz_yuzde_goc_kuyruguna_BAGLANMIYOR():
+    """Bagliydi; URETIMDE OLCULDU ve CALISMIYORDU -- geri alindi.
 
-    Bu depoda "islev eklendi ama hicbir yerden cagrilmadi" sinifi
-    birkac kez yasandi: hata vermez, yalnizca HIC KOSMAZ. Olcut
-    AST, metin degil: `goc_kuyrugu` govdesinde ad gecen bir yorum
-    da metin aramasini gecerdi.
+    Kosu #117: kuyruk 145 sayfa buldu, TAZELENEN 0. Tazeleme
+    "sifir MODEL cagrisi" yapiyor ama AGDAN VERI CEKIYOR; kaynak
+    uretim adiminda tukenmisti (HTTP 429) ve kesici sekiz redden
+    sonra acildi.
+
+    Son bes bilanco kosusunda goc adiminin tazeledigi TOPLAM sayfa:
+    1. Yani ~0,2 sayfa/kosu; 145 sayfa ~725 kosu eder. Kuyruk
+    tukenmez, her kosuda sekiz istegi kapali kaynaga harcar ve
+    TAMAMLANABILEN bolum gocunu ac birakir (#117'de o da 0 kaldi).
+
+    Bu sinama kurali TERSINE tutuyor: bagliligi geri koymak,
+    olculmus bir cikmaza geri donmek olur.
     """
     import ast
     import inspect
@@ -313,9 +321,35 @@ def test_goc_kuyrugu_anlamsiz_yuzdeyi_gercekten_cagiriyor():
     cagrilar = {n.func.id for n in ast.walk(agac)
                 if isinstance(n, ast.Call)
                 and isinstance(n.func, ast.Name)}
-    assert "_anlamsiz_yuzde" in cagrilar, (
-        "goc_kuyrugu `_anlamsiz_yuzde` cagirmiyor -- kural hic kosmaz")
+    assert "_anlamsiz_yuzde" not in cagrilar, (
+        "goc kuyruguna geri baglanmis -- olculdu, tukenmiyor")
 
+
+def test_anlamsiz_yuzde_OLCUM_secenegi_CALISIYOR():
+    """Sunulan secenek calismali.
+
+    Kuyruktan cikarilan olcut bir OLCUM aracina donustu. Bayragi
+    belgeleyip islemeyen bir dal, bu depoda tanidik bir kusur:
+    kabul edilir, hicbir sey yapmaz, aylar sonra ortaya cikar.
+    """
+    import ast
+    import inspect
+    kaynak = inspect.getsource(T.main)
+    agac = ast.parse(kaynak)
+    # Bayrak TANIMLI mi?
+    assert "--anlamsiz-yuzde" in kaynak, "bayrak tanimli degil"
+    # ...ve gercekten OKUNUYOR mu? "tanimli ama hic bakilmayan"
+    # bayrak sessizce hicbir sey yapmaz.
+    okunan = {n.attr for n in ast.walk(agac)
+              if isinstance(n, ast.Attribute)}
+    assert "anlamsiz_yuzde" in okunan, (
+        "bayrak tanimli ama DEGERI HIC OKUNMUYOR")
+    # ...ve o dal `_anlamsiz_yuzde` cagiriyor mu?
+    cagrilar = {n.func.id for n in ast.walk(agac)
+                if isinstance(n, ast.Call)
+                and isinstance(n.func, ast.Name)}
+    assert "_anlamsiz_yuzde" in cagrilar, (
+        "bayrak var ama olcumu HIC cagirmiyor")
 
 if __name__ == "__main__":
     n = 0
