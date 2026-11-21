@@ -1116,6 +1116,32 @@
       "foto_atif": "Ximonic (Simo Räsänen) · CC-BY-4.0"
     },
     {
+      "baslik": "Zelenski, Trump'ın dostum dediği Putin'e sert yanıt verdi",
+      "baslik_kaynak": "Zelenski, Trump'ın dostum dediği Putin'e sert yanıt verdi",
+      "ozet": "Ukrayna Devlet Başkanı Volodimir Zelenski, ABD Başkanı Donald Trump'ın Rusya Devlet Başkanı Vladimir Putin hakkında kullandığı dost ifadesine karşılık Putin'i düşman ve katil olarak nitelendirdi. BBC'nin CNN'e dayandırdığı bu açıklamalar, Kiev'e yönelik yoğun füze ve insansız hava aracı saldırısının ardından geldi.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.ekonomim.com/dunya/zelenski-trumpin-dostum-dedigi-putine-sert-yanit-verdi-haberi-932572",
+      "kurum": "Ekonomim",
+      "kurum_tam": "Ekonomim",
+      "konu": "Jeopolitik",
+      "tarih": "2026-11-21",
+      "tarih_gorunur": "21 Kasım 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
+      "kanallar": [
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-40-59a567ac.jpg",
+      "foto_atif": "Peter Griffin · CC0"
+    },
+    {
       "baslik": "Düz memur olmak isteyenler için tüm şartlar ve maaşlar bu listede. Zabıta, şoför, VHKİ, itfaiye",
       "baslik_kaynak": "Düz memur olmak isteyenler için tüm şartlar ve maaşlar bu listede! Zabıta, şoför, VHKİ, itfaiye...",
       "ozet": "Zabıta, itfaiye eri, şoför ve VHKİ gibi kadrolarda memur olmak isteyenleri ilgilendiren tüm detaylar belli oldu. İşte kadrolara göre başvuru şartları ve maaşlar….",
@@ -1203,32 +1229,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/enerji-19-7f38d155.jpg",
       "foto_atif": "Calistemon · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "ABD'den İran petrol ticaretinde rol oynayan 4 kişiye yaptırım",
-      "baslik_kaynak": "ABD'den İran petrol ticaretinde rol oynayan 4 kişiye yaptırım",
-      "ozet": "ABD Hazine Bakanlığı, İran'ın yurt dışındaki petrol satışlarının gerçekleştirilmesi ve bu satışlardan elde edilen gelirlerin tahsil edilmesinde rol oynayan 4 İran vatandaşının yaptırım listesine eklendiğini açıkladı.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.ekonomim.com/kuresel-ekonomi/abdden-iran-petrol-ticaretinde-rol-oynayan-4-kisiye-yaptirim-haberi-932560",
-      "kurum": "Ekonomim",
-      "kurum_tam": "Ekonomim",
-      "konu": "Enerji",
-      "tarih": "2026-11-21",
-      "tarih_gorunur": "21 Kasım 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Enerji fiyatı hem bir maliyet kalemi hem bir enflasyon girdisidir; arz tarafındaki değişim önce vadeli piyasada, sonra üretici fiyatlarında görünür.",
-      "kanallar": [
-        "Arz kapasitesi: OPEC+ kotası, stok seviyesi ve üretim kesintisi haberleri vadeli eğrinin şeklini değiştirir.",
-        "Talep beklentisi: büyüme verisi ve sanayi üretimi fiyatın talep bacağını belirler.",
-        "Bölgeler arası akış: doğal gaz ile LNG arasındaki fiyat farkı, kargoların hangi bölgeye gideceğini değiştirir.",
-        "Enflasyon aktarımı: enerji maliyeti ulaştırma ve gıda üzerinden manşet enflasyona geçer; merkez bankaları çekirdek enflasyona daha çok bakar."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/enerji-11-a5cdd29f.jpg",
-      "foto_atif": "W.carter · CC0"
     },
     {
       "baslik": "Gelişen piyasa hisseleri ayı piyasasına girdi",
