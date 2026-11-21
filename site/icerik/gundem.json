@@ -10,7 +10,6 @@
     "Cointelegraph",
     "DOE",
     "DTÖ",
-    "Decrypt",
     "Dünya",
     "ECB",
     "EIA",
@@ -30,7 +29,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 34,
+  "yorumlanan": 33,
   "haberler": [
     {
       "baslik": "Fed, College Fed Challenge kazananlarını açıkladı",
@@ -73,6 +72,32 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/enerji-11-0e06d6d4.jpg",
       "foto_atif": "Djmaschek · CC-BY-SA-3.0"
+    },
+    {
+      "baslik": "Zelenski: Ukrayna'nın savaş sona erdiğinde NATO'ya katılıp katılmayacağını söylemek için henüz çok erken",
+      "baslik_kaynak": "Zelenskiy: too early to tell if Ukraine will join Nato when war ends",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9862951/Zelenskiy-too-early-to-tell-if-Ukraine-will-join-Nato-when-war-ends.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Jeopolitik",
+      "tarih": "2026-11-21",
+      "tarih_gorunur": "21 Kasım 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
+      "kanallar": [
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-14-4ca6b4fe.jpg",
+      "foto_atif": "Bernard Gagnon · CC0"
     },
     {
       "baslik": "Finlandiya sınır muhafızları: Hasarlı gemi uluslararası sulardan Finlandiya karasularına sürüklendi",
@@ -1344,32 +1369,6 @@
       "foto_atif": "Bernard Lee · CC0"
     },
     {
-      "baslik": "Hürmüz'de gemi trafiği sert düştü: Petrol sevkiyatında saldırı baskısı büyüyor",
-      "baslik_kaynak": "Hürmüz'de gemi trafiği sert düştü: Petrol sevkiyatında saldırı baskısı büyüyor",
-      "ozet": "Hürmüz Boğazı'nda haftalık gemi geçişi 308'den 263'e gerileyerek yüzde 15 azaldı. İngiliz denizcilik makamları yedi günde altı saldırı kaydetti. Savaş öncesine göre trafik yüzde 65 düşük; petrol sevkiyatındaki risk büyüyor.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.dunya.com/gundem/hurmuzde-gemi-trafigi-sert-dustu-petrol-sevkiyatinda-saldiri-baskisi-buyuyor-haberi-848390",
-      "kurum": "Dünya",
-      "kurum_tam": "Dünya Gazetesi",
-      "konu": "Enerji",
-      "tarih": "2026-11-21",
-      "tarih_gorunur": "21 Kasım 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Enerji fiyatı hem bir maliyet kalemi hem bir enflasyon girdisidir; arz tarafındaki değişim önce vadeli piyasada, sonra üretici fiyatlarında görünür.",
-      "kanallar": [
-        "Arz kapasitesi: OPEC+ kotası, stok seviyesi ve üretim kesintisi haberleri vadeli eğrinin şeklini değiştirir.",
-        "Talep beklentisi: büyüme verisi ve sanayi üretimi fiyatın talep bacağını belirler.",
-        "Bölgeler arası akış: doğal gaz ile LNG arasındaki fiyat farkı, kargoların hangi bölgeye gideceğini değiştirir.",
-        "Enflasyon aktarımı: enerji maliyeti ulaştırma ve gıda üzerinden manşet enflasyona geçer; merkez bankaları çekirdek enflasyona daha çok bakar."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/enerji-13-2cf47f9f.jpg",
-      "foto_atif": "Quintin Soloviev · CC-BY-4.0"
-    },
-    {
       "baslik": "Sigorta primi teşviklerinde en büyük destek hangi alana verildi?",
       "baslik_kaynak": "Sigorta primi teşviklerinde en büyük destek hangi alana verildi?",
       "ozet": "Çalışma ve Sosyal Güvenlik Bakanı Vedat Işıkhan, 2026 yılının ocak-ağustos döneminde 15 farklı sigorta primi teşviki, destek ve indirimi kapsamında toplam 301 milyar 325 milyon liralık kaynak sağlandığını açıkladı.",
@@ -1581,6 +1580,27 @@
       "kanal_basligi": "Hangi piyasaları etkiler?",
       "foto": "/statik/foto/dis-ticaret-10-e6df7852.jpg",
       "foto_atif": "ImagePerson · CC-BY-4.0"
+    },
+    {
+      "baslik": "Küresel piyasalarda gelecek hafta takip edilecek 4 gelişme hangileri olacak?",
+      "baslik_kaynak": "Küresel piyasalarda gelecek hafta takip edilecek 4 gelişme hangileri olacak?",
+      "ozet": "Küresel piyasalarda enflasyon ve para politikalarına ilişkin belirsizlikler sürerken, yapay zeka yatırımlarının geri dönüşüne yönelik endişeler bu hafta pay piyasalarında satış baskısını artırdı. Gözler gelecek hafta ABD'de açıklanacak makroekonomik verilere çevrildi.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.ekonomist.com.tr/piyasalar/kuresel-piyasalarda-gelecek-hafta-takip-edilecek-4-gelisme-hangileri-olacak--81164",
+      "kurum": "Ekonomist",
+      "kurum_tam": "Ekonomist",
+      "konu": "Borsa",
+      "tarih": "2026-11-21",
+      "tarih_gorunur": "21 Kasım 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/borsa-9-78cc676a.jpg",
+      "foto_atif": "Syced · CC0"
     },
     {
       "baslik": "İmalat Sanayi Kapasite Kullanım Oranı (Kasım 2026)",
@@ -2356,32 +2376,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/para-politikasi-8-9ac5b7c7.jpg",
       "foto_atif": "DestinationFearFan · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "Trump: Yeni Kongre'deki Demokratlar işleri benim istediğim gibi yapacak ve ben de onlara veto uygulayacağım",
-      "baslik_kaynak": "Trump: Democrats in the new Congress will send things my way, and I will veto them",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9862262/Trump-Democrats-in-the-new-Congress-will-send-things-my-way-and-I-will-veto-them.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Jeopolitik",
-      "tarih": "2026-11-20",
-      "tarih_gorunur": "20 Kasım 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
-      "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
-        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
-        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/jeopolitik-18-d6206fae.jpg",
-      "foto_atif": "United Nation · PDM"
     },
     {
       "baslik": "Haftalık Akım Faiz ve Kâr Payı İstatistikleri",
