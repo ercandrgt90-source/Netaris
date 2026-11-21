@@ -75,6 +75,31 @@
       "foto_atif": "Djmaschek · CC-BY-SA-3.0"
     },
     {
+      "baslik": "Fransa, AB'nin son bütçe teklifini \"son derece hayal kırıklığı yaratan\" ve anlaşma için temel oluşturmayan bir teklif olarak nitelendiriyor – Fransa Cumhurbaşkanlığı Ofisi",
+      "baslik_kaynak": "France calls latest EU budget proposal \"very disappointing,\" not foundation for agreement – French presidency office",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9862931/France-calls-latest-EU-budget-proposal-very-disappointing-not-foundation-for-agreement--French-presidency-office.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Vergi ve kamu maliyesi",
+      "tarih": "2026-11-21",
+      "tarih_gorunur": "21 Kasım 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Vergi düzenlemeleri ve bütçe dengesi hem şirket kârlılığını hem devletin borçlanma ihtiyacını belirler.",
+      "kanallar": [
+        "Şirket kârlılığı: vergi oranı ve istisna değişiklikleri net kâra doğrudan yansır.",
+        "Borçlanma ihtiyacı: bütçe açığı iç borçlanmayı artırır; bu da tahvil getirilerini ve banka bilançolarını etkiler.",
+        "Tüketici fiyatı: dolaylı vergiler (ÖTV, KDV) nihai fiyata doğrudan geçer."
+      ],
+      "kanal_basligi": "Piyasaya nasıl yansır?",
+      "foto": "/statik/foto/vergi-ve-kamu-maliyesi-8-4cdf06e3.jpg",
+      "foto_atif": "RegionalQueenslander · CC-BY-SA-4.0"
+    },
+    {
       "baslik": "Rusya'nın Leningrad bölgesi valisi: Kaliningrad'a giden kargo gemisi tarafsız sularda iki dronun saldırısına uğradı",
       "baslik_kaynak": "Russia's Leningrad region governor: cargo ship bound for Kaliningrad hit by two drones in neutral waters",
       "ozet": "",
@@ -1184,32 +1209,6 @@
       "foto_atif": "Basile Morin · CC-BY-SA-4.0"
     },
     {
-      "baslik": "Putin savaşlarda füzelerden çok düşünce hızının belirleyici olduğunu söyledi",
-      "baslik_kaynak": "Putin savaşlarda füzelerden çok düşünce hızının belirleyici olduğunu söyledi",
-      "ozet": "Rusya Devlet Başkanı Vladimir Putin, yönetmen Emir Kusturica ile gerçekleştirdiği söyleşide zaferin belirleyici unsurunun füzelerden ziyade düşünce hızı ve manevi güç olduğunu dile getirdi.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.ekonomim.com/dunya/putin-savaslarda-fuzelerden-cok-dusunce-hizinin-belirleyici-oldugunu-soyledi-haberi-932563",
-      "kurum": "Ekonomim",
-      "kurum_tam": "Ekonomim",
-      "konu": "Jeopolitik",
-      "tarih": "2026-11-21",
-      "tarih_gorunur": "21 Kasım 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
-      "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
-        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
-        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/jeopolitik-18-d6206fae.jpg",
-      "foto_atif": "United Nation · PDM"
-    },
-    {
       "baslik": "Gelişen piyasa hisseleri ayı piyasasına girdi",
       "baslik_kaynak": "Gelişen piyasa hisseleri ayı piyasasına girdi",
       "ozet": "MSCI gelişmekte olan piyasalar hisse senedi endeksi, art arda yedinci gün düşüş kaydederek yüzde 3,1 oranında geriledi ve Haziran ayındaki zirvesinden bu yana toplam kaybı yüzde 21'e ulaşarak \"ayı piyasasına\" girdi.",
@@ -1468,6 +1467,27 @@
       "kanal_basligi": "Hangi piyasaları etkiler?",
       "foto": "/statik/foto/jeopolitik-14-4ca6b4fe.jpg",
       "foto_atif": "Bernard Gagnon · CC0"
+    },
+    {
+      "baslik": "Legend Biotech CEO’su Ingrid Zhang 163.200 dolar değerinde hisse aldı",
+      "baslik_kaynak": "Legend Biotech CEO’su Ingrid Zhang 163.200 dolar değerinde hisse aldı",
+      "ozet": "",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://tr.investing.com/news/insider-trading-news/legend-biotech-ceosu-ingrid-zhang-163200-dolar-degerinde-hisse-ald-93CH-4168351",
+      "kurum": "Investing",
+      "kurum_tam": "Investing.com Türkiye",
+      "konu": "Borsa",
+      "tarih": "2026-11-21",
+      "tarih_gorunur": "21 Kasım 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/borsa-11-39672784.jpg",
+      "foto_atif": "Syced · CC0"
     },
     {
       "baslik": "İmalat Sanayi Kapasite Kullanım Oranı (Kasım 2026)",
@@ -2373,27 +2393,6 @@
       "kanal_basligi": "Hangi piyasaları etkiler?",
       "foto": "/statik/foto/jeopolitik-40-59a567ac.jpg",
       "foto_atif": "Peter Griffin · CC0"
-    },
-    {
-      "baslik": "ECB'den Moulin: Fransa'da enflasyon çok yüksek ve enerji kaynaklı",
-      "baslik_kaynak": "ECB's Moulin: inflation in France is too high, driven by energy",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9862257/ECBs-Moulin-inflation-in-France-is-too-high-driven-by-energy.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Enflasyon",
-      "tarih": "2026-11-20",
-      "tarih_gorunur": "20 Kasım 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enflasyon-16-c7021499.png",
-      "foto_atif": "Authors of the study: Melissa J. Barber, PhD; Dzintars Gotham, MBBS; Helen Bygrave, MBBS; Christa Cepuch, MPH · CC-BY-4.0"
     },
     {
       "baslik": "Haftalık Akım Faiz ve Kâr Payı İstatistikleri",
