@@ -148,6 +148,32 @@
       "foto_atif": "Joyofmuseums · CC-BY-SA-4.0"
     },
     {
+      "baslik": "Bitcoinin fiyatı yeniden yükseldi",
+      "baslik_kaynak": "Bitcoinin fiyatı yeniden yükseldi",
+      "ozet": "Kripto türev piyasalarındaki sert satış ve tasfiye dalgasının ardından tepki alımlarıyla karşılaşan bitcoinin fiyatı yeniden 60 bin dolar kritik seviyesinin üzerine yükseldi",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.haberturk.com/ekonomi/bitcoinin-fiyati-yeniden-yukseldi-3929137",
+      "kurum": "Habertürk",
+      "kurum_tam": "Habertürk",
+      "konu": "Kripto varlıklar",
+      "tarih": "2026-11-22",
+      "tarih_gorunur": "22 Kasım 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Kripto varlıklar risk iştahının en uçtaki göstergelerinden biridir; hareketin kaynağı düzenleme, likidite ya da kaldıraç çözülmesi olabilir ve üçünün sonuçları farklıdır.",
+      "kanallar": [
+        "Likidite koşulları: küresel likidite daraldığında en riskli varlıklar önce satılır.",
+        "Düzenleme: saklama, borsa yatırım fonu ve vergi kuralları kurumsal talebin önünü açar ya da kapatır.",
+        "Kaldıraç: türev piyasadaki açık pozisyon ve fonlama oranı sert hareketlerin büyüklüğünü belirler.",
+        "Piyasa yapısı: işlem hacminin borsalar arası dağılımı fiyat farklarının ne kadar sürdüğünü etkiler."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/kripto-varliklar-8-8b36c240.jpg",
+      "foto_atif": "de Vries, Alex; Stoll, Christian · PDM"
+    },
+    {
       "baslik": "Fed, College Fed Challenge kazananlarını açıkladı",
       "baslik_kaynak": "Federal Reserve announces College Fed Challenge winners",
       "ozet": "Federal Reserve announces College Fed Challenge winners",
@@ -2100,32 +2126,6 @@
       "kanal_basligi": "Hangi piyasaları etkiler?",
       "foto": "/statik/foto/istihdam-ve-ucret-9-46336a81.jpg",
       "foto_atif": "namisito · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "Kademeli emeklilikte 2026 son durum | Kademeli emeklilik çıkacak mı, yaş ve prim şartları belli oldu mu?",
-      "baslik_kaynak": "Kademeli emeklilikte 2026 son durum | Kademeli emeklilik çıkacak mı, yaş ve prim şartları belli oldu mu?",
-      "ozet": "Kademeli (erken) emeklilik düzenlemesine ilişkin gelişmeler, EYT kapsamı dışında kalan milyonlarca çalışanın gündeminde yer alıyor. Özellikle 1999 sonrası sigorta girişi bulunan vatandaşlar, yaş ve prim günü şartlarında değişiklik yapılıp yapılmayacağını merak ediyor.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.ekonomist.com.tr/ekonomi-haberleri/kademeli-emeklilikte-2026-son-durum-kademeli-emeklilik-cikacak-mi-yas-ve-prim-sartlari-belli-oldu-mu--81166",
-      "kurum": "Ekonomist",
-      "kurum_tam": "Ekonomist",
-      "konu": "İstihdam ve ücret",
-      "tarih": "2026-11-21",
-      "tarih_gorunur": "21 Kasım 2026",
-      "yorumlanir": true,
-      "neden_onemli": "İstihdam verisi merkez bankalarının en yakından izlediği göstergedir; ücret artışı hizmet enflasyonunun ana girdisidir.",
-      "kanallar": [
-        "Faiz beklentisi: güçlü istihdam faiz indirimi beklentisini öteler, zayıf veri öne çeker.",
-        "Ücret-fiyat ilişkisi: birim işgücü maliyeti hizmet enflasyonuna doğrudan geçer.",
-        "Tüketim: hane geliri perakende talebini ve şirket gelirlerini belirler.",
-        "Katılım oranı: işgücüne katılımdaki değişim, işsizlik oranını istihdam artışından bağımsız hareket ettirebilir."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/istihdam-ve-ucret-7-786507f1.jpg",
-      "foto_atif": "Tim Brunauer on behalf of Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ) · CC-BY-SA-4.0"
     },
     {
       "baslik": "İmalat Sanayi Kapasite Kullanım Oranı (Kasım 2026)",
