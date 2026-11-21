@@ -192,11 +192,95 @@ esit(US._degisim(100.0, 50.0), 100.0, "normal artış")
 esit(US._degisim(25.0, 50.0), -50.0, "normal düşüş")
 esit(US._degisim(50.0, 50.0), 0.0, "değişim yok TAM SIFIR olarak üretiliyor")
 
+# ISARET DEGISIRSE YUZDE URETILMEZ -- IKI YON DE.
+#
+# OLCULDU (2026-11-21): kural docstring'de yaziliydi ama akis
+# YALNIZCA bir yonu tutuyordu:
+#
+#     zarardan kara (eski <= 0 < yeni)  -> reddediliyordu  DOGRU
+#     kardan zarara (yeni < 0 < eski)   -> URETILIYORDU    YANLIS
+#
+# Ikincisi 220 YAYIMLANMIS SAYFADA 597 kez goruldu; en buyugu
+# "faaliyet karinin %1.897,5 gerilemesine". %100'u asan bir AZALIS,
+# degerin sifiri gectigi demektir -- yani "yuzde kac azaldi"
+# sorusunun cevabi yoktur. Sayi AI ozetine de besleniyordu.
+#
+# `yorum iddia ediyor, akis uygulamiyor` sinifinin bir ornegi daha.
+esit(oranlar._yuzde_degisim(-10.0, 20.0), None,
+     "KARDAN ZARARA: yüzde üretilmiyor")
+esit(oranlar._yuzde_degisim(-2.76, 1.0), None,
+     "işaret değişimi küçük sayılarda da eleniyor")
+esit(oranlar._yuzde_degisim(20.0, -10.0), None,
+     "ZARARDAN KARA: yüzde üretilmiyor (eskiden de böyleydi)")
+
+# SINIR `< 0`, `<= 0` DEGIL. Tam sifira dusus ISARET DEGISIMI DEGIL:
+# 50 -> 0 tam olarak %100 azalistir ve okudugu sey vardir. `<= 0`
+# yazmak mesru bir olcumu susturur -- kusuru duzeltirken calisani
+# bozmanin klasik bicimi.
+esit(oranlar._yuzde_degisim(0.0, 50.0), -100.0,
+     "TAM SIFIRA düşüş %100 azalış olarak ÜRETİLİYOR")
+
 # IKI TARAF AYNI SONUCU VERMELI -- beklenti OTEKI TARAFTAN.
+# Girdi listesine ISARET DEGISIMI de eklendi: olmadan, ucuncu kopya
+# o durumda hic denetlenmiyordu.
 for _y, _e in ((8.79, -0.04), (100.0, 50.0), (25.0, 50.0),
-               (50.0, 50.0), (100.0, 0.0), (1.0, -1.0)):
+               (50.0, 50.0), (100.0, 0.0), (1.0, -1.0),
+               (-10.0, 20.0), (0.0, 50.0), (-0.01, 0.5)):
     esit(US._degisim(_y, _e), oranlar._yuzde_degisim(_y, _e),
          f"_degisim == _yuzde_degisim ({_y}, {_e})")
+
+# YUZDE SUSTURULUYORSA, BILGI SINYALE GECMELI.
+#
+# Yuzdeyi bastirmak TEK BASINA bilgi kaybettirir: buyume tablosundan
+# satir duser ve okur "brut kar ne oldu" sorusunun cevabini goremez.
+# Kuralin iki yarisi var ve ikisi birlikte sinaniyor:
+#
+#   1. isaret degisince YUZDE URETILMEZ        (yukarida)
+#   2. ayni durum SINYALLE, kendi diliyle anlatilir  (burada)
+#
+# Yalnizca 1'i sinamak, "kusuru duzelttim ama bilgiyi sildim"
+# durumunu yesil birakirdi.
+import dataclasses                                   # noqa: E402
+import ornek                                         # noqa: E402
+
+_zarar = dataclasses.replace(ornek.SIMDI, net_kar=-2_760_000_000,
+                             brut_kar=-450_000_000)
+_r = oranlar.hesapla("Kurgu A.Ş.", "KURGU", _zarar, ornek.ONCE,
+                     oranlar.EnflasyonEsasi.TMS29, None)
+
+_adlar = {b.ad for b in _r.buyumeler}
+esit(oranlar.Kalem.NET_KAR in _adlar, False,
+     "kârdan zarara: net kâr büyüme SATIRI ÜRETİLMİYOR")
+esit(oranlar.Kalem.BRUT_KAR in _adlar, False,
+     "kârdan zarara: brüt kâr büyüme satırı üretilmiyor")
+# ISARETI DEGISMEYEN KALEM ETKILENMEMELI -- kurali genis yazmanin
+# klasik bedeli, calisan satirlari da susturmaktir.
+esit(oranlar.Kalem.HASILAT in _adlar, True,
+     "işareti DEĞİŞMEYEN kalem etkilenmiyor (hasılat)")
+
+_gecisler = [x for x in _r.sinyaller
+             if x.tur is oranlar.SinyalTuru.KAR_ZARAR_GECISI]
+_basliklar = " | ".join(x.baslik for x in _gecisler)
+esit(any("Dönem zararla kapandı" == x.baslik for x in _gecisler), True,
+     f"net kâr geçişi SİNYALLE anlatılıyor ({_basliklar})")
+esit(any("Brüt kâr" in x.baslik for x in _gecisler), True,
+     "brüt kâr geçişi de sinyalle anlatılıyor")
+# Sinyal SAYIYI tasimali: "negatife döndü" tek basina yetersiz.
+_brut = next(x for x in _gecisler if "Brüt kâr" in x.baslik)
+esit("3,10" in _brut.gerekce and "-0,45" in _brut.gerekce, True,
+     f"sinyal İKİ DÖNEMİN RAKAMINI taşıyor ({_brut.gerekce[:60]})")
+esit(_brut.yon is oranlar.Yon.KOTU, True, "negatife dönüş KÖTÜ yönlü")
+
+# TERS YON de anlatilmali -- yalnizca kotu haberi raporlamak,
+# okuru tek yonlu bilgilendirmek olurdu.
+_toparlanma = dataclasses.replace(ornek.ONCE, brut_kar=-300_000_000)
+_r2 = oranlar.hesapla("Kurgu A.Ş.", "KURGU", ornek.SIMDI, _toparlanma,
+                      oranlar.EnflasyonEsasi.TMS29, None)
+_artiya = [x for x in _r2.sinyaller
+           if x.tur is oranlar.SinyalTuru.KAR_ZARAR_GECISI
+           and "Brüt kâr" in x.baslik]
+esit(len(_artiya), 1, "negatiften pozitife geçiş de sinyal üretiyor")
+esit(_artiya[0].yon is oranlar.Yon.IYI, True, "artıya geçiş İYİ yönlü")
 
 print("")
 print(f"TUM TESTLER GECTI ({_gecti})")

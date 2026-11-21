@@ -190,7 +190,19 @@ def _bol(pay: float | None, bolen: float | None) -> float | None:
 
 
 def _degisim(yeni: float | None, eski: float | None) -> float | None:
-    if yeni is None or eski is None or eski <= 0:
+    """`oranlar._yuzde_degisim` ile AYNI davranmali -- gerekce orada.
+
+    Ozet: isaret degisirse yuzde degisim hesaplanmaz. Tam sifira
+    dusus ISARET DEGISIMI DEGILDIR ve %100 azalis olarak kalir.
+
+    Bu kopya, `test_araci_kurum` tarafindan oteki tarafla ayni
+    girdilerle karsilastiriliyor. Nitekim `oranlar` tarafi
+    duzeltildiginde burasi unutuldu ve sinama AYRILMAYI YAKALADI --
+    korumanin varlik sebebi tam buydu.
+    """
+    if yeni is None or eski is None:
+        return None
+    if eski <= 0 or yeni < 0:
         return None
     return (yeni / eski - 1) * 100
 

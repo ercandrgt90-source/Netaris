@@ -286,12 +286,48 @@ def _bol(pay: float | None, bolen: float | None) -> float | None:
 
 
 def _yuzde_degisim(yeni: float | None, eski: float | None) -> float | None:
-    """Yuzde degisim. Eski deger sifir ya da negatifse anlamsizdir.
+    """Yuzde degisim. ISARET DEGISIRSE HESAPLANMAZ.
 
-    Zarardan kara gecis gibi durumlarda yuzde degisim yaniltici oldugu icin
-    hesaplanmaz; bu durum ayri bir sinyal olarak raporlanir.
+    Yuzde degisim yalnizca iki deger de AYNI ISARETTEYKEN anlamlidir.
+    Isaret degisirse sonuc matematiksel olarak uretilir ama okudugu sey
+    yoktur; bu durum ayri bir sinyal olarak raporlanir.
+
+    GARANTI YARIM UYGULANMISTI -- OLCULDU (2026-11-21).
+    ---------------------------------------------------
+    Bu docstring'in ilk hali de ayni seyi iddia ediyordu ama akis
+    yalnizca `eski <= 0` dalini tutuyordu, yani:
+
+        zarardan kara  (eski <= 0 < yeni)   -> hesaplanmiyordu  DOGRU
+        kardan zarara  (yeni <= 0 < eski)   -> HESAPLANIYORDU   YANLIS
+
+    Ikincisi yayimlanmis 220 SAYFADA 597 kez goruldu:
+
+        "brut karin %574,5 gerilemesine"
+        "faaliyet karinin %1.897,5 gerilemesine"
+        "net karin %476,5 azalmasina"
+
+    %100'den buyuk bir AZALIS, degerin sifiri gectigi anlamina gelir --
+    yani "yuzde kac azaldi" sorusunun cevabi yoktur. Okura verilen sayi
+    bir olcum degil, bolme isleminin artigi. Ustelik bu sayi AI ozetine
+    de giriyordu: yaniltici ifade uretilmiyor, BESLENIYORDU.
+
+    SATIR DUSUYOR, UYDURULMUYOR: `eski <= 0` dalinda bugun de boyle
+    oluyor ve butun tuketiciler eksik satiri zaten tasiyor
+    (`next(..., None)`). Bilgi kaybolmuyor: isaret degisimi kendi
+    sinyaliyle, KENDI DILIYLE anlatiliyor ("donem zararla kapandi").
+
+    Puanlama da duzeliyor: `skor.py` kar-hasilat makasini `ham`
+    farkindan hesapliyordu, yani anlamsiz sayi PUANA giriyordu.
+
+    SINIR `< 0`, `<= 0` DEGIL -- ILK YAZIMDA YANLISTI.
+    Tam sifira dusus ISARET DEGISIMI DEGIL: 50 -> 0 tam olarak
+    %100 azalistir ve okudugu sey vardir. `<= 0` yazmak onu da
+    susturuyordu. Ayni gerekce `_yuz` docstring'inde de yazili:
+    sifir da bir olcumdur, "olculemedi" degil.
     """
-    if yeni is None or eski is None or eski <= 0:
+    if yeni is None or eski is None:
+        return None
+    if eski <= 0 or yeni < 0:
         return None
     return (yeni / eski - 1) * 100
 
@@ -596,6 +632,56 @@ def _sinyaller(
                     yon=Yon.KOTU,
                     gerekce=(
                         f"önceki dönem kâr açıklanmıştı, bu dönem {zarar} TL zarar"
+                    ),
+                    tur=SinyalTuru.KAR_ZARAR_GECISI,
+                )
+            )
+
+    # 8b. NET KAR DISINDAKI KALEMLERDE DE ISARET DEGISIMI ANLATILMALI.
+    #
+    # `_yuzde_degisim` isaret degisince yuzde uretmiyor (gerekcesi
+    # orada). Bu dogru ama TEK BASINA bilgi kaybettirir: buyume
+    # tablosundan satir dusuyor ve okur "brut kar ne oldu" sorusunun
+    # cevabini goremiyor. Net kar icin yukaridaki sinyal bunu
+    # kapatiyordu; otekiler aciktaydi.
+    #
+    # Olculdu (2026-11-21): 220 yayimlanmis sayfadaki 597 yaniltici
+    # yuzdenin cogu brut kar, faaliyet kari ve FAVOK satirlarindaydi
+    # ("brut karin %574,5 gerilemesine", "%1.897,5 gerilemesine").
+    # Yani bu kalemler sessizce kaybolacak OLANLARDI.
+    #
+    # Yuzde yerine OLAN SEY yaziliyor: hangi kalem, hangi yon.
+    for _ad, _s, _o in (
+        (Kalem.BRUT_KAR, simdi.brut_kar, once.brut_kar),
+        (Kalem.FAALIYET_KARI, simdi.faaliyet_kari, once.faaliyet_kari),
+        (Kalem.FAVOK, simdi.favok, once.favok),
+    ):
+        if _s is None or _o is None:
+            continue
+        if _s < 0 <= _o:
+            sinyaller.append(
+                Sinyal(
+                    baslik=f"{_ad} negatife döndü",
+                    yon=Yon.KOTU,
+                    gerekce=(
+                        f"önceki dönem {bicim.sayi(_o / 1e9, 2)} milyar TL, "
+                        f"bu dönem {bicim.sayi(_s / 1e9, 2)} milyar TL "
+                        f"— işaret değiştiği için "
+                        "yüzde değişim hesaplanmadı"
+                    ),
+                    tur=SinyalTuru.KAR_ZARAR_GECISI,
+                )
+            )
+        elif _o < 0 <= _s:
+            sinyaller.append(
+                Sinyal(
+                    baslik=f"{_ad} artıya geçti",
+                    yon=Yon.IYI,
+                    gerekce=(
+                        f"önceki dönem {bicim.sayi(_o / 1e9, 2)} milyar TL, "
+                        f"bu dönem {bicim.sayi(_s / 1e9, 2)} milyar TL "
+                        f"— işaret değiştiği için "
+                        "yüzde değişim hesaplanmadı"
                     ),
                     tur=SinyalTuru.KAR_ZARAR_GECISI,
                 )
