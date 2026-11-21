@@ -1246,6 +1246,32 @@
       "foto_atif": "Huhu Uet · CC-BY-SA-4.0"
     },
     {
+      "baslik": "Bitcoin'de yüzde 75 düşüş riski: 2018'deki çöküş tekrar mı edecek?",
+      "baslik_kaynak": "Bitcoin'de yüzde 75 düşüş riski: 2018'deki çöküş tekrar mı edecek?",
+      "ozet": "2018 yılındaki Bitcoin çöküşünü öngören deneyimli yatırımcı Peter Brandt, kripto para piyasasında geçmiş döngülerde yaşanan yüzde 75'i aşan düzeltmelere dikkat çekti. Bitcoin'in 59 bin dolara kadar gerilemesiyle yeni bir sert düşüş ihtimali gündeme gelirken Brandt, herhangi bir fiyat hedefi veya tarih açıklamadı.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.dunya.com/finans/kripto-para/bitcoinde-yuzde-75-dusus-riski-2018deki-cokus-tekrar-mi-edecek-haberi-848405",
+      "kurum": "Dünya",
+      "kurum_tam": "Dünya Gazetesi",
+      "konu": "Kripto varlıklar",
+      "tarih": "2026-11-21",
+      "tarih_gorunur": "21 Kasım 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Kripto varlıklar risk iştahının en uçtaki göstergelerinden biridir; hareketin kaynağı düzenleme, likidite ya da kaldıraç çözülmesi olabilir ve üçünün sonuçları farklıdır.",
+      "kanallar": [
+        "Likidite koşulları: küresel likidite daraldığında en riskli varlıklar önce satılır.",
+        "Düzenleme: saklama, borsa yatırım fonu ve vergi kuralları kurumsal talebin önünü açar ya da kapatır.",
+        "Kaldıraç: türev piyasadaki açık pozisyon ve fonlama oranı sert hareketlerin büyüklüğünü belirler.",
+        "Piyasa yapısı: işlem hacminin borsalar arası dağılımı fiyat farklarının ne kadar sürdüğünü etkiler."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/kripto-varliklar-9-b82c3e85.jpg",
+      "foto_atif": "CryptoWallet.com Images · CC-BY-2.0"
+    },
+    {
       "baslik": "İBB'nin 2027 bütçesi kabul edildi: İSKİ ve İETT dahil 821 milyar lira",
       "baslik_kaynak": "İBB'nin 2027 bütçesi kabul edildi: İSKİ ve İETT dahil 821 milyar lira",
       "ozet": "İstanbul Büyükşehir Belediyesi (İBB) Meclisi, 2027 yılı bütçesini 133 kabul ve 102 ret oyuyla onayladı. İBB Başkanvekili Nuri Aslan, belediyenin bütçesinin 565 milyar lira, İSKİ ve İETT dahil konsolide bütçenin ise 821 milyar lira olduğunu açıkladı.",
@@ -1363,32 +1389,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/enerji-11-0e06d6d4.jpg",
       "foto_atif": "Djmaschek · CC-BY-SA-3.0"
-    },
-    {
-      "baslik": "Küresel hisse fonlarına bir haftada 59,2 milyar dolar aktı",
-      "baslik_kaynak": "Küresel hisse fonlarına bir haftada 59,2 milyar dolar aktı",
-      "ozet": "18 Kasım'da sona eren haftada küresel hisse fonları 59,23 milyar dolar net girişle haziran ortasından bu yana en güçlü haftasını yaşadı. Para akışı üst üste dokuzuncu haftada da sürdü; ancak ABD, Avrupa ve Asya arasında belirgin ayrışma görüldü.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.dunya.com/finans/haberler/kuresel-hisse-fonlarina-bir-haftada-592-milyar-dolar-akti-haberi-848393",
-      "kurum": "Dünya",
-      "kurum_tam": "Dünya Gazetesi",
-      "konu": "Borsa",
-      "tarih": "2026-11-21",
-      "tarih_gorunur": "21 Kasım 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Endeks hareketi tek başına bir bilgi değildir; hareketi hangi sektörlerin taşıdığı ve işlem hacminin ne olduğu kalıcılığı belirler.",
-      "kanallar": [
-        "Sektör dağılımı: hareketin dar bir gruptan mı geniş tabandan mı geldiği, kalıcılığa dair ipucu verir.",
-        "Hacim: düşük hacimli hareket fiyat keşfinden çok pozisyon ayarlaması olabilir.",
-        "Volatilite: opsiyon fiyatlarındaki değişim piyasanın beklediği oynaklığı gösterir.",
-        "Korelasyon: hisse ile tahvil arasındaki ilişkinin işareti portföy riskinin nasıl dağıldığını değiştirir."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/borsa-12-5544ef41.jpg",
-      "foto_atif": "Bernard Lee · CC0"
     },
     {
       "baslik": "Yaptırım listesindeydi. Rusya'nın en zengin kadını görevinden ayrıldı",
