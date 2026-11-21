@@ -8441,6 +8441,30 @@ def onem_dokumu() -> int:
     Bu dokum o yuzden var ve YALNIZCA terminale yaziliyor -- siteye
     hicbir sey eklemiyor.
     """
+    # KONSOL KODLAMASI DOKUMU ORTADAN KESIYORDU.
+    #
+    # OLCULDU (2026-11-21): konsol kodlamasi cp1254 ve bu kumeye
+    # sigmayan bir karakter basilinca `print` UnicodeEncodeError
+    # firlatiyor -- dokum YARIDA oluyor, cikis kodu 1.
+    #
+    # ARIZA YENI DEGIL, ULASILABILIRDI: ayni gun olculdu, 120 gundem
+    # basligindan 1'i cp1254'e sigmiyor (Lehce U+0142) ve o baslik
+    # SAYFASIZ. `KATMAN 2`, `ESIGI GECTI` ve `PUAN BILESENLERI`
+    # yalnizca sayfali haberleri basiyor, ama `CANLI AKIS` sayfasiz
+    # olanlari da basiyor -- yani cokme o bolumden zaten
+    # ulasilabilirdi. Gorunmemesinin sebebi, kirilan basligin o gun
+    # ilk 40'a girmemesiydi: SANS.
+    #
+    # Elenenler bolumu 237 baslik basinca (arsiv dahil, orada U+2212
+    # var) ariza her kosuda tetiklenir hale geldi ve gizli kusur
+    # ortaya cikti. Yani yeni bolum kusuru yaratmadi, GORUNUR kildi.
+    #
+    # Yalnizca BU dokumun cikti akisi degistiriliyor; site kurulumu
+    # etkilenmiyor. `errors="replace"` cunku kalibrasyon dokumunun
+    # TAMAMLANMASI, tek bir karakteri birebir gostermekten onemli.
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
     gundem = gundem_yukle()
     foto_kayit = foto_defteri()
     gundem["haberler"] = [tazele(h, foto_kayit)
@@ -8452,7 +8476,37 @@ def onem_dokumu() -> int:
 
     arsiv = arsiv_haberleri({h["adres"] for h in gundem["haberler"]},
                             foto_kayit)
-    uretilecek = gundem["haberler"] + arsiv
+    # DOKUM URETIMLE AYNI TOPLULUGU GOSTERMELI.
+    #
+    # OLCULDU (2026-11-21): bu satir `tekilles`i HIC cagirmiyordu --
+    # yani kalibrasyon araci, URETIMDE OLMAYAN haberleri aday olarak
+    # gosteriyordu. Esikleri bu dokume bakarak ayarlamak YANLIS
+    # DAGILIMA bakmak demekti.
+    #
+    # Eleneni GIZLEMIYORUZ, kendi bolumunde gosteriyoruz: dokumun
+    # butun amaci "hangisi neden elendi" sorusu ve `tekilles` o
+    # sorunun en buyuk parcasiydi -- gorunmez olan taraf tam buydu.
+    _ham = gundem["haberler"] + arsiv
+    uretilecek = tekilles(_ham)
+    _kalan = {id(h) for h in uretilecek}
+    _tekillesen = [h for h in _ham if id(h) not in _kalan]
+
+    # GUNDEM LISTESI DE URETIMDEKI GIBI SUZULUYOR.
+    #
+    # Dokum, uretim hattinin AYNI SEKLINE sahip olmali: `insa` icinde
+    # de eleme sonrasi `gundem["haberler"]` suzuluyor. Burada ham
+    # birakip yalnizca kullanim yerinde suzmek, kurali muafiyetle
+    # gecistirmek olurdu ve dokum ile uretim yine ayrismaya acik
+    # kalirdi. Elenenler zaten `_tekillesen` icinde duruyor -- hicbir
+    # bilgi kaybolmuyor, yalnizca DOGRU yerde duruyor.
+    gundem["haberler"] = [h for h in gundem["haberler"]
+                          if id(h) in _kalan]
+
+    # PUANLAMA URETIMDEKI GIBI: indeks `uretilecek`ten kuruluyor.
+    # `_ham` uzerinden puanlamak daha dolu bir dokum verirdi ama
+    # puanlar URETIMDEKILERLE KIYASLANAMAZ olurdu (varlik indeksi
+    # degisir). Elenenler bu yuzden puansiz basiliyor -- eksik bilgi,
+    # UYDURMA bilgiden iyidir.
     onem_puanla(uretilecek, varlik_indeksle(uretilecek))
     an_yaz(uretilecek)
 
@@ -8471,21 +8525,33 @@ def onem_dokumu() -> int:
     for h in secilen:
         print(satir(h, "*"))
 
-    # Esigi gectigi halde SECILMEYENLER: tekrar/kume elemesine takilanlar.
-    # Kalibrasyonda en cok bakilacak liste bu -- yanlis eleme buradan
-    # gorunur.
+    print(f"\nTEKILLES ELEDI ({len(_tekillesen)}) -- uretime HIC girmedi")
+    print("-" * 78)
+    print("  (puansiz: uretimdeki puanlarla kiyaslanabilir olmazdi)")
+    for h in _tekillesen:
+        print(f"  {(h.get('kurum') or '')[:14]:<14} "
+              f"{(h.get('baslik') or '')[:58]}")
+
+    # Esigi gectigi halde SECILMEYENLER.
+    #
+    # ETIKET DUZELTILDI (2026-11-21): bu bolum bir sure "tekrar/kume
+    # elemesi" diyordu ve YANLISTI -- tekrar elemesi `tekilles`tir ve
+    # o yukaridaki bolumde. Buradaki eleme `one_cikan_haberler`in
+    # KUME elemesi. Ikisini ayni etiket altinda toplamak, yanlis
+    # mekanizmayi kalibre etmeye yol acardi.
     esik = _onem.NORMAL if _onem else 40
     elenen = [h for h in sayfali
               if h.get("onem", 0) >= esik
               and h["adres"] not in secilen_adres
               and gun_farki(h.get("tarih", ""), bugun) < ONE_CIKAN_PENCERE]
-    print(f"\nESIGI GECTI AMA ELENDI ({len(elenen)}) -- tekrar/kume elemesi")
+    print(f"\nESIGI GECTI AMA ELENDI ({len(elenen)}) -- kume elemesi")
     print("-" * 78)
     for h in sorted(elenen, key=lambda x: -x.get("onem", 0)):
         print(satir(h))
 
     print(f"\nCANLI AKIS ({AKIS_SAYISI} kalem, eleme yok)")
     print("-" * 78)
+    # `gundem["haberler"]` yukarida suzuldu -- uretimdeki gibi.
     for h in canli_akis(gundem["haberler"]):
         nerede = "sayfa" if h.get("yol") else "kaynak"
         print(f"  {h.get('onem', 0):>3} {nerede:<7} {(h.get('baslik') or '')[:58]}")

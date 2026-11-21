@@ -789,6 +789,67 @@ dogru("yer tutucu kod kavrami duruyor",
 dogru("kategori hub'i ana sayfa listesinden BESLENMIYOR",
       "secilen = [a for a in listelenen" not in _INSA_K)
 
+# ------------------------------------------------------------------
+# KALIBRASYON DOKUMU URETIMDEKI TOPLULUGU GOSTERMELI.
+#
+# OLCULDU (2026-11-21): `onem_dokumu` -- esikleri ayarlamak icin
+# kullanilan tek arac -- `tekilles`i HIC cagirmiyordu. Yani
+# URETIMDE OLMAYAN 237 haberi aday olarak gosteriyordu ve ustelik
+# "ESIGI GECTI AMA ELENDI" bolumunu "tekrar/kume elemesi" diye
+# etiketliyordu. Tekrar elemesi `tekilles`tir; o bolumdeki eleme
+# `one_cikan_haberler`in KUME elemesi. Yanlis etiket, yanlis
+# mekanizmayi kalibre etmeye yol acardi.
+#
+# Bir esigi YANLIS DAGILIMA bakarak ayarlamak, esigi hic
+# ayarlamamaktan tehlikeli: sayi uretilmis oluyor.
+#
+# OLCUT AST -- metin DEGIL. `insa.py` icinde "tekilles" kelimesi
+# yorumlarda da geciyor (bu kusurun kendi aciklamasi dahil), metin
+# aramasi kendi belgesini yakalardi.
+# ------------------------------------------------------------------
+import ast as _ast  # noqa: E402
+
+_AGAC = _ast.parse(_INSA_K)
+_DOKUM = next((d for d in _ast.walk(_AGAC)
+               if isinstance(d, _ast.FunctionDef)
+               and d.name == "onem_dokumu"), None)
+# ATILLIK: islev bulunamazsa asagidaki iddialar BEDAVA gecer.
+dogru("insa.py icinde onem_dokumu bulundu", _DOKUM is not None)
+
+if _DOKUM is not None:
+    _cagrilar = {d.func.id for d in _ast.walk(_DOKUM)
+                 if isinstance(d, _ast.Call) and isinstance(d.func, _ast.Name)}
+    dogru("kalibrasyon dokumu `tekilles` eleme adimini KOSUYOR",
+          "tekilles" in _cagrilar)
+    # Elenenler GIZLENMEMELI: dokumun amaci "hangisi neden elendi".
+    #
+    # OLCUT BAGLILIK, AD DEGIL. Ilk yazimda yalnizca `_tekillesen`
+    # adinin ATANDIGINA bakiyordu ve mutasyon KACTI:
+    #
+    #     _tekillesen = []          <-- kural yine geciyordu
+    #
+    # Bos liste "hicbir sey elenmedi" demek ve dokum yine uretimden
+    # farkli bir hikaye anlatirdi -- hem de bu kez SESSIZCE, cunku
+    # bolum basligi "(0)" yazardi. Artik atanan degerin ELEME
+    # SONUCUNA bagli olmasi araniyor.
+    _bagli = False
+    for _d in _ast.walk(_DOKUM):
+        if not isinstance(_d, _ast.Assign):
+            continue
+        if not any(isinstance(h, _ast.Name) and h.id == "_tekillesen"
+                   for h in _d.targets):
+            continue
+        _adlar = {n.id for n in _ast.walk(_d.value)
+                  if isinstance(n, _ast.Name)}
+        if {"_kalan", "uretilecek"} & _adlar and "_ham" in _adlar:
+            _bagli = True
+    dogru("elenenler ELEME SONUCUNDAN turetilip gosteriliyor", _bagli)
+    # Yanlis etiket geri gelmesin.
+    dogru("`ESIGI GECTI` bolumu kendini tekrar elemesi diye "
+          "ETIKETLEMIYOR",
+          "tekrar/kume elemesi" not in _INSA_K)
+
+
 # HANGI SINAMA KALDIGI YAZILIYOR.
 #
 # Onceden yalnizca sayi basiliyordu ("1 kaldi") ve o sayi tek basina
