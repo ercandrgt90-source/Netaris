@@ -418,6 +418,26 @@ def _anlamsiz_yuzde(metin: str) -> bool:
     # ONARILAMAYAN SAYFA KUYRUKTA DURMAZ. Ozet metnini duzeltmek
     # tazeleme degil YENIDEN URETIM isi ve AI kotasina bagli; bu
     # kuyrugun konusu degil.
+    # ON BILGI DE CIKARILIYOR -- OZETTEN TURETILMIS KOPYA.
+    #
+    # OLCULDU: bir sayfa GERCEKTEN tazelendi ve olcut HALA True
+    # donuyordu. Sebep, ayni cumlenin IKI kez gecmesiydi:
+    #
+    #     konum 331  ->  on bilgideki `aciklama` alani (kirpilmis)
+    #     konum 905  ->  "## Ozet" bolumu
+    #
+    # On bilgi ozetten TURETILIYOR, yani ozet yeniden yazilmadikca
+    # o da degismiyor. Yalnizca "## Ozet"i cikarmak, sayfayi
+    # kuyrukta BIRAKIYORDU -- tam olarak onlemeye calistigim
+    # tukenmeyen kuyruk.
+    #
+    # DERS: "kirptim" demek yetmiyor; kirpmadan SONRA gercekten
+    # dustugunu olcmek gerekiyor. Kuru kosu bunu gostermedi, ancak
+    # GERCEK tazeleme gosterdi.
+    if metin.startswith("---"):
+        _k = metin.find(chr(10) + "---", 3)
+        if _k > 0:
+            metin = metin[_k + 4:]
     _i = metin.find("## Özet")
     if _i >= 0:
         _j = metin.find(chr(10) + "## ", _i + 5)

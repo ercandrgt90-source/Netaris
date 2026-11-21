@@ -262,6 +262,43 @@ def test_ai_ozetindeki_yuzde_kuyruga_SOKULMUYOR():
         "ozet bolumu olmayan sayfa da taranmali")
 
 
+def test_on_bilgideki_kopya_da_kuyruga_SOKULMUYOR():
+    """On bilgi ozetten TURETILMIS bir kopya -- o da duzelmez.
+
+    OLCULDU: bir sayfa GERCEKTEN tazelendi ve olcut HALA True
+    donuyordu. Ayni cumle iki kez geciyordu: biri on bilgideki
+    `aciklama` alaninda (kirpilmis), biri "## Ozet" icinde.
+    Yalnizca ozeti cikarmak sayfayi kuyrukta BIRAKIYORDU.
+
+    Kuru kosu bunu GOSTERMEDI -- yalnizca gercek tazeleme gosterdi.
+    "Kirptim" demek yetmiyor; kirpmadan sonra gercekten dustugunu
+    OLCMEK gerekiyor.
+    """
+    sayfa = (
+        "---" + chr(10)
+        + "kod: ORNEK" + chr(10)
+        + "aciklama: faaliyet kârının %132,7 düşerek negatifleşmesi…"
+        + chr(10) + "---" + chr(10) + chr(10)
+        + "## Özet" + chr(10) + chr(10)
+        + "faaliyet kârının %132,7 düşerek negatifleşmesi." + chr(10)
+        + chr(10) + "## Öne çıkan ölçümler" + chr(10) + chr(10)
+        + "- Hasılat reel olarak -%5,4 geriledi." + chr(10))
+    assert not T._anlamsiz_yuzde(sayfa), (
+        "on bilgi + ozet disinda temiz sayfa kuyruga girmemeli")
+
+    # ON BILGI KIRPMASI GOVDEYI YUTMAMALI: deterministik bolumdeki
+    # yuzde hala yakalanmali.
+    kirli = sayfa.replace("- Hasılat reel olarak -%5,4 geriledi.",
+                          "- Net kâr reel olarak -%282,7 geriledi.")
+    assert T._anlamsiz_yuzde(kirli), (
+        "on bilgi kirpmasi govdedeki yuzdeyi yutmamali")
+
+    # ON BILGISI OLMAYAN sayfa da taranmali.
+    onsuz = "## Öne çıkan ölçümler" + chr(10) + chr(10) + (
+        "- Net kâr reel olarak -%282,7 geriledi." + chr(10))
+    assert T._anlamsiz_yuzde(onsuz)
+
+
 def test_goc_kuyrugu_anlamsiz_yuzdeyi_gercekten_cagiriyor():
     """Desenin dogru olmasi YETMEZ -- kuyruga baglandigi da tutulmali.
 

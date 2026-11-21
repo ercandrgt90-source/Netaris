@@ -439,7 +439,17 @@ jobs:
       # ayni buyuklukte ve kosu suresini olcule bilir tutuyor.
       #
       # Saklanan AI yorumu AYNEN geri konuyor -- model cagrisi SIFIR.
-      - name: Son dört dönem bölümünü eski sayfalara taşı
+      #
+      # ADIM TEK SEBEP TASIMIYOR. Basta yalnizca "son dort donem"
+      # bolumunun gocuydu; sonra turetilmis kalem satiri, sonra
+      # (2026-11-21) isaret degisiminde uretilmis ANLAMSIZ YUZDE
+      # eklendi. Adim adi tek sebebi soylerse, gunluge bakan kisi
+      # 25 sayfanin neden tazelendigini YANLIS okur -- bu depoda
+      # "ne oldu" ile "neden oldu" ayri sorular.
+      #
+      # Kuyruk sebebe gore dokuluyor: hangi sebebin kac sayfa
+      # oldugu gunlukte yaziyor.
+      - name: Eski sayfaları güncel biçime taşı (üç göç sebebi)
         if: always()
         run: python haber_botu/bilanco_tazele.py --bolum-gocu --sinir 25
 
