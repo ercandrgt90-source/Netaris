@@ -1,5 +1,5 @@
 {
-  "guncelleme": "2026-11-20",
+  "guncelleme": "2026-11-21",
   "kaynaklar": [
     "AA",
     "BloombergHT",
@@ -52,6 +52,32 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/duzenleme-7-7da0b0d6.jpg",
       "foto_atif": "Myotus · CC-BY-4.0"
+    },
+    {
+      "baslik": "Suudi Arabistan liderliğindeki koalisyon: Yemen'deki Husiler tarafından Riyad'a fırlatılan üç balistik füzenin önünü kesip imha etti",
+      "baslik_kaynak": "Saudi-led coalition: intercepts and destroys three ballistic missiles launched by Yemen's Houthis toward Riyadh",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9862601/Saudi-led-coalition-intercepts-and-destroys-three-ballistic-missiles-launched-by-Yemens-Houthis-toward-Riyadh.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Jeopolitik",
+      "tarih": "2026-11-21",
+      "tarih_gorunur": "21 Kasım 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
+      "kanallar": [
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-15-ccd8ab8d.jpg",
+      "foto_atif": "usepagov · PDM"
     },
     {
       "baslik": "Suudi Arabistan Sivil Savunma Teşkilatı: Riyad'daki tehlike geçti",
@@ -634,6 +660,27 @@
       "foto_atif": "Syced · CC0"
     },
     {
+      "baslik": "En yüksek emekli promosyonunu hangi banka veriyor? Emekli promosyonları Kasım 2026",
+      "baslik_kaynak": "En yüksek emekli promosyonunu hangi banka veriyor? Emekli promosyonları Kasım 2026",
+      "ozet": "Emekli promosyonlarında bankaların SGK (SSK, Bağ-Kur ve Emekli Sandığı) emeklilerine ödediği miktarlar 12.000 TL ile 40.000 TL arasında değişiklik gösteriyor. Vakıf Katılım, Şekerbank, Akbank, ING, Albaraka Türk, DenizBank, Yapı Kredi, Garanti BBVA, İş Bankası, QNB, VakıfBank, Ziraat Bankası, Halkbank emekli…",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.ekonomim.com/foto-galeri/ekonomi/en-yuksek-emekli-promosyonunu-hangi-banka-veriyor-emekli-promosyonlari-kasim-2026-galeri-932523",
+      "kurum": "Ekonomim",
+      "kurum_tam": "Ekonomim",
+      "konu": "İstihdam ve ücret",
+      "tarih": "2026-11-21",
+      "tarih_gorunur": "21 Kasım 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/istihdam-ve-ucret-7-786507f1.jpg",
+      "foto_atif": "Tim Brunauer on behalf of Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ) · CC-BY-SA-4.0"
+    },
+    {
       "baslik": "İBB'den kentsel dönüşüme konut başına 1 milyon 300 bin lira karşılıksız destek teklifi",
       "baslik_kaynak": "İBB'den kentsel dönüşüme konut başına 1 milyon 300 bin lira karşılıksız destek teklifi",
       "ozet": "İBB Başkan Vekili Nuri Aslan, ekonomik zorluk yaşayan ve kentsel dönüşüm yapmak isteyen vatandaşlara konut başına 1 milyon 300 bin lira karşılıksız hibe verilmesini teklif edeceklerini açıkladı.",
@@ -674,31 +721,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/tarim-ve-gida-9-f860582e.jpg",
       "foto_atif": "Hugh Venables · CC-BY-SA-2.0"
-    },
-    {
-      "baslik": "Vergi rekabetçiliğinde dünya sıralaması açıklandı: Türkiye hangi devleri geride bıraktı?",
-      "baslik_kaynak": "Vergi rekabetçiliğinde dünya sıralaması açıklandı: Türkiye hangi devleri geride bıraktı?",
-      "ozet": "Dünyanın en rekabetçi vergi sistemlerine sahip ülkeleri açıklandı. OECD üyesi 38 ülkenin değerlendirildiği 2026 Uluslararası Vergi Rekabetçiliği Endeksi'nde Türkiye, ABD, Almanya, İngiltere ve Fransa gibi büyük ekonomileri geride bırakarak ilk 10'a girdi.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.ekonomim.com/kuresel-ekonomi/vergi-rekabetciliginde-dunya-siralamasi-aciklandi-turkiye-hangi-devleri-geride-birakti-haberi-932505",
-      "kurum": "Ekonomim",
-      "kurum_tam": "Ekonomim",
-      "konu": "Vergi ve kamu maliyesi",
-      "tarih": "2026-11-21",
-      "tarih_gorunur": "21 Kasım 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Vergi düzenlemeleri ve bütçe dengesi hem şirket kârlılığını hem devletin borçlanma ihtiyacını belirler.",
-      "kanallar": [
-        "Şirket kârlılığı: vergi oranı ve istisna değişiklikleri net kâra doğrudan yansır.",
-        "Borçlanma ihtiyacı: bütçe açığı iç borçlanmayı artırır; bu da tahvil getirilerini ve banka bilançolarını etkiler.",
-        "Tüketici fiyatı: dolaylı vergiler (ÖTV, KDV) nihai fiyata doğrudan geçer."
-      ],
-      "kanal_basligi": "Piyasaya nasıl yansır?",
-      "foto": "/statik/foto/vergi-ve-kamu-maliyesi-8-4cdf06e3.jpg",
-      "foto_atif": "RegionalQueenslander · CC-BY-SA-4.0"
     },
     {
       "baslik": "Kredi Kartı Asgari Ödeme Tutarı 2026: Kredi Kartı Asgari Ödeme Tutarı Ne Kadar Oldu? BDDK kredi kartı asgari ödeme oranları",
@@ -1937,27 +1959,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/vergi-ve-kamu-maliyesi-7-c3df51bc.jpg",
       "foto_atif": "RegionalQueenslander · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "ABD Dışişleri Bakanı Rubio: Başkan, ticaret konusunu görüşmek üzere Kanada Başbakanı ile bir araya geldi ve ilerleme kaydedildi",
-      "baslik_kaynak": "US Secretary of State Rubio: President met with Canadian Prime Minister to discuss trade, progress was made",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9862222/US-Secretary-of-State-Rubio-President-met-with-Canadian-Prime-Minister-to-discuss-trade-progress-was-made.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Şirket haberleri",
-      "tarih": "2026-11-20",
-      "tarih_gorunur": "20 Kasım 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-8-ed7b45c9.jpg",
-      "foto_atif": "Myotus · CC-BY-SA-4.0"
     },
     {
       "baslik": "Temsilci Casten, Adalet Bakanlığı'nın muhbir programı ile tahmin piyasasında içeriden bilgiye dayalı ticareti engellemeyi amaçlıyor",
