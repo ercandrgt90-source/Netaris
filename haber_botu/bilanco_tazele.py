@@ -397,6 +397,31 @@ def _anlamsiz_yuzde(metin: str) -> bool:
     kata cikis), ama %500 AZALIS olamaz -- azalisin alt siniri
     %100'dur. Tam %100 de MESRU: deger sifira inmistir.
     """
+    # YALNIZCA TAZELEMENIN YENIDEN URETTIGI BOLUMLERE BAKILIYOR.
+    #
+    # `sayfa_tazele` SIFIR MODEL CAGRISI yapiyor: AI ozetini
+    # sayfadan OKUYUP yeniden kullaniyor, YENIDEN YAZMIYOR. Yani
+    # yaniltici yuzde "## Ozet" icindeyse tazeleme onu DUZELTEMEZ.
+    #
+    # OLCULDU (2026-11-21), 220 sayfanin dagilimi:
+    #
+    #     yalnizca deterministik bolumde : 107   tazeleme duzeltir
+    #     ikisinde birden                :  89   deterministik yani duzelir
+    #     yalnizca AI ozetinde           :  24   TAZELEME DUZELTEMEZ
+    #
+    # Ozeti de saysaydik o 24 sayfa (ve ozet yani duzelmeyen 89)
+    # HER KOSUDA denenip HER KOSUDA ayni halde kalirdi: kuyruk asla
+    # tukenmez ve kosu basina 60 sayfalik butceyi kalici olarak
+    # yerdi -- tamamlanabilen bolum gocunu da ac birakarak.
+    #
+    # Bu, bu dosyanin iki ayri yerinde zaten belgelenen kural:
+    # ONARILAMAYAN SAYFA KUYRUKTA DURMAZ. Ozet metnini duzeltmek
+    # tazeleme degil YENIDEN URETIM isi ve AI kotasina bagli; bu
+    # kuyrugun konusu degil.
+    _i = metin.find("## Özet")
+    if _i >= 0:
+        _j = metin.find(chr(10) + "## ", _i + 5)
+        metin = metin[:_i] + (metin[_j:] if _j > 0 else "")
     for ham, _fiil in _ANLAMSIZ_YUZDE.findall(metin):
         try:
             if float(ham.replace(".", "").replace(",", ".")) > 100:

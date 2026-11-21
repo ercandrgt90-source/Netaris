@@ -222,6 +222,46 @@ def test_mesru_yuzde_yakalanmiyor():
     assert not T._anlamsiz_yuzde("hiç yüzde yok")
 
 
+def test_ai_ozetindeki_yuzde_kuyruga_SOKULMUYOR():
+    """Tazeleme AI ozetini yeniden yazmaz -- onu kuyruga almak,
+    tukenmeyen bir kuyruk demektir.
+
+    `sayfa_tazele` SIFIR MODEL CAGRISI yapiyor: ozeti sayfadan
+    OKUYUP yeniden kullaniyor. Yaniltici yuzde yalnizca ozetteyse
+    tazeleme onu DUZELTEMEZ; sayfa her kosuda denenir ve her kosuda
+    ayni halde kalir.
+
+    OLCULDU (2026-11-21): 220 sayfanin 24'unde yuzde YALNIZCA
+    ozetteydi, 89'unda ozette DE vardi. Ozeti saysaydik 113 sayfa
+    kuyruktan hic dusmez, kosu basina 60 sayfalik butceyi kalici
+    olarak yer ve tamamlanabilen bolum gocunu ac birakirdi.
+    """
+    ozet_ici = (
+        "---" + chr(10) + "kod: ORNEK" + chr(10) + "---" + chr(10)
+        + chr(10) + "## Özet" + chr(10) + chr(10)
+        + "Net kârın %476,5 azalmasıyla birlikte..." + chr(10)
+        + chr(10) + "## Öne çıkan ölçümler" + chr(10) + chr(10)
+        + "- Hasılat reel olarak -%5,4 geriledi." + chr(10))
+    assert not T._anlamsiz_yuzde(ozet_ici), (
+        "yalnizca OZETTE olan yuzde kuyruga sokulmamali")
+
+    # Ayni sayfa, bu kez DETERMINISTIK bolumde de var: kuyruga
+    # girmeli, cunku tazeleme o bolumu yeniden uretiyor.
+    disarida_da = ozet_ici.replace(
+        "- Hasılat reel olarak -%5,4 geriledi.",
+        "- Net kâr reel olarak -%282,7 geriledi.")
+    assert T._anlamsiz_yuzde(disarida_da), (
+        "deterministik bolumdeki yuzde kuyruga GIRMELI")
+
+    # Ozet bolumu YOKSA tum metin taranmali -- kirpma, ozeti
+    # olmayan sayfayi sessizce bosaltmamali.
+    ozetsiz = ("---" + chr(10) + "kod: ORNEK" + chr(10) + "---" + chr(10)
+               + chr(10) + "- Net kâr reel olarak -%282,7 geriledi."
+               + chr(10))
+    assert T._anlamsiz_yuzde(ozetsiz), (
+        "ozet bolumu olmayan sayfa da taranmali")
+
+
 def test_goc_kuyrugu_anlamsiz_yuzdeyi_gercekten_cagiriyor():
     """Desenin dogru olmasi YETMEZ -- kuyruga baglandigi da tutulmali.
 

@@ -157,6 +157,67 @@ def test_markdown_iki_grup_uretiyor():
     assert "sektöre göre değişir" in m
 
 
+# ----------------------------------------------------------------
+# YUZDE DEGISIM KURALI `oranlar` ILE AYNI OLMALI
+#
+# `one_cikan` kendi `_degisim` kopyasini tasiyordu ve AYRISMISTI
+# (olculdu 2026-11-21). Govdesi soyleydi:
+#
+#     (simdi - once) / abs(once) * 100
+#
+# Paydadaki `abs(once)`, ONCEKI DEGER NEGATIFKEN de yuzde
+# uretiyordu -- deponun `uret_bilanco_sayfa._degisim` icinde bulup
+# duzelttigi kusurun AYNISI (FENER: -0,04 -> 8,79, sayfada
+# %21391,8). Duzeltme buraya YAYILMAMISTI.
+#
+# Ayni sebeple kardan zarara geciste de yuzde uretiyordu:
+# "Net kar reel olarak -%282,7 geriledi." Bu satir DETERMINISTIK
+# uretimde, AI metninde DEGIL -- yani tazelemeyle duzelir.
+#
+# BU KORUMA, DUZELTME GONDERILMEDEN ONCE YOKTU: islev eski haline
+# donduruldugunde hicbir sinama kirmizi donmedi (mutasyon KACTI).
+# Bu yuzden yazildi.
+# ----------------------------------------------------------------
+
+
+def test_degisim_oranlar_ile_ayni():
+    import oranlar as _o
+    # `araci_kurum` icin kurulan ayni desen: iki taraf AYNI
+    # girdilerle kosturulup karsilastiriliyor. Beklenti OTEKI
+    # TARAFTAN geliyor, elle yazilmiyor -- elle yazilan beklenti,
+    # iki tarafin birden kaymasini goremez.
+    for a, b in ((100.0, 50.0), (25.0, 50.0), (50.0, 50.0),
+                 (0.0, 50.0), (8.79, -0.04), (-10.0, 20.0),
+                 (-2.76, 1.0), (None, 50.0), (50.0, None),
+                 (None, None)):
+        assert O._degisim(a, b) == _o._yuzde_degisim(a, b), (a, b)
+
+
+def test_degisim_negatif_taban_ve_isaret_degisimi():
+    # NEGATIF TABAN: yuzde anlamsiz (FENER sinifi).
+    assert O._degisim(8.79, -0.04) is None
+    # KARDAN ZARARA: yuzde anlamsiz.
+    assert O._degisim(-10.0, 20.0) is None
+    # TAM SIFIRA DUSUS ISARET DEGISIMI DEGIL -- %100 azalis uretilir.
+    assert O._degisim(0.0, 50.0) == -100.0
+    # NORMAL DURUM BOZULMAMALI.
+    assert O._degisim(100.0, 50.0) == 100.0
+
+
+def test_degisim_sifira_cok_yakin_tabani_ELIYOR():
+    """Bu ek koruma `oranlar`da YOK ve KORUNMALI.
+
+    `oranlar` yalnizca `eski <= 0` bakiyor; 1e-9 gibi kucuk ama
+    POZITIF bir taban oradan gecer ve milyonluk bir yuzde uretir.
+    Delegasyona gecerken bu korumayi dusurmek, duzeltirken yeni bir
+    kusur acmak olurdu.
+    """
+    import oranlar as _o
+    assert O._degisim(1.0, 1e-9) is None
+    # Oteki taraf bunu ELEMIYOR -- fark BILEREK duruyor.
+    assert _o._yuzde_degisim(1.0, 1e-9) is not None
+
+
 if __name__ == "__main__":
     n = 0
     for ad, f in sorted(globals().items()):

@@ -118,9 +118,37 @@ def _yuzde(d: float, basamak: int = 1) -> str:
 
 
 def _degisim(simdi, once) -> float | None:
-    if simdi is None or once is None or abs(once) < 1e-6:
+    """`oranlar._yuzde_degisim` ile AYNI kural -- gerekce orada.
+
+    DORDUNCU KOPYAYDI VE AYRISMISTI (olculdu 2026-11-21).
+    Govdesi soyleydi:
+
+        (simdi - once) / abs(once) * 100
+
+    Paydadaki `abs(once)`, ONCEKI DEGER NEGATIFKEN de bir yuzde
+    uretiyordu. Bu, deponun daha once `uret_bilanco_sayfa._degisim`
+    icinde bulup duzelttigi kusurun TA KENDISI (FENER ozkaynagi
+    -0,04 -> 8,79 ve sayfada %21391,8 yaziyordu) -- duzeltme buraya
+    YAYILMAMISTI.
+
+    Ayni sebeple kardan zarara geciste de yuzde uretiyordu:
+    "Net kar reel olarak -%282,7 geriledi." Bu satir "One cikan
+    olcumler" bolumunde, yani DETERMINISTIK uretimde -- AI
+    metninde degil.
+
+    Artik tek kural: isaret degisirse ya da taban pozitif degilse
+    yuzde yok; durum kendi sinyaliyle anlatiliyor.
+
+    SIFIRA COK YAKIN POZITIF TABAN AYRICA ELENIYOR. `oranlar`
+    yalnizca `eski <= 0` bakiyor; 1e-6 altindaki pozitif bir taban
+    oradan gecer ve milyonluk bir yuzde uretir. Buradaki eski
+    koruma bu yuzden KORUNUYOR -- ayni ek `uret_bilanco_sayfa`
+    icinde de var.
+    """
+    from oranlar import _yuzde_degisim          # noqa: PLC0415
+    if once is not None and abs(once) < 1e-6:
         return None
-    return (simdi - once) / abs(once) * 100
+    return _yuzde_degisim(simdi, once)
 
 
 def _marj(kar, hasilat) -> float | None:
