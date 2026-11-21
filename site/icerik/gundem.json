@@ -30,7 +30,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 36,
+  "yorumlanan": 35,
   "haberler": [
     {
       "baslik": "Fed, College Fed Challenge kazananlarını açıkladı",
@@ -1256,6 +1256,27 @@
       "foto_atif": "Quintin Soloviev · CC-BY-4.0"
     },
     {
+      "baslik": "Sigorta primi teşviklerinde en büyük destek hangi alana verildi?",
+      "baslik_kaynak": "Sigorta primi teşviklerinde en büyük destek hangi alana verildi?",
+      "ozet": "Çalışma ve Sosyal Güvenlik Bakanı Vedat Işıkhan, 2026 yılının ocak-ağustos döneminde 15 farklı sigorta primi teşviki, destek ve indirimi kapsamında toplam 301 milyar 325 milyon liralık kaynak sağlandığını açıkladı.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.ekonomim.com/ekonomi/sigorta-primi-tesviklerinde-en-buyuk-destek-hangi-alana-verildi-haberi-932581",
+      "kurum": "Ekonomim",
+      "kurum_tam": "Ekonomim",
+      "konu": "Vergi ve kamu maliyesi",
+      "tarih": "2026-11-21",
+      "tarih_gorunur": "21 Kasım 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/vergi-ve-kamu-maliyesi-9-96673ab0.jpg",
+      "foto_atif": "RegionalQueenslander · CC-BY-SA-4.0"
+    },
+    {
       "baslik": "Zelenski, Trump'ın dostum dediği Putin'e sert yanıt verdi",
       "baslik_kaynak": "Zelenski, Trump'ın dostum dediği Putin'e sert yanıt verdi",
       "ozet": "Ukrayna Devlet Başkanı Volodimir Zelenski, ABD Başkanı Donald Trump'ın Rusya Devlet Başkanı Vladimir Putin hakkında kullandığı dost ifadesine karşılık Putin'i düşman ve katil olarak nitelendirdi. BBC'nin CNN'e dayandırdığı bu açıklamalar, Kiev'e yönelik yoğun füze ve insansız hava aracı saldırısının ardından geldi.",
@@ -1514,32 +1535,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/dis-ticaret-9-9686a70e.jpg",
       "foto_atif": "Huhu Uet · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "İran savaşında Hürmüz yakınlarında tanker vuruldu, Suudi Arabistan Husi füzelerini engelledi",
-      "baslik_kaynak": "İran savaşında Hürmüz yakınlarında tanker vuruldu, Suudi Arabistan Husi füzelerini engelledi",
-      "ozet": "",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://tr.investing.com/news/economy-news/iran-savasnda-hurmuz-yaknlarnda-tanker-vuruldu-suudi-arabistan-husi-fuzelerini-engelledi-4168336",
-      "kurum": "Investing",
-      "kurum_tam": "Investing.com Türkiye",
-      "konu": "Jeopolitik",
-      "tarih": "2026-11-21",
-      "tarih_gorunur": "21 Kasım 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
-      "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
-        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
-        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/jeopolitik-14-4ca6b4fe.jpg",
-      "foto_atif": "Bernard Gagnon · CC0"
     },
     {
       "baslik": "İmalat Sanayi Kapasite Kullanım Oranı (Kasım 2026)",
