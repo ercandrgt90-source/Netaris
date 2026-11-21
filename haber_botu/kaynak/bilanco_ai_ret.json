@@ -686,6 +686,27 @@
      59.0
     ]
    }
+  },
+  {
+   "kod": "IEYHO",
+   "unvan": "IŞIKLAR ENERJİ VE YAPI HOLDİNG A.Ş.",
+   "donem": "2026 3. çeyrek",
+   "neden": "girdide olmayan sayi: 66.7, 80",
+   "model": "@cf/openai/gpt-oss-120b",
+   "ham": "Hasılatın %96,0 düşmesi brüt kârın %95,1 azalmasına eşlik ederken, bu iki kalemin çöküşü aktif toplamın %65,9 ve özkaynakların %44,9 azalmasıyla birlikte şirketin ölçeğinin daraldığını gösterir; aynı zamanda net borcun %100,2 düşmesi net kârın %273,2 negatif marjda kalmasına rağmen likiditeyi koruyan bir borç azaltma etkisi yaratmıştır. Faaliyet kârı ve FAVÖK'teki iyileşme (sırasıyla -%66,7 ve -%80,0) net kârın daralmasına rağmen özkaynak kârlılığının %5,0 negatif kalmasına ve cari oranın %3,76'ye yükselmesine, yani kısa vadeli likidite pozisyonunun güçlenmesine yol açmıştır. Yatırım harcamasının %98,6 azalması ve faaliyet nakit akışının -%467,8 gerilemesi, şirketin sermaye harcamalarını kıs",
+   "an": "2026-11-21T03:17:55+00:00",
+   "yakin": {
+    "66.7": [
+     65.9,
+     62.0,
+     44.9
+    ],
+    "80": [
+     65.9,
+     95.1,
+     96.0
+    ]
+   }
   }
  ]
 }

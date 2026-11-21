@@ -3912,7 +3912,10 @@
    "kap_kimlik": "4028e4a240ee37a30140ee7a98160079",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "İRFAN BAĞIMSIZ DENETİM VE YEMİNLİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "İRFAN BAĞIMSIZ DENETİM VE YEMİNLİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Furnishings, Fixtures & Appliances"
   },
   "IHGZT": {
    "kod": "IHGZT",
@@ -3920,7 +3923,10 @@
    "kap_kimlik": "4028e4a140ee84900140f1f8d5bc003c",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "İRFAN BAĞIMSIZ DENETİM VE YEMİNLİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "İRFAN BAĞIMSIZ DENETİM VE YEMİNLİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor": "Communication Services",
+   "sektor_tr": "İletişim",
+   "alt_sektor": "Publishing"
   },
   "IHLAS": {
    "kod": "IHLAS",
@@ -3928,7 +3934,10 @@
    "kap_kimlik": "4028e4a140ee84900140f1fbc6b1004f",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "İRFAN BAĞIMSIZ DENETİM VE YEMİNLİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "İRFAN BAĞIMSIZ DENETİM VE YEMİNLİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Conglomerates"
   },
   "IHLGM": {
    "kod": "IHLGM",
