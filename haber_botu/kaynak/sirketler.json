@@ -4033,7 +4033,8 @@
    "kap_kimlik": "4028e4a14184e9cf0141934f00662c2e",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "ULUSAL BAĞIMSIZ DENETİM VE YEMİNLİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "ULUSAL BAĞIMSIZ DENETİM VE YEMİNLİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor_bulunamadi": "2026-11-21"
   },
   "INVEO": {
    "kod": "INVEO",
@@ -4041,7 +4042,10 @@
    "kap_kimlik": "4028e4a140f2ed7201413b67b22f0929",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "PKF ADAY BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "PKF ADAY BAĞIMSIZ DENETİM A.Ş.",
+   "sektor": "Financials",
+   "sektor_tr": "Finans",
+   "alt_sektor": "Asset Management"
   },
   "INVES": {
    "kod": "INVES",
@@ -4049,7 +4053,10 @@
    "kap_kimlik": "8acae2c47d3bee50017f0bbbbbfa3c0e",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş"
+   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş",
+   "sektor": "Financials",
+   "sektor_tr": "Finans",
+   "alt_sektor": "Asset Management"
   },
   "ISATR": {
    "kod": "ISATR",

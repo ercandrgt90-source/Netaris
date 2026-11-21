@@ -2130,7 +2130,7 @@
   ],
   "mali": {},
   "donem_gruplari": {},
-  "tazelendi": "2026-11-20T21:54:42+00:00"
+  "tazelendi": "2026-11-21T14:50:33+00:00"
  },
  "Temel malzeme": {
   "sektor": "Temel malzeme",
@@ -2498,6 +2498,30 @@
     "eksik: brut_kar, faaliyet_kari"
    ],
    [
+    "FRMPL",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "GEDZA",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "GENKM",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "GOLTS",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "GUBRF",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "HEKTS",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
     "KOPOL",
     "eksik: hasilat, net_kar, aktif_toplami"
    ],
@@ -2631,13 +2655,7 @@
    "EGSER",
    "EKDMR",
    "ERCB",
-   "EREGL",
-   "FRMPL",
-   "GEDZA",
-   "GENKM",
-   "GOLTS",
-   "GUBRF",
-   "HEKTS"
+   "EREGL"
   ],
   "mali": {},
   "donem_gruplari": {
@@ -2667,7 +2685,7 @@
     ]
    }
   },
-  "tazelendi": "2026-11-20T21:59:33+00:00"
+  "tazelendi": "2026-11-21T14:54:58+00:00"
  },
  "Temel tüketim": {
   "sektor": "Temel tüketim",
