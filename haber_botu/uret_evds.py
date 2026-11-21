@@ -28,6 +28,7 @@ import beyin
 import politika_faizi  # noqa: E402
 import bundesbank  # noqa: E402
 import ecb_kur  # noqa: E402
+import tcmb_kur  # noqa: E402
 import evds  # noqa: E402
 
 KAYNAK = "TCMB EVDS"
@@ -54,6 +55,42 @@ def _anahtarsiz_yaz() -> None:
                 ozet["ecb_kur"] = n
             except Exception as e:                        # noqa: BLE001
                 print(f"  --  {'EUR/USD (ECB)':<24} CEKILEMEDI: "
+                      f"{type(e).__name__}")
+
+            # USD/TRY VE EUR/TRY -- TCMB'NIN KENDI BULTENINDEN.
+            #
+            # EVDS'nin tarihi kurun GECERLI OLDUGU gun; bulteninki
+            # ACIKLANDIGI gun. Birincisi okura olmamis bir gunu
+            # gosteriyordu (olculdu: 2.973 sayfada "23 Kasim 2026").
+            # Gerekcenin tamami `kaynak/tcmb_kur.py` basinda.
+            #
+            # BURAYA KONULDU cunku anahtar istemiyor -- bu islevin
+            # varlik sebebi tam o.
+            try:
+                kur = tcmb_kur.cek()
+                n = tcmb_kur.depoya_yaz(b, kur)
+                if kur:
+                    print(f"  OK  {'USD/TRY (TCMB bulten)':<24} "
+                          f"{kur[0][2]:>12,.4f}       {kur[0][1]}"
+                          f"  ({n} yeni)")
+                # GECMIS DOLDURMA -- KENDILIGINDEN SONLANIR.
+                #
+                # Yeni seri bir tek gunle baslarsa serit "degisim"
+                # hesaplayamaz ve okura "—" gosterir; grafikte de
+                # tek nokta kalir. Tarihli bultenler ucretsiz, o
+                # yuzden eksik is gunleri bir kez dolduruluyor.
+                #
+                # Kosu basina istek TAVANLI ve seri pencereyi
+                # doldurunca bir daha HIC istek yapilmiyor --
+                # gerekcesi `tcmb_kur.gecmis_gerekli` icinde.
+                if tcmb_kur.gecmis_gerekli(b):
+                    eski_kur = tcmb_kur.gecmis_cek(b)
+                    ne = tcmb_kur.depoya_yaz(b, eski_kur)
+                    if ne:
+                        print(f"      gecmis bultenden {ne} gozlem")
+                ozet["tcmb_kur"] = n
+            except Exception as e:                        # noqa: BLE001
+                print(f"  --  {'USD/TRY (TCMB bulten)':<24} CEKILEMEDI: "
                       f"{type(e).__name__}")
 
             # ALMANYA 10 YILLIK -- BUNDESBANK'IN KENDISINDEN.

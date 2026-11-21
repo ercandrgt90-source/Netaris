@@ -83,6 +83,11 @@ SERI_ARALIK: dict[str, tuple[float, float]] = {
     "RSAFS": (-50.0, 100.0),
     "INDPRO": (-40.0, 60.0),
     # --- Turkiye ---
+    # TCMB bulten kurlari. Genel "TL" siniri 0..10.000 ve bir
+    # birim/olcek hatasini (ornegin kurusa cevrilmis deger)
+    # YAKALAMAZ. Bu seriler dar, cunku ne olcebildikleri belli.
+    "TCMB_USDTRY": (1.0, 1000.0),
+    "TCMB_EURTRY": (1.0, 1000.0),
     "TP.YISGUCU2.G8": (0.0, 60.0),
     "TP.APIFON4": (0.0, 100.0),
     "TCMB_POLITIKA": (0.0, 100.0),

@@ -16,10 +16,18 @@ anahtar istemiyor ve ticari kullanima acik.
 TRY ICIN KULLANILMIYOR
 ----------------------
 ECB euro bazli yayimliyor ve TRY'yi de veriyor, ama Turk okur icin
-kaynak TCMB olmali: `TP.DK.USD.S.YTL` zaten EVDS hattindan AYNI GUN
-geliyor ve resmi alis/satis kuru odur. ECB'nin TRY capraz kuru ikinci
-bir dogruluk kaynagi olurdu ve iki kaynak arasindaki kucuk farklar
-sayfada aciklanamaz.
+kaynak TCMB olmali: resmi alis/satis kuru odur. ECB'nin TRY capraz
+kuru ikinci bir dogruluk kaynagi olurdu ve iki kaynak arasindaki
+kucuk farklar sayfada aciklanamaz.
+
+DUZELTME (2026-11-21): bu paragraf bir sure "`TP.DK.USD.S.YTL` zaten
+EVDS hattindan AYNI GUN geliyor" diyordu ve BU YANLISTI. EVDS'nin
+tarihi gozlem gunu degil, kurun GECERLI OLDUGU gun; satir iddia
+ettigi gunden ONCE yaziliyor ve 2.973 sayfada olmamis bir gun
+goruldu. TRY kurlari artik TCMB'nin kendi bulteninden geliyor --
+`kaynak/tcmb_kur.py`. Burada degisen bir sey yok, yalnizca YANLIS
+BIR GEREKCE duzeltildi: bir yorumun dogru olmasi, savundugu kodun
+dogru oldugu anlamina gelmiyor.
 
 BICIM UYARISI
 -------------

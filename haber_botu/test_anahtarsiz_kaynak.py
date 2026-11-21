@@ -101,6 +101,79 @@ _ecb_fn = [n.lineno for n in ast.walk(_FN)
            and getattr(n.func.value, "id", "") == "ecb_kur"]
 esit(len(_ecb_fn), 1, "ecb_kur.cek() anahtarsiz fonksiyonda")
 
+# KURAL ADA DEGIL KUMEYE BAGLI.
+#
+# Yukaridaki iddialar YALNIZCA `ecb_kur` adini ariyordu. Olculdu
+# (2026-11-21): `tcmb_kur` eklendiginde -- TCMB bulten kuru, yine
+# anahtarsiz, yine her sayfadaki seritte gorunuyor -- kural ona HIC
+# DOKUNMADI. Yani kanitlanmis koruma yeni dugume YAYILMAMISTI;
+# bu depoda tanidik bir sinif.
+#
+# Artik kume bildiriliyor: her anahtarsiz kaynak hem BURADA yazili
+# hem de `_anahtarsiz_yaz` icinde cagrilmis olmali. Yeni bir kaynak
+# eklenip listeye yazilmazsa ya da listeye yazilip hatta
+# baglanmazsa, kural KIRMIZI doner.
+ANAHTARSIZ = ("ecb_kur", "bundesbank", "tcmb_kur")
+
+
+def _cek_cagiranlar(dugum) -> set:
+    """`X.cek(...)` bicimindeki cagrilarin X adlarini dondurur."""
+    return {n.func.value.id for n in ast.walk(dugum)
+            if isinstance(n, ast.Call)
+            and isinstance(n.func, ast.Attribute)
+            and n.func.attr == "cek"
+            and isinstance(n.func.value, ast.Name)}
+
+
+_fn_cagri = _cek_cagiranlar(_FN)
+for _m in ANAHTARSIZ:
+    esit(_m in _fn_cagri, True,
+         f"{_m}.cek() anahtarsiz fonksiyonda cagriliyor")
+# TERS YON: fonksiyonda listede OLMAYAN bir kaynak varsa, ya liste
+# eskimistir ya da oraya anahtar isteyen bir sey konmustur. Ikisi de
+# sessiz kalmamali.
+esit(sorted(_fn_cagri - set(ANAHTARSIZ)), [],
+     "anahtarsiz fonksiyonda listede olmayan kaynak YOK")
+# Ve hicbiri EVDS bolgesinde olmamali.
+esit(sorted(_cek_cagiranlar(_MAIN) & set(ANAHTARSIZ)), [],
+     "anahtarsiz kaynaklarin hicbiri main() icinde cagrilmiyor")
+
+# GECMIS DOLDURMA GERCEKTEN CAGRILMALI -- VE KOSULA BAGLI.
+#
+# `tcmb_kur.gecmis_cek` eklendi ama hatta baglanmazsa hicbir hata
+# vermez: yalnizca HIC KOSMAZ ve yeni seri tek gunle kalir. Bu
+# depoda "eklendi ama beslenmedi" sinifi daha once de yasandi.
+#
+# Kosul da sart: `gecmis_gerekli` olmadan cagrilirsa doldurma
+# KENDILIGINDEN SONLANMAZ ve her kosuda bosa istek harcar -- kaynak
+# butcesi paylasimli.
+_ad_cagri = {f"{n.func.value.id}.{n.func.attr}" for n in ast.walk(_FN)
+             if isinstance(n, ast.Call)
+             and isinstance(n.func, ast.Attribute)
+             and isinstance(n.func.value, ast.Name)}
+esit("tcmb_kur.gecmis_cek" in _ad_cagri, True,
+     "gecmis doldurma anahtarsiz fonksiyonda CAGRILIYOR")
+esit("tcmb_kur.gecmis_gerekli" in _ad_cagri, True,
+     "doldurma `gecmis_gerekli` KOSULUNA bagli")
+# Kosul gercekten SARMALIYOR olmali: cagrinin bir `if` govdesinde
+# gectigi ve o `if`in kosulunda `gecmis_gerekli` oldugu araniyor.
+# "Ikisi de dosyada geciyor" YETERSIZ bir soru -- bu depoda yorumun
+# iddia edip akisin uygulamadigi durum birkac kez olculdu.
+_sarmali = False
+for _d in ast.walk(_FN):
+    if not isinstance(_d, ast.If):
+        continue
+    _kosul = {n.func.attr for n in ast.walk(_d.test)
+              if isinstance(n, ast.Call) and isinstance(n.func, ast.Attribute)}
+    if "gecmis_gerekli" not in _kosul:
+        continue
+    _govde = {n.func.attr for st in _d.body for n in ast.walk(st)
+              if isinstance(n, ast.Call) and isinstance(n.func, ast.Attribute)}
+    if "gecmis_cek" in _govde:
+        _sarmali = True
+esit(_sarmali, True,
+     "`gecmis_cek` gercekten `gecmis_gerekli` IF'inin ICINDE")
+
 # ANAHTAR DENETIMI O FONKSIYONUN ICINDE OLMAMALI -- olsa bagimsizlik
 # yine kaybolurdu ve yukaridaki satir testi bunu gormezdi.
 _anahtar = [n.lineno for n in ast.walk(_FN)

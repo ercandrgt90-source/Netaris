@@ -275,14 +275,30 @@ def _bicimle(h, ad: str) -> dict:
 #: Veri zaten elimizdeydi: EVDS hatti TP.DK.USD.S.YTL ve
 #: TP.DK.EUR.S.YTL serilerini AYNI GUN depoya yaziyor. Yani eksik olan
 #: kaynak degil, seridin o kaynagi kullanmasiydi.
+#: (birincil kod, yedek kod, ad)
+#:
+#: BIRINCIL TCMB BULTENI, YEDEK EVDS. Ikisi ayni buyuklugu olcuyor ama
+#: TARIHI FARKLI ANLAMDA kullaniyor:
+#:
+#:     EVDS `TP.DK.*.S.YTL`  tarih = kurun GECERLI OLDUGU gun
+#:     `TCMB_*TRY`           tarih = bultenin ACIKLANDIGI gun
+#:
+#: Olculdu (2026-11-21, Cumartesi): EVDS tarihi okura OLMAMIS BIR GUN
+#: gosteriyordu -- "23 Kasim 2026", 2.973 yayimlanmis sayfada. Gerekce
+#: ve dogrulamanin tamami `kaynak/tcmb_kur.py` basinda.
+#:
+#: YEDEK BIRAKILDI, SILINMEDI: bulten cekilemezse serit kalem
+#: KAYBETMEMELI. Yedege dusuldugunde tarih yine bir is gunu ileri
+#: olur; bu, kalemi hic gostermemekten iyidir ve `gosterge_yaz`
+#: gelecek tarihli satiri zaten yazmiyor.
 KUR_KALEMLERI = (
-    ("TP.DK.USD.S.YTL", "USD/TRY"),
-    ("TP.DK.EUR.S.YTL", "EUR/TRY"),
+    ("TCMB_USDTRY", "TP.DK.USD.S.YTL", "USD/TRY"),
+    ("TCMB_EURTRY", "TP.DK.EUR.S.YTL", "EUR/TRY"),
     # EUR/USD ECB'den. FRED'in `DEXUSEU` serisi ayni olcumde ALTI IS
     # GUNU geride geliyordu; ECB kendi referans kurunu her is gunu
     # yayimliyor ve son tarihi en son is gunuydu. FRED serisi seritten
     # cikariliyor (asagida), depoda gecmis olarak duruyor.
-    ("ECB_EURUSD", "EUR/USD"),
+    ("ECB_EURUSD", "", "EUR/USD"),
 )
 
 
@@ -291,10 +307,17 @@ def _kur_kalemleri() -> list[dict]:
     cikti: list[dict] = []
     try:
         with beyin.baglan() as b:
-            for kod, ad in KUR_KALEMLERI:
+            for kod, yedek, ad in KUR_KALEMLERI:
                 satir = b.execute(
                     "SELECT tarih, deger FROM gosterge WHERE kod=?"
                     " ORDER BY tarih DESC LIMIT 2", (kod,)).fetchall()
+                if not satir and yedek:
+                    # Bulten cekilememis. Kalemi dusurmek yerine eski
+                    # kaynaga donuluyor -- gerekce KUR_KALEMLERI'nde.
+                    kod = yedek
+                    satir = b.execute(
+                        "SELECT tarih, deger FROM gosterge WHERE kod=?"
+                        " ORDER BY tarih DESC LIMIT 2", (kod,)).fetchall()
                 if not satir:
                     continue
                 son = float(satir[0][1])
