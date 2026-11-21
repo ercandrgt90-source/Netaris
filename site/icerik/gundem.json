@@ -30,7 +30,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 36,
+  "yorumlanan": 35,
   "haberler": [
     {
       "baslik": "Fed, College Fed Challenge kazananlarını açıkladı",
@@ -73,6 +73,27 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/enerji-11-0e06d6d4.jpg",
       "foto_atif": "Djmaschek · CC-BY-SA-3.0"
+    },
+    {
+      "baslik": "Rusya'nın Leningrad bölgesi valisi: Kaliningrad'a giden kargo gemisi tarafsız sularda iki dronun saldırısına uğradı",
+      "baslik_kaynak": "Russia's Leningrad region governor: cargo ship bound for Kaliningrad hit by two drones in neutral waters",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9862922/Russias-Leningrad-region-governor-cargo-ship-bound-for-Kaliningrad-hit-by-two-drones-in-neutral-waters.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Şirket haberleri",
+      "tarih": "2026-11-21",
+      "tarih_gorunur": "21 Kasım 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/sirket-haberleri-9-c71a9b17.jpg",
+      "foto_atif": "Dietmar Rabich · CC-BY-SA-4.0"
     },
     {
       "baslik": "AB'den Von der Leyen: Rusya'nın amacı Ukrayna'ya verilen desteği zayıflatmaksa bunun tam tersi bir etki yaratacak; kararlılığımız güçlenecek",
@@ -1022,6 +1043,32 @@
       "foto_atif": "Huhu Uet · CC-BY-SA-4.0"
     },
     {
+      "baslik": "Küresel hisse fonlarına bir haftada 59,2 milyar dolar aktı",
+      "baslik_kaynak": "Küresel hisse fonlarına bir haftada 59,2 milyar dolar aktı",
+      "ozet": "18 Kasım'da sona eren haftada küresel hisse fonları 59,23 milyar dolar net girişle haziran ortasından bu yana en güçlü haftasını yaşadı. Para akışı üst üste dokuzuncu haftada da sürdü; ancak ABD, Avrupa ve Asya arasında belirgin ayrışma görüldü.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.dunya.com/finans/haberler/kuresel-hisse-fonlarina-bir-haftada-592-milyar-dolar-akti-haberi-848393",
+      "kurum": "Dünya",
+      "kurum_tam": "Dünya Gazetesi",
+      "konu": "Borsa",
+      "tarih": "2026-11-21",
+      "tarih_gorunur": "21 Kasım 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Endeks hareketi tek başına bir bilgi değildir; hareketi hangi sektörlerin taşıdığı ve işlem hacminin ne olduğu kalıcılığı belirler.",
+      "kanallar": [
+        "Sektör dağılımı: hareketin dar bir gruptan mı geniş tabandan mı geldiği, kalıcılığa dair ipucu verir.",
+        "Hacim: düşük hacimli hareket fiyat keşfinden çok pozisyon ayarlaması olabilir.",
+        "Volatilite: opsiyon fiyatlarındaki değişim piyasanın beklediği oynaklığı gösterir.",
+        "Korelasyon: hisse ile tahvil arasındaki ilişkinin işareti portföy riskinin nasıl dağıldığını değiştirir."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/borsa-12-5544ef41.jpg",
+      "foto_atif": "Bernard Lee · CC0"
+    },
+    {
       "baslik": "Hürmüz'de gemi trafiği sert düştü: Petrol sevkiyatında saldırı baskısı büyüyor",
       "baslik_kaynak": "Hürmüz'de gemi trafiği sert düştü: Petrol sevkiyatında saldırı baskısı büyüyor",
       "ozet": "Hürmüz Boğazı'nda haftalık gemi geçişi 308'den 263'e gerileyerek yüzde 15 azaldı. İngiliz denizcilik makamları yedi günde altı saldırı kaydetti. Savaş öncesine göre trafik yüzde 65 düşük; petrol sevkiyatındaki risk büyüyor.",
@@ -1182,6 +1229,27 @@
       "kanal_basligi": "Hangi piyasaları etkiler?",
       "foto": "/statik/foto/enerji-11-a5cdd29f.jpg",
       "foto_atif": "W.carter · CC0"
+    },
+    {
+      "baslik": "Gelişen piyasa hisseleri ayı piyasasına girdi",
+      "baslik_kaynak": "Gelişen piyasa hisseleri ayı piyasasına girdi",
+      "ozet": "MSCI gelişmekte olan piyasalar hisse senedi endeksi, art arda yedinci gün düşüş kaydederek yüzde 3,1 oranında geriledi ve Haziran ayındaki zirvesinden bu yana toplam kaybı yüzde 21'e ulaşarak \"ayı piyasasına\" girdi.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.bloomberght.com/gelisen-piyasa-hisseleri-ayi-piyasasina-girdi-3795369",
+      "kurum": "BloombergHT",
+      "kurum_tam": "Bloomberg HT",
+      "konu": "Borsa",
+      "tarih": "2026-11-21",
+      "tarih_gorunur": "21 Kasım 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/borsa-9-78cc676a.jpg",
+      "foto_atif": "Syced · CC0"
     },
     {
       "baslik": "Gayrimenkulün likidite sınavı",
@@ -1395,53 +1463,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/dis-ticaret-9-9686a70e.jpg",
       "foto_atif": "Huhu Uet · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "İran savaşında Hürmüz yakınlarında tanker vuruldu, Suudi Arabistan Husi füzelerini engelledi",
-      "baslik_kaynak": "İran savaşında Hürmüz yakınlarında tanker vuruldu, Suudi Arabistan Husi füzelerini engelledi",
-      "ozet": "",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://tr.investing.com/news/economy-news/iran-savasnda-hurmuz-yaknlarnda-tanker-vuruldu-suudi-arabistan-husi-fuzelerini-engelledi-4168336",
-      "kurum": "Investing",
-      "kurum_tam": "Investing.com Türkiye",
-      "konu": "Jeopolitik",
-      "tarih": "2026-11-21",
-      "tarih_gorunur": "21 Kasım 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
-      "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
-        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
-        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/jeopolitik-14-4ca6b4fe.jpg",
-      "foto_atif": "Bernard Gagnon · CC0"
-    },
-    {
-      "baslik": "Casella Waste Systems yöneticisi 700.000 dolar değerinde hisse sattı",
-      "baslik_kaynak": "Casella Waste Systems yöneticisi 700.000 dolar değerinde hisse sattı",
-      "ozet": "",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://tr.investing.com/news/insider-trading-news/casella-waste-systems-yoneticisi-700000-dolar-degerinde-hisse-satt-93CH-4168344",
-      "kurum": "Investing",
-      "kurum_tam": "Investing.com Türkiye",
-      "konu": "Borsa",
-      "tarih": "2026-11-21",
-      "tarih_gorunur": "21 Kasım 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/borsa-12-5544ef41.jpg",
-      "foto_atif": "Bernard Lee · CC0"
     },
     {
       "baslik": "İmalat Sanayi Kapasite Kullanım Oranı (Kasım 2026)",
@@ -2368,32 +2389,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/enflasyon-16-c7021499.png",
       "foto_atif": "Authors of the study: Melissa J. Barber, PhD; Dzintars Gotham, MBBS; Helen Bygrave, MBBS; Christa Cepuch, MPH · CC-BY-4.0"
-    },
-    {
-      "baslik": "Trump: Jensen'in özür dilemesini ve geri dönmesini istiyorum",
-      "baslik_kaynak": "Trump: Want Jensen to make an apology and go back",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9862255/Trump-Want-Jensen-to-make-an-apology-and-go-back.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Jeopolitik",
-      "tarih": "2026-11-20",
-      "tarih_gorunur": "20 Kasım 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
-      "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
-        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
-        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/jeopolitik-36-7cb6152c.jpg",
-      "foto_atif": "Captain Albert E. Theberge, NOAA Corps (ret.) · PDM"
     },
     {
       "baslik": "Haftalık Akım Faiz ve Kâr Payı İstatistikleri",
