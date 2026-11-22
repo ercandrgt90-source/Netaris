@@ -30,7 +30,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 29,
+  "yorumlanan": 28,
   "haberler": [
     {
       "baslik": "İki Libya askeri kaynağı, Bingazi açıklarında Libya deniz ve hava kuvvetleri tarafından 12'den fazla insansız tekneye el konulduğunu söylüyor",
@@ -779,32 +779,6 @@
       "foto_atif": "YeraC · CC-BY-SA-4.0"
     },
     {
-      "baslik": "Merkez Bankası faiz kararı ne zaman açıklanıyor? Bu ay TCMB toplantısı var mı?",
-      "baslik_kaynak": "Merkez Bankası faiz kararı ne zaman açıklanıyor? Bu ay TCMB toplantısı var mı?",
-      "ozet": "Yeni haftaya doğru girilirken Merkez Bankası'nın toplantı yapıp yapmayacağı merak ediliyor. Faiz indirimi gelip gelmeyeceği de araştırılırken \"Merkez Bankası faiz kararı ne zaman açıklanıyor\" sorusu hızlanıyor.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.dunya.com/ekonomi/merkez-bankasi-faiz-karari-ne-zaman-aciklaniyor-bu-ay-tcmb-toplantisi-var-mi-haberi-848469",
-      "kurum": "Dünya",
-      "kurum_tam": "Dünya Gazetesi",
-      "konu": "Para politikası",
-      "tarih": "2026-11-22",
-      "tarih_gorunur": "22 Kasım 2026",
-      "yorumlanir": true,
-      "neden_onemli": "TCMB politika faizi, yurt içi fonlama maliyetinin çıpasıdır. Ticari kredi faizi, mevduat getirisi ve tahvil getiri eğrisi bu oranın etrafında yeniden fiyatlanır.",
-      "kanallar": [
-        "Kredi maliyeti: bankaların Merkez Bankası'ndan fonlanma maliyeti değiştiğinde ticari ve bireysel kredi faizleri buradan fiyatlanır.",
-        "Şirket finansman gideri: değişken faizle borçlanan ve net borç pozisyonu yüksek şirketlerde finansman gideri kalemi doğrudan etkilenir; bu kalem kâr marjına gelir tablosu üzerinden yansır.",
-        "Mevduat ve tahvil getirisi: TL mevduat ile devlet iç borçlanma senedi getirileri politika faizine göre yeniden konumlanır. Reel getiri, enflasyon beklentisiyle birlikte değerlendirilir.",
-        "Faiz farkı: yurt içi ve yurt dışı faiz arasındaki fark, TL cinsi varlıklara yönelen sermaye akımının belirleyicilerinden biridir."
-      ],
-      "kanal_basligi": "Piyasaya nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-9-f9a4682a.jpg",
-      "foto_atif": "DXR · CC-BY-SA-4.0"
-    },
-    {
       "baslik": "Türkiye Emekliler Derneği: Düşük aylıklar 2000 sonrası hesaplama sisteminden kaynaklanıyor",
       "baslik_kaynak": "Türkiye Emekliler Derneği: Düşük aylıklar 2000 sonrası hesaplama sisteminden kaynaklanıyor",
       "ozet": "Türkiye Emekliler Derneği (TÜED) Genel Başkanı Kazım Ergün, emekli aylıkları arasındaki farklılıkların giderilmesi ve emeklilerin gelir kayıplarının önlenmesi amacıyla intibak düzenlemesi yapılmasını istedi.",
@@ -1116,6 +1090,27 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/borsa-9-78cc676a.jpg",
       "foto_atif": "Syced · CC0"
+    },
+    {
+      "baslik": "Teradyne CEO’su Gregory Smith 942.880 dolar değerinde hisse sattı",
+      "baslik_kaynak": "Teradyne CEO’su Gregory Smith 942.880 dolar değerinde hisse sattı",
+      "ozet": "",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://tr.investing.com/news/insider-trading-news/teradyne-ceosu-gregory-smith-942880-dolar-degerinde-hisse-satt-93CH-4168512",
+      "kurum": "Investing",
+      "kurum_tam": "Investing.com Türkiye",
+      "konu": "Borsa",
+      "tarih": "2026-11-22",
+      "tarih_gorunur": "22 Kasım 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/borsa-21-e2f22d70.jpg",
+      "foto_atif": "William Iven firmbee · CC0"
     },
     {
       "baslik": "Fed, College Fed Challenge kazananlarını açıkladı",
