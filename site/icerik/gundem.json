@@ -1,5 +1,5 @@
 {
-  "guncelleme": "2026-11-21",
+  "guncelleme": "2026-11-22",
   "kaynaklar": [
     "AA",
     "BloombergHT",
@@ -32,6 +32,32 @@
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
   "yorumlanan": 33,
   "haberler": [
+    {
+      "baslik": "Birleşik Krallık hükümeti: Birleşik Krallık, uyarlanabilir uydu fırlatma hizmetleri ağı kurmak için NATO'nun Starlift programına katılan 10 ülkeye dâhil oldu",
+      "baslik_kaynak": "UK govt: UK joins 10 other nations in NATO starlift program to build network of adaptable satellite launch services",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9863187/UK-govt-UK-joins-10-other-nations-in-NATO-starlift-program-to-build-network-of-adaptable-satellite-launch-services.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Jeopolitik",
+      "tarih": "2026-11-22",
+      "tarih_gorunur": "22 Kasım 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
+      "kanallar": [
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-14-4ca6b4fe.jpg",
+      "foto_atif": "Bernard Gagnon · CC0"
+    },
     {
       "baslik": "Burnham, Hollanda Başbakanı Jetten Ukrayna'ya ihtiyaç duyduğu desteği sağlamak için yakın iş birliğini sürdürme taahhüdünde bulundu: Downing Street sözcüsü",
       "baslik_kaynak": "Burnham, Netherlands PM Jetten committed to continue close cooperation to provide Ukraine support it needs: Downing Street spokesperson",
@@ -1499,32 +1525,6 @@
       "kanal_basligi": "Hangi piyasaları etkiler?",
       "foto": "/statik/foto/jeopolitik-18-d6206fae.jpg",
       "foto_atif": "United Nation · PDM"
-    },
-    {
-      "baslik": "İran Dışişleri Bakanı Arakçi İranlı bir gazeteye verdiği demeçte şunları söyledi: Tahran, ABD ile olan savaşı sona erdirmek için hâlâ diplomasiye umut bağlıyor",
-      "baslik_kaynak": "Iran's Foreign Minister Araqchi tells an Iranian newspaper: Tehran still has hope in diplomacy to end the war with the US.",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9862486/Irans-Foreign-Minister-Araqchi-tells-an-Iranian-newspaper-Tehran-still-has-hope-in-diplomacy-to-end-the-war-with-the-US.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Jeopolitik",
-      "tarih": "2026-11-21",
-      "tarih_gorunur": "21 Kasım 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
-      "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
-        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
-        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/jeopolitik-36-7cb6152c.jpg",
-      "foto_atif": "Captain Albert E. Theberge, NOAA Corps (ret.) · PDM"
     },
     {
       "baslik": "JPMorgan, Bitcoin'in fiyat düşüşünün madenciler üzerinde baskı oluşturduğunu söylüyor, Senato \"Ölüm Bahisleri Yasası\"nı kabul etti ve daha fazlası",
