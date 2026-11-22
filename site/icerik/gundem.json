@@ -33,6 +33,32 @@
   "yorumlanan": 32,
   "haberler": [
     {
+      "baslik": "İki Libya'lı askeri kaynağa göre Malta bayrağı taşıyan ticari gemi, Libya'nın Bingazi kentinde intihar saldırısı düzenleyen bir insansız hava aracı teknesinin saldırısına uğradı",
+      "baslik_kaynak": "Commercial vessel flying Maltese flag hit by suicide drone boat off Libya's Benghazi: two Libyan military sources",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9863504/Commercial-vessel-flying-Maltese-flag-hit-by-suicide-drone-boat-off-Libyas-Benghazi-two-Libyan-military-sources.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Jeopolitik",
+      "tarih": "2026-11-22",
+      "tarih_gorunur": "22 Kasım 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
+      "kanallar": [
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-36-7cb6152c.jpg",
+      "foto_atif": "Captain Albert E. Theberge, NOAA Corps (ret.) · PDM"
+    },
+    {
       "baslik": "Yemen'deki Husiler: Suudi Arabistan'ın Kızıldeniz'e bakan batı kıyısındaki Rabig petrol rafinerisine saldırı",
       "baslik_kaynak": "Yemen's Houthis: attack on Rabigh oil refinery on Saudi Arabia's western Red Sea coast",
       "ozet": "",
@@ -607,6 +633,32 @@
       "foto_atif": "CryptoWallet.com Images · CC-BY-2.0"
     },
     {
+      "baslik": "Hürmüz Boğazı'nda 2 süper tanker mayına çarptı",
+      "baslik_kaynak": "Hürmüz Boğazı'nda 2 süper tanker mayına çarptı",
+      "ozet": "İran Devrim Muhafızları Ordusu, Hürmüz Boğazı'nda belirlenen güzergahların dışından geçmeye çalışan 2 süper tankerin deniz mayınlarına çarparak patladığını ve durdurulduğunu duyurdu. Tahran yönetimi, tanker sahipleri ile deniz taşımacılığı şirketlerini uyardı.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.dunya.com/dunya/hurmuz-bogazinda-2-super-tanker-mayina-carpti-haberi-848496",
+      "kurum": "Dünya",
+      "kurum_tam": "Dünya Gazetesi",
+      "konu": "Jeopolitik",
+      "tarih": "2026-11-22",
+      "tarih_gorunur": "22 Kasım 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
+      "kanallar": [
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-36-7cb6152c.jpg",
+      "foto_atif": "Captain Albert E. Theberge, NOAA Corps (ret.) · PDM"
+    },
+    {
       "baslik": "Tayvan çevresinde Çin hareketliliği: 24 hava aracı uçuş yaptı",
       "baslik_kaynak": "Tayvan çevresinde Çin hareketliliği: 24 hava aracı uçuş yaptı",
       "ozet": "Çin'e ait savaş uçakları, bombardıman ve destek uçakları ile insansız hava araçlarından oluşan 24 askeri hava aracı Tayvan çevresinde uçuş yaparken, 8 savaş gemisi ve 3 resmi gemi de Ada yakınlarında görüldü.",
@@ -706,27 +758,6 @@
       "foto_atif": "DXR · CC-BY-SA-4.0"
     },
     {
-      "baslik": "Yusufeli Barajı'nın 4 yıllık bilançosu açıklandı. 16,7 milyar lirayı aştı",
-      "baslik_kaynak": "Yusufeli Barajı'nın 4 yıllık bilançosu açıklandı! 16,7 milyar lirayı aştı",
-      "ozet": "Türkiye'nin en yüksek gövdeli barajı olan Yusufeli Barajı ve HES, 4'üncü yılını geride bıraktı. Tarım ve Orman Bakanı İbrahim Yumaklı, Artvin'deki dev tesisin bugüne kadar ürettiği elektrik miktarını ve ülke ekonomisine sağladığı katkıyı açıkladı.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.dunya.com/dunya/yusufeli-barajinin-4-yillik-bilancosu-aciklandi-167-milyar-lirayi-asti-haberi-848470",
-      "kurum": "Dünya",
-      "kurum_tam": "Dünya Gazetesi",
-      "konu": "Şirket haberleri",
-      "tarih": "2026-11-22",
-      "tarih_gorunur": "22 Kasım 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-17-a6dd0c61.jpg",
-      "foto_atif": "Stephen Craven · CC-BY-SA-2.0"
-    },
-    {
       "baslik": "Türkiye Emekliler Derneği: Düşük aylıklar 2000 sonrası hesaplama sisteminden kaynaklanıyor",
       "baslik_kaynak": "Türkiye Emekliler Derneği: Düşük aylıklar 2000 sonrası hesaplama sisteminden kaynaklanıyor",
       "ozet": "Türkiye Emekliler Derneği (TÜED) Genel Başkanı Kazım Ergün, emekli aylıkları arasındaki farklılıkların giderilmesi ve emeklilerin gelir kayıplarının önlenmesi amacıyla intibak düzenlemesi yapılmasını istedi.",
@@ -746,32 +777,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/istihdam-ve-ucret-10-2fc976d7.jpg",
       "foto_atif": "YeraC · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "Gözaltına alınan Emekli Albay Orkun Özeller serbest bırakıldı",
-      "baslik_kaynak": "Gözaltına alınan Emekli Albay Orkun Özeller serbest bırakıldı",
-      "ozet": "Emekli Albay Orkun Özeller, kitap fuarına katılmak üzere gittiği Kastamonu'da sabaha karşı gözaltına alındı. Gazeteci Barış Terkoğlu'nun Özeller'in avukatından aktardığına göre gözaltı işleminin gerekçesi, eski Milli Savunma Bakanı Hulusi Akar'ın cumhurbaşkanı adaylığına ilişkin sosyal medya paylaşımı oldu.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.ekonomim.com/gundem/gozaltina-alinan-emekli-albay-orkun-ozeller-serbest-birakildi-haberi-932672",
-      "kurum": "Ekonomim",
-      "kurum_tam": "Ekonomim",
-      "konu": "İstihdam ve ücret",
-      "tarih": "2026-11-22",
-      "tarih_gorunur": "22 Kasım 2026",
-      "yorumlanir": true,
-      "neden_onemli": "İstihdam verisi merkez bankalarının en yakından izlediği göstergedir; ücret artışı hizmet enflasyonunun ana girdisidir.",
-      "kanallar": [
-        "Faiz beklentisi: güçlü istihdam faiz indirimi beklentisini öteler, zayıf veri öne çeker.",
-        "Ücret-fiyat ilişkisi: birim işgücü maliyeti hizmet enflasyonuna doğrudan geçer.",
-        "Tüketim: hane geliri perakende talebini ve şirket gelirlerini belirler.",
-        "Katılım oranı: işgücüne katılımdaki değişim, işsizlik oranını istihdam artışından bağımsız hareket ettirebilir."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/istihdam-ve-ucret-9-46336a81.jpg",
-      "foto_atif": "namisito · CC-BY-SA-4.0"
     },
     {
       "baslik": "Rusya Ukrayna'nın enerji ve liman altyapı tesislerini vurdu",
@@ -1011,6 +1016,27 @@
       "kanal_basligi": "Piyasaya nasıl yansır?",
       "foto": "/statik/foto/vergi-ve-kamu-maliyesi-7-9252c67a.jpg",
       "foto_atif": "23artashes · CC-BY-SA-4.0"
+    },
+    {
+      "baslik": "Air Products grup başkanı 142.584 dolar değerinde hisse sattı",
+      "baslik_kaynak": "Air Products grup başkanı 142.584 dolar değerinde hisse sattı",
+      "ozet": "",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://tr.investing.com/news/insider-trading-news/air-products-grup-baskan-142584-dolar-degerinde-hisse-satt-93CH-4168524",
+      "kurum": "Investing",
+      "kurum_tam": "Investing.com Türkiye",
+      "konu": "Borsa",
+      "tarih": "2026-11-22",
+      "tarih_gorunur": "22 Kasım 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/borsa-9-78cc676a.jpg",
+      "foto_atif": "Syced · CC0"
     },
     {
       "baslik": "Crimson Wine Group yöneticisi John Cumming 100.676 dolar hisse aldı",
@@ -2093,32 +2119,6 @@
       "kanal_basligi": "Hangi piyasaları etkiler?",
       "foto": "/statik/foto/jeopolitik-18-d6206fae.jpg",
       "foto_atif": "United Nation · PDM"
-    },
-    {
-      "baslik": "Trump, yürütme ayrıcalıklarını korumaya ve federal sözleşmelerde verimliliği artırmaya ilişkin kararnameyi imzaladı - Beyaz Saray",
-      "baslik_kaynak": "Trump signs executive order on safeguarding executive privileges, boosting efficiency in federal contracting - White House",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9862779/Trump-signs-executive-order-on-safeguarding-executive-privileges-boosting-efficiency-in-federal-contracting---White-House.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Jeopolitik",
-      "tarih": "2026-11-21",
-      "tarih_gorunur": "21 Kasım 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
-      "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
-        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
-        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/jeopolitik-36-7cb6152c.jpg",
-      "foto_atif": "Captain Albert E. Theberge, NOAA Corps (ret.) · PDM"
     },
     {
       "baslik": "İmalat Sanayi Kapasite Kullanım Oranı (Kasım 2026)",
