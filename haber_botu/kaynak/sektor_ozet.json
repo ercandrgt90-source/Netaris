@@ -265,7 +265,7 @@
   ],
   "mali": {},
   "donem_gruplari": {},
-  "tazelendi": "2026-11-21T03:32:36+00:00"
+  "tazelendi": "2026-11-22T02:21:23+00:00"
  },
  "Finans": {
   "sektor": "Finans",
@@ -982,8 +982,8 @@
     "eksik: hasilat"
    ],
    [
-    "EKGYO",
-    "eksik: aktif_toplami, ozkaynak"
+    "ZRGYO",
+    "eksik: hasilat, net_kar, aktif_toplami"
    ]
   ],
   "ana_donem": "2026-09-30",
@@ -1050,6 +1050,7 @@
    "DZGYO",
    "EDIP",
    "EGEGY",
+   "EKGYO",
    "EYGYO",
    "FZLGY",
    "HLGYO",
@@ -1065,12 +1066,11 @@
    "SVGYO",
    "VKGYO",
    "VRGYO",
-   "YGGYO",
-   "ZRGYO"
+   "YGGYO"
   ],
   "mali": {},
   "donem_gruplari": {},
-  "tazelendi": "2026-11-21T03:44:55+00:00"
+  "tazelendi": "2026-11-22T02:24:53+00:00"
  },
  "Kamu hizmetleri": {
   "sektor": "Kamu hizmetleri",

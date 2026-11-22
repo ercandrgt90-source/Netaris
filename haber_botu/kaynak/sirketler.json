@@ -4137,7 +4137,9 @@
    "kap_kimlik": "4028e4a240ee866c0140f273ea66014d",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş"
+   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş",
+   "sektor_bulunamadi": "2026-11-22",
+   "sektor_sebep": "sektor alani yok"
   },
   "ISGYO": {
    "kod": "ISGYO",
@@ -4167,7 +4169,10 @@
    "kap_kimlik": "4028e4a140f2ed7201411682b0cb05c6",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş"
+   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş",
+   "sektor": "Financials",
+   "sektor_tr": "Finans",
+   "alt_sektor": "Banks - Regional"
   },
   "ISMEN": {
    "kod": "ISMEN",
@@ -4197,7 +4202,8 @@
    "kap_kimlik": "4028e4a244a081810145d6e6f59b75cf",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "İRFAN BAĞIMSIZ DENETİM VE YEMİNLİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "İRFAN BAĞIMSIZ DENETİM VE YEMİNLİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor_bulunamadi": "2026-11-22"
   },
   "ISTVY": {
    "kod": "ISTVY",
