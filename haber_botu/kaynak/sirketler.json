@@ -4263,7 +4263,10 @@
    "kap_kimlik": "8acae2c5534651ff0153612ea22a02ec",
    "sehir": "İZMİR",
    "uye_turu": "IGS",
-   "denetci": "KPMG BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "KPMG BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor": "Utilities",
+   "sektor_tr": "Kamu hizmetleri",
+   "alt_sektor": "Utilities - Independent Power Producers"
   },
   "IZFAS": {
    "kod": "IZFAS",
@@ -4271,7 +4274,10 @@
    "kap_kimlik": "4028e4a146b4c41301485f8c72095698",
    "sehir": "İZMİR",
    "uye_turu": "IGS",
-   "denetci": "AKT BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "AKT BAĞIMSIZ DENETİM A.Ş.",
+   "sektor": "Consumer Staples",
+   "sektor_tr": "Temel tüketim",
+   "alt_sektor": "Household & Personal Products"
   },
   "IZINV": {
    "kod": "IZINV",
@@ -4279,7 +4285,10 @@
    "kap_kimlik": "1DE05DAA82FC073AE0530A4A622A2EBD",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "AKADEMİK BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "AKADEMİK BAĞIMSIZ DENETİM A.Ş.",
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Conglomerates"
   },
   "IZMDC": {
    "kod": "IZMDC",
