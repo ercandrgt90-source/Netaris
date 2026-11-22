@@ -33,7 +33,7 @@
   "yorumlanan": 31,
   "haberler": [
     {
-      "baslik": "Libya'nın doğusundaki hükümet: Ön soruşturma, Bingazi limanındaki Rus gemisinde meydana gelen patlamanın bir drone saldırısından kaynaklanmış olabileceğine işaret ediyor - açıklama",
+      "baslik": "Libya'nın doğusundaki hükümet: Ön soruşturma, Bingazi limanındaki Rus gemisinde patlama olduğunu gösteriyor; dron saldırısından şüpheleniliyor - açıklama",
       "baslik_kaynak": "Libya's eastern government: preliminary probe points to explosion on Russian vessel at Benghazi port, suspects drone strike - statement",
       "ozet": "",
       "cevrildi": true,
@@ -476,6 +476,32 @@
       "foto_atif": "CryptoWallet.com Images · CC-BY-2.0"
     },
     {
+      "baslik": "Tayvan çevresinde Çin hareketliliği: 24 hava aracı uçuş yaptı",
+      "baslik_kaynak": "Tayvan çevresinde Çin hareketliliği: 24 hava aracı uçuş yaptı",
+      "ozet": "Çin'e ait savaş uçakları, bombardıman ve destek uçakları ile insansız hava araçlarından oluşan 24 askeri hava aracı Tayvan çevresinde uçuş yaparken, 8 savaş gemisi ve 3 resmi gemi de Ada yakınlarında görüldü.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.dunya.com/dunya/tayvan-cevresinde-cin-hareketliligi-24-hava-araci-ucus-yapti-haberi-848476",
+      "kurum": "Dünya",
+      "kurum_tam": "Dünya Gazetesi",
+      "konu": "Jeopolitik",
+      "tarih": "2026-11-22",
+      "tarih_gorunur": "22 Kasım 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
+      "kanallar": [
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-36-7cb6152c.jpg",
+      "foto_atif": "Captain Albert E. Theberge, NOAA Corps (ret.) · PDM"
+    },
+    {
       "baslik": "Bitcoin'de tehlike çanları çalıyor. Düşüşün arkasında ne var?",
       "baslik_kaynak": "Bitcoin'de tehlike çanları çalıyor! Düşüşün arkasında ne var?",
       "ozet": "Bitcoin, son bir ayda yüzde 25'in üzerinde değer kaybederek 60 bin doların altında kalırken kripto para piyasasında endişeler büyüyor. Madencilik gelirlerindeki sert düşüş ve ağda tespit edilen güvenlik açığı baskıyı artırırken, Strategy'nin yüksek maliyetli Bitcoin yatırımları da gündeme geldi.",
@@ -591,32 +617,6 @@
       "foto_atif": "Tim Brunauer on behalf of Deutsche Gesellschaft für Internationale Zusammenarbeit (GIZ) · CC-BY-SA-4.0"
     },
     {
-      "baslik": "NATO, Polonya hava sahasının ihlalini görüşmek için toplanacak",
-      "baslik_kaynak": "NATO, Polonya hava sahasının ihlalini görüşmek için toplanacak",
-      "ozet": "NATO, Rusya kaynaklı üç cismin Polonya hava sahasını ihlal etmesinin ardından Kuzey Atlantik Konseyi'nin yarın toplanacağını açıkladı. Polonya topraklarına düşen cisimlerden birinin Rus yapımı Kh-101 seyir füzesi olduğu belirlenirken, NATO Genel Sekreteri Mark Rutte olayı \"tehlikeli\" olarak nitelendirdi.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.dunya.com/dunya/nato-polonya-hava-sahasinin-ihlalini-gorusmek-icin-toplanacak-haberi-848464",
-      "kurum": "Dünya",
-      "kurum_tam": "Dünya Gazetesi",
-      "konu": "Jeopolitik",
-      "tarih": "2026-11-22",
-      "tarih_gorunur": "22 Kasım 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
-      "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
-        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
-        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/jeopolitik-14-4ca6b4fe.jpg",
-      "foto_atif": "Bernard Gagnon · CC0"
-    },
-    {
       "baslik": "Gözaltına alınan Emekli Albay Orkun Özeller serbest bırakıldı",
       "baslik_kaynak": "Gözaltına alınan Emekli Albay Orkun Özeller serbest bırakıldı",
       "ozet": "Emekli Albay Orkun Özeller, kitap fuarına katılmak üzere gittiği Kastamonu'da sabaha karşı gözaltına alındı. Gazeteci Barış Terkoğlu'nun Özeller'in avukatından aktardığına göre gözaltı işleminin gerekçesi, eski Milli Savunma Bakanı Hulusi Akar'ın cumhurbaşkanı adaylığına ilişkin sosyal medya paylaşımı oldu.",
@@ -662,27 +662,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/dis-ticaret-8-de18e08e.jpg",
       "foto_atif": "Nathan.cima · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "Fransa, AB'nin 2028-2034 bütçe uzlaşma teklifini kabul etmedi",
-      "baslik_kaynak": "Fransa, AB'nin 2028-2034 bütçe uzlaşma teklifini kabul etmedi",
-      "ozet": "Fransa hükümetinin, Avrupa Birliği (AB) Konseyi Başkanı Antonio Costa'nın Birliğin 2028-2034 dönemini kapsayan uzun vadeli bütçesine ilişkin sunduğu uzlaşma teklifini \"hayal kırıklığı\" olarak niteleyerek reddettiği bildirildi.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.ekonomim.com/kuresel-ekonomi/fransa-abnin-2028-2034-butce-uzlasma-teklifini-kabul-etmedi-haberi-932701",
-      "kurum": "Ekonomim",
-      "kurum_tam": "Ekonomim",
-      "konu": "Vergi ve kamu maliyesi",
-      "tarih": "2026-11-22",
-      "tarih_gorunur": "22 Kasım 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/vergi-ve-kamu-maliyesi-7-9252c67a.jpg",
-      "foto_atif": "23artashes · CC-BY-SA-4.0"
     },
     {
       "baslik": "Rusya Ukrayna'nın enerji ve liman altyapı tesislerini vurdu",
@@ -917,6 +896,27 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/borsa-24-b47c4be0.jpg",
       "foto_atif": "User:A,Ocram · PDM"
+    },
+    {
+      "baslik": "United States Antimony yöneticisi Bardswich 12.375 dolarlık hisse aldı",
+      "baslik_kaynak": "United States Antimony yöneticisi Bardswich 12.375 dolarlık hisse aldı",
+      "ozet": "",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://tr.investing.com/news/insider-trading-news/united-states-antimony-yoneticisi-bardswich-12375-dolarlk-hisse-ald-93CH-4168510",
+      "kurum": "Investing",
+      "kurum_tam": "Investing.com Türkiye",
+      "konu": "Borsa",
+      "tarih": "2026-11-22",
+      "tarih_gorunur": "22 Kasım 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/borsa-11-39672784.jpg",
+      "foto_atif": "Syced · CC0"
     },
     {
       "baslik": "Fed, College Fed Challenge kazananlarını açıkladı",
