@@ -4211,7 +4211,8 @@
    "kap_kimlik": "4028e4a142140a8c014222e455c72489",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş"
+   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş",
+   "sektor_bulunamadi": "2026-11-22"
   },
   "ISVEA": {
    "kod": "ISVEA",
@@ -4219,7 +4220,10 @@
    "kap_kimlik": "8acae2c59ee1b2d8019eff2b840a0df8",
    "sehir": "ÇORUM",
    "uye_turu": "IGS",
-   "denetci": "REFORM BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "REFORM BAĞIMSIZ DENETİM A.Ş.",
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Building Materials"
   },
   "ISYAT": {
    "kod": "ISYAT",
@@ -4227,7 +4231,9 @@
    "kap_kimlik": "4028e4a240ee866c0140f2710c33013d",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş"
+   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş",
+   "sektor_bulunamadi": "2026-11-22",
+   "sektor_sebep": "sektor alani yok"
   },
   "IYF": {
    "kod": "IYF",
