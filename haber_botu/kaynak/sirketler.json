@@ -4095,7 +4095,10 @@
    "kap_kimlik": "4028e4a140f2ed7201411682b0cb05c6",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş"
+   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş",
+   "sektor": "Financials",
+   "sektor_tr": "Finans",
+   "alt_sektor": "Banks - Regional"
   },
   "ISDMR": {
    "kod": "ISDMR",
@@ -4103,7 +4106,10 @@
    "kap_kimlik": "4028e4a2416e696c01416ee8eb7b3770",
    "sehir": "HATAY",
    "uye_turu": "IGS",
-   "denetci": "GÜNEY BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "GÜNEY BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Steel"
   },
   "ISFAK": {
    "kod": "ISFAK",
@@ -4111,7 +4117,8 @@
    "kap_kimlik": "4028e4a2413b80ca01413bb4d2580033",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş"
+   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş",
+   "sektor_bulunamadi": "2026-11-22"
   },
   "ISFIN": {
    "kod": "ISFIN",
