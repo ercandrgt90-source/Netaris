@@ -1,7 +1,7 @@
 ---
 slug: piyasa-tepkisi-kasim-ayi-enflasyon-beklentisi-ne-tuik-kasim-ayi-ffe7c1-2026-11-23
 baslik: Kasım ayı enflasyon beklentisi ne? TÜİK Kasım ayı enflasyon rakamları ne zaman, saat kaçta açıklanacak?
-ozet: Enflasyon verisi. Bitcoin 1 saat içinde +%0,17 yükseldi.
+ozet: Enflasyon verisi. Bitcoin 1 saat içinde -%0,88 geriledi.
 sirket: Piyasa tepkisi: Kasım ayı enflasyon beklentisi ne? TÜİK Kasım ayı enflasyon rakamları ne zaman, saat kaçta açıklanacak?
 kod: OLAY
 donem: 2026-11-23
@@ -23,8 +23,8 @@ Enflasyon verisi yayımlandı. Kaynak: CNN Türk.
 
 ## Piyasada ne oldu
 
-- **Altın** 1 saat içinde yükseldi: +%0,11 (son 3656,45).
-- **Bitcoin** 1 saat içinde yükseldi: +%0,17 (son 61590,00).
+- **Altın** 1 saat içinde geriledi: -%0,26 (son 3643,60).
+- **Bitcoin** 1 saat içinde geriledi: -%0,88 (son 60724,30).
 
 *Yukarıdaki rakamlar ölçülen fiyat hareketidir. Hareketin sebebinin bu gelişme olduğu iddia edilmemektedir; aynı pencerede başka etkenler de fiyatlanmış olabilir.*
 
