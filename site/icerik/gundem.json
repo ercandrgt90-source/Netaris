@@ -227,6 +227,48 @@
       "foto_atif": "Paul Harrison · CC-BY-SA-4.0"
     },
     {
+      "baslik": "Google, kişiselleştirilmiş Google aramalarını sunuyor. $GOOGL",
+      "baslik_kaynak": "Google introduces tailored Google search. $GOOGL",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9864786/Google-introduces-tailored-Google-search-GOOGL.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Şirket haberleri",
+      "tarih": "2026-11-23",
+      "tarih_gorunur": "23 Kasım 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/sirket-haberleri-18-3ea88e13.jpg",
+      "foto_atif": "Basile Morin · CC-BY-SA-4.0"
+    },
+    {
+      "baslik": "ABD Senatörü Scott, Huang duruşmasının 3 Aralık'ta yapılacağını duyurdu. $NVDA",
+      "baslik_kaynak": "US Sen. Scott announces the Huang hearing for December 3rd. $NVDA",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9864785/US-Sen-Scott-announces-the-Huang-hearing-for-December-3rd-NVDA.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Şirket haberleri",
+      "tarih": "2026-11-23",
+      "tarih_gorunur": "23 Kasım 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/sirket-haberleri-9-c71a9b17.jpg",
+      "foto_atif": "Dietmar Rabich · CC-BY-SA-4.0"
+    },
+    {
       "baslik": "ABD Başkan Yardımcısı Vance, Huang ile görüştü ve hafta sonu Nvidia ile birlikte çalıştı - NYT",
       "baslik_kaynak": "US VP Vance spoke with Huang and worked with Nvidia over the weekend - NYT",
       "ozet": "",
@@ -248,7 +290,7 @@
       "foto_atif": "Gkbediako · CC-BY-SA-4.0"
     },
     {
-      "baslik": "Trump Yönetimi, hafta sonu Nvidia'ya yaptığı bir telefon görüşmesinde, Jensen Huang'ı yeniden CEO olarak atamaları hâlinde ihracat kontrollerine uyduklarından emin olmaları gerektiğini vurguladı - Kaynak $NVDA",
+      "baslik": "Trump Yönetimi, hafta sonu Nvidia'ya yaptığı bir telefon görüşmesinde, Jensen Huang'ı yeniden CEO olarak atayacaklarsa ihracat kontrollerine uyduklarından emin olmaları gerektiğini vurguladı - Kaynak $NVDA",
       "baslik_kaynak": "The Trump Administration stressed to Nvidia in a call over the weekend that they needed to make sure they were abiding by export controls if they were to reinstall Jensen Huang as CEO - Source $NVDA",
       "ozet": "",
       "cevrildi": true,
@@ -269,7 +311,7 @@
       "foto_atif": "King of Hearts · CC-BY-SA-4.0"
     },
     {
-      "baslik": "ABD Ticaret Bakanı Lutnick, NVIDIA yönetim kurulunun Huang'ı yeniden CEO olarak atama kararına dâhil değildi - Konuya Vakıf Kaynak. $NVDA",
+      "baslik": "ABD Ticaret Bakanı Lutnick, NVIDIA yönetim kurulunun Huang'ı yeniden CEO olarak atama kararına dâhil değildi - Konuya Vâkıf Kaynak. $NVDA",
       "baslik_kaynak": "US Commerce Secretary Lutnick was not involved with NVIDIA's board decision to reinstate Huang as CEO - Source Familiar. $NVDA",
       "ozet": "",
       "cevrildi": true,
@@ -374,7 +416,7 @@
       "foto_atif": "DXR · CC-BY-SA-4.0"
     },
     {
-      "baslik": "Birleşik Krallık Başbakanı Burnham: Birleşik Krallık'ı referandumsuz AB'ye geri götürmek düşünülemez",
+      "baslik": "Birleşik Krallık Başbakanı Burnham: Birleşik Krallık'ı referandum olmadan AB'ye geri götürmek düşünülemez",
       "baslik_kaynak": "UK PM Burnham: Unthinkable to take UK back into EU without referendum",
       "ozet": "",
       "cevrildi": true,
@@ -395,7 +437,7 @@
       "foto_atif": "DXR · CC-BY-SA-4.0"
     },
     {
-      "baslik": "Anthropic'in bilgi işlem gücüne o kadar çok talebi var ki Ekim ayına kadar SpaceXAI, Anthropic'in siparişlerini karşılamak için yeni veri merkezlerini tamamlaması gerekiyordu - NYT. $ANT",
+      "baslik": "Anthropic'in bilgi işlem gücüne yönelik talebi o kadar fazla ki Ekim ayına kadar SpaceXAI, Anthropic'in siparişlerini karşılamak için yeni veri merkezlerini tamamlamak zorunda kaldı - NYT. $ANT",
       "baslik_kaynak": "Anthropic has so much demand for computing power that by October. SpaceXAI needed to finish new data centers to fulfill Anthropic’s orders - NYT. $ANT",
       "ozet": "",
       "cevrildi": true,
@@ -416,7 +458,7 @@
       "foto_atif": "Bill Boaden · CC-BY-SA-2.0"
     },
     {
-      "baslik": "ABD PCE Fiyat Endeksi Piyasa Tepkileri ve Sapmaları - FJElite",
+      "baslik": "ABD PCE Fiyat Endeksi Pazar Tepkileri ve Sapmaları - FJElite",
       "baslik_kaynak": "US PCE Price Index Market Reactions & Deviations - FJElite",
       "ozet": "",
       "cevrildi": true,
@@ -1590,48 +1632,6 @@
       "foto_atif": "Syced · CC0"
     },
     {
-      "baslik": "Nvidia'nın Jensen Huang'ın CEO olarak geri döneceğini açıklamasından sonra Musk: İş bitti. $NVDA",
-      "baslik_kaynak": "Musk after Nvidia announces Jensen Huang's return as CEO: It is done. $NVDA",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9864530/Musk-after-Nvidia-announces-Jensen-Huangs-return-as-CEO-It-is-done-NVDA.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Şirket haberleri",
-      "tarih": "2026-11-23",
-      "tarih_gorunur": "23 Kasım 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-7-8b52fc2e.jpg",
-      "foto_atif": "DXR · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "MOO DENGESİZLİĞİ",
-      "baslik_kaynak": "MOO Imbalance",
-      "ozet": "S&P 500: -139 mln Nasdaq 100: -38 mln Dow 30: -60 mln Mag 7: -18 mln",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9864511/MOO-Imbalance.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Şirket haberleri",
-      "tarih": "2026-11-23",
-      "tarih_gorunur": "23 Kasım 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-7-0e2a9249.jpg",
-      "foto_atif": "Myotus · CC-BY-SA-4.0"
-    },
-    {
       "baslik": "DeFi Gelişimi, Solana satın alma serisini 11 haftaya çıkardı; SOL hazinesi 2,62 milyona ulaştı",
       "baslik_kaynak": "DeFi Development extends Solana buying streak to 11 straight weeks, SOL treasury hits 2.62 million",
       "ozet": "DeFi Development added about 5,180 SOL, lifting its Solana treasury to 2.62 million SOL in its 11th straight week of buying since Sept. 14.",
@@ -1821,7 +1821,7 @@
       "foto_atif": "CryptoWallet.com Images · CC-BY-2.0"
     },
     {
-      "baslik": "Cathie Wood'un ARK Invest şirketi, planlanan iki kripto ETF'sini iptal etti",
+      "baslik": "Cathie Wood'un ARK Invest şirketi, planlanan iki kripto ETF'ini iptal etti",
       "baslik_kaynak": "Cathie Wood's ARK Invest pulls the plug on two planned crypto ETFs",
       "ozet": "ProShares' rival CoinDesk 20 Crypto ETF (KRYP) holds $1.81 million in assets nearly 10 months post-launch.",
       "cevrildi": true,
@@ -1931,7 +1931,7 @@
       "foto_atif": "Syced · CC0"
     },
     {
-      "baslik": "Son gelişmeler: Huang'ın dönüşüyle Nasdaq'ın %6 yükselmesiyle Bitcoin 62.000 $'a çıktı",
+      "baslik": "Anlık haberler: Huang'ın dönüşüyle Nasdaq %6 yükselirken Bitcoin 62.000 $'a çıktı",
       "baslik_kaynak": "Live updates: Bitcoin climbs to $62,000 as Nasdaq soars 6% on Huang return",
       "ozet": "The Nvidia board announced the reinstatement of Jensen Huang as president, CEO, and director.",
       "cevrildi": true,
@@ -2036,7 +2036,7 @@
       "foto_atif": "Karlalhdz · CC-BY-SA-4.0"
     },
     {
-      "baslik": "Nvidia rallisi 500 milyon dolarlık kripto likidasyonunu tetiklerken Bitcoin 55 bin dolarlık dip seviyelerden %17 sıçradı",
+      "baslik": "Nvidia'daki yükselişin 500 milyon dolarlık kripto likidasyonuna yol açmasıyla Bitcoin 55 bin dolarlık dip seviyelerden %17 toparlandı",
       "baslik_kaynak": "Bitcoin rebounds 17% from $55K lows as Nvidia rally sparks $500M crypto liquidations",
       "ozet": "Bitcoin price upside hit $64,500 as risk assets surged on Nvidia CEO Jensen Huang’s reinstatement, while crypto liquidations topped $500 million four hours.",
       "cevrildi": true,
@@ -2057,7 +2057,7 @@
       "foto_atif": "CryptoWallet.com Images · CC-BY-2.0"
     },
     {
-      "baslik": "Piyasa derinliği, hafta sonu gerçekleşen bir Bitcoin satışının fiyatını nasıl şekillendirir?",
+      "baslik": "Piyasa derinliği, hafta sonu Bitcoin satışının fiyatını nasıl şekillendirir?",
       "baslik_kaynak": "How market depth shapes the price of a weekend Bitcoin sale",
       "ozet": "Over 14 hours, Bitcoin traded on Kraken’s Canadian dollar market at an average 37.3% discount to a benchmark based on the exchange’s US dollar trades.",
       "cevrildi": true,
@@ -2505,7 +2505,7 @@
       "dil": "en",
       "ticari": false,
       "bolge": "DUNYA",
-      "adres": "http://www.boj.or.jp/en/research/imes/mes/mes26.htm",
+      "adres": "https://www.boj.or.jp/en/research/imes/mes/mes26.htm",
       "kurum": "BoJ",
       "kurum_tam": "Japonya Merkez Bankası",
       "konu": "Para politikası",
@@ -2515,8 +2515,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-9-f9a4682a.jpg",
-      "foto_atif": "DXR · CC-BY-SA-4.0"
+      "foto": "/statik/foto/para-politikasi-10-bce0f56d.jpg",
+      "foto_atif": "Tony Webster · CC-BY-2.0"
     },
     {
       "baslik": "Amerika Birleşik Devletleri, Polygroup Industrias México'da İşçi Haklarının İhlal Edildiğine İlişkin İddiaların Meksika Tarafından İncelenmesini İstiyor",
