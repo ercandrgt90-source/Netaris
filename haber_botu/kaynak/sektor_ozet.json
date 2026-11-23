@@ -334,14 +334,14 @@
     "borc_ozkaynak": -0.03705255681818182
    },
    "BRKVY": {
-    "brut_marj": 69.22538139952285,
+    "brut_marj": 68.98461269069976,
     "net_marj": 10.760172477947776,
     "roe": 3.240606460118655,
-    "cari_oran": 2.1702741702741704,
+    "cari_oran": 2.047743623283192,
     "borc_ozkaynak": 0.7626895187870798
    },
    "BULGS": {
-    "brut_marj": 53.81441223832528,
+    "brut_marj": 53.33132045088567,
     "net_marj": -2156.803542673108,
     "roe": -111.64365720239647,
     "cari_oran": 99.53739612188366,
@@ -355,10 +355,10 @@
     "borc_ozkaynak": -0.014652281673713368
    },
    "CRDFA": {
-    "brut_marj": 93.21656483367278,
+    "brut_marj": 93.11608961303463,
     "net_marj": -488.7983706720978,
     "roe": -211.40904125999788,
-    "cari_oran": 1.3645348837209301,
+    "cari_oran": 1.345413363533409,
     "borc_ozkaynak": 1.7041917714903163
    },
    "DCTTR": {
@@ -426,7 +426,7 @@
     "net_marj": -156.01926163723917,
     "roe": -12.564632885211996,
     "cari_oran": 14.54775828460039,
-    "borc_ozkaynak": -0.14904343329886247
+    "borc_ozkaynak": -0.7837383660806618
    },
    "GEDIK": {
     "net_marj": -0.18342262315513008,
@@ -525,7 +525,7 @@
    },
    "INVEO": {
     "roe": -51.08781422613009,
-    "borc_ozkaynak": 0.7610190508398151
+    "borc_ozkaynak": 0.756284522601736
    },
    "INVES": {
     "roe": -32.11854225070084,
@@ -537,86 +537,6 @@
    [
     "MARKA",
     "eksik: hasilat"
-   ],
-   [
-    "DCTTR",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "DSTKF",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "ETYAT",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "EUHOL",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "EUKYO",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "EUYO",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "GARAN",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "GARFA",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "GEDIK",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "GLBMD",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "GLCVY",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "GLRYH",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "GOZDE",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "GRNYO",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "HALKB",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "HDFGS",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "HEDEF",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "HUBVC",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "ICBCT",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "INFO",
-    "eksik: hasilat, net_kar, aktif_toplami"
    ],
    [
     "ISBTR",
@@ -719,6 +639,26 @@
    "BULGS",
    "COSMO",
    "CRDFA",
+   "DCTTR",
+   "DSTKF",
+   "ETYAT",
+   "EUHOL",
+   "EUKYO",
+   "EUYO",
+   "GARAN",
+   "GARFA",
+   "GEDIK",
+   "GLBMD",
+   "GLCVY",
+   "GLRYH",
+   "GOZDE",
+   "GRNYO",
+   "HALKB",
+   "HDFGS",
+   "HEDEF",
+   "HUBVC",
+   "ICBCT",
+   "INFO",
    "INVEO",
    "INVES"
   ],
@@ -743,7 +683,7 @@
     ]
    }
   },
-  "tazelendi": "2026-11-22T01:29:00+00:00"
+  "tazelendi": "2026-11-23T03:00:09+00:00"
  },
  "Gayrimenkul": {
   "sektor": "Gayrimenkul",

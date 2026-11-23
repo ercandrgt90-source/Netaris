@@ -4296,7 +4296,10 @@
    "kap_kimlik": "4028e4a140f275550140f27e319401ca",
    "sehir": "İZMİR",
    "uye_turu": "IGS",
-   "denetci": "KPMG BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "KPMG BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Steel"
   },
   "JANTS": {
    "kod": "JANTS",
@@ -4326,7 +4329,10 @@
    "kap_kimlik": "4028e4a1422d986901426b87f6a905e5",
    "sehir": "DENİZLİ",
    "uye_turu": "IGS",
-   "denetci": ""
+   "denetci": "",
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Steel"
   },
   "KAREL": {
    "kod": "KAREL",
@@ -4378,7 +4384,8 @@
    "kap_kimlik": "8acae2c45835eb6501589126d8f220fc",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "DRT BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "DRT BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor_bulunamadi": "2026-11-23"
   },
   "KAYSE": {
    "kod": "KAYSE",
