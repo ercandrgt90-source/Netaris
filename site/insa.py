@@ -7849,7 +7849,64 @@ def insa() -> int:
     #
     # Besleme SITE HARITASINA GIRMEZ: makine icin, okur icin degil.
     # `yollar` listesine eklenmemesi bilincli.
+    # BILANCO BESLEMESI -- RAKAM YORUMU BEKLEMIYOR.
+    #
+    # Olculdu (2026-11-22): ozette 384 sirketin olcumu var, 2026 3.
+    # ceyrek sayfasi olan 341 ve mobil tarafta bilanco ekrani YOK.
+    # Yani 43 sirketin rakami elimizdeyken hicbir yuzeyde
+    # gorunmuyordu, 384'u ise uygulamada hic gorunmuyordu.
+    #
+    # Sebep yapisaldi: bilanco rakami yalnizca markdown sayfasinda
+    # yayimlaniyor ve o sayfa AI yorumuna bagli ("YORUMSUZ SAYFA
+    # YAYIMLANMIYOR"). Besleme rakami yorumdan ayiriyor.
+    #
+    # INSAYI DUSURMUYOR: her sey bir `try` icinde ve basarisizlikta
+    # besleme BOS paketle uretiliyor (dizin + sayfa-1 yine yaziliyor,
+    # toplam 0). Bilanco verisi okunamadi diye haber sitesinin
+    # dagitimi durmaz.
+    _bilanco_paketi: dict = {}
+    try:
+        import bilanco_besleme as _bb              # noqa: PLC0415
+        _bilanco_ozet = json.loads(
+            (pathlib.Path(__file__).resolve().parent.parent / "haber_botu"
+             / "kaynak" / "sektor_ozet.json").read_text(encoding="utf-8"))
+        _bilanco_sirket = json.loads(
+            (pathlib.Path(__file__).resolve().parent.parent / "haber_botu"
+             / "kaynak" / "sirketler.json").read_text(
+                encoding="utf-8")).get("sirketler") or {}
+        # SAYFA HARITASI URETILEN ANALIZLERDEN -- IKINCI BIR TARAMA YOK.
+        #
+        # `kategori` olcutu ureten tarafin sabitinden geliyor
+        # (`sayfa_kodlari.BILANCO_KATEGORI`); burada dizge yazmak,
+        # baslik degistigi gun butun baglantilarin sessizce
+        # kaybolmasi olurdu.
+        import sayfa_kodlari as _sk                # noqa: PLC0415
+        # HARITA IKI KADEMELI: kod -> donem -> yol.
+        #
+        # Tek kademeliydi ve URETILEN beslemede olculdu
+        # (2026-11-22): 379 bagin 316'si YANLIS DONEMI gosteriyordu.
+        # Bir sirketin birden cok donem sayfasi var (A1CAP'in hem
+        # 2026-2 hem 2026-3 sayfasi); sozluk kurulurken hangisi
+        # sonra geldiyse o kaliyordu ve bag CALISIYORDU -- yalnizca
+        # bir onceki ceyregi aciyordu.
+        _bilanco_sayfalari: dict = {}
+        for a in analizler:
+            if a.kategori != _sk.BILANCO_KATEGORI or not a.kod:
+                continue
+            # (SITE YOLU, SLUG): uygulama kendi yonlendiricisi icin
+            # slug'a ihtiyac duyuyor, site adresini kirparak
+            # turetmek adres duzenini iki yere yazmak olurdu.
+            _bilanco_sayfalari.setdefault(
+                a.kod.upper(), {})[a.donem or ""] = (a.yol, a.slug)
+        _bilanco_paketi = _bb.kur(_bilanco_ozet, _bilanco_sirket,
+                                  sayfalar=_bilanco_sayfalari)
+        print(f"bilanço beslemesi: {_bilanco_paketi.get('toplam', 0)} şirket, "
+              f"{len(_bilanco_sayfalari)} sayfa bağı")
+    except (OSError, ValueError, ImportError, AttributeError) as _e:
+        print(f"bilanço beslemesi KURULAMADI: {type(_e).__name__}: {_e}")
+
     _besleme = mobil_besleme.uret(
+        bilanco=_bilanco_paketi,
         analizler=listelenen,
         haberler=uretilecek,
         gostergeler=gostergeler,

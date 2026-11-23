@@ -91,8 +91,12 @@ def _cekim_kur(okunamayan_ekle):
     birakiyor -- kaynagin istegi reddettigi hal. Verilmezse kaynak
     cevap vermis ama alanlar gercekten eksiktir.
     """
+    # `**k` BILINCLI: gercek `donem_getir` yeni bir anahtar kelime
+    # aldiginda (`tablolar`) bu sahte imza onu REDDEDIYORDU ve sinama
+    # TypeError ile dusuyordu. Sahte bir imzanin gercegi birebir
+    # taklit etmesi SART degil; reddetmemesi sart.
     def _getir(kod, etiket, ceyrek=1, sektor_tr="", istemci=None,
-               ciftli=False, seri=False):
+               ciftli=False, seri=False, **k):
         if okunamayan_ekle:
             T.bilanco_ag.OKUNAMAYAN.append((kod, okunamayan_ekle))
         return (None, None, ["hasilat", "net_kar"], []) if ciftli \

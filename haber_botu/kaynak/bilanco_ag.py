@@ -642,6 +642,34 @@ def ara_donem(kod: str, ceyrek: int = VARSAYILAN_CEYREK,
             cikti.setdefault("_kirpilan", {})[sayfa] = at
         if not kalemler:
             continue
+        if sayfa == "bilanco":
+            # OZDESLIK DENETIMININ GIRDISI -- HIC URETILMIYORDU.
+            #
+            # OLCULDU (2026-11-22): `uret_bilanco.py` satir 533 bu
+            # anahtari OKUYOR, hicbir yer YAZMIYORDU. Yani
+            #
+            #     tekil = {...} if tablolar.get("_ham_bilanco") else {}
+            #     if tekil:
+            #         bozuk = bilanco_ag.ozdeslik_denetimi(tekil)
+            #
+            # dalina hic girilmiyordu ve muhasebe ozdeslik denetimi
+            # URETIMDE HIC KOSMADI. Kanit: `sektor_ozet.json`daki 52
+            # atlamanin SIFIRI "özdeşlik:" sebebiyle. Modul basligi
+            # ("kaynaktan bagimsiz tek gercek sinama budur") ve
+            # `uret_bilanco` docstring'i ("Tutmayan sirket ATLANIYOR")
+            # bir seyi iddia ediyor, akis onu uygulamiyordu.
+            #
+            # Birim sinamasi bunu goremezdi: `ozdeslik_denetimi`
+            # TEK BASINA sinaniyor ve dogru calisiyor. Eksik olan
+            # fonksiyon degil, ONA VERI GIDEN YOL.
+            #
+            # STOK KALEMI, SON CEYREK: ozdeslik bir ANIN tablosunda
+            # tutar. Kumulatif ara donem (`cikti["bilanco"]`) zaten
+            # son ceyregin degerini aynen tasiyor ama yalnizca
+            # ESLESMEDEKI kalemleri; denetim "Total Liabilities",
+            # "Working Capital" gibi eslesmede olmayan kalemleri de
+            # okuyor. Bu yuzden HAM tablo ayrica tasiniyor.
+            cikti["_ham_bilanco"] = kalemler
         akis = sayfa in AKIS_SAYFALARI
         cikti[sayfa] = {
             ad: d for ad, deg in kalemler.items()
@@ -746,6 +774,22 @@ NET_NAKIT_ETIKETI = "Net Cash (Debt)"
 #: URETILMIYOR -- yaklasik bir FAVOK, FAVOK degildir.
 AMORTISMAN_ETIKETI = "Depreciation & Amortization"
 
+#: YATIRIM HARCAMASI ETIKETI -- SABIT, SATIR ICI DIZGE DEGIL.
+#:
+#: OLCULDU (2026-11-22): bu etiket `donemi_kur` icinde satir ici
+#: bir dizgeydi ve `bilanco_defteri` suzgecini ESLESME ile iki
+#: sabitten turettigi icin GORMEDI. Defterden okunan veride
+#: `yatirim_harcamasi` ve ona bagli serbest nakit akisi SESSIZCE
+#: bos kaliyordu -- alti sirketin hepsinde, esdegerlik olcumu
+#: yakaladi.
+#:
+#: Kural: `donemi_kur`un okudugu her etiket ADLANDIRILMIS bir
+#: sabitten ya da ESLESME'den gelir. `test_bilanco_defteri.py`
+#: bunu AST ile tutuyor; satir ici bir dizge eklenirse kirmizi
+#: doner. Suzgecin kendisi de o sabitlerden turetiliyor, yani
+#: yeni bir etiket eklemek suzgeci KENDILIGINDEN genisletiyor.
+CAPEX_ETIKETI = "Capital Expenditures"
+
 
 def donemi_kur(tablolar: dict, onceki: bool = False,
                ek: str = "") -> dict:
@@ -782,14 +826,64 @@ def donemi_kur(tablolar: dict, onceki: bool = False,
     # Cevirmeden aktarmak yatirim yapan sirketi yatirim GELIRI olan
     # sirket gostermek olurdu; serbest nakit akisi hesabini da ters
     # yone cevirirdi.
-    capex = (tablolar.get("nakit" + _ek) or {}).get("Capital Expenditures")
+    capex = (tablolar.get("nakit" + _ek) or {}).get(CAPEX_ETIKETI)
     if capex is not None:
         cikti["yatirim_harcamasi"] = abs(capex)
 
-    amortisman = (tablolar.get("nakit") or {}).get(AMORTISMAN_ETIKETI)
+    # AMORTISMAN DA `_ek`TEN OKUNUYOR -- ONCE OKUMUYORDU.
+    #
+    # OLCULDU (2026-11-22), TUPRS ornek cekimi:
+    #
+    #     donem     FAVOK (yanlis)   FAVOK (dogru)   sapma
+    #     simdi        93,60 mlr        93,60 mlr    %0,00
+    #     onceki yil   28,37 mlr        28,14 mlr    %0,80
+    #     -1 donem     62,04 mlr        61,55 mlr    %0,80
+    #     -2 donem     19,45 mlr        18,38 mlr    %5,86
+    #     -3 donem     19,57 mlr        18,53 mlr    %5,61
+    #
+    # Satir `"nakit"` yaziyordu, `"nakit" + _ek` degil. Yani HANGI
+    # donem istenirse istensin amortisman BU donemden geliyordu:
+    # onceki yilin faaliyet kari + bu yilin amortismani.
+    #
+    # NEDEN GORULMEDI: `_ek` bos oldugunda (ana donem) formul DOGRU
+    # sonuc veriyor. Sayfadaki FAVOK rakami dogru, FAVOK DEGISIMI ve
+    # egilim serisi yanlisti -- yani basligi dogru, kiyasi bozuk bir
+    # sayfa. `ek` parametresi seri icin eklendiginde capex satiri
+    # guncellendi, bu satir atlandi; docstring ise "amortisman
+    # kurallari TEK yerde kaliyor" diyordu.
+    #
+    # Ayni sinifi `test_bilanco_defteri.py` artik AST ile tutuyor:
+    # `tablolar`dan okunan her sayfa anahtari `_ek` tasimali.
+    amortisman = (tablolar.get("nakit" + _ek) or {}).get(AMORTISMAN_ETIKETI)
     if amortisman is not None and cikti.get("faaliyet_kari") is not None:
         cikti["favok"] = cikti["faaliyet_kari"] + amortisman
     return cikti
+
+
+#: `ozdeslik_denetimi`in OKUDUGU etiketler -- TEK YER.
+#:
+#: NEDEN AYRI BIR SABIT: defter (`bilanco_defteri`) cekimi suzerek
+#: sakliyor ve suzgeci ESLESME'den turetiyor. Ozdeslik denetiminin
+#: etiketleri ESLESME'de YOK ("Total Liabilities", "Working Capital"
+#: gibi) -- suzgec onlari dusurse denetim defterden okunan veride
+#: hicbir seyi karsilastiramaz ve SESSIZCE bos doner. Yani denetim
+#: calisir gorunur, hicbir sey denetlemez.
+#:
+#: Fonksiyon bu listeyi KULLANMIYOR, sadece ayni dizgileri okuyor --
+#: ve tam bu yuzden `test_bilanco_ag.py` AST ile `al(...)` cagrilarini
+#: tarayip her birinin burada OLDUGUNU sinamali. Yorumla tutulan bir
+#: es-anlamlilik, tutulmayan bir es-anlamliliktir.
+OZDESLIK_ETIKETLERI = (
+    "Total Assets",
+    "Total Liabilities & Equity",
+    "Total Liabilities",
+    "Shareholders' Equity",
+    "Total Common Equity",
+    "Minority Interest",
+    "Total Current Assets",
+    "Total Current Liabilities",
+    "Working Capital",
+)
 
 
 def ozdeslik_denetimi(bilanco: dict, tolerans: float = 0.01) -> list[str]:
@@ -904,7 +998,7 @@ def yeterli(donem: dict, sektor_tr: str = "") -> tuple[bool, list[str]]:
 def donem_getir(kod: str, etiket: str,
                 ceyrek: int = VARSAYILAN_CEYREK,
                 sektor_tr: str = "", istemci=None, ciftli: bool = False,
-                seri: bool = False):
+                seri: bool = False, tablolar: dict | None = None):
     """Sirketin bir ara donemini `oranlar.Donem` olarak doner.
 
     Yetersiz veride `None` DONER, yarim nesne degil. Cagiran taraf
@@ -914,13 +1008,24 @@ def donem_getir(kod: str, etiket: str,
 
     Donen ikili: (Donem, eksik_alanlar). Donem None ise eksik listesi
     NEDEN uretilmedigini soyluyor; sessiz basarisizlik yok.
+
+    `tablolar` VERILIRSE AGA CIKILMAZ. Cagiran taraf ayni cekimi
+    zaten elinde tutuyorsa (bkz. `bilanco_defteri`) ikinci kez
+    istemek kaynagi kapatiyor -- olculdu, kosu #117: sayfa adiminin
+    180 istegi veri adimi baslamadan butceyi tuketti.
+
+    TURETME YINE BURADA KALIYOR. Defter HAM cekimi sakliyor, bu
+    yuzden asagidaki `donemi_kur` / `donem_toplami` / seri kurulumu
+    AYNEN kosuyor. Kuralin ikinci bir kopyasi yok; yalnizca verinin
+    nereden geldigi degisiyor.
     """
     import sys as _sys
     import pathlib as _pl
     _sys.path.insert(0, str(_pl.Path(__file__).resolve().parent.parent / "analiz"))
     import oranlar                                    # noqa: PLC0415
 
-    tablolar = ara_donem(kod, ceyrek, istemci)
+    if tablolar is None:
+        tablolar = ara_donem(kod, ceyrek, istemci)
     alanlar = donemi_kur(tablolar)
     tamam, eksik = yeterli(alanlar, sektor_tr)
     if not tamam:

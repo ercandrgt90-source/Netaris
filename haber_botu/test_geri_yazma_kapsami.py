@@ -158,6 +158,43 @@ esit(_disarida, [], "geri yazma listesinin dışında yazma hedefi yok")
 
 # ---------------------------------------------------------------
 print("")
+print("2b. ICE ALINAN YARDIMCININ yazma hedefi -- KOR NOKTA")
+
+# `yazma_hedefleri` yalnizca BETIGIN KENDI modul duzeyi sabitlerine
+# bakiyor: `SABIT.write_text(...)` bicimi. Bilanco defteri bu kaliba
+# UYMUYOR -- yazan taraf `bilanco_defteri.yaz()`, yani betigin ICE
+# ALDIGI bir yardimci, ve hedef `yol(kod)` ile HESAPLANAN bir dosya.
+#
+# OLCULDU (2026-11-22): yol geri yazma listesinden cikarildiginda bu
+# dosya YESIL donuyordu. Yani kor nokta gercek.
+#
+# GENEL KURAL YAZILMADI, BILEREK. "Ice alinan her modulun Path
+# sabiti listede olmali" kurali olculdu: bilanco akisinin betikleri
+# bir kademe izlendiginde ~25 yol cikiyor ve cogu BASKA AKISA ait
+# ya da hic yazilmayan bir kok dizin (`_KOK = haber_botu`). O kurali
+# koymak, MUAF listesini on bes yola cikarmak demekti -- ve bu
+# dosyanin 3. bolumu tam olarak muafiyetin sessizce buyumesini
+# engellemek icin var.
+#
+# Bunun yerine TEK ve TURETILMIS bir madde: yol elle yazilmiyor,
+# modulun kendi sabitinden okunuyor.
+import bilanco_defteri                                     # noqa: E402
+
+_defter_yolu = bilanco_defteri.KOK.resolve().relative_to(_DEPO).as_posix()
+esit(_defter_yolu in _liste, True,
+     f"bilanço defteri geri yazma listesinde: {_defter_yolu}")
+
+# DEFTER GERCEKTEN YAZIYOR MU -- yoksa yukaridaki madde, yazilmayan
+# bir yolu listede tutmayi sart kosardi.
+_defter_agaci = ast.parse(
+    (_KOK / "kaynak" / "bilanco_defteri.py").read_text(encoding="utf-8"))
+_yazim = [d for d in ast.walk(_defter_agaci)
+          if isinstance(d, ast.Call) and isinstance(d.func, ast.Attribute)
+          and d.func.attr in ("write_text", "write_bytes")]
+esit(len(_yazim) >= 1, True, "defter modülü gerçekten dosya yazıyor")
+
+# ---------------------------------------------------------------
+print("")
 print("3. MUAF listesi GERCEKTEN muaf -- sessizce genisletilemez")
 
 # Muaf bir yol listede DE olmamali: oradaysa muafiyet gerekcesi
@@ -272,8 +309,20 @@ print("6. SINAMALAR uretim DURUMUNA dokunmuyor")
 # red defteri VE yayin dizininin icerigi. Yazma yolu her
 # eklendiginde kurali genisletmek gerekirse, kural eksik
 # yazilmis demektir.
+# `sektor_isle` SONRADAN EKLENDI -- VE EKSIKLIGI OLCULDU.
+#
+# Liste `sirket_isle` (sayfa adimi) tasiyordu, `sektor_isle` (veri
+# adimi) tasimiyordu. Veri adimi 2026-11-22'de bilanco defterine de
+# yazmaya baslayinca dort sinama URETIM defterine yazdi
+# (test_bilanco_sirasi, test_bilanco_yazma, test_donem_tutarliligi,
+# test_mali_grup) ve bu dosya YESIL dondu: tarama o islevi hic
+# aramiyordu.
+#
+# Ikisinin adi bir harf farkli ve bu kusura davetiye: "sirket" ile
+# "sektor". Ad benzerligine guvenmek yerine liste, URETIM DURUMUNA
+# yazan BUTUN giris noktalarini saymali.
 URETIM_YAZANLAR = ("ret_yaz", "yaz_sektorel", "sayfa_tazele",
-                   "sirket_isle")
+                   "sirket_isle", "sektor_isle")
 
 _KENDI = pathlib.Path(__file__).name
 _cagiran = []
@@ -297,10 +346,25 @@ import yayin                                            # noqa: E402
 
 
 def _durum() -> tuple:
-    """Izlenen URETIM DURUMU: red defteri + yayin dizini.
+    """Izlenen URETIM DURUMU: red defteri + yayin dizini + bilanco defteri.
 
     Dizin ADLARLA DEGIL ICERIKLE ozetleniyor: var olan bir sayfanin
     uzerine yazmak da kirliliktir ve ad listesi onu gormez.
+
+    BILANCO DEFTERI UCUNCU IZLENEN YER -- VE EKLENME SEBEBI OLCULDU.
+    -----------------------------------------------------------------
+    Defter 2026-11-22'de eklendi ve ayni gun `test_bilanco_sirasi.py`
+    ile `test_mali_grup.py` URETIM defterine yazdi: dizinde 13 sahte
+    kayit (AAGYO, TDGYO, ...). Ikisi de `sektor_isle`i sahte cekimle
+    cagiriyor ve `sektor_isle` artik deftere de yaziyor.
+    Hicbir sinama kirmizi donmedi, cunku bu islev yalnizca IKI yeri
+    izliyordu.
+
+    Bu, yukarida yazili olan uyarinin uc kez dogrulanmasi:
+    "yazma yolu her eklendiginde kurali genisletmek gerekirse, kural
+    eksik yazilmis demektir." Kural hala genisletilmek zorunda --
+    ama en azindan GENISLETILDIGINDE geriye donuk olarak kirliligi
+    yakaliyor ve yeni yazma yolunun sinanmasi tek satir.
     """
     defter = (U.RET_DEFTERI.read_bytes()
               if U.RET_DEFTERI.is_file() else None)
@@ -308,10 +372,14 @@ def _durum() -> tuple:
     if yayin.SITE_ICERIK.is_dir():
         for _y in sorted(yayin.SITE_ICERIK.glob("*.md")):
             dizin[_y.name] = hashlib.sha256(_y.read_bytes()).hexdigest()
-    return defter, dizin
+    bdefter = {}
+    if bilanco_defteri.KOK.is_dir():
+        for _y in sorted(bilanco_defteri.KOK.glob("*.json")):
+            bdefter[_y.name] = hashlib.sha256(_y.read_bytes()).hexdigest()
+    return defter, dizin, bdefter
 
 
-_ONCE_DEFTER, _ONCE_DIZIN = _durum()
+_ONCE_DEFTER, _ONCE_DIZIN, _ONCE_BDEFTER = _durum()
 esit(len(_ONCE_DIZIN) > 0, True,
      f"atıllık kontrolü: yayın dizininde {len(_ONCE_DIZIN)} sayfa var, "
      f"kirlilik ölçülebilir")
@@ -320,7 +388,7 @@ _kirleten = []
 for _p in _cagiran:
     subprocess.run([sys.executable, "-X", "utf8", "-B", _p.name],
                    cwd=_p.parent, capture_output=True, timeout=600)
-    _sd, _sz = _durum()
+    _sd, _sz, _sb = _durum()
     _neden = []
     if _sd != _ONCE_DEFTER:
         _neden.append("red defteri")
@@ -340,6 +408,15 @@ for _p in _cagiran:
         # sayfayi bu sinamadan geri yazmak, kaybi gizlemek olurdu.
         for _a in _yeni:
             (yayin.SITE_ICERIK / _a).unlink(missing_ok=True)
+    if _sb != _ONCE_BDEFTER:
+        _byeni = sorted(set(_sb) - set(_ONCE_BDEFTER))
+        _bdeg = sorted(a for a in set(_sb) & set(_ONCE_BDEFTER)
+                       if _sb[a] != _ONCE_BDEFTER[a])
+        _neden.append(f"bilanço defteri (yeni {_byeni}, değişen {_bdeg})")
+        # Yalnizca sinamanin DOGURDUGU kayit siliniyor; var olan bir
+        # kaydi buradan geri yazmak kaybi gizlemek olurdu.
+        for _a in _byeni:
+            (bilanco_defteri.KOK / _a).unlink(missing_ok=True)
     if _neden:
         _kirleten.append((_p.name, "; ".join(_neden)))
 

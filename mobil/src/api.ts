@@ -258,6 +258,127 @@ export type AramaDizini = {
 
 export const aramaDizini = () => getir<AramaDizini>(`${ONEK}/arama.json`);
 
+/**
+ * BİLANÇO BESLEMESİ
+ *
+ * Rakam, AI yorumunu BEKLEMİYOR. Site tarafında bilanço sayfası
+ * yorum üretilemezse hiç yazılmıyor; ölçüldü (2026-11-22): özette
+ * 384 şirketin ölçümü var, 2026 3. çeyrek sayfası olan 341 ve
+ * uygulamada bilanço ekranı yoktu. Besleme rakamı yorumdan ayırıyor.
+ *
+ * `derinlik` ALANINA DİKKAT:
+ *   "defter" -- TL seviyeleri, önceki yıl ve eğilim serisi var
+ *   "ozet"   -- yalnızca oranlar ve dönem var; çekim henüz yapılmamış
+ *
+ * Bu alan EKRANDA GÖRÜNMELİ. Yokluğu gizlemek, okura eksik veriyi
+ * tam gibi göstermek olurdu; "ozet" derinliğinde seviye tablosu boş
+ * gelir ve bunu arıza sanmak kolaydır.
+ *
+ * METİN ALANLARI HAZIR GELİYOR (`deger_metin`, `degisim_metin`).
+ * Burada yeniden biçimlendirme YAPILMAMALI: "474,39 milyar TL"
+ * kararı sitenin kendi `_mlr` işlevinde veriliyor ve site de aynı
+ * metni basıyor. İkinci bir biçimlendirici, aynı şirketi iki yüzeyde
+ * iki farklı sayıyla göstermenin en sessiz yolu.
+ */
+export type BilancoOlcumu = {
+  alan: string;
+  ad: string;
+  deger: number;
+  deger_metin: string;
+  once: number | null;
+  once_metin: string;
+  /** İşaret değişiminde (kârdan zarara) null -- yüzde üretilmiyor. */
+  degisim: number | null;
+  degisim_metin: string;
+};
+
+export type BilancoOrani = {
+  alan: string;
+  ad: string;
+  deger: number;
+  deger_metin: string;
+  birim: string;
+  medyan: number | null;
+  medyan_metin: string;
+};
+
+export type BilancoSeriOgesi = {
+  etiket: string;
+  bitis: string;
+  metin: Record<string, string>;
+} & Record<string, number | null | string | Record<string, string>>;
+
+export type Bilanco = {
+  kod: string;
+  unvan: string;
+  sektor: string;
+  alt_sektor: string;
+  donem: string;
+  donem_bitis: string;
+  sektor_sirket_sayisi: number;
+  /** Yorumu yayımlanmış sayfanın SİTE adresi; yoksa null. */
+  sayfa: string | null;
+  /**
+   * Aynı sayfanın slug'ı -- uygulamanın kendi yönlendiricisi için.
+   *
+   * `sayfa` sitenin adresi ("/analiz/<slug>/", sondaki eğik
+   * çizgiyle). Uygulama rotası "/analiz/[slug]" bekliyor; adresi
+   * burada kırpmak, site adres düzenini TypeScript tarafına
+   * kopyalamak olurdu ve düzen değiştiği gün bağ sessizce kırılırdı.
+   */
+  sayfa_slug: string | null;
+  derinlik: string;
+  guncellendi: string;
+  oranlar: BilancoOrani[];
+  olcumler: BilancoOlcumu[];
+  seri: BilancoSeriOgesi[];
+};
+
+export type BilancoDizinOgesi = {
+  kod: string;
+  unvan: string;
+  sektor: string;
+  donem: string;
+  donem_bitis: string;
+  net_marj: number | null;
+  net_marj_metin: string;
+  roe: number | null;
+  roe_metin: string;
+  derinlik: string;
+  sayfa: string | null;
+  sayfa_slug: string | null;
+  dosya: string;
+};
+
+export type BilancoDizini = {
+  surum: number;
+  uretildi: string;
+  toplam: number;
+  /** TL seviyesi olan şirket sayısı. Sıfıra düşerse düzenek ölmüştür. */
+  defterli: number;
+  sayfa_boyu: number;
+  sayfa_sayisi: number;
+  liste: string;
+  sektorler: {
+    sektor: string;
+    donem: string;
+    sirket_sayisi: number;
+    medyan: Record<string, number>;
+    tazelendi: string;
+  }[];
+};
+
+export const bilancoDizini = () =>
+  getir<BilancoDizini>(`${ONEK}/bilanco.json`);
+
+export const bilancoSayfasi = (no = 1) =>
+  getir<Sayfa<BilancoDizinOgesi>>(`${ONEK}/bilanco/sayfa-${no}.json`);
+
+export const bilanco = (kod: string) =>
+  getir<Bilanco>(
+    `${ONEK}/bilanco/${encodeURIComponent(kod.toLowerCase())}.json`,
+  );
+
 export type Sayfa<T> = {
   surum: number;
   sayfa: number;

@@ -181,6 +181,24 @@ export default function Piyasalar() {
             </Text>
           </Pressable>
 
+          {/* BILANCOLARA KAPI.
+              BIST ENDEKS VERISI DEGIL, SIRKETLERIN KENDI ACIKLADIGI
+              MALI TABLOSU. Ayrim onemli: endeks ve fiyat verisinin
+              dagitim lisansi bizde degil ve asagidaki not bunu
+              soyluyor; mali tablolar ise sirketlerin kamuya
+              acikladigi rakamlar. Ikisini ayni ekranda tutmak
+              okurun lisans notunu bilancoya da ait sanmasina yol
+              acabilir, o yuzden kapi ayri ve adi acik. */}
+          <Pressable
+            onPress={() => router.push("/bilancolar")}
+            accessibilityRole="button"
+            style={[s.takvim, { borderColor: t.renk.cizgiParlak }]}
+          >
+            <Text style={{ color: t.renk.vurgu, fontWeight: "600" }}>
+              Bilançolar · şirketlerin açıkladığı mali tablolar
+            </Text>
+          </Pressable>
+
           {/* TAKVIME KAPI: piyasa hareketi cogu zaman bir veri
               aciklamasina bagli; ikisi ayri ekranlarda ama bir
               dokunus uzakta. */}

@@ -535,10 +535,26 @@ jobs:
           # yok" -- CI'nin urettigi "girdide olmayan sayi"
           # redlerinden tek satir yok, cunku hicbiri geri yazilmadi.
           # Bu defteri yalnizca BU akis yaziyor, yarisacak kimse yok.
+          # BILANCO DEFTERI DE GERI YAZILIYOR.
+          #
+          # Defter, veri adiminin cektigi mali tablolari sakliyor ve
+          # sayfa adimi agdan degil ORADAN okuyor. Geri yazilmazsa
+          # her kosu BOS DEFTERLE baslar: sayfa adimi yine sirket
+          # basina uc istek atar, kaynak yine veri adimi baslamadan
+          # kapanir ve kazanc hicbir kosuda gorunmez.
+          #
+          # Bu depoda yazili kusur sinifi: geri yazilmayan kayit
+          # YOK OLUR -- yazma BASARILI gorunur, kosucu sonunce kayit
+          # gider ve hicbir sey hata vermez.
+          #
+          # SADECE BU AKIS YAZIYOR, yarisacak kimse yok --
+          # `netaris.db` icin gecerli olan cakisma gerekcesi burada
+          # gecerli degil.
           for y in site/bilanco_miras_bozuk.json \
                    site/icerik/analizler \
                    haber_botu/kaynak/sektor_ozet.json \
                    haber_botu/kaynak/sirketler.json \
+                   haber_botu/kaynak/bilanco_defteri \
                    haber_botu/kaynak/bilanco_ai_ret.json \
                    haber_botu/kaynak/bilanco_nobet.json; do
             [ -e "$y" ] && YOLLAR="$YOLLAR $y"

@@ -43,6 +43,7 @@ _KOK = pathlib.Path(__file__).resolve().parent
 sys.path[:0] = [str(_KOK), str(_KOK / "kaynak"), str(_KOK / "analiz")]
 
 import bilanco_ag      # noqa: E402
+import bilanco_defteri  # noqa: E402
 import oranlar         # noqa: E402
 import sektor_ozet     # noqa: E402
 
@@ -512,6 +513,10 @@ def sektor_isle(sektor_tr: str, donem_etiketi: str, ceyrek: int = 2,
     #: `olculen` artik devralinani da tasidigi icin onun boyu
     #: "olculdu" demiyor.
     _bu_kosuda: set[str] = set()
+    #: Bu kosuda DEFTERE yazilan kodlar. Sayim kosu gunlugune
+    #: basiliyor: defter sessizce bos kalirsa sayfa adimi eskisi gibi
+    #: aga duser ve kazanc GORUNMEZ bicimde kaybolur.
+    _deftere_yazilan: set[str] = set()
 
     for kod, bilgi in sirketler:
         tablolar = bilanco_ag.ara_donem(kod, ceyrek)
@@ -529,9 +534,14 @@ def sektor_isle(sektor_tr: str, donem_etiketi: str, ceyrek: int = 2,
         # sonraki yol eklendiginde yine unutulur.
         bilanco_ag.ara_ver()
         # OZDESLIK ONCE. Bozuk bilanco sektor medyanini da bozar.
+        #
+        # BOS LISTE DE ELENIYOR. Eski yazim `d[0]` diyordu ve bir
+        # kalemin degerleri bos listeyse IndexError atardi. O yol
+        # bugune kadar hic yurumedi cunku `_ham_bilanco` ANAHTARI
+        # HIC URETILMIYORDU (bkz. `bilanco_ag.ara_donem`); anahtar
+        # yazilmaya baslandigi an bu dal gercek veriyle karsilasiyor.
         tekil = {ad: d[0] for ad, d in
-                 (tablolar.get("_ham_bilanco") or {}).items()} \
-            if tablolar.get("_ham_bilanco") else {}
+                 (tablolar.get("_ham_bilanco") or {}).items() if d}
         alanlar = bilanco_ag.donemi_kur(tablolar)
         tamam, eksik = bilanco_ag.yeterli(alanlar, sektor_tr)
         if not tamam:
@@ -546,6 +556,28 @@ def sektor_isle(sektor_tr: str, donem_etiketi: str, ceyrek: int = 2,
         d = oranlar.Donem(etiket=donem_etiketi, **alanlar)
         olculen[kod] = _oranlari(d)
         _bu_kosuda.add(kod)
+        # CEKILEN VERI DEFTERE YAZILIYOR -- IKINCI CEKIMI ORTADAN
+        # KALDIRMAK ICIN.
+        #
+        # Sayfa adimi (`uret_bilanco_sayfa`) bugune kadar AYNI
+        # sayfalari yeniden cekiyordu: sirket basina 3 istek, 60
+        # sirkette 180 istek -- ve o adim BU ADIMDAN ONCE kosuyor.
+        # Kosu #117'de sonuc, veri adimi basladiginda kaynagin
+        # kapanmasi ve on bir sektorun DOKUZUNUN tazelenmemesiydi.
+        #
+        # Defter yalnizca AGIN yerine geciyor: saklanan sey ham
+        # cekim, turetilmis kopya degil. Boylece `donemi_kur` ve
+        # `donem_toplami` tek yerde kaliyor (bkz. `bilanco_defteri`).
+        #
+        # BASARISIZLIK YUTULUYOR, AMA SESSIZCE DEGIL: defter bir
+        # ONBELLEK, hat degil. Yazilamazsa sayfa adimi aga duser ve
+        # eskisi gibi calisir -- olcum adimini dusurmek, iyilestirmeyi
+        # bir arizaya cevirmek olurdu.
+        try:
+            if bilanco_defteri.yaz(kod, tablolar, ceyrek):
+                _deftere_yazilan.add(kod)
+        except OSError as _e:
+            print(f"  {kod:<8}defter yazilamadi: {_e}")
         _m = tablolar.get("_mali") or {}
         mali[kod] = _m.get("yil_sonu_ayi")
         # ETIKET ILE VERI AYNI OLCUMDEN GELIYOR.
@@ -624,6 +656,17 @@ def sektor_isle(sektor_tr: str, donem_etiketi: str, ceyrek: int = 2,
     _kalan = len(set(olculen) - _bu_kosuda)
     print(f"  -> {_taze} şirket ölçüldü, {len(atlanan)} atlandı"
           + (f", {_kalan} şirket önceki ölçümüyle korundu" if _kalan else ""))
+    # DEFTER SAYIMI HER ZAMAN BASILIYOR -- SIFIR DA BIR SONUCTUR.
+    #
+    # "Yazilan varsa yaz" bicimi, defterin tumden calismadigi gunu
+    # sessiz birakirdi: gunlukte satir olmaz, kimse bakmaz, sayfa
+    # adimi eskisi gibi aga duser ve kazanc kaybedildigi fark
+    # edilmez. Ayni sinif bu depoda "atillik korumasi" olarak yazili.
+    # "DEFTERDE", "YAZILAN" DEGIL: ayni icerik yeniden yazilmiyor
+    # (git gecmisini sisirmemek icin), yani sayi "kac dosya
+    # degisti"yi degil "kac sirketin verisi defterde"yi soyluyor.
+    # Sayfa adimini ilgilendiren de budur.
+    print(f"  -> defterde: {len(_deftere_yazilan)}/{_taze}")
     if kirpilan:
         print(f"  -> bitmemiş dönem kırpıldı: {len(kirpilan)} şirket "
               f"({', '.join(sorted(kirpilan)[:6])})")

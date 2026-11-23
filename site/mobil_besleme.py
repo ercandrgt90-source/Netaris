@@ -672,6 +672,114 @@ def varlik_dosyalari(kayitlar: list | None, uretildi: str = "") -> dict:
     return cikti
 
 
+#: Bilanco listesinin sayfa boyu.
+#:
+#: HABER SAYFA BOYUNDAN AYRI. Haber kaydi fotograf, ozet ve bolum
+#: basligi tasiyor; bilanco liste ogesi iki sayi ve iki ad. Ayni
+#: boyu kullanmak 384 sirketi 16 sayfaya bolerdi ve liste ekraninda
+#: "daha fazla"ya on bes kez basmak gerekirdi.
+#:
+#: SINIRSIZ LISTE SECENEK DEGIL: bu depoda ayni esige UC KEZ
+#: carpildi ve ders her seferinde ayni -- kusur kart sayisi degil,
+#: listenin sinirsiz olmasi. 48 oge ~7 KB, sekiz sayfa.
+BILANCO_SAYFA_BOYU = 48
+
+
+def bilanco_ogesi(k: dict) -> dict | None:
+    """Liste ekrani icin DAR kayit -- detayin tamamini tasimiyor.
+
+    Detay dosyasinda seviye tablosu, egilim serisi ve onceki yil
+    karsilastirmasi var; 384 sirketin hepsini liste icin indirmek
+    ~2 MB olurdu. Liste yalnizca ekranda GORUNEN alanlari tasiyor.
+    """
+    kod = _dizge(k.get("kod")).strip().upper()
+    if not kod:
+        return None
+    _oran = {o.get("alan"): o for o in (k.get("oranlar") or [])}
+
+    def _d(alan):
+        return (_oran.get(alan) or {}).get("deger")
+
+    def _m(alan):
+        # BICIMLENDIRME BESLEMEDE YAPILDI, BURADA YENIDEN DEGIL.
+        # Liste ve detay ayni metni gostermeli; iki yerde
+        # bicimlendirmek, ayni orani iki farkli yazmak olurdu.
+        return _dizge((_oran.get(alan) or {}).get("deger_metin"))
+
+    return {
+        "kod": kod,
+        "unvan": _dizge(k.get("unvan")),
+        "sektor": _dizge(k.get("sektor")),
+        "donem": _dizge(k.get("donem")),
+        "donem_bitis": _iso(k.get("donem_bitis")),
+        "net_marj": _d("net_marj"),
+        "net_marj_metin": _m("net_marj"),
+        "roe": _d("roe"),
+        "roe_metin": _m("roe"),
+        # DERINLIK LISTEDE DE DURUYOR.
+        #
+        # "ozet" demek: oranlar var, TL seviyeleri henuz cekilmedi.
+        # Istemci bunu bilmeden detaya girerse bos bir tablo gosterir
+        # ve okur bunu ariza sanar. Yokluk gizlenmiyor, BILDIRILIYOR.
+        "derinlik": _dizge(k.get("derinlik")) or "ozet",
+        # Yorumu yayimlanmis sayfa VARSA adresi; yoksa None.
+        # Besleme sayfaya BAGLI DEGIL -- rakam yorumu beklemiyor.
+        "sayfa": k.get("sayfa") or None,
+        "sayfa_slug": k.get("sayfa_slug") or None,
+        "dosya": f"{ONEK}/bilanco/{kod.lower()}.json",
+    }
+
+
+def bilanco_dosyalari(paket: dict | None, uretildi: str = "") -> dict:
+    """Bilanco dizini + sayfalanmis liste + sirket basina detay.
+
+    `paket` `haber_botu/bilanco_besleme.kur()` ciktisi. Bu islev
+    HESAP YAPMIYOR, yalnizca bicim ve yol veriyor: oranlar,
+    degisimler ve seri orada kuruldu ve oradaki kurallar
+    (`oranlar._yuzde_degisim` gibi) tek yer olarak kalmali.
+    """
+    p = paket or {}
+    sirketler = p.get("sirket") or {}
+    cikti: dict = {}
+    for kod, k in sirketler.items():
+        if not isinstance(k, dict):
+            continue
+        cikti[f"{ONEK}/bilanco/{str(kod).lower()}.json"] = dict(
+            k, surum=SURUM, uretildi=_dizge(uretildi))
+
+    ogeler = [o for o in (bilanco_ogesi(k) for k in sirketler.values())
+              if o is not None]
+    # SIRA: SEKTOR, SONRA KOD. Alfabetik tek liste sektorleri
+    # birbirine karistirirdi; liste ekrani sektor basligi atabilsin.
+    ogeler.sort(key=lambda o: (o["sektor"], o["kod"]))
+    cikti.update(_liste_dosyalari(f"{ONEK}/bilanco", ogeler,
+                                  BILANCO_SAYFA_BOYU))
+
+    cikti[f"{ONEK}/bilanco.json"] = {
+        "surum": SURUM,
+        "uretildi": _dizge(uretildi),
+        "toplam": len(ogeler),
+        # DERINLIK SAYIMI DIZINDE DURUYOR: defter dolmadan once kac
+        # sirkette TL seviyesi oldugu buradan goruluyor. Sayi sifira
+        # duserse duzenek olmustur ve bu dosya onu soyler.
+        "defterli": sum(1 for o in ogeler if o["derinlik"] == "defter"),
+        "sayfa_boyu": BILANCO_SAYFA_BOYU,
+        "sayfa_sayisi": len(sayfala(ogeler, BILANCO_SAYFA_BOYU)),
+        "liste": f"{ONEK}/bilanco/sayfa-1.json",
+        "sektorler": [
+            {
+                "sektor": _dizge(s.get("sektor")),
+                "donem": _dizge(s.get("donem")),
+                "sirket_sayisi": int(s.get("sirket_sayisi") or 0),
+                "medyan": s.get("medyan") or {},
+                "tazelendi": _dizge(s.get("tazelendi")),
+            }
+            for s in (p.get("sektorler") or [])
+        ],
+    }
+    return cikti
+
+
 _SECENEK = re.compile(
     r'<option\s+value="([^"]+)"\s*>\s*(.*?)\s*</option>', re.S | re.I)
 
@@ -869,7 +977,8 @@ def uret(analizler: list, haberler: list, gostergeler: dict | None,
          takvim_kutulari: list | None = None,
          varliklar: list | None = None,
          uyelik_html: str = "",
-         katlama: dict | None = None) -> dict:
+         katlama: dict | None = None,
+         bilanco: dict | None = None) -> dict:
     """Butun besleme dosyalarini kurar: {goreli yol: JSON nesnesi}.
 
     DOSYA YAZMIYOR. Saf islev olmasi bilincli: sinama diske hic
@@ -902,6 +1011,13 @@ def uret(analizler: list, haberler: list, gostergeler: dict | None,
     cikti[f"{ONEK}/piyasa.json"] = piyasa(gostergeler, lisanssiz)
     cikti[f"{ONEK}/takvim.json"] = takvim(takvim_kutulari, uretildi)
     cikti.update(varlik_dosyalari(varliklar, uretildi))
+    # BILANCO BESLEMESI KOSULSUZ URETILIYOR.
+    #
+    # `bilanco` None gelse bile dizin ve `sayfa-1.json` yaziliyor
+    # (toplam 0). Dosyanin OLMAMASI ile icerigin olmamasi ayni sey
+    # degil: ilki istemcide 404, ikincisi "henuz veri yok" ekrani --
+    # ayni gerekce `sayfala` uzerinde de yazili.
+    cikti.update(bilanco_dosyalari(bilanco, uretildi))
     if uyelik_html:
         cikti[f"{ONEK}/senaryo-kurallari.json"] = senaryo_kurallari(
             uyelik_html)
@@ -955,6 +1071,20 @@ def uret(analizler: list, haberler: list, gostergeler: dict | None,
             "varlik": {
                 "dizin": f"{ONEK}/varlik.json",
                 "kayit": cikti[f"{ONEK}/varlik.json"]["toplam"],
+            },
+            "bilanco": {
+                "dizin": f"{ONEK}/bilanco.json",
+                "liste": f"{ONEK}/bilanco/sayfa-1.json",
+                "kayit": cikti[f"{ONEK}/bilanco.json"]["toplam"],
+                "sayfa_sayisi":
+                    cikti[f"{ONEK}/bilanco.json"]["sayfa_sayisi"],
+                # TL SEVIYESI OLAN SIRKET SAYISI.
+                #
+                # Istemci "bu sirkette tablo neden bos" sorusunu
+                # kendi cevaplayabilsin diye burada da duruyor:
+                # besleme eksik degil, O SIRKETIN cekimi henuz
+                # yapilmamis.
+                "defterli": cikti[f"{ONEK}/bilanco.json"]["defterli"],
             },
             "arama": {
                 "dosya": f"{ONEK}/arama.json",

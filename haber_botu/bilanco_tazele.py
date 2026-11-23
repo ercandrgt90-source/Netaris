@@ -45,6 +45,7 @@ sys.path[:0] = [str(_KOK), str(_KOK / "kaynak"), str(_KOK / "analiz"),
                 str(_KOK / "ai")]
 
 import bilanco_ag              # noqa: E402
+import bilanco_defteri         # noqa: E402
 import bilanco_denetim as bd   # noqa: E402
 import guvenlik                # noqa: E402
 import uret_bilanco as UB      # noqa: E402
@@ -82,8 +83,14 @@ def yorumu_al(govde: str) -> str:
     return ""
 
 
-def baglam_kur() -> tuple[dict, dict]:
-    """kod -> (sektor, oran, medyan, n, donem, mali_not) + unvan defteri.
+def baglam_kur() -> tuple[dict, dict, dict]:
+    """kod -> (sektor, oran, medyan, n, donem, mali_not), unvan defteri,
+    donem bitisleri.
+
+    UCUNCU DEGER (`bitisler`) BILANCO DEFTERI ICIN: tazeleme de artik
+    mali tabloyu agdan degil defterden okuyabiliyor ve defter kaydinin
+    GECERLILIK olcutu donem bitisinin esitligi. Harita zaten burada
+    kuruluyor; ikinci kez kurmak ayni karari iki yerde vermek olurdu.
 
     Oranlar ve medyanlar YENIDEN HESAPLANMIYOR: `sektor_ozet.json`
     ne diyorsa o. Ikinci bir hesap, iki farkli dogru demek olurdu.
@@ -118,7 +125,7 @@ def baglam_kur() -> tuple[dict, dict]:
             # tazelememek o aciklamayi eski sayfalara ulastirmazdi.
             baglam[kod.upper()] = (sektor, oran, medyan, n, donem,
                                    mali_not)
-    return baglam, defter
+    return baglam, defter, _bitisler
 
 
 #: kod -> (donem, once, eksik). KOSU SURESINCE gecerli.
@@ -138,6 +145,14 @@ def baglam_kur() -> tuple[dict, dict]:
 #: (olculdu: bir CI kosusunda 25 denemenin 17'si gecti, ardindan
 #: sekiz ardisik red -> `bilanco_ag.KAPANDI`). Tasarruf edilen her
 #: istek, o pencerede onarilan sayfa sayisini artiriyor.
+#: Bu kosuda verisi DEFTERDEN okunan kodlar -- kosu gunlugu icin.
+#:
+#: SIFIR DA BIR SONUC: defter sessizce bos kalirsa bu adim eskisi
+#: gibi aga duser, kaynagi tuketir ve tazeleme yine 0,2 sayfa/kosu
+#: verime iner. Sayi her kosuda basiliyor ki duzenegin olu oldugu
+#: ilk kosuda gorulsun.
+DEFTERDEN: set[str] = set()
+
 _BELLEK: dict[str, tuple] = {}
 
 
@@ -147,7 +162,8 @@ def bellegi_bosalt() -> None:
 
 
 def sayfa_tazele(yol: pathlib.Path, baglam: dict, defter: dict,
-                 kuru: bool) -> tuple[bool, str]:
+                 kuru: bool, bitisler: dict | None = None
+                 ) -> tuple[bool, str]:
     """Tek sayfa. Doner: (tazelendi_mi, aciklama)."""
     m = _ON_DESEN.match(yol.read_text(encoding="utf-8"))
     if not m or "kategori: Bilanço Analizi" not in m.group(2):
@@ -210,8 +226,30 @@ def sayfa_tazele(yol: pathlib.Path, baglam: dict, defter: dict,
         # ait olanlari ayirmanin yolu cekimden ONCE ve SONRA boyuna
         # bakmak. Sayfa basina tek karar, tek yer.
         _n = len(bilanco_ag.OKUNAMAYAN)
+        # VERI ONCE DEFTERDEN.
+        #
+        # BU ADIMIN TIKANDIGI YER TAM BURASIYDI. Olculdu (kosu #117):
+        # goc kuyrugundaki 145 sayfanin 145'i "KAYNAK VERMEDI" ile
+        # dondu ve adimin gercek verimi ~0,2 sayfa/kosu olarak
+        # olculdu. Sebep veri eksikligi degildi: kaynak, ayni kosuda
+        # iki kez istenen sayfalar yuzunden zaten kapanmisti.
+        #
+        # Defter o ikinci istegi ortadan kaldiriyor. `bitisler`
+        # verilmediginde (eski cagri bicimi, sinamalar) davranis
+        # AYNEN eskisi gibi: aga cikilir.
+        _defter = None
+        if bitisler is not None:
+            try:
+                _defter = bilanco_defteri.oku(
+                    kod, bilanco_ag.VARSAYILAN_CEYREK,
+                    bitis=(bitisler or {}).get(kod, ""))
+            except OSError:
+                _defter = None
         d, once, eksik, seri = bilanco_ag.donem_getir(
-            kod, donem, sektor_tr=sektor, ciftli=True, seri=True)
+            kod, donem, sektor_tr=sektor, ciftli=True, seri=True,
+            tablolar=_defter)
+        if _defter is not None:
+            DEFTERDEN.add(kod)
         okunamayan = list(bilanco_ag.OKUNAMAYAN[_n:])
         # BASARISIZLIK DA SAKLANIYOR: kaynak bu sirketi vermediyse
         # ikinci sayfasi icin tekrar sormak, kapali kapiya ikinci
@@ -601,7 +639,7 @@ def main() -> int:
     # BELLEK KOSUYA AIT. Uzun yasayan bir surecte ikinci cagri bayat
     # veri gormemeli; acikca bosaltiliyor.
     bellegi_bosalt()
-    baglam, defter = baglam_kur()
+    baglam, defter, _bitisler = baglam_kur()
 
     if n.kod:
         # BELIRLI SAYFA -- KUYRUGU BEKLEMEDEN.
@@ -679,7 +717,8 @@ def main() -> int:
         if tazelenen >= n.sinir:
             print(f"\nsınıra ulaşıldı ({n.sinir})")
             break
-        ok, not_ = sayfa_tazele(yol, baglam, defter, n.kuru_calis)
+        ok, not_ = sayfa_tazele(yol, baglam, defter, n.kuru_calis,
+                                bitisler=_bitisler)
         # KAYNAGA NAZIK DAVRANMA -- bkz. `bilanco_ag.ara_ver`.
         #
         # OLCULDU (2026-10-31, kosu #61): bolum gocu 128 sayfanin
@@ -701,6 +740,8 @@ def main() -> int:
                 _dokum.get(not_.split(":")[0].strip(), 0) + 1)
 
     print(f"\ntazelenen {tazelenen}, atlanan {atlanan}")
+    # DEFTER KULLANIMI HER KOSUDA BASILIYOR -- SIFIR DA BIR SONUC.
+    print(f"defterden okunan: {len(DEFTERDEN)} şirket")
     if _dokum:
         print("atlama sebebi dökümü:")
         for _s, _c in sorted(_dokum.items(), key=lambda x: -x[1]):

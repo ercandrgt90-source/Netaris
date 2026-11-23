@@ -283,7 +283,7 @@ try:
         kisa_vadeli_yukumlulukler=5_400_000_000.0)
     BT.bilanco_ag.donem_getir = (
         lambda kod, etiket, ceyrek=1, sektor_tr="", istemci=None,
-        ciftli=False, seri=False: (_d, None, [], []) if ciftli
+        ciftli=False, seri=False, **k: (_d, None, [], []) if ciftli
         else (_d, [], []))
     _yazilan = {}
     BT.yayin.yaz_sektorel = lambda **kw: _yazilan.update(kw)
@@ -331,7 +331,7 @@ try:
         kisa_vadeli_yukumlulukler=5_400_000_000.0)
 
     def _say(kod, etiket, ceyrek=1, sektor_tr="", istemci=None,
-             ciftli=False, seri=False):
+             ciftli=False, seri=False, **k):
         _sayac["n"] += 1
         return (_dd, None, [], []) if ciftli else (_dd, [], [])
 
@@ -363,7 +363,7 @@ try:
     _sayac["n"] = 0
     BT.bilanco_ag.donem_getir = (
         lambda kod, etiket, ceyrek=1, sektor_tr="", istemci=None,
-        ciftli=False, seri=False: _say(kod, etiket) and None or
+        ciftli=False, seri=False, **k: _say(kod, etiket) and None or
         ((None, None, ["hasilat"], []) if ciftli
          else (None, ["hasilat"], [])))
     for yol2 in sorted(g2.glob("*.md")):
@@ -390,7 +390,8 @@ try:
     try:
         _sys.argv = ["bilanco_tazele", "--onarim", "--sinir", "1"]
         U.SITE = g2
-        BT.baglam_kur = lambda: (baglam2, defter2)
+        # `baglam_kur` artik UC deger donuyor (donem bitisleri de).
+        BT.baglam_kur = lambda: (baglam2, defter2, {})
         _sayac["n"] = 0
         esit(BT.main(), 0, "main calisti")
         _ilk = _sayac["n"]
@@ -449,7 +450,7 @@ try:
         kisa_vadeli_yukumlulukler=5_400_000_000.0)
     BT.bilanco_ag.donem_getir = (
         lambda kod, etiket, ceyrek=1, sektor_tr="", istemci=None,
-        ciftli=False, seri=False: (_d3, None, [], []) if ciftli
+        ciftli=False, seri=False, **k: (_d3, None, [], []) if ciftli
         else (_d3, [], []))
     _cagri = {}
     BT.yayin.yaz_sektorel = lambda **kw: _cagri.update(kw)
@@ -531,7 +532,7 @@ try:
     _cek = {"n": 0}
 
     def _getir4(kod, etiket, ceyrek=1, sektor_tr="", istemci=None,
-                ciftli=False, seri=False):
+                ciftli=False, seri=False, **k):
         _cek["n"] += 1
         d = oranlar.Donem(
             etiket=etiket, hasilat=12_400_000_000.0,

@@ -48,6 +48,24 @@ sys.path[:0] = [str(_KOK), str(_KOK / "kaynak"), str(_KOK / "analiz")]
 
 import uret_bilanco as U                           # noqa: E402
 
+# SINAMA URETIM DEFTERINE YAZMAZ.
+#
+# `sektor_isle` olculen sirketi `bilanco_defteri`ne de yaziyor.
+# Yamalanmazsa bu sinama GERCEK deftere sahte kayit birakir ve CI
+# onu commit'ler -- `test_geri_yazma_kapsami.py` 6. bolumu bunu
+# 2026-11-22'de olcup yakaladi (AAGYO, TDGYO, FENER, ... ).
+#
+# Gecici dizin SURECIN TAMAMI icin konuyor, bir `with` blogu
+# icinde degil: yazma cagrisi bu dosyanin bircok yerinden dolayli
+# olarak geciyor ve blok kapsamini dogru cizmeye guvenmek, bir
+# sonraki eklemede yine kacirmak demek.
+import tempfile as _tf_defter                      # noqa: E402
+import bilanco_defteri as _bd_defter               # noqa: E402
+
+_bd_defter.KOK = pathlib.Path(
+    _tf_defter.mkdtemp(prefix='netaris-defter-')) / 'defter'
+
+
 _gecti = 0
 
 

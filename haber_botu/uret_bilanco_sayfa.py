@@ -61,6 +61,7 @@ sys.path[:0] = [str(_KOK), str(_KOK / "kaynak"), str(_KOK / "analiz"),
 
 import bicim              # noqa: E402
 import bilanco_ag         # noqa: E402
+import bilanco_defteri    # noqa: E402
 import bilanco_yorum      # noqa: E402
 import guvenlik           # noqa: E402
 import oranlar            # noqa: E402
@@ -898,11 +899,44 @@ def donem_celiskisi(donem: str, seri: list) -> str:
     return f"etiket {donem.strip()!r}, çekilen veri {cekilen!r} ({iso})"
 
 
+#: Bu kosuda verisi DEFTERDEN okunan kodlar.
+#:
+#: Modul duzeyinde cunku iki ayri yer okuyor: `sirket_isle` yaziyor,
+#: ana dongu nezaket beklemesini atlamak icin ve kosu gunlugu icin
+#: okuyor. Donus degerine eklemek `sirket_isle`in demetini
+#: degistirirdi ve onu cagiran sinamalar sessizce kirilirdi.
+DEFTERDEN: set[str] = set()
+
+
 def sirket_isle(kod, bilgi, sektor, donem, oran, medyan, n,
-                kuru=False, mali_not="") -> tuple[bool, str]:
+                kuru=False, mali_not="", bitis_iso="") -> tuple[bool, str]:
     alt_sektor = bilgi.get("alt_sektor") or ""
+    # VERI ONCE DEFTERDEN, SONRA AGDAN.
+    #
+    # Bu adim veri adimiyla AYNI sayfalari cekiyordu ve veri
+    # adimindan ONCE kosuyor; olculdu (kosu #117): 60 sirketlik
+    # sinirda 180 istek, ardindan veri adimi basladiginda "KAYNAK
+    # KAPANDI" ve on bir sektorun dokuzu tazelenmedi.
+    #
+    # DEFTER AGIN YERINE GECIYOR, TURETMENIN YERINE GECMIYOR: saklanan
+    # sey ham cekim, `donem_getir` icindeki butun hesap aynen kosuyor.
+    #
+    # BITIS ESITLIGI BIRINCIL KORUMA. Ozet bu sirket icin hangi donem
+    # bitisini gosteriyorsa defterin de onu tasimasi gerekiyor; yoksa
+    # kayit YOK sayilir ve aga dusuluyor. Bu olmadan sayfa bir donemi
+    # soyleyip baskasinin rakamlarini gosterebilirdi -- bu depoda
+    # "etiket veriyle karsilastirilmali" diye yazili bir kusur sinifi.
+    _defter = None
+    try:
+        _defter = bilanco_defteri.oku(
+            kod, bilanco_ag.VARSAYILAN_CEYREK, bitis=bitis_iso or "")
+    except OSError:
+        _defter = None
     d, once, eksik, seri = bilanco_ag.donem_getir(
-        kod, donem, sektor_tr=sektor, ciftli=True, seri=True)
+        kod, donem, sektor_tr=sektor, ciftli=True, seri=True,
+        tablolar=_defter)
+    if _defter is not None:
+        DEFTERDEN.add(kod.upper())
     if d is None:
         return False, "eksik: " + ", ".join(eksik[:3])
 
@@ -1588,7 +1622,8 @@ def main() -> int:
         # NEDENI soyleniyor; bkz. `govde_kur`.
         ok, not_ = sirket_isle(kod, bilgi, sektor, _donem, oran,
                                _medyan, _n, kuru=n.kuru_calis,
-                               mali_not=_mali_not)
+                               mali_not=_mali_not,
+                               bitis_iso=_bitisler.get(kod.upper(), ""))
         # KAYNAGA NAZIK DAVRANMAK BU ADIMDA DA GECERLI.
         #
         # OLCULDU (2026-10-31, kosu #61): bu adim 20 sayfa yazdiktan
@@ -1616,6 +1651,25 @@ def main() -> int:
         # atmadan donuyor, yani beklenecek bir sey yok. Kalan ~130
         # sirket icin 8 saniye beklemek 17 dakikayi hicbir seye
         # harcamak olurdu.
+        # BEKLEME KOSULSUZ KALIYOR -- DEFTERDEN OKUNSA BILE.
+        #
+        # Ilk yazim `if kod.upper() not in DEFTERDEN:` diyordu ve
+        # gerekcesi makuldu: istek atilmadiysa beklenecek bir sey
+        # yok. `test_bilanco_penceresi.py` bunu REDDETTI ve haklıydi
+        # -- o kuralin olcutu "kaynaga giden dongude KOSULSUZ
+        # bekleme", ve kosul eklemek uc ayri mutasyonla kazanilmis
+        # bir korumayi gevsetmek olurdu. Korumanin gerekcesi kendi
+        # uzerinde yazili: dala saklanmis bir tedbir, bir sonraki
+        # dalda yine unutuluyor.
+        #
+        # MALIYET OLCULDU, BUYUK DEGIL: bu adim kosu basina en cok
+        # 60 sirket isliyor (`--sinir 60`) ve taban aralik 0,5 sn --
+        # yani ~30 saniye. Aralik ancak KAYNAK yavaslattiginda
+        # buyuyor; defterden okunan kosuda bu adim kaynaga hic
+        # dokunmadigi icin aralik taban degerinde kaliyor.
+        #
+        # Otuz saniye icin bir korumayi zayiflatmak dogru takas
+        # degil.
         bilanco_ag.ara_ver()      # bkz. bilanco_ag.ara_ver
         if ok:
             yazilan += 1
@@ -1632,6 +1686,14 @@ def main() -> int:
             print(f"  {kod:<8}ATLANDI -- {not_}")
 
     print(f"\nyazılan {yazilan}, atlanan {atlanan}")
+    # DEFTER KULLANIMI HER KOSUDA BASILIYOR -- SIFIR DA BIR SONUC.
+    #
+    # Defter sessizce bos kalirsa bu adim eskisi gibi aga duser,
+    # kaynagi tuketir ve veri adimi yine dokuz sektoru atlar. O gun
+    # gunlukte hicbir sey degismis gorunmezdi. Sayi burada duruyor
+    # ki duzenegin olu oldugu ilk kosuda gorulsun.
+    print(f"defterden okunan: {len(DEFTERDEN)} şirket "
+          f"(ağa düşülen: {yazilan + atlanan - len(DEFTERDEN)})")
     _dokum(sebepler, yazilan, atlanan)
     return 0
 

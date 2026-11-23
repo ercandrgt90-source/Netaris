@@ -84,7 +84,8 @@ dogrula("surum", surum, {
   beslemeler: "object",
 });
 if (surum) {
-  for (const b of ["haber", "analiz", "piyasa", "one_cikan", "tel"]) {
+  for (const b of ["haber", "analiz", "piyasa", "one_cikan", "tel",
+                   "bilanco"]) {
     if (!surum.beslemeler[b]) dusen.push(`surum: "${b}" beslemesi bildirilmemis`);
     else gecti += 1;
   }
@@ -733,6 +734,165 @@ if (arama?.kayitlar?.length) {
   if (sismis.length) {
     dusen.push(`arama: ${sismis.length} kayitta ozet var (dizin sismis)`);
   } else gecti += 1;
+}
+
+console.log("9b. bilanco.json, liste ve detay");
+const bdizin = oku("bilanco.json");
+dogrula("bilanco dizini", bdizin, {
+  surum: "number",
+  uretildi: "string",
+  toplam: "number",
+  defterli: "number",
+  sayfa_boyu: "number",
+  sayfa_sayisi: "number",
+  liste: "string",
+  sektorler: "array",
+});
+if (bdizin) {
+  // LISTE SAYFALANMIS OLMALI. Sinirsiz bir liste bu depoda uc kez
+  // ayni esige carpti; ders her seferinde ayni -- kusur kart sayisi
+  // degil, listenin sinirsiz olmasi.
+  if (!(bdizin.sayfa_sayisi >= 1)) {
+    dusen.push("bilanco dizini: sayfa_sayisi en az 1 olmali");
+  } else gecti += 1;
+
+  const ilk = oku(path.join("bilanco", "sayfa-1.json"));
+  dogrula("bilanco listesi", ilk, {
+    surum: "number",
+    sayfa: "number",
+    sayfa_sayisi: "number",
+    toplam_kayit: "number",
+    ogeler: "array",
+  });
+  if (ilk && ilk.ogeler.length) {
+    dogrula("bilanco liste ogesi", ilk.ogeler[0], {
+      kod: "string",
+      unvan: "string",
+      sektor: "string",
+      donem: "string",
+      donem_bitis: "string",
+      net_marj_metin: "string",
+      roe_metin: "string",
+      derinlik: "string",
+      dosya: "string",
+    });
+
+    // SAYFA BOYU ASILMAMALI.
+    const asan = [];
+    for (let n = 1; n <= bdizin.sayfa_sayisi; n += 1) {
+      const sf = oku(path.join("bilanco", `sayfa-${n}.json`));
+      if (!sf) { dusen.push(`bilanco listesi: sayfa-${n}.json YOK`); continue; }
+      if (sf.ogeler.length > bdizin.sayfa_boyu) asan.push(n);
+    }
+    if (asan.length) {
+      dusen.push(`bilanco listesi: ${asan.length} sayfa boyu asiyor`);
+    } else gecti += 1;
+
+    // LISTE DETAYI TASIMAMALI -- 384 sirketin seviye tablosunu
+    // liste icin indirmek ~2 MB olurdu.
+    const sismis = ilk.ogeler.filter((o) => o.olcumler || o.seri);
+    if (sismis.length) {
+      dusen.push(`bilanco listesi: ${sismis.length} ogede detay alanlari var`);
+    } else gecti += 1;
+
+    // DERINLIK SAYIMI DIZINLE TUTARLI OLMALI.
+    //
+    // ATILLIK KORUMASI DEGIL: `defterli` MESRU olarak sifir
+    // olabilir (defter henuz dolmamis). Sinanan sey tutarlilik --
+    // dizinin soyledigi sayi, listede sayilanla ayni mi.
+    let defterli = 0;
+    let bakilan = 0;
+    for (let n = 1; n <= bdizin.sayfa_sayisi; n += 1) {
+      const sf = oku(path.join("bilanco", `sayfa-${n}.json`));
+      for (const o of sf?.ogeler ?? []) {
+        bakilan += 1;
+        if (o.derinlik === "defter") defterli += 1;
+      }
+    }
+    if (bakilan !== bdizin.toplam) {
+      dusen.push(
+        `bilanco: dizin ${bdizin.toplam} diyor, listelerde ${bakilan} oge var`,
+      );
+    } else gecti += 1;
+    if (defterli !== bdizin.defterli) {
+      dusen.push(
+        `bilanco: dizin defterli=${bdizin.defterli}, listede ${defterli}`,
+      );
+    } else gecti += 1;
+
+    // DETAY DOSYALARI VE DONEM TUTARLILIGI.
+    //
+    // SAYFA BAGI AYNI DONEMIN OLMALI. Olculdu (2026-11-22): sayfa
+    // haritasi koda gore kuruldugunda 379 bagin 316'si YANLIS
+    // DONEMI gosteriyordu -- bag calisiyor, sayfa aciliyor, yalnizca
+    // bir onceki ceyregi gosteriyor. Hicbir hata uretmiyor.
+    const ceyrek = /-(\d{4})-(\d)-ceyrek\/?$/;
+    const yanlisDonem = [];
+    let detayBakilan = 0;
+    for (const o of ilk.ogeler.slice(0, 40)) {
+      const det = oku(path.join("bilanco", `${o.kod.toLowerCase()}.json`));
+      if (!det) { dusen.push(`bilanco detayi YOK: ${o.kod}`); continue; }
+      detayBakilan += 1;
+      dogrula(`bilanco detayi ${o.kod}`, det, {
+        kod: "string",
+        unvan: "string",
+        donem: "string",
+        derinlik: "string",
+        oranlar: "array",
+        olcumler: "array",
+        seri: "array",
+      });
+      if (det.sayfa) {
+        const m = ceyrek.exec(det.sayfa);
+        if (m && `${m[1]} ${m[2]}. çeyrek` !== det.donem) {
+          yanlisDonem.push(`${o.kod}: ${det.donem} -> ${det.sayfa}`);
+        }
+      }
+      // ISARET DEGISIMINDE YUZDE URETILMEMELI.
+      //
+      // "%1.897,5 geriledi" gibi bir sayinin anlami yok: %100'u asan
+      // bir azalis, degerin sifiri gectigi demektir. Sitede ayni
+      // kusur 220 sayfada 597 kez uretilmisti.
+      for (const ol of det.olcumler ?? []) {
+        const ters = ol.once !== null && ol.once !== undefined
+          && ((ol.once > 0 && ol.deger < 0) || ol.once <= 0);
+        if (ters && ol.degisim !== null) {
+          dusen.push(
+            `bilanco ${o.kod}: ${ol.alan} isaret degisiminde yuzde uretilmis`,
+          );
+        }
+      }
+    }
+    if (yanlisDonem.length) {
+      dusen.push(
+        `bilanco: ${yanlisDonem.length} sirkette sayfa bagi BASKA DONEMIN `
+        + `(${yanlisDonem.slice(0, 3).join(", ")})`,
+      );
+    } else gecti += 1;
+    if (detayBakilan > 0) {
+      gecti += 1;
+      console.log(`    ${detayBakilan} bilanco detayi tarandi`);
+    }
+
+    // DERINLIK "defter" ISE SEVIYE TABLOSU DOLU OLMALI.
+    //
+    // Tersi de kusur: "ozet" derinliginde seviye tablosu gelmemeli,
+    // cunku o derinlik tam olarak "tablo henuz yok" demek.
+    const celiski = [];
+    for (const o of ilk.ogeler.slice(0, 40)) {
+      const det = oku(path.join("bilanco", `${o.kod.toLowerCase()}.json`));
+      if (!det) continue;
+      if (det.derinlik === "defter" && (det.olcumler ?? []).length === 0) {
+        celiski.push(`${o.kod}: defter ama seviye yok`);
+      }
+      if (det.derinlik === "ozet" && (det.olcumler ?? []).length > 0) {
+        celiski.push(`${o.kod}: ozet ama seviye var`);
+      }
+    }
+    if (celiski.length) {
+      dusen.push(`bilanco: derinlik celiskisi -- ${celiski.slice(0, 3).join(", ")}`);
+    } else gecti += 1;
+  }
 }
 
 console.log("10. tema.json");
