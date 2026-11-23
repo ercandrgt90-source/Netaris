@@ -30,7 +30,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 31,
+  "yorumlanan": 30,
   "haberler": [
     {
       "baslik": "Libya Ulusal Petrol Şirketi: Yasa dışı bir grubun Şarara petrol boru hattındaki vanayı kapatmasıyla yaklaşık 350.000 varil/gün üretim kesintisi yaşanacak",
@@ -106,9 +106,30 @@
       "foto_atif": "Syced · CC0"
     },
     {
+      "baslik": "Trump'ın akşam yemeği listesindeki cüzdanların yarısı ABD dışındaki borsalardan token aldı",
+      "baslik_kaynak": "Half of wallets on Trump’s dinner list got tokens from non-US exchanges",
+      "ozet": "Public Citizen traced 66 of 130 qualifying wallets to exchanges that restrict US users, raising questions over who is attending Trump’s memecoin dinner on Sunday.",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://cointelegraph.com/news/half-wallets-trumps-dinner-list-got-tokens-from-non-us-exchanges?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "kurum": "Cointelegraph",
+      "kurum_tam": "Cointelegraph",
+      "konu": "Kripto varlıklar",
+      "tarih": "2026-11-23",
+      "tarih_gorunur": "23 Kasım 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/kripto-varliklar-7-62d77ad7.jpg",
+      "foto_atif": "Karlalhdz · CC-BY-SA-4.0"
+    },
+    {
       "baslik": "Bitcoin'in büyük toparlanması devam edecek mi? Daha fazla tahrif edilmiş defter bulundu: Hodler's Digest",
       "baslik_kaynak": "Will Bitcoin’s big rebound hold? More tampered Ledgers found: Hodler’s Digest",
-      "ozet": "Bitcoin rebounds sharply from its new cycle low, but is $55,110 really the bottom? Ledger investigates new reports of tampered devices in Berlin and the UAE.",
+      "ozet": "Bitcoin rebounds sharply from its new cycle low, but is $55,111 really the bottom? Ledger investigates new reports of tampered devices in Berlin and the UAE.",
       "cevrildi": true,
       "dil": "en",
       "ticari": true,
@@ -1164,32 +1185,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/konut-ve-kira-9-7ea67053.jpg",
       "foto_atif": "Dominic Nelson · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "Rus drone saldırısı Kiev yakınlarında binayı yıktı: 14 kişi enkaz altında olabilir",
-      "baslik_kaynak": "Rus drone saldırısı Kiev yakınlarında binayı yıktı: 14 kişi enkaz altında olabilir",
-      "ozet": "",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://tr.investing.com/news/economy-news/rus-drone-saldrs-kievde-14-kisiyi-enkaz-altnda-brakt-4168485",
-      "kurum": "Investing",
-      "kurum_tam": "Investing.com Türkiye",
-      "konu": "Jeopolitik",
-      "tarih": "2026-11-22",
-      "tarih_gorunur": "22 Kasım 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
-      "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
-        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
-        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/jeopolitik-14-4ca6b4fe.jpg",
-      "foto_atif": "Bernard Gagnon · CC0"
     },
     {
       "baslik": "Fed, College Fed Challenge kazananlarını açıkladı",
