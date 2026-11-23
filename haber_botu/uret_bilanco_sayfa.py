@@ -1067,6 +1067,83 @@ def _tazelik(iso: str) -> int:
         return 0
 
 
+def anlamsiz_yuzde_sayfalari() -> set[tuple[str, str]]:
+    """ISARET DEGISIMINDE ANLAMSIZ YUZDE tasiyan yayimlanmis sayfalar.
+
+    Doner: {(KOD, donem)} -- `_yayimlanmis()` ile AYNI bicimde, cunku
+    tek kullanim yeri o kumeden CIKARMAK.
+
+    NEDEN VAR -- OLCULDU, YAYINDAYDI (2026-11-23)
+    ---------------------------------------------
+    `oranlar._yuzde_degisim` 2026-11-21'de duzeltildi: kardan zarara
+    gecen kalemde yuzde URETILMIYOR, cunku "%1.897,5 geriledi" diye
+    bir sayinin anlami yok. Kural URETIMI duzeltti, YAYINDAKI
+    icerigi temizlemedi:
+
+        2026-1 ceyrek sayfalari:    2
+        2026-2 ceyrek sayfalari:   65
+        2026-3 ceyrek sayfalari:  114   <- GUNCEL DONEM, ana yuzey
+        toplam                    181
+
+    Yani 114 CANLI sayfa hala "faaliyet karinin %143,9 gerilemesi"
+    diyor. Bu depoda yazili sinif: suzgec uretimde degil YAYINDA
+    calismali.
+
+    IKI YERDE GECIYOR ve ikisi ayri maliyet:
+      * `## Öne çıkan ölçümler`  -- URETILEN bolum, yeniden kurulunca
+                                    duzeliyor, model cagrisi YOK
+      * `## Özet` + on bilgi      -- AI metni, yalnizca YENI bir
+                                    model cagrisiyla duzeliyor
+    Yalnizca birincisini onarmak sayfayi KENDI ICINDE CELISKILI
+    birakirdi: olcumler bolumu sayiyi kaldirmis, ozet hala soyluyor.
+    Bu yuzden cozum yeniden uretim.
+
+    MALIYETI DEFTER DUSURDU: yeniden uretim eskiden sirket basina uc
+    AG ISTEGI demekti ve kaynak ~120 istekte kapaniyordu -- bu is
+    yapilamazdi (bkz. `bilanco_defteri`). Defterden okunan sirkette
+    ag istegi SIFIR; geriye yalnizca model kotasi kaliyor.
+
+    OLCUT IKINCI KEZ TANIMLANMIYOR: desen `bilanco_tazele` icinde ve
+    oradan okunuyor. Burada ikinci bir kopya yazmak, birini
+    sikilastirip otekini unutmanin kestirme yolu olurdu.
+    """
+    import bilanco_tazele                                # noqa: PLC0415
+    cikti: set[tuple[str, str]] = set()
+    if not SITE.exists():
+        return cikti
+    for yol in sorted(SITE.glob("*.md")):
+        try:
+            metin = yol.read_text(encoding="utf-8")
+        except OSError:
+            continue
+        # OZET DAHIL ARANIYOR -- DUZELTICININ KAPSAMI BU.
+        #
+        # Yeniden uretim sayfayi bastan yaziyor ve yeni bir model
+        # cagrisi yapiyor; ozet dahil her sey duzeliyor. Dar olcutu
+        # (ozet haric) kullansaydik, yalnizca ozette hatasi olan 24
+        # sayfa HICBIR duzelticinin gorus alanina girmezdi: goc
+        # kuyrugu onlari zaten gormuyor, cunku tazeleme onlari
+        # duzeltemiyor.
+        #
+        # Bu depoda yazili kural: denetleyen, URETICININ (burada
+        # duzelticinin) olcutunu kullanmali.
+        if not bilanco_tazele._anlamsiz_yuzde(metin, ozet_dahil=True):
+            continue
+        kod = donem = kat = ""
+        for satir in metin.splitlines()[:25]:
+            if satir.startswith("kod:"):
+                kod = satir[4:].strip().upper()
+            elif satir.startswith("donem:"):
+                donem = satir[6:].strip()
+            elif satir.startswith("kategori:"):
+                kat = satir[9:].strip()
+            elif satir == "---" and kod:
+                break
+        if kod and donem and _bilanco_sayfasi(kat):
+            cikti.add((kod, donem))
+    return cikti
+
+
 def kuyruk_kur(ozet: dict, bekleyen: set, sektor_suzgeci: str = "",
                sayfasi_olan: set | None = None,
                bitisler: dict | None = None,
@@ -1428,6 +1505,14 @@ def main() -> int:
     a.add_argument("--sinir", type=int, default=VARSAYILAN_SINIR)
     a.add_argument("--sektor")
     a.add_argument("--kuru-calis", action="store_true")
+    # YAYINDAKI ESKI KUSURU TEMIZLER -- bkz. `anlamsiz_yuzde_sayfalari`.
+    #
+    # VARSAYILAN KAPALI: bu bayrak YAYIMLANMIS sayfalari yeniden
+    # uretiyor, yani mevcut AI yorumunun yerine YENISINI koyuyor.
+    # Boyle bir sey varsayilan olamaz; acikca istenmeli.
+    a.add_argument("--anlamsiz-yuzde", action="store_true",
+                   help="işaret değişiminde anlamsız yüzde taşıyan "
+                        "yayımlanmış sayfaları YENİDEN ÜRETİR")
     n = a.parse_args()
 
     # SAGLAYICI DURUMU EN BASTA, TEK SATIRDA.
@@ -1497,8 +1582,23 @@ def main() -> int:
     defter = json.loads(DEFTER.read_text(encoding="utf-8"))["sirketler"]
 
     var = _yayimlanmis()
+    _yenilenecek: set[tuple[str, str]] = set()
 
     yazilan = atlanan = 0
+    #: `sirket_isle`in GERCEKTEN cagrildigi sirket sayisi.
+    #:
+    #: `atlanan`DAN AYRI OLMALI -- OLCULDU (kosu #123, 2026-11-23):
+    #: gunluk "defterden okunan: 0 şirket (ağa düşülen: 389)" yazdi.
+    #: O kosuda 389 sirketin 389'u "zaten yayımlanmış" diye
+    #: `sirket_isle`e HIC girmeden elendi; tek bir istek atilmadi.
+    #: Sayi `yazilan + atlanan - len(DEFTERDEN)` ile hesaplandigi
+    #: icin, yapilmamis 389 ag istegini yapilmis gibi bildiriyordu.
+    #:
+    #: Kendi koydugum olcum, olcmedigi seyi raporluyordu. Bu depoda
+    #: yazili sinif: olculen deger kullanilmazsa degil, OLCULMEYEN
+    #: deger raporlanirsa -- ikincisi daha kotu, cunku sayi var ve
+    #: inandirici.
+    islenen = 0
     # SEBEP SAYIMI. Ozetin altinda "hangi sebepten kac tane" yaziyor.
     # 325 satiri okumak yerine uc satir okunuyor; ve sebepler
     # SIRALANIYOR, en cok goruleni once.
@@ -1538,6 +1638,40 @@ def main() -> int:
         print(f"{_hic} şirketin HİÇ sayfası yok -- kuyruğun başına alındı")
 
     _bitisler = bitis_haritasi(ozet)
+    if n.anlamsiz_yuzde:
+        # YENIDEN URETILECEK SAYFALAR -- DEFTER KAPSAMIYLA SINIRLI.
+        #
+        # `var`DAN CIKARILMIYOR, AYRI TUTULUYOR: `var` ayni zamanda
+        # "hic sayfasi yok" sayimini ve onceligini besliyor.
+        # Kumeden cikarmak, sayfasi OLAN bir sirketi sayfasiz gibi
+        # gosterip kuyrugun basina atardi.
+        #
+        # DEFTER SARTI -- BU ADIMIN AG BUTCESI YOK.
+        #
+        # Is akisinda bu adim VERI ADIMINDAN SONRA kosuyor, yani
+        # kaynak butcesi o noktada zaten tukenmis oluyor. Defteri
+        # olmayan bir sirket icin `sirket_isle` aga duser, uc istek
+        # harcar ve buyuk olasilikla "KAYNAK VERMEDI" ile doner --
+        # tam olarak goc kuyrugunu olduren kusur (kosu #117: 145
+        # sayfa denendi, 0 tazelendi).
+        #
+        # Defteri olan sirkette ag istegi SIFIR. Kapsam disi kalan
+        # sirket KAYBOLMUYOR: defter her veri adiminda doluyor ve
+        # sonraki kosularda kapsama giriyor. Sayi gunluge basiliyor
+        # ki duzenegin ilerlemedigi ilk kosuda gorulsun.
+        _aday = anlamsiz_yuzde_sayfalari()
+        for _k, _d in sorted(_aday):
+            try:
+                if bilanco_defteri.oku(
+                        _k, bilanco_ag.VARSAYILAN_CEYREK,
+                        bitis=_bitisler.get(_k, "")) is not None:
+                    _yenilenecek.add((_k, _d))
+            except OSError:
+                continue
+        print(f"işaret değişiminde anlamsız yüzde: {len(_aday)} "
+              f"yayımlanmış sayfa taşıyor")
+        print(f"  defter kapsamında olan {len(_yenilenecek)} tanesi "
+              f"yeniden üretim kuyruğuna giriyor (ağ isteği YOK)")
     kuyruk = kuyruk_kur(ozet, _bekleyen, n.sektor, _sayfasi_olan,
                         _bitisler, var)
     _gecikme_bildir(ozet, var, _sayfasi_olan, _bitisler)
@@ -1604,7 +1738,8 @@ def main() -> int:
         # kiyaslaniyor ve donem adini ay adlariyla aliyor.
         _medyan, _n, _donem, _mali_not = kiyas_kumesi(
             v, kod, _bitisler)
-        if (kod.upper(), _donem) in var:
+        if ((kod.upper(), _donem) in var
+                and (kod.upper(), _donem) not in _yenilenecek):
             atlanan += 1
             sebepler["zaten yayımlanmış"] = \
                 sebepler.get("zaten yayımlanmış", 0) + 1
@@ -1620,6 +1755,7 @@ def main() -> int:
         # Sayfanin geri kalani kiyasa bagli DEGIL: olcum tablosu, bir
         # yil oncesine gore degisim ve AI yorumu. Bolum yazilmiyor ve
         # NEDENI soyleniyor; bkz. `govde_kur`.
+        islenen += 1
         ok, not_ = sirket_isle(kod, bilgi, sektor, _donem, oran,
                                _medyan, _n, kuru=n.kuru_calis,
                                mali_not=_mali_not,
@@ -1692,8 +1828,8 @@ def main() -> int:
     # kaynagi tuketir ve veri adimi yine dokuz sektoru atlar. O gun
     # gunlukte hicbir sey degismis gorunmezdi. Sayi burada duruyor
     # ki duzenegin olu oldugu ilk kosuda gorulsun.
-    print(f"defterden okunan: {len(DEFTERDEN)} şirket "
-          f"(ağa düşülen: {yazilan + atlanan - len(DEFTERDEN)})")
+    print(f"defterden okunan: {len(DEFTERDEN)}/{islenen} işlenen şirket "
+          f"(ağa düşülen: {islenen - len(DEFTERDEN)})")
     _dokum(sebepler, yazilan, atlanan)
     return 0
 

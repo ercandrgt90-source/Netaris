@@ -439,6 +439,61 @@ for _c in ast.walk(_SAYFA):
 es("ara_ver KOSULA BAGLANMAMIS", _kosullu_bekleme, [])
 
 # ---------------------------------------------------------------------
+# 5a. "AGA DUSULEN" SAYISI GERCEKTEN ISLENENDEN TURETILMELI
+# ---------------------------------------------------------------------
+#
+# OLCULDU (kosu #123, 2026-11-23): gunluk
+#
+#     defterden okunan: 0 şirket (ağa düşülen: 389)
+#
+# yaziyordu. O kosuda 389 sirketin HEPSI "zaten yayımlanmış" diye
+# `sirket_isle`e girmeden elendi -- tek bir istek atilmadi. Sayi
+# `yazilan + atlanan - len(DEFTERDEN)` ile hesaplandigi icin,
+# yapilmamis 389 istegi yapilmis gibi bildiriyordu.
+#
+# Kendi koydugum olcum, olcmedigi seyi raporladi. Sayinin VAR ve
+# inandirici olmasi, yoklugundan daha kotu.
+#
+# OLCUT: "aga dusulen" ifadesi `atlanan`a DAYANMAMALI -- o degisken
+# iki ayri eleme turunu (cekim denenmeden atlanan / cekim sonrasi
+# atlanan) ayni torbaya koyuyor.
+_aga_dusulen = []
+for _c in ast.walk(_SAYFA):
+    if not (isinstance(_c, ast.Call) and isinstance(_c.func, ast.Name)
+            and _c.func.id == "print"):
+        continue
+    _metin = ast.dump(_c)
+    if "ağa düşülen" not in _metin:
+        continue
+    _adlar = {n.id for n in ast.walk(_c) if isinstance(n, ast.Name)}
+    _aga_dusulen.append(_adlar)
+dogru("'ağa düşülen' satiri bulundu", len(_aga_dusulen) == 1)
+for _adlar in _aga_dusulen:
+    es("'ağa düşülen' sayisi `atlanan`a DAYANMIYOR",
+       "atlanan" in _adlar, False)
+    dogru("'ağa düşülen' sayisi ISLENEN sayisindan turetiliyor",
+          "islenen" in _adlar)
+
+# `islenen` SAYACI GERCEKTEN `sirket_isle`IN YANINDA ARTIYOR.
+# Dongunun basinda artsaydi yine atlananlari sayardi.
+_sayac_dogru = False
+for _c in ast.walk(_SAYFA):
+    if not isinstance(_c, ast.For):
+        continue
+    _govde = list(_c.body)
+    for _i, _d in enumerate(_govde):
+        _artis = (isinstance(_d, ast.AugAssign)
+                  and isinstance(_d.target, ast.Name)
+                  and _d.target.id == "islenen")
+        if not _artis:
+            continue
+        # Hemen SONRAKI ifade `sirket_isle` cagrisini tasimali.
+        for _sonraki in _govde[_i + 1:_i + 2]:
+            if "sirket_isle" in ast.dump(_sonraki):
+                _sayac_dogru = True
+dogru("`islenen` tam `sirket_isle` cagrisindan once artiyor", _sayac_dogru)
+
+# ---------------------------------------------------------------------
 # 5b. TAZELEME ADIMI DA DEFTERDEN OKUYOR
 # ---------------------------------------------------------------------
 #

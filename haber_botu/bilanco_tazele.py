@@ -417,7 +417,7 @@ _ANLAMSIZ_YUZDE = re.compile(
     re.IGNORECASE)
 
 
-def _anlamsiz_yuzde(metin: str) -> bool:
+def _anlamsiz_yuzde(metin: str, ozet_dahil: bool = False) -> bool:
     """Sayfa, %100'u asan bir AZALIS yuzdesi tasiyor mu?
 
     GOC KUYRUGUNA BAGLI DEGIL -- OLCULDU VE CALISMIYOR.
@@ -434,10 +434,35 @@ def _anlamsiz_yuzde(metin: str) -> bool:
     kapali kaynaga harcar ve kaynak butcesi PAYLASIMLI -- 109
     sirketin hic sayfasi yokken onlarin onune gecemez.
 
-    Bu yuzden islev bir KUYRUK OLCUTU degil, bir OLCUM araci:
-    `--anlamsiz-yuzde` sayiyi bildiriyor. Eski sayfalar yeni ceyrek
-    yayimlandikca kendiliginden yeniliyor; sayinin dusmesi oradan
-    gelecek.
+    BU SONUC 2026-11-23'TE GECERSIZ KALDI -- ENGEL KALKTI.
+    Yukaridaki olcum DOGRUYDU ama sebebi bir doga kanunu degil,
+    BIZIM ordugumuz bir duvardi: tazeleme agdan veri cekiyordu
+    cunku ayni veri kosu icinde ikinci kez isteniyordu.
+    `bilanco_defteri` o ikinci istegi kaldirdi; defterden okunan
+    sirkette tazeleme SIFIR ag istegi yapiyor. Olculdu (kosu #123):
+    "2026-3-ceyrek-surgy yenilendi / defterden okunan: 1 şirket".
+
+    Islev artik HEM olcum araci HEM kuyruk olcutu: `goc_kuyrugu`
+    ucuncu sebep olarak bunu da sayiyor.
+
+    IKI OLCUT, IKI DUZELTICI -- `ozet_dahil` BUNUN ICIN
+    ---------------------------------------------------
+    Denetleyen, DUZELTENIN olcutunu kullanmali:
+
+      ozet_dahil=False  -> TAZELEMENIN duzeltebildigi yer.
+                           `sayfa_tazele` sifir model cagrisi yapiyor,
+                           AI ozetini sayfadan OKUYUP yeniden
+                           kullaniyor. Ozetteki sayiyi duzeltemez,
+                           o yuzden ozet olcute girmiyor -- girse
+                           kuyruk hic tukenmezdi.
+      ozet_dahil=True   -> YENIDEN URETIMIN duzeltebildigi yer.
+                           `uret_bilanco_sayfa --anlamsiz-yuzde`
+                           sayfayi bastan yaziyor ve yeni bir model
+                           cagrisi yapiyor; ozet dahil her sey
+                           duzeliyor. Olcut daha dar olsaydi,
+                           yalnizca ozette hatasi olan 24 sayfa
+                           HICBIR duzelticinin gorus alanina
+                           girmezdi.
 
     BINLIK AYRACI NOKTA OLABILIYOR ("%1.897,5"), bu yuzden desen
     sayiyi BUTUN OLARAK yakaliyor ve esik Python'da uygulaniyor.
@@ -495,10 +520,11 @@ def _anlamsiz_yuzde(metin: str) -> bool:
         _k = metin.find(chr(10) + "---", 3)
         if _k > 0:
             metin = metin[_k + 4:]
-    _i = metin.find("## Özet")
-    if _i >= 0:
-        _j = metin.find(chr(10) + "## ", _i + 5)
-        metin = metin[:_i] + (metin[_j:] if _j > 0 else "")
+    if not ozet_dahil:
+        _i = metin.find("## Özet")
+        if _i >= 0:
+            _j = metin.find(chr(10) + "## ", _i + 5)
+            metin = metin[:_i] + (metin[_j:] if _j > 0 else "")
     for ham, _fiil in _ANLAMSIZ_YUZDE.findall(metin):
         try:
             if float(ham.replace(".", "").replace(",", ".")) > 100:
@@ -559,6 +585,38 @@ def goc_kuyrugu(defter: dict, baglam: dict | None = None) -> list:
         if U.SERI_BASLIGI not in metin:
             _eksik.append("son dört dönem bölümü yok")
         _eksik += [f"{a} satırı yok" for a in U.eksik_turetilmis(metin)]
+        # UCUNCU SEBEP: ISARET DEGISIMINDE ANLAMSIZ YUZDE.
+        #
+        # BIR KEZ BAGLANDI, GERI ALINDI, SIMDI YENIDEN BAGLANIYOR --
+        # ve aradaki fark olculdu.
+        #
+        # 2026-11-21: baglandi. Uretimde cokmedi, HICBIR SEY YAPMADI:
+        # kosu #117'de kuyruk 145 sayfa buldu, TAZELENEN 0. Sebep
+        # tazelemenin agdan veri cekmesi ve kaynagin ayni kosuda
+        # zaten tukenmis olmasiydi (HTTP 429). Geri alindi; gerekce
+        # "verim ~0,2 sayfa/kosu, kuyruk tukenmez" idi ve dogruydu.
+        #
+        # 2026-11-23: engel kalkti. `bilanco_defteri` ayni kosudaki
+        # ikinci cekimi ortadan kaldirdi; `sayfa_tazele` defterden
+        # okuyor ve defter kapsamindaki sirkette SIFIR ag istegi
+        # yapiyor. Kosu #123 bunu gosterdi:
+        #
+        #     2026-3-ceyrek-surgy yenilendi
+        #     tazelenen 1, atlanan 0
+        #     defterden okunan: 1 şirket
+        #
+        # Yani olcum dogruydu, SONUCU eskidi. "Verim sifir" bir doga
+        # kanunu degilse, verimi sifirlayan seyi kaldirmak da bir
+        # secenektir.
+        #
+        # OLCUT OZETI DISLIYOR (`ozet_dahil` varsayilan False):
+        # tazeleme AI ozetini yeniden YAZMIYOR, sayfadan okuyup
+        # yeniden kullaniyor. Ozet de sayilsaydi, yalnizca ozette
+        # hatasi olan sayfalar her kosuda denenip her kosuda ayni
+        # halde kalirdi -- tukenmeyen kuyruk, bu dosyanin iki ayri
+        # yerinde yazili kuralin ihlali.
+        if _anlamsiz_yuzde(metin):
+            _eksik.append("işaret değişiminde anlamsız yüzde")
         k = _KOD_DESEN.search(metin)
         if not k:
             continue

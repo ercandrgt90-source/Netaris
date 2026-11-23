@@ -444,16 +444,77 @@ jobs:
       # yoklugu VE girdileri sayfada duran turetilmis kalemin
       # satirinin yoklugu. Kuyruk sebebe gore dokuluyor.
       #
-      # UCUNCU BIR SEBEP DENENDI VE GERI ALINDI (2026-11-21):
-      # "isaret degisiminde anlamsiz yuzde" 145 sayfa getirdi
-      # ama kosu #117'de TAZELENEN 0 oldu -- tazeleme agdan
-      # veri cekiyor ve kaynak uretim adiminda tukenmisti.
-      # Son bes kosuda bu adimin tazeledigi toplam sayfa: 1.
-      # Olcum artik `--anlamsiz-yuzde` bayraginda, kuyrukta
-      # degil.
+      # UCUNCU SEBEP: DENENDI, GERI ALINDI, YENIDEN BAGLANDI.
+      #
+      # 2026-11-21: "isaret degisiminde anlamsiz yuzde" kuyruga
+      # baglandi, 145 sayfa getirdi ve kosu #117'de TAZELENEN 0
+      # oldu -- tazeleme agdan veri cekiyor ve kaynak uretim
+      # adiminda tukenmisti. Son bes kosuda bu adimin tazeledigi
+      # toplam sayfa: 1. Geri alindi.
+      #
+      # 2026-11-23: engel KALKTI. `bilanco_defteri` ayni kosudaki
+      # ikinci cekimi ortadan kaldirdi; tazeleme defterden okuyor
+      # ve defter kapsamindaki sirkette SIFIR ag istegi yapiyor.
+      # Kosu #123 olcumu: "2026-3-ceyrek-surgy yenilendi /
+      # defterden okunan: 1 şirket". Sebep yeniden baglandi.
+      #
+      # OLCUT OZETI DISLIYOR: tazeleme AI ozetini yeniden
+      # YAZMIYOR, sayfadan okuyup yeniden kullaniyor. Ozet de
+      # sayilsaydi yalnizca ozetinde hatasi olan sayfalar her
+      # kosuda denenip her kosuda ayni halde kalirdi. Onlari
+      # ustteki YENIDEN URETIM adimi topluyor (ozet dahil olcut).
       - name: Eski sayfaları güncel biçime taşı
         if: always()
         run: python haber_botu/bilanco_tazele.py --bolum-gocu --sinir 25
+
+      # SIRA ONEMLI: UCRETSIZ TAZELEME ONCE.
+      #
+      # Ustteki goc adimi ayni kusurun URETILEN bolumdeki yarisini
+      # SIFIR model cagrisiyla duzeltiyor. Yeniden uretim once
+      # kossaydi ayni sayfalara model cagrisi harcanirdi --
+      # ucretsiz yoldan duzelecek olan is icin.
+      #
+      # Geriye kalan, tazelemenin DUZELTEMEDIGI yarim: AI
+      # ozetindeki sayi. Tazeleme ozeti yeniden yazmiyor, sayfadan
+      # okuyup yeniden kullaniyor. Olculdu (2026-11-23): 220
+      # sayfanin 182'si tazelemeyle duzelebiliyor, 38'i YALNIZCA
+      # ozetinde hatali ve ancak yeniden uretimle duzeliyor.
+      # YAYINDAKI ESKI KUSURU TEMIZLE -- ISARET DEGISIMINDE ANLAMSIZ
+      # YUZDE.
+      #
+      # `oranlar._yuzde_degisim` 2026-11-21'de duzeltildi: kardan
+      # zarara gecen kalemde yuzde URETILMIYOR, cunku "%1.897,5
+      # geriledi" diye bir sayinin anlami yok. Kural URETIMI
+      # duzeltti, YAYINDAKI icerigi temizlemedi -- bu depoda yazili
+      # sinif: suzgec uretimde degil YAYINDA calismali.
+      #
+      # OLCULDU (2026-11-23): 182 yayimlanmis sayfa tasiyor ve
+      # bunlarin 121'i GUNCEL donemin sayfasi, yani ana yuzey.
+      # Ornek: "faaliyet karinin %143,9 gerilemesi".
+      #
+      # NEDEN SIMDI YAPILABILIYOR: duzeltme YENIDEN URETIM
+      # gerektiriyor (sayi hem uretilen bolumde hem AI ozetinde).
+      # Yeniden uretim eskiden sirket basina UC AG ISTEGI demekti
+      # ve kaynak ~120 istekte kapaniyordu. Bilanco defteriyle
+      # defterden okunan sirkette ag istegi SIFIR; geriye yalnizca
+      # model kotasi kaliyor.
+      #
+      # AYRI ADIM, AYNI BETIK: ustteki adim YENI sayfalari yaziyor
+      # ve oncelikli. Bu adim ondan SONRA kosuyor, yani yeni ceyrek
+      # geldiginde kota once yeni sayfalara gidiyor.
+      #
+      # KENDILIGINDEN TUKENIYOR: kuyruk onarilan sayfa sayisinca
+      # kisaliyor, sifirlandiginda adim "0 sayfa tasiyor" deyip
+      # geciyor. 25'lik sinir, kosu basina ~25 model cagrisi.
+      - name: Yayındaki anlamsız yüzdeyi temizle (yeniden üretim)
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          NETARIS_AI_SAGLAYICI: ${{ inputs.saglayici || 'cloudflare' }}
+        run: |
+          python haber_botu/uret_bilanco_sayfa.py \
+            --anlamsiz-yuzde --sinir 25
 
       # CIRCIR SIKISIYOR -- onarilan sayfa miras listesinden cikiyor.
       #

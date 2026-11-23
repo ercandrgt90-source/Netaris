@@ -303,21 +303,24 @@ def test_on_bilgideki_kopya_da_kuyruga_SOKULMUYOR():
     assert T._anlamsiz_yuzde(onsuz)
 
 
-def test_anlamsiz_yuzde_goc_kuyruguna_BAGLANMIYOR():
-    """Bagliydi; URETIMDE OLCULDU ve CALISMIYORDU -- geri alindi.
+def test_anlamsiz_yuzde_goc_kuyruguna_BAGLI():
+    """Bagliydi, geri alindi, SIMDI YENIDEN BAGLI -- engel kalkti.
 
-    Kosu #117: kuyruk 145 sayfa buldu, TAZELENEN 0. Tazeleme
-    "sifir MODEL cagrisi" yapiyor ama AGDAN VERI CEKIYOR; kaynak
-    uretim adiminda tukenmisti (HTTP 429) ve kesici sekiz redden
-    sonra acildi.
+    2026-11-21'de baglandi ve URETIMDE OLCULDU: kosu #117'de kuyruk
+    145 sayfa buldu, TAZELENEN 0. Sebep tazelemenin agdan veri
+    cekmesi ve kaynagin ayni kosuda tukenmis olmasiydi. Geri alindi;
+    gerekce "verim ~0,2 sayfa/kosu" idi ve dogruydu.
 
-    Son bes bilanco kosusunda goc adiminin tazeledigi TOPLAM sayfa:
-    1. Yani ~0,2 sayfa/kosu; 145 sayfa ~725 kosu eder. Kuyruk
-    tukenmez, her kosuda sekiz istegi kapali kaynaga harcar ve
-    TAMAMLANABILEN bolum gocunu ac birakir (#117'de o da 0 kaldi).
+    2026-11-23'te engel KALKTI: `bilanco_defteri` ayni kosudaki
+    ikinci cekimi ortadan kaldirdi. Kosu #123 olcumu:
 
-    Bu sinama kurali TERSINE tutuyor: bagliligi geri koymak,
-    olculmus bir cikmaza geri donmek olur.
+        2026-3-ceyrek-surgy yenilendi
+        tazelenen 1, atlanan 0
+        defterden okunan: 1 şirket
+
+    Bu sinama artik DUZ yonde tutuyor: bagliligi KALDIRMAK, 182
+    yayimlanmis sayfayi duzeltilebilir olduklari halde duzeltmeden
+    birakmak olur.
     """
     import ast
     import inspect
@@ -325,8 +328,73 @@ def test_anlamsiz_yuzde_goc_kuyruguna_BAGLANMIYOR():
     cagrilar = {n.func.id for n in ast.walk(agac)
                 if isinstance(n, ast.Call)
                 and isinstance(n.func, ast.Name)}
-    assert "_anlamsiz_yuzde" not in cagrilar, (
-        "goc kuyruguna geri baglanmis -- olculdu, tukenmiyor")
+    assert "_anlamsiz_yuzde" in cagrilar, (
+        "goc kuyrugu olcutu CAGIRMIYOR -- 182 sayfa duzeltilmeden kalir")
+
+
+def test_goc_kuyrugu_olcutu_OZETI_DISLIYOR():
+    """Tazeleme ozeti yeniden YAZMIYOR; olcut de ozete BAKMAMALI.
+
+    Bakarsa: yalnizca ozetinde hatasi olan sayfa her kosuda kuyruga
+    girer, tazelenir, DEGISMEZ ve yine kuyrukta kalir. Tukenmeyen
+    kuyruk -- bu dosyanin korudugu kuralin tam tersi.
+
+    Olcut AST degil DAVRANIS: `goc_kuyrugu`nun cagrisi varsayilan
+    (dar) kipte mi.
+    """
+    import ast
+    import inspect
+    agac = ast.parse(inspect.getsource(T.goc_kuyrugu))
+    for n in ast.walk(agac):
+        if (isinstance(n, ast.Call) and isinstance(n.func, ast.Name)
+                and n.func.id == "_anlamsiz_yuzde"):
+            assert not n.keywords, (
+                "goc kuyrugu olcutu `ozet_dahil` ile genisletilmis -- "
+                "tazeleme ozeti duzeltemez, kuyruk tukenmez")
+
+
+def test_ozet_dahil_olcutu_GENISLETIYOR():
+    """`ozet_dahil=True` gercekten daha genis olmali.
+
+    Iki olcut ayni sonucu verseydi, parametre bir dilek olurdu:
+    yeniden uretim yalnizca ozette hatasi olan sayfalari HIC
+    gormezdi ve hicbir sey kirmizi donmezdi.
+    """
+    sayfa = (
+        "---" + chr(10) + "kod: ZZZZ" + chr(10)
+        + "kategori: Bilanço Analizi" + chr(10) + "---" + chr(10)
+        + "## Özet" + chr(10)
+        + "faaliyet kârının %143,9 gerilemesi dikkat çekiyor." + chr(10)
+        + "## Öne çıkan ölçümler" + chr(10)
+        + "- Hasılat reel olarak -%12,0 geriledi." + chr(10))
+    assert not T._anlamsiz_yuzde(sayfa), (
+        "dar olcut ozetteki sayiyi saymamali")
+    assert T._anlamsiz_yuzde(sayfa, ozet_dahil=True), (
+        "genis olcut ozetteki sayiyi SAYMALI")
+
+
+def test_yeniden_uretim_GENIS_olcutu_kullaniyor():
+    """Denetleyen, DUZELTICININ kapsamini kullanmali.
+
+    `uret_bilanco_sayfa --anlamsiz-yuzde` sayfayi bastan yaziyor ve
+    ozet dahil her seyi duzeltiyor. Dar olcutle secseydi, yalnizca
+    ozette hatasi olan 38 sayfa hicbir duzelticinin gorus alanina
+    girmezdi: goc kuyrugu onlari zaten gormuyor.
+    """
+    import ast
+    import inspect
+    import uret_bilanco_sayfa as U
+    agac = ast.parse(inspect.getsource(U.anlamsiz_yuzde_sayfalari))
+    genis = [n for n in ast.walk(agac)
+             if isinstance(n, ast.Call)
+             and isinstance(n.func, ast.Attribute)
+             and n.func.attr == "_anlamsiz_yuzde"
+             and any(k.arg == "ozet_dahil"
+                     and getattr(k.value, "value", None) is True
+                     for k in n.keywords)]
+    assert genis, (
+        "yeniden uretim DAR olcutle seciyor -- ozet hatali sayfalar "
+        "hicbir duzelticinin kapsamina girmiyor")
 
 
 def test_anlamsiz_yuzde_OLCUM_secenegi_CALISIYOR():
@@ -354,6 +422,124 @@ def test_anlamsiz_yuzde_OLCUM_secenegi_CALISIYOR():
                 and isinstance(n.func, ast.Name)}
     assert "_anlamsiz_yuzde" in cagrilar, (
         "bayrak var ama olcumu HIC cagirmiyor")
+
+def test_yeniden_uretim_bayragi_CALISIYOR():
+    """Bayrak tanimli, DEGERI okunuyor ve dali seciciyi cagiriyor.
+
+    "Tanimli ama hic bakilmayan bayrak" bu depoda tanidik bir kusur:
+    kabul edilir, hicbir sey yapmaz, aylar sonra ortaya cikar.
+    """
+    import ast
+    import inspect
+    import uret_bilanco_sayfa as U
+    kaynak = inspect.getsource(U.main)
+    agac = ast.parse(kaynak)
+    assert "--anlamsiz-yuzde" in kaynak, "bayrak tanimli degil"
+    okunan = {n.attr for n in ast.walk(agac) if isinstance(n, ast.Attribute)}
+    assert "anlamsiz_yuzde" in okunan, "bayrak DEGERI hic okunmuyor"
+    cagrilar = {n.func.id for n in ast.walk(agac)
+                if isinstance(n, ast.Call) and isinstance(n.func, ast.Name)}
+    assert "anlamsiz_yuzde_sayfalari" in cagrilar, (
+        "bayrak var ama seciciyi HIC cagirmiyor")
+
+
+def test_yeniden_uretim_VARSAYILAN_KAPALI():
+    """Bayraksiz kosuda yayimlanmis sayfa YENIDEN URETILMEZ.
+
+    Bu bayrak mevcut AI yorumunun yerine YENISINI koyuyor. Boyle bir
+    sey varsayilan olamaz; acikca istenmeli.
+    """
+    import ast
+    import inspect
+    import uret_bilanco_sayfa as U
+    agac = ast.parse(inspect.getsource(U.main))
+    for n in ast.walk(agac):
+        if not isinstance(n, ast.Assign):
+            continue
+        for h in n.targets:
+            if isinstance(h, ast.Name) and h.id == "_yenilenecek":
+                # Ilk atama BOS kume olmali; dolum kosula bagli.
+                assert isinstance(n.value, (ast.Call, ast.Set, ast.Name)), (
+                    "beklenmeyen bicim")
+                break
+    kaynak = inspect.getsource(U.main)
+    i = kaynak.index("_yenilenecek: set")
+    j = kaynak.index("anlamsiz_yuzde_sayfalari", i)
+    ara = kaynak[i:j]
+    assert "if n.anlamsiz_yuzde" in ara, (
+        "secici KOSULSUZ cagriliyor -- bayraksiz kosuda da yayimlanmis "
+        "sayfalar yeniden uretilirdi")
+
+
+def test_yeniden_uretim_DEFTER_KAPSAMIYLA_sinirli():
+    """Bu adimin ag butcesi YOK -- kapsam deftere bagli olmali.
+
+    Is akisinda yeniden uretim VERI ADIMINDAN SONRA kosuyor, yani
+    kaynak butcesi o noktada tukenmis oluyor. Defteri olmayan sirket
+    icin `sirket_isle` aga duser, uc istek harcar ve buyuk olasilikla
+    "KAYNAK VERMEDI" doner -- goc kuyrugunu olduren kusurun ta
+    kendisi (kosu #117: 145 sayfa denendi, 0 tazelendi).
+
+    Olcut: `_yenilenecek` kumesine ekleme, bir defter okumasinin
+    SONUCUNA bagli olmali.
+    """
+    import ast
+    import inspect
+    import uret_bilanco_sayfa as U
+    agac = ast.parse(inspect.getsource(U.main))
+    bagli = False
+    for n in ast.walk(agac):
+        if not isinstance(n, ast.If):
+            continue
+        if "bilanco_defteri" not in ast.dump(n.test):
+            continue
+        if "oku" not in ast.dump(n.test):
+            continue
+        for g in ast.walk(n):
+            if (isinstance(g, ast.Call) and isinstance(g.func, ast.Attribute)
+                    and g.func.attr == "add"
+                    and isinstance(g.func.value, ast.Name)
+                    and g.func.value.id == "_yenilenecek"):
+                bagli = True
+    assert bagli, (
+        "yeniden uretim kuyrugu DEFTER OKUMASINA bagli degil -- adim "
+        "tukenmis kaynak butcesine istek atar")
+
+
+def test_yeniden_uretim_ESKI_DONEMI_atlamiyor_ama_SORGULAMIYOR():
+    """Eski ceyrek sayfasi bu bayrakla da yeniden URETILMEZ.
+
+    Dongu `(kod, GUNCEL donem)` ciftini sorguluyor. Eski ceyregin
+    cifti hicbir zaman sorgulanmiyor, yani 2026-1/2026-2 sayfalari
+    kapsam disi kaliyor -- ki kalmali: onlari guncel donemin
+    verisiyle yeniden kurmak, bir donemi soyleyip baskasinin
+    rakamlarini gostermek olurdu.
+
+    Olcut: atlama kosulundaki IKI uyelik sinamasi AYNI demeti
+    kullanmali.
+    """
+    import ast
+    import inspect
+    import uret_bilanco_sayfa as U
+    agac = ast.parse(inspect.getsource(U.main))
+    bulundu = False
+    for n in ast.walk(agac):
+        if not isinstance(n, ast.If):
+            continue
+        dump = ast.dump(n.test)
+        if "_yenilenecek" not in dump:
+            continue
+        bulundu = True
+        # Iki Compare: biri `var`a, biri `_yenilenecek`e bakiyor ve
+        # SOL tarafları ayni olmali.
+        sollar = [ast.dump(c.left) for c in ast.walk(n.test)
+                  if isinstance(c, ast.Compare)]
+        assert len(sollar) == 2, f"beklenen iki karsilastirma, {len(sollar)}"
+        assert sollar[0] == sollar[1], (
+            "iki uyelik sinamasi FARKLI demet kullaniyor -- eski donem "
+            "sayfasi yanlislikla yeniden uretilebilir")
+    assert bulundu, "atlama kosulu `_yenilenecek`e hic bakmiyor"
+
 
 if __name__ == "__main__":
     n = 0
