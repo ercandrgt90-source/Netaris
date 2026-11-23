@@ -30,7 +30,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 17,
+  "yorumlanan": 16,
   "haberler": [
     {
       "baslik": "Sektörel Enflasyon Beklentileri (Kasım 2026)",
@@ -164,7 +164,54 @@
       "foto_atif": "Olga Ernst · CC-BY-SA-4.0"
     },
     {
-      "baslik": "PBOC'den Pan: Çin ve AB iletişimi artırmalı",
+      "baslik": "Birleşik Krallık Başbakanı Sözcüsü Wells: Birleşik Krallık, AB ile ilişkiler için gerçekçi seçenekler üzerine görüşmelere başlıyor",
+      "baslik_kaynak": "UK's PM Spokesman Wells: The UK is starting talks with the EU on realistic options for ties",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9864312/UKs-PM-Spokesman-Wells-The-UK-is-starting-talks-with-the-EU-on-realistic-options-for-ties.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Şirket haberleri",
+      "tarih": "2026-11-23",
+      "tarih_gorunur": "23 Kasım 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/sirket-haberleri-9-c71a9b17.jpg",
+      "foto_atif": "Dietmar Rabich · CC-BY-SA-4.0"
+    },
+    {
+      "baslik": "Müttefikler, Rusya'nın önümüzdeki ay uzaya nükleer silah fırlatabileceği uyarısında bulundu",
+      "baslik_kaynak": "Allies warn Russia may launch a nuclear space weapon next month",
+      "ozet": "Western intelligence agencies warned Russia has built a satellite designed to carry a nuclear warhead and could launch it as soon as next month, according to people familiar with the matter.",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9864286/Allies-warn-Russia-may-launch-a-nuclear-space-weapon-next-month.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Jeopolitik",
+      "tarih": "2026-11-23",
+      "tarih_gorunur": "23 Kasım 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
+      "kanallar": [
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-15-ccd8ab8d.jpg",
+      "foto_atif": "usepagov · PDM"
+    },
+    {
+      "baslik": "PBOC'den Pan: Çin ve AB iletişimlerini artırmalı",
       "baslik_kaynak": "PBOC's Pan: China and the EU should step up communications",
       "ozet": "",
       "cevrildi": true,
@@ -903,7 +950,28 @@
       "foto_atif": "Satheesh Sankaran · CC-BY-2.0"
     },
     {
-      "baslik": "Wall Street vadeli işlemleri toparlanırken Bitcoin 2 yıllık dip seviyeden yükseliyor",
+      "baslik": "72 milyar dolar değerinde ETH barındıran Ethereum cüzdanları, gelecekte bir kuantum saldırısına maruz kalma tehdidi altında",
+      "baslik_kaynak": "Ethereum wallets holding $72 billion ETH are under threat of a future quantum attack",
+      "ozet": "Researchers find that accounts with visible public keys hold nearly 55% of ether outside staking, and propose a way to move them to quantum-resistant security.",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.coindesk.com/markets/2026/11/23/ethereum-wallets-holding-usd72-billion-eth-are-under-threat-of-a-future-quantum-attack",
+      "kurum": "CoinDesk",
+      "kurum_tam": "CoinDesk",
+      "konu": "Kripto varlıklar",
+      "tarih": "2026-11-23",
+      "tarih_gorunur": "23 Kasım 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/kripto-varliklar-9-b82c3e85.jpg",
+      "foto_atif": "CryptoWallet.com Images · CC-BY-2.0"
+    },
+    {
+      "baslik": "Wall Street vadeli işlemleri toparlanırken Bitcoin 2 yıllık dip seviyeden yükselişe geçti",
       "baslik_kaynak": "Bitcoin rebounds from 2-year low as Wall Street futures recover",
       "ozet": "Monday's market activity will show whether the weekend decline was seen as a dip and traders add to their holdings, or whether they abstain and the bounce fades.",
       "cevrildi": true,
@@ -945,7 +1013,7 @@
       "foto_atif": "Karlalhdz · CC-BY-SA-4.0"
     },
     {
-      "baslik": "Son durum: Bitcoin, yapay zekâ kaynaklı düşüşün ardından toparlanan hisse senetleriyle birlikte 61.000 $'ın üzerine çıktı",
+      "baslik": "Son gelişmeler: Bitcoin, yapay zekâ kaynaklı düşüşün ardından borsaların toparlanmasıyla birlikte yeniden 61.000 doların üzerine çıktı",
       "baslik_kaynak": "Live updates: Bitcoin climbs back above $61,000 as stocks rebound from AI rout",
       "ozet": "Bitcoin is recovering from a weekend plunge to nearly $55,500, its lowest in more than two years, as Nasdaq futures jumped 3% and Nvidia rallied.",
       "cevrildi": true,
@@ -1134,7 +1202,7 @@
       "foto_atif": "Daniel Schwen · CC-BY-SA-4.0"
     },
     {
-      "baslik": "ECB, bankaların teminat olarak daha fazla tokenleştirilmiş menkul kıymet göstermesine izin verecek",
+      "baslik": "ECB, bankaların daha fazla tokenleştirilmiş menkul kıymeti teminat olarak göstermesine izin verecek",
       "baslik_kaynak": "ECB to let banks pledge more tokenized securities as collateral",
       "ozet": "The ECB aims to start accepting securities issued on platforms licensed under the EU’s distributed ledger pilot program in June 2027.",
       "cevrildi": true,
@@ -1155,7 +1223,7 @@
       "foto_atif": "Ank Kumar · CC-BY-SA-4.0"
     },
     {
-      "baslik": "BTC fiyatı 55 bin dolardan %12 yükseldi: Bu hafta Bitcoin hakkında bilinmesi gereken üç şey",
+      "baslik": "BTC fiyatı 55 bin dolardan %12 yükseldi: Bu hafta Bitcoin ile ilgili bilinmesi gereken üç şey",
       "baslik_kaynak": "BTC price gains 12% from $55K: Three things to know in Bitcoin this week",
       "ozet": "Nasdaq-100 futures rose 3.1% before Monday’s open, while Wednesday’s US inflation report could shape expectations for a December rate hike.",
       "cevrildi": true,
@@ -1420,32 +1488,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/altin-ve-emtia-8-0eb87a46.jpg",
       "foto_atif": "Osmar Valdebenito from Santiago, Chile · CC-BY-SA-2.0"
-    },
-    {
-      "baslik": "Merkez rezervlerinde 17 milyar dolarlık sert düşüş: Haziran 2023'ten bu yana ikinci en büyük kayıp",
-      "baslik_kaynak": "Merkez rezervlerinde 17 milyar dolarlık sert düşüş: Haziran 2023'ten bu yana ikinci en büyük kayıp",
-      "ozet": "Türkiye Cumhuriyet Merkez Bankası'nın (TCMB) toplam rezervlerinin 20 Kasım haftasında yaklaşık 17 milyar dolar azalarak 142 milyar dolara gerilediği hesaplandı. Tahminin gerçekleşmesi halinde, Haziran 2023'ten bu yana en büyük ikinci haftalık rezerv kaybı kaydedilecek.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.dunya.com/ekonomi/merkez-rezervlerinde-17-milyar-dolarlik-sert-dusus-haziran-2023ten-bu-yana-ikinci-en-buyuk-kayip-haberi-848587",
-      "kurum": "Dünya",
-      "kurum_tam": "Dünya Gazetesi",
-      "konu": "Bankacılık",
-      "tarih": "2026-11-23",
-      "tarih_gorunur": "23 Kasım 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Bankacılık kararları kredi kanalının genişliğini belirler; etki önce fonlama maliyetinde, sonra kredi hacminde görünür.",
-      "kanallar": [
-        "Fonlama maliyeti: mevduat ve tahvil faizindeki değişim net faiz marjına yazılır.",
-        "Sermaye yeterliliği: rasyo üzerindeki baskı kredi büyümesini sınırlar.",
-        "Aktif kalitesi: takipteki kredi oranı, karşılık giderleri üzerinden kârlılığa geçer.",
-        "Yayılım: bankacılık sistemi ekonominin geri kalanına kredi kanalıyla bağlı olduğu için etki sektörle sınırlı kalmaz."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/bankacilik-7-8f64866b.jpg",
-      "foto_atif": "Artaxerxes · CC-BY-SA-4.0"
     },
     {
       "baslik": "İki Libya askeri kaynağı, Bingazi açıklarında Libya deniz ve hava kuvvetleri tarafından 12'den fazla insansız tekneye el konulduğunu söylüyor",
@@ -2127,53 +2169,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/sirket-haberleri-11-5c2f88fc.jpg",
       "foto_atif": "Bill Boaden · CC-BY-SA-2.0"
-    },
-    {
-      "baslik": "Suudi Arabistan liderliğindeki koalisyon: Yemen'deki Husiler tarafından Riyad bölgesine doğru fırlatılan insansız hava aracı düşürüldü ve etkisiz hale getirildi",
-      "baslik_kaynak": "Saudi-led coalition: intercepted and neutralized drone launched by Yemen's Houthis toward Riyadh region",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9863105/Saudi-led-coalition-intercepted-and-neutralized-drone-launched-by-Yemens-Houthis-toward-Riyadh-region.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Jeopolitik",
-      "tarih": "2026-11-21",
-      "tarih_gorunur": "21 Kasım 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
-      "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
-        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
-        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/jeopolitik-15-ccd8ab8d.jpg",
-      "foto_atif": "usepagov · PDM"
-    },
-    {
-      "baslik": "İran'ın güney kıyısındaki Sirik'te patlama sesi duyuldu: Nedeni belirsiz, uyarı ateşi veya bir geminin mayına çarpması olabilir - Fars News",
-      "baslik_kaynak": "Explosion heard in Sirik on Iran's southern coast: cause unclear, possible warning shot or ship hitting mine - Fars News",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9863095/Explosion-heard-in-Sirik-on-Irans-southern-coast-cause-unclear-possible-warning-shot-or-ship-hitting-mine---Fars-News.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Şirket haberleri",
-      "tarih": "2026-11-21",
-      "tarih_gorunur": "21 Kasım 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-15-c1626940.jpg",
-      "foto_atif": "Gkbediako · CC-BY-SA-4.0"
     },
     {
       "baslik": "İmalat Sanayi Kapasite Kullanım Oranı (Kasım 2026)",
