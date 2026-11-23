@@ -30,7 +30,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 23,
+  "yorumlanan": 22,
   "haberler": [
     {
       "baslik": "Kasım ayı enflasyon beklentisi ne? TÜİK Kasım ayı enflasyon rakamları ne zaman, saat kaçta açıklanacak?",
@@ -253,6 +253,48 @@
       "foto_atif": "Paul Harrison · CC-BY-SA-4.0"
     },
     {
+      "baslik": "MOC Dengesizliği",
+      "baslik_kaynak": "MOC Imbalance",
+      "ozet": "S&P 500: -1588 mln Nasdaq 100: -2874 mln Dow 30: -193 mln Mag 7: -1064 mln",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9865013/MOC-Imbalance.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Şirket haberleri",
+      "tarih": "2026-11-23",
+      "tarih_gorunur": "23 Kasım 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/sirket-haberleri-10-72a9566a.jpg",
+      "foto_atif": "Larry D. Moore · CC-BY-4.0"
+    },
+    {
+      "baslik": "ABD, Pazartesi günü ilerleyen saatlerde Çinli çip şirketi Megaspeed'i ticaret kara listesine eklemeye hazırlanıyor - Konuya Vakıf Kaynak",
+      "baslik_kaynak": "The US is set to add Chinese chip firm Megaspeed to its trade blacklist later on Monday - Source Familiar with the matter",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9864997/The-US-is-set-to-add-Chinese-chip-firm-Megaspeed-to-its-trade-blacklist-later-on-Monday---Source-Familiar-with-the-matter.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Enerji",
+      "tarih": "2026-11-23",
+      "tarih_gorunur": "23 Kasım 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/enerji-17-1a57ece0.jpg",
+      "foto_atif": "Colin Stepney · CC-BY-SA-4.0"
+    },
+    {
       "baslik": "Salı FX Opsiyonlarının Sona Erme Tarihi",
       "baslik_kaynak": "Tuesday FX Options Expiries",
       "ozet": "USD/JPY: 159.00 ($905.9m), 160.00 ($507.6m), 157.85 ($330m) EUR/USD: 1.0925 (EU650m), 1.0875 (EU600m), 1.1200 (EU425m) USD/BRL : 5.5500 ($1.07b), 5.5000 ($432.8m), 5.0000 ($328m) GBP/USD: 1.3450 (GBP350.9m), 1.3640 (GBP332.1m), 1.3265 (GBP331m) USD/CAD: 1.4300 ($760.6m), 1.2900 ($380m), 1.4050 ($307.5m) USD/MXN: 18.87…",
@@ -319,27 +361,6 @@
       "kanal_basligi": "Hangi piyasaları etkiler?",
       "foto": "/statik/foto/jeopolitik-40-59a567ac.jpg",
       "foto_atif": "Peter Griffin · CC0"
-    },
-    {
-      "baslik": "Ticaret Bakanlığı, Megaspeed'i ticaret kara listesine ekliyor - Semafor",
-      "baslik_kaynak": "Commerce to add megaspeed to trade blacklist - Semafor.",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9864964/Commerce-to-add-megaspeed-to-trade-blacklist---Semafor.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Enerji",
-      "tarih": "2026-11-23",
-      "tarih_gorunur": "23 Kasım 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enerji-17-1a57ece0.jpg",
-      "foto_atif": "Colin Stepney · CC-BY-SA-4.0"
     },
     {
       "baslik": "Brent ham petrol vadeli işlemleri varil başına 3,20 $ (%3,46) düşüşle 89,37 $'dan kapandı",
@@ -1582,33 +1603,7 @@
       "foto_atif": "Captain Albert E. Theberge, NOAA Corps (ret.) · PDM"
     },
     {
-      "baslik": "Trump, Nvidia hakkında: Yanlış yöne giden bir roket gemisiydi. $NVDA",
-      "baslik_kaynak": "Trump on Nvidia: Was a rocket ship going in wrong direction. $NVDA",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9864608/Trump-on-Nvidia-Was-a-rocket-ship-going-in-wrong-direction-NVDA.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Jeopolitik",
-      "tarih": "2026-11-23",
-      "tarih_gorunur": "23 Kasım 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
-      "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
-        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
-        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/jeopolitik-14-4ca6b4fe.jpg",
-      "foto_atif": "Bernard Gagnon · CC0"
-    },
-    {
-      "baslik": "Adalet Bakanlığı, Binance'e yönelik saldırıyla bağlantılı olarak 1,17 milyar dolar USDC talep ediyor; Circle ikame token'lar ihraç edebilir",
+      "baslik": "Adalet Bakanlığı, Binance'e yönelik saldırıyla bağlantılı olarak 1,17 milyar $ tutarında USDC talep ediyor; Circle, yerine başka token'lar ihraç edebilir",
       "baslik_kaynak": "DOJ seeks $1.17 billion in USDC tied to Binance hack; Circle could issue replacement tokens",
       "ozet": "The U.S. Justice Department is seeking to recover about $1.17 billion in USDC tied to the Oct. 29 Binance hack.",
       "cevrildi": true,
@@ -1975,7 +1970,7 @@
       "foto_atif": "CryptoWallet.com Images · CC-BY-2.0"
     },
     {
-      "baslik": "BTCS, piyasadaki düşüşün ortasında DeFi borcunu azaltmak için 44 milyon dolarlık ETH'yi elden çıkardı",
+      "baslik": "BTCS, piyasadaki düşüş sırasında DeFi borcunu azaltmak için 44 milyon dolarlık ETH'yi elden çıkardı",
       "baslik_kaynak": "BTCS offloads $44M in ETH to reduce DeFi debt amid market downturn",
       "ozet": "BTCS sold more than half its Ether holdings to reduce leverage following the market sell-off, while BitMine added another 7,819 ETH to its treasury.",
       "cevrildi": true,
@@ -2101,16 +2096,16 @@
       "foto_atif": "Satheesh Sankaran · CC-BY-2.0"
     },
     {
-      "baslik": "Yapay zekâ ajanları kredi kartı kullanıyor. Bu durumda kripto paraların yeri neresi?",
-      "baslik_kaynak": "AI agents are using credit cards. Where does that leave crypto?",
-      "ozet": "AI agents are already using credit cards to transact, raising questions about where crypto fits in the emerging agent economy.",
+      "baslik": "Kuzey Kore, Binance Hack'inden Elde Edilen 247 Milyon Dolarlık Ganimeti Bitcoin Mikserleri Aracılığıyla Aktarıyor",
+      "baslik_kaynak": "North Korea Moves $247 Million of Binance Hack Loot Through Bitcoin Mixers",
+      "ozet": "Roughly a month after the $6.4 billion hack, Elliptic says nearly all of the coinjoin mixing was coordinated by one person who “refuses to block funds such as these.\"",
       "cevrildi": true,
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://cointelegraph.com/magazine/ai-agents-are-using-credit-cards-where-does-that-leave-crypto?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "kurum": "Cointelegraph",
-      "kurum_tam": "Cointelegraph",
+      "adres": "https://decrypt.co/383844/north-korea-247-million-binance-hack-bitcoin-mixers",
+      "kurum": "Decrypt",
+      "kurum_tam": "Decrypt",
       "konu": "Kripto varlıklar",
       "tarih": "2026-11-23",
       "tarih_gorunur": "23 Kasım 2026",
@@ -2118,8 +2113,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/kripto-varliklar-7-62d77ad7.jpg",
-      "foto_atif": "Karlalhdz · CC-BY-SA-4.0"
+      "foto": "/statik/foto/kripto-varliklar-7-8bf172e8.jpg",
+      "foto_atif": "CryptoWallet.com Images · CC-BY-2.0"
     },
     {
       "baslik": "Tom Lee, Ethereum'un Bitcoin Kadar Nadir Olduğunu Söylüyor-Ve Bitmine Az Önce Daha Fazla Ethereum Satın Aldı",
