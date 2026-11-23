@@ -265,7 +265,7 @@
   ],
   "mali": {},
   "donem_gruplari": {},
-  "tazelendi": "2026-11-22T02:21:23+00:00"
+  "tazelendi": "2026-11-23T18:30:51+00:00"
  },
  "Finans": {
   "sektor": "Finans",
@@ -700,7 +700,7 @@
    "AAGYO": {
     "net_marj": 76.78590308370043,
     "roe": 1.2288083018442275,
-    "borc_ozkaynak": -0.1452258755851334
+    "borc_ozkaynak": -0.14545146917827534
    },
    "ADESE": {
     "net_marj": -13.764585929534384,
@@ -920,10 +920,6 @@
    [
     "TURGG",
     "eksik: hasilat"
-   ],
-   [
-    "ZRGYO",
-    "eksik: hasilat, net_kar, aktif_toplami"
    ]
   ],
   "ana_donem": "2026-09-30",
@@ -1006,21 +1002,22 @@
    "SVGYO",
    "VKGYO",
    "VRGYO",
-   "YGGYO"
+   "YGGYO",
+   "ZRGYO"
   ],
   "mali": {},
   "donem_gruplari": {},
-  "tazelendi": "2026-11-22T02:24:53+00:00"
+  "tazelendi": "2026-11-23T18:33:46+00:00"
  },
  "Kamu hizmetleri": {
   "sektor": "Kamu hizmetleri",
   "donem": "2026 3. çeyrek",
-  "sirket_sayisi": 28,
+  "sirket_sayisi": 29,
   "medyan": {
-   "net_marj": 5.700337900266624,
-   "roe": 0.6361873244768235,
-   "cari_oran": 0.8508389453581875,
-   "borc_ozkaynak": 0.1409227813317866
+   "net_marj": 4.993268393125842,
+   "roe": 0.3853713853713854,
+   "cari_oran": 0.8610354223433242,
+   "borc_ozkaynak": 0.13466424682395645
   },
   "sirket": {
    "A1YEN": {
@@ -1192,9 +1189,124 @@
     "roe": 1.783076298701299,
     "cari_oran": 0.2590873936581593,
     "borc_ozkaynak": 0.4594155844155844
+   },
+   "IZENR": {
+    "net_marj": -15.517009659806805,
+    "roe": -1.8536952486076965,
+    "cari_oran": 5.73471843278144,
+    "borc_ozkaynak": -0.018392955697155187
    }
   },
-  "atlanan": [],
+  "atlanan": [
+   [
+    "AHGAZ",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "AKENR",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "AKFYE",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "AKSEN",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "AKSUE",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "ARASE",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "ARFYE",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "AYDEM",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "AYEN",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "AYGAZ",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "BASGZ",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "BESTE",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "BIGEN",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "BIOEN",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "CANTE",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "CATES",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "CONSE",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "ECOGR",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "ENDAE",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "ENERY",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "ENJSA",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "ENTRA",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "ESEN",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "GWIND",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "HUNER",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "PAMEL",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "ZOREN",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ]
+  ],
   "ana_donem": "2026-09-30",
   "bitis": {
    "A1YEN": "2026-09-30",
@@ -1224,43 +1336,18 @@
    "AKENR": "2026-09-30",
    "ECOGR": "2026-09-30",
    "GWIND": "2026-09-30",
-   "HUNER": "2026-09-30"
+   "HUNER": "2026-09-30",
+   "IZENR": "2026-09-30"
   },
   "onceki_yok": [],
   "kirpilan": [],
   "taze_olculen": [
    "A1YEN",
-   "AHGAZ",
-   "AKENR",
-   "AKFYE",
-   "AKSEN",
-   "AKSUE",
-   "ARASE",
-   "ARFYE",
-   "AYDEM",
-   "AYEN",
-   "AYGAZ",
-   "BASGZ",
-   "BESTE",
-   "BIGEN",
-   "BIOEN",
-   "CANTE",
-   "CATES",
-   "CONSE",
-   "ECOGR",
-   "ENDAE",
-   "ENERY",
-   "ENJSA",
-   "ENTRA",
-   "ESEN",
-   "GWIND",
-   "HUNER",
-   "PAMEL",
-   "ZOREN"
+   "IZENR"
   ],
   "mali": {},
   "donem_gruplari": {},
-  "tazelendi": "2026-11-22T14:47:04+00:00"
+  "tazelendi": "2026-11-23T18:35:52+00:00"
  },
  "Sanayi": {
   "sektor": "Sanayi",

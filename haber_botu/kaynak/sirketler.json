@@ -4393,7 +4393,10 @@
    "kap_kimlik": "4028e4a144a0804f0145a837a7ad0a66",
    "sehir": "KAYSERİ",
    "uye_turu": "IGS",
-   "denetci": "KPMG BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "KPMG BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor": "Consumer Staples",
+   "sektor_tr": "Temel tüketim",
+   "alt_sektor": "Confectioners"
   },
   "KBORU": {
    "kod": "KBORU",
@@ -4401,7 +4404,10 @@
    "kap_kimlik": "8acae2c48b2fa259018c33b3ca910ba8",
    "sehir": "AKSARAY",
    "uye_turu": "IGS",
-   "denetci": "REHBER BAĞIMSIZ DENETİM VE YEMİNLİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "REHBER BAĞIMSIZ DENETİM VE YEMİNLİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Building Materials"
   },
   "KCAER": {
    "kod": "KCAER",
@@ -4409,7 +4415,10 @@
    "kap_kimlik": "4028e4a2416f888d01416f9ea04a058f",
    "sehir": "DENİZLİ",
    "uye_turu": "IGS",
-   "denetci": "GÜRELİ YEMİNLİ MALİ MÜŞAVİRLİK VE BAĞIMSIZ DENETİM HİZMETLERİ A.Ş."
+   "denetci": "GÜRELİ YEMİNLİ MALİ MÜŞAVİRLİK VE BAĞIMSIZ DENETİM HİZMETLERİ A.Ş.",
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Steel"
   },
   "KCHOL": {
    "kod": "KCHOL",
