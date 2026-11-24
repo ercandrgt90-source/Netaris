@@ -249,6 +249,38 @@ bilanco_defteri.yol("TUPRS").write_text(
     json.dumps(_kayit, ensure_ascii=False), encoding="utf-8")
 es("sema uyusmazsa None", bilanco_defteri.oku("TUPRS", 1), None)
 
+# SAYFA KURMAYA YETMEYEN KAYIT SUNULMUYOR -- OLCULDU (2026-11-24).
+#
+# `_seri_bitis` olmadan "Son dort donem" bolumu uretilemez:
+# kolonlarin hangi doneme ait oldugu soylenemez. Boyle bir kayit
+# sunulursa sayfa bolumsuz kurulur, goc kuyrugu onu "bolum yok"
+# diye geri alir ve kuyruk ASLA TUKENMEZ.
+#
+# Defterdeki 232 kaydin BIRI boyleydi (KARCL) ve sebebi
+# ayristiricidaki kolon kaymasiydi. Kok sebep duzeltildi; bu
+# denetim eski ayristiriciyla yazilmis kaydi kendiliginden
+# gecersiz kiliyor, yani elle silmek gerekmiyor.
+_eksik = {a: d for a, d in _T.items() if a != "_seri_bitis"}
+dogru("ornek `_seri_bitis` tasiyor (olcut atil degil)",
+      "_seri_bitis" in _T)
+_yol2 = bilanco_defteri.yaz("EKSIKSERI", _eksik, 1)
+dogru("seri bitisi olmayan cekim YAZILIYOR (yazma engellenmiyor)",
+      _yol2 is not None and _yol2.exists())
+es("seri bitisi olmayan kayit SUNULMUYOR",
+   bilanco_defteri.oku("EKSIKSERI", 1), None)
+dogru("bos liste tasiyan cekim de yaziliyor",
+      bilanco_defteri.yaz("EKSIKSERI2",
+                          dict(_eksik, _seri_bitis=[]), 1) is not None)
+es("seri bitisi BOS LISTE olan kayit da SUNULMUYOR",
+   bilanco_defteri.oku("EKSIKSERI2", 1), None)
+# OLCUTUN YONU: ayni cekim seri bitisiyle yazilinca SUNULUYOR.
+# Bu olmadan iddia "hicbir kayit sunulmuyor" ile de gecerdi.
+dogru("ayni cekim seri bitisiyle yazilinca SUNULUYOR",
+      bilanco_defteri.yaz(
+          "TAMSERI", dict(_eksik, _seri_bitis=["2026-09-30"]), 1)
+      is not None
+      and bilanco_defteri.oku("TAMSERI", 1) is not None)
+
 # BOZUK JSON COKERTMEZ.
 bilanco_defteri.yol("BOZUK").parent.mkdir(parents=True, exist_ok=True)
 bilanco_defteri.yol("BOZUK").write_text("{ bu json degil", encoding="utf-8")

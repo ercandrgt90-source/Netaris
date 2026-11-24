@@ -347,6 +347,7 @@ jobs:
       # `site/test_tel_sema.js` mekanik olarak zorluyor.
 
       - name: Veri topla ve içerik üret
+        id: uret
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -446,7 +447,24 @@ jobs:
       # kosunun sessizce icerik silmesi istenmiyor; adim KIRILIR ve
       # temizlik bilerek calistirilir.
       - name: Yorum sayıları sayfada mı
-        if: always()
+        # CIKTIYA BAKAN ADIM, CIKTI URETILMEDIYSE OLCMEZ.
+        #
+        # OLCULDU (2026-11-24): bilanco akisi bozuk bir sayfa yayimladi,
+        # sinamalar kirmizi dondu ve `uret` adimi ATLANDI (`if` yok).
+        # `site/cikti` gitignore'da, yani hic olusmadi. Ardindan bu
+        # adimlar `always()` ile kostu ve cikti YOKLUGUNU kusur diye
+        # bildirdi:
+        #
+        #   beyan_denetimi -> "gizlilik sayfasi uretilmemis" -> KIRMIZI
+        #   yorum_denetimi -> "hicbir yorum sayfada basilmamis"
+        #                     ama cikis 0 -- HICBIR SEY olcmeyen yesil
+        #
+        # Alarm kaydi (#36) bu yuzden gercek sebebin yanina alakasiz
+        # bir adim daha yazdi. Yoklugu kusur sanmak, tanıyı bozuyor.
+        #
+        # KAPI: `uret` basarili degilse bu adim KOSMUYOR. Yesil kosuda
+        # davranis AYNEN eskisi gibi.
+        if: always() && steps.uret.outcome == 'success'
         run: python haber_botu/yorum_denetimi.py
 
       # GIZLILIK BEYANI ILE GERCEK DAVRANIS AYRISMASIN.
@@ -466,7 +484,24 @@ jobs:
       # Bu bir uyum meselesi, kozmetik degil: yanlis gizlilik beyani
       # KVKK acisindan da kurumsal guven acisindan da sorun.
       - name: Gizlilik beyanı gerçekle uyuşuyor mu
-        if: always()
+        # CIKTIYA BAKAN ADIM, CIKTI URETILMEDIYSE OLCMEZ.
+        #
+        # OLCULDU (2026-11-24): bilanco akisi bozuk bir sayfa yayimladi,
+        # sinamalar kirmizi dondu ve `uret` adimi ATLANDI (`if` yok).
+        # `site/cikti` gitignore'da, yani hic olusmadi. Ardindan bu
+        # adimlar `always()` ile kostu ve cikti YOKLUGUNU kusur diye
+        # bildirdi:
+        #
+        #   beyan_denetimi -> "gizlilik sayfasi uretilmemis" -> KIRMIZI
+        #   yorum_denetimi -> "hicbir yorum sayfada basilmamis"
+        #                     ama cikis 0 -- HICBIR SEY olcmeyen yesil
+        #
+        # Alarm kaydi (#36) bu yuzden gercek sebebin yanina alakasiz
+        # bir adim daha yazdi. Yoklugu kusur sanmak, tanıyı bozuyor.
+        #
+        # KAPI: `uret` basarili degilse bu adim KOSMUYOR. Yesil kosuda
+        # davranis AYNEN eskisi gibi.
+        if: always() && steps.uret.outcome == 'success'
         run: python haber_botu/beyan_denetimi.py
 
 
@@ -511,7 +546,24 @@ jobs:
       # degilse betik ilk satirda cikiyor. Uygulama bildirim izni
       # istemeye basladiginda burayi "1" yapin.
       - name: Bildirim gönder
-        if: always()
+        # CIKTIYA BAKAN ADIM, CIKTI URETILMEDIYSE OLCMEZ.
+        #
+        # OLCULDU (2026-11-24): bilanco akisi bozuk bir sayfa yayimladi,
+        # sinamalar kirmizi dondu ve `uret` adimi ATLANDI (`if` yok).
+        # `site/cikti` gitignore'da, yani hic olusmadi. Ardindan bu
+        # adimlar `always()` ile kostu ve cikti YOKLUGUNU kusur diye
+        # bildirdi:
+        #
+        #   beyan_denetimi -> "gizlilik sayfasi uretilmemis" -> KIRMIZI
+        #   yorum_denetimi -> "hicbir yorum sayfada basilmamis"
+        #                     ama cikis 0 -- HICBIR SEY olcmeyen yesil
+        #
+        # Alarm kaydi (#36) bu yuzden gercek sebebin yanina alakasiz
+        # bir adim daha yazdi. Yoklugu kusur sanmak, tanıyı bozuyor.
+        #
+        # KAPI: `uret` basarili degilse bu adim KOSMUYOR. Yesil kosuda
+        # davranis AYNEN eskisi gibi.
+        if: always() && steps.uret.outcome == 'success'
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -841,6 +893,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           KIP: kapat
+          BASLIK: "Otomasyon kirmizi -- kosu basarisiz"
           DEPO: ${{ github.repository }}
           ETIKET: otomasyon
         run: bash .github/alarm.sh
@@ -858,7 +911,7 @@ jobs:
           # KARISTIRILMAMALI -- karistirmak, calmayan bir alarmi
           # saglik sanmak olurdu.
           if [ ! -f "$dosya" ]; then
-            echo "::error::UYARI DOSYASI YOK -- test_dom_agirligi yazmadi mi, ad mi ayristi?"
+            echo "::error::UYARI DOSYASI YOK -- uretim adimi kosmadi mi, test_dom_agirligi yazmadi mi, ad mi ayristi?"
             exit 0
           fi
           if [ ! -s "$dosya" ]; then

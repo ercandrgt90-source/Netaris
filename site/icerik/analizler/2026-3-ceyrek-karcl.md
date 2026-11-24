@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %1,9 artması, brüt kârın %15,4 düşmesiyle birlikte brüt kâr marjının %10,2 seviyesinde kalmasına yol açtı; bu durum, maliyetlerdeki artışın kâr üzerindeki baskısını gösteriyor. Brüt kârdaki düşüşe rağmen FAVÖK %6,4 artarak net kârın %14,0 yükselmesine ve net kâr marjının %6,9'a (sektör medyanının %1,3'ünden çok üzerinde) çıkmasına katkı sağladı. Faaliyet nakit akışının negatif (-1,03 milyar TL) olması, artan yatırım harcaması ( %62,4) ve net borç seviyesinin (13,56 milyar TL) özkaynak (16,72 milyar TL) karşısında yüksek (borç/özkaynak %0,81, sektör medyanı %0,16) olmasından kaynaklanıyor.
+Hasılatın %1,9 artması, brüt kârın %15,4 düşmesiyle birlikte brüt kâr marjının %10,2 seviyesinde kalmasına yol açtı; bu durum, maliyetlerdeki artışın kâr üzerindeki baskısını gösteriyor. Brüt kârdaki düşüşe rağmen FAVÖK %6,4 artarak net kârın %14,0 yükselmesine ve net kâr marjının %6,9'a (sektör medyanının %1,3'ünden çok üzerinde) çıkmasına katkı sağladı. Faaliyet nakit akışının negatif (-1,03 milyar TL) olması, artan yatırım harcaması ( %62,4) ve net borç seviyesinin (13,56 milyar TL) özkaynak (16,72 milyar TL) karşısında yüksek (borç/özkaynak %0,81, sektör medyanı %0,16) olmasından kaynaklanıyor.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
@@ -55,7 +55,7 @@ Hasılatın %1,9 artması, brüt kârın %15,4 düşmesiyle birlikte brüt kâr 
 
 ## Son dört dönem
 
-| Kalem (milyar TL) | -0 dönem | -1 dönem | -2 dönem |
+| Kalem (milyar TL) | 2026 3. çeyrek | 2026 2. çeyrek | 2026 1. çeyrek |
 | --- | ---: | ---: | ---: |
 | Hasılat | 7,88 | 7,31 | 6,62 |
 | Brüt kâr | 0,80 | 0,89 | 0,87 |

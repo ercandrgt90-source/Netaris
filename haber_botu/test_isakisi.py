@@ -718,12 +718,130 @@ for _ay in ("2", "4", "7", "10"):
 print("")
 _oto = (AKIS / "otomasyon.yml").read_text(encoding="utf-8")
 
-# 1. YETKI. Acik bir `permissions` blogu varken VERILMEYEN yetki
-#    kapalidir. `actions: read` olmadan `gh api .../jobs` 403 doner
-#    ve alarm sessizce "adim listesi alinamadi" yedegine duser:
-#    ozellik calisir GORUNUR, hicbir zaman calismaz.
-dogru("otomasyon.yml: alarm icin `actions: read` yetkisi var",
-      "actions: read" in _oto)
+# 1. YETKI -- OLCUT TEK AKIS DEGIL, `alarm.sh` CAGIRAN HER AKIS.
+#
+# Acik bir `permissions` blogu varken VERILMEYEN yetki kapalidir.
+# Alarmin iki yetkiye ihtiyaci var:
+#
+#   issues: write  -> kaydi acmak/kapatmak VE etiketi yaratmak
+#   actions: read  -> dusen ADIMIN adini kosunun is listesinden
+#                     okumak (yoksa "adim listesi alinamadi")
+#
+# BU KURAL BIR AKISA YAZILIYDI VE YAYILMAMISTI -- OLCULDU
+# (2026-11-24). `bilanco.yml` 2026-11-03'te alarmi cagirmaya
+# basladi, `permissions` blogu yalnizca `contents: write`
+# veriyordu ve alarm UC HAFTA boyunca BIR KEZ BILE calismadi:
+#
+#   gh label create bilanco  -> 403, betikteki `|| true` yuttu
+#   gh issue create --label  -> "could not add label: 'bilanco'
+#                               not found" -> adim kirmizi
+#
+# Kanit: depoda `otomasyon`, `nobetci`, `yaklasan-esik` etiketleri
+# var, `bilanco` YOK. O araliktaki iki kirmizi bilanco kosusu hic
+# duyurulmadi.
+#
+# Olcut artik AKIS DOSYALARINDAN turetiliyor: hangi akis alarmi
+# cagiriyorsa yetkisi ORADA aranir. Yeni bir akis alarmi cagirdigi
+# gun bu kural onu kendiliginde kapsiyor.
+_ALARM_YETKI = ("issues: write", "actions: read")
+
+
+def _alarm_cagiran(d: dict) -> list[str]:
+    """Akistaki hangi isler `alarm.sh` cagiriyor."""
+    isler = []
+    for isim, isi in (d.get("jobs") or {}).items():
+        if not isinstance(isi, dict):
+            continue
+        for adim in (isi.get("steps") or []):
+            if isinstance(adim, dict) and "alarm.sh" in str(adim.get("run")):
+                isler.append(isim)
+                break
+    return isler
+
+
+_alarmli = 0
+for _ad, _d in sorted(cozulen.items()):
+    if not isinstance(_d, dict):
+        continue
+    for _is in _alarm_cagiran(_d):
+        _alarmli += 1
+        _y = ((_d.get("jobs") or {})[_is].get("permissions")
+              or _d.get("permissions") or {})
+        # Acik blok YOKSA varsayilan jeton genelde yeterlidir;
+        # kural "acik blok varsa eksik olmasin" diyor.
+        # ACIK BLOK SART -- "blok yoksa muaf" DEMIYOR.
+        #
+        # Ilk yazimim `(not _y) or ...` diyordu: blogun TAMAMI
+        # kaldirilirsa kural geciyordu. Varsayilan jeton yetkisi
+        # depo/organizasyon ayarina bagli ve GitHub yeni depolarda
+        # onu SALT OKUNUR yapiyor -- yani "blok yok" guvenli
+        # degil, SADECE OLCULMEMIS. Alarmin yetkisini varsayima
+        # birakmak, bu turda uc hafta sessiz kalmasinin sebebiydi.
+        dogru(f"{_ad}/{_is}: acik `permissions` blogu var", bool(_y))
+        for _gereken in _ALARM_YETKI:
+            _anahtar, _deger = _gereken.split(": ")
+            dogru(f"{_ad}/{_is}: alarm icin `{_gereken}` yetkisi var",
+                  str(_y.get(_anahtar)) == _deger)
+
+# KURALIN KENDISI ATIL OLMAMALI: alarmi cagiran en az iki is olmali
+# (otomasyon ve bilanco). Sifir olsa butun dongu sessizce gecerdi --
+# bu depoda "atillik korumasi" diye yazili bir kusur sinifi.
+dogru("alarmi cagiran is sayisi >= 2 (kural atil degil)", _alarmli >= 2)
+print(f"         alarmi cagiran is: {_alarmli}")
+
+# Betik metni burada da gerekiyor; asagidaki bolum onu yeniden
+# okuyor ve iki okuma ayni dosyayi gosteriyor.
+_alarm_metni = (KOK / ".github" / "alarm.sh").read_text(encoding="utf-8")
+
+# 1b. ALARM CALMAK ZORUNDA -- ETIKET BIR KOLAYLIK.
+#
+# OLCULDU (2026-11-24): `gh issue create --label bilanco` "could
+# not add label: 'bilanco' not found" diyip CIKTI ve kayit HIC
+# acilmadi. Etiketi yaratma cagrisi `|| true` ile sarili, yani
+# basarisizligi yutuluyor; tek sonuc alarmin SESSIZ kalmasi oldu.
+#
+# Yetki duzeltildi (yukaridaki kural) ama bu AYRI bir soru: etiket
+# herhangi bir sebeple eklenemezse ne olacak? Cevap: kayit
+# ETIKETSIZ acilir. Calan alarm, dogru etiketli olmayan alarmdan
+# degil, CALMAYAN alarmdan kiyaslanir.
+dogru("alarm.sh: etiket eklenemezse ETIKETSIZ kayit aciyor",
+      "ETIKETSIZ deneniyor" in _alarm_metni
+      and _alarm_metni.count('gh issue create --title "$BASLIK"') >= 2)
+
+# 1c. ETIKETSIZ ACILAN KAYIT BULUNABILMELI.
+#
+# Yalnizca etikete bakan bir arama onu gormez: her kosuda yeni
+# kayit acilir ("tek kayit" kurali bozulur) ve kosu yesile
+# donunce kapanmaz. Arama bu yuzden BASLIGA da bakiyor, ve
+# karsilastirma TAM ESITLIK: iki akisin basligi "kirmizi -- kosu
+# basarisiz" parcasini paylasiyor, bulanik arama otekinin
+# kaydini bulurdu.
+dogru("alarm.sh: acik kayit BASLIKLA da araniyor",
+      "in:title" in _alarm_metni
+      and "$2==b" in _alarm_metni)
+
+# 1d. BASLIK IKI ADIMDA DA GECILIYOR VE AYNI OLMALI.
+#
+# `kapat` adimi BASLIK gecirmezse etiketsiz acilmis kayit hic
+# kapanmaz; farkli bir BASLIK gecirirse de bulunamaz. Degerler
+# AKIS DOSYASINDAN okunuyor, buraya elle yazilmiyor.
+for _ad, _d in sorted(cozulen.items()):
+    if not isinstance(_d, dict):
+        continue
+    for _is in _alarm_cagiran(_d):
+        _cevreler = {}
+        for _adim in ((_d.get("jobs") or {})[_is].get("steps") or []):
+            if "alarm.sh" not in str(_adim.get("run")):
+                continue
+            _e = _adim.get("env") or {}
+            _cevreler[_e.get("KIP")] = (_e.get("BASLIK"),
+                                        _e.get("ETIKET"))
+        dogru(f"{_ad}/{_is}: alarm iki kipte de cagriliyor",
+              set(_cevreler) == {"duyur", "kapat"})
+        dogru(f"{_ad}/{_is}: her iki kip de BASLIK geciyor",
+              all(b for b, _t in _cevreler.values()))
+        dogru(f"{_ad}/{_is}: iki kip AYNI baslik ve etiketi kullaniyor",
+              len(set(_cevreler.values())) == 1)
 
 # 2. SORGU. Dusen adimin adi kosunun kendi is listesinden okunuyor.
 #
@@ -1006,6 +1124,116 @@ if _cs_yol.is_file():
 import subprocess as _sp                                  # noqa: E402
 
 _ALARM = KOK / '.github' / 'alarm.sh'
+# --------------------------------------------------------------------
+# 11. CIKTIYA BAKAN ADIM, CIKTIYI URETEN ADIMA BAGLI OLMALI.
+#
+# OLCULDU (2026-11-24). Bilanco akisi bozuk bir sayfa yayimladi;
+# otomasyonun sinama adimi kirmiziya dondu ve URETIM adimi ATLANDI
+# (`if` tasimiyor). `site/cikti` gitignore'da, yani hic olusmadi.
+# Ardindan `always()` ile kosan iki adim yoklugu KUSUR diye
+# bildirdi:
+#
+#   beyan_denetimi -> "gizlilik sayfasi uretilmemis" -> KIRMIZI
+#   yorum_denetimi -> "hicbir yorum sayfada basilmamis", cikis 0
+#                     -- HICBIR SEY olcmeyen bir yesil
+#
+# Alarm kaydi (#36) gercek sebebin yanina alakasiz bir adim daha
+# yazdi. Yoklugu kusur sanmak taniyi bozuyor -- bu depoda
+# "atillik korumasi icerikten bagimsiz olmali" diye yazili bir
+# kusur sinifinin tersi: burada MESRU yokluk kusur sayildi.
+#
+# OLCUT ELLE TUTULAN LISTE DEGIL, BETIGIN KENDI AGACI: adimin
+# kostugu Python dosyasi cikti dizinini kuruyorsa (`CIKTI` adini
+# baglayan bir atama) o adim ureten adimin sonucuna bagli olmali.
+# Yeni bir cikti denetimi eklendigi gun kural onu kendiliginden
+# kapsiyor.
+# --------------------------------------------------------------------
+print('')
+import ast as _ast                                     # noqa: E402
+import re as _re                                       # noqa: E402
+
+
+def _ciktiya_bakar(yol: pathlib.Path) -> bool:
+    """Betik INSA CIKTISINI okuyor mu -- AGACTAN, metinden degil.
+
+    Dort yoldan biri yetiyor. Tek yola bakmak YETMEDI: ilk yazim
+    yalnizca `CIKTI` adini baglayan atamayi ariyordu ve
+    `bildirim_gonder.py` kapsam DISINDA kaldi -- cunku o, yolu
+    satir ici kuruyor (`SITE / "cikti"`). Tutulmayan bir kapi bir
+    gun kaldirilir; kural kapinin tamamini tutmali.
+    """
+    try:
+        agac = _ast.parse(yol.read_text(encoding="utf-8-sig"))
+    except (OSError, SyntaxError):
+        return False
+    for n in _ast.walk(agac):
+        # 1. `X = ... / "cikti"` ya da satir ici `SITE / "cikti"`
+        if isinstance(n, _ast.BinOp) and isinstance(n.op, _ast.Div):
+            for yan in (n.left, n.right):
+                if (isinstance(yan, _ast.Constant)
+                        and yan.value == "cikti"):
+                    return True
+        # 2. `CIKTI` adini baglayan atama
+        if isinstance(n, _ast.Assign):
+            for t in n.targets:
+                if isinstance(t, _ast.Name) and t.id == "CIKTI":
+                    return True
+        # 3. baska modulden `CIKTI` almak
+        if isinstance(n, _ast.ImportFrom):
+            if any(a.name == "CIKTI" for a in n.names):
+                return True
+        # 4. `modul.CIKTI`
+        if isinstance(n, _ast.Attribute) and n.attr == "CIKTI":
+            return True
+    return False
+
+
+_oto_d = cozulen.get("otomasyon.yml") or {}
+_adimlar = ((_oto_d.get("jobs") or {}).get("calistir")
+            or {}).get("steps") or []
+# URETEN ADIM: kimligi olan ve `calistir.py` kosan adim.
+_ureten = [a.get("id") for a in _adimlar
+           if isinstance(a, dict) and a.get("id")
+           and "calistir.py" in str(a.get("run"))]
+dogru("otomasyon.yml: ureten adimin KIMLIGI var", len(_ureten) == 1)
+_kimlik = _ureten[0] if _ureten else ""
+
+_bakanlar = 0
+for _a in _adimlar:
+    if not isinstance(_a, dict):
+        continue
+    _run = str(_a.get("run") or "")
+    _betikler = [KOK / m for m in _re.findall(r"python\s+(\S+\.py)",
+                                              _run)]
+    if not any(_ciktiya_bakar(_b) for _b in _betikler):
+        continue
+    _bakanlar += 1
+    _kosul = str(_a.get("if") or "")
+    _adim_adi = _a.get("name") or "(adsiz)"
+    dogru(f"otomasyon.yml/{_adim_adi}: ciktiya bakan adim "
+          f"`{_kimlik}` sonucuna bagli",
+          f"steps.{_kimlik}.outcome" in _kosul)
+
+# OLCUTUN KENDISI IKI YONDE SINANIYOR.
+#
+# "En az iki adim bulundu" YETMEDI -- bir mutasyon turunda bu
+# yakalandi: satir ici yol taniyan dal kapatilinca
+# `bildirim_gonder.py` kapsam DISINA cikti ama sayi hala 2'ydi ve
+# kural YESIL kaldi. Yani kapi duruyordu, onu tutan kural yoktu.
+#
+# Iki ornek ELLE secildi ve ikisi de GERCEK: biri yolu satir ici
+# kuruyor, oteki cikti dizinine hic bakmiyor.
+dogru("olcut satir ici `SITE / \"cikti\"` yolunu DA goruyor",
+      _ciktiya_bakar(KOK / "haber_botu" / "bildirim_gonder.py"))
+dogru("olcut cikti dizinine bakmayan betigi SAYMIYOR",
+      not _ciktiya_bakar(KOK / "haber_botu" / "beyin.py"))
+
+# KURAL ATIL OLMAMALI: cikti denetimi yapan en az iki adim var.
+dogru("ciktiya bakan adim sayisi >= 2 (kural atil degil)",
+      _bakanlar >= 2)
+print(f"         ciktiya bakan adim: {_bakanlar}")
+
+
 dogru('alarm betigi var', _ALARM.is_file())
 
 for _ad in ('otomasyon.yml', 'bilanco.yml'):

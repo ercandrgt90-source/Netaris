@@ -584,6 +584,26 @@ def goc_kuyrugu(defter: dict, baglam: dict | None = None) -> list:
         _eksik = []
         if U.SERI_BASLIGI not in metin:
             _eksik.append("son dört dönem bölümü yok")
+        # DORDUNCU SEBEP: SERI BASLIGI YER TUTUCU.
+        #
+        # Bolum VAR ama kolonlari "-0 dönem | -1 dönem" diyor. Okur
+        # icin anlamsiz ve sayfa saglik korumasi onu "donem etiketi
+        # celiskili" diye dusuruyor -- kosu #124 bu yuzden KIRMIZI
+        # dondu (2026-11-24).
+        #
+        # Uretici artik boyle bir baslik yazmiyor; kok sebep
+        # `bilanco_ag._tablo` kolon hizalamasinda duzeltildi. Ama
+        # YAYINDAKI sayfa hicbir kuyruga girmiyordu: bolumu VAR
+        # (birinci olcut gormuyor) ve yuzdeleri duzgun (ucuncu olcut
+        # gormuyor). Kurali sikilastirmak yayindaki icerigi
+        # temizlemez -- bu depoda yazili bir kusur sinifi.
+        #
+        # TUKENIYOR: defter artik `_seri_bitis` tasimayan kaydi
+        # sunmuyor, yani tazeleme bu sirket icin aga cikip duzeltilmis
+        # ayristiriciyla gercek tarihleri aliyor. Olculdu: yayinda
+        # boyle TEK sayfa var.
+        if U.seri_yer_tutuculu(metin):
+            _eksik.append("seri başlığı yer tutucu")
         _eksik += [f"{a} satırı yok" for a in U.eksik_turetilmis(metin)]
         # UCUNCU SEBEP: ISARET DEGISIMINDE ANLAMSIZ YUZDE.
         #

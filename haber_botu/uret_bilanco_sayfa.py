@@ -162,6 +162,47 @@ KALEMLER = (
 #: gocunde bir kez yasadi.
 SERI_BASLIGI = "## Son dört dönem"
 
+#: ESKI bir cikti bicimi: seri tablosunun YER TUTUCU kolon basligi.
+#:
+#: Uretici artik boyle bir baslik YAZMIYOR (bkz.
+#: `bilanco_ag.donem_getir` -- bitis tarihi olmayan adim seriye hic
+#: girmiyor). Bu desen YAYINDAKI sayfalari bulmak icin duruyor:
+#: kurali sikilastirmak depodaki eski icerigi temizlemiyor, bu
+#: depoda yazili bir kusur sinifi.
+#:
+#: OLCULDU (2026-11-24): `2026-3-ceyrek-karcl.md` yayindaydi ve
+#: tablosunun basligi "-0 dönem | -1 dönem | -2 dönem" idi. Hicbir
+#: kuyruga girmiyordu: seri bolumu VAR (yani "bolum yok" olcutu
+#: gormuyor) ve yuzdeleri duzgun (yani "anlamsiz yuzde" olcutu de
+#: gormuyor). Kuyruksuz kalan sayfa kendiliginden duzelmez.
+#:
+#: Yer tutucu bir hucrenin SONU: "-0 dönem", "-1 dönem"...
+#: Modul `re` ice almiyor; karar duz dizge islemleriyle veriliyor.
+SERI_YER_TUTUCU_SONU = " dönem"
+
+
+def seri_yer_tutuculu(metin: str) -> bool:
+    """Sayfa, seri tablosunu YER TUTUCU baslikla mi yayimlamis?
+
+    AG ISTEGI YOK: karar sayfanin kendi metninden veriliyor.
+
+    YALNIZCA BOLUMUN BASLIK SATIRI OKUNUYOR: yer tutucu orada
+    duruyor ve govdeye bakmak, gelecekte bir deger satirinin
+    sessizce eslesmesine yol acardi.
+    """
+    if SERI_BASLIGI not in metin:
+        return False
+    for satir in metin.split(SERI_BASLIGI, 1)[1].splitlines():
+        if not satir.startswith("|"):
+            continue
+        for hucre in satir.strip("|").split("|"):
+            h = hucre.strip()
+            if (h.startswith("-") and h.endswith(SERI_YER_TUTUCU_SONU)
+                    and h[1:-len(SERI_YER_TUTUCU_SONU)].isdigit()):
+                return True
+        return False
+    return False
+
 #: Sektor kiyas bolumunun basligi.
 #:
 #: BU BASLIK SAYFANIN BILANCO ANALIZI OLUP OLMADIGINI SOYLEMEZ.
@@ -882,20 +923,33 @@ def donem_celiskisi(donem: str, seri: list) -> str:
     AYNI islevden (`bilanco_ag.donem_etiketi`) geciyor --
     karsilastirma elma ile elma.
 
-    BILINMIYORSA CELISKI YOK SAYILIYOR. Kaynak bitis tarihlerini
-    vermediyse seri etiketi "-1 dönem" gibi bir yer tutucu olur;
-    onu celiski saymak, olcemedigimiz bir seyi kusur ilan etmek
-    olurdu. Yokluk bir kisitlama degil.
+    YER TUTUCU ETIKET DIYE BIR SEY ARTIK YOK -- bu paragraf
+    degisti (2026-11-24). Eski yazim soyle diyordu: "kaynak bitis
+    tarihlerini vermediyse seri etiketi '-1 dönem' gibi bir yer
+    tutucu olur; onu celiski saymak olcemedigimiz bir seyi kusur
+    ilan etmek olurdu". O muafiyet SESSIZ BIR DELIKTI: yer tutucu
+    etiketli sayfa buradan muaf gecti ve YAYINA CIKTI
+    (`2026-3-ceyrek-karcl.md`, "-0 dönem | -1 dönem | -2 dönem").
+    Celiskiyi yakalamayan koruma, yakalamadigi seyi onaylamis olur.
+
+    `bilanco_ag.donem_getir` artik bitis tarihi olmayan adimi
+    SERIYE HIC KOYMUYOR; yani `seri[0][1]` ya dolu ya da seri bos.
+    Burada tarihe bakan muafiyet bu yuzden KALDIRILDI -- okuyani
+    olmayan bir dalin yillarca sessiz kalmasi, bu depoda yazili
+    bir kusur sinifi.
     """
     if not seri:
         return ""
     cekilen = (seri[0][0] or "").strip()
-    iso = (seri[0][1] or "").strip()
-    # ISO YOKSA ETIKET KAYNAGIN YER TUTUCUSU -- karsilastirilamaz.
-    if not iso or not cekilen or not donem:
+    if not cekilen or not donem:
         return ""
     if cekilen == donem.strip():
         return ""
+    # BITIS TARIHI MESAJDA KALIYOR: "hangi donem cekildi" sorusunun
+    # cevabi etiket degil TARIH. Tarihe BAKAN muafiyet kaldirildi,
+    # tarihi RAPORLAYAN kisim kalmali -- onarim kuyrugundaki sebep
+    # metni bu tarihle okunuyor.
+    iso = (seri[0][1] or "").strip()
     return f"etiket {donem.strip()!r}, çekilen veri {cekilen!r} ({iso})"
 
 

@@ -332,6 +332,56 @@ def test_anlamsiz_yuzde_goc_kuyruguna_BAGLI():
         "goc kuyrugu olcutu CAGIRMIYOR -- 182 sayfa duzeltilmeden kalir")
 
 
+def test_yer_tutucu_baslik_GORULUYOR():
+    """"-0 dönem" basligi yayindaydi; bulucu onu gormeli.
+
+    OLCULDU (2026-11-24): `2026-3-ceyrek-karcl.md` seri tablosunu
+    "-0 dönem | -1 dönem | -2 dönem" basliklariyla yayimladi. Sayfa
+    HICBIR kuyruga girmiyordu: seri bolumu VAR (birinci olcut
+    gormuyor) ve yuzdeleri duzgun (ucuncu olcut gormuyor).
+    """
+    import uret_bilanco_sayfa as U
+    nl = chr(10)
+    yer_tutuculu = (U.SERI_BASLIGI + nl + nl
+                    + "| Kalem (milyar TL) | -0 dönem | -1 dönem |" + nl
+                    + "| --- | ---: | ---: |" + nl
+                    + "| Hasılat | 7,88 | 7,31 |" + nl)
+    saglam = (U.SERI_BASLIGI + nl + nl
+              + "| Kalem (milyar TL) | 2026 3. çeyrek | 2026 2. çeyrek |" + nl
+              + "| --- | ---: | ---: |" + nl
+              + "| Hasılat | 7,88 | 7,31 |" + nl)
+    assert U.seri_yer_tutuculu(yer_tutuculu)
+    assert not U.seri_yer_tutuculu(saglam)
+    # BOLUMU HIC OLMAYAN sayfa bu olcute GIRMEZ -- onu birinci
+    # olcut aliyor. Ikisi ayni sayfayi iki kez kuyruga koymamali.
+    assert not U.seri_yer_tutuculu("## Özet" + nl + nl + "| -0 dönem |" + nl)
+    # GOVDEDEKI bir deger satiri sessizce eslesmemeli.
+    govdede = (U.SERI_BASLIGI + nl + nl
+               + "| Kalem | 2026 3. çeyrek |" + nl
+               + "| --- | ---: |" + nl
+               + "| -1 dönem | 7,88 |" + nl)
+    assert not U.seri_yer_tutuculu(govdede)
+
+
+def test_yer_tutucu_goc_kuyruguna_BAGLI():
+    """Bulucu `goc_kuyrugu` icinde CAGRILIYOR olmali.
+
+    Baglanmazsa yayindaki sayfa kendiliginden duzelmez: kurali
+    sikilastirmak depodaki eski icerigi temizlemiyor -- bu depoda
+    yazili bir kusur sinifi. Olcut AST: bu dosyanin yorumlari
+    arananin adini zaten tasiyor, metin aramasi yanlis gecerdi.
+    """
+    import ast
+    import inspect
+    agac = ast.parse(inspect.getsource(T.goc_kuyrugu))
+    cagrilar = {n.func.attr for n in ast.walk(agac)
+                if isinstance(n, ast.Call)
+                and isinstance(n.func, ast.Attribute)}
+    assert "seri_yer_tutuculu" in cagrilar, (
+        "yer tutucu olcutu goc kuyruguna BAGLI DEGIL -- "
+        "yayindaki sayfa hicbir kuyrukta kalmaz")
+
+
 def test_goc_kuyrugu_olcutu_OZETI_DISLIYOR():
     """Tazeleme ozeti yeniden YAZMIYOR; olcut de ozete BAKMAMALI.
 

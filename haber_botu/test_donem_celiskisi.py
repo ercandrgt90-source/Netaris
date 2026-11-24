@@ -185,12 +185,40 @@ esit(bool(U.donem_celiskisi("2026 2. çeyrek", _seri_q3)), True,
      "etiket Q2, çekilen Q3 -> çelişki")
 esit(U.donem_celiskisi("2026 3. çeyrek", _seri_q3), "",
      "etiket Q3, çekilen Q3 -> çelişki yok")
+# MESAJ BITIS TARIHINI TASIMALI. Sebep metnini okuyan insan
+# "hangi donem cekildi" sorusunu ETIKETTEN degil TARIHTEN
+# cevaplar; etiket yoruma acik, tarih kesin. Bir mutasyon turunda
+# ISO mesajdan dusuruldu ve HICBIR sinama kirmizi yanmadi.
+esit("2026-09-30" in U.donem_celiskisi("2026 2. çeyrek", _seri_q3), True,
+     "çelişki mesajı çekilen verinin BİTİŞ TARİHİNİ taşıyor")
 esit(U.donem_celiskisi("2026 2. çeyrek", []), "",
      "seri hiç yoksa çelişki İDDİA EDİLMİYOR")
-# ISO YOKSA ETIKET KAYNAGIN YER TUTUCUSU ("-1 dönem") olabilir;
-# onu celiski saymak olcemedigimizi kusur ilan etmek olurdu.
-esit(U.donem_celiskisi("2026 2. çeyrek", [("-1 dönem", "", None)]), "",
-     "bitiş tarihi bilinmiyorsa ölçüm yapılmıyor")
+# BU IDDIA TERSINE CEVRILDI (2026-11-24) -- ESKISI KUSURU GECIRDI.
+#
+# Eskiden soyle diyordu: "ISO yoksa etiket kaynagin yer tutucusu
+# ('-1 dönem') olabilir; onu celiski saymak olcemedigimizi kusur
+# ilan etmek olurdu" -- ve `donem_celiskisi` bu durumda bos
+# donuyordu.
+#
+# OLCULDU, YAYINDAYDI: `2026-3-ceyrek-karcl.md` seri tablosunu
+# "-0 dönem | -1 dönem | -2 dönem" basliklariyla yayimladi ve
+# BURADAN MUAF GECTI. Sayfa saglik koruması onu "dönem etiketi
+# çelişkili" diye dusurdu; yani iki koruma AYNI sayfa icin ters
+# cevap verdi ve uretici tarafı yanlis olani soyleyendi.
+#
+# Celiskiyi yakalamayan koruma, yakalamadigi seyi ONAYLAMIS olur.
+#
+# Uretici artik yer tutucu etiket URETMIYOR
+# (`bilanco_ag.donem_getir` bitis tarihi olmayan adimi seriye hic
+# koymuyor), yani bu girdi gerceklesemez. Iddia yine de DUZ yonde
+# tutuluyor: boyle bir seri bir sekilde olusursa celiski
+# BILDIRILMELI -- sessiz gecmemeli.
+_yer_tutucu = [("-1 dönem", "", None)]
+esit(bool(U.donem_celiskisi("2026 2. çeyrek", _yer_tutucu)), True,
+     "yer tutucu etiketli seri CELISKI sayiliyor (eskiden muaftı)")
+# OLCUTUN ATIL OLMADIGI: ayni cagri, etiketi UYUSAN seride sessiz.
+esit(U.donem_celiskisi("-1 dönem", _yer_tutucu), "",
+     "etiket seriyle birebir ayniysa yine sessiz")
 
 # DAVRANIS: tazeleme celisen sayfaya DOKUNMUYOR.
 #

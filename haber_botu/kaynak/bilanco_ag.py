@@ -399,22 +399,84 @@ def _tablo(metin: str) -> tuple[list[str], dict[str, list[float | None]],
     Tarihler `donemler` ile AYNI sirada ve ISO biciminde. Kaynakta
     okunamayan bir hucre varsa o konumda bos dizge duruyor -- liste
     kaymasin, hizalama bozulmasin diye atlanmiyor.
+
+    BOS HUCRE SATIR ICINDEN ATILMIYOR -- OLCULDU, YAYINDAYDI
+    --------------------------------------------------------
+    Ilk yazim her satirda `[h for h in hucre if h]` yapiyordu, yani
+    bos hucreyi ATIYORDU. Bu, yukaridaki hizalama sozunu TUTMUYOR:
+    bir satirda bos hucre varsa o satir bir kolon KISA cikiyor ve
+    kolonlar kayiyor.
+
+    OLCULDU (2026-11-24), KARCL gelir tablosu -- kaynak basligi
+    sayfada bes kez tekrarliyor ve BAZI tekrarlarda Q4 2025 hucresi
+    BOS geliyor:
+
+        Fiscal Quarter | Q3 2026 | Q2 2026 | Q1 2026 |         | ...
+        Period Ending  | Sep 30  | Jun 30  | Mar 31  | Dec 31  | ...
+
+    Suzgecten sonra donem etiketi 6, tarih 7 oluyor. Uzunluklar
+    esit olmadigi icin SESSIZCE uc koruma birden kapandi:
+
+        `mali_yil_sonu`   -> None    (mali takvim bilinmiyor)
+        bitmemis donem kirpmasi -> hic calismiyor
+        `_seri_bitis`     -> hic yazilmiyor
+
+    Ucuncusu yayina cikti: `2026-3-ceyrek-karcl.md` "Son dort donem"
+    tablosunu "-0 donem | -1 donem | -2 donem" basliklariyla
+    yayimladi -- okur icin anlamsiz, ve sayfa saglik korumasi onu
+    "donem etiketi celiskili" diye dusurdu (kosu #124 KIRMIZI).
+
+    `mali_yil_sonu` icindeki "uzunluk esit degilse hizalama
+    guvenilmez" notu bu kaymayi ZATEN tarif ediyordu ve yedek bir
+    yol koymustu. Yedek dogruydu ama SEBEBI duzeltmiyordu.
+
+    YENI KURAL: yalnizca BASTAKI bos hucreler kirpiliyor; icteki ve
+    SONDAKI korunuyor. Olculdu (21 sirket, gelir tablosu): ic bos
+    hucre yalnizca KARCL'de ve yalnizca BASLIK satirlarinda var;
+    kenarda bos hucre HICBIR sirkette yok -- yani kirpma 21/21
+    sirkette davranisi degistirmiyor, yalnizca kaymayi gideriyor.
+
+    BASTAKI NEDEN KIRPILIYOR: kalem adi `hucre[0]` olarak okunuyor;
+    bastaki susleme hucresi onu bir kaydirirsa kalem adi BOS cikar
+    ve satir sessizce dusardi.
+
+    SONDAKI NEDEN KIRPILMIYOR: ilk yazim onu da kirpiyordu ve bu,
+    duzeltilen kaymayi KENARDA aynen yeniden uretiyordu -- baslik
+    satirinin SON kolonu bos gelirse donem sayisi bir azalir, tarih
+    sayisi degismez ve hizalama denetimi tarihleri tumden reddeder.
+    Bir mutasyon turunda tam bu yakalandi.
+
+    BASLIK SATIRI SIRAYA DEGIL OLCUME GORE SECILIYOR. Hem "Fiscal"
+    hem "Period Ending" satiri sayfada birden cok kez geciyor ve
+    GENISLIKLERI farkli olabiliyor. Eski kod "son gelen kazanir"
+    diyordu: tarih satiri o anki `donemler` ile esitse kabul
+    ediliyor, ARDINDAN gelen daha kisa bir "Fiscal" satiri eslesmeyi
+    sessizce gecersiz kiliyordu. Artik adaylar toplaniyor; donem
+    satiri DOLU HUCRESI EN COK olan (esitlikte son gelen), tarih
+    satiri da ona uzunlugu uyan son aday.
     """
     g = html.unescape(
         re.sub(r"<(script|style)[^>]*>.*?</\1>", " ", metin, flags=re.S))
     donemler: list[str] = []
     kalemler: dict[str, list[float | None]] = {}
     tarihler: list[str] = []
+    donem_adaylari: list[list[str]] = []
+    tarih_adaylari: list[list[str]] = []
 
     for satir in re.findall(r"<tr[^>]*>(.*?)</tr>", g, re.S):
         hucre = [re.sub(r"<[^>]+>", "", h).strip()
                  for h in re.findall(r"<t[dh][^>]*>(.*?)</t[dh]>", satir, re.S)]
-        hucre = [h for h in hucre if h]
-        if len(hucre) < 2:
+        # YALNIZCA BASTAKI BOS HUCRE KIRPILIYOR.
+        # Gerekcesi ve olcumu docstring'de.
+        _b = 0
+        while _b < len(hucre) and not hucre[_b]:
+            _b += 1
+        hucre = hucre[_b:]
+        if sum(1 for h in hucre if h) < 2:
             continue
         ad = hucre[0]
         if ad.startswith("Fiscal"):
-            donemler = hucre[1:]
+            donem_adaylari.append(hucre[1:])
             continue
         if ad.startswith("Period Ending"):
             # DONEM BITIS TARIHLERI -- ETIKETTEN DAHA GUVENILIR.
@@ -452,8 +514,7 @@ def _tablo(metin: str) -> tuple[list[str], dict[str, list[float | None]],
                 satir_tarih.append(
                     f"{m.group(3)}-{_AY_NO[m.group(1)]:02d}-"
                     f"{int(m.group(2)):02d}" if m else "")
-            if donemler and len(satir_tarih) == len(donemler):
-                tarihler = satir_tarih
+            tarih_adaylari.append(satir_tarih)
             continue
         # KALEM ADI KENDI "Growth" IKIZINI TASIYOR.
         #
@@ -473,6 +534,24 @@ def _tablo(metin: str) -> tuple[list[str], dict[str, list[float | None]],
         degerler = [_sayi(h) for h in hucre[1:]]
         if ad and any(d is not None for d in degerler):
             kalemler.setdefault(ad, degerler)
+
+    # BASLIK SATIRLARI DONGUDEN SONRA SECILIYOR -- SIRA DEGIL OLCUM.
+    #
+    # Donem satiri: dolu hucresi en cok olan (esitlikte son gelen).
+    # Boylece Q4 2025 hucresi BOS gelen tekrar yerine onu DOLU
+    # tasiyan tekrar kazaniyor; `mali_yil_sonu` bos etikete bakmak
+    # zorunda kalmiyor.
+    if donem_adaylari:
+        donemler = max(donem_adaylari,
+                       key=lambda d: (sum(1 for h in d if h),
+                                      donem_adaylari.index(d)))
+    # Tarih satiri: donem satiriyla AYNI SAYIDA hucre tasiyan son
+    # aday. Uymayan aday KABUL EDILMIYOR -- hizalamasi bozuk bir
+    # satiri kabul etmek, etiketi yanlis doneme baglamak olurdu.
+    for _t in reversed(tarih_adaylari):
+        if donemler and len(_t) == len(donemler):
+            tarihler = _t
+            break
     return donemler, kalemler, tarihler
 
 
@@ -728,9 +807,12 @@ def ara_donem(kod: str, ceyrek: int = VARSAYILAN_CEYREK,
             cikti["_seri_bitis"] = [
                 tarihler[i * ceyrek] for i in range(GERIYE_DONEM)
                 if i * ceyrek < len(tarihler)]
-            cikti["_seri_etiket"] = [
-                donemler[i * ceyrek] for i in range(GERIYE_DONEM)
-                if i * ceyrek < len(donemler)]
+            # `_seri_etiket` ARTIK URETILMIYOR. Kaynagin kendi
+            # etiketi ("Q1 2027") okura yazilmiyordu; tek okuyani
+            # seri basligi icin tutulan yedek yoldu ve o yedek
+            # kaldirildi (bkz. `donem_getir`). Okuyani olmayan bir
+            # anahtar uretmek, ileride onu "elimizde var" sanmak
+            # demektir -- bu depoda ucu da yasanmis bir kusur sinifi.
         if not KAPANDI:
             time.sleep(ARA_SN)
     return cikti
@@ -1064,7 +1146,6 @@ def donem_getir(kod: str, etiket: str,
     if seri:
         dizi: list = []
         bitisler = tablolar.get("_seri_bitis") or []
-        etiketler = tablolar.get("_seri_etiket") or []
         for adim in range(GERIYE_DONEM):
             alan = (alanlar if adim == 0
                     else donemi_kur(tablolar, ek=f"_g{adim}"))
@@ -1086,14 +1167,36 @@ def donem_getir(kod: str, etiket: str,
             # DUSUYOR; seri ikiden kisa kalirsa bolum hic yazilmiyor.
             if alan.get("hasilat") is None:
                 continue
-            ad = (etiketler[adim] if adim < len(etiketler)
-                  else f"-{adim} dönem")
             iso = bitisler[adim] if adim < len(bitisler) else ""
+            # BITIS TARIHI YOKSA ADIM SERIYE GIRMIYOR.
+            #
+            # Eski yazim yer tutucu bir etiket koyuyordu
+            # (`f"-{adim} dönem"`) ve o etiket YAYINA CIKTI:
+            # `2026-3-ceyrek-karcl.md` "Son dort donem" tablosunu
+            # "-0 dönem | -1 dönem | -2 dönem" basliklariyla
+            # yayimladi (kosu #124, 2026-11-24). Okur icin anlamsiz;
+            # sayfa saglik korumasi da onu "donem etiketi celiskili"
+            # diye dusurdu, yani kosu KIRMIZI dondu.
+            #
+            # KOK SEBEP AYRICA DUZELTILDI (`_tablo` kolon hizalamasi)
+            # ama bu katman AYRI bir soruyu cevapliyor: kaynak
+            # gercekten tarih vermediyse ne olacak? Cevap: o adim
+            # yazilmiyor. Kolonu hangi doneme ait oldugunu
+            # soyleyemeyecegimiz bir tablo, okura bilgi degil
+            # bulmaca verir.
+            #
+            # SAYARAK TURETMEK SECENEK DEGIL: adim sirasindan takvim
+            # tarihi hesaplamak, seride bir ceyrek bosluk oldugunda
+            # kolonu YANLIS doneme baglar -- bu depoda "sabit adim
+            # varsayimi" diye yazili bir kusur sinifi.
+            #
+            # Seri ikiden kisa kalirsa `govde_kur` bolumu hic
+            # yazmiyor; yani "etiketsiz tablo" yerine "tablo yok".
+            if not iso:
+                continue
             # ETIKET OKURA GORE YAZILIYOR, KAYNAGIN DILIYLE DEGIL:
             # "Q1 2027" Ekim 2026'da okuru yanlis yere goturur.
-            # Bitis tarihi varsa ondan turetiliyor.
-            if iso:
-                ad = donem_etiketi(iso, ceyrek)
+            ad = donem_etiketi(iso, ceyrek)
             dizi.append((ad, iso, oranlar.Donem(etiket=ad, **alan)))
         if ciftli:
             return simdi, once, [], dizi

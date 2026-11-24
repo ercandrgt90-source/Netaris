@@ -67,6 +67,15 @@ Kayit su durumlarda YOK sayilir ve cagiran taraf aga duser:
     * `ceyrek` istenenden farkli (ara donem uzunlugu)
     * `bitis` verildi ve kayittaki donem bitisi farkli
     * kayit `OMUR_GUN`den eski
+    * `_seri_bitis` yok ya da bos -- SAYFA KURMAYA YETMIYOR
+
+SON MADDE 2026-11-24'TE EKLENDI. `_seri_bitis` olmadan "Son dort
+donem" bolumu uretilemez; boyle bir kayit sunulsa sayfa bolumsuz
+kurulur, goc kuyrugu onu "bolum yok" diye geri alir ve kuyruk
+ASLA TUKENMEZ. Defterdeki 232 kaydin BIRI boyleydi ve sebebi
+ayristiricidaki kolon kaymasiydi (bkz. `bilanco_ag._tablo`);
+olcut kaydin KENDI eksikligi oldugu icin duzeltme sonrasi kayit
+kendiliginden yenilenir, elle silmek gerekmez.
 
 BIRINCIL KORUMA `bitis`: ozet hangi donemi gosteriyorsa defterin de
 o donemi tasimasi gerekir. Yas ikincil -- kapanmis bir donemin
@@ -270,7 +279,32 @@ def oku_kayit(kod: str, ceyrek: int, bitis: str = "",
     if yas is None or yas > azami_gun:
         return None
     t = k.get("tablolar")
-    return k if isinstance(t, dict) and t else None
+    if not (isinstance(t, dict) and t):
+        return None
+    # SAYFA KURMAYA YETMEYEN KAYIT SUNULMUYOR.
+    #
+    # `_seri_bitis` olmadan "Son dort donem" bolumu URETILEMEZ:
+    # kolonlarin hangi doneme ait oldugu soylenemez ve
+    # `bilanco_ag.donem_getir` o adimlari seriye hic koymaz.
+    # Boyle bir kayit sunuldugunda sayfa bolumsuz kuruluyor,
+    # ardindan goc kuyrugu onu "bolum yok" diye geri aliyor ve
+    # kuyruk ASLA TUKENMIYOR -- her kosuda ayni isi yapan bir
+    # saat bombasi.
+    #
+    # OLCULDU (2026-11-24): defterdeki 232 kaydin BIRI boyleydi
+    # (KARCL) ve sebebi ayristiricidaki kolon kaymasiydi. Kok sebep
+    # `bilanco_ag._tablo` icinde duzeltildi; bu denetim AYRI bir
+    # soruyu kapatiyor: eski ayristiriciyla yazilmis kayit ne
+    # olacak? Cevap: sunulmaz, sirket bir kez daha cekilir ve
+    # kayit kendiliginde duzelir. Elle silmek gerekmiyor.
+    #
+    # BUTUN DEFTERI GECERSIZ KILMAK SECENEK DEGILDI: semaya
+    # ayristirici surumu eklemek 232 sirketi birden aga
+    # dusururdu ve kaynak ~100-130 istekte kapaniyor -- defterin
+    # cozdugu sorunun ta kendisi. Olcut, kaydin KENDI eksikligi.
+    if not (t.get("_seri_bitis") or []):
+        return None
+    return k
 
 
 def oku(kod: str, ceyrek: int, bitis: str = "",

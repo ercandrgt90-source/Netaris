@@ -41,6 +41,38 @@ _gh() {
   gh "$@"
 }
 
+# ACIK KAYIT: ETIKETLE *VE* BASLIKLA ARANIYOR.
+#
+# NEDEN IKISI -- OLCULDU (2026-11-24). Alarm etiketi yaratamadiginda
+# kayit ETIKETSIZ aciliyor (asagidaki yedek yol). Yalnizca etikete
+# bakan bir arama onu GORMEZ ve her kosuda yeni bir kayit acar --
+# "ayni kusur icin tek kayit" kurali sessizce bozulur. Baslik bu
+# akisa ozel (`BASLIK` degeri akis dosyasinda sabit), yani ikinci
+# olcut olarak yeterli.
+_acik_kayit() {
+  if [ -n "$KURU" ]; then
+    echo ""
+    return 0
+  fi
+  local n
+  n=$(gh issue list --state open --label "$ETIKET" \
+      --json number --jq '.[0].number // empty' 2>/dev/null || true)
+  # BASLIK YOKSA BASLIK ARAMASI YAPILMIYOR.
+  #
+  # `kapat` kipinde `BASLIK` zorunlu degil ve betik `set -u` ile
+  # kosuyor: korumasiz `$BASLIK` okumasi SAGLIKLI bir kosunun
+  # alarm-kapatma adimini dusururdu. Akislar artik kapat adiminda
+  # da BASLIK geciyor (bkz. `otomasyon.yml`, `bilanco.yml`); bu
+  # koruma eski/eksik cagirani sessizce calistirmak icin.
+  if [ -z "$n" ] && [ -n "${BASLIK:-}" ]; then
+    n=$(gh issue list --state open --search "$BASLIK in:title" \
+        --json number,title --jq '.[] | [.number, .title] | @tsv' \
+        2>/dev/null \
+      | awk -F'\t' -v b="$BASLIK" '$2==b {print $1; exit}')
+  fi
+  echo "$n"
+}
+
 if [ "$KIP" = "kapat" ]; then
   # SAGLIGA DONUNCE ALARM KENDILIGINDEN SUSUYOR.
   #
@@ -53,8 +85,7 @@ if [ "$KIP" = "kapat" ]; then
   # yapmamali. Kapanmayan kayit en fazla fazladan bir bildirim; saglikli
   # kosuyu kirmiziya cevirmek ise bu dosyanin cozmeye calistigi sorunun
   # ta kendisi.
-  mevcut=$(_gh issue list --state open --label "$ETIKET" \
-      --json number --jq '.[0].number // empty' 2>/dev/null || true)
+  mevcut=$(_acik_kayit)
   if [ -n "$mevcut" ] && [ -z "$KURU" ]; then
     gh issue close "$mevcut" \
       --comment "Koşu yeşile döndü; alarm kendiliğinden kapandı." \
@@ -136,8 +167,7 @@ fi
 # degersizlestirirdi. Acik kayit varsa yenisi ACILMIYOR; yalnizca son
 # yorumdan alti saat gectiyse bir satir ekleniyor, yani surmekte olan bir
 # arizanin zaman cizelgesi olusuyor ama gurultu olmuyor.
-mevcut=$(gh issue list --state open --label "$ETIKET" \
-    --json number --jq '.[0].number // empty' 2>/dev/null || true)
+mevcut=$(_acik_kayit)
 if [ -z "$mevcut" ]; then
   gh label create "$ETIKET" --color B60205 \
     --description "Otomasyon kosusu basarisiz" 2>/dev/null || true
@@ -150,11 +180,27 @@ if [ -z "$mevcut" ]; then
   # O yuzden hata YUTULMUYOR: adim kirmizi yaniyor. Kosu zaten kirmizi,
   # yani durumu kotulestirmiyor; yalnizca ADIM LISTESINDE "alarm da
   # bozuk" diye gorunur oluyor.
-  if ! gh issue create --title "$BASLIK" --label "$ETIKET" --body "$govde"; then
-    echo "::error::ALARM CALISMADI -- kayit acilamadi (yetki? Issues kapali?)"
-    exit 1
+  if gh issue create --title "$BASLIK" --label "$ETIKET" --body "$govde"; then
+    exit 0
   fi
-  exit 0
+  # ETIKET YUZUNDEN CALMAYAN ALARM -- OLCULDU, UC HAFTA SURDU.
+  #
+  # `bilanco` etiketi depoda yoktu ve akisin yetkisi onu
+  # yaratmaya izin vermiyordu; `gh issue create --label` su hatayi
+  # verip CIKIYORDU:
+  #
+  #     could not add label: 'bilanco' not found
+  #
+  # Yani kayit HIC acilmadi. Etiket bir KOLAYLIK, alarmin kendisi
+  # degil: etiketsiz calan alarm, calmayan alarmdan sonsuz kat
+  # iyidir. Yetki de duzeltildi (bkz. `bilanco.yml`); bu yedek
+  # ikinci katman ve `_acik_kayit` etiketsiz kaydi da buluyor.
+  echo "::warning::etiket ile acilamadi -- ETIKETSIZ deneniyor"
+  if gh issue create --title "$BASLIK" --body "$govde"; then
+    exit 0
+  fi
+  echo "::error::ALARM CALISMADI -- kayit acilamadi (yetki? Issues kapali?)"
+  exit 1
 fi
 
 # ALTI SAATTE BIR: zaman cizelgesi olussun ama gurultu olmasin.

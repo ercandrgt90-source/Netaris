@@ -251,6 +251,29 @@ jobs:
 
     permissions:
       contents: write
+      # ALARM ICIN -- OLCULDU, UC HAFTA SESSIZ KALDI (2026-11-24).
+      #
+      # Bu akis `.github/alarm.sh`i 2026-11-03'te cagirmaya basladi
+      # ama `permissions` blogu YALNIZCA `contents: write` veriyordu.
+      # Acik bir blok varken verilmeyen her yetki KAPALIDIR, yani:
+      #
+      #   gh label create bilanco   -> 403, `|| true` ile yutuldu
+      #   gh issue create --label   -> "could not add label:
+      #                                'bilanco' not found" -> exit 1
+      #   gh api .../runs/.../jobs  -> 403, "adim listesi alinamadi"
+      #
+      # KANIT: depoda `otomasyon`, `nobetci`, `yaklasan-esik`
+      # etiketleri var, `bilanco` YOK -- yani bu alarm bir kez bile
+      # kayit acamamis. O araliktaki iki kirmizi bilanco kosusu
+      # (2026-11-21 ve 2026-11-24) hic duyurulmadi; ikincisini
+      # gunluge ELLE bakarak buldum.
+      #
+      # Ayni kural `otomasyon.yml`de UC HAFTA onceden yaziliydi ve
+      # buraya yayilmamisti. `test_isakisi.py` artik `alarm.sh`
+      # cagiran HER akiste bu iki yetkiyi ariyor; kurali tek akisa
+      # yazmak, kusurun kendisiydi.
+      issues: write
+      actions: read
 
     steps:
       - name: Depoyu al
@@ -843,6 +866,7 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           KIP: kapat
+          BASLIK: "Bilanço akışı kirmizi -- kosu basarisiz"
           DEPO: ${{ github.repository }}
           ETIKET: bilanco
         run: bash .github/alarm.sh

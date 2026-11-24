@@ -93,6 +93,146 @@ esit(round((24_647_000_000.0 + 21_582_000_000.0) / 1e9, 2), 46.23,
 
 
 # --------------------------------------------------------------------
+# KOLON HIZALAMASI: BOS HUCRE SATIR ICINDEN ATILMIYOR.
+#
+# OLCULDU, YAYINDAYDI (2026-11-24). Asagidaki HTML gercek KARCL
+# gelir tablosundan damitildi: kaynak baslik blogunu birden cok kez
+# tekrarliyor ve BAZI tekrarlarda "Q4 2025" hucresi BOS geliyor,
+# otekilerde DOLU. Period Ending satiri her tekrarda TAM.
+#
+# Eski ayristirici her satirdan bos hucreleri ATIYORDU; bos basliklı
+# tekrar donem sayisini 6'ya dusuruyor, tarih sayisi 7 kaliyordu.
+# Uzunluklar esit olmadigi icin UC koruma birden sessizce kapandi:
+# mali takvim None, bitmemis donem kirpmasi hic kosmadi ve
+# `_seri_bitis` hic yazilmadi. Ucuncusu YAYINA CIKTI --
+# `2026-3-ceyrek-karcl.md` seri tablosunu "-0 dönem | -1 dönem"
+# basliklariyla yayimladi ve sayfa saglik korumasi kosuyu dusurdu.
+# --------------------------------------------------------------------
+print("")
+_BLOK_DOLU = (
+    "<tr><th>Fiscal Quarter</th><th>Q3 2026</th><th>Q2 2026</th>"
+    "<th>Q1 2026</th><th>Q4 2025</th></tr>"
+    "<tr><td>Period Ending</td><td>Sep 30, 2026</td>"
+    "<td>Jun 30, 2026</td><td>Mar 31, 2026</td>"
+    "<td>Dec 31, 2025</td></tr>")
+_BLOK_BOS = (
+    "<tr><th>Fiscal Quarter</th><th>Q3 2026</th><th>Q2 2026</th>"
+    "<th>Q1 2026</th><th></th></tr>"
+    "<tr><td>Period Ending</td><td>Sep 30, 2026</td>"
+    "<td>Jun 30, 2026</td><td>Mar 31, 2026</td>"
+    "<td>Dec 31, 2025</td></tr>")
+_SATIR = ("<tr><td>Revenue    Revenue Growth</td><td>7,882</td>"
+          "<td>7,306</td><td>6,617</td><td>-</td></tr>")
+# BOS BLOK SONDA: eski kod "son gelen kazanir" diyordu, yani
+# hizalamayi tam bozan sira bu.
+KAYAN = "<table>" + _BLOK_DOLU + _SATIR + _BLOK_BOS + _SATIR + "</table>"
+
+_don, _kal, _tar = ba._tablo(KAYAN)
+esit(len(_don), 4, "bos basliklı tekrar kolon SAYISINI dusurmuyor")
+esit(len(_don) == len(_tar), True,
+     "donem ve tarih sayisi ESIT -- hizalama korunuyor")
+esit(_don, ["Q3 2026", "Q2 2026", "Q1 2026", "Q4 2025"],
+     "DOLU hucreli baslik tekrari kazaniyor (sira degil olcum)")
+esit(_tar[3], "2025-12-31", "dorduncu kolonun tarihi dogru kolona bagli")
+esit(_kal["Revenue"], [7_882_000_000.0, 7_306_000_000.0,
+                       6_617_000_000.0, None],
+     "deger satirinda bos kolon YERINDE kaliyor (None)")
+# Hizalama bozuk olsaydi mali takvim None donerdi.
+esit(ba.mali_yil_sonu(_don, _tar), 12,
+     "mali takvim cozulebiliyor (kayma olsa None donerdi)")
+
+# TEK BASLIK VARYANTI VE O DA BOZUKSA: ic bos hucre KORUNMALI.
+#
+# Yukaridaki olcum DOLU bir varyant da sunuyordu, yani "en dolu
+# olani sec" kurali tek basina yetiyordu. Bu durumda secenek YOK:
+# ic bos hucre atilirsa donem sayisi 3'e duser, tarih 4 kalir ve
+# hizalama denetimi tarihleri TUMDEN reddeder. Yani mutasyon
+# "bos hucreyi yine at" dedigi anda bu iddia dusmeli.
+_TEK_BOZUK = (
+    "<table>"
+    "<tr><th>Fiscal Quarter</th><th>Q3 2026</th><th>Q2 2026</th>"
+    "<th>Q1 2026</th><th></th></tr>"
+    "<tr><td>Period Ending</td><td>Sep 30, 2026</td>"
+    "<td>Jun 30, 2026</td><td>Mar 31, 2026</td>"
+    "<td>Dec 31, 2025</td></tr>"
+    # DEGER satirinda da ic bos hucre: kaymasi rakami YANLIS
+    # doneme baglar -- en tehlikeli hali.
+    "<tr><td>Revenue</td><td>7,882</td><td>7,306</td><td></td>"
+    "<td>6,617</td></tr>"
+    "</table>")
+_d4, _k4, _t4 = ba._tablo(_TEK_BOZUK)
+esit(len(_d4), 4, "tek varyant bozuksa da kolon sayisi KORUNUYOR")
+esit(len(_t4), 4, "tarih satiri REDDEDILMIYOR -- uzunluk uyuyor")
+esit(_t4[3], "2025-12-31", "dorduncu kolon tarihi yerinde")
+esit(_k4["Revenue"], [7_882_000_000.0, 7_306_000_000.0, None,
+                      6_617_000_000.0],
+     "deger satirindaki ic bos hucre KAYMIYOR (ucuncu kolon None)")
+
+# BASTAKI bos hucre kirpiliyor -- kalem adi yine ilk hucre.
+# SONDAKI KIRPILMIYOR: o bir KOLON ve iki satirda da ayni yerde
+# duruyor; kirpmak kaymayi kenarda yeniden uretirdi.
+_kenar = ("<table><tr><th></th><th>Fiscal Quarter</th><th>Q1 2026</th>"
+          "<th></th></tr>"
+          "<tr><td></td><td>Revenue</td><td>100</td><td></td></tr>"
+          "</table>")
+_d2, _k2, _ = ba._tablo(_kenar)
+esit(_d2, ["Q1 2026", ""], "bastaki bos hucre kirpiliyor, sondaki KOLON")
+esit(_k2.get("Revenue"), [100_000_000.0, None],
+     "kalem adi dogru okunuyor, son kolon yerinde kaliyor")
+
+# TARIH SATIRI UYMUYORSA KABUL EDILMIYOR -- yanlis donemi
+# etiketlemek, etiketsiz kalmaktan kotudur.
+_uymaz = ("<table>"
+          "<tr><th>Fiscal Quarter</th><th>Q3 2026</th><th>Q2 2026</th></tr>"
+          "<tr><td>Period Ending</td><td>Sep 30, 2026</td></tr>"
+          "<tr><td>Revenue</td><td>10</td><td>20</td></tr>"
+          "</table>")
+_d3, _k3, _t3 = ba._tablo(_uymaz)
+esit(_d3, ["Q3 2026", "Q2 2026"], "donem basliklari okunuyor")
+esit(_t3, [], "uzunlugu uymayan tarih satiri REDDEDILIYOR")
+
+
+# --------------------------------------------------------------------
+# SERIDE YER TUTUCU ETIKET URETILMIYOR.
+#
+# Bitis tarihi olmayan adim seriye HIC girmiyor. Eski yazim
+# "-{adim} dönem" diye bir yer tutucu koyuyordu ve o etiket yayina
+# cikti (yukaridaki olcum). Sayarak tarih turetmek de secenek degil:
+# seride bir ceyrek bosluk oldugunda kolonu YANLIS doneme baglar.
+# --------------------------------------------------------------------
+print("")
+# Alan adlari KAYNAGIN etiketleri -- cevirici `donemi_kur`.
+# CEKIRDEK dort alan dolu olmali, yoksa `donem_getir` hic donem
+# kurmuyor ve seri bos kalir (yani sinama yanlis seyi olcer).
+_GELIR = {"Revenue": 100.0, "Net Income": 10.0}
+_BILANCO = {"Total Assets": 500.0, "Shareholders' Equity": 200.0}
+_TAB = {
+    "gelir": dict(_GELIR), "bilanco": dict(_BILANCO), "nakit": {},
+    "gelir_g1": dict(_GELIR), "bilanco_g1": dict(_BILANCO),
+    "gelir_g2": dict(_GELIR), "bilanco_g2": dict(_BILANCO),
+}
+
+
+def _seri_etiketleri(bitisler):
+    tab = dict(_TAB)
+    if bitisler is not None:
+        tab["_seri_bitis"] = bitisler
+    _s, _o, _e, _dizi = ba.donem_getir(
+        "XXXX", "2026 3. çeyrek", ciftli=True, seri=True, tablolar=tab)
+    return [ad for ad, _iso, _dd in _dizi]
+
+
+_bitissiz = _seri_etiketleri(None)
+esit([a for a in _bitissiz if a.startswith("-")], [],
+     "bitis tarihi yoksa YER TUTUCU etiket uretilmiyor")
+esit(_bitissiz, [], "etiketlenemeyen adim seriye hic girmiyor")
+_yarim = _seri_etiketleri(["2026-09-30"])
+esit(len(_yarim), 1, "yalnizca tarihi OLAN adim seriye giriyor")
+esit(_yarim[0], ba.donem_etiketi("2026-09-30", 1),
+     "etiket bitis tarihinden turetiliyor")
+
+
+# --------------------------------------------------------------------
 # KALEM ESLESTIRMESI
 # --------------------------------------------------------------------
 TABLO = {
