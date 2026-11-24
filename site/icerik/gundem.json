@@ -222,7 +222,7 @@
       "foto_atif": "Sixflashphoto · CC-BY-SA-4.0"
     },
     {
-      "baslik": "İranlı Rezei: İran, ABD ambargosunu kırma konusunda kararlılığını sürdürüyor",
+      "baslik": "İranlı Rezei: İran, ABD ablukasını kırma konusunda kararlılığını sürdürüyor",
       "baslik_kaynak": "Iran's Rezaee: Iran remains firmly determined to break the US blockade",
       "ozet": "",
       "cevrildi": true,
@@ -306,7 +306,7 @@
       "foto_atif": "Sixflashphoto · CC-BY-SA-4.0"
     },
     {
-      "baslik": "BoC Başkanı Macklem: Faiz oranlarındaki artışlar, şirketleri tüm maliyetleri müşterilere yansıtma konusunda iki kere düşünmeye itiyor",
+      "baslik": "BoC Başkanı Macklem: Faiz artışları, şirketleri tüm maliyetleri müşterilere yansıtma konusunda iki kez düşünmeye sevk ediyor",
       "baslik_kaynak": "BoC Governor Macklem: Rate hikes get companies to think twice about passing all costs through.",
       "ozet": "",
       "cevrildi": true,
@@ -432,7 +432,7 @@
       "foto_atif": "Myotus · CC-BY-SA-4.0"
     },
     {
-      "baslik": "70 milyar dolarlık ihale öncesinde 5 yıllık Hazine tahvili faizi %4,716",
+      "baslik": "70 milyar dolarlık ihale öncesinde 5 yıllık Hazine tahvili getirisi %4,716",
       "baslik_kaynak": "Treasury WI 5 Yr yield 4.716% before $70 billion auction.",
       "ozet": "",
       "cevrildi": true,
@@ -500,7 +500,7 @@
       "foto_atif": "Rodhullandemu · CC-BY-SA-4.0"
     },
     {
-      "baslik": "Fed'in 5 yıllık tahviller için teklifleri toplam 7,2 milyar doları buluyor",
+      "baslik": "Fed'in 5 yıllık senetler için teklifleri toplam 7,2 milyar doları buluyor",
       "baslik_kaynak": "Fed bids for 5-year notes total $7.2 bln.",
       "ozet": "",
       "cevrildi": true,
@@ -521,7 +521,7 @@
       "foto_atif": "Infrogmation of New Orleans · CC-BY-SA-4.0"
     },
     {
-      "baslik": "Swap piyasası verilerine göre, Macklem'in açıklamalarının ardından BoC'nin Aralık ayında faiz artırma olasılığı %65'ten %80'e yükseldi",
+      "baslik": "Swap piyasası verilerine göre, Macklem'in açıklamaları sonrasında BoC'nin Aralık ayında faiz artırma olasılığı %65'ten %80'e yükseldi",
       "baslik_kaynak": "BoC December rate hike chances rise to 80% from 65% after Macklem remarks, swap market data shows.",
       "ozet": "",
       "cevrildi": true,
@@ -1475,7 +1475,28 @@
       "foto_atif": "namisito · CC-BY-SA-4.0"
     },
     {
-      "baslik": "Temsilciler Meclisi Üyesi Raskin, Trump Jr.'ın şirketinin Polymarket ve Juul'a yaptığı yatırımları \"şüpheli derecede iyi zamanlanmış hükümet ayrıcalıkları\" nedeniyle inceliyor",
+      "baslik": "Kraken'in Krak'ı, USDC ile güvence altına alınan bir kart da dâhil olmak üzere Bitcoin para puanlı ABD kredi kartlarını 2027'nin başlarında piyasaya sürmeyi planlıyor",
+      "baslik_kaynak": "Kraken’s Krak plans early 2027 launch of US credit cards with bitcoin cashback, including one secured by USDC",
+      "ozet": "Krak has opened a waitlist for two U.S. credit card products, including a secured card that uses USDC as collateral.",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.theblock.co/news/business/2026-11-24-kraken-krak-early-2027-launch-us-credit-cards-bitcoin-cashback-usdc-collateral-445498",
+      "kurum": "The Block",
+      "kurum_tam": "The Block",
+      "konu": "Kripto varlıklar",
+      "tarih": "2026-11-24",
+      "tarih_gorunur": "24 Kasım 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/kripto-varliklar-9-651bf869.jpg",
+      "foto_atif": "Satheesh Sankaran · CC-BY-2.0"
+    },
+    {
+      "baslik": "Temsilciler Meclisi Üyesi Raskin, Trump Jr.'ın şirketinin Polymarket ve Juul'a yaptığı yatırımları \"şüpheli derecede iyi zamanlanmış hükümet ayrıcalıkları\" nedeniyle araştırıyor",
       "baslik_kaynak": "Rep. Raskin probes Trump Jr.’s firm’s investments into Polymarket and Juul over ‘suspiciously well-timed government favors’",
       "ozet": "Rep. Raskin has expanded his investigation into 1789 Capital, probing potential links between investments in companies such as Polymarket.",
       "cevrildi": true,
@@ -1669,27 +1690,6 @@
       "foto_atif": "CryptoWallet.com Images · CC-BY-2.0"
     },
     {
-      "baslik": "BlackRock, Hong Kong'lu yatırımcılara 100 milyon dolarlık varlığa sahip tokenleştirilmiş para piyasası fonu açtı",
-      "baslik_kaynak": "BlackRock opens tokenized money market fund with $100 million in assets to Hong Kong investors",
-      "ozet": "BlackRock has launched and opened its HKD Digital Liquidity Fund to retail and institutional investors in Hong Kong.",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.theblock.co/news/business/2026-11-24-blackrock-opens-tokenized-money-market-fund-with-100-million-in-assets-to-hong-kong-investors-445524",
-      "kurum": "The Block",
-      "kurum_tam": "The Block",
-      "konu": "Piyasa düzenlemesi",
-      "tarih": "2026-11-24",
-      "tarih_gorunur": "24 Kasım 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/piyasa-duzenlemesi-7-24361cea.jpg",
-      "foto_atif": "Ank Kumar · CC-BY-SA-4.0"
-    },
-    {
       "baslik": "\"Yapay zekâ destekli alım satım asla ölmedi\": Yatırımcılar piyasanın toparlanması için fırsat görüyor, ancak Bitcoin'in buna dâhil olması başka bir mesele",
       "baslik_kaynak": "'AI trade never died': Traders see room for market recovery, but bitcoin's participation is another story",
       "ozet": "Monday's tech enthusiasm is quickly fading on Tuesday, while bitcoin remains near bear-market lows.",
@@ -1879,6 +1879,27 @@
       "foto_atif": "Karlalhdz · CC-BY-SA-4.0"
     },
     {
+      "baslik": "BlackRock, Hong Kong'da stabil koinleri kabul eden tokenleştirilmiş para piyasası fonunu piyasaya sürdü",
+      "baslik_kaynak": "BlackRock launches tokenized money market fund accepting stablecoins in Hong Kong",
+      "ozet": "The tokenized fund launched with approximately $100 million in assets, with Standard Chartered and Ant International participating as seed investors.",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://cointelegraph.com/news/blackrock-launches-tokenized-money-market-fund-stablecoins-hong-kong?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "kurum": "Cointelegraph",
+      "kurum_tam": "Cointelegraph",
+      "konu": "Kripto varlıklar",
+      "tarih": "2026-11-24",
+      "tarih_gorunur": "24 Kasım 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/kripto-varliklar-8-8b36c240.jpg",
+      "foto_atif": "de Vries, Alex; Stoll, Christian · PDM"
+    },
+    {
       "baslik": "Moskova Borsası kripto alım satımına açıldığında USDT alıcıları %22 KDV ile karşı karşıya kalacak",
       "baslik_kaynak": "USDT buyers face 22% VAT when Moscow Exchange opens crypto trading",
       "ozet": "Buyers will pay VAT on top of the trade price in December because Russia’s tax code has no explicit exemption for foreign digital instruments.",
@@ -2026,28 +2047,7 @@
       "foto_atif": "CryptoWallet.com Images · CC-BY-2.0"
     },
     {
-      "baslik": "İşte bugün kriptoda olanlar",
-      "baslik_kaynak": "Here’s what happened in crypto today",
-      "ozet": "Need to know what happened in crypto today? Here is the latest news on daily trends and events impacting Bitcoin price, blockchain, DeFi, Web3 and crypto regulation.",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://cointelegraph.com/news/what-happened-in-crypto-today?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "kurum": "Cointelegraph",
-      "kurum_tam": "Cointelegraph",
-      "konu": "Kripto varlıklar",
-      "tarih": "2026-11-24",
-      "tarih_gorunur": "24 Kasım 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/kripto-varliklar-8-8b36c240.jpg",
-      "foto_atif": "de Vries, Alex; Stoll, Christian · PDM"
-    },
-    {
-      "baslik": "Wall Street ve Kripto \"Aşırı Korku\" İçinde. Yatırımcıları Ne Korkutuyor?",
+      "baslik": "Wall Street ve Kripto \"Aşırı Korku\" İçinde. Yatırımcıları Korkutan Nedir?",
       "baslik_kaynak": "Wall Street and Crypto Are in 'Extreme Fear'. What's Spooking Investors?",
       "ozet": "Fear and Greed indexes are flashing extreme fear across stocks and crypto as Nvidia’s relief rally fades, Bitcoin falls below $60,000, and investors brace for higher interest rates",
       "cevrildi": true,
