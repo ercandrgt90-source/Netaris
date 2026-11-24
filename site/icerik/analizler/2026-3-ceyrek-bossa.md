@@ -24,19 +24,18 @@ Hasılatın %22,3 artması, aktif toplamının %26,4 yükselmesiyle paralel bir 
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | %22,3 |
-| Brüt kâr | -%52,2 |
-| Faaliyet kârı | -%89,3 |
-| FAVÖK | -%32,5 |
-| Net kâr | -%741,2 |
+| Hasılat | -%5,7 |
+| Brüt kâr | -%63,2 |
+| FAVÖK | -%79,8 |
 | Özkaynak | %31,7 |
 | Aktif toplamı | %26,4 |
 | Ticari alacaklar | %10,0 |
 | Stoklar | %22,7 |
 | Net borç | -%1,4 |
-| Faaliyet nakit akışı | -%65,6 |
-| Yatırım harcaması | -%31,9 |
-| Serbest nakit akışı | -%70,1 |
+| Faaliyet nakit akışı | -%73,2 |
+| Yatırım harcaması | -%46,6 |
+| Serbest nakit akışı | -%76,7 |
+| Finansman gideri | -%31,2 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -46,8 +45,8 @@ Hasılatın %22,3 artması, aktif toplamının %26,4 yükselmesiyle paralel bir 
 | --- | ---: |
 | Hasılat | 1,86 milyar TL |
 | Brüt kâr | 0,12 milyar TL |
-| Faaliyet kârı | 0,01 milyar TL |
-| FAVÖK | 0,18 milyar TL |
+| Faaliyet kârı | -0,07 milyar TL |
+| FAVÖK | 0,05 milyar TL |
 | Net kâr | -0,08 milyar TL |
 | Özkaynak | 13,02 milyar TL |
 | Aktif toplamı | 17,65 milyar TL |
@@ -57,6 +56,7 @@ Hasılatın %22,3 artması, aktif toplamının %26,4 yükselmesiyle paralel bir 
 | Faaliyet nakit akışı | 0,27 milyar TL |
 | Yatırım harcaması | 0,06 milyar TL |
 | Serbest nakit akışı | 0,21 milyar TL |
+| Finansman gideri | 0,12 milyar TL |
 
 ## Son dört dönem
 
@@ -64,8 +64,8 @@ Hasılatın %22,3 artması, aktif toplamının %26,4 yükselmesiyle paralel bir 
 | --- | ---: | ---: | ---: | ---: |
 | Hasılat | 1,86 | 1,86 | 1,60 | 1,84 |
 | Brüt kâr | 0,12 | 0,16 | 0,23 | 0,41 |
-| Faaliyet kârı | 0,01 | -0,01 | 0,12 | 0,23 |
-| FAVÖK | 0,18 | 0,16 | 0,29 | 0,40 |
+| Faaliyet kârı | -0,07 | -0,11 | 0,12 | 0,23 |
+| FAVÖK | 0,05 | 0,00 | 0,22 | 0,33 |
 | Net kâr | -0,08 | -0,07 | 0,01 | 0,08 |
 | Özkaynak | 13,02 | 12,49 | 11,76 | 10,70 |
 | Aktif toplamı | 17,65 | 16,75 | 15,95 | 14,93 |
@@ -75,35 +75,30 @@ Hasılatın %22,3 artması, aktif toplamının %26,4 yükselmesiyle paralel bir 
 | Faaliyet nakit akışı | 0,27 | 0,30 | 0,42 | 0,22 |
 | Yatırım harcaması | 0,06 | 0,07 | 0,04 | 0,07 |
 | Serbest nakit akışı | 0,21 | 0,23 | 0,38 | 0,15 |
-| Finansman gideri | — | 0,11 | 0,10 | — |
+| Finansman gideri | 0,12 | 0,11 | 0,10 | — |
 
 *Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
 
 ## Sektör içindeki konum
 
-Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildiren** 20 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildiren** 64 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %6,5 | %18,6 |
-| Net kâr marjı | -%4,5 | %3,4 |
-| Özkaynak kârlılığı | -%0,6 | %1,2 |
-| Cari oran | 2,05 | 1,48 |
-| Borç / özkaynak | 0,15 | 0,05 |
+| Brüt kâr marjı | %6,5 | %16,2 |
+| Net kâr marjı | -%4,5 | -%1,9 |
+| Özkaynak kârlılığı | -%0,6 | -%0,4 |
+| Cari oran | 2,05 | 1,35 |
+| Borç / özkaynak | 0,15 | 0,19 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
 ## Öne çıkan ölçümler
 
-**Şirket lehine işleyenler**
-
-- Hasılat reel olarak %22,3 arttı.
-
 **Dikkat gerektirenler**
 
-- Net kâr reel olarak -%741,2 geriledi.
+- Hasılat reel olarak -%5,7 geriledi.
 - Brüt marj 10,2 puan daraldı (%16,7 → %6,5).
-- Özkaynak kârlılığı -%0,6; sektör medyanı %1,2.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

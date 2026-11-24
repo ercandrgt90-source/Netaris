@@ -1,13 +1,13 @@
 ---
 slug: eupwr-2026-3-ceyrek
 baslik: EUROPOWER ENERJİ VE OTOMASYON TEKNOLOJİLERİ SANAYİ TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılat %14,6 artarken brüt kâr %68,8 düşmüş, bu durum brüt kâr marjının %8,5 seviyesinde kalmasına ve net kâr marjının %5,7'ye yükselmesine yol açmıştır; net kâr marjı sektör medyanının %-1,2 üzerindedir.…
+ozet: Hasılat %14,6 artarken brüt kâr %68,8 düşmüş; bu durum brüt kâr marjının %8,5 seviyesine gerilemesine yol açmış ve sektör medyanı %23,0'ın çok altında kalmıştır.…
 sirket: EUROPOWER ENERJİ VE OTOMASYON TEKNOLOJİLERİ SANAYİ TİCARET A.Ş.
 kod: EUPWR
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: Sanayi
-tarih: 2026-11-12
+tarih: 2026-11-24
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat %14,6 artarken brüt kâr %68,8 düşmüş, bu durum brüt kâr marjının %8,5 seviyesinde kalmasına ve net kâr marjının %5,7'ye yükselmesine yol açmıştır; net kâr marjı sektör medyanının %-1,2 üzerindedir. Özkaynak %39,2 artışı ve aktif toplamının %91,8 yükselmesi, cari oranı 1,75 (sektör medyanı 1,43) ve borç/özkaynak oranını 0,21 (sektör medyanı 0,09) yükseltirken, faaliyet nakit akışı negatiften pozitif 0,37 milyara dönmüş, yatırım harcaması ise hafifçe %7,5 azalarak 0,48 milyara gerilemiştir. Bu değişimler, faaliyet kârının -%104,0 düşmesi ve FAVÖK'ün -%93,4 gerilemesiyle birlikte, kârlılık ölçütlerinin (özkaynak kârlılığı %1,6, sektör medyanı -%0,3) iyileşmesine rağmen kâr kalemlerinin büyük dalgalanmalar gösterdiğini ortaya koyar.
+Hasılat %14,6 artarken brüt kâr %68,8 düşmüş; bu durum brüt kâr marjının %8,5 seviyesine gerilemesine yol açmış ve sektör medyanı %23,0'ın çok altında kalmıştır. Net kâr %39,9 azalmasına rağmen net kâr marjı %5,7'ye yükselmiş, bu da özkaynak kârlılığının %1,6 olarak sektör ortalamasının üzerinde olmasını sağlamıştır. Aktif toplamı %91,8 artışla 31,65 milyar TL'ye ulaşırken net borç %119,6 yükselmiş, bu da borç/özkaynak oranının %0,21'den %0,16 sektör medyanının üzerine çıkmasına neden olmuştur.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
@@ -26,7 +26,6 @@ Hasılat %14,6 artarken brüt kâr %68,8 düşmüş, bu durum brüt kâr marjın
 | --- | ---: |
 | Hasılat | %14,6 |
 | Brüt kâr | -%68,8 |
-| Faaliyet kârı | -%104,0 |
 | FAVÖK | -%93,4 |
 | Net kâr | -%39,9 |
 | Özkaynak | %39,2 |
@@ -63,7 +62,7 @@ Hasılat %14,6 artarken brüt kâr %68,8 düşmüş, bu durum brüt kâr marjın
 | Hasılat | 4,20 | 1,86 | 5,60 | 5,16 |
 | Brüt kâr | 0,36 | 0,52 | 2,22 | 0,96 |
 | Faaliyet kârı | -0,04 | 0,20 | 1,76 | 0,68 |
-| FAVÖK | 0,07 | 0,30 | 1,87 | 0,78 |
+| FAVÖK | 0,07 | 0,34 | 1,88 | 0,80 |
 | Net kâr | 0,24 | 0,17 | 0,46 | -0,03 |
 | Özkaynak | 15,13 | 14,23 | 13,13 | 11,45 |
 | Aktif toplamı | 31,65 | 26,25 | 23,12 | 18,84 |
@@ -79,15 +78,15 @@ Hasılat %14,6 artarken brüt kâr %68,8 düşmüş, bu durum brüt kâr marjın
 
 ## Sektör içindeki konum
 
-Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 26 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 74 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %8,5 | %14,2 |
-| Net kâr marjı | %5,7 | -%1,2 |
-| Özkaynak kârlılığı | %1,6 | -%0,3 |
-| Cari oran | 1,75 | 1,43 |
-| Borç / özkaynak | 0,21 | 0,09 |
+| Brüt kâr marjı | %8,5 | %23,0 |
+| Net kâr marjı | %5,7 | -%0,1 |
+| Özkaynak kârlılığı | %1,6 | %0,0 |
+| Cari oran | 1,75 | 1,39 |
+| Borç / özkaynak | 0,21 | 0,16 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

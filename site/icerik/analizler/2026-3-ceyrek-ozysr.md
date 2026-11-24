@@ -1,13 +1,13 @@
 ---
 slug: ozysr-2026-3-ceyrek
 baslik: ÖZYAŞAR TEL VE GALVANİZLEME SANAYİ A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılat, brüt kâr ve faaliyet kârı sırasıyla %72,1, %75,1 ve %103,4 artarken, net kâr negatif bir değişim (%-217,6) gösterdi; bu, artan satışların maliyet ve gider artışlarıyla tam olarak karşılanmadığını gösterir.…
+ozet: Hasılat, brüt kâr, faaliyet kârı ve FAVÖK tümü %72-%103 arasında artarken, bu gelir artışının ardından özkaynak da %34 yükselmiş, ancak net kâr negatif bir değere gerilemiş; dolayısıyla kâr marjları (brüt %13,9, net –%0,3) sektör medyanlarının altında kalmış.…
 sirket: ÖZYAŞAR TEL VE GALVANİZLEME SANAYİ A.Ş.
 kod: OZYSR
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: Sanayi
-tarih: 2026-11-11
+tarih: 2026-11-24
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat, brüt kâr ve faaliyet kârı sırasıyla %72,1, %75,1 ve %103,4 artarken, net kâr negatif bir değişim (%-217,6) gösterdi; bu, artan satışların maliyet ve gider artışlarıyla tam olarak karşılanmadığını gösterir. Özkaynak ve aktif toplamı %34,0 ve %54,4 yükselmiş, ancak net borç %92,3 artarak borç/özkaynak oranını sektör medyanının %0,09 seviyesinden %0,51'e çıkarmış; bu durum likiditeyi etkileyen cari oranı %1,02 ile sektör ortalaması %1,39'un altında tutmuştur. Brüt kâr marjı %13,9 sektör medyanı %14,2'ye yakınken, net kâr marjı –%0,3 ve özkaynak kârlılığı –%0,2, sektör medyanlarından daha iyi performans sergilemekte ancak negatif kalmalarının nedeni net kârdaki düşüşle ilişkilidir.
+Hasılat, brüt kâr, faaliyet kârı ve FAVÖK tümü %72-%103 arasında artarken, bu gelir artışının ardından özkaynak da %34 yükselmiş, ancak net kâr negatif bir değere gerilemiş; dolayısıyla kâr marjları (brüt %13,9, net –%0,3) sektör medyanlarının altında kalmış. Aktif toplamının %54,4 artışı net borcun %92,3 yükselmesiyle paralel seyretmiş, bu da borç/özkaynak oranının %0,51'e (sektör medyanı %0,16) çıkmasına yol açmış. Cari oran 1,02 seviyesinde, sektör medyanı 1,39 iken, faaliyet nakit akışı artışı (0,59 milyar TL) yatırım harcamasındaki %43 artışla birlikte likiditeyi sınırlı tutmuş.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
@@ -27,8 +27,7 @@ Hasılat, brüt kâr ve faaliyet kârı sırasıyla %72,1, %75,1 ve %103,4 artar
 | Hasılat | %72,1 |
 | Brüt kâr | %75,1 |
 | Faaliyet kârı | %103,4 |
-| FAVÖK | %55,3 |
-| Net kâr | -%217,6 |
+| FAVÖK | %59,0 |
 | Özkaynak | %34,0 |
 | Aktif toplamı | %54,4 |
 | Ticari alacaklar | %85,5 |
@@ -65,7 +64,7 @@ Hasılat, brüt kâr ve faaliyet kârı sırasıyla %72,1, %75,1 ve %103,4 artar
 | Hasılat | 3,07 | 2,08 | 1,98 | 1,99 |
 | Brüt kâr | 0,43 | 0,29 | 0,27 | 0,20 |
 | Faaliyet kârı | 0,15 | 0,04 | 0,09 | -0,03 |
-| FAVÖK | 0,21 | 0,11 | 0,15 | 0,04 |
+| FAVÖK | 0,21 | 0,10 | 0,15 | 0,03 |
 | Net kâr | -0,01 | 0,00 | 0,03 | -0,14 |
 | Özkaynak | 4,46 | 4,19 | 3,87 | 3,49 |
 | Aktif toplamı | 11,00 | 9,68 | 8,79 | 7,44 |
@@ -81,15 +80,15 @@ Hasılat, brüt kâr ve faaliyet kârı sırasıyla %72,1, %75,1 ve %103,4 artar
 
 ## Sektör içindeki konum
 
-Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 24 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 74 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %13,9 | %14,2 |
-| Net kâr marjı | -%0,3 | -%2,0 |
-| Özkaynak kârlılığı | -%0,2 | -%0,8 |
+| Brüt kâr marjı | %13,9 | %23,0 |
+| Net kâr marjı | -%0,3 | -%0,1 |
+| Özkaynak kârlılığı | -%0,2 | %0,0 |
 | Cari oran | 1,02 | 1,39 |
-| Borç / özkaynak | 0,51 | 0,09 |
+| Borç / özkaynak | 0,51 | 0,16 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -98,10 +97,6 @@ Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 24 şirketin **
 **Şirket lehine işleyenler**
 
 - Hasılat reel olarak %72,1 arttı.
-
-**Dikkat gerektirenler**
-
-- Net kâr reel olarak -%217,6 geriledi.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

@@ -25,7 +25,6 @@ Hasılatın %76,1 artması brüt kârın negatiften sıfıra çıkmasına yol a�
 | Kalem | Reel değişim |
 | --- | ---: |
 | Hasılat | %76,1 |
-| Net kâr | -%333,6 |
 | Özkaynak | -%37,7 |
 | Aktif toplamı | -%1,7 |
 | Ticari alacaklar | %53,0 |
@@ -76,15 +75,15 @@ Hasılatın %76,1 artması brüt kârın negatiften sıfıra çıkmasına yol a�
 
 ## Sektör içindeki konum
 
-Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildiren** 20 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildiren** 64 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | -%1,0 | %18,6 |
-| Net kâr marjı | -%66,0 | %3,4 |
-| Özkaynak kârlılığı | -%25,0 | %1,2 |
-| Cari oran | 0,99 | 1,48 |
-| Borç / özkaynak | 2,08 | 0,05 |
+| Brüt kâr marjı | -%1,0 | %16,2 |
+| Net kâr marjı | -%66,0 | -%1,9 |
+| Özkaynak kârlılığı | -%25,0 | -%0,4 |
+| Cari oran | 0,99 | 1,35 |
+| Borç / özkaynak | 2,08 | 0,19 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -94,11 +93,6 @@ Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildire
 
 - Hasılat reel olarak %76,1 arttı.
 - Brüt marj 59,8 puan genişledi (-%60,8 → -%1,0).
-
-**Dikkat gerektirenler**
-
-- Net kâr reel olarak -%333,6 geriledi.
-- Özkaynak kârlılığı -%25,0; sektör medyanı %1,2.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

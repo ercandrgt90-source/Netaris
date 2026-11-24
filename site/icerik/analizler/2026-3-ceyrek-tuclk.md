@@ -1,13 +1,13 @@
 ---
 slug: tuclk-2026-3-ceyrek
 baslik: TUĞÇELİK ALÜMİNYUM VE METAL MAMÜLLERİ SANAYİ VE TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın hafif düşüşü (%1,8) brüt kârın büyük bir gerilemesine (%143,2) ve ardından faaliyet, FAVÖK ve net kârın da sırasıyla %224,4, %174,3 ve %549,5 azalarak negatifleşmesine yol açtı; bu kâr kayıpları özkaynak artışının (%23,0) ve aktif toplamının (%18,7) büyümesiyle birlikte şirketin sermaye…
+ozet: Hasılatın %24,3 düşmesi brüt kârın -0,06 milyar TL'ye gerilemesi ve ardından faaliyet kârı, FAVÖK ve net kârın sırasıyla -0,10, -0,07 ve -0,29 milyar TL'ye kaymasıyla karlılık kalemlerinin hepsi azaldı; aynı dönemde özkaynak %23,0 artarak 4,01 milyar TL'ye, aktif toplamı %18,7 artarak 7,88 milyar…
 sirket: TUĞÇELİK ALÜMİNYUM VE METAL MAMÜLLERİ SANAYİ VE TİCARET A.Ş.
 kod: TUCLK
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: Sanayi
-tarih: 2026-11-07
+tarih: 2026-11-24
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,23 +18,20 @@ sayimlar:
 
 ## Özet
 
-Hasılatın hafif düşüşü (%1,8) brüt kârın büyük bir gerilemesine (%143,2) ve ardından faaliyet, FAVÖK ve net kârın da sırasıyla %224,4, %174,3 ve %549,5 azalarak negatifleşmesine yol açtı; bu kâr kayıpları özkaynak artışının (%23,0) ve aktif toplamının (%18,7) büyümesiyle birlikte şirketin sermaye yapısının genişlediğini, fakat net borcun %31,5 artmasıyla finansal yükün de yükseldiğini gösteriyor. Brüt kâr marjının –%13,9 olması sektör medyanının %11,7'sinin çok altında olduğu gibi, net kâr marjı da –%61,6 ile medyan –%2,8'in çok üzerindedir; bu durum kâr kayıplarının satışların sadece küçük bir kısmını etkilediği, maliyet ve giderlerdeki artışların ise kârlılığı ciddi şekilde erozyona uğrattığını ortaya koyar. Cari oran 1,07 ve borç/özkaynak oranı 0,72, sektör medyanları (1,40 ve 0,16) ile karşılaştırıldığında likidite sınırlı, ancak borç yapısı özkaynak seviyesine göre daha yüksek bir risk profili taşıyor.
+Hasılatın %24,3 düşmesi brüt kârın -0,06 milyar TL'ye gerilemesi ve ardından faaliyet kârı, FAVÖK ve net kârın sırasıyla -0,10, -0,07 ve -0,29 milyar TL'ye kaymasıyla karlılık kalemlerinin hepsi azaldı; aynı dönemde özkaynak %23,0 artarak 4,01 milyar TL'ye, aktif toplamı %18,7 artarak 7,88 milyar TL'ye yükselirken net borç %31,5 artışla 2,87 milyar TL oldu ve bu durum cari oranı 1,07'ye, borç/özkaynak oranını ise 0,72'ye taşıdı. Brüt kâr marjının -%13,9'a, net kâr marjının -%61,6'ya ve özkaynak kârlılığının -%7,1'e gerilemesi, sektör medyanları (%23,0, -%0,1 ve %0,0) ile karşılaştırıldığında tüm karlılık göstergelerinin daha düşük seviyelerde olduğunu gösteriyor. Faaliyet nakit akışı -0,35 milyar TL'ye ve yatırım harcamasının -%69,8 azalarak 0,05 milyar TL'ye düşmesi, nakit çıkışının artmasıyla birlikte sermaye harcamalarının da azaldığını ortaya koyuyor.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | -%1,8 |
-| Brüt kâr | -%143,2 |
-| Faaliyet kârı | -%224,4 |
-| FAVÖK | -%174,3 |
-| Net kâr | -%549,5 |
+| Hasılat | -%24,3 |
 | Özkaynak | %23,0 |
 | Aktif toplamı | %18,7 |
 | Ticari alacaklar | -%8,4 |
 | Stoklar | %28,3 |
 | Net borç | %31,5 |
-| Yatırım harcaması | -%61,2 |
+| Yatırım harcaması | -%69,8 |
+| Finansman gideri | -%78,8 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -44,8 +41,8 @@ Hasılatın hafif düşüşü (%1,8) brüt kârın büyük bir gerilemesine (%14
 | --- | ---: |
 | Hasılat | 0,46 milyar TL |
 | Brüt kâr | -0,06 milyar TL |
-| Faaliyet kârı | -0,12 milyar TL |
-| FAVÖK | -0,09 milyar TL |
+| Faaliyet kârı | -0,10 milyar TL |
+| FAVÖK | -0,07 milyar TL |
 | Net kâr | -0,29 milyar TL |
 | Özkaynak | 4,01 milyar TL |
 | Aktif toplamı | 7,88 milyar TL |
@@ -55,6 +52,7 @@ Hasılatın hafif düşüşü (%1,8) brüt kârın büyük bir gerilemesine (%14
 | Faaliyet nakit akışı | -0,35 milyar TL |
 | Yatırım harcaması | 0,05 milyar TL |
 | Serbest nakit akışı | -0,40 milyar TL |
+| Finansman gideri | 0,03 milyar TL |
 
 ## Son dört dönem
 
@@ -62,8 +60,8 @@ Hasılatın hafif düşüşü (%1,8) brüt kârın büyük bir gerilemesine (%14
 | --- | ---: | ---: | ---: | ---: |
 | Hasılat | 0,46 | 0,53 | 0,36 | 0,56 |
 | Brüt kâr | -0,06 | 0,04 | 0,08 | 0,48 |
-| Faaliyet kârı | -0,12 | 0,10 | 0,04 | 0,45 |
-| FAVÖK | -0,09 | 0,13 | 0,07 | 0,48 |
+| Faaliyet kârı | -0,10 | 0,00 | 0,04 | 0,45 |
+| FAVÖK | -0,07 | 0,07 | 0,09 | 0,46 |
 | Net kâr | -0,29 | 0,10 | -0,19 | -0,22 |
 | Özkaynak | 4,01 | 4,01 | 3,55 | 3,36 |
 | Aktif toplamı | 7,88 | 7,83 | 7,36 | 7,39 |
@@ -73,20 +71,20 @@ Hasılatın hafif düşüşü (%1,8) brüt kârın büyük bir gerilemesine (%14
 | Faaliyet nakit akışı | -0,35 | 0,99 | 0,13 | -0,97 |
 | Yatırım harcaması | 0,05 | 0,88 | 0,00 | 1,08 |
 | Serbest nakit akışı | -0,40 | 0,11 | 0,13 | -2,05 |
-| Finansman gideri | — | 0,04 | 0,05 | 0,09 |
+| Finansman gideri | 0,03 | 0,04 | 0,05 | 0,09 |
 
 *Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
 
 ## Sektör içindeki konum
 
-Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 13 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 74 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | -%13,9 | %11,7 |
-| Net kâr marjı | -%61,6 | -%2,8 |
-| Özkaynak kârlılığı | -%7,1 | -%2,3 |
-| Cari oran | 1,07 | 1,40 |
+| Brüt kâr marjı | -%13,9 | %23,0 |
+| Net kâr marjı | -%61,6 | -%0,1 |
+| Özkaynak kârlılığı | -%7,1 | %0,0 |
+| Cari oran | 1,07 | 1,39 |
 | Borç / özkaynak | 0,72 | 0,16 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
@@ -95,9 +93,8 @@ Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 13 şirketin **
 
 **Dikkat gerektirenler**
 
-- Net kâr reel olarak -%549,5 geriledi.
+- Hasılat reel olarak -%24,3 geriledi.
 - Brüt marj 45,6 puan daraldı (%31,7 → -%13,9).
-- Özkaynak kârlılığı -%7,1; sektör medyanı -%2,3.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

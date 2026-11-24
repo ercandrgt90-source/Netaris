@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat %18,1 arttıktan sonra brüt kâr %11,7 düşmüş, bu durum brüt kâr marjının %12,4 seviyesine gerilemesine yol açmış; aynı dönemde faaliyet kârı %61,1 ve FAVÖK %31,8 azalarak net kârın -%657,6 ile negatif 0,28 milyar TL'ye dönmesine neden olmuş. Özkaynak %8,3 yükselerek 7,55 milyar TL'ye ulaşırken aktif toplamı %18,1 artıp 22,96 milyar TL olmuş, fakat net borç %21,9 artarak 11,00 milyar TL'ye çıkması borç/özkaynak oranını 1,46'ya, cari oranı ise 0,48'e çekmiştir. Faaliyet nakit akışı %453,4 artışla 0,62 milyar TL'ye yükselmiş, yatırım harcaması %47,7 artarak 0,19 milyar TL olmuştur.
+Hasılat %18,1 arttıktan sonra brüt kâr %11,7 düşmüş, bu durum brüt kâr marjının %12,4 seviyesine gerilemesine yol açmış; aynı dönemde faaliyet kârı %61,1 ve FAVÖK %31,8 azalarak net kârın -%657,6 ile negatif 0,28 milyar TL'ye dönmesine neden olmuş. Özkaynak %8,3 yükselerek 7,55 milyar TL'ye ulaşırken aktif toplamı %18,1 artıp 22,96 milyar TL olmuş, fakat net borç %21,9 artarak 11,00 milyar TL'ye çıkması borç/özkaynak oranını 1,46'ya, cari oranı ise 0,48'e çekmiştir. Faaliyet nakit akışı %453,4 artışla 0,62 milyar TL'ye yükselmiş, yatırım harcaması %47,7 artarak 0,19 milyar TL olmuştur.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
@@ -27,8 +27,7 @@ Hasılat %18,1 arttıktan sonra brüt kâr %11,7 düşmüş, bu durum brüt kâr
 | Hasılat | %18,1 |
 | Brüt kâr | -%11,7 |
 | Faaliyet kârı | -%61,1 |
-| FAVÖK | -%31,8 |
-| Net kâr | -%657,6 |
+| FAVÖK | -%21,9 |
 | Özkaynak | %8,3 |
 | Aktif toplamı | %18,1 |
 | Ticari alacaklar | %23,3 |
@@ -64,7 +63,7 @@ Hasılat %18,1 arttıktan sonra brüt kâr %11,7 düşmüş, bu durum brüt kâr
 | Hasılat | 4,21 | 4,62 | 4,04 | 3,64 |
 | Brüt kâr | 0,52 | 0,50 | 0,65 | 0,67 |
 | Faaliyet kârı | 0,09 | 0,04 | 0,17 | 0,24 |
-| FAVÖK | 0,31 | 0,25 | 0,38 | 0,45 |
+| FAVÖK | 0,31 | 0,24 | 0,36 | 0,32 |
 | Net kâr | -0,28 | 0,10 | -0,04 | -0,40 |
 | Özkaynak | 7,55 | 7,47 | 6,81 | 6,78 |
 | Aktif toplamı | 22,96 | 21,52 | 20,25 | 19,86 |
@@ -80,15 +79,15 @@ Hasılat %18,1 arttıktan sonra brüt kâr %11,7 düşmüş, bu durum brüt kâr
 
 ## Sektör içindeki konum
 
-Karşılaştırma Temel malzeme sektöründe **aynı dönemi bildiren** 39 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Temel malzeme sektöründe **aynı dönemi bildiren** 50 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %12,4 | %14,8 |
-| Net kâr marjı | -%6,6 | %1,0 |
-| Özkaynak kârlılığı | -%3,7 | %0,2 |
-| Cari oran | 0,48 | 1,58 |
-| Borç / özkaynak | 1,46 | 0,13 |
+| Brüt kâr marjı | %12,4 | %16,1 |
+| Net kâr marjı | -%6,6 | %1,3 |
+| Özkaynak kârlılığı | -%3,7 | %0,5 |
+| Cari oran | 0,48 | 1,48 |
+| Borç / özkaynak | 1,46 | 0,16 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -100,7 +99,6 @@ Karşılaştırma Temel malzeme sektöründe **aynı dönemi bildiren** 39 şirk
 
 **Dikkat gerektirenler**
 
-- Net kâr reel olarak -%657,6 geriledi.
 - Brüt marj 4,2 puan daraldı (%16,6 → %12,4).
 - Cari oran 0,48; kısa vadeli yükümlülükler dönen varlıkları aşıyor.
 

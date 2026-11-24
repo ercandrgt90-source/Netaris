@@ -1,13 +1,13 @@
 ---
 slug: pkart-2026-3-ceyrek
 baslik: PLASTİKKART AKILLI KART İLETİŞİM SİSTEMLERİ SANAYİ VE TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %56,5 artması, brüt kârın %28,4 yükselmesine rağmen brüt kâr marjının %6,1 seviyesinde kalması, maliyetlerin daha hızlı artmasına işaret eder; bu durum faaliyet kârının %40,3 düşmesi ve FAVÖK'ün %18,9 gerilemesiyle birlikte net kârın negatif %1,7'ye gerilemesine yol açtı.…
+ozet: Hasılatın %20,6 artması, aktif toplamının %9,5 yükselmesiyle paralel bir büyüme sağlarken, brüt kâr marjının %6,1 seviyesinde kalması ve brüt kârın %1,0 düşmesi, ek gelir artışının maliyet artışıyla dengelendiğini gösteriyor; bu durum, faaliyet kârının %74,6 azalarak sıfıra yaklaşması ve FAVÖK'ün…
 sirket: PLASTİKKART AKILLI KART İLETİŞİM SİSTEMLERİ SANAYİ VE TİCARET A.Ş.
 kod: PKART
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: Sanayi
-tarih: 2026-11-03
+tarih: 2026-11-24
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,23 +18,23 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %56,5 artması, brüt kârın %28,4 yükselmesine rağmen brüt kâr marjının %6,1 seviyesinde kalması, maliyetlerin daha hızlı artmasına işaret eder; bu durum faaliyet kârının %40,3 düşmesi ve FAVÖK'ün %18,9 gerilemesiyle birlikte net kârın negatif %1,7'ye gerilemesine yol açtı. Özkaynakların %44,6 artması ve cari oranın 3,24'ye yükselmesi, aktif toplamındaki %9,5 artış ve net borcun -0,28 milyar TL'ye (nakit fazlası) düşmesiyle desteklenirken, özkaynak kârlılığı %1,5 negatif kalması, özkaynak artışının kârlılık üzerindeki etkisinin sınırlı olduğunu gösterir. Faaliyet nakit akışının %128,1 artması, yatırım harcamasının %66,7 azalmasıyla birlikte likiditeyi güçlendirirken, borç/özkaynak oranının -0,45 (sektör ortalaması 0,16) olması, şirketin borç yükünden ziyade özkaynakla finanse edildiğini ortaya koyar.
+Hasılatın %20,6 artması, aktif toplamının %9,5 yükselmesiyle paralel bir büyüme sağlarken, brüt kâr marjının %6,1 seviyesinde kalması ve brüt kârın %1,0 düşmesi, ek gelir artışının maliyet artışıyla dengelendiğini gösteriyor; bu durum, faaliyet kârının %74,6 azalarak sıfıra yaklaşması ve FAVÖK'ün %39,4 düşmesiyle net kârın sabit negatif kalmasına yansımış. Özkaynakların %44,6 artması, cari oranın 3,24'e (sektör medyanı 1,39) yükselmesi ve borç/özkaynak oranının -%0,45 (sektör medyanı 0,16) olması, şirketin likiditesinin güçlenip özkaynak bazlı finansmanının artmasına işaret ederken, net borcun -%0,28'den -%0,09'a (negatif değer) gerilemesi bu likidite artışını destekliyor. Faaliyet nakit akışının %71,0 artması, yatırım harcamasının %76,5 düşmesiyle birlikte, nakit üretim kapasitesinin artıp sermaye harcamalarının kısıtlandığını, böylece özkaynak artışı ve cari oran iyileşmesinin nakit akışıyla ilişkili olduğunu ortaya koyuyor.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | %56,5 |
-| Brüt kâr | %28,4 |
-| Faaliyet kârı | -%40,3 |
-| FAVÖK | -%18,9 |
+| Hasılat | %20,6 |
+| Brüt kâr | -%1,0 |
+| Faaliyet kârı | -%74,6 |
+| FAVÖK | -%39,4 |
 | Özkaynak | %44,6 |
 | Aktif toplamı | %9,5 |
 | Ticari alacaklar | -%44,3 |
 | Stoklar | -%26,3 |
-| Faaliyet nakit akışı | %128,1 |
-| Yatırım harcaması | -%66,7 |
-| Serbest nakit akışı | %155,3 |
+| Faaliyet nakit akışı | %71,0 |
+| Yatırım harcaması | -%76,5 |
+| Serbest nakit akışı | %89,3 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -44,7 +44,7 @@ Hasılatın %56,5 artması, brüt kârın %28,4 yükselmesine rağmen brüt kâr
 | --- | ---: |
 | Hasılat | 0,56 milyar TL |
 | Brüt kâr | 0,03 milyar TL |
-| Faaliyet kârı | 0,01 milyar TL |
+| Faaliyet kârı | 0,00 milyar TL |
 | FAVÖK | 0,02 milyar TL |
 | Net kâr | -0,01 milyar TL |
 | Özkaynak | 0,63 milyar TL |
@@ -62,8 +62,8 @@ Hasılatın %56,5 artması, brüt kârın %28,4 yükselmesine rağmen brüt kâr
 | --- | ---: | ---: | ---: | ---: |
 | Hasılat | 0,56 | 0,58 | 0,75 | 1,05 |
 | Brüt kâr | 0,03 | 0,07 | 0,07 | 0,13 |
-| Faaliyet kârı | 0,01 | 0,05 | 0,05 | 0,12 |
-| FAVÖK | 0,02 | 0,06 | 0,07 | 0,14 |
+| Faaliyet kârı | 0,00 | 0,05 | 0,05 | 0,12 |
+| FAVÖK | 0,02 | 0,06 | 0,06 | 0,14 |
 | Net kâr | -0,01 | 0,02 | 0,02 | 0,07 |
 | Özkaynak | 0,63 | 0,60 | 0,55 | 0,48 |
 | Aktif toplamı | 0,84 | 0,86 | 0,86 | 0,83 |
@@ -78,14 +78,14 @@ Hasılatın %56,5 artması, brüt kârın %28,4 yükselmesine rağmen brüt kâr
 
 ## Sektör içindeki konum
 
-Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 5 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 74 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %6,1 | %14,5 |
-| Net kâr marjı | -%1,7 | -%0,7 |
-| Özkaynak kârlılığı | -%1,5 | -%0,4 |
-| Cari oran | 3,24 | 1,31 |
+| Brüt kâr marjı | %6,1 | %23,0 |
+| Net kâr marjı | -%1,7 | -%0,1 |
+| Özkaynak kârlılığı | -%1,5 | %0,0 |
+| Cari oran | 3,24 | 1,39 |
 | Borç / özkaynak | -0,45 | 0,16 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
@@ -94,12 +94,8 @@ Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 5 şirketin **m
 
 **Şirket lehine işleyenler**
 
-- Hasılat reel olarak %56,5 arttı.
+- Hasılat reel olarak %20,6 arttı.
 - Cari oran 3,24; dönen varlıklar kısa vadeli yükümlülüklerin üzerinde.
-
-**Dikkat gerektirenler**
-
-- Net kâr reel olarak -%112,3 geriledi.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

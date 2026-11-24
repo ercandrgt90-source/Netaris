@@ -1,13 +1,13 @@
 ---
 slug: ttrak-2026-3-ceyrek
 baslik: TÜRK TRAKTÖR VE ZİRAAT MAKİNELERİ A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %4,0 artması, brüt kârın %19,6 düşmesiyle birlikte brüt kâr marjının %12,6 seviyesinde kalmasına yol açtı; bu durum, satışların maliyet artışıyla eşleştiğini gösteriyor.…
+ozet: Hasılatın %19,9 düşmesi brüt kârı %38,0 azaltmış; brüt kârdaki bu gerileme ise faaliyet kârını %58,0 ve FAVÖK'ü %48,3 düşürerek net kârın -%0,7'ye kaymasına yol açtı.…
 sirket: TÜRK TRAKTÖR VE ZİRAAT MAKİNELERİ A.Ş.
 kod: TTRAK
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: Sanayi
-tarih: 2026-11-02
+tarih: 2026-11-24
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %4,0 artması, brüt kârın %19,6 düşmesiyle birlikte brüt kâr marjının %12,6 seviyesinde kalmasına yol açtı; bu durum, satışların maliyet artışıyla eşleştiğini gösteriyor. Brüt kârdaki düşüş, faaliyet kârının %77,9 ve FAVÖK'ün %35,6 azalmasına, net kârın ise %129,3 gerilemesine ve negatif net kâr marjına (-%0,7) dönüşmesine neden oldu. Özkaynakların %20,5 artması net borcun %26,8 azalmasıyla birleşerek borç/özkaynak oranını 0,40'a, cari oranı ise 1,11'e çekti; bu da likidite ve finansal yapıdaki iyileşmenin faaliyet kârlılığı üzerindeki olumsuz etkiden bağımsız olduğunu gösteriyor.
+Hasılatın %19,9 düşmesi brüt kârı %38,0 azaltmış; brüt kârdaki bu gerileme ise faaliyet kârını %58,0 ve FAVÖK'ü %48,3 düşürerek net kârın -%0,7'ye kaymasına yol açtı. Özkaynakların %20,5 artması net borcun %26,8 azalmasıyla birleşerek borç/özkaynak oranını sektör medyanının %0,16'sından %0,40'a yükseltti; aynı zamanda cari oranı %1,39 sektör medyanının altında 1,11 seviyesine çekti. Faaliyet nakit akışının önceki dönemdeki -1,97 milyar TL'den 2,54 milyar TL'ye geçmesi, yatırım harcamasının %91,7 azalarak 0,05 milyar TL'ye düşmesiyle birlikte likiditeye olumlu bir katkı sağladı.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
@@ -27,8 +27,7 @@ Hasılatın %4,0 artması, brüt kârın %19,6 düşmesiyle birlikte brüt kâr 
 | Hasılat | -%19,9 |
 | Brüt kâr | -%38,0 |
 | Faaliyet kârı | -%58,0 |
-| FAVÖK | -%39,5 |
-| Net kâr | -%122,6 |
+| FAVÖK | -%48,3 |
 | Özkaynak | %20,5 |
 | Aktif toplamı | %3,7 |
 | Ticari alacaklar | %42,9 |
@@ -65,7 +64,7 @@ Hasılatın %4,0 artması, brüt kârın %19,6 düşmesiyle birlikte brüt kâr 
 | Hasılat | 11,74 | 14,24 | 10,76 | 14,62 |
 | Brüt kâr | 1,47 | 1,27 | 0,71 | 1,64 |
 | Faaliyet kârı | 0,54 | 0,27 | -0,45 | -2,20 |
-| FAVÖK | 1,14 | 0,88 | 0,15 | -1,60 |
+| FAVÖK | 1,14 | 0,85 | 0,18 | -1,60 |
 | Net kâr | -0,08 | 0,66 | -1,36 | -0,46 |
 | Özkaynak | 19,94 | 18,98 | 17,09 | 16,71 |
 | Aktif toplamı | 42,09 | 42,32 | 43,47 | 39,61 |
@@ -81,15 +80,15 @@ Hasılatın %4,0 artması, brüt kârın %19,6 düşmesiyle birlikte brüt kâr 
 
 ## Sektör içindeki konum
 
-Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 26 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 74 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %12,6 | %14,2 |
-| Net kâr marjı | -%0,7 | -%1,2 |
-| Özkaynak kârlılığı | -%0,4 | -%0,3 |
-| Cari oran | 1,11 | 1,43 |
-| Borç / özkaynak | 0,40 | 0,09 |
+| Brüt kâr marjı | %12,6 | %23,0 |
+| Net kâr marjı | -%0,7 | -%0,1 |
+| Özkaynak kârlılığı | -%0,4 | %0,0 |
+| Cari oran | 1,11 | 1,39 |
+| Borç / özkaynak | 0,40 | 0,16 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -98,7 +97,6 @@ Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 26 şirketin **
 **Dikkat gerektirenler**
 
 - Hasılat reel olarak -%19,9 geriledi.
-- Net kâr reel olarak -%122,6 geriledi.
 - Brüt marj 3,7 puan daraldı (%16,2 → %12,6).
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*

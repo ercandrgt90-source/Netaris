@@ -1,0 +1,175 @@
+{
+ "kod": "BARMA",
+ "cekildi": "2026-11-24T06:10:45Z",
+ "ceyrek": 1,
+ "sema": "cd5f150b28ca53cb",
+ "bitis": "2026-09-30",
+ "tablolar": {
+  "_mali": {
+   "yil_sonu_ayi": 12,
+   "son_bitis": "2026-09-30"
+  },
+  "gelir": {
+   "Revenue": 970880000.0,
+   "Gross Profit": 164190000.0,
+   "Operating Income": 87750000.0,
+   "Net Income": -190990000.0,
+   "Net Cash (Debt)": -7761000000.0,
+   "Operating Cash Flow": -578700000.0,
+   "Capital Expenditures": 738500000.0
+  },
+  "gelir_onceki": {
+   "Revenue": 871440000.0,
+   "Gross Profit": 247040000.0,
+   "Operating Income": 60030000.0,
+   "Net Income": 13370000.0,
+   "Net Cash (Debt)": -5801000000.0,
+   "Operating Cash Flow": 360250000.0,
+   "Capital Expenditures": -580320000.0
+  },
+  "_donem": {
+   "gelir": [
+    "Q3 2026"
+   ],
+   "bilanco": [
+    "Q3 2026"
+   ],
+   "nakit": [
+    "Q3 2026"
+   ]
+  },
+  "gelir_g1": {
+   "Revenue": 1562000000.0,
+   "Gross Profit": 117620000.0,
+   "Operating Income": 80070000.0,
+   "Net Income": -153600000.0,
+   "Net Cash (Debt)": -7456000000.0,
+   "Operating Cash Flow": 471050000.0,
+   "Capital Expenditures": -582970000.0
+  },
+  "gelir_g2": {
+   "Revenue": 1185000000.0,
+   "Gross Profit": 246340000.0,
+   "Operating Income": 90160000.0,
+   "Net Income": -22020000.0,
+   "Net Cash (Debt)": -7435000000.0,
+   "Operating Cash Flow": 951880000.0,
+   "Capital Expenditures": -877260000.0
+  },
+  "gelir_g3": {
+   "Revenue": 1005000000.0,
+   "Gross Profit": 320260000.0,
+   "Operating Income": 62890000.0,
+   "Net Income": 3870000.0,
+   "Net Cash (Debt)": -6666000000.0,
+   "Operating Cash Flow": 274910000.0,
+   "Capital Expenditures": -742860000.0
+  },
+  "_seri_bitis": [
+   "2026-09-30",
+   "2026-06-30",
+   "2026-03-31",
+   "2025-12-31"
+  ],
+  "_seri_etiket": [
+   "Q3 2026",
+   "Q2 2026",
+   "Q1 2026",
+   "Q4 2025"
+  ],
+  "bilanco": {
+   "Accounts Receivable": 1294000000.0,
+   "Inventory": 273000000.0,
+   "Total Current Assets": 1879000000.0,
+   "Total Assets": 15893000000.0,
+   "Total Current Liabilities": 4932000000.0,
+   "Total Liabilities": 10811000000.0,
+   "Shareholders' Equity": 5082000000.0,
+   "Total Liabilities & Equity": 15893000000.0,
+   "Net Cash (Debt)": -7761000000.0,
+   "Working Capital": -3053000000.0
+  },
+  "bilanco_onceki": {
+   "Accounts Receivable": 933370000.0,
+   "Inventory": 659070000.0,
+   "Total Current Assets": 1739000000.0,
+   "Total Assets": 11465000000.0,
+   "Total Current Liabilities": 3097000000.0,
+   "Total Liabilities": 7314000000.0,
+   "Shareholders' Equity": 4151000000.0,
+   "Total Liabilities & Equity": 11465000000.0,
+   "Net Cash (Debt)": -5801000000.0,
+   "Working Capital": -1358000000.0
+  },
+  "bilanco_g1": {
+   "Accounts Receivable": 1541000000.0,
+   "Inventory": 391290000.0,
+   "Total Current Assets": 2022000000.0,
+   "Total Assets": 15746000000.0,
+   "Total Current Liabilities": 4902000000.0,
+   "Total Liabilities": 10751000000.0,
+   "Shareholders' Equity": 4995000000.0,
+   "Total Liabilities & Equity": 15746000000.0,
+   "Net Cash (Debt)": -7456000000.0,
+   "Working Capital": -2880000000.0
+  },
+  "bilanco_g2": {
+   "Accounts Receivable": 1179000000.0,
+   "Inventory": 702490000.0,
+   "Total Current Assets": 2040000000.0,
+   "Total Assets": 14715000000.0,
+   "Total Current Liabilities": 4552000000.0,
+   "Total Liabilities": 9964000000.0,
+   "Shareholders' Equity": 4752000000.0,
+   "Total Liabilities & Equity": 14715000000.0,
+   "Net Cash (Debt)": -7435000000.0,
+   "Working Capital": -2513000000.0
+  },
+  "bilanco_g3": {
+   "Accounts Receivable": 1027000000.0,
+   "Inventory": 387390000.0,
+   "Total Current Assets": 1641000000.0,
+   "Total Assets": 12574000000.0,
+   "Total Current Liabilities": 3940000000.0,
+   "Total Liabilities": 8238000000.0,
+   "Shareholders' Equity": 4337000000.0,
+   "Total Liabilities & Equity": 12574000000.0,
+   "Net Cash (Debt)": -6666000000.0,
+   "Working Capital": -2298000000.0
+  },
+  "nakit": {
+   "Net Income": -200260000.0,
+   "Depreciation & Amortization": 102700000.0,
+   "Operating Cash Flow": -578700000.0,
+   "Capital Expenditures": 738500000.0
+  },
+  "nakit_onceki": {
+   "Net Income": 10660000.0,
+   "Depreciation & Amortization": 72800000.0,
+   "Operating Cash Flow": 360250000.0,
+   "Capital Expenditures": -580320000.0,
+   "Cash Interest Paid": 112970000.0
+  },
+  "nakit_g1": {
+   "Net Income": -145780000.0,
+   "Depreciation & Amortization": 93060000.0,
+   "Operating Cash Flow": 471050000.0,
+   "Capital Expenditures": -582970000.0,
+   "Cash Interest Paid": 194280000.0
+  },
+  "nakit_g2": {
+   "Net Income": -20580000.0,
+   "Depreciation & Amortization": 81180000.0,
+   "Operating Cash Flow": 951880000.0,
+   "Capital Expenditures": -877260000.0,
+   "Cash Interest Paid": 193070000.0
+  },
+  "nakit_g3": {
+   "Net Income": 3870000.0,
+   "Depreciation & Amortization": 77130000.0,
+   "Operating Cash Flow": 274910000.0,
+   "Capital Expenditures": -742860000.0,
+   "Cash Interest Paid": 221210000.0
+  }
+ }
+}

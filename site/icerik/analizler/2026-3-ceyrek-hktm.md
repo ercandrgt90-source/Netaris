@@ -1,13 +1,13 @@
 ---
 slug: hktm-2026-3-ceyrek
 baslik: HİDROPAR HAREKET KONTROL TEKNOLOJİLERİ MERKEZİ SANAYİ VE TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılat %39,2 artarken brüt kâr %65,0 düşmüş, bu durum brüt kâr marjının %22,0 seviyesinde sektör medyanı %23,0'ın altında kalmasına yol açtı; aynı zamanda faaliyet kârı ve FAVÖK de sırasıyla %94,3 ve %77,6 azalarak net kârın -%37,3 seviyesine (sektör medyanı -%0,1) sürüklenmesine neden oldu.…
+ozet: Hasılatın %39,2 artması, brüt kârın %65,0 düşmesiyle birlikte brüt kâr marjının %22,0 seviyesinde kalması, satışların maliyet artışına ya da fiyat indirimlerine bağlı olduğunu gösteriyor; bu durum faaliyet kârı ve FAVÖK'teki %94,3 ve %74,0 düşüşleriyle de uyumlu.…
 sirket: HİDROPAR HAREKET KONTROL TEKNOLOJİLERİ MERKEZİ SANAYİ VE TİCARET A.Ş.
 kod: HKTM
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: Sanayi
-tarih: 2026-11-20
+tarih: 2026-11-24
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat %39,2 artarken brüt kâr %65,0 düşmüş, bu durum brüt kâr marjının %22,0 seviyesinde sektör medyanı %23,0'ın altında kalmasına yol açtı; aynı zamanda faaliyet kârı ve FAVÖK de sırasıyla %94,3 ve %77,6 azalarak net kârın -%37,3 seviyesine (sektör medyanı -%0,1) sürüklenmesine neden oldu. Özkaynak %20,5 artış gösterip 1,27 milyar TL'ye ulaşırken net borç %42,3 artarak 0,33 milyar TL oldu; bu artış borç/özkaynak oranını sektör medyanı 0,15 iken 0,26'ya yükseltti, fakat cari oran 1,13 ile sektörel 1,43 ortalamasının altında kaldı. Faaliyet nakit akışı -%195,6 değişimle -0,06 milyar TL'ye geriledi ve yatırım harcaması sıfır olduğu için likidite sıkıntısı brüt kâr ve net kâr üzerindeki negatif etkileri pekiştirdi.
+Hasılatın %39,2 artması, brüt kârın %65,0 düşmesiyle birlikte brüt kâr marjının %22,0 seviyesinde kalması, satışların maliyet artışına ya da fiyat indirimlerine bağlı olduğunu gösteriyor; bu durum faaliyet kârı ve FAVÖK'teki %94,3 ve %74,0 düşüşleriyle de uyumlu. Özkaynakların %20,5 artması ve aktif toplamının %7,7 yükselmesi net borcun %42,3 artmasına rağmen borç/özkaynak oranının %0,26'da (sektör medyanı %0,16) yükselmesi, finansal yapıdaki likidite baskısının cari oranı %1,13 (sektör medyanı 1,39) ile sınırlı kalmasına yol açtığını ortaya koyuyor. Net kârın -%37,3'e (sektör medyanı -%0,1) gerilemesi, özkaynak kârlılığının -%5,2 (sektör medyanı %0,0) olmasına paralel olarak, faaliyet nakit akışının -0,06 milyar TL'ye (önceki dönem +0,07 milyar TL) dönüşmesiyle birlikte şirketin kârlılık ve nakit üretimindeki gerilemenin birbirini beslediğini gösteriyor.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
@@ -27,13 +27,12 @@ Hasılat %39,2 artarken brüt kâr %65,0 düşmüş, bu durum brüt kâr marjın
 | Hasılat | %39,2 |
 | Brüt kâr | -%65,0 |
 | Faaliyet kârı | -%94,3 |
-| FAVÖK | -%77,6 |
+| FAVÖK | -%74,0 |
 | Özkaynak | %20,5 |
 | Aktif toplamı | %7,7 |
 | Ticari alacaklar | %19,4 |
 | Stoklar | -%24,3 |
 | Net borç | %42,3 |
-| Faaliyet nakit akışı | -%195,6 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -62,7 +61,7 @@ Hasılat %39,2 artarken brüt kâr %65,0 düşmüş, bu durum brüt kâr marjın
 | Hasılat | 0,18 | 0,21 | 0,23 | 0,31 |
 | Brüt kâr | 0,04 | 0,09 | 0,09 | 0,06 |
 | Faaliyet kârı | 0,00 | 0,01 | 0,02 | -0,01 |
-| FAVÖK | 0,02 | 0,03 | 0,03 | 0,00 |
+| FAVÖK | 0,02 | 0,02 | 0,03 | 0,01 |
 | Net kâr | -0,07 | -0,10 | -0,04 | -0,07 |
 | Özkaynak | 1,27 | 1,09 | 1,11 | 1,04 |
 | Aktif toplamı | 2,33 | 2,25 | 2,30 | 2,20 |
@@ -78,15 +77,15 @@ Hasılat %39,2 artarken brüt kâr %65,0 düşmüş, bu durum brüt kâr marjın
 
 ## Sektör içindeki konum
 
-Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 68 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 74 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
 | Brüt kâr marjı | %22,0 | %23,0 |
 | Net kâr marjı | -%37,3 | -%0,1 |
 | Özkaynak kârlılığı | -%5,2 | %0,0 |
-| Cari oran | 1,13 | 1,43 |
-| Borç / özkaynak | 0,26 | 0,15 |
+| Cari oran | 1,13 | 1,39 |
+| Borç / özkaynak | 0,26 | 0,16 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -98,7 +97,6 @@ Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 68 şirketin **
 
 **Dikkat gerektirenler**
 
-- Net kâr reel olarak -%461,3 geriledi.
 - Brüt marj 65,7 puan daraldı (%87,7 → %22,0).
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*

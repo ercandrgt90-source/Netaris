@@ -4459,7 +4459,10 @@
    "kap_kimlik": "8acae2c55835f84c015848477328085a",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "ANY PARTNERS BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "ANY PARTNERS BAĞIMSIZ DENETİM A.Ş.",
+   "sektor": "Technology",
+   "sektor_tr": "Bilişim",
+   "alt_sektor": "Software - Application"
   },
   "KFILO": {
    "kod": "KFILO",
@@ -4467,7 +4470,8 @@
    "kap_kimlik": "8acae2c4991b8c3201992881244b00c6",
    "sehir": "ANKARA",
    "uye_turu": "IGS",
-   "denetci": "ÖNDER BAĞIMSIZ DENETİM VE DANIŞMANLIK A.Ş."
+   "denetci": "ÖNDER BAĞIMSIZ DENETİM VE DANIŞMANLIK A.Ş.",
+   "sektor_bulunamadi": "2026-11-24"
   },
   "KGYO": {
    "kod": "KGYO",
@@ -4475,7 +4479,10 @@
    "kap_kimlik": "4028e4a240f2ef4c0141176f57ca04a5",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "VİZYON GRUP BAĞIMSIZ DENETİM.A.Ş."
+   "denetci": "VİZYON GRUP BAĞIMSIZ DENETİM.A.Ş.",
+   "sektor": "Real Estate",
+   "sektor_tr": "Gayrimenkul",
+   "alt_sektor": "REIT - Diversified"
   },
   "KIMMR": {
    "kod": "KIMMR",

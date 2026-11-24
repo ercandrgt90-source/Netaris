@@ -1,13 +1,13 @@
 ---
 slug: sanel-2026-3-ceyrek
 baslik: SAN-EL MÜHENDİSLİK ELEKTRİK TAAHHÜT SANAYİ VE TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %28,9 artmasıyla brüt kâr da %12,4 yükselerek %30,6 brüt kâr marjına ulaşmış, ancak faaliyet kârı %45,5 gerileyerek 0,03 milyar TL'ye düşmüş; bu düşüş net kârın -%149,6 değişimle -0,02 milyar TL'ye ve özkaynak kârlılığının -%6,8'e gerilemesine yol açmıştır.…
+ozet: Hasılatın %28,9 artması brüt kârın %12,4 yükselmesine paralel olarak yansıdı; brüt kâr marjı %30,6 ile sektör medyanının %23,0 üzerindeyken, faaliyet kârı önceki dönemdeki 0,05 milyar TL'den %45,5 düşerek 0,03 milyar TL'ye geriledi ve bu düşüş net kârın -0,02 milyar TL'ye geçmesinde etkili oldu.…
 sirket: SAN-EL MÜHENDİSLİK ELEKTRİK TAAHHÜT SANAYİ VE TİCARET A.Ş.
 kod: SANEL
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: Sanayi
-tarih: 2026-11-13
+tarih: 2026-11-24
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %28,9 artmasıyla brüt kâr da %12,4 yükselerek %30,6 brüt kâr marjına ulaşmış, ancak faaliyet kârı %45,5 gerileyerek 0,03 milyar TL'ye düşmüş; bu düşüş net kârın -%149,6 değişimle -0,02 milyar TL'ye ve özkaynak kârlılığının -%6,8'e gerilemesine yol açmıştır. Özkaynakların %96,2 artması (%0,37 milyar TL) aktif toplamının %70,1 artması (%0,58 milyar TL) ile birlikte net borç sıfıra çekilmiş, fakat cari oran 0,89'a gerileyerek sektör medyanı 1,40'ın altında kalmıştır. Faaliyet nakit akışı -%0,05 milyar TL'ye ve yatırım harcaması %82,3 azalarak 0,00 milyar TL'ye düşmüş, bu da faaliyet kârı ve net kârdaki gerilemeyle paralel bir likidite sıkışması izlenimi verir.
+Hasılatın %28,9 artması brüt kârın %12,4 yükselmesine paralel olarak yansıdı; brüt kâr marjı %30,6 ile sektör medyanının %23,0 üzerindeyken, faaliyet kârı önceki dönemdeki 0,05 milyar TL'den %45,5 düşerek 0,03 milyar TL'ye geriledi ve bu düşüş net kârın -0,02 milyar TL'ye geçmesinde etkili oldu. Özkaynakların %96,2 artması (0,19 milyar TL'den 0,37 milyar TL'ye) aktif toplamının %70,1 artışı (0,34 milyar TL'den 0,58 milyar TL'ye) ile birlikte borç/özkaynak oranının 0,00 seviyesinde kalması, cari oranın 0,89'a düşmesiyle likidite yapısının değiştiğini gösterdi. Faaliyet nakit akışı -%0,05'e (önceki -%0,03) ve yatırım harcamasının %82,3 azalarak 0,00 milyar TL'ye gerilemesi, faaliyet kârı ve net kârdaki gerilemeye paralel bir nakit çıkışı ve sermaye harcamasındaki kesintiyi yansıtıyor.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
@@ -27,7 +27,6 @@ Hasılatın %28,9 artmasıyla brüt kâr da %12,4 yükselerek %30,6 brüt kâr m
 | Hasılat | %28,9 |
 | Brüt kâr | %12,4 |
 | Faaliyet kârı | -%45,5 |
-| Net kâr | -%149,6 |
 | Özkaynak | %96,2 |
 | Aktif toplamı | %70,1 |
 | Ticari alacaklar | %3442,9 |
@@ -60,6 +59,7 @@ Hasılatın %28,9 artmasıyla brüt kâr da %12,4 yükselerek %30,6 brüt kâr m
 | Hasılat | 0,11 | 0,12 | 0,11 | 0,09 |
 | Brüt kâr | 0,04 | 0,05 | 0,05 | 0,01 |
 | Faaliyet kârı | 0,03 | 0,07 | 0,04 | -0,02 |
+| FAVÖK | — | 0,07 | 0,06 | -0,03 |
 | Net kâr | -0,02 | 0,06 | 0,06 | 0,03 |
 | Özkaynak | 0,37 | 0,34 | 0,27 | 0,25 |
 | Aktif toplamı | 0,58 | 0,53 | 0,49 | 0,64 |
@@ -74,15 +74,15 @@ Hasılatın %28,9 artmasıyla brüt kâr da %12,4 yükselerek %30,6 brüt kâr m
 
 ## Sektör içindeki konum
 
-Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 43 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 74 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %30,6 | %22,7 |
-| Net kâr marjı | -%21,7 | -%1,1 |
-| Özkaynak kârlılığı | -%6,8 | -%0,3 |
-| Cari oran | 0,89 | 1,40 |
-| Borç / özkaynak | 0,00 | 0,15 |
+| Brüt kâr marjı | %30,6 | %23,0 |
+| Net kâr marjı | -%21,7 | -%0,1 |
+| Özkaynak kârlılığı | -%6,8 | %0,0 |
+| Cari oran | 0,89 | 1,39 |
+| Borç / özkaynak | 0,00 | 0,16 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -94,7 +94,6 @@ Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 43 şirketin **
 
 **Dikkat gerektirenler**
 
-- Net kâr reel olarak -%149,6 geriledi.
 - Brüt marj 4,5 puan daraldı (%35,1 → %30,6).
 - Cari oran 0,89; kısa vadeli yükümlülükler dönen varlıkları aşıyor.
 

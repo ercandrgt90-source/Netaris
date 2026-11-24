@@ -26,9 +26,7 @@ Hasılatın %8,6 artması brüt kârın %14,8 yükselmesine yol açarken, brüt 
 | --- | ---: |
 | Hasılat | %8,6 |
 | Brüt kâr | %14,8 |
-| Faaliyet kârı | -%404,2 |
-| FAVÖK | -%80,9 |
-| Özkaynak | -%268,6 |
+| FAVÖK | -%81,9 |
 | Aktif toplamı | %4,9 |
 | Ticari alacaklar | %21,5 |
 | Stoklar | -%8,4 |
@@ -66,7 +64,7 @@ Hasılatın %8,6 artması brüt kârın %14,8 yükselmesine yol açarken, brüt 
 | Hasılat | 10,19 | 9,60 | 10,25 | 10,65 |
 | Brüt kâr | 1,82 | 1,50 | 1,68 | 1,77 |
 | Faaliyet kârı | -0,38 | -0,18 | -0,12 | 0,01 |
-| FAVÖK | 0,12 | 0,32 | 0,38 | 0,51 |
+| FAVÖK | 0,12 | 0,26 | 0,37 | 0,46 |
 | Net kâr | -0,17 | -0,28 | -0,21 | 0,03 |
 | Özkaynak | -0,44 | -0,22 | 0,07 | 0,29 |
 | Aktif toplamı | 13,29 | 14,03 | 13,41 | 12,06 |
@@ -82,13 +80,13 @@ Hasılatın %8,6 artması brüt kârın %14,8 yükselmesine yol açarken, brüt 
 
 ## Sektör içindeki konum
 
-Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildiren** 29 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildiren** 64 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %17,9 | %14,4 |
-| Net kâr marjı | -%1,6 | %1,6 |
-| Cari oran | 0,51 | 1,32 |
+| Brüt kâr marjı | %17,9 | %16,2 |
+| Net kâr marjı | -%1,6 | -%1,9 |
+| Cari oran | 0,51 | 1,35 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -97,10 +95,6 @@ Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildire
 **Şirket lehine işleyenler**
 
 - Hasılat reel olarak %8,6 arttı.
-
-**Dikkat gerektirenler**
-
-- Net kâr reel olarak -%275,2 geriledi.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

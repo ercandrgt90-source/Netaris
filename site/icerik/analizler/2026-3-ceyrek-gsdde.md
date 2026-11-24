@@ -1,13 +1,13 @@
 ---
 slug: gsdde-2026-3-ceyrek
 baslik: GSD DENİZCİLİK GAYRİMENKUL İNŞAAT SANAYİ VE TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %12,7 düşmesi, brüt kârın %4,7 artması ve FAVÖK'ün %27,3 yükselmesi, satışların azalmasına rağmen maliyet ve giderlerdeki iyileşmenin kâr kalemlerini desteklediğini gösteriyor; bu durum faaliyet kârının %48,2 artması ve net kârın önceki dönemdeki negatiften pozitif 0,03 milyar TL'ye…
+ozet: Hasılatın %12,7 düşmesi, brüt kârın %4,7 artması ve FAVÖK'ün %42,8 yükselmesi, faaliyet kârının %48,2 artmasıyla birlikte net kârın negatiften pozitif 0,03 milyar TL'ye geçişini desteklemiş; bu kâr artışı özkaynakların %40,7 artması ve aktif toplamının %14,1 yükselmesiyle özkaynak kârlılığının…
 sirket: GSD DENİZCİLİK GAYRİMENKUL İNŞAAT SANAYİ VE TİCARET A.Ş.
 kod: GSDDE
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: Sanayi
-tarih: 2026-11-17
+tarih: 2026-11-24
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %12,7 düşmesi, brüt kârın %4,7 artması ve FAVÖK'ün %27,3 yükselmesi, satışların azalmasına rağmen maliyet ve giderlerdeki iyileşmenin kâr kalemlerini desteklediğini gösteriyor; bu durum faaliyet kârının %48,2 artması ve net kârın önceki dönemdeki negatiften pozitif 0,03 milyar TL'ye geçmesiyle tutarlı. Özkaynakların %40,7 artması ve aktif toplamının %14,1 yükselmesi, özkaynak kârlılığının %0,7 (sektör medyanı %0,1) ve cari oranın 7,87 (sektör medyanı 1,48) gibi oranların yükselmesiyle özkaynakların şirketin finansal dayanıklılığını güçlendirdiğini, borç/özkaynakın -%0,26 (sektör medyanı 0,15) olması ise net borcun -0,97 milyar TL'ye (önceki dönem 0,18 milyar TL) dönüşmesinin özkaynak artışıyla ilişkili olduğunu ortaya koyuyor. Faaliyet nakit akışının -%138,3 düşmesi ve yatırım harcamasının %23,2 azalması, artan kârlılık ve likidite oranlarıyla birlikte nakit çıkışının daha çok özkaynak artışı ve borç azaltımından kaynaklandığını işaret ediyor.
+Hasılatın %12,7 düşmesi, brüt kârın %4,7 artması ve FAVÖK'ün %42,8 yükselmesi, faaliyet kârının %48,2 artmasıyla birlikte net kârın negatiften pozitif 0,03 milyar TL'ye geçişini desteklemiş; bu kâr artışı özkaynakların %40,7 artması ve aktif toplamının %14,1 yükselmesiyle özkaynak kârlılığının %0,7'ye (sektör medyanı %0,0) ulaşmasını sağlamıştır. Net borcun -0,97 milyar TL'ye (önceki dönem 0,18 milyar TL) dönüşmesi, cari oranın 7,87'ye (sektör medyanı 1,39) ve borç/özkaynak oranının -0,26'ya (sektör medyanı 0,16) yükselmesiyle likidite ve finansal yapıdaki iyileşmeyi yansıtmaktadır. Yatırım harcamasının %23,2 azalması, faaliyet nakit akışının -0,03 milyar TL'ye (önceki dönem 0,08 milyar TL) gerilemesiyle birlikte, brüt kâr marjının %43,1 (sektör medyanı %23,0) ve net kâr marjının %19,4 (sektör medyanı -%0,1) seviyelerinde kalmasını mümkün kılmıştır.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
@@ -27,13 +27,11 @@ Hasılatın %12,7 düşmesi, brüt kârın %4,7 artması ve FAVÖK'ün %27,3 yü
 | Hasılat | -%12,7 |
 | Brüt kâr | %4,7 |
 | Faaliyet kârı | %48,2 |
-| FAVÖK | %27,3 |
+| FAVÖK | %42,8 |
 | Özkaynak | %40,7 |
 | Aktif toplamı | %14,1 |
 | Ticari alacaklar | -%59,4 |
 | Stoklar | -%75,4 |
-| Net borç | -%626,7 |
-| Faaliyet nakit akışı | -%138,3 |
 | Yatırım harcaması | -%23,2 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
@@ -63,7 +61,7 @@ Hasılatın %12,7 düşmesi, brüt kârın %4,7 artması ve FAVÖK'ün %27,3 yü
 | Hasılat | 0,13 | 0,15 | 0,17 | 0,19 |
 | Brüt kâr | 0,06 | 0,06 | 0,06 | 0,09 |
 | Faaliyet kârı | 0,07 | 0,10 | 0,02 | 0,08 |
-| FAVÖK | 0,11 | 0,14 | 0,06 | 0,11 |
+| FAVÖK | 0,11 | 0,13 | 0,05 | 0,10 |
 | Net kâr | 0,03 | 0,29 | -0,07 | 0,33 |
 | Özkaynak | 3,70 | 3,43 | 2,91 | 2,78 |
 | Aktif toplamı | 5,18 | 4,91 | 4,32 | 4,22 |
@@ -79,15 +77,15 @@ Hasılatın %12,7 düşmesi, brüt kârın %4,7 artması ve FAVÖK'ün %27,3 yü
 
 ## Sektör içindeki konum
 
-Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 66 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 74 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %43,1 | %23,3 |
-| Net kâr marjı | %19,4 | %0,1 |
-| Özkaynak kârlılığı | %0,7 | %0,1 |
-| Cari oran | 7,87 | 1,48 |
-| Borç / özkaynak | -0,26 | 0,15 |
+| Brüt kâr marjı | %43,1 | %23,0 |
+| Net kâr marjı | %19,4 | -%0,1 |
+| Özkaynak kârlılığı | %0,7 | %0,0 |
+| Cari oran | 7,87 | 1,39 |
+| Borç / özkaynak | -0,26 | 0,16 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -95,7 +93,6 @@ Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 66 şirketin **
 
 **Şirket lehine işleyenler**
 
-- Net kâr reel olarak %186,4 arttı.
 - Brüt marj 7,2 puan genişledi (%36,0 → %43,1).
 - Cari oran 7,87; dönen varlıklar kısa vadeli yükümlülüklerin üzerinde.
 

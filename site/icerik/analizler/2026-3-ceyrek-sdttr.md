@@ -1,13 +1,13 @@
 ---
 slug: sdttr-2026-3-ceyrek
 baslik: SDT UZAY VE SAVUNMA TEKNOLOJİLERİ A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %33,5 düşmesi brüt kârın %98,4 gerilemesine ve faaliyet kârının %158,5 azalmasına yol açarak kâr marjlarını olumsuz etkiledi; bu kâr kayıpları net kârın %539,2 düşmesine ve özkaynak kârlılığının %11,6 negatifleşmesine neden oldu.…
+ozet: Hasılatın %33,5 düşmesi brüt kârın %98,4 gerilemesiyle paralel seyretmiş, bu da brüt kâr marjının %1,1 seviyesine gerilemesine yol açmıştır; aynı dönemde faaliyet kârı ve FAVÖK negatif değerler alarak net kârın %77,0 düşüşüne ve özkaynak kârlılığının -%11,6'ya inmesine neden olmuştur.…
 sirket: SDT UZAY VE SAVUNMA TEKNOLOJİLERİ A.Ş.
 kod: SDTTR
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: Sanayi
-tarih: 2026-11-13
+tarih: 2026-11-24
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %33,5 düşmesi brüt kârın %98,4 gerilemesine ve faaliyet kârının %158,5 azalmasına yol açarak kâr marjlarını olumsuz etkiledi; bu kâr kayıpları net kârın %539,2 düşmesine ve özkaynak kârlılığının %11,6 negatifleşmesine neden oldu. Aynı dönemde aktif toplamının %46,1 artması özkaynakların %17,9 yükselmesiyle birlikte net borcun %420,1 artmasına ve borç/özkaynak oranının sektör medyanının üzerindeki 0,26 seviyesine çıkmasına sebep oldu. Artan aktif toplamı ve net borç, faaliyet nakit akışının %55,9 artması ve yatırım harcamasının %181,5 yükselmesiyle kısmen denge sağlasa da cari oran %1,52 ile sektör ortalamasının üzerinde kalmaya devam etti.
+Hasılatın %33,5 düşmesi brüt kârın %98,4 gerilemesiyle paralel seyretmiş, bu da brüt kâr marjının %1,1 seviyesine gerilemesine yol açmıştır; aynı dönemde faaliyet kârı ve FAVÖK negatif değerler alarak net kârın %77,0 düşüşüne ve özkaynak kârlılığının -%11,6'ya inmesine neden olmuştur. Aktif toplamının %46,1 artması özkaynakların %17,9 yükselmesiyle birlikte net borcun %420,1 artışına (0,71 milyar TL) ve borç/özkaynak oranının %0,26'ya (sektör medyanı %0,16) yükselmesine zemin hazırlamıştır. Cari oran 1,52 (sektör medyanı 1,39) olmasına rağmen, faaliyet nakit akışı ve yatırım harcamasının sırasıyla %55,9 ve %181,5 artması, artan borç ve azalan kârlılık arasında bir likidite akışı farkı oluşturmuştur.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
@@ -26,9 +26,6 @@ Hasılatın %33,5 düşmesi brüt kârın %98,4 gerilemesine ve faaliyet kârın
 | --- | ---: |
 | Hasılat | -%33,5 |
 | Brüt kâr | -%98,4 |
-| Faaliyet kârı | -%158,5 |
-| FAVÖK | -%131,7 |
-| Net kâr | -%539,2 |
 | Özkaynak | %17,9 |
 | Aktif toplamı | %46,1 |
 | Ticari alacaklar | -%3,4 |
@@ -65,7 +62,7 @@ Hasılatın %33,5 düşmesi brüt kârın %98,4 gerilemesine ve faaliyet kârın
 | Hasılat | 0,41 | 0,70 | 0,54 | 0,81 |
 | Brüt kâr | 0,00 | 0,17 | 0,22 | 0,03 |
 | Faaliyet kârı | -0,11 | 0,08 | 0,12 | -0,05 |
-| FAVÖK | -0,08 | 0,12 | 0,16 | -0,01 |
+| FAVÖK | -0,08 | 0,11 | 0,14 | -0,03 |
 | Net kâr | -0,32 | 0,01 | 0,02 | 0,03 |
 | Özkaynak | 2,73 | 2,88 | 2,70 | 2,44 |
 | Aktif toplamı | 5,65 | 5,14 | 4,53 | 4,15 |
@@ -81,15 +78,15 @@ Hasılatın %33,5 düşmesi brüt kârın %98,4 gerilemesine ve faaliyet kârın
 
 ## Sektör içindeki konum
 
-Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 43 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 74 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %1,1 | %22,7 |
-| Net kâr marjı | -%77,0 | -%1,1 |
-| Özkaynak kârlılığı | -%11,6 | -%0,3 |
-| Cari oran | 1,52 | 1,40 |
-| Borç / özkaynak | 0,26 | 0,15 |
+| Brüt kâr marjı | %1,1 | %23,0 |
+| Net kâr marjı | -%77,0 | -%0,1 |
+| Özkaynak kârlılığı | -%11,6 | %0,0 |
+| Cari oran | 1,52 | 1,39 |
+| Borç / özkaynak | 0,26 | 0,16 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -102,7 +99,6 @@ Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 43 şirketin **
 **Dikkat gerektirenler**
 
 - Hasılat reel olarak -%33,5 geriledi.
-- Net kâr reel olarak -%539,2 geriledi.
 - Brüt marj 44,2 puan daraldı (%45,3 → %1,1).
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*

@@ -1,13 +1,13 @@
 ---
 slug: papil-2026-2-ceyrek
 baslik: PAPİLON SAVUNMA TEKNOLOJİ VE TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %85,1 düşmesi brüt kârın -%311,2'ye kayması ve net kârın -%172,5 gerilemesiyle birlikte kâr marjları ve özkaynak kârlılığı da negatif bölgelere kaydı; gelir kaybı doğrudan kâr marjlarını ve özkaynak verimliliğini aşağı çekti.…
+ozet: Hasılatın %85,1 düşmesiyle birlikte brüt kâr –%311,2 negatif bir marj elde ederken, faaliyet ve FAVÖK kârları da sırasıyla –%0,04 milyar ve –%0,04 milyar olarak gerilemiş; bu kâr kayıpları net kârın –%1574,9 negatif marjla –%0,11 milyar seviyesine inmesine yol açmıştır.…
 sirket: PAPİLON SAVUNMA TEKNOLOJİ VE TİCARET A.Ş.
 kod: PAPIL
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Sanayi
-tarih: 2026-10-31
+tarih: 2026-11-24
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %85,1 düşmesi brüt kârın -%311,2'ye kayması ve net kârın -%172,5 gerilemesiyle birlikte kâr marjları ve özkaynak kârlılığı da negatif bölgelere kaydı; gelir kaybı doğrudan kâr marjlarını ve özkaynak verimliliğini aşağı çekti. Aktif toplamının %24,4 artması net borcun 0,08 milyar TL'ye yükselmesiyle birlikte cari oranı 1,25 seviyesine, borç/özkaynak oranını ise sektör medyanının %0,17'sinden daha yüksek 0,24'e taşıdı. Faaliyet nakit akışının önceki dönemdeki -0,03 milyar TL'den 0,16 milyar TL'ye geçmesi, yatırım harcamasındaki %24,9 artışla birlikte aktif büyümesinin finansmanını kısmen destekledi.
+Hasılatın %85,1 düşmesiyle birlikte brüt kâr –%311,2 negatif bir marj elde ederken, faaliyet ve FAVÖK kârları da sırasıyla –%0,04 milyar ve –%0,04 milyar olarak gerilemiş; bu kâr kayıpları net kârın –%1574,9 negatif marjla –%0,11 milyar seviyesine inmesine yol açmıştır. Özkaynakların %27,0 azalması (%0,34 milyar) aktif toplamının %24,4 artışı (%0,64 milyar) ile birlikte özkaynak kârlılığının –%33,1'e gerilemesine ve cari oranın sektörel medyanın (1,29) altında 1,25 kalmasına neden olmuştur. Net borçun %0,08 milyar pozitifleşmesi, faaliyet nakit akışının %0,16 milyar pozitifleşmesi ve yatırım harcamasının %0,02 milyar sabit kalması, likidite ve borç/özkaynak oranının (%0,24) sektör medyanının (%0,31) altında kalmasına rağmen, likidite durumunun hafifçe iyileştiğini göstermektedir.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

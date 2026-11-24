@@ -27,8 +27,6 @@ Hasılatın %111,9 artması brüt kârın %236,3 yükselmesiyle paralel bir şek
 | Hasılat | %111,9 |
 | Brüt kâr | %236,3 |
 | Faaliyet kârı | %1816,8 |
-| FAVÖK | %773,9 |
-| Net kâr | -%114,1 |
 | Özkaynak | %30,6 |
 | Aktif toplamı | %131,4 |
 | Ticari alacaklar | %85,4 |
@@ -63,7 +61,7 @@ Hasılatın %111,9 artması brüt kârın %236,3 yükselmesiyle paralel bir şek
 | Hasılat | 0,13 | 0,14 | 0,01 | 0,06 |
 | Brüt kâr | 0,10 | 0,06 | 0,00 | 0,03 |
 | Faaliyet kârı | 0,10 | 0,01 | -0,01 | 0,01 |
-| FAVÖK | 0,11 | 0,02 | 0,00 | 0,01 |
+| FAVÖK | 0,11 | 0,02 | -0,01 | — |
 | Net kâr | -0,01 | 0,00 | -0,04 | 0,08 |
 | Özkaynak | 2,78 | 2,65 | 2,35 | 2,13 |
 | Aktif toplamı | 5,86 | 5,41 | 2,91 | 2,53 |
@@ -78,13 +76,13 @@ Hasılatın %111,9 artması brüt kârın %236,3 yükselmesiyle paralel bir şek
 
 ## Sektör içindeki konum
 
-Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildiren** 50 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildiren** 64 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
 | Brüt kâr marjı | %80,6 | %16,2 |
-| Net kâr marjı | -%8,7 | -%1,3 |
-| Özkaynak kârlılığı | -%0,4 | -%0,2 |
+| Net kâr marjı | -%8,7 | -%1,9 |
+| Özkaynak kârlılığı | -%0,4 | -%0,4 |
 | Cari oran | 0,65 | 1,35 |
 | Borç / özkaynak | 0,42 | 0,19 |
 
@@ -96,10 +94,6 @@ Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildire
 
 - Hasılat reel olarak %111,9 arttı.
 - Brüt marj 29,8 puan genişledi (%50,8 → %80,6).
-
-**Dikkat gerektirenler**
-
-- Net kâr reel olarak -%114,1 geriledi.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

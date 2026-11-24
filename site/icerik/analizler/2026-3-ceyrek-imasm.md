@@ -1,13 +1,13 @@
 ---
 slug: imasm-2026-3-ceyrek
 baslik: İMAŞ MAKİNA SANAYİ A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %30,5 artması brüt kârın %51,0 yükselmesine paralel olarak brüt kâr marjının %57,4 seviyesine çıkmasını sağlarken, faaliyet kârı ve FAVÖK'teki %28,1 ve %22,4 düşüşler net kârın -%156,3 gerilemesine ve özkaynak kârlılığının -%1,9'a inmesine yol açtı; aynı dönemde aktif toplamının %22,8…
+ozet: Hasılatın %30,5 artması brüt kârın %51,0 yükselmesine yol açarken, brüt kâr marjının %57,4 seviyesinde kalması faaliyet kârının %28,1 düşmesine ve FAVÖK'ün %25,8 gerilemesine neden oldu; aynı dönemde net kârın -%8,7'ye gerilemesi özkaynak kârlılığının -%1,9 olmasına yansırken, özkaynakların %13,5…
 sirket: İMAŞ MAKİNA SANAYİ A.Ş.
 kod: IMASM
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: Sanayi
-tarih: 2026-11-13
+tarih: 2026-11-24
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,11 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %30,5 artması brüt kârın %51,0 yükselmesine paralel olarak brüt kâr marjının %57,4 seviyesine çıkmasını sağlarken, faaliyet kârı ve FAVÖK'teki %28,1 ve %22,4 düşüşler net kârın -%156,3 gerilemesine ve özkaynak kârlılığının -%1,9'a inmesine yol açtı; aynı dönemde aktif toplamının %22,8 artması özkaynakların %13,5 yükselmesiyle desteklenirken, net borcun %127,6 artması cari oranı 1,16'ya, borç/özkaynak oranını ise sektör medyanının %0,15 üzerindeki 0,17 seviyesine sürükledi.  
-
-Faaliyet nakit akışının önceki dönemdeki negatif -0,01 milyar TL'den 0,12 milyar TL'ye dönüşmesi, yatırım harcamasının %88,7 azalarak 0,02 milyar TL'ye gerilemesiyle birlikte likidite akışının iyileştiğini gösteriyor.  
-
-Dolayısıyla, satış ve brüt kârdaki artışlar bilanço büyüklüğünü artırırken, kârlılık ve nakit akışı arasındaki ters hareketler net kârın negatif seyretmesine ve kârlılık oranlarının sektör medyanının altında kalmasına neden oldu.
+Hasılatın %30,5 artması brüt kârın %51,0 yükselmesine yol açarken, brüt kâr marjının %57,4 seviyesinde kalması faaliyet kârının %28,1 düşmesine ve FAVÖK'ün %25,8 gerilemesine neden oldu; aynı dönemde net kârın -%8,7'ye gerilemesi özkaynak kârlılığının -%1,9 olmasına yansırken, özkaynakların %13,5 artması aktif toplamındaki %22,8 büyümeyi destekledi. Aktif toplamındaki artış net borcun %127,6 yükselmesiyle birlikte cari oranı 1,16'ya, borç/özkaynak oranını ise sektör medyanı 0,16'nın hemen üzerine 0,17'ye taşıdı. Faaliyet nakit akışının pozitif 0,12 milyar TL'ye çıkması, önceki dönemdeki -0,01 milyar TL'lik negatif akışın tersine dönmesi, yatırım harcamasının %88,7 azalarak 0,02 milyar TL'ye düşmesiyle birlikte sermaye harcamalarının kısıtlandığını gösterdi.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
@@ -31,8 +27,7 @@ Dolayısıyla, satış ve brüt kârdaki artışlar bilanço büyüklüğünü a
 | Hasılat | %30,5 |
 | Brüt kâr | %51,0 |
 | Faaliyet kârı | -%28,1 |
-| FAVÖK | -%22,4 |
-| Net kâr | -%156,3 |
+| FAVÖK | -%25,8 |
 | Özkaynak | %13,5 |
 | Aktif toplamı | %22,8 |
 | Ticari alacaklar | %11,8 |
@@ -67,7 +62,7 @@ Dolayısıyla, satış ve brüt kârdaki artışlar bilanço büyüklüğünü a
 | Hasılat | 0,76 | 0,48 | 0,85 | 1,01 |
 | Brüt kâr | 0,43 | 0,30 | 0,23 | 0,25 |
 | Faaliyet kârı | 0,09 | 0,11 | -0,07 | 0,16 |
-| FAVÖK | 0,12 | 0,14 | -0,04 | 0,19 |
+| FAVÖK | 0,12 | 0,14 | -0,04 | 0,15 |
 | Net kâr | -0,07 | -0,11 | 0,03 | -0,46 |
 | Özkaynak | 3,57 | 3,55 | 3,29 | 3,11 |
 | Aktif toplamı | 6,55 | 6,45 | 5,78 | 5,54 |
@@ -83,15 +78,15 @@ Dolayısıyla, satış ve brüt kârdaki artışlar bilanço büyüklüğünü a
 
 ## Sektör içindeki konum
 
-Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 43 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 74 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %57,4 | %22,7 |
-| Net kâr marjı | -%8,7 | -%1,1 |
-| Özkaynak kârlılığı | -%1,9 | -%0,3 |
-| Cari oran | 1,16 | 1,40 |
-| Borç / özkaynak | 0,17 | 0,15 |
+| Brüt kâr marjı | %57,4 | %23,0 |
+| Net kâr marjı | -%8,7 | -%0,1 |
+| Özkaynak kârlılığı | -%1,9 | %0,0 |
+| Cari oran | 1,16 | 1,39 |
+| Borç / özkaynak | 0,17 | 0,16 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -101,10 +96,6 @@ Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 43 şirketin **
 
 - Hasılat reel olarak %30,5 arttı.
 - Brüt marj 7,8 puan genişledi (%49,6 → %57,4).
-
-**Dikkat gerektirenler**
-
-- Net kâr reel olarak -%156,3 geriledi.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

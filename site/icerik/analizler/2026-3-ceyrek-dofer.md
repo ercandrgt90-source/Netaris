@@ -24,19 +24,16 @@ Hasılat %55,1 artarken brüt kâr %40,9 düşmüş; bu durum brüt kâr marjın
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | %55,1 |
-| Brüt kâr | -%40,9 |
-| Faaliyet kârı | -%103,8 |
-| FAVÖK | -%76,8 |
-| Net kâr | -%118,9 |
+| Hasılat | %19,6 |
+| Brüt kâr | -%54,4 |
+| FAVÖK | -%81,4 |
 | Özkaynak | %42,5 |
 | Aktif toplamı | %45,1 |
 | Ticari alacaklar | %24,1 |
-| Stoklar | %57,6 |
+| Stoklar | %150,3 |
 | Net borç | %52,8 |
-| Faaliyet nakit akışı | %177,3 |
-| Yatırım harcaması | -%87,5 |
-| Serbest nakit akışı | %507,1 |
+| Yatırım harcaması | -%90,2 |
+| Finansman gideri | %26,7 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -52,44 +49,45 @@ Hasılat %55,1 artarken brüt kâr %40,9 düşmüş; bu durum brüt kâr marjın
 | Özkaynak | 1,77 milyar TL |
 | Aktif toplamı | 3,44 milyar TL |
 | Ticari alacaklar | 1,01 milyar TL |
-| Stoklar | 0,27 milyar TL |
+| Stoklar | 0,42 milyar TL |
 | Net borç | 0,14 milyar TL |
-| Faaliyet nakit akışı | 0,16 milyar TL |
+| Faaliyet nakit akışı | 0,17 milyar TL |
 | Yatırım harcaması | 0,00 milyar TL |
-| Serbest nakit akışı | 0,16 milyar TL |
+| Serbest nakit akışı | 0,17 milyar TL |
+| Finansman gideri | 0,05 milyar TL |
 
 ## Son dört dönem
 
 | Kalem (milyar TL) | 2026 3. çeyrek | 2026 2. çeyrek | 2026 1. çeyrek | 2025 4. çeyrek |
 | --- | ---: | ---: | ---: | ---: |
 | Hasılat | 2,92 | 2,79 | 1,85 | 2,16 |
-| Brüt kâr | 0,06 | 0,13 | 0,02 | 0,13 |
-| Faaliyet kârı | 0,00 | 0,04 | -0,02 | 0,08 |
-| FAVÖK | 0,02 | 0,07 | 0,00 | 0,10 |
+| Brüt kâr | 0,06 | 0,12 | 0,02 | 0,13 |
+| Faaliyet kârı | 0,00 | 0,06 | -0,02 | 0,08 |
+| FAVÖK | 0,02 | 0,08 | 0,01 | 0,10 |
 | Net kâr | -0,01 | 0,05 | -0,10 | 0,01 |
 | Özkaynak | 1,77 | 1,71 | 1,55 | 1,49 |
 | Aktif toplamı | 3,44 | 3,54 | 3,18 | 2,62 |
 | Ticari alacaklar | 1,01 | 1,07 | 0,71 | 0,64 |
-| Stoklar | 0,27 | 0,26 | 0,26 | 0,18 |
+| Stoklar | 0,42 | 0,26 | 0,26 | 0,18 |
 | Net borç | 0,14 | 0,26 | -0,10 | 0,18 |
-| Faaliyet nakit akışı | 0,16 | -0,34 | 0,34 | 0,00 |
+| Faaliyet nakit akışı | 0,17 | -0,34 | 0,34 | 0,00 |
 | Yatırım harcaması | 0,00 | 0,00 | 0,04 | 0,05 |
-| Serbest nakit akışı | 0,16 | -0,35 | 0,30 | -0,04 |
-| Finansman gideri | — | 0,02 | 0,03 | 0,03 |
+| Serbest nakit akışı | 0,17 | -0,35 | 0,30 | -0,04 |
+| Finansman gideri | 0,05 | 0,02 | 0,03 | 0,03 |
 
 *Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
 
 ## Sektör içindeki konum
 
-Karşılaştırma Temel malzeme sektöründe **aynı dönemi bildiren** 9 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Temel malzeme sektöründe **aynı dönemi bildiren** 50 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %2,1 | %21,3 |
-| Net kâr marjı | -%0,3 | %7,5 |
-| Özkaynak kârlılığı | -%0,6 | %1,9 |
-| Cari oran | 1,21 | 1,63 |
-| Borç / özkaynak | 0,08 | 0,09 |
+| Brüt kâr marjı | %2,1 | %16,1 |
+| Net kâr marjı | -%0,3 | %1,3 |
+| Özkaynak kârlılığı | -%0,6 | %0,5 |
+| Cari oran | 1,21 | 1,48 |
+| Borç / özkaynak | 0,08 | 0,16 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -97,13 +95,11 @@ Karşılaştırma Temel malzeme sektöründe **aynı dönemi bildiren** 9 şirke
 
 **Şirket lehine işleyenler**
 
-- Hasılat reel olarak %55,1 arttı.
+- Hasılat reel olarak %19,6 arttı.
 
 **Dikkat gerektirenler**
 
-- Net kâr reel olarak -%118,9 geriledi.
 - Brüt marj 3,3 puan daraldı (%5,4 → %2,1).
-- Özkaynak kârlılığı -%0,6; sektör medyanı %1,9.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

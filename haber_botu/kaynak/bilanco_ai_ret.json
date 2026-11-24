@@ -723,6 +723,38 @@
      13.1
     ]
    }
+  },
+  {
+   "kod": "ANELE",
+   "unvan": "ANEL ELEKTRİK PROJE TAAHHÜT VE TİCARET A.Ş.",
+   "donem": "2026 3. çeyrek",
+   "neden": "girdide olmayan sayi: 30",
+   "model": "@cf/openai/gpt-oss-120b",
+   "ham": "Hasılatın %95,6 düşmesiyle birlikte brüt kâr -%55,2'ye gerileyip negatif oldu; bu düşüş, faaliyet kârının -%30,0 milyar TL'ye ve FAVÖK'ün de -%30,0 milyar TL'ye gerilemesine yol açtı. Özkaynakların %97,9 azalması (0,06 milyar TL) net kârın -%254,1 seviyesine (-0,27 milyar TL) ve özkaynak kârlılığının -%442,0'a (sektör medyanı %0,0) inmesine neden olurken, aktif toplamındaki %23,4 azalma (10,03 milyar TL) ve net borçtaki %81,3 düşüş (0,39 milyar TL) cari oranı 0,98'ye (sektör medyanı 1,39) ve borç/özkaynak oranını 6,32'ye (sektör medyanı 0,16) yükseltti. Faaliyet nakit akışının -%0,66 milyar TL'ye (önceki dönem -0,08 milyar TL) gerilemesi, kârların ve özkaynakların erozyonuyla paralel bir lik",
+   "an": "2026-11-24T06:25:00+00:00",
+   "yakin": {
+    "30": [
+     23.4,
+     23.0,
+     13.1
+    ]
+   }
+  },
+  {
+   "kod": "MANAS",
+   "unvan": "MANAS ENERJİ YÖNETİMİ SANAYİ VE TİCARET A.Ş.",
+   "donem": "2026 3. çeyrek",
+   "neden": "girdide olmayan sayi: 10",
+   "model": "@cf/openai/gpt-oss-120b",
+   "ham": "Hasılat %41,3 azaldığında brüt kâr negatiften daha da derinleşerek -%30,7 brüt kâr marjı ile birlikte FAVÖK ve faaliyet kârı da sırasıyla -%10,0 milyar TL ve -%0,12 milyar TL seviyelerine geriledi; aynı dönemde aktif toplamı %22,7 artarken özkaynak %58,4 düşmüş, bu da borç/özkaynak oranının 0,16'dan 2,03'e yükselmesine yol açtı. Net kârın -%312,8 marjla -%0,27 milyar TL'ye düşmesi özkaynak kârlılığının -%81,9'a inmesiyle paralel seyredirken, faaliyet nakit akışı %158,9 artarak 0,27 milyar TL'ye çıkmış, bu da cari oranın 1,39'dan 0,67'ye gerilemesiyle likidite baskısını gösteriyor. Yatırım harcaması değişmemişken net borç %9,4 artarak 0,67 milyar TL'ye ulaşmış, bu da artan borç/özkaynak oranı",
+   "an": "2026-11-24T06:26:37+00:00",
+   "yakin": {
+    "10": [
+     9.4,
+     3.0,
+     2.14
+    ]
+   }
   }
  ]
 }

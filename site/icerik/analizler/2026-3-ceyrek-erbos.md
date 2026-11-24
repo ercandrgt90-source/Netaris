@@ -1,13 +1,13 @@
 ---
 slug: erbos-2026-3-ceyrek
 baslik: ERBOSAN ERCİYAS BORU SANAYİ VE TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %12,4 artması, aktif toplamının %35,6 yükselmesiyle birlikte özkaynakların %34,0 artmasına yol açarken, brüt kârın %33,2 düşmesi brüt kâr marjının %7,7 seviyesinde kalmasına neden oldu; bu durum, faaliyet kârının %99,2 artması ve FAVÖK'ün %198,9 yükselmesiyle, net kâr marjının %1,2'ye…
+ozet: Hasılatın %12,4 artmasıyla birlikte aktif toplamı %35,6 yükselmiş, bu büyüme özkaynakların %34,0 artışını da desteklemiş; ancak brüt kâr %33,2 gerilemiş, bu durum brüt kâr marjının %7,7 seviyesinde sektör medyanının çok altında kalmasına yol açmış.…
 sirket: ERBOSAN ERCİYAS BORU SANAYİ VE TİCARET A.Ş.
 kod: ERBOS
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: Sanayi
-tarih: 2026-11-12
+tarih: 2026-11-24
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %12,4 artması, aktif toplamının %35,6 yükselmesiyle birlikte özkaynakların %34,0 artmasına yol açarken, brüt kârın %33,2 düşmesi brüt kâr marjının %7,7 seviyesinde kalmasına neden oldu; bu durum, faaliyet kârının %99,2 artması ve FAVÖK'ün %198,9 yükselmesiyle, net kâr marjının %1,2'ye (sektör medyanının –%0,3'ünden daha iyi) ve özkaynak kârlılığının %0,5'e (sektör medyanının –%0,1'inden daha yüksek) yükselmesini destekledi. Net borçtaki %28,0 artış, cari oranın 2,47'ye (sektör medyanı 1,40) yükselmesiyle likiditeyi güçlendirirken, borç/özkaynak oranının %0,22'ye (sektör medyanı 0,12) çıkması özkaynak artışıyla denge sağladı. Faaliyet nakit akışının -%268,4 gerilemesi, yatırım harcamasının %66,4 düşmesiyle birlikte nakit çıkışını sınırlasa da, artan kârlılık göstergeleri bilanço büyüklüğündeki genişlemeye paralel bir performans izlenimi sunuyor.
+Hasılatın %12,4 artmasıyla birlikte aktif toplamı %35,6 yükselmiş, bu büyüme özkaynakların %34,0 artışını da desteklemiş; ancak brüt kâr %33,2 gerilemiş, bu durum brüt kâr marjının %7,7 seviyesinde sektör medyanının çok altında kalmasına yol açmış. Faaliyet kârı %99,2 artarken FAVÖK %13,4 yükselmiş, bu da net kârın %39,8 düşmesine rağmen net kâr marjının %1,2 olarak pozitif kalmasını sağlamış. Net borç %28,0 artmış olmasına rağmen cari oran %2,47 ve borç/özkaynak %0,22 değerleri, sektör medyanlarının (1,39 ve 0,16) üzerinde likidite ve finansal kaldıraç açısından daha güçlü bir konum göstermektedir.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
@@ -27,16 +27,14 @@ Hasılatın %12,4 artması, aktif toplamının %35,6 yükselmesiyle birlikte öz
 | Hasılat | %12,4 |
 | Brüt kâr | -%33,2 |
 | Faaliyet kârı | %99,2 |
-| FAVÖK | %198,9 |
+| FAVÖK | %13,4 |
 | Net kâr | -%39,8 |
 | Özkaynak | %34,0 |
 | Aktif toplamı | %35,6 |
 | Ticari alacaklar | %24,0 |
 | Stoklar | %45,3 |
 | Net borç | %28,0 |
-| Faaliyet nakit akışı | -%268,4 |
 | Yatırım harcaması | -%66,4 |
-| Serbest nakit akışı | -%289,6 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -65,7 +63,7 @@ Hasılatın %12,4 artması, aktif toplamının %35,6 yükselmesiyle birlikte öz
 | Hasılat | 1,64 | 1,60 | 1,42 | 1,59 |
 | Brüt kâr | 0,13 | 0,18 | 0,17 | 0,27 |
 | Faaliyet kârı | 0,20 | 0,34 | 0,04 | 0,15 |
-| FAVÖK | 0,15 | 0,29 | -0,01 | 0,10 |
+| FAVÖK | 0,15 | 0,36 | 0,07 | 0,18 |
 | Net kâr | 0,02 | -0,03 | -0,14 | 0,04 |
 | Özkaynak | 4,18 | 3,94 | 3,75 | 3,51 |
 | Aktif toplamı | 6,18 | 5,88 | 5,12 | 4,97 |
@@ -81,15 +79,15 @@ Hasılatın %12,4 artması, aktif toplamının %35,6 yükselmesiyle birlikte öz
 
 ## Sektör içindeki konum
 
-Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 35 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 74 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %7,7 | %22,7 |
-| Net kâr marjı | %1,2 | -%0,3 |
-| Özkaynak kârlılığı | %0,5 | -%0,1 |
-| Cari oran | 2,47 | 1,40 |
-| Borç / özkaynak | 0,22 | 0,12 |
+| Brüt kâr marjı | %7,7 | %23,0 |
+| Net kâr marjı | %1,2 | -%0,1 |
+| Özkaynak kârlılığı | %0,5 | %0,0 |
+| Cari oran | 2,47 | 1,39 |
+| Borç / özkaynak | 0,22 | 0,16 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

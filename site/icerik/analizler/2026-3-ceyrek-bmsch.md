@@ -26,9 +26,7 @@ Hasılatın %7,2 artması aktif toplamındaki %48,4 büyümeye paralel gerçekle
 | --- | ---: |
 | Hasılat | %7,2 |
 | Brüt kâr | -%60,8 |
-| Faaliyet kârı | -%530,9 |
-| FAVÖK | -%76,3 |
-| Net kâr | -%1156,3 |
+| FAVÖK | -%65,1 |
 | Özkaynak | %10,9 |
 | Aktif toplamı | %48,4 |
 | Ticari alacaklar | %59,1 |
@@ -63,7 +61,7 @@ Hasılatın %7,2 artması aktif toplamındaki %48,4 büyümeye paralel gerçekle
 | Hasılat | 0,77 | 0,64 | 0,37 | 0,74 |
 | Brüt kâr | 0,02 | 0,04 | 0,05 | 0,04 |
 | Faaliyet kârı | -0,02 | -0,03 | 0,00 | -0,02 |
-| FAVÖK | 0,01 | -0,01 | 0,03 | 0,00 |
+| FAVÖK | 0,01 | -0,01 | 0,02 | -0,01 |
 | Net kâr | -0,13 | -0,02 | 0,02 | -0,03 |
 | Özkaynak | 1,29 | 1,34 | 1,27 | 1,14 |
 | Aktif toplamı | 3,01 | 2,43 | 2,26 | 1,97 |
@@ -79,15 +77,15 @@ Hasılatın %7,2 artması aktif toplamındaki %48,4 büyümeye paralel gerçekle
 
 ## Sektör içindeki konum
 
-Karşılaştırma Temel malzeme sektöründe **aynı dönemi bildiren** 32 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Temel malzeme sektöründe **aynı dönemi bildiren** 50 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %3,1 | %18,6 |
-| Net kâr marjı | -%17,3 | %1,9 |
-| Özkaynak kârlılığı | -%10,4 | %0,6 |
-| Cari oran | 1,61 | 1,60 |
-| Borç / özkaynak | 0,56 | 0,10 |
+| Brüt kâr marjı | %3,1 | %16,1 |
+| Net kâr marjı | -%17,3 | %1,3 |
+| Özkaynak kârlılığı | -%10,4 | %0,5 |
+| Cari oran | 1,61 | 1,48 |
+| Borç / özkaynak | 0,56 | 0,16 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -100,7 +98,6 @@ Karşılaştırma Temel malzeme sektöründe **aynı dönemi bildiren** 32 şirk
 
 **Dikkat gerektirenler**
 
-- Net kâr reel olarak -%1156,3 geriledi.
 - Brüt marj 5,4 puan daraldı (%8,5 → %3,1).
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
