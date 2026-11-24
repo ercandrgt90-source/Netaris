@@ -27,7 +27,7 @@ Hasılatın %19,4 düşmesi brüt kârın %29,8 azalmasına yol açmış; brüt 
 | Hasılat | -%19,4 |
 | Brüt kâr | -%29,8 |
 | Faaliyet kârı | -%31,1 |
-| FAVÖK | -%24,0 |
+| FAVÖK | -%30,9 |
 | Özkaynak | -%11,3 |
 | Aktif toplamı | %30,2 |
 | Ticari alacaklar | %82,3 |
@@ -64,7 +64,7 @@ Hasılatın %19,4 düşmesi brüt kârın %29,8 azalmasına yol açmış; brüt 
 | Hasılat | 0,85 | 1,08 | 0,88 | 0,26 |
 | Brüt kâr | 0,30 | 0,42 | 0,30 | 0,06 |
 | Faaliyet kârı | 0,07 | 0,12 | -0,02 | -0,16 |
-| FAVÖK | 0,09 | 0,15 | 0,01 | -0,13 |
+| FAVÖK | 0,09 | 0,17 | 0,01 | -0,14 |
 | Net kâr | -0,17 | -0,02 | -0,04 | -0,30 |
 | Özkaynak | 1,28 | 1,37 | 1,30 | 1,22 |
 | Aktif toplamı | 4,98 | 4,78 | 3,60 | 3,18 |
@@ -80,15 +80,15 @@ Hasılatın %19,4 düşmesi brüt kârın %29,8 azalmasına yol açmış; brüt 
 
 ## Sektör içindeki konum
 
-Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 47 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 74 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %35,0 | %23,3 |
-| Net kâr marjı | -%20,3 | -%1,1 |
-| Özkaynak kârlılığı | -%13,5 | -%0,3 |
-| Cari oran | 0,92 | 1,40 |
-| Borç / özkaynak | 2,49 | 0,15 |
+| Brüt kâr marjı | %35,0 | %23,0 |
+| Net kâr marjı | -%20,3 | -%0,1 |
+| Özkaynak kârlılığı | -%13,5 | %0,0 |
+| Cari oran | 0,92 | 1,39 |
+| Borç / özkaynak | 2,49 | 0,16 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -97,7 +97,6 @@ Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 47 şirketin **
 **Dikkat gerektirenler**
 
 - Hasılat reel olarak -%19,4 geriledi.
-- Net kâr reel olarak -%352,7 geriledi.
 - Brüt marj 5,2 puan daraldı (%40,1 → %35,0).
 - Cari oran 0,92; kısa vadeli yükümlülükler dönen varlıkları aşıyor.
 

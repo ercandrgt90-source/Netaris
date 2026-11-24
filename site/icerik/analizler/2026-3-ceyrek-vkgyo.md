@@ -1,13 +1,13 @@
 ---
 slug: vkgyo-2026-3-ceyrek
 baslik: VAKIF GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılat ve net kârda %792,1 ve %2856,2'lik artışlar, aktif toplamının %41,3 yükselmesiyle paralel seyredirken, özkaynakların %31,6 artması bu büyümeyi finanse eden sermaye artışını gösterir; net borç ise negatiften pozitif 1,22 milyar TL'ye geçerek likidite pozisyonunun zayıfladığını işaret eder.…
+ozet: Hasılat ve net kârda %792,1 ve %2856,2 gibi yüksek reel artışlar, aktif toplamının %41,3 artmasıyla paralel seyretmiş; bu büyüme özkaynakların %31,6 yükselmesiyle desteklenmiş ve net borcun negatiften pozitif 1,22 milyar TL'ye geçmesi, borç/özkaynak oranının sektör medyanıyla aynı %0,04 kalmasına…
 sirket: VAKIF GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: VKGYO
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-11-07
+tarih: 2026-11-24
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat ve net kârda %792,1 ve %2856,2'lik artışlar, aktif toplamının %41,3 yükselmesiyle paralel seyredirken, özkaynakların %31,6 artması bu büyümeyi finanse eden sermaye artışını gösterir; net borç ise negatiften pozitif 1,22 milyar TL'ye geçerek likidite pozisyonunun zayıfladığını işaret eder. Faaliyet nakit akışının -%105,4 düşmesi, artan kârlılığa rağmen nakit üretiminin gerilediğini ve özkaynak kârlılığı %1,0 seviyesinin sektör medyanıyla eşdeğer olmasına rağmen nakit akışı sıkıntısının borç/özkaynak oranının %0,04 (sektör medyanı %0,02) üzerinden hafif bir risk taşıdığını ortaya koyar. Bu veriler, gelir ve kârda yaşanan güçlü yükselişin bilanço büyüklüğü ve özkaynak artışıyla uyumlu, fakat nakit akışı ve borç yapısının aynı oranda iyileşmediğini gösterir.
+Hasılat ve net kârda %792,1 ve %2856,2 gibi yüksek reel artışlar, aktif toplamının %41,3 artmasıyla paralel seyretmiş; bu büyüme özkaynakların %31,6 yükselmesiyle desteklenmiş ve net borcun negatiften pozitif 1,22 milyar TL'ye geçmesi, borç/özkaynak oranının sektör medyanıyla aynı %0,04 kalmasına yol açmış. Net kâr marjı %12,8 seviyesinde sektör medyanının %22,3'ünün altında kalırken, özkaynak kârlılığı %1,0 ile medyan %0,7'nin üzerine çıkmış; bu durum kârın gelir artışına oranla daha fazla artmasıyla açıklanabilir. Faaliyet nakit akışı ise önceki dönemde +0,28 milyar TL iken -0,01 milyar TL'ye düşmüş, bu da artan kâr ve varlıkların nakit dönüşümünde bir gecikmeye işaret ediyor.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
@@ -29,7 +29,6 @@ Hasılat ve net kârda %792,1 ve %2856,2'lik artışlar, aktif toplamının %41,
 | Özkaynak | %31,6 |
 | Aktif toplamı | %41,3 |
 | Ticari alacaklar | %877,9 |
-| Faaliyet nakit akışı | -%105,4 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -62,13 +61,13 @@ Hasılat ve net kârda %792,1 ve %2856,2'lik artışlar, aktif toplamının %41,
 
 ## Sektör içindeki konum
 
-Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 18 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 38 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Net kâr marjı | %12,8 | %32,8 |
-| Özkaynak kârlılığı | %1,0 | %1,0 |
-| Borç / özkaynak | 0,04 | 0,02 |
+| Net kâr marjı | %12,8 | %22,3 |
+| Özkaynak kârlılığı | %1,0 | %0,7 |
+| Borç / özkaynak | 0,04 | 0,04 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

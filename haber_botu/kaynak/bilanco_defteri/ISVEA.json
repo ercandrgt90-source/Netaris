@@ -1,0 +1,148 @@
+{
+ "kod": "ISVEA",
+ "cekildi": "2026-11-24T02:18:40Z",
+ "ceyrek": 1,
+ "sema": "cd5f150b28ca53cb",
+ "bitis": "2026-09-30",
+ "tablolar": {
+  "_mali": {
+   "yil_sonu_ayi": 12,
+   "son_bitis": "2026-09-30"
+  },
+  "gelir": {
+   "Revenue": 560400000.0,
+   "Gross Profit": 148310000.0,
+   "Operating Income": 102030000.0,
+   "Net Income": -54070000.0,
+   "Net Cash (Debt)": -973850000.0,
+   "Operating Cash Flow": 107660000.0,
+   "Capital Expenditures": -79260000.0
+  },
+  "gelir_onceki": {
+   "Revenue": 657290000.0,
+   "Gross Profit": 188060000.0,
+   "Operating Income": 130350000.0,
+   "Net Income": 2780000.0,
+   "Operating Cash Flow": 762800000.0,
+   "Capital Expenditures": -168610000.0
+  },
+  "_donem": {
+   "gelir": [
+    "Q3 2026"
+   ],
+   "bilanco": [
+    "Q3 2026"
+   ],
+   "nakit": [
+    "Q3 2026"
+   ]
+  },
+  "gelir_g1": {
+   "Revenue": 674090000.0,
+   "Gross Profit": 196410000.0,
+   "Operating Income": 163990000.0,
+   "Net Income": 74540000.0,
+   "Net Cash (Debt)": -2104000000.0,
+   "Operating Cash Flow": 200180000.0,
+   "Capital Expenditures": -80230000.0
+  },
+  "gelir_g2": {
+   "Revenue": 625200000.0,
+   "Gross Profit": 169590000.0,
+   "Operating Income": 147860000.0,
+   "Net Income": 34280000.0,
+   "Net Cash (Debt)": -1922000000.0,
+   "Operating Cash Flow": 163010000.0,
+   "Capital Expenditures": -24770000.0
+  },
+  "gelir_g3": {
+   "Revenue": 657290000.0,
+   "Gross Profit": 188060000.0,
+   "Operating Income": 130350000.0,
+   "Net Income": 2780000.0,
+   "Operating Cash Flow": 762800000.0,
+   "Capital Expenditures": -168610000.0
+  },
+  "_seri_bitis": [
+   "2026-09-30",
+   "2026-06-30",
+   "2026-03-31",
+   "2025-09-30"
+  ],
+  "_seri_etiket": [
+   "Q3 2026",
+   "Q2 2026",
+   "Q1 2026",
+   "Q3 2025"
+  ],
+  "bilanco": {
+   "Accounts Receivable": 1110000000.0,
+   "Inventory": 996670000.0,
+   "Total Current Assets": 4859000000.0,
+   "Total Assets": 6228000000.0,
+   "Total Current Liabilities": 2866000000.0,
+   "Total Liabilities": 3305000000.0,
+   "Shareholders' Equity": 2922000000.0,
+   "Total Liabilities & Equity": 6228000000.0,
+   "Net Cash (Debt)": -973850000.0,
+   "Working Capital": 1993000000.0
+  },
+  "bilanco_onceki": {},
+  "bilanco_g1": {
+   "Accounts Receivable": 1307000000.0,
+   "Inventory": 992150000.0,
+   "Total Current Assets": 3379000000.0,
+   "Total Assets": 4666000000.0,
+   "Total Current Liabilities": 2549000000.0,
+   "Total Liabilities": 3031000000.0,
+   "Shareholders' Equity": 1636000000.0,
+   "Total Liabilities & Equity": 4666000000.0,
+   "Net Cash (Debt)": -2104000000.0,
+   "Working Capital": 830020000.0
+  },
+  "bilanco_g2": {
+   "Accounts Receivable": 1181000000.0,
+   "Inventory": 936840000.0,
+   "Total Current Assets": 3227000000.0,
+   "Total Assets": 4435000000.0,
+   "Total Current Liabilities": 2369000000.0,
+   "Total Liabilities": 2972000000.0,
+   "Shareholders' Equity": 1463000000.0,
+   "Total Liabilities & Equity": 4435000000.0,
+   "Net Cash (Debt)": -1922000000.0,
+   "Working Capital": 858250000.0
+  },
+  "nakit": {
+   "Net Income": -48330000.0,
+   "Depreciation & Amortization": 57700000.0,
+   "Operating Cash Flow": 107660000.0,
+   "Capital Expenditures": -79260000.0
+  },
+  "nakit_onceki": {
+   "Net Income": 4059999.9999999995,
+   "Depreciation & Amortization": 47400000.0,
+   "Operating Cash Flow": 762800000.0,
+   "Capital Expenditures": -168610000.0
+  },
+  "nakit_g1": {
+   "Net Income": 71040000.0,
+   "Depreciation & Amortization": 52560000.0,
+   "Operating Cash Flow": 200180000.0,
+   "Capital Expenditures": -80230000.0,
+   "Cash Interest Paid": 105800000.0
+  },
+  "nakit_g2": {
+   "Net Income": 32030000.0,
+   "Depreciation & Amortization": 42700000.0,
+   "Operating Cash Flow": 163010000.0,
+   "Capital Expenditures": -24770000.0,
+   "Cash Interest Paid": 88700000.0
+  },
+  "nakit_g3": {
+   "Net Income": 4059999.9999999995,
+   "Depreciation & Amortization": 47400000.0,
+   "Operating Cash Flow": 762800000.0,
+   "Capital Expenditures": -168610000.0
+  }
+ }
+}

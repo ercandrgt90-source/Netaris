@@ -28,7 +28,6 @@ Hasılatın %0,5 artmasıyla birlikte aktif toplamı %46,0 yükselirken net kâr
 | Özkaynak | %21,9 |
 | Aktif toplamı | %46,0 |
 | Ticari alacaklar | -%71,1 |
-| Faaliyet nakit akışı | -%150,0 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -61,24 +60,15 @@ Hasılatın %0,5 artmasıyla birlikte aktif toplamı %46,0 yükselirken net kâr
 
 ## Sektör içindeki konum
 
-Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 34 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 38 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
 | Net kâr marjı | -%262,5 | %22,3 |
 | Özkaynak kârlılığı | -%2,1 | %0,7 |
-| Borç / özkaynak | 0,00 | 0,01 |
+| Borç / özkaynak | 0,00 | 0,04 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
-
-## Öne çıkan ölçümler
-
-**Dikkat gerektirenler**
-
-- Net kâr reel olarak -%164,8 geriledi.
-
-*Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
-
 
 ## Gayrimenkul yatırım ortaklığında kâr nereden gelir
 

@@ -714,12 +714,12 @@
    "donem": "2026 3. çeyrek",
    "neden": "girdide olmayan sayi: 30",
    "model": "@cf/openai/gpt-oss-120b",
-   "ham": "Hasılatın %95,6 düşmesi, brüt kârın negatif %55,2'ye kayması ve faaliyet kârının -%30 milyar TL'ye gerilemesi, net kârın -%0,27 milyar TL'ye düşmesiyle paralel bir düşüş gösterirken, aynı dönemde özkaynakların %97,9 azalması aktif toplamının %23,4 azalması ve net borcun %81,3 azalması, likiditeyi ölçen cari oranın 0,98'den 1,40 sektör medyanının altına kayması ve borç/özkaynak oranının 6,32'ye yükselmesiyle finansal yapıdaki zayıflığı pekiştiriyor.  \n\nBu finansal gerileme, faaliyet nakit akışının -%0,66 milyar TL'ye derinleşmesiyle birlikte, brüt kâr marjının -%55,2, net kâr marjının -%254,1 ve özkaynak kârlılığının -%442,0 gibi sektör medyanının çok altında kalmasına yol açtı.  \n\nDolayısıyl",
-   "an": "2026-11-24T01:42:32+00:00",
+   "ham": "Hasılatın %95,6 düşmesiyle birlikte brüt kâr -%55,2'ye gerileyerek negatif oldu ve bu durum faaliyet kârı, FAVÖK ve net kârın da sırasıyla -%30,0, -%30,0 ve -%254,1 gibi negatif oranlarla gerçekleşmesine yol açtı; özkaynak ise %97,9 azalarak 0,06 milyar TL'ye geriledi ve bu düşüş, özkaynak kârlılığının -%442,0 seviyesine inmesine eşlik etti. Aktif toplamının %23,4 azalması net borcun %81,3 düşmesine rağmen borç/özkaynak oranı 6,32'ye yükselerek sektör medyanı 0,16'nın çok üzerinde kaldı; aynı zamanda cari oran 0,98 ile sektör medyanı 1,39'un altında seyretti. Faaliyet nakit akışı -0,66 milyar TL'ye derinleşirken önceki dönemde -0,08 milyar TL olan negatif değerden daha büyük bir negatiflik g",
+   "an": "2026-11-24T02:40:32+00:00",
    "yakin": {
     "30": [
      23.4,
-     22.7,
+     23.0,
      13.1
     ]
    }

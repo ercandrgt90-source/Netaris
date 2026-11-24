@@ -26,8 +26,7 @@ Hasılatın %57,3 artması brüt kârı %99,8 yükselterek brüt kâr marjının
 | --- | ---: |
 | Hasılat | %57,3 |
 | Brüt kâr | %99,8 |
-| FAVÖK | %3938,7 |
-| Net kâr | -%193,0 |
+| FAVÖK | %1880,2 |
 | Özkaynak | %6,1 |
 | Aktif toplamı | %14,2 |
 | Ticari alacaklar | %80,3 |
@@ -77,15 +76,15 @@ Hasılatın %57,3 artması brüt kârı %99,8 yükselterek brüt kâr marjının
 
 ## Sektör içindeki konum
 
-Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 65 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 8 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %36,0 | %20,9 |
-| Net kâr marjı | -%43,7 | %1,2 |
-| Özkaynak kârlılığı | -%14,6 | %0,3 |
-| Cari oran | 1,32 | 1,32 |
-| Borç / özkaynak | 0,48 | 0,17 |
+| Brüt kâr marjı | %36,0 | %22,8 |
+| Net kâr marjı | -%43,7 | -%32,0 |
+| Özkaynak kârlılığı | -%14,6 | -%3,9 |
+| Cari oran | 1,32 | 1,29 |
+| Borç / özkaynak | 0,48 | 0,31 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -98,7 +97,7 @@ Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 65 şirketin **
 
 **Dikkat gerektirenler**
 
-- Net kâr reel olarak -%193,0 geriledi.
+- Özkaynak kârlılığı -%14,6; sektör medyanı -%3,9.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

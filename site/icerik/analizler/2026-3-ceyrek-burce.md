@@ -1,13 +1,13 @@
 ---
 slug: burce-2026-3-ceyrek
 baslik: BURÇELİK BURSA ÇELİK DÖKÜM SANAYİİ A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılat %41,5 azaldığı için brüt kâr da %102,2 düşmüş, bu da brüt kâr marjının -%0,9'a gerilemesine yol açmıştır; aynı düşüş faaliyet kârının -0,09 milyar TL'ye, FAVÖK'ün -0,07 milyar TL'ye ve net kârın -0,09 milyar TL'ye gerilemesinde kendini göstermiştir.…
+ozet: Hasılatın %41,5 düşmesi brüt kârın sıfıra inmesine ve faaliyet, FAVÖK ve net kârların negatif değerlerde artmasına yol açtı; gelir kaybı kâr marjlarını da sektörel medyanların çok altında tutarak brüt kâr marjını –%0,9, net kâr marjını –%97,2 seviyelerine sürükledi.…
 sirket: BURÇELİK BURSA ÇELİK DÖKÜM SANAYİİ A.Ş.
 kod: BURCE
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: Sanayi
-tarih: 2026-11-10
+tarih: 2026-11-24
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,14 +18,13 @@ sayimlar:
 
 ## Özet
 
-Hasılat %41,5 azaldığı için brüt kâr da %102,2 düşmüş, bu da brüt kâr marjının -%0,9'a gerilemesine yol açmıştır; aynı düşüş faaliyet kârının -0,09 milyar TL'ye, FAVÖK'ün -0,07 milyar TL'ye ve net kârın -0,09 milyar TL'ye gerilemesinde kendini göstermiştir. Özkaynak %41,5 artarak 1,62 milyar TL'ye yükselmiş, bu da özkaynak kârlılığının -%5,4 olmasına rağmen borç/özkaynak oranının sektör medyanının altında %0,07 kalmasını sağlamış ve cari oranı 2,13 ile sektör medyanının 1,43'ünden yüksek tutmuştur. Aktif toplamı %21,9 artışla 2,15 milyar TL'ye ulaşırken net borç sadece %5,5 değişmiş, bu durum likiditeyi desteklemiş ancak faaliyet nakit akışı -0,08 milyar TL'ye düşmüş ve yatırım harcaması 0,00 milyar TL'ye gerilemiştir.
+Hasılatın %41,5 düşmesi brüt kârın sıfıra inmesine ve faaliyet, FAVÖK ve net kârların negatif değerlerde artmasına yol açtı; gelir kaybı kâr marjlarını da sektörel medyanların çok altında tutarak brüt kâr marjını –%0,9, net kâr marjını –%97,2 seviyelerine sürükledi. Özkaynakların %41,5 artması aktif toplamındaki %21,9'luk büyümeyle birlikte özkaynak/kârlılık oranının –%5,4'e gerilemesine ve özkaynak kârlılığı medyanın altında kalmasına neden oldu. Cari oran 2,13 ve borç/özkaynak 0,07 gibi likidite ve finansal yapı göstergeleri, net borçtaki %5,5'lik hafif artışa rağmen, varlık büyümesi ve özkaynak artışıyla desteklenerek sektörel ortalamanın üzerinde kalmaya devam etti.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
 | Kalem | Reel değişim |
 | --- | ---: |
 | Hasılat | -%41,5 |
-| Brüt kâr | -%102,2 |
 | Özkaynak | %41,5 |
 | Aktif toplamı | %21,9 |
 | Ticari alacaklar | -%7,3 |
@@ -78,15 +77,15 @@ Hasılat %41,5 azaldığı için brüt kâr da %102,2 düşmüş, bu da brüt k�
 
 ## Sektör içindeki konum
 
-Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 18 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 74 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | -%0,9 | %13,5 |
-| Net kâr marjı | -%97,2 | -%2,3 |
-| Özkaynak kârlılığı | -%5,4 | -%1,3 |
-| Cari oran | 2,13 | 1,43 |
-| Borç / özkaynak | 0,07 | 0,08 |
+| Brüt kâr marjı | -%0,9 | %23,0 |
+| Net kâr marjı | -%97,2 | -%0,1 |
+| Özkaynak kârlılığı | -%5,4 | %0,0 |
+| Cari oran | 2,13 | 1,39 |
+| Borç / özkaynak | 0,07 | 0,16 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -99,9 +98,7 @@ Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 18 şirketin **
 **Dikkat gerektirenler**
 
 - Hasılat reel olarak -%41,5 geriledi.
-- Net kâr reel olarak -%413,9 geriledi.
 - Brüt marj 23,3 puan daraldı (%22,4 → -%0,9).
-- Özkaynak kârlılığı -%5,4; sektör medyanı -%1,3.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 
