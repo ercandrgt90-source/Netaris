@@ -1,13 +1,13 @@
 ---
 slug: bmsch-2026-3-ceyrek
 baslik: BMS ÇELİK HASIR SANAYİ VE TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %7,2 artması aktif toplamındaki %48,4 büyümeye paralel gerçekleşirken brüt kârın %60,8 düşmesi brüt kâr marjının %3,1 seviyesine gerilemesine yol açtı; bu kâr erozyonu faaliyet kârının -%530,9 ve net kârın -%1156,3 düşmesine, FAVÖK'ün ise -%76,3 azalmasına neden oldu.…
+ozet: Hasılatın %7,2 artmasıyla birlikte aktif toplamı %48,4 yükselmiş, ancak brüt kâr %60,8 düşmüş; bu durum brüt kâr marjının %3,1'e gerilemesine yol açmış.…
 sirket: BMS ÇELİK HASIR SANAYİ VE TİCARET A.Ş.
 kod: BMSCH
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: Temel malzeme
-tarih: 2026-11-14
+tarih: 2026-11-24
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %7,2 artması aktif toplamındaki %48,4 büyümeye paralel gerçekleşirken brüt kârın %60,8 düşmesi brüt kâr marjının %3,1 seviyesine gerilemesine yol açtı; bu kâr erozyonu faaliyet kârının -%530,9 ve net kârın -%1156,3 düşmesine, FAVÖK'ün ise -%76,3 azalmasına neden oldu. Özkaynak %10,9 yükselerek özkaynak kârlılığının -%10,4 olmasına rağmen cari oran 1,61 ile sektör medyanına eşdeğer kalırken, borç/özkaynak oranının %0,56'ye (sektör medyanı 0,10) çıkması net borcun %55,9 artışıyla birlikte finansal riskin yükseldiğini gösteriyor. Yatırım harcamasındaki %588,3 artış, faaliyet nakit akışının sıfıra yükselmesiyle birlikte likidite ihtiyacını artırarak net borçta %55,9 artışa bağlanabilir.
+Hasılatın %7,2 artmasıyla birlikte aktif toplamı %48,4 yükselmiş, ancak brüt kâr %60,8 düşmüş; bu durum brüt kâr marjının %3,1'e gerilemesine yol açmış. Brüt kârdaki düşüş ve FAVÖK %65,1 azalmışken net kâr -%17,3 negatif bir marja sürüklenmiş, bu da özkaynak kârlılığının -%10,4 olmasına neden olmuş. Net borç %55,9 artmış olmasına rağmen cari oran %1,61 (sektör medyanının %1,48 üzeri) ve borç/özkaynak oranı %0,56 (sektör medyanının %0,16 üzeri) artış göstermiş, likiditeyi bir ölçüde korurken finansal kaldıraçta yükseliş görülmüş.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 

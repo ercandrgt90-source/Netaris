@@ -25,7 +25,6 @@ Hasılatın %12,1 düşmesiyle birlikte brüt kâr negatif %1,0'a gerileyerek br
 | Kalem | Reel değişim |
 | --- | ---: |
 | Hasılat | -%12,1 |
-| Net kâr | -%109,2 |
 | Özkaynak | -%1,7 |
 | Aktif toplamı | %24,6 |
 | Ticari alacaklar | %33,4 |
@@ -33,7 +32,6 @@ Hasılatın %12,1 düşmesiyle birlikte brüt kâr negatif %1,0'a gerileyerek br
 | Net borç | %69,9 |
 | Faaliyet nakit akışı | -%86,3 |
 | Yatırım harcaması | %138,7 |
-| Serbest nakit akışı | -%101,7 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -62,7 +60,7 @@ Hasılatın %12,1 düşmesiyle birlikte brüt kâr negatif %1,0'a gerileyerek br
 | Hasılat | 0,19 | 0,29 | 0,26 | 0,29 |
 | Brüt kâr | 0,00 | 0,04 | 0,00 | 0,17 |
 | Faaliyet kârı | -0,04 | -0,07 | -0,05 | 0,28 |
-| FAVÖK | 0,00 | -0,03 | -0,02 | 0,32 |
+| FAVÖK | 0,00 | -0,04 | -0,02 | 0,31 |
 | Net kâr | -0,03 | -0,13 | -0,01 | -0,07 |
 | Özkaynak | 1,76 | 1,68 | 1,70 | 1,56 |
 | Aktif toplamı | 4,08 | 3,87 | 3,72 | 3,51 |
@@ -77,15 +75,15 @@ Hasılatın %12,1 düşmesiyle birlikte brüt kâr negatif %1,0'a gerileyerek br
 
 ## Sektör içindeki konum
 
-Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildiren** 59 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildiren** 64 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | -%1,0 | %16,9 |
-| Net kâr marjı | -%15,8 | -%0,9 |
-| Özkaynak kârlılığı | -%1,7 | -%0,1 |
-| Cari oran | 0,99 | 1,32 |
-| Borç / özkaynak | 0,97 | 0,20 |
+| Brüt kâr marjı | -%1,0 | %16,2 |
+| Net kâr marjı | -%15,8 | -%1,9 |
+| Özkaynak kârlılığı | -%1,7 | -%0,4 |
+| Cari oran | 0,99 | 1,35 |
+| Borç / özkaynak | 0,97 | 0,19 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -98,7 +96,6 @@ Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildire
 **Dikkat gerektirenler**
 
 - Hasılat reel olarak -%12,1 geriledi.
-- Net kâr reel olarak -%109,2 geriledi.
 - Yatırım harcaması faaliyet nakit akışını aşıyor; aradaki fark dış kaynakla karşılanıyor.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*

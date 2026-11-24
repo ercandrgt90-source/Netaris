@@ -26,8 +26,6 @@ Hasılatın %77,3 düşmesi brüt kârın %30,8 azalmasına yol açarken, brüt 
 | --- | ---: |
 | Hasılat | -%77,3 |
 | Brüt kâr | -%30,8 |
-| Faaliyet kârı | -%480,4 |
-| FAVÖK | -%329,5 |
 | Özkaynak | %7,1 |
 | Aktif toplamı | -%51,4 |
 | Ticari alacaklar | -%16,7 |
@@ -63,7 +61,7 @@ Hasılatın %77,3 düşmesi brüt kârın %30,8 azalmasına yol açarken, brüt 
 | Hasılat | 0,04 | 0,09 | 0,15 | 0,25 |
 | Brüt kâr | 0,02 | 0,03 | 0,03 | 0,02 |
 | Faaliyet kârı | -0,05 | -0,04 | -0,01 | 0,02 |
-| FAVÖK | -0,04 | -0,03 | -0,01 | 0,03 |
+| FAVÖK | -0,04 | -0,04 | -0,01 | 0,02 |
 | Net kâr | -0,06 | -0,03 | -0,01 | 0,01 |
 | Özkaynak | 0,14 | 0,19 | 0,22 | 0,22 |
 | Aktif toplamı | 0,27 | 0,40 | 0,49 | 0,52 |
@@ -79,15 +77,15 @@ Hasılatın %77,3 düşmesi brüt kârın %30,8 azalmasına yol açarken, brüt 
 
 ## Sektör içindeki konum
 
-Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 26 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 39 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
 | Brüt kâr marjı | %40,8 | %41,5 |
-| Net kâr marjı | -%158,5 | %8,7 |
-| Özkaynak kârlılığı | -%44,0 | %0,6 |
-| Cari oran | 1,70 | 13,96 |
-| Borç / özkaynak | -0,01 | -0,02 |
+| Net kâr marjı | -%158,5 | %0,3 |
+| Özkaynak kârlılığı | -%44,0 | -%2,3 |
+| Cari oran | 1,70 | 5,14 |
+| Borç / özkaynak | -0,01 | -0,01 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -96,7 +94,7 @@ Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 26 şirketin **
 **Dikkat gerektirenler**
 
 - Hasılat reel olarak -%77,3 geriledi.
-- Net kâr reel olarak -%893,6 geriledi.
+- Özkaynak kârlılığı -%44,0; sektör medyanı -%2,3.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

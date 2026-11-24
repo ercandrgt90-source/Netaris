@@ -1,13 +1,13 @@
 ---
 slug: prdgs-2026-3-ceyrek
 baslik: PARDUS GİRİŞİM SERMAYESİ YATIRIM ORTAKLIĞI A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılat, brüt kâr, faaliyet kârı ve net kâr aynı negatif seviyede (%-1742,1-%-2066,0 değişim) olduğu için bu kalemler birlikte düşmüş; aynı anda özkaynak ve aktif toplamı %23,9-%24,0 artarak bilanço büyüklüğünün yükselmesine yol açmış.…
+ozet: Hasılat, brüt kâr, faaliyet kârı ve net kâr aynı negatif değere geriledi; bu düşüş, faaliyet nakit akışının da aynı dönemde pozitiften negatife dönüşmesiyle tutarlı bir likidite erozyonunu yansıtıyor.…
 sirket: PARDUS GİRİŞİM SERMAYESİ YATIRIM ORTAKLIĞI A.Ş.
 kod: PRDGS
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: Finans
-tarih: 2026-11-06
+tarih: 2026-11-24
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,19 +18,15 @@ sayimlar:
 
 ## Özet
 
-Hasılat, brüt kâr, faaliyet kârı ve net kâr aynı negatif seviyede (%-1742,1-%-2066,0 değişim) olduğu için bu kalemler birlikte düşmüş; aynı anda özkaynak ve aktif toplamı %23,9-%24,0 artarak bilanço büyüklüğünün yükselmesine yol açmış. Net borçun negatif (nakit fazlası) olması, faaliyet nakit akışının da negatif (%-199,5) olmasıyla birlikte özkaynak artışının borçlanmadan gerçekleştiğini gösteriyor. Cari oranın %20,06 sektör medyanının üzerindeki 22,38 seviyesinde kalması, borç/özkaynak oranının –0,14 medyanının üzerindeki –0,02 değeriyle birlikte likidite durumunun borç yükünden bağımsız olarak güçlü olduğunu ortaya koyuyor.
+Hasılat, brüt kâr, faaliyet kârı ve net kâr aynı negatif değere geriledi; bu düşüş, faaliyet nakit akışının da aynı dönemde pozitiften negatife dönüşmesiyle tutarlı bir likidite erozyonunu yansıtıyor. Özkaynak ve aktif toplamı ise %23,9-%24,0 artışla yükselmiş; bu büyüme, net borcun (negatif) hafifçe artması ve borç/özkaynak oranının sektör medyanına yakın kalmasıyla özkaynakların finansal yapıya daha fazla katkısını gösteriyor. Cari oranın %22,38 gibi çok yüksek bir seviyeye çıkması, aktif büyümesinin ve azalan net borcun birlikte likidite tamponunu genişlettiğini, ancak aynı zamanda kârlılık göstergelerinin (özkaynak kârlılığı %-20,7) sektörel medyanın çok altında kalmasına yol açtığını ortaya koyuyor.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | -%1742,1 |
-| Brüt kâr | -%1742,1 |
-| Faaliyet kârı | -%2056,4 |
-| Net kâr | -%2066,0 |
 | Özkaynak | %23,9 |
 | Aktif toplamı | %24,0 |
-| Faaliyet nakit akışı | -%199,5 |
+| Finansman gideri | -%99,5 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -46,6 +42,7 @@ Hasılat, brüt kâr, faaliyet kârı ve net kâr aynı negatif seviyede (%-1742
 | Aktif toplamı | 2,58 milyar TL |
 | Net borç | -0,05 milyar TL |
 | Faaliyet nakit akışı | -0,05 milyar TL |
+| Finansman gideri | 0,00 milyar TL |
 
 ## Son dört dönem
 
@@ -59,19 +56,19 @@ Hasılat, brüt kâr, faaliyet kârı ve net kâr aynı negatif seviyede (%-1742
 | Aktif toplamı | 2,58 | 2,96 | 2,44 | 2,27 |
 | Net borç | -0,05 | -0,10 | -0,04 | 0,00 |
 | Faaliyet nakit akışı | -0,05 | 0,03 | 0,04 | -0,03 |
-| Finansman gideri | — | 0,00 | 0,00 | 0,00 |
+| Finansman gideri | 0,00 | 0,00 | 0,00 | 0,00 |
 
 *Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
 
 ## Sektör içindeki konum
 
-Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 18 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 39 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Özkaynak kârlılığı | -%20,7 | %1,9 |
-| Cari oran | 22,38 | 20,06 |
-| Borç / özkaynak | -0,02 | -0,14 |
+| Özkaynak kârlılığı | -%20,7 | -%2,3 |
+| Cari oran | 22,38 | 5,14 |
+| Borç / özkaynak | -0,02 | -0,01 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -79,9 +76,7 @@ Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 18 şirketin **
 
 **Dikkat gerektirenler**
 
-- Hasılat reel olarak -%1742,1 geriledi.
-- Net kâr reel olarak -%2066,0 geriledi.
-- Özkaynak kârlılığı -%20,7; sektör medyanı %1,9.
+- Özkaynak kârlılığı -%20,7; sektör medyanı -%2,3.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

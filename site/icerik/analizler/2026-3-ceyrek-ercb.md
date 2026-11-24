@@ -25,10 +25,8 @@ Hasılatın %46,6 düşmesi brüt kârın %109,6 gerilemesine ve brüt kâr marj
 | Kalem | Reel değişim |
 | --- | ---: |
 | Hasılat | -%46,6 |
-| Brüt kâr | -%109,6 |
 | Faaliyet kârı | -%63,7 |
-| FAVÖK | -%41,8 |
-| Net kâr | -%8745,1 |
+| FAVÖK | -%30,5 |
 | Özkaynak | %206,5 |
 | Aktif toplamı | %54,7 |
 | Ticari alacaklar | %16,3 |
@@ -63,7 +61,7 @@ Hasılatın %46,6 düşmesi brüt kârın %109,6 gerilemesine ve brüt kâr marj
 | Hasılat | 1,06 | 1,30 | 0,99 | 1,53 |
 | Brüt kâr | -0,05 | 0,28 | 0,20 | 0,15 |
 | Faaliyet kârı | 0,10 | 0,02 | 0,05 | -0,50 |
-| FAVÖK | 0,24 | 0,16 | 0,19 | -0,36 |
+| FAVÖK | 0,24 | 0,12 | 0,15 | -0,42 |
 | Net kâr | -0,27 | -0,41 | 0,13 | -0,32 |
 | Özkaynak | 5,32 | 5,32 | 5,89 | 3,54 |
 | Aktif toplamı | 20,19 | 18,78 | 18,24 | 14,42 |
@@ -79,15 +77,15 @@ Hasılatın %46,6 düşmesi brüt kârın %109,6 gerilemesine ve brüt kâr marj
 
 ## Sektör içindeki konum
 
-Karşılaştırma Temel malzeme sektöründe **aynı dönemi bildiren** 33 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Temel malzeme sektöründe **aynı dönemi bildiren** 50 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | -%5,0 | %18,4 |
-| Net kâr marjı | -%25,1 | %1,5 |
-| Özkaynak kârlılığı | -%5,0 | %0,6 |
-| Cari oran | 1,86 | 1,61 |
-| Borç / özkaynak | 1,75 | 0,11 |
+| Brüt kâr marjı | -%5,0 | %16,1 |
+| Net kâr marjı | -%25,1 | %1,3 |
+| Özkaynak kârlılığı | -%5,0 | %0,5 |
+| Cari oran | 1,86 | 1,48 |
+| Borç / özkaynak | 1,75 | 0,16 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -100,7 +98,6 @@ Karşılaştırma Temel malzeme sektöründe **aynı dönemi bildiren** 33 şirk
 **Dikkat gerektirenler**
 
 - Hasılat reel olarak -%46,6 geriledi.
-- Net kâr reel olarak -%8745,1 geriledi.
 - Brüt marj 33,1 puan daraldı (%28,1 → -%5,0).
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*

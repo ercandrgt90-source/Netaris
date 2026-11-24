@@ -24,15 +24,15 @@ Hasılatın %52,2 artması aktif toplamının %31,5 yükselmesiyle paralel seyre
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | %52,2 |
+| Hasılat | %17,3 |
 | Özkaynak | %10,4 |
 | Aktif toplamı | %31,5 |
 | Ticari alacaklar | %39,3 |
 | Stoklar | %157,3 |
 | Net borç | %3450,3 |
-| Faaliyet nakit akışı | %141,3 |
-| Yatırım harcaması | -%33,3 |
-| Serbest nakit akışı | %210,0 |
+| Faaliyet nakit akışı | %72,4 |
+| Yatırım harcaması | -%47,5 |
+| Serbest nakit akışı | %113,8 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -53,6 +53,7 @@ Hasılatın %52,2 artması aktif toplamının %31,5 yükselmesiyle paralel seyre
 | Faaliyet nakit akışı | 0,01 milyar TL |
 | Yatırım harcaması | 0,00 milyar TL |
 | Serbest nakit akışı | 0,00 milyar TL |
+| Finansman gideri | 0,00 milyar TL |
 
 ## Son dört dönem
 
@@ -60,8 +61,8 @@ Hasılatın %52,2 artması aktif toplamının %31,5 yükselmesiyle paralel seyre
 | --- | ---: | ---: | ---: | ---: |
 | Hasılat | 0,03 | 0,10 | 0,06 | 0,20 |
 | Brüt kâr | 0,00 | 0,01 | 0,02 | 0,05 |
-| Faaliyet kârı | -0,02 | -0,01 | 0,00 | 0,03 |
-| FAVÖK | -0,02 | -0,01 | 0,00 | 0,03 |
+| Faaliyet kârı | -0,02 | -0,02 | 0,00 | 0,03 |
+| FAVÖK | -0,02 | -0,02 | 0,00 | 0,03 |
 | Net kâr | -0,11 | -0,03 | -0,05 | 0,01 |
 | Özkaynak | 1,07 | 1,12 | 1,07 | 1,01 |
 | Aktif toplamı | 1,48 | 1,40 | 1,25 | 1,17 |
@@ -71,21 +72,21 @@ Hasılatın %52,2 artması aktif toplamının %31,5 yükselmesiyle paralel seyre
 | Faaliyet nakit akışı | 0,01 | -0,02 | 0,10 | 0,01 |
 | Yatırım harcaması | 0,00 | 0,09 | 0,09 | 0,00 |
 | Serbest nakit akışı | 0,00 | -0,11 | 0,01 | 0,01 |
-| Finansman gideri | — | 0,00 | — | — |
+| Finansman gideri | 0,00 | 0,00 | — | — |
 
 *Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
 
 ## Sektör içindeki konum
 
-Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildiren** 20 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildiren** 64 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | -%0,4 | %18,6 |
-| Net kâr marjı | -%354,4 | %3,4 |
-| Özkaynak kârlılığı | -%10,3 | %1,2 |
-| Cari oran | 1,04 | 1,48 |
-| Borç / özkaynak | 0,06 | 0,05 |
+| Brüt kâr marjı | -%0,4 | %16,2 |
+| Net kâr marjı | -%354,4 | -%1,9 |
+| Özkaynak kârlılığı | -%10,3 | -%0,4 |
+| Cari oran | 1,04 | 1,35 |
+| Borç / özkaynak | 0,06 | 0,19 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -93,13 +94,8 @@ Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildire
 
 **Şirket lehine işleyenler**
 
-- Hasılat reel olarak %52,2 arttı.
+- Hasılat reel olarak %17,3 arttı.
 - Brüt marj 5,4 puan genişledi (-%5,8 → -%0,4).
-
-**Dikkat gerektirenler**
-
-- Net kâr reel olarak -%1380,8 geriledi.
-- Özkaynak kârlılığı -%10,3; sektör medyanı %1,2.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

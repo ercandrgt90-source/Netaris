@@ -1,13 +1,13 @@
 ---
 slug: dstkf-2026-3-ceyrek
 baslik: DESTEK FİNANS FAKTORİNG A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın hafif artışı (%0,9) gerçekleşirken brüt kârın %220,5 düşmesi, faaliyet ve FAVÖK kârlarının da benzer oranda gerilemesi, net kârın %207,3 azalmasına yol açtı; bu kâr düşüşleri özkaynak kârlılığının %8,5 negatif olmasına ve brüt kâr marjının %108,6 negatif seviyeye gerilemesine yansıdı.…
+ozet: Hasılatın %0,9 artması, brüt kârın -%108,6 negatif marjla -1,96 milyar TL'ye düşmesine paralel olarak, faaliyet ve FAVÖK kârlarının da sırasıyla -0,31 milyar TL ve -0,27 milyar TL'ye gerilemesine yol açtı; bu kâr düşüşleri net kârın -1,16 milyar TL'ye ve özkaynak kârlılığının -%8,5'e inmesine neden…
 sirket: DESTEK FİNANS FAKTORİNG A.Ş.
 kod: DSTKF
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: Finans
-tarih: 2026-11-20
+tarih: 2026-11-24
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın hafif artışı (%0,9) gerçekleşirken brüt kârın %220,5 düşmesi, faaliyet ve FAVÖK kârlarının da benzer oranda gerilemesi, net kârın %207,3 azalmasına yol açtı; bu kâr düşüşleri özkaynak kârlılığının %8,5 negatif olmasına ve brüt kâr marjının %108,6 negatif seviyeye gerilemesine yansıdı. Özkaynakların %24,4 artması ve aktif toplamının %6,1 yükselmesi, net borcun %14,1 artışıyla birlikte borç/özkaynak oranının 1,52'ye çıkmasına neden olurken, cari oranın 1,46'ya düşmesi likidite baskısını gösterdi. Faaliyet nakit akışının %7,9 azalması, yatırım harcamasının düşük seviyede (0,08 milyar TL) kalmasıyla birlikte, kâr kayıplarının ve borç artışının nakit akışı üzerindeki olumsuz etkisini pekiştirdi.
+Hasılatın %0,9 artması, brüt kârın -%108,6 negatif marjla -1,96 milyar TL'ye düşmesine paralel olarak, faaliyet ve FAVÖK kârlarının da sırasıyla -0,31 milyar TL ve -0,27 milyar TL'ye gerilemesine yol açtı; bu kâr düşüşleri net kârın -1,16 milyar TL'ye ve özkaynak kârlılığının -%8,5'e inmesine neden oldu. Özkaynakların %24,4 artması (13,67 milyar TL) ve aktif toplamının %6,1 yükselmesi (49,66 milyar TL) net borcun %14,1 artışı (20,80 milyar TL) ile birlikte borç/özkaynak oranının 1,52'ye çıkmasına ve cari oranın 1,46'ya gerilemesine sebep oldu. Faaliyet nakit akışının %7,9 azalması (4,10 milyar TL) ise yatırım harcamasının düşük seviyede (0,08 milyar TL) kalmasıyla birlikte likidite baskısını artırdı.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
@@ -82,7 +82,7 @@ Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 39 şirketin **
 | Net kâr marjı | -%64,2 | %0,3 |
 | Özkaynak kârlılığı | -%8,5 | -%2,3 |
 | Cari oran | 1,46 | 5,14 |
-| Borç / özkaynak | 1,52 | 0,00 |
+| Borç / özkaynak | 1,52 | -0,01 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

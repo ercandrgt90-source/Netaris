@@ -1,13 +1,13 @@
 ---
 slug: zoren-2026-3-ceyrek
 baslik: ZORLU ENERJİ ELEKTRİK ÜRETİM A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %22,2 düşmesi net kârın %137,4 gerilemesine eşlik eder; gelir kaybı kârın negatifleşmesine ve net kâr marjının %21,9'a kadar düşmesine yol açmıştır.…
+ozet: Hasılatın %40,0 düşmesi net kârın -%21,9'luk marjla -1,67 milyar TL'ye gerilemesine ve özkaynak kârlılığının -%2,6'ya inmesine yol açtı; aynı zamanda faaliyet nakit akışının pozitif 2,56 milyar TL'ye dönmesi, azalan yatırım harcaması (0,13 milyar TL, %74,5 azalış) ile birlikte likiditeyi…
 sirket: ZORLU ENERJİ ELEKTRİK ÜRETİM A.Ş.
 kod: ZOREN
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: Kamu hizmetleri
-tarih: 2026-11-10
+tarih: 2026-11-24
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,20 +18,20 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %22,2 düşmesi net kârın %137,4 gerilemesine eşlik eder; gelir kaybı kârın negatifleşmesine ve net kâr marjının %21,9'a kadar düşmesine yol açmıştır. Aktif toplamının %2,7 artması ve net borcun %18,4 yükselmesi özkaynakların %8,5 azalmasıyla birlikte borç/özkaynak oranının %0,05 medyanının çok üzerindeki 0,94 seviyesine çıkmasına neden olmuştur. Faaliyet nakit akışının negatiften pozitif (+2,56 milyar TL) dönmesi, yatırım harcamasının %67,6 azalmasıyla paralel bir şekilde gerçekleşmiştir.
+Hasılatın %40,0 düşmesi net kârın -%21,9'luk marjla -1,67 milyar TL'ye gerilemesine ve özkaynak kârlılığının -%2,6'ya inmesine yol açtı; aynı zamanda faaliyet nakit akışının pozitif 2,56 milyar TL'ye dönmesi, azalan yatırım harcaması (0,13 milyar TL, %74,5 azalış) ile birlikte likiditeyi destekledi. Net borcun %18,4 artması (60,48 milyar TL) aktif toplamının %2,7 yükselmesi (148,63 milyar TL) ile birlikte borç/özkaynak oranının %0,13 sektör medyanının çok üzerindeki 0,94 seviyesine çıkmasını sağladı. Cari oran 0,87 ile sektör medyanı 0,86'nın hemen üzerinde kalırken, azalan özkaynak (64,68 milyar TL, %8,5 düşüş) bu likidite dengesinin sürdürülebilirliğini sınırlandırıyor.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | -%22,2 |
-| Net kâr | -%137,4 |
+| Hasılat | -%40,0 |
 | Özkaynak | -%8,5 |
 | Aktif toplamı | %2,7 |
 | Ticari alacaklar | %33,8 |
 | Stoklar | %48,4 |
 | Net borç | %18,4 |
-| Yatırım harcaması | -%67,6 |
+| Yatırım harcaması | -%74,5 |
+| Finansman gideri | -%49,5 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -49,6 +49,7 @@ Hasılatın %22,2 düşmesi net kârın %137,4 gerilemesine eşlik eder; gelir k
 | Faaliyet nakit akışı | 2,56 milyar TL |
 | Yatırım harcaması | 0,13 milyar TL |
 | Serbest nakit akışı | 2,43 milyar TL |
+| Finansman gideri | 0,76 milyar TL |
 
 ## Son dört dönem
 
@@ -64,20 +65,20 @@ Hasılatın %22,2 düşmesi net kârın %137,4 gerilemesine eşlik eder; gelir k
 | Faaliyet nakit akışı | 2,56 | 2,02 | -0,53 | -0,25 |
 | Yatırım harcaması | 0,13 | 0,08 | 0,44 | 0,67 |
 | Serbest nakit akışı | 2,43 | 1,93 | -0,97 | -0,92 |
-| Finansman gideri | — | 3,02 | 0,85 | 3,39 |
+| Finansman gideri | 0,76 | 3,02 | 0,85 | 3,39 |
 
 *Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
 
 ## Sektör içindeki konum
 
-Karşılaştırma Kamu hizmetleri sektöründe **aynı dönemi bildiren** 10 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Kamu hizmetleri sektöründe **aynı dönemi bildiren** 29 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Net kâr marjı | -%21,9 | %9,0 |
-| Özkaynak kârlılığı | -%2,6 | %0,7 |
-| Cari oran | 0,87 | 1,07 |
-| Borç / özkaynak | 0,94 | 0,05 |
+| Net kâr marjı | -%21,9 | %5,0 |
+| Özkaynak kârlılığı | -%2,6 | %0,4 |
+| Cari oran | 0,87 | 0,86 |
+| Borç / özkaynak | 0,94 | 0,13 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -85,8 +86,7 @@ Karşılaştırma Kamu hizmetleri sektöründe **aynı dönemi bildiren** 10 şi
 
 **Dikkat gerektirenler**
 
-- Hasılat reel olarak -%22,2 geriledi.
-- Net kâr reel olarak -%137,4 geriledi.
+- Hasılat reel olarak -%40,0 geriledi.
 - Cari oran 0,87; kısa vadeli yükümlülükler dönen varlıkları aşıyor.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*

@@ -1,13 +1,13 @@
 ---
 slug: arena-2026-3-ceyrek
 baslik: ARENA BİLGİSAYAR SANAYİ VE TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %30,7 düşmesi, net satışların azalmasıyla birlikte brüt kârın sadece %6,4 artmasına yol açtı; bu durum brüt kâr marjının %8,7'ye gerilemesi ve faaliyet, FAVÖK ve net kârın büyük ölçüde negatifleşmesiyle, kârlılık göstergelerinin (net kâr marjı –%12,0, özkaynak kârlılığı –%64,7) sektör…
+ozet: Hasılatın %30,7 düşmesi aktif toplamının %19,4 azalmasına paralel olarak özkaynakların %52,4 gerilemesine yol açtı; bu düşüşle birlikte net borç %45,7 artarak borç/özkaynak oranı 4,54'e yükseldi.…
 sirket: ARENA BİLGİSAYAR SANAYİ VE TİCARET A.Ş.
 kod: ARENA
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: Bilişim
-tarih: 2026-11-20
+tarih: 2026-11-24
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %30,7 düşmesi, net satışların azalmasıyla birlikte brüt kârın sadece %6,4 artmasına yol açtı; bu durum brüt kâr marjının %8,7'ye gerilemesi ve faaliyet, FAVÖK ve net kârın büyük ölçüde negatifleşmesiyle, kârlılık göstergelerinin (net kâr marjı –%12,0, özkaynak kârlılığı –%64,7) sektör medyanlarının çok altında kalmasına neden oldu. Özkaynakların %52,4 azalması ve aktif toplamının %19,4 düşmesi, borçların %45,7 artmasıyla birleşerek borç/özkaynak oranının 4,54'a yükselmesine ve cari oranın 1,04'e gerilemesine, likidite ve finansal yapı riskinin artmasına sebep oldu. Faaliyet nakit akışının %149,8 düşmesi ve yatırım harcamasının sıfıra inmesi, negatif kârların ve artan borçların finansman ihtiyacını artırarak şirketin nakit akışı ve sermaye harcamaları arasındaki dengesizliği pekiştirdi.
+Hasılatın %30,7 düşmesi aktif toplamının %19,4 azalmasına paralel olarak özkaynakların %52,4 gerilemesine yol açtı; bu düşüşle birlikte net borç %45,7 artarak borç/özkaynak oranı 4,54'e yükseldi. Brüt kâr marjı %8,7 seviyesinde kalırken, faaliyet ve net kârların negatifleşmesi net kâr marjını -%12,0 ve özkaynak kârlılığını -%64,7'ye sürükledi. Cari oran 1,04 ile sektörel medyanın 1,36'sının altında kalması, likidite sıkışıklığının artan borç yükü ve azalan özkaynakla birlikte gerçekleşti.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
@@ -76,17 +76,17 @@ Hasılatın %30,7 düşmesi, net satışların azalmasıyla birlikte brüt kâr�
 
 ## Sektör içindeki konum
 
-Karşılaştırma Bilişim sektöründe **aynı dönemi bildiren** 20 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Bilişim sektöründe **aynı dönemi bildiren** 21 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 Şirketin mali yılı mart sonunda bitiyor, takvim yılıyla örtüşmüyor; bu yüzden dönemi ay adlarıyla yazılıyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %8,7 | %13,4 |
+| Brüt kâr marjı | %8,7 | %13,9 |
 | Net kâr marjı | -%12,0 | %0,5 |
-| Özkaynak kârlılığı | -%64,7 | %2,1 |
-| Cari oran | 1,04 | 1,31 |
-| Borç / özkaynak | 4,54 | 0,02 |
+| Özkaynak kârlılığı | -%64,7 | %2,0 |
+| Cari oran | 1,04 | 1,36 |
+| Borç / özkaynak | 4,54 | 0,01 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -99,7 +99,7 @@ Karşılaştırma Bilişim sektöründe **aynı dönemi bildiren** 20 şirketin 
 **Dikkat gerektirenler**
 
 - Hasılat reel olarak -%30,7 geriledi.
-- Özkaynak kârlılığı -%64,7; sektör medyanı %2,1.
+- Özkaynak kârlılığı -%64,7; sektör medyanı %2,0.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

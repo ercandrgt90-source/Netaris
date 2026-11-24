@@ -1,13 +1,13 @@
 ---
 slug: euyo-2026-3-ceyrek
 baslik: EURO MENKUL KIYMET YATIRIM ORTAKLIĞI A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %74,9 düşmesi brüt kârın %78,2 azalmasına ve FAVÖK'ün %160,0 gerilemesine eşlik ederken, faaliyet kârının %228,7 düşmesi net kârın negatif %156,0 marjla sonuçlanmasını tetiklemiştir; özkaynakların %2,0 azalışı ise aktif toplamının %13,6 artışıyla birlikte özkaynak kârlılığının -%12,6'ya…
+ozet: Hasılatın %80,7 düşmesi brüt kârın %83,2 azalmasına paralel olarak yansıdı; bu düşüş faaliyet kârının negatif –0,01 milyar TL'ye kaymasına ve net kârın –%156,0 negatif marja sürüklenmesine neden oldu.…
 sirket: EURO MENKUL KIYMET YATIRIM ORTAKLIĞI A.Ş.
 kod: EUYO
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: Finans
-tarih: 2026-11-06
+tarih: 2026-11-24
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,21 +18,18 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %74,9 düşmesi brüt kârın %78,2 azalmasına ve FAVÖK'ün %160,0 gerilemesine eşlik ederken, faaliyet kârının %228,7 düşmesi net kârın negatif %156,0 marjla sonuçlanmasını tetiklemiştir; özkaynakların %2,0 azalışı ise aktif toplamının %13,6 artışıyla birlikte özkaynak kârlılığının -%12,6'ya gerilemesine yol açmıştır. Net borcun -0,01 milyar TL'ye yükselmesi (önceki -0,07 milyar TL) cari oranı 14,55 seviyesinde tutmuş, bu da sektör medyanı 20,06'nın altında kalmasına rağmen borç/özkaynak oranının -0,15 (sektör medyanı -0,14) ile benzer bir negatif seviyede kalmasını sağlamıştır. Yatırım harcamasındaki %117.000,0 artış ise faaliyet nakit akışının %826,3 düşmesiyle birlikte likidite akışında büyük bir gerilemeye işaret etmektedir.
+Hasılatın %80,7 düşmesi brüt kârın %83,2 azalmasına paralel olarak yansıdı; bu düşüş faaliyet kârının negatif –0,01 milyar TL'ye kaymasına ve net kârın –%156,0 negatif marja sürüklenmesine neden oldu. Aktif toplamının %13,6 artması özkaynakta sadece %2,0 azalma ve net borcun –0,06 milyar TL'ye iyileşmesiyle birlikte cari oranın 14,55'ye yükselmesini sağlarken, borç/özkaynak oranının –0,78'e gerilemesi özkaynak kârlılığının –%12,6 olmasına rağmen likidite pozisyonunun sektörel medyanın çok üzerinde kalmasını gösterdi. Yatırım harcamasının %58 450,0 artışı aktif büyümesiyle uyumlu olsa da, artan harcama ve azalan gelir net kâr marjını daha da düşürerek kârlılık üzerindeki baskıyı artırdı.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | -%74,9 |
-| Brüt kâr | -%78,2 |
-| Faaliyet kârı | -%228,7 |
-| FAVÖK | -%160,0 |
+| Hasılat | -%80,7 |
+| Brüt kâr | -%83,2 |
 | Özkaynak | -%2,0 |
 | Aktif toplamı | %13,6 |
-| Faaliyet nakit akışı | -%826,3 |
-| Yatırım harcaması | %117000,0 |
-| Serbest nakit akışı | -%2930,4 |
+| Ticari alacaklar | -%40,0 |
+| Yatırım harcaması | %58450,0 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -47,7 +44,8 @@ Hasılatın %74,9 düşmesi brüt kârın %78,2 azalmasına ve FAVÖK'ün %160,0
 | Net kâr | -0,01 milyar TL |
 | Özkaynak | 0,08 milyar TL |
 | Aktif toplamı | 0,09 milyar TL |
-| Net borç | -0,01 milyar TL |
+| Ticari alacaklar | 0,00 milyar TL |
+| Net borç | -0,06 milyar TL |
 | Faaliyet nakit akışı | 0,00 milyar TL |
 | Yatırım harcaması | 0,01 milyar TL |
 | Serbest nakit akışı | -0,02 milyar TL |
@@ -63,7 +61,8 @@ Hasılatın %74,9 düşmesi brüt kârın %78,2 azalmasına ve FAVÖK'ün %160,0
 | Net kâr | -0,01 | -0,01 | 0,00 | 0,00 |
 | Özkaynak | 0,08 | 0,08 | 0,08 | 0,08 |
 | Aktif toplamı | 0,09 | 0,09 | 0,09 | 0,08 |
-| Net borç | -0,01 | -0,08 | -0,08 | -0,07 |
+| Ticari alacaklar | 0,00 | — | — | — |
+| Net borç | -0,06 | -0,08 | -0,08 | -0,07 |
 | Faaliyet nakit akışı | 0,00 | 0,00 | 0,00 | 0,00 |
 | Yatırım harcaması | 0,01 | 0,00 | — | 0,00 |
 | Serbest nakit akışı | -0,02 | 0,00 | — | 0,00 |
@@ -72,15 +71,15 @@ Hasılatın %74,9 düşmesi brüt kârın %78,2 azalmasına ve FAVÖK'ün %160,0
 
 ## Sektör içindeki konum
 
-Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 18 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 39 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %24,9 | %48,0 |
-| Net kâr marjı | -%156,0 | %13,9 |
-| Özkaynak kârlılığı | -%12,6 | %1,9 |
-| Cari oran | 14,55 | 20,06 |
-| Borç / özkaynak | -0,15 | -0,14 |
+| Brüt kâr marjı | %24,9 | %41,5 |
+| Net kâr marjı | -%156,0 | %0,3 |
+| Özkaynak kârlılığı | -%12,6 | -%2,3 |
+| Cari oran | 14,55 | 5,14 |
+| Borç / özkaynak | -0,78 | -0,01 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -88,9 +87,8 @@ Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 18 şirketin **
 
 **Dikkat gerektirenler**
 
-- Hasılat reel olarak -%74,9 geriledi.
-- Net kâr reel olarak -%817,0 geriledi.
-- Özkaynak kârlılığı -%12,6; sektör medyanı %1,9.
+- Hasılat reel olarak -%80,7 geriledi.
+- Özkaynak kârlılığı -%12,6; sektör medyanı -%2,3.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

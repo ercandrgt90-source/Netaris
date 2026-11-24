@@ -24,11 +24,6 @@ Hasılat, brüt kâr, faaliyet kârı ve FAVÖK aynı negatif seviyede gerçekle
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | -%432,8 |
-| Brüt kâr | -%432,8 |
-| Faaliyet kârı | -%449,0 |
-| FAVÖK | -%444,1 |
-| Net kâr | -%309,8 |
 | Özkaynak | %34,0 |
 | Aktif toplamı | %38,3 |
 | Ticari alacaklar | -%84,0 |
@@ -78,11 +73,11 @@ Hasılat, brüt kâr, faaliyet kârı ve FAVÖK aynı negatif seviyede gerçekle
 
 ## Sektör içindeki konum
 
-Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 35 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 39 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Özkaynak kârlılığı | -%26,6 | -%2,2 |
+| Özkaynak kârlılığı | -%26,6 | -%2,3 |
 | Cari oran | 0,02 | 5,14 |
 | Borç / özkaynak | 0,19 | -0,01 |
 
@@ -92,9 +87,7 @@ Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 35 şirketin **
 
 **Dikkat gerektirenler**
 
-- Hasılat reel olarak -%432,8 geriledi.
-- Net kâr reel olarak -%309,8 geriledi.
-- Özkaynak kârlılığı -%26,6; sektör medyanı -%2,2.
+- Özkaynak kârlılığı -%26,6; sektör medyanı -%2,3.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

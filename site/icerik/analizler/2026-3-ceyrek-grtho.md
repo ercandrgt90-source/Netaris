@@ -24,18 +24,16 @@ Hasılatın %5,9 artması, brüt kârın %39,3 düşmesiyle birlikte brüt kâr 
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | %5,9 |
-| Brüt kâr | -%39,3 |
-| Faaliyet kârı | -%114,6 |
-| FAVÖK | -%78,0 |
-| Net kâr | -%284,5 |
+| Hasılat | -%18,3 |
+| Brüt kâr | -%54,0 |
+| FAVÖK | -%78,9 |
 | Özkaynak | %32,6 |
 | Aktif toplamı | %43,4 |
 | Ticari alacaklar | -%37,0 |
 | Stoklar | %143,2 |
-| Faaliyet nakit akışı | %320,1 |
-| Yatırım harcaması | %3296,9 |
-| Serbest nakit akışı | %295,2 |
+| Faaliyet nakit akışı | %227,1 |
+| Yatırım harcaması | %2591,2 |
+| Serbest nakit akışı | %207,7 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -44,8 +42,8 @@ Hasılatın %5,9 artması, brüt kârın %39,3 düşmesiyle birlikte brüt kâr 
 | Kalem | Değer |
 | --- | ---: |
 | Hasılat | 1,44 milyar TL |
-| Brüt kâr | 0,11 milyar TL |
-| Faaliyet kârı | -0,02 milyar TL |
+| Brüt kâr | 0,10 milyar TL |
+| Faaliyet kârı | -0,01 milyar TL |
 | FAVÖK | 0,04 milyar TL |
 | Net kâr | -0,81 milyar TL |
 | Özkaynak | 10,65 milyar TL |
@@ -56,15 +54,16 @@ Hasılatın %5,9 artması, brüt kârın %39,3 düşmesiyle birlikte brüt kâr 
 | Faaliyet nakit akışı | 1,97 milyar TL |
 | Yatırım harcaması | 0,13 milyar TL |
 | Serbest nakit akışı | 1,84 milyar TL |
+| Finansman gideri | 0,17 milyar TL |
 
 ## Son dört dönem
 
 | Kalem (milyar TL) | 2026 3. çeyrek | 2026 2. çeyrek | 2026 1. çeyrek | 2025 4. çeyrek |
 | --- | ---: | ---: | ---: | ---: |
 | Hasılat | 1,44 | 2,33 | 1,84 | 1,38 |
-| Brüt kâr | 0,11 | 0,17 | 0,26 | 0,27 |
-| Faaliyet kârı | -0,02 | 0,06 | 0,21 | 0,20 |
-| FAVÖK | 0,04 | 0,11 | 0,26 | 0,25 |
+| Brüt kâr | 0,10 | 0,16 | 0,26 | 0,27 |
+| Faaliyet kârı | -0,01 | 0,06 | 0,21 | 0,20 |
+| FAVÖK | 0,04 | 0,11 | 0,25 | 0,23 |
 | Net kâr | -0,81 | 0,21 | 0,21 | 0,90 |
 | Özkaynak | 10,65 | 10,83 | 10,11 | 9,02 |
 | Aktif toplamı | 13,08 | 12,85 | 11,88 | 10,40 |
@@ -74,34 +73,30 @@ Hasılatın %5,9 artması, brüt kârın %39,3 düşmesiyle birlikte brüt kâr 
 | Faaliyet nakit akışı | 1,97 | 0,18 | -1,63 | 1,80 |
 | Yatırım harcaması | 0,13 | 0,08 | 0,05 | 1,27 |
 | Serbest nakit akışı | 1,84 | 0,10 | -1,68 | 0,53 |
-| Finansman gideri | — | 0,00 | 0,02 | — |
+| Finansman gideri | 0,17 | 0,00 | 0,02 | — |
 
 *Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
 
 ## Sektör içindeki konum
 
-Karşılaştırma Temel tüketim sektöründe **aynı dönemi bildiren** 31 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Temel tüketim sektöründe **aynı dönemi bildiren** 35 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %7,3 | %19,5 |
-| Net kâr marjı | -%56,3 | -%1,6 |
+| Brüt kâr marjı | %7,2 | %19,4 |
+| Net kâr marjı | -%56,3 | -%1,2 |
 | Özkaynak kârlılığı | -%7,6 | -%0,1 |
-| Cari oran | 2,03 | 1,59 |
+| Cari oran | 2,03 | 1,61 |
 | Borç / özkaynak | -0,03 | 0,16 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
 ## Öne çıkan ölçümler
 
-**Şirket lehine işleyenler**
-
-- Hasılat reel olarak %5,9 arttı.
-
 **Dikkat gerektirenler**
 
-- Net kâr reel olarak -%284,5 geriledi.
-- Brüt marj 5,4 puan daraldı (%12,7 → %7,3).
+- Hasılat reel olarak -%18,3 geriledi.
+- Brüt marj 5,6 puan daraldı (%12,7 → %7,2).
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

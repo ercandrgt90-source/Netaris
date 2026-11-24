@@ -1,13 +1,13 @@
 ---
 slug: bahkm-2026-3-ceyrek
 baslik: BAHADIR KİMYA SANAYİ VE TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %24,7 düşmesi brüt kârda %18,0 azalmaya, ardından faaliyet kârı ve FAVÖKte sırasıyla %31,0 ve %29,1 düşüşe yol açarken, net kârın %177,5 gerilemesiyle negatifleşmesi, gelir kaybının karlılık üzerindeki zincirleme etkisini gösteriyor.…
+ozet: Hasılatın %42,2 düşmesi brüt kârın %38,7 azalmasına paralel olarak yansımış; brüt kâr marjı %19,7 olmasına rağmen net kâr marjı –%8,3'e gerilemiş, bu da faaliyet kârı ve FAVÖK'teki %45,9 ve %50,7 düşüşlerle tutarlı.…
 sirket: BAHADIR KİMYA SANAYİ VE TİCARET A.Ş.
 kod: BAHKM
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: Temel malzeme
-tarih: 2026-11-07
+tarih: 2026-11-24
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %24,7 düşmesi brüt kârda %18,0 azalmaya, ardından faaliyet kârı ve FAVÖKte sırasıyla %31,0 ve %29,1 düşüşe yol açarken, net kârın %177,5 gerilemesiyle negatifleşmesi, gelir kaybının karlılık üzerindeki zincirleme etkisini gösteriyor. Özkaynak ve aktif toplamının sırasıyla %8,3 ve %15,1 artması, negatif net borç ve cari oranın 4,98'e yükselmesiyle likidite ve sermaye yapısının iyileştiğini, ancak kâr marjları ve özkaynak kârlılığının sektör medyanının altında kalmasını ortaya koyuyor. Yatırım harcamasındaki %1047,7 artış, faaliyet nakit akışının pozitifleşmesiyle birlikte, büyüme odaklı harcamaların artışını ve nakit akışının iyileşmesini birbirine bağlıyor.
+Hasılatın %42,2 düşmesi brüt kârın %38,7 azalmasına paralel olarak yansımış; brüt kâr marjı %19,7 olmasına rağmen net kâr marjı –%8,3'e gerilemiş, bu da faaliyet kârı ve FAVÖK'teki %45,9 ve %50,7 düşüşlerle tutarlı. Özkaynak ve aktif toplamı sırasıyla %8,3 ve %15,1 artarken net borç –%0,04'e yükselmiş, bu durum cari oranın 4,98'e (sektör medyanı 1,48) çıkmasını ve borç/özkaynak oranının –%0,03 (sektör medyanı 0,16) olmasını desteklemiş. Faaliyet nakit akışı pozitif 0,10 milyar TL'ye (önceki –0,11 milyar TL) dönmüş, ancak yatırım harcamasının %809,3 artması (0,21 milyar TL) bu nakit akışının sınırlı kalmasına yol açmış.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 

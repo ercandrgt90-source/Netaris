@@ -1,13 +1,13 @@
 ---
 slug: vkfyo-2026-3-ceyrek
 baslik: VAKIF MENKUL KIYMET YATIRIM ORTAKLIĞI A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılat %48,4 artarken brüt kâr –%572,3 düşmüş, bu da brüt kâr marjının –%14,8'ye gerilemesine yol açtı; aynı dönemde özkaynak %24,8 azaldığı için özkaynak kârlılığı –%35,2 oldu.…
+ozet: Hasılatın %14,4 artması, brüt kârın negatiften –%14,8'e düşmesiyle birlikte faaliyet ve FAVÖK kârlarının da –%14,8 seviyesinde negatif kalması, gelir artışının maliyet ve giderlerdeki artışa tam olarak yansımadığını gösteriyor; bu durum özkaynak kârlılığının –%35,2'ye gerilemesi ve özkaynakların…
 sirket: VAKIF MENKUL KIYMET YATIRIM ORTAKLIĞI A.Ş.
 kod: VKFYO
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: Finans
-tarih: 2026-11-06
+tarih: 2026-11-24
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,16 +18,16 @@ sayimlar:
 
 ## Özet
 
-Hasılat %48,4 artarken brüt kâr –%572,3 düşmüş, bu da brüt kâr marjının –%14,8'ye gerilemesine yol açtı; aynı dönemde özkaynak %24,8 azaldığı için özkaynak kârlılığı –%35,2 oldu. Aktif toplamı %21,5 azaldı ve cari oran 17,74'ye düşmüş, bu da borç/özkaynak oranının –1,04 olarak sektörel medyan –0,14'ten daha negatif seyretmesine yansımıştır. Faaliyet, FAVÖK ve net kâr tümü –0,01 milyar TL olarak aynı seviyede kalmış, bu da negatif kâr marjları (%25,3) ve negatif özkaynak kârlılığı ile tutarlıdır.
+Hasılatın %14,4 artması, brüt kârın negatiften –%14,8'e düşmesiyle birlikte faaliyet ve FAVÖK kârlarının da –%14,8 seviyesinde negatif kalması, gelir artışının maliyet ve giderlerdeki artışa tam olarak yansımadığını gösteriyor; bu durum özkaynak kârlılığının –%35,2'ye gerilemesi ve özkaynakların %24,8 azalarak 0,04 milyar TL'ye düşmesiyle de tutarlı. Aktif toplamının %21,5 azalması, özkaynakların azalmasıyla paralel seyrederek cari oranın 17,74 gibi sektör medyanının çok üzerinde olmasına ve borç/özkaynak oranının –1,04 ile negatif değerlerde kalmasına yol açtı; bu da şirketin likidite açısından güçlü ancak özkaynak bazlı finansman yapısının zayıf olduğunu ortaya koyuyor. Faaliyet nakit akışının önceki dönemde –0,01 milyar TL'den 0,00 milyar TL'ye geçmesi, negatif kârların sürmesine rağmen nakit akışının iyileştiğini, yatırım harcamasının ise sıfır kalmasını, sermaye harcamalarının kâr kaybını dengelemek için kullanılmadığını gösteriyor.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | %48,4 |
-| Brüt kâr | -%572,3 |
+| Hasılat | %14,4 |
 | Özkaynak | -%24,8 |
 | Aktif toplamı | -%21,5 |
+| Ticari alacaklar | -%99,9 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -42,6 +42,7 @@ Hasılat %48,4 artarken brüt kâr –%572,3 düşmüş, bu da brüt kâr marjı
 | Net kâr | -0,01 milyar TL |
 | Özkaynak | 0,04 milyar TL |
 | Aktif toplamı | 0,04 milyar TL |
+| Ticari alacaklar | 0,00 milyar TL |
 | Net borç | -0,04 milyar TL |
 | Faaliyet nakit akışı | 0,00 milyar TL |
 | Yatırım harcaması | 0,00 milyar TL |
@@ -58,7 +59,7 @@ Hasılat %48,4 artarken brüt kâr –%572,3 düşmüş, bu da brüt kâr marjı
 | Net kâr | -0,01 | -0,01 | -0,01 | 0,00 |
 | Özkaynak | 0,04 | 0,05 | 0,06 | 0,06 |
 | Aktif toplamı | 0,04 | 0,05 | 0,06 | 0,08 |
-| Ticari alacaklar | — | — | — | 0,03 |
+| Ticari alacaklar | 0,00 | — | — | 0,03 |
 | Net borç | -0,04 | -0,05 | -0,06 | -0,05 |
 | Faaliyet nakit akışı | 0,00 | 0,00 | -0,01 | 0,00 |
 | Yatırım harcaması | 0,00 | 0,00 | 0,00 | — |
@@ -68,15 +69,15 @@ Hasılat %48,4 artarken brüt kâr –%572,3 düşmüş, bu da brüt kâr marjı
 
 ## Sektör içindeki konum
 
-Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 18 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 39 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | -%14,8 | %48,0 |
-| Net kâr marjı | -%25,3 | %13,9 |
-| Özkaynak kârlılığı | -%35,2 | %1,9 |
-| Cari oran | 17,74 | 20,06 |
-| Borç / özkaynak | -1,04 | -0,14 |
+| Brüt kâr marjı | -%14,8 | %41,5 |
+| Net kâr marjı | -%25,3 | %0,3 |
+| Özkaynak kârlılığı | -%35,2 | -%2,3 |
+| Cari oran | 17,74 | 5,14 |
+| Borç / özkaynak | -1,04 | -0,01 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -84,12 +85,11 @@ Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 18 şirketin **
 
 **Şirket lehine işleyenler**
 
-- Hasılat reel olarak %48,4 arttı.
+- Hasılat reel olarak %14,4 arttı.
 
 **Dikkat gerektirenler**
 
-- Net kâr reel olarak -%257,9 geriledi.
-- Özkaynak kârlılığı -%35,2; sektör medyanı %1,9.
+- Özkaynak kârlılığı -%35,2; sektör medyanı -%2,3.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

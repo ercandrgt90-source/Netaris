@@ -1,13 +1,13 @@
 ---
 slug: pamel-2026-3-ceyrek
 baslik: PAMEL YENİLENEBİLİR ELEKTRİK ÜRETİM A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %29,2 düşmesi (%0,02 milyar'dan %0,01 milyar'a) net kârın -%0,08 milyar'a gerilemesiyle birlikte, zarar büyürken özkaynak %33,5 azalarak %0,60 milyar seviyesine geriledi; bu düşüş aktif toplamının %11,3 artarak %1,35 milyar olmasıyla ters bir seyir izledi.…
+ozet: Hasılat %29,2 azaldı ve aynı dönemde net kâr -0,08 milyar TL'ye geriledi; bu kâr düşüşü özkaynakların %33,5 azalmasıyla (0,60 milyar TL) paralel seyrederek özkaynak kârlılığının -%14,1 olmasına yol açtı.…
 sirket: PAMEL YENİLENEBİLİR ELEKTRİK ÜRETİM A.Ş.
 kod: PAMEL
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: Kamu hizmetleri
-tarih: 2026-11-20
+tarih: 2026-11-24
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %29,2 düşmesi (%0,02 milyar'dan %0,01 milyar'a) net kârın -%0,08 milyar'a gerilemesiyle birlikte, zarar büyürken özkaynak %33,5 azalarak %0,60 milyar seviyesine geriledi; bu düşüş aktif toplamının %11,3 artarak %1,35 milyar olmasıyla ters bir seyir izledi. Aktif artışı özkaynak kaybına rağmen, net borçun -%0,01 milyar (nakit fazlası) olması ve cari oranın %1,22 (sektör medyanı %0,86) olması, likidite durumunun varlık büyümesinden bağımsız olarak iyileştiğini gösteriyor. Net kâr marjının -%698,2 ve özkaynak kârlılığının -%14,1 olması, zararların hem satış hacmi hem de özkaynak verimliliği üzerinde aynı yönde etkili olduğunu ortaya koyar.
+Hasılat %29,2 azaldı ve aynı dönemde net kâr -0,08 milyar TL'ye geriledi; bu kâr düşüşü özkaynakların %33,5 azalmasıyla (0,60 milyar TL) paralel seyrederek özkaynak kârlılığının -%14,1 olmasına yol açtı. Aktif toplamı %11,3 artarak 1,35 milyar TL'ye yükselirken net borç -0,01 milyar TL (önceki dönemde 0,00 milyar TL) olduğu için borç/özkaynak oranı -0,01 olarak gerçekleşti; artan varlıklar ve negatif net borç, cari oranı 1,22 seviyesinde tutarak sektör medyanı 0,86'nın üzerindeydi. Faaliyet nakit akışı 0,00 milyar TL'ye yükselirken yatırım harcaması da aynı seviyede kalmış, bu da net kâr marjının -%698,2 olmasına rağmen nakit akışında bir iyileşme sağladı.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
@@ -65,14 +65,14 @@ Hasılatın %29,2 düşmesi (%0,02 milyar'dan %0,01 milyar'a) net kârın -%
 
 ## Sektör içindeki konum
 
-Karşılaştırma Kamu hizmetleri sektöründe **aynı dönemi bildiren** 27 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Kamu hizmetleri sektöründe **aynı dönemi bildiren** 29 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
 | Net kâr marjı | -%698,2 | %5,0 |
 | Özkaynak kârlılığı | -%14,1 | %0,4 |
 | Cari oran | 1,22 | 0,86 |
-| Borç / özkaynak | -0,01 | 0,09 |
+| Borç / özkaynak | -0,01 | 0,13 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -81,7 +81,6 @@ Karşılaştırma Kamu hizmetleri sektöründe **aynı dönemi bildiren** 27 şi
 **Dikkat gerektirenler**
 
 - Hasılat reel olarak -%29,2 geriledi.
-- Net kâr reel olarak -%214,0 geriledi.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

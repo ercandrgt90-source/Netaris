@@ -27,15 +27,13 @@ Hasılatın %8,1 artmasıyla birlikte brüt kâr, faaliyet kârı, FAVÖK ve net
 | Hasılat | %8,1 |
 | Brüt kâr | -%58,7 |
 | Faaliyet kârı | -%97,1 |
-| FAVÖK | -%81,2 |
-| Net kâr | -%1614,8 |
+| FAVÖK | -%80,5 |
 | Özkaynak | %27,3 |
 | Aktif toplamı | %17,5 |
 | Ticari alacaklar | %17,8 |
 | Stoklar | %0,3 |
 | Faaliyet nakit akışı | -%80,4 |
 | Yatırım harcaması | %77,5 |
-| Serbest nakit akışı | -%136,8 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -64,7 +62,7 @@ Hasılatın %8,1 artmasıyla birlikte brüt kâr, faaliyet kârı, FAVÖK ve net
 | Hasılat | 1,33 | 1,47 | 1,31 | 1,62 |
 | Brüt kâr | 0,20 | 0,34 | 0,26 | 0,33 |
 | Faaliyet kârı | 0,01 | 0,09 | 0,08 | 0,09 |
-| FAVÖK | 0,07 | 0,16 | 0,14 | 0,16 |
+| FAVÖK | 0,07 | 0,15 | 0,13 | 0,14 |
 | Net kâr | -0,42 | -0,09 | 0,30 | 0,19 |
 | Özkaynak | 4,11 | 4,30 | 4,22 | 3,57 |
 | Aktif toplamı | 6,02 | 6,45 | 6,32 | 5,47 |
@@ -79,15 +77,15 @@ Hasılatın %8,1 artmasıyla birlikte brüt kâr, faaliyet kârı, FAVÖK ve net
 
 ## Sektör içindeki konum
 
-Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildiren** 43 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildiren** 64 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %15,0 | %15,0 |
-| Net kâr marjı | -%31,9 | %1,6 |
-| Özkaynak kârlılığı | -%10,3 | %0,3 |
-| Cari oran | 2,14 | 1,38 |
-| Borç / özkaynak | -0,05 | 0,17 |
+| Brüt kâr marjı | %15,0 | %16,2 |
+| Net kâr marjı | -%31,9 | -%1,9 |
+| Özkaynak kârlılığı | -%10,3 | -%0,4 |
+| Cari oran | 2,14 | 1,35 |
+| Borç / özkaynak | -0,05 | 0,19 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -99,7 +97,6 @@ Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildire
 
 **Dikkat gerektirenler**
 
-- Net kâr reel olarak -%1614,8 geriledi.
 - Brüt marj 24,3 puan daraldı (%39,3 → %15,0).
 - Yatırım harcaması faaliyet nakit akışını aşıyor; aradaki fark dış kaynakla karşılanıyor.
 

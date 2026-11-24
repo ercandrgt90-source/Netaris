@@ -1,0 +1,151 @@
+{
+ "kod": "EUKYO",
+ "cekildi": "2026-11-24T18:01:55Z",
+ "ceyrek": 1,
+ "sema": "cd5f150b28ca53cb",
+ "bitis": "2026-09-30",
+ "tablolar": {
+  "_mali": {
+   "yil_sonu_ayi": 12,
+   "son_bitis": "2026-09-30"
+  },
+  "gelir": {
+   "Revenue": 7210000.0,
+   "Gross Profit": 2009999.9999999998,
+   "Operating Income": -1750000.0,
+   "Net Income": -9060000.0,
+   "Net Cash (Debt)": 60920000.0,
+   "Operating Cash Flow": -9020000.0
+  },
+  "gelir_onceki": {
+   "Revenue": 45960000.0,
+   "Gross Profit": 14510000.0,
+   "Operating Income": 7260000.0,
+   "Net Income": -4320000.0,
+   "Net Cash (Debt)": 68710000.0,
+   "Operating Cash Flow": 510000.0,
+   "Capital Expenditures": 0.0
+  },
+  "_donem": {
+   "gelir": [
+    "Q3 2026"
+   ],
+   "bilanco": [
+    "Q3 2026"
+   ],
+   "nakit": [
+    "Q3 2026"
+   ]
+  },
+  "gelir_g1": {
+   "Revenue": 15880000.0,
+   "Gross Profit": 6070000.0,
+   "Operating Income": 200000.0,
+   "Net Income": -5940000.0,
+   "Net Cash (Debt)": 74420000.0,
+   "Operating Cash Flow": -5060000.0
+  },
+  "gelir_g2": {
+   "Revenue": 16399999.999999998,
+   "Gross Profit": 8510000.0,
+   "Operating Income": -590000.0,
+   "Net Income": -6950000.0,
+   "Net Cash (Debt)": 74000000.0,
+   "Operating Cash Flow": 0.0
+  },
+  "gelir_g3": {
+   "Revenue": 4310000.0,
+   "Gross Profit": 790000.0,
+   "Operating Income": -3960000.0,
+   "Net Income": -3080000.0,
+   "Net Cash (Debt)": 68990000.0,
+   "Operating Cash Flow": 11090000.0,
+   "Capital Expenditures": -250000.0
+  },
+  "_seri_bitis": [
+   "2026-09-30",
+   "2026-06-30",
+   "2026-03-31",
+   "2025-12-31"
+  ],
+  "bilanco": {
+   "Total Current Assets": 75040000.0,
+   "Total Assets": 97040000.0,
+   "Total Current Liabilities": 5610000.0,
+   "Total Liabilities": 17410000.0,
+   "Shareholders' Equity": 79630000.0,
+   "Total Liabilities & Equity": 97040000.0,
+   "Net Cash (Debt)": 60920000.0,
+   "Working Capital": 69440000.0
+  },
+  "bilanco_onceki": {
+   "Total Current Assets": 71440000.0,
+   "Total Assets": 82920000.0,
+   "Total Current Liabilities": 2870000.0,
+   "Total Liabilities": 5470000.0,
+   "Shareholders' Equity": 77440000.0,
+   "Total Liabilities & Equity": 82920000.0,
+   "Net Cash (Debt)": 68710000.0,
+   "Working Capital": 68570000.0
+  },
+  "bilanco_g1": {
+   "Total Current Assets": 77670000.0,
+   "Total Assets": 89240000.0,
+   "Total Current Liabilities": 3410000.0,
+   "Total Liabilities": 6240000.0,
+   "Shareholders' Equity": 83000000.0,
+   "Total Liabilities & Equity": 89240000.0,
+   "Net Cash (Debt)": 74420000.0,
+   "Working Capital": 74260000.0
+  },
+  "bilanco_g2": {
+   "Total Current Assets": 77750000.0,
+   "Total Assets": 89930000.0,
+   "Total Current Liabilities": 4000000.0,
+   "Total Liabilities": 6930000.0,
+   "Shareholders' Equity": 83000000.0,
+   "Total Liabilities & Equity": 89930000.0,
+   "Net Cash (Debt)": 74000000.0,
+   "Working Capital": 73750000.0
+  },
+  "bilanco_g3": {
+   "Total Current Assets": 72750000.0,
+   "Total Assets": 85090000.0,
+   "Total Current Liabilities": 3140000.0,
+   "Total Liabilities": 6510000.0,
+   "Shareholders' Equity": 78580000.0,
+   "Total Liabilities & Equity": 85090000.0,
+   "Net Cash (Debt)": 68990000.0,
+   "Working Capital": 69620000.0
+  },
+  "nakit": {
+   "Net Income": -9740000.0,
+   "Depreciation & Amortization": 2089999.9999999998,
+   "Operating Cash Flow": -9020000.0,
+   "Cash Interest Paid": 380000.0
+  },
+  "nakit_onceki": {
+   "Net Income": -5240000.0,
+   "Depreciation & Amortization": 1550000.0,
+   "Operating Cash Flow": 510000.0,
+   "Capital Expenditures": 0.0,
+   "Cash Interest Paid": 820000.0
+  },
+  "nakit_g1": {
+   "Net Income": -5710000.0,
+   "Depreciation & Amortization": 1560000.0,
+   "Operating Cash Flow": -5060000.0
+  },
+  "nakit_g2": {
+   "Net Income": -6500000.0,
+   "Depreciation & Amortization": 1390000.0,
+   "Operating Cash Flow": 0.0
+  },
+  "nakit_g3": {
+   "Net Income": -3080000.0,
+   "Depreciation & Amortization": 1400000.0,
+   "Operating Cash Flow": 11090000.0,
+   "Capital Expenditures": -250000.0
+  }
+ }
+}

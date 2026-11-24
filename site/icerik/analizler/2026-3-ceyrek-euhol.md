@@ -1,13 +1,13 @@
 ---
 slug: euhol-2026-3-ceyrek
 baslik: EURO YATIRIM HOLDİNG A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılat ve faaliyet kârı birlikte yükselirken, net kârın negatifleşmesi net kâr marjının %-11,2'ye düşmesine yol açtı; bu da özkaynak kârlılığının %-2,2 olarak gerilemesine yansıyor.…
+ozet: Hasılat 1,11 milyar TL'ye yükselirken faaliyet kârı da aynı tutara ulaşmış ve reel %14713,8 artış kaydetmiştir; bu artış özkaynakların 5,71 milyar TL'ye (%318,3) ve aktif toplamının 6,54 milyar TL'ye (%272,0) yükselmesiyle paralel seyretmiştir.…
 sirket: EURO YATIRIM HOLDİNG A.Ş.
 kod: EUHOL
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: Finans
-tarih: 2026-11-06
+tarih: 2026-11-24
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,17 +18,15 @@ sayimlar:
 
 ## Özet
 
-Hasılat ve faaliyet kârı birlikte yükselirken, net kârın negatifleşmesi net kâr marjının %-11,2'ye düşmesine yol açtı; bu da özkaynak kârlılığının %-2,2 olarak gerilemesine yansıyor. Özkaynak ve aktif toplamı büyük artış gösterdiği için borç/özkaynak oranı hâlâ 0,00 olarak kalırken, faaliyet nakit akışının –%925,1 düşmesi likidite akışının zarar yönünde sapmasına işaret ediyor. Sektör medyanlarıyla karşılaştırıldığında, negatif kâr marjı ve özkaynak kârlılığı medyanın altında, ancak borç/özkaynak oranı medyanın üzerindeki (daha az borçlu) konumda bulunuyor.
+Hasılat 1,11 milyar TL'ye yükselirken faaliyet kârı da aynı tutara ulaşmış ve reel %14713,8 artış kaydetmiştir; bu artış özkaynakların 5,71 milyar TL'ye (%318,3) ve aktif toplamının 6,54 milyar TL'ye (%272,0) yükselmesiyle paralel seyretmiştir. Net kâr ise -0,12 milyar TL olarak gerçekleşmiş ve önceki dönemin 0,04 milyar TL'sinden düşmüş, bu durum net kâr marjının -%11,2 olmasına yol açmıştır. Borç/özkaynak oranı 0,00 olarak kalmış, net borç da 0,00 milyar TL seviyesinde sabit kalmıştır.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
 | Kalem | Reel değişim |
 | --- | ---: |
 | Faaliyet kârı | %14713,8 |
-| Net kâr | -%434,7 |
 | Özkaynak | %318,3 |
 | Aktif toplamı | %272,0 |
-| Faaliyet nakit akışı | -%925,1 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -62,29 +60,15 @@ Hasılat ve faaliyet kârı birlikte yükselirken, net kârın negatifleşmesi n
 
 ## Sektör içindeki konum
 
-Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 18 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 39 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Net kâr marjı | -%11,2 | %13,9 |
-| Özkaynak kârlılığı | -%2,2 | %1,9 |
-| Borç / özkaynak | 0,00 | -0,14 |
+| Net kâr marjı | -%11,2 | %0,3 |
+| Özkaynak kârlılığı | -%2,2 | -%2,3 |
+| Borç / özkaynak | 0,00 | -0,01 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
-
-## Öne çıkan ölçümler
-
-**Şirket lehine işleyenler**
-
-- Hasılat reel olarak %586942,1 arttı.
-
-**Dikkat gerektirenler**
-
-- Net kâr reel olarak -%434,7 geriledi.
-- Özkaynak kârlılığı -%2,2; sektör medyanı %1,9.
-
-*Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
-
 
 ## Bankada ve finans kuruluşunda hangi kalem okunur
 

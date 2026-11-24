@@ -1,13 +1,13 @@
 ---
 slug: atlas-2026-3-ceyrek
 baslik: ATLAS MENKUL KIYMETLER YATIRIM ORTAKLIĞI A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %103,0 düşmesi brüt kârın %329,8 gerilemesine, ardından faaliyet ve net kârların sırasıyla %362,6 ve %2309,3 azalmasına yol açtı; bu kâr erozyonu özkaynakların %9,5 ve aktif toplamının %10,4 küçülmesiyle birlikte özkaynak kârlılığının %33,3 negatif seviyeye inmesini tetikledi.…
+ozet: Hasılatın -0,06 milyar TL'ye gerilemesi brüt kârın -0,10 milyar TL'ye, faaliyet kârının -0,11 milyar TL'ye ve net kârın -0,14 milyar TL'ye düşmesine paralel olarak eşlik etmiştir; özkaynak (0,43 milyar TL) ve aktif toplamı (0,43 milyar TL) da önceki döneme göre sırasıyla -%9,5 ve -%10,4 azalarak…
 sirket: ATLAS MENKUL KIYMETLER YATIRIM ORTAKLIĞI A.Ş.
 kod: ATLAS
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: Finans
-tarih: 2026-11-02
+tarih: 2026-11-24
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %103,0 düşmesi brüt kârın %329,8 gerilemesine, ardından faaliyet ve net kârların sırasıyla %362,6 ve %2309,3 azalmasına yol açtı; bu kâr erozyonu özkaynakların %9,5 ve aktif toplamının %10,4 küçülmesiyle birlikte özkaynak kârlılığının %33,3 negatif seviyeye inmesini tetikledi. Net borçın negatif (nakit fazlası) olması, cari oranın 269,09 gibi çok yüksek seviyede kalmasına rağmen borç/özkaynak oranının –1,01 (sektör medyanı –0,44) ile şirketin borç yapısının sektöre göre daha fazla negatif olduğu anlamına geliyor. Faaliyet nakit akışının %859,9 düşmesi, kârların ve özkaynakların erozyonuyla paralel bir likidite sıkıntısını yansıtıyor.
+Hasılatın -0,06 milyar TL'ye gerilemesi brüt kârın -0,10 milyar TL'ye, faaliyet kârının -0,11 milyar TL'ye ve net kârın -0,14 milyar TL'ye düşmesine paralel olarak eşlik etmiştir; özkaynak (0,43 milyar TL) ve aktif toplamı (0,43 milyar TL) da önceki döneme göre sırasıyla -%9,5 ve -%10,4 azalarak aynı yönlü bir gerileme göstermiştir. Net borçun -0,43 milyar TL olması, özkaynak/kaynak oranının -1,01 olmasıyla birlikte borç/özkaynak dengesinin negatif bir seviyede kalmasına yol açmıştır; aynı zamanda cari oran 269,09 iken sektör medyanı 5,14 olduğu için likidite ölçütü çok daha yüksek seyretmiştir. Faaliyet nakit akışı -0,09 milyar TL'ye düşmüş, yatırım harcaması ise 0,00 milyar TL olarak kalmış, bu da nakit çıkışının artmasıyla yatırım harcamasının tamamen durması arasında bir ilişki ortaya koymaktadır.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
@@ -71,7 +71,7 @@ Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 39 şirketin **
 | --- | ---: | ---: |
 | Özkaynak kârlılığı | -%33,3 | -%2,3 |
 | Cari oran | 269,09 | 5,14 |
-| Borç / özkaynak | -1,01 | 0,00 |
+| Borç / özkaynak | -1,01 | -0,01 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

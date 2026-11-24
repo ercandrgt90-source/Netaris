@@ -4490,7 +4490,10 @@
    "kap_kimlik": "8acae2c5794d3d6a01795f597b820707",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "BOĞAZİÇİ BAĞIMSIZ DENETİM VE YEMİNLİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "BOĞAZİÇİ BAĞIMSIZ DENETİM VE YEMİNLİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor": "Consumer Staples",
+   "sektor_tr": "Temel tüketim",
+   "alt_sektor": "Grocery Stores"
   },
   "KLGYO": {
    "kod": "KLGYO",
@@ -4498,7 +4501,10 @@
    "kap_kimlik": "4028e4a2415f4f8101415f7009a809a2",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "ÇÖZÜM ÜNLÜER BAĞIMSIZ DENETİM VE YEMİNLİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "ÇÖZÜM ÜNLÜER BAĞIMSIZ DENETİM VE YEMİNLİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor": "Real Estate",
+   "sektor_tr": "Gayrimenkul",
+   "alt_sektor": "REIT - Diversified"
   },
   "KLKIM": {
    "kod": "KLKIM",
@@ -4506,7 +4512,10 @@
    "kap_kimlik": "4028e4a144a0804f01452d35e88a3208",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş"
+   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş",
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Specialty Chemicals"
   },
   "KLMSN": {
    "kod": "KLMSN",

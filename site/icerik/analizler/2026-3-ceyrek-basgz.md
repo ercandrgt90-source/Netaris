@@ -1,13 +1,13 @@
 ---
 slug: basgz-2026-3-ceyrek
 baslik: BAŞKENT DOĞALGAZ DAĞITIM GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %34,2 artması, faaliyet nakit akışının %30,9 yükselmesine paralel olarak aktif toplamının %37,0 artmasını ve özkaynakların %36,8 artmasını desteklemiş, ancak aynı dönemde net kârın -%404,0 düşmesi net borcun -%194,6 değişmesiyle birlikte net kâr marjının -%8,0'a ve özkaynak kârlılığının…
+ozet: Hasılatın %3,5 artmasıyla birlikte faaliyet nakit akışı da %1,1 yükselmiş, ancak net kârın önceki dönemdeki +0,24 milyar TL'den -0,57 milyar TL'ye düşmesi net kâr marjını -%8,0 seviyesine çekmiş; bu kâr kaybı özkaynak kârlılığının -%1,5 olmasına da yansımış.…
 sirket: BAŞKENT DOĞALGAZ DAĞITIM GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: BASGZ
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: Kamu hizmetleri
-tarih: 2026-11-07
+tarih: 2026-11-24
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,22 +18,20 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %34,2 artması, faaliyet nakit akışının %30,9 yükselmesine paralel olarak aktif toplamının %37,0 artmasını ve özkaynakların %36,8 artmasını desteklemiş, ancak aynı dönemde net kârın -%404,0 düşmesi net borcun -%194,6 değişmesiyle birlikte net kâr marjının -%8,0'a ve özkaynak kârlılığının -%1,5'e gerilemesine yol açmıştır. Net kârın düşüşü, özkaynak kârlılığının ve net kâr marjının negatif seyretmesiyle birlikte cari oranı 0,25 seviyesine, borç/özkaynak oranını ise -0,03'e çekmiştir; bu oranlar sektör medyanı 3,40 ve 0,00'dan oldukça düşük kalmıştır. Yatırım harcamasının sıfır kalması, aktif büyüme ve özkaynak artışının büyük kısmının mevcut işletme faaliyetlerinden ve nakit akışından sağlandığını göstermektedir.
+Hasılatın %3,5 artmasıyla birlikte faaliyet nakit akışı da %1,1 yükselmiş, ancak net kârın önceki dönemdeki +0,24 milyar TL'den -0,57 milyar TL'ye düşmesi net kâr marjını -%8,0 seviyesine çekmiş; bu kâr kaybı özkaynak kârlılığının -%1,5 olmasına da yansımış. Özkaynak ve aktif toplamı sırasıyla %36,8 ve %37,0 artarak 37,09 milyar TL ve 70,87 milyar TL'ye ulaşmış, bu büyüme net borcun -1,18 milyar TL'ye (nakit fazlası) dönüşmesi ve borç/özkaynak oranının -%0,03 (sektör medyanı 0,13) olmasına neden olmuş. Cari oran 0,25 (sektör medyanı 0,86) seviyesinde düşük kalmış, bu da likidite durumunun artan özkaynak ve aktif büyüklüklerine rağmen sınırlı kaldığını gösteriyor.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | %34,2 |
-| Net kâr | -%404,0 |
+| Hasılat | %3,5 |
 | Özkaynak | %36,8 |
 | Aktif toplamı | %37,0 |
 | Ticari alacaklar | %61,7 |
-| Stoklar | %8,3 |
-| Net borç | -%194,6 |
-| Faaliyet nakit akışı | %30,9 |
-| Yatırım harcaması | -%65,4 |
-| Serbest nakit akışı | %31,0 |
+| Stoklar | %8,7 |
+| Faaliyet nakit akışı | %1,1 |
+| Yatırım harcaması | -%73,1 |
+| Serbest nakit akışı | %1,2 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -72,26 +70,21 @@ Hasılatın %34,2 artması, faaliyet nakit akışının %30,9 yükselmesine para
 
 ## Sektör içindeki konum
 
-Karşılaştırma Kamu hizmetleri sektöründe **aynı dönemi bildiren** 6 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Kamu hizmetleri sektöründe **aynı dönemi bildiren** 29 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Net kâr marjı | -%8,0 | -%1,5 |
-| Özkaynak kârlılığı | -%1,5 | -%0,3 |
-| Cari oran | 0,25 | 3,40 |
-| Borç / özkaynak | -0,03 | 0,00 |
+| Net kâr marjı | -%8,0 | %5,0 |
+| Özkaynak kârlılığı | -%1,5 | %0,4 |
+| Cari oran | 0,25 | 0,86 |
+| Borç / özkaynak | -0,03 | 0,13 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
 ## Öne çıkan ölçümler
 
-**Şirket lehine işleyenler**
-
-- Hasılat reel olarak %34,2 arttı.
-
 **Dikkat gerektirenler**
 
-- Net kâr reel olarak -%404,0 geriledi.
 - Cari oran 0,25; kısa vadeli yükümlülükler dönen varlıkları aşıyor.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*

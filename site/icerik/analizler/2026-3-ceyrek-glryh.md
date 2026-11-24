@@ -18,17 +18,13 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %60,4 düşmesi brüt kârın da %111,4 gerilemesine yol açarak brüt kâr marjının –%4,8'e sürüklenmesine, bu da faaliyet ve FAVÖK kârlarının sırasıyla %130,8 ve %122,0 azalmasına ve net kârın %452,6 düşerek –%9,0 net kâr marjına gerilemesine neden oldu. Özkaynakların %26,8 artması aktif toplamındaki %4,6 yükselişi desteklerken, negatif net borç seviyesinin hafifçe –%2,2 artması (-2,22 milyar TL) cari oranı 2,52'ye tutturdu; bu oran sektör medyanı 8,71'in çok altında kalırken, borç/özkaynak oranı –0,12 ile sektör medyanı –0,02'nin altında seyrediyor. Faaliyet nakit akışındaki %7,8 azalma ve yatırım harcamasındaki %17,8 artış, kârların ve marjların gerilemesiyle paralel bir likidite sıkışması izlenimini gösteriyor.
+Hasılatın %60,4 düşmesi brüt kârın da %111,4 gerilemesine yol açarak brüt kâr marjının –%4,8'e sürüklenmesine, bu da faaliyet ve FAVÖK kârlarının sırasıyla %130,8 ve %122,0 azalmasına ve net kârın %452,6 düşerek –%9,0 net kâr marjına gerilemesine neden oldu. Özkaynakların %26,8 artması aktif toplamındaki %4,6 yükselişi desteklerken, negatif net borç seviyesinin hafifçe –%2,2 artması (-2,22 milyar TL) cari oranı 2,52'ye tutturdu; bu oran sektör medyanı 8,71'in çok altında kalırken, borç/özkaynak oranı –0,12 ile sektör medyanı –0,02'nin altında seyrediyor. Faaliyet nakit akışındaki %7,8 azalma ve yatırım harcamasındaki %17,8 artış, kârların ve marjların gerilemesiyle paralel bir likidite sıkışması izlenimini gösteriyor.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
 | Kalem | Reel değişim |
 | --- | ---: |
 | Hasılat | -%60,4 |
-| Brüt kâr | -%111,4 |
-| Faaliyet kârı | -%130,8 |
-| FAVÖK | -%122,0 |
-| Net kâr | -%452,6 |
 | Özkaynak | %26,8 |
 | Aktif toplamı | %4,6 |
 | Ticari alacaklar | %0,6 |
@@ -64,7 +60,7 @@ Hasılatın %60,4 düşmesi brüt kârın da %111,4 gerilemesine yol açarak br�
 | Hasılat | 4,65 | 7,98 | 7,45 | 10,41 |
 | Brüt kâr | -0,22 | 1,01 | 0,32 | 4,41 |
 | Faaliyet kârı | -0,49 | 0,72 | -0,02 | 3,99 |
-| FAVÖK | -0,38 | 0,83 | 0,10 | 4,11 |
+| FAVÖK | -0,38 | 0,83 | 0,07 | 4,02 |
 | Net kâr | -0,42 | -0,10 | -0,37 | 0,68 |
 | Özkaynak | 17,98 | 18,09 | 17,30 | 17,14 |
 | Aktif toplamı | 25,84 | 29,13 | 25,92 | 27,64 |
@@ -80,15 +76,15 @@ Hasılatın %60,4 düşmesi brüt kârın da %111,4 gerilemesine yol açarak br�
 
 ## Sektör içindeki konum
 
-Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 30 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 39 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
 | Brüt kâr marjı | -%4,8 | %41,5 |
-| Net kâr marjı | -%9,0 | %3,5 |
-| Özkaynak kârlılığı | -%2,3 | %0,1 |
-| Cari oran | 2,52 | 8,71 |
-| Borç / özkaynak | -0,12 | -0,02 |
+| Net kâr marjı | -%9,0 | %0,3 |
+| Özkaynak kârlılığı | -%2,3 | -%2,3 |
+| Cari oran | 2,52 | 5,14 |
+| Borç / özkaynak | -0,12 | -0,01 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -97,7 +93,6 @@ Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 30 şirketin **
 **Dikkat gerektirenler**
 
 - Hasılat reel olarak -%60,4 geriledi.
-- Net kâr reel olarak -%452,6 geriledi.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

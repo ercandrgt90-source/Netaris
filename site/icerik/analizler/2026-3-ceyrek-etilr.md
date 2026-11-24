@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %42,8 düşmesi brüt kârın %83,7 gerilemesine ve FAVÖK'ün %98,7 azalmasına yol açarak faaliyet kârının negatif %112,4 değişimle –0,01 milyar TL'ye kaymasını, bunun sonucunda net kârın –0,02 milyar TL'ye gerilemesini tetikledi; aynı zamanda aktif toplamındaki %42,4 artış net borcun %57,6 yükselmesiyle birlikte borç/özkaynak oranının %1,35'e (sektör medyanı 0,16) çıkmasına neden oldu. Özkaynak sadece %1,0 artarken özkaynak kârlılığı %5,1 negatif seviyeye geriledi ve net kâr marjı –%11,7 (sektör medyanı %1,6) ile brüt kâr marjı %6,8 (sektör medyanı %14,4) arasındaki farklar şirketin kârlılık performansının sektöre göre zayıf olduğunu gösterdi. Cari oran 1,38 (sektör medyanı 1,38) sabit kalırken faaliyet nakit akışı –0,14 milyar TL'ye (önceki –0,18 milyar TL) iyileşmiş, ancak yatırım harcamasının %89,3 düşmesi gelecekteki büyüme kapasitesine etkide bulunabilir.
+Hasılatın %42,8 düşmesi brüt kârın %83,7 gerilemesine ve FAVÖK'ün %98,7 azalmasına yol açarak faaliyet kârının negatif %112,4 değişimle –0,01 milyar TL'ye kaymasını, bunun sonucunda net kârın –0,02 milyar TL'ye gerilemesini tetikledi; aynı zamanda aktif toplamındaki %42,4 artış net borcun %57,6 yükselmesiyle birlikte borç/özkaynak oranının %1,35'e (sektör medyanı 0,16) çıkmasına neden oldu. Özkaynak sadece %1,0 artarken özkaynak kârlılığı %5,1 negatif seviyeye geriledi ve net kâr marjı –%11,7 (sektör medyanı %1,6) ile brüt kâr marjı %6,8 (sektör medyanı %14,4) arasındaki farklar şirketin kârlılık performansının sektöre göre zayıf olduğunu gösterdi. Cari oran 1,38 (sektör medyanı 1,38) sabit kalırken faaliyet nakit akışı –0,14 milyar TL'ye (önceki –0,18 milyar TL) iyileşmiş, ancak yatırım harcamasının %89,3 düşmesi gelecekteki büyüme kapasitesine etkide bulunabilir.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
@@ -26,7 +26,6 @@ Hasılatın %42,8 düşmesi brüt kârın %83,7 gerilemesine ve FAVÖK'ün %98,7
 | --- | ---: |
 | Hasılat | -%42,8 |
 | Brüt kâr | -%83,7 |
-| Faaliyet kârı | -%112,4 |
 | FAVÖK | -%98,7 |
 | Özkaynak | %1,0 |
 | Aktif toplamı | %42,4 |
@@ -78,15 +77,15 @@ Hasılatın %42,8 düşmesi brüt kârın %83,7 gerilemesine ve FAVÖK'ün %98,7
 
 ## Sektör içindeki konum
 
-Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildiren** 35 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildiren** 64 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %6,8 | %14,4 |
-| Net kâr marjı | -%11,7 | %1,6 |
-| Özkaynak kârlılığı | -%5,1 | %0,3 |
-| Cari oran | 1,38 | 1,38 |
-| Borç / özkaynak | 1,35 | 0,16 |
+| Brüt kâr marjı | %6,8 | %16,2 |
+| Net kâr marjı | -%11,7 | -%1,9 |
+| Özkaynak kârlılığı | -%5,1 | -%0,4 |
+| Cari oran | 1,38 | 1,35 |
+| Borç / özkaynak | 1,35 | 0,19 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -95,7 +94,6 @@ Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildire
 **Dikkat gerektirenler**
 
 - Hasılat reel olarak -%42,8 geriledi.
-- Net kâr reel olarak -%61000,0 geriledi.
 - Brüt marj 17,1 puan daraldı (%23,9 → %6,8).
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*

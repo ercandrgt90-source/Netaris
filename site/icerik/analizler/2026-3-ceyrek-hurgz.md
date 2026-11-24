@@ -29,7 +29,6 @@ Hasılatın %251,9 artmasıyla birlikte brüt kâr, faaliyet kârı, FAVÖK ve n
 | Aktif toplamı | %22,1 |
 | Ticari alacaklar | %101,2 |
 | Stoklar | -%12,8 |
-| Net borç | -%112,4 |
 | Yatırım harcaması | -%62,6 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
@@ -59,7 +58,7 @@ Hasılatın %251,9 artmasıyla birlikte brüt kâr, faaliyet kârı, FAVÖK ve n
 | Hasılat | 0,99 | -1,01 | 0,32 | 0,33 |
 | Brüt kâr | -0,39 | 0,17 | -0,03 | -0,12 |
 | Faaliyet kârı | -0,44 | 0,73 | -0,23 | 0,00 |
-| FAVÖK | -0,43 | 0,74 | -0,22 | 0,02 |
+| FAVÖK | -0,43 | 0,74 | -0,21 | 0,04 |
 | Net kâr | -1,36 | 1,67 | -0,52 | 0,05 |
 | Özkaynak | 1,74 | 1,86 | 2,28 | 2,53 |
 | Aktif toplamı | 5,97 | 6,05 | 5,46 | 5,35 |
@@ -75,15 +74,15 @@ Hasılatın %251,9 artmasıyla birlikte brüt kâr, faaliyet kârı, FAVÖK ve n
 
 ## Sektör içindeki konum
 
-Karşılaştırma İletişim sektöründe **aynı dönemi bildiren** 4 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma İletişim sektöründe **aynı dönemi bildiren** 6 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | -%39,5 | %0,8 |
-| Net kâr marjı | -%137,8 | -%49,1 |
-| Özkaynak kârlılığı | -%78,2 | -%4,3 |
-| Cari oran | 1,32 | 1,09 |
-| Borç / özkaynak | -0,01 | 0,04 |
+| Brüt kâr marjı | -%39,5 | %9,6 |
+| Net kâr marjı | -%137,8 | -%10,5 |
+| Özkaynak kârlılığı | -%78,2 | -%3,5 |
+| Cari oran | 1,32 | 1,51 |
+| Borç / özkaynak | -0,01 | 0,07 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -95,9 +94,8 @@ Karşılaştırma İletişim sektöründe **aynı dönemi bildiren** 4 şirketin
 
 **Dikkat gerektirenler**
 
-- Net kâr reel olarak -%212,6 geriledi.
 - Brüt marj 22,9 puan daraldı (-%16,6 → -%39,5).
-- Özkaynak kârlılığı -%78,2; sektör medyanı -%4,3.
+- Özkaynak kârlılığı -%78,2; sektör medyanı -%3,5.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

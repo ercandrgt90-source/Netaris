@@ -26,8 +26,6 @@ Hasılatın %8,9 düşmesi brüt kârın %23,1 azalmasına eşlik eder; brüt k�
 | --- | ---: |
 | Hasılat | -%8,9 |
 | Brüt kâr | -%23,1 |
-| Faaliyet kârı | -%249,7 |
-| Net kâr | -%162,9 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -63,14 +61,14 @@ Hasılatın %8,9 düşmesi brüt kârın %23,1 azalmasına eşlik eder; brüt k�
 
 ## Sektör içindeki konum
 
-Karşılaştırma Temel tüketim sektöründe **aynı dönemi bildiren** 29 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Temel tüketim sektöründe **aynı dönemi bildiren** 35 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %12,0 | %19,5 |
-| Net kâr marjı | -%0,4 | -%0,4 |
-| Özkaynak kârlılığı | -%0,0 | -%0,0 |
-| Cari oran | 4,79 | 1,59 |
+| Brüt kâr marjı | %12,0 | %19,4 |
+| Net kâr marjı | -%0,4 | -%1,2 |
+| Özkaynak kârlılığı | -%0,0 | -%0,1 |
+| Cari oran | 4,79 | 1,61 |
 | Borç / özkaynak | -0,10 | 0,16 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
@@ -80,7 +78,6 @@ Karşılaştırma Temel tüketim sektöründe **aynı dönemi bildiren** 29 şir
 **Dikkat gerektirenler**
 
 - Hasılat reel olarak -%8,9 geriledi.
-- Net kâr reel olarak -%162,9 geriledi.
 - Brüt marj 2,2 puan daraldı (%14,2 → %12,0).
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*

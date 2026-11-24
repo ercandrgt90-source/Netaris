@@ -755,6 +755,22 @@
      2.14
     ]
    }
+  },
+  {
+   "kod": "ANELE",
+   "unvan": "ANEL ELEKTRİK PROJE TAAHHÜT VE TİCARET A.Ş.",
+   "donem": "2026 3. çeyrek",
+   "neden": "girdide olmayan sayi: 30",
+   "model": "@cf/openai/gpt-oss-120b",
+   "ham": "Hasılatın %95,6 düşmesiyle birlikte brüt kâr negatif %55,2'ye gerileyerek brüt kâr marjı sektör medyanının %23,2'sinin çok altında kaldı; bu düşüş faaliyet kârı ve FAVÖK'ün de sırasıyla -%30,0 milyar TL ve -%0,30 milyar TL olarak negatifleşmesine yol açtı. Özkaynakların %97,9 azalması özkaynak kârlılığının -%442,0'a inmesine ve borç/özkaynak oranının 6,32'ye yükselerek sektör medyanı 0,16'nın çok üzerine çıkmasına neden oldu. Aktif toplamının %23,4 azalması ve net borcun %81,3 düşmesi, cari oranın 0,98'e gerilemesiyle birlikte likidite baskısını artırdı.",
+   "an": "2026-11-24T18:54:11+00:00",
+   "yakin": {
+    "30": [
+     23.4,
+     23.2,
+     13.1
+    ]
+   }
   }
  ]
 }

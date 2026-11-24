@@ -25,7 +25,6 @@ Hasılatın %53,1 artmasıyla birlikte aktif toplamı %107,4 yükselmiş, bu bü
 | Kalem | Reel değişim |
 | --- | ---: |
 | Hasılat | %53,1 |
-| Net kâr | -%470,5 |
 | Özkaynak | %18,9 |
 | Aktif toplamı | %107,4 |
 | Ticari alacaklar | %146,8 |
@@ -69,13 +68,13 @@ Hasılatın %53,1 artmasıyla birlikte aktif toplamı %107,4 yükselmiş, bu bü
 
 ## Sektör içindeki konum
 
-Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 33 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 39 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
 | Net kâr marjı | -%0,2 | %0,3 |
-| Özkaynak kârlılığı | -%7,7 | -%0,3 |
-| Borç / özkaynak | 1,41 | -0,02 |
+| Özkaynak kârlılığı | -%7,7 | -%2,3 |
+| Borç / özkaynak | 1,41 | -0,01 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -87,7 +86,7 @@ Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 33 şirketin **
 
 **Dikkat gerektirenler**
 
-- Net kâr reel olarak -%470,5 geriledi.
+- Özkaynak kârlılığı -%7,7; sektör medyanı -%2,3.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

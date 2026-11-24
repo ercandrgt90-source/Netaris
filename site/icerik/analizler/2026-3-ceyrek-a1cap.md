@@ -1,13 +1,13 @@
 ---
 slug: a1cap-2026-3-ceyrek
 baslik: A1 CAPİTAL YATIRIM MENKUL DEĞERLER A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %59,4 düşmesi, faaliyet kârının %143,9 gerilemesi ve net kârın %272,1 azalmasıyla birlikte kâr marjı ve özkaynak kârlılığı negatif seviyelere kaydı; aynı dönemde özkaynak %36,1 artarak 8,82 milyar TL'ye, aktif toplamı %115,1 yükselerek 33,89 milyar TL'ye ulaştı ve bu büyüme net borcun…
+ozet: Hasılatın %68,7 düşmesi, faaliyet kârının negatif 0,53 milyar TL'ye kayması ve net kârın -0,81 milyar TL'ye gerilemesi, aynı dönemde özkaynakların %36,1 artarak 8,82 milyar TL'ye yükselmesiyle paralel bir seyir izledi; bu artış, aktif toplamının %115,1 artarak 33,89 milyar TL'ye ulaşması ve net…
 sirket: A1 CAPİTAL YATIRIM MENKUL DEĞERLER A.Ş.
 kod: A1CAP
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: Finans
-tarih: 2026-11-06
+tarih: 2026-11-24
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %59,4 düşmesi, faaliyet kârının %143,9 gerilemesi ve net kârın %272,1 azalmasıyla birlikte kâr marjı ve özkaynak kârlılığı negatif seviyelere kaydı; aynı dönemde özkaynak %36,1 artarak 8,82 milyar TL'ye, aktif toplamı %115,1 yükselerek 33,89 milyar TL'ye ulaştı ve bu büyüme net borcun -18,82 milyar TL'ye (önceki -2,86 milyar TL) genişlemesiyle, borç/özkaynak oranının -2,13'e (sektör medyanı -0,14) yükselmesiyle ilişkilendi; faaliyet nakit akışının 2,64 milyar TL'ye (önceki -1,02 milyar TL) dönüşmesi ise artan aktif ve özkaynakla paralel bir likidite iyileşmesi olarak görülebilir.
+Hasılatın %68,7 düşmesi, faaliyet kârının negatif 0,53 milyar TL'ye kayması ve net kârın -0,81 milyar TL'ye gerilemesi, aynı dönemde özkaynakların %36,1 artarak 8,82 milyar TL'ye yükselmesiyle paralel bir seyir izledi; bu artış, aktif toplamının %115,1 artarak 33,89 milyar TL'ye ulaşması ve net borcun -21,50 milyar TL'ye (nakit fazlası) genişlemesiyle desteklenmiştir. Faaliyet nakit akışının %18,1 artarak 1,03 milyar TL'ye çıkması, negatif kâr marjı (%-18,4) ve özkaynak kârlılığı (%-9,2) ile birlikte, borç/özkaynak oranının -2,44 (sektör medyanı -0,01) seviyesine yükselmesinin bir yansımasıdır. Yatırım harcaması sıfır kalmış olsa da, nakit akışı artışı ve özkaynak büyümesi, aktif ve borç yapısındaki genişlemeye rağmen şirketin likidite pozisyonunu korumasına katkı sağlamıştır.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
@@ -77,7 +77,7 @@ Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 39 şirketin **
 | --- | ---: | ---: |
 | Net kâr marjı | -%18,4 | %0,3 |
 | Özkaynak kârlılığı | -%9,2 | -%2,3 |
-| Borç / özkaynak | -2,44 | 0,00 |
+| Borç / özkaynak | -2,44 | -0,01 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

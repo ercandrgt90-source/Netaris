@@ -1,13 +1,13 @@
 ---
 slug: crdfa-2026-3-ceyrek
 baslik: CREDITWEST FAKTORİNG A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılat ve brüt kâr %34,1 ve %32,0 artarken, faaliyet kârı, FAVÖK ve net kâr sırasıyla -%312,2, -%321,5 ve -%1274,7 düşmüş; bu, gelir artışının maliyet ve faiz giderlerindeki yükselişle birlikte kârlılığı olumsuz etkilediğini gösteriyor.…
+ozet: Hasılat ve brüt kâr, %34,1 ve %31,9 oranlarıyla artarken, brüt kâr marjı %93,1 seviyesinde kalmış; bu, gelir artışının maliyet yapısının büyük ölçüde sabit kaldığını gösteriyor.…
 sirket: CREDITWEST FAKTORİNG A.Ş.
 kod: CRDFA
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: Finans
-tarih: 2026-11-06
+tarih: 2026-11-24
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat ve brüt kâr %34,1 ve %32,0 artarken, faaliyet kârı, FAVÖK ve net kâr sırasıyla -%312,2, -%321,5 ve -%1274,7 düşmüş; bu, gelir artışının maliyet ve faiz giderlerindeki yükselişle birlikte kârlılığı olumsuz etkilediğini gösteriyor. Özkaynak %3,2 artış gösterirken aktif toplamı %18,9 yükselmiş, net borç ise %17,2 artarak özkaynak/kaynak dengesinde borçlanmanın arttığını ortaya koyuyor. Brüt kâr marjı %93,2 sektör medyanının %48,0 üzerindeyken, net kâr marjı -%488,8 ve özkaynak kârlılığı -%211,4 sektör medyanlarının çok altında kalmakta; cari oran 1,36 ve borç/özkaynak 1,70 ise likidite ve finansal kaldıraçta sektöre göre daha düşük bir likidite ve daha yüksek bir borç yükü olduğunu yansıtıyor.
+Hasılat ve brüt kâr, %34,1 ve %31,9 oranlarıyla artarken, brüt kâr marjı %93,1 seviyesinde kalmış; bu, gelir artışının maliyet yapısının büyük ölçüde sabit kaldığını gösteriyor. Ancak faaliyet kârı, FAVÖK ve net kâr tümüyle negatif olmuş; gelir artışı ve brüt kâr marjının yüksek olmasına rağmen, net kâr marjı -%488,8 ve özkaynak kârlılığı -%211,4 gibi aşırı düşüşler, artan net borç ( %17,2) ve cari oranın sektörel medyanın çok altında (1,35 vs 5,14) olmasıyla birlikte finansman maliyetlerinin ve likidite baskısının kârı erittiğini ortaya koyuyor. Aktif toplamındaki %18,9 artış ve özkaynakta %3,2 artış, varlıkların büyümesinin özkaynak artışına göre daha hızlı gerçekleştiğini, bu da borç/özkaynak oranının %1,70'ye yükselerek sektörel medyanın çok üzerindeki seviyeye çıktığını gösteriyor.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
@@ -85,7 +85,7 @@ Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 39 şirketin **
 | Net kâr marjı | -%488,8 | %0,3 |
 | Özkaynak kârlılığı | -%211,4 | -%2,3 |
 | Cari oran | 1,35 | 5,14 |
-| Borç / özkaynak | 1,70 | 0,00 |
+| Borç / özkaynak | 1,70 | -0,01 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

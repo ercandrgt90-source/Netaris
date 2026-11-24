@@ -1,13 +1,13 @@
 ---
 slug: manas-2026-3-ceyrek
 baslik: MANAS ENERJİ YÖNETİMİ SANAYİ VE TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %41,3 düşmesiyle birlikte brüt kâr negatif %30,7'ye geriledi; satışların azalması brüt kârı düşürürken sabit maliyetlerin etkisi net kâr marjını %312,8 negatif seviyeye çekti ve özkaynak kârlılığını %81,9 negatif yaptı.…
+ozet: Hasılatın %41,3 düşmesi, brüt kârın -%30,7'lik negatif marjla birlikte daha büyük zarar oluşmasına ve faaliyete ilişkin kârın -0,12 milyar TL'ye, FAVÖK'ün ise -0,10 milyar TL'ye gerilemesine yol açtı; bu kâr düşüşleri özkaynakların %58,4 azalmasıyla birlikte özkaynak kârlılığının -%81,9'a inmesine…
 sirket: MANAS ENERJİ YÖNETİMİ SANAYİ VE TİCARET A.Ş.
 kod: MANAS
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: Sanayi
-tarih: 2026-11-15
+tarih: 2026-11-24
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %41,3 düşmesiyle birlikte brüt kâr negatif %30,7'ye geriledi; satışların azalması brüt kârı düşürürken sabit maliyetlerin etkisi net kâr marjını %312,8 negatif seviyeye çekti ve özkaynak kârlılığını %81,9 negatif yaptı. Aktif toplamının %22,7 artması özkaynakların %58,4 azalmasıyla birlikte borç/özkaynak oranının 2,03'ye yükselmesine yol açtı; bu durum cari oranı 0,67'ye düşürerek likiditeyi zayıflattı. Faaliyet nakit akışı %158,9 artarken net kârın daha da derinleşmesi, faaliyet kârı ve FAVÖK'ün negatif seyretmesiyle nakit akışının karlılıktan ayrı bir kalıp oluşturduğunu gösterdi.
+Hasılatın %41,3 düşmesi, brüt kârın -%30,7'lik negatif marjla birlikte daha büyük zarar oluşmasına ve faaliyete ilişkin kârın -0,12 milyar TL'ye, FAVÖK'ün ise -0,10 milyar TL'ye gerilemesine yol açtı; bu kâr düşüşleri özkaynakların %58,4 azalmasıyla birlikte özkaynak kârlılığının -%81,9'a inmesine ve net kârın -0,27 milyar TL'ye, yani %312,8 negatif marja yükselmesine neden oldu. Aktif toplamının %22,7 artması net borcun %9,4 yükselmesiyle birlikte cari oranı 0,67'ye ve borç/özkaynak oranını 2,03'e sürükledi; aynı zamanda faaliyet nakit akışının %158,9 artması, artan borç ve azalan özkaynakların dengeye katkı sağlamasına rağmen kâr üzerindeki negatif etkileri dengeleyemedi. Yatırım harcamasının değişmemesi, artan aktif büyüklüğü ve nakit akışı artışı arasında bir tutarlılık sağlarken, brüt kâr marjı ve net kâr marjının sektör medyanlarının çok altında kalması, kâr kaybının varlık büyüklüğünden bağımsız olarak sürdüğünü gösteriyor.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
@@ -61,7 +61,7 @@ Hasılatın %41,3 düşmesiyle birlikte brüt kâr negatif %30,7'ye geriledi; sa
 | Hasılat | 0,09 | 0,11 | 0,10 | 0,15 |
 | Brüt kâr | -0,03 | -0,01 | 0,01 | 0,09 |
 | Faaliyet kârı | -0,12 | -0,07 | -0,05 | 0,01 |
-| FAVÖK | -0,10 | -0,05 | -0,03 | 0,04 |
+| FAVÖK | -0,10 | -0,05 | -0,02 | 0,01 |
 | Net kâr | -0,27 | -0,23 | -0,12 | -0,20 |
 | Özkaynak | 0,33 | 0,57 | 0,74 | 0,61 |
 | Aktif toplamı | 2,14 | 2,15 | 2,04 | 1,76 |
@@ -77,13 +77,13 @@ Hasılatın %41,3 düşmesiyle birlikte brüt kâr negatif %30,7'ye geriledi; sa
 
 ## Sektör içindeki konum
 
-Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 49 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 75 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | -%30,7 | %22,7 |
-| Net kâr marjı | -%312,8 | -%1,1 |
-| Özkaynak kârlılığı | -%81,9 | -%0,3 |
+| Brüt kâr marjı | -%30,7 | %23,2 |
+| Net kâr marjı | -%312,8 | %0,0 |
+| Özkaynak kârlılığı | -%81,9 | %0,0 |
 | Cari oran | 0,67 | 1,40 |
 | Borç / özkaynak | 2,03 | 0,16 |
 
@@ -94,7 +94,6 @@ Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 49 şirketin **
 **Dikkat gerektirenler**
 
 - Hasılat reel olarak -%41,3 geriledi.
-- Net kâr reel olarak -%166,2 geriledi.
 - Brüt marj 19,2 puan daraldı (-%11,5 → -%30,7).
 - Cari oran 0,67; kısa vadeli yükümlülükler dönen varlıkları aşıyor.
 

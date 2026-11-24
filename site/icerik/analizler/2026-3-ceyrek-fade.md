@@ -27,8 +27,7 @@ Hasılatın %1,5 artması, brüt kârın %77,7 düşmesiyle birlikte brüt kâr 
 | Hasılat | %1,5 |
 | Brüt kâr | -%77,7 |
 | Faaliyet kârı | -%90,6 |
-| FAVÖK | -%78,9 |
-| Net kâr | -%458,8 |
+| FAVÖK | -%78,5 |
 | Özkaynak | %33,2 |
 | Aktif toplamı | %23,6 |
 | Ticari alacaklar | %39,1 |
@@ -79,15 +78,15 @@ Hasılatın %1,5 artması, brüt kârın %77,7 düşmesiyle birlikte brüt kâr 
 
 ## Sektör içindeki konum
 
-Karşılaştırma Temel tüketim sektöründe **aynı dönemi bildiren** 21 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Temel tüketim sektöründe **aynı dönemi bildiren** 35 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %5,5 | %19,5 |
-| Net kâr marjı | -%1,6 | -%1,6 |
+| Brüt kâr marjı | %5,5 | %19,4 |
+| Net kâr marjı | -%1,6 | -%1,2 |
 | Özkaynak kârlılığı | -%0,2 | -%0,1 |
-| Cari oran | 1,85 | 1,57 |
-| Borç / özkaynak | 0,05 | 0,14 |
+| Cari oran | 1,85 | 1,61 |
+| Borç / özkaynak | 0,05 | 0,16 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -95,7 +94,6 @@ Karşılaştırma Temel tüketim sektöründe **aynı dönemi bildiren** 21 şir
 
 **Dikkat gerektirenler**
 
-- Net kâr reel olarak -%458,8 geriledi.
 - Brüt marj 19,7 puan daraldı (%25,2 → %5,5).
 - Yatırım harcaması faaliyet nakit akışını aşıyor; aradaki fark dış kaynakla karşılanıyor.
 
