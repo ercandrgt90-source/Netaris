@@ -33,14 +33,14 @@
   "yorumlanan": 9,
   "haberler": [
     {
-      "baslik": "ABD API Benzin Stok Değişimi: 0,05 — önceki 5,10",
-      "baslik_kaynak": "US API Gasoline Stock Change Actual 0.047M (Forecast -, Previous 5.1M)",
-      "ozet": "Açıklanan değer 0,05. Önceki dönem 5,10; geriledi (5,05 (birimsiz)).",
+      "baslik": "ABD API Distilat Stok Değişimi: 1,65 — önceki 0,35",
+      "baslik_kaynak": "US API Distillate Stock Change Actual 1.647M (Forecast -, Previous 0.351M)",
+      "ozet": "Açıklanan değer 1,65. Önceki dönem 0,35; yükseldi (1,30 (birimsiz)).",
       "cevrildi": true,
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9866744/US-API-Gasoline-Stock-Change-Actual-0047M-Forecast---Previous-51M.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9866761/US-API-Distillate-Stock-Change-Actual-1647M-Forecast---Previous-0351M.aspx?xy=rss",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "Borsa",
@@ -55,8 +55,8 @@
         "Korelasyon: hisse ile tahvil arasındaki ilişkinin işareti portföy riskinin nasıl dağıldığını değiştirir."
       ],
       "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/borsa-10-1d3f5b6f.jpg",
-      "foto_atif": "Syced · CC0"
+      "foto": "/statik/foto/borsa-21-e2f22d70.jpg",
+      "foto_atif": "William Iven firmbee · CC0"
     },
     {
       "baslik": "RBNZ'den Silk: Yeni Zelanda'nın ödeme sistemi güvenilirliğini koruyor",
@@ -99,6 +99,27 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/sirket-haberleri-11-5c2f88fc.jpg",
       "foto_atif": "Bill Boaden · CC-BY-SA-2.0"
+    },
+    {
+      "baslik": "Europol, korsan yayıncılığa yönelik operasyonda 28,5 milyon dolarlık kripto izini takip ediyor",
+      "baslik_kaynak": "Europol follows $28.5M crypto trail in streaming piracy crackdown",
+      "ozet": "Authorities from 11 countries worked with Binance, Coinbase and Chainalysis to trace financial transactions and disrupt illegal streaming services.",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://cointelegraph.com/news/europol-crypto-trail-streaming-piracy-crackdown?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "kurum": "Cointelegraph",
+      "kurum_tam": "Cointelegraph",
+      "konu": "Kripto varlıklar",
+      "tarih": "2026-11-25",
+      "tarih_gorunur": "25 Kasım 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/kripto-varliklar-7-8bf172e8.jpg",
+      "foto_atif": "CryptoWallet.com Images · CC-BY-2.0"
     },
     {
       "baslik": "Coldcard Bitcoin Açığına Yeniden Bakış: Gizli Bir Kusur Nasıl Yıllarca Süren Denetimlerden Kurtuldu?",
@@ -2108,27 +2129,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/kripto-varliklar-7-8bf172e8.jpg",
       "foto_atif": "CryptoWallet.com Images · CC-BY-2.0"
-    },
-    {
-      "baslik": "Coldcard, Bitcoin cüzdanındaki bir kusurun 5 yıldan uzun bir süre boyunca nasıl fark edilmediğini ortaya koydu",
-      "baslik_kaynak": "Coldcard reveals how Bitcoin wallet flaw went undetected for over 5 years",
-      "ozet": "Coldcard maker Coinkite explained why years of security checks failed to catch the flaw and said it has yet to decide on compensation for affected customers.",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://cointelegraph.com/news/coldcard-how-security-reviews-missed-bitcoin-wallet-flaw-years?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "kurum": "Cointelegraph",
-      "kurum_tam": "Cointelegraph",
-      "konu": "Kripto varlıklar",
-      "tarih": "2026-11-24",
-      "tarih_gorunur": "24 Kasım 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/kripto-varliklar-8-8b36c240.jpg",
-      "foto_atif": "de Vries, Alex; Stoll, Christian · PDM"
     },
     {
       "baslik": "Sektörel Enflasyon Beklentileri (Kasım 2026)",
