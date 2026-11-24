@@ -201,6 +201,27 @@
       "foto_atif": "King of Hearts · CC-BY-SA-4.0"
     },
     {
+      "baslik": "Brent ham petrol vadeli işlemleri varil başına 2,03 $ (%2,27) artışla 91,40 $'dan kapandı",
+      "baslik_kaynak": "Brent Crude futures settle at $91.40/bbl, up $2.03, 2.27%.",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9866632/Brent-Crude-futures-settle-at-9140bbl-up-203-227.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Enerji",
+      "tarih": "2026-11-24",
+      "tarih_gorunur": "24 Kasım 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/enerji-13-96820bdd.jpg",
+      "foto_atif": "AyyanD · CC-BY-SA-4.0"
+    },
+    {
       "baslik": "BoC Başkanı Macklem'in basın toplantısı sona eriyor",
       "baslik_kaynak": "BoC's Gov. Macklem press conference ends.",
       "ozet": "",
@@ -243,7 +264,7 @@
       "foto_atif": "Stephen Craven · CC-BY-SA-2.0"
     },
     {
-      "baslik": "BoC Başkanı Macklem: Döviz kurunun yansıma etkisinin büyük bir faktör olmasını beklemiyorum",
+      "baslik": "BoC Başkanı Macklem: Döviz kurunun yansıtılmasının önemli bir faktör olmasını beklemiyorum",
       "baslik_kaynak": "BoC's Gov. Macklem: I don't expect the exchange rate pass-through will be a big factor.",
       "ozet": "",
       "cevrildi": true,
@@ -283,27 +304,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/enerji-18-2333f432.jpg",
       "foto_atif": "Sgroey · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "NYMEX WTI Ham Petrol Ocak vadeli işlemleri varil başına 1,88 $ (%2,35) artışla 82,05 $'dan kapandı",
-      "baslik_kaynak": "NYMEX WTI Crude January futures settle at $82.05 a barrel, up $1.88, 2.35%.",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9866608/NYMEX-WTI-Crude-January-futures-settle-at-8205-a-barrel-up-188-235.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Enerji",
-      "tarih": "2026-11-24",
-      "tarih_gorunur": "24 Kasım 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enerji-20-09c93149.jpg",
-      "foto_atif": "MBH · CC-BY-4.0"
     },
     {
       "baslik": "ABD ve Suudi Arabistan, Lübnan'da Hizbullah'ın silahsızlandırılması gerekliliğini görüştü",
@@ -348,7 +348,7 @@
       "foto_atif": "Marek Ślusarczyk ( Tupungato ) Photo portfolio · CC-BY-3.0"
     },
     {
-      "baslik": "BoC Başkanı Macklem: Konu enflasyon oranı olduğunda, hem alt sınırın hem de üst sınırın altına düşmeyi eşit derecede ciddiye alıyoruz",
+      "baslik": "BoC Başkanı Macklem: Konu enflasyon oranı olduğunda, hem altındaki hem de üzerindeki seviyeleri eşit derecede ciddiye alıyoruz",
       "baslik_kaynak": "BoC's Gov. Macklem: When it comes to the inflation rate, we take below and above equally seriously.",
       "ozet": "",
       "cevrildi": true,
@@ -432,7 +432,7 @@
       "foto_atif": "kallerna · CC-BY-SA-4.0"
     },
     {
-      "baslik": "BoC Başkanı Macklem: Konut kredisi gecikmeleri artık normale döndü",
+      "baslik": "BoC Başkanı Macklem: Konut kredisi ödemelerinde yaşanan aksaklıklar artık normale döndü",
       "baslik_kaynak": "BoC's Gov. Macklem: Mortgage delinquencies have now normalized.",
       "ozet": "",
       "cevrildi": true,
@@ -474,7 +474,7 @@
       "foto_atif": "Gary Hoover · CC-BY-4.0"
     },
     {
-      "baslik": "BoC Başkanı Macklem: BoC'nin mesajı, bir arz şokunun geçici olması hâlinde bile, bunun üstesinden gelmenin mantıklı olduğu yönündedir",
+      "baslik": "BoC Başkanı Macklem: BoC'nin mesajı, arz şokunun geçici olması hâlinde bile, bunun üstesinden gelmenin mantıklı olduğu yönündedir",
       "baslik_kaynak": "BoC's Gov. Macklem: The BoC's message is that if a supply shock is temporary, it still makes sense to see through it.",
       "ozet": "",
       "cevrildi": true,
@@ -537,7 +537,7 @@
       "foto_atif": "RegionalQueenslander · CC-BY-SA-4.0"
     },
     {
-      "baslik": "Canlı İzleyin: Trump'ın Türkiye'ye Affı 14.00 Et",
+      "baslik": "Canlı İzleyin: Trump'ın Türkiye'ye Affı, Tsi 21.00",
       "baslik_kaynak": "WATCH LIVE: Trump Turkey Pardoning 2 PM ET",
       "ozet": "",
       "cevrildi": true,
@@ -1885,8 +1885,29 @@
       "foto_atif": "Karlalhdz · CC-BY-SA-4.0"
     },
     {
-      "baslik": "Coldcard, güvenlik incelemelerinin Bitcoin cüzdanındaki bir kusuru 5 yıldan uzun bir süre boyunca nasıl gözden kaçırdığını ortaya koyuyor",
-      "baslik_kaynak": "Coldcard reveals how security reviews missed Bitcoin wallet flaw for over 5 years",
+      "baslik": "Zayıf talep ve zorunlu likidasyonlar Bitcoin satışlarını tetikliyor: 21Shares",
+      "baslik_kaynak": "Bitcoin sell-off driven by weak demand, forced liquidations: 21Shares",
+      "ozet": "The crypto asset manager warned that Bitcoin’s downturn could persist amid weak investor demand, while forecasting an uneven recovery across crypto sectors.",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://cointelegraph.com/news/bitcoin-selloff-weak-demand-forced-liquidations-21shares?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "kurum": "Cointelegraph",
+      "kurum_tam": "Cointelegraph",
+      "konu": "Kripto varlıklar",
+      "tarih": "2026-11-24",
+      "tarih_gorunur": "24 Kasım 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/kripto-varliklar-7-8bf172e8.jpg",
+      "foto_atif": "CryptoWallet.com Images · CC-BY-2.0"
+    },
+    {
+      "baslik": "Coldcard, Bitcoin cüzdanındaki bir kusurun 5 yıldan uzun bir süre boyunca nasıl fark edilmediğini ortaya koydu",
+      "baslik_kaynak": "Coldcard reveals how Bitcoin wallet flaw went undetected for over 5 years",
       "ozet": "Coldcard maker Coinkite explained why years of security checks failed to catch the flaw and said it has yet to decide on compensation for affected customers.",
       "cevrildi": true,
       "dil": "en",
@@ -2032,28 +2053,7 @@
       "foto_atif": "Karlalhdz · CC-BY-SA-4.0"
     },
     {
-      "baslik": "Bitcoin 60 bin doların altına gerilerken altın 1980'lerden bu yana en kötü 60 günlük kaybını yaşadı",
-      "baslik_kaynak": "Bitcoin dips back under $60K as gold seals worst 60-day loss since 1980s",
-      "ozet": "Bitcoin continued to threaten the loss of $60,000 support as gold attempted to bounce from a 60-day losing streak during which it fell nearly 25%.",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://cointelegraph.com/markets/bitcoin-dips-60k-gold-worst-60-day-loss-1980s?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "kurum": "Cointelegraph",
-      "kurum_tam": "Cointelegraph",
-      "konu": "Kripto varlıklar",
-      "tarih": "2026-11-24",
-      "tarih_gorunur": "24 Kasım 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/kripto-varliklar-7-8bf172e8.jpg",
-      "foto_atif": "CryptoWallet.com Images · CC-BY-2.0"
-    },
-    {
-      "baslik": "Bitcoin Kayıpları FTX'ten Bu Yana En Kötü Seviyede. Dip Yakın mı?",
+      "baslik": "Bitcoin Kayıpları FTX'ten Bu Yana En Kötü Seviyede. Dip Noktaya Yaklaşıyor muyuz?",
       "baslik_kaynak": "Bitcoin Losses Are the Worst Since FTX. Is the Bottom Near?",
       "ozet": "Bitcoin slipped below $60,000 as realized losses nearly doubled in a week. Glassnode says the sell-off resembles past market bottoms, but another drop to $53,200 could be in the cards.",
       "cevrildi": true,
