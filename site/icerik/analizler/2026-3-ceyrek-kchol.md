@@ -1,7 +1,7 @@
 ---
 slug: kchol-2026-3-ceyrek
 baslik: KOÇ HOLDİNG A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %15,3 artması brüt kârı %41,6 yükselterek brüt kâr marjının %20,2 seviyesine ulaşmasını sağladı; brüt kârdaki bu artış faaliyet kârını %155,7 artırarak FAVÖK ve net kârda da sırasıyla %88,6 ve %252,0'lık büyük sıçramalara yol açtı.…
+ozet: Hasılatın %15,3 artması brüt kârı %41,6 yükselterek brüt kâr marjının %20,2'ye (sektör medyanı %23,0 altında) gerilemesine yol açtı; brüt kârdaki bu artış faaliyet kârını %155,7 artırıp FAVÖK'ü %88,6 yükselterek net kârın %252,0 artmasına ve net kâr marjının %3,4 (sektör medyanı -%0,1) pozitif…
 sirket: KOÇ HOLDİNG A.Ş.
 kod: KCHOL
 donem: 2026 3. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %15,3 artması brüt kârı %41,6 yükselterek brüt kâr marjının %20,2 seviyesine ulaşmasını sağladı; brüt kârdaki bu artış faaliyet kârını %155,7 artırarak FAVÖK ve net kârda da sırasıyla %88,6 ve %252,0'lık büyük sıçramalara yol açtı. Net kârın yükselmesi özkaynak kârlılığını %2,5'e taşıdı, ancak aynı dönemde özkaynakların %34,2 artması aktif toplamının %31,9 artışıyla paralel seyrederek özkaynak/aktif oranını yükseltti. Net borçtaki %35,5 artış, cari oranı 0,93'e düşürürken borç/özkaynak oranını %0,74'e çıkararak likidite göstergelerinin sektör medyanının (1,40 ve 0,16) altında kalmasına neden oldu.
+Hasılatın %15,3 artması brüt kârı %41,6 yükselterek brüt kâr marjının %20,2'ye (sektör medyanı %23,0 altında) gerilemesine yol açtı; brüt kârdaki bu artış faaliyet kârını %155,7 artırıp FAVÖK'ü %88,6 yükselterek net kârın %252,0 artmasına ve net kâr marjının %3,4 (sektör medyanı -%0,1) pozitif seviyeye gelmesine neden oldu. Net kâr ve özkaynak kârlılığının yükselmesi özkaynakların %34,2 artmasıyla desteklenirken, aktif toplamının %31,9 artması net borcun %35,5 yükselmesine ve cari oranın %0,93 (sektör medyanı 1,39) düşmesine yol açtı. Net borç artışı ve özkaynak artışı arasındaki fark, borç/özkaynak oranının %0,74 (sektör medyanı %0,16) seviyesinde kalmasına rağmen faaliyet nakit akışının %2043,6 artmasıyla likidite ihtiyacının karşılandığını gösteriyor.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
@@ -82,14 +82,14 @@ Hasılatın %15,3 artması brüt kârı %41,6 yükselterek brüt kâr marjının
 
 ## Sektör içindeki konum
 
-Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 73 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 74 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %20,2 | %22,7 |
+| Brüt kâr marjı | %20,2 | %23,0 |
 | Net kâr marjı | %3,4 | -%0,1 |
-| Özkaynak kârlılığı | %2,5 | -%0,0 |
-| Cari oran | 0,93 | 1,40 |
+| Özkaynak kârlılığı | %2,5 | %0,0 |
+| Cari oran | 0,93 | 1,39 |
 | Borç / özkaynak | 0,74 | 0,16 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*

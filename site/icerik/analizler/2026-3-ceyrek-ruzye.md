@@ -1,13 +1,13 @@
 ---
 slug: ruzye-2026-3-ceyrek
 baslik: RUZY MADENCİLİK VE ENERJİ YATIRIMLARI SANAYİ VE TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %76,5 düşmesi brüt kârın %140,7 gerilemesine ve bunun sonucunda faaliyet kârı, FAVÖK ve net kârda sırasıyla %386,1, %223,6 ve %615,0'lık negatif değişimlere yol açtı; bu kâr kayıpları özkaynak kârlılığının -%4,3'e gerilemesine neden olurken, aynı dönemde özkaynak ve aktif toplamı %14,7 ve…
+ozet: Hasılatın %76,5 düşmesiyle brüt kâr -%46,1 negatif bir marja kaydı ve bu durum faaliyete özgü kârın -%365,2 net kâr marjına gerilemesine, FAVÖK ve net kârın da sırasıyla -0,02 milyar TL ve -0,07 milyar TL'ye düşmesine paralel oldu; aynı dönemde özkaynak %14,7 artarak 1,69 milyar TL'ye, aktif…
 sirket: RUZY MADENCİLİK VE ENERJİ YATIRIMLARI SANAYİ VE TİCARET A.Ş.
 kod: RUZYE
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: Enerji
-tarih: 2026-11-13
+tarih: 2026-11-24
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,17 +18,15 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %76,5 düşmesi brüt kârın %140,7 gerilemesine ve bunun sonucunda faaliyet kârı, FAVÖK ve net kârda sırasıyla %386,1, %223,6 ve %615,0'lık negatif değişimlere yol açtı; bu kâr kayıpları özkaynak kârlılığının -%4,3'e gerilemesine neden olurken, aynı dönemde özkaynak ve aktif toplamı %14,7 ve %15,4 artarak cari oranı 6,62 seviyesine yükseltti. Net borcun -0,11 milyar TL'ye (negatif) daralması, borç/özkaynak oranının -0,07'ye inmesine ve şirketin likidite pozisyonunun güçlenmesine işaret eder. Faaliyet nakit akışının %20,5 azalması ve yatırım harcamasının %3241,7 artması, nakit çıkışının artan yatırım harcamalarıyla dengelendiğini gösteriyor.
+Hasılatın %76,5 düşmesiyle brüt kâr -%46,1 negatif bir marja kaydı ve bu durum faaliyete özgü kârın -%365,2 net kâr marjına gerilemesine, FAVÖK ve net kârın da sırasıyla -0,02 milyar TL ve -0,07 milyar TL'ye düşmesine paralel oldu; aynı dönemde özkaynak %14,7 artarak 1,69 milyar TL'ye, aktif toplamı %15,4 artarak 1,88 milyar TL'ye yükselirken cari oran 6,62 ve borç/özkaynak -0,07 gibi likidite göstergeleri iyileşti.  
+
+Faaliyet nakit akışı 0,01 milyar TL'ye gerilerken yatırım harcaması hâlâ 0,00 milyar TL olarak sabit kaldı; net borçun -0,11 milyar TL'ye (önceki -0,66 milyar TL) daralması, özkaynak artışıyla birlikte şirketin finansal yapısının güçlendiğini gösteriyor.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
 | Kalem | Reel değişim |
 | --- | ---: |
 | Hasılat | -%76,5 |
-| Brüt kâr | -%140,7 |
-| Faaliyet kârı | -%386,1 |
-| FAVÖK | -%223,6 |
-| Net kâr | -%615,0 |
 | Özkaynak | %14,7 |
 | Aktif toplamı | %15,4 |
 | Ticari alacaklar | -%32,0 |
@@ -64,7 +62,7 @@ Hasılatın %76,5 düşmesi brüt kârın %140,7 gerilemesine ve bunun sonucunda
 | Hasılat | 0,02 | 0,05 | 0,07 | 0,07 |
 | Brüt kâr | -0,01 | -0,01 | -0,03 | -0,01 |
 | Faaliyet kârı | -0,03 | -0,03 | -0,05 | -0,03 |
-| FAVÖK | -0,02 | -0,03 | -0,04 | -0,02 |
+| FAVÖK | -0,02 | -0,01 | -0,02 | 0,00 |
 | Net kâr | -0,07 | -0,02 | -0,09 | -0,04 |
 | Özkaynak | 1,69 | 1,67 | 1,57 | 1,50 |
 | Aktif toplamı | 1,88 | 2,16 | 1,77 | 1,65 |
@@ -93,7 +91,6 @@ Yukarıdaki **bir yıl öncesine göre** değişim ve ölçüm tablosu şirketin
 **Dikkat gerektirenler**
 
 - Hasılat reel olarak -%76,5 geriledi.
-- Net kâr reel olarak -%615,0 geriledi.
 - Brüt marj 72,7 puan daraldı (%26,6 → -%46,1).
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*

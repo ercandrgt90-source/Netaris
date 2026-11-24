@@ -25,7 +25,6 @@ Hasılatın %85,1 düşmesi brüt kârın -%311,2'ye kayması ve net kârın -%1
 | Kalem | Reel değişim |
 | --- | ---: |
 | Hasılat | -%85,1 |
-| Net kâr | -%172,5 |
 | Özkaynak | -%27,0 |
 | Aktif toplamı | %24,4 |
 | Ticari alacaklar | -%95,3 |
@@ -60,7 +59,7 @@ Hasılatın %85,1 düşmesi brüt kârın -%311,2'ye kayması ve net kârın -%1
 | Hasılat | 0,01 | 0,00 | 0,04 | 0,03 |
 | Brüt kâr | -0,02 | 0,00 | 0,02 | 0,03 |
 | Faaliyet kârı | -0,04 | -0,03 | -0,01 | 0,02 |
-| FAVÖK | -0,04 | -0,03 | -0,01 | 0,02 |
+| FAVÖK | -0,04 | -0,03 | -0,03 | 0,01 |
 | Net kâr | -0,11 | -0,12 | -0,04 | 0,01 |
 | Özkaynak | 0,34 | 0,43 | 0,50 | 0,51 |
 | Aktif toplamı | 0,64 | 0,74 | 0,71 | 0,57 |
@@ -76,15 +75,15 @@ Hasılatın %85,1 düşmesi brüt kârın -%311,2'ye kayması ve net kârın -%1
 
 ## Sektör içindeki konum
 
-Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 55 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 8 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | -%311,2 | %21,6 |
-| Net kâr marjı | -%1574,9 | %1,2 |
-| Özkaynak kârlılığı | -%33,1 | %0,3 |
-| Cari oran | 1,25 | 1,31 |
-| Borç / özkaynak | 0,24 | 0,17 |
+| Brüt kâr marjı | -%311,2 | %22,8 |
+| Net kâr marjı | -%1574,9 | -%32,0 |
+| Özkaynak kârlılığı | -%33,1 | -%3,9 |
+| Cari oran | 1,25 | 1,29 |
+| Borç / özkaynak | 0,24 | 0,31 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -93,8 +92,8 @@ Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 55 şirketin **
 **Dikkat gerektirenler**
 
 - Hasılat reel olarak -%85,1 geriledi.
-- Net kâr reel olarak -%172,5 geriledi.
 - Brüt marj 305,2 puan daraldı (-%6,0 → -%311,2).
+- Özkaynak kârlılığı -%33,1; sektör medyanı -%3,9.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

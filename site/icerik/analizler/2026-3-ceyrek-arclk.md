@@ -24,18 +24,17 @@ Hasılat ve brüt kâr %11,7 ve %11,3 artarken faaliyet kârı negatif bir deği
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | %11,7 |
-| Brüt kâr | %11,3 |
-| Faaliyet kârı | -%130,8 |
-| FAVÖK | -%33,8 |
+| Hasılat | -%13,9 |
+| Brüt kâr | -%14,2 |
+| Faaliyet kârı | -%59,9 |
+| FAVÖK | -%43,5 |
 | Özkaynak | %2,6 |
 | Aktif toplamı | %19,1 |
 | Ticari alacaklar | %18,6 |
-| Stoklar | %16,5 |
-| Net borç | %43,6 |
-| Faaliyet nakit akışı | -%208,5 |
-| Yatırım harcaması | %2,3 |
-| Serbest nakit akışı | -%276,9 |
+| Stoklar | %18,5 |
+| Net borç | %43,2 |
+| Yatırım harcaması | -%18,2 |
+| Finansman gideri | -%18,4 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -45,17 +44,18 @@ Hasılat ve brüt kâr %11,7 ve %11,3 artarken faaliyet kârı negatif bir deği
 | --- | ---: |
 | Hasılat | 138,97 milyar TL |
 | Brüt kâr | 40,26 milyar TL |
-| Faaliyet kârı | -0,68 milyar TL |
-| FAVÖK | 5,68 milyar TL |
+| Faaliyet kârı | 4,12 milyar TL |
+| FAVÖK | 10,48 milyar TL |
 | Net kâr | -6,21 milyar TL |
 | Özkaynak | 75,98 milyar TL |
 | Aktif toplamı | 617,23 milyar TL |
 | Ticari alacaklar | 148,64 milyar TL |
-| Stoklar | 108,60 milyar TL |
-| Net borç | 218,14 milyar TL |
+| Stoklar | 110,49 milyar TL |
+| Net borç | 217,44 milyar TL |
 | Faaliyet nakit akışı | -16,38 milyar TL |
 | Yatırım harcaması | 3,79 milyar TL |
 | Serbest nakit akışı | -20,16 milyar TL |
+| Finansman gideri | 8,89 milyar TL |
 
 ## Son dört dönem
 
@@ -63,45 +63,40 @@ Hasılat ve brüt kâr %11,7 ve %11,3 artarken faaliyet kârı negatif bir deği
 | --- | ---: | ---: | ---: | ---: |
 | Hasılat | 138,97 | 156,96 | 139,41 | 144,66 |
 | Brüt kâr | 40,26 | 46,10 | 41,55 | 41,91 |
-| Faaliyet kârı | -0,68 | 4,57 | 1,77 | -2,10 |
-| FAVÖK | 5,68 | 10,94 | 8,14 | 4,27 |
+| Faaliyet kârı | 4,12 | -11,01 | 1,77 | -2,10 |
+| FAVÖK | 10,48 | -5,76 | 7,40 | -1,11 |
 | Net kâr | -6,21 | 3,52 | -1,94 | -1,92 |
 | Özkaynak | 75,98 | 81,55 | 78,36 | 75,91 |
 | Aktif toplamı | 617,23 | 595,24 | 561,80 | 543,53 |
 | Ticari alacaklar | 148,64 | 143,51 | 134,31 | 116,61 |
-| Stoklar | 108,60 | 105,94 | 99,83 | 90,94 |
-| Net borç | 218,14 | 195,07 | 169,45 | 137,84 |
+| Stoklar | 110,49 | 105,94 | 99,83 | 90,94 |
+| Net borç | 217,44 | 195,07 | 169,45 | 137,84 |
 | Faaliyet nakit akışı | -16,38 | 4,48 | -16,43 | 25,32 |
 | Yatırım harcaması | 3,79 | 3,61 | 3,26 | 7,43 |
 | Serbest nakit akışı | -20,16 | 0,86 | -19,69 | 17,89 |
-| Finansman gideri | — | 6,49 | 7,13 | 6,49 |
+| Finansman gideri | 8,89 | 6,49 | 7,13 | 6,49 |
 
 *Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
 
 ## Sektör içindeki konum
 
-Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildiren** 3 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildiren** 64 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %29,0 | %29,0 |
-| Net kâr marjı | -%4,5 | %3,0 |
-| Özkaynak kârlılığı | -%8,2 | %1,7 |
-| Cari oran | 0,94 | 1,09 |
-| Borç / özkaynak | 2,87 | 0,23 |
+| Brüt kâr marjı | %29,0 | %16,2 |
+| Net kâr marjı | -%4,5 | -%1,9 |
+| Özkaynak kârlılığı | -%8,2 | -%0,4 |
+| Cari oran | 0,94 | 1,35 |
+| Borç / özkaynak | 2,86 | 0,19 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
 ## Öne çıkan ölçümler
 
-**Şirket lehine işleyenler**
-
-- Hasılat reel olarak %11,7 arttı.
-
 **Dikkat gerektirenler**
 
-- Net kâr reel olarak -%201,9 geriledi.
-- Özkaynak kârlılığı -%8,2; sektör medyanı %1,7.
+- Hasılat reel olarak -%13,9 geriledi.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

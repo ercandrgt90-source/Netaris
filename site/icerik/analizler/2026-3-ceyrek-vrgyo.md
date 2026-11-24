@@ -1,13 +1,13 @@
 ---
 slug: vrgyo-2026-3-ceyrek
 baslik: VERA KONSEPT GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %111,0 artması, aktif toplamının %14,3 yükselmesiyle paralel bir büyüme sağlarken, aynı dönemde net kârın %234,9 düşmesi net borcun %828,4 artmasıyla birlikte özkaynak kârlılığının -%2,3'e gerilemesine yol açtı; bu da özkaynakların sadece %8,8 artmasına rağmen borç/özkaynak oranının…
+ozet: Hasılatın %111,0 artmasıyla birlikte aktif toplamı %14,3 yükselirken, net kârın -%228,8 gibi negatif bir marjda kalması net borcun %828,4 artışına (1,45 milyar TL'ye) paralel bir özkaynak artışı (%8,8, 5,56 milyar TL) ile birlikte özkaynak kârlılığının -%2,3'e gerilemesine yol açtı; bu durum…
 sirket: VERA KONSEPT GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: VRGYO
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-11-07
+tarih: 2026-11-24
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,14 +18,13 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %111,0 artması, aktif toplamının %14,3 yükselmesiyle paralel bir büyüme sağlarken, aynı dönemde net kârın %234,9 düşmesi net borcun %828,4 artmasıyla birlikte özkaynak kârlılığının -%2,3'e gerilemesine yol açtı; bu da özkaynakların sadece %8,8 artmasına rağmen borç/özkaynak oranının sektör medyanının %0,02'sinden çok daha yüksek 0,26'ya çıkmasına neden oldu.
+Hasılatın %111,0 artmasıyla birlikte aktif toplamı %14,3 yükselirken, net kârın -%228,8 gibi negatif bir marjda kalması net borcun %828,4 artışına (1,45 milyar TL'ye) paralel bir özkaynak artışı (%8,8, 5,56 milyar TL) ile birlikte özkaynak kârlılığının -%2,3'e gerilemesine yol açtı; bu durum, borç/özkaynak oranının sektör medyanının %0,04'ünden çok daha yüksek %0,26'ya çıkmasıyla da ilişkilidir.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
 | Kalem | Reel değişim |
 | --- | ---: |
 | Hasılat | %111,0 |
-| Net kâr | -%234,9 |
 | Özkaynak | %8,8 |
 | Aktif toplamı | %14,3 |
 | Ticari alacaklar | %220,3 |
@@ -62,13 +61,13 @@ Hasılatın %111,0 artması, aktif toplamının %14,3 yükselmesiyle paralel bir
 
 ## Sektör içindeki konum
 
-Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 18 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 38 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Net kâr marjı | -%228,8 | %32,8 |
-| Özkaynak kârlılığı | -%2,3 | %1,0 |
-| Borç / özkaynak | 0,26 | 0,02 |
+| Net kâr marjı | -%228,8 | %22,3 |
+| Özkaynak kârlılığı | -%2,3 | %0,7 |
+| Borç / özkaynak | 0,26 | 0,04 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -77,10 +76,6 @@ Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 18 şirket
 **Şirket lehine işleyenler**
 
 - Hasılat reel olarak %111,0 arttı.
-
-**Dikkat gerektirenler**
-
-- Net kâr reel olarak -%234,9 geriledi.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 
