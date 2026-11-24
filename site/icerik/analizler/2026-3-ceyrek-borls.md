@@ -1,13 +1,13 @@
 ---
 slug: borls-2026-3-ceyrek
 baslik: BORLEASE OTOMOTİV A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılat %64,6 azaldı ve aynı dönemde brüt kâr %0,4 düşerken brüt kâr marjı %37,9 ile sektör medyanının %22,7'sinin üzerindeydi; bu durum, satışların daralmasına rağmen maliyet yapısının nispeten korunmuş olduğunu gösteriyor.…
+ozet: Hasılatın %64,6 düşmesi brüt kârın neredeyse sabit kalmasıyla birlikte brüt kâr marjının %37,9 seviyesinde sektör medyanının (%22,7) üzerinde kalmasını sağladı; bu durum, satışların azalmasına rağmen maliyet yapısının kısmen korunmuş olduğunu gösteriyor.…
 sirket: BORLEASE OTOMOTİV A.Ş.
 kod: BORLS
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: Sanayi
-tarih: 2026-11-24
+tarih: 2026-11-12
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat %64,6 azaldı ve aynı dönemde brüt kâr %0,4 düşerken brüt kâr marjı %37,9 ile sektör medyanının %22,7'sinin üzerindeydi; bu durum, satışların daralmasına rağmen maliyet yapısının nispeten korunmuş olduğunu gösteriyor. Faaliyet kârı negatif bir seviyeye kaydı ve net kâr da -%23,5 marjla iyileşirken, özkaynak -1,53 milyar TL'ye gerilediği için cari oran 0,40 olarak sektör medyanı 1,40'ın çok altında kaldı. Net borç %2,5 artarken faaliyet nakit akışı %31,9 yükseldi ve yatırım harcaması %407 artışı, likidite sıkıntısına rağmen işletmenin nakit üretim kapasitesinin güçlendiğini ortaya koyuyor.
+Hasılatın %64,6 düşmesi brüt kârın neredeyse sabit kalmasıyla birlikte brüt kâr marjının %37,9 seviyesinde sektör medyanının (%22,7) üzerinde kalmasını sağladı; bu durum, satışların azalmasına rağmen maliyet yapısının kısmen korunmuş olduğunu gösteriyor. Brüt kârın sabit kalmasına rağmen faaliyet kârının -%199,9 düşmesi, sabit giderlerin ve diğer operasyonel kalemlerin (örneğin yatırım harcaması %407 artışı) hasılat düşüşünden daha hızlı artmasıyla ilişkilidir ve net kârın -%23,5'e (sektör medyanı -%0,3) yükselmesine yol açtı. Net borcun %2,5 artması ve cari oranın 0,40 (sektör medyanı 1,40) seviyesine gerilemesi, azalan aktif toplamı (%11,3) ve özkaynakların -%235,3 değişimiyle birlikte likidite ve finansal riskin yükseldiğini ortaya koyuyor.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
@@ -26,7 +26,9 @@ Hasılat %64,6 azaldı ve aynı dönemde brüt kâr %0,4 düşerken brüt kâr m
 | --- | ---: |
 | Hasılat | -%64,6 |
 | Brüt kâr | -%0,4 |
-| FAVÖK | -%70,0 |
+| Faaliyet kârı | -%199,9 |
+| FAVÖK | -%30,7 |
+| Özkaynak | -%235,3 |
 | Aktif toplamı | -%11,3 |
 | Stoklar | -%97,3 |
 | Net borç | %2,5 |
@@ -60,7 +62,7 @@ Hasılat %64,6 azaldı ve aynı dönemde brüt kâr %0,4 düşerken brüt kâr m
 | Hasılat | 0,76 | 1,07 | 1,36 | 1,99 |
 | Brüt kâr | 0,29 | 0,07 | 0,38 | -0,03 |
 | Faaliyet kârı | -0,05 | 0,20 | 0,10 | -0,84 |
-| FAVÖK | 0,20 | 0,49 | 0,47 | -0,22 |
+| FAVÖK | 0,20 | 0,45 | 0,35 | -0,59 |
 | Net kâr | -0,18 | -0,10 | 0,00 | -2,31 |
 | Özkaynak | -1,53 | -1,27 | -1,08 | -0,99 |
 | Aktif toplamı | 13,29 | 13,12 | 13,15 | 13,13 |
@@ -76,12 +78,12 @@ Hasılat %64,6 azaldı ve aynı dönemde brüt kâr %0,4 düşerken brüt kâr m
 
 ## Sektör içindeki konum
 
-Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 73 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 35 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
 | Brüt kâr marjı | %37,9 | %22,7 |
-| Net kâr marjı | -%23,5 | -%0,1 |
+| Net kâr marjı | -%23,5 | -%0,3 |
 | Cari oran | 0,40 | 1,40 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
@@ -90,6 +92,7 @@ Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 73 şirketin **
 
 **Şirket lehine işleyenler**
 
+- Net kâr reel olarak %59,2 arttı.
 - Brüt marj 24,4 puan genişledi (%13,5 → %37,9).
 
 **Dikkat gerektirenler**

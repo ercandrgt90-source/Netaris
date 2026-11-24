@@ -1,13 +1,13 @@
 ---
 slug: dmsas-2026-3-ceyrek
 baslik: DEMİSAŞ DÖKÜM EMAYE MAMÜLLERİ SANAYİ A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %4,5 düşmesi, brüt kârın %20,3 artmasıyla birlikte brüt kâr marjının %7,9 seviyesinde kalması, satış hacmindeki küçülmeye rağmen maliyetlerdeki daha güçlü bir azalışa işaret eder; bu durum FAVÖK'ün negatiften pozitif 0,03 milyar TL'ye yükselmesine ve faaliyet kârının -0,04 milyar TL'ye…
+ozet: Hasılatın %23,8 artması brüt kârın %50,6 yükselmesine paralel olarak gerçekleşirken, brüt kâr marjı %8,1 seviyesinde kalmış; bu durum artan satışların kârlılıkta tam yansımadığını gösteriyor.…
 sirket: DEMİSAŞ DÖKÜM EMAYE MAMÜLLERİ SANAYİ A.Ş.
 kod: DMSAS
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: Sanayi
-tarih: 2026-11-24
+tarih: 2026-11-07
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,20 +18,21 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %4,5 düşmesi, brüt kârın %20,3 artmasıyla birlikte brüt kâr marjının %7,9 seviyesinde kalması, satış hacmindeki küçülmeye rağmen maliyetlerdeki daha güçlü bir azalışa işaret eder; bu durum FAVÖK'ün negatiften pozitif 0,03 milyar TL'ye yükselmesine ve faaliyet kârının -0,04 milyar TL'ye iyileşmesine yol açtı. Özkaynakların %18,9 artması ve aktif toplamının %16,5 büyümesi, net borcun %13,5 artışıyla birlikte borç/özkaynak oranının %0,53'e yükselmesine neden olurken, cari oranın 0,83 seviyesinde kalması likidite baskısını sürdürdü. Net kârın -%3,9 (sektör medyanı -%0,1) ve özkaynak kârlılığının -%2,3 (sektör medyanı -%0,0) olması, artan özkaynak ve aktif büyüklüğünün kârlılık üzerindeki olumlu etkisinin henüz yansımadığını gösterir.
+Hasılatın %23,8 artması brüt kârın %50,6 yükselmesine paralel olarak gerçekleşirken, brüt kâr marjı %8,1 seviyesinde kalmış; bu durum artan satışların kârlılıkta tam yansımadığını gösteriyor. Özkaynak %18,9 artıp 1,61 milyar TL'ye ulaşması, aktif toplamının %16,5 artışıyla birlikte şirketin sermaye tabanının genişlediğini, fakat net borcun %13,5 artarak 0,85 milyar TL'ye yükselmesi likiditeyi zorlayıp cari oranı 0,83 ve borç/özkaynak oranını 0,53'e çıkararak sektör medyanlarının (1,40 ve 0,16) altında kalmasına yol açtı. Faaliyet kârı ve net kârın negatif kalması, FAVÖK'ün %1,6 düşmesi ve faaliyet nakit akışının -0,09 milyar TL'ye gerilemesi, artan gelir ve özkaynakların kârlılık ve nakit üretiminde yeterli destek sağlayamadığını ortaya koyuyor.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | -%4,5 |
-| Brüt kâr | %20,3 |
+| Hasılat | %23,8 |
+| Brüt kâr | %50,6 |
+| FAVÖK | -%1,6 |
 | Özkaynak | %18,9 |
 | Aktif toplamı | %16,5 |
 | Ticari alacaklar | %44,2 |
 | Stoklar | %26,8 |
 | Net borç | %13,5 |
-| Yatırım harcaması | -%57,9 |
+| Yatırım harcaması | -%44,0 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -40,9 +41,9 @@ Hasılatın %4,5 düşmesi, brüt kârın %20,3 artmasıyla birlikte brüt kâr 
 | Kalem | Değer |
 | --- | ---: |
 | Hasılat | 0,95 milyar TL |
-| Brüt kâr | 0,07 milyar TL |
-| Faaliyet kârı | -0,04 milyar TL |
-| FAVÖK | 0,03 milyar TL |
+| Brüt kâr | 0,08 milyar TL |
+| Faaliyet kârı | -0,01 milyar TL |
+| FAVÖK | 0,06 milyar TL |
 | Net kâr | -0,04 milyar TL |
 | Özkaynak | 1,61 milyar TL |
 | Aktif toplamı | 3,33 milyar TL |
@@ -58,9 +59,9 @@ Hasılatın %4,5 düşmesi, brüt kârın %20,3 artmasıyla birlikte brüt kâr 
 | Kalem (milyar TL) | 2026 3. çeyrek | 2026 2. çeyrek | 2026 1. çeyrek | 2025 4. çeyrek |
 | --- | ---: | ---: | ---: | ---: |
 | Hasılat | 0,95 | 0,99 | 0,92 | 0,83 |
-| Brüt kâr | 0,07 | 0,07 | 0,09 | 0,09 |
-| Faaliyet kârı | -0,04 | 0,00 | 0,01 | -0,02 |
-| FAVÖK | 0,03 | 0,07 | 0,07 | 0,04 |
+| Brüt kâr | 0,08 | 0,08 | 0,09 | 0,09 |
+| Faaliyet kârı | -0,01 | -0,02 | 0,01 | -0,02 |
+| FAVÖK | 0,06 | 0,06 | 0,08 | 0,06 |
 | Net kâr | -0,04 | 0,03 | 0,00 | -0,12 |
 | Özkaynak | 1,61 | 1,55 | 1,43 | 1,30 |
 | Aktif toplamı | 3,33 | 3,23 | 2,99 | 2,85 |
@@ -75,13 +76,13 @@ Hasılatın %4,5 düşmesi, brüt kârın %20,3 artmasıyla birlikte brüt kâr 
 
 ## Sektör içindeki konum
 
-Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 73 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 13 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %7,9 | %22,7 |
-| Net kâr marjı | -%3,9 | -%0,1 |
-| Özkaynak kârlılığı | -%2,3 | -%0,0 |
+| Brüt kâr marjı | %8,1 | %11,7 |
+| Net kâr marjı | -%3,9 | -%2,8 |
+| Özkaynak kârlılığı | -%2,3 | -%2,3 |
 | Cari oran | 0,83 | 1,40 |
 | Borç / özkaynak | 0,53 | 0,16 |
 
@@ -89,8 +90,13 @@ Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 73 şirketin **
 
 ## Öne çıkan ölçümler
 
+**Şirket lehine işleyenler**
+
+- Hasılat reel olarak %23,8 arttı.
+
 **Dikkat gerektirenler**
 
+- Net kâr reel olarak -%100,6 geriledi.
 - Cari oran 0,83; kısa vadeli yükümlülükler dönen varlıkları aşıyor.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*

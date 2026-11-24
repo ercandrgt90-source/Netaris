@@ -1,13 +1,13 @@
 ---
 slug: bieny-2026-3-ceyrek
 baslik: BİEN YAPI ÜRÜNLERİ SANAYİ TURİZM VE TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %8,8 artması brüt kârın %37,1 yükselmesine yol açmış; bu artış brüt kâr marjının sektör medyanının altında kalmasına rağmen faaliyet kârı ve FAVÖKte %62,0 ve %44,1 sırasıyla artışları tetiklemiş.…
+ozet: Hasılatın %8,8 artması brüt kârın %37,1 yükselmesine yol açarak brüt kâr marjının %22,1 seviyesinde kalmasını sağladı; brüt kârdaki bu artış faaliyet kârının %62,0 ve FAVÖK'ün %27,9 yükselmesinde temel etken oldu.…
 sirket: BİEN YAPI ÜRÜNLERİ SANAYİ TURİZM VE TİCARET A.Ş.
 kod: BIENY
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: Sanayi
-tarih: 2026-11-24
+tarih: 2026-11-17
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %8,8 artması brüt kârın %37,1 yükselmesine yol açmış; bu artış brüt kâr marjının sektör medyanının altında kalmasına rağmen faaliyet kârı ve FAVÖKte %62,0 ve %44,1 sırasıyla artışları tetiklemiş. Net kârın -%6,3'ten daha da düşmesi özkaynak kârlılığının -%1,5'e gerilemesine ve özkaynakların %21,1 artışına rağmen özkaynak kârlılığı oranının negatif kalmasına neden olurken, net borcun %73,3 artması borç/özkaynak oranını %0,16 sektör medyanının çok üzerine çıkararak cari oranı %1,40 medyanının altında tutmuştur. Faaliyet nakit akışının %24,7 artması, yatırım harcamasının %78,9 azalmasıyla birlikte şirketin likidite akışını desteklemiş, ancak artan borç seviyesi ve negatif net kâr marjı bilanço likiditesini sınırlamıştır.
+Hasılatın %8,8 artması brüt kârın %37,1 yükselmesine yol açarak brüt kâr marjının %22,1 seviyesinde kalmasını sağladı; brüt kârdaki bu artış faaliyet kârının %62,0 ve FAVÖK'ün %27,9 yükselmesinde temel etken oldu. Net kârın -%6,3 negatif kalması, özkaynak kârlılığının -%1,5 olmasına ve net borcun %73,3 artarak 7,58 milyar TL'ye yükselmesine paralel gelişti; bu durum cari oranı 1,14'e, borç/özkaynak oranını ise sektör medyanı 0,16'nın çok üzerindeki 0,51'e sürükledi. Faaliyet nakit akışının %24,7 artması, yatırım harcamasının %78,9 düşmesiyle birlikte özkaynakların %21,1 artarak 14,91 milyar TL'ye ulaşmasını destekledi.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
@@ -27,7 +27,7 @@ Hasılatın %8,8 artması brüt kârın %37,1 yükselmesine yol açmış; bu art
 | Hasılat | %8,8 |
 | Brüt kâr | %37,1 |
 | Faaliyet kârı | %62,0 |
-| FAVÖK | %44,1 |
+| FAVÖK | %27,9 |
 | Özkaynak | %21,1 |
 | Aktif toplamı | %23,6 |
 | Ticari alacaklar | %14,6 |
@@ -63,7 +63,7 @@ Hasılatın %8,8 artması brüt kârın %37,1 yükselmesine yol açmış; bu art
 | Hasılat | 3,49 | 3,69 | 3,30 | 4,00 |
 | Brüt kâr | 0,77 | 0,81 | 0,65 | 0,51 |
 | Faaliyet kârı | 0,43 | 0,51 | 0,08 | 0,54 |
-| FAVÖK | 0,76 | 0,81 | 0,34 | 0,77 |
+| FAVÖK | 0,76 | 0,84 | 0,41 | 0,86 |
 | Net kâr | -0,22 | -0,51 | -0,46 | 0,04 |
 | Özkaynak | 14,91 | 14,34 | 13,84 | 12,99 |
 | Aktif toplamı | 29,07 | 28,70 | 27,48 | 24,80 |
@@ -79,14 +79,14 @@ Hasılatın %8,8 artması brüt kârın %37,1 yükselmesine yol açmış; bu art
 
 ## Sektör içindeki konum
 
-Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 73 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 64 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %22,1 | %22,7 |
+| Brüt kâr marjı | %22,1 | %23,0 |
 | Net kâr marjı | -%6,3 | -%0,1 |
-| Özkaynak kârlılığı | -%1,5 | -%0,0 |
-| Cari oran | 1,14 | 1,40 |
+| Özkaynak kârlılığı | -%1,5 | %0,0 |
+| Cari oran | 1,14 | 1,43 |
 | Borç / özkaynak | 0,51 | 0,16 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
@@ -97,6 +97,10 @@ Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 73 şirketin **
 
 - Hasılat reel olarak %8,8 arttı.
 - Brüt marj 4,6 puan genişledi (%17,5 → %22,1).
+
+**Dikkat gerektirenler**
+
+- Net kâr reel olarak -%376,4 geriledi.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

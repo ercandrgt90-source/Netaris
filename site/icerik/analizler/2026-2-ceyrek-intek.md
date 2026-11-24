@@ -27,7 +27,8 @@ Hasılatın %69,6 brüt kâr marjıyla birlikte %0,31 milyar artması, brüt kâ
 | Hasılat | -%9,9 |
 | Brüt kâr | -%10,3 |
 | Faaliyet kârı | -%90,6 |
-| FAVÖK | -%75,8 |
+| FAVÖK | -%75,6 |
+| Net kâr | -%201,9 |
 | Özkaynak | -%19,4 |
 | Aktif toplamı | %30,7 |
 | Ticari alacaklar | %29,9 |
@@ -77,18 +78,28 @@ Hasılatın %69,6 brüt kâr marjıyla birlikte %0,31 milyar artması, brüt kâ
 
 *Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
 
-## Sektör karşılaştırması bu dönem yapılmadı
+## Sektör içindeki konum
 
-Bilişim sektöründe **aynı dönemi bildiren** en az 3 şirket yok, bu yüzden sektör medyanı üretilmedi ve karşılaştırma tablosu yazılmadı. İki şirketin ortasını "sektör medyanı" diye sunmak, ölçülmemiş bir şeyi ölçülmüş gibi göstermek olurdu.
+Karşılaştırma Bilişim sektöründe **aynı dönemi bildiren** 15 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
-Yukarıdaki **bir yıl öncesine göre** değişim ve ölçüm tablosu şirketin kendi geçmişine dayanıyor; onlar için kıyas kümesi gerekmiyor.
+| Oran | Şirket | Sektör medyanı |
+| --- | ---: | ---: |
+| Brüt kâr marjı | %65,5 | %15,0 |
+| Net kâr marjı | -%36,3 | %0,5 |
+| Özkaynak kârlılığı | -%18,3 | %2,8 |
+| Cari oran | 0,30 | 1,15 |
+| Borç / özkaynak | 0,99 | 0,53 |
+
+*Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
 ## Öne çıkan ölçümler
 
 **Dikkat gerektirenler**
 
 - Hasılat reel olarak -%9,9 geriledi.
+- Net kâr reel olarak -%201,9 geriledi.
 - Cari oran 0,30; kısa vadeli yükümlülükler dönen varlıkları aşıyor.
+- Özkaynak kârlılığı -%18,3; sektör medyanı %2,8.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

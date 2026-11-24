@@ -24,9 +24,15 @@ Hasılatın %103,0 düşmesi brüt kârın %329,8 gerilemesine, ardından faaliy
 
 | Kalem | Reel değişim |
 | --- | ---: |
+| Hasılat | -%103,0 |
+| Brüt kâr | -%329,8 |
+| Faaliyet kârı | -%362,6 |
+| Net kâr | -%2309,3 |
 | Özkaynak | -%9,5 |
 | Aktif toplamı | -%10,4 |
+| Faaliyet nakit akışı | -%859,9 |
 | Yatırım harcaması | -%100,0 |
+| Serbest nakit akışı | -%861,7 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -52,7 +58,6 @@ Hasılatın %103,0 düşmesi brüt kârın %329,8 gerilemesine, ardından faaliy
 | Hasılat | -0,06 | 0,24 | 0,80 | 2,17 |
 | Brüt kâr | -0,10 | -0,03 | 0,14 | -0,01 |
 | Faaliyet kârı | -0,11 | -0,03 | 0,13 | -0,01 |
-| FAVÖK | — | -0,03 | 0,13 | -0,01 |
 | Net kâr | -0,14 | -0,07 | 0,08 | -0,04 |
 | Özkaynak | 0,43 | 0,55 | 0,58 | 0,45 |
 | Aktif toplamı | 0,43 | 0,55 | 0,58 | 0,45 |
@@ -65,13 +70,13 @@ Hasılatın %103,0 düşmesi brüt kârın %329,8 gerilemesine, ardından faaliy
 
 ## Sektör içindeki konum
 
-Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 39 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 8 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Özkaynak kârlılığı | -%33,3 | -%2,3 |
-| Cari oran | 269,09 | 5,14 |
-| Borç / özkaynak | -1,01 | 0,00 |
+| Özkaynak kârlılığı | -%33,3 | %8,0 |
+| Cari oran | 269,09 | — |
+| Borç / özkaynak | -1,01 | -0,44 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -79,7 +84,9 @@ Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 39 şirketin **
 
 **Dikkat gerektirenler**
 
-- Özkaynak kârlılığı -%33,3; sektör medyanı -%2,3.
+- Hasılat reel olarak -%103,0 geriledi.
+- Net kâr reel olarak -%2309,3 geriledi.
+- Özkaynak kârlılığı -%33,3; sektör medyanı %8,0.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

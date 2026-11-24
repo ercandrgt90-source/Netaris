@@ -1,13 +1,13 @@
 ---
 slug: burce-2026-3-ceyrek
 baslik: BURÇELİK BURSA ÇELİK DÖKÜM SANAYİİ A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılat %41,5 azaldı ve brüt kâr da önceki dönemde 0,03 milyar TL iken 0,00 milyar TL'ye geriledi; bu düşüş faaliyet kârının -0,03 milyar TL'den -0,09 milyar TL'ye ve net kârın -0,02 milyar TL'den -0,09 milyar TL'ye artmasına, dolayısıyla FAVÖK'ün -0,02 milyar TL'den -0,07 milyar TL'ye yükselmesine…
+ozet: Hasılat %41,5 azaldığı için brüt kâr da %102,2 düşmüş, bu da brüt kâr marjının -%0,9'a gerilemesine yol açmıştır; aynı düşüş faaliyet kârının -0,09 milyar TL'ye, FAVÖK'ün -0,07 milyar TL'ye ve net kârın -0,09 milyar TL'ye gerilemesinde kendini göstermiştir.…
 sirket: BURÇELİK BURSA ÇELİK DÖKÜM SANAYİİ A.Ş.
 kod: BURCE
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: Sanayi
-tarih: 2026-11-24
+tarih: 2026-11-10
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,13 +18,14 @@ sayimlar:
 
 ## Özet
 
-Hasılat %41,5 azaldı ve brüt kâr da önceki dönemde 0,03 milyar TL iken 0,00 milyar TL'ye geriledi; bu düşüş faaliyet kârının -0,03 milyar TL'den -0,09 milyar TL'ye ve net kârın -0,02 milyar TL'den -0,09 milyar TL'ye artmasına, dolayısıyla FAVÖK'ün -0,02 milyar TL'den -0,07 milyar TL'ye yükselmesine yol açtı. Özkaynak %41,5 artarak 1,62 milyar TL'ye ulaştı, aktif toplamı %21,9 artışla 2,15 milyar TL oldu ve cari oran 2,13'e yükselirken borç/özkaynak oranı 0,07 ile sektör medyanının altında kaldı. Faaliyet nakit akışı -0,04 milyar TL'den -0,08 milyar TL'ye ve yatırım harcaması 0,01 milyar TL'den 0,00 milyar TL'ye geriledi; brüt kâr marjı -%0,9 ve net kâr marjı -%97,2 gibi negatif oranlar, özkaynak kârlılığının -%5,4 olmasıyla birlikte şirketin kârlılık performansının düşüşle paralel olduğunu gösteriyor.
+Hasılat %41,5 azaldığı için brüt kâr da %102,2 düşmüş, bu da brüt kâr marjının -%0,9'a gerilemesine yol açmıştır; aynı düşüş faaliyet kârının -0,09 milyar TL'ye, FAVÖK'ün -0,07 milyar TL'ye ve net kârın -0,09 milyar TL'ye gerilemesinde kendini göstermiştir. Özkaynak %41,5 artarak 1,62 milyar TL'ye yükselmiş, bu da özkaynak kârlılığının -%5,4 olmasına rağmen borç/özkaynak oranının sektör medyanının altında %0,07 kalmasını sağlamış ve cari oranı 2,13 ile sektör medyanının 1,43'ünden yüksek tutmuştur. Aktif toplamı %21,9 artışla 2,15 milyar TL'ye ulaşırken net borç sadece %5,5 değişmiş, bu durum likiditeyi desteklemiş ancak faaliyet nakit akışı -0,08 milyar TL'ye düşmüş ve yatırım harcaması 0,00 milyar TL'ye gerilemiştir.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
 | Kalem | Reel değişim |
 | --- | ---: |
 | Hasılat | -%41,5 |
+| Brüt kâr | -%102,2 |
 | Özkaynak | %41,5 |
 | Aktif toplamı | %21,9 |
 | Ticari alacaklar | -%7,3 |
@@ -77,15 +78,15 @@ Hasılat %41,5 azaldı ve brüt kâr da önceki dönemde 0,03 milyar TL iken 0,0
 
 ## Sektör içindeki konum
 
-Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 73 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 18 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | -%0,9 | %22,7 |
-| Net kâr marjı | -%97,2 | -%0,1 |
-| Özkaynak kârlılığı | -%5,4 | -%0,0 |
-| Cari oran | 2,13 | 1,40 |
-| Borç / özkaynak | 0,07 | 0,16 |
+| Brüt kâr marjı | -%0,9 | %13,5 |
+| Net kâr marjı | -%97,2 | -%2,3 |
+| Özkaynak kârlılığı | -%5,4 | -%1,3 |
+| Cari oran | 2,13 | 1,43 |
+| Borç / özkaynak | 0,07 | 0,08 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -98,7 +99,9 @@ Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 73 şirketin **
 **Dikkat gerektirenler**
 
 - Hasılat reel olarak -%41,5 geriledi.
+- Net kâr reel olarak -%413,9 geriledi.
 - Brüt marj 23,3 puan daraldı (%22,4 → -%0,9).
+- Özkaynak kârlılığı -%5,4; sektör medyanı -%1,3.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

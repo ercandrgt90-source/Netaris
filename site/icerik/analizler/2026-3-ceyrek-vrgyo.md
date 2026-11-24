@@ -1,13 +1,13 @@
 ---
 slug: vrgyo-2026-3-ceyrek
 baslik: VERA KONSEPT GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılat iki katına çıkarak %111 artarken, net kâr negatiften %228,8'lik bir zarar marjına kaydı; bu, gelir artışının kârlılık üzerindeki olumlu etkisinin, artan net borç ( %828,4 artışla 1,45 milyar TL'ye yükselmesi) ve sabit maliyet yapısının baskısıyla eridi.…
+ozet: Hasılatın %111,0 artması, aktif toplamının %14,3 yükselmesiyle paralel bir büyüme sağlarken, aynı dönemde net kârın %234,9 düşmesi net borcun %828,4 artmasıyla birlikte özkaynak kârlılığının -%2,3'e gerilemesine yol açtı; bu da özkaynakların sadece %8,8 artmasına rağmen borç/özkaynak oranının…
 sirket: VERA KONSEPT GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: VRGYO
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-11-24
+tarih: 2026-11-07
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,13 +18,14 @@ sayimlar:
 
 ## Özet
 
-Hasılat iki katına çıkarak %111 artarken, net kâr negatiften %228,8'lik bir zarar marjına kaydı; bu, gelir artışının kârlılık üzerindeki olumlu etkisinin, artan net borç ( %828,4 artışla 1,45 milyar TL'ye yükselmesi) ve sabit maliyet yapısının baskısıyla eridi. Özkaynak %8,8 artış gösterse de, özkaynak kârlılığı %2,3 negatif kalmış; aynı dönemde özkaynak/kaynak oranı %0,26'ya yükselmiş, sektör medyanı %0,04 iken borç/özkaynak dengesinin bozulduğunu gösteriyor. Aktif toplamı %14,3 artarak 9,21 milyar TL'ye ulaşmış, bu büyüme faaliyet nakit akışının (0,06 milyar TL) pozitifleşmesiyle desteklenmiş, ancak artan borç ve düşen kârlılık arasındaki ters ilişki şirketin finansal yapısında riskli bir profil oluşturmuş.
+Hasılatın %111,0 artması, aktif toplamının %14,3 yükselmesiyle paralel bir büyüme sağlarken, aynı dönemde net kârın %234,9 düşmesi net borcun %828,4 artmasıyla birlikte özkaynak kârlılığının -%2,3'e gerilemesine yol açtı; bu da özkaynakların sadece %8,8 artmasına rağmen borç/özkaynak oranının sektör medyanının %0,02'sinden çok daha yüksek 0,26'ya çıkmasına neden oldu.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
 | Kalem | Reel değişim |
 | --- | ---: |
 | Hasılat | %111,0 |
+| Net kâr | -%234,9 |
 | Özkaynak | %8,8 |
 | Aktif toplamı | %14,3 |
 | Ticari alacaklar | %220,3 |
@@ -61,13 +62,13 @@ Hasılat iki katına çıkarak %111 artarken, net kâr negatiften %228,8'lik bir
 
 ## Sektör içindeki konum
 
-Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 38 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 18 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Net kâr marjı | -%228,8 | %22,3 |
-| Özkaynak kârlılığı | -%2,3 | %0,7 |
-| Borç / özkaynak | 0,26 | 0,04 |
+| Net kâr marjı | -%228,8 | %32,8 |
+| Özkaynak kârlılığı | -%2,3 | %1,0 |
+| Borç / özkaynak | 0,26 | 0,02 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -76,6 +77,10 @@ Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 38 şirket
 **Şirket lehine işleyenler**
 
 - Hasılat reel olarak %111,0 arttı.
+
+**Dikkat gerektirenler**
+
+- Net kâr reel olarak -%234,9 geriledi.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

@@ -24,15 +24,17 @@ Hasılatın %31,0 artması, aktif toplamının %69,9 yükselmesiyle paralel bir 
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | %1,0 |
-| Brüt kâr | -%48,7 |
+| Hasılat | %31,0 |
+| Brüt kâr | -%33,5 |
+| Faaliyet kârı | -%2586,8 |
+| FAVÖK | -%96,8 |
+| Net kâr | -%5100,0 |
 | Özkaynak | %26,1 |
 | Aktif toplamı | %69,9 |
 | Ticari alacaklar | %83,9 |
-| Stoklar | %94,8 |
+| Stoklar | %81,6 |
 | Net borç | %167,3 |
-| Yatırım harcaması | -%52,0 |
-| Finansman gideri | %28,4 |
+| Yatırım harcaması | -%38,7 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -42,18 +44,17 @@ Hasılatın %31,0 artması, aktif toplamının %69,9 yükselmesiyle paralel bir 
 | --- | ---: |
 | Hasılat | 7,29 milyar TL |
 | Brüt kâr | 0,45 milyar TL |
-| Faaliyet kârı | -0,75 milyar TL |
-| FAVÖK | -0,28 milyar TL |
+| Faaliyet kârı | -0,96 milyar TL |
+| FAVÖK | 0,03 milyar TL |
 | Net kâr | -1,63 milyar TL |
 | Özkaynak | 16,77 milyar TL |
 | Aktif toplamı | 50,58 milyar TL |
 | Ticari alacaklar | 10,47 milyar TL |
-| Stoklar | 16,00 milyar TL |
+| Stoklar | 14,91 milyar TL |
 | Net borç | 16,48 milyar TL |
 | Faaliyet nakit akışı | -2,79 milyar TL |
 | Yatırım harcaması | 0,05 milyar TL |
 | Serbest nakit akışı | -2,84 milyar TL |
-| Finansman gideri | 1,26 milyar TL |
 
 ## Son dört dönem
 
@@ -61,39 +62,44 @@ Hasılatın %31,0 artması, aktif toplamının %69,9 yükselmesiyle paralel bir 
 | --- | ---: | ---: | ---: | ---: |
 | Hasılat | 7,29 | 9,25 | 7,86 | 10,51 |
 | Brüt kâr | 0,45 | 0,82 | 0,74 | 1,78 |
-| Faaliyet kârı | -0,75 | -0,36 | -0,27 | 0,57 |
-| FAVÖK | -0,28 | -0,09 | -0,08 | 0,59 |
+| Faaliyet kârı | -0,96 | -0,99 | -0,27 | 0,57 |
+| FAVÖK | 0,03 | 0,00 | 0,73 | 1,57 |
 | Net kâr | -1,63 | -0,56 | -0,30 | 0,57 |
 | Özkaynak | 16,77 | 17,12 | 17,26 | 15,78 |
 | Aktif toplamı | 50,58 | 47,44 | 45,04 | 43,89 |
 | Ticari alacaklar | 10,47 | 11,73 | 11,18 | 9,96 |
-| Stoklar | 16,00 | 13,69 | 12,23 | 10,51 |
+| Stoklar | 14,91 | 13,69 | 12,23 | 10,51 |
 | Net borç | 16,48 | 13,42 | 9,87 | 6,28 |
 | Faaliyet nakit akışı | -2,79 | -2,93 | -3,00 | 5,54 |
 | Yatırım harcaması | 0,05 | 0,15 | 0,09 | 0,16 |
 | Serbest nakit akışı | -2,84 | -3,08 | -3,09 | 5,38 |
-| Finansman gideri | 1,26 | 0,74 | 0,51 | 0,44 |
+| Finansman gideri | — | 0,74 | 0,51 | 0,44 |
 
 *Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
 
 ## Sektör içindeki konum
 
-Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildiren** 64 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildiren** 29 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %6,2 | %16,2 |
-| Net kâr marjı | -%22,4 | -%1,9 |
-| Özkaynak kârlılığı | -%9,7 | -%0,4 |
-| Cari oran | 1,10 | 1,35 |
-| Borç / özkaynak | 0,98 | 0,19 |
+| Brüt kâr marjı | %6,2 | %14,4 |
+| Net kâr marjı | -%22,4 | %1,6 |
+| Özkaynak kârlılığı | -%9,7 | %0,3 |
+| Cari oran | 1,10 | 1,32 |
+| Borç / özkaynak | 0,98 | 0,12 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
 ## Öne çıkan ölçümler
 
+**Şirket lehine işleyenler**
+
+- Hasılat reel olarak %31,0 arttı.
+
 **Dikkat gerektirenler**
 
+- Net kâr reel olarak -%5100,0 geriledi.
 - Brüt marj 6,1 puan daraldı (%12,3 → %6,2).
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
