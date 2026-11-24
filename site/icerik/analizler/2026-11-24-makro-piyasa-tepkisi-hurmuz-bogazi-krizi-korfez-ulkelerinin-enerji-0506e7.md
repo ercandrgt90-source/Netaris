@@ -1,7 +1,7 @@
 ---
 slug: piyasa-tepkisi-hurmuz-bogazi-krizi-korfez-ulkelerinin-enerji-0506e7-2026-11-24
 baslik: Hürmüz Boğazı krizi, Körfez ülkelerinin enerji gelirlerinde milyarlarca dolarlık kayba yol açtı
-ozet: Jeopolitik gelişme. Altın 1 saat içinde +%0,39 yükseldi.
+ozet: Jeopolitik gelişme. Bitcoin 1 saat içinde -%0,46 geriledi.
 sirket: Piyasa tepkisi: Hürmüz Boğazı krizi, Körfez ülkelerinin enerji gelirlerinde milyarlarca dolarlık kayba yol açtı
 kod: OLAY
 donem: 2026-11-24
@@ -23,8 +23,8 @@ Jeopolitik bir gelişme yaşandı. Kaynak: AA.
 
 ## Piyasada ne oldu
 
-- **Altın** 1 saat içinde yükseldi: +%0,39 (son 3620,95).
-- **Bitcoin** 1 saat içinde geriledi: -%0,28 (son 59870,70).
+- **Altın** 1 saat içinde geriledi: -%0,19 (son 3619,55).
+- **Bitcoin** 1 saat içinde geriledi: -%0,46 (son 60022,90).
 
 *Yukarıdaki rakamlar ölçülen fiyat hareketidir. Hareketin sebebinin bu gelişme olduğu iddia edilmemektedir; aynı pencerede başka etkenler de fiyatlanmış olabilir.*
 

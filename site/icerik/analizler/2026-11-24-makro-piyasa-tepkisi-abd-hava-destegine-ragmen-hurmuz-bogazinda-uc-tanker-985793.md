@@ -1,7 +1,7 @@
 ---
 slug: piyasa-tepkisi-abd-hava-destegine-ragmen-hurmuz-bogazinda-uc-tanker-985793-2026-11-24
 baslik: ABD hava desteğine rağmen Hürmüz boğazında üç tanker mayınlara çarptı
-ozet: Jeopolitik gelişme. Altın 1 saat içinde +%0,39 yükseldi.
+ozet: Jeopolitik gelişme. Bitcoin 1 saat içinde -%0,46 geriledi.
 sirket: Piyasa tepkisi: ABD hava desteğine rağmen Hürmüz boğazında üç tanker mayınlara çarptı
 kod: OLAY
 donem: 2026-11-24
@@ -23,8 +23,8 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Ekonomim.
 
 ## Piyasada ne oldu
 
-- **Altın** 1 saat içinde yükseldi: +%0,39 (son 3620,95).
-- **Bitcoin** 1 saat içinde geriledi: -%0,28 (son 59870,70).
+- **Altın** 1 saat içinde geriledi: -%0,19 (son 3619,55).
+- **Bitcoin** 1 saat içinde geriledi: -%0,46 (son 60022,90).
 
 *Yukarıdaki rakamlar ölçülen fiyat hareketidir. Hareketin sebebinin bu gelişme olduğu iddia edilmemektedir; aynı pencerede başka etkenler de fiyatlanmış olabilir.*
 
@@ -36,7 +36,7 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Ekonomim.
 
 ## Daha önce ne olmuştu
 
-- 2026-11-24 — Hürmüz Boğazı krizi, Körfez ülkelerinin enerji gelirlerinde milyarlarca… (BTC -%0,3, XAU +%0,4)
+- 2026-11-24 — Hürmüz Boğazı krizi, Körfez ülkelerinin enerji gelirlerinde milyarlarca… (BTC -%0,5, XAU -%0,2)
 - 2026-11-22 — İran ordusu: Hürmüz Boğazı'nda 2 petrol tankeri mayına çarparak alev aldı (BTC +%0,6, XAU +%0,1)
 - 2026-11-22 — Hürmüz Boğazı'nda 2 süper tanker mayına çarptı (BTC -%0,7, XAU %0,0)
 - 2026-11-22 — İran, Hürmüz üzerindeki kontrolünü ilan etti; Bahreyn ve Suudi Arabistan’a… (BTC +%0,9, XAU +%0,1)

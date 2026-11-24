@@ -29,7 +29,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 16,
+  "yorumlanan": 14,
   "haberler": [
     {
       "baslik": "Japonya'daki Menkul Kıymet Finansman İşlemlerine İlişkin İstatistikler",
@@ -51,6 +51,48 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/piyasa-duzenlemesi-9-29b01285.jpg",
       "foto_atif": "Syced · CC0"
+    },
+    {
+      "baslik": "Avrupa'daki Duygu Durumu: Dönüş - FJElite",
+      "baslik_kaynak": "Europe Sentiment: The Return - FJElite",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9865794/Europe-Sentiment-The-Return---FJElite.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Borsa",
+      "tarih": "2026-11-24",
+      "tarih_gorunur": "24 Kasım 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/borsa-11-39672784.jpg",
+      "foto_atif": "Syced · CC0"
+    },
+    {
+      "baslik": "JP Morgan, $Meta'nın hedef fiyatını 940 $'dan 775 $'a düşürdü",
+      "baslik_kaynak": "JP Morgan cuts target price of $Meta to $775 from $940.",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9865793/JP-Morgan-cuts-target-price-of-Meta-to-775-from-940.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Şirket haberleri",
+      "tarih": "2026-11-24",
+      "tarih_gorunur": "24 Kasım 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/sirket-haberleri-7-8b52fc2e.jpg",
+      "foto_atif": "DXR · CC-BY-SA-4.0"
     },
     {
       "baslik": "Almanya IFO Mevcut Koşullar: 89,40 — beklenti 89,10, önceki 88,80",
@@ -121,7 +163,7 @@
       "foto_atif": "Gazouya-japan · CC-BY-SA-4.0"
     },
     {
-      "baslik": "Japonya, vergi indirimine yönelik döviz özel hesap kurallarını esnetmeyi düşünüyor - Kyodo",
+      "baslik": "Japonya, vergi indirimi için döviz özel hesap kurallarını esnetmeyi düşünüyor - Kyodo",
       "baslik_kaynak": "Japan eyes easing FX special account rules for tax cut - Kyodo.",
       "ozet": "",
       "cevrildi": true,
@@ -163,7 +205,7 @@
       "foto_atif": "safaritravelplus · CC0"
     },
     {
-      "baslik": "ECB'den Simkus: ECB önceden, mümkün olduğunca erken hareket etmelidir",
+      "baslik": "ECB'den Simkus: ECB önceden, mümkün olan en kısa sürede harekete geçmelidir",
       "baslik_kaynak": "ECB's Simkus: ECB should act preemptively, sooner rather than later.",
       "ozet": "",
       "cevrildi": true,
@@ -205,7 +247,7 @@
       "foto_atif": "DestinationFearFan · CC-BY-SA-4.0"
     },
     {
-      "baslik": "ECB'den Simkus: Enflasyon devam ederse 2027'de daha fazla sıkılaştırma gerekiyor",
+      "baslik": "ECB'den Simkus: Enflasyon devam ederse 2027'de daha fazla sıkılaştırma gerekli",
       "baslik_kaynak": "ECB's Simkus: More tightening needed in 2027 if inflation persists.",
       "ozet": "",
       "cevrildi": true,
@@ -268,7 +310,7 @@
       "foto_atif": "Stephen Craven · CC-BY-SA-2.0"
     },
     {
-      "baslik": "UKMTO, BAE'nin Hûr Fekkan şehri yakınlarında meydana gelen bir olayla ilgili geç bir rapor almıştır",
+      "baslik": "UKMTO, BAE'nin Hûr Fakkân şehri yakınlarında meydana gelen bir olayla ilgili geç bir rapor almıştır",
       "baslik_kaynak": "UKMTO gets a time-late report of an incident near Khor Fakkan, UAE",
       "ozet": "",
       "cevrildi": true,
@@ -1102,6 +1144,27 @@
       "foto_atif": "CryptoWallet.com Images · CC-BY-2.0"
     },
     {
+      "baslik": "Bitcoin 60 bin doların altına gerilerken altın 1980'lerden bu yana en kötü 60 günlük kaybını yaşadı",
+      "baslik_kaynak": "Bitcoin dips back under $60K as gold seals worst 60-day loss since 1980s",
+      "ozet": "Bitcoin continued to threaten the loss of $60,000 support as gold attempted to bounce from a 60-day losing streak during which it fell nearly 25%.",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://cointelegraph.com/markets/bitcoin-dips-60k-gold-worst-60-day-loss-1980s?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "kurum": "Cointelegraph",
+      "kurum_tam": "Cointelegraph",
+      "konu": "Kripto varlıklar",
+      "tarih": "2026-11-24",
+      "tarih_gorunur": "24 Kasım 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/kripto-varliklar-7-8bf172e8.jpg",
+      "foto_atif": "CryptoWallet.com Images · CC-BY-2.0"
+    },
+    {
       "baslik": "BlackRock'ın IBIT hisseleri yaklaşık %5 değer kazanırken Bitcoin ETF'leri değer kaybetmeye devam ediyor",
       "baslik_kaynak": "Bitcoin ETFs keep bleeding as BlackRock’s IBIT shares gain nearly 5%",
       "ozet": "BlackRock’s IBIT shares gained 4.85% on Monday despite continued Bitcoin ETF withdrawals that pushed November’s net outflows to $4.71 billion.",
@@ -1359,31 +1422,6 @@
       "foto_atif": "United Nation · PDM"
     },
     {
-      "baslik": "Cumhurbaşkanı Yardımcısı Yılmaz'dan emekli aylıklarını artıracak düzenlemeye ilişkin açıklama",
-      "baslik_kaynak": "Cumhurbaşkanı Yardımcısı Yılmaz'dan emekli aylıklarını artıracak düzenlemeye ilişkin açıklama",
-      "ozet": "Cumhurbaşkanı Yardımcısı Yılmaz, emekli aylıklarında artış sağlayacak düzenlemeye dair, \"Esas olan enflasyonun üzerinde emeklimize iyileştirme yapmak. Çalışma henüz bitmiş değil. Burada prim gün sayısı ve yaş önemli unsurlar.\" ifadelerini kullandı.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.aa.com.tr/tr/ekonomi/cumhurbaskani-yardimcisi-yilmazdan-emekli-ayliklarini-artiracak-duzenlemeye-iliskin-aciklama/4135292",
-      "kurum": "AA",
-      "kurum_tam": "Anadolu Ajansı",
-      "konu": "İstihdam ve ücret",
-      "tarih": "2026-11-24",
-      "tarih_gorunur": "24 Kasım 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Ücret hem hanehalkı gelirinin hem işletme maliyetinin iki tarafıdır; asgari ücret ve aylık ayarlamaları geniş bir kitleyi aynı anda etkiler.",
-      "kanallar": [
-        "İç talep: ücret ve aylık ayarlamaları harcanabilir geliri değiştirir; perakende ve gıda talebine yansır.",
-        "İşletme maliyeti: emek yoğun sektörlerde (tekstil, hizmet, lojistik) ücret gideri kâr marjının ana belirleyicisidir.",
-        "Bütçe kalemi: kamu personeli ve emekli ödemeleri bütçe harcamalarının büyük bir bölümünü oluşturur."
-      ],
-      "kanal_basligi": "Piyasaya nasıl yansır?",
-      "foto": "/statik/foto/istihdam-ve-ucret-8-0b714338.jpg",
-      "foto_atif": "Unknown author Unknown author · PDM"
-    },
-    {
       "baslik": "Japon fabrikalarında çip siparişleri hızlandı",
       "baslik_kaynak": "Japon fabrikalarında çip siparişleri hızlandı",
       "ozet": "Yarı iletken ve elektronik ürünlere yönelik küresel talep Japonya'da imalat sanayisinin büyümesini hızlandırdı. Kasım ayında fabrika faaliyetleri beklentileri aşarken hizmet sektöründeki belirgin yavaşlama ekonominin genel görünümünü olumsuz etkiledi.",
@@ -1504,68 +1542,16 @@
       "foto_atif": "Captain Albert E. Theberge, NOAA Corps (ret.) · PDM"
     },
     {
-      "baslik": "Fed cephesinde faiz artışı sinyali güçleniyor: Aralık toplantısı öncesi mesaj",
-      "baslik_kaynak": "Fed cephesinde faiz artışı sinyali güçleniyor: Aralık toplantısı öncesi mesaj",
-      "ozet": "ABD Merkez Bankası (Fed) cephesinde faiz artışını destekleyen açıklamalar artıyor. New York Fed Başkanı John Williams, enflasyonun halen hedef seviyenin üzerinde olduğunu belirterek fiyat artışlarını kontrol altına almak için daha fazla adım atılması gerektiğini söyledi.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.ekonomim.com/kuresel-ekonomi/fed-cephesinde-faiz-artisi-sinyali-gucleniyor-aralik-toplantisi-oncesi-kritik-mesaj-haberi-933035",
-      "kurum": "Ekonomim",
-      "kurum_tam": "Ekonomim",
-      "konu": "Para politikası",
-      "tarih": "2026-11-24",
-      "tarih_gorunur": "24 Kasım 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Politika faizi kararları küresel sermayenin fiyatını belirler; asıl fiyatlanan şey kararın kendisi değil, karar sonrası patikaya dair beklentidir.",
-      "kanallar": [
-        "Tahvil getirisi: kısa vadeli faiz beklentisi getiri eğrisinin ön ucunu, enflasyon beklentisi uzun ucunu hareket ettirir.",
-        "Parite: iki merkez bankası arasındaki faiz farkı beklentisi kuru yeniden fiyatlar.",
-        "Değerleme: iskonto oranı değişimi en çok uzun vadeli nakit akışı olan teknoloji ve büyüme hisselerinde hissedilir.",
-        "Sermaye akımı: gelişmiş ülke faizi yükseldiğinde gelişmekte olan piyasalardan çıkış görülebilir."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/para-politikasi-11-fd54475f.jpg",
-      "foto_atif": "Innotata · CC-BY-SA-3.0"
-    },
-    {
-      "baslik": "ABD hava desteğine rağmen Hürmüz boğazında üç tanker mayınlara çarptı",
-      "baslik_kaynak": "ABD hava desteğine rağmen Hürmüz boğazında üç tanker mayınlara çarptı",
-      "ozet": "İran Devrim Muhafızları Ordusu, Hürmüz Boğazı'nda belirlenen rotaların dışına çıkan üç petrol tankerinin deniz mayınlarına çarpması sonucu infilak ederek yanmaya başladığını duyurdu.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.ekonomim.com/dunya/abd-hava-destegine-ragmen-hurmuz-bogazinda-uc-tanker-mayinlara-carpti-haberi-933034",
-      "kurum": "Ekonomim",
-      "kurum_tam": "Ekonomim",
-      "konu": "Jeopolitik",
-      "tarih": "2026-11-24",
-      "tarih_gorunur": "24 Kasım 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
-      "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
-        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
-        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/jeopolitik-18-d6206fae.jpg",
-      "foto_atif": "United Nation · PDM"
-    },
-    {
-      "baslik": "Kredi kartı faizlerinde kritik değişiklik: TCMB referans oranını düşürdü",
-      "baslik_kaynak": "Kredi kartı faizlerinde kritik değişiklik: TCMB referans oranını düşürdü",
-      "ozet": "Türkiye Cumhuriyet Merkez Bankası, kredi kartı faizlerinin hesaplanmasında kullanılan referans oranını 2023'ten bu yana ilk kez düşürdü.",
+      "baslik": "TCMB kredi kartı faizlerinde kullanılan referans oranı düşürdü",
+      "baslik_kaynak": "TCMB kredi kartı faizlerinde kullanılan referans oranı düşürdü",
+      "ozet": "Kasım 2023'ten bu yana yüzde 3,11 seviyesinde olan referans oran, 1 Aralık 2026 itibarıyla yüzde 2,94'e düşecek.",
       "cevrildi": false,
       "dil": "tr",
       "ticari": true,
       "bolge": "TR",
-      "adres": "https://www.ekonomim.com/ekonomi/tcmb-kredi-karti-faizlerinde-kullanilan-referans-orani-dusurdu-haberi-933033",
-      "kurum": "Ekonomim",
-      "kurum_tam": "Ekonomim",
+      "adres": "https://www.bloomberght.com/tcmb-kredi-karti-faizlerinde-kullanilan-referans-orani-dusurdu-3795528",
+      "kurum": "BloombergHT",
+      "kurum_tam": "Bloomberg HT",
       "konu": "Para politikası",
       "tarih": "2026-11-24",
       "tarih_gorunur": "24 Kasım 2026",
@@ -1578,8 +1564,8 @@
         "Faiz farkı: yurt içi ve yurt dışı faiz arasındaki fark, TL cinsi varlıklara yönelen sermaye akımının belirleyicilerinden biridir."
       ],
       "kanal_basligi": "Piyasaya nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-10-bce0f56d.jpg",
-      "foto_atif": "Tony Webster · CC-BY-2.0"
+      "foto": "/statik/foto/para-politikasi-8-6bdac262.jpg",
+      "foto_atif": "Infrogmation of New Orleans · CC-BY-SA-4.0"
     },
     {
       "baslik": "JPMorgan ve HSBC, Londra'da ilk kez dijital altın işlemi yaptı",
@@ -1643,6 +1629,57 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/tarim-ve-gida-9-f860582e.jpg",
       "foto_atif": "Hugh Venables · CC-BY-SA-2.0"
+    },
+    {
+      "baslik": "Commerzbank'tan yeni dolar/TL tahmini",
+      "baslik_kaynak": "Commerzbank'tan yeni dolar/TL tahmini",
+      "ozet": "Commerzbank, Türk lirasının 2027 yılı boyunca değer kaybetmeye devam edeceğini ve dolar/TL kurunun önümüzdeki çeyreklerde 60 seviyesine ulaşacağını öngördü.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.bloomberght.com/commerzbank-tan-yeni-dolartl-tahmini-3795506",
+      "kurum": "BloombergHT",
+      "kurum_tam": "Bloomberg HT",
+      "konu": "Döviz",
+      "tarih": "2026-11-24",
+      "tarih_gorunur": "24 Kasım 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Kur, ithalat maliyetinin ve döviz cinsi borç servisinin ortak değişkenidir. Üretimin ara malı ithalatına bağımlılığı yüksek olduğu için kur hareketi maliyet tarafına hızlı geçer.",
+      "kanallar": [
+        "İthalat maliyeti: ara malı ve enerji ithalatı döviz cinsinden fiyatlanır; kur hareketi üretici maliyetine doğrudan yansır.",
+        "Enflasyon geçişi: maliyet artışının tüketici fiyatına yansıma hızı, sektörün fiyatlama gücüne ve stok devir süresine bağlıdır.",
+        "Şirket bilançosu: döviz açık pozisyonu taşıyan şirkette kur farkı gideri kâr tablosuna yazılır; ihracatçıda ters yönde çalışır. Yön, şirketin net döviz pozisyonuna bağlıdır.",
+        "Dış borç servisi: döviz cinsi yükümlülüğün TL karşılığı değişir."
+      ],
+      "kanal_basligi": "Piyasaya nasıl yansır?",
+      "foto": "/statik/foto/doviz-11-d1f90514.jpg",
+      "foto_atif": "Ralff Nestor Nacor · CC-BY-SA-4.0"
+    },
+    {
+      "baslik": "Dev bankaların 2027 raporları yayımlandı: Küresel büyümenin motoru yapay zeka, temel risk bütçe açıkları olacak",
+      "baslik_kaynak": "Dev bankaların 2027 raporları yayımlandı: Küresel büyümenin motoru yapay zeka, temel risk bütçe açıkları olacak",
+      "ozet": "Küresel finans kuruluşlarının 2027'ye ilişkin yayımladığı raporlara göre, dünya ekonomisinin yapay zeka yatırımlarıyla büyümesini sürdürmesi beklenirken, hükümetlerin yüksek borçlanma maliyetleri piyasalar için temel risk unsuru olarak öne çıkıyor.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.ekonomist.com.tr/ekonomi-haberleri/dev-bankalarin-2027-raporlari-yayimlandi-kuresel-buyumenin-motoru-yapay-zeka-temel-risk-butce-aciklari-olacak-81253",
+      "kurum": "Ekonomist",
+      "kurum_tam": "Ekonomist",
+      "konu": "Vergi ve kamu maliyesi",
+      "tarih": "2026-11-24",
+      "tarih_gorunur": "24 Kasım 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Vergi düzenlemeleri ve bütçe dengesi hem şirket kârlılığını hem devletin borçlanma ihtiyacını belirler.",
+      "kanallar": [
+        "Şirket kârlılığı: vergi oranı ve istisna değişiklikleri net kâra doğrudan yansır.",
+        "Borçlanma ihtiyacı: bütçe açığı iç borçlanmayı artırır; bu da tahvil getirilerini ve banka bilançolarını etkiler.",
+        "Tüketici fiyatı: dolaylı vergiler (ÖTV, KDV) nihai fiyata doğrudan geçer."
+      ],
+      "kanal_basligi": "Piyasaya nasıl yansır?",
+      "foto": "/statik/foto/vergi-ve-kamu-maliyesi-9-96673ab0.jpg",
+      "foto_atif": "RegionalQueenslander · CC-BY-SA-4.0"
     },
     {
       "baslik": "Sektörel Enflasyon Beklentileri (Kasım 2026)",
@@ -2162,53 +2199,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/vergi-ve-kamu-maliyesi-7-c3df51bc.jpg",
       "foto_atif": "RegionalQueenslander · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "Trump ve Vance, Jensen Huang'ın açık kaynaklı modelleri koruyan ve kapalı kaynaklı model şirketlerinin aşırı güçlenmesini engelleyen eşsiz bir figür olduğuna ikna oldular - kaynak. $NVDA",
-      "baslik_kaynak": "Trump and Vance became convinced that Jensen Huang was a singular figure protecting open source models and preventing closed-source model companies from becoming too powerful - source. $NVDA",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9864839/Trump-and-Vance-became-convinced-that-Jensen-Huang-was-a-singular-figure-protecting-open-source-models-and-preventing-closed-source-model-companies-from-becoming-too-powerful---source-NVDA.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Jeopolitik",
-      "tarih": "2026-11-23",
-      "tarih_gorunur": "23 Kasım 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
-      "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
-        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
-        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/jeopolitik-18-d6206fae.jpg",
-      "foto_atif": "United Nation · PDM"
-    },
-    {
-      "baslik": "Kpler'in Enerji Muhabiri Bakr: İran, sahte izleme sinyalleri kullanan tankerlerle ABD deniz ablukasını test ediyor gibi görünüyor, ancak henüz ABD ablukasının ihlal edildiğine dair teyit edilmiş bir bilgi yok - X'te paylaşılan gönderi",
-      "baslik_kaynak": "Kpler's Energy Reporter Bakr: Iran appears to be testing the US naval blockade using tankers with fake tracking signals, however there's been no confirmed breach of the US blockade yet - Post on X",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9864823/Kplers-Energy-Reporter-Bakr-Iran-appears-to-be-testing-the-US-naval-blockade-using-tankers-with-fake-tracking-signals-however-theres-been-no-confirmed-breach-of-the-US-blockade-yet---Post-on-X.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Enerji",
-      "tarih": "2026-11-23",
-      "tarih_gorunur": "23 Kasım 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/enerji-18-2333f432.jpg",
-      "foto_atif": "Sgroey · CC-BY-SA-4.0"
     },
     {
       "baslik": "Fed, College Fed Challenge kazananlarını açıkladı",
