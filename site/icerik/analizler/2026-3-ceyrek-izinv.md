@@ -1,7 +1,7 @@
 ---
 slug: izinv-2026-3-ceyrek
 baslik: İZ YATIRIM HOLDİNG A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %56,1 düşmesi brüt kârın %52,0 azalmasına paralel olarak yansırken, bu düşüş FAVÖK'te %81,9'luk daha büyük bir gerilemeye neden oldu; aynı zamanda net kâr marjının -%123,0 seviyesine gerilemesi, net kârın aynı -0,01 milyar TL seviyesinde kalmasına rağmen özkaynak kârlılığının -%3,8'e…
+ozet: Hasılatın %56,1 düşmesi brüt kârın %52,0 azalmasına paralel olarak yansıdı; bu düşüş FAVÖK'te %81,9'luk bir gerilemeye ve faaliyet nakit akışının da önceki dönemdeki pozitif seviyesinden sıfıra inmesine neden oldu.…
 sirket: İZ YATIRIM HOLDİNG A.Ş.
 kod: IZINV
 donem: 2026 3. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %56,1 düşmesi brüt kârın %52,0 azalmasına paralel olarak yansırken, bu düşüş FAVÖK'te %81,9'luk daha büyük bir gerilemeye neden oldu; aynı zamanda net kâr marjının -%123,0 seviyesine gerilemesi, net kârın aynı -0,01 milyar TL seviyesinde kalmasına rağmen özkaynak kârlılığının -%3,8'e düşmesinde etkili oldu. Özkaynakların %9,6 artması ve aktif toplamının %30,5 yükselmesi, cari oranın 2,42'ye (sektör medyanı 1,39) ve borç/özkaynak oranının 0,12'ye (sektör medyanı 0,16) gerilemesine rağmen net borcun 0,05 milyar TL'ye (önceki dönem -0,01 milyar TL) yükselmesiyle birlikte likidite pozisyonunun güçlenmesine işaret ediyor. Brüt kâr marjının %34,6 (sektör medyanı %23,0) olması, satışların azalmasına rağmen kârlılık potansiyelinin hâlâ sektöre göre daha yüksek bir seviyede olduğunu gösteriyor.
+Hasılatın %56,1 düşmesi brüt kârın %52,0 azalmasına paralel olarak yansıdı; bu düşüş FAVÖK'te %81,9'luk bir gerilemeye ve faaliyet nakit akışının da önceki dönemdeki pozitif seviyesinden sıfıra inmesine neden oldu. Özkaynakların %9,6 artması ve aktif toplamının %30,5 yükselmesi, net borcun önceki dönemde negatif (nakit fazlası) iken şimdi 0,05 milyar TL'ye çıkmasıyla birlikte cari oranın 2,42'ye, borç/özkaynak oranının ise sektör medyanının (%0,16) altında %0,12'ye gerilemesine yol açtı. Brüt kâr marjı %34,6 ile sektör medyanının (%22,7) üzerinde kalırken, net kâr marjı –%123,0 ve özkaynak kârlılığı –%3,8, sektör ortalamalarının çok altında seyrediyor.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
@@ -75,14 +75,14 @@ Hasılatın %56,1 düşmesi brüt kârın %52,0 azalmasına paralel olarak yans�
 
 ## Sektör içindeki konum
 
-Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 74 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 73 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %34,6 | %23,0 |
+| Brüt kâr marjı | %34,6 | %22,7 |
 | Net kâr marjı | -%123,0 | -%0,1 |
-| Özkaynak kârlılığı | -%3,8 | %0,0 |
-| Cari oran | 2,42 | 1,39 |
+| Özkaynak kârlılığı | -%3,8 | -%0,0 |
+| Cari oran | 2,42 | 1,40 |
 | Borç / özkaynak | 0,12 | 0,16 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*

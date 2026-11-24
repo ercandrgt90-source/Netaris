@@ -25,6 +25,9 @@ Hasılatın %35,5 düşmesi brüt kârın %160,5 gerilemesine ve FAVÖK'ün %244
 | Kalem | Reel değişim |
 | --- | ---: |
 | Hasılat | -%35,5 |
+| Brüt kâr | -%160,5 |
+| FAVÖK | -%2441,4 |
+| Net kâr | -%41515,5 |
 | Özkaynak | %132,2 |
 | Aktif toplamı | %113,9 |
 | Ticari alacaklar | -%34,2 |
@@ -59,7 +62,7 @@ Hasılatın %35,5 düşmesi brüt kârın %160,5 gerilemesine ve FAVÖK'ün %244
 | Hasılat | 0,16 | 0,10 | 0,16 | 0,24 |
 | Brüt kâr | -0,06 | 0,04 | -0,07 | -0,03 |
 | Faaliyet kârı | -0,24 | 0,03 | -0,14 | -0,08 |
-| FAVÖK | -0,20 | 0,07 | -0,10 | -0,08 |
+| FAVÖK | -0,20 | 0,07 | -0,10 | -0,05 |
 | Net kâr | -0,24 | -0,13 | 0,08 | 1,97 |
 | Özkaynak | 8,96 | 8,73 | 8,27 | 7,42 |
 | Aktif toplamı | 12,24 | 11,57 | 10,93 | 10,07 |
@@ -74,15 +77,15 @@ Hasılatın %35,5 düşmesi brüt kârın %160,5 gerilemesine ve FAVÖK'ün %244
 
 ## Sektör içindeki konum
 
-Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildiren** 64 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildiren** 43 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | -%37,5 | %16,2 |
-| Net kâr marjı | -%152,0 | -%1,9 |
-| Özkaynak kârlılığı | -%2,7 | -%0,4 |
-| Cari oran | 2,80 | 1,35 |
-| Borç / özkaynak | 0,08 | 0,19 |
+| Brüt kâr marjı | -%37,5 | %15,0 |
+| Net kâr marjı | -%152,0 | %1,6 |
+| Özkaynak kârlılığı | -%2,7 | %0,3 |
+| Cari oran | 2,80 | 1,38 |
+| Borç / özkaynak | 0,08 | 0,17 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -91,6 +94,7 @@ Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildire
 **Dikkat gerektirenler**
 
 - Hasılat reel olarak -%35,5 geriledi.
+- Net kâr reel olarak -%41515,5 geriledi.
 - Brüt marj 77,5 puan daraldı (%40,0 → -%37,5).
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*

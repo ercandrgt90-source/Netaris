@@ -1,7 +1,7 @@
 ---
 slug: izenr-2026-3-ceyrek
 baslik: İZDEMİR ENERJİ ELEKTRİK ÜRETİM A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %25,5 düşmesi net kârın negatifleşmesine yol açarken, özkaynak ve aktif toplamının %25,9-%26,0 artışı bilanço büyüklüğünü yükseltti; bu büyüme, net borcun -0,37 milyar TL'ye gerilemesiyle birlikte şirketin borç/özkaynak oranının -%0,02'ye inmesini sağladı.…
+ozet: Hasılatın %25,5 düşmesi net kârın negatifleşmesine ve net kâr marjının -%15,5'e gerilemesine yol açtı; aynı dönemde özkaynak ve aktif toplamı %25,9-%26,0 artarak özkaynak kârlılığının -%1,9'a düşmesine rağmen cari oran 5,73 ve borç/özkaynak -0,02 gibi likidite göstergeleri sektör medyanının çok…
 sirket: İZDEMİR ENERJİ ELEKTRİK ÜRETİM A.Ş.
 kod: IZENR
 donem: 2026 3. çeyrek
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %25,5 düşmesi net kârın negatifleşmesine yol açarken, özkaynak ve aktif toplamının %25,9-%26,0 artışı bilanço büyüklüğünü yükseltti; bu büyüme, net borcun -0,37 milyar TL'ye gerilemesiyle birlikte şirketin borç/özkaynak oranının -%0,02'ye inmesini sağladı. Faaliyet nakit akışının %268,7 artması, artan özkaynak ve aktif toplamına paralel olarak likiditeyi güçlendirdi ve cari oranı %5,73 seviyesine, sektör medyanının 0,86'sının çok üzerine taşıdı. Yatırım harcamasındaki %68,6 artış ise nakit akışındaki yükselişle birlikte gerçekleşti; net kâr marjı ve özkaynak kârlılığı ise sırasıyla -%15,5 ve -%1,9 olarak sektör medyanlarının altında kaldı.
+Hasılatın %25,5 düşmesi net kârın negatifleşmesine ve net kâr marjının -%15,5'e gerilemesine yol açtı; aynı dönemde özkaynak ve aktif toplamı %25,9-%26,0 artarak özkaynak kârlılığının -%1,9'a düşmesine rağmen cari oran 5,73 ve borç/özkaynak -0,02 gibi likidite göstergeleri sektör medyanının çok üzerinde kaldı. Faaliyet nakit akışının %268,7 artması (1,24 milyar TL) ve yatırım harcamasının %68,6 yükselmesi, artan varlık ve özkaynak seviyeleriyle paralel olarak gerçekleşti. Net borçun -0,37 milyar TL'ye (nakit pozisyonu) dönüşmesi, artan likidite ve düşük borç/özkaynak oranının bir yansımasıdır.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 

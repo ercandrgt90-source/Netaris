@@ -24,9 +24,11 @@ Hasılat ve brüt kârın %100 ve %96,2 düşmesi, faaliyet kârı ve FAVÖK'ün
 
 | Kalem | Reel değişim |
 | --- | ---: |
+| Hasılat | -%100,0 |
 | Brüt kâr | -%96,2 |
 | Faaliyet kârı | %787,1 |
-| FAVÖK | %149,4 |
+| FAVÖK | %794,7 |
+| Net kâr | -%327,1 |
 | Özkaynak | %17,7 |
 | Aktif toplamı | -%5,4 |
 | Ticari alacaklar | -%80,6 |
@@ -61,7 +63,7 @@ Hasılat ve brüt kârın %100 ve %96,2 düşmesi, faaliyet kârı ve FAVÖK'ün
 | Hasılat | 0,00 | 0,51 | 0,48 | 0,41 |
 | Brüt kâr | 0,00 | -0,06 | 0,05 | 0,04 |
 | Faaliyet kârı | 0,05 | -0,14 | -0,03 | 0,01 |
-| FAVÖK | 0,05 | -0,14 | -0,02 | 0,02 |
+| FAVÖK | 0,05 | -0,14 | -0,03 | 0,01 |
 | Net kâr | -0,04 | -0,04 | -0,04 | -0,03 |
 | Özkaynak | 0,86 | 0,83 | 0,79 | 0,76 |
 | Aktif toplamı | 0,92 | 0,99 | 1,21 | 1,15 |
@@ -91,6 +93,8 @@ Karşılaştırma Temel tüketim sektöründe **aynı dönemi bildiren** 4 şirk
 
 **Dikkat gerektirenler**
 
+- Hasılat reel olarak -%100,0 geriledi.
+- Net kâr reel olarak -%327,1 geriledi.
 - Brüt marj 5108,9 puan daraldı (%8,9 → -%5100,0).
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*

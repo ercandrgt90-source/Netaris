@@ -1,13 +1,13 @@
 ---
 slug: dzgyo-2026-3-ceyrek
 baslik: DENİZ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %135,0 artması brüt kârın %20,8 yükselmesine paralel olarak gerçekleşmiş, bu da brüt kâr marjının %43,8 seviyesinde kalmasına yol açmıştır; faaliyet kârı ve FAVÖK de sırasıyla %35,5 ve %22,8 artarak net kârın negatif %27,4'e gerilemesinde kâr marjının düşüşüne katkıda bulunmuştur.…
+ozet: Hasılatın %204,9 artması brüt kârın %52,6 yükselmesine yol açarken, brüt kâr marjı %43,8 seviyesinde sabit kalarak kârın satışlara oranının yüksek kaldığını gösteriyor; ancak faaliyet kârı ve FAVÖK'teki %87,0 ve %83,2 düşüşler, net kârın %186,5 gerilemesiyle birlikte kâr marjının –%27,4'e…
 sirket: DENİZ GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: DZGYO
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-11-24
+tarih: 2026-10-31
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %135,0 artması brüt kârın %20,8 yükselmesine paralel olarak gerçekleşmiş, bu da brüt kâr marjının %43,8 seviyesinde kalmasına yol açmıştır; faaliyet kârı ve FAVÖK de sırasıyla %35,5 ve %22,8 artarak net kârın negatif %27,4'e gerilemesinde kâr marjının düşüşüne katkıda bulunmuştur. Özkaynak %35,5 artarak 7,08 milyar TL'ye yükselmiş ve aktif toplamı %42,7 artarak 9,27 milyar TL olmuş, bu durum cari oranın 11,08'e çıkmasını ve borç/özkaynak oranının -%0,04 (negatif) olmasını desteklemiştir. Faaliyet nakit akışı %71,8 artarak 0,79 milyar TL'ye ulaşmış, bu da net borcun -0,27 milyar TL'ye (daha az negatif) iyileşmesine eşlik etmiştir.
+Hasılatın %204,9 artması brüt kârın %52,6 yükselmesine yol açarken, brüt kâr marjı %43,8 seviyesinde sabit kalarak kârın satışlara oranının yüksek kaldığını gösteriyor; ancak faaliyet kârı ve FAVÖK'teki %87,0 ve %83,2 düşüşler, net kârın %186,5 gerilemesiyle birlikte kâr marjının –%27,4'e sürüklenmesine neden oldu. Özkaynakların %35,5 artması ve aktif toplamının %42,7 yükselmesi, özkaynak kârlılığının –%0,7'ye gerilemesine rağmen bilanço büyüklüğünün genişlediğini, net borcun –0,26 milyar TL'ye (negatif) düşmesi ise cari oranı 11,08 ve borç/özkaynak oranını –%0,04 seviyelerinde tutarak likidite pozisyonunun güçlendiğini gösteriyor. Bu veriler, gelir artışının kâr üretiminde tam olarak yansımadığını, ancak özkaynak ve varlık artışının bilanço yapısını iyileştirdiğini ortaya koyuyor.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
@@ -27,7 +27,8 @@ Hasılatın %135,0 artması brüt kârın %20,8 yükselmesine paralel olarak ger
 | Hasılat | %135,0 |
 | Brüt kâr | %20,8 |
 | Faaliyet kârı | %35,5 |
-| FAVÖK | %22,8 |
+| FAVÖK | %34,3 |
+| Net kâr | -%166,7 |
 | Özkaynak | %35,5 |
 | Aktif toplamı | %42,7 |
 | Ticari alacaklar | -%42,5 |
@@ -75,15 +76,15 @@ Hasılatın %135,0 artması brüt kârın %20,8 yükselmesine paralel olarak ger
 
 ## Sektör içindeki konum
 
-Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 38 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 24 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %43,8 | %65,1 |
-| Net kâr marjı | -%27,4 | %22,3 |
-| Özkaynak kârlılığı | -%0,7 | %0,7 |
-| Cari oran | 11,08 | 4,97 |
-| Borç / özkaynak | -0,04 | 0,04 |
+| Brüt kâr marjı | %43,8 | %66,0 |
+| Net kâr marjı | -%27,4 | %22,4 |
+| Özkaynak kârlılığı | -%0,7 | %0,9 |
+| Cari oran | 11,08 | 11,08 |
+| Borç / özkaynak | -0,04 | 0,00 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -96,6 +97,7 @@ Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 38 şirket
 
 **Dikkat gerektirenler**
 
+- Net kâr reel olarak -%166,7 geriledi.
 - Brüt marj 41,4 puan daraldı (%85,3 → %43,8).
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
