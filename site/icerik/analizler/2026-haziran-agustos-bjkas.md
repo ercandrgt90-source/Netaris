@@ -1,13 +1,13 @@
 ---
 slug: bjkas-2026-haziran-agustos
 baslik: BEŞİKTAŞ FUTBOL YATIRIMLARI SANAYİ VE TİCARET A.Ş. 2026 haziran–ağustos bilanço analizi
-ozet: Hasılatın %30,7 artması, brüt kârın -0,29 milyar TL'ye yükselmesiyle birlikte brüt kâr marjının -%10,0'dan -%4,1 sektör medyanının gerisinde kalmasına yol açtı; aynı dönemde faaliyet kârı ve FAVÖK de iyileşerek sırasıyla -1,23 milyar TL ve -0,09 milyar TL'ye geriledi.…
+ozet: Hasılatın %30,7 artmasıyla birlikte brüt kâr, faaliyet kârı ve FAVÖK gibi zarar kalemleri iyileşerek sırasıyla -0,29 milyar TL, -1,23 milyar TL ve -0,09 milyar TL seviyelerine geriledi; bu iyileşme net kârın -1,03 milyar TL'ye derinleşmesine rağmen özkaynakların %34,7 artmasıyla (4,16 milyar TL)…
 sirket: BEŞİKTAŞ FUTBOL YATIRIMLARI SANAYİ VE TİCARET A.Ş.
 kod: BJKAS
 donem: 2026 haziran–ağustos
 kategori: Bilanço Analizi
 sektor: İletişim
-tarih: 2026-10-31
+tarih: 2026-11-24
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %30,7 artması, brüt kârın -0,29 milyar TL'ye yükselmesiyle birlikte brüt kâr marjının -%10,0'dan -%4,1 sektör medyanının gerisinde kalmasına yol açtı; aynı dönemde faaliyet kârı ve FAVÖK de iyileşerek sırasıyla -1,23 milyar TL ve -0,09 milyar TL'ye geriledi. Özkaynakların %34,7 artması aktif toplamının %53,6 yükselmesiyle desteklenirken, net borcun %16,2 azalması cari oranı 0,65'ye (sektör medyanı 0,67) ve borç/özkaynak oranını 0,81'e (sektör medyanı 0,33) çekti. Net kârın -1,03 milyar TL'ye düşmesi, net kâr marjını -%35,6'ya ve özkaynak kârlılığını -%24,7'ye sürükleyerek sektör medyanlarının çok altında bir performans sergiledi.
+Hasılatın %30,7 artmasıyla birlikte brüt kâr, faaliyet kârı ve FAVÖK gibi zarar kalemleri iyileşerek sırasıyla -0,29 milyar TL, -1,23 milyar TL ve -0,09 milyar TL seviyelerine geriledi; bu iyileşme net kârın -1,03 milyar TL'ye derinleşmesine rağmen özkaynakların %34,7 artmasıyla (4,16 milyar TL) desteklenmesini sağladı. Aktif toplamının %53,6 artması (32,11 milyar TL) net borcun %16,2 azalmasına (3,36 milyar TL) yol açtı; dolayısıyla borç/özkaynak oranı %0,81'e yükselirken cari oran 0,65 ile sektör medyanının (0,67) altında kaldı. Brüt kâr marjının -%10,0 (sektör medyanı -%4,1) ve net kâr marjının -%35,6 (sektör medyanı %16,8) olması, özkaynak kârlılığının -%24,7 (sektör medyanı %3,5) ile birlikte şirketin kârlılık göstergelerinin sektöre göre daha düşük seviyelerde olduğunu gösteriyor.
 
 ## 2026 haziran–ağustos — bir yıl öncesine göre
 
@@ -62,7 +62,7 @@ Hasılatın %30,7 artması, brüt kârın -0,29 milyar TL'ye yükselmesiyle birl
 | Hasılat | 2,88 | 1,93 | 1,26 | 2,20 |
 | Brüt kâr | -0,29 | -1,53 | -1,55 | -1,34 |
 | Faaliyet kârı | -1,23 | -1,94 | -1,71 | -1,92 |
-| FAVÖK | -0,09 | -0,79 | -0,56 | -0,77 |
+| FAVÖK | -0,09 | -1,25 | — | -1,25 |
 | Net kâr | -1,03 | -1,19 | 0,71 | -0,06 |
 | Özkaynak | 4,16 | 3,63 | 3,48 | 3,09 |
 | Aktif toplamı | 32,11 | 26,63 | 25,51 | 20,90 |
@@ -101,7 +101,6 @@ Karşılaştırma İletişim sektöründe **aynı dönemi bildiren** 4 şirketin
 
 **Dikkat gerektirenler**
 
-- Net kâr reel olarak -%1525,0 geriledi.
 - Cari oran 0,65; kısa vadeli yükümlülükler dönen varlıkları aşıyor.
 - Özkaynak kârlılığı -%24,7; sektör medyanı %3,5.
 - Yatırım harcaması faaliyet nakit akışını aşıyor; aradaki fark dış kaynakla karşılanıyor.

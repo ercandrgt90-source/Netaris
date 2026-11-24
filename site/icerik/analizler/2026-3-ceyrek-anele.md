@@ -25,10 +25,6 @@ Hasılatın %95,6 düşmesi brüt kârın %217,9 gerilemesine ve bunun sonucunda
 | Kalem | Reel değişim |
 | --- | ---: |
 | Hasılat | -%95,6 |
-| Brüt kâr | -%217,9 |
-| Faaliyet kârı | -%1021,2 |
-| FAVÖK | -%981,1 |
-| Net kâr | -%473,3 |
 | Özkaynak | -%97,9 |
 | Aktif toplamı | -%23,4 |
 | Ticari alacaklar | %7,6 |
@@ -76,15 +72,15 @@ Hasılatın %95,6 düşmesi brüt kârın %217,9 gerilemesine ve bunun sonucunda
 
 ## Sektör içindeki konum
 
-Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 46 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 73 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | -%55,2 | %23,0 |
-| Net kâr marjı | -%254,1 | -%0,9 |
-| Özkaynak kârlılığı | -%442,0 | -%0,3 |
-| Cari oran | 0,98 | 1,43 |
-| Borç / özkaynak | 6,32 | 0,14 |
+| Brüt kâr marjı | -%55,2 | %22,7 |
+| Net kâr marjı | -%254,1 | -%0,1 |
+| Özkaynak kârlılığı | -%442,0 | -%0,0 |
+| Cari oran | 0,98 | 1,40 |
+| Borç / özkaynak | 6,32 | 0,16 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -93,7 +89,6 @@ Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 46 şirketin **
 **Dikkat gerektirenler**
 
 - Hasılat reel olarak -%95,6 geriledi.
-- Net kâr reel olarak -%473,3 geriledi.
 - Brüt marj 57,3 puan daraldı (%2,1 → -%55,2).
 - Cari oran 0,98; kısa vadeli yükümlülükler dönen varlıkları aşıyor.
 

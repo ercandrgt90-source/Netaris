@@ -1,13 +1,13 @@
 ---
 slug: begyo-2026-3-ceyrek
 baslik: BATI EGE GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılat %50,5 azaldı ve brüt kâr da %37,7 düşerken, brüt kâr marjı %66,0 ile sektör medyanının %64,3'ünün üzerinde kaldı; bu durum, gelir kaybına rağmen kârın satışlara oranının sabit kaldığını gösteriyor.…
+ozet: Hasılat ve brüt kârdeki %61,9 ve %52,0 düşüş, faaliyet kârının %0,8 artmasıyla birlikte FAVÖK'te sadece %3,6 azalma olarak yansımış; bu, sabit maliyetlerin hâlâ yüksek kalması ve gelir kaybının kâr kalemlerini sınırlı ölçüde dengelediğini gösteriyor.…
 sirket: BATI EGE GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: BEGYO
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-11-10
+tarih: 2026-11-24
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,21 +18,23 @@ sayimlar:
 
 ## Özet
 
-Hasılat %50,5 azaldı ve brüt kâr da %37,7 düşerken, brüt kâr marjı %66,0 ile sektör medyanının %64,3'ünün üzerinde kaldı; bu durum, gelir kaybına rağmen kârın satışlara oranının sabit kaldığını gösteriyor. Faaliyet kârı ve FAVÖK %30,7 artmış olsa da net kâr –%251,6 olarak derinleşti; artan özkaynak ( %17,6) ve aktif toplamı (%23,3) bu negatif net kârın bilanço büyüklüğüne yansıyan bir etkisi olduğunu işaret ediyor. Cari oran 6,47 ve borç/özkaynak 0,00 değerleri sektör medyanlarıyla aynı seviyede kalırken, net borç –%0,01'e yükselmesi likidite pozisyonunun korunmasına rağmen borçlanma yapısının değişmediğini ortaya koyuyor.
+Hasılat ve brüt kârdeki %61,9 ve %52,0 düşüş, faaliyet kârının %0,8 artmasıyla birlikte FAVÖK'te sadece %3,6 azalma olarak yansımış; bu, sabit maliyetlerin hâlâ yüksek kalması ve gelir kaybının kâr kalemlerini sınırlı ölçüde dengelediğini gösteriyor. Özkaynak ve aktif toplamının sırasıyla %17,6 ve %23,3 artması, net borcun negatiften (nakit fazlası) daha az negatif bir seviyeye gelmesi ve cari oranın %6,47'ye yükselmesi, likidite ve sermaye yapısının iyileştiğini ancak net kâr marjının -%251,6 ile sektör ortalamasının %22,3'ünün çok altında kalmasını, zararların hâlâ baskın olduğunu ortaya koyar. Borç/özkaynak oranının 0,00 olması, sektörel medyan %0,04'e kıyasla borçlanmanın tamamen yok olduğunu ve özkaynakların şirketin finansmanının temelini oluşturduğunu, bu durumun ise net kârın negatif seyriyle çeliştiğini gösterir.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | -%50,5 |
-| Brüt kâr | -%37,7 |
-| Faaliyet kârı | %30,7 |
-| FAVÖK | %30,7 |
+| Hasılat | -%61,9 |
+| Brüt kâr | -%52,0 |
+| Faaliyet kârı | %0,8 |
+| FAVÖK | -%3,6 |
 | Özkaynak | %17,6 |
 | Aktif toplamı | %23,3 |
 | Ticari alacaklar | -%3,4 |
 | Stoklar | -%36,0 |
-| Faaliyet nakit akışı | -%415,6 |
+| Faaliyet nakit akışı | %556,8 |
+| Yatırım harcaması | %2650,0 |
+| Serbest nakit akışı | %503,8 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -50,9 +52,9 @@ Hasılat %50,5 azaldı ve brüt kâr da %37,7 düşerken, brüt kâr marjı %66,
 | Ticari alacaklar | 0,02 milyar TL |
 | Stoklar | 0,48 milyar TL |
 | Net borç | -0,01 milyar TL |
-| Faaliyet nakit akışı | -0,01 milyar TL |
+| Faaliyet nakit akışı | 0,01 milyar TL |
 | Yatırım harcaması | 0,00 milyar TL |
-| Serbest nakit akışı | -0,01 milyar TL |
+| Serbest nakit akışı | 0,01 milyar TL |
 
 ## Son dört dönem
 
@@ -68,24 +70,24 @@ Hasılat %50,5 azaldı ve brüt kâr da %37,7 düşerken, brüt kâr marjı %66,
 | Ticari alacaklar | 0,02 | 0,02 | 0,02 | 0,02 |
 | Stoklar | 0,48 | 0,45 | 0,42 | 0,38 |
 | Net borç | -0,01 | -0,02 | -0,02 | -0,02 |
-| Faaliyet nakit akışı | -0,01 | 0,00 | 0,00 | 0,03 |
+| Faaliyet nakit akışı | 0,01 | 0,00 | 0,00 | 0,03 |
 | Yatırım harcaması | 0,00 | 0,00 | 0,00 | 0,00 |
-| Serbest nakit akışı | -0,01 | 0,00 | 0,00 | 0,03 |
+| Serbest nakit akışı | 0,01 | 0,00 | 0,00 | 0,03 |
 | Finansman gideri | — | — | 0,00 | 0,00 |
 
 *Dönemler **ardışık** çeyreklerdir ve her biri TMS 29 enflasyon muhasebesine göre düzenlenmiş tablolardan alınmıştır; aralarındaki fark **reeldir**. Yukarıdaki "bir yıl öncesine göre" bölümü ise aynı dönemi bir yıl öncesiyle kıyaslar — mevsimselliği dışarıda bırakmak için.*
 
 ## Sektör içindeki konum
 
-Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 15 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 38 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %66,0 | %64,3 |
+| Brüt kâr marjı | %66,0 | %65,1 |
 | Net kâr marjı | -%251,6 | %22,3 |
-| Özkaynak kârlılığı | -%1,3 | %0,9 |
-| Cari oran | 6,47 | 6,47 |
-| Borç / özkaynak | 0,00 | -0,01 |
+| Özkaynak kârlılığı | -%1,3 | %0,7 |
+| Cari oran | 6,47 | 4,97 |
+| Borç / özkaynak | 0,00 | 0,04 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -98,8 +100,7 @@ Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 15 şirket
 
 **Dikkat gerektirenler**
 
-- Hasılat reel olarak -%50,5 geriledi.
-- Net kâr reel olarak -%233,8 geriledi.
+- Hasılat reel olarak -%61,9 geriledi.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

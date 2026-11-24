@@ -1352,7 +1352,7 @@
  "Sanayi": {
   "sektor": "Sanayi",
   "donem": "2026 3. çeyrek",
-  "sirket_sayisi": 71,
+  "sirket_sayisi": 73,
   "medyan": {
    "brut_marj": 22.700108375909583,
    "net_marj": -0.1164156902480301,
@@ -1542,7 +1542,7 @@
     "borc_ozkaynak": 0.12264112903225806
    },
    "DMSAS": {
-    "brut_marj": 8.092436619122191,
+    "brut_marj": 7.901976552249545,
     "net_marj": -3.9203030431286243,
     "roe": -2.30410447761194,
     "cari_oran": 0.827874116891458,
@@ -1918,6 +1918,20 @@
     "roe": -7.376141710489898,
     "cari_oran": 2.932624622899009,
     "borc_ozkaynak": 0.23027954608358706
+   },
+   "IZINV": {
+    "brut_marj": 34.56375838926174,
+    "net_marj": -122.98657718120805,
+    "roe": -3.8345844994899423,
+    "cari_oran": 2.421528935460824,
+    "borc_ozkaynak": 0.11911799325154979
+   },
+   "KCHOL": {
+    "brut_marj": 20.241239005706458,
+    "net_marj": 3.389434224389335,
+    "roe": 2.5033964275887373,
+    "cari_oran": 0.9330596122022145,
+    "borc_ozkaynak": 0.7429370070164175
    }
   },
   "atlanan": [
@@ -1942,16 +1956,12 @@
     "eksik: aktif_toplami, stoklar, donen_varliklar"
    ],
    [
-    "AGHOL",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "AGROT",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
     "ARSAN",
     "eksik: stoklar"
+   ],
+   [
+    "BEYAZ",
+    "özdeşlik: Isletme sermayesi: -33,600,000 != -33,00"
    ],
    [
     "DOCO",
@@ -1959,10 +1969,110 @@
    ],
    [
     "DOGUB",
-    "eksik: stoklar"
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "DOHOL",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "EGGUB",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "EGPRO",
+    "eksik: hasilat, net_kar, aktif_toplami"
    ],
    [
     "EKIM",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "EKOS",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "EMKEL",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "ENKAI",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "EPLAS",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "ERBOS",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "ESCAR",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "EUPWR",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "EUREN",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "FORMT",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "GEREL",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "GESAN",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "GLRMK",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "GLYHO",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "GRSEL",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "GSDDE",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "GSDHO",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "HATSN",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "HKTM",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "HRKET",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "IHLAS",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "IMASM",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "ISKPL",
     "eksik: hasilat, net_kar, aktif_toplami"
    ],
    [
@@ -2151,12 +2261,16 @@
    "HATSN": "2026-09-30",
    "HKTM": "2026-09-30",
    "HRKET": "2026-09-30",
-   "IHLAS": "2026-09-30"
+   "IHLAS": "2026-09-30",
+   "IZINV": "2026-09-30",
+   "KCHOL": "2026-09-30"
   },
   "onceki_yok": [],
   "kirpilan": [],
   "taze_olculen": [
    "ADEL",
+   "AGHOL",
+   "AGROT",
    "AKYHO",
    "ALARK",
    "ALCAR",
@@ -2167,7 +2281,6 @@
    "ASTOR",
    "BERA",
    "BETAE",
-   "BEYAZ",
    "BIENY",
    "BORLS",
    "BRKSN",
@@ -2180,31 +2293,8 @@
    "CLEBI",
    "CUSAN",
    "DMSAS",
-   "DOHOL",
-   "EGGUB",
-   "EGPRO",
-   "EKOS",
-   "EMKEL",
-   "ENKAI",
-   "EPLAS",
-   "ERBOS",
-   "ESCAR",
-   "EUPWR",
-   "EUREN",
-   "FORMT",
-   "GEREL",
-   "GESAN",
-   "GLRMK",
-   "GLYHO",
-   "GRSEL",
-   "GSDDE",
-   "GSDHO",
-   "HATSN",
-   "HKTM",
-   "HRKET",
-   "IHLAS",
-   "IMASM",
-   "ISKPL"
+   "IZINV",
+   "KCHOL"
   ],
   "mali": {},
   "donem_gruplari": {
@@ -2231,7 +2321,7 @@
     ]
    }
   },
-  "tazelendi": "2026-11-22T15:05:56+00:00"
+  "tazelendi": "2026-11-24T01:29:14+00:00"
  },
  "Sağlık": {
   "sektor": "Sağlık",
@@ -3383,7 +3473,7 @@
     ]
    }
   },
-  "tazelendi": "2026-11-22T14:47:50+00:00"
+  "tazelendi": "2026-11-24T01:24:39+00:00"
  },
  "İsteğe bağlı tüketim": {
   "sektor": "İsteğe bağlı tüketim",

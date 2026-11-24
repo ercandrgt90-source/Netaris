@@ -1,0 +1,147 @@
+{
+ "kod": "BETAE",
+ "cekildi": "2026-11-24T01:26:15Z",
+ "ceyrek": 1,
+ "sema": "cd5f150b28ca53cb",
+ "bitis": "2026-09-30",
+ "tablolar": {
+  "_mali": {
+   "yil_sonu_ayi": 12,
+   "son_bitis": "2026-09-30"
+  },
+  "gelir": {
+   "Revenue": 1719000000.0,
+   "Gross Profit": 705860000.0,
+   "Operating Income": 433940000.0,
+   "Net Income": 301740000.0,
+   "Net Cash (Debt)": -3981000000.0,
+   "Operating Cash Flow": -684390000.0,
+   "Capital Expenditures": -887630000.0
+  },
+  "gelir_onceki": {
+   "Revenue": 1853000000.0,
+   "Gross Profit": 586510000.0,
+   "Operating Income": 402290000.0,
+   "Net Income": 514460000.00000006,
+   "Operating Cash Flow": -244920000.0,
+   "Capital Expenditures": -848760000.0
+  },
+  "_donem": {
+   "gelir": [
+    "Q3 2026"
+   ],
+   "bilanco": [
+    "Q3 2026"
+   ],
+   "nakit": [
+    "Q3 2026"
+   ]
+  },
+  "gelir_g1": {
+   "Revenue": 1294000000.0,
+   "Gross Profit": 592560000.0,
+   "Operating Income": 308610000.0,
+   "Net Income": -25600000.0,
+   "Net Cash (Debt)": -2510000000.0,
+   "Operating Cash Flow": 410230000.0,
+   "Capital Expenditures": -358790000.0
+  },
+  "gelir_g2": {
+   "Revenue": 753400000.0,
+   "Gross Profit": 169170000.0,
+   "Operating Income": -13300000.0,
+   "Net Income": 50940000.0,
+   "Net Cash (Debt)": -4434000000.0,
+   "Operating Cash Flow": -423650000.0,
+   "Capital Expenditures": -447560000.0
+  },
+  "gelir_g3": {
+   "Revenue": 1853000000.0,
+   "Gross Profit": 586510000.0,
+   "Operating Income": 402290000.0,
+   "Net Income": 514460000.00000006,
+   "Operating Cash Flow": -244920000.0,
+   "Capital Expenditures": -848760000.0
+  },
+  "_seri_bitis": [
+   "2026-09-30",
+   "2026-06-30",
+   "2026-03-31",
+   "2025-09-30"
+  ],
+  "_seri_etiket": [
+   "Q3 2026",
+   "Q2 2026",
+   "Q1 2026",
+   "Q3 2025"
+  ],
+  "bilanco": {
+   "Accounts Receivable": 806060000.0,
+   "Inventory": 5099000000.0,
+   "Total Current Assets": 7493000000.0,
+   "Total Assets": 15007000000.0,
+   "Total Current Liabilities": 5340000000.0,
+   "Total Liabilities": 8559000000.0,
+   "Shareholders' Equity": 6447000000.0,
+   "Total Liabilities & Equity": 15007000000.0,
+   "Net Cash (Debt)": -3981000000.0,
+   "Working Capital": 2154000000.0
+  },
+  "bilanco_onceki": {},
+  "bilanco_g1": {
+   "Accounts Receivable": 766340000.0,
+   "Inventory": 3799000000.0,
+   "Total Current Assets": 7282000000.0,
+   "Total Assets": 14096000000.0,
+   "Total Current Liabilities": 5176000000.0,
+   "Total Liabilities": 8246000000.0,
+   "Shareholders' Equity": 5850000000.0,
+   "Total Liabilities & Equity": 14096000000.0,
+   "Net Cash (Debt)": -2510000000.0,
+   "Working Capital": 2106000000.0
+  },
+  "bilanco_g2": {
+   "Accounts Receivable": 740150000.0,
+   "Inventory": 3371000000.0,
+   "Total Current Assets": 4923000000.0,
+   "Total Assets": 11167000000.0,
+   "Total Current Liabilities": 4603000000.0,
+   "Total Liabilities": 7758000000.0,
+   "Shareholders' Equity": 3409000000.0,
+   "Total Liabilities & Equity": 11167000000.0,
+   "Net Cash (Debt)": -4434000000.0,
+   "Working Capital": 320260000.0
+  },
+  "bilanco_g3": {},
+  "nakit": {
+   "Net Income": 275020000.0,
+   "Depreciation & Amortization": 85360000.0,
+   "Operating Cash Flow": -684390000.0,
+   "Capital Expenditures": -887630000.0
+  },
+  "nakit_onceki": {
+   "Net Income": 536299999.99999994,
+   "Depreciation & Amortization": 33270000.000000004,
+   "Operating Cash Flow": -244920000.0,
+   "Capital Expenditures": -848760000.0
+  },
+  "nakit_g1": {
+   "Net Income": 9510000.0,
+   "Depreciation & Amortization": -63710000.0,
+   "Operating Cash Flow": 410230000.0,
+   "Capital Expenditures": -358790000.0
+  },
+  "nakit_g2": {
+   "Net Income": 42540000.0,
+   "Depreciation & Amortization": 152270000.0,
+   "Operating Cash Flow": -423650000.0,
+   "Capital Expenditures": -447560000.0
+  },
+  "nakit_g3": {
+   "Net Income": 536299999.99999994,
+   "Depreciation & Amortization": 33270000.000000004,
+   "Operating Cash Flow": -244920000.0,
+   "Capital Expenditures": -848760000.0
+  }
+ }
+}

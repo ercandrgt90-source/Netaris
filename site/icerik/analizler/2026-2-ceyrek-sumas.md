@@ -26,16 +26,12 @@ Hasılat ve brüt kâr birlikte yükselirken, brüt kâr marjı %15,0 seviyesind
 | --- | ---: |
 | Hasılat | %69,7 |
 | Brüt kâr | %59,7 |
-| Faaliyet kârı | -%165,0 |
-| FAVÖK | -%123,7 |
-| Net kâr | -%279,9 |
 | Özkaynak | %18,3 |
 | Aktif toplamı | %15,4 |
 | Ticari alacaklar | %379,5 |
 | Stoklar | -%13,0 |
 | Faaliyet nakit akışı | -%88,9 |
 | Yatırım harcaması | %105,6 |
-| Serbest nakit akışı | -%143,0 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -79,15 +75,15 @@ Hasılat ve brüt kâr birlikte yükselirken, brüt kâr marjı %15,0 seviyesind
 
 ## Sektör içindeki konum
 
-Karşılaştırma Temel malzeme sektöründe **aynı dönemi bildiren** 21 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Temel malzeme sektöründe **aynı dönemi bildiren** 4 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %15,0 | %15,3 |
-| Net kâr marjı | -%18,1 | %2,5 |
-| Özkaynak kârlılığı | -%10,3 | %1,3 |
-| Cari oran | 2,98 | 1,40 |
-| Borç / özkaynak | -0,31 | 0,22 |
+| Brüt kâr marjı | %15,0 | %15,1 |
+| Net kâr marjı | -%18,1 | %1,0 |
+| Özkaynak kârlılığı | -%10,3 | %0,8 |
+| Cari oran | 2,98 | 1,46 |
+| Borç / özkaynak | -0,31 | 0,11 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -100,8 +96,6 @@ Karşılaştırma Temel malzeme sektöründe **aynı dönemi bildiren** 21 şirk
 
 **Dikkat gerektirenler**
 
-- Net kâr reel olarak -%279,9 geriledi.
-- Özkaynak kârlılığı -%10,3; sektör medyanı %1,3.
 - Yatırım harcaması faaliyet nakit akışını aşıyor; aradaki fark dış kaynakla karşılanıyor.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*

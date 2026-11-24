@@ -4426,7 +4426,10 @@
    "kap_kimlik": "4028e4a140f2ed710140f2f4d6c70039",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "GÜNEY BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "GÜNEY BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Conglomerates"
   },
   "KENT": {
    "kod": "KENT",
@@ -4434,7 +4437,10 @@
    "kap_kimlik": "4028e4a14184e9cf01419c41a8125db1",
    "sehir": "KOCAELİ",
    "uye_turu": "IGS",
-   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş"
+   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş",
+   "sektor": "Consumer Staples",
+   "sektor_tr": "Temel tüketim",
+   "alt_sektor": "Confectioners"
   },
   "KERVN": {
    "kod": "KERVN",
@@ -4442,7 +4448,10 @@
    "kap_kimlik": "4028e4a1415f4d9901416004afc13142",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "MEGA GLOBAL ULUSLARARASI BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "MEGA GLOBAL ULUSLARARASI BAĞIMSIZ DENETİM A.Ş.",
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Textile Manufacturing"
   },
   "KFEIN": {
    "kod": "KFEIN",

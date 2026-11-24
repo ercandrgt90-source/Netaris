@@ -1,13 +1,13 @@
 ---
 slug: psgyo-2026-3-ceyrek
 baslik: PASİFİK GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %594,2 artması, aktif toplamının %50,7 yükselmesiyle paralel bir büyüme sağlarken, net kârın %100,6 düşmesi net borcun %93,0 artışı ve faaliyet nakit akışının %317,2 gerilemesiyle birlikte özkaynak kârlılığı ve net kâr marjının negatif seviyelere kaymasına yol açtı; bu negatif kârlılık…
+ozet: Hasılatın %594,2 artması, aktif toplamındaki %50,7 yükselişle paralel bir büyüme sağlarken, net kârın sıfıra gerilemesi faaliyet nakit akışının -4,49 milyar TL'ye düşmesiyle birlikte özkaynak kârlılığının -%0,0'a inmesine yol açtı; bu kâr kaybı, net borcun %93,0 artması ve borç/özkaynak oranının…
 sirket: PASİFİK GAYRİMENKUL YATIRIM ORTAKLIĞI A.Ş.
 kod: PSGYO
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: Gayrimenkul
-tarih: 2026-11-21
+tarih: 2026-11-24
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,19 +18,17 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %594,2 artması, aktif toplamının %50,7 yükselmesiyle paralel bir büyüme sağlarken, net kârın %100,6 düşmesi net borcun %93,0 artışı ve faaliyet nakit akışının %317,2 gerilemesiyle birlikte özkaynak kârlılığı ve net kâr marjının negatif seviyelere kaymasına yol açtı; bu negatif kârlılık, özkaynakların %53,3 artmasına rağmen özkaynak kârlılığının %0,0 (sektör medyanı %0,7) altında kalmasına neden oldu. Borç/özkaynak oranının %0,49 (sektör medyanı %0,04) olması, artan net borçla özkaynakların daha hızlı büyümesinin bir sonucudur ve likidite sıkıntısının net kâr marjı ve özkaynak kârlılığı üzerindeki olumsuz etkisini pekiştirir.
+Hasılatın %594,2 artması, aktif toplamındaki %50,7 yükselişle paralel bir büyüme sağlarken, net kârın sıfıra gerilemesi faaliyet nakit akışının -4,49 milyar TL'ye düşmesiyle birlikte özkaynak kârlılığının -%0,0'a inmesine yol açtı; bu kâr kaybı, net borcun %93,0 artması ve borç/özkaynak oranının sektör medyanının %0,04'ünden 0,49'a yükselmesiyle finansal riskin arttığını gösteriyor.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
 | Kalem | Reel değişim |
 | --- | ---: |
 | Hasılat | %594,2 |
-| Net kâr | -%100,6 |
 | Özkaynak | %53,3 |
 | Aktif toplamı | %50,7 |
 | Ticari alacaklar | -%14,0 |
 | Net borç | %93,0 |
-| Faaliyet nakit akışı | -%317,2 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -78,10 +76,6 @@ Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 38 şirket
 **Şirket lehine işleyenler**
 
 - Hasılat reel olarak %594,2 arttı.
-
-**Dikkat gerektirenler**
-
-- Net kâr reel olarak -%100,6 geriledi.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

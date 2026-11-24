@@ -1,13 +1,13 @@
 ---
 slug: bigtk-2026-3-ceyrek
 baslik: BİG MEDYA TEKNOLOJİ A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %18,5 düşmesi brüt kârın %165,9 gerilemesine yol açarak brüt kâr marjının -%10,9'a kaymasına neden olur; aynı zamanda net kârın -%83,5'lik negatif marjda kalmasına ve özkaynak kârlılığının -%5,1'e gerilemesine yansımıştır.…
+ozet: Hasılatın %18,5 düşmesi, brüt kârın -%10,9'luk negatif marjla -0,01 milyar TL'ye kayması ve net kârın -%83,5'lik marjla -0,08 milyar TL'ye gerilemesi, faaliyet kârının -0,06 milyar TL'ye ve FAVÖK'ün 0,02 milyar TL'ye yükselmesiyle birlikte, aktif toplamındaki %528,0 artış (2,19 milyar TL) net…
 sirket: BİG MEDYA TEKNOLOJİ A.Ş.
 kod: BIGTK
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: İletişim
-tarih: 2026-11-13
+tarih: 2026-11-24
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,15 +18,13 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %18,5 düşmesi brüt kârın %165,9 gerilemesine yol açarak brüt kâr marjının -%10,9'a kaymasına neden olur; aynı zamanda net kârın -%83,5'lik negatif marjda kalmasına ve özkaynak kârlılığının -%5,1'e gerilemesine yansımıştır. Aktif toplamının %528 artışı, faaliyet nakit akışının %10 745,9 ve yatırım harcamasının %941 artışıyla paralel seyretmiş, bu da net borcun %52,5 azalmasına rağmen cari oranın 0,87 ve borç/özkaynak oranının 0,00 seviyelerinde sabit kalmasını sağlamıştır. Faaliyet kârının -%6,0'dan -%5,0'ye hafif artması, FAVÖK'ün %29,8 düşmesiyle birlikte, artan varlık ve nakit akışı içinde kâr üretimindeki zayıflığın sürdüğünü göstermektedir.
+Hasılatın %18,5 düşmesi, brüt kârın -%10,9'luk negatif marjla -0,01 milyar TL'ye kayması ve net kârın -%83,5'lik marjla -0,08 milyar TL'ye gerilemesi, faaliyet kârının -0,06 milyar TL'ye ve FAVÖK'ün 0,02 milyar TL'ye yükselmesiyle birlikte, aktif toplamındaki %528,0 artış (2,19 milyar TL) net borcun %52,5 azalması (0,01 milyar TL) ve faaliyet nakit akışının %10.745,9 artması (0,07 milyar TL) arasında bir ters ilişki ortaya çıkmaktadır; yatırım harcamasının %941,4 artması (0,07 milyar TL) ise bu nakit akışı artışını desteklemiştir. Özkaynak kârlılığı %5,1 negatif seyretmiş, cari oran 0,87 ile sektör medyanı 1,51'in altında kalmış ve borç/özkaynak oranı 0,00 sektör medyanı 0,07'ye göre daha düşük seyretmiştir; bu da özkaynakların kârlılığının düşmesiyle likidite ve finansal kaldıraç göstergelerinin aynı yönde zayıfladığını göstermektedir.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
 | Kalem | Reel değişim |
 | --- | ---: |
 | Hasılat | -%18,5 |
-| Brüt kâr | -%165,9 |
-| FAVÖK | -%29,8 |
 | Aktif toplamı | %528,0 |
 | Ticari alacaklar | %172,2 |
 | Stoklar | %81,8 |
@@ -61,7 +59,7 @@ Hasılatın %18,5 düşmesi brüt kârın %165,9 gerilemesine yol açarak brüt 
 | Hasılat | 0,09 | 0,19 | 0,45 | 0,16 |
 | Brüt kâr | -0,01 | 0,06 | 0,32 | 0,06 |
 | Faaliyet kârı | -0,06 | -0,02 | 0,20 | 0,00 |
-| FAVÖK | 0,02 | 0,05 | 0,28 | 0,08 |
+| FAVÖK | 0,02 | -0,01 | 0,22 | 0,00 |
 | Net kâr | -0,08 | -0,07 | 0,19 | -0,04 |
 | Özkaynak | 1,53 | 1,51 | 1,46 | 1,17 |
 | Aktif toplamı | 2,19 | 2,13 | 1,99 | 1,65 |
@@ -77,15 +75,15 @@ Hasılatın %18,5 düşmesi brüt kârın %165,9 gerilemesine yol açarak brüt 
 
 ## Sektör içindeki konum
 
-Karşılaştırma İletişim sektöründe **aynı dönemi bildiren** 3 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma İletişim sektöründe **aynı dönemi bildiren** 6 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | -%10,9 | %12,5 |
-| Net kâr marjı | -%83,5 | -%14,7 |
-| Özkaynak kârlılığı | -%5,1 | -%3,4 |
-| Cari oran | 0,87 | 0,87 |
-| Borç / özkaynak | 0,00 | 0,08 |
+| Brüt kâr marjı | -%10,9 | %9,6 |
+| Net kâr marjı | -%83,5 | -%10,5 |
+| Özkaynak kârlılığı | -%5,1 | -%3,5 |
+| Cari oran | 0,87 | 1,51 |
+| Borç / özkaynak | 0,00 | 0,07 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -94,10 +92,9 @@ Karşılaştırma İletişim sektöründe **aynı dönemi bildiren** 3 şirketin
 **Dikkat gerektirenler**
 
 - Hasılat reel olarak -%18,5 geriledi.
-- Net kâr reel olarak -%81,9 geriledi.
 - Brüt marj 24,3 puan daraldı (%13,4 → -%10,9).
 - Cari oran 0,87; kısa vadeli yükümlülükler dönen varlıkları aşıyor.
-- Özkaynak kârlılığı -%5,1; sektör medyanı -%3,4.
+- Özkaynak kârlılığı -%5,1; sektör medyanı -%3,5.
 - Yatırım harcaması faaliyet nakit akışını aşıyor; aradaki fark dış kaynakla karşılanıyor.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*

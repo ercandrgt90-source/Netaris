@@ -26,7 +26,7 @@ Hasılat %86,2 artarken brüt kâr %73,0 azaldı; bu durum brüt kâr marjının
 | --- | ---: |
 | Hasılat | %86,2 |
 | Brüt kâr | -%73,0 |
-| FAVÖK | -%70,2 |
+| FAVÖK | -%62,6 |
 | Özkaynak | %28,4 |
 | Aktif toplamı | %32,6 |
 | Ticari alacaklar | %147,4 |
@@ -63,7 +63,7 @@ Hasılat %86,2 artarken brüt kâr %73,0 azaldı; bu durum brüt kâr marjının
 | Hasılat | 1,71 | 2,53 | 1,04 | 0,91 |
 | Brüt kâr | 0,03 | 0,69 | 0,02 | -0,06 |
 | Faaliyet kârı | -0,23 | 0,46 | -0,37 | -0,33 |
-| FAVÖK | 0,09 | 0,77 | -0,06 | -0,02 |
+| FAVÖK | 0,09 | 0,74 | -0,12 | -0,07 |
 | Net kâr | -0,57 | 0,35 | 0,00 | 0,10 |
 | Özkaynak | 8,87 | 8,94 | 8,04 | 7,31 |
 | Aktif toplamı | 16,89 | 16,47 | 15,22 | 13,67 |
@@ -79,15 +79,15 @@ Hasılat %86,2 artarken brüt kâr %73,0 azaldı; bu durum brüt kâr marjının
 
 ## Sektör içindeki konum
 
-Karşılaştırma Temel malzeme sektöründe **aynı dönemi bildiren** 42 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Temel malzeme sektöründe **aynı dönemi bildiren** 46 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %2,0 | %16,5 |
+| Brüt kâr marjı | %2,0 | %16,1 |
 | Net kâr marjı | -%33,0 | %1,0 |
 | Özkaynak kârlılığı | -%6,4 | %0,4 |
-| Cari oran | 0,46 | 1,47 |
-| Borç / özkaynak | 0,73 | 0,14 |
+| Cari oran | 0,46 | 1,53 |
+| Borç / özkaynak | 0,73 | 0,15 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -99,7 +99,6 @@ Karşılaştırma Temel malzeme sektöründe **aynı dönemi bildiren** 42 şirk
 
 **Dikkat gerektirenler**
 
-- Net kâr reel olarak -%175,6 geriledi.
 - Brüt marj 11,7 puan daraldı (%13,7 → %2,0).
 - Cari oran 0,46; kısa vadeli yükümlülükler dönen varlıkları aşıyor.
 

@@ -61,13 +61,13 @@ Hasılatın %32,6 artmasıyla birlikte aktif toplamı %36,6 yükselmiş, bu da �
 
 ## Sektör içindeki konum
 
-Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 18 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 38 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Net kâr marjı | -%72,7 | %32,8 |
-| Özkaynak kârlılığı | -%1,1 | %1,0 |
-| Borç / özkaynak | -0,02 | 0,02 |
+| Net kâr marjı | -%72,7 | %22,3 |
+| Özkaynak kârlılığı | -%1,1 | %0,7 |
+| Borç / özkaynak | -0,02 | 0,04 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -76,10 +76,6 @@ Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 18 şirket
 **Şirket lehine işleyenler**
 
 - Hasılat reel olarak %32,6 arttı.
-
-**Dikkat gerektirenler**
-
-- Net kâr reel olarak -%168,4 geriledi.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 
