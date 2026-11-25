@@ -430,10 +430,37 @@ YASAK_ESLESME: tuple[tuple[str, str], ...] = (
 
 
 def cikti_denetimi() -> list[Bulgu]:
+    """Uretilen sayfalarda YASAKLI deger var mi.
+
+    CIKTI YOKSA "BILGI", "UYARI" DEGIL -- OLCULDU (2026-11-25).
+
+    `calistir.py` bu denetimi IKI KEZ kosuyor: uretimden ONCE
+    (veriyi denetlemek icin) ve uretimden SONRA, dagitimdan
+    once (uretilen sayfalari denetlemek icin -- gerekcesi
+    `calistir.py` icinde "UCUNCU KEZ AYNI DERS" basligi
+    altinda yazili).
+
+    Ilk kosuda `site/cikti` HENUZ YOK (gitignore'da, temiz
+    checkout) ve bu "uyari" olarak bildiriliyordu. Yani her
+    otomasyon kosusu, kacinilmaz ve bilgi tasimayan bir sari
+    uyari uretiyordu. Dunku bir arizada uc uyariyi tek tek
+    elekten gecirmek zorunda kaldim; bu gurultu o isi
+    zorlastiran seydi.
+
+    `Bulgu` ucuncu seviyesi (`bilgi`) tam bunun icin var ve
+    gerekcesi sinifin basinda yazili: "Surekli sari bir karar,
+    gercek bir sariyi inandiriciliktan dusurur."
+
+    OLCULEMEDI, TEMIZ DEMEK DEGIL: ileti taramanin YAPILMADIGINI
+    acikca soyluyor. Gercek koruma ikinci kosuda duruyor ve o
+    kosu yalnizca uretim BASARILIYSA yapiliyor, yani orada
+    cikti her zaman var.
+    """
     import re
     if not CIKTI_DIZINI.exists():
-        return [Bulgu("uyari", "cikti", "-",
-                      "site/cikti yok -- once site kurulmali")]
+        return [Bulgu("bilgi", "cikti", "-",
+                      "site/cikti yok -- yasakli deger taramasi YAPILMADI; "
+                      "uretimden sonraki kosu denetliyor")]
     bulgu: list[Bulgu] = []
     for desen, sebep in YASAK_ESLESME:
         d = re.compile(desen)

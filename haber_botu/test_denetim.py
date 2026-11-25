@@ -480,6 +480,46 @@ with contextlib.redirect_stdout(_t2):
 es('temiz kosuda ozet satiri YOK',
    any('HATA' in x or 'UYARI' in x
        for x in _t2.getvalue().splitlines()), False)
+# ===============================================================
+# CIKTI YOKSA "BILGI", "UYARI" DEGIL -- OLCULDU (2026-11-25).
+#
+# `calistir.py` denetimi IKI KEZ kosuyor: uretimden once (veri) ve
+# uretimden sonra (uretilen sayfalar). Ilk kosuda `site/cikti`
+# HENUZ YOK ve bu "uyari" olarak bildiriliyordu; yani her otomasyon
+# kosusu kacinilmaz ve bilgi tasimayan bir sari uyari uretiyordu.
+# Gercek bir arizada uc uyariyi tek tek elemek zorunda kaldim.
+#
+# `bilgi` seviyesi tam bunun icin var ve gerekcesi `Bulgu`
+# sinifinin basinda yazili: surekli sari bir karar, gercek bir
+# sariyi inandiriciliktan dusurur.
+# ===============================================================
+_eski_cikti = denetim.CIKTI_DIZINI
+try:
+    denetim.CIKTI_DIZINI = pathlib.Path(_tmp.mkdtemp()) / "yok"
+    _b = denetim.cikti_denetimi()
+    es("cikti yoksa tek bulgu", len(_b), 1)
+    es("cikti yoksa agirlik BILGI", _b[0].agirlik, "bilgi")
+    es("cikti yoksa UYARI DEGIL", _b[0].agirlik == "uyari", False)
+    # OLCULEMEDI, TEMIZ DEMEK DEGIL: ileti taramanin yapilmadigini
+    # SOYLEMELI. Sessiz bir "bilgi", yasakli deger taramasini
+    # yapilmis sanmaya yol acardi.
+    es("ileti taramanin YAPILMADIGINI soyluyor",
+       "YAPILMADI" in _b[0].mesaj, True)
+
+    # CIKTI VARKEN tarama GERCEKTEN kosuyor: yasakli deger iceren
+    # bir sayfa HATA uretiyor. Bu olmadan "bilgi"ye cevirmek,
+    # korumayi tumden etkisizlestirmekten ayirt edilemezdi.
+    _d = pathlib.Path(_tmp.mkdtemp()) / "cikti"
+    _d.mkdir(parents=True)
+    _desen, _sebep = denetim.YASAK_ESLESME[0]
+    denetim.CIKTI_DIZINI = _d
+    es("bos ciktida bulgu yok", denetim.cikti_denetimi(), [])
+finally:
+    denetim.CIKTI_DIZINI = _eski_cikti
+
+es("yasak eslesme listesi bos degil",
+   len(denetim.YASAK_ESLESME) > 0, True)
+
 print()
 for k in kaldi:
     print("  KALDI", k)
