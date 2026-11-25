@@ -1,7 +1,7 @@
 ---
 slug: piyasa-tepkisi-iklim-krizi-ve-hurmuz-gida-fiyatlarini-vuruyor-2026-11-25
 baslik: İklim krizi ve Hürmüz, gıda fiyatlarını vuruyor
-ozet: Jeopolitik gelişme. Bitcoin 1 saat içinde +%1,02 yükseldi.
+ozet: Jeopolitik gelişme. Bitcoin 1 saat içinde +%0,55 yükseldi.
 sirket: Piyasa tepkisi: İklim krizi ve Hürmüz, gıda fiyatlarını vuruyor
 kod: OLAY
 donem: 2026-11-25
@@ -23,8 +23,8 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Ekonomist.
 
 ## Piyasada ne oldu
 
-- **Altın** 1 saat içinde yükseldi: +%0,36 (son 3534,10).
-- **Bitcoin** 1 saat içinde yükseldi: +%1,02 (son 59251,60).
+- **Altın** 1 saat içinde yükseldi: +%0,35 (son 3534,00).
+- **Bitcoin** 1 saat içinde yükseldi: +%0,55 (son 59167,00).
 
 *Yukarıdaki rakamlar ölçülen fiyat hareketidir. Hareketin sebebinin bu gelişme olduğu iddia edilmemektedir; aynı pencerede başka etkenler de fiyatlanmış olabilir.*
 
