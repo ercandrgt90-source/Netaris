@@ -4647,7 +4647,10 @@
    "kap_kimlik": "4028e4a2416e696c01416f734ce273ad",
    "sehir": "HATAY",
    "uye_turu": "IGS",
-   "denetci": "PKF ADAY BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "PKF ADAY BAĞIMSIZ DENETİM A.Ş.",
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Steel"
   },
   "KONKA": {
    "kod": "KONKA",
@@ -4655,7 +4658,10 @@
    "kap_kimlik": "4028e4a244a08180014619dea2160482",
    "sehir": "KONYA",
    "uye_turu": "IGS",
-   "denetci": "İRFAN BAĞIMSIZ DENETİM VE YEMİNLİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "İRFAN BAĞIMSIZ DENETİM VE YEMİNLİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Paper & Paper Products"
   },
   "KONTR": {
    "kod": "KONTR",
@@ -4663,7 +4669,10 @@
    "kap_kimlik": "8acae2c5745d76320174c4879b101cb2",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "GÜRELİ YEMİNLİ MALİ MÜŞAVİRLİK VE BAĞIMSIZ DENETİM HİZMETLERİ A.Ş."
+   "denetci": "GÜRELİ YEMİNLİ MALİ MÜŞAVİRLİK VE BAĞIMSIZ DENETİM HİZMETLERİ A.Ş.",
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Conglomerates"
   },
   "KONYA": {
    "kod": "KONYA",

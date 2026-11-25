@@ -2822,13 +2822,13 @@
  "Temel tüketim": {
   "sektor": "Temel tüketim",
   "donem": "2026 3. çeyrek",
-  "sirket_sayisi": 36,
+  "sirket_sayisi": 37,
   "medyan": {
-   "brut_marj": 19.41277038539049,
-   "net_marj": -0.7633118510355197,
-   "roe": -0.04634544712127399,
-   "cari_oran": 1.6016915419273972,
-   "borc_ozkaynak": 0.14479676167987857
+   "brut_marj": 19.35545905707196,
+   "net_marj": -0.35602816857228,
+   "roe": -0.04493335659723442,
+   "cari_oran": 1.5895061728395061,
+   "borc_ozkaynak": 0.13103839586838598
   },
   "sirket": {
    "AEFES": {
@@ -3113,6 +3113,13 @@
     "roe": 3.721854304635762,
     "cari_oran": 1.021162603803911,
     "borc_ozkaynak": 0.10641512722202859
+   },
+   "KNFRT": {
+    "brut_marj": 8.301988540613415,
+    "net_marj": 0.8655207280080891,
+    "roe": 1.1916473317865428,
+    "cari_oran": 1.4850931677018633,
+    "borc_ozkaynak": 0.07933178654292343
    }
   },
   "atlanan": [
@@ -3163,7 +3170,8 @@
    "AKHAN": "2026-09-30",
    "KENT": "2026-09-30",
    "KAYSE": "2026-07-31",
-   "KIMMR": "2026-09-30"
+   "KIMMR": "2026-09-30",
+   "KNFRT": "2026-09-30"
   },
   "onceki_yok": [],
   "kirpilan": [],
@@ -3200,6 +3208,7 @@
    "KAYSE",
    "KENT",
    "KIMMR",
+   "KNFRT",
    "KTSKR",
    "PETUN",
    "PINSU",
@@ -3242,7 +3251,7 @@
     ]
    }
   },
-  "tazelendi": "2026-11-25T01:26:46+00:00"
+  "tazelendi": "2026-11-25T23:13:51+00:00"
  },
  "İletişim": {
   "sektor": "İletişim",

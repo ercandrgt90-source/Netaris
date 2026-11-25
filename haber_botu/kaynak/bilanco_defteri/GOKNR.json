@@ -1,6 +1,6 @@
 {
  "kod": "GOKNR",
- "cekildi": "2026-11-25T01:25:35Z",
+ "cekildi": "2026-11-25T23:12:38Z",
  "ceyrek": 1,
  "sema": "cd5f150b28ca53cb",
  "bitis": "2026-09-30",
@@ -12,20 +12,20 @@
   "gelir": {
    "Revenue": 3884000000.0,
    "Gross Profit": 704540000.0,
-   "Operating Income": 347650000.0,
+   "Operating Income": 184760000.0,
    "Net Income": 16420000.000000002,
    "Net Cash (Debt)": -1717000000.0,
    "Operating Cash Flow": 464410000.0,
    "Capital Expenditures": -171670000.0
   },
   "gelir_onceki": {
-   "Revenue": 3315000000.0,
-   "Gross Profit": 737070000.0,
-   "Operating Income": 270120000.0,
-   "Net Income": 77520000.0,
+   "Revenue": 4300000000.0,
+   "Gross Profit": 956210000.0,
+   "Operating Income": 351050000.0,
+   "Net Income": 100570000.0,
    "Net Cash (Debt)": -1937000000.0,
-   "Operating Cash Flow": 496100000.0,
-   "Capital Expenditures": -219510000.0
+   "Operating Cash Flow": 624960000.0,
+   "Capital Expenditures": -283670000.0
   },
   "_donem": {
    "gelir": [
@@ -41,7 +41,7 @@
   "gelir_g1": {
    "Revenue": 4877000000.0,
    "Gross Profit": 1246000000.0,
-   "Operating Income": 1171000000.0,
+   "Operating Income": 995340000.0,
    "Net Income": 299860000.0,
    "Net Cash (Debt)": -1544000000.0,
    "Operating Cash Flow": 975110000.0,
@@ -73,7 +73,7 @@
   ],
   "bilanco": {
    "Accounts Receivable": 2545000000.0,
-   "Inventory": 7321000000.0,
+   "Inventory": 7855000000.0,
    "Total Current Assets": 12696000000.0,
    "Total Assets": 19056000000.0,
    "Total Current Liabilities": 6211000000.0,
@@ -144,14 +144,15 @@
    "Net Income": 46930000.0,
    "Depreciation & Amortization": 134110000.00000001,
    "Operating Cash Flow": 464410000.0,
-   "Capital Expenditures": -171670000.0
+   "Capital Expenditures": -171670000.0,
+   "Cash Interest Paid": 234780000.0
   },
   "nakit_onceki": {
-   "Net Income": 117400000.0,
-   "Depreciation & Amortization": 95350000.0,
-   "Operating Cash Flow": 496100000.0,
-   "Capital Expenditures": -219510000.0,
-   "Cash Interest Paid": 224780000.0
+   "Net Income": 139660000.0,
+   "Depreciation & Amortization": 119310000.0,
+   "Operating Cash Flow": 624960000.0,
+   "Capital Expenditures": -283670000.0,
+   "Cash Interest Paid": 285660000.0
   },
   "nakit_g1": {
    "Net Income": 287590000.0,
