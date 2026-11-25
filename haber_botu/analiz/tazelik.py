@@ -45,6 +45,41 @@ TAVAN = {"gunluk": 7, "haftalik": 14, "aylik": 70,
 
 #: Olculen gecikmenin ustune eklenen pay (gun). Yayim bir kac gun
 #: kayabiliyor; paysiz bir tavan her normal kaymayi uyari yapardi.
+#:
+#: DARALTMA DENENDI VE REDDEDILDI -- OLCULDU (2026-11-25).
+#:
+#: Gozlem: Bundesbank uc noktasi tasidi, `BBK_DE10Y` on iki gun
+#: dondu ve uyari ancak 11 gunluk tavan asilinca cikti. Tek
+#: sabit butun frekanslari paylastigi icin pay GUNLUK seride
+#: periyodun on kati; 20 gunluk serinin gecmisinde EN BUYUK
+#: mesru bosluk 6 gun. Yani tespit daha hizli olabilirmis gibi
+#: duruyor.
+#:
+#: Denenen formul: tavan = olculen_gecikme + SERININ_EN_BUYUK
+#: _BOSLUGU + 2. Butun 48 seride olculdu ve UC seride karar
+#: degisti -- ucu de YANLIS yone:
+#:
+#:   DCOILWTICO  taze -> BAYAT (yas 8, yeni tavan 7)
+#:     YANLIS ALARM: FRED'in KENDISINDE de son gozlem
+#:     2026-11-17. EIA petrol verisi gecikmeli yayimlaniyor
+#:     ve gecikme DEGISKEN. `yayim_gecikmesi` EN KUCUK farki
+#:     aliyor (gerekcesi asagida: toplu yazim medyani
+#:     sisiriyor), yani tipik gecikmeyi OLDUGUNDAN KUCUK
+#:     gosteriyor. PAY=10 tam bu degiskenligi karsiliyor.
+#:
+#:   CPIAUCNS / CPILFENS  bayat -> TAZE (yas 85, yeni tavan 106)
+#:     TERS YONDE BOZUK: bu serilerin gecmisinde 61 gunluk bir
+#:     bosluk var cunku FRED'de 2025-10 gozlemi HIC YOK (o ay
+#:     yayimlanmadi). Seri-basina tavan o ANOMALIYI normal
+#:     tempo sanip gercek bir arizayi 106 gune kadar tolere
+#:     ederdi.
+#:
+#: Yani ayni formul hem yanlis alarm uretiyor hem gercek
+#: arizayi gizliyor. PAY'i daraltmak icin gereken sey daha
+#: kucuk bir sabit degil, GECIKME DEGISKENLIGININ olcumu --
+#: ve `kayit_ani` toplu yazim yuzunden onu guvenilir bicimde
+#: vermiyor. Daraltma, once o olcumu mumkun kilan bir
+#: degisiklik gerektirir.
 PAY = 10
 
 #: Frekans -> bir periyodun gun karsiligi.
