@@ -1,6 +1,6 @@
 {
  "kod": "AKSEN",
- "cekildi": "2026-11-24T18:23:53Z",
+ "cekildi": "2026-11-25T17:27:34Z",
  "ceyrek": 1,
  "sema": "cd5f150b28ca53cb",
  "bitis": "2026-09-30",
@@ -28,6 +28,9 @@
     "Q3 2026"
    ],
    "bilanco": [
+    "Q3 2026"
+   ],
+   "nakit": [
     "Q3 2026"
    ]
   },
@@ -127,6 +130,41 @@
    "Total Liabilities & Equity": 129590000000.0,
    "Net Cash (Debt)": -47904000000.0,
    "Working Capital": -6247000000.0
+  },
+  "nakit": {
+   "Net Income": 1641000000.0,
+   "Depreciation & Amortization": 1639000000.0,
+   "Operating Cash Flow": 4436000000.0,
+   "Capital Expenditures": -6261000000.0,
+   "Cash Interest Paid": 1172000000.0
+  },
+  "nakit_onceki": {
+   "Net Income": 1340000000.0,
+   "Depreciation & Amortization": 1066000000.0,
+   "Operating Cash Flow": 1223000000.0,
+   "Capital Expenditures": -4354000000.0,
+   "Cash Interest Paid": 602350000.0
+  },
+  "nakit_g1": {
+   "Net Income": 607680000.0,
+   "Depreciation & Amortization": 1181000000.0,
+   "Operating Cash Flow": 2439000000.0,
+   "Capital Expenditures": -4743000000.0,
+   "Cash Interest Paid": 769060000.0
+  },
+  "nakit_g2": {
+   "Net Income": 564890000.0,
+   "Depreciation & Amortization": 977320000.0,
+   "Operating Cash Flow": 3547000000.0,
+   "Capital Expenditures": -4811000000.0,
+   "Cash Interest Paid": 449080000.0
+  },
+  "nakit_g3": {
+   "Net Income": 1242000000.0,
+   "Depreciation & Amortization": 978540000.0,
+   "Operating Cash Flow": 4574000000.0,
+   "Capital Expenditures": -6697000000.0,
+   "Cash Interest Paid": 507130000.0
   }
  }
 }

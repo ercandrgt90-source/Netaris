@@ -1,12 +1,12 @@
 {
  "kod": "KARCL",
- "cekildi": "2026-11-24T02:19:01Z",
+ "cekildi": "2026-11-25T18:04:07Z",
  "ceyrek": 1,
  "sema": "cd5f150b28ca53cb",
  "bitis": "2026-09-30",
  "tablolar": {
   "_mali": {
-   "yil_sonu_ayi": null,
+   "yil_sonu_ayi": 12,
    "son_bitis": "2026-09-30"
   },
   "gelir": {
@@ -32,9 +32,6 @@
    ],
    "bilanco": [
     "Q3 2026"
-   ],
-   "nakit": [
-    "Q3 2026"
    ]
   },
   "gelir_g1": {
@@ -56,6 +53,12 @@
    "Capital Expenditures": -1160000000.0
   },
   "gelir_g3": {},
+  "_seri_bitis": [
+   "2026-09-30",
+   "2026-06-30",
+   "2026-03-31",
+   "2025-12-31"
+  ],
   "bilanco": {
    "Accounts Receivable": 2695000000.0,
    "Inventory": 9799000000.0,
@@ -95,33 +98,6 @@
    "Total Liabilities & Equity": 30871000000.0,
    "Net Cash (Debt)": -12722000000.0,
    "Working Capital": -466900000.0
-  },
-  "nakit": {
-   "Net Income": 543430000.0,
-   "Depreciation & Amortization": 139950000.0,
-   "Operating Cash Flow": -1027000000.0,
-   "Capital Expenditures": -1605000000.0,
-   "Cash Interest Paid": 1430000000.0
-  },
-  "nakit_onceki": {
-   "Net Income": 476700000.0,
-   "Depreciation & Amortization": 84240000.0,
-   "Operating Cash Flow": 1265000000.0,
-   "Capital Expenditures": -988390000.0,
-   "Cash Interest Paid": 546280000.0
-  },
-  "nakit_g1": {
-   "Net Income": 375200000.0,
-   "Depreciation & Amortization": 117370000.0,
-   "Operating Cash Flow": -1024000000.0,
-   "Capital Expenditures": 1062000000.0
-  },
-  "nakit_g2": {
-   "Net Income": 35220000.0,
-   "Depreciation & Amortization": 98340000.0,
-   "Operating Cash Flow": 1680000000.0,
-   "Capital Expenditures": -1160000000.0,
-   "Cash Interest Paid": 613070000.0
   }
  }
 }

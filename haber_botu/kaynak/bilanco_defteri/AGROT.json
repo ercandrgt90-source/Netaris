@@ -1,6 +1,6 @@
 {
  "kod": "AGROT",
- "cekildi": "2026-11-24T18:32:19Z",
+ "cekildi": "2026-11-25T17:30:53Z",
  "ceyrek": 1,
  "sema": "cd5f150b28ca53cb",
  "bitis": "2026-09-30",
@@ -32,9 +32,6 @@
     "Q3 2026"
    ],
    "bilanco": [
-    "Q3 2026"
-   ],
-   "nakit": [
     "Q3 2026"
    ]
   },
@@ -140,41 +137,6 @@
    "Total Liabilities & Equity": 9595000000.0,
    "Net Cash (Debt)": 230120000.0,
    "Working Capital": 1455000000.0
-  },
-  "nakit": {
-   "Net Income": -42060000.0,
-   "Depreciation & Amortization": 46230000.0,
-   "Operating Cash Flow": 151560000.0,
-   "Capital Expenditures": -39790000.0,
-   "Cash Interest Paid": 9560000.0
-  },
-  "nakit_onceki": {
-   "Net Income": -221810000.0,
-   "Depreciation & Amortization": 46200000.0,
-   "Operating Cash Flow": -202000000.0,
-   "Capital Expenditures": -70610000.0,
-   "Cash Interest Paid": 1400000.0
-  },
-  "nakit_g1": {
-   "Net Income": 36780000.0,
-   "Depreciation & Amortization": 1930000.0,
-   "Operating Cash Flow": 137240000.0,
-   "Capital Expenditures": -127590000.0,
-   "Cash Interest Paid": 13530000.0
-  },
-  "nakit_g2": {
-   "Net Income": -153730000.0,
-   "Depreciation & Amortization": 48180000.0,
-   "Operating Cash Flow": -145410000.0,
-   "Capital Expenditures": -73830000.0,
-   "Cash Interest Paid": 6900000.0
-  },
-  "nakit_g3": {
-   "Net Income": -255180000.0,
-   "Depreciation & Amortization": 56760000.0,
-   "Operating Cash Flow": -636130000.0,
-   "Capital Expenditures": 141730000.0,
-   "Cash Interest Paid": 4920000.0
   }
  }
 }

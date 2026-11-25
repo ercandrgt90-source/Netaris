@@ -4618,7 +4618,10 @@
    "kap_kimlik": "4028e4a140f2ed710140f2fc30bc006e",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "ANALİZ BAĞIMSIZ DENETİM VE DANIŞMANLIK A.Ş."
+   "denetci": "ANALİZ BAĞIMSIZ DENETİM VE DANIŞMANLIK A.Ş.",
+   "sektor": "Consumer Staples",
+   "sektor_tr": "Temel tüketim",
+   "alt_sektor": "Packaged Foods"
   },
   "KNTFA": {
    "kod": "KNTFA",
@@ -4626,7 +4629,8 @@
    "kap_kimlik": "4028e4a14184e9c901419d1119ca6579",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "BDO DENET BAĞIMSIZ DENETİM VE DANIŞMANLIK A.Ş."
+   "denetci": "BDO DENET BAĞIMSIZ DENETİM VE DANIŞMANLIK A.Ş.",
+   "sektor_bulunamadi": "2026-11-25"
   },
   "KOCFN": {
    "kod": "KOCFN",
@@ -4634,7 +4638,8 @@
    "kap_kimlik": "4028e4a140f2ed710140f2f251eb0026",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "GÜNEY BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "GÜNEY BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor_bulunamadi": "2026-11-25"
   },
   "KOCMT": {
    "kod": "KOCMT",

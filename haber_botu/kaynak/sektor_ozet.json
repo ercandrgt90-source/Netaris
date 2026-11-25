@@ -1291,16 +1291,16 @@
   ],
   "mali": {},
   "donem_gruplari": {},
-  "tazelendi": "2026-11-24T18:29:52+00:00"
+  "tazelendi": "2026-11-25T17:29:22+00:00"
  },
  "Sanayi": {
   "sektor": "Sanayi",
   "donem": "2026 3. çeyrek",
-  "sirket_sayisi": 75,
+  "sirket_sayisi": 77,
   "medyan": {
    "brut_marj": 23.213215520553206,
-   "net_marj": 0.001781783880096426,
-   "roe": 0.04268163703350821,
+   "net_marj": -0.1164156902480301,
+   "roe": -0.012648354076299414,
    "cari_oran": 1.4031835205992509,
    "borc_ozkaynak": 0.1639968505656308
   },
@@ -1850,7 +1850,7 @@
     "borc_ozkaynak": 0.2613186813186813
    },
    "HRKET": {
-    "brut_marj": 24.165714285714284,
+    "brut_marj": 23.992244897959182,
     "net_marj": 4.741224489795918,
     "roe": 1.332262874182819,
     "cari_oran": 0.9798837729101475,
@@ -1876,6 +1876,20 @@
     "roe": 2.5033964275887373,
     "cari_oran": 0.9330596122022145,
     "borc_ozkaynak": 0.7429370070164175
+   },
+   "KLRHO": {
+    "brut_marj": 61.83218101822753,
+    "net_marj": -3.1725329981143933,
+    "roe": -0.347785644152757,
+    "cari_oran": 1.887915262397689,
+    "borc_ozkaynak": -0.15525468106730056
+   },
+   "KLSER": {
+    "brut_marj": 15.378582202111613,
+    "net_marj": -18.906485671191554,
+    "roe": -12.074169208540697,
+    "cari_oran": 0.8093350946719506,
+    "borc_ozkaynak": 1.441483384170814
    }
   },
   "atlanan": [
@@ -1917,6 +1931,14 @@
    ],
    [
     "EKIM",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "KLMSN",
+    "eksik: stoklar"
+   ],
+   [
+    "TTRAK",
     "eksik: hasilat, net_kar, aktif_toplami"
    ]
   ],
@@ -2003,7 +2025,9 @@
    "HRKET": "2026-09-30",
    "IHLAS": "2026-09-30",
    "IZINV": "2026-09-30",
-   "KCHOL": "2026-09-30"
+   "KCHOL": "2026-09-30",
+   "KLRHO": "2026-09-30",
+   "KLSER": "2026-09-30"
   },
   "onceki_yok": [],
   "kirpilan": [],
@@ -2062,6 +2086,8 @@
    "KARSN",
    "KATMR",
    "KCHOL",
+   "KLRHO",
+   "KLSER",
    "MAKIM",
    "MAKTK",
    "MANAS",
@@ -2082,7 +2108,6 @@
    "SAYAS",
    "SDTTR",
    "TMSN",
-   "TTRAK",
    "TUCLK",
    "TUREX",
    "YIGIT"
@@ -2110,14 +2135,14 @@
     ]
    }
   },
-  "tazelendi": "2026-11-24T18:51:00+00:00"
+  "tazelendi": "2026-11-25T17:53:12+00:00"
  },
  "Sağlık": {
   "sektor": "Sağlık",
   "donem": "2026 3. çeyrek",
   "sirket_sayisi": 9,
   "medyan": {
-   "brut_marj": 38.940704525510846,
+   "brut_marj": 36.23041243575279,
    "net_marj": 2.116213847502191,
    "roe": 0.483526268922529,
    "cari_oran": 2.3576793576793578,
@@ -2167,7 +2192,7 @@
     "borc_ozkaynak": 0.36114534251540414
    },
    "MEDTR": {
-    "brut_marj": 38.940704525510846,
+    "brut_marj": 36.23041243575279,
     "net_marj": 1.145794158204839,
     "roe": 0.25724739656628204,
     "cari_oran": 3.7650575612533586,
@@ -2216,12 +2241,12 @@
   ],
   "mali": {},
   "donem_gruplari": {},
-  "tazelendi": "2026-11-24T23:32:56+00:00"
+  "tazelendi": "2026-11-25T17:59:03+00:00"
  },
  "Temel malzeme": {
   "sektor": "Temel malzeme",
   "donem": "2026 3. çeyrek",
-  "sirket_sayisi": 50,
+  "sirket_sayisi": 52,
   "medyan": {
    "brut_marj": 16.113474789456415,
    "net_marj": 1.2546217659053744,
@@ -2614,6 +2639,20 @@
     "roe": 3.2494020569241804,
     "cari_oran": 1.5504864139550487,
     "borc_ozkaynak": 0.8109901937335565
+   },
+   "KLKIM": {
+    "brut_marj": 37.276180141074335,
+    "net_marj": 7.195876288659794,
+    "roe": 3.102222222222222,
+    "cari_oran": 2.260897435897436,
+    "borc_ozkaynak": -0.20280701754385966
+   },
+   "KMPUR": {
+    "brut_marj": 14.015753938484622,
+    "net_marj": -2.2498124531132784,
+    "roe": -2.6848701880035812,
+    "cari_oran": 1.1671277306114662,
+    "borc_ozkaynak": 1.5051477170993732
    }
   },
   "atlanan": [
@@ -2626,91 +2665,7 @@
     "eksik: brut_kar, faaliyet_kari"
    ],
    [
-    "GOLTS",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "GUBRF",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "HEKTS",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "ISDMR",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "ISVEA",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "IZMDC",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "KARCL",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
     "KBORU",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "KCAER",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "KLKIM",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "KOPOL",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "MARBL",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "MEGAP",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "MEKAG",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "PETKM",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "POLHO",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "POLTK",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "RNPOL",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "SARKY",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "SUMAS",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "TMPOL",
-    "eksik: hasilat, net_kar, aktif_toplami"
-   ],
-   [
-    "VSNMD",
     "eksik: hasilat, net_kar, aktif_toplami"
    ]
   ],
@@ -2770,7 +2725,9 @@
    "IZMDC": "2026-09-30",
    "KBORU": "2026-09-30",
    "KCAER": "2026-09-30",
-   "KARCL": "2026-09-30"
+   "KARCL": "2026-09-30",
+   "KLKIM": "2026-09-30",
+   "KMPUR": "2026-09-30"
   },
   "onceki_yok": [],
   "kirpilan": [],
@@ -2808,7 +2765,29 @@
    "EREGL",
    "FRMPL",
    "GEDZA",
-   "GENKM"
+   "GENKM",
+   "GOLTS",
+   "GUBRF",
+   "HEKTS",
+   "ISDMR",
+   "ISVEA",
+   "IZMDC",
+   "KARCL",
+   "KCAER",
+   "KLKIM",
+   "KMPUR",
+   "KOPOL",
+   "MARBL",
+   "MEGAP",
+   "MEKAG",
+   "PETKM",
+   "POLHO",
+   "POLTK",
+   "RNPOL",
+   "SARKY",
+   "SUMAS",
+   "TMPOL",
+   "VSNMD"
   ],
   "mali": {},
   "donem_gruplari": {
@@ -2838,7 +2817,7 @@
     ]
    }
   },
-  "tazelendi": "2026-11-24T23:37:35+00:00"
+  "tazelendi": "2026-11-25T18:14:40+00:00"
  },
  "Temel tüketim": {
   "sektor": "Temel tüketim",
@@ -3401,7 +3380,7 @@
     ]
    }
   },
-  "tazelendi": "2026-11-24T18:30:39+00:00"
+  "tazelendi": "2026-11-25T17:30:06+00:00"
  },
  "İsteğe bağlı tüketim": {
   "sektor": "İsteğe bağlı tüketim",

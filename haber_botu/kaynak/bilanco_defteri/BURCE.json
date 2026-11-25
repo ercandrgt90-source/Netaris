@@ -1,6 +1,6 @@
 {
  "kod": "BURCE",
- "cekildi": "2026-11-24T18:34:21Z",
+ "cekildi": "2026-11-25T17:36:07Z",
  "ceyrek": 1,
  "sema": "cd5f150b28ca53cb",
  "bitis": "2026-09-30",
@@ -12,18 +12,18 @@
   "gelir": {
    "Revenue": 90500000.0,
    "Gross Profit": -780000.0,
-   "Operating Income": -85000000.0,
+   "Operating Income": -75490000.0,
    "Net Income": -87930000.0,
    "Net Cash (Debt)": -113110000.0
   },
   "gelir_onceki": {
-   "Revenue": 154750000.0,
-   "Gross Profit": 34670000.0,
-   "Operating Income": -31200000.0,
-   "Net Income": -17110000.0,
+   "Revenue": 170890000.0,
+   "Gross Profit": 46320000.0,
+   "Operating Income": -21380000.0,
+   "Net Income": -22200000.0,
    "Net Cash (Debt)": -107250000.0,
-   "Operating Cash Flow": -19230000.0,
-   "Capital Expenditures": -16579999.999999998
+   "Operating Cash Flow": -44850000.0,
+   "Capital Expenditures": -24150000.0
   },
   "_donem": {
    "gelir": [
@@ -55,13 +55,13 @@
    "Capital Expenditures": -7270000.0
   },
   "gelir_g3": {
-   "Revenue": 154750000.0,
-   "Gross Profit": 34670000.0,
-   "Operating Income": -31200000.0,
-   "Net Income": -17110000.0,
+   "Revenue": 170890000.0,
+   "Gross Profit": 46320000.0,
+   "Operating Income": -21380000.0,
+   "Net Income": -22200000.0,
    "Net Cash (Debt)": -107250000.0,
-   "Operating Cash Flow": -19230000.0,
-   "Capital Expenditures": -16579999.999999998
+   "Operating Cash Flow": -44850000.0,
+   "Capital Expenditures": -24150000.0
   },
   "_seri_bitis": [
    "2026-09-30",
@@ -160,18 +160,11 @@
    "Cash Interest Paid": 13440000.0
   },
   "nakit_g2": {
-   "Net Income": -22010000.0,
-   "Depreciation & Amortization": 13580000.0,
-   "Operating Cash Flow": -19230000.0,
-   "Capital Expenditures": -16579999.999999998,
-   "Cash Interest Paid": 14290000.0
-  },
-  "nakit_g3": {
-   "Net Income": -30360000.0,
-   "Depreciation & Amortization": 11360000.0,
-   "Operating Cash Flow": -31540000.0,
-   "Capital Expenditures": -4139999.9999999995,
-   "Cash Interest Paid": 6510000.0
+   "Net Income": -47980000.0,
+   "Depreciation & Amortization": 23880000.0,
+   "Operating Cash Flow": -44850000.0,
+   "Capital Expenditures": -24150000.0,
+   "Cash Interest Paid": 19820000.0
   }
  }
 }

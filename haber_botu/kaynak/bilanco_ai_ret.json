@@ -833,6 +833,36 @@
      12.1
     ]
    }
+  },
+  {
+   "kod": "KLRHO",
+   "unvan": "KİLER HOLDİNG A.Ş.",
+   "donem": "2026 3. çeyrek",
+   "neden": "cloudflare HTTP 429",
+   "model": "",
+   "ham": "",
+   "an": "2026-11-25T18:15:22+00:00",
+   "yakin": {}
+  },
+  {
+   "kod": "KLSER",
+   "unvan": "KALESERAMİK ÇANAKKALE KALEBODUR SERAMİK SANAYİ A.Ş.",
+   "donem": "2026 3. çeyrek",
+   "neden": "cloudflare HTTP 429",
+   "model": "",
+   "ham": "",
+   "an": "2026-11-25T18:36:04+00:00",
+   "yakin": {}
+  },
+  {
+   "kod": "KLKIM",
+   "unvan": "KALEKİM KİMYEVİ MADDELER SANAYİ VE TİCARET A.Ş.",
+   "donem": "2026 3. çeyrek",
+   "neden": "cloudflare HTTP 429",
+   "model": "",
+   "ham": "",
+   "an": "2026-11-25T18:56:45+00:00",
+   "yakin": {}
   }
  ]
 }
