@@ -80,6 +80,53 @@ es("uc bundesbank alanında",
    bundesbank.UC.startswith("https://api.statistiken.bundesbank.de/"),
    True)
 
+# ===============================================================
+# UC NOKTASI TASINDI VE SERI ON IKI GUN DONDU -- OLCULDU 2026-11-25.
+#
+# Bundesbank `/rest/download/` -> `/rest/data/` tasidi; eskisi 301
+# donuyor ve `httpx` varsayilan olarak yonlendirme IZLEMIYOR. Cekim
+# 2026-11-13'ten beri her kosuda patliyordu. `uret_evds.py` satiri
+# BASIYORDU ama adim 0 ile donuyordu, yani kosu YESIL kaldi ve
+# yayindaki grafik 13 Kasim'da bitti.
+#
+# IKI AYRI IDDIA: dogru yol VE yonlendirme izlemesi. Yalnizca yolu
+# sinamak yetmez -- kaynak bir daha tasidiginda ayni sessiz donma
+# tekrarlar.
+# ===============================================================
+es("uc `rest/data` yolunu kullaniyor (download DEGIL)",
+   "/rest/data/" in bundesbank.UC and "/rest/download/" not in bundesbank.UC,
+   True)
+
+# YONLENDIRME IZLENIYOR: olcut METIN degil, GERCEK cagri.
+# Sahte istemci cagri argumanlarini yakaliyor; ag istegi YOK.
+_cagri = {}
+
+
+def _sahte_get(adres, **k):
+    _cagri.update(k)
+    _cagri["adres"] = adres
+
+    class _C:
+        text = '"2026-11-24",3.31,\n'
+
+        @staticmethod
+        def raise_for_status():
+            return None
+    return _C()
+
+
+class _SahteIstemci:
+    get = staticmethod(_sahte_get)
+
+
+_sonuc = bundesbank.cek(_SahteIstemci())
+es("sahte istemciyle cekim cozuluyor", _sonuc, [("2026-11-24", 3.31)])
+es("cek() yonlendirmeyi IZLIYOR",
+   _cagri.get("follow_redirects"), True)
+es("cek() dogru adrese gidiyor", _cagri.get("adres"), bundesbank.UC)
+es("cek() kimlik basligini geciriyor",
+   _cagri.get("headers"), bundesbank.BASLIKLAR)
+
 print(f"{gecti} gecti, {len(kaldi)} kaldi")
 for k in kaldi:
     print("  DUSTU", k)

@@ -63,7 +63,26 @@ except ImportError:  # pragma: no cover -- paket bicimiyle cagrildi
 #: Bundesbank BBSIS serisi: listelenmis federal menkul kiymetlerin
 #: faiz yapisindan turetilen getiri, kalan vade 10,0 yil.
 SERI = "D.I.ZAR.ZI.EUR.S1311.B.A604.R10XX.R.A.A._Z._Z.A"
-UC = ("https://api.statistiken.bundesbank.de/rest/download/BBSIS/"
+#: UC NOKTASI TASINDI -- OLCULDU (2026-11-25).
+#:
+#: Bundesbank `/rest/download/` yolunu `/rest/data/`ya tasidi ve
+#: eskisi 301 donuyor. `httpx` VARSAYILAN OLARAK yonlendirme
+#: IZLEMIYOR, `raise_for_status()` 301'i hata sayiyor; yani cekim
+#: 2026-11-13'ten beri HER KOSUDA patliyordu.
+#:
+#: ARIZA SESSIZ KALMADI AMA GORULMEDI: `uret_evds.py` satiri
+#: basiyordu ("Almanya 10Y (BBk) CEKILEMEDI: HTTPStatusError")
+#: ve adim 0 ile donuyordu -- kosu YESIL. On iki gun boyunca
+#: yayindaki grafik 13 Kasim'da bitti. Tazelik denetimi sonunda
+#: yakaladi (tavan 11 gun), yani dedektor dogruydu, YAVASTI.
+#:
+#: YONLENDIRME ARTIK IZLENIYOR. Adresi guncellemek tek basina
+#: yetmez: kaynak bir daha tasidiginda ayni sessiz donma
+#: tekrarlar. Ayni ana bilgisayarda kalan bir yonlendirmeyi
+#: izlemek bedava; ayristirici zaten KATI (satir ISO tarihle
+#: baslamak zorunda), yani beklenmeyen bir govde veri uretmez,
+#: bos liste uretir ve `depoya_yaz` bos listede hic yazmaz.
+UC = ("https://api.statistiken.bundesbank.de/rest/data/BBSIS/"
       + SERI + "?format=csv&lang=en")
 
 BASLIKLAR = {"User-Agent": ajan("tahvil getirisi")}
@@ -116,9 +135,15 @@ def coz(csv_metni: str) -> list[tuple[str, float]]:
 
 
 def cek(istemci=None) -> list[tuple[str, float]]:
-    """Bundesbank'tan butun seriyi ceker."""
+    """Bundesbank'tan butun seriyi ceker.
+
+    YONLENDIRME IZLENIYOR -- gerekcesi `UC` uzerinde yazili. Bir
+    kaynagin adresi tasindiginda seriyi sessizce dondurmak, bu
+    depoda on iki gun suren bir kusur oldu.
+    """
     al = (istemci or httpx).get
-    r = al(UC, headers=BASLIKLAR, timeout=ZAMAN_ASIMI)
+    r = al(UC, headers=BASLIKLAR, timeout=ZAMAN_ASIMI,
+           follow_redirects=True)
     r.raise_for_status()
     return coz(r.text)
 
