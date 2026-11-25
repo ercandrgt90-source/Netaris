@@ -1,7 +1,7 @@
 ---
 slug: piyasa-tepkisi-tahran-yonetiminden-hurmuz-bogazi-nda-calisan-26-a115c8-2026-11-25
 baslik: Tahran yönetiminden Hürmüz Boğazı'nda çalışan 26 römorköre yasak kararı
-ozet: Jeopolitik gelişme. Bitcoin 1 saat içinde -%0,69 geriledi.
+ozet: Jeopolitik gelişme. Altın 1 saat içinde -%1,02 geriledi.
 sirket: Piyasa tepkisi: Tahran yönetiminden Hürmüz Boğazı'nda çalışan 26 römorköre yasak kararı
 kod: OLAY
 donem: 2026-11-25
@@ -23,8 +23,8 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Ekonomim.
 
 ## Piyasada ne oldu
 
-- **Altın** 1 saat içinde geriledi: -%0,40 (son 3517,30).
-- **Bitcoin** 1 saat içinde geriledi: -%0,69 (son 58458,50).
+- **Altın** 1 saat içinde geriledi: -%1,02 (son 3514,35).
+- **Bitcoin** 1 saat içinde geriledi: -%0,30 (son 58524,90).
 
 *Yukarıdaki rakamlar ölçülen fiyat hareketidir. Hareketin sebebinin bu gelişme olduğu iddia edilmemektedir; aynı pencerede başka etkenler de fiyatlanmış olabilir.*
 
