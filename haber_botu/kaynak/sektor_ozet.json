@@ -2197,7 +2197,7 @@
   ],
   "mali": {},
   "donem_gruplari": {},
-  "tazelendi": "2026-11-24T02:09:06+00:00"
+  "tazelendi": "2026-11-24T23:32:56+00:00"
  },
  "Temel malzeme": {
   "sektor": "Temel malzeme",
@@ -2605,6 +2605,94 @@
    [
     "VERUS",
     "eksik: brut_kar, faaliyet_kari"
+   ],
+   [
+    "GOLTS",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "GUBRF",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "HEKTS",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "ISDMR",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "ISVEA",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "IZMDC",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "KARCL",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "KBORU",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "KCAER",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "KLKIM",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "KOPOL",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "MARBL",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "MEGAP",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "MEKAG",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "PETKM",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "POLHO",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "POLTK",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "RNPOL",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "SARKY",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "SUMAS",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "TMPOL",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "VSNMD",
+    "eksik: hasilat, net_kar, aktif_toplami"
    ]
   ],
   "ana_donem": "2026-09-30",
@@ -2701,28 +2789,7 @@
    "EREGL",
    "FRMPL",
    "GEDZA",
-   "GENKM",
-   "GOLTS",
-   "GUBRF",
-   "HEKTS",
-   "ISDMR",
-   "ISVEA",
-   "IZMDC",
-   "KARCL",
-   "KBORU",
-   "KCAER",
-   "KOPOL",
-   "MARBL",
-   "MEGAP",
-   "MEKAG",
-   "PETKM",
-   "POLHO",
-   "POLTK",
-   "RNPOL",
-   "SARKY",
-   "SUMAS",
-   "TMPOL",
-   "VSNMD"
+   "GENKM"
   ],
   "mali": {},
   "donem_gruplari": {
@@ -2752,7 +2819,7 @@
     ]
    }
   },
-  "tazelendi": "2026-11-24T02:23:26+00:00"
+  "tazelendi": "2026-11-24T23:37:35+00:00"
  },
  "Temel tüketim": {
   "sektor": "Temel tüketim",

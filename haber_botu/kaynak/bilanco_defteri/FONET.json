@@ -1,6 +1,6 @@
 {
  "kod": "FONET",
- "cekildi": "2026-11-24T02:05:17Z",
+ "cekildi": "2026-11-24T23:32:38Z",
  "ceyrek": 1,
  "sema": "cd5f150b28ca53cb",
  "bitis": "2026-09-30",
@@ -32,6 +32,9 @@
     "Q3 2026"
    ],
    "bilanco": [
+    "Q3 2026"
+   ],
+   "nakit": [
     "Q3 2026"
    ]
   },
@@ -67,12 +70,6 @@
    "2026-06-30",
    "2026-03-31",
    "2025-12-31"
-  ],
-  "_seri_etiket": [
-   "Q3 2026",
-   "Q2 2026",
-   "Q1 2026",
-   "Q4 2025"
   ],
   "bilanco": {
    "Accounts Receivable": 191940000.0,
@@ -123,6 +120,41 @@
    "Total Liabilities & Equity": 1842000000.0,
    "Net Cash (Debt)": 89130000.0,
    "Working Capital": 165990000.0
+  },
+  "nakit": {
+   "Net Income": 104880000.0,
+   "Depreciation & Amortization": 18930000.0,
+   "Operating Cash Flow": 183640000.0,
+   "Capital Expenditures": -1670000.0,
+   "Cash Interest Paid": 3230000.0
+  },
+  "nakit_onceki": {
+   "Net Income": 91750000.0,
+   "Depreciation & Amortization": 52110000.0,
+   "Operating Cash Flow": 198790000.0,
+   "Capital Expenditures": -930000.0,
+   "Cash Interest Paid": 340000.0
+  },
+  "nakit_g1": {
+   "Net Income": 51800000.0,
+   "Depreciation & Amortization": 16100000.000000002,
+   "Operating Cash Flow": 102630000.0,
+   "Capital Expenditures": -5710000.0,
+   "Cash Interest Paid": 3800000.0
+  },
+  "nakit_g2": {
+   "Net Income": 51800000.0,
+   "Depreciation & Amortization": 16100000.000000002,
+   "Operating Cash Flow": 102630000.0,
+   "Capital Expenditures": -5710000.0,
+   "Cash Interest Paid": 3800000.0
+  },
+  "nakit_g3": {
+   "Net Income": 117350000.0,
+   "Depreciation & Amortization": 14620000.0,
+   "Operating Cash Flow": 168260000.0,
+   "Capital Expenditures": -33780000.0,
+   "Cash Interest Paid": 5320000.0
   }
  }
 }

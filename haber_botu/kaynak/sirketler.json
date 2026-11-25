@@ -4523,7 +4523,10 @@
    "kap_kimlik": "4028e4a2416e696c01416f7763e874db",
    "sehir": "MANİSA",
    "uye_turu": "IGS",
-   "denetci": "EREN BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "EREN BAĞIMSIZ DENETİM A.Ş.",
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Specialty Industrial Machinery"
   },
   "KLN": {
    "kod": "KLN",
@@ -4531,7 +4534,8 @@
    "kap_kimlik": "4028e4a14158e41e01415b2dc3476cf4",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "GÜNEY BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "GÜNEY BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor_bulunamadi": "2026-11-24"
   },
   "KLNMA": {
    "kod": "KLNMA",
@@ -4539,7 +4543,10 @@
    "kap_kimlik": "4028e4a14158e41e01415b2dc3476cf4",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "GÜNEY BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "GÜNEY BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor": "Financials",
+   "sektor_tr": "Finans",
+   "alt_sektor": "Banks - Regional"
   },
   "KLRHO": {
    "kod": "KLRHO",
