@@ -1,13 +1,13 @@
 ---
 slug: asuzu-2026-3-ceyrek
 baslik: ANADOLU ISUZU OTOMOTİV SANAYİ VE TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %31,0 artması, aktif toplamının %69,9 yükselmesiyle paralel bir büyüme sağlarken, brüt kârın %33,5 düşmesi brüt kâr marjının %6,2 seviyesinde sektör medyanının %14,4'ünün altında kalmasına yol açtı; bu kâr düşüşü, faaliyet kârının -%2586,8 gerilemesi ve net kârın -%5100,0 azalmasıyla…
+ozet: Hasılatın hafif artışı %1,0 gerçekleşirken brüt kâr %48,7 düşmüş; bu düşüş brüt kâr marjının %6,2'ye gerilemesine ve net kârın -%22,4'e inerek faaliyet ve FAVÖK kârlarının da negatifleşmesine yol açtı.…
 sirket: ANADOLU ISUZU OTOMOTİV SANAYİ VE TİCARET A.Ş.
 kod: ASUZU
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: İsteğe bağlı tüketim
-tarih: 2026-11-10
+tarih: 2026-11-25
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %31,0 artması, aktif toplamının %69,9 yükselmesiyle paralel bir büyüme sağlarken, brüt kârın %33,5 düşmesi brüt kâr marjının %6,2 seviyesinde sektör medyanının %14,4'ünün altında kalmasına yol açtı; bu kâr düşüşü, faaliyet kârının -%2586,8 gerilemesi ve net kârın -%5100,0 azalmasıyla birlikte FAVÖK'ün %96,8 düşmesine ve özkaynak kârlılığının -%9,7'ye inmesine yansıdı. Net borcun %167,3 artışı, borç/özkaynak oranını sektör medyanı 0,12 iken 0,98'e yükselterek cari oranı 1,10 seviyesine çekti; artan borç yükü, faaliyet nakit akışının -2,79 milyar TL'ye (önceki -0,64 milyar TL) gerilemesiyle nakit sıkışıklığını pekiştirdi. Yatırım harcamasının %38,7 azalması, büyüyen varlık tabanına rağmen nakit çıkışının artmasıyla birlikte şirketin sermaye harcamalarını kısıtlamasına ve likidite baskısının sürmesine neden oldu.
+Hasılatın hafif artışı %1,0 gerçekleşirken brüt kâr %48,7 düşmüş; bu düşüş brüt kâr marjının %6,2'ye gerilemesine ve net kârın -%22,4'e inerek faaliyet ve FAVÖK kârlarının da negatifleşmesine yol açtı. Özkaynakların %26,1 artması ve aktif toplamının %69,9 yükselmesi net borcun %167,3 artmasıyla birlikte borç/özkaynak oranının %0,98'e (sektör medyanı %0,19) çıkmasına, cari oranın ise %1,10 (sektör medyanı 1,35) seviyesinde daralmasına neden oldu. Faaliyet nakit akışının -2,79 milyar TL'ye (önceki dönem -0,76 milyar TL) ve yatırım harcamasının %52,0 azalmasına (0,05 milyar TL) gerilemesi, kârlılık ve likidite göstergelerindeki negatif hareketlerle paralel bir seyir izledi.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 

@@ -1,13 +1,13 @@
 ---
 slug: dyoby-2026-3-ceyrek
 baslik: DYO BOYA FABRİKALARI SANAYİ VE TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %2,0 artması, brüt kârın %11,3 düşmesiyle birlikte brüt kâr marjının %31,2 seviyesinde kalması, satış hacmindeki artışın kâr marjını koruyamadığını gösteriyor; bu durum, faaliyet kârı, FAVÖK ve net kârda sırasıyla %84,4, %61,4 ve %118,9 düşüşlere yol açarak kâr kalemlerinin gelir artışına…
+ozet: Hasılatın %21,4 düşmesi brüt kârın %31,7 azalmasına yol açmış; brüt kârdaki daha büyük gerileme ise faaliyet kârının %62,9 ve FAVÖK'ün %52,2 düşmesinde zincirleme bir etki oluşturmuş.…
 sirket: DYO BOYA FABRİKALARI SANAYİ VE TİCARET A.Ş.
 kod: DYOBY
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: Temel malzeme
-tarih: 2026-11-07
+tarih: 2026-11-25
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %2,0 artması, brüt kârın %11,3 düşmesiyle birlikte brüt kâr marjının %31,2 seviyesinde kalması, satış hacmindeki artışın kâr marjını koruyamadığını gösteriyor; bu durum, faaliyet kârı, FAVÖK ve net kârda sırasıyla %84,4, %61,4 ve %118,9 düşüşlere yol açarak kâr kalemlerinin gelir artışına paralel olarak gerilediğini ortaya koyuyor. Özkaynakların %31,3 artması ve aktif toplamının %20,7 yükselmesi, net borcun sadece %4,8 artmasıyla birlikte özkaynak/kaynak yapısının güçlendiğini, fakat cari oranın %0,63 seviyesinde (sektör medyanı 1,58) ve borç/özkaynak oranının %0,64 (sektör medyanı 0,11) olması, likidite ve finansal kaldıraçta sektör ortalamalarının altında bir konumda olduğunu gösteriyor. Faaliyet nakit akışının %49,8 azalması ve yatırım harcamasının %27,5 düşmesi, kâr kayıplarıyla birlikte işletme sermayesi ve yatırım harcamalarında da gerilemeye işaret ediyor.
+Hasılatın %21,4 düşmesi brüt kârın %31,7 azalmasına yol açmış; brüt kârdaki daha büyük gerileme ise faaliyet kârının %62,9 ve FAVÖK'ün %52,2 düşmesinde zincirleme bir etki oluşturmuş. Net kârın negatifleşmesi, brüt kâr marjının %31,3 (sektör medyanı %16,1) yüksek olmasına rağmen net kâr marjının -%0,8 (sektör medyanı %1,3) ve özkaynak kârlılığının -%0,2 (sektör medyanı %0,5) ile ters yönde hareket etmesinden kaynaklanıyor. Aktif toplamının %20,7 artması özkaynakların %31,3 yükselmesiyle desteklenirken, cari oranın 0,63'e düşmesi ve borç/özkaynak oranının 0,64'ye (sektör medyanı 0,16) yükselmesi likidite ve finansal kaldıraç riskinin artmasına işaret ediyor.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 

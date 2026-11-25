@@ -1,13 +1,13 @@
 ---
 slug: borsk-2026-2-ceyrek
 baslik: BOR ŞEKER A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılatın %7,3 artması, brüt kârın %49,9 düşmesiyle birlikte brüt kâr marjının %5,3 seviyesinde kalması, satışların artışının maliyetlerdeki artışa ya da fiyat indirimlerine bağlı olarak kârı erittiğini gösteriyor; bu durum faaliyet kârının %132,7 düşerek negatifleşmesi ve FAVÖK'ün %54,4…
+ozet: Hasılatın %7,3 artması, aktif toplamının %31,8 yükselmesiyle özkaynakların %21,8 artmasına paralel gerçekleşirken, brüt kârın %49,9 düşmesi brüt kâr marjının %5,3 seviyesine gerilemesine yol açtı; bu düşüş, faaliyet kârının negatifleşmesi ve FAVÖK'ün %40,7 azalmasıyla birlikte net kârın -%19,3'e…
 sirket: BOR ŞEKER A.Ş.
 kod: BORSK
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Temel tüketim
-tarih: 2026-11-01
+tarih: 2026-11-25
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %7,3 artması, brüt kârın %49,9 düşmesiyle birlikte brüt kâr marjının %5,3 seviyesinde kalması, satışların artışının maliyetlerdeki artışa ya da fiyat indirimlerine bağlı olarak kârı erittiğini gösteriyor; bu durum faaliyet kârının %132,7 düşerek negatifleşmesi ve FAVÖK'ün %54,4 azalmasıyla da tutarlı. Özkaynakların %21,8 artması ve aktif toplamının %31,8 yükselmesi, net borcun önceki dönemde negatif (nakit fazlası) iken 0,41 milyar TL'ye çıkmasıyla birlikte şirketin likidite pozisyonunun güçlenmesine rağmen özkaynak kârlılığının %3,6 negatif kalmasına yol açtı. Cari oranının 2,43 ve borç/özkaynak oranının 0,05 olması, sektörel medyanların (1,36 ve 0,28) üzerinde bir likidite tamponu ve düşük finansal kaldıraç sağlarken, net kâr marjının -%19,3 ve net kârın -0,28 milyar TL'ye gerilemesi, kârın hâlâ negatif seyretmesinin bu güçlü likidite ve düşük borçlulukla çeliştiğini ortaya koyuyor.
+Hasılatın %7,3 artması, aktif toplamının %31,8 yükselmesiyle özkaynakların %21,8 artmasına paralel gerçekleşirken, brüt kârın %49,9 düşmesi brüt kâr marjının %5,3 seviyesine gerilemesine yol açtı; bu düşüş, faaliyet kârının negatifleşmesi ve FAVÖK'ün %40,7 azalmasıyla birlikte net kârın -%19,3'e (sektör medyanının %4,3'ü) gerilemesinde etkili oldu. Net borcun pozitif 0,41 milyar TL'ye çıkması, cari oranın 2,43 (sektör medyanı 1,88) ve borç/özkaynak oranının 0,05 (sektör medyanı 0,23) olmasıyla likidite pozisyonunun güçlenmesine rağmen, özkaynak kârlılığının -%3,6 (sektör medyanı -%0,8) olumsuz kalmasını sürdürdü. Faaliyet nakit akışı %20,1 azalsa da yatırım harcamasının %93,8 düşmesi, nakit çıkışlarını sınırlayarak cari oranı destekledi.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 
@@ -26,8 +26,7 @@ Hasılatın %7,3 artması, brüt kârın %49,9 düşmesiyle birlikte brüt kâr 
 | --- | ---: |
 | Hasılat | %7,3 |
 | Brüt kâr | -%49,9 |
-| Faaliyet kârı | -%132,7 |
-| FAVÖK | -%54,4 |
+| FAVÖK | -%40,7 |
 | Özkaynak | %21,8 |
 | Aktif toplamı | %31,8 |
 | Ticari alacaklar | -%0,4 |
@@ -63,7 +62,7 @@ Hasılatın %7,3 artması, brüt kârın %49,9 düşmesiyle birlikte brüt kâr 
 | Hasılat | 1,46 | 1,43 | 1,60 | 1,12 |
 | Brüt kâr | 0,08 | 0,05 | 0,42 | 0,04 |
 | Faaliyet kârı | -0,02 | -0,11 | 0,40 | -0,01 |
-| FAVÖK | 0,07 | -0,01 | 0,50 | 0,09 |
+| FAVÖK | 0,07 | 0,00 | 0,49 | 0,07 |
 | Net kâr | -0,28 | -0,21 | 0,22 | -0,13 |
 | Özkaynak | 7,80 | 7,55 | 7,05 | 6,74 |
 | Aktif toplamı | 9,40 | 9,16 | 9,78 | 7,60 |
@@ -78,17 +77,17 @@ Hasılatın %7,3 artması, brüt kârın %49,9 düşmesiyle birlikte brüt kâr 
 
 ## Sektör içindeki konum
 
-Karşılaştırma Temel tüketim sektöründe **aynı dönemi bildiren** 31 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Temel tüketim sektöründe **aynı dönemi bildiren** 4 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 Şirketin mali yılı mart sonunda bitiyor, takvim yılıyla örtüşmüyor; bu yüzden dönemi ay adlarıyla yazılıyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %5,3 | %16,5 |
-| Net kâr marjı | -%19,3 | %0,2 |
-| Özkaynak kârlılığı | -%3,6 | %0,2 |
-| Cari oran | 2,43 | 1,36 |
-| Borç / özkaynak | 0,05 | 0,28 |
+| Brüt kâr marjı | %5,3 | %19,7 |
+| Net kâr marjı | -%19,3 | %4,3 |
+| Özkaynak kârlılığı | -%3,6 | -%0,8 |
+| Cari oran | 2,43 | 1,88 |
+| Borç / özkaynak | 0,05 | 0,23 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -100,7 +99,6 @@ Karşılaştırma Temel tüketim sektöründe **aynı dönemi bildiren** 31 şir
 
 **Dikkat gerektirenler**
 
-- Net kâr reel olarak -%16,7 geriledi.
 - Brüt marj 6,1 puan daraldı (%11,4 → %5,3).
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*

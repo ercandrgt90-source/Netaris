@@ -1,13 +1,13 @@
 ---
 slug: ercb-2026-3-ceyrek
 baslik: ERCİYAS ÇELİK BORU SANAYİ A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %46,6 düşmesi brüt kârın %109,6 gerilemesine ve brüt kâr marjının –%5,0'a kaymasına yol açtı; bu düşüş aynı zamanda faaliyet kârının %63,7 azalmasına ve FAVÖK'ün %41,8 küçülmesine yansıyıp net kârın –%8745,1 gerilemesine neden oldu.…
+ozet: Hasılatın %46,6 düşmesi brüt kârın negatif %5,0'a kaymasına ve net kârın %25,1 negatif marja sürüklenmesine yol açtı; aynı anda özkaynakların %206,5 artması aktif toplamındaki %54,7 yükselişle birlikte borçların %69,9 artması ve borç/özkaynak oranının %0,16 medyanının çok üzerindeki 1,75 seviyesine…
 sirket: ERCİYAS ÇELİK BORU SANAYİ A.Ş.
 kod: ERCB
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: Temel malzeme
-tarih: 2026-11-15
+tarih: 2026-11-25
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %46,6 düşmesi brüt kârın %109,6 gerilemesine ve brüt kâr marjının –%5,0'a kaymasına yol açtı; bu düşüş aynı zamanda faaliyet kârının %63,7 azalmasına ve FAVÖK'ün %41,8 küçülmesine yansıyıp net kârın –%8745,1 gerilemesine neden oldu. Özkaynakların %206,5 artması aktif toplamının %54,7 yükselmesiyle paralel seyredirken, net borcun %69,9 artması borç/özkaynak oranını sektör medyanının %0,11'inden 1,75'e yükseltti. Cari oran 1,86 ile sektör medyanı 1,61'in üzerinde kalırken, özkaynak kârlılığı –%5,0 ve net kâr marjı –%25,1 gibi negatif değerler sektörel ortalamaların çok altında seyrediyor.
+Hasılatın %46,6 düşmesi brüt kârın negatif %5,0'a kaymasına ve net kârın %25,1 negatif marja sürüklenmesine yol açtı; aynı anda özkaynakların %206,5 artması aktif toplamındaki %54,7 yükselişle birlikte borçların %69,9 artması ve borç/özkaynak oranının %0,16 medyanının çok üzerindeki 1,75 seviyesine çıkmasına neden oldu. Cari oran 1,86 ile sektör medyanının (1,48) üzerinde kalırken, faaliyet nakit akışının negatif olması ve yatırım harcamasının %46,2 düşmesi likiditeyi zorlayarak özkaynak kârlılığının %5,0 negatif olmasına katkı sağladı. Bu göstergeler, gelir kaybının kâr ve nakit akışı üzerindeki zincirleme etkisini, özkaynak artışıyla birlikte borçlanma seviyesinin yükselmesinin bilanço yapısını nasıl değiştirdiğini ortaya koyar.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 

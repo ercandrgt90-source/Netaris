@@ -1,13 +1,13 @@
 ---
 slug: mekag-2026-3-ceyrek
 baslik: MEKA GLOBAL MAKİNE İMALAT SANAYİ VE TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %26,1 artması brüt kârın %25,3 yükselmesine paralel olarak gerçekleşirken, brüt kâr marjı %21,0 seviyesinde sektör medyanının (%18,6) üzerinde kalmıştır; aynı dönemde faaliyet kârı ve net kâr negatif kalmış, bu da FAVÖK'ün %33,1 düşerek 0,01 milyar TL'ye gerilemesiyle birlikte kâr…
+ozet: Hasılat ve brüt kâr aynı oranda yükselerek %26,1 ve %25,3 reel artış sağladı; bu artış brüt kâr marjının %21,0 seviyesinde sektör medyanı %16,1'in üzerinde kalmasını mümkün kıldı.…
 sirket: MEKA GLOBAL MAKİNE İMALAT SANAYİ VE TİCARET A.Ş.
 kod: MEKAG
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: Temel malzeme
-tarih: 2026-11-12
+tarih: 2026-11-25
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %26,1 artması brüt kârın %25,3 yükselmesine paralel olarak gerçekleşirken, brüt kâr marjı %21,0 seviyesinde sektör medyanının (%18,6) üzerinde kalmıştır; aynı dönemde faaliyet kârı ve net kâr negatif kalmış, bu da FAVÖK'ün %33,1 düşerek 0,01 milyar TL'ye gerilemesiyle birlikte kâr dağılımındaki zayıflığı yansıtmaktadır. Özkaynakların %22,6 artması (1,65 milyar TL) aktif toplamının %22,2 artışı (2,91 milyar TL) ile uyumlu olup, negatif net borç (-0,19 milyar TL) ve cari oranının 1,77 (sektör medyanı 1,59) olması, likidite ve finansal yapıdaki iyileşmenin özkaynak artışıyla birlikte geldiğini göstermektedir. Yatırım harcamasının %350,2 artarak 0,06 milyar TL'ye yükselmesi, faaliyet nakit akışının -%118,8 düşüşle -0,04 milyar TL'ye gerilemesiyle ters bir ilişki sergilemiş, bu da nakit çıkışının artan yatırım harcamalarıyla bağlantılı olduğunu işaret etmektedir.
+Hasılat ve brüt kâr aynı oranda yükselerek %26,1 ve %25,3 reel artış sağladı; bu artış brüt kâr marjının %21,0 seviyesinde sektör medyanı %16,1'in üzerinde kalmasını mümkün kıldı. Faaliyet kârı ve net kâr negatif kalmaya devam ederken, FAVÖK'ün sıfırın üzerine çıkması, faaliyet giderlerinin (özellikle faaliyet nakit akışı –%0,04) önceki dönemdeki pozitif akıştan (%0,22) gerilemesiyle birlikte kâr öncesi likiditenin iyileştiğini gösteriyor. Özkaynak ve aktif toplamındaki %22,6-%22,2 artış, özkaynak kârlılığının negatif (%-1,7) olmasına rağmen cari oranın 1,77 (sektör medyanı 1,48) ve borç/özkaynakın –%0,11 (sektör medyanı 0,16) olmasıyla bilanço likiditesinin güçlendiğini ortaya koyuyor.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
@@ -26,14 +26,11 @@ Hasılatın %26,1 artması brüt kârın %25,3 yükselmesine paralel olarak ger�
 | --- | ---: |
 | Hasılat | %26,1 |
 | Brüt kâr | %25,3 |
-| FAVÖK | -%33,1 |
 | Özkaynak | %22,6 |
 | Aktif toplamı | %22,2 |
 | Ticari alacaklar | %77,9 |
 | Stoklar | %21,9 |
-| Faaliyet nakit akışı | -%118,8 |
 | Yatırım harcaması | %350,2 |
-| Serbest nakit akışı | -%148,2 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -62,7 +59,7 @@ Hasılatın %26,1 artması brüt kârın %25,3 yükselmesine paralel olarak ger�
 | Hasılat | 0,72 | 0,90 | 0,69 | 1,01 |
 | Brüt kâr | 0,15 | 0,22 | 0,16 | 0,23 |
 | Faaliyet kârı | -0,04 | 0,02 | -0,03 | 0,03 |
-| FAVÖK | 0,01 | 0,07 | 0,02 | 0,08 |
+| FAVÖK | 0,01 | 0,05 | -0,01 | 0,05 |
 | Net kâr | -0,03 | -0,02 | -0,05 | 0,01 |
 | Özkaynak | 1,65 | 1,60 | 1,51 | 1,42 |
 | Aktif toplamı | 2,91 | 2,84 | 2,84 | 2,50 |
@@ -77,15 +74,15 @@ Hasılatın %26,1 artması brüt kârın %25,3 yükselmesine paralel olarak ger�
 
 ## Sektör içindeki konum
 
-Karşılaştırma Temel malzeme sektöründe **aynı dönemi bildiren** 30 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Temel malzeme sektöründe **aynı dönemi bildiren** 50 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %21,0 | %18,6 |
-| Net kâr marjı | -%3,9 | %2,6 |
-| Özkaynak kârlılığı | -%1,7 | %0,8 |
-| Cari oran | 1,77 | 1,59 |
-| Borç / özkaynak | -0,11 | 0,10 |
+| Brüt kâr marjı | %21,0 | %16,1 |
+| Net kâr marjı | -%3,9 | %1,3 |
+| Özkaynak kârlılığı | -%1,7 | %0,5 |
+| Cari oran | 1,77 | 1,48 |
+| Borç / özkaynak | -0,11 | 0,16 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -94,7 +91,6 @@ Karşılaştırma Temel malzeme sektöründe **aynı dönemi bildiren** 30 şirk
 **Şirket lehine işleyenler**
 
 - Hasılat reel olarak %26,1 arttı.
-- Net kâr reel olarak %15,1 arttı.
 - Cari oran 1,77; dönen varlıklar kısa vadeli yükümlülüklerin üzerinde.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*

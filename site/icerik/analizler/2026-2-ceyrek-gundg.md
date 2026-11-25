@@ -1,13 +1,13 @@
 ---
 slug: gundg-2026-2-ceyrek
 baslik: GÜNDOĞDU GIDA SÜT ÜRÜNLERİ SANAYİ VE DIŞ TİCARET A.Ş. 2026 2. çeyrek bilanço analizi
-ozet: Hasılat ve brüt kârın %100 ve %96,2 düşmesi, faaliyet kârı ve FAVÖK'ün %787,1-%794,7 artmasıyla birlikte net kârın %327,1 gerilemesi, gelir kaybının maliyetleri ve diğer giderleri orantısız şekilde azaltmasıyla net kârda negatif dönüşe yol açtı; özkaynakların %17,7 artması ise azalan aktif toplamı…
+ozet: Hasılatın sıfıra düşmesi brüt kârda %96,2'lik bir gerilemeye yol açarken, faaliyet kârı ve FAVÖK'te önceki döneme göre sırasıyla %787,1 ve %149,4 artış görülmüş; bu, maliyet ve gider kalemlerinde önemli bir azalma ya da tek seferlik kalemlerin etkisiyle kârlılıkta yükseliş olduğunu gösteriyor.…
 sirket: GÜNDOĞDU GIDA SÜT ÜRÜNLERİ SANAYİ VE DIŞ TİCARET A.Ş.
 kod: GUNDG
 donem: 2026 2. çeyrek
 kategori: Bilanço Analizi
 sektor: Temel tüketim
-tarih: 2026-11-18
+tarih: 2026-11-25
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat ve brüt kârın %100 ve %96,2 düşmesi, faaliyet kârı ve FAVÖK'ün %787,1-%794,7 artmasıyla birlikte net kârın %327,1 gerilemesi, gelir kaybının maliyetleri ve diğer giderleri orantısız şekilde azaltmasıyla net kârda negatif dönüşe yol açtı; özkaynakların %17,7 artması ise azalan aktif toplamı (%5,4 düşüş) ve negatif net borcun (%0,63 milyar artışı) yanında özkaynak kârlılığının %4,7 negatif olmasına rağmen cari oranın 17,02'ye yükselmesi ve borç/özkaynak oranının –%0,77'ye inmesi, likiditeyi artırırken finansal kaldıraçta azalma olduğunu gösteriyor.
+Hasılatın sıfıra düşmesi brüt kârda %96,2'lik bir gerilemeye yol açarken, faaliyet kârı ve FAVÖK'te önceki döneme göre sırasıyla %787,1 ve %149,4 artış görülmüş; bu, maliyet ve gider kalemlerinde önemli bir azalma ya da tek seferlik kalemlerin etkisiyle kârlılıkta yükseliş olduğunu gösteriyor. Özkaynakların %17,7 artması ve net borcun negatiften –0,04 milyar TL'ye gerilemesi, özkaynak/kredi oranının –0,77'ye düşmesiyle birlikte likiditeyi artırarak cari oranı 17,02'ye (sektör medyanı 1,88) yükseltmiş; bu da şirketin kısa vadeli yükümlülüklerini karşılamadaki güçlü pozisyonunu yansıtıyor. Faaliyet nakit akışının %32,6 azalması ve yatırım harcamasının %99,4 düşmesi, artan kârlılığa rağmen nakit çıkışının sınırlı kalmasını ve sermaye harcamalarının neredeyse durdurulmasını işaret ediyor.
 
 ## 2026 2. çeyrek — bir yıl öncesine göre
 

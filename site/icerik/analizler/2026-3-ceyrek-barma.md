@@ -1,13 +1,13 @@
 ---
 slug: barma-2026-3-ceyrek
 baslik: BAREM AMBALAJ SANAYİ VE TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %11,4 artması, brüt kârın %33,5 düşmesiyle birlikte brüt kâr marjının %16,9 seviyesinde sabit kalması, satış hacmindeki artışın maliyetlerdeki artıştan daha hızlı yükselmediğini gösteriyor; bu durum faaliyet kârının %46,2 ve FAVÖK'ün %17,0 yükselmesine rağmen net kârın %1528,5 düşerek…
+ozet: Hasılat %11,4 artarken brüt kâr %33,5 azaldı; bu durum brüt kâr marjının %16,9 seviyesinde kalmasına rağmen net kârın -%19,7'ye gerilemesiyle birlikte kârlılık göstergelerinin (net kâr marjı, özkaynak kârlılığı) sektör medyanlarının altında kalmasına yol açtı.…
 sirket: BAREM AMBALAJ SANAYİ VE TİCARET A.Ş.
 kod: BARMA
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: İsteğe bağlı tüketim
-tarih: 2026-11-17
+tarih: 2026-11-25
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %11,4 artması, brüt kârın %33,5 düşmesiyle birlikte brüt kâr marjının %16,9 seviyesinde sabit kalması, satış hacmindeki artışın maliyetlerdeki artıştan daha hızlı yükselmediğini gösteriyor; bu durum faaliyet kârının %46,2 ve FAVÖK'ün %17,0 yükselmesine rağmen net kârın %1528,5 düşerek negatifleşmesine yol açtı. Özkaynakların %22,4 artması ve aktif toplamının %38,6 büyümesi, net borcun %33,8 artmasıyla birlikte borç/özkaynak oranının %1,53'ye (sektör medyanı %0,18) yükselmesine ve cari oranın %0,38 (sektör medyanı 1,38) seviyesine gerilemesine neden oldu. Faaliyet nakit akışının %260,6 düşmesi ve yatırım harcamasının %27,3 artması, artan faaliyet kârına rağmen likidite sıkışıklığını ve negatif net kâr marjını (%-19,7) pekiştirdi.
+Hasılat %11,4 artarken brüt kâr %33,5 azaldı; bu durum brüt kâr marjının %16,9 seviyesinde kalmasına rağmen net kârın -%19,7'ye gerilemesiyle birlikte kârlılık göstergelerinin (net kâr marjı, özkaynak kârlılığı) sektör medyanlarının altında kalmasına yol açtı. Faaliyet kârı %46,2 yükselmiş ve FAVÖK %43,4 artmış olsa da, özkaynak %22,4 artışına rağmen net borç %33,8 artarak borç/özkaynak oranının 1,53'e yükselmesi cari oranı 0,38'den daha da düşürdü. Yatırım harcaması %27,3 artarken faaliyet nakit akışı negatif (-0,58 milyar TL) olmuş, bu da artan aktif toplamı ( %38,6) ve borç seviyesinin finansal likidite üzerindeki baskısını gösteriyor.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 

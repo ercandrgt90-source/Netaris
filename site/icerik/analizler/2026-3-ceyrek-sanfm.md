@@ -1,13 +1,13 @@
 ---
 slug: sanfm-2026-3-ceyrek
 baslik: SANİFOAM ENDÜSTRİ VE TÜKETİM ÜRÜNLERİ SANAYİ TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %19,5 artması brüt kârı yalnızca %0,1 yükselterek brüt kâr marjının %23,0 seviyesinde kalmasına yol açtı; bu durum faaliyet kârı ve FAVÖK'ün sırasıyla %9,7 ve %7,8 düşmesine, net kârın ise %103,6 gerilemesine ve negatif %0,1 net kâr marjına neden oldu.…
+ozet: Hasılatın %19,5 artması brüt kârın sadece %0,1 yükselmesine yol açmış; bu durum brüt kâr marjının %23,0 seviyesinde kalmasını ve faaliyet kârı ile FAVÖK'ün sırasıyla %9,7 ve %15,2 düşmesini, net kârın ise sıfıra gerilemesini tetiklemiştir.…
 sirket: SANİFOAM ENDÜSTRİ VE TÜKETİM ÜRÜNLERİ SANAYİ TİCARET A.Ş.
 kod: SANFM
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: Temel tüketim
-tarih: 2026-11-14
+tarih: 2026-11-25
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %19,5 artması brüt kârı yalnızca %0,1 yükselterek brüt kâr marjının %23,0 seviyesinde kalmasına yol açtı; bu durum faaliyet kârı ve FAVÖK'ün sırasıyla %9,7 ve %7,8 düşmesine, net kârın ise %103,6 gerilemesine ve negatif %0,1 net kâr marjına neden oldu. Özkaynakların %32,4 artması aktif toplamının %23,2 yükselmesiyle birlikte cari oranı %1,65'e (sektör medyanı 1,57) çıkarmış, fakat net borcun %156,5 artması borç/özkaynak oranını %1,19'a (sektör medyanı 0,17) yükselterek finansal riskin artmasına işaret etti. Faaliyet nakit akışının %64,0 düşmesi yatırım harcamasının %30,5 azalmasıyla birlikte likiditeyi sınırlamış, bu da kârlılıkta yaşanan gerilemenin nakit akışı üzerindeki olumsuz etkisini pekiştirmiştir.
+Hasılatın %19,5 artması brüt kârın sadece %0,1 yükselmesine yol açmış; bu durum brüt kâr marjının %23,0 seviyesinde kalmasını ve faaliyet kârı ile FAVÖK'ün sırasıyla %9,7 ve %15,2 düşmesini, net kârın ise sıfıra gerilemesini tetiklemiştir. Özkaynakların %32,4 artması aktif toplamındaki %23,2 yükselişle paralel seyretmiş, ancak net borcun %156,5 artması borç/özkaynak oranını sektör medyanının çok altında kalan %0,14'dan %1,19'a yükseltmiştir. Net borç artışı ve faaliyet nakit akışının %64,0 düşmesi, yatırım harcamasındaki %30,5 azalışla birlikte likiditeyi zorlamış; buna rağmen cari oran %1,65 ile sektör medyanı %1,60'ı aşmıştır.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
@@ -27,8 +27,7 @@ Hasılatın %19,5 artması brüt kârı yalnızca %0,1 yükselterek brüt kâr m
 | Hasılat | %19,5 |
 | Brüt kâr | %0,1 |
 | Faaliyet kârı | -%9,7 |
-| FAVÖK | -%7,8 |
-| Net kâr | -%103,6 |
+| FAVÖK | -%15,2 |
 | Özkaynak | %32,4 |
 | Aktif toplamı | %23,2 |
 | Ticari alacaklar | %46,1 |
@@ -64,7 +63,7 @@ Hasılatın %19,5 artması brüt kârı yalnızca %0,1 yükselterek brüt kâr m
 | Hasılat | 0,35 | 0,40 | 0,35 | 0,33 |
 | Brüt kâr | 0,08 | 0,06 | 0,05 | -0,02 |
 | Faaliyet kârı | 0,03 | 0,07 | 0,00 | -0,03 |
-| FAVÖK | 0,04 | 0,07 | 0,01 | -0,02 |
+| FAVÖK | 0,04 | 0,08 | 0,03 | -0,01 |
 | Net kâr | 0,00 | 0,02 | 0,01 | -0,02 |
 | Özkaynak | 0,76 | 0,72 | 0,66 | 0,59 |
 | Aktif toplamı | 2,02 | 1,84 | 1,77 | 1,57 |
@@ -80,15 +79,15 @@ Hasılatın %19,5 artması brüt kârı yalnızca %0,1 yükselterek brüt kâr m
 
 ## Sektör içindeki konum
 
-Karşılaştırma Temel tüketim sektöründe **aynı dönemi bildiren** 25 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Temel tüketim sektöründe **aynı dönemi bildiren** 36 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %23,0 | %19,5 |
-| Net kâr marjı | -%0,1 | -%1,6 |
-| Özkaynak kârlılığı | -%0,0 | -%0,1 |
-| Cari oran | 1,65 | 1,57 |
-| Borç / özkaynak | 1,19 | 0,17 |
+| Brüt kâr marjı | %23,0 | %19,4 |
+| Net kâr marjı | -%0,1 | -%0,8 |
+| Özkaynak kârlılığı | -%0,0 | -%0,0 |
+| Cari oran | 1,65 | 1,60 |
+| Borç / özkaynak | 1,19 | 0,14 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -100,7 +99,6 @@ Karşılaştırma Temel tüketim sektöründe **aynı dönemi bildiren** 25 şir
 
 **Dikkat gerektirenler**
 
-- Net kâr reel olarak -%103,6 geriledi.
 - Brüt marj 4,4 puan daraldı (%27,5 → %23,0).
 - Yatırım harcaması faaliyet nakit akışını aşıyor; aradaki fark dış kaynakla karşılanıyor.
 

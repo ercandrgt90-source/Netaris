@@ -1,13 +1,13 @@
 ---
 slug: anele-2026-3-ceyrek
 baslik: ANEL ELEKTRİK PROJE TAAHHÜT VE TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %95,6 düşmesi brüt kârın %217,9 gerilemesine ve bunun sonucunda faaliyet kârı ile FAVÖK'ün %1021,2 ve %981,1 azalmasına yol açtı; bu kâr kayıpları net kârın %473,3 düşerek özkaynak kârlılığının %442,0 negatif olmasına neden oldu.…
+ozet: Hasılatın %95,6 düşmesiyle birlikte brüt kâr negatif %55,2'ye gerileyerek brüt kâr marjı sektör medyanının %23,2'sinin çok altında kalmış; bu düşüş faaliyet kârını da %0,03'den -%0,30'a ve net kârı %0,07'den -%0,27'ye sürüklemiş, dolayısıyla FAVÖK ve net kâr marjları da negatif değerler almıştır.…
 sirket: ANEL ELEKTRİK PROJE TAAHHÜT VE TİCARET A.Ş.
 kod: ANELE
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: Sanayi
-tarih: 2026-11-13
+tarih: 2026-11-25
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %95,6 düşmesi brüt kârın %217,9 gerilemesine ve bunun sonucunda faaliyet kârı ile FAVÖK'ün %1021,2 ve %981,1 azalmasına yol açtı; bu kâr kayıpları net kârın %473,3 düşerek özkaynak kârlılığının %442,0 negatif olmasına neden oldu. Aktif toplamındaki %23,4 azalma ve net borcun %81,3 küçülmesi, özkaynakların %97,9 düşmesiyle birlikte borç/özkaynak oranının 0,14 medyanından 6,32'ye yükselmesine ve cari oranın 1,43 medyanının altına, 0,98'e gerilemesine sebep oldu. Net kâr marjının %254,1 negatif olması, brüt kâr marjının %55,2 negatif olmasıyla paralel bir düşüş göstererek sektör medyanlarından belirgin şekilde sapma oluşturdu.
+Hasılatın %95,6 düşmesiyle birlikte brüt kâr negatif %55,2'ye gerileyerek brüt kâr marjı sektör medyanının %23,2'sinin çok altında kalmış; bu düşüş faaliyet kârını da %0,03'den -%0,30'a ve net kârı %0,07'den -%0,27'ye sürüklemiş, dolayısıyla FAVÖK ve net kâr marjları da negatif değerler almıştır. Özkaynakların %97,9 azalması aktif toplamının %23,4 düşüşüne paralel olarak özkaynak kârlılığının %442,0 negatif olmasına yol açmış; aynı zamanda borçların %81,3 azalması net borcun %0,39'a gerilemesiyle borç/özkaynak oranının 6,32'ye yükselmesine ve cari oranın 0,98'e düşmesine neden olmuştur. Faaliyet nakit akışının -%0,08'den -%0,66'ya genişlemesi, negatif kârlılık ve özkaynak erozyonunun nakit çıkışını artırdığını göstermektedir.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
@@ -72,14 +72,14 @@ Hasılatın %95,6 düşmesi brüt kârın %217,9 gerilemesine ve bunun sonucunda
 
 ## Sektör içindeki konum
 
-Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 74 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 75 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | -%55,2 | %23,0 |
-| Net kâr marjı | -%254,1 | -%0,1 |
+| Brüt kâr marjı | -%55,2 | %23,2 |
+| Net kâr marjı | -%254,1 | %0,0 |
 | Özkaynak kârlılığı | -%442,0 | %0,0 |
-| Cari oran | 0,98 | 1,39 |
+| Cari oran | 0,98 | 1,40 |
 | Borç / özkaynak | 6,32 | 0,16 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*

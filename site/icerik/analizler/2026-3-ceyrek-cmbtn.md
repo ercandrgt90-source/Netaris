@@ -1,13 +1,13 @@
 ---
 slug: cmbtn-2026-3-ceyrek
 baslik: ÇİMBETON HAZIRBETON VE PREFABRİK YAPI ELEMANLARI SANAYİ VE TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %27,8 artması aktif toplamının %43,3 yükselmesiyle birlikte özkaynakta %51,8 düşüşe yol açmış; gelir artışı varlık büyümesini desteklerken özkaynak erozyonunu tetiklemiş.…
+ozet: Hasılatın %1,5 düşmesi brüt kârın %77,3 gerilemesine eşlik ederken, brüt kâr marjının %1,6'ya gerilemesi bu düşüşün kârlılık üzerindeki etkisini gösterir; aynı zamanda faaliyet kârının negatifleşmesi ve net kârın -%3,0'a inmesi özkaynak kârlılığının -%20,8'e düşmesine yol açmıştır.…
 sirket: ÇİMBETON HAZIRBETON VE PREFABRİK YAPI ELEMANLARI SANAYİ VE TİCARET A.Ş.
 kod: CMBTN
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: Temel malzeme
-tarih: 2026-11-07
+tarih: 2026-11-25
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %27,8 artması aktif toplamının %43,3 yükselmesiyle birlikte özkaynakta %51,8 düşüşe yol açmış; gelir artışı varlık büyümesini desteklerken özkaynak erozyonunu tetiklemiş. Brüt kâr marjının %1,6'dan %18,7 sektör medyanına gerilemesi, brüt kârın %70,5 düşmesiyle paralel seyrederek faaliyet kârının %249,8 gerilemesine ve net kârın %669,5 negatifleşmesine zemin hazırlamış. Net borç sabit kalırken cari oran %0,70'den sektörün %1,58 ortalamasının çok altında kalması, likidite sıkıntısının özkaynak kârlılığı %20,8 negatifliğe ve borç/özkaynak oranının %0,11 sektör medyanının çok üzerindeki %0,74 seviyesine yansımasıyla ilişkilidir.
+Hasılatın %1,5 düşmesi brüt kârın %77,3 gerilemesine eşlik ederken, brüt kâr marjının %1,6'ya gerilemesi bu düşüşün kârlılık üzerindeki etkisini gösterir; aynı zamanda faaliyet kârının negatifleşmesi ve net kârın -%3,0'a inmesi özkaynak kârlılığının -%20,8'e düşmesine yol açmıştır. Aktif toplamının %43,3 artması özkaynakta %51,8 azalma ve borç/özkaynak oranının %0,74'ye (sektör medyanı %0,16) yükselmesiyle likiditeyi zayıflatarak cari oranı 0,70 (sektör medyanı 1,48) seviyesine indirmiştir. Yatırım harcamasındaki %54,3 artış ise faaliyet nakit akışının %24,2 azalmasıyla birlikte net borçta sadece %3,2 artış kalmasına neden olmuştur.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 

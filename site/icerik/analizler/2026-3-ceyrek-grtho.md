@@ -1,13 +1,13 @@
 ---
 slug: grtho-2026-3-ceyrek
 baslik: GRAINTURK HOLDİNG A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %5,9 artması, brüt kârın %39,3 düşmesiyle birlikte brüt kâr marjının %7,3 seviyesine gerilemesi, satışların maliyet artışı ya da fiyat baskısı altında gerçekleştiğini gösteriyor; bu durum faaliyet kârının %114,6 düşerek negatifleşmesi ve FAVÖK'ün %78,0 azalmasıyla net kârın %284,5…
+ozet: Hasılatın %18,3 düşmesi brüt kârın %54,0 azalmasına eşlik ederken, brüt kâr marjı %7,2 seviyesinde kalmış ve sektör medyanı %19,4'ün çok altında kalmıştır; aynı dönemde faaliyet nakit akışı 1,97 milyar TL'ye yükselerek önceki 0,60 milyar TL'den %227,1 artmış, bu da artan özkaynak (10,65 milyar TL…
 sirket: GRAINTURK HOLDİNG A.Ş.
 kod: GRTHO
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: Temel tüketim
-tarih: 2026-11-17
+tarih: 2026-11-25
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %5,9 artması, brüt kârın %39,3 düşmesiyle birlikte brüt kâr marjının %7,3 seviyesine gerilemesi, satışların maliyet artışı ya da fiyat baskısı altında gerçekleştiğini gösteriyor; bu durum faaliyet kârının %114,6 düşerek negatifleşmesi ve FAVÖK'ün %78,0 azalmasıyla net kârın %284,5 gerilemesine yol açtı. Özkaynakların %32,6 artması ve aktif toplamının %43,4 yükselmesi, net borcun -%0,29 milyar TL'ye (nakit fazlası) gerilemesiyle birlikte cari oranının %2,03'e (sektör medyanının %1,59'unun üzerinde) yükselmesine, borç/özkaynak oranının ise -%0,03 (sektör medyanının %0,16'sının altında) kalmasına neden oldu. Faaliyet nakit akışının %320,1 artması ve yatırım harcamasının %3296,9 yükselmesi, artan likiditeyi destekleyerek özkaynak bazlı kârlılığın (-%7,6) ve net kâr marjının (-%56,3) negatif seyretmesine rağmen likidite pozisyonunun güçlenmesine işaret ediyor.
+Hasılatın %18,3 düşmesi brüt kârın %54,0 azalmasına eşlik ederken, brüt kâr marjı %7,2 seviyesinde kalmış ve sektör medyanı %19,4'ün çok altında kalmıştır; aynı dönemde faaliyet nakit akışı 1,97 milyar TL'ye yükselerek önceki 0,60 milyar TL'den %227,1 artmış, bu da artan özkaynak (10,65 milyar TL, %32,6) ve aktif toplamı (13,08 milyar TL, %43,4) ile uyumlu bir likidite artışı sağlamıştır. Net kârın -0,81 milyar TL'ye gerilemesi ve net kâr marjının -%56,3 olması, aynı zamanda özkaynak kârlılığının -%7,6 olmasıyla birlikte, kâr üretimindeki gerilemenin özkaynak büyümesinden bağımsız bir düşüş olduğunu gösterir. Cari oran 2,03 ve borç/özkaynak -0,03 değerleri, sektör medyanı 1,60 ve 0,14 ile karşılaştırıldığında, şirketin likidite pozisyonunun güçlü olduğunu ancak borç yapısının negatif (net borç -0,29 milyar TL) olduğunu ortaya koyar.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
@@ -79,15 +79,15 @@ Hasılatın %5,9 artması, brüt kârın %39,3 düşmesiyle birlikte brüt kâr 
 
 ## Sektör içindeki konum
 
-Karşılaştırma Temel tüketim sektöründe **aynı dönemi bildiren** 35 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Temel tüketim sektöründe **aynı dönemi bildiren** 36 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
 | Brüt kâr marjı | %7,2 | %19,4 |
-| Net kâr marjı | -%56,3 | -%1,2 |
-| Özkaynak kârlılığı | -%7,6 | -%0,1 |
-| Cari oran | 2,03 | 1,61 |
-| Borç / özkaynak | -0,03 | 0,16 |
+| Net kâr marjı | -%56,3 | -%0,8 |
+| Özkaynak kârlılığı | -%7,6 | -%0,0 |
+| Cari oran | 2,03 | 1,60 |
+| Borç / özkaynak | -0,03 | 0,14 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

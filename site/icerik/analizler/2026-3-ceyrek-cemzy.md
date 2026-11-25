@@ -1,13 +1,13 @@
 ---
 slug: cemzy-2026-3-ceyrek
 baslik: CEM ZEYTİN A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %8,5 artması, brüt kârın %27,1 düşmesiyle birlikte brüt kâr marjının %14,8 seviyesinde kalması, satışların artmasına rağmen maliyetlerin daha hızlı yükseldiğini gösteriyor; bu durum faaliyet kârı, FAVÖK ve net kârda sırasıyla %34,7, %28,1 ve %950,3 düşüşe yol açtı.…
+ozet: Hasılatın %16,4 düşmesi brüt kârın %43,8 azalmasına ve ardından faaliyet kârının %49,7, FAVÖK'ün %41,1 gerilemesine yol açtı; bu gelir kaybı net kârın -%29,2'lik negatif marja dönüşerek -0,19 milyar TL zarar oluşmasına neden oldu.…
 sirket: CEM ZEYTİN A.Ş.
 kod: CEMZY
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: Temel tüketim
-tarih: 2026-11-09
+tarih: 2026-11-25
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %8,5 artması, brüt kârın %27,1 düşmesiyle birlikte brüt kâr marjının %14,8 seviyesinde kalması, satışların artmasına rağmen maliyetlerin daha hızlı yükseldiğini gösteriyor; bu durum faaliyet kârı, FAVÖK ve net kârda sırasıyla %34,7, %28,1 ve %950,3 düşüşe yol açtı. Özkaynakların %17,7 artması ve aktif toplamının %23,5 yükselmesi, net borcun -%0,51'den -%0,21'e (daha negatif) değişmesiyle birlikte cari oranı 5,23'e (sektör medyanının 1,32'sinden çok daha yüksek) ve borç/özkaynak oranını -%0,11'e (sektör medyanının 0,17'sinin altında) taşıdı; bu, likiditenin güçlenirken özkaynak bazlı finansmanın azaldığını işaret ediyor. Faaliyet nakit akışının %39,7 artması ve yatırım harcamasının %127,9 yükselmesi, artan likiditeyi desteklerken aynı zamanda büyüme harcamalarının da hızlandığını ortaya koyuyor.
+Hasılatın %16,4 düşmesi brüt kârın %43,8 azalmasına ve ardından faaliyet kârının %49,7, FAVÖK'ün %41,1 gerilemesine yol açtı; bu gelir kaybı net kârın -%29,2'lik negatif marja dönüşerek -0,19 milyar TL zarar oluşmasına neden oldu. Özkaynakların %17,7 artması ve aktif toplamının %23,5 yükselmesi, negatif net borç (-0,51 milyar TL) ve yüksek cari oran 5,23 ile birlikte şirketin likidite pozisyonunun güçlenmesine işaret eder. Faaliyet nakit akışının %11,6 artması, yatırım harcamasının %94,1 yükselmesiyle paralel seyredecek şekilde, operasyonel nakit üretiminin artışı yatırım harcamalarını finanse etme kapasitesini artırdı.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
@@ -81,15 +81,15 @@ Hasılatın %8,5 artması, brüt kârın %27,1 düşmesiyle birlikte brüt kâr 
 
 ## Sektör içindeki konum
 
-Karşılaştırma Temel tüketim sektöründe **aynı dönemi bildiren** 35 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Temel tüketim sektöründe **aynı dönemi bildiren** 36 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
 | Brüt kâr marjı | %14,8 | %19,4 |
-| Net kâr marjı | -%29,2 | -%1,2 |
-| Özkaynak kârlılığı | -%4,3 | -%0,1 |
-| Cari oran | 5,23 | 1,61 |
-| Borç / özkaynak | -0,11 | 0,16 |
+| Net kâr marjı | -%29,2 | -%0,8 |
+| Özkaynak kârlılığı | -%4,3 | -%0,0 |
+| Cari oran | 5,23 | 1,60 |
+| Borç / özkaynak | -0,11 | 0,14 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

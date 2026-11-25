@@ -1,13 +1,13 @@
 ---
 slug: ateks-2026-3-ceyrek
 baslik: AKIN TEKSTİL A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %35,5 düşmesi brüt kârın %160,5 gerilemesine ve FAVÖK'ün %2441,4 azalmasına yol açarken, aynı dönemde özkaynakların %132,2 artması aktif toplamının %113,9 yükselmesiyle paralel bir büyüme gösterdi; bu artış net borcun %95,8 artmasıyla birlikte borç/özkaynak oranının sektör medyanının…
+ozet: Hasılatın %35,5 düşmesi brüt kârın negatifleşmesine ve brüt kâr marjının %37,5'e kadar gerilemesine yol açtı; bu gelir kaybı aynı zamanda faaliyet ve net kârların da negatif seyretmesine, FAVÖK ve net kârın sıfırdan -0,20 milyar TL ve -0,24 milyar TL'ye gerilemesine neden oldu.…
 sirket: AKIN TEKSTİL A.Ş.
 kod: ATEKS
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: İsteğe bağlı tüketim
-tarih: 2026-11-12
+tarih: 2026-11-25
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %35,5 düşmesi brüt kârın %160,5 gerilemesine ve FAVÖK'ün %2441,4 azalmasına yol açarken, aynı dönemde özkaynakların %132,2 artması aktif toplamının %113,9 yükselmesiyle paralel bir büyüme gösterdi; bu artış net borcun %95,8 artmasıyla birlikte borç/özkaynak oranının sektör medyanının altında %0,08 seviyesine gerilemesine neden oldu. Brüt kâr marjının –%37,5 (sektör medyanı %15,0) ve net kâr marjının –%152,0 (sektör medyanı %1,6) olması, faaliyet kârı ve net kârda oluşan negatif değerlerin marjları da aşağı çektiğini gösteriyor. Cari oran 2,80 (sektör medyanı 1,38) ise artan likiditenin, azalan kârlılık ve artan özkaynakla birlikte şirketin kısa vadeli borçlarını karşılamadaki güçlü konumunu yansıtıyor.
+Hasılatın %35,5 düşmesi brüt kârın negatifleşmesine ve brüt kâr marjının %37,5'e kadar gerilemesine yol açtı; bu gelir kaybı aynı zamanda faaliyet ve net kârların da negatif seyretmesine, FAVÖK ve net kârın sıfırdan -0,20 milyar TL ve -0,24 milyar TL'ye gerilemesine neden oldu. Özkaynak ve aktif toplamının %132,2 ve %113,9 artması, özkaynak kârlılığının %2,7 negatif kalmasına rağmen cari oranı 2,80'e yükselterek likiditeyi iyileştirdi; borç/özkaynak oranı ise %0,08 ile sektör ortalamasının altında kaldı. Faaliyet nakit akışının -0,35 milyar TL'ye düşmesi, artan net borç (%95,8) ve negatif kârlarla birlikte şirketin nakit üretimindeki gerilemenin finansal yapı üzerindeki etkisini gösteriyor.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 

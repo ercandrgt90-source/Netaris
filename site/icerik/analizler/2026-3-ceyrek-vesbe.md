@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %117,5 artması brüt kârın %29,9 yükselmesine yol açarken, brüt kâr marjının %4,7 seviyesinde kalması sektörel medyanın %24,3'ünden çok altında kaldı; bu durum, satışların artışına rağmen maliyetlerin orantısız yükselmesinin kâr üzerindeki baskısını gösteriyor. Faaliyet kârının -5,06 milyar TL'ye düşmesi ve FAVÖK'ün -3,65 milyar TL'ye gerilemesi, negatif faaliyet nakit akışı (-6,53 milyar TL) ve artan net borç (112,8 % artış) ile birlikte özkaynak kârlılığının -%8,0'a gerilemesine neden oldu. Aktif toplamındaki %22,4 artış ve özkaynakta %11,3 büyüme, borç/özkaynak oranının %0,93'a (sektör medyanı %0,06) yükselmesiyle birlikte cari oranın 0,96'ya (sektör medyanı 1,26) gerilemesi, likidite ve finansal kaldıraç riskinin arttığını ortaya koyuyor.
+Hasılatın %117,5 artması brüt kârın %29,9 yükselmesine yol açarken, brüt kâr marjının %4,7 seviyesinde kalması sektörel medyanın %24,3'ünden çok altında kaldı; bu durum, satışların artışına rağmen maliyetlerin orantısız yükselmesinin kâr üzerindeki baskısını gösteriyor. Faaliyet kârının -5,06 milyar TL'ye düşmesi ve FAVÖK'ün -3,65 milyar TL'ye gerilemesi, negatif faaliyet nakit akışı (-6,53 milyar TL) ve artan net borç (112,8 % artış) ile birlikte özkaynak kârlılığının -%8,0'a gerilemesine neden oldu. Aktif toplamındaki %22,4 artış ve özkaynakta %11,3 büyüme, borç/özkaynak oranının %0,93'a (sektör medyanı %0,06) yükselmesiyle birlikte cari oranın 0,96'ya (sektör medyanı 1,26) gerilemesi, likidite ve finansal kaldıraç riskinin arttığını ortaya koyuyor.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
@@ -26,15 +26,12 @@ Hasılatın %117,5 artması brüt kârın %29,9 yükselmesine yol açarken, brü
 | --- | ---: |
 | Hasılat | %117,5 |
 | Brüt kâr | %29,9 |
-| FAVÖK | -%397,5 |
 | Özkaynak | %11,3 |
 | Aktif toplamı | %22,4 |
 | Ticari alacaklar | -%21,4 |
 | Stoklar | %5,1 |
 | Net borç | %112,8 |
-| Faaliyet nakit akışı | -%275,5 |
 | Yatırım harcaması | -%52,4 |
-| Serbest nakit akışı | -%326,9 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -63,7 +60,7 @@ Hasılatın %117,5 artması brüt kârın %29,9 yükselmesine yol açarken, brü
 | Hasılat | 40,85 | -35,77 | 10,64 | 16,98 |
 | Brüt kâr | 1,92 | 0,47 | -0,26 | 0,75 |
 | Faaliyet kârı | -5,06 | 5,55 | -1,21 | -1,07 |
-| FAVÖK | -3,65 | 6,96 | 0,20 | 0,34 |
+| FAVÖK | -3,65 | 6,63 | -0,31 | -0,10 |
 | Net kâr | -3,40 | 3,86 | -1,46 | -3,00 |
 | Özkaynak | 42,65 | 41,29 | 39,03 | 36,67 |
 | Aktif toplamı | 113,15 | 98,19 | 94,11 | 90,02 |
@@ -79,15 +76,15 @@ Hasılatın %117,5 artması brüt kârın %29,9 yükselmesine yol açarken, brü
 
 ## Sektör içindeki konum
 
-Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildiren** 8 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildiren** 64 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %4,7 | %24,3 |
-| Net kâr marjı | -%8,3 | %3,4 |
-| Özkaynak kârlılığı | -%8,0 | %2,0 |
-| Cari oran | 0,96 | 1,26 |
-| Borç / özkaynak | 0,93 | 0,06 |
+| Brüt kâr marjı | %4,7 | %16,2 |
+| Net kâr marjı | -%8,3 | -%1,9 |
+| Özkaynak kârlılığı | -%8,0 | -%0,4 |
+| Cari oran | 0,96 | 1,35 |
+| Borç / özkaynak | 0,93 | 0,19 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -99,9 +96,7 @@ Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildire
 
 **Dikkat gerektirenler**
 
-- Net kâr reel olarak -%1299,4 geriledi.
 - Brüt marj 3,2 puan daraldı (%7,9 → %4,7).
-- Özkaynak kârlılığı -%8,0; sektör medyanı %2,0.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

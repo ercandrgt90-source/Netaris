@@ -2824,13 +2824,13 @@
  "Temel tüketim": {
   "sektor": "Temel tüketim",
   "donem": "2026 3. çeyrek",
-  "sirket_sayisi": 35,
+  "sirket_sayisi": 36,
   "medyan": {
-   "brut_marj": 19.35545905707196,
-   "net_marj": -1.1705955334987594,
-   "roe": -0.12565854998889692,
-   "cari_oran": 1.6138769110152882,
-   "borc_ozkaynak": 0.15534648701351517
+   "brut_marj": 19.41277038539049,
+   "net_marj": -0.7633118510355197,
+   "roe": -0.04634544712127399,
+   "cari_oran": 1.6016915419273972,
+   "borc_ozkaynak": 0.14479676167987857
   },
   "sirket": {
    "AEFES": {
@@ -2953,11 +2953,11 @@
     "borc_ozkaynak": 0.4771923620933522
    },
    "EKSUN": {
-    "brut_marj": 12.586811086333228,
+    "brut_marj": 12.548263778273336,
     "net_marj": -3.192736540299458,
     "roe": -3.5959813419447437,
     "cari_oran": 1.249500998003992,
-    "borc_ozkaynak": 0.5672766415500539
+    "borc_ozkaynak": 0.7793326157158235
    },
    "ELITE": {
     "brut_marj": 51.32740817441827,
@@ -3108,16 +3108,19 @@
     "roe": -5.190651344497498,
     "cari_oran": 1.2045361875637104,
     "borc_ozkaynak": 0.3901441593749286
+   },
+   "KIMMR": {
+    "brut_marj": 25.446030330062445,
+    "net_marj": 4.762711864406779,
+    "roe": 3.721854304635762,
+    "cari_oran": 1.021162603803911,
+    "borc_ozkaynak": 0.10641512722202859
    }
   },
   "atlanan": [
    [
     "EKIZ",
     "eksik: stoklar"
-   ],
-   [
-    "DARDL",
-    "eksik: aktif_toplami, ozkaynak, stoklar"
    ]
   ],
   "ana_donem": "2026-09-30",
@@ -3161,7 +3164,8 @@
    "IZFAS": "2026-09-30",
    "AKHAN": "2026-09-30",
    "KENT": "2026-09-30",
-   "KAYSE": "2026-07-31"
+   "KAYSE": "2026-07-31",
+   "KIMMR": "2026-09-30"
   },
   "onceki_yok": [],
   "kirpilan": [],
@@ -3180,6 +3184,7 @@
    "CCOLA",
    "CEMZY",
    "CRFSA",
+   "DARDL",
    "DMRGD",
    "DURKN",
    "EFOR",
@@ -3196,6 +3201,7 @@
    "IZFAS",
    "KAYSE",
    "KENT",
+   "KIMMR",
    "KTSKR",
    "PETUN",
    "PINSU",
@@ -3238,7 +3244,7 @@
     ]
    }
   },
-  "tazelendi": "2026-11-24T02:37:04+00:00"
+  "tazelendi": "2026-11-25T01:26:46+00:00"
  },
  "İletişim": {
   "sektor": "İletişim",

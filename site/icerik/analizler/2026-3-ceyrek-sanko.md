@@ -24,15 +24,15 @@ Hasılatın %184,1 artmasıyla brüt kâr da %156,7 yükselerek 0,10 milyar TL'y
 
 | Kalem | Reel değişim |
 | --- | ---: |
-| Hasılat | %184,1 |
-| Brüt kâr | %156,7 |
+| Hasılat | -%25,4 |
+| Brüt kâr | -%37,6 |
 | Özkaynak | %22,2 |
 | Aktif toplamı | %20,2 |
 | Ticari alacaklar | %9,7 |
 | Stoklar | -%96,6 |
-| Faaliyet nakit akışı | -%79,2 |
-| Yatırım harcaması | -%20,0 |
-| Serbest nakit akışı | -%79,3 |
+| Faaliyet nakit akışı | -%84,7 |
+| Yatırım harcaması | -%38,5 |
+| Serbest nakit akışı | -%84,8 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -40,11 +40,11 @@ Hasılatın %184,1 artmasıyla brüt kâr da %156,7 yükselerek 0,10 milyar TL'y
 
 | Kalem | Değer |
 | --- | ---: |
-| Hasılat | 3,87 milyar TL |
-| Brüt kâr | 0,10 milyar TL |
-| Faaliyet kârı | -0,02 milyar TL |
-| FAVÖK | -0,01 milyar TL |
-| Net kâr | -0,16 milyar TL |
+| Hasılat | 1,32 milyar TL |
+| Brüt kâr | 0,03 milyar TL |
+| Faaliyet kârı | -0,03 milyar TL |
+| FAVÖK | -0,02 milyar TL |
+| Net kâr | -0,03 milyar TL |
 | Özkaynak | 2,69 milyar TL |
 | Aktif toplamı | 4,08 milyar TL |
 | Ticari alacaklar | 1,48 milyar TL |
@@ -58,11 +58,11 @@ Hasılatın %184,1 artmasıyla brüt kâr da %156,7 yükselerek 0,10 milyar TL'y
 
 | Kalem (milyar TL) | 2026 3. çeyrek | 2026 2. çeyrek | 2026 1. çeyrek | 2025 4. çeyrek |
 | --- | ---: | ---: | ---: | ---: |
-| Hasılat | 3,87 | -3,83 | 1,28 | 1,62 |
-| Brüt kâr | 0,10 | -0,10 | 0,03 | 0,04 |
-| Faaliyet kârı | -0,02 | 0,06 | -0,03 | -0,03 |
-| FAVÖK | -0,01 | 0,06 | -0,03 | -0,02 |
-| Net kâr | -0,16 | 0,21 | -0,08 | -0,03 |
+| Hasılat | 1,32 | 1,27 | 1,28 | 1,62 |
+| Brüt kâr | 0,03 | 0,03 | 0,03 | 0,04 |
+| Faaliyet kârı | -0,03 | -0,03 | -0,03 | -0,03 |
+| FAVÖK | -0,02 | -0,02 | -0,03 | -0,02 |
+| Net kâr | -0,03 | -0,06 | -0,08 | -0,03 |
 | Özkaynak | 2,69 | 2,58 | 2,46 | 2,30 |
 | Aktif toplamı | 4,08 | 3,80 | 3,63 | 3,46 |
 | Ticari alacaklar | 1,48 | 1,34 | 1,24 | 1,18 |
@@ -76,28 +76,23 @@ Hasılatın %184,1 artmasıyla brüt kâr da %156,7 yükselerek 0,10 milyar TL'y
 
 ## Sektör içindeki konum
 
-Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildiren** 8 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildiren** 64 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %2,5 | %24,3 |
-| Net kâr marjı | -%4,2 | %3,4 |
-| Özkaynak kârlılığı | -%6,1 | %2,0 |
-| Cari oran | 1,54 | 1,26 |
-| Borç / özkaynak | -0,04 | 0,06 |
+| Brüt kâr marjı | %2,3 | %16,2 |
+| Net kâr marjı | -%2,2 | -%1,9 |
+| Özkaynak kârlılığı | -%1,1 | -%0,4 |
+| Cari oran | 1,54 | 1,35 |
+| Borç / özkaynak | -0,04 | 0,19 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
 ## Öne çıkan ölçümler
 
-**Şirket lehine işleyenler**
-
-- Hasılat reel olarak %184,1 arttı.
-
 **Dikkat gerektirenler**
 
-- Net kâr reel olarak -%391,2 geriledi.
-- Özkaynak kârlılığı -%6,1; sektör medyanı %2,0.
+- Hasılat reel olarak -%25,4 geriledi.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

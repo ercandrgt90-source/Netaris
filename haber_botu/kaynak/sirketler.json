@@ -4554,7 +4554,10 @@
    "kap_kimlik": "4028e4a1415f4d990141600b4b5331e2",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "EREN BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "EREN BAĞIMSIZ DENETİM A.Ş.",
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Conglomerates"
   },
   "KLSER": {
    "kod": "KLSER",
@@ -4562,7 +4565,10 @@
    "kap_kimlik": "4028e4a140f275550140f285f6cf0246",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş"
+   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş",
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Building Products & Equipment"
   },
   "KLSYN": {
    "kod": "KLSYN",
@@ -4570,7 +4576,10 @@
    "kap_kimlik": "402821814da3a99c014f3b4e25ff608e",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "GÜRELİ YEMİNLİ MALİ MÜŞAVİRLİK VE BAĞIMSIZ DENETİM HİZMETLERİ A.Ş."
+   "denetci": "GÜRELİ YEMİNLİ MALİ MÜŞAVİRLİK VE BAĞIMSIZ DENETİM HİZMETLERİ A.Ş.",
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Furnishings, Fixtures & Appliances"
   },
   "KLVKS": {
    "kod": "KLVKS",

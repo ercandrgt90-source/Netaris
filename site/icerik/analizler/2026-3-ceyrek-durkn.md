@@ -1,13 +1,13 @@
 ---
 slug: durkn-2026-3-ceyrek
 baslik: DURUKAN ŞEKERLEME SANAYİ VE TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %24,4 düşmesi brüt kârın %34,4 azalmasına, ardından faaliyet kârının %65,9 ve FAVÖK'ün %46,8 gerilemesine yol açtı; gelir kaybı kâr kalemlerinde daha büyük oranda erozyon yarattı.…
+ozet: Hasılatın %41,8 düşmesi brüt kârın %51,8 azalmasına, ardından faaliyet kârının %79,3 ve FAVÖK'ün %69,3 gerilemesine yol açtı; gelir kaybı kâr kalemlerini orantısız şekilde aşağı çekti.…
 sirket: DURUKAN ŞEKERLEME SANAYİ VE TİCARET A.Ş.
 kod: DURKN
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: Temel tüketim
-tarih: 2026-11-05
+tarih: 2026-11-25
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %24,4 düşmesi brüt kârın %34,4 azalmasına, ardından faaliyet kârının %65,9 ve FAVÖK'ün %46,8 gerilemesine yol açtı; gelir kaybı kâr kalemlerinde daha büyük oranda erozyon yarattı. Net kârın -%570,1 düşmesi özkaynakların %21,2 artışı ve aktif toplamının %35,6 yükselmesiyle birlikte net borcun %107,7 artması ve cari oranın 1,96'ya (sektör medyanı 1,17) yükselmesi, likiditeyi artırırken borç/özkaynak oranının %0,55 (sektör medyanı 0,26) olması bilanço yapısının daha borçlu bir profile kaydığını gösteriyor. Brüt kâr marjının %37,2 (sektör medyanı %21,4) yüksek kalması, net kâr marjının -%62,0 (sektör medyanı -%5,8) ve özkaynak kârlılığının -%4,9 (sektör medyanı -%1,5) ile negatif seyretmesi, kârlılıkta artan maliyet ve borç yükünün marjları olumsuz etkilediğini ortaya koyuyor.
+Hasılatın %41,8 düşmesi brüt kârın %51,8 azalmasına, ardından faaliyet kârının %79,3 ve FAVÖK'ün %69,3 gerilemesine yol açtı; gelir kaybı kâr kalemlerini orantısız şekilde aşağı çekti. Net kârın -%62,0'a gerilemesi özkaynak kârlılığının -%4,9 olmasına ve özkaynakların %21,2 artmasına rağmen net borcun %107,9 yükselmesiyle birlikte borç/özkaynak oranının %0,55'ye (sektör medyanı %0,14) çıkmasına neden oldu. Aktif toplamının %35,6 artması cari oranı 1,96 (sektör medyanı 1,60) yükselterek likiditeyi desteklese de, faaliyet nakit akışının -0,07 milyar TL'ye (önceki dönem -0,11 milyar TL) iyileşmesi yatırım harcamasının %83,9 düşmesiyle sınırlı kaldı.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
@@ -80,15 +80,15 @@ Hasılatın %24,4 düşmesi brüt kârın %34,4 azalmasına, ardından faaliyet 
 
 ## Sektör içindeki konum
 
-Karşılaştırma Temel tüketim sektöründe **aynı dönemi bildiren** 35 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Temel tüketim sektöründe **aynı dönemi bildiren** 36 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
 | Brüt kâr marjı | %35,5 | %19,4 |
-| Net kâr marjı | -%62,0 | -%1,2 |
-| Özkaynak kârlılığı | -%4,9 | -%0,1 |
-| Cari oran | 1,96 | 1,61 |
-| Borç / özkaynak | 0,55 | 0,16 |
+| Net kâr marjı | -%62,0 | -%0,8 |
+| Özkaynak kârlılığı | -%4,9 | -%0,0 |
+| Cari oran | 1,96 | 1,60 |
+| Borç / özkaynak | 0,55 | 0,14 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

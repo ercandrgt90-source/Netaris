@@ -1,13 +1,13 @@
 ---
 slug: arclk-2026-3-ceyrek
 baslik: ARÇELİK A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılat ve brüt kâr %11,7 ve %11,3 artarken faaliyet kârı negatif bir değişimle -%130,8 düşmüş; bu, satışların artmasına rağmen maliyet ve giderlerin daha hızlı yükselmesinin kâr üzerindeki etkisini gösteriyor.…
+ozet: Hasılatın %13,9 düşmesi brüt kârın %14,2 azalmasına paralel olarak yansıdı; brüt kâr marjının %29,0 seviyesinde kalması ise satışların azalmasına rağmen maliyet yapısının nispeten sabit kaldığını gösteriyor.…
 sirket: ARÇELİK A.Ş.
 kod: ARCLK
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: İsteğe bağlı tüketim
-tarih: 2026-11-01
+tarih: 2026-11-25
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılat ve brüt kâr %11,7 ve %11,3 artarken faaliyet kârı negatif bir değişimle -%130,8 düşmüş; bu, satışların artmasına rağmen maliyet ve giderlerin daha hızlı yükselmesinin kâr üzerindeki etkisini gösteriyor. FAVÖK %33,8 azalırken net borç %43,6 artmış, bu da borçlanma artışının nakit akışı üzerindeki baskısını ve faaliyet nakit akışının -%208,5 gerilemesini açıklıyor. Özkaynak kârlılığı -%8,2'ye gerilemiş, cari oran 0,94'e düşmüş ve borç/özkaynak oranı 2,87'ye yükselmiş; bu göstergeler özkaynakların kârlılığı ve likidite durumunun, artan borç yükü ve azalan kâr marjlarıyla birlikte gerilediğini ortaya koyuyor.
+Hasılatın %13,9 düşmesi brüt kârın %14,2 azalmasına paralel olarak yansıdı; brüt kâr marjının %29,0 seviyesinde kalması ise satışların azalmasına rağmen maliyet yapısının nispeten sabit kaldığını gösteriyor. Brüt kârdaki düşüş faaliyet kârını %59,9, FAVÖK'ü %43,5 ve net kârı negatiften daha da aşağıya sürükledi; bu, sabit giderlerin ve finansman maliyetlerinin satışların gerilemesiyle orantısız artmasıyla ilişkilidir. Aktif toplamının %19,1 artması net borcun %43,2 yükselmesiyle birlikte cari oranı 0,94'e, borç/özkaynak oranını 2,86'ya çekerek likidite ve finansal kaldıraçta belirgin bir bozulmaya yol açtı.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
