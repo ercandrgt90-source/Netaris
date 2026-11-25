@@ -1,13 +1,13 @@
 ---
 slug: derhl-2026-3-ceyrek
 baslik: DERLÜKS YATIRIM HOLDİNG A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %51,0 artmasıyla aktif toplamı %69,3 yükselirken brüt kâr, faaliyet kârı, FAVÖK ve net kâr sırasıyla %16,5, %39,3, %26,0 ve %113,8 azaldı; bu düşüşler gelir artışının maliyet ve verimlilik artışına tam olarak yansımadığını gösteriyor.…
+ozet: Hasılat %16,4 arttığı halde brüt kâr %35,6 düşmüş; bu durum brüt kâr marjının %14,9'dan %16,7 sektör medyanının altında kalmasına yol açmış. Faaliyet kârı ve FAVÖK'teki %71,0 ve %47,2 düşüşler, net kârın sıfıra inmesiyle birlikte faaliyet nakit akışının -0,97 milyar TL'ye gerilemesine bağlanabilir.…
 sirket: DERLÜKS YATIRIM HOLDİNG A.Ş.
 kod: DERHL
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: İsteğe bağlı tüketim
-tarih: 2026-11-10
+tarih: 2026-11-25
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %51,0 artmasıyla aktif toplamı %69,3 yükselirken brüt kâr, faaliyet kârı, FAVÖK ve net kâr sırasıyla %16,5, %39,3, %26,0 ve %113,8 azaldı; bu düşüşler gelir artışının maliyet ve verimlilik artışına tam olarak yansımadığını gösteriyor. Özkaynak %90,8 artarak cari oranı %0,46 (1,78) yükseltirken borç/özkaynak oranı %0,28 (0,40) artmış, yani özkaynak büyümesi net borçta hafif bir azalma ile birlikte likiditeyi güçlendirmiş ancak finansal kaldıraçta sektör medyanının çok üzerinde bir yükseliş olmuş. Faaliyet nakit akışı negatiften %0,03'a (-0,97 milyar TL) genişlemesi, yatırım harcamasının neredeyse sıfıra inmesiyle birlikte nakit çıkışının artmasına ve kârlılık göstergelerinin gerilemesine paralel bir seyir izledi.
+Hasılat %16,4 arttığı halde brüt kâr %35,6 düşmüş; bu durum brüt kâr marjının %14,9'dan %16,7 sektör medyanının altında kalmasına yol açmış. Faaliyet kârı ve FAVÖK'teki %71,0 ve %47,2 düşüşler, net kârın sıfıra inmesiyle birlikte faaliyet nakit akışının -0,97 milyar TL'ye gerilemesine bağlanabilir. Özkaynak %90,8 artarak 4,42 milyar TL'ye ulaşmış, bu da cari oranı 1,78 (sektör medyanı 1,35) yükseltirken borç/özkaynak oranının 0,40 (sektör medyanı 0,22) yükselmesine neden olmuştur.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
@@ -78,15 +78,15 @@ Hasılatın %51,0 artmasıyla aktif toplamı %69,3 yükselirken brüt kâr, faal
 
 ## Sektör içindeki konum
 
-Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildiren** 64 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildiren** 66 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %14,9 | %16,2 |
+| Brüt kâr marjı | %14,9 | %16,7 |
 | Net kâr marjı | -%0,1 | -%1,9 |
 | Özkaynak kârlılığı | -%0,0 | -%0,4 |
 | Cari oran | 1,78 | 1,35 |
-| Borç / özkaynak | 0,40 | 0,19 |
+| Borç / özkaynak | 0,40 | 0,22 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

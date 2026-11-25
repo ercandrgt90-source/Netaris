@@ -1,6 +1,6 @@
 {
  "kod": "GLBMD",
- "cekildi": "2026-11-24T18:02:30Z",
+ "cekildi": "2026-11-25T05:20:28Z",
  "ceyrek": 1,
  "sema": "cd5f150b28ca53cb",
  "bitis": "2026-09-30",
@@ -30,6 +30,9 @@
     "Q3 2026"
    ],
    "bilanco": [
+    "Q3 2026"
+   ],
+   "nakit": [
     "Q3 2026"
    ]
   },
@@ -107,6 +110,36 @@
    "Total Liabilities & Equity": 2987000000.0,
    "Net Cash (Debt)": 13270000.0,
    "Working Capital": 394080000.0
+  },
+  "nakit": {
+   "Net Income": -21540000.0,
+   "Operating Cash Flow": 369700000.0,
+   "Capital Expenditures": -4940000.0,
+   "Cash Interest Paid": 91030000.0
+  },
+  "nakit_onceki": {
+   "Net Income": -30060000.0,
+   "Operating Cash Flow": 71200000.0,
+   "Capital Expenditures": -2410000.0,
+   "Cash Interest Paid": 67720000.0
+  },
+  "nakit_g1": {
+   "Net Income": -12190000.0,
+   "Operating Cash Flow": -157810000.0,
+   "Capital Expenditures": 250000.0,
+   "Cash Interest Paid": 75740000.0
+  },
+  "nakit_g2": {
+   "Net Income": -28510000.0,
+   "Operating Cash Flow": 24380000.0,
+   "Capital Expenditures": -3290000.0,
+   "Cash Interest Paid": 61660000.0
+  },
+  "nakit_g3": {
+   "Net Income": -30360000.0,
+   "Operating Cash Flow": -21360000.0,
+   "Capital Expenditures": 1820000.0,
+   "Cash Interest Paid": 50780000.0
   }
  }
 }

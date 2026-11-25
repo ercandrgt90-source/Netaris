@@ -4587,7 +4587,8 @@
    "kap_kimlik": "8acae2c47afb298b017b638d20d840cd",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "GÜNEY BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "GÜNEY BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor_bulunamadi": "2026-11-25"
   },
   "KLYPV": {
    "kod": "KLYPV",
@@ -4595,7 +4596,10 @@
    "kap_kimlik": "8acae2c494bafc930194bb236113010e",
    "sehir": "ANKARA",
    "uye_turu": "IGS",
-   "denetci": "EREN BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "EREN BAĞIMSIZ DENETİM A.Ş.",
+   "sektor": "Technology",
+   "sektor_tr": "Bilişim",
+   "alt_sektor": "Solar"
   },
   "KMPUR": {
    "kod": "KMPUR",
@@ -4603,7 +4607,10 @@
    "kap_kimlik": "8acae2c47d3bee4e017da32a238f235f",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş"
+   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş",
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Specialty Chemicals"
   },
   "KNFRT": {
    "kod": "KNFRT",

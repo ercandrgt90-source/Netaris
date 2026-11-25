@@ -1,13 +1,13 @@
 ---
 slug: ensri-2026-3-ceyrek
 baslik: ENSARİ SINAİ YATIRIMLAR A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %38,7 artması brüt kârın %61,4 yükselmesine paralel olarak özkaynak ve aktif toplamının da sırasıyla %22,6 ve %36,4 artmasına yol açtı; bu büyüme net borcun %61,4 yükselmesiyle birlikte likiditeyi destekleyen cari oranın %1,62'ye (sektör medyanı 1,35) çıkmasını sağladı.…
+ozet: Hasılatın %38,7 artması brüt kârın %61,4 yükselmesine paralel olarak yansıdı; brüt kâr marjı ise %12,0 seviyesinde kalırken sektör medyanının %16,7'sinin altında kaldı ve net kâr marjı –%7,9 ile sektörün –%1,9 ortalamasının çok daha düşük bir negatif değer gösterdi.…
 sirket: ENSARİ SINAİ YATIRIMLAR A.Ş.
 kod: ENSRI
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: İsteğe bağlı tüketim
-tarih: 2026-11-13
+tarih: 2026-11-25
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %38,7 artması brüt kârın %61,4 yükselmesine paralel olarak özkaynak ve aktif toplamının da sırasıyla %22,6 ve %36,4 artmasına yol açtı; bu büyüme net borcun %61,4 yükselmesiyle birlikte likiditeyi destekleyen cari oranın %1,62'ye (sektör medyanı 1,35) çıkmasını sağladı. Brüt kâr marjı %12,0 seviyesinde sektör medyanının %16,2'sinin altında kalırken, faaliyet kârı ve net kâr negatif kalmış, bu da net kâr marjının -%7,9 (sektör medyanı -%1,3) ve özkaynak kârlılığının -%0,8 (sektör medyanı -%0,2) olumsuz etkilenmesine neden oldu. Faaliyet nakit akışının -%167,0 düşmesi ve yatırım harcamasının %3823,8 artması, nakit çıkışını artırarak FAVÖK'ün %50,3 yükselmesine rağmen faaliyet kârının negatif seyretmesine katkıda bulundu.
+Hasılatın %38,7 artması brüt kârın %61,4 yükselmesine paralel olarak yansıdı; brüt kâr marjı ise %12,0 seviyesinde kalırken sektör medyanının %16,7'sinin altında kaldı ve net kâr marjı –%7,9 ile sektörün –%1,9 ortalamasının çok daha düşük bir negatif değer gösterdi. Özkaynakların %22,6 artması aktif toplamının %36,4 yükselmesiyle uyumlu olup, cari oran 1,62'ye çıkarak sektör medyanı 1,35'in üzerine çıktı; aynı zamanda borç/özkaynak oranı 0,34'e yükselerek sektör medyanı 0,22'nin üzerindeydi. Faaliyet nakit akışı –0,09 milyar TL'ye düşerken yatırım harcaması %3823,8 artarak 0,09 milyar TL'ye ulaştı; bu durum faaliyet kârının hâlâ –0,01 milyar TL seviyesinde kalmasıyla birlikte nakit çıkışının artmasına yol açtı.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
@@ -76,15 +76,15 @@ Hasılatın %38,7 artması brüt kârın %61,4 yükselmesine paralel olarak özk
 
 ## Sektör içindeki konum
 
-Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildiren** 64 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildiren** 66 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %12,0 | %16,2 |
+| Brüt kâr marjı | %12,0 | %16,7 |
 | Net kâr marjı | -%7,9 | -%1,9 |
 | Özkaynak kârlılığı | -%0,8 | -%0,4 |
 | Cari oran | 1,62 | 1,35 |
-| Borç / özkaynak | 0,34 | 0,19 |
+| Borç / özkaynak | 0,34 | 0,22 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

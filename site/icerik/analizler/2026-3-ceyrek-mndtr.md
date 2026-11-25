@@ -1,13 +1,13 @@
 ---
 slug: mndtr-2026-3-ceyrek
 baslik: MONDİ TURKEY OLUKLU MUKAVVA KAĞIT VE AMBALAJ SANAYİ A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %30,5 artması aktif toplamındaki %22,5 yükselişle paralel seyredirken, brüt kâr marjının %10,3 seviyesinde kalması brüt kârın %25,4 düşmesine ve FAVÖK ile faaliyet kârının sırasıyla %77,1 ve %1897,5 gerilemesine yol açtı; bu kâr erozyonu net kâr marjının -%8,1'e ve özkaynak kârlılığının…
+ozet: Hasılat %30,5 artarken brüt kâr %25,4 düşmüş; bu durum brüt kâr marjının %10,3 seviyesine gerilemesine yol açmış ve sektör medyanı %16,7'nin altında kalmıştır.…
 sirket: MONDİ TURKEY OLUKLU MUKAVVA KAĞIT VE AMBALAJ SANAYİ A.Ş.
 kod: MNDTR
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: İsteğe bağlı tüketim
-tarih: 2026-11-19
+tarih: 2026-11-25
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %30,5 artması aktif toplamındaki %22,5 yükselişle paralel seyredirken, brüt kâr marjının %10,3 seviyesinde kalması brüt kârın %25,4 düşmesine ve FAVÖK ile faaliyet kârının sırasıyla %77,1 ve %1897,5 gerilemesine yol açtı; bu kâr erozyonu net kâr marjının -%8,1'e ve özkaynak kârlılığının -%4,8'e sürüklenmesinde etkili oldu. Net borcun %93,8 artışı borç/özkaynak oranını sektör medyanının %0,18 altında tutarken, cari oranı %1,31 ile medyanın %1,32'sine yakınlaştırdı; aynı zamanda faaliyet nakit akışının pozitif (+0,08 bn TL) olması yatırım harcamasındaki %65,2 düşüşle birlikte likidite akışının iyileştiğini gösterdi. Bu dinamiklerde, gelir artışı varlık büyümesini desteklerken, kâr marjlarındaki gerileme özkaynak verimliliğini ve net kâr performansını olumsuz etkiledi.
+Hasılat %30,5 artarken brüt kâr %25,4 düşmüş; bu durum brüt kâr marjının %10,3 seviyesine gerilemesine yol açmış ve sektör medyanı %16,7'nin altında kalmıştır. Faaliyet kârının negatifleşmesi ve FAVÖK'ün %84,6 azalması, net kâr marjının -%8,1 ile sektör medyanı -%1,9'un çok altında kalmasına ve özkaynak kârlılığının -%4,8'e gerilemesine neden olmuştur. Aktif toplamındaki %22,5 artış ve özkaynakta %5,4 yükseliş, net borcun %93,8 artmasıyla birlikte cari oranı 1,31 (sektör medyanı 1,35) ve borç/özkaynak oranını 0,16 (sektör medyanı 0,22) tutturmuştur.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
@@ -26,8 +26,7 @@ Hasılatın %30,5 artması aktif toplamındaki %22,5 yükselişle paralel seyred
 | --- | ---: |
 | Hasılat | %30,5 |
 | Brüt kâr | -%25,4 |
-| Faaliyet kârı | -%1897,5 |
-| FAVÖK | -%77,1 |
+| FAVÖK | -%84,6 |
 | Özkaynak | %5,4 |
 | Aktif toplamı | %22,5 |
 | Ticari alacaklar | %37,3 |
@@ -62,7 +61,7 @@ Hasılatın %30,5 artması aktif toplamındaki %22,5 yükselişle paralel seyred
 | Hasılat | 4,80 | 4,67 | 4,46 |
 | Brüt kâr | 0,49 | 0,69 | 0,90 |
 | Faaliyet kârı | -0,20 | -0,20 | 0,05 |
-| FAVÖK | 0,06 | 0,06 | 0,31 |
+| FAVÖK | 0,06 | 0,01 | 0,24 |
 | Net kâr | -0,39 | -0,47 | -0,07 |
 | Özkaynak | 8,13 | 8,06 | 7,93 |
 | Aktif toplamı | 14,45 | 13,61 | 13,43 |
@@ -78,15 +77,15 @@ Hasılatın %30,5 artması aktif toplamındaki %22,5 yükselişle paralel seyred
 
 ## Sektör içindeki konum
 
-Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildiren** 61 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildiren** 66 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %10,3 | %16,5 |
-| Net kâr marjı | -%8,1 | -%0,9 |
-| Özkaynak kârlılığı | -%4,8 | -%0,1 |
-| Cari oran | 1,31 | 1,32 |
-| Borç / özkaynak | 0,16 | 0,18 |
+| Brüt kâr marjı | %10,3 | %16,7 |
+| Net kâr marjı | -%8,1 | -%1,9 |
+| Özkaynak kârlılığı | -%4,8 | -%0,4 |
+| Cari oran | 1,31 | 1,35 |
+| Borç / özkaynak | 0,16 | 0,22 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

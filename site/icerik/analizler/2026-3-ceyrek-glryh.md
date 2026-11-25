@@ -1,13 +1,13 @@
 ---
 slug: glryh-2026-3-ceyrek
 baslik: GÜLER YATIRIM HOLDİNG A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %60,4 düşmesi brüt kârın da %111,4 gerilemesine yol açarak brüt kâr marjının –%4,8'e sürüklenmesine, bu da faaliyet ve FAVÖK kârlarının sırasıyla %130,8 ve %122,0 azalmasına ve net kârın %452,6 düşerek –%9,0 net kâr marjına gerilemesine neden oldu.…
+ozet: Hasılatın %60,4 düşmesi brüt kârın negatifleşmesine ve ardından faaliyet, FAVÖK ve net kârın da aynı yönde kaymasına yol açtı; gelir kaybı kâr marjlarını da sektör medyanlarının çok altında tutuyor.…
 sirket: GÜLER YATIRIM HOLDİNG A.Ş.
 kod: GLRYH
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: Finans
-tarih: 2026-11-16
+tarih: 2026-11-25
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %60,4 düşmesi brüt kârın da %111,4 gerilemesine yol açarak brüt kâr marjının –%4,8'e sürüklenmesine, bu da faaliyet ve FAVÖK kârlarının sırasıyla %130,8 ve %122,0 azalmasına ve net kârın %452,6 düşerek –%9,0 net kâr marjına gerilemesine neden oldu. Özkaynakların %26,8 artması aktif toplamındaki %4,6 yükselişi desteklerken, negatif net borç seviyesinin hafifçe –%2,2 artması (-2,22 milyar TL) cari oranı 2,52'ye tutturdu; bu oran sektör medyanı 8,71'in çok altında kalırken, borç/özkaynak oranı –0,12 ile sektör medyanı –0,02'nin altında seyrediyor. Faaliyet nakit akışındaki %7,8 azalma ve yatırım harcamasındaki %17,8 artış, kârların ve marjların gerilemesiyle paralel bir likidite sıkışması izlenimini gösteriyor.
+Hasılatın %60,4 düşmesi brüt kârın negatifleşmesine ve ardından faaliyet, FAVÖK ve net kârın da aynı yönde kaymasına yol açtı; gelir kaybı kâr marjlarını da sektör medyanlarının çok altında tutuyor. Özkaynakların %26,8 artması aktif toplamındaki %4,6'luk büyümeyi desteklerken, negatif net borç ve cari oranın sektör medyanının altında kalması likidite ve finansal yapı üzerindeki baskıyı gösteriyor. Borç/özkaynak oranının sektör ortalamasının altında (-%0,12) olması, özkaynak artışının borçlanma ihtiyacını azaltarak net borçun daha da negatifleşmesine (-2,22 milyar TL) katkı sağladığını gösteriyor.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
@@ -76,12 +76,12 @@ Hasılatın %60,4 düşmesi brüt kârın da %111,4 gerilemesine yol açarak br�
 
 ## Sektör içindeki konum
 
-Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 39 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 40 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
 | Brüt kâr marjı | -%4,8 | %41,5 |
-| Net kâr marjı | -%9,0 | %0,3 |
+| Net kâr marjı | -%9,0 | %3,5 |
 | Özkaynak kârlılığı | -%2,3 | -%2,3 |
 | Cari oran | 2,52 | 5,14 |
 | Borç / özkaynak | -0,12 | -0,01 |

@@ -1,13 +1,13 @@
 ---
 slug: gznmi-2026-3-ceyrek
 baslik: GEZİNOMİ SEYAHAT TURİZM TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %8,3 artması brüt kârın %17,4 yükselmesine yol açmış; brüt kâr marjı ise %17,9 ile sektör medyanının %16,9'unu aşmıştır. Brüt kârdaki artışa rağmen faaliyet kârı %36,3 düşmüş, bu da FAVÖK ve net kârda sırasıyla %28,3 ve %101,8 azalmaya neden olarak kâr marjlarını negatif seviyelere…
+ozet: Hasılatın %8,3 artması brüt kârın %17,4 yükselmesine yol açarken, brüt kâr marjının %17,9 olması sektörel medyanın %16,7'sinden üstünde kalmasını sağladı; ancak faaliyet kârı ve FAVÖK'teki %36,3 ve %27,4 düşüşler, net kârın sıfıra gerilemesiyle birlikte karlılık oranlarının (net kâr marjı –%0,1…
 sirket: GEZİNOMİ SEYAHAT TURİZM TİCARET A.Ş.
 kod: GZNMI
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: İsteğe bağlı tüketim
-tarih: 2026-11-18
+tarih: 2026-11-25
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %8,3 artması brüt kârın %17,4 yükselmesine yol açmış; brüt kâr marjı ise %17,9 ile sektör medyanının %16,9'unu aşmıştır. Brüt kârdaki artışa rağmen faaliyet kârı %36,3 düşmüş, bu da FAVÖK ve net kârda sırasıyla %28,3 ve %101,8 azalmaya neden olarak kâr marjlarını negatif seviyelere sürüklemiştir. Net borcun %55,7 azalması aktif toplamının %17,8 küçülmesiyle birlikte cari oranı 1,03'e, borç/özkaynak oranını ise sektör medyanının %0,20 üzerindeki 0,49 seviyesine yükseltmiştir.
+Hasılatın %8,3 artması brüt kârın %17,4 yükselmesine yol açarken, brüt kâr marjının %17,9 olması sektörel medyanın %16,7'sinden üstünde kalmasını sağladı; ancak faaliyet kârı ve FAVÖK'teki %36,3 ve %27,4 düşüşler, net kârın sıfıra gerilemesiyle birlikte karlılık oranlarının (net kâr marjı –%0,1, özkaynak kârlılığı –%0,1) sektörel medyanların üzerinde konumlanmasına rağmen negatif kalmasına neden oldu. Aktif toplamının %17,8 azalarak 4,25 milyar TL'ye düşmesi, net borcun %55,7 azalarak 0,69 milyar TL'ye gerilemesiyle birlikte borç/özkaynak oranı %0,49'a yükselmiş, bu da cari oranın %1,03 (sektör medyanı 1,35) altında kalmasına rağmen likiditeyi bir ölçüde korumasını sağladı. Faaliyet nakit akışının önceki dönemdeki –0,20 milyar TL'den 0,44 milyar TL'ye geçmesi, yatırım harcamasının %98,5 azalarak sıfıra inmesiyle birlikte sermaye harcamalarındaki düşüşün nakit akışını iyileştirdiğini gösteriyor.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
@@ -78,15 +78,15 @@ Hasılatın %8,3 artması brüt kârın %17,4 yükselmesine yol açmış; brüt 
 
 ## Sektör içindeki konum
 
-Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildiren** 64 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildiren** 66 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %17,9 | %16,2 |
+| Brüt kâr marjı | %17,9 | %16,7 |
 | Net kâr marjı | -%0,1 | -%1,9 |
 | Özkaynak kârlılığı | -%0,1 | -%0,4 |
 | Cari oran | 1,03 | 1,35 |
-| Borç / özkaynak | 0,49 | 0,19 |
+| Borç / özkaynak | 0,49 | 0,22 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

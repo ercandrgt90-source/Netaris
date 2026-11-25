@@ -817,6 +817,22 @@
      19.4
     ]
    }
+  },
+  {
+   "kod": "HATEK",
+   "unvan": "HATEKS HATAY TEKSTİL İŞLETMELERİ A.Ş.",
+   "donem": "2026 3. çeyrek",
+   "neden": "girdide olmayan sayi: 18.2",
+   "model": "@cf/openai/gpt-oss-120b",
+   "ham": "Hasılatın %12,1 düşmesiyle birlikte brüt kâr negatif %1,0'a gerileyerek faaliyet kârı ve FAVÖK'teki iyileşme (%%18,2 ve %%15,8) gerçekleşti; net kâr ise önceki dönemdeki 0,33 milyar TL'den -0,03 milyar TL'ye geriledi. Aktif toplamının %24,6 artması net borcun %69,9 yükselmesine yol açtı ve bu durum borç/özkaynak oranının %0,22'den %0,97'ye çıkmasına, cari oranın 1,35'den 0,99'a düşmesine yansıdı. Yatırım harcamasının %138,7 artması faaliyet nakit akışının %86,3 azalmasıyla birlikte özkaynak kârlılığının -%0,4'den -%1,7'ye ve net kâr marjının -%1,9'dan -%15,8'e düşmesine paralel gerçekleşti.",
+   "an": "2026-11-25T05:45:00+00:00",
+   "yakin": {
+    "18.2": [
+     16.7,
+     15.8,
+     12.1
+    ]
+   }
   }
  ]
 }

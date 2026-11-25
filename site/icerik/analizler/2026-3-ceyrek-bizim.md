@@ -1,13 +1,13 @@
 ---
 slug: bizim-2026-3-ceyrek
 baslik: BİZİM TOPTAN SATIŞ MAĞAZALARI A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %8,6 artması brüt kârın %14,8 yükselmesine yol açarken, brüt kâr marjı %17,9 seviyesinde sektör medyanının %14,4'ünden daha yüksek kalmıştır; ancak faaliyet kârının -%404,2 düşmesi ve FAVÖK'ün %80,9 gerilemesi, net kâr marjının -%1,6'ya ve özkaynakların -%268,6'ya sürüklenmesine neden…
+ozet: Hasılatın %8,6 artması brüt kârın %14,8 yükselmesine paralel olarak gerçekleşmiş, bu da brüt kâr marjının %17,9 seviyesinde sektör medyanı %16,7'nin üzerinde kalmasını sağlamış; aynı zamanda aktif toplamının %4,9 artması bilanço büyüklüğünü desteklemiş.…
 sirket: BİZİM TOPTAN SATIŞ MAĞAZALARI A.Ş.
 kod: BIZIM
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: İsteğe bağlı tüketim
-tarih: 2026-11-10
+tarih: 2026-11-25
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %8,6 artması brüt kârın %14,8 yükselmesine yol açarken, brüt kâr marjı %17,9 seviyesinde sektör medyanının %14,4'ünden daha yüksek kalmıştır; ancak faaliyet kârının -%404,2 düşmesi ve FAVÖK'ün %80,9 gerilemesi, net kâr marjının -%1,6'ya ve özkaynakların -%268,6'ya sürüklenmesine neden olmuştur. Aktif toplamının %4,9 artması net borcun %19,0 yükselmesiyle birlikte cari oranı 0,51'e düşürmüş, bu da likiditeyi sektör medyanı 1,32'nin çok altında bırakmıştır. Faaliyet nakit akışı hafif %2,4 artarken yatırım harcaması %13,0 azalmış, bu da nakit akışı ile yatırım arasındaki dengesizliği yansıtmaktadır.
+Hasılatın %8,6 artması brüt kârın %14,8 yükselmesine paralel olarak gerçekleşmiş, bu da brüt kâr marjının %17,9 seviyesinde sektör medyanı %16,7'nin üzerinde kalmasını sağlamış; aynı zamanda aktif toplamının %4,9 artması bilanço büyüklüğünü desteklemiş. Brüt kârdaki artışın ardından faaliyet kârı negatif –0,38 milyar TL'ye düşmüş ve FAVÖK %81,9 azalarak 0,12 milyar TL'ye gerilemiş, bu durum net kârın –0,17 milyar TL'ye ve özkaynakların –0,44 milyar TL'ye kaymasına yol açmış. Net borç %19,0 artarak 1,57 milyar TL'ye yükselmiş, cari oran 0,51 seviyesinde kalmış ve faaliyet nakit akışı sadece %2,4 artarak 0,56 milyar TL'ye ulaşmıştır.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
@@ -80,11 +80,11 @@ Hasılatın %8,6 artması brüt kârın %14,8 yükselmesine yol açarken, brüt 
 
 ## Sektör içindeki konum
 
-Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildiren** 64 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildiren** 66 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %17,9 | %16,2 |
+| Brüt kâr marjı | %17,9 | %16,7 |
 | Net kâr marjı | -%1,6 | -%1,9 |
 | Cari oran | 0,51 | 1,35 |
 

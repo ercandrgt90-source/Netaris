@@ -1,13 +1,13 @@
 ---
 slug: bigch-2026-3-ceyrek
 baslik: BÜYÜK ŞEFLER GIDA TURİZM TEKSTİL DANIŞMANLIK ORGANİZASYON EĞİTİM SANAYİ VE TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %9,6 artması aktif toplamının %17,1 yükselmesiyle birlikte özkaynakların %2,1 artmasına yol açarken, brüt kâr marjının sektör medyanının üzerindeki %18,3 seviyesinde kalması brüt kârın %7,6 düşmesine rağmen kârın satışlara oranının hâlâ olumlu olduğunu gösterir.…
+ozet: Hasılatın %15,6 düşmesi brüt kârın %28,8 azalmasına yol açmış; brüt kârdaki daha büyük gerileme ise faaliyet kârının %90,7 düşerek neredeyse sıfıra inmesine ve net kârın negatif %3,7'ye kaymasına neden olmuştur.…
 sirket: BÜYÜK ŞEFLER GIDA TURİZM TEKSTİL DANIŞMANLIK ORGANİZASYON EĞİTİM SANAYİ VE TİCARET A.Ş.
 kod: BIGCH
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: İsteğe bağlı tüketim
-tarih: 2026-11-10
+tarih: 2026-11-25
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %9,6 artması aktif toplamının %17,1 yükselmesiyle birlikte özkaynakların %2,1 artmasına yol açarken, brüt kâr marjının sektör medyanının üzerindeki %18,3 seviyesinde kalması brüt kârın %7,6 düşmesine rağmen kârın satışlara oranının hâlâ olumlu olduğunu gösterir. Faaliyet kârı ve net kârda sırasıyla %89,5 ve %363,5 düşüşler, net kâr marjının -%3,7'ye gerilemesiyle birlikte özkaynak kârlılığının -%3,2'ye inmesine ve cari oranın 0,63'e düşerek sektörel 1,32 ortalamasının altında kalmasına neden olmuştur. Net borçtaki %16,4 artış, borç/özkaynak oranının %0,12 sektör medyanının çok üzerindeki 0,65 seviyesine yükselmesiyle likidite sıkışıklığını pekiştirirken, faaliyet nakit akışının %31,7 azalması ve yatırım harcamasının %14,2 artması arasında, nakit çıkışının yatırım ihtiyacını karşılamakta yetersiz kaldığı bir denge oluşmuştur.
+Hasılatın %15,6 düşmesi brüt kârın %28,8 azalmasına yol açmış; brüt kârdaki daha büyük gerileme ise faaliyet kârının %90,7 düşerek neredeyse sıfıra inmesine ve net kârın negatif %3,7'ye kaymasına neden olmuştur. Özkaynakların %2,1 artması aktif toplamının %17,1 yükselmesiyle uyumlu görünürken, net borcun %16,4 artması cari oranı %0,63'e düşürmüş ve sektör medyanı 1,35 iken likidite sıkışmasını yansıtmıştır. Borç/özkaynak oranının %0,65'ye (sektör medyanı %0,22) yükselmesi, artan borçla birlikte özkaynak artışının kârlılık üzerindeki dengeleyici etkisinin sınırlı kaldığını gösterir.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
@@ -81,15 +81,15 @@ Hasılatın %9,6 artması aktif toplamının %17,1 yükselmesiyle birlikte özka
 
 ## Sektör içindeki konum
 
-Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildiren** 64 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildiren** 66 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %18,3 | %16,2 |
+| Brüt kâr marjı | %18,3 | %16,7 |
 | Net kâr marjı | -%3,7 | -%1,9 |
 | Özkaynak kârlılığı | -%3,2 | -%0,4 |
 | Cari oran | 0,63 | 1,35 |
-| Borç / özkaynak | 0,65 | 0,19 |
+| Borç / özkaynak | 0,65 | 0,22 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 

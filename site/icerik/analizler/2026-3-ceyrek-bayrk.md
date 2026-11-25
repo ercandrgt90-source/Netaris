@@ -1,13 +1,13 @@
 ---
 slug: bayrk-2026-3-ceyrek
 baslik: BAYRAK EBT TABAN SANAYİ VE TİCARET A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %76,1 artması brüt kârın negatiften sıfıra çıkmasına yol açarken, aynı dönemde faaliyet ve FAVÖK kayıplarının artması net kârın %333,6 düşmesine ve özkaynakların %37,7 azalmasına neden oldu; bu kâr kayıpları özkaynak kârlılığının %25,0 negatif olmasını ve borç/özkaynak oranının %2,08'e…
+ozet: Hasılatın %76,1 artması, brüt kârın negatiften sıfıra çıkmasına rağmen brüt kâr marjının %1,0 negatif kalması, satışların artışının maliyet artışıyla dengelendiğini gösteriyor; aynı dönemde net kârın -%66,0'a düşmesi, faaliyet ve FAVÖK kayıplarının artmasıyla birlikte özkaynak kârlılığının %25,0…
 sirket: BAYRAK EBT TABAN SANAYİ VE TİCARET A.Ş.
 kod: BAYRK
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: İsteğe bağlı tüketim
-tarih: 2026-11-05
+tarih: 2026-11-25
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %76,1 artması brüt kârın negatiften sıfıra çıkmasına yol açarken, aynı dönemde faaliyet ve FAVÖK kayıplarının artması net kârın %333,6 düşmesine ve özkaynakların %37,7 azalmasına neden oldu; bu kâr kayıpları özkaynak kârlılığının %25,0 negatif olmasını ve borç/özkaynak oranının %2,08'e yükselmesini tetikledi. Net borcun %104,2 artması aktif toplamındaki %1,7 düşüşle birlikte cari oranı 0,99'a çekti; dolayısıyla likidite göstergesi sektör medyanı 1,48'in altında kaldı. Faaliyet nakit akışının iyileşmesi (-0,01 milyar TL'ye yükselmesi) yatırım harcamasındaki %208,6 artışla birlikte, brüt kâr marjının %1,0 negatif kalması ve net kâr marjının %66,0 negatif seyretmesiyle uyumlu bir tablo ortaya koydu.
+Hasılatın %76,1 artması, brüt kârın negatiften sıfıra çıkmasına rağmen brüt kâr marjının %1,0 negatif kalması, satışların artışının maliyet artışıyla dengelendiğini gösteriyor; aynı dönemde net kârın -%66,0'a düşmesi, faaliyet ve FAVÖK kayıplarının artmasıyla birlikte özkaynak kârlılığının %25,0 negatif olmasına yol açtı. Öz kaynakların %37,7 azalması ve net borcun %104,2 artması, borç/öz kaynak oranının 2,08'e yükselmesiyle likiditeyi zorlayarak cari oranı 0,99'a, sektör medyanı 1,35'in altında tutuyor. Faaliyet nakit akışının -0,01 milyar TL'ye iyileşmesi, önceki dönemdeki -0,17 milyar TL'ye kıyasla yatırım harcamasının %208,6 artmasıyla birlikte nakit çıkışının sınırlı kalmasına rağmen borç yükünün artışıyla denge sağlanamadığını ortaya koyuyor.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
@@ -75,15 +75,15 @@ Hasılatın %76,1 artması brüt kârın negatiften sıfıra çıkmasına yol a�
 
 ## Sektör içindeki konum
 
-Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildiren** 64 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildiren** 66 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | -%1,0 | %16,2 |
+| Brüt kâr marjı | -%1,0 | %16,7 |
 | Net kâr marjı | -%66,0 | -%1,9 |
 | Özkaynak kârlılığı | -%25,0 | -%0,4 |
 | Cari oran | 0,99 | 1,35 |
-| Borç / özkaynak | 2,08 | 0,19 |
+| Borç / özkaynak | 2,08 | 0,22 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
