@@ -703,6 +703,40 @@ _KOD_IZI = re.compile(
     re.I)
 
 
+#: GORUNMEZ BICIMLENDIRME KARAKTERLERI -- OLCULDU (2026-11-25).
+#:
+#: `re.sub(r'\s+', ' ', ...)` bunlari YAKALAMIYOR:
+#: sifir genislikli bosluk Unicode'da bosluk SAYILMIYOR. Yani
+#: temizleyiciden gecip sayfaya kadar gidiyorlar.
+#:
+#: Kaynakta gercekten var: bes haber ozetinde 2-7'li gruplar
+#: halinde U+200B bulundu (ajans metninden geliyor) --
+#:
+#:   '...ticari gemilere yonelik\u200b\u200b\u200b... saldirilarin'
+#:
+#: ZARARI GORUNMEZ DEGIL: yayin denetimi bunu yakaladi --
+#: "YAZI TIPI KAPSAMI: 1 ISARET yedek yuze dusuyor". Yazi
+#: tipimizde karsiligi olmayan bir imge, okurun aygitinda
+#: YEDEK yuzun yuklenmesine yol aciyor; bu da gecikme ve
+#: duzen kaymasi demek (CWV).
+#:
+#: BIRLESTIRICILERE DOKUNULMUYOR. U+200C (ZWNJ) ve U+200D
+#: (ZWJ) ANLAM TASIYOR: ZWNJ Farsca/Hintce dizgide harf
+#: baglanmasini keser, ZWJ emoji dizilerini birlestirir
+#: (ailede, meslek emojilerinde). Onlari silmek metni ya da
+#: emojiyi BOZARDI. Ayni gerekceyle yon isaretleri (U+200E/
+#: U+200F) de duruyor -- karisik yonlu metinde islevleri var.
+#:
+#: Silinenler SAF gurultu: sifir genislikli bosluk, kelime
+#: baglayici, BOM/ZWNBSP ve yumusak tire.
+_GORUNMEZ = {ord(c): None for c in (
+    "\u200b",   # ZERO WIDTH SPACE
+    "\u2060",   # WORD JOINER
+    "\ufeff",   # ZERO WIDTH NO-BREAK SPACE / BOM
+    "\u00ad",   # SOFT HYPHEN
+)}
+
+
 def _metin(ham: str) -> str:
     """CDATA, HTML etiketi ve fazla bosluktan arindirir.
 
@@ -739,6 +773,7 @@ def _metin(ham: str) -> str:
                      flags=re.S | re.I)
         ham = re.sub(r"<[^>]+>", " ", ham)
 
+    ham = ham.translate(_GORUNMEZ)
     metin = re.sub(r"\s+", " ", ham).strip()
     return "" if _KOD_IZI.search(metin) else metin
 

@@ -502,6 +502,39 @@ esit(besleme._metin("<script>var gizli = 1;</script>Asil metin burada."),
      "Asil metin burada.", "script GOVDESI de gidiyor")
 esit(besleme._metin("Metin. <script>var a=1;"),
      "Metin.", "kapanmamis script satir sonuna kadar atilir")
+# GORUNMEZ BICIMLENDIRME KARAKTERLERI -- OLCULDU (2026-11-25).
+#
+# Kaynakta gercekten var: bes haber ozetinde 2-7'li gruplar
+# halinde U+200B bulundu. `\s+` onlari YAKALAMIYOR --
+# sifir genislikli bosluk Unicode'da bosluk sayilmiyor -- yani
+# temizleyiciden gecip sayfaya gidiyorlardi. Yayin denetimi
+# bunu "YAZI TIPI KAPSAMI: 1 ISARET yedek yuze dusuyor" diye
+# yakaladi; yedek yuz yuklenmesi gecikme ve duzen kaymasi demek.
+esit(besleme._metin("yonelik\u200b\u200b\u200b saldirilarin"),
+     "yonelik saldirilarin",
+     "sifir genislikli bosluk siliniyor")
+esit(besleme._metin("ab\u2060cd"), "abcd",
+     "kelime baglayici (U+2060) siliniyor")
+esit(besleme._metin("\ufeffabc"), "abc",
+     "BOM/ZWNBSP siliniyor")
+esit(besleme._metin("ab\u00adcd"), "abcd",
+     "yumusak tire siliniyor")
+
+# BIRLESTIRICILER KORUNUYOR -- ANLAM TASIYORLAR.
+#
+# ZWNJ Farsca/Hintce dizgide harf baglanmasini keser, ZWJ emoji
+# dizilerini birlestirir. Silmek metni ya da emojiyi BOZARDI.
+# Yon isaretleri de karisik yonlu metinde islevli.
+#
+# BU IDDIA OLCUTU IKI YONLU YAPIYOR: yalnizca silme sinanirsa
+# "butun gorunmezleri sil" mutasyonu YESIL gecerdi.
+esit("\u200d" in besleme._metin("\U0001f468\u200d\U0001f469"), True,
+     "emoji birlestirici (ZWJ) KORUNUYOR")
+esit("\u200c" in besleme._metin("ab\u200ccd"), True,
+     "ZWNJ KORUNUYOR")
+esit("\u200e" in besleme._metin("ab\u200ecd"), True,
+     "yon isareti (LRM) KORUNUYOR")
+
 esit(besleme._metin("Sunucu {{NewsID}} yazdi"),
      "", "cozulmemis yer tutucu ozeti bosaltir")
 
