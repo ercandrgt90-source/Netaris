@@ -401,6 +401,160 @@ _mesru = [_sapma("UNRATE", "2026-09-01", 4.1, 4.3)]
 _k, _s = V.gerilemeyi_ayikla(_mesru)
 esit((len(_k), len(_s)), (1, 0), "mesru revizyon UYGULANIYOR")
 
+# ===============================================================
+# SEKIL OLCUTU -- SAYI TEK BASINA YETMIYOR.
+#
+# OLCULDU (2026-11-25), URETIMDE: `INDPRO` karantinaya alindi,
+# sebep "18 gozlem birden yeniden yazilacakti (esik 8) -- revizyon
+# degil, serinin anlami degismis". Olcum bunun YANLIS oldugunu
+# gosterdi. Asagidaki iki dizi GERCEK: ilki depodaki yillik yuzde
+# degisim, ikincisi ayni tarihler icin FRED'in guncel endeksinden
+# yeniden hesaplanani.
+#
+# Turetilmis seride kaynaktaki TEK yillik revizyon BUTUN noktalari
+# degistirir; yani sayi, turetilmis seride revizyonu bozulmadan
+# ayirt edemez.
+# ===============================================================
+print("")
+INDPRO_DEPO = [0.102, 0.579, 1.919, 1.189, 1.863, 1.759, 1.754, 1.163,
+               0.973, 0.797, 0.686, 1.434, 1.710, 1.461, 1.250, 1.447,
+               2.142, 2.150]
+INDPRO_FRED = [-0.054, 0.281, 1.478, 0.700, 1.364, 1.246, 1.106, 0.536,
+               0.033, 0.131, 0.235, 0.826, 1.211, 0.937, 0.920, 1.143,
+               1.673, 1.659]
+esit(len(INDPRO_DEPO), len(INDPRO_FRED), "gercek diziler ayni boyda")
+dogru(len(INDPRO_DEPO) > S.GERILEME_ESIGI,
+      f"olcum SAYI esigini asiyor ({len(INDPRO_DEPO)} > "
+      f"{S.GERILEME_ESIGI}) -- yani eski olcut bunu REDDEDERDI")
+
+_karar, _ac = S.sekil_korunuyor(INDPRO_DEPO, INDPRO_FRED)
+esit(_karar, True, f"INDPRO: sekil KORUNUYOR ({_ac})")
+esit(S.gerileme_mi(len(INDPRO_DEPO), INDPRO_DEPO, INDPRO_FRED), False,
+     "INDPRO: sayi esigi asiyor ama GERILEME SAYILMIYOR")
+# Eski cagri bicimi davranisini KORUYOR: sekil verilmezse sayi karar
+# verir. Bu olmadan eski cagiranlar sessizce davranis degistirirdi.
+esit(S.gerileme_mi(len(INDPRO_DEPO)), True,
+     "sekil verilmezse davranis ESKISI gibi (sayi karar verir)")
+
+# UC EKSEN, UCU DE YUK TASIYOR -- VE HER BIRI AYRI KANITLANIYOR.
+#
+# ILK YAZIMIM YETERSIZDI VE MUTASYON YAKALADI: "isaret tersinmesi"
+# ve "20 kat genlik" durumlarinin ikisi de SEVIYE ekseninden de
+# dusuyordu. Yani korelasyon ya da olcek ekseni kodtan cikarilsa
+# sinamalar YESIL kaliyordu -- eksenlerin gerekliligi
+# KANITLANMAMISTI.
+#
+# Her eksen icin artik YALNIZCA o eksenin yakaladigi bir durum var:
+# oteki iki eksen o durumda GECIYOR ve bu ayrica dogrulaniyor.
+_ORT = sum(INDPRO_DEPO) / len(INDPRO_DEPO)
+
+
+def _eksen_durumu(ad, bozuk, beklenen_dusen):
+    """Durumu uc eksende tek tek olcer ve YALNIZCA birinin
+    dustugunu dogrular."""
+    import statistics as _st
+    sa, sb = _st.pstdev(INDPRO_DEPO), _st.pstdev(bozuk)
+    kor = _st.correlation(INDPRO_DEPO, bozuk)
+    oran = sb / sa
+    olcek = max(_st.median([abs(x) for x in INDPRO_DEPO]), sa)
+    fark = _st.median([abs(y - x) for x, y in zip(INDPRO_DEPO, bozuk)])
+    dusen = set()
+    if kor < S.SEKIL_KORELASYON:
+        dusen.add("korelasyon")
+    if not (S.SEKIL_OLCEK_ALT <= oran <= S.SEKIL_OLCEK_UST):
+        dusen.add("olcek")
+    if fark > olcek:
+        dusen.add("seviye")
+    esit(S.sekil_korunuyor(INDPRO_DEPO, bozuk)[0], False,
+         f"{ad}: sekil BOZUK sayiliyor")
+    esit(dusen, {beklenen_dusen},
+         f"{ad}: YALNIZCA `{beklenen_dusen}` ekseni dusuyor "
+         f"(kor {kor:.3f}, oran {oran:.3f}, fark {fark:.3f}/"
+         f"{olcek:.3f})")
+
+
+# 1. KORELASYON: ayni degerler, KARISIK sira. Olcek birebir ayni,
+#    seviye farki kucuk; yalnizca sekil bozuldu.
+_karisik = sorted(INDPRO_DEPO, reverse=True)
+_eksen_durumu("ters sirali ayni degerler", _karisik, "korelasyon")
+
+# 2. OLCEK: ayni sekil (korelasyon 1), ortalama ayni, genlik 1/5.
+#    Seviye farki kucuk kaliyor -- yalnizca genlik bozuldu.
+_sikisik = [_ORT + (x - _ORT) * 0.2 for x in INDPRO_DEPO]
+_eksen_durumu("genlik bestebire sikistirilmis", _sikisik, "olcek")
+
+# 3. SEVIYE: ayni sekil, ayni genlik, +100 kayma (yeniden
+#    tabanlama). Korelasyon TAM 1 ve olcek TAM 1 -- yalnizca
+#    seviye bozuldu.
+_taban = [x + 100 for x in INDPRO_DEPO]
+_eksen_durumu("yeniden tabanlama (+100)", _taban, "seviye")
+
+# OLCULEMEYEN ILE BOZUK AYRI: None, False degil.
+esit(S.sekil_korunuyor([1.0, 2.0], [1.0, 3.0])[0], None,
+     "az nokta: OLCULEMEDI (None), bozuk DEGIL")
+esit(S.sekil_korunuyor([4.0] * 9, [4.2] * 9)[0], None,
+     "sabit seri: OLCULEMEDI (None)")
+esit(S.gerileme_mi(9, [4.0] * 9, [4.2] * 9), True,
+     "olculemeyen durumda SAYI olcutu gecerli kaliyor")
+
+# TAM YOL: `gerilemeyi_ayikla` gercek INDPRO degisimini UYGULUYOR.
+_indpro = [_sapma("INDPRO", f"2025-{i + 1:02d}-01",
+                  INDPRO_DEPO[i], INDPRO_FRED[i])
+           for i in range(len(INDPRO_DEPO))]
+_k, _s = V.gerilemeyi_ayikla(_indpro)
+esit((len(_k), len(_s)), (len(INDPRO_DEPO), 0),
+     "INDPRO: 18 gozlemlik revizyonun TAMAMI uygulaniyor, red YOK")
+
+# ANLAM DEGISMESI HALA REDDEDILIYOR -- TCMB TP.FE25 bicimi.
+# Belgelenmis olcum: grup yillik degisim yerine aylik degisim
+# dondurmeye basladi (31,88 -> 1,46; 28,71 -> -39,22).
+_yillik = [31.88, 28.71, 26.40, 24.15, 22.90, 21.33, 19.87, 23.04,
+           25.61, 27.19, 29.44, 30.12]
+_aylik = [1.46, -39.22, 2.01, -1.33, 0.87, -2.14, 1.09, -0.76,
+          2.33, -1.02, 0.44, 1.87]
+esit(S.sekil_korunuyor(_yillik, _aylik)[0], False,
+     "TCMB anlam degismesi: sekil BOZULDU")
+_tcmb = [_sapma("TP.FE25.OKTG04", f"2026-{i + 1:02d}-01",
+                _yillik[i], _aylik[i])
+         for i in range(len(_yillik))]
+_k, _s = V.gerilemeyi_ayikla(_tcmb)
+esit(len(_k), 0, "TCMB: hicbiri uygulanmiyor")
+dogru(_s and "sekil de bozuldu" in _s[0][1],
+      "sebep sekil olcumunu de yaziyor")
+
+# KABUL KARARI SESSIZ KALMAMALI.
+#
+# Esigi ASAN bir degisimi uyguluyoruz; bunu gunluge yazmamak,
+# gercek bir bozulmayi tam bu kapidan gecirip kimsenin bakmamasina
+# yol acar. Mutasyon bunu yakaladi: `print` susturuldugunda hicbir
+# sinama kirmizi yanmiyordu.
+import contextlib                                      # noqa: E402
+import io as _io                                        # noqa: E402
+
+_yakala = _io.StringIO()
+with contextlib.redirect_stdout(_yakala):
+    V.gerilemeyi_ayikla(_indpro)
+_cikti = _yakala.getvalue()
+dogru("INDPRO" in _cikti and "SEKIL KORUNUYOR" in _cikti,
+      "esigi asan KABUL karari gunluge yaziliyor")
+dogru("korelasyon" in _cikti,
+      "kabul satiri OLCUMU de tasiyor (hangi gerekceyle gecti)")
+# Esigin ALTINDAKI sessiz yol degismedi: gurultu uretmiyoruz.
+_yakala2 = _io.StringIO()
+with contextlib.redirect_stdout(_yakala2):
+    V.gerilemeyi_ayikla([_sapma("UNRATE", "2026-09-01", 4.1, 4.3)])
+esit(_yakala2.getvalue().strip(), "",
+     "esigin ALTINDAKI revizyon sessiz kaliyor -- gurultu yok")
+
+# SABITLER ETKISIZLESTIRILEMEZ BANTTA.
+dogru(0.5 <= S.SEKIL_KORELASYON <= 0.99,
+      f"korelasyon esigi makul bantta ({S.SEKIL_KORELASYON})")
+dogru(S.SEKIL_OLCEK_ALT < 1.0 < S.SEKIL_OLCEK_UST,
+      "olcek bandi 1,0'i iceriyor -- degismeyen genlik gecmeli")
+dogru(S.SEKIL_EN_AZ_NOKTA >= 4,
+      f"sekil olcumu en az dort nokta istiyor ({S.SEKIL_EN_AZ_NOKTA})")
+
+
 # Elle zorlama yolu acik kalmali (CPIAUCSL turu gercek birim gocu).
 _k, _s = V.gerilemeyi_ayikla(_bugun, zorla=True)
 esit((len(_k), len(_s)), (len(_bugun), 0),

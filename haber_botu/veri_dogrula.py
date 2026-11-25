@@ -114,8 +114,15 @@ def gerilemeyi_ayikla(sapan: list, zorla: bool = False) -> tuple[list, list]:
        yapmiyor.
 
     2. TOPLU YENIDEN YAZMA -- tek serinin `GERILEME_ESIGI`den fazla
-       gozlemi degisiyorsa bu revizyon degil, serinin ANLAMININ
-       degismesidir. Mesru revizyon son birkac gozleme dokunur.
+       gozlemi degisiyorsa SEKIL olculur. Sekil korunuyorsa
+       (korelasyon, olcek, seviye) bu bir revizyondur ve
+       UYGULANIR; bozulmussa serinin ANLAMI degismistir ve
+       karantinaya alinir.
+
+       SAYI TEK BASINA YETMIYOR -- olculdu (2026-11-25, INDPRO):
+       turetilmis bir seride (yillik degisim) kaynaktaki TEK yillik
+       revizyon BUTUN noktalari degistirir. Gerekce
+       `seri_sinirlari.sekil_korunuyor` uzerinde.
 
     `zorla` ikisini de atlar; gercek bir birim gocu elle boyle
     yapilir, otomasyon KENDILIGINDEN yapamaz.
@@ -128,12 +135,51 @@ def gerilemeyi_ayikla(sapan: list, zorla: bool = False) -> tuple[list, list]:
     for s in sapan:
         sayac[s[0]] = sayac.get(s[0], 0) + 1
 
-    toplu = {k for k, n in sayac.items() if seri_sinirlari.gerileme_mi(n)}
+    # SAYI TETIKLER, SEKIL KARAR VERIR.
+    #
+    # OLCULDU (2026-11-25): `INDPRO` yalnizca SAYI olcutuyle
+    # karantinaya alindi (18 gozlem, esik 8) ve olcum bunun yanlis
+    # oldugunu gosterdi -- korelasyon 0,953, olcek orani 0,982,
+    # farklarin 18/18'i ayni yonde. FRED endeksi asagi revize etti,
+    # bizim YILLIK DEGISIM turetmemiz topluca kaydi.
+    #
+    # Turetilmis seride kaynaktaki TEK yillik revizyon BUTUN
+    # noktalari degistirir; yani sayi, turetilmis seride revizyonu
+    # bozulmadan ayirt edemez. Gerekce ve uc eksen
+    # `seri_sinirlari.sekil_korunuyor` uzerinde yazili.
+    _eskiler: dict[str, list[float]] = {}
+    _yeniler: dict[str, list[float]] = {}
+    for s in sapan:
+        _eskiler.setdefault(s[0], []).append(s[2])
+        _yeniler.setdefault(s[0], []).append(s[3])
+
+    toplu = set()
+    for k, n in sayac.items():
+        if not seri_sinirlari.gerileme_mi(n, _eskiler[k], _yeniler[k]):
+            # KARAR SESSIZ KALMIYOR.
+            #
+            # Esigi ASAN bir degisimi kabul ediyoruz; bunu gunluge
+            # YAZMAK sart. Sessiz kabul, gercek bir bozulmayi tam
+            # bu kapidan gecirir ve kimse bakmaz -- bu depoda
+            # "olculen deger kullanilmazsa" diye yazili kusurun
+            # kardesi.
+            if n > seri_sinirlari.GERILEME_ESIGI:
+                _karar, _ac = seri_sinirlari.sekil_korunuyor(
+                    _eskiler[k], _yeniler[k])
+                print(f"  {k}: {n} gozlem yeniden yazildi (esik "
+                      f"{seri_sinirlari.GERILEME_ESIGI} asildi) ama "
+                      f"SEKIL KORUNUYOR -> revizyon sayildi; {_ac}")
+            continue
+        toplu.add(k)
+
     for k in sorted(toplu):
+        _karar, _ac = seri_sinirlari.sekil_korunuyor(
+            _eskiler[k], _yeniler[k])
+        _sekil = (f" -- sekil de bozuldu: {_ac}" if _karar is False
+                  else f" -- sekil olculemedi: {_ac}")
         red.append((k, f"{k}: {sayac[k]} gozlem birden yeniden "
                        f"yazilacakti (esik "
-                       f"{seri_sinirlari.GERILEME_ESIGI}) -- revizyon "
-                       f"degil, serinin anlami degismis"))
+                       f"{seri_sinirlari.GERILEME_ESIGI}){_sekil}"))
 
     yatkin_red: dict[str, str] = {}
     for s in sapan:

@@ -146,10 +146,112 @@ def sinir_disi(kod: str, deger: float, birim: str = "") -> str:
     return ""
 
 
-def gerileme_mi(sayi: int) -> bool:
+#: SEKIL OLCUTU -- SAYI TEK BASINA YETMIYOR.
+#:
+#: OLCULDU (2026-11-25): `INDPRO` karantinaya alindi. Sebep
+#: "18 gozlem birden yeniden yazilacakti (esik 8) -- revizyon degil,
+#: serinin anlami degismis". Olcum bunun YANLIS oldugunu gosterdi:
+#:
+#:     korelasyon (eski, yeni) : 0,953   -> sekil AYNI
+#:     olcek orani (sapma)     : 0,982   -> genlik AYNI
+#:     farklarin yonu          : 18/18 ayni yon, ortanca -0,495
+#:
+#: Yani FRED sanayi uretimi endeksini biraz asagi revize etti ve
+#: bizim YILLIK YUZDE DEGISIM turetmemiz topluca yarim puan kaydi.
+#: Bu bir revizyon; kaynak bozulmasi degil.
+#:
+#: KUSUR SINIFI: esik HAM gozlem icin tasarlanmisti ("mesru revizyon
+#: son birkac gozleme dokunur"). Turetilmis bir seride -- yillik
+#: degisim, endeksten hesaplanan oran -- kaynaktaki TEK yillik
+#: revizyon BUTUN noktalari degistirir. Yani sayi, turetilmis seride
+#: revizyonu bozulmadan ayirt EDEMEZ.
+#:
+#: ESIGI BUYUTMEK COZUM DEGIL: 18'i gecirmek icin esigi 20 yapmak,
+#: 48 gozlemlik gercek bozulmayi da 20'ye kadar gecirirdi. Eksik olan
+#: esik degil OLCUTTU (bu depoda yazili bir kusur sinifi).
+#:
+#: UC EKSEN, UCU DE GEREKLI. Her biri ayri bir bozulma bicimini
+#: yakaliyor ve olculdu (bkz. `test_seri_sinirlari.py`):
+#:
+#:   korelasyon  -> isaret tersinmesi, anlam degismesi
+#:   olcek orani -> genlik degismesi (20 kat)
+#:   seviye farki-> yeniden tabanlama (ayni sekil, +100 kayma)
+#:
+#: Bir eksen cikarilsa o bozulma bicimi SESSIZCE gecerdi.
+SEKIL_KORELASYON = 0.85
+SEKIL_OLCEK_ALT = 0.6
+SEKIL_OLCEK_UST = 1.6
+
+#: Sekil olcumu icin en az kac ortak nokta gerekiyor.
+#:
+#: Iki noktayla "sekil korunuyor" demek olcmek degil. Pratikte bu
+#: kapiya ancak `GERILEME_ESIGI`den FAZLA gozlem degistiginde
+#: geliniyor, yani nokta sayisi zaten 9+; sinir yine de yazili
+#: cunku esik bir gun kucultulebilir.
+SEKIL_EN_AZ_NOKTA = 6
+
+
+def sekil_korunuyor(eski, yeni) -> tuple[bool | None, str]:
+    """Toplu degisim bir REVIZYON mu, yoksa ANLAM degismesi mi?
+
+    Doner: (karar, aciklama). `karar`:
+
+        True  -> sekil korunuyor, revizyon sayilabilir
+        False -> sekil bozuldu, kaynak gerilemesi
+        None  -> OLCULEMEDI (az nokta ya da sabit seri); cagiran
+                 taraf sayi olcutune geri doner
+
+    `None` ile `False` AYRI: olcemedigimiz seyi kusur ilan etmek,
+    bu depoda "yokluk kisitlama degil" diye yazili bir hata.
+    """
+    import statistics as _st                        # noqa: PLC0415
+
+    try:
+        a = [float(x) for x in eski]
+        b = [float(x) for x in yeni]
+    except (TypeError, ValueError):
+        return None, "sayi degil"
+    if len(a) != len(b) or len(a) < SEKIL_EN_AZ_NOKTA:
+        return None, f"ortak nokta az ({min(len(a), len(b))})"
+    sa, sb = _st.pstdev(a), _st.pstdev(b)
+    if sa == 0 or sb == 0:
+        return None, "sabit seri -- sekil olculemez"
+    kor = _st.correlation(a, b)
+    oran = sb / sa
+    # SEVIYE: ortanca mutlak fark, serinin KENDI olcegine gore.
+    # Olcek iki aday arasindan BUYUK olani: sifir cevresinde
+    # salinan seride ortanca mutlak deger sifira yakin olur ve
+    # oran patlar.
+    olcek = max(_st.median([abs(x) for x in a]), sa)
+    fark = _st.median([abs(y - x) for x, y in zip(a, b)])
+    aciklama = (f"korelasyon {kor:.3f}, ölçek oranı {oran:.3f}, "
+                f"ortanca fark {fark:.3f} (ölçek {olcek:.3f})")
+    tamam = (kor >= SEKIL_KORELASYON
+             and SEKIL_OLCEK_ALT <= oran <= SEKIL_OLCEK_UST
+             and fark <= olcek)
+    return tamam, aciklama
+
+
+def gerileme_mi(sayi: int, eski=None, yeni=None) -> bool:
     """Tek seride bu kadar gozlemin degismesi revizyon mu, geri
-    gidis mi? Esigin USTU kaynak gerilemesi sayilir."""
-    return sayi > GERILEME_ESIGI
+    gidis mi?
+
+    SAYI BIRINCIL TETIK, SEKIL IKINCIL KARAR. Esigin altinda hic
+    sorgu yok (bugune kadarki davranis). Esigin USTUNDE, eski ve
+    yeni degerler VERILDIYSE sekil olculuyor: sekil korunuyorsa bu
+    bir revizyondur, gerileme degil.
+
+    `eski`/`yeni` verilmezse davranis AYNEN eskisi gibi -- yani eski
+    cagiranlar ve sinamalar bozulmuyor.
+    """
+    if sayi <= GERILEME_ESIGI:
+        return False
+    if eski is None or yeni is None:
+        return True
+    karar, _aciklama = sekil_korunuyor(eski, yeni)
+    if karar is None:
+        return True                 # olculemedi -> sayi olcutu kalir
+    return not karar
 
 
 def karantina_yaz(kayitlar) -> None:
