@@ -45,19 +45,18 @@
       "birim": "USD/varil",
       "gun": 6,
       "bayat": true,
-      "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · bugün yenileniyor"
+      "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · sonraki 2 Aralık"
     },
     {
       "kod": "DCOILWTICO",
       "ad": "WTI",
-      "deger": "89,53",
-      "fark": "+%0,32",
+      "deger": "82,24",
+      "fark": "+%1,01",
       "yon": "artis",
-      "tarih": "2026-11-17",
+      "tarih": "2026-11-24",
       "birim": "USD/varil",
-      "gun": 6,
-      "bayat": true,
-      "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · bugün yenileniyor"
+      "gun": 1,
+      "bayat": false
     },
     {
       "kod": "DFF",
@@ -130,19 +129,18 @@
           "birim": "USD/varil",
           "gun": 6,
           "bayat": true,
-          "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · bugün yenileniyor"
+          "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · sonraki 2 Aralık"
         },
         {
           "kod": "DCOILWTICO",
           "ad": "WTI",
-          "deger": "89,53",
-          "fark": "+%0,32",
+          "deger": "82,24",
+          "fark": "+%1,01",
           "yon": "artis",
-          "tarih": "2026-11-17",
+          "tarih": "2026-11-24",
           "birim": "USD/varil",
-          "gun": 6,
-          "bayat": true,
-          "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · bugün yenileniyor"
+          "gun": 1,
+          "bayat": false
         }
       ]
     },
