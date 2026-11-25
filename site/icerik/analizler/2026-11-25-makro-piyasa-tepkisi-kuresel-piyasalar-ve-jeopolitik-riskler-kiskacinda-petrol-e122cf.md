@@ -1,7 +1,7 @@
 ---
 slug: piyasa-tepkisi-kuresel-piyasalar-ve-jeopolitik-riskler-kiskacinda-petrol-e122cf-2026-11-25
 baslik: Küresel piyasalar ve jeopolitik riskler kıskacında petrol: Arz endişeleri hafifledi, gözler Hürmüz Boğazı'nda
-ozet: Jeopolitik gelişme. Bitcoin 1 saat içinde -%0,69 geriledi.
+ozet: Jeopolitik gelişme. Bitcoin 1 saat içinde -%0,94 geriledi.
 sirket: Piyasa tepkisi: Küresel piyasalar ve jeopolitik riskler kıskacında petrol: Arz endişeleri hafifledi, gözler Hürmüz Boğazı'nda
 kod: OLAY
 donem: 2026-11-25
@@ -23,8 +23,8 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Ekonomist.
 
 ## Piyasada ne oldu
 
-- **Altın** 1 saat içinde yatay kaldı (son 3523,40).
-- **Bitcoin** 1 saat içinde geriledi: -%0,69 (son 58698,50).
+- **Altın** 1 saat içinde yükseldi: +%0,29 (son 3522,90).
+- **Bitcoin** 1 saat içinde geriledi: -%0,94 (son 58612,20).
 
 *Yukarıdaki rakamlar ölçülen fiyat hareketidir. Hareketin sebebinin bu gelişme olduğu iddia edilmemektedir; aynı pencerede başka etkenler de fiyatlanmış olabilir.*
 

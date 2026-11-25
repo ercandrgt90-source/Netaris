@@ -1,7 +1,7 @@
 ---
 slug: piyasa-tepkisi-fed-faiz-karari-bu-hafta-mi-ne-zaman-fed-faiz-tarihi-2026-11-25
 baslik: Fed faiz kararı bu hafta mı, ne zaman? Fed faiz tarihi...
-ozet: Faiz kararı. Bitcoin 1 saat içinde -%0,70 geriledi.
+ozet: Faiz kararı. Bitcoin 1 saat içinde -%0,92 geriledi.
 sirket: Piyasa tepkisi: Fed faiz kararı bu hafta mı, ne zaman? Fed faiz tarihi...
 kod: OLAY
 donem: 2026-11-25
@@ -23,8 +23,8 @@ Para politikası kararı açıklandı. Kaynak: Dünya.
 
 ## Piyasada ne oldu
 
-- **Altın** 1 saat içinde yatay kaldı (son 3523,30).
-- **Bitcoin** 1 saat içinde geriledi: -%0,70 (son 58698,50).
+- **Altın** 1 saat içinde yükseldi: +%0,29 (son 3522,90).
+- **Bitcoin** 1 saat içinde geriledi: -%0,92 (son 58612,20).
 
 *Yukarıdaki rakamlar ölçülen fiyat hareketidir. Hareketin sebebinin bu gelişme olduğu iddia edilmemektedir; aynı pencerede başka etkenler de fiyatlanmış olabilir.*
 
@@ -38,10 +38,10 @@ Para politikası kararı açıklandı. Kaynak: Dünya.
 
 ## Daha önce ne olmuştu
 
+- 2026-11-25 — Merkez Bankası toplantısı ne zaman? MB faiz kararı ne zaman açıklanacak? (BTC -%0,9, XAU +%0,3)
 - 2026-11-22 — Merkez Bankası faiz kararı ne zaman açıklanıyor? Bu ay TCMB toplantısı var mı? (BTC -%0,5, XAU %0,0)
 - 2026-11-22 — Doların güçlenmesi ve faiz artırım endişeleri emtia piyasasındaki satış… (BTC +%0,5, XAU %0,0)
 - 2026-11-20 — FED FAİZ KARARI NE ZAMAN 2026? Bu ay FED toplantısı var mı? Aralık FED faiz… (BTC +%0,4, XAU +%1,0)
-- 2026-11-20 — FED FAİZ KARARI NE ZAMAN AÇIKLANACAK? Aralık ayı FED faiz toplantısı ne zaman?… (BTC -%0,9, XAU -%1,0)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*
 
