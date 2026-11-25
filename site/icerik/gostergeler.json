@@ -38,14 +38,13 @@
     {
       "kod": "DCOILBRENTEU",
       "ad": "BRENT",
-      "deger": "92,94",
-      "fark": "+%0,04",
+      "deger": "91,80",
+      "fark": "+%0,66",
       "yon": "artis",
-      "tarih": "2026-11-17",
+      "tarih": "2026-11-24",
       "birim": "USD/varil",
-      "gun": 6,
-      "bayat": true,
-      "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · sonraki 2 Aralık"
+      "gun": 1,
+      "bayat": false
     },
     {
       "kod": "DCOILWTICO",
@@ -122,14 +121,13 @@
         {
           "kod": "DCOILBRENTEU",
           "ad": "Brent",
-          "deger": "92,94",
-          "fark": "+%0,04",
+          "deger": "91,80",
+          "fark": "+%0,66",
           "yon": "artis",
-          "tarih": "2026-11-17",
+          "tarih": "2026-11-24",
           "birim": "USD/varil",
-          "gun": 6,
-          "bayat": true,
-          "ritim": "EIA bu seriyi haftalık yayımlıyor (çarşamba) · sonraki 2 Aralık"
+          "gun": 1,
+          "bayat": false
         },
         {
           "kod": "DCOILWTICO",

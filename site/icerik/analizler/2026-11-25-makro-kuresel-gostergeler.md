@@ -1,7 +1,7 @@
 ---
 slug: kuresel-gostergeler-2026-11-25
-baslik: Brent petrolde %19,4 gerileme ve Türkiye'ye etkisi
-ozet: Brent petrol 17 Kasım 2026 itibarıyla 92,94 USD/varil seviyesinde. İzlenen 14 işlem gününde 10 Kasım 2026 tarihli 90,16 dolarlık dibi ile 30 Ekim 2026 tarihli 120,15 dolarlık zirvesi arasında hareket etti. ABD 10 yıllık tahvil getirisi %4,92 (23 Kasım 2026), aynı dönemde 3 baz puan geriledi.…
+baslik: Küresel göstergeler: 24 Kasım 2026 tablosu
+ozet: Brent petrol 24 Kasım 2026 itibarıyla 91,80 USD/varil seviyesinde. İzlenen 14 işlem gününde 10 Kasım 2026 tarihli 90,16 dolarlık dibi ile 5 Kasım 2026 tarihli 97,96 dolarlık zirvesi arasında hareket etti. ABD 10 yıllık tahvil getirisi %4,92 (23 Kasım 2026), aynı dönemde 3 baz puan geriledi.…
 sirket: Küresel göstergeler
 kod: MAKRO
 donem: 2026-11-25
@@ -12,7 +12,7 @@ yazar:
 unvan: 
 kurgusal: hayir
 grafik_tur: cizgi
-grafik: 115,28;120,15;107,39;107,03;91,84;97,96;97,83;91,03;90,16;92,14;95,42;95,17;92,90;92,94
+grafik: 97,96;97,83;91,03;90,16;92,14;95,42;95,17;92,90;92,94;92,88;95,17;92,76;91,20;91,80
 grafik_kod: Brent petrol
 grafik_birim: USD/varil
 kaynaklar: FRED
@@ -21,13 +21,13 @@ sayimlar: 4|yorumlanan gösterge;56|gözlem noktası;14|işlem günü penceresi;
 
 ## Özet
 
-Brent petrol 17 Kasım 2026 itibarıyla 92,94 USD/varil seviyesinde. İzlenen 14 işlem gününde 10 Kasım 2026 tarihli 90,16 dolarlık dibi ile 30 Ekim 2026 tarihli 120,15 dolarlık zirvesi arasında hareket etti. ABD 10 yıllık tahvil getirisi %4,92 (23 Kasım 2026), aynı dönemde 3 baz puan geriledi. 10 yıllık ile 2 yıllık arasındaki fark 29 baz puan; getiri eğrisi pozitif eğimli.
+Brent petrol 24 Kasım 2026 itibarıyla 91,80 USD/varil seviyesinde. İzlenen 14 işlem gününde 10 Kasım 2026 tarihli 90,16 dolarlık dibi ile 5 Kasım 2026 tarihli 97,96 dolarlık zirvesi arasında hareket etti. ABD 10 yıllık tahvil getirisi %4,92 (23 Kasım 2026), aynı dönemde 3 baz puan geriledi. 10 yıllık ile 2 yıllık arasındaki fark 29 baz puan; getiri eğrisi pozitif eğimli.
 
 ## Göstergeler
 
 | Gösterge | Son değer | Tarih | Dönem değişimi |
 |---|---|---|---|
-| Brent petrol | 92,94 USD/varil | 17 Kasım 2026 | %19,4 geriledi |
+| Brent petrol | 91,80 USD/varil | 24 Kasım 2026 | %6,3 geriledi |
 | ABD efektif fed fonu oranı | %3,88 | 23 Kasım 2026 | yatay kaldı |
 | ABD 2 yıllık tahvil getirisi | %4,63 | 23 Kasım 2026 | 2 baz puan yükseldi |
 | ABD 10 yıllık tahvil getirisi | %4,92 | 23 Kasım 2026 | 3 baz puan geriledi |
@@ -36,7 +36,7 @@ Her göstergenin son gözlem tarihi farklı olabilir; tabloda her satır kendi t
 
 ## Enerji tarafı
 
-Zirveden bugüne %22,6 geri çekilme var; son değer 92,94 dolar. **Bu hareketin nedeni bu yazının konusu değildir.** Fiyat serisi fiyatın ne yaptığını gösterir, neden öyle yaptığını göstermez; nedene ilişkin bir açıklama ancak birincil haber kaynaklarına dayanarak yapılabilir.
+Zirveden bugüne %6,3 geri çekilme var; son değer 91,80 dolar. **Bu hareketin nedeni bu yazının konusu değildir.** Fiyat serisi fiyatın ne yaptığını gösterir, neden öyle yaptığını göstermez; nedene ilişkin bir açıklama ancak birincil haber kaynaklarına dayanarak yapılabilir.
 
 ## ABD faiz tarafı
 
