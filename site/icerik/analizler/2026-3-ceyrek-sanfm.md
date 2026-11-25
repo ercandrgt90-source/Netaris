@@ -27,7 +27,8 @@ Hasılatın %19,5 artması brüt kârı yalnızca %0,1 yükselterek brüt kâr m
 | Hasılat | %19,5 |
 | Brüt kâr | %0,1 |
 | Faaliyet kârı | -%9,7 |
-| FAVÖK | -%15,2 |
+| FAVÖK | -%7,8 |
+| Net kâr | -%103,6 |
 | Özkaynak | %32,4 |
 | Aktif toplamı | %23,2 |
 | Ticari alacaklar | %46,1 |
@@ -63,7 +64,7 @@ Hasılatın %19,5 artması brüt kârı yalnızca %0,1 yükselterek brüt kâr m
 | Hasılat | 0,35 | 0,40 | 0,35 | 0,33 |
 | Brüt kâr | 0,08 | 0,06 | 0,05 | -0,02 |
 | Faaliyet kârı | 0,03 | 0,07 | 0,00 | -0,03 |
-| FAVÖK | 0,04 | 0,08 | 0,03 | -0,01 |
+| FAVÖK | 0,04 | 0,07 | 0,01 | -0,02 |
 | Net kâr | 0,00 | 0,02 | 0,01 | -0,02 |
 | Özkaynak | 0,76 | 0,72 | 0,66 | 0,59 |
 | Aktif toplamı | 2,02 | 1,84 | 1,77 | 1,57 |
@@ -79,15 +80,15 @@ Hasılatın %19,5 artması brüt kârı yalnızca %0,1 yükselterek brüt kâr m
 
 ## Sektör içindeki konum
 
-Karşılaştırma Temel tüketim sektöründe **aynı dönemi bildiren** 35 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma Temel tüketim sektöründe **aynı dönemi bildiren** 25 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | %23,0 | %19,4 |
-| Net kâr marjı | -%0,1 | -%1,2 |
+| Brüt kâr marjı | %23,0 | %19,5 |
+| Net kâr marjı | -%0,1 | -%1,6 |
 | Özkaynak kârlılığı | -%0,0 | -%0,1 |
-| Cari oran | 1,65 | 1,61 |
-| Borç / özkaynak | 1,19 | 0,16 |
+| Cari oran | 1,65 | 1,57 |
+| Borç / özkaynak | 1,19 | 0,17 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
@@ -99,6 +100,7 @@ Karşılaştırma Temel tüketim sektöründe **aynı dönemi bildiren** 35 şir
 
 **Dikkat gerektirenler**
 
+- Net kâr reel olarak -%103,6 geriledi.
 - Brüt marj 4,4 puan daraldı (%27,5 → %23,0).
 - Yatırım harcaması faaliyet nakit akışını aşıyor; aradaki fark dış kaynakla karşılanıyor.
 

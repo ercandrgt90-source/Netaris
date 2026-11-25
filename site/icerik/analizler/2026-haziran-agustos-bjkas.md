@@ -62,7 +62,7 @@ Hasılatın %30,7 artması, brüt kârın -0,29 milyar TL'ye yükselmesiyle birl
 | Hasılat | 2,88 | 1,93 | 1,26 | 2,20 |
 | Brüt kâr | -0,29 | -1,53 | -1,55 | -1,34 |
 | Faaliyet kârı | -1,23 | -1,94 | -1,71 | -1,92 |
-| FAVÖK | -0,09 | -1,25 | — | -1,25 |
+| FAVÖK | -0,09 | -0,79 | -0,56 | -0,77 |
 | Net kâr | -1,03 | -1,19 | 0,71 | -0,06 |
 | Özkaynak | 4,16 | 3,63 | 3,48 | 3,09 |
 | Aktif toplamı | 32,11 | 26,63 | 25,51 | 20,90 |
@@ -101,6 +101,7 @@ Karşılaştırma İletişim sektöründe **aynı dönemi bildiren** 4 şirketin
 
 **Dikkat gerektirenler**
 
+- Net kâr reel olarak -%1525,0 geriledi.
 - Cari oran 0,65; kısa vadeli yükümlülükler dönen varlıkları aşıyor.
 - Özkaynak kârlılığı -%24,7; sektör medyanı %3,5.
 - Yatırım harcaması faaliyet nakit akışını aşıyor; aradaki fark dış kaynakla karşılanıyor.
