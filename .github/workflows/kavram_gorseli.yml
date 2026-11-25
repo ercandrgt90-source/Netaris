@@ -48,6 +48,33 @@ concurrency:
 jobs:
   uret:
     runs-on: ubuntu-latest
+
+    # TAVAN YOKTU -- OLCULDU (2026-11-25).
+    #
+    # Bu is depoya GERI YAZIYOR (`git push`) ve `timeout-minutes`
+    # tasimiyordu, yani GitHub'in 360 dakikalik varsayilaniyla
+    # kosuyordu. Es zamanlilik `cancel-in-progress: false`, yani
+    # takilan bir kosu kuyrugu ALTI SAAT bekletebilirdi.
+    #
+    # Kusuru `test_isakisi.py` kurali buldu: `git push` calistiran
+    # her isin tavani olmali. Kural otomasyon tavani icin
+    # yazilmisti ve UCUNCU bir isi oldugu gibi yakaladi.
+    #
+    # 20 SECILDI, 40 DEGIL. Olculdu (yedi kosunun hepsi):
+    #
+    #   is suresi   ortanca 0,4 dk   en uzun 0,9 dk
+    #
+    # Bu elle tetiklenen bir arac (`workflow_dispatch`), tam bir
+    # uretim cevrimi degil. Zamanli hatlarin 40 dakikalik alt
+    # sinirini buna dayatmak, olculmemis bir sayiyi dayatmak
+    # olurdu; kural bu yuzden DEGER denetimini yalnizca
+    # `schedule` tetikleyicisi olan islerde yapiyor.
+    #
+    # 20: olculen en uzun kosunun ~22 kati. Gorsel uretimi model
+    # cagrisina bagli, yani yavaslama ihtimali var; yine de
+    # takilan bir kosu yirmi dakikada biter.
+    timeout-minutes: 20
+
     permissions:
       contents: write
 

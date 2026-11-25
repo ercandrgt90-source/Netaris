@@ -158,7 +158,42 @@ concurrency:
 jobs:
   calistir:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    # TAVAN 25 -> 45. NORMAL KOSUYU KESIYORDU -- OLCULDU
+    # (2026-11-25, son 60 kosu, herkese acik gunlukten).
+    #
+    #   basarili is suresi   ortanca 22,7 dk   en uzun 24,5 dk
+    #   IPTAL edilen         en kisa 25,1 dk   ortanca 25,7 dk
+    #
+    # Yani iptal edilen her kosu TAM TAVANDA kesilmis. Son 60
+    # kosunun 8'i (%13) boyle gitti ve kesilen adim her seferinde
+    # "Veri topla ve icerik uret" -- yani URETIM ORTASINDA. O
+    # cevrimde uretilen icerik kayboldu.
+    #
+    # Adim dagilimi (son 13 kosu):
+    #
+    #   Veri topla ve icerik uret   ortanca 18,9 dk  en uzun 20,9
+    #   Testleri calistir           ortanca  3,8 dk  en uzun  4,7
+    #   geri kalan hepsi            ~0,5 dk
+    #
+    # Toplami 22,7-25,6 dk; yani 25 tavani bir anormalligi degil
+    # NORMAL DAGILIMIN UST KUYRUGUNU kesiyordu.
+    #
+    # 25 NEREDEN GELIYORDU: kota. `bilanco.yml` tavaninin yaninda
+    # yazili -- "depo 2026-08-27'de herkese acik yapildi; dakika
+    # sinirsiz, yani o gerekce artik yok". Bilanco tavani aynı
+    # olcumle 50'den 330'a cikarilmisti ve DERS BURAYA
+    # YAYILMAMISTI; bu depoda yazili bir kusur sinifi.
+    #
+    # 45 SECILDI: olculen en uzun isin (24,5 dk) ~1,8 kati, uretim
+    # adiminin en uzun halinin (20,9 dk) ~2,1 kati. Tavan hala
+    # "takilan kosu sonsuza kadar surmesin" icin var -- es
+    # zamanlilik `cancel-in-progress: false` oldugu icin takilan
+    # bir kosu kuyrugu bekletiyor, yani sinirsiz birakilamaz.
+    #
+    # MALIYETI YOK: normal kosu yine ~23 dk suruyor. Bugunku
+    # durumda kesilen kosu 25 dakikayi YAKIYOR ve karsiliginda
+    # hicbir sey uretmiyor; yani yuksek tavan israfi AZALTIYOR.
+    timeout-minutes: 45
 
     permissions:
       # Biriken veriyi (depo, onbellek, uretilen icerik) geri commit etmek

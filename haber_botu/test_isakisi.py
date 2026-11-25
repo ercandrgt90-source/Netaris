@@ -1234,6 +1234,102 @@ dogru("ciktiya bakan adim sayisi >= 2 (kural atil degil)",
 print(f"         ciktiya bakan adim: {_bakanlar}")
 
 
+# --------------------------------------------------------------------
+# 12. GERI YAZAN ISIN TAVANI NORMAL KOSUYU KESMEMELI.
+#
+# OLCULDU (2026-11-25, son 60 otomasyon kosusu):
+#
+#   basarili is suresi  ortanca 22,7 dk   en uzun 24,5 dk
+#   IPTAL edilen        en kisa 25,1 dk   ortanca 25,7 dk
+#
+# Tavan 25 idi; yani iptal edilen her kosu TAM TAVANDA kesilmis.
+# Son 60 kosunun 8'i (%13) boyle gitti ve kesilen adim her
+# seferinde "Veri topla ve icerik uret" -- URETIM ORTASINDA.
+# O cevrimde uretilen icerik kayboldu.
+#
+# AYNI DERS `bilanco.yml`de ZATEN YAZILIYDI (tavan 50 -> 330,
+# gerekcesi "50 dakika ISE YETMIYORDU") ve buraya yayilmamisti.
+#
+# OLCUT TEK AKIS DEGIL, GERI YAZAN HER IS: `git push` calistiran
+# bir is kesilirse o cevrimin urettigi sey kaybolur. Yeni bir
+# akis geri yazmaya basladigi gun kural onu kendiliginden
+# kapsiyor.
+#
+# ALT SINIR 40: olculen en uzun isin (24,5 dk) ~1,6 kati. Sabit
+# bir sayi, cunku CI suresi akis dosyasindan OLCULEMEZ -- olcum
+# tavanin yanina yorum olarak yazili. Buradaki is, sessizce
+# yeniden daraltilmasini engellemek.
+#
+# TAVAN YINE ZORUNLU: es zamanlilik `cancel-in-progress: false`,
+# yani takilan bir kosu kuyrugu bekletiyor. Sinirsiz birakmak
+# (tavani tumden silmek) de kabul edilmiyor.
+# --------------------------------------------------------------------
+print('')
+TAVAN_ALT_SINIR = 40
+
+# ALT SINIR, SABITTEN DEGIL OLCULEN OLAYDAN capalaniyor.
+#
+# Mutasyon ilk yazimi yakaladi: sabit 1'e indirildiginde butun
+# iddialar YESIL kaliyordu, yani sinirin kendisini hicbir sey
+# tutmuyordu. Ayni desen `test_seri_sinirlari.py` icinde de
+# yazili: "olculen olayin sekli, sabitten BAGIMSIZ".
+#
+# OLCULEN OLAY: 25 dakikalik tavan, isi 24,5 dakika suren normal
+# kosulari kesti. Yani alt sinir 25'i REDDETMELI.
+dogru(f'alt sinir olculen olayi reddediyor ({TAVAN_ALT_SINIR} > 25 dk)',
+      TAVAN_ALT_SINIR > 25)
+dogru(f'alt sinir makul bantta ({TAVAN_ALT_SINIR}) -- uygulanamaz degil',
+      TAVAN_ALT_SINIR <= 120)
+_geri_yazan = 0
+_zamanli = 0
+for _ad, _d in sorted(cozulen.items()):
+    if not isinstance(_d, dict):
+        continue
+    for _is, _isi in (_d.get("jobs") or {}).items():
+        if not isinstance(_isi, dict):
+            continue
+        _adimlar = _isi.get("steps") or []
+        if not any("git push" in str(a.get("run"))
+                   for a in _adimlar if isinstance(a, dict)):
+            continue
+        _geri_yazan += 1
+        _tavan = _isi.get("timeout-minutes")
+        # HER geri yazan is SINIRLI olmali: tavansiz bir is
+        # GitHub'in 360 dakikalik varsayilaniyla kosar ve es
+        # zamanlilik kuyrugunu alti saat bekletebilir.
+        dogru(f"{_ad}/{_is}: geri yazan isin TAVANI var",
+              isinstance(_tavan, int))
+        # DEGER YALNIZCA ZAMANLI ISLERDE denetlenir.
+        #
+        # ILK YAZIMIM 40'i HER geri yazan ise dayatiyordu ve
+        # OLCUM BUNU CURUTTU: `kavram_gorseli.yml` elle
+        # tetiklenen bir arac ve is suresi ortanca 0,4 dk
+        # (en uzun 0,9). Ona 40 dakika alt sinir koymak,
+        # olculmemis bir sayiyi dayatmak olurdu -- bu depoda
+        # "tek sabit butun isleri paylasamaz" diye iki kez
+        # yazilmis bir kusur sinifi (`PAY`, `GERILEME_ESIGI`).
+        #
+        # AYRIM TURETILMIS, ELLE YAZILMAMIS: `schedule`
+        # tetikleyicisi olan is tam bir uretim cevrimi tasiyor;
+        # elle calistirilan arac tasimaz.
+        if not tetik(_d).get("schedule"):
+            continue
+        _zamanli += 1
+        dogru(f"{_ad}/{_is}: zamanli isin tavani >= {TAVAN_ALT_SINIR} dk "
+              f"(olculen en uzun is 24,5 dk)",
+              isinstance(_tavan, int) and _tavan >= TAVAN_ALT_SINIR)
+
+# KURAL ATIL OLMAMALI -- IKI OLCUT, IKI SAYAC.
+#
+# Tek sayac yetmez: `schedule` suzgeci yanlislikla hicbir isi
+# gecirmez hale gelse `_geri_yazan` yine 3 olurdu ve DEGER
+# denetimi sessizce atil kalirdi.
+dogru('geri yazan is sayisi >= 3 (sinir kurali atil degil)',
+      _geri_yazan >= 3)
+dogru('zamanli geri yazan is sayisi >= 2 (deger kurali atil degil)',
+      _zamanli >= 2)
+print(f'         geri yazan is: {_geri_yazan}, zamanli: {_zamanli}')
+
 dogru('alarm betigi var', _ALARM.is_file())
 
 for _ad in ('otomasyon.yml', 'bilanco.yml'):
