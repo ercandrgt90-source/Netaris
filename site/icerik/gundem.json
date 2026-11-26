@@ -30,10 +30,10 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 12,
+  "yorumlanan": 11,
   "haberler": [
     {
-      "baslik": "Suudi Arabistan Sivil Savunma Teşkilatı: Hamis Muşayt'taki tehlike geçti",
+      "baslik": "Suudi Arabistan Sivil Savunma Teşkilatı: Tehlike Hamis Muşait'te geçti",
       "baslik_kaynak": "Saudi civil defence: danger has passed in Khamis Mushait",
       "ozet": "",
       "cevrildi": true,
@@ -75,7 +75,7 @@
       "foto_atif": "Moheen Reeyad · CC-BY-SA-4.0"
     },
     {
-      "baslik": "Japonya'nın Jera şirketi, Anthropic ve Meta veri merkezlerini enerji santrallerinin yakınına inşa etmeyi hedefliyor - Nikkei $META",
+      "baslik": "Japon Jera, Anthropic ve Meta veri merkezlerini enerji santrallerinin yakınına inşa etmeyi hedefliyor - Nikkei $META",
       "baslik_kaynak": "Japan's Jera aims to build Anthropic and Meta data centers near power plants - Nikkei $META",
       "ozet": "",
       "cevrildi": true,
@@ -337,6 +337,27 @@
       "foto_atif": "Ximonic (Simo Räsänen) · CC-BY-4.0"
     },
     {
+      "baslik": "Yusuf Kenan Bağır kimdir, kaç yaşında, nereli? Yeni BDDK Başkanı hangi okuldan mezun, hayatı?",
+      "baslik_kaynak": "Yusuf Kenan Bağır kimdir, kaç yaşında, nereli? Yeni BDDK Başkanı hangi okuldan mezun, hayatı?",
+      "ozet": "Bankacılık Düzenleme ve Denetleme Kurumu (BDDK) Başkanlığına Yusuf Kenan Bağır atandı. Şahap Kavcıoğlu'nun yerine göreve getirilen Bağır'ın yaşı, memleketi, eğitimi ve daha önce çalıştığı kurumlar merak konusu oldu.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.ekonomim.com/ekonomi/yeni-bddk-baskani-yusuf-kenan-bagir-kimdir-kac-yasinda-nereli-onceki-gorevleri-neler-haberi-933726",
+      "kurum": "Ekonomim",
+      "kurum_tam": "Ekonomim",
+      "konu": "Bankacılık",
+      "tarih": "2026-11-27",
+      "tarih_gorunur": "27 Kasım 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/bankacilik-8-d4d74101.jpg",
+      "foto_atif": "Myotus · CC-BY-4.0"
+    },
+    {
       "baslik": "Sarıgazi Vergi Dairesi İlanen Tebliğ",
       "baslik_kaynak": "SARIGAZİ VERGİ DAİRESİ İLANEN TEBLİĞ",
       "ozet": "",
@@ -400,31 +421,6 @@
       "foto_atif": "Djmaschek · CC-BY-SA-3.0"
     },
     {
-      "baslik": "Bakan Yumaklı: Tarımda takipteki kredilerin oranı toplam krediler içinde yüzde 1.79",
-      "baslik_kaynak": "Bakan Yumaklı: Tarımda takipteki kredilerin oranı toplam krediler içinde yüzde 1.79",
-      "ozet": "Tarım ve Orman Bakanı İbrahim Yumaklı, Eylül 2026 itibarıyla tarımsal kredi bakiyesinin 1 trilyon 650 milyar lira, takipteki kredilerin 29.5 milyar lira olduğunu, bunun toplam krediler içindeki oranının yüzde 1.79’a karşılık geldiğini söyledi.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.ekonomim.com/ekonomi/bakan-yumakli-tarimda-takipteki-kredilerin-orani-toplam-krediler-icinde-yuzde-179-haberi-933699",
-      "kurum": "Ekonomim",
-      "kurum_tam": "Ekonomim",
-      "konu": "Tarım ve gıda",
-      "tarih": "2026-11-27",
-      "tarih_gorunur": "27 Kasım 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Gıda, tüketici fiyat endeksinde en yüksek ağırlıklı gruplardan biridir; rekolte ve girdi maliyeti enflasyona hızlı geçer.",
-      "kanallar": [
-        "Enflasyon: gıda fiyatları manşet enflasyonun en oynak bileşenidir; bu yüzden çekirdek enflasyon ayrıca izlenir.",
-        "Girdi maliyeti: gübre, yem ve akaryakıt fiyatı üretici maliyetini belirler; bunların çoğu ithal ve döviz cinsidir.",
-        "Dış ticaret: hububat ve yağlı tohumda ithalat bağımlılığı, rekolte sonucunu cari dengeye bağlar."
-      ],
-      "kanal_basligi": "Piyasaya nasıl yansır?",
-      "foto": "/statik/foto/tarim-ve-gida-9-f860582e.jpg",
-      "foto_atif": "Hugh Venables · CC-BY-SA-2.0"
-    },
-    {
       "baslik": "TCMB'den TL likidite hamlesi. Oran değişti",
       "baslik_kaynak": "TCMB'den TL likidite hamlesi! Oran değişti",
       "ozet": "Türkiye Cumhuriyet Merkez Bankası (TCMB), Türk lirası likidite yönetimi kapsamında bir hafta vadeli repo ihalelerine geçici olarak ara verme kararı aldı. Banka ayrıca TL mevduat için tesis edilen zorunlu karşılıklara uygulanacak faiz veya telafi ödemesi oranını yüzde 86'dan yüzde 90'a yükseltti.",
@@ -465,6 +461,27 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/altin-ve-emtia-9-96578871.jpg",
       "foto_atif": "Bill Holler · CC-BY-SA-2.0"
+    },
+    {
+      "baslik": "SON DAKİKA I Resmi Gazete'de yayımlandı: BDDK Başkanlığına yeni isim",
+      "baslik_kaynak": "SON DAKİKA I Resmi Gazete'de yayımlandı: BDDK Başkanlığına yeni isim",
+      "ozet": "Son Dakika Haberleri... Resmi gazete’de yayımlanan atama kararlarına göre, BDDK Başkanlığına Yusuf Kenan Bağır atandı. Devamı için tıklayınız",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.sabah.com.tr/ekonomi/son-dakika-i-resmi-gazetede-yayimlandi-bddk-baskanligina-yeni-isim-7710243",
+      "kurum": "Sabah",
+      "kurum_tam": "Sabah",
+      "konu": "Bankacılık",
+      "tarih": "2026-11-27",
+      "tarih_gorunur": "27 Kasım 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/bankacilik-9-93533b82.jpg",
+      "foto_atif": "Myotus · CC-BY-4.0"
     },
     {
       "baslik": "Haftalık Akım Faiz ve Kâr Payı İstatistikleri",
@@ -2159,27 +2176,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/kripto-varliklar-8-740eb829.jpg",
       "foto_atif": "Satheesh Sankaran · CC-BY-2.0"
-    },
-    {
-      "baslik": "Bitcoin ETF'leri nakit kaybediyor ve Fed'in yardım etmesi pek olası değil",
-      "baslik_kaynak": "Bitcoin ETFs are bleeding cash and the Fed is unlikely to help",
-      "ozet": "Your day-ahead look for Nov. 26, 2026",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.coindesk.com/daybook-us/2026/11/26/bitcoin-etfs-are-bleeding-cash-and-the-fed-is-unlikely-to-help",
-      "kurum": "CoinDesk",
-      "kurum_tam": "CoinDesk",
-      "konu": "Kripto varlıklar",
-      "tarih": "2026-11-26",
-      "tarih_gorunur": "26 Kasım 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/kripto-varliklar-7-62d77ad7.jpg",
-      "foto_atif": "Karlalhdz · CC-BY-SA-4.0"
     },
     {
       "baslik": "Kurumlar, tüketici kredisi ve kiralama işlemleri için kredi ve tüketici kiralaması kurallarındaki doğruluğun uygulanabilirliğine ilişkin dolar eşiklerini duyurmaktadır",
