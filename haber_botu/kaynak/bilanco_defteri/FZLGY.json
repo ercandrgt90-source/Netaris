@@ -1,6 +1,6 @@
 {
  "kod": "FZLGY",
- "cekildi": "2026-11-24T18:20:23Z",
+ "cekildi": "2026-11-26T02:09:19Z",
  "ceyrek": 1,
  "sema": "cd5f150b28ca53cb",
  "bitis": "2026-09-30",
@@ -16,10 +16,10 @@
    "Operating Cash Flow": -620850000.0
   },
   "gelir_onceki": {
-   "Revenue": 20540000.0,
-   "Net Income": 48940000.0,
+   "Revenue": 26650000.0,
+   "Net Income": 63500000.0,
    "Net Cash (Debt)": -1177000000.0,
-   "Operating Cash Flow": -207220000.0
+   "Operating Cash Flow": -203370000.0
   },
   "_donem": {
    "gelir": [
@@ -110,9 +110,9 @@
    "Operating Cash Flow": -620850000.0
   },
   "nakit_onceki": {
-   "Net Income": 62170000.0,
-   "Depreciation & Amortization": 1040000.0,
-   "Operating Cash Flow": -207220000.0
+   "Net Income": 76460000.0,
+   "Depreciation & Amortization": 1310000.0,
+   "Operating Cash Flow": -203370000.0
   },
   "nakit_g1": {
    "Net Income": -224110000.0,

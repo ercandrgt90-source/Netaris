@@ -1,6 +1,6 @@
 {
  "kod": "INGRM",
- "cekildi": "2026-11-24T18:00:08Z",
+ "cekildi": "2026-11-26T01:43:12Z",
  "ceyrek": 1,
  "sema": "cd5f150b28ca53cb",
  "bitis": "2026-09-30",
@@ -11,7 +11,7 @@
   },
   "gelir": {
    "Revenue": 12105000000.0,
-   "Gross Profit": 560730000.0,
+   "Gross Profit": 556800000.0,
    "Operating Income": 218190000.0,
    "Net Income": 1690000.0,
    "Net Cash (Debt)": -6007000000.0,
@@ -145,7 +145,8 @@
    "Net Income": 1690000.0,
    "Depreciation & Amortization": 22690000.0,
    "Operating Cash Flow": 320240000.0,
-   "Capital Expenditures": 240000.0
+   "Capital Expenditures": 240000.0,
+   "Cash Interest Paid": 128520000.00000001
   },
   "nakit_onceki": {
    "Net Income": 40240000.0,

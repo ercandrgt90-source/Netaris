@@ -4680,7 +4680,10 @@
    "kap_kimlik": "4028e4a140f2ed720140f3014c9400cf",
    "sehir": "KONYA",
    "uye_turu": "IGS",
-   "denetci": "DRT BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "DRT BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Building Materials"
   },
   "KOPOL": {
    "kod": "KOPOL",
@@ -4710,7 +4713,8 @@
    "kap_kimlik": "4028e4a140f2ed720140f2f4659e00bc",
    "sehir": "BURSA",
    "uye_turu": "IGS",
-   "denetci": "TTK BAĞIMSIZ DENETİM VE YEMİNLİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "TTK BAĞIMSIZ DENETİM VE YEMİNLİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor_bulunamadi": "2026-11-26"
   },
   "KOTON": {
    "kod": "KOTON",
@@ -4718,7 +4722,10 @@
    "kap_kimlik": "4028e4a2422d9a7801429a4cc3d64f41",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "DRT BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "DRT BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Apparel Manufacturing"
   },
   "KPTGY": {
    "kod": "KPTGY",
