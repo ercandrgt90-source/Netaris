@@ -30,7 +30,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 8,
+  "yorumlanan": 10,
   "haberler": [
     {
       "baslik": "28-29 Ekim 2026 tarihli toplantı",
@@ -157,6 +157,32 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/duzenleme-8-9230ff1d.jpg",
       "foto_atif": "Myotus · CC-BY-4.0"
+    },
+    {
+      "baslik": "Suudi Arabistan liderliğindeki koalisyon: Cazan rafinerisi Yemen'deki Husiler tarafından saldırıya uğradı",
+      "baslik_kaynak": "Saudi-Led Coalition: Jazan refinery attacked by Yemen's Houthis.",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9869552/Saudi-Led-Coalition-Jazan-refinery-attacked-by-Yemens-Houthis.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Jeopolitik",
+      "tarih": "2026-11-26",
+      "tarih_gorunur": "26 Kasım 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
+      "kanallar": [
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-40-59a567ac.jpg",
+      "foto_atif": "Peter Griffin · CC0"
     },
     {
       "baslik": "Deutsche Bank: Bu döngüde çok sayıda olumsuz teknoloji katalizörü - FJElite",
@@ -1418,27 +1444,6 @@
       "foto_atif": "Paul Harrison · CC-BY-SA-4.0"
     },
     {
-      "baslik": "Çin Ticaret Bakanlığı: Karşılıklı gümrük vergisi indirim anlaşmasının mümkün olan en kısa sürede uygulanması, ikili ticaretin genişletilmesine yardımcı olacaktır",
-      "baslik_kaynak": "China's commerce ministry: Implementation of reciprocal tariff reduction arrangement as soon as possible will help expand bilateral trade",
-      "ozet": "",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9869010/Chinas-commerce-ministry-Implementation-of-reciprocal-tariff-reduction-arrangement-as-soon-as-possible-will-help-expand-bilateral-trade.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Dış ticaret",
-      "tarih": "2026-11-26",
-      "tarih_gorunur": "26 Kasım 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/dis-ticaret-9-9686a70e.jpg",
-      "foto_atif": "Huhu Uet · CC-BY-SA-4.0"
-    },
-    {
       "baslik": "\"Kriptografik bir atılım için hazırlanma zamanı, bu atılım gerçekleşmeden öncedir\": Zcash ekibi, eski korumalı havuzun daha hızlı bir şekilde kullanımdan kaldırılmasını teşvik ediyor",
       "baslik_kaynak": "‘The time to prepare for a cryptographic breakthrough is before it happens’: Zcash team urges faster deprecation of legacy shielded pool",
       "ozet": "Zakura wants Zcash to disable Sapling deposits over speculative concerns about AI-assisted mathematical breakthroughs.",
@@ -1838,7 +1843,7 @@
       "foto_atif": "Karlalhdz · CC-BY-SA-4.0"
     },
     {
-      "baslik": "Nasdaq yöneticisi, tokenleştirilmiş menkul kıymetler için ortak AB kuralları üzerinde ısrar ediyor",
+      "baslik": "Nasdaq yöneticisi, tokenleştirilmiş menkul kıymetler için ortak AB kuralları talep ediyor",
       "baslik_kaynak": "Nasdaq exec pushes for common EU rules on tokenized securities",
       "ozet": "Nasdaq’s Roland Chai backed exploring common EU rules for tokenized securities and said its Swedish subsidiary had applied for a DLT license.",
       "cevrildi": true,
@@ -2006,27 +2011,6 @@
       "foto_atif": "CryptoWallet.com Images · CC-BY-2.0"
     },
     {
-      "baslik": "Polygon, Sınır Ötesi Ödeme Sistemini Coinbase'in Base'ine Taşıyor",
-      "baslik_kaynak": "Polygon Brings Its Cross-Border Payments Stack to Coinbase’s Base",
-      "ozet": "Businesses paying sellers abroad can now send USDC on Base or deliver local currency to bank accounts through a single integration, as Polygon extends its payments platform to the Coinbase-incubated network.",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://decrypt.co/384023/polygon-cross-border-payments-stack-coinbase-base",
-      "kurum": "Decrypt",
-      "kurum_tam": "Decrypt",
-      "konu": "Kripto varlıklar",
-      "tarih": "2026-11-26",
-      "tarih_gorunur": "26 Kasım 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/kripto-varliklar-9-651bf869.jpg",
-      "foto_atif": "Satheesh Sankaran · CC-BY-2.0"
-    },
-    {
       "baslik": "Galaxy Research, Bitcoin'in Ayı Piyasasının Sona Erdiğine İlişkin Görüşünü Geri Çekti",
       "baslik_kaynak": "Galaxy Research Withdraws Call That Bitcoin's Bear Market Is Over",
       "ozet": "A month after saying Bitcoin had bottomed in June, Galaxy now says a daily close below $58,525 would signal a materially lower low.",
@@ -2072,6 +2056,32 @@
       "kanal_basligi": "Hangi piyasaları etkiler?",
       "foto": "/statik/foto/enflasyon-8-9782cbcb.jpg",
       "foto_atif": "Basile Morin · CC-BY-SA-4.0"
+    },
+    {
+      "baslik": "İngiltere Merkez Bankasından küresel piyasalara \"yapay zeka ve Orta Doğu\" uyarısı",
+      "baslik_kaynak": "İngiltere Merkez Bankasından küresel piyasalara \"yapay zeka ve Orta Doğu\" uyarısı",
+      "ozet": "BoE, Orta Doğu'da devam eden çatışmalar, kamu borcu baskıları ve yapay zeka şirketlerinin gelecekteki kazançlarına yönelik dalgalı beklentilerin küresel finansal sistemdeki kırılganlıkların aynı anda ortaya çıkma riskini artırdığını bildirdi.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.aa.com.tr/tr/ekonomi/ingiltere-merkez-bankasindan-kuresel-piyasalara-yapay-zeka-ve-orta-dogu-uyarisi/4138719",
+      "kurum": "AA",
+      "kurum_tam": "Anadolu Ajansı",
+      "konu": "Para politikası",
+      "tarih": "2026-11-26",
+      "tarih_gorunur": "26 Kasım 2026",
+      "yorumlanir": true,
+      "neden_onemli": "TCMB politika faizi, yurt içi fonlama maliyetinin çıpasıdır. Ticari kredi faizi, mevduat getirisi ve tahvil getiri eğrisi bu oranın etrafında yeniden fiyatlanır.",
+      "kanallar": [
+        "Kredi maliyeti: bankaların Merkez Bankası'ndan fonlanma maliyeti değiştiğinde ticari ve bireysel kredi faizleri buradan fiyatlanır.",
+        "Şirket finansman gideri: değişken faizle borçlanan ve net borç pozisyonu yüksek şirketlerde finansman gideri kalemi doğrudan etkilenir; bu kalem kâr marjına gelir tablosu üzerinden yansır.",
+        "Mevduat ve tahvil getirisi: TL mevduat ile devlet iç borçlanma senedi getirileri politika faizine göre yeniden konumlanır. Reel getiri, enflasyon beklentisiyle birlikte değerlendirilir.",
+        "Faiz farkı: yurt içi ve yurt dışı faiz arasındaki fark, TL cinsi varlıklara yönelen sermaye akımının belirleyicilerinden biridir."
+      ],
+      "kanal_basligi": "Piyasaya nasıl yansır?",
+      "foto": "/statik/foto/para-politikasi-8-9ac5b7c7.jpg",
+      "foto_atif": "DestinationFearFan · CC-BY-SA-4.0"
     },
     {
       "baslik": "Kurumlar, tüketici kredisi ve kiralama işlemleri için kredi ve tüketici kiralaması kurallarındaki doğruluğun uygulanabilirliğine ilişkin dolar eşiklerini duyurmaktadır",
