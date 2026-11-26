@@ -30,7 +30,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 11,
+  "yorumlanan": 9,
   "haberler": [
     {
       "baslik": "TCMB ağırlıklı ortalama fonlama maliyeti: %36,00",
@@ -297,7 +297,7 @@
       "foto_atif": "usepagov · PDM"
     },
     {
-      "baslik": "Irak Petrol Bakanı: Petrol ihracatı günlük 200.000 varilden 3,6 milyon varile yükseldi",
+      "baslik": "Irak Petrol Bakanı: Petrol ihracatı günlük 200.000 varilden günlük 3,6 milyon varile yükseldi",
       "baslik_kaynak": "Iraq's Oil Minister: Oil exports raised to 3.6 mln bpd from 200,000 bpd",
       "ozet": "",
       "cevrildi": true,
@@ -318,7 +318,7 @@
       "foto_atif": "Djmaschek · CC-BY-SA-3.0"
     },
     {
-      "baslik": "Trump: Rusya Devlet Başkanı Putin'i Avrupa genelindeki askeri saldırganlığını geri çekmeye çağırdı, Rusya-Ukrayna anlaşmasının kısa sürede sağlanabileceğine inanıyor - Truth Social",
+      "baslik": "Trump: Rusya Devlet Başkanı Putin'i Avrupa genelindeki askeri saldırganlığını geri çekmeye çağırdı, Rusya-Ukrayna anlaşmasına kısa sürede varılabileceğine inanıyor - Truth Social",
       "baslik_kaynak": "Trump: Urged Russian President Putin to pull back military aggression across Europe, believes Russia-Ukraine deal can be reached quickly - Truth Social.",
       "ozet": "",
       "cevrildi": true,
@@ -1892,6 +1892,27 @@
       "foto_atif": "Karlalhdz · CC-BY-SA-4.0"
     },
     {
+      "baslik": "AB'li brokerler Kırgız kripto borsalarına erişimlerini nasıl kaybedebilir?",
+      "baslik_kaynak": "How EU brokers could lose access to Kyrgyz crypto exchanges",
+      "ozet": "A vote on Kyrgyzstan could make an exchange’s home country the deciding factor in whether a European broker can use it to settle a trade.",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://cointelegraph.com/news/how-eu-brokers-could-lose-access-to-kyrgyz-crypto-exchanges?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "kurum": "Cointelegraph",
+      "kurum_tam": "Cointelegraph",
+      "konu": "Kripto varlıklar",
+      "tarih": "2026-11-26",
+      "tarih_gorunur": "26 Kasım 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/kripto-varliklar-8-8b36c240.jpg",
+      "foto_atif": "de Vries, Alex; Stoll, Christian · PDM"
+    },
+    {
       "baslik": "Nasdaq yöneticisi, tokenleştirilmiş menkul kıymetler için ortak AB kuralları talep ediyor",
       "baslik_kaynak": "Nasdaq exec pushes for common EU rules on tokenized securities",
       "ozet": "Nasdaq’s Roland Chai backed exploring common EU rules for tokenized securities and said its Swedish subsidiary had applied for a DLT license.",
@@ -2081,56 +2102,25 @@
       "foto_atif": "Satheesh Sankaran · CC-BY-2.0"
     },
     {
-      "baslik": "Avrupa Merkez Bankası Başkanlığına İspanyol ekonomist Hernandez de Cos'un getirilmesinde uzlaşı sağlandı",
-      "baslik_kaynak": "Avrupa Merkez Bankası Başkanlığına İspanyol ekonomist Hernandez de Cos'un getirilmesinde uzlaşı sağlandı",
-      "ozet": "Avro Bölgesi ülkelerinin liderleri, Avrupa Merkez Bankası (ECB) Başkanlığına İspanya Merkez Bankasının eski Başkanı Pablo Hernandez de Cos'un getirilmesi konusunda anlaştı.",
+      "baslik": "Libya Enerji Fuarı ve Konferansı'na 21 firmayla en fazla katılım Türkiye'den",
+      "baslik_kaynak": "Libya Enerji Fuarı ve Konferansı'na 21 firmayla en fazla katılım Türkiye'den",
+      "ozet": "Libya'nın başkenti Trablus'ta düzenlenen Libya Enerji Fuarı ve Konferansı'na (LIBYES 2026) 21 firmayla en fazla katılım sağlayan ülke Türkiye oldu.",
       "cevrildi": false,
       "dil": "tr",
       "ticari": true,
       "bolge": "TR",
-      "adres": "https://www.aa.com.tr/tr/ekonomi/avrupa-merkez-bankasi-baskanligina-ispanyol-ekonomist-hernandez-de-cosun-getirilmesinde-uzlasi-saglandi/4139322",
+      "adres": "https://www.aa.com.tr/tr/ekonomi/libya-enerji-fuari-ve-konferansina-21-firmayla-en-fazla-katilim-turkiyeden/4139044",
       "kurum": "AA",
       "kurum_tam": "Anadolu Ajansı",
-      "konu": "Para politikası",
+      "konu": "Enerji",
       "tarih": "2026-11-26",
       "tarih_gorunur": "26 Kasım 2026",
-      "yorumlanir": true,
-      "neden_onemli": "TCMB politika faizi, yurt içi fonlama maliyetinin çıpasıdır. Ticari kredi faizi, mevduat getirisi ve tahvil getiri eğrisi bu oranın etrafında yeniden fiyatlanır.",
-      "kanallar": [
-        "Kredi maliyeti: bankaların Merkez Bankası'ndan fonlanma maliyeti değiştiğinde ticari ve bireysel kredi faizleri buradan fiyatlanır.",
-        "Şirket finansman gideri: değişken faizle borçlanan ve net borç pozisyonu yüksek şirketlerde finansman gideri kalemi doğrudan etkilenir; bu kalem kâr marjına gelir tablosu üzerinden yansır.",
-        "Mevduat ve tahvil getirisi: TL mevduat ile devlet iç borçlanma senedi getirileri politika faizine göre yeniden konumlanır. Reel getiri, enflasyon beklentisiyle birlikte değerlendirilir.",
-        "Faiz farkı: yurt içi ve yurt dışı faiz arasındaki fark, TL cinsi varlıklara yönelen sermaye akımının belirleyicilerinden biridir."
-      ],
-      "kanal_basligi": "Piyasaya nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-10-bce0f56d.jpg",
-      "foto_atif": "Tony Webster · CC-BY-2.0"
-    },
-    {
-      "baslik": "Borsa günü yükselişle tamamladı",
-      "baslik_kaynak": "Borsa günü yükselişle tamamladı",
-      "ozet": "Borsa İstanbul'da BIST 100 endeksi, günü yüzde 0,82 değer kazanarak 10.743,11 puandan tamamladı.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.aa.com.tr/tr/ekonomi/borsa-gunu-yukselisle-tamamladi/4139309",
-      "kurum": "AA",
-      "kurum_tam": "Anadolu Ajansı",
-      "konu": "Borsa",
-      "tarih": "2026-11-26",
-      "tarih_gorunur": "26 Kasım 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Endeks hareketi tek başına bir bilgi değildir; hareketi hangi sektörlerin taşıdığı ve işlem hacminin ne olduğu kalıcılığı belirler.",
-      "kanallar": [
-        "Sektör dağılımı: hareketin dar bir gruptan mı geniş tabandan mı geldiği, kalıcılığa dair ipucu verir.",
-        "Hacim: düşük hacimli hareket fiyat keşfinden çok pozisyon ayarlaması olabilir.",
-        "Volatilite: opsiyon fiyatlarındaki değişim piyasanın beklediği oynaklığı gösterir.",
-        "Korelasyon: hisse ile tahvil arasındaki ilişkinin işareti portföy riskinin nasıl dağıldığını değiştirir."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/borsa-9-78cc676a.jpg",
-      "foto_atif": "Syced · CC0"
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/enerji-19-7f38d155.jpg",
+      "foto_atif": "Calistemon · CC-BY-SA-4.0"
     },
     {
       "baslik": "Kurumlar, tüketici kredisi ve kiralama işlemleri için kredi ve tüketici kiralaması kurallarındaki doğruluğun uygulanabilirliğine ilişkin dolar eşiklerini duyurmaktadır",
