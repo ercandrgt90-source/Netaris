@@ -1,7 +1,7 @@
 ---
 slug: piyasa-tepkisi-kasim-tufe-beklentisi-yillik-oran-yuzde-24-e-yakin-2026-11-26
 baslik: Kasım TÜFE beklentisi: Yıllık oran yüzde 24’e yakın
-ozet: Enflasyon verisi. Bitcoin 1 saat içinde +%0,73 yükseldi.
+ozet: Enflasyon verisi. Bitcoin 1 saat içinde +%0,31 yükseldi.
 sirket: Piyasa tepkisi: Kasım TÜFE beklentisi: Yıllık oran yüzde 24’e yakın
 kod: OLAY
 donem: 2026-11-26
@@ -23,8 +23,8 @@ Enflasyon verisi yayımlandı. Kaynak: Investing.
 
 ## Piyasada ne oldu
 
-- **Altın** 1 saat içinde yükseldi: +%0,24 (son 3572,40).
-- **Bitcoin** 1 saat içinde yükseldi: +%0,73 (son 60896,90).
+- **Altın** 1 saat içinde yükseldi: +%0,13 (son 3571,00).
+- **Bitcoin** 1 saat içinde yükseldi: +%0,31 (son 60802,60).
 
 *Yukarıdaki rakamlar ölçülen fiyat hareketidir. Hareketin sebebinin bu gelişme olduğu iddia edilmemektedir; aynı pencerede başka etkenler de fiyatlanmış olabilir.*
 

@@ -1,7 +1,7 @@
 ---
 slug: piyasa-tepkisi-hurmuz-bogazi-nda-tanker-trafigi-artti-2026-11-26
 baslik: Hürmüz Boğazı'nda tanker trafiği arttı
-ozet: Jeopolitik gelişme. Bitcoin 1 saat içinde +%0,73 yükseldi.
+ozet: Jeopolitik gelişme. Brent petrol günlük içinde +%0,66 yükseldi.
 sirket: Piyasa tepkisi: Hürmüz Boğazı'nda tanker trafiği arttı
 kod: OLAY
 donem: 2026-11-26
@@ -23,8 +23,8 @@ Jeopolitik bir gelişme yaşandı. Kaynak: BloombergHT.
 
 ## Piyasada ne oldu
 
-- **Altın** 1 saat içinde yükseldi: +%0,24 (son 3572,40).
-- **Bitcoin** 1 saat içinde yükseldi: +%0,73 (son 60896,90).
+- **Altın** 1 saat içinde yükseldi: +%0,13 (son 3571,00).
+- **Bitcoin** 1 saat içinde yükseldi: +%0,31 (son 60805,10).
 - **Brent petrol** günlük bazda yükseldi: +%0,66 — 2026-11-24 tarihli gözlem.
 
 *Yukarıdaki rakamlar ölçülen fiyat hareketidir. Hareketin sebebinin bu gelişme olduğu iddia edilmemektedir; aynı pencerede başka etkenler de fiyatlanmış olabilir.*
