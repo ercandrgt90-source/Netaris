@@ -1,13 +1,13 @@
 ---
 slug: hatek-2026-3-ceyrek
 baslik: HATEKS HATAY TEKSTİL İŞLETMELERİ A.Ş. 2026 3. çeyrek bilanço analizi
-ozet: Hasılatın %12,1 düşmesiyle birlikte brüt kâr da negatiften sıfıra yükselmiş, bu da brüt kâr marjının –%1,0'dan pozitif bir değere geçmesine yol açmıştır; aynı dönemde faaliyet kârı –0,04 milyar TL'ye iyileşirken net kâr –0,03 milyar TL'ye gerilemiştir.…
+ozet: Hasılatın %12,1 düşmesiyle birlikte brüt kâr negatif %1,0'a gerileyerek brüt kâr marjı sektör medyanının %16,9'undan çok altında kaldı; bu düşüş net kârın %109,2 azalarak -%15,8'lik bir marja ve özkaynak kârlılığının -%1,7'ye inmesine yol açtı.…
 sirket: HATEKS HATAY TEKSTİL İŞLETMELERİ A.Ş.
 kod: HATEK
 donem: 2026 3. çeyrek
 kategori: Bilanço Analizi
 sektor: İsteğe bağlı tüketim
-tarih: 2026-11-26
+tarih: 2026-11-19
 veri_kaynagi: Çeyreklik mali tablolardan türetildi; sektör medyanı Netaris hesabı
 kurgusal: hayir
 grafik_tur: sutun
@@ -18,7 +18,7 @@ sayimlar:
 
 ## Özet
 
-Hasılatın %12,1 düşmesiyle birlikte brüt kâr da negatiften sıfıra yükselmiş, bu da brüt kâr marjının –%1,0'dan pozitif bir değere geçmesine yol açmıştır; aynı dönemde faaliyet kârı –0,04 milyar TL'ye iyileşirken net kâr –0,03 milyar TL'ye gerilemiştir. Aktif toplamının %24,6 artması net borcun %69,9 yükselmesine eşlik etmiş ve bu durum borç/özkaynak oranının 0,97'ye, cari oranın ise 0,99'a yükselmesine neden olmuştur. Özkaynak %1,7 azalsa da özkaynak kârlılığı –%1,7 seviyesinde kalmış, bu da sektör medyanı –%0,4 ile karşılaştırıldığında daha düşük bir performans göstermektedir.
+Hasılatın %12,1 düşmesiyle birlikte brüt kâr negatif %1,0'a gerileyerek brüt kâr marjı sektör medyanının %16,9'undan çok altında kaldı; bu düşüş net kârın %109,2 azalarak -%15,8'lik bir marja ve özkaynak kârlılığının -%1,7'ye inmesine yol açtı. Aktif toplamının %24,6 artması net borcun %69,9 yükselmesiyle birleşerek borç/özkaynak oranının 0,20 sektör medyanının çok üzerindeki 0,97 seviyesine çıkmasına neden oldu; aynı zamanda cari oran 1,32 medyanının altında 0,99 olarak geriledi. Faaliyet nakit akışı %86,3 azalarak 0,04 milyar TL'ye düşerken yatırım harcaması %138,7 artarak 0,04 milyar TL'ye yükseldi, bu da nakit akışı ile yatırım arasındaki dengesizliği gösteriyor.
 
 ## 2026 3. çeyrek — bir yıl öncesine göre
 
@@ -75,15 +75,15 @@ Hasılatın %12,1 düşmesiyle birlikte brüt kâr da negatiften sıfıra yükse
 
 ## Sektör içindeki konum
 
-Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildiren** 69 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
+Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildiren** 64 şirketin **medyanına** göre yapılıyor. Medyan seçildi çünkü tek bir şirketin uç değeri ortalamayı tek başına taşıyabiliyor.
 
 | Oran | Şirket | Sektör medyanı |
 | --- | ---: | ---: |
-| Brüt kâr marjı | -%1,0 | %16,9 |
-| Net kâr marjı | -%15,8 | -%1,6 |
+| Brüt kâr marjı | -%1,0 | %16,2 |
+| Net kâr marjı | -%15,8 | -%1,9 |
 | Özkaynak kârlılığı | -%1,7 | -%0,4 |
-| Cari oran | 0,99 | 1,31 |
-| Borç / özkaynak | 0,97 | 0,24 |
+| Cari oran | 0,99 | 1,35 |
+| Borç / özkaynak | 0,97 | 0,19 |
 
 *Medyana göre konum bir sıralamadır, değerlendirme değildir. Hangi oranın yüksek olmasının iyi olduğu iş modeline göre değişir.*
 
