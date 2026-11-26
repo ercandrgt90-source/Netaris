@@ -187,7 +187,7 @@
       "dil": "en",
       "ticari": false,
       "bolge": "DUNYA",
-      "adres": "https://www.boj.or.jp/en/about/press/koen_2026/ko261126a.htm",
+      "adres": "http://www.boj.or.jp/en/about/press/koen_2026/ko261126a.htm",
       "kurum": "BoJ",
       "kurum_tam": "Japonya Merkez Bankası",
       "konu": "Para politikası",
@@ -197,8 +197,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/para-politikasi-12-2ca29aaf.jpg",
-      "foto_atif": "Kidfly182 · CC-BY-4.0"
+      "foto": "/statik/foto/para-politikasi-7-d50cfe6c.jpg",
+      "foto_atif": "Infrogmation of New Orleans · CC-BY-SA-4.0"
     },
     {
       "baslik": "FCA, yapay zekâ dolandırıcılıkları arttığı için yatırım yapmadan önce şirketi kontrol edin uyarısında bulunuyor",
@@ -2131,7 +2131,28 @@
       "foto_atif": "Satheesh Sankaran · CC-BY-2.0"
     },
     {
-      "baslik": "Bitcoin, Şükran Günü Toparlanmasını Gölgeleyen Ölüm Haçı'na Rağmen 60.000 $'ın Üzerinde Tutunuyor",
+      "baslik": "Satış Öncesinde Yapay Zekâ Hisse Senetleri Dot-Com Seviyesinde Balon Sinyalleri Verdi: Araştırma",
+      "baslik_kaynak": "Before the Sell-Off, AI Stocks Showed Dot-Com-Level Bubble Signals: Study",
+      "ozet": "A study of 170 years of financial journalism suggests AI stocks rivaled dot-com bubble levels, but estimates vary.",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://decrypt.co/384066/before-the-sell-off-ai-stocks-showed-dot-com-level-bubble-signals-study",
+      "kurum": "Decrypt",
+      "kurum_tam": "Decrypt",
+      "konu": "Borsa",
+      "tarih": "2026-11-26",
+      "tarih_gorunur": "26 Kasım 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/borsa-12-5544ef41.jpg",
+      "foto_atif": "Bernard Lee · CC0"
+    },
+    {
+      "baslik": "Ölüm Kesişmesi Şükran Günü Toparlanmasını Gölgelediğinden Bitcoin 60.000 $'ın Üzerinde Seyrediyor",
       "baslik_kaynak": "Bitcoin Holds Above $60K as Death Cross Clouds Thanksgiving Recovery",
       "ozet": "Bitcoin and major altcoins rose slightly on Thanksgiving, but a bearish death cross suggests crypto remains weaker than stocks.",
       "cevrildi": true,
@@ -2150,27 +2171,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/kripto-varliklar-8-8b36c240.jpg",
       "foto_atif": "de Vries, Alex; Stoll, Christian · PDM"
-    },
-    {
-      "baslik": "İspanya, Mali İstihbarat Biriminin Mahkeme Kararı Olmadan Kripto Hesaplarını Dondurmasına İzin Veriyor",
-      "baslik_kaynak": "Spain Lets Its Financial Intelligence Unit Freeze Crypto Accounts Without a Court Order",
-      "ozet": "Sepblac can now suspend crypto, bank and payment accounts for up to five working days, with courts deciding on any extension.",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://decrypt.co/384063/spain-lets-its-financial-intelligence-unit-freeze-crypto-accounts-without-a-court-order",
-      "kurum": "Decrypt",
-      "kurum_tam": "Decrypt",
-      "konu": "Kripto varlıklar",
-      "tarih": "2026-11-26",
-      "tarih_gorunur": "26 Kasım 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/kripto-varliklar-9-651bf869.jpg",
-      "foto_atif": "Satheesh Sankaran · CC-BY-2.0"
     },
     {
       "baslik": "Kurumlar, tüketici kredisi ve kiralama işlemleri için kredi ve tüketici kiralaması kurallarındaki doğruluğun uygulanabilirliğine ilişkin dolar eşiklerini duyurmaktadır",
@@ -2327,7 +2327,7 @@
       "dil": "en",
       "ticari": false,
       "bolge": "DUNYA",
-      "adres": "https://www.boj.or.jp/en/statistics/boj/other/mei/release/2026/mei261120.xlsx",
+      "adres": "http://www.boj.or.jp/en/statistics/boj/other/mei/release/2026/mei261120.xlsx",
       "kurum": "BoJ",
       "kurum_tam": "Japonya Merkez Bankası",
       "konu": "Bankacılık",
@@ -2337,7 +2337,7 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/bankacilik-9-93533b82.jpg",
+      "foto": "/statik/foto/bankacilik-8-d4d74101.jpg",
       "foto_atif": "Myotus · CC-BY-4.0"
     },
     {
@@ -2348,7 +2348,7 @@
       "dil": "en",
       "ticari": false,
       "bolge": "DUNYA",
-      "adres": "https://www.boj.or.jp/en/research/research_data/cpi/index.htm",
+      "adres": "http://www.boj.or.jp/en/research/research_data/cpi/index.htm",
       "kurum": "BoJ",
       "kurum_tam": "Japonya Merkez Bankası",
       "konu": "Enflasyon",
@@ -2363,8 +2363,8 @@
         "Baz etkisi: bir önceki yılın aynı ayındaki seviye yıllık oranı mekanik olarak değiştirir."
       ],
       "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/enflasyon-11-93446832.jpg",
-      "foto_atif": "Wikimedia Commons · CC-BY-SA-2.5"
+      "foto": "/statik/foto/enflasyon-12-cbdc7136.jpg",
+      "foto_atif": "Gary Hoover · CC-BY-4.0"
     },
     {
       "baslik": "Japonya Merkez Bankası Hesapları (20 Kasım)",
@@ -2374,7 +2374,7 @@
       "dil": "en",
       "ticari": false,
       "bolge": "DUNYA",
-      "adres": "https://www.boj.or.jp/en/statistics/boj/other/acmai/release/2026/ac261120.htm",
+      "adres": "http://www.boj.or.jp/en/statistics/boj/other/acmai/release/2026/ac261120.htm",
       "kurum": "BoJ",
       "kurum_tam": "Japonya Merkez Bankası",
       "konu": "Bankacılık",
@@ -2384,8 +2384,8 @@
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/bankacilik-7-62bd3092.jpg",
-      "foto_atif": "Dietmar Rabich · CC-BY-SA-4.0"
+      "foto": "/statik/foto/bankacilik-7-8f64866b.jpg",
+      "foto_atif": "Artaxerxes · CC-BY-SA-4.0"
     },
     {
       "baslik": "Krediler ve İskontolar için Ortalama Sözleşme Faiz Oranları (Eylül)",
@@ -2395,7 +2395,7 @@
       "dil": "en",
       "ticari": false,
       "bolge": "DUNYA",
-      "adres": "https://www.boj.or.jp/en/statistics/dl/loan/yaku/yaku2609.pdf",
+      "adres": "http://www.boj.or.jp/en/statistics/dl/loan/yaku/yaku2609.pdf",
       "kurum": "BoJ",
       "kurum_tam": "Japonya Merkez Bankası",
       "konu": "Para politikası",
@@ -2416,7 +2416,7 @@
       "dil": "en",
       "ticari": false,
       "bolge": "DUNYA",
-      "adres": "https://www.boj.or.jp/en/statistics/pi/cspi_release/sppi2610.pdf",
+      "adres": "http://www.boj.or.jp/en/statistics/pi/cspi_release/sppi2610.pdf",
       "kurum": "BoJ",
       "kurum_tam": "Japonya Merkez Bankası",
       "konu": "Enflasyon",
@@ -2431,8 +2431,8 @@
         "Baz etkisi: bir önceki yılın aynı ayındaki seviye yıllık oranı mekanik olarak değiştirir."
       ],
       "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/enflasyon-8-4c01d687.jpg",
-      "foto_atif": "Myotus · CC-BY-4.0"
+      "foto": "/statik/foto/enflasyon-8-9782cbcb.jpg",
+      "foto_atif": "Basile Morin · CC-BY-SA-4.0"
     },
     {
       "baslik": "Yatırımcılar performansı nasıl değerlendirmelidir?",
