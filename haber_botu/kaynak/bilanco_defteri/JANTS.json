@@ -1,6 +1,6 @@
 {
  "kod": "JANTS",
- "cekildi": "2026-11-25T05:02:54Z",
+ "cekildi": "2026-11-26T17:50:09Z",
  "ceyrek": 1,
  "sema": "cd5f150b28ca53cb",
  "bitis": "2026-09-30",
@@ -12,20 +12,20 @@
   "gelir": {
    "Revenue": 2183000000.0,
    "Gross Profit": 262440000.0,
-   "Operating Income": -20930000.0,
+   "Operating Income": 16719999.999999998,
    "Net Income": -12790000.0,
    "Net Cash (Debt)": -491870000.0,
    "Operating Cash Flow": 238880000.0,
    "Capital Expenditures": -113290000.0
   },
   "gelir_onceki": {
-   "Revenue": 1597000000.0,
-   "Gross Profit": 206330000.0,
-   "Operating Income": 55260000.0,
-   "Net Income": 21170000.0,
+   "Revenue": 2072000000.0,
+   "Gross Profit": 267680000.0,
+   "Operating Income": 71690000.0,
+   "Net Income": 27460000.0,
    "Net Cash (Debt)": -265390000.0,
-   "Operating Cash Flow": 67080000.0,
-   "Capital Expenditures": -164690000.0
+   "Operating Cash Flow": 88440000.0,
+   "Capital Expenditures": -209170000.0
   },
   "_donem": {
    "gelir": [
@@ -41,7 +41,7 @@
   "gelir_g1": {
    "Revenue": 2037000000.0,
    "Gross Profit": 349320000.0,
-   "Operating Income": 178830000.0,
+   "Operating Income": 144770000.0,
    "Net Income": 807100000.0,
    "Net Cash (Debt)": -968710000.0,
    "Operating Cash Flow": 5220000.0,
@@ -142,14 +142,15 @@
    "Net Income": 23170000.0,
    "Depreciation & Amortization": 114090000.0,
    "Operating Cash Flow": 238880000.0,
-   "Capital Expenditures": -113290000.0
+   "Capital Expenditures": -113290000.0,
+   "Cash Interest Paid": 95530000.0
   },
   "nakit_onceki": {
-   "Net Income": 17160000.0,
-   "Depreciation & Amortization": 90330000.0,
-   "Operating Cash Flow": 67080000.0,
-   "Capital Expenditures": -164690000.0,
-   "Cash Interest Paid": 43870000.0
+   "Net Income": 23530000.0,
+   "Depreciation & Amortization": 114190000.0,
+   "Operating Cash Flow": 88440000.0,
+   "Capital Expenditures": -209170000.0,
+   "Cash Interest Paid": 54830000.0
   },
   "nakit_g1": {
    "Net Income": 762910000.0,

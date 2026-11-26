@@ -4764,7 +4764,10 @@
    "kap_kimlik": "4028e4a140f2ed7201412ace3ada0707",
    "sehir": "KARABÜK",
    "uye_turu": "IGS",
-   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş"
+   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş",
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Steel"
   },
   "KRGYO": {
    "kod": "KRGYO",
@@ -4772,7 +4775,10 @@
    "kap_kimlik": "4028e4a244a081810146002d6e0c555f",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "DRT BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "DRT BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor": "Real Estate",
+   "sektor_tr": "Gayrimenkul",
+   "alt_sektor": "REIT - Residential"
   },
   "KRONT": {
    "kod": "KRONT",
@@ -4780,7 +4786,10 @@
    "kap_kimlik": "4028e4a2415f4f8401415ffc858834e3",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "KAVRAM BAĞIMSIZ DENETİM VE DANIŞMANLIK A.Ş."
+   "denetci": "KAVRAM BAĞIMSIZ DENETİM VE DANIŞMANLIK A.Ş.",
+   "sektor": "Technology",
+   "sektor_tr": "Bilişim",
+   "alt_sektor": "Software - Infrastructure"
   },
   "KRPLS": {
    "kod": "KRPLS",

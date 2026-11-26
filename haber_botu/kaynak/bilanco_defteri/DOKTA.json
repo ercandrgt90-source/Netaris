@@ -1,6 +1,6 @@
 {
  "kod": "DOKTA",
- "cekildi": "2026-11-24T23:35:00Z",
+ "cekildi": "2026-11-26T17:10:31Z",
  "ceyrek": 1,
  "sema": "cd5f150b28ca53cb",
  "bitis": "2026-09-30",
@@ -12,7 +12,7 @@
   "gelir": {
    "Revenue": 4212000000.0,
    "Gross Profit": 521730000.0,
-   "Operating Income": 90880000.0,
+   "Operating Income": 44150000.0,
    "Net Income": -279500000.0,
    "Net Cash (Debt)": -11001000000.0,
    "Operating Cash Flow": 624960000.0,
@@ -135,7 +135,8 @@
    "Net Income": -279500000.0,
    "Depreciation & Amortization": 215320000.0,
    "Operating Cash Flow": 624960000.0,
-   "Capital Expenditures": -194880000.0
+   "Capital Expenditures": -194880000.0,
+   "Cash Interest Paid": 265769999.99999997
   },
   "nakit_onceki": {
    "Net Income": 50130000.0,
