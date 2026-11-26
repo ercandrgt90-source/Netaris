@@ -4733,7 +4733,8 @@
    "kap_kimlik": "d21618f6aa554dd8a570f41dd0f46700",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": ""
+   "denetci": "",
+   "sektor_bulunamadi": "2026-11-26"
   },
   "KRDMA": {
    "kod": "KRDMA",
@@ -4741,7 +4742,10 @@
    "kap_kimlik": "4028e4a140f2ed7201412ace3ada0707",
    "sehir": "KARABÜK",
    "uye_turu": "IGS",
-   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş"
+   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş",
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Steel"
   },
   "KRDMB": {
    "kod": "KRDMB",
@@ -4749,7 +4753,10 @@
    "kap_kimlik": "4028e4a140f2ed7201412ace3ada0707",
    "sehir": "KARABÜK",
    "uye_turu": "IGS",
-   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş"
+   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş",
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Steel"
   },
   "KRDMD": {
    "kod": "KRDMD",
