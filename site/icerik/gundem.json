@@ -30,10 +30,10 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 19,
+  "yorumlanan": 16,
   "haberler": [
     {
-      "baslik": "Finansal Politika Komitesi Tutanağı - Kasım 2026",
+      "baslik": "Finansal Politika Komitesi Tutanağı – Kasım 2026",
       "baslik_kaynak": "Financial Policy Committee Record – November 2026",
       "ozet": "Our Financial Policy Committee (FPC) meets to identify risks to financial stability and agree policy actions aimed at safeguarding the resilience of the UK financial system.",
       "cevrildi": true,
@@ -222,7 +222,7 @@
       "foto_atif": "Daniel Schwen · CC-BY-SA-4.0"
     },
     {
-      "baslik": "İngiltere Merkez Bankası, yapay zekâ finansmanının \"giderek daha karmaşık, döngüsel ve şeffaflıktan uzak\" olduğu uyarısında bulundu",
+      "baslik": "İngiltere Merkez Bankası, yapay zekâ finansmanının \"giderek daha karmaşık, döngüsel ve şeffaflıktan uzak\" olduğu konusunda uyarıyor",
       "baslik_kaynak": "BoE warns AI financing is \"increasingly complex, circular, opaque\"",
       "ozet": "",
       "cevrildi": true,
@@ -243,7 +243,7 @@
       "foto_atif": "Bernard Gagnon · CC-BY-SA-3.0"
     },
     {
-      "baslik": "İngiltere Merkez Bankası: Son yapay zekâ olayları finansal istikrara yönelik önemli bir tehdit oluşturuyor",
+      "baslik": "İngiltere Merkez Bankası: Son yapay zekâ olayları finansal istikrara yönelik önemli bir tehdit olduğunu gösteriyor",
       "baslik_kaynak": "BoE: Recent AI incidents show a prominent threat to financial stability",
       "ozet": "",
       "cevrildi": true,
@@ -285,7 +285,7 @@
       "foto_atif": "Satheesh Sankaran · CC-BY-2.0"
     },
     {
-      "baslik": "İngiltere Merkez Bankası: Hane halkları ve firmalar dayanıklı, bankacılık sistemi güçlü",
+      "baslik": "İngiltere Merkez Bankası: Hanehalkları ve firmalar dirençli, bankacılık sistemi güçlü",
       "baslik_kaynak": "BoE: Households and firms resilient, banking system strong",
       "ozet": "",
       "cevrildi": true,
@@ -1595,7 +1595,49 @@
       "foto_atif": "Satheesh Sankaran · CC-BY-2.0"
     },
     {
-      "baslik": "New York Başsavcısı, kripto alım-satım şirketi NovaTech'in kurucularına karşı 1,4 milyar dolarlık tazminat kararı kazandı",
+      "baslik": "Bitcoin çok az değişti, ABD Şükran Günü'nü kutlarken DeFi token'ları yükselişe öncülük etti",
+      "baslik_kaynak": "Bitcoin little changed, DeFi tokens lead the bounce as U.S. marks Thanksgiving",
+      "ozet": "Bitcoin is holding near $60,800 after rebounding from Wednesday's $57,500 low, while DeFi and infrastructure tokens are gaining nearly twice as much.",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.coindesk.com/markets/2026/11/26/bitcoin-little-changed-defi-tokens-lead-the-bounce-as-u-s-marks-thanksgiving",
+      "kurum": "CoinDesk",
+      "kurum_tam": "CoinDesk",
+      "konu": "Kripto varlıklar",
+      "tarih": "2026-11-26",
+      "tarih_gorunur": "26 Kasım 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/kripto-varliklar-7-62d77ad7.jpg",
+      "foto_atif": "Karlalhdz · CC-BY-SA-4.0"
+    },
+    {
+      "baslik": "Nvidia'nın sevkiyatları dondurması ve ABD'nin çip kısıtlamaları yapay zekâ hisselerini baskı altına aldı",
+      "baslik_kaynak": "Nvidia shipment freeze and U.S. chip curbs put AI stocks under pressure",
+      "ozet": "U.S. export controls have halted Nvidia server shipments to four Southeast Asian countries and put billions in data centre financing under review.",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.coindesk.com/markets/2026/11/26/nvidia-shipment-freeze-and-u-s-chip-curbs-put-ai-stocks-under-pressure",
+      "kurum": "CoinDesk",
+      "kurum_tam": "CoinDesk",
+      "konu": "Borsa",
+      "tarih": "2026-11-26",
+      "tarih_gorunur": "26 Kasım 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/borsa-12-5544ef41.jpg",
+      "foto_atif": "Bernard Lee · CC0"
+    },
+    {
+      "baslik": "New York Başsavcısı, kripto alım satım şirketi NovaTech'in kurucularına karşı 1,4 milyar dolarlık bir davayı kazandı",
       "baslik_kaynak": "New York Attorney General wins $1.4 billion ruling against founders of crypto trading firm NovaTech",
       "ozet": "AWS Mining and NovaTech founders Cynthia and Eddie Petion were ordered to pay $1.37 billion after defrauding hundreds of thousands of people, including 11,000 New Yorkers.",
       "cevrildi": true,
@@ -1983,6 +2025,27 @@
       "foto_atif": "Sw257 · CC-BY-SA-4.0"
     },
     {
+      "baslik": "Emlak Konut’tan istanbul’da 55 bin tl’den başlayan taksitlerle ev sahibi olma imkânı",
+      "baslik_kaynak": "Emlak Konut’tan istanbul’da 55 bin tl’den başlayan taksitlerle ev sahibi olma imkânı",
+      "ozet": "Türkiye’nin en büyük gayrimenkul yatırım ortaklığı Emlak Konut GYO, konut sahibi olmak isteyenlere yönelik “Emlak Konut İlk Adım Ödeme Sistemi”ni hayata geçirdi. İstanbul’da dört yeni projeyi kapsayan kampanyayla yüzde 5 peşinat, 120 aya kadar vade ve 55 bin TL’den başlayan taksit imkânı sunulurken, ilk taksit…",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.dunya.com/sirketler/emlak-konuttan-istanbulda-55-bin-tlden-baslayan-taksitlerle-ev-sahibi-olma-imkani-haberi-848971",
+      "kurum": "Dünya",
+      "kurum_tam": "Dünya Gazetesi",
+      "konu": "Konut ve kira",
+      "tarih": "2026-11-26",
+      "tarih_gorunur": "26 Kasım 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/konut-ve-kira-9-7ea67053.jpg",
+      "foto_atif": "Dominic Nelson · CC-BY-SA-4.0"
+    },
+    {
       "baslik": "Enerji şirketine siber saldırı: Müşteri verileri ele geçirildi",
       "baslik_kaynak": "Enerji şirketine siber saldırı: Müşteri verileri ele geçirildi",
       "ozet": "Belçikalı elektrik ve doğal gaz tedarikçisi Eneco, bazı müşterilerinin verilerinin siber saldırıda ele geçirildiğini açıkladı. Güvenlik açığının giderildiğini bildiren şirket, müşterilerini şüpheli e-posta ve telefon aramalarına karşı uyardı.",
@@ -2007,83 +2070,6 @@
       "kanal_basligi": "Hangi piyasaları etkiler?",
       "foto": "/statik/foto/enerji-18-2333f432.jpg",
       "foto_atif": "Sgroey · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "Altın ve gümüşte yeniden yükseliş sinyali. Dev banka kritik seviyeleri açıkladı",
-      "baslik_kaynak": "Altın ve gümüşte yeniden yükseliş sinyali! Dev banka kritik seviyeleri açıkladı",
-      "ozet": "ABD'den gelen ekonomik verilerin ardından sert dalgalanmalar yaşayan altın fiyatlarında yeniden toparlanma sinyalleri görülüyor. Saxo Bank Emtia Stratejisi Başkanı Ole Hansen, altın ve gümüşte satış baskısının zayıflayabileceğine dikkat çekerek yükselişin güç kazanması için kritik seviyeleri açıkladı.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.dunya.com/foto-galeri/ekonomi/altin-ve-gumuste-yeniden-yukselis-sinyali-dev-banka-kritik-seviyeleri-acikladi-galeri-848966",
-      "kurum": "Dünya",
-      "kurum_tam": "Dünya Gazetesi",
-      "konu": "Altın ve emtia",
-      "tarih": "2026-11-26",
-      "tarih_gorunur": "26 Kasım 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Emtia fiyatı reel faiz, dolar endeksi ve fiziki arz-talep dengesinin bileşkesidir; bir habere verilen tepki bu üçünden hangisini değiştirdiğine bağlıdır.",
-      "kanallar": [
-        "Reel faiz: getirisi olmayan varlıkların alternatif maliyeti reel faizle belirlenir.",
-        "Dolar endeksi: emtia dolarla fiyatlandığı için doların kendi değeri fiyata doğrudan yazılır.",
-        "Fiziki denge: stok, üretim kesintisi ve sanayi talebi kısa vadeli fiyatın ana sürücüsüdür.",
-        "Resmi rezerv talebi: merkez bankası alımları uzun vadeli talep tabanını değiştirir."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/altin-ve-emtia-7-f0316ba0.jpg",
-      "foto_atif": "Chepry 💬 ( Andrzej Barabasz ) 📷 🇵🇱 · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "Avrupa'da 1,6 trilyon euroluk bütçe pazarlığı: 27 ülkenin onayı gerekiyor",
-      "baslik_kaynak": "Avrupa'da 1,6 trilyon euroluk bütçe pazarlığı: 27 ülkenin onayı gerekiyor",
-      "ozet": "Avrupa Birliği liderleri, 2028-2034 dönemini kapsayan yaklaşık 1,6 trilyon euroluk bütçe teklifini görüşmek üzere Brüksel'de bir araya geliyor. Üye ülkeler arasındaki harcama anlaşmazlıklarının aralık ayına kadar çözülmesi hedefleniyor.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.dunya.com/dunya/avrupada-16-trilyon-euroluk-butce-pazarligi-27-ulkenin-onayi-gerekiyor-haberi-848959",
-      "kurum": "Dünya",
-      "kurum_tam": "Dünya Gazetesi",
-      "konu": "Vergi ve kamu maliyesi",
-      "tarih": "2026-11-26",
-      "tarih_gorunur": "26 Kasım 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Vergi düzenlemeleri ve bütçe dengesi hem şirket kârlılığını hem devletin borçlanma ihtiyacını belirler.",
-      "kanallar": [
-        "Şirket kârlılığı: vergi oranı ve istisna değişiklikleri net kâra doğrudan yansır.",
-        "Borçlanma ihtiyacı: bütçe açığı iç borçlanmayı artırır; bu da tahvil getirilerini ve banka bilançolarını etkiler.",
-        "Tüketici fiyatı: dolaylı vergiler (ÖTV, KDV) nihai fiyata doğrudan geçer."
-      ],
-      "kanal_basligi": "Piyasaya nasıl yansır?",
-      "foto": "/statik/foto/vergi-ve-kamu-maliyesi-9-96673ab0.jpg",
-      "foto_atif": "RegionalQueenslander · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "Kasım ayı enflasyon beklentisi belli oldu: Yıl sonu tahmini yükseldi",
-      "baslik_kaynak": "Kasım ayı enflasyon beklentisi belli oldu: Yıl sonu tahmini yükseldi",
-      "ozet": "Matriks Haber’in 30 banka ve aracı kurumun katılımıyla gerçekleştirdiği ankete göre, kasım ayında enflasyonun aylık yüzde 1,10, yıllık yüzde 30,07 olması bekleniyor. Ekonomistlerin 2026 yıl sonu enflasyon tahmini yüzde 30’a yükselirken, 2027 ve 2028 yıllarına ilişkin enflasyon ve dolar/TL beklentileri de güncellendi.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.dunya.com/ekonomi/kasim-ayi-enflasyon-beklentisi-belli-oldu-yil-sonu-tahmini-yukseldi-haberi-848957",
-      "kurum": "Dünya",
-      "kurum_tam": "Dünya Gazetesi",
-      "konu": "Enflasyon",
-      "tarih": "2026-11-26",
-      "tarih_gorunur": "26 Kasım 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Enflasyon verisi merkez bankası patikasına dair beklentiyi değiştirdiği ölçüde fiyatlanır; manşet ile çekirdek arasındaki fark bu yüzden önemlidir.",
-      "kanallar": [
-        "Çekirdek ayrımı: enerji ve gıda dışı kalemler kalıcı eğilimi gösterir.",
-        "Faiz beklentisi: beklentiden sapma getiri eğrisinin ön ucunu hareket ettirir.",
-        "Hizmet enflasyonu: ücretlere bağlı olduğu için en yapışkan bileşendir.",
-        "Baz etkisi: bir önceki yılın aynı ayındaki seviye yıllık oranı mekanik olarak değiştirir."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/enflasyon-11-93446832.jpg",
-      "foto_atif": "Wikimedia Commons · CC-BY-SA-2.5"
     },
     {
       "baslik": "Kurumlar, tüketici kredisi ve kiralama işlemleri için kredi ve tüketici kiralaması kurallarındaki doğruluğun uygulanabilirliğine ilişkin dolar eşiklerini duyurmaktadır",
