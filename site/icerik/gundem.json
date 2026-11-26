@@ -30,7 +30,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 13,
+  "yorumlanan": 11,
   "haberler": [
     {
       "baslik": "28-29 Ekim 2026 tarihli toplantı",
@@ -138,6 +138,69 @@
       "foto_atif": "Myotus · CC-BY-4.0"
     },
     {
+      "baslik": "Deutsche Bank'tan PCE Verileri Sonrası Fed Fiyatlandırması - FJElite",
+      "baslik_kaynak": "Deutsche Bank on Fed Pricing Post PCE Data - FJElite",
+      "ozet": "With the sell-off at its intra-day peak, Fed pricing was coming under significant pressure, with fresh doubts about whether the Fed could keep hiking for much longer, even though we had a firm core PCE inflation print for October.",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9869463/Deutsche-Bank-on-Fed-Pricing-Post-PCE-Data---FJElite.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Bankacılık",
+      "tarih": "2026-11-26",
+      "tarih_gorunur": "26 Kasım 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/bankacilik-7-62bd3092.jpg",
+      "foto_atif": "Dietmar Rabich · CC-BY-SA-4.0"
+    },
+    {
+      "baslik": "OPEC+'ın Pazar günkü toplantısında petrol üretim hedeflerini en az 2027'nin ilk çeyreğine kadar uzatması muhtemel - İki Kaynak",
+      "baslik_kaynak": "OPEC+ likely to roll over oil output targets for at least Q1 2027 at Sunday’s meeting - Two Sources.",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9869462/OPEC-likely-to-roll-over-oil-output-targets-for-at-least-Q1-2027-at-Sundays-meeting---Two-Sources.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Enerji",
+      "tarih": "2026-11-26",
+      "tarih_gorunur": "26 Kasım 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/enerji-13-96820bdd.jpg",
+      "foto_atif": "AyyanD · CC-BY-SA-4.0"
+    },
+    {
+      "baslik": "Pablo Hernández de Cos bir sonraki ECB başkanı olacak - FT",
+      "baslik_kaynak": "Pablo Hernández de Cos is going to be the next ECB president - FT.",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9869439/Pablo-Hern%c3%a1ndez-de-Cos-is-going-to-be-the-next-ECB-president---FT.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Para politikası",
+      "tarih": "2026-11-26",
+      "tarih_gorunur": "26 Kasım 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/para-politikasi-11-fd54475f.jpg",
+      "foto_atif": "Innotata · CC-BY-SA-3.0"
+    },
+    {
       "baslik": "Birleşik Krallık ve AB, yeni anlaşmadan çekilme cezası konusunda anlaşamadı - Resmi",
       "baslik_kaynak": "The UK and EU haven't agreed on a penalty fee to leave the new deal - Official.",
       "ozet": "",
@@ -180,7 +243,7 @@
       "foto_atif": "DXR · CC-BY-SA-4.0"
     },
     {
-      "baslik": "Kuveyt: Perşembe günü hava sahasında insansız hava araçlarıyla karşı karşıya kalan Kuveyt Ordusu, Kuveyt hava sahasında düşman insansız hava araçları tespit etti",
+      "baslik": "Kuveyt: Perşembe günü hava sahasındaki dronlarla ilgilenen Kuveyt Ordusu, Kuveyt hava sahasında düşman dronları tespit etti",
       "baslik_kaynak": "Kuwait: Dealt with drones in its airspace on Thursday, the Kuwait Army detected hostile drones in Kuwaiti airspace",
       "ozet": "",
       "cevrildi": true,
@@ -201,7 +264,7 @@
       "foto_atif": "Basile Morin · CC-BY-SA-4.0"
     },
     {
-      "baslik": "Trump: ABD'nin 3. çeyrek GSYİH'si az önce muazzam bir +%4,3'e revize edildi. Bu, uzman tahminlerini altüst etti ve 2. çeyrekteki %2,2'lik büyümeyi neredeyse iki katına çıkardı. Trump Ekonomisi coşuyor ve ana akım medya bunu artık gizleyemiyor",
+      "baslik": "Trump: ABD'nin 3. çeyrek GSYİH'si az önce muazzam bir +%4,3'e revize edildi; bu oran uzman tahminlerini altüst etti ve 2. çeyrekteki %2,2'lik büyümeyi neredeyse iki katına çıkardı. Trump Ekonomisi coşuyor ve ana akım medya bunu artık gizleyemiyor",
       "baslik_kaynak": "Trump: US Q3 GDP just got revised up to a massive +4.3%, shattering expert predictions and nearly doubling Q2’s 2.2% growth. The Trump Economy is roaring, and the mainstream media can’t hide it anymore.",
       "ozet": "",
       "cevrildi": true,
@@ -248,7 +311,7 @@
       "foto_atif": "Bernard Gagnon · CC-BY-SA-3.0"
     },
     {
-      "baslik": "ECB yetkilileri: Faiz artırımlarının yansıtılması sorunsuz ilerliyor",
+      "baslik": "ECB yetkilileri: Faiz artırımlarının yansıması sorunsuz ilerliyor",
       "baslik_kaynak": "ECB officials: Transmission of rate hikes is working smoothly",
       "ozet": "",
       "cevrildi": true,
@@ -269,7 +332,7 @@
       "foto_atif": "Kidfly182 · CC-BY-4.0"
     },
     {
-      "baslik": "ECB yetkilileri ikinci tur etkilerine dair net bir işaret görmedi",
+      "baslik": "ECB yetkilileri ikinci tur etkilerinin belirgin işaretlerini görmedi",
       "baslik_kaynak": "ECB officials saw no clear signs of second-round effects",
       "ozet": "",
       "cevrildi": true,
@@ -290,7 +353,7 @@
       "foto_atif": "Infrogmation of New Orleans · CC-BY-SA-4.0"
     },
     {
-      "baslik": "ECB yetkilileri %2'lik hedefe ancak 2028'den sonra ulaşılabileceğinden endişe ediyor",
+      "baslik": "ECB yetkilileri %2'lik hedefe ancak 2028'den sonra ulaşılabileceğinden endişe duyuyor",
       "baslik_kaynak": "ECB officials had concerns that the 2% target may only be hit after 2028",
       "ozet": "",
       "cevrildi": true,
@@ -311,7 +374,7 @@
       "foto_atif": "Norbert Nagel · CC-BY-SA-4.0"
     },
     {
-      "baslik": "ECB: İkinci tur etkileri henüz ortaya çıkmamış olsa da para politikasının bunları önceden engellemek için harekete geçmesi gerektiği yönünde bir argüman ortaya atılmıştır",
+      "baslik": "ECB: İkinci tur etkileri henüz ortaya çıkmamış olsa da para politikasının bunları önlemek için harekete geçmesi gerektiği yönünde bir argüman ortaya atılmıştır",
       "baslik_kaynak": "ECB: The argument was made that although second-round effects had not emerged yet, monetary policy needed to act to pre-empt them.",
       "ozet": "",
       "cevrildi": true,
@@ -332,7 +395,7 @@
       "foto_atif": "Tony Webster · CC-BY-2.0"
     },
     {
-      "baslik": "ECB: Mevcut toplantıda faiz artırımı yapılması, gerekli para politikası sıkılaştırmasının yalnızca erkene alınması anlamına gelecektir",
+      "baslik": "ECB: Mevcut toplantıda yapılacak bir faiz artırımı, gerekli para politikası sıkılaştırmasını yalnızca öne çekmiş olacaktır",
       "baslik_kaynak": "ECB: A hike at the current meeting would simply frontload the necessary monetary policy tightening.",
       "ozet": "",
       "cevrildi": true,
@@ -416,7 +479,7 @@
       "foto_atif": "Tony Webster · CC-BY-2.0"
     },
     {
-      "baslik": "ECB: Mevcut toplantıda faiz oranlarının artırılmasını destekleyebilirlerdi",
+      "baslik": "ECB: Mevcut toplantıda faiz oranlarının artırılmasını desteklemiş olabilirlerdi",
       "baslik_kaynak": "ECB: They could have supported raising interest rates at the current meeting",
       "ozet": "",
       "cevrildi": true,
@@ -437,7 +500,7 @@
       "foto_atif": "Kidfly182 · CC-BY-4.0"
     },
     {
-      "baslik": "ECB: Çok sayıda üye, Eylül ayı Yönetim Konseyi toplantısından bu yana gelen verilerin para politikasının daha da sıkılaştırılması gerektiğini doğruladığını belirtti",
+      "baslik": "ECB: Çok sayıda üye, Eylül ayındaki Yönetim Konseyi toplantısından bu yana gelen verilerin para politikasının daha da sıkılaştırılması gerektiğini doğruladığını belirtti",
       "baslik_kaynak": "ECB: A large number of members noted that, as the incoming data since the September governing council meeting had confirmed the case for further policy tightening",
       "ozet": "",
       "cevrildi": true,
@@ -479,7 +542,7 @@
       "foto_atif": "Infrogmation of New Orleans · CC-BY-SA-4.0"
     },
     {
-      "baslik": "ECB Hesapları: Belirsizlik yüksek düzeyde kalmaya devam etti ve enerji şokunun enflasyon üzerindeki tam etkisi henüz ortaya çıkmamıştı",
+      "baslik": "ECB Hesapları: Belirsizlik yüksek düzeyde seyretmeye devam etmiş ve enerji şokunun enflasyon üzerindeki tam etkisi henüz ortaya çıkmamıştır",
       "baslik_kaynak": "ECB Accounts: Uncertainty remained high, and the full inflationary impact of the energy shock had yet to play out.",
       "ozet": "",
       "cevrildi": true,
@@ -1360,77 +1423,25 @@
       "foto_atif": "Huhu Uet · CC-BY-SA-4.0"
     },
     {
-      "baslik": "Çin Dışişleri Bakanlığı, ABD'nin gümrük vergileri açıklamasından sonra: İlgili sorun diyalog ve istişare yoluyla çözülmelidir",
-      "baslik_kaynak": "China foreign ministry, on US tariffs announcement: Relevant issue should be resolved through dialogue and consultations",
-      "ozet": "",
+      "baslik": "\"Kriptografik bir atılım için hazırlanma zamanı, bu atılım gerçekleşmeden öncedir\": Zcash ekibi, eski korumalı havuzun daha hızlı bir şekilde kullanımdan kaldırılmasını teşvik ediyor",
+      "baslik_kaynak": "‘The time to prepare for a cryptographic breakthrough is before it happens’: Zcash team urges faster deprecation of legacy shielded pool",
+      "ozet": "Zakura wants Zcash to disable Sapling deposits over speculative concerns about AI-assisted mathematical breakthroughs.",
       "cevrildi": true,
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9868987/China-foreign-ministry-on-US-tariffs-announcement-Relevant-issue-should-be-resolved-through-dialogue-and-consultations.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Dış ticaret",
+      "adres": "https://www.theblock.co/news/ecosystems/2026-11-26-the-time-to-prepare-for-a-cryptographic-breakthrough-is-before-it-happens-zcash-team-urges-faster-deprecation-of-legacy-shielded-pool-447000",
+      "kurum": "The Block",
+      "kurum_tam": "The Block",
+      "konu": "Kripto varlıklar",
       "tarih": "2026-11-26",
       "tarih_gorunur": "26 Kasım 2026",
       "yorumlanir": false,
       "neden_onemli": "",
       "kanallar": [],
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/dis-ticaret-9-9686a70e.jpg",
-      "foto_atif": "Huhu Uet · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "Norveç Ana Karası GSYİH'si (aylık): %0,20 — önceki %0,00",
-      "baslik_kaynak": "Norwegian Mainland GDP MoM Actual 0.2% (Forecast -, Previous 0.0%)",
-      "ozet": "Açıklanan değer %0,20. Önceki dönem %0,00; yükseldi (0,20 puan).",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9868971/Norwegian-Mainland-GDP-MoM-Actual-02-Forecast---Previous-00.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Borsa",
-      "tarih": "2026-11-26",
-      "tarih_gorunur": "26 Kasım 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Endeks hareketi tek başına bir bilgi değildir; hareketi hangi sektörlerin taşıdığı ve işlem hacminin ne olduğu kalıcılığı belirler.",
-      "kanallar": [
-        "Sektör dağılımı: hareketin dar bir gruptan mı geniş tabandan mı geldiği, kalıcılığa dair ipucu verir.",
-        "Hacim: düşük hacimli hareket fiyat keşfinden çok pozisyon ayarlaması olabilir.",
-        "Volatilite: opsiyon fiyatlarındaki değişim piyasanın beklediği oynaklığı gösterir.",
-        "Korelasyon: hisse ile tahvil arasındaki ilişkinin işareti portföy riskinin nasıl dağıldığını değiştirir."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/borsa-24-b47c4be0.jpg",
-      "foto_atif": "User:A,Ocram · PDM"
-    },
-    {
-      "baslik": "Alman GfK Tüketici Duygusu: −30,20 — beklenti −30,00, önceki −30,80",
-      "baslik_kaynak": "German GfK Consumer Sentiment Actual -30.2 (Forecast -30, Previous -30.8)",
-      "ozet": "Açıklanan değer −30,20. Beklenti −30,00; beklentinin altında (0,20 (birimsiz)). Önceki dönem −30,80; yükseldi (0,60 (birimsiz)).",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9868970/German-GfK-Consumer-Sentiment-Actual--302-Forecast--30-Previous--308.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Borsa",
-      "tarih": "2026-11-26",
-      "tarih_gorunur": "26 Kasım 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Endeks hareketi tek başına bir bilgi değildir; hareketi hangi sektörlerin taşıdığı ve işlem hacminin ne olduğu kalıcılığı belirler.",
-      "kanallar": [
-        "Sektör dağılımı: hareketin dar bir gruptan mı geniş tabandan mı geldiği, kalıcılığa dair ipucu verir.",
-        "Hacim: düşük hacimli hareket fiyat keşfinden çok pozisyon ayarlaması olabilir.",
-        "Volatilite: opsiyon fiyatlarındaki değişim piyasanın beklediği oynaklığı gösterir.",
-        "Korelasyon: hisse ile tahvil arasındaki ilişkinin işareti portföy riskinin nasıl dağıldığını değiştirir."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/borsa-24-b47c4be0.jpg",
-      "foto_atif": "User:A,Ocram · PDM"
+      "foto": "/statik/foto/kripto-varliklar-8-740eb829.jpg",
+      "foto_atif": "Satheesh Sankaran · CC-BY-2.0"
     },
     {
       "baslik": "İsviçre, 2028'den itibaren kripto veri alışverişi için 57 yargı bölgesini onayladı",
@@ -1790,6 +1801,27 @@
       "foto_atif": "Karlalhdz · CC-BY-SA-4.0"
     },
     {
+      "baslik": "Kripto balinalarının bir servet harcadığı 7 tuhaf şey",
+      "baslik_kaynak": "7 bizarre things crypto whales spent a fortune on",
+      "ozet": "The crypto rich have spent their fortunes on everything from dinosaur skeletons to rotting fruit, with some purchases defying belief.",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://cointelegraph.com/magazine/7-bizarre-things-crypto-whales-spent-a-fortune-on?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "kurum": "Cointelegraph",
+      "kurum_tam": "Cointelegraph",
+      "konu": "Kripto varlıklar",
+      "tarih": "2026-11-26",
+      "tarih_gorunur": "26 Kasım 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/kripto-varliklar-8-8b36c240.jpg",
+      "foto_atif": "de Vries, Alex; Stoll, Christian · PDM"
+    },
+    {
       "baslik": "Vitalik Buterin, donanım cüzdanı tehditleri geliştikçe doğrulanabilir çiplerin kullanılmasını istiyor",
       "baslik_kaynak": "Vitalik Buterin calls for verifiable chips as hardware wallet threats evolve",
       "ozet": "Buterin warned that future attacks could use lookalike chips with hidden malicious functions, making hardware tampering harder to detect.",
@@ -1937,27 +1969,6 @@
       "foto_atif": "Satheesh Sankaran · CC-BY-2.0"
     },
     {
-      "baslik": "Bilgisayar bilimcisi, yapay zekâ laboratuvarlarının muhtemelen kriptografi \"bombaları\" üzerinde oturduğunu söylüyor",
-      "baslik_kaynak": "AI labs likely sitting on cryptography ‘bombshells,’ computer scientist says",
-      "ozet": "AI is driving a massive wave of mathematical breakthroughs which could have implications for cryptography.",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://cointelegraph.com/news/ai-labs-likely-sitting-on-cryptography-bombshells-computer-scientist-says?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
-      "kurum": "Cointelegraph",
-      "kurum_tam": "Cointelegraph",
-      "konu": "Kripto varlıklar",
-      "tarih": "2026-11-26",
-      "tarih_gorunur": "26 Kasım 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/kripto-varliklar-7-62d77ad7.jpg",
-      "foto_atif": "Karlalhdz · CC-BY-SA-4.0"
-    },
-    {
       "baslik": "Galaxy Research, Bitcoin'in Ayı Piyasasının Sona Erdiğine İlişkin Görüşünü Geri Çekti",
       "baslik_kaynak": "Galaxy Research Withdraws Call That Bitcoin's Bear Market Is Over",
       "ozet": "A month after saying Bitcoin had bottomed in June, Galaxy now says a daily close below $58,525 would signal a materially lower low.",
@@ -2055,27 +2066,6 @@
       "kanal_basligi": "Hangi piyasaları etkiler?",
       "foto": "/statik/foto/bankacilik-9-93533b82.jpg",
       "foto_atif": "Myotus · CC-BY-4.0"
-    },
-    {
-      "baslik": "AB liderleri yeni bütçeyi belirlemek üzere Brüksel'de toplandı",
-      "baslik_kaynak": "AB liderleri yeni bütçeyi belirlemek üzere Brüksel'de toplandı",
-      "ozet": "Avrupa Birliği (AB) üyesi 27 ülkenin liderleri, Birliğin 2028-2034 dönemi bütçesinin boyutu, hangi önceliklere ne kadar kaynak ayrılacağı ve üye ülkelerin bütçeye yapacağı katkılar konusunda uzlaşı aramak üzere Brüksel’de bir araya geldi.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.aa.com.tr/tr/ekonomi/ab-liderleri-yeni-butceyi-belirlemek-uzere-brukselde-toplandi/4138516",
-      "kurum": "AA",
-      "kurum_tam": "Anadolu Ajansı",
-      "konu": "Vergi ve kamu maliyesi",
-      "tarih": "2026-11-26",
-      "tarih_gorunur": "26 Kasım 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/vergi-ve-kamu-maliyesi-9-96673ab0.jpg",
-      "foto_atif": "RegionalQueenslander · CC-BY-SA-4.0"
     },
     {
       "baslik": "Kurumlar, tüketici kredisi ve kiralama işlemleri için kredi ve tüketici kiralaması kurallarındaki doğruluğun uygulanabilirliğine ilişkin dolar eşiklerini duyurmaktadır",
