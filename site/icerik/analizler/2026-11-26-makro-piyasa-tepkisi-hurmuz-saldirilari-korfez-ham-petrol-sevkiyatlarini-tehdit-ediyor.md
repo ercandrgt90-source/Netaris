@@ -1,7 +1,7 @@
 ---
 slug: piyasa-tepkisi-hurmuz-saldirilari-korfez-ham-petrol-sevkiyatlarini-tehdit-ediyor-2026-11-26
 baslik: Hürmüz saldırıları Körfez ham petrol sevkiyatlarını tehdit ediyor
-ozet: Jeopolitik gelişme. Brent petrol günlük içinde +%0,66 yükseldi.
+ozet: Jeopolitik gelişme. Altın 1 saat içinde -%0,77 geriledi.
 sirket: Piyasa tepkisi: Hürmüz saldırıları Körfez ham petrol sevkiyatlarını tehdit ediyor
 kod: OLAY
 donem: 2026-11-26
@@ -23,8 +23,8 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Investing.
 
 ## Piyasada ne oldu
 
-- **Altın** 1 saat içinde yatay kaldı (son 3581,10).
-- **Bitcoin** 1 saat içinde geriledi: -%0,27 (son 60594,00).
+- **Altın** 1 saat içinde geriledi: -%0,77 (son 3574,10).
+- **Bitcoin** 1 saat içinde geriledi: -%0,56 (son 60605,80).
 - **Brent petrol** günlük bazda yükseldi: +%0,66 — 2026-11-24 tarihli gözlem.
 
 *Yukarıdaki rakamlar ölçülen fiyat hareketidir. Hareketin sebebinin bu gelişme olduğu iddia edilmemektedir; aynı pencerede başka etkenler de fiyatlanmış olabilir.*
