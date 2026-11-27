@@ -1,6 +1,6 @@
 {
  "kod": "HATEK",
- "cekildi": "2026-11-25T05:00:17Z",
+ "cekildi": "2026-11-27T16:55:07Z",
  "ceyrek": 1,
  "sema": "cd5f150b28ca53cb",
  "bitis": "2026-09-30",
@@ -14,18 +14,18 @@
    "Gross Profit": -1970000.0,
    "Operating Income": -35790000.0,
    "Net Income": -30470000.0,
-   "Net Cash (Debt)": -1713000000.0,
+   "Net Cash (Debt)": -1719000000.0,
    "Operating Cash Flow": 39000000.0,
    "Capital Expenditures": -43500000.0
   },
   "gelir_onceki": {
-   "Revenue": 218910000.0,
-   "Gross Profit": -177210000.0,
-   "Operating Income": -222980000.0,
-   "Net Income": 330410000.0,
+   "Revenue": 284000000.0,
+   "Gross Profit": -229900000.0,
+   "Operating Income": -289280000.0,
+   "Net Income": 428650000.0,
    "Net Cash (Debt)": -1008000000.0,
-   "Operating Cash Flow": 284670000.0,
-   "Capital Expenditures": -18220000.0
+   "Operating Cash Flow": 363800000.0,
+   "Capital Expenditures": -22980000.0
   },
   "_donem": {
    "gelir": [
@@ -33,15 +33,12 @@
    ],
    "bilanco": [
     "Q3 2026"
-   ],
-   "nakit": [
-    "Q3 2026"
    ]
   },
   "gelir_g1": {
    "Revenue": 294460000.0,
-   "Gross Profit": 35620000.0,
-   "Operating Income": -72130000.0,
+   "Gross Profit": 32310000.000000004,
+   "Operating Income": -89560000.0,
    "Net Income": -132430000.0,
    "Net Cash (Debt)": -1620000000.0,
    "Operating Cash Flow": -111870000.0,
@@ -82,7 +79,7 @@
    "Minority Interest": 1110000.0,
    "Shareholders' Equity": 1758000000.0,
    "Total Liabilities & Equity": 4077000000.0,
-   "Net Cash (Debt)": -1713000000.0,
+   "Net Cash (Debt)": -1719000000.0,
    "Working Capital": -15910000.0
   },
   "bilanco_onceki": {
@@ -140,36 +137,6 @@
    "Total Liabilities & Equity": 3506000000.0,
    "Net Cash (Debt)": -1470000000.0,
    "Working Capital": 120170000.0
-  },
-  "nakit": {
-   "Net Income": -37960000.0,
-   "Depreciation & Amortization": 37800000.0,
-   "Operating Cash Flow": 39000000.0,
-   "Capital Expenditures": -43500000.0
-  },
-  "nakit_onceki": {
-   "Net Income": 307340000.0,
-   "Depreciation & Amortization": 29040000.0,
-   "Operating Cash Flow": 284670000.0,
-   "Capital Expenditures": -18220000.0
-  },
-  "nakit_g1": {
-   "Net Income": -125570000.0,
-   "Depreciation & Amortization": 33110000.0,
-   "Operating Cash Flow": -111870000.0,
-   "Capital Expenditures": -3260000.0
-  },
-  "nakit_g2": {
-   "Net Income": -8900000.0,
-   "Depreciation & Amortization": 28950000.0,
-   "Operating Cash Flow": 242030000.0,
-   "Capital Expenditures": -11580000.0
-  },
-  "nakit_g3": {
-   "Net Income": -73370000.0,
-   "Depreciation & Amortization": 29330000.0,
-   "Operating Cash Flow": -155520000.0,
-   "Capital Expenditures": -25810000.0
   }
  }
 }

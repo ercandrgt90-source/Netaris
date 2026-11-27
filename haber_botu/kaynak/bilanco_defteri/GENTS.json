@@ -1,6 +1,6 @@
 {
  "kod": "GENTS",
- "cekildi": "2026-11-25T04:59:58Z",
+ "cekildi": "2026-11-27T16:54:37Z",
  "ceyrek": 1,
  "sema": "cd5f150b28ca53cb",
  "bitis": "2026-09-30",
@@ -12,20 +12,20 @@
   "gelir": {
    "Revenue": 1329000000.0,
    "Gross Profit": 199830000.0,
-   "Operating Income": 9460000.0,
+   "Operating Income": 12730000.0,
    "Net Income": -424150000.0,
    "Net Cash (Debt)": 193610000.0,
    "Operating Cash Flow": 42110000.0,
    "Capital Expenditures": -100280000.0
   },
   "gelir_onceki": {
-   "Revenue": 1229000000.0,
-   "Gross Profit": 483520000.0,
-   "Operating Income": 329300000.0,
-   "Net Income": 28000000.0,
+   "Revenue": 1594000000.0,
+   "Gross Profit": 627290000.0,
+   "Operating Income": 427200000.0,
+   "Net Income": 36320000.0,
    "Net Cash (Debt)": 229730000.0,
-   "Operating Cash Flow": 214360000.0,
-   "Capital Expenditures": -56480000.0
+   "Operating Cash Flow": 276320000.0,
+   "Capital Expenditures": -71770000.0
   },
   "_donem": {
    "gelir": [
@@ -41,7 +41,7 @@
   "gelir_g1": {
    "Revenue": 1470000000.0,
    "Gross Profit": 343820000.0,
-   "Operating Income": 94440000.0,
+   "Operating Income": 111220000.0,
    "Net Income": -89170000.0,
    "Net Cash (Debt)": 178610000.0,
    "Operating Cash Flow": -27950000.0,
@@ -73,7 +73,7 @@
   ],
   "bilanco": {
    "Accounts Receivable": 782930000.0,
-   "Inventory": 1489000000.0,
+   "Inventory": 1517000000.0,
    "Total Current Assets": 3318000000.0,
    "Total Assets": 6023000000.0,
    "Total Current Liabilities": 1551000000.0,
@@ -148,10 +148,10 @@
    "Capital Expenditures": -100280000.0
   },
   "nakit_onceki": {
-   "Net Income": 31000000.0,
-   "Depreciation & Amortization": 50430000.0,
-   "Operating Cash Flow": 214360000.0,
-   "Capital Expenditures": -56480000.0
+   "Net Income": 39270000.0,
+   "Depreciation & Amortization": 63540000.0,
+   "Operating Cash Flow": 276320000.0,
+   "Capital Expenditures": -71770000.0
   },
   "nakit_g1": {
    "Net Income": -80580000.0,

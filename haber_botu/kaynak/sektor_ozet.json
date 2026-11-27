@@ -3741,7 +3741,7 @@
     "borc_ozkaynak": -0.26456167876054126
    },
    "DGNMO": {
-    "brut_marj": 29.147659063625454,
+    "brut_marj": 28.907563025210088,
     "net_marj": -7.656182472989196,
     "roe": -22.615602836879432,
     "cari_oran": 0.48337379921883245,
@@ -4032,7 +4032,7 @@
     "net_marj": -15.843386023294508,
     "roe": -1.7332195676905575,
     "cari_oran": 0.9858156028368794,
-    "borc_ozkaynak": 0.9744027303754266
+    "borc_ozkaynak": 0.9778156996587031
    },
    "IEYHO": {
     "brut_marj": 9.820154153582642,
@@ -4088,8 +4088,132 @@
     "eksik: hasilat, brut_kar, stoklar"
    ],
    [
-    "FLAP",
-    "eksik: aktif_toplami, ozkaynak, stoklar"
+    "IEYHO",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "IHEVA",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "INTEM",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "ISBIR",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "ISSEN",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "JANTS",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "KAPLM",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "KARTN",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "KLSYN",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "KORDS",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "KOTON",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "KRTEK",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "KSTUR",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "KUTPO",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "MARTI",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "MAVI",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "MNDTR",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "PARSN",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "PKENT",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "RODRG",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "RUBNS",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "SAFKR",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "SANKO",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "SASA",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "SKTAS",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "SUNTK",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "SUWEN",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "TABGD",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "TOASO",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "VESBE",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "VESTL",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ],
+   [
+    "YATAS",
+    "eksik: hasilat, net_kar, aktif_toplami"
    ]
   ],
   "ana_donem": "2026-09-30",
@@ -4203,42 +4327,14 @@
    "EMNIS",
    "ENSRI",
    "ETILR",
+   "FLAP",
    "FMIZP",
    "FROTO",
    "GENTS",
    "GIPTA",
    "GOODY",
    "GZNMI",
-   "HATEK",
-   "IEYHO",
-   "IHEVA",
-   "INTEM",
-   "ISBIR",
-   "ISSEN",
-   "JANTS",
-   "KAPLM",
-   "KARTN",
-   "KLSYN",
-   "KORDS",
-   "KOTON",
-   "MARTI",
-   "MAVI",
-   "MNDTR",
-   "PARSN",
-   "PKENT",
-   "RODRG",
-   "RUBNS",
-   "SAFKR",
-   "SANKO",
-   "SASA",
-   "SKTAS",
-   "SUNTK",
-   "SUWEN",
-   "TABGD",
-   "TOASO",
-   "VESBE",
-   "VESTL",
-   "YATAS"
+   "HATEK"
   ],
   "mali": {
    "MAVI": 1,
@@ -4262,6 +4358,6 @@
     ]
    }
   },
-  "tazelendi": "2026-11-26T17:53:27+00:00"
+  "tazelendi": "2026-11-27T16:56:54+00:00"
  }
 }

@@ -4901,7 +4901,10 @@
    "kap_kimlik": "4028e4a240f2ef4c014111cff01d0420",
    "sehir": "KÜTAHYA",
    "uye_turu": "IGS",
-   "denetci": "RAM BAĞIMSIZ DENETİM VE DANIŞMANLIK A.Ş."
+   "denetci": "RAM BAĞIMSIZ DENETİM VE DANIŞMANLIK A.Ş.",
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Furnishings, Fixtures & Appliances"
   },
   "KUVVA": {
    "kod": "KUVVA",
@@ -4909,7 +4912,10 @@
    "kap_kimlik": "4028e4a2422d9a6e01424699b9d061ec",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "MERCEK BAĞIMSIZ DENETİM VE YEMİNLİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "MERCEK BAĞIMSIZ DENETİM VE YEMİNLİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor": "Consumer Staples",
+   "sektor_tr": "Temel tüketim",
+   "alt_sektor": "Food Distribution"
   },
   "KUYAS": {
    "kod": "KUYAS",
@@ -4917,7 +4923,10 @@
    "kap_kimlik": "4028e4a241a25fd60141a2bf974c04e8",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "AKADEMİK BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "AKADEMİK BAĞIMSIZ DENETİM A.Ş.",
+   "sektor": "Real Estate",
+   "sektor_tr": "Gayrimenkul",
+   "alt_sektor": "Real Estate Services"
   },
   "KZBGY": {
    "kod": "KZBGY",
