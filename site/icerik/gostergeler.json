@@ -65,32 +65,32 @@
       "deger": "%3,88",
       "fark": "0 bp",
       "yon": "yatay",
-      "tarih": "2026-11-24",
+      "tarih": "2026-11-26",
       "birim": "%",
-      "gun": 3,
-      "bayat": true
+      "gun": 1,
+      "bayat": false
     },
     {
       "kod": "DGS2",
       "ad": "ABD 2Y",
-      "deger": "%4,63",
-      "fark": "0 bp",
-      "yon": "yatay",
-      "tarih": "2026-11-24",
+      "deger": "%4,61",
+      "fark": "-2 bp",
+      "yon": "azalis",
+      "tarih": "2026-11-25",
       "birim": "%",
-      "gun": 3,
-      "bayat": true
+      "gun": 2,
+      "bayat": false
     },
     {
       "kod": "DGS10",
       "ad": "ABD 10Y",
-      "deger": "%4,91",
-      "fark": "-1 bp",
+      "deger": "%4,85",
+      "fark": "-6 bp",
       "yon": "azalis",
-      "tarih": "2026-11-24",
+      "tarih": "2026-11-25",
       "birim": "%",
-      "gun": 3,
-      "bayat": true
+      "gun": 2,
+      "bayat": false
     },
     {
       "kod": "T10Y2Y",
@@ -155,32 +155,32 @@
           "deger": "%3,88",
           "fark": "0 bp",
           "yon": "yatay",
-          "tarih": "2026-11-24",
+          "tarih": "2026-11-26",
           "birim": "%",
-          "gun": 3,
-          "bayat": true
+          "gun": 1,
+          "bayat": false
         },
         {
           "kod": "DGS2",
           "ad": "ABD 2 yıllık",
-          "deger": "%4,63",
-          "fark": "0 bp",
-          "yon": "yatay",
-          "tarih": "2026-11-24",
+          "deger": "%4,61",
+          "fark": "-2 bp",
+          "yon": "azalis",
+          "tarih": "2026-11-25",
           "birim": "%",
-          "gun": 3,
-          "bayat": true
+          "gun": 2,
+          "bayat": false
         },
         {
           "kod": "DGS10",
           "ad": "ABD 10 yıllık",
-          "deger": "%4,91",
-          "fark": "-1 bp",
+          "deger": "%4,85",
+          "fark": "-6 bp",
           "yon": "azalis",
-          "tarih": "2026-11-24",
+          "tarih": "2026-11-25",
           "birim": "%",
-          "gun": 3,
-          "bayat": true
+          "gun": 2,
+          "bayat": false
         },
         {
           "kod": "T10Y2Y",
