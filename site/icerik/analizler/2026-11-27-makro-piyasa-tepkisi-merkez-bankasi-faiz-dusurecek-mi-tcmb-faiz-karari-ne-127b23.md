@@ -1,7 +1,7 @@
 ---
 slug: piyasa-tepkisi-merkez-bankasi-faiz-dusurecek-mi-tcmb-faiz-karari-ne-127b23-2026-11-27
 baslik: Merkez Bankası faiz düşürecek mi? TCMB faiz kararı ne zaman açıklanacak?
-ozet: Faiz kararı. Altın 1 saat içinde -%0,18 geriledi.
+ozet: Faiz kararı. Altın 1 saat içinde -%0,16 geriledi.
 sirket: Piyasa tepkisi: Merkez Bankası faiz düşürecek mi? TCMB faiz kararı ne zaman açıklanacak?
 kod: OLAY
 donem: 2026-11-27
@@ -23,8 +23,8 @@ Para politikası kararı açıklandı. Kaynak: Dünya.
 
 ## Piyasada ne oldu
 
-- **Altın** 1 saat içinde geriledi: -%0,18 (son 3673,50).
-- **Bitcoin** 1 saat içinde yatay kaldı (son 61565,20).
+- **Altın** 1 saat içinde geriledi: -%0,16 (son 3669,25).
+- **Bitcoin** 1 saat içinde yatay kaldı (son 61541,80).
 
 *Yukarıdaki rakamlar ölçülen fiyat hareketidir. Hareketin sebebinin bu gelişme olduğu iddia edilmemektedir; aynı pencerede başka etkenler de fiyatlanmış olabilir.*
 
@@ -38,10 +38,10 @@ Para politikası kararı açıklandı. Kaynak: Dünya.
 
 ## Daha önce ne olmuştu
 
+- 2026-11-27 — Fed aralık ayı faiz kararı ne zaman, saat kaçta açıklanacak? (BTC %0,0, XAU -%0,2)
 - 2026-11-26 — TCMB'den Türk lirası likidite yönetimi ve zorunlu karşılıklara ilişkin yeni… (BTC +%0,5, XAU +%0,1)
 - 2026-11-25 — Merkez Bankası faiz kararı ne zaman, saat kaçta açıklanacak? (BTC -%0,2, XAU %0,0)
 - 2026-11-25 — Fed faiz kararı bu hafta mı, ne zaman? Fed faiz tarihi... (BTC -%0,9, XAU +%0,3)
-- 2026-11-25 — Merkez Bankası toplantısı ne zaman? MB faiz kararı ne zaman açıklanacak? (BTC -%0,9, XAU +%0,3)
 
 *Geçmiş hareketler benzer bir sonucun tekrarlanacağını göstermez; yalnızca bu kanalın daha önce nasıl işlediğini aktarır.*
 
