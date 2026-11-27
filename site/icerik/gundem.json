@@ -30,7 +30,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 20,
+  "yorumlanan": 18,
   "haberler": [
     {
       "baslik": "Finansal İstikrar Raporu (Sayı:43, Kasım 2026)",
@@ -163,6 +163,27 @@
       "foto_atif": "Mrs Puff · CC-BY-SA-2.0"
     },
     {
+      "baslik": "MOO DENGESİZLİĞİ",
+      "baslik_kaynak": "MOO Imbalance",
+      "ozet": "S&P 500: +19 mln Nasdaq 100: +12 mln Dow 30: +17 mln Mag 7: +2 mln",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9870704/MOO-Imbalance.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Şirket haberleri",
+      "tarih": "2026-11-27",
+      "tarih_gorunur": "27 Kasım 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/sirket-haberleri-7-8b52fc2e.jpg",
+      "foto_atif": "DXR · CC-BY-SA-4.0"
+    },
+    {
       "baslik": "EUR/USD üzerinden Goldman Sachs - FJElite",
       "baslik_kaynak": "Goldman Sachs on EUR/USD - FJElite",
       "ozet": "Over the past 8 weeks we’ve gone from being comfortable with energy as being the primary driver of the pair ~> French fiscal concerns taking over --> US-led rate differentials driving EURUSD lower (Waller/CPI...) --> what we perceive to be significant macro-agnostic USD demand dictating the path.",
@@ -184,10 +205,10 @@
       "foto_atif": "Wikimedia Commons · CC-BY-4.0"
     },
     {
-      "baslik": "MUFG: Yapay Zekâ Satış Dalgasında JPY NEER Hareketliliği Önemsiz Seviyede Kaldı - FJElite",
+      "baslik": "MUFG: JPY NEER Move During AI Sell-Off Has Been Marginal - FJElite",
       "baslik_kaynak": "MUFG: JPY NEER Move During AI Sell-Off Has Been Marginal - FJElite",
       "ozet": "",
-      "cevrildi": true,
+      "cevrildi": false,
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
@@ -205,10 +226,10 @@
       "foto_atif": "Wikimedia Commons · CC-BY-4.0"
     },
     {
-      "baslik": "Efektif Fed fonlama faizi 25 Kasım'da %3,88 iken 24 Kasım'da %3,88'di",
+      "baslik": "Effective Fed funds rate 3.88% November 25th vs 3.88% November 24th",
       "baslik_kaynak": "Effective Fed funds rate 3.88% November 25th vs 3.88% November 24th.",
       "ozet": "",
-      "cevrildi": true,
+      "cevrildi": false,
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
@@ -226,10 +247,10 @@
       "foto_atif": "Kidfly182 · CC-BY-4.0"
     },
     {
-      "baslik": "ABD'de Piyasa Görünümü: Risk İştahı Geri Döndü, Ancak Huang Olayı Öncesindeki Seviyelere Ulaşmak İçin Henüz Yolumuz Var - FJElite",
+      "baslik": "US Sentiment: Risk-On Back, Still a Ways to Go to Pre Huang Affair Levels - FJElite",
       "baslik_kaynak": "US Sentiment: Risk-On Back, Still a Ways to Go to Pre Huang Affair Levels - FJElite",
       "ozet": "",
-      "cevrildi": true,
+      "cevrildi": false,
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
@@ -247,10 +268,10 @@
       "foto_atif": "Syced · CC0"
     },
     {
-      "baslik": "Barclays: Hisse senedi fonuna girişler, piyasalarda son dönemde yaşanan satışlarla birlikte ivme kazandı - FJElite",
+      "baslik": "Barclays: Inflows into equity fund have gained momentum as markets sold off recently - FJElite",
       "baslik_kaynak": "Barclays: Inflows into equity fund have gained momentum as markets sold off recently - FJElite",
       "ozet": "",
-      "cevrildi": true,
+      "cevrildi": false,
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
@@ -268,10 +289,10 @@
       "foto_atif": "Syced · CC0"
     },
     {
-      "baslik": "Almanya bütçesi 210 milyar avroluk yeni borçlanmayla kabul edildi",
+      "baslik": "German budget passes with €210 billion in new borrowing",
       "baslik_kaynak": "German budget passes with €210 billion in new borrowing.",
       "ozet": "",
-      "cevrildi": true,
+      "cevrildi": false,
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
@@ -289,10 +310,10 @@
       "foto_atif": "RegionalQueenslander · CC-BY-SA-4.0"
     },
     {
-      "baslik": "Almanya Federal Meclisi 2027 bütçesini onayladı - Oyların Sayımı",
+      "baslik": "German Lower House of Parliament passes 2027 budget - Vote Count",
       "baslik_kaynak": "German Lower House of Parliament passes 2027 budget - Vote Count.",
       "ozet": "",
-      "cevrildi": true,
+      "cevrildi": false,
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
@@ -1378,6 +1399,27 @@
       "foto_atif": "RegionalQueenslander · CC-BY-SA-4.0"
     },
     {
+      "baslik": "AI math breakthroughs revive Bitcoin security fears, but practical threat remains unproven: K33",
+      "baslik_kaynak": "AI math breakthroughs revive Bitcoin security fears, but practical threat remains unproven: K33",
+      "ozet": "K33 said recent mathematical advances had not demonstrated a compromise of Bitcoin's cryptography, while urging closer attention to AI.",
+      "cevrildi": false,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.theblock.co/news/ecosystems/2026-11-27-ai-math-breakthroughs-revive-bitcoin-security-fears-but-practical-threat-remains-unproven-k33-447549",
+      "kurum": "The Block",
+      "kurum_tam": "The Block",
+      "konu": "Kripto varlıklar",
+      "tarih": "2026-11-27",
+      "tarih_gorunur": "27 Kasım 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/kripto-varliklar-9-651bf869.jpg",
+      "foto_atif": "Satheesh Sankaran · CC-BY-2.0"
+    },
+    {
       "baslik": "Japonya Merkez Bankası yetkilisi, \"paranın tekliğini\" korumak için stabilcoinlere yönelik rezerv kurallarına ihtiyaç olduğunu söylüyor",
       "baslik_kaynak": "Bank of Japan official says stablecoins need reserve rules to preserve ‘singleness of money’",
       "ozet": "Japan’s central bank warned that stablecoins and tokenized deposits need safeguards to prevent fragmentation across the financial system.",
@@ -1504,10 +1546,10 @@
       "foto_atif": "CryptoWallet.com Images · CC-BY-2.0"
     },
     {
-      "baslik": "Canlı güncellemeler: Bitcoin 61.000 $'ın üzerine çıktı, yapay zekâ hisseleri piyasa açılışı öncesi kazançlara öncülük ediyor",
-      "baslik_kaynak": "Live updates: Bitcoin rebounds above $61,000 as AI stocks lead premarket gains",
+      "baslik": "Live updates: Bitcoin rebounds above $61,000 as AI stocks lead gains",
+      "baslik_kaynak": "Live updates: Bitcoin rebounds above $61,000 as AI stocks lead gains",
       "ozet": "Nasdaq 100 futures rose 3% ahead of Friday’s shortened U.S. trading session, with some AI cloud stocks up double-digit percentages.",
-      "cevrildi": true,
+      "cevrildi": false,
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
@@ -1672,10 +1714,10 @@
       "foto_atif": "Karlalhdz · CC-BY-SA-4.0"
     },
     {
-      "baslik": "Binance, düzenleyici onayının ardından tokenleştirilmiş halka arz programını başlatacak: Yi He",
+      "baslik": "Binance to launch tokenized IPO program after regulatory approval: Yi He",
       "baslik_kaynak": "Binance to launch tokenized IPO program after regulatory approval: Yi He",
       "ozet": "Binance is hiring for equity capital markets roles, including an analyst to develop tokenized equity products and assess prospective issuers.",
-      "cevrildi": true,
+      "cevrildi": false,
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
@@ -1840,10 +1882,10 @@
       "foto_atif": "Satheesh Sankaran · CC-BY-2.0"
     },
     {
-      "baslik": "Ethereum Yol Haritasında Neler Var: Glamsterdam, Hegotá ve Ötesi",
+      "baslik": "What's on the Ethereum Roadmap: Glamsterdam, Hegotá and Beyond",
       "baslik_kaynak": "What's on the Ethereum Roadmap: Glamsterdam, Hegotá and Beyond",
       "ozet": "Ethereum has rolled out a steady stream of upgrades since 2022. Here’s how those changes fit together—and what’s still ahead.",
-      "cevrildi": true,
+      "cevrildi": false,
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
@@ -2020,58 +2062,6 @@
       "kanal_basligi": "Piyasaya nasıl yansır?",
       "foto": "/statik/foto/tarim-ve-gida-9-5b46670d.jpg",
       "foto_atif": "Malcolm Neal · CC-BY-SA-2.0"
-    },
-    {
-      "baslik": "Ekonomistlerin enflasyon beklentisi belli oldu",
-      "baslik_kaynak": "Ekonomistlerin enflasyon beklentisi belli oldu",
-      "ozet": "Türkiye İstatistik Kurumu'nun (TÜİK) 3 Aralık Perşembe günü açıklayacağı kasım ayı enflasyon verileri öncesinde ekonomistlerin tahminleri belli oldu. AA Finans'ın 20 ekonomistin katılımıyla gerçekleştirdiği ankete göre aylık enflasyonda yavaşlama beklenirken yıllık enflasyonun yeniden yüzde 30'un üzerine çıkacağı…",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.dunya.com/ekonomi/ekonomistlerin-enflasyon-beklentisi-belli-oldu-haberi-849106",
-      "kurum": "Dünya",
-      "kurum_tam": "Dünya Gazetesi",
-      "konu": "Enflasyon",
-      "tarih": "2026-11-27",
-      "tarih_gorunur": "27 Kasım 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Enflasyon verisi merkez bankası patikasına dair beklentiyi değiştirdiği ölçüde fiyatlanır; manşet ile çekirdek arasındaki fark bu yüzden önemlidir.",
-      "kanallar": [
-        "Çekirdek ayrımı: enerji ve gıda dışı kalemler kalıcı eğilimi gösterir.",
-        "Faiz beklentisi: beklentiden sapma getiri eğrisinin ön ucunu hareket ettirir.",
-        "Hizmet enflasyonu: ücretlere bağlı olduğu için en yapışkan bileşendir.",
-        "Baz etkisi: bir önceki yılın aynı ayındaki seviye yıllık oranı mekanik olarak değiştirir."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/enflasyon-8-4c01d687.jpg",
-      "foto_atif": "Myotus · CC-BY-4.0"
-    },
-    {
-      "baslik": "Altın ve gümüş neden yükseliyor? Dev bankadan dikkat çeken değerlendirme",
-      "baslik_kaynak": "Altın ve gümüş neden yükseliyor? Dev bankadan dikkat çeken değerlendirme",
-      "ozet": "Küresel hisse senedi piyasalarında risk iştahının yeniden güçlenmesi, değerli metal fiyatlarında sert yükselişleri beraberinde getirdi. Saxo Bank analistleri, teknoloji hisselerindeki toparlanmayla değerli metaller üzerindeki satış baskısının hafiflediğine dikkat çekti.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.dunya.com/finans/haberler/altin-ve-gumus-neden-yukseliyor-dev-bankadan-dikkat-ceken-degerlendirme-haberi-849104",
-      "kurum": "Dünya",
-      "kurum_tam": "Dünya Gazetesi",
-      "konu": "Altın ve emtia",
-      "tarih": "2026-11-27",
-      "tarih_gorunur": "27 Kasım 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Emtia fiyatı reel faiz, dolar endeksi ve fiziki arz-talep dengesinin bileşkesidir; bir habere verilen tepki bu üçünden hangisini değiştirdiğine bağlıdır.",
-      "kanallar": [
-        "Reel faiz: getirisi olmayan varlıkların alternatif maliyeti reel faizle belirlenir.",
-        "Dolar endeksi: emtia dolarla fiyatlandığı için doların kendi değeri fiyata doğrudan yazılır.",
-        "Fiziki denge: stok, üretim kesintisi ve sanayi talebi kısa vadeli fiyatın ana sürücüsüdür.",
-        "Resmi rezerv talebi: merkez bankası alımları uzun vadeli talep tabanını değiştirir."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/altin-ve-emtia-9-96578871.jpg",
-      "foto_atif": "Bill Holler · CC-BY-SA-2.0"
     },
     {
       "baslik": "Türk Lirası Likidite Yönetimine İlişkin Basın Duyurusu (2026-51)",
