@@ -279,14 +279,96 @@ for _slug in _sluglar:
               f"/{_slug}/ {_bag} analiz basiyor ama arsiv sayfasi YOK")
 print(f"  arsivi olan kategori: {_arsivli}")
 
+import insa  # noqa: E402
+
+
+def dogru(aciklama, kosul):
+    esit(bool(kosul), True, aciklama)
+
+
+print("\n2b) SAYFALAMA -- sayfa boyu ICERIKTEN BAGIMSIZ")
+
+# OLCULDU (2026-11-28): `/konu/jeopolitik/arsiv/` 2917 islenmis
+# DOM ogesine ulasmisti, sinir 3400, pay 483. Oge basina 3,32
+# DOM ve 22 haber/gun yayim hiziyla esige ~7 GUN kalmisti.
+# Esik asilinca dagitim DURUYOR -- bu depoda uc kez oldu.
+#
+# Asagidaki iddialar sayfa boyunun SABIT kaldigini tutuyor:
+# oge sayisi on kat artsa da bir sayfadaki oge sayisi degismez.
+_ogeler = [{'_ay': f'Ay{i // 37}', 'tarih': f'2026-01-{i % 28 + 1:02d}',
+            'baslik': f'B{i}', 'yol': f'/analiz/x{i}/'}
+           for i in range(1000)]
+_s = insa.arsiv_sayfalari(_ogeler, 'analizler')
+_boylar = [sum(len(a['analizler']) for a in sf) for sf in _s]
+esit(len(_s), 5, 'bin oge bes sayfaya boluniyor')
+esit(_boylar[:-1], [insa.ARSIV_SAYFA_BOYU] * 4,
+     'son sayfa disinda her sayfa TAM boyda')
+esit(sum(_boylar), 1000, 'hicbir oge DUSMUYOR')
+
+# ICERIK ARTTIKCA SAYFA BOYU DEGISMIYOR -- kuralin ta kendisi.
+_s2 = insa.arsiv_sayfalari(_ogeler * 3, 'analizler')
+_boy2 = [sum(len(a['analizler']) for a in sf) for sf in _s2]
+esit(_boy2[0], _boylar[0],
+     'oge sayisi uc kat artinca ILK sayfanin boyu AYNI')
+esit(max(_boy2), insa.ARSIV_SAYFA_BOYU,
+     'en kalabalik sayfa bile siniri asmiyor')
+
+# AY GRUPLAMASI KORUNUYOR ve sira bozulmuyor.
+esit([a['ad'] for a in _s[0]][:3], ['Ay0', 'Ay1', 'Ay2'],
+     'ay basliklari SIRAYLA geliyor')
+
+# SIRA KORUNUYOR: sayfalar birlestirilince ozgun dizilim cikmali.
+_duz = [h['yol'] for sf in _s for a in sf for h in a['analizler']]
+esit(_duz, [o['yol'] for o in _ogeler],
+     'sayfalar birlestirilince SIRA ozgun haliyle ayni')
+
+# ILK SAYFANIN ADRESI DEGISMIYOR -- disaridan baglanti aliyor.
+esit(insa.arsiv_yolu('/konu/x/arsiv/', 1), '/konu/x/arsiv/',
+     'ilk sayfa KOK adreste kaliyor')
+esit(insa.arsiv_yolu('/konu/x/arsiv/', 2), '/konu/x/arsiv/2/',
+     'ikinci sayfa numarali alt adres')
+
+# BOS LISTE COKERTMIYOR: arsiv yalnizca sinir asilinca uretiliyor,
+# ama yardimci tek basina da saglam olmali.
+esit(len(insa.arsiv_sayfalari([], 'analizler')), 1,
+     'bos liste TEK bos sayfa doner')
+
+# SABIT ETKISIZLESTIRILEMEZ BANTTA: olculen olay 653 ogelik bir
+# sayfanin 2917 DOM ogesi oldugu. 653 oge bir sayfaya SIGMAMALI.
+dogru(insa.ARSIV_SAYFA_BOYU < 653,
+      f'sayfa boyu olculen olayi reddediyor ({insa.ARSIV_SAYFA_BOYU} < 653)')
+dogru(insa.ARSIV_SAYFA_BOYU >= 50,
+      f'sayfa boyu makul bantta ({insa.ARSIV_SAYFA_BOYU}) -- sayfalayici kullanilmaz olmamis')
+
+# AY ETIKETI: bozuk tarih COKERTMIYOR.
+esit(insa.arsiv_ay_etiketi('2026-11-27'), 'Kasım 2026',
+     'ay etiketi Turkce ve yilli')
+esit(insa.arsiv_ay_etiketi(''), 'Tarihsiz', 'bos tarih Tarihsiz')
+esit(insa.arsiv_ay_etiketi('2026-99-01'), 'Tarihsiz',
+     'gecersiz ay Tarihsiz -- cokmuyor')
+
 print("\n3) Arsiv sayfasi kategorinin TAMAMINI listeliyor")
 for _slug in _sluglar:
     _ap = _CIKTI / _slug / "arsiv" / "index.html"
     _p = _CIKTI / _slug / "index.html"
     if not _ap.exists() or not _p.exists():
         continue
-    _ah = _ap.read_text(encoding="utf-8", errors="replace")
     _h = _p.read_text(encoding="utf-8", errors="replace")
+    # OLCUT TEK SAYFA DEGIL, SAYFALANMIS KUME.
+    #
+    # Arsiv 2026-11-28'de sayfalandi: `/makro/arsiv/` 2806
+    # islenmis DOM ogesindeydi ve 3400 sinirina 594 pay
+    # kalmisti; `/konu/jeopolitik/arsiv/` icin esige ~7 GUN.
+    # Esik asilinca dagitim DURUYOR.
+    #
+    # ONCEKI IDDIA "hepsi ILK sayfada" diyordu ve sayfalama
+    # eklendigi an dustu. NIYETI dogruydu (her analize giden
+    # bir yol olmali), OLCUTU uygulama ayrintisina cakiliydi.
+    _sayfalar = [_ap] + sorted(
+        (_CIKTI / _slug / 'arsiv').glob('*/index.html'))
+    _ah = ''.join(
+        x.read_text(encoding='utf-8', errors='replace')
+        for x in _sayfalar)
     _a_bag = set(_BAG.findall(_ah))
     _k_bag = set(_BAG.findall(_h))
     # Kategori sayfasindaki her analiz arsivde de olmali: arsiv
@@ -296,7 +378,7 @@ for _slug in _sluglar:
     if _eksik:
         print(f"\n  ARSIVDE OLMAYAN: {_eksik[:5]}")
     esit(_eksik, [],
-         f"/{_slug}/arsiv/ kategori sayfasindakilerin tamamini tasiyor")
+         f"/{_slug}/arsiv/ ({len(_sayfalar)} sayfa) kategori sayfasindakilerin tamamini tasiyor")
     # Ve arsiv, kategori sayfasindan DAHA COK tasimali -- yoksa
     # arsivin var olma sebebi yok.
     esit(len(_a_bag) > len(_k_bag), True,

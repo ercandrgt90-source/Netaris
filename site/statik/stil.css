@@ -4085,6 +4085,31 @@ main:focus { outline: none}
   display: inline-flex; align-items: center;
   padding: 8px var(--b-3)}
 
+/* Arsiv sayfalayici -- sayfa boyu ICERIKTEN BAGIMSIZ kilan
+   duzenegin gorunen yuzu. Gerekcesi `insa.ARSIV_SAYFA_BOYU`
+   uzerinde yazili. Mevcut degiskenler kullaniliyor; yeni renk
+   ya da boy tanimlanmiyor. */
+.arsiv-sayfalar {
+  display: flex; flex-wrap: wrap; gap: 6px; align-items: center;
+  margin: 28px 0 0; font-size: var(--p-s)}
+/* DOKUNMA HEDEFI EN AZ 44x44 -- WCAG 2.5.8.
+   Ilk yazimda 34x35 olculdu (gercek tarayicida, 390 ve 1280
+   genislikte) ve bu deponun kendi kurali bunu reddediyor:
+   `mobil/erisim_olcumu.mjs` 44x44 altini kusur sayiyor.
+   `inline-flex` ortalama, `min-*` ise icerik kisa oldugunda
+   (tek haneli sayfa numarasi) boyu koruyor. */
+.arsiv-sayfalar a, .arsiv-sayfalar span {
+  display: inline-flex; align-items: center;
+  justify-content: center;
+  min-width: 44px; min-height: 44px; padding: 0 10px;
+  border: 1px solid var(--cizgi); border-radius: 6px;
+  text-decoration: none}
+.arsiv-sayfalar a { color: var(--yazi-2)}
+.arsiv-sayfalar a:hover { border-color: var(--vurgu)}
+.arsiv-sayfalar [aria-current="page"] {
+  background: var(--zemin-2); color: var(--yazi);
+  font-weight: 600}
+
 /* Varlik arsiv sayfasi. */
 .kirinti { font-size: var(--p-s); color: var(--yazi-3); margin: 0 0 10px}
 .varlik-ozet {

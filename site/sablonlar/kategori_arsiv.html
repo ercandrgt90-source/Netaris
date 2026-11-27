@@ -109,4 +109,30 @@
   {% endfor %}
 </ol>
 {% endfor %}
+{# ARSIV SAYFALAYICI -- HER OGEYE GIDEN YOL.
+   Arsiv, liste sinirinin otesindeki ogelere giden TEK yol; sayfalama
+   o yolu kesmemeli. Bu yuzden hem onceki/sonraki hem de TUM sayfa
+   numaralari basiliyor: tarayici zincirin ortasindan girse de butun
+   sayfalara ulasiyor. `rel=prev/next` ile sira, `aria-current` ile
+   bulunulan sayfa bildiriliyor.
+
+   Tek sayfa varsa HIC BASILMIYOR: tek dugmeli bir sayfalayici
+   okura bilgi vermez. #}
+{% if sayfa and sayfa.adet > 1 %}
+<nav class="arsiv-sayfalar" aria-label="Arşiv sayfaları">
+  {% if sayfa.onceki %}
+  <a rel="prev" href="{{ sayfa.onceki }}">← önceki</a>
+  {% endif %}
+  {% for s in sayfa.hepsi %}
+    {% if s.simdiki %}
+  <span aria-current="page">{{ s.no }}</span>
+    {% else %}
+  <a href="{{ s.yol }}">{{ s.no }}</a>
+    {% endif %}
+  {% endfor %}
+  {% if sayfa.sonraki %}
+  <a rel="next" href="{{ sayfa.sonraki }}">sonraki →</a>
+  {% endif %}
+</nav>
+{% endif %}
 {% endblock %}

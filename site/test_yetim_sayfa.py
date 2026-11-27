@@ -147,9 +147,50 @@ for _y, _p in sorted(_uretilen.items()):
           f"{_y} ({_toplam} haberin {_basili} tanesi basili) arsive baglaniyor")
     _ap = _uretilen.get(f"{_y}arsiv/")
     dogru(_ap is not None, f"{_y}arsiv/ uretiliyor")
-    _as = _ap.read_text(encoding="utf-8", errors="replace")
-    _ab = len(set(re.findall('href="(/haber/[^"]*)"', _as)))
-    dogru(_ab >= _toplam, f"{_y}arsiv/ {_toplam} haberin tamamini listeliyor",
+    # OLCUT TEK SAYFA DEGIL, SAYFALANMIS KUME.
+    #
+    # Arsiv 2026-11-28'de sayfalandi: `/konu/jeopolitik/
+    # arsiv/` 2917 islenmis DOM ogesine ulasmisti, sinir
+    # 3400 ve yayim hiziyla esige ~7 GUN kalmisti. Esik
+    # asilinca dagitim DURUYOR (bu depoda uc kez oldu).
+    #
+    # ONCEKI IDDIA "hepsi ILK sayfada" diyordu ve sayfalama
+    # eklendigi an dustu. Iddianin NIYETI dogruydu (her
+    # habere giden bir yol olmali), OLCUTU uygulama
+    # ayrintisina cakiliydi -- bu depoda 'hareketli hedef
+    # korumasi' diye yazili kusur sinifi.
+    #
+    # Yeni olcut: arsivin BUTUN sayfalari birlikte butun
+    # haberleri listeliyor mu. Sayfalar zincirle birbirine
+    # bagli (onceki/sonraki + tum numaralar), yani kume
+    # gezilebilir.
+    _arsiv_yollari = [f'{_y}arsiv/'] + sorted(
+        k for k in _uretilen
+        if k.startswith(f'{_y}arsiv/') and k != f'{_y}arsiv/')
+    _as = _uretilen[f'{_y}arsiv/'].read_text(
+        encoding="utf-8", errors="replace")
+    _baglar: set = set()
+    for _ay_yol in _arsiv_yollari:
+        _ap2 = _uretilen.get(_ay_yol)
+        if _ap2 is None:
+            continue
+        _baglar |= set(re.findall(
+            'href="(/haber/[^"]*)"',
+            _ap2.read_text(encoding="utf-8", errors="replace")))
+    _ab = len(_baglar)
+    # SAYFALAR BIRBIRINE BAGLI OLMALI: zincir kopuksa
+    # ortadaki sayfaya hicbir yerden ulasilmaz ve
+    # listeledigi haberler yine yetim kalir.
+    for _i, _ay_yol in enumerate(_arsiv_yollari):
+        if _i == 0:
+            continue
+        dogru(any(f'href="{_ay_yol}"' in
+                  (_uretilen[_o].read_text(
+                      encoding="utf-8", errors="replace"))
+                  for _o in _arsiv_yollari if _o in _uretilen),
+              f"{_ay_yol} arsiv zincirinden baglanti aliyor")
+    dogru(_ab >= _toplam,
+          f"{_y}arsiv/ ({len(_arsiv_yollari)} sayfa) {_toplam} haberin tamamini listeliyor",
           f"yalnizca {_ab} bag var")
     # Konu sayfasindaki ilk ogelerle ayni; indekslenirse ayni liste
     # iki sayfada birden dizine girerdi.

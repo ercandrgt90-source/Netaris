@@ -3234,6 +3234,91 @@ KONU_LISTE_SINIRI = 80
 #: BAGLANTI KAYBI YOK: asan her analiz arsiv sayfasinda GERCEK
 #: baglantiyla duruyor. Bu depoda arsivi kirpma bir kez denendi ve
 #: `test_yetim_sayfa` 47 oksuz sayfa bildirdi -- o yol kapali.
+#: ARSIV SAYFASINDA EN FAZLA KAC OGE -- ICERIKTEN BAGIMSIZLIK.
+#:
+#: OLCULDU (2026-11-28). `/konu/jeopolitik/arsiv/` 2917 ISLENMIS DOM
+#: ogesine ulasti; sinir 3400, yani pay 483. Olcumler:
+#:
+#:     oge basina DOM          3,32   (653 oge, ham DOM 2167)
+#:     sabit yuk               ~0     ham DOM'un tamami LISTE
+#:     esige kalan oge         145
+#:     Jeopolitik yayim hizi   22 haber/gun (son 10 gun ortancasi)
+#:     ESIGE KALAN SURE        ~7 GUN
+#:
+#: Esik asilinca `test_dom_agirligi` KIRMIZI yaniyor ve DAGITIM
+#: DURUYOR. Bu depoda ayni sey UC KEZ oldu (2026-09-18, 10-19,
+#: 10-26) ve her seferinde kesinti saatler surdu.
+#:
+#: DOGRU CEVAP ESIGI YUKSELTMEK DEGIL. Esik LCP ve islenmis DOM
+#: olcumlerine dayaniyor; yukseltmek okurun odedigi bedeli
+#: artirmak olur. Cevap sayfa boyunu ICERIKTEN BAGIMSIZ kilmak --
+#: bu depoda "sayfa boyu icerikten bagimsiz" diye yazili kural.
+#:
+#: ARSIV KIRPILMIYOR. Kirpmak bir kez denendi ve `test_yetim_sayfa`
+#: 47 OKSUZ SAYFA bildirdi; arsiv tam bu yuzden var. Sayfalama
+#: hicbir ogeyi DUSURMUYOR, yalnizca birden cok sayfaya dagitiyor
+#: ve sayfalar birbirine baglaniyor.
+#:
+#: 200 SECILDI: 750 betik payi + 200 x 3,32 + baslik/gezinme ~ 1500
+#: islenmis DOM, yani payin yaklasik dort kati guvenlik. Oge sayisi
+#: ne olursa olsun sayfa boyu SABIT kaliyor.
+ARSIV_SAYFA_BOYU = 200
+
+
+def arsiv_sayfalari(ogeler: list, anahtar: str,
+                    boy: int = 0) -> list[list[dict]]:
+    """Sirali oge listesini SABIT BOYLU arsiv sayfalarina boler.
+
+    Doner: her sayfa icin `[{"ad": ay etiketi, anahtar: [oge, ...]}]`.
+    `anahtar` sablonun bekledigi alan adi ("haberler" / "analizler").
+
+    AY GRUPLAMASI KORUNUYOR. Sablon ayliklara gore basliklandiriyor;
+    boyle bir ay bir sayfanin sonunda kesilip otekinin basinda
+    devam edebilir ve bu DOGRU davranis -- sayfa boyu sabit kalmali,
+    ay uzunlugu degisken.
+    """
+    boy = boy or ARSIV_SAYFA_BOYU
+    sayfalar: list[list[dict]] = []
+    for bas in range(0, len(ogeler), boy):
+        dilim = ogeler[bas:bas + boy]
+        sira: list[str] = []
+        aylar: dict[str, list] = {}
+        for oge in dilim:
+            et = oge["_ay"]
+            if et not in aylar:
+                aylar[et] = []
+                sira.append(et)
+            aylar[et].append({k: v for k, v in oge.items()
+                              if k != "_ay"})
+        sayfalar.append([{"ad": e, anahtar: aylar[e]} for e in sira])
+    return sayfalar or [[]]
+
+
+def arsiv_ay_etiketi(tarih) -> str:
+    """Ay basligi -- iki arsiv ureticisi AYNI islevi kullaniyor.
+
+    Ikisinde ayri yazilmisti ve ayni mantik iki kez duruyordu;
+    sayfalama eklenirken tek yere alindi.
+    """
+    d = str(tarih or "")[:7]
+    if len(d) == 7 and d[4] == "-":
+        try:
+            return f"{AYLAR[int(d[5:7]) - 1]} {d[:4]}"
+        except (ValueError, IndexError):
+            return "Tarihsiz"
+    return "Tarihsiz"
+
+
+def arsiv_yolu(kok: str, no: int) -> str:
+    """Arsiv sayfasinin adresi. Ilk sayfa KOK adreste kaliyor.
+
+    Ilk sayfanin adresi DEGISMIYOR: `/konu/<konu>/arsiv/` disaridan
+    baglanti aliyor ve arama motorlarinda kayitli. Yeni adres
+    uretmek, calisan adresleri kirmak olurdu.
+    """
+    return kok if no <= 1 else f"{kok}{no}/"
+
+
 KATEGORI_LISTE_SINIRI = 240
 
 #: `/arastirmalar/` hub'inda GORUNEN kart ve arsiv satiri sayisi.
@@ -7219,36 +7304,46 @@ def insa() -> int:
         # YALNIZCA SINIR ASILDIGINDA uretiliyor: asilmayan kategoride
         # arsiv, kategori sayfasinin birebir kopyasi olurdu.
         if len(secilen) > KATEGORI_LISTE_SINIRI:
-            _k_sira: list[str] = []
-            _k_aylar: dict[str, list] = {}
-            for _a in secilen:
-                _d = str(_a.tarih or "")[:7]
-                _et = (f"{AYLAR[int(_d[5:7]) - 1]} {_d[:4]}"
-                       if len(_d) == 7 and _d[4] == "-" else "Tarihsiz")
-                if _et not in _k_aylar:
-                    _k_aylar[_et] = []
-                    _k_sira.append(_et)
-                _k_aylar[_et].append(
-                    {"tarih": _a.tarih, "baslik": _a.baslik, "yol": _a.yol,
-                     "gorunur": _a.tarih_tr})
-            _ka = f"{yol_k}arsiv/"
-            yaz(
-                f"{_ka}index.html",
-                ortam.get_template("kategori_arsiv.html").render(
-                    # `arama_disi`: ilk 240 oge kategori sayfasiyla
-                    # ayni. Robots karari `temel.html`de, harita
-                    # karari `haritaya_girer` icinde -- ikisi de
-                    # sayfanin KENDI etiketine bakiyor, yani celiski
-                    # olusmaz.
-                    **ortak, yol=_ka, arama_disi=True,
-                    kategori_baslik=baslik,
-                    kategori_aciklama=aciklama,
-                    kategori_yolu=yol_k,
-                    analiz_toplam=len(secilen),
-                    aylar=[{"ad": _e, "analizler": _k_aylar[_e]}
-                           for _e in _k_sira]),
-            )
-            yollar.append(_ka)
+            # ARSIV SAYFALANIYOR -- gerekcesi `ARSIV_SAYFA_BOYU`
+            # uzerinde. `/makro/arsiv/` 2806 islenmis DOM ogesinde
+            # ve 3400 sinirina 594 pay kalmisti.
+            _k_ogeler = [{"_ay": arsiv_ay_etiketi(_a.tarih),
+                          "tarih": _a.tarih, "baslik": _a.baslik,
+                          "yol": _a.yol, "gorunur": _a.tarih_tr}
+                         for _a in secilen]
+            _k_sayfalar = arsiv_sayfalari(_k_ogeler, "analizler")
+            _k_kok = f"{yol_k}arsiv/"
+            for _no, _k_aylar in enumerate(_k_sayfalar, 1):
+                _ka = arsiv_yolu(_k_kok, _no)
+                yaz(
+                    f"{_ka}index.html",
+                    ortam.get_template("kategori_arsiv.html").render(
+                        # `arama_disi`: ilk 240 oge kategori
+                        # sayfasiyla ayni. Robots karari
+                        # `temel.html`de, harita karari
+                        # `haritaya_girer` icinde -- ikisi de
+                        # sayfanin KENDI etiketine bakiyor, yani
+                        # celiski olusmaz.
+                        **ortak, yol=_ka, arama_disi=True,
+                        kategori_baslik=baslik,
+                        kategori_aciklama=aciklama,
+                        kategori_yolu=yol_k,
+                        analiz_toplam=len(secilen),
+                        aylar=_k_aylar,
+                        sayfa={
+                            "no": _no, "adet": len(_k_sayfalar),
+                            "onceki": (arsiv_yolu(_k_kok, _no - 1)
+                                       if _no > 1 else ""),
+                            "sonraki": (arsiv_yolu(_k_kok, _no + 1)
+                                        if _no < len(_k_sayfalar) else ""),
+                            "hepsi": [
+                                {"no": _i,
+                                 "yol": arsiv_yolu(_k_kok, _i),
+                                 "simdiki": _i == _no}
+                                for _i in range(1, len(_k_sayfalar) + 1)],
+                        }),
+                )
+                yollar.append(_ka)
 
     # Arastirmalar merkezi -- dort kategoriye tek kapi.
     if merkez:
@@ -8084,35 +8179,47 @@ def insa() -> int:
         # YALNIZCA SINIR ASILDIGINDA uretiliyor: asilmayan konuda
         # arsiv, konu sayfasinin birebir kopyasi olurdu.
         if len(_liste) > KONU_LISTE_SINIRI:
-            _ay_sira: list[str] = []
-            _aylar: dict[str, list] = {}
-            for _t, _b, _y in _liste:
-                _d = str(_t)[:7]
-                _etiket = (f"{AYLAR[int(_d[5:7]) - 1]} {_d[:4]}"
-                           if len(_d) == 7 and _d[4] == "-" else "Tarihsiz")
-                if _etiket not in _aylar:
-                    _aylar[_etiket] = []
-                    _ay_sira.append(_etiket)
-                _aylar[_etiket].append(
-                    {"tarih": _t, "baslik": _b, "yol": _y,
-                     "gorunur": gun_etiketi(_t)})
-            _ay = f"{_ky}arsiv/"
-            yaz(
-                f"{_ay}index.html",
-                ortam.get_template("konu_arsiv.html").render(
-                    # `arama_disi`: ilk 80 oge konu sayfasiyla ayni.
-                    # Robots karari `temel.html`de, harita karari
-                    # `haritaya_girer` icinde -- ikisi de sayfanin
-                    # KENDI etiketine bakiyor, yani celiski olusmaz.
-                    **ortak, yol=_ay, arama_disi=True,
-                    konu={
-                        "ad": _ad, "neden": _neden, "yol": _ky,
-                        "toplam": len(_liste),
-                        "aylar": [{"ad": _e, "haberler": _aylar[_e]}
-                                  for _e in _ay_sira],
-                    }),
-            )
-            yollar.append(_ay)
+            # ARSIV SAYFALANIYOR -- SAYFA BOYU ICERIKTEN BAGIMSIZ.
+            #
+            # Gerekcesi ve olcumu `ARSIV_SAYFA_BOYU` uzerinde.
+            # Kisaca: bu sayfa 2917 islenmis DOM ogesine ulasmisti,
+            # sinir 3400 ve yayim hiziyla esige ~7 GUN kalmisti.
+            _ogeler = [{"_ay": arsiv_ay_etiketi(_t), "tarih": _t,
+                        "baslik": _b, "yol": _y,
+                        "gorunur": gun_etiketi(_t)}
+                       for _t, _b, _y in _liste]
+            _sayfalar = arsiv_sayfalari(_ogeler, "haberler")
+            _kok = f"{_ky}arsiv/"
+            for _no, _aylar in enumerate(_sayfalar, 1):
+                _ay = arsiv_yolu(_kok, _no)
+                yaz(
+                    f"{_ay}index.html",
+                    ortam.get_template("konu_arsiv.html").render(
+                        # `arama_disi`: ilk 80 oge konu sayfasiyla
+                        # ayni. Robots karari `temel.html`de, harita
+                        # karari `haritaya_girer` icinde -- ikisi de
+                        # sayfanin KENDI etiketine bakiyor, yani
+                        # celiski olusmaz.
+                        **ortak, yol=_ay, arama_disi=True,
+                        konu={
+                            "ad": _ad, "neden": _neden, "yol": _ky,
+                            "toplam": len(_liste),
+                            "aylar": _aylar,
+                        },
+                        sayfa={
+                            "no": _no, "adet": len(_sayfalar),
+                            "onceki": (arsiv_yolu(_kok, _no - 1)
+                                       if _no > 1 else ""),
+                            "sonraki": (arsiv_yolu(_kok, _no + 1)
+                                        if _no < len(_sayfalar) else ""),
+                            "hepsi": [
+                                {"no": _i,
+                                 "yol": arsiv_yolu(_kok, _i),
+                                 "simdiki": _i == _no}
+                                for _i in range(1, len(_sayfalar) + 1)],
+                        }),
+                )
+                yollar.append(_ay)
         # KONU BESLEMESI -- yalnizca bu konuyu izleyen okur icin.
         #
         # Sitede tek besleme vardi (`/rss.xml`) ve icine her sey
