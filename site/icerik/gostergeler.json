@@ -1,27 +1,27 @@
 {
-  "guncelleme": "2026-11-26",
+  "guncelleme": "2026-11-27",
   "kaynak": "FRED (St. Louis Fed)",
   "kalemler": [
     {
       "kod": "TCMB_USDTRY",
       "ad": "USD/TRY",
-      "deger": "50,68",
-      "fark": "+%0,07",
+      "deger": "50,70",
+      "fark": "+%0,04",
       "yon": "artis",
-      "tarih": "2026-11-26",
+      "tarih": "2026-11-27",
       "birim": "TL",
-      "gun": 1,
+      "gun": 0,
       "bayat": false
     },
     {
       "kod": "TCMB_EURTRY",
       "ad": "EUR/TRY",
-      "deger": "55,60",
-      "fark": "+%0,36",
+      "deger": "55,61",
+      "fark": "+%0,02",
       "yon": "artis",
-      "tarih": "2026-11-26",
+      "tarih": "2026-11-27",
       "birim": "TL",
-      "gun": 1,
+      "gun": 0,
       "bayat": false
     },
     {
