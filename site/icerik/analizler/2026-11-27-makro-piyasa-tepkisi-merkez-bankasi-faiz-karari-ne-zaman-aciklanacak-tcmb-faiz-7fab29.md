@@ -23,8 +23,8 @@ Para politikası kararı açıklandı. Kaynak: CNN Türk.
 
 ## Piyasada ne oldu
 
-- **Altın** 1 saat içinde geriledi: -%0,11 (son 3639,50).
-- **Bitcoin** 1 saat içinde geriledi: -%0,14 (son 59793,80).
+- **Altın** 1 saat içinde geriledi: -%0,11 (son 3638,60).
+- **Bitcoin** 1 saat içinde geriledi: -%0,14 (son 59782,30).
 
 *Yukarıdaki rakamlar ölçülen fiyat hareketidir. Hareketin sebebinin bu gelişme olduğu iddia edilmemektedir; aynı pencerede başka etkenler de fiyatlanmış olabilir.*
 
