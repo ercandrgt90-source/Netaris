@@ -75,14 +75,40 @@
       "foto_atif": "Infrogmation of New Orleans · CC-BY-SA-4.0"
     },
     {
-      "baslik": "Norveç İşsizlik Oranı NSA: %2,00 — önceki %2,00",
-      "baslik_kaynak": "Norwegian Unemployment Rate NSA Actual 2.0% (Forecast -, Previous 2.0%)",
-      "ozet": "Açıklanan değer %2,00. Önceki dönem %2,00; değişmedi.",
+      "baslik": "Fransız CPI NSA Prelim (aylık): −%0,70 — beklenti −%0,20, önceki %0,40",
+      "baslik_kaynak": "French CPI MoM NSA Prelim Actual -0.7% (Forecast -0.2%, Previous 0.4%)",
+      "ozet": "Açıklanan değer −%0,70. Beklenti −%0,20; beklentinin altında (0,50 puan). Önceki dönem %0,40; geriledi (1,10 puan).",
       "cevrildi": true,
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9870206/Norwegian-Unemployment-Rate-NSA-Actual-20-Forecast---Previous-20.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9870242/French-CPI-MoM-NSA-Prelim-Actual--07-Forecast--02-Previous-04.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Enflasyon",
+      "tarih": "2026-11-27",
+      "tarih_gorunur": "27 Kasım 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Enflasyon verisi merkez bankası patikasına dair beklentiyi değiştirdiği ölçüde fiyatlanır; manşet ile çekirdek arasındaki fark bu yüzden önemlidir.",
+      "kanallar": [
+        "Çekirdek ayrımı: enerji ve gıda dışı kalemler kalıcı eğilimi gösterir.",
+        "Faiz beklentisi: beklentiden sapma getiri eğrisinin ön ucunu hareket ettirir.",
+        "Hizmet enflasyonu: ücretlere bağlı olduğu için en yapışkan bileşendir.",
+        "Baz etkisi: bir önceki yılın aynı ayındaki seviye yıllık oranı mekanik olarak değiştirir."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/enflasyon-8-9782cbcb.jpg",
+      "foto_atif": "Basile Morin · CC-BY-SA-4.0"
+    },
+    {
+      "baslik": "Fransa Tarım Dışı Bordroları Revize Edildi: %0,00 — önceki −%0,10",
+      "baslik_kaynak": "French Non-Farm Payrolls Revised Actual 0.0% (Forecast -, Previous -0.1%)",
+      "ozet": "Açıklanan değer %0,00. Önceki dönem −%0,10; yükseldi (0,10 puan).",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9870236/French-Non-Farm-Payrolls-Revised-Actual-00-Forecast---Previous--01.aspx?xy=rss",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
       "konu": "İstihdam ve ücret",
@@ -101,30 +127,30 @@
       "foto_atif": "namisito · CC-BY-SA-4.0"
     },
     {
-      "baslik": "İsveç GSYİH'si Revize Edildi (çeyreklik): %0,50 — önceki %0,40",
-      "baslik_kaynak": "Swedish GDP Revised QoQ Actual 0.5% (Forecast -, Previous 0.4%)",
-      "ozet": "Açıklanan değer %0,50. Önceki dönem %0,40; yükseldi (0,10 puan).",
+      "baslik": "İsveç Ticaret Dengesi: −1,60 — önceki 4,10",
+      "baslik_kaynak": "Swedish Trade Balance Actual -1.6B (Forecast -, Previous 4.1B)",
+      "ozet": "Açıklanan değer −1,60. Önceki dönem 4,10; geriledi (5,70 (birimsiz)).",
       "cevrildi": true,
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9870201/Swedish-GDP-Revised-QoQ-Actual-05-Forecast---Previous-04.aspx?xy=rss",
+      "adres": "https://www.financialjuice.com/News/9870199/Swedish-Trade-Balance-Actual--16B-Forecast---Previous-41B.aspx?xy=rss",
       "kurum": "FinancialJuice",
       "kurum_tam": "FinancialJuice",
-      "konu": "Borsa",
+      "konu": "Dış ticaret",
       "tarih": "2026-11-27",
       "tarih_gorunur": "27 Kasım 2026",
       "yorumlanir": true,
-      "neden_onemli": "Endeks hareketi tek başına bir bilgi değildir; hareketi hangi sektörlerin taşıdığı ve işlem hacminin ne olduğu kalıcılığı belirler.",
+      "neden_onemli": "Ticaret politikası kararları tarafların birbirine bağımlılığı ölçüsünde fiyatlanır; etki önce ilgili sektör hisselerinde ve para birimlerinde görülür.",
       "kanallar": [
-        "Sektör dağılımı: hareketin dar bir gruptan mı geniş tabandan mı geldiği, kalıcılığa dair ipucu verir.",
-        "Hacim: düşük hacimli hareket fiyat keşfinden çok pozisyon ayarlaması olabilir.",
-        "Volatilite: opsiyon fiyatlarındaki değişim piyasanın beklediği oynaklığı gösterir.",
-        "Korelasyon: hisse ile tahvil arasındaki ilişkinin işareti portföy riskinin nasıl dağıldığını değiştirir."
+        "Sektör maruziyeti: gümrük vergisi ihracatçı sektörün marjını doğrudan sıkıştırır; otomotiv, çelik ve tarım en sık hedef alınan kalemlerdir.",
+        "Para birimi: ticaret dengesinde beklenen değişim ilgili ülke kurunu yeniden fiyatlar.",
+        "Tedarik zinciri: ara mal akışı kesilirse maliyet üretici fiyatlarına yazılır ve etki üçüncü ülkelere yayılır.",
+        "Anlaşma yapısı: USMCA ya da gümrük birliği gibi çerçeveler, etkinin hangi kalemlerde ve hangi takvimde doğacağını belirler."
       ],
       "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/borsa-12-5544ef41.jpg",
-      "foto_atif": "Bernard Lee · CC0"
+      "foto": "/statik/foto/dis-ticaret-11-d3b27589.jpg",
+      "foto_atif": "Niels Johannes · CC-BY-SA-4.0"
     },
     {
       "baslik": "SNB Faiz Oranı Olasılıkları",
@@ -434,32 +460,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/sirket-haberleri-8-ed7b45c9.jpg",
       "foto_atif": "Myotus · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "Tokyo TÜFE Genel: %2,80 — beklenti %3,10, önceki %2,80",
-      "baslik_kaynak": "Tokyo CPI Overall Actual 2.8% (Forecast 3.1%, Previous 2.8%)",
-      "ozet": "Açıklanan değer %2,80. Beklenti %3,10; beklentinin altında (0,30 puan). Önceki dönem %2,80; değişmedi.",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9869830/Tokyo-CPI-Overall-Actual-28-Forecast-31-Previous-28.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Enflasyon",
-      "tarih": "2026-11-27",
-      "tarih_gorunur": "27 Kasım 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Enflasyon verisi merkez bankası patikasına dair beklentiyi değiştirdiği ölçüde fiyatlanır; manşet ile çekirdek arasındaki fark bu yüzden önemlidir.",
-      "kanallar": [
-        "Çekirdek ayrımı: enerji ve gıda dışı kalemler kalıcı eğilimi gösterir.",
-        "Faiz beklentisi: beklentiden sapma getiri eğrisinin ön ucunu hareket ettirir.",
-        "Hizmet enflasyonu: ücretlere bağlı olduğu için en yapışkan bileşendir.",
-        "Baz etkisi: bir önceki yılın aynı ayındaki seviye yıllık oranı mekanik olarak değiştirir."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/enflasyon-15-0af2c135.jpg",
-      "foto_atif": "Marek Ślusarczyk ( Tupungato ) Photo portfolio · CC-BY-3.0"
     },
     {
       "baslik": "Suudi Arabistan Sivil Savunma Teşkilatı: Tehlike Hamis Muşait'te geçti",
@@ -939,32 +939,6 @@
       "foto_atif": "Bill Boaden · CC-BY-SA-2.0"
     },
     {
-      "baslik": "Trump'ın Nvidia hamlesi Kongre'ye taşınıyor: Huang için iki kritik tarih belli oldu",
-      "baslik_kaynak": "Trump'ın Nvidia hamlesi Kongre'ye taşınıyor: Huang için iki kritik tarih belli oldu",
-      "ozet": "ABD Başkanı Donald Trump, müdahalesinin ardından Nvidia'nın CEO'luk görevine dönen Jensen Huang'a desteğini yineledi. Ulusal güvenlik tartışmalarının merkezindeki Huang, 1 ve 3 Aralık'ta ABD Kongresinde ifade verecek.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.dunya.com/is-dunyasi/trumpin-nvidia-hamlesi-kongreye-tasiniyor-huang-icin-iki-kritik-tarih-belli-oldu-haberi-849050",
-      "kurum": "Dünya",
-      "kurum_tam": "Dünya Gazetesi",
-      "konu": "Jeopolitik",
-      "tarih": "2026-11-27",
-      "tarih_gorunur": "27 Kasım 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
-      "kanallar": [
-        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
-        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
-        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
-        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
-      ],
-      "kanal_basligi": "Hangi piyasaları etkiler?",
-      "foto": "/statik/foto/jeopolitik-15-ccd8ab8d.jpg",
-      "foto_atif": "usepagov · PDM"
-    },
-    {
       "baslik": "Hindistan'da 12 milyon kişi için maaş artışı beklentisi: Emeklilerden %20 ara zam talebi",
       "baslik_kaynak": "Hindistan'da 12 milyon kişi için maaş artışı beklentisi: Emeklilerden %20 ara zam talebi",
       "ozet": "Hindistan'da 8. Maaş Komisyonu çalışmaları sürerken, emekli örgütleri %20 ara zam ve 1 Ocak 2026'dan itibaren uygulama talep etti. Düzenlemenin ilk yıl maliyetinin 27 milyar dolara ulaşabileceği tahmin ediliyor.",
@@ -1244,6 +1218,31 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/vergi-ve-kamu-maliyesi-7-9252c67a.jpg",
       "foto_atif": "23artashes · CC-BY-SA-4.0"
+    },
+    {
+      "baslik": "Yeni BDDK Başkanı belli oldu: İşte o isim",
+      "baslik_kaynak": "Yeni BDDK Başkanı belli oldu: İşte o isim",
+      "ozet": "Bankacılık Düzenleme ve Denetleme Kurumunun (BDDK) Başkanlığına Yusuf Kenan Bağır getirildi.",
+      "cevrildi": false,
+      "dil": "tr",
+      "ticari": true,
+      "bolge": "TR",
+      "adres": "https://www.ekonomist.com.tr/ekonomi-haberleri/yeni-bddk-baskani-belli-oldu-iste-o-isim-81358",
+      "kurum": "Ekonomist",
+      "kurum_tam": "Ekonomist",
+      "konu": "Bankacılık",
+      "tarih": "2026-11-27",
+      "tarih_gorunur": "27 Kasım 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Zorunlu karşılık, likidite ve teminat düzenlemeleri kredi arzının miktarını ve maliyetini doğrudan belirler.",
+      "kanallar": [
+        "Kredi arzı: zorunlu karşılık oranları, bankaların kredi olarak kullandırabileceği kaynağın büyüklüğünü değiştirir.",
+        "Fonlama kompozisyonu: TL ve döviz mevduat arasındaki maliyet farkı, bankaların bilanço yapısını etkiler.",
+        "Reel sektör: kredi kanalının daralması, işletme sermayesini kısa vadeli borçla çeviren şirketlerde önce hissedilir."
+      ],
+      "kanal_basligi": "Piyasaya nasıl yansır?",
+      "foto": "/statik/foto/bankacilik-8-d4d74101.jpg",
+      "foto_atif": "Myotus · CC-BY-4.0"
     },
     {
       "baslik": "Türk Lirası Likidite Yönetimine İlişkin Basın Duyurusu (2026-51)",
