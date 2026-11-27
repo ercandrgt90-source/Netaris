@@ -1,6 +1,6 @@
 {
  "kod": "ESEN",
- "cekildi": "2026-11-24T18:29:26Z",
+ "cekildi": "2026-11-27T23:20:20Z",
  "ceyrek": 1,
  "sema": "cd5f150b28ca53cb",
  "bitis": "2026-09-30",
@@ -17,11 +17,11 @@
    "Capital Expenditures": -97140000.0
   },
   "gelir_onceki": {
-   "Revenue": 412660000.0,
-   "Net Income": 126490000.0,
+   "Revenue": 535350000.0,
+   "Net Income": 164100000.0,
    "Net Cash (Debt)": -4085000000.0,
-   "Operating Cash Flow": -605490000.0,
-   "Capital Expenditures": -4900000.0
+   "Operating Cash Flow": -643990000.0,
+   "Capital Expenditures": -6030000.0
   },
   "_donem": {
    "gelir": [
@@ -135,14 +135,15 @@
    "Net Income": -465100000.0,
    "Depreciation & Amortization": 355010000.0,
    "Operating Cash Flow": 334640000.0,
-   "Capital Expenditures": -97140000.0
+   "Capital Expenditures": -97140000.0,
+   "Cash Interest Paid": 401260000.0
   },
   "nakit_onceki": {
-   "Net Income": -78470000.0,
-   "Depreciation & Amortization": 114510000.0,
-   "Operating Cash Flow": -605490000.0,
-   "Capital Expenditures": -4900000.0,
-   "Cash Interest Paid": 115920000.0
+   "Net Income": -109380000.0,
+   "Depreciation & Amortization": 101120000.0,
+   "Operating Cash Flow": -643990000.0,
+   "Capital Expenditures": -6030000.0,
+   "Cash Interest Paid": 141850000.0
   },
   "nakit_g1": {
    "Net Income": -566470000.0,

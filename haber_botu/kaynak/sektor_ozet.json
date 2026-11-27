@@ -250,7 +250,7 @@
     ]
    }
   },
-  "tazelendi": "2026-11-26T23:07:27+00:00"
+  "tazelendi": "2026-11-27T22:48:26+00:00"
  },
  "Enerji": {
   "sektor": "Enerji",
@@ -292,7 +292,7 @@
   ],
   "mali": {},
   "donem_gruplari": {},
-  "tazelendi": "2026-11-26T23:22:12+00:00"
+  "tazelendi": "2026-11-27T23:02:27+00:00"
  },
  "Finans": {
   "sektor": "Finans",
@@ -503,7 +503,7 @@
     "borc_ozkaynak": 1.5190048375950242
    },
    "GLRYH": {
-    "brut_marj": -4.779234737747205,
+    "brut_marj": -4.990541702493552,
     "net_marj": -9.002579535683578,
     "roe": -2.3286071726438697,
     "cari_oran": 2.5178302360622804,
@@ -563,6 +563,11 @@
     "net_marj": 58.76941946034342,
     "roe": 6.941929252686224,
     "borc_ozkaynak": 3.523602559459133
+   },
+   "KTLEV": {
+    "net_marj": 379.8524844720497,
+    "roe": 56.9590779440014,
+    "borc_ozkaynak": -1.3222830199662379
    }
   },
   "atlanan": [
@@ -573,10 +578,6 @@
    [
     "EUHOL",
     "eksik: aktif_toplami, ozkaynak"
-   ],
-   [
-    "EUKYO",
-    "eksik: hasilat, net_kar, aktif_toplami"
    ],
    [
     "ISBTR",
@@ -629,7 +630,8 @@
    "ICBCT": "2026-09-30",
    "INVEO": "2026-09-30",
    "INVES": "2026-09-30",
-   "KLNMA": "2026-09-30"
+   "KLNMA": "2026-09-30",
+   "KTLEV": "2026-06-30"
   },
   "onceki_yok": [],
   "kirpilan": [],
@@ -651,6 +653,7 @@
    "DCTTR",
    "DSTKF",
    "ETYAT",
+   "EUKYO",
    "EUYO",
    "GARAN",
    "GARFA",
@@ -671,6 +674,7 @@
    "ISFIN",
    "ISMEN",
    "KLNMA",
+   "KTLEV",
    "PRDGS",
    "SAHOL",
    "TERA",
@@ -682,35 +686,36 @@
   "donem_gruplari": {
    "2026-06-30": {
     "donem": "2026 2. çeyrek",
-    "sirket_sayisi": 5,
+    "sirket_sayisi": 6,
     "medyan": {
      "brut_marj": 100.0,
-     "net_marj": 19.857142857142858,
-     "roe": 3.761331348937898,
+     "net_marj": 22.042487642370702,
+     "roe": 7.846112828940494,
      "cari_oran": 0.6571211353269133,
-     "borc_ozkaynak": -0.027275137535626697
+     "borc_ozkaynak": -0.470476968037195
     },
     "kodlar": [
      "ETYAT",
      "GOZDE",
      "HUBVC",
+     "KTLEV",
      "TERA",
      "TURSG"
     ]
    }
   },
-  "tazelendi": "2026-11-26T23:21:57+00:00"
+  "tazelendi": "2026-11-27T23:02:14+00:00"
  },
  "Gayrimenkul": {
   "sektor": "Gayrimenkul",
   "donem": "2026 3. çeyrek",
-  "sirket_sayisi": 41,
+  "sirket_sayisi": 42,
   "medyan": {
    "brut_marj": 64.26660988074957,
-   "net_marj": 17.952147421607968,
-   "roe": 0.44121701160064797,
+   "net_marj": 20.091209765225752,
+   "roe": 0.44292479853669686,
    "cari_oran": 3.4650205761316872,
-   "borc_ozkaynak": 0.04076881282260256
+   "borc_ozkaynak": 0.04440240682991567
   },
   "sirket": {
    "AAGYO": {
@@ -893,7 +898,7 @@
    "VRGYO": {
     "net_marj": -228.7947645882567,
     "roe": -2.263669064748201,
-    "borc_ozkaynak": 0.26133093525179857
+    "borc_ozkaynak": 0.3381294964028777
    },
    "YGGYO": {
     "net_marj": 107.09164319057838,
@@ -918,7 +923,7 @@
    "HLGYO": {
     "net_marj": 3.040356083086053,
     "roe": 0.07429267514538046,
-    "borc_ozkaynak": 0.1443508273271749
+    "borc_ozkaynak": 0.28435111736299434
    },
    "IDGYO": {
     "brut_marj": 100.0,
@@ -943,6 +948,18 @@
     "net_marj": 17.952147421607968,
     "roe": 0.4155486756105951,
     "borc_ozkaynak": -0.023962848297213624
+   },
+   "KUYAS": {
+    "brut_marj": -18.651763884037724,
+    "net_marj": -4439.39923157527,
+    "roe": -61.3713182037663,
+    "cari_oran": 1.3904715127701375,
+    "borc_ozkaynak": 0.023056494447126992
+   },
+   "KZBGY": {
+    "net_marj": 25.509396241503396,
+    "roe": 2.3093824657930933,
+    "borc_ozkaynak": 0.19528704843263592
    }
   },
   "atlanan": [
@@ -955,11 +972,7 @@
     "eksik: hasilat"
    ],
    [
-    "EYGYO",
-    "eksik: aktif_toplami, ozkaynak"
-   ],
-   [
-    "FZLGY",
+    "EGEGY",
     "eksik: hasilat, net_kar, aktif_toplami"
    ]
   ],
@@ -1005,7 +1018,9 @@
    "IDGYO": "2026-09-30",
    "KGYO": "2026-09-30",
    "KLGYO": "2026-09-30",
-   "KRGYO": "2026-09-30"
+   "KRGYO": "2026-09-30",
+   "KUYAS": "2026-06-30",
+   "KZBGY": "2026-09-30"
   },
   "onceki_yok": [],
   "kirpilan": [],
@@ -1029,8 +1044,9 @@
    "DGGYO",
    "DZGYO",
    "EDIP",
-   "EGEGY",
    "EKGYO",
+   "EYGYO",
+   "FZLGY",
    "HLGYO",
    "IDGYO",
    "IHLGM",
@@ -1038,6 +1054,8 @@
    "KGYO",
    "KLGYO",
    "KRGYO",
+   "KUYAS",
+   "KZBGY",
    "PAGYO",
    "PSGYO",
    "RGYAS",
@@ -1051,8 +1069,17 @@
    "ZRGYO"
   ],
   "mali": {},
-  "donem_gruplari": {},
-  "tazelendi": "2026-11-26T23:35:37+00:00"
+  "donem_gruplari": {
+   "2026-06-30": {
+    "donem": "2026 2. çeyrek",
+    "sirket_sayisi": 1,
+    "medyan": {},
+    "kodlar": [
+     "KUYAS"
+    ]
+   }
+  },
+  "tazelendi": "2026-11-27T23:15:57+00:00"
  },
  "Kamu hizmetleri": {
   "sektor": "Kamu hizmetleri",
@@ -1233,7 +1260,7 @@
     "net_marj": 25.493211094348382,
     "roe": 1.783076298701299,
     "cari_oran": 0.2590873936581593,
-    "borc_ozkaynak": 0.4594155844155844
+    "borc_ozkaynak": 0.6852678571428571
    },
    "IZENR": {
     "net_marj": -15.517009659806805,
@@ -1242,7 +1269,12 @@
     "borc_ozkaynak": -0.018392955697155187
    }
   },
-  "atlanan": [],
+  "atlanan": [
+   [
+    "ENJSA",
+    "eksik: hasilat, net_kar, aktif_toplami"
+   ]
+  ],
   "ana_donem": "2026-09-30",
   "bitis": {
    "A1YEN": "2026-09-30",
@@ -1299,7 +1331,6 @@
    "ECOGR",
    "ENDAE",
    "ENERY",
-   "ENJSA",
    "ENTRA",
    "ESEN",
    "GWIND",
@@ -1310,16 +1341,16 @@
   ],
   "mali": {},
   "donem_gruplari": {},
-  "tazelendi": "2026-11-26T23:38:31+00:00"
+  "tazelendi": "2026-11-27T23:24:36+00:00"
  },
  "Sanayi": {
   "sektor": "Sanayi",
   "donem": "2026 3. çeyrek",
-  "sirket_sayisi": 78,
+  "sirket_sayisi": 80,
   "medyan": {
    "brut_marj": 22.956661948231393,
-   "net_marj": -0.25975278894423975,
-   "roe": -0.025974025974025976,
+   "net_marj": -0.554836826964761,
+   "roe": -0.2571108622620381,
    "cari_oran": 1.3882922371749566,
    "borc_ozkaynak": 0.16578202581926516
   },
@@ -1385,14 +1416,14 @@
     "net_marj": -254.0722082283795,
     "roe": -441.96689386562804,
     "cari_oran": 0.979631425800194,
-    "borc_ozkaynak": 6.323920804933463
+    "borc_ozkaynak": 6.741480038948393
    },
    "ARSAN": {
-    "brut_marj": 76.89648159446817,
-    "net_marj": 194.58002847264592,
-    "roe": 2.724813100747597,
-    "cari_oran": 3.240343593086962,
-    "borc_ozkaynak": -0.12502669989320042
+    "brut_marj": 34.052713178294574,
+    "net_marj": -81.15348837209304,
+    "roe": -0.8864052021946759,
+    "cari_oran": 3.118175450162759,
+    "borc_ozkaynak": -0.10892095102621419
    },
    "ASELS": {
     "brut_marj": 30.71663537881267,
@@ -1402,11 +1433,11 @@
     "borc_ozkaynak": 0.16221167531199643
    },
    "BERA": {
-    "brut_marj": 28.383067314365025,
+    "brut_marj": 28.188757807078417,
     "net_marj": 4.293684941013185,
     "roe": 0.7333238515147205,
     "cari_oran": 2.650977653631285,
-    "borc_ozkaynak": -0.03638647892665813
+    "borc_ozkaynak": -0.029844024083819278
    },
    "BETAE": {
     "brut_marj": 41.062245491564866,
@@ -1430,7 +1461,7 @@
     "borc_ozkaynak": 0.508181330472103
    },
    "BORLS": {
-    "brut_marj": 37.93144239110433,
+    "brut_marj": 39.48897242448937,
     "net_marj": -23.487815777713518,
     "cari_oran": 0.3956777371682822
    },
@@ -1467,7 +1498,7 @@
     "net_marj": 10.660786475560457,
     "roe": 2.4524856273249918,
     "cari_oran": 1.2573667711598746,
-    "borc_ozkaynak": 0.39026039905309434
+    "borc_ozkaynak": 0.3909367602299628
    },
    "CELHA": {
     "brut_marj": 4.980707961768143,
@@ -1540,7 +1571,7 @@
     "borc_ozkaynak": -0.03340540092776673
    },
    "EKOS": {
-    "brut_marj": 8.832196682663973,
+    "brut_marj": 8.602761640144818,
     "net_marj": -32.17563357750274,
     "roe": -4.240221914008322,
     "cari_oran": 2.0256111757857975,
@@ -1561,7 +1592,7 @@
     "borc_ozkaynak": -0.4310402497491359
    },
    "EPLAS": {
-    "brut_marj": 24.16811288010262,
+    "brut_marj": 24.054930959028145,
     "net_marj": -0.1164156902480301,
     "roe": -0.025974025974025976,
     "cari_oran": 0.5354774535809018,
@@ -1621,7 +1652,7 @@
     "net_marj": -8.744012983414478,
     "roe": -1.8568226393947882,
     "cari_oran": 1.1629213483146068,
-    "borc_ozkaynak": 0.16588400112076213
+    "borc_ozkaynak": 0.23068366489212663
    },
    "ISKPL": {
     "brut_marj": 27.84920634920635,
@@ -1638,14 +1669,14 @@
     "borc_ozkaynak": 0.8537724550898204
    },
    "KATMR": {
-    "brut_marj": 67.17051287232752,
+    "brut_marj": 66.77039970900861,
     "net_marj": -31.164369720729095,
     "roe": -0.6987133019209859,
     "cari_oran": 4.043838862559242,
     "borc_ozkaynak": 0.22191011235955055
    },
    "MAKIM": {
-    "brut_marj": 31.63336380653868,
+    "brut_marj": 30.87588698794132,
     "net_marj": 0.2611989029646075,
     "roe": 0.08468595624558928,
     "cari_oran": 1.9735838179691076,
@@ -1827,11 +1858,11 @@
     "borc_ozkaynak": 0.08679295982802633
    },
    "GLYHO": {
-    "brut_marj": 28.20858460446967,
+    "brut_marj": 27.889322454771197,
     "net_marj": 5.564739269244413,
     "roe": 2.9313824419778003,
-    "cari_oran": 0.9864273741874822,
-    "borc_ozkaynak": 2.6952946892401988
+    "cari_oran": 0.9610400228935857,
+    "borc_ozkaynak": 2.703965317487013
    },
    "GRSEL": {
     "brut_marj": 30.53457292271935,
@@ -1852,7 +1883,7 @@
     "net_marj": 16.100201748486885,
     "roe": 1.4584830947304295,
     "cari_oran": 3.544382801664355,
-    "borc_ozkaynak": 0.03277185501066098
+    "borc_ozkaynak": 0.03145537618032288
    },
    "HATSN": {
     "brut_marj": -20.328343313373253,
@@ -1923,6 +1954,13 @@
     "roe": -31.29177677599876,
     "cari_oran": 0.6864042685884554,
     "borc_ozkaynak": 2.103062334836002
+   },
+   "LIDER": {
+    "brut_marj": 14.71545976120329,
+    "net_marj": -1994.5506501561701,
+    "roe": -356.1708860759494,
+    "cari_oran": 0.8701880035810206,
+    "borc_ozkaynak": 0.6075949367088608
    }
   },
   "atlanan": [
@@ -1943,10 +1981,6 @@
     "eksik: hasilat, brut_kar, stoklar"
    ],
    [
-    "ARSAN",
-    "eksik: stoklar"
-   ],
-   [
     "BEYAZ",
     "özdeşlik: Isletme sermayesi: -33,600,000 != -33,00"
    ],
@@ -1963,16 +1997,12 @@
     "eksik: hasilat, net_kar, aktif_toplami"
    ],
    [
-    "ERBOS",
-    "eksik: hasilat, net_kar, brut_kar"
-   ],
-   [
     "KLMSN",
     "eksik: stoklar"
    ],
    [
-    "RYSAS",
-    "eksik: aktif_toplami, ozkaynak, stoklar"
+    "PKART",
+    "eksik: hasilat, net_kar, aktif_toplami"
    ]
   ],
   "ana_donem": "2026-09-30",
@@ -1986,7 +2016,7 @@
    "ALTNY": "2026-09-30",
    "ALVES": "2026-06-30",
    "ANELE": "2026-09-30",
-   "ARSAN": "2026-06-30",
+   "ARSAN": "2026-09-30",
    "ASELS": "2026-09-30",
    "BERA": "2026-09-30",
    "BETAE": "2026-09-30",
@@ -2062,7 +2092,8 @@
    "KLRHO": "2026-09-30",
    "KLSER": "2026-09-30",
    "HOROZ": "2026-09-30",
-   "KONTR": "2026-06-30"
+   "KONTR": "2026-06-30",
+   "LIDER": "2026-09-30"
   },
   "onceki_yok": [],
   "kirpilan": [],
@@ -2076,6 +2107,7 @@
    "ALTNY",
    "ALVES",
    "ANELE",
+   "ARSAN",
    "ASELS",
    "ASTOR",
    "BERA",
@@ -2099,6 +2131,7 @@
    "EMKEL",
    "ENKAI",
    "EPLAS",
+   "ERBOS",
    "ESCAR",
    "EUPWR",
    "EUREN",
@@ -2124,6 +2157,7 @@
    "KLRHO",
    "KLSER",
    "KONTR",
+   "LIDER",
    "MAKIM",
    "MAKTK",
    "MANAS",
@@ -2133,11 +2167,11 @@
    "PAPIL",
    "PASEU",
    "PGSUS",
-   "PKART",
    "PLTUR",
    "PNLSN",
    "PRZMA",
    "PSDTC",
+   "RYSAS",
    "SAMAT",
    "SANEL",
    "SAYAS",
@@ -2152,17 +2186,16 @@
   "donem_gruplari": {
    "2026-06-30": {
     "donem": "2026 2. çeyrek",
-    "sirket_sayisi": 8,
+    "sirket_sayisi": 7,
     "medyan": {
-     "brut_marj": 4.747863430299054,
-     "net_marj": -67.1064525265989,
-     "roe": -7.120761122902737,
-     "cari_oran": 1.210657289551974,
-     "borc_ozkaynak": 0.3588736057621329
+     "brut_marj": -6.831033702782176,
+     "net_marj": -90.47726758651888,
+     "roe": -8.86517815978397,
+     "cari_oran": 1.1683866753755716,
+     "borc_ozkaynak": 0.4800889469174589
     },
     "kodlar": [
      "ALVES",
-     "ARSAN",
      "DENGE",
      "DOGUB",
      "EMKEL",
@@ -2172,7 +2205,7 @@
     ]
    }
   },
-  "tazelendi": "2026-11-27T00:12:28+00:00"
+  "tazelendi": "2026-11-27T23:55:04+00:00"
  },
  "Sağlık": {
   "sektor": "Sağlık",
@@ -3562,7 +3595,7 @@
     ]
    }
   },
-  "tazelendi": "2026-11-26T23:46:26+00:00"
+  "tazelendi": "2026-11-27T23:28:22+00:00"
  },
  "İsteğe bağlı tüketim": {
   "sektor": "İsteğe bağlı tüketim",

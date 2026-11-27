@@ -1,6 +1,6 @@
 {
  "kod": "BRLSM",
- "cekildi": "2026-11-24T18:34:11Z",
+ "cekildi": "2026-11-27T23:30:43Z",
  "ceyrek": 1,
  "sema": "cd5f150b28ca53cb",
  "bitis": "2026-09-30",
@@ -142,14 +142,15 @@
    "Net Income": -40790000.0,
    "Depreciation & Amortization": 23910000.0,
    "Operating Cash Flow": 322770000.0,
-   "Capital Expenditures": -9510000.0
+   "Capital Expenditures": -9510000.0,
+   "Cash Interest Paid": 181780000.0
   },
   "nakit_onceki": {
-   "Net Income": -4630000.0,
-   "Depreciation & Amortization": 16320000.0,
-   "Operating Cash Flow": -306670000.0,
-   "Capital Expenditures": -18380000.0,
-   "Cash Interest Paid": 140320000.0
+   "Net Income": -5580000.0,
+   "Depreciation & Amortization": 20650000.0,
+   "Operating Cash Flow": -402170000.0,
+   "Capital Expenditures": -23750000.0,
+   "Cash Interest Paid": 177350000.0
   },
   "nakit_g1": {
    "Net Income": -221330000.0,

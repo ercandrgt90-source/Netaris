@@ -1,6 +1,6 @@
 {
  "kod": "KATMR",
- "cekildi": "2026-11-24T18:49:06Z",
+ "cekildi": "2026-11-27T23:43:47Z",
  "ceyrek": 1,
  "sema": "cd5f150b28ca53cb",
  "bitis": "2026-09-30",
@@ -11,21 +11,21 @@
   },
   "gelir": {
    "Revenue": 247430000.0,
-   "Gross Profit": 166200000.0,
-   "Operating Income": 169750000.0,
+   "Gross Profit": 165210000.0,
+   "Operating Income": 52230000.0,
    "Net Income": -77110000.0,
    "Net Cash (Debt)": -2449000000.0,
    "Operating Cash Flow": -95660000.0,
    "Capital Expenditures": -5180000.0
   },
   "gelir_onceki": {
-   "Revenue": 588730000.0,
-   "Gross Profit": 212490000.0,
-   "Operating Income": 64140000.0,
-   "Net Income": 61760000.0,
+   "Revenue": 763770000.0,
+   "Gross Profit": 275670000.0,
+   "Operating Income": 74740000.0,
+   "Net Income": 69230000.0,
    "Net Cash (Debt)": -1324000000.0,
-   "Operating Cash Flow": -307810000.0,
-   "Capital Expenditures": -4400000.0
+   "Operating Cash Flow": -382090000.0,
+   "Capital Expenditures": -5310000.0
   },
   "_donem": {
    "gelir": [
@@ -41,7 +41,7 @@
   "gelir_g1": {
    "Revenue": 966410000.0,
    "Gross Profit": 218660000.0,
-   "Operating Income": 219820000.0,
+   "Operating Income": -24500000.0,
    "Net Income": -149660000.0,
    "Net Cash (Debt)": -2189000000.0,
    "Operating Cash Flow": -30890000.0,
@@ -143,15 +143,16 @@
   },
   "nakit": {
    "Net Income": -31750000.0,
-   "Depreciation & Amortization": 42470000.0,
+   "Depreciation & Amortization": 17540000.0,
    "Operating Cash Flow": -95660000.0,
-   "Capital Expenditures": -5180000.0
+   "Capital Expenditures": -5180000.0,
+   "Cash Interest Paid": 26340000.0
   },
   "nakit_onceki": {
-   "Net Income": 94290000.0,
-   "Depreciation & Amortization": -13480000.0,
-   "Operating Cash Flow": -307810000.0,
-   "Capital Expenditures": -4400000.0
+   "Net Income": 112010000.0,
+   "Depreciation & Amortization": 34000000.0,
+   "Operating Cash Flow": -382090000.0,
+   "Capital Expenditures": -5310000.0
   },
   "nakit_g1": {
    "Net Income": -161340000.0,

@@ -4934,7 +4934,10 @@
    "kap_kimlik": "8acae2c5794d3d66017aadf2b6b719cb",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "ARSEN BAĞIMSIZ DENETİM HİZMETLERİ A.Ş."
+   "denetci": "ARSEN BAĞIMSIZ DENETİM HİZMETLERİ A.Ş.",
+   "sektor": "Real Estate",
+   "sektor_tr": "Gayrimenkul",
+   "alt_sektor": "REIT - Hotel & Motel"
   },
   "KZGYO": {
    "kod": "KZGYO",
@@ -4942,7 +4945,9 @@
    "kap_kimlik": "8acae2c586d22c53018a02754e924a33",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "VİZYON GRUP BAĞIMSIZ DENETİM.A.Ş."
+   "denetci": "VİZYON GRUP BAĞIMSIZ DENETİM.A.Ş.",
+   "sektor_bulunamadi": "2026-11-27",
+   "sektor_sebep": "sektor alani yok"
   },
   "LIDER": {
    "kod": "LIDER",
@@ -4950,7 +4955,10 @@
    "kap_kimlik": "8acae2c5570aaa2b0157be3a3ef749af",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "MODEL BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "MODEL BAĞIMSIZ DENETİM A.Ş.",
+   "sektor": "Industrials",
+   "sektor_tr": "Sanayi",
+   "alt_sektor": "Rental & Leasing Services"
   },
   "LIDFA": {
    "kod": "LIDFA",

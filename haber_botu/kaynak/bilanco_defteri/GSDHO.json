@@ -1,6 +1,6 @@
 {
  "kod": "GSDHO",
- "cekildi": "2026-11-24T18:48:02Z",
+ "cekildi": "2026-11-27T23:42:05Z",
  "ceyrek": 1,
  "sema": "cd5f150b28ca53cb",
  "bitis": "2026-09-30",
@@ -14,18 +14,18 @@
    "Gross Profit": 1128000000.0,
    "Operating Income": 881660000.0,
    "Net Income": 239410000.0,
-   "Net Cash (Debt)": -537950000.0,
+   "Net Cash (Debt)": -516340000.00000006,
    "Operating Cash Flow": 1222000000.0,
    "Capital Expenditures": -1154000000.0
   },
   "gelir_onceki": {
-   "Revenue": 1180000000.0,
-   "Gross Profit": 933100000.0,
-   "Operating Income": 735580000.0,
-   "Net Income": 43570000.0,
+   "Revenue": 1531000000.0,
+   "Gross Profit": 1122000000.0,
+   "Operating Income": 954280000.0,
+   "Net Income": 56530000.0,
    "Net Cash (Debt)": 306000000.0,
-   "Operating Cash Flow": 1330000000.0,
-   "Capital Expenditures": -853670000.0
+   "Operating Cash Flow": 1715000000.0,
+   "Capital Expenditures": -1086000000.0
   },
   "_donem": {
    "gelir": [
@@ -82,7 +82,7 @@
    "Minority Interest": 1141000000.0,
    "Shareholders' Equity": 16415000000.0,
    "Total Liabilities & Equity": 24182000000.0,
-   "Net Cash (Debt)": -537950000.0,
+   "Net Cash (Debt)": -516340000.00000006,
    "Working Capital": 7338000000.0
   },
   "bilanco_onceki": {
@@ -142,16 +142,16 @@
    "Working Capital": 7449000000.0
   },
   "nakit": {
-   "Net Income": 268630000.0,
-   "Depreciation & Amortization": -234580000.0,
+   "Net Income": 224440000.0,
+   "Depreciation & Amortization": 130840000.0,
    "Operating Cash Flow": 1222000000.0,
    "Capital Expenditures": -1154000000.0
   },
   "nakit_onceki": {
-   "Net Income": 24110000.0,
-   "Depreciation & Amortization": 121760000.0,
-   "Operating Cash Flow": 1330000000.0,
-   "Capital Expenditures": -853670000.0
+   "Net Income": 37430000.0,
+   "Depreciation & Amortization": 184680000.0,
+   "Operating Cash Flow": 1715000000.0,
+   "Capital Expenditures": -1086000000.0
   },
   "nakit_g1": {
    "Net Income": 132020000.00000001,

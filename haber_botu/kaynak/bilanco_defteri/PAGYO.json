@@ -1,6 +1,6 @@
 {
  "kod": "PAGYO",
- "cekildi": "2026-11-24T18:21:56Z",
+ "cekildi": "2026-11-27T23:13:54Z",
  "ceyrek": 1,
  "sema": "cd5f150b28ca53cb",
  "bitis": "2026-09-30",
@@ -16,10 +16,10 @@
    "Operating Cash Flow": 286610000.0
   },
   "gelir_onceki": {
-   "Revenue": 242400000.0,
-   "Net Income": 160170000.0,
+   "Revenue": 314470000.0,
+   "Net Income": 207800000.0,
    "Net Cash (Debt)": 228230000.0,
-   "Operating Cash Flow": 154400000.0
+   "Operating Cash Flow": 244660000.0
   },
   "_donem": {
    "gelir": [
@@ -102,9 +102,9 @@
    "Operating Cash Flow": 286610000.0
   },
   "nakit_onceki": {
-   "Net Income": 184890000.0,
-   "Depreciation & Amortization": 410000.0,
-   "Operating Cash Flow": 154400000.0
+   "Net Income": 232030000.0,
+   "Depreciation & Amortization": 520000.0,
+   "Operating Cash Flow": 244660000.0
   },
   "nakit_g1": {
    "Net Income": 248800000.0,

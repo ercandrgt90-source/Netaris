@@ -1,6 +1,6 @@
 {
  "kod": "HUNER",
- "cekildi": "2026-11-24T18:29:38Z",
+ "cekildi": "2026-11-27T23:22:14Z",
  "ceyrek": 1,
  "sema": "cd5f150b28ca53cb",
  "bitis": "2026-09-30",
@@ -12,15 +12,15 @@
   "gelir": {
    "Revenue": 344680000.0,
    "Net Income": 87870000.0,
-   "Net Cash (Debt)": -2264000000.0,
+   "Net Cash (Debt)": -3377000000.0,
    "Operating Cash Flow": 180270000.0,
    "Capital Expenditures": 284680000.0
   },
   "gelir_onceki": {
    "Revenue": 286480000.0,
-   "Net Income": -141480000.0,
+   "Net Income": -146380000.0,
    "Net Cash (Debt)": -2826000000.0,
-   "Operating Cash Flow": 71340000.0,
+   "Operating Cash Flow": 73250000.0,
    "Capital Expenditures": -128009999.99999999
   },
   "_donem": {
@@ -72,7 +72,7 @@
    "Minority Interest": -4630000.0,
    "Shareholders' Equity": 4928000000.0,
    "Total Liabilities & Equity": 9706000000.0,
-   "Net Cash (Debt)": -2264000000.0,
+   "Net Cash (Debt)": -3377000000.0,
    "Working Capital": -957980000.0
   },
   "bilanco_onceki": {
@@ -138,9 +138,9 @@
    "Capital Expenditures": 284680000.0
   },
   "nakit_onceki": {
-   "Net Income": -146410000.0,
+   "Net Income": -146380000.0,
    "Depreciation & Amortization": 105350000.0,
-   "Operating Cash Flow": 71340000.0,
+   "Operating Cash Flow": 73250000.0,
    "Capital Expenditures": -128009999.99999999
   },
   "nakit_g1": {

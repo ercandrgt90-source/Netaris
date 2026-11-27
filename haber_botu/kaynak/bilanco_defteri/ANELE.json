@@ -1,6 +1,6 @@
 {
  "kod": "ANELE",
- "cekildi": "2026-11-24T18:33:15Z",
+ "cekildi": "2026-11-27T23:30:00Z",
  "ceyrek": 1,
  "sema": "cd5f150b28ca53cb",
  "bitis": "2026-09-30",
@@ -14,17 +14,17 @@
    "Gross Profit": -59210000.0,
    "Operating Income": -301430000.0,
    "Net Income": -272340000.0,
-   "Net Cash (Debt)": -389680000.0,
+   "Net Cash (Debt)": -415410000.0,
    "Operating Cash Flow": -661130000.0
   },
   "gelir_onceki": {
-   "Revenue": 2413000000.0,
-   "Gross Profit": 50210000.0,
-   "Operating Income": 32720000.0,
-   "Net Income": 72950000.0,
+   "Revenue": 3096000000.0,
+   "Gross Profit": -4430000.0,
+   "Operating Income": -24350000.0,
+   "Net Income": 93600000.0,
    "Net Cash (Debt)": -2080000000.0,
-   "Operating Cash Flow": -84070000.0,
-   "Capital Expenditures": -90000.0
+   "Operating Cash Flow": 79340000.0,
+   "Capital Expenditures": -70000.0
   },
   "_donem": {
    "gelir": [
@@ -66,7 +66,7 @@
   ],
   "bilanco": {
    "Accounts Receivable": 7803000000.0,
-   "Inventory": 42650000.0,
+   "Inventory": 342240000.0,
    "Total Current Assets": 9090000000.0,
    "Total Assets": 10032000000.0,
    "Total Current Liabilities": 9279000000.0,
@@ -75,7 +75,7 @@
    "Minority Interest": 34300000.0,
    "Shareholders' Equity": 61620000.0,
    "Total Liabilities & Equity": 10032000000.0,
-   "Net Cash (Debt)": -389680000.0,
+   "Net Cash (Debt)": -415410000.0,
    "Working Capital": -188580000.0
   },
   "bilanco_onceki": {
@@ -137,13 +137,15 @@
   "nakit": {
    "Net Income": -389810000.0,
    "Depreciation & Amortization": 1340000.0,
-   "Operating Cash Flow": -661130000.0
+   "Operating Cash Flow": -661130000.0,
+   "Cash Interest Paid": 25390000.0
   },
   "nakit_onceki": {
-   "Net Income": 82720000.0,
-   "Depreciation & Amortization": 4630000.0,
-   "Operating Cash Flow": -84070000.0,
-   "Capital Expenditures": -90000.0
+   "Net Income": 105630000.0,
+   "Depreciation & Amortization": 6420000.0,
+   "Operating Cash Flow": 79340000.0,
+   "Capital Expenditures": -70000.0,
+   "Cash Interest Paid": 100460000.0
   },
   "nakit_g2": {
    "Net Income": -401650000.0,

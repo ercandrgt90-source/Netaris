@@ -1,6 +1,6 @@
 {
  "kod": "ZOREN",
- "cekildi": "2026-11-26T23:38:31Z",
+ "cekildi": "2026-11-27T23:24:36Z",
  "ceyrek": 1,
  "sema": "cd5f150b28ca53cb",
  "bitis": "2026-09-30",
@@ -28,6 +28,9 @@
     "Q3 2026"
    ],
    "bilanco": [
+    "Q3 2026"
+   ],
+   "nakit": [
     "Q3 2026"
    ]
   },
@@ -127,6 +130,41 @@
    "Total Liabilities & Equity": 130670000000.0,
    "Net Cash (Debt)": -51666000000.0,
    "Working Capital": -779640000.0
+  },
+  "nakit": {
+   "Net Income": -2008000000.0,
+   "Depreciation & Amortization": 1593000000.0,
+   "Operating Cash Flow": 2559000000.0,
+   "Capital Expenditures": -125680000.0,
+   "Cash Interest Paid": 761380000.0
+  },
+  "nakit_onceki": {
+   "Net Income": 5196000000.0,
+   "Depreciation & Amortization": 2224000000.0,
+   "Operating Cash Flow": -3063000000.0,
+   "Capital Expenditures": -492650000.0,
+   "Cash Interest Paid": 1508000000.0
+  },
+  "nakit_g1": {
+   "Net Income": -2960000000.0,
+   "Depreciation & Amortization": 1500000000.0,
+   "Operating Cash Flow": 2016000000.0,
+   "Capital Expenditures": 82600000.0,
+   "Cash Interest Paid": 3021000000.0
+  },
+  "nakit_g2": {
+   "Net Income": -3065000000.0,
+   "Depreciation & Amortization": 1252000000.0,
+   "Operating Cash Flow": -531400000.0,
+   "Capital Expenditures": -435380000.0,
+   "Cash Interest Paid": 852640000.0
+  },
+  "nakit_g3": {
+   "Net Income": -10205000000.0,
+   "Depreciation & Amortization": 1736000000.0,
+   "Operating Cash Flow": -248820000.0,
+   "Capital Expenditures": -666820000.0,
+   "Cash Interest Paid": 3393000000.0
   }
  }
 }

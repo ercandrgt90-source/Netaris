@@ -1,6 +1,6 @@
 {
  "kod": "HLGYO",
- "cekildi": "2026-11-24T18:20:41Z",
+ "cekildi": "2026-11-27T23:08:31Z",
  "ceyrek": 1,
  "sema": "cd5f150b28ca53cb",
  "bitis": "2026-09-30",
@@ -12,14 +12,14 @@
   "gelir": {
    "Revenue": 1685000000.0,
    "Net Income": 51230000.0,
-   "Net Cash (Debt)": -9954000000.0,
+   "Net Cash (Debt)": -19608000000.0,
    "Operating Cash Flow": -1798000000.0
   },
   "gelir_onceki": {
-   "Revenue": 1269000000.0,
-   "Net Income": 300810000.0,
+   "Revenue": 1020000000.0,
+   "Net Income": -11430000.0,
    "Net Cash (Debt)": -12218000000.0,
-   "Operating Cash Flow": -3151000000.0
+   "Operating Cash Flow": -4029000000.0
   },
   "_donem": {
    "gelir": [
@@ -62,7 +62,7 @@
    "Total Liabilities": 40692000000.0,
    "Shareholders' Equity": 68957000000.0,
    "Total Liabilities & Equity": 109649000000.0,
-   "Net Cash (Debt)": -9954000000.0
+   "Net Cash (Debt)": -19608000000.0
   },
   "bilanco_onceki": {
    "Accounts Receivable": 19870000.0,
@@ -99,13 +99,14 @@
   "nakit": {
    "Net Income": 246210000.0,
    "Depreciation & Amortization": 3830000.0,
-   "Operating Cash Flow": -1798000000.0
+   "Operating Cash Flow": -1798000000.0,
+   "Cash Interest Paid": 1015000000.0
   },
   "nakit_onceki": {
-   "Net Income": 300810000.0,
-   "Depreciation & Amortization": 20950000.0,
-   "Operating Cash Flow": -3151000000.0,
-   "Cash Interest Paid": 1433000000.0
+   "Net Income": 292160000.0,
+   "Depreciation & Amortization": 7340000.0,
+   "Operating Cash Flow": -4029000000.0,
+   "Cash Interest Paid": 1830000000.0
   },
   "nakit_g1": {
    "Net Income": 2409000000.0,
