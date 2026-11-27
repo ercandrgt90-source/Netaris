@@ -30,7 +30,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 18,
+  "yorumlanan": 17,
   "haberler": [
     {
       "baslik": "Finansal İstikrar Raporu (Sayı:43, Kasım 2026)",
@@ -205,10 +205,10 @@
       "foto_atif": "Wikimedia Commons · CC-BY-4.0"
     },
     {
-      "baslik": "MUFG: JPY NEER Move During AI Sell-Off Has Been Marginal - FJElite",
+      "baslik": "MUFG: Yapay Zekâ Satış Dalgasında JPY NEER Hareketliliği Önemsiz Seviyede Kaldı - FJElite",
       "baslik_kaynak": "MUFG: JPY NEER Move During AI Sell-Off Has Been Marginal - FJElite",
       "ozet": "",
-      "cevrildi": false,
+      "cevrildi": true,
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
@@ -226,10 +226,10 @@
       "foto_atif": "Wikimedia Commons · CC-BY-4.0"
     },
     {
-      "baslik": "Effective Fed funds rate 3.88% November 25th vs 3.88% November 24th",
+      "baslik": "Efektif Fed fonlama faizi 25 Kasım'da %3,88 iken 24 Kasım'da %3,88'di",
       "baslik_kaynak": "Effective Fed funds rate 3.88% November 25th vs 3.88% November 24th.",
       "ozet": "",
-      "cevrildi": false,
+      "cevrildi": true,
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
@@ -247,10 +247,10 @@
       "foto_atif": "Kidfly182 · CC-BY-4.0"
     },
     {
-      "baslik": "US Sentiment: Risk-On Back, Still a Ways to Go to Pre Huang Affair Levels - FJElite",
+      "baslik": "ABD'de Piyasa Görünümü: Risk İştahı Geri Döndü, Ancak Huang Olayı Öncesindeki Seviyelere Ulaşmak İçin Henüz Yolumuz Var - FJElite",
       "baslik_kaynak": "US Sentiment: Risk-On Back, Still a Ways to Go to Pre Huang Affair Levels - FJElite",
       "ozet": "",
-      "cevrildi": false,
+      "cevrildi": true,
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
@@ -268,10 +268,10 @@
       "foto_atif": "Syced · CC0"
     },
     {
-      "baslik": "Barclays: Inflows into equity fund have gained momentum as markets sold off recently - FJElite",
+      "baslik": "Barclays: Hisse senedi fonuna girişler, piyasalarda son dönemde yaşanan satışlarla birlikte ivme kazandı - FJElite",
       "baslik_kaynak": "Barclays: Inflows into equity fund have gained momentum as markets sold off recently - FJElite",
       "ozet": "",
-      "cevrildi": false,
+      "cevrildi": true,
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
@@ -289,10 +289,10 @@
       "foto_atif": "Syced · CC0"
     },
     {
-      "baslik": "German budget passes with €210 billion in new borrowing",
+      "baslik": "Almanya bütçesi 210 milyar avroluk yeni borçlanmayla kabul edildi",
       "baslik_kaynak": "German budget passes with €210 billion in new borrowing.",
       "ozet": "",
-      "cevrildi": false,
+      "cevrildi": true,
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
@@ -310,10 +310,10 @@
       "foto_atif": "RegionalQueenslander · CC-BY-SA-4.0"
     },
     {
-      "baslik": "German Lower House of Parliament passes 2027 budget - Vote Count",
+      "baslik": "Almanya Federal Meclisi 2027 bütçesini onayladı - Oyların Sayımı",
       "baslik_kaynak": "German Lower House of Parliament passes 2027 budget - Vote Count.",
       "ozet": "",
-      "cevrildi": false,
+      "cevrildi": true,
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
@@ -1399,10 +1399,10 @@
       "foto_atif": "RegionalQueenslander · CC-BY-SA-4.0"
     },
     {
-      "baslik": "AI math breakthroughs revive Bitcoin security fears, but practical threat remains unproven: K33",
+      "baslik": "Yapay zekâ alanındaki matematiksel atılımlar Bitcoin güvenliğiyle ilgili endişeleri yeniden canlandırıyor, ancak pratik tehdit hâlâ kanıtlanmış değil: K33",
       "baslik_kaynak": "AI math breakthroughs revive Bitcoin security fears, but practical threat remains unproven: K33",
       "ozet": "K33 said recent mathematical advances had not demonstrated a compromise of Bitcoin's cryptography, while urging closer attention to AI.",
-      "cevrildi": false,
+      "cevrildi": true,
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
@@ -1546,10 +1546,10 @@
       "foto_atif": "CryptoWallet.com Images · CC-BY-2.0"
     },
     {
-      "baslik": "Live updates: Bitcoin rebounds above $61,000 as AI stocks lead gains",
-      "baslik_kaynak": "Live updates: Bitcoin rebounds above $61,000 as AI stocks lead gains",
-      "ozet": "Nasdaq 100 futures rose 3% ahead of Friday’s shortened U.S. trading session, with some AI cloud stocks up double-digit percentages.",
-      "cevrildi": false,
+      "baslik": "Canlı güncellemeler: Nasdaq 100 ilk kazançlarının çoğundan vazgeçerken Bitcoin 60.000 doların altına düştü",
+      "baslik_kaynak": "Live updates: Bitcoin dips below $60,000 as Nasdaq 100 gives up most of its early gains",
+      "ozet": "The Nasdaq 100 rose just 0.8% after futures gained about 3% before the open, while Nvidia fell more than 2% and bitcoin briefly slipped below $60,000.",
+      "cevrildi": true,
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
@@ -1714,10 +1714,31 @@
       "foto_atif": "Karlalhdz · CC-BY-SA-4.0"
     },
     {
-      "baslik": "Binance to launch tokenized IPO program after regulatory approval: Yi He",
+      "baslik": "Nasdaq kapalıyken Coinbase'in değeri ne kadardı?",
+      "baslik_kaynak": "What was Coinbase worth while Nasdaq was closed?",
+      "ozet": "A Thanksgiving buyer paid 106.24 USDC per Coinbase share. Whether that looked like a holiday rally depended on when you’d last checked the stock.",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://cointelegraph.com/news/what-was-coinbase-worth-while-nasdaq-was-closed?utm_source=rss_feed&utm_medium=rss&utm_campaign=rss_partner_inbound",
+      "kurum": "Cointelegraph",
+      "kurum_tam": "Cointelegraph",
+      "konu": "Kripto varlıklar",
+      "tarih": "2026-11-27",
+      "tarih_gorunur": "27 Kasım 2026",
+      "yorumlanir": false,
+      "neden_onemli": "",
+      "kanallar": [],
+      "kanal_basligi": "Türkiye'ye nasıl yansır?",
+      "foto": "/statik/foto/kripto-varliklar-9-b82c3e85.jpg",
+      "foto_atif": "CryptoWallet.com Images · CC-BY-2.0"
+    },
+    {
+      "baslik": "Binance, düzenleyici onayının ardından tokenleştirilmiş halka arz programını başlatacak: Yi He",
       "baslik_kaynak": "Binance to launch tokenized IPO program after regulatory approval: Yi He",
       "ozet": "Binance is hiring for equity capital markets roles, including an analyst to develop tokenized equity products and assess prospective issuers.",
-      "cevrildi": false,
+      "cevrildi": true,
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
@@ -1882,10 +1903,10 @@
       "foto_atif": "Satheesh Sankaran · CC-BY-2.0"
     },
     {
-      "baslik": "What's on the Ethereum Roadmap: Glamsterdam, Hegotá and Beyond",
+      "baslik": "Ethereum Yol Haritasında Neler Var: Glamsterdam, Hegotá ve Ötesi",
       "baslik_kaynak": "What's on the Ethereum Roadmap: Glamsterdam, Hegotá and Beyond",
       "ozet": "Ethereum has rolled out a steady stream of upgrades since 2022. Here’s how those changes fit together—and what’s still ahead.",
-      "cevrildi": false,
+      "cevrildi": true,
       "dil": "en",
       "ticari": true,
       "bolge": "DUNYA",
@@ -2037,31 +2058,6 @@
       "kanal_basligi": "Türkiye'ye nasıl yansır?",
       "foto": "/statik/foto/turizm-8-56f000e8.jpg",
       "foto_atif": "Johann Jaritz · CC-BY-SA-4.0"
-    },
-    {
-      "baslik": "Bakan Yumaklı: Ülkemizde tarımsal hasıla 90 milyar dolar tavanına yaklaştı",
-      "baslik_kaynak": "Bakan Yumaklı: Ülkemizde tarımsal hasıla 90 milyar dolar tavanına yaklaştı",
-      "ozet": "Tarım ve Orman Bakanı İbrahim Yumaklı, \"Ülkemizde tarımsal hasıla 90 milyar dolar tavanına yaklaştı. Aynı şekilde ihracatımız 30 milyar doların üzerine çıktı.\" dedi.",
-      "cevrildi": false,
-      "dil": "tr",
-      "ticari": true,
-      "bolge": "TR",
-      "adres": "https://www.aa.com.tr/tr/ekonomi/bakan-yumakli-ulkemizde-tarimsal-hasila-90-milyar-dolar-tavanina-yaklasti/4140324",
-      "kurum": "AA",
-      "kurum_tam": "Anadolu Ajansı",
-      "konu": "Tarım ve gıda",
-      "tarih": "2026-11-27",
-      "tarih_gorunur": "27 Kasım 2026",
-      "yorumlanir": true,
-      "neden_onemli": "Gıda, tüketici fiyat endeksinde en yüksek ağırlıklı gruplardan biridir; rekolte ve girdi maliyeti enflasyona hızlı geçer.",
-      "kanallar": [
-        "Enflasyon: gıda fiyatları manşet enflasyonun en oynak bileşenidir; bu yüzden çekirdek enflasyon ayrıca izlenir.",
-        "Girdi maliyeti: gübre, yem ve akaryakıt fiyatı üretici maliyetini belirler; bunların çoğu ithal ve döviz cinsidir.",
-        "Dış ticaret: hububat ve yağlı tohumda ithalat bağımlılığı, rekolte sonucunu cari dengeye bağlar."
-      ],
-      "kanal_basligi": "Piyasaya nasıl yansır?",
-      "foto": "/statik/foto/tarim-ve-gida-9-5b46670d.jpg",
-      "foto_atif": "Malcolm Neal · CC-BY-SA-2.0"
     },
     {
       "baslik": "Türk Lirası Likidite Yönetimine İlişkin Basın Duyurusu (2026-51)",
