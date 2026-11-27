@@ -4797,7 +4797,10 @@
    "kap_kimlik": "8acae2c47f7cb49101803bbfecdb76dd",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "KPMG BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "KPMG BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor": "Consumer Staples",
+   "sektor_tr": "Temel tüketim",
+   "alt_sektor": "Household & Personal Products"
   },
   "KRSTL": {
    "kod": "KRSTL",
@@ -4805,7 +4808,10 @@
    "kap_kimlik": "4028e4a240f2ef4c0140f3180014001a",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "İRFAN BAĞIMSIZ DENETİM VE YEMİNLİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "İRFAN BAĞIMSIZ DENETİM VE YEMİNLİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor": "Consumer Staples",
+   "sektor_tr": "Temel tüketim",
+   "alt_sektor": "Beverages - Non-Alcoholic"
   },
   "KRTEK": {
    "kod": "KRTEK",
@@ -4813,7 +4819,10 @@
    "kap_kimlik": "4028e4a240f2ef47014106bb724601b1",
    "sehir": "KAYSERİ",
    "uye_turu": "IGS",
-   "denetci": "REHBER BAĞIMSIZ DENETİM VE YEMİNLİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "REHBER BAĞIMSIZ DENETİM VE YEMİNLİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Textile Manufacturing"
   },
   "KRVGD": {
    "kod": "KRVGD",

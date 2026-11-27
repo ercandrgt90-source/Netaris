@@ -1,6 +1,6 @@
 {
  "kod": "AKSGY",
- "cekildi": "2026-11-24T18:16:42Z",
+ "cekildi": "2026-11-26T23:22:59Z",
  "ceyrek": 1,
  "sema": "cd5f150b28ca53cb",
  "bitis": "2026-09-30",
@@ -16,10 +16,10 @@
    "Operating Cash Flow": 866940000.0
   },
   "gelir_onceki": {
-   "Revenue": 1016000000.0,
-   "Net Income": 424950000.0,
+   "Revenue": 1318000000.0,
+   "Net Income": 551310000.0,
    "Net Cash (Debt)": -783670000.0,
-   "Operating Cash Flow": 633790000.0
+   "Operating Cash Flow": 745550000.0
   },
   "_donem": {
    "gelir": [
@@ -99,13 +99,14 @@
   "nakit": {
    "Net Income": 797060000.0,
    "Depreciation & Amortization": 14550000.0,
-   "Operating Cash Flow": 866940000.0
+   "Operating Cash Flow": 866940000.0,
+   "Cash Interest Paid": 42810000.0
   },
   "nakit_onceki": {
-   "Net Income": 485980000.0,
-   "Depreciation & Amortization": 10510000.0,
-   "Operating Cash Flow": 633790000.0,
-   "Cash Interest Paid": 126200000.0
+   "Net Income": 611140000.0,
+   "Depreciation & Amortization": 13230000.0,
+   "Operating Cash Flow": 745550000.0,
+   "Cash Interest Paid": 159670000.0
   },
   "nakit_g1": {
    "Net Income": 957900000.0,

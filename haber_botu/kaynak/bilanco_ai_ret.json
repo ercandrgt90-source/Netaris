@@ -905,6 +905,27 @@
      12.1
     ]
    }
+  },
+  {
+   "kod": "KONTR",
+   "unvan": "KONTROLMATİK TEKNOLOJİ ENERJİ VE MÜHENDİSLİK A.Ş.",
+   "donem": "2026 2. çeyrek",
+   "neden": "girdide olmayan sayi: 67, 88.8",
+   "model": "@cf/openai/gpt-oss-120b",
+   "ham": "Hasılatın %77,8 düşmesiyle birlikte brüt kâr negatif %43,9'a gerileyip, faaliyet kârı ve FAVÖK de sırasıyla -%88,8 ve -%67,0 milyar TL'ye düşmüş; bu kâr kayıpları net kârın -%179,9 oranla -2,01 milyar TL'ye gerilemesine ve özkaynak kârlılığının -%31,3'e inmesine yol açmış. Aktif toplamının %30,7 artması (41,88 milyar TL) net borcun %13,4 artışı (13,53 milyar TL) ve borç/özkaynak oranının 2,10'a yükselmesiyle likiditeyi zayıflatarak cari oranı 0,69'a (sektör medyanı 1,21) düşürmüş. Faaliyet nakit akışının %71,0 artması (0,67 milyar TL) yatırım harcamasının %89,7 azalması (0,23 milyar TL) ile birlikte sermaye harcamalarının kısıtlanması, negatif kâr marjları ve artan borç yükünün aynı dönemde ",
+   "an": "2026-11-27T00:12:50+00:00",
+   "yakin": {
+    "67": [
+     67.1,
+     71.0,
+     77.8
+    ],
+    "88.8": [
+     89.7,
+     77.8,
+     71.0
+    ]
+   }
   }
  ]
 }

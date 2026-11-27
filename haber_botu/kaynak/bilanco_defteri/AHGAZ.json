@@ -1,6 +1,6 @@
 {
  "kod": "AHGAZ",
- "cekildi": "2026-11-24T18:23:27Z",
+ "cekildi": "2026-11-26T23:36:04Z",
  "ceyrek": 1,
  "sema": "cd5f150b28ca53cb",
  "bitis": "2026-09-30",
@@ -12,14 +12,16 @@
   "gelir": {
    "Revenue": 13390000000.0,
    "Net Income": 961150000.0,
-   "Net Cash (Debt)": 33413000000.0
+   "Net Cash (Debt)": 33413000000.0,
+   "Operating Cash Flow": 2870000000.0,
+   "Capital Expenditures": -2850000000.0
   },
   "gelir_onceki": {
-   "Revenue": 7801000000.0,
-   "Net Income": 888980000.0,
+   "Revenue": 10118000000.0,
+   "Net Income": 1153000000.0,
    "Net Cash (Debt)": -39073000000.0,
-   "Operating Cash Flow": 5819000000.0,
-   "Capital Expenditures": -1749000000.0
+   "Operating Cash Flow": 7408000000.0,
+   "Capital Expenditures": -2193000000.0
   },
   "_donem": {
    "gelir": [
@@ -29,12 +31,12 @@
     "Q3 2026"
    ],
    "nakit": [
-    "Q2 2026"
+    "Q3 2026"
    ]
   },
   "gelir_g1": {
-   "Revenue": 16451000000.0,
-   "Net Income": 1733000000.0,
+   "Revenue": 18879000000.0,
+   "Net Income": 1973000000.0,
    "Net Cash (Debt)": 29960000000.0,
    "Operating Cash Flow": -7325000000.0,
    "Capital Expenditures": -2160000000.0
@@ -130,38 +132,38 @@
    "Working Capital": 860010000.0
   },
   "nakit": {
+   "Net Income": 1201000000.0,
+   "Depreciation & Amortization": 1188000000.0,
+   "Operating Cash Flow": 2870000000.0,
+   "Capital Expenditures": -2850000000.0,
+   "Cash Interest Paid": 36470000.0
+  },
+  "nakit_onceki": {
+   "Net Income": 1268000000.0,
+   "Depreciation & Amortization": 1116000000.0,
+   "Operating Cash Flow": 7408000000.0,
+   "Capital Expenditures": -2193000000.0,
+   "Cash Interest Paid": 99530000.0
+  },
+  "nakit_g1": {
    "Net Income": 1902000000.0,
    "Depreciation & Amortization": 1226000000.0,
    "Operating Cash Flow": -7325000000.0,
    "Capital Expenditures": -2160000000.0,
    "Cash Interest Paid": 207140000.0
   },
-  "nakit_onceki": {
-   "Net Income": 276110000.0,
-   "Depreciation & Amortization": 700150000.0,
-   "Operating Cash Flow": -1821000000.0,
-   "Capital Expenditures": -2954000000.0,
-   "Cash Interest Paid": 221600000.0
-  },
-  "nakit_g1": {
+  "nakit_g2": {
    "Net Income": 2420000000.0,
    "Depreciation & Amortization": 1096000000.0,
    "Operating Cash Flow": 19267000000.0,
    "Capital Expenditures": -626760000.0
   },
-  "nakit_g2": {
+  "nakit_g3": {
    "Net Income": 322850000.0,
    "Depreciation & Amortization": 945350000.0,
    "Operating Cash Flow": 4305000000.0,
    "Capital Expenditures": -470260000.0,
    "Cash Interest Paid": 226170000.0
-  },
-  "nakit_g3": {
-   "Net Income": 1006000000.0,
-   "Depreciation & Amortization": 883050000.0,
-   "Operating Cash Flow": 5819000000.0,
-   "Capital Expenditures": -1749000000.0,
-   "Cash Interest Paid": 79820000.0
   }
  }
 }

@@ -1,6 +1,6 @@
 {
  "kod": "EUREN",
- "cekildi": "2026-11-24T18:45:51Z",
+ "cekildi": "2026-11-26T23:55:26Z",
  "ceyrek": 1,
  "sema": "cd5f150b28ca53cb",
  "bitis": "2026-09-30",
@@ -11,21 +11,21 @@
   },
   "gelir": {
    "Revenue": 2427000000.0,
-   "Gross Profit": 313790000.0,
-   "Operating Income": 305160000.0,
+   "Gross Profit": 312520000.0,
+   "Operating Income": 79570000.0,
    "Net Income": 48640000.0,
    "Net Cash (Debt)": -912880000.0,
    "Operating Cash Flow": 128240000.00000001,
    "Capital Expenditures": -25260000.0
   },
   "gelir_onceki": {
-   "Revenue": 1951000000.0,
-   "Gross Profit": 326950000.0,
-   "Operating Income": 206310000.0,
-   "Net Income": 345240000.0,
+   "Revenue": 2531000000.0,
+   "Gross Profit": 424160000.0,
+   "Operating Income": 267640000.0,
+   "Net Income": 447890000.0,
    "Net Cash (Debt)": -1199000000.0,
-   "Operating Cash Flow": 47710000.0,
-   "Capital Expenditures": -162430000.0
+   "Operating Cash Flow": 575970000.0,
+   "Capital Expenditures": -194920000.0
   },
   "_donem": {
    "gelir": [
@@ -40,8 +40,8 @@
   },
   "gelir_g1": {
    "Revenue": 2559000000.0,
-   "Gross Profit": 250540000.0,
-   "Operating Income": 78640000.0,
+   "Gross Profit": 246980000.0,
+   "Operating Income": 39030000.0,
    "Net Income": 46490000.0,
    "Net Cash (Debt)": -1136000000.0,
    "Operating Cash Flow": 194550000.0,
@@ -140,14 +140,15 @@
    "Net Income": 56900000.0,
    "Depreciation & Amortization": 111120000.0,
    "Operating Cash Flow": 128240000.00000001,
-   "Capital Expenditures": -25260000.0
+   "Capital Expenditures": -25260000.0,
+   "Cash Interest Paid": 45230000.0
   },
   "nakit_onceki": {
-   "Net Income": 408480000.0,
-   "Depreciation & Amortization": 55770000.0,
-   "Operating Cash Flow": 47710000.0,
-   "Capital Expenditures": -162430000.0,
-   "Cash Interest Paid": 45200000.0
+   "Net Income": 509890000.0,
+   "Depreciation & Amortization": 70250000.0,
+   "Operating Cash Flow": 575970000.0,
+   "Capital Expenditures": -194920000.0,
+   "Cash Interest Paid": 55050000.0
   },
   "nakit_g1": {
    "Net Income": 45440000.0,

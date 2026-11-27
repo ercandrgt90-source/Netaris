@@ -1,6 +1,6 @@
 {
  "kod": "ENTRA",
- "cekildi": "2026-11-24T18:29:18Z",
+ "cekildi": "2026-11-26T23:37:54Z",
  "ceyrek": 1,
  "sema": "cd5f150b28ca53cb",
  "bitis": "2026-09-30",
@@ -17,9 +17,11 @@
    "Capital Expenditures": -53750000.0
   },
   "gelir_onceki": {
-   "Revenue": 805070000.0,
-   "Net Income": 54390000.0,
-   "Net Cash (Debt)": -11051000000.0
+   "Revenue": 1044000000.0,
+   "Net Income": 70520000.0,
+   "Net Cash (Debt)": -11051000000.0,
+   "Operating Cash Flow": 585930000.0,
+   "Capital Expenditures": -89920000.0
   },
   "_donem": {
    "gelir": [
@@ -128,9 +130,16 @@
    "Net Income": 487070000.0,
    "Depreciation & Amortization": 516980000.0,
    "Operating Cash Flow": 455260000.0,
-   "Capital Expenditures": -53750000.0
+   "Capital Expenditures": -53750000.0,
+   "Cash Interest Paid": 69140000.0
   },
-  "nakit_onceki": {},
+  "nakit_onceki": {
+   "Net Income": 29220000.0,
+   "Depreciation & Amortization": 734890000.0,
+   "Operating Cash Flow": 585930000.0,
+   "Capital Expenditures": -89920000.0,
+   "Cash Interest Paid": 208790000.0
+  },
   "nakit_g1": {
    "Net Income": 376790000.0,
    "Depreciation & Amortization": 204610000.0,
