@@ -4861,7 +4861,8 @@
    "kap_kimlik": "1DE05DAA8332073AE0530A4A622A2EBD",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "DRT BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "DRT BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor_bulunamadi": "2026-11-27"
   },
   "KTLEV": {
    "kod": "KTLEV",
@@ -4869,7 +4870,10 @@
    "kap_kimlik": "8acae2c5830502c20185a9e2e5ac488b",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "AKSİS ULUSLARARASI BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "AKSİS ULUSLARARASI BAĞIMSIZ DENETİM A.Ş.",
+   "sektor": "Financials",
+   "sektor_tr": "Finans",
+   "alt_sektor": "Credit Services"
   },
   "KTSKR": {
    "kod": "KTSKR",
@@ -4888,7 +4892,8 @@
    "kap_kimlik": "8acae2c45a97ffbc015b1e02e5033b72",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "DRT BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "DRT BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor_bulunamadi": "2026-11-27"
   },
   "KUTPO": {
    "kod": "KUTPO",

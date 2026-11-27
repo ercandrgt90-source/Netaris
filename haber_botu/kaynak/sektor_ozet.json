@@ -2965,13 +2965,13 @@
  "Temel tüketim": {
   "sektor": "Temel tüketim",
   "donem": "2026 3. çeyrek",
-  "sirket_sayisi": 37,
+  "sirket_sayisi": 40,
   "medyan": {
-   "brut_marj": 19.35545905707196,
-   "net_marj": -0.35602816857228,
-   "roe": -0.04493335659723442,
-   "cari_oran": 1.5895061728395061,
-   "borc_ozkaynak": 0.13103839586838598
+   "brut_marj": 19.41277038539049,
+   "net_marj": -0.22502129205799834,
+   "roe": -0.043521266073194856,
+   "cari_oran": 1.5821073138250008,
+   "borc_ozkaynak": 0.1172800300568934
   },
   "sirket": {
    "AEFES": {
@@ -3263,6 +3263,27 @@
     "roe": 1.1916473317865428,
     "cari_oran": 1.4850931677018633,
     "borc_ozkaynak": 0.07933178654292343
+   },
+   "KRPLS": {
+    "brut_marj": 47.10608540395774,
+    "net_marj": 0.39242672221395625,
+    "roe": 0.18856121537086684,
+    "cari_oran": 2.111301773157027,
+    "borc_ozkaynak": 0.10942806076854335
+   },
+   "KRSTL": {
+    "brut_marj": 6.813392857142857,
+    "net_marj": 1.8214285714285714,
+    "roe": 0.8539137714524905,
+    "cari_oran": 1.3445906969426817,
+    "borc_ozkaynak": -0.008911678526580159
+   },
+   "KRVGD": {
+    "brut_marj": 29.087035358114232,
+    "net_marj": -4.2508310667875495,
+    "roe": -1.5470743510778706,
+    "cari_oran": 1.490419378163413,
+    "borc_ozkaynak": 0.5701715794104707
    }
   },
   "atlanan": [
@@ -3271,8 +3292,8 @@
     "eksik: stoklar"
    ],
    [
-    "GOKNR",
-    "eksik: hasilat, net_kar, aktif_toplami"
+    "YAPRK",
+    "eksik: aktif_toplami, ozkaynak, stoklar"
    ]
   ],
   "ana_donem": "2026-09-30",
@@ -3318,7 +3339,10 @@
    "KENT": "2026-09-30",
    "KAYSE": "2026-07-31",
    "KIMMR": "2026-09-30",
-   "KNFRT": "2026-09-30"
+   "KNFRT": "2026-09-30",
+   "KRPLS": "2026-09-30",
+   "KRSTL": "2026-09-30",
+   "KRVGD": "2026-09-30"
   },
   "onceki_yok": [],
   "kirpilan": [],
@@ -3347,6 +3371,7 @@
    "FADE",
    "FRIGO",
    "GMTAS",
+   "GOKNR",
    "GOLDA",
    "GRTHO",
    "GUNDG",
@@ -3355,6 +3380,9 @@
    "KENT",
    "KIMMR",
    "KNFRT",
+   "KRPLS",
+   "KRSTL",
+   "KRVGD",
    "KTSKR",
    "PETUN",
    "PINSU",
@@ -3362,8 +3390,7 @@
    "SANFM",
    "SEGMN",
    "TUKAS",
-   "VKING",
-   "YAPRK"
+   "VKING"
   ],
   "mali": {
    "BALSU": 6,
@@ -3397,7 +3424,7 @@
     ]
    }
   },
-  "tazelendi": "2026-11-26T17:36:38+00:00"
+  "tazelendi": "2026-11-27T04:23:56+00:00"
  },
  "İletişim": {
   "sektor": "İletişim",
