@@ -26,8 +26,6 @@ Hasılatın %37,9 düşmesi brüt kârın %69,9 gerilemesine ve faaliyet kârın
 | --- | ---: |
 | Hasılat | -%37,9 |
 | Brüt kâr | -%69,9 |
-| Faaliyet kârı | -%137,1 |
-| FAVÖK | -%116,2 |
 | Net kâr | -%38,5 |
 | Özkaynak | %14,9 |
 | Aktif toplamı | %37,8 |

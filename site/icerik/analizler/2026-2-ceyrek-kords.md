@@ -33,9 +33,7 @@ Hasılatın %29,2 artması brüt kârın %82,8 yükselmesine yol açmış; brüt
 | Ticari alacaklar | %16,8 |
 | Stoklar | %31,3 |
 | Net borç | -%8,9 |
-| Faaliyet nakit akışı | -%122,2 |
 | Yatırım harcaması | -%64,9 |
-| Serbest nakit akışı | -%176,6 |
 | Finansman gideri | -%26,4 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*

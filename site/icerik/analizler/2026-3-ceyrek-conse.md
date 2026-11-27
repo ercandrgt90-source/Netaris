@@ -33,7 +33,6 @@ Hasılatın %1263,0 artması net kârı %134,3 yükseltirken, faaliyet nakit ak�
 | Net borç | %143,0 |
 | Faaliyet nakit akışı | -%10,4 |
 | Yatırım harcaması | %724,7 |
-| Serbest nakit akışı | -%32145,1 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 

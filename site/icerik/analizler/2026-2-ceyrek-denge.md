@@ -25,7 +25,6 @@ Hasılatın %18,9'luk brüt kâr marjı ile birlikte %12,0'lık negatif net kâr
 | Kalem | Reel değişim |
 | --- | ---: |
 | Hasılat | -%51,0 |
-| Brüt kâr | -%159,1 |
 | Özkaynak | %8,9 |
 | Aktif toplamı | %107,9 |
 | Ticari alacaklar | %12,3 |

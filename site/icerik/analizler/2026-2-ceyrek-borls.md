@@ -27,7 +27,6 @@ Hasılatın 2,30 milyar TL'ye gerilemesi brüt kârın 0,43 milyar TL'ye düşme
 | Hasılat | -%41,1 |
 | Brüt kâr | %179,6 |
 | FAVÖK | %141,9 |
-| Özkaynak | -%185,6 |
 | Aktif toplamı | %4,5 |
 | Ticari alacaklar | %100,5 |
 | Stoklar | -%89,8 |

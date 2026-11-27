@@ -26,7 +26,6 @@ Hasılatın %3,0 düşmesi brüt kârın %63,9 azalmasına yol açmış; brüt k
 | --- | ---: |
 | Hasılat | -%3,0 |
 | Brüt kâr | -%63,9 |
-| Net kâr | -%213,8 |
 | Özkaynak | %35,4 |
 | Aktif toplamı | %33,2 |
 | Ticari alacaklar | -%14,3 |
@@ -97,7 +96,6 @@ Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildire
 
 **Dikkat gerektirenler**
 
-- Net kâr reel olarak -%213,8 geriledi.
 - Brüt marj 15,1 puan daraldı (%24,0 → %8,9).
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*

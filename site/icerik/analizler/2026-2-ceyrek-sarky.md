@@ -28,7 +28,6 @@ Hasılatın %25,0 artması brüt kârı %73,2 yükselterek brüt kâr marjının
 | Brüt kâr | %73,2 |
 | Faaliyet kârı | %126,5 |
 | FAVÖK | %102,6 |
-| Net kâr | -%119,2 |
 | Özkaynak | %27,8 |
 | Aktif toplamı | %56,1 |
 | Ticari alacaklar | %69,4 |
@@ -103,7 +102,6 @@ Karşılaştırma Temel malzeme sektöründe **aynı dönemi bildiren** 38 şirk
 
 **Dikkat gerektirenler**
 
-- Net kâr reel olarak -%119,2 geriledi.
 - Özkaynak kârlılığı -%0,2; sektör medyanı %1,1.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*

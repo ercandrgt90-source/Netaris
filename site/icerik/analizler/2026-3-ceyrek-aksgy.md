@@ -29,7 +29,6 @@ Hasılatın %29,2 artması net kârın %72,9 yükselmesine paralel olarak yansı
 | Özkaynak | %36,9 |
 | Aktif toplamı | %38,3 |
 | Ticari alacaklar | %58,6 |
-| Net borç | -%203,2 |
 | Faaliyet nakit akışı | %36,8 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*

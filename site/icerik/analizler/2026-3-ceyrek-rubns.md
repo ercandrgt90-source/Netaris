@@ -26,7 +26,6 @@ Hasılatın %83,3 artması brüt kârın %77,1 yükselmesine paralel olarak yans
 | --- | ---: |
 | Hasılat | %83,3 |
 | Brüt kâr | %77,1 |
-| Faaliyet kârı | -%113,2 |
 | Özkaynak | %61,8 |
 | Aktif toplamı | %38,1 |
 | Ticari alacaklar | %254,2 |

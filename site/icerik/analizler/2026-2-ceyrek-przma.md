@@ -26,9 +26,6 @@ Hasılatın üç katına çıkmasıyla birlikte aktif toplamı da 0,10 milyar TL
 | --- | ---: |
 | Hasılat | %182,8 |
 | Brüt kâr | %297,4 |
-| Faaliyet kârı | -%161,7 |
-| FAVÖK | -%309,6 |
-| Net kâr | -%1355,2 |
 | Özkaynak | %28,2 |
 | Aktif toplamı | %18,6 |
 | Net borç | %22,5 |
@@ -76,7 +73,6 @@ Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 69 şirketin **
 
 **Dikkat gerektirenler**
 
-- Net kâr reel olarak -%1355,2 geriledi.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

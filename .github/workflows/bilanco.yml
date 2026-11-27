@@ -486,6 +486,32 @@ jobs:
       # sayilsaydi yalnizca ozetinde hatasi olan sayfalar her
       # kosuda denenip her kosuda ayni halde kalirdi. Onlari
       # ustteki YENIDEN URETIM adimi topluyor (ozet dahil olcut).
+      # ============================================================
+      # ANLAMSIZ YUZDEYI KIRP -- AG ISTEGI VE MODEL CAGRISI YOK.
+      #
+      # OLCULDU (2026-11-26): yayinda 182 sayfa degisim
+      # tablosunda %100'u asan bir AZALIS yuzdesi tasiyordu
+      # ("| Net kâr | -%282,7 |", 299 hucre) ve 61 sayfa ayni
+      # kusuru madde biciminde tasiyordu. Uretici bunu
+      # 2026-11-21'de duzeltti ama sayfalarin cogu ESKI ceyrege
+      # ait ve her iki onarici da eski donem sayfasini disliyor.
+      #
+      # MEVCUT OLCUT UCTE IKISINI GORMUYORDU: `_anlamsiz_yuzde`
+      # deseni yuzdeden sonra bir FIIL bekliyor, tablo hucresinde
+      # fiil yok. 112 sayfa hicbir kuyruga girmiyordu.
+      #
+      # ONARIM VERI GEREKTIRMIYOR: uretici boyle bir satiri HIC
+      # yazmiyor (`if y is not None`), yani dogru deger bir sayi
+      # degil SATIRIN OLMAMASI. Adim bu yuzden onarim ile goc
+      # arasinda, ucretsiz yollarin yaninda duruyor.
+      #
+      # SIRA: saglik korumasi (adim 12) bu adimdan SONRA kosuyor,
+      # yani kirpilan sayfalar olculen halleriyle denetleniyor.
+      # ============================================================
+      - name: Anlamsız yüzdeyi kırp (model çağrısı YOK)
+        if: always()
+        run: python haber_botu/bilanco_tazele.py --yuzde-kirp
+
       - name: Eski sayfaları güncel biçime taşı
         if: always()
         run: python haber_botu/bilanco_tazele.py --bolum-gocu --sinir 25

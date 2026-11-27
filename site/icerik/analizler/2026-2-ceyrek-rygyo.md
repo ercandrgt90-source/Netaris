@@ -29,7 +29,6 @@ Hasılat 2,05 milyar TL'ye yükselirken net kâr 1,99 milyar TL'ye artmış, anc
 | Özkaynak | %65,8 |
 | Aktif toplamı | %76,1 |
 | Net borç | %191,2 |
-| Faaliyet nakit akışı | -%1417,0 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 

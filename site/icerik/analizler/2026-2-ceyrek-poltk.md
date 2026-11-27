@@ -26,9 +26,7 @@ Hasılatın 0,64 milyar TL'ye yükselmesi brüt kârın 0,14 milyar TL'ye ve FAV
 | --- | ---: |
 | Hasılat | %9,7 |
 | Brüt kâr | -%21,2 |
-| Faaliyet kârı | -%170,6 |
 | FAVÖK | -%98,8 |
-| Net kâr | -%571,0 |
 | Özkaynak | %11,1 |
 | Aktif toplamı | %39,9 |
 | Net borç | %8800,0 |
@@ -75,7 +73,6 @@ Karşılaştırma Temel malzeme sektöründe **aynı dönemi bildiren** 37 şirk
 
 **Dikkat gerektirenler**
 
-- Net kâr reel olarak -%571,0 geriledi.
 - Brüt marj 7,8 puan daraldı (%27,8 → %19,9).
 - Özkaynak kârlılığı -%9,9; sektör medyanı %1,3.
 

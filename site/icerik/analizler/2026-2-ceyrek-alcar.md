@@ -26,7 +26,6 @@ Hasılatın 4,37 milyar TL'den 3,79 milyar TL'ye düşmesi brüt kârın 0,87 mi
 | --- | ---: |
 | Hasılat | -%24,9 |
 | Brüt kâr | -%25,3 |
-| Faaliyet kârı | -%183,0 |
 | FAVÖK | -%72,5 |
 | Özkaynak | %0,7 |
 | Aktif toplamı | %9,9 |

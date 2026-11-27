@@ -26,8 +26,6 @@ Hasılatın %22,1 artması aktif toplamının %35,3 yükselmesine paralel olarak
 | --- | ---: |
 | Hasılat | %22,1 |
 | Brüt kâr | -%3,5 |
-| Faaliyet kârı | -%388,6 |
-| FAVÖK | -%105,9 |
 | Net kâr | %1250,5 |
 | Özkaynak | %29,3 |
 | Aktif toplamı | %35,3 |

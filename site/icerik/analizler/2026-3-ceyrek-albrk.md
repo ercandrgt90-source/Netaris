@@ -28,7 +28,6 @@ Hasılatın %71,0 artması, aktif toplamının %39,8 yükselmesiyle paralel bir 
 | Net kâr | %20,8 |
 | Özkaynak | %41,7 |
 | Aktif toplamı | %39,8 |
-| Net borç | -%199,0 |
 | Yatırım harcaması | %744,8 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*

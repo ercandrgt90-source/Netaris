@@ -28,12 +28,9 @@ Hasılat, brüt kâr, faaliyet kârı ve FAVÖK tümü önceki döneme göre bü
 | Brüt kâr | -%77,5 |
 | Faaliyet kârı | -%92,8 |
 | FAVÖK | -%89,3 |
-| Net kâr | -%218,5 |
 | Özkaynak | %40,2 |
 | Aktif toplamı | %40,7 |
-| Faaliyet nakit akışı | -%364,0 |
 | Yatırım harcaması | %1205,3 |
-| Serbest nakit akışı | -%365,2 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -90,7 +87,6 @@ Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 22 şirketin **
 **Dikkat gerektirenler**
 
 - Hasılat reel olarak -%76,9 geriledi.
-- Net kâr reel olarak -%218,5 geriledi.
 - Özkaynak kârlılığı -%13,1; sektör medyanı %3,9.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*

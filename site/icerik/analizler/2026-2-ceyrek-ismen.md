@@ -30,9 +30,7 @@ Hasılat hafif artarken faaliyet kârı ve net kârda belirgin düşüş görül
 | Özkaynak | %40,7 |
 | Aktif toplamı | %72,3 |
 | Ticari alacaklar | %32,8 |
-| Faaliyet nakit akışı | -%1377,5 |
 | Yatırım harcaması | -%15,7 |
-| Serbest nakit akışı | -%1388,5 |
 | Finansman gideri | %33,3 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*

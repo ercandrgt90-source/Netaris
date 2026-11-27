@@ -28,14 +28,11 @@ Hasılat gerilerken brüt kâr yükseldi; bu ayrışma brüt kâr marjını sekt
 | Brüt kâr | -%8,5 |
 | Faaliyet kârı | -%49,8 |
 | FAVÖK | -%49,1 |
-| Net kâr | -%210,5 |
 | Özkaynak | %102,9 |
 | Aktif toplamı | %125,2 |
 | Ticari alacaklar | %1146,7 |
 | Stoklar | %226,0 |
-| Faaliyet nakit akışı | -%167,3 |
 | Yatırım harcaması | %92112,5 |
-| Serbest nakit akışı | -%254,4 |
 | Finansman gideri | %36650,0 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
@@ -104,7 +101,6 @@ Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 31 şirket
 **Dikkat gerektirenler**
 
 - Hasılat reel olarak -%25,9 geriledi.
-- Net kâr reel olarak -%210,5 geriledi.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

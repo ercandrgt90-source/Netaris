@@ -33,7 +33,6 @@ Hasılatın %31,1 brüt kâr marjıyla birlikte yükselmesi brüt kârın %0,26 
 | Aktif toplamı | %42,5 |
 | Ticari alacaklar | %47,9 |
 | Stoklar | %28,9 |
-| Net borç | -%645,8 |
 | Yatırım harcaması | -%88,0 |
 | Finansman gideri | %1032,5 |
 

@@ -26,14 +26,12 @@ Hasılatın düşmesi brüt kârı %6,3'e gerilemesine yol açarken, brüt kâr�
 | --- | ---: |
 | Hasılat | -%10,5 |
 | Brüt kâr | -%45,0 |
-| Net kâr | -%2133,9 |
 | Özkaynak | %31,0 |
 | Aktif toplamı | %27,8 |
 | Ticari alacaklar | %19,0 |
 | Stoklar | %19,5 |
 | Faaliyet nakit akışı | -%93,1 |
 | Yatırım harcaması | -%17,3 |
-| Serbest nakit akışı | -%112,9 |
 | Finansman gideri | -%34,0 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
@@ -97,7 +95,6 @@ Karşılaştırma Temel tüketim sektöründe **aynı dönemi bildiren** 31 şir
 **Dikkat gerektirenler**
 
 - Hasılat reel olarak -%10,5 geriledi.
-- Net kâr reel olarak -%2133,9 geriledi.
 - Brüt marj 4,0 puan daraldı (%10,3 → %6,3).
 - Yatırım harcaması faaliyet nakit akışını aşıyor; aradaki fark dış kaynakla karşılanıyor.
 

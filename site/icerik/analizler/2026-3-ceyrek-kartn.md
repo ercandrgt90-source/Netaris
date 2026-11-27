@@ -29,7 +29,6 @@ Hasılat %21,9 artarken brüt kâr negatiften pozitif 0,02 milyar TL'ye yükselm
 | Aktif toplamı | -%6,2 |
 | Ticari alacaklar | -%8,3 |
 | Stoklar | -%25,3 |
-| Net borç | -%136,9 |
 | Yatırım harcaması | -%47,2 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*

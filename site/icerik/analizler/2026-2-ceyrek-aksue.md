@@ -25,15 +25,11 @@ Hasılatın %25,1 düşmesi net kârın %164,9 gerilemesine paralel olarak yans�
 | Kalem | Reel değişim |
 | --- | ---: |
 | Hasılat | -%25,1 |
-| Net kâr | -%164,9 |
 | Özkaynak | %44,9 |
 | Aktif toplamı | %25,5 |
 | Ticari alacaklar | -%34,2 |
 | Stoklar | %47,4 |
-| Net borç | -%165,3 |
-| Faaliyet nakit akışı | -%143,8 |
 | Yatırım harcaması | -%96,2 |
-| Serbest nakit akışı | -%198,3 |
 | Finansman gideri | -%80,7 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
@@ -94,7 +90,6 @@ Karşılaştırma Kamu hizmetleri sektöründe **aynı dönemi bildiren** 24 şi
 **Dikkat gerektirenler**
 
 - Hasılat reel olarak -%25,1 geriledi.
-- Net kâr reel olarak -%164,9 geriledi.
 - Özkaynak kârlılığı -%1,6; sektör medyanı %1,0.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*

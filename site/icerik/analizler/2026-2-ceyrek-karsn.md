@@ -26,9 +26,6 @@ Hasılatın 6,77 milyar TL'den 10,10 milyar TL'ye yükselmesi brüt kârın 1,66
 | --- | ---: |
 | Hasılat | %7,6 |
 | Brüt kâr | -%28,4 |
-| Faaliyet kârı | -%104,1 |
-| FAVÖK | -%100,8 |
-| Net kâr | -%5552,9 |
 | Özkaynak | %35,1 |
 | Aktif toplamı | %18,2 |
 | Ticari alacaklar | %25,5 |
@@ -101,7 +98,6 @@ Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 65 şirketin **
 
 **Dikkat gerektirenler**
 
-- Net kâr reel olarak -%5552,9 geriledi.
 - Brüt marj 10,0 puan daraldı (%29,8 → %19,8).
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*

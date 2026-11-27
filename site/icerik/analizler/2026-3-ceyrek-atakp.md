@@ -35,7 +35,6 @@ Hasılatın %8,3 artması, brüt kârın %4,3 düşmesiyle birlikte brüt kâr m
 | Stoklar | %3,4 |
 | Faaliyet nakit akışı | -%87,5 |
 | Yatırım harcaması | -%14,4 |
-| Serbest nakit akışı | -%115,5 |
 | Finansman gideri | -%75,5 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*

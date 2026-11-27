@@ -26,7 +26,6 @@ Hasılatın %13,8 düşmesi brüt kârın %79,8 gerilemesine yol açmış; brüt
 | --- | ---: |
 | Hasılat | -%13,8 |
 | Brüt kâr | -%79,8 |
-| Faaliyet kârı | -%190,9 |
 | Özkaynak | -%17,0 |
 | Aktif toplamı | -%6,1 |
 | Net borç | %12,2 |
@@ -78,7 +77,6 @@ Karşılaştırma Temel malzeme sektöründe **aynı dönemi bildiren** 38 şirk
 **Dikkat gerektirenler**
 
 - Hasılat reel olarak -%13,8 geriledi.
-- Net kâr reel olarak -%690,3 geriledi.
 - Brüt marj 17,4 puan daraldı (%22,7 → %5,3).
 - Cari oran 0,60; kısa vadeli yükümlülükler dönen varlıkları aşıyor.
 - Özkaynak kârlılığı -%7,5; sektör medyanı %1,1.

@@ -25,8 +25,6 @@ Hasılatın %1'i artmasıyla brüt kârın negatif değeri %7,0'den %5,5'e (-0,0
 | Kalem | Reel değişim |
 | --- | ---: |
 | Hasılat | -%18,5 |
-| Brüt kâr | -%196,7 |
-| FAVÖK | -%200,0 |
 | Özkaynak | %46,4 |
 | Aktif toplamı | %11,5 |
 | Ticari alacaklar | %3,9 |

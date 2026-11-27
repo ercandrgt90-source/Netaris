@@ -29,9 +29,7 @@ Hasılat %27,9 artarken brüt kâr %17,9 azaldı; bu, satışların yükselmesin
 | Faaliyet kârı | -%90,4 |
 | FAVÖK | -%64,0 |
 | Net kâr | %132,4 |
-| Faaliyet nakit akışı | -%245,9 |
 | Yatırım harcaması | %424,1 |
-| Serbest nakit akışı | -%503,7 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 

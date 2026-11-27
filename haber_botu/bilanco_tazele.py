@@ -680,6 +680,191 @@ def goc_kuyrugu(defter: dict, baglam: dict | None = None) -> list:
     return kuyruk
 
 
+#: DEGISIM TABLOSUNDAKI anlamsiz hucre: `| Net kâr | -%282,7 |`.
+#:
+#: MEVCUT OLCUT BUNU GORMUYORDU -- OLCULDU (2026-11-26).
+#: `_ANLAMSIZ_YUZDE` deseni yuzdeden sonra bir FIIL bekliyor
+#: (`azal|geril|düş|daral`), yani yalnizca DUZYAZI bicimini
+#: yakaliyor. Tablo hucresinde fiil yok.
+#:
+#: Olcum, `_anlamsiz_yuzde`nin iddiasiyla yaptigi arasindaki farki
+#: gosterdi -- docstring "sayfa %100'u asan bir AZALIS yuzdesi
+#: tasiyor mu" diyor:
+#:
+#:     duzyazi biciminde (gorulen)      :  78 sayfa
+#:     DEGISIM TABLOSUNDA               : 182 sayfa, 299 hucre
+#:     tabloda var, olcut GORMUYOR      : 112 sayfa
+#:
+#: Yani kusurun ucte ikisi olculmuyordu. Bu depoda "yorum iddia
+#: eder, akis uygulamaz" diye yazili kusur sinifi.
+_ANLAMSIZ_HUCRE = re.compile(r"\|\s*-%([0-9][0-9.]*,[0-9]+)\s*\|")
+
+
+def _hucre_anlamsiz(satir: str) -> bool:
+    """Tablo satiri %100'u asan bir AZALIS tasiyor mu?
+
+    Esik `_anlamsiz_yuzde` ile AYNI ve ayni gerekceye dayaniyor:
+    azalisin alt siniri %100'dur, tam %100 mesrudur (deger sifira
+    inmistir).
+    """
+    for ham in _ANLAMSIZ_HUCRE.findall(satir):
+        try:
+            if float(ham.replace(".", "").replace(",", ".")) > 100:
+                return True
+        except ValueError:
+            continue
+    return False
+
+
+def anlamsiz_satirlari_kirp(metin: str) -> tuple[str, int]:
+    """Uretici bugun BASMAYACAGI satirlari siler. (yeni metin, sayi).
+
+    NEDEN KIRPMA, YENIDEN KURMA DEGIL
+    ---------------------------------
+    Yayinda yuzlerce bilanco sayfasi %100'u asan bir AZALIS yuzdesi
+    tasiyor ("Net kâr reel olarak -%282,7 geriledi",
+    "| Net kâr | -%282,7 |"). Uretici bunu 2026-11-21'de duzeltti;
+    ama sayfalarin cogu ESKI ceyrege ait ve her iki onarici da eski
+    donem sayfasini disliyor -- `sayfa_tazele` govdeyi BASTAN
+    kuruyor, bu da o donemin sektor medyanini gerektiriyor ve
+    elimizde yok.
+
+    ONCE YANLIS VARSAYDIM: sayfanin dogru halinde yuzde yerine
+    ONCEKI SEVIYE yazdigini sanmistim ("önce -1,12 milyar TL") ve
+    onu getirmek icin kaynaktan eski ceyregi cekmek gerekiyordu.
+    OLCTUM VE YANLISTI -- o sunum MOBIL beslemeye ait. Web
+    ureticisi satiri HIC YAZMIYOR:
+
+        uret_bilanco_sayfa.govde_kur:  if y is not None: satir.append(..)
+        one_cikan.bulgular:            if y is not None and ..: cikti.append
+
+    Kanit, ayni sirketin iki sayfasi (A1CAP):
+
+        2026-2-ceyrek   | Faaliyet kârı | -%102,1 |  | Net kâr | -%282,7 |
+        2026-3-ceyrek   iki satir da YOK -- isaret yine degisik
+
+    Yani "dogru deger" bir sayi degil, SATIRIN OLMAMASI. Onarim
+    hicbir veri gerektirmiyor: ag istegi YOK, model cagrisi YOK.
+
+    OLCUT BIR TEOREM, SEZGI DEGIL
+    -----------------------------
+    `oranlar._yuzde_degisim` isaret degisiminde ya da taban pozitif
+    degilken None donuyor. %100'u asan bir AZALIS her zaman bu
+    kumeye dusuyor:
+
+        yeni - eski < -|eski|
+        eski > 0  ->  yeni < 0           yani ISARET DEGISTI
+        eski <= 0 ->  zaten None doner
+
+    Yani "azalis > %100" ile "uretici basmaz" AYNI KUME.
+
+    IKI BICIM, IKI YER
+    ------------------
+    Duzyazi (`-%282,7 geriledi`) ve tablo hucresi
+    (`| Net kâr | -%282,7 |`). Ikincisini mevcut olcut GORMUYORDU;
+    olcum `_ANLAMSIZ_HUCRE` uzerinde yazili.
+
+    TABLO TARAMASI YALNIZCA DEGISIM BOLUMUNDE. `-%150,0` ORAN
+    tablosunda MESRU (kucuk ozkaynakta buyuk zarar). Sayfa genelinde
+    aramak o mesru oranlari kirpardi.
+
+    OZETE DOKUNULMUYOR
+    ------------------
+    `## Özet` AI metni; bir cumleyi kesmek dilbilgisini bozar ve
+    kalan metnin iddiasini degistirir. Ozetteki sayi ancak yeniden
+    uretimle duzelir.
+
+    BOS KALAN TABLO BOLUMU SILINIYOR -- URETICI DE OYLE YAPIYOR
+    (`if satir:`). Basligi ve bos govdeyi birakmak, uretilmis bir
+    sayfada ASLA olusmayacak bir bicim uretirdi.
+    """
+    nl = chr(10)
+    cikti: list[str] = []
+    kirpilan = 0
+    ozette = False
+    degisimde = False
+    # ON BILGIYE DOKUNULMUYOR -- OLCULDU, YAKIN KACIS.
+    #
+    # Ilk yazim ozeti yalnizca `## Özet` basligiyla koruyordu.
+    # Ama on bilgideki `ozet:` alani AI metninden TURETILMIS bir
+    # kopya ve hicbir `## ` basligindan ONCE geliyor, yani o
+    # koruma onu kapsamiyordu. Butun sayfalarda kuru kosu 18
+    # sayfada `ozet:` SATIRININ SILINECEGINI gosterdi -- yani
+    # on bilgi bozulacakti.
+    #
+    # `_anlamsiz_yuzde` on bilgiyi kendisi kirpiyor ama bu
+    # onarici ona TEK SATIR veriyor, yani o koruma devreye
+    # girmiyordu. Sinir burada acikca yonetiliyor.
+    on_bilgi = False
+    for sira, satir in enumerate(metin.split(nl)):
+        if satir.rstrip() == "---":
+            # Ilk `---` on bilgiyi acar, ikincisi kapatir.
+            if sira == 0:
+                on_bilgi = True
+                cikti.append(satir)
+                continue
+            if on_bilgi:
+                on_bilgi = False
+                cikti.append(satir)
+                continue
+        if on_bilgi:
+            cikti.append(satir)
+            continue
+        if satir.startswith("## "):
+            ozette = satir.strip() == U.OZET_BASLIGI
+            degisimde = U.DEGISIM_BASLIGI in satir
+        if ozette:
+            cikti.append(satir)
+            continue
+        if _anlamsiz_yuzde(satir, ozet_dahil=True):
+            kirpilan += 1
+            continue
+        if degisimde and satir.startswith("|") and _hucre_anlamsiz(satir):
+            kirpilan += 1
+            continue
+        cikti.append(satir)
+    # ESDEGER MUTANT UYARISI -- OLCULDU (2026-11-26).
+    #
+    # Bu erken donus bir OPTIMIZASYON, koruma degil:
+    # `_bos_tablolari_at` dokunulmamis metni aynen yeniden
+    # kuruyor. Kaldirildiginda 710 gercek sayfada cikti
+    # BIREBIR AYNI (360 satir, ayni sha256). Yani bu satiri
+    # silen mutasyon sinamayi YESIL birakiyor ve bu bir
+    # sinama BOSLUGU DEGIL -- mutant davranisi degistirmiyor.
+    #
+    # Satir NIYETI yazdigi icin duruyor: dokunulmayan sayfa
+    # yeniden birlestirilmesin. Ayni desen `kaynak/bundesbank.py`
+    # icinde de belgelenmis.
+    if not kirpilan:
+        return metin, 0
+    return _bos_tablolari_at(nl.join(cikti)), kirpilan
+
+
+def _bos_tablolari_at(metin: str) -> str:
+    """Govdesi kalmayan tablo bolumunu basligiyla birlikte siler."""
+    nl = chr(10)
+    bloklar = metin.split(nl + "## ")
+    tutulan = [bloklar[0]]
+    for blok in bloklar[1:]:
+        gov = blok.split(nl)
+        # VERI SATIRLARI AYIRACTAN SONRA BASLIYOR.
+        #
+        # Ilk yazim butun `|` satirlarini veri sayiyordu ve
+        # TABLO BASLIGI (`| Kalem | Reel değişim |`) de o
+        # kumeye giriyordu; govdesi bosalmis tablo "dolu"
+        # gorunup silinmiyordu. Sinama yakaladi.
+        ayirac = next((i for i, x in enumerate(gov)
+                       if x.lstrip().startswith("| ---")), None)
+        if ayirac is None:
+            tutulan.append(blok)
+            continue
+        veri = [x for x in gov[ayirac + 1:] if x.startswith("|")]
+        if not veri:
+            continue
+        tutulan.append(blok)
+    return (nl + "## ").join(tutulan)
+
+
 def main() -> int:
     a = argparse.ArgumentParser(description=__doc__)
     a.add_argument("--sinir", type=int, default=60)
@@ -689,6 +874,10 @@ def main() -> int:
     a.add_argument("--anlamsiz-yuzde", action="store_true",
                    help="isaret degisiminde uretilmis %100 ustu "
                         "AZALIS tasiyan sayfalari SAYAR (yazmaz)")
+    a.add_argument("--yuzde-kirp", action="store_true",
+                   help="uretici bugun BASMAYACAGI anlamsiz "
+                        "yuzde satirlarini siler (ag istegi ve "
+                        "model cagrisi YOK)")
     a.add_argument("--bolum-gocu", action="store_true",
                    help="yalnizca 'son dort donem' bolumu OLMAYAN "
                         "sayfalari yeniden kurar (sifir model cagrisi)")
@@ -709,6 +898,31 @@ def main() -> int:
             print(f"  {p.stem}")
         if len(bulunan) > 10:
             print(f"  ... ve {len(bulunan) - 10} sayfa daha")
+        return 0
+
+    if n.yuzde_kirp:
+        # HICBIR BAGLAM GEREKTIRMIYOR: ozet dosyasi, defter ya da
+        # ag yok. Bu yuzden `U.OZET` denetiminden ONCE duruyor --
+        # ozet uretilmemis olsa bile eski sayfalar onarilabilir.
+        _degisen = _satir = 0
+        for _p in sorted(U.SITE.glob('*.md')):
+            _m = _p.read_text(encoding='utf-8')
+            if not bd.bilanco_sayfasi(_m):
+                continue
+            _y, _n = anlamsiz_satirlari_kirp(_m)
+            if not _n:
+                continue
+            _degisen += 1
+            _satir += _n
+            if not n.kuru_calis:
+                _p.write_text(_y, encoding='utf-8')
+            if _degisen <= 8:
+                print(f'  {_p.stem:<26}{_n} satır')
+        _kip = 'KURU' if n.kuru_calis else 'yazıldı'
+        print(f'anlamsız yüzde kırpma ({_kip}): {_degisen} sayfa, '
+              f'{_satir} satır')
+        if not _degisen:
+            print('kırpma TAMAMLANDI -- hiçbir şey yapılmadı')
         return 0
 
     if not U.OZET.exists():

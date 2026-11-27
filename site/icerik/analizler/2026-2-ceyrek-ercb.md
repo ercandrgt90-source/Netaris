@@ -33,9 +33,7 @@ Hasılatın %40,9 düşmesi brüt kârın %46,3 azalmasına yol açmış; brüt 
 | Ticari alacaklar | %63,6 |
 | Stoklar | -%25,7 |
 | Net borç | %67,1 |
-| Faaliyet nakit akışı | -%867,1 |
 | Yatırım harcaması | -%9,2 |
-| Serbest nakit akışı | -%991,6 |
 | Finansman gideri | %35,2 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
@@ -103,7 +101,6 @@ Karşılaştırma Temel malzeme sektöründe **aynı dönemi bildiren** 27 şirk
 **Dikkat gerektirenler**
 
 - Hasılat reel olarak -%40,9 geriledi.
-- Net kâr reel olarak -%2266,4 geriledi.
 - Brüt marj 2,1 puan daraldı (%23,3 → %21,2).
 - Özkaynak kârlılığı -%7,6; sektör medyanı %1,3.
 

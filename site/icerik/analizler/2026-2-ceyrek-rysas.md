@@ -34,9 +34,7 @@ Hasılatın 6,28 milyar TL'den 7,04 milyar TL'ye yükselmesi brüt kârın 2,26 
 | Ticari alacaklar | %18,0 |
 | Stoklar | %164,5 |
 | Net borç | %29,2 |
-| Faaliyet nakit akışı | -%410,9 |
 | Yatırım harcaması | -%67,4 |
-| Serbest nakit akışı | -%1239,4 |
 | Finansman gideri | %9,5 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*

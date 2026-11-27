@@ -25,7 +25,6 @@ Hasılatın %43,4 düşmesi brüt kârın %108,1 gerilemesine yol açarak brüt 
 | Kalem | Reel değişim |
 | --- | ---: |
 | Hasılat | -%43,4 |
-| Brüt kâr | -%108,1 |
 | Özkaynak | -%0,3 |
 | Aktif toplamı | %26,6 |
 | Ticari alacaklar | -%15,2 |

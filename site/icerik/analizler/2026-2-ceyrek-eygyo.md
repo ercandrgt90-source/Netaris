@@ -30,9 +30,7 @@ Hasılat iki katından fazlasına çıkarken brüt kâr negatiften pozitife dön
 | Ticari alacaklar | %44,3 |
 | Stoklar | -%31,5 |
 | Net borç | -%9,2 |
-| Faaliyet nakit akışı | -%138,9 |
 | Yatırım harcaması | -%50,0 |
-| Serbest nakit akışı | -%139,0 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 

@@ -28,12 +28,10 @@ Hasılatın düşmesi brüt kârın da azalmasına yol açarken, brüt kâr marj
 | Brüt kâr | %3,1 |
 | Faaliyet kârı | %164,5 |
 | FAVÖK | %65,4 |
-| Net kâr | -%325,4 |
 | Özkaynak | %44,6 |
 | Aktif toplamı | %35,8 |
 | Ticari alacaklar | %25,9 |
 | Stoklar | %19,5 |
-| Faaliyet nakit akışı | -%189,8 |
 | Yatırım harcaması | -%71,3 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
@@ -99,7 +97,6 @@ Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildire
 **Dikkat gerektirenler**
 
 - Hasılat reel olarak -%8,3 geriledi.
-- Net kâr reel olarak -%325,4 geriledi.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

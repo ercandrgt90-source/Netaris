@@ -28,7 +28,6 @@ Hasılatın %7,3 düşmesi, faaliyet kârının %76,8 gerilemesi ve FAVÖK'ün %
 | Brüt kâr | %13,9 |
 | Faaliyet kârı | -%76,8 |
 | FAVÖK | -%56,5 |
-| Net kâr | -%104,5 |
 | Özkaynak | %18,4 |
 | Aktif toplamı | %36,8 |
 | Ticari alacaklar | %26,5 |
@@ -98,7 +97,6 @@ Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 68 şirketin **
 **Dikkat gerektirenler**
 
 - Hasılat reel olarak -%7,3 geriledi.
-- Net kâr reel olarak -%104,5 geriledi.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

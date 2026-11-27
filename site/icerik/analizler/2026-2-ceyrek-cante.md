@@ -29,7 +29,6 @@ Hasılatın 3,46 milyar TL'ye düşmesi, net kârın -0,84 milyar TL'den 0,25 mi
 | Aktif toplamı | %11,8 |
 | Ticari alacaklar | -%37,4 |
 | Stoklar | -%33,1 |
-| Net borç | -%499,4 |
 | Yatırım harcaması | -%68,3 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*

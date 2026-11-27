@@ -30,7 +30,6 @@ Hasılatın %7,0 artması net kârda %365,5 artışa eşlik eder; bu yüksek kâ
 | Aktif toplamı | %75,3 |
 | Ticari alacaklar | -%56,2 |
 | Net borç | %313,1 |
-| Faaliyet nakit akışı | -%463,9 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 

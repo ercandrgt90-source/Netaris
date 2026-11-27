@@ -33,9 +33,7 @@ Hasılatın %6,2 düşmesi, faaliyet kârının %49,7 gerilemesine yol açarken,
 | Ticari alacaklar | %26,6 |
 | Stoklar | %3,4 |
 | Net borç | %42,1 |
-| Faaliyet nakit akışı | -%151,7 |
 | Yatırım harcaması | %764,5 |
-| Serbest nakit akışı | -%672,3 |
 | Finansman gideri | -%85,9 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*

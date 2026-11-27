@@ -26,7 +26,6 @@ Hasılatın %10,8 düşmesi brüt kârın %42,3 azalmasına eşlik eder; brüt k
 | --- | ---: |
 | Hasılat | -%10,8 |
 | Brüt kâr | -%42,3 |
-| Faaliyet kârı | -%185,0 |
 | FAVÖK | -%85,9 |
 | Özkaynak | %7,0 |
 | Aktif toplamı | %14,5 |
@@ -35,7 +34,6 @@ Hasılatın %10,8 düşmesi brüt kârın %42,3 azalmasına eşlik eder; brüt k
 | Net borç | %89,9 |
 | Faaliyet nakit akışı | -%84,1 |
 | Yatırım harcaması | %89,2 |
-| Serbest nakit akışı | -%111,8 |
 | Finansman gideri | -%15,8 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*

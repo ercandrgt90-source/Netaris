@@ -26,7 +26,6 @@ Hasılatın %57,5 artmasıyla aktif toplamı %53,1 yükselirken, net borç da %4
 | --- | ---: |
 | Hasılat | %57,5 |
 | Brüt kâr | -%58,8 |
-| Faaliyet kârı | -%221,7 |
 | FAVÖK | -%69,2 |
 | Özkaynak | %29,8 |
 | Aktif toplamı | %53,1 |

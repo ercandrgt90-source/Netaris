@@ -33,7 +33,6 @@ Hasılatın 4,36 milyar TL'ye yükselmesi brüt kârın 0,91 milyar TL'ye, brüt
 | Aktif toplamı | %49,9 |
 | Ticari alacaklar | %39,9 |
 | Stoklar | %52,2 |
-| Net borç | -%198,6 |
 | Faaliyet nakit akışı | %108,7 |
 | Yatırım harcaması | -%99,2 |
 | Serbest nakit akışı | %1176,8 |

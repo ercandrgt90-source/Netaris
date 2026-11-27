@@ -30,7 +30,6 @@ Hasılat ile net kâr birlikte arttı; kârdaki artışın hasılattakini aşmas
 | Aktif toplamı | %68,0 |
 | Ticari alacaklar | %57,7 |
 | Stoklar | %47,8 |
-| Net borç | -%179,3 |
 | Yatırım harcaması | -%26,9 |
 | Finansman gideri | -%6,5 |
 

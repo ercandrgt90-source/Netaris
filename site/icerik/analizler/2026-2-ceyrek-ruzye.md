@@ -25,10 +25,6 @@ Hasılat gerilerken brüt kâr sıfır seviyesinden negatife geçti; maliyetleri
 | Kalem | Reel değişim |
 | --- | ---: |
 | Hasılat | -%65,0 |
-| Brüt kâr | -%123,8 |
-| Faaliyet kârı | -%453,7 |
-| FAVÖK | -%103,5 |
-| Net kâr | -%115,3 |
 | Özkaynak | %22,8 |
 | Aktif toplamı | %47,2 |
 | Ticari alacaklar | -%46,9 |
@@ -92,7 +88,6 @@ Yukarıdaki **bir yıl öncesine göre** değişim ve ölçüm tablosu şirketin
 **Dikkat gerektirenler**
 
 - Hasılat reel olarak -%65,0 geriledi.
-- Net kâr reel olarak -%115,3 geriledi.
 - Brüt marj 44,3 puan daraldı (%26,3 → -%18,0).
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*

@@ -25,9 +25,6 @@ Hasılatın düşmesiyle birlikte brüt kâr daha olumsuz bir seviyeye kaydı; b
 | Kalem | Reel değişim |
 | --- | ---: |
 | Hasılat | -%31,2 |
-| Brüt kâr | -%392,7 |
-| FAVÖK | -%405,7 |
-| Net kâr | -%11443,9 |
 | Özkaynak | %28,8 |
 | Aktif toplamı | %29,0 |
 | Ticari alacaklar | %11,4 |
@@ -99,7 +96,6 @@ Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildire
 **Dikkat gerektirenler**
 
 - Hasılat reel olarak -%31,2 geriledi.
-- Net kâr reel olarak -%11443,9 geriledi.
 - Brüt marj 44,6 puan daraldı (%8,5 → -%36,1).
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*

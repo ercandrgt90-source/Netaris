@@ -26,13 +26,10 @@ Hasılat aynı kalırken brüt kâr, faaliyet kârı, FAVÖK ve net kâr tümü 
 | --- | ---: |
 | Hasılat | %9,1 |
 | Brüt kâr | %20,6 |
-| Faaliyet kârı | -%530,7 |
-| FAVÖK | -%200,7 |
 | Net kâr | %27,9 |
 | Özkaynak | %43,2 |
 | Aktif toplamı | %43,3 |
 | Net borç | -%69,8 |
-| Faaliyet nakit akışı | -%192,3 |
 | Yatırım harcaması | -%29,1 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*

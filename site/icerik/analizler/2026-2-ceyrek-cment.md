@@ -33,7 +33,6 @@ Hasılatın %15,7 düşmesi brüt kârın %10,6 azalmasına yol açarken, brüt 
 | Aktif toplamı | %32,6 |
 | Ticari alacaklar | %33,7 |
 | Stoklar | %21,3 |
-| Faaliyet nakit akışı | -%146,2 |
 | Yatırım harcaması | %60,1 |
 | Finansman gideri | %6,7 |
 

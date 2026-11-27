@@ -31,7 +31,6 @@ Hasılattaki artışa kıyasla brüt kârın daha hızlı büyümesi, marj geni�
 | Net kâr | %290,9 |
 | Özkaynak | %48,7 |
 | Aktif toplamı | %57,6 |
-| Net borç | -%169,1 |
 | Faaliyet nakit akışı | %204,0 |
 | Yatırım harcaması | %8,7 |
 

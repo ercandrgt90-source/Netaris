@@ -26,8 +26,6 @@ Hasılatın %11,4 artması brüt kârın %25,8 düşmesine paralel olarak, maliy
 | --- | ---: |
 | Hasılat | %11,4 |
 | Brüt kâr | -%25,8 |
-| Faaliyet kârı | -%179,7 |
-| FAVÖK | -%110,8 |
 | Özkaynak | %38,1 |
 | Aktif toplamı | %21,8 |
 | Ticari alacaklar | %41,9 |

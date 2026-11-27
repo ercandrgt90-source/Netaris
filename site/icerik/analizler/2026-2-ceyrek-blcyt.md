@@ -27,14 +27,11 @@ Hasılatın %25,2 artması, brüt kârın negatiften pozitif 0,01 milyar TL'ye y
 | Hasılat | %25,2 |
 | Faaliyet kârı | %50,7 |
 | FAVÖK | %8,2 |
-| Net kâr | -%145,4 |
 | Özkaynak | %20,6 |
 | Aktif toplamı | %17,1 |
 | Ticari alacaklar | %61,3 |
 | Stoklar | -%39,6 |
-| Faaliyet nakit akışı | -%203,7 |
 | Yatırım harcaması | -%81,8 |
-| Serbest nakit akışı | -%221,9 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -99,7 +96,6 @@ Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildire
 
 **Dikkat gerektirenler**
 
-- Net kâr reel olarak -%145,4 geriledi.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

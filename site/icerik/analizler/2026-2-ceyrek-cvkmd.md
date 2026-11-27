@@ -32,7 +32,6 @@ Hasılatın %39,6'lık brüt kâr marjıyla birlikte artması, brüt kârın 1,0
 | Özkaynak | %50,4 |
 | Aktif toplamı | %40,6 |
 | Net borç | %331,1 |
-| Faaliyet nakit akışı | -%137,7 |
 | Yatırım harcaması | -%38,6 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*

@@ -25,7 +25,6 @@ Hasılatın %3,9 artmasıyla birlikte brüt kâr, faaliyet kârı ve FAVÖK nega
 | Kalem | Reel değişim |
 | --- | ---: |
 | Hasılat | -%4,0 |
-| Net kâr | -%209,2 |
 | Özkaynak | %21,1 |
 | Aktif toplamı | %25,1 |
 | Ticari alacaklar | %1136000,0 |
@@ -90,7 +89,6 @@ Karşılaştırma Temel tüketim sektöründe **aynı dönemi bildiren** 24 şir
 
 **Dikkat gerektirenler**
 
-- Net kâr reel olarak -%209,2 geriledi.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

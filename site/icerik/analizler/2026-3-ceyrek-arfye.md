@@ -29,7 +29,6 @@ Hasılatın %52,5 artması özkaynak ve aktif toplamının da sırasıyla %67,8 
 | Aktif toplamı | %43,5 |
 | Ticari alacaklar | -%71,3 |
 | Stoklar | %273,1 |
-| Net borç | -%237,0 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 

@@ -89,7 +89,6 @@ Karşılaştırma Sağlık sektöründe **aynı dönemi bildiren** 8 şirketin *
 
 **Dikkat gerektirenler**
 
-- Net kâr reel olarak -%4275,2 geriledi.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

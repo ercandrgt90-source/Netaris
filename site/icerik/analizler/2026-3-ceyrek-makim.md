@@ -34,7 +34,6 @@ Hasılat ve brüt kâr birlikte yükselirken, faaliyet kârı, FAVÖK ve net kâ
 | Ticari alacaklar | %29,7 |
 | Stoklar | %103,1 |
 | Net borç | %75,6 |
-| Faaliyet nakit akışı | -%263,6 |
 | Yatırım harcaması | -%88,2 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*

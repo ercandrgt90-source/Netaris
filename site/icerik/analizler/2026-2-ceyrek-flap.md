@@ -26,12 +26,8 @@ Hasılat ve brüt kâr aynı seviyede kalırken brüt kâr marjı %8,5 olarak sa
 | --- | ---: |
 | Hasılat | -%21,2 |
 | Brüt kâr | -%71,9 |
-| Faaliyet kârı | -%388,5 |
-| FAVÖK | -%366,2 |
-| Net kâr | -%30675,0 |
 | Özkaynak | %22,3 |
 | Aktif toplamı | %38,0 |
-| Net borç | -%661,6 |
 | Faaliyet nakit akışı | -%84,2 |
 | Yatırım harcaması | %12152,1 |
 
@@ -71,7 +67,6 @@ Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildire
 **Dikkat gerektirenler**
 
 - Hasılat reel olarak -%21,2 geriledi.
-- Net kâr reel olarak -%30675,0 geriledi.
 - Brüt marj 15,4 puan daraldı (%23,9 → %8,5).
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*

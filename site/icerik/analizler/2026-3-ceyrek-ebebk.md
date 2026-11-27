@@ -33,7 +33,6 @@ Hasılatın %52,6 artması brüt kârın %63,6 yükselmesine paralel olarak, br�
 | Aktif toplamı | %52,1 |
 | Ticari alacaklar | %60,0 |
 | Stoklar | %46,5 |
-| Net borç | -%176,5 |
 | Faaliyet nakit akışı | -%20,9 |
 | Yatırım harcaması | %15,3 |
 | Serbest nakit akışı | -%27,6 |

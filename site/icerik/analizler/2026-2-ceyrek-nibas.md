@@ -26,13 +26,8 @@ Hasılat ve brüt kâr artarken, faaliyet kârı, FAVÖK ve net kârda önceki d
 | --- | ---: |
 | Hasılat | %31,1 |
 | Brüt kâr | %64,1 |
-| Faaliyet kârı | -%3950,3 |
-| FAVÖK | -%3925,9 |
-| Net kâr | -%872,7 |
 | Özkaynak | -%64,9 |
 | Aktif toplamı | -%66,7 |
-| Net borç | -%463,4 |
-| Faaliyet nakit akışı | -%1182,1 |
 | Yatırım harcaması | %111,1 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
@@ -76,7 +71,6 @@ Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 69 şirketin **
 
 **Dikkat gerektirenler**
 
-- Net kâr reel olarak -%872,7 geriledi.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

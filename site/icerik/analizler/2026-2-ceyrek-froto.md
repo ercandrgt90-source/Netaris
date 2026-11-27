@@ -36,7 +36,6 @@ Hasılatın %14,1 düşmesi brüt kârın %28,9 azalmasına, ardından faaliyet 
 | Net borç | %22,2 |
 | Faaliyet nakit akışı | -%97,1 |
 | Yatırım harcaması | -%48,1 |
-| Serbest nakit akışı | -%110,9 |
 | Finansman gideri | -%4,5 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*

@@ -102,7 +102,6 @@ Karşılaştırma Temel tüketim sektöründe **aynı dönemi bildiren** 31 şir
 **Dikkat gerektirenler**
 
 - Hasılat reel olarak -%12,1 geriledi.
-- Net kâr reel olarak -%144,7 geriledi.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

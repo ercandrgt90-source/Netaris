@@ -28,11 +28,9 @@ Hasılat, brüt kâr ve faaliyet kârı birlikte düşmüş; bu düşüş brüt 
 | Brüt kâr | -%21,0 |
 | Faaliyet kârı | -%16,7 |
 | FAVÖK | -%16,7 |
-| Net kâr | -%114,1 |
 | Özkaynak | %95,9 |
 | Aktif toplamı | %115,6 |
 | Net borç | %3,0 |
-| Faaliyet nakit akışı | -%681,5 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -74,7 +72,6 @@ Karşılaştırma Gayrimenkul sektöründeki 34 şirketin **medyanına** göre y
 **Dikkat gerektirenler**
 
 - Hasılat reel olarak -%27,7 geriledi.
-- Net kâr reel olarak -%114,1 geriledi.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

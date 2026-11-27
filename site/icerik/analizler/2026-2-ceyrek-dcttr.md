@@ -25,9 +25,6 @@ Hasılat 2,62 milyar TL'den 0,87 milyar TL'ye gerilerken brüt kâr 0,36 milyar 
 | Kalem | Reel değişim |
 | --- | ---: |
 | Hasılat | -%77,2 |
-| Brüt kâr | -%106,5 |
-| Faaliyet kârı | -%142,3 |
-| FAVÖK | -%133,0 |
 | Özkaynak | %10,9 |
 | Aktif toplamı | -%4,6 |
 | Ticari alacaklar | -%43,8 |
@@ -94,7 +91,6 @@ Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 22 şirketin **
 **Dikkat gerektirenler**
 
 - Hasılat reel olarak -%77,2 geriledi.
-- Net kâr reel olarak -%805,4 geriledi.
 - Özkaynak kârlılığı -%10,6; sektör medyanı %3,9.
 - Yatırım harcaması faaliyet nakit akışını aşıyor; aradaki fark dış kaynakla karşılanıyor.
 

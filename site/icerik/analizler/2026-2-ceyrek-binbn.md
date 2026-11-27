@@ -98,7 +98,6 @@ Karşılaştırma Bilişim sektöründe **aynı dönemi bildiren** 15 şirketin 
 **Dikkat gerektirenler**
 
 - Hasılat reel olarak -%17,6 geriledi.
-- Net kâr reel olarak -%275,8 geriledi.
 - Özkaynak kârlılığı -%2,2; sektör medyanı %2,1.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*

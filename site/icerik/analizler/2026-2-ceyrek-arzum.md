@@ -27,7 +27,6 @@ Hasılat 2,24 milyar TL'ye gerilediği için brüt kâr 0,70 milyar TL'ye düşm
 | Hasılat | -%44,2 |
 | Brüt kâr | -%43,7 |
 | Faaliyet kârı | -%81,5 |
-| Özkaynak | -%604,1 |
 | Aktif toplamı | -%25,6 |
 | Net borç | -%22,9 |
 

@@ -25,7 +25,6 @@ Hasılatın %19,2 düşmesi net kârın %107,5 gerilemesine eşlik ederken, özk
 | Kalem | Reel değişim |
 | --- | ---: |
 | Hasılat | -%19,2 |
-| Net kâr | -%107,5 |
 | Özkaynak | %50,8 |
 | Aktif toplamı | %30,0 |
 | Ticari alacaklar | %39,0 |
@@ -89,7 +88,6 @@ Karşılaştırma Kamu hizmetleri sektöründe **aynı dönemi bildiren** 24 şi
 **Dikkat gerektirenler**
 
 - Hasılat reel olarak -%19,2 geriledi.
-- Net kâr reel olarak -%107,5 geriledi.
 - Cari oran 0,68; kısa vadeli yükümlülükler dönen varlıkları aşıyor.
 - Özkaynak kârlılığı -%0,1; sektör medyanı %1,0.
 - Yatırım harcaması faaliyet nakit akışını aşıyor; aradaki fark dış kaynakla karşılanıyor.

@@ -31,7 +31,6 @@ Hasılatın %0,80 artması brüt kârın %0,19 artmasına, ardından brüt kâr 
 | Net kâr | %785,5 |
 | Özkaynak | %48,1 |
 | Aktif toplamı | %25,8 |
-| Net borç | -%421,8 |
 | Faaliyet nakit akışı | %299,2 |
 | Yatırım harcaması | -%92,1 |
 

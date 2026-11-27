@@ -25,14 +25,11 @@ Hasılat artarken brüt kâr eksiye döndü; satış maliyetleri gelirden hızl�
 | Kalem | Reel değişim |
 | --- | ---: |
 | Hasılat | %78,8 |
-| Brüt kâr | -%431,0 |
 | Özkaynak | %112,9 |
 | Aktif toplamı | %95,2 |
 | Ticari alacaklar | %177,7 |
 | Stoklar | %112,9 |
-| Faaliyet nakit akışı | -%234,4 |
 | Yatırım harcaması | %209,5 |
-| Serbest nakit akışı | -%280,2 |
 | Finansman gideri | %202,9 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*

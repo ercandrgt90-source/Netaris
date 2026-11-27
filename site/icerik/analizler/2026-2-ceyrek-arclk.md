@@ -26,12 +26,10 @@ Hasılat ve brüt kâr birlikte yükselirken, brüt kâr marjı %29,0 seviyesind
 | --- | ---: |
 | Hasılat | %11,7 |
 | Brüt kâr | %11,3 |
-| Faaliyet kârı | -%130,8 |
 | FAVÖK | -%33,8 |
 | Özkaynak | %2,6 |
 | Aktif toplamı | %19,1 |
 | Net borç | %43,6 |
-| Faaliyet nakit akışı | -%208,5 |
 | Yatırım harcaması | %2,3 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
@@ -73,7 +71,6 @@ Karşılaştırma İsteğe bağlı tüketim sektöründe **aynı dönemi bildire
 
 **Dikkat gerektirenler**
 
-- Net kâr reel olarak -%201,9 geriledi.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

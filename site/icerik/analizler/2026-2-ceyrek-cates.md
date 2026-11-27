@@ -30,7 +30,6 @@ Hasılatın %35,6 net kâr marjına dönüşmesi, faaliyet nakit akışının -0
 | Aktif toplamı | %56,6 |
 | Ticari alacaklar | %0,6 |
 | Stoklar | %13,4 |
-| Net borç | -%3480,2 |
 | Yatırım harcaması | %15,4 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*

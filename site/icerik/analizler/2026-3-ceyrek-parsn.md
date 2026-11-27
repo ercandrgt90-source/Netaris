@@ -26,7 +26,6 @@ Hasılat %32,3 artarken brüt kâr %94,6 düşmüş, bu durum brüt kâr marjın
 | --- | ---: |
 | Hasılat | %32,3 |
 | Brüt kâr | -%94,6 |
-| FAVÖK | -%130,0 |
 | Özkaynak | %27,3 |
 | Aktif toplamı | %28,7 |
 | Ticari alacaklar | %41,3 |

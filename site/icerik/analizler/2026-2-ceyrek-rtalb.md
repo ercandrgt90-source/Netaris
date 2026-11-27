@@ -26,11 +26,8 @@ Hasılatın %27,3 artması, brüt kârın %81 düşmesiyle birlikte brüt kâr m
 | --- | ---: |
 | Hasılat | %27,3 |
 | Brüt kâr | -%81,0 |
-| Net kâr | -%304,1 |
 | Özkaynak | %37,7 |
 | Aktif toplamı | %47,4 |
-| Net borç | -%203,4 |
-| Faaliyet nakit akışı | -%423,0 |
 | Yatırım harcaması | -%93,0 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
@@ -90,7 +87,6 @@ Karşılaştırma Sağlık sektöründe **aynı dönemi bildiren** 8 şirketin *
 
 **Dikkat gerektirenler**
 
-- Net kâr reel olarak -%304,1 geriledi.
 - Brüt marj 30,5 puan daraldı (%35,8 → %5,4).
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*

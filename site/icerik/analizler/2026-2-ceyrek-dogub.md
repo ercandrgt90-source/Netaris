@@ -29,9 +29,7 @@ Hasılatın yarıya düşmesiyle brüt kâr negatiften hafifçe artarak –0,00 
 | Aktif toplamı | %32,3 |
 | Ticari alacaklar | -%70,3 |
 | Stoklar | %63,9 |
-| Faaliyet nakit akışı | -%178,0 |
 | Yatırım harcaması | %700,0 |
-| Serbest nakit akışı | -%180,1 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 

@@ -33,9 +33,7 @@ Hasılatın %39,7 brüt kâr marjı ile birlikte yükselmesi brüt kârda da art
 | Aktif toplamı | %54,4 |
 | Ticari alacaklar | %51,4 |
 | Stoklar | %56,5 |
-| Faaliyet nakit akışı | -%111,8 |
 | Yatırım harcaması | %51,2 |
-| Serbest nakit akışı | -%121,1 |
 | Finansman gideri | -%4,1 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*

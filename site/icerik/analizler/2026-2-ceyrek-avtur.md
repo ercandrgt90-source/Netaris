@@ -29,9 +29,7 @@ Hasılatın iki katına çıkan brüt kâr, brüt kâr marjının %37,6 seviyesi
 | Aktif toplamı | %26,9 |
 | Ticari alacaklar | %14,7 |
 | Stoklar | %12,5 |
-| Faaliyet nakit akışı | -%5228,0 |
 | Yatırım harcaması | %281,8 |
-| Serbest nakit akışı | -%5531,0 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -95,7 +93,6 @@ Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 22 şirketin **
 
 **Dikkat gerektirenler**
 
-- Net kâr reel olarak -%972,7 geriledi.
 - Özkaynak kârlılığı -%5,6; sektör medyanı %3,9.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*

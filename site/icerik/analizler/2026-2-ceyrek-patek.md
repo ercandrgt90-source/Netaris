@@ -25,14 +25,11 @@ Hasılatın %20,5 düşmesiyle birlikte brüt kâr sıfıra geriledi ve bu durum
 | Kalem | Reel değişim |
 | --- | ---: |
 | Hasılat | -%20,5 |
-| Net kâr | -%200,5 |
 | Özkaynak | %241,3 |
 | Aktif toplamı | %40,7 |
 | Ticari alacaklar | %3,5 |
 | Stoklar | %17,1 |
-| Faaliyet nakit akışı | -%204,4 |
 | Yatırım harcaması | %114,1 |
-| Serbest nakit akışı | -%224,8 |
 | Finansman gideri | %230,3 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
@@ -101,7 +98,6 @@ Karşılaştırma Bilişim sektöründe **aynı dönemi bildiren** 15 şirketin 
 **Dikkat gerektirenler**
 
 - Hasılat reel olarak -%20,5 geriledi.
-- Net kâr reel olarak -%200,5 geriledi.
 - Özkaynak kârlılığı -%7,8; sektör medyanı %2,1.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*

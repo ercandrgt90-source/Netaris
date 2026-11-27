@@ -95,7 +95,6 @@ Karşılaştırma İletişim sektöründe **aynı dönemi bildiren** 3 şirketin
 **Dikkat gerektirenler**
 
 - Hasılat reel olarak -%35,6 geriledi.
-- Net kâr reel olarak -%362,0 geriledi.
 - Brüt marj 26,3 puan daraldı (%51,3 → %24,9).
 - Özkaynak kârlılığı -%5,2; sektör medyanı -%2,7.
 - Yatırım harcaması faaliyet nakit akışını aşıyor; aradaki fark dış kaynakla karşılanıyor.

@@ -25,7 +25,6 @@ Hasılatın %63,4 düşmesi brüt kârın da negatifleşmesine ve brüt kâr mar
 | Kalem | Reel değişim |
 | --- | ---: |
 | Hasılat | -%63,4 |
-| Brüt kâr | -%442,4 |
 | Özkaynak | -%4,3 |
 | Aktif toplamı | %7,6 |
 | Ticari alacaklar | %2,3 |

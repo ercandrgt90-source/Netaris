@@ -25,8 +25,6 @@ Hasılat büyürken faaliyet kârı negatife döndü ve net sonuç zarara geçti
 | Kalem | Reel değişim |
 | --- | ---: |
 | Hasılat | -%5,4 |
-| Faaliyet kârı | -%102,1 |
-| Net kâr | -%282,7 |
 | Özkaynak | %63,3 |
 | Aktif toplamı | %120,3 |
 | Ticari alacaklar | %42,2 |
@@ -86,7 +84,6 @@ Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 21 şirketin **
 **Dikkat gerektirenler**
 
 - Hasılat reel olarak -%5,4 geriledi.
-- Net kâr reel olarak -%282,7 geriledi.
 - Özkaynak kârlılığı -%6,1; sektör medyanı %4,1.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*

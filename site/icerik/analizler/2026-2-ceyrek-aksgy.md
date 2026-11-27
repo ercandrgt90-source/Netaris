@@ -28,7 +28,6 @@ Hasılat ve net kâr birlikte arttı; net kâr marjının %70,3 ile sektör medy
 | Net kâr | %13,5 |
 | Özkaynak | %39,2 |
 | Aktif toplamı | %40,3 |
-| Net borç | -%127,9 |
 | Faaliyet nakit akışı | %11,1 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*

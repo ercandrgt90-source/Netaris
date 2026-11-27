@@ -30,7 +30,6 @@ Hasılat, brüt kâr, faaliyet kârı ve net kâr aynı tutarda artış göstere
 | Net kâr | %523,4 |
 | Özkaynak | %54,3 |
 | Aktif toplamı | %54,2 |
-| Net borç | -%976,1 |
 | Faaliyet nakit akışı | %45,8 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*

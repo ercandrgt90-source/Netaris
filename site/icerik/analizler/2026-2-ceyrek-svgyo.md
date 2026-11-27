@@ -28,8 +28,6 @@ Brüt kâr marjının %100,0 olması, hasılatın tamamının brüt kâra dönü
 | Brüt kâr | -%26,8 |
 | Faaliyet kârı | -%57,8 |
 | FAVÖK | -%57,4 |
-| Net kâr | -%142,7 |
-| Faaliyet nakit akışı | -%127,6 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -71,7 +69,6 @@ Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 34 şirket
 **Dikkat gerektirenler**
 
 - Hasılat reel olarak -%26,8 geriledi.
-- Net kâr reel olarak -%142,7 geriledi.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

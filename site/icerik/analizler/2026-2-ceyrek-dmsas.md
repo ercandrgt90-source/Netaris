@@ -26,7 +26,6 @@ Hasılatın düşmesi brüt kârı ve FAVÖK'ü de azaltırken, brüt kârın da
 | --- | ---: |
 | Hasılat | -%17,2 |
 | Brüt kâr | -%63,2 |
-| Faaliyet kârı | -%153,8 |
 | FAVÖK | -%75,3 |
 | Özkaynak | %21,6 |
 | Aktif toplamı | %12,8 |

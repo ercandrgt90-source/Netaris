@@ -27,7 +27,6 @@ Hasılatın %11,4 artması brüt kârın negatiften pozitif 0,31 milyar TL'ye y�
 | Hasılat | %11,4 |
 | Faaliyet kârı | -%61,2 |
 | FAVÖK | -%61,0 |
-| Net kâr | -%190,9 |
 | Özkaynak | %38,3 |
 | Aktif toplamı | %25,1 |
 | Ticari alacaklar | %61,3 |
@@ -103,7 +102,6 @@ Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 31 şirket
 
 **Dikkat gerektirenler**
 
-- Net kâr reel olarak -%190,9 geriledi.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

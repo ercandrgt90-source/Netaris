@@ -89,7 +89,6 @@ Karşılaştırma Kamu hizmetleri sektöründe **aynı dönemi bildiren** 25 şi
 **Dikkat gerektirenler**
 
 - Hasılat reel olarak -%13,0 geriledi.
-- Net kâr reel olarak -%932,7 geriledi.
 - Cari oran 0,92; kısa vadeli yükümlülükler dönen varlıkları aşıyor.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*

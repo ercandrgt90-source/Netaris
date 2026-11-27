@@ -25,11 +25,7 @@ Hasılatın 0,30 milyar TL'ye düşmesi, brüt kârın –%18,5'e gerilemesi ve 
 | Kalem | Reel değişim |
 | --- | ---: |
 | Hasılat | -%49,8 |
-| Brüt kâr | -%146,8 |
-| Faaliyet kârı | -%147,3 |
-| FAVÖK | -%397,3 |
 | Net kâr | %37,0 |
-| Özkaynak | -%160,3 |
 | Aktif toplamı | %37,6 |
 | Net borç | %62,7 |
 | Faaliyet nakit akışı | -%45,9 |

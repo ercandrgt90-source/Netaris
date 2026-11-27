@@ -30,9 +30,7 @@ Hasılatın %86,3 düşmesi brüt kârın %42,4 gibi yüksek bir marjda kalması
 | Ticari alacaklar | %33,3 |
 | Stoklar | -%80,2 |
 | Net borç | -%98,7 |
-| Faaliyet nakit akışı | -%141,3 |
 | Yatırım harcaması | -%81,2 |
-| Serbest nakit akışı | -%142,1 |
 | Finansman gideri | %3,5 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
@@ -100,7 +98,6 @@ Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 65 şirketin **
 **Dikkat gerektirenler**
 
 - Hasılat reel olarak -%86,3 geriledi.
-- Net kâr reel olarak -%1866,3 geriledi.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

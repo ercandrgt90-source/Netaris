@@ -33,7 +33,6 @@ Hasılatın %13,1 artışı brüt kâr marjının sektör medyanının altında 
 | Aktif toplamı | %62,1 |
 | Ticari alacaklar | %83,6 |
 | Stoklar | %103,1 |
-| Faaliyet nakit akışı | -%448,1 |
 | Yatırım harcaması | -%60,1 |
 | Finansman gideri | %134,9 |
 

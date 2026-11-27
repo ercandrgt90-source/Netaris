@@ -26,9 +26,6 @@ Hasılat artarken brüt kâr düşmüş; bu, satışların daha düşük kârlı
 | --- | ---: |
 | Hasılat | %26,6 |
 | Brüt kâr | -%42,3 |
-| Faaliyet kârı | -%122,3 |
-| FAVÖK | -%115,5 |
-| Net kâr | -%337,4 |
 | Özkaynak | %37,5 |
 | Aktif toplamı | %32,7 |
 | Ticari alacaklar | -%3,9 |
@@ -102,7 +99,6 @@ Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 65 şirketin **
 
 **Dikkat gerektirenler**
 
-- Net kâr reel olarak -%337,4 geriledi.
 - Brüt marj 25,8 puan daraldı (%47,4 → %21,6).
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*

@@ -25,7 +25,6 @@ Hasılat 2,81 milyar TL'ye yükselirken net kâr –0,25 milyar TL'ye gerilemiş
 | Kalem | Reel değişim |
 | --- | ---: |
 | Hasılat | %1589,3 |
-| Net kâr | -%288,2 |
 | Özkaynak | %1,8 |
 | Aktif toplamı | %0,3 |
 | Ticari alacaklar | %340,6 |
@@ -79,7 +78,6 @@ Karşılaştırma Gayrimenkul sektöründe **aynı dönemi bildiren** 32 şirket
 
 **Dikkat gerektirenler**
 
-- Net kâr reel olarak -%288,2 geriledi.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*
 

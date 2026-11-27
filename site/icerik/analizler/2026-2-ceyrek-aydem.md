@@ -32,7 +32,6 @@ Hasılatın %23,7 artması, net kârın negatiften 4,56 milyar TL'ye yükselme
 | Net borç | %1,2 |
 | Faaliyet nakit akışı | -%87,7 |
 | Yatırım harcaması | %158,8 |
-| Serbest nakit akışı | -%109,0 |
 | Finansman gideri | -%4,0 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*

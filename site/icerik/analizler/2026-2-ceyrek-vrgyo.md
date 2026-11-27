@@ -29,7 +29,6 @@ Hasılatın 0,12 milyar TL'den 0,03 milyar TL'ye düşmesi, net kârın -0,08 mi
 | Özkaynak | %15,6 |
 | Aktif toplamı | %37,3 |
 | Net borç | %1079,9 |
-| Faaliyet nakit akışı | -%415,5 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 

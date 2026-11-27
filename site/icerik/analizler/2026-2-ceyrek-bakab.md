@@ -26,7 +26,6 @@ Hasılatın %3,3 düşmesi brüt kârın %42,7 azalmasına yol açmış; brüt k
 | --- | ---: |
 | Hasılat | -%3,3 |
 | Brüt kâr | -%42,7 |
-| Faaliyet kârı | -%207,0 |
 | FAVÖK | -%74,1 |
 | Özkaynak | %26,3 |
 | Aktif toplamı | %25,6 |

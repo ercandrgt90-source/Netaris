@@ -25,7 +25,6 @@ Hasılatın %14,2 düşmesi brüt kârın %155,7 gerilemesine eşlik ederken, ay
 | Kalem | Reel değişim |
 | --- | ---: |
 | Hasılat | -%14,2 |
-| Brüt kâr | -%155,7 |
 | FAVÖK | %332,4 |
 | Özkaynak | -%39,6 |
 | Aktif toplamı | %35,1 |

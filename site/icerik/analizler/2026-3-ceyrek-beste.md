@@ -30,9 +30,7 @@ Hasılatın %7,2 artması net kârda %33,2 düşüşle birlikte gerçekleşti; b
 | Aktif toplamı | %43,4 |
 | Ticari alacaklar | -%7,7 |
 | Net borç | %0,2 |
-| Faaliyet nakit akışı | -%398,9 |
 | Yatırım harcaması | %139,3 |
-| Serbest nakit akışı | -%447,1 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 

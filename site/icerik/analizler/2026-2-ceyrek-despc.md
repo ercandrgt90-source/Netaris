@@ -28,7 +28,6 @@ Hasılat ve brüt kâr birlikte gerilerken brüt kâr marjı sektör medyanını
 | Brüt kâr | -%56,9 |
 | Faaliyet kârı | -%65,0 |
 | FAVÖK | -%64,4 |
-| Net kâr | -%535,9 |
 | Özkaynak | %0,2 |
 | Aktif toplamı | -%34,5 |
 | Ticari alacaklar | -%49,9 |
@@ -103,7 +102,6 @@ Karşılaştırma Bilişim sektöründe **aynı dönemi bildiren** 15 şirketin 
 **Dikkat gerektirenler**
 
 - Hasılat reel olarak -%76,1 geriledi.
-- Net kâr reel olarak -%535,9 geriledi.
 - Özkaynak kârlılığı -%8,9; sektör medyanı %2,1.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*

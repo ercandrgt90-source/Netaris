@@ -28,7 +28,6 @@ Hasılatın %11,7 artması, brüt kârın %3,8 düşmesine rağmen brüt kâr ma
 | Brüt kâr | -%3,8 |
 | Faaliyet kârı | %12,3 |
 | FAVÖK | %8,7 |
-| Net kâr | -%123,2 |
 | Özkaynak | %0,5 |
 | Aktif toplamı | %38,9 |
 | Ticari alacaklar | %160,0 |
@@ -101,7 +100,6 @@ Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 68 şirketin **
 
 **Dikkat gerektirenler**
 
-- Net kâr reel olarak -%123,2 geriledi.
 - Brüt marj 6,3 puan daraldı (%45,2 → %38,9).
 - Cari oran 0,97; kısa vadeli yükümlülükler dönen varlıkları aşıyor.
 

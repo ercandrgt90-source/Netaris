@@ -26,7 +26,6 @@ Hasılat düşerken brüt kâr artmış, bu durum brüt kâr marjının %37,5 il
 | --- | ---: |
 | Hasılat | -%18,5 |
 | Brüt kâr | %33,9 |
-| Net kâr | -%292,6 |
 | Özkaynak | %30,0 |
 | Aktif toplamı | %29,5 |
 | Faaliyet nakit akışı | -%75,5 |
@@ -89,7 +88,6 @@ Karşılaştırma Sağlık sektöründe **aynı dönemi bildiren** 8 şirketin *
 **Dikkat gerektirenler**
 
 - Hasılat reel olarak -%18,5 geriledi.
-- Net kâr reel olarak -%292,6 geriledi.
 - Yatırım harcaması faaliyet nakit akışını aşıyor; aradaki fark dış kaynakla karşılanıyor.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*

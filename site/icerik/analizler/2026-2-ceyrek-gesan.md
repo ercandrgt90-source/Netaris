@@ -26,7 +26,6 @@ Hasılatın düşmesine rağmen brüt kâr, faaliyet kârı, FAVÖK ve net kâr 
 | --- | ---: |
 | Hasılat | -%60,1 |
 | Brüt kâr | -%80,4 |
-| Faaliyet kârı | -%119,3 |
 | FAVÖK | -%82,8 |
 | Net kâr | %2223,4 |
 | Özkaynak | %42,4 |

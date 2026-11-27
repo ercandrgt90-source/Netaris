@@ -33,7 +33,6 @@ Hasılatın %17,7 artması, aktif toplamındaki %39,1 yükselişle birlikte özk
 | Aktif toplamı | %39,1 |
 | Ticari alacaklar | -%7,1 |
 | Stoklar | %52,0 |
-| Net borç | -%3687,5 |
 | Faaliyet nakit akışı | -%3,8 |
 | Yatırım harcaması | %268,5 |
 | Serbest nakit akışı | -%46,8 |

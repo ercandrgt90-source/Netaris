@@ -26,8 +26,6 @@ Hasılat hafifçe gerilerken brüt kâr iki katına yaklaştı; buna karşın fa
 | --- | ---: |
 | Hasılat | -%16,4 |
 | Brüt kâr | %6,4 |
-| FAVÖK | -%37133,3 |
-| Net kâr | -%307,5 |
 | Özkaynak | %55,1 |
 | Aktif toplamı | -%18,8 |
 | Ticari alacaklar | %36,2 |
@@ -97,7 +95,6 @@ Karşılaştırma Finans sektöründe **aynı dönemi bildiren** 22 şirketin **
 **Dikkat gerektirenler**
 
 - Hasılat reel olarak -%16,4 geriledi.
-- Net kâr reel olarak -%307,5 geriledi.
 - Özkaynak kârlılığı -%16,6; sektör medyanı %3,9.
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*

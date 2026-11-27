@@ -29,7 +29,6 @@ Hasılat gerilerken net kâr daha sert düştü; buna karşılık özkaynak ve a
 | Özkaynak | %32,8 |
 | Aktif toplamı | %43,8 |
 | Net borç | %82,1 |
-| Faaliyet nakit akışı | -%105,4 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 

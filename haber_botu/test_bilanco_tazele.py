@@ -591,6 +591,147 @@ def test_yeniden_uretim_ESKI_DONEMI_atlamiyor_ama_SORGULAMIYOR():
     assert bulundu, "atlama kosulu `_yenilenecek`e hic bakmiyor"
 
 
+def _ornek_sayfa(degisim_satirlari, maddeler=(), ozet=""):
+    """On bilgi + degisim tablosu + oran tablosu + maddeler + ozet."""
+    import uret_bilanco_sayfa as U
+    nl = chr(10)
+    s = ["---", "slug: x-2026-2-ceyrek", "kod: XXXX",
+         "donem: 2026 2. çeyrek", "kategori: Bilanço Analizi"]
+    if ozet:
+        s.append("ozet: " + ozet)
+    s += ["---", ""]
+    if ozet:
+        s += [U.OZET_BASLIGI, "", ozet, ""]
+    s += [f"## 2026 2. çeyrek {U.DEGISIM_BASLIGI}", "",
+          "| Kalem | Reel değişim |", "| --- | ---: |"]
+    s += list(degisim_satirlari)
+    s += ["", "## Sektör içindeki konum", "",
+          "| Oran | Şirket | Medyan |", "| --- | ---: | ---: |",
+          # ORAN tablosunda -%150 MESRU: kucuk ozkaynakta buyuk zarar.
+          "| Özkaynak kârlılığı | -%150,4 | %4,1 |", ""]
+    if maddeler:
+        s += ["## Öne çıkan ölçümler", ""] + list(maddeler) + [""]
+    return nl.join(s)
+
+
+def test_kirpma_tablo_hucresini_siliyor():
+    """`| Net kâr | -%282,7 |` -- uretici bunu BASMIYOR.
+
+    OLCULDU (2026-11-26): mevcut olcut (`_anlamsiz_yuzde`) bu bicimi
+    GORMUYORDU, cunku deseni yuzdeden sonra bir FIIL bekliyor. 182
+    sayfa degisim tablosunda bu kusuru tasiyordu ve 112'si hicbir
+    olcute girmiyordu.
+    """
+    sayfa = _ornek_sayfa([
+        "| Hasılat | -%5,4 |",
+        "| Faaliyet kârı | -%102,1 |",
+        "| Net kâr | -%282,7 |",
+        "| Yatırım harcaması | %882,8 |",
+    ])
+    yeni, n = T.anlamsiz_satirlari_kirp(sayfa)
+    assert n == 2, n
+    assert "-%102,1" not in yeni
+    assert "-%282,7" not in yeni
+    # MESRU OLANLAR KALIYOR: %100 altindaki azalis ve HER artis.
+    assert "| Hasılat | -%5,4 |" in yeni
+    assert "| Yatırım harcaması | %882,8 |" in yeni
+
+
+def test_kirpma_ORAN_tablosuna_dokunmuyor():
+    """`-%150,4` oran tablosunda MESRU -- degisim degil.
+
+    Kucuk ozkaynakta buyuk zarar ozkaynak karliligini -%150 yapar.
+    Sayfa genelinde aramak bu mesru oranlari kirpardi; tarama bu
+    yuzden YALNIZCA degisim bolumunde.
+    """
+    sayfa = _ornek_sayfa(["| Hasılat | -%5,4 |"])
+    yeni, n = T.anlamsiz_satirlari_kirp(sayfa)
+    assert n == 0, n
+    assert "-%150,4" in yeni
+
+
+def test_kirpma_maddeyi_siliyor():
+    """Duzyazi bicimi de ayni kumede."""
+    sayfa = _ornek_sayfa(
+        ["| Hasılat | -%5,4 |"],
+        maddeler=["- Net kâr reel olarak -%282,7 geriledi.",
+                  "- Hasılat reel olarak -%5,4 geriledi."])
+    yeni, n = T.anlamsiz_satirlari_kirp(sayfa)
+    assert n == 1, n
+    assert "-%282,7" not in yeni
+    assert "- Hasılat reel olarak -%5,4 geriledi." in yeni
+
+
+def test_kirpma_ON_BILGIYE_dokunmuyor():
+    """`ozet:` alani AI metninden turetilmis -- silinirse sayfa bozulur.
+
+    OLCULDU, YAKIN KACIS: ilk yazim ozeti yalnizca `## Özet`
+    basligiyla koruyordu ve butun sayfalarda kuru kosu 18 sayfada
+    `ozet:` SATIRININ silinecegini gosterdi.
+    """
+    ozet = "Net kâr reel olarak -%282,7 geriledi ve marj daraldı."
+    sayfa = _ornek_sayfa(["| Hasılat | -%5,4 |"], ozet=ozet)
+    yeni, n = T.anlamsiz_satirlari_kirp(sayfa)
+    assert n == 0, n
+    assert "ozet: " + ozet in yeni
+
+
+def test_kirpma_OZETE_dokunmuyor():
+    """`## Özet` AI metni; cumle kesmek dilbilgisini bozar."""
+    import uret_bilanco_sayfa as U
+    ozet = "Net kâr reel olarak -%282,7 geriledi ve marj daraldı."
+    sayfa = _ornek_sayfa(["| Hasılat | -%5,4 |"], ozet=ozet)
+    yeni, _n = T.anlamsiz_satirlari_kirp(sayfa)
+    i = yeni.find(U.OZET_BASLIGI)
+    assert i >= 0
+    assert "-%282,7" in yeni[i:]
+
+
+def test_kirpma_BOS_KALAN_tabloyu_siliyor():
+    """Uretici bos tablo yazmiyor (`if satir:`)."""
+    import uret_bilanco_sayfa as U
+    sayfa = _ornek_sayfa([
+        "| Faaliyet kârı | -%102,1 |",
+        "| Net kâr | -%282,7 |",
+    ])
+    yeni, n = T.anlamsiz_satirlari_kirp(sayfa)
+    assert n == 2, n
+    assert U.DEGISIM_BASLIGI not in yeni, yeni
+    # Oteki bolumler YERINDE kaliyor.
+    assert "## Sektör içindeki konum" in yeni
+
+
+def test_kirpma_DEGISTIRMEDIGINDE_metin_AYNEN_doner():
+    """Dokunulmayan sayfa birebir ayni donmeli -- yoksa her kosu
+    butun sayfalari commit'e sokar."""
+    sayfa = _ornek_sayfa(["| Hasılat | -%5,4 |"])
+    yeni, n = T.anlamsiz_satirlari_kirp(sayfa)
+    assert n == 0
+    assert yeni == sayfa
+
+
+def test_kirpma_ESIGI_URETICININ_esigi():
+    """TAM %100 MESRU: deger sifira inmistir, isaret degismemistir.
+
+    Olcut `oranlar._yuzde_degisim`in kumesi: azalis %100'u ASMALI.
+    """
+    sayfa = _ornek_sayfa([
+        "| Hasılat | -%100,0 |",
+        "| Net kâr | -%100,1 |",
+    ])
+    yeni, n = T.anlamsiz_satirlari_kirp(sayfa)
+    assert n == 1, n
+    assert "-%100,0" in yeni
+    assert "-%100,1" not in yeni
+
+
+def test_kirpma_BINLIK_AYRACLI_sayiyi_goruyor():
+    """`-%1.897,5` -- binlik ayraci NOKTA olabiliyor."""
+    sayfa = _ornek_sayfa(["| Faaliyet kârı | -%1.897,5 |"])
+    _yeni, n = T.anlamsiz_satirlari_kirp(sayfa)
+    assert n == 1, n
+
+
 if __name__ == "__main__":
     n = 0
     for ad, f in sorted(globals().items()):

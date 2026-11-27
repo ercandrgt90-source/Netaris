@@ -25,13 +25,10 @@ Hasılatın düşmesiyle birlikte brüt kâr negatiften hafiflemiş, bu da brüt
 | Kalem | Reel değişim |
 | --- | ---: |
 | Hasılat | -%19,6 |
-| Brüt kâr | -%232,7 |
-| Net kâr | -%144,2 |
 | Özkaynak | %15,8 |
 | Aktif toplamı | %16,0 |
 | Ticari alacaklar | -%20,6 |
 | Stoklar | %50,3 |
-| Net borç | -%433,2 |
 | Faaliyet nakit akışı | -%91,5 |
 | Yatırım harcaması | -%97,3 |
 | Serbest nakit akışı | -%62,5 |
@@ -102,7 +99,6 @@ Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 67 şirketin **
 **Dikkat gerektirenler**
 
 - Hasılat reel olarak -%19,6 geriledi.
-- Net kâr reel olarak -%144,2 geriledi.
 - Brüt marj 29,0 puan daraldı (%10,9 → -%18,0).
 
 *Bu maddeler tablodaki ölçümlerden kural ile türetildi; her biri dayandığı rakamı taşıyor. Bir kalemin lehte ya da aleyhte sayılması sektöre göre değişir — bankada yüksek borçluluk olağandır, sanayide değil — ve bu ayrım uygulanmıştır.*

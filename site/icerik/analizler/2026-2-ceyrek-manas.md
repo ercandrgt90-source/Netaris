@@ -25,8 +25,6 @@ Hasılatın düşmesiyle birlikte brüt kâr sıfıra geriledi ve brüt kâr mar
 | Kalem | Reel değişim |
 | --- | ---: |
 | Hasılat | -%28,3 |
-| Brüt kâr | -%115,6 |
-| FAVÖK | -%363,3 |
 | Özkaynak | -%31,6 |
 | Aktif toplamı | %29,8 |
 | Ticari alacaklar | %47,3 |
@@ -98,7 +96,6 @@ Karşılaştırma Sanayi sektöründe **aynı dönemi bildiren** 55 şirketin **
 **Dikkat gerektirenler**
 
 - Hasılat reel olarak -%28,3 geriledi.
-- Net kâr reel olarak -%302,2 geriledi.
 - Brüt marj 46,4 puan daraldı (%38,1 → -%8,3).
 - Cari oran 0,96; kısa vadeli yükümlülükler dönen varlıkları aşıyor.
 

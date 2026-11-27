@@ -30,7 +30,6 @@ Hasılatın %71,6 artmasıyla birlikte aktif toplamı da %67,1 yükselerek özka
 | Aktif toplamı | %67,1 |
 | Ticari alacaklar | %33,2 |
 | Stoklar | %49,2 |
-| Net borç | -%185,5 |
 | Yatırım harcaması | -%26,9 |
 | Finansman gideri | -%6,5 |
 

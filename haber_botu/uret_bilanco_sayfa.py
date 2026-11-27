@@ -162,6 +162,27 @@ KALEMLER = (
 #: gocunde bir kez yasadi.
 SERI_BASLIGI = "## Son dört dönem"
 
+#: AI OZETININ BASLIGI -- TEK YERDE.
+#:
+#: `bilanco_tazele` iki yerde bu basligi ariyor: ozeti okuyup
+#: yeniden kullanmak icin ve kirpma oniricisinin ozete
+#: DOKUNMAMASI icin. Iki yerde ayri yazilsaydi baslik
+#: degistigi gun onarici sessizce AI metnini de kirpardi.
+OZET_BASLIGI = "## Özet"
+
+#: DEGISIM TABLOSUNUN BASLIK PARCASI -- TEK YERDE.
+#:
+#: Baslik donemi tasidigi icin tam dizge sabit degil;
+#: degismeyen parca bu. `bilanco_tazele` kirpma onaricisi
+#: anlamsiz yuzdeyi YALNIZCA bu bolumde ariyor.
+#:
+#: NEDEN BOLUMLE SINIRLI: `-%150,0` gibi bir deger ORAN
+#: tablosunda MESRU (kucuk ozkaynakta buyuk zarar,
+#: ozkaynak karliligi -%150). Sayfa genelinde aramak o
+#: mesru oranlari kirpardi. Degisim tablosundaki ayni
+#: deger ise anlamsiz: azalisin alt siniri %100.
+DEGISIM_BASLIGI = "— bir yıl öncesine göre"
+
 #: ESKI bir cikti bicimi: seri tablosunun YER TUTUCU kolon basligi.
 #:
 #: Uretici artik boyle bir baslik YAZMIYOR (bkz.
@@ -425,7 +446,7 @@ def govde_kur(kod, unvan, sektor, donem, d, oran, medyan, n, yorum,
     # paragraf olarak ham tabloyu aliyordu; arama sonucunda ve kart
     # ozetinde boru isaretleri gorunuyordu. Ozet bir CUMLE olmali.
     if yorum:
-        s += ["## Özet", "", yorum, ""]
+        s += [OZET_BASLIGI, "", yorum, ""]
 
     # YILLIK DEGISIM -- SEVIYE DEGIL, HAREKET.
     #
@@ -442,7 +463,7 @@ def govde_kur(kod, unvan, sektor, donem, d, oran, medyan, n, yorum,
             if y is not None:
                 satir.append(f"| {etiket} | {bilanco_yorum._yuzde(y)} |")
         if satir:
-            s += [f"## {donem} — bir yıl öncesine göre", "",
+            s += [f"## {donem} {DEGISIM_BASLIGI}", "",
                   "| Kalem | Reel değişim |", "| --- | ---: |", *satir, "",
                   "*Finansal tablolar TMS 29 enflasyon muhasebesine göre "
                   "düzenlenmiştir; yukarıdaki değişimler **reeldir**, "

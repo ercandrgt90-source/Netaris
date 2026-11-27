@@ -26,16 +26,12 @@ Hasılatın %5,4 düşmesi brüt kârın %78,4 gerilemesine ve bunun sonucunda F
 | --- | ---: |
 | Hasılat | -%5,4 |
 | Brüt kâr | -%78,4 |
-| Faaliyet kârı | -%157,4 |
 | FAVÖK | -%91,4 |
-| Net kâr | -%410,1 |
 | Özkaynak | %38,7 |
 | Aktif toplamı | %44,3 |
 | Ticari alacaklar | %47,4 |
 | Stoklar | %61,4 |
-| Faaliyet nakit akışı | -%141,6 |
 | Yatırım harcaması | -%3,2 |
-| Serbest nakit akışı | -%178,6 |
 
 *Finansal tablolar TMS 29 enflasyon muhasebesine göre düzenlenmiştir; yukarıdaki değişimler **reeldir**, ayrıca enflasyondan arındırmak gerekmez.*
 
@@ -100,7 +96,6 @@ Karşılaştırma Temel malzeme sektöründe **aynı dönemi bildiren** 27 şirk
 **Dikkat gerektirenler**
 
 - Hasılat reel olarak -%5,4 geriledi.
-- Net kâr reel olarak -%410,1 geriledi.
 - Brüt marj 20,5 puan daraldı (%26,6 → %6,1).
 - Özkaynak kârlılığı -%4,2; sektör medyanı %1,3.
 
