@@ -1,6 +1,6 @@
 {
  "kod": "ALKIM",
- "cekildi": "2026-11-24T23:33:32Z",
+ "cekildi": "2026-11-27T01:25:12Z",
  "ceyrek": 1,
  "sema": "cd5f150b28ca53cb",
  "bitis": "2026-09-30",
@@ -143,16 +143,17 @@
   },
   "nakit": {
    "Net Income": 44300000.0,
-   "Depreciation & Amortization": 91820000.0,
+   "Depreciation & Amortization": 88160000.0,
    "Operating Cash Flow": -18290000.0,
-   "Capital Expenditures": -164010000.0
+   "Capital Expenditures": -164010000.0,
+   "Cash Interest Paid": 22810000.0
   },
   "nakit_onceki": {
-   "Net Income": -46850000.0,
-   "Depreciation & Amortization": 71660000.0,
-   "Operating Cash Flow": 324460000.0,
-   "Capital Expenditures": -201310000.0,
-   "Cash Interest Paid": 8600000.0
+   "Net Income": -58870000.0,
+   "Depreciation & Amortization": 90180000.0,
+   "Operating Cash Flow": 422910000.0,
+   "Capital Expenditures": -254160000.0,
+   "Cash Interest Paid": 11070000.0
   },
   "nakit_g1": {
    "Net Income": 53210000.0,

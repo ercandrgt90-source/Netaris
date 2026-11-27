@@ -4830,7 +4830,10 @@
    "kap_kimlik": "4028e4a246b4c5a90148127e32eb47e9",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "YEDİTEPE BAĞIMSIZ DENETİM VE YEMİNLİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "YEDİTEPE BAĞIMSIZ DENETİM VE YEMİNLİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor": "Consumer Staples",
+   "sektor_tr": "Temel tüketim",
+   "alt_sektor": "Confectioners"
   },
   "KSFIN": {
    "kod": "KSFIN",
@@ -4838,7 +4841,8 @@
    "kap_kimlik": "4028e4a140f2ed710140f2f01f960011",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "DRT BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "DRT BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor_bulunamadi": "2026-11-27"
   },
   "KSTUR": {
    "kod": "KSTUR",
@@ -4846,7 +4850,10 @@
    "kap_kimlik": "4028e4a141462df201414f97fa07221a",
    "sehir": "AYDIN",
    "uye_turu": "IGS",
-   "denetci": "KAVRAM BAĞIMSIZ DENETİM VE DANIŞMANLIK A.Ş."
+   "denetci": "KAVRAM BAĞIMSIZ DENETİM VE DANIŞMANLIK A.Ş.",
+   "sektor": "Consumer Discretionary",
+   "sektor_tr": "İsteğe bağlı tüketim",
+   "alt_sektor": "Resorts & Casinos"
   },
   "KTKVK": {
    "kod": "KTKVK",
