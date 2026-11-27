@@ -30,7 +30,7 @@
     "USTR"
   ],
   "ceviri_notu": "Başlıklar makine çevirisiyle Türkçeleştirilmiştir. Özgün başlık ve kaynak bağlantısı her maddede yer alır.",
-  "yorumlanan": 22,
+  "yorumlanan": 23,
   "haberler": [
     {
       "baslik": "Finansal İstikrar Raporu (Sayı:43, Kasım 2026)",
@@ -184,6 +184,32 @@
       "foto_atif": "Mrs Puff · CC-BY-SA-2.0"
     },
     {
+      "baslik": "Rusya Dışişleri Bakanlığı: Rusya, Letonya'ya karşı misilleme önlemleri alma hakkını saklı tutuyor - RIA News",
+      "baslik_kaynak": "Russia's Foreign Ministry: Russia reserves the right to take retaliatory measures against Latvia - RIA News.",
+      "ozet": "",
+      "cevrildi": true,
+      "dil": "en",
+      "ticari": true,
+      "bolge": "DUNYA",
+      "adres": "https://www.financialjuice.com/News/9870842/Russias-Foreign-Ministry-Russia-reserves-the-right-to-take-retaliatory-measures-against-Latvia---RIA-News.aspx?xy=rss",
+      "kurum": "FinancialJuice",
+      "kurum_tam": "FinancialJuice",
+      "konu": "Jeopolitik",
+      "tarih": "2026-11-27",
+      "tarih_gorunur": "27 Kasım 2026",
+      "yorumlanir": true,
+      "neden_onemli": "Jeopolitik gelişme fiyata olayın kendisiyle değil, arz riski ve risk iştahındaki değişimle geçer. Etkinin büyüklüğü, olayın ne kadarının önceden fiyatlandığına bağlıdır.",
+      "kanallar": [
+        "Enerji arzı: üretim ya da sevkiyat güzergâhı tehdit altındaysa ham petrol ve doğal gaz fiyatına risk primi eklenir; en çok net enerji ithalatçısı ekonomiler etkilenir.",
+        "Risk iştahı: belirsizlik arttığında sermaye gelişmiş ülke tahvillerine yönelebilir; gelişmekte olan piyasaların risk primi yeniden fiyatlanır.",
+        "Ticaret akışı: gümrük vergisi, yaptırım ve ambargo kararları ihracat bileşimini değiştirir; etki tarafların birbirine bağımlılığı kadardır.",
+        "Güvenli liman: altın, dolar ve İsviçre frangı talebi değişebilir; yönü olayın süresine ve kapsamına bağlıdır."
+      ],
+      "kanal_basligi": "Hangi piyasaları etkiler?",
+      "foto": "/statik/foto/jeopolitik-40-59a567ac.jpg",
+      "foto_atif": "Peter Griffin · CC0"
+    },
+    {
       "baslik": "ABD CENTCOM: Gemi bir İran limanından ayrılmış ve ablukayı aşmaya çalışmıştır",
       "baslik_kaynak": "US CENTCOM: The vessel had departed an Iranian port and tried to run blockade.",
       "ozet": "US CENTCOM: The vessel had departed an Iranian port and tried to run blockade.",
@@ -226,7 +252,7 @@
       "foto_atif": "Bill Boaden · CC-BY-SA-2.0"
     },
     {
-      "baslik": "Rusya Dışişleri Bakanlığı: Letonya, Rus hedeflerine yönelik saldırılar gerçekleştirmek amacıyla kullanılan Ukrayna insansız hava araçlarının geçişi için hava sahasını açtı",
+      "baslik": "Rusya Dışişleri Bakanlığı: Letonya, Rus hedeflerine yönelik saldırılar gerçekleştirmek amacıyla Ukrayna'ya ait insansız hava araçlarının geçişi için hava sahasını kullanıma açtı",
       "baslik_kaynak": "Russian Foreign Ministry: Latvia has made its airspace available for transit of Ukrainian drones intended for carrying out attacks against Russian targets.",
       "ozet": "",
       "cevrildi": true,
@@ -1510,27 +1536,6 @@
       "kanal_basligi": "Hangi piyasaları etkiler?",
       "foto": "/statik/foto/jeopolitik-18-d6206fae.jpg",
       "foto_atif": "United Nation · PDM"
-    },
-    {
-      "baslik": "Yabancı Yatırım Japon Tahvilleri: 208,50 — önceki 650,10",
-      "baslik_kaynak": "Foreign Investment Japanese Bonds Actual 208.5B (Forecast -, Previous 650.1B)",
-      "ozet": "Açıklanan değer 208,50. Önceki dönem 650,10; geriledi (441,60 (birimsiz)).",
-      "cevrildi": true,
-      "dil": "en",
-      "ticari": true,
-      "bolge": "DUNYA",
-      "adres": "https://www.financialjuice.com/News/9869847/Foreign-Investment-Japanese-Bonds-Actual-2085B-Forecast---Previous-6501B.aspx?xy=rss",
-      "kurum": "FinancialJuice",
-      "kurum_tam": "FinancialJuice",
-      "konu": "Şirket haberleri",
-      "tarih": "2026-11-27",
-      "tarih_gorunur": "27 Kasım 2026",
-      "yorumlanir": false,
-      "neden_onemli": "",
-      "kanallar": [],
-      "kanal_basligi": "Türkiye'ye nasıl yansır?",
-      "foto": "/statik/foto/sirket-haberleri-8-ed7b45c9.jpg",
-      "foto_atif": "Myotus · CC-BY-SA-4.0"
     },
     {
       "baslik": "Tether, tüm zamanların en düşük seviyesine yakın seyreden Bitdeer hisselerinden 10 milyon dolar değerinde satın aldı",
