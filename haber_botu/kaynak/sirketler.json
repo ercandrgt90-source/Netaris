@@ -4966,7 +4966,10 @@
    "kap_kimlik": "4028e4a141da49ea0141dfe0d2732d48",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "KPMG BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "KPMG BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor": "Financials",
+   "sektor_tr": "Finans",
+   "alt_sektor": "Credit Services"
   },
   "LILAK": {
    "kod": "LILAK",
@@ -4974,7 +4977,10 @@
    "kap_kimlik": "8acae2c48c3efac0018f193ab573372b",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "DRT BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "DRT BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor": "Consumer Staples",
+   "sektor_tr": "Temel tüketim",
+   "alt_sektor": "Household & Personal Products"
   },
   "LINK": {
    "kod": "LINK",
@@ -4982,7 +4988,10 @@
    "kap_kimlik": "4028e4a2422d9a6e01428f2d3d020b61",
    "sehir": "İSTANBUL",
    "uye_turu": "IGS",
-   "denetci": "DENEYİM BAĞIMSIZ DENETİM VE DANIŞMANLIK A.Ş."
+   "denetci": "DENEYİM BAĞIMSIZ DENETİM VE DANIŞMANLIK A.Ş.",
+   "sektor": "Technology",
+   "sektor_tr": "Bilişim",
+   "alt_sektor": "Software - Application"
   },
   "LKMNH": {
    "kod": "LKMNH",

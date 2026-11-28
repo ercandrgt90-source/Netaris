@@ -2276,11 +2276,11 @@
     "borc_ozkaynak": -0.01960485268630849
    },
    "TNZTP": {
-    "brut_marj": 25.871583653904256,
+    "brut_marj": 25.857485247024226,
     "net_marj": 4.921351030190731,
     "roe": 0.483526268922529,
     "cari_oran": 2.641686182669789,
-    "borc_ozkaynak": -0.09042940536261997
+    "borc_ozkaynak": -0.08760166221430692
    }
   },
   "atlanan": [],
@@ -2311,7 +2311,7 @@
   ],
   "mali": {},
   "donem_gruplari": {},
-  "tazelendi": "2026-11-27T01:24:35+00:00"
+  "tazelendi": "2026-11-28T01:24:22+00:00"
  },
  "Temel malzeme": {
   "sektor": "Temel malzeme",
@@ -2428,7 +2428,7 @@
     "net_marj": -13.87438313144908,
     "roe": -2.2521118555199537,
     "cari_oran": 0.7410981697171382,
-    "borc_ozkaynak": 0.31859889309641715
+    "borc_ozkaynak": 0.21868628022138073
    },
    "BTCIM": {
     "brut_marj": 25.053475935828878,
@@ -2550,7 +2550,7 @@
     "borc_ozkaynak": -0.0005744978981784213
    },
    "GEDZA": {
-    "brut_marj": 23.98799262913868,
+    "brut_marj": 23.96718777863639,
     "net_marj": 7.201450395292159,
     "roe": 1.5561978163134231,
     "cari_oran": 3.9637486306144805,
@@ -2757,7 +2757,7 @@
    ],
    [
     "GOLTS",
-    "eksik: hasilat, net_kar, aktif_toplami"
+    "eksik: aktif_toplami, ozkaynak, stoklar"
    ],
    [
     "GUBRF",
@@ -2993,7 +2993,7 @@
     ]
    }
   },
-  "tazelendi": "2026-11-27T01:29:20+00:00"
+  "tazelendi": "2026-11-28T01:29:05+00:00"
  },
  "Temel tüketim": {
   "sektor": "Temel tüketim",

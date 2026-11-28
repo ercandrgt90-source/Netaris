@@ -1,6 +1,6 @@
 {
  "kod": "ALKIM",
- "cekildi": "2026-11-27T01:25:12Z",
+ "cekildi": "2026-11-28T01:24:59Z",
  "ceyrek": 1,
  "sema": "cd5f150b28ca53cb",
  "bitis": "2026-09-30",
@@ -12,20 +12,20 @@
   "gelir": {
    "Revenue": 1763000000.0,
    "Gross Profit": 260149999.99999997,
-   "Operating Income": 112740000.0,
+   "Operating Income": 117060000.0,
    "Net Income": 52260000.0,
    "Net Cash (Debt)": -211590000.0,
    "Operating Cash Flow": -18290000.0,
    "Capital Expenditures": -164010000.0
   },
   "gelir_onceki": {
-   "Revenue": 1392000000.0,
-   "Gross Profit": 138830000.0,
-   "Operating Income": 3390000.0,
-   "Net Income": -40840000.0,
+   "Revenue": 1806000000.0,
+   "Gross Profit": 180100000.0,
+   "Operating Income": 4400000.0,
+   "Net Income": -52980000.0,
    "Net Cash (Debt)": 5270000.0,
-   "Operating Cash Flow": 324460000.0,
-   "Capital Expenditures": -201310000.0
+   "Operating Cash Flow": 422910000.0,
+   "Capital Expenditures": -254160000.0
   },
   "_donem": {
    "gelir": [
@@ -41,7 +41,7 @@
   "gelir_g1": {
    "Revenue": 1604000000.0,
    "Gross Profit": 175050000.0,
-   "Operating Income": 60400000.0,
+   "Operating Income": 18070000.0,
    "Net Income": 59000000.0,
    "Net Cash (Debt)": -89250000.0,
    "Operating Cash Flow": -15130000.0,
