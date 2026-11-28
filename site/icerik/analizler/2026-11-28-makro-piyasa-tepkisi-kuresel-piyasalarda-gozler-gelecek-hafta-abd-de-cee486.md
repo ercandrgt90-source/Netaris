@@ -1,7 +1,7 @@
 ---
 slug: piyasa-tepkisi-kuresel-piyasalarda-gozler-gelecek-hafta-abd-de-cee486-2026-11-28
 baslik: Küresel piyasalarda gözler gelecek hafta ABD'de açıklanacak tarım dışı istihdam verisine çevrildi
-ozet: İstihdam verisi. Bitcoin 1 saat içinde -%0,44 geriledi.
+ozet: İstihdam verisi. Bitcoin 1 saat içinde -%0,09 geriledi.
 sirket: Piyasa tepkisi: Küresel piyasalarda gözler gelecek hafta ABD'de açıklanacak tarım dışı istihdam verisine çevrildi
 kod: OLAY
 donem: 2026-11-28
@@ -23,8 +23,8 @@ sayimlar:
 
 ## Piyasada ne oldu
 
-- **Altın** 1 saat içinde yatay kaldı (son 3650,00).
-- **Bitcoin** 1 saat içinde geriledi: -%0,44 (son 59517,00).
+- **Altın** 1 saat içinde geriledi: -%0,05 (son 3650,00).
+- **Bitcoin** 1 saat içinde geriledi: -%0,09 (son 59560,00).
 
 *Yukarıdaki rakamlar ölçülen fiyat hareketidir. Hareketin sebebinin bu gelişme olduğu iddia edilmemektedir; aynı pencerede başka etkenler de fiyatlanmış olabilir.*
 
