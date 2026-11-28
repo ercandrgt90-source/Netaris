@@ -2998,7 +2998,7 @@
  "Temel tüketim": {
   "sektor": "Temel tüketim",
   "donem": "2026 3. çeyrek",
-  "sirket_sayisi": 40,
+  "sirket_sayisi": 42,
   "medyan": {
    "brut_marj": 19.41277038539049,
    "net_marj": -0.22502129205799834,
@@ -3194,7 +3194,7 @@
     "net_marj": -0.0940144155437167,
     "roe": -0.043521266073194856,
     "cari_oran": 1.6499251976918146,
-    "borc_ozkaynak": 1.185334652159578
+    "borc_ozkaynak": 0.8483086053412463
    },
    "SEGMN": {
     "brut_marj": 27.858820341432573,
@@ -3216,7 +3216,7 @@
     "cari_oran": 0.03586901763224181
    },
    "YAPRK": {
-    "brut_marj": 80.7224474751198,
+    "brut_marj": 22.115739034279393,
     "net_marj": 13.134291682024818,
     "roe": 1.1870128139643341,
     "cari_oran": 2.9102369743876166,
@@ -3256,11 +3256,11 @@
     "borc_ozkaynak": -0.012258264462809917
    },
    "IZFAS": {
-    "brut_marj": 10.044401776071043,
+    "brut_marj": 10.026401056042241,
     "net_marj": -9.582383295331812,
     "roe": -3.534828128112619,
     "cari_oran": 2.3146270818247645,
-    "borc_ozkaynak": 0.24079771575289405
+    "borc_ozkaynak": 0.23920405498129663
    },
    "AKHAN": {
     "brut_marj": 10.991130091984232,
@@ -3317,16 +3317,26 @@
     "roe": -1.5470743510778706,
     "cari_oran": 1.490419378163413,
     "borc_ozkaynak": 0.5701715794104707
+   },
+   "KUVVA": {
+    "brut_marj": -38.44282238442822,
+    "net_marj": -1637.956204379562,
+    "roe": -14.701578912886811,
+    "cari_oran": 0.3045694603903559,
+    "borc_ozkaynak": 1.3849009630713458
+   },
+   "LILAK": {
+    "brut_marj": 23.595847937449445,
+    "net_marj": 2.475869506605554,
+    "roe": 0.46754238582556895,
+    "cari_oran": 3.309013885620146,
+    "borc_ozkaynak": -0.22142457105035385
    }
   },
   "atlanan": [
    [
     "EKIZ",
     "eksik: stoklar"
-   ],
-   [
-    "YAPRK",
-    "eksik: aktif_toplami, ozkaynak, stoklar"
    ]
   ],
   "ana_donem": "2026-09-30",
@@ -3375,7 +3385,9 @@
    "KNFRT": "2026-09-30",
    "KRPLS": "2026-09-30",
    "KRSTL": "2026-09-30",
-   "KRVGD": "2026-09-30"
+   "KRVGD": "2026-09-30",
+   "KUVVA": "2026-09-30",
+   "LILAK": "2026-09-30"
   },
   "onceki_yok": [],
   "kirpilan": [],
@@ -3417,13 +3429,16 @@
    "KRSTL",
    "KRVGD",
    "KTSKR",
+   "KUVVA",
+   "LILAK",
    "PETUN",
    "PINSU",
    "PNSUT",
    "SANFM",
    "SEGMN",
    "TUKAS",
-   "VKING"
+   "VKING",
+   "YAPRK"
   ],
   "mali": {
    "BALSU": 6,
@@ -3457,7 +3472,7 @@
     ]
    }
   },
-  "tazelendi": "2026-11-27T04:23:56+00:00"
+  "tazelendi": "2026-11-28T04:03:44+00:00"
  },
  "İletişim": {
   "sektor": "İletişim",

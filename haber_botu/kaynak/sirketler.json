@@ -4999,7 +4999,10 @@
    "kap_kimlik": "4028e4a24158e42401415f1d4417412e",
    "sehir": "ANKARA",
    "uye_turu": "IGS",
-   "denetci": "VEZİN BAĞIMSIZ DENETİM A.Ş."
+   "denetci": "VEZİN BAĞIMSIZ DENETİM A.Ş.",
+   "sektor": "Healthcare",
+   "sektor_tr": "Sağlık",
+   "alt_sektor": "Medical Care Facilities"
   },
   "LMKDC": {
    "kod": "LMKDC",
@@ -5007,7 +5010,10 @@
    "kap_kimlik": "8acae2c58b2fa64e018d8cfe461558d3",
    "sehir": "ŞANLIURFA",
    "uye_turu": "IGS",
-   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş"
+   "denetci": "PwC BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş",
+   "sektor": "Materials",
+   "sektor_tr": "Temel malzeme",
+   "alt_sektor": "Building Materials"
   },
   "LOGO": {
    "kod": "LOGO",
@@ -5015,7 +5021,10 @@
    "kap_kimlik": "4028e4a14158e41e01415b41210a6e8c",
    "sehir": "KOCAELİ",
    "uye_turu": "IGS",
-   "denetci": "DRT BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş."
+   "denetci": "DRT BAĞIMSIZ DENETİM VE SERBEST MUHASEBECİ MALİ MÜŞAVİRLİK A.Ş.",
+   "sektor": "Technology",
+   "sektor_tr": "Bilişim",
+   "alt_sektor": "Software - Application"
   },
   "LRSHO": {
    "kod": "LRSHO",
