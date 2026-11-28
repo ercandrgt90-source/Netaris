@@ -23,8 +23,8 @@ Jeopolitik bir gelişme yaşandı. Kaynak: Dünya.
 
 ## Piyasada ne oldu
 
-- **Altın** 1 saat içinde geriledi: -%0,10 (son 3650,00).
-- **Bitcoin** 1 saat içinde geriledi: -%0,10 (son 59702,60).
+- **Altın** 1 saat içinde yatay kaldı (son 3650,00).
+- **Bitcoin** 1 saat içinde yükseldi: +%0,24 (son 59816,80).
 - **Brent petrol** günlük bazda yükseldi: +%0,66 — 2026-11-24 tarihli gözlem.
 
 *Yukarıdaki rakamlar ölçülen fiyat hareketidir. Hareketin sebebinin bu gelişme olduğu iddia edilmemektedir; aynı pencerede başka etkenler de fiyatlanmış olabilir.*
